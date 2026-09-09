@@ -3,7 +3,7 @@ import { ArrowRight, BookOpen, Rss, Users } from "lucide-react";
 import { CarteHeros } from "@/components/carte-heros";
 import { BadgePalier, Carte, TitreSection } from "@/components/ui";
 import { heros, herosAnalyses, herosParSlug, nombreSkins } from "@/lib/donnees";
-import { tierList } from "@/data/tier-list";
+import { classementComplet } from "@/lib/tier-list";
 import { tousLesArticles } from "@/lib/contenu";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
@@ -55,7 +55,7 @@ export default function Accueil() {
       skins: h.skins.length,
       analyse: h.analyse !== null,
     }));
-  const hautPalier = tierList.entrees.filter((e) => e.palier === "S+" || e.palier === "S");
+  const hautPalier = classementComplet.filter((e) => e.palier === "S+").slice(0, 6);
 
   return (
     <>
@@ -107,7 +107,7 @@ export default function Accueil() {
             </Link>
           </div>
 
-          <dl className="mt-14 grid max-w-2xl grid-cols-3 gap-6 border-t border-nuit-800 pt-8">
+          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-nuit-800 pt-8 sm:grid-cols-3">
             {[
               { valeur: heros.length, label: "heros" },
               { valeur: nombreSkins, label: "skins" },
@@ -146,34 +146,36 @@ export default function Accueil() {
       <section className="border-y border-nuit-700/70 bg-nuit-900/30">
         <div className="mx-auto max-w-6xl px-4 py-20">
           <TitreSection
-            chapeau={`Haut de la tier list du patch ${tierList.patch}. Chaque placement est argumente.`}
+            chapeau="Les heros en tete du classement, calcule a partir des taux de victoire et de ban du jeu."
             action={{ href: "/tier-list", label: "Tier list complete" }}
           >
             Le meilleur du patch
           </TitreSection>
           <ul className="grid gap-3 md:grid-cols-2">
-            {hautPalier.map((e) => {
-              const h = herosParSlug.get(e.heros);
-              return (
-                <li key={e.heros}>
-                  <Link
-                    href={`/heros/${e.heros}`}
-                    className="biseau flex items-start gap-4 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
-                  >
-                    <BadgePalier palier={e.palier} />
-                    <div className="min-w-0">
-                      <p className="font-titre font-bold text-craie-100">
-                        {h?.nom ?? e.heros}
-                        <span className="ml-2 text-xs font-medium uppercase tracking-wide text-craie-500">
-                          {e.lane}
-                        </span>
-                      </p>
-                      <p className="mt-1 text-sm leading-relaxed text-craie-500">{e.note}</p>
-                    </div>
-                  </Link>
-                </li>
-              );
-            })}
+            {hautPalier.map((e) => (
+              <li key={e.heros.slug}>
+                <Link
+                  href={`/heros/${e.heros.slug}`}
+                  className="biseau flex items-start gap-4 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
+                >
+                  <BadgePalier palier={e.palier} />
+                  <div className="min-w-0">
+                    <p className="font-titre font-bold text-craie-100">
+                      {e.heros.nom}
+                      <span className="ml-2 text-xs font-medium uppercase tracking-wide text-craie-500">
+                        {e.heros.lanes[0] ?? ""}
+                      </span>
+                    </p>
+                    <p className="mt-1 text-sm text-craie-500">
+                      {e.victoire.toFixed(1)} % de victoires · {e.ban.toFixed(1)} % de bans
+                    </p>
+                    {e.note && (
+                      <p className="mt-1.5 text-sm leading-relaxed text-craie-500">{e.note}</p>
+                    )}
+                  </div>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
