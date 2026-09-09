@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
@@ -61,6 +62,9 @@ export default async function PageHeros({ params }: Params) {
   const nomsCompetences = competences[h.slug] ?? [];
   const iconesCompetences = visuelsCompetences[h.slug] ?? {};
   const illustrationsHeros = illustrations[h.slug] ?? {};
+  // L'illustration du skin d'origine sert de fond : c'est celle qui represente
+  // le heros tel qu'on le rencontre par defaut.
+  const fond = Object.values(illustrationsHeros)[0] ?? null;
 
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -82,7 +86,38 @@ export default async function PageHeros({ params }: Params) {
       />
 
       {/* ── En-tete ────────────────────────────────────────────────────── */}
-      <div className="border-b border-nuit-700/70 bg-nuit-900/30">
+      <div className="relative border-b border-nuit-700/70 bg-nuit-900/30">
+        {fond && (
+          <div aria-hidden className="absolute inset-0 overflow-hidden">
+            <Image
+              src={fond}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              // Le bandeau est bien plus large que l'illustration n'est haute :
+              // cadrer en haut ne montrerait que le ciel. On vise le tiers
+              // superieur, ou se trouve le personnage.
+              className="object-cover object-[50%_30%] brightness-110"
+            />
+            {/*
+              Un voile uniforme plutot qu'un degrade lateral : la zone claire
+              d'une illustration n'est pas au meme endroit d'un heros a
+              l'autre — celle de Khufra est sombre a droite, celle de Miya au
+              centre. Un degrade oriente marchait donc pour les uns et effacait
+              les autres.
+            */}
+            <div className="absolute inset-0 bg-nuit-950/62" />
+            {/*
+              Renfort sous la colonne de texte : l'illustration y est parfois
+              claire, et le nom du heros doit rester lisible quel que soit
+              l'artwork.
+            */}
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-linear-to-r from-nuit-950/80 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-nuit-950 to-transparent" />
+          </div>
+        )}
+
         <div className="relative mx-auto max-w-5xl px-4 py-10">
           <Link
             href="/heros"
