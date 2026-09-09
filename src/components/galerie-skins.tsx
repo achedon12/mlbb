@@ -69,6 +69,7 @@ export function GalerieSkins({
                       alt={`${nom} — ${s.nom}`}
                       fill
                       sizes="(min-width: 768px) 160px, 30vw"
+                      loading="eager"
                       className="object-cover"
                     />
                   ) : (
