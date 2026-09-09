@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { CorpsArticle } from "@/components/article";
+import { SommairePatch } from "@/components/sommaire-patch";
 import detailPatchs from "@/data/genere/patchs-detail.json";
 import { article, articles, enHtml } from "@/lib/contenu";
 import { site } from "@/lib/site";
@@ -13,7 +14,7 @@ interface PatchDetaille {
   version: string;
   titre: string;
   lien: string;
-  sommaire: { niveau: number; titre: string }[];
+  sommaire: { niveau: number; titre: string; ancre: string }[];
   html: string;
 }
 
@@ -92,7 +93,7 @@ export default async function PagePatch({ params }: Params) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
         />
 
-        <article className="mx-auto max-w-3xl px-4 py-12">
+        <div className="mx-auto max-w-6xl px-4 py-12">
           <Link
             href="/patch-notes"
             className="inline-flex items-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
@@ -108,33 +109,30 @@ export default async function PagePatch({ params }: Params) {
             <h1 className="mt-2 font-titre text-4xl font-bold text-craie-100">
               Patch {patch.version}
             </h1>
-
-            {patch.sommaire.length > 0 && (
-              <nav aria-label="Sommaire" className="mt-6">
-                <ul className="flex flex-wrap gap-2">
-                  {patch.sommaire.map((s) => (
-                    <li
-                      key={s.titre}
-                      className="biseau-sm border border-nuit-700 px-2.5 py-1 text-xs text-craie-500"
-                    >
-                      {s.titre}
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            )}
+            <p className="mt-3 text-sm text-craie-500">
+              {patch.sommaire.length} sections
+            </p>
           </header>
 
           {/*
-            Contenu repris du wiki communautaire, nettoye a la synchronisation.
-            La source est creditee sous l'article, comme l'exige sa licence.
+            Le sommaire accompagne la lecture plutot que de la preceder : une
+            note de patch se parcourt par sections, on n'en lit presque jamais
+            l'integralite.
           */}
-          <div
-            className="prose-mlbb mt-10"
-            dangerouslySetInnerHTML={{ __html: patch.html }}
-          />
+          <div className="mt-10 gap-10 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
+            <aside className="mb-10 lg:mb-0">
+              {patch.sommaire.length > 0 && <SommairePatch entrees={patch.sommaire} />}
+            </aside>
 
-          <p className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
+            <article className="min-w-0 max-w-3xl">
+              {/*
+                Contenu repris du wiki communautaire, nettoye a la
+                synchronisation. La source est creditee sous l'article, comme
+                l'exige sa licence.
+              */}
+              <div className="prose-mlbb" dangerouslySetInnerHTML={{ __html: patch.html }} />
+
+              <p className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
             Notes reprises du{" "}
             <a
               href={patch.lien}
@@ -144,10 +142,12 @@ export default async function PagePatch({ params }: Params) {
             >
               wiki Mobile Legends
             </a>
-            , sous licence CC BY-SA. Le texte original est publie par Moonton ;
-            ce site n&apos;en modifie pas le contenu.
-          </p>
-        </article>
+                , sous licence CC BY-SA. Le texte original est publie par
+                Moonton ; ce site n&apos;en modifie pas le contenu.
+              </p>
+            </article>
+          </div>
+        </div>
       </>
     );
   }

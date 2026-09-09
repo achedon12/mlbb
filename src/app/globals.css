@@ -110,6 +110,61 @@ h1, h2, h3, h4 {
   font-size: 0.9em;
 }
 
+/*
+ * Notes de patch reprises du wiki.
+ *
+ * Elles arrivent avec des titres nombreux, des listes imbriquees et des
+ * tableaux d'equilibrage. Sans traitement, tout se ressemble et la page
+ * devient illisible : les titres reprennent donc le filet dore des sections
+ * du site, et les tableaux tiennent dans leur propre zone de defilement.
+ */
+.prose-mlbb h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-nuit-700);
+}
+.prose-mlbb h2::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-bottom: 0.6rem;
+  background: linear-gradient(90deg, var(--color-or-500), transparent);
+}
+.prose-mlbb h4 {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-or-400);
+}
+.prose-mlbb ul ul,
+.prose-mlbb ol ol {
+  margin-top: 0.4rem;
+  list-style-type: circle;
+}
+.prose-mlbb table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+.prose-mlbb th,
+.prose-mlbb td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-nuit-700);
+  text-align: left;
+  vertical-align: top;
+}
+.prose-mlbb th {
+  background: var(--color-nuit-850);
+  color: var(--color-craie-100);
+  font-weight: 600;
+}
+/* Le titre vise par une ancre ne doit pas se coller sous l'en-tete fixe. */
+.prose-mlbb :is(h2, h3, h4)[id] {
+  scroll-margin-top: 5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
