@@ -46,3 +46,7 @@ next-env.d.ts
 
 # Configuration d'IDE
 /.idea
+
+# Ce projet utilise npm
+/pnpm-lock.yaml
+/yarn.lock
