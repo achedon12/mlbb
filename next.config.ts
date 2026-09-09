@@ -19,6 +19,14 @@ const nextConfig: NextConfig = {
   // qu'etre inclus dans le bundle.
   serverExternalPackages: ["better-sqlite3"],
 
+  images: {
+    // Les portraits de heros sont servis par le wiki communautaire qui les
+    // heberge. Rien n'est recopie dans ce depot : ce sont des ressources de
+    // Moonton, affichees en pointant vers leur hebergeur.
+    remotePatterns: [{ protocol: "https", hostname: "static.wikia.nocookie.net" }],
+    formats: ["image/avif", "image/webp"],
+  },
+
   async headers() {
     return [
       {
