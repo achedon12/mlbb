@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Check } from "lucide-react";
 import type { Embleme, SortDeCombat, Talent } from "@/data/emblemes";
 import type { Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -10,13 +9,14 @@ import { cn } from "@/lib/utils";
 /**
  * Guide des emblemes.
  *
- * La question que se pose un joueur n'est pas « quels talents existent »
- * mais « que dois-je prendre pour mon role ». La page part donc du role :
- * on choisit son embleme, et talents comme sorts se reorganisent pour mettre
- * en tete ceux qui lui conviennent.
+ * Presente en document de reference plutot qu'en vitrine : un rail de roles
+ * toujours visible a gauche, et des lignes denses a droite. Une grille de
+ * cartes obligeait a balayer la page en zigzag pour comparer deux talents ;
+ * alignes, ils se lisent d'un seul mouvement vertical.
  *
- * Rien n'est masque pour autant — le reste est simplement relegue et grise :
- * un joueur doit pouvoir voir ce qu'il ne prend pas, et pourquoi.
+ * Le role choisi ne filtre pas, il ordonne : ce qu'on ne prend pas reste
+ * visible, en retrait. Masquer priverait le lecteur de la comparaison qui
+ * justifie son choix.
  */
 export function GuideEmblemes({
   emblemes,
@@ -31,101 +31,91 @@ export function GuideEmblemes({
 }) {
   const [role, setRole] = useState<Role | null>(null);
 
-  const trier = <T extends { roles: Role[] }>(liste: T[]) =>
+  const ordonner = <T extends { roles: Role[] }>(liste: T[]) =>
     role
       ? [...liste].sort(
           (a, b) => Number(b.roles.includes(role)) - Number(a.roles.includes(role)),
         )
       : liste;
 
-  const pertinent = (roles: Role[]) => !role || roles.includes(role);
-
-  const decisifs = trier(talents.filter((t) => t.decisif));
-  const attributs = trier(talents.filter((t) => !t.decisif));
-  const combats = trier(sorts);
+  const adapte = (roles: Role[]) => !role || roles.includes(role);
 
   return (
-    <div className="space-y-14">
-      {/* ── Choix du role ────────────────────────────────────────────── */}
-      <section>
-        <Titre>Choisissez votre embleme</Titre>
-        <p className="mt-3 max-w-2xl text-sm text-craie-500">
-          Le reste de la page s&apos;organise autour de ce choix : les talents
-          et les sorts adaptes passent en tete.
-        </p>
+    <div className="gap-10 lg:grid lg:grid-cols-[13rem_minmax(0,1fr)]">
+      {/* ── Rail des roles ───────────────────────────────────────────── */}
+      <aside className="mb-10 lg:mb-0">
+        <div className="lg:sticky lg:top-24">
+          <p className="font-titre text-xs font-semibold uppercase tracking-wider text-craie-500">
+            Votre role
+          </p>
 
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {emblemes.map((e) => {
-            const choisi = role === e.role;
-            return (
-              <li key={e.cle}>
-                <button
-                  type="button"
-                  onClick={() => setRole(choisi ? null : e.role)}
-                  aria-pressed={choisi}
-                  className={cn(
-                    "biseau flex w-full items-center gap-4 border p-4 text-left transition-colors",
-                    choisi
-                      ? "border-or-500 bg-or-500/10"
-                      : "border-nuit-700/70 bg-nuit-900/60 hover:border-or-500/50",
-                  )}
-                >
-                  <Visuel source={images[e.cle]} grande />
-                  <span className="min-w-0 flex-1">
-                    <span className="flex items-center gap-2">
-                      <span className="font-titre text-lg font-bold text-craie-100">
-                        {e.nom}
-                      </span>
-                      {choisi && <Check size={15} className="text-or-400" aria-hidden />}
-                    </span>
-                    <span className="mt-0.5 block text-xs text-or-400">{e.bonus}</span>
-                    <span className="mt-1.5 block text-xs leading-relaxed text-craie-500">
-                      {e.pourQui}
-                    </span>
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
+          <ul className="mt-3 flex gap-1.5 overflow-x-auto lg:flex-col lg:overflow-visible">
+            {emblemes.map((e) => {
+              const choisi = role === e.role;
+              return (
+                <li key={e.cle} className="shrink-0 lg:shrink">
+                  <button
+                    type="button"
+                    onClick={() => setRole(choisi ? null : e.role)}
+                    aria-pressed={choisi}
+                    title={e.pourQui}
+                    className={cn(
+                      "flex w-full items-center gap-2.5 border-l-2 px-2.5 py-2 text-left transition-colors",
+                      choisi
+                        ? "border-or-500 bg-or-500/10 text-craie-100"
+                        : "border-transparent text-craie-500 hover:border-nuit-600 hover:text-craie-300",
+                    )}
+                  >
+                    <Visuel source={images[e.cle]} taille={28} />
+                    <span className="hidden text-sm font-medium lg:block">{e.role}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
 
-      <Bloc
-        titre="Talents decisifs"
-        chapeau="Le dernier etage du talent : c'est lui qui change reellement une partie."
-        entrees={decisifs}
-        images={images}
-        pertinent={pertinent}
-        role={role}
-      />
+          {role && (
+            <button
+              type="button"
+              onClick={() => setRole(null)}
+              className="mt-3 px-2.5 text-xs text-craie-500 underline underline-offset-4 hover:text-or-400"
+            >
+              Retirer le filtre
+            </button>
+          )}
 
-      <Bloc
-        titre="Attributs"
-        chapeau="Les premiers etages ajustent les statistiques. Ils comptent, sans decider."
-        entrees={attributs}
-        images={images}
-        pertinent={pertinent}
-        role={role}
-      />
+          <p className="mt-6 hidden max-w-48 text-xs leading-relaxed text-craie-500 lg:block">
+            Choisir un role remonte ce qui lui convient. Le reste passe en
+            retrait, sans disparaitre.
+          </p>
+        </div>
+      </aside>
 
-      <Bloc
-        titre="Sorts de combat"
-        chapeau="Un seul emplacement : le sort choisi doit repondre a ce qui manque au heros."
-        entrees={combats}
-        images={images}
-        pertinent={pertinent}
-        role={role}
-      />
+      {/* ── Contenu ──────────────────────────────────────────────────── */}
+      <div className="min-w-0 space-y-12">
+        <Section
+          titre="Talents decisifs"
+          chapeau="Le dernier etage : c'est lui qui change une partie."
+          entrees={ordonner(talents.filter((t) => t.decisif))}
+          images={images}
+          adapte={adapte}
+        />
+        <Section
+          titre="Attributs"
+          chapeau="Les premiers etages ajustent les statistiques. Ils comptent, sans decider."
+          entrees={ordonner(talents.filter((t) => !t.decisif))}
+          images={images}
+          adapte={adapte}
+        />
+        <Section
+          titre="Sorts de combat"
+          chapeau="Un seul emplacement : le sort doit repondre a ce qui manque au heros."
+          entrees={ordonner(sorts)}
+          images={images}
+          adapte={adapte}
+        />
+      </div>
     </div>
-  );
-}
-
-function Titre({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <h2 className="font-titre text-2xl font-bold text-craie-100">{children}</h2>
-      <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-    </>
   );
 }
 
@@ -138,67 +128,70 @@ interface Entree {
   pourQui: string;
 }
 
-function Bloc({
+function Section({
   titre,
   chapeau,
   entrees,
   images,
-  pertinent,
-  role,
+  adapte,
 }: {
   titre: string;
   chapeau: string;
   entrees: Entree[];
   images: Record<string, string>;
-  pertinent: (roles: Role[]) => boolean;
-  role: Role | null;
+  adapte: (roles: Role[]) => boolean;
 }) {
-  const retenus = role ? entrees.filter((e) => pertinent(e.roles)).length : 0;
-
   return (
     <section>
-      <div className="flex flex-wrap items-baseline gap-3">
-        <Titre>{titre}</Titre>
+      <div className="flex items-baseline gap-3">
+        <h2 className="font-titre text-xl font-bold text-craie-100">{titre}</h2>
+        <span className="text-sm text-craie-500">{entrees.length}</span>
       </div>
-      <p className="mt-3 max-w-2xl text-sm text-craie-500">
-        {chapeau}
-        {role && (
-          <span className="text-craie-300">
-            {" "}
-            {retenus} adapte{retenus > 1 ? "s" : ""} a votre embleme.
-          </span>
-        )}
-      </p>
+      <p className="mt-1 text-sm text-craie-500">{chapeau}</p>
 
-      <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Lignes plutot que cartes : deux entrees se comparent alignees. */}
+      <ul className="mt-4 divide-y divide-nuit-800 border-y border-nuit-800">
         {entrees.map((e) => {
-          const adapte = pertinent(e.roles);
+          const retenu = adapte(e.roles);
           return (
-            <li key={e.cle}>
-              <article
-                className={cn(
-                  "biseau flex h-full gap-3 border p-3 transition-opacity",
-                  adapte
-                    ? "border-nuit-700/70 bg-nuit-900/60"
-                    : "border-nuit-800 bg-nuit-900/30 opacity-45",
-                )}
-              >
-                <Visuel source={images[e.cle]} />
-                <div className="min-w-0">
-                  <h3 className="flex items-baseline gap-2 font-titre font-bold leading-tight text-craie-100">
+            <li
+              key={e.cle}
+              className={cn(
+                "flex gap-4 py-3 transition-opacity",
+                retenu ? "" : "opacity-40",
+              )}
+            >
+              <Visuel source={images[e.cle]} taille={40} />
+
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-baseline gap-x-3">
+                  <h3 className="font-titre font-bold leading-tight text-craie-100">
                     {e.nom}
-                    {e.recharge !== undefined && (
-                      <span className="shrink-0 text-xs font-medium text-craie-500">
-                        {e.recharge} s
-                      </span>
-                    )}
                   </h3>
-                  {e.description && (
-                    <p className="mt-1 text-xs leading-snug text-craie-300">{e.description}</p>
+                  {e.recharge !== undefined && (
+                    <span className="text-xs tabular-nums text-or-400">
+                      {e.recharge} s
+                    </span>
                   )}
-                  <p className="mt-1.5 text-xs leading-relaxed text-craie-500">{e.pourQui}</p>
                 </div>
-              </article>
+                {e.description && (
+                  <p className="mt-0.5 text-sm leading-snug text-craie-300">
+                    {e.description}
+                  </p>
+                )}
+                <p className="mt-1 text-xs leading-relaxed text-craie-500">{e.pourQui}</p>
+              </div>
+
+              <ul className="hidden shrink-0 flex-wrap content-start gap-1 sm:flex sm:w-40">
+                {e.roles.map((r) => (
+                  <li
+                    key={r}
+                    className="border border-nuit-700 px-1.5 py-0.5 text-[0.65rem] uppercase tracking-wide text-craie-500"
+                  >
+                    {r}
+                  </li>
+                ))}
+              </ul>
             </li>
           );
         })}
@@ -207,15 +200,18 @@ function Bloc({
   );
 }
 
-function Visuel({ source, grande = false }: { source?: string; grande?: boolean }) {
+function Visuel({ source, taille }: { source?: string; taille: number }) {
   return (
-    <span className={cn("relative shrink-0", grande ? "size-14" : "size-11")}>
+    <span
+      className="relative shrink-0"
+      style={{ width: taille, height: taille }}
+    >
       {source ? (
         <Image
           src={source}
           alt=""
           fill
-          sizes={grande ? "56px" : "44px"}
+          sizes={`${taille}px`}
           loading="eager"
           className="object-contain"
         />
