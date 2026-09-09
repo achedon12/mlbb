@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
 import { CompetencesHeros } from "@/components/competences-heros";
+import { FilAriane } from "@/components/fil-ariane";
 
 import { ContresChiffres } from "@/components/contres-chiffres";
 import { ObjetBuild } from "@/components/objet-build";
@@ -112,6 +113,9 @@ export default async function PageHeros({ params }: Params) {
         comme la grande illustration.
       */}
       <VitrineProvider skins={skinsComplets} portraitDefaut={h.visuels.portrait}>
+      <div className="mx-auto max-w-6xl px-4 pt-6">
+        <FilAriane miettes={[{ nom: "Heros", href: "/heros" }, { nom: h.nom }]} />
+      </div>
       {/* ── En-tete ────────────────────────────────────────────────────── */}
       <div className="relative border-b border-nuit-700/70 bg-nuit-900/30">
         {fond && (
