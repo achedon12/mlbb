@@ -17,7 +17,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PageComparateur() {
+export default async function PageComparateur({
+  searchParams,
+}: {
+  searchParams: Promise<{ a?: string; b?: string }>;
+}) {
+  const { a, b } = await searchParams;
   const comparables: HerosComparable[] = heros.map((h) => {
     const taux = tauxParSlug.get(h.slug);
     return {
@@ -41,7 +46,11 @@ export default function PageComparateur() {
         chapeau="Choisissez deux heros et lisez leurs forces cote a cote : notes du wiki, taux de victoire et de ban remontes par le jeu, roles et positions. La meilleure valeur de chaque ligne est mise en avant."
       />
       <div className="mx-auto max-w-3xl px-4 py-12">
-        <ComparateurHeros heros={comparables} />
+        <ComparateurHeros
+          heros={comparables}
+          initialGauche={a && comparables.some((h) => h.slug === a) ? a : undefined}
+          initialDroite={b && comparables.some((h) => h.slug === b) ? b : undefined}
+        />
       </div>
     </>
   );
