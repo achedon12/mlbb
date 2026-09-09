@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { url: `${site.url}/objets`, changeFrequency: "monthly", priority: 0.7 },
       { url: `${site.url}/emblemes`, changeFrequency: "monthly", priority: 0.7 },
       { url: `${site.url}/actualites`, changeFrequency: "daily", priority: 0.8 },
+      { url: `${site.url}/veille`, changeFrequency: "hourly", priority: 0.6 },
       { url: `${site.url}/patch-notes`, changeFrequency: "weekly", priority: 0.8 },
       { url: `${site.url}/a-propos`, changeFrequency: "yearly", priority: 0.3 },
     ] as const
