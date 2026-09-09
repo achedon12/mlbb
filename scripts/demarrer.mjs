@@ -25,10 +25,10 @@ await cp("public", `${RACINE}/public`, { recursive: true }).catch(() => {});
 /**
  * Charge `.env.local`.
  *
- * Le serveur autonome demarre depuis `.next/standalone/` : il n'y trouve
- * aucun fichier d'environnement, et Next ne remonte pas jusqu'a la racine du
- * projet. Sans cela, SESSION_SECRET est absent et toutes les pages de compte
- * echouent. En production, c'est le conteneur qui fournit ces variables.
+ * Le serveur autonome demarre depuis `.next/standalone/` : il n'y trouve aucun
+ * fichier d'environnement, et Next ne remonte pas jusqu'a la racine du projet.
+ * On lit donc `.env.local` a la main pour le developpement ; en production,
+ * c'est le conteneur qui fournit les variables.
  */
 async function environnementLocal() {
   const variables = {};
@@ -47,14 +47,6 @@ async function environnementLocal() {
 }
 
 const local = await environnementLocal();
-
-if (!local.SESSION_SECRET && !process.env.SESSION_SECRET) {
-  console.error(
-    "SESSION_SECRET absent. Copier .env.example vers .env.local et le renseigner :\n" +
-      "  echo \"SESSION_SECRET=$(openssl rand -hex 32)\" >> .env.local",
-  );
-  process.exit(1);
-}
 
 spawn("node", ["server.js"], {
   cwd: RACINE,

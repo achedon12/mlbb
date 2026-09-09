@@ -74,11 +74,14 @@ export default function PageAPropos() {
         <h2>Le compte</h2>
         <p>
           Il est facultatif : tout le contenu est accessible sans se connecter.
-          Un compte sert uniquement a conserver ses heros favoris et a lier un
-          identifiant de jeu verifie. Les donnees stockees se limitent a une
-          adresse e-mail, un pseudo, un mot de passe chiffre, et les
-          identifiants de jeu que vous choisissez d&apos;ajouter. Aucun
-          traceur, aucune mesure d&apos;audience tierce.
+          Se connecter passe par le code de verification officiel de Moonton —
+          un code a quatre chiffres envoye dans votre messagerie en jeu. Le site
+          ne voit jamais votre mot de passe : il recoit un jeton temporaire,
+          range dans un cookie securise, que vous effacez en vous deconnectant.
+        </p>
+        <p>
+          Aucune base de donnees, aucun compte cree sur le site. Vos heros
+          favoris sont conserves dans votre navigateur, pas sur un serveur.
         </p>
 
         <h2>Contribuer</h2>

@@ -10,16 +10,10 @@ services:
     ports:
       - "127.0.0.1:${PORT:-3001}:3001"
     environment:
-      # Obligatoire : le serveur refuse de demarrer sans.
-      # Generer avec : openssl rand -hex 32
-      SESSION_SECRET: ${SESSION_SECRET:?definir SESSION_SECRET dans .env}
       NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mlbb.leoderoin.fr}
-    volumes:
-      # Seul etat persistant du site : les comptes et les favoris.
-      - mlbb-data:/data
-    # Le conteneur n'ecrit que dans /data et dans le cache de Next, tous deux
-    # montes separement : le reste du systeme de fichiers peut rester en
-    # lecture seule.
+    # Le site n'a aucun etat a conserver : l'identite vit dans le jeton de jeu,
+    # les favoris dans le navigateur. Le conteneur peut tourner en lecture
+    # seule, sans volume.
     read_only: true
     tmpfs:
       - /tmp
@@ -39,6 +33,3 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
-
-volumes:
-  mlbb-data:
