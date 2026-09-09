@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Palier } from "@/lib/types";
@@ -46,13 +46,29 @@ const ATTRIBUTS = [
  * chaque attribut, la meilleure valeur est mise en avant, pour trancher d'un
  * coup d'oeil plutot que de comparer chiffre a chiffre.
  */
-export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
+export function ComparateurHeros({
+  heros,
+  initialGauche,
+  initialDroite,
+}: {
+  heros: HerosComparable[];
+  initialGauche?: string;
+  initialDroite?: string;
+}) {
   const parSlug = useMemo(() => new Map(heros.map((h) => [h.slug, h])), [heros]);
-  const [gauche, setGauche] = useState(heros[0]?.slug ?? "");
-  const [droite, setDroite] = useState(heros[1]?.slug ?? "");
+  const [gauche, setGauche] = useState(initialGauche ?? heros[0]?.slug ?? "");
+  const [droite, setDroite] = useState(initialDroite ?? heros[1]?.slug ?? "");
 
   const a = parSlug.get(gauche) ?? null;
   const b = parSlug.get(droite) ?? null;
+
+  // Reporter le choix dans l'URL, sans recharger : la comparaison devient
+  // partageable et se retrouve dans l'historique.
+  useEffect(() => {
+    if (!gauche || !droite) return;
+    const params = new URLSearchParams({ a: gauche, b: droite });
+    window.history.replaceState(null, "", `?${params.toString()}`);
+  }, [gauche, droite]);
 
   return (
     <div>
