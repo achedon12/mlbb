@@ -3,10 +3,20 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
+import { CompetencesHeros } from "@/components/competences-heros";
+import { GalerieIllustrations } from "@/components/galerie-illustrations";
+import { ObjetBuild } from "@/components/objet-build";
+import { Onglets } from "@/components/onglets";
 import { GalerieSkins } from "@/components/galerie-skins";
 import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgeRole, Carte, Jauge } from "@/components/ui";
-import { heros, herosParSlug } from "@/lib/donnees";
+import {
+  competences,
+  heros,
+  herosParSlug,
+  illustrations,
+  visuelsCompetences,
+} from "@/lib/donnees";
 import { raretesPresentes } from "@/lib/raretes";
 import { classementComplet } from "@/lib/tier-list";
 import { site } from "@/lib/site";
@@ -48,6 +58,9 @@ export default async function PageHeros({ params }: Params) {
 
   const classe = classementComplet.find((e) => e.heros.slug === slug);
   const analyse = h.analyse;
+  const nomsCompetences = competences[h.slug] ?? [];
+  const iconesCompetences = visuelsCompetences[h.slug] ?? {};
+  const illustrationsHeros = illustrations[h.slug] ?? {};
 
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -157,174 +170,161 @@ export default async function PageHeros({ params }: Params) {
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl space-y-16 px-4 py-14">
-        {/* ── Analyse ──────────────────────────────────────────────────── */}
-        {analyse ? (
-          <>
-            <section>
-              <h2 className="font-titre text-2xl font-bold text-craie-100">Analyse</h2>
-              <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-              <div className="mt-5 space-y-4 leading-relaxed text-craie-300">
-                {analyse.analyse.split("\n\n").map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <h2 className="font-titre text-2xl font-bold text-craie-100">Competences</h2>
-              <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-              <div className="mt-6 space-y-3">
-                {analyse.competences.map((c) => (
-                  <Carte key={c.type}>
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <span className="biseau-sm bg-nuit-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
-                        {c.type}
-                      </span>
-                      <h3 className="font-titre text-lg font-bold text-craie-100">{c.nom}</h3>
+      <div className="mx-auto max-w-5xl px-4 py-10">
+        <Onglets
+          onglets={[
+            {
+              id: "analyse",
+              label: "Analyse",
+              contenu: analyse ? (
+                <div className="space-y-12">
+                  <section>
+                    <div className="space-y-4 leading-relaxed text-craie-300">
+                      {analyse.analyse.split("\n\n").map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
                     </div>
-                    <p className="mt-3 leading-relaxed text-craie-300">{c.description}</p>
-                    {(c.recharge || c.cout) && (
-                      <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-3 text-sm">
-                        {c.recharge && (
-                          <div className="flex gap-2">
-                            <dt className="text-craie-500">Recharge</dt>
-                            <dd className="text-craie-100">{c.recharge.join(" / ")} s</dd>
+                  </section>
+
+                  <section className="grid gap-4 md:grid-cols-2">
+                    <Carte className="border-emerald-500/25">
+                      <h2 className="flex items-center gap-2 font-titre text-lg font-bold text-emerald-400">
+                        <Swords size={18} aria-hidden />
+                        Forces
+                      </h2>
+                      <ul className="mt-4 space-y-2.5">
+                        {analyse.forces.map((f) => (
+                          <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-craie-300">
+                            <span aria-hidden className="mt-2 size-1 shrink-0 bg-emerald-400" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </Carte>
+                    <Carte className="border-sang-500/25">
+                      <h2 className="flex items-center gap-2 font-titre text-lg font-bold text-sang-500">
+                        <TriangleAlert size={18} aria-hidden />
+                        Faiblesses
+                      </h2>
+                      <ul className="mt-4 space-y-2.5">
+                        {analyse.faiblesses.map((f) => (
+                          <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-craie-300">
+                            <span aria-hidden className="mt-2 size-1 shrink-0 bg-sang-500" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </Carte>
+                  </section>
+
+                  <section>
+                    <h2 className="font-titre text-xl font-bold text-craie-100">Contres</h2>
+                    <div className="mt-4 grid gap-4 md:grid-cols-2">
+                      <ListeContres titre={`${h.nom} est a l'aise contre`} slugs={analyse.fortContre} ton="bon" />
+                      <ListeContres titre={`${h.nom} est en difficulte contre`} slugs={analyse.faibleContre} ton="mauvais" />
+                    </div>
+                  </section>
+                </div>
+              ) : (
+                <Carte className="border-or-500/30">
+                  <h2 className="flex items-center gap-2 font-titre text-xl font-bold text-or-400">
+                    <ShieldAlert size={20} aria-hidden />
+                    Analyse en cours de redaction
+                  </h2>
+                  <p className="mt-3 max-w-2xl leading-relaxed text-craie-300">
+                    Les donnees de {h.nom} sont a jour — elles viennent
+                    directement du wiki. Ce qui manque, c&apos;est le
+                    commentaire : ce que le heros fait vraiment, ses builds et
+                    ses contres. Cela ne s&apos;extrait pas, cela s&apos;ecrit.
+                  </p>
+                  <a
+                    href={`${site.depot}/blob/main/CONTRIBUTING.md`}
+                    rel="noreferrer"
+                    className="mt-5 inline-block text-sm font-semibold text-or-400 underline underline-offset-4 hover:text-or-500"
+                  >
+                    Contribuer a cette analyse →
+                  </a>
+                </Carte>
+              ),
+            },
+            {
+              id: "competences",
+              label: "Competences",
+              compteur:
+                Math.max(
+                  nomsCompetences.filter(Boolean).length,
+                  analyse?.competences.length ?? 0,
+                ) || undefined,
+              contenu: (
+                <CompetencesHeros
+                  nomsWiki={nomsCompetences}
+                  icones={iconesCompetences}
+                  redigees={analyse?.competences ?? null}
+                />
+              ),
+            },
+            {
+              id: "builds",
+              label: "Builds",
+              compteur: analyse?.builds.length,
+              contenu: analyse ? (
+                <div className="space-y-4">
+                  {analyse.builds.map((b) => (
+                    <Carte key={b.nom}>
+                      <h3 className="font-titre text-lg font-bold text-or-400">{b.nom}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-craie-500">{b.contexte}</p>
+                      <ol className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-6">
+                        {b.objets.map((o, i) => (
+                          <ObjetBuild key={o} nom={o} rang={i + 1} />
+                        ))}
+                      </ol>
+                      <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-4 text-sm">
+                        {[["Embleme", b.embleme], ["Talent", b.talent], ["Sort", b.sort]].map(([c, v]) => (
+                          <div key={c} className="flex gap-2">
+                            <dt className="text-craie-500">{c}</dt>
+                            <dd className="text-craie-100">{v}</dd>
                           </div>
-                        )}
-                        {c.cout && (
-                          <div className="flex gap-2">
-                            <dt className="text-craie-500">Cout</dt>
-                            <dd className="text-craie-100">{c.cout.join(" / ")}</dd>
-                          </div>
-                        )}
+                        ))}
                       </dl>
-                    )}
-                  </Carte>
-                ))}
-              </div>
-            </section>
-
-            <section className="grid gap-4 md:grid-cols-2">
-              <Carte className="border-emerald-500/25">
-                <h2 className="flex items-center gap-2 font-titre text-lg font-bold text-emerald-400">
-                  <Swords size={18} aria-hidden />
-                  Forces
-                </h2>
-                <ul className="mt-4 space-y-2.5">
-                  {analyse.forces.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-craie-300">
-                      <span aria-hidden className="mt-2 size-1 shrink-0 bg-emerald-400" />
-                      {f}
-                    </li>
+                    </Carte>
                   ))}
-                </ul>
-              </Carte>
-              <Carte className="border-sang-500/25">
-                <h2 className="flex items-center gap-2 font-titre text-lg font-bold text-sang-500">
-                  <TriangleAlert size={18} aria-hidden />
-                  Faiblesses
-                </h2>
-                <ul className="mt-4 space-y-2.5">
-                  {analyse.faiblesses.map((f) => (
-                    <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-craie-300">
-                      <span aria-hidden className="mt-2 size-1 shrink-0 bg-sang-500" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </Carte>
-            </section>
-
-            <section>
-              <h2 className="font-titre text-2xl font-bold text-craie-100">Contres</h2>
-              <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
-                <ListeContres titre={`${h.nom} est a l'aise contre`} slugs={analyse.fortContre} ton="bon" />
-                <ListeContres titre={`${h.nom} est en difficulte contre`} slugs={analyse.faibleContre} ton="mauvais" />
-              </div>
-            </section>
-
-            <section>
-              <h2 className="font-titre text-2xl font-bold text-craie-100">Builds</h2>
-              <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-              <div className="mt-6 space-y-4">
-                {analyse.builds.map((b) => (
-                  <Carte key={b.nom}>
-                    <h3 className="font-titre text-lg font-bold text-or-400">{b.nom}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-craie-500">{b.contexte}</p>
-                    <ol className="mt-5 grid gap-2 sm:grid-cols-3 lg:grid-cols-6">
-                      {b.objets.map((o, i) => (
-                        <li
-                          key={o}
-                          className="biseau-sm border border-nuit-700 bg-nuit-850 p-2.5 text-center text-xs leading-tight text-craie-300"
-                        >
-                          <span className="block font-titre text-sm font-bold text-or-500">{i + 1}</span>
-                          {o}
+                </div>
+              ) : null,
+            },
+            {
+              id: "skins",
+              label: "Skins",
+              compteur: h.skins.length || undefined,
+              contenu:
+                h.skins.length > 0 ? (
+                  <>
+                    <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
+                      {raretesPresentes(h.skins.map((s) => s.rarete)).map((r) => (
+                        <li key={r.nom} className="flex items-center gap-1.5 text-xs text-craie-500">
+                          <span
+                            aria-hidden
+                            className="size-2.5 border-2"
+                            style={{ borderColor: r.couleur }}
+                          />
+                          {r.nom}
                         </li>
                       ))}
-                    </ol>
-                    <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-4 text-sm">
-                      {[["Embleme", b.embleme], ["Talent", b.talent], ["Sort", b.sort]].map(([c, v]) => (
-                        <div key={c} className="flex gap-2">
-                          <dt className="text-craie-500">{c}</dt>
-                          <dd className="text-craie-100">{v}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </Carte>
-                ))}
-              </div>
-            </section>
-          </>
-        ) : (
-          <Carte className="border-or-500/30">
-            <h2 className="flex items-center gap-2 font-titre text-xl font-bold text-or-400">
-              <ShieldAlert size={20} aria-hidden />
-              Analyse en cours de redaction
-            </h2>
-            <p className="mt-3 max-w-2xl leading-relaxed text-craie-300">
-              Les donnees de {h.nom} sont a jour — elles viennent directement du
-              wiki. Ce qui manque, c&apos;est le commentaire : ce que le heros
-              fait vraiment, ses builds et ses contres. Cela ne s&apos;extrait
-              pas, cela s&apos;ecrit.
-            </p>
-            <a
-              href={`${site.depot}/blob/main/CONTRIBUTING.md`}
-              rel="noreferrer"
-              className="mt-5 inline-block text-sm font-semibold text-or-400 underline underline-offset-4 hover:text-or-500"
-            >
-              Contribuer a cette analyse →
-            </a>
-          </Carte>
-        )}
-
-        {/* ── Skins ────────────────────────────────────────────────────── */}
-        {h.skins.length > 0 && (
-          <section>
-            <div className="flex items-baseline gap-3">
-              <h2 className="font-titre text-2xl font-bold text-craie-100">Skins</h2>
-              <span className="text-sm text-craie-500">{h.skins.length}</span>
-            </div>
-            <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-
-            {/* Legende : le contour code la rarete, encore faut-il le dire. */}
-            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5">
-              {raretesPresentes(h.skins.map((s) => s.rarete)).map((r) => (
-                <li key={r.nom} className="flex items-center gap-1.5 text-xs text-craie-500">
-                  <span
-                    aria-hidden
-                    className="size-2.5 border-2"
-                    style={{ borderColor: r.couleur }}
-                  />
-                  {r.nom}
-                </li>
-              ))}
-            </ul>
-
-            <GalerieSkins nom={h.nom} skins={h.skins} visuels={h.visuels.skins} />
-          </section>
-        )}
+                    </ul>
+                    <GalerieSkins nom={h.nom} skins={h.skins} visuels={h.visuels.skins} />
+                  </>
+                ) : null,
+            },
+            {
+              id: "illustrations",
+              label: "Illustrations",
+              compteur: Object.keys(illustrationsHeros).length || undefined,
+              contenu:
+                Object.keys(illustrationsHeros).length > 0 ? (
+                  <GalerieIllustrations nom={h.nom} illustrations={illustrationsHeros} />
+                ) : null,
+            },
+          ]}
+        />
       </div>
     </>
   );

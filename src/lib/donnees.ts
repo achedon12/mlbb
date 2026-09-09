@@ -1,8 +1,11 @@
+import competencesGenere from "@/data/genere/competences.json";
 import herosGenere from "@/data/genere/heros.json";
+import illustrationsGenere from "@/data/genere/illustrations.json";
 import objetsGenere from "@/data/genere/objets.json";
 import patchsGenere from "@/data/genere/patchs.json";
 import skinsGenere from "@/data/genere/skins.json";
 import synchroGenere from "@/data/genere/synchro.json";
+import visuelsCompetencesGenere from "@/data/genere/visuels-competences.json";
 import visuelsGenere from "@/data/genere/visuels.json";
 import { analyses } from "@/data/heros";
 import type {
@@ -37,6 +40,24 @@ export const heros: Heros[] = (herosGenere as unknown as HerosGenere[]).map((h) 
 }));
 
 export const herosParSlug = new Map(heros.map((h) => [h.slug, h]));
+
+/** Noms anglais des competences, dans l'ordre du jeu. */
+export const competences = competencesGenere as unknown as Record<
+  string,
+  (string | null)[]
+>;
+
+/** Icone de chaque competence, indexee par son nom anglais. */
+export const visuelsCompetences = visuelsCompetencesGenere as unknown as Record<
+  string,
+  Record<string, string>
+>;
+
+/** Illustrations pleine taille, par heros puis par nom de skin. */
+export const illustrations = illustrationsGenere as unknown as Record<
+  string,
+  Record<string, string>
+>;
 
 export const objets = objetsGenere as unknown as ObjetGenere[];
 export const objetsParSlug = new Map(objets.map((o) => [o.slug, o]));
