@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { CorpsArticle } from "@/components/article";
+import { FilAriane } from "@/components/fil-ariane";
 import { NouveauHeros } from "@/components/nouveau-heros";
 import { PatchHeros } from "@/components/patch-heros";
 import { SommairePatch } from "@/components/sommaire-patch";
@@ -88,9 +89,15 @@ export default async function PagePatch({ params }: Params) {
         />
 
         <div className="mx-auto max-w-6xl px-4 py-12">
+          <FilAriane
+            miettes={[
+              { nom: "Patch notes", href: "/patch-notes" },
+              { nom: `Patch ${patch.version}` },
+            ]}
+          />
           <Link
             href="/patch-notes"
-            className="inline-flex items-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
           >
             <ArrowLeft size={15} aria-hidden />
             Tous les patch notes
