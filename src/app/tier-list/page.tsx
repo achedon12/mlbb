@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgePalier, EnTetePage } from "@/components/ui";
-import { synchro } from "@/lib/donnees";
 import {
   classementComplet,
   LEGENDE_PALIERS,
+  mesureLe,
   ORDRE_PALIERS,
   parPalier,
 } from "@/lib/tier-list";
@@ -32,8 +32,8 @@ export default function PageTierList() {
         chapeau="Ce classement n'est pas une opinion : il est calcule a partir des taux de victoire et de ban remontes par le jeu, et se refait tout seul a chaque synchronisation."
       >
         <p className="mt-6 text-sm text-craie-500">
-          {classementComplet.length} heros mesures · calcule le{" "}
-          <time dateTime={synchro.date}>{formaterDate(synchro.date)}</time>
+          {classementComplet.length} heros mesures · taux releves le{" "}
+          <time dateTime={mesureLe}>{formaterDate(mesureLe)}</time>
         </p>
       </EnTetePage>
 
