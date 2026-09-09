@@ -1,0 +1,42 @@
+name: Verification
+
+# Sur chaque proposition de modification : on verifie que le projet compile
+# avant de relire le fond.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Types
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+        env:
+          # Le build prerend des pages ; la valeur reelle n'est lue qu'au
+          # demarrage du serveur.
+          SESSION_SECRET: verification-uniquement-non-utilisee-en-production
+
+      - name: Verifier que les donnees generees sont a jour dans le depot
+        run: |
+          if [ ! -s src/data/genere/heros.json ]; then
+            echo "src/data/genere/heros.json est absent ou vide."
+            echo "Lancer : npm run sync -- --images"
+            exit 1
+          fi

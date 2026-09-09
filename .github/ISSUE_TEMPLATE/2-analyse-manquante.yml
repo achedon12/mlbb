@@ -1,0 +1,32 @@
+name: Analyse de heros manquante
+description: Proposer d'ecrire, ou demander, l'analyse d'un heros.
+title: "[analyse] "
+labels: ["analyse", "bonne premiere contribution"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Les donnees factuelles de tous les heros sont deja synchronisees. Ce qui
+        manque, c'est le commentaire : ce que le heros fait vraiment, ses
+        builds, ses contres. Voir [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+  - type: input
+    id: heros
+    attributes:
+      label: Heros
+      placeholder: Fanny
+    validations:
+      required: true
+  - type: dropdown
+    id: intention
+    attributes:
+      label: Votre intention
+      options:
+        - Je propose de l'ecrire
+        - Je la demande, sans l'ecrire moi-meme
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Votre experience sur ce heros, les points a ne pas manquer.

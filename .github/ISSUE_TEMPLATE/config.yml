@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question ou discussion
+    url: https://github.com/achedon12/mlbb/discussions
+    about: Pour echanger sur le jeu, le meta ou une orientation du site.
+  - name: Faille de securite
+    url: https://github.com/achedon12/mlbb/security/advisories/new
+    about: A signaler en prive, jamais dans une issue publique.

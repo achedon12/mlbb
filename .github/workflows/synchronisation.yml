@@ -1,0 +1,81 @@
+name: Synchronisation des donnees
+
+# Le jeu evolue a chaque patch. Plutot que d'attendre une intervention
+# manuelle, on relit le wiki chaque semaine et on ouvre une pull request
+# quand quelque chose a change.
+#
+# Une pull request plutot qu'un commit direct : un nouveau heros ou un
+# changement massif merite d'etre regarde avant d'atterrir en production.
+on:
+  schedule:
+    # Tous les lundis a 4 h UTC, apres les mises a jour de fin de semaine.
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  synchroniser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Lire le wiki et telecharger les visuels
+        run: npm run sync -- --images
+
+      - name: Verifier que le site compile avec les nouvelles donnees
+        run: npm run build
+        env:
+          SESSION_SECRET: verification-uniquement-non-utilisee-en-production
+
+      - name: Resumer les changements
+        id: resume
+        run: |
+          if git diff --quiet; then
+            echo "change=non" >> "$GITHUB_OUTPUT"
+            echo "Aucun changement."
+          else
+            echo "change=oui" >> "$GITHUB_OUTPUT"
+            {
+              echo "resume<<FIN"
+              node -e "
+                const s = require('./src/data/genere/synchro.json');
+                console.log(\`- \${s.heros} heros\`);
+                console.log(\`- \${s.skins} skins\`);
+                console.log(\`- \${s.objets} objets\`);
+                console.log(\`- \${s.patchs} patchs\`);
+              "
+              echo "FIN"
+            } >> "$GITHUB_OUTPUT"
+            git diff --stat | tail -1
+          fi
+
+      - name: Ouvrir la pull request
+        if: steps.resume.outputs.change == 'oui'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: synchronisation/wiki
+          # La branche est reutilisee d'une semaine sur l'autre : une seule
+          # pull request de synchronisation ouverte a la fois.
+          commit-message: "synchronise les donnees du jeu depuis le wiki"
+          author: achedon12 <82544800+achedon12@users.noreply.github.com>
+          committer: achedon12 <82544800+achedon12@users.noreply.github.com>
+          title: "Synchronisation des donnees du jeu"
+          labels: donnees
+          body: |
+            Relecture automatique du wiki communautaire.
+
+            ${{ steps.resume.outputs.resume }}
+
+            Le site compile avec ces donnees. A verifier avant de fusionner :
+            les nouveaux heros apparaissent bien dans le catalogue, et aucun
+            visuel n'est manquant sur leur fiche.

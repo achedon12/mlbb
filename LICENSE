@@ -22,8 +22,19 @@ SOFTWARE.
 
 ---
 
+PORTEE DE CETTE LICENCE
+
+La licence MIT ci-dessus couvre le code source et les textes rediges pour ce
+projet. Elle ne couvre PAS :
+
+- Les fichiers de `public/visuels/` : portraits, icones et illustrations de
+  skins. Ce sont des oeuvres de Shanghai Moonton Technology Co., Ltd., incluses
+  a des fins d'illustration et d'information. Elles seront retirees sur demande
+  de l'ayant droit.
+- Les donnees de `src/data/genere/`, extraites du wiki Mobile Legends
+  (https://mobilelegends.fandom.com) et soumises a la licence CC BY-SA de ce
+  wiki.
+
 Mobile Legends: Bang Bang, son univers, ses heros et leurs noms sont des
-marques deposees de Shanghai Moonton Technology Co., Ltd. Ce projet est un
-travail de fan independant, sans affiliation ni approbation de Moonton. La
-licence ci-dessus couvre le code et les textes rediges pour ce site, pas les
-elements appartenant a Moonton.
+marques de Shanghai Moonton Technology Co., Ltd. Ce projet est un travail de
+fan independant, sans affiliation ni approbation de Moonton.
