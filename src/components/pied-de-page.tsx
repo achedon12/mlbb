@@ -51,6 +51,7 @@ export function PiedDePage() {
             Le site
           </p>
           <ul className="mt-4 space-y-2">
+            <li><Link href="/api-doc" className="text-sm text-craie-500 transition-colors hover:text-craie-100">API publique</Link></li>
             <li><Link href="/a-propos" className="text-sm text-craie-500 transition-colors hover:text-craie-100">A propos</Link></li>
             <li><Link href="/compte" className="text-sm text-craie-500 transition-colors hover:text-craie-100">Mon compte</Link></li>
             <li><Link href="/feed.xml" className="text-sm text-craie-500 transition-colors hover:text-craie-100">RSS</Link></li>
