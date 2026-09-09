@@ -42,11 +42,27 @@ export default function PageAPropos() {
           fait la liaison de compte proposee ici, et rien de plus.
         </p>
         <p>
-          <strong>Aucune ressource graphique du jeu.</strong> Les illustrations,
-          icones et modeles appartiennent a Moonton et ne sont pas
-          redistribuees. L&apos;identite visuelle du site s&apos;inspire de
-          celle du jeu — bleu nuit, or, angles coupes — sans en reprendre les
+          <strong>Aucune ressource graphique redistribuee.</strong> Les
+          portraits de heros affiches ici appartiennent a Moonton : ils ne sont
+          pas copies dans ce projet, mais charges depuis le wiki communautaire
+          qui les heberge. Aucun fichier d&apos;image du jeu ne figure dans le
+          depot. L&apos;identite visuelle du site — bleu nuit, or, angles
+          coupes — s&apos;inspire de celle du jeu sans en reprendre les
           fichiers.
+        </p>
+
+        <h2>La veille</h2>
+        <p>
+          La section veille rassemble automatiquement les publications
+          d&apos;autres sites sur le jeu. Elle n&apos;en affiche que le titre,
+          la date et un court extrait, et renvoie systematiquement vers
+          l&apos;editeur d&apos;origine : rien n&apos;y est republie.
+        </p>
+        <p>
+          Moonton ne publie aucun flux officiel — le site du jeu est une
+          application dont le contenu n&apos;est pas diffusable. Les mises a
+          jour du jeu sont donc reprises et commentees a la main dans les patch
+          notes, tandis que la veille couvre ce que publie le reste du web.
         </p>
 
         <h2>Le compte</h2>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Rajdhani } from "next/font/google";
 import { EnTete } from "@/components/en-tete";
 import { PiedDePage } from "@/components/pied-de-page";
@@ -75,6 +75,11 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   category: "games",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#06080f",
+  colorScheme: "dark",
 };
 
 export default function RacineLayout({ children }: { children: React.ReactNode }) {
