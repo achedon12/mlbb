@@ -16,14 +16,8 @@ En ligne : <https://mlbb.leoderoin.fr>
 
 ```bash
 npm install
-cp .env.example .env.local     # puis renseigner SESSION_SECRET
+cp .env.example .env.local
 npm run dev                    # http://localhost:3001
-```
-
-`SESSION_SECRET` doit faire au moins 32 caracteres. Pour en generer un :
-
-```bash
-openssl rand -hex 32
 ```
 
 ## Scripts
@@ -121,21 +115,22 @@ sont rendues a la demande : l'en-tete ne lit pas la session cote serveur, il
 l'interroge apres l'affichage, precisement pour que le reste du site reste
 statique.
 
-L'etat persistant se limite a une base SQLite contenant les comptes, les
-identifiants de jeu lies et les favoris.
+Le site n'a **aucun etat a conserver**. L'identite vient du jeu : on se
+connecte avec le code de verification officiel de Moonton, et le site ne recoit
+qu'un jeton temporaire, range dans un cookie httpOnly. Les favoris vivent dans
+le navigateur. Ni base de donnees, ni table de sessions.
 
 ## Deploiement
 
 ```bash
-echo "SESSION_SECRET=$(openssl rand -hex 32)" > .env
 docker compose up -d --build
 ```
 
 Le service ecoute sur `127.0.0.1:3001`, a placer derriere un reverse proxy.
 L'image finale ne contient ni sources, ni npm, ni chaine de compilation : le
 serveur Next en mode `standalone`, les ressources statiques, et le module
-SQLite. Le conteneur tourne sans privileges, en systeme de fichiers en lecture
-seule, avec toutes les capacites retirees ; seul `/data` est inscriptible.
+le module de rendu. Le conteneur tourne sans privileges, en systeme de fichiers
+en lecture seule, avec toutes les capacites retirees ; seul `/data` est inscriptible.
 
 ## Contribuer
 

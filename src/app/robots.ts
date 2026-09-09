@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         // Les pages de compte n'ont aucun interet pour un moteur et exposent
         // des URL personnelles : on les tient hors de l'index.
-        disallow: ["/compte", "/connexion", "/inscription", "/api/"],
+        disallow: ["/compte", "/connexion", "/api/"],
       },
     ],
     sitemap: `${site.url}/sitemap.xml`,
