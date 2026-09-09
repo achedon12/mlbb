@@ -35,7 +35,8 @@ openssl rand -hex 32
 | `npm run start` | Sert le build de production sur le port 3001 |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
-| `npm run portraits` | Regenere `src/data/portraits.json` depuis le wiki |
+| `npm run sync` | Relit le wiki et regenere `src/data/genere/` |
+| `npm run sync -- --images` | Idem, en telechargeant aussi les visuels |
 
 ## Ce que contient le site
 
@@ -48,25 +49,35 @@ openssl rand -hex 32
 - **Objets** — statistiques, passifs, et surtout le moment ou l'objet vaut la
   peine d'etre achete.
 - **Emblemes, talents et sorts de combat** — avec le type de heros vise.
-- **Actualites et patch notes** — rediges en Markdown, publies aussi en RSS.
+- **Skins** — les 1 000 skins du jeu, avec rarete, disponibilite, prix et
+  visuel, dans une galerie par heros.
+- **Actualites et patch notes** — la liste des patchs est synchronisee ; les
+  mises a jour marquantes font l'objet d'une analyse redigee.
 - **Veille** — les publications du reste du web sur le jeu, rassemblees
   automatiquement et rafraichies toutes les 30 minutes, sans tache planifiee.
-- **Portraits** — chaque heros est illustre par son portrait, charge depuis le
-  wiki communautaire qui l'heberge.
+- **Visuels** — portraits, icones et skins sont servis par le site lui-meme.
+  Aucune image ne depend d'un domaine tiers.
 
 ## D'ou viennent les donnees
 
 | Donnee | Source | Mise a jour |
 | --- | --- | --- |
-| Roster, fiches, objets, emblemes, tier list | Redigees a la main, verifiees en jeu | Manuelle, par pull request |
-| Actualites et patch notes | Redigees a la main, en Markdown | Manuelle, par pull request |
-| Veille | Flux publics agreges au rendu | Automatique, toutes les 30 min |
-| Portraits de heros | Wiki communautaire, via `npm run portraits` | Manuelle, a la sortie d'un heros |
+| Heros, skins, objets, patchs, visuels | Wiki communautaire, modules Lua | **Automatique**, chaque lundi |
+| Analyses de heros, tier list, emblemes | Redigees a la main | Par pull request |
+| Articles et guides | Markdown dans `content/` | Par pull request |
+| Veille | Flux publics agreges au rendu | **Automatique**, toutes les 30 min |
 
-Moonton ne publie **aucun flux officiel** : le site du jeu est une application
-dont le contenu n'est pas diffusable, et il n'existe pas de RSS. Les mises a
-jour du jeu sont donc reprises et commentees a la main ; la veille couvre ce
-que publie le reste du web.
+Les donnees factuelles ne s'ecrivent plus a la main. Un workflow relit le wiki
+chaque semaine, telecharge les nouveaux visuels et ouvre une pull request quand
+quelque chose a change — un nouveau heros apparait donc sans intervention.
+
+Ce qui reste ecrit a la main, c'est ce qu'aucune extraction ne produira : le
+commentaire sur un heros, la justification d'un placement en tier list, un
+guide.
+
+Moonton ne publie **aucune interface de programmation ni flux officiel** : le
+site du jeu est une application dont le contenu n'est pas diffusable. Le wiki
+communautaire est la source la plus complete et la plus structuree disponible.
 
 ## Ce qu'il ne contient pas
 
@@ -85,13 +96,19 @@ C'est exactement ce que fait la liaison de compte, et rien de plus.
 src/
   app/            Routes (App Router), flux RSS, plan du site, robots
   components/     Composants d'interface
-  data/           Donnees du jeu, typees
-    heros/        Fiches detaillees, un fichier par role
-    roster.ts     Roster complet
-  lib/            Types, contenu, base, sessions, actions serveur
+  data/
+    genere/       Extrait du wiki — ne pas modifier a la main
+    heros/        Analyses redigees, un fichier par role
+    tier-list.ts  Classement argumente
+  lib/            Types, donnees, contenu, base, sessions, actions
 content/
   actualites/     Articles en Markdown
-  patch-notes/    Resumes de patch en Markdown
+  patch-notes/    Analyses de patch en Markdown
+public/
+  visuels/heros/  Portraits, icones et skins, ranges par heros
+scripts/
+  sync.mjs        Synchronisation depuis le wiki
+  lua.mjs         Lecture des tables Lua du wiki
 ```
 
 Les pages de contenu sont **generees au build**. Seules les routes de compte
@@ -117,15 +134,30 @@ seule, avec toutes les capacites retirees ; seul `/data` est inscriptible.
 
 ## Contribuer
 
-Les fiches heros sont des fichiers TypeScript types, les articles des fichiers
-Markdown : on peut completer une fiche ou corriger une erreur d'equilibrage
-sans connaitre le reste du projet. Voir [CONTRIBUTING.md](CONTRIBUTING.md).
+Les donnees se mettent a jour toutes seules. Ce qui manque, ce sont les
+**analyses de heros** : sur 133 heros, une minorite a un commentaire redige.
+C'est la contribution la plus utile, et elle ne demande pas de connaitre le
+reste du projet.
+
+Voir [CONTRIBUTING.md](CONTRIBUTING.md), le
+[code de conduite](CODE_OF_CONDUCT.md) et la
+[politique de securite](SECURITY.md).
 
 ## Mentions
 
-Mobile Legends: Bang Bang, son univers, ses heros et leurs noms sont des
-marques deposees de **Shanghai Moonton Technology Co., Ltd.** Ce site est un
-projet de fan independant, sans affiliation, ni approbation, ni parrainage de
-Moonton. Aucune ressource graphique du jeu n'est redistribuee ici.
+Mobile Legends: Bang Bang, son univers, ses heros, leurs noms et leurs
+representations graphiques sont des marques et des oeuvres de **Shanghai
+Moonton Technology Co., Ltd.** Ce site est un projet de fan independant, sans
+affiliation, ni approbation, ni parrainage de Moonton.
 
-Code sous licence MIT — voir [LICENSE](LICENSE).
+Les visuels presents dans `public/visuels/` proviennent du wiki communautaire
+et restent la propriete de Moonton. Ils sont inclus a des fins d'illustration
+et d'information. **La licence MIT ci-dessous ne couvre pas ces fichiers**,
+mais uniquement le code et les textes rediges pour ce site. Sur demande de
+l'ayant droit, ils seront retires.
+
+Les donnees factuelles proviennent du
+[wiki Mobile Legends](https://mobilelegends.fandom.com), sous licence
+CC BY-SA.
+
+Code et textes sous licence MIT — voir [LICENSE](LICENSE).

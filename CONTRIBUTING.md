@@ -1,43 +1,62 @@
 # Contribuer
 
-Toute contribution est bienvenue, en particulier les **fiches heros
-manquantes** et les **corrections d'equilibrage** apres un patch.
+Toute contribution est bienvenue. La plus utile, et de loin : **ecrire
+l'analyse d'un heros qui n'en a pas encore**.
 
-## Regle unique
+## Comment le projet est organise
 
-Ne rien ajouter qui n'ait ete verifie en jeu. Une fiche absente est preferable
-a une fiche approximative : c'est ce qui fait la difference entre ce site et
-une liste generee automatiquement.
+Deux sources de donnees, qu'il ne faut pas confondre.
 
-## Ajouter une fiche heros
+| | Ou | Qui l'ecrit |
+| --- | --- | --- |
+| **Donnees factuelles** — heros, skins, objets, patchs, visuels | `src/data/genere/`, `public/visuels/` | Personne : `npm run sync` les extrait du wiki |
+| **Analyse** — commentaire, competences redigees, contres, builds | `src/data/heros/` | Vous |
+| **Articles** — guides, actualites, patch notes | `content/` | Vous |
+| **Tier list, emblemes, sorts** | `src/data/` | Vous |
 
-1. Le heros est deja dans `src/data/roster.ts` avec ses attributs de base.
-   Reprendre **exactement** son `slug`.
-2. Ouvrir le fichier du role correspondant dans `src/data/heros/`
-   (`tanks.ts`, `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts`,
-   `supports.ts`).
-3. Ajouter une entree suivant le type `Heros` de `src/lib/types.ts`.
+> **Ne modifiez jamais `src/data/genere/` ni `public/visuels/` a la main.**
+> La prochaine synchronisation ecrasera vos changements. Si une donnee du jeu
+> est fausse, elle vient du wiki : la corriger la-bas resout le probleme pour
+> tout le monde, et definitivement.
 
-Le reste est automatique : page, plan du site, donnees structurees, liens de
-contre depuis les autres fiches.
+## Demarrer
 
-Conventions de redaction :
+```bash
+npm install
+cp .env.example .env.local     # renseigner SESSION_SECRET
+npm run dev                    # http://localhost:3001
+```
 
-- **`resume`** — une phrase. Sert aussi de meta description.
-- **`analyse`** — deux paragraphes separes par une ligne vide. Ce que le heros
-  fait reellement, puis ses limites. Pas de superlatifs.
-- **`competences`** — les recharges vont du niveau 1 au niveau maximum. Ne pas
-  reprendre les valeurs de degats : elles changent presque a chaque patch et
-  vieillissent mal.
+Les donnees et les visuels sont deja dans le depot : rien a synchroniser pour
+travailler.
+
+## Ecrire une analyse de heros
+
+1. Reprendre le `slug` **exact** depuis `src/data/genere/heros.json`.
+2. Ouvrir le fichier du role dans `src/data/heros/` (`tanks.ts`,
+   `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts`, `supports.ts`).
+3. Ajouter une entree suivant le type `AnalyseHeros` de `src/lib/types.ts`.
+
+N'y remettez pas le role, la position, la date de sortie ni la difficulte :
+tout cela vient deja de la synchronisation.
+
+### Ce qui fait une bonne analyse
+
+- **`resume`** — une phrase. Elle sert aussi de meta description.
+- **`analyse`** — deux paragraphes separes par une ligne vide : ce que le heros
+  fait reellement, puis ses limites. Pas de superlatifs. « Il est fort » n'est
+  pas une analyse ; « il gagne les combats longs tant que l'adversaire
+  n'achete pas de reduction de soins » en est une.
+- **`competences`** — recharges du niveau 1 au niveau maximum. Ne recopiez pas
+  les valeurs de degats : elles changent presque a chaque patch.
 - **`fortContre` / `faibleContre`** — des `slug`, pas des noms.
 - **`builds`** — le champ `contexte` explique *quand* prendre ce build. Un
-  build sans contexte n'apporte rien.
+  build sans contexte n'apprend rien a personne.
 
-## Ajouter un article
+## Ecrire un article
 
-Creer un fichier Markdown dans `content/actualites/` ou
-`content/patch-notes/`, nomme `AAAA-MM-JJ-titre-en-slug.md` — la date sert au
-tri et est retiree de l'URL.
+Un fichier Markdown dans `content/actualites/` ou `content/patch-notes/`,
+nomme `AAAA-MM-JJ-titre-en-slug.md`. La date sert au tri et disparait de l'URL.
 
 ```markdown
 ---
@@ -45,23 +64,28 @@ titre: "Titre de l'article"
 date: "2026-09-09"
 categorie: "Guide"        # Actualite | Patch | Esport | Guide
 auteur: "votre-pseudo"
-chapeau: "Une phrase de resume, utilisee en meta description et dans le flux RSS."
+chapeau: "Une phrase de resume, reprise en meta description et dans le flux RSS."
 motsCles: ["mot", "cle"]
 ---
 
 Le corps de l'article, en Markdown.
 ```
 
-## Corriger l'equilibrage
+## Modifier la tier list
 
-Apres un patch, les fichiers concernes sont generalement :
+Dans `src/data/tier-list.ts`. Mettre a jour `patch` et `miseAJour`.
 
-- `src/data/tier-list.ts` — penser a mettre a jour `patch` et `miseAJour`.
-- Les recharges dans `src/data/heros/*.ts`.
-- `src/data/objets.ts` si un objet a change.
+**Un placement sans argument n'est pas accepte.** Le champ `note` doit dire ce
+qui justifie la position au patch courant.
 
-Une modification de tier list doit s'accompagner d'une note qui **justifie** le
-placement. Un classement sans argument n'est pas accepte.
+## Relancer une synchronisation
+
+Elle tourne toute seule chaque lundi et ouvre une pull request. Pour la
+declencher a la main :
+
+```bash
+npm run sync -- --images
+```
 
 ## Avant d'ouvrir une pull request
 
@@ -71,5 +95,18 @@ npm run typecheck
 npm run build
 ```
 
-Les trois doivent passer. Les messages de commit sont en francais, a
-l'imperatif : « ajoute la fiche de Ling », « corrige la recharge de Khufra ».
+Les trois doivent passer — la verification automatique les relancera de toute
+facon.
+
+Messages de commit en francais, a l'imperatif : « ajoute l'analyse de Ling »,
+« corrige la recharge de Khufra ».
+
+## Style
+
+Le site est en francais. Les commentaires de code aussi : ils expliquent
+**pourquoi**, pas **quoi**. Si un commentaire paraphrase la ligne suivante, il
+vaut mieux l'enlever.
+
+Une remarque sur les accents : le code et la documentation de ce projet sont
+ecrits sans accents, par coherence avec l'existant. Les textes affiches aux
+visiteurs, eux, en portent normalement.
