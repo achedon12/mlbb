@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { Search } from "lucide-react";
 import type { ObjetGenere } from "@/lib/types";
@@ -29,11 +29,58 @@ export function ListeObjets({
 }) {
   const [recherche, setRecherche] = useState("");
   const [categorie, setCategorie] = useState<string | null>(null);
-  const [actif, setActif] = useState<string | null>(null);
+
+  const slugsConnus = useMemo(() => new Set(objets.map((o) => o.slug)), [objets]);
+
+  /**
+   * L'objet ouvert est designe par l'adresse, pas par un etat local.
+   *
+   * Les builds des fiches heros renvoient ici avec une ancre — par exemple
+   * `/objets#bloodlust-axe`. Faire de l'adresse la source unique evite d'avoir
+   * a synchroniser deux verites : le lien entrant, la selection et le lien
+   * partageable decrivent tous la meme chose.
+   */
+  const ancre = useSyncExternalStore(
+    (rafraichir) => {
+      window.addEventListener("hashchange", rafraichir);
+      return () => window.removeEventListener("hashchange", rafraichir);
+    },
+    () => window.location.hash,
+    // Rendu serveur : aucune ancre connue.
+    () => "",
+  );
+
+  const actif = useMemo(() => {
+    const cible = decodeURIComponent(ancre.replace(/^#/, ""));
+    return cible && slugsConnus.has(cible) ? cible : null;
+  }, [ancre, slugsConnus]);
+
+  /**
+   * Change l'objet ouvert.
+   *
+   * `replaceState` ne declenche pas `hashchange` : on previent donc nous-memes,
+   * sinon l'affichage ne suivrait pas le changement d'adresse.
+   */
+  function selectionner(slug: string | null) {
+    history.replaceState(null, "", slug ? `#${slug}` : window.location.pathname);
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  }
+
+  // Un objet designe par l'adresse doit etre visible : on amene la grille
+  // dessus plutot que de laisser l'utilisateur le chercher.
+  useEffect(() => {
+    if (!actif) return;
+    const image = requestAnimationFrame(() => {
+      document.getElementById(actif)?.scrollIntoView({ block: "center" });
+    });
+    return () => cancelAnimationFrame(image);
+  }, [actif]);
 
   const resultats = useMemo(() => {
     const terme = recherche.trim().toLowerCase();
     return objets.filter((o) => {
+      // L'objet ouvert reste toujours affiche, meme hors du filtre courant.
+      if (o.slug === actif) return true;
       if (categorie && o.categorie !== categorie) return false;
       if (!terme) return true;
       return (
@@ -42,9 +89,9 @@ export function ListeObjets({
         (o.passif ?? "").toLowerCase().includes(terme)
       );
     });
-  }, [objets, recherche, categorie]);
+  }, [objets, recherche, categorie, actif]);
 
-  const objet = resultats.find((o) => o.slug === actif) ?? null;
+  const objet = objets.find((o) => o.slug === actif) ?? null;
 
   return (
     <div>
@@ -101,7 +148,8 @@ export function ListeObjets({
               <li key={o.slug}>
                 <button
                   type="button"
-                  onClick={() => setActif(selectionne ? null : o.slug)}
+                  id={o.slug}
+                  onClick={() => selectionner(selectionne ? null : o.slug)}
                   aria-pressed={selectionne}
                   className={cn(
                     "biseau-sm flex h-full w-full flex-col items-center gap-1.5 border p-2 text-center transition-colors",
