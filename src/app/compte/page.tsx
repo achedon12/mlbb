@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { CircleAlert, LogOut, Trash2 } from "lucide-react";
 import { LiaisonCompte } from "@/components/liaison-compte";
 import { Carte } from "@/components/ui";
-import { rosterParSlug } from "@/data/roster";
+import { herosParSlug } from "@/lib/donnees";
 import { basculerFavori, deconnecter, delierCompteJeu } from "@/lib/actions";
 import { couleurAvatar, utilisateurCourant } from "@/lib/auth";
 import { db, type CompteJeu } from "@/lib/db";
@@ -140,13 +140,13 @@ export default async function PageCompte() {
                   href={`/heros/${slug}`}
                   className="px-3 py-2 text-sm text-craie-100 transition-colors hover:text-or-400"
                 >
-                  {rosterParSlug.get(slug)?.nom ?? slug}
+                  {herosParSlug.get(slug)?.nom ?? slug}
                 </Link>
                 <form action={basculerFavori}>
                   <input type="hidden" name="heros" value={slug} />
                   <button
                     type="submit"
-                    aria-label={`Retirer ${rosterParSlug.get(slug)?.nom ?? slug} des favoris`}
+                    aria-label={`Retirer ${herosParSlug.get(slug)?.nom ?? slug} des favoris`}
                     className="grid size-9 place-items-center text-craie-500 transition-colors hover:text-sang-500"
                   >
                     <Trash2 size={14} aria-hidden />

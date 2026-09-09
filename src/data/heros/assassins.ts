@@ -1,16 +1,9 @@
-import type { Heros } from "@/lib/types";
+import type { AnalyseHeros } from "@/lib/types";
 
-/** Fiches detaillees des assassins. Voir `index.ts` pour la convention d'ajout. */
-export const assassins: Heros[] = [
+/** Analyses des assassins. Donnees factuelles : voir la synchronisation. */
+export const assassins: AnalyseHeros[] = [
   {
     slug: "lancelot",
-    nom: "Lancelot",
-    titre: "L'Epee elegante",
-    roles: ["Assassin"],
-    lanes: ["Jungle"],
-    specialites: ["Charge", "Deplacement"],
-    sortie: 2017,
-    difficulte: 8,
     resume:
       "Assassin de jungle bati sur l'enchainement de dashs, avec une fenetre d'invulnerabilite pendant l'ultime.",
     analyse:
@@ -80,13 +73,6 @@ export const assassins: Heros[] = [
   },
   {
     slug: "gusion",
-    nom: "Gusion",
-    titre: "Le Lame de l'ombre",
-    roles: ["Assassin", "Mage"],
-    lanes: ["Jungle"],
-    specialites: ["Charge", "Explosion"],
-    sortie: 2018,
-    difficulte: 9,
     resume:
       "Assassin magique a combo : il pose ses dagues, se teleporte dessus, et les recupere pour infliger tous ses degats d'un coup.",
     analyse:
@@ -155,13 +141,6 @@ export const assassins: Heros[] = [
   },
   {
     slug: "ling",
-    nom: "Ling",
-    titre: "Le Rodeur des toits",
-    roles: ["Assassin"],
-    lanes: ["Jungle"],
-    specialites: ["Charge", "Deplacement"],
-    sortie: 2019,
-    difficulte: 9,
     resume:
       "Assassin qui se deplace sur les murs, hors de portee, et choisit son moment pour tomber sur une cible.",
     analyse:

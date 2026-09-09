@@ -20,11 +20,16 @@ export default function PageAPropos() {
       <div className="prose-mlbb mx-auto max-w-3xl px-4 py-14">
         <h2>Ce que contient le site</h2>
         <p>
-          Le roster complet du jeu avec ses attributs verifies, des fiches
-          detaillees pour les heros dont les competences, les builds et les
-          contres ont ete controles, une tier list argumentee, les objets, les
-          emblemes, les sorts de combat, ainsi que des guides et des resumes de
-          patch.
+          Le roster complet, les skins de chaque heros, les objets, les
+          emblemes, les sorts de combat et la liste des patchs. Ces donnees
+          sont extraites automatiquement du wiki communautaire chaque semaine :
+          un nouveau heros apparait ici sans que personne ait a le saisir.
+        </p>
+        <p>
+          S&apos;y ajoute ce qu&apos;aucune extraction ne produira : une analyse
+          redigee pour une partie des heros — ce qu&apos;ils font vraiment,
+          leurs builds, leurs contres — une tier list dont chaque placement est
+          argumente, et des guides de fond.
         </p>
 
         <h2>Ce qu&apos;il ne contient pas, et pourquoi</h2>
@@ -42,13 +47,14 @@ export default function PageAPropos() {
           fait la liaison de compte proposee ici, et rien de plus.
         </p>
         <p>
-          <strong>Aucune ressource graphique redistribuee.</strong> Les
-          portraits de heros affiches ici appartiennent a Moonton : ils ne sont
-          pas copies dans ce projet, mais charges depuis le wiki communautaire
-          qui les heberge. Aucun fichier d&apos;image du jeu ne figure dans le
-          depot. L&apos;identite visuelle du site — bleu nuit, or, angles
-          coupes — s&apos;inspire de celle du jeu sans en reprendre les
-          fichiers.
+          <strong>Les visuels appartiennent a Moonton.</strong> Portraits,
+          icones et illustrations de skins proviennent du wiki communautaire et
+          sont servis par ce site pour que rien ne depende d&apos;un domaine
+          tiers. Ils restent la propriete de Moonton, sont presents a des fins
+          d&apos;illustration, et seront retires sur demande de
+          l&apos;ayant droit. L&apos;identite visuelle du site — bleu nuit, or,
+          angles coupes — s&apos;inspire de celle du jeu sans en reprendre les
+          fichiers d&apos;interface.
         </p>
 
         <h2>La veille</h2>

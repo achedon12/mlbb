@@ -2,8 +2,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, Rss, Users } from "lucide-react";
 import { CarteHeros } from "@/components/carte-heros";
 import { BadgePalier, Carte, TitreSection } from "@/components/ui";
-import { herosDetails } from "@/data/heros";
-import { roster, rosterParSlug } from "@/data/roster";
+import { heros, herosAnalyses, herosParSlug, nombreSkins } from "@/lib/donnees";
 import { tierList } from "@/data/tier-list";
 import { tousLesArticles } from "@/lib/contenu";
 import { site } from "@/lib/site";
@@ -45,8 +44,17 @@ const donneesStructurees = {
 export default function Accueil() {
   const articles = tousLesArticles().slice(0, 3);
   const misEnAvant = ["khufra", "melissa", "yu-zhong", "kagura"]
-    .map((s) => rosterParSlug.get(s))
-    .filter((h): h is NonNullable<typeof h> => Boolean(h));
+    .map((s) => herosParSlug.get(s))
+    .filter((h): h is NonNullable<typeof h> => Boolean(h))
+    .map((h) => ({
+      slug: h.slug,
+      nom: h.nom,
+      roles: h.roles,
+      lanes: h.lanes,
+      visuels: h.visuels,
+      skins: h.skins.length,
+      analyse: h.analyse !== null,
+    }));
   const hautPalier = tierList.entrees.filter((e) => e.palier === "S+" || e.palier === "S");
 
   return (
@@ -77,9 +85,10 @@ export default function Accueil() {
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-craie-300">
-            {roster.length} heros, des builds argumentes, une tier list qui
+            {heros.length} heros et leurs {nombreSkins} skins, une tier list qui
             justifie chaque placement, les objets, les emblemes et les patch
-            notes. Sans liste sans contexte, ni classement sans explication.
+            notes. Les donnees se synchronisent seules ; l&apos;analyse
+            s&apos;ecrit a la main.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -100,9 +109,9 @@ export default function Accueil() {
 
           <dl className="mt-14 grid max-w-2xl grid-cols-3 gap-6 border-t border-nuit-800 pt-8">
             {[
-              { valeur: roster.length, label: "heros repertories" },
-              { valeur: herosDetails.length, label: "fiches completes" },
-              { valeur: tierList.patch, label: "patch couvert" },
+              { valeur: heros.length, label: "heros" },
+              { valeur: nombreSkins, label: "skins" },
+              { valeur: herosAnalyses.length, label: "analyses redigees" },
             ].map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
@@ -144,7 +153,7 @@ export default function Accueil() {
           </TitreSection>
           <ul className="grid gap-3 md:grid-cols-2">
             {hautPalier.map((e) => {
-              const h = rosterParSlug.get(e.heros);
+              const h = herosParSlug.get(e.heros);
               return (
                 <li key={e.heros}>
                   <Link

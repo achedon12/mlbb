@@ -1,36 +1,105 @@
 /**
  * Modele de donnees du site.
  *
- * Tout est type ici plutot que dans chaque fichier de donnees : le jeu evolue
- * a chaque patch, et une forme unique permet a un contributeur d'ajouter un
- * heros sans avoir a deviner les champs attendus.
+ * Deux origines distinctes, volontairement separees :
+ *
+ * - les **donnees factuelles** (heros, skins, objets, patchs) sont extraites
+ *   automatiquement du wiki par `npm run sync` et vivent dans
+ *   `src/data/genere/`. Elles ne se modifient pas a la main : la prochaine
+ *   synchronisation les ecraserait.
+ * - l'**analyse editoriale** (commentaire, builds, contres) est ecrite a la
+ *   main dans `src/data/heros/`. Elle vient se poser par-dessus, par `slug`.
+ *
+ * Cette separation permet au catalogue de rester a jour tout seul, sans
+ * empecher d'ecrire du contenu qu'aucune extraction ne produira jamais.
  */
 
-/** Les six roles officiels du jeu. */
-export type Role =
-  | "Tank"
-  | "Fighter"
-  | "Assassin"
-  | "Mage"
-  | "Marksman"
-  | "Support";
+/** Les six roles du jeu. */
+export type Role = "Tank" | "Fighter" | "Assassin" | "Mage" | "Marksman" | "Support";
 
-/** Les cinq positions de la carte, telles que nommees en file classee. */
+/** Positions, traduites depuis les noms anglais du wiki. */
 export type Lane = "Or" | "Experience" | "Milieu" | "Jungle" | "Roam";
 
-/** Etiquettes secondaires affichees par le jeu sous le role principal. */
-export type Specialite =
-  | "Degats"
-  | "Charge"
-  | "Poussee"
-  | "Deplacement"
-  | "Controle"
-  | "Soin"
-  | "Regeneration"
-  | "Protection"
-  | "Invocation"
-  | "Alliance"
-  | "Explosion";
+// ─────────────────────────────────────────────────────────────
+// Donnees extraites du wiki
+// ─────────────────────────────────────────────────────────────
+
+export interface NotesHeros {
+  offensive: number | null;
+  resistance: number | null;
+  effets: number | null;
+  difficulte: number | null;
+}
+
+export interface HerosGenere {
+  slug: string;
+  nom: string;
+  /** Identifiant du wiki, qui sert aussi a nommer les visuels. */
+  id: string;
+  titre: string | null;
+  roles: Role[];
+  lanes: Lane[];
+  /** Etiquettes secondaires : le wiki en utilise une quinzaine. */
+  specialites: string[];
+  sortie: string | null;
+  annee: string | null;
+  ressource: string | null;
+  typeDegats: string | null;
+  typeAttaque: string | null;
+  region: string | null;
+  notes: NotesHeros;
+  stats: Record<string, string> | null;
+}
+
+export interface Skin {
+  id: string;
+  nom: string;
+  sortie: string | null;
+  disponibilite: string | null;
+  rarete: string | null;
+  etiquette: string | null;
+  prix: Record<string, string>;
+}
+
+export interface ObjetGenere {
+  slug: string;
+  nom: string;
+  resume: string | null;
+  categorie: string;
+  prix: number | null;
+  bonus: string | null;
+  unique: string | null;
+  passif: string | null;
+  actif: string | null;
+  recette: string[];
+  pourQui: string | null;
+}
+
+export interface Patch {
+  version: string;
+  titre: string;
+  lien: string;
+}
+
+/** Chemins locaux des visuels d'un heros. Aucune URL externe. */
+export interface VisuelsHeros {
+  portrait: string | null;
+  icone: string | null;
+  skins: Record<string, string>;
+}
+
+export interface Synchro {
+  date: string;
+  source: string;
+  heros: number;
+  skins: number;
+  objets: number;
+  patchs: number;
+}
+
+// ─────────────────────────────────────────────────────────────
+// Analyse ecrite a la main
+// ─────────────────────────────────────────────────────────────
 
 export type TypeCompetence = "Passif" | "Competence 1" | "Competence 2" | "Ultime";
 
@@ -38,15 +107,15 @@ export interface Competence {
   type: TypeCompetence;
   nom: string;
   description: string;
-  /** Temps de recharge par niveau, en secondes. Vide pour un passif. */
+  /** Recharge par niveau, en secondes. Absente pour un passif. */
   recharge?: number[];
-  /** Cout en mana par niveau. Vide si le heros n'utilise pas de mana. */
+  /** Cout par niveau. Absent si le heros n'utilise pas de mana. */
   cout?: number[];
 }
 
 export interface Build {
   nom: string;
-  /** Pourquoi ce build, et dans quelle situation le choisir. */
+  /** Dans quelle situation choisir ce build. */
   contexte: string;
   objets: string[];
   embleme: string;
@@ -54,30 +123,29 @@ export interface Build {
   sort: string;
 }
 
-export interface Heros {
+/**
+ * Analyse d'un heros. Tous les champs factuels (roles, lanes, sortie…) sont
+ * absents ici : ils viennent de la synchronisation.
+ */
+export interface AnalyseHeros {
   slug: string;
-  nom: string;
-  /** Titre affiche sous le nom dans le jeu, ex. « Sombre Sorciere ». */
-  titre: string;
-  roles: Role[];
-  lanes: Lane[];
-  specialites: Specialite[];
-  /** Annee de sortie du heros. */
-  sortie: number;
-  /** 1 a 10, telle qu'annoncee par le jeu. */
-  difficulte: number;
-  /** Presentation courte, affichee en tete de fiche et en meta description. */
+  /** Presentation courte, reprise en meta description. */
   resume: string;
-  /** Analyse plus longue : ce que le heros fait vraiment, et ses limites. */
+  /** Deux paragraphes : ce que le heros fait, puis ses limites. */
   analyse: string;
   competences: Competence[];
   forces: string[];
   faiblesses: string[];
-  /** Slugs des heros contre lesquels il est a l'aise. */
   fortContre: string[];
-  /** Slugs des heros qui le mettent en difficulte. */
   faibleContre: string[];
   builds: Build[];
+}
+
+/** Un heros tel que l'affiche le site : donnees du wiki, analyse si elle existe. */
+export interface Heros extends HerosGenere {
+  visuels: VisuelsHeros;
+  skins: Skin[];
+  analyse: AnalyseHeros | null;
 }
 
 export type Palier = "S+" | "S" | "A" | "B" | "C";
@@ -86,7 +154,6 @@ export interface EntreeTierList {
   heros: string;
   palier: Palier;
   lane: Lane;
-  /** Ce qui justifie le placement au patch courant. */
   note: string;
 }
 
@@ -96,35 +163,13 @@ export interface TierList {
   entrees: EntreeTierList[];
 }
 
-export type CategorieObjet =
-  | "Attaque"
-  | "Magie"
-  | "Defense"
-  | "Mouvement"
-  | "Jungle"
-  | "Roam";
-
-export interface Objet {
-  slug: string;
-  nom: string;
-  categorie: CategorieObjet;
-  prix: number;
-  statistiques: Record<string, string>;
-  passif?: { nom: string; description: string };
-  /** A qui il sert, concretement. */
-  usage: string;
-}
-
 export interface Article {
   slug: string;
   titre: string;
-  /** Date ISO, utilisee pour le tri, le flux RSS et les donnees structurees. */
   date: string;
-  /** Chapeau : sert de meta description et de resume dans le flux. */
   chapeau: string;
   categorie: "Actualite" | "Patch" | "Esport" | "Guide";
   auteur: string;
   motsCles: string[];
-  /** Corps de l'article, en Markdown. */
   contenu: string;
 }

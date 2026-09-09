@@ -1,17 +1,10 @@
-import type { Heros } from "@/lib/types";
+import type { AnalyseHeros } from "@/lib/types";
 
-/** Fiches detaillees des tanks. Voir `index.ts` pour la convention d'ajout. */
-export const tanks: Heros[] = [
+/** Analyses des tanks. Donnees factuelles : voir la synchronisation. */
+export const tanks: AnalyseHeros[] = [
 
   {
     slug: "tigreal",
-    nom: "Tigreal",
-    titre: "Le Rempart",
-    roles: ["Tank"],
-    lanes: ["Roam"],
-    specialites: ["Controle", "Protection"],
-    sortie: 2016,
-    difficulte: 4,
     resume:
       "Tank d'engagement historique, capable de regrouper une equipe entiere dans un seul ultime.",
     analyse:
@@ -97,13 +90,6 @@ export const tanks: Heros[] = [
   },
   {
     slug: "franco",
-    nom: "Franco",
-    titre: "Le Boucher gele",
-    roles: ["Tank"],
-    lanes: ["Roam"],
-    specialites: ["Controle"],
-    sortie: 2016,
-    difficulte: 6,
     resume:
       "Tank d'initiation dont toute la partie tient dans un grappin : il retire un joueur de la carte.",
     analyse:
@@ -173,13 +159,6 @@ export const tanks: Heros[] = [
   },
   {
     slug: "khufra",
-    nom: "Khufra",
-    titre: "Le Roi bandage",
-    roles: ["Tank"],
-    lanes: ["Roam"],
-    specialites: ["Controle", "Charge"],
-    sortie: 2019,
-    difficulte: 6,
     resume:
       "Le tank qui punit la mobilite : sa competence 1 annule les dashs et les sauts adverses.",
     analyse:

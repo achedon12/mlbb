@@ -2,8 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
-import { CarteHeros } from "@/components/carte-heros";
-import type { EntreeRoster } from "@/data/roster";
+import { CarteHeros, type ApercuHeros } from "@/components/carte-heros";
 import type { Lane, Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -11,13 +10,13 @@ const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Suppo
 const LANES: Lane[] = ["Or", "Experience", "Milieu", "Jungle", "Roam"];
 
 /**
- * Liste filtrable.
+ * Catalogue filtrable.
  *
- * Le filtrage est fait sur le client a partir du roster complet, deja present
- * dans la page : cela evite un aller-retour reseau a chaque clic, pour un
- * volume de donnees qui reste petit.
+ * Le filtrage se fait sur le client a partir des donnees deja presentes dans
+ * la page : pas d'aller-retour reseau a chaque clic, pour un volume qui reste
+ * petit une fois les champs inutiles ecartes.
  */
-export function ListeHeros({ heros }: { heros: EntreeRoster[] }) {
+export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
   const [recherche, setRecherche] = useState("");
   const [role, setRole] = useState<Role | null>(null);
   const [lane, setLane] = useState<Lane | null>(null);
@@ -34,7 +33,7 @@ export function ListeHeros({ heros }: { heros: EntreeRoster[] }) {
 
   return (
     <div>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-4">
         <div className="relative max-w-md">
           <Search
             size={18}
@@ -55,21 +54,19 @@ export function ListeHeros({ heros }: { heros: EntreeRoster[] }) {
         <Filtres legende="Position" valeurs={LANES} actif={lane} onChange={setLane} />
       </div>
 
-      <p aria-live="polite" className="mt-8 text-sm text-craie-500">
+      <p aria-live="polite" className="mt-6 text-sm text-craie-500">
         {resultats.length} heros
         {resultats.length !== heros.length && ` sur ${heros.length}`}
       </p>
 
       {resultats.length > 0 ? (
-        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {resultats.map((h) => (
             <CarteHeros key={h.slug} heros={h} />
           ))}
         </div>
       ) : (
-        <p className="mt-10 text-craie-500">
-          Aucun heros ne correspond a ces filtres.
-        </p>
+        <p className="mt-10 text-craie-500">Aucun heros ne correspond a ces filtres.</p>
       )}
     </div>
   );

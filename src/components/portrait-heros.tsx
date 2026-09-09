@@ -1,40 +1,43 @@
 import Image from "next/image";
-import { initiales, portrait } from "@/lib/portraits";
 import { cn } from "@/lib/utils";
 
 /**
- * Portrait d'un heros.
+ * Portrait ou icone d'un heros.
  *
- * Rend un substitut lisible quand l'image n'est pas connue, plutot qu'un trou
- * dans la grille. `sizes` est fourni pour que Next ne serve pas une image de
- * 400 px de large dans une vignette de 56 px.
+ * Les visuels sont servis par le site lui-meme, jamais depuis un domaine
+ * tiers : `npm run sync -- --images` les range sous `public/visuels/`. Quand
+ * un visuel manque, on affiche les initiales plutot qu'un trou dans la grille.
  */
 export function PortraitHeros({
-  slug,
+  source,
   nom,
   taille = "vignette",
   className,
+  priorite = false,
 }: {
-  slug: string;
+  source: string | null;
   nom: string;
-  taille?: "vignette" | "fiche";
+  taille?: "icone" | "vignette" | "fiche" | "skin";
   className?: string;
+  priorite?: boolean;
 }) {
-  const source = portrait(slug);
-  const fiche = taille === "fiche";
+  const dimensions = {
+    icone: { classe: "size-10", px: "40px" },
+    vignette: { classe: "size-14", px: "56px" },
+    fiche: { classe: "h-40 w-28", px: "112px" },
+    skin: { classe: "aspect-[240/390] w-full", px: "(min-width: 640px) 200px, 45vw" },
+  }[taille];
 
   const cadre = cn(
     "biseau-sm relative shrink-0 overflow-hidden bg-nuit-800",
-    fiche ? "size-28" : "size-14",
+    dimensions.classe,
     className,
   );
 
   if (!source) {
     return (
       <span className={cn(cadre, "grid place-items-center")} aria-hidden>
-        <span className={cn("font-titre font-bold text-craie-500", fiche ? "text-3xl" : "text-base")}>
-          {initiales(nom)}
-        </span>
+        <span className="font-titre font-bold text-craie-500">{initiales(nom)}</span>
       </span>
     );
   }
@@ -45,9 +48,19 @@ export function PortraitHeros({
         src={source}
         alt={`Portrait de ${nom}`}
         fill
-        sizes={fiche ? "112px" : "56px"}
+        sizes={dimensions.px}
+        priority={priorite}
         className="object-cover"
       />
     </span>
   );
+}
+
+function initiales(nom: string): string {
+  return nom
+    .split(/[\s'-]/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((m) => m[0]?.toUpperCase() ?? "")
+    .join("");
 }

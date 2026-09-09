@@ -1,4 +1,4 @@
-import type { Heros } from "@/lib/types";
+import type { AnalyseHeros } from "@/lib/types";
 import { assassins } from "./assassins";
 import { fighters } from "./fighters";
 import { mages } from "./mages";
@@ -7,14 +7,17 @@ import { supports } from "./supports";
 import { tanks } from "./tanks";
 
 /**
- * Toutes les fiches detaillees, regroupees par role d'origine.
+ * Analyses ecrites a la main, regroupees par role.
  *
- * Pour ajouter une fiche : completer le fichier du role correspondant en
- * suivant le type `Heros`, en reprenant exactement le `slug` deja present dans
- * `roster.ts`. Le site fait le reste — page, plan du site, donnees
- * structurees, liens de contre.
+ * Elles ne contiennent que ce qu'aucune extraction ne produira : le
+ * commentaire, les competences redigees, les contres et les builds. Tout le
+ * reste — roles, positions, sortie, difficulte, skins, visuels — vient de la
+ * synchronisation du wiki et n'a pas a etre recopie ici.
+ *
+ * Pour ajouter une analyse : reprendre le `slug` exact tel qu'il apparait dans
+ * `src/data/genere/heros.json`, et suivre le type `AnalyseHeros`.
  */
-export const herosDetails: Heros[] = [
+export const analyses: AnalyseHeros[] = [
   ...tanks,
   ...fighters,
   ...assassins,
@@ -22,5 +25,3 @@ export const herosDetails: Heros[] = [
   ...marksmen,
   ...supports,
 ];
-
-export const detailParSlug = new Map(herosDetails.map((h) => [h.slug, h]));

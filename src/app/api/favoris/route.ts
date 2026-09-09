@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { utilisateurCourant } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { rosterParSlug } from "@/data/roster";
+import { herosParSlug } from "@/lib/donnees";
 
 /**
  * Favoris.
@@ -33,9 +33,9 @@ export async function POST(requete: Request) {
   }
 
   const { heros } = (await requete.json()) as { heros?: string };
-  // On n'accepte qu'un slug present au roster : la table ne doit pas se remplir
+  // On n'accepte qu'un slug connu du catalogue : la table ne doit pas se remplir
   // de valeurs arbitraires envoyees par un client.
-  if (!heros || !rosterParSlug.has(heros)) {
+  if (!heros || !herosParSlug.has(heros)) {
     return NextResponse.json({ erreur: "Heros inconnu" }, { status: 400 });
   }
 

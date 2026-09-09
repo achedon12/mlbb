@@ -1,16 +1,9 @@
-import type { Heros } from "@/lib/types";
+import type { AnalyseHeros } from "@/lib/types";
 
-/** Fiches detaillees des soutiens. Voir `index.ts` pour la convention d'ajout. */
-export const supports: Heros[] = [
+/** Analyses des soutiens. Donnees factuelles : voir la synchronisation. */
+export const supports: AnalyseHeros[] = [
   {
     slug: "estes",
-    nom: "Estes",
-    titre: "Le Roi des elfes",
-    roles: ["Support"],
-    lanes: ["Roam"],
-    specialites: ["Soin"],
-    sortie: 2017,
-    difficulte: 4,
     resume:
       "Le soin le plus brut du jeu : son ultime regenere l'equipe entiere pendant plusieurs secondes.",
     analyse:
@@ -79,13 +72,6 @@ export const supports: Heros[] = [
   },
   {
     slug: "angela",
-    nom: "Angela",
-    titre: "Calins moelleux",
-    roles: ["Support"],
-    lanes: ["Roam"],
-    specialites: ["Soin", "Alliance"],
-    sortie: 2018,
-    difficulte: 6,
     resume:
       "Soutien qui s'attache a un allie a travers la carte pour le renforcer et le proteger a distance.",
     analyse:
@@ -154,13 +140,6 @@ export const supports: Heros[] = [
   },
   {
     slug: "mathilda",
-    nom: "Mathilda",
-    titre: "La Danseuse du vent",
-    roles: ["Support", "Assassin"],
-    lanes: ["Roam"],
-    specialites: ["Deplacement", "Alliance"],
-    sortie: 2020,
-    difficulte: 7,
     resume:
       "Soutien de mobilite : elle emmene un allie avec elle, pour engager ou pour extraire.",
     analyse:
