@@ -1,0 +1,13 @@
+{
+  "images": {
+    "guerrier": "https://static.wikia.nocookie.net/mobile-legends/images/9/97/Warrior.png",
+    "elite": "https://static.wikia.nocookie.net/mobile-legends/images/e/e3/Elite.png",
+    "maitre": "https://static.wikia.nocookie.net/mobile-legends/images/6/6b/Master.png",
+    "grand-maitre": "https://static.wikia.nocookie.net/mobile-legends/images/2/28/Grandmaster.png",
+    "epique": "https://static.wikia.nocookie.net/mobile-legends/images/2/26/Epic.png",
+    "mythique": "https://static.wikia.nocookie.net/mobile-legends/images/e/ec/Mythic.png",
+    "mythique-honneur": "https://static.wikia.nocookie.net/mobile-legends/images/c/c8/Mythical_Honor.png",
+    "mythique-gloire": "https://static.wikia.nocookie.net/mobile-legends/images/4/42/Mythical_Glory.png",
+    "mythique-immortel": "https://static.wikia.nocookie.net/mobile-legends/images/3/3c/Mythical_Immortal.png"
+  }
+}
