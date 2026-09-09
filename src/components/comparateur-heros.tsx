@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Palier } from "@/lib/types";
@@ -46,29 +46,41 @@ const ATTRIBUTS = [
  * chaque attribut, la meilleure valeur est mise en avant, pour trancher d'un
  * coup d'oeil plutot que de comparer chiffre a chiffre.
  */
-export function ComparateurHeros({
-  heros,
-  initialGauche,
-  initialDroite,
-}: {
-  heros: HerosComparable[];
-  initialGauche?: string;
-  initialDroite?: string;
-}) {
+export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
   const parSlug = useMemo(() => new Map(heros.map((h) => [h.slug, h])), [heros]);
-  const [gauche, setGauche] = useState(initialGauche ?? heros[0]?.slug ?? "");
-  const [droite, setDroite] = useState(initialDroite ?? heros[1]?.slug ?? "");
+  const [gauche, setGauche] = useState(heros[0]?.slug ?? "");
+  const [droite, setDroite] = useState(heros[1]?.slug ?? "");
 
   const a = parSlug.get(gauche) ?? null;
   const b = parSlug.get(droite) ?? null;
 
-  // Reporter le choix dans l'URL, sans recharger : la comparaison devient
-  // partageable et se retrouve dans l'historique.
+  // Le choix passe par l'URL cote client, ce qui garde la page statique et rend
+  // la comparaison partageable. Le rendu serveur et la premiere hydratation
+  // partent des deux premiers heros (identiques des deux cotes, donc sans
+  // desaccord) ; apres le montage seulement, on adopte ?a=&b= s'ils designent
+  // des heros connus, puis chaque changement se reporte dans l'URL.
+  const monte = useRef(false);
   useEffect(() => {
+    if (!monte.current) {
+      monte.current = true;
+      const params = new URLSearchParams(window.location.search);
+      const ia = params.get("a");
+      const ib = params.get("b");
+      let lu = false;
+      if (ia && parSlug.has(ia)) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- lecture de l'URL apres montage
+        setGauche(ia);
+        lu = true;
+      }
+      if (ib && parSlug.has(ib)) {
+        setDroite(ib);
+        lu = true;
+      }
+      if (lu) return;
+    }
     if (!gauche || !droite) return;
-    const params = new URLSearchParams({ a: gauche, b: droite });
-    window.history.replaceState(null, "", `?${params.toString()}`);
-  }, [gauche, droite]);
+    window.history.replaceState(null, "", `?${new URLSearchParams({ a: gauche, b: droite })}`);
+  }, [gauche, droite, parSlug]);
 
   return (
     <div>

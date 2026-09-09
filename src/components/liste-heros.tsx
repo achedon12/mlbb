@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Search } from "lucide-react";
 import { CarteHeros, type ApercuHeros } from "@/components/carte-heros";
 import type { Lane, Role } from "@/lib/types";
@@ -24,21 +24,28 @@ const RANG_PALIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
  * la page : pas d'aller-retour reseau a chaque clic, pour un volume qui reste
  * petit une fois les champs inutiles ecartes.
  */
-export function ListeHeros({
-  heros,
-  rechercheInitiale = "",
-}: {
-  heros: ApercuHeros[];
-  rechercheInitiale?: string;
-}) {
-  const [recherche, setRecherche] = useState(rechercheInitiale);
+export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
+  const [recherche, setRecherche] = useState("");
   const [role, setRole] = useState<Role | null>(null);
   const [lane, setLane] = useState<Lane | null>(null);
   const [tri, setTri] = useState<Tri>("nom");
 
-  // La recherche se reflete dans l'URL (?q=) : elle devient partageable, et le
-  // moteur peut y renvoyer directement via son action de recherche.
+  // La recherche passe par l'URL cote client, ce qui garde la page statique et
+  // rend la recherche partageable — et joignable via l'action de recherche du
+  // moteur. Serveur et premiere hydratation partent de vide (identiques, donc
+  // sans desaccord) ; apres le montage seulement, on adopte ?q=, puis chaque
+  // frappe se reporte dans l'URL.
+  const monte = useRef(false);
   useEffect(() => {
+    if (!monte.current) {
+      monte.current = true;
+      const q = new URLSearchParams(window.location.search).get("q");
+      if (q) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- lecture de l'URL apres montage
+        setRecherche(q);
+        return;
+      }
+    }
     const terme = recherche.trim();
     const params = new URLSearchParams(window.location.search);
     if (terme) params.set("q", terme);
