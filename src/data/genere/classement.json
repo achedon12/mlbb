@@ -1,0 +1,662 @@
+{
+  "marcel": {
+    "victoire": 58.68,
+    "ban": 36.56,
+    "selection": 0.29
+  },
+  "rafaela": {
+    "victoire": 58.49,
+    "ban": 16.23,
+    "selection": 1.27
+  },
+  "melissa": {
+    "victoire": 56.85,
+    "ban": 23.81,
+    "selection": 1.72
+  },
+  "masha": {
+    "victoire": 56.33,
+    "ban": 0.27,
+    "selection": 0.11
+  },
+  "gloo": {
+    "victoire": 54.71,
+    "ban": 48.44,
+    "selection": 0.7
+  },
+  "khufra": {
+    "victoire": 54.52,
+    "ban": 2.12,
+    "selection": 0.34
+  },
+  "minotaur": {
+    "victoire": 54.51,
+    "ban": 5.13,
+    "selection": 0.9
+  },
+  "estes": {
+    "victoire": 54.2,
+    "ban": 38.71,
+    "selection": 0.72
+  },
+  "lolita": {
+    "victoire": 53.75,
+    "ban": 0.29,
+    "selection": 0.09
+  },
+  "miya": {
+    "victoire": 53.52,
+    "ban": 21.11,
+    "selection": 3.6
+  },
+  "floryn": {
+    "victoire": 53.41,
+    "ban": 17.7,
+    "selection": 1.2
+  },
+  "lukas": {
+    "victoire": 53.33,
+    "ban": 4.96,
+    "selection": 0.64
+  },
+  "diggie": {
+    "victoire": 53.23,
+    "ban": 4.62,
+    "selection": 0.21
+  },
+  "barats": {
+    "victoire": 52.95,
+    "ban": 8.96,
+    "selection": 1.02
+  },
+  "sun": {
+    "victoire": 52.94,
+    "ban": 33.14,
+    "selection": 1.5
+  },
+  "belerick": {
+    "victoire": 52.92,
+    "ban": 60.98,
+    "selection": 1.65
+  },
+  "valir": {
+    "victoire": 52.83,
+    "ban": 2.01,
+    "selection": 0.87
+  },
+  "hanabi": {
+    "victoire": 52.62,
+    "ban": 11.24,
+    "selection": 3.25
+  },
+  "eudora": {
+    "victoire": 52.51,
+    "ban": 61.73,
+    "selection": 1.87
+  },
+  "popol-and-kupa": {
+    "victoire": 52.46,
+    "ban": 0.22,
+    "selection": 0.27
+  },
+  "gord": {
+    "victoire": 52.31,
+    "ban": 1.15,
+    "selection": 0.77
+  },
+  "benedetta": {
+    "victoire": 52.26,
+    "ban": 0.46,
+    "selection": 0.37
+  },
+  "zhask": {
+    "victoire": 52.22,
+    "ban": 0.54,
+    "selection": 0.35
+  },
+  "ling": {
+    "victoire": 52.09,
+    "ban": 2.12,
+    "selection": 0.8
+  },
+  "carmilla": {
+    "victoire": 52.05,
+    "ban": 3.01,
+    "selection": 0.96
+  },
+  "yi-sun-shin": {
+    "victoire": 52.04,
+    "ban": 14.36,
+    "selection": 1.9
+  },
+  "hirara": {
+    "victoire": 51.99,
+    "ban": 62.62,
+    "selection": 0.65
+  },
+  "atlas": {
+    "victoire": 51.8,
+    "ban": 20.51,
+    "selection": 1.13
+  },
+  "bane": {
+    "victoire": 51.74,
+    "ban": 0.21,
+    "selection": 0.31
+  },
+  "silvanna": {
+    "victoire": 51.59,
+    "ban": 2.35,
+    "selection": 1.09
+  },
+  "kadita": {
+    "victoire": 51.47,
+    "ban": 4.54,
+    "selection": 0.88
+  },
+  "fredrinn": {
+    "victoire": 51.25,
+    "ban": 2.75,
+    "selection": 0.53
+  },
+  "natalia": {
+    "victoire": 51.21,
+    "ban": 2.39,
+    "selection": 0.33
+  },
+  "cyclops": {
+    "victoire": 51.15,
+    "ban": 0.33,
+    "selection": 0.66
+  },
+  "yve": {
+    "victoire": 51.14,
+    "ban": 0.06,
+    "selection": 0.05
+  },
+  "minsitthar": {
+    "victoire": 51.05,
+    "ban": 9.18,
+    "selection": 0.68
+  },
+  "kagura": {
+    "victoire": 51.02,
+    "ban": 1.04,
+    "selection": 0.69
+  },
+  "paquito": {
+    "victoire": 50.9,
+    "ban": 51.25,
+    "selection": 1.81
+  },
+  "edith": {
+    "victoire": 50.89,
+    "ban": 0.12,
+    "selection": 0.22
+  },
+  "leomord": {
+    "victoire": 50.89,
+    "ban": 0.78,
+    "selection": 0.34
+  },
+  "zetian": {
+    "victoire": 50.88,
+    "ban": 6.83,
+    "selection": 1.56
+  },
+  "guinevere": {
+    "victoire": 50.83,
+    "ban": 8.32,
+    "selection": 1.13
+  },
+  "irithel": {
+    "victoire": 50.79,
+    "ban": 0.35,
+    "selection": 0.43
+  },
+  "khaleed": {
+    "victoire": 50.78,
+    "ban": 0.12,
+    "selection": 0.14
+  },
+  "uranus": {
+    "victoire": 50.74,
+    "ban": 0.56,
+    "selection": 0.43
+  },
+  "alice": {
+    "victoire": 50.62,
+    "ban": 3.6,
+    "selection": 0.58
+  },
+  "aamon": {
+    "victoire": 50.58,
+    "ban": 3.63,
+    "selection": 0.74
+  },
+  "faramis": {
+    "victoire": 50.57,
+    "ban": 0.33,
+    "selection": 0.09
+  },
+  "hilda": {
+    "victoire": 50.55,
+    "ban": 5.23,
+    "selection": 0.59
+  },
+  "terizla": {
+    "victoire": 50.52,
+    "ban": 0.26,
+    "selection": 0.37
+  },
+  "aulus": {
+    "victoire": 50.51,
+    "ban": 0.24,
+    "selection": 0.16
+  },
+  "badang": {
+    "victoire": 50.43,
+    "ban": 1.08,
+    "selection": 1.01
+  },
+  "obsidia": {
+    "victoire": 50.3,
+    "ban": 2.02,
+    "selection": 0.96
+  },
+  "saber": {
+    "victoire": 50.29,
+    "ban": 27.03,
+    "selection": 1.03
+  },
+  "odette": {
+    "victoire": 50.27,
+    "ban": 0.33,
+    "selection": 0.56
+  },
+  "vexana": {
+    "victoire": 50.22,
+    "ban": 1.83,
+    "selection": 1.82
+  },
+  "julian": {
+    "victoire": 50.21,
+    "ban": 1.64,
+    "selection": 0.91
+  },
+  "akai": {
+    "victoire": 50.18,
+    "ban": 3.59,
+    "selection": 0.46
+  },
+  "vale": {
+    "victoire": 50.13,
+    "ban": 0.31,
+    "selection": 0.57
+  },
+  "cecilion": {
+    "victoire": 50.1,
+    "ban": 0.22,
+    "selection": 0.62
+  },
+  "dyrroth": {
+    "victoire": 50.08,
+    "ban": 2.7,
+    "selection": 2.04
+  },
+  "x-borg": {
+    "victoire": 49.71,
+    "ban": 2.71,
+    "selection": 0.63
+  },
+  "johnson": {
+    "victoire": 49.6,
+    "ban": 2.33,
+    "selection": 0.71
+  },
+  "hanzo": {
+    "victoire": 49.53,
+    "ban": 42.57,
+    "selection": 0.69
+  },
+  "sora": {
+    "victoire": 49.48,
+    "ban": 4.81,
+    "selection": 0.61
+  },
+  "beatrix": {
+    "victoire": 49.44,
+    "ban": 0.64,
+    "selection": 0.72
+  },
+  "suyou": {
+    "victoire": 49.39,
+    "ban": 1.53,
+    "selection": 0.95
+  },
+  "thamuz": {
+    "victoire": 49.23,
+    "ban": 2.51,
+    "selection": 0.91
+  },
+  "ruby": {
+    "victoire": 49.14,
+    "ban": 0.44,
+    "selection": 0.36
+  },
+  "roger": {
+    "victoire": 49.13,
+    "ban": 0.11,
+    "selection": 0.3
+  },
+  "natan": {
+    "victoire": 49.08,
+    "ban": 0.15,
+    "selection": 0.29
+  },
+  "lunox": {
+    "victoire": 49.06,
+    "ban": 0.18,
+    "selection": 0.22
+  },
+  "yin": {
+    "victoire": 49.04,
+    "ban": 2.38,
+    "selection": 0.57
+  },
+  "alucard": {
+    "victoire": 49,
+    "ban": 0.38,
+    "selection": 0.46
+  },
+  "yu-zhong": {
+    "victoire": 48.95,
+    "ban": 1.26,
+    "selection": 0.66
+  },
+  "hayabusa": {
+    "victoire": 48.88,
+    "ban": 3.85,
+    "selection": 0.92
+  },
+  "lylia": {
+    "victoire": 48.85,
+    "ban": 0.56,
+    "selection": 0.51
+  },
+  "novaria": {
+    "victoire": 48.83,
+    "ban": 7.3,
+    "selection": 1.78
+  },
+  "gusion": {
+    "victoire": 48.79,
+    "ban": 6,
+    "selection": 1.46
+  },
+  "aurora": {
+    "victoire": 48.77,
+    "ban": 0.51,
+    "selection": 0.61
+  },
+  "joy": {
+    "victoire": 48.73,
+    "ban": 0.27,
+    "selection": 0.16
+  },
+  "xavier": {
+    "victoire": 48.65,
+    "ban": 0.19,
+    "selection": 0.67
+  },
+  "aldous": {
+    "victoire": 48.64,
+    "ban": 0.51,
+    "selection": 0.37
+  },
+  "nolan": {
+    "victoire": 48.6,
+    "ban": 1.11,
+    "selection": 0.62
+  },
+  "angela": {
+    "victoire": 48.54,
+    "ban": 10.15,
+    "selection": 1.67
+  },
+  "moskov": {
+    "victoire": 48.43,
+    "ban": 0.36,
+    "selection": 0.97
+  },
+  "chang-e": {
+    "victoire": 48.38,
+    "ban": 0.5,
+    "selection": 0.7
+  },
+  "selena": {
+    "victoire": 48.37,
+    "ban": 5.16,
+    "selection": 1.42
+  },
+  "chip": {
+    "victoire": 48.35,
+    "ban": 0.42,
+    "selection": 0.05
+  },
+  "lapu-lapu": {
+    "victoire": 48.3,
+    "ban": 0.65,
+    "selection": 0.41
+  },
+  "esmeralda": {
+    "victoire": 48.3,
+    "ban": 2.8,
+    "selection": 0.97
+  },
+  "helcurt": {
+    "victoire": 48.18,
+    "ban": 12.89,
+    "selection": 0.7
+  },
+  "arlott": {
+    "victoire": 48.14,
+    "ban": 0.39,
+    "selection": 0.38
+  },
+  "brody": {
+    "victoire": 48.08,
+    "ban": 0.78,
+    "selection": 0.67
+  },
+  "zhuxin": {
+    "victoire": 48.07,
+    "ban": 0.46,
+    "selection": 0.12
+  },
+  "clint": {
+    "victoire": 48.07,
+    "ban": 0.54,
+    "selection": 0.61
+  },
+  "jawhead": {
+    "victoire": 48.05,
+    "ban": 0.4,
+    "selection": 0.39
+  },
+  "ixia": {
+    "victoire": 47.93,
+    "ban": 1.24,
+    "selection": 0.77
+  },
+  "hylos": {
+    "victoire": 47.91,
+    "ban": 0.46,
+    "selection": 0.33
+  },
+  "phoveus": {
+    "victoire": 47.8,
+    "ban": 0.77,
+    "selection": 0.27
+  },
+  "harley": {
+    "victoire": 47.7,
+    "ban": 8.48,
+    "selection": 1.01
+  },
+  "kimmy": {
+    "victoire": 47.7,
+    "ban": 0.36,
+    "selection": 0.51
+  },
+  "nana": {
+    "victoire": 47.54,
+    "ban": 4.73,
+    "selection": 1.83
+  },
+  "freya": {
+    "victoire": 47.52,
+    "ban": 2.07,
+    "selection": 0.55
+  },
+  "kaja": {
+    "victoire": 47.47,
+    "ban": 35.82,
+    "selection": 0.58
+  },
+  "grock": {
+    "victoire": 47.41,
+    "ban": 0.93,
+    "selection": 0.34
+  },
+  "layla": {
+    "victoire": 47.41,
+    "ban": 1.36,
+    "selection": 1.16
+  },
+  "pharsa": {
+    "victoire": 47.37,
+    "ban": 0.28,
+    "selection": 0.38
+  },
+  "luo-yi": {
+    "victoire": 47.37,
+    "ban": 0.08,
+    "selection": 0.15
+  },
+  "martis": {
+    "victoire": 47.32,
+    "ban": 0.55,
+    "selection": 0.55
+  },
+  "bruno": {
+    "victoire": 47.24,
+    "ban": 0.12,
+    "selection": 0.14
+  },
+  "baxia": {
+    "victoire": 46.98,
+    "ban": 0.14,
+    "selection": 0.06
+  },
+  "balmond": {
+    "victoire": 46.74,
+    "ban": 0.63,
+    "selection": 0.78
+  },
+  "alpha": {
+    "victoire": 46.57,
+    "ban": 0.61,
+    "selection": 0.91
+  },
+  "cici": {
+    "victoire": 46.43,
+    "ban": 0.88,
+    "selection": 0.24
+  },
+  "lesley": {
+    "victoire": 46.41,
+    "ban": 11.23,
+    "selection": 1.73
+  },
+  "claude": {
+    "victoire": 46.37,
+    "ban": 0.3,
+    "selection": 0.75
+  },
+  "karrie": {
+    "victoire": 46.25,
+    "ban": 1.22,
+    "selection": 0.53
+  },
+  "zilong": {
+    "victoire": 46.16,
+    "ban": 0.71,
+    "selection": 0.79
+  },
+  "karina": {
+    "victoire": 46.06,
+    "ban": 1.8,
+    "selection": 0.56
+  },
+  "gatotkaca": {
+    "victoire": 45.89,
+    "ban": 0.42,
+    "selection": 0.61
+  },
+  "harith": {
+    "victoire": 45.72,
+    "ban": 0.11,
+    "selection": 0.14
+  },
+  "tigreal": {
+    "victoire": 45.51,
+    "ban": 7.71,
+    "selection": 1.91
+  },
+  "chou": {
+    "victoire": 45.39,
+    "ban": 3.43,
+    "selection": 0.97
+  },
+  "wanwan": {
+    "victoire": 45.39,
+    "ban": 0.16,
+    "selection": 0.12
+  },
+  "mathilda": {
+    "victoire": 44.79,
+    "ban": 0.36,
+    "selection": 0.2
+  },
+  "valentina": {
+    "victoire": 44.26,
+    "ban": 0.16,
+    "selection": 0.16
+  },
+  "kalea": {
+    "victoire": 43.45,
+    "ban": 0.28,
+    "selection": 0.1
+  },
+  "lancelot": {
+    "victoire": 42.74,
+    "ban": 0.62,
+    "selection": 0.5
+  },
+  "franco": {
+    "victoire": 42.73,
+    "ban": 4.4,
+    "selection": 1
+  },
+  "fanny": {
+    "victoire": 42.07,
+    "ban": 2.22,
+    "selection": 0.57
+  },
+  "granger": {
+    "victoire": 41.54,
+    "ban": 1.83,
+    "selection": 1.17
+  }
+}
