@@ -1,0 +1,800 @@
+{
+  "aamon": [
+    "Invisible Armor",
+    "Soul Shards",
+    null,
+    "Endless Shards"
+  ],
+  "akai": [
+    "Tai Chi",
+    "Headbutt",
+    "Body Slam",
+    "Heavy Spin"
+  ],
+  "aldous": [
+    "Contract: Transform",
+    "Contract: Soul Steal",
+    "Contract: Explosion",
+    "Contract: Chase Fate"
+  ],
+  "alice": [
+    "Crimson Blood Banquet",
+    "Crimson Gleam",
+    null,
+    "Throne of Ruin"
+  ],
+  "alpha": [
+    "Beta, Advance!",
+    "Rotary Impact",
+    "Force Swing",
+    "Spear of Alpha"
+  ],
+  "alucard": [
+    "Pursuit",
+    "Groundsplitter",
+    "Whirling Smash",
+    "Fission Wave"
+  ],
+  "angela": [
+    "Smart Heart",
+    "Love Waves",
+    "Puppet-on-a-String",
+    "Heartguard"
+  ],
+  "arlott": [
+    "Demon Gaze",
+    "Dauntless Strike",
+    "Vengeance",
+    "Final Slash"
+  ],
+  "atlas": [
+    "Frigid Breath",
+    "Annihilate",
+    "Perfect Match",
+    "Fatal Links"
+  ],
+  "aulus": [
+    "Fighting Spirit",
+    "Aulus, Charge!",
+    "The Power of Axe",
+    "Cleaving Axe"
+  ],
+  "aurora": [
+    "Pride of Ice",
+    "Hailstone Blast",
+    null,
+    null
+  ],
+  "badang": [
+    "Chivalry Fist",
+    "Fist Wind",
+    "Fist Break",
+    "Fist Crack"
+  ],
+  "balmond": [
+    "Bloodthirst",
+    "Soul Lock",
+    "Cyclone Sweep",
+    null
+  ],
+  "bane": [
+    "Shark Bite",
+    "Crab Claw Cannon",
+    "Ale",
+    "Deadly Catch"
+  ],
+  "barats": [
+    "Big Guy",
+    "So-Called Teamwork",
+    "Missile \"Expert\"",
+    "Detona's Welcome"
+  ],
+  "baxia": [
+    "Baxia Mark",
+    "Baxia-Shield Unity",
+    "Shield of Spirit",
+    "Tortoise's Puissance"
+  ],
+  "beatrix": [
+    "Mechanical Genius",
+    "Masterful Gunner",
+    "Tactical Reposition",
+    "Renner's Apathy"
+  ],
+  "belerick": [
+    null,
+    "Ancient Seed",
+    "Nature's Strike",
+    "Wrath of Dryad"
+  ],
+  "benedetta": [
+    "Elapsed Daytime",
+    "Phantom Slash",
+    "An Eye for An Eye",
+    "Alecto: Final Blow"
+  ],
+  "brody": [
+    "Abyss Corrosion",
+    "Abyss Impact",
+    "Corrosive Strike",
+    "Torn-Apart Memory"
+  ],
+  "bruno": [
+    "Mecha Legs",
+    "Volley Shot",
+    "Flying Tackle",
+    "Worldie"
+  ],
+  "carmilla": [
+    "Vampire Pact",
+    "Crimson Flower",
+    "Bloodbath",
+    "Curse of Blood"
+  ],
+  "cecilion": [
+    "Overflowing",
+    "Bat Impact",
+    "Sanguine Claws",
+    "Bats Feast"
+  ],
+  "chang-e": [
+    "Trouble Maker",
+    "Starmoon Shockwave",
+    "Crescent Moon",
+    "Meteor Shower"
+  ],
+  "chip": [
+    "Snack Time!",
+    "Crash Course",
+    "Overtime",
+    "Shortcut"
+  ],
+  "chou": [
+    "Only Fast",
+    "Jeet Kune Do",
+    "Shunpo",
+    "The Way of Dragon"
+  ],
+  "cici": [
+    "Performer's Delight",
+    "Yo-Yo Blitz",
+    "Buoyant Bounce",
+    "Curtain Call"
+  ],
+  "claude": [
+    "Battle Side-by-side",
+    "Art of Thievery",
+    "Battle Mirror Image",
+    "Blazing Duet"
+  ],
+  "clint": [
+    "Double Shot",
+    "Quick Draw",
+    "Trapping Recoil",
+    "Grenade Bombardment"
+  ],
+  "cyclops": [
+    "Starlit Hourglass",
+    "Stardust Shock",
+    "Planets Attack",
+    "Star Power Lockdown"
+  ],
+  "diggie": [
+    "Young Again",
+    "Auto Alarm Bomb",
+    "Reverse Time",
+    "Time Journey"
+  ],
+  "dori": [
+    "Merry Mark",
+    "Timid Courage",
+    "Banner Twirl",
+    "Starlit Parade"
+  ],
+  "dyrroth": [
+    "Wrath of the Abyss",
+    "Burst Strike",
+    "Spectre Step",
+    "Abysm Strike"
+  ],
+  "edith": [
+    "Overload",
+    "Earth Shatter",
+    "Onward",
+    "Primal Wrath"
+  ],
+  "esmeralda": [
+    "Starmoon Casket",
+    "Frostmoon Shield",
+    "Stardust Dance",
+    "Falling Starmoon"
+  ],
+  "estes": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "eudora": [
+    "Superconductor",
+    "Forked Lightning",
+    "Ball Lightning",
+    "Thunder's Wrath"
+  ],
+  "fanny": [
+    "Air Superiority",
+    "Tornado Strike",
+    "Steel Cable",
+    "Cut Throat"
+  ],
+  "faramis": [
+    "Vicious Retrieval",
+    "Shadow Stampede",
+    "Ghost Bursters",
+    "Nether Realm"
+  ],
+  "floryn": [
+    "Dew",
+    "Sow",
+    "Sprout",
+    "Bloom"
+  ],
+  "franco": [
+    null,
+    "Iron Hook",
+    null,
+    null
+  ],
+  "fredrinn": [
+    "Crystalline Armor",
+    "Piercing Strike",
+    "Brave Assault",
+    null
+  ],
+  "freya": [
+    "Power of Einherjar",
+    "Leap of Faith",
+    "Valkyrie Slash",
+    "Valkyrie Descent"
+  ],
+  "gatotkaca": [
+    "Steel Bones",
+    "Blast Iron Fist",
+    "Unbreakable",
+    "Avatar of the Guardian"
+  ],
+  "gloo": [
+    "Stick, Stick",
+    "Slam, Slam",
+    "Spread, Spread",
+    "Grab, Grab"
+  ],
+  "gord": [
+    "Mystic Favor",
+    "Mystic Projectile",
+    "Mystic Injunction",
+    null
+  ],
+  "granger": [
+    "Capriccio",
+    "Rhapsody",
+    "Rondo",
+    "Death Sonata"
+  ],
+  "grock": [
+    "Bastion of Stone",
+    "Mighty Swing",
+    "Earthen Rampart",
+    "Tectonic Charge"
+  ],
+  "guinevere": [
+    null,
+    null,
+    null,
+    null
+  ],
+  "gusion": [
+    "Dagger Specialist",
+    "Sword Spike",
+    "Shadowblade Slaughter",
+    "Incandescence"
+  ],
+  "hanabi": [
+    "Ninjutsu: Petal Barrage",
+    "Ninjutsu: Equinox",
+    "Ninjutsu: Soul Scroll",
+    "Forbidden Jutsu: Higanbana"
+  ],
+  "hanzo": [
+    "Ame No Habakiri",
+    "Ninjutsu: Demon Feast",
+    "Ninjutsu: Dark Mist",
+    "Kinjutsu: Pinnacle Ninja"
+  ],
+  "harith": [
+    "Key Insight",
+    "Synchro Fission",
+    "Chrono Dash",
+    "Zaman Force"
+  ],
+  "harley": [
+    null,
+    "Poker Trick",
+    "Space Escape",
+    "Deadly Magic"
+  ],
+  "hayabusa": [
+    "Ninjutsu: Trace of Shadow",
+    "Ninjutsu: Phantom Shuriken",
+    "Ninjutsu: Quad Shadow",
+    "Ougi: Shadow Kill"
+  ],
+  "helcurt": [
+    "Shadow of Styx",
+    "Hidden Terror",
+    "Deadly Stinger",
+    null
+  ],
+  "hilda": [
+    null,
+    "Combat Ritual",
+    "Art of Hunting",
+    "Power of Wildness"
+  ],
+  "hirara": [
+    "Twin Fans: Ukifune",
+    "Meisen-e",
+    "Kaerazu",
+    null
+  ],
+  "hylos": [
+    "Thickened Blood",
+    "Law and Order",
+    "Ring of Punishment",
+    "Glorious Pathway"
+  ],
+  "irithel": [
+    "Jungle Heart",
+    "Strafe",
+    "Force of the Queen",
+    "Heavy Crossbow"
+  ],
+  "ixia": [
+    "Siphon Starlium",
+    "Dual Beam",
+    "Star Helix",
+    "Full Barrage"
+  ],
+  "jawhead": [
+    "Mecha Suppression",
+    "Smart Missiles",
+    "Ejector",
+    "Unstoppable Force"
+  ],
+  "johnson": [
+    "Electro Airbag",
+    "Impact Wrench",
+    "Electromagnetic Waves",
+    "Full Throttle"
+  ],
+  "joy": [
+    "Humph, Joy's Angry!",
+    "Look, Leonin Crystal!",
+    "Meow, Rhythm of Joy!",
+    "Ha, Electrifying Beats!"
+  ],
+  "julian": [
+    "Smith's Legacy",
+    "Scythe",
+    "Sword",
+    null
+  ],
+  "kadita": [
+    "Thalassophobia",
+    "Ocean Ode",
+    "Breath of the Ocean",
+    "Rough Waves"
+  ],
+  "kagura": [
+    "Yin Yang Gathering",
+    "Seimei Umbrella Open",
+    "Rasho Umbrella Flee",
+    "Yin Yang Overturn"
+  ],
+  "kaja": [
+    null,
+    "Ring of Order",
+    "Soaring Wings",
+    "Divine Binding"
+  ],
+  "kalea": [
+    "Surge of Life",
+    "Wavebreaker",
+    "Tidal Strike",
+    "Tsunami Slam"
+  ],
+  "karina": [
+    "Shadow Combo",
+    "Dance of Blades",
+    "Dance of Death",
+    "Shadow Assault"
+  ],
+  "karrie": [
+    "Lightwheel Mark",
+    "Spinning Lightwheel",
+    "Phantom Step",
+    "Speedy Lightwheel"
+  ],
+  "khaleed": [
+    "Sand Walk",
+    "Desert Tornado",
+    null,
+    "Raging Sandstorm"
+  ],
+  "khufra": [
+    "Spell Curse",
+    "Tyrant's Revenge",
+    "Bouncing Ball",
+    "Tyrant's Rage"
+  ],
+  "kimmy": [
+    "Aerial Dominance",
+    "Anti-Grav Thruster",
+    "Starlium Beam",
+    "Traction Pulse"
+  ],
+  "lancelot": [
+    "Soul Cutter",
+    "Puncture",
+    "Thorned Rose",
+    "Phantom Execution"
+  ],
+  "lapu-lapu": [
+    "Homeland Defender",
+    "Justice Blades",
+    "Jungle Warrior",
+    "Bravest Fighter"
+  ],
+  "layla": [
+    "Malefic Gun",
+    "Malefic Bomb",
+    "Void Projectile",
+    "Destruction Rush"
+  ],
+  "leomord": [
+    "The Oath Keeper",
+    "Momentum",
+    "Decimation Assault",
+    "Phantom Steed"
+  ],
+  "lesley": [
+    "Lethal Shot",
+    "Master of Camouflage",
+    "Tactical Grenade",
+    "Ultimate Snipe"
+  ],
+  "ling": [
+    "Cloud Walker",
+    "Finch Poise",
+    "Defiant Sword",
+    "Tempest of Blades"
+  ],
+  "lolita": [
+    null,
+    "Power Charge",
+    "Guardian's Reflection",
+    "Noumenon Blast"
+  ],
+  "lukas": [
+    "Hero's Resolve",
+    "Flash Combo",
+    "Flash Step",
+    "Unleash the Beast"
+  ],
+  "lunox": [
+    "Dreamland Twist",
+    "Starlight Pulse",
+    "Chaos Assault",
+    "Power of Order: Brilliance"
+  ],
+  "luo-yi": [
+    "Duality",
+    "Dispersion",
+    "Rotation",
+    "Diversion"
+  ],
+  "lylia": [
+    "Angry Gloom",
+    "Magic Shockwave",
+    "Shadow Energy",
+    null
+  ],
+  "marcel": [
+    "Platinum Snap",
+    "Framed Moment",
+    "Tracking Shot",
+    "Golden Hour"
+  ],
+  "martis": [
+    "Asura's Wrath",
+    "Asura Aura",
+    "Mortal Coil",
+    "Decimation"
+  ],
+  "masha": [
+    "Ancient Strength",
+    "Wild Power",
+    "Howl Shock",
+    "Thunderclap"
+  ],
+  "mathilda": [
+    "Ancestral Guidance",
+    "Soul Bloom",
+    "Guiding Wind",
+    "Circling Eagle"
+  ],
+  "melissa": [
+    "Doll Buster",
+    "Falling!",
+    "Eyes on You!",
+    "Go Away!"
+  ],
+  "minotaur": [
+    "Rage Incarnate",
+    "Despair Stomp",
+    "Motivation Roar",
+    "Minoan Fury"
+  ],
+  "minsitthar": [
+    "Mark of the King",
+    "Spear of Glory",
+    "Shield Assault",
+    "King's Calling"
+  ],
+  "miya": [
+    null,
+    "Moon Arrow",
+    "Arrow of Eclipse",
+    "Hidden Moonlight"
+  ],
+  "moskov": [
+    "Spear of Quiescence",
+    "Abyss Walker",
+    "Spear of Misery",
+    "Spear of Destruction"
+  ],
+  "nana": [
+    null,
+    "Magic Boomerang",
+    "Molina Smooch",
+    "Molina Blitz"
+  ],
+  "natalia": [
+    "Assassin Instinct",
+    "Claw Dash",
+    "Smoke Bomb",
+    "The Hunt"
+  ],
+  "natan": [
+    "Theory of Everything",
+    "Superposition",
+    "Interference!",
+    "Entropy?"
+  ],
+  "nolan": [
+    "Dimensional Rift",
+    "Expansion",
+    "Gauge",
+    "Fracture"
+  ],
+  "novaria": [
+    "Star Trail",
+    "Astral Meteor",
+    "Astral Recall",
+    "Astral Echo"
+  ],
+  "obsidia": [
+    "Return to Bone",
+    "Abyssal Bone Needle",
+    "Phantom Shadowmeld",
+    "Hunt of Bone"
+  ],
+  "odette": [
+    "Lakeshore Ambience",
+    "Avian Authority",
+    "Blue Nova",
+    "Swan Song"
+  ],
+  "paquito": [
+    "Champ Stance",
+    "Heavy Left Punch",
+    "Jab",
+    "Knockout Strike"
+  ],
+  "pharsa": [
+    "Spiritual Unity",
+    "Curse of Crow",
+    "Energy Impact",
+    "Feathered Air Strike"
+  ],
+  "phoveus": [
+    "Demonic Force",
+    "Demonic Impact",
+    "Dark Wave",
+    "Infernal Pursuit"
+  ],
+  "popol-and-kupa": [
+    "We Are Friends",
+    "Bite 'em, Kupa!",
+    "Kupa, Help!",
+    "We Are Angry!"
+  ],
+  "rafaela": [
+    "Divine Resurrection",
+    "Light of Retribution",
+    "Holy Healing",
+    "Holy Baptism"
+  ],
+  "roger": [
+    "Full Moon Curse",
+    "Open Fire",
+    "Hunter's Steps",
+    "Wolf Transformation"
+  ],
+  "ruby": [
+    "Let's Dance!",
+    "Be Good!",
+    "Don't Run, Wolf King!",
+    "I'm Offended!"
+  ],
+  "saber": [
+    null,
+    "Orbiting Swords",
+    "Charge",
+    "Triple Sweep"
+  ],
+  "selena": [
+    "Symbiosis",
+    "Abyssal Trap",
+    "Abyssal Arrow",
+    "Primal Darkness"
+  ],
+  "silvanna": [
+    "Knightess' Resolve",
+    "Cometic Lance",
+    null,
+    "Imperial Justice"
+  ],
+  "sora": [
+    "Mystic Surge",
+    "Sundering Strike",
+    "Windstride",
+    "Shifting Skies"
+  ],
+  "sun": [
+    "Simian God",
+    "Endless Variety",
+    "Swift Exchange",
+    "Clone Techniques"
+  ],
+  "suyou": [
+    "Transient Immortal",
+    "Blade Surge",
+    "Soul Sever",
+    null
+  ],
+  "terizla": [
+    "Body of Smith",
+    "Revenge Strike",
+    "Execution Strike",
+    "Penalty Zone"
+  ],
+  "thamuz": [
+    "Grand Lord Lava",
+    null,
+    "Chasm Trample",
+    "Cauterant Inferno"
+  ],
+  "tigreal": [
+    "Fearless",
+    "Attack Wave",
+    "Sacred Hammer",
+    "Implosion"
+  ],
+  "uranus": [
+    "Radiance",
+    "Ionic Edge",
+    "Transcendent Ward",
+    "Consecration"
+  ],
+  "vale": [
+    "Windtalk",
+    "Wind Blade",
+    "Windblow",
+    "Windstorm"
+  ],
+  "valentina": [
+    "Primal Force",
+    "Shadow Strike",
+    "Arcane Shade",
+    null
+  ],
+  "valir": [
+    "Ashing",
+    "Burst Fireball",
+    "Searing Torrent",
+    "Vengeance Flame"
+  ],
+  "vexana": [
+    "Nether Touch",
+    "Deathly Grasp",
+    "Cursed Blast",
+    "Eternal Guard"
+  ],
+  "wanwan": [
+    "Tiger Pace",
+    "Swallow's Path",
+    "Needles in Flowers",
+    "Crossbow of Tang"
+  ],
+  "x-borg": [
+    "Firaga Armor",
+    "Fire Missiles",
+    "Fire Stake",
+    "Last Insanity"
+  ],
+  "xavier": [
+    "Transcendence",
+    "Infinite Extension",
+    "Mystic Field",
+    "Dawning Light"
+  ],
+  "yi-sun-shin": [
+    "Heavenly Vow",
+    "Traceless",
+    null,
+    null
+  ],
+  "yin": [
+    "Leave It to Me",
+    "Charged Punch",
+    "Instant Blast",
+    "My Turn"
+  ],
+  "yu-zhong": [
+    "Cursing Touch",
+    "Dragon Tail",
+    "Soul Grip",
+    "Black Dragon Form"
+  ],
+  "yve": [
+    "Galactic Power",
+    "Void Blast",
+    "Void Crystal",
+    "Real World Manipulation"
+  ],
+  "zetian": [
+    "Celestial Armament",
+    "Phoenix Strike",
+    "Phoenix Descent",
+    "Fury of the Phoenix"
+  ],
+  "zhask": [
+    "Decimation",
+    "Nightmaric Spawn",
+    "Mind Eater",
+    "Dominator's Descent"
+  ],
+  "zhuxin": [
+    "Crimson Butterflies",
+    "Fluttering Grace",
+    "Lantern Flare",
+    "Crimson Beacon"
+  ],
+  "zilong": [
+    "Dragon Flurry",
+    "Spear Flip",
+    "Spear Strike",
+    "Supreme Warrior"
+  ]
+}
