@@ -107,27 +107,27 @@ export default async function PageHeros({ params }: Params) {
               centre. Un degrade oriente marchait donc pour les uns et effacait
               les autres.
             */}
-            <div className="absolute inset-0 bg-nuit-950/62" />
+            <div className="absolute inset-0 bg-nuit-950/55" />
             {/*
-              Renfort sous la colonne de texte : l'illustration y est parfois
-              claire, et le nom du heros doit rester lisible quel que soit
-              l'artwork.
+              Le bas de l'en-tete se referme sur le fond de page : la
+              transition vers le contenu reste franche, sans coupure nette.
             */}
-            <div className="absolute inset-y-0 left-0 w-2/3 bg-linear-to-r from-nuit-950/80 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-nuit-950 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-nuit-950 to-transparent" />
           </div>
         )}
 
         <div className="relative mx-auto max-w-5xl px-4 py-10">
           <Link
             href="/heros"
-            className="inline-flex items-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
+            // Ce lien flotte sur l'illustration, dont la clarte varie d'un
+            // heros a l'autre : il porte donc son propre fond.
+            className="biseau-sm inline-flex items-center gap-1.5 bg-nuit-950/75 px-3 py-1.5 text-sm text-craie-300 backdrop-blur-sm transition-colors hover:text-or-400"
           >
             <ArrowLeft size={15} aria-hidden />
             Tous les heros
           </Link>
 
-          <div className="mt-6 flex flex-wrap items-start gap-6">
+          <div className="biseau mt-6 flex flex-wrap items-start gap-6 border border-nuit-700/50 bg-nuit-950/75 p-5 backdrop-blur-sm">
             <PortraitHeros
               source={h.visuels.portrait}
               nom={h.nom}
@@ -181,7 +181,12 @@ export default async function PageHeros({ params }: Params) {
           </div>
 
           {/* ── Faits ────────────────────────────────────────────────── */}
-          <dl className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4 border-t border-nuit-800 pt-6 text-sm sm:grid-cols-4 lg:grid-cols-6">
+          {/*
+            Les informations posent leur propre fond plutot que de compter sur
+            l'assombrissement de l'illustration : le contraste ne depend alors
+            plus de la luminosite de l'artwork, qui change a chaque heros.
+          */}
+          <dl className="biseau mt-8 grid grid-cols-2 gap-x-8 gap-y-4 border border-nuit-700/50 bg-nuit-950/75 p-5 text-sm backdrop-blur-sm sm:grid-cols-4 lg:grid-cols-6">
             {[
               ["Position", h.lanes.join(", ")],
               ["Sortie", h.sortie],
