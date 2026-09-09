@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { Star } from "lucide-react";
-import { abonnerFavoris, basculerFavori, instantaneFavoris } from "@/lib/favoris";
+import { abonnerFavoris, basculerFavori, favorisServeur, instantaneFavoris } from "@/lib/favoris";
 import { cn } from "@/lib/utils";
 
 /**
@@ -13,11 +13,7 @@ import { cn } from "@/lib/utils";
  * l'etat neutre affiche jusqu'a ce que le navigateur ait rendu la main.
  */
 export function BoutonFavori({ heros }: { heros: string }) {
-  const favoris = useSyncExternalStore(
-    abonnerFavoris,
-    instantaneFavoris,
-    () => [] as string[],
-  );
+  const favoris = useSyncExternalStore(abonnerFavoris, instantaneFavoris, favorisServeur);
   const favori = favoris.includes(heros);
 
   return (
