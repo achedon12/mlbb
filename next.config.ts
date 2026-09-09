@@ -17,7 +17,6 @@ const nextConfig: NextConfig = {
   compress: true,
   // Le module SQLite est natif : il doit rester requis au runtime plutot
   // qu'etre inclus dans le bundle.
-  serverExternalPackages: ["better-sqlite3"],
 
   images: {
     // Les portraits de heros sont servis par le wiki communautaire qui les
@@ -27,6 +26,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "static.wikia.nocookie.net" },
       // Vignettes des presentations video ; le lecteur n'est charge qu'au clic.
       { protocol: "https", hostname: "i.ytimg.com" },
+      // Avatars de profil, servis par le CDN de Moonton.
+      { protocol: "https", hostname: "akmpicture.youngjoygame.com" },
     ],
     formats: ["image/avif", "image/webp"],
   },

@@ -1,23 +1,19 @@
 import { NextResponse } from "next/server";
-import { utilisateurCourant } from "@/lib/auth";
+import { profilCourant } from "@/lib/session";
 
 /**
- * Etat de session, consomme par l'en-tete.
+ * Etat de session pour l'en-tete.
  *
- * L'en-tete est present sur toutes les pages. S'il lisait le cookie sur le
- * serveur, plus aucune page du site ne pourrait etre generee au build — ce qui
- * couterait cher sur un site dont l'essentiel du contenu est statique. Le
- * cookie est donc lu ici, apres l'affichage.
+ * Lu apres l'affichage, ce qui laisse les pages de contenu generees au build.
+ * Ne renvoie que le pseudo : l'en-tete n'a besoin de rien d'autre.
  */
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const utilisateur = await utilisateurCourant().catch(() => null);
+  const profil = await profilCourant().catch(() => null);
 
   return NextResponse.json(
-    utilisateur ? { connecte: true, pseudo: utilisateur.pseudo } : { connecte: false },
-    // Strictement personnel : ne doit jamais etre mis en cache par un
-    // intermediaire partage.
+    profil ? { connecte: true, pseudo: profil.name } : { connecte: false },
     { headers: { "Cache-Control": "private, no-store" } },
   );
 }

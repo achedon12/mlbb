@@ -2,17 +2,12 @@
 
 # ─────────────────────────────────────────────────────────────
 # 1. deps — dependances, avec la chaine de compilation native
-#    better-sqlite3 est un module natif : il faut un compilateur
-#    pour le construire. Ces outils restent confines a cette
-#    etape et ne touchent jamais l'image finale.
 #    Le cache npm est monte plutot que copie : il ne finit dans
 #    aucune couche.
 # ─────────────────────────────────────────────────────────────
 FROM node:22-alpine AS deps
 
 WORKDIR /app
-RUN apk add --no-cache python3 make g++
-
 COPY package.json package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm \
     npm ci --no-audit --no-fund
@@ -32,17 +27,14 @@ ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# La cle n'est lue qu'au runtime, mais le build prerend des pages : une valeur
-# de remplacement suffit a le laisser aboutir sans jamais etre embarquee.
-ENV SESSION_SECRET=build-uniquement-non-utilise-au-runtime-000000
 RUN --mount=type=cache,target=/app/.next/cache \
     npm run build
 
 # ─────────────────────────────────────────────────────────────
 # 3. runner — Node minimal, sans compilateur ni sources
 #    L'image finale ne contient que le serveur compile, les
-#    ressources statiques et le module SQLite. Ni le code
-#    source, ni npm, ni les outils de build.
+#    ressources statiques. Ni le code source, ni npm, ni les
+#    outils de build.
 # ─────────────────────────────────────────────────────────────
 FROM node:22-alpine AS runner
 
@@ -56,15 +48,12 @@ WORKDIR /app
 ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
     PORT=3001 \
-    HOSTNAME=0.0.0.0 \
-    DATABASE_PATH=/data/mlbb.db
+    HOSTNAME=0.0.0.0
 
 # wget sert au HEALTHCHECK ; l'image node-alpine ne l'embarque pas.
 RUN apk add --no-cache wget \
  && addgroup -g 1001 -S nodejs \
- && adduser -u 1001 -S nextjs -G nodejs \
- && mkdir -p /data \
- && chown nextjs:nodejs /data
+ && adduser -u 1001 -S nextjs -G nodejs
 
 # Les trois copies suivantes sont ordonnees de la moins a la plus volatile,
 # pour que le cache de couches serve au maximum entre deux builds.
@@ -75,7 +64,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 USER nextjs
 
 EXPOSE 3001
-VOLUME ["/data"]
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD wget -qO- http://127.0.0.1:3001/api/sante || exit 1
