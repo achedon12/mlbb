@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
+import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgeRole, Carte, Difficulte } from "@/components/ui";
 import { detailParSlug } from "@/data/heros";
 import { roster, rosterParSlug } from "@/data/roster";
@@ -78,7 +79,9 @@ export default async function PageHeros({ params }: Params) {
           </Link>
 
           <div className="mt-6 flex flex-wrap items-start justify-between gap-6">
-            <div>
+            <div className="flex items-start gap-5">
+              <PortraitHeros slug={base.slug} nom={base.nom} taille="fiche" />
+              <div>
               <h1 className="font-titre text-4xl font-bold text-craie-100">{base.nom}</h1>
               {detail && <p className="mt-1 text-lg text-or-400">{detail.titre}</p>}
               <div className="mt-4 flex flex-wrap gap-1.5">
@@ -88,6 +91,7 @@ export default async function PageHeros({ params }: Params) {
               </div>
               <div className="mt-5">
                 <BoutonFavori heros={base.slug} />
+              </div>
               </div>
             </div>
 
