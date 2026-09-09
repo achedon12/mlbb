@@ -31,6 +31,16 @@ const WIKI = "https://mobilelegends.fandom.com/api.php";
  */
 const STATS = "https://arena.rone.dev/api";
 
+/**
+ * Recherche des presentations video officielles.
+ *
+ * Moonton publie une video « Heroes Spotlight » par heros. Les retrouver
+ * suppose une cle d'API YouTube — gratuite, mais qu'on ne peut pas inventer.
+ * Sans cle, l'etape est simplement sautee et le site propose un lien de
+ * recherche plutot qu'une video.
+ */
+const CLE_YOUTUBE = process.env.YOUTUBE_API_KEY ?? null;
+
 /** Nombre de patch notes dont on recupere le contenu complet. */
 const PATCHS_DETAILLES = 12;
 const UA = "MLBB-sync/1.0 (https://mlbb.leoderoin.fr; contact via github.com/achedon12)";
@@ -550,6 +560,65 @@ async function pagesHeros(heros) {
   return sortie;
 }
 
+/**
+ * Identifiant de la presentation video de chaque heros.
+ *
+ * On retient le premier resultat dont le titre nomme le heros : une recherche
+ * large ramene aussi des videos de joueurs, qui n'ont pas leur place ici.
+ */
+async function videos(heros) {
+  if (!CLE_YOUTUBE) {
+    console.log("  YOUTUBE_API_KEY absente — etape sautee");
+    return null;
+  }
+
+  const trouvees = {};
+
+  for (const [i, h] of heros.entries()) {
+    const requete = new URL("https://www.googleapis.com/youtube/v3/search");
+    for (const [cle, valeur] of Object.entries({
+      key: CLE_YOUTUBE,
+      part: "snippet",
+      type: "video",
+      maxResults: "3",
+      videoEmbeddable: "true",
+      q: `${h.nom} Mobile Legends Heroes Spotlight`,
+    })) {
+      requete.searchParams.set(cle, valeur);
+    }
+
+    try {
+      const reponse = await fetch(requete, { signal: AbortSignal.timeout(20000) });
+      if (!reponse.ok) {
+        // Quota epuise : inutile d'insister sur les heros suivants.
+        if (reponse.status === 403) {
+          console.warn(`\n  quota YouTube atteint apres ${i} heros`);
+          break;
+        }
+        continue;
+      }
+
+      const resultats = (await reponse.json())?.items ?? [];
+      const nom = h.nom.toLowerCase();
+      const bon = resultats.find((r) =>
+        String(r.snippet?.title ?? "").toLowerCase().includes(nom),
+      );
+
+      if (bon?.id?.videoId) {
+        trouvees[h.slug] = { id: bon.id.videoId, titre: bon.snippet.title };
+      }
+    } catch {
+      // Une recherche en echec ne doit pas interrompre la synchronisation.
+    }
+
+    process.stdout.write(`\r    videos ${i + 1}/${heros.length}`);
+    await pause(200);
+  }
+
+  process.stdout.write("\n");
+  return trouvees;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Classement
 // ─────────────────────────────────────────────────────────────
@@ -803,6 +872,10 @@ async function principal() {
     stats = null;
   }
 
+  console.log("Presentations video…");
+  const presentations = await videos(heros);
+  if (presentations) console.log(`  ${Object.keys(presentations).length} videos trouvees`);
+
   console.log("Relations entre heros…");
   let liens = null;
   try {
@@ -960,6 +1033,7 @@ async function principal() {
     await ecrire("classement", { mesure: new Date().toISOString(), taux: stats });
   }
   if (liens) await ecrire("relations", liens);
+  if (presentations) await ecrire("videos", presentations);
 
   await Promise.all([
     ecrire("heros", heros),

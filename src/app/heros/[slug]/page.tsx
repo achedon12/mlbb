@@ -7,6 +7,7 @@ import { BoutonFavori } from "@/components/bouton-favori";
 import { CompetencesHeros } from "@/components/competences-heros";
 import { GalerieIllustrations } from "@/components/galerie-illustrations";
 import { ObjetBuild } from "@/components/objet-build";
+import { PresentationVideo } from "@/components/presentation-video";
 import { Onglets } from "@/components/onglets";
 import { GalerieSkins } from "@/components/galerie-skins";
 import { PortraitHeros } from "@/components/portrait-heros";
@@ -16,6 +17,7 @@ import {
   heros,
   herosParSlug,
   illustrations,
+  videos,
   visuelsCompetences,
 } from "@/lib/donnees";
 import { raretesPresentes } from "@/lib/raretes";
@@ -65,6 +67,7 @@ export default async function PageHeros({ params }: Params) {
   // L'illustration du skin d'origine sert de fond : c'est celle qui represente
   // le heros tel qu'on le rencontre par defaut.
   const fond = Object.values(illustrationsHeros)[0] ?? null;
+  const video = videos[h.slug] ?? null;
 
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -353,6 +356,11 @@ export default async function PageHeros({ params }: Params) {
                     <GalerieSkins nom={h.nom} skins={h.skins} visuels={h.visuels.skins} />
                   </>
                 ) : null,
+            },
+            {
+              id: "video",
+              label: "Presentation",
+              contenu: <PresentationVideo video={video} nom={h.nom} />,
             },
             {
               id: "illustrations",
