@@ -58,6 +58,19 @@ h1, h2, h3, h4 {
   letter-spacing: 0.01em;
 }
 
+/*
+ * Focus clavier visible.
+ *
+ * Sans indicateur, on ne sait plus ou l'on est en naviguant au clavier. Un
+ * anneau dore, decale, reste lisible sur le fond sombre comme sur les cartes,
+ * et `:focus-visible` le reserve au clavier — la souris ne le declenche pas.
+ */
+:focus-visible {
+  outline: 2px solid var(--color-or-400);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* Coin biseaute, motif recurrent de l'interface du jeu. */
 @utility biseau {
   clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% 100%, 0.75rem 100%, 0 calc(100% - 0.75rem));
