@@ -59,7 +59,7 @@ export default async function PageHeros({ params }: Params) {
 
   const classe = classementComplet.find((e) => e.heros.slug === slug);
   const analyse = h.analyse;
-  const nomsCompetences = competences[h.slug] ?? [];
+  const competencesWiki = competences[h.slug] ?? [];
   const iconesCompetences = visuelsCompetences[h.slug] ?? {};
   const illustrationsHeros = illustrations[h.slug] ?? {};
   // L'illustration du skin d'origine sert de fond : c'est celle qui represente
@@ -292,12 +292,12 @@ export default async function PageHeros({ params }: Params) {
               label: "Competences",
               compteur:
                 Math.max(
-                  nomsCompetences.filter(Boolean).length,
+                  competencesWiki.filter(Boolean).length,
                   analyse?.competences.length ?? 0,
                 ) || undefined,
               contenu: (
                 <CompetencesHeros
-                  nomsWiki={nomsCompetences}
+                  wiki={competencesWiki}
                   icones={iconesCompetences}
                   redigees={analyse?.competences ?? null}
                 />

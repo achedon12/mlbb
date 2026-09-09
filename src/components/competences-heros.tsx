@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { Carte } from "@/components/ui";
-import type { Competence } from "@/lib/types";
+import type { Competence, CompetenceWiki } from "@/lib/types";
 
 /**
  * Competences d'un heros.
  *
  * Deux sources se rejoignent ici : le wiki fournit le **nom officiel** de
- * chaque competence — qui est aussi la cle de son icone — et l'analyse
- * redigee fournit la description. Les deux listes suivent le meme ordre
+ * chaque competence — qui est aussi la cle de son icone — ainsi que sa
+ * description d'origine, et l'analyse redigee fournit un commentaire en
+ * francais quand quelqu'un l'a ecrit. Les deux listes suivent le meme ordre
  * (passif, competence 1, competence 2, ultime), c'est ce qui permet de les
  * apparier.
  *
@@ -21,16 +22,16 @@ import type { Competence } from "@/lib/types";
 const TYPES = ["Passif", "Competence 1", "Competence 2", "Ultime"] as const;
 
 export function CompetencesHeros({
-  nomsWiki,
+  wiki,
   icones,
   redigees,
 }: {
-  nomsWiki: (string | null)[];
+  wiki: (CompetenceWiki | null)[];
   icones: Record<string, string>;
   redigees: Competence[] | null;
 }) {
-  const noms = nomsWiki.slice(0, 4);
-  const nombre = Math.max(noms.length, redigees?.length ?? 0);
+  const officielles = wiki.slice(0, 4);
+  const nombre = Math.max(officielles.length, redigees?.length ?? 0);
 
   if (nombre === 0) {
     return (
@@ -43,9 +44,13 @@ export function CompetencesHeros({
   return (
     <div className="space-y-3">
       {Array.from({ length: nombre }, (_, i) => {
-        const nomWiki = noms[i];
+        const officielle = officielles[i];
+        const nomWiki = officielle?.nom;
         const redigee = redigees?.[i];
         const icone = nomWiki ? icones[nomWiki] : undefined;
+        // L'analyse redigee prime : elle explique, la description officielle
+        // se contente d'enoncer. A defaut, le texte du jeu vaut mieux que rien.
+        const description = redigee?.description ?? officielle?.description ?? null;
         const type = redigee?.type ?? TYPES[i] ?? "Competence";
 
         return (
@@ -78,11 +83,18 @@ export function CompetencesHeros({
                 </h3>
               </div>
 
-              {redigee ? (
-                <p className="mt-3 leading-relaxed text-craie-300">{redigee.description}</p>
+              {description ? (
+                <p
+                  className="mt-3 leading-relaxed text-craie-300"
+                  // Le texte officiel est en anglais : l'annoncer permet aux
+                  // lecteurs d'ecran et aux traducteurs de s'y adapter.
+                  lang={redigee?.description ? undefined : "en"}
+                >
+                  {description}
+                </p>
               ) : (
                 <p className="mt-3 text-sm text-craie-500">
-                  Description non redigee.
+                  Aucune description disponible pour cette competence.
                 </p>
               )}
 
