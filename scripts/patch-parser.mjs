@@ -116,7 +116,9 @@ export function ajustementsHeros(wikitexte) {
     }
   }
 
-  return heros.filter((h) => h.sections.length > 0 || h.intro);
+  // On garde tous les heros ajustes, meme ceux dont le wiki n'a pas encore
+  // detaille les changements : « buffe » sans detail reste une information.
+  return heros;
 }
 
 /** Resume chiffre pour l'en-tete : combien d'ameliorations, d'affaiblissements. */

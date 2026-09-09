@@ -90,6 +90,119 @@ export function nettoyerRendu(html, origine) {
   return { html: texte, origine };
 }
 
+/**
+ * Decoupe le HTML nettoye en sections de premier niveau.
+ *
+ * Chaque titre h2 ouvre une section qui court jusqu'au h2 suivant, en gardant
+ * ses sous-titres h3. Le decoupage laisse la page composer : rendre certaines
+ * sections telles quelles, en remplacer d'autres par un composant riche.
+ */
+export function decouperSections(html) {
+  const racine = parse(html);
+  const sections = [];
+  let courante = null;
+
+  for (const noeud of racine.childNodes) {
+    if (noeud.rawTagName === "h2") {
+      courante = {
+        ancre: noeud.getAttribute("id") ?? null,
+        titre: noeud.text.trim(),
+        html: "",
+      };
+      sections.push(courante);
+      continue;
+    }
+
+    // Contenu avant le premier h2 : on l'ouvre dans une section sans titre.
+    if (!courante) {
+      courante = { ancre: null, titre: null, html: "" };
+      sections.push(courante);
+    }
+
+    courante.html += noeud.toString();
+  }
+
+  return sections
+    .map((s) => ({ ...s, html: s.html.trim() }))
+    .filter((s) => s.titre || s.html);
+}
+
+/**
+ * Extrait la presentation structuree des nouveaux heros d'une section.
+ *
+ * Le wiki suit une grammaire reguliere : un sous-titre nomme le heros, un
+ * paragraphe raconte son histoire et sa « Hero feature », puis chaque
+ * competence est un paragraphe en gras — role et nom — suivi d'une liste de
+ * descriptions. On la ramene a des donnees pour un affichage soigne.
+ */
+export function nouveauxHeros(sectionHtml) {
+  const racine = parse(sectionHtml);
+  const heros = [];
+  let courant = null;
+
+  for (const noeud of racine.childNodes) {
+    const tag = noeud.rawTagName;
+
+    if (tag === "h3") {
+      // « New Hero: Fallen Scarlet - Hirara » → epithete « Fallen Scarlet »,
+      // nom « Hirara ».
+      const brut = noeud.text.trim().replace(/^New Hero\s*:\s*/i, "");
+      const morceaux = brut.split(/\s[-–—]\s/);
+      const nom = (morceaux.length > 1 ? morceaux.pop() : brut).trim();
+      const epithete = morceaux.join(" - ").trim() || null;
+      courant = {
+        nom,
+        epithete,
+        ancre: noeud.getAttribute("id") ?? null,
+        lore: [],
+        feature: null,
+        competences: [],
+      };
+      heros.push(courant);
+      continue;
+    }
+
+    if (!courant) continue;
+
+    if (tag === "p") {
+      const gras = noeud.querySelector("b");
+      const etiquette = gras ? gras.text.replace(/\s+/g, " ").trim() : "";
+
+      if (gras && /(Passive|Skill|Combo|Ultimate|Ult\b)/i.test(etiquette)) {
+        // « Passive - Twin Fans: Ukifune » → role puis nom de competence.
+        const coupe = etiquette.search(/\s[-–—]\s/);
+        const role = (coupe >= 0 ? etiquette.slice(0, coupe) : etiquette).trim();
+        const nom =
+          coupe >= 0 ? etiquette.slice(coupe).replace(/^\s[-–—]\s/, "").trim() : null;
+        courant.competences.push({ role, nom, description: [] });
+        continue;
+      }
+
+      // Paragraphe d'histoire : les lignes sont separees par des <br>, et la
+      // derniere annonce souvent la « Hero feature ».
+      for (const bloc of noeud.innerHTML.split(/<br\s*\/?>/i)) {
+        const ligne = parse(bloc).text.replace(/\s+/g, " ").trim();
+        if (!ligne) continue;
+        const feature = ligne.match(/^Hero feature\s*:\s*(.+)$/i);
+        if (feature) courant.feature = feature[1].trim();
+        else courant.lore.push(ligne);
+      }
+      continue;
+    }
+
+    if (tag === "ul") {
+      const derniere = courant.competences.at(-1);
+      if (!derniere) continue;
+      for (const item of noeud.querySelectorAll("li")) {
+        const texte = item.text.replace(/\s+/g, " ").trim();
+        if (texte) derniere.description.push(texte);
+      }
+    }
+  }
+
+  return heros;
+}
+
 /** Identifiant d'ancre stable, derive du titre. */
 function ancrer(texte) {
   return texte
