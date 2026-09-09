@@ -97,6 +97,14 @@ export const classementComplet: EntreeClassee[] = heros
   })
   .sort((a, b) => b.score - a.score);
 
+/** Taux et palier par heros, pour enrichir le catalogue sans le recalculer. */
+export const tauxParSlug = new Map(
+  classementComplet.map((e) => [
+    e.heros.slug,
+    { victoire: e.victoire, ban: e.ban, palier: e.palier, faibleEchantillon: e.faibleEchantillon },
+  ]),
+);
+
 export const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
 
 export const LEGENDE_PALIERS: Record<Palier, string> = {
