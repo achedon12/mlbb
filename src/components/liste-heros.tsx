@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { CarteHeros, type ApercuHeros } from "@/components/carte-heros";
 import type { Lane, Role } from "@/lib/types";
@@ -24,11 +24,28 @@ const RANG_PALIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
  * la page : pas d'aller-retour reseau a chaque clic, pour un volume qui reste
  * petit une fois les champs inutiles ecartes.
  */
-export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
-  const [recherche, setRecherche] = useState("");
+export function ListeHeros({
+  heros,
+  rechercheInitiale = "",
+}: {
+  heros: ApercuHeros[];
+  rechercheInitiale?: string;
+}) {
+  const [recherche, setRecherche] = useState(rechercheInitiale);
   const [role, setRole] = useState<Role | null>(null);
   const [lane, setLane] = useState<Lane | null>(null);
   const [tri, setTri] = useState<Tri>("nom");
+
+  // La recherche se reflete dans l'URL (?q=) : elle devient partageable, et le
+  // moteur peut y renvoyer directement via son action de recherche.
+  useEffect(() => {
+    const terme = recherche.trim();
+    const params = new URLSearchParams(window.location.search);
+    if (terme) params.set("q", terme);
+    else params.delete("q");
+    const suffixe = params.toString();
+    window.history.replaceState(null, "", suffixe ? `?${suffixe}` : window.location.pathname);
+  }, [recherche]);
 
   const resultats = useMemo(() => {
     const terme = recherche.trim().toLowerCase();

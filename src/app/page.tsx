@@ -34,6 +34,7 @@ const donneesStructurees = {
       "@id": `${site.url}/#editeur`,
       name: site.nom,
       url: site.url,
+      logo: `${site.url}/icon.svg`,
       sameAs: [site.depot],
     },
   ],
