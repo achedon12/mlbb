@@ -5,13 +5,18 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
 import { CompetencesHeros } from "@/components/competences-heros";
-import { GalerieIllustrations } from "@/components/galerie-illustrations";
+
 import { ContresChiffres } from "@/components/contres-chiffres";
 import { ObjetBuild } from "@/components/objet-build";
 import { PresentationVideo } from "@/components/presentation-video";
 import { Onglets } from "@/components/onglets";
-import { GalerieSkins } from "@/components/galerie-skins";
-import { PortraitHeros } from "@/components/portrait-heros";
+
+import {
+  PortraitVitrine,
+  VitrineProvider,
+  VitrineSkins,
+  type SkinComplet,
+} from "@/components/vitrine-skins";
 import { BadgeRole, Carte, Jauge } from "@/components/ui";
 import {
   competences,
@@ -22,7 +27,6 @@ import {
   videos,
   visuelsCompetences,
 } from "@/lib/donnees";
-import { raretesPresentes } from "@/lib/raretes";
 import { classementComplet } from "@/lib/tier-list";
 import { site } from "@/lib/site";
 
@@ -71,6 +75,14 @@ export default async function PageHeros({ params }: Params) {
   const fond = Object.values(illustrationsHeros)[0] ?? null;
   const video = videos[h.slug] ?? null;
   const contresHeros = contres[h.slug] ?? null;
+
+  // Jointure des trois sources : le skin porte son id, son portrait (par id) et
+  // son illustration (par nom). La vitrine s'en sert pour tout synchroniser.
+  const skinsComplets: SkinComplet[] = h.skins.map((s) => ({
+    ...s,
+    portrait: h.visuels.skins[s.id] ?? null,
+    illustration: illustrationsHeros[s.nom] ?? null,
+  }));
   const portraitDe = (slug: string) =>
     herosParSlug.get(slug)?.visuels.icone ?? herosParSlug.get(slug)?.visuels.portrait ?? null;
   const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
@@ -94,6 +106,12 @@ export default async function PageHeros({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
       />
 
+      {/*
+        Un seul etat de skin pour toute la fiche : l'en-tete et l'onglet skins
+        le partagent, si bien que choisir un skin met a jour le portrait de tete
+        comme la grande illustration.
+      */}
+      <VitrineProvider skins={skinsComplets} portraitDefaut={h.visuels.portrait}>
       {/* ── En-tete ────────────────────────────────────────────────────── */}
       <div className="relative border-b border-nuit-700/70 bg-nuit-900/30">
         {fond && (
@@ -137,12 +155,7 @@ export default async function PageHeros({ params }: Params) {
           </Link>
 
           <div className="biseau mt-6 flex flex-wrap items-start gap-6 border border-nuit-700/50 bg-nuit-950/75 p-5 backdrop-blur-sm">
-            <PortraitHeros
-              source={h.visuels.portrait}
-              nom={h.nom}
-              taille="fiche"
-              priorite
-            />
+            <PortraitVitrine nom={h.nom} portraitDefaut={h.visuels.portrait} />
 
             <div className="min-w-0 flex-1 basis-64">
               <h1 className="font-titre text-4xl font-bold text-craie-100">{h.nom}</h1>
@@ -380,24 +393,10 @@ export default async function PageHeros({ params }: Params) {
             {
               id: "skins",
               label: "Skins",
-              compteur: h.skins.length || undefined,
+              compteur: skinsComplets.length || undefined,
               contenu:
-                h.skins.length > 0 ? (
-                  <>
-                    <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
-                      {raretesPresentes(h.skins.map((s) => s.rarete)).map((r) => (
-                        <li key={r.nom} className="flex items-center gap-1.5 text-xs text-craie-500">
-                          <span
-                            aria-hidden
-                            className="size-2.5 border-2"
-                            style={{ borderColor: r.couleur }}
-                          />
-                          {r.nom}
-                        </li>
-                      ))}
-                    </ul>
-                    <GalerieSkins nom={h.nom} skins={h.skins} visuels={h.visuels.skins} />
-                  </>
+                skinsComplets.length > 0 ? (
+                  <VitrineSkins skins={skinsComplets} />
                 ) : null,
             },
             {
@@ -405,18 +404,10 @@ export default async function PageHeros({ params }: Params) {
               label: "Presentation",
               contenu: <PresentationVideo video={video} nom={h.nom} />,
             },
-            {
-              id: "illustrations",
-              label: "Illustrations",
-              compteur: Object.keys(illustrationsHeros).length || undefined,
-              contenu:
-                Object.keys(illustrationsHeros).length > 0 ? (
-                  <GalerieIllustrations nom={h.nom} illustrations={illustrationsHeros} />
-                ) : null,
-            },
           ]}
         />
       </div>
+      </VitrineProvider>
     </>
   );
 }
