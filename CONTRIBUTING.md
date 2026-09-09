@@ -47,8 +47,12 @@ tout cela vient deja de la synchronisation.
   fait reellement, puis ses limites. Pas de superlatifs. « Il est fort » n'est
   pas une analyse ; « il gagne les combats longs tant que l'adversaire
   n'achete pas de reduction de soins » en est une.
-- **`competences`** — recharges du niveau 1 au niveau maximum. Ne recopiez pas
-  les valeurs de degats : elles changent presque a chaque patch.
+- **`competences`** — la description, les recharges et le cout. **Le nom
+  n'est plus affiche** : il vient du wiki, dans la langue du jeu, pour que le
+  lecteur retrouve la competence en partie. Respectez l'ordre passif,
+  competence 1, competence 2, ultime — c'est lui qui apparie votre description
+  a la bonne competence. Ne recopiez pas les valeurs de degats : elles
+  changent presque a chaque patch.
 - **`fortContre` / `faibleContre`** — des `slug`, pas des noms.
 - **`builds`** — le champ `contexte` explique *quand* prendre ce build. Un
   build sans contexte n'apprend rien a personne.
