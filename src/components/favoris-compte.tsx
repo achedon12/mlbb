@@ -3,12 +3,12 @@
 import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Star, X } from "lucide-react";
-import { abonnerFavoris, basculerFavori, instantaneFavoris } from "@/lib/favoris";
+import { abonnerFavoris, basculerFavori, favorisServeur, instantaneFavoris } from "@/lib/favoris";
 import { herosParSlug } from "@/lib/donnees-client";
 
 /** Liste des heros mis en favori, lue depuis le navigateur. */
 export function FavorisCompte() {
-  const favoris = useSyncExternalStore(abonnerFavoris, instantaneFavoris, () => [] as string[]);
+  const favoris = useSyncExternalStore(abonnerFavoris, instantaneFavoris, favorisServeur);
 
   if (favoris.length === 0) {
     return (

@@ -55,14 +55,30 @@ export function abonnerFavoris(rappel: () => void): () => void {
   };
 }
 
+/**
+ * Tableau vide partage.
+ *
+ * `useSyncExternalStore` compare les instantanes par reference : renvoyer un
+ * `[]` neuf a chaque appel — cote serveur comme en repli — declenche une
+ * boucle de rendu. Une seule reference gelee l'evite.
+ */
+const VIDE: readonly string[] = Object.freeze([]);
+
+/** Instantane serveur : aucun favori connu hors du navigateur. */
+export function favorisServeur(): readonly string[] {
+  return VIDE;
+}
+
 /** Instantane stable : le meme contenu renvoie la meme reference. */
 let cache: { brut: string; liste: string[] } = { brut: "", liste: [] };
 export function instantaneFavoris(): string[] {
   try {
     const brut = localStorage.getItem(CLE) ?? "";
     if (brut !== cache.brut) cache = { brut, liste: brut ? JSON.parse(brut) : [] };
-    return cache.liste;
+    // Meme reference gelee que l'instantane serveur quand il n'y a rien.
+    return cache.liste.length ? cache.liste : (VIDE as string[]);
   } catch {
     return cache.liste;
   }
 }
+
