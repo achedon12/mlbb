@@ -23,6 +23,7 @@ export const site = {
 export const navigation = [
   { href: "/heros", label: "Heros", groupe: "jeu" },
   { href: "/tier-list", label: "Tier list", groupe: "jeu" },
+  { href: "/comparateur", label: "Comparateur", groupe: "jeu" },
   { href: "/draft", label: "Draft", groupe: "jeu" },
   { href: "/objets", label: "Objets", groupe: "jeu" },
   { href: "/emblemes", label: "Emblemes", groupe: "jeu" },
