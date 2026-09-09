@@ -103,6 +103,18 @@ export interface Synchro {
 
 export type TypeCompetence = "Passif" | "Competence 1" | "Competence 2" | "Ultime";
 
+/**
+ * Competence telle que le wiki la decrit.
+ *
+ * Le nom est celui du jeu ; la description est le texte officiel, ramene en
+ * clair. Elle sert de repli quand personne n'a encore ecrit d'analyse en
+ * francais pour ce heros.
+ */
+export interface CompetenceWiki {
+  nom: string;
+  description: string | null;
+}
+
 export interface Competence {
   type: TypeCompetence;
   nom: string;

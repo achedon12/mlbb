@@ -9,6 +9,7 @@ import visuelsCompetencesGenere from "@/data/genere/visuels-competences.json";
 import visuelsGenere from "@/data/genere/visuels.json";
 import { analyses } from "@/data/heros";
 import type {
+  CompetenceWiki,
   Heros,
   HerosGenere,
   ObjetGenere,
@@ -44,7 +45,7 @@ export const herosParSlug = new Map(heros.map((h) => [h.slug, h]));
 /** Noms anglais des competences, dans l'ordre du jeu. */
 export const competences = competencesGenere as unknown as Record<
   string,
-  (string | null)[]
+  (CompetenceWiki | null)[]
 >;
 
 /** Icone de chaque competence, indexee par son nom anglais. */
