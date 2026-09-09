@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { url: `${site.url}/actualites`, changeFrequency: "daily", priority: 0.8 },
       { url: `${site.url}/veille`, changeFrequency: "hourly", priority: 0.6 },
       { url: `${site.url}/patch-notes`, changeFrequency: "weekly", priority: 0.8 },
+      { url: `${site.url}/api-doc`, changeFrequency: "monthly", priority: 0.5 },
       { url: `${site.url}/a-propos`, changeFrequency: "yearly", priority: 0.3 },
     ] as const
   ).map((e) => ({ ...e, lastModified: maintenant }));
