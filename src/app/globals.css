@@ -26,8 +26,11 @@
   --color-sang-500: #d94848;
 
   --color-craie-100: #eef2fb;
+  --color-craie-200: #dbe2f0;
   --color-craie-300: #b7c2da;
+  --color-craie-400: #99a4c0;
   --color-craie-500: #7b88a6;
+  --color-craie-600: #66728f;
 
   --font-titre: var(--police-titre), "Segoe UI", system-ui, sans-serif;
   --font-corps: var(--police-corps), system-ui, -apple-system, sans-serif;
