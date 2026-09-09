@@ -63,11 +63,19 @@ const analyseur = new XMLParser({
   trimValues: true,
 });
 
-/** Retire le balisage et ramene a une longueur lisible en carte. */
+/**
+ * Retire le balisage et ramene a une longueur lisible en carte.
+ *
+ * Les flux de forum ajoutent un pied de message identique a chaque entree —
+ * « submitted by /u/… [link] [comments] ». Repete sur trente cartes, il noie
+ * le peu de texte utile : on le retire.
+ */
 function extrait(html: unknown, longueur = 180): string {
   const texte = String(html ?? "")
     .replace(/<[^>]*>/g, " ")
     .replace(/&(#\d+|[a-z]+);/gi, " ")
+    .replace(/submitted by\s*\/?u\/[\w-]+/gi, "")
+    .replace(/\[link\]|\[comments\]/gi, "")
     .replace(/\s+/g, " ")
     .trim();
 
