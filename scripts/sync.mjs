@@ -19,6 +19,7 @@ import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyserTableLua } from "./lua.mjs";
 import { nettoyerRendu, sommaire } from "./patch-notes.mjs";
+import { nettoyerDescription } from "./wikitexte.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
 /**
@@ -458,11 +459,21 @@ function extraireDePage(wikitexte) {
       type: "titre",
       valeur: m[1].trim().toLowerCase(),
     })),
-    ...[...wikitexte.matchAll(/\{\{Ability\s*\|([\s\S]*?)\n\}\}/g)].map((m) => ({
-      position: m.index,
-      type: "competence",
-      valeur: m[1].match(/\|?\s*name\s*=\s*(.+)/)?.[1]?.replace(/<[^>]*>/g, "").trim(),
-    })),
+    ...[...wikitexte.matchAll(/\{\{Ability\s*\|([\s\S]*?)\n\}\}/g)].map((m) => {
+      const corps = m[1];
+      // La description court jusqu'au champ suivant du gabarit. Un nom de
+      // champ peut contenir un chiffre (`term-1`), d'ou la classe elargie.
+      const description = corps.match(
+        /\|?\s*description\s*=\s*([\s\S]+?)(?=\n\s*\|\s*[a-z0-9-]+\s*=|$)/i,
+      )?.[1];
+
+      return {
+        position: m.index,
+        type: "competence",
+        valeur: corps.match(/\|?\s*name\s*=\s*(.+)/)?.[1]?.replace(/<[^>]*>/g, "").trim(),
+        description: description ? nettoyerDescription(description) : null,
+      };
+    }),
   ].sort((a, b) => a.position - b.position);
 
   const ATTENDUES = ["passive", "skill 1", "skill 2", "ultimate"];
@@ -476,7 +487,7 @@ function extraireDePage(wikitexte) {
     for (const suivant of evenements.slice(i + 1)) {
       if (suivant.type === "titre") break;
       if (suivant.valeur) {
-        parSection[e.valeur] = suivant.valeur;
+        parSection[e.valeur] = { nom: suivant.valeur, description: suivant.description };
         break;
       }
     }
@@ -585,6 +596,54 @@ async function classement(heros) {
   return sortie;
 }
 
+/**
+ * Relations entre heros : contres et synergies.
+ *
+ * L'API expose, pour chaque heros, ceux contre lesquels il est fort, ceux qui
+ * le mettent en difficulte, et ceux avec qui il se combine. Ses identifiants
+ * ne sont pas ceux du wiki : le rapprochement se fait par nom.
+ */
+async function relations(heros) {
+  const parSlug = new Map(heros.map((h) => [h.slug, h]));
+
+  const reponse = await fetch(`${STATS}/heroes?size=200`, {
+    headers: { "User-Agent": UA },
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!reponse.ok) throw new Error(`Relations indisponibles : HTTP ${reponse.status}`);
+
+  const enregistrements = (await reponse.json())?.data?.records ?? [];
+
+  // Table identifiant de l'API vers slug du site, construite depuis les noms.
+  const parIdentifiant = new Map();
+  for (const entree of enregistrements) {
+    const nom = entree?.data?.hero?.data?.name;
+    const identifiant = entree?.data?.hero_id;
+    if (!nom || identifiant == null) continue;
+    const slug = slugifier(nom);
+    if (parSlug.has(slug)) parIdentifiant.set(identifiant, slug);
+  }
+
+  const sortie = {};
+  for (const entree of enregistrements) {
+    const slug = parIdentifiant.get(entree?.data?.hero_id);
+    if (!slug) continue;
+
+    const lire = (cle) =>
+      (entree.data.relation?.[cle]?.target_hero_id ?? [])
+        .map((id) => parIdentifiant.get(id))
+        .filter(Boolean);
+
+    sortie[slug] = {
+      fortContre: lire("strong"),
+      faibleContre: lire("weak"),
+      synergies: lire("assist"),
+    };
+  }
+
+  return sortie;
+}
+
 /** Les taux arrivent en fraction ; on les stocke en pourcentage a deux decimales. */
 const arrondir = (v) => (typeof v === "number" ? Math.round(v * 10000) / 100 : null);
 
@@ -608,19 +667,37 @@ async function patchs() {
     suite = donnees.continue?.cmcontinue;
   } while (suite);
 
-  return membres
-    .map((m) => {
-      const version = m.title.match(/(\d+\.\d+\.\d+)/)?.[1];
-      return version
-        ? {
-            version,
-            titre: m.title,
-            lien: `https://mobilelegends.fandom.com/wiki/${encodeURIComponent(m.title.replace(/ /g, "_"))}`,
-          }
-        : null;
-    })
-    .filter(Boolean)
-    .sort((a, b) => comparerVersions(b.version, a.version));
+  /**
+   * Le wiki publie plusieurs pages pour une meme version : les notes
+   * officielles, celles du serveur de test (« Advanced Server »), et parfois
+   * un ajustement d'equilibrage separe. On ne garde que la plus autoritaire —
+   * afficher trois fois « 1.8.30 » n'apprendrait rien a personne.
+   */
+  const rang = (titre) => {
+    if (/advanced server/i.test(titre)) return 2;
+    if (/balance adjustment/i.test(titre)) return 1;
+    return 0;
+  };
+
+  const parVersion = new Map();
+
+  for (const m of membres) {
+    const version = m.title.match(/(\d+\.\d+\.\d+)/)?.[1];
+    if (!version) continue;
+
+    const candidat = {
+      version,
+      titre: m.title,
+      lien: `https://mobilelegends.fandom.com/wiki/${encodeURIComponent(m.title.replace(/ /g, "_"))}`,
+    };
+
+    const existant = parVersion.get(version);
+    if (!existant || rang(candidat.titre) < rang(existant.titre)) {
+      parVersion.set(version, candidat);
+    }
+  }
+
+  return [...parVersion.values()].sort((a, b) => comparerVersions(b.version, a.version));
 }
 
 /**
@@ -698,9 +775,18 @@ async function principal() {
 
   console.log("Lecture des pages de heros…");
   const pages = await pagesHeros(heros);
-  const nbCompetences = Object.values(pages).reduce((n, p) => n + p.competences.length, 0);
+  const nbCompetences = Object.values(pages).reduce(
+    (n, p) => n + p.competences.filter(Boolean).length,
+    0,
+  );
+  const nbDescriptions = Object.values(pages).reduce(
+    (n, p) => n + p.competences.filter((c) => c?.description).length,
+    0,
+  );
   const nbIllustrations = Object.values(pages).reduce((n, p) => n + p.illustrations.length, 0);
-  console.log(`  ${nbCompetences} competences, ${nbIllustrations} illustrations`);
+  console.log(
+    `  ${nbCompetences} competences (${nbDescriptions} decrites), ${nbIllustrations} illustrations`,
+  );
 
   console.log("Classement des heros…");
   let stats = {};
@@ -712,6 +798,16 @@ async function principal() {
     // la synchronisation : le site retombe sur le classement precedent.
     console.warn(`  statistiques indisponibles (${erreur.message}) — classement inchange`);
     stats = null;
+  }
+
+  console.log("Relations entre heros…");
+  let liens = null;
+  try {
+    liens = await relations(heros);
+    const n = Object.values(liens).reduce((t, r) => t + r.fortContre.length, 0);
+    console.log(`  ${Object.keys(liens).length} heros, ${n} relations de contre`);
+  } catch (erreur) {
+    console.warn(`  relations indisponibles (${erreur.message}) — inchangees`);
   }
 
   console.log("Liste des patchs…");
@@ -737,15 +833,18 @@ async function principal() {
 
   // ── Icones de competences ──────────────────────────────────────────
   const nomsCompetences = [
-    ...new Set(Object.values(pages).flatMap((p) => p.competences)),
+    ...new Set(
+      Object.values(pages).flatMap((p) => p.competences.map((c) => c?.nom).filter(Boolean)),
+    ),
   ];
   const urlsCompetences = await urlsFichiers(nomsCompetences);
 
   const visuelsCompetences = {};
   for (const [slug, page] of Object.entries(pages)) {
     const icones = {};
-    for (const nom of page.competences) {
-      const url = urlsCompetences[nom];
+    for (const competence of page.competences) {
+      const nom = competence?.nom;
+      const url = nom ? urlsCompetences[nom] : null;
       if (!url) continue;
       const fichier = `${slugifier(nom)}.webp`;
       icones[nom] = `/visuels/competences/${fichier}`;
@@ -857,6 +956,7 @@ async function principal() {
   if (stats) {
     await ecrire("classement", { mesure: new Date().toISOString(), taux: stats });
   }
+  if (liens) await ecrire("relations", liens);
 
   await Promise.all([
     ecrire("heros", heros),
