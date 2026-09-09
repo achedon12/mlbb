@@ -23,7 +23,11 @@ const nextConfig: NextConfig = {
     // Les portraits de heros sont servis par le wiki communautaire qui les
     // heberge. Rien n'est recopie dans ce depot : ce sont des ressources de
     // Moonton, affichees en pointant vers leur hebergeur.
-    remotePatterns: [{ protocol: "https", hostname: "static.wikia.nocookie.net" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "static.wikia.nocookie.net" },
+      // Vignettes des presentations video ; le lecteur n'est charge qu'au clic.
+      { protocol: "https", hostname: "i.ytimg.com" },
+    ],
     formats: ["image/avif", "image/webp"],
   },
 

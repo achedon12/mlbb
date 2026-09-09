@@ -6,6 +6,7 @@ import patchsGenere from "@/data/genere/patchs.json";
 import skinsGenere from "@/data/genere/skins.json";
 import synchroGenere from "@/data/genere/synchro.json";
 import visuelsCompetencesGenere from "@/data/genere/visuels-competences.json";
+import videosGenere from "@/data/genere/videos.json";
 import visuelsGenere from "@/data/genere/visuels.json";
 import { analyses } from "@/data/heros";
 import type {
@@ -52,6 +53,12 @@ export const competences = competencesGenere as unknown as Record<
 export const visuelsCompetences = visuelsCompetencesGenere as unknown as Record<
   string,
   Record<string, string>
+>;
+
+/** Presentation video officielle, quand elle a pu etre identifiee. */
+export const videos = videosGenere as unknown as Record<
+  string,
+  { id: string; titre: string }
 >;
 
 /** Illustrations pleine taille, par heros puis par nom de skin. */

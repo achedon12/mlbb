@@ -38,6 +38,10 @@ openssl rand -hex 32
 | `npm run sync` | Relit le wiki et regenere `src/data/genere/` |
 | `npm run sync -- --images` | Idem, en telechargeant aussi les visuels |
 
+Les visuels et les donnees sont deja dans le depot : `sync` ne sert qu'a les
+rafraichir. Renseigner `YOUTUBE_API_KEY` ajoute la recherche des presentations
+video officielles ; sans elle, les fiches proposent un lien de recherche.
+
 ## Ce que contient le site
 
 - **Roster complet** — tous les heros avec role, position, specialites, annee
@@ -66,6 +70,7 @@ openssl rand -hex 32
 | Analyses de heros, tier list, emblemes | Redigees a la main | Par pull request |
 | Articles et guides | Markdown dans `content/` | Par pull request |
 | Veille | Flux publics agreges au rendu | **Automatique**, toutes les 30 min |
+| Presentations video | YouTube, si `YOUTUBE_API_KEY` est renseignee | A la synchronisation |
 
 Les donnees factuelles ne s'ecrivent plus a la main. Un workflow relit le wiki
 chaque semaine, telecharge les nouveaux visuels et ouvre une pull request quand
