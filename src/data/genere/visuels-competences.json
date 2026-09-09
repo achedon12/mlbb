@@ -1,0 +1,727 @@
+{
+  "aamon": {
+    "Invisible Armor": "/visuels/competences/invisible-armor.webp",
+    "Soul Shards": "/visuels/competences/soul-shards.webp",
+    "Endless Shards": "/visuels/competences/endless-shards.webp"
+  },
+  "akai": {
+    "Tai Chi": "/visuels/competences/tai-chi.webp",
+    "Headbutt": "/visuels/competences/headbutt.webp",
+    "Body Slam": "/visuels/competences/body-slam.webp",
+    "Heavy Spin": "/visuels/competences/heavy-spin.webp"
+  },
+  "alice": {
+    "Crimson Blood Banquet": "/visuels/competences/crimson-blood-banquet.webp",
+    "Crimson Gleam": "/visuels/competences/crimson-gleam.webp",
+    "Throne of Ruin": "/visuels/competences/throne-of-ruin.webp"
+  },
+  "alpha": {
+    "Beta, Advance!": "/visuels/competences/beta-advance.webp",
+    "Rotary Impact": "/visuels/competences/rotary-impact.webp",
+    "Force Swing": "/visuels/competences/force-swing.webp",
+    "Spear of Alpha": "/visuels/competences/spear-of-alpha.webp"
+  },
+  "alucard": {
+    "Pursuit": "/visuels/competences/pursuit.webp",
+    "Groundsplitter": "/visuels/competences/groundsplitter.webp",
+    "Whirling Smash": "/visuels/competences/whirling-smash.webp",
+    "Fission Wave": "/visuels/competences/fission-wave.webp"
+  },
+  "angela": {
+    "Smart Heart": "/visuels/competences/smart-heart.webp",
+    "Love Waves": "/visuels/competences/love-waves.webp",
+    "Puppet-on-a-String": "/visuels/competences/puppet-on-a-string.webp",
+    "Heartguard": "/visuels/competences/heartguard.webp"
+  },
+  "arlott": {
+    "Demon Gaze": "/visuels/competences/demon-gaze.webp",
+    "Dauntless Strike": "/visuels/competences/dauntless-strike.webp",
+    "Vengeance": "/visuels/competences/vengeance.webp",
+    "Final Slash": "/visuels/competences/final-slash.webp"
+  },
+  "atlas": {
+    "Frigid Breath": "/visuels/competences/frigid-breath.webp",
+    "Annihilate": "/visuels/competences/annihilate.webp",
+    "Perfect Match": "/visuels/competences/perfect-match.webp",
+    "Fatal Links": "/visuels/competences/fatal-links.webp"
+  },
+  "aulus": {
+    "Fighting Spirit": "/visuels/competences/fighting-spirit.webp",
+    "Aulus, Charge!": "/visuels/competences/aulus-charge.webp",
+    "The Power of Axe": "/visuels/competences/the-power-of-axe.webp",
+    "Cleaving Axe": "/visuels/competences/cleaving-axe.webp"
+  },
+  "aurora": {
+    "Pride of Ice": "/visuels/competences/pride-of-ice.webp",
+    "Hailstone Blast": "/visuels/competences/hailstone-blast.webp"
+  },
+  "badang": {
+    "Chivalry Fist": "/visuels/competences/chivalry-fist.webp",
+    "Fist Wind": "/visuels/competences/fist-wind.webp",
+    "Fist Break": "/visuels/competences/fist-break.webp",
+    "Fist Crack": "/visuels/competences/fist-crack.webp"
+  },
+  "balmond": {
+    "Bloodthirst": "/visuels/competences/bloodthirst.webp",
+    "Soul Lock": "/visuels/competences/soul-lock.webp",
+    "Cyclone Sweep": "/visuels/competences/cyclone-sweep.webp"
+  },
+  "bane": {
+    "Shark Bite": "/visuels/competences/shark-bite.webp",
+    "Crab Claw Cannon": "/visuels/competences/crab-claw-cannon.webp",
+    "Ale": "/visuels/competences/ale.webp",
+    "Deadly Catch": "/visuels/competences/deadly-catch.webp"
+  },
+  "barats": {
+    "Big Guy": "/visuels/competences/big-guy.webp",
+    "So-Called Teamwork": "/visuels/competences/so-called-teamwork.webp",
+    "Detona's Welcome": "/visuels/competences/detona-s-welcome.webp"
+  },
+  "baxia": {
+    "Baxia Mark": "/visuels/competences/baxia-mark.webp",
+    "Baxia-Shield Unity": "/visuels/competences/baxia-shield-unity.webp",
+    "Shield of Spirit": "/visuels/competences/shield-of-spirit.webp",
+    "Tortoise's Puissance": "/visuels/competences/tortoise-s-puissance.webp"
+  },
+  "beatrix": {
+    "Masterful Gunner": "/visuels/competences/masterful-gunner.webp",
+    "Tactical Reposition": "/visuels/competences/tactical-reposition.webp",
+    "Renner's Apathy": "/visuels/competences/renner-s-apathy.webp"
+  },
+  "belerick": {
+    "Ancient Seed": "/visuels/competences/ancient-seed.webp",
+    "Nature's Strike": "/visuels/competences/nature-s-strike.webp",
+    "Wrath of Dryad": "/visuels/competences/wrath-of-dryad.webp"
+  },
+  "benedetta": {
+    "Elapsed Daytime": "/visuels/competences/elapsed-daytime.webp",
+    "Phantom Slash": "/visuels/competences/phantom-slash.webp",
+    "An Eye for An Eye": "/visuels/competences/an-eye-for-an-eye.webp"
+  },
+  "brody": {
+    "Abyss Corrosion": "/visuels/competences/abyss-corrosion.webp",
+    "Abyss Impact": "/visuels/competences/abyss-impact.webp",
+    "Corrosive Strike": "/visuels/competences/corrosive-strike.webp",
+    "Torn-Apart Memory": "/visuels/competences/torn-apart-memory.webp"
+  },
+  "bruno": {
+    "Mecha Legs": "/visuels/competences/mecha-legs.webp",
+    "Volley Shot": "/visuels/competences/volley-shot.webp",
+    "Flying Tackle": "/visuels/competences/flying-tackle.webp",
+    "Worldie": "/visuels/competences/worldie.webp"
+  },
+  "carmilla": {
+    "Vampire Pact": "/visuels/competences/vampire-pact.webp",
+    "Crimson Flower": "/visuels/competences/crimson-flower.webp",
+    "Bloodbath": "/visuels/competences/bloodbath.webp",
+    "Curse of Blood": "/visuels/competences/curse-of-blood.webp"
+  },
+  "cecilion": {
+    "Overflowing": "/visuels/competences/overflowing.webp",
+    "Bat Impact": "/visuels/competences/bat-impact.webp",
+    "Sanguine Claws": "/visuels/competences/sanguine-claws.webp",
+    "Bats Feast": "/visuels/competences/bats-feast.webp"
+  },
+  "chang-e": {
+    "Trouble Maker": "/visuels/competences/trouble-maker.webp",
+    "Starmoon Shockwave": "/visuels/competences/starmoon-shockwave.webp",
+    "Crescent Moon": "/visuels/competences/crescent-moon.webp",
+    "Meteor Shower": "/visuels/competences/meteor-shower.webp"
+  },
+  "chip": {
+    "Snack Time!": "/visuels/competences/snack-time.webp",
+    "Crash Course": "/visuels/competences/crash-course.webp",
+    "Overtime": "/visuels/competences/overtime.webp",
+    "Shortcut": "/visuels/competences/shortcut.webp"
+  },
+  "chou": {
+    "Only Fast": "/visuels/competences/only-fast.webp",
+    "Jeet Kune Do": "/visuels/competences/jeet-kune-do.webp",
+    "Shunpo": "/visuels/competences/shunpo.webp",
+    "The Way of Dragon": "/visuels/competences/the-way-of-dragon.webp"
+  },
+  "cici": {
+    "Performer's Delight": "/visuels/competences/performer-s-delight.webp",
+    "Yo-Yo Blitz": "/visuels/competences/yo-yo-blitz.webp",
+    "Buoyant Bounce": "/visuels/competences/buoyant-bounce.webp",
+    "Curtain Call": "/visuels/competences/curtain-call.webp"
+  },
+  "claude": {
+    "Battle Side-by-side": "/visuels/competences/battle-side-by-side.webp",
+    "Art of Thievery": "/visuels/competences/art-of-thievery.webp",
+    "Battle Mirror Image": "/visuels/competences/battle-mirror-image.webp",
+    "Blazing Duet": "/visuels/competences/blazing-duet.webp"
+  },
+  "clint": {
+    "Double Shot": "/visuels/competences/double-shot.webp",
+    "Quick Draw": "/visuels/competences/quick-draw.webp",
+    "Trapping Recoil": "/visuels/competences/trapping-recoil.webp",
+    "Grenade Bombardment": "/visuels/competences/grenade-bombardment.webp"
+  },
+  "cyclops": {
+    "Starlit Hourglass": "/visuels/competences/starlit-hourglass.webp",
+    "Stardust Shock": "/visuels/competences/stardust-shock.webp",
+    "Planets Attack": "/visuels/competences/planets-attack.webp",
+    "Star Power Lockdown": "/visuels/competences/star-power-lockdown.webp"
+  },
+  "diggie": {
+    "Young Again": "/visuels/competences/young-again.webp",
+    "Auto Alarm Bomb": "/visuels/competences/auto-alarm-bomb.webp",
+    "Reverse Time": "/visuels/competences/reverse-time.webp",
+    "Time Journey": "/visuels/competences/time-journey.webp"
+  },
+  "dyrroth": {
+    "Wrath of the Abyss": "/visuels/competences/wrath-of-the-abyss.webp",
+    "Burst Strike": "/visuels/competences/burst-strike.webp",
+    "Spectre Step": "/visuels/competences/spectre-step.webp",
+    "Abysm Strike": "/visuels/competences/abysm-strike.webp"
+  },
+  "edith": {
+    "Overload": "/visuels/competences/overload.webp",
+    "Earth Shatter": "/visuels/competences/earth-shatter.webp",
+    "Onward": "/visuels/competences/onward.webp",
+    "Primal Wrath": "/visuels/competences/primal-wrath.webp"
+  },
+  "esmeralda": {
+    "Starmoon Casket": "/visuels/competences/starmoon-casket.webp",
+    "Frostmoon Shield": "/visuels/competences/frostmoon-shield.webp",
+    "Stardust Dance": "/visuels/competences/stardust-dance.webp",
+    "Falling Starmoon": "/visuels/competences/falling-starmoon.webp"
+  },
+  "eudora": {
+    "Superconductor": "/visuels/competences/superconductor.webp",
+    "Forked Lightning": "/visuels/competences/forked-lightning.webp",
+    "Ball Lightning": "/visuels/competences/ball-lightning.webp",
+    "Thunder's Wrath": "/visuels/competences/thunder-s-wrath.webp"
+  },
+  "fanny": {
+    "Air Superiority": "/visuels/competences/air-superiority.webp",
+    "Tornado Strike": "/visuels/competences/tornado-strike.webp",
+    "Steel Cable": "/visuels/competences/steel-cable.webp",
+    "Cut Throat": "/visuels/competences/cut-throat.webp"
+  },
+  "faramis": {
+    "Vicious Retrieval": "/visuels/competences/vicious-retrieval.webp",
+    "Shadow Stampede": "/visuels/competences/shadow-stampede.webp",
+    "Ghost Bursters": "/visuels/competences/ghost-bursters.webp",
+    "Nether Realm": "/visuels/competences/nether-realm.webp"
+  },
+  "floryn": {
+    "Dew": "/visuels/competences/dew.webp",
+    "Sow": "/visuels/competences/sow.webp",
+    "Sprout": "/visuels/competences/sprout.webp",
+    "Bloom": "/visuels/competences/bloom.webp"
+  },
+  "franco": {
+    "Iron Hook": "/visuels/competences/iron-hook.webp"
+  },
+  "fredrinn": {
+    "Crystalline Armor": "/visuels/competences/crystalline-armor.webp",
+    "Piercing Strike": "/visuels/competences/piercing-strike.webp",
+    "Brave Assault": "/visuels/competences/brave-assault.webp"
+  },
+  "freya": {
+    "Power of Einherjar": "/visuels/competences/power-of-einherjar.webp",
+    "Leap of Faith": "/visuels/competences/leap-of-faith.webp",
+    "Valkyrie Slash": "/visuels/competences/valkyrie-slash.webp",
+    "Valkyrie Descent": "/visuels/competences/valkyrie-descent.webp"
+  },
+  "gatotkaca": {
+    "Steel Bones": "/visuels/competences/steel-bones.webp",
+    "Blast Iron Fist": "/visuels/competences/blast-iron-fist.webp",
+    "Unbreakable": "/visuels/competences/unbreakable.webp",
+    "Avatar of the Guardian": "/visuels/competences/avatar-of-the-guardian.webp"
+  },
+  "gloo": {
+    "Stick, Stick": "/visuels/competences/stick-stick.webp",
+    "Slam, Slam": "/visuels/competences/slam-slam.webp",
+    "Spread, Spread": "/visuels/competences/spread-spread.webp",
+    "Grab, Grab": "/visuels/competences/grab-grab.webp"
+  },
+  "gord": {
+    "Mystic Favor": "/visuels/competences/mystic-favor.webp",
+    "Mystic Projectile": "/visuels/competences/mystic-projectile.webp",
+    "Mystic Injunction": "/visuels/competences/mystic-injunction.webp"
+  },
+  "granger": {
+    "Capriccio": "/visuels/competences/capriccio.webp",
+    "Rhapsody": "/visuels/competences/rhapsody.webp",
+    "Rondo": "/visuels/competences/rondo.webp",
+    "Death Sonata": "/visuels/competences/death-sonata.webp"
+  },
+  "grock": {
+    "Bastion of Stone": "/visuels/competences/bastion-of-stone.webp",
+    "Mighty Swing": "/visuels/competences/mighty-swing.webp",
+    "Earthen Rampart": "/visuels/competences/earthen-rampart.webp",
+    "Tectonic Charge": "/visuels/competences/tectonic-charge.webp"
+  },
+  "gusion": {
+    "Dagger Specialist": "/visuels/competences/dagger-specialist.webp",
+    "Sword Spike": "/visuels/competences/sword-spike.webp",
+    "Shadowblade Slaughter": "/visuels/competences/shadowblade-slaughter.webp",
+    "Incandescence": "/visuels/competences/incandescence.webp"
+  },
+  "hanzo": {
+    "Ame No Habakiri": "/visuels/competences/ame-no-habakiri.webp"
+  },
+  "harith": {
+    "Key Insight": "/visuels/competences/key-insight.webp",
+    "Synchro Fission": "/visuels/competences/synchro-fission.webp",
+    "Chrono Dash": "/visuels/competences/chrono-dash.webp",
+    "Zaman Force": "/visuels/competences/zaman-force.webp"
+  },
+  "harley": {
+    "Poker Trick": "/visuels/competences/poker-trick.webp",
+    "Space Escape": "/visuels/competences/space-escape.webp",
+    "Deadly Magic": "/visuels/competences/deadly-magic.webp"
+  },
+  "helcurt": {
+    "Shadow of Styx": "/visuels/competences/shadow-of-styx.webp",
+    "Hidden Terror": "/visuels/competences/hidden-terror.webp",
+    "Deadly Stinger": "/visuels/competences/deadly-stinger.webp"
+  },
+  "hilda": {
+    "Combat Ritual": "/visuels/competences/combat-ritual.webp",
+    "Art of Hunting": "/visuels/competences/art-of-hunting.webp",
+    "Power of Wildness": "/visuels/competences/power-of-wildness.webp"
+  },
+  "hirara": {
+    "Meisen-e": "/visuels/competences/meisen-e.webp",
+    "Kaerazu": "/visuels/competences/kaerazu.webp"
+  },
+  "hylos": {
+    "Thickened Blood": "/visuels/competences/thickened-blood.webp",
+    "Law and Order": "/visuels/competences/law-and-order.webp",
+    "Ring of Punishment": "/visuels/competences/ring-of-punishment.webp",
+    "Glorious Pathway": "/visuels/competences/glorious-pathway.webp"
+  },
+  "irithel": {
+    "Jungle Heart": "/visuels/competences/jungle-heart.webp",
+    "Strafe": "/visuels/competences/strafe.webp",
+    "Force of the Queen": "/visuels/competences/force-of-the-queen.webp",
+    "Heavy Crossbow": "/visuels/competences/heavy-crossbow.webp"
+  },
+  "ixia": {
+    "Siphon Starlium": "/visuels/competences/siphon-starlium.webp",
+    "Dual Beam": "/visuels/competences/dual-beam.webp",
+    "Star Helix": "/visuels/competences/star-helix.webp",
+    "Full Barrage": "/visuels/competences/full-barrage.webp"
+  },
+  "jawhead": {
+    "Mecha Suppression": "/visuels/competences/mecha-suppression.webp",
+    "Smart Missiles": "/visuels/competences/smart-missiles.webp",
+    "Ejector": "/visuels/competences/ejector.webp",
+    "Unstoppable Force": "/visuels/competences/unstoppable-force.webp"
+  },
+  "johnson": {
+    "Electro Airbag": "/visuels/competences/electro-airbag.webp",
+    "Impact Wrench": "/visuels/competences/impact-wrench.webp",
+    "Electromagnetic Waves": "/visuels/competences/electromagnetic-waves.webp",
+    "Full Throttle": "/visuels/competences/full-throttle.webp"
+  },
+  "joy": {
+    "Humph, Joy's Angry!": "/visuels/competences/humph-joy-s-angry.webp",
+    "Look, Leonin Crystal!": "/visuels/competences/look-leonin-crystal.webp",
+    "Meow, Rhythm of Joy!": "/visuels/competences/meow-rhythm-of-joy.webp",
+    "Ha, Electrifying Beats!": "/visuels/competences/ha-electrifying-beats.webp"
+  },
+  "julian": {
+    "Smith's Legacy": "/visuels/competences/smith-s-legacy.webp",
+    "Scythe": "/visuels/competences/scythe.webp",
+    "Sword": "/visuels/competences/sword.webp"
+  },
+  "kadita": {
+    "Thalassophobia": "/visuels/competences/thalassophobia.webp",
+    "Ocean Ode": "/visuels/competences/ocean-ode.webp",
+    "Breath of the Ocean": "/visuels/competences/breath-of-the-ocean.webp",
+    "Rough Waves": "/visuels/competences/rough-waves.webp"
+  },
+  "kagura": {
+    "Yin Yang Gathering": "/visuels/competences/yin-yang-gathering.webp",
+    "Seimei Umbrella Open": "/visuels/competences/seimei-umbrella-open.webp",
+    "Rasho Umbrella Flee": "/visuels/competences/rasho-umbrella-flee.webp",
+    "Yin Yang Overturn": "/visuels/competences/yin-yang-overturn.webp"
+  },
+  "kaja": {
+    "Ring of Order": "/visuels/competences/ring-of-order.webp",
+    "Soaring Wings": "/visuels/competences/soaring-wings.webp",
+    "Divine Binding": "/visuels/competences/divine-binding.webp"
+  },
+  "kalea": {
+    "Surge of Life": "/visuels/competences/surge-of-life.webp",
+    "Wavebreaker": "/visuels/competences/wavebreaker.webp",
+    "Tidal Strike": "/visuels/competences/tidal-strike.webp",
+    "Tsunami Slam": "/visuels/competences/tsunami-slam.webp"
+  },
+  "karina": {
+    "Shadow Combo": "/visuels/competences/shadow-combo.webp",
+    "Dance of Blades": "/visuels/competences/dance-of-blades.webp",
+    "Dance of Death": "/visuels/competences/dance-of-death.webp",
+    "Shadow Assault": "/visuels/competences/shadow-assault.webp"
+  },
+  "karrie": {
+    "Lightwheel Mark": "/visuels/competences/lightwheel-mark.webp",
+    "Spinning Lightwheel": "/visuels/competences/spinning-lightwheel.webp",
+    "Phantom Step": "/visuels/competences/phantom-step.webp",
+    "Speedy Lightwheel": "/visuels/competences/speedy-lightwheel.webp"
+  },
+  "khaleed": {
+    "Sand Walk": "/visuels/competences/sand-walk.webp",
+    "Desert Tornado": "/visuels/competences/desert-tornado.webp",
+    "Raging Sandstorm": "/visuels/competences/raging-sandstorm.webp"
+  },
+  "khufra": {
+    "Spell Curse": "/visuels/competences/spell-curse.webp",
+    "Tyrant's Revenge": "/visuels/competences/tyrant-s-revenge.webp",
+    "Bouncing Ball": "/visuels/competences/bouncing-ball.webp",
+    "Tyrant's Rage": "/visuels/competences/tyrant-s-rage.webp"
+  },
+  "kimmy": {
+    "Aerial Dominance": "/visuels/competences/aerial-dominance.webp",
+    "Anti-Grav Thruster": "/visuels/competences/anti-grav-thruster.webp",
+    "Starlium Beam": "/visuels/competences/starlium-beam.webp",
+    "Traction Pulse": "/visuels/competences/traction-pulse.webp"
+  },
+  "lancelot": {
+    "Soul Cutter": "/visuels/competences/soul-cutter.webp",
+    "Puncture": "/visuels/competences/puncture.webp",
+    "Thorned Rose": "/visuels/competences/thorned-rose.webp",
+    "Phantom Execution": "/visuels/competences/phantom-execution.webp"
+  },
+  "lapu-lapu": {
+    "Homeland Defender": "/visuels/competences/homeland-defender.webp",
+    "Justice Blades": "/visuels/competences/justice-blades.webp",
+    "Jungle Warrior": "/visuels/competences/jungle-warrior.webp",
+    "Bravest Fighter": "/visuels/competences/bravest-fighter.webp"
+  },
+  "layla": {
+    "Malefic Gun": "/visuels/competences/malefic-gun.webp",
+    "Malefic Bomb": "/visuels/competences/malefic-bomb.webp",
+    "Void Projectile": "/visuels/competences/void-projectile.webp",
+    "Destruction Rush": "/visuels/competences/destruction-rush.webp"
+  },
+  "leomord": {
+    "The Oath Keeper": "/visuels/competences/the-oath-keeper.webp",
+    "Momentum": "/visuels/competences/momentum.webp",
+    "Decimation Assault": "/visuels/competences/decimation-assault.webp",
+    "Phantom Steed": "/visuels/competences/phantom-steed.webp"
+  },
+  "lesley": {
+    "Lethal Shot": "/visuels/competences/lethal-shot.webp",
+    "Master of Camouflage": "/visuels/competences/master-of-camouflage.webp",
+    "Tactical Grenade": "/visuels/competences/tactical-grenade.webp",
+    "Ultimate Snipe": "/visuels/competences/ultimate-snipe.webp"
+  },
+  "ling": {
+    "Cloud Walker": "/visuels/competences/cloud-walker.webp",
+    "Finch Poise": "/visuels/competences/finch-poise.webp",
+    "Defiant Sword": "/visuels/competences/defiant-sword.webp",
+    "Tempest of Blades": "/visuels/competences/tempest-of-blades.webp"
+  },
+  "lolita": {
+    "Power Charge": "/visuels/competences/power-charge.webp",
+    "Guardian's Reflection": "/visuels/competences/guardian-s-reflection.webp",
+    "Noumenon Blast": "/visuels/competences/noumenon-blast.webp"
+  },
+  "lukas": {
+    "Hero's Resolve": "/visuels/competences/hero-s-resolve.webp",
+    "Flash Combo": "/visuels/competences/flash-combo.webp",
+    "Flash Step": "/visuels/competences/flash-step.webp",
+    "Unleash the Beast": "/visuels/competences/unleash-the-beast.webp"
+  },
+  "lunox": {
+    "Dreamland Twist": "/visuels/competences/dreamland-twist.webp",
+    "Starlight Pulse": "/visuels/competences/starlight-pulse.webp",
+    "Chaos Assault": "/visuels/competences/chaos-assault.webp"
+  },
+  "luo-yi": {
+    "Duality": "/visuels/competences/duality.webp",
+    "Dispersion": "/visuels/competences/dispersion.webp",
+    "Rotation": "/visuels/competences/rotation.webp",
+    "Diversion": "/visuels/competences/diversion.webp"
+  },
+  "lylia": {
+    "Angry Gloom": "/visuels/competences/angry-gloom.webp",
+    "Magic Shockwave": "/visuels/competences/magic-shockwave.webp",
+    "Shadow Energy": "/visuels/competences/shadow-energy.webp"
+  },
+  "marcel": {
+    "Platinum Snap": "/visuels/competences/platinum-snap.webp",
+    "Framed Moment": "/visuels/competences/framed-moment.webp",
+    "Tracking Shot": "/visuels/competences/tracking-shot.webp",
+    "Golden Hour": "/visuels/competences/golden-hour.webp"
+  },
+  "martis": {
+    "Asura's Wrath": "/visuels/competences/asura-s-wrath.webp",
+    "Asura Aura": "/visuels/competences/asura-aura.webp",
+    "Mortal Coil": "/visuels/competences/mortal-coil.webp",
+    "Decimation": "/visuels/competences/decimation.webp"
+  },
+  "masha": {
+    "Ancient Strength": "/visuels/competences/ancient-strength.webp",
+    "Wild Power": "/visuels/competences/wild-power.webp",
+    "Howl Shock": "/visuels/competences/howl-shock.webp",
+    "Thunderclap": "/visuels/competences/thunderclap.webp"
+  },
+  "mathilda": {
+    "Ancestral Guidance": "/visuels/competences/ancestral-guidance.webp",
+    "Soul Bloom": "/visuels/competences/soul-bloom.webp",
+    "Guiding Wind": "/visuels/competences/guiding-wind.webp",
+    "Circling Eagle": "/visuels/competences/circling-eagle.webp"
+  },
+  "melissa": {
+    "Doll Buster": "/visuels/competences/doll-buster.webp",
+    "Falling!": "/visuels/competences/falling.webp",
+    "Eyes on You!": "/visuels/competences/eyes-on-you.webp",
+    "Go Away!": "/visuels/competences/go-away.webp"
+  },
+  "minotaur": {
+    "Rage Incarnate": "/visuels/competences/rage-incarnate.webp",
+    "Despair Stomp": "/visuels/competences/despair-stomp.webp",
+    "Motivation Roar": "/visuels/competences/motivation-roar.webp",
+    "Minoan Fury": "/visuels/competences/minoan-fury.webp"
+  },
+  "minsitthar": {
+    "Mark of the King": "/visuels/competences/mark-of-the-king.webp",
+    "Spear of Glory": "/visuels/competences/spear-of-glory.webp",
+    "Shield Assault": "/visuels/competences/shield-assault.webp",
+    "King's Calling": "/visuels/competences/king-s-calling.webp"
+  },
+  "miya": {
+    "Moon Arrow": "/visuels/competences/moon-arrow.webp",
+    "Arrow of Eclipse": "/visuels/competences/arrow-of-eclipse.webp",
+    "Hidden Moonlight": "/visuels/competences/hidden-moonlight.webp"
+  },
+  "moskov": {
+    "Spear of Quiescence": "/visuels/competences/spear-of-quiescence.webp",
+    "Abyss Walker": "/visuels/competences/abyss-walker.webp",
+    "Spear of Misery": "/visuels/competences/spear-of-misery.webp",
+    "Spear of Destruction": "/visuels/competences/spear-of-destruction.webp"
+  },
+  "nana": {
+    "Magic Boomerang": "/visuels/competences/magic-boomerang.webp",
+    "Molina Smooch": "/visuels/competences/molina-smooch.webp",
+    "Molina Blitz": "/visuels/competences/molina-blitz.webp"
+  },
+  "natalia": {
+    "Assassin Instinct": "/visuels/competences/assassin-instinct.webp",
+    "Claw Dash": "/visuels/competences/claw-dash.webp",
+    "Smoke Bomb": "/visuels/competences/smoke-bomb.webp",
+    "The Hunt": "/visuels/competences/the-hunt.webp"
+  },
+  "natan": {
+    "Theory of Everything": "/visuels/competences/theory-of-everything.webp",
+    "Superposition": "/visuels/competences/superposition.webp",
+    "Interference!": "/visuels/competences/interference.webp",
+    "Entropy?": "/visuels/competences/entropy.webp"
+  },
+  "nolan": {
+    "Dimensional Rift": "/visuels/competences/dimensional-rift.webp",
+    "Expansion": "/visuels/competences/expansion.webp",
+    "Gauge": "/visuels/competences/gauge.webp",
+    "Fracture": "/visuels/competences/fracture.webp"
+  },
+  "novaria": {
+    "Star Trail": "/visuels/competences/star-trail.webp",
+    "Astral Meteor": "/visuels/competences/astral-meteor.webp",
+    "Astral Recall": "/visuels/competences/astral-recall.webp",
+    "Astral Echo": "/visuels/competences/astral-echo.webp"
+  },
+  "obsidia": {
+    "Return to Bone": "/visuels/competences/return-to-bone.webp",
+    "Abyssal Bone Needle": "/visuels/competences/abyssal-bone-needle.webp",
+    "Phantom Shadowmeld": "/visuels/competences/phantom-shadowmeld.webp",
+    "Hunt of Bone": "/visuels/competences/hunt-of-bone.webp"
+  },
+  "odette": {
+    "Lakeshore Ambience": "/visuels/competences/lakeshore-ambience.webp",
+    "Avian Authority": "/visuels/competences/avian-authority.webp",
+    "Blue Nova": "/visuels/competences/blue-nova.webp",
+    "Swan Song": "/visuels/competences/swan-song.webp"
+  },
+  "paquito": {
+    "Champ Stance": "/visuels/competences/champ-stance.webp",
+    "Heavy Left Punch": "/visuels/competences/heavy-left-punch.webp",
+    "Jab": "/visuels/competences/jab.webp",
+    "Knockout Strike": "/visuels/competences/knockout-strike.webp"
+  },
+  "pharsa": {
+    "Spiritual Unity": "/visuels/competences/spiritual-unity.webp",
+    "Curse of Crow": "/visuels/competences/curse-of-crow.webp",
+    "Energy Impact": "/visuels/competences/energy-impact.webp",
+    "Feathered Air Strike": "/visuels/competences/feathered-air-strike.webp"
+  },
+  "phoveus": {
+    "Demonic Force": "/visuels/competences/demonic-force.webp",
+    "Demonic Impact": "/visuels/competences/demonic-impact.webp",
+    "Dark Wave": "/visuels/competences/dark-wave.webp",
+    "Infernal Pursuit": "/visuels/competences/infernal-pursuit.webp"
+  },
+  "popol-and-kupa": {
+    "We Are Friends": "/visuels/competences/we-are-friends.webp",
+    "Bite 'em, Kupa!": "/visuels/competences/bite-em-kupa.webp",
+    "Kupa, Help!": "/visuels/competences/kupa-help.webp",
+    "We Are Angry!": "/visuels/competences/we-are-angry.webp"
+  },
+  "rafaela": {
+    "Divine Resurrection": "/visuels/competences/divine-resurrection.webp",
+    "Light of Retribution": "/visuels/competences/light-of-retribution.webp",
+    "Holy Healing": "/visuels/competences/holy-healing.webp",
+    "Holy Baptism": "/visuels/competences/holy-baptism.webp"
+  },
+  "roger": {
+    "Full Moon Curse": "/visuels/competences/full-moon-curse.webp",
+    "Open Fire": "/visuels/competences/open-fire.webp",
+    "Hunter's Steps": "/visuels/competences/hunter-s-steps.webp",
+    "Wolf Transformation": "/visuels/competences/wolf-transformation.webp"
+  },
+  "ruby": {
+    "Let's Dance!": "/visuels/competences/let-s-dance.webp",
+    "Be Good!": "/visuels/competences/be-good.webp",
+    "Don't Run, Wolf King!": "/visuels/competences/don-t-run-wolf-king.webp",
+    "I'm Offended!": "/visuels/competences/i-m-offended.webp"
+  },
+  "saber": {
+    "Orbiting Swords": "/visuels/competences/orbiting-swords.webp",
+    "Charge": "/visuels/competences/charge.webp",
+    "Triple Sweep": "/visuels/competences/triple-sweep.webp"
+  },
+  "selena": {
+    "Symbiosis": "/visuels/competences/symbiosis.webp",
+    "Abyssal Trap": "/visuels/competences/abyssal-trap.webp",
+    "Abyssal Arrow": "/visuels/competences/abyssal-arrow.webp",
+    "Primal Darkness": "/visuels/competences/primal-darkness.webp"
+  },
+  "silvanna": {
+    "Knightess' Resolve": "/visuels/competences/knightess-resolve.webp",
+    "Cometic Lance": "/visuels/competences/cometic-lance.webp",
+    "Imperial Justice": "/visuels/competences/imperial-justice.webp"
+  },
+  "sora": {
+    "Mystic Surge": "/visuels/competences/mystic-surge.webp",
+    "Sundering Strike": "/visuels/competences/sundering-strike.webp",
+    "Windstride": "/visuels/competences/windstride.webp",
+    "Shifting Skies": "/visuels/competences/shifting-skies.webp"
+  },
+  "sun": {
+    "Simian God": "/visuels/competences/simian-god.webp",
+    "Endless Variety": "/visuels/competences/endless-variety.webp",
+    "Swift Exchange": "/visuels/competences/swift-exchange.webp",
+    "Clone Techniques": "/visuels/competences/clone-techniques.webp"
+  },
+  "suyou": {
+    "Transient Immortal": "/visuels/competences/transient-immortal.webp",
+    "Blade Surge": "/visuels/competences/blade-surge.webp",
+    "Soul Sever": "/visuels/competences/soul-sever.webp"
+  },
+  "terizla": {
+    "Body of Smith": "/visuels/competences/body-of-smith.webp",
+    "Revenge Strike": "/visuels/competences/revenge-strike.webp",
+    "Execution Strike": "/visuels/competences/execution-strike.webp",
+    "Penalty Zone": "/visuels/competences/penalty-zone.webp"
+  },
+  "thamuz": {
+    "Grand Lord Lava": "/visuels/competences/grand-lord-lava.webp",
+    "Chasm Trample": "/visuels/competences/chasm-trample.webp",
+    "Cauterant Inferno": "/visuels/competences/cauterant-inferno.webp"
+  },
+  "tigreal": {
+    "Fearless": "/visuels/competences/fearless.webp",
+    "Attack Wave": "/visuels/competences/attack-wave.webp",
+    "Sacred Hammer": "/visuels/competences/sacred-hammer.webp",
+    "Implosion": "/visuels/competences/implosion.webp"
+  },
+  "uranus": {
+    "Radiance": "/visuels/competences/radiance.webp",
+    "Ionic Edge": "/visuels/competences/ionic-edge.webp",
+    "Transcendent Ward": "/visuels/competences/transcendent-ward.webp",
+    "Consecration": "/visuels/competences/consecration.webp"
+  },
+  "vale": {
+    "Windtalk": "/visuels/competences/windtalk.webp",
+    "Wind Blade": "/visuels/competences/wind-blade.webp",
+    "Windblow": "/visuels/competences/windblow.webp",
+    "Windstorm": "/visuels/competences/windstorm.webp"
+  },
+  "valentina": {
+    "Primal Force": "/visuels/competences/primal-force.webp",
+    "Shadow Strike": "/visuels/competences/shadow-strike.webp",
+    "Arcane Shade": "/visuels/competences/arcane-shade.webp"
+  },
+  "valir": {
+    "Ashing": "/visuels/competences/ashing.webp",
+    "Burst Fireball": "/visuels/competences/burst-fireball.webp",
+    "Searing Torrent": "/visuels/competences/searing-torrent.webp",
+    "Vengeance Flame": "/visuels/competences/vengeance-flame.webp"
+  },
+  "vexana": {
+    "Nether Touch": "/visuels/competences/nether-touch.webp",
+    "Deathly Grasp": "/visuels/competences/deathly-grasp.webp",
+    "Cursed Blast": "/visuels/competences/cursed-blast.webp",
+    "Eternal Guard": "/visuels/competences/eternal-guard.webp"
+  },
+  "wanwan": {
+    "Tiger Pace": "/visuels/competences/tiger-pace.webp",
+    "Swallow's Path": "/visuels/competences/swallow-s-path.webp",
+    "Needles in Flowers": "/visuels/competences/needles-in-flowers.webp",
+    "Crossbow of Tang": "/visuels/competences/crossbow-of-tang.webp"
+  },
+  "x-borg": {
+    "Firaga Armor": "/visuels/competences/firaga-armor.webp",
+    "Fire Missiles": "/visuels/competences/fire-missiles.webp",
+    "Fire Stake": "/visuels/competences/fire-stake.webp",
+    "Last Insanity": "/visuels/competences/last-insanity.webp"
+  },
+  "xavier": {
+    "Transcendence": "/visuels/competences/transcendence.webp",
+    "Infinite Extension": "/visuels/competences/infinite-extension.webp",
+    "Mystic Field": "/visuels/competences/mystic-field.webp",
+    "Dawning Light": "/visuels/competences/dawning-light.webp"
+  },
+  "yi-sun-shin": {
+    "Heavenly Vow": "/visuels/competences/heavenly-vow.webp",
+    "Traceless": "/visuels/competences/traceless.webp"
+  },
+  "yin": {
+    "Leave It to Me": "/visuels/competences/leave-it-to-me.webp",
+    "Charged Punch": "/visuels/competences/charged-punch.webp",
+    "Instant Blast": "/visuels/competences/instant-blast.webp",
+    "My Turn": "/visuels/competences/my-turn.webp"
+  },
+  "yu-zhong": {
+    "Cursing Touch": "/visuels/competences/cursing-touch.webp",
+    "Dragon Tail": "/visuels/competences/dragon-tail.webp",
+    "Soul Grip": "/visuels/competences/soul-grip.webp",
+    "Black Dragon Form": "/visuels/competences/black-dragon-form.webp"
+  },
+  "yve": {
+    "Galactic Power": "/visuels/competences/galactic-power.webp",
+    "Void Blast": "/visuels/competences/void-blast.webp",
+    "Void Crystal": "/visuels/competences/void-crystal.webp",
+    "Real World Manipulation": "/visuels/competences/real-world-manipulation.webp"
+  },
+  "zetian": {
+    "Celestial Armament": "/visuels/competences/celestial-armament.webp",
+    "Phoenix Strike": "/visuels/competences/phoenix-strike.webp",
+    "Phoenix Descent": "/visuels/competences/phoenix-descent.webp",
+    "Fury of the Phoenix": "/visuels/competences/fury-of-the-phoenix.webp"
+  },
+  "zhask": {
+    "Decimation": "/visuels/competences/decimation.webp",
+    "Nightmaric Spawn": "/visuels/competences/nightmaric-spawn.webp",
+    "Mind Eater": "/visuels/competences/mind-eater.webp",
+    "Dominator's Descent": "/visuels/competences/dominator-s-descent.webp"
+  },
+  "zhuxin": {
+    "Crimson Butterflies": "/visuels/competences/crimson-butterflies.webp",
+    "Fluttering Grace": "/visuels/competences/fluttering-grace.webp",
+    "Lantern Flare": "/visuels/competences/lantern-flare.webp",
+    "Crimson Beacon": "/visuels/competences/crimson-beacon.webp"
+  },
+  "zilong": {
+    "Dragon Flurry": "/visuels/competences/dragon-flurry.webp",
+    "Spear Flip": "/visuels/competences/spear-flip.webp",
+    "Spear Strike": "/visuels/competences/spear-strike.webp",
+    "Supreme Warrior": "/visuels/competences/supreme-warrior.webp"
+  }
+}

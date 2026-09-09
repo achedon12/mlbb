@@ -303,17 +303,37 @@ async function urlsFichiers(noms, extension = "png") {
   return trouvees;
 }
 
-/** Telecharge un visuel s'il n'est pas deja present. */
-async function telecharger(url, chemin) {
+/**
+ * Telecharge un visuel s'il n'est pas deja present.
+ *
+ * Les illustrations pleine taille du wiki vont jusqu'a 3 Mo piece, pour 745
+ * fichiers : telles quelles, elles pesent plus de 200 Mo dans le depot et a
+ * chaque clonage. On les ramene a une largeur utile pour le web et on les
+ * convertit en WebP, ce qui divise le volume par six sans difference visible
+ * a l'ecran. Les portraits et les icones, deja petits, sont copies tels quels.
+ */
+async function telecharger(url, chemin, optimiser = false, largeur = 1280) {
   if (existsSync(chemin)) return "deja";
   try {
     const reponse = await fetch(url, {
       headers: { "User-Agent": UA },
-      signal: AbortSignal.timeout(30000),
+      signal: AbortSignal.timeout(45000),
     });
     if (!reponse.ok) return "echec";
+
+    const donnees = Buffer.from(await reponse.arrayBuffer());
     await mkdir(dirname(chemin), { recursive: true });
-    await writeFile(chemin, Buffer.from(await reponse.arrayBuffer()));
+
+    if (optimiser) {
+      const sharp = (await import("sharp")).default;
+      await sharp(donnees)
+        .resize({ width: largeur, withoutEnlargement: true })
+        .webp({ quality: 82 })
+        .toFile(chemin);
+    } else {
+      await writeFile(chemin, donnees);
+    }
+
     return "ok";
   } catch {
     return "echec";
@@ -408,6 +428,116 @@ const SORTS = [
   "Flicker", "Execute", "Retribution", "Purify", "Inspire", "Sprint",
   "Petrify", "Arrival", "Vengeance", "Aegis", "Revitalize",
 ];
+
+// ─────────────────────────────────────────────────────────────
+// Competences et illustrations
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Extrait les competences et les illustrations depuis la page d'un heros.
+ *
+ * Deux informations que les modules de donnees ne portent pas :
+ *
+ * - le gabarit `{{Ability}}` declare le **nom anglais** de chaque competence,
+ *   qui est aussi le nom de son icone sur le wiki ;
+ * - la galerie « Splash art » liste les illustrations pleine taille de chaque
+ *   skin, bien plus grandes que les portraits de la boutique.
+ */
+function extraireDePage(wikitexte) {
+  // Les competences sont declarees section par section, et chaque section
+  // n'en contient qu'une — parfois aucune. On borne donc la recherche entre
+  // un titre et le suivant.
+  //
+  // Prendre simplement les gabarits `{{Ability}}` dans l'ordre du texte
+  // donnerait un resultat faux a deux titres : une page mentionne les
+  // competences d'autres heros, et une section sans gabarit ferait remonter
+  // celui de la section d'apres.
+  const evenements = [
+    ...[...wikitexte.matchAll(/^=+\s*(.+?)\s*=+\s*$/gm)].map((m) => ({
+      position: m.index,
+      type: "titre",
+      valeur: m[1].trim().toLowerCase(),
+    })),
+    ...[...wikitexte.matchAll(/\{\{Ability\s*\|([\s\S]*?)\n\}\}/g)].map((m) => ({
+      position: m.index,
+      type: "competence",
+      valeur: m[1].match(/\|?\s*name\s*=\s*(.+)/)?.[1]?.replace(/<[^>]*>/g, "").trim(),
+    })),
+  ].sort((a, b) => a.position - b.position);
+
+  const ATTENDUES = ["passive", "skill 1", "skill 2", "ultimate"];
+  const parSection = {};
+
+  for (const [i, e] of evenements.entries()) {
+    if (e.type !== "titre" || !ATTENDUES.includes(e.valeur)) continue;
+
+    // On avance jusqu'au titre suivant : ce qui se trouve entre les deux
+    // appartient a cette section.
+    for (const suivant of evenements.slice(i + 1)) {
+      if (suivant.type === "titre") break;
+      if (suivant.valeur) {
+        parSection[e.valeur] = suivant.valeur;
+        break;
+      }
+    }
+  }
+
+  // On conserve les emplacements vides : la position dans la liste porte le
+  // sens (passif, competence 1, competence 2, ultime).
+  const competences = ATTENDUES.map((cle) => parSection[cle] ?? null);
+
+  // La galerie « Splash art » liste les illustrations pleine taille de chaque
+  // skin, bien plus grandes que les portraits de la boutique.
+  const galerie = wikitexte.match(
+    /Splash art\s*=+\s*\n<gallery[^>]*>([\s\S]*?)<\/gallery>/i,
+  );
+  const illustrations = galerie
+    ? [...galerie[1].matchAll(/^File:(.+?\.(?:jpg|png))\|(.*)$/gim)].map((m) => ({
+        fichier: m[1].trim(),
+        skin: m[2].trim(),
+      }))
+    : [];
+
+  return { competences, illustrations };
+}
+
+/** Parcourt les pages de heros, par lots, pour en extraire ces deux blocs. */
+async function pagesHeros(heros) {
+  const sortie = {};
+
+  for (let i = 0; i < heros.length; i += 10) {
+    const lot = heros.slice(i, i + 10);
+
+    const donnees = await api({
+      action: "query",
+      titles: lot.map((h) => h.nom).join("|"),
+      prop: "revisions",
+      rvprop: "content",
+      rvslots: "main",
+      redirects: "1",
+    });
+
+    const parTitre = new Map(
+      Object.values(donnees.query?.pages ?? {})
+        .filter((p) => p.revisions)
+        .map((p) => [p.title, p.revisions[0].slots.main["*"]]),
+    );
+    const redirections = new Map(
+      (donnees.query?.redirects ?? []).map((r) => [r.from, r.to]),
+    );
+
+    for (const h of lot) {
+      const texte = parTitre.get(redirections.get(h.nom) ?? h.nom);
+      if (texte) sortie[h.slug] = extraireDePage(texte);
+    }
+
+    process.stdout.write(`\r    pages ${Math.min(i + 10, heros.length)}/${heros.length}`);
+    await pause(350);
+  }
+
+  process.stdout.write("\n");
+  return sortie;
+}
 
 // ─────────────────────────────────────────────────────────────
 // Classement
@@ -566,6 +696,12 @@ async function principal() {
   const nbSkins = Object.values(skins).reduce((n, s) => n + s.length, 0);
   console.log(`  ${heros.length} heros, ${nbSkins} skins, ${objets.length} objets`);
 
+  console.log("Lecture des pages de heros…");
+  const pages = await pagesHeros(heros);
+  const nbCompetences = Object.values(pages).reduce((n, p) => n + p.competences.length, 0);
+  const nbIllustrations = Object.values(pages).reduce((n, p) => n + p.illustrations.length, 0);
+  console.log(`  ${nbCompetences} competences, ${nbIllustrations} illustrations`);
+
   console.log("Classement des heros…");
   let stats = {};
   try {
@@ -598,6 +734,71 @@ async function principal() {
   console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icones).length} icones`);
 
   const { plan, chemins } = planVisuels(heros, skins, portraits, icones);
+
+  // ── Icones de competences ──────────────────────────────────────────
+  const nomsCompetences = [
+    ...new Set(Object.values(pages).flatMap((p) => p.competences)),
+  ];
+  const urlsCompetences = await urlsFichiers(nomsCompetences);
+
+  const visuelsCompetences = {};
+  for (const [slug, page] of Object.entries(pages)) {
+    const icones = {};
+    for (const nom of page.competences) {
+      const url = urlsCompetences[nom];
+      if (!url) continue;
+      const fichier = `${slugifier(nom)}.webp`;
+      icones[nom] = `/visuels/competences/${fichier}`;
+      plan.push({
+        url,
+        chemin: `public/visuels/competences/${fichier}`,
+        optimiser: true,
+        largeur: 128,
+      });
+    }
+    if (Object.keys(icones).length) visuelsCompetences[slug] = icones;
+  }
+  console.log(
+    `  ${Object.keys(urlsCompetences).length}/${nomsCompetences.length} icones de competences`,
+  );
+
+  // ── Illustrations pleine taille ────────────────────────────────────
+  const nomsIllustrations = [
+    ...new Set(Object.values(pages).flatMap((p) => p.illustrations.map((i) => i.fichier))),
+  ];
+  // Les illustrations sont en .jpg comme en .png : on interroge les deux.
+  const [enJpg, enPng] = await Promise.all([
+    urlsFichiers(
+      nomsIllustrations.filter((f) => f.endsWith(".jpg")).map((f) => f.replace(/\.jpg$/, "")),
+      "jpg",
+    ),
+    urlsFichiers(
+      nomsIllustrations.filter((f) => f.endsWith(".png")).map((f) => f.replace(/\.png$/, "")),
+      "png",
+    ),
+  ]);
+  const urlsIllustrations = { ...enJpg, ...enPng };
+
+  const illustrations = {};
+  for (const [slug, page] of Object.entries(pages)) {
+    const parSkin = {};
+    for (const { fichier, skin } of page.illustrations) {
+      const cle = fichier.replace(/\.(jpg|png)$/, "");
+      const url = urlsIllustrations[cle];
+      if (!url || !skin) continue;
+      const nomFichier = `${slugifier(skin)}.webp`;
+      parSkin[skin] = `/visuels/heros/${slug}/illustrations/${nomFichier}`;
+      plan.push({
+        url,
+        chemin: `public/visuels/heros/${slug}/illustrations/${nomFichier}`,
+        optimiser: true,
+      });
+    }
+    if (Object.keys(parSkin).length) illustrations[slug] = parSkin;
+  }
+  console.log(
+    `  ${Object.keys(urlsIllustrations).length}/${nomsIllustrations.length} illustrations pleine taille`,
+  );
 
   console.log("Resolution des objets, emblemes, talents et sorts…");
   const [urlsObjets, urlsEmblemes, urlsTalents, urlsSorts] = await Promise.all([
@@ -634,7 +835,7 @@ async function principal() {
     // Par petits paquets : assez rapide, sans saturer le wiki.
     for (let i = 0; i < plan.length; i += 8) {
       const resultats = await Promise.all(
-        plan.slice(i, i + 8).map((v) => telecharger(v.url, v.chemin)),
+        plan.slice(i, i + 8).map((v) => telecharger(v.url, v.chemin, v.optimiser, v.largeur)),
       );
       ok += resultats.filter((r) => r === "ok").length;
       deja += resultats.filter((r) => r === "deja").length;
@@ -649,7 +850,13 @@ async function principal() {
   const ecrire = (nom, donnees) =>
     writeFile(`${SORTIE}/${nom}.json`, JSON.stringify(donnees, null, 2) + "\n");
 
-  if (stats) await ecrire("classement", stats);
+  // Le classement porte sa propre date : il ne se met pas a jour au meme
+  // rythme que le reste quand sa source est indisponible, et afficher la date
+  // de la derniere synchronisation laisserait croire qu'il est plus frais
+  // qu'il ne l'est.
+  if (stats) {
+    await ecrire("classement", { mesure: new Date().toISOString(), taux: stats });
+  }
 
   await Promise.all([
     ecrire("heros", heros),
@@ -658,6 +865,11 @@ async function principal() {
     ecrire("patchs", listePatchs),
     ecrire("visuels", chemins),
     ecrire("visuels-objets", visuelsObjets),
+    ecrire("competences", Object.fromEntries(
+      Object.entries(pages).map(([slug, p]) => [slug, p.competences]),
+    )),
+    ecrire("visuels-competences", visuelsCompetences),
+    ecrire("illustrations", illustrations),
     ecrire("visuels-emblemes", visuelsEmblemes),
     ecrire("visuels-talents", visuelsTalents),
     ecrire("visuels-sorts", visuelsSorts),
