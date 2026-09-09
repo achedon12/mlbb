@@ -35,6 +35,7 @@ openssl rand -hex 32
 | `npm run start` | Sert le build de production sur le port 3001 |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
+| `npm run portraits` | Regenere `src/data/portraits.json` depuis le wiki |
 
 ## Ce que contient le site
 
@@ -47,7 +48,25 @@ openssl rand -hex 32
 - **Objets** — statistiques, passifs, et surtout le moment ou l'objet vaut la
   peine d'etre achete.
 - **Emblemes, talents et sorts de combat** — avec le type de heros vise.
-- **Actualites et patch notes** — en Markdown, publies aussi en RSS.
+- **Actualites et patch notes** — rediges en Markdown, publies aussi en RSS.
+- **Veille** — les publications du reste du web sur le jeu, rassemblees
+  automatiquement et rafraichies toutes les 30 minutes, sans tache planifiee.
+- **Portraits** — chaque heros est illustre par son portrait, charge depuis le
+  wiki communautaire qui l'heberge.
+
+## D'ou viennent les donnees
+
+| Donnee | Source | Mise a jour |
+| --- | --- | --- |
+| Roster, fiches, objets, emblemes, tier list | Redigees a la main, verifiees en jeu | Manuelle, par pull request |
+| Actualites et patch notes | Redigees a la main, en Markdown | Manuelle, par pull request |
+| Veille | Flux publics agreges au rendu | Automatique, toutes les 30 min |
+| Portraits de heros | Wiki communautaire, via `npm run portraits` | Manuelle, a la sortie d'un heros |
+
+Moonton ne publie **aucun flux officiel** : le site du jeu est une application
+dont le contenu n'est pas diffusable, et il n'existe pas de RSS. Les mises a
+jour du jeu sont donc reprises et commentees a la main ; la veille couvre ce
+que publie le reste du web.
 
 ## Ce qu'il ne contient pas
 
