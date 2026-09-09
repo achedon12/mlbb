@@ -3,22 +3,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { CorpsArticle } from "@/components/article";
+import { NouveauHeros } from "@/components/nouveau-heros";
+import { PatchHeros } from "@/components/patch-heros";
 import { SommairePatch } from "@/components/sommaire-patch";
-import detailPatchs from "@/data/genere/patchs-detail.json";
+import { herosParSlug, illustrations, patchsDetail } from "@/lib/donnees";
 import { article, articles, enHtml } from "@/lib/contenu";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
 
-interface PatchDetaille {
-  version: string;
-  titre: string;
-  lien: string;
-  sommaire: { niveau: number; titre: string; ancre: string }[];
-  html: string;
-}
-
-const patchs = detailPatchs as unknown as Record<string, PatchDetaille>;
+const patchs = patchsDetail;
 
 /**
  * Une meme route sert deux choses : les notes officielles reprises du wiki,
@@ -126,11 +120,72 @@ export default async function PagePatch({ params }: Params) {
 
             <article className="min-w-0 max-w-3xl">
               {/*
-                Contenu repris du wiki communautaire, nettoye a la
-                synchronisation. La source est creditee sous l'article, comme
-                l'exige sa licence.
+                Les notes sont rendues section par section, dans leur ordre
+                d'origine. Deux sections sont reprises par un composant riche a
+                leur place exacte — la presentation des nouveaux heros et le
+                tableau des ajustements — le reste garde le HTML du wiki, nettoye
+                a la synchronisation. La source est creditee sous l'article,
+                comme l'exige sa licence.
               */}
-              <div className="prose-mlbb" dangerouslySetInnerHTML={{ __html: patch.html }} />
+              {patch.sections.map((section, i) => (
+                <section key={section.ancre ?? i} className="mb-12">
+                  {section.titre && (
+                    <>
+                      <h2
+                        id={section.ancre ?? undefined}
+                        className="scroll-mt-24 font-titre text-2xl font-bold text-craie-100"
+                      >
+                        {section.titre}
+                      </h2>
+                      <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+                    </>
+                  )}
+
+                  <div className={section.titre ? "mt-5" : undefined}>
+                    {section.role === "nouveaux" ? (
+                      <div className="space-y-10">
+                        {patch.nouveaux.map((h) => {
+                          const fiche = herosParSlug.get(h.slug);
+                          const illus = illustrations[h.slug] ?? {};
+                          const illustration =
+                            (h.epithete ? illus[h.epithete] : undefined) ??
+                            Object.values(illus)[0] ??
+                            null;
+                          return (
+                            <NouveauHeros
+                              key={h.slug}
+                              heros={{
+                                ...h,
+                                portrait: fiche?.visuels.portrait ?? null,
+                                illustration,
+                                roles: fiche?.roles ?? [],
+                                fiche: Boolean(fiche),
+                              }}
+                            />
+                          );
+                        })}
+                      </div>
+                    ) : section.role === "ajustements" ? (
+                      <PatchHeros
+                        ajustements={patch.ajustements.map((a) => ({
+                          ...a,
+                          portrait:
+                            herosParSlug.get(a.slug)?.visuels.icone ??
+                            herosParSlug.get(a.slug)?.visuels.portrait ??
+                            null,
+                          fiche: herosParSlug.has(a.slug),
+                        }))}
+                        bilan={patch.bilan}
+                      />
+                    ) : (
+                      <div
+                        className="prose-mlbb"
+                        dangerouslySetInnerHTML={{ __html: section.html }}
+                      />
+                    )}
+                  </div>
+                </section>
+              ))}
 
               <p className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
             Notes reprises du{" "}

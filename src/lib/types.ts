@@ -175,6 +175,66 @@ export interface TierList {
   entrees: EntreeTierList[];
 }
 
+/** Un changement d'equilibrage : soit un avant/apres, soit un simple texte. */
+export type Changement =
+  | { libelle: string | null; avant: string; apres: string }
+  | { texte: string };
+
+export interface SectionAjustement {
+  nom: string;
+  categorie: string | null;
+  type: TypeAjustement | null;
+  changements: Changement[];
+}
+
+export type TypeAjustement = "amelioration" | "affaiblissement" | "ajustement";
+
+export interface AjustementHeros {
+  nom: string;
+  slug: string;
+  type: TypeAjustement | null;
+  intro: string;
+  sections: SectionAjustement[];
+}
+
+/** Une competence d'un nouveau heros : role (passif, skill 1…), nom, effets. */
+export interface CompetenceNouvelle {
+  role: string;
+  nom: string | null;
+  description: string[];
+}
+
+/** Presentation structuree d'un heros introduit par le patch. */
+export interface NouveauHeros {
+  nom: string;
+  slug: string;
+  epithete: string | null;
+  ancre: string | null;
+  lore: string[];
+  feature: string | null;
+  competences: CompetenceNouvelle[];
+}
+
+/** Une section de premier niveau du corps du patch. */
+export interface SectionPatch {
+  ancre: string | null;
+  titre: string | null;
+  html: string;
+  /** Sections reprises par un composant riche plutot que par le HTML brut. */
+  role: "nouveaux" | "ajustements" | null;
+}
+
+export interface PatchDetaille {
+  version: string;
+  titre: string;
+  lien: string;
+  sommaire: { niveau: number; titre: string; ancre: string }[];
+  sections: SectionPatch[];
+  nouveaux: NouveauHeros[];
+  ajustements: AjustementHeros[];
+  bilan: Record<TypeAjustement, number>;
+}
+
 export interface Article {
   slug: string;
   titre: string;

@@ -18,8 +18,9 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyserTableLua } from "./lua.mjs";
-import { nettoyerRendu, sommaire } from "./patch-notes.mjs";
+import { decouperSections, nettoyerRendu, nouveauxHeros, sommaire } from "./patch-notes.mjs";
 import { nettoyerDescription } from "./wikitexte.mjs";
+import { ajustementsHeros, bilan } from "./patch-parser.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
 /**
@@ -876,16 +877,51 @@ async function contenuPatchs(liste) {
       const brut = donnees.parse?.text;
       if (!brut) continue;
 
+      // Deux lectures complementaires : le rendu HTML pour les sections libres
+      // (mot des concepteurs, terrain), et le wikitexte pour extraire les
+      // ajustements de heros en donnees structurees — heros, type, diffs.
+      let ajustements = [];
+      try {
+        const wt = await api({
+          action: "parse",
+          page: patch.titre,
+          prop: "wikitext",
+          formatversion: "2",
+        });
+        const wikitexte = wt.parse?.wikitext;
+        if (wikitexte) ajustements = ajustementsHeros(wikitexte);
+      } catch {
+        // Sans le wikitexte, on garde au moins le rendu HTML.
+      }
+
       const { html } = nettoyerRendu(brut, patch.lien);
+
+      // Le corps est decoupe en sections : la page en rend certaines telles
+      // quelles et en remplace d'autres — nouveaux heros, ajustements — par un
+      // composant riche. On extrait la presentation des nouveaux heros et on
+      // vide le HTML des sections reprises par un composant, inutile a garder.
+      const sections = decouperSections(html);
+      let nouveaux = [];
+      const sectionsRendues = sections.map((s) => {
+        const t = (s.titre ?? "").toLowerCase();
+        if (/hero adjustments/.test(t)) return { ...s, html: "", role: "ajustements" };
+        if (/new hero/.test(t)) {
+          nouveaux = nouveauxHeros(s.html).map((h) => ({ ...h, slug: slugifier(h.nom) }));
+          return { ...s, html: "", role: "nouveaux" };
+        }
+        return { ...s, role: null };
+      });
+
       contenus[patch.version] = {
         version: patch.version,
         titre: patch.titre,
         lien: patch.lien,
-        // Les deux niveaux : une note de patch est longue, s'arreter au
-        // premier niveau donnerait un sommaire de cinq lignes pour trente
-        // mille caracteres.
         sommaire: sommaire(html),
-        html,
+        sections: sectionsRendues,
+        nouveaux,
+        // Ajustements de heros ramenes a des slugs, pour lier aux fiches.
+        ajustements: ajustements.map((a) => ({ ...a, slug: slugifier(a.nom) })),
+        bilan: bilan(ajustements),
       };
     } catch {
       // Une page illisible ne doit pas interrompre la synchronisation.
