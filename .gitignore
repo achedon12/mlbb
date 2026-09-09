@@ -41,9 +41,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Base SQLite locale
-/data
-
 # Configuration d'IDE
 /.idea
 
