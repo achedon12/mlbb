@@ -1152,6 +1152,12 @@ async function principal() {
       objets: objets.length,
       patchs: listePatchs.length,
       classement: stats ? Object.keys(stats).length : null,
+      contres: contres ? Object.keys(contres).length : null,
+      // Le wiki fournit le catalogue ; l'API communautaire fournit les mesures.
+      sources: [
+        "https://mobilelegends.fandom.com",
+        "https://arena.rone.dev",
+      ],
     }),
   ]);
 
