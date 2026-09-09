@@ -1,4 +1,5 @@
 import competencesGenere from "@/data/genere/competences.json";
+import contresGenere from "@/data/genere/contres.json";
 import herosGenere from "@/data/genere/heros.json";
 import illustrationsGenere from "@/data/genere/illustrations.json";
 import objetsGenere from "@/data/genere/objets.json";
@@ -54,6 +55,25 @@ export const visuelsCompetences = visuelsCompetencesGenere as unknown as Record<
   string,
   Record<string, string>
 >;
+
+/**
+ * Contres chiffres, tires des taux de victoire du jeu.
+ *
+ * Pour chaque heros : ceux contre qui son taux monte le plus (`fort`) et ceux
+ * contre qui il descend (`faible`), avec l'ecart en points. Couvre les 133
+ * heros, la ou l'analyse ecrite se limite a une poignee.
+ */
+export interface ContreChiffre {
+  slug: string;
+  /** Ecart de taux de victoire, en points (positif = avantage). */
+  avantage: number;
+}
+export interface ContresHeros {
+  fort: ContreChiffre[];
+  faible: ContreChiffre[];
+  mesure: number | null;
+}
+export const contres = contresGenere as unknown as Record<string, ContresHeros>;
 
 /** Presentation video officielle, quand elle a pu etre identifiee. */
 export const videos = videosGenere as unknown as Record<
