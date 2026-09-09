@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { rarete } from "@/lib/raretes";
 import type { Skin } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -19,17 +20,6 @@ const MONNAIES: Record<string, string> = {
   ticket: "Tickets",
   hf: "Fragments de heros",
   lg: "Gemmes",
-};
-
-/** Les raretes vont du plus commun au plus rare : la couleur suit. */
-const RARETES: Record<string, string> = {
-  Common: "text-craie-300",
-  Elite: "text-azur-400",
-  Special: "text-emerald-400",
-  Exquisite: "text-purple-400",
-  Epic: "text-or-400",
-  Legend: "text-sang-500",
-  Collector: "text-sang-500",
 };
 
 export function GalerieSkins({
@@ -50,6 +40,7 @@ export function GalerieSkins({
         {skins.map((s) => {
           const source = visuels[s.id];
           const selectionne = s.id === skin?.id;
+          const r = rarete(s.rarete);
 
           return (
             <li key={s.id}>
@@ -57,11 +48,18 @@ export function GalerieSkins({
                 type="button"
                 onClick={() => setActif(s.id)}
                 aria-pressed={selectionne}
+                title={`${s.nom} — ${r.nom}`}
+                // Le contour porte la rarete, comme dans le jeu : on reconnait
+                // un skin Legend avant d'avoir lu son nom. La selection ajoute
+                // un halo plutot que de remplacer la couleur, qui reste
+                // l'information la plus utile.
+                style={{
+                  borderColor: r.couleur,
+                  boxShadow: selectionne ? `0 0 0 2px ${r.halo}, 0 0 14px ${r.halo}` : undefined,
+                }}
                 className={cn(
-                  "biseau-sm relative block w-full overflow-hidden border transition-colors",
-                  selectionne
-                    ? "border-or-500"
-                    : "border-nuit-700 hover:border-or-500/50",
+                  "biseau-sm relative block w-full overflow-hidden border-2 transition-shadow",
+                  !selectionne && "hover:shadow-[0_0_10px_var(--halo)]",
                 )}
               >
                 <span className="relative block aspect-[240/390] bg-nuit-800">
@@ -94,12 +92,10 @@ export function GalerieSkins({
 
           {skin.rarete && (
             <p
-              className={cn(
-                "mt-1 text-sm font-semibold uppercase tracking-wide",
-                RARETES[skin.rarete] ?? "text-craie-300",
-              )}
+              className="mt-1 text-sm font-semibold uppercase tracking-wide"
+              style={{ color: rarete(skin.rarete).couleur }}
             >
-              {skin.rarete}
+              {rarete(skin.rarete).nom}
             </p>
           )}
 
