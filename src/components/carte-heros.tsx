@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Lane, Role, VisuelsHeros } from "@/lib/types";
+import { IndicateurFavori } from "./indicateur-favori";
 import { PortraitHeros } from "./portrait-heros";
 import { BadgeRole } from "./ui";
 
@@ -30,8 +31,9 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
 
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="truncate font-titre text-base font-bold text-craie-100 transition-colors group-hover:text-or-400">
-            {heros.nom}
+          <h3 className="flex min-w-0 items-center gap-1.5 font-titre text-base font-bold text-craie-100 transition-colors group-hover:text-or-400">
+            <span className="truncate">{heros.nom}</span>
+            <IndicateurFavori slug={heros.slug} />
           </h3>
           {heros.analyse && (
             <span
