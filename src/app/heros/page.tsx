@@ -29,12 +29,7 @@ const donneesStructurees = {
   })),
 };
 
-export default async function PageHeros({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string }>;
-}) {
-  const { q } = await searchParams;
+export default function PageHeros() {
   // On n'envoie au client que les champs affiches par les vignettes.
   const apercus = heros.map((h) => {
     const taux = tauxParSlug.get(h.slug);
@@ -62,7 +57,7 @@ export default async function PageHeros({
         chapeau={`Les ${heros.length} heros du jeu et leurs ${nombreSkins} skins, filtrables par role et par position. Les ${herosAnalyses.length} fiches marquees « Analyse » contiennent en plus un commentaire, des builds et des contres.`}
       />
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <ListeHeros heros={apercus} rechercheInitiale={q ?? ""} />
+        <ListeHeros heros={apercus} />
       </div>
     </>
   );
