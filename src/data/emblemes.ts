@@ -1,50 +1,70 @@
 /**
- * Emblemes et sorts de combat.
+ * Emblemes, talents et sorts de combat.
  *
- * Le systeme d'emblemes a ete unifie : un seul niveau partage, et des talents
- * choisis en trois etages. On decrit donc les etages plutot que d'anciennes
- * pages d'emblemes separees.
+ * Le wiki n'expose aucun module de donnees pour eux : cette liste est ecrite a
+ * la main. Les noms sont ceux du jeu en anglais, ce qui n'est pas un choix
+ * esthetique — c'est la cle qui relie chaque entree a son visuel, resolu par
+ * la synchronisation (`src/data/genere/visuels-*.json`).
+ *
+ * Le champ `pourQui` est de l'analyse : il dit a qui l'option s'adresse
+ * reellement, ce qu'une description d'effet ne dit jamais.
  */
-export interface Talent {
-  nom: string;
-  etage: 1 | 2 | 3;
-  description: string;
-  /** Pour qui ce talent est reellement le bon choix. */
-  pourQui: string;
-}
-
 export interface Embleme {
-  slug: string;
+  /** Cle du visuel, et nom exact dans le jeu. */
+  cle: string;
   nom: string;
   bonus: string;
   pourQui: string;
 }
 
 export const emblemes: Embleme[] = [
-  { slug: "tank", nom: "Embleme de tank", bonus: "PV et resistances", pourQui: "Tanks d'engagement et tanks de lane d'experience." },
-  { slug: "combattant", nom: "Embleme de combattant", bonus: "Degats d'attaque et vol de vie", pourQui: "Combattants de lane d'experience qui doivent gagner leur duel." },
-  { slug: "assassin", nom: "Embleme d'assassin", bonus: "Degats d'attaque et penetration physique", pourQui: "Jungleurs physiques et assassins." },
-  { slug: "mage", nom: "Embleme de mage", bonus: "Puissance magique et penetration magique", pourQui: "Mages de la lane du milieu." },
-  { slug: "tireur", nom: "Embleme de tireur", bonus: "Vitesse d'attaque et degats d'attaque", pourQui: "Tireurs de la lane d'or." },
-  { slug: "soutien", nom: "Embleme de soutien", bonus: "Reduction de recharge et vitesse de deplacement", pourQui: "Soutiens et roamers non tanks." },
+  { cle: "tank-emblem", nom: "Embleme de tank", bonus: "PV et resistances", pourQui: "Tanks d'engagement et tanks de lane d'experience." },
+  { cle: "fighter-emblem", nom: "Embleme de combattant", bonus: "Degats d'attaque et vol de vie", pourQui: "Combattants de lane d'experience qui doivent gagner leur duel." },
+  { cle: "assassin-emblem", nom: "Embleme d'assassin", bonus: "Degats d'attaque et penetration physique", pourQui: "Jungleurs physiques et assassins." },
+  { cle: "mage-emblem", nom: "Embleme de mage", bonus: "Puissance magique et penetration magique", pourQui: "Mages de la lane du milieu." },
+  { cle: "marksman-emblem", nom: "Embleme de tireur", bonus: "Vitesse d'attaque et degats d'attaque", pourQui: "Tireurs de la lane d'or." },
+  { cle: "support-emblem", nom: "Embleme de soutien", bonus: "Reduction de recharge et vitesse de deplacement", pourQui: "Soutiens et roamers non tanks." },
 ];
 
+export interface Talent {
+  cle: string;
+  nom: string;
+  /** Les talents decisifs sont ceux du dernier etage. */
+  decisif: boolean;
+  description: string;
+  pourQui: string;
+}
+
 export const talents: Talent[] = [
-  { nom: "Agilite", etage: 1, description: "Augmente la vitesse de deplacement.", pourQui: "Roamers et heros qui doivent tourner vite sur la carte." },
-  { nom: "Vitalite", etage: 1, description: "Augmente les PV maximum.", pourQui: "Tanks et combattants." },
-  { nom: "Cruaute", etage: 1, description: "Augmente les degats d'attaque et la puissance magique.", pourQui: "Porteurs de degats." },
-  { nom: "Recuperation", etage: 2, description: "Ameliore la regeneration hors combat.", pourQui: "Lanes solo qui doivent tenir sans rentrer." },
-  { nom: "Tenacite", etage: 2, description: "Augmente les resistances quand les PV sont bas.", pourQui: "Tanks face a une composition explosive." },
-  { nom: "Colosse", etage: 2, description: "Genere un bouclier apres avoir subi des degats.", pourQui: "Initiateurs." },
-  { nom: "Choc", etage: 3, description: "Le premier coup porte inflige des degats supplementaires bases sur les PV.", pourQui: "Tanks d'engagement : Tigreal, Khufra, Atlas." },
-  { nom: "Festin", etage: 3, description: "Restaure des PV en infligeant des degats.", pourQui: "Combattants de lane d'experience." },
-  { nom: "Chasseur", etage: 3, description: "Augmente les degats contre les monstres et la vitesse de nettoyage.", pourQui: "Jungleurs." },
-  { nom: "Feu magique", etage: 3, description: "Les degats magiques brulent la cible sur la duree.", pourQui: "Mages a degats continus." },
-  { nom: "Sauveur", etage: 3, description: "Renforce les boucliers et les soins accordes aux allies.", pourQui: "Soutiens et roamers protecteurs." },
+  // ── Attributs ────────────────────────────────────────────────────────────
+  { cle: "agility", nom: "Agility", decisif: false, description: "Augmente la vitesse de deplacement.", pourQui: "Roamers et heros qui doivent tourner vite sur la carte." },
+  { cle: "swift", nom: "Swift", decisif: false, description: "Augmente la vitesse d'attaque.", pourQui: "Tireurs et combattants a attaques de base." },
+  { cle: "vitality", nom: "Vitality", decisif: false, description: "Augmente les PV maximum.", pourQui: "Tanks et combattants." },
+  { cle: "fatal", nom: "Fatal", decisif: false, description: "Augmente le taux de coup critique.", pourQui: "Tireurs et assassins a critique." },
+  { cle: "firmness", nom: "Firmness", decisif: false, description: "Augmente les resistances physique et magique.", pourQui: "Tanks face a des degats mixtes." },
+  { cle: "thrill", nom: "Thrill", decisif: false, description: "Augmente les degats d'attaque et la puissance magique.", pourQui: "Porteurs de degats, quel que soit le type." },
+  { cle: "tenacity", nom: "Tenacity", decisif: false, description: "Augmente les resistances quand les PV sont bas.", pourQui: "Tanks face a une composition explosive." },
+  { cle: "seasoned-hunter", nom: "Seasoned Hunter", decisif: false, description: "Augmente les degats infliges aux monstres de jungle.", pourQui: "Jungleurs, pour securiser les objectifs." },
+  { cle: "master-assassin", nom: "Master Assassin", decisif: false, description: "Augmente les degats contre une cible isolee.", pourQui: "Assassins qui cherchent le duel." },
+  { cle: "weakness-finder", nom: "Weakness Finder", decisif: false, description: "Les attaques de base ralentissent la cible.", pourQui: "Combattants sans controle propre." },
+
+  // ── Talents decisifs ─────────────────────────────────────────────────────
+  { cle: "impure-rage", nom: "Impure Rage", decisif: true, description: "La prochaine competence inflige des degats supplementaires et restaure de la mana.", pourQui: "Mages a competences frequentes." },
+  { cle: "quantum-charge", nom: "Quantum Charge", decisif: true, description: "Les degats de competence accelerent et soignent.", pourQui: "Heros qui doivent rester mobiles en combat." },
+  { cle: "weapon-master", nom: "Weapon Master", decisif: true, description: "Augmente tous les bonus d'attaque recus des objets.", pourQui: "Combattants dont les degats viennent des competences." },
+  { cle: "lethal-ignition", nom: "Lethal Ignition", decisif: true, description: "Inflige des degats supplementaires a une cible fortement blessee.", pourQui: "Porteurs qui doivent conclure vite." },
+  { cle: "concussive-blast", nom: "Concussive Blast", decisif: true, description: "Inflige des degats de zone bases sur les PV maximum.", pourQui: "Tanks d'engagement : Tigreal, Khufra, Atlas." },
+  { cle: "wilderness-blessing", nom: "Wilderness Blessing", decisif: true, description: "Augmente la vitesse de deplacement hors combat et dans l'herbe.", pourQui: "Roamers qui vivent dans les buissons, comme Franco." },
+  { cle: "focusing-mark", nom: "Focusing Mark", decisif: true, description: "Les cibles touchees subissent davantage de degats des allies.", pourQui: "Soutiens et tanks qui jouent pour leur porteur." },
+  { cle: "brave-smite", nom: "Brave Smite", decisif: true, description: "Toucher un ennemi avec une competence restaure des PV.", pourQui: "Combattants de lane d'experience." },
+  { cle: "killing-spree", nom: "Killing Spree", decisif: true, description: "Une elimination restaure des PV et accelere.", pourQui: "Assassins qui enchainent les cibles." },
+  { cle: "festival-of-blood", nom: "Festival of Blood", decisif: true, description: "Les degats de competence appliquent un vol de vie.", pourQui: "Mages de combat prolonge." },
+  { cle: "bargain-hunter", nom: "Bargain Hunter", decisif: true, description: "Reduit le prix des objets.", pourQui: "Roamers, dont le revenu est le plus faible de l'equipe." },
+  { cle: "pull-yourself-together", nom: "Pull Yourself Together", decisif: true, description: "Reduit la recharge des sorts de combat et des objets actifs.", pourQui: "Heros dont le Flicker decide des combats." },
 ];
 
 export interface SortDeCombat {
-  slug: string;
+  cle: string;
   nom: string;
   recharge: number;
   description: string;
@@ -52,13 +72,15 @@ export interface SortDeCombat {
 }
 
 export const sortsDeCombat: SortDeCombat[] = [
-  { slug: "flicker", nom: "Flicker", recharge: 120, description: "Teleporte le heros sur une courte distance.", pourQui: "Presque tout le monde : engagement, fuite, annulation d'animation." },
-  { slug: "execution", nom: "Execution", recharge: 60, description: "Inflige des degats bases sur les PV manquants de la cible.", pourQui: "Jungleurs et assassins qui doivent conclure." },
-  { slug: "vengeance", nom: "Vengeance", recharge: 75, description: "Renvoie une partie des degats subis pendant la duree.", pourQui: "Combattants de lane d'experience." },
-  { slug: "purify", nom: "Purify", recharge: 90, description: "Retire les effets de controle et immunise brievement.", pourQui: "Porteurs vises par un controle unique : contre Chou, Franco, Kaja." },
-  { slug: "inspiration", nom: "Inspiration", recharge: 75, description: "Augmente fortement la vitesse d'attaque et ignore une partie de l'armure.", pourQui: "Tireurs a attaques de base." },
-  { slug: "sprint", nom: "Sprint", recharge: 100, description: "Augmente la vitesse de deplacement et retire les ralentissements.", pourQui: "Heros sans mobilite qui doivent se repositionner." },
-  { slug: "retribution", nom: "Retribution", recharge: 35, description: "Inflige des degats importants a un monstre et renforce le nettoyage de jungle.", pourQui: "Obligatoire sur le jungleur." },
-  { slug: "arrivee", nom: "Arrivee", recharge: 90, description: "Teleporte le heros vers une tourelle ou un sbire allie.", pourQui: "Lanes solo qui doivent revenir vite apres un retour a la base." },
-  { slug: "petrification", nom: "Petrification", recharge: 60, description: "Ralentit puis immobilise les ennemis proches.", pourQui: "Tanks sans controle fiable." },
+  { cle: "flicker", nom: "Flicker", recharge: 120, description: "Teleporte le heros sur une courte distance.", pourQui: "Presque tout le monde : engagement, fuite, annulation d'animation." },
+  { cle: "execute", nom: "Execute", recharge: 60, description: "Inflige des degats bases sur les PV manquants de la cible.", pourQui: "Jungleurs et assassins qui doivent conclure." },
+  { cle: "retribution", nom: "Retribution", recharge: 35, description: "Inflige des degats importants a un monstre et renforce le nettoyage de jungle.", pourQui: "Obligatoire sur le jungleur." },
+  { cle: "purify", nom: "Purify", recharge: 90, description: "Retire les effets de controle et immunise brievement.", pourQui: "Porteurs vises par un controle unique : contre Chou, Franco, Kaja." },
+  { cle: "inspire", nom: "Inspire", recharge: 75, description: "Augmente fortement la vitesse d'attaque et ignore une partie de l'armure.", pourQui: "Tireurs a attaques de base." },
+  { cle: "sprint", nom: "Sprint", recharge: 100, description: "Augmente la vitesse de deplacement et retire les ralentissements.", pourQui: "Heros sans mobilite qui doivent se repositionner." },
+  { cle: "petrify", nom: "Petrify", recharge: 60, description: "Ralentit puis immobilise les ennemis proches.", pourQui: "Tanks sans controle fiable." },
+  { cle: "arrival", nom: "Arrival", recharge: 90, description: "Teleporte le heros vers une tourelle ou un sbire allie.", pourQui: "Lanes solo qui doivent revenir vite apres un retour a la base." },
+  { cle: "vengeance", nom: "Vengeance", recharge: 75, description: "Renvoie une partie des degats subis pendant la duree.", pourQui: "Combattants de lane d'experience." },
+  { cle: "aegis", nom: "Aegis", recharge: 75, description: "Accorde un bouclier a soi-meme et aux allies proches.", pourQui: "Soutiens et tanks protecteurs." },
+  { cle: "revitalize", nom: "Revitalize", recharge: 60, description: "Cree une zone qui soigne les allies presents.", pourQui: "Soutiens face a des degats etales dans le temps." },
 ];
