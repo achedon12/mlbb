@@ -18,8 +18,20 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyserTableLua } from "./lua.mjs";
+import { nettoyerRendu, sommaire } from "./patch-notes.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
+/**
+ * Statistiques de partie.
+ *
+ * Le wiki decrit le jeu mais ne mesure rien. Cette API communautaire expose
+ * les taux de victoire, de ban et de selection remontes par le jeu — la seule
+ * source verifiable permettant un classement qui ne soit pas une opinion.
+ */
+const STATS = "https://arena.rone.dev/api";
+
+/** Nombre de patch notes dont on recupere le contenu complet. */
+const PATCHS_DETAILLES = 12;
 const UA = "MLBB-sync/1.0 (https://mlbb.leoderoin.fr; contact via github.com/achedon12)";
 const SORTIE = "src/data/genere";
 
@@ -130,7 +142,13 @@ function normaliserHeros(brut) {
     .sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
 }
 
-const nombre = (v) => (vide(v) ? null : Number(String(v).replace(",", ".")) || null);
+function nombre(v) {
+  if (vide(v)) return null;
+  const n = Number(String(v).replace(",", "."));
+  // `|| null` serait tentant, mais transformerait un zero legitime en absence
+  // de valeur : en JavaScript, 0 est faux.
+  return Number.isFinite(n) ? n : null;
+}
 
 function extraireAnnee(date) {
   const trouve = String(date ?? "").match(/\b(20\d{2})\b/);
@@ -178,6 +196,15 @@ function normaliserSkins(brut) {
 function normaliserObjets(brut) {
   return Object.entries(brut)
     .filter(([, o]) => !vide(o?.name))
+    // Le module du wiki melange aux objets des lignes de gabarit qui n'en sont
+    // pas : des effets isoles (« Passive - Favor ») et des drapeaux de
+    // mecanique (« Throw Forbidden »). Aucun n'a de prix, de statistiques ni
+    // d'effet propre — c'est le critere qui les distingue d'un vrai objet.
+    // Un objet de boutique a un prix, ou au minimum des statistiques. Ce qui
+    // n'a ni l'un ni l'autre est un enchantement ou une bascule d'interaction
+    // entre heros (« Allow Throw », « Passive - Favor ») : le wiki les range
+    // dans le meme module, le site ne doit pas les presenter comme des objets.
+    .filter(([, o]) => nombre(o.price) > 0 || !vide(o.bonus))
     .map(([, o]) => ({
       slug: slugifier(o.name),
       nom: String(o.name),
@@ -232,6 +259,47 @@ async function urlsImages(identifiants, variante) {
   }
 
   process.stdout.write("\n");
+  return trouvees;
+}
+
+/**
+ * Resout des fichiers du wiki designes par leur nom exact.
+ *
+ * Les visuels de heros suivent une convention numerique ; les objets, les
+ * emblemes, les talents et les sorts sont nommes d'apres leur libelle anglais.
+ * Cette fonction sert ce second cas.
+ */
+async function urlsFichiers(noms, extension = "png") {
+  const trouvees = {};
+
+  for (let i = 0; i < noms.length; i += 50) {
+    const lot = noms.slice(i, i + 50);
+    const titres = lot.map((n) => `File:${n}.${extension}`).join("|");
+
+    const donnees = await api({
+      action: "query",
+      titles: titres,
+      prop: "imageinfo",
+      iiprop: "url",
+    });
+
+    // Le wiki normalise certains titres (espaces, apostrophes) : on suit ses
+    // redirections pour retrouver le nom demande.
+    const normalises = new Map(
+      (donnees.query?.normalized ?? []).map((n) => [n.to, n.from]),
+    );
+
+    for (const page of Object.values(donnees.query?.pages ?? {})) {
+      const source = page.imageinfo?.[0]?.url;
+      if (!source) continue;
+      const titre = normalises.get(page.title) ?? page.title;
+      trouvees[titre.replace(/^File:/, "").replace(/\.[a-z]+$/i, "")] =
+        source.split("/revision/")[0];
+    }
+
+    await pause(300);
+  }
+
   return trouvees;
 }
 
@@ -294,6 +362,102 @@ function planVisuels(heros, skins, portraits, icones) {
   return { plan, chemins };
 }
 
+/**
+ * Range les visuels qui ne dependent pas d'un heros.
+ *
+ *     public/visuels/objets/blade-of-despair.png
+ *     public/visuels/emblemes/tank.png
+ *     public/visuels/talents/impure-rage.png
+ *     public/visuels/sorts/flicker.png
+ */
+function planFichiers(urls, dossier) {
+  const plan = [];
+  const chemins = {};
+
+  for (const [nom, url] of Object.entries(urls)) {
+    const fichier = `${slugifier(nom)}.png`;
+    chemins[slugifier(nom)] = `/visuels/${dossier}/${fichier}`;
+    plan.push({ url, chemin: `public/visuels/${dossier}/${fichier}` });
+  }
+
+  return { plan, chemins };
+}
+
+/**
+ * Emblemes, talents et sorts de combat.
+ *
+ * Le wiki n'expose pas de module de donnees pour eux : la liste est declaree
+ * ici, et chaque nom a ete verifie comme correspondant a un fichier existant.
+ * Un nom qui cesserait d'exister disparait simplement des visuels.
+ */
+const EMBLEMES = [
+  "Tank Emblem", "Fighter Emblem", "Assassin Emblem",
+  "Mage Emblem", "Marksman Emblem", "Support Emblem",
+];
+
+const TALENTS = [
+  "Agility", "Swift", "Vitality", "Fatal", "Firmness", "Thrill", "Inspire",
+  "Tenacity", "Seasoned Hunter", "Master Assassin", "Weakness Finder",
+  "Impure Rage", "Quantum Charge", "Weapon Master", "Lethal Ignition",
+  "Concussive Blast", "Wilderness Blessing", "Focusing Mark", "Brave Smite",
+  "Killing Spree", "Festival of Blood", "Bargain Hunter",
+  "Pull Yourself Together",
+];
+
+const SORTS = [
+  "Flicker", "Execute", "Retribution", "Purify", "Inspire", "Sprint",
+  "Petrify", "Arrival", "Vengeance", "Aegis", "Revitalize",
+];
+
+// ─────────────────────────────────────────────────────────────
+// Classement
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Taux de victoire, de ban et de selection.
+ *
+ * Les identifiants de cette API ne sont pas ceux du wiki : le rapprochement se
+ * fait par nom, apres passage au meme format de slug. Un heros sans
+ * correspondance est simplement ignore plutot que rattache au hasard.
+ */
+async function classement(heros) {
+  const connus = new Set(heros.map((h) => h.slug));
+
+  const reponse = await fetch(`${STATS}/heroes/rank?size=200`, {
+    headers: { "User-Agent": UA },
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!reponse.ok) throw new Error(`Statistiques indisponibles : HTTP ${reponse.status}`);
+
+  const enregistrements = (await reponse.json())?.data?.records ?? [];
+  const sortie = {};
+  const orphelins = [];
+
+  for (const entree of enregistrements) {
+    const d = entree?.data;
+    const nom = d?.main_hero?.data?.name;
+    if (!nom) continue;
+
+    const cle = slugifier(nom);
+    if (!connus.has(cle)) {
+      orphelins.push(nom);
+      continue;
+    }
+
+    sortie[cle] = {
+      victoire: arrondir(d.main_hero_win_rate),
+      ban: arrondir(d.main_hero_ban_rate),
+      selection: arrondir(d.main_hero_appearance_rate),
+    };
+  }
+
+  if (orphelins.length) console.log(`  sans correspondance : ${orphelins.join(", ")}`);
+  return sortie;
+}
+
+/** Les taux arrivent en fraction ; on les stocke en pourcentage a deux decimales. */
+const arrondir = (v) => (typeof v === "number" ? Math.round(v * 10000) / 100 : null);
+
 // ─────────────────────────────────────────────────────────────
 // Patchs
 // ─────────────────────────────────────────────────────────────
@@ -329,6 +493,50 @@ async function patchs() {
     .sort((a, b) => comparerVersions(b.version, a.version));
 }
 
+/**
+ * Contenu complet des patch notes les plus recents.
+ *
+ * On demande au wiki son propre rendu HTML plutot que d'analyser du wikitext,
+ * puis on nettoie ce qui n'a de sens que sur le wiki. Seuls les derniers
+ * patchs sont recuperes : les 249 pages representeraient plusieurs megaoctets
+ * pour un contenu que plus personne ne consulte.
+ */
+async function contenuPatchs(liste) {
+  const contenus = {};
+
+  for (const [i, patch] of liste.slice(0, PATCHS_DETAILLES).entries()) {
+    try {
+      const donnees = await api({
+        action: "parse",
+        page: patch.titre,
+        prop: "text",
+        disabletoc: "1",
+        formatversion: "2",
+      });
+
+      const brut = donnees.parse?.text;
+      if (!brut) continue;
+
+      const { html } = nettoyerRendu(brut, patch.lien);
+      contenus[patch.version] = {
+        version: patch.version,
+        titre: patch.titre,
+        lien: patch.lien,
+        sommaire: sommaire(html).filter((t) => t.niveau === 2),
+        html,
+      };
+    } catch {
+      // Une page illisible ne doit pas interrompre la synchronisation.
+    }
+
+    process.stdout.write(`\r    patchs ${i + 1}/${Math.min(PATCHS_DETAILLES, liste.length)}`);
+    await pause(400);
+  }
+
+  process.stdout.write("\n");
+  return contenus;
+}
+
 /** Trie 1.9.40 apres 1.9.9, ce qu'un tri alphabetique ne fait pas. */
 function comparerVersions(a, b) {
   const x = a.split(".").map(Number);
@@ -358,9 +566,25 @@ async function principal() {
   const nbSkins = Object.values(skins).reduce((n, s) => n + s.length, 0);
   console.log(`  ${heros.length} heros, ${nbSkins} skins, ${objets.length} objets`);
 
+  console.log("Classement des heros…");
+  let stats = {};
+  try {
+    stats = await classement(heros);
+    console.log(`  ${Object.keys(stats).length} heros mesures`);
+  } catch (erreur) {
+    // Une source de statistiques indisponible ne doit pas faire echouer toute
+    // la synchronisation : le site retombe sur le classement precedent.
+    console.warn(`  statistiques indisponibles (${erreur.message}) — classement inchange`);
+    stats = null;
+  }
+
   console.log("Liste des patchs…");
   const listePatchs = await patchs();
   console.log(`  ${listePatchs.length} patchs`);
+
+  console.log("Contenu des patchs recents…");
+  const detailPatchs = await contenuPatchs(listePatchs);
+  console.log(`  ${Object.keys(detailPatchs).length} patchs detailles`);
 
   console.log("Resolution des visuels…");
   const identifiants = [
@@ -374,6 +598,32 @@ async function principal() {
   console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icones).length} icones`);
 
   const { plan, chemins } = planVisuels(heros, skins, portraits, icones);
+
+  console.log("Resolution des objets, emblemes, talents et sorts…");
+  const [urlsObjets, urlsEmblemes, urlsTalents, urlsSorts] = await Promise.all([
+    urlsFichiers(objets.map((o) => o.nom)),
+    urlsFichiers(EMBLEMES),
+    urlsFichiers(TALENTS),
+    urlsFichiers(SORTS),
+  ]);
+
+  const lots = [
+    planFichiers(urlsObjets, "objets"),
+    planFichiers(urlsEmblemes, "emblemes"),
+    planFichiers(urlsTalents, "talents"),
+    planFichiers(urlsSorts, "sorts"),
+  ];
+  plan.push(...lots.flatMap((l) => l.plan));
+
+  const [visuelsObjets, visuelsEmblemes, visuelsTalents, visuelsSorts] =
+    lots.map((l) => l.chemins);
+
+  console.log(
+    `  ${Object.keys(visuelsObjets).length}/${objets.length} objets, ` +
+      `${Object.keys(visuelsEmblemes).length} emblemes, ` +
+      `${Object.keys(visuelsTalents).length} talents, ` +
+      `${Object.keys(visuelsSorts).length} sorts`,
+  );
 
   if (AVEC_IMAGES) {
     console.log(`Telechargement de ${plan.length} visuels…`);
@@ -399,12 +649,19 @@ async function principal() {
   const ecrire = (nom, donnees) =>
     writeFile(`${SORTIE}/${nom}.json`, JSON.stringify(donnees, null, 2) + "\n");
 
+  if (stats) await ecrire("classement", stats);
+
   await Promise.all([
     ecrire("heros", heros),
     ecrire("skins", skins),
     ecrire("objets", objets),
     ecrire("patchs", listePatchs),
     ecrire("visuels", chemins),
+    ecrire("visuels-objets", visuelsObjets),
+    ecrire("visuels-emblemes", visuelsEmblemes),
+    ecrire("visuels-talents", visuelsTalents),
+    ecrire("visuels-sorts", visuelsSorts),
+    ecrire("patchs-detail", detailPatchs),
     ecrire("synchro", {
       date: new Date().toISOString(),
       source: "https://mobilelegends.fandom.com",
@@ -412,6 +669,7 @@ async function principal() {
       skins: nbSkins,
       objets: objets.length,
       patchs: listePatchs.length,
+      classement: stats ? Object.keys(stats).length : null,
     }),
   ]);
 

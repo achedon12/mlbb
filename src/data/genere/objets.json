@@ -1,31 +1,5 @@
 [
   {
-    "slug": "active-conceal",
-    "nom": "Active - Conceal",
-    "resume": null,
-    "categorie": "Roaming",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": null,
-    "actif": "Conceals you and nearby allied heroes, granting 40% Movement Speed for 5 seconds, or until taking or dealing damage. (Cooldown: 60 seconds) <br> When near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
-    "recette": [],
-    "pourQui": "All heroes without equipped Retribution"
-  },
-  {
-    "slug": "allow-throw",
-    "nom": "Allow Throw",
-    "resume": null,
-    "categorie": "Movement",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": "Trust: Allow allied Jawhead to fling you.",
-    "actif": null,
-    "recette": [],
-    "pourQui": "Jawhead's allies"
-  },
-  {
     "slug": "antique-cuirass",
     "nom": "Antique Cuirass",
     "resume": "Physical Attack Reduction",
@@ -220,19 +194,6 @@
     "pourQui": "Removed"
   },
   {
-    "slug": "bloody-retribution",
-    "nom": "Bloody Retribution",
-    "resume": null,
-    "categorie": "Jungling",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": null,
-    "actif": "Retribution's damage against creeps and minions is increased to 150%. When cast on an enemy hero, deals them 100 True Damage and steals HP equal to 300 plus 24% of the caster's extra HP from them for 3 seconds. <br> Retribution is upgraded when the total number of creep kills, hero kills, and assists reaches 5.",
-    "recette": [],
-    "pourQui": "Heroes who equipped Retribution"
-  },
-  {
     "slug": "book-of-sages",
     "nom": "Book of Sages",
     "resume": null,
@@ -257,19 +218,6 @@
     "actif": null,
     "recette": [],
     "pourQui": "All heroes"
-  },
-  {
-    "slug": "broken-heart",
-    "nom": "Broken Heart",
-    "resume": null,
-    "categorie": "Movement",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": "Heart Broken: Become immune to allied Cecilion's Moonlit Waltz in this match.",
-    "actif": null,
-    "recette": [],
-    "pourQui": "Carmilla"
   },
   {
     "slug": "brute-force-breastplate",
@@ -590,19 +538,6 @@
     "pourQui": "All heroes"
   },
   {
-    "slug": "flame-retribution",
-    "nom": "Flame Retribution",
-    "resume": null,
-    "categorie": "Jungling",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": null,
-    "actif": "Retribution's damage against creeps and minions is increased to 150%. When cast on an enemy hero, deals them 100 True Damage and steals 71-120 Physical Attack and Magic Power (scales with level) from them for 3 seconds. <br> Retribution is upgraded when the total number of creep kills, hero kills, and assists reaches 5.",
-    "recette": [],
-    "pourQui": "Heroes who equipped Retribution"
-  },
-  {
     "slug": "flask-of-the-oasis",
     "nom": "Flask of the Oasis",
     "resume": "Protect Teammates",
@@ -841,19 +776,6 @@
       "Mystery Codex"
     ],
     "pourQui": "All heroes"
-  },
-  {
-    "slug": "ice-retribution",
-    "nom": "Ice Retribution",
-    "resume": null,
-    "categorie": "Jungling",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": null,
-    "actif": "Retribution's damage against creeps and minions is increased to 150%. When cast on an enemy hero, deals them 100 True Damage and steals 52-80 Movement Speed (scales with level) from them for 3 seconds. <br> Retribution is upgraded when the total number of creep kills, hero kills, and assists reaches 5.",
-    "recette": [],
-    "pourQui": "Heroes who equipped Retribution"
   },
   {
     "slug": "immortality",
@@ -1182,45 +1104,6 @@
     "pourQui": "All heroes"
   },
   {
-    "slug": "passive-dire-hit",
-    "nom": "Passive - Dire Hit",
-    "resume": null,
-    "categorie": "Roaming",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": "Gains Force while moving, gradually increasing Movement Speed (up to 40). Upon reaching 20 stacks, the next hit consumes all stacks to deal extra True Damage based on the number of stacks. <br> When near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
-    "actif": null,
-    "recette": [],
-    "pourQui": "All heroes without equipped Retribution"
-  },
-  {
-    "slug": "passive-encourage",
-    "nom": "Passive - Encourage",
-    "resume": null,
-    "categorie": "Roaming",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": "Grants you and nearby allied heroes 20 extra Hybrid Defense. <br> When near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
-    "actif": null,
-    "recette": [],
-    "pourQui": "All heroes without equipped Retribution"
-  },
-  {
-    "slug": "passive-favor",
-    "nom": "Passive - Favor",
-    "resume": null,
-    "categorie": "Roaming",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": "Every 15 seconds, your next healing or shield skill recovers 400 extra HP to the lowest-HP allied hero within 5 units (including yourself). Skills that only take effect on yourself cannot trigger this effect. <br> When near allied heroes, you gain 30% EXP and Gold from minions and creeps. Dealing damage to enemy heroes (Cooldown: 15 seconds) or revealing enemies also grants EXP and Gold. This skill can only be unlocked after accumulating 1000 Gold from Thriving.",
-    "actif": null,
-    "recette": [],
-    "pourQui": "All heroes without equipped Retribution"
-  },
-  {
     "slug": "power-crystal",
     "nom": "Power Crystal",
     "resume": null,
@@ -1312,19 +1195,6 @@
       "Dagger"
     ],
     "pourQui": "All heroes"
-  },
-  {
-    "slug": "resonating-heart",
-    "nom": "Resonating Heart",
-    "resume": null,
-    "categorie": "Movement",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": "Restore: Allow allied Cecilion to use Moonlit Waltz on the user of this equipment.",
-    "actif": null,
-    "recette": [],
-    "pourQui": "Carmilla"
   },
   {
     "slug": "rock-potion",
@@ -1527,19 +1397,6 @@
       "Knife"
     ],
     "pourQui": "All heroes"
-  },
-  {
-    "slug": "throw-forbidden",
-    "nom": "Throw Forbidden",
-    "resume": null,
-    "categorie": "Movement",
-    "prix": null,
-    "bonus": null,
-    "unique": null,
-    "passif": "Heavy Mountain: Become immune to allied Jawhead's Ejector in this match.",
-    "actif": null,
-    "recette": [],
-    "pourQui": "Jawhead's allies"
   },
   {
     "slug": "thunder-belt",

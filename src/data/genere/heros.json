@@ -1603,7 +1603,7 @@
     "notes": {
       "offensive": 7,
       "resistance": 6,
-      "effets": null,
+      "effets": 0,
       "difficulte": 10
     },
     "stats": {
