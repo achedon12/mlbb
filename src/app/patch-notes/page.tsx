@@ -49,7 +49,7 @@ export default function PagePatchNotes() {
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
             {avecDetail.map((p) => (
-              <li key={p.version}>
+              <li key={p.titre}>
                 <Link
                   href={`/patch-notes/${p.version}`}
                   className="biseau group flex items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
@@ -89,7 +89,8 @@ export default function PagePatchNotes() {
 
           <ul className="mt-6 grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
             {autres.map((p) => (
-              <li key={p.version}>
+              // Le titre est unique ; la version ne l'est pas toujours.
+              <li key={p.titre}>
                 <a
                   href={p.lien}
                   rel="noreferrer nofollow"

@@ -1,22 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/lib/site";
+import { LienNav } from "./lien-nav";
 
 /**
  * Menu de navigation en petite largeur.
  *
- * Seul ce fragment est un composant client : l'en-tete reste rendu sur le
- * serveur, et aucun JavaScript n'est envoye pour la navigation en grande
- * largeur.
+ * Seul ce fragment porte l'ouverture et la fermeture : l'en-tete reste rendu
+ * sur le serveur.
  */
 export function MenuMobile() {
   const [ouvert, setOuvert] = useState(false);
 
   return (
-    <div className="lg:hidden">
+    <div className="md:hidden">
       <button
         type="button"
         onClick={() => setOuvert((o) => !o)}
@@ -36,13 +35,12 @@ export function MenuMobile() {
         <ul className="flex flex-col">
           {navigation.map((lien) => (
             <li key={lien.href}>
-              <Link
+              <LienNav
                 href={lien.href}
+                label={lien.label}
+                variante="mobile"
                 onClick={() => setOuvert(false)}
-                className="block border-b border-nuit-800 py-3 text-craie-300 transition-colors hover:text-or-400"
-              >
-                {lien.label}
-              </Link>
+              />
             </li>
           ))}
         </ul>

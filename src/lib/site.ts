@@ -13,17 +13,25 @@ export const site = {
   depot: "https://github.com/achedon12/mlbb",
 } as const;
 
-/** Navigation principale, reprise dans l'en-tete et le pied de page. */
+/**
+ * Navigation principale.
+ *
+ * Deux familles : ce qui decrit le jeu, et ce qui raconte son actualite. Les
+ * separer visuellement evite une file de huit liens ou l'oeil ne distingue
+ * plus rien.
+ */
 export const navigation = [
-  { href: "/heros", label: "Heros" },
-  { href: "/tier-list", label: "Tier list" },
-  { href: "/draft", label: "Draft" },
-  { href: "/objets", label: "Objets" },
-  { href: "/emblemes", label: "Emblemes" },
-  { href: "/actualites", label: "Actualites" },
-  { href: "/veille", label: "Veille" },
-  { href: "/patch-notes", label: "Patch notes" },
+  { href: "/heros", label: "Heros", groupe: "jeu" },
+  { href: "/tier-list", label: "Tier list", groupe: "jeu" },
+  { href: "/draft", label: "Draft", groupe: "jeu" },
+  { href: "/objets", label: "Objets", groupe: "jeu" },
+  { href: "/emblemes", label: "Emblemes", groupe: "jeu" },
+  { href: "/actualites", label: "Actualites", groupe: "actualite" },
+  { href: "/veille", label: "Veille", groupe: "actualite" },
+  { href: "/patch-notes", label: "Patch notes", groupe: "actualite" },
 ] as const;
+
+export type Groupe = (typeof navigation)[number]["groupe"];
 
 export function urlAbsolue(chemin: string): string {
   return new URL(chemin, site.url).toString();
