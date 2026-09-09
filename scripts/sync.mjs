@@ -729,7 +729,10 @@ async function contenuPatchs(liste) {
         version: patch.version,
         titre: patch.titre,
         lien: patch.lien,
-        sommaire: sommaire(html).filter((t) => t.niveau === 2),
+        // Les deux niveaux : une note de patch est longue, s'arreter au
+        // premier niveau donnerait un sommaire de cinq lignes pour trente
+        // mille caracteres.
+        sommaire: sommaire(html),
         html,
       };
     } catch {
