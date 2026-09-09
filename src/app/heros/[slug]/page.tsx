@@ -7,7 +7,8 @@ import { GalerieSkins } from "@/components/galerie-skins";
 import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgeRole, Carte, Jauge } from "@/components/ui";
 import { heros, herosParSlug } from "@/lib/donnees";
-import { tierList } from "@/data/tier-list";
+import { raretesPresentes } from "@/lib/raretes";
+import { classementComplet } from "@/lib/tier-list";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ slug: string }> };
@@ -45,7 +46,7 @@ export default async function PageHeros({ params }: Params) {
   const h = herosParSlug.get(slug);
   if (!h) notFound();
 
-  const palier = tierList.entrees.find((e) => e.heros === slug);
+  const classe = classementComplet.find((e) => e.heros.slug === slug);
   const analyse = h.analyse;
 
   const donneesStructurees = {
@@ -69,7 +70,7 @@ export default async function PageHeros({ params }: Params) {
 
       {/* ── En-tete ────────────────────────────────────────────────────── */}
       <div className="border-b border-nuit-700/70 bg-nuit-900/30">
-        <div className="mx-auto max-w-5xl px-4 py-10">
+        <div className="relative mx-auto max-w-5xl px-4 py-10">
           <Link
             href="/heros"
             className="inline-flex items-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
@@ -86,7 +87,7 @@ export default async function PageHeros({ params }: Params) {
               priorite
             />
 
-            <div className="min-w-64 flex-1">
+            <div className="min-w-0 flex-1 basis-64">
               <h1 className="font-titre text-4xl font-bold text-craie-100">{h.nom}</h1>
               {h.titre && <p className="mt-1 text-lg text-or-400">{h.titre}</p>}
 
@@ -110,7 +111,7 @@ export default async function PageHeros({ params }: Params) {
             </div>
 
             {/* Notes du jeu, en jauges plutot qu'en chiffres nus. */}
-            <dl className="grid min-w-56 flex-1 gap-2.5">
+            <dl className="grid min-w-0 flex-1 basis-56 gap-2.5">
               {[
                 ["Offensive", h.notes.offensive],
                 ["Resistance", h.notes.resistance],
@@ -141,7 +142,9 @@ export default async function PageHeros({ params }: Params) {
               ["Portee", h.typeAttaque],
               ["Region", h.region],
               ["Skins", h.skins.length || null],
-              ["Tier list", palier ? `Palier ${palier.palier}` : null],
+              ["Tier list", classe ? `Palier ${classe.palier}` : null],
+              ["Taux de victoire", classe ? `${classe.victoire.toFixed(1)} %` : null],
+              ["Taux de ban", classe ? `${classe.ban.toFixed(1)} %` : null],
             ].map(([label, valeur]) =>
               !valeur ? null : (
                 <div key={String(label)}>
@@ -304,6 +307,21 @@ export default async function PageHeros({ params }: Params) {
               <span className="text-sm text-craie-500">{h.skins.length}</span>
             </div>
             <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+
+            {/* Legende : le contour code la rarete, encore faut-il le dire. */}
+            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1.5">
+              {raretesPresentes(h.skins.map((s) => s.rarete)).map((r) => (
+                <li key={r.nom} className="flex items-center gap-1.5 text-xs text-craie-500">
+                  <span
+                    aria-hidden
+                    className="size-2.5 border-2"
+                    style={{ borderColor: r.couleur }}
+                  />
+                  {r.nom}
+                </li>
+              ))}
+            </ul>
+
             <GalerieSkins nom={h.nom} skins={h.skins} visuels={h.visuels.skins} />
           </section>
         )}

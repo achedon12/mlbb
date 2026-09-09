@@ -1,50 +1,72 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgePalier, EnTetePage } from "@/components/ui";
-import { herosParSlug } from "@/lib/donnees";
-import { tierList } from "@/data/tier-list";
-import type { Palier } from "@/lib/types";
+import { synchro } from "@/lib/donnees";
+import {
+  classementComplet,
+  LEGENDE_PALIERS,
+  ORDRE_PALIERS,
+  parPalier,
+} from "@/lib/tier-list";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: `Tier list ${tierList.patch}`,
-  description: `Tier list argumentee de Mobile Legends: Bang Bang pour le patch ${tierList.patch}. Chaque placement est justifie en une phrase, pour la file classee solo.`,
+  title: "Tier list",
+  description:
+    "Tier list de Mobile Legends: Bang Bang calculee a partir des taux de victoire et de ban remontes par le jeu. Recalculee a chaque synchronisation, sans opinion.",
   alternates: { canonical: "/tier-list" },
   openGraph: {
-    title: `Tier list ${tierList.patch} — ${site.nom}`,
-    description: `Tier list argumentee pour le patch ${tierList.patch}.`,
+    title: `Tier list — ${site.nom}`,
+    description: "Classement calcule a partir des taux de victoire et de ban du jeu.",
     url: "/tier-list",
   },
-};
-
-const ORDRE: Palier[] = ["S+", "S", "A", "B", "C"];
-
-const LEGENDE: Record<Palier, string> = {
-  "S+": "Change la partie a lui seul. A prendre ou a bannir.",
-  S: "Tres fort dans la majorite des compositions.",
-  A: "Solide, sans imposer le rythme de la partie.",
-  B: "Correct, mais depend fortement du contexte ou du joueur.",
-  C: "Jouable, avec un cout reel par rapport aux alternatives.",
 };
 
 export default function PageTierList() {
   return (
     <>
       <EnTetePage
-        titre={`Tier list — patch ${tierList.patch}`}
-        chapeau="Un classement court et argumente plutot qu'une liste exhaustive : chaque entree explique ce qui justifie sa place. Valable pour la file classee solo, ou les priorites different de celles du jeu en equipe organisee."
+        titre="Tier list"
+        chapeau="Ce classement n'est pas une opinion : il est calcule a partir des taux de victoire et de ban remontes par le jeu, et se refait tout seul a chaque synchronisation."
       >
         <p className="mt-6 text-sm text-craie-500">
-          Mise a jour le{" "}
-          <time dateTime={tierList.miseAJour}>{formaterDate(tierList.miseAJour)}</time>
+          {classementComplet.length} heros mesures · calcule le{" "}
+          <time dateTime={synchro.date}>{formaterDate(synchro.date)}</time>
         </p>
       </EnTetePage>
 
-      <div className="mx-auto max-w-5xl px-4 py-14">
-        <div className="space-y-12">
-          {ORDRE.map((palier) => {
-            const entrees = tierList.entrees.filter((e) => e.palier === palier);
+      <div className="mx-auto max-w-5xl px-4 py-12">
+        {/* Le lecteur doit pouvoir contester le classement : on montre la regle. */}
+        <details className="biseau mb-10 border border-nuit-700/70 bg-nuit-900/60 p-5">
+          <summary className="cursor-pointer font-titre font-bold text-or-400">
+            Comment ce classement est calcule
+          </summary>
+          <div className="mt-4 space-y-3 text-sm leading-relaxed text-craie-300">
+            <p>
+              Le score vaut <strong className="text-craie-100">taux de victoire + un quart du taux de ban</strong>.
+            </p>
+            <p>
+              Le taux de victoire mesure ce qu&apos;un heros produit une fois
+              joue. Le taux de ban mesure ce que les joueurs redoutent : il
+              rattrape les heros trop forts pour etre laisses libres, dont le
+              taux de victoire est trompeusement bas parce qu&apos;ils sont
+              rarement disponibles.
+            </p>
+            <p>
+              Le taux de selection n&apos;entre pas dans le calcul — il mesure
+              la popularite, pas la puissance. Il sert seulement a signaler
+              d&apos;un{" "}
+              <span className="text-or-400">asterisque</span> les heros trop peu
+              joues pour que leurs chiffres soient stables.
+            </p>
+          </div>
+        </details>
+
+        <div className="space-y-10">
+          {ORDRE_PALIERS.map((palier) => {
+            const entrees = parPalier(palier);
             if (entrees.length === 0) return null;
 
             return (
@@ -54,46 +76,89 @@ export default function PageTierList() {
                   <div>
                     <h2 className="font-titre text-xl font-bold text-craie-100">
                       Palier {palier}
+                      <span className="ml-2 text-sm font-medium text-craie-500">
+                        {entrees.length}
+                      </span>
                     </h2>
-                    <p className="text-sm text-craie-500">{LEGENDE[palier]}</p>
+                    <p className="text-sm text-craie-500">{LEGENDE_PALIERS[palier]}</p>
                   </div>
                 </div>
 
-                <ul className="mt-5 space-y-2">
-                  {entrees.map((e) => {
-                    const h = herosParSlug.get(e.heros);
-                    return (
-                      <li key={e.heros}>
-                        <Link
-                          href={`/heros/${e.heros}`}
-                          className="biseau flex flex-wrap items-baseline gap-x-3 gap-y-1 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
-                        >
-                          <span className="font-titre text-lg font-bold text-craie-100">
-                            {h?.nom ?? e.heros}
+                <ul className="mt-4 space-y-1.5">
+                  {entrees.map((e) => (
+                    <li key={e.heros.slug}>
+                      <Link
+                        href={`/heros/${e.heros.slug}`}
+                        className="biseau-sm group flex flex-wrap items-center gap-x-3 gap-y-2 border border-nuit-700/70 bg-nuit-900/60 p-2.5 transition-colors hover:border-or-500/60 sm:flex-nowrap"
+                      >
+                        <PortraitHeros
+                          source={e.heros.visuels.icone ?? e.heros.visuels.portrait}
+                          nom={e.heros.nom}
+                          taille="icone"
+                        />
+
+                        <div className="min-w-0 flex-1 sm:w-32 sm:flex-none">
+                          <span className="font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                            {e.heros.nom}
                           </span>
-                          <span className="text-xs font-semibold uppercase tracking-wide text-or-400">
-                            {e.lane}
+                          {e.faibleEchantillon && (
+                            <span
+                              className="ml-1 text-or-400"
+                              title="Trop peu joue pour que les taux soient fiables"
+                            >
+                              *
+                            </span>
+                          )}
+                          <span className="block text-[0.7rem] uppercase tracking-wide text-craie-500">
+                            {e.heros.lanes.join(" · ") || "—"}
                           </span>
-                          <span className="w-full text-sm leading-relaxed text-craie-500 sm:w-auto sm:flex-1">
+                        </div>
+
+                        <dl className="flex shrink-0 gap-3 text-xs tabular-nums sm:gap-4">
+                          <Taux libelle="Victoire" valeur={e.victoire} accent />
+                          <Taux libelle="Ban" valeur={e.ban} />
+                          <Taux libelle="Pick" valeur={e.selection} />
+                        </dl>
+
+                        {e.note && (
+                          <p className="hidden flex-1 text-xs leading-relaxed text-craie-500 lg:block">
                             {e.note}
-                          </span>
-                        </Link>
-                      </li>
-                    );
-                  })}
+                          </p>
+                        )}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </section>
             );
           })}
         </div>
 
-        <p className="mt-16 border-t border-nuit-800 pt-6 text-sm leading-relaxed text-craie-500">
-          Une tier list est une lecture du patch, pas une verite. Un heros de
-          palier C joue par quelqu&apos;un qui le maitrise bat un heros de palier
-          S+ decouvert la veille : le classement mesure la marge d&apos;erreur
-          offerte, pas le plafond atteignable.
+        <p className="mt-14 border-t border-nuit-800 pt-6 text-sm leading-relaxed text-craie-500">
+          Un classement mesure la marge d&apos;erreur qu&apos;un heros pardonne,
+          pas le plafond qu&apos;il permet d&apos;atteindre. Un heros de palier C
+          maitrise bat un heros de palier S+ decouvert la veille.
         </p>
       </div>
     </>
+  );
+}
+
+function Taux({
+  libelle,
+  valeur,
+  accent = false,
+}: {
+  libelle: string;
+  valeur: number;
+  accent?: boolean;
+}) {
+  return (
+    <div className="w-12 text-right sm:w-14">
+      <dt className="text-[0.65rem] uppercase tracking-wide text-craie-500">{libelle}</dt>
+      <dd className={accent ? "font-semibold text-or-400" : "text-craie-300"}>
+        {valeur.toFixed(1)}%
+      </dd>
+    </div>
   );
 }
