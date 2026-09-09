@@ -943,6 +943,54 @@ function comparerVersions(a, b) {
   return 0;
 }
 
+/**
+ * Emblemes officiels des rangs.
+ *
+ * Le decoupage des rangs (de Guerrier a Epique, puis la famille Mythique) est
+ * stable et code cote site ; seuls les emblemes sont recuperes ici, depuis le
+ * wiki, pour rester frais si leur fichier change. Les sous-paliers mythiques
+ * (Honneur, Gloire, Immortel) n'existent pas dans la table du jeu : on prend
+ * leurs images du wiki, ou elles sont documentees.
+ */
+async function rangs() {
+  const FICHIERS = {
+    guerrier: "Warrior.png",
+    elite: "Elite.png",
+    maitre: "Master.png",
+    "grand-maitre": "Grandmaster.png",
+    epique: "Epic.png",
+    mythique: "Mythic.png",
+    "mythique-honneur": "Mythical_Honor.png",
+    "mythique-gloire": "Mythical_Glory.png",
+    "mythique-immortel": "Mythical_Immortal.png",
+  };
+
+  const donnees = await api({
+    action: "query",
+    titles: Object.values(FICHIERS)
+      .map((f) => `File:${f}`)
+      .join("|"),
+    prop: "imageinfo",
+    iiprop: "url",
+  });
+
+  const parNom = new Map(
+    Object.values(donnees.query?.pages ?? {})
+      .filter((p) => p.imageinfo)
+      .map((p) => [
+        p.title.replace(/^File:/, "").replace(/ /g, "_"),
+        p.imageinfo[0].url.split("/revision")[0],
+      ]),
+  );
+
+  const images = {};
+  for (const [cle, fichier] of Object.entries(FICHIERS)) {
+    const url = parNom.get(fichier);
+    if (url) images[cle] = url;
+  }
+  return { images };
+}
+
 // ─────────────────────────────────────────────────────────────
 // Execution
 // ─────────────────────────────────────────────────────────────
@@ -1021,6 +1069,10 @@ async function principal() {
   console.log("Contenu des patchs recents…");
   const detailPatchs = await contenuPatchs(listePatchs);
   console.log(`  ${Object.keys(detailPatchs).length} patchs detailles`);
+
+  console.log("Emblemes des rangs…");
+  const emblemesRangs = await rangs();
+  console.log(`  ${Object.keys(emblemesRangs.images).length} emblemes`);
 
   console.log("Resolution des visuels…");
   const identifiants = [
@@ -1180,6 +1232,7 @@ async function principal() {
     ecrire("visuels-talents", visuelsTalents),
     ecrire("visuels-sorts", visuelsSorts),
     ecrire("patchs-detail", detailPatchs),
+    ecrire("rangs", emblemesRangs),
     ecrire("synchro", {
       date: new Date().toISOString(),
       source: "https://mobilelegends.fandom.com",

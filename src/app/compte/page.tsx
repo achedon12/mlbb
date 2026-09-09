@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { CircleAlert, LogOut } from "lucide-react";
+import { BadgeRang } from "@/components/badge-rang";
 import { FavorisCompte } from "@/components/favoris-compte";
 import { Carte } from "@/components/ui";
 import { deconnecter } from "@/lib/actions";
@@ -72,20 +73,14 @@ export default async function PageCompte() {
 
         <div className="min-w-0 flex-1">
           <h1 className="font-titre text-3xl font-bold text-craie-100">{profil.name}</h1>
-          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-            <span
-              className="font-titre font-bold"
-              style={{ color: rang.couleur }}
-            >
-              {rang.nom} {rang.division}
-              {rang.approximatif && <span className="ml-1 text-craie-500">(niv. {profil.rangActuel})</span>}
-            </span>
-            <span className="text-craie-500">Niveau {profil.level}</span>
-            <span className="text-craie-500">{nomPays(profil.pays)}</span>
+          <div className="mt-2">
+            <BadgeRang rang={rang} taille="sm" />
           </div>
-          <p className="mt-1 text-xs text-craie-500">
-            ID {profil.roleId} ({profil.zoneId})
-          </p>
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-craie-500">
+            <span>Niveau {profil.level}</span>
+            <span>{nomPays(profil.pays)}</span>
+            <span>ID {profil.roleId} ({profil.zoneId})</span>
+          </div>
         </div>
 
         <form action={deconnecter}>
@@ -99,21 +94,21 @@ export default async function PageCompte() {
         </form>
       </div>
 
-      {/* ── Chiffres du profil ─────────────────────────────────────────── */}
-      <dl className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <Chiffre label="Niveau" valeur={profil.level} />
+      {/* ── Rangs et chiffres ──────────────────────────────────────────── */}
+      <dl className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
           <dt className="text-xs uppercase tracking-wide text-craie-500">Rang actuel</dt>
-          <dd className="mt-1 font-titre text-lg font-bold" style={{ color: rang.couleur }}>
-            {rang.nom} {rang.division}
+          <dd className="mt-2">
+            <BadgeRang rang={rang} taille="lg" />
           </dd>
         </div>
         <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
           <dt className="text-xs uppercase tracking-wide text-craie-500">Meilleur rang</dt>
-          <dd className="mt-1 font-titre text-lg font-bold" style={{ color: rangMax.couleur }}>
-            {rangMax.nom} {rangMax.division}
+          <dd className="mt-2">
+            <BadgeRang rang={rangMax} taille="lg" />
           </dd>
         </div>
+        <Chiffre label="Niveau" valeur={profil.level} />
         <Chiffre label="Amis" valeur={listeAmis.etat === "ok" ? listeAmis.donnees.length : "—"} />
       </dl>
 
