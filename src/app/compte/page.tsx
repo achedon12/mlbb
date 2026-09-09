@@ -6,6 +6,7 @@ import { FavorisCompte } from "@/components/favoris-compte";
 import { Carte } from "@/components/ui";
 import { deconnecter } from "@/lib/actions";
 import { amis, statistiques } from "@/lib/mlbb-auth";
+import { nomPays, rangLisible } from "@/lib/rangs";
 import { jetonCourant, profilCourant } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -52,6 +53,9 @@ export default async function PageCompte() {
     amis(jeton),
   ]);
 
+  const rang = rangLisible(profil.rangActuel);
+  const rangMax = rangLisible(profil.rangMax);
+
   return (
     <div className="mx-auto max-w-4xl px-4 py-14">
       {/* ── En-tete de profil ──────────────────────────────────────────── */}
@@ -68,8 +72,19 @@ export default async function PageCompte() {
 
         <div className="min-w-0 flex-1">
           <h1 className="font-titre text-3xl font-bold text-craie-100">{profil.name}</h1>
-          <p className="mt-1 text-sm text-craie-500">
-            {profil.roleId} ({profil.zoneId}) · {profil.pays}
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+            <span
+              className="font-titre font-bold"
+              style={{ color: rang.couleur }}
+            >
+              {rang.nom} {rang.division}
+              {rang.approximatif && <span className="ml-1 text-craie-500">(niv. {profil.rangActuel})</span>}
+            </span>
+            <span className="text-craie-500">Niveau {profil.level}</span>
+            <span className="text-craie-500">{nomPays(profil.pays)}</span>
+          </div>
+          <p className="mt-1 text-xs text-craie-500">
+            ID {profil.roleId} ({profil.zoneId})
           </p>
         </div>
 
@@ -86,17 +101,20 @@ export default async function PageCompte() {
 
       {/* ── Chiffres du profil ─────────────────────────────────────────── */}
       <dl className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {[
-          ["Niveau", profil.level],
-          ["Rang actuel", profil.rangActuel],
-          ["Rang maximum", profil.rangMax],
-          ["Serveur", profil.zoneId],
-        ].map(([label, valeur]) => (
-          <div key={String(label)} className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
-            <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
-            <dd className="mt-1 font-titre text-2xl font-bold text-or-400">{valeur}</dd>
-          </div>
-        ))}
+        <Chiffre label="Niveau" valeur={profil.level} />
+        <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
+          <dt className="text-xs uppercase tracking-wide text-craie-500">Rang actuel</dt>
+          <dd className="mt-1 font-titre text-lg font-bold" style={{ color: rang.couleur }}>
+            {rang.nom} {rang.division}
+          </dd>
+        </div>
+        <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
+          <dt className="text-xs uppercase tracking-wide text-craie-500">Meilleur rang</dt>
+          <dd className="mt-1 font-titre text-lg font-bold" style={{ color: rangMax.couleur }}>
+            {rangMax.nom} {rangMax.division}
+          </dd>
+        </div>
+        <Chiffre label="Amis" valeur={listeAmis.etat === "ok" ? listeAmis.donnees.length : "—"} />
       </dl>
 
       {/* ── Statistiques detaillees ────────────────────────────────────── */}
@@ -155,6 +173,15 @@ export default async function PageCompte() {
         <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
         <FavorisCompte />
       </section>
+    </div>
+  );
+}
+
+function Chiffre({ label, valeur }: { label: string; valeur: number | string }) {
+  return (
+    <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
+      <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
+      <dd className="mt-1 font-titre text-2xl font-bold text-or-400">{valeur}</dd>
     </div>
   );
 }
