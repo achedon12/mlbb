@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { heros } from "@/lib/donnees";
+import { heros, patchsDetail } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
 import { site } from "@/lib/site";
 
@@ -49,5 +49,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...fixes, ...pagesHeros, ...publications];
+  // Notes de patch officielles, designees par leur numero de version : elles
+  // ne sont pas des « articles » mais ont chacune leur page a indexer.
+  const notesPatch: MetadataRoute.Sitemap = Object.keys(patchsDetail).map((version) => ({
+    url: `${site.url}/patch-notes/${version}`,
+    lastModified: maintenant,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...fixes, ...pagesHeros, ...publications, ...notesPatch];
 }

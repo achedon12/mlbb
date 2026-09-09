@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 /**
- * Le site a une partie serveur — sessions, base SQLite, verification
- * d'identifiant — donc pas d'export statique. `standalone` produit un dossier
+ * Le site a une partie serveur — sessions de connexion en jeu, appels a l'API
+ * communautaire — donc pas d'export statique. `standalone` produit un dossier
  * autonome contenant uniquement les fichiers reellement utilises, ce qui donne
  * une image de production nettement plus legere que l'arborescence complete.
  */
@@ -15,8 +15,6 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  // Le module SQLite est natif : il doit rester requis au runtime plutot
-  // qu'etre inclus dans le bundle.
 
   images: {
     // Les portraits de heros sont servis par le wiki communautaire qui les
