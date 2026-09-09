@@ -582,7 +582,10 @@ async function videos(heros) {
       type: "video",
       maxResults: "3",
       videoEmbeddable: "true",
-      q: `${h.nom} Mobile Legends Heroes Spotlight`,
+      // Titre reel des videos officielles : « Hero Spotlight | Khufra |
+      // Mobile Legends: Bang Bang ». Chercher « Heroes Spotlight » ramenait
+      // surtout des videos de joueurs.
+      q: `Hero Spotlight ${h.nom} Mobile Legends Bang Bang`,
     })) {
       requete.searchParams.set(cle, valeur);
     }

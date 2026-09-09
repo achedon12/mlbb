@@ -26,7 +26,7 @@ export function PresentationVideo({
 
   if (!video) {
     const recherche = `https://www.youtube.com/results?search_query=${encodeURIComponent(
-      `${nom} Mobile Legends Heroes Spotlight`,
+      `Hero Spotlight ${nom} Mobile Legends Bang Bang`,
     )}`;
 
     return (

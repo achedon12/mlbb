@@ -26,9 +26,9 @@ export function LiaisonCompte() {
             id="identifiant"
             name="identifiant"
             inputMode="numeric"
-            pattern="\d{5,15}"
+            pattern="[\d\s()]{5,25}"
             required
-            placeholder="123456789"
+            placeholder="123456789 ou 123456789 (6021)"
             aria-describedby="ou-trouver"
             className="biseau-sm mt-2 w-full border border-nuit-700 bg-nuit-900 px-4 py-2.5 text-craie-100 outline-none transition-colors focus:border-or-500"
           />
@@ -41,7 +41,7 @@ export function LiaisonCompte() {
             id="serveur"
             name="serveur"
             inputMode="numeric"
-            pattern="\d{3,6}"
+            pattern="[\d\s]{3,10}"
             required
             placeholder="2222"
             aria-describedby="ou-trouver"
@@ -53,9 +53,9 @@ export function LiaisonCompte() {
       <p id="ou-trouver" className="flex gap-2 text-xs leading-relaxed text-craie-500">
         <Info size={14} className="mt-0.5 shrink-0" aria-hidden />
         Dans le jeu, ouvrez votre profil : l&apos;identifiant s&apos;affiche sous
-        la forme <span className="text-craie-300">123456789 (2222)</span>. Le
-        premier nombre est l&apos;identifiant, celui entre parentheses le
-        serveur.
+        la forme <span className="text-craie-300">123456789 (6021)</span>. Vous
+        pouvez le coller tel quel dans le premier champ — le serveur sera
+        reconnu tout seul.
       </p>
 
       {etat.erreur && (
