@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/*
+ * Direction visuelle.
+ *
+ * Le jeu utilise un bleu nuit profond, de l'or, et des formes coupees en
+ * biseau — on reprend ces trois idees sans copier ses ressources graphiques,
+ * qui appartiennent a Moonton. Aucune image du jeu n'est redistribuee ici :
+ * les couleurs et les angles suffisent a poser l'univers.
+ */
+@theme {
+  --color-nuit-950: #06080f;
+  --color-nuit-900: #0a0e1a;
+  --color-nuit-850: #0e1424;
+  --color-nuit-800: #131b30;
+  --color-nuit-700: #1c2742;
+  --color-nuit-600: #2a3758;
+
+  --color-or-400: #f5c451;
+  --color-or-500: #e0a92e;
+  --color-or-600: #b8871f;
+
+  --color-azur-400: #4da3ff;
+  --color-azur-500: #2b7fe0;
+
+  --color-sang-500: #d94848;
+
+  --color-craie-100: #eef2fb;
+  --color-craie-300: #b7c2da;
+  --color-craie-500: #7b88a6;
+
+  --font-titre: var(--police-titre), "Segoe UI", system-ui, sans-serif;
+  --font-corps: var(--police-corps), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(ellipse 90rem 45rem at 50% -12rem, #16213c 0%, transparent 62%),
+    var(--color-nuit-950);
+  color: var(--color-craie-100);
+  font-family: var(--font-corps);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-titre);
+  letter-spacing: 0.01em;
+}
+
+/* Coin biseaute, motif recurrent de l'interface du jeu. */
+@utility biseau {
+  clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% 100%, 0.75rem 100%, 0 calc(100% - 0.75rem));
+}
+
+@utility biseau-sm {
+  clip-path: polygon(0 0, calc(100% - 0.45rem) 0, 100% 0.45rem, 100% 100%, 0.45rem 100%, 0 calc(100% - 0.45rem));
+}
+
+/* Filet dore utilise pour souligner les titres de section. */
+@utility filet-or {
+  background: linear-gradient(90deg, var(--color-or-500), transparent);
+}
+
+/*
+ * Mise en forme des articles.
+ *
+ * Ecrite a la main plutot qu'avec le plugin typography : le site n'a qu'un
+ * seul gabarit d'article, et cela evite une dependance de plus.
+ */
+.prose-mlbb {
+  line-height: 1.75;
+  color: var(--color-craie-300);
+}
+.prose-mlbb > * + * { margin-top: 1.15rem; }
+.prose-mlbb h2 {
+  margin-top: 2.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-craie-100);
+}
+.prose-mlbb h3 {
+  margin-top: 2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-craie-100);
+}
+.prose-mlbb strong { color: var(--color-or-400); font-weight: 600; }
+.prose-mlbb a { color: var(--color-azur-400); text-decoration: underline; text-underline-offset: 3px; }
+.prose-mlbb ul { list-style: disc; padding-left: 1.25rem; }
+.prose-mlbb ol { list-style: decimal; padding-left: 1.25rem; }
+.prose-mlbb li + li { margin-top: 0.4rem; }
+.prose-mlbb blockquote {
+  border-left: 2px solid var(--color-or-500);
+  padding-left: 1rem;
+  color: var(--color-craie-500);
+  font-style: italic;
+}
+.prose-mlbb code {
+  background: var(--color-nuit-800);
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
