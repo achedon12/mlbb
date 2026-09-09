@@ -1,7 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import Link from "next/link";
+import { Eye, EyeOff } from "lucide-react";
 import type { Etat } from "@/lib/actions";
 
 /**
@@ -36,13 +37,9 @@ export function FormulaireAuth({
 
       <Champ nom="email" libelle="Adresse e-mail" type="email" autoComplete="email" requis />
 
-      <Champ
-        nom="motDePasse"
-        libelle="Mot de passe"
-        type="password"
+      <ChampMotDePasse
         autoComplete={inscription ? "new-password" : "current-password"}
         indication={inscription ? "10 caracteres minimum." : undefined}
-        requis
       />
 
       {etat.erreur && (
@@ -77,6 +74,60 @@ export function FormulaireAuth({
         )}
       </p>
     </form>
+  );
+}
+
+/**
+ * Champ de mot de passe avec bascule de visibilite.
+ *
+ * Un mot de passe long se saisit mal en aveugle, et c'est justement ce qu'on
+ * demande ici. Le bouton n'entre pas dans l'ordre de tabulation du formulaire
+ * naturel — on le laisse accessible au clavier, mais apres le champ.
+ */
+function ChampMotDePasse({
+  autoComplete,
+  indication,
+}: {
+  autoComplete: string;
+  indication?: string;
+}) {
+  const [visible, setVisible] = useState(false);
+  const idIndication = indication ? "motDePasse-indication" : undefined;
+
+  return (
+    <div>
+      <label htmlFor="motDePasse" className="block text-sm font-medium text-craie-100">
+        Mot de passe
+      </label>
+
+      <div className="relative mt-2">
+        <input
+          id="motDePasse"
+          name="motDePasse"
+          type={visible ? "text" : "password"}
+          autoComplete={autoComplete}
+          required
+          aria-describedby={idIndication}
+          className="biseau-sm w-full border border-nuit-700 bg-nuit-900 py-2.5 pl-4 pr-12 text-craie-100 outline-none transition-colors focus:border-or-500"
+        />
+        <button
+          type="button"
+          onClick={() => setVisible((v) => !v)}
+          aria-pressed={visible}
+          aria-label={visible ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+          title={visible ? "Masquer le mot de passe" : "Afficher le mot de passe"}
+          className="absolute right-1 top-1/2 grid size-10 -translate-y-1/2 place-items-center text-craie-500 transition-colors hover:text-or-400"
+        >
+          {visible ? <EyeOff size={17} aria-hidden /> : <Eye size={17} aria-hidden />}
+        </button>
+      </div>
+
+      {indication && (
+        <p id={idIndication} className="mt-1.5 text-xs text-craie-500">
+          {indication}
+        </p>
+      )}
+    </div>
   );
 }
 
