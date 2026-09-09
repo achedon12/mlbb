@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "next start -p 3001",
+    "start": "node scripts/demarrer.mjs",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "portraits": "node scripts/recuperer-portraits.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^11.7.0",
     "clsx": "^2.1.1",
+    "fast-xml-parser": "^5.11.1",
     "gray-matter": "^4.0.3",
     "jose": "^5.9.6",
     "lucide-react": "^0.460.0",

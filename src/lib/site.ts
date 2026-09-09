@@ -20,6 +20,7 @@ export const navigation = [
   { href: "/objets", label: "Objets" },
   { href: "/emblemes", label: "Emblemes" },
   { href: "/actualites", label: "Actualites" },
+  { href: "/veille", label: "Veille" },
   { href: "/patch-notes", label: "Patch notes" },
 ] as const;
 
