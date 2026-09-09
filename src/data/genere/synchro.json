@@ -1,9 +1,14 @@
 {
-  "date": "2026-09-09T17:57:02.879Z",
+  "date": "2026-09-09T20:55:29.127Z",
   "source": "https://mobilelegends.fandom.com",
   "heros": 133,
   "skins": 1007,
   "objets": 102,
   "patchs": 221,
-  "classement": 132
+  "classement": 132,
+  "contres": 132,
+  "sources": [
+    "https://mobilelegends.fandom.com",
+    "https://arena.rone.dev"
+  ]
 }
