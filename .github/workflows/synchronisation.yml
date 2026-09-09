@@ -40,9 +40,14 @@ jobs:
       - name: Resumer les changements
         id: resume
         run: |
-          if git diff --quiet; then
+          # `synchro.json` porte l'horodatage de l'execution : il change a
+          # chaque fois, meme quand le wiki n'a pas bouge. On l'exclut de la
+          # detection, sinon une pull request vide serait ouverte chaque
+          # semaine.
+          if git diff --quiet -- . ':(exclude)src/data/genere/synchro.json'; then
             echo "change=non" >> "$GITHUB_OUTPUT"
-            echo "Aucun changement."
+            echo "Le wiki n'a pas bouge."
+            git checkout -- src/data/genere/synchro.json
           else
             echo "change=oui" >> "$GITHUB_OUTPUT"
             {
