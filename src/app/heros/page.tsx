@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ListeHeros } from "@/components/liste-heros";
 import { EnTetePage } from "@/components/ui";
 import { heros, herosAnalyses, nombreSkins } from "@/lib/donnees";
+import { tauxParSlug } from "@/lib/tier-list";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -30,15 +31,20 @@ const donneesStructurees = {
 
 export default function PageHeros() {
   // On n'envoie au client que les champs affiches par les vignettes.
-  const apercus = heros.map((h) => ({
-    slug: h.slug,
-    nom: h.nom,
-    roles: h.roles,
-    lanes: h.lanes,
-    visuels: h.visuels,
-    skins: h.skins.length,
-    analyse: h.analyse !== null,
-  }));
+  const apercus = heros.map((h) => {
+    const taux = tauxParSlug.get(h.slug);
+    return {
+      slug: h.slug,
+      nom: h.nom,
+      roles: h.roles,
+      lanes: h.lanes,
+      visuels: h.visuels,
+      skins: h.skins.length,
+      analyse: h.analyse !== null,
+      victoire: taux?.victoire ?? null,
+      palier: taux?.palier ?? null,
+    };
+  });
 
   return (
     <>

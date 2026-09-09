@@ -1,8 +1,9 @@
 import Link from "next/link";
-import type { Lane, Role, VisuelsHeros } from "@/lib/types";
+import type { Lane, Palier, Role, VisuelsHeros } from "@/lib/types";
 import { IndicateurFavori } from "./indicateur-favori";
 import { PortraitHeros } from "./portrait-heros";
 import { BadgeRole } from "./ui";
+import { cn } from "@/lib/utils";
 
 /**
  * Vignette d'un heros.
@@ -19,7 +20,20 @@ export interface ApercuHeros {
   visuels: VisuelsHeros;
   skins: number;
   analyse: boolean;
+  /** Taux de victoire remonte par le jeu, ou null si non mesure. */
+  victoire: number | null;
+  /** Palier de la tier list, ou null si non classe. */
+  palier: Palier | null;
 }
+
+/** Teinte du badge de palier, du plus fort au plus faible. */
+const COULEUR_PALIER: Record<Palier, string> = {
+  "S+": "border-sang-500/40 text-sang-500",
+  S: "border-or-500/40 text-or-400",
+  A: "border-emerald-500/40 text-emerald-400",
+  B: "border-azur-500/40 text-azur-400",
+  C: "border-nuit-600 text-craie-500",
+};
 
 export function CarteHeros({ heros }: { heros: ApercuHeros }) {
   return (
@@ -35,12 +49,15 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
             <span className="truncate">{heros.nom}</span>
             <IndicateurFavori slug={heros.slug} />
           </h3>
-          {heros.analyse && (
+          {heros.palier && (
             <span
-              className="mt-0.5 shrink-0 text-[0.65rem] font-semibold uppercase tracking-wide text-or-500"
-              title="Analyse redigee disponible"
+              className={cn(
+                "biseau-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold",
+                COULEUR_PALIER[heros.palier],
+              )}
+              title={`Palier ${heros.palier} de la tier list`}
             >
-              Analyse
+              {heros.palier}
             </span>
           )}
         </div>
@@ -51,9 +68,15 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
           ))}
         </div>
 
-        <p className="mt-1.5 truncate text-xs text-craie-500">
-          {heros.lanes.join(" · ") || "—"}
-          {heros.skins > 0 && ` · ${heros.skins} skins`}
+        <p className="mt-1.5 flex flex-wrap items-center gap-x-1.5 truncate text-xs text-craie-500">
+          {heros.victoire != null && (
+            <span className="font-semibold text-craie-300">{heros.victoire.toFixed(1)}%</span>
+          )}
+          <span>{heros.lanes.join(" · ") || "—"}</span>
+          {heros.skins > 0 && <span>· {heros.skins} skins</span>}
+          {heros.analyse && (
+            <span className="font-semibold uppercase tracking-wide text-or-500">· Analyse</span>
+          )}
         </p>
       </div>
     </Link>

@@ -9,6 +9,14 @@ import { cn } from "@/lib/utils";
 const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 const LANES: Lane[] = ["Or", "Experience", "Milieu", "Jungle", "Roam"];
 
+type Tri = "nom" | "victoire" | "palier";
+const TRIS: { cle: Tri; label: string }[] = [
+  { cle: "nom", label: "A → Z" },
+  { cle: "victoire", label: "Taux de victoire" },
+  { cle: "palier", label: "Tier list" },
+];
+const RANG_PALIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
+
 /**
  * Catalogue filtrable.
  *
@@ -20,16 +28,32 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
   const [recherche, setRecherche] = useState("");
   const [role, setRole] = useState<Role | null>(null);
   const [lane, setLane] = useState<Lane | null>(null);
+  const [tri, setTri] = useState<Tri>("nom");
 
   const resultats = useMemo(() => {
     const terme = recherche.trim().toLowerCase();
-    return heros.filter((h) => {
+    const filtres = heros.filter((h) => {
       if (terme && !h.nom.toLowerCase().includes(terme)) return false;
       if (role && !h.roles.includes(role)) return false;
       if (lane && !h.lanes.includes(lane)) return false;
       return true;
     });
-  }, [heros, recherche, role, lane]);
+
+    const ordonnes = [...filtres];
+    if (tri === "victoire") {
+      // Les heros non mesures passent en fin de liste.
+      ordonnes.sort((a, b) => (b.victoire ?? -1) - (a.victoire ?? -1));
+    } else if (tri === "palier") {
+      ordonnes.sort(
+        (a, b) =>
+          (RANG_PALIER[a.palier ?? ""] ?? 99) - (RANG_PALIER[b.palier ?? ""] ?? 99) ||
+          (b.victoire ?? -1) - (a.victoire ?? -1),
+      );
+    } else {
+      ordonnes.sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
+    }
+    return ordonnes;
+  }, [heros, recherche, role, lane, tri]);
 
   return (
     <div>
@@ -52,6 +76,32 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
 
         <Filtres legende="Role" valeurs={ROLES} actif={role} onChange={setRole} />
         <Filtres legende="Position" valeurs={LANES} actif={lane} onChange={setLane} />
+
+        <fieldset className="flex flex-wrap items-center gap-2">
+          <legend className="sr-only">Tri</legend>
+          <span aria-hidden className="mr-1 w-20 text-xs uppercase tracking-wide text-craie-500">
+            Trier
+          </span>
+          {TRIS.map((t) => {
+            const actif = tri === t.cle;
+            return (
+              <button
+                key={t.cle}
+                type="button"
+                aria-pressed={actif}
+                onClick={() => setTri(t.cle)}
+                className={cn(
+                  "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
+                  actif
+                    ? "bg-or-500 text-nuit-950"
+                    : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
+                )}
+              >
+                {t.label}
+              </button>
+            );
+          })}
+        </fieldset>
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-craie-500">
