@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { url: site.url, changeFrequency: "daily", priority: 1 },
       { url: `${site.url}/heros`, changeFrequency: "weekly", priority: 0.9 },
       { url: `${site.url}/tier-list`, changeFrequency: "weekly", priority: 0.9 },
+      { url: `${site.url}/draft`, changeFrequency: "weekly", priority: 0.8 },
       { url: `${site.url}/objets`, changeFrequency: "monthly", priority: 0.7 },
       { url: `${site.url}/emblemes`, changeFrequency: "monthly", priority: 0.7 },
       { url: `${site.url}/actualites`, changeFrequency: "daily", priority: 0.8 },

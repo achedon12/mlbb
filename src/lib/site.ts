@@ -17,6 +17,7 @@ export const site = {
 export const navigation = [
   { href: "/heros", label: "Heros" },
   { href: "/tier-list", label: "Tier list" },
+  { href: "/draft", label: "Draft" },
   { href: "/objets", label: "Objets" },
   { href: "/emblemes", label: "Emblemes" },
   { href: "/actualites", label: "Actualites" },
