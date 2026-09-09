@@ -53,6 +53,9 @@ video officielles ; sans elle, les fiches proposent un lien de recherche.
   mises a jour marquantes font l'objet d'une analyse redigee.
 - **Veille** — les publications du reste du web sur le jeu, rassemblees
   automatiquement et rafraichies toutes les 30 minutes, sans tache planifiee.
+- **Compte connecte** — connexion par le code de verification officiel du jeu,
+  puis profil, rang reel (embleme, division, etoiles, paliers mythiques) et
+  liste d'amis. Aucun mot de passe, aucun etat conserve.
 - **Visuels** — portraits, icones et skins sont servis par le site lui-meme.
   Aucune image ne depend d'un domaine tiers.
 
@@ -61,14 +64,17 @@ video officielles ; sans elle, les fiches proposent un lien de recherche.
 | Donnee | Source | Mise a jour |
 | --- | --- | --- |
 | Heros, skins, objets, patchs, visuels | Wiki communautaire, modules Lua | **Automatique**, chaque lundi |
+| Taux de victoire, contres chiffres, classement, emblemes de rang | API communautaire `arena.rone.dev` | **Automatique**, chaque lundi |
 | Analyses de heros, tier list, emblemes | Redigees a la main | Par pull request |
 | Articles et guides | Markdown dans `content/` | Par pull request |
 | Veille | Flux publics agreges au rendu | **Automatique**, toutes les 30 min |
 | Presentations video | YouTube, si `YOUTUBE_API_KEY` est renseignee | A la synchronisation |
 
-Les donnees factuelles ne s'ecrivent plus a la main. Un workflow relit le wiki
-chaque semaine, telecharge les nouveaux visuels et ouvre une pull request quand
-quelque chose a change — un nouveau heros apparait donc sans intervention.
+Les donnees factuelles ne s'ecrivent plus a la main. Un workflow relit chaque
+semaine les deux sources — le wiki pour le catalogue, l'API communautaire pour
+les mesures (taux de victoire, contres, classement, emblemes de rang) —
+telecharge les nouveaux visuels et ouvre une pull request quand quelque chose a
+change. Un nouveau heros apparait donc sans intervention.
 
 Ce qui reste ecrit a la main, c'est ce qu'aucune extraction ne produira : le
 commentaire sur un heros, la justification d'un placement en tier list, un
@@ -76,18 +82,26 @@ guide.
 
 Moonton ne publie **aucune interface de programmation ni flux officiel** : le
 site du jeu est une application dont le contenu n'est pas diffusable. Le wiki
-communautaire est la source la plus complete et la plus structuree disponible.
+communautaire fournit le catalogue ; une API communautaire relaie ce que le jeu
+expose encore par ailleurs — taux de victoire, contres, classement.
+
+## Le compte connecte
+
+On se connecte avec le **flux officiel de Moonton** : le jeu envoie un code de
+verification dans la messagerie du joueur, et ce code prouve qu'on possede le
+compte. Aucun mot de passe n'est demande ; le site ne recoit qu'un jeton
+temporaire, range dans un cookie httpOnly. Une fois connecte, la page compte
+affiche le profil (pseudo, niveau, pays, avatar), le **rang reel** — embleme
+officiel, division et etoiles, jusqu'aux paliers mythiques — et la liste
+d'amis.
 
 ## Ce qu'il ne contient pas
 
-Aucune statistique de joueur. Moonton ne publie aucune interface de
-programmation : ni classement, ni indice de competence, ni historique de
-parties, ni statut « en partie ». Les sites qui affichent un « MMR » pour ce
-jeu l'estiment ; ils ne le lisent nulle part.
-
-La seule information verifiable de l'exterieur est le pseudo associe a un
-identifiant de joueur, via l'etape de validation des plateformes de recharge.
-C'est exactement ce que fait la liaison de compte, et rien de plus.
+Aucune statistique de partie. Le sous-systeme de Moonton qui les exposait est
+**hors ligne** : ni taux de victoire personnel, ni historique de parties, ni
+heros les plus joues. Aucun « MMR » non plus — les sites qui en affichent un
+l'estiment ; il ne se lit nulle part. Ce qui reste accessible pour un compte
+connecte est ce que decrit la section ci-dessus, et rien de plus.
 
 ## Architecture
 
@@ -96,10 +110,10 @@ src/
   app/            Routes (App Router), flux RSS, plan du site, robots
   components/     Composants d'interface
   data/
-    genere/       Extrait du wiki — ne pas modifier a la main
+    genere/       Extrait du wiki et de l'API — ne pas modifier a la main
     heros/        Analyses redigees, un fichier par role
     tier-list.ts  Classement argumente
-  lib/            Types, donnees, contenu, base, sessions, actions
+  lib/            Types, donnees, contenu, rangs, sessions, actions
 content/
   actualites/     Articles en Markdown
   patch-notes/    Analyses de patch en Markdown
@@ -127,10 +141,11 @@ docker compose up -d --build
 ```
 
 Le service ecoute sur `127.0.0.1:3001`, a placer derriere un reverse proxy.
-L'image finale ne contient ni sources, ni npm, ni chaine de compilation : le
-serveur Next en mode `standalone`, les ressources statiques, et le module
-le module de rendu. Le conteneur tourne sans privileges, en systeme de fichiers
-en lecture seule, avec toutes les capacites retirees ; seul `/data` est inscriptible.
+L'image finale ne contient ni sources, ni npm, ni chaine de compilation :
+seulement le serveur Next en mode `standalone`, les ressources statiques et le
+module de rendu. Le conteneur tourne sans privileges, en systeme de fichiers en
+lecture seule, avec toutes les capacites retirees ; il n'a aucun volume a
+conserver, le site ne gardant aucun etat.
 
 ## Contribuer
 
