@@ -1,16 +1,9 @@
-import type { Heros } from "@/lib/types";
+import type { AnalyseHeros } from "@/lib/types";
 
-/** Fiches detaillees des combattants. Voir `index.ts` pour la convention d'ajout. */
-export const fighters: Heros[] = [
+/** Analyses des combattants. Donnees factuelles : voir la synchronisation. */
+export const fighters: AnalyseHeros[] = [
   {
     slug: "chou",
-    nom: "Chou",
-    titre: "Le Poing de la justice",
-    roles: ["Fighter"],
-    lanes: ["Roam", "Experience"],
-    specialites: ["Controle", "Charge"],
-    sortie: 2017,
-    difficulte: 8,
     resume:
       "Combattant d'isolement : il extrait une cible du groupe adverse et la tue avant que son equipe ne reagisse.",
     analyse:
@@ -93,13 +86,6 @@ export const fighters: Heros[] = [
   },
   {
     slug: "yu-zhong",
-    nom: "Yu Zhong",
-    titre: "Le Dragon noir",
-    roles: ["Fighter"],
-    lanes: ["Experience"],
-    specialites: ["Regeneration", "Charge"],
-    sortie: 2020,
-    difficulte: 6,
     resume:
       "Combattant de lane d'experience qui se soigne en frappant et devient tres difficile a tuer en combat prolonge.",
     analyse:
@@ -166,13 +152,6 @@ export const fighters: Heros[] = [
   },
   {
     slug: "paquito",
-    nom: "Paquito",
-    titre: "Le Poing d'acier",
-    roles: ["Fighter"],
-    lanes: ["Experience", "Jungle"],
-    specialites: ["Charge", "Explosion"],
-    sortie: 2021,
-    difficulte: 7,
     resume:
       "Combattant a fenetres : chaque competence utilisee ameliore la suivante, pour un pic de degats tres court.",
     analyse:

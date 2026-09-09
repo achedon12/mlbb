@@ -1,31 +1,26 @@
 import type { Metadata } from "next";
 import { ListeHeros } from "@/components/liste-heros";
 import { EnTetePage } from "@/components/ui";
-import { herosDetails } from "@/data/heros";
-import { roster } from "@/data/roster";
+import { heros, herosAnalyses, nombreSkins } from "@/lib/donnees";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Tous les heros",
-  description: `Les ${roster.length} heros de Mobile Legends: Bang Bang, filtrables par role et par position, avec ${herosDetails.length} fiches completes : competences, builds, forces, faiblesses et contres.`,
+  description: `Les ${heros.length} heros de Mobile Legends: Bang Bang, filtrables par role et par position : portraits, skins, statistiques, et ${herosAnalyses.length} analyses redigees.`,
   alternates: { canonical: "/heros" },
   openGraph: {
     title: `Tous les heros — ${site.nom}`,
-    description: `Les ${roster.length} heros de Mobile Legends: Bang Bang, filtrables par role et par position.`,
+    description: `Les ${heros.length} heros de Mobile Legends: Bang Bang, avec leurs ${nombreSkins} skins.`,
     url: "/heros",
   },
 };
 
-/**
- * Le catalogue est une liste : on l'expose en ItemList pour que les moteurs
- * comprennent la structure de la page plutot que d'y voir un mur de liens.
- */
 const donneesStructurees = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Heros de Mobile Legends: Bang Bang",
-  numberOfItems: roster.length,
-  itemListElement: roster.map((h, i) => ({
+  numberOfItems: heros.length,
+  itemListElement: heros.map((h, i) => ({
     "@type": "ListItem",
     position: i + 1,
     name: h.nom,
@@ -34,6 +29,17 @@ const donneesStructurees = {
 };
 
 export default function PageHeros() {
+  // On n'envoie au client que les champs affiches par les vignettes.
+  const apercus = heros.map((h) => ({
+    slug: h.slug,
+    nom: h.nom,
+    roles: h.roles,
+    lanes: h.lanes,
+    visuels: h.visuels,
+    skins: h.skins.length,
+    analyse: h.analyse !== null,
+  }));
+
   return (
     <>
       <script
@@ -42,10 +48,10 @@ export default function PageHeros() {
       />
       <EnTetePage
         titre="Heros"
-        chapeau={`Les ${roster.length} heros du jeu, filtrables par role et par position. Les ${herosDetails.length} fiches marquees « Fiche » contiennent les competences, les builds, les contres et une analyse.`}
+        chapeau={`Les ${heros.length} heros du jeu et leurs ${nombreSkins} skins, filtrables par role et par position. Les ${herosAnalyses.length} fiches marquees « Analyse » contiennent en plus un commentaire, des builds et des contres.`}
       />
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <ListeHeros heros={roster} />
+        <ListeHeros heros={apercus} />
       </div>
     </>
   );

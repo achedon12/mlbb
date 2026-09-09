@@ -1,16 +1,9 @@
-import type { Heros } from "@/lib/types";
+import type { AnalyseHeros } from "@/lib/types";
 
-/** Fiches detaillees des mages. Voir `index.ts` pour la convention d'ajout. */
-export const mages: Heros[] = [
+/** Analyses des mages. Donnees factuelles : voir la synchronisation. */
+export const mages: AnalyseHeros[] = [
   {
     slug: "kagura",
-    nom: "Kagura",
-    titre: "L'Ombrelle du destin",
-    roles: ["Mage"],
-    lanes: ["Milieu"],
-    specialites: ["Explosion", "Controle"],
-    sortie: 2017,
-    difficulte: 9,
     resume:
       "Mage a deux etats : ses competences changent completement selon qu'elle tient son ombrelle ou l'a posee.",
     analyse:
@@ -80,13 +73,6 @@ export const mages: Heros[] = [
   },
   {
     slug: "pharsa",
-    nom: "Pharsa",
-    titre: "La Tempete ailee",
-    roles: ["Mage"],
-    lanes: ["Milieu"],
-    specialites: ["Degats", "Explosion"],
-    sortie: 2017,
-    difficulte: 6,
     resume:
       "Mage d'artillerie : son ultime frappe a travers la carte, sans jamais entrer dans le combat.",
     analyse:
@@ -156,13 +142,6 @@ export const mages: Heros[] = [
   },
   {
     slug: "cecilion",
-    nom: "Cecilion",
-    titre: "L'Ombre assoiffee",
-    roles: ["Mage"],
-    lanes: ["Milieu"],
-    specialites: ["Degats", "Poussee"],
-    sortie: 2020,
-    difficulte: 5,
     resume:
       "Mage a cumul : il accumule du sang toute la partie et devient une menace de zone impossible a ignorer en fin de partie.",
     analyse:

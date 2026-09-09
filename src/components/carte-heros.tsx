@@ -1,46 +1,58 @@
 import Link from "next/link";
-import type { EntreeRoster } from "@/data/roster";
-import { detailParSlug } from "@/data/heros";
+import type { Lane, Role, VisuelsHeros } from "@/lib/types";
 import { PortraitHeros } from "./portrait-heros";
-import { BadgeRole, Difficulte } from "./ui";
+import { BadgeRole } from "./ui";
 
-/** Vignette d'un heros dans la liste et dans les blocs de suggestion. */
-export function CarteHeros({ heros }: { heros: EntreeRoster }) {
-  const detaille = detailParSlug.has(heros.slug);
+/**
+ * Vignette d'un heros.
+ *
+ * Elle ne recoit que ce qu'elle affiche : le heros complet porte des
+ * competences, des builds et des statistiques dont la carte n'a aucun usage,
+ * et qui alourdiraient inutilement la page cote client.
+ */
+export interface ApercuHeros {
+  slug: string;
+  nom: string;
+  roles: Role[];
+  lanes: Lane[];
+  visuels: VisuelsHeros;
+  skins: number;
+  analyse: boolean;
+}
 
+export function CarteHeros({ heros }: { heros: ApercuHeros }) {
   return (
     <Link
       href={`/heros/${heros.slug}`}
-      className="biseau group flex flex-col border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60 hover:bg-nuit-850"
+      className="biseau group flex items-start gap-3 border border-nuit-700/70 bg-nuit-900/60 p-3 transition-colors hover:border-or-500/60 hover:bg-nuit-850"
     >
-      <div className="flex items-start gap-3">
-        <PortraitHeros slug={heros.slug} nom={heros.nom} />
-        <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-2">
-            <h3 className="truncate font-titre text-lg font-bold text-craie-100 transition-colors group-hover:text-or-400">
-              {heros.nom}
-            </h3>
-            {detaille && (
-              <span
-                className="mt-1 shrink-0 text-[0.65rem] font-semibold uppercase tracking-wide text-or-500"
-                title="Fiche complete disponible"
-              >
-                Fiche
-              </span>
-            )}
-          </div>
-          <div className="mt-1.5 flex flex-wrap gap-1.5">
-            {heros.roles.map((r) => (
-              <BadgeRole key={r} role={r} />
-            ))}
-          </div>
-          <p className="mt-2 truncate text-xs text-craie-500">{heros.lanes.join(" · ")}</p>
-        </div>
-      </div>
+      <PortraitHeros source={heros.visuels.icone ?? heros.visuels.portrait} nom={heros.nom} />
 
-      <div className="mt-4 flex items-center justify-between border-t border-nuit-800 pt-3">
-        <Difficulte valeur={heros.difficulte} />
-        <span className="text-xs text-craie-500">{heros.sortie}</span>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-start justify-between gap-2">
+          <h3 className="truncate font-titre text-base font-bold text-craie-100 transition-colors group-hover:text-or-400">
+            {heros.nom}
+          </h3>
+          {heros.analyse && (
+            <span
+              className="mt-0.5 shrink-0 text-[0.65rem] font-semibold uppercase tracking-wide text-or-500"
+              title="Analyse redigee disponible"
+            >
+              Analyse
+            </span>
+          )}
+        </div>
+
+        <div className="mt-1.5 flex flex-wrap gap-1">
+          {heros.roles.map((r) => (
+            <BadgeRole key={r} role={r} />
+          ))}
+        </div>
+
+        <p className="mt-1.5 truncate text-xs text-craie-500">
+          {heros.lanes.join(" · ") || "—"}
+          {heros.skins > 0 && ` · ${heros.skins} skins`}
+        </p>
       </div>
     </Link>
   );

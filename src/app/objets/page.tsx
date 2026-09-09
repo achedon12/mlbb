@@ -1,69 +1,91 @@
 import type { Metadata } from "next";
-import { Carte, EnTetePage } from "@/components/ui";
-import { objets } from "@/data/objets";
-import type { CategorieObjet } from "@/lib/types";
+import { EnTetePage } from "@/components/ui";
+import { categoriesObjets, nomCategorie, objets } from "@/lib/donnees";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Objets",
-  description:
-    "Tous les objets de Mobile Legends: Bang Bang par categorie : statistiques, effets passifs, et surtout dans quelle situation chaque objet vaut la peine d'etre achete.",
+  description: `Les ${objets.length} objets de Mobile Legends: Bang Bang : statistiques, effets uniques, passifs, recette et prix, classes par categorie.`,
   alternates: { canonical: "/objets" },
   openGraph: {
     title: `Objets — ${site.nom}`,
-    description: "Statistiques, passifs et usage reel de chaque objet.",
+    description: `Les ${objets.length} objets du jeu, avec statistiques, passifs et recettes.`,
     url: "/objets",
   },
 };
-
-const CATEGORIES: CategorieObjet[] = ["Attaque", "Magie", "Defense", "Mouvement"];
 
 export default function PageObjets() {
   return (
     <>
       <EnTetePage
         titre="Objets"
-        chapeau="Les statistiques comptent moins que le moment ou l'on achete. Chaque objet indique donc a qui il sert et dans quelle situation il devient le bon choix."
+        chapeau={`Les ${objets.length} objets de la boutique, avec leurs statistiques, leurs effets et leur recette. Les valeurs sont extraites du wiki a chaque synchronisation.`}
       />
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-14">
-        {CATEGORIES.map((categorie) => {
+      <div className="mx-auto max-w-6xl space-y-12 px-4 py-14">
+        {categoriesObjets.map((categorie) => {
           const liste = objets.filter((o) => o.categorie === categorie);
-          if (liste.length === 0) return null;
 
           return (
             <section key={categorie}>
-              <h2 className="font-titre text-2xl font-bold text-craie-100">{categorie}</h2>
+              <div className="flex items-baseline gap-3">
+                <h2 className="font-titre text-2xl font-bold text-craie-100">
+                  {nomCategorie(categorie)}
+                </h2>
+                <span className="text-sm text-craie-500">{liste.length}</span>
+              </div>
               <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
 
-              <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {/* Grille dense : les objets se comparent mieux cote a cote. */}
+              <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                 {liste.map((o) => (
-                  <Carte key={o.slug} id={o.slug}>
+                  <article
+                    key={o.slug}
+                    id={o.slug}
+                    className="biseau flex flex-col border border-nuit-700/70 bg-nuit-900/60 p-4"
+                  >
                     <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="font-titre text-lg font-bold text-craie-100">{o.nom}</h3>
-                      <span className="shrink-0 text-sm text-or-400">{o.prix} or</span>
+                      <h3 className="font-titre font-bold leading-tight text-craie-100">
+                        {o.nom}
+                      </h3>
+                      {o.prix !== null && (
+                        <span className="shrink-0 font-titre text-sm text-or-400">{o.prix}</span>
+                      )}
                     </div>
 
-                    <dl className="mt-4 flex flex-wrap gap-x-5 gap-y-1 text-sm">
-                      {Object.entries(o.statistiques).map(([cle, valeur]) => (
-                        <div key={cle} className="flex gap-1.5">
-                          <dt className="text-craie-500">{cle}</dt>
-                          <dd className="font-medium text-craie-100">{valeur}</dd>
-                        </div>
-                      ))}
-                    </dl>
-
-                    {o.passif && (
-                      <p className="mt-4 border-l-2 border-or-500/50 pl-3 text-sm leading-relaxed text-craie-300">
-                        <span className="font-semibold text-or-400">{o.passif.nom} — </span>
-                        {o.passif.description}
+                    {o.resume && (
+                      <p className="mt-0.5 text-xs uppercase tracking-wide text-craie-500">
+                        {o.resume}
                       </p>
                     )}
 
-                    <p className="mt-4 border-t border-nuit-800 pt-3 text-sm leading-relaxed text-craie-500">
-                      {o.usage}
-                    </p>
-                  </Carte>
+                    {o.bonus && (
+                      <p className="mt-3 text-sm leading-snug text-craie-300">{o.bonus}</p>
+                    )}
+
+                    {o.unique && (
+                      <p className="mt-2 text-sm leading-snug text-azur-400">{o.unique}</p>
+                    )}
+
+                    {o.passif && (
+                      <p className="mt-3 border-l-2 border-or-500/50 pl-3 text-xs leading-relaxed text-craie-500">
+                        {o.passif}
+                      </p>
+                    )}
+
+                    {o.actif && (
+                      <p className="mt-2 border-l-2 border-azur-500/50 pl-3 text-xs leading-relaxed text-craie-500">
+                        {o.actif}
+                      </p>
+                    )}
+
+                    {o.recette.length > 0 && (
+                      <p className="mt-auto pt-3 text-xs text-craie-500">
+                        <span className="text-craie-300">Recette : </span>
+                        {o.recette.join(" + ")}
+                      </p>
+                    )}
+                  </article>
                 ))}
               </div>
             </section>

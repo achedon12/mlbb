@@ -9,7 +9,7 @@
     "start": "node scripts/demarrer.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "portraits": "node scripts/recuperer-portraits.mjs"
+    "sync": "node scripts/sync.mjs"
   },
   "dependencies": {
     "better-sqlite3": "^11.7.0",

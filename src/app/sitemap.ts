@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { roster } from "@/data/roster";
+import { heros } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
 import { site } from "@/lib/site";
 
@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ] as const
   ).map((e) => ({ ...e, lastModified: maintenant }));
 
-  const heros: MetadataRoute.Sitemap = roster.map((h) => ({
+  const pagesHeros: MetadataRoute.Sitemap = heros.map((h) => ({
     url: `${site.url}/heros/${h.slug}`,
     lastModified: maintenant,
     changeFrequency: "monthly",
@@ -47,5 +47,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...fixes, ...heros, ...publications];
+  return [...fixes, ...pagesHeros, ...publications];
 }

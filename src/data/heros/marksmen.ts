@@ -1,16 +1,9 @@
-import type { Heros } from "@/lib/types";
+import type { AnalyseHeros } from "@/lib/types";
 
-/** Fiches detaillees des tireurs. Voir `index.ts` pour la convention d'ajout. */
-export const marksmen: Heros[] = [
+/** Analyses des tireurs. Donnees factuelles : voir la synchronisation. */
+export const marksmen: AnalyseHeros[] = [
   {
     slug: "granger",
-    nom: "Granger",
-    titre: "La Sonate mortelle",
-    roles: ["Marksman"],
-    lanes: ["Or", "Jungle"],
-    specialites: ["Degats", "Explosion"],
-    sortie: 2019,
-    difficulte: 6,
     resume:
       "Tireur a chargeur : ses degats viennent de ses competences, pas de sa vitesse d'attaque.",
     analyse:
@@ -80,13 +73,6 @@ export const marksmen: Heros[] = [
   },
   {
     slug: "beatrix",
-    nom: "Beatrix",
-    titre: "L'Arsenal",
-    roles: ["Marksman"],
-    lanes: ["Or"],
-    specialites: ["Degats", "Explosion"],
-    sortie: 2021,
-    difficulte: 9,
     resume:
       "Tireuse a quatre armes, chacune avec son propre ultime : elle change de role selon l'arme portee.",
     analyse:
@@ -152,13 +138,6 @@ export const marksmen: Heros[] = [
   },
   {
     slug: "melissa",
-    nom: "Melissa",
-    titre: "La Poupee de chiffon",
-    roles: ["Marksman"],
-    lanes: ["Or"],
-    specialites: ["Degats", "Protection"],
-    sortie: 2022,
-    difficulte: 5,
     resume:
       "Tireuse defensive : son ultime cree une zone que les ennemis au corps a corps ne peuvent pas franchir.",
     analyse:

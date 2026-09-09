@@ -116,21 +116,25 @@ export function EnTetePage({
   );
 }
 
-/** Indicateur de difficulte, en barres plutot qu'en chiffre nu. */
-export function Difficulte({ valeur }: { valeur: number }) {
+/**
+ * Note du jeu, affichee en barre plutot qu'en chiffre nu : on compare deux
+ * heros d'un coup d'oeil, ce qu'une valeur seule ne permet pas.
+ */
+export function Jauge({ valeur, max = 10 }: { valeur: number; max?: number }) {
+  const part = Math.max(0, Math.min(1, valeur / max));
+
   return (
-    <span className="flex items-center gap-1" title={`Difficulte ${valeur} sur 10`}>
-      <span className="sr-only">Difficulte {valeur} sur 10</span>
-      {Array.from({ length: 10 }, (_, i) => (
+    <span className="flex items-center gap-2">
+      <span aria-hidden className="h-1.5 flex-1 bg-nuit-700">
         <span
-          key={i}
-          aria-hidden
-          className={cn(
-            "h-3 w-0.5",
-            i < valeur ? (valeur >= 8 ? "bg-sang-500" : "bg-or-500") : "bg-nuit-700",
-          )}
+          className={cn("block h-full", part >= 0.8 ? "bg-or-400" : "bg-azur-500")}
+          style={{ width: `${part * 100}%` }}
         />
-      ))}
+      </span>
+      <span className="w-6 shrink-0 text-right text-xs tabular-nums text-craie-300">
+        {valeur}
+      </span>
+      <span className="sr-only">sur {max}</span>
     </span>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BadgePalier, EnTetePage } from "@/components/ui";
-import { rosterParSlug } from "@/data/roster";
+import { herosParSlug } from "@/lib/donnees";
 import { tierList } from "@/data/tier-list";
 import type { Palier } from "@/lib/types";
 import { site } from "@/lib/site";
@@ -61,7 +61,7 @@ export default function PageTierList() {
 
                 <ul className="mt-5 space-y-2">
                   {entrees.map((e) => {
-                    const h = rosterParSlug.get(e.heros);
+                    const h = herosParSlug.get(e.heros);
                     return (
                       <li key={e.heros}>
                         <Link
