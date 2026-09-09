@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { FilAriane } from "@/components/fil-ariane";
 import type { Article } from "@/lib/types";
+import { navigation } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
 
 export function ListeArticles({
@@ -50,11 +52,16 @@ export function CorpsArticle({
   html: string;
   retour: { href: string; label: string };
 }) {
+  // Nom de section pour le fil d'Ariane : celui de la navigation plutot que le
+  // libelle du lien retour (« Tous les… »), qui ne nomme pas la rubrique.
+  const section = navigation.find((n) => n.href === retour.href)?.label ?? retour.label;
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-14">
+      <FilAriane miettes={[{ nom: section, href: retour.href }, { nom: article.titre }]} />
       <Link
         href={retour.href}
-        className="text-sm text-craie-500 transition-colors hover:text-or-400"
+        className="mt-4 inline-block text-sm text-craie-500 transition-colors hover:text-or-400"
       >
         ← {retour.label}
       </Link>
