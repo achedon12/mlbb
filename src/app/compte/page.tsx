@@ -5,7 +5,7 @@ import { CircleAlert, LogOut } from "lucide-react";
 import { FavorisCompte } from "@/components/favoris-compte";
 import { Carte } from "@/components/ui";
 import { deconnecter } from "@/lib/actions";
-import { statistiques } from "@/lib/mlbb-auth";
+import { amis, statistiques } from "@/lib/mlbb-auth";
 import { jetonCourant, profilCourant } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -45,7 +45,12 @@ export default async function PageCompte() {
     );
   }
 
-  const stats = await statistiques(jeton);
+  // Deux sources en parallele : les stats (souvent coupees) et les amis
+  // (sur le sous-systeme d'auth, qui reste en ligne).
+  const [stats, listeAmis] = await Promise.all([
+    statistiques(jeton),
+    amis(jeton),
+  ]);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-14">
@@ -112,6 +117,37 @@ export default async function PageCompte() {
           </Carte>
         )}
       </section>
+
+      {/* ── Amis ───────────────────────────────────────────────────────── */}
+      {listeAmis.etat === "ok" && listeAmis.donnees.length > 0 && (
+        <section className="mt-12">
+          <div className="flex items-baseline gap-3">
+            <h2 className="font-titre text-2xl font-bold text-craie-100">Amis</h2>
+            <span className="text-sm text-craie-500">{listeAmis.donnees.length}</span>
+          </div>
+          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+
+          <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {listeAmis.donnees.map((ami, i) => (
+              <li
+                key={`${ami.nom}-${i}`}
+                className="biseau flex items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-2.5"
+              >
+                <span className="biseau-sm relative size-10 shrink-0 overflow-hidden bg-nuit-800">
+                  {ami.avatar ? (
+                    <Image src={ami.avatar} alt="" fill sizes="40px" className="object-cover" />
+                  ) : (
+                    <span className="grid size-full place-items-center text-xs text-craie-500">
+                      {ami.nom.slice(0, 1).toUpperCase()}
+                    </span>
+                  )}
+                </span>
+                <span className="min-w-0 truncate text-sm text-craie-100">{ami.nom}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* ── Favoris (locaux) ───────────────────────────────────────────── */}
       <section className="mt-12">

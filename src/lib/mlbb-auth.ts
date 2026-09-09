@@ -11,7 +11,26 @@
  */
 const BASE = "https://arena.rone.dev/api/user";
 
+/**
+ * Sous-systeme d'authentification de Moonton.
+ *
+ * Distinct du battle-report : c'est le service qui gere les comptes, et il
+ * reste en ligne quand les statistiques de partie sont coupees. Le jeton
+ * obtenu par le flux de connexion y est directement accepte.
+ */
+const MOONTON = "https://sg-api.mobilelegends.com/base";
+const X_ACTID = "2728785";
+const X_APPID = "2713644";
+const NAVIGATEUR =
+  "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
+
 const UA = "MLBB.fr/1.0 (+https://mlbb.leoderoin.fr)";
+
+export interface Ami {
+  nom: string;
+  /** Chemin de l'avatar sur le CDN, ou null pour l'avatar par defaut. */
+  avatar: string | null;
+}
 
 export interface Profil {
   roleId: number;
@@ -147,15 +166,78 @@ export function statistiques(jeton: string): Promise<Resultat<Record<string, unk
   return authentifie("/stats?lang=en", jeton, (data) => data as Record<string, unknown>);
 }
 
+/**
+ * Liste d'amis du joueur.
+ *
+ * Le battle-report expose aussi les amis, mais il est hors ligne ; cette
+ * route-ci, sur le sous-systeme d'authentification, renvoie les noms et les
+ * avatars. Les identifiants y sont hachés — on ne peut donc pas lier un ami a
+ * sa fiche, seulement l'afficher.
+ */
+export async function amis(jeton: string): Promise<Resultat<Ami[]>> {
+  const { roleId, zoneId } = identite(jeton);
+  try {
+    const reponse = await fetch(`${MOONTON}/getFriendList`, {
+      method: "POST",
+      headers: {
+        authorization: jeton,
+        "x-token": jeton,
+        "x-actid": X_ACTID,
+        "x-appid": X_APPID,
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        Origin: "https://www.mobilelegends.com",
+        Referer: "https://www.mobilelegends.com/",
+        "User-Agent": NAVIGATEUR,
+      },
+      body: new URLSearchParams({
+        roleId: String(roleId),
+        zoneId: String(zoneId),
+      }).toString(),
+      signal: AbortSignal.timeout(15000),
+      cache: "no-store",
+    });
+
+    if (reponse.status === 401) return { etat: "expire" };
+    if (!reponse.ok) return { etat: "indisponible" };
+
+    const enveloppe = (await reponse.json()) as {
+      code?: number;
+      data?: Array<{ sName?: string; sFacePath?: string }>;
+    };
+    if (enveloppe.code !== 0 || !Array.isArray(enveloppe.data)) {
+      return { etat: "indisponible" };
+    }
+
+    const liste = enveloppe.data.map((a) => ({
+      nom: String(a.sName ?? ""),
+      avatar: a.sFacePath
+        ? `https://akmpicture.youngjoygame.com/${a.sFacePath}`
+        : null,
+    }));
+    return { etat: "ok", donnees: liste };
+  } catch {
+    return { etat: "indisponible" };
+  }
+}
+
+/** Charge utile du JWT (claim `Ext`), sans verification de signature. */
+function charge(jeton: string): Record<string, unknown> {
+  try {
+    const p = jeton.split(".")[1];
+    return JSON.parse(Buffer.from(p.replace(/-/g, "+").replace(/_/g, "/"), "base64").toString());
+  } catch {
+    return {};
+  }
+}
+
+/** Identifiant et serveur portes par le jeton. */
+export function identite(jeton: string): { roleId: number; zoneId: number } {
+  const ext = (charge(jeton).Ext ?? {}) as Record<string, unknown>;
+  return { roleId: Number(ext.roleId ?? 0), zoneId: Number(ext.zoneId ?? 0) };
+}
+
 /** Lit `exp` du JWT sans en verifier la signature — seul le service la connait. */
 export function expiration(jeton: string): number | null {
-  try {
-    const charge = jeton.split(".")[1];
-    const json = JSON.parse(
-      Buffer.from(charge.replace(/-/g, "+").replace(/_/g, "/"), "base64").toString(),
-    );
-    return typeof json.exp === "number" ? json.exp : null;
-  } catch {
-    return null;
-  }
+  const exp = charge(jeton).exp;
+  return typeof exp === "number" ? exp : null;
 }
