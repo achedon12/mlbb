@@ -2,21 +2,74 @@ import Link from "next/link";
 import { Github, Rss } from "lucide-react";
 import { navigation, site } from "@/lib/site";
 
+const ANNEE = new Date().getFullYear();
+
+const LIENS_SITE = [
+  { href: "/api-doc", label: "API publique" },
+  { href: "/a-propos", label: "A propos" },
+  { href: "/compte", label: "Mon compte" },
+  { href: "/feed.xml", label: "Flux RSS" },
+];
+
+/** Colonne de liens du pied de page. */
+function Colonne({
+  titre,
+  liens,
+}: {
+  titre: string;
+  liens: readonly { href: string; label: string }[];
+}) {
+  return (
+    <div>
+      <p className="font-titre text-xs font-semibold uppercase tracking-wider text-or-400">
+        {titre}
+      </p>
+      <ul className="mt-4 space-y-2.5">
+        {liens.map((lien) => (
+          <li key={lien.href}>
+            <Link
+              href={lien.href}
+              className="text-sm text-craie-500 transition-colors hover:text-craie-100"
+            >
+              {lien.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function PiedDePage() {
+  const jeu = navigation.filter((l) => l.groupe === "jeu");
+  const actualite = navigation.filter((l) => l.groupe === "actualite");
+
   return (
     <footer className="mt-24 border-t border-nuit-700/70 bg-nuit-900/40">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 md:grid-cols-[2fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        {/* Marque et liens externes. */}
         <div>
-          <p className="font-titre text-lg font-bold text-craie-100">{site.nom}</p>
-          <p className="mt-3 max-w-sm text-sm leading-relaxed text-craie-500">
-            Une base de connaissances francophone sur Mobile Legends: Bang Bang.
+          <Link href="/" className="group flex items-center gap-2.5" aria-label={`${site.nom}, accueil`}>
+            <span
+              aria-hidden
+              className="biseau-sm grid size-8 place-items-center bg-linear-to-br from-or-400 to-or-600 font-titre text-sm font-bold text-nuit-950"
+            >
+              ML
+            </span>
+            <span className="font-titre text-lg font-bold tracking-wide text-craie-100">
+              {site.nom}
+            </span>
+          </Link>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-craie-500">
+            La base de connaissances francophone sur Mobile Legends: Bang Bang.
             Projet independant, ouvert aux contributions.
           </p>
-          <div className="mt-5 flex items-center gap-3">
+          <div className="mt-5 flex items-center gap-4">
             <a
               href={site.depot}
               className="flex items-center gap-2 text-sm text-craie-300 transition-colors hover:text-or-400"
               rel="noreferrer"
+              target="_blank"
             >
               <Github size={16} aria-hidden />
               Code source
@@ -26,37 +79,37 @@ export function PiedDePage() {
               className="flex items-center gap-2 text-sm text-craie-300 transition-colors hover:text-or-400"
             >
               <Rss size={16} aria-hidden />
-              Flux RSS
+              RSS
             </Link>
           </div>
         </div>
 
-        <nav aria-label="Pied de page">
-          <p className="font-titre text-sm font-semibold uppercase tracking-wider text-or-400">
-            Sections
-          </p>
-          <ul className="mt-4 space-y-2">
-            {navigation.map((lien) => (
-              <li key={lien.href}>
-                <Link href={lien.href} className="text-sm text-craie-500 transition-colors hover:text-craie-100">
-                  {lien.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav aria-label="Le jeu">
+          <Colonne titre="Le jeu" liens={jeu} />
         </nav>
+        <nav aria-label="Actualites">
+          <Colonne titre="Actualites" liens={actualite} />
+        </nav>
+        <nav aria-label="Le site">
+          <Colonne titre="Le site" liens={LIENS_SITE} />
+        </nav>
+      </div>
 
-        <div>
-          <p className="font-titre text-sm font-semibold uppercase tracking-wider text-or-400">
-            Le site
-          </p>
-          <ul className="mt-4 space-y-2">
-            <li><Link href="/api-doc" className="text-sm text-craie-500 transition-colors hover:text-craie-100">API publique</Link></li>
-            <li><Link href="/a-propos" className="text-sm text-craie-500 transition-colors hover:text-craie-100">A propos</Link></li>
-            <li><Link href="/compte" className="text-sm text-craie-500 transition-colors hover:text-craie-100">Mon compte</Link></li>
-            <li><Link href="/feed.xml" className="text-sm text-craie-500 transition-colors hover:text-craie-100">RSS</Link></li>
-          </ul>
-        </div>
+      {/* Sources : la transparence sur l'origine des donnees fait partie du parti pris. */}
+      <div className="border-t border-nuit-800/80">
+        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-craie-600">
+          Donnees du{" "}
+          <a
+            href="https://mobilelegends.fandom.com"
+            rel="noreferrer nofollow"
+            target="_blank"
+            className="text-craie-500 hover:text-or-400"
+          >
+            wiki Mobile Legends
+          </a>{" "}
+          (CC BY-SA) et de l&apos;API communautaire arena.rone.dev. Aucune
+          statistique de partie n&apos;est disponible.
+        </p>
       </div>
 
       {/*
@@ -64,13 +117,15 @@ export function PiedDePage() {
         Moonton. Ce site est un projet de fan, sans lien avec l'editeur.
       */}
       <div className="border-t border-nuit-800">
-        <p className="mx-auto max-w-6xl px-4 py-6 text-xs leading-relaxed text-craie-500">
-          Mobile Legends: Bang Bang, son univers, ses heros et leurs noms sont
-          des marques deposees de Shanghai Moonton Technology Co., Ltd.
-          {" "}{site.nom} est un projet de fan independant, sans affiliation, ni
-          approbation, ni parrainage de Moonton. Les contenus editoriaux sont
-          publies par {site.auteur}.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs leading-relaxed text-craie-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {ANNEE} {site.nom} — projet de fan independant. Contenus publies
+            par {site.auteur}.
+          </p>
+          <p className="text-craie-600">
+            Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.
+          </p>
+        </div>
       </div>
     </footer>
   );
