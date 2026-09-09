@@ -6,6 +6,7 @@ import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
 import { CompetencesHeros } from "@/components/competences-heros";
 import { GalerieIllustrations } from "@/components/galerie-illustrations";
+import { ContresChiffres } from "@/components/contres-chiffres";
 import { ObjetBuild } from "@/components/objet-build";
 import { PresentationVideo } from "@/components/presentation-video";
 import { Onglets } from "@/components/onglets";
@@ -14,6 +15,7 @@ import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgeRole, Carte, Jauge } from "@/components/ui";
 import {
   competences,
+  contres,
   heros,
   herosParSlug,
   illustrations,
@@ -68,6 +70,10 @@ export default async function PageHeros({ params }: Params) {
   // le heros tel qu'on le rencontre par defaut.
   const fond = Object.values(illustrationsHeros)[0] ?? null;
   const video = videos[h.slug] ?? null;
+  const contresHeros = contres[h.slug] ?? null;
+  const portraitDe = (slug: string) =>
+    herosParSlug.get(slug)?.visuels.icone ?? herosParSlug.get(slug)?.visuels.portrait ?? null;
+  const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
 
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -260,13 +266,6 @@ export default async function PageHeros({ params }: Params) {
                     </Carte>
                   </section>
 
-                  <section>
-                    <h2 className="font-titre text-xl font-bold text-craie-100">Contres</h2>
-                    <div className="mt-4 grid gap-4 md:grid-cols-2">
-                      <ListeContres titre={`${h.nom} est a l'aise contre`} slugs={analyse.fortContre} ton="bon" />
-                      <ListeContres titre={`${h.nom} est en difficulte contre`} slugs={analyse.faibleContre} ton="mauvais" />
-                    </div>
-                  </section>
                 </div>
               ) : (
                 <Carte className="border-or-500/30">
@@ -305,6 +304,50 @@ export default async function PageHeros({ params }: Params) {
                   redigees={analyse?.competences ?? null}
                 />
               ),
+            },
+            {
+              id: "contres",
+              label: "Contres",
+              contenu:
+                contresHeros || analyse ? (
+                  <div className="space-y-8">
+                    {contresHeros && (
+                      <section>
+                        <p className="mb-4 text-sm leading-relaxed text-craie-500">
+                          Etabli sur les taux de victoire du jeu : l&apos;ecart en
+                          points indique de combien le taux de {h.nom} varie face
+                          a chaque adversaire.
+                          {contresHeros.mesure !== null && (
+                            <span className="text-craie-300">
+                              {" "}Taux de victoire de reference : {contresHeros.mesure} %.
+                            </span>
+                          )}
+                        </p>
+                        <ContresChiffres
+                          fort={contresHeros.fort}
+                          faible={contresHeros.faible}
+                          portraitParSlug={portraitDe}
+                          nomParSlug={nomDe}
+                        />
+                      </section>
+                    )}
+
+                    {analyse && (analyse.fortContre.length > 0 || analyse.faibleContre.length > 0) && (
+                      <section>
+                        <h3 className="font-titre text-lg font-bold text-craie-100">
+                          Lecture des matchups
+                        </h3>
+                        <p className="mt-1 text-sm text-craie-500">
+                          Les duels commentes a la main, au-dela des chiffres.
+                        </p>
+                        <div className="mt-4 grid gap-4 md:grid-cols-2">
+                          <ListeContres titre={`${h.nom} est a l'aise contre`} slugs={analyse.fortContre} ton="bon" />
+                          <ListeContres titre={`${h.nom} est en difficulte contre`} slugs={analyse.faibleContre} ton="mauvais" />
+                        </div>
+                      </section>
+                    )}
+                  </div>
+                ) : null,
             },
             {
               id: "builds",
