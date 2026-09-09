@@ -622,6 +622,86 @@ async function videos(heros) {
   return trouvees;
 }
 
+/**
+ * Contres reels, avec taux de victoire.
+ *
+ * L'academie expose, pour chaque heros, le taux de victoire de tous ses
+ * adversaires et surtout la variation de ce taux quand ils l'affrontent :
+ * `increase_win_rate`. Negatif, l'adversaire perd du terrain — le heros le
+ * contre ; positif, l'adversaire prend l'avantage. On en tire les contres
+ * chiffres, dans les deux sens, la ou l'analyse ecrite ne couvre qu'une
+ * poignee de heros.
+ */
+async function contresReels(heros) {
+  // Table identifiant de jeu vers slug, depuis le meme endpoint que le reste.
+  const reponse = await fetch(`${STATS}/heroes?size=200`, {
+    headers: { "User-Agent": UA },
+    signal: AbortSignal.timeout(30000),
+  });
+  if (!reponse.ok) throw new Error(`Table des heros indisponible : HTTP ${reponse.status}`);
+
+  const records = (await reponse.json())?.data?.records ?? [];
+  const parId = new Map();
+  const connus = new Map(heros.map((h) => [h.slug, h]));
+  for (const r of records) {
+    const nom = r?.data?.hero?.data?.name;
+    const id = r?.data?.hero_id;
+    if (nom && id != null) {
+      const slug = slugifier(nom);
+      if (connus.has(slug)) parId.set(id, slug);
+    }
+  }
+
+  const sortie = {};
+
+  for (const [i, h] of heros.entries()) {
+    try {
+      const rep = await fetch(
+        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/counters`,
+        { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(20000) },
+      );
+      if (!rep.ok) continue;
+
+      const bloc = (await rep.json())?.data?.records?.[0]?.data;
+      const adversaires = Array.isArray(bloc?.sub_hero) ? bloc.sub_hero : [];
+      if (adversaires.length === 0) continue;
+
+      // On ne retient que les adversaires connus, avec leur variation.
+      const notes = adversaires
+        .map((a) => ({
+          slug: parId.get(a.heroid),
+          delta: typeof a.increase_win_rate === "number" ? a.increase_win_rate : 0,
+          winRate: typeof a.hero_win_rate === "number" ? a.hero_win_rate : null,
+        }))
+        .filter((a) => a.slug && a.slug !== h.slug);
+
+      // `increase_win_rate` est la variation du taux de victoire du heros dans
+      // ce duel : positive, il gagne davantage → il contre l'adversaire ;
+      // negative, il est en difficulte. On trie du plus favorable au moins.
+      const parDelta = [...notes].sort((a, b) => b.delta - a.delta);
+      const point = (a) => ({ slug: a.slug, avantage: Math.round(a.delta * 1000) / 10 });
+
+      sortie[h.slug] = {
+        // avantage positif : le heros est fort contre cette cible.
+        fort: parDelta.slice(0, 6).map(point),
+        // avantage negatif : le heros est en difficulte.
+        faible: parDelta.slice(-6).reverse().map(point),
+        mesure: bloc.main_hero_win_rate
+          ? Math.round(bloc.main_hero_win_rate * 1000) / 10
+          : null,
+      };
+    } catch {
+      /* un heros en echec n'interrompt pas la synchronisation */
+    }
+
+    process.stdout.write(`\r    contres ${i + 1}/${heros.length}`);
+    await pause(150);
+  }
+
+  process.stdout.write("\n");
+  return sortie;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Classement
 // ─────────────────────────────────────────────────────────────
@@ -879,6 +959,15 @@ async function principal() {
   const presentations = await videos(heros);
   if (presentations) console.log(`  ${Object.keys(presentations).length} videos trouvees`);
 
+  console.log("Contres reels (academie)…");
+  let contres = null;
+  try {
+    contres = await contresReels(heros);
+    console.log(`  ${Object.keys(contres).length} heros avec contres chiffres`);
+  } catch (erreur) {
+    console.warn(`  contres indisponibles (${erreur.message}) — inchanges`);
+  }
+
   console.log("Relations entre heros…");
   let liens = null;
   try {
@@ -1037,6 +1126,7 @@ async function principal() {
   }
   if (liens) await ecrire("relations", liens);
   if (presentations) await ecrire("videos", presentations);
+  if (contres) await ecrire("contres", contres);
 
   await Promise.all([
     ecrire("heros", heros),
