@@ -39,7 +39,17 @@ interface Taux {
   selection: number;
 }
 
-const TAUX = classement as unknown as Record<string, Taux>;
+interface Classement {
+  /** Date a laquelle les taux ont ete releves, distincte de la synchronisation. */
+  mesure: string;
+  taux: Record<string, Taux>;
+}
+
+const CLASSEMENT = classement as unknown as Classement;
+const TAUX = CLASSEMENT.taux;
+
+/** Date du releve, a afficher plutot que celle de la derniere synchronisation. */
+export const mesureLe = CLASSEMENT.mesure;
 
 /** En dessous de ce taux de selection, les mesures deviennent bruitees. */
 const SEUIL_FIABILITE = 0.3;
