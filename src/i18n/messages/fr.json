@@ -95,6 +95,60 @@
       "metaTitre": "Tous les heros",
       "metaDescription": "Les {heros} heros de Mobile Legends: Bang Bang, filtrables par role et par position : portraits, skins, statistiques, et {analyses} analyses redigees.",
       "ogDescription": "Les {heros} heros de Mobile Legends: Bang Bang, avec leurs {skins} skins."
+    },
+    "heroesListe": {
+      "rechercher": "Rechercher un heros",
+      "role": "Role",
+      "position": "Position",
+      "trier": "Trier",
+      "triNom": "A → Z",
+      "triVictoire": "Taux de victoire",
+      "triPalier": "Tier list",
+      "compte": "{n} heros",
+      "compteSur": "sur {total}",
+      "aucun": "Aucun heros ne correspond a ces filtres."
+    },
+    "heroDetail": {
+      "tousLesHeros": "Tous les heros",
+      "notes": {
+        "offensive": "Offensive",
+        "resistance": "Resistance",
+        "effets": "Effets",
+        "difficulte": "Difficulte"
+      },
+      "stat": {
+        "position": "Position",
+        "sortie": "Sortie",
+        "ressource": "Ressource",
+        "degats": "Degats",
+        "portee": "Portee",
+        "region": "Region",
+        "skins": "Skins",
+        "tierList": "Tier list",
+        "tauxVictoire": "Taux de victoire",
+        "tauxBan": "Taux de ban"
+      },
+      "palier": "Palier {p}",
+      "onglet": {
+        "analyse": "Analyse",
+        "histoire": "Histoire",
+        "competences": "Competences",
+        "contres": "Contres",
+        "builds": "Builds",
+        "skins": "Skins"
+      },
+      "forces": "Forces",
+      "faiblesses": "Faiblesses",
+      "analyseEnCours": "Analyse en cours de redaction",
+      "analyseTexte": "Les donnees de {nom} sont a jour — elles viennent directement du wiki. Ce qui manque, c'est le commentaire : ce que le heros fait vraiment, ses builds et ses contres. Cela ne s'extrait pas, cela s'ecrit.",
+      "contribuer": "Contribuer a cette analyse →",
+      "contresIntro": "Etabli sur les taux de victoire du jeu : l'ecart en points indique de combien le taux de {nom} varie face a chaque adversaire.",
+      "contresRef": "Taux de victoire de reference : {taux} %.",
+      "matchups": "Lecture des matchups",
+      "matchupsIntro": "Les duels commentes a la main, au-dela des chiffres.",
+      "alaise": "{nom} est a l'aise contre",
+      "difficulte2": "{nom} est en difficulte contre",
+      "metaDescription": "{nom} : {roles} de Mobile Legends: Bang Bang. Position {lanes}, {skins} skins."
     }
   },
   "modeFiche": {
@@ -122,5 +176,46 @@
       "accroche": "Les modes ephemeres",
       "texte": "Une rotation de modes speciaux et festifs — Chasse Magique, Survie et autres variantes — proposes pour une duree limitee."
     }
+  },
+  "roles": {
+    "Tank": "Tank",
+    "Fighter": "Combattant",
+    "Assassin": "Assassin",
+    "Mage": "Mage",
+    "Marksman": "Tireur",
+    "Support": "Support"
+  },
+  "lanes": {
+    "Or": "Or",
+    "Experience": "Experience",
+    "Milieu": "Milieu",
+    "Jungle": "Jungle",
+    "Roam": "Roam"
+  },
+  "histoire": {
+    "titre": "Titre",
+    "espece": "Espece",
+    "genre": "Genre",
+    "age": "Age",
+    "origine": "Origine",
+    "anniversaire": "Anniversaire",
+    "recit": "Le recit",
+    "saviezVous": "Le saviez-vous ?",
+    "affiliations": "Affiliations",
+    "relations": "Relations",
+    "pouvoirs": "Pouvoirs",
+    "aucunRecit": "Le wiki ne publie pas encore de recit pour {nom}."
+  },
+  "comp": {
+    "Passif": "Passif",
+    "Competence 1": "Competence 1",
+    "Competence 2": "Competence 2",
+    "Ultime": "Ultime",
+    "Competence": "Competence"
+  },
+  "contres": {
+    "fort": "Fort contre",
+    "difficulte": "En difficulte contre",
+    "pts": "pts"
   }
 }

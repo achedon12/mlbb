@@ -95,6 +95,60 @@
       "metaTitre": "All the heroes",
       "metaDescription": "The {heros} heroes of Mobile Legends: Bang Bang, filterable by role and position: portraits, skins, statistics, and {analyses} written analyses.",
       "ogDescription": "The {heros} heroes of Mobile Legends: Bang Bang, with their {skins} skins."
+    },
+    "heroesListe": {
+      "rechercher": "Search for a hero",
+      "role": "Role",
+      "position": "Position",
+      "trier": "Sort",
+      "triNom": "A → Z",
+      "triVictoire": "Win rate",
+      "triPalier": "Tier list",
+      "compte": "{n} heroes",
+      "compteSur": "on {total}",
+      "aucun": "No heroes match these filters."
+    },
+    "heroDetail": {
+      "tousLesHeros": "All the heroes",
+      "notes": {
+        "offensive": "Offensive",
+        "resistance": "Resistance",
+        "effets": "Effects",
+        "difficulte": "Difficulty"
+      },
+      "stat": {
+        "position": "Position",
+        "sortie": "Exit",
+        "ressource": "Resource",
+        "degats": "Damage",
+        "portee": "Scope",
+        "region": "Region",
+        "skins": "Skins",
+        "tierList": "Tier list",
+        "tauxVictoire": "Win rate",
+        "tauxBan": "Ban rate"
+      },
+      "palier": "Level {p}",
+      "onglet": {
+        "analyse": "Analysis",
+        "histoire": "History",
+        "competences": "SKILLS",
+        "contres": "Cons",
+        "builds": "Builds",
+        "skins": "Skins"
+      },
+      "forces": "Strengths",
+      "faiblesses": "Weaknesses",
+      "analyseEnCours": "Analysis currently being written",
+      "analyseTexte": "The data for {nom} is up to date — it comes directly from the wiki. What's missing is the commentary: what the hero really does, his builds and his counters. This cannot be extracted, it is written.",
+      "contribuer": "Contribute to this analysis →",
+      "contresIntro": "Established on the winning rates of the game: the difference in points indicates how much the rate of {nom} varies against each opponent.",
+      "contresRef": "Reference win rate: {taux}%.",
+      "matchups": "Reading matchups",
+      "matchupsIntro": "Hand-commented duels, beyond the numbers.",
+      "alaise": "{nom} is comfortable against",
+      "difficulte2": "{nom} is in difficulty against",
+      "metaDescription": "{nom}: {roles} from Mobile Legends: Bang Bang. Position {lanes}, {skins} skins."
     }
   },
   "modeFiche": {
@@ -122,5 +176,46 @@
       "accroche": "Ephemeral fashions",
       "texte": "A rotation of special and festive modes – Magic Hunt, Survival and other variants – offered for a limited time."
     }
+  },
+  "roles": {
+    "Tank": "Tank",
+    "Fighter": "Fighter",
+    "Assassin": "Assassin",
+    "Mage": "Mage",
+    "Marksman": "Shooter",
+    "Support": "Support"
+  },
+  "lanes": {
+    "Or": "Gold",
+    "Experience": "Experience",
+    "Milieu": "Medium",
+    "Jungle": "Jungle",
+    "Roam": "Roam"
+  },
+  "histoire": {
+    "titre": "Title",
+    "espece": "Species",
+    "genre": "Gender",
+    "age": "Age",
+    "origine": "Origin",
+    "anniversaire": "Birthday",
+    "recit": "The story",
+    "saviezVous": "Did you know?",
+    "affiliations": "Memberships",
+    "relations": "Relationships",
+    "pouvoirs": "Powers",
+    "aucunRecit": "The wiki does not yet publish a story for {nom}."
+  },
+  "comp": {
+    "Passif": "Passive",
+    "Competence 1": "Skill 1",
+    "Competence 2": "Skill 2",
+    "Ultime": "Ultimate",
+    "Competence": "Skill"
+  },
+  "contres": {
+    "fort": "Strong against",
+    "difficulte": "In difficulty against",
+    "pts": "pts"
   }
 }

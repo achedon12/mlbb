@@ -95,6 +95,60 @@
       "metaTitre": "Tutti gli eroi",
       "metaDescription": "I {heros} eroi di Mobile Legends: Bang Bang, filtrabili per ruolo e posizione: ritratti, skin, statistiche e {analyses} analisi scritte.",
       "ogDescription": "Gli eroi {heros} di Mobile Legends: Bang Bang, con le loro skin {skins}."
+    },
+    "heroesListe": {
+      "rechercher": "Cerca un eroe",
+      "role": "Ruolo",
+      "position": "Posizione",
+      "trier": "Ordinare",
+      "triNom": "A→Z",
+      "triVictoire": "Tasso di vincita",
+      "triPalier": "Elenco livelli",
+      "compte": "{n} eroi",
+      "compteSur": "su {total}",
+      "aucun": "Nessun eroe corrisponde a questi filtri."
+    },
+    "heroDetail": {
+      "tousLesHeros": "Tutti gli eroi",
+      "notes": {
+        "offensive": "Offensiva",
+        "resistance": "Resistenza",
+        "effets": "Effetti",
+        "difficulte": "Difficoltà"
+      },
+      "stat": {
+        "position": "Posizione",
+        "sortie": "Uscita",
+        "ressource": "Risorsa",
+        "degats": "Danno",
+        "portee": "Ambito",
+        "region": "Regione",
+        "skins": "Pelli",
+        "tierList": "Elenco livelli",
+        "tauxVictoire": "Tasso di vincita",
+        "tauxBan": "Tasso di divieto"
+      },
+      "palier": "Livello {p}",
+      "onglet": {
+        "analyse": "Analisi",
+        "histoire": "Storia",
+        "competences": "COMPETENZE",
+        "contres": "Contro",
+        "builds": "Costruisce",
+        "skins": "Pelli"
+      },
+      "forces": "Punti di forza",
+      "faiblesses": "Punti deboli",
+      "analyseEnCours": "Analisi attualmente in fase di scrittura",
+      "analyseTexte": "I dati per {nom} sono aggiornati: provengono direttamente dal wiki. Ciò che manca è il commento: cosa fa veramente l'eroe, le sue costruzioni e le sue contromosse. Questo non si può estrarre, è scritto.",
+      "contribuer": "Contribuisci a questa analisi →",
+      "contresIntro": "Stabilito in base alle percentuali di vincita del gioco: la differenza di punti indica quanto varia la percentuale di {nom} contro ciascun avversario.",
+      "contresRef": "Tasso di vincita di riferimento: {taux}%.",
+      "matchups": "Lettura degli abbinamenti",
+      "matchupsIntro": "Duelli commentati a mano, al di là dei numeri.",
+      "alaise": "{nom} è comodo contro",
+      "difficulte2": "{nom} è in difficoltà contro",
+      "metaDescription": "{nom}: {roles} da Mobile Legends: Bang Bang. Posizionare le pelli {lanes}, {skins}."
     }
   },
   "modeFiche": {
@@ -122,5 +176,46 @@
       "accroche": "Mode effimere",
       "texte": "Una rotazione di modalità speciali e festive – Caccia Magica, Sopravvivenza e altre varianti – offerte per un periodo limitato."
     }
+  },
+  "roles": {
+    "Tank": "Cisterna",
+    "Fighter": "Combattente",
+    "Assassin": "Assassino",
+    "Mage": "Mago",
+    "Marksman": "Sparatutto",
+    "Support": "Supporto"
+  },
+  "lanes": {
+    "Or": "Oro",
+    "Experience": "Esperienza",
+    "Milieu": "Medio",
+    "Jungle": "Giungla",
+    "Roam": "Vagare"
+  },
+  "histoire": {
+    "titre": "Titolo",
+    "espece": "Specie",
+    "genre": "Genere",
+    "age": "Età",
+    "origine": "Origine",
+    "anniversaire": "Compleanno",
+    "recit": "La storia",
+    "saviezVous": "Lo sapevate?",
+    "affiliations": "Appartenenze",
+    "relations": "Relazioni",
+    "pouvoirs": "Poteri",
+    "aucunRecit": "La wiki non pubblica ancora una storia per {nom}."
+  },
+  "comp": {
+    "Passif": "Passivo",
+    "Competence 1": "Abilità 1",
+    "Competence 2": "Abilità 2",
+    "Ultime": "Definitivo",
+    "Competence": "Abilità"
+  },
+  "contres": {
+    "fort": "Forte contro",
+    "difficulte": "In difficoltà contro",
+    "pts": "punti"
   }
 }

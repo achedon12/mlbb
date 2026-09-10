@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import type { ContreChiffre } from "@/lib/donnees";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 import { cn } from "@/lib/utils";
 
 /**
@@ -13,20 +15,24 @@ import { cn } from "@/lib/utils";
  * avant son nom.
  */
 export function ContresChiffres({
+  langue,
   fort,
   faible,
   portraitParSlug,
   nomParSlug,
 }: {
+  langue: Langue;
   fort: ContreChiffre[];
   faible: ContreChiffre[];
   portraitParSlug: (slug: string) => string | null;
   nomParSlug: (slug: string) => string;
 }) {
+  const t = creerT(langue);
   return (
     <div className="grid gap-4 md:grid-cols-2">
       <Colonne
-        titre="Fort contre"
+        langue={langue}
+        titre={t("contres.fort")}
         icone={<TrendingUp size={17} aria-hidden />}
         ton="bon"
         entrees={fort}
@@ -34,7 +40,8 @@ export function ContresChiffres({
         nomParSlug={nomParSlug}
       />
       <Colonne
-        titre="En difficulte contre"
+        langue={langue}
+        titre={t("contres.difficulte")}
         icone={<TrendingDown size={17} aria-hidden />}
         ton="mauvais"
         entrees={faible}
@@ -46,6 +53,7 @@ export function ContresChiffres({
 }
 
 function Colonne({
+  langue,
   titre,
   icone,
   ton,
@@ -53,6 +61,7 @@ function Colonne({
   portraitParSlug,
   nomParSlug,
 }: {
+  langue: Langue;
   titre: string;
   icone: React.ReactNode;
   ton: "bon" | "mauvais";
@@ -60,6 +69,7 @@ function Colonne({
   portraitParSlug: (slug: string) => string | null;
   nomParSlug: (slug: string) => string;
 }) {
+  const t = creerT(langue);
   const couleur = ton === "bon" ? "text-emerald-400" : "text-sang-500";
 
   return (
@@ -87,7 +97,7 @@ function Colonne({
                 </span>
                 <span className={cn("shrink-0 text-xs font-semibold tabular-nums", couleur)}>
                   {e.avantage > 0 ? "+" : ""}
-                  {e.avantage.toFixed(1)} pts
+                  {e.avantage.toFixed(1)} {t("contres.pts")}
                 </span>
               </Link>
             </li>

@@ -13,6 +13,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { HistoireHeros as Histoire } from "@/lib/types";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 
 /**
  * L'histoire d'un heros, mise en page pour la lecture : une accroche en
@@ -22,13 +24,13 @@ import type { HistoireHeros as Histoire } from "@/lib/types";
 
 type ChampTexte = "titre" | "espece" | "genre" | "age" | "origine" | "anniversaire";
 
-const CHAMPS: { cle: ChampTexte; label: string; icone: LucideIcon }[] = [
-  { cle: "titre", label: "Titre", icone: Crown },
-  { cle: "espece", label: "Espece", icone: PawPrint },
-  { cle: "genre", label: "Genre", icone: Users },
-  { cle: "age", label: "Age", icone: Hourglass },
-  { cle: "origine", label: "Origine", icone: MapPin },
-  { cle: "anniversaire", label: "Anniversaire", icone: Cake },
+const CHAMPS: { cle: ChampTexte; icone: LucideIcon }[] = [
+  { cle: "titre", icone: Crown },
+  { cle: "espece", icone: PawPrint },
+  { cle: "genre", icone: Users },
+  { cle: "age", icone: Hourglass },
+  { cle: "origine", icone: MapPin },
+  { cle: "anniversaire", icone: Cake },
 ];
 
 function GroupeChips({
@@ -61,7 +63,8 @@ function GroupeChips({
   );
 }
 
-export function HistoireHeros({ histoire, nom }: { histoire: Histoire; nom: string }) {
+export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; nom: string; langue: Langue }) {
+  const t = creerT(langue);
   const { accroche, lore, fiche, anecdotes } = histoire;
   const [premier, ...suite] = lore;
 
@@ -89,7 +92,7 @@ export function HistoireHeros({ histoire, nom }: { histoire: Histoire; nom: stri
             <section>
               <h2 className="flex items-center gap-2 font-titre text-sm font-bold uppercase tracking-[0.15em] text-or-400">
                 <BookOpen size={16} aria-hidden />
-                Le recit
+                {t("histoire.recit")}
               </h2>
               <div className="mt-5 max-w-[68ch] space-y-4 text-[0.95rem] leading-[1.8] text-craie-300">
                 {premier && (
@@ -105,7 +108,7 @@ export function HistoireHeros({ histoire, nom }: { histoire: Histoire; nom: stri
           ) : (
             !accroche && (
               <p className="leading-relaxed text-craie-500">
-                Le wiki ne publie pas encore de recit pour {nom}.
+                {t("histoire.aucunRecit", { nom })}
               </p>
             )
           )}
@@ -119,14 +122,14 @@ export function HistoireHeros({ histoire, nom }: { histoire: Histoire; nom: stri
             </h2>
             <div aria-hidden className="filet-or mt-3 h-0.5 w-12" />
             <dl className="mt-5 space-y-4 text-sm">
-              {CHAMPS.map(({ cle, label, icone: Icone }) =>
+              {CHAMPS.map(({ cle, icone: Icone }) =>
                 fiche[cle] ? (
                   <div key={cle} className="flex gap-3">
                     <span className="mt-0.5 text-craie-500">
                       <Icone size={15} aria-hidden />
                     </span>
                     <div className="min-w-0">
-                      <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
+                      <dt className="text-xs uppercase tracking-wide text-craie-500">{t(`histoire.${cle}`)}</dt>
                       <dd className="mt-0.5 text-craie-100">{fiche[cle]}</dd>
                     </div>
                   </div>
@@ -137,9 +140,9 @@ export function HistoireHeros({ histoire, nom }: { histoire: Histoire; nom: stri
               fiche.relations.length > 0 ||
               fiche.pouvoirs.length > 0) && (
               <dl className="mt-5 space-y-4 border-t border-nuit-800 pt-5 text-sm">
-                <GroupeChips titre="Pouvoirs" valeurs={fiche.pouvoirs} icone={Wand2} />
-                <GroupeChips titre="Affiliations" valeurs={fiche.affiliations} icone={Flag} />
-                <GroupeChips titre="Relations" valeurs={fiche.relations} icone={Users} />
+                <GroupeChips titre={t("histoire.pouvoirs")} valeurs={fiche.pouvoirs} icone={Wand2} />
+                <GroupeChips titre={t("histoire.affiliations")} valeurs={fiche.affiliations} icone={Flag} />
+                <GroupeChips titre={t("histoire.relations")} valeurs={fiche.relations} icone={Users} />
               </dl>
             )}
           </aside>
@@ -151,7 +154,7 @@ export function HistoireHeros({ histoire, nom }: { histoire: Histoire; nom: stri
         <section className="border-t border-nuit-800 pt-10">
           <h2 className="flex items-center gap-2 font-titre text-sm font-bold uppercase tracking-[0.15em] text-azur-400">
             <Sparkles size={16} aria-hidden />
-            Le saviez-vous ?
+            {t("histoire.saviezVous")}
           </h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {anecdotes.map((a, i) => (

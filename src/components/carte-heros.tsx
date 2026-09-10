@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useT } from "@/i18n/fournisseur";
 import type { Lane, Palier, Role, VisuelsHeros } from "@/lib/types";
 import { IndicateurFavori } from "./indicateur-favori";
 import { PortraitHeros } from "./portrait-heros";
-import { BadgeRole } from "./ui";
+import { BadgeRole } from "./badge-role";
 import { cn } from "@/lib/utils";
 
 /**
@@ -36,6 +39,7 @@ const COULEUR_PALIER: Record<Palier, string> = {
 };
 
 export function CarteHeros({ heros }: { heros: ApercuHeros }) {
+  const t = useT();
   return (
     <Link
       href={`/heroes/${heros.slug}`}
@@ -72,7 +76,7 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
           {heros.victoire != null && (
             <span className="font-semibold text-craie-300">{heros.victoire.toFixed(1)}%</span>
           )}
-          <span>{heros.lanes.join(" · ") || "—"}</span>
+          <span>{heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}</span>
           {heros.skins > 0 && <span>· {heros.skins} skins</span>}
           {heros.analyse && (
             <span className="font-semibold uppercase tracking-wide text-or-500">· Analyse</span>
