@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { Embleme, SortDeCombat, Talent } from "@/data/emblemes";
+import { useT } from "@/i18n/fournisseur";
 import type { Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -29,6 +30,7 @@ export function GuideEmblemes({
   sorts: SortDeCombat[];
   images: Record<string, string>;
 }) {
+  const t = useT();
   const [role, setRole] = useState<Role | null>(null);
 
   const ordonner = <T extends { roles: Role[] }>(liste: T[]) =>
@@ -94,22 +96,22 @@ export function GuideEmblemes({
       {/* ── Contenu ──────────────────────────────────────────────────── */}
       <div className="min-w-0 space-y-12">
         <Section
-          titre="Talents decisifs"
-          chapeau="Le dernier etage : c'est lui qui change une partie."
+          titre={t("emblemesUI.talents")}
+          chapeau={t("emblemesUI.talentsDesc")}
           entrees={ordonner(talents.filter((t) => t.decisif))}
           images={images}
           adapte={adapte}
         />
         <Section
-          titre="Attributs"
-          chapeau="Les premiers etages ajustent les statistiques. Ils comptent, sans decider."
+          titre={t("emblemesUI.attributs")}
+          chapeau={t("emblemesUI.attributsDesc")}
           entrees={ordonner(talents.filter((t) => !t.decisif))}
           images={images}
           adapte={adapte}
         />
         <Section
-          titre="Sorts de combat"
-          chapeau="Un seul emplacement : le sort doit repondre a ce qui manque au heros."
+          titre={t("emblemesUI.sorts")}
+          chapeau={t("emblemesUI.sortsDesc")}
           entrees={ordonner(sorts)}
           images={images}
           adapte={adapte}

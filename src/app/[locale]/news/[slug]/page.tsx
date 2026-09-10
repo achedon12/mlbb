@@ -60,6 +60,7 @@ export default async function PageArticle({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <CorpsArticle
+        langue={locale}
         article={a}
         html={enHtml(a.contenu)}
         retour={{ href: "/news", label: "Toutes les actualites" }}

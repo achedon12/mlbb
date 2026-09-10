@@ -7,7 +7,9 @@
     "changerLangue": "Cambia lingua",
     "sourceWiki": "Wiki di Mobile Legends",
     "licenceWiki": "Contenuti presi e tradotti da {lien}, sotto licenza CC BY-SA.",
-    "allerAuContenu": "Vai al contenuto"
+    "allerAuContenu": "Vai al contenuto",
+    "filAriane": "Pangrattato",
+    "sections": "Sezioni del foglio"
   },
   "nav": {
     "baseDeDonnees": "Banca dati",
@@ -148,7 +150,8 @@
       "matchupsIntro": "Duelli commentati a mano, al di là dei numeri.",
       "alaise": "{nom} è comodo contro",
       "difficulte2": "{nom} è in difficoltà contro",
-      "metaDescription": "{nom}: {roles} da Mobile Legends: Bang Bang. Posizionare le pelli {lanes}, {skins}."
+      "metaDescription": "{nom}: {roles} da Mobile Legends: Bang Bang. Posizionare le pelli {lanes}, {skins}.",
+      "comparer": "Confrontare"
     },
     "items": {
       "titre": "Oggetti",
@@ -246,6 +249,38 @@
       "ogDescription": "Notizie su Mobile Legends da tutto il Web, raccolte automaticamente.",
       "derniereCollecte": "Ultima raccolta su {date} · fonti:",
       "aucune": "Nessuna fonte risponde al momento. La pagina si ricarica automaticamente alla raccolta successiva."
+    },
+    "about": {
+      "titre": "Di",
+      "chapeau": "Un progetto indipendente, aperto e volontariamente esplicito sui propri limiti.",
+      "metaDescription": "Cos'è questo sito, cosa contiene, cosa non può contenere e come contribuirvi."
+    },
+    "legal": {
+      "titre": "Avvisi legali",
+      "chapeau": "Chi pubblica questo sito, chi lo ospita e chi possiede il contenuto.",
+      "metaDescription": "Editore, host e proprietari del contenuto del sito. Progetto di fan indipendente, senza affiliazione con Moonton."
+    },
+    "privacy": {
+      "titre": "Riservatezza",
+      "chapeau": "Cosa elabora il sito, cosa non elabora e dove risiedono i tuoi dati.",
+      "metaDescription": "Cookie, archiviazione locale, connessione account di gioco e misurazione dell'audience: cosa elabora il sito e dove."
+    },
+    "account": {
+      "metaTitre": "Il mio conto",
+      "metaDescription": "Profilo e statistiche del gioco.",
+      "indisponible": "Profilo attualmente non disponibile",
+      "indisponibleTexte": "Sei connesso con successo, ma il servizio Moonton che fornisce i profili non risponde al momento. Riprova tra qualche minuto.",
+      "seDeconnecter": "Esci",
+      "rangActuel": "Rango attuale",
+      "meilleurRang": "Miglior rango",
+      "statistiques": "Statistiche",
+      "amis": "Amici",
+      "favoris": "Eroi preferiti",
+      "niveau": "Livello",
+      "niveauX": "Livello {n}",
+      "deconnexion": "Disconnetti",
+      "detailIndispo": "Le statistiche dettagliate (percentuale di vittorie, cronologia, eroi più giocati) dipendono da un servizio Moonton attualmente offline. Il tuo profilo sopra rimane accessibile; i dettagli torneranno non appena la fonte risponderà.",
+      "aucuneStat": "Nessuna statistica da visualizzare."
     }
   },
   "modeFiche": {
@@ -343,7 +378,10 @@
       "classementTexte": "L'elenco dei livelli viene calcolato in base alle percentuali di vincita e ban riportate dal gioco. La regola di calcolo viene visualizzata nella pagina.",
       "ecritTitre": "Ciò che è scritto resta scritto",
       "ecritTexte": "Analisi, build e guide sono scritte a mano. Nessuna estrazione dirà perché un eroe è forte; È qui che contano i contributi."
-    }
+    },
+    "commentFonctionne": "Come funziona questo sito",
+    "suivreRss": "Segui le pubblicazioni in RSS",
+    "pourcentVictoires": "% delle vincite"
   },
   "vedette": {
     "herosDuJour": "Eroe del giorno",
@@ -367,5 +405,284 @@
     "Roaming": "Vagare",
     "Attack & Magic": "Attacco e magia",
     "Attack, Magic & Defense": "Attacco, magia e difesa"
+  },
+  "proses": {
+    "about": {
+      "blocs": [
+        {
+          "h": "Cosa contiene il sito"
+        },
+        {
+          "p": "Il roster completo, skin per ogni eroe, oggetti, emblemi, incantesimi di combattimento e l'elenco delle patch. Questi dati vengono estratti automaticamente dalla wiki della comunità ogni settimana: qui appare un nuovo eroe senza che nessuno debba inserirlo."
+        },
+        {
+          "p": "A questo si aggiunge ciò che nessuna estrazione produrrà: un'analisi scritta per alcuni eroi - cosa fanno realmente, le loro build, i loro contatori - un elenco di livelli in cui viene discusso ogni posizionamento e guide di base."
+        },
+        {
+          "h": "Cosa non contiene e perché"
+        },
+        {
+          "p": "Nessuna statistica del giocatore. Moonton non pubblica alcuna interfaccia di programmazione: né classifica, né cronologia del gioco, né indice di abilità, né stato della connessione. I siti che visualizzano un \"MMR\" per Mobile Legends lo stimano; non lo leggono da nessuna parte."
+        },
+        {
+          "p": "L'unica informazione realmente verificabile dall'esterno è il nickname associato all'identificativo del giocatore, tramite la fase di validazione delle piattaforme di ricarica. Questo è esattamente ciò che fa il collegamento dell'account offerto qui e niente di più."
+        },
+        {
+          "p": "Le immagini appartengono a Moonton. Ritratti, icone e illustrazioni di skin provengono dalla wiki della comunità e sono serviti da questo sito in modo che nulla dipenda da un dominio di terze parti. Rimangono di proprietà di Moonton, vengono presentati a scopo illustrativo e verranno rimossi su richiesta del titolare dei diritti. L'identità visiva del sito – blu notte, oro, angoli tagliati – si ispira a quella del gioco senza utilizzare i file dell'interfaccia."
+        },
+        {
+          "h": "Il giorno prima"
+        },
+        {
+          "p": "La sezione di monitoraggio riunisce automaticamente le pubblicazioni di altri siti sul gioco. Riporta solo il titolo, la data e un breve estratto, e fa sistematico riferimento all'editore originario: nulla vi viene ripubblicato."
+        },
+        {
+          "p": "Moonton non pubblica alcun flusso ufficiale: il sito del gioco è un'applicazione con contenuti non riproducibili in streaming. Gli aggiornamenti del gioco vengono quindi ripresi e commentati a mano nelle patch notes, mentre il giorno prima copre quello che il resto del web pubblica."
+        },
+        {
+          "h": "Il conto"
+        },
+        {
+          "p": "È facoltativo: tutti i contenuti sono accessibili senza effettuare l'accesso. L'accesso richiede il codice di verifica ufficiale di Moonton: un codice di quattro cifre inviato alla tua email di gioco. Il sito non vede mai la tua password: riceve un token temporaneo, memorizzato in un cookie sicuro, che elimini quando ti disconnetti."
+        },
+        {
+          "p": "Nessun database, nessun account creato sul sito. I tuoi eroi preferiti sono archiviati nel tuo browser, non su un server."
+        },
+        {
+          "h": "Contribuire"
+        },
+        {
+          "p": "Il codice e il contenuto sono pubblici. I fogli Hero vivono nei tipici file TypeScript, gli articoli nei file Markdown: puoi aggiungere un foglio o correggere un errore senza conoscere il resto del progetto."
+        },
+        {
+          "p": "[Il repository è qui.]({depot}) Correzioni di bilanciamento, file mancanti e riletture sono particolarmente gradite."
+        },
+        {
+          "h": "Menzioni"
+        },
+        {
+          "p": "Mobile Legends: Bang Bang, il suo universo, i suoi eroi e i loro nomi sono marchi registrati di Shanghai Moonton Technology Co., Ltd. Questo sito è un progetto di fan indipendente, senza affiliazione, approvazione o sponsorizzazione da parte di Moonton."
+        }
+      ]
+    },
+    "legal": {
+      "blocs": [
+        {
+          "h": "Editore"
+        },
+        {
+          "p": "Questo sito è pubblicato a titolo personale da [{editeur}]({editeurSite}), come parte di un progetto di fan indipendente, senza scopo di lucro e senza struttura commerciale. Questo non è un affare."
+        },
+        {
+          "p": "Contatto: [{contact}](mailto:{contact})"
+        },
+        {
+          "h": "Ospite"
+        },
+        {
+          "p": "Il sito è ospitato da [{hebergeur}]({hebergeurSite})."
+        },
+        {
+          "h": "Proprietà intellettuale"
+        },
+        {
+          "p": "Mobile Legends: Bang Bang, il suo universo, i suoi eroi, i loro nomi e le loro rappresentazioni grafiche sono marchi e opere di Shanghai Moonton Technology Co., Ltd. Questo sito è un progetto di fan indipendente, senza affiliazione, approvazione o sponsorizzazione da parte di Moonton."
+        },
+        {
+          "p": "Le immagini visualizzate (ritratti, icone, emblemi, illustrazioni) provengono dalla wiki della comunità e rimangono di proprietà di Moonton. Sono inclusi a scopo illustrativo e informativo. Su richiesta del beneficiario, verranno rimossi."
+        },
+        {
+          "p": "I dati reali provengono da [Mobile Legends wiki](https://mobilelegends.fandom.com) (licenza CC BY-SA) e da un'API della community. Il codice e i testi scritti per questo sito sono pubblicati sotto la licenza MIT — vedi [deposito pubblico]({depot})."
+        },
+        {
+          "h": "Responsabilità"
+        },
+        {
+          "p": "Le informazioni sono fornite solo a scopo informativo, senza garanzia di accuratezza o completezza: il gioco è in evoluzione e alcuni dati potrebbero essere in ritardo per un aggiornamento. I collegamenti a siti di terzi sono di esclusiva responsabilità dei loro autori."
+        },
+        {
+          "h": "Dati personali"
+        },
+        {
+          "p": "Il trattamento dei dati e l'utilizzo dei cookie sono dettagliati nella [privacy policy](/privacy)."
+        }
+      ]
+    },
+    "privacy": {
+      "blocs": [
+        {
+          "p": "Questo sito è progettato per funzionare senza memorizzare dati personali su un server: non dispone di un database di account. Questa pagina descrive quanto poco viene elaborato e dove."
+        },
+        {
+          "h": "Biscotti"
+        },
+        {
+          "p": "È possibile inserire un solo cookie e solo se colleghi il tuo account di gioco:"
+        },
+        {
+          "ul": [
+            "`mlbb_jeu` — cookie di sessione strettamente necessario per la connessione. Contiene il token temporaneo fornito dal servizio Moonton, non lascia mai il server (`httpOnly`) e scade da solo. Senza connessione non viene inserito alcun cookie."
+          ]
+        },
+        {
+          "p": "Poiché questo cookie è strettamente necessario al servizio richiesto (rimanere connessi), non necessita di preventivo consenso. Non vengono utilizzati cookie pubblicitari o di tracciamento."
+        },
+        {
+          "h": "Archiviazione nel tuo browser"
+        },
+        {
+          "p": "I tuoi eroi preferiti vengono salvati nella memoria locale del tuo browser (`localStorage`), solo sul tuo dispositivo. Non vengono inviati a nessun server e non lasciano questo browser. Lo svuotamento dei dati del sito li cancella."
+        },
+        {
+          "h": "Accedi all'account di gioco"
+        },
+        {
+          "p": "La connessione utilizza il flusso ufficiale Moonton: fornisci il tuo identificatore e il server di gioco, ti viene inviato un codice di verifica nel gioco e il sito riceve in cambio un token temporaneo. Questi scambi passano attraverso una API comunitaria (`arena.rone.dev`) e il servizio di autenticazione Moonton. Il sito non registra nessuna di queste informazioni: il token risiede nel cookie di sessione, lato browser, e scompare alla disconnessione o alla scadenza. Non ti viene mai chiesta una password."
+        },
+        {
+          "h": "Contenuti di terze parti"
+        },
+        {
+          "p": "Le immagini (ritratti, icone, emblemi) sono fornite dagli host di Moonton e dalla comunità wiki. Il caricamento di una pagina indirizza quindi le richieste a questi servizi, che possono vedere il tuo indirizzo IP, come per qualsiasi risorsa remota."
+        },
+        {
+          "h": "Misurazione del pubblico"
+        },
+        {
+          "p": "Se la misurazione dell'audience è attivata, viene effettuata con uno strumento senza cookie e senza dati personali, che non traccia i visitatori da un sito all'altro. Non è quindi necessario alcun banner di consenso."
+        },
+        {
+          "h": "I tuoi diritti"
+        },
+        {
+          "p": "Poiché il sito non costituisce alcun archivio di dati personali, non c'è nulla da consultare, rettificare o cancellare sul lato server. Mantieni il controllo su ciò che risiede nel tuo browser (preferiti, sessione) disconnettendo o cancellando i dati del sito. Per qualsiasi domanda scrivete a [{contact}](mailto:{contact})."
+        }
+      ]
+    }
+  },
+  "compareUI": {
+    "offensive": "Offensiva",
+    "resistance": "Resistenza",
+    "effets": "Effetti/controllo",
+    "difficulte": "Difficoltà",
+    "premier": "Primo eroe",
+    "second": "Secondo eroe",
+    "tauxVictoire": "Tasso di vincita",
+    "tauxBan": "Tasso di divieto",
+    "skins": "Pelli"
+  },
+  "patchHeros": {
+    "amelioration": "Miglioramento",
+    "affaiblissement": "Indebolimento",
+    "ajustement": "Regolazione"
+  },
+  "emblemesUI": {
+    "talents": "Talenti decisivi",
+    "talentsDesc": "L'ultimo piano: è lui che cambia una parte.",
+    "attributs": "Attributi",
+    "attributsDesc": "Le prime fasi regolano le statistiche. Contano, senza decidere.",
+    "sorts": "Incantesimi di combattimento",
+    "sortsDesc": "Un unico luogo: l'incantesimo deve rispondere a ciò che manca all'eroe."
+  },
+  "skinsUI": {
+    "pointsBataille": "Punti battaglia",
+    "diamants": "Diamanti",
+    "tickets": "Biglietti",
+    "fragments": "Frammenti di eroi",
+    "gemmes": "Gemme",
+    "sortie": "Uscita",
+    "disponibilite": "Disponibilità",
+    "obtention": "Ottenere",
+    "origine": "Pelle originale."
+  },
+  "draftUI": {
+    "adverse": "Squadra avversaria",
+    "adverseDesc": "Quello che vedi davanti a te.",
+    "votre": "La tua squadra",
+    "votreDesc": "Le tue scelte sono già piazzate. Aprono sinergie.",
+    "quePrendre": "Cosa prendere",
+    "suggestions": "Suggerimenti",
+    "rechercher": "Cerca un eroe",
+    "fermer": "Vicino",
+    "toutEffacer": "Cancella tutto",
+    "intro": "Informa almeno un eroe avversario. I suggerimenti vengono classificati prima in base ai contatori, poi in base alle sinergie con le tue scelte; il tasso di vittoria viene utilizzato solo per decidere tra i vincitori.",
+    "dejaPourvue": "già fornito",
+    "aucunContre": "nessun contro noto in questa composizione",
+    "aucunHeros": "Nessun eroe disponibile."
+  },
+  "nouveauHeros": {
+    "particularite": "Particolarità —"
+  },
+  "loginForm": {
+    "envoiCode": "Invio del codice...",
+    "recevoir": "Ricevi un codice di gioco",
+    "verification": "Verifica…",
+    "seConnecter": "Login",
+    "recommencer": "Ricominciare con un altro identificatore"
+  },
+  "articleUI": {
+    "aucune": "Nessuna pubblicazione ancora."
+  },
+  "articleCat": {
+    "Actualite": "Notizia",
+    "Patch": "Toppa",
+    "Esport": "Sport",
+    "Guide": "Guida"
+  },
+  "rangsNom": {
+    "guerrier": "Guerriero",
+    "elite": "Elite",
+    "maitre": "Maestro",
+    "grand-maitre": "Gran Maestro",
+    "epique": "Epico",
+    "mythique": "Mitico",
+    "mythique-honneur": "Onore mitico",
+    "mythique-gloire": "Gloria mitica",
+    "mythique-immortel": "Mitico immortale"
+  },
+  "rangUnite": {
+    "etoile": "{n} stella",
+    "etoiles": "{n} stelle",
+    "point": "{n} punti",
+    "points": "{n} punti"
+  },
+  "favoris": {
+    "intro": "Salva su questo dispositivo, in questo browser, indipendentemente dal tuo account. Non si sincronizzano da un dispositivo all'altro.",
+    "aucunPre": "Nessun preferito ancora Su un foglio eroe,",
+    "aucunLien": "aggiungine uno",
+    "aucunPost": "per trovarlo qui.",
+    "compte": "{n} eroi",
+    "garde": "tieniti a portata di mano",
+    "gardes": "tieniti a portata di mano",
+    "retirer": "Rimuovere {nom}",
+    "dans": "Nei miei preferiti",
+    "ajouter": "Aggiungi ai preferiti"
+  },
+  "skinDispo": {
+    "Available": "Disponibile",
+    "Limited": "Limite",
+    "Upcoming": "Futuro"
+  },
+  "skinRarete": {
+    "Common": "Comune",
+    "Exquisite": "Squisito",
+    "Exceptional": "Eccezionale",
+    "Deluxe": "Di lusso",
+    "Grand": "Grandioso",
+    "Supreme": "Supremo",
+    "origine": "Origine"
+  },
+  "skinEtiquette": {
+    "Elite": "Elite",
+    "Special": "Speciale",
+    "Limited": "Limite",
+    "Epic": "Epico",
+    "Legend": "Leggenda",
+    "Collector": "Collettore",
+    "Seasons": "Stagioni",
+    "Luckybox": "Forziere fortunato",
+    "StarLight": "Luce stellare",
+    "Valentine": "San Valentino",
+    "Atomic": "Atomico"
   }
 }

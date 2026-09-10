@@ -75,7 +75,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
               {t("pages.patchNotes.analysesIntro")}
             </p>
             <div className="mt-6">
-              <ListeArticles articles={analyses} base="/patch-notes" />
+              <ListeArticles articles={analyses} base="/patch-notes" langue={locale} />
             </div>
           </section>
         )}

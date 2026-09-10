@@ -242,6 +242,7 @@ export default async function PagePatch({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <CorpsArticle
+        langue={locale}
         article={a}
         html={enHtml(a.contenu)}
         retour={{ href: "/patch-notes", label: "Tous les patch notes" }}

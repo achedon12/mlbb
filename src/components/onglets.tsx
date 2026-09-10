@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 /**
@@ -28,6 +29,7 @@ export interface Onglet {
 }
 
 export function Onglets({ onglets }: { onglets: Onglet[] }) {
+  const t = useT();
   const [actif, setActif] = useState(onglets[0]?.id);
   const base = useId();
   const boutons = useRef<(HTMLButtonElement | null)[]>([]);
@@ -57,7 +59,7 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
     <div>
       <div
         role="tablist"
-        aria-label="Sections de la fiche"
+        aria-label={t("commun.sections")}
         className="flex flex-wrap gap-1 border-b border-nuit-700/70"
       >
         {visibles.map((o, i) => {

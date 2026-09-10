@@ -68,6 +68,8 @@ const MYTHIQUES = [
 ];
 
 export interface RangLisible {
+  /** Cle d'embleme, langue-independante, pour la traduction du nom. */
+  cle: string;
   nom: string;
   /** Chiffre romain de la division (vide en Mythique). */
   division: string;
@@ -87,6 +89,7 @@ export function rangLisible(rankLevel: number): RangLisible {
     const etoiles = Math.max(0, rankLevel - MYTHIQUE_BASE);
     const palier = MYTHIQUES.find((m) => etoiles >= m.seuil) ?? MYTHIQUES.at(-1)!;
     return {
+      cle: palier.cle,
       nom: palier.nom,
       division: "",
       couleur: palier.couleur,
@@ -102,6 +105,7 @@ export function rangLisible(rankLevel: number): RangLisible {
   for (const p of PALIERS) if (rankLevel >= p.min) choisi = p;
 
   return {
+    cle: choisi.cle,
     nom: choisi.nom,
     division: choisi.division,
     couleur: choisi.couleur,

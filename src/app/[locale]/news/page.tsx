@@ -30,7 +30,7 @@ export default async function PageActualites({ params }: { params: Promise<{ loc
         chapeau={t("pages.news.chapeau")}
       />
       <div className="mx-auto max-w-3xl px-4 py-14">
-        <ListeArticles articles={liste} base="/news" />
+        <ListeArticles articles={liste} base="/news" langue={locale} />
       </div>
     </>
   );

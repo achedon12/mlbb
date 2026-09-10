@@ -195,7 +195,7 @@ export default async function PageHeros({ params }: Params) {
                   className="biseau-sm flex items-center gap-2 border border-nuit-700 px-4 py-2 text-sm font-medium text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
                 >
                   <Swords size={15} aria-hidden />
-                  Comparer
+                  {t("pages.heroDetail.comparer")}
                 </Link>
               </div>
             </div>

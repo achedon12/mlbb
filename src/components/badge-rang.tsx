@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Star } from "lucide-react";
 import type { RangLisible } from "@/lib/rangs";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,11 +20,12 @@ export function BadgeRang({
   rang: RangLisible;
   taille?: "sm" | "md" | "lg";
 }) {
+  const t = useT();
   const dim = taille === "lg" ? 56 : taille === "sm" ? 32 : 44;
   const unite =
     rang.uniteEtoiles === "point"
-      ? `${rang.etoiles} point${rang.etoiles > 1 ? "s" : ""}`
-      : `${rang.etoiles} etoile${rang.etoiles > 1 ? "s" : ""}`;
+      ? t(rang.etoiles > 1 ? "rangUnite.points" : "rangUnite.point", { n: rang.etoiles })
+      : t(rang.etoiles > 1 ? "rangUnite.etoiles" : "rangUnite.etoile", { n: rang.etoiles });
 
   return (
     <div className="flex items-center gap-3">
@@ -40,7 +44,7 @@ export function BadgeRang({
           )}
           style={{ color: rang.couleur }}
         >
-          {rang.nom}
+          {t(`rangsNom.${rang.cle}`)}
           {rang.division && ` ${rang.division}`}
         </p>
         <p className="mt-0.5 flex items-center gap-1 text-xs text-craie-400">

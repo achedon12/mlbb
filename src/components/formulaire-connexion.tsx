@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useActionState } from "react";
 import { ArrowLeft, KeyRound, Send } from "lucide-react";
 import { demanderCode, verifierCode, type Etat } from "@/lib/actions";
+import { useT } from "@/i18n/fournisseur";
 
 /**
  * Connexion en deux temps.
@@ -14,6 +15,7 @@ import { demanderCode, verifierCode, type Etat } from "@/lib/actions";
  * composant enchaine les deux sans navigation.
  */
 export function FormulaireConnexion() {
+  const t = useT();
   const [etat, envoyer, enCours] = useActionState<Etat, FormData>(demanderCode, {});
 
   if (etat.codeEnvoye) {
@@ -64,13 +66,14 @@ export function FormulaireConnexion() {
         className="biseau-sm flex w-full items-center justify-center gap-2 bg-or-500 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400 disabled:opacity-60"
       >
         <Send size={16} aria-hidden />
-        {enCours ? "Envoi du code…" : "Recevoir un code dans le jeu"}
+        {enCours ? t("loginForm.envoiCode") : t("loginForm.recevoir")}
       </button>
     </form>
   );
 }
 
 function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) {
+  const t = useT();
   const [etat, envoyer, enCours] = useActionState<Etat, FormData>(verifierCode, {
     codeEnvoye: true,
     roleId,
@@ -112,7 +115,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
         className="biseau-sm flex w-full items-center justify-center gap-2 bg-or-500 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400 disabled:opacity-60"
       >
         <KeyRound size={16} aria-hidden />
-        {enCours ? "Verification…" : "Se connecter"}
+        {enCours ? t("loginForm.verification") : t("loginForm.seConnecter")}
       </button>
 
       {/* Recommencer si le code n'arrive pas : recharger la page vide le formulaire. */}
@@ -121,7 +124,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
         className="flex items-center justify-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
       >
         <ArrowLeft size={14} aria-hidden />
-        Recommencer avec un autre identifiant
+        {t("loginForm.recommencer")}
       </Link>
     </form>
   );

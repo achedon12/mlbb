@@ -177,10 +177,10 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       <section className="border-y border-nuit-700/70 bg-nuit-900/30">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
-            chapeau="Calcule a partir des taux de victoire et de ban remontes par le jeu, pas d'une opinion."
+            chapeau={t("home.classementChapeau")}
             action={{ href: "/tier-list", label: t("home.tierListComplete") }}
           >
-            En tete du patch
+            {t("home.classementTitre")}
           </TitreSection>
 
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -204,7 +204,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   <BadgePalier palier={e.palier} />
                   <span className="font-titre font-bold text-craie-100">{e.heros.nom}</span>
                   <span className="text-xs text-craie-500">
-                    {e.victoire.toFixed(1)} % de victoires
+                    {e.victoire.toFixed(1)} {t("home.pourcentVictoires")}
                   </span>
                 </Link>
               </li>
@@ -217,10 +217,10 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       {skinsEnAvant.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
-            chapeau={`Les ${nombreSkins} skins du jeu, avec leur illustration pleine taille, leur rarete et leur prix.`}
+            chapeau={t("home.skinsChapeau", { skins: nombreSkins })}
             action={{ href: "/heroes", label: t("home.voirHeros") }}
           >
-            Galeries de skins
+            {t("home.skinsTitre")}
           </TitreSection>
 
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
@@ -317,7 +317,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       {/* ── Fonctionnement ─────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <TitreSection chapeau={t("home.synchroChapeau", { date: formaterDate(synchro.date) })}>
-          Comment ce site fonctionne
+          {t("home.commentFonctionne")}
         </TitreSection>
         <div className="grid gap-4 md:grid-cols-3">
           {[
@@ -347,7 +347,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
         <p className="mt-8 flex items-center gap-2 text-sm text-craie-500">
           <Rss size={15} aria-hidden className="text-or-400" />
           <Link href="/feed.xml" className="hover:text-or-400">
-            Suivre les publications en RSS
+            {t("home.suivreRss")}
           </Link>
         </p>
       </section>

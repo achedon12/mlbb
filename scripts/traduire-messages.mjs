@@ -10,6 +10,7 @@
  * versionne, l'application ne traduit jamais a l'execution.
  */
 import { readFile, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 
 const SOURCE = "src/i18n/messages/fr.json";
 const CIBLES = ["en", "it", "es"];
@@ -17,12 +18,16 @@ const ENDPOINT = "https://clients5.google.com/translate_a/t";
 const UA = "Mozilla/5.0 (compatible; MLBBDex/1.0)";
 const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 
+const CACHE = "scripts/traductions-messages.json";
+const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
 const PROTEGE = String.fromCharCode(0xE000); // zone privee Unicode : preservee par le traducteur
 
 /** Remplace les `{var}` par des marqueurs surs, renvoie le texte et la table. */
 function proteger(texte) {
   const vars = [];
-  const sur = texte.replace(/\{\w+\}/g, (m) => {
+  // On met a l'abri : variables {x}, code `x`, et l'URL d'un lien (…). Le
+  // libelle d'un lien [texte] reste, lui, traduit.
+  const sur = texte.replace(/\{\w+\}|`[^`]+`|\]\([^)]+\)/g, (m) => {
     vars.push(m);
     return `${PROTEGE}${vars.length - 1}${PROTEGE}`;
   });
@@ -80,16 +85,17 @@ for (const tl of CIBLES) {
     return s;
   });
   const uniques = [...new Set(feuilles)];
-  const proteges = uniques.map(proteger);
-  const cache = new Map();
+  const manquants = uniques.filter((u) => !(`${tl}|${u}` in cache));
+  const proteges = manquants.map(proteger);
   for (let i = 0; i < proteges.length; i += 8) {
     const lot = proteges.slice(i, i + 8);
     const traduits = await traduireLot(lot.map((p) => p.sur), tl);
-    lot.forEach((p, k) => cache.set(uniques[i + k], restaurer(traduits[k], p.vars)));
+    lot.forEach((p, k) => (cache[`${tl}|${manquants[i + k]}`] = restaurer(traduits[k], p.vars)));
     await pause(200);
   }
-  const arbre = await mapArbre(source, (s) => cache.get(s) ?? s);
+  const arbre = await mapArbre(source, (s) => cache[`${tl}|${s}`] ?? s);
   await writeFile(`src/i18n/messages/${tl}.json`, JSON.stringify(arbre, null, 2) + "\n");
-  console.log(`${tl}.json : ${uniques.length} messages`);
+  await writeFile(CACHE, JSON.stringify(cache, null, 0) + "\n");
+  console.log(`${tl}.json : ${uniques.length} messages (${manquants.length} nouveaux)`);
 }
 console.log("Catalogues traduits.");

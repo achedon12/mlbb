@@ -5,21 +5,25 @@ import { CircleAlert, LogOut } from "lucide-react";
 import { BadgeRang } from "@/components/badge-rang";
 import { FavorisCompte } from "@/components/favoris-compte";
 import { Carte } from "@/components/ui";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 import { deconnecter } from "@/lib/actions";
 import { amis, statistiques } from "@/lib/mlbb-auth";
 import { nomPays, rangLisible } from "@/lib/rangs";
 import { jetonCourant, profilCourant } from "@/lib/session";
 
-export const metadata: Metadata = {
-  title: "Mon compte",
-  description: "Profil de jeu et statistiques.",
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return { title: t("pages.account.metaTitre"), description: t("pages.account.metaDescription"), robots: { index: false, follow: false } };
+}
 
 /** Page personnelle : jamais mise en cache. */
 export const dynamic = "force-dynamic";
 
-export default async function PageCompte() {
+export default async function PageCompte({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const jeton = await jetonCourant();
   if (!jeton) redirect("/login");
 
@@ -31,7 +35,7 @@ export default async function PageCompte() {
         <Carte className="border-or-500/30">
           <h1 className="flex items-center gap-2 font-titre text-xl font-bold text-or-400">
             <CircleAlert size={20} aria-hidden />
-            Profil momentanement indisponible
+            {t("pages.account.indisponible")}
           </h1>
           <p className="mt-3 leading-relaxed text-craie-300">
             Vous etes bien connecte, mais le service de Moonton qui fournit les
@@ -39,7 +43,7 @@ export default async function PageCompte() {
           </p>
           <form action={deconnecter} className="mt-5">
             <button type="submit" className="text-sm text-craie-500 underline underline-offset-4 hover:text-sang-500">
-              Se deconnecter
+              {t("pages.account.seDeconnecter")}
             </button>
           </form>
         </Carte>
@@ -77,7 +81,7 @@ export default async function PageCompte() {
             <BadgeRang rang={rang} taille="sm" />
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-craie-500">
-            <span>Niveau {profil.level}</span>
+            <span>{t("pages.account.niveauX", { n: profil.level })}</span>
             <span>{nomPays(profil.pays)}</span>
             <span>ID {profil.roleId} ({profil.zoneId})</span>
           </div>
@@ -89,7 +93,7 @@ export default async function PageCompte() {
             className="biseau-sm flex items-center gap-2 border border-nuit-700 px-4 py-2 text-sm text-craie-300 transition-colors hover:border-sang-500/50 hover:text-sang-500"
           >
             <LogOut size={15} aria-hidden />
-            Deconnexion
+            {t("pages.account.deconnexion")}
           </button>
         </form>
       </div>
@@ -97,35 +101,32 @@ export default async function PageCompte() {
       {/* ── Rangs et chiffres ──────────────────────────────────────────── */}
       <dl className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
-          <dt className="text-xs uppercase tracking-wide text-craie-500">Rang actuel</dt>
+          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.account.rangActuel")}</dt>
           <dd className="mt-2">
             <BadgeRang rang={rang} taille="lg" />
           </dd>
         </div>
         <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
-          <dt className="text-xs uppercase tracking-wide text-craie-500">Meilleur rang</dt>
+          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.account.meilleurRang")}</dt>
           <dd className="mt-2">
             <BadgeRang rang={rangMax} taille="lg" />
           </dd>
         </div>
-        <Chiffre label="Niveau" valeur={profil.level} />
-        <Chiffre label="Amis" valeur={listeAmis.etat === "ok" ? listeAmis.donnees.length : "—"} />
+        <Chiffre label={t("pages.account.niveau")} valeur={profil.level} />
+        <Chiffre label={t("pages.account.amis")} valeur={listeAmis.etat === "ok" ? listeAmis.donnees.length : "—"} />
       </dl>
 
       {/* ── Statistiques detaillees ────────────────────────────────────── */}
       <section className="mt-12">
-        <h2 className="font-titre text-2xl font-bold text-craie-100">Statistiques</h2>
+        <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.account.statistiques")}</h2>
         <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
 
         {stats.etat === "ok" ? (
-          <StatistiquesDetaillees donnees={stats.donnees} />
+          <StatistiquesDetaillees donnees={stats.donnees} langue={locale} />
         ) : (
           <Carte className="mt-6 border-or-500/25">
             <p className="text-sm leading-relaxed text-craie-300">
-              Le detail des statistiques — taux de victoire, historique, heros
-              les plus joues — depend d&apos;un service de Moonton actuellement
-              hors ligne. Votre profil ci-dessus reste accessible ; le detail
-              reviendra des que la source repond.
+              {t("pages.account.detailIndispo")}
             </p>
           </Carte>
         )}
@@ -135,7 +136,7 @@ export default async function PageCompte() {
       {listeAmis.etat === "ok" && listeAmis.donnees.length > 0 && (
         <section className="mt-12">
           <div className="flex items-baseline gap-3">
-            <h2 className="font-titre text-2xl font-bold text-craie-100">Amis</h2>
+            <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.account.amis")}</h2>
             <span className="text-sm text-craie-500">{listeAmis.donnees.length}</span>
           </div>
           <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
@@ -164,7 +165,7 @@ export default async function PageCompte() {
 
       {/* ── Favoris (locaux) ───────────────────────────────────────────── */}
       <section className="mt-12">
-        <h2 className="font-titre text-2xl font-bold text-craie-100">Heros favoris</h2>
+        <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.account.favoris")}</h2>
         <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
         <FavorisCompte />
       </section>
@@ -189,13 +190,14 @@ function Chiffre({ label, valeur }: { label: string; valeur: number | string }) 
  * champs numeriques et textuels tels qu'ils arrivent, plutot que de coder en
  * dur une structure qui pourrait ne jamais correspondre.
  */
-function StatistiquesDetaillees({ donnees }: { donnees: Record<string, unknown> }) {
+function StatistiquesDetaillees({ donnees, langue }: { donnees: Record<string, unknown>; langue: Langue }) {
+  const t = creerT(langue);
   const entrees = Object.entries(donnees).filter(
     ([, v]) => typeof v === "number" || typeof v === "string",
   );
 
   if (entrees.length === 0) {
-    return <p className="mt-6 text-sm text-craie-500">Aucune statistique a afficher.</p>;
+    return <p className="mt-6 text-sm text-craie-500">{t("pages.account.aucuneStat")}</p>;
   }
 
   return (
