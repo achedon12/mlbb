@@ -42,6 +42,7 @@ import { RANGS_MESURE } from "@/lib/rangs-mesure";
 import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
+import { normaliserNomSkin } from "@/lib/utils";
 import { metaLangues } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
@@ -95,10 +96,16 @@ export default async function PageHeros({ params }: Params) {
 
   // Jointure des trois sources : le skin porte son id, son portrait (par id) et
   // son illustration (par nom). La vitrine s'en sert pour tout synchroniser.
+  // L'illustration se retrouve aussi par nom normalise : la legende du wiki
+  // n'a pas toujours la casse du module (« Vessel Of Deceit »).
+  const illustrationParNom = new Map(
+    Object.entries(illustrationsHeros).map(([nom, chemin]) => [normaliserNomSkin(nom), chemin]),
+  );
   const skinsComplets: SkinComplet[] = h.skins.map((s) => ({
     ...s,
     portrait: h.visuels.skins[s.id] ?? null,
-    illustration: illustrationsHeros[s.nom] ?? null,
+    illustration:
+      illustrationsHeros[s.nom] ?? illustrationParNom.get(normaliserNomSkin(s.nom)) ?? null,
   }));
   const portraitDe = (slug: string) =>
     herosParSlug.get(slug)?.visuels.icone ?? herosParSlug.get(slug)?.visuels.portrait ?? null;

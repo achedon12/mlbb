@@ -137,7 +137,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
         toute la vitrine en une seule surface, sans image detachee.
       */}
       <div className="biseau relative mt-5 overflow-hidden border border-nuit-700/70">
-        {actif.illustration && (
+        {actif.illustration ? (
           <Image
             key={actif.id}
             src={actif.illustration}
@@ -147,6 +147,21 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
             loading="eager"
             className="object-cover object-top"
           />
+        ) : (
+          // Sans illustration sur le wiki, le portrait de boutique prend le
+          // relais, cale a droite : le panneau garde une image plutot qu'un
+          // fond vide.
+          actif.portrait && (
+            <Image
+              key={actif.id}
+              src={actif.portrait}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 900px, 100vw"
+              loading="eager"
+              className="object-contain object-right"
+            />
+          )
         )}
         {/* Voile lateral : les informations restent lisibles a gauche,
             l'illustration respire a droite. */}
