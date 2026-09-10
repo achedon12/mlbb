@@ -3,19 +3,25 @@ import { GuideEmblemes } from "@/components/guide-emblemes";
 import { EnTetePage } from "@/components/ui";
 import { emblemes, sortsDeCombat, talents } from "@/data/emblemes";
 import visuels from "@/data/jeu/visuels.json";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Emblemes, talents et sorts",
-  description:
-    "Quel embleme, quel talent et quel sort de combat prendre selon votre role dans Mobile Legends: Bang Bang. Choisissez votre embleme, la page s'organise autour.",
-  alternates: { canonical: "/emblems" },
-  openGraph: {
-    title: `Emblemes, talents et sorts — ${site.nom}`,
-    description: "Que prendre selon votre role : emblemes, talents et sorts de combat.",
-    url: "/emblems",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.emblems.metaTitre"),
+    description: t("pages.emblems.metaDescription"),
+    alternates: metaLangues(locale, "/emblems"),
+    openGraph: {
+      title: `${t("pages.emblems.metaTitre")} — ${site.nom}`,
+      description: t("pages.emblems.ogDescription"),
+      url: `/${locale}/emblems`,
+    },
+  };
+}
 
 const images: Record<string, string> = {
   ...(visuels.emblemes as Record<string, string>),
@@ -23,12 +29,14 @@ const images: Record<string, string> = {
   ...(visuels.sorts as Record<string, string>),
 };
 
-export default function PageEmblemes() {
+export default async function PageEmblemes({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   return (
     <>
       <EnTetePage
-        titre="Emblemes et talents"
-        chapeau="La vraie question n'est pas quels talents existent, mais lesquels prendre pour le role que vous jouez. Choisissez votre embleme : le reste de la page se reorganise autour."
+        titre={t("pages.emblems.titre")}
+        chapeau={t("pages.emblems.chapeau")}
       />
       <div className="mx-auto max-w-6xl px-4 py-12">
         <GuideEmblemes

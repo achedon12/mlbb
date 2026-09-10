@@ -3,21 +3,25 @@ import { ComparateurHeros, type HerosComparable } from "@/components/comparateur
 import { EnTetePage } from "@/components/ui";
 import { heros } from "@/lib/donnees";
 import { tauxParSlug } from "@/lib/tier-list";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Comparateur de heros",
-  description:
-    "Comparez deux heros de Mobile Legends: Bang Bang cote a cote : offensive, resistance, effets, difficulte, taux de victoire et de ban, roles et positions.",
-  alternates: { canonical: "/compare" },
-  openGraph: {
-    title: `Comparateur de heros — ${site.nom}`,
-    description: "Deux heros compares cote a cote : notes, taux de victoire et de ban, roles.",
-    url: "/compare",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.compare.metaTitre"),
+    description: t("pages.compare.metaDescription"),
+    alternates: metaLangues(locale, "/compare"),
+    openGraph: { title: `${t("pages.compare.metaTitre")} — ${site.nom}`, description: t("pages.compare.ogDescription"), url: `/${locale}/compare` },
+  };
+}
 
-export default function PageComparateur() {
+export default async function PageComparateur({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const comparables: HerosComparable[] = heros.map((h) => {
     const taux = tauxParSlug.get(h.slug);
     return {
@@ -37,8 +41,8 @@ export default function PageComparateur() {
   return (
     <>
       <EnTetePage
-        titre="Comparateur"
-        chapeau="Choisissez deux heros et lisez leurs forces cote a cote : notes du wiki, taux de victoire et de ban remontes par le jeu, roles et positions. La meilleure valeur de chaque ligne est mise en avant."
+        titre={t("pages.compare.titre")}
+        chapeau={t("pages.compare.chapeau")}
       />
       <div className="mx-auto max-w-3xl px-4 py-12">
         <ComparateurHeros heros={comparables} />

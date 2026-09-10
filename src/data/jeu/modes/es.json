@@ -2,35 +2,35 @@
   {
     "nom": "Classic",
     "slug": "classic",
-    "description": "Le mode classique est le premier et le plus ancien mode de jeu de Mobile Legends. Tous les autres modes de jeu utilisent les règles de Classic comme base. Ce mode offre le 5v5 et l'expérience Mobile Legends sans craindre de perdre votre rang, mais votre taux de victoire sera affecté, tant du côté des héros que de l'ensemble.​​​​ Le mode Classique convient aux débutants qui ont besoin de se familiariser avec les jeux Mobile Legends. Vous pouvez choisir librement n'importe quel héros que vous possédez, ainsi que les héros hebdomadaires gratuits et toutes les cartes d'essai que vous possédez. Cependant, vous ne pouvez pas avoir plus d’un même héros dans votre équipe. Vous pouvez également choisir le héros que vous aimez, puisqu'il n'y a pas d'interdiction de héros contrairement au mode Classé.",
+    "description": "El modo clásico es el primer y más antiguo modo de juego de Mobile Legends. Todos los demás modos de juego utilizan las reglas clásicas como base. Este modo ofrece la experiencia 5v5 y Mobile Legends sin temor a perder tu rango, pero tu tasa de victorias se verá afectada, tanto en el lado del héroe como en general. El modo clásico es adecuado para principiantes que necesitan familiarizarse con los juegos de Mobile Legends. Puedes elegir libremente cualquier héroe que tengas, así como héroes semanales gratuitos y cualquier tarjeta de prueba que tengas. Sin embargo, no puedes tener más de un héroe en tu equipo. También puedes elegir el héroe que te guste, ya que no hay prohibición de héroes a diferencia del modo Clasificado.",
     "sections": [
       {
-        "titre": "Objectif",
+        "titre": "Objetivo",
         "elements": [
           {
             "type": "p",
-            "texte": "Comme tous les jeux MOBA, l'objectif principal est de détruire la base ennemie. Cela vous oblige à défendre vos tourelles et votre base et à détruire les leurs. Chaque tourelle d'une voie spécifique doit être détruite dans une séquence pour que vos serviteurs atteignent la base. Il existe des moyens de détruire les tourelles en utilisant les sbires/creeps pour subir les dégâts des balles de la tourelle. Après avoir détruit les tourelles, vous pourrez endommager/détruire la base ennemie. Détruire la dernière tourelle d'une voie accordera des super-sbires qui infligeront des dégâts élevés aux héros et dégageront les voies plus rapidement. Parfois, les joueurs sont obligés d’accumuler des victoires contre des héros ennemis au lieu de se concentrer sur les serviteurs et les tourelles ennemis. Plus de victimes pourraient leur permettre d'obtenir le MVP et l'agriculture, mais détruire les tourelles, accéder à la base ennemie et la détruire est l'objectif principal."
+            "texte": "Como todos los juegos MOBA, el objetivo principal es destruir la base enemiga. Esto requiere que defiendas tus torretas y tu base y destruyas las de ellos. Cada torreta en un carril específico debe destruirse en secuencia para que tus secuaces lleguen a la base. Hay formas de destruir torretas usando minions/creeps para recibir daño de las balas de las torretas. Después de destruir las torretas, podrás dañar/destruir la base enemiga. Destruir la última torreta en un carril otorgará súper súbditos que causan un gran daño a los héroes y despejan los carriles más rápido. A veces, los jugadores se ven obligados a acumular muertes contra héroes enemigos en lugar de centrarse en los súbditos y las torretas enemigas. Más muertes podrían convertirlos en MVP y cultivar, pero el objetivo principal es destruir las torretas, acceder a la base enemiga y destruirla."
           }
         ]
       },
       {
-        "titre": "Caractéristiques",
+        "titre": "Características",
         "elements": [
           {
             "type": "li",
-            "texte": "Celestial Palace/Western Expanse — Un champ s'inspirant de la version Défense des Anciens : Allstars (DOTA en abrégé) de la carte, avec plusieurs fonctionnalités et mécanismes modifiés. Le jeu se compose de cinq héros de chaque équipe, qui sont ensuite placés dans une arène dans le but de détruire l'inhibiteur de base de chacun, ce qui aboutit à une victoire. Le temps généralement nécessaire pour terminer la plupart des jeux est d'environ 10 à 15 minutes, mais certains jeux peuvent durer plus de 30 minutes."
+            "texte": "Celestial Palace/Western Expanse: un campo inspirado en la versión del mapa Defense of the Ancients: Allstars (DOTA para abreviar), con varias características y mecánicas cambiadas. El juego consta de cinco héroes de cada equipo, que luego se colocan en una arena con el objetivo de destruir el inhibidor de base de todos, lo que resulta en una victoria. El tiempo típico que lleva completar la mayoría de los juegos es de entre 10 y 15 minutos, pero algunos juegos pueden durar más de 30 minutos."
           },
           {
             "type": "li",
-            "texte": "Le champ de bataille est divisé en trois voies pour vous frayer un chemin jusqu'à la base ennemie."
+            "texte": "El campo de batalla está dividido en tres carriles para abrirte camino hasta la base enemiga."
           },
           {
             "type": "li",
-            "texte": "Une jungle peuplée de monstres de la jungle accorde des buffs de guérison, des buffs de rôle et des buffs d'or lorsqu'ils sont vaincus. Il existe également des Boss Monsters qui fournissent de l'or à toute votre équipe ou au Seigneur combattant à vos côtés."
+            "texte": "Una jungla poblada de monstruos de la jungla otorga beneficios de curación, beneficios de rol y beneficios de oro cuando se los derrota. También hay Boss Monsters que proporcionan oro para todo tu equipo o para el Señor que lucha a tu lado."
           },
           {
             "type": "li",
-            "texte": "La Voie d'Or peut également être empruntée par les Tanks qui se déplacent pour l'équipe afin d'obtenir rapidement des objets pour soutenir l'équipe."
+            "texte": "El Camino Dorado también puede ser tomado por tanques que se mueven para que el equipo obtenga rápidamente elementos para apoyar al equipo."
           }
         ]
       }
@@ -40,151 +40,151 @@
   {
     "nom": "Ranked",
     "slug": "ranked",
-    "description": "Classé est un mode de jeu de file d'attente compétitif. Les joueurs gagnent ou perdent des étoiles s'ils gagnent ou perdent dans ce mode. Warrior, Elite, Master, Grandmaster, Epic, Legend et Mythic (Mythical Honor, Mythical Glory et Mythical Immortal) sont les sept rangs de Mobile Legends : Bang Bang.",
+    "description": "Clasificado es un modo de juego de cola competitivo. Los jugadores ganan o pierden estrellas si ganan o pierden en este modo. Guerrero, Élite, Maestro, Gran Maestro, Épico, Leyenda y Mítico (Honor mítico, Gloria mítica y Inmortal mítico) son los siete rangos de Mobile Legends: Bang Bang.",
     "sections": [
       {
-        "titre": "Règles de mise en relation",
+        "titre": "Reglas de conexión",
         "elements": [
           {
             "type": "p",
-            "texte": "Les joueurs peuvent choisir trois héros à figurer dans leur lobby et leur phase de draft. Ces héros doivent être joués au moins une fois en rang."
+            "texte": "Los jugadores pueden elegir tres héroes para presentarlos en su lobby y fase de draft. Estos héroes deben jugarse al menos una vez seguida."
           },
           {
             "type": "p",
-            "texte": "Les joueurs peuvent jouer en solo ou former une équipe de deux, trois ou cinq joueurs pour faire la queue. Les joueurs peuvent inviter d'autres joueurs d'un rang supérieur ou inférieur à eux dans le lobby. Une équipe de quatre personnes n'est pas autorisée."
+            "texte": "Los jugadores pueden jugar solos o formar un equipo de dos, tres o cinco jugadores para hacer cola. Los jugadores pueden invitar a otros jugadores de rango superior o inferior al lobby. No se permite un equipo de cuatro personas."
           },
           {
             "type": "p",
-            "texte": "Lorsqu'une équipe avec des joueurs de différents rangs fait la queue, cela s'appelle Flex Rank, et ils ne mettront en file d'attente que les matchs de la personne de rang le plus élevé."
+            "texte": "Cuando un equipo con jugadores de diferentes rangos hace cola, se llama Flex Rank y solo pondrán en cola los partidos de la persona mejor clasificada."
           },
           {
             "type": "p",
-            "texte": "Exemples :"
+            "texte": "Ejemplos:"
           },
           {
             "type": "li",
-            "texte": "Un joueur Mythique fait équipe avec un joueur Epic, les deux suivront le projet de règle du joueur Mythique."
+            "texte": "Un jugador mítico forma equipo con un jugador épico, ambos seguirán la regla de draft del jugador mítico."
           },
           {
             "type": "li",
-            "texte": "Un joueur Mythic Glory fait équipe avec un joueur Grandmaster et un joueur Legend, tous suivront la règle de draft du joueur Mythic, même si le Draft Pick n'est normalement pas disponible pour les joueurs de rang inférieur à Epic."
+            "texte": "Un jugador de Mythic Glory forma equipo con un jugador Grandmaster y un jugador Legend, todos los cuales seguirán la regla del draft de jugador Mythic, aunque Draft Pick normalmente no está disponible para jugadores por debajo del rango Epic."
           },
           {
             "type": "p",
-            "texte": "Cependant, un joueur en file d'attente solo peut se retrouver en matchmaking avec des alliés de rang supérieur ou inférieur, cela peut être déclenché par les éléments suivants :"
+            "texte": "Sin embargo, un jugador en la cola en solitario puede encontrarse emparejado con aliados de mayor o menor rango, esto puede desencadenarse por lo siguiente:"
           },
           {
             "type": "li",
-            "texte": "Les alliés jouent en équipe tandis que vous êtes en solo. Parmi les alliés de ladite équipe se trouve au moins un joueur de rang similaire au vôtre."
+            "texte": "Los aliados juegan en equipo mientras tú estás solo. Entre los aliados de dicho equipo se encuentra al menos un jugador de rango similar al tuyo."
           },
           {
             "type": "li",
-            "texte": "Exemple : un joueur Epic fait équipe avec un joueur Legend et vous, un joueur Epic, pouvez les rencontrer."
+            "texte": "Ejemplo: un jugador de Epic forma equipo con un jugador de Leyenda y tú, un jugador de Epic, puedes conocerlos."
           },
           {
             "type": "li",
-            "texte": "Tous les joueurs jouent en solo, mais l'équipe ennemie compte quelqu'un avec un rang similaire au vôtre."
+            "texte": "Todos los jugadores juegan solos, pero el equipo enemigo tiene alguien con un rango similar al tuyo."
           },
           {
             "type": "li",
-            "texte": "Exemple : Votre rang est Légende, mais 4 de vos coéquipiers sont Mythique. Alors au moins l’un des ennemis est Legend."
+            "texte": "Ejemplo: tu rango es Leyenda, pero 4 de tus compañeros de equipo son Míticos. Entonces al menos uno de los enemigos es Leyenda."
           },
           {
             "type": "li",
-            "texte": "Lorsque ce phénomène se produit, il est possible qu'un seul membre de l'équipe soit dans un rang différent."
+            "texte": "Cuando ocurre este fenómeno, es posible que solo un miembro del equipo esté en un rango diferente."
           },
           {
             "type": "li",
-            "texte": "Exemple : Votre équipe compte 4 joueurs au rang Légende et 1 joueur au rang Mythique, cela signifie que l'équipe ennemie peut avoir 1 à 4 joueurs au rang Mythique, mais il doit y avoir quelqu'un au rang Epic."
+            "texte": "Ejemplo: Tu equipo tiene 4 jugadores en rango Leyenda y 1 jugador en rango Mítico, esto significa que el equipo enemigo puede tener de 1 a 4 jugadores en rango Mítico, pero debe haber alguien en rango Épico."
           },
           {
             "type": "li",
-            "texte": "Grâce à cette mécanique de Flex Rank, même un joueur solo de Legend I peut faire la queue avec un allié d'Epic V, car ils ne sont qu'un rang différent, mais l'écart est très différent, conduisant au système sombre largement perçu."
+            "texte": "Gracias a esta mecánica de Flex Rank, incluso un jugador en solitario de Legend I puede hacer cola con un aliado de Epic V, ya que solo tienen un rango diferente, pero la brecha es muy diferente, lo que lleva al sistema oscuro ampliamente percibido."
           },
           {
             "type": "p",
-            "texte": "Une option de matchmaking rapide sera proposée si la file d'attente prend trop de temps, cette option vous mettra en contact même avec les joueurs que vous avez bloqués précédemment."
+            "texte": "Se ofrecerá una opción de emparejamiento rápido si la cola tarda demasiado; esta opción te emparejará incluso con jugadores que hayas bloqueado anteriormente."
           },
           {
             "type": "p",
-            "texte": "Si le joueur que vous avez bloqué fait équipe avec quelqu'un que vous ne bloquez pas, vous pouvez toujours faire la queue avec lui pendant le match."
+            "texte": "Si el jugador que bloqueaste forma equipo con alguien que no bloqueaste, aún puedes hacer cola con él durante el partido."
           }
         ]
       },
       {
-        "titre": "Choix de repêchage",
+        "titre": "selecciones de draft",
         "elements": [
           {
             "type": "p",
-            "texte": "Lorsqu'un joueur atteint Epic V ou supérieur (Grandmaster V ou supérieur dans Advanced Server), Draft Pick devient disponible pour les matchs futurs. Contrairement au Blind Pick, Draft Pick permet aux deux équipes de voir leurs héros pendant leur sélection, et autorise jusqu'à 10 héros bannis (3/4/5 bannissements chez Epic/Legend/Mythic) pour chaque équipe à des fins d'équilibrage. Les héros déjà sélectionnés ou bannis ne peuvent pas être choisis pendant toute la durée du match."
+            "texte": "Cuando un jugador alcanza Epic V o superior (Grandmaster V o superior en Advanced Server), Draft Pick estará disponible para futuras partidas. A diferencia de Blind Pick, Draft Pick permite a ambos equipos ver a sus héroes durante su selección y permite hasta 10 héroes prohibidos (3/4/5 prohibiciones en Epic/Legend/Mythic) para cada equipo con fines de equilibrio. Los héroes ya seleccionados o prohibidos no se pueden elegir mientras dure la partida."
           }
         ]
       },
       {
-        "titre": "Système de classement",
+        "titre": "Sistema de clasificación",
         "elements": [
           {
             "type": "p",
-            "texte": "Il y a sept rangs dans Mobile Legends : Bang Bang. Ce sont : Guerrier, Élite, Maître, Grand Maître, Épique, Légende et Mythique."
+            "texte": "Hay siete rangos en Mobile Legends: Bang Bang. Ellos son: Guerrero, Élite, Maestro, Gran Maestro, Épico, Legendario y Mítico."
           },
           {
             "type": "p",
-            "texte": "Chaque rang comporte des divisions écrites en chiffres romains et un certain nombre d'étoiles nécessaires pour être promu à la division ou au rang suivant. Si un joueur dépasse le nombre maximum d'étoiles dans sa division actuelle ou tombe en dessous de zéro étoile, il peut passer à la division suivante ou revenir à la division précédente. Terminer toutes les divisions à partir de leur rang actuel ou être rétrogradé de toutes les divisions entraînera une promotion au rang suivant ou une rétrogradation au rang précédent."
+            "texte": "Cada rango tiene divisiones escritas en números romanos y una cierta cantidad de estrellas necesarias para ascender a la siguiente división o rango. Si un jugador excede el número máximo de estrellas en su división actual o cae por debajo de cero estrellas, puede pasar a la siguiente división o regresar a la división anterior. Completar todas las divisiones desde su rango actual o ser degradado de todas las divisiones resultará en un ascenso al siguiente rango o una degradación al rango anterior."
           },
           {
             "type": "p",
-            "texte": "Dans Mythic, les étoiles ont été remplacées par des points pour passer à la division suivante."
+            "texte": "En Mythic, las estrellas han sido reemplazadas por puntos para avanzar a la siguiente división."
           }
         ]
       },
       {
-        "titre": "Points de levée d'étoiles et de protection des étoiles",
+        "titre": "Puntos de levantamiento de estrellas y protección de estrellas",
         "elements": [
           {
             "type": "p",
-            "texte": "Il existe de nombreuses méthodes pour augmenter ou prévenir la perte d'étoiles, ce qui conduit à des points d'élévation et de protection d'étoiles."
+            "texte": "Existen muchos métodos para aumentar o prevenir la pérdida de estrellas, lo que lleva a la elevación de estrellas y puntos de protección."
           },
           {
             "type": "p",
-            "texte": "La levée d'étoiles permet aux joueurs de gagner une étoile supplémentaire lorsqu'un joueur atteint 100 % de points de collecte d'étoiles lors de sa prochaine victoire. 100/200/300/500/700/1000 points requis chez Warrior / Elite / Master / Grandmaster / Epic / Legend. Les points bonus d’augmentation d’étoiles ne peuvent pas être accumulés dans les rangs mythiques."
+            "texte": "Star Raising permite a los jugadores ganar una estrella adicional cuando un jugador alcanza el 100% de puntos de Star Raising en su próxima victoria. Se requieren 100/200/300/500/700/1000 puntos en Warrior / Elite / Master / Grandmaster / Epic / Legend. Los puntos de bonificación por aumento de estrellas no se pueden acumular en rangos míticos."
           },
           {
             "type": "p",
-            "texte": "La protection des étoiles permet aux joueurs d'éviter de perdre une étoile lors d'un match en atteignant 100 % de points de protection des étoiles ou en utilisant des cartes de protection des étoiles. 100/200/300/500/700/1000/1500 points requis chez Warrior / Elite / Master / Grandmaster / Epic / Legend / Mythic."
+            "texte": "Star Protection permite a los jugadores evitar perder una estrella en una partida alcanzando el 100% de puntos de Star Protection o usando tarjetas de Star Protection. Se requieren 100/200/300/500/700/1000/1500 puntos en Guerrero / Élite / Maestro / Gran Maestro / Épico / Leyenda / Mítico."
           },
           {
             "type": "p",
-            "texte": "Les cartes de protection des étoiles sont généralement obtenues via des événements en jeu ou via Starlight Rewards. Ils ne durent généralement que 7 jours une fois obtenus ou réclamés sur les pages de l'événement."
+            "texte": "Las tarjetas de protección estelar generalmente se obtienen a través de eventos del juego o mediante Starlight Rewards. Por lo general, solo duran 7 días una vez obtenidos o reclamados en las páginas del evento."
           },
           {
             "type": "p",
-            "texte": "La carte de protection de rang est la carte qui vous empêche de rétrograder une fois au rang précédent. Il s'acquiert souvent après avoir atteint un rang supérieur : d'Epic à Legend, de Legend à Mythic."
+            "texte": "La tarjeta de protección de rango es la tarjeta que le impide descender una vez que alcanza el rango anterior. A menudo se adquiere después de alcanzar un rango superior: de Épico a Leyenda, de Leyenda a Mítico."
           },
           {
             "type": "p",
-            "texte": "Seuls les points de protection des étoiles sont disponibles dans Mythic, car les points d'obtention d'étoiles sont désactivés."
+            "texte": "Solo los puntos de protección de estrellas están disponibles en Mythic, ya que los puntos de obtención de estrellas están deshabilitados."
           }
         ]
       },
       {
-        "titre": "Carte de protection de rang",
+        "titre": "Tarjeta de protección de rango",
         "elements": [
           {
             "type": "p",
-            "texte": "Les cartes de protection de rang ne peuvent être obtenues qu'à partir des récompenses de promotion de rang. Contrairement aux points/cartes de protection des étoiles, ils ne s'activent que sur les défaites qui entraîneront une rétrogradation du joueur (par exemple, une défaite entraînant une perte d'étoiles de Légende V 0 étoiles à Épique I 4 étoiles, rétrogradant du rang Légende au rang Épique)."
+            "texte": "Las tarjetas de protección de rango solo se pueden obtener a partir de recompensas de promoción de rango. A diferencia de los puntos/tarjetas de protección de estrellas, solo se activan en derrotas que resultarán en la degradación de un jugador (por ejemplo, una derrota que resulta en una pérdida de estrellas de Leyenda V 0 estrellas a Épica I 4 estrellas, degradación del rango Leyenda al rango Épico)."
           }
         ]
       },
       {
-        "titre": "Réinitialisation du classement",
+        "titre": "Restablecer rango",
         "elements": [
           {
             "type": "p",
-            "texte": "Une fois la saison terminée, tous les joueurs commenceront leur nouvelle saison avec leur nouveau rang basé sur leur classement de la saison précédente. Ils reçoivent également la récompense pour avoir atteint un certain rang."
+            "texte": "Una vez que finalice la temporada, todos los jugadores comenzarán su nueva temporada con su nuevo rango basado en su clasificación de la temporada anterior. También reciben la recompensa por alcanzar un determinado rango."
           },
           {
             "type": "p",
-            "texte": "La réinitialisation du classement n'est appliquée que lorsque le joueur se connecte pour la première fois au cours de la nouvelle saison, mais son ancien classement n'est pas enregistré dans le classement."
+            "texte": "El reinicio de la clasificación solo se aplica cuando el jugador inicia sesión por primera vez en la nueva temporada, pero su clasificación anterior no se guarda en la tabla de clasificación."
           }
         ]
       }
@@ -194,61 +194,61 @@
   {
     "nom": "Brawl",
     "slug": "brawl",
-    "description": "Brawl est un mode de jeu dans lequel vous ne pouvez pas choisir librement vos héros. Au lieu de cela, chaque joueur aura le choix entre deux héros aléatoires. Les combats dans ce mode se déroulent uniquement sur une seule voie avec deux tourelles défendant respectivement la base dans les deux équipes. Les matchs de bagarre se terminent généralement dans un temps beaucoup plus court que le mode classique et le mode classé. Ce type de correspondance est préféré pour augmenter les cotes de crédit perdues ou accomplir des tâches.",
+    "description": "Brawl es un modo de juego en el que no puedes elegir libremente a tus héroes. En cambio, cada jugador tendrá dos héroes aleatorios para elegir. Las batallas en este modo tienen lugar en un solo carril con dos torretas defendiendo la base en ambos equipos respectivamente. Las partidas de Brawl generalmente terminan en un tiempo mucho más corto que el modo clásico y el modo clasificado. Este tipo de coincidencia se prefiere para aumentar los puntajes de crédito perdidos o completar tareas.",
     "sections": [
       {
-        "titre": "Principales caractéristiques",
+        "titre": "Características principales",
         "elements": [
           {
             "type": "li",
-            "texte": "Chaque joueur a le choix entre 2 héros aléatoires."
+            "texte": "Cada jugador puede elegir entre 2 héroes aleatorios."
           },
           {
             "type": "li",
-            "texte": "Les joueurs ne peuvent acheter des objets qu'une fois morts ou avant de quitter la zone de l'autel à chaque réapparition."
+            "texte": "Los jugadores solo pueden comprar artículos una vez que mueren o antes de abandonar el área del altar cada vez que reaparecen."
           },
           {
             "type": "li",
-            "texte": "L'autel ne guérit plus ni ne régénère le mana. Tous les effets curatifs sont réduits de moitié. La base ne se réapprovisionne plus."
+            "texte": "El altar ya no cura ni regenera maná. Todos los efectos curativos se reducen a la mitad. La base ya no se repone."
           },
           {
             "type": "li",
-            "texte": "Chaque héros peut avoir un buff ou un handicap supplémentaire."
+            "texte": "Cada héroe puede tener una ventaja o desventaja adicional."
           }
         ]
       },
       {
-        "titre": "Départ",
+        "titre": "Partida",
         "elements": [
           {
             "type": "p",
-            "texte": "Les joueurs peuvent discuter pendant la phase de sélection."
+            "texte": "Los jugadores pueden chatear durante la fase de selección."
           },
           {
             "type": "p",
-            "texte": "Tous les joueurs commencent au niveau 4 et reçoivent 2 500 pièces d’or de départ pour acheter des objets. Une fois qu'ils quittent la base, ils doivent mourir pour pouvoir à nouveau acheter des objets."
+            "texte": "Todos los jugadores comienzan en el nivel 4 y reciben 2500 de oro inicial para comprar artículos. Una vez que abandonan la base, deben morir para poder volver a comprar artículos."
           }
         ]
       },
       {
-        "titre": "Glyphe de guérison",
+        "titre": "Glifo de curación",
         "elements": [
           {
             "type": "p",
-            "texte": "Les héros qui meurent rarement au combat lâcheront un glyphe de guérison. (Guérit à la fois Max HP et Mana.)"
+            "texte": "Los héroes que rara vez mueren en combate arrojarán un glifo curativo. (Cura tanto Max HP como Mana.)"
           }
         ]
       },
       {
-        "titre": "Tourelles",
+        "titre": "torretas",
         "elements": [
           {
             "type": "p",
-            "texte": "Les tourelles dans Brawl se comportent de la même manière que dans les jeux classiques. Cependant les tourelles sont plus faibles et n'ont pas de bouclier doré."
+            "texte": "Las torretas en Brawl se comportan igual que en los juegos clásicos. Sin embargo, las torretas son más débiles y no tienen un escudo dorado."
           },
           {
             "type": "p",
-            "texte": "La deuxième tourelle de chaque côté libère une vague qui tue tous les serviteurs une fois détruite."
+            "texte": "La segunda torreta a cada lado libera una ola que mata a todos los minions cuando es destruida."
           }
         ]
       },
@@ -257,202 +257,202 @@
         "elements": [
           {
             "type": "p",
-            "texte": "L'or et l'expérience gagnés grâce aux serviteurs sont plus élevés qu'en mode classique."
+            "texte": "El oro y la experiencia obtenidos de los minions son mayores que en el modo clásico."
           },
           {
             "type": "p",
-            "texte": "Au bout de 12 minutes, les Super Minions sont déployés pour éviter de longues parties."
+            "texte": "Después de 12 minutos, los Super Minions se despliegan para evitar juegos largos."
           }
         ]
       },
       {
-        "titre": "Crabe",
+        "titre": "Cangrejo",
         "elements": [
           {
             "type": "p",
-            "texte": "Il y a deux crabes sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 30 secondes après leur mort. Tuer un crabe gelé régénère de petites quantités de santé, donne de l'or et un petit bouclier. Les alliés à proximité qui aident avec le crabe reçoivent également de l'or. Ce crabe peut être utilisé comme tremplin pour des héros comme Lancelot, Joy ou Natalia, interagir avec certains héros comme Vexana, Benedetta ou Yi Sun-shin, ou vérifier si l'ennemi est dans le buisson le plus proche ou se suicider pour acheter des objets lorsque sa santé est trop faible."
+            "texte": "Hay dos cangrejos en lados opuestos del camino que aparecen a las 0:30 y reaparecen 30 segundos después de morir. Matar un cangrejo congelado regenera pequeñas cantidades de salud, otorga oro y un pequeño escudo. Los aliados cercanos que ayuden con el cangrejo también recibirán oro. Este cangrejo puede usarse como trampolín para héroes como Lancelot, Joy o Natalia, interactuar con ciertos héroes como Vexana, Benedetta o Yi Sun-shin, o comprobar si el enemigo está en el arbusto más cercano o suicidarse para comprar objetos cuando su salud es demasiado baja."
           }
         ]
       },
       {
-        "titre": "Runes de guérison",
+        "titre": "Runas curativas",
         "elements": [
           {
             "type": "p",
-            "texte": "Il y a deux runes de guérison sur les côtés opposés de la voie qui apparaissent à 0h30 et réapparaissent 35 secondes après avoir été récupérées. La minuterie et l'effet sonore sont visibles et audibles par tous. La rune soigne continuellement celui qui ramasse pendant le délai de 5 secondes, puis régénère un peu de santé et 40 % de mana maximum à tous les héros alliés à portée. Si celui qui récupère décède pendant le délai, la guérison est annulée."
+            "texte": "Hay dos runas curativas en lados opuestos del camino que aparecen en el minuto 0:30 y reaparecen 35 segundos después de ser recolectadas. El temporizador y el efecto de sonido son visibles y audibles para todos. La runa cura continuamente al selector durante un retraso de 5 segundos, luego regenera algo de salud y hasta un 40% de maná para todos los héroes aliados dentro del alcance. Si el recuperador muere durante el retraso, la curación se cancela."
           }
         ]
       },
       {
-        "titre": "Baril",
+        "titre": "Barril",
         "elements": [
           {
             "type": "p",
-            "texte": "Il y a un baril de chaque côté qui apparaît à 0:20 et toutes les 30 secondes après avoir été ramassé. Choisissez ce baril et tirez vers les ennemis pour les surprendre !"
+            "texte": "Hay un barril a cada lado que aparece a las 0:20 y cada 30 segundos después de ser recogido. ¡Elige este barril y dispara a los enemigos para sorprenderlos!"
           },
           {
             "type": "p",
-            "texte": "Le baril rend l'utilisateur impossible à cibler sous peu, inflige des dégâts réels et a un temps de recharge de 15 secondes, ce qui rend impossible l'arrachage de deux barils à la fois. Lorsque quelqu'un ramasse un tonneau, un son est émis, audible par tout le monde sur la carte."
+            "texte": "El cañón hace que el usuario sea inalcanzable en poco tiempo, causa daño verdadero y tiene un tiempo de reutilización de 15 segundos, lo que hace imposible sacar dos barriles a la vez. Cuando alguien levanta un barril, se emite un sonido audible para todos en el mapa."
           },
           {
             "type": "p",
-            "texte": "Le Barrel est également désactivé par effet enraciné."
+            "texte": "El barril también está desactivado por efecto de enraizamiento."
           },
           {
             "type": "p",
-            "texte": "Un Diggie mort ou un héros impossible à cibler peut récupérer le baril."
+            "texte": "Un Diggie muerto o un héroe inalcanzable pueden recoger el barril."
           }
         ]
       },
       {
-        "titre": "Matchmaking",
+        "titre": "Casamentero",
         "elements": [
           {
             "type": "p",
-            "texte": "Contrairement aux modes Classique ou Classé, il n'y a aucune restriction de classement dans Brawl. Cela signifie que vous pouvez mettre en file d'attente des matchs dans lesquels un côté est une file d'attente solo de 5 hommes tandis que l'autre est une équipe de 5, ou un côté est un Mythic Immortal à 5 ​​hommes tandis que l'autre est quelqu'un qui vient de télécharger le jeu."
+            "texte": "A diferencia de los modos Clásico o Clasificado, no hay restricciones de rango en Brawl. Esto significa que puedes poner en cola partidas donde un lado es una cola en solitario de 5 hombres mientras que el otro es un equipo de 5, o un lado es un Mythic Immortal de 5 hombres mientras que el otro es alguien que acaba de descargar el juego."
           },
           {
             "type": "p",
-            "texte": "Être AFK, éviter les combats d'équipe ou les abus verbaux est entièrement punissable par le biais de rapports."
+            "texte": "Estar AFK, evitar peleas en equipo o abuso verbal es totalmente punible mediante denuncia."
           }
         ]
       },
       {
-        "titre": "Trucs et astuces",
+        "titre": "Consejos y trucos",
         "elements": [
           {
             "type": "li",
-            "texte": "Composition recommandée de l'équipe"
+            "texte": "Composición del equipo recomendada"
           },
           {
             "type": "p",
-            "texte": "Il existe de nombreux héros parmi lesquels choisir avec différents styles de jeu. Connaître les compétences, les forces et les faiblesses des héros ainsi que leur positionnement optimal est essentiel. Donnez la priorité aux assassins, aux mages ou aux combattants car ils infligent beaucoup de dégâts et contrôlent les foules. Évitez les Marksman car ils dépendent des objets et sont fragiles au début, à moins qu'ils ne possèdent de bonnes capacités de nettoyage des serviteurs et de zone d'effet comme Beatrix ou Granger. Évitez les équipes avec trop de Mages, trop de Tireurs d'élite ou trop de Tanks."
+            "texte": "Hay muchos héroes para elegir con diferentes estilos de juego. Conocer las habilidades, fortalezas y debilidades de los héroes, así como su posición óptima, es fundamental. Prioriza a los asesinos, magos o luchadores, ya que causan mucho daño y brindan control de multitudes. Evite a Marksman, ya que al principio dependen de los elementos y son frágiles, a menos que tengan una buena limpieza de súbditos y habilidades de área de efecto como Beatrix o Granger. Evita equipos con demasiados magos, demasiados francotiradores o demasiados tanques."
           },
           {
             "type": "li",
-            "texte": "Sorts de combat recommandés"
+            "texte": "Hechizos de combate recomendados"
           },
           {
             "type": "li",
-            "texte": "Flameshot a un temps de recharge très faible et peut être utilisé pour vérifier la brousse, sécuriser des éliminations ou annuler des capacités."
+            "texte": "Flameshot tiene un tiempo de reutilización muy bajo y puede usarse para controlar el arbusto, asegurar muertes o negar habilidades."
           },
           {
             "type": "li",
-            "texte": "Au moins un joueur doit apporter les éléments suivants :"
+            "texte": "Al menos un jugador debe traer lo siguiente:"
           },
           {
             "type": "li",
-            "texte": "Revitalisez-vous pour que leur équipe puisse se maintenir après le combat car l'autel ne guérit plus, surtout lorsque votre équipe est dans une mauvaise position et ne peut pas sécuriser les runes de guérison ; et"
+            "texte": "Revitalízate para que su equipo pueda sostenerse después de la pelea, ya que el altar ya no sana, especialmente cuando tu equipo está en una mala posición y no puede conseguir runas curativas; Y"
           },
           {
             "type": "li",
-            "texte": "Purifiez, si votre héros a de bons dégâts mais est vulnérable au contrôle des foules (CC)."
+            "texte": "Purifica, si tu héroe tiene un buen daño pero es vulnerable al control de masas (CC)."
           },
           {
             "type": "li",
-            "texte": "Cependant, Sprint n’est pas très recommandé."
+            "texte": "Sin embargo, Sprint no es muy recomendable."
           },
           {
             "type": "li",
-            "texte": "Profitez de la foule"
+            "texte": "disfruta de la multitud"
           },
           {
             "type": "p",
-            "texte": "La carte unique de Brawl peut améliorer massivement des héros tels que Luo Yi, Odette, Lancelot, Xavier, Fanny tandis que les héros qui s'appuient trop sur des attaques de base comme Freya ou Thamuz deviennent inutiles."
+            "texte": "La carta única de Brawl puede mejorar enormemente a héroes como Luo Yi, Odette, Lancelot, Xavier, Fanny, mientras que los héroes que dependen demasiado de ataques básicos como Freya o Thamuz se vuelven inútiles."
           },
           {
             "type": "p",
-            "texte": "De même, il faudra éviter de rester proches les uns des autres lorsque les ennemis sont Atlas ou Tigreal."
+            "texte": "Asimismo, deberás evitar permanecer cerca el uno del otro cuando los enemigos sean Atlas o Tigreal."
           },
           {
             "type": "li",
-            "texte": "Achetez les bonnes choses"
+            "texte": "Compra las cosas correctas"
           },
           {
             "type": "p",
-            "texte": "Au lieu d’acheter un article décent, acheter des composants plus petits pourrait donner un meilleur avantage. Vous pouvez également attendre quelques secondes et envoyer un message à vos alliés pour leur indiquer que vous avez presque assez d'or pour acheter des objets.j"
+            "texte": "En lugar de comprar un artículo decente, comprar componentes más pequeños podría brindar una mejor ventaja. También puedes esperar unos segundos y enviar un mensaje a tus aliados de que tienes casi suficiente oro para comprar artículos."
           },
           {
             "type": "p",
-            "texte": "au lieu de précipiter une équipe de 5 hommes avec Sky Piercer complet, un objet qui réduit les soins peut grandement contrer l'équipe ennemie."
+            "texte": "En lugar de apresurar a un equipo de 5 hombres con Sky Piercer completo, un elemento que reduce la curación puede contrarrestar en gran medida al equipo enemigo."
           },
           {
             "type": "li",
-            "texte": "Caché dans la brousse"
+            "texte": "Escondido en el monte"
           },
           {
             "type": "p",
-            "texte": "Profitez des buissons pour tendre une embuscade aux ennemis, particulièrement adaptés aux héros comme Helcurt, Hilda, Natalia, Luo Yi. Soyez prudent si les ennemis ont de tels héros."
+            "texte": "Aprovecha los arbustos para tender emboscadas a los enemigos, especialmente indicado para héroes como Helcurt, Hilda, Natalia, Luo Yi. Ten cuidado si los enemigos tienen tales héroes."
           },
           {
             "type": "li",
-            "texte": "Rejouer la sélection des héros"
+            "texte": "Repetir selección de héroe"
           },
           {
             "type": "p",
-            "texte": "Au début, les joueurs auront le choix entre 2 héros. Si aucun héros ne vous convient vraiment, vous lancez un dé pour obtenir un nouveau héros et envoyez votre héros écarté dans la réserve pour les autres. Parfois, un seul héros écarté suffit pour que tout le monde puisse l'échanger. Vous pouvez discuter et demander à d’autres joueurs ou utiliser des discussions rapides et des émoticônes. Gardez à l'esprit que si le héros est défaussé deux fois et disparaît de la sélection de tout le monde, il pourrait réapparaître si vous utilisez un autre dé, ce qui gaspillerait vos dés. Jusqu'à 10 héros peuvent apparaître sur l'emplacement abandonné."
+            "texte": "Al principio, los jugadores podrán elegir entre 2 héroes. Si ningún héroe realmente te conviene, tiras un dado para obtener un nuevo héroe y envías el héroe descartado a la reserva para los demás. A veces, un solo héroe descartado es suficiente para que todos lo intercambien. Puedes chatear y preguntar a otros jugadores o utilizar chats rápidos y emoticones. Ten en cuenta que si el héroe se descarta dos veces y desaparece de la selección de todos, podría reaparecer si usas otro dado, lo que desperdiciaría tus dados. Pueden aparecer hasta 10 héroes en el lugar abandonado."
           },
           {
             "type": "p",
-            "texte": "Certains héros sont difficiles à jouer pour vous, mais cela ne veut pas dire que c'est difficile pour vos alliés, échangez-les et évitez d'accumuler deux bons héros alors que vos alliés n'en ont aucun."
+            "texte": "Algunos héroes te resultan difíciles de jugar, pero eso no significa que sea difícil para tus aliados, cámbialos y evita acumular dos buenos héroes mientras tus aliados no tienen ninguno."
           },
           {
             "type": "li",
-            "texte": "Enrôlez l'ennemi"
+            "texte": "Alista al enemigo"
           },
           {
             "type": "p",
-            "texte": "Puisqu'il n'y a qu'une seule voie, il est plus facile de deviner les mouvements de vos adversaires et de placer votre héros dans la meilleure position pour défendre ou attaquer."
+            "texte": "Como solo hay un carril, es más fácil adivinar los movimientos de tus oponentes y colocar a tu héroe en la mejor posición para defender o atacar."
           },
           {
             "type": "p",
-            "texte": "Lorsque l'équipe ennemie a Xavier, Novaria, attendez-vous à ce que vous soyez endommagé ou révélé en achetant des objets à l'autel ou en atteignant le champ de bataille."
+            "texte": "Cuando el equipo enemigo tenga a Xavier, Novaria, espera que te dañen o te revelen comprando artículos del altar o llegando al campo de batalla."
           },
           {
             "type": "p",
-            "texte": "Vous pouvez vérifier les objets des ennemis pour voir s'ils ont quitté leur autel ou non."
+            "texte": "Puedes comprobar los objetos de los enemigos para ver si han abandonado su altar o no."
           },
           {
             "type": "li",
-            "texte": "Utiliser des objets naturels"
+            "texte": "Utiliza objetos naturales"
           },
           {
             "type": "p",
-            "texte": "Vous pouvez économiser un baril pour vous échapper après une plongée, une plongée en tourelle ou l'utiliser pour raccourcir la distance avec Flicker. Les barils apparaissent pour la première fois à 20 secondes, tandis que les premières runes de guérison durent 30 secondes. Il est préférable de sécuriser le buisson à droite et le glyphe à proximité, afin que votre équipe puisse au moins désactiver une option de guérison après le combat des ennemis. Utilisez le baril pour arrêter les ennemis lorsqu'ils tentent de sécuriser la rune de guérison."
+            "texte": "Puedes guardar un barril para escapar después de una inmersión, una inmersión de torreta o usarlo para acortar la distancia con Flicker. Los barriles aparecen por primera vez a los 20 segundos, mientras que las primeras runas curativas duran 30 segundos. Es mejor asegurar el arbusto a la derecha y el glifo cercano, para que tu equipo pueda al menos desactivar una opción de curación después de que los enemigos peleen. Usa el barril para detener a los enemigos cuando intenten conseguir la runa curativa."
           }
         ]
       },
       {
-        "titre": "Sorts de combat",
+        "titre": "Hechizos de combate",
         "elements": [
           {
             "type": "p",
-            "texte": "Tous les héros reçoivent Flicker par défaut aux côtés d'un autre sort de combat choisi."
+            "texte": "Todos los héroes reciben Flicker de forma predeterminada junto con otro hechizo de combate elegido."
           },
           {
             "type": "p",
-            "texte": "Tous les sorts de combat commencent avec 50 % de leur temps de recharge normal."
+            "texte": "Todos los hechizos de combate comienzan con el 50% de su tiempo de reutilización normal."
           }
         ]
       },
       {
-        "titre": "Spécifications du héros",
+        "titre": "Especificaciones de héroe",
         "elements": [
           {
             "type": "p",
-            "texte": "Comme certains héros seront trop puissants ou trop désavantagés en Brawl, certains buffs ou handicaps sont ajoutés à certains héros comme suit :"
+            "texte": "Como algunos héroes serán demasiado poderosos o estarán en desventaja en Brawl, se agregan ciertas ventajas o desventajas a ciertos héroes de la siguiente manera:"
           },
           {
             "type": "p",
-            "texte": "Dernière version : v350.1 {|class=\"article-table\" !Héros!!Changements de statistiques!!Changements individuels"
+            "texte": "Última versión: v350.1 {|class=\"article-table\" !Heroes!!Cambios de estadísticas!!Cambios individuales"
           },
           {
             "type": "p",
-            "texte": "Gain passif : 10/4"
+            "texte": "Ganancia pasiva: 10/4"
           },
           {
             "type": "p",
-            "texte": "Il y a quatre portes pour Chip, chaque côté en a une près de la base, tandis que les deux autres sont de chaque côté des buissons opposés."
+            "texte": "Hay cuatro puertas para Chip, cada lado tiene una cerca de la base, mientras que las otras dos están a cada lado de los arbustos opuestos."
           }
         ]
       }
@@ -462,35 +462,35 @@
   {
     "nom": "Vs. AI",
     "slug": "vs-ai",
-    "description": "Le mode « Vs A.I » dans Mobile Legends : Bang Bang a été introduit vers la fin de 2017, peu de temps après la sortie mondiale du jeu. Présentant à l'origine uniquement des difficultés simples et normales, le mode a subi des mises à niveau importantes, notamment un mode difficile ajouté lors du projet Next en 2020 et une IA modernisée et stimulante. modes de formation publiés vers novembre 2023.",
+    "description": "El modo \"Vs A.I\" en Mobile Legends: Bang Bang se introdujo a finales de 2017, poco después del lanzamiento mundial del juego. Originalmente presentaba solo dificultades fáciles y normales, el modo experimentó mejoras significativas, incluido un modo difícil agregado durante Project Next en 2020 y una IA modernizada y desafiante. métodos de entrenamiento publicados alrededor de noviembre de 2023.",
     "sections": [
       {
-        "titre": "Mécanique",
+        "titre": "Mecánico",
         "elements": [
           {
             "type": "p",
-            "texte": "Il existe trois modes de jeu que vous pouvez choisir dans ce mode : Classique, Brawl et Draft Pick."
+            "texte": "Hay tres modos de juego que puedes elegir en este modo: Clásico, Brawl y Draft Pick."
           }
         ]
       },
       {
-        "titre": "Niveaux de difficulté",
+        "titre": "Niveles de dificultad",
         "elements": [
           {
             "type": "p",
-            "texte": "Il existe également trois niveaux de difficulté : AI : Simple, AI : Normal et AI : Difficile."
+            "texte": "También hay tres niveles de dificultad: AI: Simple, AI: Normal y AI: Difícil."
           },
           {
             "type": "li",
-            "texte": "AI:Easy a une IA très simple, idéale pour pratiquer un héros que vous venez de débloquer ou que vous ne connaissez pas encore."
+            "texte": "AI:Easy tiene una IA muy simple, ideal para practicar con un héroe que acabas de desbloquear o que aún no conoces."
           },
           {
             "type": "li",
-            "texte": "AI: Normal a des adversaires IA légèrement plus avancés qui peuvent parfois constituer une menace lorsqu'ils cultivent, utilisent leurs compétences avec précaution. Cette difficulté est un peu plus complexe que celle de l'IA : simple et constitue une bien meilleure option pour entraîner un héros dans un combat presque réel."
+            "texte": "IA: Normal tiene oponentes de IA un poco más avanzados que a veces pueden representar una amenaza al cultivar, usa sus habilidades con cuidado. Esta dificultad es un poco más compleja que la IA: simple y una opción mucho mejor para entrenar a un héroe en un combate casi real."
           },
           {
             "type": "li",
-            "texte": "AI:Hard a des adversaires IA moyennement avancés qui savent quand utiliser leurs sorts de combat et chronométrent correctement leurs compétences pour tuer leur adversaire. Ils attaquent également correctement les tourelles, contrairement à la normale et au simple où ils meurent volontairement, ils savent également faire de la macro et suivre leur équipe, et savent réellement comment s'échapper, il est recommandé d'utiliser le héros principal."
+            "texte": "AI:Hard tiene oponentes de IA moderadamente avanzados que saben cuándo usar sus hechizos de combate y cronometrar sus habilidades correctamente para matar a su oponente. También atacan las torretas correctamente, a diferencia de lo normal y simple donde mueren a propósito, también saben cómo hacer macro y rastrear a su equipo, y de hecho saben cómo escapar, se recomienda usar al héroe principal."
           }
         ]
       }
@@ -500,35 +500,35 @@
   {
     "nom": "Custom",
     "slug": "custom",
-    "description": "Les jeux personnalisés sont très similaires à Vs. IA. La différence est que les joueurs s’opposent à d’autres personnes ou à l’IA. Les joueurs peuvent inviter des amis à se joindre au jeu ou ajouter une IA avec les boutons existants. Les joueurs peuvent également ajouter une IA à l'équipe adverse ou dans votre équipe, vous pouvez également jouer seul avec une IA.",
+    "description": "Los juegos personalizados son muy similares a los vs. AI. La diferencia es que los jugadores se enfrentan a otras personas o a la IA. Los jugadores pueden invitar a amigos a unirse al juego o agregar IA con botones existentes. Los jugadores también pueden agregar una IA al equipo contrario o a tu equipo, también puedes jugar solo con una IA.",
     "sections": [
       {
-        "titre": "Note",
+        "titre": "Nota",
         "elements": [
           {
             "type": "li",
-            "texte": "Le mode personnalisé n'affectera pas votre rang, votre maîtrise du héros ou votre placement. Vous ne gagnerez également aucun BP ni EXP."
+            "texte": "El modo personalizado no afectará tu rango, dominio de héroe o ubicación. Tampoco ganarás BP ni EXP."
           },
           {
             "type": "li",
-            "texte": "Si vous avez des cartes d'essai avec des héros que vous n'avez pas encore Draft Pick, il y a toujours un bug qui vous permet d'utiliser cette carte d'essai avec le héros que vous n'avez toujours pas, la carte d'essai ne sera pas consommée/utilisée."
+            "texte": "Si tienes cartas de prueba con héroes que aún no tienes Draft Pick, todavía hay un error que te permite usar esa tarjeta de prueba con el héroe que aún no tienes, la tarjeta de prueba no se consumirá ni usará."
           },
           {
             "type": "li",
-            "texte": "La plupart des joueurs utilisent généralement la personnalisation pour s'affronter en 1v1 ou organisent des matchs personnalisés entre 2 équipes (tournois)."
+            "texte": "La mayoría de jugadores suelen utilizar la personalización para competir en 1v1 u organizar partidas personalizadas entre 2 equipos (torneos)."
           }
         ]
       },
       {
-        "titre": "Histoire",
+        "titre": "Historia",
         "elements": [
           {
             "type": "p",
-            "texte": "Source : https://youtu.be/3mFb0EQrMXE?t=113"
+            "texte": "Fuente: https://youtu.be/3mFb0EQrMXE?t=113"
           },
           {
             "type": "p",
-            "texte": "Catégorie :Personnalisé Catégorie :Mode de jeu"
+            "texte": "Categoría:Personalizado Categoría:Modo de juego"
           }
         ]
       }
@@ -538,453 +538,453 @@
   {
     "nom": "Arcade Mode",
     "slug": "arcade-mode",
-    "description": "Les modes Arcade sont un mode de jeu supplémentaire dans Mobile Legends : Bang Bang qui peut être joué de temps en temps lors d'événements spéciaux, de vacances ou d'occasions. Le mode propose divers sous-jeux basés sur la stratégie, répertoriés ci-dessous.",
+    "description": "Los modos Arcade son un modo de juego adicional en Mobile Legends: Bang Bang que se puede jugar de vez en cuando durante eventos especiales, días festivos u ocasiones. El modo presenta varios subjuegos basados ​​en estrategia, que se enumeran a continuación.",
     "sections": [
       {
-        "titre": "Grabuge",
+        "titre": "Violencia",
         "elements": [
           {
             "type": "p",
-            "texte": "Arcade 5v5 intense, rapide et passionnante !"
+            "texte": "¡Arcade 5v5 intenso, rápido y emocionante!"
           },
           {
             "type": "p",
-            "texte": "Dans le passé, ce jeu n’avait pas vraiment de nom officiel. Ce mode de jeu a été publié pour la première fois et c'est simplement le Carnaval d'été qui est arrivé et qui contenait des consommables pour améliorer les compétences des héros, avec une carte modifiée correspondant à Summer. Pendant Halloween, ce mode est revenu avec les mêmes fonctionnalités que le Carnaval d'été, les compétences modifiées, les bonbons en bonus et la carte sur le thème d'Halloween. Puis Noël est arrivé et le mode avait les mêmes fonctionnalités ; cependant, même si la carte a été modifiée pour s'adapter à Noël, les bonbons ont été conservés comme consommables. Et puis Pâques est arrivée. Enfin, le mode Mayhem a été introduit : cette fois, le mode jeu n'avait pas de consommables, mais il avait des compétences modifiées et des changements de carte."
+            "texte": "En el pasado, este juego no tenía realmente un nombre oficial. Este modo de juego se lanzó por primera vez y simplemente llegó el Carnaval de Verano que contenía consumibles para mejorar las habilidades de los héroes, con un mapa modificado correspondiente a Verano. Durante Halloween, este modo regresó con las mismas características que el Carnaval de Verano, habilidades modificadas, dulces extra y un mapa con temática de Halloween. Luego llegó la Navidad y el modo tenía las mismas características; Sin embargo, aunque el mapa se cambió para adaptarlo a la Navidad, los dulces se mantuvieron como consumibles. Y luego llegó la Pascua. Finalmente, se introdujo el modo Mayhem: esta vez el modo de juego no tenía consumibles, pero sí habilidades modificadas y cambios de mapa."
           },
           {
             "type": "p",
-            "texte": "Il n'y a que 50 héros disponibles dans ce mode."
+            "texte": "Sólo hay 50 héroes disponibles en este modo."
           }
         ]
       },
       {
-        "titre": "Miroir",
+        "titre": "Espejo",
         "elements": [
           {
             "type": "p",
-            "texte": "Duels du même héros mais utilisant des tactiques différentes !"
+            "texte": "¡Duelos del mismo héroe pero usando diferentes tácticas!"
           },
           {
             "type": "p",
-            "texte": "Le mode Miroir utilise la même carte que le mode Bruno Cup Mayhem (en fait, la disposition de la carte, le Seigneur et les serviteurs ont le même thème), cependant, lors de la phase de sélection, dans chaque équipe, les joueurs voteront pour un parmi les six héros choisis au hasard. Celui qui obtiendra le plus de votes sera le héros choisi pour toute son équipe. Comme pour le mode Mayhem, les joueurs commenceront au niveau de héros 4 et recevront 900 pièces d’or. Comme dans tous les modes de jeu, l'objectif est de détruire la base ennemie."
+            "texte": "El modo Espejo usa el mismo mapa que el modo Bruno Cup Mayhem (de hecho, el diseño del mapa, Lord y los minions tienen el mismo tema), sin embargo, durante la fase de selección, en cada equipo, los jugadores votarán por uno de seis héroes elegidos al azar. Quien obtenga más votos será el héroe elegido para todo su equipo. Al igual que en el modo Mayhem, los jugadores comenzarán en el nivel de héroe 4 y recibirán 900 de oro. Como en todos los modos de juego, el objetivo es destruir la base enemiga."
           }
         ]
       },
       {
-        "titre": "Survie",
+        "titre": "Supervivencia",
         "elements": [
           {
             "type": "p",
-            "texte": "Serez-vous celui qui tiendra jusqu'au dernier ?"
+            "texte": "¿Serás tú quien dure hasta el último?"
           },
           {
             "type": "p",
-            "texte": "Survival est similaire à n'importe quel autre jeu Battle Royale, mais avec quelques ajustements pour s'adapter à Mobile Legends. Survival ne fonctionne qu'avec des équipes de 3 joueurs dans une bataille de 99 joueurs (33 équipes) et la carte ne sera pas le Palais Céleste ou l'étendue occidentale, comme dans les autres modes de jeu, elle sera plutôt installée sur une carte unique, le Labyrinthe de Minos, qui est une très grande carte pour y accueillir 99 joueurs. Survival ne propose que 15 héros sélectionnables, les divisant en trois groupes de 5 : Physique, Magique et Défense. Le pillage dans ce mode de jeu est différent des Battle Royales : vous devez tuer des Creeps/Jungle Monster pour leur faire lâcher des objets, et il y a 4 nouveaux Creeps dans ce mode de jeu, chacun avec des chances différentes de lâcher des objets pour les trois catégories. Pour en savoir plus sur ce mode de jeu, cliquez sur le texte en surbrillance ci-dessus."
+            "texte": "Survival es similar a cualquier otro juego Battle Royale, pero con algunos ajustes para adaptarse a Mobile Legends. Survival solo funciona con equipos de 3 jugadores en una batalla de 99 jugadores (33 equipos) y el mapa no será el Palacio Celestial o la Extensión Occidental, como en otros modos de juego, sino que se desarrollará en un solo mapa, el Laberinto de Minos, que es un mapa muy grande para acomodar a 99 jugadores. Survival sólo ofrece 15 héroes seleccionables, dividiéndolos en tres grupos de 5: Físico, Mágico y Defensa. El saqueo en este modo de juego es diferente de Battle Royales: tienes que matar Creeps/Monstruos de la Selva para que suelten objetos, y hay 4 nuevos Creeps en este modo de juego, cada uno con diferentes posibilidades de soltar objetos para las tres categorías. Para obtener más información sobre este modo de juego, haz clic en el texto resaltado arriba."
           },
           {
             "type": "p",
-            "texte": "Entrez dans Eruditio et efforcez-vous d’être le dernier debout."
+            "texte": "Entra en Eruditio y esfuérzate por ser el último en pie."
           },
           {
             "type": "p",
-            "texte": "Ces derniers temps, un concours des plus fascinants, dont la popularité grandit de jour en jour, a pris d'assaut Eruditio. Connu sous le nom de « Survival : Nexus », il attire des participants de toute l’Eruditio. Des terminaux pratiques permettent aux participants de contrôler les avatars virtuels de Beatrix en utilisant uniquement leurs ondes cérébrales, se plongeant ainsi dans un royaume virtuel. Ici, ils peuvent participer à une compétition tactique dans laquelle le dernier joueur debout reçoit une énorme récompense. Saisissez votre chance tant que vous le pouvez, aventuriers, et rejoignez Survival : Nexus !"
+            "texte": "En los últimos tiempos, una competición fascinante, cuya popularidad crece día a día, ha conquistado a Eruditio. Conocido como “Survival: Nexus”, atrae a participantes de todo Eruditio. Terminales convenientes permiten a los participantes controlar los avatares virtuales de Beatrix usando solo sus ondas cerebrales, sumergiéndose en un reino virtual. Aquí podrán participar en una competición táctica en la que el último jugador en pie recibe una enorme recompensa. ¡Aprovechad la oportunidad mientras podáis, aventureros, y uníos a Survival: Nexus!"
           }
         ]
       },
       {
-        "titre": "Bataille à mort",
+        "titre": "Batalla a muerte",
         "elements": [
           {
             "type": "p",
-            "texte": "Jouez différents héros dans un seul match !"
+            "texte": "¡Juega con diferentes héroes en una partida!"
           },
           {
             "type": "p",
-            "texte": "Il s'agit d'un autre type de jeu sur Mobile Legends, la sélection est très similaire à la survie dans laquelle le joueur doit choisir un héros parmi les héros sélectionnés au hasard, qu'il le possède ou non. En gameplay, lorsque le héros meurt, le joueur doit choisir un autre héros. Si deux joueurs ont choisi le même héros, celui-ci doit en choisir un autre. Il existe deux manières de remporter la victoire : soit détruire la base ennemie, soit réaliser 30 victoires avant l'ennemi. En 2019, celui-ci est publié en coordination avec la Fête du Printemps. Le champ de bataille est donc à la hauteur de cette occasion."
+            "texte": "Este es otro tipo de juego en Mobile Legends, la selección es muy similar a la supervivencia en la que el jugador tiene que elegir un héroe entre los héroes seleccionados al azar, ya sea que lo posea o no. En el juego, cuando el héroe muere, el jugador debe elegir otro héroe. Si dos jugadores han elegido el mismo héroe, deberán elegir otro. Hay dos formas de lograr la victoria: destruir la base enemiga o lograr 30 victorias antes que el enemigo. En 2019, se estrena en coordinación con el Festival de Primavera. Por tanto, el campo de batalla está a la altura de las circunstancias."
           }
         ]
       },
       {
-        "titre": "Frénésie",
+        "titre": "Frenesí",
         "elements": [
           {
             "type": "p",
-            "texte": "Dans ce mode, divers produits alimentaires peuvent être trouvés dans le mode. En ramassant différents produits alimentaires, les joueurs peuvent obtenir différents buffs qui améliorent leurs capacités de héros. Certains succès sont exclusifs au mode Frenzy et ne peuvent être obtenus qu'en jouant à ce mode."
+            "texte": "En este modo, se pueden encontrar varios alimentos en el modo. Al recolectar diferentes alimentos, los jugadores pueden obtener diferentes beneficios que mejoran sus habilidades de héroe. Algunos logros son exclusivos del modo Frenzy y solo se pueden obtener jugando en este modo."
           },
           {
             "type": "p",
-            "texte": "Les produits alimentaires peuvent être trouvés à l'endroit où certains des creeps sont tués, à l'endroit où certains des serviteurs spéciaux sont tués, à l'endroit où les héros ennemis sont tués et aux points de ravitaillement à l'intérieur de la maison et de la base ennemie."
+            "texte": "Los alimentos se pueden encontrar donde mueren algunos de los creeps, donde mueren algunos de los minions especiales, donde mueren los héroes enemigos y en los puntos de suministro dentro de la casa y la base enemiga."
           },
           {
             "type": "p",
-            "texte": "Liste des produits alimentaires"
+            "texte": "Lista de productos alimenticios"
           }
         ]
       },
       {
-        "titre": "Évoluer",
+        "titre": "Evolucionar",
         "elements": [
           {
             "type": "p",
-            "texte": "Il est sorti le 20 avril 2019."
+            "texte": "Fue lanzado el 20 de abril de 2019."
           },
           {
             "type": "p",
-            "texte": "Dans ce mode de jeu, 15 joueurs sont déposés sur une carte où ils doivent monter de niveau et évoluer en collectant des gemmes lâchées par des monstres ou apparaissant aléatoirement sur la carte, dans le but d'être le dernier joueur debout. Tuer un joueur ennemi ne l'éliminera pas, il subira plutôt une pénalité de temps de réapparition et perdra de l'expérience ; cependant, une fois que le premier joueur a atteint le niveau 15 et devient le « Diable », toute mort est permanente."
+            "texte": "En este modo de juego, 15 jugadores caen en un mapa donde deben subir de nivel y evolucionar recogiendo gemas que dejan caer los monstruos o que aparecen aleatoriamente en el mapa, con el objetivo de ser el último jugador en pie. Matar a un jugador enemigo no lo eliminará, sino que sufrirá una penalización en el tiempo de reaparición y perderá experiencia; sin embargo, una vez que el primer jugador alcanza el nivel 15 y se convierte en el \"Diablo\", todas las muertes son permanentes."
           },
           {
             "type": "p",
-            "texte": "Les monstres lâcheront également des gemmes colorées qui augmentent de façon permanente les statistiques : les gemmes rouges augmentent l'attaque physique, les gemmes bleues augmentent l'attaque magique et les gemmes vertes augmentent les HP. Différents monstres lâchent différentes pierres précieuses. Certains monstres de niveau supérieur lâcheront également des sorts de combat à équiper ; un seul peut être équipé à la fois, car un est déjà donné une fois atteint le niveau 6."
+            "texte": "Los monstruos también arrojarán gemas de colores que aumentan permanentemente las estadísticas: las gemas rojas aumentan el ataque físico, las gemas azules aumentan el ataque mágico y las gemas verdes aumentan el HP. Diferentes monstruos arrojan diferentes gemas. Algunos monstruos de nivel superior también dejarán caer hechizos de combate para equiparlos; Solo se puede equipar uno a la vez, ya que uno ya se entrega al alcanzar el nivel 6."
           },
           {
             "type": "p",
-            "texte": "Il n'y a pas d'écran de sélection de champion, tous les joueurs commencent en tant que « Cellules » de niveau 1 et peuvent évoluer en atteignant certains niveaux d'expérience."
+            "texte": "No hay una pantalla de selección de campeón, todos los jugadores comienzan como “Células” de nivel 1 y pueden progresar alcanzando ciertos niveles de experiencia."
           },
           {
             "type": "p",
-            "texte": "Niveau 1 : Cellules"
+            "texte": "Nivel 1: Células"
           },
           {
             "type": "p",
-            "texte": "Ils ne peuvent pas attaquer et ont une santé faible, mais comme tout le monde a commencé dans cet état, cela ne représente pas un problème. Ce sont aussi les monstres les plus rapides."
+            "texte": "No pueden atacar y tienen poca salud, pero como todos empezaron en este estado, esto no es un problema. También son los monstruos más rápidos."
           },
           {
             "type": "p",
-            "texte": "Les monstres n'apparaîtront pas à ce stade du jeu."
+            "texte": "Los monstruos no aparecerán en este punto del juego."
           },
           {
             "type": "p",
-            "texte": "Niveau 3 : Minions"
+            "texte": "Nivel 3: Secuaces"
           },
           {
             "type": "p",
-            "texte": "Une fois atteint le niveau 3, les joueurs peuvent choisir d'évoluer vers Basic Minion, Ranged Minion ou Ballista Minion."
+            "texte": "Una vez que alcanzan el nivel 3, los jugadores pueden elegir evolucionar a Basic Minion, Ranged Minion o Ballista Minion."
           },
           {
             "type": "p",
-            "texte": "En plus d'avoir une attaque et une vitesse différentes, ce choix affecte également toutes les évolutions disponibles ultérieures."
+            "texte": "Además de tener un ataque y una velocidad diferentes, esta elección también afecta a todas las evoluciones posteriores disponibles."
           },
           {
             "type": "p",
-            "texte": "Après 1 minute, des monstres commencent à apparaître. A ce stade, seules les gélatines bleues et rouges apparaîtront, mais elles n'attaqueront pas les joueurs."
+            "texte": "Después de 1 minuto, empiezan a aparecer monstruos. En este punto, solo aparecerán gelatinas azules y rojas, pero no atacarán a los jugadores."
           },
           {
             "type": "p",
-            "texte": "Niveau 6 : Monstres mineurs"
+            "texte": "Nivel 6: Monstruos Menores"
           },
           {
             "type": "p",
-            "texte": "Les joueurs évolueront dans différents monstres en fonction du serviteur qu'ils choisiront. Les monstres mineurs auront chacun une compétence."
+            "texte": "Los jugadores evolucionarán hasta convertirse en diferentes monstruos según el minion que elijan. Cada uno de los monstruos menores tendrá una habilidad."
           },
           {
             "type": "p",
-            "texte": "Parcours physique : Si le joueur a choisi Basic Minion, il évoluera en Giant Mouth ou Crammer."
+            "texte": "Curso físico: si el jugador elige Basic Minion, evolucionará a Giant Mouth o Crammer."
           },
           {
             "type": "p",
-            "texte": ": 1. La compétence de Giant Mouth infligera des dégâts à un ennemi égaux à un pourcentage des HP max de la cible."
+            "texte": ":1. La habilidad de Giant Mouth causará daño a un enemigo igual a un porcentaje del HP máximo del objetivo."
           },
           {
             "type": "p",
-            "texte": ": 2. La compétence de Crammer augmentera considérablement son vol de vie pendant un certain temps."
+            "texte": ":2. La habilidad de Crammer aumentará significativamente su robo de vida por un tiempo."
           },
           {
             "type": "p",
-            "texte": "Parcours magique : Si le joueur a choisi Ranged Minion, il évoluera en Goblin ou Crimson Lizard."
+            "texte": "Viaje mágico: si el jugador elige Ranged Minion, evolucionará a Goblin o Crimson Lizard."
           },
           {
             "type": "p",
-            "texte": ": 1. La compétence du gobelin lancera une boule d'énergie très dommageable dans une direction."
+            "texte": ":1. La habilidad del Duende lanzará una bola de energía muy dañina en una dirección."
           },
           {
             "type": "p",
-            "texte": ": 2. La compétence de Crimson Lizard créera une zone d'énergie qui inflige continuellement des dégâts aux ennemis à l'intérieur."
+            "texte": ":2. La habilidad de Crimson Lizard creará una zona de energía que inflige daño continuamente a los enemigos que se encuentran dentro."
           },
           {
             "type": "p",
-            "texte": "Route Tank : Si le joueur a choisi Ballista Minion, il évoluera en Spinner ou Death."
+            "texte": "Tanque de ruta: si el jugador elige Ballista Minion, evolucionará a Spinner o Death."
           },
           {
             "type": "p",
-            "texte": ": 1. La compétence de Spinner régénérera instantanément une certaine quantité de HP."
+            "texte": ":1. La habilidad de Spinner regenerará instantáneamente una cierta cantidad de HP."
           },
           {
             "type": "p",
-            "texte": ": 2. La compétence de la mort infligera continuellement des dégâts aux ennemis environnants."
+            "texte": ":2. La habilidad de muerte causará daño continuamente a los enemigos circundantes."
           },
           {
             "type": "p",
-            "texte": "Lorsqu'ils atteignent le niveau 6, les joueurs peuvent également choisir l'un des deux sorts de combat aléatoires à équiper pour le reste du match. Les sorts de combat possibles sont Flicker, Sprint, Execute, Inspire et Aegis."
+            "texte": "Al alcanzar el nivel 6, los jugadores también pueden elegir uno de dos hechizos de combate aleatorios para equipar durante el resto de la partida. Los posibles hechizos de combate son Flicker, Sprint, Execute, Inspire y Aegis."
           },
           {
             "type": "p",
-            "texte": "Niveau 9 : Monstres majeurs Les monstres majeurs auront deux compétences, dont beaucoup sont inspirées des compétences des héros existants ou des attaques que ces monstres effectuent dans d'autres modes de jeu."
+            "texte": "Nivel 9: Monstruos mayores Los monstruos mayores tendrán dos habilidades, muchas de las cuales están inspiradas en habilidades de héroes existentes o en ataques que estos monstruos realizan en otros modos de juego."
           },
           {
             "type": "p",
-            "texte": "Si le joueur a choisi la voie Physique, il évoluera en Gargouille ou Couperet."
+            "texte": "Si el jugador elige el camino físico, evolucionará a una gárgola o una cuchilla."
           },
           {
             "type": "p",
-            "texte": ": 1. La compétence 1 de Gargouille augmentera sa vitesse de déplacement pendant un certain temps, la compétence 2 augmentera son attaque."
+            "texte": ": 1. La habilidad 1 de Gargoyle aumentará su velocidad de movimiento por un tiempo, la habilidad 2 aumentará su ataque."
           },
           {
             "type": "p",
-            "texte": ": 2. La compétence 1 de Cleaver est un clignotement similaire à Flicker, sa compétence 2 est sa signature d'attaque par vague retardée provenant d'autres modes de jeu."
+            "texte": ":2. La habilidad 1 de Cleaver es un parpadeo similar a Flicker, su habilidad 2 es su característico ataque de onda retardada de otros modos de juego."
           },
           {
             "type": "p",
-            "texte": "Si le joueur a choisi la voie Magique, il évoluera en Pionnier ou en Statued Chaser."
+            "texte": "Si el jugador ha elegido el camino mágico, evolucionará hasta convertirse en un Pionero o un Cazador Estatuado."
           },
           {
             "type": "p",
-            "texte": ": 1. La compétence 1 de Pioneer lance un orbe qui bloquera les ennemis similaires à Cyclops Ultimate, la compétence 2 est son piège à poison caractéristique des autres modes de jeu, mais en ligne droite."
+            "texte": ":1. La habilidad 1 de Pioneer lanza un orbe que bloqueará a los enemigos similar a Cyclops Ultimate, la habilidad 2 es su trampa de veneno característica de otros modos de juego, pero en línea recta."
           },
           {
             "type": "p",
-            "texte": ": 2. La compétence 1 de Statued Chaser ressemble à la première compétence de Gusion (ils lanceront un poignard dans une direction, et si elle touche un ennemi, la compétence peut être utilisée à nouveau pour le poursuivre) ; la compétence 2 attaquera les ennemis devant elle, infligeant de gros dégâts."
+            "texte": ":2. La habilidad 1 del Cazador estatuado es similar a la primera habilidad de Gusion (lanzarán una daga en una dirección y, si golpea a un enemigo, la habilidad se puede usar nuevamente para perseguirlo); La habilidad 2 atacará a los enemigos frente a él, causando un gran daño."
           },
           {
             "type": "p",
-            "texte": "Si le joueur a choisi l'évolution Tank, il évoluera en Statued Shocker ou Core Guard."
+            "texte": "Si el jugador elige la evolución Tanque, evolucionará a Estatuado Shocker o Core Guard."
           },
           {
             "type": "p",
-            "texte": ": 1. La compétence 1 du Statued Shocker améliorera sa prochaine attaque de base, qui étourdira les ennemis ; la compétence 2 leur fournira un bouclier qui explosera après un certain temps ou lorsqu'il sera détruit, similaire à la deuxième compétence d'Uranus."
+            "texte": ": 1. La habilidad 1 del Estatuado Shocker mejorará su próximo ataque básico, que aturdirá a los enemigos; La habilidad 2 les proporcionará un escudo que explotará después de un cierto período de tiempo o cuando sea destruido, similar a la segunda habilidad de Urano."
           },
           {
             "type": "p",
-            "texte": ": 2. La compétence 1 de Core Guard narguera les ennemis proches, les forçant à attaquer, la compétence 2 reflétera les dégâts reçus pendant un certain temps. (Les deux compétences ressemblent à la deuxième compétence de Gatotkaca.)"
+            "texte": ":2. La habilidad 1 de Core Guard provocará a los enemigos cercanos, obligándolos a atacar, la habilidad 2 reflejará el daño recibido durante un tiempo determinado. (Ambas habilidades se parecen a la segunda habilidad de Gatotkaca)."
           },
           {
             "type": "p",
-            "texte": "En atteignant le niveau 9, les joueurs peuvent également choisir l'un des deux buffs passifs qui durent le reste du match, en fonction de leur parcours :"
+            "texte": "Al alcanzar el nivel 9, los jugadores también pueden elegir uno de los dos beneficios pasivos que duran el resto de la partida, dependiendo de su camino:"
           },
           {
             "type": "p",
-            "texte": "Buffs physiques : 30 % de dégâts d'attaque ou 40 % de vitesse d'attaque"
+            "texte": "Mejoras físicas: 30% de daño de ataque o 40% de velocidad de ataque"
           },
           {
             "type": "p",
-            "texte": "Buffs magiques : 40 % de réduction de CD ou 40 % de Spell Vamp"
+            "texte": "Mejoras mágicas: 40 % de reducción de CD o 40 % de mejora de hechizos"
           },
           {
             "type": "p",
-            "texte": "Buffs de tank : 2 % de la santé est convertie en dégâts ou récupère 300 HP toutes les 5 secondes"
+            "texte": "Mejoras de tanque: 2% de la salud se convierte en daño o recupera 300 HP cada 5 segundos."
           },
           {
             "type": "p",
-            "texte": "Dès qu'au moins un joueur a atteint le niveau 9, les monstres mineurs commenceront également à apparaître sous forme de monstres ; ils attaqueront les joueurs s'ils sont provoqués et lâcheront plus de pierres précieuses."
+            "texte": "Una vez que al menos un jugador haya alcanzado el nivel 9, los monstruos menores también comenzarán a aparecer como monstruos; Atacarán a los jugadores si se les provoca y arrojarán más gemas."
           },
           {
             "type": "p",
-            "texte": "Une « tortue noire » peut également apparaître. Il peut laisser tomber de grandes quantités de grosses pierres précieuses. Son emplacement sera visible sur la carte de chaque joueur."
+            "texte": "También puede aparecer una “tortuga negra”. Puede arrojar grandes cantidades de gemas grandes. Su ubicación será visible en el mapa de cada jugador."
           },
           {
             "type": "p",
-            "texte": "Niveau 12 : Héros (Besoin de plus d'informations : les héros disponibles peuvent spécifiquement changer en fonction des itinéraires de niveau 6 et de niveau 9. Plus de héros peuvent être disponibles que ceux répertoriés.)"
+            "texte": "Nivel 12: Héroe (Necesita más información: los héroes disponibles pueden cambiar específicamente según las rutas de Nivel 6 y 9. Es posible que haya más héroes disponibles de los enumerados)."
           },
           {
             "type": "p",
-            "texte": "Si le joueur a choisi la voie physique, des héros Marksman ou Assassin seront disponibles."
+            "texte": "Si el jugador elige el camino físico, los héroes Marksman o Assassin estarán disponibles."
           },
           {
             "type": "p",
-            "texte": ": Tireur d'élite : Karrie, Lesley, Bruno, Claude."
+            "texte": ": Francotirador: Karrie, Lesley, Bruno, Claude."
           },
           {
             "type": "p",
-            "texte": ": Assassins : Lancelot, Sabre, Freya."
+            "texte": ": Asesinos: Lancelot, Sabre, Freya."
           },
           {
             "type": "p",
-            "texte": "Si le joueur a choisi la voie magique, des héros Mage ou Support seront disponibles."
+            "texte": "Si el jugador elige el camino mágico, habrá héroes magos o de apoyo disponibles."
           },
           {
             "type": "p",
-            "texte": ": Mage : Odette, Gord, Alice, Esmeralda, Harley."
+            "texte": ": Mago: Odette, Gord, Alice, Esmeralda, Harley."
           },
           {
             "type": "p",
-            "texte": ": Soutien : Angela, Estes, Nana."
+            "texte": ": Apoyo: Ángela, Estes, Nana."
           },
           {
             "type": "p",
-            "texte": "Si le joueur a choisi l'évolution Tank, des héros Fighter ou Tank seront disponibles."
+            "texte": "Si el jugador elige la evolución del Tanque, estarán disponibles héroes de combate o tanque."
           },
           {
             "type": "p",
-            "texte": ": Combattant : Kaja, Lapu Lapu, Alucard."
+            "texte": ": Luchador: Kaja, Lapu Lapu, Alucard."
           },
           {
             "type": "p",
-            "texte": ": Réservoir : Hylos, Uranus, Akai, Jhonson."
+            "texte": ": Embalse: Hylos, Urano, Akai, Jhonson."
           },
           {
             "type": "p",
-            "texte": "Lorsque le premier joueur atteint le niveau 13, des monstres majeurs commenceront à apparaître. Ils peuvent lâcher des gemmes plus grosses qui valent plus que les gemmes normales, et même des sorts de combat à équiper. De grosses gemmes d'expérience commenceront également à apparaître."
+            "texte": "Cuando el primer jugador alcance el nivel 13, comenzarán a aparecer monstruos importantes. Pueden soltar gemas más grandes que valen más que las gemas normales, e incluso hechizos de combate equipables. También empezarán a aparecer grandes gemas de experiencia."
           },
           {
             "type": "p",
-            "texte": "Niveau 15 : Le Diable"
+            "texte": "Nivel 15: El diablo"
           },
           {
             "type": "p",
-            "texte": "Le premier joueur à atteindre le niveau 15 deviendra le Diable. Ils deviendront plus gros et leurs statistiques augmenteront, mais ils se déplaceront plus lentement et leur position sera révélée sur la carte de tous les autres joueurs. Ils auront également la capacité de se transformer pendant un certain temps en Seigneur, acquérant de nouvelles compétences puissantes qui ressemblent à l'attaque du Seigneur provenant d'autres modes de jeu."
+            "texte": "El primer jugador que alcance el nivel 15 se convertirá en el Diablo. Se harán más grandes y sus estadísticas aumentarán, pero se moverán más lento y su posición se revelará en los mapas de todos los demás jugadores. También tendrán la capacidad de transformarse en un Señor por un tiempo, obteniendo nuevas y poderosas habilidades que se asemejan al ataque del Señor de otros modos de juego."
           },
           {
             "type": "p",
-            "texte": ": Compétence 1 et Compétence 2, « Lord Strikes » : martèle lourdement le sol, infligeant de vrais dégâts aux ennemis environnants et laissant une fissure sous leur position actuelle ; après un certain temps, la fissure explosera, infligeant des dégâts et renversant les ennemis."
+            "texte": ": Habilidad 1 y Habilidad 2, \"Lord Strikes\": Golpea fuertemente el suelo, causando daño real a los enemigos circundantes y dejando una grieta debajo de su posición actual; Después de un tiempo, la grieta explotará, causará daño y derribará a los enemigos."
           },
           {
             "type": "p",
-            "texte": ": Compétence 3, « Frappes tournantes » : Après avoir chargé pendant une courte période, le Seigneur fera tourner son marteau, infligeant de vrais dégâts aux ennemis environnants dans une vaste zone."
+            "texte": ": Habilidad 3, \"Golpes giratorios\": después de cargar por un corto tiempo, el Señor hará girar su martillo, causando daño real a los enemigos circundantes en un área amplia."
           },
           {
             "type": "p",
-            "texte": "Tout autre joueur atteignant le niveau 15 ne deviendra pas le Diable : la seule façon de réclamer le titre et les buffs est de tuer le Diable actuel."
+            "texte": "Cualquier otro jugador que alcance el nivel 15 no se convertirá en el Diablo: la única forma de reclamar el título y las ventajas es matar al Diablo actual."
           },
           {
             "type": "p",
-            "texte": "Dans cette étape finale, la zone de sécurité commencera à se rétrécir lentement, formant un cercle centré sur le \"Diable\" actuel et forçant les autres joueurs à se rapprocher d'eux. la zone se déplacera avec le Diable, en essayant de les maintenir en son centre. Désormais, tuer un joueur l’éliminera du match."
+            "texte": "En esta etapa final, la zona segura comenzará a reducirse lentamente, formando un círculo centrado en el \"Diablo\" actual y obligando a otros jugadores a acercarse a él. el área se moverá con el Diablo, intentando mantenerlos en su centro. Ahora matar a un jugador lo eliminará de la partida."
           }
         ]
       },
       {
-        "titre": "Ravager",
+        "titre": "Estrago",
         "elements": [
           {
             "type": "p",
-            "texte": "Bataille de brouillage de style science-fiction."
+            "texte": "Batalla de lucha al estilo de ciencia ficción."
           },
           {
             "type": "p",
-            "texte": "La mystérieuse faille dans l’univers parallèle s’élargit progressivement. Un dirigeable de Zlatan est sur le point de s'écraser sur le Pays de l'Aube, ce qui serait un désastre et un défi ! Warriors, le Ravage est désormais ouvert. Montrez votre courage et votre force pour sauver Zlatan et défendre le Pays de l'Aube."
+            "texte": "La misteriosa grieta en el universo paralelo se está ampliando gradualmente. Una aeronave de Zlatan está a punto de estrellarse en la Tierra del Alba, ¡lo que sería un desastre y un desafío! Guerreros, Ravage ya está abierto. Demuestra tu coraje y fuerza para salvar a Zlatan y defender la Tierra del Amanecer."
           },
           {
             "type": "p",
-            "texte": "Ravage est un mode dans lequel chaque équipe se compose de 5 rôles différents et se bat pour les Aquamarines. Chaque joueur peut choisir 5 héros aux rôles différents avant de participer à un match Ravage. Après l'affrontement, chaque joueur utilise aléatoirement l'un des 5 héros qu'il a choisi précédemment."
+            "texte": "Ravage es un modo en el que cada equipo consta de 5 roles diferentes y lucha por las Aguamarinas. Cada jugador puede elegir 5 héroes con diferentes roles antes de participar en una partida de Ravage. Tras el enfrentamiento, cada jugador utiliza aleatoriamente uno de los 5 héroes que eligió previamente."
           },
           {
             "type": "p",
-            "texte": "Dans ce mode, S.A.B.E.R. et V.E.N.O.M. se battent. Pendant qu'ils se battent, des aigues-marines commencent à tomber autour d'eux. La première équipe qui récupère une certaine quantité d’Aigue-marine remportera le match. Être éliminé fait perdre au joueur toutes les aigues-marines, qui se dispersent sur le sol. Si un joueur possède plus de 10 aigues-marines, son emplacement sera exposé sur la mini-carte."
+            "texte": "En este modo, S.A.B.E.R. y V.E.N.O.M. están peleando. Mientras luchan, las aguamarinas comienzan a caer a su alrededor. El primer equipo que consiga recolectar una determinada cantidad de aguamarina ganará el partido. Ser eliminado hace que el jugador pierda todas las aguamarinas, que se esparcen por el suelo. Si un jugador tiene más de 10 aguamarinas, su ubicación quedará expuesta en el minimapa."
           },
           {
             "type": "p",
-            "texte": "Au centre de la carte du mode Ravage se trouve le seul point de régénération HP. Une fois éliminés, les joueurs réapparaissent rapidement dans le centre de contrôle et peuvent rejoindre la bataille très rapidement. Éliminer les ennemis et récupérer leurs aigues-marines est le but de ce mode."
+            "texte": "En el centro del mapa del modo Ravage se encuentra el único punto de regeneración de HP. Una vez eliminados, los jugadores reaparecen rápidamente en el Centro de control y pueden volver a unirse a la batalla muy rápidamente. Eliminar enemigos y recoger sus aguamarinas es el objetivo de este modo."
           },
           {
             "type": "p",
-            "texte": "La première équipe à accumuler 15 Aigue-marine remportera ce match. Pas de laning, pas de tourelles destructrices, tuer et ravager est le but de ce mode ! Venez vous amuser, vous serez le gagnant !"
+            "texte": "El primer equipo que acumule 15 Aguamarinas ganará este partido. ¡Sin carriles, sin torretas destructivas, matar y devastar es el objetivo de este modo! ¡Ven a divertirte, serás el ganador!"
           },
           {
             "type": "p",
-            "texte": "Du 7 au 13 août 2020, le mode Ravage est revenu avec un nouveau mode 3V3. Seuls 3 rôles sur 5 seront utilisés et tous les joueurs débuteront avec 30 000 et un niveau de héros en 15 (max)."
+            "texte": "Del 7 al 13 de agosto de 2020, el modo Ravage regresó con un nuevo modo 3V3. Solo se utilizarán 3 de 5 roles y todos los jugadores comenzarán con 30.000 y un nivel de héroe de 15 (máximo)."
           }
         ]
       },
       {
-        "titre": "Bagarre et miroir",
+        "titre": "Pelea y espejo",
         "elements": [
           {
             "type": "p",
-            "texte": "Match de bagarre passionnant entre les héros en miroir !"
+            "texte": "¡Emocionante pelea entre héroes reflejados!"
           },
           {
             "type": "p",
-            "texte": "Sélection de héros : dans ce mode, les joueurs votent pour le héros qu'ils souhaitent utiliser parmi un ensemble aléatoire de héros. Le héros ayant obtenu le plus de votes deviendra le héros utilisé par toute l’équipe."
+            "texte": "Selección de héroe: en este modo, los jugadores votan por el héroe que quieren usar entre un conjunto aleatorio de héroes. El héroe con más votos se convertirá en el héroe utilizado por todo el equipo."
           },
           {
             "type": "p",
-            "texte": "Ajustement des héros : dans ce mode, différents héros reçoivent différents améliorations d'attributs pour créer plus d'équilibre entre les héros de différents rôles, améliorant ainsi l'expérience de jeu globale."
+            "texte": "Ajuste de héroe: en este modo, diferentes héroes reciben diferentes mejoras de atributos para crear un mayor equilibrio entre héroes de diferentes roles, mejorando la experiencia de juego general."
           }
         ]
       },
       {
-        "titre": "Échecs TD",
+        "titre": "Ajedrez TD",
         "elements": [
           {
             "type": "p",
-            "texte": "Match de Tower Defense Battle Royale"
+            "texte": "Batalla real de defensa de la torre"
           },
           {
             "type": "p",
-            "texte": "Harper, qui s'aventurait dans le sud des Abysses, entre par inadvertance dans les Abysses. Il découvre que les démons dirigés par le nom = Dyrroth se rassemblent dans les Abysses. Bientôt, ils traverseront la montagne Lantis et détruiront l'empire Moniyan. Cependant, toutes les créatures qui se trouveront sur le chemin souffriront de la catastrophe."
+            "texte": "Harper, que se aventuraba en el Abismo del sur, entra sin darse cuenta en el Abismo. Descubre que demonios liderados por el nombre =Dyrroth se están reuniendo en el Abismo. Pronto cruzarán la montaña Lantis y destruirán el Imperio Moniyan. Sin embargo, cualquier criatura que se interponga en su camino sufrirá la catástrofe."
           },
           {
             "type": "p",
-            "texte": "CHESS-TD est un mode Arcade plein de plaisir et de stratégie ! Dans ce mode, 6 seront répartis sur 6 cartes et s'affronteront ainsi qu'avec des creeps. Les joueurs peuvent acheter des héros dans la boutique, acheter leur propre alignement, piller de l'or et améliorer leurs troupes pour remporter la victoire."
+            "texte": "¡CHESS-TD es un modo Arcade lleno de diversión y estrategia! En este modo, 6 se distribuirán en 6 mapas y se enfrentarán entre sí y también contra los creeps. Los jugadores pueden comprar héroes en la tienda, comprar su propia lista, saquear oro y mejorar sus tropas para lograr la victoria."
           },
           {
             "type": "p",
-            "texte": "La carte est aléatoire pour chaque match. Les joueurs peuvent acheter des Héros dans la boutique et les déployer sur des pierres plus hautes que le sol (emplacements). Les héros déployés attaqueront automatiquement les ennemis proches et lanceront leur compétence une fois qu'ils auront gagné suffisamment de mana."
+            "texte": "El mapa es aleatorio para cada partido. Los jugadores pueden comprar héroes en la tienda y desplegarlos en piedras más altas que el suelo (ranuras). Los héroes desplegados atacarán automáticamente a los enemigos cercanos y lanzarán su habilidad una vez que obtengan suficiente maná."
           },
           {
             "type": "p",
-            "texte": "Définition du round : Un round contient 4 phases : la phase de préparation, la phase de préparation, la phase de combat et la phase de résolution. La phase de préparation consiste pour les joueurs à acheter, déployer, rappeler ou vendre des héros et à améliorer leur capacité. Durant la phase de combat, l'un des héros des autres joueurs envahira votre carte. Si ces envahisseurs parviennent à destination avant d’être éliminés, vous subirez des dégâts relatifs."
+            "texte": "Definición de ronda: Una ronda contiene 4 fases: la fase de preparación, la fase de preparación, la fase de combate y la fase de resolución. La fase de preparación implica que los jugadores compren, desplieguen, retiren o vendan héroes y mejoren sus habilidades. Durante la fase de combate, uno de los héroes de los otros jugadores invadirá tu mapa. Si estos invasores llegan a su destino antes de ser eliminados, sufrirás un daño relativo."
           },
           {
             "type": "p",
-            "texte": "Définition de l'or et de la capacité : à la fin de chaque tour, les joueurs recevront une certaine quantité d'or et d'intérêts (pour chaque tranche de 10 pièces d'or possédées, obtenez 1 pièce d'or supplémentaire). De plus, obtenir des séquences de victoires ou des séquences de défaites accordera également un bonus d'or supplémentaire. La capacité décide du nombre de héros que vous pouvez déployer. Le maximum est de 9. À la fin de chaque tour, vous obtiendrez 1 Capacité Exp. En outre, vous pouvez choisir d’acheter 4 Capacités d’Exp. avec 4 médailles d'or. La chance d'obtenir des héros d'élite augmente avec le niveau de capacité, en même temps, la chance d'obtenir des héros communs décroît avec elle."
+            "texte": "Definición de oro y habilidades: al final de cada ronda, los jugadores recibirán una cierta cantidad de oro e intereses (por cada 10 monedas de oro que posean, obtendrán 1 moneda de oro adicional). Además, obtener rachas ganadoras o perdedoras también otorgará una bonificación de oro adicional. La capacidad decide cuántos héroes puedes desplegar. El máximo es 9. Al final de cada ronda, obtendrás 1 Experiencia de habilidad. Además, puedes optar por comprar 4 habilidades de experiencia. con 4 medallas de oro. La posibilidad de obtener héroes de élite aumenta con el nivel de habilidad, al mismo tiempo, la posibilidad de obtener héroes comunes disminuye con él."
           },
           {
             "type": "p",
-            "texte": "Niveau de héros et étoile : Il existe 4 niveaux pour les héros, qui indiquent leur rareté et leur coût. D'une manière générale, les héros de haut niveau devraient être plus puissants. S’il y a 3 mêmes héros sur le champ de bataille, ils deviendront un héros de niveau supérieur. Trois héros 1 étoile deviendront un héros 2 étoiles. Trois héros 2 étoiles deviendront un héros 3 étoiles."
+            "texte": "Nivel de héroe y estrella: hay 4 niveles para héroes, que indican su rareza y costo. En términos generales, los héroes de alto nivel deberían ser más poderosos. Si hay 3 héroes iguales en el campo de batalla, se convertirán en un héroe de nivel superior. Tres héroes de 1 estrella se convertirán en un héroe de 2 estrellas. Tres héroes de 2 estrellas se convertirán en un héroe de 3 estrellas."
           },
           {
             "type": "p",
-            "texte": "Synergie : Chaque héros a 2 attributs : faction et rôle. L'effet de synergie sera activé s'il y a suffisamment de héros avec les mêmes attributs sur le champ de bataille (les attributs des mêmes héros ne seront comptés qu'une seule fois). Il est important de prendre en compte la synergie."
+            "texte": "Sinergia: Cada héroe tiene 2 atributos: facción y rol. El efecto de sinergia se activará si hay suficientes héroes con los mismos atributos en el campo de batalla (los atributos de los mismos héroes solo se contarán una vez). Es importante tener en cuenta la sinergia."
           }
         ]
       },
       {
-        "titre": "Échecs magiques",
+        "titre": "Ajedrez Mágico",
         "elements": [
           {
             "type": "p",
-            "texte": "Compétition d'échecs automatique rapide entre 8 joueurs."
+            "texte": "Competición rápida de ajedrez automático entre 8 jugadores."
           },
           {
             "type": "p",
-            "texte": "Magic Chess est un mode de jeu de stratégie complexe à 8 joueurs, dans lequel les joueurs s'affronteront les uns contre les autres et contre des monstres aléatoires sur l'échiquier magique. Le but de ce jeu est d'acheter et d'améliorer vos héros et le petit commandant, en personnalisant votre alignement pour déclencher et contrer des synergies plus nombreuses et plus fortes. La victoire appartient à celui qui tient jusqu'au dernier !"
+            "texte": "Magic Chess es un complejo modo de juego de estrategia para 8 jugadores, en el que los jugadores competirán entre sí y contra monstruos aleatorios en el tablero de ajedrez mágico. El objetivo de este juego es comprar y mejorar a tus héroes y al Pequeño Comandante, personalizando tu alineación para activar y contrarrestar más y más fuertes sinergias. ¡La victoria pertenece al que aguanta hasta el final!"
           }
         ]
       },
       {
-        "titre": "Bagarre des ombres",
+        "titre": "Pelea de sombras",
         "elements": [
           {
             "type": "p",
-            "texte": "La bagarre sur le pont de la destruction."
+            "texte": "La lucha en el puente de la destrucción."
           },
           {
             "type": "p",
-            "texte": "Dans Shadow Brawl, les joueurs votent pour sélectionner un héros parmi plusieurs héros apparaissant au hasard. Tous les joueurs de l’équipe utiliseront le même héros pour jouer. Les joueurs sont équipés de name=Blade of Silence qui marque la position actuelle et y connecte une chaîne. La chaîne ramènera automatiquement votre héros à la position marquée après 4 secondes. Le CD fait 20 secondes."
+            "texte": "En Shadow Brawl, los jugadores votan para seleccionar un héroe entre varios héroes que aparecen al azar. Todos los jugadores del equipo utilizarán el mismo héroe para jugar. Los jugadores están equipados con name=Blade of Silence que marca la posición actual y le conecta una cadena. La cadena devolverá automáticamente a tu héroe a la posición marcada después de 4 segundos. El CD tiene una duración de 20 segundos."
           }
         ]
       },
       {
-        "titre": "Arène",
+        "titre": "Arena",
         "elements": [
           {
             "type": "p",
-            "texte": "Bataille de cartes automatique 1v1."
+            "texte": "Batalla automática de cartas 1 contra 1."
           },
           {
             "type": "p",
-            "texte": "Un nouveau type de jeu a pris d’assaut Moniyan. Les Petits Commandants et leurs objets magiques peuvent désormais être trouvés dans chaque maison du pays. Les boules de cristal détectent toutes sortes de vie dans le Pays de l'Aube et canalisent leur énergie ; qui se transforme en cartes à collectionner. Il existe des cartes Monstre et des cartes Héros. Les monstres sont faciles à gagner et à contrôler, tandis que les héros nécessitent un prix plus élevé et une énergie plus avancée. Les decks sont construits et les batailles se déroulent avec d'autres ; les gens s'efforcent de vaincre le petit commandant ennemi et de remporter la victoire."
+            "texte": "Un nuevo tipo de juego ha conquistado a Moniyan. Los Pequeños Comandantes y sus objetos mágicos ahora se pueden encontrar en todas las casas del país. Las bolas de cristal detectan todo tipo de vida en la Tierra del Alba y canalizan su energía; que se convierte en tarjetas coleccionables. Hay cartas de Monstruo y cartas de Héroe. Los monstruos son fáciles de ganar y controlar, mientras que los héroes requieren un precio más alto y una energía más avanzada. Se construyen mazos y se libran batallas con otros; la gente se esfuerza por derrotar al pequeño comandante enemigo y lograr la victoria."
           },
           {
             "type": "p",
-            "texte": "En mode \"Arène\", vous affronterez un autre joueur dans une bataille 1v1. Votre objectif est simple : éliminer le Petit Commandant de votre adversaire avant qu'il n'abatte le vôtre. Pour ce faire, vous devrez utiliser des cartes pour invoquer des Héros et des Monstres et lancer des sorts pour lutter contre les troupes de votre adversaire. La bataille continuera jusqu'à ce que le Petit Commandant d'un côté soit éliminé. \"Shard\", la ressource permettant d'invoquer des monstres et d'utiliser des sorts, est généré toutes les 3 secondes. Et en dépensant 5 « Éclats », la ressource utilisée pour invoquer les Héros, « Essence », sera générée."
+            "texte": "En el modo \"Arena\", te enfrentarás a otro jugador en una batalla 1 contra 1. Tu objetivo es simple: eliminar al Little Commander de tu oponente antes de que él derribe al tuyo. Para ello, necesitarás utilizar cartas para convocar héroes y monstruos y lanzar hechizos para luchar contra las tropas de tu oponente. La batalla continuará hasta que se elimine al Pequeño Comandante de un lado. “Shard”, el recurso para invocar monstruos y usar hechizos, se genera cada 3 segundos. Y al gastar 5 “Fragmentos”, se generará el recurso utilizado para convocar a los Héroes, la “Esencia”."
           },
           {
             "type": "p",
-            "texte": "Après être entré dans « l’Arène », vous recevrez une série de tutoriels pour vous aider à démarrer. Après avoir parcouru le didacticiel complet, vous serez récompensé par 9 cartes de base. Pendant que vous jouez, vous pouvez obtenir des cartes dans les coffres de combat et les orbes d'invocation. Les cartes en double obtenues serviront à améliorer les cartes correspondantes pour lui donner plus de force. De plus, plus de cartes seront débloquées à mesure que vous progresserez dans votre classement. Toutes les cartes seront débloquées lorsque la légende sera atteinte. Il existe deux niveaux de rareté pour les cartes Héros : Peu commune et Épique. Il existe deux cartes, Uncommon et Epic. Il existe également deux niveaux de rareté pour les cartes Monstre/Sort : Commune et Peu commune."
+            "texte": "Después de ingresar a la \"Arena\", recibirás una serie de tutoriales que te ayudarán a comenzar. Después de seguir el tutorial completo, serás recompensado con 9 cartas básicas. Mientras juegas, puedes obtener cartas de Battle Chests y Summon Orbs. Las cartas duplicadas obtenidas servirán para mejorar las cartas correspondientes para darle más fuerza. Además, se desbloquearán más cartas a medida que avances en tu clasificación. Todas las cartas se desbloquearán cuando se alcance la leyenda. Hay dos niveles de rareza para las cartas de héroe: poco común y épico. Hay dos mapas, poco común y épico. También hay dos niveles de rareza para las cartas de Monstruo/Hechizo: Común y Poco común."
           },
           {
             "type": "p",
-            "texte": "Vous pouvez gagner des Cup Points, des Battle Points et des Battle Chests après chaque match. Plus de cartes peuvent être débloquées avec plus de points de coupe. Vous pouvez obtenir des points de combat ou des cartes déjà débloquées dans les coffres de combat."
+            "texte": "Puedes ganar puntos de copa, puntos de batalla y cofres de batalla después de cada partido. Se pueden desbloquear más cartas con más puntos de copa. Puedes obtener puntos de batalla o cartas ya desbloqueadas de los cofres de batalla."
           }
         ]
       },
@@ -993,11 +993,11 @@
         "elements": [
           {
             "type": "p",
-            "texte": "Un concours fascinant appelé Boommander est désormais à la mode à Laladona, et de nombreux Petits Commandants sont devenus ses fans. Les règles sont simples : collectez Fluffy qui pousse dans l'oasis près de l'Arbre d'Origine et lancez ces boules explosives sur les autres. Pouvez-vous esquiver les attaques et faire exploser votre adversaire ? Rejoignez Boommander et essayez-le maintenant ! En mode Boommander, vous incarnez des petits commandants et lancez Fluffy pour s'affronter sur des cartes reconstituées avec différentes tuiles de scène."
+            "texte": "Una competencia fascinante llamada Boommander está de moda en Laladona y muchos Little Commanders se han convertido en sus fanáticos. Las reglas son simples: recoge Fluffy que crece en el oasis cerca del Árbol de Origen y lanza estas bolas explosivas a los demás. ¿Podrás esquivar ataques y destruir a tu oponente? ¡Únete a Boommander y pruébalo ahora! En el modo Boommander, juegas como pequeños comandantes y lanzas a Fluffy para competir en mapas reconstituidos con diferentes mosaicos de escenas."
           },
           {
             "type": "p",
-            "texte": "Catégorie:Mode de jeu"
+            "texte": "Categoría:Modo de juego"
           }
         ]
       }

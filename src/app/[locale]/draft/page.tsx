@@ -5,19 +5,21 @@ import statistiques from "@/data/jeu/statistiques.json";
 import { heros } from "@/lib/donnees";
 import type { HerosDraft } from "@/lib/draft";
 import { classementComplet } from "@/lib/tier-list";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Aide au draft",
-  description:
-    "Renseignez la composition adverse : l'outil propose quoi prendre sur chaque lane, et explique pourquoi — contres, synergies et taux de victoire.",
-  alternates: { canonical: "/draft" },
-  openGraph: {
-    title: `Aide au draft — ${site.nom}`,
-    description: "Quoi prendre face a la composition d'en face, et pourquoi.",
-    url: "/draft",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.draft.metaTitre"),
+    description: t("pages.draft.metaDescription"),
+    alternates: metaLangues(locale, "/draft"),
+    openGraph: { title: `${t("pages.draft.metaTitre")} — ${site.nom}`, description: t("pages.draft.ogDescription"), url: `/${locale}/draft` },
+  };
+}
 
 interface Relation {
   fortContre: string[];
@@ -27,7 +29,9 @@ interface Relation {
 
 const relations = statistiques.relations as unknown as Record<string, Relation>;
 
-export default function PageDraft() {
+export default async function PageDraft({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const taux = new Map(classementComplet.map((e) => [e.heros.slug, e.victoire]));
 
   // On n'envoie au client que ce dont l'outil se sert : la fiche complete
@@ -47,19 +51,13 @@ export default function PageDraft() {
   return (
     <>
       <EnTetePage
-        titre="Aide au draft"
-        chapeau="Renseignez ce que vous voyez en face, lane par lane. L'outil propose des reponses et dit ce qui les justifie. Ajoutez vos propres picks au fur et a mesure : les suggestions s'ajustent."
+        titre={t("pages.draft.titre")}
+        chapeau={t("pages.draft.chapeau")}
       />
       <div className="mx-auto max-w-5xl px-4 py-12">
         <OutilDraft heros={donnees} />
 
-        <p className="mt-14 border-t border-nuit-800 pt-6 text-sm leading-relaxed text-craie-500">
-          Les contres et les synergies proviennent des relations remontees par
-          le jeu, pas d&apos;une opinion. Elles ne couvrent pas tous les duels :
-          un heros sans contre connu dans une composition n&apos;est pas pour
-          autant un mauvais choix — il n&apos;a simplement rien de particulier a
-          y opposer.
-        </p>
+        <p className="mt-14 border-t border-nuit-800 pt-6 text-sm leading-relaxed text-craie-500">{t("pages.draft.note")}</p>
       </div>
     </>
   );

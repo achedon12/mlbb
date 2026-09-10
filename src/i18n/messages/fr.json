@@ -149,6 +149,55 @@
       "alaise": "{nom} est a l'aise contre",
       "difficulte2": "{nom} est en difficulte contre",
       "metaDescription": "{nom} : {roles} de Mobile Legends: Bang Bang. Position {lanes}, {skins} skins."
+    },
+    "items": {
+      "titre": "Objets",
+      "chapeau": "Les {n} objets de la boutique. Cliquez sur un objet pour voir le detail ; filtrez par categorie ou cherchez directement une statistique.",
+      "metaTitre": "Objets",
+      "metaDescription": "Les {n} objets de Mobile Legends: Bang Bang : statistiques, effets uniques, passifs, recettes et prix, avec leur visuel.",
+      "ogDescription": "Les {n} objets du jeu, avec statistiques, passifs et recettes."
+    },
+    "itemsListe": {
+      "rechercher": "Rechercher un objet, une statistique, un passif",
+      "compte": "{n} objets",
+      "compteSur": "sur {total}",
+      "prix": "Prix :",
+      "or": "or",
+      "statistiques": "Statistiques",
+      "unique": "Unique",
+      "passif": "Passif",
+      "actif": "Actif",
+      "recette": "Recette",
+      "choisir": "Choisissez un objet pour voir ses statistiques, son passif et sa recette."
+    },
+    "emblems": {
+      "titre": "Emblemes et talents",
+      "chapeau": "La vraie question n'est pas quels talents existent, mais lesquels prendre pour le role que vous jouez. Choisissez votre embleme : le reste de la page se reorganise autour.",
+      "metaTitre": "Emblemes, talents et sorts",
+      "metaDescription": "Quel embleme, quel talent et quel sort de combat prendre selon votre role dans Mobile Legends: Bang Bang. Choisissez votre embleme, la page s'organise autour.",
+      "ogDescription": "Que prendre selon votre role : emblemes, talents et sorts de combat."
+    },
+    "draft": {
+      "titre": "Aide au draft",
+      "chapeau": "Renseignez ce que vous voyez en face, lane par lane. L'outil propose des reponses et dit ce qui les justifie. Ajoutez vos propres picks au fur et a mesure : les suggestions s'ajustent.",
+      "note": "Les contres et les synergies proviennent des relations remontees par le jeu, pas d'une opinion. Elles ne couvrent pas tous les duels : un heros sans contre connu dans une composition n'est pas pour autant un mauvais choix — il n'a simplement rien de particulier a y opposer.",
+      "metaTitre": "Aide au draft",
+      "metaDescription": "Renseignez la composition adverse : l'outil propose quoi prendre sur chaque lane, et explique pourquoi — contres, synergies et taux de victoire.",
+      "ogDescription": "Quoi prendre face a la composition d'en face, et pourquoi."
+    },
+    "compare": {
+      "titre": "Comparateur",
+      "chapeau": "Choisissez deux heros et lisez leurs forces cote a cote : notes du wiki, taux de victoire et de ban remontes par le jeu, roles et positions. La meilleure valeur de chaque ligne est mise en avant.",
+      "metaTitre": "Comparateur de heros",
+      "metaDescription": "Comparez deux heros de Mobile Legends: Bang Bang cote a cote : offensive, resistance, effets, difficulte, taux de victoire et de ban, roles et positions.",
+      "ogDescription": "Deux heros compares cote a cote : notes, taux de victoire et de ban, roles."
+    },
+    "news": {
+      "titre": "Actualites et guides",
+      "chapeau": "Des articles de fond plutot que des breves : ce qui change dans le meta, pourquoi, et ce qu'il faut en faire en partie.",
+      "metaTitre": "Actualites et guides",
+      "metaDescription": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en francais. Disponible en flux RSS.",
+      "ogDescription": "Analyses du meta et guides de fond, en francais."
     }
   },
   "modeFiche": {
@@ -260,5 +309,15 @@
   },
   "acces": {
     "compte": "{n} heros"
+  },
+  "categories": {
+    "Attack": "Attaque",
+    "Magic": "Magie",
+    "Defense": "Defense",
+    "Movement": "Mouvement",
+    "Jungling": "Jungle",
+    "Roaming": "Roam",
+    "Attack & Magic": "Attaque et magie",
+    "Attack, Magic & Defense": "Attaque, magie et defense"
   }
 }

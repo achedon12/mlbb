@@ -149,6 +149,55 @@
       "alaise": "{nom} is comfortable against",
       "difficulte2": "{nom} is in difficulty against",
       "metaDescription": "{nom}: {roles} from Mobile Legends: Bang Bang. Position {lanes}, {skins} skins."
+    },
+    "items": {
+      "titre": "Objects",
+      "chapeau": "The {n} items in the store. Click on an object to see the detail; filter by category or search directly for a statistic.",
+      "metaTitre": "Objects",
+      "metaDescription": "The {n} items in Mobile Legends: Bang Bang: statistics, unique effects, passives, recipes and prices, with their visuals.",
+      "ogDescription": "The {n} game items, with stats, passives and recipes."
+    },
+    "itemsListe": {
+      "rechercher": "Search for an item, stat, passive",
+      "compte": "{n} objects",
+      "compteSur": "on {total}",
+      "prix": "Price :",
+      "or": "gold",
+      "statistiques": "Statistics",
+      "unique": "Unique",
+      "passif": "Passive",
+      "actif": "Active",
+      "recette": "Recipe",
+      "choisir": "Choose an item to see its stats, passive, and recipe."
+    },
+    "emblems": {
+      "titre": "Emblems and talents",
+      "chapeau": "The real question is not what talents exist, but which ones to take for the role you play. Choose your emblem: the rest of the page is reorganized around it.",
+      "metaTitre": "Emblems, talents and spells",
+      "metaDescription": "Which emblem, talent and combat spell to take depending on your role in Mobile Legends: Bang Bang. Choose your emblem, the page is organized around it.",
+      "ogDescription": "What to take depending on your role: emblems, talents and combat spells."
+    },
+    "draft": {
+      "titre": "Draft help",
+      "chapeau": "Fill in what you see opposite, lane by lane. The tool suggests answers and says what justifies them. Add your own picks as you go: the suggestions adjust.",
+      "note": "Counters and synergies come from relationships brought up through play, not from an opinion. They do not cover all duels: a hero without a known counter in a composition is not necessarily a bad choice - he simply has nothing in particular to oppose.",
+      "metaTitre": "Draft help",
+      "metaDescription": "Inform the opposing composition: the tool suggests what to take on each lane, and explains why — counters, synergies and victory rates.",
+      "ogDescription": "What to take when faced with the composition opposite, and why."
+    },
+    "compare": {
+      "titre": "Comparator",
+      "chapeau": "Choose two heroes and read their strengths side by side: wiki ratings, win and ban rates reported by the game, roles and positions. The best value of each line is highlighted.",
+      "metaTitre": "Hero comparator",
+      "metaDescription": "Compare two heroes from Mobile Legends: Bang Bang side by side: offensive, resistance, effects, difficulty, win and ban rates, roles and positions.",
+      "ogDescription": "Two heroes compared side by side: ratings, win and ban rates, roles."
+    },
+    "news": {
+      "titre": "News and guides",
+      "chapeau": "In-depth articles rather than short ones: what's changing in the meta, why, and what to do about it.",
+      "metaTitre": "News and guides",
+      "metaDescription": "Mobile Legends: Bang Bang meta analyses, background guides and patch readings, in French. Available in RSS feed.",
+      "ogDescription": "Meta analyzes and in-depth guides, in French."
     }
   },
   "modeFiche": {
@@ -220,7 +269,7 @@
   },
   "home": {
     "titre1": "The whole game, explains",
-    "titreAccent": "in English",
+    "titreAccent": "in French",
     "lead": "{heros} heroes and their {skins} skins, a tier list calculated on game rates, draft assistance, items, emblems and patch notes. The data synchronizes itself; the analysis is written by hand.",
     "parcourir": "Browse heroes",
     "aideDraft": "Draft help",
@@ -260,5 +309,15 @@
   },
   "acces": {
     "compte": "{n} heroes"
+  },
+  "categories": {
+    "Attack": "Attack",
+    "Magic": "Magic",
+    "Defense": "Defense",
+    "Movement": "Movement",
+    "Jungling": "Jungle",
+    "Roaming": "Roam",
+    "Attack & Magic": "Attack and magic",
+    "Attack, Magic & Defense": "Attack, magic and defense"
   }
 }

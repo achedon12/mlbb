@@ -2,31 +2,32 @@ import type { Metadata } from "next";
 import { ListeArticles } from "@/components/article";
 import { EnTetePage } from "@/components/ui";
 import { articles } from "@/lib/contenu";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Actualites et guides",
-  description:
-    "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en francais. Disponible en flux RSS.",
-  alternates: {
-    canonical: "/news",
-    types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.nom} — actualites` }] },
-  },
-  openGraph: {
-    title: `Actualites et guides — ${site.nom}`,
-    description: "Analyses du meta et guides de fond, en francais.",
-    url: "/news",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.news.metaTitre"),
+    description: t("pages.news.metaDescription"),
+    alternates: { ...metaLangues(locale, "/news"), types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.nom}` }] } },
+    openGraph: { title: `${t("pages.news.metaTitre")} — ${site.nom}`, description: t("pages.news.ogDescription"), url: `/${locale}/news` },
+  };
+}
 
-export default function PageActualites() {
+export default async function PageActualites({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const liste = articles("actualites");
 
   return (
     <>
       <EnTetePage
-        titre="Actualites et guides"
-        chapeau="Des articles de fond plutot que des breves : ce qui change dans le meta, pourquoi, et ce qu'il faut en faire en partie."
+        titre={t("pages.news.titre")}
+        chapeau={t("pages.news.chapeau")}
       />
       <div className="mx-auto max-w-3xl px-4 py-14">
         <ListeArticles articles={liste} base="/news" />

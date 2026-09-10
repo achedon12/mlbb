@@ -2,37 +2,41 @@ import type { Metadata } from "next";
 import { ListeObjets } from "@/components/liste-objets";
 import { EnTetePage } from "@/components/ui";
 import visuels from "@/data/jeu/visuels.json";
-import { categoriesObjets, NOM_CATEGORIE, objets } from "@/lib/donnees";
+import { categoriesObjets, objets } from "@/lib/donnees";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Objets",
-  description: `Les ${objets.length} objets de Mobile Legends: Bang Bang : statistiques, effets uniques, passifs, recettes et prix, avec leur visuel.`,
-  alternates: { canonical: "/items" },
-  openGraph: {
-    title: `Objets — ${site.nom}`,
-    description: `Les ${objets.length} objets du jeu, avec statistiques, passifs et recettes.`,
-    url: "/items",
-  },
-};
+type Params = { params: Promise<{ locale: Langue }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.items.metaTitre"),
+    description: t("pages.items.metaDescription", { n: objets.length }),
+    alternates: metaLangues(locale, "/items"),
+    openGraph: {
+      title: `${t("pages.items.metaTitre")} — ${site.nom}`,
+      description: t("pages.items.ogDescription", { n: objets.length }),
+      url: `/${locale}/items`,
+    },
+  };
+}
 
 const images = visuels.objets as Record<string, string>;
 
-export default function PageObjets() {
+export default async function PageObjets({ params }: Params) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const apercus = objets.map((o) => ({ ...o, image: images[o.slug] ?? null }));
 
   return (
     <>
-      <EnTetePage
-        titre="Objets"
-        chapeau={`Les ${objets.length} objets de la boutique. Cliquez sur un objet pour voir le detail ; filtrez par categorie ou cherchez directement une statistique.`}
-      />
+      <EnTetePage titre={t("pages.items.titre")} chapeau={t("pages.items.chapeau", { n: objets.length })} />
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <ListeObjets
-          objets={apercus}
-          categories={categoriesObjets}
-          nomCategorie={NOM_CATEGORIE}
-        />
+        <ListeObjets objets={apercus} categories={categoriesObjets} />
       </div>
     </>
   );

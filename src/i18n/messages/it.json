@@ -149,6 +149,55 @@
       "alaise": "{nom} è comodo contro",
       "difficulte2": "{nom} è in difficoltà contro",
       "metaDescription": "{nom}: {roles} da Mobile Legends: Bang Bang. Posizionare le pelli {lanes}, {skins}."
+    },
+    "items": {
+      "titre": "Oggetti",
+      "chapeau": "Gli articoli {n} nel negozio. Clicca su un oggetto per vedere il dettaglio; filtra per categoria o cerca direttamente una statistica.",
+      "metaTitre": "Oggetti",
+      "metaDescription": "Gli oggetti {n} in Mobile Legends: Bang Bang: statistiche, effetti unici, passivi, ricette e prezzi, con le loro immagini.",
+      "ogDescription": "Gli oggetti di gioco {n}, con statistiche, abilità passive e ricette."
+    },
+    "itemsListe": {
+      "rechercher": "Cerca un oggetto, una statistica o un passivo",
+      "compte": "{n} oggetti",
+      "compteSur": "su {total}",
+      "prix": "Prezzo :",
+      "or": "oro",
+      "statistiques": "Statistiche",
+      "unique": "Unico",
+      "passif": "Passivo",
+      "actif": "Attivo",
+      "recette": "Ricetta",
+      "choisir": "Scegli un oggetto per visualizzarne le statistiche, la passiva e la ricetta."
+    },
+    "emblems": {
+      "titre": "Emblemi e talenti",
+      "chapeau": "La vera domanda non è quali talenti esistano, ma quali assumere per il ruolo che ricopri. Scegli il tuo stemma: il resto della pagina si riorganizza attorno ad esso.",
+      "metaTitre": "Emblemi, talenti e incantesimi",
+      "metaDescription": "Quale emblema, talento e incantesimo di combattimento prendere a seconda del tuo ruolo in Mobile Legends: Bang Bang. Scegli il tuo stemma, la pagina è organizzata attorno ad esso.",
+      "ogDescription": "Cosa prendere a seconda del tuo ruolo: emblemi, talenti e incantesimi di combattimento."
+    },
+    "draft": {
+      "titre": "Progetto di aiuto",
+      "chapeau": "Compila ciò che vedi di fronte, corsia per corsia. Lo strumento suggerisce risposte e dice cosa le giustifica. Aggiungi le tue scelte man mano che procedi: i suggerimenti si adattano.",
+      "note": "Le contromisure e le sinergie nascono da relazioni nate attraverso il gioco, non da un'opinione. Non coprono tutti i duelli: un eroe senza un segnalino conosciuto nella composizione non è necessariamente una cattiva scelta - semplicemente non ha nulla in particolare a cui opporsi.",
+      "metaTitre": "Progetto di aiuto",
+      "metaDescription": "Informa la composizione avversaria: lo strumento suggerisce cosa prendere su ogni corsia e spiega perché: contromosse, sinergie e percentuali di vittoria.",
+      "ogDescription": "Cosa prendere di fronte alla composizione opposta e perché."
+    },
+    "compare": {
+      "titre": "Comparatore",
+      "chapeau": "Scegli due eroi e leggi i loro punti di forza fianco a fianco: valutazioni wiki, tassi di vincita e ban riportati dal gioco, ruoli e posizioni. Viene evidenziato il valore migliore di ciascuna riga.",
+      "metaTitre": "Comparatore di eroi",
+      "metaDescription": "Confronta due eroi di Mobile Legends: Bang Bang fianco a fianco: offensiva, resistenza, effetti, difficoltà, tassi di vincita e ban, ruoli e posizioni.",
+      "ogDescription": "Due eroi a confronto: valutazioni, percentuali di vittorie e ban, ruoli."
+    },
+    "news": {
+      "titre": "Novità e guide",
+      "chapeau": "Articoli approfonditi piuttosto che brevi: cosa sta cambiando nel meta, perché e cosa fare al riguardo.",
+      "metaTitre": "Novità e guide",
+      "metaDescription": "Mobile Legends: meta-analisi Bang Bang, guide di base e letture delle patch, in francese. Disponibile nel feed RSS.",
+      "ogDescription": "Metaanalisi e guide di approfondimento, in francese."
     }
   },
   "modeFiche": {
@@ -220,7 +269,7 @@
   },
   "home": {
     "titre1": "L'intero gioco, spiega",
-    "titreAccent": "in italiano",
+    "titreAccent": "in francese",
     "lead": "{heros} eroi e le loro {skins} skin, un elenco di livelli calcolato in base alle tariffe di gioco, assistenza al draft, oggetti, emblemi e note sulla patch. I dati si sincronizzano; l'analisi è scritta a mano.",
     "parcourir": "Sfoglia gli eroi",
     "aideDraft": "Progetto di aiuto",
@@ -260,5 +309,15 @@
   },
   "acces": {
     "compte": "{n} eroi"
+  },
+  "categories": {
+    "Attack": "Attacco",
+    "Magic": "Magia",
+    "Defense": "Difesa",
+    "Movement": "Movimento",
+    "Jungling": "Giungla",
+    "Roaming": "Vagare",
+    "Attack & Magic": "Attacco e magia",
+    "Attack, Magic & Defense": "Attacco, magia e difesa"
   }
 }
