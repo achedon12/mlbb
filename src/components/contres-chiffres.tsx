@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/lien";
 import { PortraitHeros } from "@/components/portrait-heros";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { useRang } from "@/components/selecteur-rang";

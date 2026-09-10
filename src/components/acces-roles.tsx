@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/lien";
 import type { Role } from "@/lib/types";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";

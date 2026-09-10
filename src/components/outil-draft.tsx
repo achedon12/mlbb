@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { PortraitHeros } from "@/components/portrait-heros";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { RotateCcw, X } from "lucide-react";
 import { ChampRecherche } from "@/components/champ-recherche";
 import { GroupeFiltres, Puce } from "@/components/puce";

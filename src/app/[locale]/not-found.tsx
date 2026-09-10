@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/lien";
 import { useT } from "@/i18n/fournisseur";
 
 export default function Introuvable() {

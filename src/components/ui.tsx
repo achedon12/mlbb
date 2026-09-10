@@ -1,5 +1,5 @@
 import { FilAriane, type Miette } from "@/components/fil-ariane";
-import Link from "next/link";
+import Link from "@/components/lien";
 import type { Palier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 

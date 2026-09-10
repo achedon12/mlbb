@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PortraitHeros } from "@/components/portrait-heros";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { ArrowRight, ChevronDown, Minus, TrendingDown, TrendingUp } from "lucide-react";
 import type { AjustementHeros, TypeAjustement } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/lien";
 import visuels from "@/data/jeu/visuels.json";
 import { objets } from "@/lib/donnees";
 

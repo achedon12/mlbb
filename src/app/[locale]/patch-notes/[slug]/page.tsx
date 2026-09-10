@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { creerT } from "@/i18n/traductions";
 import { assainirHtml, donneesLd } from "@/lib/html";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { CorpsArticle } from "@/components/article";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/lien";
 import { donneesLd } from "@/lib/html";
 import Image from "next/image";
 import { ArrowRight, Rss, Swords, TrendingUp } from "lucide-react";

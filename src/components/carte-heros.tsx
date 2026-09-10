@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/lien";
 import { useT } from "@/i18n/fournisseur";
 import type { Lane, Palier, Role, VisuelsHeros } from "@/lib/types";
 import { IndicateurFavori } from "./indicateur-favori";

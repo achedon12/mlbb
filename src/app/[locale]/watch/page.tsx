@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { ExternalLink } from "lucide-react";
 import { EnTetePage } from "@/components/ui";
 import { mesureVeille, sources, veille } from "@/lib/veille";

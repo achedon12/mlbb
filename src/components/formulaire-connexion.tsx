@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/lien";
 import { useActionState } from "react";
 import { ArrowLeft, KeyRound, Send } from "lucide-react";
 import { demanderCode, verifierCode, type Etat } from "@/lib/actions";

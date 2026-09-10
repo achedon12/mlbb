@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { useT } from "@/i18n/fournisseur";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { MonitorSmartphone, Star, X } from "lucide-react";
 import { abonnerFavoris, basculerFavori, favorisServeur, instantaneFavoris } from "@/lib/favoris";
 import { herosParSlug } from "@/lib/donnees-client";

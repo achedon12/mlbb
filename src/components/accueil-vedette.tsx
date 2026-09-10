@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { ArrowRight } from "lucide-react";
 import type { Heros } from "@/lib/types";
 import type { Langue } from "@/i18n/config";

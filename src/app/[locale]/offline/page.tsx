@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { metaLangues } from "@/i18n/seo";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { WifiOff } from "lucide-react";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";

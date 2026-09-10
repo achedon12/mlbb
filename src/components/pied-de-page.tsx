@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/lien";
 import { Github, Rss } from "lucide-react";
 import type { Langue } from "@/i18n/config";
 import { creerT, type T } from "@/i18n/traductions";

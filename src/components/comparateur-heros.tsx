@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { PortraitHeros } from "@/components/portrait-heros";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { ChevronDown } from "lucide-react";
 import type { Palier } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";

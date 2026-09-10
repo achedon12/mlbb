@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LOCALE_HTML } from "@/i18n/config";
 import { donneesLd } from "@/lib/html";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";

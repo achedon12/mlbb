@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { useState } from "react";
 import { ChoixBuild } from "@/components/choix-build";
 import { GroupeFiltres, Puce } from "@/components/puce";

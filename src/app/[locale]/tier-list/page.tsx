@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/lien";
 import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgePalier, EnTetePage } from "@/components/ui";
 import {

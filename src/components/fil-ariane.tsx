@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/lien";
 import { ChevronRight, House } from "lucide-react";
 import { useLangue, useT } from "@/i18n/fournisseur";
 import { donneesLd } from "@/lib/html";
