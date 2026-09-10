@@ -22,8 +22,6 @@ const nextConfig: NextConfig = {
     // Moonton, affichees en pointant vers leur hebergeur.
     remotePatterns: [
       { protocol: "https", hostname: "static.wikia.nocookie.net" },
-      // Vignettes des presentations video ; le lecteur n'est charge qu'au clic.
-      { protocol: "https", hostname: "i.ytimg.com" },
       // Avatars de profil, servis par le CDN de Moonton.
       { protocol: "https", hostname: "akmpicture.youngjoygame.com" },
       // Icones de competences en repli, quand le wiki ne les fournit pas.
