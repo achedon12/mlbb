@@ -9,10 +9,14 @@ updates:
       interval: weekly
       day: monday
     open-pull-requests-limit: 5
+    # Les mises a jour mineures et correctives sont regroupees, sures a passer
+    # en lot ; les versions majeures arrivent en pull requests separees, pour
+    # etre relues et testees une par une plutot qu'appliquees en aveugle.
     groups:
       dependances:
-        patterns:
-          - "*"
+        update-types:
+          - minor
+          - patch
 
   - package-ecosystem: github-actions
     directory: "/"
