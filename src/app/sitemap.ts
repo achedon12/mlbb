@@ -26,6 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       { url: `${site.url}/patch-notes`, changeFrequency: "weekly", priority: 0.8 },
       { url: `${site.url}/api-doc`, changeFrequency: "monthly", priority: 0.5 },
       { url: `${site.url}/a-propos`, changeFrequency: "yearly", priority: 0.3 },
+      { url: `${site.url}/mentions-legales`, changeFrequency: "yearly", priority: 0.2 },
+      { url: `${site.url}/confidentialite`, changeFrequency: "yearly", priority: 0.2 },
     ] as const
   ).map((e) => ({ ...e, lastModified: maintenant }));
 

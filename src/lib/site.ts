@@ -13,6 +13,15 @@ export const site = {
   depot: "https://github.com/achedon12/mlbb",
 } as const;
 
+/** Informations legales : editeur, hebergeur, contact. */
+export const legal = {
+  editeur: "Leo Deroin",
+  editeurSite: "https://leoderoin.fr",
+  contact: "contact@leoderoin.fr",
+  hebergeur: "Lord Hosting",
+  hebergeurSite: "https://lord-hosting.com",
+} as const;
+
 /**
  * Navigation principale.
  *
