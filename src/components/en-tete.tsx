@@ -11,9 +11,9 @@ import { MenuMobile } from "./menu-mobile";
  * `BoutonCompte` apres l'affichage, ce qui laisse toutes les pages de contenu
  * generees au build.
  *
- * La navigation apparait des la largeur des tablettes plutot qu'a partir des
- * grands ecrans : huit liens tiennent largement sur 900 px, et reduire une
- * tablette a un menu burger serait un recul.
+ * La navigation horizontale s'affiche a partir des grands ecrans : ses neuf
+ * rubriques ne tiennent pas sur la largeur d'une tablette, ou le menu burger
+ * prend donc le relais jusqu'a ce qu'il y ait la place.
  */
 export function EnTete() {
   const jeu = navigation.filter((l) => l.groupe === "jeu");
@@ -37,7 +37,7 @@ export function EnTete() {
           </span>
         </Link>
 
-        <nav aria-label="Navigation principale" className="hidden md:block">
+        <nav aria-label="Navigation principale" className="hidden lg:block">
           <ul className="flex items-center">
             {jeu.map((lien) => (
               <li key={lien.href}>

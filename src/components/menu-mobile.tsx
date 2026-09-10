@@ -15,7 +15,7 @@ export function MenuMobile() {
   const [ouvert, setOuvert] = useState(false);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         onClick={() => setOuvert((o) => !o)}
