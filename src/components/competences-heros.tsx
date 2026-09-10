@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Carte } from "@/components/ui";
 import type { Competence, CompetenceWiki } from "@/lib/types";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 
 /**
  * Competences d'un heros.
@@ -23,13 +25,16 @@ const TYPES = ["Passif", "Competence 1", "Competence 2", "Ultime"] as const;
 
 export function CompetencesHeros({
   wiki,
+  langue,
   icones,
   redigees,
 }: {
   wiki: (CompetenceWiki | null)[];
+  langue: Langue;
   icones: Record<string, string>;
   redigees: Competence[] | null;
 }) {
+  const t = creerT(langue);
   const officielles = wiki.slice(0, 4);
   const nombre = Math.max(officielles.length, redigees?.length ?? 0);
 
@@ -76,19 +81,16 @@ export function CompetencesHeros({
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <span className="biseau-sm bg-nuit-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
-                  {type}
+                  {t(`comp.${type}`)}
                 </span>
                 <h3 className="font-titre text-lg font-bold text-craie-100">
-                  {nomWiki ?? redigee?.nom ?? "Competence"}
+                  {nomWiki ?? redigee?.nom ?? t("comp.Competence")}
                 </h3>
               </div>
 
               {description ? (
                 <p
                   className="mt-3 leading-relaxed text-craie-300"
-                  // Le texte officiel est en anglais : l'annoncer permet aux
-                  // lecteurs d'ecran et aux traducteurs de s'y adapter.
-                  lang={redigee?.description ? undefined : "en"}
                 >
                   {description}
                 </p>

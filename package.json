@@ -32,12 +32,15 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "sync": "node scripts/sync.mjs",
-    "traduire": "node scripts/traduire-histoires.mjs && node scripts/traduire-competences.mjs && node scripts/traduire-modes.mjs",
+    "traduire": "node scripts/traduire-messages.mjs && node scripts/traduire-donnees.mjs && node scripts/traduire-articles.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "veille": "node scripts/veille.mjs"
+    "veille": "node scripts/veille.mjs",
+    "traduire:messages": "node scripts/traduire-messages.mjs",
+    "traduire:donnees": "node scripts/traduire-donnees.mjs",
+    "traduire:articles": "node scripts/traduire-articles.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

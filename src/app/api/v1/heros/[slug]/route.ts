@@ -30,7 +30,7 @@ export async function GET(
     region: h.region,
     notes: h.notes,
     statistiques: h.stats,
-    competences: competences[h.slug] ?? [],
+    competences: competences("en")[h.slug] ?? [],
     skins: h.skins,
     visuels: h.visuels,
     illustrations: illustrations[h.slug] ?? {},

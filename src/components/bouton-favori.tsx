@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { useT } from "@/i18n/fournisseur";
 import { Star } from "lucide-react";
 import { abonnerFavoris, basculerFavori, favorisServeur, instantaneFavoris } from "@/lib/favoris";
 import { cn } from "@/lib/utils";
@@ -13,6 +14,7 @@ import { cn } from "@/lib/utils";
  * l'etat neutre affiche jusqu'a ce que le navigateur ait rendu la main.
  */
 export function BoutonFavori({ heros }: { heros: string }) {
+  const t = useT();
   const favoris = useSyncExternalStore(abonnerFavoris, instantaneFavoris, favorisServeur);
   const favori = favoris.includes(heros);
 
@@ -29,7 +31,7 @@ export function BoutonFavori({ heros }: { heros: string }) {
       )}
     >
       <Star size={15} aria-hidden fill={favori ? "currentColor" : "none"} />
-      {favori ? "Dans mes favoris" : "Ajouter aux favoris"}
+      {favori ? t("favoris.dans") : t("favoris.ajouter")}
     </button>
   );
 }

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Minus, TrendingDown, TrendingUp } from "lucide-react";
 import type { AjustementHeros, TypeAjustement } from "@/lib/types";
+import { useT } from "@/i18n/fournisseur";
 
 /** Ajustement enrichi cote serveur : portrait et existence de fiche resolus. */
 export interface AjustementEnrichi extends AjustementHeros {
@@ -24,22 +25,19 @@ import { cn } from "@/lib/utils";
  */
 const STYLE: Record<
   TypeAjustement,
-  { libelle: string; couleur: string; fond: string; icone: React.ReactNode }
+  { couleur: string; fond: string; icone: React.ReactNode }
 > = {
   amelioration: {
-    libelle: "Amelioration",
     couleur: "text-emerald-400",
     fond: "border-emerald-500/30",
     icone: <TrendingUp size={14} aria-hidden />,
   },
   affaiblissement: {
-    libelle: "Affaiblissement",
     couleur: "text-sang-500",
     fond: "border-sang-500/30",
     icone: <TrendingDown size={14} aria-hidden />,
   },
   ajustement: {
-    libelle: "Ajustement",
     couleur: "text-azur-400",
     fond: "border-azur-500/30",
     icone: <Minus size={14} aria-hidden />,
@@ -53,6 +51,7 @@ export function PatchHeros({
   ajustements: AjustementEnrichi[];
   bilan: Record<TypeAjustement, number>;
 }) {
+  const t = useT();
   const [filtre, setFiltre] = useState<TypeAjustement | null>(null);
 
   const visibles = filtre ? ajustements.filter((a) => a.type === filtre) : ajustements;
@@ -77,7 +76,7 @@ export function PatchHeros({
             >
               <span className={s.couleur}>{s.icone}</span>
               <span className="font-semibold text-craie-100">{bilan[type] ?? 0}</span>
-              <span className="text-craie-500">{s.libelle}s</span>
+              <span className="text-craie-500">{t(`patchHeros.${type}`)}s</span>
             </button>
           );
         })}
@@ -101,6 +100,7 @@ function LigneHeros({
   portrait: string | null;
   fiche: boolean;
 }) {
+  const t = useT();
   const [ouvert, setOuvert] = useState(false);
   const s = ajustement.type ? STYLE[ajustement.type] : null;
   const detaille = ajustement.sections.length > 0 || ajustement.intro.length > 0;
@@ -131,7 +131,7 @@ function LigneHeros({
           {s && (
             <span className={cn("mt-0.5 flex items-center gap-1 text-xs font-semibold", s.couleur)}>
               {s.icone}
-              {s.libelle}
+              {t(`patchHeros.${ajustement.type}`)}
             </span>
           )}
         </span>

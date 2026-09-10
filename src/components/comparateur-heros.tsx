@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import type { Palier } from "@/lib/types";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 export interface HerosComparable {
@@ -33,10 +34,10 @@ const COULEUR_PALIER: Record<Palier, string> = {
 };
 
 const ATTRIBUTS = [
-  { cle: "offensive", label: "Offensive" },
-  { cle: "resistance", label: "Resistance" },
-  { cle: "effets", label: "Effets / controle" },
-  { cle: "difficulte", label: "Difficulte" },
+  { cle: "offensive", cleI18n: "offensive" },
+  { cle: "resistance", cleI18n: "resistance" },
+  { cle: "effets", cleI18n: "effets" },
+  { cle: "difficulte", cleI18n: "difficulte" },
 ] as const;
 
 /**
@@ -47,6 +48,7 @@ const ATTRIBUTS = [
  * coup d'oeil plutot que de comparer chiffre a chiffre.
  */
 export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
+  const t = useT();
   const parSlug = useMemo(() => new Map(heros.map((h) => [h.slug, h])), [heros]);
   const [gauche, setGauche] = useState(heros[0]?.slug ?? "");
   const [droite, setDroite] = useState(heros[1]?.slug ?? "");
@@ -85,8 +87,8 @@ export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
   return (
     <div>
       <div className="grid grid-cols-2 gap-3 sm:gap-5">
-        <Selecteur label="Premier heros" heros={heros} valeur={gauche} onChange={setGauche} />
-        <Selecteur label="Second heros" heros={heros} valeur={droite} onChange={setDroite} />
+        <Selecteur label={t("compareUI.premier")} heros={heros} valeur={gauche} onChange={setGauche} />
+        <Selecteur label={t("compareUI.second")} heros={heros} valeur={droite} onChange={setDroite} />
       </div>
 
       {a && b && (
@@ -98,17 +100,17 @@ export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
 
           {/* Taux remontes par le jeu. */}
           <div className="mt-6 space-y-2">
-            <LigneMesure label="Taux de victoire" suffixe="%" a={a.victoire} b={b.victoire} />
-            <LigneMesure label="Taux de ban" suffixe="%" a={a.ban} b={b.ban} plusHautMieux={false} />
-            <LigneMesure label="Skins" a={a.skins} b={b.skins} />
+            <LigneMesure label={t("compareUI.tauxVictoire")} suffixe="%" a={a.victoire} b={b.victoire} />
+            <LigneMesure label={t("compareUI.tauxBan")} suffixe="%" a={a.ban} b={b.ban} plusHautMieux={false} />
+            <LigneMesure label={t("compareUI.skins")} a={a.skins} b={b.skins} />
           </div>
 
           {/* Notes editoriales du wiki, comparees en barres. */}
           <div className="mt-8 space-y-5">
-            {ATTRIBUTS.map(({ cle, label }) => (
+            {ATTRIBUTS.map(({ cle, cleI18n }) => (
               <LigneAttribut
                 key={cle}
-                label={label}
+                label={t(`compareUI.${cleI18n}`)}
                 a={a.notes[cle]}
                 b={b.notes[cle]}
                 // Une difficulte plus basse est plutot un avantage : on ne met
@@ -153,6 +155,7 @@ function Selecteur({
 }
 
 function EnTeteHeros({ heros }: { heros: HerosComparable }) {
+  const t = useT();
   return (
     <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
       <div className="flex items-center gap-3">
@@ -181,8 +184,8 @@ function EnTeteHeros({ heros }: { heros: HerosComparable }) {
             )}
           </div>
           <p className="mt-0.5 truncate text-xs text-craie-500">
-            {heros.roles.join(" · ")}
-            {heros.lanes.length > 0 && ` — ${heros.lanes.join(" · ")}`}
+            {heros.roles.map((r) => t(`roles.${r}`)).join(" · ")}
+            {heros.lanes.length > 0 && ` — ${heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ")}`}
           </p>
         </div>
       </div>

@@ -11,6 +11,8 @@
  * pas etre composee dynamiquement sans casser la purge de Tailwind.
  */
 export interface Rarete {
+  /** Clef anglaise d'origine, pour la traduction. */
+  cle: string;
   nom: string;
   couleur: string;
   halo: string;
@@ -19,16 +21,17 @@ export interface Rarete {
 }
 
 export const RARETES: Record<string, Rarete> = {
-  Common: { nom: "Commun", couleur: "#9aa7c2", halo: "rgba(154,167,194,0.3)", rang: 1 },
-  Exquisite: { nom: "Exquis", couleur: "#4da3ff", halo: "rgba(77,163,255,0.35)", rang: 2 },
-  Exceptional: { nom: "Exceptionnel", couleur: "#3ddc97", halo: "rgba(61,220,151,0.35)", rang: 3 },
-  Deluxe: { nom: "Deluxe", couleur: "#b06bff", halo: "rgba(176,107,255,0.4)", rang: 4 },
-  Grand: { nom: "Grandiose", couleur: "#f5c451", halo: "rgba(245,196,81,0.45)", rang: 5 },
-  Supreme: { nom: "Supreme", couleur: "#ff4d6d", halo: "rgba(255,77,109,0.5)", rang: 6 },
+  Common: { cle: "Common", nom: "Commun", couleur: "#9aa7c2", halo: "rgba(154,167,194,0.3)", rang: 1 },
+  Exquisite: { cle: "Exquisite", nom: "Exquis", couleur: "#4da3ff", halo: "rgba(77,163,255,0.35)", rang: 2 },
+  Exceptional: { cle: "Exceptional", nom: "Exceptionnel", couleur: "#3ddc97", halo: "rgba(61,220,151,0.35)", rang: 3 },
+  Deluxe: { cle: "Deluxe", nom: "Deluxe", couleur: "#b06bff", halo: "rgba(176,107,255,0.4)", rang: 4 },
+  Grand: { cle: "Grand", nom: "Grandiose", couleur: "#f5c451", halo: "rgba(245,196,81,0.45)", rang: 5 },
+  Supreme: { cle: "Supreme", nom: "Supreme", couleur: "#ff4d6d", halo: "rgba(255,77,109,0.5)", rang: 6 },
 };
 
 /** Le skin d'origine n'a pas de rarete : il n'a jamais ete achete. */
 export const RARETE_ORIGINE: Rarete = {
+  cle: "origine",
   nom: "Origine",
   couleur: "#3a4767",
   halo: "rgba(58,71,103,0.4)",

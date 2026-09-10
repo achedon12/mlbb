@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Heros } from "@/lib/types";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 
 /**
  * Heros mis en avant, en pleine largeur.
@@ -15,12 +17,15 @@ export function AccueilVedette({
   illustration,
   palier,
   victoire,
+  langue,
 }: {
   heros: Heros;
   illustration: string;
   palier: string | null;
   victoire: number | null;
+  langue: Langue;
 }) {
+  const t = creerT(langue);
   return (
     <section className="relative overflow-hidden border-b border-nuit-700/70">
       <div aria-hidden className="absolute inset-0">
@@ -39,7 +44,7 @@ export function AccueilVedette({
 
       <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
         <p className="font-titre text-sm font-semibold uppercase tracking-[0.2em] text-or-400">
-          Heros du jour
+          {t("vedette.herosDuJour")}
         </p>
 
         <h2 className="mt-3 font-titre text-5xl font-bold leading-none text-craie-100 sm:text-6xl">
@@ -49,11 +54,11 @@ export function AccueilVedette({
 
         <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           {[
-            ["Role", heros.roles.join(", ")],
-            ["Position", heros.lanes.join(", ")],
-            palier ? ["Tier list", `Palier ${palier}`] : null,
-            victoire !== null ? ["Victoires", `${victoire.toFixed(1)} %`] : null,
-            heros.skins.length ? ["Skins", String(heros.skins.length)] : null,
+            [t("vedette.role"), heros.roles.map((r) => t(`roles.${r}`)).join(", ")],
+            [t("vedette.position"), heros.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
+            palier ? [t("vedette.tierList"), t("vedette.palier", { p: palier })] : null,
+            victoire !== null ? [t("vedette.victoires"), `${victoire.toFixed(1)} %`] : null,
+            heros.skins.length ? [t("vedette.skins"), String(heros.skins.length)] : null,
           ]
             .filter((e): e is [string, string] => e !== null && Boolean(e[1]))
             .map(([label, valeur]) => (
@@ -68,7 +73,7 @@ export function AccueilVedette({
           href={`/heroes/${heros.slug}`}
           className="biseau-sm mt-8 inline-flex items-center gap-2 bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
         >
-          Voir sa fiche
+          {t("vedette.voirFiche")}
           <ArrowRight size={18} aria-hidden />
         </Link>
       </div>

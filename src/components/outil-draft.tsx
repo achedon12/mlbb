@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { RotateCcw, Search, X } from "lucide-react";
 import { LANES, suggerer, type HerosDraft } from "@/lib/draft";
+import { useT } from "@/i18n/fournisseur";
 import type { Lane } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -27,6 +28,7 @@ const VIDE: Record<Lane, string | null> = {
 };
 
 export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
+  const t = useT();
   const [ennemis, setEnnemis] = useState<Record<Lane, string | null>>(VIDE);
   const [allies, setAllies] = useState<Record<Lane, string | null>>(VIDE);
   const [ouvert, setOuvert] = useState<{ camp: Camp; lane: Lane } | null>(null);
@@ -59,8 +61,8 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
     <div className="space-y-8">
       <div className="grid gap-6 lg:grid-cols-2">
         <Colonne
-          titre="Equipe adverse"
-          aide="Ce que vous voyez en face."
+          titre={t("draftUI.adverse")}
+          aide={t("draftUI.adverseDesc")}
           camp="ennemis"
           selection={ennemis}
           parSlug={parSlug}
@@ -69,8 +71,8 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
           accent="sang"
         />
         <Colonne
-          titre="Votre equipe"
-          aide="Vos picks deja poses. Ils ouvrent des synergies."
+          titre={t("draftUI.votre")}
+          aide={t("draftUI.votreDesc")}
           camp="allies"
           selection={allies}
           parSlug={parSlug}
@@ -90,20 +92,18 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
           className="biseau-sm inline-flex items-center gap-2 border border-nuit-700 px-4 py-2 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
         >
           <RotateCcw size={14} aria-hidden />
-          Tout effacer
+          {t("draftUI.toutEffacer")}
         </button>
       )}
 
       {/* ── Suggestions ──────────────────────────────────────────────── */}
       <section>
-        <h2 className="font-titre text-2xl font-bold text-craie-100">Que prendre</h2>
+        <h2 className="font-titre text-2xl font-bold text-craie-100">{t("draftUI.quePrendre")}</h2>
         <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
 
         {vide ? (
           <p className="mt-4 max-w-2xl leading-relaxed text-craie-500">
-            Renseignez au moins un heros adverse. Les suggestions se classent
-            d&apos;abord sur les contres, puis sur les synergies avec vos propres
-            picks ; le taux de victoire ne sert qu&apos;a departager.
+            {t("draftUI.intro")}
           </p>
         ) : (
           <div className="mt-6 space-y-5">
@@ -113,7 +113,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                   {lane}
                   {allies[lane] && (
                     <span className="ml-2 font-medium normal-case tracking-normal text-craie-500">
-                      deja pourvue
+                      {t("draftUI.dejaPourvue")}
                     </span>
                   )}
                 </h3>
@@ -151,7 +151,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                               ))}
                               {s.raisons.length === 0 && (
                                 <li className="text-xs text-craie-500">
-                                  aucun contre connu dans cette composition
+                                  {t("draftUI.aucunContre")}
                                 </li>
                               )}
                             </ul>
@@ -159,10 +159,10 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                           <button
                             type="button"
                             onClick={() => choisir("allies", lane, s.heros.slug)}
-                            title={`Choisir ${s.heros.nom} en ${lane}`}
+                            title={t("draftUI.choisirEn", { nom: s.heros.nom, lane: t(`lanes.${lane}`) })}
                             className="biseau-sm self-start border border-nuit-600 px-2 py-1 text-xs text-craie-300 transition-colors hover:border-or-500 hover:text-or-400"
                           >
-                            Prendre
+                            {t("draftUI.prendre")}
                           </button>
                         </div>
                       </li>
@@ -207,6 +207,7 @@ function Colonne({
   onRetirer: (lane: Lane) => void;
   accent: "sang" | "azur";
 }) {
+  const t = useT();
   return (
     <section>
       <h2 className="font-titre text-lg font-bold text-craie-100">{titre}</h2>
@@ -218,7 +219,7 @@ function Colonne({
           return (
             <li key={lane} className="flex items-center gap-2">
               <span className="w-24 shrink-0 text-xs uppercase tracking-wide text-craie-500">
-                {lane}
+                {t(`lanes.${lane}`)}
               </span>
 
               {heros ? (
@@ -235,7 +236,7 @@ function Colonne({
                   <button
                     type="button"
                     onClick={() => onRetirer(lane)}
-                    aria-label={`Retirer ${heros.nom}`}
+                    aria-label={t("draftUI.retirer", { nom: heros.nom })}
                     className="grid size-6 place-items-center text-craie-500 transition-colors hover:text-sang-500"
                   >
                     <X size={13} aria-hidden />
@@ -247,7 +248,7 @@ function Colonne({
                   onClick={() => onOuvrir({ camp, lane })}
                   className="biseau-sm flex-1 border border-dashed border-nuit-700 px-3 py-2 text-left text-sm text-craie-500 transition-colors hover:border-or-500/60 hover:text-or-400"
                 >
-                  Choisir un heros
+                  {t("draftUI.choisirUn")}
                 </button>
               )}
             </li>
@@ -290,6 +291,7 @@ function Selecteur({
   onChoisir: (slug: string) => void;
   onFermer: () => void;
 }) {
+  const t = useT();
   const [recherche, setRecherche] = useState("");
 
   const resultats = useMemo(() => {
@@ -304,7 +306,7 @@ function Selecteur({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`Choisir un heros pour la lane ${lane}`}
+      aria-label={t("draftUI.choisirLane", { lane: t(`lanes.${lane}`) })}
       className="fixed inset-0 z-50 grid place-items-center bg-nuit-950/80 p-4"
       onClick={onFermer}
     >
@@ -324,15 +326,15 @@ function Selecteur({
               type="search"
               value={recherche}
               onChange={(e) => setRecherche(e.target.value)}
-              placeholder={`Heros de ${lane} — ou cherchez par nom`}
-              aria-label="Rechercher un heros"
+              placeholder={t("draftUI.placeholderLane", { lane: t(`lanes.${lane}`) })}
+              aria-label={t("draftUI.rechercher")}
               className="biseau-sm w-full border border-nuit-700 bg-nuit-950 py-2 pl-9 pr-3 text-craie-100 outline-none focus:border-or-500"
             />
           </div>
           <button
             type="button"
             onClick={onFermer}
-            aria-label="Fermer"
+            aria-label={t("draftUI.fermer")}
             className="grid size-9 place-items-center text-craie-500 hover:text-craie-100"
           >
             <X size={18} aria-hidden />
@@ -354,7 +356,7 @@ function Selecteur({
           ))}
           {resultats.length === 0 && (
             <li className="col-span-full py-6 text-center text-sm text-craie-500">
-              Aucun heros disponible.
+              {t("draftUI.aucunHeros")}
             </li>
           )}
         </ul>

@@ -1,8 +1,10 @@
 import Link from "next/link";
+import type { Langue } from "@/i18n/config";
 import { site } from "@/lib/site";
 import { BoutonCompte } from "./bouton-compte";
 import { MenuBureau } from "./menu-bureau";
 import { MenuMobile } from "./menu-mobile";
+import { SelecteurLangue } from "./selecteur-langue";
 
 /**
  * En-tete du site.
@@ -14,7 +16,7 @@ import { MenuMobile } from "./menu-mobile";
  * La navigation est rangee en deux menus deroulants (`MenuBureau`) a partir des
  * grands ecrans ; en dessous, le menu deplie (`MenuMobile`) prend le relais.
  */
-export function EnTete() {
+export function EnTete({ langue }: { langue: Langue }) {
   return (
     <header className="sticky top-0 z-40 border-b border-nuit-700/70 bg-nuit-950/85 backdrop-blur">
       {/* Liseré doré en tête, rappel du filet des titres. */}
@@ -36,7 +38,8 @@ export function EnTete() {
           <MenuBureau />
         </div>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-1 sm:gap-2">
+          <SelecteurLangue langue={langue} />
           <BoutonCompte />
           <MenuMobile />
         </div>

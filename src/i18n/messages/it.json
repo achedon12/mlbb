@@ -1,0 +1,949 @@
+{
+  "commun": {
+    "marque": "MLBBDex",
+    "sousTitre": "Base di conoscenza di Mobile Legends: Bang Bang",
+    "accueil": "Benvenuto",
+    "retour": "Indietro",
+    "changerLangue": "Cambia lingua",
+    "sourceWiki": "Wiki di Mobile Legends",
+    "licenceWiki": "Contenuti presi e tradotti da {lien}, sotto licenza CC BY-SA.",
+    "allerAuContenu": "Vai al contenuto",
+    "filAriane": "Pangrattato",
+    "sections": "Sezioni del foglio"
+  },
+  "nav": {
+    "baseDeDonnees": "Banca dati",
+    "actualite": "Notizia",
+    "heroes": {
+      "label": "Eroe",
+      "desc": "Fogli, costruzioni e analisi"
+    },
+    "tierList": {
+      "label": "Elenco livelli",
+      "desc": "Il meglio della patch"
+    },
+    "compare": {
+      "label": "Comparatore",
+      "desc": "Due eroi faccia a faccia"
+    },
+    "draft": {
+      "label": "Bozza",
+      "desc": "Simulatore di scelte e divieti"
+    },
+    "gameModes": {
+      "label": "Modalità di gioco",
+      "desc": "Classico, Classificato, Combattimento..."
+    },
+    "items": {
+      "label": "Oggetti",
+      "desc": "Attrezzature e statistiche"
+    },
+    "emblems": {
+      "label": "Emblemi",
+      "desc": "Talenti e allestimenti"
+    },
+    "news": {
+      "label": "Notizia",
+      "desc": "Il filo conduttore del gioco"
+    },
+    "watch": {
+      "label": "Il giorno prima",
+      "desc": "Fonti aggregate in tempo reale"
+    },
+    "patchNotes": {
+      "label": "Note sulla patch",
+      "desc": "Note di rilascio dettagliate"
+    },
+    "ouvrir": "Apri il menu",
+    "fermer": "Chiudi menù"
+  },
+  "compte": {
+    "connexion": "Connessione",
+    "monCompte": "Il mio conto"
+  },
+  "pied": {
+    "description": "La base di conoscenza francese su Mobile Legends: Bang Bang. Progetto indipendente, aperto a contributi.",
+    "codeSource": "Codice sorgente",
+    "leJeu": "Il gioco",
+    "actualites": "Notizia",
+    "leSite": "Il sito",
+    "apropos": "Di",
+    "apiPublique": "API pubblica",
+    "monCompte": "Il mio conto",
+    "mentionsLegales": "Avvisi legali",
+    "confidentialite": "Riservatezza",
+    "credit": "Dati provenienti da Mobile Legends Wiki (CC BY-SA) e API della community arena.rone.dev. Non sono disponibili statistiche di gioco.",
+    "droits": "progetto di fan indipendente. Contenuto pubblicato da {auteur}.",
+    "marque": "Leggende mobili: Bang Bang™ Shanghai Moonton Technology Co., Ltd."
+  },
+  "langue": {
+    "choisir": "Lingua",
+    "changer": "Cambia lingua"
+  },
+  "pages": {
+    "modes": {
+      "titre": "Modalità di gioco",
+      "chapeau": "Dai classici 5v5 ai rapidi giochi di combattimento, ogni modalità cambia le regole. Scegline uno per scoprire i dettagli.",
+      "decouvrir": "Scopri la modalità",
+      "metaDescription": "Le modalità di gioco di Mobile Legends: Bang Bang, presentate una per una, con regole dettagliate da supportare.",
+      "ogDescription": "Mobile Legends: modalità di gioco Bang Bang e cosa le distingue."
+    },
+    "modeDetail": {
+      "nonDocumente": "I dettagli di questa modalità non sono ancora documentati."
+    },
+    "heroes": {
+      "titre": "Eroe",
+      "chapeau": "I {heros} eroi del gioco e le loro skin {skins}, filtrabili per ruolo e posizione. I {analyses} fogli contrassegnati con “Analisi” contengono anche commenti, costruzioni e contromisure.",
+      "metaTitre": "Tutti gli eroi",
+      "metaDescription": "I {heros} eroi di Mobile Legends: Bang Bang, filtrabili per ruolo e posizione: ritratti, skin, statistiche e {analyses} analisi scritte.",
+      "ogDescription": "Gli eroi {heros} di Mobile Legends: Bang Bang, con le loro skin {skins}."
+    },
+    "heroesListe": {
+      "rechercher": "Cerca un eroe",
+      "role": "Ruolo",
+      "position": "Posizione",
+      "trier": "Ordinare",
+      "triNom": "A→Z",
+      "triVictoire": "Tasso di vincita",
+      "triPalier": "Elenco livelli",
+      "compte": "{n} eroi",
+      "compteSur": "su {total}",
+      "aucun": "Nessun eroe corrisponde a questi filtri."
+    },
+    "heroDetail": {
+      "tousLesHeros": "Tutti gli eroi",
+      "notes": {
+        "offensive": "Offensiva",
+        "resistance": "Resistenza",
+        "effets": "Effetti",
+        "difficulte": "Difficoltà"
+      },
+      "stat": {
+        "position": "Posizione",
+        "sortie": "Uscita",
+        "ressource": "Risorsa",
+        "degats": "Danno",
+        "portee": "Ambito",
+        "region": "Regione",
+        "skins": "Pelli",
+        "tierList": "Elenco livelli",
+        "tauxVictoire": "Tasso di vincita",
+        "tauxBan": "Tasso di divieto"
+      },
+      "palier": "Livello {p}",
+      "onglet": {
+        "analyse": "Analisi",
+        "histoire": "Storia",
+        "competences": "COMPETENZE",
+        "contres": "Contro",
+        "builds": "Costruisce",
+        "skins": "Pelli"
+      },
+      "forces": "Punti di forza",
+      "faiblesses": "Punti deboli",
+      "analyseEnCours": "Analisi attualmente in fase di scrittura",
+      "analyseTexte": "I dati per {nom} sono aggiornati: provengono direttamente dal wiki. Ciò che manca è il commento: cosa fa veramente l'eroe, le sue costruzioni e le sue contromosse. Questo non si può estrarre, è scritto.",
+      "contribuer": "Contribuisci a questa analisi →",
+      "contresIntro": "Stabilito in base alle percentuali di vincita del gioco: la differenza di punti indica quanto varia la percentuale di {nom} contro ciascun avversario.",
+      "contresRef": "Tasso di vincita di riferimento: {taux}%.",
+      "matchups": "Lettura degli abbinamenti",
+      "matchupsIntro": "Duelli commentati a mano, al di là dei numeri.",
+      "alaise": "{nom} è comodo contro",
+      "difficulte2": "{nom} è in difficoltà contro",
+      "metaDescription": "{nom}: {roles} da Mobile Legends: Bang Bang. Posizionare le pelli {lanes}, {skins}.",
+      "comparer": "Confrontare"
+    },
+    "items": {
+      "titre": "Oggetti",
+      "chapeau": "Gli articoli {n} nel negozio. Clicca su un oggetto per vedere il dettaglio; filtra per categoria o cerca direttamente una statistica.",
+      "metaTitre": "Oggetti",
+      "metaDescription": "Gli oggetti {n} in Mobile Legends: Bang Bang: statistiche, effetti unici, passivi, ricette e prezzi, con le loro immagini.",
+      "ogDescription": "Gli oggetti di gioco {n}, con statistiche, abilità passive e ricette."
+    },
+    "itemsListe": {
+      "rechercher": "Cerca un oggetto, una statistica o un passivo",
+      "compte": "{n} oggetti",
+      "compteSur": "su {total}",
+      "prix": "Prezzo :",
+      "or": "oro",
+      "statistiques": "Statistiche",
+      "unique": "Unico",
+      "passif": "Passivo",
+      "actif": "Attivo",
+      "recette": "Ricetta",
+      "choisir": "Scegli un oggetto per visualizzarne le statistiche, la passiva e la ricetta."
+    },
+    "emblems": {
+      "titre": "Emblemi e talenti",
+      "chapeau": "La vera domanda non è quali talenti esistano, ma quali assumere per il ruolo che ricopri. Scegli il tuo stemma: il resto della pagina si riorganizza attorno ad esso.",
+      "metaTitre": "Emblemi, talenti e incantesimi",
+      "metaDescription": "Quale emblema, talento e incantesimo di combattimento prendere a seconda del tuo ruolo in Mobile Legends: Bang Bang. Scegli il tuo stemma, la pagina è organizzata attorno ad esso.",
+      "ogDescription": "Cosa prendere a seconda del tuo ruolo: emblemi, talenti e incantesimi di combattimento."
+    },
+    "draft": {
+      "titre": "Progetto di aiuto",
+      "chapeau": "Compila ciò che vedi di fronte, corsia per corsia. Lo strumento suggerisce risposte e dice cosa le giustifica. Aggiungi le tue scelte man mano che procedi: i suggerimenti si adattano.",
+      "note": "Le contromisure e le sinergie nascono da relazioni nate attraverso il gioco, non da un'opinione. Non coprono tutti i duelli: un eroe senza un segnalino conosciuto nella composizione non è necessariamente una cattiva scelta - semplicemente non ha nulla in particolare a cui opporsi.",
+      "metaTitre": "Progetto di aiuto",
+      "metaDescription": "Informa la composizione avversaria: lo strumento suggerisce cosa prendere su ogni corsia e spiega perché: contromosse, sinergie e percentuali di vittoria.",
+      "ogDescription": "Cosa prendere di fronte alla composizione opposta e perché."
+    },
+    "compare": {
+      "titre": "Comparatore",
+      "chapeau": "Scegli due eroi e leggi i loro punti di forza fianco a fianco: valutazioni wiki, tassi di vincita e ban riportati dal gioco, ruoli e posizioni. Viene evidenziato il valore migliore di ciascuna riga.",
+      "metaTitre": "Comparatore di eroi",
+      "metaDescription": "Confronta due eroi di Mobile Legends: Bang Bang fianco a fianco: offensiva, resistenza, effetti, difficoltà, tassi di vincita e ban, ruoli e posizioni.",
+      "ogDescription": "Due eroi a confronto: valutazioni, percentuali di vittorie e ban, ruoli."
+    },
+    "news": {
+      "titre": "Novità e guide",
+      "chapeau": "Articoli approfonditi piuttosto che brevi: cosa sta cambiando nel meta, perché e cosa fare al riguardo.",
+      "metaTitre": "Novità e guide",
+      "metaDescription": "Mobile Legends: meta-analisi Bang Bang, guide di base e letture delle patch, in francese. Disponibile nel feed RSS.",
+      "ogDescription": "Metaanalisi e guide di approfondimento, in francese."
+    },
+    "tierList": {
+      "titre": "Elenco livelli",
+      "chapeau": "Questa classifica non è un'opinione: viene calcolata in base ai tassi di vincita e ban riportati dal gioco, e viene rifatta ad ogni sincronizzazione.",
+      "metaTitre": "Elenco livelli",
+      "metaDescription": "Elenco dei livelli di Mobile Legends: Bang Bang calcolato in base ai tassi di vincita e esclusione riportati dal gioco. Ricalcolato ad ogni sincronizzazione, senza parere.",
+      "ogDescription": "Classifica calcolata in base ai tassi di vincita e di ban del gioco.",
+      "mesures": "{n} misure dell'eroe · tasso annotato",
+      "commentCalcule": "Come viene calcolata questa classifica",
+      "scorePre": "Il punteggio vale",
+      "scoreBold": "tasso di vincita + un quarto del tasso di ban",
+      "p2": "La percentuale di vittorie misura ciò che un eroe produce una volta giocato. Il tasso di ban misura ciò che i giocatori temono: cattura eroi troppo forti per essere lasciati liberi, il cui tasso di vincita è ingannevolmente basso perché raramente disponibili.",
+      "p3pre": "Il tasso di selezione non fa parte del calcolo: misura la popolarità, non il potere. Serve solo per segnalare",
+      "asterisque": "asterisco",
+      "p3post": "gli eroi giocavano troppo poco perché il loro numero fosse stabile.",
+      "palier": "Livello {p}",
+      "tropPeu": "È coinvolto troppo poco affinché le tariffe siano affidabili",
+      "victoire": "Vittoria",
+      "ban": "Divieto",
+      "pick": "Scegliere",
+      "legende": {
+        "S+": "Domina la toppa. Prendere o bandire.",
+        "S": "Molto forte nella maggior parte delle composizioni.",
+        "A": "Solido, senza imporre il ritmo del gioco.",
+        "B": "Corretto, ma dipende dal contesto o dal giocatore.",
+        "C": "Giocabile, con un costo reale rispetto alle alternative."
+      }
+    },
+    "patchNotes": {
+      "titre": "Note sulla patch",
+      "chapeau": "Il contenuto degli aggiornamenti recenti è incluso qui, sezione per sezione. Le patch più vecchie rimangono elencate, con un collegamento alla pagina originale.",
+      "metaTitre": "Note sulla patch",
+      "metaDescription": "Le patch {n} per Mobile Legends: Bang Bang. I dettagli degli aggiornamenti recenti possono essere visualizzati direttamente qui, senza uscire dal sito.",
+      "ogDescription": "Le patch {n} del gioco, con i dettagli di quelle più recenti.",
+      "recenses": "{n} patch elencate · {m} disponibili sul sito · sincronizza il",
+      "recentes": "Aggiornamenti recenti",
+      "analyses": "Analitica",
+      "analysesIntro": "Quello che le note ufficiali non dicono: l'effetto reale dei cambiamenti in parte.",
+      "anciens": "Le patch più vecchie non sono incluse per intero: il loro contenuto rappresenterebbe diversi megabyte per le versioni che nessuno gioca più."
+    },
+    "login": {
+      "titre": "Connessione",
+      "intro": "Collega il tuo account di gioco utilizzando il codice di verifica ufficiale Moonton. Non è richiesta alcuna password.",
+      "secu": "Il sito non vede mai la tua password. Riceve solo un token temporaneo, memorizzato in un cookie sicuro, che elimini quando ti disconnetti.",
+      "metaTitre": "Connessione",
+      "metaDescription": "Collega il tuo account Mobile Legends tramite codice di verifica, senza password."
+    },
+    "watch": {
+      "titre": "Il giorno prima",
+      "chapeau": "Ciò che il resto del web pubblica sul gioco: community di eSport e stampa, automaticamente riunite. Ogni voce ritorna al suo editore: qui nulla viene copiato.",
+      "metaTitre": "Guarda: notizie MLBB dal web",
+      "metaDescription": "Gli ultimi post della community e della stampa eSport su Mobile Legends: Bang Bang, raccolti automaticamente.",
+      "ogDescription": "Notizie su Mobile Legends da tutto il Web, raccolte automaticamente.",
+      "derniereCollecte": "Ultima raccolta su {date} · fonti:",
+      "aucune": "Nessuna fonte risponde al momento. La pagina si ricarica automaticamente alla raccolta successiva."
+    },
+    "about": {
+      "titre": "Di",
+      "chapeau": "Un progetto indipendente, aperto e volontariamente esplicito sui propri limiti.",
+      "metaDescription": "Cos'è questo sito, cosa contiene, cosa non può contenere e come contribuirvi."
+    },
+    "legal": {
+      "titre": "Avvisi legali",
+      "chapeau": "Chi pubblica questo sito, chi lo ospita e chi possiede il contenuto.",
+      "metaDescription": "Editore, host e proprietari del contenuto del sito. Progetto di fan indipendente, senza affiliazione con Moonton."
+    },
+    "privacy": {
+      "titre": "Riservatezza",
+      "chapeau": "Cosa elabora il sito, cosa non elabora e dove risiedono i tuoi dati.",
+      "metaDescription": "Cookie, archiviazione locale, connessione account di gioco e misurazione dell'audience: cosa elabora il sito e dove."
+    },
+    "account": {
+      "metaTitre": "Il mio conto",
+      "metaDescription": "Profilo e statistiche del gioco.",
+      "indisponible": "Profilo attualmente non disponibile",
+      "indisponibleTexte": "Sei connesso con successo, ma il servizio Moonton che fornisce i profili non risponde al momento. Riprova tra qualche minuto.",
+      "seDeconnecter": "Esci",
+      "rangActuel": "Rango attuale",
+      "meilleurRang": "Miglior rango",
+      "statistiques": "Statistiche",
+      "amis": "Amici",
+      "favoris": "Eroi preferiti",
+      "niveau": "Livello",
+      "niveauX": "Livello {n}",
+      "deconnexion": "Disconnetti",
+      "detailIndispo": "Le statistiche dettagliate (percentuale di vittorie, cronologia, eroi più giocati) dipendono da un servizio Moonton attualmente offline. Il tuo profilo sopra rimane accessibile; i dettagli torneranno non appena la fonte risponderà.",
+      "aucuneStat": "Nessuna statistica da visualizzare."
+    },
+    "apiDoc": {
+      "titre": "API pubblica",
+      "chapeau": "I dati del sito sono accessibili in JSON, senza chiave o registrazione. Aiutati: l'unico vincolo è citare la fonte, che accompagna ogni risposta.",
+      "metaDescription": "Un'API JSON aperta sui dati di Mobile Legends: Bang Bang del sito: eroi, abilità, skin, oggetti, patch e classifiche. Senza chiave, senza registrazione.",
+      "ogDescription": "Eroi, oggetti, patch e classificazione in JSON, senza chiavi.",
+      "statHeros": "Eroe",
+      "statObjets": "Oggetti",
+      "statPatchs": "Patch",
+      "statClasses": "Classi di eroi",
+      "formeTitre": "Forma delle risposte",
+      "formeTexte": "Ogni risposta racchiude il risultato in \"dati\", allega il numero totale di elementi quando si tratta di un elenco e richiama la fonte dei dati.",
+      "conditionsTitre": "Termini",
+      "c1label": "Nessuna chiave, nessuna quota.",
+      "c1texte": "Le risposte sono statiche e memorizzate nella cache: servirle non costa nulla. Rimani ragionevole e tutto andrà bene.",
+      "c2label": "Citare la fonte.",
+      "c2texte": "I dati provengono dalla wiki della community, sotto licenza CC BY-SA: per riutilizzarli è necessario accreditarli. Le informazioni viaggiano con ogni risposta.",
+      "c3label": "Le analisi scritte",
+      "c3texte": "- commenti, build, contatori - sono prodotti per questo sito e coperti dalla sua licenza MIT.",
+      "c4label": "Nessun dato del giocatore.",
+      "c4texte": "Moonton non espone alcuna classifica, cronologia o stato della connessione: questa API quindi non ne offre alcuna, e nessun'altra onestamente può farlo.",
+      "synchroNote": "I dati tengono traccia della sincronizzazione settimanale del sito. Ultimo: {date}.",
+      "routes": {
+        "heros": {
+          "resume": "Elenco degli eroi, senza le loro abilità dettagliate o le loro skin.",
+          "roleParam": "Mantieni solo questo ruolo.",
+          "laneParam": "Mantieni solo questa posizione."
+        },
+        "herosSlug": {
+          "resume": "Scheda completa: statistiche, abilità con relativa descrizione, skin, immagini, illustrazioni e analisi scritta quando esiste."
+        },
+        "objets": {
+          "resume": "Acquista oggetti, con statistiche, passivi e ricette.",
+          "catParam": "Mantieni solo questa categoria."
+        },
+        "patchs": {
+          "resume": "Versioni elencate, dalla più recente alla più vecchia."
+        },
+        "classement": {
+          "resume": "Classifica calcolata: tasso di vittoria, tasso di ban e selezione, livello e data di segnalazione."
+        }
+      }
+    }
+  },
+  "modeFiche": {
+    "classic": {
+      "accroche": "Il punto di riferimento 5 contro 5",
+      "texte": "Due squadre da cinque, tre corsie, un Nexus da distruggere. La modalità fondazione, senza problemi di classifica: ideale per scoprire un eroe o riscaldarsi."
+    },
+    "ranked": {
+      "accroche": "Scalare le classifiche",
+      "texte": "La linea competitiva. Ogni vittoria guadagna stelle e innalza Avvertimento a gloria mitica, con divieti e selezioni in draft da Epic."
+    },
+    "brawl": {
+      "accroche": "Solo in un modo, subito",
+      "texte": "Una singola carta ha una corsia, l'eroe pesca a sorte. Partite brevi e nervose, senza giungla o lunghi ritorni alla fase base."
+    },
+    "vs-ai": {
+      "accroche": "Affronta il computer",
+      "texte": "Avversari controllati dall'IA, con difficoltà regolabile. Per testare una build o domare un nuovo eroe senza la pressione della classifica."
+    },
+    "custom": {
+      "accroche": "Le tue regole",
+      "texte": "Crea un gioco su misura: composizione della squadra, spettatori, mappa e parametri liberi. La modalità dei tornei e delle partite tra amici."
+    },
+    "arcade-mode": {
+      "accroche": "Mode effimere",
+      "texte": "Una rotazione di modalità speciali e festive – Caccia Magica, Sopravvivenza e altre varianti – offerte per un periodo limitato."
+    }
+  },
+  "roles": {
+    "Tank": "Cisterna",
+    "Fighter": "Combattente",
+    "Assassin": "Assassino",
+    "Mage": "Mago",
+    "Marksman": "Sparatutto",
+    "Support": "Supporto"
+  },
+  "lanes": {
+    "Or": "Oro",
+    "Experience": "Esperienza",
+    "Milieu": "Medio",
+    "Jungle": "Giungla",
+    "Roam": "Vagare"
+  },
+  "histoire": {
+    "titre": "Titolo",
+    "espece": "Specie",
+    "genre": "Genere",
+    "age": "Età",
+    "origine": "Origine",
+    "anniversaire": "Compleanno",
+    "recit": "La storia",
+    "saviezVous": "Lo sapevate?",
+    "affiliations": "Appartenenze",
+    "relations": "Relazioni",
+    "pouvoirs": "Poteri",
+    "aucunRecit": "La wiki non pubblica ancora una storia per {nom}."
+  },
+  "comp": {
+    "Passif": "Passivo",
+    "Competence 1": "Abilità 1",
+    "Competence 2": "Abilità 2",
+    "Ultime": "Definitivo",
+    "Competence": "Abilità"
+  },
+  "contres": {
+    "fort": "Forte contro",
+    "difficulte": "In difficoltà contro",
+    "pts": "punti"
+  },
+  "home": {
+    "titre1": "L'intero gioco, spiega",
+    "titreAccent": "in francese",
+    "lead": "{heros} eroi e le loro {skins} skin, un elenco di livelli calcolato in base alle tariffe di gioco, assistenza al draft, oggetti, emblemi e note sulla patch. I dati si sincronizzano; l'analisi è scritta a mano.",
+    "parcourir": "Sfoglia gli eroi",
+    "aideDraft": "Progetto di aiuto",
+    "statHeros": "eroe",
+    "statSkins": "pelli",
+    "statPatchs": "patch",
+    "statAnalyses": "analisi scritte",
+    "commencerTitre": "Da dove cominciare",
+    "commencerChapeau": "Interpreti un ruolo, non un catalogo. Entra da lì.",
+    "classementTitre": "In testa alla toppa",
+    "classementChapeau": "Calcolato in base ai tassi di vincita e esclusione riportati dal gioco, non da un'opinione.",
+    "tierListComplete": "Elenco livelli completato",
+    "skinsTitre": "Gallerie della pelle",
+    "skinsChapeau": "Le {skins} skin del gioco, con la loro illustrazione a grandezza naturale, la loro rarità e il loro prezzo.",
+    "voirHeros": "Vedi gli eroi",
+    "derniereMaj": "Ultimo aggiornamento",
+    "toutesActualites": "Tutte le novità",
+    "synchroChapeau": "Ultima sincronizzazione il {date}.",
+    "cartes": {
+      "donneesTitre": "Aggiornamenti dei dati autonomamente",
+      "donneesTexte": "Eroi, skin, oggetti, patch e immagini vengono estratti dalla wiki ogni settimana. Un nuovo eroe appare qui senza che nessuno se ne accorga.",
+      "classementTitre": "La classifica non dà un giudizio",
+      "classementTexte": "L'elenco dei livelli viene calcolato in base alle percentuali di vincita e ban riportate dal gioco. La regola di calcolo viene visualizzata nella pagina.",
+      "ecritTitre": "Ciò che è scritto resta scritto",
+      "ecritTexte": "Analisi, build e guide sono scritte a mano. Nessuna estrazione dirà perché un eroe è forte; È qui che contano i contributi."
+    },
+    "commentFonctionne": "Come funziona questo sito",
+    "suivreRss": "Segui le pubblicazioni in RSS",
+    "pourcentVictoires": "% delle vincite",
+    "derniersArticles": "Ultimi articoli"
+  },
+  "vedette": {
+    "herosDuJour": "Eroe del giorno",
+    "role": "Ruolo",
+    "position": "Posizione",
+    "tierList": "Elenco livelli",
+    "victoires": "Vittorie",
+    "skins": "Pelli",
+    "voirFiche": "Vedi il suo dossier",
+    "palier": "Livello {p}"
+  },
+  "acces": {
+    "compte": "{n} eroi"
+  },
+  "categories": {
+    "Attack": "Attacco",
+    "Magic": "Magia",
+    "Defense": "Difesa",
+    "Movement": "Movimento",
+    "Jungling": "Giungla",
+    "Roaming": "Vagare",
+    "Attack & Magic": "Attacco e magia",
+    "Attack, Magic & Defense": "Attacco, magia e difesa"
+  },
+  "proses": {
+    "about": {
+      "blocs": [
+        {
+          "h": "Cosa contiene il sito"
+        },
+        {
+          "p": "Il roster completo, skin per ogni eroe, oggetti, emblemi, incantesimi di combattimento e l'elenco delle patch. Questi dati vengono estratti automaticamente dalla wiki della comunità ogni settimana: qui appare un nuovo eroe senza che nessuno debba inserirlo."
+        },
+        {
+          "p": "A questo si aggiunge ciò che nessuna estrazione produrrà: un'analisi scritta per alcuni eroi - cosa fanno realmente, le loro build, i loro contatori - un elenco di livelli in cui viene discusso ogni posizionamento e guide di base."
+        },
+        {
+          "h": "Cosa non contiene e perché"
+        },
+        {
+          "p": "Nessuna statistica del giocatore. Moonton non pubblica alcuna interfaccia di programmazione: né classifica, né cronologia del gioco, né indice di abilità, né stato della connessione. I siti che visualizzano un \"MMR\" per Mobile Legends lo stimano; non lo leggono da nessuna parte."
+        },
+        {
+          "p": "L'unica informazione realmente verificabile dall'esterno è il nickname associato all'identificativo del giocatore, tramite la fase di validazione delle piattaforme di ricarica. Questo è esattamente ciò che fa il collegamento dell'account offerto qui e niente di più."
+        },
+        {
+          "p": "Le immagini appartengono a Moonton. Ritratti, icone e illustrazioni di skin provengono dalla wiki della comunità e sono serviti da questo sito in modo che nulla dipenda da un dominio di terze parti. Rimangono di proprietà di Moonton, vengono presentati a scopo illustrativo e verranno rimossi su richiesta del titolare dei diritti. L'identità visiva del sito – blu notte, oro, angoli tagliati – si ispira a quella del gioco senza utilizzare i file dell'interfaccia."
+        },
+        {
+          "h": "Il giorno prima"
+        },
+        {
+          "p": "La sezione di monitoraggio riunisce automaticamente le pubblicazioni di altri siti sul gioco. Riporta solo il titolo, la data e un breve estratto, e fa sistematico riferimento all'editore originario: nulla vi viene ripubblicato."
+        },
+        {
+          "p": "Moonton non pubblica alcun flusso ufficiale: il sito del gioco è un'applicazione con contenuti non riproducibili in streaming. Gli aggiornamenti del gioco vengono quindi ripresi e commentati a mano nelle patch notes, mentre il giorno prima copre quello che il resto del web pubblica."
+        },
+        {
+          "h": "Il conto"
+        },
+        {
+          "p": "È facoltativo: tutti i contenuti sono accessibili senza effettuare l'accesso. L'accesso richiede il codice di verifica ufficiale di Moonton: un codice di quattro cifre inviato alla tua email di gioco. Il sito non vede mai la tua password: riceve un token temporaneo, memorizzato in un cookie sicuro, che elimini quando ti disconnetti."
+        },
+        {
+          "p": "Nessun database, nessun account creato sul sito. I tuoi eroi preferiti sono archiviati nel tuo browser, non su un server."
+        },
+        {
+          "h": "Contribuire"
+        },
+        {
+          "p": "Il codice e il contenuto sono pubblici. I fogli Hero vivono nei tipici file TypeScript, gli articoli nei file Markdown: puoi aggiungere un foglio o correggere un errore senza conoscere il resto del progetto."
+        },
+        {
+          "p": "[Il repository è qui.]({depot}) Correzioni di bilanciamento, file mancanti e riletture sono particolarmente gradite."
+        },
+        {
+          "h": "Menzioni"
+        },
+        {
+          "p": "Mobile Legends: Bang Bang, il suo universo, i suoi eroi e i loro nomi sono marchi registrati di Shanghai Moonton Technology Co., Ltd. Questo sito è un progetto di fan indipendente, senza affiliazione, approvazione o sponsorizzazione da parte di Moonton."
+        }
+      ]
+    },
+    "legal": {
+      "blocs": [
+        {
+          "h": "Editore"
+        },
+        {
+          "p": "Questo sito è pubblicato a titolo personale da [{editeur}]({editeurSite}), come parte di un progetto di fan indipendente, senza scopo di lucro e senza struttura commerciale. Questo non è un affare."
+        },
+        {
+          "p": "Contatto: [{contact}](mailto:{contact})"
+        },
+        {
+          "h": "Ospite"
+        },
+        {
+          "p": "Il sito è ospitato da [{hebergeur}]({hebergeurSite})."
+        },
+        {
+          "h": "Proprietà intellettuale"
+        },
+        {
+          "p": "Mobile Legends: Bang Bang, il suo universo, i suoi eroi, i loro nomi e le loro rappresentazioni grafiche sono marchi e opere di Shanghai Moonton Technology Co., Ltd. Questo sito è un progetto di fan indipendente, senza affiliazione, approvazione o sponsorizzazione da parte di Moonton."
+        },
+        {
+          "p": "Le immagini visualizzate (ritratti, icone, emblemi, illustrazioni) provengono dalla wiki della comunità e rimangono di proprietà di Moonton. Sono inclusi a scopo illustrativo e informativo. Su richiesta del beneficiario, verranno rimossi."
+        },
+        {
+          "p": "I dati reali provengono da [Mobile Legends wiki](https://mobilelegends.fandom.com) (licenza CC BY-SA) e da un'API della community. Il codice e i testi scritti per questo sito sono pubblicati sotto la licenza MIT — vedi [deposito pubblico]({depot})."
+        },
+        {
+          "h": "Responsabilità"
+        },
+        {
+          "p": "Le informazioni sono fornite solo a scopo informativo, senza garanzia di accuratezza o completezza: il gioco è in evoluzione e alcuni dati potrebbero essere in ritardo per un aggiornamento. I collegamenti a siti di terzi sono di esclusiva responsabilità dei loro autori."
+        },
+        {
+          "h": "Dati personali"
+        },
+        {
+          "p": "Il trattamento dei dati e l'utilizzo dei cookie sono dettagliati nella [privacy policy](/privacy)."
+        }
+      ]
+    },
+    "privacy": {
+      "blocs": [
+        {
+          "p": "Questo sito è progettato per funzionare senza memorizzare dati personali su un server: non dispone di un database di account. Questa pagina descrive quanto poco viene elaborato e dove."
+        },
+        {
+          "h": "Biscotti"
+        },
+        {
+          "p": "È possibile inserire un solo cookie e solo se colleghi il tuo account di gioco:"
+        },
+        {
+          "ul": [
+            "`mlbb_jeu` — cookie di sessione strettamente necessario per la connessione. Contiene il token temporaneo fornito dal servizio Moonton, non lascia mai il server (`httpOnly`) e scade da solo. Senza connessione non viene inserito alcun cookie."
+          ]
+        },
+        {
+          "p": "Poiché questo cookie è strettamente necessario al servizio richiesto (rimanere connessi), non necessita di preventivo consenso. Non vengono utilizzati cookie pubblicitari o di tracciamento."
+        },
+        {
+          "h": "Archiviazione nel tuo browser"
+        },
+        {
+          "p": "I tuoi eroi preferiti vengono salvati nella memoria locale del tuo browser (`localStorage`), solo sul tuo dispositivo. Non vengono inviati a nessun server e non lasciano questo browser. Lo svuotamento dei dati del sito li cancella."
+        },
+        {
+          "h": "Accedi all'account di gioco"
+        },
+        {
+          "p": "La connessione utilizza il flusso ufficiale Moonton: fornisci il tuo identificatore e il server di gioco, ti viene inviato un codice di verifica nel gioco e il sito riceve in cambio un token temporaneo. Questi scambi passano attraverso una API comunitaria (`arena.rone.dev`) e il servizio di autenticazione Moonton. Il sito non registra nessuna di queste informazioni: il token risiede nel cookie di sessione, lato browser, e scompare alla disconnessione o alla scadenza. Non ti viene mai chiesta una password."
+        },
+        {
+          "h": "Contenuti di terze parti"
+        },
+        {
+          "p": "Le immagini (ritratti, icone, emblemi) sono fornite dagli host di Moonton e dalla comunità wiki. Il caricamento di una pagina indirizza quindi le richieste a questi servizi, che possono vedere il tuo indirizzo IP, come per qualsiasi risorsa remota."
+        },
+        {
+          "h": "Misurazione del pubblico"
+        },
+        {
+          "p": "Se la misurazione dell'audience è attivata, viene effettuata con uno strumento senza cookie e senza dati personali, che non traccia i visitatori da un sito all'altro. Non è quindi necessario alcun banner di consenso."
+        },
+        {
+          "h": "I tuoi diritti"
+        },
+        {
+          "p": "Poiché il sito non costituisce alcun archivio di dati personali, non c'è nulla da consultare, rettificare o cancellare sul lato server. Mantieni il controllo su ciò che risiede nel tuo browser (preferiti, sessione) disconnettendo o cancellando i dati del sito. Per qualsiasi domanda scrivete a [{contact}](mailto:{contact})."
+        }
+      ]
+    }
+  },
+  "compareUI": {
+    "offensive": "Offensiva",
+    "resistance": "Resistenza",
+    "effets": "Effetti/controllo",
+    "difficulte": "Difficoltà",
+    "premier": "Primo eroe",
+    "second": "Secondo eroe",
+    "tauxVictoire": "Tasso di vincita",
+    "tauxBan": "Tasso di divieto",
+    "skins": "Pelli"
+  },
+  "patchHeros": {
+    "amelioration": "Miglioramento",
+    "affaiblissement": "Indebolimento",
+    "ajustement": "Regolazione"
+  },
+  "emblemesUI": {
+    "talents": "Talenti decisivi",
+    "talentsDesc": "L'ultimo piano: è lui che cambia una parte.",
+    "attributs": "Attributi",
+    "attributsDesc": "Le prime fasi regolano le statistiche. Contano, senza decidere.",
+    "sorts": "Incantesimi di combattimento",
+    "sortsDesc": "Un unico luogo: l'incantesimo deve rispondere a ciò che manca all'eroe."
+  },
+  "skinsUI": {
+    "pointsBataille": "Punti battaglia",
+    "diamants": "Diamanti",
+    "tickets": "Biglietti",
+    "fragments": "Frammenti di eroi",
+    "gemmes": "Gemme",
+    "sortie": "Uscita",
+    "disponibilite": "Disponibilità",
+    "obtention": "Ottenere",
+    "origine": "Pelle originale."
+  },
+  "draftUI": {
+    "adverse": "Squadra avversaria",
+    "adverseDesc": "Quello che vedi davanti a te.",
+    "votre": "La tua squadra",
+    "votreDesc": "Le tue scelte sono già piazzate. Aprono sinergie.",
+    "quePrendre": "Cosa prendere",
+    "suggestions": "Suggerimenti",
+    "rechercher": "Cerca un eroe",
+    "fermer": "Vicino",
+    "toutEffacer": "Cancella tutto",
+    "intro": "Informa almeno un eroe avversario. I suggerimenti vengono classificati prima in base ai contatori, poi in base alle sinergie con le tue scelte; il tasso di vittoria viene utilizzato solo per decidere tra i vincitori.",
+    "dejaPourvue": "già fornito",
+    "aucunContre": "nessun contro noto in questa composizione",
+    "aucunHeros": "Nessun eroe disponibile.",
+    "prendre": "Prendere",
+    "choisirEn": "Scegli {nom} in {lane}",
+    "retirer": "Rimuovere {nom}",
+    "choisirLane": "Scegli un eroe per la corsia {lane}",
+    "placeholderLane": "Eroi di {lane} oppure cerca per nome",
+    "choisirUn": "Scegli un eroe"
+  },
+  "nouveauHeros": {
+    "particularite": "Particolarità —"
+  },
+  "loginForm": {
+    "envoiCode": "Invio del codice...",
+    "recevoir": "Ricevi un codice di gioco",
+    "verification": "Verifica…",
+    "seConnecter": "Login",
+    "recommencer": "Ricominciare con un altro identificatore"
+  },
+  "articleUI": {
+    "aucune": "Nessuna pubblicazione ancora."
+  },
+  "articleCat": {
+    "Actualite": "Notizia",
+    "Patch": "Patch",
+    "Esport": "Esport",
+    "Guide": "Guida"
+  },
+  "rangsNom": {
+    "guerrier": "Guerriero",
+    "elite": "Elite",
+    "maitre": "Maestro",
+    "grand-maitre": "Gran Maestro",
+    "epique": "Epico",
+    "mythique": "Mitico",
+    "mythique-honneur": "Onore mitico",
+    "mythique-gloire": "Gloria mitica",
+    "mythique-immortel": "Mitico immortale"
+  },
+  "rangUnite": {
+    "etoile": "{n} stella",
+    "etoiles": "{n} stelle",
+    "point": "{n} punti",
+    "points": "{n} punti"
+  },
+  "favoris": {
+    "intro": "Salva su questo dispositivo, in questo browser, indipendentemente dal tuo account. Non si sincronizzano da un dispositivo all'altro.",
+    "aucunPre": "Nessun preferito ancora Su un foglio eroe,",
+    "aucunLien": "aggiungine uno",
+    "aucunPost": "per trovarlo qui.",
+    "compte": "{n} eroi",
+    "garde": "tieniti a portata di mano",
+    "gardes": "tieniti a portata di mano",
+    "retirer": "Rimuovere {nom}",
+    "dans": "Nei miei preferiti",
+    "ajouter": "Aggiungi ai preferiti"
+  },
+  "skinDispo": {
+    "Available": "Disponibile",
+    "Limited": "Limite",
+    "Upcoming": "Futuro"
+  },
+  "skinRarete": {
+    "Common": "Comune",
+    "Exquisite": "Squisito",
+    "Exceptional": "Eccezionale",
+    "Deluxe": "Di lusso",
+    "Grand": "Grandioso",
+    "Supreme": "Supremo",
+    "origine": "Origine"
+  },
+  "skinEtiquette": {
+    "Elite": "Elite",
+    "Special": "Speciale",
+    "Limited": "Limite",
+    "Epic": "Epico",
+    "Legend": "Leggenda",
+    "Collector": "Collettore",
+    "Seasons": "Stagioni",
+    "Luckybox": "Forziere fortunato",
+    "StarLight": "Luce stellare",
+    "Valentine": "San Valentino",
+    "Atomic": "Atomico"
+  },
+  "emblemesData": {
+    "tank-emblem": {
+      "nom": "Emblema del carro armato",
+      "bonus": "PV e resistenze",
+      "pourQui": "Carri armati di ingaggio e carri armati in corsia esperienza."
+    },
+    "fighter-emblem": {
+      "nom": "Emblema del combattente",
+      "bonus": "Danno da attacco e rubavita",
+      "pourQui": "Combattenti di corsia esperti che devono vincere il loro duello."
+    },
+    "assassin-emblem": {
+      "nom": "Emblema dell'assassino",
+      "bonus": "Danno da attacco e penetrazione fisica",
+      "pourQui": "Jungler fisici e assassini."
+    },
+    "mage-emblem": {
+      "nom": "Emblema del Mago",
+      "bonus": "Potere magico e penetrazione magica",
+      "pourQui": "Maghi della corsia centrale."
+    },
+    "marksman-emblem": {
+      "nom": "Emblema del tiratore",
+      "bonus": "Velocità d'attacco e danno d'attacco",
+      "pourQui": "Tiratori della corsia d'oro."
+    },
+    "support-emblem": {
+      "nom": "Emblema di supporto",
+      "bonus": "Riduzione della ricarica e velocità di movimento",
+      "pourQui": "Supporti e vagabondi non carri armati."
+    },
+    "agility": {
+      "nom": "Agilità",
+      "description": "Aumenta la velocità di movimento.",
+      "pourQui": "Vagabondi ed eroi che devono muoversi rapidamente sulla mappa."
+    },
+    "swift": {
+      "nom": "Veloce",
+      "description": "Aumenta la velocità d'attacco.",
+      "pourQui": "Tiratori e combattenti hanno attacchi base."
+    },
+    "vitality": {
+      "nom": "Vitalità",
+      "description": "Aumenta gli HP massimi.",
+      "pourQui": "Carri armati e combattenti."
+    },
+    "fatal": {
+      "nom": "Fatale",
+      "description": "Aumenta la percentuale di colpi critici.",
+      "pourQui": "Recensione di Tiratori e Assassini."
+    },
+    "firmness": {
+      "nom": "Fermezza",
+      "description": "Aumenta la resistenza fisica e magica.",
+      "pourQui": "I carri armati subiscono danni misti."
+    },
+    "thrill": {
+      "nom": "Brivido",
+      "description": "Aumenta il danno da attacco e il potere magico.",
+      "pourQui": "Portatori di danni, indipendentemente dalla tipologia."
+    },
+    "tenacity": {
+      "nom": "Tenacia",
+      "description": "Aumenta le resistenze quando gli HP sono bassi.",
+      "pourQui": "I carri armati si trovano ad affrontare una composizione esplosiva."
+    },
+    "seasoned-hunter": {
+      "nom": "Cacciatore esperto",
+      "description": "Aumenta il danno inflitto ai mostri della giungla.",
+      "pourQui": "Junglers, per garantire gli obiettivi."
+    },
+    "master-assassin": {
+      "nom": "Maestro Assassino",
+      "description": "Aumenta il danno contro un bersaglio isolato.",
+      "pourQui": "Assassini in cerca di un duello."
+    },
+    "weakness-finder": {
+      "nom": "Ricerca delle debolezze",
+      "description": "Gli attacchi base rallentano il bersaglio.",
+      "pourQui": "Combattenti senza il proprio controllo."
+    },
+    "impure-rage": {
+      "nom": "Rabbia impura",
+      "description": "L'abilità successiva infligge danni aggiuntivi e ripristina il mana.",
+      "pourQui": "Maghi con abilità frequenti."
+    },
+    "quantum-charge": {
+      "nom": "Carica quantistica",
+      "description": "Il danno delle abilità accelera e guarisce.",
+      "pourQui": "Eroi che devono rimanere mobili in combattimento."
+    },
+    "weapon-master": {
+      "nom": "Maestro d'armi",
+      "description": "Aumenta tutti i bonus di attacco ricevuti dagli oggetti.",
+      "pourQui": "Combattenti i cui danni derivano dalle abilità."
+    },
+    "lethal-ignition": {
+      "nom": "Accensione letale",
+      "description": "Infligge danni aggiuntivi a un bersaglio gravemente ferito.",
+      "pourQui": "Portieri che devono concludere in fretta."
+    },
+    "concussive-blast": {
+      "nom": "Esplosione concussiva",
+      "description": "Infligge danni ad area in base agli HP massimi.",
+      "pourQui": "Carri armati di ingaggio: Tigreal, Khufra, Atlas."
+    },
+    "wilderness-blessing": {
+      "nom": "Benedizione del deserto",
+      "description": "Aumenta la velocità di movimento fuori dal combattimento e sull'erba.",
+      "pourQui": "Vagabondi che vivono tra i cespugli, come Franco."
+    },
+    "focusing-mark": {
+      "nom": "Marco focalizzato",
+      "description": "I bersagli colpiti subiscono più danni dagli alleati.",
+      "pourQui": "Supporti e carri armati che giocano per la loro portaerei."
+    },
+    "brave-smite": {
+      "nom": "Punizione coraggiosa",
+      "description": "Colpire un nemico con un'abilità ripristina HP.",
+      "pourQui": "Combattenti di corsia esperti."
+    },
+    "killing-spree": {
+      "nom": "Follia omicida",
+      "description": "Un'eliminazione ripristina HP e accelera.",
+      "pourQui": "Assassini che incatenano bersagli."
+    },
+    "festival-of-blood": {
+      "nom": "Festa del Sangue",
+      "description": "Il danno dell'abilità applica il rubavita.",
+      "pourQui": "I maghi da combattimento si estendono."
+    },
+    "bargain-hunter": {
+      "nom": "Cacciatore di affari",
+      "description": "Riduce il prezzo degli articoli.",
+      "pourQui": "Roamers, il cui reddito è il più basso della squadra."
+    },
+    "pull-yourself-together": {
+      "nom": "Maglione insieme",
+      "description": "Riduce la ricarica degli incantesimi di combattimento e degli oggetti attivi.",
+      "pourQui": "Eroe il cui Flicker decide i combattimenti."
+    },
+    "flicker": {
+      "nom": "Sfarfallio",
+      "description": "Teletrasporta l'eroe a breve distanza.",
+      "pourQui": "Quasi tutti: impegno, fuga, cancellazione dell'animazione."
+    },
+    "execute": {
+      "nom": "Eseguito",
+      "description": "Infligge danni in base agli HP mancanti del bersaglio.",
+      "pourQui": "Junglers e assassini che devono concludere."
+    },
+    "retribution": {
+      "nom": "Punizione",
+      "description": "Infligge danni significativi a un mostro e rafforza lo sgombero della giungla.",
+      "pourQui": "Obbligatorio sul Jungler."
+    },
+    "purify": {
+      "nom": "Purificare",
+      "description": "Rimuove gli effetti di controllo e immunizza brevemente.",
+      "pourQui": "Portatori nel mirino di un unico controllo: contro Chou, Franco, Kaja."
+    },
+    "inspire": {
+      "nom": "Ispirato",
+      "description": "Aumenta notevolmente la velocità d'attacco e ignora alcune armature.",
+      "pourQui": "I tiratori hanno attacchi base."
+    },
+    "sprint": {
+      "nom": "Sprint",
+      "description": "Aumenta la velocità di movimento e rimuove i rallentamenti.",
+      "pourQui": "Eroi senza mobilità che devono riposizionarsi."
+    },
+    "petrify": {
+      "nom": "Pietrificare",
+      "description": "Rallenta e immobilizza i nemici vicini.",
+      "pourQui": "Serbatoi senza controllo affidabile."
+    },
+    "arrival": {
+      "nom": "Arrivo",
+      "description": "Teletrasporta l'eroe su una torretta o su un servitore alleato.",
+      "pourQui": "Corsie singole che devono ritornare rapidamente dopo il ritorno alla base."
+    },
+    "vengeance": {
+      "nom": "Vendetta",
+      "description": "Restituisce una parte dei danni subiti durante la durata.",
+      "pourQui": "Combattenti di corsia esperti."
+    },
+    "aegis": {
+      "nom": "Egida",
+      "description": "Conferisce uno scudo a se stesso e agli alleati vicini.",
+      "pourQui": "Supporti e vasche di protezione."
+    },
+    "revitalize": {
+      "nom": "Rivitalizzare",
+      "description": "Crea un'area che cura gli alleati presenti.",
+      "pourQui": "Sostegno a fronte di danni ripartiti nel tempo."
+    }
+  },
+  "erreur": {
+    "titre": "Si è verificato un errore",
+    "texte": "Il sito ha riscontrato un problema imprevisto. Riprova tra un attimo.",
+    "reessayer": "Riprova"
+  },
+  "carteHeros": {
+    "palierTitre": "Livello {p} della lista dei livelli"
+  }
+}

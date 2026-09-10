@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Role } from "@/lib/types";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,7 +19,8 @@ const COULEURS: Record<Role, string> = {
   Support: "from-emerald-500/20 border-emerald-500/40 text-emerald-400",
 };
 
-export function AccesRoles({ compte }: { compte: Record<Role, number> }) {
+export function AccesRoles({ compte, langue }: { compte: Record<Role, number>; langue: Langue }) {
+  const t = creerT(langue);
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
       {(Object.keys(COULEURS) as Role[]).map((role) => (
@@ -29,8 +32,8 @@ export function AccesRoles({ compte }: { compte: Record<Role, number> }) {
               COULEURS[role],
             )}
           >
-            <span className="font-titre text-lg font-bold">{role}</span>
-            <span className="mt-3 text-xs text-craie-500">{compte[role]} heros</span>
+            <span className="font-titre text-lg font-bold">{t(`roles.${role}`)}</span>
+            <span className="mt-3 text-xs text-craie-500">{t("acces.compte", { n: compte[role] })}</span>
           </Link>
         </li>
       ))}

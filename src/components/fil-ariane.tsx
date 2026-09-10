@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useT } from "@/i18n/fournisseur";
 import { donneesLd } from "@/lib/html";
 import { ChevronRight } from "lucide-react";
 import { site } from "@/lib/site";
@@ -18,6 +21,7 @@ export interface Miette {
  * navigateur.
  */
 export function FilAriane({ miettes }: { miettes: Miette[] }) {
+  const t = useT();
   const donnees = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -35,7 +39,7 @@ export function FilAriane({ miettes }: { miettes: Miette[] }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }}
       />
-      <nav aria-label="Fil d'Ariane">
+      <nav aria-label={t("commun.filAriane")}>
         <ol className="flex flex-wrap items-center gap-1.5 text-xs text-craie-500">
           {miettes.map((m, i) => {
             const dernier = i === miettes.length - 1;

@@ -4,16 +4,17 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Search } from "lucide-react";
 import { CarteHeros, type ApercuHeros } from "@/components/carte-heros";
 import type { Lane, Role } from "@/lib/types";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 const LANES: Lane[] = ["Or", "Experience", "Milieu", "Jungle", "Roam"];
 
 type Tri = "nom" | "victoire" | "palier";
-const TRIS: { cle: Tri; label: string }[] = [
-  { cle: "nom", label: "A → Z" },
-  { cle: "victoire", label: "Taux de victoire" },
-  { cle: "palier", label: "Tier list" },
+const TRIS: { cle: Tri; cleI18n: string }[] = [
+  { cle: "nom", cleI18n: "triNom" },
+  { cle: "victoire", cleI18n: "triVictoire" },
+  { cle: "palier", cleI18n: "triPalier" },
 ];
 const RANG_PALIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
 
@@ -25,6 +26,7 @@ const RANG_PALIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
  * petit une fois les champs inutiles ecartes.
  */
 export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
+  const t = useT();
   const [recherche, setRecherche] = useState("");
   const [role, setRole] = useState<Role | null>(null);
   const [lane, setLane] = useState<Lane | null>(null);
@@ -92,28 +94,28 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
             type="search"
             value={recherche}
             onChange={(e) => setRecherche(e.target.value)}
-            placeholder="Rechercher un heros"
-            aria-label="Rechercher un heros"
+            placeholder={t("pages.heroesListe.rechercher")}
+            aria-label={t("pages.heroesListe.rechercher")}
             className="biseau-sm w-full border border-nuit-700 bg-nuit-900 py-2.5 pl-10 pr-4 text-craie-100 outline-none transition-colors placeholder:text-craie-500 focus:border-or-500"
           />
         </div>
 
-        <Filtres legende="Role" valeurs={ROLES} actif={role} onChange={setRole} />
-        <Filtres legende="Position" valeurs={LANES} actif={lane} onChange={setLane} />
+        <Filtres legende={t("pages.heroesListe.role")} valeurs={ROLES} actif={role} onChange={setRole} libelle={(r) => t(`roles.${r}`)} />
+        <Filtres legende={t("pages.heroesListe.position")} valeurs={LANES} actif={lane} onChange={setLane} libelle={(l) => t(`lanes.${l}`)} />
 
         <fieldset className="flex flex-wrap items-center gap-2">
-          <legend className="sr-only">Tri</legend>
+          <legend className="sr-only">{t("pages.heroesListe.trier")}</legend>
           <span aria-hidden className="mr-1 w-20 text-xs uppercase tracking-wide text-craie-500">
-            Trier
+            {t("pages.heroesListe.trier")}
           </span>
-          {TRIS.map((t) => {
-            const actif = tri === t.cle;
+          {TRIS.map((tri_) => {
+            const actif = tri === tri_.cle;
             return (
               <button
-                key={t.cle}
+                key={tri_.cle}
                 type="button"
                 aria-pressed={actif}
-                onClick={() => setTri(t.cle)}
+                onClick={() => setTri(tri_.cle)}
                 className={cn(
                   "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
                   actif
@@ -121,7 +123,7 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
                     : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
                 )}
               >
-                {t.label}
+                {t(`pages.heroesListe.${tri_.cleI18n}`)}
               </button>
             );
           })}
@@ -129,8 +131,8 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-craie-500">
-        {resultats.length} heros
-        {resultats.length !== heros.length && ` sur ${heros.length}`}
+        {t("pages.heroesListe.compte", { n: resultats.length })}
+        {resultats.length !== heros.length && ` ${t("pages.heroesListe.compteSur", { total: heros.length })}`}
       </p>
 
       {resultats.length > 0 ? (
@@ -140,7 +142,7 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
           ))}
         </div>
       ) : (
-        <p className="mt-10 text-craie-500">Aucun heros ne correspond a ces filtres.</p>
+        <p className="mt-10 text-craie-500">{t("pages.heroesListe.aucun")}</p>
       )}
     </div>
   );
@@ -151,11 +153,13 @@ function Filtres<T extends string>({
   valeurs,
   actif,
   onChange,
+  libelle,
 }: {
   legende: string;
   valeurs: readonly T[];
   actif: T | null;
   onChange: (v: T | null) => void;
+  libelle: (v: T) => string;
 }) {
   return (
     <fieldset className="flex flex-wrap items-center gap-2">
@@ -178,7 +182,7 @@ function Filtres<T extends string>({
                 : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
             )}
           >
-            {v}
+            {libelle(v)}
           </button>
         );
       })}

@@ -1,14 +1,31 @@
-import competencesGenere from "@/data/jeu/competences.json";
-import modesGenere from "@/data/jeu/modes.json";
-import histoiresGenere from "@/data/jeu/histoires.json";
+import competencesEn from "@/data/jeu/competences/en.json";
+import competencesFr from "@/data/jeu/competences/fr.json";
+import competencesIt from "@/data/jeu/competences/it.json";
+import competencesEs from "@/data/jeu/competences/es.json";
+import modesEn from "@/data/jeu/modes/en.json";
+import modesFr from "@/data/jeu/modes/fr.json";
+import modesIt from "@/data/jeu/modes/it.json";
+import modesEs from "@/data/jeu/modes/es.json";
+import histoiresEn from "@/data/jeu/histoires/en.json";
+import histoiresFr from "@/data/jeu/histoires/fr.json";
+import histoiresIt from "@/data/jeu/histoires/it.json";
+import histoiresEs from "@/data/jeu/histoires/es.json";
 import herosGenere from "@/data/jeu/heros.json";
-import objetsGenere from "@/data/jeu/objets.json";
+import objetsEn from "@/data/jeu/objets/en.json";
+import objetsFr from "@/data/jeu/objets/fr.json";
+import objetsIt from "@/data/jeu/objets/it.json";
+import objetsEs from "@/data/jeu/objets/es.json";
+import tierNotesEn from "@/data/jeu/tier-notes/en.json";
+import tierNotesFr from "@/data/jeu/tier-notes/fr.json";
+import tierNotesIt from "@/data/jeu/tier-notes/it.json";
+import tierNotesEs from "@/data/jeu/tier-notes/es.json";
 import patchsGenere from "@/data/jeu/patchs.json";
 import skinsGenere from "@/data/jeu/skins.json";
 import synchroGenere from "@/data/jeu/synchro.json";
 import statistiquesGenere from "@/data/jeu/statistiques.json";
 import visuelsGenere from "@/data/jeu/visuels.json";
 import { analyses } from "@/data/heros";
+import type { Langue } from "@/i18n/config";
 import type {
   CompetenceWiki,
   Heros,
@@ -46,11 +63,14 @@ export const heros: Heros[] = (herosGenere as unknown as HerosGenere[]).map((h) 
 
 export const herosParSlug = new Map(heros.map((h) => [h.slug, h]));
 
-/** Noms anglais des competences, dans l'ordre du jeu. */
-export const competences = competencesGenere as unknown as Record<
-  string,
-  (CompetenceWiki | null)[]
->;
+/**
+ * Competences d'un heros, dans la langue demandee. Chaque langue a son propre
+ * fichier statique, genere en amont : rien n'est traduit a l'execution.
+ */
+const COMPETENCES = { en: competencesEn, fr: competencesFr, it: competencesIt, es: competencesEs };
+export function competences(locale: Langue): Record<string, (CompetenceWiki | null)[]> {
+  return COMPETENCES[locale] as unknown as Record<string, (CompetenceWiki | null)[]>;
+}
 
 /** Icone de chaque competence, indexee par son nom anglais. */
 export const visuelsCompetences = visuelsGenere.competences as unknown as Record<
@@ -80,12 +100,22 @@ export const contres = statistiquesGenere.contres as unknown as Record<string, C
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
 export const patchsDetail = patchsGenere.detail as unknown as Record<string, PatchDetaille>;
 
-/** Modes de jeu, presentes depuis le wiki. */
-export const modes = modesGenere as unknown as ModeDeJeu[];
-export const modesParSlug = new Map(modes.map((m) => [m.slug, m]));
+/** Modes de jeu, dans la langue demandee. */
+const MODES = { en: modesEn, fr: modesFr, it: modesIt, es: modesEs };
+export function modes(locale: Langue): ModeDeJeu[] {
+  return MODES[locale] as unknown as ModeDeJeu[];
+}
+export function modeParSlug(locale: Langue, slug: string): ModeDeJeu | undefined {
+  return modes(locale).find((m) => m.slug === slug);
+}
+/** Slugs des modes, independants de la langue — pour le plan du site et les params. */
+export const modesSlugs = (modesFr as unknown as ModeDeJeu[]).map((m) => m.slug);
 
-/** Histoire des heros : accroche, lore, fiche narrative et anecdotes. */
-export const histoires = histoiresGenere as unknown as Record<string, HistoireHeros>;
+/** Histoire d'un heros par langue : accroche, lore, fiche narrative, anecdotes. */
+const HISTOIRES = { en: histoiresEn, fr: histoiresFr, it: histoiresIt, es: histoiresEs };
+export function histoires(locale: Langue): Record<string, HistoireHeros> {
+  return HISTOIRES[locale] as unknown as Record<string, HistoireHeros>;
+}
 
 /** Illustrations pleine taille, par heros puis par nom de skin. */
 export const illustrations = visuelsGenere.illustrations as unknown as Record<
@@ -93,8 +123,18 @@ export const illustrations = visuelsGenere.illustrations as unknown as Record<
   Record<string, string>
 >;
 
-export const objets = objetsGenere as unknown as ObjetGenere[];
-export const objetsParSlug = new Map(objets.map((o) => [o.slug, o]));
+const OBJETS = { en: objetsEn, fr: objetsFr, it: objetsIt, es: objetsEs };
+export function objets(locale: Langue): ObjetGenere[] {
+  return OBJETS[locale] as unknown as ObjetGenere[];
+}
+/** Nombre d'objets (independant de la langue). */
+export const nombreObjets = (objetsEn as unknown as ObjetGenere[]).length;
+
+/** Notes editoriales de la tier list, par langue. */
+const TIER_NOTES = { en: tierNotesEn, fr: tierNotesFr, it: tierNotesIt, es: tierNotesEs };
+export function tierNotes(locale: Langue): Record<string, string> {
+  return TIER_NOTES[locale] as Record<string, string>;
+}
 
 export const patchs = patchsGenere.liste as unknown as Patch[];
 export const synchro = synchroGenere as unknown as Synchro;
@@ -117,7 +157,7 @@ const ORDRE_CATEGORIES = [
   "Attack, Magic & Defense",
 ];
 
-export const categoriesObjets = [...new Set(objets.map((o) => o.categorie))].sort(
+export const categoriesObjets = [...new Set((objetsEn as unknown as ObjetGenere[]).map((o) => o.categorie))].sort(
   (a, b) => {
     const ia = ORDRE_CATEGORIES.indexOf(a);
     const ib = ORDRE_CATEGORIES.indexOf(b);
@@ -125,16 +165,3 @@ export const categoriesObjets = [...new Set(objets.map((o) => o.categorie))].sor
   },
 );
 
-/** Traduction des categories du wiki, qui sont en anglais. */
-export const NOM_CATEGORIE: Record<string, string> = {
-  Attack: "Attaque",
-  Magic: "Magie",
-  Defense: "Defense",
-  Movement: "Mouvement",
-  Jungling: "Jungle",
-  Roaming: "Roam",
-  "Attack & Magic": "Attaque et magie",
-  "Attack, Magic & Defense": "Attaque, magie et defense",
-};
-
-export const nomCategorie = (c: string) => NOM_CATEGORIE[c] ?? c;

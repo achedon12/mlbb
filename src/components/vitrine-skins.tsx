@@ -3,6 +3,7 @@
 import { createContext, useContext, useState } from "react";
 import Image from "next/image";
 import type { Skin } from "@/lib/types";
+import { useT } from "@/i18n/fournisseur";
 import { rarete, raretesPresentes } from "@/lib/raretes";
 
 /**
@@ -101,15 +102,21 @@ export function PortraitVitrine({
 
 /** Monnaies du jeu, aux sigles peu parlants. */
 const MONNAIES: Record<string, string> = {
-  bp: "Points de bataille",
-  dm: "Diamants",
-  ticket: "Tickets",
-  hf: "Fragments de heros",
-  lg: "Gemmes",
+  bp: "pointsBataille",
+  dm: "diamants",
+  ticket: "tickets",
+  hf: "fragments",
+  lg: "gemmes",
 };
 
 /** L'onglet : grande illustration, informations, et grille de selection. */
 export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
+  const t = useT();
+  const tr = (ns: string, v: string) => {
+    const cle = `${ns}.${v}`;
+    const trad = t(cle);
+    return trad === cle ? v : trad;
+  };
   const { actif, choisir } = useSkin();
 
   return (
@@ -119,7 +126,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
         {raretesPresentes(skins.map((s) => s.rarete)).map((r) => (
           <li key={r.nom} className="flex items-center gap-1.5 text-xs text-craie-500">
             <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.couleur }} />
-            {r.nom}
+            {tr("skinRarete", r.cle)}
           </li>
         ))}
       </ul>
@@ -160,29 +167,29 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
                 className="mt-1.5 text-sm font-semibold uppercase tracking-wide"
                 style={{ color: rarete(actif.rarete).couleur }}
               >
-                {rarete(actif.rarete).nom}
+                {tr("skinRarete", rarete(actif.rarete).cle)}
               </p>
             )}
           </div>
 
           <dl className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            {actif.sortie && <Info label="Sortie" valeur={actif.sortie} />}
-            {actif.disponibilite && <Info label="Disponibilite" valeur={actif.disponibilite} />}
-            {actif.etiquette && <Info label="Obtention" valeur={actif.etiquette} />}
+            {actif.sortie && <Info label={t("skinsUI.sortie")} valeur={actif.sortie} />}
+            {actif.disponibilite && <Info label={t("skinsUI.disponibilite")} valeur={tr("skinDispo", actif.disponibilite)} />}
+            {actif.etiquette && <Info label={t("skinsUI.obtention")} valeur={tr("skinEtiquette", actif.etiquette)} />}
           </dl>
 
           {Object.entries(actif.prix).length > 0 && (
             <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
               {Object.entries(actif.prix).map(([m, v]) => (
                 <li key={m} className="text-craie-100">
-                  {v} <span className="text-craie-500">{MONNAIES[m] ?? m}</span>
+                  {v} <span className="text-craie-500">{MONNAIES[m] ? t(`skinsUI.${MONNAIES[m]}`) : m}</span>
                 </li>
               ))}
             </ul>
           )}
 
           {!actif.sortie && !actif.disponibilite && Object.keys(actif.prix).length === 0 && (
-            <p className="text-sm text-craie-500">Skin d&apos;origine.</p>
+            <p className="text-sm text-craie-500">{t("skinsUI.origine")}</p>
           )}
         </div>
       </div>

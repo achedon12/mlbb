@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { Search } from "lucide-react";
 import type { ObjetGenere } from "@/lib/types";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 /**
@@ -21,13 +22,12 @@ export interface ApercuObjet extends ObjetGenere {
 export function ListeObjets({
   objets,
   categories,
-  nomCategorie,
 }: {
   objets: ApercuObjet[];
   categories: string[];
-  nomCategorie: Record<string, string>;
 }) {
   const [recherche, setRecherche] = useState("");
+  const t = useT();
   const [categorie, setCategorie] = useState<string | null>(null);
 
   const slugsConnus = useMemo(() => new Set(objets.map((o) => o.slug)), [objets]);
@@ -106,8 +106,8 @@ export function ListeObjets({
             type="search"
             value={recherche}
             onChange={(e) => setRecherche(e.target.value)}
-            placeholder="Rechercher un objet, une statistique, un passif"
-            aria-label="Rechercher un objet"
+            placeholder={t("pages.itemsListe.rechercher")}
+            aria-label={t("pages.itemsListe.rechercher")}
             className="biseau-sm w-full border border-nuit-700 bg-nuit-900 py-2.5 pl-10 pr-4 text-craie-100 outline-none transition-colors placeholder:text-craie-500 focus:border-or-500"
           />
         </div>
@@ -128,7 +128,7 @@ export function ListeObjets({
                     : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
                 )}
               >
-                {nomCategorie[c] ?? c}
+                {t(`categories.${c}`)}
               </button>
             );
           })}
@@ -136,8 +136,8 @@ export function ListeObjets({
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-craie-500">
-        {resultats.length} objets
-        {resultats.length !== objets.length && ` sur ${objets.length}`}
+        {t("pages.itemsListe.compte", { n: resultats.length })}
+        {resultats.length !== objets.length && ` ${t("pages.itemsListe.compteSur", { total: objets.length })}`}
       </p>
 
       <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_21rem]">
@@ -210,9 +210,9 @@ export function ListeObjets({
                   )}
                   {objet.prix !== null && (
                     <p className="mt-1 text-sm text-craie-500">
-                      Prix :{" "}
+                      {t("pages.itemsListe.prix")}{" "}
                       <span className="font-titre text-or-400">
-                        {objet.prix.toLocaleString("fr-FR")} or
+                        {objet.prix.toLocaleString()} {t("pages.itemsListe.or")}
                       </span>
                     </p>
                   )}
@@ -222,31 +222,31 @@ export function ListeObjets({
               <dl className="mt-5 space-y-3 text-sm">
                 {objet.bonus && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">Statistiques</dt>
+                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.statistiques")}</dt>
                     <dd className="mt-1 leading-snug text-craie-100">{objet.bonus}</dd>
                   </div>
                 )}
                 {objet.unique && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">Unique</dt>
+                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.unique")}</dt>
                     <dd className="mt-1 leading-snug text-azur-400">{objet.unique}</dd>
                   </div>
                 )}
                 {objet.passif && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">Passif</dt>
+                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.passif")}</dt>
                     <dd className="mt-1 leading-relaxed text-craie-300">{objet.passif}</dd>
                   </div>
                 )}
                 {objet.actif && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">Actif</dt>
+                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.actif")}</dt>
                     <dd className="mt-1 leading-relaxed text-craie-300">{objet.actif}</dd>
                   </div>
                 )}
                 {objet.recette.length > 0 && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">Recette</dt>
+                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.recette")}</dt>
                     <dd className="mt-1 text-craie-300">{objet.recette.join(" + ")}</dd>
                   </div>
                 )}
@@ -254,8 +254,7 @@ export function ListeObjets({
             </div>
           ) : (
             <p className="biseau border border-dashed border-nuit-700 p-5 text-sm leading-relaxed text-craie-500">
-              Choisissez un objet pour voir ses statistiques, son passif et sa
-              recette.
+              {t("pages.itemsListe.choisir")}
             </p>
           )}
         </aside>

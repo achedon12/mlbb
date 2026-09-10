@@ -1,4 +1,5 @@
 import { objets } from "@/lib/donnees";
+const tous = objets("en");
 import { reponseApi } from "@/lib/api";
 
 /** Objets de la boutique, filtrables par categorie. */
@@ -9,8 +10,8 @@ export const dynamic = "force-dynamic";
 export function GET(requete: Request) {
   const categorie = new URL(requete.url).searchParams.get("categorie");
   const resultats = categorie
-    ? objets.filter((o) => o.categorie.toLowerCase() === categorie.toLowerCase())
-    : objets;
+    ? tous.filter((o) => o.categorie.toLowerCase() === categorie.toLowerCase())
+    : tous;
 
   return reponseApi(resultats, { total: resultats.length });
 }
