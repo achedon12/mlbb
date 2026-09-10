@@ -52,10 +52,13 @@ npm run dev                    # http://localhost:3001
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm run sync` | Relit le wiki et regenere `src/data/genere/` |
 | `npm run sync -- --images` | Idem, en telechargeant aussi les visuels |
+| `npm run traduire` | Traduit en francais les histoires, competences et modes |
+| `npm run veille` | Prend l'instantane des flux d'actualite |
+| `npm run test` | Tests unitaires et fonctionnels (Vitest) |
 
-Les visuels et les donnees sont deja dans le depot : `sync` ne sert qu'a les
-rafraichir. Renseigner `YOUTUBE_API_KEY` ajoute la recherche des presentations
-video officielles ; sans elle, les fiches proposent un lien de recherche.
+Les visuels et les donnees sont deja dans le depot : `sync`, `traduire` et
+`veille` ne servent qu'a les rafraichir, et ne tournent qu'en local ou en CI —
+jamais a l'execution du site.
 
 ## Ce que contient le site
 
@@ -73,7 +76,7 @@ video officielles ; sans elle, les fiches proposent un lien de recherche.
 - **Actualites et patch notes** — la liste des patchs est synchronisee ; les
   mises a jour marquantes font l'objet d'une analyse redigee.
 - **Veille** — les publications du reste du web sur le jeu, rassemblees
-  automatiquement et rafraichies toutes les 30 minutes, sans tache planifiee.
+  automatiquement, figees en instantane et rafraichies a chaque synchronisation.
 - **Compte connecte** — connexion par le code de verification officiel du jeu,
   puis profil, rang reel (embleme, division, etoiles, paliers mythiques) et
   liste d'amis. Aucun mot de passe, aucun etat conserve.
@@ -88,8 +91,7 @@ video officielles ; sans elle, les fiches proposent un lien de recherche.
 | Taux de victoire, contres chiffres, classement, emblemes de rang | API communautaire `arena.rone.dev` | **Automatique**, chaque lundi |
 | Analyses de heros, tier list, emblemes | Redigees a la main | Par pull request |
 | Articles et guides | Markdown dans `content/` | Par pull request |
-| Veille | Flux publics agreges au rendu | **Automatique**, toutes les 30 min |
-| Presentations video | YouTube, si `YOUTUBE_API_KEY` est renseignee | A la synchronisation |
+| Veille | Flux publics, instantane pris en amont | **Automatique**, a la synchro |
 
 Les donnees factuelles ne s'ecrivent plus a la main. Un workflow relit chaque
 semaine les deux sources — le wiki pour le catalogue, l'API communautaire pour

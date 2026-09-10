@@ -11,7 +11,6 @@ import { FilAriane } from "@/components/fil-ariane";
 
 import { ContresChiffres } from "@/components/contres-chiffres";
 import { ObjetBuild } from "@/components/objet-build";
-import { PresentationVideo } from "@/components/presentation-video";
 import { Onglets } from "@/components/onglets";
 
 import {
@@ -28,7 +27,6 @@ import {
   herosParSlug,
   histoires,
   illustrations,
-  videos,
   visuelsCompetences,
 } from "@/lib/donnees";
 import { classementComplet } from "@/lib/tier-list";
@@ -77,7 +75,6 @@ export default async function PageHeros({ params }: Params) {
   // L'illustration du skin d'origine sert de fond : c'est celle qui represente
   // le heros tel qu'on le rencontre par defaut.
   const fond = Object.values(illustrationsHeros)[0] ?? null;
-  const video = videos[h.slug] ?? null;
   const contresHeros = contres[h.slug] ?? null;
   const histoire = histoires[h.slug] ?? null;
   const aHistoire =
@@ -420,11 +417,6 @@ export default async function PageHeros({ params }: Params) {
                 skinsComplets.length > 0 ? (
                   <VitrineSkins skins={skinsComplets} />
                 ) : null,
-            },
-            {
-              id: "video",
-              label: "Presentation",
-              contenu: <PresentationVideo video={video} nom={h.nom} />,
             },
           ]}
         />

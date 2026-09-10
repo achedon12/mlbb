@@ -10,7 +10,6 @@ import patchsGenere from "@/data/genere/patchs.json";
 import skinsGenere from "@/data/genere/skins.json";
 import synchroGenere from "@/data/genere/synchro.json";
 import visuelsCompetencesGenere from "@/data/genere/visuels-competences.json";
-import videosGenere from "@/data/genere/videos.json";
 import visuelsGenere from "@/data/genere/visuels.json";
 import { analyses } from "@/data/heros";
 import type {
@@ -90,12 +89,6 @@ export const modesParSlug = new Map(modes.map((m) => [m.slug, m]));
 
 /** Histoire des heros : accroche, lore, fiche narrative et anecdotes. */
 export const histoires = histoiresGenere as unknown as Record<string, HistoireHeros>;
-
-/** Presentation video officielle, quand elle a pu etre identifiee. */
-export const videos = videosGenere as unknown as Record<
-  string,
-  { id: string; titre: string }
->;
 
 /** Illustrations pleine taille, par heros puis par nom de skin. */
 export const illustrations = illustrationsGenere as unknown as Record<
