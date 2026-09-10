@@ -2,15 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { EnTetePage } from "@/components/ui";
-import { DUREE_CACHE, sources, veille } from "@/lib/veille";
+import { mesureVeille, sources, veille } from "@/lib/veille";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
-
-/**
- * La page se revalide toute seule : Next refait la collecte en arriere-plan a
- * expiration, sans tache planifiee ni redemarrage du service.
- */
-export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Veille — l'actualite MLBB du web",
@@ -24,8 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function PageVeille() {
-  const actualites = await veille();
+export default function PageVeille() {
+  const actualites = veille();
 
   return (
     <>
@@ -34,7 +28,7 @@ export default async function PageVeille() {
         chapeau="Ce que publie le reste du web sur le jeu : communaute et presse esport, rassembles automatiquement. Chaque entree renvoie chez son editeur — rien n'est recopie ici."
       >
         <p className="mt-6 text-sm text-craie-500">
-          Actualise toutes les {DUREE_CACHE / 60} minutes · sources :{" "}
+          Derniere collecte le {formaterDate(mesureVeille)} · sources :{" "}
           {sources.map((s, i) => (
             <span key={s.slug}>
               {i > 0 && ", "}
