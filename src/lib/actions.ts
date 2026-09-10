@@ -86,7 +86,7 @@ export async function verifierCode(_precedent: Etat, donnees: FormData): Promise
   }
 
   await ouvrirSession(resultat.jeton);
-  redirect("/compte");
+  redirect("/account");
 }
 
 export async function deconnecter(): Promise<void> {

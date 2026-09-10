@@ -38,7 +38,7 @@ const COULEUR_PALIER: Record<Palier, string> = {
 export function CarteHeros({ heros }: { heros: ApercuHeros }) {
   return (
     <Link
-      href={`/heros/${heros.slug}`}
+      href={`/heroes/${heros.slug}`}
       className="biseau group flex items-start gap-3 border border-nuit-700/70 bg-nuit-900/60 p-3 transition-colors hover:border-or-500/60 hover:bg-nuit-850"
     >
       <PortraitHeros source={heros.visuels.icone ?? heros.visuels.portrait} nom={heros.nom} />

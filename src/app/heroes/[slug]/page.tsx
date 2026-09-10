@@ -51,12 +51,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
     description,
-    alternates: { canonical: `/heros/${slug}` },
+    alternates: { canonical: `/heroes/${slug}` },
     openGraph: {
       type: "article",
       title: `${h.nom} — ${site.nom}`,
       description,
-      url: `/heros/${slug}`,
+      url: `/heroes/${slug}`,
       images: h.visuels.portrait ? [{ url: h.visuels.portrait }] : undefined,
     },
   };
@@ -99,7 +99,7 @@ export default async function PageHeros({ params }: Params) {
     inLanguage: "fr-FR",
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/heros/${slug}`,
+    mainEntityOfPage: `${site.url}/heroes/${slug}`,
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
   };
 
@@ -117,7 +117,7 @@ export default async function PageHeros({ params }: Params) {
       */}
       <VitrineProvider skins={skinsComplets} portraitDefaut={h.visuels.portrait}>
       <div className="mx-auto max-w-6xl px-4 pt-6">
-        <FilAriane miettes={[{ nom: "Heros", href: "/heros" }, { nom: h.nom }]} />
+        <FilAriane miettes={[{ nom: "Heros", href: "/heroes" }, { nom: h.nom }]} />
       </div>
       {/* ── En-tete ────────────────────────────────────────────────────── */}
       <div className="relative border-b border-nuit-700/70 bg-nuit-900/30">
@@ -152,7 +152,7 @@ export default async function PageHeros({ params }: Params) {
 
         <div className="relative mx-auto max-w-5xl px-4 py-10">
           <Link
-            href="/heros"
+            href="/heroes"
             // Ce lien flotte sur l'illustration, dont la clarte varie d'un
             // heros a l'autre : il porte donc son propre fond.
             className="biseau-sm inline-flex items-center gap-1.5 bg-nuit-950/75 px-3 py-1.5 text-sm text-craie-300 backdrop-blur-sm transition-colors hover:text-or-400"
@@ -185,7 +185,7 @@ export default async function PageHeros({ params }: Params) {
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <BoutonFavori heros={h.slug} />
                 <Link
-                  href={`/comparateur?a=${h.slug}`}
+                  href={`/compare?a=${h.slug}`}
                   className="biseau-sm flex items-center gap-2 border border-nuit-700 px-4 py-2 text-sm font-medium text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
                 >
                   <Swords size={15} aria-hidden />
@@ -442,7 +442,7 @@ function ListeContres({
         {slugs.map((s) => (
           <li key={s}>
             <Link
-              href={`/heros/${s}`}
+              href={`/heroes/${s}`}
               className={`biseau-sm border px-2.5 py-1 text-sm transition-colors ${
                 ton === "bon"
                   ? "border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10"

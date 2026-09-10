@@ -17,7 +17,7 @@ export default function Introuvable() {
           Retour a l&apos;accueil
         </Link>
         <Link
-          href="/heros"
+          href="/heroes"
           className="biseau-sm border border-nuit-600 px-6 py-3 font-semibold text-craie-100 transition-colors hover:border-or-500/60 hover:text-or-400"
         >
           Voir les heros

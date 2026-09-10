@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "A propos",
   description:
     "Ce qu'est ce site, ce qu'il contient, ce qu'il ne peut pas contenir, et comment y contribuer.",
-  alternates: { canonical: "/a-propos" },
+  alternates: { canonical: "/about" },
 };
 
 export default function PageAPropos() {

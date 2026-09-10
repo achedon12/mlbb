@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   title: "Modes de jeu",
   description:
     "Les modes de jeu de Mobile Legends: Bang Bang — Classique, Classe, Baston, Vs. IA, Personnalise et Arcade — presentes un par un, regles detaillees a l'appui.",
-  alternates: { canonical: "/modes-de-jeu" },
+  alternates: { canonical: "/game-modes" },
   openGraph: {
     title: `Modes de jeu — ${site.nom}`,
     description: "Les modes de jeu de Mobile Legends: Bang Bang et ce qui les distingue.",
-    url: "/modes-de-jeu",
+    url: "/game-modes",
   },
 };
 
@@ -28,7 +28,7 @@ const donneesStructurees = {
     "@type": "ListItem",
     position: i + 1,
     name: m.nom,
-    url: `${site.url}/modes-de-jeu/${m.slug}`,
+    url: `${site.url}/game-modes/${m.slug}`,
     description: FICHES_MODES[m.slug]?.texte,
   })),
 };
@@ -53,7 +53,7 @@ export default function PageModes() {
             return (
               <Link
                 key={mode.slug}
-                href={`/modes-de-jeu/${mode.slug}`}
+                href={`/game-modes/${mode.slug}`}
                 className="biseau group relative isolate block overflow-hidden border border-nuit-700/70 transition-colors hover:border-nuit-600"
               >
                 <div

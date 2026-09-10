@@ -9,11 +9,11 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Tous les heros",
   description: `Les ${heros.length} heros de Mobile Legends: Bang Bang, filtrables par role et par position : portraits, skins, statistiques, et ${herosAnalyses.length} analyses redigees.`,
-  alternates: { canonical: "/heros" },
+  alternates: { canonical: "/heroes" },
   openGraph: {
     title: `Tous les heros — ${site.nom}`,
     description: `Les ${heros.length} heros de Mobile Legends: Bang Bang, avec leurs ${nombreSkins} skins.`,
-    url: "/heros",
+    url: "/heroes",
   },
 };
 
@@ -26,7 +26,7 @@ const donneesStructurees = {
     "@type": "ListItem",
     position: i + 1,
     name: h.nom,
-    url: `${site.url}/heros/${h.slug}`,
+    url: `${site.url}/heroes/${h.slug}`,
   })),
 };
 

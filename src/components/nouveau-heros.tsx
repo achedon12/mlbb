@@ -138,7 +138,7 @@ export function NouveauHeros({ heros }: { heros: NouveauHerosEnrichi }) {
 
       {heros.fiche && (
         <Link
-          href={`/heros/${heros.slug}`}
+          href={`/heroes/${heros.slug}`}
           className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-or-400 hover:text-or-500"
         >
           Voir la fiche complete de {heros.nom}

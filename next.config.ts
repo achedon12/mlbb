@@ -30,6 +30,25 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
 
+  // Les routes sont passees en anglais. Les anciennes adresses francaises,
+  // deja indexees et partagees, redirigent en permanence vers les nouvelles.
+  async redirects() {
+    return [
+      { source: "/heros/:path*", destination: "/heroes/:path*", permanent: true },
+      { source: "/objets/:path*", destination: "/items/:path*", permanent: true },
+      { source: "/emblemes", destination: "/emblems", permanent: true },
+      { source: "/actualites/:path*", destination: "/news/:path*", permanent: true },
+      { source: "/veille", destination: "/watch", permanent: true },
+      { source: "/comparateur", destination: "/compare", permanent: true },
+      { source: "/modes-de-jeu/:path*", destination: "/game-modes/:path*", permanent: true },
+      { source: "/a-propos", destination: "/about", permanent: true },
+      { source: "/mentions-legales", destination: "/legal", permanent: true },
+      { source: "/confidentialite", destination: "/privacy", permanent: true },
+      { source: "/compte", destination: "/account", permanent: true },
+      { source: "/connexion", destination: "/login", permanent: true },
+    ];
+  },
+
   async headers() {
     return [
       {

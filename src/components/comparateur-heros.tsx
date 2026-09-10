@@ -164,7 +164,7 @@ function EnTeteHeros({ heros }: { heros: HerosComparable }) {
         <div className="min-w-0">
           <div className="flex items-center gap-2">
             <Link
-              href={`/heros/${heros.slug}`}
+              href={`/heroes/${heros.slug}`}
               className="truncate font-titre text-lg font-bold text-craie-100 hover:text-or-400"
             >
               {heros.nom}

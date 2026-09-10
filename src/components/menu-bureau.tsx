@@ -32,18 +32,18 @@ import { cn } from "@/lib/utils";
 export type Entree = { href: string; label: string; icone: LucideIcon; description: string };
 
 export const BASE: Entree[] = [
-  { href: "/heros", label: "Heros", icone: Users, description: "Fiches, builds et analyses" },
+  { href: "/heroes", label: "Heros", icone: Users, description: "Fiches, builds et analyses" },
   { href: "/tier-list", label: "Tier list", icone: Trophy, description: "Le meilleur du patch" },
-  { href: "/comparateur", label: "Comparateur", icone: Scale, description: "Deux heros face a face" },
+  { href: "/compare", label: "Comparateur", icone: Scale, description: "Deux heros face a face" },
   { href: "/draft", label: "Draft", icone: Swords, description: "Simulateur de picks et bans" },
-  { href: "/modes-de-jeu", label: "Modes de jeu", icone: Gamepad2, description: "Classique, Classe, Baston…" },
-  { href: "/objets", label: "Objets", icone: Package, description: "Equipement et statistiques" },
-  { href: "/emblemes", label: "Emblemes", icone: Gem, description: "Talents et configurations" },
+  { href: "/game-modes", label: "Modes de jeu", icone: Gamepad2, description: "Classique, Classe, Baston…" },
+  { href: "/items", label: "Objets", icone: Package, description: "Equipement et statistiques" },
+  { href: "/emblems", label: "Emblemes", icone: Gem, description: "Talents et configurations" },
 ];
 
 export const ACTUALITE: Entree[] = [
-  { href: "/actualites", label: "Actualites", icone: Newspaper, description: "Le fil du jeu" },
-  { href: "/veille", label: "Veille", icone: Radar, description: "Sources agregees en direct" },
+  { href: "/news", label: "Actualites", icone: Newspaper, description: "Le fil du jeu" },
+  { href: "/watch", label: "Veille", icone: Radar, description: "Sources agregees en direct" },
   { href: "/patch-notes", label: "Patch notes", icone: ScrollText, description: "Notes de version detaillees" },
 ];
 

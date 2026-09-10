@@ -33,15 +33,15 @@ export const legal = {
  * plus rien.
  */
 export const navigation = [
-  { href: "/heros", label: "Heros", groupe: "jeu" },
+  { href: "/heroes", label: "Heros", groupe: "jeu" },
   { href: "/tier-list", label: "Tier list", groupe: "jeu" },
-  { href: "/comparateur", label: "Comparateur", groupe: "jeu" },
+  { href: "/compare", label: "Comparateur", groupe: "jeu" },
   { href: "/draft", label: "Draft", groupe: "jeu" },
-  { href: "/modes-de-jeu", label: "Modes", groupe: "jeu" },
-  { href: "/objets", label: "Objets", groupe: "jeu" },
-  { href: "/emblemes", label: "Emblemes", groupe: "jeu" },
-  { href: "/actualites", label: "Actualites", groupe: "actualite" },
-  { href: "/veille", label: "Veille", groupe: "actualite" },
+  { href: "/game-modes", label: "Modes", groupe: "jeu" },
+  { href: "/items", label: "Objets", groupe: "jeu" },
+  { href: "/emblems", label: "Emblemes", groupe: "jeu" },
+  { href: "/news", label: "Actualites", groupe: "actualite" },
+  { href: "/watch", label: "Veille", groupe: "actualite" },
   { href: "/patch-notes", label: "Patch notes", groupe: "actualite" },
 ] as const;
 

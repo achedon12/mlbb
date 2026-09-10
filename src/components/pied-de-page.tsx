@@ -6,10 +6,10 @@ const ANNEE = new Date().getFullYear();
 
 const LIENS_SITE = [
   { href: "/api-doc", label: "API publique" },
-  { href: "/a-propos", label: "A propos" },
-  { href: "/compte", label: "Mon compte" },
-  { href: "/mentions-legales", label: "Mentions legales" },
-  { href: "/confidentialite", label: "Confidentialite" },
+  { href: "/about", label: "A propos" },
+  { href: "/account", label: "Mon compte" },
+  { href: "/legal", label: "Mentions legales" },
+  { href: "/privacy", label: "Confidentialite" },
 ];
 
 /** Colonne de liens du pied de page. */

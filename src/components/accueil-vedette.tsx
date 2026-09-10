@@ -65,7 +65,7 @@ export function AccueilVedette({
         </dl>
 
         <Link
-          href={`/heros/${heros.slug}`}
+          href={`/heroes/${heros.slug}`}
           className="biseau-sm mt-8 inline-flex items-center gap-2 bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
         >
           Voir sa fiche

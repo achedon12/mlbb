@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function PageConnexion() {
-  if (await jetonCourant()) redirect("/compte");
+  if (await jetonCourant()) redirect("/account");
 
   return (
     <div className="mx-auto max-w-md px-4 py-20">

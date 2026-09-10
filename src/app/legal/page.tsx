@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Mentions legales",
   description:
     "Editeur, hebergeur et proprietaires des contenus du site. Projet de fan independant, sans affiliation avec Moonton.",
-  alternates: { canonical: "/mentions-legales" },
+  alternates: { canonical: "/legal" },
 };
 
 export default function PageMentionsLegales() {
@@ -84,7 +84,7 @@ export default function PageMentionsLegales() {
         <p>
           Le traitement des donnees et l&apos;usage des cookies sont detailles
           dans la{" "}
-          <a href="/confidentialite">politique de confidentialite</a>.
+          <a href="/privacy">politique de confidentialite</a>.
         </p>
       </div>
     </>
