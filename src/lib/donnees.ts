@@ -1,6 +1,15 @@
-import competencesGenere from "@/data/jeu/competences.json";
-import modesGenere from "@/data/jeu/modes.json";
-import histoiresGenere from "@/data/jeu/histoires.json";
+import competencesEn from "@/data/jeu/competences/en.json";
+import competencesFr from "@/data/jeu/competences/fr.json";
+import competencesIt from "@/data/jeu/competences/it.json";
+import competencesEs from "@/data/jeu/competences/es.json";
+import modesEn from "@/data/jeu/modes/en.json";
+import modesFr from "@/data/jeu/modes/fr.json";
+import modesIt from "@/data/jeu/modes/it.json";
+import modesEs from "@/data/jeu/modes/es.json";
+import histoiresEn from "@/data/jeu/histoires/en.json";
+import histoiresFr from "@/data/jeu/histoires/fr.json";
+import histoiresIt from "@/data/jeu/histoires/it.json";
+import histoiresEs from "@/data/jeu/histoires/es.json";
 import herosGenere from "@/data/jeu/heros.json";
 import objetsGenere from "@/data/jeu/objets.json";
 import patchsGenere from "@/data/jeu/patchs.json";
@@ -9,6 +18,7 @@ import synchroGenere from "@/data/jeu/synchro.json";
 import statistiquesGenere from "@/data/jeu/statistiques.json";
 import visuelsGenere from "@/data/jeu/visuels.json";
 import { analyses } from "@/data/heros";
+import type { Langue } from "@/i18n/config";
 import type {
   CompetenceWiki,
   Heros,
@@ -46,11 +56,14 @@ export const heros: Heros[] = (herosGenere as unknown as HerosGenere[]).map((h) 
 
 export const herosParSlug = new Map(heros.map((h) => [h.slug, h]));
 
-/** Noms anglais des competences, dans l'ordre du jeu. */
-export const competences = competencesGenere as unknown as Record<
-  string,
-  (CompetenceWiki | null)[]
->;
+/**
+ * Competences d'un heros, dans la langue demandee. Chaque langue a son propre
+ * fichier statique, genere en amont : rien n'est traduit a l'execution.
+ */
+const COMPETENCES = { en: competencesEn, fr: competencesFr, it: competencesIt, es: competencesEs };
+export function competences(locale: Langue): Record<string, (CompetenceWiki | null)[]> {
+  return COMPETENCES[locale] as unknown as Record<string, (CompetenceWiki | null)[]>;
+}
 
 /** Icone de chaque competence, indexee par son nom anglais. */
 export const visuelsCompetences = visuelsGenere.competences as unknown as Record<
@@ -80,12 +93,22 @@ export const contres = statistiquesGenere.contres as unknown as Record<string, C
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
 export const patchsDetail = patchsGenere.detail as unknown as Record<string, PatchDetaille>;
 
-/** Modes de jeu, presentes depuis le wiki. */
-export const modes = modesGenere as unknown as ModeDeJeu[];
-export const modesParSlug = new Map(modes.map((m) => [m.slug, m]));
+/** Modes de jeu, dans la langue demandee. */
+const MODES = { en: modesEn, fr: modesFr, it: modesIt, es: modesEs };
+export function modes(locale: Langue): ModeDeJeu[] {
+  return MODES[locale] as unknown as ModeDeJeu[];
+}
+export function modeParSlug(locale: Langue, slug: string): ModeDeJeu | undefined {
+  return modes(locale).find((m) => m.slug === slug);
+}
+/** Slugs des modes, independants de la langue — pour le plan du site et les params. */
+export const modesSlugs = (modesFr as unknown as ModeDeJeu[]).map((m) => m.slug);
 
-/** Histoire des heros : accroche, lore, fiche narrative et anecdotes. */
-export const histoires = histoiresGenere as unknown as Record<string, HistoireHeros>;
+/** Histoire d'un heros par langue : accroche, lore, fiche narrative, anecdotes. */
+const HISTOIRES = { en: histoiresEn, fr: histoiresFr, it: histoiresIt, es: histoiresEs };
+export function histoires(locale: Langue): Record<string, HistoireHeros> {
+  return HISTOIRES[locale] as unknown as Record<string, HistoireHeros>;
+}
 
 /** Illustrations pleine taille, par heros puis par nom de skin. */
 export const illustrations = visuelsGenere.illustrations as unknown as Record<

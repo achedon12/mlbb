@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { heros, modes, patchsDetail } from "@/lib/donnees";
+import { heros, modesSlugs, patchsDetail } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
 import { site } from "@/lib/site";
 import { LANGUES, LANGUE_DEFAUT } from "@/i18n/config";
@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { chemin: "/about", changeFrequency: "yearly", priority: 0.3 },
     { chemin: "/legal", changeFrequency: "yearly", priority: 0.2 },
     { chemin: "/privacy", changeFrequency: "yearly", priority: 0.2 },
-    ...modes.map((m) => ({ chemin: `/game-modes/${m.slug}`, changeFrequency: "monthly" as const, priority: 0.5 })),
+    ...modesSlugs.map((slug) => ({ chemin: `/game-modes/${slug}`, changeFrequency: "monthly" as const, priority: 0.5 })),
     ...heros.map((h) => ({ chemin: `/heroes/${h.slug}`, changeFrequency: "monthly" as const, priority: 0.6 })),
     ...Object.keys(patchsDetail).map((v) => ({
       chemin: `/patch-notes/${v}`,

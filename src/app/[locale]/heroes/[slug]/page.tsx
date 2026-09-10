@@ -71,14 +71,14 @@ export default async function PageHeros({ params }: Params) {
 
   const classe = classementComplet.find((e) => e.heros.slug === slug);
   const analyse = h.analyse;
-  const competencesWiki = competences[h.slug] ?? [];
+  const competencesWiki = competences(locale)[h.slug] ?? [];
   const iconesCompetences = visuelsCompetences[h.slug] ?? {};
   const illustrationsHeros = illustrations[h.slug] ?? {};
   // L'illustration du skin d'origine sert de fond : c'est celle qui represente
   // le heros tel qu'on le rencontre par defaut.
   const fond = Object.values(illustrationsHeros)[0] ?? null;
   const contresHeros = contres[h.slug] ?? null;
-  const histoire = histoires[h.slug] ?? null;
+  const histoire = histoires(locale)[h.slug] ?? null;
   const aHistoire =
     !!histoire && (histoire.lore.length > 0 || !!histoire.fiche || histoire.anecdotes.length > 0);
 

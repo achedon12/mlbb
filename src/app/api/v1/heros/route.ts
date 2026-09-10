@@ -31,7 +31,7 @@ export function GET(requete: Request) {
       sortie: h.sortie,
       notes: h.notes,
       skins: h.skins.length,
-      competences: (competences[h.slug] ?? []).map((c) => c?.nom ?? null),
+      competences: (competences("en")[h.slug] ?? []).map((c) => c?.nom ?? null),
     }));
 
   return reponseApi(resultats, { total: resultats.length });

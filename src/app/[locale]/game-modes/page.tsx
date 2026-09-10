@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { EnTetePage } from "@/components/ui";
 import { modes } from "@/lib/donnees";
+import type { Langue } from "@/i18n/config";
 import { ACCENT_MODE_DEFAUT, FICHES_MODES } from "@/lib/modes";
 import { site } from "@/lib/site";
 
@@ -19,21 +20,23 @@ export const metadata: Metadata = {
   },
 };
 
-const donneesStructurees = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Modes de jeu de Mobile Legends: Bang Bang",
-  numberOfItems: modes.length,
-  itemListElement: modes.map((m, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: m.nom,
-    url: `${site.url}/game-modes/${m.slug}`,
-    description: FICHES_MODES[m.slug]?.texte,
-  })),
-};
+export default async function PageModes({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const liste = modes(locale);
+  const donneesStructurees = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Modes de jeu de Mobile Legends: Bang Bang",
+    numberOfItems: liste.length,
+    itemListElement: liste.map((m, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: m.nom,
+      url: `${site.url}/${locale}/game-modes/${m.slug}`,
+      description: FICHES_MODES[m.slug]?.texte,
+    })),
+  };
 
-export default function PageModes() {
   return (
     <>
       <script
@@ -47,7 +50,7 @@ export default function PageModes() {
 
       <div className="mx-auto max-w-5xl px-4 py-12">
         <div className="grid gap-5">
-          {modes.map((mode) => {
+          {liste.map((mode) => {
             const fiche = FICHES_MODES[mode.slug];
             const [sombre, clair] = fiche?.accent ?? ACCENT_MODE_DEFAUT;
             return (

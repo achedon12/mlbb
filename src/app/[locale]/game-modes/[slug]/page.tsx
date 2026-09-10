@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FilAriane } from "@/components/fil-ariane";
 import { donneesLd } from "@/lib/html";
-import { modes, modesParSlug } from "@/lib/donnees";
+import { modeParSlug, modesSlugs } from "@/lib/donnees";
 import { ACCENT_MODE_DEFAUT, FICHES_MODES } from "@/lib/modes";
 import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
@@ -13,12 +13,12 @@ import type { SectionMode } from "@/lib/types";
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
 export function generateStaticParams() {
-  return modes.map((m) => ({ slug: m.slug }));
+  return modesSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const mode = modesParSlug.get(slug);
+  const mode = modeParSlug(locale, slug);
   if (!mode) return {};
   const description = FICHES_MODES[slug]?.texte ?? mode.description ?? undefined;
   return {
@@ -71,7 +71,7 @@ function rendreElements(elements: SectionMode["elements"]) {
 
 export default async function PageMode({ params }: Params) {
   const { locale, slug } = await params;
-  const mode = modesParSlug.get(slug);
+  const mode = modeParSlug(locale, slug);
   if (!mode) notFound();
 
   const fiche = FICHES_MODES[slug];
