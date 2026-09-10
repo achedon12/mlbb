@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState } from "react";
 import { ArrowLeft, KeyRound, Send } from "lucide-react";
 import { demanderCode, verifierCode, type Etat } from "@/lib/actions";
@@ -115,13 +116,13 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
       </button>
 
       {/* Recommencer si le code n'arrive pas : recharger la page vide le formulaire. */}
-      <a
+      <Link
         href="/login"
         className="flex items-center justify-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
       >
         <ArrowLeft size={14} aria-hidden />
         Recommencer avec un autre identifiant
-      </a>
+      </Link>
     </form>
   );
 }

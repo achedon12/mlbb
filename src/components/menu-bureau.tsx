@@ -18,37 +18,38 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 /**
  * Navigation de bureau.
  *
  * Les dix rubriques sont rangees en deux menus deroulants — la base de
- * donnees et l'actualite — plutot qu'alignees en une longue file. Chaque
- * entree porte une icone et une courte description : le menu sert de sommaire
- * autant que de navigation.
+ * donnees et l'actualite. Chaque entree porte une icone et, via le catalogue
+ * de traductions, un libelle et une courte description dans la langue courante.
  */
 
-export type Entree = { href: string; label: string; icone: LucideIcon; description: string };
+export type Entree = { href: string; cle: string; icone: LucideIcon };
 
 export const BASE: Entree[] = [
-  { href: "/heroes", label: "Heros", icone: Users, description: "Fiches, builds et analyses" },
-  { href: "/tier-list", label: "Tier list", icone: Trophy, description: "Le meilleur du patch" },
-  { href: "/compare", label: "Comparateur", icone: Scale, description: "Deux heros face a face" },
-  { href: "/draft", label: "Draft", icone: Swords, description: "Simulateur de picks et bans" },
-  { href: "/game-modes", label: "Modes de jeu", icone: Gamepad2, description: "Classique, Classe, Baston…" },
-  { href: "/items", label: "Objets", icone: Package, description: "Equipement et statistiques" },
-  { href: "/emblems", label: "Emblemes", icone: Gem, description: "Talents et configurations" },
+  { href: "/heroes", cle: "heroes", icone: Users },
+  { href: "/tier-list", cle: "tierList", icone: Trophy },
+  { href: "/compare", cle: "compare", icone: Scale },
+  { href: "/draft", cle: "draft", icone: Swords },
+  { href: "/game-modes", cle: "gameModes", icone: Gamepad2 },
+  { href: "/items", cle: "items", icone: Package },
+  { href: "/emblems", cle: "emblems", icone: Gem },
 ];
 
 export const ACTUALITE: Entree[] = [
-  { href: "/news", label: "Actualites", icone: Newspaper, description: "Le fil du jeu" },
-  { href: "/watch", label: "Veille", icone: Radar, description: "Sources agregees en direct" },
-  { href: "/patch-notes", label: "Patch notes", icone: ScrollText, description: "Notes de version detaillees" },
+  { href: "/news", cle: "news", icone: Newspaper },
+  { href: "/watch", cle: "watch", icone: Radar },
+  { href: "/patch-notes", cle: "patchNotes", icone: ScrollText },
 ];
 
 function estActif(chemin: string, href: string) {
-  return chemin === href || chemin.startsWith(`${href}/`);
+  // Le chemin porte un prefixe de langue (/fr/heroes) : on compare la fin.
+  return chemin.endsWith(href) || chemin.includes(`${href}/`);
 }
 
 function Deroulant({
@@ -66,16 +67,13 @@ function Deroulant({
   onOuvrir: () => void;
   onFermer: () => void;
 }) {
+  const t = useT();
   const chemin = usePathname();
   const panneauId = useId();
   const groupeActif = entrees.some((e) => estActif(chemin, e.href));
 
   return (
-    <div
-      className="relative"
-      onMouseEnter={onOuvrir}
-      onMouseLeave={onFermer}
-    >
+    <div className="relative" onMouseEnter={onOuvrir} onMouseLeave={onFermer}>
       <button
         type="button"
         aria-expanded={ouvert}
@@ -83,18 +81,12 @@ function Deroulant({
         onClick={() => (ouvert ? onFermer() : onOuvrir())}
         className={cn(
           "flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors",
-          groupeActif || ouvert
-            ? "text-craie-100"
-            : "text-craie-300 hover:text-craie-100",
+          groupeActif || ouvert ? "text-craie-100" : "text-craie-300 hover:text-craie-100",
         )}
       >
         <Icone size={16} aria-hidden className={groupeActif ? "text-or-400" : ""} />
         {titre}
-        <ChevronDown
-          size={14}
-          aria-hidden
-          className={cn("transition-transform duration-200", ouvert && "rotate-180")}
-        />
+        <ChevronDown size={14} aria-hidden className={cn("transition-transform duration-200", ouvert && "rotate-180")} />
         <span
           aria-hidden
           className={cn(
@@ -104,16 +96,10 @@ function Deroulant({
         />
       </button>
 
-      {/* Le panneau : une passerelle invisible comble l'espace sous le bouton
-          pour que le survol ne se rompe pas en descendant vers les liens. */}
-      <div
-        id={panneauId}
-        hidden={!ouvert}
-        className="absolute left-0 top-full z-50 pt-2"
-      >
+      <div id={panneauId} hidden={!ouvert} className="absolute left-0 top-full z-50 pt-2">
         <div className="biseau w-80 border border-nuit-700/80 bg-nuit-900/98 p-2 shadow-2xl shadow-nuit-950/60 backdrop-blur">
           <ul className="grid gap-0.5">
-            {entrees.map(({ href, label, icone: Ic, description }) => {
+            {entrees.map(({ href, cle, icone: Ic }) => {
               const actif = estActif(chemin, href);
               return (
                 <li key={href}>
@@ -129,23 +115,16 @@ function Deroulant({
                     <span
                       className={cn(
                         "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
-                        actif
-                          ? "bg-or-500 text-nuit-950"
-                          : "bg-nuit-800 text-craie-300 group-hover:text-or-400",
+                        actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300 group-hover:text-or-400",
                       )}
                     >
                       <Ic size={17} aria-hidden />
                     </span>
                     <span className="min-w-0">
-                      <span
-                        className={cn(
-                          "block text-sm font-semibold",
-                          actif ? "text-or-400" : "text-craie-100",
-                        )}
-                      >
-                        {label}
+                      <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>
+                        {t(`nav.${cle}.label`)}
                       </span>
-                      <span className="block text-xs text-craie-400">{description}</span>
+                      <span className="block text-xs text-craie-400">{t(`nav.${cle}.desc`)}</span>
                     </span>
                   </Link>
                 </li>
@@ -159,11 +138,10 @@ function Deroulant({
 }
 
 export function MenuBureau() {
+  const t = useT();
   const [ouvert, setOuvert] = useState<string | null>(null);
   const conteneur = useRef<HTMLElement>(null);
 
-  // Fermeture au clavier (Echap) et au clic hors de la barre. La navigation,
-  // elle, ferme deja le menu via le `onClick` de chaque lien.
   useEffect(() => {
     if (!ouvert) return;
     const surTouche = (e: KeyboardEvent) => e.key === "Escape" && setOuvert(null);
@@ -179,9 +157,9 @@ export function MenuBureau() {
   }, [ouvert]);
 
   return (
-    <nav ref={conteneur} aria-label="Navigation principale" className="hidden items-center gap-1 lg:flex">
+    <nav ref={conteneur} aria-label={t("nav.baseDeDonnees")} className="hidden items-center gap-1 lg:flex">
       <Deroulant
-        titre="Base de donnees"
+        titre={t("nav.baseDeDonnees")}
         icone={Database}
         entrees={BASE}
         ouvert={ouvert === "base"}
@@ -189,7 +167,7 @@ export function MenuBureau() {
         onFermer={() => setOuvert((o) => (o === "base" ? null : o))}
       />
       <Deroulant
-        titre="Actualites"
+        titre={t("nav.actualite")}
         icone={Newspaper}
         entrees={ACTUALITE}
         ouvert={ouvert === "actu"}

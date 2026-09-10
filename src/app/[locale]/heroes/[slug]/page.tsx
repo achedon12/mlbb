@@ -31,8 +31,10 @@ import {
 } from "@/lib/donnees";
 import { classementComplet } from "@/lib/tier-list";
 import { site } from "@/lib/site";
+import type { Langue } from "@/i18n/config";
+import { metaLangues } from "@/i18n/seo";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
 /** Une page par heros, generee au build. */
 export function generateStaticParams() {
@@ -40,7 +42,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const h = herosParSlug.get(slug);
   if (!h) return {};
 
@@ -51,19 +53,19 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
     description,
-    alternates: { canonical: `/heroes/${slug}` },
+    alternates: metaLangues(locale, `/heroes/${slug}`),
     openGraph: {
       type: "article",
       title: `${h.nom} — ${site.nom}`,
       description,
-      url: `/heroes/${slug}`,
+      url: `/${locale}/heroes/${slug}`,
       images: h.visuels.portrait ? [{ url: h.visuels.portrait }] : undefined,
     },
   };
 }
 
 export default async function PageHeros({ params }: Params) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const h = herosParSlug.get(slug);
   if (!h) notFound();
 
@@ -99,7 +101,7 @@ export default async function PageHeros({ params }: Params) {
     inLanguage: "fr-FR",
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/heroes/${slug}`,
+    mainEntityOfPage: `${site.url}/${locale}/heroes/${slug}`,
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
   };
 

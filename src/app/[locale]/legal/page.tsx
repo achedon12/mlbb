@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { EnTetePage } from "@/components/ui";
 import { legal, site } from "@/lib/site";
@@ -84,7 +85,7 @@ export default function PageMentionsLegales() {
         <p>
           Le traitement des donnees et l&apos;usage des cookies sont detailles
           dans la{" "}
-          <a href="/privacy">politique de confidentialite</a>.
+          <Link href="/privacy">politique de confidentialite</Link>.
         </p>
       </div>
     </>

@@ -4,20 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 import { ACTUALITE, BASE, type Entree } from "./menu-bureau";
 
 /**
- * Menu de navigation en petite largeur.
- *
- * Meme decoupage que le bureau — base de donnees puis actualite — mais deplie
+ * Menu de navigation en petite largeur : meme decoupage que le bureau, deplie
  * verticalement, chaque rubrique accompagnee de son icone et d'un mot
- * d'explication. Seul ce fragment porte l'ouverture ; l'en-tete reste rendu
- * sur le serveur.
+ * d'explication tires du catalogue de traductions.
  */
 
 function estActif(chemin: string, href: string) {
-  return chemin === href || chemin.startsWith(`${href}/`);
+  return chemin.endsWith(href) || chemin.includes(`${href}/`);
 }
 
 function Section({
@@ -31,13 +29,14 @@ function Section({
   chemin: string;
   onNaviguer: () => void;
 }) {
+  const t = useT();
   return (
     <div>
       <p className="px-2 pb-1 pt-3 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-craie-500">
         {titre}
       </p>
       <ul>
-        {entrees.map(({ href, label, icone: Ic, description }) => {
+        {entrees.map(({ href, cle, icone: Ic }) => {
           const actif = estActif(chemin, href);
           return (
             <li key={href}>
@@ -59,15 +58,10 @@ function Section({
                   <Ic size={17} aria-hidden />
                 </span>
                 <span className="min-w-0">
-                  <span
-                    className={cn(
-                      "block text-sm font-semibold",
-                      actif ? "text-or-400" : "text-craie-100",
-                    )}
-                  >
-                    {label}
+                  <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>
+                    {t(`nav.${cle}.label`)}
                   </span>
-                  <span className="block text-xs text-craie-400">{description}</span>
+                  <span className="block text-xs text-craie-400">{t(`nav.${cle}.desc`)}</span>
                 </span>
               </Link>
             </li>
@@ -79,10 +73,10 @@ function Section({
 }
 
 export function MenuMobile() {
+  const t = useT();
   const [ouvert, setOuvert] = useState(false);
   const chemin = usePathname();
 
-  // La navigation ferme le menu via le `onClick` de chaque lien.
   const fermer = () => setOuvert(false);
 
   return (
@@ -92,13 +86,12 @@ export function MenuMobile() {
         onClick={() => setOuvert((o) => !o)}
         aria-expanded={ouvert}
         aria-controls="menu-mobile"
-        aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-label={ouvert ? t("nav.fermer") : t("nav.ouvrir")}
         className="grid size-9 place-items-center text-craie-300 transition-colors hover:text-or-400"
       >
         {ouvert ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
       </button>
 
-      {/* Voile plein ecran : ferme au toucher a cote du panneau. */}
       <div
         hidden={!ouvert}
         onClick={fermer}
@@ -111,8 +104,8 @@ export function MenuMobile() {
         hidden={!ouvert}
         className="absolute inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-nuit-700 bg-nuit-950 px-3 pb-4 shadow-2xl shadow-nuit-950/60"
       >
-        <Section titre="Base de donnees" entrees={BASE} chemin={chemin} onNaviguer={fermer} />
-        <Section titre="Actualites" entrees={ACTUALITE} chemin={chemin} onNaviguer={fermer} />
+        <Section titre={t("nav.baseDeDonnees")} entrees={BASE} chemin={chemin} onNaviguer={fermer} />
+        <Section titre={t("nav.actualite")} entrees={ACTUALITE} chemin={chemin} onNaviguer={fermer} />
       </div>
     </div>
   );

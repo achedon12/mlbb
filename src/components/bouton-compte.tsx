@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useT } from "@/i18n/fournisseur";
 
 type Session = { connecte: boolean; pseudo?: string };
 
@@ -12,6 +13,7 @@ type Session = { connecte: boolean; pseudo?: string };
  * page ne se produise une fois la session connue.
  */
 export function BoutonCompte() {
+  const t = useT();
   const [session, setSession] = useState<Session | null>(null);
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export function BoutonCompte() {
       href="/login"
       className="biseau-sm bg-or-500 px-4 py-2 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400"
     >
-      Connexion
+      {t("compte.connexion")}
     </Link>
   );
 }

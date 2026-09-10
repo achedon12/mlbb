@@ -11,8 +11,10 @@ import { SommairePatch } from "@/components/sommaire-patch";
 import { herosParSlug, illustrations, patchsDetail } from "@/lib/donnees";
 import { article, articles, enHtml } from "@/lib/contenu";
 import { site } from "@/lib/site";
+import type { Langue } from "@/i18n/config";
+import { metaLangues } from "@/i18n/seo";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
 const patchs = patchsDetail;
 
@@ -30,19 +32,19 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const patch = patchs[slug];
 
   if (patch) {
     return {
       title: `Patch ${patch.version}`,
       description: `Notes officielles de la mise a jour ${patch.version} de Mobile Legends: Bang Bang : nouveaux heros, ajustements et changements d'objets.`,
-      alternates: { canonical: `/patch-notes/${slug}` },
+      alternates: metaLangues(locale, `/patch-notes/${slug}`),
       openGraph: {
         type: "article",
         title: `Patch ${patch.version} — ${site.nom}`,
         description: `Notes de la mise a jour ${patch.version}.`,
-        url: `/patch-notes/${slug}`,
+        url: `/${locale}/patch-notes/${slug}`,
       },
     };
   }
@@ -54,12 +56,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: a.titre,
     description: a.chapeau,
     keywords: a.motsCles,
-    alternates: { canonical: `/patch-notes/${slug}` },
+    alternates: metaLangues(locale, `/patch-notes/${slug}`),
     openGraph: {
       type: "article",
       title: a.titre,
       description: a.chapeau,
-      url: `/patch-notes/${slug}`,
+      url: `/${locale}/patch-notes/${slug}`,
       publishedTime: a.date,
       authors: [a.auteur],
     },
@@ -67,7 +69,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function PagePatch({ params }: Params) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const patch = patchs[slug];
 
   // ── Notes officielles reprises du wiki ────────────────────────────────
@@ -79,7 +81,7 @@ export default async function PagePatch({ params }: Params) {
       inLanguage: "en",
       isBasedOn: patch.lien,
       publisher: { "@type": "Organization", name: site.nom, url: site.url },
-      mainEntityOfPage: `${site.url}/patch-notes/${slug}`,
+      mainEntityOfPage: `${site.url}/${locale}/patch-notes/${slug}`,
     };
 
     return (
@@ -230,7 +232,7 @@ export default async function PagePatch({ params }: Params) {
     keywords: a.motsCles.join(", "),
     author: { "@type": "Person", name: a.auteur, url: `https://github.com/${a.auteur}` },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/patch-notes/${slug}`,
+    mainEntityOfPage: `${site.url}/${locale}/patch-notes/${slug}`,
   };
 
   return (

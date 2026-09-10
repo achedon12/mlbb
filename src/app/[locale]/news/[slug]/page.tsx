@@ -4,15 +4,17 @@ import { notFound } from "next/navigation";
 import { CorpsArticle } from "@/components/article";
 import { article, articles, enHtml } from "@/lib/contenu";
 import { site } from "@/lib/site";
+import type { Langue } from "@/i18n/config";
+import { metaLangues } from "@/i18n/seo";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
 export function generateStaticParams() {
   return articles("actualites").map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const a = article("actualites", slug);
   if (!a) return {};
 
@@ -20,12 +22,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: a.titre,
     description: a.chapeau,
     keywords: a.motsCles,
-    alternates: { canonical: `/news/${slug}` },
+    alternates: metaLangues(locale, `/news/${slug}`),
     openGraph: {
       type: "article",
       title: a.titre,
       description: a.chapeau,
-      url: `/news/${slug}`,
+      url: `/${locale}/news/${slug}`,
       publishedTime: a.date,
       authors: [a.auteur],
     },
@@ -33,7 +35,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function PageArticle({ params }: Params) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const a = article("actualites", slug);
   if (!a) notFound();
 
@@ -48,7 +50,7 @@ export default async function PageArticle({ params }: Params) {
     keywords: a.motsCles.join(", "),
     author: { "@type": "Person", name: a.auteur, url: `https://github.com/${a.auteur}` },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/news/${slug}`,
+    mainEntityOfPage: `${site.url}/${locale}/news/${slug}`,
   };
 
   return (

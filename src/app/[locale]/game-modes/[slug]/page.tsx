@@ -6,27 +6,29 @@ import { donneesLd } from "@/lib/html";
 import { modes, modesParSlug } from "@/lib/donnees";
 import { ACCENT_MODE_DEFAUT, FICHES_MODES } from "@/lib/modes";
 import { site } from "@/lib/site";
+import type { Langue } from "@/i18n/config";
+import { metaLangues } from "@/i18n/seo";
 import type { SectionMode } from "@/lib/types";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
 export function generateStaticParams() {
   return modes.map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const mode = modesParSlug.get(slug);
   if (!mode) return {};
   const description = FICHES_MODES[slug]?.texte ?? mode.description ?? undefined;
   return {
     title: `Mode ${mode.nom}`,
     description,
-    alternates: { canonical: `/game-modes/${slug}` },
+    alternates: metaLangues(locale, `/game-modes/${slug}`),
     openGraph: {
       title: `${mode.nom} — ${site.nom}`,
       description,
-      url: `/game-modes/${slug}`,
+      url: `/${locale}/game-modes/${slug}`,
     },
   };
 }
@@ -68,7 +70,7 @@ function rendreElements(elements: SectionMode["elements"]) {
 }
 
 export default async function PageMode({ params }: Params) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const mode = modesParSlug.get(slug);
   if (!mode) notFound();
 
@@ -83,7 +85,7 @@ export default async function PageMode({ params }: Params) {
     inLanguage: "fr-FR",
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/game-modes/${slug}`,
+    mainEntityOfPage: `${site.url}/${locale}/game-modes/${slug}`,
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
   };
 
