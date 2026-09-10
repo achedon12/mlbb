@@ -3,36 +3,36 @@
     "nom": "Classic",
     "slug": "classic",
     "description": "Classic Mode is the first and earliest game mode in Mobile Legends. All other game modes use the rules in Classic as a base. This mode gives 5v5 and the Mobile Legends experience without worrying about losing your Rank, but your win rate will be affected, both from the hero side and the whole.​​​​ Classic Mode is suitable for beginners who need to familiarize themselves with Mobile Legends games. You can freely choose any hero you have, along with the Weekly Free Heroes and any trial cards you possess. However, you cannot have more than one of the same hero on your team. You can also choose which Hero you like, since there is no banning of Heroes unlike in Ranked.",
-    "image": "https://static.wikia.nocookie.net/mobile-legends/images/5/57/Classic.png"
+    "image": "/visuels/modes/classic.webp"
   },
   {
     "nom": "Ranked",
     "slug": "ranked",
     "description": "Ranked is a competitive queue game mode. Players earn or lose stars if they win or lose in this mode. Warrior, Elite, Master, Grandmaster, Epic, Legend, and Mythic (Mythical Honor, Mythical Glory, and Mythical Immortal) are the seven ranks in Mobile Legends: Bang Bang.",
-    "image": "https://static.wikia.nocookie.net/mobile-legends/images/4/40/Ranked.png"
+    "image": "/visuels/modes/ranked.webp"
   },
   {
     "nom": "Brawl",
     "slug": "brawl",
     "description": "Brawl is a game mode in which you are unable to choose your heroes freely. Instead each player will be given a choice between two random heroes. Fights in this mode happen only in one lane with two turrets defending the base in both teams respectively. Brawl matches usually end in a much shorter time compared to Classic Mode and Ranked. This type of match is prefered for raising lost credit scores or complete tasks.",
-    "image": "https://static.wikia.nocookie.net/mobile-legends/images/3/37/Brawl.png"
+    "image": "/visuels/modes/brawl.webp"
   },
   {
     "nom": "Vs. AI",
     "slug": "vs-ai",
     "description": "The \"Vs A.I\" mode in Mobile Legends: Bang Bang was introduced around late 2017, shortly after the game's global release. Originally featuring only Simple and Normal difficulties, the mode underwent significant upgrades, including a Hard mode added during Project Next in 2020 and modernized, challenging A.I. training modes released around November 2023.",
-    "image": "https://static.wikia.nocookie.net/mobile-legends/images/3/34/VS._AI.png"
+    "image": "/visuels/modes/vs-ai.webp"
   },
   {
     "nom": "Custom",
     "slug": "custom",
     "description": "Custom games are very similar to [https://mobile-legends.wikia.com/wiki/Human_Vs._AI Vs. AI]. The difference is the players set themselves up against other people or against AI. Players can invite friends to join, or add AI with existing buttons. Players can also add AI to the opposing team or on your team, you can also play alone with an AI.",
-    "image": "https://static.wikia.nocookie.net/mobile-legends/images/e/ec/Custom.png"
+    "image": "/visuels/modes/custom.webp"
   },
   {
     "nom": "Arcade Mode",
     "slug": "arcade-mode",
     "description": "Arcade Modes is an additional game mode in Mobile Legends: Bang Bang that can time-to-time be playable during Special Events, Holidays, or Occasion. The mode feature various strategy based sub-games, that are listed below.",
-    "image": "https://static.wikia.nocookie.net/mobile-legends/images/9/91/Arcade.png"
+    "image": "/visuels/modes/arcade-mode.webp"
   }
 ]
