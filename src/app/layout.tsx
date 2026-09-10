@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Rajdhani } from "next/font/google";
 import { EnTete } from "@/components/en-tete";
+import { MesureAudience } from "@/components/mesure-audience";
 import { PiedDePage } from "@/components/pied-de-page";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -97,6 +98,7 @@ export default function RacineLayout({ children }: { children: React.ReactNode }
           {children}
         </main>
         <PiedDePage />
+        <MesureAudience />
       </body>
     </html>
   );
