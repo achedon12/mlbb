@@ -59,7 +59,7 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
                 "biseau-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold",
                 COULEUR_PALIER[heros.palier],
               )}
-              title={`Palier ${heros.palier} de la tier list`}
+              title={t("carteHeros.palierTitre", { p: heros.palier })}
             >
               {heros.palier}
             </span>

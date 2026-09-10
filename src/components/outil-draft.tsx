@@ -159,10 +159,10 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                           <button
                             type="button"
                             onClick={() => choisir("allies", lane, s.heros.slug)}
-                            title={`Choisir ${s.heros.nom} en ${lane}`}
+                            title={t("draftUI.choisirEn", { nom: s.heros.nom, lane: t(`lanes.${lane}`) })}
                             className="biseau-sm self-start border border-nuit-600 px-2 py-1 text-xs text-craie-300 transition-colors hover:border-or-500 hover:text-or-400"
                           >
-                            Prendre
+                            {t("draftUI.prendre")}
                           </button>
                         </div>
                       </li>
@@ -207,6 +207,7 @@ function Colonne({
   onRetirer: (lane: Lane) => void;
   accent: "sang" | "azur";
 }) {
+  const t = useT();
   return (
     <section>
       <h2 className="font-titre text-lg font-bold text-craie-100">{titre}</h2>
@@ -218,7 +219,7 @@ function Colonne({
           return (
             <li key={lane} className="flex items-center gap-2">
               <span className="w-24 shrink-0 text-xs uppercase tracking-wide text-craie-500">
-                {lane}
+                {t(`lanes.${lane}`)}
               </span>
 
               {heros ? (
@@ -235,7 +236,7 @@ function Colonne({
                   <button
                     type="button"
                     onClick={() => onRetirer(lane)}
-                    aria-label={`Retirer ${heros.nom}`}
+                    aria-label={t("draftUI.retirer", { nom: heros.nom })}
                     className="grid size-6 place-items-center text-craie-500 transition-colors hover:text-sang-500"
                   >
                     <X size={13} aria-hidden />
@@ -247,7 +248,7 @@ function Colonne({
                   onClick={() => onOuvrir({ camp, lane })}
                   className="biseau-sm flex-1 border border-dashed border-nuit-700 px-3 py-2 text-left text-sm text-craie-500 transition-colors hover:border-or-500/60 hover:text-or-400"
                 >
-                  Choisir un heros
+                  {t("draftUI.choisirUn")}
                 </button>
               )}
             </li>
@@ -305,7 +306,7 @@ function Selecteur({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={`Choisir un heros pour la lane ${lane}`}
+      aria-label={t("draftUI.choisirLane", { lane: t(`lanes.${lane}`) })}
       className="fixed inset-0 z-50 grid place-items-center bg-nuit-950/80 p-4"
       onClick={onFermer}
     >
@@ -325,7 +326,7 @@ function Selecteur({
               type="search"
               value={recherche}
               onChange={(e) => setRecherche(e.target.value)}
-              placeholder={`Heros de ${lane} — ou cherchez par nom`}
+              placeholder={t("draftUI.placeholderLane", { lane: t(`lanes.${lane}`) })}
               aria-label={t("draftUI.rechercher")}
               className="biseau-sm w-full border border-nuit-700 bg-nuit-950 py-2 pl-9 pr-3 text-craie-100 outline-none focus:border-or-500"
             />

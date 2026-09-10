@@ -220,7 +220,14 @@
       "tropPeu": "Hay muy poco en juego para que las tarifas sean fiables",
       "victoire": "Victoria",
       "ban": "Prohibición",
-      "pick": "Elegir"
+      "pick": "Elegir",
+      "legende": {
+        "S+": "Domina el parche. Tomar o desterrar.",
+        "S": "Muy fuerte en la mayoría de composiciones.",
+        "A": "Sólido, sin imponer el ritmo del juego.",
+        "B": "Correcto, pero depende del contexto o del jugador.",
+        "C": "Jugable, con un coste real respecto a alternativas."
+      }
     },
     "patchNotes": {
       "titre": "Notas del parche",
@@ -281,6 +288,48 @@
       "deconnexion": "Desconectar",
       "detailIndispo": "Las estadísticas detalladas (tasa de victorias, historial, héroes más jugados) dependen de un servicio de Moonton actualmente fuera de línea. Su perfil anterior permanece accesible; Los detalles volverán tan pronto como la fuente responda.",
       "aucuneStat": "No hay estadísticas para mostrar."
+    },
+    "apiDoc": {
+      "titre": "API pública",
+      "chapeau": "Se puede acceder a los datos del sitio en JSON, sin clave ni registro. Sírvase usted mismo: la única restricción es citar la fuente, que acompaña a cada respuesta.",
+      "metaDescription": "Una API JSON abierta en los datos de Mobile Legends: Bang Bang del sitio: héroes, habilidades, máscaras, elementos, parches y clasificaciones. Sin clave, sin registro.",
+      "ogDescription": "Héroes, objetos, parches y clasificación en JSON, sin claves.",
+      "statHeros": "Héroe",
+      "statObjets": "Objetos",
+      "statPatchs": "Parches",
+      "statClasses": "Clases de héroe",
+      "formeTitre": "Forma de respuestas",
+      "formeTexte": "Cada respuesta envuelve el resultado en \"datos\", adjunta el número total de elementos cuando es una lista y recuerda la fuente de los datos.",
+      "conditionsTitre": "Términos",
+      "c1label": "Sin clave, sin cuota.",
+      "c1texte": "Las respuestas son estáticas y se almacenan en caché: servirlas no cuesta nada. Sea razonable y todo estará bien.",
+      "c2label": "Cita la fuente.",
+      "c2texte": "Los datos provienen de la wiki de la comunidad, bajo licencia CC BY-SA: reutilizarlos requiere acreditarlos. La información viaja con cada respuesta.",
+      "c3label": "Los análisis escritos.",
+      "c3texte": "(comentarios, compilaciones, contadores) se producen para este sitio y están cubiertos por su licencia MIT.",
+      "c4label": "Sin datos del jugador.",
+      "c4texte": "Moonton no expone ninguna clasificación, historial o estado de conexión: por lo tanto, esta API no ofrece ninguno, y ninguna otra honestamente puede hacerlo.",
+      "synchroNote": "Los datos rastrean la sincronización semanal del sitio. Último: {date}.",
+      "routes": {
+        "heros": {
+          "resume": "Lista de héroes, sin sus habilidades detalladas ni sus máscaras.",
+          "roleParam": "Mantenga sólo este papel.",
+          "laneParam": "Mantenga sólo esta posición."
+        },
+        "herosSlug": {
+          "resume": "Ficha completa: estadísticas, habilidades con su descripción, skins, visuales, ilustraciones y análisis escrito cuando exista."
+        },
+        "objets": {
+          "resume": "Compra artículos, con estadísticas, pasivos y recetas.",
+          "catParam": "Mantenga sólo esta categoría."
+        },
+        "patchs": {
+          "resume": "Versiones enumeradas, desde la más reciente hasta la más antigua."
+        },
+        "classement": {
+          "resume": "Clasificación calculada: tasa de victoria, tasa de prohibición y selección, nivel y fecha de presentación de informes."
+        }
+      }
     }
   },
   "modeFiche": {
@@ -381,7 +430,8 @@
     },
     "commentFonctionne": "Cómo funciona este sitio",
     "suivreRss": "Seguir publicaciones en RSS",
-    "pourcentVictoires": "% de victorias"
+    "pourcentVictoires": "% de victorias",
+    "derniersArticles": "Últimos artículos"
   },
   "vedette": {
     "herosDuJour": "Héroe del día",
@@ -608,7 +658,13 @@
     "intro": "Informa al menos a un héroe contrario. Las sugerencias se clasifican primero según los contadores y luego según las sinergias con sus propias selecciones; la tasa de victoria solo se utiliza para decidir entre los ganadores.",
     "dejaPourvue": "ya proporcionado",
     "aucunContre": "no se conocen desventajas en esta composición",
-    "aucunHeros": "No hay héroes disponibles."
+    "aucunHeros": "No hay héroes disponibles.",
+    "prendre": "Llevar",
+    "choisirEn": "Elija {nom} en {lane}",
+    "retirer": "Quitar {nom}",
+    "choisirLane": "Elige un héroe para el carril {lane}",
+    "placeholderLane": "Heroes of {lane} — o buscar por nombre",
+    "choisirUn": "Elige un héroe"
   },
   "nouveauHeros": {
     "particularite": "Particularidad -"
@@ -626,7 +682,7 @@
   "articleCat": {
     "Actualite": "Noticias",
     "Patch": "Parche",
-    "Esport": "Deportes electrónicos",
+    "Esport": "Esports",
     "Guide": "Guía"
   },
   "rangsNom": {
@@ -684,5 +740,210 @@
     "StarLight": "Luz de las estrellas",
     "Valentine": "Día de San Valentín",
     "Atomic": "Atómico"
+  },
+  "emblemesData": {
+    "tank-emblem": {
+      "nom": "Emblema del tanque",
+      "bonus": "PV y resistencias",
+      "pourQui": "Tanques de compromiso y tanques de carril de experiencia."
+    },
+    "fighter-emblem": {
+      "nom": "Emblema de luchador",
+      "bonus": "Daño de ataque y robo de vida.",
+      "pourQui": "Luchadores de carril experimentados que deben ganar su duelo."
+    },
+    "assassin-emblem": {
+      "nom": "Emblema de asesino",
+      "bonus": "Daño de ataque y penetración física.",
+      "pourQui": "Junglers físicos y asesinos."
+    },
+    "mage-emblem": {
+      "nom": "Emblema de mago",
+      "bonus": "Poder mágico y penetración mágica.",
+      "pourQui": "Magos del carril central."
+    },
+    "marksman-emblem": {
+      "nom": "Emblema del tirador",
+      "bonus": "Velocidad de ataque y daño de ataque.",
+      "pourQui": "Tiradores del carril dorado."
+    },
+    "support-emblem": {
+      "nom": "Emblema de apoyo",
+      "bonus": "Reducción de recarga y velocidad de movimiento.",
+      "pourQui": "Soportes y roamers no tanques."
+    },
+    "agility": {
+      "nom": "Agilidad",
+      "description": "Aumenta la velocidad de movimiento.",
+      "pourQui": "Vagabundos y héroes que deben moverse rápidamente por el mapa."
+    },
+    "swift": {
+      "nom": "Rápido",
+      "description": "Aumenta la velocidad de ataque.",
+      "pourQui": "Los tiradores y los luchadores tienen ataques básicos."
+    },
+    "vitality": {
+      "nom": "Vitalidad",
+      "description": "Aumenta el HP máximo.",
+      "pourQui": "Tanques y cazas."
+    },
+    "fatal": {
+      "nom": "Fatal",
+      "description": "Aumenta la tasa de golpes críticos.",
+      "pourQui": "Revisión de tiradores y asesinos."
+    },
+    "firmness": {
+      "nom": "Firmeza",
+      "description": "Aumenta la resistencia física y mágica.",
+      "pourQui": "Los tanques enfrentan daños mixtos."
+    },
+    "thrill": {
+      "nom": "Emoción",
+      "description": "Aumenta el daño de ataque y el poder mágico.",
+      "pourQui": "Portadores de daños, independientemente del tipo."
+    },
+    "tenacity": {
+      "nom": "Tenacidad",
+      "description": "Aumenta las resistencias cuando el HP es bajo.",
+      "pourQui": "Los tanques se enfrentan a una composición explosiva."
+    },
+    "seasoned-hunter": {
+      "nom": "Cazador experimentado",
+      "description": "Aumenta el daño infligido a los monstruos de la jungla.",
+      "pourQui": "Junglers, para conseguir los objetivos."
+    },
+    "master-assassin": {
+      "nom": "Maestro asesino",
+      "description": "Aumenta el daño contra un objetivo aislado.",
+      "pourQui": "Asesinos que buscan un duelo."
+    },
+    "weakness-finder": {
+      "nom": "Buscador de debilidades",
+      "description": "Los ataques básicos ralentizan al objetivo.",
+      "pourQui": "Luchadores sin control propio."
+    },
+    "impure-rage": {
+      "nom": "Rabia impura",
+      "description": "La siguiente habilidad causa daño adicional y restaura maná.",
+      "pourQui": "Magos con habilidades frecuentes."
+    },
+    "quantum-charge": {
+      "nom": "Carga cuántica",
+      "description": "El daño de habilidad se acelera y cura.",
+      "pourQui": "Héroes que deben permanecer móviles en combate."
+    },
+    "weapon-master": {
+      "nom": "Maestro de armas",
+      "description": "Aumenta todas las bonificaciones de ataque recibidas de los elementos.",
+      "pourQui": "Luchadores cuyo daño proviene de habilidades."
+    },
+    "lethal-ignition": {
+      "nom": "Ignición letal",
+      "description": "Inflige daño adicional a un objetivo gravemente herido.",
+      "pourQui": "Porteadores que deben concluir rápidamente."
+    },
+    "concussive-blast": {
+      "nom": "Explosión de conmoción cerebral",
+      "description": "Inflige daño de área según el HP máximo.",
+      "pourQui": "Tanques de combate: Tigreal, Khufra, Atlas."
+    },
+    "wilderness-blessing": {
+      "nom": "Bendición del desierto",
+      "description": "Aumenta la velocidad de movimiento fuera de combate y sobre hierba.",
+      "pourQui": "Vagabundos que viven entre los matorrales, como Franco."
+    },
+    "focusing-mark": {
+      "nom": "Marca de enfoque",
+      "description": "Los objetivos golpeados reciben más daño de los aliados.",
+      "pourQui": "Soportes y tanques que juegan para su portador."
+    },
+    "brave-smite": {
+      "nom": "Golpe valiente",
+      "description": "Golpear a un enemigo con una habilidad restaura HP.",
+      "pourQui": "Luchadores de carril experimentados."
+    },
+    "killing-spree": {
+      "nom": "Matanza",
+      "description": "Una eliminación restaura HP y acelera.",
+      "pourQui": "Asesinos que encadenan objetivos."
+    },
+    "festival-of-blood": {
+      "nom": "Fiesta de la sangre",
+      "description": "El daño de habilidad aplica robo de vida.",
+      "pourQui": "Los magos de combate se extienden."
+    },
+    "bargain-hunter": {
+      "nom": "Cazador de gangas",
+      "description": "Reduce el precio de los artículos.",
+      "pourQui": "Roamers, cuyos ingresos son los más bajos del equipo."
+    },
+    "pull-yourself-together": {
+      "nom": "Suéter usted mismo juntos",
+      "description": "Reduce la recarga de hechizos de combate y elementos activos.",
+      "pourQui": "Héroe cuyo parpadeo decide las peleas."
+    },
+    "flicker": {
+      "nom": "Parpadeo",
+      "description": "Teletransporta al héroe a una distancia corta.",
+      "pourQui": "Casi todos: compromiso, fuga, cancelación de la animación."
+    },
+    "execute": {
+      "nom": "Ejecutado",
+      "description": "Inflige daño basado en el HP que le falta al objetivo.",
+      "pourQui": "Junglers y asesinos que deben concluir."
+    },
+    "retribution": {
+      "nom": "Venganza",
+      "description": "Inflige un daño significativo a un monstruo y fortalece la limpieza de la jungla.",
+      "pourQui": "Obligatorio para el jungla."
+    },
+    "purify": {
+      "nom": "Purificar",
+      "description": "Elimina los efectos de control e inmuniza brevemente.",
+      "pourQui": "Portaaviones objetivo de un único control: contra Chou, Franco, Kaja."
+    },
+    "inspire": {
+      "nom": "Inspirado",
+      "description": "Aumenta enormemente la velocidad de ataque e ignora parte de la armadura.",
+      "pourQui": "Los tiradores tienen ataques básicos."
+    },
+    "sprint": {
+      "nom": "Sprint",
+      "description": "Aumenta la velocidad de movimiento y elimina ralentizaciones.",
+      "pourQui": "Héroes sin movilidad que deben reposicionarse."
+    },
+    "petrify": {
+      "nom": "Petrificar",
+      "description": "Ralentiza e inmoviliza a los enemigos cercanos.",
+      "pourQui": "Tanques sin control confiable."
+    },
+    "arrival": {
+      "nom": "Llegada",
+      "description": "Teletransporta al héroe a una torreta o a un siervo aliado.",
+      "pourQui": "Carriles en solitario que deben regresar rápidamente después de regresar a la base."
+    },
+    "vengeance": {
+      "nom": "Venganza",
+      "description": "Devuelve una parte del daño sufrido durante la duración.",
+      "pourQui": "Luchadores de carril experimentados."
+    },
+    "aegis": {
+      "nom": "Égida",
+      "description": "Otorga un escudo a uno mismo y a los aliados cercanos.",
+      "pourQui": "Soportes y tanques protectores."
+    },
+    "revitalize": {
+      "nom": "Revitalizar",
+      "description": "Crea un área que cura a los aliados presentes.",
+      "pourQui": "Apoyo ante daños repartidos en el tiempo."
+    }
+  },
+  "erreur": {
+    "titre": "Ha ocurrido un error",
+    "texte": "El sitio encontró un problema inesperado. Inténtalo de nuevo en un momento.",
+    "reessayer": "Intentar otra vez"
+  },
+  "carteHeros": {
+    "palierTitre": "Nivel {p} de la lista de niveles"
   }
 }

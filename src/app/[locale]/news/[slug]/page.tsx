@@ -15,7 +15,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const a = article("actualites", slug);
+  const a = article("actualites", slug, locale);
   if (!a) return {};
 
   return {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function PageArticle({ params }: Params) {
   const { locale, slug } = await params;
-  const a = article("actualites", slug);
+  const a = article("actualites", slug, locale);
   if (!a) notFound();
 
   const donneesStructurees = {

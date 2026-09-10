@@ -4,7 +4,6 @@ import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgePalier, EnTetePage } from "@/components/ui";
 import {
   classementComplet,
-  LEGENDE_PALIERS,
   mesureLe,
   ORDRE_PALIERS,
   parPalier,
@@ -12,6 +11,7 @@ import {
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { metaLangues } from "@/i18n/seo";
+import { tierNotes as tierNotesDe } from "@/lib/donnees";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
 
@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export default async function PageTierList({ params }: { params: Promise<{ locale: Langue }> }) {
   const { locale } = await params;
   const t = creerT(locale);
+  const notes = tierNotesDe(locale);
   return (
     <>
       <EnTetePage
@@ -77,7 +78,7 @@ export default async function PageTierList({ params }: { params: Promise<{ local
                         {entrees.length}
                       </span>
                     </h2>
-                    <p className="text-sm text-craie-500">{LEGENDE_PALIERS[palier]}</p>
+                    <p className="text-sm text-craie-500">{t(`pages.tierList.legende.${palier}`)}</p>
                   </div>
                 </div>
 
@@ -117,9 +118,9 @@ export default async function PageTierList({ params }: { params: Promise<{ local
                           <Taux libelle={t("pages.tierList.pick")} valeur={e.selection} />
                         </dl>
 
-                        {e.note && (
+                        {(notes[e.heros.slug] ?? e.note) && (
                           <p className="hidden flex-1 text-xs leading-relaxed text-craie-500 lg:block">
-                            {e.note}
+                            {notes[e.heros.slug] ?? e.note}
                           </p>
                         )}
                       </Link>

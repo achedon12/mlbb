@@ -107,13 +107,6 @@ export const tauxParSlug = new Map(
 
 export const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
 
-export const LEGENDE_PALIERS: Record<Palier, string> = {
-  "S+": "Domine le patch. A prendre ou a bannir.",
-  S: "Tres fort dans la majorite des compositions.",
-  A: "Solide, sans imposer le rythme de la partie.",
-  B: "Correct, mais depend du contexte ou du joueur.",
-  C: "Jouable, avec un cout reel par rapport aux alternatives.",
-};
 
 export function parPalier(p: Palier): EntreeClassee[] {
   return classementComplet.filter((e) => e.palier === p);

@@ -27,7 +27,7 @@ const detailles = patchsDetail as Record<string, { version: string }>;
 export default async function PagePatchNotes({ params }: { params: Promise<{ locale: Langue }> }) {
   const { locale } = await params;
   const t = creerT(locale);
-  const analyses = articles("patch-notes");
+  const analyses = articles("patch-notes", locale);
   const avecDetail = patchs.filter((p) => detailles[p.version]);
   const autres = patchs.filter((p) => !detailles[p.version]).slice(0, 60);
 

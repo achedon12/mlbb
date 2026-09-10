@@ -1,0 +1,1592 @@
+[
+  {
+    "slug": "antique-cuirass",
+    "nom": "Antique Cuirass",
+    "resume": "Riduzione dell'attacco fisico",
+    "categorie": "Defense",
+    "prix": 2170,
+    "bonus": "+920 HP, +40 Difesa fisica, +4 Rigenerazione HP",
+    "unique": null,
+    "passif": "Deterrente: quando viene colpito da un'abilità, riduce il danno fisico dell'attaccante del 6% per 2 secondi (questo effetto si accumula fino a 3 volte).",
+    "actif": null,
+    "recette": [
+      "Dreadnaught Armor",
+      "Ares Belt"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "arcane-boots",
+    "nom": "Arcane Boots",
+    "resume": "Penetrazione magica",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 velocità di movimento, +15 potere magico, +10 penetrazione magica",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Mystery Codex"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "ares-belt",
+    "nom": "Ares Belt",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 700,
+    "bonus": "+600 CV",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "athena-s-shield",
+    "nom": "Athena's Shield",
+    "resume": "Resisti ai danni magici scoppiati",
+    "categorie": "Defense",
+    "prix": 2150,
+    "bonus": "+900 HP, +48 Difesa magica, +2 Rigenerazione HP",
+    "unique": null,
+    "passif": "Scudo: dopo aver subito danni magici dalle abilità degli eroi nemici o dagli attacchi base, riduce i danni magici subiti del 25% per 3 secondi (incluso il danno che attiva l'effetto). Recupera questo effetto 5 secondi dopo aver lasciato il combattimento.",
+    "actif": null,
+    "recette": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "azure-blade",
+    "nom": "Azure Blade",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 600,
+    "bonus": "+5 rigenerazione mana, +5% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Giudizio: dopo aver lanciato un'abilità, il successivo attacco base entro 3 secondi infligge 50 danni veri extra (tempo di recupero di 1,5 secondi).",
+    "actif": null,
+    "recette": [
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "berserker-s-fury",
+    "nom": "Berserker's Fury",
+    "resume": "Probabilità critica e danni",
+    "categorie": "Attack",
+    "prix": 2390,
+    "bonus": "+60 attacco fisico, +25% probabilità critica",
+    "unique": "+30% danno critico",
+    "passif": "Destino: quando gli attacchi base sono critici, infliggono danni veri aggiuntivi pari al 12% del danno prima della riduzione.",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Javelin",
+      "Javelin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "black-ice-shield",
+    "nom": "Black Ice Shield",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 780,
+    "bonus": "+20 Difesa Fisica, +20 Difesa Magica",
+    "unique": null,
+    "passif": "Scudo della fortezza: per ogni eroe nemico entro 3,55 unità, la difesa ibrida aumenta di 4, fino a 20.",
+    "actif": null,
+    "recette": [
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "blade-armor",
+    "nom": "Blade Armor",
+    "resume": "Riflessione del danno",
+    "categorie": "Defense",
+    "prix": 1910,
+    "bonus": "+80 Difesa Fisica",
+    "unique": "+20% di riduzione del danno critico",
+    "passif": "Armatura a lama: quando viene colpito da un attacco base, infligge danni fisici pari al 30 (+2% difesa fisica totale)% del danno in arrivo (calcolato prima della riduzione del danno) all'attaccante e lo rallenta del 15% per 1 secondo.",
+    "actif": null,
+    "recette": [
+      "Steel Legplates",
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "blade-of-despair",
+    "nom": "Blade of Despair",
+    "resume": "Attacco fisico più alto",
+    "categorie": "Attack",
+    "prix": 3010,
+    "bonus": "+160 attacco fisico, +5% velocità di movimento",
+    "unique": null,
+    "passif": "Disperazione: infliggere danni a nemici non servitori con meno del 50% di HP aumenta l'attacco fisico del 25% per 2 secondi (ha effetto prima che il danno venga inflitto).",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Legion Sword"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "blade-of-the-heptaseas",
+    "nom": "Blade of the Heptaseas",
+    "resume": "Il meglio per gli Assassini",
+    "categorie": "Attack",
+    "prix": 1950,
+    "bonus": "+70 Attacco Fisico, +250 HP",
+    "unique": "+15 Penetrazione fisica",
+    "passif": "Imboscata: se non viene subito o inflitto alcun danno entro 5 secondi (esclusi servitori o creep), il successivo attacco base infliggerà ulteriori 160 (+40% attacco fisico totale) danni fisici e rallenterà il bersaglio del 40% per 1,5 secondi.",
+    "actif": null,
+    "recette": [
+      "Fury Hammer",
+      "Ogre Tomahawk"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "blood-wings",
+    "nom": "Blood Wings",
+    "resume": "Scudo di aumento della velocità",
+    "categorie": "Magic",
+    "prix": 2100,
+    "bonus": "+90 potere magico",
+    "unique": null,
+    "passif": "Guardia: ottiene uno scudo da 800 (+100% potere magico) che si rigenererà 20 secondi dopo essere stato danneggiato. Lo scudo garantisce inoltre 30 velocità di movimento finché dura e 150 velocità di movimento per 1 secondo dopo che si rompe.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "bloodlust-axe",
+    "nom": "Bloodlust Axe",
+    "resume": "Vampiro Magico",
+    "categorie": "Attack",
+    "prix": 1970,
+    "bonus": "+70 attacco fisico, +10% riduzione tempo di recupero",
+    "unique": "+20% vampiro magico",
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Iron Hunting Bow",
+      "Dagger",
+      "Iron Hunting Bow"
+    ],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "book-of-sages",
+    "nom": "Book of Sages",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 450,
+    "bonus": "+8 potere magico, +5% riduzione tempo di recupero",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "boots",
+    "nom": "Boots",
+    "resume": null,
+    "categorie": "Movement",
+    "prix": 250,
+    "bonus": "+20 velocità di movimento",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "brute-force-breastplate",
+    "nom": "Brute Force Breastplate",
+    "resume": "Attacco, accelerazione, riduzione CC",
+    "categorie": "Defense",
+    "prix": 2070,
+    "bonus": "+800 HP, +20 Difesa fisica, +10% Riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Forza bruta: ogni secondo dopo aver inflitto danni, ottieni 8 attacchi adattivi extra e 2% di velocità di movimento extra per 4 secondi, fino a 6 accumuli. Ottieni una riduzione extra della durata del controllo del 25% a stack completi.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Leather Jerkin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "bud-of-hope",
+    "nom": "Bud of Hope",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+250 CV",
+    "unique": null,
+    "passif": "Germoglio di speranza: concesso da Floryn e Dew. L'equipaggiamento rivelerà il suo vero potere una volta che Dew si evolverà.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "calamity-reaper",
+    "nom": "Calamity Reaper",
+    "resume": "Attacchi base potenziati",
+    "categorie": "Magic",
+    "prix": 1950,
+    "bonus": "+70 potere magico, +100 mana, +6 rigenerazione mana, +10% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Calamità: entro 3 secondi dall'uso dell'abilità, il successivo attacco base del lanciatore infligge danni reali aggiuntivi fino al 120% del potere magico con un tempo di recupero di 1,5 secondi. Quindi guadagna brevemente il 10% di velocità di movimento.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Azure Blade"
+    ],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "chastise-pauldron",
+    "nom": "Chastise Pauldron",
+    "resume": "Riduci la velocità di attacco del nemico",
+    "categorie": "Defense",
+    "prix": 2100,
+    "bonus": "+900 HP, +40 Difesa Fisica",
+    "unique": null,
+    "passif": "Castigo: subire danni ridurrà la velocità di attacco e il limite massimo di velocità di attacco dell'attaccante al 75% del normale per 2 secondi. @ Redenzione: quando il danno in arrivo riduce gli HP al di sotto del 30%, recupera il 20% degli HP massimi nei successivi 2 secondi. Questo effetto ha un tempo di recupero di 60 secondi.",
+    "actif": null,
+    "recette": [
+      "Steel Legplates",
+      "Ares Belt"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "clock-of-destiny",
+    "nom": "Clock of Destiny",
+    "resume": "Per i carri armati magici",
+    "categorie": "Magic",
+    "prix": 2030,
+    "bonus": "+45 potere magico, +400 HP, +400 mana, +10% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Destino: ottiene 4,5 (+0,5*livello eroe) Difesa ibrida per 5 secondi quando infligge danni magici agli eroi nemici, accumulandosi fino a 6 volte (può ottenere 1 accumulo ogni 0,4 secondi). @ Regalo: quando gli HP scendono al di sotto del 50%, recupera il 15% degli HP nei successivi 3 secondi. Quando il Mana scende sotto il 50%, ripristina il 15% del Mana nei successivi 3 secondi. Tempo di recupero: 60 secondi.",
+    "actif": null,
+    "recette": [
+      "Elegant Gem",
+      "Book of Sages",
+      "Book of Sages"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "concentrated-energy",
+    "nom": "Concentrated Energy",
+    "resume": "Aumento danno continuo",
+    "categorie": "Magic",
+    "prix": 2020,
+    "bonus": "+75 Potere magico, +400 HP",
+    "unique": "+20% al furto vitale ibrido",
+    "passif": "Ricarica: aumenta il potere magico di 5 dopo aver inflitto danni magici (questo effetto si accumula fino a 6 volte e può ottenere solo 1 accumulo ogni 0,4 secondi). Quando si raggiungono le cariche piene, aumenta il danno magico del 12% per 5 secondi.",
+    "actif": null,
+    "recette": [
+      "Mystic Container",
+      "Magic Wand",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "corrosion-scythe",
+    "nom": "Corrosion Scythe",
+    "resume": "Un colpo lento",
+    "categorie": "Attack",
+    "prix": 2050,
+    "bonus": "+30 attacco fisico, +30% velocità d'attacco, +5% velocità di movimento",
+    "unique": null,
+    "passif": "Corrosivo: gli attacchi base ottengono 80 danni fisici extra e rallentano il bersaglio dell'8% (dimezzato per gli attacchi base a distanza) per 1,5 secondi. Si accumula fino a 5 volte.@ Impulso: gli attacchi base garantiscono il 6% di velocità d'attacco extra per 3 secondi, per un massimo di 5 accumuli.",
+    "actif": null,
+    "recette": [
+      "Swift Crossbow",
+      "Regular Spear"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "cursed-helmet",
+    "nom": "Cursed Helmet",
+    "resume": "Sopravvivenza e pulizia della corsia",
+    "categorie": "Defense",
+    "prix": 1910,
+    "bonus": "+1200 HP, +20 Difesa magica",
+    "unique": null,
+    "passif": "Anima bruciante: infligge (1,2% HP totali) danni magici ai nemici vicini al secondo. Questo danno aumenta del 125 (+15*Livello eroe)% contro creep e servitori.@ Maledizione: infliggere danni con Burning Soul ridurrà la difesa ibrida del bersaglio di 3 per 3 secondi. Si accumula fino a 3 volte.",
+    "actif": null,
+    "recette": [
+      "Molten Essence",
+      "Ares Belt",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "dagger",
+    "nom": "Dagger",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 250,
+    "bonus": "+15 Attacco Fisico",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "demon-hunter-sword",
+    "nom": "Demon Hunter Sword",
+    "resume": "Killer di carri armati",
+    "categorie": "Attack",
+    "prix": 2180,
+    "bonus": "+35 Attacco fisico, +20% Velocità d'attacco",
+    "unique": null,
+    "passif": "Fagocitare: gli attacchi base infliggono l'8% degli HP attuali del bersaglio come danno fisico extra (massimo 60 contro i minion). @ Divorare: ogni attacco base recupera 10 (+4*Livello eroe) HP. Questo effetto è dimezzato contro i servitori.",
+    "actif": null,
+    "recette": [
+      "Regular Spear",
+      "Vampire Mallet",
+      "Knife"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "demon-shoes",
+    "nom": "Demon Shoes",
+    "resume": "Rigenerazione mana rapida",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 velocità di movimento, +10 rigenerazione mana",
+    "unique": null,
+    "passif": "Misticismo: ottenere un'uccisione o un aiuto su un servitore nemico ripristinerà il 4% di mana. (Un aiuto si verifica quando un servitore muore entro 2 secondi dopo aver subito danni dall'eroe.)",
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "divine-glaive",
+    "nom": "Divine Glaive",
+    "resume": "Penetrazione magica",
+    "categorie": "Magic",
+    "prix": 1970,
+    "bonus": "+65 potere magico",
+    "unique": "+40% Penetrazione magica",
+    "passif": "Spezzaincantesimi: quando attacchi un nemico, ottiene lo 0,1% di Penetrazione magica extra per ogni punto della Difesa magica del nemico, fino al 20%.",
+    "actif": null,
+    "recette": [
+      "Magic Wand"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "dominance-ice",
+    "nom": "Dominance Ice",
+    "resume": "Riduzione della guarigione",
+    "categorie": "Defense",
+    "prix": 2010,
+    "bonus": "+40 Difesa fisica, +40 Difesa magica, +5% Velocità di movimento",
+    "unique": null,
+    "passif": "Scudo della fortezza: per ogni eroe nemico entro 5 unità, la difesa ibrida aumenta di 8, fino a 40.@ Lifebane: riduce gli effetti di scudo e rigenerazione HP dei nemici vicini entro 5 unità al 60% del normale per 1 secondo.",
+    "actif": null,
+    "recette": [
+      "Black Ice Shield",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "dreadnaught-armor",
+    "nom": "Dreadnaught Armor",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 730,
+    "bonus": "+30 Difesa Fisica",
+    "unique": null,
+    "passif": "Deterrente: quando viene colpito da un'abilità, riduce il danno fisico dell'attaccante del 4% per 2 secondi (questo effetto si accumula fino a 3 volte).",
+    "actif": null,
+    "recette": [
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "elegant-gem",
+    "nom": "Elegant Gem",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 700,
+    "bonus": "+300 HP, +380 Mana",
+    "unique": null,
+    "passif": "Regalo: quando gli HP scendono al di sotto del 50%, recupera il 15% degli HP nei successivi 3 secondi. Quando il Mana scende sotto il 50%, ripristina il 15% del Mana nei successivi 3 secondi. Tempo di recupero: 60 secondi.",
+    "actif": null,
+    "recette": [
+      "Power Crystal",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "enchanted-talisman",
+    "nom": "Enchanted Talisman",
+    "resume": "Rigenerazione mana e riduzione CD",
+    "categorie": "Magic",
+    "prix": 2070,
+    "bonus": "+70 potere magico, +300 HP, +15% riduzione del tempo di recupero",
+    "unique": null,
+    "passif": "Mana Spring: rigenera il 15% del mana massimo ogni 10 secondi. @ Maestria magica: la riduzione del tempo di recupero massimo è aumentata del 5%.",
+    "actif": null,
+    "recette": [
+      "Tome of Evil",
+      "Magic Necklace",
+      "Magic Wand"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "endless-battle",
+    "nom": "Endless Battle",
+    "resume": "Attacchi base potenziati",
+    "categorie": "Attack",
+    "prix": 2330,
+    "bonus": "+60 attacco fisico, +250 HP, +10% riduzione ricarica, +5% velocità di movimento, +5 rigenerazione mana",
+    "unique": null,
+    "passif": "Giustizia divina: dopo aver lanciato un'abilità, il successivo attacco base entro 3 secondi infligge (60% dell'attacco fisico totale) danni veri aggiuntivi e recupera 80 (+40% dell'attacco fisico totale) HP (tempo di recupero di 1,5 secondi).",
+    "actif": null,
+    "recette": [
+      "Azure Blade",
+      "Iron Hunting Bow",
+      "Ogre Tomahawk"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "exotic-veil",
+    "nom": "Exotic Veil",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 600,
+    "bonus": "+30 potere magico, +5% velocità di movimento",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Mystery Codex"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "expert-gloves",
+    "nom": "Expert Gloves",
+    "resume": null,
+    "categorie": "Attack & Magic",
+    "prix": 500,
+    "bonus": "+30 Attacco adattivo,",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "feather-of-heaven",
+    "nom": "Feather of Heaven",
+    "resume": "Attacchi base magici",
+    "categorie": "Magic",
+    "prix": 2030,
+    "bonus": "+60 potere magico, +20% velocità d'attacco, +10% furto vitale, +5% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Afflizione: ogni attacco base infligge 50 danni magici extra (+30% potere magico totale). @ Impulso: gli attacchi base garantiscono il 6% di velocità di attacco extra per 3 secondi, per un massimo di 5 accumuli.",
+    "actif": null,
+    "recette": [
+      "Swift Crossbow",
+      "Book of Sages"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "flask-of-the-oasis",
+    "nom": "Flask of the Oasis",
+    "resume": "Proteggi i compagni di squadra",
+    "categorie": "Magic",
+    "prix": 1850,
+    "bonus": "+60 potere magico, +300 HP, +10% riduzione del tempo di recupero",
+    "unique": "+12% all'effetto curativo",
+    "passif": "Benedizione: quando si lancia un'abilità di guarigione o di scudo, se gli HP del bersaglio sono inferiori al 35% o scendono al di sotto del 35% entro 3 secondi, riceveranno uno scudo (100*Livello eroe) che dura 3 secondi. Quando questo effetto si attiva, riduce anche il tempo di recupero delle abilità dell'incantatore di 2 secondi. (Questo effetto può attivarsi solo una volta ogni 60 secondi sullo stesso bersaglio e non si attiverà con abilità di guarigione e scudo solo su se stessi.)",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Book of Sages",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "fleeting-time",
+    "nom": "Fleeting Time",
+    "resume": "Riduzione definitiva dei CD",
+    "categorie": "Attack, Magic & Defense",
+    "prix": 2050,
+    "bonus": "+30 attacco adattivo, +600 HP, +15% riduzione del tempo di recupero",
+    "unique": null,
+    "passif": "Timestream: le uccisioni o gli assist degli eroi riducono il tempo di recupero attuale della Ultimate del 30%.",
+    "actif": null,
+    "recette": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "flower-of-hope",
+    "nom": "Flower of Hope",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+5% all'attacco adattivo",
+    "unique": null,
+    "passif": "Fiore della speranza: ogni 6 secondi, l'abilità o l'attacco base successivo infligge 60 danni magici aggiuntivi (+30% attacco fisico totale) (+30% potere magico totale).",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Gli alleati di Floryn"
+  },
+  {
+    "slug": "fury-hammer",
+    "nom": "Fury Hammer",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 830,
+    "bonus": "+35 Attacco Fisico",
+    "unique": "+12 Penetrazione fisica",
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Dagger"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "genius-wand",
+    "nom": "Genius Wand",
+    "resume": "Riduzione della difesa magica",
+    "categorie": "Magic",
+    "prix": 2000,
+    "bonus": "+75 potere magico, +5% velocità di movimento",
+    "unique": "+10 Penetrazione magica",
+    "passif": "Magia: infliggere danni magici agli eroi nemici ridurrà la loro difesa magica di 2,5+(0,5*livello eroe) per 2 secondi. Si accumula fino a 3 volte.",
+    "actif": null,
+    "recette": [
+      "Exotic Veil",
+      "Magic Wand"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "glowing-wand",
+    "nom": "Glowing Wand",
+    "resume": "Riduzione della guarigione",
+    "categorie": "Magic",
+    "prix": 2150,
+    "bonus": "+60 potere magico, +300 HP, +5% velocità di movimento",
+    "unique": null,
+    "passif": "Bruciatura: infliggere danni magici brucia i bersagli per 3 secondi, infliggendo anche danni magici extra pari all'1% degli HP massimi del bersaglio al secondo. @ Lifebane: infliggere danni al bersaglio ridurrà gli effetti di scudo e rigenerazione HP su di essi al 60% del normale per 3 secondi.",
+    "actif": null,
+    "recette": [
+      "Exotic Veil",
+      "Mystery Codex",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "golden-staff",
+    "nom": "Golden Staff",
+    "resume": "Migliora gli effetti di attacco",
+    "categorie": "Attack",
+    "prix": 2000,
+    "bonus": "+55 attacco fisico, +15% velocità d'attacco",
+    "unique": null,
+    "passif": "Rapido: ogni 1% di probabilità critica aggiuntiva ottenuta viene convertito in 1% di velocità di attacco extra. @ Colpo infinito: dopo ogni 2 attacchi base non critici, la velocità di attacco del successivo attacco base viene aumentata dell'80% (e il limite di velocità di attacco è aumentato al 500%) e attiva gli effetti di attacco altre 2 volte.",
+    "actif": null,
+    "recette": [
+      "Regular Spear",
+      "Dagger",
+      "Dagger"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "great-dragon-spear",
+    "nom": "Great Dragon Spear",
+    "resume": "Riduzione e critica del CD",
+    "categorie": "Attack",
+    "prix": 2140,
+    "bonus": "+70 attacco fisico, +10% riduzione tempo di recupero, +20% probabilità critica",
+    "unique": null,
+    "passif": "Guerriero supremo: dopo aver lanciato una Ultimate, aumenta la velocità di movimento del 30% per 7,5 secondi. Questo effetto ha un tempo di recupero di 15 secondi.",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Iron Hunting Bow",
+      "Javelin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "guardian-helmet",
+    "nom": "Guardian Helmet",
+    "resume": "Rigenerazione HP costante",
+    "categorie": "Defense",
+    "prix": 2500,
+    "bonus": "+1800 HP, +20 rigenerazione HP",
+    "unique": null,
+    "passif": "Recupero: dopo 5 secondi fuori dal combattimento, recupera (2,5% HP totali) HP al secondo. @ Difensore: dopo aver subito più di 500 danni in una singola istanza, recupera il 30 (+0,3% HP totali)% HP dal danno in eccesso oltre tale importo.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Ares Belt",
+      "Ares Belt"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "haas-claws",
+    "nom": "Haas' Claws",
+    "resume": "Rubavita",
+    "categorie": "Attack",
+    "prix": 2020,
+    "bonus": "+40 attacco fisico, +15% velocità d'attacco, +20% probabilità critica",
+    "unique": "+20% Rubavita",
+    "passif": "Frenesia: i colpi critici garantiscono il 20% di velocità d'attacco extra per 2 secondi.",
+    "actif": null,
+    "recette": [
+      "Vampire Mallet",
+      "Rogue Meteor",
+      "Dagger"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "healing-necklace",
+    "nom": "Healing Necklace",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 140,
+    "bonus": "+4 rigenerazione HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "hero-s-ring",
+    "nom": "Hero's Ring",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 450,
+    "bonus": "+150 HP, +5% di riduzione del tempo di recupero",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "holy-crystal",
+    "nom": "Holy Crystal",
+    "resume": "Potenza magica massima",
+    "categorie": "Magic",
+    "prix": 3000,
+    "bonus": "+165 Potere magico",
+    "unique": null,
+    "passif": "Mistero: ottiene il 21%-35% di potere magico extra (cresce con il livello).",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "hunter-strike",
+    "nom": "Hunter Strike",
+    "resume": "Breve accelerazione",
+    "categorie": "Attack",
+    "prix": 2010,
+    "bonus": "+80 attacco fisico, +10% riduzione tempo di recupero",
+    "unique": "+15 Penetrazione fisica",
+    "passif": "Castigo: infliggere danni allo stesso eroe nemico o creep 5 volte di seguito garantisce il 50% di velocità di movimento extra che decade in 3 secondi (8 secondi di ricarica).",
+    "actif": null,
+    "recette": [
+      "Fury Hammer",
+      "Iron Hunting Bow",
+      "Dagger"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "ice-queen-wand",
+    "nom": "Ice Queen Wand",
+    "resume": "Lento nel colpo abilità",
+    "categorie": "Magic",
+    "prix": 2040,
+    "bonus": "+60 potere magico, +10% vampiro magico, +300 HP, +7% velocità di movimento",
+    "unique": null,
+    "passif": "Vincolo del ghiaccio: quando un'abilità infligge danni a un eroe nemico, lo rallenterà anche del 10% per 2 secondi (si accumula fino a 3 volte). Questo effetto ha un tempo di recupero di 0,4 secondi.",
+    "actif": null,
+    "recette": [
+      "Mystic Container",
+      "Exotic Veil",
+      "Mystery Codex"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "immortality",
+    "nom": "Immortality",
+    "resume": "Autoresurrezione",
+    "categorie": "Defense",
+    "prix": 2120,
+    "bonus": "+850 HP, +15 Difesa Fisica",
+    "unique": null,
+    "passif": "Immortale: resuscita 2,5 secondi dopo la morte e ottiene il 16% di HP massimi e uno scudo che può assorbire 150 (+70 * Livello eroe） danni. Lo scudo dura 3 secondi. Questo effetto ha un tempo di recupero di 210 secondi.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Vitality Crystal",
+      "Leather Jerkin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "iron-hunting-bow",
+    "nom": "Iron Hunting Bow",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 450,
+    "bonus": "+10 attacco fisico, +5% riduzione tempo di recupero",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "javelin",
+    "nom": "Javelin",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 320,
+    "bonus": "+8% Probabilità Critico",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "knife",
+    "nom": "Knife",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 280,
+    "bonus": "+10% velocità d'attacco",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "lantern-of-hope",
+    "nom": "Lantern of Hope",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+20 potere magico, +4% velocità di movimento, +2% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Lanterna della Speranza: gli attributi dell'equipaggiamento aumentano con il livello dell'eroe.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Floryn"
+  },
+  {
+    "slug": "leather-jerkin",
+    "nom": "Leather Jerkin",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 220,
+    "bonus": "+14 Difesa Fisica",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "legion-sword",
+    "nom": "Legion Sword",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 910,
+    "bonus": "+60 Attacco Fisico",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Dagger",
+      "Dagger"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "lightning-truncheon",
+    "nom": "Lightning Truncheon",
+    "resume": "Danni da schizzi",
+    "categorie": "Magic",
+    "prix": 2250,
+    "bonus": "+75 potere magico, +400 mana, +10% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Risonanza: ogni 6 secondi, l'abilità successiva risuona, infliggendo 255 (+85% potere magico) danni magici extra a tutti i nemici nel raggio d'azione.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "magic-blade",
+    "nom": "Magic Blade",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 1050,
+    "bonus": "+35 Attacco fisico, +10% Rubavita",
+    "unique": null,
+    "passif": "Linea vitale: quando subisce danni che riducono gli HP al di sotto del 30%, ottiene uno scudo (+60*Livello eroe) (aumenta con il livello) e una velocità di movimento del 50% che decade rapidamente in 3 secondi. Questo effetto ha un tempo di recupero di 60 secondi.",
+    "actif": null,
+    "recette": [
+      "Dagger",
+      "Vampire Mallet"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "magic-necklace",
+    "nom": "Magic Necklace",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 120,
+    "bonus": "+2 rigenerazione mana",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "magic-potion",
+    "nom": "Magic Potion",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 1500,
+    "bonus": null,
+    "unique": null,
+    "passif": "Aumenta potere: utilizzato automaticamente dopo l'acquisto, aumenta il potere magico di 30 e la riduzione del tempo di recupero del 10% per 120 secondi. Può avere un solo effetto pozione alla volta.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "magic-resist-cloak",
+    "nom": "Magic Resist Cloak",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 220,
+    "bonus": "+14 Difesa magica",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "magic-shoes",
+    "nom": "Magic Shoes",
+    "resume": "Riduzione del CD",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 velocità di movimento, +10% riduzione del tempo di recupero, +150 HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Hero's Ring"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "magic-wand",
+    "nom": "Magic Wand",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 820,
+    "bonus": "+45 Potere magico",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Mystery Codex"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "malefic-gun",
+    "nom": "Malefic Gun",
+    "resume": "Aumento della portata dell'attacco",
+    "categorie": "Attack",
+    "prix": 2120,
+    "bonus": "+40 attacco fisico, +20% velocità d'attacco",
+    "unique": null,
+    "passif": "Armor Buster: aumenta la penetrazione fisica del 30%.@ Energia malefica: aumenta la portata dell'attacco base del 12%. Quando colpisce un bersaglio, ottiene il 10% di velocità di movimento per 0,5 secondi.",
+    "actif": null,
+    "recette": [
+      "Fury Hammer",
+      "Knife",
+      "Knife"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "malefic-roar",
+    "nom": "Malefic Roar",
+    "resume": "Alta penetrazione fisica",
+    "categorie": "Attack",
+    "prix": 2060,
+    "bonus": "+60 Attacco Fisico",
+    "unique": null,
+    "passif": "Armor Buster: aumenta la penetrazione fisica del 30%. @ Breaker: quando attacca un nemico, ottiene lo 0,1% di penetrazione fisica extra per ogni punto della difesa fisica del nemico, fino al 30%.",
+    "actif": null,
+    "recette": [
+      "Legion Sword"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "molten-essence",
+    "nom": "Molten Essence",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 800,
+    "bonus": "+540 CV",
+    "unique": null,
+    "passif": "Anima bruciante: infligge (0,6% HP totali) danni magici ai nemici vicini al secondo. Questo danno è aumentato del 125 (+15*Livello Eroe)% contro creep e servitori.",
+    "actif": null,
+    "recette": [
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "mystery-codex",
+    "nom": "Mystery Codex",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 300,
+    "bonus": "+15 Potere magico",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "mystic-container",
+    "nom": "Mystic Container",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 500,
+    "bonus": "+15 potere magico, +8% vampiro magico",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Mystery Codex"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "necklace-of-durance",
+    "nom": "Necklace of Durance",
+    "resume": "Riduzione della guarigione",
+    "categorie": "Magic",
+    "prix": 2010,
+    "bonus": "+60 potere magico, +300 HP, +380 mana, +5% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Regalo: rigenera il 20% di HP e mana entro 2 secondi dall'aumento di livello. @ Lifebane: dopo aver inflitto danni al bersaglio, riduce lo scudo e la rigenerazione HP del bersaglio del 50% per 3 secondi.",
+    "actif": null,
+    "recette": [
+      "Book of Sages",
+      "Elegant Gem",
+      "Mystery Codex"
+    ],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "ogre-tomahawk",
+    "nom": "Ogre Tomahawk",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 650,
+    "bonus": "+25 Attacco Fisico, +230 HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Dagger",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "oracle",
+    "nom": "Oracle",
+    "resume": "Rigenerazione avanzata",
+    "categorie": "Defense",
+    "prix": 1860,
+    "bonus": "+850 HP, +20 Difesa fisica, +20 Difesa magica, +10% Riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Benedizione: gli effetti dello scudo ricevuto e della rigenerazione HP sono aumentati del 25%.",
+    "actif": null,
+    "recette": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "power-crystal",
+    "nom": "Power Crystal",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 220,
+    "bonus": "+280 mana",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "power-potion",
+    "nom": "Power Potion",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 1500,
+    "bonus": null,
+    "unique": null,
+    "passif": "Aumenta potere: utilizzato automaticamente dopo l'acquisto, fornisce 30 attacco fisico e 15% di rubavita per 120 secondi. Può avere un solo effetto pozione alla volta.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "queen-s-wings",
+    "nom": "Queen's Wings",
+    "resume": "Ritorsione con HP bassi",
+    "categorie": "Defense",
+    "prix": 2250,
+    "bonus": "+750 HP, +30 attacco adattivo, +10% riduzione ricarica, +10% vampiro magico",
+    "unique": null,
+    "passif": "Demonizzazione: quando gli HP scendono al di sotto del 40%, ottiene una riduzione del danno del 30% per 3 secondi e riduce i tempi di recupero delle abilità di 2 secondi. Questo effetto ha un tempo di recupero di 60 secondi. @ Defiance: per ogni 1% di HP perso, il danno aumenta dello 0,25%, fino al 15%.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "radiant-armor",
+    "nom": "Radiant Armor",
+    "resume": "Riduzione del danno magico",
+    "categorie": "Defense",
+    "prix": 1880,
+    "bonus": "+950 HP, +40 Difesa magica, +12 Rigenerazione HP",
+    "unique": null,
+    "passif": "Sacra Benedizione: subire danni magici garantisce 5 (+1*livello dell'eroe) di difesa magica per 5 secondi, fino a 6 accumuli (può ottenere solo 1 accumulo ogni 0,4 secondi).",
+    "actif": null,
+    "recette": [
+      "Silence Robe",
+      "Magic Resist Cloak",
+      "Healing Necklace"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "rapid-boots",
+    "nom": "Rapid Boots",
+    "resume": "Velocità di movimento",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+55 velocità di movimento, +35% riduzione del rallentamento, +12 rigenerazione HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Healing Necklace",
+      "Healing Necklace"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "regular-spear",
+    "nom": "Regular Spear",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 600,
+    "bonus": "+20 attacco fisico, +10% velocità d'attacco",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Knife",
+      "Dagger"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "rock-potion",
+    "nom": "Rock Potion",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 1500,
+    "bonus": null,
+    "unique": null,
+    "passif": "Aumenta potenza: al momento dell'acquisto, garantisce 500 HP massimi e 5% di riduzione del danno per 120 secondi. Può avere un solo effetto pozione alla volta.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "rogue-meteor",
+    "nom": "Rogue Meteor",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 900,
+    "bonus": "+15% velocità d'attacco, +10% probabilità critica",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Knife",
+      "Javelin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "rose-gold-meteor",
+    "nom": "Rose Gold Meteor",
+    "resume": "Scudo a basso HP",
+    "categorie": "Attack",
+    "prix": 2030,
+    "bonus": "+30 attacco fisico, +20% velocità d'attacco, +10% furto vitale",
+    "unique": null,
+    "passif": "Scaglia di drago: ogni 4 attacchi fisici extra aumenta la difesa ibrida di 1, fino a 50 (l'effetto viene dimezzato se il ruolo principale non è Guerriero). @ Linea vitale: quando subisce danni che riducono gli HP al di sotto del 30%, ottiene uno scudo (120*Livello eroe) (aumenta con il livello) e una velocità di movimento del 50% che decade rapidamente in 3 secondi. Questo effetto ha un tempo di recupero di 60 secondi.",
+    "actif": null,
+    "recette": [
+      "Magic Blade",
+      "Knife"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "scarlet-phantom",
+    "nom": "Scarlet Phantom",
+    "resume": "Critico e velocità di attacco",
+    "categorie": "Attack",
+    "prix": 2020,
+    "bonus": "+30 attacco fisico, +20% velocità d'attacco, +25% probabilità critica",
+    "unique": null,
+    "passif": "Frenesia: i colpi critici garantiscono il 30% di velocità d'attacco extra e il 5% di probabilità critica extra per 2 secondi.",
+    "actif": null,
+    "recette": [
+      "Rogue Meteor",
+      "Javelin"
+    ],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "sea-halberd",
+    "nom": "Sea Halberd",
+    "resume": "Riduzione della guarigione",
+    "categorie": "Attack",
+    "prix": 2050,
+    "bonus": "+80 attacco fisico, +20% velocità d'attacco",
+    "unique": null,
+    "passif": "Lifebane: infliggere danni a un bersaglio ridurrà gli effetti di scudo e rigenerazione HP su di esso al 60% del normale per 3 secondi. @ Punizione: aumenta il danno dell'8% contro gli eroi nemici con HP extra più elevati.",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Regular Spear"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "shadow-twinblades",
+    "nom": "Shadow Twinblades",
+    "resume": "Il meglio per gli Assassini",
+    "categorie": "Magic",
+    "prix": 1960,
+    "bonus": "+75 potere magico, +15% rubavita magico, +5% velocità di movimento",
+    "unique": null,
+    "passif": "Assassinio: se non viene subito o inflitto alcun danno entro 5 secondi, il successivo attacco base infliggerà danni magici extra pari a 200 più 50% di potere magico e infliggerà effetti di rallentamento del 60% sul bersaglio per 1,5 secondi.",
+    "actif": null,
+    "recette": [
+      "Exotic Veil",
+      "Mystic Container"
+    ],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "shimmering-lantern",
+    "nom": "Shimmering Lantern",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+20 potere magico, +5% velocità di movimento",
+    "unique": null,
+    "passif": "Floryn può condividere il potere della Lanterna di Rugiada con un eroe alleato. La Lanterna non è ancora abbastanza forte e può evolversi una volta assorbita abbastanza energia in battaglia.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "silence-robe",
+    "nom": "Silence Robe",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 1020,
+    "bonus": "+540 HP, +23 Difesa magica",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Vitality Crystal",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "sky-piercer",
+    "nom": "Sky Piercer",
+    "resume": "Ideale per i finalisti",
+    "categorie": "Attack & Magic",
+    "prix": 1500,
+    "bonus": "+60 attacco adattivo, +15 velocità di movimento",
+    "unique": null,
+    "passif": "Letalità: dopo aver inflitto danni a un eroe nemico, giustizia l'eroe se i suoi HP sono inferiori al 4%. Guadagna 10 stack di letalità per ogni uccisione e perde il 30% di stack attuali per ogni morte. Ogni accumulo di Letalità aumenta la soglia HP dell'effetto di esecuzione dello 0,1%, accumulandosi 80 volte.",
+    "actif": null,
+    "recette": [
+      "Expert Gloves",
+      "Expert Gloves"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "starlium-scythe",
+    "nom": "Starlium Scythe",
+    "resume": "Attacchi base potenziati",
+    "categorie": "Magic",
+    "prix": 2120,
+    "bonus": "+75 potere magico, +10% riduzione ricarica, +8% furto vitale ibrido, +6 rigenerazione mana",
+    "unique": null,
+    "passif": "Crisi: dopo aver lanciato un'abilità, il successivo attacco base entro 3 secondi infligge 90 (+60% potere magico totale) danni veri extra e riduce la velocità di movimento del bersaglio del 15% per 1,5 secondi (tempo di recupero di 1,5 secondi).",
+    "actif": null,
+    "recette": [
+      "Azure Blade",
+      "Book of Sages",
+      "Magic Wand"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "steel-legplates",
+    "nom": "Steel Legplates",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 630,
+    "bonus": "+35 Difesa Fisica",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Leather Jerkin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "swift-boots",
+    "nom": "Swift Boots",
+    "resume": "Velocità d'attacco",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 velocità di movimento, +15% velocità di attacco",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Knife"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "swift-crossbow",
+    "nom": "Swift Crossbow",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 1000,
+    "bonus": "+20% velocità d'attacco",
+    "unique": null,
+    "passif": "Balestra: ogni attacco base infligge 40 danni adattivi extra. @ Impulso: gli attacchi base garantiscono il 3% di velocità di attacco extra per 3 secondi, per un massimo di 5 accumuli.",
+    "actif": null,
+    "recette": [
+      "Knife",
+      "Knife"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "thunder-belt",
+    "nom": "Thunder Belt",
+    "resume": "Danni ai carri armati",
+    "categorie": "Defense",
+    "prix": 1820,
+    "bonus": "+600 HP, +15 Difesa fisica, +15 Difesa magica, +20 Velocità di movimento",
+    "unique": null,
+    "passif": "Fulmine: ogni 4 secondi, il successivo attacco base infligge 50 (+100% difesa fisica extra) (+100% difesa magica extra) danni veri extra al bersaglio e ai nemici intorno a lui, e li rallenta brevemente del 99%. La Difesa Ibrida aumenta permanentemente di 1 ogni volta che l'attacco colpisce un eroe nemico. (Questo effetto è ridotto al 50% per tiratori scelti, maghi e assassini)",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "tome-of-evil",
+    "nom": "Tome of Evil",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 950,
+    "bonus": "+30 potere magico, +2 rigenerazione mana, +10% riduzione tempo di recupero",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Magic Necklace",
+      "Book of Sages"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "tough-boots",
+    "nom": "Tough Boots",
+    "resume": "Riduzione della durata CC",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 velocità di movimento, +18 difesa magica",
+    "unique": null,
+    "passif": "Tempra: CC e durata del rallentamento ridotti del 25%.",
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "twilight-armor",
+    "nom": "Twilight Armor",
+    "resume": "Elevata resistenza ai danni",
+    "categorie": "Defense",
+    "prix": 2100,
+    "bonus": "+1200 HP, +15 Difesa Fisica",
+    "unique": null,
+    "passif": "Crepuscolo: dopo aver subito più di 500 danni in una singola istanza, il danno in eccesso oltre tale importo viene ridotto del 20 (+0,2% HP totali). @ Redenzione: quando il danno in arrivo riduce gli HP al di sotto del 30%, recupera il 20% degli HP massimi nei successivi 4 secondi. Questo effetto ha un tempo di recupero di 60 secondi.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Ares Belt",
+      "Leather Jerkin"
+    ],
+    "pourQui": "RIMOSSO"
+  },
+  {
+    "slug": "vampire-mallet",
+    "nom": "Vampire Mallet",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 400,
+    "bonus": "+8 Attacco fisico, +8% Rubavita",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "vitality-crystal",
+    "nom": "Vitality Crystal",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 300,
+    "bonus": "+230 CV",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "war-axe",
+    "nom": "War Axe",
+    "resume": "Aumento danno continuo",
+    "categorie": "Attack",
+    "prix": 2100,
+    "bonus": "+35 attacco fisico, +400 HP, +10% riduzione ricarica, +8% furto vitale ibrido",
+    "unique": null,
+    "passif": "Spirito combattivo: gli attacchi garantiscono 12 attacchi fisici extra al secondo per 4 secondi, fino a 6 accumuli. Infligge il 10% di Danno Vero extra in base al danno inflitto (nessuna riduzione del danno conteggiata) a cariche complete. (Tiratori, maghi e supporti ricevono solo il 50% di questi effetti cumulativi.)",
+    "actif": null,
+    "recette": [
+      "Ogre Tomahawk",
+      "Iron Hunting Bow",
+      "Hero's Ring"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "warrior-boots",
+    "nom": "Warrior Boots",
+    "resume": "Difesa fisica impilabile",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 velocità di movimento, +18 difesa fisica",
+    "unique": null,
+    "passif": "Valore: ottiene 4 difese fisiche extra per 3 secondi quando subisce danni fisici, fino a 20.",
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Leather Jerkin"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "wind-of-nature",
+    "nom": "Wind of Nature",
+    "resume": "Immunità ai danni fisici",
+    "categorie": "Attack",
+    "prix": 1910,
+    "bonus": "+30 attacco fisico, +20% velocità d'attacco, +10% furto vitale",
+    "unique": null,
+    "passif": null,
+    "actif": "Canto del vento: diventa immune a tutti i danni fisici per 2 secondi (la durata è dimezzata se il ruolo principale non è tiratore scelto; tempo di recupero di 90 secondi).",
+    "recette": [
+      "Regular Spear",
+      "Vampire Mallet"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "windtalker",
+    "nom": "Windtalker",
+    "resume": "Danni da schizzi",
+    "categorie": "Attack",
+    "prix": 1880,
+    "bonus": "+35% velocità d'attacco, +20% probabilità critica, +20 velocità di movimento",
+    "unique": null,
+    "passif": "Tifone: ogni 5–2 secondi (ridotto di 0,2 secondi per ogni attacco base), il successivo attacco base colpirà fino a 3 unità nemiche per 150–362 danni magici. (Questo attacco può essere critico e il danno aumenta al 200% contro i servitori.)",
+    "actif": null,
+    "recette": [
+      "Rogue Meteor",
+      "Knife"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "winter-crown",
+    "nom": "Winter Crown",
+    "resume": "Invincibilità temporanea",
+    "categorie": "Attack & Magic",
+    "prix": 1910,
+    "bonus": "+45 Attacco adattivo, +400 HP, +5% Riduzione tempo di recupero",
+    "unique": null,
+    "passif": null,
+    "actif": "Congelato: diventa congelato, non bersagliabile e immune ai danni per 2 secondi (tempo di recupero di 100 secondi). Non è possibile spostare o lanciare abilità mentre sono congelati, ma le abilità già lanciate non verranno interrotte.",
+    "recette": [
+      "Expert Gloves",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  },
+  {
+    "slug": "wishing-lantern",
+    "nom": "Wishing Lantern",
+    "resume": "Contatore HP elevato",
+    "categorie": "Magic",
+    "prix": 2250,
+    "bonus": "+75 potere magico, +400 mana, +10% riduzione tempo di recupero",
+    "unique": null,
+    "passif": "Dea Farfalla: per ogni 900 danni magici inflitti a un eroe nemico (calcolati prima della riduzione del danno), una Dea Farfalla viene evocata per attaccare l'eroe nemico, infliggendo danni magici pari all'8% dei suoi HP attuali.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "pourQui": "Tutti eroi"
+  }
+]

@@ -11,7 +11,7 @@ import { objets } from "@/lib/donnees";
  * et le tout renvoie a la fiche de l'objet.
  */
 const IMAGES = visuels.objets as Record<string, string>;
-const PAR_NOM = new Map(objets.map((o) => [o.nom, o]));
+const PAR_NOM = new Map(objets("en").map((o) => [o.nom, o]));
 
 export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
   const objet = PAR_NOM.get(nom);

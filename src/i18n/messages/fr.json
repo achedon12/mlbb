@@ -220,7 +220,14 @@
       "tropPeu": "Trop peu joue pour que les taux soient fiables",
       "victoire": "Victoire",
       "ban": "Ban",
-      "pick": "Pick"
+      "pick": "Pick",
+      "legende": {
+        "S+": "Domine le patch. A prendre ou a bannir.",
+        "S": "Tres fort dans la majorite des compositions.",
+        "A": "Solide, sans imposer le rythme de la partie.",
+        "B": "Correct, mais depend du contexte ou du joueur.",
+        "C": "Jouable, avec un cout reel par rapport aux alternatives."
+      }
     },
     "patchNotes": {
       "titre": "Patch notes",
@@ -281,6 +288,48 @@
       "deconnexion": "Deconnexion",
       "detailIndispo": "Le detail des statistiques — taux de victoire, historique, heros les plus joues — depend d'un service de Moonton actuellement hors ligne. Votre profil ci-dessus reste accessible ; le detail reviendra des que la source repond.",
       "aucuneStat": "Aucune statistique a afficher."
+    },
+    "apiDoc": {
+      "titre": "API publique",
+      "chapeau": "Les donnees du site sont accessibles en JSON, sans cle ni inscription. Servez-vous — la seule contrainte est de citer la source, qui accompagne chaque reponse.",
+      "metaDescription": "Une API JSON ouverte sur les donnees Mobile Legends: Bang Bang du site : heros, competences, skins, objets, patchs et classement. Sans cle, sans inscription.",
+      "ogDescription": "Heros, objets, patchs et classement en JSON, sans cle.",
+      "statHeros": "Heros",
+      "statObjets": "Objets",
+      "statPatchs": "Patchs",
+      "statClasses": "Heros classes",
+      "formeTitre": "Forme des reponses",
+      "formeTexte": "Chaque reponse enveloppe le resultat dans « donnees », y joint le nombre total d'elements quand il s'agit d'une liste, et rappelle la source des donnees.",
+      "conditionsTitre": "Conditions",
+      "c1label": "Pas de cle, pas de quota.",
+      "c1texte": "Les reponses sont statiques et mises en cache : elles ne coutent rien a servir. Restez raisonnable et tout ira bien.",
+      "c2label": "Citez la source.",
+      "c2texte": "Les donnees viennent du wiki communautaire, sous licence CC BY-SA : la reutiliser suppose de le crediter. L'information voyage avec chaque reponse.",
+      "c3label": "Les analyses redigees",
+      "c3texte": "— commentaires, builds, contres — sont produites pour ce site et couvertes par sa licence MIT.",
+      "c4label": "Aucune donnee de joueur.",
+      "c4texte": "Moonton n'expose ni classement, ni historique, ni statut de connexion : cette API n'en propose donc pas, et aucune autre ne le peut honnetement.",
+      "synchroNote": "Les donnees suivent la synchronisation hebdomadaire du site. Derniere en date : {date}.",
+      "routes": {
+        "heros": {
+          "resume": "Liste des heros, sans leurs competences detaillees ni leurs skins.",
+          "roleParam": "Ne garde que ce role.",
+          "laneParam": "Ne garde que cette position."
+        },
+        "herosSlug": {
+          "resume": "Fiche complete : statistiques, competences avec leur description, skins, visuels, illustrations et analyse redigee quand elle existe."
+        },
+        "objets": {
+          "resume": "Objets de la boutique, avec statistiques, passifs et recettes.",
+          "catParam": "Ne garde que cette categorie."
+        },
+        "patchs": {
+          "resume": "Versions recensees, de la plus recente a la plus ancienne."
+        },
+        "classement": {
+          "resume": "Classement calcule : taux de victoire, de ban et de selection, palier et date du releve."
+        }
+      }
     }
   },
   "modeFiche": {
@@ -381,7 +430,8 @@
     },
     "commentFonctionne": "Comment ce site fonctionne",
     "suivreRss": "Suivre les publications en RSS",
-    "pourcentVictoires": "% de victoires"
+    "pourcentVictoires": "% de victoires",
+    "derniersArticles": "Derniers articles"
   },
   "vedette": {
     "herosDuJour": "Heros du jour",
@@ -608,7 +658,13 @@
     "intro": "Renseignez au moins un heros adverse. Les suggestions se classent d'abord sur les contres, puis sur les synergies avec vos propres picks ; le taux de victoire ne sert qu'a departager.",
     "dejaPourvue": "deja pourvue",
     "aucunContre": "aucun contre connu dans cette composition",
-    "aucunHeros": "Aucun heros disponible."
+    "aucunHeros": "Aucun heros disponible.",
+    "prendre": "Prendre",
+    "choisirEn": "Choisir {nom} en {lane}",
+    "retirer": "Retirer {nom}",
+    "choisirLane": "Choisir un heros pour la lane {lane}",
+    "placeholderLane": "Heros de {lane} — ou cherchez par nom",
+    "choisirUn": "Choisir un heros"
   },
   "nouveauHeros": {
     "particularite": "Particularite — "
@@ -684,5 +740,210 @@
     "StarLight": "StarLight",
     "Valentine": "Saint-Valentin",
     "Atomic": "Atomic"
+  },
+  "emblemesData": {
+    "tank-emblem": {
+      "nom": "Embleme de tank",
+      "bonus": "PV et resistances",
+      "pourQui": "Tanks d'engagement et tanks de lane d'experience."
+    },
+    "fighter-emblem": {
+      "nom": "Embleme de combattant",
+      "bonus": "Degats d'attaque et vol de vie",
+      "pourQui": "Combattants de lane d'experience qui doivent gagner leur duel."
+    },
+    "assassin-emblem": {
+      "nom": "Embleme d'assassin",
+      "bonus": "Degats d'attaque et penetration physique",
+      "pourQui": "Jungleurs physiques et assassins."
+    },
+    "mage-emblem": {
+      "nom": "Embleme de mage",
+      "bonus": "Puissance magique et penetration magique",
+      "pourQui": "Mages de la lane du milieu."
+    },
+    "marksman-emblem": {
+      "nom": "Embleme de tireur",
+      "bonus": "Vitesse d'attaque et degats d'attaque",
+      "pourQui": "Tireurs de la lane d'or."
+    },
+    "support-emblem": {
+      "nom": "Embleme de soutien",
+      "bonus": "Reduction de recharge et vitesse de deplacement",
+      "pourQui": "Soutiens et roamers non tanks."
+    },
+    "agility": {
+      "nom": "Agility",
+      "description": "Augmente la vitesse de deplacement.",
+      "pourQui": "Roamers et heros qui doivent tourner vite sur la carte."
+    },
+    "swift": {
+      "nom": "Swift",
+      "description": "Augmente la vitesse d'attaque.",
+      "pourQui": "Tireurs et combattants a attaques de base."
+    },
+    "vitality": {
+      "nom": "Vitality",
+      "description": "Augmente les PV maximum.",
+      "pourQui": "Tanks et combattants."
+    },
+    "fatal": {
+      "nom": "Fatal",
+      "description": "Augmente le taux de coup critique.",
+      "pourQui": "Tireurs et assassins a critique."
+    },
+    "firmness": {
+      "nom": "Firmness",
+      "description": "Augmente les resistances physique et magique.",
+      "pourQui": "Tanks face a des degats mixtes."
+    },
+    "thrill": {
+      "nom": "Thrill",
+      "description": "Augmente les degats d'attaque et la puissance magique.",
+      "pourQui": "Porteurs de degats, quel que soit le type."
+    },
+    "tenacity": {
+      "nom": "Tenacity",
+      "description": "Augmente les resistances quand les PV sont bas.",
+      "pourQui": "Tanks face a une composition explosive."
+    },
+    "seasoned-hunter": {
+      "nom": "Seasoned Hunter",
+      "description": "Augmente les degats infliges aux monstres de jungle.",
+      "pourQui": "Jungleurs, pour securiser les objectifs."
+    },
+    "master-assassin": {
+      "nom": "Master Assassin",
+      "description": "Augmente les degats contre une cible isolee.",
+      "pourQui": "Assassins qui cherchent le duel."
+    },
+    "weakness-finder": {
+      "nom": "Weakness Finder",
+      "description": "Les attaques de base ralentissent la cible.",
+      "pourQui": "Combattants sans controle propre."
+    },
+    "impure-rage": {
+      "nom": "Impure Rage",
+      "description": "La prochaine competence inflige des degats supplementaires et restaure de la mana.",
+      "pourQui": "Mages a competences frequentes."
+    },
+    "quantum-charge": {
+      "nom": "Quantum Charge",
+      "description": "Les degats de competence accelerent et soignent.",
+      "pourQui": "Heros qui doivent rester mobiles en combat."
+    },
+    "weapon-master": {
+      "nom": "Weapon Master",
+      "description": "Augmente tous les bonus d'attaque recus des objets.",
+      "pourQui": "Combattants dont les degats viennent des competences."
+    },
+    "lethal-ignition": {
+      "nom": "Lethal Ignition",
+      "description": "Inflige des degats supplementaires a une cible fortement blessee.",
+      "pourQui": "Porteurs qui doivent conclure vite."
+    },
+    "concussive-blast": {
+      "nom": "Concussive Blast",
+      "description": "Inflige des degats de zone bases sur les PV maximum.",
+      "pourQui": "Tanks d'engagement : Tigreal, Khufra, Atlas."
+    },
+    "wilderness-blessing": {
+      "nom": "Wilderness Blessing",
+      "description": "Augmente la vitesse de deplacement hors combat et dans l'herbe.",
+      "pourQui": "Roamers qui vivent dans les buissons, comme Franco."
+    },
+    "focusing-mark": {
+      "nom": "Focusing Mark",
+      "description": "Les cibles touchees subissent davantage de degats des allies.",
+      "pourQui": "Soutiens et tanks qui jouent pour leur porteur."
+    },
+    "brave-smite": {
+      "nom": "Brave Smite",
+      "description": "Toucher un ennemi avec une competence restaure des PV.",
+      "pourQui": "Combattants de lane d'experience."
+    },
+    "killing-spree": {
+      "nom": "Killing Spree",
+      "description": "Une elimination restaure des PV et accelere.",
+      "pourQui": "Assassins qui enchainent les cibles."
+    },
+    "festival-of-blood": {
+      "nom": "Festival of Blood",
+      "description": "Les degats de competence appliquent un vol de vie.",
+      "pourQui": "Mages de combat prolonge."
+    },
+    "bargain-hunter": {
+      "nom": "Bargain Hunter",
+      "description": "Reduit le prix des objets.",
+      "pourQui": "Roamers, dont le revenu est le plus faible de l'equipe."
+    },
+    "pull-yourself-together": {
+      "nom": "Pull Yourself Together",
+      "description": "Reduit la recharge des sorts de combat et des objets actifs.",
+      "pourQui": "Heros dont le Flicker decide des combats."
+    },
+    "flicker": {
+      "nom": "Flicker",
+      "description": "Teleporte le heros sur une courte distance.",
+      "pourQui": "Presque tout le monde : engagement, fuite, annulation d'animation."
+    },
+    "execute": {
+      "nom": "Execute",
+      "description": "Inflige des degats bases sur les PV manquants de la cible.",
+      "pourQui": "Jungleurs et assassins qui doivent conclure."
+    },
+    "retribution": {
+      "nom": "Retribution",
+      "description": "Inflige des degats importants a un monstre et renforce le nettoyage de jungle.",
+      "pourQui": "Obligatoire sur le jungleur."
+    },
+    "purify": {
+      "nom": "Purify",
+      "description": "Retire les effets de controle et immunise brievement.",
+      "pourQui": "Porteurs vises par un controle unique : contre Chou, Franco, Kaja."
+    },
+    "inspire": {
+      "nom": "Inspire",
+      "description": "Augmente fortement la vitesse d'attaque et ignore une partie de l'armure.",
+      "pourQui": "Tireurs a attaques de base."
+    },
+    "sprint": {
+      "nom": "Sprint",
+      "description": "Augmente la vitesse de deplacement et retire les ralentissements.",
+      "pourQui": "Heros sans mobilite qui doivent se repositionner."
+    },
+    "petrify": {
+      "nom": "Petrify",
+      "description": "Ralentit puis immobilise les ennemis proches.",
+      "pourQui": "Tanks sans controle fiable."
+    },
+    "arrival": {
+      "nom": "Arrival",
+      "description": "Teleporte le heros vers une tourelle ou un sbire allie.",
+      "pourQui": "Lanes solo qui doivent revenir vite apres un retour a la base."
+    },
+    "vengeance": {
+      "nom": "Vengeance",
+      "description": "Renvoie une partie des degats subis pendant la duree.",
+      "pourQui": "Combattants de lane d'experience."
+    },
+    "aegis": {
+      "nom": "Aegis",
+      "description": "Accorde un bouclier a soi-meme et aux allies proches.",
+      "pourQui": "Soutiens et tanks protecteurs."
+    },
+    "revitalize": {
+      "nom": "Revitalize",
+      "description": "Cree une zone qui soigne les allies presents.",
+      "pourQui": "Soutiens face a des degats etales dans le temps."
+    }
+  },
+  "erreur": {
+    "titre": "Une erreur est survenue",
+    "texte": "Le site a rencontre un probleme inattendu. Reessayez dans un instant.",
+    "reessayer": "Reessayer"
+  },
+  "carteHeros": {
+    "palierTitre": "Palier {p} de la tier list"
   }
 }

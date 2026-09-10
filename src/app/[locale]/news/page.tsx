@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export default async function PageActualites({ params }: { params: Promise<{ locale: Langue }> }) {
   const { locale } = await params;
   const t = creerT(locale);
-  const liste = articles("actualites");
+  const liste = articles("actualites", locale);
 
   return (
     <>

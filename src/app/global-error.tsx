@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { creerT } from "@/i18n/traductions";
+import { LANGUE_DEFAUT, LOCALE_HTML } from "@/i18n/config";
 
 /**
  * Frontiere d'erreur de dernier recours.
@@ -16,12 +18,13 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = creerT(LANGUE_DEFAUT);
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
-    <html lang="fr">
+    <html lang={LOCALE_HTML[LANGUE_DEFAUT]}>
       <body
         style={{
           margin: 0,
@@ -38,9 +41,9 @@ export default function GlobalError({
           padding: "2rem",
         }}
       >
-        <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>Une erreur est survenue</h1>
+        <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>{t("erreur.titre")}</h1>
         <p style={{ color: "#7b88a6", maxWidth: "32rem", lineHeight: 1.6 }}>
-          Le site a rencontre un probleme inattendu. Reessayez dans un instant.
+          {t("erreur.texte")}
         </p>
         <button
           type="button"
@@ -54,7 +57,7 @@ export default function GlobalError({
             cursor: "pointer",
           }}
         >
-          Reessayer
+          {t("erreur.reessayer")}
         </button>
       </body>
     </html>

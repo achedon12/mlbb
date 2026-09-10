@@ -220,7 +220,14 @@
       "tropPeu": "Too little is involved for the rates to be reliable",
       "victoire": "Victory",
       "ban": "Ban",
-      "pick": "Pick"
+      "pick": "Pick",
+      "legende": {
+        "S+": "Dominate the patch. To take or to banish.",
+        "S": "Very strong in the majority of compositions.",
+        "A": "Solid, without imposing the pace of the game.",
+        "B": "Correct, but depends on the context or the player.",
+        "C": "Playable, with a real cost compared to alternatives."
+      }
     },
     "patchNotes": {
       "titre": "Patch notes",
@@ -281,6 +288,48 @@
       "deconnexion": "Disconnect",
       "detailIndispo": "The detailed statistics — win rate, history, most played heroes — depend on a Moonton service currently offline. Your profile above remains accessible; the details will come back as soon as the source responds.",
       "aucuneStat": "No statistics to display."
+    },
+    "apiDoc": {
+      "titre": "Public API",
+      "chapeau": "Site data is accessible in JSON, without a key or registration. Help yourself — the only constraint is to cite the source, which accompanies each answer.",
+      "metaDescription": "An open JSON API on the site's Mobile Legends: Bang Bang data: heroes, skills, skins, items, patches and rankings. Without key, without registration.",
+      "ogDescription": "Heroes, objects, patches and classification in JSON, without keys.",
+      "statHeros": "Hero",
+      "statObjets": "Objects",
+      "statPatchs": "Patches",
+      "statClasses": "Hero classes",
+      "formeTitre": "Form of responses",
+      "formeTexte": "Each response wraps the result in \"data\", attaches the total number of elements when it is a list, and recalls the source of the data.",
+      "conditionsTitre": "Terms",
+      "c1label": "No key, no quota.",
+      "c1texte": "The responses are static and cached: they cost nothing to serve. Stay reasonable and everything will be fine.",
+      "c2label": "Cite the source.",
+      "c2texte": "The data comes from the community wiki, under CC BY-SA license: reusing it requires crediting it. Information travels with each response.",
+      "c3label": "The analyzes written",
+      "c3texte": "— comments, builds, counters — are produced for this site and covered by its MIT license.",
+      "c4label": "No player data.",
+      "c4texte": "Moonton does not expose any ranking, history or connection status: this API therefore does not offer any, and no other honestly can.",
+      "synchroNote": "The data tracks the site's weekly sync. Latest: {date}.",
+      "routes": {
+        "heros": {
+          "resume": "List of heroes, without their detailed skills or their skins.",
+          "roleParam": "Keep only this role.",
+          "laneParam": "Keep only this position."
+        },
+        "herosSlug": {
+          "resume": "Complete sheet: statistics, skills with their description, skins, visuals, illustrations and written analysis when it exists."
+        },
+        "objets": {
+          "resume": "Shop items, with stats, passives and recipes.",
+          "catParam": "Keep only this category."
+        },
+        "patchs": {
+          "resume": "Versions listed, from the most recent to the oldest."
+        },
+        "classement": {
+          "resume": "Ranking calculated: victory rate, ban and selection rate, level and reporting date."
+        }
+      }
     }
   },
   "modeFiche": {
@@ -381,7 +430,8 @@
     },
     "commentFonctionne": "How this site works",
     "suivreRss": "Follow publications in RSS",
-    "pourcentVictoires": "% of wins"
+    "pourcentVictoires": "% of wins",
+    "derniersArticles": "Latest articles"
   },
   "vedette": {
     "herosDuJour": "Hero of the day",
@@ -608,7 +658,13 @@
     "intro": "Inform at least one opposing hero. Suggestions are ranked first on counters, then on synergies with your own picks; the victory rate is only used to decide between winners.",
     "dejaPourvue": "already provided",
     "aucunContre": "no known cons in this composition",
-    "aucunHeros": "No heroes available."
+    "aucunHeros": "No heroes available.",
+    "prendre": "Take",
+    "choisirEn": "Choose {nom} in {lane}",
+    "retirer": "Remove {nom}",
+    "choisirLane": "Choose a hero for the lane {lane}",
+    "placeholderLane": "Heroes of {lane} — or search by name",
+    "choisirUn": "Choose a hero"
   },
   "nouveauHeros": {
     "particularite": "Particularity —"
@@ -684,5 +740,210 @@
     "StarLight": "Starlight",
     "Valentine": "Valentine's Day",
     "Atomic": "Atomic"
+  },
+  "emblemesData": {
+    "tank-emblem": {
+      "nom": "Tank emblem",
+      "bonus": "PV and resistances",
+      "pourQui": "Engagement tanks and experience lane tanks."
+    },
+    "fighter-emblem": {
+      "nom": "Fighter Emblem",
+      "bonus": "Attack damage and lifesteal",
+      "pourQui": "Experienced lane fighters who must win their duel."
+    },
+    "assassin-emblem": {
+      "nom": "Assassin Emblem",
+      "bonus": "Attack damage and physical penetration",
+      "pourQui": "Physical junglers and assassins."
+    },
+    "mage-emblem": {
+      "nom": "Mage Emblem",
+      "bonus": "Magical power and magical penetration",
+      "pourQui": "Middle lane mages."
+    },
+    "marksman-emblem": {
+      "nom": "Shooter Emblem",
+      "bonus": "Attack speed and attack damage",
+      "pourQui": "Gold Lane Shooters."
+    },
+    "support-emblem": {
+      "nom": "Support Emblem",
+      "bonus": "Recharge reduction and movement speed",
+      "pourQui": "Supports and non-tank roamers."
+    },
+    "agility": {
+      "nom": "Agility",
+      "description": "Increases movement speed.",
+      "pourQui": "Roamers and heroes who must move quickly on the map."
+    },
+    "swift": {
+      "nom": "Swift",
+      "description": "Increases attack speed.",
+      "pourQui": "Shooters and fighters have basic attacks."
+    },
+    "vitality": {
+      "nom": "Vitality",
+      "description": "Increases maximum HP.",
+      "pourQui": "Tanks and fighters."
+    },
+    "fatal": {
+      "nom": "Fatal",
+      "description": "Increases critical hit rate.",
+      "pourQui": "Shooters and Assassins review."
+    },
+    "firmness": {
+      "nom": "Firmness",
+      "description": "Increases physical and magical resistance.",
+      "pourQui": "Tanks face mixed damage."
+    },
+    "thrill": {
+      "nom": "Thrill",
+      "description": "Increases attack damage and magic power.",
+      "pourQui": "Carriers of damage, regardless of type."
+    },
+    "tenacity": {
+      "nom": "Tenacity",
+      "description": "Increases resistances when HP is low.",
+      "pourQui": "Tanks face an explosive composition."
+    },
+    "seasoned-hunter": {
+      "nom": "Seasoned Hunter",
+      "description": "Increases damage dealt to jungle monsters.",
+      "pourQui": "Junglers, to secure the objectives."
+    },
+    "master-assassin": {
+      "nom": "Master Assassin",
+      "description": "Increases damage against an isolated target.",
+      "pourQui": "Assassins seeking a duel."
+    },
+    "weakness-finder": {
+      "nom": "Weakness Finder",
+      "description": "Basic attacks slow the target.",
+      "pourQui": "Fighters without their own control."
+    },
+    "impure-rage": {
+      "nom": "Impure Rage",
+      "description": "The next skill deals additional damage and restores mana.",
+      "pourQui": "Mages with frequent skills."
+    },
+    "quantum-charge": {
+      "nom": "Quantum Charge",
+      "description": "Skill damage accelerates and heals.",
+      "pourQui": "Heroes who must remain mobile in combat."
+    },
+    "weapon-master": {
+      "nom": "Weapon Master",
+      "description": "Increases all attack bonuses received from items.",
+      "pourQui": "Fighters whose damage comes from skills."
+    },
+    "lethal-ignition": {
+      "nom": "Lethal Ignition",
+      "description": "Deal additional damage to a heavily injured target.",
+      "pourQui": "Porters who must conclude quickly."
+    },
+    "concussive-blast": {
+      "nom": "Concussive Blast",
+      "description": "Deals area damage based on maximum HP.",
+      "pourQui": "Engagement tanks: Tigreal, Khufra, Atlas."
+    },
+    "wilderness-blessing": {
+      "nom": "Wilderness Blessing",
+      "description": "Increases movement speed outside of combat and on grass.",
+      "pourQui": "Roamers who live in the bushes, like Franco."
+    },
+    "focusing-mark": {
+      "nom": "Focusing Mark",
+      "description": "Targets hit take more damage from allies.",
+      "pourQui": "Supports and tanks that play for their carrier."
+    },
+    "brave-smite": {
+      "nom": "Brave Smite",
+      "description": "Hitting an enemy with a skill restores HP.",
+      "pourQui": "Experienced lane fighters."
+    },
+    "killing-spree": {
+      "nom": "Killing Spree",
+      "description": "An elimination restores HP and speeds up.",
+      "pourQui": "Assassins who chain targets."
+    },
+    "festival-of-blood": {
+      "nom": "Festival of Blood",
+      "description": "Skill damage applies lifesteal.",
+      "pourQui": "Combat Mages extends."
+    },
+    "bargain-hunter": {
+      "nom": "Bargain Hunter",
+      "description": "Reduces the price of items.",
+      "pourQui": "Roamers, whose income is the lowest in the team."
+    },
+    "pull-yourself-together": {
+      "nom": "Sweater Yourself Together",
+      "description": "Reduces the recharge of combat spells and active items.",
+      "pourQui": "Hero whose Flicker decides the fights."
+    },
+    "flicker": {
+      "nom": "Flicker",
+      "description": "Teleports the hero a short distance.",
+      "pourQui": "Almost everyone: commitment, escape, cancellation of animation."
+    },
+    "execute": {
+      "nom": "Executed",
+      "description": "Inflicts damage based on the target's missing HP.",
+      "pourQui": "Junglers and assassins who must conclude."
+    },
+    "retribution": {
+      "nom": "Retribution",
+      "description": "Deals significant damage to a monster and strengthens jungle clearing.",
+      "pourQui": "Mandatory on the jungler."
+    },
+    "purify": {
+      "nom": "Purify",
+      "description": "Removes control effects and briefly immunizes.",
+      "pourQui": "Carriers targeted by a single control: against Chou, Franco, Kaja."
+    },
+    "inspire": {
+      "nom": "Inspired",
+      "description": "Greatly increases attack speed and ignores some armor.",
+      "pourQui": "Shooters have basic attacks."
+    },
+    "sprint": {
+      "nom": "Sprint",
+      "description": "Increases movement speed and removes slowdowns.",
+      "pourQui": "Heroes without mobility who must reposition themselves."
+    },
+    "petrify": {
+      "nom": "Petrify",
+      "description": "Slows and immobilizes nearby enemies.",
+      "pourQui": "Tanks without reliable control."
+    },
+    "arrival": {
+      "nom": "Arrival",
+      "description": "Teleports the hero to a turret or an allied minion.",
+      "pourQui": "Solo lanes which must return quickly after returning to base."
+    },
+    "vengeance": {
+      "nom": "Revenge",
+      "description": "Returns a portion of the damage suffered during the duration.",
+      "pourQui": "Experienced lane fighters."
+    },
+    "aegis": {
+      "nom": "Aegis",
+      "description": "Grants a shield to self and nearby allies.",
+      "pourQui": "Supports and protective tanks."
+    },
+    "revitalize": {
+      "nom": "Revitalize",
+      "description": "Creates an area that heals the allies present.",
+      "pourQui": "Support in the face of damage spread over time."
+    }
+  },
+  "erreur": {
+    "titre": "An error has occurred",
+    "texte": "The site encountered an unexpected problem. Try again in a moment.",
+    "reessayer": "Try again"
+  },
+  "carteHeros": {
+    "palierTitre": "Level {p} of the tier list"
   }
 }

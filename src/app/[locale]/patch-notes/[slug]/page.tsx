@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     };
   }
 
-  const a = article("patch-notes", slug);
+  const a = article("patch-notes", slug, locale);
   if (!a) return {};
 
   return {
@@ -218,7 +218,7 @@ export default async function PagePatch({ params }: Params) {
   }
 
   // ── Analyse redigee ───────────────────────────────────────────────────
-  const a = article("patch-notes", slug);
+  const a = article("patch-notes", slug, locale);
   if (!a) notFound();
 
   const donneesStructurees = {

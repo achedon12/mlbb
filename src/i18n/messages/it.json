@@ -220,7 +220,14 @@
       "tropPeu": "È coinvolto troppo poco affinché le tariffe siano affidabili",
       "victoire": "Vittoria",
       "ban": "Divieto",
-      "pick": "Scegliere"
+      "pick": "Scegliere",
+      "legende": {
+        "S+": "Domina la toppa. Prendere o bandire.",
+        "S": "Molto forte nella maggior parte delle composizioni.",
+        "A": "Solido, senza imporre il ritmo del gioco.",
+        "B": "Corretto, ma dipende dal contesto o dal giocatore.",
+        "C": "Giocabile, con un costo reale rispetto alle alternative."
+      }
     },
     "patchNotes": {
       "titre": "Note sulla patch",
@@ -281,6 +288,48 @@
       "deconnexion": "Disconnetti",
       "detailIndispo": "Le statistiche dettagliate (percentuale di vittorie, cronologia, eroi più giocati) dipendono da un servizio Moonton attualmente offline. Il tuo profilo sopra rimane accessibile; i dettagli torneranno non appena la fonte risponderà.",
       "aucuneStat": "Nessuna statistica da visualizzare."
+    },
+    "apiDoc": {
+      "titre": "API pubblica",
+      "chapeau": "I dati del sito sono accessibili in JSON, senza chiave o registrazione. Aiutati: l'unico vincolo è citare la fonte, che accompagna ogni risposta.",
+      "metaDescription": "Un'API JSON aperta sui dati di Mobile Legends: Bang Bang del sito: eroi, abilità, skin, oggetti, patch e classifiche. Senza chiave, senza registrazione.",
+      "ogDescription": "Eroi, oggetti, patch e classificazione in JSON, senza chiavi.",
+      "statHeros": "Eroe",
+      "statObjets": "Oggetti",
+      "statPatchs": "Patch",
+      "statClasses": "Classi di eroi",
+      "formeTitre": "Forma delle risposte",
+      "formeTexte": "Ogni risposta racchiude il risultato in \"dati\", allega il numero totale di elementi quando si tratta di un elenco e richiama la fonte dei dati.",
+      "conditionsTitre": "Termini",
+      "c1label": "Nessuna chiave, nessuna quota.",
+      "c1texte": "Le risposte sono statiche e memorizzate nella cache: servirle non costa nulla. Rimani ragionevole e tutto andrà bene.",
+      "c2label": "Citare la fonte.",
+      "c2texte": "I dati provengono dalla wiki della community, sotto licenza CC BY-SA: per riutilizzarli è necessario accreditarli. Le informazioni viaggiano con ogni risposta.",
+      "c3label": "Le analisi scritte",
+      "c3texte": "- commenti, build, contatori - sono prodotti per questo sito e coperti dalla sua licenza MIT.",
+      "c4label": "Nessun dato del giocatore.",
+      "c4texte": "Moonton non espone alcuna classifica, cronologia o stato della connessione: questa API quindi non ne offre alcuna, e nessun'altra onestamente può farlo.",
+      "synchroNote": "I dati tengono traccia della sincronizzazione settimanale del sito. Ultimo: {date}.",
+      "routes": {
+        "heros": {
+          "resume": "Elenco degli eroi, senza le loro abilità dettagliate o le loro skin.",
+          "roleParam": "Mantieni solo questo ruolo.",
+          "laneParam": "Mantieni solo questa posizione."
+        },
+        "herosSlug": {
+          "resume": "Scheda completa: statistiche, abilità con relativa descrizione, skin, immagini, illustrazioni e analisi scritta quando esiste."
+        },
+        "objets": {
+          "resume": "Acquista oggetti, con statistiche, passivi e ricette.",
+          "catParam": "Mantieni solo questa categoria."
+        },
+        "patchs": {
+          "resume": "Versioni elencate, dalla più recente alla più vecchia."
+        },
+        "classement": {
+          "resume": "Classifica calcolata: tasso di vittoria, tasso di ban e selezione, livello e data di segnalazione."
+        }
+      }
     }
   },
   "modeFiche": {
@@ -381,7 +430,8 @@
     },
     "commentFonctionne": "Come funziona questo sito",
     "suivreRss": "Segui le pubblicazioni in RSS",
-    "pourcentVictoires": "% delle vincite"
+    "pourcentVictoires": "% delle vincite",
+    "derniersArticles": "Ultimi articoli"
   },
   "vedette": {
     "herosDuJour": "Eroe del giorno",
@@ -608,7 +658,13 @@
     "intro": "Informa almeno un eroe avversario. I suggerimenti vengono classificati prima in base ai contatori, poi in base alle sinergie con le tue scelte; il tasso di vittoria viene utilizzato solo per decidere tra i vincitori.",
     "dejaPourvue": "già fornito",
     "aucunContre": "nessun contro noto in questa composizione",
-    "aucunHeros": "Nessun eroe disponibile."
+    "aucunHeros": "Nessun eroe disponibile.",
+    "prendre": "Prendere",
+    "choisirEn": "Scegli {nom} in {lane}",
+    "retirer": "Rimuovere {nom}",
+    "choisirLane": "Scegli un eroe per la corsia {lane}",
+    "placeholderLane": "Eroi di {lane} oppure cerca per nome",
+    "choisirUn": "Scegli un eroe"
   },
   "nouveauHeros": {
     "particularite": "Particolarità —"
@@ -625,8 +681,8 @@
   },
   "articleCat": {
     "Actualite": "Notizia",
-    "Patch": "Toppa",
-    "Esport": "Sport",
+    "Patch": "Patch",
+    "Esport": "Esport",
     "Guide": "Guida"
   },
   "rangsNom": {
@@ -684,5 +740,210 @@
     "StarLight": "Luce stellare",
     "Valentine": "San Valentino",
     "Atomic": "Atomico"
+  },
+  "emblemesData": {
+    "tank-emblem": {
+      "nom": "Emblema del carro armato",
+      "bonus": "PV e resistenze",
+      "pourQui": "Carri armati di ingaggio e carri armati in corsia esperienza."
+    },
+    "fighter-emblem": {
+      "nom": "Emblema del combattente",
+      "bonus": "Danno da attacco e rubavita",
+      "pourQui": "Combattenti di corsia esperti che devono vincere il loro duello."
+    },
+    "assassin-emblem": {
+      "nom": "Emblema dell'assassino",
+      "bonus": "Danno da attacco e penetrazione fisica",
+      "pourQui": "Jungler fisici e assassini."
+    },
+    "mage-emblem": {
+      "nom": "Emblema del Mago",
+      "bonus": "Potere magico e penetrazione magica",
+      "pourQui": "Maghi della corsia centrale."
+    },
+    "marksman-emblem": {
+      "nom": "Emblema del tiratore",
+      "bonus": "Velocità d'attacco e danno d'attacco",
+      "pourQui": "Tiratori della corsia d'oro."
+    },
+    "support-emblem": {
+      "nom": "Emblema di supporto",
+      "bonus": "Riduzione della ricarica e velocità di movimento",
+      "pourQui": "Supporti e vagabondi non carri armati."
+    },
+    "agility": {
+      "nom": "Agilità",
+      "description": "Aumenta la velocità di movimento.",
+      "pourQui": "Vagabondi ed eroi che devono muoversi rapidamente sulla mappa."
+    },
+    "swift": {
+      "nom": "Veloce",
+      "description": "Aumenta la velocità d'attacco.",
+      "pourQui": "Tiratori e combattenti hanno attacchi base."
+    },
+    "vitality": {
+      "nom": "Vitalità",
+      "description": "Aumenta gli HP massimi.",
+      "pourQui": "Carri armati e combattenti."
+    },
+    "fatal": {
+      "nom": "Fatale",
+      "description": "Aumenta la percentuale di colpi critici.",
+      "pourQui": "Recensione di Tiratori e Assassini."
+    },
+    "firmness": {
+      "nom": "Fermezza",
+      "description": "Aumenta la resistenza fisica e magica.",
+      "pourQui": "I carri armati subiscono danni misti."
+    },
+    "thrill": {
+      "nom": "Brivido",
+      "description": "Aumenta il danno da attacco e il potere magico.",
+      "pourQui": "Portatori di danni, indipendentemente dalla tipologia."
+    },
+    "tenacity": {
+      "nom": "Tenacia",
+      "description": "Aumenta le resistenze quando gli HP sono bassi.",
+      "pourQui": "I carri armati si trovano ad affrontare una composizione esplosiva."
+    },
+    "seasoned-hunter": {
+      "nom": "Cacciatore esperto",
+      "description": "Aumenta il danno inflitto ai mostri della giungla.",
+      "pourQui": "Junglers, per garantire gli obiettivi."
+    },
+    "master-assassin": {
+      "nom": "Maestro Assassino",
+      "description": "Aumenta il danno contro un bersaglio isolato.",
+      "pourQui": "Assassini in cerca di un duello."
+    },
+    "weakness-finder": {
+      "nom": "Ricerca delle debolezze",
+      "description": "Gli attacchi base rallentano il bersaglio.",
+      "pourQui": "Combattenti senza il proprio controllo."
+    },
+    "impure-rage": {
+      "nom": "Rabbia impura",
+      "description": "L'abilità successiva infligge danni aggiuntivi e ripristina il mana.",
+      "pourQui": "Maghi con abilità frequenti."
+    },
+    "quantum-charge": {
+      "nom": "Carica quantistica",
+      "description": "Il danno delle abilità accelera e guarisce.",
+      "pourQui": "Eroi che devono rimanere mobili in combattimento."
+    },
+    "weapon-master": {
+      "nom": "Maestro d'armi",
+      "description": "Aumenta tutti i bonus di attacco ricevuti dagli oggetti.",
+      "pourQui": "Combattenti i cui danni derivano dalle abilità."
+    },
+    "lethal-ignition": {
+      "nom": "Accensione letale",
+      "description": "Infligge danni aggiuntivi a un bersaglio gravemente ferito.",
+      "pourQui": "Portieri che devono concludere in fretta."
+    },
+    "concussive-blast": {
+      "nom": "Esplosione concussiva",
+      "description": "Infligge danni ad area in base agli HP massimi.",
+      "pourQui": "Carri armati di ingaggio: Tigreal, Khufra, Atlas."
+    },
+    "wilderness-blessing": {
+      "nom": "Benedizione del deserto",
+      "description": "Aumenta la velocità di movimento fuori dal combattimento e sull'erba.",
+      "pourQui": "Vagabondi che vivono tra i cespugli, come Franco."
+    },
+    "focusing-mark": {
+      "nom": "Marco focalizzato",
+      "description": "I bersagli colpiti subiscono più danni dagli alleati.",
+      "pourQui": "Supporti e carri armati che giocano per la loro portaerei."
+    },
+    "brave-smite": {
+      "nom": "Punizione coraggiosa",
+      "description": "Colpire un nemico con un'abilità ripristina HP.",
+      "pourQui": "Combattenti di corsia esperti."
+    },
+    "killing-spree": {
+      "nom": "Follia omicida",
+      "description": "Un'eliminazione ripristina HP e accelera.",
+      "pourQui": "Assassini che incatenano bersagli."
+    },
+    "festival-of-blood": {
+      "nom": "Festa del Sangue",
+      "description": "Il danno dell'abilità applica il rubavita.",
+      "pourQui": "I maghi da combattimento si estendono."
+    },
+    "bargain-hunter": {
+      "nom": "Cacciatore di affari",
+      "description": "Riduce il prezzo degli articoli.",
+      "pourQui": "Roamers, il cui reddito è il più basso della squadra."
+    },
+    "pull-yourself-together": {
+      "nom": "Maglione insieme",
+      "description": "Riduce la ricarica degli incantesimi di combattimento e degli oggetti attivi.",
+      "pourQui": "Eroe il cui Flicker decide i combattimenti."
+    },
+    "flicker": {
+      "nom": "Sfarfallio",
+      "description": "Teletrasporta l'eroe a breve distanza.",
+      "pourQui": "Quasi tutti: impegno, fuga, cancellazione dell'animazione."
+    },
+    "execute": {
+      "nom": "Eseguito",
+      "description": "Infligge danni in base agli HP mancanti del bersaglio.",
+      "pourQui": "Junglers e assassini che devono concludere."
+    },
+    "retribution": {
+      "nom": "Punizione",
+      "description": "Infligge danni significativi a un mostro e rafforza lo sgombero della giungla.",
+      "pourQui": "Obbligatorio sul Jungler."
+    },
+    "purify": {
+      "nom": "Purificare",
+      "description": "Rimuove gli effetti di controllo e immunizza brevemente.",
+      "pourQui": "Portatori nel mirino di un unico controllo: contro Chou, Franco, Kaja."
+    },
+    "inspire": {
+      "nom": "Ispirato",
+      "description": "Aumenta notevolmente la velocità d'attacco e ignora alcune armature.",
+      "pourQui": "I tiratori hanno attacchi base."
+    },
+    "sprint": {
+      "nom": "Sprint",
+      "description": "Aumenta la velocità di movimento e rimuove i rallentamenti.",
+      "pourQui": "Eroi senza mobilità che devono riposizionarsi."
+    },
+    "petrify": {
+      "nom": "Pietrificare",
+      "description": "Rallenta e immobilizza i nemici vicini.",
+      "pourQui": "Serbatoi senza controllo affidabile."
+    },
+    "arrival": {
+      "nom": "Arrivo",
+      "description": "Teletrasporta l'eroe su una torretta o su un servitore alleato.",
+      "pourQui": "Corsie singole che devono ritornare rapidamente dopo il ritorno alla base."
+    },
+    "vengeance": {
+      "nom": "Vendetta",
+      "description": "Restituisce una parte dei danni subiti durante la durata.",
+      "pourQui": "Combattenti di corsia esperti."
+    },
+    "aegis": {
+      "nom": "Egida",
+      "description": "Conferisce uno scudo a se stesso e agli alleati vicini.",
+      "pourQui": "Supporti e vasche di protezione."
+    },
+    "revitalize": {
+      "nom": "Rivitalizzare",
+      "description": "Crea un'area che cura gli alleati presenti.",
+      "pourQui": "Sostegno a fronte di danni ripartiti nel tempo."
+    }
+  },
+  "erreur": {
+    "titre": "Si è verificato un errore",
+    "texte": "Il sito ha riscontrato un problema imprevisto. Riprova tra un attimo.",
+    "reessayer": "Riprova"
+  },
+  "carteHeros": {
+    "palierTitre": "Livello {p} della lista dei livelli"
   }
 }

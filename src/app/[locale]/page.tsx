@@ -12,6 +12,7 @@ import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
 import { formaterDate } from "@/lib/utils";
 import type { Langue } from "@/i18n/config";
+import { LOCALE_HTML } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 
 const donneesStructurees = {
@@ -65,7 +66,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
   const { locale } = await params;
   const t = creerT(locale);
   const vedette = herosDuJour();
-  const articles = tousLesArticles().slice(0, 3);
+  const articles = tousLesArticles(locale).slice(0, 3);
   const sommet = classementComplet.slice(0, 5);
   const dernierPatch = patchs.find((p) => detail[p.version]);
 
@@ -283,7 +284,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
               chapeau=""
               action={{ href: "/news", label: t("home.toutesActualites") }}
             >
-              Derniers articles
+              {t("home.derniersArticles")}
             </TitreSection>
             <ul className="space-y-3">
               {articles.map((a) => (
@@ -294,10 +295,10 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   >
                     <span className="flex flex-wrap items-center gap-3">
                       <span className="text-xs font-semibold uppercase tracking-wide text-or-400">
-                        {a.categorie}
+                        {t(`articleCat.${a.categorie}`)}
                       </span>
                       <time dateTime={a.date} className="text-xs text-craie-500">
-                        {formaterDate(a.date)}
+                        {formaterDate(a.date, LOCALE_HTML[locale])}
                       </time>
                     </span>
                     <span className="mt-1.5 block font-titre text-lg font-bold leading-snug text-craie-100">

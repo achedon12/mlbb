@@ -1,16 +1,17 @@
 /**
- * Traduit les donnees de contenu (histoires, competences, modes) du francais
- * vers l'anglais, l'italien et l'espagnol.
+ * Traduit les donnees de contenu vers les autres langues.
  *
- * Source : `src/data/jeu/<type>/fr.json`. Sorties : `<type>/{en,it,es}.json`.
- * Tout est mis en cache (`scripts/traductions-donnees.json`, clef
- * langue+texte) : une phrase deja traduite ne repart jamais sur le reseau. Ce
- * script ne tourne qu'a la main ou en CI ; l'application ne traduit rien.
+ * Chaque jeu de donnees a une langue source (le francais pour ce qui est
+ * extrait du wiki puis traduit, l'anglais pour les objets bruts) ; on en derive
+ * les trois autres langues. Tout est mis en cache
+ * (`scripts/traductions-donnees.json`, clef source+cible+texte) : une phrase
+ * deja traduite ne repart jamais sur le reseau. Ce script ne tourne qu'a la
+ * main ou en CI ; l'application ne traduit rien.
  */
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 
-const CIBLES = ["en", "it", "es"];
+const LANGUES = ["en", "fr", "it", "es"];
 const CACHE = "scripts/traductions-donnees.json";
 const ENDPOINT = "https://clients5.google.com/translate_a/t";
 const UA = "Mozilla/5.0 (compatible; MLBBDex/1.0)";
@@ -18,10 +19,10 @@ const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
 
-async function traduireLot(lot, tl) {
+async function traduireLot(lot, sl, tl) {
   const url = new URL(ENDPOINT);
   url.searchParams.set("client", "dict-chrome-ex");
-  url.searchParams.set("sl", "fr");
+  url.searchParams.set("sl", sl);
   url.searchParams.set("tl", tl);
   for (const t of lot) url.searchParams.append("q", t);
   for (let essai = 1; essai <= 4; essai += 1) {
@@ -41,29 +42,28 @@ async function traduireLot(lot, tl) {
     }
   }
   const out = [];
-  for (const t of lot) out.push((await traduireLot([t], tl))[0] ?? t);
+  for (const t of lot) out.push((await traduireLot([t], sl, tl))[0] ?? t);
   return out;
 }
 
-/** Traduit un ensemble de textes vers `tl`, en remplissant le cache. */
-async function preparer(textes, tl) {
+async function preparer(textes, sl, tl) {
   const uniques = [...new Set(textes.map((t) => String(t).trim()).filter(Boolean))];
-  const manquants = uniques.filter((t) => !(`${tl}|${t}` in cache));
+  const manquants = uniques.filter((t) => !(`${sl}|${tl}|${t}` in cache));
   for (let i = 0; i < manquants.length; i += 10) {
     const lot = manquants.slice(i, i + 10);
-    const sorties = await traduireLot(lot, tl);
-    lot.forEach((o, k) => (cache[`${tl}|${o}`] = sorties[k] ?? o));
-    if (i % 200 === 0) process.stdout.write(`\r    ${tl} ${Math.min(i + 10, manquants.length)}/${manquants.length}`);
+    const sorties = await traduireLot(lot, sl, tl);
+    lot.forEach((o, k) => (cache[`${sl}|${tl}|${o}`] = sorties[k] ?? o));
+    if (i % 200 === 0) process.stdout.write(`\r    ${sl}->${tl} ${Math.min(i + 10, manquants.length)}/${manquants.length}`);
     await pause(200);
   }
-  process.stdout.write("\n");
+  if (manquants.length) process.stdout.write("\n");
 }
 
-const tr = (tl) => (t) => (t ? (cache[`${tl}|${String(t).trim()}`] ?? t) : t);
-const trListe = (tl) => (liste) => (liste ?? []).map(tr(tl));
+const tr = (sl, tl) => (t) => (t ? (cache[`${sl}|${tl}|${String(t).trim()}`] ?? t) : t);
+const trL = (sl, tl) => (liste) => (liste ?? []).map(tr(sl, tl));
 
-// ── Collecte des textes par type ───────────────────────────────────
-function textesHistoires(d) {
+// ── Configuration par jeu de donnees ───────────────────────────────
+function histoiresTextes(d) {
   const out = [];
   for (const h of Object.values(d)) {
     if (h.accroche) out.push(h.accroche);
@@ -75,12 +75,11 @@ function textesHistoires(d) {
   }
   return out;
 }
-function traduireHistoires(d, tl) {
-  const t = tr(tl), tl_ = trListe(tl);
-  const sortie = {};
+function histoiresRebuild(d, t, tl_) {
+  const o = {};
   for (const [slug, h] of Object.entries(d)) {
     const f = h.fiche;
-    sortie[slug] = {
+    o[slug] = {
       accroche: t(h.accroche),
       lore: tl_(h.lore),
       anecdotes: tl_(h.anecdotes),
@@ -100,24 +99,20 @@ function traduireHistoires(d, tl) {
         : null,
     };
   }
-  return sortie;
+  return o;
 }
 
-function textesCompetences(d) {
+function competencesTextes(d) {
   const out = [];
-  for (const liste of Object.values(d)) for (const c of liste) if (c?.description) out.push(c.description);
+  for (const l of Object.values(d)) for (const c of l) if (c?.description) out.push(c.description);
   return out;
 }
-function traduireCompetences(d, tl) {
-  const t = tr(tl);
-  const sortie = {};
-  for (const [slug, liste] of Object.entries(d)) {
-    sortie[slug] = liste.map((c) => (c ? { nom: c.nom, description: t(c.description) } : c));
-  }
-  return sortie;
-}
+const competencesRebuild = (d, t) =>
+  Object.fromEntries(
+    Object.entries(d).map(([s, l]) => [s, l.map((c) => (c ? { nom: c.nom, description: t(c.description) } : c))]),
+  );
 
-function textesModes(d) {
+function modesTextes(d) {
   const out = [];
   for (const m of d) {
     if (m.description) out.push(m.description);
@@ -128,9 +123,8 @@ function textesModes(d) {
   }
   return out;
 }
-function traduireModes(d, tl) {
-  const t = tr(tl);
-  return d.map((m) => ({
+const modesRebuild = (d, t) =>
+  d.map((m) => ({
     ...m,
     description: t(m.description),
     sections: (m.sections ?? []).map((s) => ({
@@ -138,24 +132,40 @@ function traduireModes(d, tl) {
       elements: (s.elements ?? []).map((e) => ({ type: e.type, texte: t(e.texte) })),
     })),
   }));
-}
 
-const TYPES = {
-  histoires: { textes: textesHistoires, traduire: traduireHistoires },
-  competences: { textes: textesCompetences, traduire: traduireCompetences },
-  modes: { textes: textesModes, traduire: traduireModes },
+const CHAMPS_OBJET = ["resume", "bonus", "unique", "passif", "actif", "pourQui"];
+function objetsTextes(d) {
+  const out = [];
+  for (const o of d) for (const c of CHAMPS_OBJET) if (o[c]) out.push(o[c]);
+  return out;
+}
+const objetsRebuild = (d, t) =>
+  d.map((o) => ({ ...o, ...Object.fromEntries(CHAMPS_OBJET.map((c) => [c, o[c] ? t(o[c]) : o[c]])) }));
+
+const tierNotesTextes = (d) => Object.values(d);
+const tierNotesRebuild = (d, t) => Object.fromEntries(Object.entries(d).map(([s, v]) => [s, t(v)]));
+
+const JEUX = {
+  histoires: { source: "fr", textes: histoiresTextes, rebuild: histoiresRebuild, liste: true },
+  competences: { source: "fr", textes: competencesTextes, rebuild: competencesRebuild },
+  modes: { source: "fr", textes: modesTextes, rebuild: modesRebuild },
+  objets: { source: "en", textes: objetsTextes, rebuild: objetsRebuild },
+  "tier-notes": { source: "fr", textes: tierNotesTextes, rebuild: tierNotesRebuild },
 };
 
-for (const [type, { textes, traduire }] of Object.entries(TYPES)) {
-  const source = JSON.parse(await readFile(`src/data/jeu/${type}/fr.json`, "utf8"));
-  const tous = textes(source);
-  console.log(`${type} : ${new Set(tous.map((t) => String(t).trim())).size} textes uniques`);
-  for (const tl of CIBLES) {
-    await preparer(tous, tl);
-    await writeFile(`src/data/jeu/${type}/${tl}.json`, JSON.stringify(traduire(source, tl), null, 2) + "\n");
-    // Cache sauvegarde apres chaque langue : une interruption ne perd rien.
+for (const [nom, cfg] of Object.entries(JEUX)) {
+  const source = JSON.parse(await readFile(`src/data/jeu/${nom}/${cfg.source}.json`, "utf8"));
+  const tous = cfg.textes(source);
+  console.log(`${nom} (${cfg.source}) : ${new Set(tous.map((x) => String(x).trim())).size} textes uniques`);
+  for (const tl of LANGUES.filter((l) => l !== cfg.source)) {
+    await preparer(tous, cfg.source, tl);
+    const t = tr(cfg.source, tl);
+    const arbre = cfg.liste
+      ? cfg.rebuild(source, t, trL(cfg.source, tl))
+      : cfg.rebuild(source, t);
+    await writeFile(`src/data/jeu/${nom}/${tl}.json`, JSON.stringify(arbre, null, 2) + "\n");
     await writeFile(CACHE, JSON.stringify(cache, null, 0) + "\n");
-    console.log(`  ${type}/${tl}.json ecrit`);
+    console.log(`  ${nom}/${tl}.json`);
   }
 }
 console.log("Donnees traduites.");

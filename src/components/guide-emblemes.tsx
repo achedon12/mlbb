@@ -19,6 +19,12 @@ import { cn } from "@/lib/utils";
  * visible, en retrait. Masquer priverait le lecteur de la comparaison qui
  * justifie son choix.
  */
+function texteEmb(t: (k: string) => string, cle: string, champ: string, repli: string | undefined) {
+  const k = `emblemesData.${cle}.${champ}`;
+  const v = t(k);
+  return v === k ? (repli ?? "") : v;
+}
+
 export function GuideEmblemes({
   emblemes,
   talents,
@@ -60,7 +66,7 @@ export function GuideEmblemes({
                     type="button"
                     onClick={() => setRole(choisi ? null : e.role)}
                     aria-pressed={choisi}
-                    title={e.pourQui}
+                    title={texteEmb(t, e.cle, "pourQui", e.pourQui)}
                     className={cn(
                       "flex w-full items-center gap-2.5 border-l-2 px-2.5 py-2 text-left transition-colors",
                       choisi
@@ -143,6 +149,7 @@ function Section({
   images: Record<string, string>;
   adapte: (roles: Role[]) => boolean;
 }) {
+  const t = useT();
   return (
     <section>
       <div className="flex items-baseline gap-3">
@@ -168,7 +175,7 @@ function Section({
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-3">
                   <h3 className="font-titre font-bold leading-tight text-craie-100">
-                    {e.nom}
+                    {texteEmb(t, e.cle, "nom", e.nom)}
                   </h3>
                   {e.recharge !== undefined && (
                     <span className="text-xs tabular-nums text-or-400">
@@ -178,10 +185,10 @@ function Section({
                 </div>
                 {e.description && (
                   <p className="mt-0.5 text-sm leading-snug text-craie-300">
-                    {e.description}
+                    {texteEmb(t, e.cle, "description", e.description)}
                   </p>
                 )}
-                <p className="mt-1 text-xs leading-relaxed text-craie-500">{e.pourQui}</p>
+                <p className="mt-1 text-xs leading-relaxed text-craie-500">{texteEmb(t, e.cle, "pourQui", e.pourQui)}</p>
               </div>
 
               <ul className="hidden shrink-0 flex-wrap content-start gap-1 sm:flex sm:w-40">

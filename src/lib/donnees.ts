@@ -11,7 +11,14 @@ import histoiresFr from "@/data/jeu/histoires/fr.json";
 import histoiresIt from "@/data/jeu/histoires/it.json";
 import histoiresEs from "@/data/jeu/histoires/es.json";
 import herosGenere from "@/data/jeu/heros.json";
-import objetsGenere from "@/data/jeu/objets.json";
+import objetsEn from "@/data/jeu/objets/en.json";
+import objetsFr from "@/data/jeu/objets/fr.json";
+import objetsIt from "@/data/jeu/objets/it.json";
+import objetsEs from "@/data/jeu/objets/es.json";
+import tierNotesEn from "@/data/jeu/tier-notes/en.json";
+import tierNotesFr from "@/data/jeu/tier-notes/fr.json";
+import tierNotesIt from "@/data/jeu/tier-notes/it.json";
+import tierNotesEs from "@/data/jeu/tier-notes/es.json";
 import patchsGenere from "@/data/jeu/patchs.json";
 import skinsGenere from "@/data/jeu/skins.json";
 import synchroGenere from "@/data/jeu/synchro.json";
@@ -116,8 +123,18 @@ export const illustrations = visuelsGenere.illustrations as unknown as Record<
   Record<string, string>
 >;
 
-export const objets = objetsGenere as unknown as ObjetGenere[];
-export const objetsParSlug = new Map(objets.map((o) => [o.slug, o]));
+const OBJETS = { en: objetsEn, fr: objetsFr, it: objetsIt, es: objetsEs };
+export function objets(locale: Langue): ObjetGenere[] {
+  return OBJETS[locale] as unknown as ObjetGenere[];
+}
+/** Nombre d'objets (independant de la langue). */
+export const nombreObjets = (objetsEn as unknown as ObjetGenere[]).length;
+
+/** Notes editoriales de la tier list, par langue. */
+const TIER_NOTES = { en: tierNotesEn, fr: tierNotesFr, it: tierNotesIt, es: tierNotesEs };
+export function tierNotes(locale: Langue): Record<string, string> {
+  return TIER_NOTES[locale] as Record<string, string>;
+}
 
 export const patchs = patchsGenere.liste as unknown as Patch[];
 export const synchro = synchroGenere as unknown as Synchro;
@@ -140,7 +157,7 @@ const ORDRE_CATEGORIES = [
   "Attack, Magic & Defense",
 ];
 
-export const categoriesObjets = [...new Set(objets.map((o) => o.categorie))].sort(
+export const categoriesObjets = [...new Set((objetsEn as unknown as ObjetGenere[]).map((o) => o.categorie))].sort(
   (a, b) => {
     const ia = ORDRE_CATEGORIES.indexOf(a);
     const ib = ORDRE_CATEGORIES.indexOf(b);
@@ -148,16 +165,3 @@ export const categoriesObjets = [...new Set(objets.map((o) => o.categorie))].sor
   },
 );
 
-/** Traduction des categories du wiki, qui sont en anglais. */
-export const NOM_CATEGORIE: Record<string, string> = {
-  Attack: "Attaque",
-  Magic: "Magie",
-  Defense: "Defense",
-  Movement: "Mouvement",
-  Jungling: "Jungle",
-  Roaming: "Roam",
-  "Attack & Magic": "Attaque et magie",
-  "Attack, Magic & Defense": "Attaque, magie et defense",
-};
-
-export const nomCategorie = (c: string) => NOM_CATEGORIE[c] ?? c;

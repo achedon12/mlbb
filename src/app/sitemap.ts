@@ -45,9 +45,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     })),
-    ...(["news", "patch-notes"] as const).flatMap((section) =>
+    ...([["news", "actualites"], ["patch-notes", "patch-notes"]] as const).flatMap(([route, section]) =>
       articles(section).map((a) => ({
-        chemin: `/${section}/${a.slug}`,
+        chemin: `/${route}/${a.slug}`,
         changeFrequency: "yearly" as const,
         priority: 0.7,
         lastModified: new Date(a.date),

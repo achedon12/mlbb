@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import type { Article } from "./types";
+import { LANGUE_DEFAUT, type Langue } from "@/i18n/config";
 
 /**
  * Lecture des articles.
@@ -13,10 +14,15 @@ import type { Article } from "./types";
  */
 const RACINE = path.join(process.cwd(), "content");
 
-const DOSSIERS: Record<string, string> = {
-  actualites: path.join(RACINE, "actualites"),
-  "patch-notes": path.join(RACINE, "patch-notes"),
-};
+const SECTIONS = ["actualites", "patch-notes"] as const;
+type Section = (typeof SECTIONS)[number];
+
+/** Dossier d'une section pour une langue, avec repli sur le francais. */
+function dossierDe(section: Section, locale: Langue): string {
+  const local = path.join(RACINE, locale, section);
+  if (fs.existsSync(local) && fs.readdirSync(local).some((f) => f.endsWith(".md"))) return local;
+  return path.join(RACINE, LANGUE_DEFAUT, section);
+}
 
 function lireDossier(dossier: string): Article[] {
   if (!fs.existsSync(dossier)) return [];
@@ -44,22 +50,17 @@ function lireDossier(dossier: string): Article[] {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
-export function articles(section: keyof typeof DOSSIERS): Article[] {
-  return lireDossier(DOSSIERS[section]);
+export function articles(section: Section, locale: Langue = LANGUE_DEFAUT): Article[] {
+  return lireDossier(dossierDe(section, locale));
 }
 
 /** Tous les articles confondus, du plus recent au plus ancien. */
-export function tousLesArticles(): Article[] {
-  return Object.keys(DOSSIERS)
-    .flatMap((s) => articles(s as keyof typeof DOSSIERS))
-    .sort((a, b) => b.date.localeCompare(a.date));
+export function tousLesArticles(locale: Langue = LANGUE_DEFAUT): Article[] {
+  return SECTIONS.flatMap((s) => articles(s, locale)).sort((a, b) => b.date.localeCompare(a.date));
 }
 
-export function article(
-  section: keyof typeof DOSSIERS,
-  slug: string,
-): Article | undefined {
-  return articles(section).find((a) => a.slug === slug);
+export function article(section: Section, slug: string, locale: Langue = LANGUE_DEFAUT): Article | undefined {
+  return articles(section, locale).find((a) => a.slug === slug);
 }
 
 /** Rend le Markdown d'un article en HTML. */
