@@ -27,6 +27,7 @@ import {
   nettoyerLore,
 } from "./wikitexte.mjs";
 import { ajustementsHeros, bilan } from "./patch-parser.mjs";
+import { extraireIllustrations, normaliserNomSkin } from "./galerie.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
 /**
@@ -550,15 +551,7 @@ function extraireDePage(wikitexte) {
 
   // La galerie « Splash art » liste les illustrations pleine taille de chaque
   // skin, bien plus grandes que les portraits de la boutique.
-  const galerie = wikitexte.match(
-    /Splash art\s*=+\s*\n<gallery[^>]*>([\s\S]*?)<\/gallery>/i,
-  );
-  const illustrations = galerie
-    ? [...galerie[1].matchAll(/^File:(.+?\.(?:jpg|png))\|(.*)$/gim)].map((m) => ({
-        fichier: m[1].trim(),
-        skin: m[2].trim(),
-      }))
-    : [];
+  const illustrations = extraireIllustrations(wikitexte);
 
   return { competences, illustrations, histoire: extraireHistoire(wikitexte) };
 }
@@ -602,14 +595,14 @@ async function pagesHeros(heros) {
 }
 
 /**
- * Rangs couverts par les contres, dans l'ordre de l'API.
+ * Rangs mesures, dans l'ordre de l'API.
  *
  * `all` agrege toutes les parties ; les autres isolent une tranche du
- * classement, de Epique a Gloire mythique. Les matchups changent vraiment d'une
- * tranche a l'autre — le pire adversaire d'Aamon n'est pas le meme en Epique
- * et en Gloire —, d'ou une mesure par rang plutot qu'une seule moyenne.
+ * classement, de Epique a Gloire mythique. Taux et matchups changent vraiment
+ * d'une tranche a l'autre — le pire adversaire d'Aamon n'est pas le meme en
+ * Epique et en Gloire —, d'ou une mesure par rang plutot qu'une seule moyenne.
  */
-const RANGS_CONTRES = ["all", "epic", "legend", "mythic", "honor", "glory"];
+const RANGS_MESURE = ["all", "epic", "legend", "mythic", "honor", "glory"];
 
 /**
  * Contres reels, avec taux de victoire, pour chaque rang.
@@ -688,9 +681,9 @@ async function contresReels(heros) {
   for (const [i, h] of heros.entries()) {
     // Les six rangs d'un meme heros partent ensemble : l'API met pres de trois
     // secondes a repondre, en serie la synchronisation durerait une demi-heure.
-    const resultats = await Promise.all(RANGS_CONTRES.map((rang) => contresDuRang(h, rang)));
+    const resultats = await Promise.all(RANGS_MESURE.map((rang) => contresDuRang(h, rang)));
     const parRang = {};
-    RANGS_CONTRES.forEach((rang, j) => {
+    RANGS_MESURE.forEach((rang, j) => {
       if (resultats[j]) parRang[rang] = resultats[j];
     });
     if (Object.keys(parRang).length > 0) sortie[h.slug] = parRang;
@@ -703,12 +696,207 @@ async function contresReels(heros) {
   return sortie;
 }
 
+/** Positions du site vers le parametre `lane` de l'API. */
+const LANES_API = { Or: "gold", Experience: "exp", Milieu: "mid", Jungle: "jungle", Roam: "roam" };
+
+/**
+ * Builds reellement joues, par position et par rang.
+ *
+ * L'academie publie, pour chaque heros, position et rang, les builds du moment
+ * avec leurs taux de selection et de victoire : trois objets cles, l'embleme,
+ * ses trois talents et le sort. On garde les trois plus joues. Objets, talents
+ * et sorts arrivent en identifiants : trois tables de l'API les traduisent en
+ * noms, ceux-la memes qui relient chaque choix a son visuel.
+ *
+ * Ces builds ne portent que les objets cles. L'equipement complet n'existe que
+ * dans les guides publies par les joueurs sur l'academie : pour chaque
+ * position et chaque rang, on retient le guide a six objets le mieux note d'un
+ * auteur de ce rang, ou a defaut d'un rang superieur. C'est un avis, pas une
+ * mesure — la fiche le presente comme tel.
+ */
+async function buildsReels(heros) {
+  const table = async (chemin) => {
+    const rep = await fetch(`${STATS}/academy/${chemin}?size=200`, {
+      headers: { "User-Agent": UA },
+      signal: AbortSignal.timeout(30000),
+    });
+    if (!rep.ok) throw new Error(`Table ${chemin} indisponible : HTTP ${rep.status}`);
+    return ((await rep.json())?.data?.records ?? []).map((r) => r?.data).filter(Boolean);
+  };
+  const [talents, sorts, equipements] = await Promise.all([
+    table("emblems"),
+    table("spells"),
+    table("equipment"),
+  ]);
+
+  const talentParId = new Map(talents.map((t) => [t.giftid, t.emblemskill]));
+  const sortParId = new Map(sorts.map((s) => [s.battleskillid, s.__data]));
+  const objetParId = new Map(equipements.map((e) => [e.equipid, e.equipname]));
+  // Remplis au fil des builds classes : aucune table de l'API ne les donne.
+  const emblemeParId = new Map();
+  const laneParRoute = new Map();
+
+  // Icones officielles, pour les talents et sorts recents que le wiki n'a pas.
+  const icones = { talents: {}, sorts: {} };
+  for (const t of talentParId.values()) {
+    if (t?.skillname && t.skillicon) icones.talents[t.skillname] = t.skillicon;
+  }
+  for (const s of sortParId.values()) {
+    if (s?.skillname && s.skillicon) icones.sorts[s.skillname] = s.skillicon;
+  }
+
+  async function buildsDuRang(h, l, lane, rang) {
+    try {
+      const rep = await fetch(
+        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/builds?rank=${rang}&lane=${lane}`,
+        { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(20000) },
+      );
+      if (!rep.ok) return null;
+
+      const donnees = (await rep.json())?.data?.records?.[0]?.data;
+      if (donnees?.real_road != null) laneParRoute.set(String(donnees.real_road), l);
+      const liste = donnees?.build;
+      if (!Array.isArray(liste) || liste.length === 0) return null;
+      for (const b of liste) {
+        const e = b.emblem?.data;
+        if (e?.emblemid && e.emblemname) emblemeParId.set(e.emblemid, e.emblemname);
+      }
+
+      return [...liste]
+        .sort((a, b) => (b.build_pick_rate ?? 0) - (a.build_pick_rate ?? 0))
+        .slice(0, 3)
+        .map((b) => ({
+          objets: (b.equipid ?? []).map((id) => objetParId.get(id)).filter(Boolean),
+          embleme: b.emblem?.data?.emblemname ?? null,
+          talents: (b.new_rune_skill ?? [])
+            .map((id) => talentParId.get(id)?.skillname)
+            .filter(Boolean),
+          sort: sortParId.get(b.skillid)?.skillname ?? b.battleskill?.data?.__data?.skillname ?? null,
+          victoire: arrondir(b.build_win_rate),
+          selection: arrondir(b.build_pick_rate),
+        }));
+    } catch {
+      /* un rang en echec n'interrompt pas la synchronisation */
+      return null;
+    }
+  }
+
+  /** Guides de joueurs a equipement complet, bruts : les noms se resolvent a la fin. */
+  async function guidesDuHeros(h) {
+    try {
+      const rep = await fetch(
+        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/recommended?size=100`,
+        { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(30000) },
+      );
+      if (!rep.ok) return [];
+      return ((await rep.json())?.data?.records ?? []).flatMap((r) => {
+        const d = r?.data?.data;
+        const equipement = (d?.equips ?? [])
+          .map((e) => e?.equip_ids)
+          .find((ids) => Array.isArray(ids) && ids.length === 6);
+        if (!equipement) return [];
+        const embleme = d?.emblems?.[0];
+        return [
+          {
+            equipement,
+            emblemeId: embleme?.emblem_id ?? null,
+            talents: Array.isArray(embleme?.emblem_gifts) ? embleme.emblem_gifts : [],
+            sortId: d?.spell?.spell_id ?? null,
+            route: d?.hero?.hero_lane != null ? String(d.hero.hero_lane) : null,
+            rangAuteur: Number(r?.user?.historyRankLevel) || 0,
+            votes: Number(r?.vote_all?.total) || 0,
+            vues: Number(r?.dynamic?.views) || 0,
+          },
+        ];
+      });
+    } catch {
+      return [];
+    }
+  }
+
+  const sortie = {};
+  const guidesBruts = {};
+
+  for (const [i, h] of heros.entries()) {
+    const guidesEnCours = guidesDuHeros(h);
+    const parLane = {};
+    for (const l of h.lanes) {
+      const lane = LANES_API[l];
+      if (!lane) continue;
+      // Comme pour les contres, les six rangs d'une position partent ensemble.
+      const resultats = await Promise.all(RANGS_MESURE.map((rang) => buildsDuRang(h, l, lane, rang)));
+      const parRang = {};
+      RANGS_MESURE.forEach((rang, j) => {
+        if (resultats[j]) parRang[rang] = resultats[j];
+      });
+      if (Object.keys(parRang).length > 0) parLane[l] = parRang;
+    }
+    if (Object.keys(parLane).length > 0) sortie[h.slug] = parLane;
+    guidesBruts[h.slug] = await guidesEnCours;
+
+    process.stdout.write(`\r    builds ${i + 1}/${heros.length}`);
+    await pause(150);
+  }
+
+  process.stdout.write("\n");
+
+  // Seuils de rank_level des auteurs, sur l'echelle de src/lib/rangs.ts :
+  // Epique des 76, l'ancienne plage Legende des 106, puis les etoiles
+  // mythiques a partir de 136 — Honneur a 25 etoiles, Gloire a 50. Le niveau
+  // publie est le meilleur rang atteint par l'auteur.
+  const BANDES_AUTEUR = {
+    all: [0, Infinity],
+    epic: [76, 106],
+    legend: [106, 136],
+    mythic: [136, 161],
+    honor: [161, 186],
+    glory: [186, Infinity],
+  };
+  const guides = {};
+  for (const h of heros) {
+    const liste = (guidesBruts[h.slug] ?? []).map((g) => ({ ...g, lane: laneParRoute.get(g.route) ?? null }));
+    const parLane = {};
+    for (const l of h.lanes) {
+      // Un guide sans position reconnue ne vaut que pour un heros a position unique.
+      // Seuls comptent les guides dont les six objets se reconnaissent.
+      const candidats = liste.filter(
+        (g) =>
+          (g.lane === l || (g.lane === null && h.lanes.length === 1)) &&
+          g.equipement.every((id) => objetParId.has(id)),
+      );
+      const parRang = {};
+      const parVotes = (a, b) => b.votes - a.votes || b.vues - a.vues;
+      for (const rang of RANGS_MESURE) {
+        const [bas, haut] = BANDES_AUTEUR[rang];
+        // D'abord un auteur de ce rang meme ; a defaut, d'un rang superieur.
+        const meilleur =
+          candidats.filter((g) => g.rangAuteur >= bas && g.rangAuteur < haut).sort(parVotes)[0] ??
+          candidats.filter((g) => g.rangAuteur >= bas).sort(parVotes)[0];
+        if (!meilleur) continue;
+        parRang[rang] = {
+          objets: meilleur.equipement.map((id) => objetParId.get(id)).filter(Boolean),
+          embleme: emblemeParId.get(meilleur.emblemeId) ?? null,
+          talents: meilleur.talents.map((id) => talentParId.get(id)?.skillname).filter(Boolean),
+          sort: sortParId.get(meilleur.sortId)?.skillname ?? null,
+          rangAuteur: meilleur.rangAuteur,
+          votes: meilleur.votes,
+          vues: meilleur.vues,
+        };
+      }
+      if (Object.keys(parRang).length > 0) parLane[l] = parRang;
+    }
+    if (Object.keys(parLane).length > 0) guides[h.slug] = parLane;
+  }
+
+  return { builds: sortie, guides, icones };
+}
+
 // ─────────────────────────────────────────────────────────────
 // Classement
 // ─────────────────────────────────────────────────────────────
 
 /**
- * Taux de victoire, de ban et de selection.
+ * Taux de victoire, de ban et de selection, pour chaque rang.
  *
  * Les identifiants de cette API ne sont pas ceux du wiki : le rapprochement se
  * fait par nom, apres passage au meme format de slug. Un heros sans
@@ -717,36 +905,52 @@ async function contresReels(heros) {
 async function classement(heros) {
   const connus = new Set(heros.map((h) => h.slug));
 
-  const reponse = await fetch(`${STATS}/heroes/rank?size=200`, {
-    headers: { "User-Agent": UA },
-    signal: AbortSignal.timeout(30000),
-  });
-  if (!reponse.ok) throw new Error(`Statistiques indisponibles : HTTP ${reponse.status}`);
+  async function tauxDuRang(rang) {
+    const reponse = await fetch(`${STATS}/heroes/rank?size=200&rank=${rang}`, {
+      headers: { "User-Agent": UA },
+      signal: AbortSignal.timeout(30000),
+    });
+    if (!reponse.ok) throw new Error(`Statistiques indisponibles (${rang}) : HTTP ${reponse.status}`);
 
-  const enregistrements = (await reponse.json())?.data?.records ?? [];
-  const sortie = {};
-  const orphelins = [];
+    const enregistrements = (await reponse.json())?.data?.records ?? [];
+    const taux = {};
+    const orphelins = [];
 
-  for (const entree of enregistrements) {
-    const d = entree?.data;
-    const nom = d?.main_hero?.data?.name;
-    if (!nom) continue;
+    for (const entree of enregistrements) {
+      const d = entree?.data;
+      const nom = d?.main_hero?.data?.name;
+      if (!nom) continue;
 
-    const cle = slugifier(nom);
-    if (!connus.has(cle)) {
-      orphelins.push(nom);
-      continue;
+      const cle = slugifier(nom);
+      if (!connus.has(cle)) {
+        orphelins.push(nom);
+        continue;
+      }
+
+      taux[cle] = {
+        victoire: arrondir(d.main_hero_win_rate),
+        ban: arrondir(d.main_hero_ban_rate),
+        selection: arrondir(d.main_hero_appearance_rate),
+      };
     }
-
-    sortie[cle] = {
-      victoire: arrondir(d.main_hero_win_rate),
-      ban: arrondir(d.main_hero_ban_rate),
-      selection: arrondir(d.main_hero_appearance_rate),
-    };
+    return { taux, orphelins };
   }
 
+  // Six requetes seulement : elles partent ensemble.
+  const resultats = await Promise.allSettled(RANGS_MESURE.map(tauxDuRang));
+
+  // Sans la mesure tous rangs, la tier list n'a plus de base : on echoue, et
+  // l'appelant conserve le classement precedent. Un autre rang manquant est
+  // simplement omis.
+  if (resultats[0].status === "rejected") throw resultats[0].reason;
+  const { orphelins } = resultats[0].value;
   if (orphelins.length) console.log(`  sans correspondance : ${orphelins.join(", ")}`);
-  return sortie;
+
+  const parRang = {};
+  RANGS_MESURE.forEach((rang, i) => {
+    if (resultats[i].status === "fulfilled") parRang[rang] = resultats[i].value.taux;
+  });
+  return parRang;
 }
 
 /**
@@ -1233,7 +1437,7 @@ async function principal() {
   let stats = {};
   try {
     stats = await classement(heros);
-    console.log(`  ${Object.keys(stats).length} heros mesures`);
+    console.log(`  ${Object.keys(stats.all).length} heros mesures, ${Object.keys(stats).length} rangs`);
   } catch (erreur) {
     // Une source de statistiques indisponible ne doit pas faire echouer toute
     // la synchronisation : le site retombe sur le classement precedent.
@@ -1248,6 +1452,17 @@ async function principal() {
     console.log(`  ${Object.keys(contres).length} heros avec contres chiffres`);
   } catch (erreur) {
     console.warn(`  contres indisponibles (${erreur.message}) — inchanges`);
+  }
+
+  console.log("Builds joues (academie)…");
+  let builds = null;
+  let guides = null;
+  let iconesBuilds = { talents: {}, sorts: {} };
+  try {
+    ({ builds, guides, icones: iconesBuilds } = await buildsReels(heros));
+    console.log(`  ${Object.keys(builds).length} heros avec builds, ${Object.keys(guides).length} avec un guide complet`);
+  } catch (erreur) {
+    console.warn(`  builds indisponibles (${erreur.message}) — inchanges`);
   }
 
   console.log("Relations entre heros…");
@@ -1396,12 +1611,20 @@ async function principal() {
   const illustrations = {};
   for (const [slug, page] of Object.entries(pages)) {
     const parSkin = {};
+    // L'illustration est rangee sous le nom du module de donnees, celui que la
+    // fiche utilise pour la retrouver, des que la legende le reconnait.
+    const nomsModule = new Map(
+      (skins[slug] ?? []).map((s) => [normaliserNomSkin(s.nom), s.nom]),
+    );
     for (const { fichier, skin } of page.illustrations) {
       const cle = fichier.replace(/\.(jpg|png)$/, "");
       const url = urlsIllustrations[cle];
       if (!url || !skin) continue;
-      const nomFichier = `${slugifier(skin)}.webp`;
-      parSkin[skin] = `/visuels/heros/${slug}/illustrations/${nomFichier}`;
+      const nomSkin = nomsModule.get(normaliserNomSkin(skin)) ?? skin;
+      // Premiere illustration retenue : les suivantes sont d'anciens visuels.
+      if (parSkin[nomSkin]) continue;
+      const nomFichier = `${slugifier(nomSkin)}.webp`;
+      parSkin[nomSkin] = `/visuels/heros/${slug}/illustrations/${nomFichier}`;
       plan.push({
         url,
         chemin: `public/visuels/heros/${slug}/illustrations/${nomFichier}`,
@@ -1432,6 +1655,22 @@ async function principal() {
 
   const [visuelsObjets, visuelsEmblemes, visuelsTalents, visuelsSorts] =
     lots.map((l) => l.chemins);
+
+  // Talents et sorts recents absents du wiki (Rupture, War Cry, Flameshot…) :
+  // l'icone officielle de l'API les complete, copiee en local comme le reste.
+  // Sans --images, on ne reference que ce qui est deja sur le disque.
+  for (const [type, icones, cible] of [
+    ["talents", iconesBuilds.talents, visuelsTalents],
+    ["sorts", iconesBuilds.sorts, visuelsSorts],
+  ]) {
+    for (const [nom, url] of Object.entries(icones)) {
+      const cle = slugifier(nom);
+      if (cible[cle]) continue;
+      const chemin = `/visuels/${type}/${cle}.png`;
+      plan.push({ url, chemin: `public${chemin}` });
+      if (AVEC_IMAGES || existsSync(`public${chemin}`)) cible[cle] = chemin;
+    }
+  }
 
   console.log(
     `  ${Object.keys(visuelsObjets).length}/${objets.length} objets, ` +
@@ -1472,9 +1711,11 @@ async function principal() {
   const statsExistantes = await lireJson(`${SORTIE}/statistiques.json`);
   const statistiques = {
     classement: stats
-      ? { mesure: new Date().toISOString(), taux: stats }
+      ? { mesure: new Date().toISOString(), taux: stats.all, parRang: stats }
       : (statsExistantes.classement ?? { mesure: null, taux: {} }),
     contres: contres ?? statsExistantes.contres ?? {},
+    builds: builds ?? statsExistantes.builds ?? {},
+    guides: guides ?? statsExistantes.guides ?? {},
     relations: liens ?? statsExistantes.relations ?? {},
   };
 
@@ -1512,8 +1753,9 @@ async function principal() {
       skins: nbSkins,
       objets: objets.length,
       patchs: listePatchs.length,
-      classement: stats ? Object.keys(stats).length : null,
+      classement: stats ? Object.keys(stats.all).length : null,
       contres: contres ? Object.keys(contres).length : null,
+      builds: builds ? Object.keys(builds).length : null,
       // Le wiki fournit le catalogue ; l'API communautaire fournit les mesures.
       sources: [
         "https://mobilelegends.fandom.com",
