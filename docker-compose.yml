@@ -11,10 +11,14 @@ services:
       - "127.0.0.1:${PORT:-3001}:3001"
     environment:
       NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mlbb.leoderoin.fr}
-    # Le site n'a aucun etat a conserver : l'identite vit dans le jeton de jeu,
-    # les favoris dans le navigateur. Le conteneur peut tourner en lecture
-    # seule, sans volume.
+      # Journaux applicatifs, ranges par jour dans le volume monte ci-dessous.
+      LOGS_DIR: /app/logs
+    # Le conteneur tourne en lecture seule ; seul le dossier des journaux est
+    # inscriptible, via un volume monte sur l'hote (a creer, accessible en
+    # ecriture a l'utilisateur 1001 du conteneur).
     read_only: true
+    volumes:
+      - ./logs:/app/logs
     tmpfs:
       - /tmp
       - /app/.next/cache

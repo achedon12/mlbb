@@ -9,6 +9,8 @@
  * Tout passe par le serveur : le jeton n'est jamais expose au navigateur, et
  * aucun mot de passe n'est jamais demande ni transmis.
  */
+import { journaliserErreur } from "@/lib/journal";
+
 const BASE = "https://arena.rone.dev/api/user";
 
 /**
@@ -76,7 +78,8 @@ export async function envoyerCode(
 
     // errorInvalidZoneId / role null : la saisie ne correspond a aucun compte.
     return { ok: false, raison: "Aucun compte ne correspond a cet identifiant et ce serveur." };
-  } catch {
+  } catch (e) {
+    void journaliserErreur("envoi du code de verification", e);
     return { ok: false, raison: "Le service est momentanement indisponible." };
   }
 }
@@ -105,7 +108,8 @@ export async function connecter(
       return { ok: true, jeton: donnees.data.jwt };
     }
     return { ok: false, raison: "Code incorrect ou expire." };
-  } catch {
+  } catch (e) {
+    void journaliserErreur("echange du code contre un jeton", e);
     return { ok: false, raison: "Le service est momentanement indisponible." };
   }
 }
@@ -139,7 +143,8 @@ async function authentifie<T>(
     if (enveloppe.code === 10407 || enveloppe.data == null) return { etat: "indisponible" };
 
     return { etat: "ok", donnees: transformer(enveloppe.data) };
-  } catch {
+  } catch (e) {
+    void journaliserErreur("appel authentifie au service Moonton", e);
     return { etat: "indisponible" };
   }
 }
@@ -215,7 +220,8 @@ export async function amis(jeton: string): Promise<Resultat<Ami[]>> {
         : null,
     }));
     return { etat: "ok", donnees: liste };
-  } catch {
+  } catch (e) {
+    void journaliserErreur("appel authentifie au service Moonton", e);
     return { etat: "indisponible" };
   }
 }
