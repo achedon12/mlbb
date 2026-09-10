@@ -50,7 +50,7 @@ export function PiedDePage() {
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
         {/* Marque et liens externes. */}
         <div>
-          <Link href="/" className="group flex items-center gap-2.5" aria-label={`${site.nom}, accueil`}>
+          <Link href="/" className="group flex items-center gap-2.5">
             <span
               aria-hidden
               className="biseau-sm grid size-8 place-items-center bg-linear-to-br from-or-400 to-or-600 font-titre text-sm font-bold text-nuit-950"

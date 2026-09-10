@@ -25,7 +25,6 @@ export function EnTete() {
         <Link
           href="/"
           className="group flex shrink-0 items-center gap-2.5"
-          aria-label={`${site.nom}, accueil`}
         >
           <span
             aria-hidden
