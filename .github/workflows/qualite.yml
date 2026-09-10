@@ -1,4 +1,4 @@
-name: Verification
+name: Qualite
 
 # Sur chaque proposition de modification : on verifie que le projet compile
 # avant de relire le fond.

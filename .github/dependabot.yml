@@ -1,0 +1,25 @@
+version: 2
+
+# Mises a jour automatiques des dependances, regroupees pour limiter le bruit :
+# une pull request par lot plutot qu'une par paquet.
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      dependances:
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    groups:
+      actions:
+        patterns:
+          - "*"
