@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Emblemes, talents et sorts",
   description:
     "Quel embleme, quel talent et quel sort de combat prendre selon votre role dans Mobile Legends: Bang Bang. Choisissez votre embleme, la page s'organise autour.",
-  alternates: { canonical: "/emblemes" },
+  alternates: { canonical: "/emblems" },
   openGraph: {
     title: `Emblemes, talents et sorts — ${site.nom}`,
     description: "Que prendre selon votre role : emblemes, talents et sorts de combat.",
-    url: "/emblemes",
+    url: "/emblems",
   },
 };
 

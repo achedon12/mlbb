@@ -24,7 +24,7 @@ const donneesStructurees = {
       inLanguage: "fr-FR",
       potentialAction: {
         "@type": "SearchAction",
-        target: { "@type": "EntryPoint", urlTemplate: `${site.url}/heros?q={search_term_string}` },
+        target: { "@type": "EntryPoint", urlTemplate: `${site.url}/heroes?q={search_term_string}` },
         "query-input": "required name=search_term_string",
       },
     },
@@ -115,7 +115,7 @@ export default function Accueil() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/heros"
+              href="/heroes"
               className="biseau-sm flex items-center gap-2 bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
             >
               Parcourir les heros
@@ -185,7 +185,7 @@ export default function Accueil() {
             {sommet.map((e) => (
               <li key={e.heros.slug}>
                 <Link
-                  href={`/heros/${e.heros.slug}`}
+                  href={`/heroes/${e.heros.slug}`}
                   className="biseau flex h-full flex-col items-center gap-2 border border-nuit-700/70 bg-nuit-900/60 p-4 text-center transition-colors hover:border-or-500/60"
                 >
                   <span className="biseau-sm relative size-16 overflow-hidden bg-nuit-800">
@@ -216,7 +216,7 @@ export default function Accueil() {
         <section className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
             chapeau={`Les ${nombreSkins} skins du jeu, avec leur illustration pleine taille, leur rarete et leur prix.`}
-            action={{ href: "/heros", label: "Voir les heros" }}
+            action={{ href: "/heroes", label: "Voir les heros" }}
           >
             Galeries de skins
           </TitreSection>
@@ -225,7 +225,7 @@ export default function Accueil() {
             {skinsEnAvant.map((s) => (
               <li key={`${s.slug}-${s.skin}`}>
                 <Link
-                  href={`/heros/${s.slug}`}
+                  href={`/heroes/${s.slug}`}
                   className="biseau group relative block aspect-video overflow-hidden border border-nuit-700/70"
                 >
                   <Image
@@ -279,7 +279,7 @@ export default function Accueil() {
           <div>
             <TitreSection
               chapeau=""
-              action={{ href: "/actualites", label: "Toutes les actualites" }}
+              action={{ href: "/news", label: "Toutes les actualites" }}
             >
               Derniers articles
             </TitreSection>

@@ -15,32 +15,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const fixes: MetadataRoute.Sitemap = (
     [
       { url: site.url, changeFrequency: "daily", priority: 1 },
-      { url: `${site.url}/heros`, changeFrequency: "weekly", priority: 0.9 },
+      { url: `${site.url}/heroes`, changeFrequency: "weekly", priority: 0.9 },
       { url: `${site.url}/tier-list`, changeFrequency: "weekly", priority: 0.9 },
-      { url: `${site.url}/comparateur`, changeFrequency: "weekly", priority: 0.7 },
+      { url: `${site.url}/compare`, changeFrequency: "weekly", priority: 0.7 },
       { url: `${site.url}/draft`, changeFrequency: "weekly", priority: 0.8 },
-      { url: `${site.url}/modes-de-jeu`, changeFrequency: "monthly", priority: 0.6 },
-      { url: `${site.url}/objets`, changeFrequency: "monthly", priority: 0.7 },
-      { url: `${site.url}/emblemes`, changeFrequency: "monthly", priority: 0.7 },
-      { url: `${site.url}/actualites`, changeFrequency: "daily", priority: 0.8 },
-      { url: `${site.url}/veille`, changeFrequency: "hourly", priority: 0.6 },
+      { url: `${site.url}/game-modes`, changeFrequency: "monthly", priority: 0.6 },
+      { url: `${site.url}/items`, changeFrequency: "monthly", priority: 0.7 },
+      { url: `${site.url}/emblems`, changeFrequency: "monthly", priority: 0.7 },
+      { url: `${site.url}/news`, changeFrequency: "daily", priority: 0.8 },
+      { url: `${site.url}/watch`, changeFrequency: "hourly", priority: 0.6 },
       { url: `${site.url}/patch-notes`, changeFrequency: "weekly", priority: 0.8 },
       { url: `${site.url}/api-doc`, changeFrequency: "monthly", priority: 0.5 },
-      { url: `${site.url}/a-propos`, changeFrequency: "yearly", priority: 0.3 },
-      { url: `${site.url}/mentions-legales`, changeFrequency: "yearly", priority: 0.2 },
-      { url: `${site.url}/confidentialite`, changeFrequency: "yearly", priority: 0.2 },
+      { url: `${site.url}/about`, changeFrequency: "yearly", priority: 0.3 },
+      { url: `${site.url}/legal`, changeFrequency: "yearly", priority: 0.2 },
+      { url: `${site.url}/privacy`, changeFrequency: "yearly", priority: 0.2 },
     ] as const
   ).map((e) => ({ ...e, lastModified: maintenant }));
 
   const pagesModes: MetadataRoute.Sitemap = modes.map((m) => ({
-    url: `${site.url}/modes-de-jeu/${m.slug}`,
+    url: `${site.url}/game-modes/${m.slug}`,
     lastModified: maintenant,
     changeFrequency: "monthly",
     priority: 0.5,
   }));
 
   const pagesHeros: MetadataRoute.Sitemap = heros.map((h) => ({
-    url: `${site.url}/heros/${h.slug}`,
+    url: `${site.url}/heroes/${h.slug}`,
     lastModified: maintenant,
     changeFrequency: "monthly",
     priority: 0.6,

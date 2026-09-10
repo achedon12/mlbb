@@ -33,7 +33,7 @@ export function FavorisCompte() {
       <div>
         <p className="mt-6 text-sm leading-relaxed text-craie-500">
           Aucun favori pour l&apos;instant. Sur une fiche de heros,{" "}
-          <Link href="/heros" className="text-or-400 underline underline-offset-4">
+          <Link href="/heroes" className="text-or-400 underline underline-offset-4">
             ajoutez-en un
           </Link>{" "}
           pour le retrouver ici.
@@ -53,7 +53,7 @@ export function FavorisCompte() {
         {favoris.map((slug) => (
           <li key={slug} className="biseau-sm flex items-center border border-nuit-700 bg-nuit-900/60">
             <Link
-              href={`/heros/${slug}`}
+              href={`/heroes/${slug}`}
               className="flex items-center gap-1.5 px-3 py-2 text-sm text-craie-100 transition-colors hover:text-or-400"
             >
               <Star size={13} aria-hidden fill="currentColor" className="text-or-500" />

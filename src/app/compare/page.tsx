@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Comparateur de heros",
   description:
     "Comparez deux heros de Mobile Legends: Bang Bang cote a cote : offensive, resistance, effets, difficulte, taux de victoire et de ban, roles et positions.",
-  alternates: { canonical: "/comparateur" },
+  alternates: { canonical: "/compare" },
   openGraph: {
     title: `Comparateur de heros — ${site.nom}`,
     description: "Deux heros compares cote a cote : notes, taux de victoire et de ban, roles.",
-    url: "/comparateur",
+    url: "/compare",
   },
 };
 

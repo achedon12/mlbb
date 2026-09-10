@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "Veille — l'actualite MLBB du web",
   description:
     "Les dernieres publications de la communaute et de la presse esport sur Mobile Legends: Bang Bang, rassemblees automatiquement et mises a jour en continu.",
-  alternates: { canonical: "/veille" },
+  alternates: { canonical: "/watch" },
   openGraph: {
     title: `Veille — ${site.nom}`,
     description: "L'actualite Mobile Legends du web, rassemblee automatiquement.",
-    url: "/veille",
+    url: "/watch",
   },
 };
 

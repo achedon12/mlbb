@@ -21,7 +21,7 @@ export const dynamic = "force-dynamic";
 
 export default async function PageCompte() {
   const jeton = await jetonCourant();
-  if (!jeton) redirect("/connexion");
+  if (!jeton) redirect("/login");
 
   const profil = await profilCourant();
   if (!profil) {

@@ -116,7 +116,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
 
       {/* Recommencer si le code n'arrive pas : recharger la page vide le formulaire. */}
       <a
-        href="/connexion"
+        href="/login"
         className="flex items-center justify-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
       >
         <ArrowLeft size={14} aria-hidden />

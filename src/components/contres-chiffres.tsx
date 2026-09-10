@@ -74,7 +74,7 @@ function Colonne({
           return (
             <li key={e.slug}>
               <Link
-                href={`/heros/${e.slug}`}
+                href={`/heroes/${e.slug}`}
                 className="flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-nuit-850"
               >
                 <span className="biseau-sm relative size-8 shrink-0 overflow-hidden bg-nuit-800">

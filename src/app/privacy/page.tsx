@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Confidentialite",
   description:
     "Quelles donnees ce site traite, quels cookies il utilise, et vos droits. Aucune donnee personnelle n'est conservee sur un serveur.",
-  alternates: { canonical: "/confidentialite" },
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PageConfidentialite() {

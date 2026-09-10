@@ -131,7 +131,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                           <Vignette heros={s.heros} />
                           <div className="min-w-0 flex-1">
                             <Link
-                              href={`/heros/${s.heros.slug}`}
+                              href={`/heroes/${s.heros.slug}`}
                               className="font-titre font-bold text-craie-100 transition-colors hover:text-or-400"
                             >
                               {s.heros.nom}

@@ -22,11 +22,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: `Mode ${mode.nom}`,
     description,
-    alternates: { canonical: `/modes-de-jeu/${slug}` },
+    alternates: { canonical: `/game-modes/${slug}` },
     openGraph: {
       title: `${mode.nom} — ${site.nom}`,
       description,
-      url: `/modes-de-jeu/${slug}`,
+      url: `/game-modes/${slug}`,
     },
   };
 }
@@ -83,7 +83,7 @@ export default async function PageMode({ params }: Params) {
     inLanguage: "fr-FR",
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/modes-de-jeu/${slug}`,
+    mainEntityOfPage: `${site.url}/game-modes/${slug}`,
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
   };
 
@@ -115,7 +115,7 @@ export default async function PageMode({ params }: Params) {
           <FilAriane
             miettes={[
               { nom: "Accueil", href: "/" },
-              { nom: "Modes de jeu", href: "/modes-de-jeu" },
+              { nom: "Modes de jeu", href: "/game-modes" },
               { nom: mode.nom },
             ]}
           />

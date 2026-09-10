@@ -5,23 +5,23 @@ describe("sitemap", () => {
   const urls = sitemap().map((e) => String(e.url));
 
   it("inclut l'accueil et les rubriques principales", () => {
-    for (const chemin of ["", "/heros", "/tier-list", "/comparateur", "/patch-notes"]) {
+    for (const chemin of ["", "/heroes", "/tier-list", "/compare", "/patch-notes"]) {
       expect(urls.some((u) => u.endsWith(chemin) || u.endsWith(`${chemin}`))).toBe(true);
     }
   });
 
   it("inclut les pages legales", () => {
-    expect(urls.some((u) => u.endsWith("/mentions-legales"))).toBe(true);
-    expect(urls.some((u) => u.endsWith("/confidentialite"))).toBe(true);
+    expect(urls.some((u) => u.endsWith("/legal"))).toBe(true);
+    expect(urls.some((u) => u.endsWith("/privacy"))).toBe(true);
   });
 
   it("liste les fiches de heros", () => {
-    expect(urls.some((u) => /\/heros\/[a-z-]+$/.test(u))).toBe(true);
+    expect(urls.some((u) => /\/heroes\/[a-z-]+$/.test(u))).toBe(true);
   });
 
   it("n'expose ni le compte ni la connexion", () => {
-    expect(urls.some((u) => u.endsWith("/compte"))).toBe(false);
-    expect(urls.some((u) => u.endsWith("/connexion"))).toBe(false);
+    expect(urls.some((u) => u.endsWith("/account"))).toBe(false);
+    expect(urls.some((u) => u.endsWith("/login"))).toBe(false);
   });
 
   it("ne contient pas de doublon", () => {

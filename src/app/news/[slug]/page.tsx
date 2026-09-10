@@ -20,12 +20,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: a.titre,
     description: a.chapeau,
     keywords: a.motsCles,
-    alternates: { canonical: `/actualites/${slug}` },
+    alternates: { canonical: `/news/${slug}` },
     openGraph: {
       type: "article",
       title: a.titre,
       description: a.chapeau,
-      url: `/actualites/${slug}`,
+      url: `/news/${slug}`,
       publishedTime: a.date,
       authors: [a.auteur],
     },
@@ -48,7 +48,7 @@ export default async function PageArticle({ params }: Params) {
     keywords: a.motsCles.join(", "),
     author: { "@type": "Person", name: a.auteur, url: `https://github.com/${a.auteur}` },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/actualites/${slug}`,
+    mainEntityOfPage: `${site.url}/news/${slug}`,
   };
 
   return (
@@ -60,7 +60,7 @@ export default async function PageArticle({ params }: Params) {
       <CorpsArticle
         article={a}
         html={enHtml(a.contenu)}
-        retour={{ href: "/actualites", label: "Toutes les actualites" }}
+        retour={{ href: "/news", label: "Toutes les actualites" }}
       />
     </>
   );

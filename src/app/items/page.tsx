@@ -8,11 +8,11 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Objets",
   description: `Les ${objets.length} objets de Mobile Legends: Bang Bang : statistiques, effets uniques, passifs, recettes et prix, avec leur visuel.`,
-  alternates: { canonical: "/objets" },
+  alternates: { canonical: "/items" },
   openGraph: {
     title: `Objets — ${site.nom}`,
     description: `Les ${objets.length} objets du jeu, avec statistiques, passifs et recettes.`,
-    url: "/objets",
+    url: "/items",
   },
 };
 

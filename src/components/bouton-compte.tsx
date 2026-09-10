@@ -29,14 +29,14 @@ export function BoutonCompte() {
 
   return session.connecte ? (
     <Link
-      href="/compte"
+      href="/account"
       className="biseau-sm max-w-36 truncate bg-nuit-800 px-4 py-2 text-sm font-semibold text-craie-100 transition-colors hover:bg-nuit-700"
     >
       {session.pseudo}
     </Link>
   ) : (
     <Link
-      href="/connexion"
+      href="/login"
       className="biseau-sm bg-or-500 px-4 py-2 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400"
     >
       Connexion

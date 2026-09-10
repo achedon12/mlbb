@@ -23,7 +23,7 @@ export function AccesRoles({ compte }: { compte: Record<Role, number> }) {
       {(Object.keys(COULEURS) as Role[]).map((role) => (
         <li key={role}>
           <Link
-            href={`/heros?role=${role}`}
+            href={`/heroes?role=${role}`}
             className={cn(
               "biseau flex h-full flex-col justify-between border bg-linear-to-b to-transparent p-4 transition-transform hover:-translate-y-0.5",
               COULEURS[role],

@@ -9,13 +9,13 @@ export const metadata: Metadata = {
   description:
     "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en francais. Disponible en flux RSS.",
   alternates: {
-    canonical: "/actualites",
+    canonical: "/news",
     types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.nom} — actualites` }] },
   },
   openGraph: {
     title: `Actualites et guides — ${site.nom}`,
     description: "Analyses du meta et guides de fond, en francais.",
-    url: "/actualites",
+    url: "/news",
   },
 };
 
@@ -29,7 +29,7 @@ export default function PageActualites() {
         chapeau="Des articles de fond plutot que des breves : ce qui change dans le meta, pourquoi, et ce qu'il faut en faire en partie."
       />
       <div className="mx-auto max-w-3xl px-4 py-14">
-        <ListeArticles articles={liste} base="/actualites" />
+        <ListeArticles articles={liste} base="/news" />
       </div>
     </>
   );
