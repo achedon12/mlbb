@@ -22,9 +22,9 @@ jobs:
   synchroniser:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -66,7 +66,7 @@ jobs:
 
       - name: Ouvrir la pull request
         if: steps.resume.outputs.change == 'oui'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: synchronisation/wiki
           # La branche est reutilisee d'une semaine sur l'autre : une seule
