@@ -34,6 +34,7 @@ export const navigation = [
   { href: "/tier-list", label: "Tier list", groupe: "jeu" },
   { href: "/comparateur", label: "Comparateur", groupe: "jeu" },
   { href: "/draft", label: "Draft", groupe: "jeu" },
+  { href: "/modes-de-jeu", label: "Modes", groupe: "jeu" },
   { href: "/objets", label: "Objets", groupe: "jeu" },
   { href: "/emblemes", label: "Emblemes", groupe: "jeu" },
   { href: "/actualites", label: "Actualites", groupe: "actualite" },
