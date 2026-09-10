@@ -173,7 +173,9 @@
       "actif": "Actif",
       "recette": "Recette",
       "choisir": "Choisissez un objet pour voir ses statistiques, son passif et sa recette.",
-      "fermer": "Fermer la fiche"
+      "fermer": "Fermer la fiche",
+      "fusion": "Cout de fusion : {prix} or",
+      "fabrique": "Sert a fabriquer"
     },
     "emblems": {
       "titre": "Emblemes et talents",

@@ -173,7 +173,9 @@
       "actif": "Attivo",
       "recette": "Ricetta",
       "choisir": "Scegli un oggetto per visualizzarne le statistiche, la passiva e la ricetta.",
-      "fermer": "Chiudi"
+      "fermer": "Chiudi",
+      "fusion": "Costo di fusione: {prix} oro",
+      "fabrique": "Serve per costruire"
     },
     "emblems": {
       "titre": "Emblemi e talenti",

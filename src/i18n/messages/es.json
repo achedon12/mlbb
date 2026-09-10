@@ -173,7 +173,9 @@
       "actif": "Activo",
       "recette": "Receta",
       "choisir": "Elija un elemento para ver sus estadísticas, pasiva y receta.",
-      "fermer": "Cerrar"
+      "fermer": "Cerrar",
+      "fusion": "Coste de combinación: {prix} de oro",
+      "fabrique": "Se usa en"
     },
     "emblems": {
       "titre": "Emblemas y talentos",
