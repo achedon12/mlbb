@@ -19,7 +19,7 @@ import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyserTableLua } from "./lua.mjs";
 import { decouperSections, nettoyerRendu, nouveauxHeros, sommaire } from "./patch-notes.mjs";
-import { nettoyerDescription, sansBalises } from "./wikitexte.mjs";
+import { nettoyerDescription, sansBalises, extraireHistoire } from "./wikitexte.mjs";
 import { ajustementsHeros, bilan } from "./patch-parser.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
@@ -564,7 +564,7 @@ function extraireDePage(wikitexte) {
       }))
     : [];
 
-  return { competences, illustrations };
+  return { competences, illustrations, histoire: extraireHistoire(wikitexte) };
 }
 
 /** Parcourt les pages de heros, par lots, pour en extraire ces deux blocs. */
@@ -1017,6 +1017,9 @@ function nettoyerSkillDesc(brut) {
  */
 async function competencesArena(heros) {
   const sortie = {};
+  // L'API expose aussi une accroche d'une ligne (« story ») : on la recolte
+  // au passage, sans interrogation supplementaire.
+  const accroches = {};
 
   for (const [i, h] of heros.entries()) {
     try {
@@ -1034,6 +1037,8 @@ async function competencesArena(heros) {
             icone: s.skillicon ? String(s.skillicon) : null,
           }));
         }
+        const accroche = String(data?.story ?? "").trim();
+        if (accroche) accroches[h.slug] = accroche;
       }
     } catch {
       // Un heros en echec ne doit pas interrompre la synchronisation.
@@ -1044,7 +1049,7 @@ async function competencesArena(heros) {
   }
 
   process.stdout.write("\n");
-  return sortie;
+  return { competences: sortie, accroches };
 }
 
 /**
@@ -1208,7 +1213,7 @@ async function principal() {
   );
 
   console.log("Competences en repli (API)…");
-  const skillsArena = await competencesArena(heros);
+  const { competences: skillsArena, accroches } = await competencesArena(heros);
   console.log(`  ${Object.keys(skillsArena).length} heros couverts par l'API`);
 
   // Fusion wiki + API : le wiki prime, l'API comble nom, description et icone
@@ -1234,6 +1239,24 @@ async function principal() {
     }
     competencesFinales[h.slug] = liste;
   }
+
+  // ── Histoire des heros ─────────────────────────────────────────────
+  // Deux apports complementaires : l'accroche d'une ligne de l'API et le
+  // recit long du wiki (lore, fiche narrative, anecdotes). On n'inscrit un
+  // heros que s'il apporte au moins l'un des deux.
+  const histoires = {};
+  for (const h of heros) {
+    const recit = pages[h.slug]?.histoire ?? null;
+    const accroche = accroches[h.slug] ?? null;
+    if (!recit && !accroche) continue;
+    histoires[h.slug] = {
+      accroche,
+      lore: recit?.lore ?? [],
+      fiche: recit?.fiche ?? null,
+      anecdotes: recit?.anecdotes ?? [],
+    };
+  }
+  console.log(`  ${Object.keys(histoires).length} histoires de heros`);
 
   console.log("Classement des heros…");
   let stats = {};
@@ -1298,6 +1321,21 @@ async function principal() {
   console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icones).length} icones`);
 
   const { plan, chemins } = planVisuels(heros, skins, portraits, icones);
+
+  // ── Visuels des modes ──────────────────────────────────────────────
+  // Comme le reste, l'image d'un mode est copiee en local : le site ne doit
+  // dependre d'aucune URL externe a l'execution. On planifie le telechargement
+  // et on remplace l'URL du wiki par le chemin local dans `modes.json`.
+  for (const mode of modes) {
+    if (!mode.image || mode.image.startsWith("/")) continue;
+    plan.push({
+      url: mode.image,
+      chemin: `public/visuels/modes/${mode.slug}.webp`,
+      optimiser: true,
+      largeur: 640,
+    });
+    mode.image = `/visuels/modes/${mode.slug}.webp`;
+  }
 
   // ── Icones de competences ──────────────────────────────────────────
   // Le fichier d'icone porte le nom du champ « image » du gabarit quand il
@@ -1465,6 +1503,7 @@ async function principal() {
     ecrire("patchs-detail", detailPatchs),
     ecrire("rangs", emblemesRangs),
     ecrire("modes", modes),
+    ecrire("histoires", histoires),
     ecrire("synchro", {
       date: new Date().toISOString(),
       source: "https://mobilelegends.fandom.com",
