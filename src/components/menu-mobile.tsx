@@ -1,22 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useT } from "@/i18n/fournisseur";
-import { cn } from "@/lib/utils";
-import { ACTUALITE, BASE, type Entree } from "./menu-bureau";
+import { ACTUALITE, BASE, estActif, LienMenu, type Entree } from "./menu-bureau";
 
 /**
  * Menu de navigation en petite largeur : meme decoupage que le bureau, deplie
  * verticalement, chaque rubrique accompagnee de son icone et d'un mot
  * d'explication tires du catalogue de traductions.
  */
-
-function estActif(chemin: string, href: string) {
-  return chemin.endsWith(href) || chemin.includes(`${href}/`);
-}
 
 function Section({
   titre,
@@ -29,44 +23,17 @@ function Section({
   chemin: string;
   onNaviguer: () => void;
 }) {
-  const t = useT();
   return (
     <div>
       <p className="px-2 pb-1 pt-3 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-craie-500">
         {titre}
       </p>
       <ul>
-        {entrees.map(({ href, cle, icone: Ic }) => {
-          const actif = estActif(chemin, href);
-          return (
-            <li key={href}>
-              <Link
-                href={href}
-                onClick={onNaviguer}
-                aria-current={actif ? "page" : undefined}
-                className={cn(
-                  "flex items-center gap-3 rounded-md p-2.5 transition-colors",
-                  actif ? "bg-nuit-800/80" : "hover:bg-nuit-800/60",
-                )}
-              >
-                <span
-                  className={cn(
-                    "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
-                    actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300",
-                  )}
-                >
-                  <Ic size={17} aria-hidden />
-                </span>
-                <span className="min-w-0">
-                  <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>
-                    {t(`nav.${cle}.label`)}
-                  </span>
-                  <span className="block text-xs text-craie-400">{t(`nav.${cle}.desc`)}</span>
-                </span>
-              </Link>
-            </li>
-          );
-        })}
+        {entrees.map((entree) => (
+          <li key={entree.href}>
+            <LienMenu entree={entree} actif={estActif(chemin, entree.href)} onClick={onNaviguer} className="items-center" />
+          </li>
+        ))}
       </ul>
     </div>
   );

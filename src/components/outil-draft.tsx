@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import { PortraitHeros } from "@/components/portrait-heros";
 import Link from "next/link";
-import { RotateCcw, Search, X } from "lucide-react";
+import { RotateCcw, X } from "lucide-react";
+import { ChampRecherche } from "@/components/champ-recherche";
+import { GroupeFiltres, Puce } from "@/components/puce";
 import { LANES, suggerer, type HerosDraft } from "@/lib/draft";
 import { useT } from "@/i18n/fournisseur";
 import type { Lane, Role } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cleRecherche, cn } from "@/lib/utils";
 
 /**
  * Aide au draft.
@@ -260,28 +262,10 @@ function Colonne({
 }
 
 function Vignette({ heros, petite = false }: { heros: HerosDraft; petite?: boolean }) {
-  const taille = petite ? "size-7" : "size-10";
-  return (
-    <span className={cn("biseau-sm relative shrink-0 overflow-hidden bg-nuit-800", taille)}>
-      {heros.icone ? (
-        <Image
-          src={heros.icone}
-          alt=""
-          fill
-          sizes={petite ? "28px" : "40px"}
-          loading="eager"
-          className="object-cover"
-        />
-      ) : null}
-    </span>
-  );
+  return <PortraitHeros source={heros.icone} nom={heros.nom} taille={petite ? "mini" : "icone"} decoratif />;
 }
 
 const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
-
-/** Nom ramene a une cle de recherche : sans casse ni accents. */
-const cleRecherche = (s: string) =>
-  s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
 /**
  * Choix d'un heros pour une lane.
@@ -339,25 +323,17 @@ function Selecteur({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-3">
-          <div className="relative flex-1">
-            <Search
-              size={16}
-              aria-hidden
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-craie-500"
-            />
-            <input
-              autoFocus
-              type="search"
-              value={recherche}
-              onChange={(e) => {
-                setRecherche(e.target.value);
-                if (e.target.value.trim()) setLaneFiltre(null);
-              }}
-              placeholder={t("draftUI.rechercher")}
-              aria-label={t("draftUI.rechercher")}
-              className="biseau-sm w-full border border-nuit-700 bg-nuit-950 py-2 pl-9 pr-3 text-craie-100 outline-none focus:border-or-500"
-            />
-          </div>
+          <ChampRecherche
+            dense
+            autoFocus
+            valeur={recherche}
+            onChange={(valeur) => {
+              setRecherche(valeur);
+              if (valeur.trim()) setLaneFiltre(null);
+            }}
+            libelle={t("draftUI.rechercher")}
+            className="flex-1"
+          />
           <button
             type="button"
             onClick={onFermer}
@@ -369,32 +345,26 @@ function Selecteur({
         </div>
 
         <div className="mt-3 space-y-2">
-          <div role="group" aria-label={t("draftUI.filtreLane")} className="flex flex-wrap items-center gap-1.5">
-            <span className="mr-1 w-16 shrink-0 text-[0.65rem] uppercase tracking-wide text-craie-500">
-              {t("draftUI.filtreLane")}
-            </span>
-            <Puce actif={laneFiltre === null} onClick={() => setLaneFiltre(null)}>
+          <GroupeFiltres legende={t("draftUI.filtreLane")} largeurLegende="w-16" className="gap-1.5">
+            <Puce dense actif={laneFiltre === null} onClick={() => setLaneFiltre(null)}>
               {t("draftUI.toutesLanes")}
             </Puce>
             {LANES.map((l) => (
-              <Puce key={l} actif={laneFiltre === l} onClick={() => setLaneFiltre(l)}>
+              <Puce dense key={l} actif={laneFiltre === l} onClick={() => setLaneFiltre(l)}>
                 {t(`lanes.${l}`)}
               </Puce>
             ))}
-          </div>
-          <div role="group" aria-label={t("draftUI.filtreRole")} className="flex flex-wrap items-center gap-1.5">
-            <span className="mr-1 w-16 shrink-0 text-[0.65rem] uppercase tracking-wide text-craie-500">
-              {t("draftUI.filtreRole")}
-            </span>
-            <Puce actif={role === null} onClick={() => setRole(null)}>
+          </GroupeFiltres>
+          <GroupeFiltres legende={t("draftUI.filtreRole")} largeurLegende="w-16" className="gap-1.5">
+            <Puce dense actif={role === null} onClick={() => setRole(null)}>
               {t("draftUI.tousRoles")}
             </Puce>
             {ROLES.map((r) => (
-              <Puce key={r} actif={role === r} onClick={() => setRole(role === r ? null : r)}>
+              <Puce dense key={r} actif={role === r} onClick={() => setRole(role === r ? null : r)}>
                 {t(`roles.${r}`)}
               </Puce>
             ))}
-          </div>
+          </GroupeFiltres>
         </div>
 
         <p aria-live="polite" className="mt-3 text-xs text-craie-500">
@@ -426,28 +396,3 @@ function Selecteur({
   );
 }
 
-function Puce({
-  actif,
-  onClick,
-  children,
-}: {
-  actif: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      aria-pressed={actif}
-      onClick={onClick}
-      className={cn(
-        "biseau-sm px-2.5 py-1 text-xs font-medium transition-colors",
-        actif
-          ? "bg-or-500 text-nuit-950"
-          : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-      )}
-    >
-      {children}
-    </button>
-  );
-}

@@ -3,7 +3,7 @@
 import { createContext, useContext, useState } from "react";
 import { useT } from "@/i18n/fournisseur";
 import type { RangMesure } from "@/lib/rangs-mesure";
-import { cn } from "@/lib/utils";
+import { GroupeFiltres, Puce } from "@/components/puce";
 
 /**
  * Rang de reference d'une fiche heros.
@@ -46,34 +46,13 @@ export function SelecteurRang({ className }: { className?: string }) {
   const { rang, setRang, rangs } = contexte;
 
   return (
-    <div
-      role="group"
-      aria-label={t("rangsMesure.label")}
-      className={cn("flex flex-wrap items-center gap-2", className)}
-    >
-      <span className="mr-1 text-xs uppercase tracking-wide text-craie-500">
-        {t("rangsMesure.label")}
-      </span>
-      {rangs.map((r) => {
-        const actif = r === rang;
-        return (
-          <button
-            key={r}
-            type="button"
-            aria-pressed={actif}
-            onClick={() => setRang(r)}
-            className={cn(
-              "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
-              actif
-                ? "bg-or-500 text-nuit-950"
-                : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-            )}
-          >
-            {t(`rangsMesure.${r}`)}
-          </button>
-        );
-      })}
-    </div>
+    <GroupeFiltres legende={t("rangsMesure.label")} largeurLegende="" className={className}>
+      {rangs.map((r) => (
+        <Puce key={r} actif={r === rang} onClick={() => setRang(r)}>
+          {t(`rangsMesure.${r}`)}
+        </Puce>
+      ))}
+    </GroupeFiltres>
   );
 }
 

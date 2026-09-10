@@ -28,11 +28,15 @@ export function formaterDate(iso: string, locale = "fr-FR"): string {
  * `scripts/galerie.mjs`.
  */
 export function normaliserNomSkin(nom: string): string {
-  return nom
-    .toLowerCase()
-    .replace(/\(.*?\)/g, "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+  return cleRecherche(nom.replace(/\(.*?\)/g, ""))
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]/g, "");
+}
+
+/**
+ * Cle de recherche : sans casse ni accents. « Epique » trouve « Épique », et
+ * « chang » trouve « Chang'e ». Toutes les recherches du site passent par la.
+ */
+export function cleRecherche(texte: string): string {
+  return texte.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }

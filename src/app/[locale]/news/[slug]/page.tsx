@@ -3,9 +3,8 @@ import { donneesLd } from "@/lib/html";
 import { notFound } from "next/navigation";
 import { CorpsArticle } from "@/components/article";
 import { article, articles, enHtml } from "@/lib/contenu";
-import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
-import { metaLangues } from "@/i18n/seo";
+import { donneesBillet, metaLangues } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
@@ -39,19 +38,7 @@ export default async function PageArticle({ params }: Params) {
   const a = article("actualites", slug, locale);
   if (!a) notFound();
 
-  const donneesStructurees = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: a.titre,
-    description: a.chapeau,
-    datePublished: a.date,
-    dateModified: a.date,
-    inLanguage: "fr-FR",
-    keywords: a.motsCles.join(", "),
-    author: { "@type": "Person", name: a.auteur, url: `https://github.com/${a.auteur}` },
-    publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/${locale}/news/${slug}`,
-  };
+  const donneesStructurees = donneesBillet(a, `/news/${slug}`, locale);
 
   return (
     <>

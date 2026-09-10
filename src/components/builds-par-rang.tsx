@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ChoixBuild } from "@/components/choix-build";
+import { GroupeFiltres, Puce } from "@/components/puce";
 import { useRang } from "@/components/selecteur-rang";
 import type { RangMesure } from "@/lib/rangs-mesure";
 import { useT } from "@/i18n/fournisseur";
@@ -79,31 +80,13 @@ export function BuildsParRang({
       <p className="mt-1 text-sm leading-relaxed text-craie-500">{t("builds.jouesIntro")}</p>
 
       {lanes.length > 1 && (
-        <div
-          role="group"
-          aria-label={t("builds.position")}
-          className="mt-4 flex flex-wrap items-center gap-2"
-        >
-          <span className="mr-1 text-xs uppercase tracking-wide text-craie-500">
-            {t("builds.position")}
-          </span>
+        <GroupeFiltres legende={t("builds.position")} largeurLegende="" className="mt-4">
           {lanes.map((l) => (
-            <button
-              key={l}
-              type="button"
-              aria-pressed={l === lane}
-              onClick={() => setLane(l)}
-              className={cn(
-                "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
-                l === lane
-                  ? "bg-or-500 text-nuit-950"
-                  : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-              )}
-            >
+            <Puce key={l} actif={l === lane} onClick={() => setLane(l)}>
               {t(`lanes.${l}`)}
-            </button>
+            </Puce>
           ))}
-        </div>
+        </GroupeFiltres>
       )}
 
       <ol className="mt-5 grid gap-4 lg:grid-cols-3">

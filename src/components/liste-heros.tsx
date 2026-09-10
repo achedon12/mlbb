@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search } from "lucide-react";
 import { CarteHeros, type ApercuHeros } from "@/components/carte-heros";
 import type { Lane, Role } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";
-import { cn } from "@/lib/utils";
+import { ChampRecherche } from "@/components/champ-recherche";
+import { GroupeFiltres, Puce } from "@/components/puce";
+import { cleRecherche } from "@/lib/utils";
 
 const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 const LANES: Lane[] = ["Or", "Experience", "Milieu", "Jungle", "Roam"];
@@ -57,9 +58,9 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
   }, [recherche]);
 
   const resultats = useMemo(() => {
-    const terme = recherche.trim().toLowerCase();
+    const terme = cleRecherche(recherche.trim());
     const filtres = heros.filter((h) => {
-      if (terme && !h.nom.toLowerCase().includes(terme)) return false;
+      if (terme && !cleRecherche(h.nom).includes(terme)) return false;
       if (role && !h.roles.includes(role)) return false;
       if (lane && !h.lanes.includes(lane)) return false;
       return true;
@@ -84,50 +85,23 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
   return (
     <div>
       <div className="flex flex-col gap-4">
-        <div className="relative max-w-md">
-          <Search
-            size={18}
-            aria-hidden
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-craie-500"
-          />
-          <input
-            type="search"
-            value={recherche}
-            onChange={(e) => setRecherche(e.target.value)}
-            placeholder={t("pages.heroesListe.rechercher")}
-            aria-label={t("pages.heroesListe.rechercher")}
-            className="biseau-sm w-full border border-nuit-700 bg-nuit-900 py-2.5 pl-10 pr-4 text-craie-100 outline-none transition-colors placeholder:text-craie-500 focus:border-or-500"
-          />
-        </div>
+        <ChampRecherche
+          valeur={recherche}
+          onChange={setRecherche}
+          libelle={t("pages.heroesListe.rechercher")}
+          className="max-w-md"
+        />
 
         <Filtres legende={t("pages.heroesListe.role")} valeurs={ROLES} actif={role} onChange={setRole} libelle={(r) => t(`roles.${r}`)} />
         <Filtres legende={t("pages.heroesListe.position")} valeurs={LANES} actif={lane} onChange={setLane} libelle={(l) => t(`lanes.${l}`)} />
 
-        <fieldset className="flex flex-wrap items-center gap-2">
-          <legend className="sr-only">{t("pages.heroesListe.trier")}</legend>
-          <span aria-hidden className="mr-1 w-20 text-xs uppercase tracking-wide text-craie-500">
-            {t("pages.heroesListe.trier")}
-          </span>
-          {TRIS.map((tri_) => {
-            const actif = tri === tri_.cle;
-            return (
-              <button
-                key={tri_.cle}
-                type="button"
-                aria-pressed={actif}
-                onClick={() => setTri(tri_.cle)}
-                className={cn(
-                  "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
-                  actif
-                    ? "bg-or-500 text-nuit-950"
-                    : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-                )}
-              >
-                {t(`pages.heroesListe.${tri_.cleI18n}`)}
-              </button>
-            );
-          })}
-        </fieldset>
+        <GroupeFiltres legende={t("pages.heroesListe.trier")}>
+          {TRIS.map((tri_) => (
+            <Puce key={tri_.cle} actif={tri === tri_.cle} onClick={() => setTri(tri_.cle)}>
+              {t(`pages.heroesListe.${tri_.cleI18n}`)}
+            </Puce>
+          ))}
+        </GroupeFiltres>
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-craie-500">
@@ -162,30 +136,12 @@ function Filtres<T extends string>({
   libelle: (v: T) => string;
 }) {
   return (
-    <fieldset className="flex flex-wrap items-center gap-2">
-      <legend className="sr-only">{legende}</legend>
-      <span aria-hidden className="mr-1 w-20 text-xs uppercase tracking-wide text-craie-500">
-        {legende}
-      </span>
-      {valeurs.map((v) => {
-        const selectionne = actif === v;
-        return (
-          <button
-            key={v}
-            type="button"
-            aria-pressed={selectionne}
-            onClick={() => onChange(selectionne ? null : v)}
-            className={cn(
-              "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
-              selectionne
-                ? "bg-or-500 text-nuit-950"
-                : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-            )}
-          >
-            {libelle(v)}
-          </button>
-        );
-      })}
-    </fieldset>
+    <GroupeFiltres legende={legende}>
+      {valeurs.map((v) => (
+        <Puce key={v} actif={actif === v} onClick={() => onChange(actif === v ? null : v)}>
+          {libelle(v)}
+        </Puce>
+      ))}
+    </GroupeFiltres>
   );
 }

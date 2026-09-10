@@ -47,7 +47,7 @@ export const ACTUALITE: Entree[] = [
   { href: "/patch-notes", cle: "patchNotes", icone: ScrollText },
 ];
 
-function estActif(chemin: string, href: string) {
+export function estActif(chemin: string, href: string) {
   // Le chemin porte un prefixe de langue (/fr/heroes) : on compare la fin.
   return chemin.endsWith(href) || chemin.includes(`${href}/`);
 }
@@ -67,7 +67,6 @@ function Deroulant({
   onOuvrir: () => void;
   onFermer: () => void;
 }) {
-  const t = useT();
   const chemin = usePathname();
   const panneauId = useId();
   const groupeActif = entrees.some((e) => estActif(chemin, e.href));
@@ -99,41 +98,61 @@ function Deroulant({
       <div id={panneauId} hidden={!ouvert} className="absolute left-0 top-full z-50 pt-2">
         <div className="biseau w-80 border border-nuit-700/80 bg-nuit-900/98 p-2 shadow-2xl shadow-nuit-950/60 backdrop-blur">
           <ul className="grid gap-0.5">
-            {entrees.map(({ href, cle, icone: Ic }) => {
-              const actif = estActif(chemin, href);
-              return (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    onClick={onFermer}
-                    aria-current={actif ? "page" : undefined}
-                    className={cn(
-                      "group flex items-start gap-3 rounded-md p-2.5 transition-colors",
-                      actif ? "bg-nuit-800/80" : "hover:bg-nuit-800/60",
-                    )}
-                  >
-                    <span
-                      className={cn(
-                        "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
-                        actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300 group-hover:text-or-400",
-                      )}
-                    >
-                      <Ic size={17} aria-hidden />
-                    </span>
-                    <span className="min-w-0">
-                      <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>
-                        {t(`nav.${cle}.label`)}
-                      </span>
-                      <span className="block text-xs text-craie-400">{t(`nav.${cle}.desc`)}</span>
-                    </span>
-                  </Link>
-                </li>
-              );
-            })}
+            {entrees.map((entree) => (
+              <li key={entree.href}>
+                <LienMenu entree={entree} actif={estActif(chemin, entree.href)} onClick={onFermer} className="items-start" />
+              </li>
+            ))}
           </ul>
         </div>
       </div>
     </div>
+  );
+}
+
+/**
+ * Une rubrique du menu : icone, libelle et courte description. La meme au
+ * bureau et sur mobile.
+ */
+export function LienMenu({
+  entree,
+  actif,
+  onClick,
+  className,
+}: {
+  entree: Entree;
+  actif: boolean;
+  onClick: () => void;
+  className?: string;
+}) {
+  const t = useT();
+  const { href, cle, icone: Ic } = entree;
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      aria-current={actif ? "page" : undefined}
+      className={cn(
+        "group flex gap-3 rounded-md p-2.5 transition-colors",
+        actif ? "bg-nuit-800/80" : "hover:bg-nuit-800/60",
+        className,
+      )}
+    >
+      <span
+        className={cn(
+          "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
+          actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300 group-hover:text-or-400",
+        )}
+      >
+        <Ic size={17} aria-hidden />
+      </span>
+      <span className="min-w-0">
+        <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>
+          {t(`nav.${cle}.label`)}
+        </span>
+        <span className="block text-xs text-craie-400">{t(`nav.${cle}.desc`)}</span>
+      </span>
+    </Link>
   );
 }
 

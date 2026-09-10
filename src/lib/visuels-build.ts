@@ -2,6 +2,7 @@ import visuels from "@/data/jeu/visuels.json";
 import { emblemes } from "@/data/emblemes";
 import type { BuildResolu, GuideResolu, ObjetResolu, VisuelResolu } from "@/components/builds-par-rang";
 import { objets, type BuildJoue, type GuideJoueur } from "./donnees";
+import { cleRecherche } from "./utils";
 import { rangLisible } from "./rangs";
 
 /**
@@ -14,12 +15,7 @@ import { rangLisible } from "./rangs";
 const V = visuels as unknown as Record<"objets" | "emblemes" | "talents" | "sorts", Record<string, string>>;
 
 const cle = (nom: string) =>
-  nom
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
+  cleRecherche(nom).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /**
  * Noms des builds rediges vers la cle du visuel. Recoupes avec les builds

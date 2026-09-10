@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { PortraitHeros } from "@/components/portrait-heros";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Minus, TrendingDown, TrendingUp } from "lucide-react";
 import type { AjustementHeros, TypeAjustement } from "@/lib/types";
@@ -116,15 +116,7 @@ function LigneHeros({
           detaille ? "cursor-pointer" : "cursor-default",
         )}
       >
-        <span className="biseau-sm relative flex size-11 shrink-0 items-center justify-center overflow-hidden bg-nuit-800">
-          {portrait ? (
-            <Image src={portrait} alt="" fill sizes="44px" className="object-cover" />
-          ) : (
-            <span className="font-titre text-lg font-bold text-craie-500">
-              {ajustement.nom.charAt(0)}
-            </span>
-          )}
-        </span>
+        <PortraitHeros source={portrait} nom={ajustement.nom} taille="moyenne" decoratif />
 
         <span className="min-w-0 flex-1">
           <span className="font-titre font-bold text-craie-100">{ajustement.nom}</span>

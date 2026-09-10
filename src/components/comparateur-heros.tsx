@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import Image from "next/image";
+import { PortraitHeros } from "@/components/portrait-heros";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import type { Palier } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";
-import { cn } from "@/lib/utils";
+import { cleRecherche, cn } from "@/lib/utils";
 
 export interface HerosComparable {
   slug: string;
@@ -126,10 +126,6 @@ export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
   );
 }
 
-/** Nom ramene a une cle de recherche : sans casse ni accents. */
-const cleRecherche = (s: string) =>
-  s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
 /**
  * Choix d'un heros, par recherche.
  *
@@ -200,10 +196,8 @@ function Selecteur({
         {label}
       </label>
       <div className="biseau-sm flex items-center gap-2 border border-nuit-700 bg-nuit-900 px-2.5 transition-colors focus-within:border-or-500">
-        {!ouvert && choisi?.icone && (
-          <span className="relative size-6 shrink-0 overflow-hidden bg-nuit-800">
-            <Image src={choisi.icone} alt="" fill sizes="24px" className="object-cover" />
-          </span>
+        {!ouvert && choisi && (
+          <PortraitHeros source={choisi.icone} nom={choisi.nom} taille="micro" decoratif />
         )}
         <input
           id={`${id}-champ`}
@@ -264,9 +258,7 @@ function Selecteur({
                   h.slug === valeur && "font-semibold",
                 )}
               >
-                <span className="relative size-7 shrink-0 overflow-hidden bg-nuit-800">
-                  {h.icone && <Image src={h.icone} alt="" fill sizes="28px" className="object-cover" />}
-                </span>
+                <PortraitHeros source={h.icone} nom={h.nom} taille="mini" decoratif />
                 {h.nom}
               </li>
             ))
@@ -282,11 +274,7 @@ function EnTeteHeros({ heros }: { heros: HerosComparable }) {
   return (
     <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
       <div className="flex items-center gap-3">
-        <span className="biseau-sm relative size-14 shrink-0 overflow-hidden bg-nuit-800">
-          {heros.icone && (
-            <Image src={heros.icone} alt={heros.nom} fill sizes="56px" className="object-cover" />
-          )}
-        </span>
+        <PortraitHeros source={heros.icone} nom={heros.nom} taille="vignette" />
         <div className="min-w-0">
           <div className="flex items-center gap-2">
             <Link

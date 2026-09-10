@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
-import { Search } from "lucide-react";
+import { ChampRecherche } from "@/components/champ-recherche";
+import { Puce } from "@/components/puce";
 import { Tiroir } from "@/components/tiroir";
 import type { ObjetGenere } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";
-import { cn } from "@/lib/utils";
+import { cleRecherche, cn } from "@/lib/utils";
 
 /**
  * Catalogue des objets.
@@ -88,16 +89,16 @@ export function ListeObjets({
   }, [actif]);
 
   const resultats = useMemo(() => {
-    const terme = recherche.trim().toLowerCase();
+    const terme = cleRecherche(recherche.trim());
     return objets.filter((o) => {
       // L'objet ouvert reste toujours affiche, meme hors du filtre courant.
       if (o.slug === actif) return true;
       if (categorie && o.categorie !== categorie) return false;
       if (!terme) return true;
       return (
-        o.nom.toLowerCase().includes(terme) ||
-        (o.bonus ?? "").toLowerCase().includes(terme) ||
-        (o.passif ?? "").toLowerCase().includes(terme)
+        cleRecherche(o.nom).includes(terme) ||
+        cleRecherche(o.bonus ?? "").includes(terme) ||
+        cleRecherche(o.passif ?? "").includes(terme)
       );
     });
   }, [objets, recherche, categorie, actif]);
@@ -118,42 +119,19 @@ export function ListeObjets({
   return (
     <div>
       <div className="flex flex-col gap-4">
-        <div className="relative max-w-md">
-          <Search
-            size={18}
-            aria-hidden
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-craie-500"
-          />
-          <input
-            type="search"
-            value={recherche}
-            onChange={(e) => setRecherche(e.target.value)}
-            placeholder={t("pages.itemsListe.rechercher")}
-            aria-label={t("pages.itemsListe.rechercher")}
-            className="biseau-sm w-full border border-nuit-700 bg-nuit-900 py-2.5 pl-10 pr-4 text-craie-100 outline-none transition-colors placeholder:text-craie-500 focus:border-or-500"
-          />
-        </div>
+        <ChampRecherche
+          valeur={recherche}
+          onChange={setRecherche}
+          libelle={t("pages.itemsListe.rechercher")}
+          className="max-w-md"
+        />
 
         <div className="flex flex-wrap gap-2">
-          {categories.map((c) => {
-            const selectionne = categorie === c;
-            return (
-              <button
-                key={c}
-                type="button"
-                aria-pressed={selectionne}
-                onClick={() => setCategorie(selectionne ? null : c)}
-                className={cn(
-                  "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
-                  selectionne
-                    ? "bg-or-500 text-nuit-950"
-                    : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-                )}
-              >
-                {t(`categories.${c}`)}
-              </button>
-            );
-          })}
+          {categories.map((c) => (
+            <Puce key={c} actif={categorie === c} onClick={() => setCategorie(categorie === c ? null : c)}>
+              {t(`categories.${c}`)}
+            </Puce>
+          ))}
         </div>
       </div>
 

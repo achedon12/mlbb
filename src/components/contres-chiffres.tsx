@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { PortraitHeros } from "@/components/portrait-heros";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { useRang } from "@/components/selecteur-rang";
 import type { RangMesure } from "@/lib/rangs-mesure";
@@ -104,11 +104,7 @@ function Colonne({
               href={`/heroes/${e.slug}`}
               className="flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-nuit-850"
             >
-              <span className="biseau-sm relative size-8 shrink-0 overflow-hidden bg-nuit-800">
-                {e.portrait && (
-                  <Image src={e.portrait} alt="" fill sizes="32px" className="object-cover" />
-                )}
-              </span>
+              <PortraitHeros source={e.portrait} nom={e.nom} taille="petite" decoratif />
               <span className="min-w-0 flex-1 truncate text-sm text-craie-100">{e.nom}</span>
               <span className={cn("shrink-0 text-xs font-semibold tabular-nums", couleur)}>
                 {e.avantage > 0 ? "+" : ""}
