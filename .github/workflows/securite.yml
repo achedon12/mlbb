@@ -1,0 +1,46 @@
+name: Securite
+
+# Analyse de securite : le code par CodeQL, les dependances par npm audit. En
+# plus des poussees, un passage hebdomadaire attrape les vulnerabilites
+# publiees apres coup.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  codeql:
+    name: Analyse du code (CodeQL)
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialiser CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+
+      - name: Analyser
+        uses: github/codeql-action/analyze@v3
+
+  dependances:
+    name: Audit des dependances
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: npm audit
+        run: npm audit --audit-level=high
