@@ -55,11 +55,11 @@ export function BadgeRole({ role }: { role: Role }) {
 }
 
 const COULEUR_PALIER: Record<Palier, string> = {
-  "S+": "bg-sang-500 text-white",
+  "S+": "bg-sang-500 text-nuit-950",
   S: "bg-or-500 text-nuit-950",
-  A: "bg-azur-500 text-white",
+  A: "bg-azur-500 text-nuit-950",
   B: "bg-nuit-600 text-craie-100",
-  C: "bg-nuit-700 text-craie-500",
+  C: "bg-nuit-700 text-craie-300",
 };
 
 export function BadgePalier({ palier }: { palier: Palier }) {
