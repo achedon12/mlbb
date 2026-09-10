@@ -88,6 +88,13 @@
     },
     "modeDetail": {
       "nonDocumente": "I dettagli di questa modalità non sono ancora documentati."
+    },
+    "heroes": {
+      "titre": "Eroe",
+      "chapeau": "I {heros} eroi del gioco e le loro skin {skins}, filtrabili per ruolo e posizione. I {analyses} fogli contrassegnati con “Analisi” contengono anche commenti, costruzioni e contromisure.",
+      "metaTitre": "Tutti gli eroi",
+      "metaDescription": "I {heros} eroi di Mobile Legends: Bang Bang, filtrabili per ruolo e posizione: ritratti, skin, statistiche e {analyses} analisi scritte.",
+      "ogDescription": "Gli eroi {heros} di Mobile Legends: Bang Bang, con le loro skin {skins}."
     }
   },
   "modeFiche": {
