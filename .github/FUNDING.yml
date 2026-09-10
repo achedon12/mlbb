@@ -1,9 +1,11 @@
 # Affiche le bouton « Sponsor » sur la page du depot.
 # PayPal n'a pas de clef dediee : il passe par « custom ».
 github: [achedon12]
-ko_fi: achedon12
-buy_me_a_coffee: achedon12
 custom:
   - "https://www.paypal.me/achedon12"
-# liberapay: achedon12
-# patreon: achedon12
+  - "https://leoderoin.fr"
+# Comptes non confirmes pour « achedon12 » : Buy Me a Coffee renvoie 404
+# (inexistant) et Ko-fi bloque toute verification derriere Cloudflare.
+# A decommenter une fois le compte cree.
+# ko_fi: achedon12
+# buy_me_a_coffee: achedon12
