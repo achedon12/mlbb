@@ -2,6 +2,7 @@
   "aamon": {
     "Invisible Armor": "/visuels/competences/invisible-armor.webp",
     "Soul Shards": "/visuels/competences/soul-shards.webp",
+    "Slayer Shards": "/visuels/competences/slayer-shards.webp",
     "Endless Shards": "/visuels/competences/endless-shards.webp"
   },
   "akai": {
@@ -10,9 +11,16 @@
     "Body Slam": "/visuels/competences/body-slam.webp",
     "Heavy Spin": "/visuels/competences/heavy-spin.webp"
   },
+  "aldous": {
+    "Contract: Transform": "/visuels/competences/contract-transform.webp",
+    "Contract: Soul Steal": "/visuels/competences/contract-soul-steal.webp",
+    "Contract: Explosion": "/visuels/competences/contract-explosion.webp",
+    "Contract: Chase Fate": "/visuels/competences/contract-chase-fate.webp"
+  },
   "alice": {
     "Crimson Blood Banquet": "/visuels/competences/crimson-blood-banquet.webp",
     "Crimson Gleam": "/visuels/competences/crimson-gleam.webp",
+    "Doom Waltz": "/visuels/competences/doom-waltz.webp",
     "Throne of Ruin": "/visuels/competences/throne-of-ruin.webp"
   },
   "alpha": {
@@ -53,7 +61,9 @@
   },
   "aurora": {
     "Pride of Ice": "/visuels/competences/pride-of-ice.webp",
-    "Hailstone Blast": "/visuels/competences/hailstone-blast.webp"
+    "Hailstone Blast": "/visuels/competences/hailstone-blast.webp",
+    "Frosty Breeze": "/visuels/competences/frosty-breeze.webp",
+    "Frigid Glacier": "/visuels/competences/frigid-glacier.webp"
   },
   "badang": {
     "Chivalry Fist": "/visuels/competences/chivalry-fist.webp",
@@ -64,7 +74,8 @@
   "balmond": {
     "Bloodthirst": "/visuels/competences/bloodthirst.webp",
     "Soul Lock": "/visuels/competences/soul-lock.webp",
-    "Cyclone Sweep": "/visuels/competences/cyclone-sweep.webp"
+    "Cyclone Sweep": "/visuels/competences/cyclone-sweep.webp",
+    "Lethal Counter": "/visuels/competences/lethal-counter.webp"
   },
   "bane": {
     "Shark Bite": "/visuels/competences/shark-bite.webp",
@@ -75,6 +86,7 @@
   "barats": {
     "Big Guy": "/visuels/competences/big-guy.webp",
     "So-Called Teamwork": "/visuels/competences/so-called-teamwork.webp",
+    "Missile \"Expert\"": "/visuels/competences/missile-expert.webp",
     "Detona's Welcome": "/visuels/competences/detona-s-welcome.webp"
   },
   "baxia": {
@@ -84,11 +96,17 @@
     "Tortoise's Puissance": "/visuels/competences/tortoise-s-puissance.webp"
   },
   "beatrix": {
+    "Mechanical Genius": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_e7d8fd33d2b89799aa46629090802b70.png",
     "Masterful Gunner": "/visuels/competences/masterful-gunner.webp",
     "Tactical Reposition": "/visuels/competences/tactical-reposition.webp",
-    "Renner's Apathy": "/visuels/competences/renner-s-apathy.webp"
+    "Renner's Apathy": "/visuels/competences/renner-s-apathy.webp",
+    "Need Backup": "/visuels/competences/need-backup.webp",
+    "Bennett's Rage": "/visuels/competences/bennett-s-rage.webp",
+    "Wesker's Elation": "/visuels/competences/wesker-s-elation.webp",
+    "Nibiru's Passion": "/visuels/competences/nibiru-s-passion.webp"
   },
   "belerick": {
+    "Deadly Thorns": "/visuels/competences/deadly-thorns.webp",
     "Ancient Seed": "/visuels/competences/ancient-seed.webp",
     "Nature's Strike": "/visuels/competences/nature-s-strike.webp",
     "Wrath of Dryad": "/visuels/competences/wrath-of-dryad.webp"
@@ -96,7 +114,8 @@
   "benedetta": {
     "Elapsed Daytime": "/visuels/competences/elapsed-daytime.webp",
     "Phantom Slash": "/visuels/competences/phantom-slash.webp",
-    "An Eye for An Eye": "/visuels/competences/an-eye-for-an-eye.webp"
+    "An Eye for An Eye": "/visuels/competences/an-eye-for-an-eye.webp",
+    "Alecto: Final Blow": "/visuels/competences/alecto-final-blow.webp"
   },
   "brody": {
     "Abyss Corrosion": "/visuels/competences/abyss-corrosion.webp",
@@ -120,7 +139,8 @@
     "Overflowing": "/visuels/competences/overflowing.webp",
     "Bat Impact": "/visuels/competences/bat-impact.webp",
     "Sanguine Claws": "/visuels/competences/sanguine-claws.webp",
-    "Bats Feast": "/visuels/competences/bats-feast.webp"
+    "Bats Feast": "/visuels/competences/bats-feast.webp",
+    "Moonlit Waltz": "/visuels/competences/moonlit-waltz.webp"
   },
   "chang-e": {
     "Trouble Maker": "/visuels/competences/trouble-maker.webp",
@@ -132,7 +152,8 @@
     "Snack Time!": "/visuels/competences/snack-time.webp",
     "Crash Course": "/visuels/competences/crash-course.webp",
     "Overtime": "/visuels/competences/overtime.webp",
-    "Shortcut": "/visuels/competences/shortcut.webp"
+    "Shortcut": "/visuels/competences/shortcut.webp",
+    "Why Walk?": "/visuels/competences/why-walk.webp"
   },
   "chou": {
     "Only Fast": "/visuels/competences/only-fast.webp",
@@ -180,13 +201,21 @@
     "Overload": "/visuels/competences/overload.webp",
     "Earth Shatter": "/visuels/competences/earth-shatter.webp",
     "Onward": "/visuels/competences/onward.webp",
-    "Primal Wrath": "/visuels/competences/primal-wrath.webp"
+    "Primal Wrath": "/visuels/competences/primal-wrath.webp",
+    "Divine Retribution": "/visuels/competences/divine-retribution.webp",
+    "Lightning Bolt": "/visuels/competences/lightning-bolt.webp"
   },
   "esmeralda": {
     "Starmoon Casket": "/visuels/competences/starmoon-casket.webp",
     "Frostmoon Shield": "/visuels/competences/frostmoon-shield.webp",
     "Stardust Dance": "/visuels/competences/stardust-dance.webp",
     "Falling Starmoon": "/visuels/competences/falling-starmoon.webp"
+  },
+  "estes": {
+    "Scripture of the Moon Elf": "/visuels/competences/scripture-of-the-moon-elf.webp",
+    "Moonlight Immersion": "/visuels/competences/moonlight-immersion.webp",
+    "Domain of Moon Goddess": "/visuels/competences/domain-of-moon-goddess.webp",
+    "Blessing of Moon Goddess": "/visuels/competences/blessing-of-moon-goddess.webp"
   },
   "eudora": {
     "Superconductor": "/visuels/competences/superconductor.webp",
@@ -213,12 +242,17 @@
     "Bloom": "/visuels/competences/bloom.webp"
   },
   "franco": {
-    "Iron Hook": "/visuels/competences/iron-hook.webp"
+    "Wasteland Force": "/visuels/competences/wasteland-force.webp",
+    "Iron Hook": "/visuels/competences/iron-hook.webp",
+    "Fury Shock": "/visuels/competences/fury-shock.webp",
+    "Bloody Hunt": "/visuels/competences/bloody-hunt.webp"
   },
   "fredrinn": {
     "Crystalline Armor": "/visuels/competences/crystalline-armor.webp",
     "Piercing Strike": "/visuels/competences/piercing-strike.webp",
-    "Brave Assault": "/visuels/competences/brave-assault.webp"
+    "Brave Assault": "/visuels/competences/brave-assault.webp",
+    "Energy Eruption": "/visuels/competences/energy-eruption.webp",
+    "Appraiser's Wrath": "/visuels/competences/appraiser-s-wrath.webp"
   },
   "freya": {
     "Power of Einherjar": "/visuels/competences/power-of-einherjar.webp",
@@ -241,7 +275,8 @@
   "gord": {
     "Mystic Favor": "/visuels/competences/mystic-favor.webp",
     "Mystic Projectile": "/visuels/competences/mystic-projectile.webp",
-    "Mystic Injunction": "/visuels/competences/mystic-injunction.webp"
+    "Mystic Injunction": "/visuels/competences/mystic-injunction.webp",
+    "Mystic Gush": "/visuels/competences/mystic-gush.webp"
   },
   "granger": {
     "Capriccio": "/visuels/competences/capriccio.webp",
@@ -255,14 +290,33 @@
     "Earthen Rampart": "/visuels/competences/earthen-rampart.webp",
     "Tectonic Charge": "/visuels/competences/tectonic-charge.webp"
   },
+  "guinevere": {
+    "Super Magic": "/visuels/competences/super-magic.webp",
+    "Energy Wave": "/visuels/competences/energy-wave.webp",
+    "Spatial Migration": "/visuels/competences/spatial-migration.webp",
+    "Violet Requiem": "/visuels/competences/violet-requiem.webp"
+  },
   "gusion": {
     "Dagger Specialist": "/visuels/competences/dagger-specialist.webp",
     "Sword Spike": "/visuels/competences/sword-spike.webp",
     "Shadowblade Slaughter": "/visuels/competences/shadowblade-slaughter.webp",
     "Incandescence": "/visuels/competences/incandescence.webp"
   },
+  "hanabi": {
+    "Ninjutsu: Petal Barrage": "/visuels/competences/ninjutsu-petal-barrage.webp",
+    "Ninjutsu: Equinox": "/visuels/competences/ninjutsu-equinox.webp",
+    "Ninjutsu: Soul Scroll": "/visuels/competences/ninjutsu-soul-scroll.webp",
+    "Forbidden Jutsu: Higanbana": "/visuels/competences/forbidden-jutsu-higanbana.webp"
+  },
   "hanzo": {
-    "Ame No Habakiri": "/visuels/competences/ame-no-habakiri.webp"
+    "Ame No Habakiri": "/visuels/competences/ame-no-habakiri.webp",
+    "Ninjutsu: Demon Feast": "/visuels/competences/ninjutsu-demon-feast.webp",
+    "Ninjutsu: Dark Mist": "/visuels/competences/ninjutsu-dark-mist.webp",
+    "Kinjutsu: Pinnacle Ninja": "/visuels/competences/kinjutsu-pinnacle-ninja.webp",
+    "Ame no Habakiri": "/visuels/competences/ame-no-habakiri.webp",
+    "Forbidden Ninjutsu: Soul Snatch": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_74eb2011217392bd06c2dc2cf9434731.png",
+    "Forbidden Ninjutsu: Black Mist": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_2e6bdaf0784cffb7c0a636b77dce95e7.png",
+    "Ninjutsu Flee: Return": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_d84a015788767e56209e80d5ee64ca8a.png"
   },
   "harith": {
     "Key Insight": "/visuels/competences/key-insight.webp",
@@ -271,23 +325,35 @@
     "Zaman Force": "/visuels/competences/zaman-force.webp"
   },
   "harley": {
+    "Magic Master": "/visuels/competences/magic-master.webp",
     "Poker Trick": "/visuels/competences/poker-trick.webp",
     "Space Escape": "/visuels/competences/space-escape.webp",
     "Deadly Magic": "/visuels/competences/deadly-magic.webp"
   },
+  "hayabusa": {
+    "Ninjutsu: Trace of Shadow": "/visuels/competences/ninjutsu-trace-of-shadow.webp",
+    "Ninjutsu: Phantom Shuriken": "/visuels/competences/ninjutsu-phantom-shuriken.webp",
+    "Ninjutsu: Quad Shadow": "/visuels/competences/ninjutsu-quad-shadow.webp",
+    "Ougi: Shadow Kill": "/visuels/competences/ougi-shadow-kill.webp"
+  },
   "helcurt": {
     "Shadow of Styx": "/visuels/competences/shadow-of-styx.webp",
     "Hidden Terror": "/visuels/competences/hidden-terror.webp",
-    "Deadly Stinger": "/visuels/competences/deadly-stinger.webp"
+    "Deadly Stinger": "/visuels/competences/deadly-stinger.webp",
+    "Dark Night Falls": "/visuels/competences/dark-night-falls.webp"
   },
   "hilda": {
+    "Blessing of Wilderness": "/visuels/competences/blessing-of-wilderness.webp",
     "Combat Ritual": "/visuels/competences/combat-ritual.webp",
     "Art of Hunting": "/visuels/competences/art-of-hunting.webp",
     "Power of Wildness": "/visuels/competences/power-of-wildness.webp"
   },
   "hirara": {
+    "Twin Fans: Ukifune": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_08027b326d3c236be35e6d82a6b7dbf2.png",
     "Meisen-e": "/visuels/competences/meisen-e.webp",
-    "Kaerazu": "/visuels/competences/kaerazu.webp"
+    "Kaerazu": "/visuels/competences/kaerazu.webp",
+    "Falling Maple": "/visuels/competences/falling-maple.webp",
+    "Infernal Torrent": "/visuels/competences/infernal-torrent.webp"
   },
   "hylos": {
     "Thickened Blood": "/visuels/competences/thickened-blood.webp",
@@ -328,7 +394,11 @@
   "julian": {
     "Smith's Legacy": "/visuels/competences/smith-s-legacy.webp",
     "Scythe": "/visuels/competences/scythe.webp",
-    "Sword": "/visuels/competences/sword.webp"
+    "Sword": "/visuels/competences/sword.webp",
+    "Chain": "/visuels/competences/chain.webp",
+    "Enhanced Scythe": "/visuels/competences/enhanced-scythe.webp",
+    "Enhanced Sword": "/visuels/competences/enhanced-sword.webp",
+    "Enhanced Chain": "/visuels/competences/enhanced-chain.webp"
   },
   "kadita": {
     "Thalassophobia": "/visuels/competences/thalassophobia.webp",
@@ -343,6 +413,7 @@
     "Yin Yang Overturn": "/visuels/competences/yin-yang-overturn.webp"
   },
   "kaja": {
+    "Wings of Lightning": "/visuels/competences/wings-of-lightning.webp",
     "Ring of Order": "/visuels/competences/ring-of-order.webp",
     "Soaring Wings": "/visuels/competences/soaring-wings.webp",
     "Divine Binding": "/visuels/competences/divine-binding.webp"
@@ -368,6 +439,7 @@
   "khaleed": {
     "Sand Walk": "/visuels/competences/sand-walk.webp",
     "Desert Tornado": "/visuels/competences/desert-tornado.webp",
+    "Quicksand Guard": "/visuels/competences/quicksand-guard.webp",
     "Raging Sandstorm": "/visuels/competences/raging-sandstorm.webp"
   },
   "khufra": {
@@ -392,7 +464,10 @@
     "Homeland Defender": "/visuels/competences/homeland-defender.webp",
     "Justice Blades": "/visuels/competences/justice-blades.webp",
     "Jungle Warrior": "/visuels/competences/jungle-warrior.webp",
-    "Bravest Fighter": "/visuels/competences/bravest-fighter.webp"
+    "Bravest Fighter": "/visuels/competences/bravest-fighter.webp",
+    "Land Shaker": "/visuels/competences/land-shaker.webp",
+    "Storm Sword": "/visuels/competences/storm-sword.webp",
+    "Raging Slash": "/visuels/competences/raging-slash.webp"
   },
   "layla": {
     "Malefic Gun": "/visuels/competences/malefic-gun.webp",
@@ -404,7 +479,9 @@
     "The Oath Keeper": "/visuels/competences/the-oath-keeper.webp",
     "Momentum": "/visuels/competences/momentum.webp",
     "Decimation Assault": "/visuels/competences/decimation-assault.webp",
-    "Phantom Steed": "/visuels/competences/phantom-steed.webp"
+    "Phantom Steed": "/visuels/competences/phantom-steed.webp",
+    "Phantom Stomp": "/visuels/competences/phantom-stomp.webp",
+    "Phantom Charge": "/visuels/competences/phantom-charge.webp"
   },
   "lesley": {
     "Lethal Shot": "/visuels/competences/lethal-shot.webp",
@@ -419,6 +496,7 @@
     "Tempest of Blades": "/visuels/competences/tempest-of-blades.webp"
   },
   "lolita": {
+    "Noumenon Energy Core": "/visuels/competences/noumenon-energy-core.webp",
     "Power Charge": "/visuels/competences/power-charge.webp",
     "Guardian's Reflection": "/visuels/competences/guardian-s-reflection.webp",
     "Noumenon Blast": "/visuels/competences/noumenon-blast.webp"
@@ -427,12 +505,17 @@
     "Hero's Resolve": "/visuels/competences/hero-s-resolve.webp",
     "Flash Combo": "/visuels/competences/flash-combo.webp",
     "Flash Step": "/visuels/competences/flash-step.webp",
-    "Unleash the Beast": "/visuels/competences/unleash-the-beast.webp"
+    "Unleash the Beast": "/visuels/competences/unleash-the-beast.webp",
+    "Shockwave Blast": "/visuels/competences/shockwave-blast.webp"
   },
   "lunox": {
     "Dreamland Twist": "/visuels/competences/dreamland-twist.webp",
     "Starlight Pulse": "/visuels/competences/starlight-pulse.webp",
-    "Chaos Assault": "/visuels/competences/chaos-assault.webp"
+    "Chaos Assault": "/visuels/competences/chaos-assault.webp",
+    "Order & Chaos": "/visuels/competences/order-chaos.webp",
+    "Cosmic Fission": "/visuels/competences/cosmic-fission.webp",
+    "Power of Order: Brilliance": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_928f5ae97116806edf7fd06522aee9e9.png",
+    "Power of Chaos: Darkening": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_3673d187cf12182b09ba1a0054ca0742.png"
   },
   "luo-yi": {
     "Duality": "/visuels/competences/duality.webp",
@@ -443,7 +526,8 @@
   "lylia": {
     "Angry Gloom": "/visuels/competences/angry-gloom.webp",
     "Magic Shockwave": "/visuels/competences/magic-shockwave.webp",
-    "Shadow Energy": "/visuels/competences/shadow-energy.webp"
+    "Shadow Energy": "/visuels/competences/shadow-energy.webp",
+    "Black Shoes": "/visuels/competences/black-shoes.webp"
   },
   "marcel": {
     "Platinum Snap": "/visuels/competences/platinum-snap.webp",
@@ -461,7 +545,8 @@
     "Ancient Strength": "/visuels/competences/ancient-strength.webp",
     "Wild Power": "/visuels/competences/wild-power.webp",
     "Howl Shock": "/visuels/competences/howl-shock.webp",
-    "Thunderclap": "/visuels/competences/thunderclap.webp"
+    "Thunderclap": "/visuels/competences/thunderclap.webp",
+    "Life Recovery": "/visuels/competences/life-recovery.webp"
   },
   "mathilda": {
     "Ancestral Guidance": "/visuels/competences/ancestral-guidance.webp",
@@ -488,6 +573,7 @@
     "King's Calling": "/visuels/competences/king-s-calling.webp"
   },
   "miya": {
+    "Moon Blessing": "/visuels/competences/moon-blessing.webp",
     "Moon Arrow": "/visuels/competences/moon-arrow.webp",
     "Arrow of Eclipse": "/visuels/competences/arrow-of-eclipse.webp",
     "Hidden Moonlight": "/visuels/competences/hidden-moonlight.webp"
@@ -499,6 +585,7 @@
     "Spear of Destruction": "/visuels/competences/spear-of-destruction.webp"
   },
   "nana": {
+    "Molina's Gift": "/visuels/competences/molina-s-gift.webp",
     "Magic Boomerang": "/visuels/competences/magic-boomerang.webp",
     "Molina Smooch": "/visuels/competences/molina-smooch.webp",
     "Molina Blitz": "/visuels/competences/molina-blitz.webp"
@@ -549,7 +636,8 @@
     "Spiritual Unity": "/visuels/competences/spiritual-unity.webp",
     "Curse of Crow": "/visuels/competences/curse-of-crow.webp",
     "Energy Impact": "/visuels/competences/energy-impact.webp",
-    "Feathered Air Strike": "/visuels/competences/feathered-air-strike.webp"
+    "Feathered Air Strike": "/visuels/competences/feathered-air-strike.webp",
+    "Wings by Wings": "/visuels/competences/wings-by-wings.webp"
   },
   "phoveus": {
     "Demonic Force": "/visuels/competences/demonic-force.webp",
@@ -561,7 +649,8 @@
     "We Are Friends": "/visuels/competences/we-are-friends.webp",
     "Bite 'em, Kupa!": "/visuels/competences/bite-em-kupa.webp",
     "Kupa, Help!": "/visuels/competences/kupa-help.webp",
-    "We Are Angry!": "/visuels/competences/we-are-angry.webp"
+    "We Are Angry!": "/visuels/competences/we-are-angry.webp",
+    "Popol's Surprise": "/visuels/competences/popol-s-surprise.webp"
   },
   "rafaela": {
     "Divine Resurrection": "/visuels/competences/divine-resurrection.webp",
@@ -573,7 +662,10 @@
     "Full Moon Curse": "/visuels/competences/full-moon-curse.webp",
     "Open Fire": "/visuels/competences/open-fire.webp",
     "Hunter's Steps": "/visuels/competences/hunter-s-steps.webp",
-    "Wolf Transformation": "/visuels/competences/wolf-transformation.webp"
+    "Wolf Transformation": "/visuels/competences/wolf-transformation.webp",
+    "Lycan Pounce": "/visuels/competences/lycan-pounce.webp",
+    "Bloodthirsty Howl": "/visuels/competences/bloodthirsty-howl.webp",
+    "Restore Human Form": "/visuels/competences/restore-human-form.webp"
   },
   "ruby": {
     "Let's Dance!": "/visuels/competences/let-s-dance.webp",
@@ -582,6 +674,7 @@
     "I'm Offended!": "/visuels/competences/i-m-offended.webp"
   },
   "saber": {
+    "Enemy's Bane": "/visuels/competences/enemy-s-bane.webp",
     "Orbiting Swords": "/visuels/competences/orbiting-swords.webp",
     "Charge": "/visuels/competences/charge.webp",
     "Triple Sweep": "/visuels/competences/triple-sweep.webp"
@@ -590,18 +683,28 @@
     "Symbiosis": "/visuels/competences/symbiosis.webp",
     "Abyssal Trap": "/visuels/competences/abyssal-trap.webp",
     "Abyssal Arrow": "/visuels/competences/abyssal-arrow.webp",
-    "Primal Darkness": "/visuels/competences/primal-darkness.webp"
+    "Primal Darkness": "/visuels/competences/primal-darkness.webp",
+    "Soul Eater": "/visuels/competences/soul-eater.webp",
+    "Garotte": "/visuels/competences/garotte.webp",
+    "Blessing of the Moon Goddess": "/visuels/competences/blessing-of-the-moon-goddess.webp"
   },
   "silvanna": {
     "Knightess' Resolve": "/visuels/competences/knightess-resolve.webp",
     "Cometic Lance": "/visuels/competences/cometic-lance.webp",
+    "Spiral Strangling": "/visuels/competences/spiral-strangling.webp",
     "Imperial Justice": "/visuels/competences/imperial-justice.webp"
   },
   "sora": {
     "Mystic Surge": "/visuels/competences/mystic-surge.webp",
     "Sundering Strike": "/visuels/competences/sundering-strike.webp",
     "Windstride": "/visuels/competences/windstride.webp",
-    "Shifting Skies": "/visuels/competences/shifting-skies.webp"
+    "Shifting Skies": "/visuels/competences/shifting-skies.webp",
+    "Sundering Strike - Thunderflash": "/visuels/competences/sundering-strike-thunderflash.webp",
+    "Windstride - Thunder Rush": "/visuels/competences/windstride-thunder-rush.webp",
+    "Heaven's Wrath": "/visuels/competences/heaven-s-wrath.webp",
+    "Sundering Strike - Overwhelm": "/visuels/competences/sundering-strike-overwhelm.webp",
+    "Windstride - Skyfall": "/visuels/competences/windstride-skyfall.webp",
+    "Stormbind": "/visuels/competences/stormbind.webp"
   },
   "sun": {
     "Simian God": "/visuels/competences/simian-god.webp",
@@ -612,7 +715,8 @@
   "suyou": {
     "Transient Immortal": "/visuels/competences/transient-immortal.webp",
     "Blade Surge": "/visuels/competences/blade-surge.webp",
-    "Soul Sever": "/visuels/competences/soul-sever.webp"
+    "Soul Sever": "/visuels/competences/soul-sever.webp",
+    "Evil Queller": "/visuels/competences/evil-queller.webp"
   },
   "terizla": {
     "Body of Smith": "/visuels/competences/body-of-smith.webp",
@@ -622,6 +726,7 @@
   },
   "thamuz": {
     "Grand Lord Lava": "/visuels/competences/grand-lord-lava.webp",
+    "Molten Scythes": "/visuels/competences/molten-scythes.webp",
     "Chasm Trample": "/visuels/competences/chasm-trample.webp",
     "Cauterant Inferno": "/visuels/competences/cauterant-inferno.webp"
   },
@@ -646,7 +751,8 @@
   "valentina": {
     "Primal Force": "/visuels/competences/primal-force.webp",
     "Shadow Strike": "/visuels/competences/shadow-strike.webp",
-    "Arcane Shade": "/visuels/competences/arcane-shade.webp"
+    "Arcane Shade": "/visuels/competences/arcane-shade.webp",
+    "I Am You": "/visuels/competences/i-am-you.webp"
   },
   "valir": {
     "Ashing": "/visuels/competences/ashing.webp",
@@ -680,13 +786,16 @@
   },
   "yi-sun-shin": {
     "Heavenly Vow": "/visuels/competences/heavenly-vow.webp",
-    "Traceless": "/visuels/competences/traceless.webp"
+    "Traceless": "/visuels/competences/traceless.webp",
+    "Blood Floods": "/visuels/competences/blood-floods.webp",
+    "Mountain Shocker": "/visuels/competences/mountain-shocker.webp"
   },
   "yin": {
     "Leave It to Me": "/visuels/competences/leave-it-to-me.webp",
     "Charged Punch": "/visuels/competences/charged-punch.webp",
     "Instant Blast": "/visuels/competences/instant-blast.webp",
-    "My Turn": "/visuels/competences/my-turn.webp"
+    "My Turn": "/visuels/competences/my-turn.webp",
+    "Frenzy Strike": "/visuels/competences/frenzy-strike.webp"
   },
   "yu-zhong": {
     "Cursing Touch": "/visuels/competences/cursing-touch.webp",
