@@ -3,7 +3,7 @@ import { EnTetePage } from "@/components/ui";
 import { Prose } from "@/components/prose";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
+import { metaPage } from "@/i18n/seo";
 import { legal } from "@/lib/site";
 
 type Params = { params: Promise<{ locale: Langue }> };
@@ -11,11 +11,11 @@ type Params = { params: Promise<{ locale: Langue }> };
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.privacy.titre"),
+  return metaPage(locale, {
+    titre: t("pages.privacy.titre"),
     description: t("pages.privacy.metaDescription"),
-    alternates: metaLangues(locale, "/privacy"),
-  };
+    chemin: "/privacy",
+  });
 }
 
 export default async function PageConfidentialite({ params }: Params) {

@@ -4,17 +4,21 @@ import { EnTetePage } from "@/components/ui";
 import { articles } from "@/lib/contenu";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
+import { metaPage } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.news.metaTitre"),
+  const meta = metaPage(locale, {
+    titre: t("pages.news.metaTitre"),
     description: t("pages.news.metaDescription"),
-    alternates: { ...metaLangues(locale, "/news"), types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.nom}` }] } },
-    openGraph: { title: `${t("pages.news.metaTitre")} — ${site.nom}`, description: t("pages.news.ogDescription"), url: `/${locale}/news` },
+    partage: t("pages.news.ogDescription"),
+    chemin: "/news",
+  });
+  return {
+    ...meta,
+    alternates: { ...meta.alternates, types: { "application/rss+xml": [{ url: "/feed.xml", title: site.nom }] } },
   };
 }
 

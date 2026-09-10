@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { creerT } from "@/i18n/traductions";
 import { assainirHtml, donneesLd } from "@/lib/html";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -12,7 +13,7 @@ import { herosParSlug, illustrations, patchsDetail } from "@/lib/donnees";
 import { article, articles, enHtml } from "@/lib/contenu";
 import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
-import { donneesBillet, metaLangues } from "@/i18n/seo";
+import { donneesBillet, metaPage } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
@@ -36,36 +37,28 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const patch = patchs[slug];
 
   if (patch) {
-    return {
-      title: `Patch ${patch.version}`,
-      description: `Notes officielles de la mise a jour ${patch.version} de Mobile Legends: Bang Bang : nouveaux heros, ajustements et changements d'objets.`,
-      alternates: metaLangues(locale, `/patch-notes/${slug}`),
-      openGraph: {
-        type: "article",
-        title: `Patch ${patch.version} — ${site.nom}`,
-        description: `Notes de la mise a jour ${patch.version}.`,
-        url: `/${locale}/patch-notes/${slug}`,
-      },
-    };
+    const t = creerT(locale);
+    return metaPage(locale, {
+      titre: `Patch ${patch.version}`,
+      description: t("pages.patchNotes.officielleDescription", { version: patch.version }),
+      partage: t("pages.patchNotes.officiellePartage", { version: patch.version }),
+      chemin: `/patch-notes/${slug}`,
+      type: "article",
+    });
   }
 
   const a = article("patch-notes", slug, locale);
   if (!a) return {};
 
-  return {
-    title: a.titre,
+  return metaPage(locale, {
+    titre: a.titre,
     description: a.chapeau,
-    keywords: a.motsCles,
-    alternates: metaLangues(locale, `/patch-notes/${slug}`),
-    openGraph: {
-      type: "article",
-      title: a.titre,
-      description: a.chapeau,
-      url: `/${locale}/patch-notes/${slug}`,
-      publishedTime: a.date,
-      authors: [a.auteur],
-    },
-  };
+    chemin: `/patch-notes/${slug}`,
+    type: "article",
+    motsCles: a.motsCles,
+    publie: a.date,
+    auteur: a.auteur,
+  });
 }
 
 export default async function PagePatch({ params }: Params) {

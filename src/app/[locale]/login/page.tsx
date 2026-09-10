@@ -1,4 +1,5 @@
 import { FilAriane } from "@/components/fil-ariane";
+import { metaLangues } from "@/i18n/seo";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { ShieldCheck } from "lucide-react";
@@ -10,7 +11,7 @@ import { creerT } from "@/i18n/traductions";
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return { title: t("pages.login.metaTitre"), description: t("pages.login.metaDescription"), robots: { index: false, follow: false } };
+  return { title: t("pages.login.metaTitre"), description: t("pages.login.metaDescription"), alternates: metaLangues(locale, "/login"), robots: { index: false, follow: false } };
 }
 
 export const dynamic = "force-dynamic";

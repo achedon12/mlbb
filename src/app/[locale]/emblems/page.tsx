@@ -5,22 +5,17 @@ import { emblemes, sortsDeCombat, talents } from "@/data/emblemes";
 import visuels from "@/data/jeu/visuels.json";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
-import { site } from "@/lib/site";
+import { metaPage } from "@/i18n/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.emblems.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.emblems.metaTitre"),
     description: t("pages.emblems.metaDescription"),
-    alternates: metaLangues(locale, "/emblems"),
-    openGraph: {
-      title: `${t("pages.emblems.metaTitre")} — ${site.nom}`,
-      description: t("pages.emblems.ogDescription"),
-      url: `/${locale}/emblems`,
-    },
-  };
+    partage: t("pages.emblems.ogDescription"),
+    chemin: "/emblems",
+  });
 }
 
 const images: Record<string, string> = {

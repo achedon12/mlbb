@@ -10,20 +10,19 @@ import {
 } from "@/lib/tier-list";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
+import { metaPage } from "@/i18n/seo";
 import { tierNotes as tierNotesDe } from "@/lib/donnees";
-import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.tierList.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.tierList.metaTitre"),
     description: t("pages.tierList.metaDescription"),
-    alternates: metaLangues(locale, "/tier-list"),
-    openGraph: { title: `${t("pages.tierList.metaTitre")} — ${site.nom}`, description: t("pages.tierList.ogDescription"), url: `/${locale}/tier-list` },
-  };
+    partage: t("pages.tierList.ogDescription"),
+    chemin: "/tier-list",
+  });
 }
 
 export default async function PageTierList({ params }: { params: Promise<{ locale: Langue }> }) {

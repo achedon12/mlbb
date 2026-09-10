@@ -7,19 +7,18 @@ import { patchs, patchsDetail, synchro } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
-import { site } from "@/lib/site";
+import { metaPage } from "@/i18n/seo";
 import { formaterDate } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.patchNotes.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.patchNotes.metaTitre"),
     description: t("pages.patchNotes.metaDescription", { n: patchs.length }),
-    alternates: metaLangues(locale, "/patch-notes"),
-    openGraph: { title: `${t("pages.patchNotes.metaTitre")} — ${site.nom}`, description: t("pages.patchNotes.ogDescription", { n: patchs.length }), url: `/${locale}/patch-notes` },
-  };
+    partage: t("pages.patchNotes.ogDescription", { n: patchs.length }),
+    chemin: "/patch-notes",
+  });
 }
 
 const detailles = patchsDetail as Record<string, { version: string }>;

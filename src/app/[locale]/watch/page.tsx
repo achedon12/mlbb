@@ -5,19 +5,18 @@ import { EnTetePage } from "@/components/ui";
 import { mesureVeille, sources, veille } from "@/lib/veille";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
-import { site } from "@/lib/site";
+import { metaPage } from "@/i18n/seo";
 import { formaterDate } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.watch.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.watch.metaTitre"),
     description: t("pages.watch.metaDescription"),
-    alternates: metaLangues(locale, "/watch"),
-    openGraph: { title: `${t("pages.watch.metaTitre")} — ${site.nom}`, description: t("pages.watch.ogDescription"), url: `/${locale}/watch` },
-  };
+    partage: t("pages.watch.ogDescription"),
+    chemin: "/watch",
+  });
 }
 
 export default async function PageVeille({ params }: { params: Promise<{ locale: Langue }> }) {

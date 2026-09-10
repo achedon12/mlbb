@@ -1,4 +1,5 @@
 import { FilAriane } from "@/components/fil-ariane";
+import { metaLangues } from "@/i18n/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -16,7 +17,7 @@ import { jetonCourant, profilCourant } from "@/lib/session";
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return { title: t("pages.account.metaTitre"), description: t("pages.account.metaDescription"), robots: { index: false, follow: false } };
+  return { title: t("pages.account.metaTitre"), description: t("pages.account.metaDescription"), alternates: metaLangues(locale, "/account"), robots: { index: false, follow: false } };
 }
 
 /** Page personnelle : jamais mise en cache. */

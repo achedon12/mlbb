@@ -7,18 +7,17 @@ import type { HerosDraft } from "@/lib/draft";
 import { classementComplet } from "@/lib/tier-list";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
-import { site } from "@/lib/site";
+import { metaPage } from "@/i18n/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.draft.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.draft.metaTitre"),
     description: t("pages.draft.metaDescription"),
-    alternates: metaLangues(locale, "/draft"),
-    openGraph: { title: `${t("pages.draft.metaTitre")} — ${site.nom}`, description: t("pages.draft.ogDescription"), url: `/${locale}/draft` },
-  };
+    partage: t("pages.draft.ogDescription"),
+    chemin: "/draft",
+  });
 }
 
 interface Relation {

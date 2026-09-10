@@ -15,7 +15,8 @@ import type { Langue } from "@/i18n/config";
 import { LOCALE_HTML } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 
-const donneesStructurees = {
+/** Donnees structurees de l'accueil, dans la langue de la page. */
+const donneesAccueil = (locale: Langue) => ({
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -24,10 +25,10 @@ const donneesStructurees = {
       url: site.url,
       name: site.nom,
       description: site.description,
-      inLanguage: "fr-FR",
+      inLanguage: LOCALE_HTML[locale],
       potentialAction: {
         "@type": "SearchAction",
-        target: { "@type": "EntryPoint", urlTemplate: `${site.url}/heroes?q={search_term_string}` },
+        target: { "@type": "EntryPoint", urlTemplate: `${site.url}/${locale}/heroes?q={search_term_string}` },
         "query-input": "required name=search_term_string",
       },
     },
@@ -40,7 +41,7 @@ const donneesStructurees = {
       sameAs: [site.depot],
     },
   ],
-};
+});
 
 const detail = patchsDetail as unknown as Record<
   string,
@@ -96,7 +97,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: donneesLd(donneesAccueil(locale)) }}
       />
 
       {/* ── Bandeau d'accroche ─────────────────────────────────────────── */}

@@ -5,18 +5,17 @@ import { classementComplet } from "@/lib/tier-list";
 import type { Langue } from "@/i18n/config";
 import { LOCALE_HTML } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
-import { site } from "@/lib/site";
+import { metaPage } from "@/i18n/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.apiDoc.titre"),
+  return metaPage(locale, {
+    titre: t("pages.apiDoc.titre"),
     description: t("pages.apiDoc.metaDescription"),
-    alternates: metaLangues(locale, "/api-doc"),
-    openGraph: { title: `${t("pages.apiDoc.titre")} — ${site.nom}`, description: t("pages.apiDoc.ogDescription"), url: `/${locale}/api-doc` },
-  };
+    partage: t("pages.apiDoc.ogDescription"),
+    chemin: "/api-doc",
+  });
 }
 
 interface Route {

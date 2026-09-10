@@ -6,9 +6,9 @@ import { HorsLigne } from "@/components/hors-ligne";
 import { MesureAudience } from "@/components/mesure-audience";
 import { PiedDePage } from "@/components/pied-de-page";
 import { FournisseurLangue } from "@/i18n/fournisseur";
-import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, estLangue, type Langue } from "@/i18n/config";
+import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, estLangue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
+import { metaLangues, OG_LOCALE } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
 /**
@@ -35,13 +35,6 @@ export function generateStaticParams() {
   return LANGUES.map((locale) => ({ locale }));
 }
 
-const OG_LOCALE: Record<Langue, string> = {
-  en: "en_US",
-  fr: "fr_FR",
-  it: "it_IT",
-  es: "es_ES",
-};
-
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   if (!estLangue(locale)) return {};
@@ -50,7 +43,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   return {
     title: { default: titre, template: `%s — ${site.nom}` },
-    description: t("commun.sousTitre"),
+    description: t("commun.descriptionAccueil"),
     alternates: {
       // Racine de la langue : canonique et hreflang de l'accueil. Les pages
       // filles declarent leurs propres alternates via `metaLangues`.
@@ -64,9 +57,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url: `${site.url}/${locale}`,
       siteName: site.nom,
       title: titre,
-      description: t("commun.sousTitre"),
+      description: t("commun.descriptionAccueil"),
+      images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
-    twitter: { card: "summary_large_image", title: titre, description: t("commun.sousTitre") },
+    twitter: {
+      card: "summary_large_image",
+      title: titre,
+      description: t("commun.descriptionAccueil"),
+      images: ["/opengraph-image"],
+    },
   };
 }
 

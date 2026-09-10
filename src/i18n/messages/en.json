@@ -1,7 +1,7 @@
 {
   "commun": {
     "marque": "MLBBDex",
-    "sousTitre": "Mobile Legends Knowledge Base: Bang Bang",
+    "sousTitre": "Mobile Legends: Bang Bang knowledge base",
     "accueil": "Welcome",
     "retour": "Back",
     "changerLangue": "Change language",
@@ -10,7 +10,8 @@
     "allerAuContenu": "Go to content",
     "filAriane": "Breadcrumbs",
     "sections": "Sections of the sheet",
-    "fermer": "Close"
+    "fermer": "Close",
+    "descriptionAccueil": "Mobile Legends: Bang Bang knowledge base: all 133 heroes, their counters and builds by rank, the tier list, items, emblems and patch notes."
   },
   "nav": {
     "baseDeDonnees": "Database",
@@ -36,7 +37,7 @@
       "desc": "Classic, Ranked, Fighting…"
     },
     "items": {
-      "label": "Objects",
+      "label": "Items",
       "desc": "Equipment and statistics"
     },
     "emblems": {
@@ -59,7 +60,7 @@
     "fermer": "Close menu"
   },
   "compte": {
-    "connexion": "Connection",
+    "connexion": "Log in",
     "monCompte": "My account"
   },
   "pied": {
@@ -87,7 +88,8 @@
       "chapeau": "From classic 5v5 to quick Fighting games, each mode changes the rules. Choose one to discover the details.",
       "decouvrir": "Discover the mode",
       "metaDescription": "The game modes of Mobile Legends: Bang Bang, presented one by one, with detailed rules to support.",
-      "ogDescription": "Mobile Legends: Bang Bang game modes and what sets them apart."
+      "ogDescription": "Mobile Legends: Bang Bang game modes and what sets them apart.",
+      "titreMode": "{nom} mode"
     },
     "modeDetail": {
       "nonDocumente": "The details of this mode are not yet documented."
@@ -102,7 +104,7 @@
     "heroesListe": {
       "rechercher": "Search for a hero",
       "role": "Role",
-      "position": "Position",
+      "position": "Lane",
       "trier": "Sort",
       "triNom": "A → Z",
       "triVictoire": "Win rate",
@@ -120,7 +122,7 @@
         "difficulte": "Difficulty"
       },
       "stat": {
-        "position": "Position",
+        "position": "Lane",
         "sortie": "Exit",
         "ressource": "Resource",
         "degats": "Damage",
@@ -151,13 +153,13 @@
       "matchupsIntro": "Hand-commented duels, beyond the numbers.",
       "alaise": "{nom} is comfortable against",
       "difficulte2": "{nom} is in difficulty against",
-      "metaDescription": "{nom}: {roles} from Mobile Legends: Bang Bang. Position {lanes}, {skins} skins.",
+      "metaDescription": "{nom}: {roles} in Mobile Legends: Bang Bang, played in {lanes}. Counters and builds by rank, skills, story and {skins} skins.",
       "comparer": "Compare"
     },
     "items": {
-      "titre": "Objects",
+      "titre": "Items",
       "chapeau": "The {n} items in the store. Click on an object to see the detail; filter by category or search directly for a statistic.",
-      "metaTitre": "Objects",
+      "metaTitre": "Items",
       "metaDescription": "The {n} items in Mobile Legends: Bang Bang: statistics, unique effects, passives, recipes and prices, with their visuals.",
       "ogDescription": "The {n} game items, with stats, passives and recipes."
     },
@@ -243,13 +245,15 @@
       "recentes": "Recent updates",
       "analyses": "Analytics",
       "analysesIntro": "What the official notes don't say: the real effect of the changes in part.",
-      "anciens": "Older patches are not included in full - their content would represent several megabytes for versions that no one plays anymore."
+      "anciens": "Older patches are not included in full - their content would represent several megabytes for versions that no one plays anymore.",
+      "officielleDescription": "Official notes of the Mobile Legends: Bang Bang {version} update: new heroes, adjustments and item changes.",
+      "officiellePartage": "Notes of the {version} update."
     },
     "login": {
-      "titre": "Connection",
+      "titre": "Log in",
       "intro": "Connect your game account using the official Moonton verification code. No password is required.",
       "secu": "The site never sees your password. It only receives a temporary token, stored in a secure cookie, which you delete when you log out.",
-      "metaTitre": "Connection",
+      "metaTitre": "Log in",
       "metaDescription": "Connect your Mobile Legends account by verification code, without password."
     },
     "watch": {
@@ -272,7 +276,7 @@
       "metaDescription": "Publisher, host and owners of site content. Independent fan project, without affiliation with Moonton."
     },
     "privacy": {
-      "titre": "Confidentiality",
+      "titre": "Privacy policy",
       "chapeau": "What the site processes, what it doesn't process, and where your data lives.",
       "metaDescription": "Cookies, local storage, game account connection and audience measurement: what the site processes, and where."
     },
@@ -299,7 +303,7 @@
       "metaDescription": "An open JSON API on the site's Mobile Legends: Bang Bang data: heroes, skills, skins, items, patches and rankings. Without key, without registration.",
       "ogDescription": "Heroes, objects, patches and classification in JSON, without keys.",
       "statHeros": "Hero",
-      "statObjets": "Objects",
+      "statObjets": "Items",
       "statPatchs": "Patches",
       "statClasses": "Hero classes",
       "formeTitre": "Form of responses",
@@ -430,7 +434,7 @@
     "tierListComplete": "Tier list complete",
     "skinsTitre": "Skin Galleries",
     "skinsChapeau": "The {skins} skins of the game, with their full-size illustration, their rarity and their price.",
-    "voirHeros": "See the heroes",
+    "voirHeros": "Browse heroes",
     "derniereMaj": "Last update",
     "toutesActualites": "All news",
     "synchroChapeau": "Last synchronization on {date}.",
@@ -450,7 +454,7 @@
   "vedette": {
     "herosDuJour": "Hero of the day",
     "role": "Role",
-    "position": "Position",
+    "position": "Lane",
     "tierList": "Tier list",
     "victoires": "Victories",
     "skins": "Skins",

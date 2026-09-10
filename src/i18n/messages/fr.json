@@ -10,7 +10,8 @@
     "allerAuContenu": "Aller au contenu",
     "filAriane": "Fil d'Ariane",
     "sections": "Sections de la fiche",
-    "fermer": "Fermer"
+    "fermer": "Fermer",
+    "descriptionAccueil": "Base de connaissances Mobile Legends: Bang Bang : les 133 heros, leurs contres et builds par rang, la tier list, les objets, emblemes et patch notes."
   },
   "nav": {
     "baseDeDonnees": "Base de données",
@@ -87,7 +88,8 @@
       "chapeau": "Du 5 contre 5 classique aux parties rapides en Baston, chaque mode change les regles. Choisissez-en un pour en decouvrir le detail.",
       "decouvrir": "Decouvrir le mode",
       "metaDescription": "Les modes de jeu de Mobile Legends: Bang Bang, presentes un par un, regles detaillees a l'appui.",
-      "ogDescription": "Les modes de jeu de Mobile Legends: Bang Bang et ce qui les distingue."
+      "ogDescription": "Les modes de jeu de Mobile Legends: Bang Bang et ce qui les distingue.",
+      "titreMode": "Mode {nom}"
     },
     "modeDetail": {
       "nonDocumente": "Le detail de ce mode n'est pas encore documente."
@@ -151,7 +153,7 @@
       "matchupsIntro": "Les duels commentes a la main, au-dela des chiffres.",
       "alaise": "{nom} est a l'aise contre",
       "difficulte2": "{nom} est en difficulte contre",
-      "metaDescription": "{nom} : {roles} de Mobile Legends: Bang Bang. Position {lanes}, {skins} skins.",
+      "metaDescription": "{nom} : {roles} de Mobile Legends: Bang Bang, joue en {lanes}. Contres et builds par rang, competences, histoire et {skins} skins.",
       "comparer": "Comparer"
     },
     "items": {
@@ -243,7 +245,9 @@
       "recentes": "Mises a jour recentes",
       "analyses": "Analyses",
       "analysesIntro": "Ce que les notes officielles ne disent pas : l'effet reel des changements en partie.",
-      "anciens": "Les patchs plus anciens ne sont pas repris integralement — leur contenu representerait plusieurs megaoctets pour des versions que plus personne ne joue."
+      "anciens": "Les patchs plus anciens ne sont pas repris integralement — leur contenu representerait plusieurs megaoctets pour des versions que plus personne ne joue.",
+      "officielleDescription": "Notes officielles de la mise a jour {version} de Mobile Legends: Bang Bang : nouveaux heros, ajustements et changements d'objets.",
+      "officiellePartage": "Notes de la mise a jour {version}."
     },
     "login": {
       "titre": "Connexion",

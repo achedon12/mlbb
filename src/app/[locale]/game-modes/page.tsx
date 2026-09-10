@@ -7,23 +7,19 @@ import { CreditWiki } from "@/components/credit-wiki";
 import { modes } from "@/lib/donnees";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
+import { metaPage } from "@/i18n/seo";
 import { ACCENT_MODE_DEFAUT, ACCENTS_MODES } from "@/lib/modes";
 import { site } from "@/lib/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.modes.titre"),
+  return metaPage(locale, {
+    titre: t("pages.modes.titre"),
     description: t("pages.modes.metaDescription"),
-    alternates: metaLangues(locale, "/game-modes"),
-    openGraph: {
-      title: `${t("pages.modes.titre")} — ${site.nom}`,
-      description: t("pages.modes.ogDescription"),
-      url: `/${locale}/game-modes`,
-    },
-  };
+    partage: t("pages.modes.ogDescription"),
+    chemin: "/game-modes",
+  });
 }
 
 export default async function PageModes({ params }: { params: Promise<{ locale: Langue }> }) {

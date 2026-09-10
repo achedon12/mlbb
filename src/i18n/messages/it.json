@@ -10,7 +10,8 @@
     "allerAuContenu": "Vai al contenuto",
     "filAriane": "Pangrattato",
     "sections": "Sezioni del foglio",
-    "fermer": "Chiudi"
+    "fermer": "Chiudi",
+    "descriptionAccueil": "Base di conoscenza di Mobile Legends: Bang Bang: i 133 eroi, i loro counter e le build per rango, la tier list, oggetti, emblemi e patch notes."
   },
   "nav": {
     "baseDeDonnees": "Banca dati",
@@ -59,7 +60,7 @@
     "fermer": "Chiudi menù"
   },
   "compte": {
-    "connexion": "Connessione",
+    "connexion": "Accesso",
     "monCompte": "Il mio conto"
   },
   "pied": {
@@ -87,7 +88,8 @@
       "chapeau": "Dai classici 5v5 ai rapidi giochi di combattimento, ogni modalità cambia le regole. Scegline uno per scoprire i dettagli.",
       "decouvrir": "Scopri la modalità",
       "metaDescription": "Le modalità di gioco di Mobile Legends: Bang Bang, presentate una per una, con regole dettagliate da supportare.",
-      "ogDescription": "Mobile Legends: modalità di gioco Bang Bang e cosa le distingue."
+      "ogDescription": "Mobile Legends: modalità di gioco Bang Bang e cosa le distingue.",
+      "titreMode": "Modalità {nom}"
     },
     "modeDetail": {
       "nonDocumente": "I dettagli di questa modalità non sono ancora documentati."
@@ -102,7 +104,7 @@
     "heroesListe": {
       "rechercher": "Cerca un eroe",
       "role": "Ruolo",
-      "position": "Posizione",
+      "position": "Corsia",
       "trier": "Ordinare",
       "triNom": "A→Z",
       "triVictoire": "Tasso di vincita",
@@ -120,7 +122,7 @@
         "difficulte": "Difficoltà"
       },
       "stat": {
-        "position": "Posizione",
+        "position": "Corsia",
         "sortie": "Uscita",
         "ressource": "Risorsa",
         "degats": "Danno",
@@ -151,7 +153,7 @@
       "matchupsIntro": "Duelli commentati a mano, al di là dei numeri.",
       "alaise": "{nom} è comodo contro",
       "difficulte2": "{nom} è in difficoltà contro",
-      "metaDescription": "{nom}: {roles} da Mobile Legends: Bang Bang. Posizionare le pelli {lanes}, {skins}.",
+      "metaDescription": "{nom}: {roles} in Mobile Legends: Bang Bang, giocato in {lanes}. Counter e build per rango, abilità, storia e {skins} skin.",
       "comparer": "Confrontare"
     },
     "items": {
@@ -243,13 +245,15 @@
       "recentes": "Aggiornamenti recenti",
       "analyses": "Analitica",
       "analysesIntro": "Quello che le note ufficiali non dicono: l'effetto reale dei cambiamenti in parte.",
-      "anciens": "Le patch più vecchie non sono incluse per intero: il loro contenuto rappresenterebbe diversi megabyte per le versioni che nessuno gioca più."
+      "anciens": "Le patch più vecchie non sono incluse per intero: il loro contenuto rappresenterebbe diversi megabyte per le versioni che nessuno gioca più.",
+      "officielleDescription": "Note ufficiali dell'aggiornamento {version} di Mobile Legends: Bang Bang: nuovi eroi, modifiche e cambiamenti agli oggetti.",
+      "officiellePartage": "Note dell'aggiornamento {version}."
     },
     "login": {
-      "titre": "Connessione",
+      "titre": "Accesso",
       "intro": "Collega il tuo account di gioco utilizzando il codice di verifica ufficiale Moonton. Non è richiesta alcuna password.",
       "secu": "Il sito non vede mai la tua password. Riceve solo un token temporaneo, memorizzato in un cookie sicuro, che elimini quando ti disconnetti.",
-      "metaTitre": "Connessione",
+      "metaTitre": "Accesso",
       "metaDescription": "Collega il tuo account Mobile Legends tramite codice di verifica, senza password."
     },
     "watch": {
@@ -272,7 +276,7 @@
       "metaDescription": "Editore, host e proprietari del contenuto del sito. Progetto di fan indipendente, senza affiliazione con Moonton."
     },
     "privacy": {
-      "titre": "Riservatezza",
+      "titre": "Informativa sulla privacy",
       "chapeau": "Cosa elabora il sito, cosa non elabora e dove risiedono i tuoi dati.",
       "metaDescription": "Cookie, archiviazione locale, connessione account di gioco e misurazione dell'audience: cosa elabora il sito e dove."
     },
@@ -450,7 +454,7 @@
   "vedette": {
     "herosDuJour": "Eroe del giorno",
     "role": "Ruolo",
-    "position": "Posizione",
+    "position": "Corsia",
     "tierList": "Elenco livelli",
     "victoires": "Vittorie",
     "skins": "Pelli",
@@ -669,7 +673,7 @@
     "quePrendre": "Cosa prendere",
     "suggestions": "Suggerimenti",
     "rechercher": "Cerca un eroe",
-    "fermer": "Vicino",
+    "fermer": "Chiudi",
     "toutEffacer": "Cancella tutto",
     "intro": "Informa almeno un eroe avversario. I suggerimenti vengono classificati prima in base ai contatori, poi in base alle sinergie con le tue scelte; il tasso di vittoria viene utilizzato solo per decidere tra i vincitori.",
     "dejaPourvue": "già fornito",

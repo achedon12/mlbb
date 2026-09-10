@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LOCALE_HTML } from "@/i18n/config";
 import { donneesLd } from "@/lib/html";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +44,7 @@ import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { normaliserNomSkin } from "@/lib/utils";
-import { metaLangues } from "@/i18n/seo";
+import { metaPage } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
@@ -58,22 +59,24 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!h) return {};
 
   const tm = creerT(locale);
+  // Le resume redige n'existe qu'en francais : les autres langues prennent la
+  // description generee, dans leur langue.
   const description =
-    h.analyse?.resume ??
-    tm("pages.heroDetail.metaDescription", { nom: h.titre ? `${h.nom}, ${h.titre}` : h.nom, roles: h.roles.map((r) => tm(`roles.${r}`)).join(" / "), lanes: h.lanes.map((l) => tm(`lanes.${l}`)).join(", ") || "—", skins: h.skins.length });
+    (locale === "fr" ? h.analyse?.resume : undefined) ??
+    tm("pages.heroDetail.metaDescription", {
+      nom: h.titre ? `${h.nom}, ${h.titre}` : h.nom,
+      roles: h.roles.map((r) => tm(`roles.${r}`)).join(" / "),
+      lanes: h.lanes.map((l) => tm(`lanes.${l}`)).join(", ") || "—",
+      skins: h.skins.length,
+    });
 
-  return {
-    title: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
+  return metaPage(locale, {
+    titre: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
     description,
-    alternates: metaLangues(locale, `/heroes/${slug}`),
-    openGraph: {
-      type: "article",
-      title: `${h.nom} — ${site.nom}`,
-      description,
-      url: `/${locale}/heroes/${slug}`,
-      images: h.visuels.portrait ? [{ url: h.visuels.portrait }] : undefined,
-    },
-  };
+    chemin: `/heroes/${slug}`,
+    type: "article",
+    image: h.visuels.portrait ?? undefined,
+  });
 }
 
 export default async function PageHeros({ params }: Params) {
@@ -155,7 +158,7 @@ export default async function PageHeros({ params }: Params) {
     "@type": "Article",
     headline: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
     description: analyse?.resume,
-    inLanguage: "fr-FR",
+    inLanguage: LOCALE_HTML[locale],
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
     mainEntityOfPage: `${site.url}/${locale}/heroes/${slug}`,

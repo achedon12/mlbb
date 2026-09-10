@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { CorpsArticle } from "@/components/article";
 import { article, articles, enHtml } from "@/lib/contenu";
 import type { Langue } from "@/i18n/config";
-import { donneesBillet, metaLangues } from "@/i18n/seo";
+import { donneesBillet, metaPage } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
@@ -17,20 +17,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const a = article("actualites", slug, locale);
   if (!a) return {};
 
-  return {
-    title: a.titre,
+  return metaPage(locale, {
+    titre: a.titre,
     description: a.chapeau,
-    keywords: a.motsCles,
-    alternates: metaLangues(locale, `/news/${slug}`),
-    openGraph: {
-      type: "article",
-      title: a.titre,
-      description: a.chapeau,
-      url: `/${locale}/news/${slug}`,
-      publishedTime: a.date,
-      authors: [a.auteur],
-    },
-  };
+    chemin: `/news/${slug}`,
+    type: "article",
+    motsCles: a.motsCles,
+    publie: a.date,
+    auteur: a.auteur,
+  });
 }
 
 export default async function PageArticle({ params }: Params) {

@@ -6,7 +6,7 @@ import { heros, herosAnalyses, nombreSkins } from "@/lib/donnees";
 import { tauxParSlug } from "@/lib/tier-list";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
+import { metaPage } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
 type Params = { params: Promise<{ locale: Langue }> };
@@ -15,16 +15,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   const n = { heros: heros.length, skins: nombreSkins, analyses: herosAnalyses.length };
-  return {
-    title: t("pages.heroes.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.heroes.metaTitre"),
     description: t("pages.heroes.metaDescription", n),
-    alternates: metaLangues(locale, "/heroes"),
-    openGraph: {
-      title: `${t("pages.heroes.metaTitre")} — ${site.nom}`,
-      description: t("pages.heroes.ogDescription", n),
-      url: `/${locale}/heroes`,
-    },
-  };
+    partage: t("pages.heroes.ogDescription", n),
+    chemin: "/heroes",
+  });
 }
 
 export default async function PageHeros({ params }: Params) {

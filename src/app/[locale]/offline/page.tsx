@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metaLangues } from "@/i18n/seo";
 import Link from "next/link";
 import { WifiOff } from "lucide-react";
 import type { Langue } from "@/i18n/config";
@@ -14,7 +15,7 @@ import { creerT } from "@/i18n/traductions";
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return { title: t("pages.offline.titre"), robots: { index: false, follow: false } };
+  return { title: t("pages.offline.titre"), alternates: metaLangues(locale, "/offline"), robots: { index: false, follow: false } };
 }
 
 export default async function PageHorsLigne({ params }: { params: Promise<{ locale: Langue }> }) {

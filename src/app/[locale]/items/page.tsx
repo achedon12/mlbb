@@ -5,24 +5,19 @@ import visuels from "@/data/jeu/visuels.json";
 import { categoriesObjets, nombreObjets, objets } from "@/lib/donnees";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
-import { site } from "@/lib/site";
+import { metaPage } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Langue }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.items.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.items.metaTitre"),
     description: t("pages.items.metaDescription", { n: nombreObjets }),
-    alternates: metaLangues(locale, "/items"),
-    openGraph: {
-      title: `${t("pages.items.metaTitre")} — ${site.nom}`,
-      description: t("pages.items.ogDescription", { n: nombreObjets }),
-      url: `/${locale}/items`,
-    },
-  };
+    partage: t("pages.items.ogDescription", { n: nombreObjets }),
+    chemin: "/items",
+  });
 }
 
 const images = visuels.objets as Record<string, string>;

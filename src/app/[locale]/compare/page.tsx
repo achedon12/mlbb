@@ -5,18 +5,17 @@ import { heros } from "@/lib/donnees";
 import { tauxParSlug } from "@/lib/tier-list";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
-import { metaLangues } from "@/i18n/seo";
-import { site } from "@/lib/site";
+import { metaPage } from "@/i18n/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return {
-    title: t("pages.compare.metaTitre"),
+  return metaPage(locale, {
+    titre: t("pages.compare.metaTitre"),
     description: t("pages.compare.metaDescription"),
-    alternates: metaLangues(locale, "/compare"),
-    openGraph: { title: `${t("pages.compare.metaTitre")} — ${site.nom}`, description: t("pages.compare.ogDescription"), url: `/${locale}/compare` },
-  };
+    partage: t("pages.compare.ogDescription"),
+    chemin: "/compare",
+  });
 }
 
 export default async function PageComparateur({ params }: { params: Promise<{ locale: Langue }> }) {

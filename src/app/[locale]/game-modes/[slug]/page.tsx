@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LOCALE_HTML } from "@/i18n/config";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { FilAriane } from "@/components/fil-ariane";
@@ -9,7 +10,7 @@ import { creerT } from "@/i18n/traductions";
 import { CreditWiki } from "@/components/credit-wiki";
 import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
-import { metaLangues } from "@/i18n/seo";
+import { metaPage } from "@/i18n/seo";
 import type { SectionMode } from "@/lib/types";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
@@ -23,17 +24,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const mode = modeParSlug(locale, slug);
   if (!mode) return {};
   const t = creerT(locale);
-  const description = t(`modeFiche.${slug}.texte`);
-  return {
-    title: `Mode ${mode.nom}`,
-    description,
-    alternates: metaLangues(locale, `/game-modes/${slug}`),
-    openGraph: {
-      title: `${mode.nom} — ${site.nom}`,
-      description,
-      url: `/${locale}/game-modes/${slug}`,
-    },
-  };
+  return metaPage(locale, {
+    titre: t("pages.modes.titreMode", { nom: mode.nom }),
+    description: t(`modeFiche.${slug}.texte`),
+    chemin: `/game-modes/${slug}`,
+    type: "article",
+  });
 }
 
 /** Regroupe les points de liste consecutifs pour les rendre dans un seul `<ul>`. */
@@ -83,9 +79,9 @@ export default async function PageMode({ params }: Params) {
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `Mode ${mode.nom} — Mobile Legends: Bang Bang`,
+    headline: `${t("pages.modes.titreMode", { nom: mode.nom })} — Mobile Legends: Bang Bang`,
     description: t(`modeFiche.${slug}.texte`),
-    inLanguage: "fr-FR",
+    inLanguage: LOCALE_HTML[locale],
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
     mainEntityOfPage: `${site.url}/${locale}/game-modes/${slug}`,
