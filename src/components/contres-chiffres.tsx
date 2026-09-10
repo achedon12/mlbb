@@ -1,75 +1,128 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { TrendingDown, TrendingUp } from "lucide-react";
-import type { ContreChiffre } from "@/lib/donnees";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import type { RangContres } from "@/lib/donnees";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
+/** Adversaire resolu par le serveur : le navigateur n'a pas le catalogue. */
+export interface ContreAffiche {
+  slug: string;
+  nom: string;
+  portrait: string | null;
+  /** Ecart de taux de victoire, en points (positif = avantage). */
+  avantage: number;
+}
+
+export interface ContresAffiches {
+  fort: ContreAffiche[];
+  faible: ContreAffiche[];
+  mesure: number | null;
+}
+
+/** Ordre d'affichage, de l'ensemble des parties au sommet du classement. */
+const RANGS: RangContres[] = ["all", "epic", "legend", "mythic", "honor", "glory"];
+
 /**
- * Contres etablis sur les taux de victoire du jeu.
+ * Contres etablis sur les taux de victoire du jeu, rang par rang.
  *
  * Chaque ligne porte l'ecart en points, sa vraie information : « fort contre
  * Wanwan » ne dit rien, « +3,3 points contre Wanwan » situe l'avantage. Les
  * portraits rendent la lecture immediate — on reconnait un heros a sa tete
  * avant son nom.
+ *
+ * Un matchup ne pese pas pareil en Epique et en Gloire mythique : le selecteur
+ * bascule d'une mesure a l'autre. Toutes arrivent avec la page, qui reste
+ * statique — changer de rang ne declenche aucune requete.
  */
 export function ContresChiffres({
-  langue,
-  fort,
-  faible,
-  portraitParSlug,
-  nomParSlug,
+  nom,
+  parRang,
 }: {
-  langue: Langue;
-  fort: ContreChiffre[];
-  faible: ContreChiffre[];
-  portraitParSlug: (slug: string) => string | null;
-  nomParSlug: (slug: string) => string;
+  nom: string;
+  parRang: Partial<Record<RangContres, ContresAffiches>>;
 }) {
-  const t = creerT(langue);
+  const t = useT();
+  const disponibles = RANGS.filter((r) => parRang[r]);
+  const [rang, setRang] = useState(disponibles[0]);
+  const courant = rang ? parRang[rang] : undefined;
+  if (!courant) return null;
+
   return (
-    <div className="grid gap-4 md:grid-cols-2">
-      <Colonne
-        langue={langue}
-        titre={t("contres.fort")}
-        icone={<TrendingUp size={17} aria-hidden />}
-        ton="bon"
-        entrees={fort}
-        portraitParSlug={portraitParSlug}
-        nomParSlug={nomParSlug}
-      />
-      <Colonne
-        langue={langue}
-        titre={t("contres.difficulte")}
-        icone={<TrendingDown size={17} aria-hidden />}
-        ton="mauvais"
-        entrees={faible}
-        portraitParSlug={portraitParSlug}
-        nomParSlug={nomParSlug}
-      />
+    <div>
+      {disponibles.length > 1 && (
+        <div
+          role="group"
+          aria-label={t("contres.rang")}
+          className="mb-4 flex flex-wrap items-center gap-2"
+        >
+          <span className="mr-1 text-xs uppercase tracking-wide text-craie-500">
+            {t("contres.rang")}
+          </span>
+          {disponibles.map((r) => {
+            const actif = r === rang;
+            return (
+              <button
+                key={r}
+                type="button"
+                aria-pressed={actif}
+                onClick={() => setRang(r)}
+                className={cn(
+                  "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
+                  actif
+                    ? "bg-or-500 text-nuit-950"
+                    : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
+                )}
+              >
+                {t(`contres.rangs.${r}`)}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      <p className="mb-4 text-sm leading-relaxed text-craie-500">
+        {t("pages.heroDetail.contresIntro", { nom })}
+        {courant.mesure !== null && (
+          <span className="text-craie-300">
+            {" "}{t("pages.heroDetail.contresRef", { taux: courant.mesure })}
+          </span>
+        )}
+      </p>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <Colonne
+          titre={t("contres.fort")}
+          icone={<TrendingUp size={17} aria-hidden />}
+          ton="bon"
+          entrees={courant.fort}
+        />
+        <Colonne
+          titre={t("contres.difficulte")}
+          icone={<TrendingDown size={17} aria-hidden />}
+          ton="mauvais"
+          entrees={courant.faible}
+        />
+      </div>
     </div>
   );
 }
 
 function Colonne({
-  langue,
   titre,
   icone,
   ton,
   entrees,
-  portraitParSlug,
-  nomParSlug,
 }: {
-  langue: Langue;
   titre: string;
   icone: React.ReactNode;
   ton: "bon" | "mauvais";
-  entrees: ContreChiffre[];
-  portraitParSlug: (slug: string) => string | null;
-  nomParSlug: (slug: string) => string;
+  entrees: ContreAffiche[];
 }) {
-  const t = creerT(langue);
+  const t = useT();
   const couleur = ton === "bon" ? "text-emerald-400" : "text-sang-500";
 
   return (
@@ -79,30 +132,25 @@ function Colonne({
         {titre}
       </h3>
       <ul className="mt-3 space-y-1.5">
-        {entrees.map((e) => {
-          const portrait = portraitParSlug(e.slug);
-          return (
-            <li key={e.slug}>
-              <Link
-                href={`/heroes/${e.slug}`}
-                className="flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-nuit-850"
-              >
-                <span className="biseau-sm relative size-8 shrink-0 overflow-hidden bg-nuit-800">
-                  {portrait && (
-                    <Image src={portrait} alt="" fill sizes="32px" className="object-cover" />
-                  )}
-                </span>
-                <span className="min-w-0 flex-1 truncate text-sm text-craie-100">
-                  {nomParSlug(e.slug)}
-                </span>
-                <span className={cn("shrink-0 text-xs font-semibold tabular-nums", couleur)}>
-                  {e.avantage > 0 ? "+" : ""}
-                  {e.avantage.toFixed(1)} {t("contres.pts")}
-                </span>
-              </Link>
-            </li>
-          );
-        })}
+        {entrees.map((e) => (
+          <li key={e.slug}>
+            <Link
+              href={`/heroes/${e.slug}`}
+              className="flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-nuit-850"
+            >
+              <span className="biseau-sm relative size-8 shrink-0 overflow-hidden bg-nuit-800">
+                {e.portrait && (
+                  <Image src={e.portrait} alt="" fill sizes="32px" className="object-cover" />
+                )}
+              </span>
+              <span className="min-w-0 flex-1 truncate text-sm text-craie-100">{e.nom}</span>
+              <span className={cn("shrink-0 text-xs font-semibold tabular-nums", couleur)}>
+                {e.avantage > 0 ? "+" : ""}
+                {e.avantage.toFixed(1)} {t("contres.pts")}
+              </span>
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   );

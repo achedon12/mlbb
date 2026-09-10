@@ -397,7 +397,16 @@
   "contres": {
     "fort": "Strong against",
     "difficulte": "In difficulty against",
-    "pts": "pts"
+    "pts": "pts",
+    "rang": "Rank",
+    "rangs": {
+      "all": "All ranks",
+      "epic": "Epic",
+      "legend": "Legend",
+      "mythic": "Mythical",
+      "honor": "Mythical Honor",
+      "glory": "Mythical glory"
+    }
   },
   "home": {
     "titre1": "The whole game, explains",

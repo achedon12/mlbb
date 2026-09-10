@@ -81,10 +81,12 @@ export const visuelsCompetences = visuelsGenere.competences as unknown as Record
 /**
  * Contres chiffres, tires des taux de victoire du jeu.
  *
- * Pour chaque heros : ceux contre qui son taux monte le plus (`fort`) et ceux
- * contre qui il descend (`faible`), avec l'ecart en points. Couvre les 133
- * heros, la ou l'analyse ecrite se limite a une poignee.
+ * Pour chaque heros et chaque rang : ceux contre qui son taux monte le plus
+ * (`fort`) et ceux contre qui il descend (`faible`), avec l'ecart en points.
+ * Couvre les 133 heros, la ou l'analyse ecrite se limite a une poignee.
  */
+/** `all` agrege toutes les parties, les autres isolent une tranche du classement. */
+export type RangContres = "all" | "epic" | "legend" | "mythic" | "honor" | "glory";
 export interface ContreChiffre {
   slug: string;
   /** Ecart de taux de victoire, en points (positif = avantage). */
@@ -95,7 +97,21 @@ export interface ContresHeros {
   faible: ContreChiffre[];
   mesure: number | null;
 }
-export const contres = statistiquesGenere.contres as unknown as Record<string, ContresHeros>;
+/** Un rang absent n'a pas ete mesure pour ce heros. */
+export type ContresParRang = Partial<Record<RangContres, ContresHeros>>;
+/**
+ * Avant le decoupage par rang, un heros portait `fort` et `faible` a la racine.
+ * Un fichier de cette epoque — synchro pas encore relancee — est range sous
+ * `all` plutot que de faire tomber la fiche.
+ */
+function parRang(brut: ContresParRang | ContresHeros): ContresParRang {
+  return "fort" in brut ? { all: brut } : brut;
+}
+export const contres: Record<string, ContresParRang> = Object.fromEntries(
+  Object.entries(
+    statistiquesGenere.contres as unknown as Record<string, ContresParRang | ContresHeros>,
+  ).map(([slug, c]) => [slug, parRang(c)]),
+);
 
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
 export const patchsDetail = patchsGenere.detail as unknown as Record<string, PatchDetaille>;

@@ -397,7 +397,16 @@
   "contres": {
     "fort": "Fort contre",
     "difficulte": "En difficulte contre",
-    "pts": "pts"
+    "pts": "pts",
+    "rang": "Rang",
+    "rangs": {
+      "all": "Tous rangs",
+      "epic": "Epique",
+      "legend": "Legende",
+      "mythic": "Mythique",
+      "honor": "Honneur mythique",
+      "glory": "Gloire mythique"
+    }
   },
   "home": {
     "titre1": "Tout le jeu, explique",

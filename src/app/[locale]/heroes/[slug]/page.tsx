@@ -24,6 +24,7 @@ import { BadgeRole } from "@/components/badge-role";
 import {
   competences,
   contres,
+  type ContreChiffre,
   heros,
   herosParSlug,
   histoires,
@@ -81,7 +82,6 @@ export default async function PageHeros({ params }: Params) {
   // L'illustration du skin d'origine sert de fond : c'est celle qui represente
   // le heros tel qu'on le rencontre par defaut.
   const fond = Object.values(illustrationsHeros)[0] ?? null;
-  const contresHeros = contres[h.slug] ?? null;
   const histoire = histoires(locale)[h.slug] ?? null;
   const aHistoire =
     !!histoire && (histoire.lore.length > 0 || !!histoire.fiche || histoire.anecdotes.length > 0);
@@ -96,6 +96,18 @@ export default async function PageHeros({ params }: Params) {
   const portraitDe = (slug: string) =>
     herosParSlug.get(slug)?.visuels.icone ?? herosParSlug.get(slug)?.visuels.portrait ?? null;
   const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+
+  // Le selecteur de rang tourne dans le navigateur, qui n'a pas le catalogue :
+  // noms et portraits des adversaires sont donc resolus ici, pour chaque rang.
+  const resoudre = (liste: ContreChiffre[]) =>
+    liste.map((e) => ({ ...e, nom: nomDe(e.slug), portrait: portraitDe(e.slug) }));
+  const contresAffiches = Object.fromEntries(
+    Object.entries(contres[h.slug] ?? {}).map(([rang, c]) => [
+      rang,
+      { fort: resoudre(c.fort), faible: resoudre(c.faible), mesure: c.mesure },
+    ]),
+  );
+  const aContres = Object.keys(contresAffiches).length > 0;
 
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -345,25 +357,11 @@ export default async function PageHeros({ params }: Params) {
               id: "contres",
               label: t("pages.heroDetail.onglet.contres"),
               contenu:
-                contresHeros || analyse ? (
+                aContres || analyse ? (
                   <div className="space-y-8">
-                    {contresHeros && (
+                    {aContres && (
                       <section>
-                        <p className="mb-4 text-sm leading-relaxed text-craie-500">
-                          {t("pages.heroDetail.contresIntro", { nom: h.nom })}
-                          {contresHeros.mesure !== null && (
-                            <span className="text-craie-300">
-                              {" "}{t("pages.heroDetail.contresRef", { taux: contresHeros.mesure })}
-                            </span>
-                          )}
-                        </p>
-                        <ContresChiffres
-                          langue={locale}
-                          fort={contresHeros.fort}
-                          faible={contresHeros.faible}
-                          portraitParSlug={portraitDe}
-                          nomParSlug={nomDe}
-                        />
+                        <ContresChiffres nom={h.nom} parRang={contresAffiches} />
                       </section>
                     )}
 

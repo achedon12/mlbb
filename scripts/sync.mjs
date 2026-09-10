@@ -602,7 +602,17 @@ async function pagesHeros(heros) {
 }
 
 /**
- * Contres reels, avec taux de victoire.
+ * Rangs couverts par les contres, dans l'ordre de l'API.
+ *
+ * `all` agrege toutes les parties ; les autres isolent une tranche du
+ * classement, de Epique a Gloire mythique. Les matchups changent vraiment d'une
+ * tranche a l'autre — le pire adversaire d'Aamon n'est pas le meme en Epique
+ * et en Gloire —, d'ou une mesure par rang plutot qu'une seule moyenne.
+ */
+const RANGS_CONTRES = ["all", "epic", "legend", "mythic", "honor", "glory"];
+
+/**
+ * Contres reels, avec taux de victoire, pour chaque rang.
  *
  * L'academie expose, pour chaque heros, le taux de victoire de tous ses
  * adversaires et surtout la variation de ce taux quand ils l'affrontent :
@@ -631,26 +641,24 @@ async function contresReels(heros) {
     }
   }
 
-  const sortie = {};
-
-  for (const [i, h] of heros.entries()) {
+  /** Contres d'un heros dans un rang, ou null si l'API n'a rien pour lui. */
+  async function contresDuRang(h, rang) {
     try {
       const rep = await fetch(
-        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/counters`,
+        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/counters?rank=${rang}`,
         { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(20000) },
       );
-      if (!rep.ok) continue;
+      if (!rep.ok) return null;
 
       const bloc = (await rep.json())?.data?.records?.[0]?.data;
       const adversaires = Array.isArray(bloc?.sub_hero) ? bloc.sub_hero : [];
-      if (adversaires.length === 0) continue;
+      if (adversaires.length === 0) return null;
 
       // On ne retient que les adversaires connus, avec leur variation.
       const notes = adversaires
         .map((a) => ({
           slug: parId.get(a.heroid),
           delta: typeof a.increase_win_rate === "number" ? a.increase_win_rate : 0,
-          winRate: typeof a.hero_win_rate === "number" ? a.hero_win_rate : null,
         }))
         .filter((a) => a.slug && a.slug !== h.slug);
 
@@ -660,7 +668,7 @@ async function contresReels(heros) {
       const parDelta = [...notes].sort((a, b) => b.delta - a.delta);
       const point = (a) => ({ slug: a.slug, avantage: Math.round(a.delta * 1000) / 10 });
 
-      sortie[h.slug] = {
+      return {
         // avantage positif : le heros est fort contre cette cible.
         fort: parDelta.slice(0, 6).map(point),
         // avantage negatif : le heros est en difficulte.
@@ -670,8 +678,22 @@ async function contresReels(heros) {
           : null,
       };
     } catch {
-      /* un heros en echec n'interrompt pas la synchronisation */
+      /* un rang en echec n'interrompt pas la synchronisation */
+      return null;
     }
+  }
+
+  const sortie = {};
+
+  for (const [i, h] of heros.entries()) {
+    // Les six rangs d'un meme heros partent ensemble : l'API met pres de trois
+    // secondes a repondre, en serie la synchronisation durerait une demi-heure.
+    const resultats = await Promise.all(RANGS_CONTRES.map((rang) => contresDuRang(h, rang)));
+    const parRang = {};
+    RANGS_CONTRES.forEach((rang, j) => {
+      if (resultats[j]) parRang[rang] = resultats[j];
+    });
+    if (Object.keys(parRang).length > 0) sortie[h.slug] = parRang;
 
     process.stdout.write(`\r    contres ${i + 1}/${heros.length}`);
     await pause(150);
@@ -1250,19 +1272,6 @@ async function principal() {
   const emblemesRangs = await rangs();
   console.log(`  ${Object.keys(emblemesRangs.images).length} emblemes`);
 
-  // Emblemes de rang copies en local, comme le reste : aucune image servie
-  // depuis un hote externe a l'execution.
-  for (const [cle, url] of Object.entries(emblemesRangs.images)) {
-    if (!url || url.startsWith("/")) continue;
-    plan.push({
-      url,
-      chemin: `public/visuels/rangs/${cle}.webp`,
-      optimiser: true,
-      largeur: 160,
-    });
-    emblemesRangs.images[cle] = `/visuels/rangs/${cle}.webp`;
-  }
-
   console.log("Modes de jeu…");
   const modes = await modesDeJeu();
   console.log(`  ${modes.length} modes (${modes.filter((m) => m.description).length} decrits)`);
@@ -1279,6 +1288,19 @@ async function principal() {
   console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icones).length} icones`);
 
   const { plan, chemins } = planVisuels(heros, skins, portraits, icones);
+
+  // Emblemes de rang copies en local, comme le reste : aucune image servie
+  // depuis un hote externe a l'execution.
+  for (const [cle, url] of Object.entries(emblemesRangs.images)) {
+    if (!url || url.startsWith("/")) continue;
+    plan.push({
+      url,
+      chemin: `public/visuels/rangs/${cle}.webp`,
+      optimiser: true,
+      largeur: 160,
+    });
+    emblemesRangs.images[cle] = `/visuels/rangs/${cle}.webp`;
+  }
 
   // ── Visuels des modes ──────────────────────────────────────────────
   // Comme le reste, l'image d'un mode est copiee en local : le site ne doit
