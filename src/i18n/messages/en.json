@@ -397,16 +397,7 @@
   "contres": {
     "fort": "Strong against",
     "difficulte": "In difficulty against",
-    "pts": "pts",
-    "rang": "Rank",
-    "rangs": {
-      "all": "All ranks",
-      "epic": "Epic",
-      "legend": "Legend",
-      "mythic": "Mythical",
-      "honor": "Mythical Honor",
-      "glory": "Mythical glory"
-    }
+    "pts": "pts"
   },
   "home": {
     "titre1": "The whole game, explains",
@@ -954,5 +945,33 @@
   },
   "carteHeros": {
     "palierTitre": "Level {p} of the tier list"
+  },
+  "rangsMesure": {
+    "label": "Rank",
+    "all": "All ranks",
+    "epic": "Epic",
+    "legend": "Legend",
+    "mythic": "Mythical",
+    "honor": "Mythical Honor",
+    "glory": "Mythical glory"
+  },
+  "builds": {
+    "joues": "Most played builds",
+    "jouesIntro": "The three most played builds in ranked games for the selected rank, with their win rate and the share of games they appear in.",
+    "position": "Lane",
+    "build": "Build {n}",
+    "victoire": "{taux}% win rate",
+    "selection": "{taux}% of games",
+    "objets": "Core items",
+    "embleme": "Emblem",
+    "talents": "Talents",
+    "talent": "Talent",
+    "sort": "Spell",
+    "rediges": "Annotated builds",
+    "redigesIntro": "Written by hand, with game context.",
+    "guide": "A player's full build",
+    "guideIntro": "The full equipment, six items, suggested by a player of this rank — or, failing that, a higher one: the best-rated guide on the game's academy. It is an opinion, not a measurement — it has no win rate.",
+    "guideAuteur": "Author's highest rank: {rang}",
+    "guideVotes": "{n} vote(s)"
   }
 }

@@ -397,16 +397,7 @@
   "contres": {
     "fort": "Fort contre",
     "difficulte": "En difficulte contre",
-    "pts": "pts",
-    "rang": "Rang",
-    "rangs": {
-      "all": "Tous rangs",
-      "epic": "Epique",
-      "legend": "Legende",
-      "mythic": "Mythique",
-      "honor": "Honneur mythique",
-      "glory": "Gloire mythique"
-    }
+    "pts": "pts"
   },
   "home": {
     "titre1": "Tout le jeu, explique",
@@ -954,5 +945,33 @@
   },
   "carteHeros": {
     "palierTitre": "Palier {p} de la tier list"
+  },
+  "rangsMesure": {
+    "label": "Rang",
+    "all": "Tous rangs",
+    "epic": "Epique",
+    "legend": "Legende",
+    "mythic": "Mythique",
+    "honor": "Honneur mythique",
+    "glory": "Gloire mythique"
+  },
+  "builds": {
+    "joues": "Builds les plus joues",
+    "jouesIntro": "Les trois builds les plus joues en partie classee pour le rang choisi, avec leur taux de victoire et la part des parties ou ils apparaissent.",
+    "position": "Position",
+    "build": "Build {n}",
+    "victoire": "{taux} % de victoire",
+    "selection": "{taux} % des parties",
+    "objets": "Objets cles",
+    "embleme": "Embleme",
+    "talents": "Talents",
+    "talent": "Talent",
+    "sort": "Sort",
+    "rediges": "Builds commentes",
+    "redigesIntro": "Ecrits a la main, avec le contexte de jeu.",
+    "guide": "Build complet d'un joueur",
+    "guideIntro": "L'equipement complet, six objets, propose par un joueur de ce rang — ou, a defaut, d'un rang superieur : le guide le mieux note sur l'academie du jeu. C'est un avis, pas une mesure — il n'a pas de taux de victoire.",
+    "guideAuteur": "Meilleur rang de l'auteur : {rang}",
+    "guideVotes": "{n} vote(s)"
   }
 }

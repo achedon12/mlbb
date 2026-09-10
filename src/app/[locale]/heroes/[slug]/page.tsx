@@ -10,7 +10,11 @@ import { HistoireHeros } from "@/components/histoire-heros";
 import { FilAriane } from "@/components/fil-ariane";
 
 import { ContresChiffres } from "@/components/contres-chiffres";
+import { RangProvider, SelecteurRang, ValeurParRang } from "@/components/selecteur-rang";
 import { ObjetBuild } from "@/components/objet-build";
+import { BuildsParRang } from "@/components/builds-par-rang";
+import { ChoixBuild } from "@/components/choix-build";
+import { resoudreBuild, resoudreGuide, visuelEmbleme, visuelSort, visuelTalent } from "@/lib/visuels-build";
 import { Onglets } from "@/components/onglets";
 
 import {
@@ -22,7 +26,9 @@ import {
 import { Carte, Jauge } from "@/components/ui";
 import { BadgeRole } from "@/components/badge-role";
 import {
+  buildsJoues,
   competences,
+  guidesJoueurs,
   contres,
   type ContreChiffre,
   heros,
@@ -31,7 +37,8 @@ import {
   illustrations,
   visuelsCompetences,
 } from "@/lib/donnees";
-import { classementComplet } from "@/lib/tier-list";
+import { classementComplet, statsParRang, type StatsRang } from "@/lib/tier-list";
+import { RANGS_MESURE } from "@/lib/rangs-mesure";
 import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
@@ -109,6 +116,33 @@ export default async function PageHeros({ params }: Params) {
   );
   const aContres = Object.keys(contresAffiches).length > 0;
 
+  // Taux de l'en-tete, rang par rang : le rang choisi sur la fiche les fait
+  // basculer en meme temps que les contres.
+  const statsRangs = statsParRang(h.slug);
+  const selonRang = (format: (s: StatsRang) => string) =>
+    Object.fromEntries(Object.entries(statsRangs).map(([r, s]) => [r, format(s)]));
+  const rangsDisponibles = RANGS_MESURE.filter((r) => statsRangs[r] || contresAffiches[r]);
+
+  // Builds joues, resolus ici pour la meme raison : visuels et catalogue
+  // restent cote serveur.
+  const buildsAffiches = Object.fromEntries(
+    Object.entries(buildsJoues[h.slug] ?? {}).map(([lane, parRang]) => [
+      lane,
+      Object.fromEntries(
+        Object.entries(parRang).map(([rang, liste]) => [rang, (liste ?? []).map(resoudreBuild)]),
+      ),
+    ]),
+  );
+  const guidesAffiches = Object.fromEntries(
+    Object.entries(guidesJoueurs[h.slug] ?? {}).map(([lane, parRang]) => [
+      lane,
+      Object.fromEntries(
+        Object.entries(parRang).flatMap(([rang, g]) => (g ? [[rang, resoudreGuide(g)]] : [])),
+      ),
+    ]),
+  );
+  const aBuilds = Object.keys(buildsAffiches).length > 0 || Object.keys(guidesAffiches).length > 0;
+
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -134,6 +168,7 @@ export default async function PageHeros({ params }: Params) {
         comme la grande illustration.
       */}
       <VitrineProvider skins={skinsComplets} portraitDefaut={h.visuels.portrait}>
+      <RangProvider rangs={rangsDisponibles}>
       <div className="mx-auto max-w-6xl px-4 pt-6">
         <FilAriane miettes={[{ nom: t("nav.heroes.label"), href: "/heroes" }, { nom: h.nom }]} />
       </div>
@@ -240,7 +275,8 @@ export default async function PageHeros({ params }: Params) {
             l'assombrissement de l'illustration : le contraste ne depend alors
             plus de la luminosite de l'artwork, qui change a chaque heros.
           */}
-          <dl className="biseau mt-8 grid grid-cols-2 gap-x-8 gap-y-4 border border-nuit-700/50 bg-nuit-950/75 p-5 text-sm backdrop-blur-sm sm:grid-cols-4 lg:grid-cols-6">
+          <div className="biseau mt-8 border border-nuit-700/50 bg-nuit-950/75 p-5 backdrop-blur-sm">
+          <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6">
             {[
               [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
               [t("pages.heroDetail.stat.sortie"), h.sortie],
@@ -249,9 +285,9 @@ export default async function PageHeros({ params }: Params) {
               [t("pages.heroDetail.stat.portee"), h.typeAttaque],
               [t("pages.heroDetail.stat.region"), h.region],
               [t("pages.heroDetail.stat.skins"), h.skins.length || null],
-              [t("pages.heroDetail.stat.tierList"), classe ? t("pages.heroDetail.palier", { p: classe.palier }) : null],
-              [t("pages.heroDetail.stat.tauxVictoire"), classe ? `${classe.victoire.toFixed(1)} %` : null],
-              [t("pages.heroDetail.stat.tauxBan"), classe ? `${classe.ban.toFixed(1)} %` : null],
+              [t("pages.heroDetail.stat.tierList"), classe ? <ValeurParRang valeurs={selonRang((s) => t("pages.heroDetail.palier", { p: s.palier }))} /> : null],
+              [t("pages.heroDetail.stat.tauxVictoire"), classe ? <ValeurParRang valeurs={selonRang((s) => `${s.victoire.toFixed(1)} %`)} /> : null],
+              [t("pages.heroDetail.stat.tauxBan"), classe ? <ValeurParRang valeurs={selonRang((s) => `${s.ban.toFixed(1)} %`)} /> : null],
             ].map(([label, valeur]) =>
               !valeur ? null : (
                 <div key={String(label)}>
@@ -261,6 +297,9 @@ export default async function PageHeros({ params }: Params) {
               ),
             )}
           </dl>
+          {/* Rang de toute la fiche : taux, contres et builds le suivent. */}
+          <SelecteurRang className="mt-5 border-t border-nuit-800 pt-4" />
+          </div>
         </div>
       </div>
 
@@ -385,9 +424,22 @@ export default async function PageHeros({ params }: Params) {
             {
               id: "builds",
               label: t("pages.heroDetail.onglet.builds"),
-              compteur: analyse?.builds.length,
-              contenu: analyse ? (
-                <div className="space-y-4">
+              contenu: aBuilds || analyse ? (
+                <div className="space-y-10">
+                  {aBuilds && (
+                    <section>
+                      <BuildsParRang parLane={buildsAffiches} guides={guidesAffiches} />
+                    </section>
+                  )}
+                  {analyse && analyse.builds.length > 0 && (
+                  <section>
+                  {aBuilds && (
+                    <>
+                      <h3 className="font-titre text-lg font-bold text-craie-100">{t("builds.rediges")}</h3>
+                      <p className="mt-1 mb-5 text-sm text-craie-500">{t("builds.redigesIntro")}</p>
+                    </>
+                  )}
+                  <div className="space-y-4">
                   {analyse.builds.map((b) => (
                     <Carte key={b.nom}>
                       <h3 className="font-titre text-lg font-bold text-or-400">{b.nom}</h3>
@@ -397,16 +449,16 @@ export default async function PageHeros({ params }: Params) {
                           <ObjetBuild key={o} nom={o} rang={i + 1} />
                         ))}
                       </ol>
-                      <dl className="mt-5 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-4 text-sm">
-                        {[["Embleme", b.embleme], ["Talent", b.talent], ["Sort", b.sort]].map(([c, v]) => (
-                          <div key={c} className="flex gap-2">
-                            <dt className="text-craie-500">{c}</dt>
-                            <dd className="text-craie-100">{v}</dd>
-                          </div>
-                        ))}
-                      </dl>
+                      <div className="mt-5 grid gap-3 border-t border-nuit-800 pt-4 sm:grid-cols-3">
+                        <ChoixBuild libelle={t("builds.embleme")} nom={b.embleme} image={visuelEmbleme(b.embleme).image} />
+                        <ChoixBuild libelle={t("builds.talent")} nom={b.talent} image={visuelTalent(b.talent).image} />
+                        <ChoixBuild libelle={t("builds.sort")} nom={b.sort} image={visuelSort(b.sort).image} />
+                      </div>
                     </Carte>
                   ))}
+                  </div>
+                  </section>
+                  )}
                 </div>
               ) : null,
             },
@@ -422,6 +474,7 @@ export default async function PageHeros({ params }: Params) {
           ]}
         />
       </div>
+      </RangProvider>
       </VitrineProvider>
     </>
   );

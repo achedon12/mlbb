@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { TrendingDown, TrendingUp } from "lucide-react";
-import type { RangContres } from "@/lib/donnees";
+import { useRang } from "@/components/selecteur-rang";
+import type { RangMesure } from "@/lib/rangs-mesure";
 import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
@@ -23,9 +23,6 @@ export interface ContresAffiches {
   mesure: number | null;
 }
 
-/** Ordre d'affichage, de l'ensemble des parties au sommet du classement. */
-const RANGS: RangContres[] = ["all", "epic", "legend", "mythic", "honor", "glory"];
-
 /**
  * Contres etablis sur les taux de victoire du jeu, rang par rang.
  *
@@ -34,8 +31,8 @@ const RANGS: RangContres[] = ["all", "epic", "legend", "mythic", "honor", "glory
  * portraits rendent la lecture immediate — on reconnait un heros a sa tete
  * avant son nom.
  *
- * Un matchup ne pese pas pareil en Epique et en Gloire mythique : le selecteur
- * bascule d'une mesure a l'autre. Toutes arrivent avec la page, qui reste
+ * Un matchup ne pese pas pareil en Epique et en Gloire mythique : le rang de la
+ * fiche bascule d'une mesure a l'autre. Toutes arrivent avec la page, qui reste
  * statique — changer de rang ne declenche aucune requete.
  */
 export function ContresChiffres({
@@ -43,47 +40,16 @@ export function ContresChiffres({
   parRang,
 }: {
   nom: string;
-  parRang: Partial<Record<RangContres, ContresAffiches>>;
+  parRang: Partial<Record<RangMesure, ContresAffiches>>;
 }) {
   const t = useT();
-  const disponibles = RANGS.filter((r) => parRang[r]);
-  const [rang, setRang] = useState(disponibles[0]);
-  const courant = rang ? parRang[rang] : undefined;
+  const rang = useRang();
+  // Le rang de la fiche peut manquer ici : on retombe sur tous rangs.
+  const courant = parRang[rang] ?? parRang.all;
   if (!courant) return null;
 
   return (
     <div>
-      {disponibles.length > 1 && (
-        <div
-          role="group"
-          aria-label={t("contres.rang")}
-          className="mb-4 flex flex-wrap items-center gap-2"
-        >
-          <span className="mr-1 text-xs uppercase tracking-wide text-craie-500">
-            {t("contres.rang")}
-          </span>
-          {disponibles.map((r) => {
-            const actif = r === rang;
-            return (
-              <button
-                key={r}
-                type="button"
-                aria-pressed={actif}
-                onClick={() => setRang(r)}
-                className={cn(
-                  "biseau-sm px-3 py-1.5 text-sm font-medium transition-colors",
-                  actif
-                    ? "bg-or-500 text-nuit-950"
-                    : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-                )}
-              >
-                {t(`contres.rangs.${r}`)}
-              </button>
-            );
-          })}
-        </div>
-      )}
-
       <p className="mb-4 text-sm leading-relaxed text-craie-500">
         {t("pages.heroDetail.contresIntro", { nom })}
         {courant.mesure !== null && (

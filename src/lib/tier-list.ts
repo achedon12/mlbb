@@ -1,6 +1,7 @@
 import statistiques from "@/data/jeu/statistiques.json";
 import { notesTierList } from "@/data/tier-list";
 import { heros } from "./donnees";
+import { RANGS_MESURE, type RangMesure } from "./rangs-mesure";
 import type { Heros, Palier } from "./types";
 
 /**
@@ -43,6 +44,8 @@ interface Classement {
   /** Date a laquelle les taux ont ete releves, distincte de la synchronisation. */
   mesure: string;
   taux: Record<string, Taux>;
+  /** Memes taux, rang par rang. Absent d'un fichier anterieur a ce decoupage. */
+  parRang?: Partial<Record<RangMesure, Record<string, Taux>>>;
 }
 
 const CLASSEMENT = statistiques.classement as unknown as Classement;
@@ -78,35 +81,75 @@ function palier(valeur: number): Palier {
   return PALIERS.find(([, seuil]) => valeur >= seuil)?.[0] ?? "C";
 }
 
-export const classementComplet: EntreeClassee[] = heros
-  .filter((h) => TAUX[h.slug])
-  .map((h) => {
-    const t = TAUX[h.slug];
-    const valeur = score(t);
+function classer(taux: Record<string, Taux>): EntreeClassee[] {
+  return heros
+    .filter((h) => taux[h.slug])
+    .map((h) => {
+      const t = taux[h.slug];
+      const valeur = score(t);
 
-    return {
-      heros: h,
-      palier: palier(valeur),
-      victoire: t.victoire,
-      ban: t.ban,
-      selection: t.selection,
-      score: Math.round(valeur * 100) / 100,
-      faibleEchantillon: t.selection < SEUIL_FIABILITE,
-      note: notesTierList[h.slug] ?? null,
-    };
-  })
-  .sort((a, b) => b.score - a.score);
+      return {
+        heros: h,
+        palier: palier(valeur),
+        victoire: t.victoire,
+        ban: t.ban,
+        selection: t.selection,
+        score: Math.round(valeur * 100) / 100,
+        faibleEchantillon: t.selection < SEUIL_FIABILITE,
+        note: notesTierList[h.slug] ?? null,
+      };
+    })
+    .sort((a, b) => b.score - a.score);
+}
+
+export const classementComplet = classer(TAUX);
+
+/** Taux et palier d'un heros dans un rang donne. */
+export interface StatsRang {
+  victoire: number;
+  ban: number;
+  palier: Palier;
+}
+
+/**
+ * La regle de la tier list, appliquee a chaque tranche de rang : un heros peut
+ * etre S en Mythique et seulement A tous rangs confondus.
+ */
+const CLASSEMENTS_PAR_RANG = new Map(
+  RANGS_MESURE.flatMap((r) => {
+    const taux = r === "all" ? TAUX : CLASSEMENT.parRang?.[r];
+    return taux
+      ? [[r, new Map(classer(taux).map((e) => [e.heros.slug, e]))] as const]
+      : [];
+  }),
+);
+
+export function statsParRang(
+  slug: string,
+): Partial<Record<RangMesure, StatsRang>> {
+  const sortie: Partial<Record<RangMesure, StatsRang>> = {};
+  for (const [rang, entrees] of CLASSEMENTS_PAR_RANG) {
+    const e = entrees.get(slug);
+    if (e)
+      sortie[rang] = { victoire: e.victoire, ban: e.ban, palier: e.palier };
+  }
+  return sortie;
+}
 
 /** Taux et palier par heros, pour enrichir le catalogue sans le recalculer. */
 export const tauxParSlug = new Map(
   classementComplet.map((e) => [
     e.heros.slug,
-    { victoire: e.victoire, ban: e.ban, palier: e.palier, faibleEchantillon: e.faibleEchantillon },
+    {
+      victoire: e.victoire,
+      ban: e.ban,
+      palier: e.palier,
+      faibleEchantillon: e.faibleEchantillon,
+    },
   ]),
 );
 
 export const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
-
 
 export function parPalier(p: Palier): EntreeClassee[] {
   return classementComplet.filter((e) => e.palier === p);

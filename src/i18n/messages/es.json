@@ -397,16 +397,7 @@
   "contres": {
     "fort": "Fuerte contra",
     "difficulte": "En dificultades contra",
-    "pts": "puntos",
-    "rang": "Rango",
-    "rangs": {
-      "all": "Todos los rangos",
-      "epic": "Épico",
-      "legend": "Leyenda",
-      "mythic": "Mítico",
-      "honor": "Honor mítico",
-      "glory": "Gloria mítica"
-    }
+    "pts": "puntos"
   },
   "home": {
     "titre1": "Todo el juego, explica.",
@@ -954,5 +945,33 @@
   },
   "carteHeros": {
     "palierTitre": "Nivel {p} de la lista de niveles"
+  },
+  "rangsMesure": {
+    "label": "Rango",
+    "all": "Todos los rangos",
+    "epic": "Épico",
+    "legend": "Leyenda",
+    "mythic": "Mítico",
+    "honor": "Honor mítico",
+    "glory": "Gloria mítica"
+  },
+  "builds": {
+    "joues": "Builds más jugadas",
+    "jouesIntro": "Las tres builds más jugadas en partidas clasificatorias para el rango elegido, con su tasa de victoria y el porcentaje de partidas en que aparecen.",
+    "position": "Línea",
+    "build": "Build {n}",
+    "victoire": "{taux} % de victorias",
+    "selection": "{taux} % de las partidas",
+    "objets": "Objetos clave",
+    "embleme": "Emblema",
+    "talents": "Talentos",
+    "talent": "Talento",
+    "sort": "Hechizo",
+    "rediges": "Builds comentadas",
+    "redigesIntro": "Escritas a mano, con el contexto de juego.",
+    "guide": "Build completa de un jugador",
+    "guideIntro": "El equipamiento completo, seis objetos, propuesto por un jugador de este rango — o, en su defecto, de uno superior: la guía mejor valorada en la academia del juego. Es una opinión, no una medición — no tiene tasa de victoria.",
+    "guideAuteur": "Rango máximo del autor: {rang}",
+    "guideVotes": "{n} voto(s)"
   }
 }

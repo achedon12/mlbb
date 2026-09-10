@@ -397,16 +397,7 @@
   "contres": {
     "fort": "Forte contro",
     "difficulte": "In difficoltà contro",
-    "pts": "punti",
-    "rang": "Rango",
-    "rangs": {
-      "all": "Tutti i ranghi",
-      "epic": "Epico",
-      "legend": "Leggenda",
-      "mythic": "Mitico",
-      "honor": "Onore mitico",
-      "glory": "Gloria mitica"
-    }
+    "pts": "punti"
   },
   "home": {
     "titre1": "L'intero gioco, spiega",
@@ -954,5 +945,33 @@
   },
   "carteHeros": {
     "palierTitre": "Livello {p} della lista dei livelli"
+  },
+  "rangsMesure": {
+    "label": "Rango",
+    "all": "Tutti i ranghi",
+    "epic": "Epico",
+    "legend": "Leggenda",
+    "mythic": "Mitico",
+    "honor": "Onore mitico",
+    "glory": "Gloria mitica"
+  },
+  "builds": {
+    "joues": "Build più giocate",
+    "jouesIntro": "Le tre build più giocate nelle partite classificate per il rango scelto, con il tasso di vittoria e la quota di partite in cui compaiono.",
+    "position": "Corsia",
+    "build": "Build {n}",
+    "victoire": "{taux}% di vittorie",
+    "selection": "{taux}% delle partite",
+    "objets": "Oggetti chiave",
+    "embleme": "Emblema",
+    "talents": "Talenti",
+    "talent": "Talento",
+    "sort": "Incantesimo",
+    "rediges": "Build commentate",
+    "redigesIntro": "Scritte a mano, con il contesto di gioco.",
+    "guide": "Build completa di un giocatore",
+    "guideIntro": "L'equipaggiamento completo, sei oggetti, proposto da un giocatore di questo rango — o, in mancanza, di un rango superiore: la guida più votata sull'accademia del gioco. È un parere, non una misura — non ha tasso di vittoria.",
+    "guideAuteur": "Rango massimo dell'autore: {rang}",
+    "guideVotes": "{n} voto/i"
   }
 }

@@ -26,6 +26,7 @@ import statistiquesGenere from "@/data/jeu/statistiques.json";
 import visuelsGenere from "@/data/jeu/visuels.json";
 import { analyses } from "@/data/heros";
 import type { Langue } from "@/i18n/config";
+import type { RangMesure } from "./rangs-mesure";
 import type {
   CompetenceWiki,
   Heros,
@@ -85,8 +86,6 @@ export const visuelsCompetences = visuelsGenere.competences as unknown as Record
  * (`fort`) et ceux contre qui il descend (`faible`), avec l'ecart en points.
  * Couvre les 133 heros, la ou l'analyse ecrite se limite a une poignee.
  */
-/** `all` agrege toutes les parties, les autres isolent une tranche du classement. */
-export type RangContres = "all" | "epic" | "legend" | "mythic" | "honor" | "glory";
 export interface ContreChiffre {
   slug: string;
   /** Ecart de taux de victoire, en points (positif = avantage). */
@@ -98,7 +97,7 @@ export interface ContresHeros {
   mesure: number | null;
 }
 /** Un rang absent n'a pas ete mesure pour ce heros. */
-export type ContresParRang = Partial<Record<RangContres, ContresHeros>>;
+export type ContresParRang = Partial<Record<RangMesure, ContresHeros>>;
 /**
  * Avant le decoupage par rang, un heros portait `fort` et `faible` a la racine.
  * Un fichier de cette epoque — synchro pas encore relancee — est range sous
@@ -112,6 +111,42 @@ export const contres: Record<string, ContresParRang> = Object.fromEntries(
     statistiquesGenere.contres as unknown as Record<string, ContresParRang | ContresHeros>,
   ).map(([slug, c]) => [slug, parRang(c)]),
 );
+
+/**
+ * Builds reellement joues, releves par l'academie : trois objets cles,
+ * l'embleme, ses talents et le sort, avec leurs taux. Par heros, puis par
+ * position (Or, Jungle…), puis par rang.
+ */
+export interface BuildJoue {
+  objets: string[];
+  /** Role de l'embleme, tel que nomme par l'API (« Marksman »). */
+  embleme: string | null;
+  talents: string[];
+  sort: string | null;
+  victoire: number | null;
+  selection: number | null;
+}
+export type BuildsHeros = Record<string, Partial<Record<RangMesure, BuildJoue[]>>>;
+export const buildsJoues =
+  (statistiquesGenere as unknown as { builds?: Record<string, BuildsHeros> }).builds ?? {};
+
+/**
+ * Equipement complet propose par un joueur sur l'academie : le guide le mieux
+ * note parmi les auteurs du rang ou au-dessus. Un avis, sans taux mesure.
+ */
+export interface GuideJoueur {
+  objets: string[];
+  embleme: string | null;
+  talents: string[];
+  sort: string | null;
+  /** Meilleur rank_level atteint par l'auteur. */
+  rangAuteur: number;
+  votes: number;
+  vues: number;
+}
+export type GuidesHeros = Record<string, Partial<Record<RangMesure, GuideJoueur>>>;
+export const guidesJoueurs =
+  (statistiquesGenere as unknown as { guides?: Record<string, GuidesHeros> }).guides ?? {};
 
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
 export const patchsDetail = patchsGenere.detail as unknown as Record<string, PatchDetaille>;
