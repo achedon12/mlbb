@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import { Carte } from "@/components/ui";
+import { useId, useState } from "react";
+import { ChevronDown } from "lucide-react";
 import type { Competence, CompetenceWiki } from "@/lib/types";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { useT } from "@/i18n/fournisseur";
+import { cn } from "@/lib/utils";
 
 /**
  * Competences d'un heros.
@@ -18,108 +21,131 @@ import { creerT } from "@/i18n/traductions";
  * anglais, et une traduction maison empecherait le lecteur de retrouver la
  * competence en partie.
  *
- * Un heros sans analyse affiche donc quand meme ses competences, avec leur
- * icone et leur nom d'origine.
+ * La vue est compacte : icone, type et nom tiennent sur une ligne de tuiles.
+ * Le detail — description, recharge, cout — s'ouvre au clic sur une tuile et se
+ * referme au second.
  */
 const TYPES = ["Passif", "Competence 1", "Competence 2", "Ultime"] as const;
 
 export function CompetencesHeros({
   wiki,
-  langue,
   icones,
   redigees,
 }: {
   wiki: (CompetenceWiki | null)[];
-  langue: Langue;
   icones: Record<string, string>;
   redigees: Competence[] | null;
 }) {
-  const t = creerT(langue);
+  const t = useT();
+  const id = useId();
+  const [ouverte, setOuverte] = useState<number | null>(null);
   const officielles = wiki.slice(0, 4);
   const nombre = Math.max(officielles.length, redigees?.length ?? 0);
 
   if (nombre === 0) {
-    return (
-      <p className="text-craie-500">
-        Les competences de ce heros n&apos;ont pas encore ete recuperees.
-      </p>
-    );
+    return <p className="text-craie-500">{t("comp.nonRecuperees")}</p>;
   }
 
+  const fiches = Array.from({ length: nombre }, (_, i) => {
+    const officielle = officielles[i];
+    const redigee = redigees?.[i];
+    const nomWiki = officielle?.nom;
+    return {
+      nom: nomWiki ?? redigee?.nom ?? t("comp.Competence"),
+      type: redigee?.type ?? TYPES[i] ?? "Competence",
+      icone: nomWiki ? icones[nomWiki] : undefined,
+      // L'analyse redigee prime : elle explique, la description officielle se
+      // contente d'enoncer. A defaut, le texte du jeu vaut mieux que rien.
+      description: redigee?.description ?? officielle?.description ?? null,
+      recharge: redigee?.recharge,
+      cout: redigee?.cout,
+    };
+  });
+  const detail = ouverte === null ? null : fiches[ouverte];
+
   return (
-    <div className="space-y-3">
-      {Array.from({ length: nombre }, (_, i) => {
-        const officielle = officielles[i];
-        const nomWiki = officielle?.nom;
-        const redigee = redigees?.[i];
-        const icone = nomWiki ? icones[nomWiki] : undefined;
-        // L'analyse redigee prime : elle explique, la description officielle
-        // se contente d'enoncer. A defaut, le texte du jeu vaut mieux que rien.
-        const description = redigee?.description ?? officielle?.description ?? null;
-        const type = redigee?.type ?? TYPES[i] ?? "Competence";
-
-        return (
-          <Carte key={i} className="flex gap-4">
-            <span className="relative size-14 shrink-0 overflow-hidden">
-              {icone ? (
-                <Image
-                  src={icone}
-                  alt=""
-                  fill
-                  sizes="56px"
-                  // Les onglets masques ne declenchent pas le chargement differe.
-                  loading="eager"
-                  className="object-contain"
-                />
-              ) : (
-                <span className="grid size-full place-items-center bg-nuit-800 text-xs text-craie-500">
-                  —
+    <div>
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {fiches.map((c, i) => {
+          const active = ouverte === i;
+          return (
+            <button
+              key={i}
+              type="button"
+              aria-expanded={active}
+              aria-controls={`${id}-detail`}
+              onClick={() => setOuverte(active ? null : i)}
+              className={cn(
+                "biseau-sm flex items-center gap-3 border p-2.5 text-left transition-colors",
+                active
+                  ? "border-or-500/70 bg-nuit-850"
+                  : "border-nuit-700/70 bg-nuit-900/60 hover:border-or-500/40",
+              )}
+            >
+              <span className="relative size-11 shrink-0 overflow-hidden">
+                {c.icone ? (
+                  <Image
+                    src={c.icone}
+                    alt=""
+                    fill
+                    sizes="44px"
+                    // Les onglets masques ne declenchent pas le chargement differe.
+                    loading="eager"
+                    className="object-contain"
+                  />
+                ) : (
+                  <span className="grid size-full place-items-center bg-nuit-800 text-xs text-craie-500">
+                    —
+                  </span>
+                )}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-[0.65rem] font-semibold uppercase tracking-wide text-or-400">
+                  {t(`comp.${c.type}`)}
                 </span>
-              )}
-            </span>
+                <span className="block truncate text-sm font-semibold text-craie-100">{c.nom}</span>
+              </span>
+              <ChevronDown
+                size={14}
+                aria-hidden
+                className={cn("shrink-0 text-craie-500 transition-transform", active && "rotate-180")}
+              />
+            </button>
+          );
+        })}
+      </div>
 
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                <span className="biseau-sm bg-nuit-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
-                  {t(`comp.${type}`)}
-                </span>
-                <h3 className="font-titre text-lg font-bold text-craie-100">
-                  {nomWiki ?? redigee?.nom ?? t("comp.Competence")}
-                </h3>
-              </div>
-
-              {description ? (
-                <p
-                  className="mt-3 leading-relaxed text-craie-300"
-                >
-                  {description}
-                </p>
-              ) : (
-                <p className="mt-3 text-sm text-craie-500">
-                  Aucune description disponible pour cette competence.
-                </p>
-              )}
-
-              {(redigee?.recharge || redigee?.cout) && (
-                <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-3 text-sm">
-                  {redigee.recharge && (
-                    <div className="flex gap-2">
-                      <dt className="text-craie-500">Recharge</dt>
-                      <dd className="text-craie-100">{redigee.recharge.join(" / ")} s</dd>
-                    </div>
-                  )}
-                  {redigee.cout && (
-                    <div className="flex gap-2">
-                      <dt className="text-craie-500">Cout</dt>
-                      <dd className="text-craie-100">{redigee.cout.join(" / ")}</dd>
-                    </div>
-                  )}
-                </dl>
-              )}
-            </div>
-          </Carte>
-        );
-      })}
+      <div id={`${id}-detail`} role="region" aria-live="polite">
+        {detail ? (
+          <div className="biseau mt-3 border border-nuit-700/70 bg-nuit-900/60 p-4">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
+              {t(`comp.${detail.type}`)}
+            </p>
+            <h3 className="font-titre text-lg font-bold text-craie-100">{detail.nom}</h3>
+            <p className={cn("mt-2 leading-relaxed", detail.description ? "text-craie-300" : "text-sm text-craie-500")}>
+              {detail.description ?? t("comp.aucuneDescription")}
+            </p>
+            {(detail.recharge || detail.cout) && (
+              <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-3 text-sm">
+                {detail.recharge && (
+                  <div className="flex gap-2">
+                    <dt className="text-craie-500">{t("comp.recharge")}</dt>
+                    <dd className="text-craie-100">{detail.recharge.join(" / ")} s</dd>
+                  </div>
+                )}
+                {detail.cout && (
+                  <div className="flex gap-2">
+                    <dt className="text-craie-500">{t("comp.cout")}</dt>
+                    <dd className="text-craie-100">{detail.cout.join(" / ")}</dd>
+                  </div>
+                )}
+              </dl>
+            )}
+          </div>
+        ) : (
+          <p className="mt-3 text-xs text-craie-500">{t("comp.indice")}</p>
+        )}
+      </div>
     </div>
   );
 }

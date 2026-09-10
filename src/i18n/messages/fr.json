@@ -392,7 +392,12 @@
     "Competence 1": "Competence 1",
     "Competence 2": "Competence 2",
     "Ultime": "Ultime",
-    "Competence": "Competence"
+    "Competence": "Competence",
+    "nonRecuperees": "Les competences de ce heros n'ont pas encore ete recuperees.",
+    "aucuneDescription": "Aucune description disponible pour cette competence.",
+    "recharge": "Recharge",
+    "cout": "Cout",
+    "indice": "Touchez une competence pour afficher son detail."
   },
   "contres": {
     "fort": "Fort contre",

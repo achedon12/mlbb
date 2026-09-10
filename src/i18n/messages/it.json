@@ -392,7 +392,12 @@
     "Competence 1": "Abilità 1",
     "Competence 2": "Abilità 2",
     "Ultime": "Definitivo",
-    "Competence": "Abilità"
+    "Competence": "Abilità",
+    "nonRecuperees": "Le abilità di questo eroe non sono ancora state recuperate.",
+    "aucuneDescription": "Nessuna descrizione disponibile per questa abilità.",
+    "recharge": "Ricarica",
+    "cout": "Costo",
+    "indice": "Tocca un'abilità per vederne i dettagli."
   },
   "contres": {
     "fort": "Forte contro",

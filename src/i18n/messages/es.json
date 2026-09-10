@@ -392,7 +392,12 @@
     "Competence 1": "Habilidad 1",
     "Competence 2": "Habilidad 2",
     "Ultime": "Último",
-    "Competence": "Habilidad"
+    "Competence": "Habilidad",
+    "nonRecuperees": "Las habilidades de este héroe aún no se han recuperado.",
+    "aucuneDescription": "No hay descripción disponible para esta habilidad.",
+    "recharge": "Enfriamiento",
+    "cout": "Coste",
+    "indice": "Toca una habilidad para ver sus detalles."
   },
   "contres": {
     "fort": "Fuerte contra",

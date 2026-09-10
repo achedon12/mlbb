@@ -392,7 +392,12 @@
     "Competence 1": "Skill 1",
     "Competence 2": "Skill 2",
     "Ultime": "Ultimate",
-    "Competence": "Skill"
+    "Competence": "Skill",
+    "nonRecuperees": "This hero's skills have not been retrieved yet.",
+    "aucuneDescription": "No description available for this skill.",
+    "recharge": "Cooldown",
+    "cout": "Cost",
+    "indice": "Tap a skill to see its details."
   },
   "contres": {
     "fort": "Strong against",

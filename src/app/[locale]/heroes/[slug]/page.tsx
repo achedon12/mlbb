@@ -385,7 +385,6 @@ export default async function PageHeros({ params }: Params) {
                 ) || undefined,
               contenu: (
                 <CompetencesHeros
-                  langue={locale}
                   wiki={competencesWiki}
                   icones={iconesCompetences}
                   redigees={analyse?.competences ?? null}
