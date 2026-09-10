@@ -7,7 +7,10 @@ export const site = {
   titre: "MLBBDex — Base de connaissances Mobile Legends: Bang Bang",
   description:
     "Fiches heros, builds, tier list argumentee, objets, emblemes, patch notes et actualites de Mobile Legends: Bang Bang, en francais.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mlbbdex.com",
+  // `||` et non `??` : dans l'image Docker, un `ARG` non fourni devient une
+  // chaine vide (et non `undefined`). Sans ce repli, `new URL("")` echouerait
+  // a la construction — c'est ce qui cassait le build de l'image en CI.
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://mlbbdex.com",
   langue: "fr-FR",
   auteur: "achedon12",
   depot: "https://github.com/achedon12/mlbb",
