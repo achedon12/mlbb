@@ -77,5 +77,43 @@
   "langue": {
     "choisir": "Idioma",
     "changer": "Cambiar idioma"
+  },
+  "pages": {
+    "modes": {
+      "titre": "Modos de juego",
+      "chapeau": "Desde los clásicos 5 contra 5 hasta los rápidos juegos de lucha, cada modo cambia las reglas. Elige uno para descubrir los detalles.",
+      "decouvrir": "Descubre el modo",
+      "metaDescription": "Los modos de juego de Mobile Legends: Bang Bang, presentados uno por uno, con reglas detalladas para respaldarlos.",
+      "ogDescription": "Mobile Legends: modos de juego Bang Bang y lo que los diferencia."
+    },
+    "modeDetail": {
+      "nonDocumente": "Los detalles de este modo aún no están documentados."
+    }
+  },
+  "modeFiche": {
+    "classic": {
+      "accroche": "El punto de referencia 5 contra 5",
+      "texte": "Dos equipos de cinco, tres carriles, un Nexus para destruir. El modo fundador, sin problemas de clasificación: ideal para descubrir un héroe o calentarse."
+    },
+    "ranked": {
+      "accroche": "Sube de rango",
+      "texte": "La línea competitiva. Cada victoria gana estrellas y aumenta Advertencia a la gloria mítica, con prohibiciones y selección en draft de Epic."
+    },
+    "brawl": {
+      "accroche": "Sólo de una manera, de inmediato",
+      "texte": "Una sola carta tiene un carril, el héroe sortea. Partidos cortos y nerviosos, sin jungla ni vuelta larga a fase base."
+    },
+    "vs-ai": {
+      "accroche": "Toma la computadora",
+      "texte": "Oponentes controlados por IA, con dificultad ajustable. Para probar una construcción o domesticar a un nuevo héroe sin la presión de la clasificación."
+    },
+    "custom": {
+      "accroche": "Tus reglas",
+      "texte": "Crea un juego a medida: composición del equipo, espectadores, mapa y parámetros libres. La modalidad de torneos y partidos entre amigos."
+    },
+    "arcade-mode": {
+      "accroche": "Modas efímeras",
+      "texte": "Una rotación de modos especiales y festivos (Magic Hunt, Survival y otras variantes) se ofrece por tiempo limitado."
+    }
   }
 }

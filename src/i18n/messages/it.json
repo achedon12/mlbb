@@ -77,5 +77,43 @@
   "langue": {
     "choisir": "Lingua",
     "changer": "Cambia lingua"
+  },
+  "pages": {
+    "modes": {
+      "titre": "Modalità di gioco",
+      "chapeau": "Dai classici 5v5 ai rapidi giochi di combattimento, ogni modalità cambia le regole. Scegline uno per scoprire i dettagli.",
+      "decouvrir": "Scopri la modalità",
+      "metaDescription": "Le modalità di gioco di Mobile Legends: Bang Bang, presentate una per una, con regole dettagliate da supportare.",
+      "ogDescription": "Mobile Legends: modalità di gioco Bang Bang e cosa le distingue."
+    },
+    "modeDetail": {
+      "nonDocumente": "I dettagli di questa modalità non sono ancora documentati."
+    }
+  },
+  "modeFiche": {
+    "classic": {
+      "accroche": "Il punto di riferimento 5 contro 5",
+      "texte": "Due squadre da cinque, tre corsie, un Nexus da distruggere. La modalità fondazione, senza problemi di classifica: ideale per scoprire un eroe o riscaldarsi."
+    },
+    "ranked": {
+      "accroche": "Scalare le classifiche",
+      "texte": "La linea competitiva. Ogni vittoria guadagna stelle e innalza Avvertimento a gloria mitica, con divieti e selezioni in draft da Epic."
+    },
+    "brawl": {
+      "accroche": "Solo in un modo, subito",
+      "texte": "Una singola carta ha una corsia, l'eroe pesca a sorte. Partite brevi e nervose, senza giungla o lunghi ritorni alla fase base."
+    },
+    "vs-ai": {
+      "accroche": "Affronta il computer",
+      "texte": "Avversari controllati dall'IA, con difficoltà regolabile. Per testare una build o domare un nuovo eroe senza la pressione della classifica."
+    },
+    "custom": {
+      "accroche": "Le tue regole",
+      "texte": "Crea un gioco su misura: composizione della squadra, spettatori, mappa e parametri liberi. La modalità dei tornei e delle partite tra amici."
+    },
+    "arcade-mode": {
+      "accroche": "Mode effimere",
+      "texte": "Una rotazione di modalità speciali e festive – Caccia Magica, Sopravvivenza e altre varianti – offerte per un periodo limitato."
+    }
   }
 }

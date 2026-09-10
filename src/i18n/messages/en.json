@@ -77,5 +77,43 @@
   "langue": {
     "choisir": "Language",
     "changer": "Change language"
+  },
+  "pages": {
+    "modes": {
+      "titre": "Game Modes",
+      "chapeau": "From classic 5v5 to quick Fighting games, each mode changes the rules. Choose one to discover the details.",
+      "decouvrir": "Discover the mode",
+      "metaDescription": "The game modes of Mobile Legends: Bang Bang, presented one by one, with detailed rules to support.",
+      "ogDescription": "Mobile Legends: Bang Bang game modes and what sets them apart."
+    },
+    "modeDetail": {
+      "nonDocumente": "The details of this mode are not yet documented."
+    }
+  },
+  "modeFiche": {
+    "classic": {
+      "accroche": "The benchmark 5 against 5",
+      "texte": "Two teams of five, three lanes, one Nexus to destroy. The founding mode, without ranking issues: ideal for discovering a hero or warming up."
+    },
+    "ranked": {
+      "accroche": "Climb the ranks",
+      "texte": "The competitive line. Each victory earns stars and raises Warning to Mythical Glory, with bans and selection in draft from Epic."
+    },
+    "brawl": {
+      "accroche": "Only one way, right away",
+      "texte": "Single card has a lane, hero draws lots. Short and nervous games, without jungle or long return to base phase."
+    },
+    "vs-ai": {
+      "accroche": "Take on the computer",
+      "texte": "Opponents controlled by AI, with adjustable difficulty. To test a build or tame a new hero without the pressure of ranking."
+    },
+    "custom": {
+      "accroche": "Your rules",
+      "texte": "Create a tailor-made game: team composition, spectators, map and free parameters. The mode of tournaments and matches between friends."
+    },
+    "arcade-mode": {
+      "accroche": "Ephemeral fashions",
+      "texte": "A rotation of special and festive modes – Magic Hunt, Survival and other variants – offered for a limited time."
+    }
   }
 }

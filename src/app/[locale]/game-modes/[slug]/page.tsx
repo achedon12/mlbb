@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { FilAriane } from "@/components/fil-ariane";
 import { donneesLd } from "@/lib/html";
 import { modeParSlug, modesSlugs } from "@/lib/donnees";
-import { ACCENT_MODE_DEFAUT, FICHES_MODES } from "@/lib/modes";
+import { ACCENT_MODE_DEFAUT, ACCENTS_MODES } from "@/lib/modes";
+import { creerT } from "@/i18n/traductions";
+import { CreditWiki } from "@/components/credit-wiki";
 import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
 import { metaLangues } from "@/i18n/seo";
@@ -20,7 +22,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
   const mode = modeParSlug(locale, slug);
   if (!mode) return {};
-  const description = FICHES_MODES[slug]?.texte ?? mode.description ?? undefined;
+  const t = creerT(locale);
+  const description = t(`modeFiche.${slug}.texte`);
   return {
     title: `Mode ${mode.nom}`,
     description,
@@ -74,14 +77,14 @@ export default async function PageMode({ params }: Params) {
   const mode = modeParSlug(locale, slug);
   if (!mode) notFound();
 
-  const fiche = FICHES_MODES[slug];
-  const [sombre, clair] = fiche?.accent ?? ACCENT_MODE_DEFAUT;
+  const t = creerT(locale);
+  const [sombre, clair] = ACCENTS_MODES[slug] ?? ACCENT_MODE_DEFAUT;
 
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: `Mode ${mode.nom} — Mobile Legends: Bang Bang`,
-    description: fiche?.texte ?? mode.description ?? undefined,
+    description: t(`modeFiche.${slug}.texte`),
     inLanguage: "fr-FR",
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
@@ -116,23 +119,21 @@ export default async function PageMode({ params }: Params) {
         <div className="mx-auto max-w-4xl px-4 py-12">
           <FilAriane
             miettes={[
-              { nom: "Accueil", href: "/" },
-              { nom: "Modes de jeu", href: "/game-modes" },
+              { nom: t("commun.accueil"), href: `/${locale}` },
+              { nom: t("nav.gameModes.label"), href: "/game-modes" },
               { nom: mode.nom },
             ]}
           />
-          {fiche && (
-            <p className="mt-6 font-titre text-xs font-bold uppercase tracking-[0.2em]" style={{ color: clair }}>
-              {fiche.accroche}
-            </p>
-          )}
+          <p className="mt-6 font-titre text-xs font-bold uppercase tracking-[0.2em]" style={{ color: clair }}>
+            {t(`modeFiche.${slug}.accroche`)}
+          </p>
           <h1 className="mt-2 font-titre text-4xl font-bold text-craie-100 sm:text-5xl">{mode.nom}</h1>
-          <p className="mt-4 max-w-2xl leading-relaxed text-craie-200">{fiche?.texte ?? mode.description}</p>
+          <p className="mt-4 max-w-2xl leading-relaxed text-craie-200">{t(`modeFiche.${slug}.texte`)}</p>
         </div>
       </div>
 
       <article className="mx-auto max-w-3xl px-4 py-12">
-        {mode.description && (!fiche || fiche.texte !== mode.description) && (
+        {mode.description && mode.description !== t(`modeFiche.${slug}.texte`) && (
           <p className="mb-10 border-l-2 pl-4 leading-relaxed text-craie-300" style={{ borderColor: clair }}>
             {mode.description}
           </p>
@@ -149,23 +150,10 @@ export default async function PageMode({ params }: Params) {
             ))}
           </div>
         ) : (
-          <p className="leading-relaxed text-craie-500">
-            Le detail de ce mode n&apos;est pas encore documente.
-          </p>
+          <p className="leading-relaxed text-craie-500">{t("pages.modeDetail.nonDocumente")}</p>
         )}
 
-        <p className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
-          Contenu repris et traduit du{" "}
-          <a
-            href="https://mobilelegends.fandom.com/wiki/Game_Modes"
-            rel="noreferrer nofollow"
-            target="_blank"
-            className="text-or-400 hover:underline"
-          >
-            wiki Mobile Legends
-          </a>
-          , sous licence CC BY-SA.
-        </p>
+        <CreditWiki t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500" />
       </article>
     </>
   );

@@ -77,5 +77,43 @@
   "langue": {
     "choisir": "Langue",
     "changer": "Changer de langue"
+  },
+  "pages": {
+    "modes": {
+      "titre": "Modes de jeu",
+      "chapeau": "Du 5 contre 5 classique aux parties rapides en Baston, chaque mode change les regles. Choisissez-en un pour en decouvrir le detail.",
+      "decouvrir": "Decouvrir le mode",
+      "metaDescription": "Les modes de jeu de Mobile Legends: Bang Bang, presentes un par un, regles detaillees a l'appui.",
+      "ogDescription": "Les modes de jeu de Mobile Legends: Bang Bang et ce qui les distingue."
+    },
+    "modeDetail": {
+      "nonDocumente": "Le detail de ce mode n'est pas encore documente."
+    }
+  },
+  "modeFiche": {
+    "classic": {
+      "accroche": "Le 5 contre 5 de reference",
+      "texte": "Deux equipes de cinq, trois voies, un Nexus a detruire. Le mode fondateur, sans enjeu de classement : l'ideal pour decouvrir un heros ou s'echauffer."
+    },
+    "ranked": {
+      "accroche": "Grimpez les rangs",
+      "texte": "La file competitive. Chaque victoire rapporte des etoiles et fait monter d'Avertissement jusqu'a Gloire Mythique, avec bannissements et selection en draft a partir d'Epique."
+    },
+    "brawl": {
+      "accroche": "Une seule voie, tout de suite",
+      "texte": "Carte unique a une lane, heros tire au sort. Des parties courtes et nerveuses, sans jungle ni longue phase de retour a la base."
+    },
+    "vs-ai": {
+      "accroche": "Affrontez l'ordinateur",
+      "texte": "Des adversaires controles par l'IA, a difficulte reglable. Pour tester un build ou apprivoiser un nouveau heros sans la pression du classement."
+    },
+    "custom": {
+      "accroche": "Vos regles",
+      "texte": "Creez une partie sur mesure : composition des equipes, spectateurs, carte et parametres libres. Le mode des tournois et des matchs entre amis."
+    },
+    "arcade-mode": {
+      "accroche": "Les modes ephemeres",
+      "texte": "Une rotation de modes speciaux et festifs — Chasse Magique, Survie et autres variantes — proposes pour une duree limitee."
+    }
   }
 }

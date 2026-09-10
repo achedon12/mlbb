@@ -3,25 +3,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { EnTetePage } from "@/components/ui";
+import { CreditWiki } from "@/components/credit-wiki";
 import { modes } from "@/lib/donnees";
 import type { Langue } from "@/i18n/config";
-import { ACCENT_MODE_DEFAUT, FICHES_MODES } from "@/lib/modes";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
+import { ACCENT_MODE_DEFAUT, ACCENTS_MODES } from "@/lib/modes";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Modes de jeu",
-  description:
-    "Les modes de jeu de Mobile Legends: Bang Bang — Classique, Classe, Baston, Vs. IA, Personnalise et Arcade — presentes un par un, regles detaillees a l'appui.",
-  alternates: { canonical: "/game-modes" },
-  openGraph: {
-    title: `Modes de jeu — ${site.nom}`,
-    description: "Les modes de jeu de Mobile Legends: Bang Bang et ce qui les distingue.",
-    url: "/game-modes",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.modes.titre"),
+    description: t("pages.modes.metaDescription"),
+    alternates: metaLangues(locale, "/game-modes"),
+    openGraph: {
+      title: `${t("pages.modes.titre")} — ${site.nom}`,
+      description: t("pages.modes.ogDescription"),
+      url: `/${locale}/game-modes`,
+    },
+  };
+}
 
 export default async function PageModes({ params }: { params: Promise<{ locale: Langue }> }) {
   const { locale } = await params;
+  const t = creerT(locale);
   const liste = modes(locale);
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -33,7 +40,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
       position: i + 1,
       name: m.nom,
       url: `${site.url}/${locale}/game-modes/${m.slug}`,
-      description: FICHES_MODES[m.slug]?.texte,
+      description: t(`modeFiche.${m.slug}.texte`),
     })),
   };
 
@@ -44,15 +51,14 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees).replace(/</g, "\\u003c") }}
       />
       <EnTetePage
-        titre="Modes de jeu"
-        chapeau="Du 5 contre 5 classique aux parties rapides en Baston, chaque mode change les regles. Choisissez-en un pour en decouvrir le detail."
+        titre={t("pages.modes.titre")}
+        chapeau={t("pages.modes.chapeau")}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12">
         <div className="grid gap-5">
           {liste.map((mode) => {
-            const fiche = FICHES_MODES[mode.slug];
-            const [sombre, clair] = fiche?.accent ?? ACCENT_MODE_DEFAUT;
+            const [sombre, clair] = ACCENTS_MODES[mode.slug] ?? ACCENT_MODE_DEFAUT;
             return (
               <Link
                 key={mode.slug}
@@ -80,23 +86,21 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                 />
 
                 <div className="flex min-h-[180px] flex-col justify-end gap-3 p-6 sm:min-h-[200px] sm:p-8">
-                  {fiche && (
-                    <p
-                      className="font-titre text-[0.7rem] font-bold uppercase tracking-[0.2em]"
-                      style={{ color: clair }}
-                    >
-                      {fiche.accroche}
-                    </p>
-                  )}
+                  <p
+                    className="font-titre text-[0.7rem] font-bold uppercase tracking-[0.2em]"
+                    style={{ color: clair }}
+                  >
+                    {t(`modeFiche.${mode.slug}.accroche`)}
+                  </p>
                   <h2 className="font-titre text-2xl font-bold text-craie-100 sm:text-3xl">{mode.nom}</h2>
                   <p className="max-w-xl text-sm leading-relaxed text-craie-300">
-                    {fiche?.texte ?? mode.description}
+                    {t(`modeFiche.${mode.slug}.texte`)}
                   </p>
                   <span
                     className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold transition-transform group-hover:translate-x-0.5"
                     style={{ color: clair }}
                   >
-                    Decouvrir le mode
+                    {t("pages.modes.decouvrir")}
                     <ArrowRight size={16} aria-hidden />
                   </span>
                 </div>
@@ -111,18 +115,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
           })}
         </div>
 
-        <p className="mt-8 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
-          Contenus repris et traduits du{" "}
-          <a
-            href="https://mobilelegends.fandom.com/wiki/Game_Modes"
-            rel="noreferrer nofollow"
-            target="_blank"
-            className="text-or-400 hover:underline"
-          >
-            wiki Mobile Legends
-          </a>
-          , sous licence CC BY-SA.
-        </p>
+        <CreditWiki t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" />
       </div>
     </>
   );
