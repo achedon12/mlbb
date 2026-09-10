@@ -49,7 +49,17 @@ const PALIERS: Palier[] = [
 /** Premier rank_level de la famille Mythique, juste apres Epique I. */
 const MYTHIQUE_MIN = 106;
 
-/** Sous-paliers mythiques, par points cumules depuis l'entree en Mythique. */
+/**
+ * rank_level correspondant a la premiere etoile mythique.
+ *
+ * L'echelle reserve encore la plage de l'ancien palier « Legende » (cinq
+ * divisions supprimees de l'affichage), si bien que les etoiles mythiques ne
+ * comptent qu'a partir de 136 : un compte de 166 correspond a 30 etoiles, pas
+ * a 60. Repere sur un compte reel : rank_level 166 = 30 etoiles (Honneur).
+ */
+const MYTHIQUE_BASE = 136;
+
+/** Sous-paliers mythiques, par etoiles cumulees depuis l'entree en Mythique. */
 const MYTHIQUES = [
   { seuil: 100, nom: "Immortel mythique", cle: "mythique-immortel", couleur: "#ff3d6b" },
   { seuil: 50, nom: "Gloire mythique", cle: "mythique-gloire", couleur: "#ff6b3d" },
@@ -74,15 +84,15 @@ export interface RangLisible {
 
 export function rangLisible(rankLevel: number): RangLisible {
   if (rankLevel >= MYTHIQUE_MIN) {
-    const points = rankLevel - (MYTHIQUE_MIN - 1);
-    const palier = MYTHIQUES.find((m) => points >= m.seuil) ?? MYTHIQUES.at(-1)!;
+    const etoiles = Math.max(0, rankLevel - MYTHIQUE_BASE);
+    const palier = MYTHIQUES.find((m) => etoiles >= m.seuil) ?? MYTHIQUES.at(-1)!;
     return {
       nom: palier.nom,
       division: "",
       couleur: palier.couleur,
       image: IMAGES[palier.cle],
-      etoiles: points,
-      uniteEtoiles: "point",
+      etoiles,
+      uniteEtoiles: "etoile",
       mythique: true,
     };
   }
