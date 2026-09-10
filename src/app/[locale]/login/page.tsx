@@ -1,3 +1,4 @@
+import { FilAriane } from "@/components/fil-ariane";
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { ShieldCheck } from "lucide-react";
@@ -21,6 +22,7 @@ export default async function PageConnexion({ params }: { params: Promise<{ loca
 
   return (
     <div className="mx-auto max-w-md px-4 py-20">
+      <FilAriane miettes={[{ nom: t("pages.login.titre") }]} className="mb-8" />
       <h1 className="font-titre text-3xl font-bold text-craie-100">{t("pages.login.titre")}</h1>
       <div aria-hidden className="filet-or mt-3 h-0.5 w-16" />
       <p className="mt-4 text-sm leading-relaxed text-craie-500">

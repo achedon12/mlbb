@@ -40,3 +40,11 @@ test("les pages legales sont accessibles", async ({ page }) => {
   await page.goto("/fr/privacy");
   await expect(page.getByRole("heading", { name: /confidentialite/i })).toBeVisible();
 });
+
+test("le fil d'Ariane mene de la fiche au catalogue", async ({ page }) => {
+  await page.goto("/fr/heroes/khufra");
+  const fil = page.getByRole("navigation", { name: /fil d'ariane/i });
+  await expect(fil).toContainText("Accueil");
+  await fil.getByRole("link", { name: /h[ée]ros/i }).click();
+  await expect(page).toHaveURL(/\/heroes$/);
+});

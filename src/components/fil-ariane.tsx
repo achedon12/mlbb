@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useT } from "@/i18n/fournisseur";
+import { ChevronRight, House } from "lucide-react";
+import { useLangue, useT } from "@/i18n/fournisseur";
 import { donneesLd } from "@/lib/html";
-import { ChevronRight } from "lucide-react";
 import { site } from "@/lib/site";
+import { cn } from "@/lib/utils";
 
 export interface Miette {
   nom: string;
@@ -19,17 +20,25 @@ export interface Miette {
  * `BreadcrumbList` : les moteurs affichent alors le chemin sous le resultat
  * plutot que l'URL brute, et le lecteur remonte d'un niveau sans la barre du
  * navigateur.
+ *
+ * L'accueil ouvre toujours le fil : aucune page n'a a le declarer. Le fil pose
+ * son propre fond, lisible sur un en-tete illustre comme sur un fond uni.
  */
-export function FilAriane({ miettes }: { miettes: Miette[] }) {
+export function FilAriane({ miettes, className }: { miettes: Miette[]; className?: string }) {
   const t = useT();
+  const langue = useLangue();
+  const fil: Miette[] = [{ nom: t("commun.accueil"), href: "/" }, ...miettes];
+  // Les moteurs veulent des adresses completes, langue comprise : un lien sans
+  // prefixe n'est resolu que par la redirection du proxy.
+  const adresse = (href: string) => `${site.url}/${langue}${href === "/" ? "" : href}`;
   const donnees = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: miettes.map((m, i) => ({
+    itemListElement: fil.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: m.nom,
-      ...(m.href ? { item: `${site.url}${m.href}` } : {}),
+      ...(m.href ? { item: adresse(m.href) } : {}),
     })),
   };
 
@@ -39,19 +48,25 @@ export function FilAriane({ miettes }: { miettes: Miette[] }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }}
       />
-      <nav aria-label={t("commun.filAriane")}>
-        <ol className="flex flex-wrap items-center gap-1.5 text-xs text-craie-500">
-          {miettes.map((m, i) => {
-            const dernier = i === miettes.length - 1;
+      <nav aria-label={t("commun.filAriane")} className={className}>
+        <ol className="biseau-sm inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1 border border-nuit-700/60 bg-nuit-950/70 px-3 py-1.5 text-sm backdrop-blur-sm">
+          {fil.map((m, i) => {
+            const dernier = i === fil.length - 1;
+            const accueil = i === 0;
             return (
-              <li key={`${m.nom}-${i}`} className="flex items-center gap-1.5">
-                {i > 0 && <ChevronRight size={12} aria-hidden className="text-craie-600" />}
+              <li key={`${m.nom}-${i}`} className="flex min-w-0 items-center gap-1.5">
+                {i > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-craie-600" />}
                 {m.href && !dernier ? (
-                  <Link href={m.href} className="transition-colors hover:text-or-400">
-                    {m.nom}
+                  <Link
+                    href={m.href}
+                    className="flex items-center gap-1.5 text-craie-400 transition-colors hover:text-or-400"
+                  >
+                    {accueil && <House size={14} aria-hidden className="shrink-0" />}
+                    {/* Sur mobile, la maison suffit a dire « accueil ». */}
+                    <span className={cn(accueil && "sr-only sm:not-sr-only")}>{m.nom}</span>
                   </Link>
                 ) : (
-                  <span aria-current="page" className="text-craie-400">
+                  <span aria-current="page" className="truncate font-medium text-craie-100">
                     {m.nom}
                   </span>
                 )}

@@ -1,3 +1,4 @@
+import { FilAriane } from "@/components/fil-ariane";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { redirect } from "next/navigation";
@@ -63,6 +64,7 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-14">
+      <FilAriane miettes={[{ nom: t("pages.account.metaTitre") }]} className="mb-8" />
       {/* ── En-tete de profil ──────────────────────────────────────────── */}
       <div className="flex flex-wrap items-center gap-5">
         <span className="biseau relative size-20 shrink-0 overflow-hidden bg-nuit-800">

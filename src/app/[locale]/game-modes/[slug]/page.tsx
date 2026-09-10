@@ -119,7 +119,6 @@ export default async function PageMode({ params }: Params) {
         <div className="mx-auto max-w-4xl px-4 py-12">
           <FilAriane
             miettes={[
-              { nom: t("commun.accueil"), href: `/${locale}` },
               { nom: t("nav.gameModes.label"), href: "/game-modes" },
               { nom: mode.nom },
             ]}

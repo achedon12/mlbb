@@ -1,5 +1,6 @@
+import { FilAriane, type Miette } from "@/components/fil-ariane";
 import Link from "next/link";
-import type { Palier, Role } from "@/lib/types";
+import type { Palier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /** Titre de section, avec le filet dore repris de l'interface du jeu. */
@@ -76,15 +77,19 @@ export function Carte({
 export function EnTetePage({
   titre,
   chapeau,
+  miettes,
   children,
 }: {
   titre: string;
   chapeau: string;
+  /** Fil d'Ariane ; par defaut, la page seule sous l'accueil. */
+  miettes?: Miette[];
   children?: React.ReactNode;
 }) {
   return (
     <div className="border-b border-nuit-700/70 bg-nuit-900/30">
-      <div className="mx-auto max-w-6xl px-4 py-14">
+      <div className="mx-auto max-w-6xl px-4 pb-14 pt-8">
+        <FilAriane miettes={miettes ?? [{ nom: titre }]} className="mb-6" />
         <h1 className="font-titre text-3xl font-bold text-craie-100 sm:text-4xl">{titre}</h1>
         <div aria-hidden className="filet-or mt-3 h-0.5 w-20" />
         <p className="mt-4 max-w-2xl leading-relaxed text-craie-300">{chapeau}</p>
