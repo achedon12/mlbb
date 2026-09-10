@@ -86,6 +86,7 @@ export const patchsDetail = patchsDetailGenere as unknown as Record<string, Patc
 
 /** Modes de jeu, presentes depuis le wiki. */
 export const modes = modesGenere as unknown as ModeDeJeu[];
+export const modesParSlug = new Map(modes.map((m) => [m.slug, m]));
 
 /** Histoire des heros : accroche, lore, fiche narrative et anecdotes. */
 export const histoires = histoiresGenere as unknown as Record<string, HistoireHeros>;

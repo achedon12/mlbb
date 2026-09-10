@@ -246,11 +246,24 @@ export interface Article {
   contenu: string;
 }
 
-/** Un mode de jeu, tire du wiki : nom, presentation et visuel. */
+/** Un bloc de contenu d'une section : un paragraphe ou un point de liste. */
+export interface BlocSection {
+  type: "p" | "li";
+  texte: string;
+}
+
+/** Une section detaillee d'un mode (objectif, regles, fonctionnalites…). */
+export interface SectionMode {
+  titre: string;
+  elements: BlocSection[];
+}
+
+/** Un mode de jeu, tire du wiki : nom, presentation, sections detaillees et visuel. */
 export interface ModeDeJeu {
   nom: string;
   slug: string;
   description: string | null;
+  sections: SectionMode[];
   image: string | null;
 }
 

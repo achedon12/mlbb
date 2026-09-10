@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { heros, patchsDetail } from "@/lib/donnees";
+import { heros, modes, patchsDetail } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
 import { site } from "@/lib/site";
 
@@ -32,6 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ] as const
   ).map((e) => ({ ...e, lastModified: maintenant }));
 
+  const pagesModes: MetadataRoute.Sitemap = modes.map((m) => ({
+    url: `${site.url}/modes-de-jeu/${m.slug}`,
+    lastModified: maintenant,
+    changeFrequency: "monthly",
+    priority: 0.5,
+  }));
+
   const pagesHeros: MetadataRoute.Sitemap = heros.map((h) => ({
     url: `${site.url}/heros/${h.slug}`,
     lastModified: maintenant,
@@ -62,5 +69,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...fixes, ...pagesHeros, ...publications, ...notesPatch];
+  return [...fixes, ...pagesModes, ...pagesHeros, ...publications, ...notesPatch];
 }

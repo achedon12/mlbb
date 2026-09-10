@@ -19,7 +19,13 @@ import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyserTableLua } from "./lua.mjs";
 import { decouperSections, nettoyerRendu, nouveauxHeros, sommaire } from "./patch-notes.mjs";
-import { nettoyerDescription, sansBalises, extraireHistoire } from "./wikitexte.mjs";
+import {
+  nettoyerDescription,
+  sansBalises,
+  extraireHistoire,
+  sectionsPage,
+  nettoyerLore,
+} from "./wikitexte.mjs";
 import { ajustementsHeros, bilan } from "./patch-parser.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
@@ -1091,22 +1097,34 @@ async function modesDeJeu() {
   // Le paragraphe de presentation d'un mode : on le tire de sa page. Le lien de
   // la galerie et le libelle affiche different parfois (« Arcade » vs « Arcade
   // Mode ») ; on tente les deux avant d'abandonner.
-  const presentation = async (titre) => {
+  // Sections de service, sans interet pour un lecteur : on les ecarte.
+  const SECTIONS_IGNOREES = [
+    "trivia", "gallery", "references", "navigation", "see also",
+    "ranked mode subpages", "external links",
+  ];
+
+  // On lit la page une fois, en wikitexte brut, pour en tirer l'introduction
+  // et les sections detaillees.
+  const contenu = async (titre) => {
     try {
-      const p = await api({
-        action: "parse",
-        page: titre,
-        prop: "wikitext",
-        formatversion: "2",
+      const rep = await api({
+        action: "query",
+        titles: titre,
+        prop: "revisions",
+        rvprop: "content",
+        rvslots: "main",
         redirects: "1",
       });
-      const texte = (p.parse?.wikitext ?? "").replace(/\[\[File:[^\]]+\]\]/gi, "");
-      const para = texte
-        .split(/\n{2,}/)
-        // Un gabarit de tete (ex. {{Stub}}) precede parfois le texte : on l'ote.
-        .map((s) => s.replace(/^(?:\{\{[^}]*\}\}\s*)+/g, "").trim())
-        .find((s) => s && !s.startsWith("{{") && !s.startsWith("=") && nettoyerDescription(s).length > 40);
-      return para ? nettoyerDescription(para).replace(/^'+|'+$/g, "").trim() : null;
+      const page = Object.values(rep.query?.pages ?? {})[0];
+      const wt = page?.revisions?.[0]?.slots?.main?.["*"];
+      if (!wt) return null;
+
+      // L'introduction : ce qui precede le premier titre de section.
+      const intro = wt.split(/\n==/)[0];
+      const description = nettoyerLore(intro).find((p) => p.length > 40) ?? null;
+
+      const sections = sectionsPage(wt, SECTIONS_IGNOREES);
+      return { description, sections };
     } catch {
       return null;
     }
@@ -1114,12 +1132,15 @@ async function modesDeJeu() {
 
   const modes = [];
   for (const e of entrees) {
-    const description = (await presentation(e.page)) ?? (await presentation(e.nom));
+    // Le lien de la galerie et le libelle affiche different parfois
+    // (« Arcade » vs « Arcade Mode ») : on tente les deux.
+    const c = (await contenu(e.page)) ?? (await contenu(e.nom));
 
     modes.push({
       nom: e.nom,
       slug: slugifier(e.nom),
-      description,
+      description: c?.description ?? null,
+      sections: c?.sections ?? [],
       image: parFichier.get(e.fichier) ?? null,
     });
     await pause(300);
