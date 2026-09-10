@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { assainirHtml, donneesLd } from "@/lib/html";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -85,7 +86,7 @@ export default async function PagePatch({ params }: Params) {
       <>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
+          dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
         />
 
         <div className="mx-auto max-w-6xl px-4 py-12">
@@ -187,7 +188,7 @@ export default async function PagePatch({ params }: Params) {
                     ) : (
                       <div
                         className="prose-mlbb"
-                        dangerouslySetInnerHTML={{ __html: section.html }}
+                        dangerouslySetInnerHTML={{ __html: assainirHtml(section.html) }}
                       />
                     )}
                   </div>
@@ -236,7 +237,7 @@ export default async function PagePatch({ params }: Params) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <CorpsArticle
         article={a}

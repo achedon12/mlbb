@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { donneesLd } from "@/lib/html";
 import { notFound } from "next/navigation";
 import { CorpsArticle } from "@/components/article";
 import { article, articles, enHtml } from "@/lib/contenu";
@@ -54,7 +55,7 @@ export default async function PageArticle({ params }: Params) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <CorpsArticle
         article={a}
