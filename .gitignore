@@ -47,7 +47,6 @@ next-env.d.ts
 # Ce projet utilise npm
 /pnpm-lock.yaml
 /yarn.lock
-todo.txt
 
 # Journaux applicatifs (runtime)
 /logs
