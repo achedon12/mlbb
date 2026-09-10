@@ -1394,8 +1394,16 @@ async function principal() {
           largeur: 128,
         });
       } else if (arena[i]?.icone) {
-        // Repli : l'icone officielle servie par le CDN de l'API.
-        icones[nom] = arena[i].icone;
+        // Repli : l'icone officielle du CDN de l'API, copiee en local comme le
+        // reste — le site ne sert aucune image depuis un hote externe.
+        const fichier = `${slugifier(nom)}.webp`;
+        icones[nom] = `/visuels/competences/${fichier}`;
+        plan.push({
+          url: arena[i].icone,
+          chemin: `public/visuels/competences/${fichier}`,
+          optimiser: true,
+          largeur: 128,
+        });
         iconesArena += 1;
       } else if (visuelsExistants[slug]?.[nom]) {
         // Ni wiki ni API : on conserve l'icone deja resolue precedemment.

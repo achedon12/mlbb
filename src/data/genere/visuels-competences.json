@@ -96,7 +96,7 @@
     "Tortoise's Puissance": "/visuels/competences/tortoise-s-puissance.webp"
   },
   "beatrix": {
-    "Mechanical Genius": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_e7d8fd33d2b89799aa46629090802b70.png",
+    "Mechanical Genius": "/visuels/competences/mechanical-genius.webp",
     "Masterful Gunner": "/visuels/competences/masterful-gunner.webp",
     "Tactical Reposition": "/visuels/competences/tactical-reposition.webp",
     "Renner's Apathy": "/visuels/competences/renner-s-apathy.webp",
@@ -314,9 +314,9 @@
     "Ninjutsu: Dark Mist": "/visuels/competences/ninjutsu-dark-mist.webp",
     "Kinjutsu: Pinnacle Ninja": "/visuels/competences/kinjutsu-pinnacle-ninja.webp",
     "Ame no Habakiri": "/visuels/competences/ame-no-habakiri.webp",
-    "Forbidden Ninjutsu: Soul Snatch": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_74eb2011217392bd06c2dc2cf9434731.png",
-    "Forbidden Ninjutsu: Black Mist": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_2e6bdaf0784cffb7c0a636b77dce95e7.png",
-    "Ninjutsu Flee: Return": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_d84a015788767e56209e80d5ee64ca8a.png"
+    "Forbidden Ninjutsu: Soul Snatch": "/visuels/competences/forbidden-ninjutsu-soul-snatch.webp",
+    "Forbidden Ninjutsu: Black Mist": "/visuels/competences/forbidden-ninjutsu-black-mist.webp",
+    "Ninjutsu Flee: Return": "/visuels/competences/ninjutsu-flee-return.webp"
   },
   "harith": {
     "Key Insight": "/visuels/competences/key-insight.webp",
@@ -349,7 +349,7 @@
     "Power of Wildness": "/visuels/competences/power-of-wildness.webp"
   },
   "hirara": {
-    "Twin Fans: Ukifune": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_08027b326d3c236be35e6d82a6b7dbf2.png",
+    "Twin Fans: Ukifune": "/visuels/competences/twin-fans-ukifune.webp",
     "Meisen-e": "/visuels/competences/meisen-e.webp",
     "Kaerazu": "/visuels/competences/kaerazu.webp",
     "Falling Maple": "/visuels/competences/falling-maple.webp",
@@ -514,8 +514,8 @@
     "Chaos Assault": "/visuels/competences/chaos-assault.webp",
     "Order & Chaos": "/visuels/competences/order-chaos.webp",
     "Cosmic Fission": "/visuels/competences/cosmic-fission.webp",
-    "Power of Order: Brilliance": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_928f5ae97116806edf7fd06522aee9e9.png",
-    "Power of Chaos: Darkening": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_1_88_1205_1/100_3673d187cf12182b09ba1a0054ca0742.png"
+    "Power of Order: Brilliance": "/visuels/competences/power-of-order-brilliance.webp",
+    "Power of Chaos: Darkening": "/visuels/competences/power-of-chaos-darkening.webp"
   },
   "luo-yi": {
     "Duality": "/visuels/competences/duality.webp",
