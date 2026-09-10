@@ -943,6 +943,61 @@ function comparerVersions(a, b) {
   return 0;
 }
 
+/** Nettoie une description de competence renvoyee par l'API (balises, sauts). */
+function nettoyerSkillDesc(brut) {
+  return String(brut ?? "")
+    .replace(/<font[^>]*>/gi, "")
+    .replace(/<\/font>/gi, "")
+    .replace(/<br\s*\/?>/gi, " ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/\r/g, "")
+    .replace(/\n+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Competences depuis l'API communautaire, en repli du wiki.
+ *
+ * Certaines pages du wiki n'exposent pas leurs competences — nom, description
+ * ou icone manquants. L'API les fournit toutes : nom, texte du jeu et icone
+ * officielle. On les recupere pour completer ce que le wiki laisse de cote,
+ * sans jamais ecraser ce qu'il fournit deja.
+ */
+async function competencesArena(heros) {
+  const sortie = {};
+
+  for (const [i, h] of heros.entries()) {
+    try {
+      const rep = await fetch(`${STATS}/heroes/${encodeURIComponent(h.nom)}?lang=en`, {
+        headers: { "User-Agent": UA },
+        signal: AbortSignal.timeout(20000),
+      });
+      if (rep.ok) {
+        const data = (await rep.json())?.data?.records?.[0]?.data?.hero?.data;
+        const skills = (data?.heroskilllist ?? []).flatMap((g) => g.skilllist ?? []);
+        if (skills.length > 0) {
+          sortie[h.slug] = skills.map((s) => ({
+            nom: String(s.skillname ?? "").trim(),
+            description: nettoyerSkillDesc(s.skilldesc) || null,
+            icone: s.skillicon ? String(s.skillicon) : null,
+          }));
+        }
+      }
+    } catch {
+      // Un heros en echec ne doit pas interrompre la synchronisation.
+    }
+
+    process.stdout.write(`\r    competences arena ${i + 1}/${heros.length}`);
+    await pause(200);
+  }
+
+  process.stdout.write("\n");
+  return sortie;
+}
+
 /**
  * Emblemes officiels des rangs.
  *
@@ -1027,6 +1082,28 @@ async function principal() {
     `  ${nbCompetences} competences (${nbDescriptions} decrites), ${nbIllustrations} illustrations`,
   );
 
+  console.log("Competences en repli (API)…");
+  const skillsArena = await competencesArena(heros);
+  console.log(`  ${Object.keys(skillsArena).length} heros couverts par l'API`);
+
+  // Fusion wiki + API : le wiki prime, l'API comble nom, description et icone
+  // manquants. Les deux listes suivent le meme ordre (passif → ultime).
+  const competencesFinales = {};
+  for (const h of heros) {
+    const wiki = pages[h.slug]?.competences ?? [];
+    const arena = skillsArena[h.slug] ?? [];
+    const n = Math.max(wiki.length, arena.length);
+    if (n === 0) continue;
+
+    const liste = [];
+    for (let i = 0; i < n; i += 1) {
+      const nom = wiki[i]?.nom ?? arena[i]?.nom ?? null;
+      const description = wiki[i]?.description ?? arena[i]?.description ?? null;
+      liste.push(nom || description ? { nom, description } : null);
+    }
+    competencesFinales[h.slug] = liste;
+  }
+
   console.log("Classement des heros…");
   let stats = {};
   try {
@@ -1090,31 +1167,40 @@ async function principal() {
   // ── Icones de competences ──────────────────────────────────────────
   const nomsCompetences = [
     ...new Set(
-      Object.values(pages).flatMap((p) => p.competences.map((c) => c?.nom).filter(Boolean)),
+      Object.values(competencesFinales).flatMap((cs) => cs.map((c) => c?.nom).filter(Boolean)),
     ),
   ];
   const urlsCompetences = await urlsFichiers(nomsCompetences);
 
+  let iconesArena = 0;
   const visuelsCompetences = {};
-  for (const [slug, page] of Object.entries(pages)) {
+  for (const [slug, comps] of Object.entries(competencesFinales)) {
+    const arena = skillsArena[slug] ?? [];
     const icones = {};
-    for (const competence of page.competences) {
+    comps.forEach((competence, i) => {
       const nom = competence?.nom;
-      const url = nom ? urlsCompetences[nom] : null;
-      if (!url) continue;
-      const fichier = `${slugifier(nom)}.webp`;
-      icones[nom] = `/visuels/competences/${fichier}`;
-      plan.push({
-        url,
-        chemin: `public/visuels/competences/${fichier}`,
-        optimiser: true,
-        largeur: 128,
-      });
-    }
+      if (!nom) return;
+      const urlWiki = urlsCompetences[nom];
+      if (urlWiki) {
+        const fichier = `${slugifier(nom)}.webp`;
+        icones[nom] = `/visuels/competences/${fichier}`;
+        plan.push({
+          url: urlWiki,
+          chemin: `public/visuels/competences/${fichier}`,
+          optimiser: true,
+          largeur: 128,
+        });
+      } else if (arena[i]?.icone) {
+        // Repli : l'icone officielle servie par le CDN de l'API.
+        icones[nom] = arena[i].icone;
+        iconesArena += 1;
+      }
+    });
     if (Object.keys(icones).length) visuelsCompetences[slug] = icones;
   }
   console.log(
-    `  ${Object.keys(urlsCompetences).length}/${nomsCompetences.length} icones de competences`,
+    `  ${Object.keys(urlsCompetences).length}/${nomsCompetences.length} icones du wiki` +
+      (iconesArena ? `, ${iconesArena} completees par l'API` : ""),
   );
 
   // ── Illustrations pleine taille ────────────────────────────────────
@@ -1223,9 +1309,7 @@ async function principal() {
     ecrire("patchs", listePatchs),
     ecrire("visuels", chemins),
     ecrire("visuels-objets", visuelsObjets),
-    ecrire("competences", Object.fromEntries(
-      Object.entries(pages).map(([slug, p]) => [slug, p.competences]),
-    )),
+    ecrire("competences", competencesFinales),
     ecrire("visuels-competences", visuelsCompetences),
     ecrire("illustrations", illustrations),
     ecrire("visuels-emblemes", visuelsEmblemes),

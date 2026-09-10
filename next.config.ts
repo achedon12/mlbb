@@ -26,6 +26,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.ytimg.com" },
       // Avatars de profil, servis par le CDN de Moonton.
       { protocol: "https", hostname: "akmpicture.youngjoygame.com" },
+      // Icones de competences en repli, quand le wiki ne les fournit pas.
+      { protocol: "https", hostname: "akmweb.youngjoygame.com" },
     ],
     formats: ["image/avif", "image/webp"],
   },
