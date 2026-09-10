@@ -455,6 +455,41 @@ const SORTS = [
  * - la galerie « Splash art » liste les illustrations pleine taille de chaque
  *   skin, bien plus grandes que les portraits de la boutique.
  */
+/**
+ * Extrait les gabarits `{{Ability ...}}` d'une page, accolades comptees.
+ *
+ * Une regex echouerait : la description imbrique d'autres gabarits (`{{Scale}}`,
+ * `{{ai}}`), et le gabarit ferme tantot par « \n}} », tantot par « }} » colle
+ * au dernier champ. On compte donc les accolades pour trouver la vraie
+ * fermeture, quelle que soit la mise en page.
+ */
+function templatesAbility(wikitexte) {
+  const resultats = [];
+  const re = /\{\{Ability\b/gi;
+  let m;
+  while ((m = re.exec(wikitexte)) !== null) {
+    const debut = m.index;
+    let profondeur = 0;
+    let k = debut;
+    for (; k < wikitexte.length; k += 1) {
+      if (wikitexte[k] === "{" && wikitexte[k + 1] === "{") {
+        profondeur += 1;
+        k += 1;
+      } else if (wikitexte[k] === "}" && wikitexte[k + 1] === "}") {
+        profondeur -= 1;
+        k += 1;
+        if (profondeur === 0) {
+          k += 1;
+          break;
+        }
+      }
+    }
+    resultats.push({ position: debut, corps: wikitexte.slice(debut + 2, k - 2) });
+    re.lastIndex = k;
+  }
+  return resultats;
+}
+
 function extraireDePage(wikitexte) {
   // Les competences sont declarees section par section, et chaque section
   // n'en contient qu'une — parfois aucune. On borne donc la recherche entre
@@ -470,8 +505,7 @@ function extraireDePage(wikitexte) {
       type: "titre",
       valeur: m[1].trim().toLowerCase(),
     })),
-    ...[...wikitexte.matchAll(/\{\{Ability\s*\|([\s\S]*?)\n\}\}/g)].map((m) => {
-      const corps = m[1];
+    ...templatesAbility(wikitexte).map(({ position, corps }) => {
       // La description court jusqu'au champ suivant du gabarit. Un nom de
       // champ peut contenir un chiffre (`term-1`), d'ou la classe elargie.
       const description = corps.match(
@@ -479,7 +513,7 @@ function extraireDePage(wikitexte) {
       )?.[1];
 
       return {
-        position: m.index,
+        position,
         type: "competence",
         valeur: corps.match(/\|?\s*name\s*=\s*(.+)/)?.[1]?.replace(/<[^>]*>/g, "").trim(),
         description: description ? nettoyerDescription(description) : null,
