@@ -1,7 +1,9 @@
 # Affiche le bouton « Sponsor » sur la page du depot.
-# Decommenter et completer les plateformes utilisees.
+# PayPal n'a pas de clef dediee : il passe par « custom ».
 github: [achedon12]
-# ko_fi: mon-compte
-# buy_me_a_coffee: mon-compte
-# liberapay: mon-compte
-# custom: ["https://leoderoin.fr"]
+ko_fi: achedon12
+buy_me_a_coffee: achedon12
+custom:
+  - "https://www.paypal.me/achedon12"
+# liberapay: achedon12
+# patreon: achedon12
