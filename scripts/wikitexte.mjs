@@ -324,3 +324,82 @@ export function extraireHistoire(wikitexte) {
   if (!lore.length && !anecdotes.length && !fiche) return null;
   return { lore, fiche, anecdotes };
 }
+
+// ─────────────────────────────────────────────────────────────
+// Sections d'une page (modes de jeu)
+// ─────────────────────────────────────────────────────────────
+
+/** Retire les tables wiki `{| … |}`, imbrications comprises. */
+function sansTables(texte) {
+  let sortie = String(texte);
+  let avant;
+  do {
+    avant = sortie;
+    sortie = sortie.replace(/\{\|(?:[^{]|\{(?!\|))*?\|\}/g, "");
+  } while (sortie !== avant);
+  return sortie;
+}
+
+/**
+ * Transforme le corps d'une section en une suite de blocs : chaque bloc est un
+ * paragraphe (`p`) ou un point de liste (`li`), deja nettoye. Les tables,
+ * galeries, images et references sont ecartees.
+ */
+export function blocsSection(corps) {
+  const propre = sansTables(sansScories(corps));
+  const blocs = [];
+  let paragraphe = [];
+
+  const viderParagraphe = () => {
+    if (!paragraphe.length) return;
+    const texte = nettoyerDescription(paragraphe.join(" "));
+    if (texte && texte.length > 1) blocs.push({ type: "p", texte });
+    paragraphe = [];
+  };
+
+  for (const ligne of propre.split("\n")) {
+    const l = ligne.trim();
+    if (!l) {
+      viderParagraphe();
+      continue;
+    }
+    if (/^[*#]+/.test(l)) {
+      viderParagraphe();
+      const texte = nettoyerDescription(l.replace(/^[*#]+\s*/, ""));
+      if (texte && texte.length > 1) blocs.push({ type: "li", texte });
+      continue;
+    }
+    // Titres residuels, gabarits isoles : sans interet ici.
+    if (/^=+/.test(l) || /^\{\{/.test(l) || /^\|/.test(l)) {
+      viderParagraphe();
+      continue;
+    }
+    paragraphe.push(l);
+  }
+  viderParagraphe();
+  return blocs;
+}
+
+/**
+ * Decoupe une page en sections de premier niveau (`==`), chacune rendue en
+ * blocs. Les intitules listes dans `ignorer` (en minuscules) sont sautes.
+ */
+export function sectionsPage(wikitexte, ignorer = []) {
+  const aSauter = new Set(ignorer.map((s) => s.toLowerCase()));
+  const entetes = [
+    ...wikitexte.matchAll(/^(={2,})\s*(.+?)\s*=+\s*$/gm),
+  ].map((m) => ({ position: m.index, fin: m.index + m[0].length, niveau: m[1].length, titre: m[2].trim() }));
+
+  const sections = [];
+  for (let i = 0; i < entetes.length; i += 1) {
+    const e = entetes[i];
+    if (e.niveau !== 2) continue;
+    if (aSauter.has(e.titre.toLowerCase())) continue;
+
+    const suivant = entetes.slice(i + 1).find((x) => x.niveau <= 2);
+    const corps = wikitexte.slice(e.fin, suivant ? suivant.position : undefined);
+    const elements = blocsSection(corps);
+    if (elements.length) sections.push({ titre: e.titre, elements });
+  }
+  return sections;
+}
