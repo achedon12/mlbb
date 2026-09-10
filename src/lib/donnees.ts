@@ -1,6 +1,7 @@
 import competencesGenere from "@/data/genere/competences.json";
 import contresGenere from "@/data/genere/contres.json";
 import patchsDetailGenere from "@/data/genere/patchs-detail.json";
+import modesGenere from "@/data/genere/modes.json";
 import herosGenere from "@/data/genere/heros.json";
 import illustrationsGenere from "@/data/genere/illustrations.json";
 import objetsGenere from "@/data/genere/objets.json";
@@ -14,6 +15,7 @@ import { analyses } from "@/data/heros";
 import type {
   CompetenceWiki,
   Heros,
+  ModeDeJeu,
   PatchDetaille,
   HerosGenere,
   ObjetGenere,
@@ -79,6 +81,9 @@ export const contres = contresGenere as unknown as Record<string, ContresHeros>;
 
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
 export const patchsDetail = patchsDetailGenere as unknown as Record<string, PatchDetaille>;
+
+/** Modes de jeu, presentes depuis le wiki. */
+export const modes = modesGenere as unknown as ModeDeJeu[];
 
 /** Presentation video officielle, quand elle a pu etre identifiee. */
 export const videos = videosGenere as unknown as Record<

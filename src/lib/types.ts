@@ -245,3 +245,11 @@ export interface Article {
   motsCles: string[];
   contenu: string;
 }
+
+/** Un mode de jeu, tire du wiki : nom, presentation et visuel. */
+export interface ModeDeJeu {
+  nom: string;
+  slug: string;
+  description: string | null;
+  image: string | null;
+}

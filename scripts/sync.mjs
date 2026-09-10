@@ -1048,6 +1048,82 @@ async function competencesArena(heros) {
 }
 
 /**
+ * Modes de jeu, depuis le wiki.
+ *
+ * La page « Game Modes » liste les modes de combat officiels dans une galerie ;
+ * chaque mode a sa propre page, dont on tire le paragraphe de presentation et
+ * l'image. L'API communautaire ne couvre pas les modes : le wiki est la seule
+ * source structuree.
+ */
+async function modesDeJeu() {
+  const galerie = await api({
+    action: "parse",
+    page: "Game Modes",
+    prop: "wikitext",
+    formatversion: "2",
+  });
+  const wt = galerie.parse?.wikitext ?? "";
+  const entrees = [...wt.matchAll(/File:([^|]+)\|link=([^|]+)\|\[\[([^\]]+)\]\]/gi)].map((m) => ({
+    fichier: m[1].trim(),
+    page: m[2].trim().replace(/_/g, " "),
+    nom: m[3].trim(),
+  }));
+  if (entrees.length === 0) return [];
+
+  // Images : une seule requete pour tous les fichiers de la galerie.
+  const donneesImg = await api({
+    action: "query",
+    titles: entrees.map((e) => `File:${e.fichier}`).join("|"),
+    prop: "imageinfo",
+    iiprop: "url",
+  });
+  const parFichier = new Map(
+    Object.values(donneesImg.query?.pages ?? {})
+      .filter((p) => p.imageinfo)
+      .map((p) => [p.title.replace(/^File:/, ""), p.imageinfo[0].url.split("/revision")[0]]),
+  );
+
+  // Le paragraphe de presentation d'un mode : on le tire de sa page. Le lien de
+  // la galerie et le libelle affiche different parfois (« Arcade » vs « Arcade
+  // Mode ») ; on tente les deux avant d'abandonner.
+  const presentation = async (titre) => {
+    try {
+      const p = await api({
+        action: "parse",
+        page: titre,
+        prop: "wikitext",
+        formatversion: "2",
+        redirects: "1",
+      });
+      const texte = (p.parse?.wikitext ?? "").replace(/\[\[File:[^\]]+\]\]/gi, "");
+      const para = texte
+        .split(/\n{2,}/)
+        // Un gabarit de tete (ex. {{Stub}}) precede parfois le texte : on l'ote.
+        .map((s) => s.replace(/^(?:\{\{[^}]*\}\}\s*)+/g, "").trim())
+        .find((s) => s && !s.startsWith("{{") && !s.startsWith("=") && nettoyerDescription(s).length > 40);
+      return para ? nettoyerDescription(para).replace(/^'+|'+$/g, "").trim() : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const modes = [];
+  for (const e of entrees) {
+    const description = (await presentation(e.page)) ?? (await presentation(e.nom));
+
+    modes.push({
+      nom: e.nom,
+      slug: slugifier(e.nom),
+      description,
+      image: parFichier.get(e.fichier) ?? null,
+    });
+    await pause(300);
+  }
+
+  return modes;
+}
+
+/**
  * Emblemes officiels des rangs.
  *
  * Le decoupage des rangs (de Guerrier a Epique, puis la famille Mythique) est
@@ -1205,6 +1281,10 @@ async function principal() {
   console.log("Emblemes des rangs…");
   const emblemesRangs = await rangs();
   console.log(`  ${Object.keys(emblemesRangs.images).length} emblemes`);
+
+  console.log("Modes de jeu…");
+  const modes = await modesDeJeu();
+  console.log(`  ${modes.length} modes (${modes.filter((m) => m.description).length} decrits)`);
 
   console.log("Resolution des visuels…");
   const identifiants = [
@@ -1384,6 +1464,7 @@ async function principal() {
     ecrire("visuels-sorts", visuelsSorts),
     ecrire("patchs-detail", detailPatchs),
     ecrire("rangs", emblemesRangs),
+    ecrire("modes", modes),
     ecrire("synchro", {
       date: new Date().toISOString(),
       source: "https://mobilelegends.fandom.com",
