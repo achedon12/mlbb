@@ -8,7 +8,8 @@ const LIENS_SITE = [
   { href: "/api-doc", label: "API publique" },
   { href: "/a-propos", label: "A propos" },
   { href: "/compte", label: "Mon compte" },
-  { href: "/feed.xml", label: "Flux RSS" },
+  { href: "/mentions-legales", label: "Mentions legales" },
+  { href: "/confidentialite", label: "Confidentialite" },
 ];
 
 /** Colonne de liens du pied de page. */
