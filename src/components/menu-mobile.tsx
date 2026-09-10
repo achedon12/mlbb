@@ -1,18 +1,89 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { navigation } from "@/lib/site";
-import { LienNav } from "./lien-nav";
+import { cn } from "@/lib/utils";
+import { ACTUALITE, BASE, type Entree } from "./menu-bureau";
 
 /**
  * Menu de navigation en petite largeur.
  *
- * Seul ce fragment porte l'ouverture et la fermeture : l'en-tete reste rendu
+ * Meme decoupage que le bureau — base de donnees puis actualite — mais deplie
+ * verticalement, chaque rubrique accompagnee de son icone et d'un mot
+ * d'explication. Seul ce fragment porte l'ouverture ; l'en-tete reste rendu
  * sur le serveur.
  */
+
+function estActif(chemin: string, href: string) {
+  return chemin === href || chemin.startsWith(`${href}/`);
+}
+
+function Section({
+  titre,
+  entrees,
+  chemin,
+  onNaviguer,
+}: {
+  titre: string;
+  entrees: Entree[];
+  chemin: string;
+  onNaviguer: () => void;
+}) {
+  return (
+    <div>
+      <p className="px-2 pb-1 pt-3 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-craie-500">
+        {titre}
+      </p>
+      <ul>
+        {entrees.map(({ href, label, icone: Ic, description }) => {
+          const actif = estActif(chemin, href);
+          return (
+            <li key={href}>
+              <Link
+                href={href}
+                onClick={onNaviguer}
+                aria-current={actif ? "page" : undefined}
+                className={cn(
+                  "flex items-center gap-3 rounded-md p-2.5 transition-colors",
+                  actif ? "bg-nuit-800/80" : "hover:bg-nuit-800/60",
+                )}
+              >
+                <span
+                  className={cn(
+                    "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
+                    actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300",
+                  )}
+                >
+                  <Ic size={17} aria-hidden />
+                </span>
+                <span className="min-w-0">
+                  <span
+                    className={cn(
+                      "block text-sm font-semibold",
+                      actif ? "text-or-400" : "text-craie-100",
+                    )}
+                  >
+                    {label}
+                  </span>
+                  <span className="block text-xs text-craie-400">{description}</span>
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
 export function MenuMobile() {
   const [ouvert, setOuvert] = useState(false);
+  const chemin = usePathname();
+
+  // La navigation ferme le menu via le `onClick` de chaque lien.
+  const fermer = () => setOuvert(false);
 
   return (
     <div className="lg:hidden">
@@ -27,23 +98,21 @@ export function MenuMobile() {
         {ouvert ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
       </button>
 
+      {/* Voile plein ecran : ferme au toucher a cote du panneau. */}
+      <div
+        hidden={!ouvert}
+        onClick={fermer}
+        className="fixed inset-0 top-16 z-30 bg-nuit-950/60 backdrop-blur-sm"
+        aria-hidden
+      />
+
       <div
         id="menu-mobile"
         hidden={!ouvert}
-        className="absolute inset-x-0 top-16 border-b border-nuit-700 bg-nuit-950 px-4 py-3"
+        className="absolute inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-nuit-700 bg-nuit-950 px-3 pb-4 shadow-2xl shadow-nuit-950/60"
       >
-        <ul className="flex flex-col">
-          {navigation.map((lien) => (
-            <li key={lien.href}>
-              <LienNav
-                href={lien.href}
-                label={lien.label}
-                variante="mobile"
-                onClick={() => setOuvert(false)}
-              />
-            </li>
-          ))}
-        </ul>
+        <Section titre="Base de donnees" entrees={BASE} chemin={chemin} onNaviguer={fermer} />
+        <Section titre="Actualites" entrees={ACTUALITE} chemin={chemin} onNaviguer={fermer} />
       </div>
     </div>
   );
