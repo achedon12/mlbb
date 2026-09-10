@@ -331,6 +331,11 @@
           "resume": "Ranking calculated: victory rate, ban and selection rate, level and reporting date."
         }
       }
+    },
+    "offline": {
+      "titre": "You are offline",
+      "texte": "This page has not been visited on this device yet, so it is not available without a connection. Pages you have already visited, and the site's main sections, remain available.",
+      "accueil": "Back to home"
     }
   },
   "modeFiche": {
@@ -986,5 +991,8 @@
     "guideIntro": "The full equipment, six items, suggested by a player of this rank — or, failing that, a higher one: the best-rated guide on the game's academy. It is an opinion, not a measurement — it has no win rate.",
     "guideAuteur": "Author's highest rank: {rang}",
     "guideVotes": "{n} vote(s)"
+  },
+  "horsLigne": {
+    "bandeau": "Offline — pages you have already visited are still available."
   }
 }

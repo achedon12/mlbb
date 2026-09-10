@@ -331,6 +331,11 @@
           "resume": "Clasificación calculada: tasa de victoria, tasa de prohibición y selección, nivel y fecha de presentación de informes."
         }
       }
+    },
+    "offline": {
+      "titre": "Estás sin conexión",
+      "texte": "Esta página aún no se ha consultado en este dispositivo, así que no está disponible sin conexión. Las páginas ya visitadas y las secciones principales del sitio siguen accesibles.",
+      "accueil": "Volver al inicio"
     }
   },
   "modeFiche": {
@@ -986,5 +991,8 @@
     "guideIntro": "El equipamiento completo, seis objetos, propuesto por un jugador de este rango — o, en su defecto, de uno superior: la guía mejor valorada en la academia del juego. Es una opinión, no una medición — no tiene tasa de victoria.",
     "guideAuteur": "Rango máximo del autor: {rang}",
     "guideVotes": "{n} voto(s)"
+  },
+  "horsLigne": {
+    "bandeau": "Sin conexión — las páginas ya consultadas siguen disponibles."
   }
 }

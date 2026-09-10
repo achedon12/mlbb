@@ -331,6 +331,11 @@
           "resume": "Classifica calcolata: tasso di vittoria, tasso di ban e selezione, livello e data di segnalazione."
         }
       }
+    },
+    "offline": {
+      "titre": "Sei offline",
+      "texte": "Questa pagina non è ancora stata consultata su questo dispositivo, quindi non è disponibile senza connessione. Le pagine già visitate e le sezioni principali del sito restano accessibili.",
+      "accueil": "Torna alla home"
     }
   },
   "modeFiche": {
@@ -986,5 +991,8 @@
     "guideIntro": "L'equipaggiamento completo, sei oggetti, proposto da un giocatore di questo rango — o, in mancanza, di un rango superiore: la guida più votata sull'accademia del gioco. È un parere, non una misura — non ha tasso di vittoria.",
     "guideAuteur": "Rango massimo dell'autore: {rang}",
     "guideVotes": "{n} voto/i"
+  },
+  "horsLigne": {
+    "bandeau": "Offline — le pagine già consultate restano disponibili."
   }
 }

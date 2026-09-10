@@ -51,6 +51,15 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
+      // Le service worker doit etre relu a chaque visite : une version en cache
+      // HTTP retarderait la mise a jour du cache hors ligne.
+      {
+        source: "/sw.js",
+        headers: [
+          { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" },
+          { key: "Content-Type", value: "application/javascript; charset=utf-8" },
+        ],
+      },
       {
         source: "/:chemin*",
         headers: [

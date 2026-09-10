@@ -48,3 +48,22 @@ test("le fil d'Ariane mene de la fiche au catalogue", async ({ page }) => {
   await fil.getByRole("link", { name: /h[ée]ros/i }).click();
   await expect(page).toHaveURL(/\/heroes$/);
 });
+
+test("le site reste consultable hors ligne", async ({ page, context }) => {
+  test.skip(!process.env.CI, "le service worker n'est actif qu'en production");
+  await page.goto("/fr/heroes");
+  // Le service worker doit controler la page avant la suite : sinon la fiche
+  // ne passerait pas par lui et ne serait pas gardee.
+  await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30_000 });
+  await page.goto("/fr/heroes/khufra");
+  await page.waitForFunction(async () => !!(await caches.match(location.href)), null, { timeout: 30_000 });
+
+  await context.setOffline(true);
+  await page.goto("/fr/heroes/khufra");
+  await expect(page.getByRole("heading", { name: "Khufra", level: 1 })).toBeVisible();
+  await expect(page.getByRole("status").filter({ hasText: /hors ligne/i })).toBeVisible();
+  // Une fiche jamais consultee mene a la page « hors ligne ».
+  await page.goto("/fr/heroes/fanny");
+  await expect(page.getByRole("heading", { name: /hors ligne/i, level: 1 })).toBeVisible();
+  await context.setOffline(false);
+});

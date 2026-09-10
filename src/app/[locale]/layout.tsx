@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Rajdhani } from "next/font/google";
 import { EnTete } from "@/components/en-tete";
+import { HorsLigne } from "@/components/hors-ligne";
 import { MesureAudience } from "@/components/mesure-audience";
 import { PiedDePage } from "@/components/pied-de-page";
 import { FournisseurLangue } from "@/i18n/fournisseur";
@@ -96,6 +97,7 @@ export default async function LangueLayout({
           </main>
           <PiedDePage langue={locale} />
           <MesureAudience />
+          <HorsLigne />
         </FournisseurLangue>
       </body>
     </html>

@@ -331,6 +331,11 @@
           "resume": "Classement calcule : taux de victoire, de ban et de selection, palier et date du releve."
         }
       }
+    },
+    "offline": {
+      "titre": "Vous etes hors ligne",
+      "texte": "Cette page n'a pas encore ete consultee sur cet appareil : elle n'est donc pas disponible sans connexion. Les pages deja visitees, et les principales rubriques du site, restent accessibles.",
+      "accueil": "Revenir a l'accueil"
     }
   },
   "modeFiche": {
@@ -986,5 +991,8 @@
     "guideIntro": "L'equipement complet, six objets, propose par un joueur de ce rang — ou, a defaut, d'un rang superieur : le guide le mieux note sur l'academie du jeu. C'est un avis, pas une mesure — il n'a pas de taux de victoire.",
     "guideAuteur": "Meilleur rang de l'auteur : {rang}",
     "guideVotes": "{n} vote(s)"
+  },
+  "horsLigne": {
+    "bandeau": "Hors ligne — les pages deja consultees restent disponibles."
   }
 }
