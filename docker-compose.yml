@@ -4,9 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      # Variables publiques figees a la compilation (URL canonique, traceur
-      # d'audience). Elles viennent du .env et doivent etre passees au build,
-      # pas seulement au runtime, sinon elles manquent aux pages generees.
       args:
         NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mlbbdex.com}
         NEXT_PUBLIC_MATOMO_URL: ${NEXT_PUBLIC_MATOMO_URL:-}
