@@ -15,7 +15,7 @@ import { tanks } from "./tanks";
  * synchronisation du wiki et n'a pas a etre recopie ici.
  *
  * Pour ajouter une analyse : reprendre le `slug` exact tel qu'il apparait dans
- * `src/data/genere/heros.json`, et suivre le type `AnalyseHeros`.
+ * `src/data/jeu/heros.json`, et suivre le type `AnalyseHeros`.
  */
 export const analyses: AnalyseHeros[] = [
   ...tanks,

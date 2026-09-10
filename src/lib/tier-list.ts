@@ -1,4 +1,4 @@
-import classement from "@/data/genere/classement.json";
+import statistiques from "@/data/jeu/statistiques.json";
 import { notesTierList } from "@/data/tier-list";
 import { heros } from "./donnees";
 import type { Heros, Palier } from "./types";
@@ -45,7 +45,7 @@ interface Classement {
   taux: Record<string, Taux>;
 }
 
-const CLASSEMENT = classement as unknown as Classement;
+const CLASSEMENT = statistiques.classement as unknown as Classement;
 const TAUX = CLASSEMENT.taux;
 
 /** Date du releve, a afficher plutot que celle de la derniere synchronisation. */

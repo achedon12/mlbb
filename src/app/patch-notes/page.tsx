@@ -3,8 +3,7 @@ import Link from "next/link";
 import { ExternalLink, FileText } from "lucide-react";
 import { ListeArticles } from "@/components/article";
 import { EnTetePage } from "@/components/ui";
-import detailPatchs from "@/data/genere/patchs-detail.json";
-import { patchs, synchro } from "@/lib/donnees";
+import { patchs, patchsDetail, synchro } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-const detailles = detailPatchs as Record<string, { version: string }>;
+const detailles = patchsDetail as Record<string, { version: string }>;
 
 export default function PagePatchNotes() {
   const analyses = articles("patch-notes");

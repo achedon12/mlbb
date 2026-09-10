@@ -8,7 +8,7 @@
  * marquent le passage de Mythique a Honneur mythique (25), Gloire mythique
  * (50), puis Immortel (100). Chaque palier a son embleme officiel.
  */
-import rangsData from "@/data/genere/rangs.json";
+import rangsData from "@/data/jeu/rangs.json";
 
 const IMAGES = (rangsData as { images: Record<string, string> }).images;
 

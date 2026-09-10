@@ -5,9 +5,7 @@ import { ArrowRight, Rss, Swords, TrendingUp } from "lucide-react";
 import { AccesRoles } from "@/components/acces-roles";
 import { AccueilVedette } from "@/components/accueil-vedette";
 import { BadgePalier, Carte, TitreSection } from "@/components/ui";
-import detailPatchs from "@/data/genere/patchs-detail.json";
-import illustrationsGenere from "@/data/genere/illustrations.json";
-import { heros, herosAnalyses, nombreSkins, patchs, synchro } from "@/lib/donnees";
+import { heros, herosAnalyses, illustrations, nombreSkins, patchs, patchsDetail, synchro } from "@/lib/donnees";
 import { tousLesArticles } from "@/lib/contenu";
 import { classementComplet } from "@/lib/tier-list";
 import { site } from "@/lib/site";
@@ -41,8 +39,7 @@ const donneesStructurees = {
   ],
 };
 
-const illustrations = illustrationsGenere as unknown as Record<string, Record<string, string>>;
-const detail = detailPatchs as unknown as Record<
+const detail = patchsDetail as unknown as Record<
   string,
   { version: string; sommaire: { titre: string }[] }
 >;

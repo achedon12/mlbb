@@ -6,7 +6,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { creerTraducteur } from "./traduction.mjs";
 
-const FICHIER = "src/data/genere/modes.json";
+const FICHIER = "src/data/jeu/modes.json";
 
 const modes = JSON.parse(await readFile(FICHIER, "utf8"));
 const t = await creerTraducteur();

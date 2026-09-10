@@ -8,7 +8,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { creerTraducteur } from "./traduction.mjs";
 
-const FICHIER = "src/data/genere/competences.json";
+const FICHIER = "src/data/jeu/competences.json";
 
 const competences = JSON.parse(await readFile(FICHIER, "utf8"));
 const t = await creerTraducteur();

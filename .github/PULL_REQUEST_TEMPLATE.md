@@ -16,12 +16,12 @@
 - [ ] `npm run lint` passe
 - [ ] `npm run typecheck` passe
 - [ ] `npm run build` passe
-- [ ] Je n'ai **pas** modifie `src/data/genere/` a la main
+- [ ] Je n'ai **pas** modifie `src/data/jeu/` a la main
       (ces fichiers sont ecrases a chaque synchronisation)
 
 <!--
 Si vous ajoutez une analyse de heros :
-- le `slug` est repris tel quel depuis src/data/genere/heros.json
+- le `slug` est repris tel quel depuis src/data/jeu/heros.json
 - le champ `contexte` de chaque build explique *quand* le prendre
 - les placements de tier list sont argumentes
 

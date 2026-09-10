@@ -1,16 +1,13 @@
-import competencesGenere from "@/data/genere/competences.json";
-import contresGenere from "@/data/genere/contres.json";
-import patchsDetailGenere from "@/data/genere/patchs-detail.json";
-import modesGenere from "@/data/genere/modes.json";
-import histoiresGenere from "@/data/genere/histoires.json";
-import herosGenere from "@/data/genere/heros.json";
-import illustrationsGenere from "@/data/genere/illustrations.json";
-import objetsGenere from "@/data/genere/objets.json";
-import patchsGenere from "@/data/genere/patchs.json";
-import skinsGenere from "@/data/genere/skins.json";
-import synchroGenere from "@/data/genere/synchro.json";
-import visuelsCompetencesGenere from "@/data/genere/visuels-competences.json";
-import visuelsGenere from "@/data/genere/visuels.json";
+import competencesGenere from "@/data/jeu/competences.json";
+import modesGenere from "@/data/jeu/modes.json";
+import histoiresGenere from "@/data/jeu/histoires.json";
+import herosGenere from "@/data/jeu/heros.json";
+import objetsGenere from "@/data/jeu/objets.json";
+import patchsGenere from "@/data/jeu/patchs.json";
+import skinsGenere from "@/data/jeu/skins.json";
+import synchroGenere from "@/data/jeu/synchro.json";
+import statistiquesGenere from "@/data/jeu/statistiques.json";
+import visuelsGenere from "@/data/jeu/visuels.json";
 import { analyses } from "@/data/heros";
 import type {
   CompetenceWiki,
@@ -29,14 +26,14 @@ import type {
 /**
  * Point d'acces unique aux donnees.
  *
- * Les fichiers de `src/data/genere/` sont produits par `npm run sync` ; les
+ * Les fichiers de `src/data/jeu/` sont produits par `npm run sync` ; les
  * analyses de `src/data/heros/` sont ecrites a la main. La fusion se fait ici,
  * une seule fois, pour que les pages n'aient jamais a savoir d'ou vient quoi.
  */
 
 const VISUELS_VIDES: VisuelsHeros = { portrait: null, icone: null, skins: {} };
 
-const visuels = visuelsGenere as unknown as Record<string, VisuelsHeros>;
+const visuels = visuelsGenere.heros as unknown as Record<string, VisuelsHeros>;
 const skinsParHeros = skinsGenere as unknown as Record<string, Skin[]>;
 const parSlugAnalyse = new Map(analyses.map((a) => [a.slug, a]));
 
@@ -56,7 +53,7 @@ export const competences = competencesGenere as unknown as Record<
 >;
 
 /** Icone de chaque competence, indexee par son nom anglais. */
-export const visuelsCompetences = visuelsCompetencesGenere as unknown as Record<
+export const visuelsCompetences = visuelsGenere.competences as unknown as Record<
   string,
   Record<string, string>
 >;
@@ -78,10 +75,10 @@ export interface ContresHeros {
   faible: ContreChiffre[];
   mesure: number | null;
 }
-export const contres = contresGenere as unknown as Record<string, ContresHeros>;
+export const contres = statistiquesGenere.contres as unknown as Record<string, ContresHeros>;
 
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
-export const patchsDetail = patchsDetailGenere as unknown as Record<string, PatchDetaille>;
+export const patchsDetail = patchsGenere.detail as unknown as Record<string, PatchDetaille>;
 
 /** Modes de jeu, presentes depuis le wiki. */
 export const modes = modesGenere as unknown as ModeDeJeu[];
@@ -91,7 +88,7 @@ export const modesParSlug = new Map(modes.map((m) => [m.slug, m]));
 export const histoires = histoiresGenere as unknown as Record<string, HistoireHeros>;
 
 /** Illustrations pleine taille, par heros puis par nom de skin. */
-export const illustrations = illustrationsGenere as unknown as Record<
+export const illustrations = visuelsGenere.illustrations as unknown as Record<
   string,
   Record<string, string>
 >;
@@ -99,7 +96,7 @@ export const illustrations = illustrationsGenere as unknown as Record<
 export const objets = objetsGenere as unknown as ObjetGenere[];
 export const objetsParSlug = new Map(objets.map((o) => [o.slug, o]));
 
-export const patchs = patchsGenere as unknown as Patch[];
+export const patchs = patchsGenere.liste as unknown as Patch[];
 export const synchro = synchroGenere as unknown as Synchro;
 
 /** Heros disposant d'une analyse redigee, mis en avant dans les listes. */
