@@ -8,13 +8,11 @@
  * dictionnaire anglais → francais, versionne avec le depot.
  */
 import { readFile, writeFile } from "node:fs/promises";
+import { pause, traduireLot as traduireLotGoogle } from "./traduction-google.mjs";
 import { existsSync } from "node:fs";
 
-const ENDPOINT = "https://clients5.google.com/translate_a/t";
-const UA = "Mozilla/5.0 (compatible; MLBBDex/1.0)";
 const CACHE = "scripts/traductions.json";
 
-const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** Un lot d'au plus dix textes, borne aussi par la longueur totale de l'URL. */
 function lots(textes) {
@@ -34,40 +32,7 @@ function lots(textes) {
   return groupes;
 }
 
-async function traduireLot(lot) {
-  const url = new URL(ENDPOINT);
-  url.searchParams.set("client", "dict-chrome-ex");
-  url.searchParams.set("sl", "en");
-  url.searchParams.set("tl", "fr");
-  for (const t of lot) url.searchParams.append("q", t);
-
-  for (let essai = 1; essai <= 4; essai += 1) {
-    try {
-      const rep = await fetch(url, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(30000) });
-      if (rep.ok) {
-        const donnees = await rep.json();
-        // Un seul texte renvoie ["fr"] ; plusieurs renvoient ["fr", "fr", …].
-        const sorties = Array.isArray(donnees) ? donnees.flat(Infinity) : [];
-        if (sorties.length === lot.length) return sorties.map(String);
-        // Longueur inattendue : on retombe sur un traitement un par un.
-        break;
-      }
-      if (rep.status === 429) await pause(4000 * essai);
-      else throw new Error(`HTTP ${rep.status}`);
-    } catch (erreur) {
-      if (essai === 4) throw erreur;
-      await pause(2000 * essai);
-    }
-  }
-  // Repli : chaque texte seul, plus lent mais fiable.
-  const sorties = [];
-  for (const t of lot) {
-    const [seul] = await traduireLot([t]).catch(() => [t]);
-    sorties.push(seul ?? t);
-    await pause(200);
-  }
-  return sorties;
-}
+const traduireLot = (lot) => traduireLotGoogle(lot, "en", "fr", { tolerant: true });
 
 /**
  * Traducteur a cache. On l'instancie une fois, on lui demande de traduire

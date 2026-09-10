@@ -10,13 +10,11 @@
  * versionne, l'application ne traduit jamais a l'execution.
  */
 import { readFile, writeFile } from "node:fs/promises";
+import { pause, traduireLot as traduireLotGoogle } from "./traduction-google.mjs";
 import { existsSync } from "node:fs";
 
 const SOURCE = "src/i18n/messages/fr.json";
 const CIBLES = ["en", "it", "es"];
-const ENDPOINT = "https://clients5.google.com/translate_a/t";
-const UA = "Mozilla/5.0 (compatible; MLBBDex/1.0)";
-const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const CACHE = "scripts/traductions-messages.json";
 const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
@@ -38,34 +36,7 @@ function restaurer(texte, vars) {
   return texte.replace(new RegExp(`${PROTEGE}(\\d+)${PROTEGE}`, "g"), (_, i) => vars[Number(i)] ?? "");
 }
 
-async function traduireLot(lot, tl) {
-  const url = new URL(ENDPOINT);
-  url.searchParams.set("client", "dict-chrome-ex");
-  url.searchParams.set("sl", "fr");
-  url.searchParams.set("tl", tl);
-  for (const t of lot) url.searchParams.append("q", t);
-
-  for (let essai = 1; essai <= 4; essai += 1) {
-    try {
-      const rep = await fetch(url, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(30000) });
-      if (rep.ok) {
-        const donnees = await rep.json();
-        const sorties = Array.isArray(donnees) ? donnees.flat(Infinity) : [];
-        if (sorties.length === lot.length) return sorties.map(String);
-        break;
-      }
-      if (rep.status === 429) await pause(4000 * essai);
-      else throw new Error(`HTTP ${rep.status}`);
-    } catch (e) {
-      if (essai === 4) throw e;
-      await pause(2000 * essai);
-    }
-  }
-  // Repli un par un
-  const out = [];
-  for (const t of lot) out.push((await traduireLot([t], tl))[0] ?? t);
-  return out;
-}
+const traduireLot = (lot, tl) => traduireLotGoogle(lot, "fr", tl);
 
 /** Applique une fonction async a chaque feuille (string) de l'arbre. */
 async function mapArbre(arbre, fn) {
