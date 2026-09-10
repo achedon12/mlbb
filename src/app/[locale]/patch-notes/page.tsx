@@ -5,23 +5,28 @@ import { ListeArticles } from "@/components/article";
 import { EnTetePage } from "@/components/ui";
 import { patchs, patchsDetail, synchro } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Patch notes",
-  description: `Les ${patchs.length} patchs de Mobile Legends: Bang Bang. Le detail des mises a jour recentes est consultable directement ici, sans quitter le site.`,
-  alternates: { canonical: "/patch-notes" },
-  openGraph: {
-    title: `Patch notes — ${site.nom}`,
-    description: `Les ${patchs.length} patchs du jeu, avec le detail des plus recents.`,
-    url: "/patch-notes",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.patchNotes.metaTitre"),
+    description: t("pages.patchNotes.metaDescription", { n: patchs.length }),
+    alternates: metaLangues(locale, "/patch-notes"),
+    openGraph: { title: `${t("pages.patchNotes.metaTitre")} — ${site.nom}`, description: t("pages.patchNotes.ogDescription", { n: patchs.length }), url: `/${locale}/patch-notes` },
+  };
+}
 
 const detailles = patchsDetail as Record<string, { version: string }>;
 
-export default function PagePatchNotes() {
+export default async function PagePatchNotes({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const analyses = articles("patch-notes");
   const avecDetail = patchs.filter((p) => detailles[p.version]);
   const autres = patchs.filter((p) => !detailles[p.version]).slice(0, 60);
@@ -29,12 +34,11 @@ export default function PagePatchNotes() {
   return (
     <>
       <EnTetePage
-        titre="Patch notes"
-        chapeau="Le contenu des mises a jour recentes est repris ici, section par section. Les patchs plus anciens restent recenses, avec un lien vers leur page d'origine."
+        titre={t("pages.patchNotes.titre")}
+        chapeau={t("pages.patchNotes.chapeau")}
       >
         <p className="mt-6 text-sm text-craie-500">
-          {patchs.length} patchs recenses · {avecDetail.length} consultables sur
-          le site · synchronise le{" "}
+          {t("pages.patchNotes.recenses", { n: patchs.length, m: avecDetail.length })}{" "}
           <time dateTime={synchro.date}>{formaterDate(synchro.date)}</time>
         </p>
       </EnTetePage>
@@ -42,7 +46,7 @@ export default function PagePatchNotes() {
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
         <section>
           <h2 className="font-titre text-2xl font-bold text-craie-100">
-            Mises a jour recentes
+            {t("pages.patchNotes.recentes")}
           </h2>
           <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
 
@@ -65,11 +69,10 @@ export default function PagePatchNotes() {
 
         {analyses.length > 0 && (
           <section>
-            <h2 className="font-titre text-2xl font-bold text-craie-100">Analyses</h2>
+            <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.patchNotes.analyses")}</h2>
             <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
             <p className="mt-3 text-sm text-craie-500">
-              Ce que les notes officielles ne disent pas : l&apos;effet reel des
-              changements en partie.
+              {t("pages.patchNotes.analysesIntro")}
             </p>
             <div className="mt-6">
               <ListeArticles articles={analyses} base="/patch-notes" />
@@ -81,9 +84,7 @@ export default function PagePatchNotes() {
           <h2 className="font-titre text-2xl font-bold text-craie-100">Archives</h2>
           <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
           <p className="mt-3 text-sm text-craie-500">
-            Les patchs plus anciens ne sont pas repris integralement — leur
-            contenu representerait plusieurs megaoctets pour des versions que
-            plus personne ne joue.
+            {t("pages.patchNotes.anciens")}
           </p>
 
           <ul className="mt-6 grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">

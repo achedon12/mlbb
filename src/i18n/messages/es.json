@@ -198,6 +198,54 @@
       "metaTitre": "Noticias y guías",
       "metaDescription": "Mobile Legends: metanálisis de Bang Bang, guías de antecedentes y lecturas de parches, en francés. Disponible en fuente RSS.",
       "ogDescription": "Metaanálisis y guías detalladas, en francés."
+    },
+    "tierList": {
+      "titre": "Lista de niveles",
+      "chapeau": "Esta clasificación no es una opinión: se calcula a partir de las tasas de victorias y prohibiciones reportadas por el juego, y se rehace por sí sola en cada sincronización.",
+      "metaTitre": "Lista de niveles",
+      "metaDescription": "Lista de niveles de Mobile Legends: Bang Bang calculada a partir de las tasas de victorias y prohibiciones reportadas por el juego. Recalculado en cada sincronización, sin opinión.",
+      "ogDescription": "Clasificación calculada a partir de las tasas de victorias y prohibiciones del juego.",
+      "mesures": "{n} medidas de héroe · calificación anotada",
+      "commentCalcule": "Cómo se calcula este ranking",
+      "scorePre": "La puntuación vale",
+      "scoreBold": "tasa de ganancia + una cuarta parte de la tasa de prohibición",
+      "p2": "La tasa de victorias mide lo que produce un héroe una vez jugado. La tasa de prohibición mide lo que temen los jugadores: atrapa a héroes que son demasiado fuertes para quedar libres, cuya tasa de victorias es engañosamente baja porque rara vez están disponibles.",
+      "p3pre": "La tasa de selección no forma parte del cálculo: mide la popularidad, no el poder. Sólo se utiliza para señalar.",
+      "asterisque": "asterisco",
+      "p3post": "Los héroes jugaron muy poco para que sus números se mantuvieran estables.",
+      "palier": "Nivel {p}",
+      "tropPeu": "Hay muy poco en juego para que las tarifas sean fiables",
+      "victoire": "Victoria",
+      "ban": "Prohibición",
+      "pick": "Elegir"
+    },
+    "patchNotes": {
+      "titre": "Notas del parche",
+      "chapeau": "El contenido de las actualizaciones recientes se incluye aquí, sección por sección. Los parches más antiguos permanecen en la lista, con un enlace a su página original.",
+      "metaTitre": "Notas del parche",
+      "metaDescription": "Los {n} parches para Mobile Legends: Bang Bang. Los detalles de las actualizaciones recientes se pueden ver directamente aquí, sin salir del sitio.",
+      "ogDescription": "Los {n} parches del juego, con detalle de los más recientes.",
+      "recenses": "{n} parches enumerados · {m} disponibles en el sitio · sincroniza el",
+      "recentes": "Actualizaciones recientes",
+      "analyses": "Analítica",
+      "analysesIntro": "Lo que no dicen las notas oficiales: el efecto real de los cambios en parte.",
+      "anciens": "Los parches más antiguos no se incluyen en su totalidad: su contenido representaría varios megabytes para versiones que ya nadie reproduce."
+    },
+    "login": {
+      "titre": "Conexión",
+      "intro": "Conecte su cuenta de juego usando el código de verificación oficial de Moonton. No se requiere contraseña.",
+      "secu": "El sitio nunca ve su contraseña. Solo recibe un token temporal, almacenado en una cookie segura, que usted elimina cuando cierra sesión.",
+      "metaTitre": "Conexión",
+      "metaDescription": "Conecte su cuenta de Mobile Legends mediante código de verificación, sin contraseña."
+    },
+    "watch": {
+      "titre": "dia anterior",
+      "chapeau": "Lo que el resto de la web publica sobre el juego: comunidad de deportes electrónicos y prensa, reunidos automáticamente. Cada entrada regresa a su editor; aquí no se copia nada.",
+      "metaTitre": "Ver: noticias de MLBB desde la web",
+      "metaDescription": "Las últimas publicaciones de la comunidad y la prensa de deportes electrónicos en Mobile Legends: Bang Bang, recopiladas automáticamente.",
+      "ogDescription": "Noticias de Mobile Legends de toda la web, recopiladas automáticamente.",
+      "derniereCollecte": "Última recopilación sobre {date} · fuentes:",
+      "aucune": "Ninguna fuente responde por el momento. La página se recarga automáticamente en la siguiente colección."
     }
   },
   "modeFiche": {

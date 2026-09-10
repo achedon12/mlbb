@@ -9,30 +9,34 @@ import {
   ORDRE_PALIERS,
   parPalier,
 } from "@/lib/tier-list";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Tier list",
-  description:
-    "Tier list de Mobile Legends: Bang Bang calculee a partir des taux de victoire et de ban remontes par le jeu. Recalculee a chaque synchronisation, sans opinion.",
-  alternates: { canonical: "/tier-list" },
-  openGraph: {
-    title: `Tier list — ${site.nom}`,
-    description: "Classement calcule a partir des taux de victoire et de ban du jeu.",
-    url: "/tier-list",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.tierList.metaTitre"),
+    description: t("pages.tierList.metaDescription"),
+    alternates: metaLangues(locale, "/tier-list"),
+    openGraph: { title: `${t("pages.tierList.metaTitre")} — ${site.nom}`, description: t("pages.tierList.ogDescription"), url: `/${locale}/tier-list` },
+  };
+}
 
-export default function PageTierList() {
+export default async function PageTierList({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   return (
     <>
       <EnTetePage
-        titre="Tier list"
-        chapeau="Ce classement n'est pas une opinion : il est calcule a partir des taux de victoire et de ban remontes par le jeu, et se refait tout seul a chaque synchronisation."
+        titre={t("pages.tierList.titre")}
+        chapeau={t("pages.tierList.chapeau")}
       >
         <p className="mt-6 text-sm text-craie-500">
-          {classementComplet.length} heros mesures · taux releves le{" "}
+          {t("pages.tierList.mesures", { n: classementComplet.length })}{" "}
           <time dateTime={mesureLe}>{formaterDate(mesureLe)}</time>
         </p>
       </EnTetePage>
@@ -41,25 +45,18 @@ export default function PageTierList() {
         {/* Le lecteur doit pouvoir contester le classement : on montre la regle. */}
         <details className="biseau mb-10 border border-nuit-700/70 bg-nuit-900/60 p-5">
           <summary className="cursor-pointer font-titre font-bold text-or-400">
-            Comment ce classement est calcule
+            {t("pages.tierList.commentCalcule")}
           </summary>
           <div className="mt-4 space-y-3 text-sm leading-relaxed text-craie-300">
             <p>
-              Le score vaut <strong className="text-craie-100">taux de victoire + un quart du taux de ban</strong>.
+              {t("pages.tierList.scorePre")}<strong className="text-craie-100">{t("pages.tierList.scoreBold")}</strong>.
             </p>
             <p>
-              Le taux de victoire mesure ce qu&apos;un heros produit une fois
-              joue. Le taux de ban mesure ce que les joueurs redoutent : il
-              rattrape les heros trop forts pour etre laisses libres, dont le
-              taux de victoire est trompeusement bas parce qu&apos;ils sont
-              rarement disponibles.
+              {t("pages.tierList.p2")}
             </p>
             <p>
-              Le taux de selection n&apos;entre pas dans le calcul — il mesure
-              la popularite, pas la puissance. Il sert seulement a signaler
-              d&apos;un{" "}
-              <span className="text-or-400">asterisque</span> les heros trop peu
-              joues pour que leurs chiffres soient stables.
+              {t("pages.tierList.p3pre")}
+              <span className="text-or-400">{t("pages.tierList.asterisque")}</span>{t("pages.tierList.p3post")}
             </p>
           </div>
         </details>
@@ -75,7 +72,7 @@ export default function PageTierList() {
                   <BadgePalier palier={palier} />
                   <div>
                     <h2 className="font-titre text-xl font-bold text-craie-100">
-                      Palier {palier}
+                      {t("pages.tierList.palier", { p: palier })}
                       <span className="ml-2 text-sm font-medium text-craie-500">
                         {entrees.length}
                       </span>
@@ -104,20 +101,20 @@ export default function PageTierList() {
                           {e.faibleEchantillon && (
                             <span
                               className="ml-1 text-or-400"
-                              title="Trop peu joue pour que les taux soient fiables"
+                              title={t("pages.tierList.tropPeu")}
                             >
                               *
                             </span>
                           )}
                           <span className="block text-[0.7rem] uppercase tracking-wide text-craie-500">
-                            {e.heros.lanes.join(" · ") || "—"}
+                            {e.heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}
                           </span>
                         </div>
 
                         <dl className="flex shrink-0 gap-3 text-xs tabular-nums sm:gap-4">
-                          <Taux libelle="Victoire" valeur={e.victoire} accent />
-                          <Taux libelle="Ban" valeur={e.ban} />
-                          <Taux libelle="Pick" valeur={e.selection} />
+                          <Taux libelle={t("pages.tierList.victoire")} valeur={e.victoire} accent />
+                          <Taux libelle={t("pages.tierList.ban")} valeur={e.ban} />
+                          <Taux libelle={t("pages.tierList.pick")} valeur={e.selection} />
                         </dl>
 
                         {e.note && (

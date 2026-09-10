@@ -198,6 +198,54 @@
       "metaTitre": "Actualites et guides",
       "metaDescription": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en francais. Disponible en flux RSS.",
       "ogDescription": "Analyses du meta et guides de fond, en francais."
+    },
+    "tierList": {
+      "titre": "Tier list",
+      "chapeau": "Ce classement n'est pas une opinion : il est calcule a partir des taux de victoire et de ban remontes par le jeu, et se refait tout seul a chaque synchronisation.",
+      "metaTitre": "Tier list",
+      "metaDescription": "Tier list de Mobile Legends: Bang Bang calculee a partir des taux de victoire et de ban remontes par le jeu. Recalculee a chaque synchronisation, sans opinion.",
+      "ogDescription": "Classement calcule a partir des taux de victoire et de ban du jeu.",
+      "mesures": "{n} heros mesures · taux releves le",
+      "commentCalcule": "Comment ce classement est calcule",
+      "scorePre": "Le score vaut ",
+      "scoreBold": "taux de victoire + un quart du taux de ban",
+      "p2": "Le taux de victoire mesure ce qu'un heros produit une fois joue. Le taux de ban mesure ce que les joueurs redoutent : il rattrape les heros trop forts pour etre laisses libres, dont le taux de victoire est trompeusement bas parce qu'ils sont rarement disponibles.",
+      "p3pre": "Le taux de selection n'entre pas dans le calcul — il mesure la popularite, pas la puissance. Il sert seulement a signaler d'un ",
+      "asterisque": "asterisque",
+      "p3post": " les heros trop peu joues pour que leurs chiffres soient stables.",
+      "palier": "Palier {p}",
+      "tropPeu": "Trop peu joue pour que les taux soient fiables",
+      "victoire": "Victoire",
+      "ban": "Ban",
+      "pick": "Pick"
+    },
+    "patchNotes": {
+      "titre": "Patch notes",
+      "chapeau": "Le contenu des mises a jour recentes est repris ici, section par section. Les patchs plus anciens restent recenses, avec un lien vers leur page d'origine.",
+      "metaTitre": "Patch notes",
+      "metaDescription": "Les {n} patchs de Mobile Legends: Bang Bang. Le detail des mises a jour recentes est consultable directement ici, sans quitter le site.",
+      "ogDescription": "Les {n} patchs du jeu, avec le detail des plus recents.",
+      "recenses": "{n} patchs recenses · {m} consultables sur le site · synchronise le",
+      "recentes": "Mises a jour recentes",
+      "analyses": "Analyses",
+      "analysesIntro": "Ce que les notes officielles ne disent pas : l'effet reel des changements en partie.",
+      "anciens": "Les patchs plus anciens ne sont pas repris integralement — leur contenu representerait plusieurs megaoctets pour des versions que plus personne ne joue."
+    },
+    "login": {
+      "titre": "Connexion",
+      "intro": "Connectez votre compte de jeu par le code de verification officiel de Moonton. Aucun mot de passe ne vous est demande.",
+      "secu": "Le site ne voit jamais votre mot de passe. Il recoit uniquement un jeton temporaire, range dans un cookie securise, que vous effacez en vous deconnectant.",
+      "metaTitre": "Connexion",
+      "metaDescription": "Connectez votre compte Mobile Legends par code de verification, sans mot de passe."
+    },
+    "watch": {
+      "titre": "Veille",
+      "chapeau": "Ce que publie le reste du web sur le jeu : communaute et presse esport, rassembles automatiquement. Chaque entree renvoie chez son editeur — rien n'est recopie ici.",
+      "metaTitre": "Veille — l'actualite MLBB du web",
+      "metaDescription": "Les dernieres publications de la communaute et de la presse esport sur Mobile Legends: Bang Bang, rassemblees automatiquement.",
+      "ogDescription": "L'actualite Mobile Legends du web, rassemblee automatiquement.",
+      "derniereCollecte": "Derniere collecte le {date} · sources :",
+      "aucune": "Aucune source ne repond pour le moment. La page se recharge automatiquement a la prochaine collecte."
     }
   },
   "modeFiche": {

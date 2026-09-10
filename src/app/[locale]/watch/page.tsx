@@ -3,32 +3,36 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { EnTetePage } from "@/components/ui";
 import { mesureVeille, sources, veille } from "@/lib/veille";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
+import { metaLangues } from "@/i18n/seo";
 import { site } from "@/lib/site";
 import { formaterDate } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Veille — l'actualite MLBB du web",
-  description:
-    "Les dernieres publications de la communaute et de la presse esport sur Mobile Legends: Bang Bang, rassemblees automatiquement et mises a jour en continu.",
-  alternates: { canonical: "/watch" },
-  openGraph: {
-    title: `Veille — ${site.nom}`,
-    description: "L'actualite Mobile Legends du web, rassemblee automatiquement.",
-    url: "/watch",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return {
+    title: t("pages.watch.metaTitre"),
+    description: t("pages.watch.metaDescription"),
+    alternates: metaLangues(locale, "/watch"),
+    openGraph: { title: `${t("pages.watch.metaTitre")} — ${site.nom}`, description: t("pages.watch.ogDescription"), url: `/${locale}/watch` },
+  };
+}
 
-export default function PageVeille() {
+export default async function PageVeille({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const actualites = veille();
 
   return (
     <>
       <EnTetePage
-        titre="Veille"
-        chapeau="Ce que publie le reste du web sur le jeu : communaute et presse esport, rassembles automatiquement. Chaque entree renvoie chez son editeur — rien n'est recopie ici."
+        titre={t("pages.watch.titre")}
+        chapeau={t("pages.watch.chapeau")}
       >
         <p className="mt-6 text-sm text-craie-500">
-          Derniere collecte le {formaterDate(mesureVeille)} · sources :{" "}
+          {t("pages.watch.derniereCollecte", { date: formaterDate(mesureVeille) })}{" "}
           {sources.map((s, i) => (
             <span key={s.slug}>
               {i > 0 && ", "}
@@ -43,8 +47,7 @@ export default function PageVeille() {
       <div className="mx-auto max-w-4xl px-4 py-14">
         {actualites.length === 0 ? (
           <p className="text-craie-500">
-            Aucune source ne repond pour le moment. La page se recharge
-            automatiquement a la prochaine collecte.
+            {t("pages.watch.aucune")}
           </p>
         ) : (
           <ul className="space-y-3">
