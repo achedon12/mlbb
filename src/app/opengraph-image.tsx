@@ -45,7 +45,7 @@ export default function Image() {
           >
             ML
           </div>
-          <div style={{ fontSize: "56px", fontWeight: 800, color: "#f5c451" }}>MLBB.fr</div>
+          <div style={{ fontSize: "56px", fontWeight: 800, color: "#f5c451" }}>MLBBDex</div>
         </div>
 
         <div

@@ -44,7 +44,7 @@ const CLE_YOUTUBE = process.env.YOUTUBE_API_KEY ?? null;
 
 /** Nombre de patch notes dont on recupere le contenu complet. */
 const PATCHS_DETAILLES = 12;
-const UA = "MLBB-sync/1.0 (https://mlbb.leoderoin.fr; contact via github.com/achedon12)";
+const UA = "MLBB-sync/1.0 (https://mlbbdex.com; contact via github.com/achedon12)";
 const SORTIE = "src/data/genere";
 
 const AVEC_IMAGES = process.argv.includes("--images");

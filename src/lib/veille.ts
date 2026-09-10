@@ -135,7 +135,7 @@ async function lireSource(source: Source): Promise<Actualite[]> {
         // Plusieurs services refusent un agent anonyme : on s'identifie, avec
         // un moyen de nous joindre en cas de probleme.
         "User-Agent":
-          "MLBB-veille/1.0 (https://mlbb.leoderoin.fr; contact via github.com/achedon12)",
+          "MLBB-veille/1.0 (https://mlbbdex.com; contact via github.com/achedon12)",
         Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml",
       },
       next: { revalidate: DUREE_CACHE },

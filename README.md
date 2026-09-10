@@ -8,7 +8,7 @@ Le parti pris tient en une phrase : **rien n'est publie qui n'ait ete verifie**.
 Un heros sans fiche est affiche comme tel, plutot que rempli de valeurs
 approximatives.
 
-En ligne : <https://mlbb.leoderoin.fr>
+En ligne : <https://mlbbdex.com>
 
 ---
 
