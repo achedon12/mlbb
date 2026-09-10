@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import type { Competence, CompetenceWiki } from "@/lib/types";
+import { Tiroir } from "@/components/tiroir";
 import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
@@ -23,9 +24,19 @@ import { cn } from "@/lib/utils";
  *
  * La vue est compacte : icone, type et nom tiennent sur une ligne de tuiles.
  * Le detail — description, recharge, cout — s'ouvre au clic sur une tuile et se
- * referme au second.
+ * referme au second : sous les tuiles sur grand ecran, dans un tiroir sur
+ * mobile.
  */
 const TYPES = ["Passif", "Competence 1", "Competence 2", "Ultime"] as const;
+
+interface Fiche {
+  nom: string;
+  type: string;
+  icone?: string;
+  description: string | null;
+  recharge?: number[];
+  cout?: number[];
+}
 
 export function CompetencesHeros({
   wiki,
@@ -46,7 +57,7 @@ export function CompetencesHeros({
     return <p className="text-craie-500">{t("comp.nonRecuperees")}</p>;
   }
 
-  const fiches = Array.from({ length: nombre }, (_, i) => {
+  const fiches: Fiche[] = Array.from({ length: nombre }, (_, i) => {
     const officielle = officielles[i];
     const redigee = redigees?.[i];
     const nomWiki = officielle?.nom;
@@ -115,37 +126,60 @@ export function CompetencesHeros({
         })}
       </div>
 
-      <div id={`${id}-detail`} role="region" aria-live="polite">
-        {detail ? (
-          <div className="biseau mt-3 border border-nuit-700/70 bg-nuit-900/60 p-4">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
-              {t(`comp.${detail.type}`)}
-            </p>
-            <h3 className="font-titre text-lg font-bold text-craie-100">{detail.nom}</h3>
-            <p className={cn("mt-2 leading-relaxed", detail.description ? "text-craie-300" : "text-sm text-craie-500")}>
-              {detail.description ?? t("comp.aucuneDescription")}
-            </p>
-            {(detail.recharge || detail.cout) && (
-              <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-3 text-sm">
-                {detail.recharge && (
-                  <div className="flex gap-2">
-                    <dt className="text-craie-500">{t("comp.recharge")}</dt>
-                    <dd className="text-craie-100">{detail.recharge.join(" / ")} s</dd>
-                  </div>
-                )}
-                {detail.cout && (
-                  <div className="flex gap-2">
-                    <dt className="text-craie-500">{t("comp.cout")}</dt>
-                    <dd className="text-craie-100">{detail.cout.join(" / ")}</dd>
-                  </div>
-                )}
-              </dl>
-            )}
+      {detail ? (
+        <>
+          <div id={`${id}-detail`} role="region" aria-live="polite" className="mt-3 hidden lg:block">
+            <DetailCompetence fiche={detail} />
           </div>
-        ) : (
-          <p className="mt-3 text-xs text-craie-500">{t("comp.indice")}</p>
+          <Tiroir titre={detail.nom} onFermer={() => setOuverte(null)}>
+            <DetailCompetence fiche={detail} sansCadre />
+          </Tiroir>
+        </>
+      ) : (
+        <p id={`${id}-detail`} className="mt-3 text-xs text-craie-500">
+          {t("comp.indice")}
+        </p>
+      )}
+    </div>
+  );
+}
+
+function DetailCompetence({ fiche, sansCadre = false }: { fiche: Fiche; sansCadre?: boolean }) {
+  const t = useT();
+  return (
+    <div className={cn("p-4", !sansCadre && "biseau border border-nuit-700/70 bg-nuit-900/60")}>
+      <div className="flex items-center gap-3 pr-10 lg:pr-0">
+        {fiche.icone && (
+          <span className="relative size-10 shrink-0 overflow-hidden">
+            <Image src={fiche.icone} alt="" fill sizes="40px" className="object-contain" />
+          </span>
         )}
+        <div className="min-w-0">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
+            {t(`comp.${fiche.type}`)}
+          </p>
+          <h3 className="font-titre text-lg font-bold text-craie-100">{fiche.nom}</h3>
+        </div>
       </div>
+      <p className={cn("mt-2 leading-relaxed", fiche.description ? "text-craie-300" : "text-sm text-craie-500")}>
+        {fiche.description ?? t("comp.aucuneDescription")}
+      </p>
+      {(fiche.recharge || fiche.cout) && (
+        <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-3 text-sm">
+          {fiche.recharge && (
+            <div className="flex gap-2">
+              <dt className="text-craie-500">{t("comp.recharge")}</dt>
+              <dd className="text-craie-100">{fiche.recharge.join(" / ")} s</dd>
+            </div>
+          )}
+          {fiche.cout && (
+            <div className="flex gap-2">
+              <dt className="text-craie-500">{t("comp.cout")}</dt>
+              <dd className="text-craie-100">{fiche.cout.join(" / ")}</dd>
+            </div>
+          )}
+        </dl>
+      )}
     </div>
   );
 }
