@@ -8,7 +8,10 @@
       "nom": "Soul Shards",
       "description": "Passive: Aamon charges his armor each time he casts a skill or hits an enemy with a skill or a. At 5 charges, Aamon throws [6] shards at the target on his next attack, each shard dealing. The shards will then scatter around the target. Active: Aamon throws a shard at a nearby enemy, dealing."
     },
-    null,
+    {
+      "nom": "Slayer Shards",
+      "description": "Aamon throws a shard forward, dealing 120-220 (+50% Total Magic Power) Magic Damage to the first non-minion enemy hit and slowing them by 50% for 2 seconds. The shard will then return to Aamon immediately. If the shard fails to hit an enemy, it will return to Aamon after a short delay and allow him to enter the Camouflage state."
+    },
     {
       "nom": "Endless Shards",
       "description": "Aamon throws all shards at a designated enemy and slows them by 30% for 1.5 seconds. After a short delay, the shards will fly to the enemy's location again, each dealing –. The number of shards increases with Aamon's armor charges and the shards on the ground (8-25). The damage dealt increases with the target's lost HP, to the maximum when the target's HP is below 30%. The same target takes [50%] less damage from subsequent attacks."
@@ -59,7 +62,10 @@
       "nom": "Crimson Gleam",
       "description": "Alice fires blood energy forward, dealing. Before the blood energy dissipates, this skill can be cast again to activate Scarlet Shadow, allowing Alice to blink to the blood energy's location."
     },
-    null,
+    {
+      "nom": "Doom Waltz",
+      "description": "Alice performs a deadly dance, dealing to nearby enemies and slowing them by 70% for 1 second. If Blood Banquet is active at this time, it also scorches enemies, dealing 300% of Blood Banquet's damage and healing Alice for the same amount."
+    },
     {
       "nom": "Throne of Ruin",
       "description": "Alice surrounds herself with blood, gaining Control Immunity and 50% Damage Reduction while slowing herself by 50%. After 1.5 seconds, she descends with force, dealing to all enemies in range and immobilizing them for 1 second. While charging her Ultimate, Alice can only use Scarlet Shadow"
@@ -182,8 +188,14 @@
       "nom": "Hailstone Blast",
       "description": "Aurora summons an icy meteorite to strike at the taraget location, dealing and slowing targets hit by 40% for 1 second. Afterward, 5 hailstones fall, each dealing."
     },
-    null,
-    null
+    {
+      "nom": "Frosty Breeze",
+      "description": "Aurora blows Frosty Breeze in a fan-shaped area in the target direction, dealing to enemies hit, freezing them for 1 second, and creating a frozen area at the far-end of the attack that deals a total of to enemies in the area."
+    },
+    {
+      "nom": "Frigid Glacier",
+      "description": "Aurora creates a frost path in the target direction, dealing to enemies in the path and reducing their Movement Speed by 80% for 1.2 seconds. The frost path gradually becomes glaciers that spread until reaching their maximum size and shattering, dealing to all enemies in the area and freezing targets for 1 second. Every 100 Magic Power that Aurora has will increase the freeze duration by 0.2 seconds."
+    }
   ],
   "badang": [
     {
@@ -216,7 +228,10 @@
       "nom": "Cyclone Sweep",
       "description": "Balmond gains 15% Movement Speed that decays over time and spins his axe for 3 seconds, dealing per hit to nearby enemies up to 14 times. Each subsequent hit on the same enemy will deal 8.5% increased damage (up to 68%). The Physical Attack bonus portion of the damage can Crit."
     },
-    null
+    {
+      "nom": "Lethal Counter",
+      "description": "Balmond unleashes a huge strike in the target direction (this skill can only be interrupted by Suppression), dealing. This skill only deals up to 1000–2000 damage to non-hero units."
+    }
   ],
   "bane": [
     {
@@ -288,10 +303,77 @@
     {
       "nom": "Renner's Apathy",
       "description": "Beatrix wields Renner calmly upon the battlefield, aiming at the enemy. When releasing the skill, she deals to the first enemy hit. This skill gets 50% Physical Lifesteal, but is not affected by Spell Vamp. Beatrix can aim up to 20 seconds."
+    },
+    {
+      "nom": "Need Backup",
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate. Beatrix must then choose two from the crate to serve as her primary and secondary weapons. Her weapon selection is interrupted if she commits any action or is controlled during this period."
+    },
+    {
+      "nom": "Mechanical Genius",
+      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Bennett Basic Attack - Area Bombing: Bombards an area, dealing (+230% Total Physical Attack) - (+300% Total Physical Attack) Physical Damage to all enemies in range and slowing them by 40% for 0.5s ( 75% damage against creeps). Beatrix cannot Crit. She converts every 1% Crit Chance into 2 Physical Attack. She gains Spell Vamp equal to 100% of her Lifesteal."
+    },
+    {
+      "nom": "Masterful Gunner",
+      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her Physical Attack by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
+    },
+    {
+      "nom": "Tactical Reposition",
+      "description": "Beatrix leaps nimbly forward, and fully reloads her current weapon."
+    },
+    {
+      "nom": "Bennett's Rage",
+      "description": "Beatrix focuses her rage and has Bennett rain down a bombardment on the target area 5 time(s). Each bombardment slows enemies by 40% and deals 580 (+225% Total Physical Attack) Physical Damage (this damage decays to 20% when hitting the same target multiple times), lasting 1s. This skill only deals 75% damage to non-hero units."
+    },
+    {
+      "nom": "Need Backup",
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate. Beatrix must then choose two from the crate to serve as her primary and secondary weapons. Her weapon selection is interrupted if she commits any action or is controlled during this period."
+    },
+    {
+      "nom": "Mechanical Genius",
+      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Wesker Basic Attack - Proximity Advantage: Fires 5 shots at the target, each dealing (+178% Total Physical Attack) - (+220% Total Physical Attack) Physical Damage ( 75% damage against creeps) and inheriting a portion of Attack Effects. Damage dealt to targets hit multiple times decays to 25%. Beatrix cannot Crit. She converts every 1% Crit Chance into 2 Physical Attack. She gains Spell Vamp equal to 100% of her Lifesteal."
+    },
+    {
+      "nom": "Masterful Gunner",
+      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her Physical Attack by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
+    },
+    {
+      "nom": "Tactical Reposition",
+      "description": "Beatrix rolls ahead sideways, and fully reloads her current weapon."
+    },
+    {
+      "nom": "Wesker's Elation",
+      "description": "Beatrix raises Wesker and fires off ultra bullets that deal 350 (+155% Total Physical Attack) Physical Damage each time they hit an enemy (the damage of subsequent hits on the same enemy will decay to 25%). This skill only deals 75% damage to non-hero units."
+    },
+    {
+      "nom": "Need Backup",
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate. Beatrix must then choose two from the crate to serve as her primary and secondary weapons. Her weapon selection is interrupted if she commits any action or is controlled during this period."
+    },
+    {
+      "nom": "Mechanical Genius",
+      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Nibiru Basic Attack - Rapid Fire: Fires a volley of 4 shots at the target, each dealing (+51% Total Physical Attack) - (+65% Total Physical Attack) Physical Damage (75% damage against creeps) and inheriting a portion of Attack Effects. Beatrix cannot Crit. She converts every 1% Crit Chance into 2 Physical Attack. She gains Spell Vamp equal to 100% of her Lifesteal."
+    },
+    {
+      "nom": "Masterful Gunner",
+      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her Physical Attack by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
+    },
+    {
+      "nom": "Tactical Reposition",
+      "description": "Beatrix slides forward, and fully reloads her current weapon."
+    },
+    {
+      "nom": "Nibiru's Passion",
+      "description": "Beatrix unleashes 10 volleys of bullets using Nibiru, each dealing 130 (+50% Total Physical Attack) Physical Damage. This skill only deals 75% damage to non-hero units."
+    },
+    {
+      "nom": "Need Backup",
+      "description": "Having escaped battle for 3s, Beatrix can call for her butler Morgan to provide her with a backup weapons crate. Beatrix must then choose two from the crate to serve as her primary and secondary weapons. Her weapon selection is interrupted if she commits any action or is controlled during this period."
     }
   ],
   "belerick": [
-    null,
+    {
+      "nom": "Deadly Thorns",
+      "description": "For every 50 damage inflicted upon Belerick, he has a 25% chance to shoot the nearest enemy unit, dealing Magic Damage equal to plus 1.8% of his Max HP (scales with level). In each 0.4 seconds, this attack can be triggered once only. His HP obtained from Equipment and Emblems is increased by 30%."
+    },
     {
       "nom": "Ancient Seed",
       "description": "Belerick releases vines in a designated direction, dealing to enemies on the path and slow them down by 25%. Meanwhile, he leaves Ancient Seed on the path, and after 1 second, these seeds will deal to enemies on the path and taunt them for 1.2 seconds. To minions, 80% extra damage will be dealt."
@@ -393,6 +475,10 @@
     {
       "nom": "Bats Feast",
       "description": "Cecilion unleashes Blood Demon power [for 6 seconds], increasing his Movement Speed by 60% (decaying rapidly over 1.5 seconds) and gaining immunity to slow effects|slow immunity. Meanwhile, he shoots 40 bolts of blood energy at the enemies nearby, each dealing and slowing them by 3% (up to 30%) for 1 second. Hitting an enemy heals|heal him for 10 and 1% of his lost HP|health."
+    },
+    {
+      "nom": "Moonlit Waltz",
+      "description": "When Carmilla is nearby, Cecilion can summon her to become a Vermil Shadow around him, granting him a 520-800 shield (scales with Carmilla's level). Carmilla can choose to leave Cecilion and charge at the target location, gaining an equal shield while dealing 520-800 Magic Damage (scales with level) to nearby enemies and slowing them by 30% for 1s."
     }
   ],
   "chang-e": [
@@ -429,6 +515,10 @@
     {
       "nom": "Shortcut",
       "description": "Chip drops the Main Portal on an enemy hero, dealing and briefly slowing them by 25%. the Main Portal deals 2 timesthe damage and immobilizes them for 1 second after a delay. Meanwhile, he creates Connecting Portals|e near allied heroes 10 units away and behind the allied Base. The Main Portal|e and Connecting Portals|e last up to 15 seconds. Connecting Portal|e: Heroes (on both teams) can teleport from Connecting Portals|e to the Main Portal|e, and allied heroes gain Burst Movement Speed for 1.5 seconds and a shield. Main Portal|e: The Main Portal inherits 70% of Chip's attributes. Heroes can stand on the Main Portal|e for 2 seconds to return to the Connecting Portal they came from. Casting skills or launching Basic Attacks will reset the stand time"
+    },
+    {
+      "nom": "Why Walk?",
+      "description": "Chip has 4 fixed Beacons on the map when the battle starts. Use this skill to teleport to any other Beacon. (This skill cannot be used in combat.)"
     }
   ],
   "chou": [
@@ -591,6 +681,22 @@
     {
       "nom": "Primal Wrath",
       "description": "Passive: When inside Phylax, Edith can accumulate Wrath according to the damage she receives (calculated before damage reduction). Active: Edith ejects herself forward from Phylax, knocking back nearby enemies. After that, she takes flight and can perform ranged Basic Attacks, each dealing. Edith also gains new skills in this state. When in flight, Edith gains 350–650 –350–650 extra Shield, 50%–150% extra Attack Speed and 5%-20% Hybrid Lifesteal based on Wrath she accumulated, and converts each point of Extra Physical Defense and Extra Magic Defense into 3.5 Magic Power. The Flight state lasts up to 8–12 seconds."
+    },
+    {
+      "nom": "Overload",
+      "description": "After each skill cast, Edith and Phylax become Overloaded for 3s, during which all Basic Attacks will trigger chain lightning, dealing extra Magic Damage equal to (+20% Total Magic Power) plus 3(+0.2*Hero Level)% of the target's Max HP to up to 4 enemies. Chain lightning damage against Minions is increased to 150%."
+    },
+    {
+      "nom": "Divine Retribution",
+      "description": "Edith exacts Divine Retribution on a target area, dealing 170 (+40% Total Magic Power) Magic Damage to enemies hit and slowing them by 30%. She then continues to deal 68 (+16% Total Magic Power) Magic Damage to enemies in the area every 0.5s over the next 1.5s."
+    },
+    {
+      "nom": "Lightning Bolt",
+      "description": "Edith fires a Lightning Bolt in a designated direction, dealing 150 (+50% Total Magic Power) Magic Damage to the first enemy hero hit and immobilizing them for 0.8s."
+    },
+    {
+      "nom": "Primal Wrath",
+      "description": "Passive: When inside Phylax, Edith accumulates Wrath based on damage taken (calculated before damage reduction). Active: Edith ejects herself forward from Phylax, knocking back nearby enemies and taking flight for up to 8s. During this time, she gains new skills and can perform ranged Basic Attacks, each dealing 35 (+75% Total Physical Attack) (+25% Total Magic Power) Magic Damage. She also gains 350 (+5% Total HP)-350 (+20% Total HP) extra shield, 50% - 150% extra Attack Speed, and 5% - 20% Hybrid Lifesteal based on accumulated Wrath, and converts each point of Extra Physical Defense and Extra Magic Defense into 3.5 Magic Power."
     }
   ],
   "esmeralda": [
@@ -612,10 +718,22 @@
     }
   ],
   "estes": [
-    null,
-    null,
-    null,
-    null
+    {
+      "nom": "Scripture of the Moon Elf",
+      "description": "Scripture of Moon Elf slowly charges Estes with energy. When the energy reaches 100 stacks, Estes' nest Basic Attack will become enhanced, dealing to the target and to nearby enemies, and slowing them by 60% for 1.5 seconds."
+    },
+    {
+      "nom": "Moonlight Immersion",
+      "description": "Estes restores for the target hero immediately and links himself with them for 3 seconds, slowly restoring to the target. Linking with an allied hero will also increase Estes' Hybrid Defense by 20–45 and Movement Speed by 15%, as well as the energy charging speed of the Scripture of the of Moon Elf. Being too far from the target will break the link. (Enhanced:|e Estes restores for the target hero immediately, and links himself with them for 3 seconds, slowly restoring to the target for 15 times&#8230;)"
+    },
+    {
+      "nom": "Domain of Moon Goddess",
+      "description": "Estes drops a flood of moonlight on the target area, dealing to enemy units within it. Afterwards, it turns to a domain of Moon Goddess and reveals enemies inside it [for 1.5 seconds]. Enemies will be slowed by 90% for 1.5 seconds when they touch the edge of the domain area. (The slow effect will decay over time.)[duration needed]"
+    },
+    {
+      "nom": "Blessing of Moon Goddess",
+      "description": "Estes casts an enhanced Moonlight Immersion (enhanced) on all nearby allied heroes. Within the next 8 seconds, \"Moonlight Immersion\" will be enhanced and Estes will continuously recover."
+    }
   ],
   "eudora": [
     {
@@ -690,13 +808,22 @@
     }
   ],
   "franco": [
-    null,
+    {
+      "nom": "Wasteland Force",
+      "description": "If no damage is taken within 5 seconds, Franco gains 10% Movement Speed, recovers 1% Max HP per second, and begins accumulating Wasteland Force|e (up to 10 stacks). Franco will consume all Wasteland Force stacks on his next skill cast to increase the skill's damage by up to 150%."
+    },
     {
       "nom": "Iron Hook",
       "description": "Franco launches an iron hook in the target direction. The hook will snag the first enemy unit hit, dealing dragging them to Franco."
     },
-    null,
-    null
+    {
+      "nom": "Fury Shock",
+      "description": "Franco lashes out, dealing Physical Damage equal to 300–450 plus 4% of his Max HP to nearby enemies and slowing them by 70% for 1.5 seconds."
+    },
+    {
+      "nom": "Bloody Hunt",
+      "description": "Franco suppresses the target enemy hero for 1.8 seconds and strikes them 6 times over the duration, each time dealing."
+    }
   ],
   "fredrinn": [
     {
@@ -711,7 +838,14 @@
       "nom": "Brave Assault",
       "description": "Fredrinn dashes in the target direction, dealing to the first non-minion enemy hit. His next Basic Attack knocks the target airborne for 0.3 seconds.[skill duration needed]"
     },
-    null
+    {
+      "nom": "Energy Eruption",
+      "description": "Fredrinn deals 210 (+100% Extra Physical Attack) Physical Damage to nearby enemies and taunts them for 1s. Hitting a non-minion enemy grants Fredrinn 25 Physical & Magic Defense for 3s and reduces the cooldowns of Piercing Strike and Brave Assault by 75%. This skill costs 1 Combo Point."
+    },
+    {
+      "nom": "Appraiser's Wrath",
+      "description": "Fredrinn slams his sword in the target direction (this skill can only be interrupted by Suppression), dealing 600 plus 21% of his Crystal Energy as Physical Damage to enemies in a fan-shaped area after a short delay. Enemies in the center of the area take 175% damage. This skill doubles the conversion ratio based on damage dealt to enemy heroes from stored Crystal Energy to HP. This skill costs 3 Combo Points."
+    }
   ],
   "freya": [
     {
@@ -780,7 +914,10 @@
       "nom": "Mystic Injunction",
       "description": "Gord create an energy field in the target area, dealing every 0.3 second to enemies within (up to 13 times)."
     },
-    null
+    {
+      "nom": "Mystic Gush",
+      "description": "Gord unleashes an energy beam in the target direction, dealing to enemies hit every 0.2 seconds (up to 16 times). The direction of the beam can be adjusted using the Joystick."
+    }
   ],
   "granger": [
     {
@@ -819,10 +956,22 @@
     }
   ],
   "guinevere": [
-    null,
-    null,
-    null,
-    null
+    {
+      "nom": "Super Magic",
+      "description": "Guinevere deals 25% extra damage to airborne enemies. Guinevere deals with her Basic Attacks and accumulates Super Magic each time she deals damage. When she's fully charged, her next Basic Attack becomes guided, dealing on hit and restoring. Enemies hit by Guinevere's enhanced Basic Attack, Energy Wave, or Spatial Migration are marked for 5 seconds. Those with 3 marks will be knocked airborne when hit by her Violet Requiem."
+    },
+    {
+      "nom": "Energy Wave",
+      "description": "Guinevere releases an energy orb in the target direction, dealing to the first enemy hit and slowing them by 25% for 1.2 seconds. Successfully hitting an enemy reduces all her skill cooldowns by 1 second."
+    },
+    {
+      "nom": "Spatial Migration",
+      "description": "Guinevere leaps to the target location, dealing [,stunning enemies within it for 1 second]. Enemy heroes and Creeps hit will be knocked airborne for 1 second and take additional Magic Damage. After cast, Guinevere can reactivate the skill in 5 seconds to blink toward the target direction [while invisible for 0.5 seconds] and leave an illusion behind. If the illusion takes damage, it restores Super Magic for Guinevere and will explode in 1.5 seconds, dealing to nearby enemies."
+    },
+    {
+      "nom": "Violet Requiem",
+      "description": "Guinevere creates a force field around her [for 2 seconds], attacking nearby enemies 11 times within 2 seconds, dealing in total. If the enemy hit is already airborne, they will be knocked airborne again, up to 8 additional times. Guinevere is immune to Crowd Control while casting this skill."
+    }
   ],
   "gusion": [
     {
@@ -876,6 +1025,22 @@
     {
       "nom": "Kinjutsu: Pinnacle Ninja",
       "description": "Hanzo charges into battle as Hanekage, consuming 170 Energy per second. He gains 20 Energy when a non-hero unit dies nearby and 200 Energy when it's a hero. He gains 15 Energy when attacking a hero, and 45 Energy when attacking the Turtle or the Lord. When Energy runs out, Hanzo's body will be slowly drawn to Hanekage's position. While in Hanekage form, Hanzo's body is invincible, and Hanekage ignores obstacles and gains 50% Movement Speed and 30% Attack Speed. Use Again or Upon Death: Hanekage returns to Hanzo's body, recovering 16% and becoming untargetable during the return. If Hanekage is killed, Hanzo will be slowed by 50% and revealed for 6 seconds."
+    },
+    {
+      "nom": "Ame no Habakiri",
+      "description": "Damage dealt by Hanzo's Basic Attacks and skills inflicts a stack of Dark Ninjutsu on the target, up to 5 stacks. Ninjutsu: Demon Feast can only be cast on targets with full stacks of Dark Ninjutsu."
+    },
+    {
+      "nom": "Forbidden Ninjutsu: Soul Snatch",
+      "description": "Hanekage dashes to an enemy hero, dealing 300 (+60% Extra Physical Attack) Physical Damage to the target after a brief delay. Each stack of Dark Ninjutsu on the target increases this damage by 20%. When the target has max stacks of Dark Ninjutsu, he deals extra damage equal to 15 (+2% Extra Physical Attack)% of the target's Max HP (ignoring 30% of the target's Physical Defense) and recovers 20% Max HP for Hanzo. This skill can be cast on the Turtle or the Lord (deals up to 1000 damage)."
+    },
+    {
+      "nom": "Forbidden Ninjutsu: Black Mist",
+      "description": "Hanekage dashes in the target direction, knocking enemies in his path airborne for 0.4s and dealing 405 (+45% Extra Physical Attack) Physical Damage (recovers 200 Energy if hitting an enemy hero), leaving a Dark Mist in the area he passes through. The mist deals 135 (+45% Extra Physical Attack) Physical Damage to enemies in the area every 0.5s (up to 4 times). It also slows enemies in the area by 40%. This damage is considered Basic Attack Damage, but cannot Crit."
+    },
+    {
+      "nom": "Ninjutsu Flee: Return",
+      "description": "Hanekage returns to Hanzo's body and exits the Hanekage form."
     }
   ],
   "harith": [
@@ -897,7 +1062,10 @@
     }
   ],
   "harley": [
-    null,
+    {
+      "nom": "Magic Master",
+      "description": "Harley's mastery of magic allows his Basic Attack to deal 60 (+50%Total Physical Attack)(+60%Total Magic Power) Magic Damage. His attacks reduce the enemy's Magic Defense by 2 for 3 seconds on hit (up to 10 stacks)."
+    },
     {
       "nom": "Poker Trick",
       "description": "Harley throws 3-5 waves of cards in the target direction, each dealing 130-210 (+25%Total Magic Power) Magic Damage to the first enemy hit and granting him 10% extra Attack Speed for 3 seconds on hit (up to 5-10 stacks). Enemies hit more than 3 times will take less damage from subsequent hits."
@@ -942,10 +1110,16 @@
       "nom": "Deadly Stinger",
       "description": "Passive:|e Helcurt gains one Deadly Stinger for every 1.5s spent in Prowler|e state or on each Basic Attack. Up to 5 stingers can be stored. Active:|e Helcurt fires all Deadly Stinger forward, each dealing to enemies (Minions and Creeps only take 70% of the damage) Deadly Stinger counts as a Basic Attack, but it cannot Crit."
     },
-    null
+    {
+      "nom": "Dark Night Falls",
+      "description": "Helcurt summons the Dark Night|e, reducing all enemies' sight range and making them lose sight of their allies for 3s. During Dark Night|E, Helcurt gains 40% Movement Speed. The Dark Night|e makes it easier for Helcurt to leave enemies' sight range."
+    }
   ],
   "hilda": [
-    null,
+    {
+      "nom": "Blessing of Wilderness",
+      "description": "Hilda recovers 2% HP per second while in the bush. Entering a bush enhances her next Basic Attack, which deals to the target, reduces the target's Movement Speed by 40%, and deals to enemies behind the target. After using the enhanced Basic Attack, this effect enters a 6 second cooldown. Hilda's Basic Attack and skills apply a Wilderness Mark on hit, which lasts up to 4 seconds and stacks up to 6. Each stack reduces the enemy hero's Physical Defense and Magic Defense by 3%."
+    },
     {
       "nom": "Combat Ritual",
       "description": "Hilda gains 60% Movement Speed for 3 seconds and receives a shield that absorbs damage equal to 10% Max HP, lasting 3 seconds."
@@ -972,7 +1146,18 @@
       "nom": "Kaerazu",
       "description": "Hirara uses Kaerazu to unleash the Crimson Maple, dealing to enemies in a fan-shaped area. After a short delay, she deals damage again at the target location, dealing 2 times the initial Crimson Maple damage."
     },
-    null
+    {
+      "nom": "Twin Fans: Ukifune",
+      "description": "Hirara has only two skills, representing her two weapons: Meisen-e and Kaerazu. Drag one skill onto the other to cast a combo skill. Hirara has 2 Crimson / Death Energy. Casting a combo skill consumes 1 Crimson / Death Energy. Energy recovery time is the same as the cooldown of Meisen-e. Consuming Energy interrupts the recovery process. Hirara only deals 30(+4*Hero Level)% damage to minions."
+    },
+    {
+      "nom": "Falling Maple",
+      "description": "Hirara enhances Kaerazu with the power of Meisen-e to cast a combo skill. She becomes untargetable and immobilized for up to 1s. After 0.6s, she deals 3 times Crimson Maple damage, and can then cast the second joystick dash of Meisen-e to end these states early."
+    },
+    {
+      "nom": "Infernal Torrent",
+      "description": "Hirara enhances Meisen-e with the power of Kaerazu to cast a combo skill. After casting the first joystick dash of Meisen-e, she spins, dealing 2.5 times the Crimson Maple damage and immobilizing enemies for 0.8s."
+    }
   ],
   "hylos": [
     {
@@ -1095,7 +1280,26 @@
       "nom": "Sword",
       "description": "Julian summons a flying sword and dashes in the target direction, dealing to enemies along the way."
     },
-    null
+    {
+      "nom": "Chain",
+      "description": "Julian casts chains at the target location, dealing 300 (+100% Total Magic Power) Magic Damage to enemies hit after a short delay and immobilizing them for 1.2s."
+    },
+    {
+      "nom": "Smith's Legacy",
+      "description": "After casting two different skills, Julian enhances his third skill. Casting the enhanced skill makes all his skills go on a 9-6s Cooldown (decreases with his level). After casting any skill, his Basic Attacks for the next 2s will deal 100 (+100% Total Physical Attack) (+100% Total Magic Power) Magic Damage and pull the target toward him (deals 85% damage to Creeps). Casting another skill extends the duration. Julian gains 15% extra Hybrid Lifesteal for 5s each time he hits an enemy hero with his skills (up to 3 stacks)."
+    },
+    {
+      "nom": "Enhanced Scythe",
+      "description": "Julian hurls enhanced scythes in the target direction, dealing 420 (+140% Total Magic Power) Magic Damage to enemies along the way and slowing them by 50% for 1s. Upon hitting a non-minion enemy or reaching the maximum distance, the scythes will continue to fly at a lower speed, dealing 80 (+30% Total Magic Power) Magic Damage every 0.3s to nearby enemies (up to 8 times)."
+    },
+    {
+      "nom": "Enhanced Sword",
+      "description": "Julian summons a large number of flying swords and dashes in the target direction, dealing 75 (+15% Total Magic Power) Magic Damage every 0.1s to enemies along the way (up to 9 times). Julian's untargetable and invisible during the dash."
+    },
+    {
+      "nom": "Enhanced Chain",
+      "description": "Julian casts chains at the target location, dealing 40 (+10% Total Magic Power) Magic Damage every 0.2s to enemies hit and slowing them by 30%. Enemies that are still in the area at the end of the skill duration will take 250 (+100% Total Magic Power) extra Magic Damage and be knocked airborne for 0.8s."
+    }
   ],
   "kadita": [
     {
@@ -1131,10 +1335,29 @@
     {
       "nom": "Yin Yang Overturn",
       "description": "Kagura invokes the power of the Seimei Umbrella, dealing to nearby enemies, knocking them back, and slowing them by 60% for 0.5 second."
+    },
+    {
+      "nom": "Yin Yang Gathering",
+      "description": "Upon retrieving the Seimei Umbrella, Kagura gains a 450 (+80% Total Magic Power) shield, stuns nearby enemies for 0.5s, and slows them by 60% for 1s. Cooldown: 4.5s."
+    },
+    {
+      "nom": "Seimei Umbrella Open",
+      "description": "Kagura sends the Seimei Umbrella to the target location, dealing 365 (+105% Total Magic Power) Magic Damage to enemies in its path and slowing them by 60% for 0.5s. The Umbrella will automatically return to Kagura when she's too far away. This skill deals 130% damage to non-hero enemies."
+    },
+    {
+      "nom": "Rasho Umbrella Flee",
+      "description": "Kagura teleports to the Seimei Umbrella's location and retrieves it, dealing 300 (+90% Total Magic Power) Magic Damage to the nearby enemies."
+    },
+    {
+      "nom": "Yin Yang Overturn",
+      "description": "Kagura resets the cooldown of Seimei Umbrella Open, dealing 235 (+60% Total Magic Power) Magic Damage to enemies around the Seimei Umbrella and slowing them by 60%. After 1.5s, enemy heroes around the umbrella are pulled to the center and take 480 (+155% Total Magic Power) Magic Damage."
     }
   ],
   "kaja": [
-    null,
+    {
+      "nom": "Wings of Lightning",
+      "description": "Kaja's skill damage applies Paralysis effect to enemy units, briefly slowing heroes or summoned units and reducing their damage by 8% for 5 seconds."
+    },
     {
       "nom": "Ring of Order",
       "description": "Kaja summons a ring of Primal Lightning that expands and returns to him. Enemies hit take and recover to Kaja. Healing from subsequent hits is reduced to 33%."
@@ -1211,7 +1434,10 @@
       "nom": "Desert Tornado",
       "description": "Khaleed whirls his scimitar, dealing to enemies in the area and pulling them toward him. This skill can be used up to 3 time(s) in a row. This skill deals 50%-75% damage to Minions and Creeps."
     },
-    null,
+    {
+      "nom": "Quicksand Guard",
+      "description": "Khaleed protects himself with the power of the quicksand, restoring 60-135 plus 5%-10% of his lost HP and 10 Desert Power every 0.5 seconds, reducing damage taken by 35%-50% for up to 4 seconds. While channeling, quicksand appears under his feet, slowing the enemy by 60%. This skill is a Focused Cast. Any other controls will interrupt this skill."
+    },
     {
       "nom": "Raging Sandstorm",
       "description": "Khaleed rides the sandstorm and charges toward a designated location, dealing to enemies along the way and knocking them toward his destination. Khaleed is immune to control effects during this process. Upon reaching the destination, Khaleed will smash the ground, dealing to enemies in the area and stunning them for 1 second, and fully charge his Desert Power."
@@ -1287,6 +1513,22 @@
     {
       "nom": "Bravest Fighter",
       "description": "Lapu-Lapu leaps to the target location while combining his twin blades into one, dealing upon landing and slowing them by 60% for 1 second. Lapu-Lapu Gains 3 times the Bravery Blessing|rage from this skill and skills in transformed state For the next 10 seconds, Lapu-Lapu enters Great Sword Stance|skill) and gains enhanced skills, 30-60 extra Physical & Magic Defense and his Basic Attack damage|Physical Damage is increased to 120%."
+    },
+    {
+      "nom": "Homeland Defender",
+      "description": "Lapu-Lapu accumulates 10 Bravery Blessing each time he deals damage (halved for damage dealt to non-hero units). When Bravery Blessing is full, Lapu-Lapu's next Basic Attack will make him dash toward the target, dealing (+150% Total Physical Attack) Physical Damage (cannot Crit) and granting him a shield that absorbs 250 (+65*Hero Level) damage for 2.5s."
+    },
+    {
+      "nom": "Land Shaker",
+      "description": "Lapu-Lapu channels for 0.7s, slowing enemies in the target direction by 60%. He then slams his heavy sword to the ground, dealing 250 (+100% Total Physical Attack) Physical Damage to enemies hit and stunning them for 1s. (This skill can only be interrupted by Suppression.)"
+    },
+    {
+      "nom": "Storm Sword",
+      "description": "Lapu-Lapu whirls his heavy sword, dealing 250 (+100% Total Physical Attack) Physical Damage to nearby enemies. When hitting an enemy hero, Lapu-Lapu gains 20% Damage Reduction, plus an additional 8% for each extra enemy hero hit, lasting 3s."
+    },
+    {
+      "nom": "Raging Slash",
+      "description": "Lapu-Lapu swings his heavy sword 3 times. The first two attacks deal 345 (+160% Total Physical Attack) Physical Damage each, while the third deals 440 (+210% Total Physical Attack) Physical Damage to enemies in a large area. Lapu-Lapu gains Control Immunity during this process and can change his attack direction and move a short distance on each attack."
     }
   ],
   "layla": [
@@ -1323,6 +1565,22 @@
     {
       "nom": "Phantom Steed",
       "description": "Leomord summons Barbiel to rush to him, dealing base=100-300 to all enemies in its path. If Barbiel comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2 seconds. Mounted State: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains extra 70 Movement Speed and 30–110 Physical & Magic Defense. This lasts 10 seconds."
+    },
+    {
+      "nom": "The Oath Keeper",
+      "description": "Leomord's Basic Attacks and skills grant him 25 Oath Keeper energy each time they deal damage to targets. When the energy reaches 100, his next Basic Attack deals 200% Crit Damage and restores 100 (+10*Hero Level) (+15% Extra Max HP) HP. Leomord's Basic Attacks cannot normally Crit, and every 1% Crit Chance is converted into 1% Crit Damage. Mounted State: Each Oath Keeper energy gain is increased by 200%."
+    },
+    {
+      "nom": "Phantom Stomp",
+      "description": "Barbiel leaps forward, dealing 325 (+120% Total Physical Attack) Physical Damage to enemies in the landing area and in front of him, while slowing them by 40% for 1s."
+    },
+    {
+      "nom": "Phantom Charge",
+      "description": "Barbiel charges forward in a designated direction, and knocks back all enemies on the path, dealing 300 (+80% Total Physical Attack) Physical Damage."
+    },
+    {
+      "nom": "Phantom Steed",
+      "description": "Leomord summons Barbiel to rush to him, knocking back and dealing 100 (+40% Total Physical Attack) Physical Damage to all enemies in its path. If Barbiel comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2s. Mounted State: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains 70 Movement Speed and 30 Physical & Magic Defense. This lasts 10s."
     }
   ],
   "lesley": [
@@ -1362,7 +1620,10 @@
     }
   ],
   "lolita": [
-    null,
+    {
+      "nom": "Noumenon Energy Core",
+      "description": "Every 2.5 seconds, the Noumenon Energy Core grants a to Lolita and nearby allies. This shield can stack up to 6 times and lasts 30 seconds."
+    },
     {
       "nom": "Power Charge",
       "description": "Lolita dashes in the target direction. Her next Basic Attack within 4 seconds will perform a short dash to the target, dealing and stunning them for 0.5 seconds. This damage is doubled against Minions."
@@ -1392,6 +1653,22 @@
     {
       "nom": "Unleash the Beast",
       "description": "Lukas transforms into his Sacred Beast form. While in this state, his base Movement Speed is increased by 30, all attributes are increased by 15%, and his skills gain new effects. Use Again: Lukas in Sacred Beast form fires a Shockwave Blast in the target direction that will explode upon hitting an enemy hero or reaching its maximum range, dealing. \"All attributes\" include HP, Physical Attack, Attack Speed, Physical & Magic Defense and Attack Range."
+    },
+    {
+      "nom": "Hero's Resolve",
+      "description": "Lukas gains 0.5 Resolve per second and 2 Resolve when dealing damage to heroes. Upon reaching 100 Resolve, he can use Unleash the Beast to transform into Sacred Beast. Sacred Beast: Greatly increases combat attributes. He continuously consumes Resolve and ends when Resolve is depleted."
+    },
+    {
+      "nom": "Flash Combo",
+      "description": "Passive: Basic Attacks grant Vigor (up to 2 stacks), each stack lasting 4s. Vigor enhances Flash Combo. Lukas consumes all Vigor to unleash a tail swing, dealing 220 (+120% Total Physical Attack) Physical Damage and recovering 5% of his Max HP when hitting a hero. 1 Stack: Lukas briefly stuns the target and pounces, dealing 100 (+45% Total Physical Attack) Physical Damage 3 times and knocking the enemy back. 2 Stacks: Lukas briefly stuns the target and leaps, dealing 50 (+20% Total Physical Attack) Physical Damage 2 times. Afterward, he summons sacred lightning, dealing 100 (+45% Total Physical Attack) Physical Damage 3 times while gaining Control Immunity for the duration."
+    },
+    {
+      "nom": "Flash Step",
+      "description": "Lukas dashes in the target direction and turns his next Basic Attack within 4s into Lightning Clash. Lightning Clash: Lukas charges toward the enemy, knocking them back and dealing 60 (+125% Total Physical Attack) Physical Damage. He then gains 20% Movement Speed and Attack Speed, and summons sacred lightning with Basic Attacks to deal 50 (+25% Total Physical Attack) extra Physical Damage, lasting for 4s."
+    },
+    {
+      "nom": "Shockwave Blast",
+      "description": "The Sacred Beast fires a Shockwave Blast in the target direction (gains Control Immunity during the cast) that will explode upon hitting an enemy hero or reaching its maximum range, dealing 450 (+155% Total Physical Attack) Physical Damage."
     }
   ],
   "lunox": [
@@ -1408,8 +1685,52 @@
       "description": "Lunox unleashes Chaos Energy at an enemy, dealing Magic Damage equal to (1.5%–3% of Max HP against Creeps). Grants one stack of Power of Chaos|e after use."
     },
     {
+      "nom": "Order & Chaos",
+      "description": "Lunox is twisted by the powers of Chaos and Order. When Lunox uses Power of Order|e, she gains Brilliance|e and becomes invincible while dealing continuous damage to nearby enemies. When Lunox uses Power of Chaos|e, she gains Darkening|e and can blink in a target direction and greatly reduces the cooldown of Chaos Assault for a brief period."
+    },
+    {
+      "nom": "Order & Chaos",
+      "description": "Lunox is twisted by the powers of Chaos and Order. When Power of Order is dominant, she can cast Brilliance to become invincible and deal continuous damage to nearby enemies. When Power of Chaos is dominant, she can cast Darkening to blink in a target direction and greatly reduce the cooldown of Chaos Assault for a brief period."
+    },
+    {
+      "nom": "Dreamland Twist",
+      "description": "Lunox is twisted by the powers of Chaos and Order. When she uses the Power of Order, she gains 0.5% Spell Vamp for every 1% Magic Penetration. When she uses the Power of Chaos, she gains 0.5% Magic Penetration for every 1% Spell Vamp."
+    },
+    {
+      "nom": "Starlight Pulse",
+      "description": "Lunox summons a rain of starlight upon nearby enemies, dealing 200 (+110% Total Magic Power) Magic Damage. The starlight then returns to Lunox, each recovering 75 (+30% Total Magic Power) HP to her (doubled when hitting enemy heroes). This skill shares a cooldown with Chaos Assault. It grants Power of Order and ends the Power of Chaos state."
+    },
+    {
+      "nom": "Chaos Assault",
+      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+2.5% target's Max HP) Magic Damage (+1.5% target's Max HP against creeps). While enhanced by Power of Chaos, this skill has a brief cooldown, and its cast interval is unaffected by Cooldown Reduction."
+    },
+    {
+      "nom": "Cosmic Fission",
+      "description": "Lunox channels the power of Order and Chaos in the target direction, dealing 300 (+150% Total Magic Power) Magic Damage to enemies in its path and slowing them by 40% for 2s."
+    },
+    {
       "nom": "Power of Order: Brilliance",
-      "description": "Lunox extends the Light Barrier, becomes invincible for 2.5 seconds, and gains 30% extra Movement Speed while dealing every 0.5 seconds to nearby enemies."
+      "description": "Lunox creates a Light Barrier, becoming invincible and untargetable for 2.5s, and gaining 30% Movement Speed. The barrier moves with her, dealing 100 (+50% Total Magic Power) Magic Damage to nearby enemies every 0.5s."
+    },
+    {
+      "nom": "Dreamland Twist",
+      "description": "Lunox is twisted by the powers of Chaos and Order. When she uses the Power of Order, she gains 0.5% Spell Vamp for every 1% Magic Penetration. When she uses the Power of Chaos, she gains 0.5% Magic Penetration for every 1% Spell Vamp."
+    },
+    {
+      "nom": "Starlight Pulse",
+      "description": "Lunox summons a rain of starlight upon nearby enemies, dealing 200 (+110% Total Magic Power) Magic Damage. The starlight then returns to Lunox, each recovering 75 (+30% Total Magic Power) HP to her (doubled when hitting enemy heroes). This skill shares a cooldown with Chaos Assault. It grants Power of Order and ends the Power of Chaos state."
+    },
+    {
+      "nom": "Chaos Assault",
+      "description": "Lunox unleashes Chaos Energy at an enemy, dealing 250 (+120% Total Magic Power) (+2.5% target's Max HP) Magic Damage. Deals 1.5% of Max HP as extra damage to creeps. This skill shares cooldown with Starlight Pulse. Using it grants Power of Chaos and ends the Power of Order state."
+    },
+    {
+      "nom": "Cosmic Fission",
+      "description": "Lunox channels the power of Order and Chaos in the target direction, dealing 300 (+150% Total Magic Power) Magic Damage to enemies in its path and slowing them by 40% for 2s."
+    },
+    {
+      "nom": "Power of Chaos: Darkening",
+      "description": "Lunox blinks in the target direction, dealing 250 (+100% Total Magic Power) Magic Damage to nearby enemies and slowing them by 30% for 4s. For the next 4s, Lunox enhances her Power of Chaos, greatly reducing the cooldown of Chaos Assault (unaffected by Cooldown Reduction). Using Starlight Pulse ends this enhanced state."
     }
   ],
   "luo-yi": [
@@ -1443,7 +1764,10 @@
       "nom": "Shadow Energy",
       "description": "Lylia condenses Shadow Energy|enhanced at a location, dealing 100 to 160 6 (+50% Total Magic Power) Magic Damage to enemies hit and slowing them by 80%|slow for 0.5 seconds. If Shadow Energy|enhanced is detonated by Gloom|color=indigo or Magic Shockwave, it will detonate to deal an additional 250 to 400 6 (+100% Magic Power) Magic Damage and turn the Shadow Energy|enhanced to Gloom|color=indigo for 8 seconds. During this time, Gloom|color=indigo can then detonate additional Shadow Energies|enhanced within his range, resetting his timer and moving to the Shadow Energy|enhanced's location in each instance. Additionally, whenever Gloom|color=indigo detonates a Shadow Energy|enhanced within 8 seconds, the detonation damage is increased by 30%, stacking up to 4 times or 120%. If Gloom|color=indigo detonates 5 Shadow Energies|enhanced consecutively, this skill can deal a maximum of 250*2.2 to 375*2.2 6 (+220% Magic Power) Magic Damage. Stores a charge of Shadow Energy|enhanced every 9 seconds, up to 5 charges. Recharge time is affected by cooldown reduction."
     },
-    null
+    {
+      "nom": "Black Shoes",
+      "description": "Lylia returns|blink to the Black Shoes' location 4 seconds ago and restoring all 5 Shadow Energy charges|enhanced, 100% of her HP and Mana to the previous state, and get an extra 10% / 15% / 20% Max HP|Heal. She also gains 20% extra Movement Speed by 20%|ms for 2 / 3 / 4 seconds. Lylia will untargetable|invulnerable while teleporting."
+    }
   ],
   "marcel": [
     {
@@ -1497,6 +1821,10 @@
     {
       "nom": "Thunderclap",
       "description": "Masha spends 34% HP to lunge at an enemy hero (immune to control effects during the lunge), dealing, slowing them by 25% for 2 seconds, and knocking back nearby enemies. The cooldown of this skill will be reset each time Masha loses an HP bar."
+    },
+    {
+      "nom": "Life Recovery",
+      "description": "Masha gains Energy when dealing damage to enemies and extra Energy when dealing damage with Wild Power. After leaving combat for 3s, Masha can activate this skill to spend half a full bar of Energy to recover a full HP bar. Masha is invincible while casting this skill."
     }
   ],
   "mathilda": [
@@ -1572,7 +1900,10 @@
     }
   ],
   "miya": [
-    null,
+    {
+      "nom": "Moon Blessing",
+      "description": "Each time Miya hits a target with her Basic Attack, she gains 5% Attack Speed for 4 seconds. Stacks up to 5 times. After reaching full stacks, Miya summons a Moonlight Shadow with each Basic Attack that deals and inherits a portion of Attack Effects."
+    },
     {
       "nom": "Moon Arrow",
       "description": "Miya shoots two extra arrows with each Basic Attack, dealing to the target enemy and 30% damage to nearby targets. This effect lasts 4 seconds. Each extra arrow inherits a portion of Attack Effects."
@@ -1605,7 +1936,10 @@
     }
   ],
   "nana": [
-    null,
+    {
+      "nom": "Molina's Gift",
+      "description": "Upon taking fatal damage, Nana removes all debuffs on her and transforms, becoming untargetable and invincible, and gains 30% Movement Speed for 2 seconds. She also recovers 10% Max HP over the duration. Nana can only transform once every 150 seconds and cannot cast skills in the transformed form."
+    },
     {
       "nom": "Magic Boomerang",
       "description": "Nana hurls her Magical Boomerang in the target direction, dealing damage to enemies hit on its way out and back. The boomerang deals to the first enemy For every additional enemy hit, the damage is reduced by 20% (max reduction of 60%)."
@@ -1761,6 +2095,10 @@
     {
       "nom": "Feathered Air Strike",
       "description": "Passive: Each level up of this skill reduces the Spiritual Unity's interval by 1 second. Active: Pharsa takes flight for 8 seconds and bombards the target location, dealing to enemies within the area. This skill can be cast up to 4 times within the duration."
+    },
+    {
+      "nom": "Wings by Wings",
+      "description": "Pharsa turns into mist and wraps around Verri, gaining 150% extra Movement Speed (decays over time) and the ability to fly over terrain for 5s. This state ends immediately when she is controlled or uses a Basic Attack or skill."
     }
   ],
   "phoveus": [
@@ -1797,6 +2135,30 @@
     {
       "nom": "We Are Angry!",
       "description": "Popol and Kupa enter the Enraged state|state for 12 seconds: Popol and Kupa both gain 15% extra Movement Speed and increase their Attack Speed to 1.3 times. Kupa turns into the Alpha Wolf Form|e, gains, and enhances its other skills. Also fully restores its HP."
+    },
+    {
+      "nom": "We Are Angry!",
+      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 extra Max HP, fully restoring its HP, while enhancing its other skills."
+    },
+    {
+      "nom": "We Are Friends",
+      "description": "Kupa recovers 10% Max HP per second after not taking damage for 5s. When Kupa is killed, Popol can Pray for 3s to bring Kupa back to the battlefield. Cooldown: 30s. Every 3 consecutive attacks from Kupa will enhance Popol's next Basic Attack to deal (+220% Total Physical Attack) Physical Damage. Kupa has 2500 (+1200% Total Physical Attack) Max HP and inherits 100% of Popol's other attributes and passive equipment effects (excluding Jungling and Roaming equipment effects). Kupa deals an additional 120% damage against Creeps."
+    },
+    {
+      "nom": "Bite 'em, Kupa!",
+      "description": "Popol throws a spear at the target enemy, dealing 80 (+100% Total Physical Attack) Physical Damage while simultaneously commanding Kupa to lunge at the target, dealing an additional 70 (+75% Total Physical Attack) Physical Damage. Kupa will continue to attack the target for 3s. Alpha Wolf Form: Kupa stuns the enemy for 1s and bites them 3 times in quick succession."
+    },
+    {
+      "nom": "Kupa, Help!",
+      "description": "Popol summons Kupa back to his side, gaining a 240 (+200% Extra Physical Attack) shield while dealing 240 (+50% Total Physical Attack) Physical Damage to nearby enemies and slowing them by 35% for 0.5s. Kupa will then assist Popol to attack nearby enemies for 3s. Alpha Wolf Form: Kupa darts back to Popol, knocking nearby enemies airborne for 0.2s. The shield and damage are increased to 125%."
+    },
+    {
+      "nom": "Popol's Surprise",
+      "description": "Popol sets a trap at the target location that will detonate after a short delay once triggered, dealing 70 (+20% Total Magic Power) Magic Damage to the enemy that steps on it, immobilizing them for 1s, and creating a frost zone for 4s. Enemies in the frost zone will have their Movement Speed reduced by 20%. Popol gains a trap charge every 22s (up to 3). Up to 3 traps can exist at the same time on the battlefield, each lasting up to 60s."
+    },
+    {
+      "nom": "We Are Angry!",
+      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 extra Max HP, fully restoring its HP, while enhancing its other skills."
     }
   ],
   "rafaela": [
@@ -1833,6 +2195,22 @@
     {
       "nom": "Wolf Transformation",
       "description": "Roger lunges in the target direction and turns into wolf form, dealing to enemies hit and slowing enemies by 90% for 0.8 seconds. Passive:|e In Wolf form, Roger gains 20–65 Physical and Magic Defense and 25 Movement Speed."
+    },
+    {
+      "nom": "Full Moon Curse",
+      "description": "Roger can freely switch between human and wolf forms. In human form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's current HP. In wolf form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's lost HP. This effect can only deal up to 60 additional damage against Creeps."
+    },
+    {
+      "nom": "Lycan Pounce",
+      "description": "Roger lunges at the target enemy, becoming untargetable while dealing 250 (+125% Total Physical Attack) Physical Damage to up to 3 enemies in the area. Getting a kill or assist will reduce the cooldown of this skill by 80%."
+    },
+    {
+      "nom": "Bloodthirsty Howl",
+      "description": "Roger lets out a howl, increasing his Attack Speed by 1.15 times for 5s and revealing nearby enemy heroes with HP below 40%. If there are enemy heroes with HP below 40% in range, Roger gains 50% Movement Speed."
+    },
+    {
+      "nom": "Restore Human Form",
+      "description": "Roger rolls in the target direction and reverts back to human form, gaining a 200 (+200% Extra Physical Attack) shield for 1.5s."
     }
   ],
   "ruby": [
@@ -1854,7 +2232,10 @@
     }
   ],
   "saber": [
-    null,
+    {
+      "nom": "Enemy's Bane",
+      "description": "Saber's attacks reduce enemies' Physical Defense by 3–8 for 5 seconds on hit. This effect stacks up to 5 times."
+    },
     {
       "nom": "Orbiting Swords",
       "description": "Saber shoots out 5 swords that orbit around him, dealing to enemies on contact. After orbiting around Saber for roughly 5 seconds, the swords will fly back to Saber. Within the duration of this skill, when Saber deals damage with his Basic Attacks or skills, he will send an orbiting sword towards the target, dealing to the main target and 50% of the damage to other targets it passes through and reducing the cooldown of Charge by 1 second. It deals only 50% damage to all non-hero enemies such as minions and creeps."
@@ -1884,6 +2265,22 @@
     {
       "nom": "Primal Darkness",
       "description": "Selena enters Abyssal Form and increases her Movement Speed by 30% for 0.8 seconds. Immediately resets the CD of Soul Eater and Garotte. Abyssal Form|e: Selena gains new skills. Her Basic Attack will deal extra Magic Damage. Passive: Selena gains 5-20 extra Magic Power."
+    },
+    {
+      "nom": "Symbiosis",
+      "description": "Selena can switch freely between her two forms. Elven Form: Selena applies Abyssal Mark when her skills deal damage. Marks last 8s and can stack up to 2 times. Abyssal Form: Selena's Basic Attacks become melee and deal (+25% Total Magic Power) additional Magic Damage. Her skills deal 240-450 (+40% Total Magic Power) additional Magic Damage to enemies with Abyssal Mark and consume their mark stacks by 1. This damage is increased to 250% against Creeps and Minions."
+    },
+    {
+      "nom": "Soul Eater",
+      "description": "Selena strengthens her claws with the power of the Abyss, causing the next Basic Attack to dash to a target and deal an additional 200 (+130% Total Magic Power) Magic Damage while granting her a 300 (+150% Total Magic Power) shield. If this damage detonates an Abyssal Mark, Garotte's cooldown will reset."
+    },
+    {
+      "nom": "Garotte",
+      "description": "Selena charges in the target direction, dealing 150 (+50% Total Magic Power) Magic Damage to enemies in her path. If this skill's damage detonates an Abyssal Mark, its cooldown will reset."
+    },
+    {
+      "nom": "Blessing of the Moon Goddess",
+      "description": "Passive: Gains 5 Magic Power. Active: Selena enters Elven Form, gaining 20% Movement Speed for 0.8s and immediately resetting the cooldowns of Abyssal Trap and Abyssal Arrow."
     }
   ],
   "silvanna": [
@@ -1895,10 +2292,13 @@
       "nom": "Cometic Lance",
       "description": "Silvanna dashes forward. Upon reaching the max range or hitting a non-minion enemy, she swings her lance, dealing to nearby enemies and stunning them for 1 second."
     },
-    null,
+    {
+      "nom": "Spiral Strangling",
+      "description": "Silvanna thrusts her lance in the target direction and spins it 6 times while gaining a. Each spin deals and slightly pulls targets toward the center. Silvanna spins 1 additional time for every 50% of extra Attack Speed she possesses. The skill deals only 50% damage against Minions. Spiral Strangling counts as a Basic Attack but cannot Crit."
+    },
     {
       "nom": "Imperial Justice",
-      "description": "Silvanna leaps to the target location and creates a Circle of Light upon landing, dealing to enemies in the area, slowing them by 40% for 1.5 seconds, and restraining the closest enemy hero to the area for 3.5 seconds. (This skill cannot be interrupted) Silvanna gains 100% [extra] Attack Speed and 40% [extra] Lifesteal when in the Circle."
+      "description": "Silvanna leaps to the target location and creates a Circle of Light upon landing, dealing 350 (+110% Total Magic Power) Magic Damage to enemies in the area, slowing them by 40% for 1.5s, and restraining the closest enemy hero to the area for 3.5s. (This skill cannot be interrupted.) Silvanna gains 100% Attack Speed and 40% Lifesteal when in the Circle."
     }
   ],
   "sora": [
@@ -1917,6 +2317,38 @@
     {
       "nom": "Shifting Skies",
       "description": "Swipe left to ascend into Thunder for 10 seconds. Sora gains brief bonus Movement Speed and becomes untargetable. He then summons lightning to strike nearby enemies 3 time(s), dealing with each strike. Swipe right to ascend into Torrent for 10 seconds. After a brief delay, Sora pulls in nearby enemies and deals."
+    },
+    {
+      "nom": "Mystic Surge",
+      "description": "Sora can ascend to Thunder or Torrent by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of Cloudstep. Upon reaching 5 stacks, he unlocks his True Art. Thunder: Adopts an assassin style, converting 30% Max HP into Physical Attack (Equal to 10% of Max HP). Torrent: Adopts a tank style, converting 30% Physical Attack into Max HP (Gains 10 HP for every 1 Attack)."
+    },
+    {
+      "nom": "Sundering Strike - Thunderflash",
+      "description": "Sora strikes four times, dealing 140 (+50% Total Physical Attack) Physical Damage, then lunges forward, dealing 240 (+5% Total HP) Physical Damage. He can move freely during this skill."
+    },
+    {
+      "nom": "Windstride - Thunder Rush",
+      "description": "Sora leaps forward, dealing 120 (+45% Total Physical Attack) Physical Damage. Upon hitting a hero or reaching the max distance, he summons a thunderstorm, dealing 120 (+6% Total HP) Physical Damage and slowing enemies by 50% for 0.5s. This skill can be cast again within 4s if it hits an enemy."
+    },
+    {
+      "nom": "Heaven's Wrath",
+      "description": "Sora leaps into the air and strikes a target area 16 time(s), dealing 60 (+40% Total Physical Attack) Physical Damage with each hit. Sora can move freely and ignore terrain during this skill."
+    },
+    {
+      "nom": "Mystic Surge",
+      "description": "Sora can ascend to Thunder or Torrent by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of Cloudstep. Upon reaching 5 stacks, he unlocks his True Art. Thunder: Adopts an assassin style, converting 30% Max HP into Physical Attack (Equal to 10% of Max HP). Torrent: Adopts a tank style, converting 30% Physical Attack into Max HP (Gains 10 HP for every 1 Attack)."
+    },
+    {
+      "nom": "Sundering Strike - Overwhelm",
+      "description": "Sora strikes twice, dealing 140 (+50% Total Physical Attack) Physical Damage and slowing enemies for 40%. He then lunges forward, dealing 240 (+5% Total HP) Physical Damage, stunning enemies for 0.5s."
+    },
+    {
+      "nom": "Windstride - Skyfall",
+      "description": "Sora leaps forward, dealing 140 (+55% Total Physical Attack) Physical Damage, knocking enemies airborne, and knocking them back to the landing point. He then smashes the ground, knocking enemies airborne again for 0.5s, dealing 140 (+8% Total HP) Physical Damage, and slowing them by 50% for 1s. Hits reduce cooldown by 2s."
+    },
+    {
+      "nom": "Stormbind",
+      "description": "Sora leaps into the air and strikes the target area 5 time(s), dealing 100 (+6% Total HP) Physical Damage and briefly stunning enemies with each hit. Sora can move freely and ignore terrain during this skill."
     }
   ],
   "sun": [
@@ -1935,6 +2367,10 @@
     {
       "nom": "Clone Techniques",
       "description": "Sun summons a Doppelganger that lasts 8 seconds and inherits 70%&nash;100% of his attributes and a portion of his Attack Effects. The Doppelganger takes increased damage."
+    },
+    {
+      "nom": "Clone Techniques",
+      "description": "Sun summons a Doppelganger that lasts 8s and inherits 70% of his attributes and a portion of his Attack Effects. The Doppelganger takes increased damage."
     }
   ],
   "suyou": [
@@ -1950,7 +2386,10 @@
       "nom": "Soul Sever",
       "description": "Tap: Suyou performs a sweeping attack with his weapon, dealing [] to enemies in a fan-shaped area. Hold: Suyou channels the Immortal's power to perform 3 cleaves in a fan-shaped area. The first two strikes deal each, while the final strike deals and recovers for himself."
     },
-    null
+    {
+      "nom": "Evil Queller",
+      "description": "Tap: Suyou glides backward and swings his weapon in the target direction, dealing 420 (+120% Extra Physical Attack) Physical Damage to enemies in a rectangular area and on his path backward, and reducing their Movement Speed by 30% for 1.5s. Hold: Suyou uses the Immortal's power to shoot a deadly arrow in the target direction, dealing 580 (+165% Extra Physical Attack) Physical Damage to the target hit. The range increases with the hold time. Suyou can be controlled while charging, but the skill cannot be interrupted."
+    }
   ],
   "terizla": [
     {
@@ -1975,7 +2414,10 @@
       "nom": "Grand Lord Lava",
       "description": "Thamuz's Basic Attacks have a 10%-60% chance (based on Lava's Rage) to conjure Lava Energy beneath the target that erupts after a brief delay, dealing. Basic Attacks that don't trigger Lava Energy will increase Thamuz's Lava Rage. When without Scythes, Thamuz gains 25% Movement Speed. After retrieving his Scythes, his next Basic Attack slows the target by 30% and is guaranteed to trigger Lava Energy"
     },
-    null,
+    {
+      "nom": "Molten Scythes",
+      "description": "Thamuz tosses Scythes in the target direction. After travelling for a certain distance or hitting the first enemy hero, they deal. The Scythes will then slow nearby enemies by 30% and deal every 0.5 seconds. After leaving Thamuz for [&approx;5 seconds] or a certain distance, the Scythes will return to Thamuz and drag enemies in their path to him. Thamuz can approach the Scythes or cast the skill again to retrieve them."
+    },
     {
       "nom": "Chasm Trample",
       "description": "Thamuz jumps to a designated area to deal and slow the enemy units by 25% for 2 seconds upon landing. If the scythes are still travelling, they will return to Thamuz and Molten Scythes will reset its CD instantly."
@@ -2052,7 +2494,10 @@
       "nom": "Arcane Shade",
       "description": "Valentina dashes in the target direction, firing 3 Shadow Bolts at nearby enemies that deal each. Valentina can cast this skill again within 6s (costs Mana). The cooldown of Shadow Strike is reduced by 1 second each time a Shadow Bolt hits an enemy."
     },
-    null
+    {
+      "nom": "I Am You",
+      "description": "Valentina slows the target enemy hero by 70% for 0.5 seconds and gains the ability to cast their Ultimate. Casting the enemy's Ultimate turns Valentina into the enemy hero's form and allows her to inherit their Basic Attack type for up to 12 seconds. Her regular skills remain unchanged, unless the enemy's Ultimate has a Morph effect. The stolen Ultimate's level will be equal to Valentina's level and the cooldown will be 120%–100% of the target's cooldown (but not lower than 10 seconds). Valentina gains Physical Attack for the duration if the enemy is a Physical Damage hero. This cannot be used on an enemy Valentina."
+    }
   ],
   "valir": [
     {
@@ -2153,8 +2598,14 @@
       "nom": "Traceless",
       "description": "Yi Sun-shin dashes forward and slashes with his glaive, dealing and becoming immune to control effects for 1 second. Each Weapon Mastery triggered reduces the cooldown of Traceless by 1 second."
     },
-    null,
-    null
+    {
+      "nom": "Blood Floods",
+      "description": "Tap: Yi Sun-shin slashes swiftly with his glaive, dealing. Hold: Yi Sun-shin shoots a powerful arrow, dealing to the target. The arrow's damage scales with the hold time, up to 200%. Yi Sun-shin gains Weapon Mastery immediately when this skill is used."
+    },
+    {
+      "nom": "Mountain Shocker",
+      "description": "Yi Sun-shin summons a turtle ship and gains sight of the whole map for 5 seconds. The turtle ship lasts for up to 15 seconds, during which Yi Sun-shin gains 70% burst Movement Speed (decay to 20% over 2 seconds). When cast again, Yi Sun-shin commands the turtle ship to ram towards the target area, dealing and stunning enemy units in the central area for 0.8 seconds. Then Yi Sun-shin commands the naval fleet to launch 3 waves of cannon shots on a larger area, each dealing and slowing the enemies by 30%. Yi Sun-shin gains Weapon Mastery effect immediately when this skill is used."
+    }
   ],
   "yin": [
     {
@@ -2172,6 +2623,22 @@
     {
       "nom": "My Turn",
       "description": "After a short delay Yin pulls|cc an enemy (excluding pets and clones|summoned unit) into his domain for up to 8 seconds and turns into Lieh. When in the domain, the two cannot be affected by other heroes' skills. Lieh has stronger skills and gains 50-80 Physical & Magic Defense that lasts for 8 seconds. The domain will end early if any of the two hero is killed. If Lieh successfully kills the enemy, he'll restore 20% Max HP, leave the domain with the cooldowns of Frenzy Strike and Instant Blast (Lieh) reset, and continue to fight as Lieh for 8 seconds. If Yin fails to pull his target into his domain, the skill will enter a 3 second cooldown."
+    },
+    {
+      "nom": "Leave It to Me",
+      "description": "If there are no allied heroes within 4 units of Yin, his damage is increased to 120% and he gains 8% Spell Vamp."
+    },
+    {
+      "nom": "Frenzy Strike",
+      "description": "Lieh smashes enemies forward 9 times. During this time, he is immune to control effects, and his smashing speed gradually increases. Each smash deals 120 (+100% Extra Physical Attack) Physical Damage and slows enemies by 75% for 0.2s. After 0.8s, Lieh can move or cast skills to cancel the skill early."
+    },
+    {
+      "nom": "Instant Blast",
+      "description": "Lieh strikes a flying kick forward, leaving a Golden Ring behind while dealing 75 (+35% Extra Physical Attack) Physical Damage to enemies along the way. Enemies hit will also be knocked back slightly. He gains 30% extra Damage Reduction for 4s if an enemy hero is hit. After 1s, the Golden Ring will catch up with Lieh, dealing 150 (+70% Extra Physical Attack) Physical Damage to enemies it passes through and stunning them for 1s."
+    },
+    {
+      "nom": "My Turn",
+      "description": "After a short delay, Yin locks onto an enemy hero (cannot lock onto pets or clones) and pulls them into a domain for up to 8s and turns into Lieh. When in the domain, the two cannot be affected by other heroes' skills. Lieh has stronger skills and 50 extra Physical & Magic Defense that last 8s. The domain will end early if either of the two is killed. If Lieh successfully kills the enemy, he'll recover 20% of his Max HP, leave the domain with the cooldowns of Frenzy Strike and Instant Blast reset, and continue to fight as Lieh for 8s. If Yin fails to pull his target into the domain, the skill will enter a 3s cooldown."
     }
   ],
   "yu-zhong": [
@@ -2190,6 +2657,10 @@
     {
       "nom": "Black Dragon Form",
       "description": "After channeling for 0.6 seconds, Yu Zhong transforms into his Black Dragon Form. For up to 7 seconds, he cannot use any skills but can move freely and will knock back enemy heroes in this path while dealing gains. He also gains Max HP, becomes immune to control effects, and ignores obstacles in this form. Upon exiting the Black Dragon form, Yu Zhong enters Dragonoid Form, gaining increased range on all of his skills for 10 seconds."
+    },
+    {
+      "nom": "Black Dragon Form",
+      "description": "After channeling for 0.6s, Yu Zhong transforms into his Black Dragon Form. For up to 7s, he cannot use any skills but can move freely and will knock back enemy heroes in his path while dealing 180 (+80% Total Physical Attack) Physical Damage. He also gains 1000 (+200% Extra Physical Attack) Max HP, becomes immune to control effects, and ignores obstacles in this form. Upon exiting the Black Dragon Form, Yu Zhong enters Dragonoid Form, gaining increased range on all of his skills for 10s."
     }
   ],
   "yve": [
@@ -2244,6 +2715,10 @@
     {
       "nom": "Dominator's Descent",
       "description": "Zhask selects a designated position to summon Nightmaric Spawn and fuses with it. Nightmaric Spawn can inherit 100% of his attributes and get extra of them. His skills are enhanced during the fusion period. Use Again: Zhask immediately gets off the Nightmaric Spawn and loses enhancement."
+    },
+    {
+      "nom": "Dominator's Descent",
+      "description": "Zhask selects a target area to summon an enhanced Nightmaric Spawn and fuses with it. Nightmaric Spawn can inherit 100% of his attributes and get extra attributes. His skills are enhanced during the fusion period. Use Again: Zhask immediately gets off the Nightmaric Spawn and loses enhancement."
     }
   ],
   "zhuxin": [

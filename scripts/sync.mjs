@@ -517,6 +517,12 @@ function extraireDePage(wikitexte) {
         type: "competence",
         valeur: corps.match(/\|?\s*name\s*=\s*(.+)/)?.[1]?.replace(/<[^>]*>/g, "").trim(),
         description: description ? nettoyerDescription(description) : null,
+        // Le nom du fichier d'icone, souvent distinct du nom affiche : la
+        // competence « Contract: Transform » a pour image « Contract Transform »
+        // (sans les deux-points, absents des noms de fichier). L'espace apres
+        // le « = » est borne a la ligne pour ne pas capturer le champ suivant
+        // quand la valeur est vide.
+        image: corps.match(/\|\s*image\s*=[ \t]*(.+)/i)?.[1]?.trim() || null,
       };
     }),
   ].sort((a, b) => a.position - b.position);
@@ -532,7 +538,11 @@ function extraireDePage(wikitexte) {
     for (const suivant of evenements.slice(i + 1)) {
       if (suivant.type === "titre") break;
       if (suivant.valeur) {
-        parSection[e.valeur] = { nom: suivant.valeur, description: suivant.description };
+        parSection[e.valeur] = {
+          nom: suivant.valeur,
+          description: suivant.description,
+          image: suivant.image ?? null,
+        };
         break;
       }
     }
@@ -1214,9 +1224,15 @@ async function principal() {
   const { plan, chemins } = planVisuels(heros, skins, portraits, icones);
 
   // ── Icones de competences ──────────────────────────────────────────
+  // Le fichier d'icone porte le nom du champ « image » du gabarit quand il
+  // existe, souvent distinct du nom affiche (« Contract Transform » pour la
+  // competence « Contract: Transform ») ; sinon on retombe sur le nom.
+  const fichierIcone = (slug, i, nom) => pages[slug]?.competences?.[i]?.image ?? nom;
   const nomsCompetences = [
     ...new Set(
-      Object.values(competencesFinales).flatMap((cs) => cs.map((c) => c?.nom).filter(Boolean)),
+      Object.entries(competencesFinales).flatMap(([slug, cs]) =>
+        cs.map((c, i) => (c?.nom ? fichierIcone(slug, i, c.nom) : null)).filter(Boolean),
+      ),
     ),
   ];
   const urlsCompetences = await urlsFichiers(nomsCompetences);
@@ -1232,7 +1248,7 @@ async function principal() {
     comps.forEach((competence, i) => {
       const nom = competence?.nom;
       if (!nom) return;
-      const urlWiki = urlsCompetences[nom];
+      const urlWiki = urlsCompetences[fichierIcone(slug, i, nom)];
       if (urlWiki) {
         const fichier = `${slugifier(nom)}.webp`;
         icones[nom] = `/visuels/competences/${fichier}`;
