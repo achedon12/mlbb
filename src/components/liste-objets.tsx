@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 import type { ObjetGenere } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,21 @@ import { cn } from "@/lib/utils";
  */
 export interface ApercuObjet extends ObjetGenere {
   image: string | null;
+}
+
+/**
+ * Change l'objet ouvert.
+ *
+ * `replaceState` ne declenche pas `hashchange` : on previent donc nous-memes,
+ * sinon l'affichage ne suivrait pas le changement d'adresse.
+ */
+function selectionner(slug: string | null) {
+  history.replaceState(null, "", slug ? `#${slug}` : window.location.pathname);
+  window.dispatchEvent(new HashChangeEvent("hashchange"));
+}
+
+function fermerObjet() {
+  selectionner(null);
 }
 
 export function ListeObjets({
@@ -54,17 +69,6 @@ export function ListeObjets({
     const cible = decodeURIComponent(ancre.replace(/^#/, ""));
     return cible && slugsConnus.has(cible) ? cible : null;
   }, [ancre, slugsConnus]);
-
-  /**
-   * Change l'objet ouvert.
-   *
-   * `replaceState` ne declenche pas `hashchange` : on previent donc nous-memes,
-   * sinon l'affichage ne suivrait pas le changement d'adresse.
-   */
-  function selectionner(slug: string | null) {
-    history.replaceState(null, "", slug ? `#${slug}` : window.location.pathname);
-    window.dispatchEvent(new HashChangeEvent("hashchange"));
-  }
 
   // Un objet designe par l'adresse doit etre visible : on amene la grille
   // dessus plutot que de laisser l'utilisateur le chercher.
@@ -190,9 +194,31 @@ export function ListeObjets({
           })}
         </ul>
 
-        <aside className="h-fit lg:sticky lg:top-24">
+        <aside className="hidden h-fit lg:sticky lg:top-24 lg:block">
           {objet ? (
-            <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-5">
+            <FicheObjet objet={objet} />
+          ) : (
+            <p className="biseau border border-dashed border-nuit-700 p-5 text-sm leading-relaxed text-craie-500">
+              {t("pages.itemsListe.choisir")}
+            </p>
+          )}
+        </aside>
+      </div>
+
+      {/*
+        Sur mobile, la fiche monte en tiroir depuis le bas : pas besoin de
+        redescendre sous une grille de cent objets pour la lire.
+      */}
+      {objet && <Tiroir objet={objet} onFermer={fermerObjet} />}
+    </div>
+  );
+}
+
+/** Fiche detaillee d'un objet, commune a la colonne laterale et au tiroir. */
+function FicheObjet({ objet, sansCadre = false }: { objet: ApercuObjet; sansCadre?: boolean }) {
+  const t = useT();
+  return (
+            <div className={cn("p-5", !sansCadre && "biseau border border-nuit-700/70 bg-nuit-900/60")}>
               <div className="flex items-start gap-3">
                 {objet.image && (
                   <span className="relative size-14 shrink-0">
@@ -252,12 +278,59 @@ export function ListeObjets({
                 )}
               </dl>
             </div>
-          ) : (
-            <p className="biseau border border-dashed border-nuit-700 p-5 text-sm leading-relaxed text-craie-500">
-              {t("pages.itemsListe.choisir")}
-            </p>
-          )}
-        </aside>
+  );
+}
+
+/**
+ * Tiroir mobile.
+ *
+ * Il masque la page derriere un voile, bloque son defilement et se ferme par
+ * la croix, un toucher sur le voile ou Echap. Au-dela de `lg`, la fiche vit
+ * dans la colonne laterale et le tiroir ne s'affiche pas.
+ */
+function Tiroir({ objet, onFermer }: { objet: ApercuObjet; onFermer: () => void }) {
+  const t = useT();
+
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 1024px)").matches) return;
+    const avant = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const echap = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onFermer();
+    };
+    window.addEventListener("keydown", echap);
+    return () => {
+      document.body.style.overflow = avant;
+      window.removeEventListener("keydown", echap);
+    };
+  }, [onFermer]);
+
+  return (
+    <div className="lg:hidden">
+      <div
+        aria-hidden
+        onClick={onFermer}
+        className="fixed inset-0 z-50 bg-nuit-950/70 backdrop-blur-sm"
+      />
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={objet.nom}
+        className="tiroir fixed inset-x-0 bottom-0 z-50 max-h-[85vh] overflow-y-auto rounded-t-2xl border-t border-nuit-700 bg-nuit-900 pb-[env(safe-area-inset-bottom)] shadow-2xl shadow-black/60"
+      >
+        <div className="sticky top-0 z-10 flex justify-center bg-nuit-900 pb-1 pt-2.5">
+          <span aria-hidden className="h-1 w-10 rounded-full bg-nuit-600" />
+        </div>
+        <button
+          type="button"
+          autoFocus
+          onClick={onFermer}
+          aria-label={t("pages.itemsListe.fermer")}
+          className="absolute right-3 top-2 z-10 grid size-9 place-items-center text-craie-500 transition-colors hover:text-craie-100"
+        >
+          <X size={18} aria-hidden />
+        </button>
+        <FicheObjet objet={objet} sansCadre />
       </div>
     </div>
   );

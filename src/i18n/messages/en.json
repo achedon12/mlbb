@@ -171,7 +171,8 @@
       "passif": "Passive",
       "actif": "Active",
       "recette": "Recipe",
-      "choisir": "Choose an item to see its stats, passive, and recipe."
+      "choisir": "Choose an item to see its stats, passive, and recipe.",
+      "fermer": "Close"
     },
     "emblems": {
       "titre": "Emblems and talents",

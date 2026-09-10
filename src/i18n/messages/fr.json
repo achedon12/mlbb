@@ -171,7 +171,8 @@
       "passif": "Passif",
       "actif": "Actif",
       "recette": "Recette",
-      "choisir": "Choisissez un objet pour voir ses statistiques, son passif et sa recette."
+      "choisir": "Choisissez un objet pour voir ses statistiques, son passif et sa recette.",
+      "fermer": "Fermer la fiche"
     },
     "emblems": {
       "titre": "Emblemes et talents",

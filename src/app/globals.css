@@ -188,3 +188,18 @@ h1, h2, h3, h4 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Tiroir mobile : il monte depuis le bas de l'ecran. */
+@keyframes monter {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .tiroir {
+    animation: monter 0.22s ease-out;
+  }
+}

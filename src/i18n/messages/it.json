@@ -171,7 +171,8 @@
       "passif": "Passivo",
       "actif": "Attivo",
       "recette": "Ricetta",
-      "choisir": "Scegli un oggetto per visualizzarne le statistiche, la passiva e la ricetta."
+      "choisir": "Scegli un oggetto per visualizzarne le statistiche, la passiva e la ricetta.",
+      "fermer": "Chiudi"
     },
     "emblems": {
       "titre": "Emblemi e talenti",
