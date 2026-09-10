@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import type { Palier } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
@@ -125,6 +126,18 @@ export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
   );
 }
 
+/** Nom ramene a une cle de recherche : sans casse ni accents. */
+const cleRecherche = (s: string) =>
+  s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+/**
+ * Choix d'un heros, par recherche.
+ *
+ * Un menu deroulant de 133 noms oblige a faire defiler la liste ; ici, on tape
+ * les premieres lettres et la liste se resserre. Le champ affiche le heros
+ * choisi tant qu'on ne cherche pas. Clavier : fleches pour parcourir, Entree
+ * pour choisir, Echap pour abandonner.
+ */
 function Selecteur({
   label,
   heros,
@@ -136,21 +149,131 @@ function Selecteur({
   valeur: string;
   onChange: (v: string) => void;
 }) {
+  const t = useT();
+  const id = useId();
+  const choisi = heros.find((h) => h.slug === valeur) ?? null;
+  const [ouvert, setOuvert] = useState(false);
+  const [recherche, setRecherche] = useState("");
+  const [actif, setActif] = useState(0);
+
+  const resultats = useMemo(() => {
+    const q = cleRecherche(recherche.trim());
+    return q ? heros.filter((h) => cleRecherche(h.nom).includes(q)) : heros;
+  }, [heros, recherche]);
+
+  // L'option active reste visible quand on la deplace au clavier.
+  useEffect(() => {
+    if (!ouvert) return;
+    const slug = resultats[actif]?.slug;
+    if (slug) document.getElementById(`${id}-${slug}`)?.scrollIntoView({ block: "nearest" });
+  }, [actif, ouvert, resultats, id]);
+
+  const choisir = (h: HerosComparable) => {
+    onChange(h.slug);
+    setRecherche("");
+    setOuvert(false);
+  };
+
+  const clavier = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setOuvert(true);
+      setActif((a) => Math.min(a + 1, resultats.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActif((a) => Math.max(a - 1, 0));
+    } else if (e.key === "Enter" && ouvert && resultats[actif]) {
+      e.preventDefault();
+      choisir(resultats[actif]);
+    } else if (e.key === "Escape") {
+      setOuvert(false);
+      setRecherche("");
+    }
+  };
+
   return (
-    <label className="block">
-      <span className="mb-1.5 block text-xs uppercase tracking-wide text-craie-500">{label}</span>
-      <select
-        value={valeur}
-        onChange={(e) => onChange(e.target.value)}
-        className="biseau-sm w-full border border-nuit-700 bg-nuit-900 px-3 py-2.5 text-craie-100 outline-none transition-colors focus:border-or-500"
+    <div className="relative">
+      <label
+        htmlFor={`${id}-champ`}
+        className="mb-1.5 block text-xs uppercase tracking-wide text-craie-500"
       >
-        {heros.map((h) => (
-          <option key={h.slug} value={h.slug}>
-            {h.nom}
-          </option>
-        ))}
-      </select>
-    </label>
+        {label}
+      </label>
+      <div className="biseau-sm flex items-center gap-2 border border-nuit-700 bg-nuit-900 px-2.5 transition-colors focus-within:border-or-500">
+        {!ouvert && choisi?.icone && (
+          <span className="relative size-6 shrink-0 overflow-hidden bg-nuit-800">
+            <Image src={choisi.icone} alt="" fill sizes="24px" className="object-cover" />
+          </span>
+        )}
+        <input
+          id={`${id}-champ`}
+          role="combobox"
+          aria-expanded={ouvert}
+          aria-controls={`${id}-liste`}
+          aria-autocomplete="list"
+          aria-activedescendant={
+            ouvert && resultats[actif] ? `${id}-${resultats[actif].slug}` : undefined
+          }
+          autoComplete="off"
+          value={ouvert ? recherche : (choisi?.nom ?? "")}
+          placeholder={t("compareUI.rechercher")}
+          onFocus={() => {
+            setOuvert(true);
+            setRecherche("");
+            setActif(0);
+          }}
+          onBlur={() => setOuvert(false)}
+          onChange={(e) => {
+            setRecherche(e.target.value);
+            setActif(0);
+            setOuvert(true);
+          }}
+          onKeyDown={clavier}
+          className="min-w-0 flex-1 bg-transparent py-2.5 text-craie-100 outline-none placeholder:text-craie-500"
+        />
+        <ChevronDown
+          size={16}
+          aria-hidden
+          className={cn("shrink-0 text-craie-500 transition-transform", ouvert && "rotate-180")}
+        />
+      </div>
+
+      {ouvert && (
+        <ul
+          id={`${id}-liste`}
+          role="listbox"
+          aria-label={label}
+          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-nuit-700 bg-nuit-900 py-1 shadow-xl shadow-black/40"
+        >
+          {resultats.length === 0 ? (
+            <li className="px-3 py-2 text-sm text-craie-500">{t("compareUI.aucun")}</li>
+          ) : (
+            resultats.map((h, i) => (
+              <li
+                key={h.slug}
+                id={`${id}-${h.slug}`}
+                role="option"
+                aria-selected={h.slug === valeur}
+                // Empeche le champ de perdre le focus avant la prise en compte du clic.
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => choisir(h)}
+                onMouseEnter={() => setActif(i)}
+                className={cn(
+                  "flex cursor-pointer items-center gap-2.5 px-3 py-1.5 text-sm",
+                  i === actif ? "bg-nuit-800 text-or-400" : "text-craie-200",
+                  h.slug === valeur && "font-semibold",
+                )}
+              >
+                <span className="relative size-7 shrink-0 overflow-hidden bg-nuit-800">
+                  {h.icone && <Image src={h.icone} alt="" fill sizes="28px" className="object-cover" />}
+                </span>
+                {h.nom}
+              </li>
+            ))
+          )}
+        </ul>
+      )}
+    </div>
   );
 }
 

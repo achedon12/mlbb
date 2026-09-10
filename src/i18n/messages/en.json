@@ -624,7 +624,9 @@
     "second": "Second hero",
     "tauxVictoire": "Win rate",
     "tauxBan": "Ban rate",
-    "skins": "Skins"
+    "skins": "Skins",
+    "rechercher": "Search a hero…",
+    "aucun": "No hero matches."
   },
   "patchHeros": {
     "amelioration": "Improvement",

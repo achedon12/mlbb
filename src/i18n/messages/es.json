@@ -624,7 +624,9 @@
     "second": "Segundo héroe",
     "tauxVictoire": "Tasa de ganancia",
     "tauxBan": "Tasa de prohibición",
-    "skins": "Batería"
+    "skins": "Batería",
+    "rechercher": "Buscar un héroe…",
+    "aucun": "Ningún héroe coincide."
   },
   "patchHeros": {
     "amelioration": "Mejora",

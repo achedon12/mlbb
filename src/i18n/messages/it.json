@@ -624,7 +624,9 @@
     "second": "Secondo eroe",
     "tauxVictoire": "Tasso di vincita",
     "tauxBan": "Tasso di divieto",
-    "skins": "Pelli"
+    "skins": "Pelli",
+    "rechercher": "Cerca un eroe…",
+    "aucun": "Nessun eroe corrisponde."
   },
   "patchHeros": {
     "amelioration": "Miglioramento",
