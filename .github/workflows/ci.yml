@@ -28,10 +28,6 @@ jobs:
 
       - name: Build
         run: npm run build
-        env:
-          # Le build prerend des pages ; la valeur reelle n'est lue qu'au
-          # demarrage du serveur.
-          SESSION_SECRET: verification-uniquement-non-utilisee-en-production
 
       - name: Verifier que les donnees generees sont a jour dans le depot
         run: |
