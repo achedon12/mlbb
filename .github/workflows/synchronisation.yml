@@ -34,6 +34,12 @@ jobs:
       - name: Relire les sources et telecharger les visuels
         run: npm run sync -- --images
 
+      - name: Traduire en francais les contenus repris en anglais
+        run: npm run traduire
+
+      - name: Prendre l'instantane de la veille
+        run: npm run veille
+
       - name: Verifier que le site compile avec les nouvelles donnees
         run: npm run build
 
