@@ -7,7 +7,7 @@ describe("rangLisible — paliers Guerrier a Epique", () => {
     expect(r.nom).toBe("Guerrier");
     expect(r.division).toBe("III");
     expect(r.mythique).toBe(false);
-    expect(r.image).toMatch(/^https?:\/\//);
+    expect(r.image).toMatch(/^\/visuels\/rangs\//);
   });
 
   it("compte les etoiles dans la division", () => {
