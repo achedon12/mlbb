@@ -48,3 +48,6 @@ next-env.d.ts
 /pnpm-lock.yaml
 /yarn.lock
 todo.txt
+
+# Journaux applicatifs (runtime)
+/logs

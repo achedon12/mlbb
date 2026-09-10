@@ -20,6 +20,16 @@ export default function Erreur({
 }) {
   useEffect(() => {
     console.error(error);
+    // On reporte l'incident au journal du serveur, sans bloquer l'affichage.
+    const corps = JSON.stringify({
+      message: error.message,
+      chemin: window.location.pathname,
+      digest: error.digest,
+    });
+    const envoye = navigator.sendBeacon?.("/api/journal", corps);
+    if (!envoye) {
+      fetch("/api/journal", { method: "POST", body: corps, keepalive: true }).catch(() => {});
+    }
   }, [error]);
 
   return (
