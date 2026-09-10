@@ -1802,7 +1802,7 @@
       "Night's Edge": "/visuels/heros/aamon/illustrations/night-s-edge.webp",
       "Noble Crest": "/visuels/heros/aamon/illustrations/noble-crest.webp",
       "Cyber Assassin": "/visuels/heros/aamon/illustrations/cyber-assassin.webp",
-      "Vessel Of Deceit": "/visuels/heros/aamon/illustrations/vessel-of-deceit.webp",
+      "Vessel of Deceit": "/visuels/heros/aamon/illustrations/vessel-of-deceit.webp",
       "Soul Reaver": "/visuels/heros/aamon/illustrations/soul-reaver.webp"
     },
     "akai": {
@@ -1884,6 +1884,16 @@
       "Fury of the Deep": "/visuels/heros/arlott/illustrations/fury-of-the-deep.webp",
       "Aeon of Twilight": "/visuels/heros/arlott/illustrations/aeon-of-twilight.webp"
     },
+    "atlas": {
+      "Ocean Gladiator": "/visuels/heros/atlas/illustrations/ocean-gladiator.webp",
+      "Reactor Core": "/visuels/heros/atlas/illustrations/reactor-core.webp",
+      "Fuel Turbine": "/visuels/heros/atlas/illustrations/fuel-turbine.webp",
+      "Space Mech": "/visuels/heros/atlas/illustrations/space-mech.webp",
+      "Rune Sentinel": "/visuels/heros/atlas/illustrations/rune-sentinel.webp",
+      "Mecha Infernus": "/visuels/heros/atlas/illustrations/mecha-infernus.webp",
+      "Sunken Curse": "/visuels/heros/atlas/illustrations/sunken-curse.webp",
+      "Maelstrom Lurker": "/visuels/heros/atlas/illustrations/maelstrom-lurker.webp"
+    },
     "aulus": {
       "Warrior of Ferocity": "/visuels/heros/aulus/illustrations/warrior-of-ferocity.webp",
       "Berserker": "/visuels/heros/aulus/illustrations/berserker.webp",
@@ -1911,6 +1921,37 @@
       "Sagittarius Seiya": "/visuels/heros/badang/illustrations/sagittarius-seiya.webp",
       "Steel Arms": "/visuels/heros/badang/illustrations/steel-arms.webp"
     },
+    "balmond": {
+      "Bloody Beast": "/visuels/heros/balmond/illustrations/bloody-beast.webp",
+      "Power Source": "/visuels/heros/balmond/illustrations/power-source.webp",
+      "Ghoul's Fury": "/visuels/heros/balmond/illustrations/ghoul-s-fury.webp",
+      "Savage Hunter": "/visuels/heros/balmond/illustrations/savage-hunter.webp",
+      "God of Mountains": "/visuels/heros/balmond/illustrations/god-of-mountains.webp",
+      "Savage Pointguard": "/visuels/heros/balmond/illustrations/savage-pointguard.webp",
+      "Bioroid": "/visuels/heros/balmond/illustrations/bioroid.webp",
+      "Infernal Warlord": "/visuels/heros/balmond/illustrations/infernal-warlord.webp",
+      "Razor Edge": "/visuels/heros/balmond/illustrations/razor-edge.webp",
+      "Ironhide Berserker": "/visuels/heros/balmond/illustrations/ironhide-berserker.webp",
+      "Vulcan Lionheart": "/visuels/heros/balmond/illustrations/vulcan-lionheart.webp"
+    },
+    "bane": {
+      "Frozen King": "/visuels/heros/bane/illustrations/frozen-king.webp",
+      "Castle Master": "/visuels/heros/bane/illustrations/castle-master.webp",
+      "Deep Sea Monster": "/visuels/heros/bane/illustrations/deep-sea-monster.webp",
+      "Warlord": "/visuels/heros/bane/illustrations/warlord.webp",
+      "Underworld Outlaw": "/visuels/heros/bane/illustrations/underworld-outlaw.webp",
+      "Soul Defiler": "/visuels/heros/bane/illustrations/soul-defiler.webp",
+      "Lord of Scalding Seas": "/visuels/heros/bane/illustrations/lord-of-scalding-seas.webp"
+    },
+    "barats": {
+      "Dino Rider": "/visuels/heros/barats/illustrations/dino-rider.webp",
+      "Armored Lizard": "/visuels/heros/barats/illustrations/armored-lizard.webp",
+      "Toy Rex": "/visuels/heros/barats/illustrations/toy-rex.webp",
+      "Baratstein": "/visuels/heros/barats/illustrations/baratstein.webp",
+      "War Chief": "/visuels/heros/barats/illustrations/war-chief.webp",
+      "Sunken Predator": "/visuels/heros/barats/illustrations/sunken-predator.webp",
+      "Scalding Predator": "/visuels/heros/barats/illustrations/scalding-predator.webp"
+    },
     "baxia": {
       "Mystic Tortoise": "/visuels/heros/baxia/illustrations/mystic-tortoise.webp",
       "Wild Totem": "/visuels/heros/baxia/illustrations/wild-totem.webp",
@@ -1919,6 +1960,16 @@
       "Black Tortoise": "/visuels/heros/baxia/illustrations/black-tortoise.webp",
       "Dauntless Shield": "/visuels/heros/baxia/illustrations/dauntless-shield.webp",
       "Aegis of Honor": "/visuels/heros/baxia/illustrations/aegis-of-honor.webp"
+    },
+    "beatrix": {
+      "Dawnbreak Soldier": "/visuels/heros/beatrix/illustrations/dawnbreak-soldier.webp",
+      "X Factor": "/visuels/heros/beatrix/illustrations/x-factor.webp",
+      "Blitz Attack": "/visuels/heros/beatrix/illustrations/blitz-attack.webp",
+      "Space Agent": "/visuels/heros/beatrix/illustrations/space-agent.webp",
+      "Light Chaser": "/visuels/heros/beatrix/illustrations/light-chaser.webp",
+      "Stellar Brilliance": "/visuels/heros/beatrix/illustrations/stellar-brilliance.webp",
+      "Vibrant Fiesta": "/visuels/heros/beatrix/illustrations/vibrant-fiesta.webp",
+      "Sky Force Maverick": "/visuels/heros/beatrix/illustrations/sky-force-maverick.webp"
     },
     "belerick": {
       "Guard of Nature": "/visuels/heros/belerick/illustrations/guard-of-nature.webp",
@@ -1934,11 +1985,39 @@
       "Honor Blade": "/visuels/heros/benedetta/illustrations/honor-blade.webp",
       "Street Blow": "/visuels/heros/benedetta/illustrations/street-blow.webp",
       "Death Oath": "/visuels/heros/benedetta/illustrations/death-oath.webp",
-      "Moon Blade": "/visuels/heros/benedetta/illustrations/moon-blade.webp",
+      "Moonblade": "/visuels/heros/benedetta/illustrations/moonblade.webp",
       "Panigale V4S Rider": "/visuels/heros/benedetta/illustrations/panigale-v4s-rider.webp",
       "Quantum Edge": "/visuels/heros/benedetta/illustrations/quantum-edge.webp",
       "Phantom Mirage": "/visuels/heros/benedetta/illustrations/phantom-mirage.webp",
       "Vessel of Pride": "/visuels/heros/benedetta/illustrations/vessel-of-pride.webp"
+    },
+    "brody": {
+      "The Lone Star": "/visuels/heros/brody/illustrations/the-lone-star.webp",
+      "Nameless Stray": "/visuels/heros/brody/illustrations/nameless-stray.webp",
+      "S.T.U.N. Brody": "/visuels/heros/brody/illustrations/s-t-u-n-brody.webp",
+      "Lethal Fang": "/visuels/heros/brody/illustrations/lethal-fang.webp",
+      "Ore-chemist": "/visuels/heros/brody/illustrations/ore-chemist.webp",
+      "Quantum Grip": "/visuels/heros/brody/illustrations/quantum-grip.webp",
+      "APBren": "/visuels/heros/brody/illustrations/apbren.webp",
+      "Neobeast Brody": "/visuels/heros/brody/illustrations/neobeast-brody.webp"
+    },
+    "bruno": {
+      "The Protector": "/visuels/heros/bruno/illustrations/the-protector.webp",
+      "Vanguard Elite": "/visuels/heros/bruno/illustrations/vanguard-elite.webp",
+      "Best DJ": "/visuels/heros/bruno/illustrations/best-dj.webp",
+      "Street Football": "/visuels/heros/bruno/illustrations/street-football.webp",
+      "The Falcon": "/visuels/heros/bruno/illustrations/the-falcon.webp",
+      "Firebolt": "/visuels/heros/bruno/illustrations/firebolt.webp",
+      "Street Hype": "/visuels/heros/bruno/illustrations/street-hype.webp",
+      "Halo Striker": "/visuels/heros/bruno/illustrations/halo-striker.webp",
+      "Neymar Jr": "/visuels/heros/bruno/illustrations/neymar-jr.webp"
+    },
+    "carmilla": {
+      "Shadow of Twilight": "/visuels/heros/carmilla/illustrations/shadow-of-twilight.webp",
+      "Wisteria Countess": "/visuels/heros/carmilla/illustrations/wisteria-countess.webp",
+      "Magician Girl": "/visuels/heros/carmilla/illustrations/magician-girl.webp",
+      "Phantom Countess": "/visuels/heros/carmilla/illustrations/phantom-countess.webp",
+      "Astral Arcana": "/visuels/heros/carmilla/illustrations/astral-arcana.webp"
     },
     "cecilion": {
       "Embrace of Night": "/visuels/heros/cecilion/illustrations/embrace-of-night.webp",
@@ -1989,7 +2068,8 @@
       "Buoyant Performer": "/visuels/heros/cici/illustrations/buoyant-performer.webp",
       "Whimsical Carnival": "/visuels/heros/cici/illustrations/whimsical-carnival.webp",
       "Circus Reverie": "/visuels/heros/cici/illustrations/circus-reverie.webp",
-      "P.ACE Cici": "/visuels/heros/cici/illustrations/p-ace-cici.webp"
+      "P.ACE Cici": "/visuels/heros/cici/illustrations/p-ace-cici.webp",
+      "Circus Glamour": "/visuels/heros/cici/illustrations/circus-glamour.webp"
     },
     "claude": {
       "Master Thief": "/visuels/heros/claude/illustrations/master-thief.webp",
@@ -2003,7 +2083,23 @@
       "Bad Bro": "/visuels/heros/claude/illustrations/bad-bro.webp",
       "Heart Aflame": "/visuels/heros/claude/illustrations/heart-aflame.webp",
       "Challenger's Spark": "/visuels/heros/claude/illustrations/challenger-s-spark.webp",
-      "Cosmic Blaze": "/visuels/heros/claude/illustrations/cosmic-blaze.webp"
+      "Cosmic Blaze": "/visuels/heros/claude/illustrations/cosmic-blaze.webp",
+      "Summer Cool": "/visuels/heros/claude/illustrations/summer-cool.webp",
+      "Challenger's Flare": "/visuels/heros/claude/illustrations/challenger-s-flare.webp"
+    },
+    "clint": {
+      "West Justice": "/visuels/heros/clint/illustrations/west-justice.webp",
+      "Summer Blast": "/visuels/heros/clint/illustrations/summer-blast.webp",
+      "Guns and Roses": "/visuels/heros/clint/illustrations/guns-and-roses.webp",
+      "Rock and Roll": "/visuels/heros/clint/illustrations/rock-and-roll.webp",
+      "Badminton Champion": "/visuels/heros/clint/illustrations/badminton-champion.webp",
+      "Witch Hunter": "/visuels/heros/clint/illustrations/witch-hunter.webp",
+      "Shadow Omen": "/visuels/heros/clint/illustrations/shadow-omen.webp",
+      "Operator CL": "/visuels/heros/clint/illustrations/operator-cl.webp",
+      "Crimson Blast": "/visuels/heros/clint/illustrations/crimson-blast.webp",
+      "Captain of the Reefs": "/visuels/heros/clint/illustrations/captain-of-the-reefs.webp",
+      "Dragon's Maw": "/visuels/heros/clint/illustrations/dragon-s-maw.webp",
+      "Vessel of Ruin": "/visuels/heros/clint/illustrations/vessel-of-ruin.webp"
     },
     "cyclops": {
       "Starsoul Magician": "/visuels/heros/cyclops/illustrations/starsoul-magician.webp",
@@ -2016,6 +2112,14 @@
       "Straw Doll": "/visuels/heros/cyclops/illustrations/straw-doll.webp",
       "Yokai Warlock": "/visuels/heros/cyclops/illustrations/yokai-warlock.webp",
       "SpongeBob": "/visuels/heros/cyclops/illustrations/spongebob.webp"
+    },
+    "diggie": {
+      "Timekeeper": "/visuels/heros/diggie/illustrations/timekeeper.webp",
+      "Pigeoneer": "/visuels/heros/diggie/illustrations/pigeoneer.webp",
+      "Constellation": "/visuels/heros/diggie/illustrations/constellation.webp",
+      "Circus Clown": "/visuels/heros/diggie/illustrations/circus-clown.webp",
+      "Fairytaler": "/visuels/heros/diggie/illustrations/fairytaler.webp",
+      "Underwood Steward": "/visuels/heros/diggie/illustrations/underwood-steward.webp"
     },
     "dyrroth": {
       "Prince of the Abyss": "/visuels/heros/dyrroth/illustrations/prince-of-the-abyss.webp",
@@ -2034,7 +2138,8 @@
       "Red Bastion": "/visuels/heros/edith/illustrations/red-bastion.webp",
       "Beyond the Clouds Edith": "/visuels/heros/edith/illustrations/beyond-the-clouds-edith.webp",
       "Prismatic Sentinel": "/visuels/heros/edith/illustrations/prismatic-sentinel.webp",
-      "Verdant Knight": "/visuels/heros/edith/illustrations/verdant-knight.webp"
+      "Verdant Knight": "/visuels/heros/edith/illustrations/verdant-knight.webp",
+      "Golden Warden": "/visuels/heros/edith/illustrations/golden-warden.webp"
     },
     "esmeralda": {
       "Astrologer": "/visuels/heros/esmeralda/illustrations/astrologer.webp",
@@ -2094,6 +2199,15 @@
       "Infernal Magister": "/visuels/heros/faramis/illustrations/infernal-magister.webp",
       "Enigmatic Wayfarer": "/visuels/heros/faramis/illustrations/enigmatic-wayfarer.webp"
     },
+    "floryn": {
+      "The Budding Hope": "/visuels/heros/floryn/illustrations/the-budding-hope.webp",
+      "Springtide": "/visuels/heros/floryn/illustrations/springtide.webp",
+      "Fluffy Dream": "/visuels/heros/floryn/illustrations/fluffy-dream.webp",
+      "Paw Power": "/visuels/heros/floryn/illustrations/paw-power.webp",
+      "Yatai Waitress": "/visuels/heros/floryn/illustrations/yatai-waitress.webp",
+      "Melody of Light": "/visuels/heros/floryn/illustrations/melody-of-light.webp",
+      "Herald of Autumn": "/visuels/heros/floryn/illustrations/herald-of-autumn.webp"
+    },
     "franco": {
       "Frozen Warrior": "/visuels/heros/franco/illustrations/frozen-warrior.webp",
       "Apocalypse": "/visuels/heros/franco/illustrations/apocalypse.webp",
@@ -2105,6 +2219,28 @@
       "King of Hell": "/visuels/heros/franco/illustrations/king-of-hell.webp",
       "Quantum Vanguard": "/visuels/heros/franco/illustrations/quantum-vanguard.webp",
       "Captain of the Lost": "/visuels/heros/franco/illustrations/captain-of-the-lost.webp"
+    },
+    "fredrinn": {
+      "Rogue Appraiser": "/visuels/heros/fredrinn/illustrations/rogue-appraiser.webp",
+      "Regal Renegade": "/visuels/heros/fredrinn/illustrations/regal-renegade.webp",
+      "Jewel Connoisseur": "/visuels/heros/fredrinn/illustrations/jewel-connoisseur.webp",
+      "Neobeast Fredrinn": "/visuels/heros/fredrinn/illustrations/neobeast-fredrinn.webp",
+      "SPARKLE Fredrinn": "/visuels/heros/fredrinn/illustrations/sparkle-fredrinn.webp",
+      "Royal Marshal": "/visuels/heros/fredrinn/illustrations/royal-marshal.webp",
+      "Winter Marshal": "/visuels/heros/fredrinn/illustrations/winter-marshal.webp"
+    },
+    "freya": {
+      "Valkyrie": "/visuels/heros/freya/illustrations/valkyrie.webp",
+      "Dark Rose": "/visuels/heros/freya/illustrations/dark-rose.webp",
+      "Dragon Hunter": "/visuels/heros/freya/illustrations/dragon-hunter.webp",
+      "Beach Sweetheart": "/visuels/heros/freya/illustrations/beach-sweetheart.webp",
+      "War Angel": "/visuels/heros/freya/illustrations/war-angel.webp",
+      "Gladiator": "/visuels/heros/freya/illustrations/gladiator.webp",
+      "Christmas Carnival": "/visuels/heros/freya/illustrations/christmas-carnival.webp",
+      "Raven Shogun": "/visuels/heros/freya/illustrations/raven-shogun.webp",
+      "S.A.B.E.R. Manhunter": "/visuels/heros/freya/illustrations/s-a-b-e-r-manhunter.webp",
+      "Galatic Vanquisher": "/visuels/heros/freya/illustrations/galatic-vanquisher.webp",
+      "Starborn Resolve": "/visuels/heros/freya/illustrations/starborn-resolve.webp"
     },
     "gatotkaca": {
       "Iron Steel": "/visuels/heros/gatotkaca/illustrations/iron-steel.webp",
@@ -2148,6 +2284,17 @@
       "Alluring Enigma": "/visuels/heros/granger/illustrations/alluring-enigma.webp",
       "Thunder Ascendant": "/visuels/heros/granger/illustrations/thunder-ascendant.webp",
       "Cosmic Finality": "/visuels/heros/granger/illustrations/cosmic-finality.webp"
+    },
+    "grock": {
+      "Fortress Titan": "/visuels/heros/grock/illustrations/fortress-titan.webp",
+      "Grave Guardian": "/visuels/heros/grock/illustrations/grave-guardian.webp",
+      "Castle Guard": "/visuels/heros/grock/illustrations/castle-guard.webp",
+      "V.E.N.O.M. Monitor Lizard": "/visuels/heros/grock/illustrations/v-e-n-o-m-monitor-lizard.webp",
+      "Iceland Golem": "/visuels/heros/grock/illustrations/iceland-golem.webp",
+      "Codename: Rhino": "/visuels/heros/grock/illustrations/codename-rhino.webp",
+      "Ancient Golem": "/visuels/heros/grock/illustrations/ancient-golem.webp",
+      "Wasteland Psycho": "/visuels/heros/grock/illustrations/wasteland-psycho.webp",
+      "Tremor of the Deep": "/visuels/heros/grock/illustrations/tremor-of-the-deep.webp"
     },
     "guinevere": {
       "Ms. Violet": "/visuels/heros/guinevere/illustrations/ms-violet.webp",
@@ -2225,6 +2372,19 @@
       "Star Magician": "/visuels/heros/harley/illustrations/star-magician.webp",
       "Dreaming Koi": "/visuels/heros/harley/illustrations/dreaming-koi.webp"
     },
+    "hayabusa": {
+      "Crimson Shadow": "/visuels/heros/hayabusa/illustrations/crimson-shadow.webp",
+      "Spacetime Shadow": "/visuels/heros/hayabusa/illustrations/spacetime-shadow.webp",
+      "Future Enforcer": "/visuels/heros/hayabusa/illustrations/future-enforcer.webp",
+      "Sushi Master": "/visuels/heros/hayabusa/illustrations/sushi-master.webp",
+      "Experiment 21": "/visuels/heros/hayabusa/illustrations/experiment-21.webp",
+      "Shadow of Obscurity": "/visuels/heros/hayabusa/illustrations/shadow-of-obscurity.webp",
+      "Biological Weapon": "/visuels/heros/hayabusa/illustrations/biological-weapon.webp",
+      "Shura": "/visuels/heros/hayabusa/illustrations/shura.webp",
+      "Techie Ninja": "/visuels/heros/hayabusa/illustrations/techie-ninja.webp",
+      "Exorcist Hayabusa": "/visuels/heros/hayabusa/illustrations/exorcist-hayabusa.webp",
+      "Kakashi Hatake": "/visuels/heros/hayabusa/illustrations/kakashi-hatake.webp"
+    },
     "helcurt": {
       "Shadowbringer": "/visuels/heros/helcurt/illustrations/shadowbringer.webp",
       "Exoracial Executioner": "/visuels/heros/helcurt/illustrations/exoracial-executioner.webp",
@@ -2256,6 +2416,48 @@
       "Bloodhoof Marauder": "/visuels/heros/hylos/illustrations/bloodhoof-marauder.webp",
       "Lord of the Tundra": "/visuels/heros/hylos/illustrations/lord-of-the-tundra.webp"
     },
+    "irithel": {
+      "Jungle Heart": "/visuels/heros/irithel/illustrations/jungle-heart.webp",
+      "Silver Cylone": "/visuels/heros/irithel/illustrations/silver-cylone.webp",
+      "Hellfire": "/visuels/heros/irithel/illustrations/hellfire.webp",
+      "Nightarrow": "/visuels/heros/irithel/illustrations/nightarrow.webp",
+      "Sagittarius": "/visuels/heros/irithel/illustrations/sagittarius.webp",
+      "Astral Wanderer": "/visuels/heros/irithel/illustrations/astral-wanderer.webp",
+      "Monster SP Rider": "/visuels/heros/irithel/illustrations/monster-sp-rider.webp",
+      "Checkered Knight": "/visuels/heros/irithel/illustrations/checkered-knight.webp",
+      "Rosy Knight": "/visuels/heros/irithel/illustrations/rosy-knight.webp"
+    },
+    "ixia": {
+      "Arclight Outlaw": "/visuels/heros/ixia/illustrations/arclight-outlaw.webp",
+      "Shifting Sand": "/visuels/heros/ixia/illustrations/shifting-sand.webp",
+      "Dynamic Streak": "/visuels/heros/ixia/illustrations/dynamic-streak.webp",
+      "Invoker's Command": "/visuels/heros/ixia/illustrations/invoker-s-command.webp",
+      "Dynamic Style": "/visuels/heros/ixia/illustrations/dynamic-style.webp"
+    },
+    "jawhead": {
+      "Steel Sweetheart": "/visuels/heros/jawhead/illustrations/steel-sweetheart.webp",
+      "Girl Scout": "/visuels/heros/jawhead/illustrations/girl-scout.webp",
+      "Space Explorer": "/visuels/heros/jawhead/illustrations/space-explorer.webp",
+      "Foo Quarterback": "/visuels/heros/jawhead/illustrations/foo-quarterback.webp",
+      "The Nutcracker": "/visuels/heros/jawhead/illustrations/the-nutcracker.webp",
+      "Samurai Mech": "/visuels/heros/jawhead/illustrations/samurai-mech.webp",
+      "Candy Bear": "/visuels/heros/jawhead/illustrations/candy-bear.webp",
+      "Cyber Ranger": "/visuels/heros/jawhead/illustrations/cyber-ranger.webp",
+      "Victory Loader": "/visuels/heros/jawhead/illustrations/victory-loader.webp",
+      "Proto Guardian": "/visuels/heros/jawhead/illustrations/proto-guardian.webp",
+      "Proto Sentinel": "/visuels/heros/jawhead/illustrations/proto-sentinel.webp"
+    },
+    "johnson": {
+      "Wild Engine": "/visuels/heros/johnson/illustrations/wild-engine.webp",
+      "Fire Chief": "/visuels/heros/johnson/illustrations/fire-chief.webp",
+      "S.A.B.E.R. Automata": "/visuels/heros/johnson/illustrations/s-a-b-e-r-automata.webp",
+      "Jeepney Racer": "/visuels/heros/johnson/illustrations/jeepney-racer.webp",
+      "Wreck King": "/visuels/heros/johnson/illustrations/wreck-king.webp",
+      "Death Ride": "/visuels/heros/johnson/illustrations/death-ride.webp",
+      "Optimus Prime": "/visuels/heros/johnson/illustrations/optimus-prime.webp",
+      "Starblazer": "/visuels/heros/johnson/illustrations/starblazer.webp",
+      "Sovereign of Realms": "/visuels/heros/johnson/illustrations/sovereign-of-realms.webp"
+    },
     "joy": {
       "Flash of Miracle": "/visuels/heros/joy/illustrations/flash-of-miracle.webp",
       "Feline Ranger": "/visuels/heros/joy/illustrations/feline-ranger.webp",
@@ -2272,6 +2474,16 @@
       "Kurapika": "/visuels/heros/julian/illustrations/kurapika.webp",
       "Itachi Uchiha": "/visuels/heros/julian/illustrations/itachi-uchiha.webp"
     },
+    "kadita": {
+      "Ocean Goddess": "/visuels/heros/kadita/illustrations/ocean-goddess.webp",
+      "Atlantean Princess": "/visuels/heros/kadita/illustrations/atlantean-princess.webp",
+      "White Robin": "/visuels/heros/kadita/illustrations/white-robin.webp",
+      "Anthem of Tides": "/visuels/heros/kadita/illustrations/anthem-of-tides.webp",
+      "Hydromancer": "/visuels/heros/kadita/illustrations/hydromancer.webp",
+      "Heart of the Sea": "/visuels/heros/kadita/illustrations/heart-of-the-sea.webp",
+      "Maiden of the Tide": "/visuels/heros/kadita/illustrations/maiden-of-the-tide.webp",
+      "Muse of the Tide": "/visuels/heros/kadita/illustrations/muse-of-the-tide.webp"
+    },
     "kagura": {
       "Onmyouji Master": "/visuels/heros/kagura/illustrations/onmyouji-master.webp",
       "Flower Season": "/visuels/heros/kagura/illustrations/flower-season.webp",
@@ -2285,10 +2497,31 @@
       "Jade Blossom": "/visuels/heros/kagura/illustrations/jade-blossom.webp",
       "Lady Parasol": "/visuels/heros/kagura/illustrations/lady-parasol.webp"
     },
+    "kaja": {
+      "Nazar King": "/visuels/heros/kaja/illustrations/nazar-king.webp",
+      "Commandment": "/visuels/heros/kaja/illustrations/commandment.webp",
+      "Kaminari": "/visuels/heros/kaja/illustrations/kaminari.webp",
+      "Horror Whiplash": "/visuels/heros/kaja/illustrations/horror-whiplash.webp",
+      "Skyblocker": "/visuels/heros/kaja/illustrations/skyblocker.webp",
+      "Crow Magician": "/visuels/heros/kaja/illustrations/crow-magician.webp",
+      "Inferno Taskmaster": "/visuels/heros/kaja/illustrations/inferno-taskmaster.webp"
+    },
     "kalea": {
       "Surging Wave": "/visuels/heros/kalea/illustrations/surging-wave.webp",
       "Shimmering Waves": "/visuels/heros/kalea/illustrations/shimmering-waves.webp",
       "Sakura Haruno": "/visuels/heros/kalea/illustrations/sakura-haruno.webp"
+    },
+    "karina": {
+      "Shadow Blade": "/visuels/heros/karina/illustrations/shadow-blade.webp",
+      "Phantom Blade": "/visuels/heros/karina/illustrations/phantom-blade.webp",
+      "Christmas Carnival": "/visuels/heros/karina/illustrations/christmas-carnival.webp",
+      "Black Pearl": "/visuels/heros/karina/illustrations/black-pearl.webp",
+      "Spider Lily": "/visuels/heros/karina/illustrations/spider-lily.webp",
+      "Doom Duelist": "/visuels/heros/karina/illustrations/doom-duelist.webp",
+      "Leona": "/visuels/heros/karina/illustrations/leona.webp",
+      "Gemini - Halo": "/visuels/heros/karina/illustrations/gemini-halo.webp",
+      "Blood Moon": "/visuels/heros/karina/illustrations/blood-moon.webp",
+      "Keyforged Champion": "/visuels/heros/karina/illustrations/keyforged-champion.webp"
     },
     "karrie": {
       "Lost Star": "/visuels/heros/karrie/illustrations/lost-star.webp",
@@ -2303,6 +2536,13 @@
       "Ice Talon": "/visuels/heros/karrie/illustrations/ice-talon.webp",
       "Breath of Naraka": "/visuels/heros/karrie/illustrations/breath-of-naraka.webp",
       "Quantum Razor": "/visuels/heros/karrie/illustrations/quantum-razor.webp"
+    },
+    "khaleed": {
+      "Desert Scimitar": "/visuels/heros/khaleed/illustrations/desert-scimitar.webp",
+      "Prince of Sand": "/visuels/heros/khaleed/illustrations/prince-of-sand.webp",
+      "Crescent Scimitar": "/visuels/heros/khaleed/illustrations/crescent-scimitar.webp",
+      "Wave Strider": "/visuels/heros/khaleed/illustrations/wave-strider.webp",
+      "Desert Salamander": "/visuels/heros/khaleed/illustrations/desert-salamander.webp"
     },
     "khufra": {
       "Desert Tyrant": "/visuels/heros/khufra/illustrations/desert-tyrant.webp",
@@ -2362,7 +2602,9 @@
       "Miss Hikari": "/visuels/heros/layla/illustrations/miss-hikari.webp",
       "Twilight Waltz": "/visuels/heros/layla/illustrations/twilight-waltz.webp",
       "Paranormal Operative": "/visuels/heros/layla/illustrations/paranormal-operative.webp",
-      "Prismatic Rhythm": "/visuels/heros/layla/illustrations/prismatic-rhythm.webp"
+      "Prismatic Rhythm": "/visuels/heros/layla/illustrations/prismatic-rhythm.webp",
+      "Midnight Waltz": "/visuels/heros/layla/illustrations/midnight-waltz.webp",
+      "Sunset Waltz": "/visuels/heros/layla/illustrations/sunset-waltz.webp"
     },
     "leomord": {
       "Sworn Sword": "/visuels/heros/leomord/illustrations/sworn-sword.webp",
@@ -2376,6 +2618,22 @@
       "Nightmare Count": "/visuels/heros/leomord/illustrations/nightmare-count.webp",
       "Auspicious Blaze": "/visuels/heros/leomord/illustrations/auspicious-blaze.webp"
     },
+    "lesley": {
+      "Deadly Sniper": "/visuels/heros/lesley/illustrations/deadly-sniper.webp",
+      "Royal Musketeer": "/visuels/heros/lesley/illustrations/royal-musketeer.webp",
+      "General Rosa": "/visuels/heros/lesley/illustrations/general-rosa.webp",
+      "Cheergunner": "/visuels/heros/lesley/illustrations/cheergunner.webp",
+      "Stellaris Ghost": "/visuels/heros/lesley/illustrations/stellaris-ghost.webp",
+      "Dangerous Love": "/visuels/heros/lesley/illustrations/dangerous-love.webp",
+      "Angelic Agent": "/visuels/heros/lesley/illustrations/angelic-agent.webp",
+      "Lethal Lady": "/visuels/heros/lesley/illustrations/lethal-lady.webp",
+      "Falcon Mistress": "/visuels/heros/lesley/illustrations/falcon-mistress.webp",
+      "Hawk-eyed Sniper": "/visuels/heros/lesley/illustrations/hawk-eyed-sniper.webp",
+      "Deadeye Spectre": "/visuels/heros/lesley/illustrations/deadeye-spectre.webp",
+      "Meowkin Hunter": "/visuels/heros/lesley/illustrations/meowkin-hunter.webp",
+      "Duchess of Tides": "/visuels/heros/lesley/illustrations/duchess-of-tides.webp",
+      "Duchess of Depths": "/visuels/heros/lesley/illustrations/duchess-of-depths.webp"
+    },
     "ling": {
       "Cyan Finch": "/visuels/heros/ling/illustrations/cyan-finch.webp",
       "Fiery Dance": "/visuels/heros/ling/illustrations/fiery-dance.webp",
@@ -2387,6 +2645,22 @@
       "Lord Shen": "/visuels/heros/ling/illustrations/lord-shen.webp",
       "Neobeast Ling": "/visuels/heros/ling/illustrations/neobeast-ling.webp",
       "Phantom Current": "/visuels/heros/ling/illustrations/phantom-current.webp"
+    },
+    "lolita": {
+      "Steel Elf": "/visuels/heros/lolita/illustrations/steel-elf.webp",
+      "Soldier in Training": "/visuels/heros/lolita/illustrations/soldier-in-training.webp",
+      "Impish Trickster": "/visuels/heros/lolita/illustrations/impish-trickster.webp",
+      "Lion Dance": "/visuels/heros/lolita/illustrations/lion-dance.webp",
+      "Special Op": "/visuels/heros/lolita/illustrations/special-op.webp",
+      "Genki Slam": "/visuels/heros/lolita/illustrations/genki-slam.webp",
+      "Starwatcher": "/visuels/heros/lolita/illustrations/starwatcher.webp",
+      "Astro Mallet": "/visuels/heros/lolita/illustrations/astro-mallet.webp",
+      "Angelic Fan": "/visuels/heros/lolita/illustrations/angelic-fan.webp"
+    },
+    "lukas": {
+      "Beast of Light": "/visuels/heros/lukas/illustrations/beast-of-light.webp",
+      "Ardent Roar": "/visuels/heros/lukas/illustrations/ardent-roar.webp",
+      "Naruto Uzumaki": "/visuels/heros/lukas/illustrations/naruto-uzumaki.webp"
     },
     "lunox": {
       "Twilight Goddess": "/visuels/heros/lunox/illustrations/twilight-goddess.webp",
@@ -2401,6 +2675,17 @@
       "Nature's Harmony": "/visuels/heros/lunox/illustrations/nature-s-harmony.webp",
       "Quantum Polarity": "/visuels/heros/lunox/illustrations/quantum-polarity.webp"
     },
+    "luo-yi": {
+      "Yin-yang Geomancer": "/visuels/heros/luo-yi/illustrations/yin-yang-geomancer.webp",
+      "Yin-yang Mage": "/visuels/heros/luo-yi/illustrations/yin-yang-mage.webp",
+      "Tenko": "/visuels/heros/luo-yi/illustrations/tenko.webp",
+      "Dawning Fortune": "/visuels/heros/luo-yi/illustrations/dawning-fortune.webp",
+      "Siren Priestess": "/visuels/heros/luo-yi/illustrations/siren-priestess.webp",
+      "Elysium Guardian": "/visuels/heros/luo-yi/illustrations/elysium-guardian.webp",
+      "Oracle of Sol": "/visuels/heros/luo-yi/illustrations/oracle-of-sol.webp",
+      "Starborne Matron": "/visuels/heros/luo-yi/illustrations/starborne-matron.webp",
+      "Lady Dragon": "/visuels/heros/luo-yi/illustrations/lady-dragon.webp"
+    },
     "lylia": {
       "Little Wizard": "/visuels/heros/lylia/illustrations/little-wizard.webp",
       "School Idol": "/visuels/heros/lylia/illustrations/school-idol.webp",
@@ -2409,7 +2694,8 @@
       "Haunted Doll": "/visuels/heros/lylia/illustrations/haunted-doll.webp",
       "Neobeast Lylia": "/visuels/heros/lylia/illustrations/neobeast-lylia.webp",
       "Magitech Arsenal": "/visuels/heros/lylia/illustrations/magitech-arsenal.webp",
-      "Phantasmal Revelry": "/visuels/heros/lylia/illustrations/phantasmal-revelry.webp"
+      "Phantasmal Revelry": "/visuels/heros/lylia/illustrations/phantasmal-revelry.webp",
+      "Phantasmal Mischief": "/visuels/heros/lylia/illustrations/phantasmal-mischief.webp"
     },
     "marcel": {
       "Soul Photographer": "/visuels/heros/marcel/illustrations/soul-photographer.webp",
@@ -2436,6 +2722,32 @@
       "Rogue Talon": "/visuels/heros/masha/illustrations/rogue-talon.webp",
       "Mai Shiranui": "/visuels/heros/masha/illustrations/mai-shiranui.webp"
     },
+    "mathilda": {
+      "Swift Plume": "/visuels/heros/mathilda/illustrations/swift-plume.webp",
+      "Unrestrained Delight": "/visuels/heros/mathilda/illustrations/unrestrained-delight.webp",
+      "Floral Crown": "/visuels/heros/mathilda/illustrations/floral-crown.webp",
+      "Dream Groove": "/visuels/heros/mathilda/illustrations/dream-groove.webp",
+      "Dreambound Pixie": "/visuels/heros/mathilda/illustrations/dreambound-pixie.webp"
+    },
+    "melissa": {
+      "Cursed Needle": "/visuels/heros/melissa/illustrations/cursed-needle.webp",
+      "Twinge Weaver": "/visuels/heros/melissa/illustrations/twinge-weaver.webp",
+      "Nobara Kugisaki": "/visuels/heros/melissa/illustrations/nobara-kugisaki.webp",
+      "Nightwalker": "/visuels/heros/melissa/illustrations/nightwalker.webp",
+      "SPARKLE Melissa": "/visuels/heros/melissa/illustrations/sparkle-melissa.webp",
+      "Umbra Bloom": "/visuels/heros/melissa/illustrations/umbra-bloom.webp",
+      "Cursewalker": "/visuels/heros/melissa/illustrations/cursewalker.webp",
+      "SHIMMER Melissa": "/visuels/heros/melissa/illustrations/shimmer-melissa.webp"
+    },
+    "minotaur": {
+      "Son of Minos": "/visuels/heros/minotaur/illustrations/son-of-minos.webp",
+      "Bursting Yama": "/visuels/heros/minotaur/illustrations/bursting-yama.webp",
+      "Orbiter": "/visuels/heros/minotaur/illustrations/orbiter.webp",
+      "Sacred Hammer": "/visuels/heros/minotaur/illustrations/sacred-hammer.webp",
+      "Taurus": "/visuels/heros/minotaur/illustrations/taurus.webp",
+      "Dreadnought": "/visuels/heros/minotaur/illustrations/dreadnought.webp",
+      "Nether Overseer": "/visuels/heros/minotaur/illustrations/nether-overseer.webp"
+    },
     "minsitthar": {
       "Courageous Warrior": "/visuels/heros/minsitthar/illustrations/courageous-warrior.webp",
       "King of War": "/visuels/heros/minsitthar/illustrations/king-of-war.webp",
@@ -2461,6 +2773,19 @@
       "Nightowl Huntress": "/visuels/heros/miya/illustrations/nightowl-huntress.webp",
       "Arrow of Spring": "/visuels/heros/miya/illustrations/arrow-of-spring.webp"
     },
+    "moskov": {
+      "Spear of Quiescence": "/visuels/heros/moskov/illustrations/spear-of-quiescence.webp",
+      "Spear of Bone Dragon": "/visuels/heros/moskov/illustrations/spear-of-bone-dragon.webp",
+      "Snake Eye Commander": "/visuels/heros/moskov/illustrations/snake-eye-commander.webp",
+      "Yasha": "/visuels/heros/moskov/illustrations/yasha.webp",
+      "Javelin Champion": "/visuels/heros/moskov/illustrations/javelin-champion.webp",
+      "Twilight Dragon": "/visuels/heros/moskov/illustrations/twilight-dragon.webp",
+      "Decapitator": "/visuels/heros/moskov/illustrations/decapitator.webp",
+      "Blood Spear": "/visuels/heros/moskov/illustrations/blood-spear.webp",
+      "Doom Incarnate": "/visuels/heros/moskov/illustrations/doom-incarnate.webp",
+      "Violet Spear": "/visuels/heros/moskov/illustrations/violet-spear.webp",
+      "Infernal Wyrmlord": "/visuels/heros/moskov/illustrations/infernal-wyrmlord.webp"
+    },
     "nana": {
       "Sweet Leonin": "/visuels/heros/nana/illustrations/sweet-leonin.webp",
       "Clockwork Maid": "/visuels/heros/nana/illustrations/clockwork-maid.webp",
@@ -2473,6 +2798,17 @@
       "Cyclone Clash": "/visuels/heros/nana/illustrations/cyclone-clash.webp",
       "Mistbender Nana": "/visuels/heros/nana/illustrations/mistbender-nana.webp",
       "Stardust Dreamer": "/visuels/heros/nana/illustrations/stardust-dreamer.webp"
+    },
+    "natalia": {
+      "Bright Claw": "/visuels/heros/natalia/illustrations/bright-claw.webp",
+      "Glass Blade": "/visuels/heros/natalia/illustrations/glass-blade.webp",
+      "Phantom Dancer": "/visuels/heros/natalia/illustrations/phantom-dancer.webp",
+      "Deadly Mamba": "/visuels/heros/natalia/illustrations/deadly-mamba.webp",
+      "Midnight Raven": "/visuels/heros/natalia/illustrations/midnight-raven.webp",
+      "Grim Strangler": "/visuels/heros/natalia/illustrations/grim-strangler.webp",
+      "Cyber Spectre": "/visuels/heros/natalia/illustrations/cyber-spectre.webp",
+      "Warrioress Paragon": "/visuels/heros/natalia/illustrations/warrioress-paragon.webp",
+      "Soul Huntress": "/visuels/heros/natalia/illustrations/soul-huntress.webp"
     },
     "natan": {
       "Spacetime Walker": "/visuels/heros/natan/illustrations/spacetime-walker.webp",
@@ -2489,19 +2825,35 @@
       "Voidwalker": "/visuels/heros/nolan/illustrations/voidwalker.webp",
       "Fashion Mogul": "/visuels/heros/nolan/illustrations/fashion-mogul.webp",
       "The Navigator": "/visuels/heros/nolan/illustrations/the-navigator.webp",
-      "Spectral Strider": "/visuels/heros/nolan/illustrations/spectral-strider.webp"
+      "Spectral Strider": "/visuels/heros/nolan/illustrations/spectral-strider.webp",
+      "Fashion Magnate": "/visuels/heros/nolan/illustrations/fashion-magnate.webp"
     },
     "novaria": {
       "Star Rebel": "/visuels/heros/novaria/illustrations/star-rebel.webp",
       "Dark Star": "/visuels/heros/novaria/illustrations/dark-star.webp",
       "Sugar Glaze": "/visuels/heros/novaria/illustrations/sugar-glaze.webp",
       "Dragonsworn": "/visuels/heros/novaria/illustrations/dragonsworn.webp",
-      "Lunar Scion": "/visuels/heros/novaria/illustrations/lunar-scion.webp"
+      "Lunar Scion": "/visuels/heros/novaria/illustrations/lunar-scion.webp",
+      "Aqua Glaze": "/visuels/heros/novaria/illustrations/aqua-glaze.webp"
     },
     "obsidia": {
       "Sovereign of Dark's End": "/visuels/heros/obsidia/illustrations/sovereign-of-dark-s-end.webp",
       "Undying Remnants": "/visuels/heros/obsidia/illustrations/undying-remnants.webp",
       "Magitech Wraith": "/visuels/heros/obsidia/illustrations/magitech-wraith.webp"
+    },
+    "odette": {
+      "Swan Princess": "/visuels/heros/odette/illustrations/swan-princess.webp",
+      "Black Swan": "/visuels/heros/odette/illustrations/black-swan.webp",
+      "Christmas Carnival": "/visuels/heros/odette/illustrations/christmas-carnival.webp",
+      "Mermaid Princess": "/visuels/heros/odette/illustrations/mermaid-princess.webp",
+      "Butterfly Goddess": "/visuels/heros/odette/illustrations/butterfly-goddess.webp",
+      "Virgo": "/visuels/heros/odette/illustrations/virgo.webp",
+      "Auspicious Charm": "/visuels/heros/odette/illustrations/auspicious-charm.webp",
+      "Sage of the Currents": "/visuels/heros/odette/illustrations/sage-of-the-currents.webp",
+      "Wisdom of the Stars": "/visuels/heros/odette/illustrations/wisdom-of-the-stars.webp",
+      "Song of Devotion": "/visuels/heros/odette/illustrations/song-of-devotion.webp",
+      "Butterfly Faerie": "/visuels/heros/odette/illustrations/butterfly-faerie.webp",
+      "Wisdom of Devotion": "/visuels/heros/odette/illustrations/wisdom-of-devotion.webp"
     },
     "paquito": {
       "The Heavenly Fist": "/visuels/heros/paquito/illustrations/the-heavenly-fist.webp",
@@ -2529,6 +2881,33 @@
       "Neobeast Pharsa": "/visuels/heros/pharsa/illustrations/neobeast-pharsa.webp",
       "Seasworn Oracle": "/visuels/heros/pharsa/illustrations/seasworn-oracle.webp"
     },
+    "phoveus": {
+      "Chains of Sin": "/visuels/heros/phoveus/illustrations/chains-of-sin.webp",
+      "Monolith Watcher": "/visuels/heros/phoveus/illustrations/monolith-watcher.webp",
+      "Matrix Maverick": "/visuels/heros/phoveus/illustrations/matrix-maverick.webp",
+      "Matrix Marauder": "/visuels/heros/phoveus/illustrations/matrix-marauder.webp"
+    },
+    "popol-and-kupa": {
+      "Icefield Companions": "/visuels/heros/popol-and-kupa/illustrations/icefield-companions.webp",
+      "Hunting Pals": "/visuels/heros/popol-and-kupa/illustrations/hunting-pals.webp",
+      "Tribal Howl": "/visuels/heros/popol-and-kupa/illustrations/tribal-howl.webp",
+      "Trouble Makers": "/visuels/heros/popol-and-kupa/illustrations/trouble-makers.webp",
+      "Soundwave & Ravage": "/visuels/heros/popol-and-kupa/illustrations/soundwave-ravage.webp",
+      "Spirit of the Brush": "/visuels/heros/popol-and-kupa/illustrations/spirit-of-the-brush.webp",
+      "Proto Hunter": "/visuels/heros/popol-and-kupa/illustrations/proto-hunter.webp",
+      "Flamehide Thane": "/visuels/heros/popol-and-kupa/illustrations/flamehide-thane.webp"
+    },
+    "rafaela": {
+      "Wings of Holiness": "/visuels/heros/rafaela/illustrations/wings-of-holiness.webp",
+      "Fertility Goddess": "/visuels/heros/rafaela/illustrations/fertility-goddess.webp",
+      "Flower Fairy": "/visuels/heros/rafaela/illustrations/flower-fairy.webp",
+      "Biomedic": "/visuels/heros/rafaela/illustrations/biomedic.webp",
+      "S.A.B.E.R. Savior": "/visuels/heros/rafaela/illustrations/s-a-b-e-r-savior.webp",
+      "Star Chaser": "/visuels/heros/rafaela/illustrations/star-chaser.webp",
+      "Angelic Sonata": "/visuels/heros/rafaela/illustrations/angelic-sonata.webp",
+      "Seraphic Selfie": "/visuels/heros/rafaela/illustrations/seraphic-selfie.webp",
+      "Bloom of Abundance": "/visuels/heros/rafaela/illustrations/bloom-of-abundance.webp"
+    },
     "roger": {
       "Dire Wolf Hunter": "/visuels/heros/roger/illustrations/dire-wolf-hunter.webp",
       "Dark Gent": "/visuels/heros/roger/illustrations/dark-gent.webp",
@@ -2541,6 +2920,43 @@
       "Grimlock": "/visuels/heros/roger/illustrations/grimlock.webp",
       "Invoker's Restraint": "/visuels/heros/roger/illustrations/invoker-s-restraint.webp",
       "Ashbone Gunslinger": "/visuels/heros/roger/illustrations/ashbone-gunslinger.webp"
+    },
+    "ruby": {
+      "Little Red Hood": "/visuels/heros/ruby/illustrations/little-red-hood.webp",
+      "Cat Girl": "/visuels/heros/ruby/illustrations/cat-girl.webp",
+      "Hidden Orchid Butterfly": "/visuels/heros/ruby/illustrations/hidden-orchid-butterfly.webp",
+      "Edelweiss": "/visuels/heros/ruby/illustrations/edelweiss.webp",
+      "Lady Zombie": "/visuels/heros/ruby/illustrations/lady-zombie.webp",
+      "Pirate Parrot": "/visuels/heros/ruby/illustrations/pirate-parrot.webp",
+      "Mecha Maiden": "/visuels/heros/ruby/illustrations/mecha-maiden.webp",
+      "Prismatic Plume": "/visuels/heros/ruby/illustrations/prismatic-plume.webp",
+      "Soul Reaper": "/visuels/heros/ruby/illustrations/soul-reaper.webp",
+      "Crescent Dervish": "/visuels/heros/ruby/illustrations/crescent-dervish.webp",
+      "Neon Edge": "/visuels/heros/ruby/illustrations/neon-edge.webp"
+    },
+    "saber": {
+      "Wandering Sword": "/visuels/heros/saber/illustrations/wandering-sword.webp",
+      "Golden Flash": "/visuels/heros/saber/illustrations/golden-flash.webp",
+      "Force Warrior": "/visuels/heros/saber/illustrations/force-warrior.webp",
+      "Codename - Storm": "/visuels/heros/saber/illustrations/codename-storm.webp",
+      "Fullmetal Ronin": "/visuels/heros/saber/illustrations/fullmetal-ronin.webp",
+      "S.A.B.E.R. Regulator": "/visuels/heros/saber/illustrations/s-a-b-e-r-regulator.webp",
+      "Onimaru": "/visuels/heros/saber/illustrations/onimaru.webp",
+      "Silver Edge": "/visuels/heros/saber/illustrations/silver-edge.webp",
+      "Iron Hound": "/visuels/heros/saber/illustrations/iron-hound.webp",
+      "Steel of Hound": "/visuels/heros/saber/illustrations/steel-of-hound.webp"
+    },
+    "selena": {
+      "Abyssal Witch": "/visuels/heros/selena/illustrations/abyssal-witch.webp",
+      "Wasp Queen": "/visuels/heros/selena/illustrations/wasp-queen.webp",
+      "Virus": "/visuels/heros/selena/illustrations/virus.webp",
+      "Gemini - Shadow": "/visuels/heros/selena/illustrations/gemini-shadow.webp",
+      "Double Identity": "/visuels/heros/selena/illustrations/double-identity.webp",
+      "Thunder Flash": "/visuels/heros/selena/illustrations/thunder-flash.webp",
+      "Gothic Curse": "/visuels/heros/selena/illustrations/gothic-curse.webp",
+      "S.T.U.N. Selena": "/visuels/heros/selena/illustrations/s-t-u-n-selena.webp",
+      "Lady Vengeance": "/visuels/heros/selena/illustrations/lady-vengeance.webp",
+      "Curse of Cinder": "/visuels/heros/selena/illustrations/curse-of-cinder.webp"
     },
     "silvanna": {
       "Imperial Knightess": "/visuels/heros/silvanna/illustrations/imperial-knightess.webp",
@@ -2569,6 +2985,11 @@
       "Wicked Flames": "/visuels/heros/sun/illustrations/wicked-flames.webp",
       "Queller of Chaos": "/visuels/heros/sun/illustrations/queller-of-chaos.webp"
     },
+    "suyou": {
+      "Mask of the Immortal": "/visuels/heros/suyou/illustrations/mask-of-the-immortal.webp",
+      "Venerated Vigilance": "/visuels/heros/suyou/illustrations/venerated-vigilance.webp",
+      "Sasuke Uchiha": "/visuels/heros/suyou/illustrations/sasuke-uchiha.webp"
+    },
     "terizla": {
       "Executioner": "/visuels/heros/terizla/illustrations/executioner.webp",
       "Abyss Guard": "/visuels/heros/terizla/illustrations/abyss-guard.webp",
@@ -2588,7 +3009,7 @@
       "The Annihilator": "/visuels/heros/thamuz/illustrations/the-annihilator.webp"
     },
     "tigreal": {
-      "Warrior Of Dawn": "/visuels/heros/tigreal/illustrations/warrior-of-dawn.webp",
+      "Warrior of Dawn": "/visuels/heros/tigreal/illustrations/warrior-of-dawn.webp",
       "Dark Guardian": "/visuels/heros/tigreal/illustrations/dark-guardian.webp",
       "Fallen Guard": "/visuels/heros/tigreal/illustrations/fallen-guard.webp",
       "Wyrmslayer": "/visuels/heros/tigreal/illustrations/wyrmslayer.webp",
@@ -2627,7 +3048,8 @@
       "Cyber Agent": "/visuels/heros/valentina/illustrations/cyber-agent.webp",
       "Celestial Judicator": "/visuels/heros/valentina/illustrations/celestial-judicator.webp",
       "Dark Nexus": "/visuels/heros/valentina/illustrations/dark-nexus.webp",
-      "Grand Gala": "/visuels/heros/valentina/illustrations/grand-gala.webp"
+      "Grand Gala": "/visuels/heros/valentina/illustrations/grand-gala.webp",
+      "Digital Enchantress": "/visuels/heros/valentina/illustrations/digital-enchantress.webp"
     },
     "valir": {
       "Son of Flames": "/visuels/heros/valir/illustrations/son-of-flames.webp",
@@ -2654,6 +3076,18 @@
       "Twilight Star": "/visuels/heros/vexana/illustrations/twilight-star.webp",
       "Eternal Vow": "/visuels/heros/vexana/illustrations/eternal-vow.webp"
     },
+    "wanwan": {
+      "Agile Tiger": "/visuels/heros/wanwan/illustrations/agile-tiger.webp",
+      "Darting Star": "/visuels/heros/wanwan/illustrations/darting-star.webp",
+      "Shoujo Commander": "/visuels/heros/wanwan/illustrations/shoujo-commander.webp",
+      "Teen Pop": "/visuels/heros/wanwan/illustrations/teen-pop.webp",
+      "Pixel Blast": "/visuels/heros/wanwan/illustrations/pixel-blast.webp",
+      "E-girl": "/visuels/heros/wanwan/illustrations/e-girl.webp",
+      "M-World Wanwan": "/visuels/heros/wanwan/illustrations/m-world-wanwan.webp",
+      "Flying Swallow": "/visuels/heros/wanwan/illustrations/flying-swallow.webp",
+      "Summer Splash": "/visuels/heros/wanwan/illustrations/summer-splash.webp",
+      "Ginkgo's Grace": "/visuels/heros/wanwan/illustrations/ginkgo-s-grace.webp"
+    },
     "x-borg": {
       "Firaga Armor": "/visuels/heros/x-borg/illustrations/firaga-armor.webp",
       "Blue Storm": "/visuels/heros/x-borg/illustrations/blue-storm.webp",
@@ -2670,7 +3104,8 @@
       "Satoru Gojo": "/visuels/heros/xavier/illustrations/satoru-gojo.webp",
       "Hardlight Artificer": "/visuels/heros/xavier/illustrations/hardlight-artificer.webp",
       "Beyond the Clouds Xavier": "/visuels/heros/xavier/illustrations/beyond-the-clouds-xavier.webp",
-      "Sunborn Monarch": "/visuels/heros/xavier/illustrations/sunborn-monarch.webp"
+      "Sunborn Monarch": "/visuels/heros/xavier/illustrations/sunborn-monarch.webp",
+      "Holotech Artificer": "/visuels/heros/xavier/illustrations/holotech-artificer.webp"
     },
     "yi-sun-shin": {
       "Paenlong Legend": "/visuels/heros/yi-sun-shin/illustrations/paenlong-legend.webp",
@@ -2682,6 +3117,15 @@
       "Fleet Warden": "/visuels/heros/yi-sun-shin/illustrations/fleet-warden.webp",
       "Surging Torrent": "/visuels/heros/yi-sun-shin/illustrations/surging-torrent.webp",
       "Wavebreaker": "/visuels/heros/yi-sun-shin/illustrations/wavebreaker.webp"
+    },
+    "yin": {
+      "Martial Genius": "/visuels/heros/yin/illustrations/martial-genius.webp",
+      "Fists of Valor": "/visuels/heros/yin/illustrations/fists-of-valor.webp",
+      "M-World Yin": "/visuels/heros/yin/illustrations/m-world-yin.webp",
+      "Yuji Itadori": "/visuels/heros/yin/illustrations/yuji-itadori.webp",
+      "Eternal Guardian": "/visuels/heros/yin/illustrations/eternal-guardian.webp",
+      "Eren": "/visuels/heros/yin/illustrations/eren.webp",
+      "Immortal Guardian": "/visuels/heros/yin/illustrations/immortal-guardian.webp"
     },
     "yu-zhong": {
       "Black Dragon": "/visuels/heros/yu-zhong/illustrations/black-dragon.webp",
@@ -2718,7 +3162,22 @@
       "Beacon of Spirits": "/visuels/heros/zhuxin/illustrations/beacon-of-spirits.webp",
       "Ethereal Serenity": "/visuels/heros/zhuxin/illustrations/ethereal-serenity.webp",
       "Emberwisp Mystic": "/visuels/heros/zhuxin/illustrations/emberwisp-mystic.webp",
-      "P.ACE Zhuxin": "/visuels/heros/zhuxin/illustrations/p-ace-zhuxin.webp"
+      "P.ACE Zhuxin": "/visuels/heros/zhuxin/illustrations/p-ace-zhuxin.webp",
+      "Soulwisp Mystic": "/visuels/heros/zhuxin/illustrations/soulwisp-mystic.webp"
+    },
+    "zilong": {
+      "Spear of Dragon": "/visuels/heros/zilong/illustrations/spear-of-dragon.webp",
+      "Elite Warrior": "/visuels/heros/zilong/illustrations/elite-warrior.webp",
+      "Glorious General": "/visuels/heros/zilong/illustrations/glorious-general.webp",
+      "Eastern Warrior": "/visuels/heros/zilong/illustrations/eastern-warrior.webp",
+      "Blazing Lancer": "/visuels/heros/zilong/illustrations/blazing-lancer.webp",
+      "Changbanpo Commander": "/visuels/heros/zilong/illustrations/changbanpo-commander.webp",
+      "Christmas Carnival": "/visuels/heros/zilong/illustrations/christmas-carnival.webp",
+      "Loyal Spear": "/visuels/heros/zilong/illustrations/loyal-spear.webp",
+      "Summer Waves": "/visuels/heros/zilong/illustrations/summer-waves.webp",
+      "Empyrean Paladin": "/visuels/heros/zilong/illustrations/empyrean-paladin.webp",
+      "Storm Rider": "/visuels/heros/zilong/illustrations/storm-rider.webp",
+      "Dragon of Prosperity": "/visuels/heros/zilong/illustrations/dragon-of-prosperity.webp"
     }
   },
   "competences": {
@@ -2924,9 +3383,7 @@
       "Overload": "/visuels/competences/overload.webp",
       "Earth Shatter": "/visuels/competences/earth-shatter.webp",
       "Onward": "/visuels/competences/onward.webp",
-      "Primal Wrath": "/visuels/competences/primal-wrath.webp",
-      "Divine Retribution": "/visuels/competences/divine-retribution.webp",
-      "Lightning Bolt": "/visuels/competences/lightning-bolt.webp"
+      "Primal Wrath": "/visuels/competences/primal-wrath.webp"
     },
     "esmeralda": {
       "Starmoon Casket": "/visuels/competences/starmoon-casket.webp",
@@ -2973,9 +3430,7 @@
     "fredrinn": {
       "Crystalline Armor": "/visuels/competences/crystalline-armor.webp",
       "Piercing Strike": "/visuels/competences/piercing-strike.webp",
-      "Brave Assault": "/visuels/competences/brave-assault.webp",
-      "Energy Eruption": "/visuels/competences/energy-eruption.webp",
-      "Appraiser's Wrath": "/visuels/competences/appraiser-s-wrath.webp"
+      "Brave Assault": "/visuels/competences/brave-assault.webp"
     },
     "freya": {
       "Power of Einherjar": "/visuels/competences/power-of-einherjar.webp",
@@ -3035,11 +3490,7 @@
       "Ame No Habakiri": "/visuels/competences/ame-no-habakiri.webp",
       "Ninjutsu: Demon Feast": "/visuels/competences/ninjutsu-demon-feast.webp",
       "Ninjutsu: Dark Mist": "/visuels/competences/ninjutsu-dark-mist.webp",
-      "Kinjutsu: Pinnacle Ninja": "/visuels/competences/kinjutsu-pinnacle-ninja.webp",
-      "Ame no Habakiri": "/visuels/competences/ame-no-habakiri.webp",
-      "Forbidden Ninjutsu: Soul Snatch": "/visuels/competences/forbidden-ninjutsu-soul-snatch.webp",
-      "Forbidden Ninjutsu: Black Mist": "/visuels/competences/forbidden-ninjutsu-black-mist.webp",
-      "Ninjutsu Flee: Return": "/visuels/competences/ninjutsu-flee-return.webp"
+      "Kinjutsu: Pinnacle Ninja": "/visuels/competences/kinjutsu-pinnacle-ninja.webp"
     },
     "harith": {
       "Key Insight": "/visuels/competences/key-insight.webp",
@@ -3074,9 +3525,7 @@
     "hirara": {
       "Twin Fans: Ukifune": "/visuels/competences/twin-fans-ukifune.webp",
       "Meisen-e": "/visuels/competences/meisen-e.webp",
-      "Kaerazu": "/visuels/competences/kaerazu.webp",
-      "Falling Maple": "/visuels/competences/falling-maple.webp",
-      "Infernal Torrent": "/visuels/competences/infernal-torrent.webp"
+      "Kaerazu": "/visuels/competences/kaerazu.webp"
     },
     "hylos": {
       "Thickened Blood": "/visuels/competences/thickened-blood.webp",
@@ -3117,11 +3566,7 @@
     "julian": {
       "Smith's Legacy": "/visuels/competences/smith-s-legacy.webp",
       "Scythe": "/visuels/competences/scythe.webp",
-      "Sword": "/visuels/competences/sword.webp",
-      "Chain": "/visuels/competences/chain.webp",
-      "Enhanced Scythe": "/visuels/competences/enhanced-scythe.webp",
-      "Enhanced Sword": "/visuels/competences/enhanced-sword.webp",
-      "Enhanced Chain": "/visuels/competences/enhanced-chain.webp"
+      "Sword": "/visuels/competences/sword.webp"
     },
     "kadita": {
       "Thalassophobia": "/visuels/competences/thalassophobia.webp",
@@ -3187,10 +3632,7 @@
       "Homeland Defender": "/visuels/competences/homeland-defender.webp",
       "Justice Blades": "/visuels/competences/justice-blades.webp",
       "Jungle Warrior": "/visuels/competences/jungle-warrior.webp",
-      "Bravest Fighter": "/visuels/competences/bravest-fighter.webp",
-      "Land Shaker": "/visuels/competences/land-shaker.webp",
-      "Storm Sword": "/visuels/competences/storm-sword.webp",
-      "Raging Slash": "/visuels/competences/raging-slash.webp"
+      "Bravest Fighter": "/visuels/competences/bravest-fighter.webp"
     },
     "layla": {
       "Malefic Gun": "/visuels/competences/malefic-gun.webp",
@@ -3202,9 +3644,7 @@
       "The Oath Keeper": "/visuels/competences/the-oath-keeper.webp",
       "Momentum": "/visuels/competences/momentum.webp",
       "Decimation Assault": "/visuels/competences/decimation-assault.webp",
-      "Phantom Steed": "/visuels/competences/phantom-steed.webp",
-      "Phantom Stomp": "/visuels/competences/phantom-stomp.webp",
-      "Phantom Charge": "/visuels/competences/phantom-charge.webp"
+      "Phantom Steed": "/visuels/competences/phantom-steed.webp"
     },
     "lesley": {
       "Lethal Shot": "/visuels/competences/lethal-shot.webp",
@@ -3228,17 +3668,13 @@
       "Hero's Resolve": "/visuels/competences/hero-s-resolve.webp",
       "Flash Combo": "/visuels/competences/flash-combo.webp",
       "Flash Step": "/visuels/competences/flash-step.webp",
-      "Unleash the Beast": "/visuels/competences/unleash-the-beast.webp",
-      "Shockwave Blast": "/visuels/competences/shockwave-blast.webp"
+      "Unleash the Beast": "/visuels/competences/unleash-the-beast.webp"
     },
     "lunox": {
       "Dreamland Twist": "/visuels/competences/dreamland-twist.webp",
       "Starlight Pulse": "/visuels/competences/starlight-pulse.webp",
       "Chaos Assault": "/visuels/competences/chaos-assault.webp",
-      "Order & Chaos": "/visuels/competences/order-chaos.webp",
-      "Cosmic Fission": "/visuels/competences/cosmic-fission.webp",
-      "Power of Order: Brilliance": "/visuels/competences/power-of-order-brilliance.webp",
-      "Power of Chaos: Darkening": "/visuels/competences/power-of-chaos-darkening.webp"
+      "Order & Chaos": "/visuels/competences/order-chaos.webp"
     },
     "luo-yi": {
       "Duality": "/visuels/competences/duality.webp",
@@ -3268,8 +3704,7 @@
       "Ancient Strength": "/visuels/competences/ancient-strength.webp",
       "Wild Power": "/visuels/competences/wild-power.webp",
       "Howl Shock": "/visuels/competences/howl-shock.webp",
-      "Thunderclap": "/visuels/competences/thunderclap.webp",
-      "Life Recovery": "/visuels/competences/life-recovery.webp"
+      "Thunderclap": "/visuels/competences/thunderclap.webp"
     },
     "mathilda": {
       "Ancestral Guidance": "/visuels/competences/ancestral-guidance.webp",
@@ -3359,8 +3794,7 @@
       "Spiritual Unity": "/visuels/competences/spiritual-unity.webp",
       "Curse of Crow": "/visuels/competences/curse-of-crow.webp",
       "Energy Impact": "/visuels/competences/energy-impact.webp",
-      "Feathered Air Strike": "/visuels/competences/feathered-air-strike.webp",
-      "Wings by Wings": "/visuels/competences/wings-by-wings.webp"
+      "Feathered Air Strike": "/visuels/competences/feathered-air-strike.webp"
     },
     "phoveus": {
       "Demonic Force": "/visuels/competences/demonic-force.webp",
@@ -3372,8 +3806,7 @@
       "We Are Friends": "/visuels/competences/we-are-friends.webp",
       "Bite 'em, Kupa!": "/visuels/competences/bite-em-kupa.webp",
       "Kupa, Help!": "/visuels/competences/kupa-help.webp",
-      "We Are Angry!": "/visuels/competences/we-are-angry.webp",
-      "Popol's Surprise": "/visuels/competences/popol-s-surprise.webp"
+      "We Are Angry!": "/visuels/competences/we-are-angry.webp"
     },
     "rafaela": {
       "Divine Resurrection": "/visuels/competences/divine-resurrection.webp",
@@ -3385,10 +3818,7 @@
       "Full Moon Curse": "/visuels/competences/full-moon-curse.webp",
       "Open Fire": "/visuels/competences/open-fire.webp",
       "Hunter's Steps": "/visuels/competences/hunter-s-steps.webp",
-      "Wolf Transformation": "/visuels/competences/wolf-transformation.webp",
-      "Lycan Pounce": "/visuels/competences/lycan-pounce.webp",
-      "Bloodthirsty Howl": "/visuels/competences/bloodthirsty-howl.webp",
-      "Restore Human Form": "/visuels/competences/restore-human-form.webp"
+      "Wolf Transformation": "/visuels/competences/wolf-transformation.webp"
     },
     "ruby": {
       "Let's Dance!": "/visuels/competences/let-s-dance.webp",
@@ -3406,28 +3836,18 @@
       "Symbiosis": "/visuels/competences/symbiosis.webp",
       "Abyssal Trap": "/visuels/competences/abyssal-trap.webp",
       "Abyssal Arrow": "/visuels/competences/abyssal-arrow.webp",
-      "Primal Darkness": "/visuels/competences/primal-darkness.webp",
-      "Soul Eater": "/visuels/competences/soul-eater.webp",
-      "Garotte": "/visuels/competences/garotte.webp",
-      "Blessing of the Moon Goddess": "/visuels/competences/blessing-of-the-moon-goddess.webp"
+      "Primal Darkness": "/visuels/competences/primal-darkness.webp"
     },
     "silvanna": {
       "Knightess' Resolve": "/visuels/competences/knightess-resolve.webp",
       "Cometic Lance": "/visuels/competences/cometic-lance.webp",
-      "Spiral Strangling": "/visuels/competences/spiral-strangling.webp",
-      "Imperial Justice": "/visuels/competences/imperial-justice.webp"
+      "Spiral Strangling": "/visuels/competences/spiral-strangling.webp"
     },
     "sora": {
       "Mystic Surge": "/visuels/competences/mystic-surge.webp",
       "Sundering Strike": "/visuels/competences/sundering-strike.webp",
       "Windstride": "/visuels/competences/windstride.webp",
-      "Shifting Skies": "/visuels/competences/shifting-skies.webp",
-      "Sundering Strike - Thunderflash": "/visuels/competences/sundering-strike-thunderflash.webp",
-      "Windstride - Thunder Rush": "/visuels/competences/windstride-thunder-rush.webp",
-      "Heaven's Wrath": "/visuels/competences/heaven-s-wrath.webp",
-      "Sundering Strike - Overwhelm": "/visuels/competences/sundering-strike-overwhelm.webp",
-      "Windstride - Skyfall": "/visuels/competences/windstride-skyfall.webp",
-      "Stormbind": "/visuels/competences/stormbind.webp"
+      "Shifting Skies": "/visuels/competences/shifting-skies.webp"
     },
     "sun": {
       "Simian God": "/visuels/competences/simian-god.webp",
@@ -3438,8 +3858,7 @@
     "suyou": {
       "Transient Immortal": "/visuels/competences/transient-immortal.webp",
       "Blade Surge": "/visuels/competences/blade-surge.webp",
-      "Soul Sever": "/visuels/competences/soul-sever.webp",
-      "Evil Queller": "/visuels/competences/evil-queller.webp"
+      "Soul Sever": "/visuels/competences/soul-sever.webp"
     },
     "terizla": {
       "Body of Smith": "/visuels/competences/body-of-smith.webp",
@@ -3517,8 +3936,7 @@
       "Leave It to Me": "/visuels/competences/leave-it-to-me.webp",
       "Charged Punch": "/visuels/competences/charged-punch.webp",
       "Instant Blast": "/visuels/competences/instant-blast.webp",
-      "My Turn": "/visuels/competences/my-turn.webp",
-      "Frenzy Strike": "/visuels/competences/frenzy-strike.webp"
+      "My Turn": "/visuels/competences/my-turn.webp"
     },
     "yu-zhong": {
       "Cursing Touch": "/visuels/competences/cursing-touch.webp",
@@ -3692,7 +4110,11 @@
     "vitality": "/visuels/talents/vitality.png",
     "weakness-finder": "/visuels/talents/weakness-finder.png",
     "lethal-ignition": "/visuels/talents/lethal-ignition.png",
-    "wilderness-blessing": "/visuels/talents/wilderness-blessing.png"
+    "wilderness-blessing": "/visuels/talents/wilderness-blessing.png",
+    "weapons-master": "/visuels/talents/weapons-master.png",
+    "rupture": "/visuels/talents/rupture.png",
+    "temporal-reign": "/visuels/talents/temporal-reign.png",
+    "war-cry": "/visuels/talents/war-cry.png"
   },
   "sorts": {
     "retribution": "/visuels/sorts/retribution.png",
@@ -3705,6 +4127,7 @@
     "arrival": "/visuels/sorts/arrival.png",
     "sprint": "/visuels/sorts/sprint.png",
     "vengeance": "/visuels/sorts/vengeance.png",
-    "revitalize": "/visuels/sorts/revitalize.png"
+    "revitalize": "/visuels/sorts/revitalize.png",
+    "flameshot": "/visuels/sorts/flameshot.png"
   }
 }
