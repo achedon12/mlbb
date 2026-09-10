@@ -672,7 +672,12 @@
     "retirer": "Remove {nom}",
     "choisirLane": "Choose a hero for the lane {lane}",
     "placeholderLane": "Heroes of {lane} — or search by name",
-    "choisirUn": "Choose a hero"
+    "choisirUn": "Choose a hero",
+    "filtreLane": "Lane",
+    "filtreRole": "Role",
+    "toutesLanes": "All",
+    "tousRoles": "All",
+    "compte": "{n} heroes"
   },
   "nouveauHeros": {
     "particularite": "Particularity —"

@@ -672,7 +672,12 @@
     "retirer": "Rimuovere {nom}",
     "choisirLane": "Scegli un eroe per la corsia {lane}",
     "placeholderLane": "Eroi di {lane} oppure cerca per nome",
-    "choisirUn": "Scegli un eroe"
+    "choisirUn": "Scegli un eroe",
+    "filtreLane": "Corsia",
+    "filtreRole": "Ruolo",
+    "toutesLanes": "Tutte",
+    "tousRoles": "Tutti",
+    "compte": "{n} eroi"
   },
   "nouveauHeros": {
     "particularite": "Particolarità —"

@@ -1,3 +1,4 @@
+import type { Role } from "./types";
 import type { Lane } from "./types";
 
 /**
@@ -17,6 +18,7 @@ export interface HerosDraft {
   slug: string;
   nom: string;
   lanes: Lane[];
+  roles: Role[];
   icone: string | null;
   victoire: number | null;
   fortContre: string[];

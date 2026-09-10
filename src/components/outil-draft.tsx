@@ -1,12 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { RotateCcw, Search, X } from "lucide-react";
 import { LANES, suggerer, type HerosDraft } from "@/lib/draft";
 import { useT } from "@/i18n/fournisseur";
-import type { Lane } from "@/lib/types";
+import type { Lane, Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
@@ -277,7 +277,19 @@ function Vignette({ heros, petite = false }: { heros: HerosDraft; petite?: boole
   );
 }
 
-/** Liste de choix, filtree sur la lane concernee. */
+const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
+
+/** Nom ramene a une cle de recherche : sans casse ni accents. */
+const cleRecherche = (s: string) =>
+  s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+/**
+ * Choix d'un heros pour une lane.
+ *
+ * Tout le roster est proposable. La liste s'ouvre sur les heros de la lane
+ * concernee, « Toutes » l'elargit aux 133, et le filtre de role la resserre.
+ * Taper un nom cherche dans tout le roster : la lane se relache d'elle-meme.
+ */
 function Selecteur({
   heros,
   exclus,
@@ -293,14 +305,26 @@ function Selecteur({
 }) {
   const t = useT();
   const [recherche, setRecherche] = useState("");
+  const [laneFiltre, setLaneFiltre] = useState<Lane | null>(lane);
+  const [role, setRole] = useState<Role | null>(null);
+
+  useEffect(() => {
+    const echap = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onFermer();
+    };
+    window.addEventListener("keydown", echap);
+    return () => window.removeEventListener("keydown", echap);
+  }, [onFermer]);
 
   const resultats = useMemo(() => {
-    const terme = recherche.trim().toLowerCase();
+    const terme = cleRecherche(recherche.trim());
     return heros
       .filter((h) => !exclus.has(h.slug))
-      .filter((h) => (terme ? h.nom.toLowerCase().includes(terme) : h.lanes.includes(lane)))
+      .filter((h) => !laneFiltre || h.lanes.includes(laneFiltre))
+      .filter((h) => !role || h.roles.includes(role))
+      .filter((h) => !terme || cleRecherche(h.nom).includes(terme))
       .sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
-  }, [heros, exclus, lane, recherche]);
+  }, [heros, exclus, laneFiltre, role, recherche]);
 
   return (
     <div
@@ -311,7 +335,7 @@ function Selecteur({
       onClick={onFermer}
     >
       <div
-        className="biseau flex max-h-[80vh] w-full max-w-2xl flex-col border border-nuit-700 bg-nuit-900 p-5"
+        className="biseau flex max-h-[85vh] w-full max-w-3xl flex-col border border-nuit-700 bg-nuit-900 p-5"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-3">
@@ -325,8 +349,11 @@ function Selecteur({
               autoFocus
               type="search"
               value={recherche}
-              onChange={(e) => setRecherche(e.target.value)}
-              placeholder={t("draftUI.placeholderLane", { lane: t(`lanes.${lane}`) })}
+              onChange={(e) => {
+                setRecherche(e.target.value);
+                if (e.target.value.trim()) setLaneFiltre(null);
+              }}
+              placeholder={t("draftUI.rechercher")}
               aria-label={t("draftUI.rechercher")}
               className="biseau-sm w-full border border-nuit-700 bg-nuit-950 py-2 pl-9 pr-3 text-craie-100 outline-none focus:border-or-500"
             />
@@ -341,16 +368,50 @@ function Selecteur({
           </button>
         </div>
 
-        <ul className="mt-4 grid gap-1.5 overflow-y-auto sm:grid-cols-2">
+        <div className="mt-3 space-y-2">
+          <div role="group" aria-label={t("draftUI.filtreLane")} className="flex flex-wrap items-center gap-1.5">
+            <span className="mr-1 w-16 shrink-0 text-[0.65rem] uppercase tracking-wide text-craie-500">
+              {t("draftUI.filtreLane")}
+            </span>
+            <Puce actif={laneFiltre === null} onClick={() => setLaneFiltre(null)}>
+              {t("draftUI.toutesLanes")}
+            </Puce>
+            {LANES.map((l) => (
+              <Puce key={l} actif={laneFiltre === l} onClick={() => setLaneFiltre(l)}>
+                {t(`lanes.${l}`)}
+              </Puce>
+            ))}
+          </div>
+          <div role="group" aria-label={t("draftUI.filtreRole")} className="flex flex-wrap items-center gap-1.5">
+            <span className="mr-1 w-16 shrink-0 text-[0.65rem] uppercase tracking-wide text-craie-500">
+              {t("draftUI.filtreRole")}
+            </span>
+            <Puce actif={role === null} onClick={() => setRole(null)}>
+              {t("draftUI.tousRoles")}
+            </Puce>
+            {ROLES.map((r) => (
+              <Puce key={r} actif={role === r} onClick={() => setRole(role === r ? null : r)}>
+                {t(`roles.${r}`)}
+              </Puce>
+            ))}
+          </div>
+        </div>
+
+        <p aria-live="polite" className="mt-3 text-xs text-craie-500">
+          {t("draftUI.compte", { n: resultats.length })}
+        </p>
+
+        <ul className="mt-2 grid grid-cols-3 gap-1.5 overflow-y-auto sm:grid-cols-4 md:grid-cols-5">
           {resultats.map((h) => (
             <li key={h.slug}>
               <button
                 type="button"
                 onClick={() => onChoisir(h.slug)}
-                className="biseau-sm flex w-full items-center gap-2 border border-nuit-700/70 p-1.5 text-left transition-colors hover:border-or-500/60"
+                title={h.nom}
+                className="biseau-sm flex w-full flex-col items-center gap-1 border border-nuit-700/70 p-2 text-center transition-colors hover:border-or-500/60 hover:bg-nuit-850"
               >
-                <Vignette heros={h} petite />
-                <span className="min-w-0 flex-1 truncate text-sm text-craie-100">{h.nom}</span>
+                <Vignette heros={h} />
+                <span className="w-full truncate text-xs text-craie-100">{h.nom}</span>
               </button>
             </li>
           ))}
@@ -362,5 +423,31 @@ function Selecteur({
         </ul>
       </div>
     </div>
+  );
+}
+
+function Puce({
+  actif,
+  onClick,
+  children,
+}: {
+  actif: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={actif}
+      onClick={onClick}
+      className={cn(
+        "biseau-sm px-2.5 py-1 text-xs font-medium transition-colors",
+        actif
+          ? "bg-or-500 text-nuit-950"
+          : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
+      )}
+    >
+      {children}
+    </button>
   );
 }

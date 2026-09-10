@@ -41,6 +41,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
     slug: h.slug,
     nom: h.nom,
     lanes: h.lanes,
+    roles: h.roles,
     icone: h.visuels.icone ?? h.visuels.portrait,
     victoire: taux.get(h.slug) ?? null,
     fortContre: relations[h.slug]?.fortContre ?? [],
