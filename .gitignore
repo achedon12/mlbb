@@ -51,3 +51,9 @@ todo.txt
 
 # Journaux applicatifs (runtime)
 /logs
+
+# Playwright
+/test-results
+/playwright-report
+/blob-report
+/playwright/.cache
