@@ -1,5 +1,26 @@
 # MLBB
 
+<p>
+  <a href="https://github.com/achedon12/mlbb/actions/workflows/qualite.yml"><img alt="Qualite" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/qualite.yml?branch=main&label=qualit%C3%A9&logo=github"></a>
+  <a href="https://github.com/achedon12/mlbb/actions/workflows/tests.yml"><img alt="Tests" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/tests.yml?branch=main&label=tests&logo=vitest"></a>
+  <a href="https://github.com/achedon12/mlbb/actions/workflows/securite.yml"><img alt="Securite" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/securite.yml?branch=main&label=s%C3%A9curit%C3%A9&logo=github"></a>
+  <a href="https://github.com/achedon12/mlbb/actions/workflows/docker.yml"><img alt="Image Docker" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/docker.yml?branch=main&label=docker&logo=docker"></a>
+</p>
+<p>
+  <a href="https://github.com/achedon12/mlbb/issues"><img alt="Issues" src="https://img.shields.io/github/issues/achedon12/mlbb?logo=github"></a>
+  <a href="https://github.com/achedon12/mlbb/pulls"><img alt="Pull requests" src="https://img.shields.io/github/issues-pr/achedon12/mlbb?logo=github"></a>
+  <a href="https://github.com/achedon12/mlbb/commits/main"><img alt="Dernier commit" src="https://img.shields.io/github/last-commit/achedon12/mlbb?logo=git&label=dernier%20commit"></a>
+  <a href="https://github.com/achedon12/mlbb/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/achedon12/mlbb?style=flat&logo=github"></a>
+  <a href="https://github.com/achedon12/mlbb/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/achedon12/mlbb?style=flat&logo=github"></a>
+</p>
+<p>
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-16-black?logo=next.js">
+  <img alt="React" src="https://img.shields.io/badge/React-19-149eca?logo=react">
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss&logoColor=white">
+  <img alt="Taille du code" src="https://img.shields.io/github/languages/code-size/achedon12/mlbb?logo=github">
+  <img alt="Langage" src="https://img.shields.io/github/languages/top/achedon12/mlbb?logo=typescript">
+</p>
+
 Une base de connaissances francophone sur **Mobile Legends: Bang Bang** : le
 roster complet, des fiches heros verifiees, une tier list argumentee, les
 objets, les emblemes, les sorts de combat, des guides et les resumes de patch.
