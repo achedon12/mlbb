@@ -3,6 +3,7 @@
 - [Accueil](Home)
 - [Architecture](Architecture)
 - [Données et synchronisation](Donnees-et-synchronisation)
+- [API](API)
 - [Traductions](Traductions)
 - [Contribuer](Contribuer)
 - [FAQ](FAQ)

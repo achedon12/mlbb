@@ -13,6 +13,7 @@ En ligne : <https://mlbbdex.com> · Code : <https://github.com/achedon12/mlbb>
 
 - **[Architecture](Architecture)** — la pile technique et l'organisation du code.
 - **[Données et synchronisation](Donnees-et-synchronisation)** — d'où viennent les données et comment elles sont rafraîchies.
+- **[API](API)** — les routes JSON publiques, leur format et leurs limites.
 - **[Traductions](Traductions)** — comment les contenus anglais deviennent français.
 - **[Contribuer](Contribuer)** — écrire une analyse, corriger une donnée, ouvrir une PR.
 - **[FAQ](FAQ)** — les questions récurrentes.
