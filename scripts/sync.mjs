@@ -14,7 +14,7 @@
  * Moonton, que ce depot ne redistribue pas. Le Dockerfile relance donc la
  * synchronisation au build.
  */
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyserTableLua } from "./lua.mjs";
@@ -943,6 +943,15 @@ function comparerVersions(a, b) {
   return 0;
 }
 
+/** Lit un JSON deja genere, ou un objet vide s'il n'existe pas encore. */
+async function lireJson(chemin) {
+  try {
+    return JSON.parse(await readFile(chemin, "utf8"));
+  } catch {
+    return {};
+  }
+}
+
 /** Nettoie une description de competence renvoyee par l'API (balises, sauts). */
 function nettoyerSkillDesc(brut) {
   return String(brut ?? "")
@@ -1087,18 +1096,24 @@ async function principal() {
   console.log(`  ${Object.keys(skillsArena).length} heros couverts par l'API`);
 
   // Fusion wiki + API : le wiki prime, l'API comble nom, description et icone
-  // manquants. Les deux listes suivent le meme ordre (passif → ultime).
+  // manquants. Les deux listes suivent le meme ordre (passif → ultime). En
+  // dernier recours, on garde ce qui avait deja ete complete : une panne de
+  // l'API ne doit pas effacer un enrichissement obtenu lors d'un passage
+  // precedent.
+  const competencesExistantes = await lireJson(`${SORTIE}/competences.json`);
   const competencesFinales = {};
   for (const h of heros) {
     const wiki = pages[h.slug]?.competences ?? [];
     const arena = skillsArena[h.slug] ?? [];
-    const n = Math.max(wiki.length, arena.length);
+    const ancien = competencesExistantes[h.slug] ?? [];
+    const n = Math.max(wiki.length, arena.length, ancien.length);
     if (n === 0) continue;
 
     const liste = [];
     for (let i = 0; i < n; i += 1) {
-      const nom = wiki[i]?.nom ?? arena[i]?.nom ?? null;
-      const description = wiki[i]?.description ?? arena[i]?.description ?? null;
+      const nom = wiki[i]?.nom ?? arena[i]?.nom ?? ancien[i]?.nom ?? null;
+      const description =
+        wiki[i]?.description ?? arena[i]?.description ?? ancien[i]?.description ?? null;
       liste.push(nom || description ? { nom, description } : null);
     }
     competencesFinales[h.slug] = liste;
@@ -1172,6 +1187,9 @@ async function principal() {
   ];
   const urlsCompetences = await urlsFichiers(nomsCompetences);
 
+  // Icones deja resolues : dernier recours si ni le wiki ni l'API ne repondent.
+  const visuelsExistants = await lireJson(`${SORTIE}/visuels-competences.json`);
+
   let iconesArena = 0;
   const visuelsCompetences = {};
   for (const [slug, comps] of Object.entries(competencesFinales)) {
@@ -1194,6 +1212,9 @@ async function principal() {
         // Repli : l'icone officielle servie par le CDN de l'API.
         icones[nom] = arena[i].icone;
         iconesArena += 1;
+      } else if (visuelsExistants[slug]?.[nom]) {
+        // Ni wiki ni API : on conserve l'icone deja resolue precedemment.
+        icones[nom] = visuelsExistants[slug][nom];
       }
     });
     if (Object.keys(icones).length) visuelsCompetences[slug] = icones;
