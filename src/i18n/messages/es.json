@@ -217,5 +217,48 @@
     "fort": "Fuerte contra",
     "difficulte": "En dificultades contra",
     "pts": "puntos"
+  },
+  "home": {
+    "titre1": "Todo el juego, explica.",
+    "titreAccent": "en español",
+    "lead": "{heros} héroes y sus {skins} aspectos, una lista de niveles calculada en función de las tasas de juego, asistencia para el draft, elementos, emblemas y notas de parche. Los datos se sincronizan solos; El análisis está escrito a mano.",
+    "parcourir": "Explorar héroes",
+    "aideDraft": "Borrador de ayuda",
+    "statHeros": "héroe",
+    "statSkins": "batería",
+    "statPatchs": "parches",
+    "statAnalyses": "análisis escritos",
+    "commencerTitre": "Por donde empezar",
+    "commencerChapeau": "Tú juegas un papel, no un catálogo. Entra por ahí.",
+    "classementTitre": "A la cabeza del parche",
+    "classementChapeau": "Calculado a partir de las tasas de victorias y prohibiciones reportadas por el juego, no una opinión.",
+    "tierListComplete": "Lista de niveles completa",
+    "skinsTitre": "Galerías de piel",
+    "skinsChapeau": "Las {skins} skins del juego, con su ilustración a tamaño real, su rareza y su precio.",
+    "voirHeros": "ver los héroes",
+    "derniereMaj": "Última actualización",
+    "toutesActualites": "Todas las noticias",
+    "synchroChapeau": "Última sincronización el {date}.",
+    "cartes": {
+      "donneesTitre": "Actualizaciones de datos por sí solas.",
+      "donneesTexte": "Cada semana se extraen de la wiki héroes, máscaras, elementos, parches y elementos visuales. Aquí aparece un nuevo héroe sin que nadie se dé cuenta.",
+      "classementTitre": "El ranking no opina",
+      "classementTexte": "La lista de niveles se calcula en función de las tasas de victorias y prohibiciones reportadas por el juego. La regla de cálculo se muestra en la página.",
+      "ecritTitre": "Lo que se escribe queda escrito",
+      "ecritTexte": "Los análisis, construcciones y guías están escritos a mano. Ninguna extracción dirá por qué un héroe es fuerte; Aquí es donde las contribuciones cuentan."
+    }
+  },
+  "vedette": {
+    "herosDuJour": "Héroe del día",
+    "role": "Role",
+    "position": "Posición",
+    "tierList": "Lista de niveles",
+    "victoires": "Victorias",
+    "skins": "Batería",
+    "voirFiche": "ver su expediente",
+    "palier": "Nivel {p}"
+  },
+  "acces": {
+    "compte": "{n} héroes"
   }
 }

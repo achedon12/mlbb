@@ -217,5 +217,48 @@
     "fort": "Strong against",
     "difficulte": "In difficulty against",
     "pts": "pts"
+  },
+  "home": {
+    "titre1": "The whole game, explains",
+    "titreAccent": "in English",
+    "lead": "{heros} heroes and their {skins} skins, a tier list calculated on game rates, draft assistance, items, emblems and patch notes. The data synchronizes itself; the analysis is written by hand.",
+    "parcourir": "Browse heroes",
+    "aideDraft": "Draft help",
+    "statHeros": "hero",
+    "statSkins": "skins",
+    "statPatchs": "patches",
+    "statAnalyses": "written analyzes",
+    "commencerTitre": "Where to start",
+    "commencerChapeau": "You play a role, not a catalog. Enter through there.",
+    "classementTitre": "At the head of the patch",
+    "classementChapeau": "Calculated from win and ban rates reported by the game, not an opinion.",
+    "tierListComplete": "Tier list complete",
+    "skinsTitre": "Skin Galleries",
+    "skinsChapeau": "The {skins} skins of the game, with their full-size illustration, their rarity and their price.",
+    "voirHeros": "See the heroes",
+    "derniereMaj": "Last update",
+    "toutesActualites": "All news",
+    "synchroChapeau": "Last synchronization on {date}.",
+    "cartes": {
+      "donneesTitre": "Data updates on its own",
+      "donneesTexte": "Heroes, skins, items, patches and visuals are extracted from the wiki every week. A new hero appears here without anyone realizing it.",
+      "classementTitre": "The ranking does not give an opinion",
+      "classementTexte": "The tier list is calculated based on the win and ban rates reported by the game. The calculation rule is displayed on the page.",
+      "ecritTitre": "What is written remains written",
+      "ecritTexte": "Analyzes, builds and guides are written by hand. No extraction will tell why a hero is strong; This is where contributions count."
+    }
+  },
+  "vedette": {
+    "herosDuJour": "Hero of the day",
+    "role": "Role",
+    "position": "Position",
+    "tierList": "Tier list",
+    "victoires": "Victories",
+    "skins": "Skins",
+    "voirFiche": "See his file",
+    "palier": "Level {p}"
+  },
+  "acces": {
+    "compte": "{n} heroes"
   }
 }

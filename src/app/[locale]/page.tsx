@@ -11,6 +11,8 @@ import { classementComplet } from "@/lib/tier-list";
 import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
 import { formaterDate } from "@/lib/utils";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 
 const donneesStructurees = {
   "@context": "https://schema.org",
@@ -59,7 +61,9 @@ function herosDuJour() {
   return { heros: choisi, illustration: Object.values(illustrations[choisi.slug])[0] };
 }
 
-export default function Accueil() {
+export default async function Accueil({ params }: { params: Promise<{ locale: Langue }> }) {
+  const { locale } = await params;
+  const t = creerT(locale);
   const vedette = herosDuJour();
   const articles = tousLesArticles().slice(0, 3);
   const sommet = classementComplet.slice(0, 5);
@@ -101,16 +105,13 @@ export default function Accueil() {
             Mobile Legends: Bang Bang
           </p>
           <h1 className="mt-4 max-w-3xl font-titre text-4xl font-bold leading-tight text-craie-100 sm:text-6xl">
-            Tout le jeu, explique{" "}
+            {t("home.titre1")}{" "}
             <span className="bg-linear-to-r from-or-400 to-or-600 bg-clip-text text-transparent">
-              en francais
+              {t("home.titreAccent")}
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-craie-300">
-            {heros.length} heros et leurs {nombreSkins} skins, une tier list
-            calculee sur les taux du jeu, une aide au draft, les objets, les
-            emblemes et les patch notes. Les donnees se synchronisent seules ;
-            l&apos;analyse s&apos;ecrit a la main.
+            {t("home.lead", { heros: heros.length, skins: nombreSkins })}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -118,7 +119,7 @@ export default function Accueil() {
               href="/heroes"
               className="biseau-sm flex items-center gap-2 bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
             >
-              Parcourir les heros
+              {t("home.parcourir")}
               <ArrowRight size={18} aria-hidden />
             </Link>
             <Link
@@ -126,16 +127,16 @@ export default function Accueil() {
               className="biseau-sm flex items-center gap-2 border border-nuit-600 px-6 py-3 font-semibold text-craie-100 transition-colors hover:border-or-500/60 hover:text-or-400"
             >
               <Swords size={17} aria-hidden />
-              Aide au draft
+              {t("home.aideDraft")}
             </Link>
           </div>
 
           <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-nuit-800 pt-8 sm:grid-cols-4">
             {[
-              { valeur: heros.length, label: "heros" },
-              { valeur: nombreSkins, label: "skins" },
-              { valeur: patchs.length, label: "patchs" },
-              { valeur: herosAnalyses.length, label: "analyses redigees" },
+              { valeur: heros.length, label: t("home.statHeros") },
+              { valeur: nombreSkins, label: t("home.statSkins") },
+              { valeur: patchs.length, label: t("home.statPatchs") },
+              { valeur: herosAnalyses.length, label: t("home.statAnalyses") },
             ].map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
@@ -160,15 +161,16 @@ export default function Accueil() {
           illustration={vedette.illustration}
           palier={classe?.palier ?? null}
           victoire={classe?.victoire ?? null}
+          langue={locale}
         />
       )}
 
       {/* ── Entree par role ────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <TitreSection chapeau="Vous jouez un role, pas un catalogue. Entrez par la.">
-          Par ou commencer
+        <TitreSection chapeau={t("home.commencerChapeau")}>
+          {t("home.commencerTitre")}
         </TitreSection>
-        <AccesRoles compte={parRole} />
+        <AccesRoles compte={parRole} langue={locale} />
       </section>
 
       {/* ── Sommet du classement ───────────────────────────────────────── */}
@@ -176,7 +178,7 @@ export default function Accueil() {
         <div className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
             chapeau="Calcule a partir des taux de victoire et de ban remontes par le jeu, pas d'une opinion."
-            action={{ href: "/tier-list", label: "Tier list complete" }}
+            action={{ href: "/tier-list", label: t("home.tierListComplete") }}
           >
             En tete du patch
           </TitreSection>
@@ -216,7 +218,7 @@ export default function Accueil() {
         <section className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
             chapeau={`Les ${nombreSkins} skins du jeu, avec leur illustration pleine taille, leur rarete et leur prix.`}
-            action={{ href: "/heroes", label: "Voir les heros" }}
+            action={{ href: "/heroes", label: t("home.voirHeros") }}
           >
             Galeries de skins
           </TitreSection>
@@ -253,7 +255,7 @@ export default function Accueil() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_2fr]">
           {dernierPatch && (
             <div>
-              <TitreSection chapeau="">Derniere mise a jour</TitreSection>
+              <TitreSection chapeau="">{t("home.derniereMaj")}</TitreSection>
               <Carte>
                 <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-or-400">
                   <TrendingUp size={14} aria-hidden />
@@ -279,7 +281,7 @@ export default function Accueil() {
           <div>
             <TitreSection
               chapeau=""
-              action={{ href: "/news", label: "Toutes les actualites" }}
+              action={{ href: "/news", label: t("home.toutesActualites") }}
             >
               Derniers articles
             </TitreSection>
@@ -287,7 +289,7 @@ export default function Accueil() {
               {articles.map((a) => (
                 <li key={a.slug}>
                   <Link
-                    href={`/${a.categorie === "Patch" ? "patch-notes" : "actualites"}/${a.slug}`}
+                    href={`/${a.categorie === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
                     className="biseau block border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
                   >
                     <span className="flex flex-wrap items-center gap-3">
@@ -314,25 +316,25 @@ export default function Accueil() {
 
       {/* ── Fonctionnement ─────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <TitreSection chapeau={`Derniere synchronisation le ${formaterDate(synchro.date)}.`}>
+        <TitreSection chapeau={t("home.synchroChapeau", { date: formaterDate(synchro.date) })}>
           Comment ce site fonctionne
         </TitreSection>
         <div className="grid gap-4 md:grid-cols-3">
           {[
             {
-              titre: "Les donnees se mettent a jour seules",
+              titre: t("home.cartes.donneesTitre"),
               texte:
-                "Heros, skins, objets, patchs et visuels sont extraits du wiki chaque semaine. Un nouveau heros apparait ici sans que personne le saisisse.",
+                t("home.cartes.donneesTexte"),
             },
             {
-              titre: "Le classement ne donne pas d'avis",
+              titre: t("home.cartes.classementTitre"),
               texte:
-                "La tier list est calculee sur les taux de victoire et de ban remontes par le jeu. La regle du calcul est affichee sur la page.",
+                t("home.cartes.classementTexte"),
             },
             {
-              titre: "Ce qui s'ecrit reste ecrit",
+              titre: t("home.cartes.ecritTitre"),
               texte:
-                "Analyses, builds et guides sont rediges a la main. Aucune extraction ne dira pourquoi un heros est fort ; c'est la que les contributions comptent.",
+                t("home.cartes.ecritTexte"),
             },
           ].map((c) => (
             <Carte key={c.titre}>

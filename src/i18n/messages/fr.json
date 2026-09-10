@@ -217,5 +217,48 @@
     "fort": "Fort contre",
     "difficulte": "En difficulte contre",
     "pts": "pts"
+  },
+  "home": {
+    "titre1": "Tout le jeu, explique",
+    "titreAccent": "en français",
+    "lead": "{heros} heros et leurs {skins} skins, une tier list calculee sur les taux du jeu, une aide au draft, les objets, les emblemes et les patch notes. Les donnees se synchronisent seules ; l'analyse s'ecrit a la main.",
+    "parcourir": "Parcourir les heros",
+    "aideDraft": "Aide au draft",
+    "statHeros": "heros",
+    "statSkins": "skins",
+    "statPatchs": "patchs",
+    "statAnalyses": "analyses redigees",
+    "commencerTitre": "Par ou commencer",
+    "commencerChapeau": "Vous jouez un role, pas un catalogue. Entrez par la.",
+    "classementTitre": "En tete du patch",
+    "classementChapeau": "Calcule a partir des taux de victoire et de ban remontes par le jeu, pas d'une opinion.",
+    "tierListComplete": "Tier list complete",
+    "skinsTitre": "Galeries de skins",
+    "skinsChapeau": "Les {skins} skins du jeu, avec leur illustration pleine taille, leur rarete et leur prix.",
+    "voirHeros": "Voir les heros",
+    "derniereMaj": "Derniere mise a jour",
+    "toutesActualites": "Toutes les actualites",
+    "synchroChapeau": "Derniere synchronisation le {date}.",
+    "cartes": {
+      "donneesTitre": "Les donnees se mettent a jour seules",
+      "donneesTexte": "Heros, skins, objets, patchs et visuels sont extraits du wiki chaque semaine. Un nouveau heros apparait ici sans que personne le saisisse.",
+      "classementTitre": "Le classement ne donne pas d'avis",
+      "classementTexte": "La tier list est calculee sur les taux de victoire et de ban remontes par le jeu. La regle du calcul est affichee sur la page.",
+      "ecritTitre": "Ce qui s'ecrit reste ecrit",
+      "ecritTexte": "Analyses, builds et guides sont rediges a la main. Aucune extraction ne dira pourquoi un heros est fort ; c'est la que les contributions comptent."
+    }
+  },
+  "vedette": {
+    "herosDuJour": "Heros du jour",
+    "role": "Role",
+    "position": "Position",
+    "tierList": "Tier list",
+    "victoires": "Victoires",
+    "skins": "Skins",
+    "voirFiche": "Voir sa fiche",
+    "palier": "Palier {p}"
+  },
+  "acces": {
+    "compte": "{n} heros"
   }
 }

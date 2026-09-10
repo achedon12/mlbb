@@ -217,5 +217,48 @@
     "fort": "Forte contro",
     "difficulte": "In difficoltà contro",
     "pts": "punti"
+  },
+  "home": {
+    "titre1": "L'intero gioco, spiega",
+    "titreAccent": "in italiano",
+    "lead": "{heros} eroi e le loro {skins} skin, un elenco di livelli calcolato in base alle tariffe di gioco, assistenza al draft, oggetti, emblemi e note sulla patch. I dati si sincronizzano; l'analisi è scritta a mano.",
+    "parcourir": "Sfoglia gli eroi",
+    "aideDraft": "Progetto di aiuto",
+    "statHeros": "eroe",
+    "statSkins": "pelli",
+    "statPatchs": "patch",
+    "statAnalyses": "analisi scritte",
+    "commencerTitre": "Da dove cominciare",
+    "commencerChapeau": "Interpreti un ruolo, non un catalogo. Entra da lì.",
+    "classementTitre": "In testa alla toppa",
+    "classementChapeau": "Calcolato in base ai tassi di vincita e esclusione riportati dal gioco, non da un'opinione.",
+    "tierListComplete": "Elenco livelli completato",
+    "skinsTitre": "Gallerie della pelle",
+    "skinsChapeau": "Le {skins} skin del gioco, con la loro illustrazione a grandezza naturale, la loro rarità e il loro prezzo.",
+    "voirHeros": "Vedi gli eroi",
+    "derniereMaj": "Ultimo aggiornamento",
+    "toutesActualites": "Tutte le novità",
+    "synchroChapeau": "Ultima sincronizzazione il {date}.",
+    "cartes": {
+      "donneesTitre": "Aggiornamenti dei dati autonomamente",
+      "donneesTexte": "Eroi, skin, oggetti, patch e immagini vengono estratti dalla wiki ogni settimana. Un nuovo eroe appare qui senza che nessuno se ne accorga.",
+      "classementTitre": "La classifica non dà un giudizio",
+      "classementTexte": "L'elenco dei livelli viene calcolato in base alle percentuali di vincita e ban riportate dal gioco. La regola di calcolo viene visualizzata nella pagina.",
+      "ecritTitre": "Ciò che è scritto resta scritto",
+      "ecritTexte": "Analisi, build e guide sono scritte a mano. Nessuna estrazione dirà perché un eroe è forte; È qui che contano i contributi."
+    }
+  },
+  "vedette": {
+    "herosDuJour": "Eroe del giorno",
+    "role": "Ruolo",
+    "position": "Posizione",
+    "tierList": "Elenco livelli",
+    "victoires": "Vittorie",
+    "skins": "Pelli",
+    "voirFiche": "Vedi il suo dossier",
+    "palier": "Livello {p}"
+  },
+  "acces": {
+    "compte": "{n} eroi"
   }
 }
