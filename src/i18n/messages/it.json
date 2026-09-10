@@ -1,0 +1,81 @@
+{
+  "commun": {
+    "marque": "MLBBDex",
+    "sousTitre": "Base di conoscenza di Mobile Legends: Bang Bang",
+    "accueil": "Benvenuto",
+    "retour": "Indietro",
+    "changerLangue": "Cambia lingua",
+    "sourceWiki": "Wiki di Mobile Legends",
+    "licenceWiki": "Contenuti presi e tradotti da {lien}, sotto licenza CC BY-SA.",
+    "allerAuContenu": "Vai al contenuto"
+  },
+  "nav": {
+    "baseDeDonnees": "Banca dati",
+    "actualite": "Notizia",
+    "heroes": {
+      "label": "Eroe",
+      "desc": "Fogli, costruzioni e analisi"
+    },
+    "tierList": {
+      "label": "Elenco livelli",
+      "desc": "Il meglio della patch"
+    },
+    "compare": {
+      "label": "Comparatore",
+      "desc": "Due eroi faccia a faccia"
+    },
+    "draft": {
+      "label": "Bozza",
+      "desc": "Simulatore di scelte e divieti"
+    },
+    "gameModes": {
+      "label": "Modalità di gioco",
+      "desc": "Classico, Classificato, Combattimento..."
+    },
+    "items": {
+      "label": "Oggetti",
+      "desc": "Attrezzature e statistiche"
+    },
+    "emblems": {
+      "label": "Emblemi",
+      "desc": "Talenti e allestimenti"
+    },
+    "news": {
+      "label": "Notizia",
+      "desc": "Il filo conduttore del gioco"
+    },
+    "watch": {
+      "label": "Il giorno prima",
+      "desc": "Fonti aggregate in tempo reale"
+    },
+    "patchNotes": {
+      "label": "Note sulla patch",
+      "desc": "Note di rilascio dettagliate"
+    },
+    "ouvrir": "Apri il menu",
+    "fermer": "Chiudi menù"
+  },
+  "compte": {
+    "connexion": "Connessione",
+    "monCompte": "Il mio conto"
+  },
+  "pied": {
+    "description": "La base di conoscenza francese su Mobile Legends: Bang Bang. Progetto indipendente, aperto a contributi.",
+    "codeSource": "Codice sorgente",
+    "leJeu": "Il gioco",
+    "actualites": "Notizia",
+    "leSite": "Il sito",
+    "apropos": "Di",
+    "apiPublique": "API pubblica",
+    "monCompte": "Il mio conto",
+    "mentionsLegales": "Avvisi legali",
+    "confidentialite": "Riservatezza",
+    "credit": "Dati provenienti da Mobile Legends Wiki (CC BY-SA) e API della community arena.rone.dev. Non sono disponibili statistiche di gioco.",
+    "droits": "progetto di fan indipendente. Contenuto pubblicato da {auteur}.",
+    "marque": "Leggende mobili: Bang Bang™ Shanghai Moonton Technology Co., Ltd."
+  },
+  "langue": {
+    "choisir": "Lingua",
+    "changer": "Cambia lingua"
+  }
+}

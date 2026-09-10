@@ -1,0 +1,81 @@
+{
+  "commun": {
+    "marque": "MLBBDex",
+    "sousTitre": "Mobile Legends Knowledge Base: Bang Bang",
+    "accueil": "Welcome",
+    "retour": "Back",
+    "changerLangue": "Change language",
+    "sourceWiki": "Mobile Legends wiki",
+    "licenceWiki": "Content taken and translated from {lien}, under CC BY-SA license.",
+    "allerAuContenu": "Go to content"
+  },
+  "nav": {
+    "baseDeDonnees": "Database",
+    "actualite": "News",
+    "heroes": {
+      "label": "Hero",
+      "desc": "Sheets, builds and analyzes"
+    },
+    "tierList": {
+      "label": "Tier list",
+      "desc": "The best of the patch"
+    },
+    "compare": {
+      "label": "Comparator",
+      "desc": "Two heroes face to face"
+    },
+    "draft": {
+      "label": "Draft",
+      "desc": "Picks and bans simulator"
+    },
+    "gameModes": {
+      "label": "Game Modes",
+      "desc": "Classic, Ranked, Fighting…"
+    },
+    "items": {
+      "label": "Objects",
+      "desc": "Equipment and statistics"
+    },
+    "emblems": {
+      "label": "Emblems",
+      "desc": "Talents and setups"
+    },
+    "news": {
+      "label": "News",
+      "desc": "The thread of the game"
+    },
+    "watch": {
+      "label": "Day before",
+      "desc": "Live Aggregated Sources"
+    },
+    "patchNotes": {
+      "label": "Patch notes",
+      "desc": "Detailed release notes"
+    },
+    "ouvrir": "Open menu",
+    "fermer": "Close menu"
+  },
+  "compte": {
+    "connexion": "Connection",
+    "monCompte": "My account"
+  },
+  "pied": {
+    "description": "The French knowledge base on Mobile Legends: Bang Bang. Independent project, open to contributions.",
+    "codeSource": "Source code",
+    "leJeu": "The game",
+    "actualites": "News",
+    "leSite": "The site",
+    "apropos": "About",
+    "apiPublique": "Public API",
+    "monCompte": "My account",
+    "mentionsLegales": "Legal notices",
+    "confidentialite": "Confidentiality",
+    "credit": "Data from the Mobile Legends Wiki (CC BY-SA) and arena.rone.dev Community API. No game statistics are available.",
+    "droits": "independent fan project. Content published by {auteur}.",
+    "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd."
+  },
+  "langue": {
+    "choisir": "Language",
+    "changer": "Change language"
+  }
+}

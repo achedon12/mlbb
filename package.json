@@ -37,7 +37,8 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "veille": "node scripts/veille.mjs"
+    "veille": "node scripts/veille.mjs",
+    "traduire:messages": "node scripts/traduire-messages.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
