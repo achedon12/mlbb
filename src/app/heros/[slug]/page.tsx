@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { donneesLd } from "@/lib/html";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -104,7 +105,7 @@ export default async function PageHeros({ params }: Params) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
 
       {/*

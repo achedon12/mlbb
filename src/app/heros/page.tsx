@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { donneesLd } from "@/lib/html";
 import { ListeHeros } from "@/components/liste-heros";
 import { EnTetePage } from "@/components/ui";
 import { heros, herosAnalyses, nombreSkins } from "@/lib/donnees";
@@ -50,7 +51,7 @@ export default function PageHeros() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <EnTetePage
         titre="Heros"

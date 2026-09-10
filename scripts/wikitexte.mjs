@@ -5,9 +5,26 @@
  * de mise en forme et des annotations de calcul (`{{scale|...}}`) qui n'ont de
  * sens que sur le wiki. On garde la phrase, on jette la mecanique d'affichage.
  */
+/**
+ * Retire toute balise HTML, jusqu'a stabilite.
+ *
+ * Un unique passage laisserait passer les balises imbriquees — retirer
+ * `<a<b>c>` peut recreer une balise valide. On repete donc tant que la chaine
+ * change, si bien qu'aucun `<...>` ne subsiste.
+ */
+export function sansBalises(texte) {
+  let sortie = String(texte);
+  let avant;
+  do {
+    avant = sortie;
+    sortie = sortie.replace(/<[^>]*>/g, "");
+  } while (sortie !== avant);
+  return sortie;
+}
+
 export function nettoyerDescription(brut) {
-  return (
-    brut
+  const sansHtml = sansBalises(
+    String(brut)
       // Annotations de calcul : elles decrivent une formule, pas un effet.
       .replace(/\{\{scale\|[^}]*\}\}/gi, "")
       // Gabarits de mise en valeur : seul le texte compte.
@@ -17,8 +34,10 @@ export function nettoyerDescription(brut) {
       .replace(/\[\[[^\]|]*\|([^\]]*)\]\]/g, "$1")
       .replace(/\[\[([^\]]*)\]\]/g, "$1")
       .replace(/<nowiki>([\s\S]*?)<\/nowiki>/g, "$1")
-      .replace(/<br\s*\/?>/gi, " ")
-      .replace(/<[^>]+>/g, "")
+      .replace(/<br\s*\/?>/gi, " "),
+  );
+  return (
+    sansHtml
       // Italique et gras du wikitexte.
       .replace(/'{2,}/g, "")
       .replace(/&ndash;/g, "–")

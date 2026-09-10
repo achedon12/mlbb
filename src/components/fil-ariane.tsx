@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { donneesLd } from "@/lib/html";
 import { ChevronRight } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -32,7 +33,7 @@ export function FilAriane({ miettes }: { miettes: Miette[] }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(donnees) }}
+        dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }}
       />
       <nav aria-label="Fil d'Ariane">
         <ol className="flex flex-wrap items-center gap-1.5 text-xs text-craie-500">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { assainirHtml } from "@/lib/html";
 import { FilAriane } from "@/components/fil-ariane";
 import type { Article } from "@/lib/types";
 import { navigation } from "@/lib/site";
@@ -82,7 +83,7 @@ export function CorpsArticle({
         <p className="mt-4 text-lg leading-relaxed text-craie-300">{article.chapeau}</p>
       </header>
 
-      <div className="prose-mlbb mt-10" dangerouslySetInnerHTML={{ __html: html }} />
+      <div className="prose-mlbb mt-10" dangerouslySetInnerHTML={{ __html: assainirHtml(html) }} />
 
       {article.motsCles.length > 0 && (
         <ul className="mt-12 flex flex-wrap gap-2 border-t border-nuit-800 pt-6">

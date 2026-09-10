@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { donneesLd } from "@/lib/html";
 import Image from "next/image";
 import { ArrowRight, Rss, Swords, TrendingUp } from "lucide-react";
 import { AccesRoles } from "@/components/acces-roles";
@@ -93,7 +94,7 @@ export default function Accueil() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
 
       {/* ── Bandeau d'accroche ─────────────────────────────────────────── */}

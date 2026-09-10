@@ -19,7 +19,7 @@ import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyserTableLua } from "./lua.mjs";
 import { decouperSections, nettoyerRendu, nouveauxHeros, sommaire } from "./patch-notes.mjs";
-import { nettoyerDescription } from "./wikitexte.mjs";
+import { nettoyerDescription, sansBalises } from "./wikitexte.mjs";
 import { ajustementsHeros, bilan } from "./patch-parser.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
@@ -515,7 +515,7 @@ function extraireDePage(wikitexte) {
       return {
         position,
         type: "competence",
-        valeur: corps.match(/\|?\s*name\s*=\s*(.+)/)?.[1]?.replace(/<[^>]*>/g, "").trim(),
+        valeur: sansBalises(corps.match(/\|?\s*name\s*=\s*(.+)/)?.[1] ?? "").trim() || undefined,
         description: description ? nettoyerDescription(description) : null,
         // Le nom du fichier d'icone, souvent distinct du nom affiche : la
         // competence « Contract: Transform » a pour image « Contract Transform »
@@ -998,11 +998,7 @@ async function lireJson(chemin) {
 
 /** Nettoie une description de competence renvoyee par l'API (balises, sauts). */
 function nettoyerSkillDesc(brut) {
-  return String(brut ?? "")
-    .replace(/<font[^>]*>/gi, "")
-    .replace(/<\/font>/gi, "")
-    .replace(/<br\s*\/?>/gi, " ")
-    .replace(/<[^>]+>/g, "")
+  return sansBalises(String(brut ?? "").replace(/<br\s*\/?>/gi, " "))
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
     .replace(/\r/g, "")
