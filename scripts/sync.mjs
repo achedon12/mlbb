@@ -1326,6 +1326,19 @@ async function principal() {
   const emblemesRangs = await rangs();
   console.log(`  ${Object.keys(emblemesRangs.images).length} emblemes`);
 
+  // Emblemes de rang copies en local, comme le reste : aucune image servie
+  // depuis un hote externe a l'execution.
+  for (const [cle, url] of Object.entries(emblemesRangs.images)) {
+    if (!url || url.startsWith("/")) continue;
+    plan.push({
+      url,
+      chemin: `public/visuels/rangs/${cle}.webp`,
+      optimiser: true,
+      largeur: 160,
+    });
+    emblemesRangs.images[cle] = `/visuels/rangs/${cle}.webp`;
+  }
+
   console.log("Modes de jeu…");
   const modes = await modesDeJeu();
   console.log(`  ${modes.length} modes (${modes.filter((m) => m.description).length} decrits)`);
