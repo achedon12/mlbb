@@ -253,3 +253,31 @@ export interface ModeDeJeu {
   description: string | null;
   image: string | null;
 }
+
+/**
+ * Fiche narrative d'un heros, extraite du gabarit `{{Infobox hero story}}`
+ * du wiki. Chaque champ est optionnel : le wiki les remplit inegalement.
+ */
+export interface FicheHistoire {
+  nomComplet: string | null;
+  titre: string | null;
+  espece: string | null;
+  genre: string | null;
+  age: string | null;
+  origine: string | null;
+  anniversaire: string | null;
+  affiliations: string[];
+  relations: string[];
+  pouvoirs: string[];
+}
+
+/**
+ * Histoire d'un heros. Trois apports : l'accroche d'une ligne de l'API, le
+ * recit long du wiki (en paragraphes), la fiche narrative et les anecdotes.
+ */
+export interface HistoireHeros {
+  accroche: string | null;
+  lore: string[];
+  fiche: FicheHistoire | null;
+  anecdotes: string[];
+}

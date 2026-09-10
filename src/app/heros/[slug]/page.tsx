@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
 import { CompetencesHeros } from "@/components/competences-heros";
+import { HistoireHeros } from "@/components/histoire-heros";
 import { FilAriane } from "@/components/fil-ariane";
 
 import { ContresChiffres } from "@/components/contres-chiffres";
@@ -25,6 +26,7 @@ import {
   contres,
   heros,
   herosParSlug,
+  histoires,
   illustrations,
   videos,
   visuelsCompetences,
@@ -77,6 +79,9 @@ export default async function PageHeros({ params }: Params) {
   const fond = Object.values(illustrationsHeros)[0] ?? null;
   const video = videos[h.slug] ?? null;
   const contresHeros = contres[h.slug] ?? null;
+  const histoire = histoires[h.slug] ?? null;
+  const aHistoire =
+    !!histoire && (histoire.lore.length > 0 || !!histoire.fiche || histoire.anecdotes.length > 0);
 
   // Jointure des trois sources : le skin porte son id, son portrait (par id) et
   // son illustration (par nom). La vitrine s'en sert pour tout synchroniser.
@@ -313,6 +318,11 @@ export default async function PageHeros({ params }: Params) {
                   </a>
                 </Carte>
               ),
+            },
+            {
+              id: "histoire",
+              label: "Histoire",
+              contenu: aHistoire ? <HistoireHeros histoire={histoire} nom={h.nom} /> : null,
             },
             {
               id: "competences",
