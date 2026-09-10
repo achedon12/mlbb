@@ -17,13 +17,13 @@ committée.
 
 | Commande | Effet |
 | --- | --- |
-| `npm run sync` | Relit les sources et régénère `src/data/genere/` |
+| `npm run sync` | Relit les sources et régénère `src/data/jeu/` |
 | `npm run sync -- --images` | Idem, en téléchargeant aussi les visuels en local |
 | `npm run traduire` | Traduit en français les histoires et les compétences |
 
 ## Ce que produit la synchronisation
 
-`src/data/genere/` : `heros.json`, `skins.json`, `objets.json`, `patchs.json`,
+`src/data/jeu/` : `heros.json`, `skins.json`, `objets.json`, `patchs.json`,
 `patchs-detail.json`, `competences.json`, `contres.json`, `classement.json`,
 `histoires.json`, `modes.json`, `rangs.json`, et les tables de visuels.
 

@@ -1,0 +1,9824 @@
+{
+  "classement": {
+    "mesure": "2026-09-10T06:21:42.358Z",
+    "taux": {
+      "marcel": {
+        "victoire": 58.68,
+        "ban": 36.56,
+        "selection": 0.29
+      },
+      "rafaela": {
+        "victoire": 58.49,
+        "ban": 16.23,
+        "selection": 1.27
+      },
+      "melissa": {
+        "victoire": 56.85,
+        "ban": 23.81,
+        "selection": 1.72
+      },
+      "masha": {
+        "victoire": 56.33,
+        "ban": 0.27,
+        "selection": 0.11
+      },
+      "gloo": {
+        "victoire": 54.71,
+        "ban": 48.44,
+        "selection": 0.7
+      },
+      "khufra": {
+        "victoire": 54.52,
+        "ban": 2.12,
+        "selection": 0.34
+      },
+      "minotaur": {
+        "victoire": 54.51,
+        "ban": 5.13,
+        "selection": 0.9
+      },
+      "estes": {
+        "victoire": 54.2,
+        "ban": 38.71,
+        "selection": 0.72
+      },
+      "lolita": {
+        "victoire": 53.75,
+        "ban": 0.29,
+        "selection": 0.09
+      },
+      "miya": {
+        "victoire": 53.52,
+        "ban": 21.11,
+        "selection": 3.6
+      },
+      "floryn": {
+        "victoire": 53.41,
+        "ban": 17.7,
+        "selection": 1.2
+      },
+      "lukas": {
+        "victoire": 53.33,
+        "ban": 4.96,
+        "selection": 0.64
+      },
+      "diggie": {
+        "victoire": 53.23,
+        "ban": 4.62,
+        "selection": 0.21
+      },
+      "barats": {
+        "victoire": 52.95,
+        "ban": 8.96,
+        "selection": 1.02
+      },
+      "sun": {
+        "victoire": 52.94,
+        "ban": 33.14,
+        "selection": 1.5
+      },
+      "belerick": {
+        "victoire": 52.92,
+        "ban": 60.98,
+        "selection": 1.65
+      },
+      "valir": {
+        "victoire": 52.83,
+        "ban": 2.01,
+        "selection": 0.87
+      },
+      "hanabi": {
+        "victoire": 52.62,
+        "ban": 11.24,
+        "selection": 3.25
+      },
+      "eudora": {
+        "victoire": 52.51,
+        "ban": 61.73,
+        "selection": 1.87
+      },
+      "popol-and-kupa": {
+        "victoire": 52.46,
+        "ban": 0.22,
+        "selection": 0.27
+      },
+      "gord": {
+        "victoire": 52.31,
+        "ban": 1.15,
+        "selection": 0.77
+      },
+      "benedetta": {
+        "victoire": 52.26,
+        "ban": 0.46,
+        "selection": 0.37
+      },
+      "zhask": {
+        "victoire": 52.22,
+        "ban": 0.54,
+        "selection": 0.35
+      },
+      "ling": {
+        "victoire": 52.09,
+        "ban": 2.12,
+        "selection": 0.8
+      },
+      "carmilla": {
+        "victoire": 52.05,
+        "ban": 3.01,
+        "selection": 0.96
+      },
+      "yi-sun-shin": {
+        "victoire": 52.04,
+        "ban": 14.36,
+        "selection": 1.9
+      },
+      "hirara": {
+        "victoire": 51.99,
+        "ban": 62.62,
+        "selection": 0.65
+      },
+      "atlas": {
+        "victoire": 51.8,
+        "ban": 20.51,
+        "selection": 1.13
+      },
+      "bane": {
+        "victoire": 51.74,
+        "ban": 0.21,
+        "selection": 0.31
+      },
+      "silvanna": {
+        "victoire": 51.59,
+        "ban": 2.35,
+        "selection": 1.09
+      },
+      "kadita": {
+        "victoire": 51.47,
+        "ban": 4.54,
+        "selection": 0.88
+      },
+      "fredrinn": {
+        "victoire": 51.25,
+        "ban": 2.75,
+        "selection": 0.53
+      },
+      "natalia": {
+        "victoire": 51.21,
+        "ban": 2.39,
+        "selection": 0.33
+      },
+      "cyclops": {
+        "victoire": 51.15,
+        "ban": 0.33,
+        "selection": 0.66
+      },
+      "yve": {
+        "victoire": 51.14,
+        "ban": 0.06,
+        "selection": 0.05
+      },
+      "minsitthar": {
+        "victoire": 51.05,
+        "ban": 9.18,
+        "selection": 0.68
+      },
+      "kagura": {
+        "victoire": 51.02,
+        "ban": 1.04,
+        "selection": 0.69
+      },
+      "paquito": {
+        "victoire": 50.9,
+        "ban": 51.25,
+        "selection": 1.81
+      },
+      "edith": {
+        "victoire": 50.89,
+        "ban": 0.12,
+        "selection": 0.22
+      },
+      "leomord": {
+        "victoire": 50.89,
+        "ban": 0.78,
+        "selection": 0.34
+      },
+      "zetian": {
+        "victoire": 50.88,
+        "ban": 6.83,
+        "selection": 1.56
+      },
+      "guinevere": {
+        "victoire": 50.83,
+        "ban": 8.32,
+        "selection": 1.13
+      },
+      "irithel": {
+        "victoire": 50.79,
+        "ban": 0.35,
+        "selection": 0.43
+      },
+      "khaleed": {
+        "victoire": 50.78,
+        "ban": 0.12,
+        "selection": 0.14
+      },
+      "uranus": {
+        "victoire": 50.74,
+        "ban": 0.56,
+        "selection": 0.43
+      },
+      "alice": {
+        "victoire": 50.62,
+        "ban": 3.6,
+        "selection": 0.58
+      },
+      "aamon": {
+        "victoire": 50.58,
+        "ban": 3.63,
+        "selection": 0.74
+      },
+      "faramis": {
+        "victoire": 50.57,
+        "ban": 0.33,
+        "selection": 0.09
+      },
+      "hilda": {
+        "victoire": 50.55,
+        "ban": 5.23,
+        "selection": 0.59
+      },
+      "terizla": {
+        "victoire": 50.52,
+        "ban": 0.26,
+        "selection": 0.37
+      },
+      "aulus": {
+        "victoire": 50.51,
+        "ban": 0.24,
+        "selection": 0.16
+      },
+      "badang": {
+        "victoire": 50.43,
+        "ban": 1.08,
+        "selection": 1.01
+      },
+      "obsidia": {
+        "victoire": 50.3,
+        "ban": 2.02,
+        "selection": 0.96
+      },
+      "saber": {
+        "victoire": 50.29,
+        "ban": 27.03,
+        "selection": 1.03
+      },
+      "odette": {
+        "victoire": 50.27,
+        "ban": 0.33,
+        "selection": 0.56
+      },
+      "vexana": {
+        "victoire": 50.22,
+        "ban": 1.83,
+        "selection": 1.82
+      },
+      "julian": {
+        "victoire": 50.21,
+        "ban": 1.64,
+        "selection": 0.91
+      },
+      "akai": {
+        "victoire": 50.18,
+        "ban": 3.59,
+        "selection": 0.46
+      },
+      "vale": {
+        "victoire": 50.13,
+        "ban": 0.31,
+        "selection": 0.57
+      },
+      "cecilion": {
+        "victoire": 50.1,
+        "ban": 0.22,
+        "selection": 0.62
+      },
+      "dyrroth": {
+        "victoire": 50.08,
+        "ban": 2.7,
+        "selection": 2.04
+      },
+      "x-borg": {
+        "victoire": 49.71,
+        "ban": 2.71,
+        "selection": 0.63
+      },
+      "johnson": {
+        "victoire": 49.6,
+        "ban": 2.33,
+        "selection": 0.71
+      },
+      "hanzo": {
+        "victoire": 49.53,
+        "ban": 42.57,
+        "selection": 0.69
+      },
+      "sora": {
+        "victoire": 49.48,
+        "ban": 4.81,
+        "selection": 0.61
+      },
+      "beatrix": {
+        "victoire": 49.44,
+        "ban": 0.64,
+        "selection": 0.72
+      },
+      "suyou": {
+        "victoire": 49.39,
+        "ban": 1.53,
+        "selection": 0.95
+      },
+      "thamuz": {
+        "victoire": 49.23,
+        "ban": 2.51,
+        "selection": 0.91
+      },
+      "ruby": {
+        "victoire": 49.14,
+        "ban": 0.44,
+        "selection": 0.36
+      },
+      "roger": {
+        "victoire": 49.13,
+        "ban": 0.11,
+        "selection": 0.3
+      },
+      "natan": {
+        "victoire": 49.08,
+        "ban": 0.15,
+        "selection": 0.29
+      },
+      "lunox": {
+        "victoire": 49.06,
+        "ban": 0.18,
+        "selection": 0.22
+      },
+      "yin": {
+        "victoire": 49.04,
+        "ban": 2.38,
+        "selection": 0.57
+      },
+      "alucard": {
+        "victoire": 49,
+        "ban": 0.38,
+        "selection": 0.46
+      },
+      "yu-zhong": {
+        "victoire": 48.95,
+        "ban": 1.26,
+        "selection": 0.66
+      },
+      "hayabusa": {
+        "victoire": 48.88,
+        "ban": 3.85,
+        "selection": 0.92
+      },
+      "lylia": {
+        "victoire": 48.85,
+        "ban": 0.56,
+        "selection": 0.51
+      },
+      "novaria": {
+        "victoire": 48.83,
+        "ban": 7.3,
+        "selection": 1.78
+      },
+      "gusion": {
+        "victoire": 48.79,
+        "ban": 6,
+        "selection": 1.46
+      },
+      "aurora": {
+        "victoire": 48.77,
+        "ban": 0.51,
+        "selection": 0.61
+      },
+      "joy": {
+        "victoire": 48.73,
+        "ban": 0.27,
+        "selection": 0.16
+      },
+      "xavier": {
+        "victoire": 48.65,
+        "ban": 0.19,
+        "selection": 0.67
+      },
+      "aldous": {
+        "victoire": 48.64,
+        "ban": 0.51,
+        "selection": 0.37
+      },
+      "nolan": {
+        "victoire": 48.6,
+        "ban": 1.11,
+        "selection": 0.62
+      },
+      "angela": {
+        "victoire": 48.54,
+        "ban": 10.15,
+        "selection": 1.67
+      },
+      "moskov": {
+        "victoire": 48.43,
+        "ban": 0.36,
+        "selection": 0.97
+      },
+      "chang-e": {
+        "victoire": 48.38,
+        "ban": 0.5,
+        "selection": 0.7
+      },
+      "selena": {
+        "victoire": 48.37,
+        "ban": 5.16,
+        "selection": 1.42
+      },
+      "chip": {
+        "victoire": 48.35,
+        "ban": 0.42,
+        "selection": 0.05
+      },
+      "lapu-lapu": {
+        "victoire": 48.3,
+        "ban": 0.65,
+        "selection": 0.41
+      },
+      "esmeralda": {
+        "victoire": 48.3,
+        "ban": 2.8,
+        "selection": 0.97
+      },
+      "helcurt": {
+        "victoire": 48.18,
+        "ban": 12.89,
+        "selection": 0.7
+      },
+      "arlott": {
+        "victoire": 48.14,
+        "ban": 0.39,
+        "selection": 0.38
+      },
+      "brody": {
+        "victoire": 48.08,
+        "ban": 0.78,
+        "selection": 0.67
+      },
+      "zhuxin": {
+        "victoire": 48.07,
+        "ban": 0.46,
+        "selection": 0.12
+      },
+      "clint": {
+        "victoire": 48.07,
+        "ban": 0.54,
+        "selection": 0.61
+      },
+      "jawhead": {
+        "victoire": 48.05,
+        "ban": 0.4,
+        "selection": 0.39
+      },
+      "ixia": {
+        "victoire": 47.93,
+        "ban": 1.24,
+        "selection": 0.77
+      },
+      "hylos": {
+        "victoire": 47.91,
+        "ban": 0.46,
+        "selection": 0.33
+      },
+      "phoveus": {
+        "victoire": 47.8,
+        "ban": 0.77,
+        "selection": 0.27
+      },
+      "harley": {
+        "victoire": 47.7,
+        "ban": 8.48,
+        "selection": 1.01
+      },
+      "kimmy": {
+        "victoire": 47.7,
+        "ban": 0.36,
+        "selection": 0.51
+      },
+      "nana": {
+        "victoire": 47.54,
+        "ban": 4.73,
+        "selection": 1.83
+      },
+      "freya": {
+        "victoire": 47.52,
+        "ban": 2.07,
+        "selection": 0.55
+      },
+      "kaja": {
+        "victoire": 47.47,
+        "ban": 35.82,
+        "selection": 0.58
+      },
+      "grock": {
+        "victoire": 47.41,
+        "ban": 0.93,
+        "selection": 0.34
+      },
+      "layla": {
+        "victoire": 47.41,
+        "ban": 1.36,
+        "selection": 1.16
+      },
+      "pharsa": {
+        "victoire": 47.37,
+        "ban": 0.28,
+        "selection": 0.38
+      },
+      "luo-yi": {
+        "victoire": 47.37,
+        "ban": 0.08,
+        "selection": 0.15
+      },
+      "martis": {
+        "victoire": 47.32,
+        "ban": 0.55,
+        "selection": 0.55
+      },
+      "bruno": {
+        "victoire": 47.24,
+        "ban": 0.12,
+        "selection": 0.14
+      },
+      "baxia": {
+        "victoire": 46.98,
+        "ban": 0.14,
+        "selection": 0.06
+      },
+      "balmond": {
+        "victoire": 46.74,
+        "ban": 0.63,
+        "selection": 0.78
+      },
+      "alpha": {
+        "victoire": 46.57,
+        "ban": 0.61,
+        "selection": 0.91
+      },
+      "cici": {
+        "victoire": 46.43,
+        "ban": 0.88,
+        "selection": 0.24
+      },
+      "lesley": {
+        "victoire": 46.41,
+        "ban": 11.23,
+        "selection": 1.73
+      },
+      "claude": {
+        "victoire": 46.37,
+        "ban": 0.3,
+        "selection": 0.75
+      },
+      "karrie": {
+        "victoire": 46.25,
+        "ban": 1.22,
+        "selection": 0.53
+      },
+      "zilong": {
+        "victoire": 46.16,
+        "ban": 0.71,
+        "selection": 0.79
+      },
+      "karina": {
+        "victoire": 46.06,
+        "ban": 1.8,
+        "selection": 0.56
+      },
+      "gatotkaca": {
+        "victoire": 45.89,
+        "ban": 0.42,
+        "selection": 0.61
+      },
+      "harith": {
+        "victoire": 45.72,
+        "ban": 0.11,
+        "selection": 0.14
+      },
+      "tigreal": {
+        "victoire": 45.51,
+        "ban": 7.71,
+        "selection": 1.91
+      },
+      "chou": {
+        "victoire": 45.39,
+        "ban": 3.43,
+        "selection": 0.97
+      },
+      "wanwan": {
+        "victoire": 45.39,
+        "ban": 0.16,
+        "selection": 0.12
+      },
+      "mathilda": {
+        "victoire": 44.79,
+        "ban": 0.36,
+        "selection": 0.2
+      },
+      "valentina": {
+        "victoire": 44.26,
+        "ban": 0.16,
+        "selection": 0.16
+      },
+      "kalea": {
+        "victoire": 43.45,
+        "ban": 0.28,
+        "selection": 0.1
+      },
+      "lancelot": {
+        "victoire": 42.74,
+        "ban": 0.62,
+        "selection": 0.5
+      },
+      "franco": {
+        "victoire": 42.73,
+        "ban": 4.4,
+        "selection": 1
+      },
+      "fanny": {
+        "victoire": 42.07,
+        "ban": 2.22,
+        "selection": 0.57
+      },
+      "granger": {
+        "victoire": 41.54,
+        "ban": 1.83,
+        "selection": 1.17
+      }
+    }
+  },
+  "contres": {
+    "aamon": {
+      "fort": [
+        {
+          "slug": "cici",
+          "avantage": 3.3
+        },
+        {
+          "slug": "marcel",
+          "avantage": 3.2
+        },
+        {
+          "slug": "masha",
+          "avantage": 2.8
+        },
+        {
+          "slug": "claude",
+          "avantage": 2.8
+        },
+        {
+          "slug": "hilda",
+          "avantage": 2.1
+        },
+        {
+          "slug": "yi-sun-shin",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "gloo",
+          "avantage": -4.3
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": -3
+        },
+        {
+          "slug": "lolita",
+          "avantage": -2.8
+        },
+        {
+          "slug": "silvanna",
+          "avantage": -2.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.5
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": -2.1
+        }
+      ],
+      "mesure": 50.6
+    },
+    "akai": {
+      "fort": [
+        {
+          "slug": "alucard",
+          "avantage": 2.1
+        },
+        {
+          "slug": "harith",
+          "avantage": 2
+        },
+        {
+          "slug": "nana",
+          "avantage": 1.9
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.8
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.7
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "marcel",
+          "avantage": -3.6
+        },
+        {
+          "slug": "alice",
+          "avantage": -2.9
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -2.7
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -2.5
+        },
+        {
+          "slug": "chip",
+          "avantage": -2.3
+        },
+        {
+          "slug": "yve",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 50.2
+    },
+    "aldous": {
+      "fort": [
+        {
+          "slug": "sun",
+          "avantage": 4.2
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 2.2
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 2.1
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.1
+        },
+        {
+          "slug": "belerick",
+          "avantage": 1.8
+        },
+        {
+          "slug": "novaria",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "esmeralda",
+          "avantage": -2.6
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -2.5
+        },
+        {
+          "slug": "karina",
+          "avantage": -2.2
+        },
+        {
+          "slug": "obsidia",
+          "avantage": -2
+        },
+        {
+          "slug": "brody",
+          "avantage": -1.9
+        },
+        {
+          "slug": "angela",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 49.4
+    },
+    "alice": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 4.3
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 3.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": 3.5
+        },
+        {
+          "slug": "chip",
+          "avantage": 3.3
+        },
+        {
+          "slug": "johnson",
+          "avantage": 3.1
+        },
+        {
+          "slug": "barats",
+          "avantage": 3.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "karrie",
+          "avantage": -4.5
+        },
+        {
+          "slug": "angela",
+          "avantage": -4.5
+        },
+        {
+          "slug": "floryn",
+          "avantage": -3.7
+        },
+        {
+          "slug": "valir",
+          "avantage": -3.3
+        },
+        {
+          "slug": "estes",
+          "avantage": -3.1
+        },
+        {
+          "slug": "edith",
+          "avantage": -3
+        }
+      ],
+      "mesure": 50.5
+    },
+    "alpha": {
+      "fort": [
+        {
+          "slug": "odette",
+          "avantage": 2.8
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.5
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.4
+        },
+        {
+          "slug": "barats",
+          "avantage": 2.4
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.2
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "benedetta",
+          "avantage": -4.3
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -3.3
+        },
+        {
+          "slug": "ling",
+          "avantage": -3.1
+        },
+        {
+          "slug": "diggie",
+          "avantage": -3
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -2.7
+        },
+        {
+          "slug": "kaja",
+          "avantage": -2.5
+        }
+      ],
+      "mesure": 46.3
+    },
+    "alucard": {
+      "fort": [
+        {
+          "slug": "sun",
+          "avantage": 3.5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.6
+        },
+        {
+          "slug": "irithel",
+          "avantage": 2.1
+        },
+        {
+          "slug": "saber",
+          "avantage": 1.9
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "fredrinn",
+          "avantage": -2.9
+        },
+        {
+          "slug": "barats",
+          "avantage": -2.8
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2.7
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.7
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -2.4
+        },
+        {
+          "slug": "thamuz",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 49.1
+    },
+    "angela": {
+      "fort": [
+        {
+          "slug": "marcel",
+          "avantage": 5.2
+        },
+        {
+          "slug": "alice",
+          "avantage": 4.5
+        },
+        {
+          "slug": "balmond",
+          "avantage": 3.3
+        },
+        {
+          "slug": "faramis",
+          "avantage": 3.1
+        },
+        {
+          "slug": "lancelot",
+          "avantage": 3.1
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -3.8
+        },
+        {
+          "slug": "franco",
+          "avantage": -2.4
+        },
+        {
+          "slug": "silvanna",
+          "avantage": -2.2
+        },
+        {
+          "slug": "nolan",
+          "avantage": -1.9
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -1.9
+        },
+        {
+          "slug": "masha",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 48.9
+    },
+    "arlott": {
+      "fort": [
+        {
+          "slug": "x-borg",
+          "avantage": 2.9
+        },
+        {
+          "slug": "natan",
+          "avantage": 2.5
+        },
+        {
+          "slug": "khufra",
+          "avantage": 2.4
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2.3
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 2
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "zhask",
+          "avantage": -2.5
+        },
+        {
+          "slug": "masha",
+          "avantage": -2.3
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2.1
+        },
+        {
+          "slug": "chip",
+          "avantage": -2
+        },
+        {
+          "slug": "lukas",
+          "avantage": -1.9
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 48.2
+    },
+    "atlas": {
+      "fort": [
+        {
+          "slug": "layla",
+          "avantage": 4.4
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 4.4
+        },
+        {
+          "slug": "estes",
+          "avantage": 3.6
+        },
+        {
+          "slug": "lolita",
+          "avantage": 3.2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 3.1
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 2.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "marcel",
+          "avantage": -5.9
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -3.7
+        },
+        {
+          "slug": "alice",
+          "avantage": -3.5
+        },
+        {
+          "slug": "valentina",
+          "avantage": -3.4
+        },
+        {
+          "slug": "ling",
+          "avantage": -2.8
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -2.5
+        }
+      ],
+      "mesure": 51.5
+    },
+    "aulus": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 3
+        },
+        {
+          "slug": "masha",
+          "avantage": 2.9
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.9
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.4
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 2.2
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "estes",
+          "avantage": -2.3
+        },
+        {
+          "slug": "angela",
+          "avantage": -2.2
+        },
+        {
+          "slug": "yve",
+          "avantage": -1.9
+        },
+        {
+          "slug": "floryn",
+          "avantage": -1.9
+        },
+        {
+          "slug": "edith",
+          "avantage": -1.8
+        },
+        {
+          "slug": "karrie",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 50.4
+    },
+    "aurora": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 4.6
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.1
+        },
+        {
+          "slug": "odette",
+          "avantage": 2
+        },
+        {
+          "slug": "eudora",
+          "avantage": 1.8
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 1.6
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "diggie",
+          "avantage": -2.3
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -1.8
+        },
+        {
+          "slug": "yin",
+          "avantage": -1.7
+        },
+        {
+          "slug": "lancelot",
+          "avantage": -1.6
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": -1.5
+        },
+        {
+          "slug": "fanny",
+          "avantage": -1.4
+        }
+      ],
+      "mesure": 48.8
+    },
+    "badang": {
+      "fort": [
+        {
+          "slug": "fanny",
+          "avantage": 2.8
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.7
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.3
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": 1.3
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.2
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "esmeralda",
+          "avantage": -2.2
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2
+        },
+        {
+          "slug": "diggie",
+          "avantage": -2
+        },
+        {
+          "slug": "karina",
+          "avantage": -1.9
+        },
+        {
+          "slug": "khufra",
+          "avantage": -1.9
+        },
+        {
+          "slug": "alice",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 50.4
+    },
+    "balmond": {
+      "fort": [
+        {
+          "slug": "lukas",
+          "avantage": 3.2
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.7
+        },
+        {
+          "slug": "barats",
+          "avantage": 2.4
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.2
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2
+        },
+        {
+          "slug": "martis",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "cici",
+          "avantage": -4.6
+        },
+        {
+          "slug": "diggie",
+          "avantage": -3.8
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -3.8
+        },
+        {
+          "slug": "angela",
+          "avantage": -3.3
+        },
+        {
+          "slug": "valir",
+          "avantage": -3.2
+        },
+        {
+          "slug": "karrie",
+          "avantage": -3.1
+        }
+      ],
+      "mesure": 46.7
+    },
+    "bane": {
+      "fort": [
+        {
+          "slug": "phoveus",
+          "avantage": 2.7
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.5
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.5
+        },
+        {
+          "slug": "khufra",
+          "avantage": 2.2
+        },
+        {
+          "slug": "odette",
+          "avantage": 1.9
+        },
+        {
+          "slug": "belerick",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -4.3
+        },
+        {
+          "slug": "nolan",
+          "avantage": -2.6
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2
+        },
+        {
+          "slug": "yve",
+          "avantage": -1.8
+        },
+        {
+          "slug": "novaria",
+          "avantage": -1.8
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 51.5
+    },
+    "barats": {
+      "fort": [
+        {
+          "slug": "silvanna",
+          "avantage": 3.3
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.9
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2.8
+        },
+        {
+          "slug": "brody",
+          "avantage": 2.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.9
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "x-borg",
+          "avantage": -5.3
+        },
+        {
+          "slug": "gord",
+          "avantage": -3.7
+        },
+        {
+          "slug": "alice",
+          "avantage": -3.1
+        },
+        {
+          "slug": "yve",
+          "avantage": -3
+        },
+        {
+          "slug": "uranus",
+          "avantage": -2.6
+        },
+        {
+          "slug": "valir",
+          "avantage": -2.6
+        }
+      ],
+      "mesure": 52.7
+    },
+    "baxia": {
+      "fort": [
+        {
+          "slug": "obsidia",
+          "avantage": 3.3
+        },
+        {
+          "slug": "lukas",
+          "avantage": 2.8
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.7
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2.6
+        },
+        {
+          "slug": "claude",
+          "avantage": 2.3
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "x-borg",
+          "avantage": -5.1
+        },
+        {
+          "slug": "beatrix",
+          "avantage": -3.3
+        },
+        {
+          "slug": "karrie",
+          "avantage": -3.2
+        },
+        {
+          "slug": "lesley",
+          "avantage": -3.1
+        },
+        {
+          "slug": "bane",
+          "avantage": -2.5
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 46.9
+    },
+    "beatrix": {
+      "fort": [
+        {
+          "slug": "estes",
+          "avantage": 5.2
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 3.3
+        },
+        {
+          "slug": "belerick",
+          "avantage": 3.3
+        },
+        {
+          "slug": "baxia",
+          "avantage": 3.3
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.8
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "irithel",
+          "avantage": -2.8
+        },
+        {
+          "slug": "moskov",
+          "avantage": -2.7
+        },
+        {
+          "slug": "granger",
+          "avantage": -2.5
+        },
+        {
+          "slug": "kaja",
+          "avantage": -2.5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -2.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 49.8
+    },
+    "belerick": {
+      "fort": [
+        {
+          "slug": "silvanna",
+          "avantage": 2.6
+        },
+        {
+          "slug": "zhask",
+          "avantage": 2.5
+        },
+        {
+          "slug": "miya",
+          "avantage": 2.4
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.4
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.3
+        },
+        {
+          "slug": "zilong",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "beatrix",
+          "avantage": -3.3
+        },
+        {
+          "slug": "lesley",
+          "avantage": -3.2
+        },
+        {
+          "slug": "brody",
+          "avantage": -3
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2.9
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2.5
+        },
+        {
+          "slug": "natalia",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 53.2
+    },
+    "benedetta": {
+      "fort": [
+        {
+          "slug": "alpha",
+          "avantage": 4.3
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 3.9
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 3.2
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 2.7
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 2.5
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -4.1
+        },
+        {
+          "slug": "obsidia",
+          "avantage": -3.3
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -2.6
+        },
+        {
+          "slug": "bruno",
+          "avantage": -2.4
+        },
+        {
+          "slug": "irithel",
+          "avantage": -2.3
+        },
+        {
+          "slug": "masha",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 52.3
+    },
+    "brody": {
+      "fort": [
+        {
+          "slug": "karina",
+          "avantage": 4.3
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.2
+        },
+        {
+          "slug": "belerick",
+          "avantage": 3
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 2.6
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.3
+        },
+        {
+          "slug": "irithel",
+          "avantage": 2.3
+        }
+      ],
+      "faible": [
+        {
+          "slug": "masha",
+          "avantage": -2.8
+        },
+        {
+          "slug": "barats",
+          "avantage": -2.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": -2.3
+        },
+        {
+          "slug": "saber",
+          "avantage": -1.7
+        },
+        {
+          "slug": "lukas",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 48.3
+    },
+    "bruno": {
+      "fort": [
+        {
+          "slug": "wanwan",
+          "avantage": 4.1
+        },
+        {
+          "slug": "fanny",
+          "avantage": 3
+        },
+        {
+          "slug": "ling",
+          "avantage": 2.7
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.4
+        },
+        {
+          "slug": "harith",
+          "avantage": 2.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -3.8
+        },
+        {
+          "slug": "lesley",
+          "avantage": -2.4
+        },
+        {
+          "slug": "layla",
+          "avantage": -2.1
+        },
+        {
+          "slug": "saber",
+          "avantage": -1.8
+        },
+        {
+          "slug": "jawhead",
+          "avantage": -1.8
+        },
+        {
+          "slug": "aamon",
+          "avantage": -1.6
+        }
+      ],
+      "mesure": 47.4
+    },
+    "carmilla": {
+      "fort": [
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 4.1
+        },
+        {
+          "slug": "chip",
+          "avantage": 3.6
+        },
+        {
+          "slug": "gloo",
+          "avantage": 2.7
+        },
+        {
+          "slug": "hilda",
+          "avantage": 2.3
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.3
+        },
+        {
+          "slug": "estes",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "valentina",
+          "avantage": -3.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2.8
+        },
+        {
+          "slug": "lesley",
+          "avantage": -2.2
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -2
+        },
+        {
+          "slug": "natalia",
+          "avantage": -1.9
+        },
+        {
+          "slug": "angela",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 51.9
+    },
+    "cecilion": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 3.8
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 1.8
+        },
+        {
+          "slug": "barats",
+          "avantage": 1.7
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.4
+        },
+        {
+          "slug": "uranus",
+          "avantage": 1.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "ixia",
+          "avantage": -1.8
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": -1.6
+        },
+        {
+          "slug": "helcurt",
+          "avantage": -1.4
+        },
+        {
+          "slug": "natalia",
+          "avantage": -1.4
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -1.2
+        },
+        {
+          "slug": "zilong",
+          "avantage": -1.2
+        }
+      ],
+      "mesure": 49.9
+    },
+    "chang-e": {
+      "fort": [
+        {
+          "slug": "diggie",
+          "avantage": 2.8
+        },
+        {
+          "slug": "masha",
+          "avantage": 2.5
+        },
+        {
+          "slug": "aulus",
+          "avantage": 1.5
+        },
+        {
+          "slug": "martis",
+          "avantage": 1.5
+        },
+        {
+          "slug": "valir",
+          "avantage": 1.5
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -5.6
+        },
+        {
+          "slug": "gloo",
+          "avantage": -2.9
+        },
+        {
+          "slug": "claude",
+          "avantage": -2.7
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -2.2
+        },
+        {
+          "slug": "atlas",
+          "avantage": -1.9
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 48.3
+    },
+    "chip": {
+      "fort": [
+        {
+          "slug": "masha",
+          "avantage": 3.4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.9
+        },
+        {
+          "slug": "paquito",
+          "avantage": 2.8
+        },
+        {
+          "slug": "selena",
+          "avantage": 2.6
+        },
+        {
+          "slug": "gloo",
+          "avantage": 2.5
+        },
+        {
+          "slug": "kagura",
+          "avantage": 2.3
+        }
+      ],
+      "faible": [
+        {
+          "slug": "carmilla",
+          "avantage": -3.6
+        },
+        {
+          "slug": "alice",
+          "avantage": -3.3
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2.7
+        },
+        {
+          "slug": "melissa",
+          "avantage": -2.7
+        },
+        {
+          "slug": "odette",
+          "avantage": -2.6
+        },
+        {
+          "slug": "hanabi",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 48
+    },
+    "chou": {
+      "fort": [
+        {
+          "slug": "x-borg",
+          "avantage": 3
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2.5
+        },
+        {
+          "slug": "yve",
+          "avantage": 2
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2
+        },
+        {
+          "slug": "karrie",
+          "avantage": 1.7
+        },
+        {
+          "slug": "ixia",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -2.5
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -2.2
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -2.2
+        },
+        {
+          "slug": "khufra",
+          "avantage": -1.8
+        },
+        {
+          "slug": "sun",
+          "avantage": -1.7
+        },
+        {
+          "slug": "barats",
+          "avantage": -1.4
+        }
+      ],
+      "mesure": 45.6
+    },
+    "cici": {
+      "fort": [
+        {
+          "slug": "balmond",
+          "avantage": 4.6
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 4
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.9
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 2.2
+        },
+        {
+          "slug": "akai",
+          "avantage": 2
+        },
+        {
+          "slug": "granger",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "sun",
+          "avantage": -4.2
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -3.5
+        },
+        {
+          "slug": "estes",
+          "avantage": -3.4
+        },
+        {
+          "slug": "aamon",
+          "avantage": -3.3
+        },
+        {
+          "slug": "rafaela",
+          "avantage": -2.2
+        },
+        {
+          "slug": "floryn",
+          "avantage": -2.1
+        }
+      ],
+      "mesure": 46.4
+    },
+    "claude": {
+      "fort": [
+        {
+          "slug": "ixia",
+          "avantage": 3.1
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.7
+        },
+        {
+          "slug": "chang-e",
+          "avantage": 2.7
+        },
+        {
+          "slug": "balmond",
+          "avantage": 2.3
+        },
+        {
+          "slug": "layla",
+          "avantage": 2.3
+        },
+        {
+          "slug": "granger",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lesley",
+          "avantage": -3.8
+        },
+        {
+          "slug": "masha",
+          "avantage": -2.9
+        },
+        {
+          "slug": "aamon",
+          "avantage": -2.8
+        },
+        {
+          "slug": "edith",
+          "avantage": -2.5
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -2.3
+        },
+        {
+          "slug": "baxia",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 46.9
+    },
+    "clint": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 3.8
+        },
+        {
+          "slug": "karina",
+          "avantage": 3.4
+        },
+        {
+          "slug": "belerick",
+          "avantage": 2
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "lunox",
+          "avantage": 1.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "fanny",
+          "avantage": -2.5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -1.6
+        },
+        {
+          "slug": "gloo",
+          "avantage": -1.5
+        },
+        {
+          "slug": "obsidia",
+          "avantage": -1.5
+        },
+        {
+          "slug": "alice",
+          "avantage": -1.5
+        },
+        {
+          "slug": "harith",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 48.1
+    },
+    "cyclops": {
+      "fort": [
+        {
+          "slug": "natalia",
+          "avantage": 5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 3.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": 3.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 3.1
+        },
+        {
+          "slug": "ling",
+          "avantage": 2.7
+        },
+        {
+          "slug": "moskov",
+          "avantage": 2.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -9
+        },
+        {
+          "slug": "estes",
+          "avantage": -4.1
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.6
+        },
+        {
+          "slug": "ixia",
+          "avantage": -2.4
+        },
+        {
+          "slug": "minotaur",
+          "avantage": -2.4
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 51.1
+    },
+    "diggie": {
+      "fort": [
+        {
+          "slug": "balmond",
+          "avantage": 3.8
+        },
+        {
+          "slug": "hylos",
+          "avantage": 3.3
+        },
+        {
+          "slug": "alpha",
+          "avantage": 3
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 2.9
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 2.8
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "estes",
+          "avantage": -3.7
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -3.4
+        },
+        {
+          "slug": "sun",
+          "avantage": -3.4
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -3.3
+        },
+        {
+          "slug": "franco",
+          "avantage": -3.1
+        },
+        {
+          "slug": "zhask",
+          "avantage": -2.9
+        }
+      ],
+      "mesure": 53.4
+    },
+    "dyrroth": {
+      "fort": [
+        {
+          "slug": "esmeralda",
+          "avantage": 3.7
+        },
+        {
+          "slug": "uranus",
+          "avantage": 3.5
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.8
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.1
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.8
+        },
+        {
+          "slug": "moskov",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "thamuz",
+          "avantage": -1.9
+        },
+        {
+          "slug": "alpha",
+          "avantage": -1.9
+        },
+        {
+          "slug": "layla",
+          "avantage": -1.8
+        },
+        {
+          "slug": "johnson",
+          "avantage": -1.8
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -1.8
+        },
+        {
+          "slug": "nana",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 50.2
+    },
+    "edith": {
+      "fort": [
+        {
+          "slug": "faramis",
+          "avantage": 3.4
+        },
+        {
+          "slug": "harith",
+          "avantage": 3.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 3
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 2.8
+        },
+        {
+          "slug": "claude",
+          "avantage": 2.5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -4.2
+        },
+        {
+          "slug": "beatrix",
+          "avantage": -2.8
+        },
+        {
+          "slug": "layla",
+          "avantage": -2.3
+        },
+        {
+          "slug": "sun",
+          "avantage": -2.2
+        },
+        {
+          "slug": "gord",
+          "avantage": -1.8
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 50.9
+    },
+    "esmeralda": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 6
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 4.5
+        },
+        {
+          "slug": "marcel",
+          "avantage": 3.5
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 3.4
+        },
+        {
+          "slug": "diggie",
+          "avantage": 3.3
+        },
+        {
+          "slug": "paquito",
+          "avantage": 3.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "dyrroth",
+          "avantage": -3.7
+        },
+        {
+          "slug": "karrie",
+          "avantage": -3
+        },
+        {
+          "slug": "lunox",
+          "avantage": -2.9
+        },
+        {
+          "slug": "julian",
+          "avantage": -2.6
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": -2.6
+        },
+        {
+          "slug": "natan",
+          "avantage": -2.5
+        }
+      ],
+      "mesure": 48.6
+    },
+    "estes": {
+      "fort": [
+        {
+          "slug": "cyclops",
+          "avantage": 4.1
+        },
+        {
+          "slug": "faramis",
+          "avantage": 3.9
+        },
+        {
+          "slug": "diggie",
+          "avantage": 3.7
+        },
+        {
+          "slug": "cici",
+          "avantage": 3.4
+        },
+        {
+          "slug": "masha",
+          "avantage": 3.4
+        },
+        {
+          "slug": "alice",
+          "avantage": 3.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "beatrix",
+          "avantage": -5.2
+        },
+        {
+          "slug": "ixia",
+          "avantage": -5.1
+        },
+        {
+          "slug": "nolan",
+          "avantage": -4.5
+        },
+        {
+          "slug": "sora",
+          "avantage": -3.8
+        },
+        {
+          "slug": "atlas",
+          "avantage": -3.6
+        },
+        {
+          "slug": "luo-yi",
+          "avantage": -3.5
+        }
+      ],
+      "mesure": 54.2
+    },
+    "eudora": {
+      "fort": [
+        {
+          "slug": "floryn",
+          "avantage": 2.3
+        },
+        {
+          "slug": "irithel",
+          "avantage": 2.3
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 1.9
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "masha",
+          "avantage": -2.6
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.6
+        },
+        {
+          "slug": "aurora",
+          "avantage": -1.8
+        },
+        {
+          "slug": "sun",
+          "avantage": -1.8
+        },
+        {
+          "slug": "barats",
+          "avantage": -1.8
+        },
+        {
+          "slug": "balmond",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 52.4
+    },
+    "fanny": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 3.5
+        },
+        {
+          "slug": "granger",
+          "avantage": 3.3
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.7
+        },
+        {
+          "slug": "clint",
+          "avantage": 2.5
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.4
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "masha",
+          "avantage": -3
+        },
+        {
+          "slug": "moskov",
+          "avantage": -3
+        },
+        {
+          "slug": "bruno",
+          "avantage": -3
+        },
+        {
+          "slug": "badang",
+          "avantage": -2.8
+        },
+        {
+          "slug": "franco",
+          "avantage": -2.6
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2.5
+        }
+      ],
+      "mesure": 42.3
+    },
+    "faramis": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 6.5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 3.7
+        },
+        {
+          "slug": "sun",
+          "avantage": 3.2
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2.3
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 2.2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "estes",
+          "avantage": -3.9
+        },
+        {
+          "slug": "edith",
+          "avantage": -3.4
+        },
+        {
+          "slug": "angela",
+          "avantage": -3.1
+        },
+        {
+          "slug": "melissa",
+          "avantage": -3
+        },
+        {
+          "slug": "floryn",
+          "avantage": -2.9
+        },
+        {
+          "slug": "julian",
+          "avantage": -2.6
+        }
+      ],
+      "mesure": 50.5
+    },
+    "floryn": {
+      "fort": [
+        {
+          "slug": "marcel",
+          "avantage": 4.2
+        },
+        {
+          "slug": "alice",
+          "avantage": 3.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 3.4
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.9
+        },
+        {
+          "slug": "ling",
+          "avantage": 2.9
+        },
+        {
+          "slug": "lancelot",
+          "avantage": 2.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -3.9
+        },
+        {
+          "slug": "nolan",
+          "avantage": -2.6
+        },
+        {
+          "slug": "ixia",
+          "avantage": -2.6
+        },
+        {
+          "slug": "baxia",
+          "avantage": -2.6
+        },
+        {
+          "slug": "yin",
+          "avantage": -2.4
+        },
+        {
+          "slug": "eudora",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 53.7
+    },
+    "franco": {
+      "fort": [
+        {
+          "slug": "diggie",
+          "avantage": 3.1
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2.6
+        },
+        {
+          "slug": "angela",
+          "avantage": 2.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.9
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.8
+        },
+        {
+          "slug": "freya",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "hanzo",
+          "avantage": -2.7
+        },
+        {
+          "slug": "sun",
+          "avantage": -2.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.2
+        },
+        {
+          "slug": "tigreal",
+          "avantage": -2.2
+        },
+        {
+          "slug": "kaja",
+          "avantage": -2
+        },
+        {
+          "slug": "johnson",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 42.8
+    },
+    "fredrinn": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 3.2
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2.9
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 2.6
+        },
+        {
+          "slug": "lunox",
+          "avantage": 2.4
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.2
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "valir",
+          "avantage": -4
+        },
+        {
+          "slug": "diggie",
+          "avantage": -2.8
+        },
+        {
+          "slug": "gord",
+          "avantage": -2.8
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2.4
+        },
+        {
+          "slug": "edith",
+          "avantage": -2.1
+        }
+      ],
+      "mesure": 51.5
+    },
+    "freya": {
+      "fort": [
+        {
+          "slug": "yve",
+          "avantage": 2
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.8
+        },
+        {
+          "slug": "kagura",
+          "avantage": 1.7
+        },
+        {
+          "slug": "harith",
+          "avantage": 1.7
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.7
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -4.9
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -4.2
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": -1.8
+        },
+        {
+          "slug": "baxia",
+          "avantage": -1.8
+        },
+        {
+          "slug": "franco",
+          "avantage": -1.7
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 47.6
+    },
+    "gatotkaca": {
+      "fort": [
+        {
+          "slug": "odette",
+          "avantage": 2.8
+        },
+        {
+          "slug": "zilong",
+          "avantage": 2.5
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.3
+        },
+        {
+          "slug": "miya",
+          "avantage": 2.3
+        },
+        {
+          "slug": "freya",
+          "avantage": 1.8
+        },
+        {
+          "slug": "melissa",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lesley",
+          "avantage": -3.4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -3.2
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.8
+        },
+        {
+          "slug": "uranus",
+          "avantage": -2.3
+        },
+        {
+          "slug": "aldous",
+          "avantage": -2.1
+        },
+        {
+          "slug": "sun",
+          "avantage": -2
+        }
+      ],
+      "mesure": 45.8
+    },
+    "gloo": {
+      "fort": [
+        {
+          "slug": "aamon",
+          "avantage": 4.3
+        },
+        {
+          "slug": "johnson",
+          "avantage": 3.8
+        },
+        {
+          "slug": "chang-e",
+          "avantage": 2.9
+        },
+        {
+          "slug": "lesley",
+          "avantage": 2.9
+        },
+        {
+          "slug": "jawhead",
+          "avantage": 2.9
+        },
+        {
+          "slug": "karina",
+          "avantage": 2.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "faramis",
+          "avantage": -6.5
+        },
+        {
+          "slug": "moskov",
+          "avantage": -4.9
+        },
+        {
+          "slug": "alice",
+          "avantage": -4.3
+        },
+        {
+          "slug": "natan",
+          "avantage": -4.1
+        },
+        {
+          "slug": "ling",
+          "avantage": -4
+        },
+        {
+          "slug": "fanny",
+          "avantage": -3.5
+        }
+      ],
+      "mesure": 54.6
+    },
+    "gord": {
+      "fort": [
+        {
+          "slug": "barats",
+          "avantage": 3.7
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.8
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 2.8
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.2
+        },
+        {
+          "slug": "alice",
+          "avantage": 2
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -3.1
+        },
+        {
+          "slug": "helcurt",
+          "avantage": -2.3
+        },
+        {
+          "slug": "ling",
+          "avantage": -2.2
+        },
+        {
+          "slug": "fanny",
+          "avantage": -1.9
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -1.9
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 52.3
+    },
+    "granger": {
+      "fort": [
+        {
+          "slug": "karina",
+          "avantage": 4.1
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2.5
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.1
+        },
+        {
+          "slug": "natan",
+          "avantage": 1.9
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.9
+        },
+        {
+          "slug": "ixia",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "fanny",
+          "avantage": -3.3
+        },
+        {
+          "slug": "hilda",
+          "avantage": -3.3
+        },
+        {
+          "slug": "claude",
+          "avantage": -2.2
+        },
+        {
+          "slug": "obsidia",
+          "avantage": -2.2
+        },
+        {
+          "slug": "cici",
+          "avantage": -2
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 41.7
+    },
+    "grock": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 2.4
+        },
+        {
+          "slug": "layla",
+          "avantage": 2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.7
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.6
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.5
+        },
+        {
+          "slug": "odette",
+          "avantage": 1.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "alice",
+          "avantage": -2.9
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -2.6
+        },
+        {
+          "slug": "valentina",
+          "avantage": -2.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2.4
+        },
+        {
+          "slug": "angela",
+          "avantage": -1.9
+        },
+        {
+          "slug": "karrie",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 47.1
+    },
+    "guinevere": {
+      "fort": [
+        {
+          "slug": "karrie",
+          "avantage": 2.2
+        },
+        {
+          "slug": "julian",
+          "avantage": 2.2
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 2
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.9
+        },
+        {
+          "slug": "cici",
+          "avantage": 1.8
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "masha",
+          "avantage": -3.6
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -2.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": -2.7
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.5
+        },
+        {
+          "slug": "joy",
+          "avantage": -2
+        },
+        {
+          "slug": "fanny",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 50.9
+    },
+    "gusion": {
+      "fort": [
+        {
+          "slug": "aamon",
+          "avantage": 2.1
+        },
+        {
+          "slug": "valir",
+          "avantage": 2.1
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.9
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.8
+        },
+        {
+          "slug": "suyou",
+          "avantage": 1.6
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -2.8
+        },
+        {
+          "slug": "roger",
+          "avantage": -2.1
+        },
+        {
+          "slug": "khufra",
+          "avantage": -1.7
+        },
+        {
+          "slug": "alucard",
+          "avantage": -1.6
+        },
+        {
+          "slug": "gloo",
+          "avantage": -1.6
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -1.6
+        }
+      ],
+      "mesure": 49
+    },
+    "hanabi": {
+      "fort": [
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.6
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.3
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.1
+        },
+        {
+          "slug": "balmond",
+          "avantage": 2
+        },
+        {
+          "slug": "kaja",
+          "avantage": 2
+        },
+        {
+          "slug": "moskov",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -3.9
+        },
+        {
+          "slug": "beatrix",
+          "avantage": -3.3
+        },
+        {
+          "slug": "joy",
+          "avantage": -3.1
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -2.5
+        },
+        {
+          "slug": "ixia",
+          "avantage": -2.4
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 52.7
+    },
+    "hanzo": {
+      "fort": [
+        {
+          "slug": "diggie",
+          "avantage": 3.4
+        },
+        {
+          "slug": "franco",
+          "avantage": 2.7
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.7
+        },
+        {
+          "slug": "layla",
+          "avantage": 2.5
+        },
+        {
+          "slug": "alpha",
+          "avantage": 2.4
+        },
+        {
+          "slug": "balmond",
+          "avantage": 2.3
+        }
+      ],
+      "faible": [
+        {
+          "slug": "ling",
+          "avantage": -3.4
+        },
+        {
+          "slug": "natalia",
+          "avantage": -3.1
+        },
+        {
+          "slug": "hirara",
+          "avantage": -2.5
+        },
+        {
+          "slug": "sun",
+          "avantage": -2.5
+        },
+        {
+          "slug": "kimmy",
+          "avantage": -2.3
+        },
+        {
+          "slug": "lunox",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 50.4
+    },
+    "harith": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 3.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.8
+        },
+        {
+          "slug": "suyou",
+          "avantage": 2.3
+        },
+        {
+          "slug": "irithel",
+          "avantage": 2.2
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 1.9
+        },
+        {
+          "slug": "kagura",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -4.9
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -3.6
+        },
+        {
+          "slug": "edith",
+          "avantage": -3.1
+        },
+        {
+          "slug": "bruno",
+          "avantage": -2.4
+        },
+        {
+          "slug": "melissa",
+          "avantage": -2.1
+        },
+        {
+          "slug": "akai",
+          "avantage": -2
+        }
+      ],
+      "mesure": 46
+    },
+    "harley": {
+      "fort": [
+        {
+          "slug": "melissa",
+          "avantage": 2.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.1
+        },
+        {
+          "slug": "valir",
+          "avantage": 1.9
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.9
+        },
+        {
+          "slug": "yi-sun-shin",
+          "avantage": 1.7
+        },
+        {
+          "slug": "suyou",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -4.1
+        },
+        {
+          "slug": "sun",
+          "avantage": -3.1
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -2.6
+        },
+        {
+          "slug": "hilda",
+          "avantage": -2.3
+        },
+        {
+          "slug": "natalia",
+          "avantage": -2.2
+        },
+        {
+          "slug": "gloo",
+          "avantage": -2
+        }
+      ],
+      "mesure": 47.9
+    },
+    "hayabusa": {
+      "fort": [
+        {
+          "slug": "aamon",
+          "avantage": 3
+        },
+        {
+          "slug": "karina",
+          "avantage": 2.4
+        },
+        {
+          "slug": "nolan",
+          "avantage": 2.2
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.1
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2.1
+        },
+        {
+          "slug": "yve",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "saber",
+          "avantage": -3
+        },
+        {
+          "slug": "chip",
+          "avantage": -2
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": -2
+        },
+        {
+          "slug": "eudora",
+          "avantage": -1.9
+        },
+        {
+          "slug": "khufra",
+          "avantage": -1.7
+        },
+        {
+          "slug": "yin",
+          "avantage": -1.6
+        }
+      ],
+      "mesure": 48.7
+    },
+    "helcurt": {
+      "fort": [
+        {
+          "slug": "x-borg",
+          "avantage": 3.2
+        },
+        {
+          "slug": "valir",
+          "avantage": 3.1
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.5
+        },
+        {
+          "slug": "gord",
+          "avantage": 2.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.2
+        },
+        {
+          "slug": "xavier",
+          "avantage": 2.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -3.1
+        },
+        {
+          "slug": "karina",
+          "avantage": -2.6
+        },
+        {
+          "slug": "obsidia",
+          "avantage": -2.6
+        },
+        {
+          "slug": "brody",
+          "avantage": -2.6
+        },
+        {
+          "slug": "khaleed",
+          "avantage": -2.4
+        },
+        {
+          "slug": "hilda",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 47.9
+    },
+    "hilda": {
+      "fort": [
+        {
+          "slug": "granger",
+          "avantage": 3.3
+        },
+        {
+          "slug": "nolan",
+          "avantage": 2.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.5
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 2.4
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.3
+        },
+        {
+          "slug": "harley",
+          "avantage": 2.3
+        }
+      ],
+      "faible": [
+        {
+          "slug": "esmeralda",
+          "avantage": -2.7
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.6
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.5
+        },
+        {
+          "slug": "carmilla",
+          "avantage": -2.3
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": -2.3
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.1
+        }
+      ],
+      "mesure": 50.8
+    },
+    "hirara": {
+      "fort": [
+        {
+          "slug": "hanzo",
+          "avantage": 2.5
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.4
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.2
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "saber",
+          "avantage": -3
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2.8
+        },
+        {
+          "slug": "odette",
+          "avantage": -2.3
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -2.2
+        },
+        {
+          "slug": "alucard",
+          "avantage": -1.7
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 52.2
+    },
+    "hylos": {
+      "fort": [
+        {
+          "slug": "layla",
+          "avantage": 2.5
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.1
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 2
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.9
+        },
+        {
+          "slug": "nana",
+          "avantage": 1.8
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "x-borg",
+          "avantage": -3.6
+        },
+        {
+          "slug": "diggie",
+          "avantage": -3.3
+        },
+        {
+          "slug": "yve",
+          "avantage": -3.1
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": -2.7
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.6
+        },
+        {
+          "slug": "valir",
+          "avantage": -2.6
+        }
+      ],
+      "mesure": 47.7
+    },
+    "irithel": {
+      "fort": [
+        {
+          "slug": "wanwan",
+          "avantage": 4.1
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2.8
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 2.3
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.2
+        },
+        {
+          "slug": "yin",
+          "avantage": 2.2
+        },
+        {
+          "slug": "ixia",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "saber",
+          "avantage": -2.4
+        },
+        {
+          "slug": "eudora",
+          "avantage": -2.3
+        },
+        {
+          "slug": "brody",
+          "avantage": -2.3
+        },
+        {
+          "slug": "harith",
+          "avantage": -2.2
+        },
+        {
+          "slug": "alucard",
+          "avantage": -2.1
+        },
+        {
+          "slug": "uranus",
+          "avantage": -2
+        }
+      ],
+      "mesure": 51.1
+    },
+    "ixia": {
+      "fort": [
+        {
+          "slug": "estes",
+          "avantage": 5.1
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 3
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2.6
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.4
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 2.4
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "wanwan",
+          "avantage": -3.4
+        },
+        {
+          "slug": "claude",
+          "avantage": -3.1
+        },
+        {
+          "slug": "natalia",
+          "avantage": -2.7
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -2.7
+        },
+        {
+          "slug": "kadita",
+          "avantage": -2.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.5
+        }
+      ],
+      "mesure": 48.1
+    },
+    "jawhead": {
+      "fort": [
+        {
+          "slug": "nolan",
+          "avantage": 2
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.8
+        },
+        {
+          "slug": "saber",
+          "avantage": 1.7
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.6
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "sun",
+          "avantage": -4.2
+        },
+        {
+          "slug": "gloo",
+          "avantage": -2.9
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -2.7
+        },
+        {
+          "slug": "lolita",
+          "avantage": -2.7
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -2.2
+        },
+        {
+          "slug": "zhask",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 47.8
+    },
+    "johnson": {
+      "fort": [
+        {
+          "slug": "layla",
+          "avantage": 3.4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.1
+        },
+        {
+          "slug": "zilong",
+          "avantage": 2.6
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.6
+        },
+        {
+          "slug": "yin",
+          "avantage": 2.1
+        },
+        {
+          "slug": "franco",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "gloo",
+          "avantage": -3.8
+        },
+        {
+          "slug": "marcel",
+          "avantage": -3.2
+        },
+        {
+          "slug": "alice",
+          "avantage": -3.1
+        },
+        {
+          "slug": "atlas",
+          "avantage": -3.1
+        },
+        {
+          "slug": "harith",
+          "avantage": -2.8
+        },
+        {
+          "slug": "minotaur",
+          "avantage": -2.6
+        }
+      ],
+      "mesure": 49.7
+    },
+    "joy": {
+      "fort": [
+        {
+          "slug": "sun",
+          "avantage": 4.3
+        },
+        {
+          "slug": "lolita",
+          "avantage": 3.4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 3.4
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 3.1
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.3
+        },
+        {
+          "slug": "uranus",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "moskov",
+          "avantage": -3.9
+        },
+        {
+          "slug": "melissa",
+          "avantage": -3.2
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -3.1
+        },
+        {
+          "slug": "bruno",
+          "avantage": -2.4
+        },
+        {
+          "slug": "odette",
+          "avantage": -2.4
+        },
+        {
+          "slug": "hirara",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 48.8
+    },
+    "julian": {
+      "fort": [
+        {
+          "slug": "esmeralda",
+          "avantage": 2.6
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.6
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2
+        },
+        {
+          "slug": "alice",
+          "avantage": 2
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.8
+        },
+        {
+          "slug": "uranus",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "guinevere",
+          "avantage": -2.2
+        },
+        {
+          "slug": "beatrix",
+          "avantage": -1.7
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -1.7
+        },
+        {
+          "slug": "granger",
+          "avantage": -1.6
+        },
+        {
+          "slug": "tigreal",
+          "avantage": -1.5
+        },
+        {
+          "slug": "nolan",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 50.1
+    },
+    "kadita": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 4.8
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.4
+        },
+        {
+          "slug": "brody",
+          "avantage": 1.7
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "marcel",
+          "avantage": -2.7
+        },
+        {
+          "slug": "alice",
+          "avantage": -1.6
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -1.6
+        },
+        {
+          "slug": "valentina",
+          "avantage": -1.5
+        },
+        {
+          "slug": "miya",
+          "avantage": -1.5
+        },
+        {
+          "slug": "balmond",
+          "avantage": -1.4
+        }
+      ],
+      "mesure": 51.3
+    },
+    "kagura": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 3.7
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 2.1
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.8
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.7
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.6
+        },
+        {
+          "slug": "karina",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "chip",
+          "avantage": -2.3
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2
+        },
+        {
+          "slug": "odette",
+          "avantage": -2
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -1.9
+        },
+        {
+          "slug": "harith",
+          "avantage": -1.9
+        },
+        {
+          "slug": "melissa",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 51.3
+    },
+    "kaja": {
+      "fort": [
+        {
+          "slug": "valir",
+          "avantage": 2.8
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2.5
+        },
+        {
+          "slug": "alpha",
+          "avantage": 2.5
+        },
+        {
+          "slug": "akai",
+          "avantage": 2.1
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 2.1
+        },
+        {
+          "slug": "franco",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "odette",
+          "avantage": -4
+        },
+        {
+          "slug": "lunox",
+          "avantage": -2.9
+        },
+        {
+          "slug": "zhask",
+          "avantage": -2.3
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2
+        },
+        {
+          "slug": "hanabi",
+          "avantage": -2
+        },
+        {
+          "slug": "lukas",
+          "avantage": -1.6
+        }
+      ],
+      "mesure": 47.5
+    },
+    "kalea": {
+      "fort": [
+        {
+          "slug": "fanny",
+          "avantage": 2.5
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1.8
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.8
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.3
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.3
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": 1.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -2
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -1.7
+        },
+        {
+          "slug": "carmilla",
+          "avantage": -1.5
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -1.5
+        },
+        {
+          "slug": "sun",
+          "avantage": -1.4
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -1.4
+        }
+      ],
+      "mesure": 43.3
+    },
+    "karina": {
+      "fort": [
+        {
+          "slug": "natalia",
+          "avantage": 3.9
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 3.6
+        },
+        {
+          "slug": "zilong",
+          "avantage": 2.7
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 2.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.6
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "brody",
+          "avantage": -4.3
+        },
+        {
+          "slug": "granger",
+          "avantage": -4.1
+        },
+        {
+          "slug": "clint",
+          "avantage": -3.4
+        },
+        {
+          "slug": "gloo",
+          "avantage": -2.9
+        },
+        {
+          "slug": "paquito",
+          "avantage": -2.5
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 46
+    },
+    "karrie": {
+      "fort": [
+        {
+          "slug": "alice",
+          "avantage": 4.5
+        },
+        {
+          "slug": "baxia",
+          "avantage": 3.2
+        },
+        {
+          "slug": "balmond",
+          "avantage": 3.1
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 3
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 2.8
+        },
+        {
+          "slug": "leomord",
+          "avantage": 2.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "sun",
+          "avantage": -3.8
+        },
+        {
+          "slug": "lolita",
+          "avantage": -2.7
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -2.5
+        },
+        {
+          "slug": "masha",
+          "avantage": -2.5
+        },
+        {
+          "slug": "rafaela",
+          "avantage": -2.4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 46.6
+    },
+    "khaleed": {
+      "fort": [
+        {
+          "slug": "helcurt",
+          "avantage": 2.4
+        },
+        {
+          "slug": "yin",
+          "avantage": 2.1
+        },
+        {
+          "slug": "vale",
+          "avantage": 2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.8
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.7
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -2.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": -2.3
+        },
+        {
+          "slug": "alice",
+          "avantage": -2.1
+        },
+        {
+          "slug": "lesley",
+          "avantage": -2
+        },
+        {
+          "slug": "odette",
+          "avantage": -2
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": -2
+        }
+      ],
+      "mesure": 51
+    },
+    "khufra": {
+      "fort": [
+        {
+          "slug": "wanwan",
+          "avantage": 3.3
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 2.7
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2.7
+        },
+        {
+          "slug": "layla",
+          "avantage": 2.5
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 2.5
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "zhuxin",
+          "avantage": -3.3
+        },
+        {
+          "slug": "alice",
+          "avantage": -3.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2.7
+        },
+        {
+          "slug": "arlott",
+          "avantage": -2.4
+        },
+        {
+          "slug": "minotaur",
+          "avantage": -2.2
+        },
+        {
+          "slug": "bane",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 54.6
+    },
+    "kimmy": {
+      "fort": [
+        {
+          "slug": "sun",
+          "avantage": 2.8
+        },
+        {
+          "slug": "hylos",
+          "avantage": 2.6
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 2.3
+        },
+        {
+          "slug": "atlas",
+          "avantage": 2.1
+        },
+        {
+          "slug": "uranus",
+          "avantage": 2.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -3.8
+        },
+        {
+          "slug": "karina",
+          "avantage": -3.6
+        },
+        {
+          "slug": "fanny",
+          "avantage": -2.4
+        },
+        {
+          "slug": "natalia",
+          "avantage": -2.3
+        },
+        {
+          "slug": "kaja",
+          "avantage": -2.1
+        },
+        {
+          "slug": "arlott",
+          "avantage": -2
+        }
+      ],
+      "mesure": 47.5
+    },
+    "lancelot": {
+      "fort": [
+        {
+          "slug": "alpha",
+          "avantage": 2.5
+        },
+        {
+          "slug": "atlas",
+          "avantage": 2.4
+        },
+        {
+          "slug": "yin",
+          "avantage": 2.2
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.8
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 1.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "angela",
+          "avantage": -3.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": -2.6
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2.6
+        },
+        {
+          "slug": "masha",
+          "avantage": -1.9
+        },
+        {
+          "slug": "lukas",
+          "avantage": -1.7
+        },
+        {
+          "slug": "claude",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 43.1
+    },
+    "lapu-lapu": {
+      "fort": [
+        {
+          "slug": "silvanna",
+          "avantage": 2.7
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.4
+        },
+        {
+          "slug": "vale",
+          "avantage": 2.2
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 2.1
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 2.1
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "esmeralda",
+          "avantage": -3.4
+        },
+        {
+          "slug": "claude",
+          "avantage": -2.1
+        },
+        {
+          "slug": "harith",
+          "avantage": -1.9
+        },
+        {
+          "slug": "fanny",
+          "avantage": -1.7
+        },
+        {
+          "slug": "beatrix",
+          "avantage": -1.7
+        },
+        {
+          "slug": "karrie",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 48.4
+    },
+    "layla": {
+      "fort": [
+        {
+          "slug": "melissa",
+          "avantage": 3.5
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.4
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.3
+        },
+        {
+          "slug": "bruno",
+          "avantage": 2.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2
+        },
+        {
+          "slug": "odette",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "atlas",
+          "avantage": -4.4
+        },
+        {
+          "slug": "sun",
+          "avantage": -3.6
+        },
+        {
+          "slug": "johnson",
+          "avantage": -3.4
+        },
+        {
+          "slug": "hylos",
+          "avantage": -2.5
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.5
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -2.5
+        }
+      ],
+      "mesure": 47.4
+    },
+    "leomord": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 3.4
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.3
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.2
+        },
+        {
+          "slug": "belerick",
+          "avantage": 2.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "melissa",
+          "avantage": -3.6
+        },
+        {
+          "slug": "valir",
+          "avantage": -3.2
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.8
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": -2.8
+        },
+        {
+          "slug": "angela",
+          "avantage": -1.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -1.6
+        }
+      ],
+      "mesure": 50.6
+    },
+    "lesley": {
+      "fort": [
+        {
+          "slug": "marcel",
+          "avantage": 4
+        },
+        {
+          "slug": "claude",
+          "avantage": 3.8
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 3.4
+        },
+        {
+          "slug": "belerick",
+          "avantage": 3.2
+        },
+        {
+          "slug": "baxia",
+          "avantage": 3.1
+        },
+        {
+          "slug": "bruno",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "sun",
+          "avantage": -3.6
+        },
+        {
+          "slug": "estes",
+          "avantage": -2.9
+        },
+        {
+          "slug": "gloo",
+          "avantage": -2.9
+        },
+        {
+          "slug": "tigreal",
+          "avantage": -2
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 46.5
+    },
+    "ling": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 3.7
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 3.4
+        },
+        {
+          "slug": "alpha",
+          "avantage": 3.1
+        },
+        {
+          "slug": "atlas",
+          "avantage": 2.8
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 2.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -5.2
+        },
+        {
+          "slug": "saber",
+          "avantage": -4
+        },
+        {
+          "slug": "lukas",
+          "avantage": -3.8
+        },
+        {
+          "slug": "melissa",
+          "avantage": -3.5
+        },
+        {
+          "slug": "floryn",
+          "avantage": -2.9
+        },
+        {
+          "slug": "bruno",
+          "avantage": -2.7
+        }
+      ],
+      "mesure": 52.3
+    },
+    "lolita": {
+      "fort": [
+        {
+          "slug": "cyclops",
+          "avantage": 9
+        },
+        {
+          "slug": "chang-e",
+          "avantage": 5.6
+        },
+        {
+          "slug": "bane",
+          "avantage": 4.3
+        },
+        {
+          "slug": "edith",
+          "avantage": 4.2
+        },
+        {
+          "slug": "harley",
+          "avantage": 4.1
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 3.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "yve",
+          "avantage": -7.1
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -6
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": -5.9
+        },
+        {
+          "slug": "melissa",
+          "avantage": -5.5
+        },
+        {
+          "slug": "kadita",
+          "avantage": -4.8
+        },
+        {
+          "slug": "aurora",
+          "avantage": -4.6
+        }
+      ],
+      "mesure": 54
+    },
+    "lukas": {
+      "fort": [
+        {
+          "slug": "ling",
+          "avantage": 3.8
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.6
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2.5
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.4
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2
+        },
+        {
+          "slug": "selena",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "balmond",
+          "avantage": -3.2
+        },
+        {
+          "slug": "baxia",
+          "avantage": -2.8
+        },
+        {
+          "slug": "thamuz",
+          "avantage": -2.6
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -2.3
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2.1
+        },
+        {
+          "slug": "melissa",
+          "avantage": -2.1
+        }
+      ],
+      "mesure": 53.3
+    },
+    "lunox": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 3.4
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 3.1
+        },
+        {
+          "slug": "kaja",
+          "avantage": 2.9
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 2.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.7
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "fredrinn",
+          "avantage": -2.4
+        },
+        {
+          "slug": "ruby",
+          "avantage": -2.3
+        },
+        {
+          "slug": "saber",
+          "avantage": -2.2
+        },
+        {
+          "slug": "melissa",
+          "avantage": -1.9
+        },
+        {
+          "slug": "odette",
+          "avantage": -1.8
+        },
+        {
+          "slug": "guinevere",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 49.1
+    },
+    "luo-yi": {
+      "fort": [
+        {
+          "slug": "estes",
+          "avantage": 3.5
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.2
+        },
+        {
+          "slug": "uranus",
+          "avantage": 2
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 1.8
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -3.1
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -2.4
+        },
+        {
+          "slug": "joy",
+          "avantage": -2.1
+        },
+        {
+          "slug": "beatrix",
+          "avantage": -2
+        },
+        {
+          "slug": "novaria",
+          "avantage": -2
+        },
+        {
+          "slug": "nolan",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 47.3
+    },
+    "lylia": {
+      "fort": [
+        {
+          "slug": "alpha",
+          "avantage": 2.4
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.4
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 2.1
+        },
+        {
+          "slug": "terizla",
+          "avantage": 1.7
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 1.6
+        },
+        {
+          "slug": "alice",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "mathilda",
+          "avantage": -1.8
+        },
+        {
+          "slug": "rafaela",
+          "avantage": -1.8
+        },
+        {
+          "slug": "chou",
+          "avantage": -1.6
+        },
+        {
+          "slug": "joy",
+          "avantage": -1.6
+        },
+        {
+          "slug": "paquito",
+          "avantage": -1.6
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 49
+    },
+    "marcel": {
+      "fort": [
+        {
+          "slug": "atlas",
+          "avantage": 5.9
+        },
+        {
+          "slug": "akai",
+          "avantage": 3.6
+        },
+        {
+          "slug": "johnson",
+          "avantage": 3.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 3.1
+        },
+        {
+          "slug": "sun",
+          "avantage": 3
+        },
+        {
+          "slug": "belerick",
+          "avantage": 2.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "angela",
+          "avantage": -5.2
+        },
+        {
+          "slug": "floryn",
+          "avantage": -4.2
+        },
+        {
+          "slug": "lesley",
+          "avantage": -4
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -3.5
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -3.4
+        },
+        {
+          "slug": "rafaela",
+          "avantage": -3.3
+        }
+      ],
+      "mesure": 59
+    },
+    "martis": {
+      "fort": [
+        {
+          "slug": "chip",
+          "avantage": 2.3
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.1
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.9
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.8
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "x-borg",
+          "avantage": -4.2
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -2.9
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2.2
+        },
+        {
+          "slug": "balmond",
+          "avantage": -2
+        },
+        {
+          "slug": "angela",
+          "avantage": -1.8
+        },
+        {
+          "slug": "lesley",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 47.6
+    },
+    "masha": {
+      "fort": [
+        {
+          "slug": "guinevere",
+          "avantage": 3.6
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 3.5
+        },
+        {
+          "slug": "fanny",
+          "avantage": 3
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.9
+        },
+        {
+          "slug": "claude",
+          "avantage": 2.9
+        },
+        {
+          "slug": "brody",
+          "avantage": 2.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "sun",
+          "avantage": -4.4
+        },
+        {
+          "slug": "estes",
+          "avantage": -3.4
+        },
+        {
+          "slug": "chip",
+          "avantage": -3.4
+        },
+        {
+          "slug": "uranus",
+          "avantage": -3
+        },
+        {
+          "slug": "aulus",
+          "avantage": -2.9
+        },
+        {
+          "slug": "aamon",
+          "avantage": -2.8
+        }
+      ],
+      "mesure": 56.8
+    },
+    "mathilda": {
+      "fort": [
+        {
+          "slug": "natalia",
+          "avantage": 4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 3.4
+        },
+        {
+          "slug": "alpha",
+          "avantage": 2.7
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 2.6
+        },
+        {
+          "slug": "valir",
+          "avantage": 2.6
+        },
+        {
+          "slug": "ling",
+          "avantage": 2.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "esmeralda",
+          "avantage": -4.5
+        },
+        {
+          "slug": "odette",
+          "avantage": -3.8
+        },
+        {
+          "slug": "melissa",
+          "avantage": -3.6
+        },
+        {
+          "slug": "alucard",
+          "avantage": -2.9
+        },
+        {
+          "slug": "estes",
+          "avantage": -2.4
+        },
+        {
+          "slug": "edith",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 44.5
+    },
+    "melissa": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 5.5
+        },
+        {
+          "slug": "leomord",
+          "avantage": 3.6
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 3.6
+        },
+        {
+          "slug": "ling",
+          "avantage": 3.5
+        },
+        {
+          "slug": "joy",
+          "avantage": 3.2
+        },
+        {
+          "slug": "faramis",
+          "avantage": 3
+        }
+      ],
+      "faible": [
+        {
+          "slug": "layla",
+          "avantage": -3.5
+        },
+        {
+          "slug": "vale",
+          "avantage": -2.6
+        },
+        {
+          "slug": "zilong",
+          "avantage": -2.6
+        },
+        {
+          "slug": "yin",
+          "avantage": -2.5
+        },
+        {
+          "slug": "ixia",
+          "avantage": -2.4
+        },
+        {
+          "slug": "alpha",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 56.9
+    },
+    "minotaur": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 3.9
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.6
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 2.6
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 2.4
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.3
+        },
+        {
+          "slug": "khufra",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "beatrix",
+          "avantage": -2.4
+        },
+        {
+          "slug": "alice",
+          "avantage": -2.3
+        },
+        {
+          "slug": "yve",
+          "avantage": -2.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": -2
+        },
+        {
+          "slug": "ixia",
+          "avantage": -1.9
+        },
+        {
+          "slug": "carmilla",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 54.4
+    },
+    "minsitthar": {
+      "fort": [
+        {
+          "slug": "freya",
+          "avantage": 4.2
+        },
+        {
+          "slug": "harith",
+          "avantage": 3.6
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 3.3
+        },
+        {
+          "slug": "martis",
+          "avantage": 2.9
+        },
+        {
+          "slug": "karrie",
+          "avantage": 2.5
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -3.7
+        },
+        {
+          "slug": "yin",
+          "avantage": -2.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2.4
+        },
+        {
+          "slug": "aulus",
+          "avantage": -2.2
+        },
+        {
+          "slug": "baxia",
+          "avantage": -2
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 51
+    },
+    "miya": {
+      "fort": [
+        {
+          "slug": "saber",
+          "avantage": 2.1
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.9
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.8
+        },
+        {
+          "slug": "obsidia",
+          "avantage": 1.7
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 1.6
+        },
+        {
+          "slug": "selena",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "belerick",
+          "avantage": -2.4
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": -2.3
+        },
+        {
+          "slug": "karina",
+          "avantage": -1.6
+        },
+        {
+          "slug": "beatrix",
+          "avantage": -1.6
+        },
+        {
+          "slug": "thamuz",
+          "avantage": -1.5
+        },
+        {
+          "slug": "aldous",
+          "avantage": -1.4
+        }
+      ],
+      "mesure": 53.2
+    },
+    "moskov": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 4.9
+        },
+        {
+          "slug": "joy",
+          "avantage": 3.9
+        },
+        {
+          "slug": "fanny",
+          "avantage": 3
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2.7
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.6
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "cyclops",
+          "avantage": -2.5
+        },
+        {
+          "slug": "saber",
+          "avantage": -2
+        },
+        {
+          "slug": "karina",
+          "avantage": -1.9
+        },
+        {
+          "slug": "alpha",
+          "avantage": -1.8
+        },
+        {
+          "slug": "martis",
+          "avantage": -1.8
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": -1.7
+        }
+      ],
+      "mesure": 48.9
+    },
+    "nana": {
+      "fort": [
+        {
+          "slug": "odette",
+          "avantage": 2.8
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.8
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": 1.8
+        },
+        {
+          "slug": "saber",
+          "avantage": 1.6
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "gloo",
+          "avantage": -2.5
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.2
+        },
+        {
+          "slug": "akai",
+          "avantage": -1.9
+        },
+        {
+          "slug": "hylos",
+          "avantage": -1.8
+        },
+        {
+          "slug": "sun",
+          "avantage": -1.6
+        },
+        {
+          "slug": "yi-sun-shin",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 47.3
+    },
+    "natalia": {
+      "fort": [
+        {
+          "slug": "ling",
+          "avantage": 5.2
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 3.7
+        },
+        {
+          "slug": "nolan",
+          "avantage": 3.7
+        },
+        {
+          "slug": "novaria",
+          "avantage": 3.3
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 3.2
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 3.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "cyclops",
+          "avantage": -5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -4
+        },
+        {
+          "slug": "karina",
+          "avantage": -3.9
+        },
+        {
+          "slug": "saber",
+          "avantage": -3.8
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": -3.4
+        },
+        {
+          "slug": "paquito",
+          "avantage": -3.4
+        }
+      ],
+      "mesure": 51.4
+    },
+    "natan": {
+      "fort": [
+        {
+          "slug": "sun",
+          "avantage": 4.5
+        },
+        {
+          "slug": "gloo",
+          "avantage": 4.1
+        },
+        {
+          "slug": "zhask",
+          "avantage": 2.9
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 2.5
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.3
+        },
+        {
+          "slug": "uranus",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "lolita",
+          "avantage": -3.2
+        },
+        {
+          "slug": "arlott",
+          "avantage": -2.5
+        },
+        {
+          "slug": "nolan",
+          "avantage": -2.2
+        },
+        {
+          "slug": "granger",
+          "avantage": -1.9
+        },
+        {
+          "slug": "masha",
+          "avantage": -1.8
+        },
+        {
+          "slug": "saber",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 49.6
+    },
+    "nolan": {
+      "fort": [
+        {
+          "slug": "estes",
+          "avantage": 4.5
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2.6
+        },
+        {
+          "slug": "bane",
+          "avantage": 2.6
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.3
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.3
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -3.7
+        },
+        {
+          "slug": "saber",
+          "avantage": -3.4
+        },
+        {
+          "slug": "hilda",
+          "avantage": -2.7
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": -2.2
+        },
+        {
+          "slug": "masha",
+          "avantage": -2.1
+        },
+        {
+          "slug": "lesley",
+          "avantage": -2.1
+        }
+      ],
+      "mesure": 48.7
+    },
+    "novaria": {
+      "fort": [
+        {
+          "slug": "diggie",
+          "avantage": 2.1
+        },
+        {
+          "slug": "luo-yi",
+          "avantage": 2
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 1.9
+        },
+        {
+          "slug": "alpha",
+          "avantage": 1.8
+        },
+        {
+          "slug": "valir",
+          "avantage": 1.8
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 1.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -3.3
+        },
+        {
+          "slug": "ling",
+          "avantage": -2.1
+        },
+        {
+          "slug": "estes",
+          "avantage": -1.9
+        },
+        {
+          "slug": "angela",
+          "avantage": -1.9
+        },
+        {
+          "slug": "moskov",
+          "avantage": -1.8
+        },
+        {
+          "slug": "aldous",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 49.1
+    },
+    "obsidia": {
+      "fort": [
+        {
+          "slug": "benedetta",
+          "avantage": 3.3
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 2.6
+        },
+        {
+          "slug": "granger",
+          "avantage": 2.2
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2.2
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2.2
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "baxia",
+          "avantage": -3.3
+        },
+        {
+          "slug": "estes",
+          "avantage": -2.5
+        },
+        {
+          "slug": "uranus",
+          "avantage": -2
+        },
+        {
+          "slug": "chip",
+          "avantage": -1.9
+        },
+        {
+          "slug": "belerick",
+          "avantage": -1.9
+        },
+        {
+          "slug": "odette",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 50.2
+    },
+    "odette": {
+      "fort": [
+        {
+          "slug": "kaja",
+          "avantage": 4
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 3.8
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 3.2
+        },
+        {
+          "slug": "marcel",
+          "avantage": 3
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.9
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "alpha",
+          "avantage": -2.8
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": -2.8
+        },
+        {
+          "slug": "nana",
+          "avantage": -2.8
+        },
+        {
+          "slug": "vale",
+          "avantage": -2.7
+        },
+        {
+          "slug": "edith",
+          "avantage": -2.4
+        },
+        {
+          "slug": "thamuz",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 50.4
+    },
+    "paquito": {
+      "fort": [
+        {
+          "slug": "x-borg",
+          "avantage": 3.5
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.4
+        },
+        {
+          "slug": "karina",
+          "avantage": 2.5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.8
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "esmeralda",
+          "avantage": -3.1
+        },
+        {
+          "slug": "chip",
+          "avantage": -2.8
+        },
+        {
+          "slug": "melissa",
+          "avantage": -2.3
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.3
+        },
+        {
+          "slug": "odette",
+          "avantage": -1.9
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 50.9
+    },
+    "pharsa": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 2.6
+        },
+        {
+          "slug": "melissa",
+          "avantage": 1.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.4
+        },
+        {
+          "slug": "valir",
+          "avantage": 1.3
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 1.1
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": 1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -2
+        },
+        {
+          "slug": "gloo",
+          "avantage": -1.3
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -1.3
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -1.2
+        },
+        {
+          "slug": "claude",
+          "avantage": -1.1
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": -1.1
+        }
+      ],
+      "mesure": 47.1
+    },
+    "phoveus": {
+      "fort": [
+        {
+          "slug": "wanwan",
+          "avantage": 5.3
+        },
+        {
+          "slug": "freya",
+          "avantage": 4.9
+        },
+        {
+          "slug": "harith",
+          "avantage": 4.9
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 4.1
+        },
+        {
+          "slug": "ruby",
+          "avantage": 3.1
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 2.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "x-borg",
+          "avantage": -3.9
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": -3.3
+        },
+        {
+          "slug": "barats",
+          "avantage": -2.9
+        },
+        {
+          "slug": "sun",
+          "avantage": -2.8
+        },
+        {
+          "slug": "bane",
+          "avantage": -2.7
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -2.7
+        }
+      ],
+      "mesure": 48
+    },
+    "popol-and-kupa": {
+      "fort": [
+        {
+          "slug": "harley",
+          "avantage": 2.6
+        },
+        {
+          "slug": "zilong",
+          "avantage": 2.4
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.4
+        },
+        {
+          "slug": "masha",
+          "avantage": 2.3
+        },
+        {
+          "slug": "jawhead",
+          "avantage": 2.2
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "atlas",
+          "avantage": -4.4
+        },
+        {
+          "slug": "carmilla",
+          "avantage": -4.1
+        },
+        {
+          "slug": "sun",
+          "avantage": -3.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": -3.1
+        },
+        {
+          "slug": "alice",
+          "avantage": -2.8
+        },
+        {
+          "slug": "hanabi",
+          "avantage": -2.6
+        }
+      ],
+      "mesure": 52.1
+    },
+    "rafaela": {
+      "fort": [
+        {
+          "slug": "natalia",
+          "avantage": 3.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": 3.3
+        },
+        {
+          "slug": "valir",
+          "avantage": 3.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.5
+        },
+        {
+          "slug": "karrie",
+          "avantage": 2.4
+        },
+        {
+          "slug": "cici",
+          "avantage": 2.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "odette",
+          "avantage": -3.2
+        },
+        {
+          "slug": "ixia",
+          "avantage": -3
+        },
+        {
+          "slug": "layla",
+          "avantage": -2.4
+        },
+        {
+          "slug": "estes",
+          "avantage": -2.4
+        },
+        {
+          "slug": "silvanna",
+          "avantage": -2.2
+        },
+        {
+          "slug": "nolan",
+          "avantage": -2
+        }
+      ],
+      "mesure": 58.4
+    },
+    "roger": {
+      "fort": [
+        {
+          "slug": "gusion",
+          "avantage": 2.1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.9
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.8
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.6
+        },
+        {
+          "slug": "yin",
+          "avantage": 1.6
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "yve",
+          "avantage": -2
+        },
+        {
+          "slug": "leomord",
+          "avantage": -1.8
+        },
+        {
+          "slug": "barats",
+          "avantage": -1.7
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -1.6
+        },
+        {
+          "slug": "minotaur",
+          "avantage": -1.6
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": -1.6
+        }
+      ],
+      "mesure": 48.8
+    },
+    "ruby": {
+      "fort": [
+        {
+          "slug": "sun",
+          "avantage": 4
+        },
+        {
+          "slug": "gloo",
+          "avantage": 3.4
+        },
+        {
+          "slug": "lunox",
+          "avantage": 2.3
+        },
+        {
+          "slug": "karina",
+          "avantage": 2
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.9
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -3.1
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -3.1
+        },
+        {
+          "slug": "lolita",
+          "avantage": -1.9
+        },
+        {
+          "slug": "arlott",
+          "avantage": -1.8
+        },
+        {
+          "slug": "diggie",
+          "avantage": -1.7
+        },
+        {
+          "slug": "balmond",
+          "avantage": -1.6
+        }
+      ],
+      "mesure": 49.1
+    },
+    "saber": {
+      "fort": [
+        {
+          "slug": "ling",
+          "avantage": 4
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.8
+        },
+        {
+          "slug": "nolan",
+          "avantage": 3.4
+        },
+        {
+          "slug": "hirara",
+          "avantage": 3
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": 3
+        },
+        {
+          "slug": "irithel",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "sun",
+          "avantage": -3
+        },
+        {
+          "slug": "leomord",
+          "avantage": -2.9
+        },
+        {
+          "slug": "balmond",
+          "avantage": -2.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": -2.6
+        },
+        {
+          "slug": "alpha",
+          "avantage": -2.4
+        },
+        {
+          "slug": "aulus",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 50.2
+    },
+    "selena": {
+      "fort": [
+        {
+          "slug": "x-borg",
+          "avantage": 2.1
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 1.9
+        },
+        {
+          "slug": "ixia",
+          "avantage": 1.7
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 1.7
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.6
+        },
+        {
+          "slug": "yin",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "chip",
+          "avantage": -2.6
+        },
+        {
+          "slug": "gloo",
+          "avantage": -2.3
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -2
+        },
+        {
+          "slug": "lukas",
+          "avantage": -2
+        },
+        {
+          "slug": "masha",
+          "avantage": -1.9
+        },
+        {
+          "slug": "lolita",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 48.4
+    },
+    "silvanna": {
+      "fort": [
+        {
+          "slug": "valentina",
+          "avantage": 2.9
+        },
+        {
+          "slug": "aamon",
+          "avantage": 2.7
+        },
+        {
+          "slug": "angela",
+          "avantage": 2.2
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.2
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2.2
+        },
+        {
+          "slug": "sun",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "barats",
+          "avantage": -3.3
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -3.2
+        },
+        {
+          "slug": "edith",
+          "avantage": -2.8
+        },
+        {
+          "slug": "ling",
+          "avantage": -2.8
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.8
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": -2.7
+        }
+      ],
+      "mesure": 51.5
+    },
+    "sora": {
+      "fort": [
+        {
+          "slug": "estes",
+          "avantage": 3.8
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.9
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 1.8
+        },
+        {
+          "slug": "karina",
+          "avantage": 1.7
+        },
+        {
+          "slug": "natan",
+          "avantage": 1.6
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "melissa",
+          "avantage": -2.8
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": -2.2
+        },
+        {
+          "slug": "alice",
+          "avantage": -1.6
+        },
+        {
+          "slug": "martis",
+          "avantage": -1.6
+        },
+        {
+          "slug": "lukas",
+          "avantage": -1.4
+        }
+      ],
+      "mesure": 49.4
+    },
+    "sun": {
+      "fort": [
+        {
+          "slug": "masha",
+          "avantage": 4.4
+        },
+        {
+          "slug": "cici",
+          "avantage": 4.2
+        },
+        {
+          "slug": "jawhead",
+          "avantage": 4.2
+        },
+        {
+          "slug": "karrie",
+          "avantage": 3.8
+        },
+        {
+          "slug": "layla",
+          "avantage": 3.6
+        },
+        {
+          "slug": "lesley",
+          "avantage": 3.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natan",
+          "avantage": -4.5
+        },
+        {
+          "slug": "joy",
+          "avantage": -4.3
+        },
+        {
+          "slug": "aldous",
+          "avantage": -4.2
+        },
+        {
+          "slug": "ruby",
+          "avantage": -4
+        },
+        {
+          "slug": "alucard",
+          "avantage": -3.5
+        },
+        {
+          "slug": "faramis",
+          "avantage": -3.2
+        }
+      ],
+      "mesure": 53
+    },
+    "suyou": {
+      "fort": [
+        {
+          "slug": "sun",
+          "avantage": 3
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.2
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.6
+        },
+        {
+          "slug": "balmond",
+          "avantage": 1.5
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.5
+        },
+        {
+          "slug": "alpha",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "harith",
+          "avantage": -2.3
+        },
+        {
+          "slug": "harley",
+          "avantage": -1.7
+        },
+        {
+          "slug": "joy",
+          "avantage": -1.6
+        },
+        {
+          "slug": "gusion",
+          "avantage": -1.6
+        },
+        {
+          "slug": "odette",
+          "avantage": -1.4
+        },
+        {
+          "slug": "yve",
+          "avantage": -1.2
+        }
+      ],
+      "mesure": 49.4
+    },
+    "terizla": {
+      "fort": [
+        {
+          "slug": "masha",
+          "avantage": 2.6
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.3
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.1
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.8
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 1.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "x-borg",
+          "avantage": -4.6
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.6
+        },
+        {
+          "slug": "yve",
+          "avantage": -2.3
+        },
+        {
+          "slug": "valir",
+          "avantage": -2.1
+        },
+        {
+          "slug": "angela",
+          "avantage": -1.9
+        },
+        {
+          "slug": "gord",
+          "avantage": -1.8
+        }
+      ],
+      "mesure": 50.5
+    },
+    "thamuz": {
+      "fort": [
+        {
+          "slug": "alice",
+          "avantage": 2.7
+        },
+        {
+          "slug": "lukas",
+          "avantage": 2.6
+        },
+        {
+          "slug": "masha",
+          "avantage": 2.4
+        },
+        {
+          "slug": "odette",
+          "avantage": 2.4
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2.2
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": 1.9
+        }
+      ],
+      "faible": [
+        {
+          "slug": "cici",
+          "avantage": -4
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -2.7
+        },
+        {
+          "slug": "valir",
+          "avantage": -2.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2.6
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.3
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 49.2
+    },
+    "tigreal": {
+      "fort": [
+        {
+          "slug": "zilong",
+          "avantage": 2.9
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.8
+        },
+        {
+          "slug": "layla",
+          "avantage": 2.4
+        },
+        {
+          "slug": "franco",
+          "avantage": 2.2
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2.1
+        },
+        {
+          "slug": "lesley",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "alice",
+          "avantage": -3.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": -2.9
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2.8
+        },
+        {
+          "slug": "valir",
+          "avantage": -2.4
+        },
+        {
+          "slug": "zetian",
+          "avantage": -2.3
+        },
+        {
+          "slug": "faramis",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 45.7
+    },
+    "uranus": {
+      "fort": [
+        {
+          "slug": "masha",
+          "avantage": 3
+        },
+        {
+          "slug": "barats",
+          "avantage": 2.6
+        },
+        {
+          "slug": "yin",
+          "avantage": 2.5
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 2.3
+        },
+        {
+          "slug": "yi-sun-shin",
+          "avantage": 2.1
+        },
+        {
+          "slug": "obsidia",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "dyrroth",
+          "avantage": -3.5
+        },
+        {
+          "slug": "karrie",
+          "avantage": -2.6
+        },
+        {
+          "slug": "angela",
+          "avantage": -2.5
+        },
+        {
+          "slug": "joy",
+          "avantage": -2.2
+        },
+        {
+          "slug": "natan",
+          "avantage": -2.2
+        },
+        {
+          "slug": "estes",
+          "avantage": -2.2
+        }
+      ],
+      "mesure": 50.6
+    },
+    "vale": {
+      "fort": [
+        {
+          "slug": "odette",
+          "avantage": 2.7
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.6
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.8
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.4
+        },
+        {
+          "slug": "miya",
+          "avantage": 1.2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "gloo",
+          "avantage": -2.6
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": -2.2
+        },
+        {
+          "slug": "khaleed",
+          "avantage": -2
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2
+        },
+        {
+          "slug": "ling",
+          "avantage": -2
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -1.9
+        }
+      ],
+      "mesure": 50.6
+    },
+    "valentina": {
+      "fort": [
+        {
+          "slug": "carmilla",
+          "avantage": 3.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 3.4
+        },
+        {
+          "slug": "atlas",
+          "avantage": 3.4
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.8
+        },
+        {
+          "slug": "ling",
+          "avantage": 2.5
+        },
+        {
+          "slug": "grock",
+          "avantage": 2.4
+        }
+      ],
+      "faible": [
+        {
+          "slug": "johnson",
+          "avantage": -3.1
+        },
+        {
+          "slug": "odette",
+          "avantage": -2.9
+        },
+        {
+          "slug": "silvanna",
+          "avantage": -2.9
+        },
+        {
+          "slug": "chip",
+          "avantage": -2.9
+        },
+        {
+          "slug": "phoveus",
+          "avantage": -2.7
+        },
+        {
+          "slug": "saber",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 45.1
+    },
+    "valir": {
+      "fort": [
+        {
+          "slug": "fredrinn",
+          "avantage": 4
+        },
+        {
+          "slug": "alice",
+          "avantage": 3.3
+        },
+        {
+          "slug": "balmond",
+          "avantage": 3.2
+        },
+        {
+          "slug": "leomord",
+          "avantage": 3.2
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 2.7
+        },
+        {
+          "slug": "hylos",
+          "avantage": 2.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "rafaela",
+          "avantage": -3.1
+        },
+        {
+          "slug": "helcurt",
+          "avantage": -3.1
+        },
+        {
+          "slug": "lolita",
+          "avantage": -2.8
+        },
+        {
+          "slug": "kaja",
+          "avantage": -2.8
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -2.6
+        },
+        {
+          "slug": "ling",
+          "avantage": -2.5
+        }
+      ],
+      "mesure": 52.5
+    },
+    "vexana": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 3.4
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.2
+        },
+        {
+          "slug": "zhask",
+          "avantage": 2
+        },
+        {
+          "slug": "odette",
+          "avantage": 1.6
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.2
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.1
+        }
+      ],
+      "faible": [
+        {
+          "slug": "alice",
+          "avantage": -2.4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": -2
+        },
+        {
+          "slug": "marcel",
+          "avantage": -1.9
+        },
+        {
+          "slug": "benedetta",
+          "avantage": -1.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": -1.8
+        },
+        {
+          "slug": "hanzo",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 50.2
+    },
+    "wanwan": {
+      "fort": [
+        {
+          "slug": "yin",
+          "avantage": 4.2
+        },
+        {
+          "slug": "atlas",
+          "avantage": 3.7
+        },
+        {
+          "slug": "ixia",
+          "avantage": 3.4
+        },
+        {
+          "slug": "gloo",
+          "avantage": 2.8
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 2.7
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "phoveus",
+          "avantage": -5.3
+        },
+        {
+          "slug": "irithel",
+          "avantage": -4.1
+        },
+        {
+          "slug": "bruno",
+          "avantage": -4.1
+        },
+        {
+          "slug": "faramis",
+          "avantage": -3.7
+        },
+        {
+          "slug": "cyclops",
+          "avantage": -3.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": -3.3
+        }
+      ],
+      "mesure": 45.9
+    },
+    "x-borg": {
+      "fort": [
+        {
+          "slug": "barats",
+          "avantage": 5.3
+        },
+        {
+          "slug": "baxia",
+          "avantage": 5.1
+        },
+        {
+          "slug": "terizla",
+          "avantage": 4.6
+        },
+        {
+          "slug": "martis",
+          "avantage": 4.2
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 3.9
+        },
+        {
+          "slug": "balmond",
+          "avantage": 3.8
+        }
+      ],
+      "faible": [
+        {
+          "slug": "benedetta",
+          "avantage": -3.9
+        },
+        {
+          "slug": "ling",
+          "avantage": -3.7
+        },
+        {
+          "slug": "paquito",
+          "avantage": -3.5
+        },
+        {
+          "slug": "valentina",
+          "avantage": -3.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": -3.4
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -3.4
+        }
+      ],
+      "mesure": 49.8
+    },
+    "xavier": {
+      "fort": [
+        {
+          "slug": "belerick",
+          "avantage": 2.3
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.8
+        },
+        {
+          "slug": "uranus",
+          "avantage": 1.8
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.8
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natalia",
+          "avantage": -3.1
+        },
+        {
+          "slug": "lolita",
+          "avantage": -2.6
+        },
+        {
+          "slug": "helcurt",
+          "avantage": -2.1
+        },
+        {
+          "slug": "angela",
+          "avantage": -2.1
+        },
+        {
+          "slug": "aamon",
+          "avantage": -1.6
+        },
+        {
+          "slug": "floryn",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 48.5
+    },
+    "yi-sun-shin": {
+      "fort": [
+        {
+          "slug": "thamuz",
+          "avantage": 2
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 1.9
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.8
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.6
+        },
+        {
+          "slug": "nana",
+          "avantage": 1.5
+        },
+        {
+          "slug": "alpha",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "uranus",
+          "avantage": -2.1
+        },
+        {
+          "slug": "aamon",
+          "avantage": -1.8
+        },
+        {
+          "slug": "harley",
+          "avantage": -1.7
+        },
+        {
+          "slug": "karina",
+          "avantage": -1.7
+        },
+        {
+          "slug": "odette",
+          "avantage": -1.5
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 51.9
+    },
+    "yin": {
+      "fort": [
+        {
+          "slug": "minsitthar",
+          "avantage": 2.7
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.6
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2.4
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.3
+        }
+      ],
+      "faible": [
+        {
+          "slug": "wanwan",
+          "avantage": -4.2
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": -2.9
+        },
+        {
+          "slug": "uranus",
+          "avantage": -2.5
+        },
+        {
+          "slug": "lancelot",
+          "avantage": -2.2
+        },
+        {
+          "slug": "irithel",
+          "avantage": -2.2
+        },
+        {
+          "slug": "hilda",
+          "avantage": -2.1
+        }
+      ],
+      "mesure": 49
+    },
+    "yu-zhong": {
+      "fort": [
+        {
+          "slug": "gloo",
+          "avantage": 2.6
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 1.9
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.8
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": 1.5
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.5
+        }
+      ],
+      "faible": [
+        {
+          "slug": "masha",
+          "avantage": -3.5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -1.8
+        },
+        {
+          "slug": "karrie",
+          "avantage": -1.6
+        },
+        {
+          "slug": "lunox",
+          "avantage": -1.6
+        },
+        {
+          "slug": "claude",
+          "avantage": -1.5
+        },
+        {
+          "slug": "edith",
+          "avantage": -1.4
+        }
+      ],
+      "mesure": 49
+    },
+    "yve": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 7.1
+        },
+        {
+          "slug": "hylos",
+          "avantage": 3.1
+        },
+        {
+          "slug": "barats",
+          "avantage": 3
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2.8
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.8
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "fanny",
+          "avantage": -2.7
+        },
+        {
+          "slug": "wanwan",
+          "avantage": -2.5
+        },
+        {
+          "slug": "helcurt",
+          "avantage": -2.5
+        },
+        {
+          "slug": "hirara",
+          "avantage": -2.2
+        },
+        {
+          "slug": "saber",
+          "avantage": -2.1
+        },
+        {
+          "slug": "freya",
+          "avantage": -2
+        }
+      ],
+      "mesure": 51.1
+    },
+    "zetian": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 4
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.3
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 2.3
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1.8
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "valentina",
+          "avantage": -2.3
+        },
+        {
+          "slug": "gloo",
+          "avantage": -1.9
+        },
+        {
+          "slug": "floryn",
+          "avantage": -1.7
+        },
+        {
+          "slug": "harith",
+          "avantage": -1.7
+        },
+        {
+          "slug": "mathilda",
+          "avantage": -1.5
+        },
+        {
+          "slug": "uranus",
+          "avantage": -1.5
+        }
+      ],
+      "mesure": 50.8
+    },
+    "zhask": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 3.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.9
+        },
+        {
+          "slug": "arlott",
+          "avantage": 2.5
+        },
+        {
+          "slug": "kaja",
+          "avantage": 2.3
+        },
+        {
+          "slug": "masha",
+          "avantage": 2
+        },
+        {
+          "slug": "chip",
+          "avantage": 2
+        }
+      ],
+      "faible": [
+        {
+          "slug": "natan",
+          "avantage": -2.9
+        },
+        {
+          "slug": "estes",
+          "avantage": -2.6
+        },
+        {
+          "slug": "alice",
+          "avantage": -2.5
+        },
+        {
+          "slug": "belerick",
+          "avantage": -2.5
+        },
+        {
+          "slug": "sun",
+          "avantage": -2.4
+        },
+        {
+          "slug": "vexana",
+          "avantage": -2
+        }
+      ],
+      "mesure": 51.9
+    },
+    "zhuxin": {
+      "fort": [
+        {
+          "slug": "lolita",
+          "avantage": 5.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": 3.3
+        },
+        {
+          "slug": "gloo",
+          "avantage": 2.8
+        },
+        {
+          "slug": "leomord",
+          "avantage": 2.8
+        },
+        {
+          "slug": "hylos",
+          "avantage": 2.7
+        }
+      ],
+      "faible": [
+        {
+          "slug": "yve",
+          "avantage": -2.8
+        },
+        {
+          "slug": "melissa",
+          "avantage": -2.7
+        },
+        {
+          "slug": "valir",
+          "avantage": -2.4
+        },
+        {
+          "slug": "arlott",
+          "avantage": -2.3
+        },
+        {
+          "slug": "faramis",
+          "avantage": -2.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": -2.3
+        }
+      ],
+      "mesure": 47.9
+    },
+    "zilong": {
+      "fort": [
+        {
+          "slug": "x-borg",
+          "avantage": 2.9
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.6
+        },
+        {
+          "slug": "karrie",
+          "avantage": 2
+        },
+        {
+          "slug": "cici",
+          "avantage": 1.8
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.6
+        },
+        {
+          "slug": "angela",
+          "avantage": 1.6
+        }
+      ],
+      "faible": [
+        {
+          "slug": "tigreal",
+          "avantage": -2.9
+        },
+        {
+          "slug": "karina",
+          "avantage": -2.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": -2.6
+        },
+        {
+          "slug": "atlas",
+          "avantage": -2.5
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": -2.5
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": -2.4
+        }
+      ],
+      "mesure": 46.4
+    }
+  },
+  "relations": {
+    "hirara": {
+      "fortContre": [
+        "pharsa",
+        "ixia",
+        "yin",
+        "gusion"
+      ],
+      "faibleContre": [
+        "saber",
+        "natalia"
+      ],
+      "synergies": [
+        "angela",
+        "minotaur"
+      ]
+    },
+    "marcel": {
+      "fortContre": [
+        "layla",
+        "vexana"
+      ],
+      "faibleContre": [
+        "ling",
+        "x-borg"
+      ],
+      "synergies": [
+        "hanabi",
+        "ixia"
+      ]
+    },
+    "sora": {
+      "fortContre": [
+        "layla",
+        "miya",
+        "hanabi"
+      ],
+      "faibleContre": [
+        "valir",
+        "fanny",
+        "arlott"
+      ],
+      "synergies": [
+        "gatotkaca",
+        "tigreal",
+        "minotaur"
+      ]
+    },
+    "obsidia": {
+      "fortContre": [
+        "hayabusa",
+        "freya",
+        "lancelot"
+      ],
+      "faibleContre": [
+        "bruno",
+        "layla"
+      ],
+      "synergies": [
+        "angela",
+        "estes"
+      ]
+    },
+    "zetian": {
+      "fortContre": [
+        "balmond",
+        "zilong"
+      ],
+      "faibleContre": [
+        "valentina"
+      ],
+      "synergies": [
+        "floryn",
+        "rafaela"
+      ]
+    },
+    "kalea": {
+      "fortContre": [
+        "layla",
+        "chang-e"
+      ],
+      "faibleContre": [
+        "diggie",
+        "minotaur"
+      ],
+      "synergies": [
+        "eudora",
+        "harley",
+        "clint"
+      ]
+    },
+    "lukas": {
+      "fortContre": [
+        "hanabi",
+        "ixia"
+      ],
+      "faibleContre": [
+        "fanny",
+        "valir",
+        "julian"
+      ],
+      "synergies": [
+        "atlas",
+        "tigreal",
+        "gatotkaca"
+      ]
+    },
+    "suyou": {
+      "fortContre": [
+        "ixia",
+        "xavier"
+      ],
+      "faibleContre": [
+        "melissa",
+        "badang"
+      ],
+      "synergies": [
+        "rafaela",
+        "tigreal"
+      ]
+    },
+    "zhuxin": {
+      "fortContre": [
+        "cyclops",
+        "popol-and-kupa"
+      ],
+      "faibleContre": [
+        "saber",
+        "fanny"
+      ],
+      "synergies": [
+        "cici",
+        "kimmy",
+        "belerick"
+      ]
+    },
+    "chip": {
+      "fortContre": [
+        "vexana",
+        "layla",
+        "ixia"
+      ],
+      "faibleContre": [
+        "barats",
+        "tigreal"
+      ],
+      "synergies": [
+        "alpha",
+        "hanabi",
+        "kadita"
+      ]
+    },
+    "cici": {
+      "fortContre": [
+        "fredrinn",
+        "minotaur"
+      ],
+      "faibleContre": [
+        "saber",
+        "kaja"
+      ],
+      "synergies": [
+        "angela",
+        "floryn"
+      ]
+    },
+    "nolan": {
+      "fortContre": [
+        "hanabi",
+        "eudora"
+      ],
+      "faibleContre": [
+        "thamuz",
+        "fredrinn"
+      ],
+      "synergies": [
+        "tigreal",
+        "gatotkaca"
+      ]
+    },
+    "ixia": {
+      "fortContre": [
+        "fredrinn",
+        "bane"
+      ],
+      "faibleContre": [
+        "saber",
+        "aamon"
+      ],
+      "synergies": [
+        "fredrinn",
+        "bane"
+      ]
+    },
+    "arlott": {
+      "fortContre": [
+        "sun",
+        "zilong"
+      ],
+      "faibleContre": [
+        "thamuz",
+        "fredrinn"
+      ],
+      "synergies": [
+        "gatotkaca",
+        "atlas"
+      ]
+    },
+    "novaria": {
+      "fortContre": [
+        "eudora",
+        "odette"
+      ],
+      "faibleContre": [
+        "saber",
+        "hayabusa"
+      ],
+      "synergies": [
+        "beatrix",
+        "layla"
+      ]
+    },
+    "joy": {
+      "fortContre": [
+        "xavier",
+        "vexana"
+      ],
+      "faibleContre": [
+        "minsitthar",
+        "khufra"
+      ],
+      "synergies": [
+        "angela",
+        "hylos"
+      ]
+    },
+    "fredrinn": {
+      "fortContre": [
+        "vale",
+        "eudora"
+      ],
+      "faibleContre": [
+        "karrie",
+        "lesley"
+      ],
+      "synergies": [
+        "angela",
+        "floryn"
+      ]
+    },
+    "julian": {
+      "fortContre": [
+        "cecilion",
+        "aldous"
+      ],
+      "faibleContre": [
+        "joy",
+        "harith"
+      ],
+      "synergies": [
+        "angela",
+        "diggie"
+      ]
+    },
+    "xavier": {
+      "fortContre": [
+        "hanabi",
+        "faramis"
+      ],
+      "faibleContre": [
+        "benedetta",
+        "hayabusa",
+        "natalia"
+      ],
+      "synergies": [
+        "carmilla",
+        "atlas"
+      ]
+    },
+    "melissa": {
+      "fortContre": [
+        "sun",
+        "zilong"
+      ],
+      "faibleContre": [
+        "xavier",
+        "nana"
+      ],
+      "synergies": [
+        "tigreal",
+        "minotaur"
+      ]
+    },
+    "yin": {
+      "fortContre": [
+        "layla",
+        "cecilion"
+      ],
+      "faibleContre": [
+        "fredrinn",
+        "badang"
+      ],
+      "synergies": [
+        "mathilda",
+        "rafaela"
+      ]
+    },
+    "floryn": {
+      "fortContre": [
+        "uranus",
+        "lolita"
+      ],
+      "faibleContre": [
+        "karina",
+        "saber"
+      ],
+      "synergies": [
+        "terizla",
+        "thamuz"
+      ]
+    },
+    "edith": {
+      "fortContre": [
+        "zilong",
+        "aulus"
+      ],
+      "faibleContre": [
+        "hanabi",
+        "wanwan"
+      ],
+      "synergies": [
+        "minotaur",
+        "atlas"
+      ]
+    },
+    "valentina": {
+      "fortContre": [
+        "hanabi",
+        "faramis"
+      ],
+      "faibleContre": [
+        "hayabusa",
+        "natalia",
+        "hanzo"
+      ],
+      "synergies": [
+        "carmilla",
+        "atlas"
+      ]
+    },
+    "aamon": {
+      "fortContre": [
+        "xavier",
+        "cecilion"
+      ],
+      "faibleContre": [
+        "balmond",
+        "fredrinn"
+      ],
+      "synergies": [
+        "rafaela",
+        "floryn"
+      ]
+    },
+    "aulus": {
+      "fortContre": [
+        "hanabi",
+        "miya",
+        "gord"
+      ],
+      "faibleContre": [
+        "franco",
+        "melissa",
+        "karina"
+      ],
+      "synergies": [
+        "angela",
+        "floryn"
+      ]
+    },
+    "natan": {
+      "fortContre": [
+        "tigreal",
+        "gatotkaca"
+      ],
+      "faibleContre": [
+        "saber",
+        "eudora"
+      ],
+      "synergies": [
+        "johnson",
+        "alpha"
+      ]
+    },
+    "phoveus": {
+      "fortContre": [
+        "wanwan",
+        "arlott",
+        "chou"
+      ],
+      "faibleContre": [
+        "aurora",
+        "valir",
+        "vexana"
+      ],
+      "synergies": [
+        "gatotkaca",
+        "minotaur",
+        "tigreal"
+      ]
+    },
+    "beatrix": {
+      "fortContre": [
+        "hylos",
+        "belerick"
+      ],
+      "faibleContre": [
+        "eudora",
+        "ling"
+      ],
+      "synergies": [
+        "khufra",
+        "atlas"
+      ]
+    },
+    "gloo": {
+      "fortContre": [
+        "cecilion",
+        "chang-e"
+      ],
+      "faibleContre": [
+        "karrie",
+        "lesley"
+      ],
+      "synergies": [
+        "eudora",
+        "saber"
+      ]
+    },
+    "paquito": {
+      "fortContre": [
+        "gord",
+        "layla"
+      ],
+      "faibleContre": [
+        "franco",
+        "kaja"
+      ],
+      "synergies": [
+        "angela",
+        "rafaela"
+      ]
+    },
+    "mathilda": {
+      "fortContre": [
+        "gord",
+        "vale"
+      ],
+      "faibleContre": [
+        "franco",
+        "minsitthar"
+      ],
+      "synergies": [
+        "saber",
+        "eudora"
+      ]
+    },
+    "yve": {
+      "fortContre": [
+        "fredrinn",
+        "barats",
+        "aulus"
+      ],
+      "faibleContre": [
+        "yin",
+        "saber",
+        "karina"
+      ],
+      "synergies": [
+        "minotaur",
+        "gatotkaca",
+        "atlas"
+      ]
+    },
+    "brody": {
+      "fortContre": [
+        "aamon",
+        "yin"
+      ],
+      "faibleContre": [
+        "martis",
+        "wanwan"
+      ],
+      "synergies": [
+        "hylos",
+        "minsitthar"
+      ]
+    },
+    "barats": {
+      "fortContre": [
+        "belerick",
+        "lolita"
+      ],
+      "faibleContre": [
+        "akai",
+        "moskov"
+      ],
+      "synergies": [
+        "mathilda",
+        "angela"
+      ]
+    },
+    "khaleed": {
+      "fortContre": [
+        "cyclops",
+        "xavier"
+      ],
+      "faibleContre": [
+        "x-borg",
+        "chou"
+      ],
+      "synergies": [
+        "roger",
+        "karina"
+      ]
+    },
+    "benedetta": {
+      "fortContre": [
+        "jawhead",
+        "guinevere"
+      ],
+      "faibleContre": [
+        "minsitthar",
+        "phoveus"
+      ],
+      "synergies": [
+        "johnson",
+        "gatotkaca"
+      ]
+    },
+    "luo-yi": {
+      "fortContre": [
+        "eudora",
+        "gord"
+      ],
+      "faibleContre": [
+        "uranus",
+        "fredrinn"
+      ],
+      "synergies": [
+        "aamon",
+        "karina"
+      ]
+    },
+    "yu-zhong": {
+      "fortContre": [
+        "aulus",
+        "zilong"
+      ],
+      "faibleContre": [
+        "lesley",
+        "karrie"
+      ],
+      "synergies": [
+        "vexana",
+        "xavier"
+      ]
+    },
+    "popol-and-kupa": {
+      "fortContre": [
+        "lesley",
+        "brody"
+      ],
+      "faibleContre": [
+        "gusion",
+        "karina"
+      ],
+      "synergies": [
+        "alpha",
+        "khaleed"
+      ]
+    },
+    "atlas": {
+      "fortContre": [
+        "vexana",
+        "eudora"
+      ],
+      "faibleContre": [
+        "valir",
+        "moskov"
+      ],
+      "synergies": [
+        "vale",
+        "ixia"
+      ]
+    },
+    "carmilla": {
+      "fortContre": [
+        "dyrroth",
+        "lapu-lapu"
+      ],
+      "faibleContre": [
+        "hanabi",
+        "wanwan"
+      ],
+      "synergies": [
+        "cecilion",
+        "aurora"
+      ]
+    },
+    "cecilion": {
+      "fortContre": [
+        "balmond",
+        "terizla"
+      ],
+      "faibleContre": [
+        "ling",
+        "fanny"
+      ],
+      "synergies": [
+        "carmilla",
+        "minotaur"
+      ]
+    },
+    "silvanna": {
+      "fortContre": [
+        "layla",
+        "valir"
+      ],
+      "faibleContre": [
+        "martis"
+      ],
+      "synergies": [
+        "atlas",
+        "tigreal"
+      ]
+    },
+    "wanwan": {
+      "fortContre": [
+        "fredrinn",
+        "luo-yi"
+      ],
+      "faibleContre": [
+        "lancelot",
+        "gord"
+      ],
+      "synergies": [
+        "franco",
+        "belerick"
+      ]
+    },
+    "masha": {
+      "fortContre": [
+        "ixia",
+        "layla"
+      ],
+      "faibleContre": [
+        "cici",
+        "thamuz"
+      ],
+      "synergies": [
+        "angela",
+        "rafaela"
+      ]
+    },
+    "baxia": {
+      "fortContre": [
+        "chang-e",
+        "silvanna"
+      ],
+      "faibleContre": [
+        "karrie",
+        "lesley"
+      ],
+      "synergies": [
+        "thamuz",
+        "alpha"
+      ]
+    },
+    "lylia": {
+      "fortContre": [
+        "carmilla",
+        "hylos"
+      ],
+      "faibleContre": [
+        "nolan",
+        "ling"
+      ],
+      "synergies": [
+        "minotaur",
+        "franco"
+      ]
+    },
+    "dyrroth": {
+      "fortContre": [
+        "gord",
+        "hanabi"
+      ],
+      "faibleContre": [
+        "vexana",
+        "belerick"
+      ],
+      "synergies": [
+        "franco",
+        "kaja"
+      ]
+    },
+    "ling": {
+      "fortContre": [
+        "layla",
+        "hanabi"
+      ],
+      "faibleContre": [
+        "eudora",
+        "jawhead"
+      ],
+      "synergies": [
+        "angela",
+        "khufra"
+      ]
+    },
+    "x-borg": {
+      "fortContre": [
+        "terizla",
+        "aulus"
+      ],
+      "faibleContre": [
+        "martis",
+        "dyrroth"
+      ],
+      "synergies": [
+        "karina",
+        "martis"
+      ]
+    },
+    "terizla": {
+      "fortContre": [
+        "zilong",
+        "sun"
+      ],
+      "faibleContre": [
+        "arlott",
+        "lesley"
+      ],
+      "synergies": [
+        "gatotkaca",
+        "atlas"
+      ]
+    },
+    "esmeralda": {
+      "fortContre": [
+        "akai",
+        "lolita"
+      ],
+      "faibleContre": [
+        "karrie",
+        "lesley"
+      ],
+      "synergies": [
+        "atlas",
+        "tigreal"
+      ]
+    },
+    "guinevere": {
+      "fortContre": [
+        "zilong",
+        "silvanna"
+      ],
+      "faibleContre": [
+        "badang",
+        "chou"
+      ],
+      "synergies": [
+        "franco",
+        "hylos"
+      ]
+    },
+    "granger": {
+      "fortContre": [
+        "chang-e",
+        "cecilion"
+      ],
+      "faibleContre": [
+        "saber",
+        "hayabusa"
+      ],
+      "synergies": [
+        "franco",
+        "kaja"
+      ]
+    },
+    "khufra": {
+      "fortContre": [
+        "joy",
+        "lancelot"
+      ],
+      "faibleContre": [
+        "fredrinn",
+        "gloo"
+      ],
+      "synergies": [
+        "eudora",
+        "pharsa"
+      ]
+    },
+    "badang": {
+      "fortContre": [
+        "layla",
+        "odette"
+      ],
+      "faibleContre": [
+        "wanwan",
+        "ling"
+      ],
+      "synergies": [
+        "tigreal",
+        "luo-yi"
+      ]
+    },
+    "faramis": {
+      "fortContre": [
+        "saber",
+        "eudora"
+      ],
+      "faibleContre": [
+        "novaria",
+        "pharsa"
+      ],
+      "synergies": [
+        "leomord",
+        "martis"
+      ]
+    },
+    "kadita": {
+      "fortContre": [
+        "aurora",
+        "eudora"
+      ],
+      "faibleContre": [
+        "clint",
+        "beatrix"
+      ],
+      "synergies": [
+        "atlas",
+        "tigreal"
+      ]
+    },
+    "minsitthar": {
+      "fortContre": [
+        "benedetta",
+        "arlott"
+      ],
+      "faibleContre": [
+        "zilong",
+        "aulus"
+      ],
+      "synergies": [
+        "melissa",
+        "hanabi"
+      ]
+    },
+    "harith": {
+      "fortContre": [
+        "belerick",
+        "johnson"
+      ],
+      "faibleContre": [
+        "novaria",
+        "pharsa"
+      ],
+      "synergies": [
+        "minsitthar",
+        "minotaur"
+      ]
+    },
+    "thamuz": {
+      "fortContre": [
+        "zilong",
+        "sun"
+      ],
+      "faibleContre": [
+        "karrie",
+        "irithel"
+      ],
+      "synergies": [
+        "angela",
+        "rafaela"
+      ]
+    },
+    "kimmy": {
+      "fortContre": [
+        "granger",
+        "cecilion"
+      ],
+      "faibleContre": [
+        "saber",
+        "lancelot"
+      ],
+      "synergies": [
+        "badang",
+        "ruby"
+      ]
+    },
+    "belerick": {
+      "fortContre": [
+        "lancelot",
+        "ling"
+      ],
+      "faibleContre": [
+        "valir",
+        "xavier"
+      ],
+      "synergies": [
+        "natan",
+        "miya"
+      ]
+    },
+    "hanzo": {
+      "fortContre": [
+        "layla",
+        "ixia",
+        "zhuxin"
+      ],
+      "faibleContre": [
+        "fanny",
+        "lancelot",
+        "arlott"
+      ],
+      "synergies": [
+        "aurora",
+        "belerick",
+        "tigreal"
+      ]
+    },
+    "lunox": {
+      "fortContre": [
+        "yve",
+        "lylia"
+      ],
+      "faibleContre": [
+        "nolan",
+        "ling"
+      ],
+      "synergies": [
+        "franco",
+        "minotaur"
+      ]
+    },
+    "leomord": {
+      "fortContre": [
+        "odette",
+        "pharsa",
+        "yve",
+        "cecilion"
+      ],
+      "faibleContre": [
+        "phoveus",
+        "franco",
+        "akai",
+        "nana"
+      ],
+      "synergies": [
+        "pharsa",
+        "vexana"
+      ]
+    },
+    "vale": {
+      "fortContre": [
+        "terizla",
+        "hilda"
+      ],
+      "faibleContre": [
+        "hayabusa",
+        "ling"
+      ],
+      "synergies": [
+        "lolita",
+        "belerick"
+      ]
+    },
+    "claude": {
+      "fortContre": [
+        "vexana",
+        "floryn"
+      ],
+      "faibleContre": [
+        "eudora",
+        "franco"
+      ],
+      "synergies": [
+        "angela",
+        "faramis"
+      ]
+    },
+    "aldous": {
+      "fortContre": [
+        "zilong",
+        "leomord"
+      ],
+      "faibleContre": [
+        "martis",
+        "dyrroth"
+      ],
+      "synergies": [
+        "balmond",
+        "bruno"
+      ]
+    },
+    "selena": {
+      "fortContre": [
+        "gord",
+        "layla"
+      ],
+      "faibleContre": [
+        "hanabi",
+        "wanwan"
+      ],
+      "synergies": [
+        "xavier",
+        "beatrix"
+      ]
+    },
+    "kaja": {
+      "fortContre": [
+        "layla",
+        "ixia",
+        "vexana"
+      ],
+      "faibleContre": [
+        "kagura",
+        "yi-sun-shin",
+        "suyou"
+      ],
+      "synergies": [
+        "odette",
+        "pharsa",
+        "ixia"
+      ]
+    },
+    "chang-e": {
+      "fortContre": [
+        "eudora",
+        "odette"
+      ],
+      "faibleContre": [
+        "hanzo",
+        "harley"
+      ],
+      "synergies": [
+        "gatotkaca",
+        "tigreal"
+      ]
+    },
+    "hanabi": {
+      "fortContre": [
+        "tigreal",
+        "belerick"
+      ],
+      "faibleContre": [
+        "lancelot",
+        "zilong"
+      ],
+      "synergies": [
+        "carmilla",
+        "atlas"
+      ]
+    },
+    "uranus": {
+      "fortContre": [
+        "tigreal",
+        "franco"
+      ],
+      "faibleContre": [
+        "layla",
+        "lesley"
+      ],
+      "synergies": [
+        "beatrix",
+        "hanabi"
+      ]
+    },
+    "martis": {
+      "fortContre": [
+        "layla",
+        "odette"
+      ],
+      "faibleContre": [
+        "thamuz",
+        "fredrinn"
+      ],
+      "synergies": [
+        "alpha",
+        "khaleed"
+      ]
+    },
+    "valir": {
+      "fortContre": [
+        "balmond",
+        "fredrinn"
+      ],
+      "faibleContre": [
+        "lancelot",
+        "fanny"
+      ],
+      "synergies": [
+        "khaleed",
+        "yu-zhong"
+      ]
+    },
+    "gusion": {
+      "fortContre": [
+        "layla",
+        "hanabi"
+      ],
+      "faibleContre": [
+        "franco",
+        "kaja"
+      ],
+      "synergies": [
+        "vexana",
+        "pharsa"
+      ]
+    },
+    "angela": {
+      "fortContre": [
+        "uranus",
+        "belerick"
+      ],
+      "faibleContre": [
+        "ling",
+        "harley"
+      ],
+      "synergies": [
+        "lancelot",
+        "aamon"
+      ]
+    },
+    "jawhead": {
+      "fortContre": [
+        "saber",
+        "eudora"
+      ],
+      "faibleContre": [
+        "edith",
+        "thamuz"
+      ],
+      "synergies": [
+        "odette",
+        "belerick"
+      ]
+    },
+    "lesley": {
+      "fortContre": [
+        "gatotkaca",
+        "fredrinn"
+      ],
+      "faibleContre": [
+        "ling",
+        "lancelot"
+      ],
+      "synergies": [
+        "minotaur",
+        "baxia"
+      ]
+    },
+    "pharsa": {
+      "fortContre": [
+        "layla",
+        "hanabi",
+        "xavier"
+      ],
+      "faibleContre": [
+        "franco",
+        "zilong",
+        "minsitthar"
+      ],
+      "synergies": [
+        "atlas",
+        "franco"
+      ]
+    },
+    "helcurt": {
+      "fortContre": [
+        "layla",
+        "chang-e",
+        "vale"
+      ],
+      "faibleContre": [
+        "fredrinn",
+        "belerick",
+        "gatotkaca"
+      ],
+      "synergies": [
+        "tigreal",
+        "esmeralda",
+        "terizla"
+      ]
+    },
+    "zhask": {
+      "fortContre": [
+        "aldous",
+        "paquito"
+      ],
+      "faibleContre": [
+        "pharsa",
+        "cecilion"
+      ],
+      "synergies": [
+        "belerick",
+        "lolita"
+      ]
+    },
+    "hylos": {
+      "fortContre": [
+        "layla",
+        "gord"
+      ],
+      "faibleContre": [
+        "karrie",
+        "lesley"
+      ],
+      "synergies": [
+        "terizla",
+        "minsitthar"
+      ]
+    },
+    "diggie": {
+      "fortContre": [
+        "atlas",
+        "lolita"
+      ],
+      "faibleContre": [
+        "ling",
+        "aamon"
+      ],
+      "synergies": [
+        "layla",
+        "miya"
+      ]
+    },
+    "lancelot": {
+      "fortContre": [
+        "cecilion",
+        "pharsa"
+      ],
+      "faibleContre": [
+        "minsitthar",
+        "phoveus"
+      ],
+      "synergies": [
+        "atlas",
+        "tigreal"
+      ]
+    },
+    "odette": {
+      "fortContre": [
+        "layla",
+        "irithel"
+      ],
+      "faibleContre": [
+        "minotaur",
+        "edith"
+      ],
+      "synergies": [
+        "johnson",
+        "jawhead"
+      ]
+    },
+    "grock": {
+      "fortContre": [
+        "gord",
+        "layla"
+      ],
+      "faibleContre": [
+        "kimmy",
+        "harley"
+      ],
+      "synergies": [
+        "odette",
+        "pharsa"
+      ]
+    },
+    "irithel": {
+      "fortContre": [
+        "miya",
+        "alpha"
+      ],
+      "faibleContre": [
+        "badang",
+        "silvanna"
+      ],
+      "synergies": [
+        "valir",
+        "hylos"
+      ]
+    },
+    "harley": {
+      "fortContre": [
+        "cecilion",
+        "ixia"
+      ],
+      "faibleContre": [
+        "lolita",
+        "uranus"
+      ],
+      "synergies": [
+        "akai",
+        "khufra"
+      ]
+    },
+    "gatotkaca": {
+      "fortContre": [
+        "layla",
+        "popol-and-kupa"
+      ],
+      "faibleContre": [
+        "diggie",
+        "wanwan"
+      ],
+      "synergies": [
+        "kagura",
+        "vale"
+      ]
+    },
+    "karrie": {
+      "fortContre": [
+        "tigreal",
+        "fredrinn"
+      ],
+      "faibleContre": [
+        "xavier",
+        "layla",
+        "nana"
+      ],
+      "synergies": [
+        "saber",
+        "aamon"
+      ]
+    },
+    "roger": {
+      "fortContre": [
+        "hanabi",
+        "odette"
+      ],
+      "faibleContre": [
+        "minsitthar",
+        "khufra"
+      ],
+      "synergies": [
+        "pharsa",
+        "vexana"
+      ]
+    },
+    "vexana": {
+      "fortContre": [
+        "layla",
+        "irithel",
+        "xavier"
+      ],
+      "faibleContre": [
+        "saber",
+        "aamon",
+        "karina"
+      ],
+      "synergies": [
+        "atlas",
+        "beatrix"
+      ]
+    },
+    "lapu-lapu": {
+      "fortContre": [
+        "layla",
+        "eudora"
+      ],
+      "faibleContre": [
+        "lesley",
+        "moskov"
+      ],
+      "synergies": [
+        "tigreal",
+        "atlas"
+      ]
+    },
+    "aurora": {
+      "fortContre": [
+        "leomord",
+        "thamuz",
+        "terizla"
+      ],
+      "faibleContre": [
+        "ling",
+        "kadita",
+        "guinevere"
+      ],
+      "synergies": [
+        "ixia",
+        "freya",
+        "karrie"
+      ]
+    },
+    "hilda": {
+      "fortContre": [
+        "zilong",
+        "layla"
+      ],
+      "faibleContre": [
+        "thamuz",
+        "uranus"
+      ],
+      "synergies": [
+        "rafaela",
+        "franco"
+      ]
+    },
+    "estes": {
+      "fortContre": [
+        "valir",
+        "alice"
+      ],
+      "faibleContre": [
+        "saber",
+        "eudora"
+      ],
+      "synergies": [
+        "lesley",
+        "hanabi"
+      ]
+    },
+    "cyclops": {
+      "fortContre": [
+        "terizla",
+        "alpha"
+      ],
+      "faibleContre": [
+        "lancelot",
+        "alucard",
+        "kagura"
+      ],
+      "synergies": [
+        "belerick",
+        "minsitthar"
+      ]
+    },
+    "johnson": {
+      "fortContre": [
+        "alucard",
+        "zilong"
+      ],
+      "faibleContre": [
+        "harith",
+        "kagura"
+      ],
+      "synergies": [
+        "odette",
+        "kadita"
+      ]
+    },
+    "moskov": {
+      "fortContre": [
+        "thamuz",
+        "balmond"
+      ],
+      "faibleContre": [
+        "lancelot",
+        "natalia"
+      ],
+      "synergies": [
+        "fredrinn",
+        "gatotkaca"
+      ]
+    },
+    "yi-sun-shin": {
+      "fortContre": [
+        "uranus",
+        "terizla"
+      ],
+      "faibleContre": [
+        "franco",
+        "kaja"
+      ],
+      "synergies": [
+        "alpha",
+        "khaleed"
+      ]
+    },
+    "ruby": {
+      "fortContre": [
+        "aldous",
+        "guinevere"
+      ],
+      "faibleContre": [
+        "wanwan",
+        "irithel"
+      ],
+      "synergies": [
+        "pharsa",
+        "kadita"
+      ]
+    },
+    "alpha": {
+      "fortContre": [
+        "layla",
+        "ixia"
+      ],
+      "faibleContre": [
+        "chou",
+        "gusion"
+      ],
+      "synergies": [
+        "vexana",
+        "selena"
+      ]
+    },
+    "sun": {
+      "fortContre": [
+        "franco",
+        "gatotkaca"
+      ],
+      "faibleContre": [
+        "ruby"
+      ],
+      "synergies": [
+        "belerick",
+        "tigreal"
+      ]
+    },
+    "chou": {
+      "fortContre": [
+        "terizla",
+        "alpha"
+      ],
+      "faibleContre": [
+        "lesley",
+        "pharsa"
+      ],
+      "synergies": [
+        "angela",
+        "rafaela"
+      ]
+    },
+    "kagura": {
+      "fortContre": [
+        "layla",
+        "eudora"
+      ],
+      "faibleContre": [
+        "joy",
+        "martis"
+      ],
+      "synergies": [
+        "atlas",
+        "tigreal"
+      ]
+    },
+    "natalia": {
+      "fortContre": [
+        "novaria",
+        "irithel"
+      ],
+      "faibleContre": [
+        "minsitthar",
+        "kaja"
+      ],
+      "synergies": [
+        "yi-sun-shin",
+        "vexana"
+      ]
+    },
+    "gord": {
+      "fortContre": [
+        "barats",
+        "fredrinn"
+      ],
+      "faibleContre": [
+        "fanny",
+        "lancelot"
+      ],
+      "synergies": [
+        "hylos",
+        "belerick"
+      ]
+    },
+    "freya": {
+      "fortContre": [
+        "lesley",
+        "ixia"
+      ],
+      "faibleContre": [
+        "phoveus",
+        "obsidia"
+      ],
+      "synergies": [
+        "belerick",
+        "gatotkaca"
+      ]
+    },
+    "hayabusa": {
+      "fortContre": [
+        "chang-e",
+        "cecilion"
+      ],
+      "faibleContre": [
+        "franco",
+        "kaja"
+      ],
+      "synergies": [
+        "lapu-lapu",
+        "alpha"
+      ]
+    },
+    "lolita": {
+      "fortContre": [
+        "kimmy",
+        "cyclops"
+      ],
+      "faibleContre": [
+        "ling",
+        "paquito"
+      ],
+      "synergies": [
+        "hanabi",
+        "layla"
+      ]
+    },
+    "minotaur": {
+      "fortContre": [
+        "paquito",
+        "julian"
+      ],
+      "faibleContre": [
+        "layla",
+        "lesley"
+      ],
+      "synergies": [
+        "granger",
+        "melissa"
+      ]
+    },
+    "layla": {
+      "fortContre": [
+        "tigreal",
+        "belerick"
+      ],
+      "faibleContre": [
+        "karina",
+        "ling"
+      ],
+      "synergies": [
+        "minsitthar",
+        "belerick"
+      ]
+    },
+    "fanny": {
+      "fortContre": [
+        "karrie",
+        "irithel"
+      ],
+      "faibleContre": [
+        "kaja",
+        "khufra"
+      ],
+      "synergies": [
+        "minotaur",
+        "gatotkaca"
+      ]
+    },
+    "zilong": {
+      "fortContre": [
+        "layla",
+        "lylia"
+      ],
+      "faibleContre": [
+        "franco",
+        "nana"
+      ],
+      "synergies": [
+        "pharsa",
+        "hanabi"
+      ]
+    },
+    "eudora": {
+      "fortContre": [
+        "sora",
+        "moskov"
+      ],
+      "faibleContre": [
+        "hayabusa",
+        "kadita"
+      ],
+      "synergies": [
+        "diggie",
+        "tigreal"
+      ]
+    },
+    "rafaela": {
+      "fortContre": [
+        "masha",
+        "barats"
+      ],
+      "faibleContre": [
+        "ling",
+        "hayabusa"
+      ],
+      "synergies": [
+        "freya",
+        "lapu-lapu"
+      ]
+    },
+    "clint": {
+      "fortContre": [
+        "moskov",
+        "miya"
+      ],
+      "faibleContre": [
+        "melissa",
+        "karrie"
+      ],
+      "synergies": [
+        "rafaela",
+        "angela"
+      ]
+    },
+    "bruno": {
+      "fortContre": [
+        "hanabi",
+        "miya"
+      ],
+      "faibleContre": [
+        "gatotkaca",
+        "fredrinn"
+      ],
+      "synergies": [
+        "franco",
+        "khufra"
+      ]
+    },
+    "bane": {
+      "fortContre": [
+        "hylos",
+        "belerick"
+      ],
+      "faibleContre": [
+        "vale",
+        "xavier"
+      ],
+      "synergies": [
+        "tigreal",
+        "luo-yi"
+      ]
+    },
+    "franco": {
+      "fortContre": [
+        "vale",
+        "estes",
+        "layla"
+      ],
+      "faibleContre": [
+        "wanwan",
+        "fanny",
+        "badang"
+      ],
+      "synergies": [
+        "vale",
+        "karina",
+        "brody"
+      ]
+    },
+    "akai": {
+      "fortContre": [
+        "eudora",
+        "odette"
+      ],
+      "faibleContre": [
+        "nana",
+        "diggie"
+      ],
+      "synergies": [
+        "saber",
+        "eudora"
+      ]
+    },
+    "karina": {
+      "fortContre": [
+        "layla",
+        "hanabi"
+      ],
+      "faibleContre": [
+        "akai",
+        "khufra"
+      ],
+      "synergies": [
+        "tigreal",
+        "faramis"
+      ]
+    },
+    "alucard": {
+      "fortContre": [
+        "harley",
+        "aamon"
+      ],
+      "faibleContre": [
+        "franco",
+        "johnson"
+      ],
+      "synergies": [
+        "gatotkaca",
+        "xavier"
+      ]
+    },
+    "tigreal": {
+      "fortContre": [
+        "zilong",
+        "freya"
+      ],
+      "faibleContre": [
+        "chang-e",
+        "zhask"
+      ],
+      "synergies": [
+        "vexana",
+        "odette"
+      ]
+    },
+    "nana": {
+      "fortContre": [
+        "eudora",
+        "kadita"
+      ],
+      "faibleContre": [
+        "zilong",
+        "natalia"
+      ],
+      "synergies": [
+        "rafaela",
+        "franco"
+      ]
+    },
+    "alice": {
+      "fortContre": [
+        "cecilion",
+        "chang-e"
+      ],
+      "faibleContre": [
+        "baxia",
+        "martis"
+      ],
+      "synergies": [
+        "balmond",
+        "dyrroth"
+      ]
+    },
+    "saber": {
+      "fortContre": [
+        "layla",
+        "eudora"
+      ],
+      "faibleContre": [
+        "estes",
+        "faramis"
+      ],
+      "synergies": [
+        "kadita",
+        "cyclops"
+      ]
+    },
+    "balmond": {
+      "fortContre": [
+        "layla",
+        "eudora"
+      ],
+      "faibleContre": [
+        "lesley",
+        "irithel"
+      ],
+      "synergies": [
+        "angela",
+        "rafaela"
+      ]
+    },
+    "miya": {
+      "fortContre": [
+        "saber",
+        "eudora",
+        "sun"
+      ],
+      "faibleContre": [
+        "pharsa",
+        "yve"
+      ],
+      "synergies": [
+        "tigreal",
+        "belerick"
+      ]
+    }
+  }
+}

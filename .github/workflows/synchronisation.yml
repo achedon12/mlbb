@@ -50,16 +50,16 @@ jobs:
           # chaque fois, meme quand le wiki n'a pas bouge. On l'exclut de la
           # detection, sinon une pull request vide serait ouverte chaque
           # semaine.
-          if git diff --quiet -- . ':(exclude)src/data/genere/synchro.json'; then
+          if git diff --quiet -- . ':(exclude)src/data/jeu/synchro.json'; then
             echo "change=non" >> "$GITHUB_OUTPUT"
             echo "Le wiki n'a pas bouge."
-            git checkout -- src/data/genere/synchro.json
+            git checkout -- src/data/jeu/synchro.json
           else
             echo "change=oui" >> "$GITHUB_OUTPUT"
             {
               echo "resume<<FIN"
               node -e "
-                const s = require('./src/data/genere/synchro.json');
+                const s = require('./src/data/jeu/synchro.json');
                 console.log(\`- \${s.heros} heros, \${s.skins} skins, \${s.objets} objets\`);
                 console.log(\`- \${s.patchs} patchs\`);
                 if (s.classement) console.log(\`- \${s.classement} heros classes (taux du jeu)\`);

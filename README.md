@@ -50,7 +50,7 @@ npm run dev                    # http://localhost:3001
 | `npm run start` | Sert le build de production sur le port 3001 |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
-| `npm run sync` | Relit le wiki et regenere `src/data/genere/` |
+| `npm run sync` | Relit le wiki et regenere `src/data/jeu/` |
 | `npm run sync -- --images` | Idem, en telechargeant aussi les visuels |
 | `npm run traduire` | Traduit en francais les histoires, competences et modes |
 | `npm run veille` | Prend l'instantane des flux d'actualite |

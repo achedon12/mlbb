@@ -9,12 +9,12 @@ Deux sources de donnees, qu'il ne faut pas confondre.
 
 | | Ou | Qui l'ecrit |
 | --- | --- | --- |
-| **Donnees factuelles** — heros, skins, objets, patchs, visuels | `src/data/genere/`, `public/visuels/` | Personne : `npm run sync` les extrait du wiki |
+| **Donnees factuelles** — heros, skins, objets, patchs, visuels | `src/data/jeu/`, `public/visuels/` | Personne : `npm run sync` les extrait du wiki |
 | **Analyse** — commentaire, competences redigees, contres, builds | `src/data/heros/` | Vous |
 | **Articles** — guides, actualites, patch notes | `content/` | Vous |
 | **Tier list, emblemes, sorts** | `src/data/` | Vous |
 
-> **Ne modifiez jamais `src/data/genere/` ni `public/visuels/` a la main.**
+> **Ne modifiez jamais `src/data/jeu/` ni `public/visuels/` a la main.**
 > La prochaine synchronisation ecrasera vos changements. Si une donnee du jeu
 > est fausse, elle vient du wiki : la corriger la-bas resout le probleme pour
 > tout le monde, et definitivement.
@@ -32,7 +32,7 @@ travailler.
 
 ## Ecrire une analyse de heros
 
-1. Reprendre le `slug` **exact** depuis `src/data/genere/heros.json`.
+1. Reprendre le `slug` **exact** depuis `src/data/jeu/heros.json`.
 2. Ouvrir le fichier du role dans `src/data/heros/` (`tanks.ts`,
    `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts`, `supports.ts`).
 3. Ajouter une entree suivant le type `AnalyseHeros` de `src/lib/types.ts`.

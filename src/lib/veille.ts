@@ -1,4 +1,4 @@
-import veilleGenere from "@/data/genere/veille.json";
+import veilleGenere from "@/data/jeu/veille.json";
 
 /**
  * Veille automatique.
@@ -10,7 +10,7 @@ import veilleGenere from "@/data/genere/veille.json";
  *
  * Aucune interrogation reseau a l'execution : l'instantane est pris en amont
  * par `scripts/veille.mjs` (en CI, a intervalle regulier) et lu ici depuis
- * `src/data/genere/veille.json`. Le site ne depend d'aucun service externe.
+ * `src/data/jeu/veille.json`. Le site ne depend d'aucun service externe.
  */
 
 export interface Source {

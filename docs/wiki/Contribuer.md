@@ -9,7 +9,7 @@ Les analyses vivent dans `src/data/heros/`, une par héros, reliées au reste pa
 `slug`. Une analyse contient : un résumé, deux paragraphes de commentaire, forces,
 faiblesses, matchups commentés et builds.
 
-Ne pas toucher à `src/data/genere/` : ce dossier est régénéré par la synchronisation.
+Ne pas toucher à `src/data/jeu/` : ce dossier est régénéré par la synchronisation.
 
 ## Mettre en place le projet
 

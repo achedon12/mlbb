@@ -3,7 +3,7 @@
  *
  * Le site ne doit interroger aucun service externe a l'execution : ce script
  * lit les flux publics une fois (en CI, a intervalle regulier) et ecrit le
- * resultat dans `src/data/genere/veille.json`. La page « Veille » se contente
+ * resultat dans `src/data/jeu/veille.json`. La page « Veille » se contente
  * ensuite de lire ce fichier.
  *
  * On n'affiche que ce qu'un agregateur peut legitimement montrer : titre, date,
@@ -12,7 +12,7 @@
 import { writeFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
 
-const SORTIE = "src/data/genere/veille.json";
+const SORTIE = "src/data/jeu/veille.json";
 const LIMITE = 40;
 
 const sources = [

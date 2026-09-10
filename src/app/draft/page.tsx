@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { OutilDraft } from "@/components/outil-draft";
 import { EnTetePage } from "@/components/ui";
-import relationsGenere from "@/data/genere/relations.json";
+import statistiques from "@/data/jeu/statistiques.json";
 import { heros } from "@/lib/donnees";
 import type { HerosDraft } from "@/lib/draft";
 import { classementComplet } from "@/lib/tier-list";
@@ -25,7 +25,7 @@ interface Relation {
   synergies: string[];
 }
 
-const relations = relationsGenere as unknown as Record<string, Relation>;
+const relations = statistiques.relations as unknown as Record<string, Relation>;
 
 export default function PageDraft() {
   const taux = new Map(classementComplet.map((e) => [e.heros.slug, e.victoire]));

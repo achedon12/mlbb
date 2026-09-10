@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ListeObjets } from "@/components/liste-objets";
 import { EnTetePage } from "@/components/ui";
-import visuelsObjets from "@/data/genere/visuels-objets.json";
+import visuels from "@/data/jeu/visuels.json";
 import { categoriesObjets, NOM_CATEGORIE, objets } from "@/lib/donnees";
 import { site } from "@/lib/site";
 
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const images = visuelsObjets as Record<string, string>;
+const images = visuels.objets as Record<string, string>;
 
 export default function PageObjets() {
   const apercus = objets.map((o) => ({ ...o, image: images[o.slug] ?? null }));

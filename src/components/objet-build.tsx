@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import visuelsObjets from "@/data/genere/visuels-objets.json";
+import visuels from "@/data/jeu/visuels.json";
 import { objets } from "@/lib/donnees";
 
 /**
@@ -10,7 +10,7 @@ import { objets } from "@/lib/donnees";
  * leur icone. Le nom reste affiche dessous pour qui ne les connait pas encore,
  * et le tout renvoie a la fiche de l'objet.
  */
-const IMAGES = visuelsObjets as Record<string, string>;
+const IMAGES = visuels.objets as Record<string, string>;
 const PAR_NOM = new Map(objets.map((o) => [o.nom, o]));
 
 export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {

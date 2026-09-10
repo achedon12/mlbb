@@ -6,7 +6,7 @@ import type { Role } from "@/lib/types";
  * Le wiki n'expose aucun module de donnees pour eux : cette liste est ecrite a
  * la main. Les noms sont ceux du jeu en anglais, ce qui n'est pas un choix
  * esthetique — c'est la cle qui relie chaque entree a son visuel, resolu par
- * la synchronisation (`src/data/genere/visuels-*.json`).
+ * la synchronisation (`src/data/jeu/visuels.json`).
  *
  * Le champ `pourQui` est de l'analyse : il dit a qui l'option s'adresse
  * reellement, ce qu'une description d'effet ne dit jamais.

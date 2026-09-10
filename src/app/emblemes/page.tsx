@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { GuideEmblemes } from "@/components/guide-emblemes";
 import { EnTetePage } from "@/components/ui";
 import { emblemes, sortsDeCombat, talents } from "@/data/emblemes";
-import visuelsEmblemes from "@/data/genere/visuels-emblemes.json";
-import visuelsSorts from "@/data/genere/visuels-sorts.json";
-import visuelsTalents from "@/data/genere/visuels-talents.json";
+import visuels from "@/data/jeu/visuels.json";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -20,9 +18,9 @@ export const metadata: Metadata = {
 };
 
 const images: Record<string, string> = {
-  ...(visuelsEmblemes as Record<string, string>),
-  ...(visuelsTalents as Record<string, string>),
-  ...(visuelsSorts as Record<string, string>),
+  ...(visuels.emblemes as Record<string, string>),
+  ...(visuels.talents as Record<string, string>),
+  ...(visuels.sorts as Record<string, string>),
 };
 
 export default function PageEmblemes() {

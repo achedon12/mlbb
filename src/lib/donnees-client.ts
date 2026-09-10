@@ -1,4 +1,4 @@
-import noms from "@/data/genere/noms.json";
+import noms from "@/data/jeu/noms.json";
 
 /**
  * Table nom-par-slug utilisable cote client.

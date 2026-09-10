@@ -9,7 +9,7 @@
  *     npm run sync            donnees seules
  *     npm run sync -- --images   donnees + telechargement des visuels
  *
- * Le resultat est ecrit dans `src/data/genere/`. Les visuels vont dans
+ * Le resultat est ecrit dans `src/data/jeu/`. Les visuels vont dans
  * `public/visuels/`, qui n'est pas versionne : ce sont des ressources de
  * Moonton, que ce depot ne redistribue pas. Le Dockerfile relance donc la
  * synchronisation au build.
@@ -41,7 +41,7 @@ const STATS = "https://arena.rone.dev/api";
 /** Nombre de patch notes dont on recupere le contenu complet. */
 const PATCHS_DETAILLES = 12;
 const UA = "MLBB-sync/1.0 (https://mlbbdex.com; contact via github.com/achedon12)";
-const SORTIE = "src/data/genere";
+const SORTIE = "src/data/jeu";
 
 const AVEC_IMAGES = process.argv.includes("--images");
 
@@ -1310,7 +1310,7 @@ async function principal() {
   const urlsCompetences = await urlsFichiers(nomsCompetences);
 
   // Icones deja resolues : dernier recours si ni le wiki ni l'API ne repondent.
-  const visuelsExistants = await lireJson(`${SORTIE}/visuels-competences.json`);
+  const visuelsExistants = (await lireJson(`${SORTIE}/visuels.json`)).competences ?? {};
 
   let iconesArena = 0;
   const visuelsCompetences = {};
@@ -1442,33 +1442,47 @@ async function principal() {
   const ecrire = (nom, donnees) =>
     writeFile(`${SORTIE}/${nom}.json`, JSON.stringify(donnees, null, 2) + "\n");
 
-  // Le classement porte sa propre date : il ne se met pas a jour au meme
-  // rythme que le reste quand sa source est indisponible, et afficher la date
-  // de la derniere synchronisation laisserait croire qu'il est plus frais
-  // qu'il ne l'est.
-  if (stats) {
-    await ecrire("classement", { mesure: new Date().toISOString(), taux: stats });
-  }
-  if (liens) await ecrire("relations", liens);
-  if (contres) await ecrire("contres", contres);
+  // Les mesures (classement, contres, synergies) sont regroupees dans un seul
+  // fichier. Chacune a sa propre disponibilite : quand une source ne repond
+  // pas, on conserve la valeur precedente plutot que de l'effacer. Le
+  // classement garde en plus sa date, car il ne se rafraichit pas au meme
+  // rythme que le reste.
+  const statsExistantes = await lireJson(`${SORTIE}/statistiques.json`);
+  const statistiques = {
+    classement: stats
+      ? { mesure: new Date().toISOString(), taux: stats }
+      : (statsExistantes.classement ?? { mesure: null, taux: {} }),
+    contres: contres ?? statsExistantes.contres ?? {},
+    relations: liens ?? statsExistantes.relations ?? {},
+  };
+
+  // Table nom-par-slug, embarquee cote client sans le reste du catalogue.
+  const noms = Object.fromEntries(heros.map((h) => [h.slug, h.nom]));
 
   await Promise.all([
+    // Catalogue
     ecrire("heros", heros),
     ecrire("skins", skins),
     ecrire("objets", objets),
-    ecrire("patchs", listePatchs),
-    ecrire("visuels", chemins),
-    ecrire("visuels-objets", visuelsObjets),
     ecrire("competences", competencesFinales),
-    ecrire("visuels-competences", visuelsCompetences),
-    ecrire("illustrations", illustrations),
-    ecrire("visuels-emblemes", visuelsEmblemes),
-    ecrire("visuels-talents", visuelsTalents),
-    ecrire("visuels-sorts", visuelsSorts),
-    ecrire("patchs-detail", detailPatchs),
-    ecrire("rangs", emblemesRangs),
     ecrire("modes", modes),
     ecrire("histoires", histoires),
+    ecrire("rangs", emblemesRangs),
+    ecrire("noms", noms),
+    // Tous les chemins de visuels, regroupes
+    ecrire("visuels", {
+      heros: chemins,
+      illustrations,
+      competences: visuelsCompetences,
+      objets: visuelsObjets,
+      emblemes: visuelsEmblemes,
+      talents: visuelsTalents,
+      sorts: visuelsSorts,
+    }),
+    // Mesures et patchs, regroupes
+    ecrire("statistiques", statistiques),
+    ecrire("patchs", { liste: listePatchs, detail: detailPatchs }),
+    // Metadonnees de la synchronisation
     ecrire("synchro", {
       date: new Date().toISOString(),
       source: "https://mobilelegends.fandom.com",

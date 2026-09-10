@@ -5,7 +5,7 @@
  *
  * - les **donnees factuelles** (heros, skins, objets, patchs) sont extraites
  *   automatiquement du wiki par `npm run sync` et vivent dans
- *   `src/data/genere/`. Elles ne se modifient pas a la main : la prochaine
+ *   `src/data/jeu/`. Elles ne se modifient pas a la main : la prochaine
  *   synchronisation les ecraserait.
  * - l'**analyse editoriale** (commentaire, builds, contres) est ecrite a la
  *   main dans `src/data/heros/`. Elle vient se poser par-dessus, par `slug`.

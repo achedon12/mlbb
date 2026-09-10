@@ -12,7 +12,7 @@
 Le site ne dépend d'**aucune URL externe à l'exécution**. Chaque donnée et chaque
 image est copiée dans le dépôt :
 
-- les données factuelles vivent dans `src/data/genere/` (JSON) ;
+- les données factuelles vivent dans `src/data/jeu/` (JSON) ;
 - les visuels dans `public/visuels/`.
 
 Les seuls scripts autorisés sont ceux qui **récupèrent** ces données (voir
@@ -27,7 +27,7 @@ src/
   components/     Composants d'interface
   lib/            Accès aux données (donnees.ts), types, utilitaires
   data/
-    genere/       Données extraites automatiquement (ne pas éditer à la main)
+    jeu/          Données extraites (heros, visuels, statistiques, patchs…)
     heros/        Analyses écrites à la main (builds, contres, commentaire)
 scripts/          Récupération et traduction des données (voir page dédiée)
 public/visuels/   Images copiées en local
@@ -36,7 +36,7 @@ public/visuels/   Images copiées en local
 ## Deux origines de données, séparées
 
 1. **Factuel** (héros, skins, objets, patchs, histoire) : extrait automatiquement,
-   dans `src/data/genere/`. Ne se modifie pas à la main — la prochaine synchronisation
+   dans `src/data/jeu/`. Ne se modifie pas à la main — la prochaine synchronisation
    l'écraserait.
 2. **Éditorial** (analyse, builds, contres commentés) : écrit à la main dans
    `src/data/heros/`, posé par-dessus le factuel via le `slug` du héros.
