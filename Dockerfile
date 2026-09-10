@@ -24,6 +24,16 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Variables publiques : Next les fige dans le bundle a la compilation, jamais
+# au runtime. Elles doivent donc etre presentes ici, au build — sinon l'URL
+# canonique et le traceur d'audience manquent aux pages generees.
+ARG NEXT_PUBLIC_SITE_URL
+ARG NEXT_PUBLIC_MATOMO_URL
+ARG NEXT_PUBLIC_MATOMO_SITE_ID
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
+    NEXT_PUBLIC_MATOMO_URL=$NEXT_PUBLIC_MATOMO_URL \
+    NEXT_PUBLIC_MATOMO_SITE_ID=$NEXT_PUBLIC_MATOMO_SITE_ID
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
