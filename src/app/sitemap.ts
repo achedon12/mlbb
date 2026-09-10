@@ -2,15 +2,16 @@ import type { MetadataRoute } from "next";
 import { heros, modesSlugs, patchsDetail } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
 import { site } from "@/lib/site";
-import { LANGUES, LANGUE_DEFAUT } from "@/i18n/config";
+import { LANGUES } from "@/i18n/config";
 
 /**
  * Plan du site, multilingue.
  *
- * Chaque page existe dans chaque langue, sous son prefixe (`/fr/heros`…). Pour
- * chaque adresse on emet une entree par langue, et on relie les versions entre
- * elles par `alternates.languages` (hreflang) : les moteurs comprennent alors
- * qu'il s'agit de la meme page traduite, et servent la bonne selon l'utilisateur.
+ * Chaque page existe dans chaque langue, sous son prefixe (`/fr/heroes`…) : on
+ * emet une entree par langue. Les versions d'une meme page sont reliees par les
+ * `hreflang` de son en-tete HTML (`metaLangues`), pas ici : Google n'en demande
+ * qu'une declaration, et les liens `xhtml:link` faisaient afficher le plan par
+ * les navigateurs comme un bloc de texte plutot que comme un arbre XML.
  */
 type Chemin = {
   chemin: string;
@@ -55,16 +56,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   ];
 
-  // Pour chaque chemin : une URL par langue, toutes reliees en hreflang.
+  // Pour chaque chemin, une URL par langue ; les hreflang vivent dans les pages.
   return chemins.flatMap(({ chemin, changeFrequency, priority, lastModified }) => {
-    const languages = Object.fromEntries(LANGUES.map((l) => [l, `${site.url}/${l}${chemin}`]));
-    languages["x-default"] = `${site.url}/${LANGUE_DEFAUT}${chemin}`;
     return LANGUES.map((l) => ({
       url: `${site.url}/${l}${chemin}`,
       lastModified: lastModified ?? maintenant,
       changeFrequency,
       priority,
-      alternates: { languages },
     }));
   });
 }

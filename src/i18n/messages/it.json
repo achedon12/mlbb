@@ -343,6 +343,12 @@
       "titre": "Sei offline",
       "texte": "Questa pagina non è ancora stata consultata su questo dispositivo, quindi non è disponibile senza connessione. Le pagine già visitate e le sezioni principali del sito restano accessibili.",
       "accueil": "Torna alla home"
+    },
+    "introuvable": {
+      "titre": "Pagina non trovata",
+      "texte": "Questa pagina non esiste, o non esiste più. Le schede degli eroi sono disponibili dal catalogo.",
+      "accueil": "Torna alla home",
+      "heros": "Vedi gli eroi"
     }
   },
   "modeFiche": {

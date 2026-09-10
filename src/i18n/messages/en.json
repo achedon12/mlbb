@@ -343,6 +343,12 @@
       "titre": "You are offline",
       "texte": "This page has not been visited on this device yet, so it is not available without a connection. Pages you have already visited, and the site's main sections, remain available.",
       "accueil": "Back to home"
+    },
+    "introuvable": {
+      "titre": "Page not found",
+      "texte": "This page does not exist, or no longer does. Hero pages are available from the catalog.",
+      "accueil": "Back to home",
+      "heros": "Browse heroes"
     }
   },
   "modeFiche": {

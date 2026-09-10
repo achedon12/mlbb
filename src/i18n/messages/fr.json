@@ -343,6 +343,12 @@
       "titre": "Vous etes hors ligne",
       "texte": "Cette page n'a pas encore ete consultee sur cet appareil : elle n'est donc pas disponible sans connexion. Les pages deja visitees, et les principales rubriques du site, restent accessibles.",
       "accueil": "Revenir a l'accueil"
+    },
+    "introuvable": {
+      "titre": "Page introuvable",
+      "texte": "Cette page n'existe pas, ou plus. Les fiches heros sont accessibles depuis le catalogue.",
+      "accueil": "Retour a l'accueil",
+      "heros": "Voir les heros"
     }
   },
   "modeFiche": {

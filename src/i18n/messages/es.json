@@ -343,6 +343,12 @@
       "titre": "Estás sin conexión",
       "texte": "Esta página aún no se ha consultado en este dispositivo, así que no está disponible sin conexión. Las páginas ya visitadas y las secciones principales del sitio siguen accesibles.",
       "accueil": "Volver al inicio"
+    },
+    "introuvable": {
+      "titre": "Página no encontrada",
+      "texte": "Esta página no existe, o ya no existe. Las fichas de héroes están disponibles en el catálogo.",
+      "accueil": "Volver al inicio",
+      "heros": "Ver los héroes"
     }
   },
   "modeFiche": {
