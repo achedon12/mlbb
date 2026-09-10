@@ -26,7 +26,7 @@ const X_APPID = "2713644";
 const NAVIGATEUR =
   "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 
-const UA = "MLBB.fr/1.0 (+https://mlbb.leoderoin.fr)";
+const UA = "MLBBDex/1.0 (+https://mlbbdex.com)";
 
 export interface Ami {
   nom: string;

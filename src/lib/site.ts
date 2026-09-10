@@ -3,11 +3,11 @@
  * et le flux RSS restent coherents entre eux.
  */
 export const site = {
-  nom: "MLBB.fr",
-  titre: "MLBB — Base de connaissances Mobile Legends: Bang Bang",
+  nom: "MLBBDex",
+  titre: "MLBBDex — Base de connaissances Mobile Legends: Bang Bang",
   description:
     "Fiches heros, builds, tier list argumentee, objets, emblemes, patch notes et actualites de Mobile Legends: Bang Bang, en francais.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mlbb.leoderoin.fr",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mlbbdex.com",
   langue: "fr-FR",
   auteur: "achedon12",
   depot: "https://github.com/achedon12/mlbb",

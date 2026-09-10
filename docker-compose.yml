@@ -10,7 +10,7 @@ services:
     ports:
       - "127.0.0.1:${PORT:-3001}:3001"
     environment:
-      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mlbb.leoderoin.fr}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://mlbbdex.com}
       # Journaux applicatifs, ranges par jour dans le volume monte ci-dessous.
       LOGS_DIR: /app/logs
     # Le conteneur tourne en lecture seule ; seul le dossier des journaux est
