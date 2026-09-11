@@ -33,29 +33,42 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
   const [lane, setLane] = useState<Lane | null>(null);
   const [tri, setTri] = useState<Tri>("nom");
 
-  // La recherche passe par l'URL cote client, ce qui garde la page statique et
-  // rend la recherche partageable — et joignable via l'action de recherche du
-  // moteur. Serveur et premiere hydratation partent de vide (identiques, donc
-  // sans desaccord) ; apres le montage seulement, on adopte ?q=, puis chaque
-  // frappe se reporte dans l'URL.
+  // Recherche, role et position passent par l'URL cote client, ce qui garde la
+  // page statique et rend un filtre partageable — joignable depuis l'accueil,
+  // le fil d'Ariane d'une fiche ou l'action de recherche du moteur. Serveur et
+  // premiere hydratation partent de vide (identiques, donc sans desaccord) ;
+  // apres le montage seulement, on adopte ?q=, ?role= et ?lane=, puis chaque
+  // changement se reporte dans l'URL.
   const monte = useRef(false);
   useEffect(() => {
     if (!monte.current) {
       monte.current = true;
-      const q = new URLSearchParams(window.location.search).get("q");
-      if (q) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- lecture de l'URL apres montage
-        setRecherche(q);
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("q");
+      const roleUrl = ROLES.find((r) => r === params.get("role")) ?? null;
+      const laneUrl = LANES.find((l) => l === params.get("lane")) ?? null;
+      if (q || roleUrl || laneUrl) {
+        /* eslint-disable react-hooks/set-state-in-effect -- lecture de l'URL apres montage */
+        if (q) setRecherche(q);
+        if (roleUrl) setRole(roleUrl);
+        if (laneUrl) setLane(laneUrl);
+        /* eslint-enable react-hooks/set-state-in-effect */
         return;
       }
     }
-    const terme = recherche.trim();
     const params = new URLSearchParams(window.location.search);
-    if (terme) params.set("q", terme);
-    else params.delete("q");
+    const valeurs: [string, string | null][] = [
+      ["q", recherche.trim() || null],
+      ["role", role],
+      ["lane", lane],
+    ];
+    for (const [cle, valeur] of valeurs) {
+      if (valeur) params.set(cle, valeur);
+      else params.delete(cle);
+    }
     const suffixe = params.toString();
     window.history.replaceState(null, "", suffixe ? `?${suffixe}` : window.location.pathname);
-  }, [recherche]);
+  }, [recherche, role, lane]);
 
   const resultats = useMemo(() => {
     const terme = cleRecherche(recherche.trim());

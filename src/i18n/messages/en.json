@@ -11,7 +11,9 @@
     "filAriane": "Breadcrumb",
     "sections": "Page sections",
     "fermer": "Close",
-    "descriptionAccueil": "Mobile Legends: Bang Bang knowledge base: all 133 heroes, their counters and builds by rank, the tier list, items, emblems and patch notes."
+    "descriptionAccueil": "Mobile Legends: Bang Bang knowledge base: all 133 heroes, their counters and builds by rank, the tier list, items, emblems and patch notes.",
+    "freres": "Other pages at the same level as {nom}",
+    "filtrer": "Filter…"
   },
   "nav": {
     "baseDeDonnees": "Database",

@@ -68,12 +68,6 @@ export function CorpsArticle({
   return (
     <article className="mx-auto max-w-3xl px-4 py-14">
       <FilAriane miettes={[{ nom: section, href: retour.href }, { nom: article.titre }]} />
-      <Link
-        href={retour.href}
-        className="mt-4 inline-block text-sm text-craie-500 transition-colors hover:text-or-400"
-      >
-        ← {retour.label}
-      </Link>
 
       <header className="mt-6 border-b border-nuit-800 pb-8">
         <div className="flex flex-wrap items-center gap-3">

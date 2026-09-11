@@ -11,7 +11,9 @@
     "filAriane": "Ruta de navegación",
     "sections": "Secciones de la ficha",
     "fermer": "Cerrar",
-    "descriptionAccueil": "Base de conocimiento de Mobile Legends: Bang Bang: los 133 héroes, sus counters y builds por rango, la tier list, los objetos, emblemas y notas del parche."
+    "descriptionAccueil": "Base de conocimiento de Mobile Legends: Bang Bang: los 133 héroes, sus counters y builds por rango, la tier list, los objetos, emblemas y notas del parche.",
+    "freres": "Otras páginas al mismo nivel que {nom}",
+    "filtrer": "Filtrar…"
   },
   "nav": {
     "baseDeDonnees": "Base de datos",

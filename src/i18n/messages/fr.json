@@ -11,7 +11,9 @@
     "filAriane": "Fil d'Ariane",
     "sections": "Sections de la fiche",
     "fermer": "Fermer",
-    "descriptionAccueil": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes."
+    "descriptionAccueil": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
+    "freres": "Autres pages au même niveau que {nom}",
+    "filtrer": "Filtrer…"
   },
   "nav": {
     "baseDeDonnees": "Base de données",

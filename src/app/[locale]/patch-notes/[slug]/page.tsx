@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { creerT } from "@/i18n/traductions";
 import { assainirHtml, donneesLd } from "@/lib/html";
-import Link from "@/components/lien";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import { CorpsArticle } from "@/components/article";
 import { FilAriane } from "@/components/fil-ariane";
 import { NouveauHeros } from "@/components/nouveau-heros";
@@ -88,16 +86,14 @@ export default async function PagePatch({ params }: Params) {
           <FilAriane
             miettes={[
               { nom: "Patch notes", href: "/patch-notes" },
-              { nom: `Patch ${patch.version}` },
+              {
+                nom: `Patch ${patch.version}`,
+                freres: Object.values(patchsDetail)
+                  .sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }))
+                  .map((p) => ({ nom: `Patch ${p.version}`, href: `/patch-notes/${p.version}` })),
+              },
             ]}
           />
-          <Link
-            href="/patch-notes"
-            className="mt-4 inline-flex items-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
-          >
-            <ArrowLeft size={15} aria-hidden />
-            Tous les patch notes
-          </Link>
 
           <header className="mt-6 border-b border-nuit-800 pb-8">
             <p className="text-xs font-semibold uppercase tracking-wide text-or-400">

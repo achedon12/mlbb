@@ -11,7 +11,9 @@
     "filAriane": "Percorso di navigazione",
     "sections": "Sezioni della scheda",
     "fermer": "Chiudi",
-    "descriptionAccueil": "Base di conoscenza di Mobile Legends: Bang Bang: i 133 eroi, i loro counter e le build per rango, la tier list, gli oggetti, gli emblemi e le patch notes."
+    "descriptionAccueil": "Base di conoscenza di Mobile Legends: Bang Bang: i 133 eroi, i loro counter e le build per rango, la tier list, gli oggetti, gli emblemi e le patch notes.",
+    "freres": "Altre pagine allo stesso livello di {nom}",
+    "filtrer": "Filtra…"
   },
   "nav": {
     "baseDeDonnees": "Database",

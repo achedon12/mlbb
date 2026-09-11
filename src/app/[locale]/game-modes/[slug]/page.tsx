@@ -116,7 +116,10 @@ export default async function PageMode({ params }: Params) {
           <FilAriane
             miettes={[
               { nom: t("nav.gameModes.label"), href: "/game-modes" },
-              { nom: mode.nom },
+              {
+                nom: mode.nom,
+                freres: modesSlugs.map((s) => ({ nom: modeParSlug(locale, s)?.nom ?? s, href: `/game-modes/${s}` })),
+              },
             ]}
           />
           <p className="mt-6 font-titre text-xs font-bold uppercase tracking-[0.2em]" style={{ color: clair }}>
