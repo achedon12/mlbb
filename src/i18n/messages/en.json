@@ -1020,5 +1020,18 @@
   },
   "horsLigne": {
     "bandeau": "Offline — pages you have already visited are still available."
+  },
+  "recherche": {
+    "ouvrir": "Search",
+    "placeholder": "A hero, an item, a patch…",
+    "aucun": "No results.",
+    "chargement": "Loading…",
+    "aide": "↑ ↓ to browse, Enter to open, Esc to close",
+    "groupes": {
+      "heros": "Heroes",
+      "objet": "Items",
+      "patch": "Patch notes",
+      "page": "Pages"
+    }
   }
 }

@@ -4,6 +4,7 @@ import { site } from "@/lib/site";
 import { BoutonCompte } from "./bouton-compte";
 import { MenuBureau } from "./menu-bureau";
 import { MenuMobile } from "./menu-mobile";
+import { RechercheGlobale } from "./recherche-globale";
 import { SelecteurLangue } from "./selecteur-langue";
 
 /**
@@ -39,6 +40,7 @@ export function EnTete({ langue }: { langue: Langue }) {
         </div>
 
         <div className="ml-auto flex items-center gap-1 sm:gap-2">
+          <RechercheGlobale />
           <SelecteurLangue langue={langue} />
           <BoutonCompte />
           <MenuMobile />

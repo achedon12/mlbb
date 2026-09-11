@@ -1020,5 +1020,18 @@
   },
   "horsLigne": {
     "bandeau": "Offline — le pagine già consultate restano disponibili."
+  },
+  "recherche": {
+    "ouvrir": "Cerca",
+    "placeholder": "Un eroe, un oggetto, una patch…",
+    "aucun": "Nessun risultato.",
+    "chargement": "Caricamento…",
+    "aide": "↑ ↓ per scorrere, Invio per aprire, Esc per chiudere",
+    "groupes": {
+      "heros": "Eroi",
+      "objet": "Oggetti",
+      "patch": "Patch notes",
+      "page": "Pagine"
+    }
   }
 }

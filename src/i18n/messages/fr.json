@@ -1020,5 +1020,18 @@
   },
   "horsLigne": {
     "bandeau": "Hors ligne — les pages déjà consultées restent disponibles."
+  },
+  "recherche": {
+    "ouvrir": "Rechercher",
+    "placeholder": "Un héros, un objet, un patch…",
+    "aucun": "Aucun résultat.",
+    "chargement": "Chargement…",
+    "aide": "↑ ↓ pour parcourir, Entrée pour ouvrir, Échap pour fermer",
+    "groupes": {
+      "heros": "Héros",
+      "objet": "Objets",
+      "patch": "Patch notes",
+      "page": "Pages"
+    }
   }
 }

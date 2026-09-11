@@ -1020,5 +1020,18 @@
   },
   "horsLigne": {
     "bandeau": "Sin conexión — las páginas ya consultadas siguen disponibles."
+  },
+  "recherche": {
+    "ouvrir": "Buscar",
+    "placeholder": "Un héroe, un objeto, un parche…",
+    "aucun": "Sin resultados.",
+    "chargement": "Cargando…",
+    "aide": "↑ ↓ para navegar, Intro para abrir, Esc para cerrar",
+    "groupes": {
+      "heros": "Héroes",
+      "objet": "Objetos",
+      "patch": "Notas del parche",
+      "page": "Páginas"
+    }
   }
 }

@@ -3,21 +3,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "@/components/lien";
 import { usePathname } from "next/navigation";
-import {
-  ChevronDown,
-  Database,
-  Gamepad2,
-  Gem,
-  Newspaper,
-  Package,
-  Radar,
-  Scale,
-  ScrollText,
-  Swords,
-  Trophy,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+import { ChevronDown, Database, Newspaper, type LucideIcon } from "lucide-react";
+import { ACTUALITE, BASE, type Entree } from "@/lib/rubriques";
 import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
@@ -29,23 +16,6 @@ import { cn } from "@/lib/utils";
  * de traductions, un libelle et une courte description dans la langue courante.
  */
 
-export type Entree = { href: string; cle: string; icone: LucideIcon };
-
-export const BASE: Entree[] = [
-  { href: "/heroes", cle: "heroes", icone: Users },
-  { href: "/tier-list", cle: "tierList", icone: Trophy },
-  { href: "/compare", cle: "compare", icone: Scale },
-  { href: "/draft", cle: "draft", icone: Swords },
-  { href: "/game-modes", cle: "gameModes", icone: Gamepad2 },
-  { href: "/items", cle: "items", icone: Package },
-  { href: "/emblems", cle: "emblems", icone: Gem },
-];
-
-export const ACTUALITE: Entree[] = [
-  { href: "/news", cle: "news", icone: Newspaper },
-  { href: "/watch", cle: "watch", icone: Radar },
-  { href: "/patch-notes", cle: "patchNotes", icone: ScrollText },
-];
 
 export function estActif(chemin: string, href: string) {
   // Le chemin porte un prefixe de langue (/fr/heroes) : on compare la fin.
@@ -196,3 +166,7 @@ export function MenuBureau() {
     </nav>
   );
 }
+
+// Reexportees pour le menu mobile.
+export { ACTUALITE, BASE };
+export type { Entree };
