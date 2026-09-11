@@ -147,6 +147,14 @@
     "events": {
       "label": "Événements",
       "desc": "StarLight, Collector et skins de chaque mois"
+    },
+    "nickname": {
+      "label": "Pseudo stylé",
+      "desc": "Votre nom en styles Unicode"
+    },
+    "drawCalculator": {
+      "label": "Calculateur de tirages",
+      "desc": "Diamants et chances d'un skin d'événement"
     }
   },
   "compte": {
@@ -906,6 +914,14 @@
       },
       "eventsMonth": {
         "metaDescription": "Mobile Legends: Bang Bang en {month} : {summary}"
+      },
+      "nickname": {
+        "title": "Pseudo stylé MLBB : générateur de noms Unicode",
+        "description": "Générateur de pseudo stylé pour Mobile Legends : votre nom en {n} styles Unicode (gras, gothique, cerclé…) et décorations ꧁ ꧂, 亗, ★, copiables d'un geste. Compteur de caractères, gratuit, sans inscription."
+      },
+      "drawCalculator": {
+        "title": "Calculateur de tirages MLBB : diamants et chances",
+        "description": "Combien de diamants pour un skin d'événement MLBB ? Chances selon votre budget, nombre moyen de tirages avec garantie, paliers à 50, 90 et 99 % et courbe. Gratuit, dans le navigateur, préréglages sourcés."
       }
     },
     "fraicheur": {
@@ -1874,6 +1890,162 @@
         "allMonths": "Tous les mois",
         "yearLink": "Tous les skins sortis en {year}"
       }
+    },
+    "nickname": {
+      "title": "Générateur de pseudo stylé MLBB",
+      "lead": "Tapez votre nom et copiez-le dans {n} styles Unicode — gras, gothique, cerclé, petites capitales — avec des décorations comme ꧁ ꧂ ou 亗. Rien à installer : tout se passe dans votre navigateur.",
+      "howTitle": "Comment ça marche",
+      "how1": "Ces « polices » n'en sont pas : chaque style remplace les lettres latines par d'autres caractères Unicode qui leur ressemblent (symboles mathématiques, lettres cerclées, caractères pleine chasse). Le pseudo reste du texte : il se copie, se colle et s'affiche partout où la police de l'appareil connaît ces caractères.",
+      "how2": "Seules les lettres A à Z et les chiffres changent. Les accents, les espaces et les symboles restent tels quels, et les caractères invisibles (espaces sans chasse, marques de direction, faux blancs) sont retirés : le pseudo copié ne contient rien que vous ne voyiez.",
+      "rulesTitle": "Ce que l'on sait des règles du jeu",
+      "rule1": "Changer de pseudo dans Mobile Legends demande une carte de renommage (Rename Card), vendue dans la boutique du jeu.",
+      "rule2": "Ni Moonton ni le wiki MLBB ne publient la longueur autorisée ni la liste des caractères acceptés. Un guide tiers indique de {min} à {max} caractères : le compteur s'en sert de repère, sans rien bloquer.",
+      "rule3": "On ne sait pas non plus comment le jeu compte. Un « 𝐀 » vaut un caractère Unicode mais deux unités UTF-16, et le style barré ajoute un caractère par lettre : le compteur donne les deux mesures, et un pseudo stylé peut atteindre la limite plus tôt qu'un pseudo simple.",
+      "rule4": "Un symbole absent de la police du jeu s'affiche en carré vide. Faute de liste officielle, nous ne pouvons pas garantir qu'un style sera accepté : essayez-en plusieurs.",
+      "faqTitle": "Questions fréquentes",
+      "q1": "Pourquoi mon pseudo s'affiche-t-il en carrés ?",
+      "a1": "La police de l'appareil ou du jeu ne contient pas ces caractères. Plus un caractère est rare, plus il risque de manquer : essayez un autre style ou une autre décoration.",
+      "q2": "Mon pseudo est-il envoyé quelque part ?",
+      "a2": "Non. La transformation se fait dans votre navigateur ; rien n'est envoyé ni enregistré.",
+      "q3": "Puis-je utiliser ces pseudos ailleurs que dans MLBB ?",
+      "a3": "Oui : ce sont des caractères Unicode standard, lisibles par la plupart des applications. Les lecteurs d'écran les lisent souvent mal, en revanche : pensez-y si vos coéquipiers en utilisent un.",
+      "sourcesTitle": "Sources",
+      "sourceShop": "Wiki MLBB : boutique (Rename Card)",
+      "sourceGuide": "1v9 : changer de pseudo dans MLBB (guide tiers, janvier 2025)",
+      "drawLink": "Vous économisez des diamants pour un skin d'événement ?",
+      "drawLinkAction": "Calculez vos chances de tirage"
+    },
+    "nicknameUI": {
+      "example": "Ombre",
+      "input": "Votre pseudo",
+      "random": "Au hasard",
+      "help": "Les lettres A à Z et les chiffres changent de style ; accents, espaces et symboles restent tels quels. Les caractères invisibles sont retirés.",
+      "decorations": "Décoration",
+      "none": "Aucune",
+      "decoration": {
+        "javanese": "Ornements javanais",
+        "whiteBrackets": "Crochets blancs",
+        "blackBrackets": "Crochets noirs",
+        "hollowBrackets": "Crochets creux",
+        "stars": "Étoiles",
+        "waves": "Vagues et étoiles",
+        "crown": "Couronnes",
+        "seal": "Sceaux",
+        "cross": "Croisillons",
+        "khanda": "Khanda",
+        "sparkle": "Étincelles",
+        "chevrons": "Chevrons",
+        "rifle": "Fusil"
+      },
+      "empty": "Tapez un nom pour voir tous les styles.",
+      "selected": "Sélection · {style}",
+      "style": {
+        "bold": "Gras",
+        "italic": "Italique",
+        "boldItalic": "Gras italique",
+        "script": "Calligraphie",
+        "boldScript": "Calligraphie grasse",
+        "fraktur": "Gothique",
+        "boldFraktur": "Gothique gras",
+        "doubleStruck": "Ajouré",
+        "monospace": "Machine à écrire",
+        "sans": "Sans empattement",
+        "sansBold": "Sans empattement gras",
+        "sansItalic": "Sans empattement italique",
+        "sansBoldItalic": "Sans empattement gras italique",
+        "smallCaps": "Petites capitales",
+        "circled": "Cerclé",
+        "negativeCircled": "Cerclé plein",
+        "squared": "Encadré",
+        "fullWidth": "Pleine chasse",
+        "superscript": "Exposant",
+        "strikethrough": "Barré",
+        "underline": "Souligné"
+      },
+      "copy": "Copier",
+      "copyStyle": "Copier le style {style}",
+      "copied": "Copié : {nickname}",
+      "copyFailed": "Copie impossible : sélectionnez le pseudo et copiez-le à la main.",
+      "length": "Longueur : {n}",
+      "units": "{u} en unités UTF-16",
+      "overGuide": "Plus long que les {max} caractères qu'indique un guide : le jeu pourrait le refuser.",
+      "note": "Certains symboles peuvent s'afficher en carré vide dans le jeu, ou être refusés. Le jeu ne publie pas sa manière de compter la longueur : le compteur donne les deux mesures courantes.",
+      "stylesTitle": "Tous les styles"
+    },
+    "drawCalculator": {
+      "title": "Calculateur de tirages MLBB",
+      "lead": "Combien de diamants pour un skin d'événement ? Entrez le prix d'un tirage, la chance du lot et la garantie : vos chances selon votre budget, la moyenne, et les paliers à 50, 90 et 99 %.",
+      "methodTitle": "Méthode",
+      "method1": "Chaque tirage est supposé indépendant, avec la même chance p d'obtenir le lot. Les chances de l'avoir en n tirages valent 1 − (1 − p)ⁿ ; avec une garantie au tirage N, elles passent à 100 % au N-ième tirage.",
+      "method2": "Le nombre moyen de tirages vaut (1 − (1 − p)ᴺ) / p avec garantie, 1 / p sans. Le prix retient la combinaison la moins chère de tirages x10 et de tirages simples ; la moyenne en diamants est donnée pour les deux façons de tirer.",
+      "method3": "Les remises ponctuelles (premier tirage du jour à moitié prix, semaines de réduction), les jetons gratuits et les récompenses de palier hebdomadaires ne sont pas comptés : ils font baisser le coût réel.",
+      "method4": "Un Crystal of Aurora remplace un diamant dans les tirages : comptez-les ensemble dans votre budget.",
+      "limitsTitle": "Ce que le calcul ne sait pas",
+      "limit1": "Le jeu donne souvent la chance d'une catégorie (« un skin », 1 %) plutôt que celle d'un skin précis. Si le skin voulu n'est qu'un parmi plusieurs, sa chance est plus basse : entrez-la si l'événement la publie.",
+      "limit2": "Certains événements ne sont pas de simples tirages : prix qui monte à chaque tirage (Grand Collection), points à accumuler (Zodiac), noyaux à échanger (Magic Wheel). Ce calcul ne s'y applique pas.",
+      "findTitle": "Où trouver les chances d'un événement",
+      "find1": "Moonton affiche les probabilités de chaque tirage dans le jeu, avec les règles de l'événement. Le wiki MLBB en recopie certaines : les préréglages du calculateur en viennent, avec la date de la page, parce que les règles peuvent changer.",
+      "faqTitle": "Questions fréquentes",
+      "q1": "{draws} tirages à {p} garantissent-ils le lot ?",
+      "a1": "Non. Chaque tirage repart de zéro : {draws} tirages à {p} donnent {chance} de chances, et il en faut {n} pour atteindre 99 %, sauf garantie plus tôt.",
+      "q2": "Vaut-il mieux tirer par 10 ?",
+      "a2": "Quand le x10 coûte moins que dix tirages simples, le prix par tirage baisse ; mais si le lot tombe tôt, les tirages restants du x10 sont payés quand même. Le calculateur donne la moyenne des deux façons.",
+      "q3": "La garantie repart-elle de zéro après un lot ?",
+      "a3": "Cela dépend de l'événement : lisez ses règles. Le calcul porte sur le premier lot obtenu, pour lequel la question ne se pose pas.",
+      "sourcesTitle": "Sources",
+      "sourceWiki": "Wiki MLBB : {page}",
+      "collectionLink": "Valeur de votre collection",
+      "calendarLink": "Calendrier des skins"
+    },
+    "drawCalculatorUI": {
+      "presets": "Événements relevés sur le wiki",
+      "prize": {
+        "aurora": "un skin",
+        "newArrivalSkin": "un skin",
+        "newArrivalHero": "un héros"
+      },
+      "presetNote": "Valeurs du wiki MLBB, page modifiée le {date} : chance d'obtenir {prize} parmi ceux proposés, pas un en particulier. Vérifiez les règles dans le jeu, elles changent.",
+      "wikiLink": "Voir la page",
+      "cost": "Prix d'un tirage (diamants)",
+      "tenCost": "Prix du tirage x10 (facultatif)",
+      "chance": "Chance du lot par tirage",
+      "pity": "Garanti au tirage n° (facultatif)",
+      "error": {
+        "cost": "Un nombre entier de diamants, de 1 à {max}.",
+        "tenCost": "Un nombre entier de diamants, de 1 à {max}, ou vide.",
+        "chance": "Un pourcentage entre {min} et 100.",
+        "pity": "Un numéro de tirage entier, de 1 à {max}, ou vide.",
+        "budget": "Un nombre entier de diamants, de 0 à {max}.",
+        "draws": "Un nombre entier de tirages, de 1 à {max}."
+      },
+      "tenIgnored": "Le tirage x10 ne coûte pas moins que dix tirages simples : le calcul l'ignore.",
+      "modeLegend": "Calculer pour",
+      "modeBudget": "Un budget",
+      "modeDraws": "Un nombre de tirages",
+      "budget": "Budget (diamants)",
+      "draws": "Nombre de tirages",
+      "invalid": "Corrigez les champs signalés pour voir le calcul.",
+      "chanceOfPrize": "de chances d'obtenir le lot",
+      "summaryNone": "Ce budget ne paie aucun tirage : un tirage coûte {cost} diamants.",
+      "summaryBudget": "Avec {diamonds} diamants, vous faites {draws} tirages : {chance} de chances d'obtenir le lot.",
+      "summaryDraws": "{draws} tirages coûtent {diamonds} diamants et donnent {chance} de chances d'obtenir le lot.",
+      "summaryAverage": "En moyenne, le lot tombe au bout de {draws} tirages, soit environ {diamonds} diamants.",
+      "summaryPity": "Garanti au tirage n° {n} : au pire, {diamonds} diamants.",
+      "statDraws": "Tirages effectués",
+      "statDiamonds": "Diamants dépensés",
+      "statAverageDraws": "Tirages en moyenne",
+      "statAverageSingle": "Diamants en moyenne, un par un",
+      "statAverageTen": "Diamants en moyenne, par x10",
+      "milestonesTitle": "Pour atteindre…",
+      "colChance": "Chances",
+      "colDraws": "Tirages",
+      "colDiamonds": "Diamants",
+      "chartTitle": "Chances cumulées",
+      "chartLabel": "Courbe des chances d'obtenir le lot selon le nombre de tirages : 50 % à {p50} tirages, 90 % à {p90}, 99 % à {p99}.",
+      "axisDraws": "tirages",
+      "you": "vous",
+      "pityChart": "garantie",
+      "whereToFind": "Où trouver les chances ? Chaque événement de tirage publie ses règles et ses probabilités dans le jeu : ouvrez l'événement dans la boutique et cherchez l'écran des règles. Entrez la chance du lot que vous visez, pas celle d'une catégorie entière, si le jeu donne le détail."
     }
   },
   "modeFiche": {

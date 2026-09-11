@@ -147,6 +147,14 @@
     "events": {
       "label": "Events",
       "desc": "StarLight, Collector and skins of every month"
+    },
+    "nickname": {
+      "label": "Stylish name",
+      "desc": "Your name in Unicode styles"
+    },
+    "drawCalculator": {
+      "label": "Draw calculator",
+      "desc": "Diamonds and odds for event skins"
     }
   },
   "compte": {
@@ -906,6 +914,14 @@
       },
       "eventsMonth": {
         "metaDescription": "Mobile Legends: Bang Bang in {month}: {summary}"
+      },
+      "nickname": {
+        "title": "MLBB Stylish Name Generator: Unicode Nicknames",
+        "description": "Stylish name generator for Mobile Legends: your name in {n} Unicode styles (bold, gothic, circled…) with ꧁ ꧂, 亗, ★ decorations, copied in one tap. Character counter, free, no sign-up."
+      },
+      "drawCalculator": {
+        "title": "MLBB Draw Calculator: Diamonds and Odds",
+        "description": "How many diamonds for an MLBB event skin? Odds for your budget, average draws with pity, 50, 90 and 99% milestones and a chart. Free, runs in your browser, presets with sources."
       }
     },
     "fraicheur": {
@@ -1874,6 +1890,162 @@
         "allMonths": "All months",
         "yearLink": "Every skin released in {year}"
       }
+    },
+    "nickname": {
+      "title": "MLBB Stylish Name Generator",
+      "lead": "Type your name and copy it in {n} Unicode styles — bold, gothic, circled, small caps — with decorations like ꧁ ꧂ or 亗. Nothing to install: everything happens in your browser.",
+      "howTitle": "How it works",
+      "how1": "These aren't really fonts: each style swaps Latin letters for other Unicode characters that look like them (mathematical symbols, circled letters, full-width characters). Your nickname stays plain text, so it can be copied, pasted and displayed anywhere the device font knows those characters.",
+      "how2": "Only the letters A to Z and digits change. Accents, spaces and symbols stay as they are, and invisible characters (zero-width spaces, direction marks, blank fillers) are removed: the copied nickname contains nothing you can't see.",
+      "rulesTitle": "What we know about the game's rules",
+      "rule1": "Changing your nickname in Mobile Legends requires a Rename Card, sold in the in-game shop.",
+      "rule2": "Neither Moonton nor the MLBB wiki publishes the allowed length or the list of accepted characters. A third-party guide reports {min} to {max} characters: the counter uses that as a guide and blocks nothing.",
+      "rule3": "We also don't know how the game counts. A “𝐀” is one Unicode character but two UTF-16 units, and the strikethrough style adds one character per letter: the counter shows both measures, and a stylish nickname may hit the limit sooner than a plain one.",
+      "rule4": "A symbol missing from the game's font shows up as an empty box. Without an official list, we can't guarantee a style will be accepted: try a few.",
+      "faqTitle": "FAQ",
+      "q1": "Why does my nickname show up as boxes?",
+      "a1": "The device or game font doesn't include those characters. The rarer the character, the more likely it's missing: try another style or decoration.",
+      "q2": "Is my nickname sent anywhere?",
+      "a2": "No. The conversion happens in your browser; nothing is sent or stored.",
+      "q3": "Can I use these nicknames outside MLBB?",
+      "a3": "Yes: they're standard Unicode characters that most apps can display. Screen readers often read them poorly, though: keep that in mind if your teammates use one.",
+      "sourcesTitle": "Sources",
+      "sourceShop": "MLBB wiki: Shop (Rename Card)",
+      "sourceGuide": "1v9: how to change your name in MLBB (third-party guide, January 2025)",
+      "drawLink": "Saving diamonds for an event skin?",
+      "drawLinkAction": "Work out your draw odds"
+    },
+    "nicknameUI": {
+      "example": "Shadow",
+      "input": "Your nickname",
+      "random": "Random",
+      "help": "Letters A to Z and digits change style; accents, spaces and symbols stay as they are. Invisible characters are removed.",
+      "decorations": "Decoration",
+      "none": "None",
+      "decoration": {
+        "javanese": "Javanese ornaments",
+        "whiteBrackets": "White corner brackets",
+        "blackBrackets": "Black lenticular brackets",
+        "hollowBrackets": "Hollow brackets",
+        "stars": "Stars",
+        "waves": "Waves and stars",
+        "crown": "Crowns",
+        "seal": "Seals",
+        "cross": "Crosses",
+        "khanda": "Khanda",
+        "sparkle": "Sparkles",
+        "chevrons": "Chevrons",
+        "rifle": "Rifle"
+      },
+      "empty": "Type a name to see every style.",
+      "selected": "Selected · {style}",
+      "style": {
+        "bold": "Bold",
+        "italic": "Italic",
+        "boldItalic": "Bold italic",
+        "script": "Script",
+        "boldScript": "Bold script",
+        "fraktur": "Gothic",
+        "boldFraktur": "Bold gothic",
+        "doubleStruck": "Double-struck",
+        "monospace": "Typewriter",
+        "sans": "Sans-serif",
+        "sansBold": "Sans-serif bold",
+        "sansItalic": "Sans-serif italic",
+        "sansBoldItalic": "Sans-serif bold italic",
+        "smallCaps": "Small caps",
+        "circled": "Circled",
+        "negativeCircled": "Filled circle",
+        "squared": "Squared",
+        "fullWidth": "Full-width",
+        "superscript": "Superscript",
+        "strikethrough": "Strikethrough",
+        "underline": "Underline"
+      },
+      "copy": "Copy",
+      "copyStyle": "Copy the {style} style",
+      "copied": "Copied: {nickname}",
+      "copyFailed": "Couldn't copy: select the nickname and copy it manually.",
+      "length": "Length: {n}",
+      "units": "{u} in UTF-16 units",
+      "overGuide": "Longer than the {max} characters reported by a guide: the game may reject it.",
+      "note": "Some symbols may show up as empty boxes in game, or be rejected. The game doesn't publish how it counts length: the counter gives both common measures.",
+      "stylesTitle": "All styles"
+    },
+    "drawCalculator": {
+      "title": "MLBB Draw Calculator",
+      "lead": "How many diamonds for an event skin? Enter the price per draw, the prize chance and the pity: your odds for your budget, the average, and the 50, 90 and 99% milestones.",
+      "methodTitle": "Method",
+      "method1": "Each draw is treated as independent, with the same chance p of getting the prize. The chance of having it within n draws is 1 − (1 − p)ⁿ; with a guarantee on draw N, it reaches 100% on the Nth draw.",
+      "method2": "The average number of draws is (1 − (1 − p)ᴺ) / p with a guarantee, 1 / p without. The price uses the cheapest mix of 10-draws and single draws; the average in diamonds is given for both ways of drawing.",
+      "method3": "One-off discounts (half-price first draw of the day, discount weeks), free tokens and weekly milestone rewards aren't counted: they lower the real cost.",
+      "method4": "A Crystal of Aurora replaces one diamond in draws: count them together in your budget.",
+      "limitsTitle": "What the calculation doesn't know",
+      "limit1": "The game often gives the chance for a category (“a skin”, 1%) rather than for a specific skin. If the skin you want is one of several, its chance is lower: enter it if the event publishes it.",
+      "limit2": "Some events aren't simple draws: a price that rises with each draw (Grand Collection), points to build up (Zodiac), cores to exchange (Magic Wheel). This calculation doesn't apply to them.",
+      "findTitle": "Where to find an event's odds",
+      "find1": "Moonton displays the probabilities of every draw in game, with the event's rules. The MLBB wiki copies some of them: the calculator's presets come from there, with the page date, because rules can change.",
+      "faqTitle": "FAQ",
+      "q1": "Do {draws} draws at {p} guarantee the prize?",
+      "a1": "No. Each draw starts from scratch: {draws} draws at {p} give a {chance} chance, and it takes {n} to reach 99%, unless a guarantee kicks in sooner.",
+      "q2": "Is it better to draw 10 at a time?",
+      "a2": "When the 10-draw costs less than ten single draws, the price per draw goes down; but if the prize drops early, you've still paid for the rest of the 10-draw. The calculator gives the average for both.",
+      "q3": "Does the pity reset after a prize?",
+      "a3": "It depends on the event: read its rules. The calculation covers the first prize you get, where the question doesn't arise.",
+      "sourcesTitle": "Sources",
+      "sourceWiki": "MLBB wiki: {page}",
+      "collectionLink": "Your collection's value",
+      "calendarLink": "Skin calendar"
+    },
+    "drawCalculatorUI": {
+      "presets": "Events listed on the wiki",
+      "prize": {
+        "aurora": "a skin",
+        "newArrivalSkin": "a skin",
+        "newArrivalHero": "a hero"
+      },
+      "presetNote": "Values from the MLBB wiki, page last edited {date}: chance of getting {prize} among those offered, not a specific one. Check the rules in game, they change.",
+      "wikiLink": "See the page",
+      "cost": "Price per draw (diamonds)",
+      "tenCost": "10-draw price (optional)",
+      "chance": "Prize chance per draw",
+      "pity": "Guaranteed on draw no. (optional)",
+      "error": {
+        "cost": "A whole number of diamonds, from 1 to {max}.",
+        "tenCost": "A whole number of diamonds, from 1 to {max}, or empty.",
+        "chance": "A percentage between {min} and 100.",
+        "pity": "A whole draw number, from 1 to {max}, or empty.",
+        "budget": "A whole number of diamonds, from 0 to {max}.",
+        "draws": "A whole number of draws, from 1 to {max}."
+      },
+      "tenIgnored": "The 10-draw doesn't cost less than ten single draws: the calculation ignores it.",
+      "modeLegend": "Calculate for",
+      "modeBudget": "A budget",
+      "modeDraws": "A number of draws",
+      "budget": "Budget (diamonds)",
+      "draws": "Number of draws",
+      "invalid": "Fix the highlighted fields to see the calculation.",
+      "chanceOfPrize": "chance of getting the prize",
+      "summaryNone": "This budget doesn't cover a single draw: one draw costs {cost} diamonds.",
+      "summaryBudget": "With {diamonds} diamonds you get {draws} draws: a {chance} chance of getting the prize.",
+      "summaryDraws": "{draws} draws cost {diamonds} diamonds and give a {chance} chance of getting the prize.",
+      "summaryAverage": "On average, the prize drops after {draws} draws, about {diamonds} diamonds.",
+      "summaryPity": "Guaranteed on draw {n}: {diamonds} diamonds at worst.",
+      "statDraws": "Draws made",
+      "statDiamonds": "Diamonds spent",
+      "statAverageDraws": "Average draws",
+      "statAverageSingle": "Average diamonds, one at a time",
+      "statAverageTen": "Average diamonds, in 10-draws",
+      "milestonesTitle": "To reach…",
+      "colChance": "Chance",
+      "colDraws": "Draws",
+      "colDiamonds": "Diamonds",
+      "chartTitle": "Cumulative chance",
+      "chartLabel": "Chance of getting the prize by number of draws: 50% at {p50} draws, 90% at {p90}, 99% at {p99}.",
+      "axisDraws": "draws",
+      "you": "you",
+      "pityChart": "pity",
+      "whereToFind": "Where to find the odds? Every draw event publishes its rules and probabilities in game: open the event in the shop and look for the rules screen. Enter the chance of the exact prize you want, not a whole category's, if the game gives the breakdown."
     }
   },
   "modeFiche": {

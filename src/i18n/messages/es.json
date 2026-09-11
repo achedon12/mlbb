@@ -147,6 +147,14 @@
     "events": {
       "label": "Eventos",
       "desc": "StarLight, Collector y skins de cada mes"
+    },
+    "nickname": {
+      "label": "Nick con estilo",
+      "desc": "Tu nombre en estilos Unicode"
+    },
+    "drawCalculator": {
+      "label": "Calculadora de tiradas",
+      "desc": "Diamantes y probabilidades de skins de evento"
     }
   },
   "compte": {
@@ -906,6 +914,14 @@
       },
       "eventsMonth": {
         "metaDescription": "Mobile Legends: Bang Bang en {month}: {summary}"
+      },
+      "nickname": {
+        "title": "Nick con estilo MLBB: generador de nombres Unicode",
+        "description": "Generador de nicks con estilo para Mobile Legends: tu nombre en {n} estilos Unicode (negrita, gótica, en círculo…) con decoraciones ꧁ ꧂, 亗, ★, listos para copiar con un toque. Contador de caracteres, gratis y sin registro."
+      },
+      "drawCalculator": {
+        "title": "Calculadora de tiradas MLBB: diamantes y probabilidades",
+        "description": "¿Cuántos diamantes para una skin de evento de MLBB? Probabilidades según tu presupuesto, tiradas medias con garantía, umbrales del 50, 90 y 99 % y gráfico. Gratis, en tu navegador, preajustes con fuentes."
       }
     },
     "fraicheur": {
@@ -1874,6 +1890,162 @@
         "allMonths": "Todos los meses",
         "yearLink": "Todos los skins lanzados en {year}"
       }
+    },
+    "nickname": {
+      "title": "Generador de nicks con estilo para MLBB",
+      "lead": "Escribe tu nombre y cópialo en {n} estilos Unicode —negrita, gótica, en círculo, versalitas— con decoraciones como ꧁ ꧂ o 亗. Nada que instalar: todo ocurre en tu navegador.",
+      "howTitle": "Cómo funciona",
+      "how1": "No son fuentes de verdad: cada estilo cambia las letras latinas por otros caracteres Unicode que se les parecen (símbolos matemáticos, letras en círculo, caracteres de ancho completo). Tu nick sigue siendo texto: se copia, se pega y se ve en cualquier sitio donde la fuente del dispositivo tenga esos caracteres.",
+      "how2": "Solo cambian las letras de la A a la Z y los números. Las tildes, los espacios y los símbolos se quedan igual, y los caracteres invisibles (espacios de ancho cero, marcas de dirección, rellenos en blanco) se eliminan: el nick copiado no contiene nada que no veas.",
+      "rulesTitle": "Lo que sabemos de las reglas del juego",
+      "rule1": "Para cambiar de nick en Mobile Legends hace falta una Rename Card, que se vende en la tienda del juego.",
+      "rule2": "Ni Moonton ni la wiki de MLBB publican la longitud permitida ni la lista de caracteres aceptados. Una guía de terceros indica de {min} a {max} caracteres: el contador la usa como referencia, sin bloquear nada.",
+      "rule3": "Tampoco sabemos cómo cuenta el juego. Una «𝐀» vale un carácter Unicode pero dos unidades UTF-16, y el estilo tachado añade un carácter por letra: el contador muestra ambas medidas, y un nick con estilo puede llegar al límite antes que uno simple.",
+      "rule4": "Un símbolo que no está en la fuente del juego se ve como un cuadro vacío. Sin una lista oficial, no podemos garantizar que un estilo sea aceptado: prueba varios.",
+      "faqTitle": "Preguntas frecuentes",
+      "q1": "¿Por qué mi nick se ve como cuadros?",
+      "a1": "La fuente del dispositivo o del juego no incluye esos caracteres. Cuanto más raro es un carácter, más probable es que falte: prueba otro estilo u otra decoración.",
+      "q2": "¿Se envía mi nick a algún sitio?",
+      "a2": "No. La conversión se hace en tu navegador; no se envía ni se guarda nada.",
+      "q3": "¿Puedo usar estos nicks fuera de MLBB?",
+      "a3": "Sí: son caracteres Unicode estándar que la mayoría de las apps pueden mostrar. Eso sí, los lectores de pantalla suelen leerlos mal: tenlo en cuenta si tus compañeros usan uno.",
+      "sourcesTitle": "Fuentes",
+      "sourceShop": "Wiki de MLBB: tienda (Rename Card)",
+      "sourceGuide": "1v9: cómo cambiar de nombre en MLBB (guía de terceros, enero de 2025)",
+      "drawLink": "¿Ahorras diamantes para una skin de evento?",
+      "drawLinkAction": "Calcula tus probabilidades de tirada"
+    },
+    "nicknameUI": {
+      "example": "Sombra",
+      "input": "Tu nick",
+      "random": "Al azar",
+      "help": "Las letras de la A a la Z y los números cambian de estilo; tildes, espacios y símbolos se quedan igual. Los caracteres invisibles se eliminan.",
+      "decorations": "Decoración",
+      "none": "Ninguna",
+      "decoration": {
+        "javanese": "Ornamentos javaneses",
+        "whiteBrackets": "Corchetes de esquina blancos",
+        "blackBrackets": "Corchetes lenticulares negros",
+        "hollowBrackets": "Corchetes huecos",
+        "stars": "Estrellas",
+        "waves": "Olas y estrellas",
+        "crown": "Coronas",
+        "seal": "Sellos",
+        "cross": "Cruces",
+        "khanda": "Khanda",
+        "sparkle": "Destellos",
+        "chevrons": "Flechas dobles",
+        "rifle": "Rifle"
+      },
+      "empty": "Escribe un nombre para ver todos los estilos.",
+      "selected": "Selección · {style}",
+      "style": {
+        "bold": "Negrita",
+        "italic": "Cursiva",
+        "boldItalic": "Negrita cursiva",
+        "script": "Caligráfica",
+        "boldScript": "Caligráfica negrita",
+        "fraktur": "Gótica",
+        "boldFraktur": "Gótica negrita",
+        "doubleStruck": "Doble trazo",
+        "monospace": "Máquina de escribir",
+        "sans": "Sin serifa",
+        "sansBold": "Sin serifa negrita",
+        "sansItalic": "Sin serifa cursiva",
+        "sansBoldItalic": "Sin serifa negrita cursiva",
+        "smallCaps": "Versalitas",
+        "circled": "En círculo",
+        "negativeCircled": "Círculo relleno",
+        "squared": "En recuadro",
+        "fullWidth": "Ancho completo",
+        "superscript": "Superíndice",
+        "strikethrough": "Tachado",
+        "underline": "Subrayado"
+      },
+      "copy": "Copiar",
+      "copyStyle": "Copiar el estilo {style}",
+      "copied": "Copiado: {nickname}",
+      "copyFailed": "No se pudo copiar: selecciona el nick y cópialo a mano.",
+      "length": "Longitud: {n}",
+      "units": "{u} en unidades UTF-16",
+      "overGuide": "Más largo que los {max} caracteres que indica una guía: el juego podría rechazarlo.",
+      "note": "Algunos símbolos pueden verse como cuadros vacíos en el juego o ser rechazados. El juego no publica cómo cuenta la longitud: el contador da las dos medidas habituales.",
+      "stylesTitle": "Todos los estilos"
+    },
+    "drawCalculator": {
+      "title": "Calculadora de tiradas de MLBB",
+      "lead": "¿Cuántos diamantes para una skin de evento? Introduce el precio de una tirada, la probabilidad del premio y la garantía: tus probabilidades según tu presupuesto, la media y los umbrales del 50, 90 y 99 %.",
+      "methodTitle": "Método",
+      "method1": "Cada tirada se considera independiente, con la misma probabilidad p de conseguir el premio. La probabilidad de tenerlo en n tiradas es 1 − (1 − p)ⁿ; con una garantía en la tirada N, llega al 100 % en esa tirada.",
+      "method2": "El número medio de tiradas es (1 − (1 − p)ᴺ) / p con garantía, 1 / p sin ella. El precio usa la combinación más barata de tiradas x10 y sueltas; la media en diamantes se da para las dos formas de tirar.",
+      "method3": "Los descuentos puntuales (primera tirada del día a mitad de precio, semanas de rebaja), las fichas gratis y las recompensas semanales por umbral no se cuentan: bajan el coste real.",
+      "method4": "Un Crystal of Aurora sustituye a un diamante en las tiradas: cuéntalos juntos en tu presupuesto.",
+      "limitsTitle": "Lo que el cálculo no sabe",
+      "limit1": "El juego suele dar la probabilidad de una categoría («una skin», 1 %) en lugar de la de una skin concreta. Si la skin que quieres es una entre varias, su probabilidad es menor: introdúcela si el evento la publica.",
+      "limit2": "Algunos eventos no son tiradas simples: precio que sube en cada tirada (Grand Collection), puntos que acumular (Zodiac), núcleos que canjear (Magic Wheel). Este cálculo no se aplica a ellos.",
+      "findTitle": "Dónde ver las probabilidades de un evento",
+      "find1": "Moonton muestra en el juego las probabilidades de cada tirada, junto con las reglas del evento. La wiki de MLBB recoge algunas: los preajustes de la calculadora salen de ahí, con la fecha de la página, porque las reglas pueden cambiar.",
+      "faqTitle": "Preguntas frecuentes",
+      "q1": "¿{draws} tiradas con un {p} garantizan el premio?",
+      "a1": "No. Cada tirada empieza de cero: {draws} tiradas con un {p} dan un {chance} de probabilidad, y hacen falta {n} para llegar al 99 %, salvo que una garantía llegue antes.",
+      "q2": "¿Es mejor tirar de 10 en 10?",
+      "a2": "Cuando la x10 cuesta menos que diez tiradas sueltas, el precio por tirada baja; pero si el premio sale pronto, las tiradas restantes de la x10 se pagan igual. La calculadora da la media de las dos formas.",
+      "q3": "¿La garantía se reinicia tras un premio?",
+      "a3": "Depende del evento: lee sus reglas. El cálculo trata el primer premio que consigues, donde la pregunta no se plantea.",
+      "sourcesTitle": "Fuentes",
+      "sourceWiki": "Wiki de MLBB: {page}",
+      "collectionLink": "Valor de tu colección",
+      "calendarLink": "Calendario de skins"
+    },
+    "drawCalculatorUI": {
+      "presets": "Eventos recogidos en la wiki",
+      "prize": {
+        "aurora": "una skin",
+        "newArrivalSkin": "una skin",
+        "newArrivalHero": "un héroe"
+      },
+      "presetNote": "Valores de la wiki de MLBB, página modificada el {date}: probabilidad de conseguir {prize} entre los premios ofrecidos, no uno en concreto. Comprueba las reglas en el juego, cambian.",
+      "wikiLink": "Ver la página",
+      "cost": "Precio de una tirada (diamantes)",
+      "tenCost": "Precio de la tirada x10 (opcional)",
+      "chance": "Probabilidad del premio por tirada",
+      "pity": "Garantizado en la tirada n.º (opcional)",
+      "error": {
+        "cost": "Un número entero de diamantes, de 1 a {max}.",
+        "tenCost": "Un número entero de diamantes, de 1 a {max}, o vacío.",
+        "chance": "Un porcentaje entre {min} y 100.",
+        "pity": "Un número de tirada entero, de 1 a {max}, o vacío.",
+        "budget": "Un número entero de diamantes, de 0 a {max}.",
+        "draws": "Un número entero de tiradas, de 1 a {max}."
+      },
+      "tenIgnored": "La tirada x10 no cuesta menos que diez tiradas sueltas: el cálculo la ignora.",
+      "modeLegend": "Calcular para",
+      "modeBudget": "Un presupuesto",
+      "modeDraws": "Un número de tiradas",
+      "budget": "Presupuesto (diamantes)",
+      "draws": "Número de tiradas",
+      "invalid": "Corrige los campos marcados para ver el cálculo.",
+      "chanceOfPrize": "de probabilidad de conseguir el premio",
+      "summaryNone": "Este presupuesto no alcanza para ninguna tirada: una tirada cuesta {cost} diamantes.",
+      "summaryBudget": "Con {diamonds} diamantes haces {draws} tiradas: {chance} de probabilidad de conseguir el premio.",
+      "summaryDraws": "{draws} tiradas cuestan {diamonds} diamantes y dan un {chance} de probabilidad de conseguir el premio.",
+      "summaryAverage": "De media, el premio sale tras {draws} tiradas, unos {diamonds} diamantes.",
+      "summaryPity": "Garantizado en la tirada n.º {n}: en el peor caso, {diamonds} diamantes.",
+      "statDraws": "Tiradas hechas",
+      "statDiamonds": "Diamantes gastados",
+      "statAverageDraws": "Tiradas de media",
+      "statAverageSingle": "Diamantes de media, de una en una",
+      "statAverageTen": "Diamantes de media, en x10",
+      "milestonesTitle": "Para llegar a…",
+      "colChance": "Probabilidad",
+      "colDraws": "Tiradas",
+      "colDiamonds": "Diamantes",
+      "chartTitle": "Probabilidad acumulada",
+      "chartLabel": "Probabilidad de conseguir el premio según el número de tiradas: 50 % en {p50} tiradas, 90 % en {p90}, 99 % en {p99}.",
+      "axisDraws": "tiradas",
+      "you": "tú",
+      "pityChart": "garantía",
+      "whereToFind": "¿Dónde ver las probabilidades? Cada evento de tiradas publica sus reglas y probabilidades en el juego: abre el evento en la tienda y busca la pantalla de reglas. Introduce la probabilidad del premio exacto que quieres, no la de toda una categoría, si el juego la detalla."
     }
   },
   "modeFiche": {
