@@ -10,9 +10,8 @@
  *     npm run sync -- --images   donnees + telechargement des visuels
  *
  * Le resultat est ecrit dans `src/data/jeu/`. Les visuels vont dans
- * `public/visuels/`, qui n'est pas versionne : ce sont des ressources de
- * Moonton, que ce depot ne redistribue pas. Le Dockerfile relance donc la
- * synchronisation au build.
+ * `public/visuels/`, versionnes avec le depot : le build de l'image n'a besoin
+ * d'aucun acces au wiki.
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";

@@ -29,10 +29,10 @@ jobs:
           exempt-issue-labels: "bug,enhancement,donnees,accessibility,good first issue,help wanted"
           exempt-issue-assignees: achedon12
           stale-issue-message: >
-            Cette issue n'a pas bougé depuis deux mois. Sans nouveau commentaire,
-            elle sera fermée dans deux semaines ; un simple message suffit à la
-            garder ouverte.
+            This issue has had no activity for two months. Without a new
+            comment, it will be closed in two weeks; a simple message is enough
+            to keep it open.
           close-issue-message: >
-            Fermée faute d'activité. Si le sujet est toujours d'actualité,
-            rouvrez-la ou ouvrez-en une nouvelle avec les détails à jour.
+            Closed for lack of activity. If the topic is still relevant, reopen
+            it or open a new one with up-to-date details.
           operations-per-run: 100

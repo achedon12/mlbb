@@ -4,14 +4,16 @@
  */
 export const site = {
   nom: "MLBBDex",
-  titre: "MLBBDex — Base de connaissances Mobile Legends: Bang Bang",
+  // Nom de l'application installee, image de partage, flux RSS : l'anglais,
+  // langue par defaut du site.
+  titre: "MLBBDex — Mobile Legends: Bang Bang knowledge base",
   description:
-    "Fiches heros, builds, tier list argumentee, objets, emblemes, patch notes et actualites de Mobile Legends: Bang Bang, en francais.",
+    "Hero pages, builds and counters by rank, tier lists, items, emblems, patch notes and news for Mobile Legends: Bang Bang, in English, French, Italian and Spanish.",
   // `||` et non `??` : dans l'image Docker, un `ARG` non fourni devient une
   // chaine vide (et non `undefined`). Sans ce repli, `new URL("")` echouerait
   // a la construction — c'est ce qui cassait le build de l'image en CI.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://mlbbdex.com",
-  langue: "fr-FR",
+  langue: "en",
   auteur: "achedon12",
   depot: "https://github.com/achedon12/mlbb",
 } as const;

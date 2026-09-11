@@ -1,26 +1,29 @@
-# API publique
+# Public API
 
-MLBBDex expose ses données en JSON, en lecture seule et sans clé : de quoi
-construire un bot Discord, un tableau de bord ou un autre site sans refaire
-l'extraction.
+MLBBDex exposes its data as JSON, read-only and without a key: enough to build
+a Discord bot, a dashboard or another site without redoing the extraction.
 
-- **Base** : `https://mlbbdex.com`
-- **Méthodes** : `GET` (et `OPTIONS` pour le CORS)
-- **Sur le site** : la même documentation, avec des exemples cliquables, sur
-  [mlbbdex.com/fr/api-doc](https://mlbbdex.com/fr/api-doc)
+- **Base**: `https://mlbbdex.com`
+- **Methods**: `GET` (and `OPTIONS` for CORS)
+- **On the site**: the same documentation, with clickable examples, at
+  [mlbbdex.com/en/api-doc](https://mlbbdex.com/en/api-doc)
+
+Route, parameter and field names are in French, as in the code: `heros`
+(heroes), `objets` (items), `patchs` (patches), `classement` (ranking), `sante`
+(health), `donnees` (data).
 
 ## Routes
 
-| Route | Contenu | Paramètres |
+| Route | Content | Parameters |
 | --- | --- | --- |
-| `GET /api/v1/heros` | Le roster : fiche résumée de chaque héros (rôles, positions, notes, compétences…) | `role` : Tank, Fighter, Assassin, Mage, Marksman, Support · `lane` : Or, Jungle, Milieu, Experience, Roam |
-| `GET /api/v1/heros/{slug}` | La fiche complète d'un héros : statistiques de base, notes, compétences, skins… | — |
-| `GET /api/v1/objets` | Le catalogue des objets : prix, bonus, passif, actif, recette | `categorie` : Attack, Magic, Defense, Movement, Jungling, Roaming |
-| `GET /api/v1/patchs` | La liste des patch notes, avec le lien vers chacune | — |
-| `GET /api/v1/classement` | La tier list calculée : palier, taux de victoire, de ban et de sélection, score | — |
-| `GET /api/sante` | Contrôle de santé du service (`{ "etat": "ok" }`) | — |
+| `GET /api/v1/heros` | The roster: a summary of each hero (roles, lanes, ratings, skills…) | `role`: Tank, Fighter, Assassin, Mage, Marksman, Support · `lane`: Or (gold), Jungle, Milieu (mid), Experience, Roam |
+| `GET /api/v1/heros/{slug}` | A hero's full page: base stats, ratings, skills, skins… | — |
+| `GET /api/v1/objets` | The item catalogue: price, bonuses, passive, active, recipe | `categorie`: Attack, Magic, Defense, Movement (exact match, case-insensitive) |
+| `GET /api/v1/patchs` | The list of patch notes, with a link to each one | — |
+| `GET /api/v1/classement` | The computed tier list: tier, win, ban and pick rates, score | — |
+| `GET /api/sante` | Service health check (`{ "etat": "ok" }`) | — |
 
-Exemples :
+Examples:
 
 ```sh
 curl "https://mlbbdex.com/api/v1/heros?role=Tank&lane=Roam"
@@ -28,12 +31,12 @@ curl "https://mlbbdex.com/api/v1/heros/khufra"
 curl "https://mlbbdex.com/api/v1/objets?categorie=Defense"
 ```
 
-Les paramètres se combinent : `?role=Tank&lane=Roam` renvoie les tanks joués
-en roam.
+Parameters can be combined: `?role=Tank&lane=Roam` returns the tanks played in
+the roam position.
 
-## Format des réponses
+## Response format
 
-Chaque réponse enveloppe ses données de la même façon :
+Every response wraps its data the same way:
 
 ```json
 {
@@ -47,34 +50,33 @@ Chaque réponse enveloppe ses données de la même façon :
 }
 ```
 
-- `donnees` — un tableau pour une liste, un objet pour une fiche. Pour
-  `/api/v1/classement`, un objet `{ mesureLe, heros }` : `mesureLe` date le
-  relevé des taux, distinct de la synchronisation.
-- `total` — présent sur les listes : le nombre d'éléments renvoyés.
-- `source` — l'origine des données et leur licence, reprise dans l'en-tête
-  `X-Data-License`.
+- `donnees`: an array for a list, an object for a single entry. For
+  `/api/v1/classement`, an object `{ mesureLe, heros }`: `mesureLe` is the date
+  the rates were measured, which is separate from the sync.
+- `total`: present on lists, the number of items returned.
+- `source`: where the data comes from and its license, repeated in the
+  `X-Data-License` header.
 
-Un identifiant inconnu (`/api/v1/heros/inconnu`) renvoie `404` et
-`{ "erreur": "… introuvable" }`.
+An unknown identifier (`/api/v1/heros/inconnu`) returns `404` and
+`{ "erreur": "… introuvable" }` ("not found").
 
-## Limites et bon usage
+## Limits and fair use
 
-- **Débit** : 90 requêtes par minute et par adresse IP, en fenêtre fixe.
-  Au-delà, la réponse est `429 Too Many Requests`, avec un en-tête
-  `Retry-After` en secondes. Le contrôle de santé n'est pas limité.
-- **Cache** : `Cache-Control: public, max-age=3600, s-maxage=86400`. Les
-  données ne changent qu'à la synchronisation hebdomadaire (voir
-  [Données et synchronisation](Donnees-et-synchronisation)) : inutile de les
-  interroger plus d'une fois par heure.
-- **CORS** : ouvert (`Access-Control-Allow-Origin: *`), l'API s'appelle
-  directement depuis un navigateur.
-- **Licence** : les données viennent du wiki Mobile Legends, sous licence
-  CC BY-SA. Les republier impose de créditer la source et de partager dans
-  les mêmes conditions.
+- **Rate**: 90 requests per minute per IP address, in a fixed window. Beyond
+  that, the response is `429 Too Many Requests`, with a `Retry-After` header in
+  seconds. The health check is not limited.
+- **Cache**: `Cache-Control: public, max-age=3600, s-maxage=86400,
+  stale-while-revalidate=604800`. The data only changes with the weekly sync
+  (see [Data and sync](Data-and-sync)): there is no point querying it more
+  than once an hour.
+- **CORS**: open (`Access-Control-Allow-Origin: *`), so the API can be called
+  directly from a browser.
+- **License**: the data comes from the Mobile Legends wiki, under the CC BY-SA
+  license. Republishing it requires crediting the source and sharing under the
+  same terms.
 
-## Côté code
+## In the code
 
-Les routes vivent dans `src/app/api/v1/`, l'enveloppe commune dans
-`src/lib/api.ts` et la limitation de débit dans `src/proxy.ts`. Une nouvelle
-route passe par `reponseApi()` pour hériter du format, du cache et du crédit
-de la source.
+The routes live in `src/app/api/v1/`, the shared envelope in `src/lib/api.ts`
+and rate limiting in `src/proxy.ts`. A new route goes through `reponseApi()` to
+inherit the format, the cache and the source credit.

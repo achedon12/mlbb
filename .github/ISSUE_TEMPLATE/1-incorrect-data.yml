@@ -1,0 +1,32 @@
+name: Incorrect data
+description: A stat, role, price or skin that does not match the game.
+title: "[data] "
+labels: ["donnees"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The site's data is extracted automatically from the community wiki.
+        If the error comes from the source, the best fix is often to correct it
+        directly on the wiki: the next sync will pick it up.
+        Open an issue anyway, and we will check where the problem comes from.
+  - type: input
+    id: page
+    attributes:
+      label: Affected page
+      placeholder: https://mlbbdex.com/en/heroes/khufra
+    validations:
+      required: true
+  - type: textarea
+    id: constate
+    attributes:
+      label: What the site shows
+    validations:
+      required: true
+  - type: textarea
+    id: attendu
+    attributes:
+      label: What the game shows
+      description: A screenshot from the game is the best evidence.
+    validations:
+      required: true

@@ -23,23 +23,23 @@ jobs:
         with:
           pr-reactions: rocket
           pr-opened-msg: >
-            Bienvenue, et merci pour cette première contribution à MLBBDex !
+            Welcome, and thank you for this first contribution to MLBBDex!
 
 
-            Quelques repères, détaillés dans le
-            [guide de contribution](https://github.com/achedon12/mlbb/blob/develop/CONTRIBUTING.md) :
+            A few pointers, detailed in the
+            [contributing guide](https://github.com/achedon12/mlbb/blob/develop/CONTRIBUTING.md):
 
-            - laissez la pull request en brouillon tant que vous y travaillez,
-            puis passez-la en « prête pour relecture » ;
+            - keep the pull request as a draft while you work on it, then mark
+            it "Ready for review";
 
-            - les tests doivent passer, et le propriétaire du dépôt la relit
-            avant de la fusionner ;
+            - the tests must pass, and the repository owner reviews it before
+            merging;
 
-            - `src/data/jeu/` et `public/visuels/` sont régénérés chaque nuit :
-            n'y touchez pas à la main.
+            - `src/data/jeu/` and `public/visuels/` are regenerated every night:
+            don't edit them by hand.
 
 
-            Une question ? Posez-la ici même.
+            Any question? Ask it right here.
           pr-merged-msg: >
-            @{fc-author} bravo, votre première contribution est fusionnée ! Elle
-            sera en ligne à la prochaine mise en production de mlbbdex.com.
+            @{fc-author} congratulations, your first contribution is merged! It
+            will go live with the next release of mlbbdex.com.

@@ -1,0 +1,32 @@
+name: Missing hero analysis
+description: Offer to write, or request, a hero's analysis.
+title: "[analysis] "
+labels: ["good first issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The factual data of every hero is already synced. What is missing is
+        the commentary: what the hero really does, their builds, their
+        counters. See [CONTRIBUTING.md](https://github.com/achedon12/mlbb/blob/develop/CONTRIBUTING.md).
+  - type: input
+    id: heros
+    attributes:
+      label: Hero
+      placeholder: Fanny
+    validations:
+      required: true
+  - type: dropdown
+    id: intention
+    attributes:
+      label: Your intention
+      options:
+        - I am offering to write it
+        - I am requesting it, without writing it myself
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Your experience with this hero, the points not to miss.

@@ -68,7 +68,7 @@ jobs:
 
   # Le serveur suit le deploiement documente : il recupere main et reconstruit
   # son conteneur. Inactif tant que les reglages du depot ne sont pas
-  # renseignes (voir docs/wiki/Donnees-et-synchronisation.md).
+  # renseignes (voir docs/wiki/Data-and-sync.md).
   deployer:
     name: Deployer sur le serveur
     needs: construire

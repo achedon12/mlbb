@@ -1,0 +1,22 @@
+name: Idea
+description: Suggest a feature or an improvement.
+title: "[idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: besoin
+    attributes:
+      label: The need
+      description: What problem does it solve, and for whom? Describe the need before the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposition
+    attributes:
+      label: What you propose
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What else you considered

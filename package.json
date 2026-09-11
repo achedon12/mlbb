@@ -2,7 +2,7 @@
   "name": "mlbb",
   "version": "1.0.0",
   "private": true,
-  "description": "Base de connaissances Mobile Legends: Bang Bang — heros, builds, tier list, patch notes et actualites.",
+  "description": "Mobile Legends: Bang Bang knowledge base in English, French, Italian and Spanish: heroes, builds, counters, tier lists, patch notes and tools.",
   "author": "achedon12 <82544800+achedon12@users.noreply.github.com> (https://github.com/achedon12)",
   "license": "MIT",
   "homepage": "https://mlbbdex.com",
@@ -16,11 +16,12 @@
   "keywords": [
     "mobile-legends",
     "mlbb",
+    "moba",
+    "tier-list",
+    "game-data",
     "nextjs",
     "typescript",
-    "wiki",
-    "tier-list",
-    "francais"
+    "i18n"
   ],
   "engines": {
     "node": ">=22"
