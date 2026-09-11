@@ -1302,10 +1302,7 @@
       "degatsIntro": "Retribution deals {base} true damage, plus {parNiveau} per hero level, to creeps and minions. By level:",
       "niveau": "Lv. {n}",
       "monstresTitre": "Objective HP",
-      "colObjectif": "Objective",
-      "colPv": "HP",
       "colSegment": "HP per bar segment",
-      "colSource": "Source",
       "wiki": "Fandom wiki",
       "monstresNote": "HP at spawn (Turtle, first Lord) or after 12 minutes (Lord, buffs), from the Fandom wiki pages. Buffs are mostly contested mid-game, hence the 12-minute value. Each bar segment is worth 2,000 HP for the Turtle and the Lord, 1,000 for other creeps.",
       "difficultesTitre": "Difficulty levels",
@@ -2843,7 +2840,18 @@
       "recordReglage": "Best run ({objectif}, {difficulte})",
       "suiteEnCours": "Current streak",
       "meilleureSuite": "Best streak",
-      "recordsLocaux": "Records and streaks stay on this device: nothing is sent."
+      "recordsLocaux": "Records and streaks stay on this device: nothing is sent.",
+      "ligneTemps": "After the HP dropped below the threshold",
+      "ligneSeuil": "Threshold",
+      "ligneVous": "You · {ms} ms",
+      "ligneAdverse": "Enemy jungler · {ms} ms",
+      "graphiqueBilan": "Points per round",
+      "degatsBruts": "true damage",
+      "formatApercu": "Preview to share",
+      "apercuVideo": "Video",
+      "apercuImage": "Image",
+      "telechargerVideo": "Download the video",
+      "videoPreparation": "Preparing the video…"
     }
   }
 }

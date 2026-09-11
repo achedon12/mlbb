@@ -53,6 +53,10 @@ export default async function PageChatiment({ params }: Params) {
     categorie: "GameApplication",
   });
   const niveaux = Array.from({ length: NIVEAU_MAX - NIVEAU_MIN + 1 }, (_, i) => NIVEAU_MIN + i);
+  // Echelles des graphiques : la plus grande valeur de chaque serie remplit la barre.
+  const degatsMax = degatsChatiment(NIVEAU_MAX);
+  const pvMaxObjectifs = Math.max(...CLES_OBJECTIFS.map((c) => OBJECTIFS[c].pv));
+  const reactionMax = Math.max(...DIFFICULTES_ORDRE.map((d) => REGLAGES[d].reactionAdverse[1]));
 
   return (
     <>
@@ -89,49 +93,70 @@ export default async function PageChatiment({ params }: Params) {
           <p className="mt-4 leading-relaxed text-craie-300">
             {t("pages.chatiment.degatsIntro", { base: CHATIMENT_BASE, parNiveau: CHATIMENT_PAR_NIVEAU })}
           </p>
-          <ol className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-5">
-            {niveaux.map((n) => (
-              <li key={n} className="biseau-sm border border-nuit-700/70 bg-nuit-900/60 px-3 py-2 text-center">
-                <span className="block text-xs text-craie-500">{t("pages.chatiment.niveau", { n })}</span>
-                <span className="font-titre text-lg font-bold tabular-nums text-craie-100">
-                  {entier.format(degatsChatiment(n))}
-                </span>
-              </li>
-            ))}
+          <ol className="mt-5 space-y-1.5">
+            {niveaux.map((n) => {
+              const degats = degatsChatiment(n);
+              return (
+                <li key={n} className="grid grid-cols-[5rem_1fr_3.5rem] items-center gap-3 text-sm">
+                  <span className="text-craie-500">{t("pages.chatiment.niveau", { n })}</span>
+                  <span aria-hidden className="h-3 bg-nuit-800">
+                    <span
+                      className="block h-full bg-gradient-to-r from-or-600 to-or-400"
+                      style={{ width: `${(degats / degatsMax) * 100}%` }}
+                    />
+                  </span>
+                  <span className="text-right font-titre font-bold tabular-nums text-craie-100">{entier.format(degats)}</span>
+                </li>
+              );
+            })}
           </ol>
 
           <h3 className="mt-10 font-titre text-xl font-bold text-craie-100">{t("pages.chatiment.monstresTitre")}</h3>
-          <div className="mt-3 overflow-x-auto">
-            <table className="w-full min-w-[26rem] text-left text-sm">
-              <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
-                <tr>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colObjectif")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colPv")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colSegment")}</th>
-                  <th scope="col" className="py-2 font-medium">{t("pages.chatiment.colSource")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {CLES_OBJECTIFS.map((cle) => {
-                  const o = OBJECTIFS[cle];
-                  return (
-                    <tr key={cle} className="border-b border-nuit-800">
-                      <th scope="row" className="py-2.5 pr-4 font-medium text-craie-100">
-                        {t(`outils.chatiment.objectif.${cle}`)}
-                      </th>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-200">{entier.format(o.pv)}</td>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-300">{entier.format(o.segment)}</td>
-                      <td className="py-2.5">
-                        <a href={o.source} rel="noopener" className="text-craie-400 underline transition-colors hover:text-or-400">
-                          {t("pages.chatiment.wiki")}
-                        </a>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {CLES_OBJECTIFS.map((cle) => {
+              const o = OBJECTIFS[cle];
+              const segment = (o.segment / o.pv) * 100;
+              return (
+                <li key={cle} className="biseau-sm flex items-center gap-4 border border-nuit-700/70 bg-nuit-900/60 p-3">
+                  {/* eslint-disable-next-line @next/next/no-img-element -- portrait local, deja reduit */}
+                  <img
+                    src={o.image}
+                    alt=""
+                    width={56}
+                    height={56}
+                    loading="lazy"
+                    className="size-14 shrink-0 rounded-full border border-nuit-600 object-cover"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <p className="flex flex-wrap items-baseline justify-between gap-x-3">
+                      <span className="font-semibold text-craie-100">{t(`outils.chatiment.objectif.${cle}`)}</span>
+                      <span className="font-titre font-bold tabular-nums text-craie-100">
+                        {t("outils.chatiment.pvMax", { pv: entier.format(o.pv) })}
+                      </span>
+                    </p>
+                    {/* Longueur relative au plus gros objectif ; un trait par segment de la barre de vie. */}
+                    <div aria-hidden className="mt-2 h-2.5 bg-nuit-950">
+                      <div
+                        className="h-full bg-gradient-to-r from-sang-500 to-[#ff7a66]"
+                        style={{
+                          width: `${(o.pv / pvMaxObjectifs) * 100}%`,
+                          backgroundImage: `repeating-linear-gradient(to right, transparent 0 calc(${segment}% - 1px), rgba(6, 8, 15, 0.9) calc(${segment}% - 1px) ${segment}%), linear-gradient(to right, #d94848, #ff7a66)`,
+                        }}
+                      />
+                    </div>
+                    <p className="mt-1.5 flex flex-wrap justify-between gap-x-3 text-xs text-craie-500">
+                      <span>
+                        {t("pages.chatiment.colSegment")} : <span className="tabular-nums">{entier.format(o.segment)}</span>
+                      </span>
+                      <a href={o.source} rel="noopener" className="underline transition-colors hover:text-or-400">
+                        {t("pages.chatiment.wiki")}
+                      </a>
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
           <p className="mt-3 text-sm text-craie-500">{t("pages.chatiment.monstresNote")}</p>
 
           <h3 className="mt-10 font-titre text-xl font-bold text-craie-100">{t("pages.chatiment.difficultesTitre")}</h3>
@@ -153,8 +178,21 @@ export default async function PageChatiment({ params }: Params) {
                       <th scope="row" className="py-2.5 pr-4 font-medium text-craie-100">
                         {t(`outils.chatiment.difficulte.${d}`)}
                       </th>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-200">
-                        {entier.format(r.reactionAdverse[0])}–{entier.format(r.reactionAdverse[1])} ms
+                      <td className="py-2.5 pr-4">
+                        <div className="flex items-center gap-3">
+                          <span aria-hidden className="relative h-2 w-20 shrink-0 bg-nuit-800 sm:w-32">
+                            <span
+                              className="absolute inset-y-0 bg-sang-500"
+                              style={{
+                                left: `${(r.reactionAdverse[0] / reactionMax) * 100}%`,
+                                width: `${((r.reactionAdverse[1] - r.reactionAdverse[0]) / reactionMax) * 100}%`,
+                              }}
+                            />
+                          </span>
+                          <span className="whitespace-nowrap tabular-nums text-craie-200">
+                            {entier.format(r.reactionAdverse[0])}–{entier.format(r.reactionAdverse[1])} ms
+                          </span>
+                        </div>
                       </td>
                       <td className="py-2.5 pr-4 text-craie-300">
                         {r.repere ? t("pages.chatiment.oui") : t("pages.chatiment.non")}

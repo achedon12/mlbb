@@ -1652,6 +1652,31 @@ async function rangs() {
   return { images };
 }
 
+/**
+ * Portraits des monstres de l'entraineur de Chatiment : l'image principale de
+ * leur page du wiki. Le Seigneur de 12 minutes reprend celui de 8 minutes.
+ */
+async function monstres() {
+  const PAGES = { seigneur: "Lord", tortue: "Turtle", "buff-violet": "Thunder Fenrir", "buff-orange": "Molten Fiend" };
+  const donnees = await api({
+    action: "query",
+    titles: Object.values(PAGES).join("|"),
+    prop: "pageimages",
+    piprop: "original",
+  });
+  const parTitre = new Map(
+    Object.values(donnees.query?.pages ?? {})
+      .filter((p) => p.original)
+      .map((p) => [p.title, p.original.source.split("/revision")[0]]),
+  );
+  const images = {};
+  for (const [cle, titre] of Object.entries(PAGES)) {
+    const url = parTitre.get(titre);
+    if (url) images[cle] = url;
+  }
+  return images;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Execution
 // ─────────────────────────────────────────────────────────────
@@ -1837,6 +1862,11 @@ async function principal() {
       largeur: 160,
     });
     emblemesRangs.images[cle] = `/visuels/rangs/${cle}.webp`;
+  }
+
+  // Portraits des monstres de l'entraineur de Chatiment, a la meme enseigne.
+  for (const [cle, url] of Object.entries(await monstres())) {
+    plan.push({ url, chemin: `public/visuels/monstres/${cle}.webp`, optimiser: true, largeur: 320 });
   }
 
   // ── Visuels des modes ──────────────────────────────────────────────

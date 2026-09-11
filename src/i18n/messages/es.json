@@ -1302,10 +1302,7 @@
       "degatsIntro": "El Castigo inflige {base} de daño verdadero, más {parNiveau} por nivel del héroe, a criaturas y súbditos. Por nivel:",
       "niveau": "Nv. {n}",
       "monstresTitre": "PV de los objetivos",
-      "colObjectif": "Objetivo",
-      "colPv": "PV",
       "colSegment": "PV por segmento de barra",
-      "colSource": "Fuente",
       "wiki": "Wiki Fandom",
       "monstresNote": "PV al aparecer (Tortuga, primer Lord) o tras 12 minutos (Lord, buffs), según las fichas de la wiki Fandom. Los buffs se disputan sobre todo a mitad de partida, de ahí el valor a los 12 minutos. Cada segmento de la barra vale 2.000 PV para la Tortuga y el Lord, 1.000 para las demás criaturas.",
       "difficultesTitre": "Niveles de dificultad",
@@ -2843,7 +2840,18 @@
       "recordReglage": "Mejor partida ({objectif}, {difficulte})",
       "suiteEnCours": "Racha actual",
       "meilleureSuite": "Mejor racha",
-      "recordsLocaux": "Récords y rachas se quedan en este dispositivo: no se envía nada."
+      "recordsLocaux": "Récords y rachas se quedan en este dispositivo: no se envía nada.",
+      "ligneTemps": "Tras bajar los PV del umbral",
+      "ligneSeuil": "Umbral",
+      "ligneVous": "Tú · {ms} ms",
+      "ligneAdverse": "Jungla rival · {ms} ms",
+      "graphiqueBilan": "Puntos por ronda",
+      "degatsBruts": "daño verdadero",
+      "formatApercu": "Vista previa para compartir",
+      "apercuVideo": "Vídeo",
+      "apercuImage": "Imagen",
+      "telechargerVideo": "Descargar el vídeo",
+      "videoPreparation": "Preparando el vídeo…"
     }
   }
 }

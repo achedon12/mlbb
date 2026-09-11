@@ -52,6 +52,8 @@ export interface Objectif {
   /** Moment du combat, pour le libelle : a l'apparition ou apres 12 minutes. */
   moment: "apparition" | "12min";
   source: string;
+  /** Portrait local, copie depuis la page du wiki par la synchronisation. */
+  image: string;
 }
 
 export const OBJECTIFS: Record<CleObjectif, Objectif> = {
@@ -61,6 +63,7 @@ export const OBJECTIFS: Record<CleObjectif, Objectif> = {
     niveauConseille: 4,
     moment: "apparition",
     source: "https://mobilelegends.fandom.com/wiki/Turtle",
+    image: "/visuels/monstres/tortue.webp",
   },
   seigneur: {
     pv: 31_743,
@@ -68,6 +71,7 @@ export const OBJECTIFS: Record<CleObjectif, Objectif> = {
     niveauConseille: 9,
     moment: "apparition",
     source: "https://mobilelegends.fandom.com/wiki/Lord",
+    image: "/visuels/monstres/seigneur.webp",
   },
   "seigneur-12": {
     pv: 42_953,
@@ -75,6 +79,7 @@ export const OBJECTIFS: Record<CleObjectif, Objectif> = {
     niveauConseille: 12,
     moment: "12min",
     source: "https://mobilelegends.fandom.com/wiki/Lord",
+    image: "/visuels/monstres/seigneur.webp",
   },
   "buff-violet": {
     pv: 6622,
@@ -82,6 +87,7 @@ export const OBJECTIFS: Record<CleObjectif, Objectif> = {
     niveauConseille: 12,
     moment: "12min",
     source: "https://mobilelegends.fandom.com/wiki/Thunder_Fenrir",
+    image: "/visuels/monstres/buff-violet.webp",
   },
   "buff-orange": {
     pv: 8111,
@@ -89,6 +95,7 @@ export const OBJECTIFS: Record<CleObjectif, Objectif> = {
     niveauConseille: 12,
     moment: "12min",
     source: "https://mobilelegends.fandom.com/wiki/Molten_Fiend",
+    image: "/visuels/monstres/buff-orange.webp",
   },
 };
 

@@ -1302,10 +1302,7 @@
       "degatsIntro": "La Retribution infligge {base} danni puri, più {parNiveau} per livello dell'eroe, a creature e minion. Per livello:",
       "niveau": "Liv. {n}",
       "monstresTitre": "HP degli obiettivi",
-      "colObjectif": "Obiettivo",
-      "colPv": "HP",
       "colSegment": "HP per segmento della barra",
-      "colSource": "Fonte",
       "wiki": "Wiki Fandom",
       "monstresNote": "HP alla comparsa (Tartaruga, primo Lord) o dopo 12 minuti (Lord, buff), dalle schede del wiki Fandom. I buff si contendono soprattutto a metà partita, da qui il valore a 12 minuti. Ogni segmento della barra vale 2.000 HP per Tartaruga e Lord, 1.000 per le altre creature.",
       "difficultesTitre": "Livelli di difficoltà",
@@ -2843,7 +2840,18 @@
       "recordReglage": "Miglior partita ({objectif}, {difficulte})",
       "suiteEnCours": "Striscia attuale",
       "meilleureSuite": "Striscia migliore",
-      "recordsLocaux": "Record e strisce restano su questo dispositivo: nulla viene inviato."
+      "recordsLocaux": "Record e strisce restano su questo dispositivo: nulla viene inviato.",
+      "ligneTemps": "Dopo che gli HP sono scesi sotto la soglia",
+      "ligneSeuil": "Soglia",
+      "ligneVous": "Tu · {ms} ms",
+      "ligneAdverse": "Jungler avversario · {ms} ms",
+      "graphiqueBilan": "Punti per round",
+      "degatsBruts": "danni puri",
+      "formatApercu": "Anteprima da condividere",
+      "apercuVideo": "Video",
+      "apercuImage": "Immagine",
+      "telechargerVideo": "Scarica il video",
+      "videoPreparation": "Video in preparazione…"
     }
   }
 }

@@ -1302,10 +1302,7 @@
       "degatsIntro": "Le Châtiment inflige {base} dégâts bruts, plus {parNiveau} par niveau du héros, aux créatures et aux sbires. Par niveau :",
       "niveau": "Niv. {n}",
       "monstresTitre": "PV des objectifs",
-      "colObjectif": "Objectif",
-      "colPv": "PV",
       "colSegment": "PV par segment de barre",
-      "colSource": "Source",
       "wiki": "Wiki Fandom",
       "monstresNote": "PV à l'apparition (Tortue, premier Seigneur) ou après 12 minutes (Seigneur, buffs), d'après les fiches du wiki Fandom. Les buffs se disputent surtout en milieu de partie, d'où la valeur à 12 minutes. Chaque segment de la barre vaut 2 000 PV pour la Tortue et le Seigneur, 1 000 pour les autres créatures.",
       "difficultesTitre": "Les difficultés",
@@ -2843,7 +2840,18 @@
       "recordReglage": "Meilleure partie ({objectif}, {difficulte})",
       "suiteEnCours": "Série en cours",
       "meilleureSuite": "Meilleure série",
-      "recordsLocaux": "Records et séries restent sur cet appareil : rien n'est envoyé."
+      "recordsLocaux": "Records et séries restent sur cet appareil : rien n'est envoyé.",
+      "ligneTemps": "Après le passage sous le seuil",
+      "ligneSeuil": "Seuil",
+      "ligneVous": "Vous · {ms} ms",
+      "ligneAdverse": "Jungler adverse · {ms} ms",
+      "graphiqueBilan": "Points par manche",
+      "degatsBruts": "dégâts bruts",
+      "formatApercu": "Aperçu à partager",
+      "apercuVideo": "Vidéo",
+      "apercuImage": "Image",
+      "telechargerVideo": "Télécharger la vidéo",
+      "videoPreparation": "Vidéo en préparation…"
     }
   }
 }
