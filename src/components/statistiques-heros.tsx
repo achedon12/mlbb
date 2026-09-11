@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { BarresDuree } from "@/components/barres-duree";
 import { CourbeTaux, type PointCourbe, type Repere } from "@/components/courbe-taux";
 import { GroupeFiltres, Puce } from "@/components/puce";
 import { useRang } from "@/components/selecteur-rang";
 import { useLangue, useT } from "@/i18n/fournisseur";
+import { profilDuree } from "@/lib/composition";
 import type { SerieTaux, TrancheDuree } from "@/lib/evolution";
 import { RANGS_MESURE, type RangMesure } from "@/lib/rangs-mesure";
 import {
@@ -319,13 +321,8 @@ function Duree({
 }) {
   const t = useT();
   const taux = tranches.map((x) => x.victoire);
-  const bas = Math.min(...taux) - 1;
-  const haut = Math.max(...taux);
-  const meilleure = taux.indexOf(haut);
-  const moyenne = (l: number[]) => l.reduce((a, b) => a + b, 0) / l.length;
-  const ecart = moyenne(taux.slice(-2)) - moyenne(taux.slice(0, 2));
-  const profil = ecart > 1 ? "fin" : ecart < -1 ? "debut" : "stable";
-  const libelle = (x: TrancheDuree) =>
+  const meilleure = taux.indexOf(Math.max(...taux));
+  const libelle = (x: Pick<TrancheDuree, "de" | "a">) =>
     x.a === null
       ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.de })
       : t("pages.heroDetail.statistiques.minutes", { de: x.de, a: x.a });
@@ -335,27 +332,14 @@ function Duree({
       <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroDetail.statistiques.duree")}</h3>
       <p className="mt-1 text-sm text-craie-500">{t("pages.heroDetail.statistiques.dureeIntro", { nom })}</p>
       <p className="mt-3 text-sm text-craie-300">
-        <span className="font-semibold text-or-400">{t(`pages.heroDetail.statistiques.profil.${profil}`)}</span>
+        <span className="font-semibold text-or-400">
+          {t(`pages.heroDetail.statistiques.profil.${profilDuree(taux)}`)}
+        </span>
         {" · "}
         {t("pages.heroDetail.statistiques.pic", { tranche: libelle(tranches[meilleure]) })}
       </p>
 
-      <div className="biseau mt-4 flex h-48 items-stretch gap-1.5 border border-nuit-700/70 bg-nuit-900/60 p-3 sm:gap-3 sm:p-4">
-        {tranches.map((x, i) => (
-          <div key={x.de} className="flex min-w-0 flex-1 flex-col items-center gap-1">
-            <span className={cn("text-xs tabular-nums", i === meilleure ? "font-semibold text-or-400" : "text-craie-300")}>
-              {nombre(x.victoire)}
-            </span>
-            <div className="flex w-full flex-1 items-end">
-              <div
-                className={cn("w-full rounded-t-sm", i === meilleure ? "bg-or-500" : "bg-craie-500/40")}
-                style={{ height: `${Math.max(6, ((x.victoire - bas) / (haut - bas)) * 100)}%` }}
-              />
-            </div>
-            <span className="text-center text-[0.65rem] leading-tight text-craie-500 sm:text-xs">{libelle(x)}</span>
-          </div>
-        ))}
-      </div>
+      <BarresDuree tranches={tranches} nombre={nombre} libelle={libelle} className="mt-4" />
     </section>
   );
 }

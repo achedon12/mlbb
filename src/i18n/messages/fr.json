@@ -65,7 +65,10 @@
       "label": "Calculateur de taux de victoire",
       "desc": "Les victoires qu'il vous manque"
     },
-    "team": {},
+    "team": {
+      "label": "Analyse d'équipe",
+      "desc": "Forces et failles d'une composition"
+    },
     "meta": {
       "label": "Rapport méta",
       "desc": "Hausses, baisses et paliers de la semaine"
@@ -302,6 +305,7 @@
       "note": "Les contres et les synergies proviennent des relations remontées par le jeu, pas d'une opinion. Elles ne couvrent pas tous les duels : un héros sans contre connu dans une composition n'est pas pour autant un mauvais choix — il n'a simplement rien de particulier à y opposer.",
       "metaDescription": "Renseignez la composition adverse : l'outil propose quoi prendre sur chaque lane, et explique pourquoi — contres, synergies et taux de victoire.",
       "ogDescription": "Quoi prendre face à la composition d'en face, et pourquoi.",
+      "lienEquipe": "Votre équipe est déjà faite ? Analysez sa composition",
       "metaTitre": "Aide au draft"
     },
     "compare": {
@@ -675,7 +679,15 @@
       "sansRole": {},
       "sansPosition": {}
     },
-    "equipe": {},
+    "equipe": {
+      "titre": "Analyse d'équipe",
+      "chapeau": "Choisissez jusqu'à cinq héros : l'outil vérifie que chaque lane est tenue, pèse l'équilibre des dégâts, du contrôle et de la résistance, dit quand l'équipe est la plus forte, et relève ses synergies mesurées comme les héros adverses à craindre.",
+      "metaTitre": "Analyseur de composition d'équipe MLBB",
+      "metaDescription": "Analysez une composition d'équipe Mobile Legends: Bang Bang : lanes tenues, dégâts physiques et magiques, puissance selon la durée de partie, synergies, menaces et picks pour compléter, rang par rang.",
+      "ogDescription": "Les forces et les failles de votre composition, mesurées sur les parties classées.",
+      "note": "Les taux, les synergies et les menaces proviennent des parties classées remontées par le jeu, au rang choisi ; les notes d'offensive, de résistance, de contrôle et de difficulté sont celles du jeu. Une composition bien notée ne gagne pas seule : elle indique ce qui a tendance à fonctionner, pas ce que vous en ferez.",
+      "lienDraft": "Face à une équipe adverse ? L'aide au draft propose des contres"
+    },
     "seo": {
       "heros": {
         "titre": "{nom} : build, emblème et counters (palier {palier}, patch {v})",
@@ -1841,11 +1853,72 @@
     "titre": {}
   },
   "equipeUI": {
+    "votreEquipe": "Votre équipe",
+    "votreEquipeDesc": "{n} héros sur {max}. L'ordre ne compte pas : chacun est placé sur l'une de ses lanes.",
+    "ajouter": "Ajouter un héros",
+    "choisir": "Choisir un héros pour votre équipe",
+    "horsLane": "Sans lane libre",
+    "copier": "Copier le lien",
+    "lienCopie": "Lien copié.",
+    "copieImpossible": "Copie impossible : copiez l'adresse de la page.",
+    "intro": "Ajoutez un premier héros pour lancer l'analyse. Elle s'enrichit à chaque ajout, et l'adresse de la page garde votre composition : il suffit de la partager.",
+    "analyse": "Analyse",
+    "chargement": "Chargement des mesures du rang…",
+    "erreur": "Les mesures de ce rang n'ont pas pu être chargées. Réessayez ou choisissez un autre rang.",
+    "tauxMoyen": "Taux de victoire moyen",
+    "lanesCouvertes": "Lanes tenues",
+    "synergiesCompte": "Synergies",
+    "menacesCompte": "Menaces",
     "alertes": {
-      "degats": {}
+      "titre": "Points d'attention",
+      "aucune": "Rien à signaler : chaque lane est tenue, et l'équipe ne manque ni de première ligne, ni de contrôle, ni de résistance.",
+      "aucunePartielle": "Rien à signaler pour l'instant.",
+      "tropPeu": "L'équilibre de l'équipe se juge à partir de {n} héros.",
+      "lanes": "Deux héros se disputent une même lane, et personne ne tient : {lanes} (sans lane libre : {noms}).",
+      "tank": "Aucun tank : personne pour encaisser en première ligne ni pour engager les combats.",
+      "degats": {
+        "physical": "Dégâts presque tous physiques : l'adversaire s'en protège avec quelques objets d'armure.",
+        "magic": "Dégâts presque tous magiques : l'adversaire s'en protège avec quelques objets de résistance magique."
+      },
+      "controle": "Peu de contrôle (moyenne de {v} sur 10) : difficile d'immobiliser une cible ou d'interrompre un adversaire.",
+      "fragile": "Équipe fragile (résistance moyenne de {v} sur 10) : elle encaisse mal un engagement adverse.",
+      "difficile": "Composition exigeante (difficulté moyenne de {v} sur 10) : elle demande de la maîtrise pour tenir ses promesses."
     },
-    "profilDuree": {},
-    "profilCourt": {}
+    "lanesRoles": "Lanes et rôles",
+    "aPourvoir": "à pourvoir",
+    "sansLane": "Sans lane libre : {noms}",
+    "roles": "Rôles",
+    "profil": "Profil de l'équipe",
+    "degats": "Dégâts",
+    "partDegats": "{physique} % de dégâts physiques, {magique} % de dégâts magiques",
+    "notes": "Notes du jeu, moyenne sur 10",
+    "duree": "Puissance selon la durée de partie",
+    "dureeIntro": "Taux de victoire moyen des héros de l'équipe selon la durée de la partie ({rang}).",
+    "sansDuree": "Pas encore de mesure par durée de partie pour ces héros à ce rang.",
+    "minutes": "{de}–{a} min",
+    "minutesPlus": "{de} min et +",
+    "pic": "Meilleure période : {tranche}",
+    "profilDuree": {
+      "debut": "Plus forte en début de partie",
+      "fin": "Plus forte en fin de partie",
+      "stable": "Régulière tout au long de la partie"
+    },
+    "profilCourt": {
+      "debut": "début de partie",
+      "fin": "fin de partie",
+      "stable": "régulier"
+    },
+    "synergies": "Synergies",
+    "synergiesIntro": "Paires de l'équipe qui gagnent plus souvent ensemble, en points de taux de victoire au rang choisi.",
+    "synergieConnue": "synergie connue",
+    "aucuneSynergie": "Aucune synergie relevée entre ces héros.",
+    "menaces": "Menaces",
+    "menacesIntro": "Héros adverses contre qui plusieurs de vos héros perdent le plus souvent, au rang choisi : à bannir ou à surveiller.",
+    "gene": "Gêne {n} de vos héros :",
+    "aucuneMenace": "Aucun héros adverse ne gêne plusieurs membres de l'équipe à la fois.",
+    "completer": "Compléter l'équipe",
+    "completerIntro": "Pour chaque lane encore libre, les héros qui se combinent le mieux avec votre équipe ; le taux de victoire au rang choisi départage.",
+    "aucuneRaison": "ni synergie connue ni taux marquant"
   },
   "outils": {
     "heureServeur": {

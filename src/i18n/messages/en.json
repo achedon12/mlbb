@@ -65,7 +65,10 @@
       "label": "Win rate calculator",
       "desc": "The wins you still need"
     },
-    "team": {},
+    "team": {
+      "label": "Team analyzer",
+      "desc": "Strengths and gaps of a lineup"
+    },
     "meta": {
       "label": "Meta report",
       "desc": "This week's risers, fallers and tiers"
@@ -302,6 +305,7 @@
       "note": "Counters and synergies come from relationships reported by the game, not from opinion. They don't cover every matchup: a hero with no known counter in a lineup isn't necessarily a bad pick — it simply has nothing specific to answer there.",
       "metaDescription": "Enter the enemy lineup: the tool suggests what to pick in each lane and explains why — counters, synergies and win rates.",
       "ogDescription": "What to pick against the enemy lineup, and why.",
+      "lienEquipe": "Team already picked? Analyze its composition",
       "metaTitre": "Draft assistant"
     },
     "compare": {
@@ -675,7 +679,15 @@
       "sansRole": {},
       "sansPosition": {}
     },
-    "equipe": {},
+    "equipe": {
+      "titre": "Team analyzer",
+      "chapeau": "Pick up to five heroes: the tool checks that every lane is covered, weighs the balance of damage, crowd control and durability, tells you when the team is strongest, and lists its measured synergies as well as the enemy heroes to fear.",
+      "metaTitre": "MLBB team composition analyzer",
+      "metaDescription": "Analyze a Mobile Legends: Bang Bang team composition: lane coverage, physical and magic damage, power by game length, synergies, threats and picks to complete it, rank by rank.",
+      "ogDescription": "The strengths and gaps of your lineup, measured on ranked games.",
+      "note": "Win rates, synergies and threats come from ranked games reported by the game, at the chosen rank; offense, durability, control and difficulty ratings are the game's own. A well-rated lineup doesn't win on its own: it shows what tends to work, not what you'll make of it.",
+      "lienDraft": "Facing an enemy team? The draft assistant suggests counters"
+    },
     "seo": {
       "heros": {
         "titre": "{nom} Build, Emblem & Counters ({palier} Tier, Patch {v})",
@@ -1841,11 +1853,72 @@
     "titre": {}
   },
   "equipeUI": {
+    "votreEquipe": "Your team",
+    "votreEquipeDesc": "{n} of {max} heroes. Order doesn't matter: each one is placed on one of their lanes.",
+    "ajouter": "Add a hero",
+    "choisir": "Pick a hero for your team",
+    "horsLane": "No free lane",
+    "copier": "Copy link",
+    "lienCopie": "Link copied.",
+    "copieImpossible": "Couldn't copy: copy the page address instead.",
+    "intro": "Add a first hero to start the analysis. It grows with every pick, and the page address keeps your lineup: just share it.",
+    "analyse": "Analysis",
+    "chargement": "Loading this rank's data…",
+    "erreur": "This rank's data couldn't be loaded. Try again or pick another rank.",
+    "tauxMoyen": "Average win rate",
+    "lanesCouvertes": "Lanes covered",
+    "synergiesCompte": "Synergies",
+    "menacesCompte": "Threats",
     "alertes": {
-      "degats": {}
+      "titre": "Watch out",
+      "aucune": "Nothing to flag: every lane is covered, and the team lacks neither a frontline, nor crowd control, nor durability.",
+      "aucunePartielle": "Nothing to flag so far.",
+      "tropPeu": "Team balance is judged from {n} heroes.",
+      "lanes": "Two heroes compete for the same lane, and nobody covers {lanes} (no free lane: {noms}).",
+      "tank": "No tank: nobody to soak damage on the frontline or start fights.",
+      "degats": {
+        "physical": "Almost all physical damage: the enemy can blunt it with a few armor items.",
+        "magic": "Almost all magic damage: the enemy can blunt it with a few magic resistance items."
+      },
+      "controle": "Little crowd control (average {v} out of 10): hard to lock down a target or interrupt an enemy.",
+      "fragile": "Fragile team (average durability {v} out of 10): it struggles to absorb an enemy engage.",
+      "difficile": "Demanding lineup (average difficulty {v} out of 10): it takes skill to deliver on its promise."
     },
-    "profilDuree": {},
-    "profilCourt": {}
+    "lanesRoles": "Lanes and roles",
+    "aPourvoir": "open",
+    "sansLane": "No free lane: {noms}",
+    "roles": "Roles",
+    "profil": "Team profile",
+    "degats": "Damage",
+    "partDegats": "{physique}% physical damage, {magique}% magic damage",
+    "notes": "Game ratings, average out of 10",
+    "duree": "Power by game length",
+    "dureeIntro": "Average win rate of the team's heroes by game length ({rang}).",
+    "sansDuree": "No game-length data yet for these heroes at this rank.",
+    "minutes": "{de}–{a} min",
+    "minutesPlus": "{de}+ min",
+    "pic": "Best window: {tranche}",
+    "profilDuree": {
+      "debut": "Stronger early game",
+      "fin": "Stronger late game",
+      "stable": "Consistent throughout the game"
+    },
+    "profilCourt": {
+      "debut": "early game",
+      "fin": "late game",
+      "stable": "consistent"
+    },
+    "synergies": "Synergies",
+    "synergiesIntro": "Pairs in the team that win more often together, in win-rate points at the chosen rank.",
+    "synergieConnue": "known synergy",
+    "aucuneSynergie": "No synergy found between these heroes.",
+    "menaces": "Threats",
+    "menacesIntro": "Enemy heroes that several of your heroes lose to most often, at the chosen rank: ban them or watch out.",
+    "gene": "Troubles {n} of your heroes:",
+    "aucuneMenace": "No enemy hero troubles several team members at once.",
+    "completer": "Complete the team",
+    "completerIntro": "For each open lane, the heroes that combine best with your team; win rate at the chosen rank breaks ties.",
+    "aucuneRaison": "no known synergy or standout win rate"
   },
   "outils": {
     "heureServeur": {

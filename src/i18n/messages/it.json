@@ -65,7 +65,10 @@
       "label": "Calcolatore di win rate",
       "desc": "Le vittorie che ti mancano"
     },
-    "team": {},
+    "team": {
+      "label": "Analisi della squadra",
+      "desc": "Punti di forza e lacune di una composizione"
+    },
     "meta": {
       "label": "Report meta",
       "desc": "Ascese, cali e tier della settimana"
@@ -302,6 +305,7 @@
       "note": "Counter e sinergie provengono dalle relazioni fornite dal gioco, non da un'opinione. Non coprono tutti i duelli: un eroe senza counter noti in una composizione non è per forza una cattiva scelta — semplicemente non ha nulla di particolare da opporle.",
       "metaDescription": "Inserisci la composizione avversaria: lo strumento suggerisce cosa scegliere in ogni lane e spiega perché — counter, sinergie e percentuali di vittoria.",
       "ogDescription": "Cosa scegliere contro la composizione avversaria, e perché.",
+      "lienEquipe": "Squadra già scelta? Analizza la sua composizione",
       "metaTitre": "Assistente draft"
     },
     "compare": {
@@ -675,7 +679,15 @@
       "sansRole": {},
       "sansPosition": {}
     },
-    "equipe": {},
+    "equipe": {
+      "titre": "Analisi della squadra",
+      "chapeau": "Scegli fino a cinque eroi: lo strumento verifica che ogni lane sia coperta, valuta l'equilibrio tra danni, controllo e resistenza, indica quando la squadra è più forte ed elenca le sue sinergie misurate e gli eroi avversari da temere.",
+      "metaTitre": "Analizzatore di composizione della squadra MLBB",
+      "metaDescription": "Analizza una composizione di squadra di Mobile Legends: Bang Bang: lane coperte, danni fisici e magici, forza in base alla durata della partita, sinergie, minacce e pick per completarla, rango per rango.",
+      "ogDescription": "I punti di forza e le lacune della tua composizione, misurati sulle partite classificate.",
+      "note": "Percentuali di vittoria, sinergie e minacce provengono dalle partite classificate fornite dal gioco, al rango scelto; i punteggi di offensiva, resistenza, controllo e difficoltà sono quelli del gioco. Una composizione ben valutata non vince da sola: indica ciò che tende a funzionare, non ciò che ne farai.",
+      "lienDraft": "Contro una squadra avversaria? L'assistente draft suggerisce i counter"
+    },
     "seo": {
       "heros": {
         "titre": "{nom}: build, emblema e counter (tier {palier}, patch {v})",
@@ -1841,11 +1853,72 @@
     "titre": {}
   },
   "equipeUI": {
+    "votreEquipe": "La tua squadra",
+    "votreEquipeDesc": "Eroi: {n} su {max}. L'ordine non conta: ognuno viene assegnato a una delle sue lane.",
+    "ajouter": "Aggiungi un eroe",
+    "choisir": "Scegli un eroe per la tua squadra",
+    "horsLane": "Nessuna lane libera",
+    "copier": "Copia il link",
+    "lienCopie": "Link copiato.",
+    "copieImpossible": "Copia non riuscita: copia l'indirizzo della pagina.",
+    "intro": "Aggiungi un primo eroe per avviare l'analisi. Si arricchisce a ogni aggiunta, e l'indirizzo della pagina conserva la tua composizione: basta condividerlo.",
+    "analyse": "Analisi",
+    "chargement": "Caricamento dei dati del rango…",
+    "erreur": "Non è stato possibile caricare i dati di questo rango. Riprova o scegli un altro rango.",
+    "tauxMoyen": "Percentuale di vittoria media",
+    "lanesCouvertes": "Lane coperte",
+    "synergiesCompte": "Sinergie",
+    "menacesCompte": "Minacce",
     "alertes": {
-      "degats": {}
+      "titre": "Punti di attenzione",
+      "aucune": "Niente da segnalare: ogni lane è coperta, e alla squadra non mancano né una prima linea, né il controllo, né la resistenza.",
+      "aucunePartielle": "Niente da segnalare per ora.",
+      "tropPeu": "L'equilibrio della squadra si valuta a partire da {n} eroi.",
+      "lanes": "Due eroi si contendono la stessa lane, e nessuno copre: {lanes} (senza lane libera: {noms}).",
+      "tank": "Nessun tank: nessuno che incassi in prima linea né che ingaggi i combattimenti.",
+      "degats": {
+        "physical": "Danni quasi tutti fisici: l'avversario se ne protegge con pochi oggetti di armatura.",
+        "magic": "Danni quasi tutti magici: l'avversario se ne protegge con pochi oggetti di resistenza magica."
+      },
+      "controle": "Poco controllo (media di {v} su 10): difficile immobilizzare un bersaglio o interrompere un avversario.",
+      "fragile": "Squadra fragile (resistenza media di {v} su 10): regge male un ingaggio avversario.",
+      "difficile": "Composizione impegnativa (difficoltà media di {v} su 10): richiede padronanza per mantenere le promesse."
     },
-    "profilDuree": {},
-    "profilCourt": {}
+    "lanesRoles": "Lane e ruoli",
+    "aPourvoir": "da coprire",
+    "sansLane": "Senza lane libera: {noms}",
+    "roles": "Ruoli",
+    "profil": "Profilo della squadra",
+    "degats": "Danni",
+    "partDegats": "{physique}% di danni fisici, {magique}% di danni magici",
+    "notes": "Punteggi del gioco, media su 10",
+    "duree": "Forza in base alla durata della partita",
+    "dureeIntro": "Percentuale di vittoria media degli eroi della squadra in base alla durata della partita ({rang}).",
+    "sansDuree": "Ancora nessun dato per durata della partita per questi eroi a questo rango.",
+    "minutes": "{de}–{a} min",
+    "minutesPlus": "{de}+ min",
+    "pic": "Momento migliore: {tranche}",
+    "profilDuree": {
+      "debut": "Più forte a inizio partita",
+      "fin": "Più forte a fine partita",
+      "stable": "Costante per tutta la partita"
+    },
+    "profilCourt": {
+      "debut": "inizio partita",
+      "fin": "fine partita",
+      "stable": "costante"
+    },
+    "synergies": "Sinergie",
+    "synergiesIntro": "Coppie della squadra che vincono più spesso insieme, in punti di percentuale di vittoria al rango scelto.",
+    "synergieConnue": "sinergia nota",
+    "aucuneSynergie": "Nessuna sinergia rilevata tra questi eroi.",
+    "menaces": "Minacce",
+    "menacesIntro": "Eroi avversari contro cui diversi tuoi eroi perdono più spesso, al rango scelto: da bannare o da tenere d'occhio.",
+    "gene": "Mette in difficoltà {n} dei tuoi eroi:",
+    "aucuneMenace": "Nessun eroe avversario mette in difficoltà più membri della squadra contemporaneamente.",
+    "completer": "Completa la squadra",
+    "completerIntro": "Per ogni lane ancora libera, gli eroi che si combinano meglio con la tua squadra; la percentuale di vittoria al rango scelto fa da spareggio.",
+    "aucuneRaison": "nessuna sinergia nota né percentuale di rilievo"
   },
   "outils": {
     "heureServeur": {

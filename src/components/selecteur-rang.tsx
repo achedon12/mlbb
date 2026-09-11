@@ -40,15 +40,28 @@ export function useRang(): RangMesure {
 }
 
 export function SelecteurRang({ className }: { className?: string }) {
-  const t = useT();
   const contexte = useContext(RangContexte);
   if (!contexte || contexte.rangs.length < 2) return null;
-  const { rang, setRang, rangs } = contexte;
+  return <ChoixRang rangs={contexte.rangs} rang={contexte.rang} onChange={contexte.setRang} className={className} />;
+}
 
+/** Puces des rangs, sans etat : la fiche les pilote par son contexte, un outil par le sien. */
+export function ChoixRang({
+  rangs,
+  rang,
+  onChange,
+  className,
+}: {
+  rangs: readonly RangMesure[];
+  rang: RangMesure;
+  onChange: (rang: RangMesure) => void;
+  className?: string;
+}) {
+  const t = useT();
   return (
     <GroupeFiltres legende={t("rangsMesure.label")} largeurLegende="" className={className}>
       {rangs.map((r) => (
-        <Puce key={r} actif={r === rang} onClick={() => setRang(r)}>
+        <Puce key={r} actif={r === rang} onClick={() => onChange(r)}>
           {t(`rangsMesure.${r}`)}
         </Puce>
       ))}
