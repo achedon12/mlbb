@@ -157,7 +157,9 @@
       "alaise": "{nom} est à l'aise contre",
       "difficulte2": "{nom} est en difficulté contre",
       "metaDescription": "{nom} : {roles} de Mobile Legends: Bang Bang, joué en {lanes}. Contres et builds par rang, compétences, histoire et {skins} skins.",
-      "comparer": "Comparer"
+      "comparer": "Comparer",
+      "titreFiche": "{nom} : build, contres et stats",
+      "ogAccroche": "Builds, contres et stats par rang"
     },
     "items": {
       "titre": "Objets",

@@ -71,11 +71,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     });
 
   return metaPage(locale, {
-    titre: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
+    // Titre calque sur les recherches (« aamon build », « aamon counter ») :
+    // l'epithete reste dans la description et sur la page.
+    titre: tm("pages.heroDetail.titreFiche", { nom: h.nom }),
     description,
     chemin: `/heroes/${slug}`,
     type: "article",
-    image: h.visuels.portrait ?? undefined,
+    image: `/${locale}/heroes/${slug}/opengraph-image`,
   });
 }
 
