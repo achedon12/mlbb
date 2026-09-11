@@ -163,6 +163,14 @@
     "advanceServer": {
       "label": "Advance Server",
       "desc": "Modifiche in prova prima del server ufficiale"
+    },
+    "objectiveTimer": {
+      "label": "Timer degli obiettivi",
+      "desc": "Tartaruga, Lord e buff in partita"
+    },
+    "mapGuide": {
+      "label": "Guida alla mappa",
+      "desc": "Campi, obiettivi e rotazioni"
     }
   },
   "compte": {
@@ -934,6 +942,14 @@
       "mlbbdle": {
         "title": "MLBBdle: il gioco quotidiano per indovinare l'eroe di Mobile Legends",
         "description": "Indovina l'eroe di Mobile Legends: Bang Bang del giorno, in stile Wordle e Loldle: indizi a colori su ruolo, lane, regione, danni e anno di uscita, una modalità abilità quotidiana e un allenamento senza fine. Gratis, senza registrazione."
+      },
+      "timer": {
+        "title": "Timer obiettivi MLBB: spawn del Lord e della Tartaruga",
+        "description": "Timer gratuito per Mobile Legends: Tartaruga a {turtle}, Lord, buff viola e arancione. Registra ogni uccisione e ricevi un avviso {soon} e poi {urgent} s prima di ogni ritorno. Schermo acceso, offline, tempi presi dalla wiki."
+      },
+      "map": {
+        "title": "Guida alla mappa di Mobile Legends: campi della giungla, Tartaruga, Lord e rotazioni",
+        "description": "Mappa schematica e interattiva della Terra dell'Alba: basi, lane, torrette, campi della giungla, Tartaruga e Lord, con tempi, ricompense e rotazioni per ruolo. Valori presi dalla wiki, con le fonti."
       }
     },
     "fraicheur": {
@@ -2280,6 +2296,271 @@
         "announcedRevamp": "Un rework di {name} è presentato nella versione {v}.",
         "readVersion": "Tutte le note della versione {v}"
       }
+    },
+    "timer": {
+      "title": "Timer degli obiettivi",
+      "lead": "Tartaruga, Lord e buff: un timer da tenere accanto alla partita. Avvialo all'inizio o sincronizzalo con l'orologio di gioco, tocca ogni uccisione e ricevi un avviso {soon} e poi {urgent} secondi prima di ogni ritorno.",
+      "timingsTitle": "Tempi degli obiettivi",
+      "turtleTitle": "Tartaruga",
+      "turtleText": "Prima Tartaruga al minuto {first} esatto, accanto alla EXP Lane. Torna {respawn} s dopo la morte, ma una Tartaruga uccisa dopo il minuto {cutoff} non torna più: il Lord compare allora {after} min dopo. Se è ancora viva al minuto {lordFrom}, diventa Lord dopo {idle} s senza subire danni, al più tardi al minuto {latest}. Al massimo {max} Tartarughe per partita.",
+      "turtleReward": "Ogni eroe della squadra guadagna {gold1}, {gold2} e poi {gold3} monete d'oro per le prime tre Tartarughe, più uno scudo di {shield} s.",
+      "lordTitle": "Lord",
+      "lordText": "Nessun orario fisso per il primo: {after} min dopo l'ultima Tartaruga, oppure dal minuto {lordFrom} se una Tartaruga è ancora viva. Ucciso prima del minuto {lateFrom}, torna {respawn} s dopo. Dopo il minuto {lateFrom} la wiki si contraddice: {late} s nel testo della pagina, {infobox} nel riquadro. Il timer conta fino al primo valore e mostra la finestra fino al secondo.",
+      "buffsTitle": "Buff viola e arancione",
+      "buffsText": "Buff arancione al minuto {orange}, buff viola al minuto {purple}. Ognuno torna {respawn} s dopo la morte e il suo effetto dura {duration} s. Ogni giungla ha i suoi: il timer segue il tuo buff e quello avversario separatamente.",
+      "campsTitle": "Altri campi",
+      "campsText": "Lithowanderer al minuto {litho} (torna {lithoRespawn} s dopo la morte), Occhi del Ciclone al minuto {cyclone} (ricarica di {cycloneRecharge} s), Piccolo Granchio al minuto {littleCrab} (ogni {littleCrabRespawn} s). Il Granchio arriva al minuto {crab} secondo la sua scheda e al minuto {crabGuide} secondo la guida della wiki, poi torna {crabRespawn} s dopo la morte. Il timer li mostra a inizio partita, senza avvisi.",
+      "usageTitle": "Come usarlo in partita",
+      "usage1": "Metti il telefono accanto allo schermo e tocca «{start}» all'inizio. Partita già iniziata? Scrivi il tempo mostrato in gioco (345 per 3:45) e poi «{apply}».",
+      "usage2": "Quando un obiettivo muore, tocca il suo pulsante: il ritorno si calcola dal secondo mostrato. Un tocco sbagliato si annulla con un gesto.",
+      "usage3": "Vibrazione e bip (disattivato di default) avvisano {soon} e poi {urgent} secondi prima di ogni ritorno, e lo schermo può restare acceso. Tutto gira nel browser: una volta aperta la pagina, il timer funziona offline e la partita resta nella scheda se ricarichi.",
+      "usage4": "Il timer non legge la partita: sa solo quello che gli dici. Risincronizzalo appena lo scarto supera un secondo o due.",
+      "mapLink": "Guida alla mappa: campi, Tartaruga, Lord e rotazioni",
+      "retributionLink": "Allenati con Retribution",
+      "sourcesTitle": "Fonti",
+      "sourcesIntro": "Pagine della wiki di Mobile Legends (Fandom), consultate il {date}:",
+      "sourcesNote": "Quando due valori della wiki non concordano (ritorno del Lord dopo il minuto {lateFrom}, arrivo del Granchio), il timer mostra la finestra tra i due invece di sceglierne uno."
+    },
+    "timerUI": {
+      "clockTitle": "Tempo di gioco",
+      "state": {
+        "stopped": "Non avviato",
+        "running": "In corso",
+        "paused": "In pausa"
+      },
+      "start": "Avvia da 0:00",
+      "pause": "Pausa",
+      "resume": "Riprendi",
+      "minus5": "−5 s",
+      "plus5": "+5 s",
+      "minus5Label": "Porta indietro l'orologio di 5 secondi",
+      "plus5Label": "Porta avanti l'orologio di 5 secondi",
+      "timeField": "Tempo mostrato in gioco",
+      "apply": "Sincronizza",
+      "inputHelp": "Es. 3:45 o 345. L'orologio riparte da quel tempo.",
+      "timeError": "Scrivi un tempo come 3:45 o 345.",
+      "killsTitle": "Obiettivo ucciso",
+      "record": "Registra l'uccisione:",
+      "name": {
+        "turtle": "Tartaruga",
+        "lord": "Lord",
+        "purple-buff": "Buff viola",
+        "orange-buff": "Buff arancione",
+        "lithowanderer": "Lithowanderer",
+        "cyclone": "Occhi del Ciclone",
+        "little-crab": "Piccolo Granchio",
+        "crab": "Granchio",
+        "last-turtle": "Ultima Tartaruga possibile",
+        "lord-18": "Ritorno del Lord più rapido"
+      },
+      "side": {
+        "ours": "nostro",
+        "theirs": "avversario"
+      },
+      "up": "Disponibile",
+      "noMoreTurtles": "Niente più Tartarughe",
+      "lastKill": "{objective} registrato al minuto {time}",
+      "noKill": "Tocca un obiettivo quando muore.",
+      "notStarted": "Avvia l'orologio per registrare le uccisioni.",
+      "undo": "Annulla",
+      "upcomingTitle": "Prossime comparse",
+      "upcomingPreview": "Anteprima di una partita appena iniziata: i conti alla rovescia partono con l'orologio.",
+      "at": "a {time}",
+      "milestone": {
+        "last-turtle": "Una Tartaruga uccisa dopo questo momento non torna.",
+        "lord-18": "Ucciso dopo questo momento, il Lord torna prima."
+      },
+      "note": {
+        "replacesTurtle": "Se la Tartaruga è ancora viva, diventa Lord tra {start} e {end}.",
+        "afterTurtle": "Segue l'ultima Tartaruga.",
+        "infobox": "La wiki dice {start} nel testo, {end} nel riquadro.",
+        "sourcesDisagree": "La guida della wiki dice {start}, la scheda del Granchio {end}."
+      },
+      "settingsTitle": "Avvisi e schermo",
+      "vibration": "Vibrazione",
+      "sound": "Bip",
+      "thresholds": "A {soon} s e a {urgent} s",
+      "notSupported": "Non supportato qui",
+      "wakeLock": "Schermo acceso",
+      "wakeLockHint": "Evita lo standby",
+      "wakeLockOn": "Schermo mantenuto acceso",
+      "wakeLockDenied": "Rifiutato dal browser",
+      "newMatch": "Nuova partita",
+      "confirm": "Tocca di nuovo per cancellare",
+      "kept": "La partita resta in questa scheda, anche dopo un ricaricamento.",
+      "announce": "{objective} tra {n} secondi"
+    },
+    "map": {
+      "title": "Guida alla mappa",
+      "lead": "La Terra dell'Alba in uno schema: basi, lane, torrette, fiume, campi della giungla, Tartaruga e Lord. Tocca un punto per vederne ruolo, tempi e ricompensa, poi segui la rotazione del tuo ruolo.",
+      "mapTitle": "La mappa, punto per punto",
+      "reading": "Schema nostro, non in scala, visto dal tuo lato: la tua base in basso a sinistra. Il fiume taglia la mappa in diagonale e ogni campo avversario è il riflesso del tuo. Tempi e ricompense vengono dalla wiki; la posizione esatta dei campi è approssimativa.",
+      "seconds": "{n} s",
+      "hpAt12": "{start} ({at12} al minuto 12:00)",
+      "healReward": "Buff di cura: {hp} HP e {mana}% di mana in {duration} s",
+      "wavesValue": "Prima ondata a {first}, poi ogni {interval} s",
+      "timerLink": "Timer degli obiettivi",
+      "retributionLink": "Test di Retribution",
+      "tierLink": "Tier list: {role}",
+      "timerCta": "Segui Tartaruga, Lord e buff in partita con il timer",
+      "sourcesTitle": "Fonti",
+      "sourcesIntro": "Pagine della wiki di Mobile Legends (Fandom), consultate il {date}:",
+      "fact": {
+        "firstSpawn": "Prima comparsa",
+        "respawn": "Ricomparsa",
+        "hp": "HP",
+        "reward": "Ricompensa",
+        "location": "Posizione",
+        "count": "Numero",
+        "range": "Portata",
+        "waves": "Ondate",
+        "bonus": "Bonus iniziale"
+      },
+      "point": {
+        "turtle": {
+          "name": "Tartaruga",
+          "role": "Obiettivo comune nel fiume. La prima Tartaruga compare sempre accanto alla EXP Lane; il gioco indica dove comparirà la successiva. Tutta la squadra che la uccide guadagna oro ed EXP.",
+          "respawn": "{delay} s dopo la morte, se muore prima del minuto {cutoff}; al massimo {max} per partita",
+          "reward": "{gold1}, {gold2} e poi {gold3} monete d'oro per eroe, EXP e uno scudo di squadra di {shield} s; scudo più forte e bonus d'attacco per chi dà il colpo finale"
+        },
+        "lord": {
+          "name": "Lord",
+          "role": "Il mostro più forte della mappa. La squadra che lo uccide lo evoca: spinge la lane più debole dell'avversario e potenzia la prossima ondata di minion.",
+          "firstSpawn": "{after} min dopo l'ultima Tartaruga, oppure tra {from} e {latest} se una Tartaruga è ancora viva",
+          "respawn": "{respawn} s dopo la morte; dopo il minuto {lateFrom}, {late} s secondo il testo della wiki, {infobox} secondo il riquadro",
+          "reward": "Prossima ondata di minion potenziata; il Lord evocato spinge con la tua squadra e gli alleati vicini infliggono {bonus} danni magici base in più (ricarica {cooldown} s)",
+          "location": "La wiki non dice quale fossa occupi: una Tartaruga ancora viva al minuto {from} diventa Lord sul posto. Lo schema lo mette di fronte alla prima Tartaruga; fidati della minimappa."
+        },
+        "purple-buff": {
+          "name": "Buff viola",
+          "role": "Due mostri (un Thunder Fenrir grande e uno piccolo) sul lato sinistro di ogni giungla. Quando muoiono, dietro di loro si apre un passaggio fino al loro ritorno.",
+          "reward": "Per {duration} s: ricarica delle abilità −{cooldown}%, costo in mana −{mana}%, in energia −{energy}%; un'uccisione ripristina il {minion}% degli HP (minion), il {hero}% (eroe) o il {creep}% (mostro)"
+        },
+        "orange-buff": {
+          "name": "Buff arancione",
+          "role": "Un mostro solitario (Molten Fiend) vicino alla lane in basso, all'altezza della seconda torretta.",
+          "reward": "Per {duration} s: i tuoi attacchi sugli eroi aggiungono danni puri ({damage} base) e un rallentamento del {slowMelee}% (assassino, combattente, tank) o del {slowRanged}% (tiratore, mago, supporto), con il {penMelee} o il {penRanged}% di penetrazione"
+        },
+        "lithowanderer": {
+          "name": "Lithowanderer",
+          "role": "Piccola creatura del fiume, vicino alla Mid Lane, che non contrattacca mai. Chi la uccide viene seguito dalla Walkie Grass e lascia uno Stone Roamer che rivela i nemici.",
+          "reward": "Walkie Grass: +{mana}% di mana al secondo agli alleati vicini, +{speed}% di velocità nel fiume per {duration} s; lo Stone Roamer pattuglia per {patrol} s"
+        },
+        "crab": {
+          "name": "Granchio",
+          "role": "Nel fiume, vicino alle lane laterali. Prima arriva il Piccolo Granchio, che ricompare spesso; poi il Granchio ne prende il posto.",
+          "firstSpawn": "Piccolo Granchio a {little}, Granchio a {crab} (la guida della wiki dice {guide})",
+          "respawn": "Piccolo Granchio ogni {little} s, Granchio {crab} s dopo la morte",
+          "reward": "Buff d'oro: {gold} monete in {duration} s ({littleGold} in {littleDuration} s con il Piccolo Granchio)"
+        },
+        "lizard": {
+          "name": "Lucertola cornuta",
+          "role": "Piccolo campo della giungla. Sotto metà HP guadagna difesa."
+        },
+        "beetle": {
+          "name": "Scarabeo di fuoco",
+          "role": "Piccolo campo della giungla. Alla morte lascia uno scarabeo più debole che vive al massimo {larva} s."
+        },
+        "golem": {
+          "name": "Golem di lava",
+          "role": "Piccolo campo della giungla, senza abilità particolari."
+        },
+        "cyclone": {
+          "name": "Occhio del Ciclone",
+          "role": "Passaci sopra: dopo {delay} s il tuo eroe scivola in avanti e può superare alcuni ostacoli.",
+          "respawn": "Si ricarica {recharge} s dopo l'uso"
+        },
+        "turret": {
+          "name": "Torrette",
+          "role": "Sparano ai nemici a portata; ogni colpo consecutivo su un eroe fa il {ramp}% di danni in più, fino a {rampMax} volte. Senza minion nemici a portata subiscono il {reduction}% di danni in meno. Le torrette esterne restano inattive fino a {idle} s dopo la prima ondata.",
+          "count": "{perTeam} per squadra, {perLane} per lane",
+          "range": "Portata {range}, visione {sight} (unità di gioco)"
+        },
+        "base": {
+          "name": "Base",
+          "role": "Distruggi la base avversaria per vincere. È esposta solo quando cadono le tre torrette di una lane; quando cade una torretta di base, i super minion attaccano quella lane."
+        },
+        "exp-lane": {
+          "name": "EXP Lane",
+          "role": "La lane accanto alla prima Tartaruga. Di solito la tiene un combattente, che punta sulle abilità.",
+          "bonus": "Prime {waves} ondate (fino al minuto {end}): il minion cannone dà il {bonus}% di EXP in più"
+        },
+        "mid-lane": {
+          "name": "Mid Lane",
+          "role": "La lane più corta: i minion ci arrivano prima che sui lati. Ideale per un mago che ruota verso le altre lane.",
+          "bonus": "Prime {waves} ondate: {lancers} lancieri e {infantry} fante"
+        },
+        "gold-lane": {
+          "name": "Gold Lane",
+          "role": "La lane lontana dalla prima Tartaruga. Di solito la tiene un tiratore, che ha bisogno di oggetti al più presto.",
+          "bonus": "Prime {waves} ondate (fino al minuto {end}): il minion cannone dà il {bonus}% di oro in più"
+        }
+      },
+      "rotations": {
+        "title": "Rotazioni per ruolo",
+        "intro": "I primi minuti di ogni ruolo, in pochi punti. I tempi vengono dalla wiki; il resto è un consiglio.",
+        "jungle": {
+          "title": "Giungla",
+          "step1": "Parti dal buff più vicino alla EXP Lane (arancione a {orange}, viola a {purple}): il giro ti lascia al livello 4 vicino alla Gold Lane, pronto a gankare.",
+          "step2": "Prosegui con l'altro buff e i campi piccoli di quel lato; il Lithowanderer ({litho}, vicino alla Mid Lane) aiuta a chiudere il livello 4.",
+          "step3": "Sii alla Tartaruga per il minuto {turtle}, con Retribution pronta. I buff tornano {buff} s dopo la morte: registrali nel timer.",
+          "step4": "All'inizio lascia i minion delle lane ai compagni. Assicurati almeno una delle tre cose: buff, uccisioni o Tartaruga."
+        },
+        "roam": {
+          "title": "Roam",
+          "step1": "Nel primo minuto proteggi il primo buff del tuo jungler da un'invasione.",
+          "step2": "Raggiungi la Tartaruga prima del minuto {turtle}: il roamer va ad aiutare a prenderla.",
+          "step3": "Passa da una lane all'altra per dare visione alla squadra.",
+          "step4": "Dal minuto {share}, le ricompense da minion e mostri sono condivise con la squadra: restate uniti."
+        },
+        "gold": {
+          "title": "Gold Lane",
+          "step1": "Nelle prime {waves} ondate (fino al minuto {end}) il minion cannone della tua lane vale il {goldBonus}% di oro in più: non mancare il colpo finale.",
+          "step2": "Il Granchio, nel fiume vicino alle lane laterali, dà {crabGold} monete d'oro in {crabDuration} s; il Piccolo Granchio arriva già al minuto {littleCrab}.",
+          "step3": "Il tuo jungler non prende i tuoi minion: a inizio partita sono tuoi.",
+          "step4": "Da solo nella tua lane, aspetta la prossima ondata in un cespuglio invece di farti vedere."
+        },
+        "exp": {
+          "title": "EXP Lane",
+          "step1": "La prima Tartaruga compare al minuto {turtle} accanto alla tua lane: sii al livello 4 e pronto ad aiutare.",
+          "step2": "Nelle prime {waves} ondate il minion cannone della tua lane dà il {expBonus}% di EXP in più.",
+          "step3": "Dopo la Tartaruga, torna a farmare se lo scontro non è giocabile."
+        },
+        "mid": {
+          "title": "Mid Lane",
+          "step1": "Il Lithowanderer compare al minuto {litho} vicino alla Mid Lane: rigenerazione di mana e velocità nel fiume per chi lo finisce.",
+          "step2": "Le prime {waves} ondate della Mid Lane hanno {lancers} lancieri e {infantry} fante: pulisci in fretta, poi ruota verso i lati.",
+          "step3": "Sii al livello 4 per la Tartaruga al minuto {turtle} e controlla eventuali invasioni della tua giungla nel primo minuto."
+        }
+      }
+    },
+    "mapUI": {
+      "mapLabel": "Mappa schematica della Terra dell'Alba",
+      "keyboardHelp": "Tocca un punto della mappa, oppure passa da uno all'altro con le frecce della tastiera: la sua scheda compare accanto.",
+      "listTitle": "Punti di interesse",
+      "group": {
+        "objective": "Obiettivi",
+        "buff": "Buff",
+        "camp": "Campi",
+        "terrain": "Terreno",
+        "lane": "Lane"
+      },
+      "side": {
+        "ours": "tuo lato",
+        "theirs": "lato avversario"
+      },
+      "legend": {
+        "ours": "Il tuo lato",
+        "theirs": "Lato avversario",
+        "shared": "Comune",
+        "river": "Fiume"
+      },
+      "short": {
+        "exp-lane": "EXP",
+        "mid-lane": "Mid",
+        "gold-lane": "Gold"
+      },
+      "source": "Fonte:"
     }
   },
   "modeFiche": {
