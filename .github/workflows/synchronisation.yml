@@ -1,28 +1,50 @@
 name: Synchronisation des donnees
 
-# Le jeu evolue a chaque patch. Chaque semaine, on relit les deux sources — le
-# wiki communautaire pour le catalogue (heros, skins, objets, patchs) et l'API
-# communautaire pour les mesures (taux de victoire, classement, contres) — et
-# on ouvre une pull request quand quelque chose a change.
+# Deux rythmes. Chaque jour, les mesures qui bougent vite — tendances,
+# coequipiers, taux par duree de partie — alimentent l'historique long : l'API
+# ne remonte que trente jours, et seul un passage regulier les conserve au-dela.
+# Chaque lundi, la synchronisation complete relit en plus le catalogue du wiki
+# (heros, skins, objets, patchs, combos), traduit, et verifie que le site
+# compile.
 #
-# Une pull request plutot qu'un commit direct : un nouveau heros, un
-# rechiffrage de la tier list ou un changement massif merite d'etre regarde
-# avant d'atterrir en production.
+# Les donnees sont committees directement sur main, sans intervention : une
+# pull request par jour ne serait jamais relue, et deux branches de donnees
+# entreraient en conflit sur les memes fichiers. Le site est ensuite reconstruit
+# et deploye par le workflow Image Docker, appele explicitement : un commit
+# pousse avec GITHUB_TOKEN ne declenche aucun autre workflow.
 on:
   schedule:
-    # Tous les lundis a 4 h UTC, apres les mises a jour de fin de semaine.
-    - cron: "0 4 * * 1"
+    # Tous les jours sauf le lundi, 3 h 30 UTC : mesures seules.
+    - cron: "30 3 * * 0,2-6"
+    # Le lundi, meme heure : synchronisation complete.
+    - cron: "30 3 * * 1"
   workflow_dispatch:
+    inputs:
+      complete:
+        description: Synchronisation complete (catalogue du wiki compris)
+        type: boolean
+        default: false
 
 permissions:
   contents: write
-  pull-requests: write
+
+# Une synchronisation a la fois : deux executions pousseraient les memes fichiers.
+concurrency:
+  group: synchronisation
+  cancel-in-progress: false
 
 jobs:
   synchroniser:
     runs-on: ubuntu-latest
+    timeout-minutes: 180
+    outputs:
+      commit: ${{ steps.commit.outputs.sha }}
+    env:
+      COMPLETE: ${{ github.event.schedule == '30 3 * * 1' || inputs.complete == true }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main
 
       - uses: actions/setup-node@v7
         with:
@@ -32,62 +54,87 @@ jobs:
       - run: npm ci --no-audit --no-fund
 
       - name: Relire les sources et telecharger les visuels
+        id: complete
+        if: env.COMPLETE == 'true'
+        # Wiki ou API en panne : on se rabat sur les seules mesures, plus bas.
+        continue-on-error: true
         run: npm run sync -- --images
 
-      - name: Traduire en francais les contenus repris en anglais
+      - name: Traduire les contenus repris en anglais
+        if: steps.complete.outcome == 'success'
         run: npm run traduire
 
       - name: Prendre l'instantane de la veille
+        if: steps.complete.outcome == 'success'
         run: npm run veille
 
       - name: Verifier que le site compile avec les nouvelles donnees
+        if: steps.complete.outcome == 'success'
         run: npm run build
 
-      - name: Resumer les changements
-        id: resume
+      - name: Mesures du jour (tendances, coequipiers, durees de partie)
+        if: env.COMPLETE != 'true' || steps.complete.outcome == 'failure'
         run: |
-          # `synchro.json` porte l'horodatage de l'execution : il change a
-          # chaque fois, meme quand le wiki n'a pas bouge. On l'exclut de la
-          # detection, sinon une pull request vide serait ouverte chaque
-          # semaine.
-          if git diff --quiet -- . ':(exclude)src/data/jeu/synchro.json'; then
-            echo "change=non" >> "$GITHUB_OUTPUT"
-            echo "Le wiki n'a pas bouge."
-            git checkout -- src/data/jeu/synchro.json
-          else
-            echo "change=oui" >> "$GITHUB_OUTPUT"
-            {
-              echo "resume<<FIN"
-              node -e "
-                const s = require('./src/data/jeu/synchro.json');
-                console.log(\`- \${s.heros} heros, \${s.skins} skins, \${s.objets} objets\`);
-                console.log(\`- \${s.patchs} patchs\`);
-                if (s.classement) console.log(\`- \${s.classement} heros classes (taux du jeu)\`);
-                if (s.contres) console.log(\`- \${s.contres} heros avec contres chiffres\`);
-              "
-              echo "FIN"
-            } >> "$GITHUB_OUTPUT"
-            git diff --stat | tail -1
+          # L'API communautaire flanche parfois. Le script garde alors les
+          # mesures precedentes et l'historique deja cumule ; on retente une
+          # fois un quart d'heure plus tard. Une panne persistante ne laisse
+          # qu'un avertissement : les trente jours de l'API seront repris au
+          # passage suivant.
+          for essai in 1 2; do
+            if npm run sync:evolution; then exit 0; fi
+            if [ "$essai" = 1 ]; then sleep 900; fi
+          done
+          echo "::warning::API des mesures indisponible : historique inchange aujourd'hui."
+
+      - name: Ecarter un fichier de donnees illisible
+        run: |
+          # Une execution interrompue en pleine ecriture ne doit rien casser sur main.
+          for f in $(git ls-files -m -o --exclude-standard -- src/data | grep '\.json$'); do
+            if ! node -e "JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'))" "$f"; then
+              echo "::warning::$f illisible, version precedente conservee"
+              git checkout -- "$f" 2>/dev/null || rm -f "$f"
+            fi
+          done
+
+      - name: Committer les donnees sur main
+        id: commit
+        run: |
+          # Donnees, visuels, traductions et leurs caches : rien d'autre (le build
+          # ne doit rien glisser dans le commit).
+          git add -A -- src/data public/visuels content src/i18n/messages 'scripts/traductions*.json'
+          # synchro.json porte l'horodatage de l'execution : seul, il ne merite
+          # pas de commit.
+          if git diff --cached --quiet -- . ':(exclude)src/data/jeu/synchro.json'; then
+            echo "Aucune donnee nouvelle."
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ "${{ steps.complete.outcome }}" = success ]; then
+            git commit -q -m "Sync game data from the wiki and the stats API ($(date -u +%F))"
+          else
+            git commit -q -m "Record hero rate history for $(date -u +%F)"
+          fi
+          # main a pu avancer pendant la synchronisation : on rejoue par-dessus.
+          for essai in 1 2 3; do
+            if git pull -q --rebase origin main && git push -q origin HEAD:main; then
+              echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+              git log -1 --stat --format='%h %s' | tail -3
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "::error::Push sur main refuse (branche protegee ?)"
+          exit 1
 
-      - name: Ouvrir la pull request
-        if: steps.resume.outputs.change == 'oui'
-        uses: peter-evans/create-pull-request@v8
-        with:
-          branch: synchronisation/wiki
-          # La branche est reutilisee d'une semaine sur l'autre : une seule
-          # pull request de synchronisation ouverte a la fois.
-          commit-message: "synchronise les donnees du jeu"
-          author: achedon12 <82544800+achedon12@users.noreply.github.com>
-          committer: achedon12 <82544800+achedon12@users.noreply.github.com>
-          title: "Synchronisation des donnees du jeu"
-          labels: donnees
-          body: |
-            Relecture automatique du wiki (catalogue) et de l'API communautaire
-            (taux de victoire, classement, contres).
-
-            ${{ steps.resume.outputs.resume }}
-
-            Le site compile avec ces donnees. A verifier avant de fusionner :
-            les nouveaux heros apparaissent dans le catalogue, la tier list
-            reflete les taux du patch, et aucun visuel ne manque.
+  # Reconstruit l'image a partir du commit de donnees, puis la deploie.
+  deployer:
+    needs: synchroniser
+    if: needs.synchroniser.outputs.commit != ''
+    uses: ./.github/workflows/docker.yml
+    with:
+      ref: ${{ needs.synchroniser.outputs.commit }}
+      deployer: true
+    secrets: inherit
+    permissions:
+      contents: read

@@ -13,7 +13,8 @@
     "fermer": "Fermer",
     "descriptionAccueil": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
     "freres": "Autres pages au même niveau que {nom}",
-    "filtrer": "Filtrer…"
+    "filtrer": "Filtrer…",
+    "sommaire": "Sommaire"
   },
   "nav": {
     "baseDeDonnees": "Base de données",
@@ -59,7 +60,8 @@
       "desc": "Notes de version détaillées"
     },
     "ouvrir": "Ouvrir le menu",
-    "fermer": "Fermer le menu"
+    "fermer": "Fermer le menu",
+    "winRate": {}
   },
   "compte": {
     "connexion": "Connexion",
@@ -92,7 +94,8 @@
       "decouvrir": "Découvrir le mode",
       "metaDescription": "Les modes de jeu de Mobile Legends: Bang Bang, présentés un par un, règles détaillées à l'appui.",
       "ogDescription": "Les modes de jeu de Mobile Legends: Bang Bang et ce qui les distingue.",
-      "titreMode": "Mode {nom}"
+      "titreMode": "Mode {nom}",
+      "listeLd": "Modes de jeu de Mobile Legends: Bang Bang"
     },
     "modeDetail": {
       "nonDocumente": "Le détail de ce mode n'est pas encore documenté."
@@ -102,7 +105,8 @@
       "chapeau": "Les {heros} héros du jeu et leurs {skins} skins, filtrables par rôle et par position. Les {analyses} fiches marquées « Analyse » contiennent en plus un commentaire, des builds et des contres.",
       "metaTitre": "Tous les héros",
       "metaDescription": "Les {heros} héros de Mobile Legends: Bang Bang, filtrables par rôle et par position : portraits, skins, statistiques, et {analyses} analyses rédigées.",
-      "ogDescription": "Les {heros} héros de Mobile Legends: Bang Bang, avec leurs {skins} skins."
+      "ogDescription": "Les {heros} héros de Mobile Legends: Bang Bang, avec leurs {skins} skins.",
+      "listeLd": "Héros de Mobile Legends: Bang Bang"
     },
     "heroesListe": {
       "rechercher": "Rechercher un héros",
@@ -197,10 +201,16 @@
         "ajustements": "Ajustements par patch",
         "ajustementsIntro": "Ce que chaque patch récent a changé pour {nom}.",
         "aucunAjustement": "Aucun ajustement de {nom} dans les {n} derniers patchs.",
-        "aucuneDonnee": "Pas encore de mesure pour ce héros."
+        "aucuneDonnee": "Pas encore de mesure pour ce héros.",
+        "impact": {
+          "verdict": {}
+        }
       },
       "coequipiers": "Meilleurs coéquipiers",
-      "coequipiersIntro": "Les alliés avec lesquels {nom} gagne le plus, en points de victoire au-dessus de sa moyenne."
+      "coequipiersIntro": "Les alliés avec lesquels {nom} gagne le plus, en points de victoire au-dessus de sa moyenne.",
+      "combos": {
+        "types": {}
+      }
     },
     "items": {
       "titre": "Objets",
@@ -254,7 +264,8 @@
       "chapeau": "Des articles de fond plutôt que des brèves : ce qui change dans le meta, pourquoi, et ce qu'il faut en faire en partie.",
       "metaTitre": "Actualités et guides",
       "metaDescription": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en français. Disponible en flux RSS.",
-      "ogDescription": "Analyses du meta et guides de fond, en français."
+      "ogDescription": "Analyses du meta et guides de fond, en français.",
+      "toutes": "Toutes les actualités"
     },
     "tierList": {
       "titre": "Tier list",
@@ -301,7 +312,13 @@
       "analysesIntro": "Ce que les notes officielles ne disent pas : l'effet réel des changements en partie.",
       "anciens": "Les patchs plus anciens ne sont pas repris intégralement — leur contenu représenterait plusieurs mégaoctets pour des versions que plus personne ne joue.",
       "officielleDescription": "Notes officielles de la mise à jour {version} de Mobile Legends: Bang Bang : nouveaux héros, ajustements et changements d'objets.",
-      "officiellePartage": "Notes de la mise à jour {version}."
+      "officiellePartage": "Notes de la mise à jour {version}.",
+      "officielles": "Notes officielles",
+      "nSections": "{n} sections",
+      "tous": "Tous les patch notes",
+      "archives": "Archives",
+      "credit": "Notes reprises du {lien}, sous licence CC BY-SA. Le texte original est publié par Moonton ; ce site n'en modifie pas le contenu.",
+      "creditTraduit": "Notes reprises du {lien}, sous licence CC BY-SA, et traduites automatiquement de l'anglais. Le texte original est publié par Moonton."
     },
     "login": {
       "titre": "Connexion",
@@ -317,7 +334,8 @@
       "metaDescription": "Les dernières publications de la communauté et de la presse esport sur Mobile Legends: Bang Bang, rassemblées automatiquement.",
       "ogDescription": "L'actualité Mobile Legends du web, rassemblée automatiquement.",
       "derniereCollecte": "Dernière collecte le {date} · sources :",
-      "aucune": "Aucune source ne répond pour le moment. La page se recharge automatiquement à la prochaine collecte."
+      "aucune": "Aucune source ne répond pour le moment. La page se recharge automatiquement à la prochaine collecte.",
+      "credit": "Les titres et extraits appartiennent à leurs auteurs respectifs et sont affichés ici pour renvoyer vers la publication d'origine. Moonton ne publie pas de flux officiel : les mises à jour du jeu sont reprises et commentées dans la section {lien}."
     },
     "about": {
       "titre": "À propos",
@@ -391,7 +409,8 @@
         "classement": {
           "resume": "Classement calculé : taux de victoire, de ban et de sélection, palier et date du relevé."
         }
-      }
+      },
+      "pointsEntree": "Points d'entrée"
     },
     "offline": {
       "titre": "Vous êtes hors ligne",
@@ -403,6 +422,22 @@
       "texte": "Cette page n'existe pas, ou plus. Les fiches héros sont accessibles depuis le catalogue.",
       "accueil": "Retour à l'accueil",
       "heros": "Voir les héros"
+    },
+    "winRate": {},
+    "contribute": {
+      "groupe": {},
+      "champs": {
+        "competence": {},
+        "build": {}
+      },
+      "style": {},
+      "relecture": {}
+    },
+    "accountProfile": {
+      "nParties": {},
+      "bourreauxSource": {},
+      "partiesAffichees": {},
+      "issue": {}
     }
   },
   "modeFiche": {
@@ -509,7 +544,8 @@
     "commentFonctionne": "Comment ce site fonctionne",
     "suivreRss": "Suivre les publications en RSS",
     "pourcentVictoires": "% de victoires",
-    "derniersArticles": "Derniers articles"
+    "derniersArticles": "Derniers articles",
+    "tendances": {}
   },
   "vedette": {
     "herosDuJour": "Héros du jour",
@@ -712,7 +748,8 @@
       "ajustement": "Ajustements"
     },
     "voirFiche": "Voir la fiche de {nom}",
-    "voirPatch": "Lire le patch {version}"
+    "voirPatch": "Lire le patch {version}",
+    "libelle": "{libelle} :"
   },
   "emblemesUI": {
     "talents": "Talents décisifs",
@@ -720,7 +757,10 @@
     "attributs": "Attributs",
     "attributsDesc": "Les premiers étages ajustent les statistiques. Ils comptent, sans décider.",
     "sorts": "Sorts de combat",
-    "sortsDesc": "Un seul emplacement : le sort doit répondre à ce qui manque au héros."
+    "sortsDesc": "Un seul emplacement : le sort doit répondre à ce qui manque au héros.",
+    "votreRole": "Votre rôle",
+    "retirerFiltre": "Retirer le filtre",
+    "aideRole": "Choisir un rôle remonte ce qui lui convient. Le reste passe en retrait, sans disparaître."
   },
   "skinsUI": {
     "pointsBataille": "Points de bataille",
@@ -766,17 +806,35 @@
     }
   },
   "nouveauHeros": {
-    "particularite": "Particularité — "
+    "particularite": "Particularité — ",
+    "titre": "Nouveau héros",
+    "voirFiche": "Voir la fiche complète de {nom}"
   },
   "loginForm": {
     "envoiCode": "Envoi du code…",
     "recevoir": "Recevoir un code dans le jeu",
     "verification": "Vérification…",
     "seConnecter": "Se connecter",
-    "recommencer": "Recommencer avec un autre identifiant"
+    "recommencer": "Recommencer avec un autre identifiant",
+    "identifiant": "Identifiant de joueur",
+    "exempleIdentifiant": "123456789 ou 123456789 (6021)",
+    "serveur": "Serveur",
+    "aideServeur": "Dans le jeu, profil → {exemple}. Vous pouvez coller le tout dans le premier champ.",
+    "codeEnvoye": "Un code à quatre chiffres vient d'être envoyé dans votre messagerie MLBB. Il est valable cinq minutes.",
+    "code": "Code de vérification",
+    "erreurs": {
+      "identifiant": "Identifiant invalide.",
+      "serveur": "Serveur invalide.",
+      "saisie": "Saisie invalide.",
+      "code": "Le code fait quatre chiffres.",
+      "inconnu": "Aucun compte ne correspond à cet identifiant et ce serveur.",
+      "indisponible": "Le service est momentanément indisponible.",
+      "codeIncorrect": "Code incorrect ou expiré."
+    }
   },
   "articleUI": {
-    "aucune": "Aucune publication pour le moment."
+    "aucune": "Aucune publication pour le moment.",
+    "par": "par {auteur}"
   },
   "articleCat": {
     "Actualite": "Actualité",
@@ -811,7 +869,8 @@
     "gardes": "gardés sous la main",
     "retirer": "Retirer {nom}",
     "dans": "Dans mes favoris",
-    "ajouter": "Ajouter aux favoris"
+    "ajouter": "Ajouter aux favoris",
+    "alerte": {}
   },
   "skinDispo": {
     "Available": "Disponible",
@@ -1040,10 +1099,15 @@
   "erreur": {
     "titre": "Une erreur est survenue",
     "texte": "Le site a rencontré un problème inattendu. Réessayez dans un instant.",
-    "reessayer": "Réessayer"
+    "reessayer": "Réessayer",
+    "oups": "Oups",
+    "textePage": "Quelque chose s'est mal passé en chargeant cette page. Vous pouvez réessayer, ou revenir à l'accueil.",
+    "accueil": "Retour à l'accueil"
   },
   "carteHeros": {
-    "palierTitre": "Palier {p} de la tier list"
+    "palierTitre": "Palier {p} de la tier list",
+    "skins": "{n} skins",
+    "analyse": "Analyse"
   },
   "rangsMesure": {
     "label": "Rang",
@@ -1092,5 +1156,64 @@
       "patch": "Patch notes",
       "page": "Pages"
     }
-  }
+  },
+  "donneesHeros": {
+    "ressource": {
+      "mana": "Mana",
+      "energy": "Énergie",
+      "none": "Aucune"
+    },
+    "degats": {
+      "magic": "Magiques",
+      "physical": "Physiques",
+      "mixed": "Mixtes"
+    },
+    "attaque": {
+      "melee": "Mêlée",
+      "ranged": "Distance",
+      "hybrid": "Hybride"
+    },
+    "region": {
+      "moniyan-empire": "Empire de Moniyan",
+      "cadia-riverlands": "Terres fluviales de Cadia",
+      "agelta-drylands": "Terres arides d'Agelta",
+      "abyss": "Abysses",
+      "laboratory-1718": "Laboratoire 1718",
+      "northern-vale": "Vallée du Nord",
+      "the-barren-lands": "Terres désolées",
+      "vonetis-sea": "Mer de Vonetis",
+      "eruditio": "Eruditio",
+      "los-pecados": "Los Pecados",
+      "nebula-chronorift": "Nebula Chronorift",
+      "sanctum-island": "Île du Sanctuaire",
+      "azrya-woodlands": "Bois d'Azrya",
+      "celestial-palace": "Palais céleste",
+      "alaghat": "Alaghat",
+      "kastiya": "Kastiya"
+    },
+    "specialite": {
+      "chase": "Poursuite",
+      "magic-damage": "Dégâts magiques",
+      "guard": "Protection",
+      "crowd-control": "Contrôle de foule",
+      "burst": "Burst",
+      "support": "Soutien",
+      "charge": "Charge",
+      "regen": "Régénération",
+      "damage": "Dégâts",
+      "initiator": "Initiateur",
+      "poke": "Harcèlement",
+      "push": "Poussée",
+      "finisher": "Finisseur",
+      "control": "Contrôle",
+      "mixed-damage": "Dégâts mixtes"
+    },
+    "sortie": {
+      "aVenir": "À annoncer"
+    }
+  },
+  "tendances": {
+    "point": {}
+  },
+  "outilTaux": {}
 }

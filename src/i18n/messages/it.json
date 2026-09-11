@@ -13,7 +13,8 @@
     "fermer": "Chiudi",
     "descriptionAccueil": "Base di conoscenza di Mobile Legends: Bang Bang: i 133 eroi, i loro counter e le build per rango, la tier list, gli oggetti, gli emblemi e le patch notes.",
     "freres": "Altre pagine allo stesso livello di {nom}",
-    "filtrer": "Filtra…"
+    "filtrer": "Filtra…",
+    "sommaire": "Sommario"
   },
   "nav": {
     "baseDeDonnees": "Database",
@@ -59,7 +60,8 @@
       "desc": "Note di rilascio dettagliate"
     },
     "ouvrir": "Apri il menu",
-    "fermer": "Chiudi il menu"
+    "fermer": "Chiudi il menu",
+    "winRate": {}
   },
   "compte": {
     "connexion": "Accedi",
@@ -92,7 +94,8 @@
       "decouvrir": "Scopri la modalità",
       "metaDescription": "Le modalità di gioco di Mobile Legends: Bang Bang, presentate una per una, con le regole nel dettaglio.",
       "ogDescription": "Le modalità di gioco di Mobile Legends: Bang Bang e cosa le distingue.",
-      "titreMode": "Modalità {nom}"
+      "titreMode": "Modalità {nom}",
+      "listeLd": "Modalità di gioco di Mobile Legends: Bang Bang"
     },
     "modeDetail": {
       "nonDocumente": "I dettagli di questa modalità non sono ancora documentati."
@@ -102,7 +105,8 @@
       "chapeau": "I {heros} eroi del gioco e le loro {skins} skin, filtrabili per ruolo e lane. Le {analyses} schede contrassegnate «Analisi» contengono anche un commento, build e counter.",
       "metaTitre": "Tutti gli eroi",
       "metaDescription": "I {heros} eroi di Mobile Legends: Bang Bang, filtrabili per ruolo e lane: ritratti, skin, statistiche e {analyses} analisi scritte.",
-      "ogDescription": "I {heros} eroi di Mobile Legends: Bang Bang, con le loro {skins} skin."
+      "ogDescription": "I {heros} eroi di Mobile Legends: Bang Bang, con le loro {skins} skin.",
+      "listeLd": "Eroi di Mobile Legends: Bang Bang"
     },
     "heroesListe": {
       "rechercher": "Cerca un eroe",
@@ -197,10 +201,16 @@
         "ajustements": "Modifiche per patch",
         "ajustementsIntro": "Cosa ha cambiato ogni patch recente per {nom}.",
         "aucunAjustement": "Nessuna modifica a {nom} nelle ultime {n} patch.",
-        "aucuneDonnee": "Ancora nessuna misurazione per questo eroe."
+        "aucuneDonnee": "Ancora nessuna misurazione per questo eroe.",
+        "impact": {
+          "verdict": {}
+        }
       },
       "coequipiers": "Migliori compagni",
-      "coequipiersIntro": "Gli alleati con cui {nom} vince di più, in punti di vittoria sopra la media."
+      "coequipiersIntro": "Gli alleati con cui {nom} vince di più, in punti di vittoria sopra la media.",
+      "combos": {
+        "types": {}
+      }
     },
     "items": {
       "titre": "Oggetti",
@@ -254,7 +264,8 @@
       "chapeau": "Articoli di approfondimento anziché notizie brevi: cosa cambia nel meta, perché, e come sfruttarlo in partita.",
       "metaTitre": "Notizie e guide",
       "metaDescription": "Analisi del meta, guide approfondite e letture delle patch di Mobile Legends: Bang Bang, in francese. Disponibile come feed RSS.",
-      "ogDescription": "Analisi del meta e guide approfondite, in francese."
+      "ogDescription": "Analisi del meta e guide approfondite, in francese.",
+      "toutes": "Tutte le notizie"
     },
     "tierList": {
       "titre": "Tier list",
@@ -301,7 +312,13 @@
       "analysesIntro": "Quello che le note ufficiali non dicono: l'effetto reale delle modifiche in partita.",
       "anciens": "Le patch più vecchie non sono riportate per intero — il loro contenuto occuperebbe diversi megabyte per versioni che nessuno gioca più.",
       "officielleDescription": "Note ufficiali dell'aggiornamento {version} di Mobile Legends: Bang Bang: nuovi eroi, bilanciamenti e modifiche agli oggetti.",
-      "officiellePartage": "Note dell'aggiornamento {version}."
+      "officiellePartage": "Note dell'aggiornamento {version}.",
+      "officielles": "Note ufficiali",
+      "nSections": "{n} sezioni",
+      "tous": "Tutte le patch notes",
+      "archives": "Archivio",
+      "credit": "Note riprese dalla {lien}, con licenza CC BY-SA. Il testo originale è pubblicato da Moonton; questo sito non ne modifica il contenuto.",
+      "creditTraduit": "Note riprese dalla {lien}, con licenza CC BY-SA, e tradotte automaticamente dall'inglese. Il testo originale è pubblicato da Moonton."
     },
     "login": {
       "titre": "Accedi",
@@ -317,7 +334,8 @@
       "metaDescription": "Le ultime pubblicazioni della community e della stampa esport su Mobile Legends: Bang Bang, raccolte automaticamente.",
       "ogDescription": "Le notizie su Mobile Legends dal web, raccolte automaticamente.",
       "derniereCollecte": "Ultima raccolta il {date} · fonti:",
-      "aucune": "Nessuna fonte risponde al momento. La pagina si aggiornerà automaticamente alla prossima raccolta."
+      "aucune": "Nessuna fonte risponde al momento. La pagina si aggiornerà automaticamente alla prossima raccolta.",
+      "credit": "Titoli ed estratti appartengono ai rispettivi autori e sono mostrati qui per rimandare alla pubblicazione originale. Moonton non pubblica un feed ufficiale: gli aggiornamenti del gioco sono ripresi e commentati nella sezione {lien}."
     },
     "about": {
       "titre": "Informazioni",
@@ -391,7 +409,8 @@
         "classement": {
           "resume": "Classifica calcolata: percentuali di vittoria, di ban e di pick, tier e data di rilevazione."
         }
-      }
+      },
+      "pointsEntree": "Endpoint"
     },
     "offline": {
       "titre": "Sei offline",
@@ -403,6 +422,22 @@
       "texte": "Questa pagina non esiste, o non esiste più. Le schede degli eroi sono disponibili dal catalogo.",
       "accueil": "Torna alla home",
       "heros": "Vedi gli eroi"
+    },
+    "winRate": {},
+    "contribute": {
+      "groupe": {},
+      "champs": {
+        "competence": {},
+        "build": {}
+      },
+      "style": {},
+      "relecture": {}
+    },
+    "accountProfile": {
+      "nParties": {},
+      "bourreauxSource": {},
+      "partiesAffichees": {},
+      "issue": {}
     }
   },
   "modeFiche": {
@@ -509,7 +544,8 @@
     "commentFonctionne": "Come funziona questo sito",
     "suivreRss": "Segui le pubblicazioni via RSS",
     "pourcentVictoires": "% di vittorie",
-    "derniersArticles": "Ultimi articoli"
+    "derniersArticles": "Ultimi articoli",
+    "tendances": {}
   },
   "vedette": {
     "herosDuJour": "Eroe del giorno",
@@ -712,7 +748,8 @@
       "ajustement": "Modifiche"
     },
     "voirFiche": "Vedi la scheda di {nom}",
-    "voirPatch": "Leggi la patch {version}"
+    "voirPatch": "Leggi la patch {version}",
+    "libelle": "{libelle}:"
   },
   "emblemesUI": {
     "talents": "Talenti decisivi",
@@ -720,7 +757,10 @@
     "attributs": "Attributi",
     "attributsDesc": "I primi livelli regolano le statistiche. Contano, ma non decidono.",
     "sorts": "Battle Spell",
-    "sortsDesc": "Un solo slot: il Battle Spell deve compensare ciò che manca all'eroe."
+    "sortsDesc": "Un solo slot: il Battle Spell deve compensare ciò che manca all'eroe.",
+    "votreRole": "Il tuo ruolo",
+    "retirerFiltre": "Rimuovi il filtro",
+    "aideRole": "Scegliere un ruolo porta in alto ciò che gli si addice. Il resto passa in secondo piano, senza scomparire."
   },
   "skinsUI": {
     "pointsBataille": "Battle Point",
@@ -766,17 +806,35 @@
     }
   },
   "nouveauHeros": {
-    "particularite": "Particolarità — "
+    "particularite": "Particolarità — ",
+    "titre": "Nuovo eroe",
+    "voirFiche": "Vedi la scheda completa di {nom}"
   },
   "loginForm": {
     "envoiCode": "Invio del codice…",
     "recevoir": "Ricevi un codice nel gioco",
     "verification": "Verifica…",
     "seConnecter": "Accedi",
-    "recommencer": "Ricomincia con un altro ID"
+    "recommencer": "Ricomincia con un altro ID",
+    "identifiant": "ID giocatore",
+    "exempleIdentifiant": "123456789 o 123456789 (6021)",
+    "serveur": "Server",
+    "aideServeur": "Nel gioco, profilo → {exemple}. Puoi incollare il tutto nel primo campo.",
+    "codeEnvoye": "Un codice di quattro cifre è appena stato inviato alla tua posta di MLBB. È valido cinque minuti.",
+    "code": "Codice di verifica",
+    "erreurs": {
+      "identifiant": "ID giocatore non valido.",
+      "serveur": "Server non valido.",
+      "saisie": "Dati non validi.",
+      "code": "Il codice è di quattro cifre.",
+      "inconnu": "Nessun account corrisponde a questo ID e server.",
+      "indisponible": "Il servizio è momentaneamente non disponibile.",
+      "codeIncorrect": "Codice errato o scaduto."
+    }
   },
   "articleUI": {
-    "aucune": "Ancora nessuna pubblicazione."
+    "aucune": "Ancora nessuna pubblicazione.",
+    "par": "di {auteur}"
   },
   "articleCat": {
     "Actualite": "Notizie",
@@ -811,7 +869,8 @@
     "gardes": "tenuti a portata di mano",
     "retirer": "Rimuovi {nom}",
     "dans": "Nei miei preferiti",
-    "ajouter": "Aggiungi ai preferiti"
+    "ajouter": "Aggiungi ai preferiti",
+    "alerte": {}
   },
   "skinDispo": {
     "Available": "Disponibile",
@@ -1040,10 +1099,15 @@
   "erreur": {
     "titre": "Si è verificato un errore",
     "texte": "Il sito ha riscontrato un problema imprevisto. Riprova tra un attimo.",
-    "reessayer": "Riprova"
+    "reessayer": "Riprova",
+    "oups": "Ops",
+    "textePage": "Qualcosa è andato storto durante il caricamento di questa pagina. Puoi riprovare o tornare alla home.",
+    "accueil": "Torna alla home"
   },
   "carteHeros": {
-    "palierTitre": "Tier {p} della tier list"
+    "palierTitre": "Tier {p} della tier list",
+    "skins": "{n} skin",
+    "analyse": "Analisi"
   },
   "rangsMesure": {
     "label": "Rango",
@@ -1092,5 +1156,64 @@
       "patch": "Patch notes",
       "page": "Pagine"
     }
-  }
+  },
+  "donneesHeros": {
+    "ressource": {
+      "mana": "Mana",
+      "energy": "Energia",
+      "none": "Nessuna"
+    },
+    "degats": {
+      "magic": "Magico",
+      "physical": "Fisico",
+      "mixed": "Misto"
+    },
+    "attaque": {
+      "melee": "Mischia",
+      "ranged": "A distanza",
+      "hybrid": "Ibrida"
+    },
+    "region": {
+      "moniyan-empire": "Impero di Moniyan",
+      "cadia-riverlands": "Terre fluviali di Cadia",
+      "agelta-drylands": "Terre aride di Agelta",
+      "abyss": "Abisso",
+      "laboratory-1718": "Laboratorio 1718",
+      "northern-vale": "Valle del Nord",
+      "the-barren-lands": "Terre desolate",
+      "vonetis-sea": "Mare di Vonetis",
+      "eruditio": "Eruditio",
+      "los-pecados": "Los Pecados",
+      "nebula-chronorift": "Nebula Chronorift",
+      "sanctum-island": "Isola del Santuario",
+      "azrya-woodlands": "Boschi di Azrya",
+      "celestial-palace": "Palazzo celeste",
+      "alaghat": "Alaghat",
+      "kastiya": "Kastiya"
+    },
+    "specialite": {
+      "chase": "Inseguimento",
+      "magic-damage": "Danno magico",
+      "guard": "Protezione",
+      "crowd-control": "Controllo di massa",
+      "burst": "Burst",
+      "support": "Supporto",
+      "charge": "Carica",
+      "regen": "Rigenerazione",
+      "damage": "Danno",
+      "initiator": "Iniziatore",
+      "poke": "Logoramento",
+      "push": "Spinta",
+      "finisher": "Finalizzatore",
+      "control": "Controllo",
+      "mixed-damage": "Danno misto"
+    },
+    "sortie": {
+      "aVenir": "Da annunciare"
+    }
+  },
+  "tendances": {
+    "point": {}
+  },
+  "outilTaux": {}
 }

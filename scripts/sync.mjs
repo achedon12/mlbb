@@ -28,7 +28,7 @@ import {
 } from "./wikitexte.mjs";
 import { ajustementsHeros, bilan } from "./patch-parser.mjs";
 import { extraireIllustrations, normaliserNomSkin } from "./galerie.mjs";
-import { arrondi, choisirGuide, fusionnerHistorique, serieQuotidienne } from "./mesures.mjs";
+import { arrondi, choisirGuide, combosDuHeros, fusionnerHistorique, serieQuotidienne } from "./mesures.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
 /**
@@ -693,6 +693,65 @@ async function evolutionSeule() {
 }
 
 /**
+ * Combos de competences conseilles par le jeu, par heros : l'API les decrit en
+ * anglais et designe chaque competence par son identifiant, que la fiche du
+ * heros (`skillsArena`, voir competencesArena) traduit en nom. L'icone locale
+ * est reprise quand la competence est reconnue, sinon celle du CDN.
+ */
+async function combosArena(heros, skillsArena, competencesSite, icones) {
+  const sortie = {};
+  let muets = 0;
+  for (const [i, h] of heros.entries()) {
+    const reponse = await jsonDe(`${STATS}/heroes/${encodeURIComponent(h.nom)}/skill-combos`);
+    const records = reponse?.data?.records;
+    muets = reponse ? 0 : muets + 1;
+    if (Array.isArray(records)) {
+      const combos = combosDuHeros(records, skillsArena[h.slug] ?? [], competencesSite[h.slug] ?? [], icones[h.slug] ?? {});
+      if (combos.length > 0) sortie[h.slug] = combos;
+    }
+    process.stdout.write(`\r    combos ${i + 1}/${heros.length}`);
+    // Meme garde-fou que les tendances : une API muette ne reviendra pas d'ici la fin.
+    if (muets >= 8) {
+      console.warn(`\n    API muette depuis ${muets} heros : arret des combos`);
+      break;
+    }
+    await pause(200);
+  }
+  process.stdout.write("\n");
+  return sortie;
+}
+
+/**
+ * Ecrit combos.json, une ligne par heros. Un heros que l'API n'a pas servi
+ * garde ses combos precedents.
+ */
+async function ecrireCombos(combos) {
+  const tous = { ...(await lireJson(`${SORTIE}/combos.json`)), ...combos };
+  const lignes = Object.keys(tous)
+    .sort()
+    .map((slug) => `  ${JSON.stringify(slug)}: ${JSON.stringify(tous[slug])}`);
+  await writeFile(`${SORTIE}/combos.json`, `{\n${lignes.join(",\n")}\n}\n`);
+  return Object.keys(tous).length;
+}
+
+/**
+ * `--combos` : ne relit que les combos, sur les heros, competences et icones
+ * deja synchronises. Aucun autre fichier n'est reecrit.
+ */
+async function combosSeuls() {
+  const heros = await lireJson(`${SORTIE}/heros.json`);
+  if (!Array.isArray(heros) || heros.length === 0) throw new Error("Lancer d'abord une synchronisation complete.");
+  console.log("Fiches des heros (API)…");
+  const { competences: skillsArena } = await competencesArena(heros);
+  const competencesSite = await lireJson(`${SORTIE}/competences.json`);
+  const icones = (await lireJson(`${SORTIE}/visuels.json`)).competences ?? {};
+  console.log("Combos de competences (API)…");
+  const combos = await combosArena(heros, skillsArena, competencesSite, icones);
+  const total = await ecrireCombos(combos);
+  console.log(`  ${Object.keys(combos).length} heros relus, ${total} dans combos.json`);
+}
+
+/**
  * Coequipiers, tendances et taux par duree de partie, pour chaque rang.
  *
  * L'academie publie, pour chaque heros : la variation de son taux de victoire
@@ -1348,6 +1407,8 @@ async function competencesArena(heros) {
         const skills = (data?.heroskilllist ?? []).flatMap((g) => g.skilllist ?? []);
         if (skills.length > 0) {
           sortie[h.slug] = skills.map((s) => ({
+            // Identifiant de jeu : c'est par lui que les combos designent la competence.
+            id: s.skillid ?? null,
             nom: String(s.skillname ?? "").trim(),
             description: nettoyerSkillDesc(s.skilldesc) || null,
             icone: s.skillicon ? String(s.skillicon) : null,
@@ -1759,6 +1820,13 @@ async function principal() {
       (iconesArena ? `, ${iconesArena} completees par l'API` : ""),
   );
 
+  // ── Combos de competences ──────────────────────────────────────────
+  // Apres les icones : un combo reprend l'icone locale de chaque competence
+  // reconnue.
+  console.log("Combos de competences (API)…");
+  const combos = await combosArena(heros, skillsArena, competencesFinales, visuelsCompetences);
+  console.log(`  ${Object.keys(combos).length} heros avec combos`);
+
   // ── Illustrations pleine taille ────────────────────────────────────
   const nomsIllustrations = [
     ...new Set(Object.values(pages).flatMap((p) => p.illustrations.map((i) => i.fichier))),
@@ -1903,6 +1971,7 @@ async function principal() {
     ecrire("rangs", emblemesRangs),
     ecrire("noms", noms),
     ecrireEvolution(complementaires),
+    ecrireCombos(combos),
     // Tous les chemins de visuels, regroupes
     ecrire("visuels", {
       heros: chemins,
@@ -1938,4 +2007,8 @@ async function principal() {
   console.log(`\nEcrit dans ${SORTIE}/`);
 }
 
-await (process.argv.includes("--evolution") ? evolutionSeule() : principal());
+await (process.argv.includes("--evolution")
+  ? evolutionSeule()
+  : process.argv.includes("--combos")
+    ? combosSeuls()
+    : principal());

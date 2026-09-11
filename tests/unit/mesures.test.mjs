@@ -1,7 +1,20 @@
 import { describe, expect, it } from "vitest";
-import { choisirGuide, fusionnerHistorique, pointsDe, serieQuotidienne } from "../../scripts/mesures.mjs";
+import { etalerHistorique } from "@/lib/evolution";
+import {
+  choisirGuide,
+  combosDuHeros,
+  compacterHistorique,
+  dateDuJour,
+  fusionnerHistorique,
+  numeroJour,
+  pointsDe,
+  serieQuotidienne,
+} from "../../scripts/mesures.mjs";
 
 const point = (date, victoire) => ({ date, victoire, ban: victoire / 10, selection: victoire / 100 });
+/** `n` jours consecutifs a partir de `debut`, le taux montant de 0,1 point par jour. */
+const jours = (debut, n, base = 50) =>
+  Array.from({ length: n }, (_, k) => point(dateDuJour(numeroJour(debut) + k), Math.round((base + k / 10) * 10) / 10));
 
 describe("serieQuotidienne", () => {
   it("aligne les jours et laisse un trou pour un jour manquant", () => {
@@ -39,6 +52,129 @@ describe("fusionnerHistorique", () => {
   it("garde un heros absent de la derniere synchronisation", () => {
     const ancien = fusionnerHistorique({}, { aamon: { all: serieQuotidienne([point("2026-09-01", 50)]) } });
     expect(fusionnerHistorique(ancien, {}).aamon.victoire).toEqual([50]);
+  });
+
+  it("lit un fichier d'avant la compaction et le compacte au passage", () => {
+    // 120 jours au jour pres, format historique : rien sous `semaines`.
+    const ancien = { aamon: serieQuotidienne(jours("2026-05-01", 120)) };
+    const tendances = { aamon: { all: serieQuotidienne(jours("2026-08-29", 1, 60)) } };
+    const s = fusionnerHistorique(ancien, tendances).aamon;
+    expect(s.semaines.debut).toBe("2026-04-27");
+    expect(s.victoire.at(-1)).toBe(60);
+    expect(pointsDe(s).length + 7 * s.semaines.victoire.length).toBeGreaterThanOrEqual(121);
+  });
+
+  it("ne remoyenne jamais une semaine deja compactee", () => {
+    const une = fusionnerHistorique({}, { aamon: { all: serieQuotidienne(jours("2026-01-05", 120)) } });
+    const deux = fusionnerHistorique(une, { aamon: { all: serieQuotidienne(jours("2026-05-05", 20, 55)) } });
+    expect(deux.aamon.semaines.victoire.slice(0, une.aamon.semaines.victoire.length)).toEqual(
+      une.aamon.semaines.victoire,
+    );
+  });
+});
+
+describe("compacterHistorique", () => {
+  it("garde 90 jours au jour pres, a partir d'un lundi, et moyenne les semaines d'avant", () => {
+    // 2026-06-01 est un lundi ; 150 jours menent au 2026-10-28.
+    const s = compacterHistorique(jours("2026-06-01", 150));
+    expect(new Date(`${s.debut}T00:00:00Z`).getUTCDay()).toBe(1);
+    expect(s.victoire.length).toBeGreaterThanOrEqual(90);
+    expect(s.victoire.length).toBeLessThan(97);
+    expect(s.victoire.at(-1)).toBe(64.9);
+    expect(s.semaines.debut).toBe("2026-06-01");
+    // Premiere semaine : 50,0 … 50,6, moyenne 50,3.
+    expect(s.semaines.victoire[0]).toBe(50.3);
+    expect(s.semaines.selection[0]).toBe(0.5);
+    expect(numeroJour(s.semaines.debut) + 7 * s.semaines.victoire.length).toBe(numeroJour(s.debut));
+  });
+
+  it("ne cree pas de semaines tant que l'historique tient dans la fenetre", () => {
+    const s = compacterHistorique(jours("2026-06-01", 60));
+    expect(s.semaines).toBeUndefined();
+    expect(s.victoire).toHaveLength(60);
+  });
+
+  it("laisse un trou pour une semaine sans mesure et moyenne ce qui existe", () => {
+    const points = [point("2026-01-05", 50), point("2026-01-07", 52), point("2026-01-20", 49), ...jours("2026-03-01", 100)];
+    const s = compacterHistorique(points);
+    expect(s.semaines.victoire.slice(0, 3)).toEqual([51, null, 49]);
+    expect(s.semaines.ban[1]).toBeNull();
+  });
+
+  it("renvoie null sans aucun point", () => {
+    expect(compacterHistorique([])).toBeNull();
+  });
+});
+
+describe("etalerHistorique", () => {
+  it("rend une serie quotidienne continue, les semaines interpolees jusqu'aux jours", () => {
+    const stocke = compacterHistorique(jours("2026-06-01", 150));
+    const s = etalerHistorique(stocke);
+    // Premier point : le jeudi de la premiere semaine, a sa moyenne.
+    expect(s.debut).toBe("2026-06-04");
+    expect(s.victoire[0]).toBe(50.3);
+    expect(s.victoire.every((v) => v !== null)).toBe(true);
+    expect(s.selection.every((v) => v !== null)).toBe(true);
+    // La partie recente est rendue telle quelle, a sa date.
+    expect(s.victoire.slice(-stocke.victoire.length)).toEqual(stocke.victoire);
+    expect(numeroJour(s.debut) + s.victoire.length - 1).toBe(numeroJour("2026-10-28"));
+    // Une serie lineaire reste lineaire : pas de palier entre deux semaines.
+    expect(s.victoire[3]).toBeCloseTo(50.6, 1);
+  });
+
+  it("franchit une semaine sans mesure sans laisser de trou", () => {
+    const points = [point("2026-01-05", 50), point("2026-01-19", 52), ...jours("2026-03-01", 100)];
+    const s = etalerHistorique(compacterHistorique(points));
+    expect(s.victoire.slice(0, 15)).not.toContain(null);
+    expect(s.victoire[7]).toBe(51);
+  });
+
+  it("laisse intact un historique sans semaines", () => {
+    const serie = serieQuotidienne([point("2026-09-01", 50), point("2026-09-03", 52)]);
+    expect(etalerHistorique(serie)).toEqual(serie);
+  });
+});
+
+describe("combosDuHeros", () => {
+  const skill = (id, nom) => ({ id, nom, icone: `https://cdn/${id}.png` });
+  const fiche = [skill(10940, "Invisible Armor"), skill(10910, "Soul Shards"), skill(10920, "Slayer Shards")];
+  const site = [{ nom: "Invisible Armor" }, { nom: "Soul Shards" }, { nom: "Slayer Shards" }];
+  const icones = { "Soul Shards": "/visuels/competences/soul-shards.webp" };
+  const record = (title, desc, ids) => ({
+    data: { title, desc, skill_id: ids.map((skillid) => ({ data: { skillid, skillicon: `https://cdn/${skillid}.png` } })) },
+  });
+
+  it("retrouve le nom du site et l'icone locale, sinon garde l'icone distante", () => {
+    const [combo] = combosDuHeros([record("LANING COMBOS", "Use  skills\nthen attack.", [10910, 10920])], fiche, site, icones);
+    expect(combo).toEqual({
+      type: "laning",
+      description: "Use skills then attack.",
+      competences: [
+        { nom: "Soul Shards", icone: "/visuels/competences/soul-shards.webp" },
+        { nom: "Slayer Shards", icone: "https://cdn/10920.png" },
+      ],
+    });
+  });
+
+  it("reconnait l'attaque de base a son identifiant rond", () => {
+    const [combo] = combosDuHeros([record("TEAMFIGHT COMBOS", "Go.", [10900])], fiche, site, icones);
+    expect(combo.competences[0]).toEqual({ nom: null, icone: "https://cdn/10900.png", attaque: true });
+  });
+
+  it("donne a une forme transformee son icone propre, pas celle de la forme de base", () => {
+    const transformee = [...fiche, skill(2010910, "Soul Shards")];
+    const [combo] = combosDuHeros([record("LANING COMBOS", "Go.", [2010910])], transformee, site, icones);
+    expect(combo.competences[0]).toEqual({ nom: "Soul Shards", icone: "https://cdn/2010910.png" });
+  });
+
+  it("range la phase de lane avant les combats d'equipe et ecarte les combos vides", () => {
+    const combos = combosDuHeros(
+      [record("TEAMFIGHT COMBOS", "B.", [10910]), record("LANING COMBOS", "A.", [10920]), record("X", "", [10910])],
+      fiche,
+      site,
+      icones,
+    );
+    expect(combos.map((c) => c.type)).toEqual(["laning", "teamfight"]);
   });
 });
 

@@ -2,6 +2,10 @@ name: Image Docker
 
 # Verifie que l'image de production se construit. On ne pousse rien : l'objectif
 # est d'attraper une regression du Dockerfile avant le deploiement.
+#
+# Appele aussi par la synchronisation apres un commit de donnees (un push fait
+# avec GITHUB_TOKEN ne declencherait pas ce workflow) : l'image est alors
+# construite depuis ce commit, puis le serveur se met a jour.
 on:
   push:
     branches: [main]
@@ -18,6 +22,22 @@ on:
       - package.json
       - package-lock.json
       - next.config.ts
+  workflow_call:
+    inputs:
+      ref:
+        description: Commit a construire (par defaut, celui qui declenche)
+        type: string
+        default: ""
+      deployer:
+        description: Deployer sur le serveur une fois l'image construite
+        type: boolean
+        default: false
+  workflow_dispatch:
+    inputs:
+      deployer:
+        description: Deployer sur le serveur une fois l'image construite
+        type: boolean
+        default: true
 
 jobs:
   construire:
@@ -25,6 +45,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.ref }}
 
       - uses: docker/setup-buildx-action@v4
 
@@ -36,3 +58,38 @@ jobs:
           tags: mlbb:ci
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+  # Le serveur suit le deploiement documente : il recupere main et reconstruit
+  # son conteneur. Inactif tant que les reglages du depot ne sont pas
+  # renseignes (voir docs/wiki/Donnees-et-synchronisation.md).
+  deployer:
+    name: Deployer sur le serveur
+    needs: construire
+    if: inputs.deployer && vars.DEPLOY_HOST != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: deploiement
+      cancel-in-progress: false
+    steps:
+      - name: Mettre a jour le serveur et reconstruire le conteneur
+        env:
+          CLE: ${{ secrets.DEPLOY_SSH_KEY }}
+          HOTES_CONNUS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          HOTE: ${{ vars.DEPLOY_HOST }}
+          UTILISATEUR: ${{ vars.DEPLOY_USER }}
+          DOSSIER: ${{ vars.DEPLOY_PATH }}
+          PORT_SSH: ${{ vars.DEPLOY_PORT || '22' }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$CLE" > ~/.ssh/deploiement
+          chmod 600 ~/.ssh/deploiement
+          # Sans empreinte connue, on ne se connecte pas : accepter celle que
+          # presente le serveur exposerait le deploiement a une interception.
+          if [ -z "$HOTES_CONNUS" ]; then
+            echo "::error::DEPLOY_KNOWN_HOSTS manquant (sortie de ssh-keyscan -p <port> <hote>, verifiee a la main)"
+            exit 1
+          fi
+          printf '%s\n' "$HOTES_CONNUS" > ~/.ssh/known_hosts
+          ssh -i ~/.ssh/deploiement -p "$PORT_SSH" "$UTILISATEUR@$HOTE" \
+            "cd '$DOSSIER' && git pull --ff-only origin main && docker compose up -d --build"

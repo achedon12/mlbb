@@ -131446,6 +131446,7536 @@
           "slug": "baxia",
           "avantage": 5.4
         }
+      ],
+      "legend": [
+        {
+          "slug": "khufra",
+          "avantage": 10.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": 4.8
+        },
+        {
+          "slug": "edith",
+          "avantage": 4.5
+        },
+        {
+          "slug": "luo-yi",
+          "avantage": 4.5
+        },
+        {
+          "slug": "masha",
+          "avantage": 4.3
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 3.6
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "mathilda",
+          "avantage": 4.4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.9
+        },
+        {
+          "slug": "kalea",
+          "avantage": 3.3
+        },
+        {
+          "slug": "saber",
+          "avantage": 3.2
+        },
+        {
+          "slug": "yve",
+          "avantage": 3
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.9
+        }
+      ],
+      "honor": [
+        {
+          "slug": "chip",
+          "avantage": 13.1
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.9
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.7
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.6
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 2.1
+        },
+        {
+          "slug": "xavier",
+          "avantage": 2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "carmilla",
+          "avantage": 4.7
+        },
+        {
+          "slug": "natalia",
+          "avantage": 4.2
+        },
+        {
+          "slug": "saber",
+          "avantage": 4.1
+        },
+        {
+          "slug": "atlas",
+          "avantage": 3
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.7
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.2
+        }
+      ]
+    },
+    "martis": {
+      "all": [
+        {
+          "slug": "angela",
+          "avantage": 2.1
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.3
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 1.2
+        },
+        {
+          "slug": "kaja",
+          "avantage": 1.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": 0.9
+        },
+        {
+          "slug": "sun",
+          "avantage": 0.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "valentina",
+          "avantage": 1.5
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.1
+        },
+        {
+          "slug": "layla",
+          "avantage": 0.8
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 0.7
+        },
+        {
+          "slug": "angela",
+          "avantage": 0.7
+        },
+        {
+          "slug": "xavier",
+          "avantage": 0.7
+        }
+      ],
+      "legend": [
+        {
+          "slug": "angela",
+          "avantage": 1.9
+        },
+        {
+          "slug": "aldous",
+          "avantage": 0.9
+        },
+        {
+          "slug": "estes",
+          "avantage": 0.9
+        },
+        {
+          "slug": "atlas",
+          "avantage": 0.9
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 0.8
+        },
+        {
+          "slug": "vale",
+          "avantage": 0.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "angela",
+          "avantage": 2.1
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": 0.9
+        },
+        {
+          "slug": "natan",
+          "avantage": 0.8
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 0.8
+        },
+        {
+          "slug": "aldous",
+          "avantage": 0.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "angela",
+          "avantage": 2.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.7
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.2
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 1
+        },
+        {
+          "slug": "natan",
+          "avantage": 0.7
+        }
+      ],
+      "glory": [
+        {
+          "slug": "angela",
+          "avantage": 1.9
+        },
+        {
+          "slug": "hirara",
+          "avantage": 1.4
+        },
+        {
+          "slug": "lancelot",
+          "avantage": 1.3
+        },
+        {
+          "slug": "aamon",
+          "avantage": 1.2
+        },
+        {
+          "slug": "leomord",
+          "avantage": 1.2
+        },
+        {
+          "slug": "hayabusa",
+          "avantage": 1.2
+        }
+      ]
+    },
+    "masha": {
+      "all": [
+        {
+          "slug": "chip",
+          "avantage": 11.2
+        },
+        {
+          "slug": "lukas",
+          "avantage": 4
+        },
+        {
+          "slug": "alice",
+          "avantage": 3
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.1
+        },
+        {
+          "slug": "harith",
+          "avantage": 1.9
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 1.9
+        }
+      ],
+      "epic": [
+        {
+          "slug": "zhuxin",
+          "avantage": 11.3
+        },
+        {
+          "slug": "kalea",
+          "avantage": 10.2
+        },
+        {
+          "slug": "faramis",
+          "avantage": 6.8
+        },
+        {
+          "slug": "johnson",
+          "avantage": 6
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 5.9
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 5.1
+        }
+      ],
+      "legend": [
+        {
+          "slug": "chip",
+          "avantage": 8.8
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 5.8
+        },
+        {
+          "slug": "lolita",
+          "avantage": 5.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": 4.3
+        },
+        {
+          "slug": "baxia",
+          "avantage": 3.5
+        },
+        {
+          "slug": "faramis",
+          "avantage": 3.4
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "kalea",
+          "avantage": 6.5
+        },
+        {
+          "slug": "joy",
+          "avantage": 4
+        },
+        {
+          "slug": "chip",
+          "avantage": 3.9
+        },
+        {
+          "slug": "akai",
+          "avantage": 3
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 2.8
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 2.5
+        }
+      ],
+      "honor": [
+        {
+          "slug": "irithel",
+          "avantage": 2.7
+        },
+        {
+          "slug": "lukas",
+          "avantage": 2.3
+        },
+        {
+          "slug": "kaja",
+          "avantage": 2.2
+        },
+        {
+          "slug": "moskov",
+          "avantage": 1.8
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.7
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.7
+        }
+      ],
+      "glory": [
+        {
+          "slug": "chip",
+          "avantage": 10
+        },
+        {
+          "slug": "lukas",
+          "avantage": 3.2
+        },
+        {
+          "slug": "alice",
+          "avantage": 3.2
+        },
+        {
+          "slug": "odette",
+          "avantage": 1.8
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.5
+        },
+        {
+          "slug": "harith",
+          "avantage": 1.4
+        }
+      ]
+    },
+    "mathilda": {
+      "all": [
+        {
+          "slug": "carmilla",
+          "avantage": 7.3
+        },
+        {
+          "slug": "atlas",
+          "avantage": 5.4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.4
+        },
+        {
+          "slug": "odette",
+          "avantage": 2.9
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.4
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "harith",
+          "avantage": 15.8
+        },
+        {
+          "slug": "lunox",
+          "avantage": 15
+        },
+        {
+          "slug": "yve",
+          "avantage": 9.6
+        },
+        {
+          "slug": "lukas",
+          "avantage": 8.3
+        },
+        {
+          "slug": "kaja",
+          "avantage": 7.9
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 7.6
+        }
+      ],
+      "legend": [
+        {
+          "slug": "carmilla",
+          "avantage": 13.8
+        },
+        {
+          "slug": "atlas",
+          "avantage": 6.2
+        },
+        {
+          "slug": "edith",
+          "avantage": 5.5
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 5.3
+        },
+        {
+          "slug": "valentina",
+          "avantage": 5
+        },
+        {
+          "slug": "harith",
+          "avantage": 4.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "baxia",
+          "avantage": 6.4
+        },
+        {
+          "slug": "edith",
+          "avantage": 6
+        },
+        {
+          "slug": "joy",
+          "avantage": 4.5
+        },
+        {
+          "slug": "marcel",
+          "avantage": 4.4
+        },
+        {
+          "slug": "yve",
+          "avantage": 3.3
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 3.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "lolita",
+          "avantage": 11.3
+        },
+        {
+          "slug": "atlas",
+          "avantage": 3.9
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 3.1
+        },
+        {
+          "slug": "bruno",
+          "avantage": 3
+        },
+        {
+          "slug": "akai",
+          "avantage": 2.5
+        },
+        {
+          "slug": "kadita",
+          "avantage": 2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "carmilla",
+          "avantage": 7.9
+        },
+        {
+          "slug": "atlas",
+          "avantage": 6.2
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.4
+        },
+        {
+          "slug": "odette",
+          "avantage": 2.4
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.3
+        },
+        {
+          "slug": "hylos",
+          "avantage": 2.1
+        }
+      ]
+    },
+    "melissa": {
+      "all": [
+        {
+          "slug": "harith",
+          "avantage": 4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.9
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2.6
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.1
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2.1
+        },
+        {
+          "slug": "joy",
+          "avantage": 2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "masha",
+          "avantage": 2.1
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.9
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 1.5
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.4
+        },
+        {
+          "slug": "kagura",
+          "avantage": 1.3
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.3
+        }
+      ],
+      "legend": [
+        {
+          "slug": "chip",
+          "avantage": 4.5
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.1
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.1
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.9
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 1.6
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "harith",
+          "avantage": 2.5
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.6
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.2
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.2
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.2
+        },
+        {
+          "slug": "roger",
+          "avantage": 1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "harith",
+          "avantage": 2.9
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.4
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 1.3
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": 0.9
+        },
+        {
+          "slug": "lolita",
+          "avantage": 0.9
+        }
+      ],
+      "glory": [
+        {
+          "slug": "harith",
+          "avantage": 5
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.5
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 1.5
+        },
+        {
+          "slug": "brody",
+          "avantage": 1.5
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.4
+        }
+      ]
+    },
+    "minotaur": {
+      "all": [
+        {
+          "slug": "saber",
+          "avantage": 3.2
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 3.2
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2.2
+        },
+        {
+          "slug": "chou",
+          "avantage": 2
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": 1.7
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.6
+        }
+      ],
+      "epic": [
+        {
+          "slug": "carmilla",
+          "avantage": 6.7
+        },
+        {
+          "slug": "kalea",
+          "avantage": 5.4
+        },
+        {
+          "slug": "lolita",
+          "avantage": 3.5
+        },
+        {
+          "slug": "edith",
+          "avantage": 3.4
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.8
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.8
+        }
+      ],
+      "legend": [
+        {
+          "slug": "chip",
+          "avantage": 15
+        },
+        {
+          "slug": "faramis",
+          "avantage": 3.2
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 2.7
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.5
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.3
+        },
+        {
+          "slug": "masha",
+          "avantage": 2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "saber",
+          "avantage": 2.5
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 2
+        },
+        {
+          "slug": "chou",
+          "avantage": 1.9
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.8
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.3
+        }
+      ],
+      "honor": [
+        {
+          "slug": "saber",
+          "avantage": 2.2
+        },
+        {
+          "slug": "edith",
+          "avantage": 1.8
+        },
+        {
+          "slug": "chou",
+          "avantage": 1.7
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.5
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 1.5
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.3
+        }
+      ],
+      "glory": [
+        {
+          "slug": "carmilla",
+          "avantage": 4
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.5
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.8
+        },
+        {
+          "slug": "chou",
+          "avantage": 2.1
+        },
+        {
+          "slug": "atlas",
+          "avantage": 1.9
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.6
+        }
+      ]
+    },
+    "minsitthar": {
+      "all": [
+        {
+          "slug": "hilda",
+          "avantage": 2.2
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 2.1
+        },
+        {
+          "slug": "kalea",
+          "avantage": 2.1
+        },
+        {
+          "slug": "estes",
+          "avantage": 2
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1.8
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "mathilda",
+          "avantage": 6.7
+        },
+        {
+          "slug": "khufra",
+          "avantage": 4.1
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.9
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.7
+        },
+        {
+          "slug": "hilda",
+          "avantage": 2.3
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.2
+        }
+      ],
+      "legend": [
+        {
+          "slug": "hylos",
+          "avantage": 3.5
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.8
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 2.7
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.5
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.5
+        },
+        {
+          "slug": "khufra",
+          "avantage": 2.5
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "chip",
+          "avantage": 3.7
+        },
+        {
+          "slug": "khufra",
+          "avantage": 3
+        },
+        {
+          "slug": "hylos",
+          "avantage": 2.9
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.7
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.7
+        },
+        {
+          "slug": "hilda",
+          "avantage": 2.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "chip",
+          "avantage": 3.4
+        },
+        {
+          "slug": "kalea",
+          "avantage": 3.2
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 2.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2.1
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.1
+        },
+        {
+          "slug": "hilda",
+          "avantage": 2.1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "khaleed",
+          "avantage": 2.4
+        },
+        {
+          "slug": "hilda",
+          "avantage": 2.2
+        },
+        {
+          "slug": "kalea",
+          "avantage": 2.2
+        },
+        {
+          "slug": "estes",
+          "avantage": 2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 2
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.8
+        }
+      ]
+    },
+    "miya": {
+      "all": [
+        {
+          "slug": "harith",
+          "avantage": 3
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.8
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.4
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.3
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 1.2
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "harith",
+          "avantage": 2
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.6
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.3
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 0.9
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 0.9
+        },
+        {
+          "slug": "johnson",
+          "avantage": 0.9
+        }
+      ],
+      "legend": [
+        {
+          "slug": "harith",
+          "avantage": 1.8
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.4
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.4
+        },
+        {
+          "slug": "gord",
+          "avantage": 0.9
+        },
+        {
+          "slug": "yin",
+          "avantage": 0.9
+        },
+        {
+          "slug": "roger",
+          "avantage": 0.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "harith",
+          "avantage": 3
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.4
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1
+        },
+        {
+          "slug": "gord",
+          "avantage": 0.8
+        },
+        {
+          "slug": "kadita",
+          "avantage": 0.8
+        }
+      ],
+      "honor": [
+        {
+          "slug": "harith",
+          "avantage": 3.2
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.2
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.1
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 1
+        },
+        {
+          "slug": "baxia",
+          "avantage": 0.9
+        }
+      ],
+      "glory": [
+        {
+          "slug": "harith",
+          "avantage": 3.5
+        },
+        {
+          "slug": "franco",
+          "avantage": 1.6
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.5
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.2
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1
+        },
+        {
+          "slug": "akai",
+          "avantage": 1
+        }
+      ]
+    },
+    "moskov": {
+      "all": [
+        {
+          "slug": "harith",
+          "avantage": 3.5
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.7
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.3
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.2
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "joy",
+          "avantage": 5
+        },
+        {
+          "slug": "harith",
+          "avantage": 4.4
+        },
+        {
+          "slug": "roger",
+          "avantage": 3.3
+        },
+        {
+          "slug": "ling",
+          "avantage": 2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.9
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.9
+        }
+      ],
+      "legend": [
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.9
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.8
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.7
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.6
+        },
+        {
+          "slug": "lylia",
+          "avantage": 1.5
+        },
+        {
+          "slug": "harith",
+          "avantage": 1.3
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.7
+        },
+        {
+          "slug": "harith",
+          "avantage": 2.3
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.7
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.5
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.2
+        }
+      ],
+      "honor": [
+        {
+          "slug": "harith",
+          "avantage": 3.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.8
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.8
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.7
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "harith",
+          "avantage": 4.1
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.1
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.5
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 1.1
+        },
+        {
+          "slug": "angela",
+          "avantage": 1
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 0.9
+        }
+      ]
+    },
+    "nana": {
+      "all": [
+        {
+          "slug": "zilong",
+          "avantage": 1.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.3
+        },
+        {
+          "slug": "alpha",
+          "avantage": 1.3
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.2
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.2
+        },
+        {
+          "slug": "layla",
+          "avantage": 1.1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "alice",
+          "avantage": 1.1
+        },
+        {
+          "slug": "julian",
+          "avantage": 1.1
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 0.8
+        },
+        {
+          "slug": "natan",
+          "avantage": 0.8
+        }
+      ],
+      "legend": [
+        {
+          "slug": "harley",
+          "avantage": 0.9
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 0.9
+        },
+        {
+          "slug": "alice",
+          "avantage": 0.9
+        },
+        {
+          "slug": "estes",
+          "avantage": 0.8
+        },
+        {
+          "slug": "julian",
+          "avantage": 0.6
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 0.5
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "cyclops",
+          "avantage": 1
+        },
+        {
+          "slug": "harley",
+          "avantage": 0.9
+        },
+        {
+          "slug": "alice",
+          "avantage": 0.9
+        },
+        {
+          "slug": "masha",
+          "avantage": 0.8
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 0.8
+        },
+        {
+          "slug": "estes",
+          "avantage": 0.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "estes",
+          "avantage": 1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1
+        },
+        {
+          "slug": "roger",
+          "avantage": 0.9
+        },
+        {
+          "slug": "angela",
+          "avantage": 0.8
+        },
+        {
+          "slug": "julian",
+          "avantage": 0.8
+        },
+        {
+          "slug": "karina",
+          "avantage": 0.8
+        }
+      ],
+      "glory": [
+        {
+          "slug": "sun",
+          "avantage": 1.4
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.2
+        },
+        {
+          "slug": "karina",
+          "avantage": 1.2
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.1
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.1
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1
+        }
+      ]
+    },
+    "natalia": {
+      "all": [
+        {
+          "slug": "khufra",
+          "avantage": 3.7
+        },
+        {
+          "slug": "akai",
+          "avantage": 3.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 3
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2.9
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.8
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.5
+        }
+      ],
+      "epic": [
+        {
+          "slug": "faramis",
+          "avantage": 3.9
+        },
+        {
+          "slug": "joy",
+          "avantage": 3.1
+        },
+        {
+          "slug": "bruno",
+          "avantage": 2.9
+        },
+        {
+          "slug": "aulus",
+          "avantage": 2.7
+        },
+        {
+          "slug": "karrie",
+          "avantage": 2.6
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 2.6
+        }
+      ],
+      "legend": [
+        {
+          "slug": "baxia",
+          "avantage": 4.4
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 2.4
+        },
+        {
+          "slug": "masha",
+          "avantage": 2.2
+        },
+        {
+          "slug": "akai",
+          "avantage": 2.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.1
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.1
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "akai",
+          "avantage": 3
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.9
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.8
+        },
+        {
+          "slug": "gloo",
+          "avantage": 2.3
+        },
+        {
+          "slug": "barats",
+          "avantage": 2.2
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 2.2
+        }
+      ],
+      "honor": [
+        {
+          "slug": "akai",
+          "avantage": 3.1
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.9
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2.8
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.5
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.2
+        },
+        {
+          "slug": "gloo",
+          "avantage": 2.2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "khufra",
+          "avantage": 5.2
+        },
+        {
+          "slug": "floryn",
+          "avantage": 4.9
+        },
+        {
+          "slug": "chip",
+          "avantage": 4.9
+        },
+        {
+          "slug": "lolita",
+          "avantage": 4.6
+        },
+        {
+          "slug": "marcel",
+          "avantage": 4.2
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 4.2
+        }
+      ]
+    },
+    "natan": {
+      "all": [
+        {
+          "slug": "diggie",
+          "avantage": 5.2
+        },
+        {
+          "slug": "baxia",
+          "avantage": 3.2
+        },
+        {
+          "slug": "claude",
+          "avantage": 2.1
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.8
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.7
+        }
+      ],
+      "epic": [
+        {
+          "slug": "faramis",
+          "avantage": 9.6
+        },
+        {
+          "slug": "yve",
+          "avantage": 7.3
+        },
+        {
+          "slug": "lolita",
+          "avantage": 6.2
+        },
+        {
+          "slug": "joy",
+          "avantage": 5.4
+        },
+        {
+          "slug": "fanny",
+          "avantage": 4.2
+        },
+        {
+          "slug": "masha",
+          "avantage": 4.1
+        }
+      ],
+      "legend": [
+        {
+          "slug": "wanwan",
+          "avantage": 5.6
+        },
+        {
+          "slug": "yve",
+          "avantage": 4.9
+        },
+        {
+          "slug": "brody",
+          "avantage": 4.2
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 3.4
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.7
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 2.6
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "zhuxin",
+          "avantage": 4.5
+        },
+        {
+          "slug": "yve",
+          "avantage": 3.3
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.8
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.9
+        }
+      ],
+      "honor": [
+        {
+          "slug": "harith",
+          "avantage": 3.7
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.5
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.2
+        },
+        {
+          "slug": "fanny",
+          "avantage": 2.1
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.7
+        }
+      ],
+      "glory": [
+        {
+          "slug": "diggie",
+          "avantage": 5.6
+        },
+        {
+          "slug": "baxia",
+          "avantage": 3.5
+        },
+        {
+          "slug": "bruno",
+          "avantage": 3.3
+        },
+        {
+          "slug": "claude",
+          "avantage": 3.1
+        },
+        {
+          "slug": "granger",
+          "avantage": 3.1
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.8
+        }
+      ]
+    },
+    "nolan": {
+      "all": [
+        {
+          "slug": "valentina",
+          "avantage": 1.9
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 1.8
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 1.6
+        },
+        {
+          "slug": "melissa",
+          "avantage": 1.5
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.3
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.3
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 7.5
+        },
+        {
+          "slug": "lolita",
+          "avantage": 7.1
+        },
+        {
+          "slug": "bruno",
+          "avantage": 5.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": 4.3
+        },
+        {
+          "slug": "floryn",
+          "avantage": 3.2
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 3.2
+        }
+      ],
+      "legend": [
+        {
+          "slug": "yve",
+          "avantage": 4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 3.2
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.4
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 1.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.3
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.3
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "floryn",
+          "avantage": 2.5
+        },
+        {
+          "slug": "lunox",
+          "avantage": 2.3
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 1.4
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.3
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.2
+        },
+        {
+          "slug": "natan",
+          "avantage": 1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "floryn",
+          "avantage": 1.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.9
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 1.8
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 1.7
+        },
+        {
+          "slug": "barats",
+          "avantage": 1.5
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "esmeralda",
+          "avantage": 1.8
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 1.6
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.4
+        },
+        {
+          "slug": "uranus",
+          "avantage": 1.2
+        },
+        {
+          "slug": "freya",
+          "avantage": 1.1
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.1
+        }
+      ]
+    },
+    "novaria": {
+      "all": [
+        {
+          "slug": "baxia",
+          "avantage": 1.4
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.4
+        },
+        {
+          "slug": "saber",
+          "avantage": 1.2
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": 1.2
+        },
+        {
+          "slug": "harley",
+          "avantage": 1
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "valentina",
+          "avantage": 6.8
+        },
+        {
+          "slug": "lunox",
+          "avantage": 4.8
+        },
+        {
+          "slug": "yve",
+          "avantage": 3.7
+        },
+        {
+          "slug": "harith",
+          "avantage": 2.9
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.5
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.3
+        }
+      ],
+      "legend": [
+        {
+          "slug": "zhuxin",
+          "avantage": 3.4
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.9
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.6
+        },
+        {
+          "slug": "eudora",
+          "avantage": 1.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 1
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 0.8
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "cyclops",
+          "avantage": 1.8
+        },
+        {
+          "slug": "harley",
+          "avantage": 0.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": 0.8
+        },
+        {
+          "slug": "barats",
+          "avantage": 0.8
+        },
+        {
+          "slug": "edith",
+          "avantage": 0.8
+        },
+        {
+          "slug": "saber",
+          "avantage": 0.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "baxia",
+          "avantage": 1.9
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.6
+        },
+        {
+          "slug": "edith",
+          "avantage": 1.1
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.1
+        },
+        {
+          "slug": "akai",
+          "avantage": 1
+        },
+        {
+          "slug": "hilda",
+          "avantage": 0.9
+        }
+      ],
+      "glory": [
+        {
+          "slug": "baxia",
+          "avantage": 1.6
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.2
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.1
+        },
+        {
+          "slug": "belerick",
+          "avantage": 1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1
+        },
+        {
+          "slug": "franco",
+          "avantage": 1
+        }
+      ]
+    },
+    "obsidia": {
+      "all": [
+        {
+          "slug": "harith",
+          "avantage": 4.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.9
+        },
+        {
+          "slug": "brody",
+          "avantage": 1
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 0.9
+        },
+        {
+          "slug": "odette",
+          "avantage": 0.8
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": 0.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "khufra",
+          "avantage": 1.9
+        },
+        {
+          "slug": "lunox",
+          "avantage": 1.8
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.6
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.5
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.4
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1.3
+        }
+      ],
+      "legend": [
+        {
+          "slug": "wanwan",
+          "avantage": 3.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.7
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.2
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.2
+        },
+        {
+          "slug": "harith",
+          "avantage": 0.9
+        },
+        {
+          "slug": "xavier",
+          "avantage": 0.9
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "harith",
+          "avantage": 3
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.6
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.3
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 1.3
+        },
+        {
+          "slug": "kalea",
+          "avantage": 1.2
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 1.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "harith",
+          "avantage": 3.9
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.7
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 1.7
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 0.9
+        },
+        {
+          "slug": "yve",
+          "avantage": 0.8
+        },
+        {
+          "slug": "joy",
+          "avantage": 0.8
+        }
+      ],
+      "glory": [
+        {
+          "slug": "harith",
+          "avantage": 5
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.7
+        },
+        {
+          "slug": "brody",
+          "avantage": 2
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 1.6
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.2
+        },
+        {
+          "slug": "claude",
+          "avantage": 1
+        }
+      ]
+    },
+    "odette": {
+      "all": [
+        {
+          "slug": "zhuxin",
+          "avantage": 6.8
+        },
+        {
+          "slug": "chip",
+          "avantage": 4.5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.9
+        },
+        {
+          "slug": "kaja",
+          "avantage": 2.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 3.7
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.4
+        },
+        {
+          "slug": "zhask",
+          "avantage": 2.2
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.9
+        },
+        {
+          "slug": "harith",
+          "avantage": 1.6
+        },
+        {
+          "slug": "atlas",
+          "avantage": 1.6
+        }
+      ],
+      "legend": [
+        {
+          "slug": "zhuxin",
+          "avantage": 2.7
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.3
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.1
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 1.1
+        },
+        {
+          "slug": "granger",
+          "avantage": 1
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "chip",
+          "avantage": 1.7
+        },
+        {
+          "slug": "kaja",
+          "avantage": 1.6
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.3
+        },
+        {
+          "slug": "fanny",
+          "avantage": 1.2
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.2
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "floryn",
+          "avantage": 1.7
+        },
+        {
+          "slug": "kalea",
+          "avantage": 1.5
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.4
+        },
+        {
+          "slug": "kaja",
+          "avantage": 1.2
+        },
+        {
+          "slug": "estes",
+          "avantage": 1
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "zhuxin",
+          "avantage": 7.7
+        },
+        {
+          "slug": "chip",
+          "avantage": 5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.4
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.8
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.8
+        },
+        {
+          "slug": "kaja",
+          "avantage": 1.7
+        }
+      ]
+    },
+    "paquito": {
+      "all": [
+        {
+          "slug": "melissa",
+          "avantage": 1.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 1
+        },
+        {
+          "slug": "bane",
+          "avantage": 0.9
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 0.8
+        },
+        {
+          "slug": "aulus",
+          "avantage": 0.7
+        },
+        {
+          "slug": "baxia",
+          "avantage": 0.7
+        }
+      ],
+      "epic": [
+        {
+          "slug": "joy",
+          "avantage": 3.9
+        },
+        {
+          "slug": "chip",
+          "avantage": 3.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": 3.5
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 3.3
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 2.7
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.3
+        }
+      ],
+      "legend": [
+        {
+          "slug": "valentina",
+          "avantage": 2.7
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.4
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 1.8
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 1.6
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.5
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.5
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "aulus",
+          "avantage": 2
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.3
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.2
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.2
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.1
+        },
+        {
+          "slug": "kaja",
+          "avantage": 1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "lolita",
+          "avantage": 1.4
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.3
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.2
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.2
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "balmond",
+          "avantage": 1.3
+        },
+        {
+          "slug": "alice",
+          "avantage": 1.2
+        },
+        {
+          "slug": "bane",
+          "avantage": 1
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1
+        },
+        {
+          "slug": "atlas",
+          "avantage": 0.8
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 0.8
+        }
+      ]
+    },
+    "pharsa": {
+      "all": [
+        {
+          "slug": "zhuxin",
+          "avantage": 3.5
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.3
+        },
+        {
+          "slug": "claude",
+          "avantage": 1.3
+        },
+        {
+          "slug": "kalea",
+          "avantage": 1
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1
+        },
+        {
+          "slug": "hilda",
+          "avantage": 0.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "zhuxin",
+          "avantage": 9.4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 6.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 5
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 2.9
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.8
+        }
+      ],
+      "legend": [
+        {
+          "slug": "mathilda",
+          "avantage": 2.7
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.5
+        },
+        {
+          "slug": "claude",
+          "avantage": 1.5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.4
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.4
+        },
+        {
+          "slug": "ling",
+          "avantage": 1.4
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "lolita",
+          "avantage": 3
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.5
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.8
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.5
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.3
+        },
+        {
+          "slug": "leomord",
+          "avantage": 1.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "claude",
+          "avantage": 1.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.3
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.2
+        },
+        {
+          "slug": "natan",
+          "avantage": 1.2
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1
+        },
+        {
+          "slug": "yve",
+          "avantage": 0.9
+        }
+      ],
+      "glory": [
+        {
+          "slug": "zhuxin",
+          "avantage": 8.1
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3
+        },
+        {
+          "slug": "kalea",
+          "avantage": 1.5
+        },
+        {
+          "slug": "claude",
+          "avantage": 1.2
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 0.9
+        },
+        {
+          "slug": "harith",
+          "avantage": 0.9
+        }
+      ]
+    },
+    "phoveus": {
+      "all": [
+        {
+          "slug": "lukas",
+          "avantage": 2.9
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.5
+        },
+        {
+          "slug": "badang",
+          "avantage": 1.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.3
+        },
+        {
+          "slug": "moskov",
+          "avantage": 1.2
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "chip",
+          "avantage": 8.4
+        },
+        {
+          "slug": "baxia",
+          "avantage": 8.2
+        },
+        {
+          "slug": "lunox",
+          "avantage": 3.6
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.9
+        },
+        {
+          "slug": "odette",
+          "avantage": 2.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.4
+        }
+      ],
+      "legend": [
+        {
+          "slug": "khaleed",
+          "avantage": 4
+        },
+        {
+          "slug": "natan",
+          "avantage": 3.4
+        },
+        {
+          "slug": "ruby",
+          "avantage": 2.6
+        },
+        {
+          "slug": "lukas",
+          "avantage": 2.1
+        },
+        {
+          "slug": "leomord",
+          "avantage": 2
+        },
+        {
+          "slug": "bane",
+          "avantage": 2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "lukas",
+          "avantage": 2.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.4
+        },
+        {
+          "slug": "badang",
+          "avantage": 2.1
+        },
+        {
+          "slug": "kaja",
+          "avantage": 2
+        },
+        {
+          "slug": "grock",
+          "avantage": 2
+        }
+      ],
+      "honor": [
+        {
+          "slug": "lukas",
+          "avantage": 3.2
+        },
+        {
+          "slug": "badang",
+          "avantage": 2.4
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 1.7
+        },
+        {
+          "slug": "natan",
+          "avantage": 1.7
+        },
+        {
+          "slug": "moskov",
+          "avantage": 1.7
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.6
+        }
+      ],
+      "glory": [
+        {
+          "slug": "lukas",
+          "avantage": 2.8
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.7
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.5
+        },
+        {
+          "slug": "badang",
+          "avantage": 1.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.4
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.2
+        }
+      ]
+    },
+    "popol-and-kupa": {
+      "all": [
+        {
+          "slug": "lesley",
+          "avantage": 4.4
+        },
+        {
+          "slug": "granger",
+          "avantage": 4.1
+        },
+        {
+          "slug": "clint",
+          "avantage": 3.6
+        },
+        {
+          "slug": "brody",
+          "avantage": 3.5
+        },
+        {
+          "slug": "ixia",
+          "avantage": 3.5
+        },
+        {
+          "slug": "layla",
+          "avantage": 3.3
+        }
+      ],
+      "epic": [
+        {
+          "slug": "khufra",
+          "avantage": 5.6
+        },
+        {
+          "slug": "bruno",
+          "avantage": 5.4
+        },
+        {
+          "slug": "chip",
+          "avantage": 5
+        },
+        {
+          "slug": "clint",
+          "avantage": 3.8
+        },
+        {
+          "slug": "brody",
+          "avantage": 3.7
+        },
+        {
+          "slug": "ixia",
+          "avantage": 3.5
+        }
+      ],
+      "legend": [
+        {
+          "slug": "lesley",
+          "avantage": 3.8
+        },
+        {
+          "slug": "granger",
+          "avantage": 3.2
+        },
+        {
+          "slug": "brody",
+          "avantage": 3.2
+        },
+        {
+          "slug": "moskov",
+          "avantage": 2.9
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2.9
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "granger",
+          "avantage": 4.8
+        },
+        {
+          "slug": "clint",
+          "avantage": 4.3
+        },
+        {
+          "slug": "lesley",
+          "avantage": 4.1
+        },
+        {
+          "slug": "brody",
+          "avantage": 3.9
+        },
+        {
+          "slug": "harith",
+          "avantage": 3.4
+        },
+        {
+          "slug": "claude",
+          "avantage": 3.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "lesley",
+          "avantage": 4.4
+        },
+        {
+          "slug": "granger",
+          "avantage": 4.3
+        },
+        {
+          "slug": "clint",
+          "avantage": 3.8
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 3.4
+        },
+        {
+          "slug": "brody",
+          "avantage": 3.3
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 3.1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "granger",
+          "avantage": 4.5
+        },
+        {
+          "slug": "lesley",
+          "avantage": 4.5
+        },
+        {
+          "slug": "ixia",
+          "avantage": 4
+        },
+        {
+          "slug": "brody",
+          "avantage": 3.9
+        },
+        {
+          "slug": "clint",
+          "avantage": 3.8
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 3.8
+        }
+      ]
+    },
+    "rafaela": {
+      "all": [
+        {
+          "slug": "carmilla",
+          "avantage": 5.8
+        },
+        {
+          "slug": "atlas",
+          "avantage": 4.7
+        },
+        {
+          "slug": "chip",
+          "avantage": 4
+        },
+        {
+          "slug": "khufra",
+          "avantage": 3.2
+        },
+        {
+          "slug": "kaja",
+          "avantage": 3
+        },
+        {
+          "slug": "saber",
+          "avantage": 3
+        }
+      ],
+      "epic": [
+        {
+          "slug": "baxia",
+          "avantage": 4.6
+        },
+        {
+          "slug": "yve",
+          "avantage": 4.3
+        },
+        {
+          "slug": "joy",
+          "avantage": 4.2
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 2.7
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.5
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 2.5
+        }
+      ],
+      "legend": [
+        {
+          "slug": "baxia",
+          "avantage": 4
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 3.4
+        },
+        {
+          "slug": "akai",
+          "avantage": 3.2
+        },
+        {
+          "slug": "masha",
+          "avantage": 3
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.7
+        },
+        {
+          "slug": "barats",
+          "avantage": 2.6
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "chip",
+          "avantage": 4.6
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 2.7
+        },
+        {
+          "slug": "akai",
+          "avantage": 2.7
+        },
+        {
+          "slug": "barats",
+          "avantage": 2.4
+        },
+        {
+          "slug": "atlas",
+          "avantage": 2.4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.2
+        }
+      ],
+      "honor": [
+        {
+          "slug": "atlas",
+          "avantage": 3.9
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2.9
+        },
+        {
+          "slug": "hylos",
+          "avantage": 2.7
+        },
+        {
+          "slug": "gatotkaca",
+          "avantage": 2.5
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.4
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.4
+        }
+      ],
+      "glory": [
+        {
+          "slug": "carmilla",
+          "avantage": 6.1
+        },
+        {
+          "slug": "atlas",
+          "avantage": 5
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.7
+        },
+        {
+          "slug": "chip",
+          "avantage": 3.5
+        },
+        {
+          "slug": "saber",
+          "avantage": 3.2
+        },
+        {
+          "slug": "kaja",
+          "avantage": 3.1
+        }
+      ]
+    },
+    "roger": {
+      "all": [
+        {
+          "slug": "ixia",
+          "avantage": 3
+        },
+        {
+          "slug": "layla",
+          "avantage": 2.7
+        },
+        {
+          "slug": "lesley",
+          "avantage": 2.5
+        },
+        {
+          "slug": "granger",
+          "avantage": 2.1
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 2
+        },
+        {
+          "slug": "clint",
+          "avantage": 2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 6.4
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 5
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 4
+        },
+        {
+          "slug": "irithel",
+          "avantage": 4
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 3.7
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 3.5
+        }
+      ],
+      "legend": [
+        {
+          "slug": "clint",
+          "avantage": 2.8
+        },
+        {
+          "slug": "lesley",
+          "avantage": 2.7
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.7
+        },
+        {
+          "slug": "granger",
+          "avantage": 2.4
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.4
+        },
+        {
+          "slug": "bruno",
+          "avantage": 2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "bruno",
+          "avantage": 3
+        },
+        {
+          "slug": "ixia",
+          "avantage": 3
+        },
+        {
+          "slug": "granger",
+          "avantage": 2.9
+        },
+        {
+          "slug": "brody",
+          "avantage": 2.8
+        },
+        {
+          "slug": "harith",
+          "avantage": 2.5
+        },
+        {
+          "slug": "lesley",
+          "avantage": 2.4
+        }
+      ],
+      "honor": [
+        {
+          "slug": "granger",
+          "avantage": 3.1
+        },
+        {
+          "slug": "ixia",
+          "avantage": 2.3
+        },
+        {
+          "slug": "lesley",
+          "avantage": 1.9
+        },
+        {
+          "slug": "clint",
+          "avantage": 1.9
+        },
+        {
+          "slug": "layla",
+          "avantage": 1.8
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 1.5
+        }
+      ],
+      "glory": [
+        {
+          "slug": "ixia",
+          "avantage": 3
+        },
+        {
+          "slug": "lesley",
+          "avantage": 2.4
+        },
+        {
+          "slug": "clint",
+          "avantage": 2.3
+        },
+        {
+          "slug": "layla",
+          "avantage": 2.2
+        },
+        {
+          "slug": "hanabi",
+          "avantage": 2
+        },
+        {
+          "slug": "irithel",
+          "avantage": 1.8
+        }
+      ]
+    },
+    "ruby": {
+      "all": [
+        {
+          "slug": "faramis",
+          "avantage": 2
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1.2
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.1
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.1
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 1.1
+        },
+        {
+          "slug": "estes",
+          "avantage": 1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "mathilda",
+          "avantage": 5.8
+        },
+        {
+          "slug": "khufra",
+          "avantage": 5.7
+        },
+        {
+          "slug": "baxia",
+          "avantage": 5.3
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 4.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": 3.9
+        },
+        {
+          "slug": "joy",
+          "avantage": 3.5
+        }
+      ],
+      "legend": [
+        {
+          "slug": "chip",
+          "avantage": 4.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 3.4
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.8
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.6
+        },
+        {
+          "slug": "aulus",
+          "avantage": 1.8
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "luo-yi",
+          "avantage": 2.9
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.4
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.1
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.9
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.9
+        },
+        {
+          "slug": "aulus",
+          "avantage": 1.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "bane",
+          "avantage": 1.4
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.4
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.4
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1.3
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "faramis",
+          "avantage": 2.1
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.4
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 1.3
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1.2
+        },
+        {
+          "slug": "julian",
+          "avantage": 1.1
+        },
+        {
+          "slug": "alpha",
+          "avantage": 1.1
+        }
+      ]
+    },
+    "saber": {
+      "all": [
+        {
+          "slug": "marcel",
+          "avantage": 4.2
+        },
+        {
+          "slug": "estes",
+          "avantage": 3.5
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 3.2
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 3
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.7
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2.7
+        }
+      ],
+      "epic": [
+        {
+          "slug": "marcel",
+          "avantage": 3.2
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 2.8
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2.4
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.4
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.4
+        },
+        {
+          "slug": "grock",
+          "avantage": 2.1
+        }
+      ],
+      "legend": [
+        {
+          "slug": "marcel",
+          "avantage": 3.6
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 2.5
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.5
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.3
+        },
+        {
+          "slug": "franco",
+          "avantage": 2.2
+        },
+        {
+          "slug": "belerick",
+          "avantage": 2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "marcel",
+          "avantage": 3.2
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.6
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 2.5
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2.5
+        },
+        {
+          "slug": "grock",
+          "avantage": 2.5
+        },
+        {
+          "slug": "belerick",
+          "avantage": 2.3
+        }
+      ],
+      "honor": [
+        {
+          "slug": "estes",
+          "avantage": 3
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.6
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.3
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 2.2
+        },
+        {
+          "slug": "chip",
+          "avantage": 2
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "marcel",
+          "avantage": 4.1
+        },
+        {
+          "slug": "estes",
+          "avantage": 4
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 3.2
+        },
+        {
+          "slug": "minotaur",
+          "avantage": 2.8
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.4
+        }
+      ]
+    },
+    "selena": {
+      "all": [
+        {
+          "slug": "floryn",
+          "avantage": 1.8
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 1.2
+        },
+        {
+          "slug": "melissa",
+          "avantage": 1.2
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.2
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.1
+        },
+        {
+          "slug": "edith",
+          "avantage": 0.9
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 9.3
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 6.4
+        },
+        {
+          "slug": "harith",
+          "avantage": 5.8
+        },
+        {
+          "slug": "joy",
+          "avantage": 5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 3.9
+        },
+        {
+          "slug": "ling",
+          "avantage": 3.4
+        }
+      ],
+      "legend": [
+        {
+          "slug": "mathilda",
+          "avantage": 2.3
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.9
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.4
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.3
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.3
+        },
+        {
+          "slug": "suyou",
+          "avantage": 1.2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "yve",
+          "avantage": 1.8
+        },
+        {
+          "slug": "edith",
+          "avantage": 1.6
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.3
+        },
+        {
+          "slug": "zhask",
+          "avantage": 1.3
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.1
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "floryn",
+          "avantage": 1.6
+        },
+        {
+          "slug": "edith",
+          "avantage": 1.4
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 1.2
+        },
+        {
+          "slug": "uranus",
+          "avantage": 1.1
+        },
+        {
+          "slug": "nolan",
+          "avantage": 1.1
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "floryn",
+          "avantage": 2.3
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.8
+        },
+        {
+          "slug": "angela",
+          "avantage": 1.4
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 1.3
+        },
+        {
+          "slug": "belerick",
+          "avantage": 1.3
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.1
+        }
+      ]
+    },
+    "silvanna": {
+      "all": [
+        {
+          "slug": "hilda",
+          "avantage": 2.1
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.1
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2
+        },
+        {
+          "slug": "hylos",
+          "avantage": 2
+        },
+        {
+          "slug": "franco",
+          "avantage": 1.7
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 1.7
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 4.1
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.9
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2.9
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.8
+        },
+        {
+          "slug": "franco",
+          "avantage": 2.2
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2.2
+        }
+      ],
+      "legend": [
+        {
+          "slug": "lolita",
+          "avantage": 2.7
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.2
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.1
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 2
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.9
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1.9
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "estes",
+          "avantage": 2.1
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 2
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1.9
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 1.7
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.7
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "estes",
+          "avantage": 2
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.7
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.7
+        },
+        {
+          "slug": "grock",
+          "avantage": 1.6
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.5
+        },
+        {
+          "slug": "kalea",
+          "avantage": 1.5
+        }
+      ],
+      "glory": [
+        {
+          "slug": "estes",
+          "avantage": 2
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.8
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.6
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.6
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1.6
+        },
+        {
+          "slug": "badang",
+          "avantage": 1.6
+        }
+      ]
+    },
+    "sora": {
+      "all": [
+        {
+          "slug": "lukas",
+          "avantage": 2
+        },
+        {
+          "slug": "bane",
+          "avantage": 2
+        },
+        {
+          "slug": "melissa",
+          "avantage": 1.5
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.4
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "diggie",
+          "avantage": 7.2
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.8
+        },
+        {
+          "slug": "yve",
+          "avantage": 3.8
+        },
+        {
+          "slug": "kaja",
+          "avantage": 3.3
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.2
+        },
+        {
+          "slug": "natan",
+          "avantage": 2
+        }
+      ],
+      "legend": [
+        {
+          "slug": "valentina",
+          "avantage": 2.7
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.6
+        },
+        {
+          "slug": "bane",
+          "avantage": 2.5
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.2
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2.1
+        },
+        {
+          "slug": "angela",
+          "avantage": 2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "floryn",
+          "avantage": 2.4
+        },
+        {
+          "slug": "bane",
+          "avantage": 2.3
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2.2
+        },
+        {
+          "slug": "angela",
+          "avantage": 1.9
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.8
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.8
+        }
+      ],
+      "honor": [
+        {
+          "slug": "bane",
+          "avantage": 2.3
+        },
+        {
+          "slug": "faramis",
+          "avantage": 2.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.8
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.5
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.5
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.4
+        }
+      ],
+      "glory": [
+        {
+          "slug": "bane",
+          "avantage": 2.1
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.7
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.6
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.4
+        },
+        {
+          "slug": "julian",
+          "avantage": 1.3
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.2
+        }
+      ]
+    },
+    "sun": {
+      "all": [
+        {
+          "slug": "cici",
+          "avantage": 2.5
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.2
+        },
+        {
+          "slug": "balmond",
+          "avantage": 1.9
+        },
+        {
+          "slug": "jawhead",
+          "avantage": 1.9
+        },
+        {
+          "slug": "franco",
+          "avantage": 1.9
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 1.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "baxia",
+          "avantage": 2.3
+        },
+        {
+          "slug": "franco",
+          "avantage": 1.3
+        },
+        {
+          "slug": "sora",
+          "avantage": 1.1
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.1
+        },
+        {
+          "slug": "kalea",
+          "avantage": 0.9
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 0.9
+        }
+      ],
+      "legend": [
+        {
+          "slug": "sora",
+          "avantage": 2.2
+        },
+        {
+          "slug": "cici",
+          "avantage": 1.7
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 1.6
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 1.6
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.5
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 1.5
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "cici",
+          "avantage": 2.5
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 2.3
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 2.1
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 2
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.9
+        },
+        {
+          "slug": "terizla",
+          "avantage": 1.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "cici",
+          "avantage": 2.2
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 2.1
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.8
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.8
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 1.8
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.6
+        }
+      ],
+      "glory": [
+        {
+          "slug": "x-borg",
+          "avantage": 2.4
+        },
+        {
+          "slug": "gloo",
+          "avantage": 2.1
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 2.1
+        },
+        {
+          "slug": "balmond",
+          "avantage": 2
+        },
+        {
+          "slug": "jawhead",
+          "avantage": 2
+        },
+        {
+          "slug": "cici",
+          "avantage": 2
+        }
+      ]
+    },
+    "suyou": {
+      "all": [
+        {
+          "slug": "dyrroth",
+          "avantage": 1.2
+        },
+        {
+          "slug": "odette",
+          "avantage": 1
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 0.8
+        },
+        {
+          "slug": "valentina",
+          "avantage": 0.7
+        },
+        {
+          "slug": "eudora",
+          "avantage": 0.7
+        },
+        {
+          "slug": "melissa",
+          "avantage": 0.7
+        }
+      ],
+      "epic": [
+        {
+          "slug": "lapu-lapu",
+          "avantage": 5.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 4.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": 4.1
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 3.6
+        },
+        {
+          "slug": "yve",
+          "avantage": 3.5
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.5
+        }
+      ],
+      "legend": [
+        {
+          "slug": "mathilda",
+          "avantage": 2.8
+        },
+        {
+          "slug": "yve",
+          "avantage": 2.5
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.3
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 2.1
+        },
+        {
+          "slug": "angela",
+          "avantage": 1.8
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.6
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "ruby",
+          "avantage": 1.5
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.2
+        },
+        {
+          "slug": "luo-yi",
+          "avantage": 1.2
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.1
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.1
+        },
+        {
+          "slug": "natan",
+          "avantage": 1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "zhuxin",
+          "avantage": 1.9
+        },
+        {
+          "slug": "kalea",
+          "avantage": 1.4
+        },
+        {
+          "slug": "sora",
+          "avantage": 1.2
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.1
+        },
+        {
+          "slug": "barats",
+          "avantage": 1.1
+        },
+        {
+          "slug": "uranus",
+          "avantage": 1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "esmeralda",
+          "avantage": 1.1
+        },
+        {
+          "slug": "valentina",
+          "avantage": 0.9
+        },
+        {
+          "slug": "uranus",
+          "avantage": 0.8
+        },
+        {
+          "slug": "sora",
+          "avantage": 0.7
+        },
+        {
+          "slug": "atlas",
+          "avantage": 0.7
+        },
+        {
+          "slug": "aurora",
+          "avantage": 0.6
+        }
+      ]
+    },
+    "terizla": {
+      "all": [
+        {
+          "slug": "angela",
+          "avantage": 2.2
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.8
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.5
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.3
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.2
+        },
+        {
+          "slug": "aulus",
+          "avantage": 1.2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "harith",
+          "avantage": 3.1
+        },
+        {
+          "slug": "angela",
+          "avantage": 3
+        },
+        {
+          "slug": "lunox",
+          "avantage": 2.7
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.4
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.2
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.1
+        }
+      ],
+      "legend": [
+        {
+          "slug": "angela",
+          "avantage": 2.7
+        },
+        {
+          "slug": "aulus",
+          "avantage": 2
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.5
+        },
+        {
+          "slug": "estes",
+          "avantage": 1.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.3
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "faramis",
+          "avantage": 3
+        },
+        {
+          "slug": "angela",
+          "avantage": 2.8
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.7
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.2
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.8
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "angela",
+          "avantage": 3.2
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.7
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.6
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.4
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.4
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.4
+        }
+      ],
+      "glory": [
+        {
+          "slug": "thamuz",
+          "avantage": 1.9
+        },
+        {
+          "slug": "angela",
+          "avantage": 1.8
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.7
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.7
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.5
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.3
+        }
+      ]
+    },
+    "thamuz": {
+      "all": [
+        {
+          "slug": "lapu-lapu",
+          "avantage": 2
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 1.7
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 1.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.5
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 1.5
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.4
+        }
+      ],
+      "epic": [
+        {
+          "slug": "mathilda",
+          "avantage": 2.1
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.7
+        },
+        {
+          "slug": "leomord",
+          "avantage": 1.5
+        },
+        {
+          "slug": "harith",
+          "avantage": 1
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 0.9
+        },
+        {
+          "slug": "ixia",
+          "avantage": 0.7
+        }
+      ],
+      "legend": [
+        {
+          "slug": "diggie",
+          "avantage": 1.2
+        },
+        {
+          "slug": "karina",
+          "avantage": 1.1
+        },
+        {
+          "slug": "joy",
+          "avantage": 1
+        },
+        {
+          "slug": "kagura",
+          "avantage": 1
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 0.8
+        },
+        {
+          "slug": "bane",
+          "avantage": 0.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "mathilda",
+          "avantage": 1.6
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 1.6
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 1.5
+        },
+        {
+          "slug": "selena",
+          "avantage": 1.3
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 1.3
+        },
+        {
+          "slug": "ixia",
+          "avantage": 1.2
+        }
+      ],
+      "honor": [
+        {
+          "slug": "lapu-lapu",
+          "avantage": 2
+        },
+        {
+          "slug": "yu-zhong",
+          "avantage": 1.9
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 1.6
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.2
+        },
+        {
+          "slug": "ixia",
+          "avantage": 1.1
+        },
+        {
+          "slug": "ruby",
+          "avantage": 1.1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "yu-zhong",
+          "avantage": 3.7
+        },
+        {
+          "slug": "lapu-lapu",
+          "avantage": 2.4
+        },
+        {
+          "slug": "guinevere",
+          "avantage": 2.1
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 2.1
+        },
+        {
+          "slug": "terizla",
+          "avantage": 1.9
+        },
+        {
+          "slug": "sora",
+          "avantage": 1.6
+        }
+      ]
+    },
+    "tigreal": {
+      "all": [
+        {
+          "slug": "aldous",
+          "avantage": 2.3
+        },
+        {
+          "slug": "zilong",
+          "avantage": 2.2
+        },
+        {
+          "slug": "saber",
+          "avantage": 2.2
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2.1
+        },
+        {
+          "slug": "natalia",
+          "avantage": 2
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "silvanna",
+          "avantage": 2.1
+        },
+        {
+          "slug": "saber",
+          "avantage": 1.9
+        },
+        {
+          "slug": "luo-yi",
+          "avantage": 1.8
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.8
+        },
+        {
+          "slug": "badang",
+          "avantage": 1.4
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1.4
+        }
+      ],
+      "legend": [
+        {
+          "slug": "edith",
+          "avantage": 2.2
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.8
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 1.8
+        },
+        {
+          "slug": "silvanna",
+          "avantage": 1.7
+        },
+        {
+          "slug": "saber",
+          "avantage": 1.5
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1.5
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "saber",
+          "avantage": 2
+        },
+        {
+          "slug": "edith",
+          "avantage": 1.9
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.8
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1.8
+        },
+        {
+          "slug": "chou",
+          "avantage": 1.6
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.4
+        }
+      ],
+      "honor": [
+        {
+          "slug": "aldous",
+          "avantage": 2.1
+        },
+        {
+          "slug": "alucard",
+          "avantage": 2
+        },
+        {
+          "slug": "saber",
+          "avantage": 2
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.6
+        },
+        {
+          "slug": "minsitthar",
+          "avantage": 1.5
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.5
+        }
+      ],
+      "glory": [
+        {
+          "slug": "floryn",
+          "avantage": 4.5
+        },
+        {
+          "slug": "natalia",
+          "avantage": 3.9
+        },
+        {
+          "slug": "angela",
+          "avantage": 3.3
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 3
+        },
+        {
+          "slug": "estes",
+          "avantage": 2.8
+        },
+        {
+          "slug": "aldous",
+          "avantage": 2.6
+        }
+      ]
+    },
+    "uranus": {
+      "all": [
+        {
+          "slug": "angela",
+          "avantage": 3.5
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.6
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.1
+        },
+        {
+          "slug": "nolan",
+          "avantage": 1.1
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "faramis",
+          "avantage": 7.3
+        },
+        {
+          "slug": "chip",
+          "avantage": 6
+        },
+        {
+          "slug": "angela",
+          "avantage": 4.8
+        },
+        {
+          "slug": "diggie",
+          "avantage": 4.7
+        },
+        {
+          "slug": "bruno",
+          "avantage": 4.4
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 3.8
+        }
+      ],
+      "legend": [
+        {
+          "slug": "angela",
+          "avantage": 4.5
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.9
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.8
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "angela",
+          "avantage": 5.4
+        },
+        {
+          "slug": "bane",
+          "avantage": 2.1
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.6
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.4
+        }
+      ],
+      "honor": [
+        {
+          "slug": "angela",
+          "avantage": 4.8
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.1
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 1.5
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1.3
+        }
+      ],
+      "glory": [
+        {
+          "slug": "angela",
+          "avantage": 3.2
+        },
+        {
+          "slug": "bane",
+          "avantage": 1.6
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.3
+        },
+        {
+          "slug": "nolan",
+          "avantage": 1.2
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.2
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 1.1
+        }
+      ]
+    },
+    "vale": {
+      "all": [
+        {
+          "slug": "hilda",
+          "avantage": 1.5
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.3
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.3
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.3
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.2
+        },
+        {
+          "slug": "balmond",
+          "avantage": 1.2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "valentina",
+          "avantage": 3.7
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.7
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.7
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.4
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.4
+        }
+      ],
+      "legend": [
+        {
+          "slug": "marcel",
+          "avantage": 1.5
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 0.9
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 0.9
+        },
+        {
+          "slug": "chip",
+          "avantage": 0.8
+        },
+        {
+          "slug": "harith",
+          "avantage": 0.7
+        },
+        {
+          "slug": "alice",
+          "avantage": 0.7
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "valentina",
+          "avantage": 1.7
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.2
+        },
+        {
+          "slug": "alucard",
+          "avantage": 1.1
+        },
+        {
+          "slug": "balmond",
+          "avantage": 1
+        },
+        {
+          "slug": "hilda",
+          "avantage": 0.9
+        },
+        {
+          "slug": "esmeralda",
+          "avantage": 0.9
+        }
+      ],
+      "honor": [
+        {
+          "slug": "khufra",
+          "avantage": 1.2
+        },
+        {
+          "slug": "zilong",
+          "avantage": 1.2
+        },
+        {
+          "slug": "balmond",
+          "avantage": 1.2
+        },
+        {
+          "slug": "chou",
+          "avantage": 1
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1
+        },
+        {
+          "slug": "saber",
+          "avantage": 0.9
+        }
+      ],
+      "glory": [
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 1.4
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.4
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.3
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.3
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.3
+        },
+        {
+          "slug": "chou",
+          "avantage": 1.2
+        }
+      ]
+    },
+    "valentina": {
+      "all": [
+        {
+          "slug": "zhuxin",
+          "avantage": 5.5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 3.4
+        },
+        {
+          "slug": "granger",
+          "avantage": 3
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.9
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.4
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 57.2
+        },
+        {
+          "slug": "diggie",
+          "avantage": 23.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": 10.7
+        },
+        {
+          "slug": "carmilla",
+          "avantage": 8.8
+        },
+        {
+          "slug": "yi-sun-shin",
+          "avantage": 7.4
+        },
+        {
+          "slug": "fanny",
+          "avantage": 7.3
+        }
+      ],
+      "legend": [
+        {
+          "slug": "faramis",
+          "avantage": 12.3
+        },
+        {
+          "slug": "chip",
+          "avantage": 11.9
+        },
+        {
+          "slug": "diggie",
+          "avantage": 11.6
+        },
+        {
+          "slug": "bruno",
+          "avantage": 7.1
+        },
+        {
+          "slug": "luo-yi",
+          "avantage": 5.4
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 5.2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "yve",
+          "avantage": 13.1
+        },
+        {
+          "slug": "faramis",
+          "avantage": 6.6
+        },
+        {
+          "slug": "diggie",
+          "avantage": 4.4
+        },
+        {
+          "slug": "marcel",
+          "avantage": 3.9
+        },
+        {
+          "slug": "joy",
+          "avantage": 3.6
+        },
+        {
+          "slug": "lukas",
+          "avantage": 3.2
+        }
+      ],
+      "honor": [
+        {
+          "slug": "floryn",
+          "avantage": 3.9
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.9
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.9
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 2.7
+        },
+        {
+          "slug": "harley",
+          "avantage": 2.1
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "zhuxin",
+          "avantage": 5.4
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 3.4
+        },
+        {
+          "slug": "pharsa",
+          "avantage": 3
+        },
+        {
+          "slug": "granger",
+          "avantage": 2.6
+        },
+        {
+          "slug": "marcel",
+          "avantage": 2.2
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.8
+        }
+      ]
+    },
+    "valir": {
+      "all": [
+        {
+          "slug": "hanzo",
+          "avantage": 1.5
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.3
+        },
+        {
+          "slug": "karrie",
+          "avantage": 1
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1
+        },
+        {
+          "slug": "harley",
+          "avantage": 0.9
+        },
+        {
+          "slug": "sun",
+          "avantage": 0.9
+        }
+      ],
+      "epic": [
+        {
+          "slug": "terizla",
+          "avantage": 2
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 1.7
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.6
+        },
+        {
+          "slug": "alice",
+          "avantage": 1.6
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.6
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.5
+        }
+      ],
+      "legend": [
+        {
+          "slug": "harley",
+          "avantage": 1.2
+        },
+        {
+          "slug": "sora",
+          "avantage": 1.2
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.1
+        },
+        {
+          "slug": "akai",
+          "avantage": 1
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 0.9
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "lolita",
+          "avantage": 1.3
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.2
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.2
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 1.2
+        },
+        {
+          "slug": "harley",
+          "avantage": 1
+        },
+        {
+          "slug": "estes",
+          "avantage": 0.9
+        }
+      ],
+      "honor": [
+        {
+          "slug": "chip",
+          "avantage": 1.2
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.2
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 1.1
+        },
+        {
+          "slug": "karrie",
+          "avantage": 1.1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "hanzo",
+          "avantage": 1.8
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.5
+        },
+        {
+          "slug": "karrie",
+          "avantage": 1.4
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.4
+        },
+        {
+          "slug": "x-borg",
+          "avantage": 1.1
+        },
+        {
+          "slug": "alpha",
+          "avantage": 0.9
+        }
+      ]
+    },
+    "vexana": {
+      "all": [
+        {
+          "slug": "sun",
+          "avantage": 1.3
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.3
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.1
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.1
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "harley",
+          "avantage": 1.2
+        },
+        {
+          "slug": "sun",
+          "avantage": 0.9
+        },
+        {
+          "slug": "arlott",
+          "avantage": 0.9
+        },
+        {
+          "slug": "aldous",
+          "avantage": 0.8
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 0.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": 0.6
+        }
+      ],
+      "legend": [
+        {
+          "slug": "harley",
+          "avantage": 1.3
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.1
+        },
+        {
+          "slug": "atlas",
+          "avantage": 0.8
+        },
+        {
+          "slug": "natalia",
+          "avantage": 0.7
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 0.7
+        },
+        {
+          "slug": "arlott",
+          "avantage": 0.6
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "harley",
+          "avantage": 1.5
+        },
+        {
+          "slug": "chip",
+          "avantage": 1.3
+        },
+        {
+          "slug": "atlas",
+          "avantage": 1
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 0.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 0.9
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 0.8
+        }
+      ],
+      "honor": [
+        {
+          "slug": "aldous",
+          "avantage": 1.3
+        },
+        {
+          "slug": "atlas",
+          "avantage": 1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1
+        },
+        {
+          "slug": "zilong",
+          "avantage": 0.9
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 0.9
+        },
+        {
+          "slug": "johnson",
+          "avantage": 0.8
+        }
+      ],
+      "glory": [
+        {
+          "slug": "aldous",
+          "avantage": 1.5
+        },
+        {
+          "slug": "roger",
+          "avantage": 1.3
+        },
+        {
+          "slug": "kaja",
+          "avantage": 1.1
+        },
+        {
+          "slug": "sun",
+          "avantage": 1
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1
+        },
+        {
+          "slug": "harley",
+          "avantage": 0.9
+        }
+      ]
+    },
+    "wanwan": {
+      "all": [
+        {
+          "slug": "harith",
+          "avantage": 3.6
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 3.2
+        },
+        {
+          "slug": "brody",
+          "avantage": 2.3
+        },
+        {
+          "slug": "angela",
+          "avantage": 2.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.8
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 1.2
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 6.6
+        },
+        {
+          "slug": "khufra",
+          "avantage": 5.7
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 4
+        },
+        {
+          "slug": "fanny",
+          "avantage": 3.8
+        },
+        {
+          "slug": "ling",
+          "avantage": 3.7
+        },
+        {
+          "slug": "marcel",
+          "avantage": 3.2
+        }
+      ],
+      "legend": [
+        {
+          "slug": "claude",
+          "avantage": 5.8
+        },
+        {
+          "slug": "natan",
+          "avantage": 5.6
+        },
+        {
+          "slug": "obsidia",
+          "avantage": 3.4
+        },
+        {
+          "slug": "fanny",
+          "avantage": 3.4
+        },
+        {
+          "slug": "lunox",
+          "avantage": 3.4
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 3.1
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "luo-yi",
+          "avantage": 2.9
+        },
+        {
+          "slug": "angela",
+          "avantage": 2.6
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 2.2
+        },
+        {
+          "slug": "kalea",
+          "avantage": 2.1
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 1.9
+        }
+      ],
+      "honor": [
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 3.4
+        },
+        {
+          "slug": "harith",
+          "avantage": 3.3
+        },
+        {
+          "slug": "baxia",
+          "avantage": 2.4
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 2
+        },
+        {
+          "slug": "angela",
+          "avantage": 1.9
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.8
+        }
+      ],
+      "glory": [
+        {
+          "slug": "harith",
+          "avantage": 5
+        },
+        {
+          "slug": "claude",
+          "avantage": 4.3
+        },
+        {
+          "slug": "brody",
+          "avantage": 4.2
+        },
+        {
+          "slug": "popol-and-kupa",
+          "avantage": 3.5
+        },
+        {
+          "slug": "angela",
+          "avantage": 2.1
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.9
+        }
+      ]
+    },
+    "x-borg": {
+      "all": [
+        {
+          "slug": "aldous",
+          "avantage": 2.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.2
+        },
+        {
+          "slug": "cici",
+          "avantage": 2.2
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.8
+        },
+        {
+          "slug": "karrie",
+          "avantage": 1.7
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.4
+        }
+      ],
+      "epic": [
+        {
+          "slug": "lolita",
+          "avantage": 4.2
+        },
+        {
+          "slug": "chip",
+          "avantage": 3.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.8
+        },
+        {
+          "slug": "hylos",
+          "avantage": 3
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 2.9
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 2.7
+        }
+      ],
+      "legend": [
+        {
+          "slug": "aldous",
+          "avantage": 2.6
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 2.2
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.6
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.4
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "phoveus",
+          "avantage": 2.5
+        },
+        {
+          "slug": "cici",
+          "avantage": 2.1
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.1
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.9
+        },
+        {
+          "slug": "sora",
+          "avantage": 1.8
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "cici",
+          "avantage": 3.8
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.7
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.6
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.6
+        },
+        {
+          "slug": "phoveus",
+          "avantage": 1.6
+        },
+        {
+          "slug": "badang",
+          "avantage": 1.6
+        }
+      ],
+      "glory": [
+        {
+          "slug": "aldous",
+          "avantage": 3.1
+        },
+        {
+          "slug": "karrie",
+          "avantage": 2.5
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.4
+        },
+        {
+          "slug": "cici",
+          "avantage": 2.4
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.5
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.5
+        }
+      ]
+    },
+    "xavier": {
+      "all": [
+        {
+          "slug": "marcel",
+          "avantage": 1.7
+        },
+        {
+          "slug": "lesley",
+          "avantage": 1.2
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.2
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.2
+        },
+        {
+          "slug": "baxia",
+          "avantage": 0.9
+        },
+        {
+          "slug": "karrie",
+          "avantage": 0.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "marcel",
+          "avantage": 3.1
+        },
+        {
+          "slug": "edith",
+          "avantage": 2.6
+        },
+        {
+          "slug": "joy",
+          "avantage": 2.4
+        },
+        {
+          "slug": "clint",
+          "avantage": 2.2
+        },
+        {
+          "slug": "kagura",
+          "avantage": 1.9
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.6
+        }
+      ],
+      "legend": [
+        {
+          "slug": "valentina",
+          "avantage": 5.1
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 3.5
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1.5
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.3
+        },
+        {
+          "slug": "alice",
+          "avantage": 1.2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "chip",
+          "avantage": 1.8
+        },
+        {
+          "slug": "marcel",
+          "avantage": 1.5
+        },
+        {
+          "slug": "lesley",
+          "avantage": 1.4
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.4
+        },
+        {
+          "slug": "cici",
+          "avantage": 1.1
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "marcel",
+          "avantage": 2
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.4
+        },
+        {
+          "slug": "lesley",
+          "avantage": 1.2
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.1
+        },
+        {
+          "slug": "julian",
+          "avantage": 1.1
+        },
+        {
+          "slug": "lancelot",
+          "avantage": 1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "marcel",
+          "avantage": 1.5
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.4
+        },
+        {
+          "slug": "lesley",
+          "avantage": 1.3
+        },
+        {
+          "slug": "kalea",
+          "avantage": 1.1
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.1
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.1
+        }
+      ]
+    },
+    "yi-sun-shin": {
+      "all": [
+        {
+          "slug": "floryn",
+          "avantage": 2.1
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.8
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.7
+        },
+        {
+          "slug": "odette",
+          "avantage": 1.6
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.5
+        },
+        {
+          "slug": "dyrroth",
+          "avantage": 1.3
+        }
+      ],
+      "epic": [
+        {
+          "slug": "yve",
+          "avantage": 8.3
+        },
+        {
+          "slug": "valentina",
+          "avantage": 7.4
+        },
+        {
+          "slug": "floryn",
+          "avantage": 6.2
+        },
+        {
+          "slug": "chip",
+          "avantage": 5.4
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 4.4
+        }
+      ],
+      "legend": [
+        {
+          "slug": "floryn",
+          "avantage": 3.5
+        },
+        {
+          "slug": "yve",
+          "avantage": 3.5
+        },
+        {
+          "slug": "valentina",
+          "avantage": 3.4
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.5
+        },
+        {
+          "slug": "kagura",
+          "avantage": 1.4
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "floryn",
+          "avantage": 2.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.5
+        },
+        {
+          "slug": "wanwan",
+          "avantage": 1.2
+        },
+        {
+          "slug": "lesley",
+          "avantage": 1.2
+        },
+        {
+          "slug": "uranus",
+          "avantage": 1.2
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "floryn",
+          "avantage": 2.7
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.9
+        },
+        {
+          "slug": "barats",
+          "avantage": 1.5
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.4
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.3
+        },
+        {
+          "slug": "clint",
+          "avantage": 1.1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "floryn",
+          "avantage": 2.3
+        },
+        {
+          "slug": "granger",
+          "avantage": 1.7
+        },
+        {
+          "slug": "yve",
+          "avantage": 1.6
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.3
+        },
+        {
+          "slug": "odette",
+          "avantage": 1.3
+        },
+        {
+          "slug": "harith",
+          "avantage": 1.2
+        }
+      ]
+    },
+    "yin": {
+      "all": [
+        {
+          "slug": "hilda",
+          "avantage": 1.4
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.4
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.3
+        },
+        {
+          "slug": "chang-e",
+          "avantage": 1.2
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.1
+        },
+        {
+          "slug": "franco",
+          "avantage": 1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "faramis",
+          "avantage": 1.3
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 0.9
+        },
+        {
+          "slug": "miya",
+          "avantage": 0.8
+        },
+        {
+          "slug": "valir",
+          "avantage": 0.7
+        },
+        {
+          "slug": "chou",
+          "avantage": 0.6
+        },
+        {
+          "slug": "franco",
+          "avantage": 0.6
+        }
+      ],
+      "legend": [
+        {
+          "slug": "miya",
+          "avantage": 0.9
+        },
+        {
+          "slug": "aldous",
+          "avantage": 0.8
+        },
+        {
+          "slug": "kalea",
+          "avantage": 0.8
+        },
+        {
+          "slug": "natalia",
+          "avantage": 0.7
+        },
+        {
+          "slug": "zilong",
+          "avantage": 0.6
+        },
+        {
+          "slug": "franco",
+          "avantage": 0.6
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "hilda",
+          "avantage": 1.1
+        },
+        {
+          "slug": "franco",
+          "avantage": 0.9
+        },
+        {
+          "slug": "aldous",
+          "avantage": 0.9
+        },
+        {
+          "slug": "kalea",
+          "avantage": 0.7
+        },
+        {
+          "slug": "lolita",
+          "avantage": 0.7
+        },
+        {
+          "slug": "natan",
+          "avantage": 0.7
+        }
+      ],
+      "honor": [
+        {
+          "slug": "karina",
+          "avantage": 1.4
+        },
+        {
+          "slug": "hilda",
+          "avantage": 1.2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.1
+        },
+        {
+          "slug": "chang-e",
+          "avantage": 1.1
+        },
+        {
+          "slug": "sun",
+          "avantage": 1
+        },
+        {
+          "slug": "natan",
+          "avantage": 0.9
+        }
+      ],
+      "glory": [
+        {
+          "slug": "karina",
+          "avantage": 1.8
+        },
+        {
+          "slug": "aamon",
+          "avantage": 1.5
+        },
+        {
+          "slug": "natan",
+          "avantage": 1.3
+        },
+        {
+          "slug": "julian",
+          "avantage": 1.2
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 1.2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.2
+        }
+      ]
+    },
+    "yu-zhong": {
+      "all": [
+        {
+          "slug": "bane",
+          "avantage": 2.1
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.8
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.7
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.3
+        },
+        {
+          "slug": "aulus",
+          "avantage": 1.3
+        },
+        {
+          "slug": "karrie",
+          "avantage": 1
+        }
+      ],
+      "epic": [
+        {
+          "slug": "chip",
+          "avantage": 6
+        },
+        {
+          "slug": "khufra",
+          "avantage": 5.2
+        },
+        {
+          "slug": "valentina",
+          "avantage": 4.1
+        },
+        {
+          "slug": "angela",
+          "avantage": 3.3
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 3.1
+        },
+        {
+          "slug": "kagura",
+          "avantage": 3
+        }
+      ],
+      "legend": [
+        {
+          "slug": "lukas",
+          "avantage": 2.9
+        },
+        {
+          "slug": "angela",
+          "avantage": 2.2
+        },
+        {
+          "slug": "bane",
+          "avantage": 2.1
+        },
+        {
+          "slug": "kimmy",
+          "avantage": 1.9
+        },
+        {
+          "slug": "lunox",
+          "avantage": 1.8
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.8
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "bane",
+          "avantage": 2.6
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.3
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 2
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.9
+        },
+        {
+          "slug": "angela",
+          "avantage": 1.8
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.8
+        }
+      ],
+      "honor": [
+        {
+          "slug": "bane",
+          "avantage": 2.5
+        },
+        {
+          "slug": "thamuz",
+          "avantage": 1.9
+        },
+        {
+          "slug": "sun",
+          "avantage": 1.8
+        },
+        {
+          "slug": "aulus",
+          "avantage": 1.7
+        },
+        {
+          "slug": "harith",
+          "avantage": 1.5
+        },
+        {
+          "slug": "floryn",
+          "avantage": 1.5
+        }
+      ],
+      "glory": [
+        {
+          "slug": "thamuz",
+          "avantage": 3.7
+        },
+        {
+          "slug": "sun",
+          "avantage": 2.1
+        },
+        {
+          "slug": "bane",
+          "avantage": 2.1
+        },
+        {
+          "slug": "julian",
+          "avantage": 1.1
+        },
+        {
+          "slug": "alpha",
+          "avantage": 1.1
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.1
+        }
+      ]
+    },
+    "yve": {
+      "all": [
+        {
+          "slug": "zhuxin",
+          "avantage": 3.6
+        },
+        {
+          "slug": "granger",
+          "avantage": 3.5
+        },
+        {
+          "slug": "diggie",
+          "avantage": 2.3
+        },
+        {
+          "slug": "bruno",
+          "avantage": 2.2
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2
+        },
+        {
+          "slug": "freya",
+          "avantage": 1.8
+        }
+      ],
+      "epic": [
+        {
+          "slug": "valentina",
+          "avantage": 57.2
+        },
+        {
+          "slug": "chip",
+          "avantage": 30.4
+        },
+        {
+          "slug": "diggie",
+          "avantage": 14.3
+        },
+        {
+          "slug": "benedetta",
+          "avantage": 11.7
+        },
+        {
+          "slug": "lolita",
+          "avantage": 10.3
+        },
+        {
+          "slug": "khufra",
+          "avantage": 10.3
+        }
+      ],
+      "legend": [
+        {
+          "slug": "diggie",
+          "avantage": 12.7
+        },
+        {
+          "slug": "lunox",
+          "avantage": 8.2
+        },
+        {
+          "slug": "bruno",
+          "avantage": 7.1
+        },
+        {
+          "slug": "lylia",
+          "avantage": 5.7
+        },
+        {
+          "slug": "granger",
+          "avantage": 5.6
+        },
+        {
+          "slug": "ixia",
+          "avantage": 5.1
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "valentina",
+          "avantage": 13.1
+        },
+        {
+          "slug": "kagura",
+          "avantage": 10.6
+        },
+        {
+          "slug": "lunox",
+          "avantage": 9
+        },
+        {
+          "slug": "lylia",
+          "avantage": 7.4
+        },
+        {
+          "slug": "diggie",
+          "avantage": 6.8
+        },
+        {
+          "slug": "chip",
+          "avantage": 4.6
+        }
+      ],
+      "honor": [
+        {
+          "slug": "baxia",
+          "avantage": 9.9
+        },
+        {
+          "slug": "diggie",
+          "avantage": 4.7
+        },
+        {
+          "slug": "bruno",
+          "avantage": 3.4
+        },
+        {
+          "slug": "granger",
+          "avantage": 3.3
+        },
+        {
+          "slug": "rafaela",
+          "avantage": 2.4
+        },
+        {
+          "slug": "beatrix",
+          "avantage": 2.1
+        }
+      ],
+      "glory": [
+        {
+          "slug": "zhuxin",
+          "avantage": 4.5
+        },
+        {
+          "slug": "granger",
+          "avantage": 3
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.8
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.8
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.7
+        },
+        {
+          "slug": "yi-sun-shin",
+          "avantage": 1.6
+        }
+      ]
+    },
+    "zetian": {
+      "all": [
+        {
+          "slug": "harley",
+          "avantage": 1.5
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.5
+        },
+        {
+          "slug": "karina",
+          "avantage": 1
+        },
+        {
+          "slug": "aamon",
+          "avantage": 1
+        },
+        {
+          "slug": "masha",
+          "avantage": 0.9
+        },
+        {
+          "slug": "arlott",
+          "avantage": 0.9
+        }
+      ],
+      "epic": [
+        {
+          "slug": "valentina",
+          "avantage": 4
+        },
+        {
+          "slug": "alice",
+          "avantage": 2.9
+        },
+        {
+          "slug": "bruno",
+          "avantage": 2.5
+        },
+        {
+          "slug": "brody",
+          "avantage": 1.9
+        },
+        {
+          "slug": "hylos",
+          "avantage": 1.8
+        },
+        {
+          "slug": "selena",
+          "avantage": 1.8
+        }
+      ],
+      "legend": [
+        {
+          "slug": "alice",
+          "avantage": 1.8
+        },
+        {
+          "slug": "bruno",
+          "avantage": 1.6
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.4
+        },
+        {
+          "slug": "joy",
+          "avantage": 1.2
+        },
+        {
+          "slug": "brody",
+          "avantage": 1.1
+        },
+        {
+          "slug": "nolan",
+          "avantage": 1
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "harley",
+          "avantage": 1.8
+        },
+        {
+          "slug": "alice",
+          "avantage": 1.8
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.4
+        },
+        {
+          "slug": "arlott",
+          "avantage": 1.2
+        },
+        {
+          "slug": "gusion",
+          "avantage": 1.1
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "harley",
+          "avantage": 1.4
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.3
+        },
+        {
+          "slug": "alice",
+          "avantage": 1.1
+        },
+        {
+          "slug": "aamon",
+          "avantage": 1
+        },
+        {
+          "slug": "karina",
+          "avantage": 1
+        },
+        {
+          "slug": "arlott",
+          "avantage": 0.9
+        }
+      ],
+      "glory": [
+        {
+          "slug": "natalia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.4
+        },
+        {
+          "slug": "karina",
+          "avantage": 1.3
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1.1
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.1
+        },
+        {
+          "slug": "aamon",
+          "avantage": 1.1
+        }
+      ]
+    },
+    "zhask": {
+      "all": [
+        {
+          "slug": "natalia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.4
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1.1
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.1
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 0.9
+        }
+      ],
+      "epic": [
+        {
+          "slug": "valentina",
+          "avantage": 4.9
+        },
+        {
+          "slug": "zhuxin",
+          "avantage": 3.7
+        },
+        {
+          "slug": "harley",
+          "avantage": 2.5
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2.3
+        },
+        {
+          "slug": "odette",
+          "avantage": 2.2
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.7
+        }
+      ],
+      "legend": [
+        {
+          "slug": "chip",
+          "avantage": 5.7
+        },
+        {
+          "slug": "valentina",
+          "avantage": 2.1
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.9
+        },
+        {
+          "slug": "natalia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "cyclops",
+          "avantage": 1.4
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.2
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "zhuxin",
+          "avantage": 2
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.7
+        },
+        {
+          "slug": "selena",
+          "avantage": 1.3
+        },
+        {
+          "slug": "aldous",
+          "avantage": 1.2
+        },
+        {
+          "slug": "eudora",
+          "avantage": 1.1
+        },
+        {
+          "slug": "baxia",
+          "avantage": 0.9
+        }
+      ],
+      "honor": [
+        {
+          "slug": "natalia",
+          "avantage": 1.8
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.6
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.6
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.3
+        },
+        {
+          "slug": "masha",
+          "avantage": 1.2
+        },
+        {
+          "slug": "baxia",
+          "avantage": 1.2
+        }
+      ],
+      "glory": [
+        {
+          "slug": "natalia",
+          "avantage": 2
+        },
+        {
+          "slug": "harley",
+          "avantage": 1.7
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.5
+        },
+        {
+          "slug": "helcurt",
+          "avantage": 1.3
+        },
+        {
+          "slug": "layla",
+          "avantage": 1
+        },
+        {
+          "slug": "franco",
+          "avantage": 0.9
+        }
+      ]
+    },
+    "zhuxin": {
+      "all": [
+        {
+          "slug": "kagura",
+          "avantage": 6.9
+        },
+        {
+          "slug": "odette",
+          "avantage": 6.8
+        },
+        {
+          "slug": "valentina",
+          "avantage": 5.5
+        },
+        {
+          "slug": "yve",
+          "avantage": 3.6
+        },
+        {
+          "slug": "pharsa",
+          "avantage": 3.5
+        },
+        {
+          "slug": "melissa",
+          "avantage": 2.6
+        }
+      ],
+      "epic": [
+        {
+          "slug": "diggie",
+          "avantage": 14.7
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 13.3
+        },
+        {
+          "slug": "faramis",
+          "avantage": 12.7
+        },
+        {
+          "slug": "masha",
+          "avantage": 11.3
+        },
+        {
+          "slug": "pharsa",
+          "avantage": 9.4
+        },
+        {
+          "slug": "akai",
+          "avantage": 7.5
+        }
+      ],
+      "legend": [
+        {
+          "slug": "diggie",
+          "avantage": 6.7
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 5.3
+        },
+        {
+          "slug": "valentina",
+          "avantage": 5.2
+        },
+        {
+          "slug": "xavier",
+          "avantage": 3.5
+        },
+        {
+          "slug": "luo-yi",
+          "avantage": 3.5
+        },
+        {
+          "slug": "ling",
+          "avantage": 3.4
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "natan",
+          "avantage": 4.5
+        },
+        {
+          "slug": "julian",
+          "avantage": 2.7
+        },
+        {
+          "slug": "floryn",
+          "avantage": 2.6
+        },
+        {
+          "slug": "hanzo",
+          "avantage": 2.6
+        },
+        {
+          "slug": "karina",
+          "avantage": 2.2
+        },
+        {
+          "slug": "sora",
+          "avantage": 2.2
+        }
+      ],
+      "honor": [
+        {
+          "slug": "kagura",
+          "avantage": 2.1
+        },
+        {
+          "slug": "mathilda",
+          "avantage": 2
+        },
+        {
+          "slug": "suyou",
+          "avantage": 1.9
+        },
+        {
+          "slug": "hirara",
+          "avantage": 1.9
+        },
+        {
+          "slug": "valentina",
+          "avantage": 1.8
+        },
+        {
+          "slug": "khaleed",
+          "avantage": 1.7
+        }
+      ],
+      "glory": [
+        {
+          "slug": "kagura",
+          "avantage": 8.2
+        },
+        {
+          "slug": "pharsa",
+          "avantage": 8.1
+        },
+        {
+          "slug": "odette",
+          "avantage": 7.7
+        },
+        {
+          "slug": "valentina",
+          "avantage": 5.4
+        },
+        {
+          "slug": "yve",
+          "avantage": 4.5
+        },
+        {
+          "slug": "granger",
+          "avantage": 2
+        }
+      ]
+    },
+    "zilong": {
+      "all": [
+        {
+          "slug": "gloo",
+          "avantage": 2.5
+        },
+        {
+          "slug": "belerick",
+          "avantage": 2.4
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 2.2
+        },
+        {
+          "slug": "lolita",
+          "avantage": 2
+        },
+        {
+          "slug": "hilda",
+          "avantage": 2
+        },
+        {
+          "slug": "johnson",
+          "avantage": 1.7
+        }
+      ],
+      "epic": [
+        {
+          "slug": "lolita",
+          "avantage": 2
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.7
+        },
+        {
+          "slug": "diggie",
+          "avantage": 1.5
+        },
+        {
+          "slug": "suyou",
+          "avantage": 1.3
+        },
+        {
+          "slug": "faramis",
+          "avantage": 1.2
+        },
+        {
+          "slug": "ling",
+          "avantage": 1.1
+        }
+      ],
+      "legend": [
+        {
+          "slug": "fredrinn",
+          "avantage": 1.2
+        },
+        {
+          "slug": "khufra",
+          "avantage": 1.1
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.1
+        },
+        {
+          "slug": "belerick",
+          "avantage": 1
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 0.9
+        },
+        {
+          "slug": "akai",
+          "avantage": 0.8
+        }
+      ],
+      "mythic": [
+        {
+          "slug": "lolita",
+          "avantage": 1.8
+        },
+        {
+          "slug": "gloo",
+          "avantage": 1.7
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.7
+        },
+        {
+          "slug": "lukas",
+          "avantage": 1.6
+        },
+        {
+          "slug": "belerick",
+          "avantage": 1.1
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 1.1
+        }
+      ],
+      "honor": [
+        {
+          "slug": "gloo",
+          "avantage": 2.2
+        },
+        {
+          "slug": "chip",
+          "avantage": 2.1
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 1.6
+        },
+        {
+          "slug": "belerick",
+          "avantage": 1.5
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.4
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 1.4
+        }
+      ],
+      "glory": [
+        {
+          "slug": "gloo",
+          "avantage": 2.5
+        },
+        {
+          "slug": "tigreal",
+          "avantage": 2.2
+        },
+        {
+          "slug": "belerick",
+          "avantage": 2.1
+        },
+        {
+          "slug": "lolita",
+          "avantage": 1.9
+        },
+        {
+          "slug": "akai",
+          "avantage": 1.8
+        },
+        {
+          "slug": "fredrinn",
+          "avantage": 1.8
+        }
       ]
     }
   },
