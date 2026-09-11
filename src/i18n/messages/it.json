@@ -180,7 +180,9 @@
       "choisir": "Scegli un oggetto per vederne le statistiche, la passiva e la ricetta.",
       "fermer": "Chiudi la scheda",
       "fusion": "Costo di fusione: {prix} oro",
-      "fabrique": "Serve per creare"
+      "fabrique": "Serve per creare",
+      "utilisePar": "Usato da",
+      "utiliseParAide": "Dalle build più giocate in classificata."
     },
     "emblems": {
       "titre": "Emblemi e talenti",

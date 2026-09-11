@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { ChampRecherche } from "@/components/champ-recherche";
+import Link from "@/components/lien";
+import { PortraitHeros } from "@/components/portrait-heros";
 import { Puce } from "@/components/puce";
 import { Tiroir } from "@/components/tiroir";
 import type { ObjetGenere } from "@/lib/types";
@@ -21,10 +23,21 @@ export interface ApercuObjet extends ObjetGenere {
   image: string | null;
 }
 
-/** Le catalogue vu depuis les recettes : chaque objet par son nom, et ce qu'il sert a fabriquer. */
+/** Heros cite par un objet : de quoi afficher sa vignette. */
+export interface VignetteHeros {
+  nom: string;
+  portrait: string | null;
+}
+
+/**
+ * Le catalogue vu depuis les recettes et les builds : chaque objet par son nom,
+ * ce qu'il sert a fabriquer, et les heros qui le prennent.
+ */
 interface Catalogue {
   parNom: Map<string, ApercuObjet>;
   debouches: Map<string, ApercuObjet[]>;
+  utilisePar: Record<string, string[]>;
+  heros: Record<string, VignetteHeros>;
 }
 
 /**
@@ -45,9 +58,14 @@ function fermerObjet() {
 export function ListeObjets({
   objets,
   categories,
+  utilisePar,
+  herosVignettes,
 }: {
   objets: ApercuObjet[];
   categories: string[];
+  /** Heros qui prennent chaque objet (par slug d'objet), les plus joues d'abord. */
+  utilisePar: Record<string, string[]>;
+  herosVignettes: Record<string, VignetteHeros>;
 }) {
   const [recherche, setRecherche] = useState("");
   const t = useT();
@@ -113,8 +131,8 @@ export function ListeObjets({
     for (const o of objets) {
       for (const c of new Set(o.recette)) debouches.set(c, [...(debouches.get(c) ?? []), o]);
     }
-    return { parNom, debouches };
-  }, [objets]);
+    return { parNom, debouches, utilisePar, heros: herosVignettes };
+  }, [objets, utilisePar, herosVignettes]);
 
   return (
     <div>
@@ -226,6 +244,7 @@ function FicheObjet({
       ? objet.prix - composants.reduce((somme, c) => somme + (c?.prix ?? 0), 0)
       : null;
   const fabrique = catalogue.debouches.get(objet.nom) ?? [];
+  const utilisateurs = catalogue.utilisePar[objet.slug] ?? [];
   return (
             <div className={cn("p-5", !sansCadre && "biseau border border-nuit-700/70 bg-nuit-900/60")}>
               <div className="flex items-start gap-3">
@@ -308,6 +327,29 @@ function FicheObjet({
                         </button>
                       ))}
                     </dd>
+                  </div>
+                )}
+                {utilisateurs.length > 0 && (
+                  <div>
+                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.utilisePar")}</dt>
+                    <dd className="mt-2 flex flex-wrap gap-1.5">
+                      {utilisateurs.map((slug) => (
+                        <Link
+                          key={slug}
+                          href={`/heroes/${slug}`}
+                          className="biseau-sm group flex items-center gap-1.5 border border-nuit-700/70 bg-nuit-900/60 py-1 pl-1 pr-2 transition-colors hover:border-or-500/60"
+                        >
+                          <PortraitHeros
+                            source={catalogue.heros[slug]?.portrait ?? null}
+                            nom={catalogue.heros[slug]?.nom ?? slug}
+                            taille="micro"
+                            decoratif
+                          />
+                          <span className="text-xs text-craie-300 group-hover:text-or-400">{catalogue.heros[slug]?.nom ?? slug}</span>
+                        </Link>
+                      ))}
+                    </dd>
+                    <p className="mt-1.5 text-xs text-craie-500">{t("pages.itemsListe.utiliseParAide")}</p>
                   </div>
                 )}
               </dl>

@@ -180,7 +180,9 @@
       "choisir": "Choose an item to see its stats, passive and recipe.",
       "fermer": "Close details",
       "fusion": "Combine cost: {prix} gold",
-      "fabrique": "Builds into"
+      "fabrique": "Builds into",
+      "utilisePar": "Used by",
+      "utiliseParAide": "Based on the most played ranked builds."
     },
     "emblems": {
       "titre": "Emblems and talents",

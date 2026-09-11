@@ -180,7 +180,9 @@
       "choisir": "Elige un objeto para ver sus estadísticas, su pasiva y su receta.",
       "fermer": "Cerrar la ficha",
       "fusion": "Coste de combinación: {prix} de oro",
-      "fabrique": "Se usa en"
+      "fabrique": "Se usa en",
+      "utilisePar": "Usado por",
+      "utiliseParAide": "Según las builds más jugadas en clasificatoria."
     },
     "emblems": {
       "titre": "Emblemas y talentos",

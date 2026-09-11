@@ -180,7 +180,9 @@
       "choisir": "Choisissez un objet pour voir ses statistiques, son passif et sa recette.",
       "fermer": "Fermer la fiche",
       "fusion": "Coût de fusion : {prix} or",
-      "fabrique": "Sert à fabriquer"
+      "fabrique": "Sert à fabriquer",
+      "utilisePar": "Utilisé par",
+      "utiliseParAide": "D'après les builds les plus joués en partie classée."
     },
     "emblems": {
       "titre": "Emblèmes et talents",
