@@ -1297,6 +1297,22 @@ async function patchs() {
     suite = donnees.continue?.cmcontinue;
   } while (suite);
 
+  // Some official notes are missing from the category (2.1.90 was): pages
+  // whose title starts with "Patch Notes " fill the gap. Duplicates merge by
+  // version below.
+  do {
+    const donnees = await api({
+      action: "query",
+      list: "allpages",
+      apprefix: "Patch Notes ",
+      apfilterredir: "nonredirects",
+      aplimit: "500",
+      ...(suite ? { apcontinue: suite } : {}),
+    });
+    membres.push(...(donnees.query?.allpages ?? []));
+    suite = donnees.continue?.apcontinue;
+  } while (suite);
+
   /**
    * Le wiki publie plusieurs pages pour une meme version : les notes
    * officielles, celles du serveur de test (« Advanced Server »), et parfois
