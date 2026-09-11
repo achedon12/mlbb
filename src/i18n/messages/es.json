@@ -143,7 +143,11 @@
     },
     "tousLesSkins": "Todas las skins",
     "tousLesEmblemes": "Todos los emblemas",
-    "sousMenu": "Abrir el submenú {nom}"
+    "sousMenu": "Abrir el submenú {nom}",
+    "events": {
+      "label": "Eventos",
+      "desc": "StarLight, Collector y skins de cada mes"
+    }
   },
   "compte": {
     "connexion": "Iniciar sesión",
@@ -895,6 +899,13 @@
       "collection": {
         "titre": "Calculadora del valor de tu colección MLBB (diamantes)",
         "description": "Marca los héroes y skins que tienes entre {heros} héroes y {skins} skins: descubre cuánto cuestan a precio de la tienda de Mobile Legends: Bang Bang, en diamantes, por rareza y por serie. Gratis, sin registro y guardado en tu navegador."
+      },
+      "events": {
+        "title": "Eventos de MLBB: StarLight, Collector y skins de cada mes",
+        "description": "El calendario de eventos de Mobile Legends: Bang Bang, de {start} a {end} ({n} meses): skin StarLight, skins Collector, sorteos y tienda. Último StarLight conocido: {latest}."
+      },
+      "eventsMonth": {
+        "metaDescription": "Mobile Legends: Bang Bang en {month}: {summary}"
       }
     },
     "fraicheur": {
@@ -1788,6 +1799,81 @@
       "metaTitre": "Hechizos de combate MLBB: los {n} hechizos y sus mejores héroes",
       "metaDescription": "Flicker, Retribution, Execute… cada hechizo de combate de Mobile Legends con su recarga y los héroes que lo eligen en clasificatoria.",
       "recharge": "Recarga: {s} s"
+    },
+    "events": {
+      "title": "Calendario de eventos de MLBB: StarLight, Collector y skins del mes",
+      "breadcrumb": "Eventos",
+      "lead": "Cada mes de Mobile Legends: Bang Bang, del más reciente al más antiguo: el skin StarLight, los skins Collector y los skins de eventos, sorteos y tienda lanzados ese mes. {n} meses documentados, de {start} a {end}.",
+      "thisMonthTitle": "Este mes: {month}",
+      "thisMonthEmpty": "Todavía no hay skins de {month} en nuestros datos: la wiki de la comunidad completa sus listas después del lanzamiento. Último mes documentado: {latest}.",
+      "seeMonth": "Ver {month}",
+      "everyMonthTitle": "Lo que vuelve cada mes",
+      "ruleStarlight": "El StarLight se renueva el día 1 de cada mes a las 00:00, hora del servidor: con él llega el skin StarLight del mes, exclusivo para los miembros StarLight.",
+      "ruleCollector": "La Grand Collection, un evento de sorteo mensual que dura 21 días, permite conseguir los skins Collector.",
+      "serverTimeLink": "Hora del servidor ahora mismo",
+      "sourcePage": "Fuente: {page}",
+      "sourceEdited": "página modificada en la wiki el {date}",
+      "nextMonthTitle": "El mes que viene: {month}",
+      "upcomingTitle": "Anunciado para los próximos meses",
+      "nextMonthUnknown": "Ninguna fuente fiable anuncia todavía los skins de {month}. La página de contenido próximo de la wiki solo recoge filtraciones sin fecha, que no reproducimos. El mes aparecerá aquí en cuanto una lista mensual de la wiki lo incluya.",
+      "recentTitle": "Los últimos meses",
+      "recentLead": "Los {n} últimos meses documentados, del más reciente al más antiguo.",
+      "allMonthsTitle": "Todos los meses",
+      "allMonthsLead": "Cada mes documentado tiene su página: skin StarLight, Collector y otros lanzamientos, con fechas y precios.",
+      "monthDetails": "Ver el detalle de {month}",
+      "status": {
+        "current": "Mes en curso",
+        "announced": "Anunciado"
+      },
+      "modes": {
+        "starlight": {
+          "title": "Skin StarLight",
+          "desc": "Exclusivo para los miembros StarLight del mes: se consigue con la suscripción mensual, sin sorteo."
+        },
+        "collector": {
+          "title": "Skins Collector",
+          "desc": "Una de las rarezas más altas del juego: se consiguen en los sorteos de la Grand Collection o durante una colaboración."
+        },
+        "event": {
+          "title": "Eventos y sorteos",
+          "desc": "Skins sin precio fijo en la tienda: sorteos (Lucky Box, Rueda mágica…), colaboraciones y eventos limitados.",
+          "summary": "{n} de eventos o sorteos"
+        },
+        "shop": {
+          "title": "Tienda",
+          "desc": "Skins a la venta a precio fijo, en diamantes, puntos de batalla, tickets o fragmentos.",
+          "summary": "{n} en la tienda"
+        },
+        "pass": {
+          "title": "Pases, temporadas y recargas",
+          "desc": "Recompensas de un pase, de una temporada clasificatoria o de una primera recarga.",
+          "summary": "{n} de pases, temporadas o recargas"
+        }
+      },
+      "noStarlight": "La wiki no incluye ningún skin StarLight para este mes.",
+      "noCollector": "Según la wiki, ese mes no salió ningún skin Collector.",
+      "rarityUnknown": "Rareza aún sin indicar",
+      "skinOf": "{skin} ({hero})",
+      "summary": {
+        "starlight": "Skin StarLight del mes: {list}.",
+        "collector": "Collector: {list}.",
+        "noCollector": "Ningún skin Collector ese mes.",
+        "others": "Otros lanzamientos ({n}): {detail}.",
+        "others1": "Otro lanzamiento: {detail}."
+      },
+      "aboutTitle": "De dónde vienen estos datos",
+      "aboutLists": "Los skins StarLight y Collector de cada mes vienen de las listas mensuales de la wiki de la comunidad, revisadas en cada actualización de nuestros datos. Cuando el módulo de skins de la wiki fecha un skin de otra forma, manda el mes de la lista.",
+      "aboutCatalogue": "Los demás lanzamientos vienen del módulo de skins de la wiki, con su rareza y su precio, agrupados según cómo se consiguen. Un skin fechado solo por año no entra en ningún mes; los skins básicos, que llegan con el lanzamiento de un héroe, no se cuentan.",
+      "aboutLeaks": "Ni filtraciones ni códigos de canje: un mes próximo solo aparece cuando una lista de la wiki lo anuncia, con el enlace a la fuente.",
+      "calendarLink": "Calendario de todos los skins, año por año",
+      "source": "Listas StarLight y Collector, fechas, rarezas y precios tomados de la {lien}, con licencia CC BY-SA.",
+      "month": {
+        "title": "Starlight y eventos de MLBB {month}: skins, fechas y precios",
+        "announced": "Mes anunciado: estos skins figuran en una lista de la wiki de la comunidad antes de su lanzamiento en el juego. Fechas y precios aún por confirmar.",
+        "navMonths": "Mes anterior y siguiente",
+        "allMonths": "Todos los meses",
+        "yearLink": "Todos los skins lanzados en {year}"
+      }
     }
   },
   "modeFiche": {

@@ -143,7 +143,11 @@
     },
     "tousLesSkins": "All skins",
     "tousLesEmblemes": "All emblems",
-    "sousMenu": "Open the {nom} submenu"
+    "sousMenu": "Open the {nom} submenu",
+    "events": {
+      "label": "Events",
+      "desc": "StarLight, Collector and skins of every month"
+    }
   },
   "compte": {
     "connexion": "Log in",
@@ -895,6 +899,13 @@
       "collection": {
         "titre": "MLBB Collection Value Calculator (Diamonds)",
         "description": "Tick the heroes and skins you own among {heros} heroes and {skins} skins: see what they cost at Mobile Legends: Bang Bang shop prices, in diamonds, by rarity and by series. Free, no sign-up, saved in your browser."
+      },
+      "events": {
+        "title": "MLBB Events: StarLight, Collector & Skins Every Month",
+        "description": "The Mobile Legends: Bang Bang events calendar, from {start} to {end} ({n} months): StarLight skin, Collector skins, draws and shop. Latest known StarLight: {latest}."
+      },
+      "eventsMonth": {
+        "metaDescription": "Mobile Legends: Bang Bang in {month}: {summary}"
       }
     },
     "fraicheur": {
@@ -1788,6 +1799,81 @@
       "metaTitre": "MLBB Battle Spells: All {n} Spells and Their Best Heroes",
       "metaDescription": "Flicker, Retribution, Execute… every Mobile Legends battle spell with its cooldown and the heroes who take it in ranked.",
       "recharge": "Cooldown: {s}s"
+    },
+    "events": {
+      "title": "MLBB events calendar: StarLight, Collector and skins of the month",
+      "breadcrumb": "Events",
+      "lead": "Every month of Mobile Legends: Bang Bang, newest first: the StarLight skin, the Collector skins and the event, draw and shop skins released that month. {n} months documented, from {start} to {end}.",
+      "thisMonthTitle": "This month: {month}",
+      "thisMonthEmpty": "No {month} skin in our data yet: the community wiki fills in its lists after release. Latest documented month: {latest}.",
+      "seeMonth": "See {month}",
+      "everyMonthTitle": "What comes back every month",
+      "ruleStarlight": "StarLight resets on the 1st of every month at 00:00 server time, bringing the StarLight skin of the month, exclusive to StarLight members.",
+      "ruleCollector": "Grand Collection, a monthly 21-day draw event, is where Collector skins are obtained.",
+      "serverTimeLink": "Current server time",
+      "sourcePage": "Source: {page}",
+      "sourceEdited": "page edited on the wiki on {date}",
+      "nextMonthTitle": "Next month: {month}",
+      "upcomingTitle": "Announced for the coming months",
+      "nextMonthUnknown": "No reliable source announces the {month} skins yet. The wiki's upcoming content page only lists undated leaks, which we don't repeat. The month will show up here as soon as one of the wiki's monthly lists includes it.",
+      "recentTitle": "Recent months",
+      "recentLead": "The last {n} documented months, newest first.",
+      "allMonthsTitle": "All months",
+      "allMonthsLead": "Every documented month has its own page: StarLight skin, Collector and other releases, with dates and prices.",
+      "monthDetails": "See {month} in detail",
+      "status": {
+        "current": "Current month",
+        "announced": "Announced"
+      },
+      "modes": {
+        "starlight": {
+          "title": "StarLight skin",
+          "desc": "Exclusive to that month's StarLight members: it comes with the monthly membership, no draw needed."
+        },
+        "collector": {
+          "title": "Collector skins",
+          "desc": "One of the game's highest rarities, obtained by drawing in Grand Collection or during a collaboration."
+        },
+        "event": {
+          "title": "Events and draws",
+          "desc": "Skins with no fixed shop price: draws (Lucky Box, Magic Wheel…), collaborations and limited events.",
+          "summary": "{n} from events or draws"
+        },
+        "shop": {
+          "title": "Shop",
+          "desc": "Skins sold at a fixed price, in diamonds, battle points, tickets or fragments.",
+          "summary": "{n} in the shop"
+        },
+        "pass": {
+          "title": "Passes, seasons and top-ups",
+          "desc": "Rewards from a pass, a ranked season or a first top-up.",
+          "summary": "{n} from passes, seasons or top-ups"
+        }
+      },
+      "noStarlight": "The wiki lists no StarLight skin for this month.",
+      "noCollector": "According to the wiki, no Collector skin was released that month.",
+      "rarityUnknown": "Rarity not listed yet",
+      "skinOf": "{skin} ({hero})",
+      "summary": {
+        "starlight": "StarLight skin of the month: {list}.",
+        "collector": "Collector: {list}.",
+        "noCollector": "No Collector skin that month.",
+        "others": "Other releases ({n}): {detail}.",
+        "others1": "One other release: {detail}."
+      },
+      "aboutTitle": "Where this data comes from",
+      "aboutLists": "Each month's StarLight and Collector skins come from the community wiki's monthly lists, re-read at every data update. When the wiki's skin module dates a skin differently, the list's month wins.",
+      "aboutCatalogue": "Other releases come from the wiki's skin module, with their rarity and price, grouped by how they are obtained. A skin dated to the year only goes into no month; default skins, which come with a hero's release, are not counted.",
+      "aboutLeaks": "No leaks and no redeem codes: an upcoming month only appears once one of the wiki's lists announces it, with a link to the source.",
+      "calendarLink": "Calendar of every skin, year by year",
+      "source": "StarLight and Collector lists, dates, rarities and prices from the {lien}, under the CC BY-SA license.",
+      "month": {
+        "title": "MLBB Starlight & events {month}: skins, dates and prices",
+        "announced": "Announced month: these skins are on a community wiki list ahead of their in-game release. Dates and prices are still to be confirmed.",
+        "navMonths": "Previous and next month",
+        "allMonths": "All months",
+        "yearLink": "Every skin released in {year}"
+      }
     }
   },
   "modeFiche": {
