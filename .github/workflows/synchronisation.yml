@@ -7,11 +7,15 @@ name: Synchronisation des donnees
 # (heros, skins, objets, patchs, combos), traduit, et verifie que le site
 # compile.
 #
-# Les donnees sont committees directement sur main, sans intervention : une
-# pull request par jour ne serait jamais relue, et deux branches de donnees
-# entreraient en conflit sur les memes fichiers. Le site est ensuite reconstruit
-# et deploye par le workflow Image Docker, appele explicitement : un commit
-# pousse avec GITHUB_TOKEN ne declenche aucun autre workflow.
+# Les donnees sont committees directement sur main, la production, sans
+# intervention : une pull request par jour ne serait jamais relue, et deux
+# branches de donnees entreraient en conflit sur les memes fichiers.
+#
+# Le push se fait avec la cle de deploiement SYNC_DEPLOY_KEY, seule autorisee a
+# contourner la protection de main. Un push fait avec une cle declenche les
+# workflows : Image Docker deploie le site, Aligner develop reporte les donnees
+# sur develop. Sans cle (main non protegee), le push passe par GITHUB_TOKEN, qui
+# ne declenche rien : les deux workflows sont alors appeles explicitement.
 on:
   schedule:
     # Tous les jours sauf le lundi, 3 h 30 UTC : mesures seules.
@@ -39,12 +43,19 @@ jobs:
     timeout-minutes: 180
     outputs:
       commit: ${{ steps.commit.outputs.sha }}
+      par-cle: ${{ steps.cle.outputs.presente }}
     env:
       COMPLETE: ${{ github.event.schedule == '30 3 * * 1' || inputs.complete == true }}
     steps:
       - uses: actions/checkout@v7
         with:
           ref: main
+          # Vide, checkout se rabat sur GITHUB_TOKEN.
+          ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
+
+      - name: Pousser avec la cle de deploiement ?
+        id: cle
+        run: echo "presente=${{ secrets.SYNC_DEPLOY_KEY != '' }}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v7
         with:
@@ -124,13 +135,14 @@ jobs:
             fi
             sleep 15
           done
-          echo "::error::Push sur main refuse (branche protegee ?)"
+          echo "::error::Push sur main refuse : main est protegee et SYNC_DEPLOY_KEY manque, ou n'a pas le droit de contourner la protection."
           exit 1
 
-  # Reconstruit l'image a partir du commit de donnees, puis la deploie.
+  # Sans cle, le push n'a declenche aucun workflow : on deploie et on aligne
+  # develop ici. Avec la cle, le push s'en est charge.
   deployer:
     needs: synchroniser
-    if: needs.synchroniser.outputs.commit != ''
+    if: needs.synchroniser.outputs.commit != '' && needs.synchroniser.outputs.par-cle != 'true'
     uses: ./.github/workflows/docker.yml
     with:
       ref: ${{ needs.synchroniser.outputs.commit }}
@@ -138,3 +150,11 @@ jobs:
     secrets: inherit
     permissions:
       contents: read
+
+  aligner:
+    needs: synchroniser
+    if: needs.synchroniser.outputs.commit != '' && needs.synchroniser.outputs.par-cle != 'true'
+    uses: ./.github/workflows/aligner-develop.yml
+    secrets: inherit
+    permissions:
+      contents: write

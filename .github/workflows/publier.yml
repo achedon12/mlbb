@@ -1,0 +1,57 @@
+name: Publier en production
+
+# Une version passe en production par avance rapide de main jusqu'a develop :
+# pas de commit de fusion, main reprend exactement les commits testes sur
+# develop. Une pull request develop -> main ouverte pour la relecture est
+# marquee fusionnee d'elle-meme par GitHub.
+#
+# Garde-fous : develop doit contenir main (sinon, attendre qu'Aligner develop
+# l'ait rejouee dessus), et Qualite comme Tests doivent avoir reussi sur le
+# commit publie. Le push passe par la cle de deploiement SYNC_DEPLOY_KEY, seule
+# autorisee a contourner la protection de main ; il declenche le deploiement.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: publier
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    name: Avancer main jusqu'a develop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
+
+      - name: Verifier puis publier
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch -q origin main develop
+          main=$(git rev-parse origin/main)
+          develop=$(git rev-parse origin/develop)
+          if [ "$main" = "$develop" ]; then
+            echo "main est deja a jour."
+            exit 0
+          fi
+          if ! git merge-base --is-ancestor origin/main origin/develop; then
+            echo "::error::develop ne contient pas main : attendez qu'Aligner develop l'ait rejouee sur main, puis relancez."
+            exit 1
+          fi
+          for workflow in qualite.yml tests.yml; do
+            etat=$(gh run list --workflow "$workflow" --commit "$develop" --json status,conclusion \
+              --jq '.[0] | "\(.status) \(.conclusion)"')
+            if [ "$etat" != "completed success" ]; then
+              echo "::error::$workflow n'a pas reussi sur ${develop:0:7} (${etat:-aucune execution})."
+              exit 1
+            fi
+          done
+          git push -q origin "$develop:refs/heads/main"
+          echo "main avance de $(git rev-list --count "$main..$develop") commit(s), jusqu'a ${develop:0:7}."

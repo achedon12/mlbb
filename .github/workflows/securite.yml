@@ -5,7 +5,7 @@ name: Securite
 # publiees apres coup.
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
   schedule:
     - cron: "0 6 * * 1"

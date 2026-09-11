@@ -13,6 +13,7 @@
 
 ## Verifications
 
+- [ ] La pull request vise `develop` (seules les versions vont vers `main`)
 - [ ] `npm run lint` passe
 - [ ] `npm run typecheck` passe
 - [ ] `npm run build` passe

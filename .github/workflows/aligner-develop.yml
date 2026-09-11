@@ -1,0 +1,67 @@
+name: Aligner develop
+
+# main, c'est la production ; develop, le travail en cours. Tout ce qui arrive
+# sur main — une version publiee, un correctif urgent, les donnees de la
+# synchronisation quotidienne — est reporte aussitot sur develop, sans jamais
+# de commit de fusion :
+#
+# - develop en retard sur main : avance rapide ;
+# - develop porte des commits pas encore publies : ils sont rejoues par-dessus
+#   main (rebase), puis develop est repoussee. L'historique reste lineaire et la
+#   publication suivante sera une simple avance rapide de main.
+#
+# Le push passe par la cle de deploiement SYNC_DEPLOY_KEY, autorisee a
+# contourner la protection de develop (force push apres un rebase).
+on:
+  push:
+    branches: [main]
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aligner-develop
+  cancel-in-progress: false
+
+jobs:
+  aligner:
+    name: Reporter main sur develop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          # Vide, checkout se rabat sur GITHUB_TOKEN.
+          ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
+
+      - name: Avancer ou rejouer develop sur main
+        run: |
+          if ! git ls-remote --exit-code --heads origin develop > /dev/null; then
+            echo "Pas encore de branche develop : rien a aligner."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch -q origin main develop
+          avant=$(git rev-parse origin/develop)
+          if git merge-base --is-ancestor origin/main origin/develop; then
+            echo "develop contient deja main."
+            exit 0
+          fi
+          git checkout -q -B develop origin/develop
+          if git merge-base --is-ancestor origin/develop origin/main; then
+            git merge -q --ff-only origin/main
+            git push -q origin HEAD:develop
+            echo "develop avance jusqu'a $(git rev-parse --short HEAD)."
+            exit 0
+          fi
+          if ! git rebase -q origin/main; then
+            git rebase --abort
+            echo "::error::Les commits de develop entrent en conflit avec main : rebasez develop sur main a la main."
+            exit 1
+          fi
+          # Le bail refuse d'ecraser un push arrive sur develop pendant le rebase.
+          git push -q --force-with-lease="develop:$avant" origin HEAD:develop
+          echo "develop rejouee sur main : $(git rev-list --count origin/main..HEAD) commit(s) a publier."

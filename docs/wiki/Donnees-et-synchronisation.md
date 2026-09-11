@@ -38,10 +38,28 @@ jours au jour près ; les semaines plus anciennes y sont réduites à leur moyen
 
 Le workflow **Synchronisation** tourne chaque nuit : les mesures seules du mardi
 au dimanche, la synchronisation complète le lundi. Les données changées sont
-committées directement sur `main` par `github-actions[bot]`, puis le workflow
-**Image Docker** est appelé pour reconstruire l'image depuis ce commit et la
-déployer. Une panne de l'API ne fait qu'un avertissement : les mesures
-précédentes et l'historique sont conservés.
+committées directement sur `main` — la production — puis déployées. Une panne
+de l'API ne fait qu'un avertissement : les mesures précédentes et l'historique
+sont conservés.
+
+## Branches et déploiement
+
+L'historique est linéaire : aucun commit de fusion, `main` et `develop`
+n'avancent que par avance rapide.
+
+- `develop` est le travail en cours : les pull requests la visent (fusion par
+  *rebase* ou *squash*), les tests y tournent, rien n'y est déployé.
+- `main` est la production : chaque push y déclenche le workflow **Image
+  Docker**, qui construit l'image puis déploie. Une version y arrive par le
+  workflow **Publier en production** (onglet *Actions*, ou
+  `gh workflow run publier.yml`) : il vérifie que Qualité et Tests sont verts
+  sur `develop`, puis avance `main` jusqu'à `develop`.
+- La synchronisation pousse ses données sur `main` chaque nuit, puis **Aligner
+  develop** les reporte sur `develop` : avance rapide si `develop` n'a rien de
+  neuf, sinon ses commits non publiés sont rejoués par-dessus `main` (rebase).
+  En local, récupérez `develop` avec `git pull --rebase`.
+- Synchronisation, publication et alignement poussent avec la clé de
+  déploiement `SYNC_DEPLOY_KEY`, seule autorisée à contourner les protections.
 
 Le déploiement se fait par SSH : le serveur récupère `main` puis relance
 `docker compose up -d --build`. Il reste inactif tant que ces réglages du dépôt
@@ -55,5 +73,17 @@ ne sont pas renseignés (*Settings → Secrets and variables → Actions*) :
 | `DEPLOY_PORT` | variable | Port SSH (22 par défaut) |
 | `DEPLOY_SSH_KEY` | secret | Clé privée autorisée sur le serveur |
 | `DEPLOY_KNOWN_HOSTS` | secret | Empreinte du serveur (`ssh-keyscan <hôte>`) |
+| `SYNC_DEPLOY_KEY` | secret | Clé privée d'une clé de déploiement du dépôt, en écriture |
 
-Si `main` est protégée, `github-actions[bot]` doit être autorisé à y pousser.
+Protections (*Settings → Rules → Rulesets*), avec la clé de déploiement
+(*Deploy keys*) en contournement :
+
+- **`main`** : pull request obligatoire, historique linéaire, contrôles
+  **Qualité** et **Tests** obligatoires, ni force push ni suppression.
+- **`develop`** : historique linéaire, ni force push ni suppression.
+
+Les commits de fusion sont désactivés dans les réglages du dépôt : seuls
+*squash* et *rebase* restent proposés.
+
+Sans `SYNC_DEPLOY_KEY`, la synchronisation pousse avec `GITHUB_TOKEN` (refusé si
+`main` est protégée) et appelle elle-même le déploiement et l'alignement.

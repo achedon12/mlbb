@@ -4,7 +4,7 @@ name: Qualite
 # avant de relire le fond.
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
 
 jobs:

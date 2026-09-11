@@ -4,7 +4,7 @@ name: Tests
 # l'autre. Deux jobs distincts pour que l'un ne masque pas l'autre.
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
 
 jobs:

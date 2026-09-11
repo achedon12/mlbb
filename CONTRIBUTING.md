@@ -101,12 +101,31 @@ qui justifie la position au patch courant.
 
 ## Relancer une synchronisation
 
-Elle tourne toute seule chaque lundi et ouvre une pull request. Pour la
-declencher a la main :
+Elle tourne toute seule chaque nuit (complete le lundi) et pousse ses donnees
+directement en production. Pour la declencher a la main :
 
 ```bash
 npm run sync -- --images
 ```
+
+## Branches
+
+- `develop` : le travail en cours. **Toutes les pull requests la visent**, et
+  sont fusionnees par *rebase* ou *squash* : jamais de commit de fusion.
+- `main` : la production, deployee a chaque push. Une version y arrive par le
+  workflow **Publier en production**, qui avance `main` jusqu'a `develop`.
+
+```bash
+git switch develop && git pull --rebase
+git switch -c ma-contribution
+# ... commits ...
+git push -u origin ma-contribution   # puis pull request vers develop
+```
+
+Les donnees de la synchronisation arrivent chaque nuit sur `main` et sont
+reportees sur `develop`, rejouee par-dessus si besoin : recuperez-la toujours
+avec `git pull --rebase` (ou `git config pull.rebase true`, une fois pour
+toutes).
 
 ## Avant d'ouvrir une pull request
 

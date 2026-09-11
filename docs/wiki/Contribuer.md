@@ -19,6 +19,18 @@ cp .env.example .env.local
 npm run dev            # http://localhost:3001
 ```
 
+## Branches
+
+- `develop` : le travail en cours — **les pull requests la visent**, fusionnées
+  par *rebase* ou *squash*.
+- `main` : la production, déployée à chaque push. Une version y arrive par le
+  workflow **Publier en production** (avance rapide, sans commit de fusion) ;
+  les données de la synchronisation y sont poussées chaque nuit puis reportées
+  sur `develop`. Récupérez `develop` avec `git pull --rebase`.
+
+Voir [Données et synchronisation](Donnees-et-synchronisation) pour le détail du
+déploiement et des protections de branches.
+
 ## Avant d'ouvrir une PR
 
 ```bash

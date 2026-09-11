@@ -1,20 +1,18 @@
 name: Image Docker
 
-# Verifie que l'image de production se construit. On ne pousse rien : l'objectif
-# est d'attraper une regression du Dockerfile avant le deploiement.
+# main, c'est la production : tout push sur main construit l'image, puis met le
+# serveur a jour — une version publiee depuis develop comme un commit de
+# donnees de la synchronisation. On ne pousse l'image nulle part : le serveur
+# reconstruit la sienne, ce build-ci verifie seulement qu'elle se construit.
 #
-# Appele aussi par la synchronisation apres un commit de donnees (un push fait
-# avec GITHUB_TOKEN ne declencherait pas ce workflow) : l'image est alors
-# construite depuis ce commit, puis le serveur se met a jour.
+# Sur une pull request qui touche l'image (Dockerfile, dependances, config de
+# Next), construction seule : la regression est attrapee avant la fusion.
+#
+# Appele aussi par la synchronisation quand elle a pousse avec GITHUB_TOKEN,
+# faute de cle de deploiement : un tel push ne declenche aucun workflow.
 on:
   push:
     branches: [main]
-    paths:
-      - Dockerfile
-      - docker-compose.yml
-      - package.json
-      - package-lock.json
-      - next.config.ts
   pull_request:
     paths:
       - Dockerfile
@@ -65,7 +63,7 @@ jobs:
   deployer:
     name: Deployer sur le serveur
     needs: construire
-    if: inputs.deployer && vars.DEPLOY_HOST != ''
+    if: (inputs.deployer || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && vars.DEPLOY_HOST != ''
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
