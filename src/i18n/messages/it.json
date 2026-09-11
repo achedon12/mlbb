@@ -111,7 +111,8 @@
       "triPalier": "Elenco livelli",
       "compte": "{n} eroi",
       "compteSur": "su {total}",
-      "aucun": "Nessun eroe corrisponde a questi filtri."
+      "aucun": "Nessun eroe corrisponde a questi filtri.",
+      "liste": "Elenco degli eroi"
     },
     "heroDetail": {
       "tousLesHeros": "Tutti gli eroi",

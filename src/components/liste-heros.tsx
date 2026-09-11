@@ -109,6 +109,8 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
         {resultats.length !== heros.length && ` ${t("pages.heroesListe.compteSur", { total: heros.length })}`}
       </p>
 
+      {/* Titre de la grille pour les lecteurs d'ecran : les cartes portent des h3. */}
+      <h2 className="sr-only">{t("pages.heroesListe.liste")}</h2>
       {resultats.length > 0 ? (
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {resultats.map((h) => (

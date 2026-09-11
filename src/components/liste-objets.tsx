@@ -167,14 +167,14 @@ export function ListeObjets({
                       </span>
                     )}
                   </span>
-                  <span className="text-[0.7rem] font-medium leading-tight text-craie-100">
+                  <span className="text-xs font-medium leading-tight text-craie-100">
                     {o.nom}
                   </span>
                   {o.prix !== null && (
                     // L'unite est ecrite en toutes lettres : un nombre nu sous
                     // une icone d'objet se lit comme un niveau ou une quantite,
                     // pas comme un prix.
-                    <span className="text-[0.65rem] tabular-nums text-or-400">
+                    <span className="text-xs tabular-nums text-or-400">
                       {o.prix.toLocaleString("fr-FR")} or
                     </span>
                   )}

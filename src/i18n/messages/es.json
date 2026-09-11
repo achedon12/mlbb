@@ -111,7 +111,8 @@
       "triPalier": "Lista de niveles",
       "compte": "{n} héroes",
       "compteSur": "en {total}",
-      "aucun": "Ningún héroe coincide con estos filtros."
+      "aucun": "Ningún héroe coincide con estos filtros.",
+      "liste": "Lista de héroes"
     },
     "heroDetail": {
       "tousLesHeros": "todos los héroes",

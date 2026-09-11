@@ -111,7 +111,8 @@
       "triPalier": "Tier list",
       "compte": "{n} heroes",
       "compteSur": "on {total}",
-      "aucun": "No heroes match these filters."
+      "aucun": "No heroes match these filters.",
+      "liste": "Hero list"
     },
     "heroDetail": {
       "tousLesHeros": "All the heroes",
