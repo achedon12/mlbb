@@ -390,7 +390,9 @@
       "niveauX": "Nivel {n}",
       "deconnexion": "Cerrar sesión",
       "detailIndispo": "Las estadísticas detalladas — tasa de victoria, historial, héroes más jugados — dependen de un servicio de Moonton actualmente fuera de línea. Tu perfil de arriba sigue accesible; el detalle volverá en cuanto la fuente responda.",
-      "aucuneStat": "No hay estadísticas que mostrar."
+      "aucuneStat": "No hay estadísticas que mostrar.",
+      "lienProfil": "Ver mi perfil de jugador",
+      "lienProfilTexte": "Balance de temporada, héroes comparados con la media de tu rango, últimas partidas y consejos."
     },
     "apiDoc": {
       "titre": "API pública",
@@ -524,10 +526,82 @@
       "lienGuide": "Guía completa en GitHub (CONTRIBUTING.md)"
     },
     "accountProfile": {
-      "nParties": {},
-      "bourreauxSource": {},
-      "partiesAffichees": {},
-      "issue": {}
+      "metaTitre": "Perfil de jugador",
+      "metaDescription": "Tu temporada en Mobile Legends: héroes más jugados frente a la media de tu rango, últimas partidas y consejos basados en tus cifras.",
+      "titre": "Perfil de jugador",
+      "chapeau": "Las partidas de {nom}, comparadas con las tasas de victoria medidas por el sitio: dónde estás frente a los jugadores de tu rango.",
+      "choixSaison": "Temporada",
+      "saison": "Temporada {n}",
+      "bilanTitre": "Balance de la temporada {n}",
+      "parties": "Partidas",
+      "herosJoues": "Héroes jugados",
+      "bilanPartiel": "Mínimo: el servicio no devolvió todos los héroes jugados, el total real puede ser mayor.",
+      "surLesSaisons": "En las temporadas {liste}",
+      "surToutesSaisons": "En todas las temporadas registradas",
+      "mvp": "MVP",
+      "meilleureSerie": "Mejor racha",
+      "herosTitre": "Héroes más jugados",
+      "herosIntro": "Tu tasa de victoria con cada héroe de la temporada, frente a la de todos los jugadores ({rang}).",
+      "trancheSousEpique": "Las mediciones por rango empiezan en Épico: por debajo, la comparación se hace con todos los rangos.",
+      "herosVide": "Ningún héroe jugado en esta temporada.",
+      "colHeros": "Héroe",
+      "vous": "Tú",
+      "moyenneRang": "Media {rang}",
+      "ecart": "Diferencia",
+      "sansMesure": "Sin medición para este héroe",
+      "noteToutRang": "Media de todos los rangos, a falta de medición en tu franja.",
+      "sourceMoyenne": "Medias registradas por el sitio el {date}, en partidas clasificatorias. Tus cifras proceden del servicio de Moonton.",
+      "nParties": {
+        "un": "{n} partida",
+        "autres": "{n} partidas"
+      },
+      "sectionIndispo": "Esta parte del perfil depende de un servicio de Moonton que no responde en este momento. Vuelve a intentarlo en unos minutos.",
+      "conseilsTitre": "Consejos",
+      "conseilsIntro": "Basados en tus partidas de la temporada. Un héroe jugado menos de {n} veces se deja de lado: su tasa aún no dice nada.",
+      "meilleursTitre": "Tus mejores héroes",
+      "meilleursTexte": "Con los que ganas más a menudo: buenas elecciones cuando tu rol está libre.",
+      "meilleursVide": "Aún no hay suficientes partidas con un mismo héroe para destacar un punto fuerte.",
+      "meilleurDetail": "{taux} de victorias en {n} partidas",
+      "sousMoyenneTitre": "Por debajo de la media de tu rango",
+      "sousMoyenneTexte": "Claramente por debajo de la media ({rang}): revisa la build y los counters, o déjalos de lado un tiempo.",
+      "sousMoyenneVide": "Ningún héroe claramente por debajo de la media de tu rango. Bien jugado.",
+      "sousMoyenneDetail": "{taux} frente a una media de {moyenne}",
+      "bourreauxTitre": "Héroes que más te ganan",
+      "bourreauxTexte": "Los rivales más presentes en tus derrotas recientes: buenos candidatos para banear.",
+      "bourreauxVide": "Ningún héroe rival aparece con suficiente frecuencia en tus derrotas recientes como para marcar una tendencia.",
+      "bourreauDetail": "{d} derrotas en {n} enfrentamientos",
+      "bourreauxSource": {
+        "un": "Basado en tu última partida.",
+        "autres": "Basado en tus últimas {n} partidas."
+      },
+      "bourreauxSansEquipes": "El detalle de las partidas no indica los equipos rivales: análisis imposible por ahora.",
+      "bourreauxIndispo": "El detalle de las partidas no responde: este análisis volverá más tarde.",
+      "analyseEnCours": "Analizando los equipos rivales…",
+      "partiesTitre": "Últimas partidas",
+      "partiesVide": "Ninguna partida registrada en esta temporada.",
+      "partiesAffichees": {
+        "un": "{n} partida mostrada",
+        "autres": "{n} partidas mostradas"
+      },
+      "issue": {
+        "victoire": "Victoria",
+        "defaite": "Derrota",
+        "inconnue": "Resultado desconocido"
+      },
+      "kda": "{k} asesinatos, {d} muertes, {a} asistencias",
+      "note": "Nota {n}",
+      "voirPlus": "Partidas anteriores",
+      "chargement": "Cargando…",
+      "toutAffiche": "Se muestran todas las partidas de la temporada.",
+      "erreurChargement": "El servicio no responde. Vuelve a intentarlo en un momento.",
+      "expireTitre": "Sesión caducada",
+      "expireTexte": "Tu sesión de juego ha caducado. Vuelve a iniciar sesión con un código nuevo para recuperar tu perfil.",
+      "seReconnecter": "Volver a iniciar sesión",
+      "indispoTitre": "Estadísticas no disponibles por el momento",
+      "indispoTexte": "El servicio de Moonton que proporciona el historial de partidas no responde en este momento. Sigues conectado; vuelve a intentarlo en unos minutos.",
+      "videTitre": "Aún no hay partidas",
+      "videTexte": "Esta cuenta aún no tiene ninguna temporada registrada. Juega algunas partidas y vuelve: tu perfil se completará solo.",
+      "retourCompte": "Volver a la cuenta"
     }
   },
   "modeFiche": {

@@ -390,7 +390,9 @@
       "niveauX": "Level {n}",
       "deconnexion": "Log out",
       "detailIndispo": "Detailed stats — win rate, match history, most played heroes — depend on a Moonton service that is currently offline. Your profile above is still available; the details will return as soon as the source responds.",
-      "aucuneStat": "No stats to display."
+      "aucuneStat": "No stats to display.",
+      "lienProfil": "View my player profile",
+      "lienProfilTexte": "Season summary, heroes compared with your rank's average, recent matches and tips."
     },
     "apiDoc": {
       "titre": "Public API",
@@ -524,10 +526,82 @@
       "lienGuide": "Full guide on GitHub (CONTRIBUTING.md)"
     },
     "accountProfile": {
-      "nParties": {},
-      "bourreauxSource": {},
-      "partiesAffichees": {},
-      "issue": {}
+      "metaTitre": "Player profile",
+      "metaDescription": "Your Mobile Legends season: most played heroes against your rank's average, recent matches and tips drawn from your numbers.",
+      "titre": "Player profile",
+      "chapeau": "{nom}'s matches, set against the win rates measured by the site: where you stand among players of your rank.",
+      "choixSaison": "Season",
+      "saison": "Season {n}",
+      "bilanTitre": "Season {n} summary",
+      "parties": "Matches",
+      "herosJoues": "Heroes played",
+      "bilanPartiel": "Minimum: the service did not return every hero played, so the real total may be higher.",
+      "surLesSaisons": "Across seasons {liste}",
+      "surToutesSaisons": "Across all tracked seasons",
+      "mvp": "MVP",
+      "meilleureSerie": "Best win streak",
+      "herosTitre": "Most played heroes",
+      "herosIntro": "Your win rate on each hero this season, against that of all players ({rang}).",
+      "trancheSousEpique": "Rank measurements start at Epic: below it, the comparison uses all ranks.",
+      "herosVide": "No hero played this season.",
+      "colHeros": "Hero",
+      "vous": "You",
+      "moyenneRang": "{rang} avg.",
+      "ecart": "Gap",
+      "sansMesure": "No measurement for this hero",
+      "noteToutRang": "All-ranks average, as your bracket has no measurement.",
+      "sourceMoyenne": "Averages recorded by the site on {date}, from ranked matches. Your numbers come from Moonton's service.",
+      "nParties": {
+        "un": "{n} match",
+        "autres": "{n} matches"
+      },
+      "sectionIndispo": "This part of the profile relies on a Moonton service that is not responding right now. Try again in a few minutes.",
+      "conseilsTitre": "Tips",
+      "conseilsIntro": "Drawn from your matches this season. A hero played fewer than {n} times is left out: its win rate means nothing yet.",
+      "meilleursTitre": "Your best heroes",
+      "meilleursTexte": "The ones you win with most often: good picks when your role is open.",
+      "meilleursVide": "Not enough matches on a single hero yet to point out a strength.",
+      "meilleurDetail": "{taux} wins over {n} matches",
+      "sousMoyenneTitre": "Below your rank's average",
+      "sousMoyenneTexte": "Clearly below the average ({rang}): review the build and counters, or set them aside for a while.",
+      "sousMoyenneVide": "No hero clearly below your rank's average. Well played.",
+      "sousMoyenneDetail": "{taux} against a {moyenne} average",
+      "bourreauxTitre": "Heroes that beat you most",
+      "bourreauxTexte": "The opponents who show up most in your recent defeats: good ban candidates.",
+      "bourreauxVide": "No enemy hero comes up often enough in your recent defeats to form a pattern.",
+      "bourreauDetail": "{d} defeats in {n} encounters",
+      "bourreauxSource": {
+        "un": "Based on your last match.",
+        "autres": "Based on your last {n} matches."
+      },
+      "bourreauxSansEquipes": "Match details do not include the enemy teams: this analysis is not possible for now.",
+      "bourreauxIndispo": "Match details are not responding: this analysis will be back later.",
+      "analyseEnCours": "Analysing enemy teams…",
+      "partiesTitre": "Recent matches",
+      "partiesVide": "No match recorded this season.",
+      "partiesAffichees": {
+        "un": "{n} match shown",
+        "autres": "{n} matches shown"
+      },
+      "issue": {
+        "victoire": "Victory",
+        "defaite": "Defeat",
+        "inconnue": "Unknown result"
+      },
+      "kda": "{k} kills, {d} deaths, {a} assists",
+      "note": "Rating {n}",
+      "voirPlus": "Older matches",
+      "chargement": "Loading…",
+      "toutAffiche": "All matches of the season are shown.",
+      "erreurChargement": "The service is not responding. Try again in a moment.",
+      "expireTitre": "Session expired",
+      "expireTexte": "Your game session has expired. Log in again with a new code to get your profile back.",
+      "seReconnecter": "Log in again",
+      "indispoTitre": "Stats temporarily unavailable",
+      "indispoTexte": "The Moonton service that provides match history is not responding right now. You are still logged in; try again in a few minutes.",
+      "videTitre": "No matches yet",
+      "videTexte": "This account has no recorded season yet. Play a few matches, then come back: your profile will fill itself in.",
+      "retourCompte": "Back to account"
     }
   },
   "modeFiche": {

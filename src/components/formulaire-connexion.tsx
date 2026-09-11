@@ -17,6 +17,7 @@ import { useT } from "@/i18n/fournisseur";
 export function FormulaireConnexion() {
   const t = useT();
   const [etat, envoyer, enCours] = useActionState<Etat, FormData>(demanderCode, {});
+  const [aideAvant, aideApres = ""] = t("loginForm.aideServeur").split("{exemple}");
 
   if (etat.codeEnvoye) {
     return <FormulaireCode roleId={etat.roleId!} zoneId={etat.zoneId!} />;
@@ -26,7 +27,7 @@ export function FormulaireConnexion() {
     <form action={envoyer} className="space-y-5">
       <div>
         <label htmlFor="roleId" className="block text-sm font-medium text-craie-100">
-          Identifiant de joueur
+          {t("loginForm.identifiant")}
         </label>
         <input
           id="roleId"
@@ -35,14 +36,14 @@ export function FormulaireConnexion() {
           defaultValue={etat.roleId}
           required
           autoFocus
-          placeholder="123456789 ou 123456789 (6021)"
+          placeholder={t("loginForm.exempleIdentifiant")}
           className="biseau-sm mt-2 w-full border border-nuit-700 bg-nuit-900 px-4 py-2.5 text-craie-100 outline-none transition-colors focus:border-or-500"
         />
       </div>
 
       <div>
         <label htmlFor="zoneId" className="block text-sm font-medium text-craie-100">
-          Serveur
+          {t("loginForm.serveur")}
         </label>
         <input
           id="zoneId"
@@ -53,12 +54,13 @@ export function FormulaireConnexion() {
           className="biseau-sm mt-2 w-full border border-nuit-700 bg-nuit-900 px-4 py-2.5 text-craie-100 outline-none transition-colors focus:border-or-500"
         />
         <p className="mt-1.5 text-xs leading-relaxed text-craie-500">
-          Dans le jeu, profil → <span className="text-craie-300">123456789 (6021)</span>.
-          Vous pouvez coller le tout dans le premier champ.
+          {aideAvant}
+          <span className="text-craie-300">123456789 (6021)</span>
+          {aideApres}
         </p>
       </div>
 
-      {etat.erreur && <Erreur>{etat.erreur}</Erreur>}
+      {etat.erreur && <Erreur>{t(etat.erreur)}</Erreur>}
 
       <button
         type="submit"
@@ -86,13 +88,12 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
       <input type="hidden" name="zoneId" value={zoneId} />
 
       <div className="biseau-sm border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400">
-        Un code a quatre chiffres vient d&apos;etre envoye dans votre messagerie
-        MLBB. Il est valable cinq minutes.
+        {t("loginForm.codeEnvoye")}
       </div>
 
       <div>
         <label htmlFor="code" className="block text-sm font-medium text-craie-100">
-          Code de verification
+          {t("loginForm.code")}
         </label>
         <input
           id="code"
@@ -107,7 +108,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
         />
       </div>
 
-      {etat.erreur && <Erreur>{etat.erreur}</Erreur>}
+      {etat.erreur && <Erreur>{t(etat.erreur)}</Erreur>}
 
       <button
         type="submit"

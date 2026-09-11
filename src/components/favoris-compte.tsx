@@ -3,9 +3,12 @@
 import { useSyncExternalStore } from "react";
 import { useT } from "@/i18n/fournisseur";
 import Link from "@/components/lien";
-import { MonitorSmartphone, Star, X } from "lucide-react";
+import { BellRing, Minus, MonitorSmartphone, Star, TrendingDown, TrendingUp, X, type LucideIcon } from "lucide-react";
 import { abonnerFavoris, basculerFavori, favorisServeur, instantaneFavoris } from "@/lib/favoris";
 import { herosParSlug } from "@/lib/donnees-client";
+import type { ResumePatch } from "@/lib/suivi-patchs";
+import type { TypeAjustement } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 /**
  * Note de portee : les favoris ne sont pas lies au compte de jeu — ils vivent
@@ -24,8 +27,68 @@ function NotePortee() {
   );
 }
 
-/** Liste des heros mis en favori, lue depuis le navigateur. */
-export function FavorisCompte() {
+const TENDANCE: Record<TypeAjustement, { icone: LucideIcon; couleur: string }> = {
+  amelioration: { icone: TrendingUp, couleur: "text-emerald-400" },
+  affaiblissement: { icone: TrendingDown, couleur: "text-sang-500" },
+  ajustement: { icone: Minus, couleur: "text-azur-400" },
+};
+
+/**
+ * Favoris touches par le dernier patch : on sait d'un coup d'oeil lesquels
+ * ont ete ameliores, affaiblis ou retouches, sans lire toutes les notes.
+ */
+function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: ResumePatch }) {
+  const t = useT();
+  const touches = favoris.filter((slug) => slug in patch.types);
+
+  return (
+    <div className="biseau mt-5 border border-or-500/30 bg-nuit-900/60 p-4">
+      <h3 className="flex items-center gap-2 text-sm font-semibold text-craie-100">
+        <BellRing size={15} aria-hidden className="shrink-0 text-or-400" />
+        {t("favoris.alerte.titre", { version: patch.version })}
+      </h3>
+      {touches.length === 0 ? (
+        <p className="mt-2 text-sm leading-relaxed text-craie-500">
+          {t("favoris.alerte.aucun", { version: patch.version })}
+        </p>
+      ) : (
+        <ul className="mt-3 space-y-2">
+          {touches.map((slug) => {
+            const type = patch.types[slug];
+            const tendance = type ? TENDANCE[type] : null;
+            const Icone = tendance?.icone;
+            return (
+              <li key={slug} className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-sm">
+                <Link
+                  href={`/heroes/${slug}#stats`}
+                  className="font-medium text-craie-100 underline underline-offset-4 transition-colors hover:text-or-400"
+                >
+                  {herosParSlug[slug] ?? slug}
+                </Link>
+                <span className={cn("flex items-center gap-1 text-xs font-semibold", tendance?.couleur ?? "text-craie-400")}>
+                  {Icone && <Icone size={13} aria-hidden />}
+                  {type ? t(`patchHeros.${type}`) : t("favoris.alerte.modifie")}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 border-t border-nuit-800 pt-3 text-xs leading-relaxed text-craie-500">
+        <Link href={`/patch-notes/${patch.version}`} className="font-semibold text-or-400 hover:text-or-500">
+          {t("patchHeros.voirPatch", { version: patch.version })} →
+        </Link>
+        <span>{t("favoris.alerte.rss")}</span>
+      </p>
+    </div>
+  );
+}
+
+/**
+ * Liste des heros mis en favori, lue depuis le navigateur. `dernierPatch`, un
+ * resume de quelques centaines d'octets, signale ceux que le patch a touches.
+ */
+export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePatch | null }) {
   const t = useT();
   const favoris = useSyncExternalStore(abonnerFavoris, instantaneFavoris, favorisServeur);
 
@@ -71,6 +134,7 @@ export function FavorisCompte() {
           </li>
         ))}
       </ul>
+      {dernierPatch && <AlertePatch favoris={favoris} patch={dernierPatch} />}
       <NotePortee />
     </div>
   );

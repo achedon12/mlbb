@@ -13,6 +13,7 @@ import { fermerSession, ouvrirSession } from "./session";
  * jeton, l'authentification chez Moonton.
  */
 export interface Etat {
+  /** Cle du catalogue (`loginForm.erreurs.*`) : le formulaire l'affiche dans la langue de la page. */
   erreur?: string;
   /** Passe a vrai une fois le code envoye : le formulaire affiche alors le champ code. */
   codeEnvoye?: boolean;
@@ -21,8 +22,8 @@ export interface Etat {
 }
 
 const identifiants = z.object({
-  roleId: z.coerce.number().int().positive("Identifiant invalide."),
-  zoneId: z.coerce.number().int().positive("Serveur invalide."),
+  roleId: z.coerce.number().int().positive("loginForm.erreurs.identifiant"),
+  zoneId: z.coerce.number().int().positive("loginForm.erreurs.serveur"),
 });
 
 /** Sépare « 123456789 (6021) » colle dans le champ identifiant. */
@@ -44,7 +45,10 @@ export async function demanderCode(_precedent: Etat, donnees: FormData): Promise
 
   const analyse = identifiants.safeParse({ roleId: brutRole, zoneId: brutZone });
   if (!analyse.success) {
-    return { erreur: analyse.error.issues[0]?.message ?? "Saisie invalide.", roleId: brutRole, zoneId: brutZone };
+    // Un nombre illisible leve l'erreur de type de zod, pas notre message : on retombe alors sur la cle generique.
+    const message = analyse.error.issues[0]?.message;
+    const erreur = message?.startsWith("loginForm.") ? message : "loginForm.erreurs.saisie";
+    return { erreur, roleId: brutRole, zoneId: brutZone };
   }
 
   const { roleId, zoneId } = analyse.data;
@@ -66,7 +70,7 @@ export async function verifierCode(_precedent: Etat, donnees: FormData): Promise
 
   if (!analyse.success || !/^\d{4}$/.test(String(code))) {
     return {
-      erreur: "Le code fait quatre chiffres.",
+      erreur: "loginForm.erreurs.code",
       codeEnvoye: true,
       roleId: String(donnees.get("roleId") ?? ""),
       zoneId: String(donnees.get("zoneId") ?? ""),
@@ -92,4 +96,10 @@ export async function verifierCode(_precedent: Etat, donnees: FormData): Promise
 export async function deconnecter(): Promise<void> {
   await fermerSession();
   redirect("/");
+}
+
+/** Session expiree : on vide le cookie et on repart du formulaire de connexion. */
+export async function reconnecter(): Promise<void> {
+  await fermerSession();
+  redirect("/login");
 }

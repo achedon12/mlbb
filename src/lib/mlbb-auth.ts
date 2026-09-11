@@ -9,6 +9,21 @@
  * Tout passe par le serveur : le jeton n'est jamais expose au navigateur, et
  * aucun mot de passe n'est jamais demande ni transmis.
  */
+import { createHash } from "node:crypto";
+import {
+  IDENTIFIANT,
+  lireDetailPartie,
+  lireHerosFrequents,
+  lireJson,
+  lireParties,
+  lireStats,
+  saisonsDe,
+  type HerosFrequent,
+  type Page,
+  type Participant,
+  type PartieResume,
+  type StatsJoueur,
+} from "@/lib/joueur-api";
 import { journaliserErreur } from "@/lib/journal";
 
 const BASE = "https://arena.rone.dev/api/user";
@@ -77,10 +92,11 @@ export async function envoyerCode(
     if (reponse.ok && donnees.code === 0) return { ok: true };
 
     // errorInvalidZoneId / role null : la saisie ne correspond a aucun compte.
-    return { ok: false, raison: "Aucun compte ne correspond a cet identifiant et ce serveur." };
+    // Les raisons sont des cles du catalogue : le formulaire les traduit.
+    return { ok: false, raison: "loginForm.erreurs.inconnu" };
   } catch (e) {
     void journaliserErreur("envoi du code de verification", e);
-    return { ok: false, raison: "Le service est momentanement indisponible." };
+    return { ok: false, raison: "loginForm.erreurs.indisponible" };
   }
 }
 
@@ -107,10 +123,10 @@ export async function connecter(
     if (reponse.ok && donnees.code === 0 && donnees.data?.jwt) {
       return { ok: true, jeton: donnees.data.jwt };
     }
-    return { ok: false, raison: "Code incorrect ou expire." };
+    return { ok: false, raison: "loginForm.erreurs.codeIncorrect" };
   } catch (e) {
     void journaliserErreur("echange du code contre un jeton", e);
-    return { ok: false, raison: "Le service est momentanement indisponible." };
+    return { ok: false, raison: "loginForm.erreurs.indisponible" };
   }
 }
 
@@ -138,15 +154,59 @@ async function authentifie<T>(
     if (reponse.status === 401) return { etat: "expire" };
     if (!reponse.ok) return { etat: "indisponible" };
 
-    const enveloppe = (await reponse.json()) as { code?: number; data?: unknown };
-    // 10407 : l'endpoint Moonton relaye est momentanement hors service.
-    if (enveloppe.code === 10407 || enveloppe.data == null) return { etat: "indisponible" };
+    // Lu en texte : curseurs et identifiants de partie depassent la precision
+    // des nombres, `lireJson` les garde en chaines.
+    const enveloppe = (lireJson(await reponse.text()) ?? {}) as { code?: unknown; data?: unknown };
+    // 10407 : l'endpoint Moonton relaye est momentanement hors service. Tout
+    // autre code non nul dit de meme qu'il n'y a rien d'exploitable.
+    if ((typeof enveloppe.code === "number" && enveloppe.code !== 0) || enveloppe.data == null) {
+      return { etat: "indisponible" };
+    }
 
     return { etat: "ok", donnees: transformer(enveloppe.data) };
   } catch (e) {
     void journaliserErreur("appel authentifie au service Moonton", e);
     return { etat: "indisponible" };
   }
+}
+
+/**
+ * Memoire courte des reponses authentifiees.
+ *
+ * Une visite du profil appelle le service une quinzaine de fois — saisons,
+ * heros, parties, puis le detail des dernieres parties. Recharger la page ou
+ * paginer ne doit pas tout redemander : chaque reponse reussie est gardee
+ * quelques minutes en memoire du serveur, sous une cle derivee du jeton —
+ * jamais le jeton lui-meme. Rien n'est ecrit sur disque ni partage entre
+ * joueurs, et un echec n'est jamais retenu. Deux appels simultanes au meme
+ * chemin partagent la meme requete.
+ */
+const MEMOIRE = new Map<string, { fin: number; valeur: Promise<Resultat<unknown>> }>();
+const MEMOIRE_MAX = 500;
+
+function memoriser<T>(
+  jeton: string,
+  chemin: string,
+  secondes: number,
+  appeler: () => Promise<Resultat<T>>,
+): Promise<Resultat<T>> {
+  const cle = `${createHash("sha256").update(jeton).digest("base64url")}${chemin}`;
+  const maintenant = Date.now();
+  const connue = MEMOIRE.get(cle);
+  if (connue && connue.fin > maintenant) return connue.valeur as Promise<Resultat<T>>;
+
+  const valeur = appeler();
+  MEMOIRE.delete(cle);
+  MEMOIRE.set(cle, { fin: maintenant + secondes * 1000, valeur });
+  void valeur.then((r) => {
+    if (r.etat !== "ok" && MEMOIRE.get(cle)?.valeur === valeur) MEMOIRE.delete(cle);
+  });
+  // Au-dela du plafond, les entrees les plus anciennes sortent les premieres.
+  for (const ancienne of MEMOIRE.keys()) {
+    if (MEMOIRE.size <= MEMOIRE_MAX) break;
+    MEMOIRE.delete(ancienne);
+  }
+  return valeur;
 }
 
 /** Profil de base : ce qui reste accessible meme quand les stats sont coupees. */
@@ -166,9 +226,109 @@ export function profil(jeton: string): Promise<Resultat<Profil>> {
   });
 }
 
-/** Statistiques detaillees. Souvent indisponibles : la source Moonton coupe. */
-export function statistiques(jeton: string): Promise<Resultat<Record<string, unknown>>> {
-  return authentifie("/stats?lang=en", jeton, (data) => data as Record<string, unknown>);
+/** Statistiques d'ensemble, sur les saisons que le service a gardees. Souvent coupees. */
+export function statistiques(jeton: string): Promise<Resultat<StatsJoueur>> {
+  return memoriser(jeton, "/stats", 300, () => authentifie("/stats?lang=en", jeton, lireStats));
+}
+
+/** Saisons ou le joueur a des parties, de la plus recente a la plus ancienne. */
+export function saisons(jeton: string): Promise<Resultat<number[]>> {
+  return memoriser(jeton, "/season", 3600, () => authentifie("/season?lang=en", jeton, saisonsDe));
+}
+
+const saisonValide = (s: number) => Number.isInteger(s) && s > 0 && s < 1000;
+
+/** Une page de parties de la saison, des plus recentes aux plus anciennes. */
+export function pageParties(
+  jeton: string,
+  saison: number,
+  curseur: string | null,
+  limite = 20,
+): Promise<Resultat<Page<PartieResume>>> {
+  if (!saisonValide(saison) || (curseur !== null && !IDENTIFIANT.test(curseur))) {
+    return Promise.resolve({ etat: "indisponible" });
+  }
+  const requete = new URLSearchParams({ sid: String(saison), limit: String(limite), lang: "en" });
+  if (curseur) requete.set("last_cursor", curseur);
+  const chemin = `/matches?${requete}`;
+  return memoriser(jeton, chemin, 120, () => authentifie(chemin, jeton, lireParties));
+}
+
+/** Pages de heros suivies au plus : bien plus que le nombre de heros du jeu. */
+const PAGES_HEROS_MAX = 5;
+const HEROS_PAR_PAGE = 30;
+
+/**
+ * Tous les heros joues dans la saison, pages enchainees.
+ *
+ * Leur somme donne le bilan de la saison, que le service ne fournit pas tout
+ * fait. Si une page intermediaire manque, on garde ce qui a ete lu et on le
+ * signale : le bilan est alors un minimum, pas un total.
+ */
+export async function herosDeLaSaison(
+  jeton: string,
+  saison: number,
+): Promise<Resultat<{ heros: HerosFrequent[]; complet: boolean }>> {
+  if (!saisonValide(saison)) return { etat: "indisponible" };
+  const vus = new Set<number>();
+  const heros: HerosFrequent[] = [];
+  let curseur: string | null = null;
+
+  for (let page = 0; page < PAGES_HEROS_MAX; page++) {
+    const requete = new URLSearchParams({ sid: String(saison), limit: String(HEROS_PAR_PAGE), lang: "en" });
+    if (curseur) requete.set("last_cursor", curseur);
+    const chemin = `/heroes/frequent?${requete}`;
+    const r = await memoriser(jeton, chemin, 300, () => authentifie(chemin, jeton, lireHerosFrequents));
+
+    if (r.etat !== "ok") {
+      if (r.etat === "expire" || page === 0) return r;
+      return { etat: "ok", donnees: { heros, complet: false } };
+    }
+    for (const h of r.donnees.entrees) {
+      if (vus.has(h.heros.hid)) continue;
+      vus.add(h.heros.hid);
+      heros.push(h);
+    }
+    // Un curseur qui ne change pas relancerait la meme page sans fin.
+    if (!r.donnees.suivant || r.donnees.suivant === curseur) {
+      return { etat: "ok", donnees: { heros, complet: true } };
+    }
+    curseur = r.donnees.suivant;
+  }
+  return { etat: "ok", donnees: { heros, complet: false } };
+}
+
+/** Detail d'une partie : ses participants, equipes comprises. Une partie jouee ne change plus. */
+export function detailPartie(jeton: string, saison: number, id: string): Promise<Resultat<Participant[]>> {
+  if (!saisonValide(saison) || !IDENTIFIANT.test(id)) return Promise.resolve({ etat: "indisponible" });
+  const chemin = `/matches/${id}?sid=${saison}&lang=en`;
+  return memoriser(jeton, chemin, 6 * 3600, () => authentifie(chemin, jeton, lireDetailPartie));
+}
+
+/**
+ * Detail de plusieurs parties, quatre appels a la fois pour menager le
+ * service. Une partie dont le detail manque est simplement absente du
+ * resultat ; une session expiree interrompt tout.
+ */
+export async function detailsParties(
+  jeton: string,
+  parties: { id: string; saison: number }[],
+): Promise<Resultat<Map<string, Participant[]>>> {
+  const sortie = new Map<string, Participant[]>();
+  const file = [...parties];
+  let expire = false;
+
+  const ouvrier = async () => {
+    for (let p = file.shift(); p && !expire; p = file.shift()) {
+      const r = await detailPartie(jeton, p.saison, p.id);
+      if (r.etat === "expire") expire = true;
+      else if (r.etat === "ok" && r.donnees.length > 0) sortie.set(p.id, r.donnees);
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(4, file.length) }, ouvrier));
+
+  if (expire) return { etat: "expire" };
+  return sortie.size > 0 || parties.length === 0 ? { etat: "ok", donnees: sortie } : { etat: "indisponible" };
 }
 
 /**

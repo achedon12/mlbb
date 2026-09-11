@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { cache } from "react";
 import { expiration, profil, type Profil } from "./mlbb-auth";
 
 /**
@@ -28,6 +29,20 @@ export async function fermerSession(): Promise<void> {
   (await cookies()).delete(COOKIE);
 }
 
+/**
+ * Ferme la session quand c'est permis. Pendant le rendu d'une page, les
+ * cookies sont en lecture seule et Next refuse d'y toucher : le cookie reste
+ * alors en place, et l'appel de l'en-tete a `/api/session` — un gestionnaire
+ * de route, lui autorise — le videra au passage.
+ */
+async function fermerSiPossible(): Promise<void> {
+  try {
+    await fermerSession();
+  } catch {
+    // Rendu de page : cookie en lecture seule.
+  }
+}
+
 /** Jeton courant, ou null. Un jeton expire est traite comme absent. */
 export async function jetonCourant(): Promise<string | null> {
   const jeton = (await cookies()).get(COOKIE)?.value;
@@ -40,21 +55,42 @@ export async function jetonCourant(): Promise<string | null> {
 }
 
 /**
- * Profil de la session courante.
+ * Etat de la session.
  *
- * Une reponse « expire » du service — jeton revoque avant son echeance —
- * ferme la session au passage : le prochain rendu la verra vide, sans qu'un
- * jeton mort traine dans le cookie.
+ * Les pages du compte doivent distinguer une session expiree — il faut se
+ * reconnecter — d'une source momentanement coupee — il suffit d'attendre. Le
+ * jeton n'est rendu qu'au code serveur qui appelle le service ; il n'a rien a
+ * faire dans les proprietes d'un composant client.
  */
-export async function profilCourant(): Promise<Profil | null> {
+export type EtatSession =
+  | { etat: "absente" }
+  | { etat: "expiree" }
+  | { etat: "indisponible"; jeton: string }
+  | { etat: "ok"; jeton: string; profil: Profil };
+
+/**
+ * Une reponse « expire » du service — jeton revoque avant son echeance —
+ * ferme la session au passage quand c'est permis : le prochain rendu la verra
+ * vide, sans qu'un jeton mort traine dans le cookie.
+ */
+async function lireSession(): Promise<EtatSession> {
   const jeton = await jetonCourant();
-  if (!jeton) return null;
+  if (!jeton) return { etat: "absente" };
 
   const resultat = await profil(jeton);
   if (resultat.etat === "expire") {
-    await fermerSession();
-    return null;
+    await fermerSiPossible();
+    return { etat: "expiree" };
   }
   // Source indisponible : on garde la session, mais on n'a pas le profil.
-  return resultat.etat === "ok" ? resultat.donnees : null;
+  return resultat.etat === "ok" ? { etat: "ok", jeton, profil: resultat.donnees } : { etat: "indisponible", jeton };
+}
+
+/** Etat de la session, lu une fois par rendu de page. */
+export const sessionJoueur = cache(lireSession);
+
+/** Profil de la session courante, ou null. */
+export async function profilCourant(): Promise<Profil | null> {
+  const session = await lireSession();
+  return session.etat === "ok" ? session.profil : null;
 }
