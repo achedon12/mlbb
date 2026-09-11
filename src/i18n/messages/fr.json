@@ -203,7 +203,17 @@
         "aucunAjustement": "Aucun ajustement de {nom} dans les {n} derniers patchs.",
         "aucuneDonnee": "Pas encore de mesure pour ce héros.",
         "impact": {
-          "verdict": {}
+          "titre": "Effet des patchs",
+          "intro": "Taux de victoire moyen de {nom}, tous rangs, sur les {n} jours avant et après chaque patch qui l'a ajusté, le jour du patch mis à part.",
+          "patch": "Patch {version}",
+          "avantApres": "{avant} % avant, {apres} % après",
+          "verdict": {
+            "attendu": "Effet attendu",
+            "neutre": "Sans effet net",
+            "inverse": "Effet inverse"
+          },
+          "vide": "Pas encore assez de recul : il faut au moins {n} jours mesurés de part et d'autre d'un patch, et l'historique de ce site commence le {date}.",
+          "videSansHistorique": "Pas encore d'historique pour mesurer l'effet des patchs sur {nom}."
         }
       },
       "coequipiers": "Meilleurs coéquipiers",
@@ -305,7 +315,8 @@
       "metaTitreRang": "Tier list MLBB {rang} : les meilleurs héros du moment",
       "metaDescriptionRang": "Classement des héros de Mobile Legends mesuré sur les parties classées {rang} : taux de victoire, de ban et de sélection, mis à jour à chaque synchronisation.",
       "chapeauRang": "Le même calcul, restreint aux parties {rang} : un héros peut dominer à un rang et peiner à un autre.",
-      "conclusion": "Un classement mesure la marge d'erreur qu'un héros pardonne, pas le plafond qu'il permet d'atteindre. Un héros de palier C maîtrisé bat un héros de palier S+ découvert la veille."
+      "conclusion": "Un classement mesure la marge d'erreur qu'un héros pardonne, pas le plafond qu'il permet d'atteindre. Un héros de palier C maîtrisé bat un héros de palier S+ découvert la veille.",
+      "tendances": "Les flèches ↑ et ↓ sous le taux de victoire donnent son évolution sur sept jours dans ce rang, quand elle atteint au moins {seuil} point."
     },
     "patchNotes": {
       "titre": "Patch notes",
@@ -552,7 +563,15 @@
     "suivreRss": "Suivre les publications en RSS",
     "pourcentVictoires": "% de victoires",
     "derniersArticles": "Derniers articles",
-    "tendances": {}
+    "tendances": {
+      "titre": "Tendances de la semaine",
+      "chapeau": "Évolution du taux de victoire sur sept jours, tous rangs confondus. Les écarts de moins de {seuil} point, trop proches de l'arrondi, ne sont pas retenus.",
+      "hausse": "En hausse",
+      "baisse": "En baisse",
+      "aucuneHausse": "Aucun héros ne progresse nettement cette semaine.",
+      "aucuneBaisse": "Aucun héros ne recule nettement cette semaine."
+    },
+    "lireNotes": "Lire les notes"
   },
   "vedette": {
     "herosDuJour": "Héros du jour",
@@ -742,7 +761,14 @@
     "tauxBan": "Taux de ban",
     "skins": "Skins",
     "rechercher": "Rechercher un héros…",
-    "aucun": "Aucun héros ne correspond."
+    "aucun": "Aucun héros ne correspond.",
+    "courbes": "Taux de victoire sur {n} jours",
+    "chargement": "Chargement des courbes…",
+    "erreurCourbes": "Les courbes n'ont pas pu être chargées.",
+    "aucuneCourbe": "Pas encore de mesure quotidienne pour ces deux héros.",
+    "sansCourbe": "Pas encore de mesure quotidienne pour {nom} à ce rang.",
+    "resumeCourbes": "Taux de victoire quotidien sur {n} jours, {rang} : {details}.",
+    "resumeHeros": "{nom} de {debut} % à {fin} %"
   },
   "patchHeros": {
     "amelioration": "Amélioration",
@@ -1220,7 +1246,12 @@
     }
   },
   "tendances": {
-    "point": {}
+    "hausse": "en hausse de {v} {unite} en {n} jours",
+    "baisse": "en baisse de {v} {unite} en {n} jours",
+    "point": {
+      "one": "point",
+      "other": "points"
+    }
   },
   "outilTaux": {}
 }

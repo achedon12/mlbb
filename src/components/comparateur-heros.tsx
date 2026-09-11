@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { CourbeTaux, type SerieCourbe } from "@/components/courbe-taux";
 import { PortraitHeros } from "@/components/portrait-heros";
+import { GroupeFiltres, Puce } from "@/components/puce";
 import Link from "@/components/lien";
 import { ChevronDown } from "lucide-react";
+import { RANGS_MESURE, type RangMesure } from "@/lib/rangs-mesure";
+import { alignerSeries, type SerieVictoire } from "@/lib/tendances";
 import type { Palier } from "@/lib/types";
-import { useT } from "@/i18n/fournisseur";
+import { useLangue, useT } from "@/i18n/fournisseur";
 import { cleRecherche, cn } from "@/lib/utils";
 
 export interface HerosComparable {
@@ -106,6 +110,8 @@ export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
             <LigneMesure label={t("compareUI.skins")} a={a.skins} b={b.skins} />
           </div>
 
+          <CourbesComparees a={a} b={b} />
+
           {/* Notes editoriales du wiki, comparees en barres. */}
           <div className="mt-8 space-y-5">
             {ATTRIBUTS.map(({ cle, cleI18n }) => (
@@ -123,6 +129,134 @@ export function ComparateurHeros({ heros }: { heros: HerosComparable[] }) {
         </div>
       )}
     </div>
+  );
+}
+
+type TendancesVictoire = Partial<Record<RangMesure, SerieVictoire>>;
+
+const JOURS_COURBE = 30;
+
+/** Requetes deja lancees, par heros : revenir a un heros ne recharge rien. */
+const requetes = new Map<string, Promise<TendancesVictoire>>();
+
+function chargerTendances(slug: string): Promise<TendancesVictoire> {
+  let requete = requetes.get(slug);
+  if (!requete) {
+    requete = fetch(`/tendances/${slug}.json`).then((r) => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json() as Promise<TendancesVictoire>;
+    });
+    // Un echec ne reste pas en memoire : la prochaine selection retente.
+    requete.catch(() => requetes.delete(slug));
+    requetes.set(slug, requete);
+  }
+  return requete;
+}
+
+const mesures = (s: SerieVictoire | undefined) => (s?.victoire ?? []).filter((v): v is number => v !== null);
+
+/**
+ * Taux de victoire des deux heros sur trente jours, superposes. Le catalogue
+ * du comparateur n'a pas l'historique : chaque heros choisi fait venir son
+ * fichier statique (`/tendances/<slug>.json`), une fois par visite. Le rang se
+ * choisit parmi ceux que les deux heros ont en commun.
+ */
+function CourbesComparees({ a, b }: { a: HerosComparable; b: HerosComparable }) {
+  const t = useT();
+  const langue = useLangue();
+  const [charges, setCharges] = useState<Record<string, TendancesVictoire | "erreur">>({});
+  const [rang, setRang] = useState<RangMesure>("all");
+
+  useEffect(() => {
+    for (const slug of new Set([a.slug, b.slug])) {
+      chargerTendances(slug).then(
+        (d) => setCharges((c) => ({ ...c, [slug]: d })),
+        () => setCharges((c) => ({ ...c, [slug]: "erreur" })),
+      );
+    }
+  }, [a.slug, b.slug]);
+
+  const da = charges[a.slug];
+  const db = charges[b.slug];
+  const titre = (
+    <h2 className="text-center text-xs uppercase tracking-wide text-craie-500">
+      {t("compareUI.courbes", { n: JOURS_COURBE })}
+    </h2>
+  );
+  const message = (texte: string) => (
+    <section className="mt-8">
+      {titre}
+      <p role="status" className="biseau mt-3 grid h-[200px] place-items-center border border-nuit-700/70 bg-nuit-900/60 px-4 text-center text-sm text-craie-500">
+        {texte}
+      </p>
+    </section>
+  );
+
+  if (da === undefined || db === undefined) return message(t("compareUI.chargement"));
+  if (da === "erreur" || db === "erreur") return message(t("compareUI.erreurCourbes"));
+
+  const disponibles = (d: TendancesVictoire) => RANGS_MESURE.filter((r) => mesures(d[r]).length > 1);
+  const ra = disponibles(da);
+  const rb = disponibles(db);
+  const communs = ra.filter((r) => rb.includes(r));
+  const rangs = communs.length > 0 ? communs : ra.length > 0 ? ra : rb;
+  if (rangs.length === 0) return message(t("compareUI.aucuneCourbe"));
+  const choisi = rangs.includes(rang) ? rang : rangs[0];
+
+  // Couleur attachee au cote, pas au rang d'affichage : le premier heros reste
+  // dore, le second bleu et en tirets, meme quand l'autre n'a pas de mesure.
+  const cotes = [
+    { heros: a, serie: da[choisi], couleur: "text-or-400", tirets: false },
+    { heros: b, serie: db[choisi], couleur: "text-azur-500", tirets: true },
+  ];
+  const { dates, valeurs } = alignerSeries(
+    cotes.map((c) => ({ debut: c.serie?.debut ?? "", valeurs: c.serie?.victoire ?? [] })),
+  );
+  const depuis = Math.max(0, dates.length - JOURS_COURBE);
+  const series: SerieCourbe[] = cotes.flatMap((c, k) =>
+    mesures(c.serie).length > 1
+      ? [{ nom: c.heros.nom, valeurs: valeurs[k].slice(depuis), couleur: c.couleur, tirets: c.tirets }]
+      : [],
+  );
+  const sans = cotes.filter((c) => mesures(c.serie).length < 2);
+
+  const nombre = new Intl.NumberFormat(langue, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const details = series
+    .map((s) => {
+      const v = s.valeurs.filter((x): x is number => x !== null);
+      return t("compareUI.resumeHeros", { nom: s.nom, debut: nombre.format(v[0]), fin: nombre.format(v.at(-1)!) });
+    })
+    .join(" ; ");
+
+  return (
+    <section className="mt-8">
+      {titre}
+      {rangs.length > 1 && (
+        <GroupeFiltres legende={t("rangsMesure.label")} largeurLegende="" className="mt-3 justify-center">
+          {rangs.map((r) => (
+            <Puce key={r} dense actif={r === choisi} onClick={() => setRang(r)}>
+              {t(`rangsMesure.${r}`)}
+            </Puce>
+          ))}
+        </GroupeFiltres>
+      )}
+      <div className="biseau mt-3 border border-nuit-700/70 bg-nuit-900/60 p-3 sm:p-4">
+        <CourbeTaux
+          dates={dates.slice(depuis)}
+          series={series}
+          libelle={t("compareUI.resumeCourbes", {
+            n: JOURS_COURBE,
+            rang: t(`rangsMesure.${choisi}`).toLocaleLowerCase(langue),
+            details,
+          })}
+        />
+      </div>
+      {sans.map((c) => (
+        <p key={c.heros.slug} className="mt-2 text-xs text-craie-500">
+          {t("compareUI.sansCourbe", { nom: c.heros.nom })}
+        </p>
+      ))}
+    </section>
   );
 }
 
@@ -319,7 +453,10 @@ function LigneMesure({
 }) {
   const meilleur =
     a == null || b == null ? 0 : a === b ? 0 : (a > b) === plusHautMieux ? -1 : 1;
-  const fmt = (v: number | null) => (v == null ? "—" : `${v}${suffixe}`);
+  const langue = useLangue();
+  // Les taux au format de la langue (« 54,4 % », « 54.4% ») ; les comptes restent entiers.
+  const pourcent = new Intl.NumberFormat(langue, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const fmt = (v: number | null) => (v == null ? "—" : suffixe === "%" ? pourcent.format(v / 100) : `${v}${suffixe}`);
 
   return (
     <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-b border-nuit-800 pb-2 text-sm">

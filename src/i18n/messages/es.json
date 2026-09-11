@@ -203,7 +203,17 @@
         "aucunAjustement": "Sin cambios para {nom} en los últimos {n} parches.",
         "aucuneDonnee": "Aún no hay mediciones para este héroe.",
         "impact": {
-          "verdict": {}
+          "titre": "Efecto de los parches",
+          "intro": "Tasa de victoria media de {nom}, todos los rangos, en los {n} días antes y después de cada parche que lo ajustó, sin contar el día del parche.",
+          "patch": "Parche {version}",
+          "avantApres": "{avant} % antes, {apres} % después",
+          "verdict": {
+            "attendu": "Efecto esperado",
+            "neutre": "Sin efecto claro",
+            "inverse": "Efecto contrario"
+          },
+          "vide": "Todavía falta perspectiva: se necesitan al menos {n} días medidos a cada lado de un parche, y el historial de este sitio empieza el {date}.",
+          "videSansHistorique": "Todavía no hay historial para medir el efecto de los parches en {nom}."
         }
       },
       "coequipiers": "Mejores compañeros",
@@ -305,7 +315,8 @@
       "metaTitreRang": "Tier list MLBB {rang}: los mejores héroes del momento",
       "metaDescriptionRang": "Clasificación de héroes de Mobile Legends medida en partidas clasificatorias {rang}: tasas de victoria, ban y selección, actualizadas en cada sincronización.",
       "chapeauRang": "El mismo cálculo, limitado a las partidas {rang}: un héroe puede dominar en un rango y sufrir en otro.",
-      "conclusion": "Una tier list mide cuánto perdona un héroe los errores, no hasta dónde puede llevarte. Un héroe de tier C dominado vence a uno S+ descubierto el día anterior."
+      "conclusion": "Una tier list mide cuánto perdona un héroe los errores, no hasta dónde puede llevarte. Un héroe de tier C dominado vence a uno S+ descubierto el día anterior.",
+      "tendances": "Las flechas ↑ y ↓ bajo la tasa de victoria indican su variación en siete días en este rango, cuando alcanza al menos {seuil} puntos."
     },
     "patchNotes": {
       "titre": "Notas del parche",
@@ -552,7 +563,15 @@
     "suivreRss": "Seguir las publicaciones por RSS",
     "pourcentVictoires": "% de victorias",
     "derniersArticles": "Últimos artículos",
-    "tendances": {}
+    "tendances": {
+      "titre": "Tendencias de la semana",
+      "chapeau": "Variación de la tasa de victoria en siete días, todos los rangos. Las diferencias de menos de {seuil} puntos, demasiado cercanas al redondeo, no se tienen en cuenta.",
+      "hausse": "En alza",
+      "baisse": "En baja",
+      "aucuneHausse": "Ningún héroe sube claramente esta semana.",
+      "aucuneBaisse": "Ningún héroe baja claramente esta semana."
+    },
+    "lireNotes": "Leer las notas"
   },
   "vedette": {
     "herosDuJour": "Héroe del día",
@@ -742,7 +761,14 @@
     "tauxBan": "Tasa de baneo",
     "skins": "Skins",
     "rechercher": "Buscar un héroe…",
-    "aucun": "Ningún héroe coincide."
+    "aucun": "Ningún héroe coincide.",
+    "courbes": "Tasa de victoria en {n} días",
+    "chargement": "Cargando las curvas…",
+    "erreurCourbes": "No se pudieron cargar las curvas.",
+    "aucuneCourbe": "Todavía no hay datos diarios para estos dos héroes.",
+    "sansCourbe": "Todavía no hay datos diarios de {nom} en este rango.",
+    "resumeCourbes": "Tasa de victoria diaria en {n} días, {rang}: {details}.",
+    "resumeHeros": "{nom} de {debut} % a {fin} %"
   },
   "patchHeros": {
     "amelioration": "Buff",
@@ -1220,7 +1246,12 @@
     }
   },
   "tendances": {
-    "point": {}
+    "hausse": "sube {v} {unite} en {n} días",
+    "baisse": "baja {v} {unite} en {n} días",
+    "point": {
+      "one": "punto",
+      "other": "puntos"
+    }
   },
   "outilTaux": {}
 }

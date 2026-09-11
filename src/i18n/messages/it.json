@@ -203,7 +203,17 @@
         "aucunAjustement": "Nessuna modifica a {nom} nelle ultime {n} patch.",
         "aucuneDonnee": "Ancora nessuna misurazione per questo eroe.",
         "impact": {
-          "verdict": {}
+          "titre": "Effetto delle patch",
+          "intro": "Tasso di vittoria medio di {nom}, tutti i ranghi, nei {n} giorni prima e dopo ogni patch che lo ha modificato, escluso il giorno della patch.",
+          "patch": "Patch {version}",
+          "avantApres": "{avant}% prima, {apres}% dopo",
+          "verdict": {
+            "attendu": "Effetto atteso",
+            "neutre": "Nessun effetto netto",
+            "inverse": "Effetto opposto"
+          },
+          "vide": "Non c'è ancora abbastanza distanza: servono almeno {n} giorni misurati prima e dopo una patch, e lo storico di questo sito inizia il {date}.",
+          "videSansHistorique": "Non c'è ancora uno storico per misurare l'effetto delle patch su {nom}."
         }
       },
       "coequipiers": "Migliori compagni",
@@ -305,7 +315,8 @@
       "metaTitreRang": "Tier list MLBB {rang}: i migliori eroi del momento",
       "metaDescriptionRang": "Classifica degli eroi di Mobile Legends misurata sulle partite classificate {rang}: tassi di vittoria, ban e scelta, aggiornati a ogni sincronizzazione.",
       "chapeauRang": "Lo stesso calcolo, limitato alle partite {rang}: un eroe può dominare a un rango e faticare a un altro.",
-      "conclusion": "Una tier list misura quanto un eroe perdona gli errori, non fin dove può portarti. Un eroe di fascia C padroneggiato batte un eroe S+ scoperto il giorno prima."
+      "conclusion": "Una tier list misura quanto un eroe perdona gli errori, non fin dove può portarti. Un eroe di fascia C padroneggiato batte un eroe S+ scoperto il giorno prima.",
+      "tendances": "Le frecce ↑ e ↓ sotto il tasso di vittoria indicano la sua variazione su sette giorni in questo rango, quando raggiunge almeno {seuil} punti."
     },
     "patchNotes": {
       "titre": "Patch notes",
@@ -552,7 +563,15 @@
     "suivreRss": "Segui le pubblicazioni via RSS",
     "pourcentVictoires": "% di vittorie",
     "derniersArticles": "Ultimi articoli",
-    "tendances": {}
+    "tendances": {
+      "titre": "Tendenze della settimana",
+      "chapeau": "Variazione del tasso di vittoria su sette giorni, tutti i ranghi. Gli scarti inferiori a {seuil} punti, troppo vicini all'arrotondamento, non sono considerati.",
+      "hausse": "In crescita",
+      "baisse": "In calo",
+      "aucuneHausse": "Nessun eroe è in netta crescita questa settimana.",
+      "aucuneBaisse": "Nessun eroe è in netto calo questa settimana."
+    },
+    "lireNotes": "Leggi le note"
   },
   "vedette": {
     "herosDuJour": "Eroe del giorno",
@@ -742,7 +761,14 @@
     "tauxBan": "Ban rate",
     "skins": "Skin",
     "rechercher": "Cerca un eroe…",
-    "aucun": "Nessun eroe corrisponde."
+    "aucun": "Nessun eroe corrisponde.",
+    "courbes": "Win rate su {n} giorni",
+    "chargement": "Caricamento delle curve…",
+    "erreurCourbes": "Non è stato possibile caricare le curve.",
+    "aucuneCourbe": "Ancora nessuna misura giornaliera per questi due eroi.",
+    "sansCourbe": "Ancora nessuna misura giornaliera per {nom} a questo rango.",
+    "resumeCourbes": "Win rate giornaliero su {n} giorni, {rang}: {details}.",
+    "resumeHeros": "{nom} da {debut}% a {fin}%"
   },
   "patchHeros": {
     "amelioration": "Buff",
@@ -1220,7 +1246,12 @@
     }
   },
   "tendances": {
-    "point": {}
+    "hausse": "in crescita di {v} {unite} in {n} giorni",
+    "baisse": "in calo di {v} {unite} in {n} giorni",
+    "point": {
+      "one": "punto",
+      "other": "punti"
+    }
   },
   "outilTaux": {}
 }

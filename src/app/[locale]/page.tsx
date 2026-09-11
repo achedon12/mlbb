@@ -1,19 +1,31 @@
 import Link from "@/components/lien";
 import { donneesLd } from "@/lib/html";
 import Image from "next/image";
-import { ArrowRight, Rss, Swords, TrendingUp } from "lucide-react";
+import { ArrowRight, Rss, Swords, TrendingDown, TrendingUp } from "lucide-react";
 import { AccesRoles } from "@/components/acces-roles";
 import { AccueilVedette } from "@/components/accueil-vedette";
+import { PortraitHeros } from "@/components/portrait-heros";
 import { BadgePalier, Carte, TitreSection } from "@/components/ui";
-import { heros, herosAnalyses, illustrations, nombreSkins, patchs, patchsDetail, synchro } from "@/lib/donnees";
+import {
+  heros,
+  herosAnalyses,
+  herosParSlug,
+  illustrations,
+  nombreSkins,
+  patchs,
+  patchsDetail,
+  synchro,
+} from "@/lib/donnees";
 import { tousLesArticles } from "@/lib/contenu";
+import { tendancesDe } from "@/lib/evolution";
+import { decrireEcart, formaterEcart, mouvementsSemaine, SEUIL_NOTABLE, type Mouvement } from "@/lib/tendances";
 import { classementComplet } from "@/lib/tier-list";
 import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
-import { formaterDate } from "@/lib/utils";
+import { cn, formaterDate } from "@/lib/utils";
 import type { Langue } from "@/i18n/config";
 import { LOCALE_HTML } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { creerT, type T } from "@/i18n/traductions";
 
 /** Donnees structurees de l'accueil, dans la langue de la page. */
 const donneesAccueil = (locale: Langue) => ({
@@ -69,6 +81,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
   const vedette = herosDuJour();
   const articles = tousLesArticles(locale).slice(0, 3);
   const sommet = classementComplet.slice(0, 5);
+  const semaine = mouvementsSemaine(heros.map((h) => ({ slug: h.slug, serie: tendancesDe(h.slug).all })));
   const dernierPatch = patchs.find((p) => detail[p.version]);
 
   const classe = vedette
@@ -206,7 +219,8 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   <BadgePalier palier={e.palier} />
                   <span className="font-titre font-bold text-craie-100">{e.heros.nom}</span>
                   <span className="text-xs text-craie-500">
-                    {e.victoire.toFixed(1)} {t("home.pourcentVictoires")}
+                    {new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(e.victoire)}{" "}
+                    {t("home.pourcentVictoires")}
                   </span>
                 </Link>
               </li>
@@ -214,6 +228,38 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
           </ul>
         </div>
       </section>
+
+      {/* ── Tendances de la semaine ────────────────────────────────────── */}
+      {(semaine.hausses.length > 0 || semaine.baisses.length > 0) && (
+        <section className="mx-auto max-w-6xl px-4 py-16">
+          <TitreSection
+            chapeau={t("home.tendances.chapeau", {
+              seuil: new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(SEUIL_NOTABLE),
+            })}
+            action={{ href: "/tier-list", label: t("home.tierListComplete") }}
+          >
+            {t("home.tendances.titre")}
+          </TitreSection>
+          <div className="grid gap-8 md:grid-cols-2">
+            <ListeMouvements
+              titre={t("home.tendances.hausse")}
+              vide={t("home.tendances.aucuneHausse")}
+              mouvements={semaine.hausses}
+              hausse
+              locale={locale}
+              t={t}
+            />
+            <ListeMouvements
+              titre={t("home.tendances.baisse")}
+              vide={t("home.tendances.aucuneBaisse")}
+              mouvements={semaine.baisses}
+              hausse={false}
+              locale={locale}
+              t={t}
+            />
+          </div>
+        </section>
+      )}
 
       {/* ── Skins ──────────────────────────────────────────────────────── */}
       {skinsEnAvant.length > 0 && (
@@ -274,7 +320,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   href={`/patch-notes/${dernierPatch.version}`}
                   className="mt-5 inline-block text-sm font-semibold text-or-400 hover:text-or-500"
                 >
-                  Lire les notes →
+                  {t("home.lireNotes")} →
                 </Link>
               </Carte>
             </div>
@@ -318,7 +364,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
 
       {/* ── Fonctionnement ─────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <TitreSection chapeau={t("home.synchroChapeau", { date: formaterDate(synchro.date) })}>
+        <TitreSection chapeau={t("home.synchroChapeau", { date: formaterDate(synchro.date, LOCALE_HTML[locale]) })}>
           {t("home.commentFonctionne")}
         </TitreSection>
         <div className="grid gap-4 md:grid-cols-3">
@@ -354,5 +400,82 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
         </p>
       </section>
     </>
+  );
+}
+
+/**
+ * Hausses ou baisses de la semaine : portrait, taux actuel et ecart en points.
+ * La fleche et la couleur doublent le signe ; les lecteurs d'ecran entendent
+ * l'ecart en toutes lettres.
+ */
+function ListeMouvements({
+  titre,
+  vide,
+  mouvements,
+  hausse,
+  locale,
+  t,
+}: {
+  titre: string;
+  vide: string;
+  mouvements: Mouvement[];
+  hausse: boolean;
+  locale: Langue;
+  t: T;
+}) {
+  const Icone = hausse ? TrendingUp : TrendingDown;
+  const pourcent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return (
+    <div>
+      <h3
+        className={cn(
+          "mb-3 flex items-center gap-2 font-titre text-lg font-bold",
+          hausse ? "text-emerald-400" : "text-sang-500",
+        )}
+      >
+        <Icone size={18} aria-hidden />
+        {titre}
+      </h3>
+      {mouvements.length === 0 ? (
+        <p className="text-sm text-craie-500">{vide}</p>
+      ) : (
+        <ol className="space-y-2">
+          {mouvements.map(({ slug, variation: v }) => {
+            const h = herosParSlug.get(slug);
+            if (!h) return null;
+            return (
+              <li key={slug}>
+                <Link
+                  href={`/heroes/${slug}`}
+                  className="biseau-sm group flex items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-2.5 transition-colors hover:border-or-500/60"
+                >
+                  <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="icone" decoratif />
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                      {h.nom}
+                    </span>
+                    <span className="block text-xs text-craie-500">
+                      {pourcent.format(v.actuel)} {t("home.pourcentVictoires")}
+                    </span>
+                  </span>
+                  <span
+                    className={cn(
+                      "flex shrink-0 items-center gap-1.5 font-semibold tabular-nums",
+                      hausse ? "text-emerald-400" : "text-sang-500",
+                    )}
+                  >
+                    <Icone size={15} aria-hidden />
+                    <span aria-hidden>
+                      {formaterEcart(v.ecart, locale)} {t("contres.pts")}
+                    </span>
+                    <span className="sr-only">{decrireEcart(t, locale, v.ecart, v.jours)}</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+    </div>
   );
 }

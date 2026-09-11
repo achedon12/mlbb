@@ -7,6 +7,15 @@ import { useRang } from "@/components/selecteur-rang";
 import { useLangue, useT } from "@/i18n/fournisseur";
 import type { SerieTaux, TrancheDuree } from "@/lib/evolution";
 import { RANGS_MESURE, type RangMesure } from "@/lib/rangs-mesure";
+import {
+  formaterEcart,
+  impactsDuHeros,
+  JOURS_IMPACT,
+  MESURES_MIN_IMPACT,
+  pointsDe as pointsDates,
+  SEUIL_IMPACT,
+} from "@/lib/tendances";
+import type { TypeAjustement } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 type Mesure = "victoire" | "ban" | "selection";
@@ -14,13 +23,7 @@ const MESURES: Mesure[] = ["victoire", "ban", "selection"];
 const PERIODES = [7, 15, 30];
 
 /** Une serie alignee, jour par jour. */
-function pointsDe(serie: SerieTaux, mesure: Mesure): PointCourbe[] {
-  const debut = Date.parse(`${serie.debut}T00:00:00Z`);
-  return serie[mesure].map((valeur, k) => ({
-    date: new Date(debut + k * 86400000).toISOString().slice(0, 10),
-    valeur,
-  }));
-}
+const pointsDe = (serie: SerieTaux, mesure: Mesure): PointCourbe[] => pointsDates(serie.debut, serie[mesure]);
 
 const mesurees = (points: PointCourbe[]) => points.flatMap((p) => (p.valeur === null ? [] : [p.valeur]));
 
@@ -37,6 +40,7 @@ export function StatistiquesHeros({
   historique,
   patchs,
   parRang,
+  ajustements = [],
 }: {
   nom: string;
   tendances: Partial<Record<RangMesure, SerieTaux>>;
@@ -44,6 +48,8 @@ export function StatistiquesHeros({
   historique: SerieTaux | null;
   patchs: { version: string; date: string }[];
   parRang: Partial<Record<RangMesure, { victoire: number; ban: number }>>;
+  /** Patchs qui ont touche le heros, pour en mesurer l'effet. */
+  ajustements?: { version: string; type: TypeAjustement | null }[];
 }) {
   const t = useT();
   const langue = useLangue();
@@ -192,7 +198,109 @@ export function StatistiquesHeros({
           </div>
         </section>
       )}
+
+      <EffetPatchs nom={nom} historique={historique} ajustements={ajustements} patchs={patchs} nombre={nombre} />
     </div>
+  );
+}
+
+const COULEUR_TYPE: Record<TypeAjustement, string> = {
+  amelioration: "border-emerald-500/30 text-emerald-400",
+  affaiblissement: "border-sang-500/30 text-sang-500",
+  ajustement: "border-azur-500/30 text-azur-400",
+};
+
+/**
+ * Effet de chaque patch sur le taux de victoire : moyenne des sept jours
+ * d'avant contre celle des sept jours d'apres, et verdict (« le nerf a-t-il
+ * porte ? »). Tant que l'historique ne couvre pas un patch des deux cotes, un
+ * message le dit plutot qu'un bloc vide ; sans patch date, rien.
+ */
+function EffetPatchs({
+  nom,
+  historique,
+  ajustements,
+  patchs,
+  nombre,
+}: {
+  nom: string;
+  historique: SerieTaux | null;
+  ajustements: { version: string; type: TypeAjustement | null }[];
+  patchs: { version: string; date: string }[];
+  nombre: (v: number) => string;
+}) {
+  const t = useT();
+  const langue = useLangue();
+  const dateDe = new Map(patchs.map((p) => [p.version, p.date]));
+  const dates = ajustements.flatMap((a) => (dateDe.has(a.version) ? [{ ...a, date: dateDe.get(a.version)! }] : []));
+  if (dates.length === 0) return null;
+  const impacts = impactsDuHeros(historique, dates);
+
+  return (
+    <section>
+      <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroDetail.statistiques.impact.titre")}</h3>
+      <p className="mt-1 text-sm text-craie-500">
+        {t("pages.heroDetail.statistiques.impact.intro", { nom, n: JOURS_IMPACT })}
+      </p>
+
+      {impacts.length === 0 ? (
+        <p className="biseau-sm mt-4 border border-dashed border-nuit-700 px-4 py-3 text-sm leading-relaxed text-craie-500">
+          {historique
+            ? t("pages.heroDetail.statistiques.impact.vide", {
+                n: MESURES_MIN_IMPACT,
+                date: new Intl.DateTimeFormat(langue, { dateStyle: "long", timeZone: "UTC" }).format(
+                  new Date(`${historique.debut}T00:00:00Z`),
+                ),
+              })
+            : t("pages.heroDetail.statistiques.impact.videSansHistorique", { nom })}
+        </p>
+      ) : (
+        <ul className="mt-4 space-y-2">
+          {impacts.map((i, k) => {
+            const signe = Math.abs(i.ecart) < SEUIL_IMPACT - 1e-9 ? 0 : Math.sign(i.ecart);
+            return (
+              <li
+                key={`${i.version}-${k}`}
+                className="biseau-sm flex flex-wrap items-center gap-x-4 gap-y-1 border border-nuit-700/70 bg-nuit-900/60 px-3 py-2 text-sm"
+              >
+                <span className="font-semibold text-craie-100">
+                  {t("pages.heroDetail.statistiques.impact.patch", { version: i.version })}
+                </span>
+                {i.type && (
+                  <span className={cn("biseau-sm border px-1.5 py-0.5 text-[0.7rem]", COULEUR_TYPE[i.type])}>
+                    {t(`patchHeros.${i.type}`)}
+                  </span>
+                )}
+                <span className="tabular-nums text-craie-300">
+                  <span aria-hidden>
+                    {nombre(i.avant)} % → {nombre(i.apres)} %
+                  </span>
+                  <span className="sr-only">
+                    {t("pages.heroDetail.statistiques.impact.avantApres", {
+                      avant: nombre(i.avant),
+                      apres: nombre(i.apres),
+                    })}
+                  </span>
+                </span>
+                <span
+                  className={cn(
+                    "font-semibold tabular-nums",
+                    signe === 1 ? "text-emerald-400" : signe === -1 ? "text-sang-500" : "text-craie-100",
+                  )}
+                >
+                  {formaterEcart(i.ecart, langue)} {t("contres.pts")}
+                </span>
+                {i.verdict && (
+                  <span className="text-xs text-craie-500">
+                    {t(`pages.heroDetail.statistiques.impact.verdict.${i.verdict}`)}
+                  </span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </section>
   );
 }
 

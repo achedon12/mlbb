@@ -203,7 +203,17 @@
         "aucunAjustement": "No changes to {nom} in the last {n} patches.",
         "aucuneDonnee": "No measurements for this hero yet.",
         "impact": {
-          "verdict": {}
+          "titre": "Patch impact",
+          "intro": "{nom}'s average win rate, all ranks, over the {n} days before and after each patch that adjusted them, patch day excluded.",
+          "patch": "Patch {version}",
+          "avantApres": "{avant}% before, {apres}% after",
+          "verdict": {
+            "attendu": "Worked as intended",
+            "neutre": "No clear effect",
+            "inverse": "Opposite effect"
+          },
+          "vide": "Not enough hindsight yet: it takes at least {n} measured days on each side of a patch, and this site's history starts on {date}.",
+          "videSansHistorique": "No history yet to measure how patches affected {nom}."
         }
       },
       "coequipiers": "Best teammates",
@@ -305,7 +315,8 @@
       "metaTitreRang": "MLBB {rang} tier list: the best heroes right now",
       "metaDescriptionRang": "Mobile Legends hero ranking measured on {rang} ranked games: win, ban and pick rates, refreshed with every sync.",
       "chapeauRang": "The same formula, limited to {rang} games: a hero can dominate at one rank and struggle at another.",
-      "conclusion": "A tier list measures how forgiving a hero is, not how far they can take you. A mastered C-tier hero beats an S+ hero picked up yesterday."
+      "conclusion": "A tier list measures how forgiving a hero is, not how far they can take you. A mastered C-tier hero beats an S+ hero picked up yesterday.",
+      "tendances": "The ↑ and ↓ arrows under the win rate show its change over seven days in this rank, when it reaches at least {seuil} points."
     },
     "patchNotes": {
       "titre": "Patch notes",
@@ -552,7 +563,15 @@
     "suivreRss": "Follow new posts via RSS",
     "pourcentVictoires": "% win rate",
     "derniersArticles": "Latest articles",
-    "tendances": {}
+    "tendances": {
+      "titre": "This week's trends",
+      "chapeau": "Seven-day change in win rate, all ranks combined. Changes under {seuil} points are too close to rounding to count.",
+      "hausse": "Rising",
+      "baisse": "Falling",
+      "aucuneHausse": "No hero is clearly rising this week.",
+      "aucuneBaisse": "No hero is clearly falling this week."
+    },
+    "lireNotes": "Read the notes"
   },
   "vedette": {
     "herosDuJour": "Hero of the day",
@@ -742,7 +761,14 @@
     "tauxBan": "Ban rate",
     "skins": "Skins",
     "rechercher": "Search for a hero…",
-    "aucun": "No hero matches."
+    "aucun": "No hero matches.",
+    "courbes": "Win rate over {n} days",
+    "chargement": "Loading curves…",
+    "erreurCourbes": "The curves could not be loaded.",
+    "aucuneCourbe": "No daily data yet for these two heroes.",
+    "sansCourbe": "No daily data yet for {nom} at this rank.",
+    "resumeCourbes": "Daily win rate over {n} days, {rang}: {details}.",
+    "resumeHeros": "{nom} from {debut}% to {fin}%"
   },
   "patchHeros": {
     "amelioration": "Buff",
@@ -1220,7 +1246,12 @@
     }
   },
   "tendances": {
-    "point": {}
+    "hausse": "up {v} {unite} in {n} days",
+    "baisse": "down {v} {unite} in {n} days",
+    "point": {
+      "one": "point",
+      "other": "points"
+    }
   },
   "outilTaux": {}
 }
