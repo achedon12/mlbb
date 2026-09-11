@@ -6,29 +6,29 @@ export const tanks: AnalyseHeros[] = [
   {
     slug: "tigreal",
     resume:
-      "Tank d'engagement historique, capable de regrouper une equipe entiere dans un seul ultime.",
+      "Tank d'engagement historique, capable de regrouper une équipe entière dans un seul ultime.",
     analyse:
-      "Tigreal fait une chose, et il la fait mieux que presque personne : ramasser plusieurs adversaires d'un coup. Le combo classique consiste a se ruer avec la competence 2, puis a enchainer immediatement l'ultime avant que les cibles ne se dispersent — l'annulation de l'animation par un sort de Flicker reste la technique la plus rentable a apprendre sur lui.\n\nSa limite est nette : hors de son ultime, il n'apporte presque rien. Un Tigreal qui a rate son engagement laisse son equipe a quatre pendant une dizaine de secondes. C'est un heros de timing, pas de presence continue.",
+      "Tigreal fait une chose, et il la fait mieux que presque personne : ramasser plusieurs adversaires d'un coup. Le combo classique consiste à se ruer avec la compétence 2, puis à enchaîner immédiatement l'ultime avant que les cibles ne se dispersent — l'annulation de l'animation par un sort de Flicker reste la technique la plus rentable à apprendre sur lui.\n\nSa limite est nette : hors de son ultime, il n'apporte presque rien. Un Tigreal qui a raté son engagement laisse son équipe à quatre pendant une dizaine de secondes. C'est un héros de timing, pas de présence continue.",
     competences: [
       {
         type: "Passif",
         nom: "Forteresse",
         description:
-          "Les attaques de base de Tigreal chargent son armure. A pleine charge, sa prochaine attaque inflige des degats supplementaires et le protege brievement.",
+          "Les attaques de base de Tigreal chargent son armure. À pleine charge, sa prochaine attaque inflige des dégâts supplémentaires et le protège brièvement.",
       },
       {
         type: "Competence 1",
         nom: "Onde de choc",
         description:
-          "Frappe le sol devant lui, infligeant des degats et ralentissant les ennemis touches.",
+          "Frappe le sol devant lui, infligeant des dégâts et ralentissant les ennemis touchés.",
         recharge: [7, 6.6, 6.2, 5.8, 5.4, 5],
         cout: [40, 45, 50, 55, 60, 65],
       },
       {
         type: "Competence 2",
-        nom: "Charge sacree",
+        nom: "Charge sacrée",
         description:
-          "Se rue vers l'avant en poussant les ennemis rencontres, puis les projette en l'air a la fin de la course.",
+          "Se rue vers l'avant en poussant les ennemis rencontrés, puis les projette en l'air à la fin de la course.",
         recharge: [11, 10.4, 9.8, 9.2, 8.6, 8],
         cout: [60, 65, 70, 75, 80, 85],
       },
@@ -36,20 +36,20 @@ export const tanks: AnalyseHeros[] = [
         type: "Ultime",
         nom: "Implosion",
         description:
-          "Attire tous les ennemis proches vers lui, puis les etourdit. La reference en matiere d'engagement de groupe.",
+          "Attire tous les ennemis proches vers lui, puis les étourdit. La référence en matière d'engagement de groupe.",
         recharge: [42, 36, 30],
         cout: [100, 120, 140],
       },
     ],
     forces: [
       "Le meilleur regroupement du jeu sur plusieurs cibles",
-      "Tres resistant meme avec un budget d'objets modeste",
-      "Lisible : facile a prendre en main en file classee basse",
+      "Très résistant même avec un budget d'objets modeste",
+      "Lisible : facile à prendre en main en file classée basse",
     ],
     faiblesses: [
       "Inutile quand son ultime est en recharge",
-      "L'engagement est telegraphie sans Flicker",
-      "Aucune mobilite pour se desengager s'il rate",
+      "L'engagement est télégraphié sans Flicker",
+      "Aucune mobilité pour se désengager s'il rate",
     ],
     fortContre: ["cecilion", "layla", "pharsa", "estes"],
     faibleContre: ["diggie", "khufra", "wanwan", "benedetta"],
@@ -57,7 +57,7 @@ export const tanks: AnalyseHeros[] = [
       {
         nom: "Roam d'engagement",
         contexte:
-          "Le build par defaut. On sacrifie tous les degats pour arriver au contact et survivre a l'ouverture du combat.",
+          "Le build par défaut. On sacrifie tous les dégâts pour arriver au contact et survivre à l'ouverture du combat.",
         objets: [
           "Warrior Boots",
           "Athena's Shield",
@@ -66,14 +66,14 @@ export const tanks: AnalyseHeros[] = [
           "Guardian Helmet",
           "Blade Armor",
         ],
-        embleme: "Embleme de tank",
+        embleme: "Emblème de tank",
         talent: "Concussive Blast",
         sort: "Flicker",
       },
       {
-        nom: "Front resistant au magique",
+        nom: "Front résistant au magique",
         contexte:
-          "Contre une composition adverse a deux mages ou plus, ou quand le dommage magique adverse depasse le physique.",
+          "Contre une composition adverse à deux mages ou plus, ou quand le dommage magique adverse dépasse le physique.",
         objets: [
           "Tough Boots",
           "Athena's Shield",
@@ -82,7 +82,7 @@ export const tanks: AnalyseHeros[] = [
           "Oracle",
           "Antique Cuirass",
         ],
-        embleme: "Embleme de tank",
+        embleme: "Emblème de tank",
         talent: "Concussive Blast",
         sort: "Flicker",
       },
@@ -93,56 +93,56 @@ export const tanks: AnalyseHeros[] = [
     resume:
       "Tank d'initiation dont toute la partie tient dans un grappin : il retire un joueur de la carte.",
     analyse:
-      "Franco ne joue pas la meme partie que les autres tanks. Il ne cherche pas a absorber des degats, il cherche a supprimer un adversaire du combat avant qu'il ne commence. Un grappin reussi sur le tireur adverse, suivi de l'ultime, c'est un joueur mort et un objectif gratuit.\n\nToute sa valeur repose donc sur la precision d'une competence a projectile lent, que la vision conditionne entierement. Franco se joue dans les buissons, pas dans la lane. Un Franco qui rate trois grappins de suite est un poids mort ; un Franco qui les touche gagne la partie a lui seul.",
+      "Franco ne joue pas la même partie que les autres tanks. Il ne cherche pas à absorber des dégâts, il cherche à supprimer un adversaire du combat avant qu'il ne commence. Un grappin réussi sur le tireur adverse, suivi de l'ultime, c'est un joueur mort et un objectif gratuit.\n\nToute sa valeur repose donc sur la précision d'une compétence à projectile lent, que la vision conditionne entièrement. Franco se joue dans les buissons, pas dans la lane. Un Franco qui rate trois grappins de suite est un poids mort ; un Franco qui les touche gagne la partie à lui seul.",
     competences: [
       {
         type: "Passif",
         nom: "Vaillance",
         description:
-          "Chaque coup recu augmente sa vitesse de deplacement pendant un court instant, cumulable.",
+          "Chaque coup reçu augmente sa vitesse de déplacement pendant un court instant, cumulable.",
       },
       {
         type: "Competence 1",
         nom: "Grappin",
         description:
-          "Lance un crochet qui tire le premier ennemi touche jusqu'a lui et l'immobilise brievement.",
+          "Lance un crochet qui tire le premier ennemi touché jusqu'à lui et l'immobilise brièvement.",
         recharge: [11, 10.4, 9.8, 9.2, 8.6, 8],
         cout: [70, 80, 90, 100, 110, 120],
       },
       {
         type: "Competence 2",
-        nom: "Fleau",
+        nom: "Fléau",
         description:
-          "Frappe autour de lui, infligeant des degats et ralentissant fortement les ennemis proches.",
+          "Frappe autour de lui, infligeant des dégâts et ralentissant fortement les ennemis proches.",
         recharge: [7, 6.4, 5.8, 5.2, 4.6, 4],
         cout: [50, 55, 60, 65, 70, 75],
       },
       {
         type: "Ultime",
-        nom: "Deferlement",
+        nom: "Déferlement",
         description:
-          "Immobilise une cible et la frappe a repetition. Le controle dure assez longtemps pour que l'equipe conclue.",
+          "Immobilise une cible et la frappe à répétition. Le contrôle dure assez longtemps pour que l'équipe conclue.",
         recharge: [50, 42, 34],
         cout: [100, 125, 150],
       },
     ],
     forces: [
-      "Retire une cible cle du combat, quelle que soit sa resistance",
-      "Excellent controle d'objectif autour du seigneur et de la tortue",
-      "Recompense enormement la lecture de la carte",
+      "Retire une cible clé du combat, quelle que soit sa résistance",
+      "Excellent contrôle d'objectif autour du seigneur et de la tortue",
+      "Récompense énormément la lecture de la carte",
     ],
     faiblesses: [
-      "Un grappin rate le laisse sans rien pendant huit secondes",
-      "Tres dependant de la vision et des buissons",
-      "L'ultime est une cible unique : sans relais, il meurt apres",
+      "Un grappin raté le laisse sans rien pendant huit secondes",
+      "Très dépendant de la vision et des buissons",
+      "L'ultime est une cible unique : sans relais, il meurt après",
     ],
     fortContre: ["layla", "estes", "cecilion", "kimmy"],
     faibleContre: ["diggie", "wanwan", "benedetta", "fanny"],
     builds: [
       {
-        nom: "Roam de controle",
+        nom: "Roam de contrôle",
         contexte:
-          "Franco n'a pas besoin de degats : il a besoin d'arriver a portee et de survivre au grappin.",
+          "Franco n'a pas besoin de dégâts : il a besoin d'arriver à portée et de survivre au grappin.",
         objets: [
           "Warrior Boots",
           "Immortality",
@@ -151,7 +151,7 @@ export const tanks: AnalyseHeros[] = [
           "Radiant Armor",
           "Blade Armor",
         ],
-        embleme: "Embleme de tank",
+        embleme: "Emblème de tank",
         talent: "Concussive Blast",
         sort: "Flicker",
       },
@@ -160,21 +160,21 @@ export const tanks: AnalyseHeros[] = [
   {
     slug: "khufra",
     resume:
-      "Le tank qui punit la mobilite : sa competence 1 annule les dashs et les sauts adverses.",
+      "Le tank qui punit la mobilité : sa compétence 1 annule les dashs et les sauts adverses.",
     analyse:
-      "Khufra existe pour repondre a une categorie precise de heros — ceux qui se deplacent constamment. Sa competence 1 pose un champ qui interrompt tout dash traverse, ce qui neutralise Fanny, Ling, Wanwan ou Benedetta d'une facon qu'aucun autre tank ne permet.\n\nEn dehors de ce role de reponse, il reste un excellent initiateur : la boule de l'ultime propulse les adversaires et permet de les repousser contre une tourelle ou un mur. Sa faiblesse est sa recharge : hors competences, Khufra est lent et facile a contourner.",
+      "Khufra existe pour répondre à une catégorie précise de héros — ceux qui se déplacent constamment. Sa compétence 1 pose un champ qui interrompt tout dash traversé, ce qui neutralise Fanny, Ling, Wanwan ou Benedetta d'une façon qu'aucun autre tank ne permet.\n\nEn dehors de ce rôle de réponse, il reste un excellent initiateur : la boule de l'ultime propulse les adversaires et permet de les repousser contre une tourelle ou un mur. Sa faiblesse est sa recharge : hors compétences, Khufra est lent et facile à contourner.",
     competences: [
       {
         type: "Passif",
         nom: "Provocation",
         description:
-          "Apres avoir utilise une competence, sa prochaine attaque de base inflige des degats supplementaires et le soigne.",
+          "Après avoir utilisé une compétence, sa prochaine attaque de base inflige des dégâts supplémentaires et le soigne.",
       },
       {
         type: "Competence 1",
         nom: "Bandage rebondissant",
         description:
-          "Cree une zone qui projette en l'air les ennemis qui tentent de la traverser par un deplacement. Le principal outil anti-mobilite du jeu.",
+          "Crée une zone qui projette en l'air les ennemis qui tentent de la traverser par un déplacement. Le principal outil anti-mobilité du jeu.",
         recharge: [12, 11.4, 10.8, 10.2, 9.6, 9],
         cout: [80, 85, 90, 95, 100, 105],
       },
@@ -182,36 +182,36 @@ export const tanks: AnalyseHeros[] = [
         type: "Competence 2",
         nom: "Bond de la boule",
         description:
-          "Se transforme en boule et roule dans une direction, en poussant et ralentissant les ennemis heurtes.",
+          "Se transforme en boule et roule dans une direction, en poussant et ralentissant les ennemis heurtés.",
         recharge: [9, 8.4, 7.8, 7.2, 6.6, 6],
         cout: [70, 75, 80, 85, 90, 95],
       },
       {
         type: "Ultime",
-        nom: "Tempete du desert",
+        nom: "Tempête du désert",
         description:
-          "Frappe le sol : les ennemis pris dans la zone sont projetes et immobilises un instant.",
+          "Frappe le sol : les ennemis pris dans la zone sont projetés et immobilisés un instant.",
         recharge: [42, 38, 34],
         cout: [120, 140, 160],
       },
     ],
     forces: [
-      "Reponse directe a toute composition mobile",
-      "Enchainement de controles tres long une fois lance",
+      "Réponse directe à toute composition mobile",
+      "Enchaînement de contrôles très long une fois lancé",
       "Peut isoler une cible contre un mur",
     ],
     faiblesses: [
-      "Sans ses competences, il n'a aucune vitesse",
-      "Recharges longues en debut de partie",
-      "Peu utile face a une equipe sans deplacement",
+      "Sans ses compétences, il n'a aucune vitesse",
+      "Recharges longues en début de partie",
+      "Peu utile face à une équipe sans déplacement",
     ],
     fortContre: ["fanny", "ling", "wanwan", "benedetta", "harith"],
     faibleContre: ["diggie", "cecilion", "yve"],
     builds: [
       {
-        nom: "Roam anti-mobilite",
+        nom: "Roam anti-mobilité",
         contexte:
-          "Le build standard, a prendre des que l'equipe adverse aligne un assassin mobile.",
+          "Le build standard, à prendre dès que l'équipe adverse aligne un assassin mobile.",
         objets: [
           "Warrior Boots",
           "Immortality",
@@ -220,7 +220,7 @@ export const tanks: AnalyseHeros[] = [
           "Blade Armor",
           "Guardian Helmet",
         ],
-        embleme: "Embleme de tank",
+        embleme: "Emblème de tank",
         talent: "Concussive Blast",
         sort: "Flicker",
       },

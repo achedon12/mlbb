@@ -11,41 +11,41 @@
  */
 export const notesTierList: Record<string, string> = {
   "khufra":
-    "Reponse structurelle a toute la categorie des heros mobiles, qui domine la file classee haute.",
+    "Réponse structurelle à toute la catégorie des héros mobiles, qui domine la file classée haute.",
   "melissa":
-    "Le seul tireur qui resout seul le probleme du plongeon, sans dependre de son soutien.",
+    "Le seul tireur qui résout seul le problème du plongeon, sans dépendre de son soutien.",
   "fredrinn":
-    "Tient la ligne de front tout en gardant des degats reels : un jungleur qui pardonne les erreurs.",
+    "Tient la ligne de front tout en gardant des dégâts réels : un jungleur qui pardonne les erreurs.",
   "mathilda":
-    "Sauve un allie mal place et rattrape une erreur de positionnement, ce qui compte beaucoup en solo.",
+    "Sauve un allié mal placé et rattrape une erreur de positionnement, ce qui compte beaucoup en solo.",
   "yu-zhong":
-    "Gagne les combats longs tant que l'adversaire n'achete pas de reduction de soins.",
+    "Gagne les combats longs tant que l'adversaire n'achète pas de réduction de soins.",
   "cecilion":
-    "Fin de partie sans plafond, a condition de traverser les quinze premieres minutes.",
+    "Fin de partie sans plafond, à condition de traverser les quinze premières minutes.",
   "beatrix":
-    "Puissance tres elevee, mais le palier suppose de maitriser le choix des armes.",
+    "Puissance très élevée, mais le palier suppose de maîtriser le choix des armes.",
   "tigreal":
-    "Valeur constante et lisible ; plafond limite par la previsibilite de l'engagement.",
+    "Valeur constante et lisible ; plafond limité par la prévisibilité de l'engagement.",
   "granger":
-    "Pic precoce excellent, fin de partie plus faible que les tireurs a critique.",
+    "Pic précoce excellent, fin de partie plus faible que les tireurs à critique.",
   "paquito":
-    "Tres fort entre de bonnes mains, sans valeur si les fenetres sont gachees.",
+    "Très fort entre de bonnes mains, sans valeur si les fenêtres sont gâchées.",
   "kagura":
-    "Plafond eleve, mais punie par les assassins des que la gestion d'etat derape.",
+    "Plafond élevé, mais punie par les assassins dès que la gestion d'état dérape.",
   "estes":
-    "Domine les compositions sans reduction de soins ; s'effondre des qu'elle arrive.",
+    "Domine les compositions sans réduction de soins ; s'effondre dès qu'elle arrive.",
   "lancelot":
-    "Solide, mais la presence generalisee de Khufra plafonne son influence.",
+    "Solide, mais la présence généralisée de Khufra plafonne son influence.",
   "gusion":
-    "Le palier depend presque entierement du joueur : S+ maitrise, C sinon.",
+    "Le palier dépend presque entièrement du joueur : S+ maîtrisé, C sinon.",
   "chou":
-    "Excellent en equipe coordonnee, beaucoup moins en solo ou l'isolement n'est pas suivi.",
+    "Excellent en équipe coordonnée, beaucoup moins en solo où l'isolement n'est pas suivi.",
   "angela":
-    "Depend du niveau de l'allie choisi, ce qui la rend irreguliere en file classee.",
+    "Dépend du niveau de l'allié choisi, ce qui la rend irrégulière en file classée.",
   "pharsa":
-    "Punie par le nombre d'assassins de jungle joues actuellement.",
+    "Punie par le nombre d'assassins de jungle joués actuellement.",
   "ling":
-    "Toujours viable, mais chaque equipe adverse dispose desormais d'une reponse.",
+    "Toujours viable, mais chaque équipe adverse dispose désormais d'une réponse.",
   "franco":
-    "Un grappin rate coute une rotation entiere ; trop irregulier sans coordination vocale.",
+    "Un grappin raté coûte une rotation entière ; trop irrégulier sans coordination vocale.",
 };
