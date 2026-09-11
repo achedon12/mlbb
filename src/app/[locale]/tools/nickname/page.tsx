@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const sectionTitle = "font-titre text-2xl font-bold text-craie-100";
-const sourceLink = "underline transition-colors hover:text-or-400";
+const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
+const sourceLink = "underline transition-colors hover:text-gold-400";
 
 export default async function NicknamePage({ params }: Params) {
   const { locale } = await params;
@@ -57,8 +57,8 @@ export default async function NicknamePage({ params }: Params) {
           <h2 id="how-title" className={sectionTitle}>
             {t("pages.nickname.howTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.nickname.how1")}</p>
             <p>{t("pages.nickname.how2")}</p>
           </div>
@@ -68,8 +68,8 @@ export default async function NicknamePage({ params }: Params) {
           <h2 id="rules-title" className={sectionTitle}>
             {t("pages.nickname.rulesTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.nickname.rule1")}</p>
             <p>{t("pages.nickname.rule2", { min: GUIDE_LENGTH.min, max: GUIDE_LENGTH.max })}</p>
             <p>{t("pages.nickname.rule3")}</p>
@@ -81,26 +81,26 @@ export default async function NicknamePage({ params }: Params) {
           <h2 id="faq-title" className={sectionTitle}>
             {t("pages.nickname.faqTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-4 space-y-5">
             {questions.map((q) => (
               <div key={q}>
-                <dt className="font-semibold text-craie-100">{t(`pages.nickname.q${q}`)}</dt>
-                <dd className="mt-1 leading-relaxed text-craie-300">{t(`pages.nickname.a${q}`)}</dd>
+                <dt className="font-semibold text-chalk-100">{t(`pages.nickname.q${q}`)}</dt>
+                <dd className="mt-1 leading-relaxed text-chalk-300">{t(`pages.nickname.a${q}`)}</dd>
               </div>
             ))}
           </dl>
         </section>
 
-        <p className="leading-relaxed text-craie-300">
+        <p className="leading-relaxed text-chalk-300">
           {t("pages.nickname.drawLink")}{" "}
-          <Link href="/tools/draw-calculator" className="font-semibold text-or-400 hover:text-or-500">
+          <Link href="/tools/draw-calculator" className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.nickname.drawLinkAction")} →
           </Link>
         </p>
 
-        <section aria-labelledby="sources-title" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-title" className="font-semibold text-craie-300">
+        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-title" className="font-semibold text-chalk-300">
             {t("pages.nickname.sourcesTitle")}
           </h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">

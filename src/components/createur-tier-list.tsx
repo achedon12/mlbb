@@ -98,9 +98,9 @@ function ecrireListe(cle: string, etat: EtatTier | null) {
 }
 
 const bouton =
-  "biseau-sm inline-flex items-center justify-center gap-1.5 border border-nuit-600 px-3 py-2 text-sm text-craie-300 transition-colors hover:border-or-500 hover:text-or-400 disabled:opacity-40";
+  "bevel-sm inline-flex items-center justify-center gap-1.5 border border-night-600 px-3 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400 disabled:opacity-40";
 const petitBouton =
-  "biseau-sm grid size-9 shrink-0 place-items-center border border-nuit-700 text-craie-300 transition-colors hover:border-or-500 hover:text-or-400 disabled:opacity-30";
+  "bevel-sm grid size-9 shrink-0 place-items-center border border-night-700 text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400 disabled:opacity-30";
 
 export function CreateurTierList({
   heros,
@@ -406,14 +406,14 @@ export function CreateurTierList({
         tabIndex={tabIndex}
         title={h.nom}
         className={cn(
-          "biseau-sm flex flex-col items-center gap-0.5 p-0.5 outline-offset-1 transition-transform motion-reduce:transition-none",
-          actif ? "scale-105 bg-or-500 motion-reduce:scale-100" : "hover:bg-nuit-800",
+          "bevel-sm flex flex-col items-center gap-0.5 p-0.5 outline-offset-1 transition-transform motion-reduce:transition-none",
+          actif ? "scale-105 bg-gold-500 motion-reduce:scale-100" : "hover:bg-night-800",
         )}
       >
         {/* L'image, glissable par defaut, prendrait le geste a la place du bouton. */}
         <PortraitHeros source={h.icone} nom={h.nom} taille="icone" decoratif className="pointer-events-none" />
         {avecNom ? (
-          <span className={cn("w-12 truncate text-center text-[0.6rem]", actif ? "text-nuit-950" : "text-craie-400")}>
+          <span className={cn("w-12 truncate text-center text-[0.6rem]", actif ? "text-night-950" : "text-chalk-400")}>
             {h.nom}
           </span>
         ) : (
@@ -426,7 +426,7 @@ export function CreateurTierList({
   return (
     <div ref={racine} className={cn("space-y-6", selection && "pb-36 sm:pb-24")}>
       {precedente && (
-        <div className="biseau-sm flex flex-wrap items-center justify-between gap-3 border border-azur-500/50 bg-azur-500/10 px-4 py-3 text-sm text-craie-200">
+        <div className="bevel-sm flex flex-wrap items-center justify-between gap-3 border border-azure-500/50 bg-azure-500/10 px-4 py-3 text-sm text-chalk-200">
           <span>{t("pages.createurTierUI.partageeBandeau")}</span>
           <span className="flex gap-2">
             <button type="button" onClick={restaurer} className={bouton}>
@@ -450,14 +450,14 @@ export function CreateurTierList({
 
       <div className="flex flex-col gap-3 lg:flex-row lg:items-end">
         <label className="flex-1">
-          <span className="text-xs uppercase tracking-wide text-craie-500">{t("pages.createurTierUI.titreListe")}</span>
+          <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.createurTierUI.titreListe")}</span>
           <input
             type="text"
             value={etat.titre}
             maxLength={TITRE_MAX}
             placeholder={t("pages.createurTierUI.titreDefaut")}
             onChange={(e) => setEtat({ ...etat, titre: e.target.value })}
-            className="biseau-sm mt-1 w-full border border-nuit-700 bg-nuit-950 px-3 py-2 font-titre text-lg font-bold text-craie-100 outline-none transition-colors placeholder:text-craie-600 focus:border-or-500"
+            className="bevel-sm mt-1 w-full border border-night-700 bg-night-950 px-3 py-2 font-heading text-lg font-bold text-chalk-100 outline-none transition-colors placeholder:text-chalk-600 focus:border-gold-500"
           />
         </label>
         <div className="flex flex-wrap gap-2">
@@ -479,13 +479,13 @@ export function CreateurTierList({
           </button>
         </div>
       </div>
-      <p aria-live="polite" className="-mt-3 min-h-5 text-sm text-craie-300">
+      <p aria-live="polite" className="-mt-3 min-h-5 text-sm text-chalk-300">
         {statut}
       </p>
 
-      <details className="biseau-sm border border-nuit-700/70 bg-nuit-900/40 px-4 py-3 text-sm text-craie-300">
-        <summary className="cursor-pointer font-semibold text-craie-100">
-          <Wand2 size={15} aria-hidden className="mr-1.5 inline text-or-400" />
+      <details className="bevel-sm border border-night-700/70 bg-night-900/40 px-4 py-3 text-sm text-chalk-300">
+        <summary className="cursor-pointer font-semibold text-chalk-100">
+          <Wand2 size={15} aria-hidden className="mr-1.5 inline text-gold-400" />
           {t("pages.createurTierUI.preremplirTitre")}
         </summary>
         <p className="mt-2 leading-relaxed">{t("pages.createurTierUI.preremplirIntro")}</p>
@@ -499,20 +499,20 @@ export function CreateurTierList({
       <section aria-label={t("pages.createurTierUI.rangees")} className="space-y-1">
         {etat.rangees.map((r, i) => (
           <div key={r.id}>
-            <div className="flex min-h-[3.75rem] border border-nuit-700/70 bg-nuit-900/60">
+            <div className="flex min-h-[3.75rem] border border-night-700/70 bg-night-900/60">
               {selection ? (
                 <button
                   type="button"
                   onClick={(e) => poser(selection, r.id, null, e.detail === 0)}
                   aria-label={t("pages.createurTierUI.placerIci", { nom: nom(selection), rangee: nomRangee(r) })}
-                  className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-titre text-lg font-bold ring-inset hover:ring-2 hover:ring-white/70 sm:w-24"
+                  className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-heading text-lg font-bold ring-inset hover:ring-2 hover:ring-white/70 sm:w-24"
                   style={{ background: r.couleur, color: couleurTexte(r.couleur) }}
                 >
                   {nomRangee(r)}
                 </button>
               ) : (
                 <div
-                  className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-titre text-lg font-bold sm:w-24"
+                  className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-heading text-lg font-bold sm:w-24"
                   style={{ background: r.couleur, color: couleurTexte(r.couleur) }}
                 >
                   {nomRangee(r)}
@@ -535,8 +535,8 @@ export function CreateurTierList({
                 onDrop={(e) => deposer(e, r.id)}
                 className={cn(
                   "flex min-w-0 flex-1 flex-wrap content-start gap-1 p-1 transition-colors",
-                  survol === r.id && "bg-or-500/15",
-                  selection && "cursor-pointer hover:bg-nuit-850",
+                  survol === r.id && "bg-gold-500/15",
+                  selection && "cursor-pointer hover:bg-night-850",
                 )}
               >
                 {r.heros.map((s, k) => {
@@ -549,7 +549,7 @@ export function CreateurTierList({
                 onClick={() => setEdition(edition === r.id ? null : r.id)}
                 aria-expanded={edition === r.id}
                 aria-label={t("pages.createurTierUI.modifierRangee", { nom: nomRangee(r) })}
-                className="grid w-9 shrink-0 place-items-center border-l border-nuit-700/70 text-craie-500 transition-colors hover:text-or-400"
+                className="grid w-9 shrink-0 place-items-center border-l border-night-700/70 text-chalk-500 transition-colors hover:text-gold-400"
               >
                 <Settings2 size={16} aria-hidden />
               </button>
@@ -590,19 +590,19 @@ export function CreateurTierList({
         }}
         onDrop={(e) => deposer(e, null)}
         className={cn(
-          "biseau border border-nuit-700/70 bg-nuit-900/40 p-4 transition-colors",
-          survol === "reserve" && "border-or-500/60 bg-or-500/5",
+          "bevel border border-night-700/70 bg-night-900/40 p-4 transition-colors",
+          survol === "reserve" && "border-gold-500/60 bg-gold-500/5",
         )}
       >
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 id="reserve-titre" className="font-titre text-xl font-bold text-craie-100">
+          <h2 id="reserve-titre" className="font-heading text-xl font-bold text-chalk-100">
             {t("pages.createurTierUI.reserve")}
           </h2>
-          <p className="text-xs text-craie-500">
+          <p className="text-xs text-chalk-500">
             {t("pages.createurTierUI.reserveCompte", { n: heros.length - places.size, total: heros.length })}
           </p>
         </div>
-        <p className="mt-1 text-xs leading-relaxed text-craie-500">{t("pages.createurTierUI.aide")}</p>
+        <p className="mt-1 text-xs leading-relaxed text-chalk-500">{t("pages.createurTierUI.aide")}</p>
 
         <div className="mt-3 space-y-2">
           <ChampRecherche dense valeur={recherche} onChange={setRecherche} libelle={t("draftUI.rechercher")} />
@@ -640,7 +640,7 @@ export function CreateurTierList({
             <li key={h.slug}>{tuile(h, k === 0 ? 0 : -1, true)}</li>
           ))}
           {reserve.length === 0 && (
-            <li className="w-full py-4 text-center text-sm text-craie-500">
+            <li className="w-full py-4 text-center text-sm text-chalk-500">
               {places.size === heros.length ? t("pages.createurTierUI.reserveVide") : t("draftUI.aucunHeros")}
             </li>
           )}
@@ -655,12 +655,12 @@ export function CreateurTierList({
         <div
           role="region"
           aria-label={t("pages.createurTierUI.barreAction", { nom: choisi.nom })}
-          className="fixed inset-x-0 bottom-0 z-40 border-t border-or-500/40 bg-nuit-900/95 px-3 py-2.5 shadow-2xl shadow-black/60 backdrop-blur-sm"
+          className="fixed inset-x-0 bottom-0 z-40 border-t border-gold-500/40 bg-night-900/95 px-3 py-2.5 shadow-2xl shadow-black/60 backdrop-blur-sm"
         >
           <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2">
             <PortraitHeros source={choisi.icone} nom={choisi.nom} taille="petite" decoratif />
-            <span className="mr-1 font-semibold text-craie-100">{choisi.nom}</span>
-            <span className="text-xs text-craie-500">{t("pages.createurTierUI.placerDans")}</span>
+            <span className="mr-1 font-semibold text-chalk-100">{choisi.nom}</span>
+            <span className="text-xs text-chalk-500">{t("pages.createurTierUI.placerDans")}</span>
             <span className="flex flex-wrap gap-1">
               {etat.rangees.map((r) => (
                 <button
@@ -670,7 +670,7 @@ export function CreateurTierList({
                   aria-current={rangeeChoisie?.id === r.id ? "true" : undefined}
                   aria-label={t("pages.createurTierUI.placerIci", { nom: choisi.nom, rangee: nomRangee(r) })}
                   className={cn(
-                    "biseau-sm h-9 min-w-9 max-w-24 truncate px-2 text-sm font-bold",
+                    "bevel-sm h-9 min-w-9 max-w-24 truncate px-2 text-sm font-bold",
                     rangeeChoisie?.id === r.id && "ring-2 ring-white",
                   )}
                   style={{ background: r.couleur, color: couleurTexte(r.couleur) }}
@@ -745,9 +745,9 @@ function PanneauRangee({
 }) {
   const t = useT();
   return (
-    <div className="flex flex-wrap items-end gap-3 border border-t-0 border-nuit-700/70 bg-nuit-950/60 p-3">
+    <div className="flex flex-wrap items-end gap-3 border border-t-0 border-night-700/70 bg-night-950/60 p-3">
       <label className="min-w-40 flex-1">
-        <span className="text-xs uppercase tracking-wide text-craie-500">{t("pages.createurTierUI.nomRangee")}</span>
+        <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.createurTierUI.nomRangee")}</span>
         <input
           type="text"
           autoFocus
@@ -755,11 +755,11 @@ function PanneauRangee({
           maxLength={NOM_MAX}
           onChange={(e) => onModifier({ nom: e.target.value })}
           onKeyDown={(e) => e.key === "Escape" && onFermer()}
-          className="biseau-sm mt-1 w-full border border-nuit-700 bg-nuit-950 px-3 py-1.5 text-craie-100 outline-none focus:border-or-500"
+          className="bevel-sm mt-1 w-full border border-night-700 bg-night-950 px-3 py-1.5 text-chalk-100 outline-none focus:border-gold-500"
         />
       </label>
       <fieldset>
-        <legend className="text-xs uppercase tracking-wide text-craie-500">{t("pages.createurTierUI.couleur")}</legend>
+        <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.createurTierUI.couleur")}</legend>
         <div className="mt-1 flex flex-wrap items-center gap-1">
           {PALETTE.map((c) => (
             <button
@@ -768,11 +768,11 @@ function PanneauRangee({
               onClick={() => onModifier({ couleur: c })}
               aria-pressed={rangee.couleur === c}
               aria-label={t("pages.createurTierUI.couleurNom", { couleur: c })}
-              className={cn("biseau-sm size-8", rangee.couleur === c && "ring-2 ring-white")}
+              className={cn("bevel-sm size-8", rangee.couleur === c && "ring-2 ring-white")}
               style={{ background: c }}
             />
           ))}
-          <label className="biseau-sm grid size-8 cursor-pointer place-items-center overflow-hidden border border-nuit-600">
+          <label className="bevel-sm grid size-8 cursor-pointer place-items-center overflow-hidden border border-night-600">
             <span className="sr-only">{t("pages.createurTierUI.couleurPerso")}</span>
             <input
               type="color"
@@ -807,7 +807,7 @@ function PanneauRangee({
           onClick={onSupprimer}
           disabled={seule}
           aria-label={t("pages.createurTierUI.supprimerRangee", { nom: rangee.nom || "—" })}
-          className={cn(petitBouton, "hover:border-sang-500 hover:text-sang-500")}
+          className={cn(petitBouton, "hover:border-blood-500 hover:text-blood-500")}
         >
           <Trash2 size={15} aria-hidden />
         </button>

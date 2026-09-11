@@ -21,7 +21,7 @@ export function LigneFraicheur({
 }) {
   const t = creerT(langue);
   return (
-    <p className={cn("text-sm text-craie-500", className)}>
+    <p className={cn("text-sm text-chalk-500", className)}>
       {avant && <>{avant} · </>}
       <time dateTime={dateMesure}>{t("pages.fraicheur.majLe", { date: dateLongue(langue) })}</time>
       {patchActuel && <> · {t("pages.fraicheur.patch", { v: patchActuel.version })}</>}

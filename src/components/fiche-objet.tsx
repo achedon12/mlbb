@@ -50,26 +50,26 @@ export function EffetsObjet({ objet, t }: { objet: ApercuObjet; t: T }) {
     <>
       {objet.bonus && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.statistiques")}</dt>
-          <dd className="mt-1 leading-snug text-craie-100">{objet.bonus}</dd>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.statistiques")}</dt>
+          <dd className="mt-1 leading-snug text-chalk-100">{objet.bonus}</dd>
         </div>
       )}
       {objet.unique && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.unique")}</dt>
-          <dd className="mt-1 leading-snug text-azur-400">{objet.unique}</dd>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.unique")}</dt>
+          <dd className="mt-1 leading-snug text-azure-400">{objet.unique}</dd>
         </div>
       )}
       {objet.passif && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.passif")}</dt>
-          <dd className="mt-1 leading-relaxed text-craie-300">{objet.passif}</dd>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.passif")}</dt>
+          <dd className="mt-1 leading-relaxed text-chalk-300">{objet.passif}</dd>
         </div>
       )}
       {objet.actif && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.actif")}</dt>
-          <dd className="mt-1 leading-relaxed text-craie-300">{objet.actif}</dd>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.actif")}</dt>
+          <dd className="mt-1 leading-relaxed text-chalk-300">{objet.actif}</dd>
         </div>
       )}
     </>
@@ -96,11 +96,11 @@ export function RecetteObjet({
     <>
       {objet.recette.length > 0 && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.recette")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.recette")}</dt>
           <dd className="mt-2">
             <ArbreRecette noms={objet.recette} catalogue={catalogue} t={t} langue={langue} vers={vers} />
             {fusion !== null && (
-              <p className="mt-2 text-xs text-craie-500">
+              <p className="mt-2 text-xs text-chalk-500">
                 {t("pages.itemsListe.fusion", { prix: nombre(langue, fusion) })}
               </p>
             )}
@@ -109,7 +109,7 @@ export function RecetteObjet({
       )}
       {fabrique.length > 0 && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.fabrique")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.fabrique")}</dt>
           <dd className="mt-2 flex flex-wrap gap-1.5">
             {fabrique.map((o) => (
               <span key={o.slug} className="contents">
@@ -117,9 +117,9 @@ export function RecetteObjet({
                   o,
                   <>
                     <IconeObjet image={o.image} taille={22} />
-                    <span className="text-xs text-craie-300 group-hover:text-or-400">{o.nom}</span>
+                    <span className="text-xs text-chalk-300 group-hover:text-gold-400">{o.nom}</span>
                   </>,
-                  "biseau-sm group flex items-center gap-1.5 border border-nuit-700/70 bg-nuit-900/60 py-1 pl-1 pr-2 transition-colors hover:border-or-500/60",
+                  "bevel-sm group flex items-center gap-1.5 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2 transition-colors hover:border-gold-500/60",
                 )}
               </span>
             ))}
@@ -150,15 +150,15 @@ export function ArbreRecette({
   profondeur?: number;
 }) {
   return (
-    <ul className={cn("space-y-1.5", profondeur > 0 && "ml-3.5 mt-1.5 border-l border-nuit-700 pl-3")}>
+    <ul className={cn("space-y-1.5", profondeur > 0 && "ml-3.5 mt-1.5 border-l border-night-700 pl-3")}>
       {noms.map((nom, i) => {
         const o = catalogue.parNom.get(nom);
         const contenu = (
           <>
             <IconeObjet image={o?.image ?? null} taille={28} />
-            <span className="min-w-0 flex-1 truncate text-sm text-craie-100 group-hover:text-or-400">{nom}</span>
+            <span className="min-w-0 flex-1 truncate text-sm text-chalk-100 group-hover:text-gold-400">{nom}</span>
             {o?.prix != null && (
-              <span className="shrink-0 text-xs tabular-nums text-or-400">
+              <span className="shrink-0 text-xs tabular-nums text-gold-400">
                 {nombre(langue, o.prix)} {t("pages.itemsListe.or")}
               </span>
             )}
@@ -197,7 +197,7 @@ export function IconeObjet({ image, taille }: { image: string | null; taille: nu
       {image ? (
         <Image src={image} alt="" width={taille} height={taille} className="size-full object-contain" />
       ) : (
-        <span className="grid size-full place-items-center bg-nuit-800 text-[0.6rem] text-craie-500">—</span>
+        <span className="grid size-full place-items-center bg-night-800 text-[0.6rem] text-chalk-500">—</span>
       )}
     </span>
   );

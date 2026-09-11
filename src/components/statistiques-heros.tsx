@@ -68,7 +68,7 @@ export function StatistiquesHeros({
     new Intl.NumberFormat(langue, { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
 
   if (!serie && !tranches && rangs.length < 2) {
-    return <p className="text-sm text-craie-500">{t("pages.heroDetail.statistiques.aucuneDonnee")}</p>;
+    return <p className="text-sm text-chalk-500">{t("pages.heroDetail.statistiques.aucuneDonnee")}</p>;
   }
 
   const points = serie ? pointsDe(serie, mesure).slice(-periode) : [];
@@ -81,10 +81,10 @@ export function StatistiquesHeros({
     <div className="space-y-12">
       {serie && valeurs.length > 1 && (
         <section>
-          <h3 className="font-titre text-lg font-bold text-craie-100">
+          <h3 className="font-heading text-lg font-bold text-chalk-100">
             {t("pages.heroDetail.statistiques.evolution", { n: periode })}
           </h3>
-          <p className="mt-1 text-sm text-craie-500">{t("pages.heroDetail.statistiques.evolutionIntro")}</p>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistiques.evolutionIntro")}</p>
 
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
             <GroupeFiltres legende={t("pages.heroDetail.statistiques.mesure")} largeurLegende="">
@@ -114,13 +114,13 @@ export function StatistiquesHeros({
               [t("pages.heroDetail.statistiques.min"), `${nombre(Math.min(...valeurs), decimales)} %`, null],
               [t("pages.heroDetail.statistiques.max"), `${nombre(Math.max(...valeurs), decimales)} %`, null],
             ].map(([libelle, valeur, signe]) => (
-              <div key={String(libelle)} className="biseau-sm border border-nuit-700/70 bg-nuit-900/60 px-3 py-2">
-                <dt className="text-[0.7rem] uppercase tracking-wide text-craie-500">{libelle}</dt>
+              <div key={String(libelle)} className="bevel-sm border border-night-700/70 bg-night-900/60 px-3 py-2">
+                <dt className="text-[0.7rem] uppercase tracking-wide text-chalk-500">{libelle}</dt>
                 <dd
                   className={cn(
-                    "mt-0.5 font-semibold tabular-nums text-craie-100",
+                    "mt-0.5 font-semibold tabular-nums text-chalk-100",
                     signe === 1 && "text-emerald-400",
-                    signe === -1 && "text-sang-500",
+                    signe === -1 && "text-blood-500",
                   )}
                 >
                   {valeur}
@@ -129,7 +129,7 @@ export function StatistiquesHeros({
             ))}
           </dl>
 
-          <div className="biseau mt-4 border border-nuit-700/70 bg-nuit-900/60 p-3 sm:p-4">
+          <div className="bevel mt-4 border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
             <CourbeTaux
               points={points}
               reperes={reperes}
@@ -141,7 +141,7 @@ export function StatistiquesHeros({
               })}
             />
           </div>
-          {!long && <p className="mt-2 text-xs leading-relaxed text-craie-500">{t("pages.heroDetail.statistiques.historiqueCourt")}</p>}
+          {!long && <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.heroDetail.statistiques.historiqueCourt")}</p>}
         </section>
       )}
 
@@ -149,8 +149,8 @@ export function StatistiquesHeros({
 
       {rangs.length > 1 && (
         <section>
-          <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroDetail.statistiques.parRang")}</h3>
-          <p className="mt-1 text-sm text-craie-500">{t("pages.heroDetail.statistiques.parRangIntro")}</p>
+          <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.parRang")}</h3>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistiques.parRangIntro")}</p>
           <ul className="mt-4 space-y-2.5">
             {(() => {
               const taux = rangs.map((r) => parRang[r]!.victoire);
@@ -160,17 +160,17 @@ export function StatistiquesHeros({
                 const s = parRang[r]!;
                 return (
                   <li key={r} className="flex items-center gap-3 text-sm">
-                    <span className={cn("w-28 shrink-0", r === rang ? "font-semibold text-or-400" : "text-craie-300")}>
+                    <span className={cn("w-28 shrink-0", r === rang ? "font-semibold text-gold-400" : "text-chalk-300")}>
                       {t(`rangsMesure.${r}`)}
                     </span>
-                    <span className="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-nuit-800">
+                    <span className="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-night-800">
                       <span
-                        className={cn("block h-full rounded-full", r === rang ? "bg-or-500" : "bg-craie-500/50")}
+                        className={cn("block h-full rounded-full", r === rang ? "bg-gold-500" : "bg-chalk-500/50")}
                         style={{ width: `${((s.victoire - bas) / (haut - bas)) * 100}%` }}
                       />
                     </span>
-                    <span className="w-14 shrink-0 text-right tabular-nums text-craie-100">{nombre(s.victoire)} %</span>
-                    <span className="hidden w-20 shrink-0 text-right text-xs tabular-nums text-craie-500 sm:block">
+                    <span className="w-14 shrink-0 text-right tabular-nums text-chalk-100">{nombre(s.victoire)} %</span>
+                    <span className="hidden w-20 shrink-0 text-right text-xs tabular-nums text-chalk-500 sm:block">
                       {t("pages.heroDetail.statistiques.banCourt", { v: nombre(s.ban) })}
                     </span>
                   </li>
@@ -183,15 +183,15 @@ export function StatistiquesHeros({
 
       {long && historique && (
         <section>
-          <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroDetail.statistiques.historique")}</h3>
-          <p className="mt-1 text-sm text-craie-500">
+          <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.historique")}</h3>
+          <p className="mt-1 text-sm text-chalk-500">
             {t("pages.heroDetail.statistiques.historiqueIntro", {
               date: new Intl.DateTimeFormat(langue, { dateStyle: "long", timeZone: "UTC" }).format(
                 new Date(`${historique.debut}T00:00:00Z`),
               ),
             })}
           </p>
-          <div className="biseau mt-4 border border-nuit-700/70 bg-nuit-900/60 p-3 sm:p-4">
+          <div className="bevel mt-4 border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
             <CourbeTaux
               points={long}
               reperes={reperes}
@@ -208,8 +208,8 @@ export function StatistiquesHeros({
 
 const COULEUR_TYPE: Record<TypeAjustement, string> = {
   amelioration: "border-emerald-500/30 text-emerald-400",
-  affaiblissement: "border-sang-500/30 text-sang-500",
-  ajustement: "border-azur-500/30 text-azur-400",
+  affaiblissement: "border-blood-500/30 text-blood-500",
+  ajustement: "border-azure-500/30 text-azure-400",
 };
 
 /**
@@ -240,13 +240,13 @@ function EffetPatchs({
 
   return (
     <section>
-      <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroDetail.statistiques.impact.titre")}</h3>
-      <p className="mt-1 text-sm text-craie-500">
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.impact.titre")}</h3>
+      <p className="mt-1 text-sm text-chalk-500">
         {t("pages.heroDetail.statistiques.impact.intro", { nom, n: JOURS_IMPACT })}
       </p>
 
       {impacts.length === 0 ? (
-        <p className="biseau-sm mt-4 border border-dashed border-nuit-700 px-4 py-3 text-sm leading-relaxed text-craie-500">
+        <p className="bevel-sm mt-4 border border-dashed border-night-700 px-4 py-3 text-sm leading-relaxed text-chalk-500">
           {historique
             ? t("pages.heroDetail.statistiques.impact.vide", {
                 n: MESURES_MIN_IMPACT,
@@ -263,17 +263,17 @@ function EffetPatchs({
             return (
               <li
                 key={`${i.version}-${k}`}
-                className="biseau-sm flex flex-wrap items-center gap-x-4 gap-y-1 border border-nuit-700/70 bg-nuit-900/60 px-3 py-2 text-sm"
+                className="bevel-sm flex flex-wrap items-center gap-x-4 gap-y-1 border border-night-700/70 bg-night-900/60 px-3 py-2 text-sm"
               >
-                <span className="font-semibold text-craie-100">
+                <span className="font-semibold text-chalk-100">
                   {t("pages.heroDetail.statistiques.impact.patch", { version: i.version })}
                 </span>
                 {i.type && (
-                  <span className={cn("biseau-sm border px-1.5 py-0.5 text-[0.7rem]", COULEUR_TYPE[i.type])}>
+                  <span className={cn("bevel-sm border px-1.5 py-0.5 text-[0.7rem]", COULEUR_TYPE[i.type])}>
                     {t(`patchHeros.${i.type}`)}
                   </span>
                 )}
-                <span className="tabular-nums text-craie-300">
+                <span className="tabular-nums text-chalk-300">
                   <span aria-hidden>
                     {nombre(i.avant)} % → {nombre(i.apres)} %
                   </span>
@@ -287,13 +287,13 @@ function EffetPatchs({
                 <span
                   className={cn(
                     "font-semibold tabular-nums",
-                    signe === 1 ? "text-emerald-400" : signe === -1 ? "text-sang-500" : "text-craie-100",
+                    signe === 1 ? "text-emerald-400" : signe === -1 ? "text-blood-500" : "text-chalk-100",
                   )}
                 >
                   {formaterEcart(i.ecart, langue)} {t("contres.pts")}
                 </span>
                 {i.verdict && (
-                  <span className="text-xs text-craie-500">
+                  <span className="text-xs text-chalk-500">
                     {t(`pages.heroDetail.statistiques.impact.verdict.${i.verdict}`)}
                   </span>
                 )}
@@ -329,10 +329,10 @@ function Duree({
 
   return (
     <section>
-      <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroDetail.statistiques.duree")}</h3>
-      <p className="mt-1 text-sm text-craie-500">{t("pages.heroDetail.statistiques.dureeIntro", { nom })}</p>
-      <p className="mt-3 text-sm text-craie-300">
-        <span className="font-semibold text-or-400">
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.duree")}</h3>
+      <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistiques.dureeIntro", { nom })}</p>
+      <p className="mt-3 text-sm text-chalk-300">
+        <span className="font-semibold text-gold-400">
           {t(`pages.heroDetail.statistiques.profil.${profilDuree(taux)}`)}
         </span>
         {" · "}

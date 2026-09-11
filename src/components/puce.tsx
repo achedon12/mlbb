@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 /** Apparence d'une puce, reprise par les liens qui jouent le meme role. */
 export function classesPuce(actif: boolean, dense = false) {
   return cn(
-    "biseau-sm font-medium transition-colors",
+    "bevel-sm font-medium transition-colors",
     dense ? "px-2.5 py-1 text-xs" : "px-3 py-1.5 text-sm",
     actif
-      ? "bg-or-500 text-nuit-950"
-      : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
+      ? "bg-gold-500 text-night-950"
+      : "border border-night-700 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400",
   );
 }
 
@@ -80,7 +80,7 @@ export function GroupeFiltres({
   return (
     <fieldset className={cn("flex flex-wrap items-center gap-2", className)}>
       <legend className="sr-only">{legende}</legend>
-      <span aria-hidden className={cn("mr-1 shrink-0 text-xs uppercase tracking-wide text-craie-500", largeurLegende)}>
+      <span aria-hidden className={cn("mr-1 shrink-0 text-xs uppercase tracking-wide text-chalk-500", largeurLegende)}>
         {legende}
       </span>
       {children}

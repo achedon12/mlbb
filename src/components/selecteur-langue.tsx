@@ -56,7 +56,7 @@ export function SelecteurLangue({ langue }: { langue: Langue }) {
         aria-expanded={ouvert}
         aria-label={t("langue.changer")}
         onClick={() => setOuvert((o) => !o)}
-        className="flex items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium text-craie-300 transition-colors hover:text-craie-100"
+        className="flex items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium text-chalk-300 transition-colors hover:text-chalk-100"
       >
         <Globe size={16} aria-hidden />
         <span className="hidden sm:inline uppercase">{langue}</span>
@@ -64,7 +64,7 @@ export function SelecteurLangue({ langue }: { langue: Langue }) {
       </button>
 
       <div hidden={!ouvert} className="absolute right-0 top-full z-50 pt-2">
-        <ul className="biseau w-40 border border-nuit-700/80 bg-nuit-900/98 p-1.5 shadow-2xl shadow-nuit-950/60 backdrop-blur">
+        <ul className="bevel w-40 border border-night-700/80 bg-night-900/98 p-1.5 shadow-2xl shadow-night-950/60 backdrop-blur">
           {LANGUES.map((l) => {
             const actif = l === langue;
             return (
@@ -75,7 +75,7 @@ export function SelecteurLangue({ langue }: { langue: Langue }) {
                   aria-current={actif ? "true" : undefined}
                   className={cn(
                     "flex w-full items-center justify-between gap-2 rounded-md px-2.5 py-2 text-sm transition-colors",
-                    actif ? "text-or-400" : "text-craie-200 hover:bg-nuit-800/60",
+                    actif ? "text-gold-400" : "text-chalk-200 hover:bg-night-800/60",
                   )}
                 >
                   {NOM_LANGUE[l]}

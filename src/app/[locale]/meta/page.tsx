@@ -98,8 +98,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 const COULEUR: Record<SensAjustement, string> = {
   amelioration: "text-emerald-400",
-  affaiblissement: "text-sang-500",
-  ajustement: "text-azur-400",
+  affaiblissement: "text-blood-500",
+  ajustement: "text-azure-400",
 };
 
 export default async function PageRapportMeta({ params }: Params) {
@@ -170,10 +170,10 @@ export default async function PageRapportMeta({ params }: Params) {
       >
         <LigneFraicheur langue={locale} className="mt-6" />
         {resume.length > 0 && (
-          <ul className="mt-6 max-w-2xl space-y-1.5 text-sm leading-relaxed text-craie-300">
+          <ul className="mt-6 max-w-2xl space-y-1.5 text-sm leading-relaxed text-chalk-300">
             {resume.map((phrase) => (
               <li key={phrase} className="flex gap-2">
-                <span aria-hidden className="text-or-400">
+                <span aria-hidden className="text-gold-400">
                   •
                 </span>
                 {phrase}
@@ -262,7 +262,7 @@ export default async function PageRapportMeta({ params }: Params) {
             </TitreSection>
             <div className="space-y-6">
               {patchActuel.nouveaux.length > 0 && (
-                <GroupeHeros titre={t("pages.meta.patch.nouveaux")} liste={patchActuel.nouveaux} couleur="text-or-400" />
+                <GroupeHeros titre={t("pages.meta.patch.nouveaux")} liste={patchActuel.nouveaux} couleur="text-gold-400" />
               )}
               {SENS_AJUSTEMENT.map((sens) =>
                 patch[sens].length > 0 ? (
@@ -275,7 +275,7 @@ export default async function PageRapportMeta({ params }: Params) {
                 ) : null,
               )}
               {patchActuel.nouveaux.length === 0 && SENS_AJUSTEMENT.every((s) => patch[s].length === 0) && (
-                <p className="text-sm text-craie-500">{t("pages.meta.patch.aucun")}</p>
+                <p className="text-sm text-chalk-500">{t("pages.meta.patch.aucun")}</p>
               )}
             </div>
           </section>
@@ -286,8 +286,8 @@ export default async function PageRapportMeta({ params }: Params) {
           <TitreSection chapeau={t("pages.meta.lanes.chapeau")}>{t("pages.meta.lanes.titre")}</TitreSection>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {parLane.map(({ lane, entrees }) => (
-              <div key={lane} className="biseau flex flex-col border border-nuit-700/70 bg-nuit-900/60 p-4">
-                <h3 className="font-titre text-lg font-bold text-or-400">{t(`lanes.${lane}`)}</h3>
+              <div key={lane} className="bevel flex flex-col border border-night-700/70 bg-night-900/60 p-4">
+                <h3 className="font-heading text-lg font-bold text-gold-400">{t(`lanes.${lane}`)}</h3>
                 <ol className="mt-3 flex-1 space-y-2.5">
                   {entrees.map((e) => (
                     <li key={e.heros.slug}>
@@ -299,10 +299,10 @@ export default async function PageRapportMeta({ params }: Params) {
                           decoratif
                         />
                         <span className="min-w-0 flex-1">
-                          <span className="block truncate font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                          <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                             {e.heros.nom}
                           </span>
-                          <span className="block text-xs text-craie-500">
+                          <span className="block text-xs text-chalk-500">
                             {t("pages.meta.lanes.ligne", { palier: e.palier, victoire: pourcentage(locale, e.victoire) })}
                           </span>
                         </span>
@@ -312,7 +312,7 @@ export default async function PageRapportMeta({ params }: Params) {
                 </ol>
                 <Link
                   href={cheminFiltre({ type: "lane", valeur: lane })}
-                  className="mt-4 text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+                  className="mt-4 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
                 >
                   {t("pages.meta.lanes.voir", { lane: t(`pages.tierList.laneSeo.${lane}`) })} →
                 </Link>
@@ -321,7 +321,7 @@ export default async function PageRapportMeta({ params }: Params) {
           </div>
         </section>
 
-        <p className="border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
+        <p className="border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">
           {t("pages.meta.methode", { date, seuil })}
         </p>
       </div>
@@ -336,14 +336,14 @@ function LigneHeros({ slug, detail, children }: { slug: string; detail?: string;
   return (
     <Link
       href={`/heroes/${slug}`}
-      className="biseau-sm group flex items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-2.5 transition-colors hover:border-or-500/60"
+      className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60"
     >
       <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="icone" decoratif />
       <span className="min-w-0 flex-1">
-        <span className="block truncate font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+        <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
           {h.nom}
         </span>
-        {detail && <span className="block text-xs text-craie-500">{detail}</span>}
+        {detail && <span className="block text-xs text-chalk-500">{detail}</span>}
       </span>
       {children}
     </Link>
@@ -372,15 +372,15 @@ function Mouvements({
     <div>
       <h3
         className={cn(
-          "mb-3 flex items-center gap-2 font-titre text-lg font-bold",
-          hausse ? "text-emerald-400" : "text-sang-500",
+          "mb-3 flex items-center gap-2 font-heading text-lg font-bold",
+          hausse ? "text-emerald-400" : "text-blood-500",
         )}
       >
         <Icone size={18} aria-hidden />
         {titre}
       </h3>
       {mouvements.length === 0 ? (
-        <p className="text-sm text-craie-500">{vide}</p>
+        <p className="text-sm text-chalk-500">{vide}</p>
       ) : (
         <ol className="space-y-2">
           {mouvements.map(({ slug, variation: v }) => (
@@ -390,7 +390,7 @@ function Mouvements({
                 detail={`${pourcent.format(v.avant)} → ${pourcent.format(v.actuel)} ${t("home.pourcentVictoires")}`}
               >
                 <span
-                  className={cn("shrink-0 font-semibold tabular-nums", hausse ? "text-emerald-400" : "text-sang-500")}
+                  className={cn("shrink-0 font-semibold tabular-nums", hausse ? "text-emerald-400" : "text-blood-500")}
                 >
                   <span aria-hidden>
                     {formaterEcart(v.ecart, langue)} {t("contres.pts")}
@@ -425,15 +425,15 @@ function Paliers({
     <div>
       <h3
         className={cn(
-          "mb-3 flex items-center gap-2 font-titre text-lg font-bold",
-          hausse ? "text-emerald-400" : "text-sang-500",
+          "mb-3 flex items-center gap-2 font-heading text-lg font-bold",
+          hausse ? "text-emerald-400" : "text-blood-500",
         )}
       >
         <Icone size={18} aria-hidden />
         {titre}
       </h3>
       {changements.length === 0 ? (
-        <p className="text-sm text-craie-500">{vide}</p>
+        <p className="text-sm text-chalk-500">{vide}</p>
       ) : (
         <ol className="space-y-2">
           {changements.map((c) => (
@@ -441,7 +441,7 @@ function Paliers({
               <LigneHeros slug={c.slug}>
                 <span aria-hidden className="flex shrink-0 items-center gap-1.5">
                   <BadgePalier palier={c.avant} />
-                  <span className="text-craie-500">→</span>
+                  <span className="text-chalk-500">→</span>
                   <BadgePalier palier={c.apres} />
                 </span>
                 <span className="sr-only">{t("pages.meta.paliers.sr", { avant: c.avant, apres: c.apres })}</span>
@@ -466,12 +466,12 @@ function Classement({
 }) {
   return (
     <div>
-      <h3 className="mb-3 font-titre text-lg font-bold text-craie-100">{titre}</h3>
+      <h3 className="mb-3 font-heading text-lg font-bold text-chalk-100">{titre}</h3>
       <ol className="space-y-2">
         {entrees.map((e) => (
           <li key={e.heros.slug}>
             <LigneHeros slug={e.heros.slug}>
-              <span className="shrink-0 font-semibold tabular-nums text-or-400">{valeur(e)}</span>
+              <span className="shrink-0 font-semibold tabular-nums text-gold-400">{valeur(e)}</span>
             </LigneHeros>
           </li>
         ))}
@@ -492,8 +492,8 @@ function GroupeHeros({
 }) {
   return (
     <div>
-      <h3 className={cn("font-titre text-lg font-bold", couleur)}>
-        {titre} <span className="text-sm font-medium text-craie-500">{liste.length}</span>
+      <h3 className={cn("font-heading text-lg font-bold", couleur)}>
+        {titre} <span className="text-sm font-medium text-chalk-500">{liste.length}</span>
       </h3>
       <ul className="mt-3 flex flex-wrap gap-2">
         {liste.map((a) => {
@@ -506,14 +506,14 @@ function GroupeHeros({
                 taille="micro"
                 decoratif
               />
-              <span className="font-medium text-craie-100">{h?.nom ?? a.nom}</span>
+              <span className="font-medium text-chalk-100">{h?.nom ?? a.nom}</span>
             </>
           );
-          const classes = "biseau-sm flex items-center gap-2 border border-nuit-700/70 bg-nuit-900/60 py-1 pl-1 pr-2.5 text-sm";
+          const classes = "bevel-sm flex items-center gap-2 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2.5 text-sm";
           return (
             <li key={a.slug}>
               {h ? (
-                <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-colors hover:border-or-500/60")}>
+                <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-colors hover:border-gold-500/60")}>
                   {contenu}
                 </Link>
               ) : (

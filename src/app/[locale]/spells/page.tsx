@@ -36,23 +36,23 @@ export default async function PageSorts({ params }: { params: Promise<{ locale: 
             <li key={s.slug}>
               <Link
                 href={`/spells/${s.slug}`}
-                className="biseau group flex h-full items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-3 transition-colors hover:border-or-500/60"
+                className="bevel group flex h-full items-center gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60"
               >
-                <span className="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-full border border-nuit-700 bg-nuit-800">
+                <span className="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-full border border-night-700 bg-night-800">
                   {s.image ? (
                     // Icone deja optimisee par la synchro : un seul fichier, sans srcset.
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={s.image} alt="" width={48} height={48} loading="lazy" className="size-full object-contain" />
                   ) : (
-                    <span className="text-sm font-semibold text-craie-500">{s.nom.charAt(0)}</span>
+                    <span className="text-sm font-semibold text-chalk-500">{s.nom.charAt(0)}</span>
                   )}
                 </span>
                 <span className="min-w-0">
-                  <span className="block font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                  <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                     {s.nom}
                   </span>
                   {s.recharge !== null && (
-                    <span className="block text-xs text-craie-500">{t("pages.spellsListe.recharge", { s: s.recharge })}</span>
+                    <span className="block text-xs text-chalk-500">{t("pages.spellsListe.recharge", { s: s.recharge })}</span>
                   )}
                 </span>
               </Link>

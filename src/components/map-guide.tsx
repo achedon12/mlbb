@@ -63,9 +63,9 @@ const TINTS: Record<MapPointKey, string> = {
 };
 
 const SIDE_BORDER: Record<"ours" | "theirs" | "shared", string> = {
-  ours: "border-azur-500",
-  theirs: "border-sang-500",
-  shared: "border-or-500",
+  ours: "border-azure-500",
+  theirs: "border-blood-500",
+  shared: "border-gold-500",
 };
 
 const MARKERS = MAP_POINTS.flatMap((p) =>
@@ -112,7 +112,7 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <div>
-        <div className="relative mx-auto aspect-square w-full max-w-[36rem] overflow-hidden rounded-lg border border-nuit-700 bg-nuit-950">
+        <div className="relative mx-auto aspect-square w-full max-w-[36rem] overflow-hidden rounded-lg border border-night-700 bg-night-950">
           <svg viewBox="0 0 100 100" aria-hidden className="absolute inset-0 size-full">
             <rect width="100" height="100" fill="#0e1424" />
             {TERRAIN_BLOCKS.map(([x, y, w, h]) => (
@@ -172,14 +172,14 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
                   onKeyDown={(evt) => move(evt, i)}
                   style={{ left: `${m.x}%`, top: `${m.y}%`, color: TINTS[m.key] }}
                   className={cn(
-                    "absolute grid -translate-x-1/2 -translate-y-1/2 place-items-center border-2 bg-nuit-950/90 shadow-md shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-craie-100 motion-safe:transition-transform",
+                    "absolute grid -translate-x-1/2 -translate-y-1/2 place-items-center border-2 bg-night-950/90 shadow-md shadow-black/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chalk-100 motion-safe:transition-transform",
                     m.lane
                       ? "h-6 min-w-9 rounded-full px-1.5 text-[0.625rem] font-bold uppercase tracking-wide"
                       : m.small
                         ? "size-5 rounded-full sm:size-6"
                         : "size-7 rounded-full sm:size-8",
                     SIDE_BORDER[m.side ?? "shared"],
-                    isSelected && "z-10 scale-125 border-or-400 bg-nuit-800",
+                    isSelected && "z-10 scale-125 border-gold-400 bg-night-800",
                   )}
                 >
                   {m.lane ? (
@@ -192,18 +192,18 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
             })}
           </div>
         </div>
-        <p id={helpId} className="mx-auto mt-2 max-w-[36rem] text-xs text-craie-500">
+        <p id={helpId} className="mx-auto mt-2 max-w-[36rem] text-xs text-chalk-500">
           {t("pages.mapUI.keyboardHelp")}
         </p>
-        <ul className="mx-auto mt-2 flex max-w-[36rem] flex-wrap gap-x-4 gap-y-1 text-xs text-craie-400">
+        <ul className="mx-auto mt-2 flex max-w-[36rem] flex-wrap gap-x-4 gap-y-1 text-xs text-chalk-400">
           {(["ours", "theirs", "shared"] as const).map((s) => (
             <li key={s} className="flex items-center gap-1.5">
-              <span aria-hidden className={cn("size-3 rounded-full border-2 bg-nuit-950", SIDE_BORDER[s])} />
+              <span aria-hidden className={cn("size-3 rounded-full border-2 bg-night-950", SIDE_BORDER[s])} />
               {t(`pages.mapUI.legend.${s}`)}
             </li>
           ))}
           <li className="flex items-center gap-1.5">
-            <span aria-hidden className="h-2 w-4 bg-azur-400/40" />
+            <span aria-hidden className="h-2 w-4 bg-azure-400/40" />
             {t("pages.mapUI.legend.river")}
           </li>
         </ul>
@@ -211,32 +211,32 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
 
       <div className="space-y-6">
         <section aria-labelledby={cardTitleId} aria-live="polite" className="relative">
-          <div aria-hidden className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-900/70" />
+          <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/70" />
           <div className="relative p-4 sm:p-5">
             <div className="flex items-center gap-3">
               {card.image ? (
                 // eslint-disable-next-line @next/next/no-img-element -- local portrait, already small
-                <img src={card.image} alt="" width={48} height={48} className="size-12 shrink-0 rounded-full border border-nuit-600 object-cover" />
+                <img src={card.image} alt="" width={48} height={48} className="size-12 shrink-0 rounded-full border border-night-600 object-cover" />
               ) : (
                 <span
                   aria-hidden
-                  className="grid size-12 shrink-0 place-items-center rounded-full border border-nuit-600 bg-nuit-950"
+                  className="grid size-12 shrink-0 place-items-center rounded-full border border-night-600 bg-night-950"
                   style={{ color: TINTS[selected] }}
                 >
                   {Icon ? <Icon className="size-6" /> : <span className="text-xs font-bold">{t(`pages.mapUI.short.${selected}`)}</span>}
                 </span>
               )}
-              <h3 id={cardTitleId} className="font-titre text-xl font-bold text-craie-100">
+              <h3 id={cardTitleId} className="font-heading text-xl font-bold text-chalk-100">
                 {card.name}
               </h3>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-craie-300">{card.role}</p>
+            <p className="mt-3 text-sm leading-relaxed text-chalk-300">{card.role}</p>
             {card.facts.length > 0 && (
               <dl className="mt-4 space-y-2 text-sm">
                 {card.facts.map((f) => (
                   <div key={f.label} className="grid gap-0.5 sm:grid-cols-[8.5rem_1fr] sm:gap-3 lg:grid-cols-1 lg:gap-0.5">
-                    <dt className="text-xs font-semibold uppercase tracking-wide text-craie-500">{f.label}</dt>
-                    <dd className="leading-snug text-craie-100">{f.value}</dd>
+                    <dt className="text-xs font-semibold uppercase tracking-wide text-chalk-500">{f.label}</dt>
+                    <dd className="leading-snug text-chalk-100">{f.value}</dd>
                   </div>
                 ))}
               </dl>
@@ -245,16 +245,16 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
               <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm">
                 {card.links.map((l) => (
                   <li key={l.href}>
-                    <Link href={l.href} className="font-semibold text-or-400 transition-colors hover:text-or-500">
+                    <Link href={l.href} className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                       {l.label} →
                     </Link>
                   </li>
                 ))}
               </ul>
             )}
-            <p className="mt-4 text-xs text-craie-500">
+            <p className="mt-4 text-xs text-chalk-500">
               {t("pages.mapUI.source")}{" "}
-              <a href={card.source} rel="noopener" className="underline transition-colors hover:text-or-400">
+              <a href={card.source} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {card.sourceName}
               </a>
             </p>
@@ -264,7 +264,7 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
         <div role="group" aria-label={t("pages.mapUI.listTitle")} className="space-y-3">
           {MAP_GROUPS.map((g) => (
             <div key={g}>
-              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-craie-500">{t(`pages.mapUI.group.${g}`)}</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-chalk-500">{t(`pages.mapUI.group.${g}`)}</h3>
               <ul className="mt-1.5 flex flex-wrap gap-1.5">
                 {MAP_POINTS.filter((p) => p.group === g).map((p) => (
                   <li key={p.key}>
@@ -273,10 +273,10 @@ export function MapGuide({ cards }: { cards: Record<MapPointKey, MapCard> }) {
                       aria-pressed={p.key === selected}
                       onClick={() => choose(p.key)}
                       className={cn(
-                        "min-h-11 rounded-sm border px-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-400",
+                        "min-h-11 rounded-sm border px-3 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400",
                         p.key === selected
-                          ? "border-or-400 bg-or-500/15 text-craie-100"
-                          : "border-nuit-700 bg-nuit-900/60 text-craie-300 hover:border-or-500/60",
+                          ? "border-gold-400 bg-gold-500/15 text-chalk-100"
+                          : "border-night-700 bg-night-900/60 text-chalk-300 hover:border-gold-500/60",
                       )}
                     >
                       {cards[p.key].name}

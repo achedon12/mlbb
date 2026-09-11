@@ -131,21 +131,21 @@ export default async function PageSort({ params }: Params) {
         <Carte>
           <dl className="grid gap-4 text-sm sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
             <div>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.spellDetail.effet")}</dt>
-              <dd className="mt-1 leading-relaxed text-craie-100">
-                {fi.effet ?? <span className="text-craie-500">{t("pages.spellDetail.sansDescription")}</span>}
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.effet")}</dt>
+              <dd className="mt-1 leading-relaxed text-chalk-100">
+                {fi.effet ?? <span className="text-chalk-500">{t("pages.spellDetail.sansDescription")}</span>}
               </dd>
             </div>
             {s.recharge !== null && (
               <div>
-                <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.spellDetail.recharge")}</dt>
-                <dd className="mt-1 font-titre tabular-nums text-or-400">{t("pages.spellDetail.secondes", { n: s.recharge })}</dd>
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.recharge")}</dt>
+                <dd className="mt-1 font-heading tabular-nums text-gold-400">{t("pages.spellDetail.secondes", { n: s.recharge })}</dd>
               </div>
             )}
             {fi.pourQui && (
               <div className="sm:col-span-2">
-                <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.fiches.pourQui")}</dt>
-                <dd className="mt-1 leading-relaxed text-craie-300">{fi.pourQui}</dd>
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.fiches.pourQui")}</dt>
+                <dd className="mt-1 leading-relaxed text-chalk-300">{fi.pourQui}</dd>
               </div>
             )}
           </dl>
@@ -156,7 +156,7 @@ export default async function PageSort({ params }: Params) {
           {heros.length > 0 ? (
             <TableauUsage lignes={heros} legende={titreHeros} t={t} langue={locale} />
           ) : (
-            <p className="text-sm text-craie-500">{t("pages.fiches.aucun")}</p>
+            <p className="text-sm text-chalk-500">{t("pages.fiches.aucun")}</p>
           )}
         </section>
 

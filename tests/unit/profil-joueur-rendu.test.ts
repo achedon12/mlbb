@@ -153,6 +153,6 @@ describe("analyses du profil", () => {
     expect(html).toContain('href="/fr/heroes/ling#builds"');
     expect(html).toContain('href="/fr/heroes/ling#contres"');
     expect(html).toMatch(/href="\/fr\/items#[a-z0-9-]+"/);
-    expect(html.match(/<li class="biseau/g)).toHaveLength(3);
+    expect(html.match(/<li class="bevel/g)).toHaveLength(3);
   });
 });

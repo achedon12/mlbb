@@ -35,7 +35,7 @@ export function BoutonCompte() {
   return session.connecte ? (
     <Link
       href="/account"
-      className="biseau-sm grid h-9 min-w-9 max-w-36 place-items-center truncate bg-nuit-800 px-2 text-sm font-semibold text-craie-100 transition-colors hover:bg-nuit-700 sm:block sm:px-4 sm:py-2"
+      className="bevel-sm grid h-9 min-w-9 max-w-36 place-items-center truncate bg-night-800 px-2 text-sm font-semibold text-chalk-100 transition-colors hover:bg-night-700 sm:block sm:px-4 sm:py-2"
     >
       <UserRound size={18} aria-hidden className="sm:hidden" />
       <span className="max-sm:sr-only">{session.pseudo}</span>
@@ -43,7 +43,7 @@ export function BoutonCompte() {
   ) : (
     <Link
       href="/login"
-      className="biseau-sm grid h-9 min-w-9 place-items-center bg-or-500 px-2 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400 sm:block sm:px-4 sm:py-2"
+      className="bevel-sm grid h-9 min-w-9 place-items-center bg-gold-500 px-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 sm:block sm:px-4 sm:py-2"
     >
       <LogIn size={18} aria-hidden className="sm:hidden" />
       <span className="max-sm:sr-only">{t("compte.connexion")}</span>

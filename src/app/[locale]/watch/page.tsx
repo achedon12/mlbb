@@ -32,12 +32,12 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
         titre={t("pages.watch.titre")}
         chapeau={t("pages.watch.chapeau")}
       >
-        <p className="mt-6 text-sm text-craie-500">
+        <p className="mt-6 text-sm text-chalk-500">
           {t("pages.watch.derniereCollecte", { date: date(mesureVeille) })}{" "}
           {sources.map((s, i) => (
             <span key={s.slug}>
               {i > 0 && ", "}
-              <a href={s.site} rel="noreferrer nofollow" className="text-or-400 hover:underline">
+              <a href={s.site} rel="noreferrer nofollow" className="text-gold-400 hover:underline">
                 {s.nom}
               </a>
             </span>
@@ -47,7 +47,7 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
 
       <div className="mx-auto max-w-4xl px-4 py-14">
         {actualites.length === 0 ? (
-          <p className="text-craie-500">
+          <p className="text-chalk-500">
             {t("pages.watch.aucune")}
           </p>
         ) : (
@@ -58,30 +58,30 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
                   href={a.lien}
                   rel="noreferrer nofollow"
                   target="_blank"
-                  className="biseau group flex gap-4 border border-nuit-700/70 bg-nuit-900/60 p-5 transition-colors hover:border-or-500/60"
+                  className="bevel group flex gap-4 border border-night-700/70 bg-night-900/60 p-5 transition-colors hover:border-gold-500/60"
                 >
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                      <span className="text-xs font-semibold uppercase tracking-wide text-or-400">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
                         {a.source}
                       </span>
                       {a.date && (
-                        <time dateTime={a.date} className="text-xs text-craie-500">
+                        <time dateTime={a.date} className="text-xs text-chalk-500">
                           {date(a.date)}
                         </time>
                       )}
                     </div>
-                    <h2 className="mt-1.5 font-titre text-lg font-bold leading-snug text-craie-100 transition-colors group-hover:text-or-400">
+                    <h2 className="mt-1.5 font-heading text-lg font-bold leading-snug text-chalk-100 transition-colors group-hover:text-gold-400">
                       {a.titre}
                     </h2>
                     {a.extrait && (
-                      <p className="mt-2 text-sm leading-relaxed text-craie-500">{a.extrait}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-chalk-500">{a.extrait}</p>
                     )}
                   </div>
                   <ExternalLink
                     size={16}
                     aria-hidden
-                    className="mt-1 shrink-0 text-craie-500 transition-colors group-hover:text-or-400"
+                    className="mt-1 shrink-0 text-chalk-500 transition-colors group-hover:text-gold-400"
                   />
                 </a>
               </li>
@@ -89,9 +89,9 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
           </ul>
         )}
 
-        <p className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
+        <p className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">
           {creditAvant}
-          <Link href="/patch-notes" className="text-or-400 hover:underline">
+          <Link href="/patch-notes" className="text-gold-400 hover:underline">
             {t("nav.patchNotes.label")}
           </Link>
           {creditApres}

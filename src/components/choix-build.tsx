@@ -20,20 +20,20 @@ export function ChoixBuild({
 }) {
   const contenu = (
     <>
-      <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-nuit-700 bg-nuit-800">
+      <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-night-700 bg-night-800">
         {image ? (
           <Image src={image} alt="" fill unoptimized className="object-contain" />
         ) : (
-          <span className="grid size-full place-items-center text-xs font-semibold text-craie-500">
+          <span className="grid size-full place-items-center text-xs font-semibold text-chalk-500">
             {nom.charAt(0)}
           </span>
         )}
       </span>
       <span className="min-w-0">
         {libelle && (
-          <span className="block text-[0.65rem] uppercase tracking-wide text-craie-500">{libelle}</span>
+          <span className="block text-[0.65rem] uppercase tracking-wide text-chalk-500">{libelle}</span>
         )}
-        <span className="block truncate text-sm text-craie-100 transition-colors group-hover:text-or-400">{nom}</span>
+        <span className="block truncate text-sm text-chalk-100 transition-colors group-hover:text-gold-400">{nom}</span>
       </span>
     </>
   );

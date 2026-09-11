@@ -40,9 +40,9 @@ export default async function PageTauxVictoire({ params }: Params) {
         <CalculateurTaux />
 
         <section>
-          <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.winRate.methodeTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-4 leading-relaxed text-craie-300">
+          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.winRate.methodeTitre")}</h2>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-4 leading-relaxed text-chalk-300">
             <p>{t("pages.winRate.methode1")}</p>
             <p>{t("pages.winRate.methode2")}</p>
           </div>

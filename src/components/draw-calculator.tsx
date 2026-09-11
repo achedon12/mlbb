@@ -56,7 +56,7 @@ function Field({
   const id = useId();
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wide text-craie-500">
+      <label htmlFor={id} className="text-xs uppercase tracking-wide text-chalk-500">
         {label}
       </label>
       <div className="relative mt-1.5">
@@ -70,18 +70,18 @@ function Field({
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? `${id}-error` : undefined}
           className={cn(
-            "biseau-sm min-h-11 w-full border border-nuit-700 bg-nuit-900 py-2.5 pl-3 text-lg tabular-nums text-craie-100 outline-none transition-colors focus:border-or-500 aria-invalid:border-sang-500/70",
+            "bevel-sm min-h-11 w-full border border-night-700 bg-night-900 py-2.5 pl-3 text-lg tabular-nums text-chalk-100 outline-none transition-colors focus:border-gold-500 aria-invalid:border-blood-500/70",
             suffix ? "pr-9" : "pr-3",
           )}
         />
         {suffix && (
-          <span aria-hidden className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-craie-500">
+          <span aria-hidden className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-chalk-500">
             {suffix}
           </span>
         )}
       </div>
       {error && (
-        <p id={`${id}-error`} className="mt-1 text-xs text-sang-500">
+        <p id={`${id}-error`} className="mt-1 text-xs text-blood-500">
           {error}
         </p>
       )}
@@ -168,7 +168,7 @@ export function DrawCalculator() {
     <div className="space-y-6">
       <Carte>
         <fieldset>
-          <legend className="text-xs uppercase tracking-wide text-craie-500">{t("pages.drawCalculatorUI.presets")}</legend>
+          <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.drawCalculatorUI.presets")}</legend>
           <div className="mt-2 flex flex-wrap gap-2">
             {PRESETS.map((p) => (
               <button
@@ -206,13 +206,13 @@ export function DrawCalculator() {
           <Field label={t("pages.drawCalculatorUI.pity")} value={inputs.pity} onChange={update("pity")} error={errorFor("pity")} />
         </div>
         {result.state === "ok" && event.tenCost !== null && !tenDrawPays(event) && (
-          <p className="mt-3 text-xs text-craie-500">{t("pages.drawCalculatorUI.tenIgnored")}</p>
+          <p className="mt-3 text-xs text-chalk-500">{t("pages.drawCalculatorUI.tenIgnored")}</p>
         )}
 
-        <fieldset className="mt-6 border-t border-nuit-800 pt-5">
+        <fieldset className="mt-6 border-t border-night-800 pt-5">
           <legend className="sr-only">{t("pages.drawCalculatorUI.modeLegend")}</legend>
           <div className="flex flex-wrap items-center gap-2">
-            <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-craie-500">
+            <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-chalk-500">
               {t("pages.drawCalculatorUI.modeLegend")}
             </span>
             {(["budget", "draws"] as const).map((m) => (
@@ -250,15 +250,15 @@ export function DrawCalculator() {
       <div aria-live="polite">
         {result.state === "invalid" ? (
           <Carte>
-            <p className="text-sm leading-relaxed text-craie-300">{t("pages.drawCalculatorUI.invalid")}</p>
+            <p className="text-sm leading-relaxed text-chalk-300">{t("pages.drawCalculatorUI.invalid")}</p>
           </Carte>
         ) : (
-          <Carte className="border-or-500/30">
+          <Carte className="border-gold-500/30">
             <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <span className="font-titre text-5xl font-bold tabular-nums text-or-400">{chance(result.chance)}</span>
-              <span className="text-lg text-craie-100">{t("pages.drawCalculatorUI.chanceOfPrize")}</span>
+              <span className="font-heading text-5xl font-bold tabular-nums text-gold-400">{chance(result.chance)}</span>
+              <span className="text-lg text-chalk-100">{t("pages.drawCalculatorUI.chanceOfPrize")}</span>
             </p>
-            <p className="mt-3 leading-relaxed text-craie-300">
+            <p className="mt-3 leading-relaxed text-chalk-300">
               {result.draws === 0
                 ? t("pages.drawCalculatorUI.summaryNone", { cost: integer.format(event.cost) })
                 : t(mode === "budget" ? "pages.drawCalculatorUI.summaryBudget" : "pages.drawCalculatorUI.summaryDraws", {
@@ -300,10 +300,10 @@ export function DrawCalculator() {
               )}
             </dl>
 
-            <h2 className="mt-6 font-titre text-lg font-bold text-craie-100">{t("pages.drawCalculatorUI.milestonesTitle")}</h2>
+            <h2 className="mt-6 font-heading text-lg font-bold text-chalk-100">{t("pages.drawCalculatorUI.milestonesTitle")}</h2>
             <div className="relative mt-2 overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
+                <thead className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
                   <tr>
                     <th scope="col" className="py-2 pr-4 font-medium">{t("pages.drawCalculatorUI.colChance")}</th>
                     <th scope="col" className="py-2 pr-4 text-right font-medium">{t("pages.drawCalculatorUI.colDraws")}</th>
@@ -312,10 +312,10 @@ export function DrawCalculator() {
                 </thead>
                 <tbody>
                   {result.milestones.map((m) => (
-                    <tr key={m.target} className="border-b border-nuit-800">
-                      <th scope="row" className="py-2.5 pr-4 font-medium text-craie-100">{percent.format(m.target)}</th>
-                      <td className="py-2.5 pr-4 text-right tabular-nums text-craie-200">{integer.format(m.draws)}</td>
-                      <td className="py-2.5 text-right tabular-nums text-craie-200">{integer.format(m.diamonds)}</td>
+                    <tr key={m.target} className="border-b border-night-800">
+                      <th scope="row" className="py-2.5 pr-4 font-medium text-chalk-100">{percent.format(m.target)}</th>
+                      <td className="py-2.5 pr-4 text-right tabular-nums text-chalk-200">{integer.format(m.draws)}</td>
+                      <td className="py-2.5 text-right tabular-nums text-chalk-200">{integer.format(m.diamonds)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -324,7 +324,7 @@ export function DrawCalculator() {
           </Carte>
 
           <Carte>
-            <h2 className="font-titre text-lg font-bold text-craie-100">{t("pages.drawCalculatorUI.chartTitle")}</h2>
+            <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.drawCalculatorUI.chartTitle")}</h2>
             <DrawChart
               event={event}
               draws={result.draws}
@@ -346,7 +346,7 @@ export function DrawCalculator() {
         </>
       )}
 
-      <p className="text-sm leading-relaxed text-craie-500">{t("pages.drawCalculatorUI.whereToFind")}</p>
+      <p className="text-sm leading-relaxed text-chalk-500">{t("pages.drawCalculatorUI.whereToFind")}</p>
     </div>
   );
 }
@@ -354,13 +354,13 @@ export function DrawCalculator() {
 function PresetNote({ preset, date }: { preset: Preset; date: string }) {
   const t = useT();
   return (
-    <p className="mt-3 text-xs leading-relaxed text-craie-500">
+    <p className="mt-3 text-xs leading-relaxed text-chalk-500">
       {t("pages.drawCalculatorUI.presetNote", { date, prize: t(`pages.drawCalculatorUI.prize.${preset.key}`) })}{" "}
       {/* Inline link, but with a full-size tap target on touch screens. */}
       <a
         href={preset.source}
         rel="noopener"
-        className="inline-flex min-h-11 items-center align-middle underline transition-colors hover:text-or-400"
+        className="inline-flex min-h-11 items-center align-middle underline transition-colors hover:text-gold-400"
       >
         {t("pages.drawCalculatorUI.wikiLink")}
       </a>
@@ -370,9 +370,9 @@ function PresetNote({ preset, date }: { preset: Preset; date: string }) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex items-baseline justify-between gap-3 border-b border-nuit-800 pb-2">
-      <dt className="text-sm text-craie-400">{label}</dt>
-      <dd className="font-titre text-lg font-bold tabular-nums text-craie-100">{value}</dd>
+    <div className="flex items-baseline justify-between gap-3 border-b border-night-800 pb-2">
+      <dt className="text-sm text-chalk-400">{label}</dt>
+      <dd className="font-heading text-lg font-bold tabular-nums text-chalk-100">{value}</dd>
     </div>
   );
 }
@@ -433,7 +433,7 @@ function DrawChart({
 
   return (
     <div ref={frame} className="mt-3">
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label} className="block h-[220px] w-full select-none text-or-400">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label} className="block h-[220px] w-full select-none text-gold-400">
         <defs>
           <linearGradient id={`${id}-area`} x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stopColor="currentColor" stopOpacity="0.28" />
@@ -443,8 +443,8 @@ function DrawChart({
 
         {GRIDLINES.map((g) => (
           <g key={g}>
-            <line x1={LEFT} x2={W - RIGHT} y1={y(g)} y2={y(g)} className="stroke-nuit-700" strokeDasharray="3 4" />
-            <text x={LEFT - 6} y={y(g) + 4} textAnchor="end" className="fill-craie-500 text-[11px] tabular-nums">
+            <line x1={LEFT} x2={W - RIGHT} y1={y(g)} y2={y(g)} className="stroke-night-700" strokeDasharray="3 4" />
+            <text x={LEFT - 6} y={y(g) + 4} textAnchor="end" className="fill-chalk-500 text-[11px] tabular-nums">
               {format.percent.format(g)}
             </text>
           </g>
@@ -455,7 +455,7 @@ function DrawChart({
             x={x(n)}
             y={H - 8}
             textAnchor={i === 0 ? "start" : i === 2 ? "end" : "middle"}
-            className="fill-craie-500 text-[11px] tabular-nums"
+            className="fill-chalk-500 text-[11px] tabular-nums"
           >
             {i === 2 ? `${format.integer.format(n)} ${texts.axis}` : format.integer.format(n)}
           </text>
@@ -463,12 +463,12 @@ function DrawChart({
 
         {event.pity !== null && event.pity <= max && (
           <g>
-            <line x1={x(event.pity)} x2={x(event.pity)} y1={TOP} y2={y(0)} className="stroke-azur-400/70" strokeDasharray="2 3" />
+            <line x1={x(event.pity)} x2={x(event.pity)} y1={TOP} y2={y(0)} className="stroke-azure-400/70" strokeDasharray="2 3" />
             <text
               x={x(event.pity) + (pityOnRight ? -4 : 4)}
               y={y(0) - 6}
               textAnchor={pityOnRight ? "end" : "start"}
-              className="fill-azur-400 text-[10px]"
+              className="fill-azure-400 text-[10px]"
             >
               {texts.pity}
             </text>
@@ -480,8 +480,8 @@ function DrawChart({
 
         {draws > 0 && (
           <g>
-            <line x1={x(draws)} x2={x(draws)} y1={y(chance)} y2={y(0)} className="stroke-craie-500/60" strokeDasharray="3 3" />
-            <circle cx={x(draws)} cy={y(chance)} r={5} fill="currentColor" className="stroke-nuit-950" strokeWidth={2} />
+            <line x1={x(draws)} x2={x(draws)} y1={y(chance)} y2={y(0)} className="stroke-chalk-500/60" strokeDasharray="3 3" />
+            <circle cx={x(draws)} cy={y(chance)} r={5} fill="currentColor" className="stroke-night-950" strokeWidth={2} />
             <text
               x={x(draws) + (onRight ? -9 : 9)}
               y={Math.min(Math.max(y(chance) + 16, TOP + 12), y(0) - 20)}
@@ -489,7 +489,7 @@ function DrawChart({
               paintOrder="stroke"
               strokeWidth={4}
               strokeLinejoin="round"
-              className="fill-craie-100 stroke-nuit-900 text-[12px] font-semibold tabular-nums"
+              className="fill-chalk-100 stroke-night-900 text-[12px] font-semibold tabular-nums"
             >
               {`${texts.you}${offChart ? " →" : ""} · ${format.chance(chance)}`}
             </text>

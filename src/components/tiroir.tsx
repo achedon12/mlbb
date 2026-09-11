@@ -51,23 +51,23 @@ export function Tiroir({
       <div
         aria-hidden
         onClick={() => fermer.current()}
-        className="fixed inset-0 z-50 bg-nuit-950/70 backdrop-blur-sm"
+        className="fixed inset-0 z-50 bg-night-950/70 backdrop-blur-sm"
       />
       <div
         role="dialog"
         aria-modal="true"
         aria-label={titre}
-        className="tiroir fixed inset-x-0 bottom-0 z-50 max-h-[85vh] overflow-y-auto rounded-t-2xl border-t border-nuit-700 bg-nuit-900 pb-[env(safe-area-inset-bottom)] shadow-2xl shadow-black/60"
+        className="drawer fixed inset-x-0 bottom-0 z-50 max-h-[85vh] overflow-y-auto rounded-t-2xl border-t border-night-700 bg-night-900 pb-[env(safe-area-inset-bottom)] shadow-2xl shadow-black/60"
       >
-        <div className="sticky top-0 z-10 flex justify-center bg-nuit-900 pb-1 pt-2.5">
-          <span aria-hidden className="h-1 w-10 rounded-full bg-nuit-600" />
+        <div className="sticky top-0 z-10 flex justify-center bg-night-900 pb-1 pt-2.5">
+          <span aria-hidden className="h-1 w-10 rounded-full bg-night-600" />
         </div>
         <button
           type="button"
           autoFocus
           onClick={() => fermer.current()}
           aria-label={libelleFermer ?? t("commun.fermer")}
-          className="absolute right-3 top-2 z-10 grid size-9 place-items-center text-craie-500 transition-colors hover:text-craie-100"
+          className="absolute right-3 top-2 z-10 grid size-9 place-items-center text-chalk-500 transition-colors hover:text-chalk-100"
         >
           <X size={18} aria-hidden />
         </button>

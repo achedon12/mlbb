@@ -29,16 +29,16 @@ export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
             className="object-contain"
           />
         ) : (
-          <span className="grid size-full place-items-center bg-nuit-800 text-xs text-craie-500">
+          <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">
             {rang}
           </span>
         )}
         {/* Le rang dit l'ordre d'achat, qui compte autant que la liste. */}
-        <span className="absolute -left-1 -top-1 grid size-4 place-items-center bg-or-500 text-[0.6rem] font-bold text-nuit-950">
+        <span className="absolute -left-1 -top-1 grid size-4 place-items-center bg-gold-500 text-[0.6rem] font-bold text-night-950">
           {rang}
         </span>
       </span>
-      <span className="mt-1.5 block text-[0.7rem] leading-tight text-craie-300">
+      <span className="mt-1.5 block text-[0.7rem] leading-tight text-chalk-300">
         {nom}
       </span>
     </>
@@ -46,7 +46,7 @@ export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
 
   if (!objet) {
     return (
-      <li className="biseau-sm border border-nuit-700 bg-nuit-850 p-2 text-center">
+      <li className="bevel-sm border border-night-700 bg-night-850 p-2 text-center">
         {contenu}
       </li>
     );
@@ -57,7 +57,7 @@ export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
       <Link
         href={`/items/${objet.slug}`}
         title={objet.bonus ?? objet.nom}
-        className="biseau-sm block border border-nuit-700 bg-nuit-850 p-2 text-center transition-colors hover:border-or-500/60"
+        className="bevel-sm block border border-night-700 bg-night-850 p-2 text-center transition-colors hover:border-gold-500/60"
       >
         {contenu}
       </Link>

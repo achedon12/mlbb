@@ -27,30 +27,30 @@ export function PaireLoreCarte({
   const cote = (h: typeof a, lien: LienLore | null, autre: typeof a) =>
     lien && (
       <div className="flex flex-wrap gap-x-2">
-        <dt className="text-craie-500">
+        <dt className="text-chalk-500">
           {h.nom} <span aria-hidden>→</span>
           <span className="sr-only"> {t("pages.lore.envers")} </span> {autre.nom}
           <span aria-hidden> ·</span>
         </dt>
-        <dd className="text-craie-200">{lien.nature ?? t("pages.lore.sansNature")}</dd>
+        <dd className="text-chalk-200">{lien.nature ?? t("pages.lore.sansNature")}</dd>
       </div>
     );
 
   const heros = (h: typeof a, region: string | null | undefined) => (
-    <Link href={`/heroes/${h.slug}#histoire`} className="flex min-w-0 items-center gap-2 hover:text-or-400">
+    <Link href={`/heroes/${h.slug}#histoire`} className="flex min-w-0 items-center gap-2 hover:text-gold-400">
       <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="icone" decoratif />
       <span className="min-w-0">
-        <span className="block truncate font-semibold text-craie-100">{h.nom}</span>
-        {region && <span className="block truncate text-xs text-craie-500">{region}</span>}
+        <span className="block truncate font-semibold text-chalk-100">{h.nom}</span>
+        {region && <span className="block truncate text-xs text-chalk-500">{region}</span>}
       </span>
     </Link>
   );
 
   return (
-    <div className="biseau-sm h-full border border-nuit-700/60 bg-nuit-900/50 p-4">
+    <div className="bevel-sm h-full border border-night-700/60 bg-night-900/50 p-4">
       <div className="flex items-center gap-3">
         {heros(a, regions?.[0])}
-        <ArrowLeftRight size={16} aria-hidden className="shrink-0 text-or-400" />
+        <ArrowLeftRight size={16} aria-hidden className="shrink-0 text-gold-400" />
         {heros(b, regions?.[1])}
       </div>
       <dl className="mt-3 space-y-1 text-sm leading-relaxed">

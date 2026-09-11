@@ -54,7 +54,7 @@ export function CompetencesHeros({
   const nombre = Math.max(officielles.length, redigees?.length ?? 0);
 
   if (nombre === 0) {
-    return <p className="text-craie-500">{t("comp.nonRecuperees")}</p>;
+    return <p className="text-chalk-500">{t("comp.nonRecuperees")}</p>;
   }
 
   const fiches: Fiche[] = Array.from({ length: nombre }, (_, i) => {
@@ -87,10 +87,10 @@ export function CompetencesHeros({
               aria-controls={`${id}-detail`}
               onClick={() => setOuverte(active ? null : i)}
               className={cn(
-                "biseau-sm flex items-center gap-3 border p-2.5 text-left transition-colors",
+                "bevel-sm flex items-center gap-3 border p-2.5 text-left transition-colors",
                 active
-                  ? "border-or-500/70 bg-nuit-850"
-                  : "border-nuit-700/70 bg-nuit-900/60 hover:border-or-500/40",
+                  ? "border-gold-500/70 bg-night-850"
+                  : "border-night-700/70 bg-night-900/60 hover:border-gold-500/40",
               )}
             >
               <span className="relative size-11 shrink-0 overflow-hidden">
@@ -103,21 +103,21 @@ export function CompetencesHeros({
                     className="object-contain"
                   />
                 ) : (
-                  <span className="grid size-full place-items-center bg-nuit-800 text-xs text-craie-500">
+                  <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">
                     —
                   </span>
                 )}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block text-[0.65rem] font-semibold uppercase tracking-wide text-or-400">
+                <span className="block text-[0.65rem] font-semibold uppercase tracking-wide text-gold-400">
                   {t(`comp.${c.type}`)}
                 </span>
-                <span className="block truncate text-sm font-semibold text-craie-100">{c.nom}</span>
+                <span className="block truncate text-sm font-semibold text-chalk-100">{c.nom}</span>
               </span>
               <ChevronDown
                 size={14}
                 aria-hidden
-                className={cn("shrink-0 text-craie-500 transition-transform", active && "rotate-180")}
+                className={cn("shrink-0 text-chalk-500 transition-transform", active && "rotate-180")}
               />
             </button>
           );
@@ -134,7 +134,7 @@ export function CompetencesHeros({
           </Tiroir>
         </>
       ) : (
-        <p id={`${id}-detail`} className="mt-3 text-xs text-craie-500">
+        <p id={`${id}-detail`} className="mt-3 text-xs text-chalk-500">
           {t("comp.indice")}
         </p>
       )}
@@ -145,7 +145,7 @@ export function CompetencesHeros({
 function DetailCompetence({ fiche, sansCadre = false }: { fiche: Fiche; sansCadre?: boolean }) {
   const t = useT();
   return (
-    <div className={cn("p-4", !sansCadre && "biseau border border-nuit-700/70 bg-nuit-900/60")}>
+    <div className={cn("p-4", !sansCadre && "bevel border border-night-700/70 bg-night-900/60")}>
       <div className="flex items-center gap-3 pr-10 lg:pr-0">
         {fiche.icone && (
           <span className="relative size-10 shrink-0 overflow-hidden">
@@ -153,27 +153,27 @@ function DetailCompetence({ fiche, sansCadre = false }: { fiche: Fiche; sansCadr
           </span>
         )}
         <div className="min-w-0">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-wide text-gold-400">
             {t(`comp.${fiche.type}`)}
           </p>
-          <h3 className="font-titre text-lg font-bold text-craie-100">{fiche.nom}</h3>
+          <h3 className="font-heading text-lg font-bold text-chalk-100">{fiche.nom}</h3>
         </div>
       </div>
-      <p className={cn("mt-2 leading-relaxed", fiche.description ? "text-craie-300" : "text-sm text-craie-500")}>
+      <p className={cn("mt-2 leading-relaxed", fiche.description ? "text-chalk-300" : "text-sm text-chalk-500")}>
         {fiche.description ?? t("comp.aucuneDescription")}
       </p>
       {(fiche.recharge || fiche.cout) && (
-        <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 border-t border-nuit-800 pt-3 text-sm">
+        <dl className="mt-4 flex flex-wrap gap-x-8 gap-y-2 border-t border-night-800 pt-3 text-sm">
           {fiche.recharge && (
             <div className="flex gap-2">
-              <dt className="text-craie-500">{t("comp.recharge")}</dt>
-              <dd className="text-craie-100">{fiche.recharge.join(" / ")} s</dd>
+              <dt className="text-chalk-500">{t("comp.recharge")}</dt>
+              <dd className="text-chalk-100">{fiche.recharge.join(" / ")} s</dd>
             </div>
           )}
           {fiche.cout && (
             <div className="flex gap-2">
-              <dt className="text-craie-500">{t("comp.cout")}</dt>
-              <dd className="text-craie-100">{fiche.cout.join(" / ")}</dd>
+              <dt className="text-chalk-500">{t("comp.cout")}</dt>
+              <dd className="text-chalk-100">{fiche.cout.join(" / ")}</dd>
             </div>
           )}
         </dl>

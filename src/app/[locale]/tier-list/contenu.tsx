@@ -245,12 +245,12 @@ export function TierList({
         <div className="mb-8 space-y-3">
           <RangeesTier rangees={rangees} />
           {filtre && (
-            <p className="text-sm leading-relaxed text-craie-500">
+            <p className="text-sm leading-relaxed text-chalk-500">
               {t("pages.tierList.noteFiltre")}
               {filtre.type === "role" && (
                 <>
                   {" "}
-                  <Link href={cheminRole(filtre.valeur)} className="font-semibold text-or-400 hover:text-or-500">
+                  <Link href={cheminRole(filtre.valeur)} className="font-semibold text-gold-400 hover:text-gold-500">
                     {t("pages.tierList.voirRole", reperesFiltre(t, filtre))} →
                   </Link>
                 </>
@@ -261,22 +261,22 @@ export function TierList({
 
         {/* Le lecteur doit pouvoir contester le classement : on montre la regle. */}
         <p className="mb-6 text-sm">
-          <Link href={rang === "all" ? "/statistics" : `/statistics/${rang}`} className="font-semibold text-or-400 hover:text-or-500">
+          <Link href={rang === "all" ? "/statistics" : `/statistics/${rang}`} className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.statistics.lienDepuisTierList")} →
           </Link>
         </p>
-        <details className="biseau mb-10 border border-nuit-700/70 bg-nuit-900/60 p-5">
-          <summary className="cursor-pointer font-titre font-bold text-or-400">
+        <details className="bevel mb-10 border border-night-700/70 bg-night-900/60 p-5">
+          <summary className="cursor-pointer font-heading font-bold text-gold-400">
             {t("pages.tierList.commentCalcule")}
           </summary>
-          <div className="mt-4 space-y-3 text-sm leading-relaxed text-craie-300">
+          <div className="mt-4 space-y-3 text-sm leading-relaxed text-chalk-300">
             <p>
-              {t("pages.tierList.scorePre")}<strong className="text-craie-100">{t("pages.tierList.scoreBold")}</strong>.
+              {t("pages.tierList.scorePre")}<strong className="text-chalk-100">{t("pages.tierList.scoreBold")}</strong>.
             </p>
             <p>{t("pages.tierList.p2")}</p>
             <p>
               {t("pages.tierList.p3pre")}
-              <span className="text-or-400">{t("pages.tierList.asterisque")}</span>{t("pages.tierList.p3post")}
+              <span className="text-gold-400">{t("pages.tierList.asterisque")}</span>{t("pages.tierList.p3post")}
             </p>
             <p>{t("pages.tierList.tendances", { seuil: pourcent.format(SEUIL_NOTABLE) })}</p>
           </div>
@@ -292,11 +292,11 @@ export function TierList({
                 <div className="flex items-center gap-4">
                   <BadgePalier palier={palier} />
                   <div>
-                    <h2 className="font-titre text-xl font-bold text-craie-100">
+                    <h2 className="font-heading text-xl font-bold text-chalk-100">
                       {t("pages.tierList.palier", { p: palier })}
-                      <span className="ml-2 text-sm font-medium text-craie-500">{entrees.length}</span>
+                      <span className="ml-2 text-sm font-medium text-chalk-500">{entrees.length}</span>
                     </h2>
-                    <p className="text-sm text-craie-500">{t(`pages.tierList.legende.${palier}`)}</p>
+                    <p className="text-sm text-chalk-500">{t(`pages.tierList.legende.${palier}`)}</p>
                   </div>
                 </div>
 
@@ -306,7 +306,7 @@ export function TierList({
           })}
         </div>
 
-        <p className="mt-14 border-t border-nuit-800 pt-6 text-sm leading-relaxed text-craie-500">
+        <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">
           {t("pages.tierList.conclusion")}
         </p>
       </div>

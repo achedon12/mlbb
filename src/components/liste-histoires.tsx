@@ -41,7 +41,7 @@ export function ListeHistoires({ groupes, total }: { groupes: GroupeHistoires[];
   return (
     <div>
       <ChampRecherche valeur={recherche} onChange={setRecherche} libelle={t("pages.loreUI.rechercher")} className="max-w-md" />
-      <p aria-live="polite" className="mt-3 text-sm text-craie-500">
+      <p aria-live="polite" className="mt-3 text-sm text-chalk-500">
         {!terme
           ? t("pages.loreUI.total", { n: total })
           : trouves === 0
@@ -50,11 +50,11 @@ export function ListeHistoires({ groupes, total }: { groupes: GroupeHistoires[];
       </p>
       {visibles.map((g) => (
         <section key={g.cle} className="mt-8">
-          <h3 className="flex items-baseline justify-between gap-3 border-b border-nuit-800 pb-2">
-            <Link href={`/lore/${g.cle}`} className="font-titre text-xl font-bold text-craie-100 hover:text-or-400">
+          <h3 className="flex items-baseline justify-between gap-3 border-b border-night-800 pb-2">
+            <Link href={`/lore/${g.cle}`} className="font-heading text-xl font-bold text-chalk-100 hover:text-gold-400">
               {g.nom}
             </Link>
-            <span className="shrink-0 text-xs text-craie-500">
+            <span className="shrink-0 text-xs text-chalk-500">
               {t(g.heros.length === 1 ? "pages.loreUI.nHeros1" : "pages.loreUI.nHeros", { n: g.heros.length })}
             </span>
           </h3>
@@ -63,12 +63,12 @@ export function ListeHistoires({ groupes, total }: { groupes: GroupeHistoires[];
               <li key={slug}>
                 <Link
                   href={`/heroes/${slug}#histoire`}
-                  className="biseau-sm flex h-full items-start gap-3 border border-nuit-700/50 bg-nuit-900/40 p-3 transition-colors hover:border-or-500/60"
+                  className="bevel-sm flex h-full items-start gap-3 border border-night-700/50 bg-night-900/40 p-3 transition-colors hover:border-gold-500/60"
                 >
                   <PortraitHeros source={icone} nom={nom} taille="icone" decoratif />
                   <span className="min-w-0">
-                    <span className="block font-semibold text-craie-100">{nom}</span>
-                    {accroche && <span className="line-clamp-2 text-sm leading-snug text-craie-400">{accroche}</span>}
+                    <span className="block font-semibold text-chalk-100">{nom}</span>
+                    {accroche && <span className="line-clamp-2 text-sm leading-snug text-chalk-400">{accroche}</span>}
                   </span>
                 </Link>
               </li>

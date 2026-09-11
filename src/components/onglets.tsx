@@ -101,7 +101,7 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
         ref={liste}
         role="tablist"
         aria-label={t("commun.sections")}
-        className="flex scroll-mt-20 flex-wrap gap-1 border-b border-nuit-700/70"
+        className="flex scroll-mt-20 flex-wrap gap-1 border-b border-night-700/70"
       >
         {visibles.map((o, i) => {
           const selectionne = o.id === actif;
@@ -119,15 +119,15 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
               onClick={() => choisir(o.id)}
               onKeyDown={(e) => auClavier(e, i)}
               className={cn(
-                "-mb-px border-b-2 px-4 py-3 font-titre text-sm font-semibold transition-colors",
+                "-mb-px border-b-2 px-4 py-3 font-heading text-sm font-semibold transition-colors",
                 selectionne
-                  ? "border-or-500 text-or-400"
-                  : "border-transparent text-craie-500 hover:text-craie-100",
+                  ? "border-gold-500 text-gold-400"
+                  : "border-transparent text-chalk-500 hover:text-chalk-100",
               )}
             >
               {o.label}
               {o.compteur !== undefined && (
-                <span className="ml-1.5 text-xs font-medium text-craie-500">
+                <span className="ml-1.5 text-xs font-medium text-chalk-500">
                   {o.compteur}
                 </span>
               )}

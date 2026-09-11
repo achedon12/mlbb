@@ -17,9 +17,9 @@ export function CreditWiki({
 }) {
   const [avant, apres = ""] = t(cle).split("{lien}");
   return (
-    <p className={className ?? "mt-8 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500"}>
+    <p className={className ?? "mt-8 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"}>
       {avant}
-      <a href={href} rel="noreferrer nofollow" target="_blank" className="text-or-400 hover:underline">
+      <a href={href} rel="noreferrer nofollow" target="_blank" className="text-gold-400 hover:underline">
         {t("commun.sourceWiki")}
       </a>
       {apres}

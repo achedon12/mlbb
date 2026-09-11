@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const sectionTitle = "font-titre text-2xl font-bold text-craie-100";
+const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
 const wikiPageName = (url: string) => decodeURIComponent(url.split("/wiki/")[1] ?? url).replaceAll("_", " ");
 
 /** Cards of every point of interest, built here so the browser only receives the finished text. */
@@ -341,8 +341,8 @@ export default async function MapPage({ params }: Params) {
           <h2 id="map-title" className={sectionTitle}>
             {t("pages.map.mapTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-craie-400">{t("pages.map.reading")}</p>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-chalk-400">{t("pages.map.reading")}</p>
           <div className="mt-6">
             <MapGuide cards={mapCards(t, locale)} />
           </div>
@@ -352,15 +352,15 @@ export default async function MapPage({ params }: Params) {
           <h2 id="rotations-title" className={sectionTitle}>
             {t("pages.map.rotations.title")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-3 max-w-3xl leading-relaxed text-craie-300">{t("pages.map.rotations.intro")}</p>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{t("pages.map.rotations.intro")}</p>
           <ul className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {rotations.map((r) => (
               <li key={r.key} className="relative">
-                <div aria-hidden className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-900/60" />
+                <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
                 <div className="relative flex h-full flex-col p-5">
-                  <h3 className="font-titre text-xl font-bold text-or-400">{r.title}</h3>
-                  <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-craie-300 marker:text-craie-500">
+                  <h3 className="font-heading text-xl font-bold text-gold-400">{r.title}</h3>
+                  <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-chalk-300 marker:text-chalk-500">
                     {r.steps.map((s) => (
                       <li key={s}>{s}</li>
                     ))}
@@ -368,7 +368,7 @@ export default async function MapPage({ params }: Params) {
                   <ul className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-4 text-sm">
                     {r.links.map((l) => (
                       <li key={l.href}>
-                        <Link href={l.href} className="font-semibold text-or-400 transition-colors hover:text-or-500">
+                        <Link href={l.href} className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                           {l.label} →
                         </Link>
                       </li>
@@ -379,21 +379,21 @@ export default async function MapPage({ params }: Params) {
             ))}
           </ul>
           <p className="mt-6 text-sm">
-            <Link href="/tools/timer" className="font-semibold text-or-400 transition-colors hover:text-or-500">
+            <Link href="/tools/timer" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
               {t("pages.map.timerCta")} →
             </Link>
           </p>
         </section>
 
-        <section aria-labelledby="sources-title" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-title" className="font-semibold text-craie-300">
+        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-title" className="font-semibold text-chalk-300">
             {t("pages.map.sourcesTitle")}
           </h2>
           <p className="mt-2">{t("pages.map.sourcesIntro", { date: formaterDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
           <ul className="mt-2 grid list-disc gap-x-8 gap-y-1 pl-5 sm:grid-cols-2">
             {sources.map((url) => (
               <li key={url}>
-                <a href={url} rel="noopener" className="underline transition-colors hover:text-or-400">
+                <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
                   {wikiPageName(url)}
                 </a>
               </li>

@@ -36,20 +36,20 @@ export default function Erreur({
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-32 text-center">
-      <p className="font-titre text-6xl font-bold text-sang-500">{t("erreur.oups")}</p>
-      <h1 className="mt-4 font-titre text-2xl font-bold text-craie-100">{t("erreur.titre")}</h1>
-      <p className="mt-4 leading-relaxed text-craie-500">{t("erreur.textePage")}</p>
+      <p className="font-heading text-6xl font-bold text-blood-500">{t("erreur.oups")}</p>
+      <h1 className="mt-4 font-heading text-2xl font-bold text-chalk-100">{t("erreur.titre")}</h1>
+      <p className="mt-4 leading-relaxed text-chalk-500">{t("erreur.textePage")}</p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <button
           type="button"
           onClick={reset}
-          className="biseau-sm bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+          className="bevel-sm bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
           {t("erreur.reessayer")}
         </button>
         <Link
           href="/"
-          className="biseau-sm border border-nuit-600 px-6 py-3 font-semibold text-craie-100 transition-colors hover:border-or-500/60 hover:text-or-400"
+          className="bevel-sm border border-night-600 px-6 py-3 font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
         >
           {t("erreur.accueil")}
         </Link>

@@ -123,39 +123,39 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       />
 
       {/* ── Bandeau d'accroche ─────────────────────────────────────────── */}
-      <section className="border-b border-nuit-700/70">
+      <section className="border-b border-night-700/70">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-          <p className="font-titre text-sm font-semibold uppercase tracking-[0.2em] text-or-400">
+          <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
             Mobile Legends: Bang Bang
           </p>
-          <h1 className="mt-4 max-w-3xl font-titre text-4xl font-bold leading-tight text-craie-100 sm:text-6xl">
+          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold leading-tight text-chalk-100 sm:text-6xl">
             {t("home.titre1")}{" "}
-            <span className="bg-linear-to-r from-or-400 to-or-600 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
               {t("home.titreAccent")}
             </span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-craie-300">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chalk-300">
             {t("home.lead", { heros: heros.length, skins: nombreSkins })}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/heroes"
-              className="biseau-sm flex items-center gap-2 bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+              className="bevel-sm flex items-center gap-2 bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
             >
               {t("home.parcourir")}
               <ArrowRight size={18} aria-hidden />
             </Link>
             <Link
               href="/draft"
-              className="biseau-sm flex items-center gap-2 border border-nuit-600 px-6 py-3 font-semibold text-craie-100 transition-colors hover:border-or-500/60 hover:text-or-400"
+              className="bevel-sm flex items-center gap-2 border border-night-600 px-6 py-3 font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
             >
               <Swords size={17} aria-hidden />
               {t("home.aideDraft")}
             </Link>
           </div>
 
-          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-nuit-800 pt-8 sm:grid-cols-4">
+          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-night-800 pt-8 sm:grid-cols-4">
             {[
               { valeur: heros.length, label: t("home.statHeros") },
               { valeur: nombreSkins, label: t("home.statSkins") },
@@ -165,10 +165,10 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
-                  <span className="block font-titre text-3xl font-bold text-or-400">
+                  <span className="block font-heading text-3xl font-bold text-gold-400">
                     {s.valeur}
                   </span>
-                  <span className="mt-1 block text-xs uppercase tracking-wide text-craie-500">
+                  <span className="mt-1 block text-xs uppercase tracking-wide text-chalk-500">
                     {s.label}
                   </span>
                 </dd>
@@ -209,14 +209,14 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
             <li key={href}>
               <Link
                 href={href}
-                className="biseau group flex h-full items-start gap-3 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
+                className="bevel group flex h-full items-start gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
               >
-                <Icone size={20} aria-hidden className="mt-0.5 shrink-0 text-or-400" />
+                <Icone size={20} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
                 <span className="min-w-0">
-                  <span className="block font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                  <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                     {t(`nav.${cle}.label`)}
                   </span>
-                  <span className="mt-1 block text-sm leading-relaxed text-craie-500">{t(`nav.${cle}.desc`)}</span>
+                  <span className="mt-1 block text-sm leading-relaxed text-chalk-500">{t(`nav.${cle}.desc`)}</span>
                 </span>
               </Link>
             </li>
@@ -225,7 +225,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       </section>
 
       {/* ── Sommet du classement ───────────────────────────────────────── */}
-      <section className="border-y border-nuit-700/70 bg-nuit-900/30">
+      <section className="border-y border-night-700/70 bg-night-900/30">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
             chapeau={t("home.classementChapeau")}
@@ -239,9 +239,9 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
               <li key={e.heros.slug}>
                 <Link
                   href={`/heroes/${e.heros.slug}`}
-                  className="biseau flex h-full flex-col items-center gap-2 border border-nuit-700/70 bg-nuit-900/60 p-4 text-center transition-colors hover:border-or-500/60"
+                  className="bevel flex h-full flex-col items-center gap-2 border border-night-700/70 bg-night-900/60 p-4 text-center transition-colors hover:border-gold-500/60"
                 >
-                  <span className="biseau-sm relative size-16 overflow-hidden bg-nuit-800">
+                  <span className="bevel-sm relative size-16 overflow-hidden bg-night-800">
                     {e.heros.visuels.portrait && (
                       <Image
                         src={e.heros.visuels.portrait}
@@ -253,8 +253,8 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                     )}
                   </span>
                   <BadgePalier palier={e.palier} />
-                  <span className="font-titre font-bold text-craie-100">{e.heros.nom}</span>
-                  <span className="text-xs text-craie-500">
+                  <span className="font-heading font-bold text-chalk-100">{e.heros.nom}</span>
+                  <span className="text-xs text-chalk-500">
                     {new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(e.victoire)}{" "}
                     {t("home.pourcentVictoires")}
                   </span>
@@ -312,7 +312,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
               <li key={`${s.slug}-${s.skin}`}>
                 <Link
                   href={`/heroes/${s.slug}`}
-                  className="biseau group relative block aspect-video overflow-hidden border border-nuit-700/70"
+                  className="bevel group relative block aspect-video overflow-hidden border border-night-700/70"
                 >
                   <Image
                     src={s.image}
@@ -321,11 +321,11 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                     sizes="(min-width: 768px) 380px, 45vw"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-nuit-950 to-transparent p-3">
-                    <span className="block font-titre text-sm font-bold text-craie-100">
+                  <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-night-950 to-transparent p-3">
+                    <span className="block font-heading text-sm font-bold text-chalk-100">
                       {s.skin}
                     </span>
-                    <span className="block text-xs text-craie-500">{s.heros}</span>
+                    <span className="block text-xs text-chalk-500">{s.heros}</span>
                   </span>
                 </Link>
               </li>
@@ -335,26 +335,26 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       )}
 
       {/* ── Patch et articles ──────────────────────────────────────────── */}
-      <section className="border-t border-nuit-700/70 bg-nuit-900/30">
+      <section className="border-t border-night-700/70 bg-night-900/30">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_2fr]">
           {dernierPatch && (
             <div>
               <TitreSection chapeau="">{t("home.derniereMaj")}</TitreSection>
               <Carte>
-                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-or-400">
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gold-400">
                   <TrendingUp size={14} aria-hidden />
                   Patch {dernierPatch.version}
                 </p>
                 <ul className="mt-4 space-y-1.5">
                   {detail[dernierPatch.version].sommaire.slice(0, 5).map((s) => (
-                    <li key={s.titre} className="text-sm leading-snug text-craie-300">
+                    <li key={s.titre} className="text-sm leading-snug text-chalk-300">
                       {s.titre}
                     </li>
                   ))}
                 </ul>
                 <Link
                   href={`/patch-notes/${dernierPatch.version}`}
-                  className="mt-5 inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                  className="mt-5 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                 >
                   {t("home.lireNotes")} →
                 </Link>
@@ -374,20 +374,20 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                 <li key={a.slug}>
                   <Link
                     href={`/${a.categorie === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
-                    className="biseau block border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
+                    className="bevel block border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
                   >
                     <span className="flex flex-wrap items-center gap-3">
-                      <span className="text-xs font-semibold uppercase tracking-wide text-or-400">
+                      <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
                         {t(`articleCat.${a.categorie}`)}
                       </span>
-                      <time dateTime={a.date} className="text-xs text-craie-500">
+                      <time dateTime={a.date} className="text-xs text-chalk-500">
                         {formaterDate(a.date, LOCALE_HTML[locale])}
                       </time>
                     </span>
-                    <span className="mt-1.5 block font-titre text-lg font-bold leading-snug text-craie-100">
+                    <span className="mt-1.5 block font-heading text-lg font-bold leading-snug text-chalk-100">
                       {a.titre}
                     </span>
-                    <span className="mt-1.5 block text-sm leading-relaxed text-craie-500">
+                    <span className="mt-1.5 block text-sm leading-relaxed text-chalk-500">
                       {a.chapeau}
                     </span>
                   </Link>
@@ -422,15 +422,15 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
             },
           ].map((c) => (
             <Carte key={c.titre}>
-              <h3 className="font-titre text-lg font-bold text-craie-100">{c.titre}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-craie-500">{c.texte}</p>
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{c.titre}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-chalk-500">{c.texte}</p>
             </Carte>
           ))}
         </div>
 
-        <p className="mt-8 flex items-center gap-2 text-sm text-craie-500">
-          <Rss size={15} aria-hidden className="text-or-400" />
-          <Link href="/feed.xml" className="hover:text-or-400">
+        <p className="mt-8 flex items-center gap-2 text-sm text-chalk-500">
+          <Rss size={15} aria-hidden className="text-gold-400" />
+          <Link href="/feed.xml" className="hover:text-gold-400">
             {t("home.suivreRss")}
           </Link>
         </p>
@@ -465,15 +465,15 @@ function ListeMouvements({
     <div>
       <h3
         className={cn(
-          "mb-3 flex items-center gap-2 font-titre text-lg font-bold",
-          hausse ? "text-emerald-400" : "text-sang-500",
+          "mb-3 flex items-center gap-2 font-heading text-lg font-bold",
+          hausse ? "text-emerald-400" : "text-blood-500",
         )}
       >
         <Icone size={18} aria-hidden />
         {titre}
       </h3>
       {mouvements.length === 0 ? (
-        <p className="text-sm text-craie-500">{vide}</p>
+        <p className="text-sm text-chalk-500">{vide}</p>
       ) : (
         <ol className="space-y-2">
           {mouvements.map(({ slug, variation: v }) => {
@@ -483,21 +483,21 @@ function ListeMouvements({
               <li key={slug}>
                 <Link
                   href={`/heroes/${slug}`}
-                  className="biseau-sm group flex items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-2.5 transition-colors hover:border-or-500/60"
+                  className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60"
                 >
                   <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="icone" decoratif />
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                    <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                       {h.nom}
                     </span>
-                    <span className="block text-xs text-craie-500">
+                    <span className="block text-xs text-chalk-500">
                       {pourcent.format(v.actuel)} {t("home.pourcentVictoires")}
                     </span>
                   </span>
                   <span
                     className={cn(
                       "flex shrink-0 items-center gap-1.5 font-semibold tabular-nums",
-                      hausse ? "text-emerald-400" : "text-sang-500",
+                      hausse ? "text-emerald-400" : "text-blood-500",
                     )}
                   >
                     <Icone size={15} aria-hidden />

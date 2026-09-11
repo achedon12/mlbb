@@ -38,7 +38,7 @@ const PREMIERES = 8;
 
 const notable = (ecart: number) => Math.abs(ecart) >= SEUIL_NOTABLE - 1e-9;
 /** Classe d'une evolution : verte en hausse, rouge en baisse, rien sous le seuil du bruit. */
-const sens = (ecart: number) => (!notable(ecart) ? undefined : ecart > 0 ? "hausse" : "baisse");
+const sens = (ecart: number) => (!notable(ecart) ? undefined : ecart > 0 ? "rising" : "falling");
 
 /**
  * Tableau des statistiques, triable et filtrable.
@@ -49,7 +49,7 @@ const sens = (ecart: number) => (!notable(ecart) ? undefined : ecart > 0 ? "haus
  * passe dans l'URL apres le montage, comme le catalogue des heros : un tri se
  * partage, et les liens de rang le conservent.
  *
- * Les cellules n'ont pas de classe : `.tableau-stats` (globals.css) les
+ * Les cellules n'ont pas de classe : `.stats-table` (globals.css) les
  * habille par position, sans quoi les memes utilitaires se repetaient sur
  * 132 lignes.
  */
@@ -95,7 +95,7 @@ export function TableauStatistiques({
     <div>
       <div className="flex flex-col gap-4">
         <nav aria-label={t("rangsMesure.label")} className="flex flex-wrap items-center gap-2">
-          <span aria-hidden className="mr-1 w-20 shrink-0 text-xs uppercase tracking-wide text-craie-500">
+          <span aria-hidden className="mr-1 w-20 shrink-0 text-xs uppercase tracking-wide text-chalk-500">
             {t("rangsMesure.label")}
           </span>
           {rangs.map((r) => (
@@ -131,7 +131,7 @@ export function TableauStatistiques({
         />
       </div>
 
-      <p aria-live="polite" className="mt-6 text-sm text-craie-500">
+      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
         {t("pages.heroesListe.compte", { n: affichees.length })}
         {affichees.length !== lignes.length && ` ${t("pages.heroesListe.compteSur", { total: lignes.length })}`}
       </p>
@@ -139,8 +139,8 @@ export function TableauStatistiques({
       {/* Defilement horizontal sur mobile, nom du heros fige a gauche. Le
           conteneur est positionne : les textes .sr-only des cellules, en position
           absolue, s'y rattachent au lieu d'elargir toute la page. */}
-      <div className="relative mt-3 overflow-x-auto border border-nuit-700/70">
-        <table className="tableau-stats">
+      <div className="relative mt-3 overflow-x-auto border border-night-700/70">
+        <table className="stats-table">
           <caption className="sr-only">
             {t("pages.statisticsTable.legende", { rang: t(`rangsMesure.${rang}`) })}
           </caption>
@@ -205,8 +205,8 @@ function Entete({
         type="button"
         onClick={() => onTri(colonne)}
         className={cn(
-          "inline-flex items-center gap-1 whitespace-nowrap uppercase tracking-wide transition-colors hover:text-or-400",
-          actif && "text-or-400",
+          "inline-flex items-center gap-1 whitespace-nowrap uppercase tracking-wide transition-colors hover:text-gold-400",
+          actif && "text-gold-400",
         )}
       >
         {children}
@@ -230,7 +230,7 @@ function Ligne({ ligne: l, premiere, taux }: { ligne: LigneStat; premiere: boole
             <b>
               {l.nom}
               {l.faible && (
-                <span className="text-or-400" title={t("pages.statisticsTable.faible")}>
+                <span className="text-gold-400" title={t("pages.statisticsTable.faible")}>
                   {" *"}
                   <span className="sr-only">{t("pages.statisticsTable.faible")}</span>
                 </span>
@@ -245,7 +245,7 @@ function Ligne({ ligne: l, premiere, taux }: { ligne: LigneStat; premiere: boole
         </Link>
       </th>
       <td>
-        <span className={cn("palier-stats", COULEUR_PALIER[l.palier])}>{l.palier}</span>
+        <span className={cn("stats-tier", COULEUR_PALIER[l.palier])}>{l.palier}</span>
       </td>
       <td>{taux(l.victoire)}</td>
       <td className={l.ecart === undefined ? undefined : sens(l.ecart)}>

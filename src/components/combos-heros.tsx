@@ -16,13 +16,13 @@ export function CombosHeros({ combos, langue }: { combos: ComboHeros[]; langue: 
 
   return (
     <section>
-      <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroDetail.combos.titre")}</h3>
-      <p className="mt-1 text-sm text-craie-500">{t("pages.heroDetail.combos.intro")}</p>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.combos.titre")}</h3>
+      <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.combos.intro")}</p>
       <ul className="mt-4 grid gap-3 lg:grid-cols-2">
         {combos.map((combo, i) => (
-          <li key={i} className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
+          <li key={i} className="bevel border border-night-700/70 bg-night-900/60 p-4">
             {combo.type && (
-              <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-or-400">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-gold-400">
                 {t(`pages.heroDetail.combos.types.${combo.type}`)}
               </p>
             )}
@@ -31,12 +31,12 @@ export function CombosHeros({ combos, langue }: { combos: ComboHeros[]; langue: 
                 const nom = c.attaque ? t("pages.heroDetail.combos.attaqueDeBase") : (c.nom ?? "");
                 return (
                   <li key={j} className="flex items-center gap-1">
-                    {j > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-craie-500" />}
-                    <span title={nom} className="relative block size-10 overflow-hidden rounded-sm bg-nuit-800">
+                    {j > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-chalk-500" />}
+                    <span title={nom} className="relative block size-10 overflow-hidden rounded-sm bg-night-800">
                       {c.icone ? (
                         <Image src={c.icone} alt={nom} fill sizes="40px" className="object-contain" />
                       ) : (
-                        <span className="grid size-full place-items-center text-xs text-craie-500">
+                        <span className="grid size-full place-items-center text-xs text-chalk-500">
                           <span aria-hidden>—</span>
                           <span className="sr-only">{nom}</span>
                         </span>
@@ -46,7 +46,7 @@ export function CombosHeros({ combos, langue }: { combos: ComboHeros[]; langue: 
                 );
               })}
             </ol>
-            <p className="mt-3 text-sm leading-relaxed text-craie-300">{combo.description}</p>
+            <p className="mt-3 text-sm leading-relaxed text-chalk-300">{combo.description}</p>
           </li>
         ))}
       </ul>

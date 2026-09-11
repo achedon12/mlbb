@@ -94,17 +94,17 @@ export default async function PageSkins({ params }: Params) {
     <CompleterMessages messages={messagesPage(locale, ["pages.heroesListe", "pages.skinsGalerie"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
       <EnTetePage titre={t("pages.skins.titre")} chapeau={chapeau}>
-        <p className="mt-6 text-sm text-craie-500">
+        <p className="mt-6 text-sm text-chalk-500">
           <time dateTime={synchro.date}>{t("pages.skins.majLe", { date: dateLongue(locale, synchro.date) })}</time>
         </p>
       </EnTetePage>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
         <section aria-labelledby="derniers-skins">
-          <h2 id="derniers-skins" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="derniers-skins" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.skins.derniers")}
           </h2>
-          <p className="mt-1 text-sm text-craie-500">{t("pages.skins.derniersIntro")}</p>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.skins.derniersIntro")}</p>
           <ul className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
             {derniers.map(({ heros: h, skin: s }, i) => {
               const g = galerieHeros(h);
@@ -113,7 +113,7 @@ export default async function PageSkins({ params }: Params) {
                 <li key={`${h.slug}-${s.id}`}>
                   <Link href={`/heroes/${h.slug}/skins#${ancresGalerie(g)[g.skins.indexOf(s)]}`} className="group block">
                     <span
-                      className="biseau-sm relative block aspect-[240/390] overflow-hidden border-2 bg-nuit-800"
+                      className="bevel-sm relative block aspect-[240/390] overflow-hidden border-2 bg-night-800"
                       style={{ borderColor: rarete(s.rarete).couleur }}
                     >
                       {image && (
@@ -127,10 +127,10 @@ export default async function PageSkins({ params }: Params) {
                         />
                       )}
                     </span>
-                    <span className="mt-1.5 block truncate text-sm font-semibold text-craie-100 group-hover:text-or-400">
+                    <span className="mt-1.5 block truncate text-sm font-semibold text-chalk-100 group-hover:text-gold-400">
                       {s.nom}
                     </span>
-                    <span className="block truncate text-xs text-craie-500">
+                    <span className="block truncate text-xs text-chalk-500">
                       {h.nom} · <time dateTime={s.sortie!}>{formaterSortie(s.sortie!, locale)}</time>
                     </span>
                   </Link>
@@ -141,7 +141,7 @@ export default async function PageSkins({ params }: Params) {
         </section>
 
         <section aria-labelledby="galerie-skins">
-          <h2 id="galerie-skins" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="galerie-skins" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.skins.galerie")}
           </h2>
           <div className="mt-5">
@@ -151,10 +151,10 @@ export default async function PageSkins({ params }: Params) {
 
         {/* Toutes les galeries en liens simples : moteurs et lecteurs atteignent chaque heros sans filtre ni clic. */}
         <nav aria-labelledby="index-skins">
-          <h2 id="index-skins" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="index-skins" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.skins.index")}
           </h2>
-          <ul className="index-galeries mt-5">
+          <ul className="gallery-index mt-5">
             {tries.map((h) => (
               <li key={h.slug}>
                 <Link href={`/heroes/${h.slug}/skins`} prefetch={false}>

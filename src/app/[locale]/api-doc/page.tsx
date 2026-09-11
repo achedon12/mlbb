@@ -77,8 +77,8 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
             [t("pages.apiDoc.statClasses"), classementComplet.length],
           ].map(([label, valeur]) => (
             <div key={String(label)}>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
-              <dd className="mt-0.5 font-titre text-xl font-bold text-or-400">{valeur}</dd>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
+              <dd className="mt-0.5 font-heading text-xl font-bold text-gold-400">{valeur}</dd>
             </div>
           ))}
         </dl>
@@ -86,28 +86,28 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
 
       <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">
         <section>
-          <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.apiDoc.pointsEntree")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.apiDoc.pointsEntree")}</h2>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
           <div className="mt-6 space-y-4">
             {ROUTES.map((r) => (
               <Carte key={r.chemin}>
                 <p className="flex flex-wrap items-center gap-2">
-                  <span className="biseau-sm bg-nuit-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-emerald-400">
+                  <span className="bevel-sm bg-night-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-emerald-400">
                     GET
                   </span>
-                  <code className="font-mono text-sm text-craie-100">{r.chemin}</code>
+                  <code className="font-mono text-sm text-chalk-100">{r.chemin}</code>
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-craie-300">{t(`pages.apiDoc.routes.${r.cle}.resume`)}</p>
+                <p className="mt-3 text-sm leading-relaxed text-chalk-300">{t(`pages.apiDoc.routes.${r.cle}.resume`)}</p>
 
                 {r.parametres && (
-                  <dl className="mt-4 space-y-2 border-t border-nuit-800 pt-3 text-sm">
+                  <dl className="mt-4 space-y-2 border-t border-night-800 pt-3 text-sm">
                     {r.parametres.map((p) => (
                       <div key={p.nom} className="flex flex-wrap gap-x-3">
-                        <dt className="font-mono text-xs text-or-400">?{p.nom}=</dt>
+                        <dt className="font-mono text-xs text-gold-400">?{p.nom}=</dt>
                         <dd className="min-w-0 flex-1">
-                          <span className="text-craie-300">{t(`pages.apiDoc.routes.${r.cle}.${p.role}`)}</span>
-                          <span className="mt-0.5 block text-xs text-craie-500">
+                          <span className="text-chalk-300">{t(`pages.apiDoc.routes.${r.cle}.${p.role}`)}</span>
+                          <span className="mt-0.5 block text-xs text-chalk-500">
                             {p.valeurs}
                           </span>
                         </dd>
@@ -118,7 +118,7 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
 
                 <a
                   href={r.exemple}
-                  className="mt-4 inline-block font-mono text-xs text-azur-400 underline underline-offset-4 hover:text-or-400"
+                  className="mt-4 inline-block font-mono text-xs text-azure-400 underline underline-offset-4 hover:text-gold-400"
                 >
                   {r.exemple}
                 </a>
@@ -128,13 +128,13 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
         </section>
 
         <section>
-          <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.apiDoc.formeTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-craie-300">
+          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.apiDoc.formeTitre")}</h2>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-chalk-300">
             {t("pages.apiDoc.formeTexte")}
           </p>
 
-          <pre className="biseau mt-4 relative overflow-x-auto border border-nuit-700/70 bg-nuit-950 p-4 text-xs leading-relaxed text-craie-300">
+          <pre className="bevel mt-4 relative overflow-x-auto border border-night-700/70 bg-night-950 p-4 text-xs leading-relaxed text-chalk-300">
 {`{
   "donnees": [ … ],
   "total": 133,
@@ -148,26 +148,26 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
         </section>
 
         <section>
-          <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.apiDoc.conditionsTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.apiDoc.conditionsTitre")}</h2>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
-          <ul className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <ul className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <li>
-              <strong className="text-craie-100">{t("pages.apiDoc.c1label")}</strong>{" "}{t("pages.apiDoc.c1texte")}
+              <strong className="text-chalk-100">{t("pages.apiDoc.c1label")}</strong>{" "}{t("pages.apiDoc.c1texte")}
             </li>
             <li>
-              <strong className="text-craie-100">{t("pages.apiDoc.c2label")}</strong>{" "}{t("pages.apiDoc.c2texte")}
+              <strong className="text-chalk-100">{t("pages.apiDoc.c2label")}</strong>{" "}{t("pages.apiDoc.c2texte")}
             </li>
             <li>
-              <strong className="text-craie-100">{t("pages.apiDoc.c3label")}</strong>{" "}{t("pages.apiDoc.c3texte")}
+              <strong className="text-chalk-100">{t("pages.apiDoc.c3label")}</strong>{" "}{t("pages.apiDoc.c3texte")}
             </li>
             <li>
-              <strong className="text-craie-100">{t("pages.apiDoc.c4label")}</strong>{" "}{t("pages.apiDoc.c4texte")}
+              <strong className="text-chalk-100">{t("pages.apiDoc.c4label")}</strong>{" "}{t("pages.apiDoc.c4texte")}
             </li>
           </ul>
         </section>
 
-        <p className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
+        <p className="border-t border-night-800 pt-6 text-sm text-chalk-500">
           {t("pages.apiDoc.synchroNote", { date: new Date(synchro.date).toLocaleDateString(LOCALE_HTML[locale]) })}
         </p>
       </div>

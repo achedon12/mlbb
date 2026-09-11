@@ -77,7 +77,7 @@ export function CourbeTaux({
   const multiple = donnees.series !== undefined;
   const dates = donnees.series ? donnees.dates : donnees.points.map((p) => p.date);
   const traces: SerieCourbe[] = donnees.series ?? [
-    { nom: "", valeurs: donnees.points.map((p) => p.valeur), couleur: "text-or-400" },
+    { nom: "", valeurs: donnees.points.map((p) => p.valeur), couleur: "text-gold-400" },
   ];
   const n = dates.length;
 
@@ -162,8 +162,8 @@ export function CourbeTaux({
 
         {graduations.map((v, i) => (
           <g key={i}>
-            <line x1={GAUCHE} x2={L - DROITE} y1={y(v)} y2={y(v)} className="stroke-nuit-700" strokeDasharray="3 4" />
-            <text x={GAUCHE - 6} y={y(v) + 4} textAnchor="end" className="fill-craie-500 text-[11px] tabular-nums">
+            <line x1={GAUCHE} x2={L - DROITE} y1={y(v)} y2={y(v)} className="stroke-night-700" strokeDasharray="3 4" />
+            <text x={GAUCHE - 6} y={y(v) + 4} textAnchor="end" className="fill-chalk-500 text-[11px] tabular-nums">
               {nombre.format(v)}
             </text>
           </g>
@@ -175,7 +175,7 @@ export function CourbeTaux({
             x={x(i)}
             y={H - 8}
             textAnchor={i === 0 ? "start" : i === n - 1 ? "end" : "middle"}
-            className="fill-craie-500 text-[11px]"
+            className="fill-chalk-500 text-[11px]"
           >
             {date(dates[i])}
           </text>
@@ -183,12 +183,12 @@ export function CourbeTaux({
 
         {visibles.map((r) => (
           <g key={r.date + r.libelle}>
-            <line x1={x(r.i)} x2={x(r.i)} y1={HAUT - 6} y2={H - BAS} className="stroke-azur-400/70" strokeDasharray="2 3" />
+            <line x1={x(r.i)} x2={x(r.i)} y1={HAUT - 6} y2={H - BAS} className="stroke-azure-400/70" strokeDasharray="2 3" />
             <text
               x={x(r.i) + (r.i > n / 2 ? -4 : 4)}
               y={HAUT - 6}
               textAnchor={r.i > n / 2 ? "end" : "start"}
-              className="fill-azur-400 text-[10px]"
+              className="fill-azure-400 text-[10px]"
             >
               {r.libelle}
             </text>
@@ -221,7 +221,7 @@ export function CourbeTaux({
               paintOrder="stroke"
               strokeWidth={4}
               strokeLinejoin="round"
-              className="fill-craie-200 stroke-nuit-900 text-[11px] font-semibold"
+              className="fill-chalk-200 stroke-night-900 text-[11px] font-semibold"
             >
               {traces[f.k].nom}
             </text>
@@ -229,7 +229,7 @@ export function CourbeTaux({
 
         {actif !== null && (
           <g>
-            <line x1={x(actif)} x2={x(actif)} y1={HAUT} y2={H - BAS} className="stroke-craie-500/60" />
+            <line x1={x(actif)} x2={x(actif)} y1={HAUT} y2={H - BAS} className="stroke-chalk-500/60" />
             {traces.map((s, k) =>
               s.valeurs[actif] == null ? null : (
                 <circle
@@ -238,7 +238,7 @@ export function CourbeTaux({
                   cy={y(s.valeurs[actif]!)}
                   r={4.5}
                   fill="currentColor"
-                  className={cn("stroke-nuit-950", s.couleur)}
+                  className={cn("stroke-night-950", s.couleur)}
                   strokeWidth={2}
                 />
               ),
@@ -248,7 +248,7 @@ export function CourbeTaux({
                 x={x(actif) + (aDroite ? -8 : 8)}
                 y={Math.max(y(traces[0].valeurs[actif]!) - 10, HAUT + 10)}
                 textAnchor={aDroite ? "end" : "start"}
-                className="fill-craie-100 text-[12px] font-semibold tabular-nums"
+                className="fill-chalk-100 text-[12px] font-semibold tabular-nums"
               >
                 {`${date(dates[actif])} · ${nombre.format(traces[0].valeurs[actif]!)} %`}
               </text>
@@ -261,16 +261,16 @@ export function CourbeTaux({
       {multiple && actif !== null && (
         <div
           aria-hidden
-          className="pointer-events-none absolute top-1 z-10 w-max max-w-[60%] border border-nuit-700 bg-nuit-950/95 px-2.5 py-1.5 text-xs shadow-lg shadow-black/40"
+          className="pointer-events-none absolute top-1 z-10 w-max max-w-[60%] border border-night-700 bg-night-950/95 px-2.5 py-1.5 text-xs shadow-lg shadow-black/40"
           style={{ left: x(actif), transform: aDroite ? "translateX(calc(-100% - 10px))" : "translateX(10px)" }}
         >
-          <p className="font-semibold text-craie-100">{date(dates[actif])}</p>
+          <p className="font-semibold text-chalk-100">{date(dates[actif])}</p>
           <ul className="mt-1 space-y-0.5">
             {traces.map((s, k) => (
-              <li key={k} className="flex items-center gap-2 text-craie-300">
+              <li key={k} className="flex items-center gap-2 text-chalk-300">
                 <Pastille serie={s} />
                 <span className="min-w-0 flex-1 truncate">{s.nom}</span>
-                <span className="font-semibold tabular-nums text-craie-100">
+                <span className="font-semibold tabular-nums text-chalk-100">
                   {s.valeurs[actif] == null ? "—" : `${nombre.format(s.valeurs[actif]!)} %`}
                 </span>
               </li>
@@ -280,7 +280,7 @@ export function CourbeTaux({
       )}
 
       {multiple && (
-        <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-xs text-craie-300">
+        <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-xs text-chalk-300">
           {traces.map((s, k) => (
             <li key={k} className="flex items-center gap-2">
               <Pastille serie={s} />

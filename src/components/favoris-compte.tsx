@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 function NotePortee() {
   const t = useT();
   return (
-    <p className="mt-4 flex items-start gap-2 text-xs leading-relaxed text-craie-500">
+    <p className="mt-4 flex items-start gap-2 text-xs leading-relaxed text-chalk-500">
       <MonitorSmartphone size={14} aria-hidden className="mt-0.5 shrink-0" />
       <span>
         {t("favoris.intro")}
@@ -30,8 +30,8 @@ function NotePortee() {
 
 const TENDANCE: Record<TypeAjustement, { icone: LucideIcon; couleur: string }> = {
   amelioration: { icone: TrendingUp, couleur: "text-emerald-400" },
-  affaiblissement: { icone: TrendingDown, couleur: "text-sang-500" },
-  ajustement: { icone: Minus, couleur: "text-azur-400" },
+  affaiblissement: { icone: TrendingDown, couleur: "text-blood-500" },
+  ajustement: { icone: Minus, couleur: "text-azure-400" },
 };
 
 /**
@@ -43,13 +43,13 @@ function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: Re
   const touches = favoris.filter((slug) => slug in patch.types);
 
   return (
-    <div className="biseau mt-5 border border-or-500/30 bg-nuit-900/60 p-4">
-      <h3 className="flex items-center gap-2 text-sm font-semibold text-craie-100">
-        <BellRing size={15} aria-hidden className="shrink-0 text-or-400" />
+    <div className="bevel mt-5 border border-gold-500/30 bg-night-900/60 p-4">
+      <h3 className="flex items-center gap-2 text-sm font-semibold text-chalk-100">
+        <BellRing size={15} aria-hidden className="shrink-0 text-gold-400" />
         {t("favoris.alerte.titre", { version: patch.version })}
       </h3>
       {touches.length === 0 ? (
-        <p className="mt-2 text-sm leading-relaxed text-craie-500">
+        <p className="mt-2 text-sm leading-relaxed text-chalk-500">
           {t("favoris.alerte.aucun", { version: patch.version })}
         </p>
       ) : (
@@ -62,11 +62,11 @@ function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: Re
               <li key={slug} className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-sm">
                 <Link
                   href={`/heroes/${slug}#stats`}
-                  className="font-medium text-craie-100 underline underline-offset-4 transition-colors hover:text-or-400"
+                  className="font-medium text-chalk-100 underline underline-offset-4 transition-colors hover:text-gold-400"
                 >
                   {herosParSlug[slug] ?? slug}
                 </Link>
-                <span className={cn("flex items-center gap-1 text-xs font-semibold", tendance?.couleur ?? "text-craie-400")}>
+                <span className={cn("flex items-center gap-1 text-xs font-semibold", tendance?.couleur ?? "text-chalk-400")}>
                   {Icone && <Icone size={13} aria-hidden />}
                   {type ? t(`patchHeros.${type}`) : t("favoris.alerte.modifie")}
                 </span>
@@ -75,8 +75,8 @@ function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: Re
           })}
         </ul>
       )}
-      <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 border-t border-nuit-800 pt-3 text-xs leading-relaxed text-craie-500">
-        <Link href={`/patch-notes/${patch.version}`} className="font-semibold text-or-400 hover:text-or-500">
+      <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
+        <Link href={`/patch-notes/${patch.version}`} className="font-semibold text-gold-400 hover:text-gold-500">
           {t("patchHeros.voirPatch", { version: patch.version })} →
         </Link>
         <span>{t("favoris.alerte.rss")}</span>
@@ -99,9 +99,9 @@ export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePa
   if (favoris.length === 0) {
     return (
       <div>
-        <p className="mt-6 text-sm leading-relaxed text-craie-500">
+        <p className="mt-6 text-sm leading-relaxed text-chalk-500">
           {t("favoris.aucunPre")}
-          <Link href="/heroes" className="text-or-400 underline underline-offset-4">
+          <Link href="/heroes" className="text-gold-400 underline underline-offset-4">
             {t("favoris.aucunLien")}
           </Link>
           {t("favoris.aucunPost")}
@@ -114,25 +114,25 @@ export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePa
 
   return (
     <div>
-      <p className="mt-6 text-sm text-craie-400">
+      <p className="mt-6 text-sm text-chalk-400">
         {t("favoris.compte", { n: favoris.length })}{" "}
         {favoris.length > 1 ? t("favoris.gardes") : t("favoris.garde")}.
       </p>
       <ul className="mt-3 flex flex-wrap gap-2">
         {favoris.map((slug) => (
-          <li key={slug} className="biseau-sm flex items-center border border-nuit-700 bg-nuit-900/60">
+          <li key={slug} className="bevel-sm flex items-center border border-night-700 bg-night-900/60">
             <Link
               href={`/heroes/${slug}`}
-              className="flex items-center gap-1.5 px-3 py-2 text-sm text-craie-100 transition-colors hover:text-or-400"
+              className="flex items-center gap-1.5 px-3 py-2 text-sm text-chalk-100 transition-colors hover:text-gold-400"
             >
-              <Star size={13} aria-hidden fill="currentColor" className="text-or-500" />
+              <Star size={13} aria-hidden fill="currentColor" className="text-gold-500" />
               {herosParSlug[slug] ?? slug}
             </Link>
             <button
               type="button"
               onClick={() => basculerFavori(slug)}
               aria-label={t("favoris.retirer", { nom: herosParSlug[slug] ?? slug })}
-              className="grid size-9 place-items-center text-craie-500 transition-colors hover:text-sang-500"
+              className="grid size-9 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
             >
               <X size={14} aria-hidden />
             </button>

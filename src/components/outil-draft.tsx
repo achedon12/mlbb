@@ -67,7 +67,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
           parSlug={parSlug}
           onOuvrir={setOuvert}
           onRetirer={(lane) => choisir("ennemis", lane, null)}
-          accent="sang"
+          accent="blood"
         />
         <Colonne
           titre={t("draftUI.votre")}
@@ -77,7 +77,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
           parSlug={parSlug}
           onOuvrir={setOuvert}
           onRetirer={(lane) => choisir("allies", lane, null)}
-          accent="azur"
+          accent="azure"
         />
       </div>
 
@@ -88,7 +88,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
             setEnnemis(VIDE);
             setAllies(VIDE);
           }}
-          className="biseau-sm inline-flex items-center gap-2 border border-nuit-700 px-4 py-2 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+          className="bevel-sm inline-flex items-center gap-2 border border-night-700 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
         >
           <RotateCcw size={14} aria-hidden />
           {t("draftUI.toutEffacer")}
@@ -97,21 +97,21 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
 
       {/* ── Suggestions ──────────────────────────────────────────────── */}
       <section>
-        <h2 className="font-titre text-2xl font-bold text-craie-100">{t("draftUI.quePrendre")}</h2>
-        <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+        <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("draftUI.quePrendre")}</h2>
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
         {vide ? (
-          <p className="mt-4 max-w-2xl leading-relaxed text-craie-500">
+          <p className="mt-4 max-w-2xl leading-relaxed text-chalk-500">
             {t("draftUI.intro")}
           </p>
         ) : (
           <div className="mt-6 space-y-5">
             {suggestions.map(({ lane, picks }) => (
               <div key={lane}>
-                <h3 className="font-titre text-sm font-semibold uppercase tracking-wider text-or-400">
+                <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-gold-400">
                   {lane}
                   {allies[lane] && (
-                    <span className="ml-2 font-medium normal-case tracking-normal text-craie-500">
+                    <span className="ml-2 font-medium normal-case tracking-normal text-chalk-500">
                       {t("draftUI.dejaPourvue")}
                     </span>
                   )}
@@ -168,39 +168,39 @@ function Colonne({
   parSlug: Map<string, HerosDraft>;
   onOuvrir: (v: { camp: Camp; lane: Lane }) => void;
   onRetirer: (lane: Lane) => void;
-  accent: "sang" | "azur";
+  accent: "blood" | "azure";
 }) {
   const t = useT();
   return (
     <section>
-      <h2 className="font-titre text-lg font-bold text-craie-100">{titre}</h2>
-      <p className="mt-0.5 text-xs text-craie-500">{aide}</p>
+      <h2 className="font-heading text-lg font-bold text-chalk-100">{titre}</h2>
+      <p className="mt-0.5 text-xs text-chalk-500">{aide}</p>
 
       <ul className="mt-3 space-y-1.5">
         {LANES.map((lane) => {
           const heros = selection[lane] ? parSlug.get(selection[lane]!) : null;
           return (
             <li key={lane} className="flex items-center gap-2">
-              <span className="w-24 shrink-0 text-xs uppercase tracking-wide text-craie-500">
+              <span className="w-24 shrink-0 text-xs uppercase tracking-wide text-chalk-500">
                 {t(`lanes.${lane}`)}
               </span>
 
               {heros ? (
                 <span
                   className={cn(
-                    "biseau-sm flex flex-1 items-center gap-2 border bg-nuit-900/60 p-1.5",
-                    accent === "sang" ? "border-sang-500/40" : "border-azur-500/40",
+                    "bevel-sm flex flex-1 items-center gap-2 border bg-night-900/60 p-1.5",
+                    accent === "blood" ? "border-blood-500/40" : "border-azure-500/40",
                   )}
                 >
                   <VignetteHeros heros={heros} petite />
-                  <span className="min-w-0 flex-1 truncate text-sm text-craie-100">
+                  <span className="min-w-0 flex-1 truncate text-sm text-chalk-100">
                     {heros.nom}
                   </span>
                   <button
                     type="button"
                     onClick={() => onRetirer(lane)}
                     aria-label={t("draftUI.retirer", { nom: heros.nom })}
-                    className="grid size-6 place-items-center text-craie-500 transition-colors hover:text-sang-500"
+                    className="grid size-6 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
                   >
                     <X size={13} aria-hidden />
                   </button>
@@ -209,7 +209,7 @@ function Colonne({
                 <button
                   type="button"
                   onClick={() => onOuvrir({ camp, lane })}
-                  className="biseau-sm flex-1 border border-dashed border-nuit-700 px-3 py-2 text-left text-sm text-craie-500 transition-colors hover:border-or-500/60 hover:text-or-400"
+                  className="bevel-sm flex-1 border border-dashed border-night-700 px-3 py-2 text-left text-sm text-chalk-500 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                 >
                   {t("draftUI.choisirUn")}
                 </button>

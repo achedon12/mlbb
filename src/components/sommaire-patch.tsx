@@ -44,10 +44,10 @@ export function SommairePatch({ entrees }: { entrees: Entree[] }) {
 
   return (
     <nav aria-label={t("commun.sommaire")} className="lg:sticky lg:top-24">
-      <p className="font-titre text-sm font-semibold uppercase tracking-wider text-or-400">
+      <p className="font-heading text-sm font-semibold uppercase tracking-wider text-gold-400">
         {t("commun.sommaire")}
       </p>
-      <ul className="mt-3 space-y-0.5 border-l border-nuit-800">
+      <ul className="mt-3 space-y-0.5 border-l border-night-800">
         {entrees.map((e) => (
           <li key={e.ancre}>
             <a
@@ -57,8 +57,8 @@ export function SommairePatch({ entrees }: { entrees: Entree[] }) {
                 "-ml-px block border-l py-1 text-sm leading-snug transition-colors",
                 e.niveau === 3 ? "pl-6 text-xs" : "pl-3",
                 actif === e.ancre
-                  ? "border-or-500 text-or-400"
-                  : "border-transparent text-craie-500 hover:text-craie-100",
+                  ? "border-gold-500 text-gold-400"
+                  : "border-transparent text-chalk-500 hover:text-chalk-100",
               )}
             >
               {e.titre}

@@ -59,7 +59,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
               <Link
                 key={mode.slug}
                 href={`/game-modes/${mode.slug}`}
-                className="biseau group relative isolate block overflow-hidden border border-nuit-700/70 transition-colors hover:border-nuit-600"
+                className="bevel group relative isolate block overflow-hidden border border-night-700/70 transition-colors hover:border-night-600"
               >
                 <div
                   aria-hidden
@@ -78,18 +78,18 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                 )}
                 <div
                   aria-hidden
-                  className="absolute inset-0 -z-10 bg-gradient-to-r from-nuit-950/85 via-nuit-950/45 to-transparent"
+                  className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950/85 via-night-950/45 to-transparent"
                 />
 
                 <div className="flex min-h-[180px] flex-col justify-end gap-3 p-6 sm:min-h-[200px] sm:p-8">
                   <p
-                    className="font-titre text-[0.7rem] font-bold uppercase tracking-[0.2em]"
+                    className="font-heading text-[0.7rem] font-bold uppercase tracking-[0.2em]"
                     style={{ color: clair }}
                   >
                     {t(`modeFiche.${mode.slug}.accroche`)}
                   </p>
-                  <h2 className="font-titre text-2xl font-bold text-craie-100 sm:text-3xl">{mode.nom}</h2>
-                  <p className="max-w-xl text-sm leading-relaxed text-craie-300">
+                  <h2 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">{mode.nom}</h2>
+                  <p className="max-w-xl text-sm leading-relaxed text-chalk-300">
                     {t(`modeFiche.${mode.slug}.texte`)}
                   </p>
                   <span

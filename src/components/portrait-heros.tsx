@@ -50,12 +50,12 @@ export function PortraitHeros({
   alt?: string;
 }) {
   const dimensions = DIMENSIONS[taille];
-  const cadre = cn("biseau-sm relative shrink-0 overflow-hidden bg-nuit-800", dimensions.classe, className);
+  const cadre = cn("bevel-sm relative shrink-0 overflow-hidden bg-night-800", dimensions.classe, className);
 
   if (!source) {
     return (
       <span className={cn(cadre, "grid place-items-center")} aria-hidden>
-        <span className={cn("font-titre font-bold text-craie-500", dimensions.texte)}>{initiales(nom)}</span>
+        <span className={cn("font-heading font-bold text-chalk-500", dimensions.texte)}>{initiales(nom)}</span>
       </span>
     );
   }

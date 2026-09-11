@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const sectionTitle = "font-titre text-2xl font-bold text-craie-100";
+const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
 
 /** Link text of a source: the wiki page's own title, read from its address. */
 const wikiPageName =(url: string) => decodeURIComponent(url.split("/wiki/")[1] ?? url).replaceAll("_", " ");
@@ -130,13 +130,13 @@ export default async function TimerPage({ params }: Params) {
           <h2 id="timings-title" className={sectionTitle}>
             {t("pages.timer.timingsTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-5 grid gap-3 sm:grid-cols-2">
             {timings.map((r) => (
-              <div key={r.title} className="biseau-sm border border-nuit-700/70 bg-nuit-900/60 p-4">
-                <dt className="font-titre font-bold text-or-400">{r.title}</dt>
+              <div key={r.title} className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
+                <dt className="font-heading font-bold text-gold-400">{r.title}</dt>
                 {r.texts.map((text) => (
-                  <dd key={text} className="mt-1.5 text-sm leading-relaxed text-craie-300">
+                  <dd key={text} className="mt-1.5 text-sm leading-relaxed text-chalk-300">
                     {text}
                   </dd>
                 ))}
@@ -149,8 +149,8 @@ export default async function TimerPage({ params }: Params) {
           <h2 id="usage-title" className={sectionTitle}>
             {t("pages.timer.usageTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.timer.usage1", { start: t("pages.timerUI.start"), apply: t("pages.timerUI.apply") })}</p>
             <p>{t("pages.timer.usage2")}</p>
             <p>{t("pages.timer.usage3", THRESHOLDS)}</p>
@@ -158,27 +158,27 @@ export default async function TimerPage({ params }: Params) {
           </div>
           <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <li>
-              <Link href="/map" className="font-semibold text-or-400 transition-colors hover:text-or-500">
+              <Link href="/map" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                 {t("pages.timer.mapLink")} →
               </Link>
             </li>
             <li>
-              <Link href="/tools/retribution" className="font-semibold text-or-400 transition-colors hover:text-or-500">
+              <Link href="/tools/retribution" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                 {t("pages.timer.retributionLink")} →
               </Link>
             </li>
           </ul>
         </section>
 
-        <section aria-labelledby="sources-title" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-title" className="font-semibold text-craie-300">
+        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-title" className="font-semibold text-chalk-300">
             {t("pages.timer.sourcesTitle")}
           </h2>
           <p className="mt-2">{t("pages.timer.sourcesIntro", { date: formaterDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {sources.map((url) => (
               <li key={url}>
-                <a href={url} rel="noopener" className="underline transition-colors hover:text-or-400">
+                <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
                   {wikiPageName(url)}
                 </a>
               </li>

@@ -195,8 +195,8 @@ export default async function PageFaceAFace({ params }: Params) {
     ],
   };
 
-  const puce = "biseau-sm inline-block border border-nuit-700 px-2.5 py-1 text-craie-300 hover:text-or-400";
-  const h2 = "font-titre text-2xl font-bold text-craie-100";
+  const puce = "bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 hover:text-gold-400";
+  const h2 = "font-heading text-2xl font-bold text-chalk-100";
 
   return (
     <>
@@ -232,21 +232,21 @@ export default async function PageFaceAFace({ params }: Params) {
               key={h.slug}
               href={`/heroes/${h.slug}`}
               className={cn(
-                "biseau flex min-w-0 flex-col items-center gap-2 border border-nuit-700/70 bg-nuit-900/60 p-3 text-center transition-colors hover:border-or-500/60",
+                "bevel flex min-w-0 flex-col items-center gap-2 border border-night-700/70 bg-night-900/60 p-3 text-center transition-colors hover:border-gold-500/60",
                 i === 1 && "order-3",
               )}
             >
               <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="vignette" decoratif />
-              <span className="font-titre text-lg font-bold text-craie-100">{h.nom}</span>
+              <span className="font-heading text-lg font-bold text-chalk-100">{h.nom}</span>
               {s && (
-                <span className="text-xs text-craie-500">
+                <span className="text-xs text-chalk-500">
                   {t("pages.heroDetail.palier", { p: s.palier })} · {pourcentage(locale, s.victoire)}
                 </span>
               )}
               <TraitLegende {...STYLES_SERIES[i]} />
             </Link>
           ))}
-          <span aria-hidden className="order-2 font-titre text-xl font-bold text-or-400">
+          <span aria-hidden className="order-2 font-heading text-xl font-bold text-gold-400">
             VS
           </span>
         </div>
@@ -256,13 +256,13 @@ export default async function PageFaceAFace({ params }: Params) {
           <h2 id="verdict" className={h2}>
             {question}
           </h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-craie-300">{phrase}</p>
+          <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{phrase}</p>
           {duels.length > 0 && (
-            <div className="biseau mt-5 relative overflow-x-auto border border-nuit-700/70 bg-nuit-900/60 p-3">
+            <div className="bevel mt-5 relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
               <TableauDuel t={t} duels={duels} a={a} b={b} ecart={ecart} />
             </div>
           )}
-          <p className="mt-2 text-xs leading-relaxed text-craie-500">{t("pages.versus.noteEcarts", { a: a.nom, b: b.nom })}</p>
+          <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.versus.noteEcarts", { a: a.nom, b: b.nom })}</p>
         </section>
 
         {/* ── Debut ou fin de partie ──────────────────────────────────── */}
@@ -271,27 +271,27 @@ export default async function PageFaceAFace({ params }: Params) {
             <h2 id="duree" className={h2}>
               {t("pages.versus.duree.titre")}
             </h2>
-            <p className="mt-3 max-w-3xl leading-relaxed text-craie-300">{phraseDuree}</p>
-            <div className="biseau mt-4 relative overflow-x-auto border border-nuit-700/70 bg-nuit-900/60 p-3">
+            <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{phraseDuree}</p>
+            <div className="bevel mt-4 relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
               <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:text-right [&_td+td]:tabular-nums [&_th+th]:pl-3 [&_th+th]:text-right">
-                <thead className="text-xs uppercase tracking-wide text-craie-500 [&_th]:pb-2 [&_th]:font-medium">
+                <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium">
                   <tr>
                     <th scope="col" className="text-left">{t("pages.versus.duree.colPhase")}</th>
                     <th scope="col">{a.nom}</th>
                     <th scope="col">{b.nom}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-nuit-800">
+                <tbody className="divide-y divide-night-800">
                   {parPhase.map((x) => (
                     <tr key={x.phase}>
-                      <th scope="row" className="py-1.5 text-left font-normal text-craie-300">
+                      <th scope="row" className="py-1.5 text-left font-normal text-chalk-300">
                         {t(`pages.duos.phase.${x.phase}`)}{" "}
-                        <span className="text-xs text-craie-500">({t(`pages.duos.phaseMinutes.${x.phase}`)})</span>
+                        <span className="text-xs text-chalk-500">({t(`pages.duos.phaseMinutes.${x.phase}`)})</span>
                       </th>
                       {[x.a, x.b].map((v, k) => {
                         const tete = x.ecart !== null && (k === 0 ? x.ecart > 0 : x.ecart < 0);
                         return (
-                          <td key={k} className={cn("font-semibold", tete ? "text-or-400" : "text-craie-300")}>
+                          <td key={k} className={cn("font-semibold", tete ? "text-gold-400" : "text-chalk-300")}>
                             {v === null ? "—" : pourcentage(locale, v)}
                           </td>
                         );
@@ -301,7 +301,7 @@ export default async function PageFaceAFace({ params }: Params) {
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-craie-500">
+            <p className="mt-2 text-xs leading-relaxed text-chalk-500">
               {t("pages.versus.duree.note", { rang: t(`rangsMesure.${rangDuree}`) })}
             </p>
           </section>
@@ -314,9 +314,9 @@ export default async function PageFaceAFace({ params }: Params) {
             {t("pages.versus.profils", { rang: t(`rangsMesure.${rangRef}`) })}
           </h2>
           <div className="mt-4 max-w-xl">
-            <div className="biseau relative overflow-x-auto border border-nuit-700/70 bg-nuit-900/60 p-3">
-              <table className="w-full text-sm [&_td]:py-1.5 [&_td]:pl-3 [&_td]:text-right [&_td]:tabular-nums [&_td]:text-craie-200">
-                <thead className="text-xs uppercase tracking-wide text-craie-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
+            <div className="bevel relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
+              <table className="w-full text-sm [&_td]:py-1.5 [&_td]:pl-3 [&_td]:text-right [&_td]:tabular-nums [&_td]:text-chalk-200">
+                <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
                   <tr>
                     <th scope="col" className="text-left">
                       <span className="sr-only">{t("compareUI.critere")}</span>
@@ -325,7 +325,7 @@ export default async function PageFaceAFace({ params }: Params) {
                     <th scope="col">{b.nom}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-nuit-800 [&_th]:py-1.5 [&_th]:text-left [&_th]:text-xs [&_th]:font-medium [&_th]:uppercase [&_th]:tracking-wide [&_th]:text-craie-500">
+                <tbody className="divide-y divide-night-800 [&_th]:py-1.5 [&_th]:text-left [&_th]:text-xs [&_th]:font-medium [&_th]:uppercase [&_th]:tracking-wide [&_th]:text-chalk-500">
                   <tr>
                     <th scope="row">{t("compareUI.tauxVictoire")}</th>
                     <td>{sa ? pourcentage(locale, sa.victoire) : "—"}</td>
@@ -358,10 +358,10 @@ export default async function PageFaceAFace({ params }: Params) {
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               {builds.map(({ h, autre, joue, contre }) => (
                 <Carte key={h.slug} className="p-4">
-                  <h3 className="font-titre text-lg font-bold text-craie-100">{h.nom}</h3>
+                  <h3 className="font-heading text-lg font-bold text-chalk-100">{h.nom}</h3>
                   {joue && (
                     <>
-                      <p className="mt-2 text-xs uppercase tracking-wide text-craie-500">
+                      <p className="mt-2 text-xs uppercase tracking-wide text-chalk-500">
                         {t("pages.versus.builds.joue", { lane: t(`lanes.${joue.lane}`) })}
                       </p>
                       <ListeObjets
@@ -371,7 +371,7 @@ export default async function PageFaceAFace({ params }: Params) {
                         })}
                       />
                       {(joue.build.embleme || joue.build.sort) && (
-                        <p className="mt-2 text-xs text-craie-400">
+                        <p className="mt-2 text-xs text-chalk-400">
                           {[joue.build.embleme, joue.build.sort].filter(Boolean).join(" · ")}
                           {joue.build.victoire != null && ` · ${t("builds.victoire", { taux: decimal.format(joue.build.victoire) })}`}
                         </p>
@@ -380,7 +380,7 @@ export default async function PageFaceAFace({ params }: Params) {
                   )}
                   {contre.length > 0 && (
                     <>
-                      <p className="mt-4 text-xs uppercase tracking-wide text-craie-500">
+                      <p className="mt-4 text-xs uppercase tracking-wide text-chalk-500">
                         {t("pages.versus.builds.contre", { nom: autre.nom })}{" "}
                         <span className="normal-case tracking-normal">· {t("pages.versus.builds.regle")}</span>
                       </p>
@@ -399,7 +399,7 @@ export default async function PageFaceAFace({ params }: Params) {
             <h2 id="equipe" className={h2}>
               {t("pages.versus.equipe.titre", { a: a.nom, b: b.nom })}
             </h2>
-            <ul className="mt-3 space-y-1.5 text-sm text-craie-300">
+            <ul className="mt-3 space-y-1.5 text-sm text-chalk-300">
               {equipe.map((e) => (
                 <li key={`${e.rang}-${e.de}`}>
                   {t("pages.versus.equipe.ligne", {
@@ -411,13 +411,13 @@ export default async function PageFaceAFace({ params }: Params) {
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-xs text-craie-500">{t("pages.versus.equipe.note")}</p>
+            <p className="mt-2 text-xs text-chalk-500">{t("pages.versus.equipe.note")}</p>
           </section>
         )}
 
         {/* ── Pour aller plus loin ────────────────────────────────────── */}
         <section aria-labelledby="liens">
-          <h2 id="liens" className="font-titre text-xl font-bold text-craie-100">
+          <h2 id="liens" className="font-heading text-xl font-bold text-chalk-100">
             {t("pages.versus.liens.titre")}
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm">
@@ -451,7 +451,7 @@ export default async function PageFaceAFace({ params }: Params) {
             ].map(({ h, autres }) =>
               autres.length > 0 ? (
                 <div key={h.slug}>
-                  <h3 className="text-sm font-semibold text-craie-100">{t("pages.versus.liens.autres", { nom: h.nom })}</h3>
+                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.liens.autres", { nom: h.nom })}</h3>
                   <ul className="mt-2 flex flex-wrap gap-2 text-sm">
                     {autres.map((e) => (
                       <li key={e.slug}>
@@ -486,10 +486,10 @@ function TableauDuel({
   ecart: (v: number) => string;
 }) {
   const valeur = (v: number | null) =>
-    v === null ? "—" : <span className={v >= 0 ? "text-emerald-400" : "text-sang-500"}>{ecart(v)}</span>;
+    v === null ? "—" : <span className={v >= 0 ? "text-emerald-400" : "text-blood-500"}>{ecart(v)}</span>;
   return (
     <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:text-right [&_td+td]:whitespace-nowrap [&_td+td]:tabular-nums">
-      <thead className="text-xs uppercase tracking-wide text-craie-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
+      <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
         <tr>
           <th scope="col" className="text-left">{t("pages.versus.colRang")}</th>
           <th scope="col">{t("pages.versus.colAvantage")}</th>
@@ -497,17 +497,17 @@ function TableauDuel({
           <th scope="col">{t("pages.versus.colFace", { de: b.nom, face: a.nom })}</th>
         </tr>
       </thead>
-      <tbody className="divide-y divide-nuit-800">
+      <tbody className="divide-y divide-night-800">
         {duels.map((d) => {
           const equilibre = Math.abs(d.avantage) < SEUIL_EQUILIBRE;
           return (
             <tr key={d.rang}>
-              <td className="text-craie-300">{t(`rangsMesure.${d.rang}`)}</td>
+              <td className="text-chalk-300">{t(`rangsMesure.${d.rang}`)}</td>
               <td className="font-semibold">
                 {equilibre ? (
-                  <span className="text-craie-400">{t("pages.versus.equilibreCourt")}</span>
+                  <span className="text-chalk-400">{t("pages.versus.equilibreCourt")}</span>
                 ) : (
-                  <span className="text-or-400">
+                  <span className="text-gold-400">
                     {(d.avantage > 0 ? a : b).nom} {ecart(Math.abs(d.avantage))}
                   </span>
                 )}
@@ -528,9 +528,9 @@ function TableauDuel({
  */
 function ListeObjets({ objets: liste }: { objets: { nom: string; slug: string | null }[] }) {
   return (
-    <ul className="mt-2 flex flex-wrap gap-1.5 text-sm text-craie-100 [&_a]:hover:text-or-400 [&_li]:border [&_li]:border-nuit-700 [&_li]:px-2 [&_li]:py-0.5">
+    <ul className="mt-2 flex flex-wrap gap-1.5 text-sm text-chalk-100 [&_a]:hover:text-gold-400 [&_li]:border [&_li]:border-night-700 [&_li]:px-2 [&_li]:py-0.5">
       {liste.map((o, i) => (
-        <li key={`${o.nom}-${i}`} className="biseau-sm">
+        <li key={`${o.nom}-${i}`} className="bevel-sm">
           {o.slug ? <Link href={`/items#${o.slug}`}>{o.nom}</Link> : o.nom}
         </li>
       ))}

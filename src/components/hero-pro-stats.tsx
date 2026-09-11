@@ -47,12 +47,12 @@ export function HeroProStats({ slug, locale }: { slug: string; locale: Langue })
   return (
     <section>
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.esports.heroPro.title", { name: hero.nom })}</h3>
-        <Link href="/esports" className="text-sm font-semibold text-or-400 transition-colors hover:text-or-500">
+        <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.esports.heroPro.title", { name: hero.nom })}</h3>
+        <Link href="/esports" className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
           {t("pages.esports.heroPro.link")} →
         </Link>
       </div>
-      <p className="mt-1 mb-4 text-sm text-craie-500">
+      <p className="mt-1 mb-4 text-sm text-chalk-500">
         {t("pages.esports.heroPro.intro", {
           games: pro.games,
           tournaments: listeNoms(locale, pro.tournaments.map((x) => x.shortName)),
@@ -61,10 +61,10 @@ export function HeroProStats({ slug, locale }: { slug: string; locale: Langue })
       </p>
       <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {tiles.map((tile) => (
-          <div key={tile.label} className="biseau-sm border border-nuit-700/70 bg-nuit-900/60 p-3">
-            <dt className="text-xs uppercase tracking-wide text-craie-500">{tile.label}</dt>
-            <dd className="mt-1 font-titre text-xl font-bold tabular-nums text-or-400">{tile.value}</dd>
-            <dd className="text-xs text-craie-500">{tile.detail}</dd>
+          <div key={tile.label} className="bevel-sm border border-night-700/70 bg-night-900/60 p-3">
+            <dt className="text-xs uppercase tracking-wide text-chalk-500">{tile.label}</dt>
+            <dd className="mt-1 font-heading text-xl font-bold tabular-nums text-gold-400">{tile.value}</dd>
+            <dd className="text-xs text-chalk-500">{tile.detail}</dd>
           </div>
         ))}
       </dl>

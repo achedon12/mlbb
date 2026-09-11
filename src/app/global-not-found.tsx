@@ -24,16 +24,16 @@ const TEXTES = {
 export default function PageIntrouvableGlobale() {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col items-center justify-center bg-nuit-950 px-4 text-center text-craie-100">
-        <p className="font-titre text-7xl font-bold text-or-400">404</p>
-        <h1 className="mt-4 font-titre text-2xl font-bold">{TEXTES.en}</h1>
+      <body className="flex min-h-screen flex-col items-center justify-center bg-night-950 px-4 text-center text-chalk-100">
+        <p className="font-heading text-7xl font-bold text-gold-400">404</p>
+        <h1 className="mt-4 font-heading text-2xl font-bold">{TEXTES.en}</h1>
         <ul className="mt-8 flex flex-wrap justify-center gap-3">
           {LANGUES.map((l) => (
             <li key={l}>
               <a
                 href={`/${l}`}
                 hrefLang={LOCALE_HTML[l]}
-                className="biseau-sm inline-block border border-nuit-600 px-4 py-2 text-sm font-semibold text-craie-100 transition-colors hover:border-or-500/60 hover:text-or-400"
+                className="bevel-sm inline-block border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 {TEXTES[l]} · {l.toUpperCase()}
               </a>

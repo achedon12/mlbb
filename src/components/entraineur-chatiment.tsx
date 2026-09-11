@@ -166,10 +166,10 @@ function ChiffreDegat({ eclat, texte, reduit }: { eclat: Eclat; texte: string; r
     <span
       ref={ref}
       className={cn(
-        "absolute font-titre font-bold tabular-nums drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]",
-        eclat.source === "competence" && "text-2xl text-or-400",
-        eclat.source === "adverse" && "text-2xl text-sang-500",
-        eclat.source === "allie" && "text-base text-craie-100",
+        "absolute font-heading font-bold tabular-nums drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]",
+        eclat.source === "competence" && "text-2xl text-gold-400",
+        eclat.source === "adverse" && "text-2xl text-blood-500",
+        eclat.source === "allie" && "text-base text-chalk-100",
       )}
       style={{ left: `${14 + ((eclat.id * 37) % 64)}%`, top: `${30 + ((eclat.id * 23) % 30)}%` }}
     >
@@ -230,12 +230,12 @@ function Tampon({ reussi, titre, points, reduit }: { reussi: boolean; titre: str
       ref={ref}
       aria-hidden
       className={cn(
-        "biseau pointer-events-none absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 -rotate-3 whitespace-nowrap border-2 bg-nuit-950/90 px-5 py-2 text-center font-titre font-bold uppercase shadow-2xl shadow-black/70",
-        reussi ? "border-or-400 text-or-400" : "border-sang-500 text-sang-500",
+        "bevel pointer-events-none absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 -rotate-3 whitespace-nowrap border-2 bg-night-950/90 px-5 py-2 text-center font-heading font-bold uppercase shadow-2xl shadow-black/70",
+        reussi ? "border-gold-400 text-gold-400" : "border-blood-500 text-blood-500",
       )}
     >
       <span className="block text-2xl tracking-wide sm:text-3xl">{titre}</span>
-      {reussi && <span className="block text-lg tabular-nums text-craie-100">+{points}</span>}
+      {reussi && <span className="block text-lg tabular-nums text-chalk-100">+{points}</span>}
     </div>
   );
 }
@@ -260,20 +260,20 @@ function LigneTemps({
   // Une etiquette pres d'un bord s'aligne sur lui, au lieu de deborder.
   const placement = (p: number) => (p < 12 ? "left-0" : p > 82 ? "right-0" : "-translate-x-1/2");
   const reperes = [
-    { cle: "vous", ms: vous, couleur: "text-or-400", fond: "bg-or-400", icone: Target, haut: true },
-    { cle: "adverse", ms: adverse, couleur: "text-sang-500", fond: "bg-sang-500", icone: Skull, haut: false },
+    { cle: "vous", ms: vous, couleur: "text-gold-400", fond: "bg-gold-400", icone: Target, haut: true },
+    { cle: "adverse", ms: adverse, couleur: "text-blood-500", fond: "bg-blood-500", icone: Skull, haut: false },
   ] as const;
   return (
     <figure className="mt-4">
-      <figcaption className="text-xs uppercase tracking-wide text-craie-500">{t("outils.chatiment.ligneTemps")}</figcaption>
-      <div className="relative mb-9 mt-10 h-2 bg-nuit-800">
+      <figcaption className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.ligneTemps")}</figcaption>
+      <div className="relative mb-9 mt-10 h-2 bg-night-800">
         <div
           aria-hidden
-          className={cn("absolute inset-y-0 left-0", vous === null ? "bg-sang-500/40" : "bg-or-500/50")}
+          className={cn("absolute inset-y-0 left-0", vous === null ? "bg-blood-500/40" : "bg-gold-500/50")}
           style={{ width: `${part(vous ?? adverse)}%` }}
         />
-        <span aria-hidden className="absolute -top-1.5 left-0 h-5 w-0.5 bg-craie-300" />
-        <span className="absolute left-0 top-4 text-xs text-craie-500">{t("outils.chatiment.ligneSeuil")}</span>
+        <span aria-hidden className="absolute -top-1.5 left-0 h-5 w-0.5 bg-chalk-300" />
+        <span className="absolute left-0 top-4 text-xs text-chalk-500">{t("outils.chatiment.ligneSeuil")}</span>
         {reperes.map(({ cle, ms, couleur, fond, icone: Icone, haut }) => {
           if (ms === null) return null;
           const p = part(ms);
@@ -450,7 +450,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
       manches: serie.map((r) => r.issue),
       record: record ? t("outils.chatiment.nouveauRecord") : null,
       adresse: adresse.replace(/^https?:\/\//, ""),
-      polices: { titre: police("--police-titre"), corps: police("--police-corps") },
+      polices: { titre: police("--heading-font"), corps: police("--body-font") },
       portrait: charge ? portrait : null,
       teinte: TEINTES[j.objectif],
     };
@@ -719,8 +719,8 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
   }[phase];
   const classeChoix = (actif: boolean) =>
     cn(
-      "biseau-sm border transition-colors",
-      actif ? "border-or-400 bg-or-500/10" : "border-nuit-700 bg-nuit-950/40 hover:border-nuit-600",
+      "bevel-sm border transition-colors",
+      actif ? "border-gold-400 bg-gold-500/10" : "border-night-700 bg-night-950/40 hover:border-night-600",
     );
 
   return (
@@ -729,7 +729,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
         <fieldset disabled={verrouille} className="space-y-6 disabled:opacity-60">
           <legend className="sr-only">{t("outils.chatiment.reglages")}</legend>
           <div>
-            <p id={ids.objectif} className="text-xs uppercase tracking-wide text-craie-500">
+            <p id={ids.objectif} className="text-xs uppercase tracking-wide text-chalk-500">
               {t("outils.chatiment.objectifLabel")}
             </p>
             <div role="group" aria-labelledby={ids.objectif} className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
@@ -760,10 +760,10 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                       )}
                       style={{ borderColor: actif ? TEINTES[cle] : "transparent" }}
                     />
-                    <span className={cn("text-sm font-semibold leading-tight", actif ? "text-or-400" : "text-craie-200")}>
+                    <span className={cn("text-sm font-semibold leading-tight", actif ? "text-gold-400" : "text-chalk-200")}>
                       {nomObjectif(cle)}
                     </span>
-                    <span className="text-xs tabular-nums text-craie-500">
+                    <span className="text-xs tabular-nums text-chalk-500">
                       {t("outils.chatiment.pvMax", { pv: nombre.format(OBJECTIFS[cle].pv) })}
                     </span>
                   </button>
@@ -773,7 +773,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
           </div>
 
           <div>
-            <p id={ids.difficulte} className="text-xs uppercase tracking-wide text-craie-500">
+            <p id={ids.difficulte} className="text-xs uppercase tracking-wide text-chalk-500">
               {t("outils.chatiment.difficulteLabel")}
             </p>
             <div role="group" aria-labelledby={ids.difficulte} className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -792,7 +792,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                     className={cn(
                       "flex items-center justify-between gap-3 px-3 py-2.5 text-sm font-semibold",
                       classeChoix(actif),
-                      actif ? "text-or-400" : "text-craie-200",
+                      actif ? "text-gold-400" : "text-chalk-200",
                     )}
                   >
                     {nomDifficulte(d)}
@@ -801,7 +801,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                         <span
                           key={k}
                           className="w-1.5"
-                          style={{ height: `${4 + k * 3}px`, background: k <= n ? couleur : "var(--color-nuit-700)" }}
+                          style={{ height: `${4 + k * 3}px`, background: k <= n ? couleur : "var(--color-night-700)" }}
                         />
                       ))}
                     </span>
@@ -809,12 +809,12 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 );
               })}
             </div>
-            <p className="mt-2 text-sm text-craie-400">{t(`outils.chatiment.aideDifficulte.${difficulte}`)}</p>
+            <p className="mt-2 text-sm text-chalk-400">{t(`outils.chatiment.aideDifficulte.${difficulte}`)}</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
             <div>
-              <label htmlFor={ids.niveau} className="text-xs uppercase tracking-wide text-craie-500">
+              <label htmlFor={ids.niveau} className="text-xs uppercase tracking-wide text-chalk-500">
                 {t("outils.chatiment.niveauLabel")}
               </label>
               {/* Les degats de chaque niveau, le niveau choisi en or : la courbe se lit d'un coup d'oeil. */}
@@ -822,7 +822,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 {NIVEAUX.map((n) => (
                   <span
                     key={n}
-                    className={cn("flex-1 transition-colors", n === niveau ? "bg-or-400" : n < niveau ? "bg-or-500/35" : "bg-nuit-700")}
+                    className={cn("flex-1 transition-colors", n === niveau ? "bg-gold-400" : n < niveau ? "bg-gold-500/35" : "bg-night-700")}
                     style={{ height: `${(degatsChatiment(n) / degatsChatiment(NIVEAU_MAX)) * 100}%` }}
                   />
                 ))}
@@ -839,26 +839,26 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                   setNiveau(Number(e.target.value));
                   reinitialiser();
                 }}
-                className="mt-2 w-full cursor-pointer accent-or-500"
+                className="mt-2 w-full cursor-pointer accent-gold-500"
               />
-              <div aria-hidden className="flex justify-between text-xs tabular-nums text-craie-500">
+              <div aria-hidden className="flex justify-between text-xs tabular-nums text-chalk-500">
                 <span>{NIVEAU_MIN}</span>
                 <span>{NIVEAU_MAX}</span>
               </div>
             </div>
-            <div className="biseau-sm flex items-center gap-3 border border-or-500/40 bg-or-500/10 px-4 py-3">
+            <div className="bevel-sm flex items-center gap-3 border border-gold-500/40 bg-gold-500/10 px-4 py-3">
               {/* eslint-disable-next-line @next/next/no-img-element -- icone locale du sort */}
               <img src={ICONE_CHATIMENT} alt="" width={48} height={48} className="size-12 rounded-full" />
               <div>
-                <p className="text-xs uppercase tracking-wide text-craie-400">
+                <p className="text-xs uppercase tracking-wide text-chalk-400">
                   {t("outils.chatiment.niveauCourt", { n: niveau })}
                 </p>
-                <p className="font-titre text-3xl font-bold leading-none tabular-nums text-or-400">{nombre.format(seuil)}</p>
-                <p className="mt-0.5 text-xs text-craie-400">{t("outils.chatiment.degatsBruts")}</p>
+                <p className="font-heading text-3xl font-bold leading-none tabular-nums text-gold-400">{nombre.format(seuil)}</p>
+                <p className="mt-0.5 text-xs text-chalk-400">{t("outils.chatiment.degatsBruts")}</p>
               </div>
             </div>
           </div>
-          <p className="text-sm text-craie-300">
+          <p className="text-sm text-chalk-300">
             {t("outils.chatiment.seuilPhrase", { degats: nombre.format(seuil), conseille: o.niveauConseille })}
           </p>
         </fieldset>
@@ -868,7 +868,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
         {/* Le biseau est porte par le fond : pose sur l'arene, il rognerait les chiffres qui s'envolent. */}
         <div
           aria-hidden
-          className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-950"
+          className="bevel absolute inset-0 border border-night-700/70 bg-night-950"
           style={{
             backgroundImage: `radial-gradient(ellipse 70% 55% at 50% 32%, ${teinte}40, transparent 70%), radial-gradient(ellipse 90% 40% at 50% 110%, ${teinte}26, transparent 70%)`,
           }}
@@ -876,9 +876,9 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
         <div className="relative space-y-5 p-4 sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="text-xs uppercase tracking-wide text-craie-500">
+              <p className="text-xs uppercase tracking-wide text-chalk-500">
                 {t("outils.chatiment.manche")}{" "}
-                <span className="font-titre text-base font-bold tabular-nums text-craie-100">
+                <span className="font-heading text-base font-bold tabular-nums text-chalk-100">
                   {mancheCourante}/{MANCHES_PAR_SERIE}
                 </span>
               </p>
@@ -890,11 +890,11 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                     <li
                       key={i}
                       className={cn(
-                        "biseau-sm grid size-6 place-items-center border",
-                        !r && !enCours && "border-nuit-600",
-                        enCours && "animate-pulse border-or-400 bg-or-500/20",
-                        r?.issue === "securise" && "border-or-400 bg-or-400 text-nuit-950",
-                        r && r.issue !== "securise" && "border-sang-500 bg-sang-500/30 text-sang-500",
+                        "bevel-sm grid size-6 place-items-center border",
+                        !r && !enCours && "border-night-600",
+                        enCours && "animate-pulse border-gold-400 bg-gold-500/20",
+                        r?.issue === "securise" && "border-gold-400 bg-gold-400 text-night-950",
+                        r && r.issue !== "securise" && "border-blood-500 bg-blood-500/30 text-blood-500",
                       )}
                     >
                       {r?.issue === "securise" && <Zap size={13} aria-hidden />}
@@ -907,15 +907,15 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             </div>
             <dl className="flex gap-5 text-right text-sm">
               <div>
-                <dt className="text-xs uppercase tracking-wide text-craie-500">{t("outils.chatiment.score")}</dt>
-                <dd className="font-titre text-2xl font-bold tabular-nums text-or-400">
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.score")}</dt>
+                <dd className="font-heading text-2xl font-bold tabular-nums text-gold-400">
                   {nombre.format(resultats.reduce((s, r) => s + r.points, 0))}
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wide text-craie-500">{t("outils.chatiment.suite")}</dt>
-                <dd className="flex items-center justify-end gap-1 font-titre text-2xl font-bold tabular-nums text-craie-100">
-                  {records.enCours > 0 && <Flame size={18} aria-hidden className="text-or-400" />}
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.suite")}</dt>
+                <dd className="flex items-center justify-end gap-1 font-heading text-2xl font-bold tabular-nums text-chalk-100">
+                  {records.enCours > 0 && <Flame size={18} aria-hidden className="text-gold-400" />}
                   {nombre.format(records.enCours)}
                 </dd>
               </div>
@@ -940,7 +940,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               <div ref={flash} aria-hidden className="pointer-events-none absolute inset-0 rounded-full opacity-0 mix-blend-screen" />
               <span
                 aria-hidden
-                className="biseau-sm absolute -bottom-2 left-1/2 grid size-10 -translate-x-1/2 place-items-center border border-nuit-600 bg-nuit-900 text-craie-200"
+                className="bevel-sm absolute -bottom-2 left-1/2 grid size-10 -translate-x-1/2 place-items-center border border-night-600 bg-night-900 text-chalk-200"
               >
                 <Icone size={20} />
               </span>
@@ -954,7 +954,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             {phase === "pret" && (
               <p
                 aria-hidden
-                className="absolute top-[38%] animate-pulse font-titre text-4xl font-bold uppercase tracking-wider text-craie-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+                className="absolute top-[38%] animate-pulse font-heading text-4xl font-bold uppercase tracking-wider text-chalk-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
               >
                 {t("outils.chatiment.pret")}
               </p>
@@ -968,10 +968,10 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 reduit={reduit}
               />
             )}
-            <h2 id={`${ids.aide}-titre`} className="mt-6 font-titre text-xl font-bold text-craie-100">
+            <h2 id={`${ids.aide}-titre`} className="mt-6 font-heading text-xl font-bold text-chalk-100">
               {nomObjectif(objectif)}
             </h2>
-            <p className="text-sm text-craie-500">
+            <p className="text-sm text-chalk-500">
               {t("outils.chatiment.pvMax", { pv: nombre.format(o.pv) })} · {nomDifficulte(difficulte)}
             </p>
           </div>
@@ -983,21 +983,21 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               aria-valuemin={0}
               aria-valuemax={pvMax}
               aria-valuenow={pvAffiche}
-              className="relative h-8 overflow-hidden border border-black/70 bg-nuit-950 shadow-[inset_0_2px_8px_rgba(0,0,0,0.7)]"
+              className="relative h-8 overflow-hidden border border-black/70 bg-night-950 shadow-[inset_0_2px_8px_rgba(0,0,0,0.7)]"
             >
               {reglage.repere && (
-                <div aria-hidden className="absolute inset-y-0 left-0 bg-or-400/10" style={{ width: `${partSeuil}%` }} />
+                <div aria-hidden className="absolute inset-y-0 left-0 bg-gold-400/10" style={{ width: `${partSeuil}%` }} />
               )}
               {/* Traine claire : la vie perdue s'efface un instant apres le coup, comme en jeu. */}
               <div
                 aria-hidden
-                className="absolute inset-y-0 left-0 bg-craie-100/60 transition-[width] delay-150 duration-500 ease-out"
+                className="absolute inset-y-0 left-0 bg-chalk-100/60 transition-[width] delay-150 duration-500 ease-out"
                 style={{ width: `${part}%` }}
               />
               <div
                 className={cn(
                   "absolute inset-y-0 left-0 bg-gradient-to-b transition-[width] duration-100 ease-linear",
-                  aPortee ? "from-[#ffe08a] to-or-500" : "from-[#ff7a66] to-sang-500",
+                  aPortee ? "from-[#ffe08a] to-gold-500" : "from-[#ff7a66] to-blood-500",
                 )}
                 style={{ width: `${part}%` }}
               />
@@ -1011,7 +1011,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               {reglage.repere && (
                 <div
                   aria-hidden
-                  className="absolute inset-y-0 w-0.5 bg-or-400 shadow-[0_0_8px_#f5c451]"
+                  className="absolute inset-y-0 w-0.5 bg-gold-400 shadow-[0_0_8px_#f5c451]"
                   style={{ left: `${partSeuil}%` }}
                 />
               )}
@@ -1025,12 +1025,12 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               )}
             </div>
             <div className="mt-2 flex flex-wrap justify-between gap-2 text-sm">
-              <span className="tabular-nums text-craie-300">
+              <span className="tabular-nums text-chalk-300">
                 {reglage.pvChiffres
                   ? t("outils.chatiment.pvRestants", { pv: nombre.format(pvAffiche), max: nombre.format(pvMax) })
                   : t("outils.chatiment.pvMasques")}
               </span>
-              <span className={reglage.repere ? "text-or-400" : "text-craie-500"}>
+              <span className={reglage.repere ? "text-gold-400" : "text-chalk-500"}>
                 {reglage.repere ? t("outils.chatiment.repere", { degats: nombre.format(seuil) }) : t("outils.chatiment.sansRepere")}
               </span>
             </div>
@@ -1049,21 +1049,21 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             aria-keyshortcuts="Space"
             aria-describedby={ids.aide}
             className={cn(
-              "group flex w-full touch-manipulation select-none flex-col items-center gap-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-or-400",
+              "group flex w-full touch-manipulation select-none flex-col items-center gap-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold-400",
               phase === "pret" && "cursor-wait",
             )}
           >
             <span
               aria-hidden
               className={cn(
-                "relative grid size-28 place-items-center rounded-full border-4 bg-nuit-950 transition-[border-color,box-shadow,transform] duration-150 group-active:scale-95 sm:size-32",
-                phase === "combat" && "border-or-400 shadow-[0_0_36px_rgba(245,196,81,0.6)]",
-                phase === "pret" && "border-nuit-600",
+                "relative grid size-28 place-items-center rounded-full border-4 bg-night-950 transition-[border-color,box-shadow,transform] duration-150 group-active:scale-95 sm:size-32",
+                phase === "combat" && "border-gold-400 shadow-[0_0_36px_rgba(245,196,81,0.6)]",
+                phase === "pret" && "border-night-600",
                 (phase === "attente" || phase === "resultat" || phase === "bilan") &&
-                  "border-azur-400 shadow-[0_0_24px_rgba(77,163,255,0.35)] group-hover:shadow-[0_0_34px_rgba(77,163,255,0.55)]",
+                  "border-azure-400 shadow-[0_0_24px_rgba(77,163,255,0.35)] group-hover:shadow-[0_0_34px_rgba(77,163,255,0.55)]",
               )}
             >
-              {phase === "combat" && <span className="absolute -inset-2 animate-ping rounded-full border-2 border-or-400/50" />}
+              {phase === "combat" && <span className="absolute -inset-2 animate-ping rounded-full border-2 border-gold-400/50" />}
               {/* eslint-disable-next-line @next/next/no-img-element -- icone locale du sort */}
               <img
                 src={ICONE_CHATIMENT}
@@ -1073,34 +1073,34 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 className={cn("size-full rounded-full object-cover p-1", phase === "pret" && "opacity-40 grayscale")}
               />
               {phase === "pret" && (
-                <span className="absolute -inset-1 animate-spin rounded-full border-4 border-transparent border-t-or-400" />
+                <span className="absolute -inset-1 animate-spin rounded-full border-4 border-transparent border-t-gold-400" />
               )}
             </span>
             <span
               className={cn(
-                "flex items-center gap-2 font-titre text-2xl font-bold uppercase tracking-wide",
-                phase === "combat" ? "text-or-400" : phase === "pret" ? "text-craie-400" : "text-azur-400",
+                "flex items-center gap-2 font-heading text-2xl font-bold uppercase tracking-wide",
+                phase === "combat" ? "text-gold-400" : phase === "pret" ? "text-chalk-400" : "text-azure-400",
               )}
             >
               <Zap size={22} aria-hidden />
               {libelleBouton}
             </span>
           </button>
-          <p id={ids.aide} className="text-center text-xs text-craie-500">
+          <p id={ids.aide} className="text-center text-xs text-chalk-500">
             {t("outils.chatiment.aide")}
           </p>
 
           {dernier && (
             <div
               className={cn(
-                "biseau-sm border p-4",
-                dernier.issue === "securise" ? "border-or-500/50 bg-or-500/10" : "border-sang-500/50 bg-sang-500/10",
+                "bevel-sm border p-4",
+                dernier.issue === "securise" ? "border-gold-500/50 bg-gold-500/10" : "border-blood-500/50 bg-blood-500/10",
               )}
             >
-              <p className={cn("font-titre text-xl font-bold", dernier.issue === "securise" ? "text-or-400" : "text-sang-500")}>
+              <p className={cn("font-heading text-xl font-bold", dernier.issue === "securise" ? "text-gold-400" : "text-blood-500")}>
                 {verdict(dernier).titre}
               </p>
-              <p className="mt-1 text-sm text-craie-200">{verdict(dernier).detail}</p>
+              <p className="mt-1 text-sm text-chalk-200">{verdict(dernier).detail}</p>
               {manche && (dernier.issue === "securise" || dernier.issue === "vole") && (
                 <LigneTemps
                   vous={dernier.issue === "securise" ? dernier.reaction : null}
@@ -1120,9 +1120,9 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
       {bilan && (
         <Carte className="space-y-6">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <h2 className="font-titre text-2xl font-bold text-craie-100">{t("outils.chatiment.bilanTitre")}</h2>
+            <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("outils.chatiment.bilanTitre")}</h2>
             {nouveauRecord && (
-              <span className="biseau-sm inline-flex items-center gap-1.5 bg-or-500 px-3 py-1 font-titre text-sm font-bold text-nuit-950">
+              <span className="bevel-sm inline-flex items-center gap-1.5 bg-gold-500 px-3 py-1 font-heading text-sm font-bold text-night-950">
                 <Trophy size={15} aria-hidden />
                 {t("outils.chatiment.nouveauRecord")}
               </span>
@@ -1130,31 +1130,31 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
           </div>
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{t("outils.chatiment.points")}</dt>
-              <dd className="font-titre text-3xl font-bold tabular-nums text-or-400">{nombre.format(bilan.total)}</dd>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.points")}</dt>
+              <dd className="font-heading text-3xl font-bold tabular-nums text-gold-400">{nombre.format(bilan.total)}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{t("outils.chatiment.securises")}</dt>
-              <dd className="font-titre text-3xl font-bold tabular-nums text-craie-100">
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.securises")}</dt>
+              <dd className="font-heading text-3xl font-bold tabular-nums text-chalk-100">
                 {bilan.securises}/{bilan.manches}
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{t("outils.chatiment.meilleureReaction")}</dt>
-              <dd className="font-titre text-3xl font-bold tabular-nums text-craie-100">
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.meilleureReaction")}</dt>
+              <dd className="font-heading text-3xl font-bold tabular-nums text-chalk-100">
                 {bilan.meilleureReaction === null ? "—" : `${nombre.format(bilan.meilleureReaction)} ms`}
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{t("outils.chatiment.precisionMoyenne")}</dt>
-              <dd className="font-titre text-3xl font-bold tabular-nums text-craie-100">
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.precisionMoyenne")}</dt>
+              <dd className="font-heading text-3xl font-bold tabular-nums text-chalk-100">
                 {bilan.precisionMoyenne === null ? "—" : pourcent.format(bilan.precisionMoyenne)}
               </dd>
             </div>
           </dl>
 
           <figure>
-            <figcaption className="text-xs uppercase tracking-wide text-craie-500">
+            <figcaption className="text-xs uppercase tracking-wide text-chalk-500">
               {t("outils.chatiment.graphiqueBilan")}
             </figcaption>
             <ol className="mt-3 flex h-44 items-end gap-2 sm:gap-4">
@@ -1162,18 +1162,18 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 const reussi = r.issue === "securise";
                 return (
                   <li key={i} className="flex h-full flex-1 flex-col items-center justify-end gap-1.5">
-                    <span className={cn("text-sm font-bold tabular-nums", reussi ? "text-or-400" : "text-sang-500")}>
+                    <span className={cn("text-sm font-bold tabular-nums", reussi ? "text-gold-400" : "text-blood-500")}>
                       {reussi ? nombre.format(r.points) : <Skull size={16} aria-hidden />}
                     </span>
                     <span
                       aria-hidden
                       className={cn(
-                        "biseau-sm w-full",
-                        reussi ? "bg-gradient-to-t from-or-600 to-or-400" : "bg-sang-500/40",
+                        "bevel-sm w-full",
+                        reussi ? "bg-gradient-to-t from-gold-600 to-gold-400" : "bg-blood-500/40",
                       )}
                       style={{ height: `${Math.max(4, (r.points / 1000) * 72)}%` }}
                     />
-                    <span className="text-xs tabular-nums text-craie-500">{i + 1}</span>
+                    <span className="text-xs tabular-nums text-chalk-500">{i + 1}</span>
                     <span className="sr-only">{verdict(r).titre}</span>
                   </li>
                 );
@@ -1205,15 +1205,15 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               muted
               playsInline
               aria-label={`${t("outils.chatiment.carteTitre")} — ${texte}`}
-              className="biseau h-auto w-full border border-nuit-700 bg-nuit-950"
+              className="bevel h-auto w-full border border-night-700 bg-night-950"
             />
           ) : vue === "video" && filmage ? (
             <div
               role="status"
-              className="biseau grid aspect-[1200/630] w-full place-items-center border border-nuit-700 bg-nuit-950 text-sm text-craie-400"
+              className="bevel grid aspect-[1200/630] w-full place-items-center border border-night-700 bg-night-950 text-sm text-chalk-400"
             >
               <span className="flex items-center gap-3">
-                <span aria-hidden className="size-5 animate-spin rounded-full border-2 border-nuit-600 border-t-or-400" />
+                <span aria-hidden className="size-5 animate-spin rounded-full border-2 border-night-600 border-t-gold-400" />
                 {t("outils.chatiment.videoPreparation")}
               </span>
             </div>
@@ -1225,7 +1225,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 width={LARGEUR_CARTE}
                 height={HAUTEUR_CARTE}
                 alt={`${t("outils.chatiment.carteTitre")} — ${texte}`}
-                className="biseau h-auto w-full border border-nuit-700"
+                className="bevel h-auto w-full border border-night-700"
               />
             )
           )}
@@ -1234,7 +1234,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             <button
               type="button"
               onClick={partager}
-              className="biseau-sm inline-flex items-center gap-2 bg-or-500 px-4 py-2 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+              className="bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
             >
               <Share2 size={16} aria-hidden />
               {t("outils.chatiment.partager")}
@@ -1242,7 +1242,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             <button
               type="button"
               onClick={copier}
-              className="biseau-sm inline-flex items-center gap-2 border border-nuit-600 px-4 py-2 text-sm font-semibold text-craie-200 transition-colors hover:border-or-500/60 hover:text-or-400"
+              className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
             >
               <Copy size={16} aria-hidden />
               {t("outils.chatiment.copier")}
@@ -1251,7 +1251,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               <a
                 href={apercu}
                 download="mlbbdex-retribution.png"
-                className="biseau-sm inline-flex items-center gap-2 border border-nuit-600 px-4 py-2 text-sm font-semibold text-craie-200 transition-colors hover:border-or-500/60 hover:text-or-400"
+                className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Download size={16} aria-hidden />
                 {t("outils.chatiment.telecharger")}
@@ -1261,14 +1261,14 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               <a
                 href={video.url}
                 download={`mlbbdex-retribution.${video.extension}`}
-                className="biseau-sm inline-flex items-center gap-2 border border-nuit-600 px-4 py-2 text-sm font-semibold text-craie-200 transition-colors hover:border-or-500/60 hover:text-or-400"
+                className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Film size={16} aria-hidden />
                 {t("outils.chatiment.telechargerVideo")}
               </a>
             )}
           </div>
-          <p role="status" className="min-h-5 text-sm text-craie-400">
+          <p role="status" className="min-h-5 text-sm text-chalk-400">
             {partage === "copie" && t("outils.chatiment.copie")}
             {partage === "erreur" && t("outils.chatiment.erreurPartage")}
           </p>
@@ -1276,35 +1276,35 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
       )}
 
       <Carte>
-        <h2 className="flex items-center gap-2 font-titre text-lg font-bold text-craie-100">
-          <Trophy size={18} aria-hidden className="text-or-400" />
+        <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-chalk-100">
+          <Trophy size={18} aria-hidden className="text-gold-400" />
           {t("outils.chatiment.recordsTitre")}
         </h2>
         <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-3">
-          <div className="biseau-sm border border-or-500/30 bg-or-500/5 p-3">
-            <dt className="text-craie-500">
+          <div className="bevel-sm border border-gold-500/30 bg-gold-500/5 p-3">
+            <dt className="text-chalk-500">
               {t("outils.chatiment.recordReglage", { objectif: nomObjectif(objectif), difficulte: nomDifficulte(difficulte) })}
             </dt>
-            <dd className="mt-1 font-titre text-2xl font-bold tabular-nums text-or-400">
+            <dd className="mt-1 font-heading text-2xl font-bold tabular-nums text-gold-400">
               {record ? nombre.format(record.total) : "—"}
             </dd>
           </div>
-          <div className="biseau-sm border border-nuit-700/70 bg-nuit-950/40 p-3">
-            <dt className="text-craie-500">{t("outils.chatiment.suiteEnCours")}</dt>
-            <dd className="mt-1 flex items-center gap-1.5 font-titre text-2xl font-bold tabular-nums text-craie-100">
-              <Flame size={18} aria-hidden className={records.enCours > 0 ? "text-or-400" : "text-craie-600"} />
+          <div className="bevel-sm border border-night-700/70 bg-night-950/40 p-3">
+            <dt className="text-chalk-500">{t("outils.chatiment.suiteEnCours")}</dt>
+            <dd className="mt-1 flex items-center gap-1.5 font-heading text-2xl font-bold tabular-nums text-chalk-100">
+              <Flame size={18} aria-hidden className={records.enCours > 0 ? "text-gold-400" : "text-chalk-600"} />
               {nombre.format(records.enCours)}
             </dd>
           </div>
-          <div className="biseau-sm border border-nuit-700/70 bg-nuit-950/40 p-3">
-            <dt className="text-craie-500">{t("outils.chatiment.meilleureSuite")}</dt>
-            <dd className="mt-1 flex items-center gap-1.5 font-titre text-2xl font-bold tabular-nums text-craie-100">
-              <Crown size={18} aria-hidden className="text-craie-500" />
+          <div className="bevel-sm border border-night-700/70 bg-night-950/40 p-3">
+            <dt className="text-chalk-500">{t("outils.chatiment.meilleureSuite")}</dt>
+            <dd className="mt-1 flex items-center gap-1.5 font-heading text-2xl font-bold tabular-nums text-chalk-100">
+              <Crown size={18} aria-hidden className="text-chalk-500" />
               {nombre.format(records.meilleureSuite)}
             </dd>
           </div>
         </dl>
-        <p className="mt-3 text-xs text-craie-500">{t("outils.chatiment.recordsLocaux")}</p>
+        <p className="mt-3 text-xs text-chalk-500">{t("outils.chatiment.recordsLocaux")}</p>
       </Carte>
     </div>
   );

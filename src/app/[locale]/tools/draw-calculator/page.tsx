@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const sectionTitle = "font-titre text-2xl font-bold text-craie-100";
-const sourceLink = "underline transition-colors hover:text-or-400";
+const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
+const sourceLink = "underline transition-colors hover:text-gold-400";
 
 /** FAQ example: 100 draws at 1 %, without pity. */
 const EXAMPLE: DrawEvent = { cost: 1, tenCost: null, chance: 1, pity: null };
@@ -61,8 +61,8 @@ export default async function DrawCalculatorPage({ params }: Params) {
           <h2 id="method-title" className={sectionTitle}>
             {t("pages.drawCalculator.methodTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.drawCalculator.method1")}</p>
             <p>{t("pages.drawCalculator.method2")}</p>
             <p>{t("pages.drawCalculator.method3")}</p>
@@ -74,8 +74,8 @@ export default async function DrawCalculatorPage({ params }: Params) {
           <h2 id="limits-title" className={sectionTitle}>
             {t("pages.drawCalculator.limitsTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.drawCalculator.limit1")}</p>
             <p>{t("pages.drawCalculator.limit2")}</p>
           </div>
@@ -85,19 +85,19 @@ export default async function DrawCalculatorPage({ params }: Params) {
           <h2 id="find-title" className={sectionTitle}>
             {t("pages.drawCalculator.findTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-craie-300">{t("pages.drawCalculator.find1")}</p>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.drawCalculator.find1")}</p>
         </section>
 
         <section aria-labelledby="faq-title">
           <h2 id="faq-title" className={sectionTitle}>
             {t("pages.drawCalculator.faqTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-4 space-y-5">
             <div>
-              <dt className="font-semibold text-craie-100">{t("pages.drawCalculator.q1", example)}</dt>
-              <dd className="mt-1 leading-relaxed text-craie-300">
+              <dt className="font-semibold text-chalk-100">{t("pages.drawCalculator.q1", example)}</dt>
+              <dd className="mt-1 leading-relaxed text-chalk-300">
                 {t("pages.drawCalculator.a1", {
                   ...example,
                   chance: percent.format(chanceWithin(EXAMPLE_DRAWS, EXAMPLE)),
@@ -107,24 +107,24 @@ export default async function DrawCalculatorPage({ params }: Params) {
             </div>
             {(["2", "3"] as const).map((q) => (
               <div key={q}>
-                <dt className="font-semibold text-craie-100">{t(`pages.drawCalculator.q${q}`)}</dt>
-                <dd className="mt-1 leading-relaxed text-craie-300">{t(`pages.drawCalculator.a${q}`)}</dd>
+                <dt className="font-semibold text-chalk-100">{t(`pages.drawCalculator.q${q}`)}</dt>
+                <dd className="mt-1 leading-relaxed text-chalk-300">{t(`pages.drawCalculator.a${q}`)}</dd>
               </div>
             ))}
           </dl>
         </section>
 
         <p className="flex flex-wrap gap-x-6 gap-y-2">
-          <Link href="/tools/collection" className="font-semibold text-or-400 hover:text-or-500">
+          <Link href="/tools/collection" className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.drawCalculator.collectionLink")} →
           </Link>
-          <Link href="/skins/calendar" className="font-semibold text-or-400 hover:text-or-500">
+          <Link href="/skins/calendar" className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.drawCalculator.calendarLink")} →
           </Link>
         </p>
 
-        <section aria-labelledby="sources-title" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-title" className="font-semibold text-craie-300">
+        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-title" className="font-semibold text-chalk-300">
             {t("pages.drawCalculator.sourcesTitle")}
           </h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">

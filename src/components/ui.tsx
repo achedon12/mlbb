@@ -16,14 +16,14 @@ export function TitreSection({
   return (
     <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
       <div>
-        <h2 className="font-titre text-2xl font-bold text-craie-100 sm:text-3xl">{children}</h2>
-        <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-        {chapeau && <p className="mt-3 max-w-2xl text-sm text-craie-500">{chapeau}</p>}
+        <h2 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">{children}</h2>
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        {chapeau && <p className="mt-3 max-w-2xl text-sm text-chalk-500">{chapeau}</p>}
       </div>
       {action && (
         <Link
           href={action.href}
-          className="text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+          className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
         >
           {action.label} →
         </Link>
@@ -35,18 +35,18 @@ export function TitreSection({
 
 /** Couleurs d'un palier, reprises par le tableau des statistiques. */
 export const COULEUR_PALIER: Record<Palier, string> = {
-  "S+": "bg-sang-500 text-nuit-950",
-  S: "bg-or-500 text-nuit-950",
-  A: "bg-azur-500 text-nuit-950",
-  B: "bg-nuit-600 text-craie-100",
-  C: "bg-nuit-700 text-craie-300",
+  "S+": "bg-blood-500 text-night-950",
+  S: "bg-gold-500 text-night-950",
+  A: "bg-azure-500 text-night-950",
+  B: "bg-night-600 text-chalk-100",
+  C: "bg-night-700 text-chalk-300",
 };
 
 export function BadgePalier({ palier }: { palier: Palier }) {
   return (
     <span
       className={cn(
-        "biseau-sm grid size-9 shrink-0 place-items-center font-titre text-base font-bold",
+        "bevel-sm grid size-9 shrink-0 place-items-center font-heading text-base font-bold",
         COULEUR_PALIER[palier],
       )}
     >
@@ -64,7 +64,7 @@ export function Carte({
   return (
     <div
       className={cn(
-        "biseau border border-nuit-700/70 bg-nuit-900/60 p-5 transition-colors",
+        "bevel border border-night-700/70 bg-night-900/60 p-5 transition-colors",
         className,
       )}
       {...props}
@@ -90,9 +90,9 @@ export function EnTetePage({
   icone?: React.ReactNode;
   children?: React.ReactNode;
 }) {
-  const h1 = <h1 className="font-titre text-3xl font-bold text-craie-100 sm:text-4xl">{titre}</h1>;
+  const h1 = <h1 className="font-heading text-3xl font-bold text-chalk-100 sm:text-4xl">{titre}</h1>;
   return (
-    <div className="border-b border-nuit-700/70 bg-nuit-900/30">
+    <div className="border-b border-night-700/70 bg-night-900/30">
       <div className="mx-auto max-w-6xl px-4 pb-14 pt-8">
         <FilAriane miettes={miettes ?? [{ nom: titre }]} className="mb-6" />
         {icone ? (
@@ -103,8 +103,8 @@ export function EnTetePage({
         ) : (
           h1
         )}
-        <div aria-hidden className="filet-or mt-3 h-0.5 w-20" />
-        <p className="mt-4 max-w-2xl leading-relaxed text-craie-300">{chapeau}</p>
+        <div aria-hidden className="gold-rule mt-3 h-0.5 w-20" />
+        <p className="mt-4 max-w-2xl leading-relaxed text-chalk-300">{chapeau}</p>
         {children}
       </div>
     </div>
@@ -129,13 +129,13 @@ export function Jauge({
 
   return (
     <span className="flex items-center gap-2">
-      <span aria-hidden className="h-1.5 flex-1 bg-nuit-700">
+      <span aria-hidden className="h-1.5 flex-1 bg-night-700">
         <span
-          className={cn("block h-full", part >= 0.8 ? "bg-or-400" : "bg-azur-500")}
+          className={cn("block h-full", part >= 0.8 ? "bg-gold-400" : "bg-azure-500")}
           style={{ width: `${part * 100}%` }}
         />
       </span>
-      <span className="w-6 shrink-0 text-right text-xs tabular-nums text-craie-300">
+      <span className="w-6 shrink-0 text-right text-xs tabular-nums text-chalk-300">
         {texte ?? valeur}
       </span>
       {/* « / 10 » se lit dans toutes les langues : la jauge sert aussi hors d'un composant client. */}

@@ -140,12 +140,12 @@ export default async function PageEmbleme({ params }: Params) {
         <Carte>
           <dl className="grid gap-4 text-sm sm:grid-cols-2">
             <div>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.emblemDetail.bonus")}</dt>
-              <dd className="mt-1 text-craie-100">{fi.bonus}</dd>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.emblemDetail.bonus")}</dt>
+              <dd className="mt-1 text-chalk-100">{fi.bonus}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.fiches.pourQui")}</dt>
-              <dd className="mt-1 leading-relaxed text-craie-300">{fi.pourQui}</dd>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.fiches.pourQui")}</dt>
+              <dd className="mt-1 leading-relaxed text-chalk-300">{fi.pourQui}</dd>
             </div>
           </dl>
         </Carte>
@@ -155,7 +155,7 @@ export default async function PageEmbleme({ params }: Params) {
           {heros.length > 0 ? (
             <TableauUsage lignes={heros} legende={titreHeros} t={t} langue={locale} />
           ) : (
-            <p className="text-sm text-craie-500">{t("pages.fiches.aucun")}</p>
+            <p className="text-sm text-chalk-500">{t("pages.fiches.aucun")}</p>
           )}
         </section>
 
@@ -165,7 +165,7 @@ export default async function PageEmbleme({ params }: Params) {
             <div className="grid gap-8 md:grid-cols-3">
               {talents.map((parts, i) => (
                 <div key={etages[i]}>
-                  <h3 className="mb-3 font-titre font-bold text-craie-100">{etages[i]}</h3>
+                  <h3 className="mb-3 font-heading font-bold text-chalk-100">{etages[i]}</h3>
                   <PartsChoix
                     langue={locale}
                     entrees={parts.slice(0, 4).map((p) => ({

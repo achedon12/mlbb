@@ -177,7 +177,7 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         {/* Phrase de donnees : ce que les resultats de recherche reprennent en extrait. */}
-        <p className="mb-8 max-w-3xl leading-relaxed text-craie-300">
+        <p className="mb-8 max-w-3xl leading-relaxed text-chalk-300">
           {t("pages.statistics.resume", {
             contexte: tous ? t("pages.statistics.contexteTous") : t("pages.statistics.contexteRang", { rang: nomRang }),
             victoire: victoire.nom,
@@ -196,12 +196,12 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
             <Mouvements locale={locale} t={t} titre={t("pages.statistics.hausses")} liste={hausses} />
             <Mouvements locale={locale} t={t} titre={t("pages.statistics.baisses")} liste={baisses} />
           </div>
-          <p className="mt-3 text-xs text-craie-500">{t("pages.statistics.mouvementsIntro", { seuil })}</p>
+          <p className="mt-3 text-xs text-chalk-500">{t("pages.statistics.mouvementsIntro", { seuil })}</p>
         </section>
 
-        <details className="biseau mt-10 border border-nuit-700/70 bg-nuit-900/60 p-5">
-          <summary className="cursor-pointer font-titre font-bold text-or-400">{t("pages.statistics.lecture.titre")}</summary>
-          <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-craie-300">
+        <details className="bevel mt-10 border border-night-700/70 bg-night-900/60 p-5">
+          <summary className="cursor-pointer font-heading font-bold text-gold-400">{t("pages.statistics.lecture.titre")}</summary>
+          <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-chalk-300">
             {(["victoire", "ban", "selection", "tendance", "courbe", "palier", "faible"] as const).map((c) => (
               <li key={c}>{t(`pages.statistics.lecture.${c}`, { seuil })}</li>
             ))}
@@ -211,13 +211,13 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
         <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <Link
             href={tous ? "/tier-list" : `/tier-list/${rang}`}
-            className="font-semibold text-or-400 underline-offset-4 hover:underline"
+            className="font-semibold text-gold-400 underline-offset-4 hover:underline"
           >
             {tous ? t("pages.tierList.titre") : t("pages.tierList.titreRang", { rang: nomRang })} →
           </Link>
-          <span className="text-craie-500">
+          <span className="text-chalk-500">
             {t("pages.statistics.api")}{" "}
-            <Link href="/api-doc" className="font-semibold text-or-400 underline-offset-4 hover:underline">
+            <Link href="/api-doc" className="font-semibold text-gold-400 underline-offset-4 hover:underline">
               {t("pages.statistics.apiLien")}
             </Link>
           </span>
@@ -229,21 +229,21 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
 
 function Mouvements({ locale, t, titre, liste }: { locale: Langue; t: T; titre: string; liste: Mouvement[] }) {
   return (
-    <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-5">
-      <h2 className="font-titre text-lg font-bold text-craie-100">{titre}</h2>
+    <div className="bevel border border-night-700/70 bg-night-900/60 p-5">
+      <h2 className="font-heading text-lg font-bold text-chalk-100">{titre}</h2>
       {liste.length === 0 ? (
-        <p className="mt-3 text-sm text-craie-500">{t("pages.statistics.aucunMouvement")}</p>
+        <p className="mt-3 text-sm text-chalk-500">{t("pages.statistics.aucunMouvement")}</p>
       ) : (
         <ol className="mt-3 space-y-1.5 text-sm">
           {liste.map(({ slug, variation }) => (
             <li key={slug} className="flex items-baseline justify-between gap-3">
-              <Link href={`/heroes/${slug}`} className="font-medium text-craie-100 hover:text-or-400">
+              <Link href={`/heroes/${slug}`} className="font-medium text-chalk-100 hover:text-gold-400">
                 {herosParSlug.get(slug)?.nom ?? slug}
               </Link>
-              <span className="tabular-nums text-craie-500">
+              <span className="tabular-nums text-chalk-500">
                 <span
                   aria-hidden
-                  className={cn("font-semibold", variation.ecart > 0 ? "text-emerald-400" : "text-sang-500")}
+                  className={cn("font-semibold", variation.ecart > 0 ? "text-emerald-400" : "text-blood-500")}
                 >
                   {formaterEcart(variation.ecart, locale)}
                 </span>

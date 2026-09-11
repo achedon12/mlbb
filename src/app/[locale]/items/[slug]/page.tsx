@@ -145,17 +145,17 @@ export default async function PageObjet({ params }: Params) {
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
         <section className={cn("grid gap-4", aFabrication && "md:grid-cols-2")}>
           <Carte>
-            <h2 className="font-titre text-lg font-bold text-craie-100">{t("pages.itemDetail.effets")}</h2>
+            <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.effets")}</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div className="flex flex-wrap gap-x-10 gap-y-3">
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemDetail.categorie")}</dt>
-                  <dd className="mt-1 text-craie-100">{categorie}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.categorie")}</dt>
+                  <dd className="mt-1 text-chalk-100">{categorie}</dd>
                 </div>
                 {o.prix !== null && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemDetail.prix")}</dt>
-                    <dd className="mt-1 font-titre text-or-400">{prix(o.prix)}</dd>
+                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.prix")}</dt>
+                    <dd className="mt-1 font-heading text-gold-400">{prix(o.prix)}</dd>
                   </div>
                 )}
               </div>
@@ -164,7 +164,7 @@ export default async function PageObjet({ params }: Params) {
           </Carte>
           {aFabrication && (
             <Carte>
-              <h2 className="font-titre text-lg font-bold text-craie-100">{t("pages.itemDetail.fabrication")}</h2>
+              <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.fabrication")}</h2>
               <dl className="mt-4 space-y-4 text-sm">
                 <RecetteObjet objet={objet} catalogue={catalogue} t={t} langue={locale} vers={versPage} />
               </dl>
@@ -177,7 +177,7 @@ export default async function PageObjet({ params }: Params) {
           {heros.length > 0 ? (
             <TableauUsage lignes={heros} legende={titreHeros} t={t} langue={locale} />
           ) : (
-            <p className="text-sm text-craie-500">{t("pages.fiches.aucun")}</p>
+            <p className="text-sm text-chalk-500">{t("pages.fiches.aucun")}</p>
           )}
         </section>
 

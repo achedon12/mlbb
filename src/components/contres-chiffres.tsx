@@ -50,10 +50,10 @@ export function ContresChiffres({
 
   return (
     <div>
-      <p className="mb-4 text-sm leading-relaxed text-craie-500">
+      <p className="mb-4 text-sm leading-relaxed text-chalk-500">
         {t("pages.heroDetail.contresIntro", { nom })}
         {courant.mesure !== null && (
-          <span className="text-craie-300">
+          <span className="text-chalk-300">
             {" "}{t("pages.heroDetail.contresRef", { taux: courant.mesure })}
           </span>
         )}
@@ -95,7 +95,7 @@ export function CoequipiersParRang({
 
   return (
     <div>
-      <p className="mb-4 text-sm leading-relaxed text-craie-500">{t("pages.heroDetail.coequipiersIntro", { nom })}</p>
+      <p className="mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroDetail.coequipiersIntro", { nom })}</p>
       <div className="grid gap-4 md:grid-cols-2">
         <Colonne titre={t("pages.heroDetail.coequipiers")} icone={<Users size={17} aria-hidden />} ton="bon" entrees={liste} />
       </div>
@@ -115,11 +115,11 @@ function Colonne({
   entrees: ContreAffiche[];
 }) {
   const t = useT();
-  const couleur = ton === "bon" ? "text-emerald-400" : "text-sang-500";
+  const couleur = ton === "bon" ? "text-emerald-400" : "text-blood-500";
 
   return (
-    <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
-      <h3 className={cn("flex items-center gap-2 font-titre font-bold", couleur)}>
+    <div className="bevel border border-night-700/70 bg-night-900/60 p-4">
+      <h3 className={cn("flex items-center gap-2 font-heading font-bold", couleur)}>
         {icone}
         {titre}
       </h3>
@@ -128,10 +128,10 @@ function Colonne({
           <li key={e.slug}>
             <Link
               href={`/heroes/${e.slug}`}
-              className="flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-nuit-850"
+              className="flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-night-850"
             >
               <PortraitHeros source={e.portrait} nom={e.nom} taille="petite" decoratif />
-              <span className="min-w-0 flex-1 truncate text-sm text-craie-100">{e.nom}</span>
+              <span className="min-w-0 flex-1 truncate text-sm text-chalk-100">{e.nom}</span>
               <span className={cn("shrink-0 text-xs font-semibold tabular-nums", couleur)}>
                 {e.avantage > 0 ? "+" : ""}
                 {e.avantage.toFixed(1)} {t("contres.pts")}

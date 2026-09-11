@@ -54,24 +54,24 @@ export function proprietesCarteSkin(
 export function CarteSkin({ nom, href, heros, hrefHeros, image, couleur, rarete, details }: ProprietesCarteSkin) {
   return (
     <article
-      className="biseau-sm flex h-full flex-col overflow-hidden border-2 bg-nuit-900/60"
+      className="bevel-sm flex h-full flex-col overflow-hidden border-2 bg-night-900/60"
       style={{ borderColor: couleur }}
     >
       <Link href={href} className="group block">
-        <span className="relative block aspect-[240/390] bg-nuit-800">
+        <span className="relative block aspect-[240/390] bg-night-800">
           {image && <Image src={image} alt="" width={120} height={195} className="size-full object-cover" />}
         </span>
-        <span className="block px-2 pt-2 text-xs font-semibold leading-snug text-craie-100 transition-colors group-hover:text-or-400">
+        <span className="block px-2 pt-2 text-xs font-semibold leading-snug text-chalk-100 transition-colors group-hover:text-gold-400">
           {nom}
         </span>
       </Link>
       <div className="flex flex-1 flex-col gap-0.5 px-2 pb-2 pt-0.5 text-xs leading-snug">
-        <Link href={hrefHeros} className="text-craie-300 transition-colors hover:text-or-400">
+        <Link href={hrefHeros} className="text-chalk-300 transition-colors hover:text-gold-400">
           {heros}
         </Link>
         <span style={{ color: couleur }}>{rarete}</span>
         {details.map((d) => (
-          <span key={d} className="text-craie-500">
+          <span key={d} className="text-chalk-500">
             {d}
           </span>
         ))}

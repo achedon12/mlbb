@@ -261,7 +261,7 @@ export default async function PageContres({ params }: Params) {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="biseau-sm inline-block border border-nuit-700 px-3 py-1.5 font-medium text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+                className="bevel-sm inline-block border border-night-700 px-3 py-1.5 font-medium text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 {l.label}
               </Link>
@@ -277,10 +277,10 @@ export default async function PageContres({ params }: Params) {
             {/* min-w-0 : sans lui, la piste de grille s'elargit a la largeur du tableau et deborde a 390 px. */}
             {meilleurs.length > 0 && (
               <section aria-labelledby="meilleurs" className="min-w-0">
-                <h2 id="meilleurs" className="font-titre text-2xl font-bold text-craie-100">
+                <h2 id="meilleurs" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.heroCounters.meilleursContres", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-craie-500">
+                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">
                   {t("pages.heroCounters.meilleursContresIntro", n)}
                 </p>
                 <TableauAgrege t={t} lignes={meilleurs} ton="mauvais" total={tranchesMesurees} slug={slug} ecart={ecart} />
@@ -288,10 +288,10 @@ export default async function PageContres({ params }: Params) {
             )}
             {victimes.length > 0 && (
               <section aria-labelledby="victimes" className="min-w-0">
-                <h2 id="victimes" className="font-titre text-2xl font-bold text-craie-100">
+                <h2 id="victimes" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.heroCounters.victimes", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-craie-500">{t("pages.heroCounters.victimesIntro", n)}</p>
+                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroCounters.victimesIntro", n)}</p>
                 <TableauAgrege t={t} lignes={victimes} ton="bon" total={tranchesMesurees} slug={slug} ecart={ecart} />
               </section>
             )}
@@ -304,10 +304,10 @@ export default async function PageContres({ params }: Params) {
         {/* ── Rang par rang ───────────────────────────────────────────── */}
         {rangs.length > 0 && (
           <section aria-labelledby="par-rang">
-            <h2 id="par-rang" className="font-titre text-2xl font-bold text-craie-100">
+            <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
               {t("pages.heroCounters.parRang")}
             </h2>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-craie-500">
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
               {t("pages.heroDetail.contresIntro", n)} {t("pages.heroCounters.parRangIntro", n)}
             </p>
             <nav aria-label={t("pages.heroCounters.rangsNav")} className="mt-4">
@@ -316,7 +316,7 @@ export default async function PageContres({ params }: Params) {
                   <li key={r}>
                     <a
                       href={`#rang-${r}`}
-                      className="biseau-sm inline-block border border-nuit-700 px-2.5 py-1 text-craie-300 hover:border-or-500/60 hover:text-or-400"
+                      className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400"
                     >
                       {t(`rangsMesure.${r}`)}
                     </a>
@@ -334,25 +334,25 @@ export default async function PageContres({ params }: Params) {
                     key={r}
                     id={`rang-${r}`}
                     open={r === rangPrincipal}
-                    className="biseau group scroll-mt-24 border border-nuit-700/70 bg-nuit-900/60"
+                    className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
                   >
                     <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 [&::-webkit-details-marker]:hidden">
                       <ChevronDown
                         size={16}
                         aria-hidden
-                        className="shrink-0 text-craie-500 transition-transform group-open:rotate-180"
+                        className="shrink-0 text-chalk-500 transition-transform group-open:rotate-180"
                       />
-                      <h3 className="font-titre text-lg font-bold text-craie-100">{t(`rangsMesure.${r}`)}</h3>
+                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`rangsMesure.${r}`)}</h3>
                       {s && (
-                        <span className="text-sm text-craie-500">
+                        <span className="text-sm text-chalk-500">
                           {t("pages.heroDetail.palier", { p: s.palier })} ·{" "}
                           {t("builds.victoire", { taux: decimal.format(s.victoire) })}
                         </span>
                       )}
                     </summary>
-                    <div className="border-t border-nuit-800 p-4">
+                    <div className="border-t border-night-800 p-4">
                       {mesure?.mesure != null && (
-                        <p className="mb-4 text-sm text-craie-500">
+                        <p className="mb-4 text-sm text-chalk-500">
                           {t("pages.heroDetail.contresRef", { taux: decimal.format(mesure.mesure) })}
                         </p>
                       )}
@@ -393,20 +393,20 @@ export default async function PageContres({ params }: Params) {
 
         {/* ── Comment le contrer ──────────────────────────────────────── */}
         <section aria-labelledby="contrer">
-          <h2 id="contrer" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="contrer" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.heroCounters.commentContrer", n)}
           </h2>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-craie-500">
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
             {t("pages.heroCounters.commentContrerIntro", n)}
           </p>
 
           <div className="mt-5 grid gap-4 lg:grid-cols-3">
             <Carte>
-              <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroCounters.objets.titre", n)}</h3>
-              <p className="biseau-sm mt-2 inline-block border border-or-500/40 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-or-400">
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.objets.titre", n)}</h3>
+              <p className="bevel-sm mt-2 inline-block border border-gold-500/40 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-gold-400">
                 {t("pages.heroCounters.objets.regle")}
               </p>
-              <p className="mt-3 text-xs leading-relaxed text-craie-500">
+              <p className="mt-3 text-xs leading-relaxed text-chalk-500">
                 {t("pages.heroCounters.objets.intro", {
                   ...n,
                   degats: libelleHeros(t, "degats", h.typeDegats)?.toLocaleLowerCase(locale) ?? "—",
@@ -416,7 +416,7 @@ export default async function PageContres({ params }: Params) {
                 <div className="mt-4 space-y-4">
                   {groupesObjets.map((g) => (
                     <div key={g.raison}>
-                      <h4 className="text-xs font-semibold uppercase tracking-wide text-craie-400">
+                      <h4 className="text-xs font-semibold uppercase tracking-wide text-chalk-400">
                         {t(`pages.heroCounters.objets.raison.${g.raison satisfies RaisonObjet}`)}
                       </h4>
                       <ul className="mt-2 space-y-2">
@@ -429,14 +429,14 @@ export default async function PageContres({ params }: Params) {
                                   alt=""
                                   width={32}
                                   height={32}
-                                  className="biseau-sm size-8 shrink-0 bg-nuit-800"
+                                  className="bevel-sm size-8 shrink-0 bg-night-800"
                                 />
                               ) : (
-                                <span aria-hidden className="biseau-sm size-8 shrink-0 bg-nuit-800" />
+                                <span aria-hidden className="bevel-sm size-8 shrink-0 bg-night-800" />
                               )}
                               <span className="min-w-0">
-                                <span className="block text-sm text-craie-100 group-hover/objet:text-or-400">{o.nom}</span>
-                                {o.resume && <span className="block text-xs text-craie-500">{o.resume}</span>}
+                                <span className="block text-sm text-chalk-100 group-hover/objet:text-gold-400">{o.nom}</span>
+                                {o.resume && <span className="block text-xs text-chalk-500">{o.resume}</span>}
                               </span>
                             </Link>
                           </li>
@@ -446,15 +446,15 @@ export default async function PageContres({ params }: Params) {
                   ))}
                 </div>
               ) : (
-                <p className="mt-4 text-sm text-craie-400">{t("pages.heroCounters.objets.aucun", n)}</p>
+                <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.objets.aucun", n)}</p>
               )}
             </Carte>
 
             <Carte>
-              <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroCounters.duree.titre", n)}</h3>
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.duree.titre", n)}</h3>
               {moments && tranches && rangDuree ? (
                 <>
-                  <p className="mt-3 text-sm leading-relaxed text-craie-300">
+                  <p className="mt-3 text-sm leading-relaxed text-chalk-300">
                     {t("pages.heroCounters.duree.phrase", {
                       nom: h.nom,
                       faible: nomTranche(moments.faible),
@@ -463,28 +463,28 @@ export default async function PageContres({ params }: Params) {
                       tauxFort: pourcentage(locale, moments.fort.victoire),
                     })}
                   </p>
-                  <p className="mt-1 text-xs text-craie-500">
+                  <p className="mt-1 text-xs text-chalk-500">
                     {t(`pages.heroDetail.statistiques.profil.${moments.profil}`)} ·{" "}
                     {t("pages.heroCounters.duree.rang", { rang: t(`rangsMesure.${rangDuree}`) })}
                   </p>
                   <BarresDuree tranches={tranches} moments={moments} nomTranche={nomTranche} locale={locale} />
                 </>
               ) : (
-                <p className="mt-3 text-sm text-craie-400">{t("pages.heroCounters.duree.aucune", n)}</p>
+                <p className="mt-3 text-sm text-chalk-400">{t("pages.heroCounters.duree.aucune", n)}</p>
               )}
             </Carte>
 
             <Carte>
-              <h3 className="font-titre text-lg font-bold text-craie-100">{t("pages.heroCounters.lanes.titre")}</h3>
-              <p className="mt-3 text-xs leading-relaxed text-craie-500">{t("pages.heroCounters.lanes.intro", n)}</p>
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.lanes.titre")}</h3>
+              <p className="mt-3 text-xs leading-relaxed text-chalk-500">{t("pages.heroCounters.lanes.intro", n)}</p>
               {lanesContres.length > 0 ? (
                 <dl className="mt-4 space-y-3">
                   {lanesContres.map((g) => (
                     <div key={g.lane}>
-                      <dt className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-craie-400">
+                      <dt className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-chalk-400">
                         {t(`lanes.${g.lane}`)}
                         {h.lanes.includes(g.lane) && (
-                          <span className="biseau-sm border border-sang-500/40 px-1.5 py-px text-[0.65rem] text-sang-500">
+                          <span className="bevel-sm border border-blood-500/40 px-1.5 py-px text-[0.65rem] text-blood-500">
                             {t("pages.heroCounters.lanes.direct")}
                           </span>
                         )}
@@ -495,10 +495,10 @@ export default async function PageContres({ params }: Params) {
                             <li key={c.slug}>
                               <Link
                                 href={`/heroes/${c.slug}`}
-                                className="biseau-sm inline-flex gap-1.5 border border-nuit-700 px-2 py-0.5 text-craie-300 hover:border-or-500/60"
+                                className="bevel-sm inline-flex gap-1.5 border border-night-700 px-2 py-0.5 text-chalk-300 hover:border-gold-500/60"
                               >
                                 {nomDe(c.slug)}
-                                <span className="tabular-nums text-sang-500">{ecart(c.moyenne)}</span>
+                                <span className="tabular-nums text-blood-500">{ecart(c.moyenne)}</span>
                               </Link>
                             </li>
                           ))}
@@ -508,7 +508,7 @@ export default async function PageContres({ params }: Params) {
                   ))}
                 </dl>
               ) : (
-                <p className="mt-4 text-sm text-craie-400">{t("pages.heroCounters.aucuneMesure", n)}</p>
+                <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.aucuneMesure", n)}</p>
               )}
             </Carte>
           </div>
@@ -517,26 +517,26 @@ export default async function PageContres({ params }: Params) {
         {/* ── Relations du wiki ───────────────────────────────────────── */}
         {aWiki && (
           <section aria-labelledby="wiki">
-            <h2 id="wiki" className="font-titre text-2xl font-bold text-craie-100">
+            <h2 id="wiki" className="font-heading text-2xl font-bold text-chalk-100">
               {t("pages.heroCounters.wiki.titre")}
             </h2>
-            <p className="mt-2 text-sm text-craie-500">{t("pages.heroCounters.wiki.intro")}</p>
+            <p className="mt-2 text-sm text-chalk-500">{t("pages.heroCounters.wiki.intro")}</p>
             <div className="mt-4 grid gap-4 md:grid-cols-3">
               {wiki
                 .filter((w) => w.slugs.length > 0)
                 .map((w) => (
                   <Carte key={w.titre}>
-                    <h3 className="text-sm font-semibold text-craie-100">{w.titre}</h3>
+                    <h3 className="text-sm font-semibold text-chalk-100">{w.titre}</h3>
                     <ul className="mt-3 flex flex-wrap gap-2">
                       {w.slugs.map((s) => (
                         <li key={s}>
                           <Link
                             href={`/heroes/${s}`}
                             className={cn(
-                              "biseau-sm inline-block border px-2.5 py-1 text-sm transition-colors",
+                              "bevel-sm inline-block border px-2.5 py-1 text-sm transition-colors",
                               w.ton === "bon"
                                 ? "border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10"
-                                : "border-sang-500/30 text-sang-500 hover:bg-sang-500/10",
+                                : "border-blood-500/30 text-blood-500 hover:bg-blood-500/10",
                             )}
                           >
                             {nomDe(s)}
@@ -553,7 +553,7 @@ export default async function PageContres({ params }: Params) {
         {/* ── Autres pages counters, meme position ────────────────────── */}
         {voisins.length > 0 && lanePrincipale && (
           <section aria-labelledby="autres">
-            <h2 id="autres" className="font-titre text-xl font-bold text-craie-100">
+            <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
               {t("pages.heroCounters.autres.titre", { lane: t(`lanes.${lanePrincipale}`) })}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2 text-sm">
@@ -561,7 +561,7 @@ export default async function PageContres({ params }: Params) {
                 <li key={x.slug}>
                   <Link
                     href={`/heroes/${x.slug}/counters`}
-                    className="biseau-sm inline-block border border-nuit-700 px-2.5 py-1 text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+                    className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
                     {t("pages.heroCounters.titre", noms(x.nom))}
                   </Link>
@@ -596,11 +596,11 @@ function TableauAgrege({
   ecart: (v: number) => string;
 }) {
   return (
-    // Le defilement vit sur un conteneur a part : `biseau` impose son propre
+    // Le defilement vit sur un conteneur a part : `bevel` impose son propre
     // `overflow`, et le tableau debordait alors de la page a 390 px. Sur
     // mobile, la colonne des rangs se masque et les liens s'empilent : la
     // ligne tient sans defiler.
-    <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-3">
+    <div className="bevel border border-night-700/70 bg-night-900/60 p-3">
       <div className="relative overflow-x-auto">
       {/*
         Le nom est l'en-tete de sa ligne : « Comparer » et « Counters » en
@@ -609,11 +609,11 @@ function TableauAgrege({
       <table
         className={cn(
           "w-full text-sm [&_tbody_th]:py-1.5 [&_tbody_th]:text-left [&_tbody_th]:font-normal [&_td]:py-1.5 [&_td]:pl-3",
-          "[&_td]:whitespace-nowrap [&_td]:text-right [&_td:last-child]:text-xs [&_td:last-child_a]:text-or-400",
-          "[&_td:last-child_a:hover]:text-or-500",
+          "[&_td]:whitespace-nowrap [&_td]:text-right [&_td:last-child]:text-xs [&_td:last-child_a]:text-gold-400",
+          "[&_td:last-child_a:hover]:text-gold-500",
         )}
       >
-        <thead className="text-xs uppercase tracking-wide text-craie-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
+        <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
           <tr>
             <th scope="col" className="text-left">{t("pages.heroCounters.colHeros")}</th>
             <th scope="col">{t("pages.heroCounters.colEcart")}</th>
@@ -621,19 +621,19 @@ function TableauAgrege({
             <th scope="col"><span className="sr-only">{t("pages.heroCounters.colLiens")}</span></th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-nuit-800">
+        <tbody className="divide-y divide-night-800">
           {lignes.map((c) => (
             <tr key={c.slug}>
               <th scope="row">
-                <Link href={`/heroes/${c.slug}`} className="flex min-w-0 items-center gap-2.5 text-craie-100 hover:text-or-400">
+                <Link href={`/heroes/${c.slug}`} className="flex min-w-0 items-center gap-2.5 text-chalk-100 hover:text-gold-400">
                   <PortraitHeros source={portraitDe(c.slug)} nom={nomDe(c.slug)} taille="petite" decoratif />
                   <span className="truncate">{nomDe(c.slug)}</span>
                 </Link>
               </th>
-              <td className={cn("font-semibold tabular-nums", ton === "bon" ? "text-emerald-400" : "text-sang-500")}>
+              <td className={cn("font-semibold tabular-nums", ton === "bon" ? "text-emerald-400" : "text-blood-500")}>
                 {ecart(c.moyenne)}
               </td>
-              <td className="tabular-nums text-craie-400 max-sm:hidden">
+              <td className="tabular-nums text-chalk-400 max-sm:hidden">
                 {t("pages.heroCounters.rangsCites", { n: c.rangs, total })}
               </td>
               <td>
@@ -662,8 +662,8 @@ function TableauAgrege({
 const STYLE_TABLEAUX_RANG = cn(
   "[&_table]:mt-2 [&_table]:w-full [&_table]:text-sm [&_tbody_th]:py-1 [&_tbody_th]:text-left [&_tbody_th]:font-normal",
   "[&_td]:py-1 [&_td]:pl-2 [&_td]:text-right [&_td]:whitespace-nowrap [&_td:nth-of-type(1)]:font-semibold",
-  "[&_td:nth-of-type(1)]:tabular-nums [&_th_a]:text-craie-100 [&_td:nth-of-type(2)_a]:text-xs",
-  "[&_td:nth-of-type(2)_a]:text-or-400 [&_a:hover]:text-or-400",
+  "[&_td:nth-of-type(1)]:tabular-nums [&_th_a]:text-chalk-100 [&_td:nth-of-type(2)_a]:text-xs",
+  "[&_td:nth-of-type(2)_a]:text-gold-400 [&_a:hover]:text-gold-400",
 );
 
 /**
@@ -691,10 +691,10 @@ function TableauRang({
   pageContres?: boolean;
 }) {
   if (lignes.length === 0) return null;
-  const couleur = ton === "bon" ? "text-emerald-400" : "text-sang-500";
+  const couleur = ton === "bon" ? "text-emerald-400" : "text-blood-500";
   return (
     <div>
-      <h4 className={cn("flex items-center gap-2 font-titre font-bold", couleur)}>
+      <h4 className={cn("flex items-center gap-2 font-heading font-bold", couleur)}>
         {icone}
         {titre}
       </h4>
@@ -750,17 +750,17 @@ function BarresDuree({
     <ul className="mt-4 space-y-1.5 text-xs">
       {tranches.map((x) => (
         <li key={x.de} className="grid grid-cols-[5.5rem_1fr_3.5rem] items-center gap-2">
-          <span className="text-craie-400">{nomTranche(x)}</span>
-          <span aria-hidden className="h-2 bg-nuit-800">
+          <span className="text-chalk-400">{nomTranche(x)}</span>
+          <span aria-hidden className="h-2 bg-night-800">
             <span
               className={cn(
                 "block h-full",
-                x === moments.faible ? "bg-sang-500" : x === moments.fort ? "bg-emerald-400" : "bg-azur-500",
+                x === moments.faible ? "bg-blood-500" : x === moments.fort ? "bg-emerald-400" : "bg-azure-500",
               )}
               style={{ width: `${Math.round(15 + (85 * (x.victoire - bas)) / etendue)}%` }}
             />
           </span>
-          <span className="text-right tabular-nums text-craie-300">{pourcentage(locale, x.victoire)}</span>
+          <span className="text-right tabular-nums text-chalk-300">{pourcentage(locale, x.victoire)}</span>
         </li>
       ))}
     </ul>

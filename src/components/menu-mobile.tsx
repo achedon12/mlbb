@@ -32,17 +32,17 @@ function Section({
   const id = useId();
   const { icone: Icone } = groupe;
   return (
-    <div className="border-b border-nuit-800 last:border-b-0">
+    <div className="border-b border-night-800 last:border-b-0">
       <button
         type="button"
         aria-expanded={ouverte}
         aria-controls={id}
         onClick={onBasculer}
-        className="flex w-full items-center gap-2 px-2 py-3 text-left text-sm font-semibold text-craie-100"
+        className="flex w-full items-center gap-2 px-2 py-3 text-left text-sm font-semibold text-chalk-100"
       >
-        <Icone size={17} aria-hidden className="text-or-400" />
+        <Icone size={17} aria-hidden className="text-gold-400" />
         <span className="flex-1">{t(`nav.groupes.${groupe.cle}`)}</span>
-        <ChevronDown size={16} aria-hidden className={cn("text-craie-500 transition-transform", ouverte && "rotate-180")} />
+        <ChevronDown size={16} aria-hidden className={cn("text-chalk-500 transition-transform", ouverte && "rotate-180")} />
       </button>
       <ul id={id} hidden={!ouverte} className="pb-2">
         {groupe.noeuds.map((n) => (
@@ -70,13 +70,13 @@ function NoeudMobile({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin: stri
   const tete = (
     <>
       {Icone && (
-        <span className="biseau-sm grid size-9 shrink-0 place-items-center bg-nuit-800 text-craie-300">
+        <span className="bevel-sm grid size-9 shrink-0 place-items-center bg-night-800 text-chalk-300">
           <Icone size={17} aria-hidden />
         </span>
       )}
       <span className="min-w-0">
-        <span className="block text-sm font-semibold text-craie-100">{nom}</span>
-        {noeud.cle && <span className="block text-xs text-craie-400">{t(`nav.${noeud.cle}.desc`)}</span>}
+        <span className="block text-sm font-semibold text-chalk-100">{nom}</span>
+        {noeud.cle && <span className="block text-xs text-chalk-400">{t(`nav.${noeud.cle}.desc`)}</span>}
       </span>
     </>
   );
@@ -103,12 +103,12 @@ function NoeudMobile({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin: stri
           aria-controls={id}
           aria-label={t("nav.sousMenu", { nom })}
           onClick={() => setOuvert((o) => !o)}
-          className="grid w-11 shrink-0 place-items-center text-craie-500"
+          className="grid w-11 shrink-0 place-items-center text-chalk-500"
         >
           <ChevronDown size={16} aria-hidden className={cn("transition-transform", ouvert && "rotate-180")} />
         </button>
       </div>
-      <ul id={id} hidden={!ouvert} className="mb-1 ml-8 border-l border-nuit-700 pl-3">
+      <ul id={id} hidden={!ouvert} className="mb-1 ml-8 border-l border-night-700 pl-3">
         {noeud.enfants!.map((e) => {
           const actif = e.href ? chemin.endsWith(e.href) : false;
           return (
@@ -117,7 +117,7 @@ function NoeudMobile({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin: stri
                 href={e.href!}
                 onClick={onNaviguer}
                 aria-current={actif ? "page" : undefined}
-                className={cn("block rounded-md px-3 py-2 text-sm", actif ? "text-or-400" : "text-craie-300")}
+                className={cn("block rounded-md px-3 py-2 text-sm", actif ? "text-gold-400" : "text-chalk-300")}
               >
                 {libelleNoeud(t, e)}
               </Link>
@@ -150,7 +150,7 @@ export function MenuMobile() {
         aria-expanded={ouvert}
         aria-controls="menu-mobile"
         aria-label={ouvert ? t("nav.fermer") : t("nav.ouvrir")}
-        className="grid size-9 place-items-center text-craie-300 transition-colors hover:text-or-400"
+        className="grid size-9 place-items-center text-chalk-300 transition-colors hover:text-gold-400"
       >
         {ouvert ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
       </button>
@@ -158,7 +158,7 @@ export function MenuMobile() {
       <div
         hidden={!ouvert}
         onClick={fermer}
-        className="fixed inset-0 top-16 z-30 bg-nuit-950/60 backdrop-blur-sm"
+        className="fixed inset-0 top-16 z-30 bg-night-950/60 backdrop-blur-sm"
         aria-hidden
       />
 
@@ -166,7 +166,7 @@ export function MenuMobile() {
         id="menu-mobile"
         aria-label={t("nav.principal")}
         hidden={!ouvert}
-        className="absolute inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-nuit-700 bg-nuit-950 px-3 pb-4 shadow-2xl shadow-nuit-950/60"
+        className="absolute inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-night-700 bg-night-950 px-3 pb-4 shadow-2xl shadow-night-950/60"
       >
         {GROUPES.map((g) => (
           <Section

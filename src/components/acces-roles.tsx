@@ -12,11 +12,11 @@ import { cn } from "@/lib/utils";
  * role. Ces six portes couvrent la quasi-totalite des intentions d'arrivee.
  */
 const COULEURS: Record<Role, string> = {
-  Tank: "from-azur-500/20 border-azur-500/40 text-azur-400",
-  Fighter: "from-sang-500/20 border-sang-500/40 text-sang-500",
+  Tank: "from-azure-500/20 border-azure-500/40 text-azure-400",
+  Fighter: "from-blood-500/20 border-blood-500/40 text-blood-500",
   Assassin: "from-purple-500/20 border-purple-500/40 text-purple-400",
   Mage: "from-cyan-500/20 border-cyan-500/40 text-cyan-400",
-  Marksman: "from-or-500/20 border-or-500/40 text-or-400",
+  Marksman: "from-gold-500/20 border-gold-500/40 text-gold-400",
   Support: "from-emerald-500/20 border-emerald-500/40 text-emerald-400",
 };
 
@@ -29,12 +29,12 @@ export function AccesRoles({ compte, langue }: { compte: Record<Role, number>; l
           <Link
             href={cheminRole(role)}
             className={cn(
-              "biseau flex h-full flex-col justify-between border bg-linear-to-b to-transparent p-4 transition-transform hover:-translate-y-0.5",
+              "bevel flex h-full flex-col justify-between border bg-linear-to-b to-transparent p-4 transition-transform hover:-translate-y-0.5",
               COULEURS[role],
             )}
           >
-            <span className="font-titre text-lg font-bold">{t(`roles.${role}`)}</span>
-            <span className="mt-3 text-xs text-craie-500">{t("acces.compte", { n: compte[role] })}</span>
+            <span className="font-heading text-lg font-bold">{t(`roles.${role}`)}</span>
+            <span className="mt-3 text-xs text-chalk-500">{t("acces.compte", { n: compte[role] })}</span>
           </Link>
         </li>
       ))}

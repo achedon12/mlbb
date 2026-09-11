@@ -143,14 +143,14 @@ export function CalculateurCollection() {
   if (erreur) {
     return (
       <Carte>
-        <p className="text-sm text-craie-300">{t("pages.collectionUI.erreur")}</p>
+        <p className="text-sm text-chalk-300">{t("pages.collectionUI.erreur")}</p>
       </Carte>
     );
   }
   if (!catalogue || !donnees || !bilan) {
     return (
       <Carte aria-busy>
-        <p className="text-sm text-craie-500">{t("pages.collectionUI.chargement")}</p>
+        <p className="text-sm text-chalk-500">{t("pages.collectionUI.chargement")}</p>
       </Carte>
     );
   }
@@ -213,13 +213,13 @@ export function CalculateurCollection() {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         {/* ── Bilan ─────────────────────────────────────────────────── */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:order-2" aria-labelledby="bilan-titre">
-          <Carte className="border-or-500/30">
-            <h2 id="bilan-titre" className="text-xs uppercase tracking-wide text-craie-500">
+          <Carte className="border-gold-500/30">
+            <h2 id="bilan-titre" className="text-xs uppercase tracking-wide text-chalk-500">
               {t("pages.collectionUI.valeurTitre")}
             </h2>
             <p aria-live="polite" className="mt-1 flex flex-wrap items-baseline gap-x-2">
-              <span className="font-titre text-4xl font-bold tabular-nums text-or-400">{nombre.format(bilan.diamants)}</span>
-              <span className="text-craie-100">{t("skinsUI.diamants").toLowerCase()}</span>
+              <span className="font-heading text-4xl font-bold tabular-nums text-gold-400">{nombre.format(bilan.diamants)}</span>
+              <span className="text-chalk-100">{t("skinsUI.diamants").toLowerCase()}</span>
             </p>
             <dl className="mt-4 space-y-2 text-sm">
               <Ligne
@@ -249,7 +249,7 @@ export function CalculateurCollection() {
               ))}
             </dl>
             {(bilan.skins.sansDiamant > 0 || bilan.heros.sansDiamant > 0) && (
-              <p className="mt-3 text-xs leading-relaxed text-craie-500">
+              <p className="mt-3 text-xs leading-relaxed text-chalk-500">
                 {t("pages.collectionUI.sansDiamant", {
                   skins: nombre.format(bilan.skins.sansDiamant),
                   heros: nombre.format(bilan.heros.sansDiamant),
@@ -257,10 +257,10 @@ export function CalculateurCollection() {
               </p>
             )}
             {vide ? (
-              <p className="mt-4 border-t border-nuit-800 pt-3 text-sm text-craie-300">{t("pages.collectionUI.vide")}</p>
+              <p className="mt-4 border-t border-night-800 pt-3 text-sm text-chalk-300">{t("pages.collectionUI.vide")}</p>
             ) : (
-              <div className="mt-4 border-t border-nuit-800 pt-4">
-                <p className="text-sm leading-relaxed text-craie-200">{resume(bilan)}</p>
+              <div className="mt-4 border-t border-night-800 pt-4">
+                <p className="text-sm leading-relaxed text-chalk-200">{resume(bilan)}</p>
                 <button
                   type="button"
                   onClick={() => partager(bilan)}
@@ -269,7 +269,7 @@ export function CalculateurCollection() {
                   <Share2 size={15} aria-hidden />
                   {t("pages.collectionUI.partager")}
                 </button>
-                <p aria-live="polite" className="mt-2 text-xs text-craie-500">
+                <p aria-live="polite" className="mt-2 text-xs text-chalk-500">
                   {partage && t(`pages.collectionUI.partage_${partage}`)}
                 </p>
               </div>
@@ -279,8 +279,8 @@ export function CalculateurCollection() {
 
         {/* ── Selection ─────────────────────────────────────────────── */}
         <div className="min-w-0 lg:order-1">
-          <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.collectionUI.selectionTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.collectionUI.selectionTitre")}</h2>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <div className="mt-5 space-y-4">
             <ChampRecherche valeur={recherche} onChange={setRecherche} libelle={t("pages.collectionUI.rechercher")} />
             <ChoixUnique
@@ -298,11 +298,11 @@ export function CalculateurCollection() {
               ))}
             </GroupeFiltres>
             <label className="block max-w-xs">
-              <span className="text-xs uppercase tracking-wide text-craie-500">{t("pages.collectionUI.serie")}</span>
+              <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.collectionUI.serie")}</span>
               <select
                 value={serie ?? ""}
                 onChange={(e) => setSerie(e.target.value || null)}
-                className="biseau-sm mt-1.5 w-full border border-nuit-700 bg-nuit-900 px-3 py-2 text-sm text-craie-100 outline-none focus:border-or-500"
+                className="bevel-sm mt-1.5 w-full border border-night-700 bg-night-900 px-3 py-2 text-sm text-chalk-100 outline-none focus:border-gold-500"
               >
                 <option value="">{t("pages.collectionUI.toutesSeries")}</option>
                 {donnees.series.map((s) => (
@@ -337,13 +337,13 @@ export function CalculateurCollection() {
             </div>
           </div>
 
-          <p aria-live="polite" className="mt-5 text-sm text-craie-500">
+          <p aria-live="polite" className="mt-5 text-sm text-chalk-500">
             {t(liste.length === 1 ? "pages.collectionUI.compteHeros1" : "pages.collectionUI.compteHeros", {
               n: nombre.format(liste.length),
             })}
           </p>
 
-          <ul className="mt-3 divide-y divide-nuit-800 border-y border-nuit-800">
+          <ul className="mt-3 divide-y divide-night-800 border-y border-night-800">
             {liste.map(({ h, sk, deplie }) => {
               const tous = donnees.parHeros.get(h.slug) ?? [];
               const possedes = tous.filter((s) => skins.has(s.id)).length;
@@ -358,14 +358,14 @@ export function CalculateurCollection() {
                         type="checkbox"
                         checked={heros.has(h.slug)}
                         onChange={() => setHeros((avant) => basculer(avant, h.slug))}
-                        className="size-4 shrink-0 accent-or-500"
+                        className="size-4 shrink-0 accent-gold-500"
                       />
                       {h.icone ? (
-                        <Image src={h.icone} alt="" width={32} height={32} className="biseau-sm size-8 shrink-0 object-cover" />
+                        <Image src={h.icone} alt="" width={32} height={32} className="bevel-sm size-8 shrink-0 object-cover" />
                       ) : null}
-                      <span className="truncate font-semibold text-craie-100">{h.nom}</span>
+                      <span className="truncate font-semibold text-chalk-100">{h.nom}</span>
                     </label>
-                    <span className="text-xs tabular-nums text-craie-500">
+                    <span className="text-xs tabular-nums text-chalk-500">
                       {t("pages.collectionUI.skinsDuHeros", { n: nombre.format(possedes), total: nombre.format(tous.length) })}
                     </span>
                     <button
@@ -384,7 +384,7 @@ export function CalculateurCollection() {
                         aria-expanded={ouvert}
                         aria-controls={`skins-${h.slug}`}
                         onClick={() => setOuverts((avant) => basculer(avant, h.slug))}
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-or-400 hover:text-or-500"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-gold-400 hover:text-gold-500"
                       >
                         {t("pages.collectionUI.voirSkins")}
                         <span className="sr-only"> — {h.nom}</span>
@@ -401,8 +401,8 @@ export function CalculateurCollection() {
                           <li key={s.id}>
                             <label
                               className={cn(
-                                "biseau-sm relative block cursor-pointer overflow-hidden border-2 transition-colors",
-                                !coche && "border-nuit-700",
+                                "bevel-sm relative block cursor-pointer overflow-hidden border-2 transition-colors",
+                                !coche && "border-night-700",
                               )}
                               style={coche ? { borderColor: r.couleur, boxShadow: `0 0 10px ${r.halo}` } : undefined}
                             >
@@ -410,9 +410,9 @@ export function CalculateurCollection() {
                                 type="checkbox"
                                 checked={coche}
                                 onChange={() => setSkins((avant) => basculer(avant, s.id))}
-                                className="absolute left-1.5 top-1.5 z-10 size-4 accent-or-500"
+                                className="absolute left-1.5 top-1.5 z-10 size-4 accent-gold-500"
                               />
-                              <span className="relative block aspect-[240/390] bg-nuit-800">
+                              <span className="relative block aspect-[240/390] bg-night-800">
                                 {s.image && (
                                   <Image
                                     src={s.image}
@@ -423,12 +423,12 @@ export function CalculateurCollection() {
                                   />
                                 )}
                               </span>
-                              <span className="block bg-nuit-900 px-1.5 py-1 text-[0.65rem] leading-tight">
-                                <span className="block truncate text-craie-100">{s.nom}</span>
+                              <span className="block bg-night-900 px-1.5 py-1 text-[0.65rem] leading-tight">
+                                <span className="block truncate text-chalk-100">{s.nom}</span>
                                 <span className="block truncate" style={{ color: r.couleur }}>
                                   {libelleRarete(t, s.rarete)}
                                 </span>
-                                <span className="block truncate text-craie-500">
+                                <span className="block truncate text-chalk-500">
                                   {textePrix(s.prix, t, nombre) ?? s.obtention ?? t("pages.collectionUI.sansPrix")}
                                 </span>
                               </span>
@@ -442,7 +442,7 @@ export function CalculateurCollection() {
               );
             })}
           </ul>
-          {liste.length === 0 && <p className="mt-6 text-sm text-craie-500">{t("pages.collectionUI.aucun")}</p>}
+          {liste.length === 0 && <p className="mt-6 text-sm text-chalk-500">{t("pages.collectionUI.aucun")}</p>}
         </div>
       </div>
 
@@ -450,27 +450,27 @@ export function CalculateurCollection() {
       {!vide && (
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <section>
-            <h2 className="font-titre text-xl font-bold text-craie-100">{t("pages.collectionUI.rareteTitre")}</h2>
+            <h2 className="font-heading text-xl font-bold text-chalk-100">{t("pages.collectionUI.rareteTitre")}</h2>
             <div className="mt-4 relative overflow-x-auto">
               <table className="w-full text-sm">
                 <caption className="sr-only">{t("pages.collectionUI.rareteTitre")}</caption>
                 <thead>
-                  <tr className="text-left text-xs uppercase tracking-wide text-craie-500">
+                  <tr className="text-left text-xs uppercase tracking-wide text-chalk-500">
                     <th scope="col" className="py-2 font-medium">{t("pages.collectionUI.colRarete")}</th>
                     <th scope="col" className="py-2 text-right font-medium">{t("pages.collectionUI.colPossedes")}</th>
                     <th scope="col" className="py-2 text-right font-medium">{t("pages.collectionUI.colDiamants")}</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-nuit-800">
+                <tbody className="divide-y divide-night-800">
                   {bilan.parRarete.map((r) => (
                     <tr key={r.rang}>
                       <th scope="row" className="py-2 text-left font-normal" style={{ color: rareteDeRang(r.rang).couleur }}>
                         {libelleRarete(t, r.rang)}
                       </th>
-                      <td className="py-2 text-right tabular-nums text-craie-200">
+                      <td className="py-2 text-right tabular-nums text-chalk-200">
                         {nombre.format(r.possedes)} / {nombre.format(r.total)}
                       </td>
-                      <td className="py-2 text-right tabular-nums text-craie-200">{nombre.format(r.diamants)}</td>
+                      <td className="py-2 text-right tabular-nums text-chalk-200">{nombre.format(r.diamants)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -479,8 +479,8 @@ export function CalculateurCollection() {
 
             {bilan.plusRares.length > 0 && (
               <>
-                <h2 className="mt-8 font-titre text-xl font-bold text-craie-100">{t("pages.collectionUI.raresTitre")}</h2>
-                <p className="mt-1 text-sm text-craie-500">{t("pages.collectionUI.raresAide")}</p>
+                <h2 className="mt-8 font-heading text-xl font-bold text-chalk-100">{t("pages.collectionUI.raresTitre")}</h2>
+                <p className="mt-1 text-sm text-chalk-500">{t("pages.collectionUI.raresAide")}</p>
                 <ul className="mt-4 grid grid-cols-3 gap-2 sm:grid-cols-6 lg:grid-cols-3 xl:grid-cols-6">
                   {bilan.plusRares.map((s) => (
                     <li key={s.id}>
@@ -495,19 +495,19 @@ export function CalculateurCollection() {
           </section>
 
           <section>
-            <h2 className="font-titre text-xl font-bold text-craie-100">{t("pages.collectionUI.seriesTitre")}</h2>
-            <p className="mt-1 text-sm text-craie-500">{t("pages.collectionUI.seriesAide")}</p>
+            <h2 className="font-heading text-xl font-bold text-chalk-100">{t("pages.collectionUI.seriesTitre")}</h2>
+            <p className="mt-1 text-sm text-chalk-500">{t("pages.collectionUI.seriesAide")}</p>
             <ul className="mt-4 space-y-3">
               {(toutesSeries ? bilan.parSerie : bilan.parSerie.slice(0, SERIES_VISIBLES)).map((s) => (
                 <li key={s.serie}>
                   <div className="flex items-baseline justify-between gap-3 text-sm">
-                    <span className="truncate text-craie-100">{libelleSerie(t, s.serie)}</span>
-                    <span className="shrink-0 tabular-nums text-craie-400">
+                    <span className="truncate text-chalk-100">{libelleSerie(t, s.serie)}</span>
+                    <span className="shrink-0 tabular-nums text-chalk-400">
                       {nombre.format(s.possedes)} / {nombre.format(s.total)} · {pourcent.format(s.possedes / s.total)}
                     </span>
                   </div>
-                  <div aria-hidden className="mt-1 h-1.5 bg-nuit-700">
-                    <div className="h-full bg-or-400" style={{ width: `${(s.possedes / s.total) * 100}%` }} />
+                  <div aria-hidden className="mt-1 h-1.5 bg-night-700">
+                    <div className="h-full bg-gold-400" style={{ width: `${(s.possedes / s.total) * 100}%` }} />
                   </div>
                 </li>
               ))}
@@ -534,10 +534,10 @@ export function CalculateurCollection() {
 function Ligne({ libelle, valeur, detail }: { libelle: string; valeur: string; detail?: string }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
-      <dt className="text-craie-400">{libelle}</dt>
+      <dt className="text-chalk-400">{libelle}</dt>
       <dd className="text-right">
-        <span className="tabular-nums text-craie-100">{valeur}</span>
-        {detail && <span className="block text-xs text-craie-500">{detail}</span>}
+        <span className="tabular-nums text-chalk-100">{valeur}</span>
+        {detail && <span className="block text-xs text-chalk-500">{detail}</span>}
       </dd>
     </div>
   );

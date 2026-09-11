@@ -44,11 +44,11 @@ export function SectionProfil({
 }) {
   return (
     <section aria-labelledby={id} className="mt-12">
-      <h2 id={id} className="font-titre text-2xl font-bold text-craie-100">
+      <h2 id={id} className="font-heading text-2xl font-bold text-chalk-100">
         {titre}
       </h2>
-      <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-      {chapeau && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-craie-500">{chapeau}</p>}
+      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      {chapeau && <p className="mt-3 max-w-2xl text-sm leading-relaxed text-chalk-500">{chapeau}</p>}
       {children}
     </section>
   );
@@ -66,17 +66,17 @@ export function EtatProfil({ type, t }: { type: "expiree" | "indisponible" | "vi
   }[type];
 
   return (
-    <Carte className="border-or-500/30">
-      <h1 className="flex items-center gap-2 font-titre text-xl font-bold text-or-400">
+    <Carte className="border-gold-500/30">
+      <h1 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
         <CircleAlert size={20} aria-hidden />
         {t(`pages.accountProfile.${cles[0]}`)}
       </h1>
-      <p className="mt-3 leading-relaxed text-craie-300">{t(`pages.accountProfile.${cles[1]}`)}</p>
+      <p className="mt-3 leading-relaxed text-chalk-300">{t(`pages.accountProfile.${cles[1]}`)}</p>
       {type === "expiree" ? (
         <form action={reconnecter} className="mt-5">
           <button
             type="submit"
-            className="biseau-sm bg-or-500 px-4 py-2 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+            className="bevel-sm bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
           >
             {t("pages.accountProfile.seReconnecter")}
           </button>
@@ -84,7 +84,7 @@ export function EtatProfil({ type, t }: { type: "expiree" | "indisponible" | "vi
       ) : (
         <Link
           href="/account"
-          className="mt-5 inline-block text-sm text-craie-500 underline underline-offset-4 transition-colors hover:text-or-400"
+          className="mt-5 inline-block text-sm text-chalk-500 underline underline-offset-4 transition-colors hover:text-gold-400"
         >
           {t("pages.accountProfile.retourCompte")}
         </Link>
@@ -96,8 +96,8 @@ export function EtatProfil({ type, t }: { type: "expiree" | "indisponible" | "vi
 /** A la place d'une section dont la source ne repond pas : le reste du profil s'affiche. */
 export function SectionIndisponible({ t }: { t: T }) {
   return (
-    <Carte className="mt-6 border-or-500/25">
-      <p className="text-sm leading-relaxed text-craie-300">{t("pages.accountProfile.sectionIndispo")}</p>
+    <Carte className="mt-6 border-gold-500/25">
+      <p className="text-sm leading-relaxed text-chalk-300">{t("pages.accountProfile.sectionIndispo")}</p>
     </Carte>
   );
 }
@@ -106,7 +106,7 @@ export function SectionIndisponible({ t }: { t: T }) {
 export function NavSaisons({ saisons, courante, t }: { saisons: number[]; courante: number; t: T }) {
   return (
     <nav aria-label={t("pages.accountProfile.choixSaison")} className="mt-6 flex flex-wrap items-center gap-2">
-      <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-craie-500">
+      <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-chalk-500">
         {t("pages.accountProfile.choixSaison")}
       </span>
       {saisons.map((s) => (
@@ -126,9 +126,9 @@ export function NavSaisons({ saisons, courante, t }: { saisons: number[]; couran
 
 function Chiffre({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
-      <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
-      <dd className="mt-1 font-titre text-2xl font-bold tabular-nums text-or-400">{children}</dd>
+    <div className="bevel border border-night-700/70 bg-night-900/60 p-4">
+      <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
+      <dd className="mt-1 font-heading text-2xl font-bold tabular-nums text-gold-400">{children}</dd>
     </div>
   );
 }
@@ -136,8 +136,8 @@ function Chiffre({ label, children }: { label: string; children: React.ReactNode
 function Mini({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-xs text-craie-500">{label}</dt>
-      <dd className="font-semibold tabular-nums text-craie-100">{children}</dd>
+      <dt className="text-xs text-chalk-500">{label}</dt>
+      <dd className="font-semibold tabular-nums text-chalk-100">{children}</dd>
     </div>
   );
 }
@@ -163,8 +163,8 @@ export function BilanJoueur({
   return (
     <>
       <dl className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <div className="biseau col-span-2 border border-nuit-700/70 bg-nuit-900/60 p-4 lg:col-span-1">
-          <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.account.rangActuel")}</dt>
+        <div className="bevel col-span-2 border border-night-700/70 bg-night-900/60 p-4 lg:col-span-1">
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.rangActuel")}</dt>
           <dd className="mt-2">
             <BadgeRang rang={rang} />
           </dd>
@@ -175,11 +175,11 @@ export function BilanJoueur({
         </Chiffre>
         <Chiffre label={t("pages.accountProfile.herosJoues")}>{formaterNombre(bilan.heros, langue)}</Chiffre>
       </dl>
-      {!complet && <p className="mt-3 text-xs text-craie-500">{t("pages.accountProfile.bilanPartiel")}</p>}
+      {!complet && <p className="mt-3 text-xs text-chalk-500">{t("pages.accountProfile.bilanPartiel")}</p>}
 
       {stats && stats.parties > 0 && (
         <div className="mt-6">
-          <h3 className="text-sm font-semibold text-craie-300">
+          <h3 className="text-sm font-semibold text-chalk-300">
             {saisons.length > 0
               ? t("pages.accountProfile.surLesSaisons", {
                   liste: new Intl.ListFormat(LOCALE_HTML[langue], { type: "conjunction" }).format(saisons),
@@ -246,7 +246,7 @@ export function TableauHeros({
         <table className="w-full text-sm">
           <caption className="sr-only">{t("pages.accountProfile.herosTitre")}</caption>
           <thead>
-            <tr className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
+            <tr className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
               <th scope="col" className="py-2 pr-2 text-left font-medium">
                 {t("pages.accountProfile.colHeros")}
               </th>
@@ -261,36 +261,36 @@ export function TableauHeros({
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-nuit-800">
+          <tbody className="divide-y divide-night-800">
             {lignes.map((l) => {
               // En dessous du minimum de parties, l'ecart s'affiche sans couleur : il ne dit rien encore.
               const fiable = l.parties >= PARTIES_MIN && l.ecart !== null;
               const couleur = !fiable
-                ? "text-craie-400"
+                ? "text-chalk-400"
                 : l.ecart! >= MARGE_POINTS
                   ? "text-emerald-400"
                   : l.ecart! <= -MARGE_POINTS
-                    ? "text-sang-500"
-                    : "text-craie-300";
+                    ? "text-blood-500"
+                    : "text-chalk-300";
               return (
                 <tr key={`${l.heros.slug ?? l.heros.nom}`}>
                   <th scope="row" className="py-2.5 pr-2 text-left font-normal">
                     <LienHeros heros={l.heros} className="group flex min-w-0 items-center gap-2.5">
                       <PortraitHeros source={l.heros.portrait} nom={l.heros.nom} taille="petite" decoratif />
                       <span className="min-w-0">
-                        <span className="block truncate font-semibold text-craie-100 transition-colors group-hover:text-or-400">
+                        <span className="block truncate font-semibold text-chalk-100 transition-colors group-hover:text-gold-400">
                           {l.heros.nom}
                         </span>
-                        <span className="block text-xs text-craie-500">
+                        <span className="block text-xs text-chalk-500">
                           {t(`pages.accountProfile.nParties.${pluriel(l.parties, langue)}`, { n: l.parties })}
                         </span>
                       </span>
                     </LienHeros>
                   </th>
-                  <td className="whitespace-nowrap px-2 text-right font-semibold tabular-nums text-craie-100">
+                  <td className="whitespace-nowrap px-2 text-right font-semibold tabular-nums text-chalk-100">
                     {formaterPourcent(l.taux, langue)}
                   </td>
-                  <td className="whitespace-nowrap px-2 text-right tabular-nums text-craie-300">
+                  <td className="whitespace-nowrap px-2 text-right tabular-nums text-chalk-300">
                     {l.moyenne !== null ? (
                       <>
                         {formaterPourcent(l.moyenne, langue)}
@@ -309,8 +309,8 @@ export function TableauHeros({
           </tbody>
         </table>
       </div>
-      {repli && <p className="mt-3 text-xs text-craie-500">* {t("pages.accountProfile.noteToutRang")}</p>}
-      <p className="mt-2 text-xs text-craie-500">
+      {repli && <p className="mt-3 text-xs text-chalk-500">* {t("pages.accountProfile.noteToutRang")}</p>}
+      <p className="mt-2 text-xs text-chalk-500">
         {t("pages.accountProfile.sourceMoyenne", { date: formaterDate(mesureLe, LOCALE_HTML[langue]) })}
       </p>
     </>
@@ -326,7 +326,7 @@ function SansMesure({ t }: { t: T }) {
   );
 }
 
-const TONS = { bon: "text-emerald-400", mauvais: "text-sang-500", alerte: "text-or-400" } as const;
+const TONS = { bon: "text-emerald-400", mauvais: "text-blood-500", alerte: "text-gold-400" } as const;
 
 function CarteConseil({
   titre,
@@ -342,33 +342,33 @@ function CarteConseil({
   children: React.ReactNode;
 }) {
   return (
-    <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
-      <h3 className={cn("flex items-center gap-2 font-titre font-bold", TONS[ton])}>
+    <div className="bevel border border-night-700/70 bg-night-900/60 p-4">
+      <h3 className={cn("flex items-center gap-2 font-heading font-bold", TONS[ton])}>
         {icone}
         {titre}
       </h3>
-      <p className="mt-1.5 text-xs leading-relaxed text-craie-500">{texte}</p>
+      <p className="mt-1.5 text-xs leading-relaxed text-chalk-500">{texte}</p>
       <div className="mt-3">{children}</div>
     </div>
   );
 }
 
 function ListeHerosConseil({ entrees, vide }: { entrees: { heros: HerosAffiche; detail: string }[]; vide: string }) {
-  if (entrees.length === 0) return <p className="text-sm leading-relaxed text-craie-400">{vide}</p>;
+  if (entrees.length === 0) return <p className="text-sm leading-relaxed text-chalk-400">{vide}</p>;
   return (
     <ul className="space-y-1.5">
       {entrees.map(({ heros, detail }) => (
         <li key={heros.slug ?? heros.nom}>
           <LienHeros
             heros={heros}
-            className="group flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-nuit-850"
+            className="group flex items-center gap-2.5 rounded-sm px-1 py-1 transition-colors hover:bg-night-850"
           >
             <PortraitHeros source={heros.portrait} nom={heros.nom} taille="petite" decoratif />
             <span className="min-w-0 flex-1">
-              <span className="block truncate text-sm text-craie-100 transition-colors group-hover:text-or-400">
+              <span className="block truncate text-sm text-chalk-100 transition-colors group-hover:text-gold-400">
                 {heros.nom}
               </span>
-              <span className="block text-xs text-craie-500">{detail}</span>
+              <span className="block text-xs text-chalk-500">{detail}</span>
             </span>
           </LienHeros>
         </li>
@@ -462,7 +462,7 @@ export function ListeBourreaux({
   langue: Langue;
 }) {
   if (analyse.analysees === 0) {
-    return <p className="text-sm leading-relaxed text-craie-400">{t("pages.accountProfile.bourreauxSansEquipes")}</p>;
+    return <p className="text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.bourreauxSansEquipes")}</p>;
   }
   return (
     <>
@@ -473,7 +473,7 @@ export function ListeBourreaux({
           detail: t("pages.accountProfile.bourreauDetail", { d: b.defaites, n: b.rencontres }),
         }))}
       />
-      <p className="mt-3 text-xs text-craie-500">
+      <p className="mt-3 text-xs text-chalk-500">
         {t(`pages.accountProfile.bourreauxSource.${pluriel(analyse.analysees, langue)}`, { n: analyse.analysees })}
       </p>
     </>
@@ -487,7 +487,7 @@ export function ListeBourreaux({
  */
 export function AnalyseEnCours({ t, texte, className }: { t: T; texte?: string; className?: string }) {
   return (
-    <p role="status" className={cn("animate-pulse text-sm text-craie-500", className)}>
+    <p role="status" className={cn("animate-pulse text-sm text-chalk-500", className)}>
       {texte ?? t("pages.accountProfile.analyseEnCours")}
     </p>
   );

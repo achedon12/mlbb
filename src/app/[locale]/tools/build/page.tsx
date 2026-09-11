@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const sectionTitle = "font-titre text-2xl font-bold text-craie-100";
+const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
 
 /** "https://.../wiki/Cooldown_reduction" to "Cooldown reduction": the wiki page's own title. */
 const wikiPage = (url: string) => decodeURIComponent(url.split("/wiki/")[1] ?? url).replace(/_/g, " ");
@@ -58,8 +58,8 @@ export default async function BuildSimulatorPage({ params }: Params) {
           <h2 id="method-title" className={sectionTitle}>
             {t("pages.buildSimulator.methodTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.buildSimulator.method1")}</p>
             <p>{t("pages.buildSimulator.method2")}</p>
             <p>{t("pages.buildSimulator.method3")}</p>
@@ -72,21 +72,21 @@ export default async function BuildSimulatorPage({ params }: Params) {
           <h2 id="community-title" className={sectionTitle}>
             {t("pages.buildSimulator.communityTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-craie-300">{t("pages.buildSimulator.communityText")}</p>
-          <Link href="/builds" className="mt-3 inline-flex min-h-11 items-center text-or-400 underline underline-offset-4 hover:text-or-500">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.buildSimulator.communityText")}</p>
+          <Link href="/builds" className="mt-3 inline-flex min-h-11 items-center text-gold-400 underline underline-offset-4 hover:text-gold-500">
             {t("pages.buildSimulator.communityLink")}
           </Link>
         </section>
 
-        <section aria-labelledby="sources-title" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-title" className="font-semibold text-craie-300">
+        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-title" className="font-semibold text-chalk-300">
             {t("pages.buildSimulator.sourcesTitle")}
           </h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {sources.map((url) => (
               <li key={url}>
-                <a href={url} rel="noopener" className="underline transition-colors hover:text-or-400">
+                <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
                   {t("pages.buildSimulator.sourceWiki", { page: wikiPage(url) })}
                 </a>
               </li>

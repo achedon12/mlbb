@@ -19,7 +19,7 @@ import { site } from "@/lib/site";
 const rajdhani = Rajdhani({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
-  variable: "--police-titre",
+  variable: "--heading-font",
   display: "swap",
 });
 
@@ -28,7 +28,7 @@ const rajdhani = Rajdhani({
 // next/font. Les titres gardent Rajdhani quoi qu'il arrive.
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--police-corps",
+  variable: "--body-font",
   display: "optional",
 });
 
@@ -90,7 +90,7 @@ export default async function LangueLayout({
         <FournisseurLangue langue={locale} messages={messagesClient(locale)}>
           <a
             href="#contenu"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-or-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-nuit-950"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-gold-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-night-950"
           >
             {t("commun.allerAuContenu")}
           </a>

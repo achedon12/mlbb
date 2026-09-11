@@ -27,7 +27,7 @@ export function ChampRecherche({
       <Search
         size={dense ? 16 : 18}
         aria-hidden
-        className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-craie-500"
+        className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-chalk-500"
       />
       <input
         type="search"
@@ -37,8 +37,8 @@ export function ChampRecherche({
         placeholder={libelle}
         aria-label={libelle}
         className={cn(
-          "biseau-sm w-full border border-nuit-700 text-craie-100 outline-none transition-colors placeholder:text-craie-500 focus:border-or-500",
-          dense ? "bg-nuit-950 py-2 pl-9 pr-3" : "bg-nuit-900 py-2.5 pl-10 pr-4",
+          "bevel-sm w-full border border-night-700 text-chalk-100 outline-none transition-colors placeholder:text-chalk-500 focus:border-gold-500",
+          dense ? "bg-night-950 py-2 pl-9 pr-3" : "bg-night-900 py-2.5 pl-10 pr-4",
         )}
       />
     </div>

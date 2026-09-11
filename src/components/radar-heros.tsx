@@ -16,8 +16,8 @@ export const TIRETS: Record<MotifTrait, string | undefined> = { plein: undefined
 
 /** Couleur et motif de chaque heros compare, dans l'ordre des selecteurs. */
 export const STYLES_SERIES: { couleur: string; motif: MotifTrait }[] = [
-  { couleur: "text-or-400", motif: "plein" },
-  { couleur: "text-azur-400", motif: "tirets" },
+  { couleur: "text-gold-400", motif: "plein" },
+  { couleur: "text-azure-400", motif: "tirets" },
   { couleur: "text-emerald-400", motif: "points" },
 ];
 
@@ -112,7 +112,7 @@ export function RadarHeros({
       >
         <title id={`${id}-titre`}>{titre}</title>
         <desc id={`${id}-resume`}>{resume}</desc>
-        <g fill="none" stroke="currentColor" className="text-nuit-700">
+        <g fill="none" stroke="currentColor" className="text-night-700">
           {[0.25, 0.5, 0.75, 1].map((a) => (
             <polygon key={a} points={polygone(Array(n).fill(a))} strokeWidth={a === 1 ? 1.2 : 0.7} />
           ))}
@@ -149,7 +149,7 @@ export function RadarHeros({
           // En haut, le texte monte au-dessus du sommet ; en bas, il descend ; sur les cotes, il se centre.
           const y0 = sin < -0.5 ? y - 12 * (lignes.length - 1) : sin > 0.5 ? y + 9 : y + 4 - 6 * (lignes.length - 1);
           return (
-            <text key={i} x={x.toFixed(1)} y={y0.toFixed(1)} textAnchor={ancre} className="fill-craie-300 text-[11px]">
+            <text key={i} x={x.toFixed(1)} y={y0.toFixed(1)} textAnchor={ancre} className="fill-chalk-300 text-[11px]">
               {lignes.map((l, k) => (
                 <tspan key={k} x={x.toFixed(1)} dy={k === 0 ? 0 : 12}>
                   {l}
@@ -159,7 +159,7 @@ export function RadarHeros({
           );
         })}
       </svg>
-      <ul className="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-1 text-xs text-craie-300">
+      <ul className="mt-2 flex flex-wrap justify-center gap-x-5 gap-y-1 text-xs text-chalk-300">
         {series.map((s) => (
           <li key={s.nom} className="flex items-center gap-2">
             <TraitLegende couleur={s.couleur} motif={s.motif} />

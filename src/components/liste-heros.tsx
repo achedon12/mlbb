@@ -117,7 +117,7 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
         </GroupeFiltres>
       </div>
 
-      <p aria-live="polite" className="mt-6 text-sm text-craie-500">
+      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
         {t("pages.heroesListe.compte", { n: resultats.length })}
         {resultats.length !== heros.length && ` ${t("pages.heroesListe.compteSur", { total: heros.length })}`}
       </p>
@@ -131,7 +131,7 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
           ))}
         </div>
       ) : (
-        <p className="mt-10 text-craie-500">{t("pages.heroesListe.aucun")}</p>
+        <p className="mt-10 text-chalk-500">{t("pages.heroesListe.aucun")}</p>
       )}
     </div>
   );

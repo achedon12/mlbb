@@ -27,7 +27,7 @@ export function AccueilVedette({
 }) {
   const t = creerT(langue);
   return (
-    <section className="relative overflow-hidden border-b border-nuit-700/70">
+    <section className="relative overflow-hidden border-b border-night-700/70">
       <div aria-hidden className="absolute inset-0">
         <Image
           src={illustration}
@@ -38,19 +38,19 @@ export function AccueilVedette({
           className="object-cover object-[60%_25%]"
         />
         {/* Le texte occupe la gauche : le voile y est franc, et s'ouvre a droite. */}
-        <div className="absolute inset-0 bg-linear-to-r from-nuit-950 via-nuit-950/85 to-nuit-950/30" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-nuit-950 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-night-950 via-night-950/85 to-night-950/30" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-night-950 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
-        <p className="font-titre text-sm font-semibold uppercase tracking-[0.2em] text-or-400">
+        <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
           {t("vedette.herosDuJour")}
         </p>
 
-        <h2 className="mt-3 font-titre text-5xl font-bold leading-none text-craie-100 sm:text-6xl">
+        <h2 className="mt-3 font-heading text-5xl font-bold leading-none text-chalk-100 sm:text-6xl">
           {heros.nom}
         </h2>
-        {heros.titre && <p className="mt-2 text-xl text-or-400">{heros.titre}</p>}
+        {heros.titre && <p className="mt-2 text-xl text-gold-400">{heros.titre}</p>}
 
         <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           {[
@@ -63,15 +63,15 @@ export function AccueilVedette({
             .filter((e): e is [string, string] => e !== null && Boolean(e[1]))
             .map(([label, valeur]) => (
               <div key={label}>
-                <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
-                <dd className="mt-0.5 font-medium text-craie-100">{valeur}</dd>
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
+                <dd className="mt-0.5 font-medium text-chalk-100">{valeur}</dd>
               </div>
             ))}
         </dl>
 
         <Link
           href={`/heroes/${heros.slug}`}
-          className="biseau-sm mt-8 inline-flex items-center gap-2 bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+          className="bevel-sm mt-8 inline-flex items-center gap-2 bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
           {t("vedette.voirFiche")}
           <ArrowRight size={18} aria-hidden />

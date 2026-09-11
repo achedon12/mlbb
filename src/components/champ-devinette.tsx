@@ -108,7 +108,7 @@ export function ChampDevinette({
         }}
         onBlur={() => setOuvert(false)}
         onKeyDown={touche}
-        className="biseau-sm w-full border border-nuit-600 bg-nuit-950 px-3 py-2.5 text-base text-craie-100 outline-none transition-colors placeholder:text-craie-400 focus:border-or-500 disabled:opacity-50 sm:text-sm"
+        className="bevel-sm w-full border border-night-600 bg-night-950 px-3 py-2.5 text-base text-chalk-100 outline-none transition-colors placeholder:text-chalk-400 focus:border-gold-500 disabled:opacity-50 sm:text-sm"
       />
       <ul
         id={`${id}-liste`}
@@ -116,7 +116,7 @@ export function ChampDevinette({
         aria-label={libelle}
         hidden={!visible}
         className={cn(
-          "absolute inset-x-0 z-30 max-h-72 overflow-y-auto border border-or-500/40 bg-nuit-950 py-1 shadow-2xl shadow-black/70",
+          "absolute inset-x-0 z-30 max-h-72 overflow-y-auto border border-gold-500/40 bg-night-950 py-1 shadow-2xl shadow-black/70",
           versLeHaut ? "bottom-full mb-1" : "top-full mt-1",
         )}
       >
@@ -132,7 +132,7 @@ export function ChampDevinette({
             onMouseMove={() => setActif(i)}
             className={cn(
               "flex cursor-pointer items-center gap-2.5 border-l-2 px-3 py-2 text-sm",
-              i === courant ? "border-or-400 bg-or-500/15 text-or-400" : "border-transparent text-craie-100",
+              i === courant ? "border-gold-400 bg-gold-500/15 text-gold-400" : "border-transparent text-chalk-100",
             )}
           >
             <PortraitHeros source={o.icone} nom={o.nom} taille="mini" decoratif />
@@ -140,7 +140,7 @@ export function ChampDevinette({
           </li>
         ))}
         {resultats.length === 0 && (
-          <li role="presentation" className="px-3 py-2 text-sm text-craie-500">
+          <li role="presentation" className="px-3 py-2 text-sm text-chalk-500">
             {aucun}
           </li>
         )}

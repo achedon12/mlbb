@@ -118,7 +118,7 @@ export default async function EsportsPage({ params }: Params) {
             {t("pages.esports.meta.title")}
           </TitreSection>
           {meta.games === 0 ? (
-            <p className="text-sm text-craie-500">{t("pages.esports.meta.none")}</p>
+            <p className="text-sm text-chalk-500">{t("pages.esports.meta.none")}</p>
           ) : (
             <div className="grid gap-8 md:grid-cols-3">
               <HeroList
@@ -167,7 +167,7 @@ export default async function EsportsPage({ params }: Params) {
         </section>
 
         <div>
-          <p className="max-w-3xl text-xs leading-relaxed text-craie-500">{t("pages.esports.method")}</p>
+          <p className="max-w-3xl text-xs leading-relaxed text-chalk-500">{t("pages.esports.method")}</p>
           <SourceCredit t={t} locale={locale} sources={list.flatMap((x) => x.sources)} className="mt-6" />
         </div>
       </div>
@@ -179,30 +179,30 @@ function TournamentCard({ tour, t, locale, now }: { tour: Tournament; t: T; loca
   const dates = tournamentDates(t, locale, tour);
   return (
     <Link href={`/esports/${tour.slug}`} className="group block h-full">
-      <Carte className="flex h-full flex-col gap-3 group-hover:border-or-500/60">
+      <Carte className="flex h-full flex-col gap-3 group-hover:border-gold-500/60">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
-            <p className="text-xs uppercase tracking-wide text-craie-500">{tour.shortName}</p>
-            <h3 className="font-titre text-lg font-bold text-craie-100 transition-colors group-hover:text-or-400">
+            <p className="text-xs uppercase tracking-wide text-chalk-500">{tour.shortName}</p>
+            <h3 className="font-heading text-lg font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
               {tour.name}
             </h3>
           </div>
           <StatusBadge status={tournamentStatus(tour, now)} t={t} />
         </div>
-        <ul className="space-y-1 text-sm text-craie-300">
+        <ul className="space-y-1 text-sm text-chalk-300">
           {dates && <li>{dates}</li>}
           {tour.prizePool && <li>{t("pages.esports.card.prize", { amount: formatPrize(locale, tour.prizePool) })}</li>}
           {tour.teamCount && <li>{t("pages.esports.card.teams", { n: tour.teamCount })}</li>}
           {tour.champion && (
-            <li className="flex items-center gap-1.5 font-semibold text-or-400">
+            <li className="flex items-center gap-1.5 font-semibold text-gold-400">
               <Trophy size={14} aria-hidden />
               {t("pages.esports.card.champion", { team: tour.champion })}
             </li>
           )}
         </ul>
-        <p className="mt-auto flex items-center justify-between gap-2 text-xs text-craie-500">
+        <p className="mt-auto flex items-center justify-between gap-2 text-xs text-chalk-500">
           <span>{tour.games ? t("pages.esports.card.games", { n: tour.games }) : t("pages.esports.card.noGames")}</span>
-          <span aria-hidden className="font-semibold text-or-400">
+          <span aria-hidden className="font-semibold text-gold-400">
             →
           </span>
         </p>
@@ -227,8 +227,8 @@ function HeroList({
 }) {
   return (
     <div>
-      <h3 className="font-titre text-lg font-bold text-craie-100">{title}</h3>
-      {note && <p className="mt-1 text-xs text-craie-500">{note}</p>}
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{title}</h3>
+      {note && <p className="mt-1 text-xs text-chalk-500">{note}</p>}
       <ol className="mt-3 space-y-2">
         {heroes.map((h) => {
           const hero = herosParSlug.get(h.slug);
@@ -237,16 +237,16 @@ function HeroList({
             <li key={h.slug}>
               <Link
                 href={`/heroes/${h.slug}`}
-                className="biseau-sm group flex items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-2 transition-colors hover:border-or-500/60"
+                className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
               >
                 <PortraitHeros source={hero.visuels.icone ?? hero.visuels.portrait} nom={hero.nom} taille="petite" decoratif />
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                  <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                     {hero.nom}
                   </span>
-                  <span className="block text-xs text-craie-500">{detail(h)}</span>
+                  <span className="block text-xs text-chalk-500">{detail(h)}</span>
                 </span>
-                <span className="shrink-0 font-semibold tabular-nums text-or-400">{value(h)}</span>
+                <span className="shrink-0 font-semibold tabular-nums text-gold-400">{value(h)}</span>
               </Link>
             </li>
           );
@@ -272,15 +272,15 @@ function VersusTable({
   // min-w-0: as a grid item, the table's minimum width would otherwise widen the page.
   return (
     <div className="min-w-0">
-      <h3 className="font-titre text-lg font-bold text-craie-100">{title}</h3>
-      <p className="mt-1 mb-3 text-xs text-craie-500">{note}</p>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{title}</h3>
+      <p className="mt-1 mb-3 text-xs text-chalk-500">{note}</p>
       {rows.length === 0 ? (
-        <p className="text-sm text-craie-500">{t("pages.esports.versus.none")}</p>
+        <p className="text-sm text-chalk-500">{t("pages.esports.versus.none")}</p>
       ) : (
-        <div className="relative overflow-x-auto border border-nuit-700/70">
+        <div className="relative overflow-x-auto border border-night-700/70">
           <table className="w-full min-w-[26rem] border-collapse text-sm tabular-nums">
             <caption className="sr-only">{title}</caption>
-            <thead className="bg-nuit-900 text-xs uppercase tracking-wide text-craie-500">
+            <thead className="bg-night-900 text-xs uppercase tracking-wide text-chalk-500">
               <tr>
                 <th scope="col" className="px-3 py-2 text-left font-medium">
                   {t("pages.esports.versus.hero")}
@@ -301,7 +301,7 @@ function VersusTable({
                 const hero = herosParSlug.get(r.slug);
                 if (!hero) return null;
                 return (
-                  <tr key={r.slug} className="border-t border-nuit-800">
+                  <tr key={r.slug} className="border-t border-night-800">
                     <th scope="row" className="px-3 py-1.5 text-left font-normal">
                       <Link href={`/heroes/${r.slug}`} className="group flex items-center gap-2">
                         <PortraitHeros
@@ -310,18 +310,18 @@ function VersusTable({
                           taille="mini"
                           decoratif
                         />
-                        <span className="truncate font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                        <span className="truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                           {hero.nom}
                         </span>
                       </Link>
                     </th>
-                    <td className="px-3 py-1.5 text-right text-craie-100">
+                    <td className="px-3 py-1.5 text-right text-chalk-100">
                       {t("pages.esports.versus.cell", { value: pourcentage(locale, r.proPresence), rank: r.proRank })}
                     </td>
-                    <td className="px-3 py-1.5 text-right text-craie-300">
+                    <td className="px-3 py-1.5 text-right text-chalk-300">
                       {t("pages.esports.versus.cell", { value: pourcentage(locale, r.rankedPresence), rank: r.rankedRank })}
                     </td>
-                    <td className={cn("px-3 py-1.5 text-right font-semibold", r.gap > 0 ? "text-emerald-400" : "text-sang-500")}>
+                    <td className={cn("px-3 py-1.5 text-right font-semibold", r.gap > 0 ? "text-emerald-400" : "text-blood-500")}>
                       {t("pages.esports.versus.gap", { n: r.gap > 0 ? `+${r.gap}` : r.gap })}
                     </td>
                   </tr>

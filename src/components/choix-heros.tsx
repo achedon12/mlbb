@@ -88,11 +88,11 @@ export function SelecteurHeros({
       role="dialog"
       aria-modal="true"
       aria-label={titre}
-      className="fixed inset-0 z-50 grid place-items-center bg-nuit-950/80 p-4"
+      className="fixed inset-0 z-50 grid place-items-center bg-night-950/80 p-4"
       onClick={onFermer}
     >
       <div
-        className="biseau flex max-h-[85vh] w-full max-w-3xl flex-col border border-nuit-700 bg-nuit-900 p-5"
+        className="bevel flex max-h-[85vh] w-full max-w-3xl flex-col border border-night-700 bg-night-900 p-5"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center gap-3">
@@ -111,7 +111,7 @@ export function SelecteurHeros({
             type="button"
             onClick={onFermer}
             aria-label={t("draftUI.fermer")}
-            className="grid size-9 place-items-center text-craie-500 hover:text-craie-100"
+            className="grid size-9 place-items-center text-chalk-500 hover:text-chalk-100"
           >
             <X size={18} aria-hidden />
           </button>
@@ -140,7 +140,7 @@ export function SelecteurHeros({
           </GroupeFiltres>
         </div>
 
-        <p aria-live="polite" className="mt-3 text-xs text-craie-500">
+        <p aria-live="polite" className="mt-3 text-xs text-chalk-500">
           {t("draftUI.compte", { n: resultats.length })}
         </p>
 
@@ -151,15 +151,15 @@ export function SelecteurHeros({
                 type="button"
                 onClick={() => onChoisir(h.slug)}
                 title={h.nom}
-                className="biseau-sm flex w-full flex-col items-center gap-1 border border-nuit-700/70 p-2 text-center transition-colors hover:border-or-500/60 hover:bg-nuit-850"
+                className="bevel-sm flex w-full flex-col items-center gap-1 border border-night-700/70 p-2 text-center transition-colors hover:border-gold-500/60 hover:bg-night-850"
               >
                 <VignetteHeros heros={h} />
-                <span className="w-full truncate text-xs text-craie-100">{h.nom}</span>
+                <span className="w-full truncate text-xs text-chalk-100">{h.nom}</span>
               </button>
             </li>
           ))}
           {resultats.length === 0 && (
-            <li className="col-span-full py-6 text-center text-sm text-craie-500">{t("draftUI.aucunHeros")}</li>
+            <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.aucunHeros")}</li>
           )}
         </ul>
       </div>
@@ -187,15 +187,15 @@ export function CarteSuggestion({
   return (
     <div
       className={cn(
-        "biseau flex h-full gap-3 border bg-nuit-900/60 p-3",
-        premiere ? "border-or-500/50" : "border-nuit-700/70",
+        "bevel flex h-full gap-3 border bg-night-900/60 p-3",
+        premiere ? "border-gold-500/50" : "border-night-700/70",
       )}
     >
       <VignetteHeros heros={s.heros} />
       <div className="min-w-0 flex-1">
         <Link
           href={`/heroes/${s.heros.slug}`}
-          className="font-titre font-bold text-craie-100 transition-colors hover:text-or-400"
+          className="font-heading font-bold text-chalk-100 transition-colors hover:text-gold-400"
         >
           {s.heros.nom}
         </Link>
@@ -203,20 +203,20 @@ export function CarteSuggestion({
           {s.raisons.map((r) => (
             <li
               key={r.type}
-              className={cn("text-xs leading-snug", r.favorable ? "text-emerald-400" : "text-sang-500")}
+              className={cn("text-xs leading-snug", r.favorable ? "text-emerald-400" : "text-blood-500")}
             >
               {r.favorable ? "+ " : "− "}
               {t(`draftUI.raisons.${r.type}`, { detail: r.detail })}
             </li>
           ))}
-          {s.raisons.length === 0 && <li className="text-xs text-craie-500">{vide ?? t("draftUI.aucunContre")}</li>}
+          {s.raisons.length === 0 && <li className="text-xs text-chalk-500">{vide ?? t("draftUI.aucunContre")}</li>}
         </ul>
       </div>
       <button
         type="button"
         onClick={onPrendre}
         title={titrePrendre}
-        className="biseau-sm self-start border border-nuit-600 px-2 py-1 text-xs text-craie-300 transition-colors hover:border-or-500 hover:text-or-400"
+        className="bevel-sm self-start border border-night-600 px-2 py-1 text-xs text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400"
       >
         {t("draftUI.prendre")}
       </button>

@@ -66,9 +66,9 @@ export function labelText(t: T, label: SourceLabel | null, fallback: string | nu
 }
 
 const STATUS_STYLE: Record<Status, string> = {
-  live: "border-sang-500/60 text-sang-500",
-  upcoming: "border-azur-500/60 text-azur-400",
-  finished: "border-nuit-600 text-craie-500",
+  live: "border-blood-500/60 text-blood-500",
+  upcoming: "border-azure-500/60 text-azure-400",
+  finished: "border-night-600 text-chalk-500",
 };
 
 export function StatusBadge({ status, t }: { status: Status; t: T }) {
@@ -95,7 +95,7 @@ export function interpolate(text: string, parts: Record<string, ReactNode>): Rea
 
 function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
   return (
-    <a href={href} rel="noreferrer nofollow" target="_blank" className="text-or-400 hover:underline">
+    <a href={href} rel="noreferrer nofollow" target="_blank" className="text-gold-400 hover:underline">
       {children}
     </a>
   );
@@ -125,7 +125,7 @@ export function SourceCredit({
 }) {
   const unique = sources.filter((s, i) => sources.findIndex((x) => x.url === s.url) === i);
   return (
-    <div className={cn("border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500", className)}>
+    <div className={cn("border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500", className)}>
       <p>{interpolate(t("pages.esports.credit.text"), sourceAndLicense())}</p>
       <ul className="mt-2 space-y-1">
         {unique.map((s) => (
@@ -148,7 +148,7 @@ export function ShortCredit({ t, tournaments, className }: { t: T; tournaments: 
     </Fragment>
   ));
   return (
-    <p className={cn("text-xs leading-relaxed text-craie-500", className)}>
+    <p className={cn("text-xs leading-relaxed text-chalk-500", className)}>
       {interpolate(t("pages.esports.credit.short"), { ...sourceAndLicense(), pages })}
     </p>
   );

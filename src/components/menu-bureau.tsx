@@ -57,16 +57,16 @@ function Deroulant({
         onClick={() => (ouvert ? onFermer() : onOuvrir())}
         className={cn(
           "flex items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium transition-colors xl:px-3",
-          groupeActif || ouvert ? "text-craie-100" : "text-craie-300 hover:text-craie-100",
+          groupeActif || ouvert ? "text-chalk-100" : "text-chalk-300 hover:text-chalk-100",
         )}
       >
-        <Icone size={16} aria-hidden className={groupeActif ? "text-or-400" : ""} />
+        <Icone size={16} aria-hidden className={groupeActif ? "text-gold-400" : ""} />
         {t(`nav.groupes.${groupe.cle}`)}
         <ChevronDown size={14} aria-hidden className={cn("transition-transform duration-200", ouvert && "rotate-180")} />
         <span
           aria-hidden
           className={cn(
-            "absolute inset-x-3 -bottom-px h-0.5 bg-or-500 transition-opacity",
+            "absolute inset-x-3 -bottom-px h-0.5 bg-gold-500 transition-opacity",
             groupeActif ? "opacity-100" : "opacity-0",
           )}
         />
@@ -80,7 +80,7 @@ function Deroulant({
         <div className={cn("relative p-2", groupe.large ? "w-[36rem]" : "w-80")}>
           <div
             aria-hidden
-            className="biseau absolute inset-0 border border-nuit-700/80 bg-nuit-900/98 shadow-2xl shadow-nuit-950/60 backdrop-blur"
+            className="bevel absolute inset-0 border border-night-700/80 bg-night-900/98 shadow-2xl shadow-night-950/60 backdrop-blur"
           />
           <ul className={cn("relative grid gap-0.5", groupe.large && "grid-cols-2")}>
             {groupe.noeuds.map((n) => (
@@ -139,22 +139,22 @@ function NoeudAvecSousMenu({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin
       {noeud.icone && (
         <span
           className={cn(
-            "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
-            actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300 group-hover:text-or-400",
+            "bevel-sm grid size-9 shrink-0 place-items-center transition-colors",
+            actif ? "bg-gold-500 text-night-950" : "bg-night-800 text-chalk-300 group-hover:text-gold-400",
           )}
         >
           <noeud.icone size={17} aria-hidden />
         </span>
       )}
       <span className="min-w-0 text-left">
-        <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>{nom}</span>
-        {noeud.cle && <span className="block text-xs text-craie-400">{t(`nav.${noeud.cle}.desc`)}</span>}
+        <span className={cn("block text-sm font-semibold", actif ? "text-gold-400" : "text-chalk-100")}>{nom}</span>
+        {noeud.cle && <span className="block text-xs text-chalk-400">{t(`nav.${noeud.cle}.desc`)}</span>}
       </span>
     </>
   );
   const classeLigne = cn(
     "group flex min-w-0 flex-1 items-start gap-3 rounded-md p-2.5 transition-colors",
-    ouvert || actif ? "bg-nuit-800/70" : "hover:bg-nuit-800/60",
+    ouvert || actif ? "bg-night-800/70" : "hover:bg-night-800/60",
   );
 
   return (
@@ -181,7 +181,7 @@ function NoeudAvecSousMenu({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin
           aria-controls={id}
           aria-label={t("nav.sousMenu", { nom })}
           onClick={() => (ouvert ? setOuvert(false) : ouvrirEtEntrer())}
-          className="grid w-8 shrink-0 place-items-center rounded-md text-craie-500 transition-colors hover:text-or-400"
+          className="grid w-8 shrink-0 place-items-center rounded-md text-chalk-500 transition-colors hover:text-gold-400"
         >
           <ChevronRight size={16} aria-hidden className={cn("transition-transform", ouvert && "translate-x-0.5")} />
         </button>
@@ -191,7 +191,7 @@ function NoeudAvecSousMenu({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin
         <div id={id} className="absolute left-full top-0 z-50 pl-2">
           <ul
             ref={liste}
-            className="biseau min-w-52 border border-nuit-700/80 bg-nuit-900/98 p-1.5 shadow-2xl shadow-nuit-950/60 backdrop-blur"
+            className="bevel min-w-52 border border-night-700/80 bg-night-900/98 p-1.5 shadow-2xl shadow-night-950/60 backdrop-blur"
           >
             {noeud.enfants!.map((e) => {
               const enfantActif = e.href ? chemin.endsWith(e.href) : false;
@@ -203,7 +203,7 @@ function NoeudAvecSousMenu({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin
                     aria-current={enfantActif ? "page" : undefined}
                     className={cn(
                       "block rounded-md px-3 py-2 text-sm transition-colors",
-                      enfantActif ? "bg-nuit-800 text-or-400" : "text-craie-200 hover:bg-nuit-800/70 hover:text-or-400",
+                      enfantActif ? "bg-night-800 text-gold-400" : "text-chalk-200 hover:bg-night-800/70 hover:text-gold-400",
                     )}
                   >
                     {libelleNoeud(t, e)}
@@ -242,23 +242,23 @@ export function LienMenu({
       aria-current={actif ? "page" : undefined}
       className={cn(
         "group flex gap-3 rounded-md p-2.5 transition-colors",
-        actif ? "bg-nuit-800/80" : "hover:bg-nuit-800/60",
+        actif ? "bg-night-800/80" : "hover:bg-night-800/60",
         className,
       )}
     >
       <span
         className={cn(
-          "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
-          actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300 group-hover:text-or-400",
+          "bevel-sm grid size-9 shrink-0 place-items-center transition-colors",
+          actif ? "bg-gold-500 text-night-950" : "bg-night-800 text-chalk-300 group-hover:text-gold-400",
         )}
       >
         <Ic size={17} aria-hidden />
       </span>
       <span className="min-w-0">
-        <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>
+        <span className={cn("block text-sm font-semibold", actif ? "text-gold-400" : "text-chalk-100")}>
           {t(`nav.${cle}.label`)}
         </span>
-        <span className="block text-xs text-craie-400">{t(`nav.${cle}.desc`)}</span>
+        <span className="block text-xs text-chalk-400">{t(`nav.${cle}.desc`)}</span>
       </span>
     </Link>
   );

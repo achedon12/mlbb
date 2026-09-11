@@ -98,56 +98,56 @@ export default async function PageHeureServeur({ params }: Params) {
         <HorlogeServeur reference={instantRendu()} fins={FINS} />
 
         <section aria-labelledby="regles-titre">
-          <h2 id="regles-titre" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="regles-titre" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.heureServeur.reglesTitre")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-5 grid gap-3 sm:grid-cols-2">
             {regles.map((r) => (
-              <div key={r.titre} className="biseau-sm border border-nuit-700/70 bg-nuit-900/60 p-4">
-                <dt className="font-titre font-bold text-or-400">{r.titre}</dt>
-                <dd className="mt-1 text-sm leading-relaxed text-craie-300">{r.texte}</dd>
+              <div key={r.titre} className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
+                <dt className="font-heading font-bold text-gold-400">{r.titre}</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-chalk-300">{r.texte}</dd>
               </div>
             ))}
           </dl>
         </section>
 
         <section aria-labelledby="faq-titre">
-          <h2 id="faq-titre" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="faq-titre" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.heureServeur.faqTitre")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <div className="mt-5 space-y-6">
             {faq.map((e) => (
               <div key={e.q}>
-                <h3 className="font-titre text-lg font-bold text-craie-100">{e.q}</h3>
-                <p className="mt-1 leading-relaxed text-craie-300">{e.r}</p>
+                <h3 className="font-heading text-lg font-bold text-chalk-100">{e.q}</h3>
+                <p className="mt-1 leading-relaxed text-chalk-300">{e.r}</p>
               </div>
             ))}
           </div>
           <p className="mt-6 text-sm">
-            <Link href="/ranks" className="font-semibold text-or-400 transition-colors hover:text-or-500">
+            <Link href="/ranks" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
               {t("pages.heureServeur.lienRangs")} →
             </Link>
           </p>
         </section>
 
-        <section aria-labelledby="sources-titre" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-titre" className="font-semibold text-craie-300">{t("pages.heureServeur.sourcesTitre")}</h2>
+        <section aria-labelledby="sources-titre" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.heureServeur.sourcesTitre")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
-              <a href={SOURCES_HEURE.serveur} rel="noopener" className="underline transition-colors hover:text-or-400">
+              <a href={SOURCES_HEURE.serveur} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.heureServeur.sourceServeur")}
               </a>
             </li>
             <li>
-              <a href={SOURCES_HEURE.starlight} rel="noopener" className="underline transition-colors hover:text-or-400">
+              <a href={SOURCES_HEURE.starlight} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.heureServeur.sourceStarlight")}
               </a>
             </li>
             {annonce && (
               <li>
-                <a href={annonce.lien} rel="noopener" className="underline transition-colors hover:text-or-400">
+                <a href={annonce.lien} rel="noopener" className="underline transition-colors hover:text-gold-400">
                   {t("pages.heureServeur.sourcePatch", { v: annonce.patch, n: annonce.saison })}
                 </a>
               </li>

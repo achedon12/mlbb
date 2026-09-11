@@ -79,13 +79,13 @@ const BOT_DELAY = 550;
 
 const newSeed = () => 1 + Math.floor(Math.random() * (2 ** 31 - 2));
 
-const label = "text-xs uppercase tracking-wide text-craie-500";
-const heading3 = "font-titre text-lg font-bold text-craie-100";
+const label = "text-xs uppercase tracking-wide text-chalk-500";
+const heading3 = "font-heading text-lg font-bold text-chalk-100";
 const button =
-  "biseau-sm inline-flex min-h-11 items-center gap-2 border border-nuit-700 px-3 py-2 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400 disabled:pointer-events-none disabled:opacity-40";
+  "bevel-sm inline-flex min-h-11 items-center gap-2 border border-night-700 px-3 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 disabled:pointer-events-none disabled:opacity-40";
 const sideColor: Record<Side, { text: string; border: string; fill: string }> = {
-  blue: { text: "text-azur-500", border: "border-azur-500", fill: "bg-azur-500" },
-  red: { text: "text-sang-500", border: "border-sang-500", fill: "bg-sang-500" },
+  blue: { text: "text-azure-500", border: "border-azure-500", fill: "bg-azure-500" },
+  red: { text: "text-blood-500", border: "border-blood-500", fill: "bg-blood-500" },
 };
 
 export function DraftSimulator({
@@ -301,11 +301,11 @@ export function DraftSimulator({
           <p className={label}>
             {t(`pages.draftSimulatorUI.formats.${settings.format}`)} · {t(`rangsMesure.${settings.rank}`)}
           </p>
-          <p className="font-titre text-xl font-bold text-craie-100">
+          <p className="font-heading text-xl font-bold text-chalk-100">
             {turn ? (
               <>
                 <span className={sideColor[turn.side].text}>{sideName(turn.side)}</span> · {turnText(turn)}
-                <span className="ml-2 align-middle text-sm font-medium text-craie-500">
+                <span className="ml-2 align-middle text-sm font-medium text-chalk-500">
                   ({t(mine ? "pages.draftSimulatorUI.yourTurn" : "pages.draftSimulatorUI.botTurn")})
                 </span>
               </>
@@ -333,7 +333,7 @@ export function DraftSimulator({
         </div>
       </div>
 
-      {turn?.simultaneous && <p className="-mt-4 text-sm text-craie-500">{t("pages.draftSimulatorUI.simultaneous")}</p>}
+      {turn?.simultaneous && <p className="-mt-4 text-sm text-chalk-500">{t("pages.draftSimulatorUI.simultaneous")}</p>}
 
       {/* -- Both teams ------------------------------------------------- */}
       <div className="grid grid-cols-2 gap-2 sm:gap-4">
@@ -360,7 +360,7 @@ export function DraftSimulator({
               <h3 id="hints-title" className={heading3}>
                 {t(isBan ? "pages.draftSimulatorUI.hints.ban" : "pages.draftSimulatorUI.hints.pick")}
               </h3>
-              <p className="mt-1 text-sm text-craie-500">
+              <p className="mt-1 text-sm text-chalk-500">
                 {t(isBan ? "pages.draftSimulatorUI.hints.banIntro" : "pages.draftSimulatorUI.hints.pickIntro", {
                   rank: t(`rangsMesure.${settings.rank}`),
                 })}
@@ -374,12 +374,12 @@ export function DraftSimulator({
                         type="button"
                         onClick={() => playerMove(c.slug)}
                         aria-label={t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: nameOf(c.slug) })}
-                        className="biseau-sm flex min-h-11 w-full items-center gap-3 border border-nuit-700/70 bg-nuit-900/60 p-2 text-left transition-colors hover:border-or-500/60"
+                        className="bevel-sm flex min-h-11 w-full items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 text-left transition-colors hover:border-gold-500/60"
                       >
                         {h && <VignetteHeros heros={h} />}
                         <span className="min-w-0 flex-1">
-                          <span className="block truncate font-titre font-bold text-craie-100">{nameOf(c.slug)}</span>
-                          <span className="block text-xs leading-snug text-craie-300">
+                          <span className="block truncate font-heading font-bold text-chalk-100">{nameOf(c.slug)}</span>
+                          <span className="block text-xs leading-snug text-chalk-300">
                             {reasonText(c.reason, c.lane, t, formats, nameOf, settings.rank)}
                           </span>
                         </span>
@@ -404,7 +404,7 @@ export function DraftSimulator({
                 </button>
               )}
               {!mine && (
-                <p className="text-sm text-craie-500">
+                <p className="text-sm text-chalk-500">
                   {measuresState === undefined ? t("equipeUI.chargement") : t("pages.draftSimulatorUI.botThinking")}
                 </p>
               )}
@@ -436,7 +436,7 @@ export function DraftSimulator({
               labelOf={(r) => t(`roles.${r}`)}
               onChange={setRole}
             />
-            <p aria-live="polite" className="text-xs text-craie-500">
+            <p aria-live="polite" className="text-xs text-chalk-500">
               {t("draftUI.compte", { n: results.length })}
             </p>
             <ul className="grid max-h-[60vh] grid-cols-4 gap-1.5 overflow-y-auto pr-1 sm:grid-cols-6 md:grid-cols-8">
@@ -454,20 +454,20 @@ export function DraftSimulator({
                           : t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: h.nom })
                       }
                       className={cn(
-                        "biseau-sm flex min-h-11 w-full flex-col items-center gap-1 border border-nuit-700/70 p-1.5 text-center transition-colors",
-                        "enabled:hover:border-or-500/60 enabled:hover:bg-nuit-850 disabled:cursor-not-allowed",
+                        "bevel-sm flex min-h-11 w-full flex-col items-center gap-1 border border-night-700/70 p-1.5 text-center transition-colors",
+                        "enabled:hover:border-gold-500/60 enabled:hover:bg-night-850 disabled:cursor-not-allowed",
                         taken && "opacity-30 grayscale",
                         !taken && !mine && "opacity-60",
                       )}
                     >
                       <VignetteHeros heros={h} />
-                      <span className="w-full truncate text-[0.7rem] text-craie-100">{h.nom}</span>
+                      <span className="w-full truncate text-[0.7rem] text-chalk-100">{h.nom}</span>
                     </button>
                   </li>
                 );
               })}
               {results.length === 0 && (
-                <li className="col-span-full py-6 text-center text-sm text-craie-500">{t("draftUI.aucunHeros")}</li>
+                <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.aucunHeros")}</li>
               )}
             </ul>
           </section>
@@ -493,13 +493,13 @@ export function DraftSimulator({
           <h3 id="log-title" className={heading3}>
             {t("pages.draftSimulatorUI.log.title")}
           </h3>
-          <p className="mt-1 text-sm text-craie-500">{t("pages.draftSimulatorUI.log.intro")}</p>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.draftSimulatorUI.log.intro")}</p>
           {log.length > 0 ? (
             <ol className="mt-3 space-y-1.5">
               {log.map(({ i, move }) => {
                 const tr = turns[i];
                 return (
-                  <li key={i} className="flex gap-2 text-sm leading-snug text-craie-300">
+                  <li key={i} className="flex gap-2 text-sm leading-snug text-chalk-300">
                     <span aria-hidden className={cn("mt-1.5 size-2 shrink-0 rounded-full", sideColor[tr.side].fill)} />
                     <span>
                       {t(move.lane ? "pages.draftSimulatorUI.log.lineLane" : "pages.draftSimulatorUI.log.line", {
@@ -515,7 +515,7 @@ export function DraftSimulator({
               })}
             </ol>
           ) : (
-            <p className="mt-3 text-sm text-craie-500">{t("pages.draftSimulatorUI.log.empty")}</p>
+            <p className="mt-3 text-sm text-chalk-500">{t("pages.draftSimulatorUI.log.empty")}</p>
           )}
         </section>
       )}
@@ -575,10 +575,10 @@ function SettingsScreen({
   return (
     <section aria-labelledby="settings-title" className="space-y-7">
       <div>
-        <h2 id="settings-title" className="font-titre text-2xl font-bold text-craie-100">
+        <h2 id="settings-title" className="font-heading text-2xl font-bold text-chalk-100">
           {t("pages.draftSimulatorUI.settings.title")}
         </h2>
-        <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
       </div>
 
       <fieldset>
@@ -591,12 +591,12 @@ function SettingsScreen({
               aria-pressed={settings.format === f}
               onClick={() => onChange({ format: f, rank: rankForFormat(f, settings.rank) })}
               className={cn(
-                "biseau-sm min-h-11 border px-4 py-3 text-left transition-colors",
-                settings.format === f ? "border-or-500 bg-nuit-850" : "border-nuit-700 hover:border-or-500/60",
+                "bevel-sm min-h-11 border px-4 py-3 text-left transition-colors",
+                settings.format === f ? "border-gold-500 bg-night-850" : "border-night-700 hover:border-gold-500/60",
               )}
             >
-              <span className="block font-titre font-bold text-craie-100">{t(`pages.draftSimulatorUI.formats.${f}`)}</span>
-              <span className="mt-0.5 block text-xs leading-snug text-craie-500">
+              <span className="block font-heading font-bold text-chalk-100">{t(`pages.draftSimulatorUI.formats.${f}`)}</span>
+              <span className="mt-0.5 block text-xs leading-snug text-chalk-500">
                 {t(`pages.draftSimulatorUI.formatHelp.${f}`, { n: bansPerSide(f, rankForFormat(f, settings.rank)) })}
               </span>
             </button>
@@ -613,7 +613,7 @@ function SettingsScreen({
           onChange={(r) => r && onChange({ rank: r })}
         />
         {settings.format === "ranked" && (
-          <p className="mt-2 text-xs text-craie-500">
+          <p className="mt-2 text-xs text-chalk-500">
             {t("pages.draftSimulatorUI.settings.rankHelp", { n: bansPerSide("ranked", settings.rank) })}
           </p>
         )}
@@ -638,18 +638,18 @@ function SettingsScreen({
         >
           <span
             aria-hidden
-            className={cn("relative block h-6 w-11 shrink-0 rounded-full transition-colors", botOn ? "bg-or-500" : "bg-nuit-700")}
+            className={cn("relative block h-6 w-11 shrink-0 rounded-full transition-colors", botOn ? "bg-gold-500" : "bg-night-700")}
           >
             <span
               className={cn(
-                "absolute left-0.5 top-0.5 block size-5 rounded-full bg-craie-100 transition-transform motion-reduce:transition-none",
+                "absolute left-0.5 top-0.5 block size-5 rounded-full bg-chalk-100 transition-transform motion-reduce:transition-none",
                 botOn && "translate-x-5",
               )}
             />
           </span>
-          <span className="text-sm font-semibold text-craie-100">{t("pages.draftSimulatorUI.settings.bot")}</span>
+          <span className="text-sm font-semibold text-chalk-100">{t("pages.draftSimulatorUI.settings.bot")}</span>
         </button>
-        <p className="mt-1 max-w-2xl text-xs text-craie-500">
+        <p className="mt-1 max-w-2xl text-xs text-chalk-500">
           {botUseless ? t("pages.draftSimulatorUI.settings.botBoth") : t("pages.draftSimulatorUI.settings.botHelp")}
         </p>
       </div>
@@ -662,13 +662,13 @@ function SettingsScreen({
           labelOf={(m) => t(`pages.draftSimulatorUI.timers.${m}`, { n: FIXED_TIMER, ban: GAME_TIMERS.ban, pick: GAME_TIMERS.pick })}
           onChange={(m) => m && onChange({ timer: m })}
         />
-        <p className="mt-2 max-w-2xl text-xs text-craie-500">{t("pages.draftSimulatorUI.settings.timerHelp")}</p>
+        <p className="mt-2 max-w-2xl text-xs text-chalk-500">{t("pages.draftSimulatorUI.settings.timerHelp")}</p>
       </div>
 
       <button
         type="button"
         onClick={onStart}
-        className="biseau-sm inline-flex min-h-11 items-center gap-2 bg-or-500 px-5 py-2.5 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+        className="bevel-sm inline-flex min-h-11 items-center gap-2 bg-gold-500 px-5 py-2.5 font-semibold text-night-950 transition-colors hover:bg-gold-400"
       >
         <Play size={16} aria-hidden />
         {t("pages.draftSimulatorUI.settings.start")}
@@ -755,20 +755,20 @@ function TeamColumn({
   const bans = turns.filter((tr) => tr.side === side && tr.action === "ban");
   const picks = turns.filter((tr) => tr.side === side && tr.action === "pick");
   const onTurn = turn?.side === side;
-  const current = "ring-2 ring-or-500 motion-safe:animate-pulse";
+  const current = "ring-2 ring-gold-500 motion-safe:animate-pulse";
 
   return (
     <section
       aria-labelledby={`side-${side}`}
-      className={cn("biseau-sm min-w-0 border bg-nuit-900/60 p-2 transition-colors sm:p-3", onTurn ? color.border : "border-nuit-700/70")}
+      className={cn("bevel-sm min-w-0 border bg-night-900/60 p-2 transition-colors sm:p-3", onTurn ? color.border : "border-night-700/70")}
     >
       <h3
         id={`side-${side}`}
-        className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-titre text-sm font-bold text-craie-100 sm:text-base"
+        className="flex flex-wrap items-center gap-x-2 gap-y-0.5 font-heading text-sm font-bold text-chalk-100 sm:text-base"
       >
         <span aria-hidden className={cn("size-2.5 rounded-full", color.fill)} />
         <span className={color.text}>{t(`pages.draftSimulatorUI.sides.${side}`)}</span>
-        <span className="text-xs font-medium text-craie-500">{t(isPlayer ? "pages.draftSimulatorUI.you" : "pages.draftSimulatorUI.bot")}</span>
+        <span className="text-xs font-medium text-chalk-500">{t(isPlayer ? "pages.draftSimulatorUI.you" : "pages.draftSimulatorUI.bot")}</span>
       </h3>
 
       <p className={cn("mt-2", label)}>{t("pages.draftSimulatorUI.bans")}</p>
@@ -795,8 +795,8 @@ function TeamColumn({
               <span
                 aria-hidden
                 className={cn(
-                  "biseau-sm grid size-8 place-items-center overflow-hidden border text-xs text-craie-500",
-                  h ? "border-transparent" : "border-dashed border-nuit-600",
+                  "bevel-sm grid size-8 place-items-center overflow-hidden border text-xs text-chalk-500",
+                  h ? "border-transparent" : "border-dashed border-night-600",
                   turn?.index === tr.index && current,
                 )}
               >
@@ -826,8 +826,8 @@ function TeamColumn({
             <li
               key={tr.index}
               className={cn(
-                "biseau-sm flex min-h-11 items-center gap-2 border px-1.5 py-1",
-                h ? "border-nuit-700/70" : "border-dashed border-nuit-700",
+                "bevel-sm flex min-h-11 items-center gap-2 border px-1.5 py-1",
+                h ? "border-night-700/70" : "border-dashed border-night-700",
                 inProgress && current,
               )}
             >
@@ -836,12 +836,12 @@ function TeamColumn({
                 <>
                   <VignetteHeros heros={h} petite />
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-xs font-semibold text-craie-100 sm:text-sm">{h.nom}</span>
-                    {lane && <span className="block truncate text-[0.65rem] text-craie-500 sm:text-xs">{t(`lanes.${lane}`)}</span>}
+                    <span className="block truncate text-xs font-semibold text-chalk-100 sm:text-sm">{h.nom}</span>
+                    {lane && <span className="block truncate text-[0.65rem] text-chalk-500 sm:text-xs">{t(`lanes.${lane}`)}</span>}
                   </span>
                 </>
               ) : (
-                <span className="truncate text-xs text-craie-500">
+                <span className="truncate text-xs text-chalk-500">
                   {inProgress ? t("pages.draftSimulatorUI.inProgress") : t("pages.draftSimulatorUI.toPick")}
                 </span>
               )}
@@ -882,8 +882,8 @@ function Countdown({ seconds, onEnd }: { seconds: number; onEnd: () => void }) {
       role="timer"
       aria-label={t("pages.draftSimulatorUI.timerLabel", { n: left })}
       className={cn(
-        "biseau-sm inline-flex min-h-11 min-w-16 items-center justify-center border px-3 font-titre text-xl font-bold tabular-nums",
-        left <= 5 ? "border-sang-500 text-sang-500" : "border-nuit-700 text-craie-100",
+        "bevel-sm inline-flex min-h-11 min-w-16 items-center justify-center border px-3 font-heading text-xl font-bold tabular-nums",
+        left <= 5 ? "border-blood-500 text-blood-500" : "border-night-700 text-chalk-100",
       )}
     >
       {t("pages.draftSimulatorUI.seconds", { n: left })}

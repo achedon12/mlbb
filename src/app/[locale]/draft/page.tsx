@@ -54,7 +54,7 @@ function SourceRefs({ keys, t }: { keys: SourceKey[]; t: T }) {
           <a
             href={`#source-${key}`}
             aria-label={t("pages.draft.rules.sourceRef", { site: SOURCES[key].site, page: SOURCES[key].page })}
-            className="text-or-400 hover:text-or-500"
+            className="text-gold-400 hover:text-gold-500"
           >
             [{SOURCE_KEYS.indexOf(key) + 1}]
           </a>
@@ -72,8 +72,8 @@ function StepList({ steps, t }: { steps: Step[]; t: T }) {
         <li
           key={i}
           className={cn(
-            "biseau-sm border px-2 py-1 text-xs text-craie-100",
-            s.side === "blue" ? "border-azur-500/70" : s.side === "red" ? "border-sang-500/70" : "border-or-500/70",
+            "bevel-sm border px-2 py-1 text-xs text-chalk-100",
+            s.side === "blue" ? "border-azure-500/70" : s.side === "red" ? "border-blood-500/70" : "border-gold-500/70",
           )}
         >
           {t("pages.draft.rules.step", {
@@ -99,9 +99,9 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
   // The `donneesHeros` catalog stays on the server: damage labels leave
   // already resolved, as for the team analyzer.
   const damage = (key: TypeDegats) => libelleHeros(t, "degats", key) ?? key;
-  const heading2 = "font-titre text-2xl font-bold text-craie-100";
-  const heading3 = "font-titre text-lg font-bold text-craie-100";
-  const list = "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-craie-300";
+  const heading2 = "font-heading text-2xl font-bold text-chalk-100";
+  const heading3 = "font-heading text-lg font-bold text-chalk-100";
+  const list = "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-chalk-300";
 
   return (
     <>
@@ -112,7 +112,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
       <EnTetePage titre={t("pages.draft.toolsTitle")} chapeau={t("pages.draft.toolsLead")}>
         <Link
           href="/tools/team"
-          className="mt-5 inline-block text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+          className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
         >
           {t("pages.draft.lienEquipe")} →
         </Link>
@@ -133,8 +133,8 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
             <h2 id="rules-title" className={heading2}>
               {t("pages.draft.rules.title")}
             </h2>
-            <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-            <p className="mt-4 max-w-3xl leading-relaxed text-craie-300">{t("pages.draft.rules.intro")}</p>
+            <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+            <p className="mt-4 max-w-3xl leading-relaxed text-chalk-300">{t("pages.draft.rules.intro")}</p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
@@ -167,7 +167,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
                 </li>
               </ul>
               <StepList steps={sequence("ranked", "mythic")} t={t} />
-              <p className="mt-2 text-xs text-craie-500">{t("pages.draft.rules.rankedExample")}</p>
+              <p className="mt-2 text-xs text-chalk-500">{t("pages.draft.rules.rankedExample")}</p>
             </Carte>
 
             <Carte>
@@ -194,11 +194,11 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
           <div className="grid gap-6 lg:grid-cols-2">
             <div>
               <h3 className={heading3}>{t("pages.draft.rules.botTitle")}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-craie-300">{t("pages.draft.rules.bot")}</p>
+              <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.draft.rules.bot")}</p>
             </div>
             <div>
               <h3 className={heading3}>{t("pages.draft.rules.advantageTitle")}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-craie-300">{t("pages.draft.rules.advantage")}</p>
+              <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.draft.rules.advantage")}</p>
             </div>
           </div>
 
@@ -206,12 +206,12 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
             <h3 className={heading3}>{t("pages.draft.rules.sources")}</h3>
             <ol className="mt-3 space-y-1.5 text-sm">
               {SOURCE_KEYS.map((key, i) => (
-                <li key={key} id={`source-${key}`} className="flex gap-2 text-craie-300">
-                  <span className="shrink-0 tabular-nums text-craie-500">[{i + 1}]</span>
+                <li key={key} id={`source-${key}`} className="flex gap-2 text-chalk-300">
+                  <span className="shrink-0 tabular-nums text-chalk-500">[{i + 1}]</span>
                   <a
                     href={SOURCES[key].url}
                     rel="noopener noreferrer"
-                    className="break-words text-or-400 underline-offset-2 hover:text-or-500 hover:underline"
+                    className="break-words text-gold-400 underline-offset-2 hover:text-gold-500 hover:underline"
                   >
                     {SOURCES[key].site} · {SOURCES[key].page}
                   </a>
@@ -221,7 +221,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
           </div>
         </section>
 
-        <p className="mt-14 border-t border-nuit-800 pt-6 text-sm leading-relaxed text-craie-500">{t("pages.draft.note")}</p>
+        <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">{t("pages.draft.note")}</p>
       </div>
     </>
   );

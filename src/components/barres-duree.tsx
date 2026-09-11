@@ -27,22 +27,22 @@ export function BarresDuree({
   return (
     <div
       className={cn(
-        "biseau flex h-48 items-stretch gap-1.5 border border-nuit-700/70 bg-nuit-900/60 p-3 sm:gap-3 sm:p-4",
+        "bevel flex h-48 items-stretch gap-1.5 border border-night-700/70 bg-night-900/60 p-3 sm:gap-3 sm:p-4",
         className,
       )}
     >
       {tranches.map((x, i) => (
         <div key={x.de} className="flex min-w-0 flex-1 flex-col items-center gap-1">
-          <span className={cn("text-xs tabular-nums", i === meilleure ? "font-semibold text-or-400" : "text-craie-300")}>
+          <span className={cn("text-xs tabular-nums", i === meilleure ? "font-semibold text-gold-400" : "text-chalk-300")}>
             {nombre(x.victoire)}
           </span>
           <div className="flex w-full flex-1 items-end">
             <div
-              className={cn("w-full rounded-t-sm", i === meilleure ? "bg-or-500" : "bg-craie-500/40")}
+              className={cn("w-full rounded-t-sm", i === meilleure ? "bg-gold-500" : "bg-chalk-500/40")}
               style={{ height: `${Math.max(6, ((x.victoire - bas) / (haut - bas)) * 100)}%` }}
             />
           </div>
-          <span className="text-center text-[0.65rem] leading-tight text-craie-500 sm:text-xs">{libelle(x)}</span>
+          <span className="text-center text-[0.65rem] leading-tight text-chalk-500 sm:text-xs">{libelle(x)}</span>
         </div>
       ))}
     </div>

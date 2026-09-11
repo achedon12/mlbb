@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const titreSection = "font-titre text-2xl font-bold text-craie-100";
+const titreSection = "font-heading text-2xl font-bold text-chalk-100";
 
 export default async function PageChatiment({ params }: Params) {
   const { locale } = await params;
@@ -69,8 +69,8 @@ export default async function PageChatiment({ params }: Params) {
           <h2 id="regles-titre" className={titreSection}>
             {t("pages.chatiment.reglesTitre")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.chatiment.regle1")}</p>
             <p>{t("pages.chatiment.regle2", { recharge: RECHARGE_CHATIMENT_S })}</p>
             <p>
@@ -89,8 +89,8 @@ export default async function PageChatiment({ params }: Params) {
           <h2 id="valeurs-titre" className={titreSection}>
             {t("pages.chatiment.valeursTitre")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-chalk-300">
             {t("pages.chatiment.degatsIntro", { base: CHATIMENT_BASE, parNiveau: CHATIMENT_PAR_NIVEAU })}
           </p>
           <ol className="mt-5 space-y-1.5">
@@ -98,26 +98,26 @@ export default async function PageChatiment({ params }: Params) {
               const degats = degatsChatiment(n);
               return (
                 <li key={n} className="grid grid-cols-[5rem_1fr_3.5rem] items-center gap-3 text-sm">
-                  <span className="text-craie-500">{t("pages.chatiment.niveau", { n })}</span>
-                  <span aria-hidden className="h-3 bg-nuit-800">
+                  <span className="text-chalk-500">{t("pages.chatiment.niveau", { n })}</span>
+                  <span aria-hidden className="h-3 bg-night-800">
                     <span
-                      className="block h-full bg-gradient-to-r from-or-600 to-or-400"
+                      className="block h-full bg-gradient-to-r from-gold-600 to-gold-400"
                       style={{ width: `${(degats / degatsMax) * 100}%` }}
                     />
                   </span>
-                  <span className="text-right font-titre font-bold tabular-nums text-craie-100">{entier.format(degats)}</span>
+                  <span className="text-right font-heading font-bold tabular-nums text-chalk-100">{entier.format(degats)}</span>
                 </li>
               );
             })}
           </ol>
 
-          <h3 className="mt-10 font-titre text-xl font-bold text-craie-100">{t("pages.chatiment.monstresTitre")}</h3>
+          <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.chatiment.monstresTitre")}</h3>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {CLES_OBJECTIFS.map((cle) => {
               const o = OBJECTIFS[cle];
               const segment = (o.segment / o.pv) * 100;
               return (
-                <li key={cle} className="biseau-sm flex items-center gap-4 border border-nuit-700/70 bg-nuit-900/60 p-3">
+                <li key={cle} className="bevel-sm flex items-center gap-4 border border-night-700/70 bg-night-900/60 p-3">
                   {/* eslint-disable-next-line @next/next/no-img-element -- portrait local, deja reduit */}
                   <img
                     src={o.image}
@@ -125,30 +125,30 @@ export default async function PageChatiment({ params }: Params) {
                     width={56}
                     height={56}
                     loading="lazy"
-                    className="size-14 shrink-0 rounded-full border border-nuit-600 object-cover"
+                    className="size-14 shrink-0 rounded-full border border-night-600 object-cover"
                   />
                   <div className="min-w-0 flex-1">
                     <p className="flex flex-wrap items-baseline justify-between gap-x-3">
-                      <span className="font-semibold text-craie-100">{t(`outils.chatiment.objectif.${cle}`)}</span>
-                      <span className="font-titre font-bold tabular-nums text-craie-100">
+                      <span className="font-semibold text-chalk-100">{t(`outils.chatiment.objectif.${cle}`)}</span>
+                      <span className="font-heading font-bold tabular-nums text-chalk-100">
                         {t("outils.chatiment.pvMax", { pv: entier.format(o.pv) })}
                       </span>
                     </p>
                     {/* Longueur relative au plus gros objectif ; un trait par segment de la barre de vie. */}
-                    <div aria-hidden className="mt-2 h-2.5 bg-nuit-950">
+                    <div aria-hidden className="mt-2 h-2.5 bg-night-950">
                       <div
-                        className="h-full bg-gradient-to-r from-sang-500 to-[#ff7a66]"
+                        className="h-full bg-gradient-to-r from-blood-500 to-[#ff7a66]"
                         style={{
                           width: `${(o.pv / pvMaxObjectifs) * 100}%`,
                           backgroundImage: `repeating-linear-gradient(to right, transparent 0 calc(${segment}% - 1px), rgba(6, 8, 15, 0.9) calc(${segment}% - 1px) ${segment}%), linear-gradient(to right, #d94848, #ff7a66)`,
                         }}
                       />
                     </div>
-                    <p className="mt-1.5 flex flex-wrap justify-between gap-x-3 text-xs text-craie-500">
+                    <p className="mt-1.5 flex flex-wrap justify-between gap-x-3 text-xs text-chalk-500">
                       <span>
                         {t("pages.chatiment.colSegment")} : <span className="tabular-nums">{entier.format(o.segment)}</span>
                       </span>
-                      <a href={o.source} rel="noopener" className="underline transition-colors hover:text-or-400">
+                      <a href={o.source} rel="noopener" className="underline transition-colors hover:text-gold-400">
                         {t("pages.chatiment.wiki")}
                       </a>
                     </p>
@@ -157,12 +157,12 @@ export default async function PageChatiment({ params }: Params) {
               );
             })}
           </ul>
-          <p className="mt-3 text-sm text-craie-500">{t("pages.chatiment.monstresNote")}</p>
+          <p className="mt-3 text-sm text-chalk-500">{t("pages.chatiment.monstresNote")}</p>
 
-          <h3 className="mt-10 font-titre text-xl font-bold text-craie-100">{t("pages.chatiment.difficultesTitre")}</h3>
+          <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.chatiment.difficultesTitre")}</h3>
           <div className="mt-3 relative overflow-x-auto">
             <table className="w-full min-w-[26rem] text-left text-sm">
-              <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
+              <thead className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
                 <tr>
                   <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colDifficulte")}</th>
                   <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colAdverse")}</th>
@@ -174,30 +174,30 @@ export default async function PageChatiment({ params }: Params) {
                 {DIFFICULTES_ORDRE.map((d) => {
                   const r = REGLAGES[d];
                   return (
-                    <tr key={d} className="border-b border-nuit-800">
-                      <th scope="row" className="py-2.5 pr-4 font-medium text-craie-100">
+                    <tr key={d} className="border-b border-night-800">
+                      <th scope="row" className="py-2.5 pr-4 font-medium text-chalk-100">
                         {t(`outils.chatiment.difficulte.${d}`)}
                       </th>
                       <td className="py-2.5 pr-4">
                         <div className="flex items-center gap-3">
-                          <span aria-hidden className="relative h-2 w-20 shrink-0 bg-nuit-800 sm:w-32">
+                          <span aria-hidden className="relative h-2 w-20 shrink-0 bg-night-800 sm:w-32">
                             <span
-                              className="absolute inset-y-0 bg-sang-500"
+                              className="absolute inset-y-0 bg-blood-500"
                               style={{
                                 left: `${(r.reactionAdverse[0] / reactionMax) * 100}%`,
                                 width: `${((r.reactionAdverse[1] - r.reactionAdverse[0]) / reactionMax) * 100}%`,
                               }}
                             />
                           </span>
-                          <span className="whitespace-nowrap tabular-nums text-craie-200">
+                          <span className="whitespace-nowrap tabular-nums text-chalk-200">
                             {entier.format(r.reactionAdverse[0])}–{entier.format(r.reactionAdverse[1])} ms
                           </span>
                         </div>
                       </td>
-                      <td className="py-2.5 pr-4 text-craie-300">
+                      <td className="py-2.5 pr-4 text-chalk-300">
                         {r.repere ? t("pages.chatiment.oui") : t("pages.chatiment.non")}
                       </td>
-                      <td className="py-2.5 text-craie-300">
+                      <td className="py-2.5 text-chalk-300">
                         {r.pvChiffres ? t("pages.chatiment.oui") : t("pages.chatiment.non")}
                       </td>
                     </tr>
@@ -206,14 +206,14 @@ export default async function PageChatiment({ params }: Params) {
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-sm text-craie-500">{t("pages.chatiment.valeursEntrainement")}</p>
+          <p className="mt-3 text-sm text-chalk-500">{t("pages.chatiment.valeursEntrainement")}</p>
         </section>
 
-        <section aria-labelledby="sources-titre" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-titre" className="font-semibold text-craie-300">{t("pages.chatiment.sourcesTitre")}</h2>
+        <section aria-labelledby="sources-titre" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.chatiment.sourcesTitre")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
-              <a href={SOURCE_CHATIMENT} rel="noopener" className="underline transition-colors hover:text-or-400">
+              <a href={SOURCE_CHATIMENT} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.chatiment.sourceChatiment")}
               </a>
             </li>

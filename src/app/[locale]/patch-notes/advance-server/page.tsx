@@ -49,7 +49,7 @@ export default async function AdvanceServerPage({ params }: Params) {
   const latestUnderTest = latest ? isUnderTest(latest.version, live) : false;
   const heroCount = (n: number) =>
     t(`pages.advanceServer.heroCount.${new Intl.PluralRules(locale).select(n) === "one" ? "one" : "other"}`, { n });
-  const title2 = "font-titre text-2xl font-bold text-craie-100";
+  const title2 = "font-heading text-2xl font-bold text-chalk-100";
 
   return (
     <>
@@ -58,7 +58,7 @@ export default async function AdvanceServerPage({ params }: Params) {
         chapeau={t("pages.advanceServer.lead")}
         miettes={[{ nom: t("nav.patchNotes.label"), href: "/patch-notes" }, { nom: t("pages.advanceServer.crumb") }]}
       >
-        <p className="mt-6 text-sm text-craie-500">
+        <p className="mt-6 text-sm text-chalk-500">
           {t("pages.advanceServer.syncedAt", { date: dateLongue(locale, advanceSyncedAt) })}
         </p>
       </EnTetePage>
@@ -76,26 +76,26 @@ export default async function AdvanceServerPage({ params }: Params) {
           )}
         </TestNotice>
 
-        {!latest && <p className="text-craie-300">{t("pages.advanceServer.empty")}</p>}
+        {!latest && <p className="text-chalk-300">{t("pages.advanceServer.empty")}</p>}
 
         {latest && (
           <section aria-labelledby="advance-latest">
             <h2 id="advance-latest" className={title2}>
               {t("pages.advanceServer.latest")}
             </h2>
-            <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+            <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
-            <div className="biseau mt-6 border border-nuit-700/70 bg-nuit-900/60 p-5">
+            <div className="bevel mt-6 border border-night-700/70 bg-night-900/60 p-5">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                <h3 className="font-titre text-2xl font-bold text-craie-100">
+                <h3 className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.advanceServer.heading", { v: latest.version })}
                 </h3>
                 <StatusBadge underTest={latestUnderTest} live={live} t={t} />
               </div>
-              <p className="mt-1 text-sm text-craie-500">
+              <p className="mt-1 text-sm text-chalk-500">
                 <VersionDate version={latest} locale={locale} t={t} />
               </p>
-              {latest.summary && <p className="mt-3 text-sm leading-relaxed text-craie-300">{latest.summary}</p>}
+              {latest.summary && <p className="mt-3 text-sm leading-relaxed text-chalk-300">{latest.summary}</p>}
               <div className="mt-4">
                 <BalanceSummary balance={latest.balance} t={t} />
               </div>
@@ -106,7 +106,7 @@ export default async function AdvanceServerPage({ params }: Params) {
               )}
               <Link
                 href={`${PATH}/${latest.version}`}
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-or-400 hover:text-or-500"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-500"
               >
                 {t("pages.advanceServer.readAll", { v: latest.version })}
                 <ArrowRight size={14} aria-hidden />
@@ -120,8 +120,8 @@ export default async function AdvanceServerPage({ params }: Params) {
             <h2 id="advance-versions" className={title2}>
               {t("pages.advanceServer.versions")}
             </h2>
-            <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-            <p className="mt-3 text-sm text-craie-500">
+            <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+            <p className="mt-3 text-sm text-chalk-500">
               {t("pages.advanceServer.versionsIntro", { n: versions.length })}
             </p>
 
@@ -130,16 +130,16 @@ export default async function AdvanceServerPage({ params }: Params) {
                 <li key={v.version}>
                   <Link
                     href={`${PATH}/${v.version}`}
-                    className="biseau group flex h-full flex-col gap-1 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
+                    className="bevel group flex h-full flex-col gap-1 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
                   >
                     <span className="flex flex-wrap items-center gap-2">
-                      <FileText size={18} aria-hidden className="shrink-0 text-or-400" />
-                      <span className="font-titre text-lg font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                      <FileText size={18} aria-hidden className="shrink-0 text-gold-400" />
+                      <span className="font-heading text-lg font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                         {v.version}
                       </span>
                       {isUnderTest(v.version, live) && <StatusBadge underTest live={live} t={t} />}
                     </span>
-                    <span className="text-xs text-craie-500">
+                    <span className="text-xs text-chalk-500">
                       <VersionDate version={v} locale={locale} t={t} /> · {heroCount(v.heroes.length)}
                     </span>
                   </Link>
@@ -154,8 +154,8 @@ export default async function AdvanceServerPage({ params }: Params) {
             <h2 id="advance-archive" className={title2}>
               {t("pages.advanceServer.archive")}
             </h2>
-            <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-            <p className="mt-3 text-sm text-craie-500">
+            <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+            <p className="mt-3 text-sm text-chalk-500">
               {t("pages.advanceServer.archiveIntro", { n: advanceArchive.length })}
             </p>
 
@@ -166,12 +166,12 @@ export default async function AdvanceServerPage({ params }: Params) {
                     href={a.url}
                     rel="noreferrer nofollow"
                     target="_blank"
-                    className="biseau-sm group flex items-center justify-between gap-2 border border-nuit-700/70 px-3 py-2 text-sm transition-colors hover:border-or-500/60"
+                    className="bevel-sm group flex items-center justify-between gap-2 border border-night-700/70 px-3 py-2 text-sm transition-colors hover:border-gold-500/60"
                   >
-                    <span className="tabular-nums text-craie-300 transition-colors group-hover:text-or-400">
+                    <span className="tabular-nums text-chalk-300 transition-colors group-hover:text-gold-400">
                       {a.version}
                     </span>
-                    <ExternalLink size={12} aria-hidden className="shrink-0 text-craie-500" />
+                    <ExternalLink size={12} aria-hidden className="shrink-0 text-chalk-500" />
                   </a>
                 </li>
               ))}
@@ -183,7 +183,7 @@ export default async function AdvanceServerPage({ params }: Params) {
           t={t}
           href={advanceSource}
           cle="pages.advanceServer.credit"
-          className="border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500"
+          className="border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"
         />
       </div>
     </>

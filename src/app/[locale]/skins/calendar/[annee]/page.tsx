@@ -119,17 +119,17 @@ export default async function PageAnneeSkins({ params }: Params) {
   const navigation = (
     <nav aria-label={t("pages.calendrierSkins.annee.navAnnees")} className="flex flex-wrap justify-between gap-3 text-sm">
       {precedente ? (
-        <Link href={`/skins/calendar/${precedente}`} className="font-semibold text-or-400 hover:text-or-500">
+        <Link href={`/skins/calendar/${precedente}`} className="font-semibold text-gold-400 hover:text-gold-500">
           ← {precedente}
         </Link>
       ) : (
         <span />
       )}
-      <Link href="/skins/calendar" className="text-craie-300 hover:text-or-400">
+      <Link href="/skins/calendar" className="text-chalk-300 hover:text-gold-400">
         {t("pages.calendrierSkins.miette")}
       </Link>
       {suivante ? (
-        <Link href={`/skins/calendar/${suivante}`} className="font-semibold text-or-400 hover:text-or-500">
+        <Link href={`/skins/calendar/${suivante}`} className="font-semibold text-gold-400 hover:text-gold-500">
           {suivante} →
         </Link>
       ) : (
@@ -155,7 +155,7 @@ export default async function PageAnneeSkins({ params }: Params) {
 
       <div className="mx-auto max-w-6xl space-y-12 px-4 py-12">
         <section>
-          <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-craie-300 marker:text-or-400">
+          <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
             {faits.map((x) => (
               <li key={x}>{x}</li>
             ))}
@@ -166,10 +166,10 @@ export default async function PageAnneeSkins({ params }: Params) {
                 <li key={ancre(m.mois)}>
                   <a
                     href={`#${ancre(m.mois)}`}
-                    className="biseau-sm inline-block border border-nuit-700 px-2.5 py-1 text-xs text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+                    className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-xs text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
                     {m.mois ? nomMois(m.mois) : t("pages.calendrierSkins.moisInconnu")}{" "}
-                    <span className="text-craie-500">· {m.skins.length}</span>
+                    <span className="text-chalk-500">· {m.skins.length}</span>
                   </a>
                 </li>
               ))}
@@ -181,7 +181,7 @@ export default async function PageAnneeSkins({ params }: Params) {
           <section key={ancre(m.mois)} id={ancre(m.mois)} className="scroll-mt-24">
             <TitreSection>
               {m.mois ? nomMois(m.mois) : t("pages.calendrierSkins.moisInconnu")}{" "}
-              <span className="text-base font-normal text-craie-500">
+              <span className="text-base font-normal text-chalk-500">
                 · {t(m.skins.length === 1 ? "pages.calendrierSkins.nSkins1" : "pages.calendrierSkins.nSkins", {
                   n: nombre.format(m.skins.length),
                 })}

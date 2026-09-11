@@ -31,10 +31,10 @@ export function BoutonFavori({ heros }: { heros: string }) {
         onClick={() => basculerFavori(heros)}
         aria-pressed={favori}
         className={cn(
-          "biseau-sm flex items-center gap-2 border px-4 py-2 text-sm font-medium transition-colors",
+          "bevel-sm flex items-center gap-2 border px-4 py-2 text-sm font-medium transition-colors",
           favori
-            ? "border-or-500 bg-or-500/10 text-or-400"
-            : "border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
+            ? "border-gold-500 bg-gold-500/10 text-gold-400"
+            : "border-night-700 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400",
         )}
       >
         <Star size={15} aria-hidden fill={favori ? "currentColor" : "none"} />

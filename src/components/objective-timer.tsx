@@ -148,7 +148,7 @@ function urgency(left: number | null): "calm" | "soon" | "urgent" {
 }
 
 const button =
-  "inline-flex min-h-14 items-center justify-center gap-2 px-4 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-or-400 disabled:cursor-not-allowed disabled:opacity-50";
+  "inline-flex min-h-14 items-center justify-center gap-2 px-4 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold-400 disabled:cursor-not-allowed disabled:opacity-50";
 
 export function ObjectiveTimer() {
   const t = useT();
@@ -276,20 +276,20 @@ export function ObjectiveTimer() {
       {/* minmax(0, 1fr) tracks: an intrinsic width (the time field) must never widen the column past the screen. */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <section aria-labelledby="timer-clock" className="relative min-w-0">
-          <div aria-hidden className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-900/80" />
+          <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/80" />
           <div className="relative p-4 sm:p-5">
-            <h2 id="timer-clock" className="text-xs font-semibold uppercase tracking-[0.2em] text-craie-500">
+            <h2 id="timer-clock" className="text-xs font-semibold uppercase tracking-[0.2em] text-chalk-500">
               {t("pages.timerUI.clockTitle")}
             </h2>
             <p
               role="timer"
               aria-describedby={stateId}
-              className="mt-1 font-titre text-7xl font-bold leading-none tabular-nums text-craie-100 sm:text-8xl"
+              className="mt-1 font-heading text-7xl font-bold leading-none tabular-nums text-chalk-100 sm:text-8xl"
               suppressHydrationWarning
             >
               {formatTime(time)}
             </p>
-            <p id={stateId} className="mt-2 text-sm text-craie-400">
+            <p id={stateId} className="mt-2 text-sm text-chalk-400">
               {t(`pages.timerUI.state.${clockState}`)}
             </p>
 
@@ -301,7 +301,7 @@ export function ObjectiveTimer() {
                   if (settings.sound) audioContext();
                   updateMatch((_, n) => startMatch(n));
                 }}
-                className={cn(button, "biseau-sm mt-4 w-full bg-or-500 text-lg text-nuit-950 hover:bg-or-400")}
+                className={cn(button, "bevel-sm mt-4 w-full bg-gold-500 text-lg text-night-950 hover:bg-gold-400")}
               >
                 <Play aria-hidden size={20} />
                 {t("pages.timerUI.start")}
@@ -312,7 +312,7 @@ export function ObjectiveTimer() {
                   type="button"
                   aria-label={t("pages.timerUI.minus5Label")}
                   onClick={() => updateMatch((m, n) => (m ? shiftTime(m, -5, n) : m))}
-                  className={cn(button, "biseau-sm bg-nuit-800 px-2 tabular-nums text-craie-100 hover:bg-nuit-700")}
+                  className={cn(button, "bevel-sm bg-night-800 px-2 tabular-nums text-chalk-100 hover:bg-night-700")}
                 >
                   {t("pages.timerUI.minus5")}
                 </button>
@@ -321,8 +321,8 @@ export function ObjectiveTimer() {
                   onClick={() => updateMatch((m, n) => (m ? togglePause(m, n) : m))}
                   className={cn(
                     button,
-                    "biseau-sm px-2",
-                    match.running ? "bg-nuit-700 text-craie-100 hover:bg-nuit-600" : "bg-or-500 text-nuit-950 hover:bg-or-400",
+                    "bevel-sm px-2",
+                    match.running ? "bg-night-700 text-chalk-100 hover:bg-night-600" : "bg-gold-500 text-night-950 hover:bg-gold-400",
                   )}
                 >
                   {match.running ? <Pause aria-hidden size={20} /> : <Play aria-hidden size={20} />}
@@ -332,7 +332,7 @@ export function ObjectiveTimer() {
                   type="button"
                   aria-label={t("pages.timerUI.plus5Label")}
                   onClick={() => updateMatch((m, n) => (m ? shiftTime(m, 5, n) : m))}
-                  className={cn(button, "biseau-sm bg-nuit-800 px-2 tabular-nums text-craie-100 hover:bg-nuit-700")}
+                  className={cn(button, "bevel-sm bg-night-800 px-2 tabular-nums text-chalk-100 hover:bg-night-700")}
                 >
                   {t("pages.timerUI.plus5")}
                 </button>
@@ -340,7 +340,7 @@ export function ObjectiveTimer() {
             )}
 
             <form onSubmit={sync} className="mt-4" noValidate>
-              <label htmlFor={fieldId} className="block text-sm font-semibold text-craie-300">
+              <label htmlFor={fieldId} className="block text-sm font-semibold text-chalk-300">
                 {t("pages.timerUI.timeField")}
               </label>
               <div className="mt-1 flex gap-2">
@@ -354,17 +354,17 @@ export function ObjectiveTimer() {
                   placeholder="3:45"
                   aria-invalid={invalid}
                   aria-describedby={invalid ? `${helpId} ${errorId}` : helpId}
-                  className="h-14 w-0 min-w-0 flex-1 rounded-sm border border-nuit-600 bg-nuit-950 px-3 font-titre text-2xl tabular-nums text-craie-100 placeholder:text-craie-600 focus:border-or-400 focus:outline-none"
+                  className="h-14 w-0 min-w-0 flex-1 rounded-sm border border-night-600 bg-night-950 px-3 font-heading text-2xl tabular-nums text-chalk-100 placeholder:text-chalk-600 focus:border-gold-400 focus:outline-none"
                 />
-                <button type="submit" className={cn(button, "biseau-sm shrink-0 bg-azur-500 text-nuit-950 hover:bg-azur-400")}>
+                <button type="submit" className={cn(button, "bevel-sm shrink-0 bg-azure-500 text-night-950 hover:bg-azure-400")}>
                   {t("pages.timerUI.apply")}
                 </button>
               </div>
-              <p id={helpId} className="mt-1.5 text-xs text-craie-500">
+              <p id={helpId} className="mt-1.5 text-xs text-chalk-500">
                 {t("pages.timerUI.inputHelp")}
               </p>
               {invalid && (
-                <p id={errorId} role="alert" className="mt-1 text-sm font-semibold text-sang-500">
+                <p id={errorId} role="alert" className="mt-1 text-sm font-semibold text-blood-500">
                   {t("pages.timerUI.timeError")}
                 </p>
               )}
@@ -373,7 +373,7 @@ export function ObjectiveTimer() {
         </section>
 
         <section aria-labelledby="timer-kills" className="min-w-0">
-          <h2 id="timer-kills" className="text-xs font-semibold uppercase tracking-[0.2em] text-craie-500">
+          <h2 id="timer-kills" className="text-xs font-semibold uppercase tracking-[0.2em] text-chalk-500">
             {t("pages.timerUI.killsTitle")}
           </h2>
           <ul className="mt-2 grid grid-cols-2 gap-2">
@@ -390,8 +390,8 @@ export function ObjectiveTimer() {
               </li>
             ))}
           </ul>
-          <div className="mt-3 flex min-h-14 items-center justify-between gap-3 border-t border-nuit-800 pt-2" aria-live="polite">
-            <p className="text-sm text-craie-400">
+          <div className="mt-3 flex min-h-14 items-center justify-between gap-3 border-t border-night-800 pt-2" aria-live="polite">
+            <p className="text-sm text-chalk-400">
               {lastKill
                 ? t("pages.timerUI.lastKill", { objective: label(lastKill.key, lastKill.side), time: formatTime(lastKill.at) })
                 : t(match ? "pages.timerUI.noKill" : "pages.timerUI.notStarted")}
@@ -400,7 +400,7 @@ export function ObjectiveTimer() {
               <button
                 type="button"
                 onClick={() => updateMatch((m) => (m ? undoLastKill(m) : m))}
-                className={cn(button, "biseau-sm shrink-0 bg-nuit-800 text-craie-100 hover:bg-nuit-700")}
+                className={cn(button, "bevel-sm shrink-0 bg-night-800 text-chalk-100 hover:bg-night-700")}
               >
                 <Undo2 aria-hidden size={18} />
                 {t("pages.timerUI.undo")}
@@ -411,11 +411,11 @@ export function ObjectiveTimer() {
       </div>
 
       <section aria-labelledby="timer-upcoming">
-        <h2 id="timer-upcoming" className="font-titre text-2xl font-bold text-craie-100">
+        <h2 id="timer-upcoming" className="font-heading text-2xl font-bold text-chalk-100">
           {t("pages.timerUI.upcomingTitle")}
         </h2>
-        <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-        {!match && <p className="mt-3 text-sm text-craie-400">{t("pages.timerUI.upcomingPreview")}</p>}
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        {!match && <p className="mt-3 text-sm text-chalk-400">{t("pages.timerUI.upcomingPreview")}</p>}
         <ol className="mt-4 space-y-2">
           {next.map((e) => (
             <EventRow key={e.id} e={e} time={time} name={label(e.key, e.side)} />
@@ -424,10 +424,10 @@ export function ObjectiveTimer() {
       </section>
 
       <section aria-labelledby="timer-settings">
-        <h2 id="timer-settings" className="font-titre text-2xl font-bold text-craie-100">
+        <h2 id="timer-settings" className="font-heading text-2xl font-bold text-chalk-100">
           {t("pages.timerUI.settingsTitle")}
         </h2>
-        <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
         <div className="mt-4 grid gap-2 sm:grid-cols-3">
           <Toggle
             on={settings.vibration && vibrates}
@@ -479,14 +479,14 @@ export function ObjectiveTimer() {
             }}
             className={cn(
               button,
-              "biseau-sm",
-              confirming ? "bg-sang-500 text-nuit-950 hover:bg-sang-500/90" : "bg-nuit-800 text-craie-100 hover:bg-nuit-700",
+              "bevel-sm",
+              confirming ? "bg-blood-500 text-night-950 hover:bg-blood-500/90" : "bg-night-800 text-chalk-100 hover:bg-night-700",
             )}
           >
             <RotateCcw aria-hidden size={18} />
             {t(confirming ? "pages.timerUI.confirm" : "pages.timerUI.newMatch")}
           </button>
-          <p className="text-xs text-craie-500">{t("pages.timerUI.kept")}</p>
+          <p className="text-xs text-chalk-500">{t("pages.timerUI.kept")}</p>
         </div>
       </section>
     </div>
@@ -518,16 +518,16 @@ function KillTile({
       onClick={onKill}
       disabled={disabled || gone}
       className={cn(
-        "flex min-h-[5.5rem] w-full items-center gap-2.5 rounded-sm border-2 px-2.5 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-400 disabled:cursor-not-allowed sm:gap-3 sm:px-3",
+        "flex min-h-[5.5rem] w-full items-center gap-2.5 rounded-sm border-2 px-2.5 py-2 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 disabled:cursor-not-allowed sm:gap-3 sm:px-3",
         gone || disabled
-          ? "border-nuit-800 bg-nuit-900/40 opacity-60"
+          ? "border-night-800 bg-night-900/40 opacity-60"
           : state.state === "up"
-            ? "border-azur-500/70 bg-azur-500/10 hover:bg-azur-500/20"
+            ? "border-azure-500/70 bg-azure-500/10 hover:bg-azure-500/20"
             : level === "urgent"
-              ? "border-sang-500 bg-sang-500/15"
+              ? "border-blood-500 bg-blood-500/15"
               : level === "soon"
-                ? "border-or-500 bg-or-500/10"
-                : "border-nuit-700 bg-nuit-900/70 hover:border-or-500/60",
+                ? "border-gold-500 bg-gold-500/10"
+                : "border-night-700 bg-night-900/70 hover:border-gold-500/60",
       )}
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- local portrait, already small */}
@@ -536,31 +536,31 @@ function KillTile({
         alt=""
         width={40}
         height={40}
-        className="size-9 shrink-0 rounded-full border border-nuit-600 object-cover sm:size-10"
+        className="size-9 shrink-0 rounded-full border border-night-600 object-cover sm:size-10"
       />
       <span className="min-w-0 flex-1">
         <span className="sr-only">{t("pages.timerUI.record")} </span>
-        <span className="block text-sm font-bold leading-tight text-craie-100 sm:text-base">
+        <span className="block text-sm font-bold leading-tight text-chalk-100 sm:text-base">
           {t(`pages.timerUI.name.${objective}`)}
         </span>
-        {side && <span className="block text-xs text-craie-400">{t(`pages.timerUI.side.${side}`)}</span>}
+        {side && <span className="block text-xs text-chalk-400">{t(`pages.timerUI.side.${side}`)}</span>}
         <span className="mt-0.5 block text-sm leading-tight" suppressHydrationWarning>
           {state.state === "waiting" && left !== null ? (
             <>
               <span
                 className={cn(
-                  "font-titre text-xl font-bold tabular-nums",
-                  level === "urgent" ? "text-sang-500 motion-safe:animate-pulse" : level === "soon" ? "text-or-400" : "text-craie-100",
+                  "font-heading text-xl font-bold tabular-nums",
+                  level === "urgent" ? "text-blood-500 motion-safe:animate-pulse" : level === "soon" ? "text-gold-400" : "text-chalk-100",
                 )}
               >
                 {formatTime(left)}
               </span>
-              <span className="text-xs text-craie-500"> · {formatTime(state.at)}</span>
+              <span className="text-xs text-chalk-500"> · {formatTime(state.at)}</span>
             </>
           ) : state.state === "up" ? (
-            <span className="font-semibold text-azur-400">{t("pages.timerUI.up")}</span>
+            <span className="font-semibold text-azure-400">{t("pages.timerUI.up")}</span>
           ) : (
-            <span className="text-craie-500">{t("pages.timerUI.noMoreTurtles")}</span>
+            <span className="text-chalk-500">{t("pages.timerUI.noMoreTurtles")}</span>
           )}
         </span>
       </span>
@@ -585,38 +585,38 @@ function EventRow({ e, time, name }: { e: GameEvent; time: number; name: string 
       className={cn(
         "flex items-center gap-3 border-l-4 px-3 py-2.5",
         milestone
-          ? "border-nuit-600 bg-nuit-900/40"
+          ? "border-night-600 bg-night-900/40"
           : spawned
-            ? "border-azur-500 bg-azur-500/10"
+            ? "border-azure-500 bg-azure-500/10"
             : level === "urgent"
-              ? "border-sang-500 bg-sang-500/15"
+              ? "border-blood-500 bg-blood-500/15"
               : level === "soon"
-                ? "border-or-500 bg-or-500/10"
-                : "border-nuit-700 bg-nuit-900/60",
+                ? "border-gold-500 bg-gold-500/10"
+                : "border-night-700 bg-night-900/60",
       )}
     >
       <div className="min-w-0 flex-1">
-        <p className={cn("font-semibold leading-snug", milestone ? "text-craie-300" : "text-craie-100")}>{name}</p>
-        {note && <p className="mt-0.5 text-xs leading-snug text-craie-400">{note}</p>}
+        <p className={cn("font-semibold leading-snug", milestone ? "text-chalk-300" : "text-chalk-100")}>{name}</p>
+        {note && <p className="mt-0.5 text-xs leading-snug text-chalk-400">{note}</p>}
       </div>
       <div className="shrink-0 text-right">
         <p
           className={cn(
-            "font-titre font-bold tabular-nums leading-none",
-            milestone ? "text-xl text-craie-400" : "text-3xl",
+            "font-heading font-bold tabular-nums leading-none",
+            milestone ? "text-xl text-chalk-400" : "text-3xl",
             spawned
-              ? "text-azur-400"
+              ? "text-azure-400"
               : level === "urgent"
-                ? "text-sang-500 motion-safe:animate-pulse"
+                ? "text-blood-500 motion-safe:animate-pulse"
                 : level === "soon"
-                  ? "text-or-400"
-                  : !milestone && "text-craie-100",
+                  ? "text-gold-400"
+                  : !milestone && "text-chalk-100",
           )}
           suppressHydrationWarning
         >
           {spawned ? t("pages.timerUI.up") : `${windowOpen ? "≤ " : ""}${formatTime(left)}`}
         </p>
-        <p className="mt-1 text-xs tabular-nums text-craie-500">{t("pages.timerUI.at", { time: when })}</p>
+        <p className="mt-1 text-xs tabular-nums text-chalk-500">{t("pages.timerUI.at", { time: when })}</p>
       </div>
     </li>
   );
@@ -642,14 +642,14 @@ function Toggle({
       aria-checked={on}
       disabled={disabled}
       onClick={() => onChange(!on)}
-      className="flex min-h-16 w-full items-center justify-between gap-3 rounded-sm border border-nuit-700 bg-nuit-900/60 px-3 py-2 text-left transition-colors hover:border-or-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-or-400 disabled:cursor-not-allowed disabled:opacity-60"
+      className="flex min-h-16 w-full items-center justify-between gap-3 rounded-sm border border-night-700 bg-night-900/60 px-3 py-2 text-left transition-colors hover:border-gold-500/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 disabled:cursor-not-allowed disabled:opacity-60"
     >
       <span className="min-w-0">
-        <span className="block font-semibold text-craie-100">{label}</span>
-        <span className="block text-xs text-craie-500">{detail}</span>
+        <span className="block font-semibold text-chalk-100">{label}</span>
+        <span className="block text-xs text-chalk-500">{detail}</span>
       </span>
-      <span aria-hidden className={cn("relative h-7 w-12 shrink-0 rounded-full transition-colors", on ? "bg-or-500" : "bg-nuit-700")}>
-        <span className={cn("absolute top-1 size-5 rounded-full bg-craie-100 transition-transform", on ? "translate-x-6" : "translate-x-1")} />
+      <span aria-hidden className={cn("relative h-7 w-12 shrink-0 rounded-full transition-colors", on ? "bg-gold-500" : "bg-night-700")}>
+        <span className={cn("absolute top-1 size-5 rounded-full bg-chalk-100 transition-transform", on ? "translate-x-6" : "translate-x-1")} />
       </span>
     </button>
   );

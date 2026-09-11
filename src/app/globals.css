@@ -4,36 +4,36 @@
  * Direction visuelle.
  *
  * Le jeu utilise un bleu nuit profond, de l'or, et des formes coupees en
- * biseau — on reprend ces trois idees sans copier ses ressources graphiques,
+ * bevel — on reprend ces trois idees sans copier ses ressources graphiques,
  * qui appartiennent a Moonton. Aucune image du jeu n'est redistribuee ici :
  * les couleurs et les angles suffisent a poser l'univers.
  */
 @theme {
-  --color-nuit-950: #06080f;
-  --color-nuit-900: #0a0e1a;
-  --color-nuit-850: #0e1424;
-  --color-nuit-800: #131b30;
-  --color-nuit-700: #1c2742;
-  --color-nuit-600: #2a3758;
+  --color-night-950: #06080f;
+  --color-night-900: #0a0e1a;
+  --color-night-850: #0e1424;
+  --color-night-800: #131b30;
+  --color-night-700: #1c2742;
+  --color-night-600: #2a3758;
 
-  --color-or-400: #f5c451;
-  --color-or-500: #e0a92e;
-  --color-or-600: #b8871f;
+  --color-gold-400: #f5c451;
+  --color-gold-500: #e0a92e;
+  --color-gold-600: #b8871f;
 
-  --color-azur-400: #4da3ff;
-  --color-azur-500: #2b7fe0;
+  --color-azure-400: #4da3ff;
+  --color-azure-500: #2b7fe0;
 
-  --color-sang-500: #d94848;
+  --color-blood-500: #d94848;
 
-  --color-craie-100: #eef2fb;
-  --color-craie-200: #dbe2f0;
-  --color-craie-300: #b7c2da;
-  --color-craie-400: #99a4c0;
-  --color-craie-500: #7b88a6;
-  --color-craie-600: #66728f;
+  --color-chalk-100: #eef2fb;
+  --color-chalk-200: #dbe2f0;
+  --color-chalk-300: #b7c2da;
+  --color-chalk-400: #99a4c0;
+  --color-chalk-500: #7b88a6;
+  --color-chalk-600: #66728f;
 
-  --font-titre: var(--police-titre), "Segoe UI", system-ui, sans-serif;
-  --font-corps: var(--police-corps), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--heading-font), "Segoe UI", system-ui, sans-serif;
+  --font-body: var(--body-font), system-ui, -apple-system, sans-serif;
 }
 
 :root {
@@ -47,14 +47,14 @@ html {
 body {
   background:
     radial-gradient(ellipse 90rem 45rem at 50% -12rem, #16213c 0%, transparent 62%),
-    var(--color-nuit-950);
-  color: var(--color-craie-100);
-  font-family: var(--font-corps);
+    var(--color-night-950);
+  color: var(--color-chalk-100);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-titre);
+  font-family: var(--font-heading);
   letter-spacing: 0.01em;
 }
 
@@ -66,23 +66,23 @@ h1, h2, h3, h4 {
  * et `:focus-visible` le reserve au clavier — la souris ne le declenche pas.
  */
 :focus-visible {
-  outline: 2px solid var(--color-or-400);
+  outline: 2px solid var(--color-gold-400);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 /* Coin biseaute, motif recurrent de l'interface du jeu. */
-@utility biseau {
+@utility bevel {
   clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% 100%, 0.75rem 100%, 0 calc(100% - 0.75rem));
 }
 
-@utility biseau-sm {
+@utility bevel-sm {
   clip-path: polygon(0 0, calc(100% - 0.45rem) 0, 100% 0.45rem, 100% 100%, 0.45rem 100%, 0 calc(100% - 0.45rem));
 }
 
 /* Filet dore utilise pour souligner les titres de section. */
-@utility filet-or {
-  background: linear-gradient(90deg, var(--color-or-500), transparent);
+@utility gold-rule {
+  background: linear-gradient(90deg, var(--color-gold-500), transparent);
 }
 
 /*
@@ -93,34 +93,34 @@ h1, h2, h3, h4 {
  */
 .prose-mlbb {
   line-height: 1.75;
-  color: var(--color-craie-300);
+  color: var(--color-chalk-300);
 }
 .prose-mlbb > * + * { margin-top: 1.15rem; }
 .prose-mlbb h2 {
   margin-top: 2.75rem;
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-craie-100);
+  color: var(--color-chalk-100);
 }
 .prose-mlbb h3 {
   margin-top: 2rem;
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--color-craie-100);
+  color: var(--color-chalk-100);
 }
-.prose-mlbb strong { color: var(--color-or-400); font-weight: 600; }
-.prose-mlbb a { color: var(--color-azur-400); text-decoration: underline; text-underline-offset: 3px; }
+.prose-mlbb strong { color: var(--color-gold-400); font-weight: 600; }
+.prose-mlbb a { color: var(--color-azure-400); text-decoration: underline; text-underline-offset: 3px; }
 .prose-mlbb ul { list-style: disc; padding-left: 1.25rem; }
 .prose-mlbb ol { list-style: decimal; padding-left: 1.25rem; }
 .prose-mlbb li + li { margin-top: 0.4rem; }
 .prose-mlbb blockquote {
-  border-left: 2px solid var(--color-or-500);
+  border-left: 2px solid var(--color-gold-500);
   padding-left: 1rem;
-  color: var(--color-craie-500);
+  color: var(--color-chalk-500);
   font-style: italic;
 }
 .prose-mlbb code {
-  background: var(--color-nuit-800);
+  background: var(--color-night-800);
   padding: 0.1rem 0.35rem;
   border-radius: 0.25rem;
   font-size: 0.9em;
@@ -136,7 +136,7 @@ h1, h2, h3, h4 {
  */
 .prose-mlbb h2 {
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-nuit-700);
+  border-bottom: 1px solid var(--color-night-700);
 }
 .prose-mlbb h2::before {
   content: "";
@@ -144,13 +144,13 @@ h1, h2, h3, h4 {
   width: 2.5rem;
   height: 2px;
   margin-bottom: 0.6rem;
-  background: linear-gradient(90deg, var(--color-or-500), transparent);
+  background: linear-gradient(90deg, var(--color-gold-500), transparent);
 }
 .prose-mlbb h4 {
   margin-top: 1.5rem;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-or-400);
+  color: var(--color-gold-400);
 }
 .prose-mlbb ul ul,
 .prose-mlbb ol ol {
@@ -167,13 +167,13 @@ h1, h2, h3, h4 {
 .prose-mlbb th,
 .prose-mlbb td {
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-nuit-700);
+  border: 1px solid var(--color-night-700);
   text-align: left;
   vertical-align: top;
 }
 .prose-mlbb th {
-  background: var(--color-nuit-850);
-  color: var(--color-craie-100);
+  background: var(--color-night-850);
+  color: var(--color-chalk-100);
   font-weight: 600;
 }
 /* Le titre vise par une ancre ne doit pas se coller sous l'en-tete fixe. */
@@ -190,7 +190,7 @@ h1, h2, h3, h4 {
 }
 
 /* Tiroir mobile : il monte depuis le bas de l'ecran. */
-@keyframes monter {
+@keyframes slide-up {
   from {
     transform: translateY(100%);
   }
@@ -199,8 +199,8 @@ h1, h2, h3, h4 {
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .tiroir {
-    animation: monter 0.22s ease-out;
+  .drawer {
+    animation: slide-up 0.22s ease-out;
   }
 }
 
@@ -209,7 +209,7 @@ h1, h2, h3, h4 {
  * style et la mise en page d'un element qu'a l'approche de l'ecran. La taille
  * reelle est retenue une fois l'element affiche.
  */
-.hors-ecran {
+.offscreen {
   content-visibility: auto;
   contain-intrinsic-size: auto 5rem;
 }
@@ -221,49 +221,49 @@ h1, h2, h3, h4 {
  * laisse les utilitaires ponctuels (accent, fleches) l'emporter.
  */
 @layer components {
-  .ligne-tier {
-    @apply biseau-sm flex flex-wrap items-center gap-x-3 gap-y-2 border border-nuit-700/70 bg-nuit-900/60 p-2.5 transition-colors hover:border-or-500/60 sm:flex-nowrap;
+  .tier-row {
+    @apply bevel-sm flex flex-wrap items-center gap-x-3 gap-y-2 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60 sm:flex-nowrap;
   }
-  /* Rendu differe des lignes hors ecran (voir .hors-ecran), sans classe sur chaque ligne. */
-  .liste-tier > li {
+  /* Rendu differe des lignes hors ecran (voir .offscreen), sans classe sur chaque ligne. */
+  .tier-rows > li {
     content-visibility: auto;
     contain-intrinsic-size: auto 5rem;
   }
-  .ligne-tier-identite {
+  .tier-row-identity {
     @apply min-w-0 flex-1 sm:w-32 sm:flex-none;
   }
-  .ligne-tier-nom {
-    @apply font-titre font-bold text-craie-100 transition-colors;
+  .tier-row-name {
+    @apply font-heading font-bold text-chalk-100 transition-colors;
   }
-  .ligne-tier:hover .ligne-tier-nom {
-    @apply text-or-400;
+  .tier-row:hover .tier-row-name {
+    @apply text-gold-400;
   }
-  .ligne-tier-lanes {
-    @apply block text-[0.7rem] uppercase tracking-wide text-craie-500;
+  .tier-row-lanes {
+    @apply block text-[0.7rem] uppercase tracking-wide text-chalk-500;
   }
-  .ligne-tier-taux {
+  .tier-row-rates {
     @apply flex shrink-0 gap-3 text-xs tabular-nums sm:gap-4;
   }
-  .ligne-tier-note {
-    @apply hidden flex-1 text-xs leading-relaxed text-craie-500 lg:block;
+  .tier-row-note {
+    @apply hidden flex-1 text-xs leading-relaxed text-chalk-500 lg:block;
   }
-  .ligne-tier-icone {
-    @apply biseau-sm size-10 shrink-0 bg-nuit-800 object-cover;
+  .tier-row-icon {
+    @apply bevel-sm size-10 shrink-0 bg-night-800 object-cover;
   }
   /* Taux d'une ligne : libelle au-dessus, valeur dessous, le premier (victoire) en or. */
-  .ligne-tier-taux > div {
+  .tier-row-rates > div {
     @apply w-12 text-right sm:w-14;
   }
-  .ligne-tier-taux dt {
-    @apply text-[0.65rem] uppercase leading-tight tracking-wide text-craie-500;
+  .tier-row-rates dt {
+    @apply text-[0.65rem] uppercase leading-tight tracking-wide text-chalk-500;
   }
-  .ligne-tier-taux dd {
-    @apply whitespace-nowrap text-craie-300;
+  .tier-row-rates dd {
+    @apply whitespace-nowrap text-chalk-300;
   }
-  .ligne-tier-taux > div:first-child > dd {
-    @apply font-semibold text-or-400;
+  .tier-row-rates > div:first-child > dd {
+    @apply font-semibold text-gold-400;
   }
-  .taux-tier-tendance {
+  .tier-rate-trend {
     @apply block text-[0.65rem] font-semibold leading-none;
   }
 }
@@ -275,100 +275,100 @@ h1, h2, h3, h4 {
  * plus leurs utilitaires dans le HTML et dans les donnees de la page.
  */
 @layer components {
-  .tableau-stats {
+  .stats-table {
     @apply w-full min-w-[42rem] border-collapse text-sm tabular-nums;
   }
-  .tableau-stats :is(th, td) {
+  .stats-table :is(th, td) {
     @apply px-3 py-1.5 text-right;
   }
-  .tableau-stats thead {
-    @apply bg-nuit-900 text-xs text-craie-500;
+  .stats-table thead {
+    @apply bg-night-900 text-xs text-chalk-500;
   }
-  .tableau-stats thead th {
+  .stats-table thead th {
     @apply py-2 font-medium uppercase tracking-wide;
   }
-  .tableau-stats tbody tr {
-    @apply border-t border-nuit-800;
+  .stats-table tbody tr {
+    @apply border-t border-night-800;
   }
   /* Colonne du heros, figee a gauche pendant le defilement horizontal. */
-  .tableau-stats :is(th, td):first-child {
-    @apply sticky left-0 z-10 bg-nuit-950 text-left;
+  .stats-table :is(th, td):first-child {
+    @apply sticky left-0 z-10 bg-night-950 text-left;
   }
-  .tableau-stats thead th:first-child,
-  .tableau-stats tbody tr:hover > * {
-    @apply bg-nuit-900;
+  .stats-table thead th:first-child,
+  .stats-table tbody tr:hover > * {
+    @apply bg-night-900;
   }
-  .tableau-stats tbody th {
+  .stats-table tbody th {
     @apply w-44 max-w-44 font-normal;
   }
-  .tableau-stats tbody th > a {
+  .stats-table tbody th > a {
     @apply flex items-center gap-2.5;
   }
-  .tableau-stats tbody th img {
-    @apply biseau-sm size-7 shrink-0 bg-nuit-800 object-cover;
+  .stats-table tbody th img {
+    @apply bevel-sm size-7 shrink-0 bg-night-800 object-cover;
   }
-  .tableau-stats tbody th b {
-    @apply block truncate font-titre font-bold text-craie-100 transition-colors;
+  .stats-table tbody th b {
+    @apply block truncate font-heading font-bold text-chalk-100 transition-colors;
   }
-  .tableau-stats tbody tr:hover th b {
-    @apply text-or-400;
+  .stats-table tbody tr:hover th b {
+    @apply text-gold-400;
   }
-  .tableau-stats tbody th small {
-    @apply block truncate text-[0.65rem] uppercase tracking-wide text-craie-500;
+  .stats-table tbody th small {
+    @apply block truncate text-[0.65rem] uppercase tracking-wide text-chalk-500;
   }
-  .tableau-stats :is(th, td):nth-child(2) {
+  .stats-table :is(th, td):nth-child(2) {
     @apply text-center;
   }
-  .tableau-stats td:nth-child(3) {
-    @apply font-semibold text-or-400;
+  .stats-table td:nth-child(3) {
+    @apply font-semibold text-gold-400;
   }
-  .tableau-stats td:nth-child(4) {
-    @apply text-xs font-semibold text-craie-500;
+  .stats-table td:nth-child(4) {
+    @apply text-xs font-semibold text-chalk-500;
   }
-  .tableau-stats td:is(:nth-child(5), :nth-child(6)) {
-    @apply text-craie-300;
+  .stats-table td:is(:nth-child(5), :nth-child(6)) {
+    @apply text-chalk-300;
   }
-  .tableau-stats td:nth-child(7) {
-    @apply text-azur-500;
+  .stats-table td:nth-child(7) {
+    @apply text-azure-500;
   }
-  .tableau-stats svg {
+  .stats-table svg {
     @apply ml-auto inline-block h-5 w-16 fill-none stroke-current;
     stroke-width: 1.5;
     stroke-linejoin: round;
     stroke-linecap: round;
   }
   /* Le dessin s'etire en largeur ; le trait, lui, garde son epaisseur. */
-  .tableau-stats svg path {
+  .stats-table svg path {
     vector-effect: non-scaling-stroke;
   }
-  .tableau-stats :is(td, svg).hausse {
+  .stats-table :is(td, svg).rising {
     @apply text-emerald-400;
   }
-  .tableau-stats :is(td, svg).baisse {
-    @apply text-sang-500;
+  .stats-table :is(td, svg).falling {
+    @apply text-blood-500;
   }
-  .palier-stats {
-    @apply biseau-sm mx-auto grid size-7 place-items-center font-titre text-xs font-bold;
+  .stats-tier {
+    @apply bevel-sm mx-auto grid size-7 place-items-center font-heading text-xs font-bold;
   }
-  .vignette-skin {
-    @apply biseau-sm block overflow-hidden border-2;
+  .skin-thumb {
+    @apply bevel-sm block overflow-hidden border-2;
   }
-  .vignette-skin > :is(img, i) {
-    @apply block aspect-[240/390] h-auto w-full bg-nuit-800 object-cover;
+  .skin-thumb > :is(img, i) {
+    @apply block aspect-[240/390] h-auto w-full bg-night-800 object-cover;
   }
-  .vignette-skin > span {
-    @apply block truncate bg-nuit-900 px-1.5 py-1 text-[0.65rem] leading-tight text-craie-300 transition-colors;
+  .skin-thumb > span {
+    @apply block truncate bg-night-900 px-1.5 py-1 text-[0.65rem] leading-tight text-chalk-300 transition-colors;
   }
-  .vignette-skin:hover > span {
-    @apply text-or-400;
+  .skin-thumb:hover > span {
+    @apply text-gold-400;
   }
-  .index-galeries {
-    @apply columns-2 gap-6 text-sm tabular-nums text-craie-500 sm:columns-3 lg:columns-5;
+  .gallery-index {
+    @apply columns-2 gap-6 text-sm tabular-nums text-chalk-500 sm:columns-3 lg:columns-5;
   }
-  .index-galeries li {
+  .gallery-index li {
     @apply py-0.5;
   }
-  .index-galeries a {
-    @apply text-craie-300 transition-colors hover:text-or-400;
+  .gallery-index a {
+    @apply text-chalk-300 transition-colors hover:text-gold-400;
   }
 }
