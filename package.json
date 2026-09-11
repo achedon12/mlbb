@@ -47,7 +47,7 @@
     "clsx": "^2.1.1",
     "fast-xml-parser": "^5.11.1",
     "gray-matter": "^4.0.3",
-    "lucide-react": "^0.460.0",
+    "lucide-react": "^1.43.0",
     "marked": "^15.0.4",
     "next": "^16.0.0",
     "node-html-parser": "^9.0.4",
