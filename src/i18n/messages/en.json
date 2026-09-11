@@ -101,9 +101,18 @@
       "label": "Tier list maker",
       "desc": "Your own ranking, ready to share"
     },
-    "lore": {},
-    "skinsCalendar": {},
-    "collection": {},
+    "lore": {
+      "label": "Lore",
+      "desc": "Hero stories by region"
+    },
+    "skinsCalendar": {
+      "label": "Skin calendar",
+      "desc": "Every skin by release date"
+    },
+    "collection": {
+      "label": "Collection value",
+      "desc": "Your heroes and skins in diamonds"
+    },
     "groupes": {},
     "parRole": {},
     "parRang": {},
@@ -850,11 +859,26 @@
         "titre": "MLBB Tier List Maker: Create & Share Your Tier List",
         "description": "Rank every Mobile Legends: Bang Bang hero in your own tiers: drag and drop or tap to place, rename and recolor rows, filter by role and lane, start from our win-rate tier list for your rank, then share a link or download a PNG. Free, no sign-up."
       },
-      "lore": {},
-      "loreRegion": {},
-      "calendrierSkins": {},
-      "calendrierAnnee": {},
-      "collection": {}
+      "lore": {
+        "titre": "MLBB Lore: All Hero Stories by Region",
+        "description": "The stories of {n} Mobile Legends: Bang Bang heroes, grouped into {regions} regions ({exemples}…), with their factions and the relationships their lore sheets record."
+      },
+      "loreRegion": {
+        "titre": "{region}: MLBB Heroes & Lore",
+        "description": "{region}: {n} Mobile Legends: Bang Bang heroes, including {noms}. Their stories, factions and the ties between them, drawn from their lore sheets."
+      },
+      "calendrierSkins": {
+        "titre": "MLBB Skin Calendar: Every Skin by Release Date",
+        "description": "{n} Mobile Legends: Bang Bang skins released from {debut} to {fin}, month by month, with hero, rarity, series (Collector, StarLight, Epic, Legend…) and price. Latest in our data: {dernier} ({date})."
+      },
+      "calendrierAnnee": {
+        "titre": "MLBB Skins Released in {annee}: Full List by Month",
+        "description": "Mobile Legends: Bang Bang skins released in {annee} ({n}), month by month, with rarity and price. Top series: {series}. Hero with the most new skins: {heros}."
+      },
+      "collection": {
+        "titre": "MLBB Collection Value Calculator (Diamonds)",
+        "description": "Tick the heroes and skins you own among {heros} heroes and {skins} skins: see what they cost at Mobile Legends: Bang Bang shop prices, in diamonds, by rarity and by series. Free, no sign-up, saved in your browser."
+      }
     },
     "fraicheur": {
       "majLe": "Updated {date}",
@@ -1573,15 +1597,177 @@
       "annonceRangeeSupprimee": "Row {nom} deleted; its heroes are back in the pool."
     },
     "lore": {
-      "region": {}
+      "titre": "Lore: hero stories by region",
+      "miette": "Lore",
+      "chapeau": "The stories of {n} heroes across {regions} regions, with the factions that bring them together and {liens} links between heroes recorded on their lore sheets. Each full story is on the hero's page.",
+      "listeLd": "Mobile Legends: Bang Bang hero stories by region",
+      "nHeros": "{n} heroes",
+      "nHeros1": "1 hero",
+      "regionsTitre": "Regions",
+      "regionsChapeau": "Where each hero comes from, as recorded on the wiki. Open a region for its heroes, a summary drawn from their sheets and the ties between them.",
+      "liensTitre": "Notable relationships",
+      "liensChapeau": "Pairs of heroes linked on their lore sheets, in the sheets' own words: family, love, rivalry and mentorship first. Each hero appears once.",
+      "factionsTitre": "Factions",
+      "factionsChapeau": "Affiliations shared by at least three heroes (houses, orders, teams, schools), leaving out hostile or former ones. Smaller ones appear on the region pages.",
+      "histoiresTitre": "All stories, by region",
+      "histoiresChapeau": "Each hero with the opening line of their story; the full story is on their page.",
+      "envers": "about",
+      "sansNature": "named, without detail",
+      "age": "Age: {age}",
+      "lireHistoire": "Read the story",
+      "retourHub": "All regions",
+      "source": "Stories, sheets and relationships adapted and translated from the {lien}, under the CC BY-SA license. Regions come from each hero's data.",
+      "region": {
+        "chapeau": "{region} as told by its heroes' lore sheets: who they are, the factions they belong to and the ties between them.",
+        "enBrefTitre": "At a glance",
+        "faitRoles": "Heroes from this region: {n}. Most represented roles: {roles}.",
+        "faitArrivees": "First to arrive in the game: {premier} ({datePremier}); most recent: {dernier} ({dateDernier}).",
+        "faitArrivee": "Arrived in the game: {nom} ({date}).",
+        "faitFactions": "Factions shared by several of its heroes: {liste}.",
+        "faitEspeces": "Most common species: {liste}.",
+        "faitLiens": "Links recorded on the lore sheets: {internes} between heroes of the region, {externes} with heroes from other regions.",
+        "faitVoisines": "Regions it is most linked to: {liste}.",
+        "herosTitre": "Heroes of the region",
+        "herosChapeau": "Portrait, opening line and identity from each hero's sheet. The full story is on the hero's page.",
+        "liensTitre": "Relationships within the region",
+        "liensChapeau": "What each hero's sheet says about the other, word for word. Family, love and rivalry come first; long lists of enemies last.",
+        "aucunLien": "No sheet from this region names another hero of the region.",
+        "autresLiens": "Other links ({n})",
+        "externesTitre": "Ties beyond the region",
+        "externesChapeau": "The strongest links between heroes of this region and heroes from elsewhere.",
+        "autresRegions": "Other regions"
+      },
+      "et": "and"
     },
-    "loreUI": {},
+    "loreUI": {
+      "rechercher": "Search a hero, a faction…",
+      "total": "{n} heroes, grouped by region.",
+      "trouve": "1 hero found.",
+      "trouves": "{n} heroes found.",
+      "aucun": "No hero matches this search.",
+      "nHeros": "{n} heroes",
+      "nHeros1": "1 hero"
+    },
     "calendrierSkins": {
-      "annee": {}
+      "titre": "Skin calendar",
+      "miette": "Calendar",
+      "mietteSkins": "Skins",
+      "chapeau": "Every Mobile Legends skin by release month, from {debut} to {fin}: {n} skins with their hero, rarity, series and price. Filter by hero, role, series, rarity or year.",
+      "ceMoisTitre": "Released in {mois}",
+      "ceMoisVide": "No skin dated {mois} in our data yet. The most recent month listed by the community wiki is {dernier}.",
+      "voirDerniers": "See the latest skins",
+      "derniersTitre": "Latest skins",
+      "derniersChapeau": "The twelve most recent skins with a known release month.",
+      "explorerTitre": "Browse by year and month",
+      "explorerChapeau": "Each cell counts the skins released that month: open a year for the full list, or combine the filters.",
+      "tableauLegende": "Skins released per month and per year",
+      "colAnnee": "Year",
+      "colTotal": "Total",
+      "moisInconnu": "Month not specified",
+      "caseMois": "{mois} — skins: {n}",
+      "nSkins": "{n} skins",
+      "nSkins1": "1 skin",
+      "seriesTitre": "Series and events",
+      "seriesChapeau": "The labels the wiki gives skins (Collector, StarLight, Epic, Legend, collaborations…), by number of skins. Pick one to filter the calendar.",
+      "serieDetail": "{n} · {periode}",
+      "datesTitre": "About the dates",
+      "datesPrecision": "Dates come from the community wiki: {jour} skins are dated to the day, {mois} to the month and {annee} to the year only; the latter close their year.",
+      "datesEcartes": "Not shown: {aVenir} skins the wiki lists as upcoming without a confirmed date, and {futurs} dated later than our data, pending confirmation. No rumors or leaks here.",
+      "datesOrigine": "Default skins, which come with their hero, are not counted: they mark a hero's release, not a skin's.",
+      "lienCollection": "How much is your collection worth in diamonds?",
+      "source": "Release dates, rarities and prices from the {lien} (skin module), under the CC BY-SA license.",
+      "annee": {
+        "titre": "Skins released in {annee}",
+        "chapeau": "Every Mobile Legends skin released in {annee}, month by month, with its hero, rarity, series and price. Total: {n}.",
+        "faitSeries": "Main series: {liste}.",
+        "faitHeros": "Heroes with the most new skins: {liste}.",
+        "faitRaretes": "By rarity: {liste}.",
+        "navAnnees": "Other years",
+        "navMois": "Months"
+      }
     },
-    "calendrierSkinsUI": {},
-    "collection": {},
-    "collectionUI": {},
+    "calendrierSkinsUI": {
+      "rechercher": "Search a skin or a hero",
+      "heros": "Hero",
+      "serie": "Series",
+      "annee": "Year",
+      "role": "Role",
+      "rarete": "Rarity",
+      "tous": "All",
+      "toutes": "All",
+      "effacer": "Clear filters",
+      "chargement": "Loading skins…",
+      "erreur": "The skin list could not be loaded. Check your connection and try again.",
+      "resultat": "1 skin matches.",
+      "resultats": "{n} skins match.",
+      "nSkins": "{n} skins",
+      "nSkins1": "1 skin",
+      "moisInconnu": "Month not specified",
+      "plus": "Show {n} more"
+    },
+    "collection": {
+      "titre": "Collection value calculator",
+      "chapeau": "Tick the heroes and skins you own: see what they add up to at in-game shop prices, in diamonds, with your rarest pieces and your completion of each series.",
+      "avertissement": "In-game diamond value only: what these items cost in the Mobile Legends shop, not what an account is worth. Buying, selling or trading accounts is against Moonton's terms of service, and this tool gives no market or resale value.",
+      "methodeTitre": "How the value is calculated",
+      "methodeHeros": "A hero's price is that of its default skin, which comes with it. Of the {heros} heroes in our data, {diamants} have a diamond price; the others are sold only for Battle Points or obtained another way, and Battle Points are counted separately.",
+      "methodeSkins": "Of the {skins} skins you can tick, {diamants} have a diamond price, {autres} are priced in another currency (Magic Cores, gems…) and {sansPrix} have no shop price: StarLight, events, draws and passes. Those count toward your completion but not toward the diamond total, rather than being guessed.",
+      "methodeStockage": "Your selection stays in this browser (local storage): nothing is sent to our servers, and no account is needed. Prices are the in-game shop prices listed by the community wiki; discounts and bundles are not taken into account.",
+      "lienCalendrier": "Skin calendar",
+      "lienSkins": "All skins"
+    },
+    "collectionUI": {
+      "chargement": "Loading heroes and skins…",
+      "erreur": "The skin list could not be loaded. Check your connection and reload the page.",
+      "valeurTitre": "Shop value of your collection",
+      "heros": "Heroes",
+      "skins": "Skins",
+      "enDiamants": "{n} diamonds",
+      "bpDetail": "Battle Point price of your heroes",
+      "autreDetail": "skins priced in this currency",
+      "sansDiamant": "Not in the diamond total (no diamond price): skins {skins}, heroes {heros}.",
+      "vide": "Tick the heroes and skins you own in the list: the total updates as you go and is saved in this browser.",
+      "resumeTitre": "My MLBB collection",
+      "resumeTexte": "My MLBB collection: {heros} heroes and {skins} skins, worth {diamants} diamonds at in-game shop prices.",
+      "resumeRare": "Rarest piece: {nom} ({heros}).",
+      "partager": "Share the summary",
+      "partage_copie": "Summary copied to the clipboard.",
+      "partage_partage": "Summary shared.",
+      "partage_echec": "Sharing failed: copy the summary above by hand.",
+      "selectionTitre": "Your heroes and skins",
+      "rechercher": "Search a hero or a skin",
+      "role": "Role",
+      "afficher": "Show",
+      "vue_tous": "All",
+      "vue_possedes": "Owned",
+      "vue_manquants": "Missing",
+      "serie": "Series",
+      "toutesSeries": "All series",
+      "tousHeros": "Tick all heroes",
+      "aucunHeros": "Untick all heroes",
+      "effacer": "Clear my collection",
+      "confirmerEffacer": "Untick every hero and every skin?",
+      "compteHeros": "{n} heroes shown",
+      "compteHeros1": "1 hero shown",
+      "skinsDuHeros": "{n}/{total} skins",
+      "toutCocher": "Tick all",
+      "toutDecocher": "Untick all",
+      "toutCocherHeros": "Tick {nom} and all their skins",
+      "toutDecocherHeros": "Untick {nom} and all their skins",
+      "voirSkins": "Skins",
+      "sansPrix": "No shop price",
+      "aucun": "No hero or skin matches these filters.",
+      "rareteTitre": "By rarity",
+      "colRarete": "Rarity",
+      "colPossedes": "Owned",
+      "colDiamants": "Diamonds",
+      "raresTitre": "Your rarest skins",
+      "raresAide": "By rarity, then limited editions and the smallest series first.",
+      "seriesTitre": "Series completion",
+      "seriesAide": "Series you have started come first, the most complete on top.",
+      "toutesLesSeries": "Show all series ({n})",
+      "moinsSeries": "Show fewer series"
+    },
     "spellsListe": {}
   },
   "modeFiche": {
@@ -1952,7 +2138,9 @@
     "sortie": "Release",
     "disponibilite": "Availability",
     "obtention": "How to get",
-    "origine": "Default skin."
+    "origine": "Default skin.",
+    "noyauxMagiques": "Magic Cores",
+    "piecesMythiques": "Myth Coins"
   },
   "draftUI": {
     "adverse": "Enemy team",

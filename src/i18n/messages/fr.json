@@ -101,9 +101,18 @@
       "label": "Créateur de tier list",
       "desc": "Votre classement, à partager"
     },
-    "lore": {},
-    "skinsCalendar": {},
-    "collection": {},
+    "lore": {
+      "label": "Lore",
+      "desc": "Les histoires des héros par région"
+    },
+    "skinsCalendar": {
+      "label": "Calendrier des skins",
+      "desc": "Tous les skins par date de sortie"
+    },
+    "collection": {
+      "label": "Valeur de collection",
+      "desc": "Vos héros et skins en diamants"
+    },
     "groupes": {},
     "parRole": {},
     "parRang": {},
@@ -850,11 +859,26 @@
         "titre": "Créateur de tier list MLBB : créez et partagez la vôtre",
         "description": "Classez tous les héros de Mobile Legends: Bang Bang dans vos propres paliers : glisser-déposer ou toucher pour placer, rangées à renommer et recolorer, filtres par rôle et par lane, départ possible depuis notre tier list calculée pour votre rang, puis lien à partager ou image PNG. Gratuit, sans inscription."
       },
-      "lore": {},
-      "loreRegion": {},
-      "calendrierSkins": {},
-      "calendrierAnnee": {},
-      "collection": {}
+      "lore": {
+        "titre": "Lore MLBB : toutes les histoires des héros par région",
+        "description": "Les histoires de {n} héros de Mobile Legends: Bang Bang, rangées en {regions} régions ({exemples}…), avec leurs factions et les liens que leurs fiches relèvent."
+      },
+      "loreRegion": {
+        "titre": "{region} : héros et lore de MLBB",
+        "description": "{region} : {n} héros de Mobile Legends: Bang Bang, dont {noms}. Leurs histoires, leurs factions et les liens qui les unissent, tirés de leurs fiches."
+      },
+      "calendrierSkins": {
+        "titre": "Calendrier des skins MLBB : tous les skins par date de sortie",
+        "description": "{n} skins de Mobile Legends: Bang Bang sortis de {debut} à {fin}, mois par mois, avec héros, rareté, série (Collector, StarLight, Épique, Légende…) et prix. Dernier dans nos données : {dernier} ({date})."
+      },
+      "calendrierAnnee": {
+        "titre": "Skins MLBB sortis en {annee} : la liste mois par mois",
+        "description": "Skins de Mobile Legends: Bang Bang sortis en {annee} ({n}), mois par mois, avec rareté et prix. Séries principales : {series}. Héros le plus servi : {heros}."
+      },
+      "collection": {
+        "titre": "Calculateur de valeur de collection MLBB (diamants)",
+        "description": "Cochez les héros et skins que vous possédez parmi {heros} héros et {skins} skins : voyez ce qu'ils coûtent au prix de la boutique de Mobile Legends: Bang Bang, en diamants, par rareté et par série. Gratuit, sans inscription, enregistré dans votre navigateur."
+      }
     },
     "fraicheur": {
       "majLe": "Mis à jour le {date}",
@@ -1573,15 +1597,177 @@
       "annonceRangeeSupprimee": "Rangée {nom} supprimée ; ses héros sont en réserve."
     },
     "lore": {
-      "region": {}
+      "titre": "Lore : les histoires des héros par région",
+      "miette": "Lore",
+      "chapeau": "Les histoires de {n} héros, rangées dans {regions} régions, avec les factions qui les réunissent et {liens} liens entre héros relevés sur leurs fiches. Chaque récit se lit en entier sur la fiche du héros.",
+      "listeLd": "Histoires des héros de Mobile Legends: Bang Bang par région",
+      "nHeros": "{n} héros",
+      "nHeros1": "1 héros",
+      "regionsTitre": "Régions",
+      "regionsChapeau": "D'où vient chaque héros, selon le wiki. Ouvrez une région pour ses héros, un résumé tiré de leurs fiches et les liens qui les unissent.",
+      "liensTitre": "Liens marquants",
+      "liensChapeau": "Des paires de héros liés par leurs fiches, avec les mots de ces fiches : la famille, l'amour, la rivalité et l'apprentissage d'abord. Chaque héros n'apparaît qu'une fois.",
+      "factionsTitre": "Factions",
+      "factionsChapeau": "Les affiliations partagées par au moins trois héros (maisons, ordres, équipes, écoles), hors affiliations hostiles ou passées. Les plus petites figurent sur les pages de région.",
+      "histoiresTitre": "Toutes les histoires, par région",
+      "histoiresChapeau": "Chaque héros avec l'accroche de son histoire ; le récit complet est sur sa fiche.",
+      "envers": "à propos de",
+      "sansNature": "cité, sans précision",
+      "age": "Âge : {age}",
+      "lireHistoire": "Lire son histoire",
+      "retourHub": "Toutes les régions",
+      "source": "Histoires, fiches et liens repris et traduits du {lien}, sous licence CC BY-SA. Les régions viennent des données de chaque héros.",
+      "region": {
+        "chapeau": "{region} à travers les fiches de ses héros : qui ils sont, leurs factions et les liens qui les unissent.",
+        "enBrefTitre": "En bref",
+        "faitRoles": "Héros de cette région : {n}. Rôles les plus représentés : {roles}.",
+        "faitArrivees": "Premier arrivé dans le jeu : {premier} ({datePremier}) ; le plus récent : {dernier} ({dateDernier}).",
+        "faitArrivee": "Arrivée dans le jeu : {nom} ({date}).",
+        "faitFactions": "Factions partagées par plusieurs de ses héros : {liste}.",
+        "faitEspeces": "Espèces les plus fréquentes : {liste}.",
+        "faitLiens": "Liens relevés sur les fiches : {internes} entre héros de la région, {externes} avec des héros d'autres régions.",
+        "faitVoisines": "Régions auxquelles elle est le plus liée : {liste}.",
+        "herosTitre": "Les héros de la région",
+        "herosChapeau": "Portrait, accroche et identité tirés de la fiche de chaque héros. Le récit complet est sur sa fiche.",
+        "liensTitre": "Les liens dans la région",
+        "liensChapeau": "Ce que la fiche de chaque héros dit de l'autre, mot pour mot. La famille, l'amour et les rivalités d'abord ; les longues listes d'ennemis à la fin.",
+        "aucunLien": "Aucune fiche de cette région ne nomme un autre héros de la région.",
+        "autresLiens": "Autres liens ({n})",
+        "externesTitre": "Liens au-delà de la région",
+        "externesChapeau": "Les liens les plus marquants entre les héros de cette région et ceux d'ailleurs.",
+        "autresRegions": "Autres régions"
+      },
+      "et": "et"
     },
-    "loreUI": {},
+    "loreUI": {
+      "rechercher": "Chercher un héros, une faction…",
+      "total": "{n} héros, rangés par région.",
+      "trouve": "1 héros trouvé.",
+      "trouves": "{n} héros trouvés.",
+      "aucun": "Aucun héros ne correspond à cette recherche.",
+      "nHeros": "{n} héros",
+      "nHeros1": "1 héros"
+    },
     "calendrierSkins": {
-      "annee": {}
+      "titre": "Calendrier des skins",
+      "miette": "Calendrier",
+      "mietteSkins": "Skins",
+      "chapeau": "Tous les skins de Mobile Legends par mois de sortie, de {debut} à {fin} : {n} skins avec leur héros, leur rareté, leur série et leur prix. Filtrez par héros, rôle, série, rareté ou année.",
+      "ceMoisTitre": "Sortis en {mois}",
+      "ceMoisVide": "Aucun skin daté de {mois} dans nos données pour l'instant. Le mois le plus récent recensé par le wiki communautaire est {dernier}.",
+      "voirDerniers": "Voir les derniers skins",
+      "derniersTitre": "Derniers skins",
+      "derniersChapeau": "Les douze skins les plus récents dont le mois de sortie est connu.",
+      "explorerTitre": "Parcourir par année et par mois",
+      "explorerChapeau": "Chaque case compte les skins sortis ce mois-là : ouvrez une année pour la liste complète, ou combinez les filtres.",
+      "tableauLegende": "Skins sortis par mois et par année",
+      "colAnnee": "Année",
+      "colTotal": "Total",
+      "moisInconnu": "Mois non précisé",
+      "caseMois": "{mois} — skins : {n}",
+      "nSkins": "{n} skins",
+      "nSkins1": "1 skin",
+      "seriesTitre": "Séries et événements",
+      "seriesChapeau": "Les étiquettes que le wiki donne aux skins (Collector, StarLight, Épique, Légende, collaborations…), par nombre de skins. Choisissez-en une pour filtrer le calendrier.",
+      "serieDetail": "{n} · {periode}",
+      "datesTitre": "À propos des dates",
+      "datesPrecision": "Les dates viennent du wiki communautaire : {jour} skins sont datés au jour, {mois} au mois et {annee} à l'année seulement ; ces derniers ferment leur année.",
+      "datesEcartes": "Non affichés : {aVenir} skins que le wiki annonce sans date confirmée, et {futurs} datés après nos données, en attente de confirmation. Ni rumeur ni fuite ici.",
+      "datesOrigine": "Les skins d'origine, fournis avec leur héros, ne sont pas comptés : ils marquent la sortie d'un héros, pas celle d'un skin.",
+      "lienCollection": "Combien vaut votre collection en diamants ?",
+      "source": "Dates de sortie, raretés et prix issus du {lien} (module des skins), sous licence CC BY-SA.",
+      "annee": {
+        "titre": "Skins sortis en {annee}",
+        "chapeau": "Tous les skins de Mobile Legends sortis en {annee}, mois par mois, avec leur héros, leur rareté, leur série et leur prix. Total : {n}.",
+        "faitSeries": "Séries principales : {liste}.",
+        "faitHeros": "Héros les plus servis : {liste}.",
+        "faitRaretes": "Par rareté : {liste}.",
+        "navAnnees": "Autres années",
+        "navMois": "Mois"
+      }
     },
-    "calendrierSkinsUI": {},
-    "collection": {},
-    "collectionUI": {},
+    "calendrierSkinsUI": {
+      "rechercher": "Chercher un skin ou un héros",
+      "heros": "Héros",
+      "serie": "Série",
+      "annee": "Année",
+      "role": "Rôle",
+      "rarete": "Rareté",
+      "tous": "Tous",
+      "toutes": "Toutes",
+      "effacer": "Effacer les filtres",
+      "chargement": "Chargement des skins…",
+      "erreur": "Impossible de charger la liste des skins. Vérifiez votre connexion et réessayez.",
+      "resultat": "1 skin correspond.",
+      "resultats": "{n} skins correspondent.",
+      "nSkins": "{n} skins",
+      "nSkins1": "1 skin",
+      "moisInconnu": "Mois non précisé",
+      "plus": "Afficher {n} de plus"
+    },
+    "collection": {
+      "titre": "Calculateur de valeur de collection",
+      "chapeau": "Cochez les héros et les skins que vous possédez : voyez ce qu'ils représentent au prix de la boutique du jeu, en diamants, avec vos pièces les plus rares et votre avancement dans chaque série.",
+      "avertissement": "Valeur en diamants du jeu uniquement : ce que ces objets coûtent dans la boutique de Mobile Legends, pas ce que vaut un compte. Acheter, vendre ou échanger un compte est contraire aux conditions d'utilisation de Moonton, et cet outil ne donne aucune valeur marchande ou de revente.",
+      "methodeTitre": "Comment la valeur est calculée",
+      "methodeHeros": "Le prix d'un héros est celui de son skin d'origine, qui vient avec lui. Sur les {heros} héros de nos données, {diamants} ont un prix en diamants ; les autres ne s'achètent qu'en points de bataille ou s'obtiennent autrement, et les points de bataille sont comptés à part.",
+      "methodeSkins": "Sur les {skins} skins que vous pouvez cocher, {diamants} ont un prix en diamants, {autres} un prix dans une autre monnaie (noyaux magiques, gemmes…) et {sansPrix} aucun prix en boutique : StarLight, événements, tirages et pass. Ceux-là comptent dans votre avancement, pas dans le total en diamants, plutôt que d'être estimés au hasard.",
+      "methodeStockage": "Votre sélection reste dans ce navigateur (stockage local) : rien n'est envoyé à nos serveurs, et aucun compte n'est nécessaire. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "lienCalendrier": "Calendrier des skins",
+      "lienSkins": "Tous les skins"
+    },
+    "collectionUI": {
+      "chargement": "Chargement des héros et des skins…",
+      "erreur": "Impossible de charger la liste des skins. Vérifiez votre connexion et rechargez la page.",
+      "valeurTitre": "Valeur boutique de votre collection",
+      "heros": "Héros",
+      "skins": "Skins",
+      "enDiamants": "{n} diamants",
+      "bpDetail": "prix de vos héros en points de bataille",
+      "autreDetail": "skins vendus dans cette monnaie",
+      "sansDiamant": "Hors du total en diamants (aucun prix en diamants) : skins {skins}, héros {heros}.",
+      "vide": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur.",
+      "resumeTitre": "Ma collection MLBB",
+      "resumeTexte": "Ma collection MLBB : {heros} héros et {skins} skins, soit {diamants} diamants au prix de la boutique du jeu.",
+      "resumeRare": "Pièce la plus rare : {nom} ({heros}).",
+      "partager": "Partager le résumé",
+      "partage_copie": "Résumé copié dans le presse-papiers.",
+      "partage_partage": "Résumé partagé.",
+      "partage_echec": "Le partage a échoué : copiez le résumé ci-dessus à la main.",
+      "selectionTitre": "Vos héros et vos skins",
+      "rechercher": "Chercher un héros ou un skin",
+      "role": "Rôle",
+      "afficher": "Afficher",
+      "vue_tous": "Tout",
+      "vue_possedes": "Possédés",
+      "vue_manquants": "Manquants",
+      "serie": "Série",
+      "toutesSeries": "Toutes les séries",
+      "tousHeros": "Cocher tous les héros",
+      "aucunHeros": "Décocher tous les héros",
+      "effacer": "Effacer ma collection",
+      "confirmerEffacer": "Décocher tous les héros et tous les skins ?",
+      "compteHeros": "{n} héros affichés",
+      "compteHeros1": "1 héros affiché",
+      "skinsDuHeros": "{n}/{total} skins",
+      "toutCocher": "Tout cocher",
+      "toutDecocher": "Tout décocher",
+      "toutCocherHeros": "Cocher {nom} et tous ses skins",
+      "toutDecocherHeros": "Décocher {nom} et tous ses skins",
+      "voirSkins": "Skins",
+      "sansPrix": "Sans prix boutique",
+      "aucun": "Aucun héros ni skin ne correspond à ces filtres.",
+      "rareteTitre": "Par rareté",
+      "colRarete": "Rareté",
+      "colPossedes": "Possédés",
+      "colDiamants": "Diamants",
+      "raresTitre": "Vos skins les plus rares",
+      "raresAide": "Par rareté, puis les éditions limitées et les plus petites séries d'abord.",
+      "seriesTitre": "Avancement par série",
+      "seriesAide": "Les séries entamées d'abord, les plus complètes en tête.",
+      "toutesLesSeries": "Voir toutes les séries ({n})",
+      "moinsSeries": "Voir moins de séries"
+    },
     "spellsListe": {}
   },
   "modeFiche": {
@@ -1952,7 +2138,9 @@
     "sortie": "Sortie",
     "disponibilite": "Disponibilité",
     "obtention": "Obtention",
-    "origine": "Skin d'origine."
+    "origine": "Skin d'origine.",
+    "noyauxMagiques": "Noyaux magiques",
+    "piecesMythiques": "Pièces mythiques"
   },
   "draftUI": {
     "adverse": "Équipe adverse",
