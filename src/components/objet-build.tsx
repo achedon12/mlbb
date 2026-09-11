@@ -25,7 +25,7 @@ export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
             src={image}
             alt=""
             fill
-            sizes="44px"
+            unoptimized
             className="object-contain"
           />
         ) : (

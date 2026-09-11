@@ -18,7 +18,7 @@ export function ChoixBuild({
     <div className="flex min-w-0 items-center gap-2.5">
       <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-nuit-700 bg-nuit-800">
         {image ? (
-          <Image src={image} alt="" fill sizes="36px" className="object-contain" />
+          <Image src={image} alt="" fill unoptimized className="object-contain" />
         ) : (
           <span className="grid size-full place-items-center text-xs font-semibold text-craie-500">
             {nom.charAt(0)}

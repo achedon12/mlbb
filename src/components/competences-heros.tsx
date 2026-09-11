@@ -99,7 +99,7 @@ export function CompetencesHeros({
                     src={c.icone}
                     alt=""
                     fill
-                    sizes="44px"
+                    unoptimized
                     className="object-contain"
                   />
                 ) : (
@@ -149,7 +149,7 @@ function DetailCompetence({ fiche, sansCadre = false }: { fiche: Fiche; sansCadr
       <div className="flex items-center gap-3 pr-10 lg:pr-0">
         {fiche.icone && (
           <span className="relative size-10 shrink-0 overflow-hidden">
-            <Image src={fiche.icone} alt="" fill sizes="40px" className="object-contain" />
+            <Image src={fiche.icone} alt="" fill unoptimized className="object-contain" />
           </span>
         )}
         <div className="min-w-0">

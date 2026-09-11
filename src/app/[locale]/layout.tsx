@@ -5,6 +5,7 @@ import { EnTete } from "@/components/en-tete";
 import { HorsLigne } from "@/components/hors-ligne";
 import { MesureAudience } from "@/components/mesure-audience";
 import { PiedDePage } from "@/components/pied-de-page";
+import { RapportErreurs } from "@/components/rapport-erreurs";
 import { FournisseurLangue } from "@/i18n/fournisseur";
 import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, estLangue } from "@/i18n/config";
 import { creerT, messagesClient } from "@/i18n/traductions";
@@ -99,6 +100,7 @@ export default async function LangueLayout({
           </main>
           <PiedDePage langue={locale} />
           <MesureAudience />
+          <RapportErreurs />
           <HorsLigne />
         </FournisseurLangue>
       </body>

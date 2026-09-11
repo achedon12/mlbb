@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
@@ -11,13 +11,18 @@ import { cn } from "@/lib/utils";
  * quatorze skins : d'un seul tenant, elle devient impraticable. Les onglets
  * decoupent sans rien cacher.
  *
- * Tous les panneaux sont rendus par le serveur et restent dans le document —
- * seul l'affichage change. Le contenu masque reste donc indexable, et la
- * navigation ne declenche aucune requete.
+ * Les panneaux sont rendus par le serveur et restent dans le document — seul
+ * l'affichage change. Le contenu masque reste donc indexable, et la navigation
+ * ne declenche aucune requete. Exception : un panneau `differe` (graphiques,
+ * galerie) n'est monte qu'a sa premiere ouverture. Il n'apporte rien aux
+ * moteurs, et le monter d'emblee alourdissait l'hydratation de toute la page.
  *
  * Les images d'un panneau masque restent en chargement differe : le navigateur
- * ne les demande qu'a l'ouverture du panneau (verifie dans Chromium). La
- * premiere visite ne charge ainsi que l'onglet affiche.
+ * ne les demande qu'a l'ouverture du panneau (verifie dans Chromium).
+ *
+ * L'onglet ouvert se lit et s'ecrit dans l'ancre de l'adresse (#skins,
+ * #builds…) : un lien peut mener droit a un onglet, et l'adresse partagee
+ * rouvre le meme.
  */
 export interface Onglet {
   id: string;
@@ -25,17 +30,49 @@ export interface Onglet {
   /** Compteur affiche a cote du libelle, quand il apporte quelque chose. */
   compteur?: number;
   contenu: React.ReactNode;
+  /** Monte le contenu a la premiere ouverture seulement. */
+  differe?: boolean;
 }
 
 export function Onglets({ onglets }: { onglets: Onglet[] }) {
   const t = useT();
   const [actif, setActif] = useState(onglets[0]?.id);
+  const [ouverts, setOuverts] = useState(() => new Set(onglets[0] ? [onglets[0].id] : []));
   const base = useId();
   const boutons = useRef<(HTMLButtonElement | null)[]>([]);
+  const liste = useRef<HTMLDivElement>(null);
 
   // Un onglet sans contenu n'a pas de raison d'apparaitre : un heros sans
   // skin ni analyse ne doit pas afficher des sections vides.
   const visibles = onglets.filter((o) => o.contenu);
+
+  const ouvrir = (id: string) => {
+    setActif(id);
+    setOuverts((o) => (o.has(id) ? o : new Set(o).add(id)));
+  };
+
+  // L'ancre choisit l'onglet a l'arrivee, puis a chaque lien interne vers
+  // une autre ancre de la meme fiche.
+  useEffect(() => {
+    const suivreAncre = (defiler: boolean) => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      if (!visibles.some((o) => o.id === id)) return;
+      ouvrir(id);
+      if (defiler) liste.current?.scrollIntoView({ block: "start" });
+    };
+    suivreAncre(true);
+    const auChangement = () => suivreAncre(true);
+    window.addEventListener("hashchange", auChangement);
+    return () => window.removeEventListener("hashchange", auChangement);
+    // Les onglets d'une fiche ne changent pas apres le rendu.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const choisir = (id: string) => {
+    ouvrir(id);
+    // replaceState : changer d'onglet ne remplit pas l'historique du navigateur.
+    window.history.replaceState(null, "", `#${id}`);
+  };
 
   /** Fleches et Debut/Fin, comme l'attend un lecteur d'ecran sur des onglets. */
   function auClavier(evenement: React.KeyboardEvent, index: number) {
@@ -50,16 +87,17 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
 
     evenement.preventDefault();
     const suivant = (cible + visibles.length) % visibles.length;
-    setActif(visibles[suivant].id);
+    choisir(visibles[suivant].id);
     boutons.current[suivant]?.focus();
   }
 
   return (
     <div>
       <div
+        ref={liste}
         role="tablist"
         aria-label={t("commun.sections")}
-        className="flex flex-wrap gap-1 border-b border-nuit-700/70"
+        className="flex scroll-mt-20 flex-wrap gap-1 border-b border-nuit-700/70"
       >
         {visibles.map((o, i) => {
           const selectionne = o.id === actif;
@@ -74,7 +112,7 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
               aria-selected={selectionne}
               aria-controls={`${base}-${o.id}-panneau`}
               tabIndex={selectionne ? 0 : -1}
-              onClick={() => setActif(o.id)}
+              onClick={() => choisir(o.id)}
               onKeyDown={(e) => auClavier(e, i)}
               className={cn(
                 "-mb-px border-b-2 px-4 py-3 font-titre text-sm font-semibold transition-colors",
@@ -104,7 +142,7 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
           tabIndex={0}
           className="pt-8 outline-none"
         >
-          {o.contenu}
+          {(!o.differe || ouverts.has(o.id)) && o.contenu}
         </div>
       ))}
     </div>
