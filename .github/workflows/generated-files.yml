@@ -4,8 +4,15 @@ name: Fichiers generes
 # modification a la main serait ecrasee la nuit suivante. Une pull request qui
 # les touche echoue ici ; la correction se fait dans les scripts, ou sur le
 # wiki source (voir CONTRIBUTING.md).
+#
+# L'action n'accepte que pull_request_target : sous pull_request, une pull
+# request pourrait modifier ce workflow pour s'ajouter aux auteurs de confiance
+# ou changer le motif. Sans risque ici : aucun code de la pull request n'est
+# recupere ni execute, l'action lit seulement la liste des fichiers modifies,
+# avec un jeton en lecture seule, et ce workflow vient de la branche cible.
 on:
-  pull_request:
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
+    types: [opened, reopened, synchronize]
 
 permissions: {}
 
