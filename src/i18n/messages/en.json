@@ -209,7 +209,14 @@
       "coequipiers": "Best teammates",
       "coequipiersIntro": "The allies {nom} wins the most with, in win-rate points above average.",
       "combos": {
-        "types": {}
+        "titre": "Combos",
+        "intro": "The combos recommended by the game, in the order to cast the skills.",
+        "types": {
+          "laning": "Laning",
+          "teamfight": "Teamfight"
+        },
+        "attaqueDeBase": "Basic attack",
+        "ordre": "Skill order"
       }
     },
     "items": {

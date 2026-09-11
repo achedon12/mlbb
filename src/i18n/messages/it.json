@@ -209,7 +209,14 @@
       "coequipiers": "Migliori compagni",
       "coequipiersIntro": "Gli alleati con cui {nom} vince di più, in punti di vittoria sopra la media.",
       "combos": {
-        "types": {}
+        "titre": "Combo",
+        "intro": "Le combo consigliate dal gioco, nell'ordine in cui lanciare le abilità.",
+        "types": {
+          "laning": "Fase di corsia",
+          "teamfight": "Scontro di squadra"
+        },
+        "attaqueDeBase": "Attacco base",
+        "ordre": "Ordine delle abilità"
       }
     },
     "items": {

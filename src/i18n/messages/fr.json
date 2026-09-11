@@ -209,7 +209,14 @@
       "coequipiers": "Meilleurs coéquipiers",
       "coequipiersIntro": "Les alliés avec lesquels {nom} gagne le plus, en points de victoire au-dessus de sa moyenne.",
       "combos": {
-        "types": {}
+        "titre": "Combos",
+        "intro": "Les enchaînements conseillés par le jeu, dans l'ordre où lancer les compétences.",
+        "types": {
+          "laning": "Phase de lane",
+          "teamfight": "Combat d'équipe"
+        },
+        "attaqueDeBase": "Attaque de base",
+        "ordre": "Ordre des compétences"
       }
     },
     "items": {
