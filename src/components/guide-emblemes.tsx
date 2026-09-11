@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import type { Embleme, SortDeCombat, Talent } from "@/data/emblemes";
+import Link from "@/components/lien";
+import { slugEmbleme, type Embleme, type SortDeCombat, type Talent } from "@/data/emblemes";
 import { useT } from "@/i18n/fournisseur";
 import type { Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -47,6 +48,7 @@ export function GuideEmblemes({
       : liste;
 
   const adapte = (roles: Role[]) => !role || roles.includes(role);
+  const choisi = role ? emblemes.find((e) => e.role === role) : undefined;
 
   return (
     <div className="gap-10 lg:grid lg:grid-cols-[13rem_minmax(0,1fr)]">
@@ -92,6 +94,16 @@ export function GuideEmblemes({
             </button>
           )}
 
+          {/* L'embleme choisi a sa page : heros qui le jouent, talents pris avec. */}
+          {choisi && (
+            <Link
+              href={`/emblems/${slugEmbleme(choisi)}`}
+              className="mt-2 block px-2.5 text-xs font-semibold text-or-400 underline underline-offset-4 hover:text-or-500"
+            >
+              {t("emblemesUI.voirPage", { nom: texteEmb(t, choisi.cle, "nom", choisi.nom) })} →
+            </Link>
+          )}
+
           <p className="mt-6 hidden max-w-48 text-xs leading-relaxed text-craie-500 lg:block">
             {t("emblemesUI.aideRole")}
           </p>
@@ -120,6 +132,7 @@ export function GuideEmblemes({
           entrees={ordonner(sorts)}
           images={images}
           adapte={adapte}
+          lien={(cle) => `/spells/${cle}`}
         />
       </div>
     </div>
@@ -141,12 +154,15 @@ function Section({
   entrees,
   images,
   adapte,
+  lien,
 }: {
   titre: string;
   chapeau: string;
   entrees: Entree[];
   images: Record<string, string>;
   adapte: (roles: Role[]) => boolean;
+  /** Adresse de la page de chaque entree, quand elle en a une (les sorts). */
+  lien?: (cle: string) => string;
 }) {
   const t = useT();
   return (
@@ -174,7 +190,13 @@ function Section({
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-3">
                   <h3 className="font-titre font-bold leading-tight text-craie-100">
-                    {texteEmb(t, e.cle, "nom", e.nom)}
+                    {lien ? (
+                      <Link href={lien(e.cle)} className="underline-offset-4 hover:text-or-400 hover:underline">
+                        {texteEmb(t, e.cle, "nom", e.nom)}
+                      </Link>
+                    ) : (
+                      texteEmb(t, e.cle, "nom", e.nom)
+                    )}
                   </h3>
                   {e.recharge !== undefined && (
                     <span className="text-xs tabular-nums text-or-400">

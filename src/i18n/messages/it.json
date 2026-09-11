@@ -277,7 +277,8 @@
       "fusion": "Costo di fusione: {prix} oro",
       "fabrique": "Serve per creare",
       "utilisePar": "Usato da",
-      "utiliseParAide": "Dalle build più giocate in classificata."
+      "utiliseParAide": "Dalle build più giocate in classificata.",
+      "pageComplete": "Pagina completa dell'oggetto"
     },
     "emblems": {
       "titre": "Emblemi e talenti",
@@ -713,10 +714,63 @@
       "ajustements": "Modifiche a {nom}: {n} nelle ultime {total} patch.",
       "skins": "Skin di {nom} ({n}):"
     },
-    "fiches": {},
-    "itemDetail": {},
-    "emblemDetail": {},
-    "spellDetail": {},
+    "fiches": {
+      "heros": "Eroe",
+      "part": "Quota di partite",
+      "aide": "Quota delle partite classificate di ogni eroe (tutti i ranghi, nella lane in cui questa scelta pesa di più) giocate con una delle sue tre build più giocate che la contiene, e win rate di queste build.",
+      "aucun": "Al momento questa scelta non compare in nessuna delle tre build più giocate di un eroe.",
+      "aussi": "Scelto anche da:",
+      "parRang": "Per rango",
+      "parRangIntro": "Quanti eroi lo usano nelle build più giocate a ogni rango, quello che ne dipende di più e il win rate medio di queste build.",
+      "nbHeros": "Eroi",
+      "nHeros": "{n} eroi",
+      "enTete": "In testa",
+      "victoireMoy": "Win rate medio",
+      "herosTitre": "Eroi che lo scelgono di più",
+      "listeLd": "Eroi che scelgono di più {nom}",
+      "pourQui": "Per chi",
+      "descHeros": "Scelto soprattutto da {heros} nelle partite classificate; {premier} vince il {taux} delle partite con questa scelta.",
+      "descHerosSimple": "Scelto soprattutto da {heros} nelle partite classificate.",
+      "descMaj": "Aggiornato il {date}."
+    },
+    "itemDetail": {
+      "titre": "{nom} MLBB: build, statistiche e migliori eroi (patch {v})",
+      "descObjet": "{nom} ({details}): {effet}.",
+      "descObjetSeul": "{nom} ({details}).",
+      "descHeros": "Acquistato soprattutto da {heros} nelle partite classificate; {premier} vince il {taux} delle partite con questo oggetto.",
+      "descHerosSimple": "Acquistato soprattutto da {heros} nelle partite classificate.",
+      "herosTitre": "Eroi che acquistano {nom}",
+      "effets": "Statistiche ed effetti",
+      "categorie": "Categoria",
+      "prix": "Prezzo",
+      "fabrication": "Creazione",
+      "similaires": "Altri oggetti della categoria {categorie}"
+    },
+    "emblemDetail": {
+      "titre": "{nom} MLBB: migliori eroi e talenti (patch {v})",
+      "desc": "{nom} ({bonus}): usato da {n} eroi nelle build classificate più giocate, soprattutto {heros}.",
+      "descTalents": "Talenti chiave più scelti: {talents}.",
+      "descSans": "{nom} ({bonus}): {pourQui}",
+      "bonus": "Bonus",
+      "talentsTitre": "Talenti più scelti con questo emblema",
+      "talentsIntro": "Quota delle build più giocate con questo emblema, ogni build pesata secondo la sua quota di partite.",
+      "etage": "Livello {n}",
+      "sortsTitre": "Battle Spell abbinate",
+      "sortsIntro": "La spell scelta in queste stesse build, con la stessa ponderazione.",
+      "autres": "Altri emblemi"
+    },
+    "spellDetail": {
+      "titre": "Battle Spell {nom} MLBB: migliori eroi e win rate (patch {v})",
+      "descEffet": "{nom}: {effet}",
+      "descAucun": "Al momento {nom} non compare in nessuna delle build classificate più giocate.",
+      "effet": "Effetto",
+      "sansDescription": "Ancora nessuna descrizione nei dati sincronizzati.",
+      "recharge": "Ricarica",
+      "secondes": "{n} s",
+      "emblemesTitre": "Emblemi abbinati",
+      "emblemesIntro": "L'emblema scelto nelle build più giocate con questa spell, ogni build pesata secondo la sua quota di partite.",
+      "autres": "Altre Battle Spell"
+    },
     "heroCounters": {
       "objets": {
         "raison": {}
@@ -1129,7 +1183,8 @@
     "sortsDesc": "Un solo slot: il Battle Spell deve compensare ciò che manca all'eroe.",
     "votreRole": "Il tuo ruolo",
     "retirerFiltre": "Rimuovi il filtro",
-    "aideRole": "Scegliere un ruolo porta in alto ciò che gli si addice. Il resto passa in secondo piano, senza scomparire."
+    "aideRole": "Scegliere un ruolo porta in alto ciò che gli si addice. Il resto passa in secondo piano, senza scomparire.",
+    "voirPage": "{nom}: pagina completa"
   },
   "skinsUI": {
     "pointsBataille": "Battle Point",

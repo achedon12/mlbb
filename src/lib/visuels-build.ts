@@ -26,6 +26,11 @@ const ALIAS: Record<string, string> = {
   inspiration: "inspire",
 };
 
+export function cleChoix(nom: string): string {
+  const k = cle(nom);
+  return ALIAS[k] ?? k;
+}
+
 function resoudre(table: Record<string, string>, nom: string): VisuelResolu {
   const k = cle(nom);
   return { nom, image: table[k] ?? table[ALIAS[k]] ?? null };

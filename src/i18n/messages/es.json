@@ -277,7 +277,8 @@
       "fusion": "Coste de combinación: {prix} de oro",
       "fabrique": "Se usa en",
       "utilisePar": "Usado por",
-      "utiliseParAide": "Según las builds más jugadas en clasificatoria."
+      "utiliseParAide": "Según las builds más jugadas en clasificatoria.",
+      "pageComplete": "Página completa del objeto"
     },
     "emblems": {
       "titre": "Emblemas y talentos",
@@ -713,10 +714,63 @@
       "ajustements": "Cambios a {nom}: {n} en los últimos {total} parches.",
       "skins": "Skins de {nom} ({n}):"
     },
-    "fiches": {},
-    "itemDetail": {},
-    "emblemDetail": {},
-    "spellDetail": {},
+    "fiches": {
+      "heros": "Héroe",
+      "part": "Cuota de partidas",
+      "aide": "Cuota de las partidas clasificatorias de cada héroe (todos los rangos, en la línea donde esta elección pesa más) jugadas con una de sus tres builds más jugadas que la incluye, y tasa de victoria de esas builds.",
+      "aucun": "Por ahora, esta elección no aparece en ninguna de las tres builds más jugadas de un héroe.",
+      "aussi": "También lo eligen:",
+      "parRang": "Por rango",
+      "parRangIntro": "Cuántos héroes lo usan en sus builds más jugadas en cada rango, el que más depende de él y la tasa de victoria media de esas builds.",
+      "nbHeros": "Héroes",
+      "nHeros": "{n} héroes",
+      "enTete": "Al frente",
+      "victoireMoy": "Victoria media",
+      "herosTitre": "Héroes que más lo eligen",
+      "listeLd": "Héroes que más eligen {nom}",
+      "pourQui": "Para quién",
+      "descHeros": "Lo eligen sobre todo {heros} en clasificatoria; {premier} gana el {taux} de sus partidas con él.",
+      "descHerosSimple": "Lo eligen sobre todo {heros} en clasificatoria.",
+      "descMaj": "Actualizado el {date}."
+    },
+    "itemDetail": {
+      "titre": "{nom} MLBB: build, estadísticas y mejores héroes (parche {v})",
+      "descObjet": "{nom} ({details}): {effet}.",
+      "descObjetSeul": "{nom} ({details}).",
+      "descHeros": "Lo compran sobre todo {heros} en clasificatoria; {premier} gana el {taux} de sus partidas con él.",
+      "descHerosSimple": "Lo compran sobre todo {heros} en clasificatoria.",
+      "herosTitre": "Héroes que compran {nom}",
+      "effets": "Estadísticas y efectos",
+      "categorie": "Categoría",
+      "prix": "Precio",
+      "fabrication": "Fabricación",
+      "similaires": "Otros objetos de la categoría {categorie}"
+    },
+    "emblemDetail": {
+      "titre": "{nom} MLBB: mejores héroes y talentos (parche {v})",
+      "desc": "{nom} ({bonus}): lo usan {n} héroes en sus builds clasificatorias más jugadas, sobre todo {heros}.",
+      "descTalents": "Talentos clave más elegidos: {talents}.",
+      "descSans": "{nom} ({bonus}): {pourQui}",
+      "bonus": "Bonificación",
+      "talentsTitre": "Talentos más elegidos con este emblema",
+      "talentsIntro": "Cuota de las builds más jugadas con este emblema, cada build ponderada según su cuota de partidas.",
+      "etage": "Nivel {n}",
+      "sortsTitre": "Hechizos de combate asociados",
+      "sortsIntro": "El hechizo elegido en esas mismas builds, con la misma ponderación.",
+      "autres": "Otros emblemas"
+    },
+    "spellDetail": {
+      "titre": "Hechizo {nom} MLBB: mejores héroes y tasa de victoria (parche {v})",
+      "descEffet": "{nom}: {effet}",
+      "descAucun": "Por ahora, {nom} no aparece en ninguna de las builds clasificatorias más jugadas.",
+      "effet": "Efecto",
+      "sansDescription": "Todavía no hay descripción en los datos sincronizados.",
+      "recharge": "Enfriamiento",
+      "secondes": "{n} s",
+      "emblemesTitre": "Emblemas asociados",
+      "emblemesIntro": "El emblema elegido en las builds más jugadas con este hechizo, cada build ponderada según su cuota de partidas.",
+      "autres": "Otros hechizos de combate"
+    },
     "heroCounters": {
       "objets": {
         "raison": {}
@@ -1129,7 +1183,8 @@
     "sortsDesc": "Una sola ranura: el hechizo debe cubrir lo que le falta al héroe.",
     "votreRole": "Tu rol",
     "retirerFiltre": "Quitar el filtro",
-    "aideRole": "Elegir un rol sube lo que le conviene. El resto pasa a segundo plano, sin desaparecer."
+    "aideRole": "Elegir un rol sube lo que le conviene. El resto pasa a segundo plano, sin desaparecer.",
+    "voirPage": "{nom}: página completa"
   },
   "skinsUI": {
     "pointsBataille": "Puntos de batalla",

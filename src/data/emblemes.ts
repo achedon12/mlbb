@@ -30,6 +30,9 @@ export const emblemes: Embleme[] = [
   { cle: "support-emblem", role: "Support", nom: "Emblème de soutien", bonus: "Réduction de recharge et vitesse de déplacement", pourQui: "Soutiens et roamers non tanks." },
 ];
 
+/** « tank-emblem » devient « tank » : l'adresse /emblems/tank ne repete pas le mot. */
+export const slugEmbleme = (e: Embleme) => e.cle.replace(/-emblem$/, "");
+
 export interface Talent {
   cle: string;
   nom: string;

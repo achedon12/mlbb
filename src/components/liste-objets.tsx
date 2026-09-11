@@ -3,11 +3,18 @@
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Image from "next/image";
 import { ChampRecherche } from "@/components/champ-recherche";
+import {
+  catalogueRecettes,
+  EffetsObjet,
+  RecetteObjet,
+  type ApercuObjet,
+  type CatalogueRecettes,
+  type VersObjet,
+} from "@/components/fiche-objet";
 import Link from "@/components/lien";
 import { PortraitHeros } from "@/components/portrait-heros";
 import { Puce } from "@/components/puce";
 import { Tiroir } from "@/components/tiroir";
-import type { ObjetGenere } from "@/lib/types";
 import { LOCALE_HTML } from "@/i18n/config";
 import { useLangue, useT } from "@/i18n/fournisseur";
 import { cleRecherche, cn } from "@/lib/utils";
@@ -18,11 +25,9 @@ import { cleRecherche, cn } from "@/lib/utils";
  * Une grille dense d'icones plutot que des fiches empilees : on compare des
  * objets, et comparer suppose de les voir ensemble. Le detail complet s'ouvre
  * dans un panneau lateral, ce qui evite de repeter dix lignes de statistiques
- * sur chaque vignette.
+ * sur chaque vignette. Chaque objet a aussi sa page, rendue au serveur.
  */
-export interface ApercuObjet extends ObjetGenere {
-  image: string | null;
-}
+export type { ApercuObjet };
 
 /** Heros cite par un objet : de quoi afficher sa vignette. */
 export interface VignetteHeros {
@@ -34,9 +39,7 @@ export interface VignetteHeros {
  * Le catalogue vu depuis les recettes et les builds : chaque objet par son nom,
  * ce qu'il sert a fabriquer, et les heros qui le prennent.
  */
-interface Catalogue {
-  parNom: Map<string, ApercuObjet>;
-  debouches: Map<string, ApercuObjet[]>;
+interface Catalogue extends CatalogueRecettes {
   utilisePar: Record<string, string[]>;
   heros: Record<string, VignetteHeros>;
 }
@@ -55,6 +58,13 @@ function selectionner(slug: string | null) {
 function fermerObjet() {
   selectionner(null);
 }
+
+/** Dans le catalogue, un autre objet s'ouvre sur place, par l'ancre. */
+const versAncre: VersObjet = (o, contenu, className) => (
+  <button type="button" onClick={() => selectionner(o.slug)} className={className}>
+    {contenu}
+  </button>
+);
 
 export function ListeObjets({
   objets,
@@ -127,14 +137,10 @@ export function ListeObjets({
 
   // Les recettes nomment leurs composants : on les retrouve par nom, et on lit
   // les recettes a l'envers pour savoir ce que chaque objet sert a fabriquer.
-  const catalogue = useMemo<Catalogue>(() => {
-    const parNom = new Map(objets.map((o) => [o.nom, o]));
-    const debouches = new Map<string, ApercuObjet[]>();
-    for (const o of objets) {
-      for (const c of new Set(o.recette)) debouches.set(c, [...(debouches.get(c) ?? []), o]);
-    }
-    return { parNom, debouches, utilisePar, heros: herosVignettes };
-  }, [objets, utilisePar, herosVignettes]);
+  const catalogue = useMemo<Catalogue>(
+    () => ({ ...catalogueRecettes(objets), utilisePar, heros: herosVignettes }),
+    [objets, utilisePar, herosVignettes],
+  );
 
   return (
     <div>
@@ -239,13 +245,7 @@ function FicheObjet({
   sansCadre?: boolean;
 }) {
   const t = useT();
-  const composants = objet.recette.map((nom) => catalogue.parNom.get(nom));
-  // Ce que coute l'assemblage lui-meme, une fois les composants en poche.
-  const fusion =
-    objet.prix !== null && composants.length > 0 && composants.every((c) => c?.prix != null)
-      ? objet.prix - composants.reduce((somme, c) => somme + (c?.prix ?? 0), 0)
-      : null;
-  const fabrique = catalogue.debouches.get(objet.nom) ?? [];
+  const langue = useLangue();
   const utilisateurs = catalogue.utilisePar[objet.slug] ?? [];
   return (
             <div className={cn("p-5", !sansCadre && "biseau border border-nuit-700/70 bg-nuit-900/60")}>
@@ -268,7 +268,7 @@ function FicheObjet({
                     <p className="mt-1 text-sm text-craie-500">
                       {t("pages.itemsListe.prix")}{" "}
                       <span className="font-titre text-or-400">
-                        {objet.prix.toLocaleString()} {t("pages.itemsListe.or")}
+                        {objet.prix.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
                       </span>
                     </p>
                   )}
@@ -276,61 +276,8 @@ function FicheObjet({
               </div>
 
               <dl className="mt-5 space-y-3 text-sm">
-                {objet.bonus && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.statistiques")}</dt>
-                    <dd className="mt-1 leading-snug text-craie-100">{objet.bonus}</dd>
-                  </div>
-                )}
-                {objet.unique && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.unique")}</dt>
-                    <dd className="mt-1 leading-snug text-azur-400">{objet.unique}</dd>
-                  </div>
-                )}
-                {objet.passif && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.passif")}</dt>
-                    <dd className="mt-1 leading-relaxed text-craie-300">{objet.passif}</dd>
-                  </div>
-                )}
-                {objet.actif && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.actif")}</dt>
-                    <dd className="mt-1 leading-relaxed text-craie-300">{objet.actif}</dd>
-                  </div>
-                )}
-                {objet.recette.length > 0 && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.recette")}</dt>
-                    <dd className="mt-2">
-                      <ArbreRecette noms={objet.recette} catalogue={catalogue} />
-                      {fusion !== null && (
-                        <p className="mt-2 text-xs text-craie-500">
-                          {t("pages.itemsListe.fusion", { prix: fusion.toLocaleString() })}
-                        </p>
-                      )}
-                    </dd>
-                  </div>
-                )}
-                {fabrique.length > 0 && (
-                  <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.fabrique")}</dt>
-                    <dd className="mt-2 flex flex-wrap gap-1.5">
-                      {fabrique.map((o) => (
-                        <button
-                          key={o.slug}
-                          type="button"
-                          onClick={() => selectionner(o.slug)}
-                          className="biseau-sm group flex items-center gap-1.5 border border-nuit-700/70 bg-nuit-900/60 py-1 pl-1 pr-2 transition-colors hover:border-or-500/60"
-                        >
-                          <Icone image={o.image} taille={22} />
-                          <span className="text-xs text-craie-300 group-hover:text-or-400">{o.nom}</span>
-                        </button>
-                      ))}
-                    </dd>
-                  </div>
-                )}
+                <EffetsObjet objet={objet} t={t} />
+                <RecetteObjet objet={objet} catalogue={catalogue} t={t} langue={langue} vers={versAncre} />
                 {utilisateurs.length > 0 && (
                   <div>
                     <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.utilisePar")}</dt>
@@ -355,65 +302,14 @@ function FicheObjet({
                   </div>
                 )}
               </dl>
+
+              {/* La page de l'objet ajoute ce que la fiche ne peut pas tenir : taux par heros et par rang. */}
+              <Link
+                href={`/items/${objet.slug}`}
+                className="mt-5 inline-block text-sm font-semibold text-or-400 underline underline-offset-4 hover:text-or-500"
+              >
+                {t("pages.itemsListe.pageComplete")} →
+              </Link>
             </div>
-  );
-}
-
-/**
- * Arbre de fabrication : chaque composant avec son icone et son prix, puis ses
- * propres composants en retrait. Un clic ouvre la fiche du composant.
- */
-function ArbreRecette({
-  noms,
-  catalogue,
-  profondeur = 0,
-}: {
-  noms: string[];
-  catalogue: Catalogue;
-  profondeur?: number;
-}) {
-  const t = useT();
-  return (
-    <ul className={cn("space-y-1.5", profondeur > 0 && "ml-3.5 mt-1.5 border-l border-nuit-700 pl-3")}>
-      {noms.map((nom, i) => {
-        const o = catalogue.parNom.get(nom);
-        return (
-          <li key={`${nom}-${i}`}>
-            <button
-              type="button"
-              disabled={!o}
-              onClick={() => o && selectionner(o.slug)}
-              className="group flex w-full items-center gap-2 text-left disabled:cursor-default"
-            >
-              <Icone image={o?.image ?? null} taille={28} />
-              <span className="min-w-0 flex-1 truncate text-sm text-craie-100 group-hover:text-or-400">
-                {nom}
-              </span>
-              {o?.prix != null && (
-                <span className="shrink-0 text-xs tabular-nums text-or-400">
-                  {o.prix.toLocaleString()} {t("pages.itemsListe.or")}
-                </span>
-              )}
-            </button>
-            {/* Garde-fou : une recette mal saisie ne doit pas boucler sans fin. */}
-            {o && o.recette.length > 0 && profondeur < 4 && (
-              <ArbreRecette noms={o.recette} catalogue={catalogue} profondeur={profondeur + 1} />
-            )}
-          </li>
-        );
-      })}
-    </ul>
-  );
-}
-
-function Icone({ image, taille }: { image: string | null; taille: number }) {
-  return (
-    <span className="relative shrink-0" style={{ width: taille, height: taille }}>
-      {image ? (
-        <Image src={image} alt="" fill sizes={`${taille}px`} className="object-contain" />
-      ) : (
-        <span className="grid size-full place-items-center bg-nuit-800 text-[0.6rem] text-craie-500">—</span>
-      )}
-    </span>
   );
 }

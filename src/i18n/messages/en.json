@@ -277,7 +277,8 @@
       "fusion": "Combine cost: {prix} gold",
       "fabrique": "Builds into",
       "utilisePar": "Used by",
-      "utiliseParAide": "Based on the most played ranked builds."
+      "utiliseParAide": "Based on the most played ranked builds.",
+      "pageComplete": "Full item page"
     },
     "emblems": {
       "titre": "Emblems and talents",
@@ -713,10 +714,63 @@
       "ajustements": "Changes to {nom}: {n} in the last {total} patches.",
       "skins": "Skins for {nom} ({n}):"
     },
-    "fiches": {},
-    "itemDetail": {},
-    "emblemDetail": {},
-    "spellDetail": {},
+    "fiches": {
+      "heros": "Hero",
+      "part": "Share of games",
+      "aide": "Share of each hero's ranked games (all ranks, on the lane where this pick matters most) played with one of their three most played builds that includes it, and the win rate of those builds.",
+      "aucun": "This pick is not part of any hero's three most played builds right now.",
+      "aussi": "Also picked by:",
+      "parRang": "By rank",
+      "parRangIntro": "How many heroes run it in their most played builds at each rank, the one who relies on it most, and the average win rate of those builds.",
+      "nbHeros": "Heroes",
+      "nHeros": "{n} heroes",
+      "enTete": "Top hero",
+      "victoireMoy": "Average win rate",
+      "herosTitre": "Heroes who pick it most",
+      "listeLd": "Heroes who pick {nom} most",
+      "pourQui": "Who it's for",
+      "descHeros": "Picked most by {heros} in ranked games; {premier} wins {taux} of games with it.",
+      "descHerosSimple": "Picked most by {heros} in ranked games.",
+      "descMaj": "Updated {date}."
+    },
+    "itemDetail": {
+      "titre": "{nom} MLBB: Build, Stats & Best Heroes (Patch {v})",
+      "descObjet": "{nom} ({details}): {effet}.",
+      "descObjetSeul": "{nom} ({details}).",
+      "descHeros": "Built most by {heros} in ranked games; {premier} wins {taux} of games with it.",
+      "descHerosSimple": "Built most by {heros} in ranked games.",
+      "herosTitre": "Heroes who build {nom}",
+      "effets": "Stats and effects",
+      "categorie": "Category",
+      "prix": "Price",
+      "fabrication": "Crafting",
+      "similaires": "Other {categorie} items"
+    },
+    "emblemDetail": {
+      "titre": "{nom} MLBB: Best Heroes & Talents (Patch {v})",
+      "desc": "{nom} ({bonus}): run by {n} heroes in their most played ranked builds, most of all {heros}.",
+      "descTalents": "Most picked core talents: {talents}.",
+      "descSans": "{nom} ({bonus}): {pourQui}",
+      "bonus": "Bonus",
+      "talentsTitre": "Talents most picked with this emblem",
+      "talentsIntro": "Share of the most played builds running this emblem, each build weighted by its share of games.",
+      "etage": "Tier {n}",
+      "sortsTitre": "Battle Spells paired with it",
+      "sortsIntro": "The spell taken in those same builds, with the same weighting.",
+      "autres": "Other emblems"
+    },
+    "spellDetail": {
+      "titre": "{nom} Battle Spell MLBB: Best Heroes & Win Rates (Patch {v})",
+      "descEffet": "{nom}: {effet}",
+      "descAucun": "{nom} is not part of any of the most played ranked builds right now.",
+      "effet": "Effect",
+      "sansDescription": "No description in the synced data yet.",
+      "recharge": "Cooldown",
+      "secondes": "{n}s",
+      "emblemesTitre": "Emblems paired with it",
+      "emblemesIntro": "The emblem taken in the most played builds with this spell, each build weighted by its share of games.",
+      "autres": "Other Battle Spells"
+    },
     "heroCounters": {
       "objets": {
         "raison": {}
@@ -1129,7 +1183,8 @@
     "sortsDesc": "Only one slot: the spell should cover what the hero lacks.",
     "votreRole": "Your role",
     "retirerFiltre": "Clear filter",
-    "aideRole": "Picking a role brings what suits it to the top. The rest fades back without disappearing."
+    "aideRole": "Picking a role brings what suits it to the top. The rest fades back without disappearing.",
+    "voirPage": "{nom}: full page"
   },
   "skinsUI": {
     "pointsBataille": "Battle Points",

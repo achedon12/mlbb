@@ -33,7 +33,8 @@ export function TitreSection({
 }
 
 
-const COULEUR_PALIER: Record<Palier, string> = {
+/** Couleurs d'un palier, reprises par le tableau des statistiques. */
+export const COULEUR_PALIER: Record<Palier, string> = {
   "S+": "bg-sang-500 text-nuit-950",
   S: "bg-or-500 text-nuit-950",
   A: "bg-azur-500 text-nuit-950",
@@ -78,19 +79,30 @@ export function EnTetePage({
   titre,
   chapeau,
   miettes,
+  icone,
   children,
 }: {
   titre: string;
   chapeau: string;
   /** Fil d'Ariane ; par defaut, la page seule sous l'accueil. */
   miettes?: Miette[];
+  /** Visuel pose devant le titre (icone d'objet, d'embleme, de sort). */
+  icone?: React.ReactNode;
   children?: React.ReactNode;
 }) {
+  const h1 = <h1 className="font-titre text-3xl font-bold text-craie-100 sm:text-4xl">{titre}</h1>;
   return (
     <div className="border-b border-nuit-700/70 bg-nuit-900/30">
       <div className="mx-auto max-w-6xl px-4 pb-14 pt-8">
         <FilAriane miettes={miettes ?? [{ nom: titre }]} className="mb-6" />
-        <h1 className="font-titre text-3xl font-bold text-craie-100 sm:text-4xl">{titre}</h1>
+        {icone ? (
+          <div className="flex items-center gap-4">
+            {icone}
+            <div className="min-w-0">{h1}</div>
+          </div>
+        ) : (
+          h1
+        )}
         <div aria-hidden className="filet-or mt-3 h-0.5 w-20" />
         <p className="mt-4 max-w-2xl leading-relaxed text-craie-300">{chapeau}</p>
         {children}
@@ -103,7 +115,16 @@ export function EnTetePage({
  * Note du jeu, affichee en barre plutot qu'en chiffre nu : on compare deux
  * heros d'un coup d'oeil, ce qu'une valeur seule ne permet pas.
  */
-export function Jauge({ valeur, max = 10 }: { valeur: number; max?: number }) {
+export function Jauge({
+  valeur,
+  max = 10,
+  texte,
+}: {
+  valeur: number;
+  max?: number;
+  /** Valeur affichee, deja formatee pour la langue (une moyenne a decimale). */
+  texte?: string;
+}) {
   const part = Math.max(0, Math.min(1, valeur / max));
 
   return (
@@ -115,7 +136,7 @@ export function Jauge({ valeur, max = 10 }: { valeur: number; max?: number }) {
         />
       </span>
       <span className="w-6 shrink-0 text-right text-xs tabular-nums text-craie-300">
-        {valeur}
+        {texte ?? valeur}
       </span>
       {/* « / 10 » se lit dans toutes les langues : la jauge sert aussi hors d'un composant client. */}
       <span className="sr-only">/ {max}</span>

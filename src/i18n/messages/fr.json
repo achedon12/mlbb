@@ -277,7 +277,8 @@
       "fusion": "Coût de fusion : {prix} or",
       "fabrique": "Sert à fabriquer",
       "utilisePar": "Utilisé par",
-      "utiliseParAide": "D'après les builds les plus joués en partie classée."
+      "utiliseParAide": "D'après les builds les plus joués en partie classée.",
+      "pageComplete": "Page complète de l'objet"
     },
     "emblems": {
       "titre": "Emblèmes et talents",
@@ -713,10 +714,63 @@
       "ajustements": "Ajustements de {nom} : {n} sur les {total} derniers patchs.",
       "skins": "Skins de {nom} ({n}) :"
     },
-    "fiches": {},
-    "itemDetail": {},
-    "emblemDetail": {},
-    "spellDetail": {},
+    "fiches": {
+      "heros": "Héros",
+      "part": "Part des parties",
+      "aide": "Part des parties classées de chaque héros (tous rangs, sur la position où ce choix pèse le plus) jouées avec l'un de ses trois builds les plus joués qui le contient, et taux de victoire de ces builds.",
+      "aucun": "Ce choix ne figure en ce moment dans aucun des trois builds les plus joués d'un héros.",
+      "aussi": "Aussi pris par :",
+      "parRang": "Par rang",
+      "parRangIntro": "Combien de héros le prennent dans leurs builds les plus joués à chaque rang, celui qui en dépend le plus, et le taux de victoire moyen de ces builds.",
+      "nbHeros": "Héros",
+      "nHeros": "{n} héros",
+      "enTete": "En tête",
+      "victoireMoy": "Victoire moyenne",
+      "herosTitre": "Héros qui le prennent le plus",
+      "listeLd": "Héros qui prennent le plus {nom}",
+      "pourQui": "Pour qui",
+      "descHeros": "Surtout pris par {heros} en partie classée ; {premier} gagne {taux} de ses parties avec.",
+      "descHerosSimple": "Surtout pris par {heros} en partie classée.",
+      "descMaj": "Mis à jour le {date}."
+    },
+    "itemDetail": {
+      "titre": "{nom} MLBB : build, stats et meilleurs héros (patch {v})",
+      "descObjet": "{nom} ({details}) : {effet}.",
+      "descObjetSeul": "{nom} ({details}).",
+      "descHeros": "Surtout acheté par {heros} en partie classée ; {premier} gagne {taux} de ses parties avec.",
+      "descHerosSimple": "Surtout acheté par {heros} en partie classée.",
+      "herosTitre": "Héros qui achètent {nom}",
+      "effets": "Statistiques et effets",
+      "categorie": "Catégorie",
+      "prix": "Prix",
+      "fabrication": "Fabrication",
+      "similaires": "Autres objets de la catégorie {categorie}"
+    },
+    "emblemDetail": {
+      "titre": "{nom} MLBB : meilleurs héros et talents (patch {v})",
+      "desc": "{nom} ({bonus}) : pris par {n} héros dans leurs builds classés les plus joués, surtout {heros}.",
+      "descTalents": "Talents décisifs les plus choisis : {talents}.",
+      "descSans": "{nom} ({bonus}) : {pourQui}",
+      "bonus": "Bonus",
+      "talentsTitre": "Talents les plus choisis avec cet emblème",
+      "talentsIntro": "Part des builds les plus joués avec cet emblème, chaque build pesant selon sa part des parties.",
+      "etage": "Palier {n}",
+      "sortsTitre": "Sorts de combat associés",
+      "sortsIntro": "Le sort pris dans ces mêmes builds, avec la même pondération.",
+      "autres": "Autres emblèmes"
+    },
+    "spellDetail": {
+      "titre": "Sort {nom} MLBB : meilleurs héros et taux de victoire (patch {v})",
+      "descEffet": "{nom} : {effet}",
+      "descAucun": "{nom} ne figure en ce moment dans aucun des builds classés les plus joués.",
+      "effet": "Effet",
+      "sansDescription": "Pas encore de description dans les données synchronisées.",
+      "recharge": "Recharge",
+      "secondes": "{n} s",
+      "emblemesTitre": "Emblèmes associés",
+      "emblemesIntro": "L'emblème pris dans les builds les plus joués avec ce sort, chaque build pesant selon sa part des parties.",
+      "autres": "Autres sorts de combat"
+    },
     "heroCounters": {
       "objets": {
         "raison": {}
@@ -1129,7 +1183,8 @@
     "sortsDesc": "Un seul emplacement : le sort doit répondre à ce qui manque au héros.",
     "votreRole": "Votre rôle",
     "retirerFiltre": "Retirer le filtre",
-    "aideRole": "Choisir un rôle remonte ce qui lui convient. Le reste passe en retrait, sans disparaître."
+    "aideRole": "Choisir un rôle remonte ce qui lui convient. Le reste passe en retrait, sans disparaître.",
+    "voirPage": "{nom} : page complète"
   },
   "skinsUI": {
     "pointsBataille": "Points de bataille",
