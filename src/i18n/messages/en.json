@@ -67,8 +67,14 @@
     },
     "team": {},
     "meta": {},
-    "statistics": {},
-    "skins": {},
+    "statistics": {
+      "label": "Hero statistics",
+      "desc": "Win, ban and pick rates by rank"
+    },
+    "skins": {
+      "label": "Skins",
+      "desc": "Every skin, hero by hero"
+    },
     "serverTime": {},
     "ranks": {},
     "retribution": {},
@@ -789,14 +795,86 @@
       "lanes": {}
     },
     "statistics": {
-      "lecture": {}
+      "titre": "Hero statistics",
+      "titreRang": "{rang} hero statistics",
+      "chapeau": "Win, ban and pick rates of every hero as reported by the game, with their change over seven days and their thirty-day trend. Sort by any column, filter by role or lane.",
+      "chapeauRang": "The same rates, measured on {rang} games only: a hero can dominate at one rank and struggle at another.",
+      "metaTitre": "MLBB Hero Statistics: Win, Pick & Ban Rates by Rank (Patch {v})",
+      "metaTitreRang": "MLBB {rang} Hero Statistics: Win, Pick & Ban Rates (Patch {v})",
+      "metaDescription": "Win, ban and pick rates of all {n} Mobile Legends heroes, by rank, with 7-day change and 30-day trend. Highest win rate: {nom} ({taux}). Updated {date}.",
+      "metaDescriptionRang": "Win, ban and pick rates of all {n} Mobile Legends heroes in {rang} games, with 7-day change and 30-day trend. Highest win rate: {nom} ({taux}). Updated {date}.",
+      "ldNom": "Mobile Legends: Bang Bang hero statistics ({rang})",
+      "mesures": "{n} heroes measured",
+      "contexteTous": "Across all ranks",
+      "contexteRang": "In {rang} games",
+      "resume": "{contexte}, {victoire} has the highest win rate ({tauxVictoire}), {ban} is the most banned hero ({tauxBan}) and {pick} the most picked ({tauxPick}).",
+      "hausses": "Biggest risers this week",
+      "baisses": "Biggest fallers this week",
+      "mouvementsIntro": "Change in win rate over seven days in this rank, listed when it reaches at least {seuil} points.",
+      "aucunMouvement": "No notable change this week.",
+      "lecture": {
+        "titre": "How to read this table",
+        "victoire": "Win rate: share of the hero's games that end in a win.",
+        "ban": "Ban rate: share of drafts in which the hero is banned. A high ban rate points to a hero players fear, often stronger than their win rate suggests.",
+        "selection": "Pick rate: share of games in which the hero is picked. It measures popularity, not strength.",
+        "tendance": "7 days: change in win rate over the last seven days, in points. Below {seuil} points, the change is rounding noise and stays grey.",
+        "courbe": "30 days: daily win rate over the last thirty days, drawn on the hero's own scale.",
+        "palier": "Tier: the hero's tier in the tier list for the same rank, computed from the win rate plus a quarter of the ban rate.",
+        "faible": "An asterisk marks heroes picked too rarely for their rates to be stable."
+      },
+      "api": "Raw data:",
+      "apiLien": "public JSON API",
+      "lienDepuisTierList": "Full statistics table"
     },
-    "statisticsTable": {},
-    "skins": {},
+    "statisticsTable": {
+      "legende": "Win, ban and pick rates of the heroes — {rang}",
+      "heros": "Hero",
+      "palier": "Tier",
+      "victoire": "Win rate",
+      "ecart": "7 days",
+      "ban": "Ban rate",
+      "selection": "Pick rate",
+      "courbe": "30 days",
+      "courbeAria": "Win rate over 30 days: from {debut} to {fin}",
+      "faible": "Picked too rarely for the rates to be reliable",
+      "sansMesure": "Not enough measurements"
+    },
+    "skins": {
+      "titre": "MLBB skins",
+      "chapeau": "All {n} skins of the {h} Mobile Legends heroes, grouped by hero. Open a hero to see every artwork with its rarity, release date and price.",
+      "metaTitre": "MLBB Skins: All {n} Hero Skins & Artworks",
+      "metaDescription": "Every Mobile Legends: Bang Bang skin, hero by hero: {n} skins for {h} heroes, with artworks, rarity, release date and price. Latest: {dernier} ({heros}).",
+      "majLe": "Updated {date}",
+      "derniers": "Latest skins",
+      "derniersIntro": "The most recent releases with a known date, upcoming skins included.",
+      "galerie": "Skins by hero",
+      "index": "All hero galleries"
+    },
     "skinsGalerie": {
-      "nombre": {}
+      "compte": "{h} heroes · {n} skins",
+      "nombre": {
+        "one": "{n} skin",
+        "other": "{n} skins"
+      },
+      "voirTout": "All skins",
+      "voirPlus": "Show more heroes ({n} left)",
+      "alt": "{heros} — {skin} skin"
     },
-    "heroSkins": {},
+    "heroSkins": {
+      "titre": "{nom} skins",
+      "titreElision": "{nom} skins",
+      "metaTitre": "{nom} Skins: All {n} Skins & Artworks",
+      "metaTitreElision": "{nom} Skins: All {n} Skins & Artworks",
+      "metaDescription": "All {n} {nom} skins in Mobile Legends: Bang Bang, with artworks, rarity, release date, availability and price.",
+      "chapeau": "{nom} has {n} skins. Each card shows the artwork, the rarity, the release date, the availability and the price when they are known.",
+      "dernier": "Most recent dated skin: {skin} ({date}).",
+      "prix": "Price",
+      "illustrationSeule": "Artwork only: rarity, date and price are not in the database yet.",
+      "altIllustration": "{nom} {skin} skin artwork",
+      "altPortrait": "{nom} wearing the {skin} skin, in-game portrait",
+      "autres": "Other heroes' skins",
+      "lienFiche": "See all {n} skins and artworks"
+    },
     "duos": {
       "phases": {},
       "phase": {},

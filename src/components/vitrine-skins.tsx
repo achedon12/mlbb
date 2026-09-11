@@ -2,9 +2,9 @@
 
 import { createContext, useContext, useState } from "react";
 import Image from "next/image";
-import type { Skin } from "@/lib/types";
 import { useT } from "@/i18n/fournisseur";
 import { rarete, raretesPresentes } from "@/lib/raretes";
+import { MONNAIES, type SkinComplet } from "@/lib/skins";
 
 /**
  * Vitrine des skins.
@@ -13,11 +13,11 @@ import { rarete, raretesPresentes } from "@/lib/raretes";
  * illustration, le panneau d'informations, et jusqu'au portrait en tete de
  * fiche. L'etat du skin choisi est donc partage entre l'en-tete et l'onglet,
  * via ce contexte — sans quoi il faudrait deux selecteurs desynchronises.
+ *
+ * Le type et la jointure des skins vivent dans `@/lib/skins` et
+ * `@/lib/skins-heros`, partages avec la galerie de chaque heros.
  */
-export interface SkinComplet extends Skin {
-  portrait: string | null;
-  illustration: string | null;
-}
+export type { SkinComplet };
 
 interface Contexte {
   actif: SkinComplet;
@@ -99,15 +99,6 @@ export function PortraitVitrine({
     </span>
   );
 }
-
-/** Monnaies du jeu, aux sigles peu parlants. */
-const MONNAIES: Record<string, string> = {
-  bp: "pointsBataille",
-  dm: "diamants",
-  ticket: "tickets",
-  hf: "fragments",
-  lg: "gemmes",
-};
 
 /** L'onglet : grande illustration, informations, et grille de selection. */
 export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {

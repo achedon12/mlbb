@@ -39,6 +39,31 @@ export function Puce({
   );
 }
 
+/** Rangee de puces a choix unique : un second clic sur la puce active la relache. */
+export function ChoixUnique<T extends string>({
+  legende,
+  valeurs,
+  actif,
+  onChange,
+  libelle,
+}: {
+  legende: string;
+  valeurs: readonly T[];
+  actif: T | null;
+  onChange: (v: T | null) => void;
+  libelle: (v: T) => string;
+}) {
+  return (
+    <GroupeFiltres legende={legende}>
+      {valeurs.map((v) => (
+        <Puce key={v} actif={actif === v} onClick={() => onChange(actif === v ? null : v)}>
+          {libelle(v)}
+        </Puce>
+      ))}
+    </GroupeFiltres>
+  );
+}
+
 /** Rangee de filtres et son intitule, annonce aussi aux lecteurs d'ecran. */
 export function GroupeFiltres({
   legende,

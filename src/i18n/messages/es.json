@@ -67,8 +67,14 @@
     },
     "team": {},
     "meta": {},
-    "statistics": {},
-    "skins": {},
+    "statistics": {
+      "label": "Estadísticas de héroes",
+      "desc": "Victorias, bans y picks por rango"
+    },
+    "skins": {
+      "label": "Skins",
+      "desc": "Todas las skins, héroe por héroe"
+    },
     "serverTime": {},
     "ranks": {},
     "retribution": {},
@@ -789,14 +795,86 @@
       "lanes": {}
     },
     "statistics": {
-      "lecture": {}
+      "titre": "Estadísticas de héroes",
+      "titreRang": "Estadísticas de héroes — {rang}",
+      "chapeau": "Tasa de victoria, de ban y de pick de cada héroe, según los datos del juego, con su variación en siete días y su tendencia en treinta. Ordena por cualquier columna y filtra por rol o por línea.",
+      "chapeauRang": "Las mismas tasas, medidas solo en partidas de {rang}: un héroe puede dominar en un rango y sufrir en otro.",
+      "metaTitre": "Estadísticas de héroes MLBB: win rate, pick y ban por rango (parche {v})",
+      "metaTitreRang": "Estadísticas MLBB en {rang}: win rate, pick y ban (parche {v})",
+      "metaDescription": "Tasa de victoria, de ban y de pick de los {n} héroes de Mobile Legends, por rango, con la variación en 7 días y la tendencia en 30 días. Mejor tasa de victoria: {nom} ({taux}). Actualizado el {date}.",
+      "metaDescriptionRang": "Tasa de victoria, de ban y de pick de los {n} héroes de Mobile Legends en partidas de {rang}, con la variación en 7 días y la tendencia en 30 días. Mejor tasa de victoria: {nom} ({taux}). Actualizado el {date}.",
+      "ldNom": "Estadísticas de héroes de Mobile Legends: Bang Bang ({rang})",
+      "mesures": "{n} héroes medidos",
+      "contexteTous": "En todos los rangos",
+      "contexteRang": "En partidas de {rang}",
+      "resume": "{contexte}, {victoire} tiene la mejor tasa de victoria ({tauxVictoire}), {ban} es el héroe más baneado ({tauxBan}) y {pick} el más elegido ({tauxPick}).",
+      "hausses": "Mayores subidas de la semana",
+      "baisses": "Mayores caídas de la semana",
+      "mouvementsIntro": "Variación de la tasa de victoria en siete días en este rango, cuando alcanza al menos {seuil} puntos.",
+      "aucunMouvement": "Ningún cambio notable esta semana.",
+      "lecture": {
+        "titre": "Cómo leer esta tabla",
+        "victoire": "Victoria: parte de las partidas del héroe que terminan en victoria.",
+        "ban": "Ban: parte de los drafts en los que el héroe es baneado. Una tasa de ban alta señala un héroe temido, a menudo más fuerte de lo que sugiere su tasa de victoria.",
+        "selection": "Pick: parte de las partidas en las que se elige al héroe. Mide la popularidad, no la fuerza.",
+        "tendance": "7 días: variación de la tasa de victoria en los últimos siete días, en puntos. Por debajo de {seuil} puntos, la diferencia es ruido de redondeo y queda en gris.",
+        "courbe": "30 días: tasa de victoria diaria de los últimos treinta días, en la escala propia del héroe.",
+        "palier": "Tier: el del héroe en la tier list del mismo rango, calculado con la tasa de victoria más un cuarto de la tasa de ban.",
+        "faible": "Un asterisco marca a los héroes elegidos tan pocas veces que sus tasas no son estables."
+      },
+      "api": "Datos en bruto:",
+      "apiLien": "API pública JSON",
+      "lienDepuisTierList": "Tabla completa de estadísticas"
     },
-    "statisticsTable": {},
-    "skins": {},
+    "statisticsTable": {
+      "legende": "Tasas de victoria, de ban y de pick de los héroes — {rang}",
+      "heros": "Héroe",
+      "palier": "Tier",
+      "victoire": "Victoria",
+      "ecart": "7 días",
+      "ban": "Ban",
+      "selection": "Pick",
+      "courbe": "30 días",
+      "courbeAria": "Tasa de victoria en 30 días: de {debut} a {fin}",
+      "faible": "Elegido tan pocas veces que sus tasas no son fiables",
+      "sansMesure": "Sin mediciones suficientes"
+    },
+    "skins": {
+      "titre": "Skins de MLBB",
+      "chapeau": "Las {n} skins de los {h} héroes de Mobile Legends, agrupadas por héroe. Abre un héroe para ver cada ilustración con su rareza, fecha de lanzamiento y precio.",
+      "metaTitre": "Skins de MLBB: las {n} skins e ilustraciones de los héroes",
+      "metaDescription": "Todas las skins de Mobile Legends: Bang Bang, héroe por héroe: {n} skins de {h} héroes, con ilustraciones, rareza, fecha de lanzamiento y precio. La más reciente: {dernier} ({heros}).",
+      "majLe": "Actualizado el {date}",
+      "derniers": "Últimas skins",
+      "derniersIntro": "Los lanzamientos más recientes con fecha conocida, incluidas las skins por llegar.",
+      "galerie": "Skins por héroe",
+      "index": "Todas las galerías de héroes"
+    },
     "skinsGalerie": {
-      "nombre": {}
+      "compte": "{h} héroes · {n} skins",
+      "nombre": {
+        "one": "{n} skin",
+        "other": "{n} skins"
+      },
+      "voirTout": "Todas las skins",
+      "voirPlus": "Mostrar más héroes (quedan {n})",
+      "alt": "{heros} — skin {skin}"
     },
-    "heroSkins": {},
+    "heroSkins": {
+      "titre": "Skins de {nom}",
+      "titreElision": "Skins de {nom}",
+      "metaTitre": "Skins de {nom}: las {n} skins e ilustraciones",
+      "metaTitreElision": "Skins de {nom}: las {n} skins e ilustraciones",
+      "metaDescription": "{nom}: las {n} skins de Mobile Legends: Bang Bang, con ilustraciones, rareza, fecha de lanzamiento, disponibilidad y precio.",
+      "chapeau": "{nom} tiene {n} skins. Cada tarjeta muestra la ilustración, la rareza, la fecha de lanzamiento, la disponibilidad y el precio cuando se conocen.",
+      "dernier": "Skin con fecha más reciente: {skin} ({date}).",
+      "prix": "Precio",
+      "illustrationSeule": "Solo ilustración: la rareza, la fecha y el precio aún no están en la base de datos.",
+      "altIllustration": "Ilustración de la skin {skin} — {nom}",
+      "altPortrait": "{nom} con la skin {skin}, retrato en el juego",
+      "autres": "Skins de los demás héroes",
+      "lienFiche": "Ver las {n} skins e ilustraciones"
+    },
     "duos": {
       "phases": {},
       "phase": {},

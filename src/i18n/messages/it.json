@@ -67,8 +67,14 @@
     },
     "team": {},
     "meta": {},
-    "statistics": {},
-    "skins": {},
+    "statistics": {
+      "label": "Statistiche degli eroi",
+      "desc": "Vittorie, ban e pick per rango"
+    },
+    "skins": {
+      "label": "Skin",
+      "desc": "Tutte le skin, eroe per eroe"
+    },
     "serverTime": {},
     "ranks": {},
     "retribution": {},
@@ -789,14 +795,86 @@
       "lanes": {}
     },
     "statistics": {
-      "lecture": {}
+      "titre": "Statistiche degli eroi",
+      "titreRang": "Statistiche degli eroi — {rang}",
+      "chapeau": "Win rate, ban rate e pick rate di ogni eroe, rilevati dal gioco, con la variazione su sette giorni e l'andamento su trenta. Ordina per qualsiasi colonna, filtra per ruolo o per lane.",
+      "chapeauRang": "Le stesse percentuali, misurate solo sulle partite {rang}: un eroe può dominare a un rango e faticare in un altro.",
+      "metaTitre": "Statistiche eroi MLBB: win rate, pick e ban per rango (patch {v})",
+      "metaTitreRang": "Statistiche eroi MLBB {rang}: win rate, pick e ban (patch {v})",
+      "metaDescription": "Win rate, ban rate e pick rate di tutti i {n} eroi di Mobile Legends, per rango, con variazione a 7 giorni e andamento a 30 giorni. Win rate più alto: {nom} ({taux}). Aggiornamento: {date}.",
+      "metaDescriptionRang": "Win rate, ban rate e pick rate di tutti i {n} eroi di Mobile Legends nelle partite {rang}, con variazione a 7 giorni e andamento a 30 giorni. Win rate più alto: {nom} ({taux}). Aggiornamento: {date}.",
+      "ldNom": "Statistiche degli eroi di Mobile Legends: Bang Bang ({rang})",
+      "mesures": "{n} eroi misurati",
+      "contexteTous": "Considerando tutti i ranghi",
+      "contexteRang": "Nelle partite {rang}",
+      "resume": "{contexte}, {victoire} ha il win rate più alto ({tauxVictoire}), {ban} è l'eroe più bannato ({tauxBan}) e {pick} il più scelto ({tauxPick}).",
+      "hausses": "Maggiori rialzi della settimana",
+      "baisses": "Maggiori ribassi della settimana",
+      "mouvementsIntro": "Variazione del win rate su sette giorni in questo rango, riportata quando raggiunge almeno {seuil} punti.",
+      "aucunMouvement": "Nessuna variazione rilevante questa settimana.",
+      "lecture": {
+        "titre": "Come leggere questa tabella",
+        "victoire": "Win rate: quota delle partite dell'eroe che finiscono con una vittoria.",
+        "ban": "Ban rate: quota dei draft in cui l'eroe viene bannato. Un ban rate alto indica un eroe temuto, spesso più forte di quanto dica il suo win rate.",
+        "selection": "Pick rate: quota delle partite in cui l'eroe viene scelto. Misura la popolarità, non la forza.",
+        "tendance": "7 giorni: variazione del win rate negli ultimi sette giorni, in punti. Sotto {seuil} punti lo scarto è solo arrotondamento e resta in grigio.",
+        "courbe": "30 giorni: win rate giornaliero degli ultimi trenta giorni, sulla scala propria dell'eroe.",
+        "palier": "Tier: quello dell'eroe nella tier list dello stesso rango, calcolato dal win rate più un quarto del ban rate.",
+        "faible": "Un asterisco segnala gli eroi scelti troppo di rado perché le loro percentuali siano stabili."
+      },
+      "api": "Dati grezzi:",
+      "apiLien": "API pubblica JSON",
+      "lienDepuisTierList": "Tabella completa delle statistiche"
     },
-    "statisticsTable": {},
-    "skins": {},
+    "statisticsTable": {
+      "legende": "Win rate, ban rate e pick rate degli eroi — {rang}",
+      "heros": "Eroe",
+      "palier": "Tier",
+      "victoire": "Win rate",
+      "ecart": "7 giorni",
+      "ban": "Ban rate",
+      "selection": "Pick rate",
+      "courbe": "30 giorni",
+      "courbeAria": "Win rate su 30 giorni: da {debut} a {fin}",
+      "faible": "Scelto troppo di rado perché le percentuali siano affidabili",
+      "sansMesure": "Misure insufficienti"
+    },
+    "skins": {
+      "titre": "Skin di MLBB",
+      "chapeau": "Tutte le {n} skin dei {h} eroi di Mobile Legends, raggruppate per eroe. Apri un eroe per vedere ogni illustrazione con rarità, data di uscita e prezzo.",
+      "metaTitre": "Skin MLBB: tutte le {n} skin e illustrazioni degli eroi",
+      "metaDescription": "Tutte le skin di Mobile Legends: Bang Bang, eroe per eroe: {n} skin per {h} eroi, con illustrazioni, rarità, data di uscita e prezzo. Ultima uscita: {dernier} ({heros}).",
+      "majLe": "Aggiornamento: {date}",
+      "derniers": "Ultime skin",
+      "derniersIntro": "Le uscite più recenti con data nota, comprese le skin in arrivo.",
+      "galerie": "Skin per eroe",
+      "index": "Tutte le gallerie degli eroi"
+    },
     "skinsGalerie": {
-      "nombre": {}
+      "compte": "{h} eroi · {n} skin",
+      "nombre": {
+        "one": "{n} skin",
+        "other": "{n} skin"
+      },
+      "voirTout": "Tutte le skin",
+      "voirPlus": "Mostra altri eroi ({n} rimanenti)",
+      "alt": "{heros} — skin {skin}"
     },
-    "heroSkins": {},
+    "heroSkins": {
+      "titre": "Skin di {nom}",
+      "titreElision": "Skin di {nom}",
+      "metaTitre": "Skin di {nom}: tutte le {n} skin e illustrazioni",
+      "metaTitreElision": "Skin di {nom}: tutte le {n} skin e illustrazioni",
+      "metaDescription": "{nom}: tutte le {n} skin di Mobile Legends: Bang Bang, con illustrazioni, rarità, data di uscita, disponibilità e prezzo.",
+      "chapeau": "{nom} ha {n} skin. Ogni scheda mostra l'illustrazione, la rarità, la data di uscita, la disponibilità e il prezzo quando sono noti.",
+      "dernier": "Skin datata più recente: {skin} ({date}).",
+      "prix": "Prezzo",
+      "illustrationSeule": "Solo illustrazione: rarità, data e prezzo non sono ancora nel database.",
+      "altIllustration": "Illustrazione della skin {skin} — {nom}",
+      "altPortrait": "{nom} con la skin {skin}, ritratto in gioco",
+      "autres": "Skin degli altri eroi",
+      "lienFiche": "Vedi tutte le {n} skin e illustrazioni"
+    },
     "duos": {
       "phases": {},
       "phase": {},
