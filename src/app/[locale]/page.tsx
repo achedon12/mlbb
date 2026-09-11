@@ -69,7 +69,7 @@ const detail = patchsDetail as unknown as Record<
  * doit rester reconnaissable d'une visite a l'autre dans la journee.
  */
 /** Outils interactifs du menu, repris en grille sur l'accueil. */
-const OUTILS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz"].includes(e.href));
+const OUTILS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle"].includes(e.href));
 
 function herosDuJour() {
   const eligibles = heros.filter((h) => illustrations[h.slug]);

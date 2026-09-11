@@ -22,6 +22,8 @@ import { StatistiquesHeros } from "@/components/statistiques-heros";
 import { galerieHeros } from "@/lib/skins-heros";
 import { duos } from "@/lib/duos";
 import { AjustementsDuHeros } from "@/components/patch-heros";
+import { NextPatch } from "@/components/next-patch";
+import { HeroProStats } from "@/components/hero-pro-stats";
 import { dureeDe, historiqueDe, tendancesDe } from "@/lib/evolution";
 import { Onglets } from "@/components/onglets";
 import { LienFluxHeros } from "@/components/lien-flux-heros";
@@ -682,7 +684,11 @@ export default async function PageHeros({ params }: Params) {
                     {ajustementsHeros.length > 0 && (
                       <AjustementsDuHeros entrees={ajustementsHeros} portrait={h.visuels.icone ?? h.visuels.portrait} />
                     )}
+                    {/* Changes being tested on the Advance Server; renders nothing otherwise. */}
+                    <NextPatch slug={h.slug} locale={locale} />
                   </section>
+                  {/* Pro play presence in recent tournaments; renders nothing for absent heroes. */}
+                  <HeroProStats slug={h.slug} locale={locale} />
                 </div>
               ),
             },

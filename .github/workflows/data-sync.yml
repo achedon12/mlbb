@@ -73,6 +73,23 @@ jobs:
         continue-on-error: true
         run: npm run sync -- --images
 
+      # Monthly lists and test-server notes: a failure keeps the previous data.
+      - name: Events calendar (StarLight, Collector)
+        if: steps.complete.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/events.mjs
+
+      - name: Advance Server patch notes
+        if: steps.complete.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/advance-server.mjs
+
+      # Liquipedia, under its rate limits: about 20 s when nothing changed.
+      - name: Esports tournaments and pro statistics
+        if: steps.complete.outcome == 'success'
+        continue-on-error: true
+        run: node scripts/esports.mjs
+
       - name: Traduire les contenus repris en anglais
         if: steps.complete.outcome == 'success'
         run: npm run traduire
@@ -114,7 +131,7 @@ jobs:
         run: |
           # Donnees, visuels, traductions et leurs caches : rien d'autre (le build
           # ne doit rien glisser dans le commit).
-          git add -A -- src/data public/visuels content src/i18n/messages 'scripts/traductions*.json'
+          git add -A -- src/data public/visuels content src/i18n/messages 'scripts/traductions*.json' scripts/advance-server-translations.json scripts/esports-cache.json
           # synchro.json porte l'horodatage de l'execution : seul, il ne merite
           # pas de commit.
           if git diff --cached --quiet -- . ':(exclude)src/data/jeu/synchro.json'; then
