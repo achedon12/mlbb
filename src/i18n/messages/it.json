@@ -66,7 +66,10 @@
       "desc": "Le vittorie che ti mancano"
     },
     "team": {},
-    "meta": {},
+    "meta": {
+      "label": "Report meta",
+      "desc": "Ascese, cali e tier della settimana"
+    },
     "statistics": {
       "label": "Statistiche degli eroi",
       "desc": "Vittorie, ban e pick per rango"
@@ -348,8 +351,29 @@
       "chapeauRang": "Lo stesso calcolo, limitato alle partite {rang}: un eroe può dominare a un rango e faticare a un altro.",
       "conclusion": "Una tier list misura quanto un eroe perdona gli errori, non fin dove può portarti. Un eroe di fascia C padroneggiato batte un eroe S+ scoperto il giorno prima.",
       "tendances": "Le frecce ↑ e ↓ sotto il tasso di vittoria indicano la sua variazione su sette giorni in questo rango, quando raggiunge almeno {seuil} punti.",
-      "laneSeo": {},
-      "rolePluriel": {},
+      "parLane": "Per lane",
+      "parRole": "Per ruolo",
+      "laneSeo": {
+        "Or": "gold lane",
+        "Experience": "exp lane",
+        "Milieu": "mid lane",
+        "Jungle": "jungle",
+        "Roam": "roam"
+      },
+      "rolePluriel": {
+        "Tank": "tank",
+        "Fighter": "combattenti",
+        "Assassin": "assassini",
+        "Mage": "maghi",
+        "Marksman": "tiratori",
+        "Support": "supporti"
+      },
+      "titreLane": "Tier list {lane}: i migliori eroi",
+      "titreRole": "Tier list {role}: i migliori {pluriel}",
+      "chapeauLane": "I {n} eroi che si giocano in {lane}, classificati con la stessa regola della tier list generale: tassi di vittoria e di ban, tutti i ranghi insieme.",
+      "chapeauRole": "I {n} {pluriel} del gioco, ruolo principale o secondario, classificati con la stessa regola della tier list generale: tassi di vittoria e di ban, tutti i ranghi insieme.",
+      "noteFiltre": "Classifica su tutti i ranghi. Le liste per rango riuniscono invece tutte le lane e tutti i ruoli.",
+      "voirRole": "Scheda del ruolo: {pluriel} e lane",
       "metaTitre": "Tier list",
       "mesures": "{n} eroi misurati · dati rilevati il"
     },
@@ -371,8 +395,16 @@
       "archives": "Archivio",
       "credit": "Note riprese dalla {lien}, con licenza CC BY-SA. Il testo originale è pubblicato da Moonton; questo sito non ne modifica il contenuto.",
       "creditTraduit": "Note riprese dalla {lien}, con licenza CC BY-SA, e tradotte automaticamente dall'inglese. Il testo originale è pubblicato da Moonton.",
+      "publieLe": "Note pubblicate: {date}",
       "changements": {
-        "resume": {}
+        "titre": "Tutte le modifiche agli eroi nella patch {v}",
+        "resume": {
+          "one": "La patch {v} modifica {n} eroe.",
+          "other": "La patch {v} modifica {n} eroi."
+        },
+        "detail": "Dettaglio delle modifiche",
+        "impact": "tasso di vittoria medio: {avant} prima della patch, {apres} dopo",
+        "noteImpact": "Tasso di vittoria medio su tutti i ranghi nei {n} giorni prima e dopo la patch, quando lo storico copre quel periodo."
       },
       "metaTitre": "Patch notes"
     },
@@ -687,16 +719,31 @@
       "patch": {
         "titre": "Patch {v} MLBB: buff, nerf e modifiche agli eroi",
         "description": "Patch {version} di Mobile Legends. Eroi potenziati: {buffs}, indeboliti: {nerfs}, modificati: {autres}, tra cui {heros}. Note ufficiali, sezione per sezione.",
-        "titreChangements": {}
+        "titreChangements": {
+          "one": "Patch {v} MLBB: tutti i buff e i nerf degli eroi ({n} eroe modificato)",
+          "other": "Patch {v} MLBB: tutti i buff e i nerf degli eroi ({n} eroi modificati)"
+        }
       },
       "winRate": {
         "titre": "Calcolatore win rate MLBB: vittorie per il tuo obiettivo",
         "description": "Inserisci partite giocate e tasso di vittoria attuale: scopri quante vittorie di fila servono per raggiungere il tuo obiettivo in Mobile Legends: Bang Bang, o quante partite a un certo ritmo. Gratis, immediato, senza registrazione."
       },
-      "tierLane": {},
-      "tierRole": {},
-      "heroesRole": {},
-      "meta": {},
+      "tierLane": {
+        "titre": "Migliori eroi {lane} MLBB: tier list {lane} {mois} (patch {v})",
+        "description": "{top} guidano la tier list {lane} di MLBB (rilevazione: {date}, patch {v}): {premier} ha un tasso di vittoria del {victoire}. {n} eroi giocabili in {lane}, classificati per tasso di vittoria e di ban."
+      },
+      "tierRole": {
+        "titre": "Migliori {pluriel} MLBB: tier list {role}, {mois} (patch {v})",
+        "description": "Tier list MLBB di {n} {pluriel} (rilevazione: {date}, patch {v}): in testa {top}; {premier} ha un tasso di vittoria del {victoire}. Classifica per tasso di vittoria e di ban."
+      },
+      "heroesRole": {
+        "titre": "I {n} {pluriel} di MLBB: tier, win rate e lane (patch {v})",
+        "description": "I {n} {pluriel} di Mobile Legends: Bang Bang, dal più forte al più debole: tier, tasso di vittoria e lane (rilevazione: {date}, patch {v}). In testa: {top}."
+      },
+      "meta": {
+        "titre": "Report meta settimanale MLBB: {date} (patch {v})",
+        "description": "Report meta MLBB (rilevazione: {date}, patch {v}): {premier} in testa alla tier list, {banni} l'eroe più bannato ({ban}). Ascese e cali della settimana, cambi di tier, ban, pick e migliori eroi per lane."
+      },
       "heureServeur": {},
       "rangs": {},
       "chatiment": {},
@@ -786,13 +833,51 @@
       "wiki": {},
       "autres": {}
     },
-    "heroesRole": {},
+    "heroesRole": {
+      "titre": "I {n} {pluriel} di MLBB",
+      "chapeau": "Tutti gli eroi con il ruolo {role}, principale o secondario, dal più forte al più debole secondo la tier list, con le loro lane. Ogni riga porta alla scheda dell'eroe: build, counter e statistiche.",
+      "nHeros": "{n} eroi",
+      "voirTierList": "Tier list {role}",
+      "autresRoles": "Tutti i ruoli",
+      "nonMesure": "Non misurato"
+    },
     "meta": {
-      "resume": {},
-      "paliers": {},
-      "bansPicks": {},
-      "patch": {},
-      "lanes": {}
+      "titre": "Report meta della settimana: {date}",
+      "chapeau": "Generato dai tassi rilevati su {n} eroi classificati (rilevazione: {date}, patch {v}) e rifatto a ogni sincronizzazione quotidiana: ascese e cali della settimana, cambi di tier, ban, pick, ultima patch e migliori eroi per lane.",
+      "resume": {
+        "tete": "{nom} guida la tier list (tier {palier}, vittorie: {victoire}, ban: {ban}).",
+        "hausse": "Crescita più forte della settimana: {nom}, dal {avant} al {actuel} di vittorie in {jours} giorni.",
+        "baisse": "Calo più forte: {nom}, dal {avant} al {actuel} di vittorie in {jours} giorni.",
+        "paliers": "Cambi di tier in sette giorni — in salita: {montees}, in discesa: {descentes}.",
+        "banni": "Eroe più bannato: {nom} (tasso di ban: {ban})."
+      },
+      "paliers": {
+        "titre": "Cambi di tier",
+        "chapeau": "Tier ricalcolato con i tassi di sette giorni fa, secondo la regola della tier list. Un cambio conta solo se corrisponde al tier mostrato oggi.",
+        "montees": "In salita",
+        "descentes": "In discesa",
+        "aucuneMontee": "Nessun eroe sale di tier questa settimana.",
+        "aucuneDescente": "Nessun eroe scende di tier questa settimana.",
+        "sr": "dal tier {avant} al tier {apres}"
+      },
+      "bansPicks": {
+        "titre": "Ban e pick",
+        "chapeau": "Tutti i ranghi insieme (rilevazione: {date}).",
+        "bannis": "I più bannati",
+        "joues": "I più giocati"
+      },
+      "patch": {
+        "titre": "Patch {v}",
+        "nouveaux": "Nuovi eroi",
+        "aucun": "Questa patch non modifica nessun eroe."
+      },
+      "lanes": {
+        "titre": "Migliori eroi per lane",
+        "chapeau": "I primi tre di ogni lane nella tier list, tutti i ranghi insieme.",
+        "ligne": "Tier {palier} · {victoire} di vittorie",
+        "voir": "Tier list {lane}"
+      },
+      "methode": "Metodo: tassi di vittoria, di ban e di scelta pubblicati dal gioco (rilevazione: {date}). Ascese e cali confrontano il tasso di vittoria con quello di sette giorni prima, tutti i ranghi insieme; gli scarti inferiori a {seuil} punti sono ignorati."
     },
     "statistics": {
       "titre": "Statistiche degli eroi",

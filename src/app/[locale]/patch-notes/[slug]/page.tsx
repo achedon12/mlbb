@@ -10,13 +10,28 @@ import { PatchHeros } from "@/components/patch-heros";
 import { SommairePatch } from "@/components/sommaire-patch";
 import { herosParSlug, illustrations, patchsDetail, patchsDetailles } from "@/lib/donnees";
 import { article, articles, enHtml } from "@/lib/contenu";
+import { compterAjustements, dateLongue, listeNoms } from "@/lib/fraicheur";
 import { site } from "@/lib/site";
+import type { PatchDetaille } from "@/lib/types";
 import { LOCALE_HTML, type Langue } from "@/i18n/config";
 import { donneesBillet, metaPage } from "@/i18n/seo";
+import { ChangementsHeros, nombreHerosModifies } from "./changements-heros";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
 const patchs = patchsDetail;
+
+/**
+ * « MLBB Patch 2.1.88: All Hero Buffs & Nerfs (42 changes) » : le nombre de
+ * heros touches, tire des notes, dit d'emblee l'ampleur du patch.
+ */
+function titrePatch(locale: Langue, patch: PatchDetaille): string {
+  const t = creerT(locale);
+  const n = nombreHerosModifies(patch);
+  if (n === 0) return t("pages.seo.patch.titre", { v: patch.version });
+  const forme = new Intl.PluralRules(locale).select(n) === "one" ? "one" : "other";
+  return t(`pages.seo.patch.titreChangements.${forme}`, { v: patch.version, n });
+}
 
 /**
  * Une meme route sert deux choses : les notes officielles reprises du wiki,
@@ -37,12 +52,22 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   if (patch) {
     const t = creerT(locale);
+    // Description en donnees : date, ajustements par sens et premiers heros touches.
+    const noms = [...new Set(patch.ajustements.map((a) => herosParSlug.get(a.slug)?.nom ?? a.nom))].slice(0, 4);
+    const version = patch.date ? `${patch.version} (${dateLongue(locale, patch.date)})` : patch.version;
     return metaPage(locale, {
-      titre: `Patch ${patch.version}`,
-      description: t("pages.patchNotes.officielleDescription", { version: patch.version }),
+      titre: titrePatch(locale, patch),
+      description: noms.length
+        ? t("pages.seo.patch.description", {
+            version,
+            ...compterAjustements(patch.ajustements),
+            heros: listeNoms(locale, noms),
+          })
+        : t("pages.patchNotes.officielleDescription", { version: patch.version }),
       partage: t("pages.patchNotes.officiellePartage", { version: patch.version }),
       chemin: `/patch-notes/${slug}`,
       type: "article",
+      publie: patch.date ?? undefined,
     });
   }
 
@@ -72,7 +97,8 @@ export default async function PagePatch({ params }: Params) {
     const donneesStructurees = {
       "@context": "https://schema.org",
       "@type": "Article",
-      headline: `Patch ${patch.version}`,
+      headline: titrePatch(locale, patch),
+      ...(patch.date ? { datePublished: patch.date, dateModified: patch.date } : {}),
       inLanguage: traduit ? LOCALE_HTML[locale] : "en",
       isBasedOn: patch.lien,
       publisher: { "@type": "Organization", name: site.nom, url: site.url },
@@ -108,8 +134,24 @@ export default async function PagePatch({ params }: Params) {
             </h1>
             <p className="mt-3 text-sm text-craie-500">
               {t("pages.patchNotes.nSections", { n: patch.sommaire.length })}
+              {patch.date && (
+                <>
+                  {" · "}
+                  <time dateTime={patch.date}>
+                    {t("pages.patchNotes.publieLe", { date: dateLongue(locale, patch.date) })}
+                  </time>
+                </>
+              )}
             </p>
           </header>
+
+          {patch.ajustements.length > 0 && (
+            <ChangementsHeros
+              patch={patch}
+              langue={locale}
+              ancreDetail={patch.sections.find((s) => s.role === "ajustements")?.ancre ?? null}
+            />
+          )}
 
           {/*
             Le sommaire accompagne la lecture plutot que de la preceder : une

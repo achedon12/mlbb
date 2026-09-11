@@ -64,7 +64,7 @@ const SEUIL_FIABILITE = 0.3;
  */
 const POIDS_BAN = 0.25;
 
-function score(t: Taux): number {
+function score(t: Pick<Taux, "victoire" | "ban">): number {
   return t.victoire + t.ban * POIDS_BAN;
 }
 
@@ -80,6 +80,9 @@ const PALIERS: [Palier, number][] = [
 function palier(valeur: number): Palier {
   return PALIERS.find(([, seuil]) => valeur >= seuil)?.[0] ?? "C";
 }
+
+/** La regle de la tier list, pour des taux d'une autre date (changements de palier du rapport meta). */
+export const regleTierList = { score, palier };
 
 function classer(taux: Record<string, Taux>): EntreeClassee[] {
   return heros

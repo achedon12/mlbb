@@ -66,7 +66,10 @@
       "desc": "The wins you still need"
     },
     "team": {},
-    "meta": {},
+    "meta": {
+      "label": "Meta report",
+      "desc": "This week's risers, fallers and tiers"
+    },
     "statistics": {
       "label": "Hero statistics",
       "desc": "Win, ban and pick rates by rank"
@@ -348,8 +351,29 @@
       "chapeauRang": "The same formula, limited to {rang} games: a hero can dominate at one rank and struggle at another.",
       "conclusion": "A tier list measures how forgiving a hero is, not how far they can take you. A mastered C-tier hero beats an S+ hero picked up yesterday.",
       "tendances": "The ↑ and ↓ arrows under the win rate show its change over seven days in this rank, when it reaches at least {seuil} points.",
-      "laneSeo": {},
-      "rolePluriel": {},
+      "parLane": "By lane",
+      "parRole": "By role",
+      "laneSeo": {
+        "Or": "Gold Lane",
+        "Experience": "EXP Lane",
+        "Milieu": "Mid Lane",
+        "Jungle": "Jungle",
+        "Roam": "Roam"
+      },
+      "rolePluriel": {
+        "Tank": "Tanks",
+        "Fighter": "Fighters",
+        "Assassin": "Assassins",
+        "Mage": "Mages",
+        "Marksman": "Marksmen",
+        "Support": "Supports"
+      },
+      "titreLane": "{lane} tier list: the best heroes",
+      "titreRole": "{role} tier list: the best {pluriel}",
+      "chapeauLane": "The {n} heroes who play {lane}, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
+      "chapeauRole": "All {n} {pluriel} in the game, main or secondary role, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
+      "noteFiltre": "Ranking across all ranks. The by-rank lists, for their part, cover every lane and every role.",
+      "voirRole": "All {pluriel} and their lanes",
       "metaTitre": "Tier list",
       "mesures": "{n} heroes measured · rates recorded on"
     },
@@ -371,8 +395,16 @@
       "archives": "Archive",
       "credit": "Notes taken from the {lien}, under the CC BY-SA license. The original text is published by Moonton; this site does not alter its content.",
       "creditTraduit": "Notes taken from the {lien}, under the CC BY-SA license, and machine-translated from English. The original text is published by Moonton.",
+      "publieLe": "Notes published on {date}",
       "changements": {
-        "resume": {}
+        "titre": "All hero changes in patch {v}",
+        "resume": {
+          "one": "Patch {v} changes {n} hero.",
+          "other": "Patch {v} changes {n} heroes."
+        },
+        "detail": "Full change details",
+        "impact": "average win rate: {avant} before the patch, {apres} after",
+        "noteImpact": "Average win rate across all ranks over the {n} days before and after the patch, when the history covers that period."
       },
       "metaTitre": "Patch notes"
     },
@@ -687,16 +719,31 @@
       "patch": {
         "titre": "MLBB Patch {v} Notes: Buffs, Nerfs & Hero Changes",
         "description": "Mobile Legends patch {version}. Heroes buffed: {buffs}, nerfed: {nerfs}, adjusted: {autres}, including {heros}. Official notes, section by section.",
-        "titreChangements": {}
+        "titreChangements": {
+          "one": "MLBB Patch {v}: All Hero Buffs & Nerfs ({n} change)",
+          "other": "MLBB Patch {v}: All Hero Buffs & Nerfs ({n} changes)"
+        }
       },
       "winRate": {
         "titre": "MLBB Win Rate Calculator: Wins Needed for Your Target",
         "description": "Enter your matches played and current win rate: see how many straight wins you need to reach your target in Mobile Legends: Bang Bang, or how many matches at a given pace. Free, instant, no sign-up."
       },
-      "tierLane": {},
-      "tierRole": {},
-      "heroesRole": {},
-      "meta": {},
+      "tierLane": {
+        "titre": "Best {lane} Heroes in MLBB — {lane} Tier List {mois} (Patch {v})",
+        "description": "{top} lead the MLBB {lane} tier list measured on {date} (patch {v}), with {premier} at a {victoire} win rate. {n} {lane} heroes ranked by win and ban rates."
+      },
+      "tierRole": {
+        "titre": "Best {pluriel} in MLBB — {role} Tier List {mois} (Patch {v})",
+        "description": "{top} lead the tier list of MLBB {pluriel} measured on {date} (patch {v}), with {premier} at a {victoire} win rate. {n} {pluriel} ranked by win and ban rates."
+      },
+      "heroesRole": {
+        "titre": "All {n} MLBB {pluriel}: Tiers, Win Rates & Lanes (Patch {v})",
+        "description": "All {n} {pluriel} in Mobile Legends: Bang Bang, strongest first: tier, win rate and lanes measured on {date} (patch {v}). Leading the way: {top}."
+      },
+      "meta": {
+        "titre": "MLBB Weekly Meta Report: {date} (Patch {v})",
+        "description": "MLBB meta report for {date} (patch {v}): {premier} tops the tier list and {banni} is the most banned hero ({ban}). This week's risers and fallers, tier changes, bans, picks and best heroes per lane."
+      },
       "heureServeur": {},
       "rangs": {},
       "chatiment": {},
@@ -786,13 +833,51 @@
       "wiki": {},
       "autres": {}
     },
-    "heroesRole": {},
+    "heroesRole": {
+      "titre": "All {n} MLBB {pluriel}",
+      "chapeau": "Every hero with the {role} role, main or secondary, from strongest to weakest according to the tier list, with their lanes. Each row leads to the hero's page: build, counters and stats.",
+      "nHeros": "{n} heroes",
+      "voirTierList": "{role} tier list",
+      "autresRoles": "All roles",
+      "nonMesure": "Not measured"
+    },
     "meta": {
-      "resume": {},
-      "paliers": {},
-      "bansPicks": {},
-      "patch": {},
-      "lanes": {}
+      "titre": "This week's meta report: {date}",
+      "chapeau": "Generated from the rates measured on {date} for {n} ranked heroes (patch {v}) and rebuilt with every daily sync: this week's risers and fallers, tier changes, bans, picks, the latest patch and the best heroes per lane.",
+      "resume": {
+        "tete": "{nom} tops the tier list ({palier} tier) with a {victoire} win rate and a {ban} ban rate.",
+        "hausse": "Biggest riser this week: {nom}, from a {avant} to a {actuel} win rate in {jours} days.",
+        "baisse": "Biggest faller: {nom}, from a {avant} to a {actuel} win rate in {jours} days.",
+        "paliers": "Tier changes over seven days — up: {montees}, down: {descentes}.",
+        "banni": "Most banned hero: {nom}, with a {ban} ban rate."
+      },
+      "paliers": {
+        "titre": "Tier changes",
+        "chapeau": "Tier recomputed from the rates of seven days ago, with the tier list rule. A change only counts if it matches the tier shown today.",
+        "montees": "Moved up",
+        "descentes": "Moved down",
+        "aucuneMontee": "No hero moved up a tier this week.",
+        "aucuneDescente": "No hero moved down a tier this week.",
+        "sr": "from {avant} tier to {apres} tier"
+      },
+      "bansPicks": {
+        "titre": "Bans and picks",
+        "chapeau": "All ranks combined, rates measured on {date}.",
+        "bannis": "Most banned",
+        "joues": "Most picked"
+      },
+      "patch": {
+        "titre": "Patch {v}",
+        "nouveaux": "New heroes",
+        "aucun": "This patch changes no hero."
+      },
+      "lanes": {
+        "titre": "Best heroes per lane",
+        "chapeau": "The top three of each lane in the tier list, all ranks combined.",
+        "ligne": "{palier} tier · {victoire} win rate",
+        "voir": "{lane} tier list"
+      },
+      "methode": "Method: win, ban and pick rates published by the game, measured on {date}. Risers and fallers compare the win rate with the one seven days earlier, all ranks combined; changes under {seuil} points are ignored."
     },
     "statistics": {
       "titre": "Hero statistics",

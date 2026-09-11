@@ -12,6 +12,7 @@ import type { Lane } from "./types";
  */
 
 export const LANES: Lane[] = ["Or", "Jungle", "Milieu", "Experience", "Roam"];
+export const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 
 /** Ce dont l'outil a besoin pour chaque heros ; le reste alourdirait la page. */
 export interface HerosDraft {

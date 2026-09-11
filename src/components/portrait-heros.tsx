@@ -11,6 +11,14 @@ import { cn } from "@/lib/utils";
  * Toutes les vignettes de heros du site passent par ici, de la plus petite
  * (liste deroulante) a la fiche.
  */
+/**
+ * Icones de heros : webp de 4 a 10 Ko, deja reduits a la synchronisation. En
+ * petite taille, l'optimiseur n'y gagne rien et son srcset alourdissait chaque
+ * vignette d'une liste de 200 octets de HTML : on les sert telles quelles.
+ */
+const ICONE_LOCALE = /^\/visuels\/heros\/[^/]+\/icone\.[a-z]+$/;
+const TAILLE_MAX_ICONE = 56;
+
 const DIMENSIONS = {
   micro: { classe: "size-6", px: 24, texte: "text-[0.55rem]" },
   mini: { classe: "size-7", px: 28, texte: "text-[0.6rem]" },
@@ -74,6 +82,7 @@ export function PortraitHeros({
           alt={decoratif ? "" : (alt ?? nom)}
           width={dimensions.px}
           height={"hauteur" in dimensions ? dimensions.hauteur : dimensions.px}
+          unoptimized={dimensions.px <= TAILLE_MAX_ICONE && ICONE_LOCALE.test(source)}
           priority={priorite}
           className="size-full object-cover"
         />
