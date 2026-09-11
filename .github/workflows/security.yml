@@ -9,6 +9,16 @@ on:
   pull_request:
   schedule:
     - cron: "0 6 * * 1"
+  # A la main, avec une categorie : l'analyse est publiee sous ce nom de
+  # configuration. Sert a clore les alertes d'une configuration abandonnee (le
+  # workflow s'appelait securite.yml) sans effacer son historique : une analyse
+  # propre sous l'ancien nom les marque corrigees.
+  workflow_dispatch:
+    inputs:
+      categorie:
+        description: Categorie CodeQL (vide = celle par defaut)
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -37,6 +47,8 @@ jobs:
 
       - name: Analyser
         uses: github/codeql-action/analyze@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
+        with:
+          category: ${{ inputs.categorie }}
 
   dependances:
     name: Audit des dependances
