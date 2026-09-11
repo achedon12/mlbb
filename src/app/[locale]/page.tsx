@@ -24,7 +24,8 @@ import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
 import { cn, formaterDate } from "@/lib/utils";
 import type { Langue } from "@/i18n/config";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_HTML, estLangue } from "@/i18n/config";
+import { notFound } from "next/navigation";
 import { BASE } from "@/lib/rubriques";
 import { creerT, type T } from "@/i18n/traductions";
 
@@ -81,6 +82,10 @@ function herosDuJour() {
 
 export default async function Accueil({ params }: { params: Promise<{ locale: Langue }> }) {
   const { locale } = await params;
+  // /inexistant.txt arrive ici avec « inexistant.txt » pour langue : la page
+  // se rend en meme temps que la mise en page, et ses nombres formates dans
+  // cette langue invalide la faisaient echouer en 500 avant la 404.
+  if (!estLangue(locale)) notFound();
   const t = creerT(locale);
   const vedette = herosDuJour();
   const articles = tousLesArticles(locale).slice(0, 3);
