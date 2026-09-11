@@ -1511,7 +1511,8 @@
     "mythique": "Mythic",
     "mythique-honneur": "Mythical Honor",
     "mythique-gloire": "Mythical Glory",
-    "mythique-immortel": "Mythical Immortal"
+    "mythique-immortel": "Mythical Immortal",
+    "legende": "Legend"
   },
   "rangUnite": {
     "etoile": "{n} star",

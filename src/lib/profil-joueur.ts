@@ -48,6 +48,7 @@ export function herosAffiche(h: HerosJeu): HerosAffiche {
  */
 const TRANCHES: Partial<Record<string, RangMesure>> = {
   epique: "epic",
+  legende: "legend",
   mythique: "mythic",
   "mythique-honneur": "honor",
   "mythique-gloire": "glory",

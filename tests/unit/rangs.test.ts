@@ -20,6 +20,19 @@ describe("rangLisible — paliers Guerrier a Epique", () => {
   });
 });
 
+describe("rangLisible — Legende", () => {
+  it("place 106 a 135 en Legende V a I, comme la table officielle", () => {
+    expect(rangLisible(106)).toMatchObject({ cle: "legende", division: "V", etoiles: 1, mythique: false });
+    expect(rangLisible(111)).toMatchObject({ cle: "legende", division: "V", etoiles: 6 });
+    expect(rangLisible(130)).toMatchObject({ cle: "legende", division: "I", etoiles: 1 });
+    expect(rangLisible(135)).toMatchObject({ cle: "legende", division: "I", mythique: false });
+  });
+
+  it("n'entre en Mythique qu'a 136, sans etoile", () => {
+    expect(rangLisible(136)).toMatchObject({ cle: "mythique", etoiles: 0, mythique: true });
+  });
+});
+
 describe("rangLisible — famille Mythique", () => {
   it("compte 30 etoiles pour rank_level 166 (repere reel) et le classe en Honneur", () => {
     const r = rangLisible(166);
@@ -42,8 +55,9 @@ describe("rangLisible — famille Mythique", () => {
   });
 
   it("ne descend jamais sous zero etoile a l'entree en Mythique", () => {
-    expect(rangLisible(106).etoiles).toBe(0);
-    expect(rangLisible(106).mythique).toBe(true);
+    // Table officielle : Mythique commence a 136, apres Legende I.
+    expect(rangLisible(136).etoiles).toBe(0);
+    expect(rangLisible(136).mythique).toBe(true);
   });
 });
 

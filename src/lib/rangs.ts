@@ -2,8 +2,8 @@
  * Traduction du rang.
  *
  * Le profil renvoie un `rank_level` numerique — 166 — qui ne dit rien a un
- * lecteur. De Guerrier a Epique, chaque division couvre une plage de rankid
- * fixe, tiree de la table officielle du jeu (rankid 1 a 105). Au-dela commence
+ * lecteur. De Guerrier a Legende, chaque division couvre une plage de rankid
+ * fixe, tiree de la table officielle du jeu (rankid 1 a 135). Au-dela commence
  * la famille Mythique, qui n'a plus de divisions mais des « points » : ils
  * marquent le passage de Mythique a Honneur mythique (25), Gloire mythique
  * (50), puis Immortel (100). Chaque palier a son embleme officiel.
@@ -44,18 +44,23 @@ const PALIERS: Palier[] = [
   { min: 88, nom: "Epique", division: "III", cle: "epique", couleur: "#f5c451" },
   { min: 94, nom: "Epique", division: "II", cle: "epique", couleur: "#f5c451" },
   { min: 100, nom: "Epique", division: "I", cle: "epique", couleur: "#f5c451" },
+  { min: 106, nom: "Legende", division: "V", cle: "legende", couleur: "#ffb84d" },
+  { min: 112, nom: "Legende", division: "IV", cle: "legende", couleur: "#ffb84d" },
+  { min: 118, nom: "Legende", division: "III", cle: "legende", couleur: "#ffb84d" },
+  { min: 124, nom: "Legende", division: "II", cle: "legende", couleur: "#ffb84d" },
+  { min: 130, nom: "Legende", division: "I", cle: "legende", couleur: "#ffb84d" },
 ];
 
-/** Premier rank_level de la famille Mythique, juste apres Epique I. */
-const MYTHIQUE_MIN = 106;
+/** Premier rank_level de la famille Mythique, juste apres Legende I. */
+const MYTHIQUE_MIN = 136;
 
 /**
  * rank_level correspondant a la premiere etoile mythique.
  *
- * L'echelle reserve encore la plage de l'ancien palier « Legende » (cinq
- * divisions supprimees de l'affichage), si bien que les etoiles mythiques ne
- * comptent qu'a partir de 136 : un compte de 166 correspond a 30 etoiles, pas
- * a 60. Repere sur un compte reel : rank_level 166 = 30 etoiles (Honneur).
+ * La table officielle (/api/academy/ranks) place Legende V a I sur 106-135 :
+ * les etoiles mythiques ne comptent qu'a partir de 136, si bien qu'un compte de
+ * 166 correspond a 30 etoiles, pas a 60. Repere sur un compte reel : rank_level
+ * 166 = 30 etoiles (Honneur).
  */
 const MYTHIQUE_BASE = 136;
 
