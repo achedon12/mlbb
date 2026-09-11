@@ -15,10 +15,9 @@ import { cn } from "@/lib/utils";
  * seul l'affichage change. Le contenu masque reste donc indexable, et la
  * navigation ne declenche aucune requete.
  *
- * Consequence a connaitre : un panneau masque est en `display: none`, et les
- * images en chargement differe qu'il contient ne sont jamais demandees, meme
- * une fois le panneau affiche. Les galeries chargent donc leurs images sans
- * differer — leurs vignettes sont petites, le cout reste negligeable.
+ * Les images d'un panneau masque restent en chargement differe : le navigateur
+ * ne les demande qu'a l'ouverture du panneau (verifie dans Chromium). La
+ * premiere visite ne charge ainsi que l'onglet affiche.
  */
 export interface Onglet {
   id: string;

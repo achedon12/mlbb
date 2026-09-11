@@ -144,7 +144,6 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
             alt=""
             fill
             sizes="(min-width: 1024px) 900px, 100vw"
-            loading="eager"
             className="object-cover object-top"
           />
         ) : (
@@ -158,7 +157,6 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
               alt=""
               fill
               sizes="(min-width: 1024px) 900px, 100vw"
-              loading="eager"
               className="object-contain object-right"
             />
           )
@@ -234,7 +232,6 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
                       alt=""
                       fill
                       sizes="(min-width: 1024px) 120px, 30vw"
-                      loading="eager"
                       className="object-cover"
                     />
                   ) : null}

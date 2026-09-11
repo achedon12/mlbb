@@ -189,7 +189,7 @@ function ObjetCle({ objet }: { objet: ObjetResolu }) {
     <>
       <span className="relative mx-auto block size-11">
         {objet.image ? (
-          <Image src={objet.image} alt="" fill sizes="44px" loading="eager" className="object-contain" />
+          <Image src={objet.image} alt="" fill sizes="44px" className="object-contain" />
         ) : (
           <span className="grid size-full place-items-center bg-nuit-800 text-xs text-craie-500">
             {objet.nom.charAt(0)}

@@ -100,8 +100,6 @@ export function CompetencesHeros({
                     alt=""
                     fill
                     sizes="44px"
-                    // Les onglets masques ne declenchent pas le chargement differe.
-                    loading="eager"
                     className="object-contain"
                   />
                 ) : (

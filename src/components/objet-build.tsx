@@ -26,7 +26,6 @@ export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
             alt=""
             fill
             sizes="44px"
-            loading="eager"
             className="object-contain"
           />
         ) : (
