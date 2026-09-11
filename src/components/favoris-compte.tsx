@@ -4,6 +4,7 @@ import { useSyncExternalStore } from "react";
 import { useT } from "@/i18n/fournisseur";
 import Link from "@/components/lien";
 import { BellRing, Minus, MonitorSmartphone, Star, TrendingDown, TrendingUp, X, type LucideIcon } from "lucide-react";
+import { BasculeNotifications, useSynchroNotifications } from "@/components/notifications-favoris";
 import { abonnerFavoris, basculerFavori, favorisServeur, instantaneFavoris } from "@/lib/favoris";
 import { herosParSlug } from "@/lib/donnees-client";
 import type { ResumePatch } from "@/lib/suivi-patchs";
@@ -87,10 +88,13 @@ function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: Re
 /**
  * Liste des heros mis en favori, lue depuis le navigateur. `dernierPatch`, un
  * resume de quelques centaines d'octets, signale ceux que le patch a touches.
+ * L'interrupteur des notifications de patch reste visible sans favori : on
+ * peut s'abonner d'avance, ou se desabonner apres avoir tout retire.
  */
 export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePatch | null }) {
   const t = useT();
   const favoris = useSyncExternalStore(abonnerFavoris, instantaneFavoris, favorisServeur);
+  useSynchroNotifications(favoris);
 
   if (favoris.length === 0) {
     return (
@@ -102,6 +106,7 @@ export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePa
           </Link>
           {t("favoris.aucunPost")}
         </p>
+        <BasculeNotifications favoris={favoris} />
         <NotePortee />
       </div>
     );
@@ -135,6 +140,7 @@ export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePa
         ))}
       </ul>
       {dernierPatch && <AlertePatch favoris={favoris} patch={dernierPatch} />}
+      <BasculeNotifications favoris={favoris} />
       <NotePortee />
     </div>
   );

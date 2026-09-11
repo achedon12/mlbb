@@ -155,7 +155,9 @@ statique.
 Le site n'a **aucun etat a conserver**. L'identite vient du jeu : on se
 connecte avec le code de verification officiel de Moonton, et le site ne recoit
 qu'un jeton temporaire, range dans un cookie httpOnly. Les favoris vivent dans
-le navigateur. Ni base de donnees, ni table de sessions.
+le navigateur. Ni base de donnees, ni table de sessions. Seule exception,
+facultative : les abonnements aux notifications de patch, dans un fichier JSON
+(voir plus bas).
 
 ## Deploiement
 
@@ -167,8 +169,41 @@ Le service ecoute sur `127.0.0.1:3001`, a placer derriere un reverse proxy.
 L'image finale ne contient ni sources, ni npm, ni chaine de compilation :
 seulement le serveur Next en mode `standalone`, les ressources statiques et le
 module de rendu. Le conteneur tourne sans privileges, en systeme de fichiers en
-lecture seule, avec toutes les capacites retirees ; il n'a aucun volume a
-conserver, le site ne gardant aucun etat.
+lecture seule, avec toutes les capacites retirees. Deux volumes : les journaux
+(`./logs`) et le volume nomme `donnees` (`/app/donnees-serveur`), qui garde les
+abonnements aux notifications d'un deploiement a l'autre.
+
+### Notifications de patch (facultatif)
+
+Un visiteur peut demander, depuis ses favoris ou la cloche d'une fiche, a etre
+prevenu quand un patch ameliore, affaiblit ou ajuste l'un de ses heros
+favoris. Pour l'activer :
+
+1. `npx web-push generate-vapid-keys`, une fois pour toutes (changer de cles
+   rend caducs tous les abonnements) ;
+2. dans le `.env` du serveur : `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`,
+   `VAPID_SUBJECT` (`mailto:…` ou `https://…`), et si besoin
+   `PUSH_ADMIN_TOKEN` (voir `.env.example`) ;
+3. `docker compose up -d` : les cles sont lues au demarrage, sans rebuild.
+
+Sans ces cles, la fonction est masquee. Les abonnements (adresse du service de
+notification, cles de chiffrement, langue, slugs des favoris) sont ranges dans
+`$DONNEES_DIR/push-abonnements.json`, reecrit atomiquement ; le dernier patch
+annonce, dans `push-etat.json`. A chaque demarrage, si le dernier patch des
+donnees n'a pas encore ete annonce, chaque abonne concerne recoit une
+notification — une seule fois par patch. Le tout premier demarrage avec les
+cles se contente de noter le patch en cours, sans rien envoyer.
+
+Essai, sans rien envoyer (simulation, avec apercu des messages) :
+
+```bash
+curl -X POST https://mlbbdex.com/api/push/envoi -H "Authorization: Bearer $PUSH_ADMIN_TOKEN"
+```
+
+Le corps JSON facultatif accepte `version`, `envoyer: true`, `cible` (un
+identifiant d'abonne lu dans la simulation, pour n'envoyer qu'a lui) et
+`forcer: true` (renvoyer a tous un patch deja annonce). Sauvegarde du volume :
+`docker compose cp mlbb:/app/donnees-serveur ./sauvegarde-donnees`.
 
 ## Contribuer
 

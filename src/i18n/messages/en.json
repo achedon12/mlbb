@@ -1366,7 +1366,15 @@
         }
       ]
     },
-    "push": {}
+    "push": {
+      "titre": "Patch notifications (optional)",
+      "intro": "The only exception to the above, and only if you turn it on: the “Notify me when my favorites change” option. The site's server then keeps, for this browser:",
+      "endpoint": "the subscription address provided by your browser's push service (Google, Mozilla, Apple or Microsoft depending on the browser) and the encryption keys that come with it;",
+      "langue": "the site language, so we can write to you in yours;",
+      "favoris": "the list of your favorite heroes (their identifiers), updated when you change it.",
+      "usage": "This data is used only to let you know when a patch changes one of these heroes. It is not linked to any account or name and is shared with no one; notification content is encrypted all the way to your browser, and only your browser's push service delivers it.",
+      "desabonner": "To unsubscribe, turn off the switch in your favorites, or the bell next to the favorite button on a hero page: this data is then deleted from the server. Blocking the site's notifications in your browser or clearing its data also stops them; the subscription, now invalid, is deleted at the next notification."
+    }
   },
   "compareUI": {
     "offensive": "Offense",
@@ -1528,7 +1536,19 @@
       "modifie": "Changed",
       "rss": "Every hero page also offers an RSS feed of its changes, in the Stats tab."
     },
-    "push": {}
+    "push": {
+      "titre": "Notify me when my favorites change",
+      "description": "A notification on this device when a patch buffs, nerfs or adjusts one of your favorite heroes.",
+      "actif": "On for this device.",
+      "inactif": "Off.",
+      "enCours": "One moment…",
+      "refuse": "Notifications are blocked for this site: allow them in your browser settings, then try again.",
+      "nonSupporte": "This browser doesn't support web notifications.",
+      "iosInstaller": "On iPhone and iPad, install the site first: Share, then “Add to Home Screen”. Then open it from its icon to turn on notifications.",
+      "erreur": "Something went wrong. Try again in a moment.",
+      "vie": "To do this, the server keeps this browser's notification address and your list of favorites until you turn it off.",
+      "lienConfidentialite": "Learn more"
+    }
   },
   "skinDispo": {
     "Available": "Available",
@@ -1903,7 +1923,16 @@
     "rythmeInsuffisant": "At a {rythme} win rate, you will never get above {objectif}: you need to win more often than the target."
   },
   "notifPush": {
-    "titre": {}
+    "titre": {
+      "amelioration": "Patch {version}: {nom} buffed",
+      "affaiblissement": "Patch {version}: {nom} nerfed",
+      "ajustement": "Patch {version}: {nom} adjusted"
+    },
+    "titrePlusieurs": "Patch {version}: {n} of your favorites changed",
+    "corpsUn": "See the details on the hero page, in the Stats tab.",
+    "ligne": "{nom}: {type}",
+    "autre": "and {n} more",
+    "autres": "and {n} more"
   },
   "equipeUI": {
     "votreEquipe": "Your team",

@@ -1366,7 +1366,15 @@
         }
       ]
     },
-    "push": {}
+    "push": {
+      "titre": "Notifications de patch (facultatives)",
+      "intro": "Seule exception à ce qui précède, et uniquement si vous l'activez : l'option « Me prévenir quand mes favoris changent ». Le serveur du site conserve alors, pour ce navigateur :",
+      "endpoint": "l'adresse d'abonnement fournie par le service de notifications de votre navigateur (Google, Mozilla, Apple ou Microsoft selon le navigateur) et les clés de chiffrement qui l'accompagnent ;",
+      "langue": "la langue du site, pour vous écrire dans la vôtre ;",
+      "favoris": "la liste de vos héros favoris (leurs identifiants), mise à jour quand vous la modifiez.",
+      "usage": "Ces données servent uniquement à vous prévenir quand un patch modifie l'un de ces héros. Elles ne sont liées à aucun compte ni à aucun nom et ne sont transmises à personne ; le contenu des notifications est chiffré jusqu'à votre navigateur, et seul le service de notifications de celui-ci en assure l'acheminement.",
+      "desabonner": "Pour vous désabonner, désactivez l'interrupteur de vos favoris, ou la cloche à côté du bouton de favori d'une fiche : ces données sont alors supprimées du serveur. Bloquer les notifications du site dans votre navigateur ou effacer ses données arrête aussi l'envoi ; l'abonnement, devenu invalide, est supprimé à la notification suivante."
+    }
   },
   "compareUI": {
     "offensive": "Offensive",
@@ -1528,7 +1536,19 @@
       "modifie": "Modifié",
       "rss": "Chaque fiche propose aussi un flux RSS de ses ajustements, dans l'onglet Stats."
     },
-    "push": {}
+    "push": {
+      "titre": "Me prévenir quand mes favoris changent",
+      "description": "Une notification sur cet appareil quand un patch améliore, affaiblit ou ajuste l'un de vos héros favoris.",
+      "actif": "Activées sur cet appareil.",
+      "inactif": "Désactivées.",
+      "enCours": "Un instant…",
+      "refuse": "Les notifications sont bloquées pour ce site : autorisez-les dans les réglages de votre navigateur, puis réessayez.",
+      "nonSupporte": "Ce navigateur ne prend pas en charge les notifications web.",
+      "iosInstaller": "Sur iPhone et iPad, installez d'abord le site : Partager, puis « Sur l'écran d'accueil ». Ouvrez-le ensuite depuis son icône pour activer les notifications.",
+      "erreur": "L'opération a échoué. Réessayez dans un instant.",
+      "vie": "Pour cela, le serveur conserve l'adresse de notification de ce navigateur et la liste de vos favoris, jusqu'à la désactivation.",
+      "lienConfidentialite": "En savoir plus"
+    }
   },
   "skinDispo": {
     "Available": "Disponible",
@@ -1903,7 +1923,16 @@
     "rythmeInsuffisant": "À {rythme} de victoires, votre taux ne dépassera jamais {objectif} : il faut gagner plus souvent que l'objectif."
   },
   "notifPush": {
-    "titre": {}
+    "titre": {
+      "amelioration": "Patch {version} : amélioration pour {nom}",
+      "affaiblissement": "Patch {version} : affaiblissement pour {nom}",
+      "ajustement": "Patch {version} : ajustements pour {nom}"
+    },
+    "titrePlusieurs": "Patch {version} : {n} de vos favoris modifiés",
+    "corpsUn": "Le détail est sur sa fiche, dans l'onglet Stats.",
+    "ligne": "{nom} : {type}",
+    "autre": "et {n} autre",
+    "autres": "et {n} autres"
   },
   "equipeUI": {
     "votreEquipe": "Votre équipe",

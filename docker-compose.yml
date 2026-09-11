@@ -18,6 +18,9 @@ services:
     read_only: true
     volumes:
       - ./logs:/app/logs
+      # Abonnements aux notifications de patch et dernier patch annonce : un
+      # volume nomme, conserve d'un `up -d --build` a l'autre (pas par `down -v`).
+      - donnees:/app/donnees-serveur
     tmpfs:
       - /tmp
       - /app/.next/cache
@@ -36,3 +39,6 @@ services:
       options:
         max-size: "10m"
         max-file: "3"
+
+volumes:
+  donnees:

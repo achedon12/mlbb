@@ -1,5 +1,6 @@
 /**
- * Service worker : le site reste consultable sans connexion.
+ * Service worker : le site reste consultable sans connexion, et recoit les
+ * notifications de patch.
  *
  * - Pages : reseau d'abord, cache en secours. Hors ligne, une page deja vue
  *   s'affiche telle qu'a la derniere visite ; une page jamais vue renvoie vers
@@ -10,17 +11,32 @@
  * - API et donnees de navigation React (RSC) : jamais mises en cache. Quand une
  *   navigation interne echoue faute de reseau, Next retombe sur un chargement
  *   classique de la page — que ce service worker sait servir.
+ * - Notifications : le serveur envoie un message chiffre (titre, texte,
+ *   chemin) ; on l'affiche, et un clic ouvre le chemin sur le site.
  */
 const VERSION = "v1";
 const CACHE_PAGES = `pages-${VERSION}`;
 const CACHE_STATIQUE = `statique-${VERSION}`;
 const CACHE_IMAGES = `images-${VERSION}`;
-const CACHES = [CACHE_PAGES, CACHE_STATIQUE, CACHE_IMAGES];
+const CACHE_DONNEES = `donnees-${VERSION}`;
+const CACHES = [CACHE_PAGES, CACHE_STATIQUE, CACHE_IMAGES, CACHE_DONNEES];
 const LANGUES = ["fr", "en", "it", "es"];
 const MAX_PAGES = 250;
 const MAX_IMAGES = 800;
+const MAX_DONNEES = 300;
+
+/**
+ * En developpement, le service worker n'est enregistre que pour essayer les
+ * notifications, sous « /sw.js?cache=0 » : sans cache, qui genererait le
+ * rechargement a chaud. En production, l'adresse est « /sw.js ».
+ */
+const CACHE_ACTIF = new URL(self.location.href).searchParams.get("cache") !== "0";
 
 self.addEventListener("install", (event) => {
+  if (!CACHE_ACTIF) {
+    event.waitUntil(self.skipWaiting());
+    return;
+  }
   // La page « hors ligne » de chaque langue doit exister avant tout besoin.
   event.waitUntil(
     caches
@@ -34,12 +50,15 @@ self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((noms) => Promise.all(noms.filter((n) => !CACHES.includes(n)).map((n) => caches.delete(n))))
+      .then((noms) =>
+        Promise.all(noms.filter((n) => !CACHE_ACTIF || !CACHES.includes(n)).map((n) => caches.delete(n))),
+      )
       .then(() => self.clients.claim()),
   );
 });
 
 self.addEventListener("fetch", (event) => {
+  if (!CACHE_ACTIF) return;
   const { request } = event;
   if (request.method !== "GET") return;
   const url = new URL(request.url);
@@ -57,14 +76,67 @@ self.addEventListener("fetch", (event) => {
     /\.(png|jpe?g|webp|avif|svg|ico|woff2?)$/.test(url.pathname)
   ) {
     event.respondWith(cacheDabord(event, CACHE_IMAGES, MAX_IMAGES));
+  } else if (
+    /^\/(composition|tendances|quiz|quiz\/jour)\/[^/]+\.json$/.test(url.pathname) ||
+    /^\/[a-z]{2}\/recherche\.json$/.test(url.pathname)
+  ) {
+    event.respondWith(reseauDabord(event, CACHE_DONNEES, MAX_DONNEES));
   }
 });
 
 /** Prechauffage : la page envoie la liste des rubriques a garder hors ligne. */
 self.addEventListener("message", (event) => {
-  if (event.data?.type !== "prechauffer" || !Array.isArray(event.data.urls)) return;
+  if (!CACHE_ACTIF || event.data?.type !== "prechauffer" || !Array.isArray(event.data.urls)) return;
   event.waitUntil(prechauffer(event.data.urls));
 });
+
+/**
+ * Notification de patch. Le navigateur exige qu'un message recu s'affiche :
+ * meme illisible, on montre une notification generique plutot que rien.
+ */
+self.addEventListener("push", (event) => {
+  let message = {};
+  try {
+    message = event.data ? event.data.json() : {};
+  } catch {
+    message = { corps: event.data ? event.data.text() : "" };
+  }
+  const texte = (valeur) => (typeof valeur === "string" ? valeur : undefined);
+  event.waitUntil(
+    self.registration.showNotification(texte(message.titre) || "MLBBDex", {
+      body: texte(message.corps) ?? "",
+      icon: "/icons/icon-192.png",
+      tag: texte(message.tag),
+      lang: texte(message.langue),
+      data: { url: texte(message.url) ?? "/" },
+    }),
+  );
+});
+
+/** Clic : on revient sur l'onglet deja ouvert a cette adresse, sinon on l'ouvre. */
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  event.waitUntil(ouvrir(adresseSure(event.notification.data?.url)));
+});
+
+/** Seules les adresses du site s'ouvrent depuis une notification. */
+function adresseSure(brute) {
+  try {
+    const url = new URL(brute || "/", self.location.origin);
+    if (url.origin === self.location.origin) return url.href;
+  } catch {
+    /* adresse illisible : accueil */
+  }
+  return `${self.location.origin}/`;
+}
+
+async function ouvrir(adresse) {
+  const sansAncre = (u) => u.split("#")[0];
+  const fenetres = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
+  const ouverte = fenetres.find((c) => sansAncre(c.url) === sansAncre(adresse));
+  if (ouverte) return ouverte.focus();
+  return self.clients.openWindow(adresse);
+}
 
 async function page(event, url) {
   const cache = await caches.open(CACHE_PAGES);
@@ -129,6 +201,22 @@ async function cacheDabord(event, nom, max) {
     );
   }
   return reponse;
+}
+
+/**
+ * Donnees chargees a la demande (mesures par rang de l'analyse d'equipe,
+ * tendances du comparateur, index de la recherche) : fraiches en ligne, la
+ * derniere copie hors ligne.
+ */
+async function reseauDabord(event, nom, max) {
+  const cache = await caches.open(nom);
+  try {
+    const reponse = await fetch(event.request);
+    if (reponse.ok) event.waitUntil(cache.put(event.request, reponse.clone()).then(() => limiter(cache, max)));
+    return reponse;
+  } catch {
+    return (await cache.match(event.request)) ?? Response.error();
+  }
 }
 
 /** Les entrees les plus anciennes partent en premier : `keys()` suit l'ordre d'ajout. */

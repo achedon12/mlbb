@@ -51,6 +51,9 @@ next-env.d.ts
 # Journaux applicatifs (runtime)
 /logs
 
+# Donnees du serveur (abonnements aux notifications) : jamais versionnees
+/donnees-serveur
+
 # Playwright
 /test-results
 /playwright-report

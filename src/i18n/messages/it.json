@@ -1366,7 +1366,15 @@
         }
       ]
     },
-    "push": {}
+    "push": {
+      "titre": "Notifiche delle patch (facoltative)",
+      "intro": "Unica eccezione a quanto sopra, e solo se la attivi: l'opzione «Avvisami quando i miei preferiti cambiano». Il server del sito conserva allora, per questo browser:",
+      "endpoint": "l'indirizzo di iscrizione fornito dal servizio di notifiche del tuo browser (Google, Mozilla, Apple o Microsoft a seconda del browser) e le chiavi di cifratura che lo accompagnano;",
+      "langue": "la lingua del sito, per scriverti nella tua;",
+      "favoris": "l'elenco dei tuoi eroi preferiti (i loro identificativi), aggiornato quando lo modifichi.",
+      "usage": "Questi dati servono solo ad avvisarti quando una patch modifica uno di questi eroi. Non sono collegati a nessun account né a nessun nome e non vengono ceduti a nessuno; il contenuto delle notifiche è cifrato fino al tuo browser, e solo il servizio di notifiche del browser si occupa di consegnarlo.",
+      "desabonner": "Per annullare l'iscrizione, disattiva l'interruttore nei tuoi preferiti, o la campanella accanto al pulsante dei preferiti nella scheda di un eroe: questi dati vengono allora cancellati dal server. Anche bloccare le notifiche del sito nel browser o cancellarne i dati interrompe l'invio; l'iscrizione, ormai non valida, viene cancellata alla notifica successiva."
+    }
   },
   "compareUI": {
     "offensive": "Offensiva",
@@ -1528,7 +1536,19 @@
       "modifie": "Modificato",
       "rss": "Ogni scheda eroe offre anche un feed RSS delle sue modifiche, nella scheda Statistiche."
     },
-    "push": {}
+    "push": {
+      "titre": "Avvisami quando i miei preferiti cambiano",
+      "description": "Una notifica su questo dispositivo quando una patch potenzia, indebolisce o modifica uno dei tuoi eroi preferiti.",
+      "actif": "Attive su questo dispositivo.",
+      "inactif": "Disattivate.",
+      "enCours": "Un momento…",
+      "refuse": "Le notifiche sono bloccate per questo sito: consentile nelle impostazioni del browser, poi riprova.",
+      "nonSupporte": "Questo browser non supporta le notifiche web.",
+      "iosInstaller": "Su iPhone e iPad, installa prima il sito: Condividi, poi «Aggiungi alla schermata Home». Poi aprilo dalla sua icona per attivare le notifiche.",
+      "erreur": "Operazione non riuscita. Riprova tra poco.",
+      "vie": "Per farlo, il server conserva l'indirizzo di notifica di questo browser e l'elenco dei tuoi preferiti, finché non le disattivi.",
+      "lienConfidentialite": "Scopri di più"
+    }
   },
   "skinDispo": {
     "Available": "Disponibile",
@@ -1903,7 +1923,16 @@
     "rythmeInsuffisant": "Con un win rate del {rythme}, non supererai mai il {objectif}: devi vincere più spesso dell'obiettivo."
   },
   "notifPush": {
-    "titre": {}
+    "titre": {
+      "amelioration": "Patch {version}: potenziamento per {nom}",
+      "affaiblissement": "Patch {version}: indebolimento per {nom}",
+      "ajustement": "Patch {version}: modifiche per {nom}"
+    },
+    "titrePlusieurs": "Patch {version}: modifiche per {n} dei tuoi preferiti",
+    "corpsUn": "I dettagli sono nella sua scheda, sezione Statistiche.",
+    "ligne": "{nom}: {type}",
+    "autre": "e {n} altro",
+    "autres": "e altri {n}"
   },
   "equipeUI": {
     "votreEquipe": "La tua squadra",

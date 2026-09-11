@@ -11,6 +11,8 @@ README.md
 CONTRIBUTING.md
 LICENSE
 *.log
+logs
+donnees-serveur
 .env
 .env.local
 .env.*.local
