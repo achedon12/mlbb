@@ -22,10 +22,13 @@ const rajdhani = Rajdhani({
   display: "swap",
 });
 
+// Le texte courant ne se repeint pas a l'arrivee de la police : sans elle a
+// temps, la page garde sa police de secours, aux metriques ajustees par
+// next/font. Les titres gardent Rajdhani quoi qu'il arrive.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--police-corps",
-  display: "swap",
+  display: "optional",
 });
 
 type Params = { params: Promise<{ locale: string }> };

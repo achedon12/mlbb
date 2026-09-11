@@ -192,6 +192,9 @@ export default async function PageHeros({ params }: Params) {
               fill
               priority
               sizes="100vw"
+              // Fond assombri par un voile : une qualite reduite ne se voit pas,
+              // et c'est l'element le plus lourd a charger sur mobile.
+              quality={50}
               // Le bandeau est bien plus large que l'illustration n'est haute :
               // cadrer en haut ne montrerait que le ciel. On vise le tiers
               // superieur, ou se trouve le personnage.

@@ -28,6 +28,8 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "akmweb.youngjoygame.com" },
     ],
     formats: ["image/avif", "image/webp"],
+    // 50 : fonds assombris (banniere des fiches) ; 75 : tout le reste.
+    qualities: [50, 75],
   },
 
   // Les routes sont passees en anglais. Les anciennes adresses francaises,
