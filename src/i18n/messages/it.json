@@ -155,6 +155,10 @@
     "drawCalculator": {
       "label": "Calcolatore estrazioni",
       "desc": "Diamanti e probabilità delle skin evento"
+    },
+    "mlbbdle": {
+      "label": "MLBBdle",
+      "desc": "Il Wordle degli eroi, ogni giorno"
     }
   },
   "compte": {
@@ -922,6 +926,10 @@
       "drawCalculator": {
         "title": "Calcolatore estrazioni MLBB: diamanti e probabilità",
         "description": "Quanti diamanti per una skin evento di MLBB? Probabilità con il tuo budget, estrazioni medie con garanzia, soglie del 50, 90 e 99% e grafico. Gratis, nel browser, preset con fonti."
+      },
+      "mlbbdle": {
+        "title": "MLBBdle: il gioco quotidiano per indovinare l'eroe di Mobile Legends",
+        "description": "Indovina l'eroe di Mobile Legends: Bang Bang del giorno, in stile Wordle e Loldle: indizi a colori su ruolo, lane, regione, danni e anno di uscita, una modalità abilità quotidiana e un allenamento senza fine. Gratis, senza registrazione."
       }
     },
     "fraicheur": {
@@ -2046,6 +2054,148 @@
       "you": "tu",
       "pityChart": "garanzia",
       "whereToFind": "Dove trovare le probabilità? Ogni evento a estrazione pubblica regole e probabilità nel gioco: apri l'evento nel negozio e cerca la schermata delle regole. Inserisci la probabilità del premio esatto che vuoi, non quella di un'intera categoria, se il gioco la dettaglia."
+    },
+    "mlbbdle": {
+      "title": "MLBBdle",
+      "breadcrumb": "MLBBdle",
+      "lead": "Il Wordle degli eroi di Mobile Legends: indovina l'eroe del giorno grazie agli indizi a colori (ruolo, lane, regione, anno di uscita…), poi riconoscilo da una sola icona di abilità. Una nuova sfida ogni giorno, tentativi illimitati.",
+      "rulesTitle": "Come si gioca",
+      "rule1": "Ogni giorno a mezzanotte UTC arriva un nuovo eroe segreto, lo stesso per tutti in qualsiasi lingua. Ti aspettano due sfide: la modalità classica e la modalità abilità.",
+      "rule2": "Scrivi il nome di un eroe o sfoglia il roster: ogni tentativo aggiunge una riga di caselle che confronta il tuo eroe con quello segreto, caratteristica per caratteristica. I tentativi sono illimitati; il loro numero viene mostrato e finisce nelle tue statistiche.",
+      "rule3": "Un eroe non ritorna prima di {days} giorni nella stessa modalità, e un nuovo eroe entra nell'estrazione solo due settimane dopo l'uscita.",
+      "rule4": "La tua serie, il tuo record e la distribuzione dei tentativi restano nel tuo browser. Una volta trovato l'eroe, condividi la tua griglia: quadratini colorati che non svelano la risposta.",
+      "coloursTitle": "Cosa indicano i colori",
+      "colours": {
+        "match": "Verde: identico all'eroe segreto.",
+        "partial": "Arancione: in parte in comune (uno dei due ruoli o delle due lane, danni misti, portata ibrida…).",
+        "miss": "Rosso: niente in comune.",
+        "unknown": "Grigio: dato mancante per uno dei due eroi.",
+        "arrow": "Freccia sull'anno: l'eroe segreto è uscito più tardi (↑) o prima (↓)."
+      },
+      "columnsTitle": "Le colonne della modalità classica",
+      "columnsDesc": {
+        "gender": "Uomo, donna o senza genere, secondo la scheda ufficiale della storia dell'eroe.",
+        "roles": "Tank, combattente, assassino, mago, tiratore o supporto. Alcuni eroi ne hanno due: un solo ruolo in comune dà una casella arancione.",
+        "lanes": "La posizione preferita: Gold Lane, EXP Lane, Mid Lane, Jungle o Roam. Stessa logica dei ruoli.",
+        "specialties": "Le etichette del gioco (burst, controllo, inseguimento…). Arancione appena un'etichetta è in comune.",
+        "damage": "Fisici, magici o misti. Danni misti contro fisici o magici danno una casella arancione.",
+        "range": "Mischia, distanza o ibrida. Una portata ibrida contro mischia o distanza dà una casella arancione.",
+        "resource": "Cosa consumano le abilità: mana, energia o niente del tutto.",
+        "region": "La terra d'origine dell'eroe nell'universo di Mobile Legends (Impero di Moniyan, Eruditio, Abisso…).",
+        "year": "L'anno di uscita. La freccia indica se l'eroe segreto è più recente o più vecchio."
+      },
+      "modesTitle": "Le tre modalità",
+      "modesDesc": {
+        "classic": "Indovina l'eroe dalle caselle colorate: ogni tentativo ti avvicina al segreto. L'eroe del giorno cambia a mezzanotte UTC.",
+        "skill": "Un'icona di abilità, in bianco e nero. I colori tornano dopo {colour} errori, il nome dopo {name}, un estratto della descrizione (nome dell'eroe nascosto) dopo {description} e il ruolo dell'eroe dopo {roles}.",
+        "practice": "Tutti gli eroi casuali che vuoi, in modalità classica o abilità. Niente conta nelle statistiche del giorno; puoi rivelare la risposta o passare al successivo."
+      },
+      "sourceTitle": "Da dove vengono i dati",
+      "source": "Le caratteristiche degli eroi vengono dal nostro database, estratto dalla wiki di Mobile Legends e aggiornato a ogni sincronizzazione: sono le stesse delle schede degli eroi. Le abilità e le loro descrizioni sono mostrate nella tua lingua.",
+      "linkHeroes": "Tutti gli eroi",
+      "linkQuiz": "Il quiz del giorno",
+      "linkLore": "Le storie degli eroi",
+      "linkTierList": "La tier list"
+    },
+    "mlbbdleUI": {
+      "mode": "Modalità",
+      "modes": {
+        "classic": "Classica",
+        "skill": "Abilità",
+        "practice": "Allenamento"
+      },
+      "solved": "risolta",
+      "loading": "Caricamento…",
+      "loadError": "Impossibile caricare la sfida del giorno. Controlla la connessione e riprova.",
+      "retry": "Riprova",
+      "unavailable": "Questa modalità oggi non è disponibile. Prova l'altra!",
+      "number": "MLBBdle n. {n} · {date}",
+      "input": "Nome di un eroe…",
+      "noResult": "Nessun eroe corrisponde.",
+      "browse": "Sfoglia gli eroi",
+      "guesses": "Tentativi: {n}",
+      "classicQuestion": "Chi è l'eroe del giorno?",
+      "classicHelp": "Proponi un eroe qualsiasi per iniziare: le caselle colorate indicano cosa ha in comune con l'eroe segreto.",
+      "announceFound": "Bravo, era {name}! Tentativi: {n}.",
+      "announceGuess": "Tentativo {n}: {name}.",
+      "announceWrong": "Tentativo {n}: {name}, non è l'eroe giusto.",
+      "announceClue": "Nuovo indizio sbloccato: {clue}.",
+      "heroColumn": "Eroe",
+      "columns": {
+        "gender": "Genere",
+        "roles": "Ruolo",
+        "lanes": "Lane",
+        "specialties": "Specialità",
+        "damage": "Danni",
+        "range": "Portata",
+        "resource": "Risorsa",
+        "region": "Regione",
+        "year": "Anno"
+      },
+      "unknown": "?",
+      "genders": {
+        "male": "Uomo",
+        "female": "Donna",
+        "none": "Senza genere"
+      },
+      "verdicts": {
+        "match": "identico",
+        "partial": "in parte",
+        "miss": "diverso",
+        "unknown": "sconosciuto"
+      },
+      "direction": {
+        "same": "stesso anno",
+        "newer": "l'eroe segreto è più recente",
+        "older": "l'eroe segreto è più vecchio",
+        "unknown": "anno sconosciuto"
+      },
+      "gridCaption": "I tuoi tentativi, dal più recente, confrontati con l'eroe segreto",
+      "skillQuestion": "A quale eroe appartiene questa abilità?",
+      "cluesTitle": "Indizi",
+      "clues": {
+        "colour": "Colori",
+        "name": "Nome dell'abilità",
+        "description": "Descrizione",
+        "roles": "Ruolo"
+      },
+      "colourClue": "ora l'icona è a colori",
+      "lockedClue": "{clue} — errori prima di sbloccarlo: {n}",
+      "skillAlt": "Icona dell'abilità da indovinare",
+      "skillAltGrey": "Icona dell'abilità da indovinare, in bianco e nero",
+      "yourGuesses": "I tuoi tentativi",
+      "winTitle": "Trovato! Tentativi: {n}",
+      "skillWas": "L'abilità: {name}",
+      "viewProfile": "Vedi la scheda dell'eroe",
+      "gridSummary": "Griglia da condividere, tentativi: {n}. Una riga di quadratini colorati per tentativo, senza nomi di eroi.",
+      "share": "Condividi il risultato",
+      "copied": "Risultato copiato: incollalo dove vuoi.",
+      "shared": "Risultato condiviso.",
+      "copyError": "Impossibile copiare: seleziona la griglia a mano.",
+      "shareTitle": "MLBBdle n. {n} · {mode} · tentativi: {guesses}",
+      "playMode": "Gioca alla modalità {mode}",
+      "practiseMore": "Continua ad allenarti",
+      "yesterday": "La risposta di ieri:",
+      "statsTitle": "Le tue statistiche · {mode}",
+      "stats": {
+        "played": "Giorni vinti",
+        "streak": "Serie",
+        "best": "Record",
+        "average": "Tentativi medi"
+      },
+      "distribution": "Distribuzione dei tentativi",
+      "distributionRow": "Tentativi {guesses}: {n}",
+      "newPuzzle": "È disponibile una nuova sfida: gioca",
+      "next": "Prossimo eroe tra",
+      "practiceType": "Tipo",
+      "practiceFound": "Trovati",
+      "practiceBest": "Meno tentativi",
+      "practiceNumber": "Allenamento · eroe n. {n}",
+      "answerWas": "La risposta era",
+      "reveal": "Rivela la risposta",
+      "newHero": "Nuovo eroe",
+      "skip": "Salta",
+      "practiceQuestion": "Chi è questo eroe?"
     }
   },
   "modeFiche": {

@@ -155,6 +155,10 @@
     "drawCalculator": {
       "label": "Calculadora de tiradas",
       "desc": "Diamantes y probabilidades de skins de evento"
+    },
+    "mlbbdle": {
+      "label": "MLBBdle",
+      "desc": "El Wordle de héroes, cada día"
     }
   },
   "compte": {
@@ -922,6 +926,10 @@
       "drawCalculator": {
         "title": "Calculadora de tiradas MLBB: diamantes y probabilidades",
         "description": "¿Cuántos diamantes para una skin de evento de MLBB? Probabilidades según tu presupuesto, tiradas medias con garantía, umbrales del 50, 90 y 99 % y gráfico. Gratis, en tu navegador, preajustes con fuentes."
+      },
+      "mlbbdle": {
+        "title": "MLBBdle: el juego diario para adivinar el héroe de Mobile Legends",
+        "description": "Adivina el héroe de Mobile Legends: Bang Bang del día, al estilo Wordle y Loldle: pistas de colores sobre rol, línea, región, daño y año de lanzamiento, un modo habilidad diario y un entrenamiento sin fin. Gratis y sin registro."
       }
     },
     "fraicheur": {
@@ -2046,6 +2054,148 @@
       "you": "tú",
       "pityChart": "garantía",
       "whereToFind": "¿Dónde ver las probabilidades? Cada evento de tiradas publica sus reglas y probabilidades en el juego: abre el evento en la tienda y busca la pantalla de reglas. Introduce la probabilidad del premio exacto que quieres, no la de toda una categoría, si el juego la detalla."
+    },
+    "mlbbdle": {
+      "title": "MLBBdle",
+      "breadcrumb": "MLBBdle",
+      "lead": "El Wordle de los héroes de Mobile Legends: adivina el héroe del día con pistas de colores (rol, línea, región, año de lanzamiento…) y luego reconócelo por un solo icono de habilidad. Un nuevo reto cada día, intentos ilimitados.",
+      "rulesTitle": "Cómo se juega",
+      "rule1": "Cada día a medianoche UTC llega un nuevo héroe secreto, el mismo para todos sea cual sea el idioma. Te esperan dos retos: el modo clásico y el modo habilidad.",
+      "rule2": "Escribe el nombre de un héroe o explora el roster: cada intento añade una fila de casillas que compara tu héroe con el secreto, rasgo por rasgo. Los intentos son ilimitados; su número se muestra y cuenta en tus estadísticas.",
+      "rule3": "Un héroe no vuelve antes de {days} días en el mismo modo, y un héroe nuevo solo entra en el sorteo dos semanas después de su lanzamiento.",
+      "rule4": "Tu racha, tu récord y la distribución de tus intentos se quedan en tu navegador. Cuando encuentres al héroe, comparte tu cuadrícula: cuadrados de colores que no revelan la respuesta.",
+      "coloursTitle": "Qué significan los colores",
+      "colours": {
+        "match": "Verde: igual que el héroe secreto.",
+        "partial": "Naranja: en parte en común (uno de dos roles o líneas, daño mixto, alcance híbrido…).",
+        "miss": "Rojo: nada en común.",
+        "unknown": "Gris: falta el dato de uno de los dos héroes.",
+        "arrow": "Flecha en el año: el héroe secreto salió más tarde (↑) o antes (↓)."
+      },
+      "columnsTitle": "Las columnas del modo clásico",
+      "columnsDesc": {
+        "gender": "Hombre, mujer o sin género, según la ficha oficial de la historia del héroe.",
+        "roles": "Tanque, luchador, asesino, mago, tirador o soporte. Algunos héroes tienen dos: compartir solo uno da una casilla naranja.",
+        "lanes": "La posición preferida: Gold Lane, EXP Lane, Mid Lane, Jungle o Roam. Misma lógica que los roles.",
+        "specialties": "Las etiquetas del juego (ráfaga, control de masas, persecución…). Naranja en cuanto se comparte una etiqueta.",
+        "damage": "Físico, mágico o mixto. Un daño mixto frente a físico o mágico da una casilla naranja.",
+        "range": "Cuerpo a cuerpo, a distancia o híbrido. Un alcance híbrido frente a cuerpo a cuerpo o distancia da una casilla naranja.",
+        "resource": "Lo que consumen las habilidades: maná, energía o nada en absoluto.",
+        "region": "La tierra natal del héroe en el universo de Mobile Legends (Imperio de Moniyan, Eruditio, Abismo…).",
+        "year": "El año de lanzamiento. La flecha indica si el héroe secreto es más reciente o más antiguo."
+      },
+      "modesTitle": "Los tres modos",
+      "modesDesc": {
+        "classic": "Adivina el héroe gracias a las casillas de colores: cada intento te acerca al secreto. El héroe del día cambia a medianoche UTC.",
+        "skill": "Un icono de habilidad, en blanco y negro. Sus colores vuelven tras {colour} fallos, su nombre tras {name}, un extracto de su descripción (con el nombre del héroe oculto) tras {description} y el rol del héroe tras {roles}.",
+        "practice": "Todos los héroes al azar que quieras, en modo clásico o habilidad. Nada cuenta en las estadísticas del día; puedes revelar la respuesta o pasar al siguiente."
+      },
+      "sourceTitle": "De dónde vienen los datos",
+      "source": "Los rasgos de los héroes vienen de nuestra base de datos, extraída de la wiki de Mobile Legends y actualizada en cada sincronización: son los mismos que en las fichas de los héroes. Las habilidades y sus descripciones se muestran en tu idioma.",
+      "linkHeroes": "Todos los héroes",
+      "linkQuiz": "El quiz del día",
+      "linkLore": "Las historias de los héroes",
+      "linkTierList": "La tier list"
+    },
+    "mlbbdleUI": {
+      "mode": "Modo",
+      "modes": {
+        "classic": "Clásico",
+        "skill": "Habilidad",
+        "practice": "Entrenamiento"
+      },
+      "solved": "resuelto",
+      "loading": "Cargando…",
+      "loadError": "No se pudo cargar el reto del día. Comprueba tu conexión y vuelve a intentarlo.",
+      "retry": "Reintentar",
+      "unavailable": "Este modo no está disponible hoy. ¡Prueba el otro!",
+      "number": "MLBBdle n.º {n} · {date}",
+      "input": "Nombre de un héroe…",
+      "noResult": "Ningún héroe coincide.",
+      "browse": "Ver héroes",
+      "guesses": "Intentos: {n}",
+      "classicQuestion": "¿Quién es el héroe del día?",
+      "classicHelp": "Propón cualquier héroe para empezar: las casillas de colores muestran lo que comparte con el héroe secreto.",
+      "announceFound": "¡Bien hecho, era {name}! Intentos: {n}.",
+      "announceGuess": "Intento {n}: {name}.",
+      "announceWrong": "Intento {n}: {name}, no es el héroe correcto.",
+      "announceClue": "Nueva pista desbloqueada: {clue}.",
+      "heroColumn": "Héroe",
+      "columns": {
+        "gender": "Género",
+        "roles": "Rol",
+        "lanes": "Línea",
+        "specialties": "Especialidad",
+        "damage": "Daño",
+        "range": "Alcance",
+        "resource": "Recurso",
+        "region": "Región",
+        "year": "Año"
+      },
+      "unknown": "?",
+      "genders": {
+        "male": "Hombre",
+        "female": "Mujer",
+        "none": "Sin género"
+      },
+      "verdicts": {
+        "match": "igual",
+        "partial": "en parte",
+        "miss": "distinto",
+        "unknown": "desconocido"
+      },
+      "direction": {
+        "same": "mismo año",
+        "newer": "el héroe secreto es más reciente",
+        "older": "el héroe secreto es más antiguo",
+        "unknown": "año desconocido"
+      },
+      "gridCaption": "Tus intentos, del más reciente al más antiguo, comparados con el héroe secreto",
+      "skillQuestion": "¿A qué héroe pertenece esta habilidad?",
+      "cluesTitle": "Pistas",
+      "clues": {
+        "colour": "Colores",
+        "name": "Nombre de la habilidad",
+        "description": "Descripción",
+        "roles": "Rol"
+      },
+      "colourClue": "el icono ya se muestra en color",
+      "lockedClue": "{clue} — fallos antes de desbloquearla: {n}",
+      "skillAlt": "Icono de la habilidad por adivinar",
+      "skillAltGrey": "Icono de la habilidad por adivinar, en blanco y negro",
+      "yourGuesses": "Tus intentos",
+      "winTitle": "¡Encontrado! Intentos: {n}",
+      "skillWas": "La habilidad: {name}",
+      "viewProfile": "Ver la ficha del héroe",
+      "gridSummary": "Cuadrícula para compartir, intentos: {n}. Una fila de cuadrados de colores por intento, sin nombres de héroes.",
+      "share": "Compartir mi resultado",
+      "copied": "Resultado copiado: pégalo donde quieras.",
+      "shared": "Resultado compartido.",
+      "copyError": "No se pudo copiar: selecciona la cuadrícula a mano.",
+      "shareTitle": "MLBBdle n.º {n} · {mode} · intentos: {guesses}",
+      "playMode": "Jugar al modo {mode}",
+      "practiseMore": "Seguir entrenando",
+      "yesterday": "Respuesta de ayer:",
+      "statsTitle": "Tus estadísticas · {mode}",
+      "stats": {
+        "played": "Días ganados",
+        "streak": "Racha",
+        "best": "Récord",
+        "average": "Intentos medios"
+      },
+      "distribution": "Distribución de intentos",
+      "distributionRow": "Intentos {guesses}: {n}",
+      "newPuzzle": "Hay un nuevo reto disponible: jugar",
+      "next": "Próximo héroe en",
+      "practiceType": "Tipo",
+      "practiceFound": "Encontrados",
+      "practiceBest": "Menos intentos",
+      "practiceNumber": "Entrenamiento · héroe n.º {n}",
+      "answerWas": "La respuesta era",
+      "reveal": "Revelar la respuesta",
+      "newHero": "Nuevo héroe",
+      "skip": "Saltar",
+      "practiceQuestion": "¿Qué héroe es?"
     }
   },
   "modeFiche": {
