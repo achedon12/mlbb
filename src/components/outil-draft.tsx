@@ -141,14 +141,14 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                             <ul className="mt-1 space-y-0.5">
                               {s.raisons.map((r) => (
                                 <li
-                                  key={r.texte}
+                                  key={r.type}
                                   className={cn(
                                     "text-xs leading-snug",
                                     r.favorable ? "text-emerald-400" : "text-sang-500",
                                   )}
                                 >
                                   {r.favorable ? "+ " : "− "}
-                                  {r.texte}
+                                  {t(`draftUI.raisons.${r.type}`, { detail: r.detail })}
                                 </li>
                               ))}
                               {s.raisons.length === 0 && (

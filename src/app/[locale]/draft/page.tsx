@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { OutilDraft } from "@/components/outil-draft";
 import { EnTetePage } from "@/components/ui";
 import statistiques from "@/data/jeu/statistiques.json";
-import { heros } from "@/lib/donnees";
+import { coequipiers, heros } from "@/lib/donnees";
 import type { HerosDraft } from "@/lib/draft";
 import { classementComplet } from "@/lib/tier-list";
 import type { Langue } from "@/i18n/config";
@@ -45,7 +45,14 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
     victoire: taux.get(h.slug) ?? null,
     fortContre: relations[h.slug]?.fortContre ?? [],
     faibleContre: relations[h.slug]?.faibleContre ?? [],
-    synergies: relations[h.slug]?.synergies ?? [],
+    // Synergies ecrites par le wiki, completees des coequipiers qui font le
+    // plus gagner le heros en partie classee.
+    synergies: [
+      ...new Set([
+        ...(relations[h.slug]?.synergies ?? []),
+        ...(coequipiers[h.slug]?.all ?? []).map((c) => c.slug),
+      ]),
+    ],
   }));
 
   return (

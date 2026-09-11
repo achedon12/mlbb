@@ -27,7 +27,10 @@ export interface HerosDraft {
 }
 
 export interface Raison {
-  texte: string;
+  /** Nature de l'argument ; la phrase se compose dans la langue de la page. */
+  type: "contre" | "subi" | "combine" | "victoire";
+  /** Heros en cause, ou taux de victoire. */
+  detail: string;
   /** Positif quand l'argument joue en faveur du heros. */
   favorable: boolean;
 }
@@ -90,7 +93,7 @@ export function suggerer({
       if (contres.length > 0) {
         score += contres.length * POIDS.contre;
         const noms = contres.map((e) => parEnnemi.get(e)?.nom ?? e).join(", ");
-        raisons.push({ texte: `fort contre ${noms}`, favorable: true });
+        raisons.push({ type: "contre", detail: noms, favorable: true });
       }
 
       const subis = ennemis.filter(
@@ -99,7 +102,7 @@ export function suggerer({
       if (subis.length > 0) {
         score += subis.length * POIDS.contre_par;
         const noms = subis.map((e) => parEnnemi.get(e)?.nom ?? e).join(", ");
-        raisons.push({ texte: `en difficulte contre ${noms}`, favorable: false });
+        raisons.push({ type: "subi", detail: noms, favorable: false });
       }
 
       const parAllie = new Map(
@@ -111,15 +114,15 @@ export function suggerer({
       if (combine.length > 0) {
         score += combine.length * POIDS.synergie;
         const noms = combine.map((a) => parAllie.get(a)?.nom ?? a).join(", ");
-        raisons.push({ texte: `se combine avec ${noms}`, favorable: true });
+        raisons.push({ type: "combine", detail: noms, favorable: true });
       }
 
       if (h.victoire !== null) {
         score += (h.victoire - 50) * POIDS.victoire;
         if (h.victoire >= 53) {
-          raisons.push({ texte: `${h.victoire.toFixed(1)} % de victoires`, favorable: true });
+          raisons.push({ type: "victoire", detail: h.victoire.toFixed(1), favorable: true });
         } else if (h.victoire <= 47) {
-          raisons.push({ texte: `${h.victoire.toFixed(1)} % de victoires`, favorable: false });
+          raisons.push({ type: "victoire", detail: h.victoire.toFixed(1), favorable: false });
         }
       }
 

@@ -134,6 +134,15 @@ export const buildsJoues =
  * Equipement complet propose par un joueur sur l'academie : le guide le mieux
  * note parmi les auteurs du rang ou au-dessus. Un avis, sans taux mesure.
  */
+/** Coequipiers qui font le plus gagner un heros, par rang (en points de victoire). */
+export interface Coequipier {
+  slug: string;
+  avantage: number;
+}
+export type CoequipiersParRang = Partial<Record<RangMesure, Coequipier[]>>;
+export const coequipiers =
+  (statistiquesGenere as unknown as { coequipiers?: Record<string, CoequipiersParRang> }).coequipiers ?? {};
+
 export interface GuideJoueur {
   objets: string[];
   embleme: string | null;

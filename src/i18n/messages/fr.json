@@ -708,7 +708,13 @@
     "filtreRole": "Rôle",
     "toutesLanes": "Toutes",
     "tousRoles": "Tous",
-    "compte": "{n} héros"
+    "compte": "{n} héros",
+    "raisons": {
+      "contre": "fort contre {detail}",
+      "subi": "en difficulté contre {detail}",
+      "combine": "se combine avec {detail}",
+      "victoire": "{detail} % de victoires"
+    }
   },
   "nouveauHeros": {
     "particularite": "Particularité — "

@@ -708,7 +708,13 @@
     "filtreRole": "Role",
     "toutesLanes": "All",
     "tousRoles": "All",
-    "compte": "{n} heroes"
+    "compte": "{n} heroes",
+    "raisons": {
+      "contre": "strong against {detail}",
+      "subi": "struggles against {detail}",
+      "combine": "pairs well with {detail}",
+      "victoire": "{detail}% win rate"
+    }
   },
   "nouveauHeros": {
     "particularite": "Special trait — "
