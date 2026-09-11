@@ -164,6 +164,10 @@
       "label": "Serveur Advance",
       "desc": "Changements en test avant le serveur officiel"
     },
+    "esports": {
+      "label": "Esport",
+      "desc": "MPL, MSC, Mondiaux et picks des pros"
+    },
     "objectiveTimer": {
       "label": "Chrono des objectifs",
       "desc": "Tortue, Seigneur et buffs en partie"
@@ -2357,6 +2361,175 @@
         "announcedRevamp": "Une refonte de {name} est présentée dans la version {v}.",
         "readVersion": "Toutes les notes de la version {v}"
       }
+    },
+    "esports": {
+      "title": "Esport MLBB",
+      "intro": "Mondiaux, MSC et ligues MPL : classements, résultats et héros que les pros prennent et bannissent, comparés au mode classé.",
+      "seo": {
+        "hubTitle": "Esport MLBB : méta pro, MPL, MSC et Mondiaux",
+        "hubDescription": "Méta pro de MLBB sur {games} parties récentes de MPL et de compétitions internationales : {picked} est le héros le plus pris, {banned} le plus banni. Classements, drafts et comparaison pro/classé.",
+        "mplTitle": "{league} Saison {n} : classement, picks et bans des héros",
+        "mTitle": "M{n} World Championship : statistiques des héros",
+        "mscTitle": "MSC {year} : résultats, picks et bans des héros",
+        "tournamentDescription": "{name} : classement, résultats et statistiques des héros sur {games} parties. Le plus pris : {picked}. Le plus banni : {banned}. Derniers drafts avec picks et bans partie par partie.",
+        "upcomingDescription": "{name} ({date}) : dates, dotation et équipes. Classements, drafts et statistiques des héros apparaîtront ici dès les premières parties."
+      },
+      "status": {
+        "live": "En cours",
+        "upcoming": "À venir",
+        "finished": "Terminé"
+      },
+      "dates": {
+        "range": "{start} – {end}"
+      },
+      "tournaments": {
+        "title": "Tournois",
+        "intro": "Saisons MPL en cours, dernier MSC et Mondiaux, avec les dates et dotations indiquées sur Liquipedia."
+      },
+      "card": {
+        "prize": "Dotation : {amount}",
+        "teams": "{n} équipes",
+        "games": "{n} parties relevées",
+        "noGames": "Aucune partie relevée pour l'instant",
+        "champion": "Champion : {team}"
+      },
+      "meta": {
+        "title": "Méta pro",
+        "intro": "{games} parties de {tournaments} : tournois en cours ou joués ces {days} derniers jours.",
+        "picked": "Les plus pris",
+        "banned": "Les plus bannis",
+        "winners": "Meilleur taux de victoire",
+        "winnersNote": "Héros pris au moins {n} fois.",
+        "picks": "{n} picks",
+        "bans": "{n} bans",
+        "presence": "Présence {value}",
+        "record": "{wins} V – {losses} D",
+        "none": "Aucune partie pro relevée sur cette période pour l'instant."
+      },
+      "versus": {
+        "title": "Pro contre classé",
+        "intro": "Chaque héros est classé deux fois parmi {total} : par sa présence en pro (part des parties pros où il est pris ou banni) et par sa présence en classé (la même part en parties classées, tous rangs, d'après nos statistiques). Un grand écart de places signifie qu'un des deux mondes l'estime bien plus que l'autre.",
+        "pro": "Bien plus estimés en pro",
+        "proNote": "Pris ou bannis dans au moins {min} des parties pros, et mieux classés là qu'en classé.",
+        "ranked": "Favoris du classé que les pros délaissent",
+        "rankedNote": "Dans le top {n} de présence en classé, moins bien placés en pro.",
+        "hero": "Héros",
+        "proColumn": "Présence pro",
+        "rankedColumn": "Présence en classé",
+        "gapColumn": "Écart",
+        "cell": "{value} · n° {rank}",
+        "gap": "{n} places",
+        "none": "Pas encore assez de parties pros pour comparer."
+      },
+      "method": "Présence = (picks + bans) ÷ parties dont le draft est saisi. Présence en classé = taux de sélection × 10 + taux de ban, le taux de sélection du jeu étant une part des dix picks de chaque partie. Les classements sont recalculés à partir des résultats de matchs listés sur Liquipedia.",
+      "credit": {
+        "text": "Données de tournoi issues de {source}, sous licence {license}, adaptées par MLBBDex. Les noms d'équipe sont affichés en texte seul. Pages sources :",
+        "revised": "révision du {date}",
+        "short": "Données pros issues de {source} ({pages}), sous licence {license}."
+      },
+      "tournament": {
+        "intro": "{name} : classement, résultats, picks et bans des héros et derniers drafts, sur {games} parties relevées sur Liquipedia.",
+        "introUpcoming": "{name} n'a pas encore commencé. Classements, drafts et statistiques des héros apparaîtront ici dès les premières parties relevées."
+      },
+      "facts": {
+        "status": "Statut",
+        "dates": "Dates",
+        "prize": "Dotation",
+        "teams": "Équipes",
+        "location": "Lieu",
+        "patch": "Patch",
+        "champion": "Champion",
+        "games": "Parties relevées"
+      },
+      "empty": "Aucun match relevé pour l'instant.",
+      "stages": {
+        "wildcard": "Wildcard",
+        "playIn": "Play-in",
+        "groupStage": "Phase de groupes",
+        "swissStage": "Phase suisse",
+        "regularSeason": "Saison régulière",
+        "knockoutStage": "Phase à élimination",
+        "playoffs": "Playoffs",
+        "mainEvent": "Tournoi principal",
+        "finals": "Finales"
+      },
+      "rounds": {
+        "grandFinal": "Grande finale",
+        "thirdPlace": "Match pour la 3e place",
+        "final": "Finale",
+        "semifinal": "Demi-finales",
+        "quarterfinal": "Quarts de finale",
+        "round": "Tour {n}",
+        "week": "Semaine {n}",
+        "day": "Jour {n}",
+        "group": "Groupe {letter}"
+      },
+      "sides": {
+        "upper": "Tableau haut · {round}",
+        "lower": "Tableau bas · {round}"
+      },
+      "standings": {
+        "caption": "Classement : {title}",
+        "rank": "n°",
+        "team": "Équipe",
+        "series": "Séries",
+        "games": "Parties",
+        "diff": "Diff.",
+        "note": "Classements recalculés à partir des résultats listés sur Liquipedia : séries gagnées, puis écart de parties. Les égalités parfaites partagent un rang ; la confrontation directe n'est pas appliquée."
+      },
+      "zones": {
+        "title": "Zones indiquées par la source",
+        "note": "Pendant une phase, les zones suivent la position du moment.",
+        "up": "Qualifié",
+        "seedup": "Qualifié, tête de série",
+        "stayup": "Qualifié, moins bien placé",
+        "stay": "Maintenu",
+        "staydown": "Zone de relégation",
+        "down": "Éliminé"
+      },
+      "match": {
+        "seed": "Tête de série {n}",
+        "tbd": "À déterminer",
+        "winner": "vainqueur"
+      },
+      "heroes": {
+        "title": "Statistiques des héros",
+        "intro": "Picks, bans, présence et taux de victoire sur les {games} parties dont le draft est saisi. Triez par n'importe quelle colonne."
+      },
+      "drafts": {
+        "title": "Derniers drafts",
+        "intro": "Bans et picks de chaque partie des {n} derniers matchs joués.",
+        "game": "Partie {n}",
+        "won": "Victoire de {team}",
+        "picks": "Picks",
+        "bans": "Bans",
+        "blue": "côté bleu",
+        "red": "côté rouge"
+      },
+      "heroPro": {
+        "title": "{name} chez les pros",
+        "intro": "Sur {games} parties pros de {tournaments}, tournois en cours ou joués ces {days} derniers jours, comparées au classé (tous rangs).",
+        "presence": "Présence pro",
+        "rank": "n° {rank} sur {total} héros vus",
+        "picks": "Picks",
+        "bans": "Bans",
+        "share": "{value} des parties",
+        "winRate": "Victoires en pro",
+        "ranked": "Victoires en classé",
+        "rankedDetail": "présence en classé {value}",
+        "link": "Méta pro et tournois"
+      }
+    },
+    "esportsUI": {
+      "caption": "Statistiques des héros, {name}",
+      "hero": "Héros",
+      "picks": "Picks",
+      "bans": "Bans",
+      "presence": "Présence",
+      "wins": "Victoires",
+      "losses": "Défaites",
+      "winRate": "Taux de victoire",
+      "noPick": "Aucun pick"
     },
     "draftSimulatorUI": {
       "tabsLabel": "Mode de l'outil",

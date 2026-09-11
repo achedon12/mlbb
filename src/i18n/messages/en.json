@@ -164,6 +164,10 @@
       "label": "Advance Server",
       "desc": "Changes tested before the Official Server"
     },
+    "esports": {
+      "label": "Esports",
+      "desc": "MPL, MSC, M-series and pro picks"
+    },
     "objectiveTimer": {
       "label": "Objective timer",
       "desc": "Turtle, Lord and buffs in a match"
@@ -2357,6 +2361,175 @@
         "announcedRevamp": "A revamp of {name} is presented in version {v}.",
         "readVersion": "All notes for version {v}"
       }
+    },
+    "esports": {
+      "title": "MLBB esports",
+      "intro": "World Championships, MSC and the MPL leagues: standings, results and the heroes pros pick and ban, compared with ranked play.",
+      "seo": {
+        "hubTitle": "MLBB esports: pro meta, MPL, MSC and M-series",
+        "hubDescription": "MLBB pro meta over {games} recent games of MPL and international events: {picked} is the most picked hero, {banned} the most banned. Standings, drafts and a pro vs ranked comparison.",
+        "mplTitle": "{league} Season {n}: standings, hero picks and bans",
+        "mTitle": "M{n} World Championship: hero statistics",
+        "mscTitle": "MSC {year}: results, hero picks and bans",
+        "tournamentDescription": "{name}: standings, results and hero statistics over {games} games. Most picked: {picked}. Most banned: {banned}. Latest drafts with picks and bans game by game.",
+        "upcomingDescription": "{name} ({date}): dates, prize pool and teams. Standings, drafts and hero statistics will appear here once the first games are played."
+      },
+      "status": {
+        "live": "Live",
+        "upcoming": "Upcoming",
+        "finished": "Finished"
+      },
+      "dates": {
+        "range": "{start} – {end}"
+      },
+      "tournaments": {
+        "title": "Tournaments",
+        "intro": "Current MPL seasons, the latest MSC and World Championships, with the dates and prize pools listed on Liquipedia."
+      },
+      "card": {
+        "prize": "Prize pool: {amount}",
+        "teams": "{n} teams",
+        "games": "{n} games recorded",
+        "noGames": "No game recorded yet",
+        "champion": "Champion: {team}"
+      },
+      "meta": {
+        "title": "Pro meta",
+        "intro": "{games} games from {tournaments}: tournaments live or played in the last {days} days.",
+        "picked": "Most picked",
+        "banned": "Most banned",
+        "winners": "Best win rate",
+        "winnersNote": "Heroes picked at least {n} times.",
+        "picks": "{n} picks",
+        "bans": "{n} bans",
+        "presence": "Presence {value}",
+        "record": "{wins} W – {losses} L",
+        "none": "No pro game recorded in this window yet."
+      },
+      "versus": {
+        "title": "Pro play vs ranked",
+        "intro": "Each hero is ranked twice among {total}: by its pro presence (the share of pro games where it is picked or banned) and by its ranked presence (the same share in ranked games, all ranks, from our statistics). A big gap in places means one world values the hero far more than the other.",
+        "pro": "Valued far more in pro",
+        "proNote": "Picked or banned in at least {min} of pro games, and ranked higher there than in ranked.",
+        "ranked": "Ranked favorites pros pass on",
+        "rankedNote": "In the top {n} by ranked presence, ranked lower in pro.",
+        "hero": "Hero",
+        "proColumn": "Pro presence",
+        "rankedColumn": "Ranked presence",
+        "gapColumn": "Gap",
+        "cell": "{value} · #{rank}",
+        "gap": "{n} places",
+        "none": "Not enough pro games to compare yet."
+      },
+      "method": "Presence = (picks + bans) ÷ games with a recorded draft. Ranked presence = pick rate × 10 + ban rate, since the game's pick rate is a share of the ten picks of each game. Standings are recomputed from the match results listed on Liquipedia.",
+      "credit": {
+        "text": "Tournament data from {source}, licensed under {license}, adapted by MLBBDex. Team names are shown as text only. Source pages:",
+        "revised": "revision of {date}",
+        "short": "Pro data from {source} ({pages}), licensed under {license}."
+      },
+      "tournament": {
+        "intro": "{name}: standings, results, hero picks and bans and the latest drafts, from {games} games recorded on Liquipedia.",
+        "introUpcoming": "{name} has not started yet. Standings, drafts and hero statistics will appear here as soon as the first games are recorded."
+      },
+      "facts": {
+        "status": "Status",
+        "dates": "Dates",
+        "prize": "Prize pool",
+        "teams": "Teams",
+        "location": "Location",
+        "patch": "Patch",
+        "champion": "Champion",
+        "games": "Games recorded"
+      },
+      "empty": "No match recorded yet.",
+      "stages": {
+        "wildcard": "Wildcard",
+        "playIn": "Play-in",
+        "groupStage": "Group stage",
+        "swissStage": "Swiss stage",
+        "regularSeason": "Regular season",
+        "knockoutStage": "Knockout stage",
+        "playoffs": "Playoffs",
+        "mainEvent": "Main event",
+        "finals": "Finals"
+      },
+      "rounds": {
+        "grandFinal": "Grand final",
+        "thirdPlace": "Third place match",
+        "final": "Final",
+        "semifinal": "Semifinals",
+        "quarterfinal": "Quarterfinals",
+        "round": "Round {n}",
+        "week": "Week {n}",
+        "day": "Day {n}",
+        "group": "Group {letter}"
+      },
+      "sides": {
+        "upper": "Upper bracket · {round}",
+        "lower": "Lower bracket · {round}"
+      },
+      "standings": {
+        "caption": "Standings: {title}",
+        "rank": "#",
+        "team": "Team",
+        "series": "Series",
+        "games": "Games",
+        "diff": "Diff.",
+        "note": "Standings are recomputed from the match results listed on Liquipedia: series won, then game differential. Full ties share a rank; the head-to-head tiebreaker is not applied."
+      },
+      "zones": {
+        "title": "Zones marked by the source",
+        "note": "During a stage, zones follow the current position.",
+        "up": "Advances",
+        "seedup": "Advances, seeded",
+        "stayup": "Advances, lower seed",
+        "stay": "Stays",
+        "staydown": "Relegation zone",
+        "down": "Eliminated"
+      },
+      "match": {
+        "seed": "Seed {n}",
+        "tbd": "TBD",
+        "winner": "winner"
+      },
+      "heroes": {
+        "title": "Hero statistics",
+        "intro": "Picks, bans, presence and win rate over the {games} games with a recorded draft. Sort by any column."
+      },
+      "drafts": {
+        "title": "Latest drafts",
+        "intro": "Bans and picks of every game of the last {n} matches played.",
+        "game": "Game {n}",
+        "won": "{team} wins",
+        "picks": "Picks",
+        "bans": "Bans",
+        "blue": "blue side",
+        "red": "red side"
+      },
+      "heroPro": {
+        "title": "{name} in pro play",
+        "intro": "Over {games} pro games of {tournaments}, tournaments live or played in the last {days} days, compared with ranked (all ranks).",
+        "presence": "Pro presence",
+        "rank": "#{rank} of {total} heroes seen",
+        "picks": "Picks",
+        "bans": "Bans",
+        "share": "{value} of games",
+        "winRate": "Pro win rate",
+        "ranked": "Ranked win rate",
+        "rankedDetail": "ranked presence {value}",
+        "link": "Pro meta and tournaments"
+      }
+    },
+    "esportsUI": {
+      "caption": "Hero statistics, {name}",
+      "hero": "Hero",
+      "picks": "Picks",
+      "bans": "Bans",
+      "presence": "Presence",
+      "wins": "Wins",
+      "losses": "Losses",
+      "winRate": "Win rate",
+      "noPick": "No pick"
     },
     "draftSimulatorUI": {
       "tabsLabel": "Tool mode",
