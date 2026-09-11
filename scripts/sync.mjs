@@ -28,7 +28,16 @@ import {
 } from "./wikitexte.mjs";
 import { ajustementsHeros, bilan } from "./patch-parser.mjs";
 import { extraireIllustrations, normaliserNomSkin } from "./galerie.mjs";
-import { arrondi, choisirGuide, combosDuHeros, fusionnerHistorique, serieQuotidienne } from "./mesures.mjs";
+import {
+  arrondi,
+  choisirGuide,
+  combosDuHeros,
+  duosDuRang,
+  fusionnerDuos,
+  fusionnerHistorique,
+  serialiserDuos,
+  serieQuotidienne,
+} from "./mesures.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
 /**
@@ -749,6 +758,80 @@ async function combosSeuls() {
   const combos = await combosArena(heros, skillsArena, competencesSite, icones);
   const total = await ecrireCombos(combos);
   console.log(`  ${Object.keys(combos).length} heros relus, ${total} dans combos.json`);
+}
+
+/** Fenetre des duos, en jours : la plus large que l'API accepte, pour des paires rares mais mesurees. */
+const JOURS_DUOS = 30;
+/** Requetes de duos en vol a la fois : au-dela de six, l'API sature et repond en erreur pour tout le monde. */
+const EN_VOL_DUOS = 6;
+
+/**
+ * Duos de chaque heros, pour chaque rang : les cinq partenaires qui font le
+ * plus monter son taux de victoire, les cinq qui le font le plus baisser, et
+ * le taux du duo par tranche de duree de partie (`/heroes/{h}/compatibility`).
+ *
+ * Les six rangs d'un heros partent ensemble, six requetes en vol au plus ;
+ * chacune retente deux fois (jsonDe). Une API muette pour huit heros de suite
+ * ne reviendra pas d'ici la fin : on garde l'acquis.
+ */
+async function duosArena(heros, parId) {
+  const sortie = {};
+  let muets = 0;
+  for (const [i, h] of heros.entries()) {
+    const nom = encodeURIComponent(h.nom);
+    const resultats = [];
+    for (let k = 0; k < RANGS_MESURE.length; k += EN_VOL_DUOS) {
+      const lot = RANGS_MESURE.slice(k, k + EN_VOL_DUOS);
+      resultats.push(
+        ...(await Promise.all(
+          lot.map((rang) => jsonDe(`${STATS}/heroes/${nom}/compatibility?days=${JOURS_DUOS}&rank=${rang}`)),
+        )),
+      );
+    }
+    const parRang = {};
+    RANGS_MESURE.forEach((rang, j) => {
+      const duos = duosDuRang(resultats[j]?.data?.records?.[0]?.data, parId, h.slug);
+      if (duos) parRang[rang] = duos;
+    });
+    if (Object.keys(parRang).length > 0) sortie[h.slug] = parRang;
+
+    muets = resultats.some(Boolean) ? 0 : muets + 1;
+    if (muets >= 8) {
+      console.warn(`\n    API muette depuis ${muets} heros : arret des duos apres ${i + 1 - muets} heros`);
+      break;
+    }
+    process.stdout.write(`\r    duos ${i + 1}/${heros.length}`);
+    await pause(250);
+  }
+  process.stdout.write("\n");
+  return sortie;
+}
+
+/**
+ * Ecrit duos.json, un heros par ligne. Un heros ou un rang que l'API n'a pas
+ * servi garde sa mesure precedente.
+ */
+async function ecrireDuos(duos) {
+  const existants = (await lireJson(`${SORTIE}/duos.json`)).heros ?? {};
+  const tous = fusionnerDuos(existants, duos ?? {});
+  await writeFile(`${SORTIE}/duos.json`, serialiserDuos(JOURS_DUOS, tous));
+  return Object.keys(tous).length;
+}
+
+/**
+ * `--duos` : ne relit que les duos, sur les heros deja synchronises. Aucun
+ * autre fichier n'est reecrit. Les heros encore sans duo passent d'abord.
+ */
+async function duosSeuls() {
+  const heros = await lireJson(`${SORTIE}/heros.json`);
+  if (!Array.isArray(heros) || heros.length === 0) throw new Error("Lancer d'abord une synchronisation complete.");
+  const existants = (await lireJson(`${SORTIE}/duos.json`)).heros ?? {};
+  const mesure = (h) => Number(Boolean(existants[h.slug]));
+  const ordre = [...heros].sort((a, b) => mesure(a) - mesure(b));
+  console.log(`Duos (compatibilite, ${JOURS_DUOS} jours), ${heros.filter((h) => !mesure(h)).length} heros sans mesure…`);
+  const duos = await duosArena(ordre, await tableHerosParId(heros));
+  const total = await ecrireDuos(duos);
+  console.log(`  ${Object.keys(duos).length} heros relus, ${total} dans duos.json`);
 }
 
 /**
@@ -1536,6 +1619,7 @@ async function rangs() {
     maitre: "Master.png",
     "grand-maitre": "Grandmaster.png",
     epique: "Epic.png",
+    legende: "Legend.png",
     mythique: "Mythic.png",
     "mythique-honneur": "Mythical_Honor.png",
     "mythique-gloire": "Mythical_Glory.png",
@@ -1691,6 +1775,15 @@ async function principal() {
     );
   } catch (erreur) {
     console.warn(`  coequipiers et tendances indisponibles (${erreur.message}) — inchanges`);
+  }
+
+  console.log("Duos (compatibilite)…");
+  let duos = null;
+  try {
+    duos = await duosArena(heros, await tableHerosParId(heros));
+    console.log(`  ${Object.keys(duos).length} heros avec duos`);
+  } catch (erreur) {
+    console.warn(`  duos indisponibles (${erreur.message}) — inchanges`);
   }
 
   console.log("Relations entre heros…");
@@ -1972,6 +2065,7 @@ async function principal() {
     ecrire("noms", noms),
     ecrireEvolution(complementaires),
     ecrireCombos(combos),
+    ecrireDuos(duos),
     // Tous les chemins de visuels, regroupes
     ecrire("visuels", {
       heros: chemins,
@@ -2011,4 +2105,6 @@ await (process.argv.includes("--evolution")
   ? evolutionSeule()
   : process.argv.includes("--combos")
     ? combosSeuls()
-    : principal());
+    : process.argv.includes("--duos")
+      ? duosSeuls()
+      : principal());

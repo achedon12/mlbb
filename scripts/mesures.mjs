@@ -125,7 +125,7 @@ export function fusionnerHistorique(existant, tendances, jours = JOURS_QUOTIDIEN
 
 /**
  * Seuils de rank_level des auteurs de guides, sur l'echelle de
- * src/lib/rangs.ts : Epique des 76, l'ancienne plage Legende des 106, puis les
+ * src/lib/rangs.ts : Epique des 76, Legende des 106, puis les
  * etoiles mythiques a partir de 136 — Honneur a 25 etoiles, Gloire a 50. Le
  * niveau publie est le meilleur rang atteint par l'auteur.
  */
@@ -150,6 +150,72 @@ export function choisirGuide(candidats, rang) {
     candidats.filter((g) => g.rangAuteur >= bas).sort(parVotes)[0] ??
     null
   );
+}
+
+/**
+ * Tranches de duree des duos, en minutes : celles de la courbe de duree d'un
+ * heros (evolution.json), de 10 a 20 minutes et plus. L'API publie aussi
+ * « moins de 6 », « 6-8 » et « 8-10 » : des parties abandonnees ou a
+ * l'echantillon trop maigre (un duo a 92 % entre 6 et 8 minutes), ecartees.
+ */
+export const TRANCHES_DUO = [
+  ["min_win_rate10_12", 10],
+  ["min_win_rate12_14", 12],
+  ["min_win_rate14_16", 14],
+  ["min_win_rate16_18", 16],
+  ["min_win_rate18_20", 18],
+  ["min_win_rate20", 20],
+];
+
+/**
+ * Duos d'un heros dans un rang, depuis `/heroes/{h}/compatibility` : les
+ * partenaires qui font le plus monter son taux de victoire (`sub_hero`) et
+ * ceux qui le font le plus baisser (`sub_hero_last`), cinq de chaque cote.
+ * `increase_win_rate` devient un ecart en points ; le taux du duo par tranche
+ * de duree, un pourcentage — null quand la tranche est vide (0 pile).
+ * Null quand l'API n'a aucun partenaire connu pour ce rang.
+ */
+export function duosDuRang(bloc, parId, slug, max = 10) {
+  const phases = (a) => {
+    const valeurs = TRANCHES_DUO.map(([cle]) => (typeof a[cle] === "number" && a[cle] > 0 ? arrondi(a[cle] * 100, 1) : null));
+    return valeurs.some((v) => v !== null) ? valeurs : null;
+  };
+  const partenaires = (liste) =>
+    (Array.isArray(liste) ? liste : [])
+      .map((a) => ({ a, slug: parId.get(a?.heroid) }))
+      .filter(({ a, slug: s }) => s && s !== slug && typeof a.increase_win_rate === "number")
+      .map(({ a, slug: s }) => {
+        const p = phases(a);
+        return { slug: s, avantage: Math.round(a.increase_win_rate * 1000) / 10, ...(p ? { phases: p } : {}) };
+      });
+  const meilleurs = partenaires(bloc?.sub_hero).filter((d) => d.avantage > 0).sort((a, b) => b.avantage - a.avantage);
+  const pires = partenaires(bloc?.sub_hero_last).filter((d) => d.avantage < 0).sort((a, b) => a.avantage - b.avantage);
+  if (meilleurs.length === 0 && pires.length === 0) return null;
+  return {
+    mesure: typeof bloc.main_hero_win_rate === "number" ? arrondi(bloc.main_hero_win_rate * 100, 1) : null,
+    meilleurs: meilleurs.slice(0, max),
+    pires: pires.slice(0, max),
+  };
+}
+
+/**
+ * Duos du fichier existant completes par une nouvelle lecture, rang par rang :
+ * un rang que l'API n'a pas servi cette fois garde sa mesure precedente.
+ */
+export function fusionnerDuos(existants, nouveaux) {
+  const sortie = {};
+  for (const slug of new Set([...Object.keys(existants ?? {}), ...Object.keys(nouveaux ?? {})])) {
+    sortie[slug] = { ...(existants?.[slug] ?? {}), ...(nouveaux?.[slug] ?? {}) };
+  }
+  return sortie;
+}
+
+/** duos.json : fenetre de mesure, puis un heros par ligne, dans l'ordre des slugs. */
+export function serialiserDuos(jours, heros) {
+  const lignes = Object.keys(heros)
+    .sort()
+    .map((slug) => `    ${JSON.stringify(slug)}: ${JSON.stringify(heros[slug])}`);
+  return `{\n  "jours": ${jours},\n  "heros": ${lignes.length > 0 ? `{\n${lignes.join(",\n")}\n  }` : "{}"}\n}\n`;
 }
 
 const normaliserNom = (nom) => String(nom ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");

@@ -313,7 +313,11 @@
       "chapeau": "Pick two heroes and read their strengths side by side: wiki ratings, win and ban rates reported by the game, roles and lanes. The best value in each row is highlighted.",
       "metaDescription": "Compare two Mobile Legends: Bang Bang heroes side by side: offense, durability, effects, difficulty, win and ban rates, roles and lanes.",
       "ogDescription": "Two heroes compared side by side: ratings, win and ban rates, roles.",
-      "duels": {},
+      "chapeauTrois": "Pick two or three heroes and read their strengths side by side: the game's ratings in a radar, tier, win and ban rates at the rank of your choice, then 30-day win-rate curves. The best value in each row is highlighted, and the link can be shared.",
+      "duels": {
+        "titre": "Head-to-head matchups",
+        "intro": "Win-rate gaps measured by the game when one hero faces the other, rank by rank. A few of the most one-sided matchups among the top-ranked heroes:"
+      },
       "metaTitre": "Hero comparison"
     },
     "news": {
@@ -775,7 +779,8 @@
       },
       "compare": {
         "titre": "MLBB Hero Comparison: Win Rate, Tier & Stats (Patch {v})",
-        "description": "Compare two of the {n} Mobile Legends: Bang Bang heroes: tier, win and ban rates, 30-day win-rate curves, ratings, roles and lanes. Data from {date}, patch {v}."
+        "description": "Compare two of the {n} Mobile Legends: Bang Bang heroes: tier, win and ban rates, 30-day win-rate curves, ratings, roles and lanes. Data from {date}, patch {v}.",
+        "descriptionTrois": "Compare two or three of the {n} Mobile Legends: Bang Bang heroes: tier, win and ban rates by rank, rating radar, 30-day curves, roles and lanes. Data from {date}, patch {v}."
       },
       "patchNotes": {
         "titre": "MLBB Patch Notes: Latest Update {v} & Hero Changes",
@@ -890,13 +895,66 @@
       "autres": "Other Battle Spells"
     },
     "heroCounters": {
+      "metaTitre": "{nom} Counters: Best Picks Against {nom} (Patch {v})",
+      "metaTitreSansPatch": "{nom} Counters: Best Picks Against {nom}",
+      "metaTitreCourt": "{nom} Counters: Best Picks (Patch {v})",
+      "titre": "{nom} counters",
+      "majLe": "Updated {date}.",
+      "tousRangs": "Across all ranks",
+      "auRang": "At {rang}",
+      "synthese": "{contexte}, {nom} struggles most against {faibles}, and has the edge over {forts}.",
+      "syntheseSansForts": "{contexte}, {nom} struggles most against {faibles}.",
+      "aucuneMesure": "No measured counters for {nom} yet.",
+      "lienFiche": "{nom} hero page",
+      "lienBuilds": "{nom} builds",
+      "lienComparer": "{nom} vs {autre}",
+      "lienCourt": "Counters",
+      "meilleursContres": "Best counters for {nom}",
+      "meilleursContresIntro": "The heroes {nom} loses to the most, rank by rank: a counter listed in several ranks is a consistent one. The gap is the average, in points of {nom}'s win rate.",
+      "victimes": "Heroes {nom} counters",
+      "victimesIntro": "Avoid these picks against {nom}: {nom}'s win rate rises the most against them.",
+      "colHeros": "Hero",
+      "colEcart": "Gap",
+      "colRangs": "Ranks",
+      "colLiens": "Links",
+      "rangsCites": "{n}/{total} ranks",
+      "parRang": "Counters by rank",
+      "parRangIntro": "Each rank bracket is measured separately: a hero can counter {nom} at one rank and matter little at another.",
+      "rangsNav": "Jump to rank",
+      "commentContrer": "How to counter {nom}",
+      "commentContrerIntro": "Three pointers taken from the data, with no written advice: gear suited to {nom}'s damage, the game length where {nom} wins least, and the counters in each lane.",
       "objets": {
-        "raison": {}
+        "titre": "Items against {nom}",
+        "regle": "Rule-based, not measured",
+        "intro": "Automatic suggestions derived from {nom}'s damage type ({degats}), role, specialties and most-played build. No measured win rate behind them.",
+        "raison": {
+          "magique": "Against magic damage",
+          "physique": "Against physical damage",
+          "attaques": "Against basic attacks",
+          "soins": "Against healing and lifesteal",
+          "controle": "Against crowd control"
+        },
+        "aucun": "No item rule applies to {nom}."
       },
-      "duree": {},
-      "lanes": {},
-      "wiki": {},
-      "autres": {}
+      "duree": {
+        "titre": "When {nom} is weakest",
+        "phrase": "{nom} wins least in {faible} games ({tauxFaible}) and most in {fort} games ({tauxFort}).",
+        "rang": "Rank: {rang}",
+        "aucune": "No game-length data for {nom} yet."
+      },
+      "lanes": {
+        "titre": "Counters by lane",
+        "intro": "{nom}'s counters grouped by the lane they play, {nom}'s own lane first: the direct matchup.",
+        "direct": "Direct matchup"
+      },
+      "wiki": {
+        "titre": "What the wiki says",
+        "intro": "Relationships noted by the community wiki, with no measured figures.",
+        "synergies": "{nom} synergies"
+      },
+      "autres": {
+        "titre": "More counters pages · {lane}"
+      }
     },
     "heroesRole": {
       "titre": "All {n} MLBB {pluriel}",
@@ -1026,18 +1084,110 @@
       "lienFiche": "See all {n} skins and artworks"
     },
     "duos": {
-      "phases": {},
-      "phase": {},
-      "phaseMinutes": {},
-      "phaseCourt": {},
-      "academie": {}
+      "titre": "Best {nom} duos",
+      "metaTitre": "Best {nom} Duos: Heroes That Win With {nom} (Patch {v})",
+      "metaTitreSansPatch": "Best {nom} Duos: Heroes That Win With {nom}",
+      "majLe": "Updated {date}.",
+      "tousRangs": "Across all ranks",
+      "auRang": "At {rang}",
+      "synthese": "{contexte}, {nom} wins the most alongside {meilleurs}, and loses the most alongside {pires}.",
+      "syntheseSansPires": "{contexte}, {nom} wins the most alongside {meilleurs}.",
+      "aucuneMesure": "No measured duos for {nom} yet.",
+      "lienFiche": "{nom} hero page",
+      "lienContres": "{nom} counters",
+      "lienComparer": "{nom} vs {autre}",
+      "lienCourt": "Duos",
+      "comparer": "Compare",
+      "miette": "Duos",
+      "fenetre": "Duos measured over the last {n} days",
+      "meilleurs": "Best partners for {nom}",
+      "meilleursIntro": "The allies {nom} wins the most with, rank by rank: a partner listed in several ranks is a reliable duo. The gain is an average, in points of win rate.",
+      "pires": "Duos to avoid with {nom}",
+      "piresIntro": "The allies {nom} loses the most with: the win rate drops the most when they play together.",
+      "phases": {
+        "titre": "{nom} duos by game length",
+        "intro": "The partner who adds the most to {nom} in each phase of the game ({rang}): duo win rate, and gain over {nom} without this partner at the same game length.",
+        "introSansGain": "The partner with the best duo win rate alongside {nom} in each phase of the game ({rang}). With no game-length data for {nom} at this rank, no gain is computed.",
+        "tauxDuo": "Duo win rate: {taux}",
+        "gainSeul": "{ecart} vs {nom} without this duo"
+      },
+      "phase": {
+        "debut": "Early game",
+        "milieu": "Mid game",
+        "fin": "Late game"
+      },
+      "phaseMinutes": {
+        "debut": "10–14 min",
+        "milieu": "14–18 min",
+        "fin": "18+ min"
+      },
+      "phaseCourt": {
+        "debut": "Early",
+        "milieu": "Mid",
+        "fin": "Late"
+      },
+      "parRang": "Duos by rank",
+      "parRangIntro": "Each rank bracket is measured separately. The phase columns show the gain over {nom} without this partner at the same game length (or the duo win rate when {nom} has no game-length data at that rank).",
+      "tauxSeul": "Win rate, all partners: {taux}",
+      "meilleursCourt": "Best partners",
+      "piresCourt": "Duos to avoid",
+      "source": "Source: the game's duo compatibility data, last {n} days. Gain: change in the hero's win rate when the partner is on the same team, in points.",
+      "academie": {
+        "titre": "Teammates measured for {nom}",
+        "intro": "No duo compatibility data for {nom} yet: these are the teammates measured by the game's academy, in points of win rate."
+      },
+      "autres": "More duos pages · {lane}",
+      "colPartenaire": "Partner",
+      "colGain": "Gain",
+      "colRangs": "Ranks",
+      "colLiens": "Links",
+      "rangsCites": "{n}/{total} ranks"
     },
     "versus": {
-      "duree": {},
-      "phaseEn": {},
-      "builds": {},
-      "equipe": {},
-      "liens": {}
+      "titre": "{a} vs {b}",
+      "metaTitre": "{a} vs {b}: Who Wins? Matchup Stats by Rank (Patch {v})",
+      "metaTitreSansPatch": "{a} vs {b}: Who Wins? Matchup Stats by Rank",
+      "chapeau": "{a} against {b}, measured by the game rank by rank: who gains win rate in the matchup, who weighs more early or late, their most-played builds, and how they fare on the same team.",
+      "aucuneMesure": "No measured matchup between {a} and {b} yet.",
+      "equilibre": "{contexte}, {a} and {b} are evenly matched: neither gains more than a few tenths of a point.",
+      "verdict": "{contexte}, {gagnant} has the edge over {perdant}: {ecart} of win rate in this matchup.",
+      "rangs": "Over {total} rank brackets measured, {a} leads in {na} and {b} in {nb}.",
+      "question": "Who wins, {a} or {b}?",
+      "noteEcarts": "Gap: change in a hero's win rate when facing the other, in points (seen by {a}, then by {b}). A dash: the other hero is not among its six most marked matchups at that rank. Edge: the average of both views.",
+      "duree": {
+        "titre": "Early or late game?",
+        "toujours": "{nom} has the higher win rate at every game length.",
+        "phrase": "{a} does better {phaseA}, {b} {phaseB}.",
+        "egal": "{a} and {b} win at similar rates, whatever the game length.",
+        "colPhase": "Phase",
+        "note": "Each hero's own win rate by game length ({rang}), over all its games, not only this matchup."
+      },
+      "phaseEn": {
+        "debut": "in the early game",
+        "milieu": "in the mid game",
+        "fin": "in the late game"
+      },
+      "profils": "Profiles ({rang})",
+      "builds": {
+        "titre": "Builds",
+        "joue": "Most-played build · {lane}",
+        "contre": "Items against {nom}",
+        "regle": "rule-based, not measured"
+      },
+      "equipe": {
+        "titre": "{a} and {b} on the same team",
+        "ligne": "{contexte}, {de} with {avec}: {ecart} of win rate.",
+        "note": "Change in the first hero's win rate when the second is a teammate, from the game's duo data or, failing that, the academy's teammates."
+      },
+      "liens": {
+        "titre": "Go further",
+        "comparateur": "Compare them side by side",
+        "autres": "Other {nom} matchups"
+      },
+      "colRang": "Rank",
+      "colAvantage": "Edge",
+      "colFace": "{de} vs {face}",
+      "equilibreCourt": "Even"
     },
     "heureServeur": {},
     "chatiment": {},
@@ -1394,7 +1544,19 @@
     "aucuneCourbe": "No daily data yet for these two heroes.",
     "sansCourbe": "No daily data yet for {nom} at this rank.",
     "resumeCourbes": "Daily win rate over {n} days, {rang}: {details}.",
-    "resumeHeros": "{nom} from {debut}% to {fin}%"
+    "resumeHeros": "{nom} from {debut}% to {fin}%",
+    "troisieme": "Third hero",
+    "ajouter": "Add a third hero",
+    "retirer": "Remove {nom} from the comparison",
+    "profil": "Profile · {rang}",
+    "radarResume": "Radar of the game's four ratings and of the win and ban rates at this rank. Exact values are in the table below.",
+    "radarEchelle": "Ratings out of 10, from the game. Win and ban rates are scaled from the lowest to the highest hero at this rank.",
+    "palier": "Tier",
+    "tableau": "Comparison of {noms} ({rang})",
+    "critere": "Criterion",
+    "meilleur": "best",
+    "aucuneCourbeHeros": "No daily data yet for these heroes.",
+    "courbesAutreRang": "No curve at this rank for at least one hero: curves shown for {rang}."
   },
   "patchHeros": {
     "amelioration": "Buff",

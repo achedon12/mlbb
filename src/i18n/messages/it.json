@@ -313,7 +313,11 @@
       "chapeau": "Scegli due eroi e confronta i loro punti di forza fianco a fianco: valutazioni del wiki, percentuali di vittoria e di ban fornite dal gioco, ruoli e lane. Il valore migliore di ogni riga è evidenziato.",
       "metaDescription": "Confronta due eroi di Mobile Legends: Bang Bang fianco a fianco: offensiva, resistenza, effetti, difficoltà, percentuali di vittoria e di ban, ruoli e lane.",
       "ogDescription": "Due eroi a confronto: valutazioni, percentuali di vittoria e di ban, ruoli.",
-      "duels": {},
+      "chapeauTrois": "Scegli due o tre eroi e confronta i loro punti di forza fianco a fianco: le valutazioni del gioco in un radar, tier e tassi di vittoria e di ban al rango che preferisci, poi le curve di vittoria su 30 giorni. Il valore migliore di ogni riga è evidenziato e il link si può condividere.",
+      "duels": {
+        "titre": "Scontri diretti",
+        "intro": "Differenze di tasso di vittoria misurate dal gioco quando un eroe affronta l'altro, rango per rango. Alcuni degli scontri più netti tra gli eroi meglio classificati:"
+      },
       "metaTitre": "Confronto tra eroi"
     },
     "news": {
@@ -775,7 +779,8 @@
       },
       "compare": {
         "titre": "Confronto eroi MLBB: win rate, tier e statistiche (patch {v})",
-        "description": "Confronta due dei {n} eroi di Mobile Legends: Bang Bang: tier, tassi di vittoria e di ban, andamento su 30 giorni, valutazioni, ruoli e lane. Dati: {date}, patch {v}."
+        "description": "Confronta due dei {n} eroi di Mobile Legends: Bang Bang: tier, tassi di vittoria e di ban, andamento su 30 giorni, valutazioni, ruoli e lane. Dati: {date}, patch {v}.",
+        "descriptionTrois": "Confronta due o tre dei {n} eroi di Mobile Legends: Bang Bang: tier, tassi di vittoria e di ban per rango, radar delle valutazioni, andamento su 30 giorni, ruoli e lane. Dati: {date}, patch {v}."
       },
       "patchNotes": {
         "titre": "Patch notes MLBB: aggiornamento {v} e modifiche agli eroi",
@@ -890,13 +895,66 @@
       "autres": "Altre Battle Spell"
     },
     "heroCounters": {
+      "metaTitre": "Counter di {nom}: chi scegliere contro {nom} (patch {v})",
+      "metaTitreSansPatch": "Counter di {nom}: chi scegliere contro {nom}",
+      "metaTitreCourt": "Counter di {nom}: migliori scelte (patch {v})",
+      "titre": "Counter di {nom}",
+      "majLe": "Aggiornato: {date}.",
+      "tousRangs": "In tutti i ranghi",
+      "auRang": "In {rang}",
+      "synthese": "{contexte}, {nom} soffre di più contro {faibles}, mentre ha la meglio su {forts}.",
+      "syntheseSansForts": "{contexte}, {nom} soffre di più contro {faibles}.",
+      "aucuneMesure": "Ancora nessun counter misurato per {nom}.",
+      "lienFiche": "Scheda di {nom}",
+      "lienBuilds": "Build di {nom}",
+      "lienComparer": "{nom} contro {autre}",
+      "lienCourt": "Counter",
+      "meilleursContres": "I migliori counter di {nom}",
+      "meilleursContresIntro": "Gli eroi contro cui {nom} perde di più, rango per rango: un counter presente in più ranghi è un counter costante. Lo scarto è la media, in punti del tasso di vittoria di {nom}.",
+      "victimes": "Gli eroi che {nom} domina",
+      "victimesIntro": "Da evitare contro {nom}: il tasso di vittoria di {nom} sale di più contro di loro.",
+      "colHeros": "Eroe",
+      "colEcart": "Scarto",
+      "colRangs": "Ranghi",
+      "colLiens": "Link",
+      "rangsCites": "{n}/{total} ranghi",
+      "parRang": "Counter per rango",
+      "parRangIntro": "Ogni fascia di rango ha la sua misura: un eroe può contrastare {nom} in un rango e contare poco in un altro.",
+      "rangsNav": "Vai al rango",
+      "commentContrer": "Come contrastare {nom}",
+      "commentContrerIntro": "Tre indicazioni tratte dai dati, senza consigli scritti: l'equipaggiamento adatto ai danni di {nom}, la durata di partita in cui {nom} vince meno e i counter in ogni lane.",
       "objets": {
-        "raison": {}
+        "titre": "Oggetti contro {nom}",
+        "regle": "Regola, non misura",
+        "intro": "Suggerimenti automatici, dedotti dal tipo di danno di {nom} ({degats}), dal ruolo, dalle specialità e dalla build più giocata. Nessun tasso di vittoria misurato alla base.",
+        "raison": {
+          "magique": "Contro i danni magici",
+          "physique": "Contro i danni fisici",
+          "attaques": "Contro gli attacchi base",
+          "soins": "Contro cure e rubavita",
+          "controle": "Contro il controllo"
+        },
+        "aucun": "Nessuna regola di equipaggiamento si applica a {nom}."
       },
-      "duree": {},
-      "lanes": {},
-      "wiki": {},
-      "autres": {}
+      "duree": {
+        "titre": "Quando {nom} è più debole",
+        "phrase": "{nom} vince meno nelle partite di {faible} ({tauxFaible}) e di più in quelle di {fort} ({tauxFort}).",
+        "rang": "Rango: {rang}",
+        "aucune": "Ancora nessuna misura per durata di partita per {nom}."
+      },
+      "lanes": {
+        "titre": "Counter per lane",
+        "intro": "I counter di {nom} raggruppati per la lane in cui giocano, a partire da quella di {nom}: lo scontro diretto.",
+        "direct": "Scontro diretto"
+      },
+      "wiki": {
+        "titre": "Cosa dice la wiki",
+        "intro": "Relazioni indicate dalla wiki della community, senza dati misurati.",
+        "synergies": "Sinergie di {nom}"
+      },
+      "autres": {
+        "titre": "Altre pagine counter · {lane}"
+      }
     },
     "heroesRole": {
       "titre": "I {n} {pluriel} di MLBB",
@@ -1026,18 +1084,110 @@
       "lienFiche": "Vedi tutte le {n} skin e illustrazioni"
     },
     "duos": {
-      "phases": {},
-      "phase": {},
-      "phaseMinutes": {},
-      "phaseCourt": {},
-      "academie": {}
+      "titre": "Migliori duo con {nom}",
+      "metaTitre": "Migliori duo con {nom}: gli eroi che fanno vincere {nom} (patch {v})",
+      "metaTitreSansPatch": "Migliori duo con {nom}: gli eroi che fanno vincere {nom}",
+      "majLe": "Aggiornato il {date}.",
+      "tousRangs": "In tutti i ranghi",
+      "auRang": "In {rang}",
+      "synthese": "{contexte}, {nom} vince di più al fianco di {meilleurs} e perde di più con {pires}.",
+      "syntheseSansPires": "{contexte}, {nom} vince di più al fianco di {meilleurs}.",
+      "aucuneMesure": "Ancora nessun duo misurato per {nom}.",
+      "lienFiche": "Scheda di {nom}",
+      "lienContres": "Counter di {nom}",
+      "lienComparer": "{nom} vs {autre}",
+      "lienCourt": "Duo",
+      "comparer": "Confronta",
+      "miette": "Duo",
+      "fenetre": "Duo misurati negli ultimi {n} giorni",
+      "meilleurs": "Migliori compagni per {nom}",
+      "meilleursIntro": "Gli alleati con cui {nom} vince di più, rango per rango: un compagno citato in più ranghi è un duo affidabile. Il guadagno è una media, in punti di tasso di vittoria.",
+      "pires": "Duo da evitare con {nom}",
+      "piresIntro": "Gli alleati con cui {nom} perde di più: il tasso di vittoria cala di più quando giocano insieme.",
+      "phases": {
+        "titre": "Duo con {nom} in base alla durata della partita",
+        "intro": "Il compagno che dà di più a {nom} in ogni fase della partita ({rang}): tasso di vittoria del duo e guadagno rispetto a {nom} senza questo compagno, a parità di durata.",
+        "introSansGain": "Il compagno con il miglior tasso di vittoria in duo con {nom} in ogni fase della partita ({rang}). Senza la curva di durata di {nom} a questo rango, nessun guadagno viene calcolato.",
+        "tauxDuo": "Vittoria del duo: {taux}",
+        "gainSeul": "{ecart} rispetto a {nom} senza questo duo"
+      },
+      "phase": {
+        "debut": "Inizio partita",
+        "milieu": "Metà partita",
+        "fin": "Fine partita"
+      },
+      "phaseMinutes": {
+        "debut": "10–14 min",
+        "milieu": "14–18 min",
+        "fin": "18+ min"
+      },
+      "phaseCourt": {
+        "debut": "Inizio",
+        "milieu": "Metà",
+        "fin": "Fine"
+      },
+      "parRang": "Duo per rango",
+      "parRangIntro": "Ogni fascia di rango è misurata a parte. Le colonne delle fasi indicano il guadagno rispetto a {nom} senza quel compagno, a parità di durata (o il tasso del duo quando {nom} non ha una curva di durata a quel rango).",
+      "tauxSeul": "Vittoria, tutti i compagni: {taux}",
+      "meilleursCourt": "Migliori compagni",
+      "piresCourt": "Duo da evitare",
+      "source": "Fonte: dati di compatibilità dei duo pubblicati dal gioco, ultimi {n} giorni. Guadagno: variazione del tasso di vittoria dell'eroe quando il compagno è nella sua squadra, in punti.",
+      "academie": {
+        "titre": "Compagni misurati per {nom}",
+        "intro": "Ancora nessun dato di compatibilità per {nom}: ecco i compagni misurati dall'accademia del gioco, in punti di tasso di vittoria."
+      },
+      "autres": "Altre pagine duo · {lane}",
+      "colPartenaire": "Compagno",
+      "colGain": "Guadagno",
+      "colRangs": "Ranghi",
+      "colLiens": "Link",
+      "rangsCites": "{n}/{total} ranghi"
     },
     "versus": {
-      "duree": {},
-      "phaseEn": {},
-      "builds": {},
-      "equipe": {},
-      "liens": {}
+      "titre": "{a} vs {b}",
+      "metaTitre": "{a} vs {b}: chi vince? Statistiche del duello per rango (patch {v})",
+      "metaTitreSansPatch": "{a} vs {b}: chi vince? Statistiche del duello per rango",
+      "chapeau": "{a} contro {b}, misurato dal gioco rango per rango: chi guadagna tasso di vittoria nello scontro, chi pesa di più a inizio o a fine partita, le build più giocate e come se la cavano nella stessa squadra.",
+      "aucuneMesure": "Ancora nessuno scontro misurato tra {a} e {b}.",
+      "equilibre": "{contexte}, {a} e {b} si equivalgono: nessuno guadagna più di qualche decimo di punto.",
+      "verdict": "{contexte}, {gagnant} ha la meglio su {perdant}: {ecart} di tasso di vittoria in questo scontro.",
+      "rangs": "Su {total} fasce di rango misurate, {a} è avanti in {na} e {b} in {nb}.",
+      "question": "Chi vince, {a} o {b}?",
+      "noteEcarts": "Scarto: variazione del tasso di vittoria di un eroe contro l'altro, in punti (visto da {a}, poi da {b}). Un trattino: l'altro eroe non è tra i suoi sei scontri più marcati a quel rango. Vantaggio: media dei due punti di vista.",
+      "duree": {
+        "titre": "Inizio o fine partita?",
+        "toujours": "{nom} ha il tasso di vittoria più alto a ogni durata di partita.",
+        "phrase": "{a} rende meglio {phaseA}, {b} {phaseB}.",
+        "egal": "{a} e {b} vincono in modo simile, qualunque sia la durata della partita.",
+        "colPhase": "Fase",
+        "note": "Tasso di vittoria di ciascun eroe in base alla durata della partita ({rang}), su tutte le sue partite e non solo in questo scontro."
+      },
+      "phaseEn": {
+        "debut": "a inizio partita",
+        "milieu": "a metà partita",
+        "fin": "a fine partita"
+      },
+      "profils": "Profili ({rang})",
+      "builds": {
+        "titre": "Build",
+        "joue": "Build più giocata · {lane}",
+        "contre": "Oggetti contro {nom}",
+        "regle": "per regola, non misurato"
+      },
+      "equipe": {
+        "titre": "{a} e {b} nella stessa squadra",
+        "ligne": "{contexte}, {de} con {avec}: {ecart} di tasso di vittoria.",
+        "note": "Variazione del tasso di vittoria del primo eroe quando il secondo è suo compagno, secondo i duo pubblicati dal gioco o, in mancanza, i compagni dell'accademia."
+      },
+      "liens": {
+        "titre": "Per saperne di più",
+        "comparateur": "Confrontali fianco a fianco",
+        "autres": "Altri scontri di {nom}"
+      },
+      "colRang": "Rango",
+      "colAvantage": "Vantaggio",
+      "colFace": "{de} contro {face}",
+      "equilibreCourt": "Pari"
     },
     "heureServeur": {},
     "chatiment": {},
@@ -1394,7 +1544,19 @@
     "aucuneCourbe": "Ancora nessuna misura giornaliera per questi due eroi.",
     "sansCourbe": "Ancora nessuna misura giornaliera per {nom} a questo rango.",
     "resumeCourbes": "Win rate giornaliero su {n} giorni, {rang}: {details}.",
-    "resumeHeros": "{nom} da {debut}% a {fin}%"
+    "resumeHeros": "{nom} da {debut}% a {fin}%",
+    "troisieme": "Terzo eroe",
+    "ajouter": "Aggiungi un terzo eroe",
+    "retirer": "Rimuovi {nom} dal confronto",
+    "profil": "Profilo · {rang}",
+    "radarResume": "Radar delle quattro valutazioni del gioco e dei tassi di vittoria e di ban a questo rango. I valori esatti sono nella tabella qui sotto.",
+    "radarEchelle": "Valutazioni su 10, fornite dal gioco. I tassi di vittoria e di ban sono in scala, dall'eroe più basso al più alto di questo rango.",
+    "palier": "Tier",
+    "tableau": "Confronto tra {noms} ({rang})",
+    "critere": "Criterio",
+    "meilleur": "migliore",
+    "aucuneCourbeHeros": "Ancora nessuna misura giornaliera per questi eroi.",
+    "courbesAutreRang": "Nessuna curva a questo rango per almeno un eroe: curve mostrate per {rang}."
   },
   "patchHeros": {
     "amelioration": "Buff",
