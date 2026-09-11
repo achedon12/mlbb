@@ -236,7 +236,13 @@
         "A": "Solide, sans imposer le rythme de la partie.",
         "B": "Correct, mais dépend du contexte ou du joueur.",
         "C": "Jouable, avec un coût réel par rapport aux alternatives."
-      }
+      },
+      "parRang": "Par rang",
+      "titreRang": "Tier list {rang}",
+      "metaTitreRang": "Tier list MLBB {rang} : les meilleurs héros du moment",
+      "metaDescriptionRang": "Classement des héros de Mobile Legends mesuré sur les parties classées {rang} : taux de victoire, de ban et de sélection, mis à jour à chaque synchronisation.",
+      "chapeauRang": "Le même calcul, restreint aux parties {rang} : un héros peut dominer à un rang et peiner à un autre.",
+      "conclusion": "Un classement mesure la marge d'erreur qu'un héros pardonne, pas le plafond qu'il permet d'atteindre. Un héros de palier C maîtrisé bat un héros de palier S+ découvert la veille."
     },
     "patchNotes": {
       "titre": "Patch notes",

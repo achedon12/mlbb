@@ -236,7 +236,13 @@
         "A": "Sólido, sin imponer el ritmo de la partida.",
         "B": "Correcto, pero depende del contexto o del jugador.",
         "C": "Jugable, con un coste real frente a las alternativas."
-      }
+      },
+      "parRang": "Por rango",
+      "titreRang": "Tier list {rang}",
+      "metaTitreRang": "Tier list MLBB {rang}: los mejores héroes del momento",
+      "metaDescriptionRang": "Clasificación de héroes de Mobile Legends medida en partidas clasificatorias {rang}: tasas de victoria, ban y selección, actualizadas en cada sincronización.",
+      "chapeauRang": "El mismo cálculo, limitado a las partidas {rang}: un héroe puede dominar en un rango y sufrir en otro.",
+      "conclusion": "Una tier list mide cuánto perdona un héroe los errores, no hasta dónde puede llevarte. Un héroe de tier C dominado vence a uno S+ descubierto el día anterior."
     },
     "patchNotes": {
       "titre": "Notas del parche",

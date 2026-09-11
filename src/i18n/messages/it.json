@@ -236,7 +236,13 @@
         "A": "Solido, senza imporre il ritmo della partita.",
         "B": "Discreto, ma dipende dal contesto o dal giocatore.",
         "C": "Giocabile, con un costo reale rispetto alle alternative."
-      }
+      },
+      "parRang": "Per rango",
+      "titreRang": "Tier list {rang}",
+      "metaTitreRang": "Tier list MLBB {rang}: i migliori eroi del momento",
+      "metaDescriptionRang": "Classifica degli eroi di Mobile Legends misurata sulle partite classificate {rang}: tassi di vittoria, ban e scelta, aggiornati a ogni sincronizzazione.",
+      "chapeauRang": "Lo stesso calcolo, limitato alle partite {rang}: un eroe può dominare a un rango e faticare a un altro.",
+      "conclusion": "Una tier list misura quanto un eroe perdona gli errori, non fin dove può portarti. Un eroe di fascia C padroneggiato batte un eroe S+ scoperto il giorno prima."
     },
     "patchNotes": {
       "titre": "Patch notes",

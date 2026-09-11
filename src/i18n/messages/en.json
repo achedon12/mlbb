@@ -236,7 +236,13 @@
         "A": "Solid, without dictating the pace of the game.",
         "B": "Decent, but depends on the context or the player.",
         "C": "Playable, at a real cost compared to the alternatives."
-      }
+      },
+      "parRang": "By rank",
+      "titreRang": "{rang} tier list",
+      "metaTitreRang": "MLBB {rang} tier list: the best heroes right now",
+      "metaDescriptionRang": "Mobile Legends hero ranking measured on {rang} ranked games: win, ban and pick rates, refreshed with every sync.",
+      "chapeauRang": "The same formula, limited to {rang} games: a hero can dominate at one rank and struggle at another.",
+      "conclusion": "A tier list measures how forgiving a hero is, not how far they can take you. A mastered C-tier hero beats an S+ hero picked up yesterday."
     },
     "patchNotes": {
       "titre": "Patch notes",

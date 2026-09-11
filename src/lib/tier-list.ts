@@ -151,6 +151,10 @@ export const tauxParSlug = new Map(
 
 export const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
 
-export function parPalier(p: Palier): EntreeClassee[] {
-  return classementComplet.filter((e) => e.palier === p);
+/** Rangs qui ont leur propre classement, tous rangs confondus en tete. */
+export const RANGS_CLASSES = RANGS_MESURE.filter((r) => CLASSEMENTS_PAR_RANG.has(r));
+
+/** Classement d'une tranche de rang, du plus fort au plus faible. */
+export function classementDuRang(rang: RangMesure): EntreeClassee[] {
+  return [...(CLASSEMENTS_PAR_RANG.get(rang)?.values() ?? [])];
 }

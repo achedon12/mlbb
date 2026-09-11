@@ -1,5 +1,16 @@
 import { cn } from "@/lib/utils";
 
+/** Apparence d'une puce, reprise par les liens qui jouent le meme role. */
+export function classesPuce(actif: boolean, dense = false) {
+  return cn(
+    "biseau-sm font-medium transition-colors",
+    dense ? "px-2.5 py-1 text-xs" : "px-3 py-1.5 text-sm",
+    actif
+      ? "bg-or-500 text-nuit-950"
+      : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
+  );
+}
+
 /**
  * Bouton-filtre : dore quand il est actif, en contour sinon. Le meme partout —
  * rang, position, role, categorie, tri — pour qu'un filtre se reconnaisse
@@ -21,13 +32,7 @@ export function Puce({
       type="button"
       aria-pressed={actif}
       onClick={onClick}
-      className={cn(
-        "biseau-sm font-medium transition-colors",
-        dense ? "px-2.5 py-1 text-xs" : "px-3 py-1.5 text-sm",
-        actif
-          ? "bg-or-500 text-nuit-950"
-          : "border border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-or-400",
-      )}
+      className={classesPuce(actif, dense)}
     >
       {children}
     </button>
