@@ -159,6 +159,10 @@
     "mlbbdle": {
       "label": "MLBBdle",
       "desc": "The daily hero Wordle"
+    },
+    "advanceServer": {
+      "label": "Advance Server",
+      "desc": "Changes tested before the Official Server"
     }
   },
   "compte": {
@@ -2196,6 +2200,86 @@
       "newHero": "New hero",
       "skip": "Skip",
       "practiceQuestion": "Which hero is it?"
+    },
+    "advanceServer": {
+      "title": "Advance Server patch notes",
+      "lead": "The Advance Server is Mobile Legends' test server: balance changes reach it before the Official Server. Here are its notes, version by version, taken from the community wiki.",
+      "crumb": "Advance Server",
+      "warningTitle": "Changes under test",
+      "warning": "Everything listed here is being tested on the Advance Server: these changes may still evolve, or never reach the Official Server.",
+      "statusUnderTest": "Version {v} is under test: it is newer than the current Official Server patch, {live}.",
+      "statusNone": "No Advance Server version newer than the current Official Server patch ({live}) is documented on the wiki. The latest test notes published there are for version {v} ({date}).",
+      "statusNoneUndated": "No Advance Server version newer than the current Official Server patch ({live}) is documented on the wiki. The latest test notes published there are for version {v}.",
+      "syncedAt": "Wiki data checked on {date}.",
+      "latest": "Latest documented version",
+      "readAll": "All changes in version {v}",
+      "versions": "Detailed versions",
+      "versionsIntro": "The {n} most recent test versions, with their hero, item and system changes.",
+      "archive": "Archive",
+      "archiveIntro": "The {n} older versions aren't reproduced here: their notes can still be read on the wiki.",
+      "empty": "No Advance Server notes could be retrieved for now.",
+      "badgeUnderTest": "Under test",
+      "badgeOlder": "Older than patch {live}",
+      "dateNotes": "Released on the Advance Server on {date}",
+      "dateWiki": "Notes published on the wiki on {date}",
+      "noDate": "Date not specified",
+      "heroCount": {
+        "one": "{n} hero changed",
+        "other": "{n} heroes changed"
+      },
+      "noHeroChanges": "No hero changes in this version.",
+      "credit": "Notes taken from the {lien}, under the CC BY-SA license. The original text is published by Moonton; this site does not alter its content.",
+      "creditTranslated": "Notes taken from the {lien}, under the CC BY-SA license, and machine-translated from English. The original text is published by Moonton.",
+      "eyebrow": "Advance Server notes",
+      "heading": "Advance Server {v}",
+      "sourceLink": "Source page on the wiki",
+      "summary": "At a glance",
+      "designers": "From the designers",
+      "newHeroes": "New and revamped heroes",
+      "kind": {
+        "new": "New hero",
+        "revamp": "Revamp"
+      },
+      "heroChanges": "Hero changes",
+      "heroChangesSummary": {
+        "one": "{n} hero changed in Advance Server version {v}.",
+        "other": "{n} heroes changed in Advance Server version {v}."
+      },
+      "details": "Details by hero",
+      "categories": {
+        "items": "Items",
+        "emblems": "Emblems and talents",
+        "spells": "Battle spells",
+        "system": "Battlefield and system"
+      },
+      "tags": {
+        "new": "New",
+        "removed": "Removed",
+        "rework": "Rework",
+        "merge": "Merge",
+        "fix": "Fix",
+        "split": "Split"
+      },
+      "openPage": "Open the {name} page",
+      "before": "before:",
+      "after": "after:",
+      "allVersions": "All Advance Server versions",
+      "seo": {
+        "title": "MLBB Advance Server patch notes {v}: buffs, nerfs and changes",
+        "titleGeneric": "MLBB Advance Server patch notes: buffs, nerfs and changes",
+        "description": "Notes from the Advance Server, Mobile Legends' test server: latest documented version {version}, with {buffs} buffs, {nerfs} nerfs and {adjust} hero adjustments. Changes under test, which may evolve before the Official Server.",
+        "descriptionVersion": "MLBB Advance Server {version}: {buffs} heroes buffed, {nerfs} nerfed and {adjust} adjusted, including {heroes}. Changes under test, which may evolve before the Official Server.",
+        "descriptionVersionNoHeroes": "MLBB Advance Server {version}: item and system changes under test, which may evolve before the Official Server.",
+        "share": "The changes tested on the Mobile Legends Advance Server, version by version.",
+        "keywords": "MLBB Advance Server, Advance Server patch notes, Mobile Legends test server, MLBB test server, buffs, nerfs"
+      },
+      "next": {
+        "title": "Under test on the Advance Server",
+        "intro": "Changes to {name} being tested on the Advance Server. They may still evolve, or never reach the Official Server.",
+        "announcedNew": "{name} is presented as a new hero in version {v}.",
+        "announcedRevamp": "A revamp of {name} is presented in version {v}.",
+        "readVersion": "All notes for version {v}"
+      }
     }
   },
   "modeFiche": {

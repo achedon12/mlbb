@@ -159,6 +159,10 @@
     "mlbbdle": {
       "label": "MLBBdle",
       "desc": "El Wordle de héroes, cada día"
+    },
+    "advanceServer": {
+      "label": "Servidor Advance",
+      "desc": "Cambios en prueba antes del servidor oficial"
     }
   },
   "compte": {
@@ -2196,6 +2200,86 @@
       "newHero": "Nuevo héroe",
       "skip": "Saltar",
       "practiceQuestion": "¿Qué héroe es?"
+    },
+    "advanceServer": {
+      "title": "Notas del parche del servidor Advance",
+      "lead": "El servidor Advance es el servidor de pruebas de Mobile Legends: los cambios de equilibrio llegan a él antes que al servidor oficial. Aquí están sus notas, versión por versión, tomadas de la wiki de la comunidad.",
+      "crumb": "Servidor Advance",
+      "warningTitle": "Cambios en prueba",
+      "warning": "Todo lo que aparece aquí se está probando en el servidor Advance: estos cambios aún pueden variar, o no llegar nunca al servidor oficial.",
+      "statusUnderTest": "La versión {v} está en prueba: es más reciente que el parche actual del servidor oficial, el {live}.",
+      "statusNone": "La wiki no documenta ninguna versión del servidor Advance más reciente que el parche oficial actual ({live}). Las últimas notas de prueba publicadas allí son las de la versión {v} ({date}).",
+      "statusNoneUndated": "La wiki no documenta ninguna versión del servidor Advance más reciente que el parche oficial actual ({live}). Las últimas notas de prueba publicadas allí son las de la versión {v}.",
+      "syncedAt": "Datos de la wiki consultados el {date}.",
+      "latest": "Última versión documentada",
+      "readAll": "Todos los cambios de la versión {v}",
+      "versions": "Versiones detalladas",
+      "versionsIntro": "Las {n} versiones de prueba más recientes, con sus cambios de héroes, objetos y sistema.",
+      "archive": "Archivo",
+      "archiveIntro": "Las {n} versiones más antiguas no se reproducen aquí: sus notas siguen disponibles en la wiki.",
+      "empty": "Por ahora no se ha podido obtener ninguna nota del servidor Advance.",
+      "badgeUnderTest": "En prueba",
+      "badgeOlder": "Anterior al parche {live}",
+      "dateNotes": "Llegó al servidor Advance el {date}",
+      "dateWiki": "Notas publicadas en la wiki el {date}",
+      "noDate": "Fecha no indicada",
+      "heroCount": {
+        "one": "{n} héroe modificado",
+        "other": "{n} héroes modificados"
+      },
+      "noHeroChanges": "No hay cambios de héroes en esta versión.",
+      "credit": "Notas tomadas de la {lien}, bajo licencia CC BY-SA. El texto original lo publica Moonton; este sitio no modifica su contenido.",
+      "creditTranslated": "Notas tomadas de la {lien}, bajo licencia CC BY-SA, y traducidas automáticamente del inglés. El texto original lo publica Moonton.",
+      "eyebrow": "Notas del servidor Advance",
+      "heading": "Servidor Advance {v}",
+      "sourceLink": "Página de origen en la wiki",
+      "summary": "En resumen",
+      "designers": "Palabras de los diseñadores",
+      "newHeroes": "Héroes nuevos y renovados",
+      "kind": {
+        "new": "Héroe nuevo",
+        "revamp": "Renovación"
+      },
+      "heroChanges": "Cambios de héroes",
+      "heroChangesSummary": {
+        "one": "{n} héroe modificado en la versión {v} del servidor Advance.",
+        "other": "{n} héroes modificados en la versión {v} del servidor Advance."
+      },
+      "details": "Detalle por héroe",
+      "categories": {
+        "items": "Objetos",
+        "emblems": "Emblemas y talentos",
+        "spells": "Hechizos de batalla",
+        "system": "Campo de batalla y sistema"
+      },
+      "tags": {
+        "new": "Nuevo",
+        "removed": "Eliminado",
+        "rework": "Renovación",
+        "merge": "Fusión",
+        "fix": "Corrección",
+        "split": "División"
+      },
+      "openPage": "Ver la ficha de {name}",
+      "before": "antes:",
+      "after": "después:",
+      "allVersions": "Todas las versiones del servidor Advance",
+      "seo": {
+        "title": "Notas del parche del servidor Advance de MLBB {v}: buffs, nerfs y cambios",
+        "titleGeneric": "Notas del parche del servidor Advance de MLBB: buffs, nerfs y cambios",
+        "description": "Notas del servidor Advance, el servidor de pruebas de Mobile Legends: última versión documentada {version}, con {buffs} buffs, {nerfs} nerfs y {adjust} ajustes de héroes. Cambios en prueba, que pueden variar antes de llegar al servidor oficial.",
+        "descriptionVersion": "Servidor Advance de MLBB {version}: {buffs} héroes mejorados, {nerfs} debilitados y {adjust} ajustados, entre ellos {heroes}. Cambios en prueba, que pueden variar antes de llegar al servidor oficial.",
+        "descriptionVersionNoHeroes": "Servidor Advance de MLBB {version}: cambios de objetos y sistema en prueba, que pueden variar antes de llegar al servidor oficial.",
+        "share": "Los cambios en prueba en el servidor Advance de Mobile Legends, versión por versión.",
+        "keywords": "servidor Advance MLBB, notas del parche servidor Advance, servidor de pruebas Mobile Legends, Advance Server, buffs, nerfs"
+      },
+      "next": {
+        "title": "En prueba en el servidor Advance",
+        "intro": "Cambios de {name} en prueba en el servidor Advance. Aún pueden variar, o no llegar nunca al servidor oficial.",
+        "announcedNew": "{name} se presenta como héroe nuevo en la versión {v}.",
+        "announcedRevamp": "Se presenta una renovación de {name} en la versión {v}.",
+        "readVersion": "Todas las notas de la versión {v}"
+      }
     }
   },
   "modeFiche": {
