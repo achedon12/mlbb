@@ -23,8 +23,9 @@ npm run dev            # http://localhost:3001
 
 - `develop` : le travail en cours — **les pull requests la visent**, fusionnées
   par *rebase* ou *squash*.
-- `main` : la production, déployée à chaque push. Une version y arrive par le
-  workflow **Publier en production** (avance rapide, sans commit de fusion) ;
+- `main` : la production, déployée à chaque push. Pour publier :
+  `git push origin develop:main` une fois la CI verte (avance rapide, sans
+  commit de fusion), ou le bouton **Publier en production** ;
   les données de la synchronisation y sont poussées chaque nuit puis reportées
   sur `develop`. Récupérez `develop` avec `git pull --rebase`.
 

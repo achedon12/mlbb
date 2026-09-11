@@ -112,8 +112,9 @@ npm run sync -- --images
 
 - `develop` : le travail en cours. **Toutes les pull requests la visent**, et
   sont fusionnees par *rebase* ou *squash* : jamais de commit de fusion.
-- `main` : la production, deployee a chaque push. Une version y arrive par le
-  workflow **Publier en production**, qui avance `main` jusqu'a `develop`.
+- `main` : la production, deployee a chaque push. Pour publier, une fois la CI
+  verte sur `develop` : `git push origin develop:main` (avance rapide
+  uniquement), ou le bouton **Publier en production** dans *Actions*.
 
 ```bash
 git switch develop && git pull --rebase

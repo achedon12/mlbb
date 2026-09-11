@@ -50,10 +50,16 @@ n'avancent que par avance rapide.
 - `develop` est le travail en cours : les pull requests la visent (fusion par
   *rebase* ou *squash*), les tests y tournent, rien n'y est déployé.
 - `main` est la production : chaque push y déclenche le workflow **Image
-  Docker**, qui construit l'image puis déploie. Une version y arrive par le
-  workflow **Publier en production** (onglet *Actions*, ou
-  `gh workflow run publier.yml`) : il vérifie que Qualité et Tests sont verts
-  sur `develop`, puis avance `main` jusqu'à `develop`.
+  Docker**, qui construit l'image puis déploie. Pour publier, on avance `main`
+  jusqu'à `develop` une fois Qualité et Tests verts sur `develop` :
+
+  ```bash
+  git push origin develop:main
+  ```
+
+  ou avec le bouton **Publier en production** (onglet *Actions*), qui fait la
+  même chose après avoir vérifié la CI. GitHub refuse tout push sur `main` qui
+  ne serait pas une avance rapide, ou dont le commit n'a pas passé la CI.
 - La synchronisation pousse ses données sur `main` chaque nuit, puis **Aligner
   develop** les reporte sur `develop` : avance rapide si `develop` n'a rien de
   neuf, sinon ses commits non publiés sont rejoués par-dessus `main` (rebase).
@@ -78,8 +84,9 @@ ne sont pas renseignés (*Settings → Secrets and variables → Actions*) :
 Protections (*Settings → Rules → Rulesets*), avec la clé de déploiement
 (*Deploy keys*) en contournement :
 
-- **`main`** : pull request obligatoire, historique linéaire, contrôles
-  **Qualité** et **Tests** obligatoires, ni force push ni suppression.
+- **`main`** : historique linéaire, contrôles **Qualité** et **Tests**
+  obligatoires (le commit doit les avoir passés sur `develop`), ni force push
+  ni suppression.
 - **`develop`** : historique linéaire, ni force push ni suppression.
 
 Les commits de fusion sont désactivés dans les réglages du dépôt : seuls
