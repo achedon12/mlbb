@@ -155,6 +155,10 @@
     "drawCalculator": {
       "label": "Draw calculator",
       "desc": "Diamonds and odds for event skins"
+    },
+    "mlbbdle": {
+      "label": "MLBBdle",
+      "desc": "The daily hero Wordle"
     }
   },
   "compte": {
@@ -922,6 +926,10 @@
       "drawCalculator": {
         "title": "MLBB Draw Calculator: Diamonds and Odds",
         "description": "How many diamonds for an MLBB event skin? Odds for your budget, average draws with pity, 50, 90 and 99% milestones and a chart. Free, runs in your browser, presets with sources."
+      },
+      "mlbbdle": {
+        "title": "MLBBdle: daily Mobile Legends hero guessing game",
+        "description": "Guess the Mobile Legends: Bang Bang hero of the day, Wordle and Loldle style: colour clues on role, lane, region, damage and release year, plus a daily skill-icon mode and endless practice. Free, no sign-up."
       }
     },
     "fraicheur": {
@@ -2046,6 +2054,148 @@
       "you": "you",
       "pityChart": "pity",
       "whereToFind": "Where to find the odds? Every draw event publishes its rules and probabilities in game: open the event in the shop and look for the rules screen. Enter the chance of the exact prize you want, not a whole category's, if the game gives the breakdown."
+    },
+    "mlbbdle": {
+      "title": "MLBBdle",
+      "breadcrumb": "MLBBdle",
+      "lead": "The Mobile Legends Wordle: guess the hero of the day from colour clues (role, lane, region, release year…), then identify them from a single skill icon. A new puzzle every day, unlimited guesses.",
+      "rulesTitle": "How to play",
+      "rule1": "Every day at midnight UTC there is a new secret hero, the same for everyone whatever their language. Two puzzles are waiting: Classic mode and Skill mode.",
+      "rule2": "Type a hero's name or browse the roster: each guess adds a row of tiles comparing your hero with the secret one, trait by trait. Guesses are unlimited; the count is shown and goes into your stats.",
+      "rule3": "A hero never comes back within {days} days in the same mode, and a new hero only joins the draw two weeks after release.",
+      "rule4": "Your streak, best streak and guess distribution stay in your browser. Once you've found the hero, share your grid: coloured squares that don't give the answer away.",
+      "coloursTitle": "What the colours mean",
+      "colours": {
+        "match": "Green: same as the secret hero.",
+        "partial": "Orange: partly shared (one of two roles or lanes, mixed damage, hybrid range…).",
+        "miss": "Red: nothing in common.",
+        "unknown": "Grey: data missing for one of the two heroes.",
+        "arrow": "Arrow on the year: the secret hero was released later (↑) or earlier (↓)."
+      },
+      "columnsTitle": "The Classic mode columns",
+      "columnsDesc": {
+        "gender": "Male, female or genderless, according to the hero's official story sheet.",
+        "roles": "Tank, fighter, assassin, mage, marksman or support. Some heroes have two: sharing just one gives an orange tile.",
+        "lanes": "The preferred position: Gold Lane, EXP Lane, Mid Lane, Jungle or Roam. Same logic as roles.",
+        "specialties": "The game's tags (burst, crowd control, chase…). Orange as soon as one tag is shared.",
+        "damage": "Physical, magic or mixed. Mixed damage against physical or magic gives an orange tile.",
+        "range": "Melee, ranged or hybrid. Hybrid range against melee or ranged gives an orange tile.",
+        "resource": "What the skills consume: mana, energy, or nothing at all.",
+        "region": "The hero's homeland in the Mobile Legends universe (Moniyan Empire, Eruditio, Abyss…).",
+        "year": "The release year. The arrow tells you whether the secret hero is newer or older."
+      },
+      "modesTitle": "The three modes",
+      "modesDesc": {
+        "classic": "Guess the hero from the coloured tiles: every guess brings you closer to the secret. The hero of the day changes at midnight UTC.",
+        "skill": "A skill icon, in black and white. Its colours come back after {colour} wrong guesses, its name after {name}, an excerpt of its description (hero name hidden) after {description}, and the hero's role after {roles}.",
+        "practice": "As many random heroes as you like, in Classic or Skill mode. Nothing counts towards your daily stats; you can reveal the answer or skip to the next one."
+      },
+      "sourceTitle": "Where the data comes from",
+      "source": "Hero traits come from our database, extracted from the Mobile Legends wiki and refreshed at every sync: the same ones you see on the hero profiles. Skills and their descriptions are shown in your language.",
+      "linkHeroes": "All heroes",
+      "linkQuiz": "The daily quiz",
+      "linkLore": "Hero stories",
+      "linkTierList": "The tier list"
+    },
+    "mlbbdleUI": {
+      "mode": "Mode",
+      "modes": {
+        "classic": "Classic",
+        "skill": "Skill",
+        "practice": "Practice"
+      },
+      "solved": "solved",
+      "loading": "Loading…",
+      "loadError": "Couldn't load today's puzzle. Check your connection, then try again.",
+      "retry": "Try again",
+      "unavailable": "This mode isn't available today. Try the other one!",
+      "number": "MLBBdle #{n} · {date}",
+      "input": "Type a hero name…",
+      "noResult": "No hero matches.",
+      "browse": "Browse heroes",
+      "guesses": "Guesses: {n}",
+      "classicQuestion": "Who is today's hero?",
+      "classicHelp": "Guess any hero to start: the coloured tiles show what they share with the secret hero.",
+      "announceFound": "Well done, it was {name}! Guesses: {n}.",
+      "announceGuess": "Guess {n}: {name}.",
+      "announceWrong": "Guess {n}: {name}, not the right hero.",
+      "announceClue": "New clue unlocked: {clue}.",
+      "heroColumn": "Hero",
+      "columns": {
+        "gender": "Gender",
+        "roles": "Role",
+        "lanes": "Lane",
+        "specialties": "Specialty",
+        "damage": "Damage",
+        "range": "Range",
+        "resource": "Resource",
+        "region": "Region",
+        "year": "Year"
+      },
+      "unknown": "?",
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "none": "Genderless"
+      },
+      "verdicts": {
+        "match": "match",
+        "partial": "partial match",
+        "miss": "no match",
+        "unknown": "unknown"
+      },
+      "direction": {
+        "same": "same year",
+        "newer": "the secret hero is newer",
+        "older": "the secret hero is older",
+        "unknown": "unknown year"
+      },
+      "gridCaption": "Your guesses, most recent first, compared with the secret hero",
+      "skillQuestion": "Which hero does this skill belong to?",
+      "cluesTitle": "Clues",
+      "clues": {
+        "colour": "Colours",
+        "name": "Skill name",
+        "description": "Description",
+        "roles": "Role"
+      },
+      "colourClue": "the icon is now shown in colour",
+      "lockedClue": "{clue} — wrong guesses left before it unlocks: {n}",
+      "skillAlt": "Skill icon to identify",
+      "skillAltGrey": "Skill icon to identify, in black and white",
+      "yourGuesses": "Your guesses",
+      "winTitle": "Found it! Guesses: {n}",
+      "skillWas": "The skill: {name}",
+      "viewProfile": "View hero profile",
+      "gridSummary": "Share grid, guesses: {n}. One row of coloured squares per guess, with no hero names.",
+      "share": "Share my result",
+      "copied": "Result copied: paste it anywhere.",
+      "shared": "Result shared.",
+      "copyError": "Couldn't copy: select the grid manually.",
+      "shareTitle": "MLBBdle #{n} · {mode} · guesses: {guesses}",
+      "playMode": "Play {mode} mode",
+      "practiseMore": "Keep practising",
+      "yesterday": "Yesterday's answer:",
+      "statsTitle": "Your stats · {mode}",
+      "stats": {
+        "played": "Days won",
+        "streak": "Streak",
+        "best": "Best streak",
+        "average": "Avg. guesses"
+      },
+      "distribution": "Guess distribution",
+      "distributionRow": "Guesses {guesses}: {n}",
+      "newPuzzle": "A new puzzle is ready: play",
+      "next": "Next hero in",
+      "practiceType": "Type",
+      "practiceFound": "Found",
+      "practiceBest": "Fewest guesses",
+      "practiceNumber": "Practice · hero #{n}",
+      "answerWas": "The answer was",
+      "reveal": "Reveal the answer",
+      "newHero": "New hero",
+      "skip": "Skip",
+      "practiceQuestion": "Which hero is it?"
     }
   },
   "modeFiche": {

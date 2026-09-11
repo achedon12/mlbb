@@ -155,6 +155,10 @@
     "drawCalculator": {
       "label": "Calculateur de tirages",
       "desc": "Diamants et chances d'un skin d'événement"
+    },
+    "mlbbdle": {
+      "label": "MLBBdle",
+      "desc": "Le Wordle des héros, chaque jour"
     }
   },
   "compte": {
@@ -922,6 +926,10 @@
       "drawCalculator": {
         "title": "Calculateur de tirages MLBB : diamants et chances",
         "description": "Combien de diamants pour un skin d'événement MLBB ? Chances selon votre budget, nombre moyen de tirages avec garantie, paliers à 50, 90 et 99 % et courbe. Gratuit, dans le navigateur, préréglages sourcés."
+      },
+      "mlbbdle": {
+        "title": "MLBBdle : le jeu quotidien pour deviner le héros Mobile Legends",
+        "description": "Devinez le héros Mobile Legends: Bang Bang du jour, façon Wordle et Loldle : indices de couleur sur le rôle, la lane, la région, les dégâts et l'année de sortie, un mode compétence quotidien et un entraînement sans fin. Gratuit, sans inscription."
       }
     },
     "fraicheur": {
@@ -2046,6 +2054,148 @@
       "you": "vous",
       "pityChart": "garantie",
       "whereToFind": "Où trouver les chances ? Chaque événement de tirage publie ses règles et ses probabilités dans le jeu : ouvrez l'événement dans la boutique et cherchez l'écran des règles. Entrez la chance du lot que vous visez, pas celle d'une catégorie entière, si le jeu donne le détail."
+    },
+    "mlbbdle": {
+      "title": "MLBBdle",
+      "breadcrumb": "MLBBdle",
+      "lead": "Le Wordle des héros de Mobile Legends : devinez le héros du jour grâce aux indices de couleur (rôle, lane, région, année de sortie…), puis retrouvez-le d'après une seule icône de compétence. Un nouveau défi chaque jour, essais illimités.",
+      "rulesTitle": "Comment jouer",
+      "rule1": "Chaque jour à minuit UTC, un nouveau héros secret : le même pour tout le monde, quelle que soit la langue. Deux défis vous attendent : le mode classique et le mode compétence.",
+      "rule2": "Tapez le nom d'un héros ou parcourez le roster : chaque essai ajoute une ligne de cases qui compare votre héros au héros secret, trait par trait. Les essais sont illimités ; leur nombre s'affiche et entre dans vos statistiques.",
+      "rule3": "Un héros ne revient pas avant {days} jours dans le même mode, et un nouveau héros n'entre dans le tirage que deux semaines après sa sortie.",
+      "rule4": "Votre série, votre record et la répartition de vos essais restent dans votre navigateur. Une fois le héros trouvé, partagez votre grille : des carrés de couleur qui ne révèlent pas la réponse.",
+      "coloursTitle": "Ce que disent les couleurs",
+      "colours": {
+        "match": "Vert : identique au héros secret.",
+        "partial": "Orange : en partie commun (un rôle ou une lane sur deux, dégâts mixtes, portée hybride…).",
+        "miss": "Rouge : rien en commun.",
+        "unknown": "Gris : donnée absente pour l'un des deux héros.",
+        "arrow": "Flèche sur l'année : le héros secret est sorti plus tard (↑) ou plus tôt (↓)."
+      },
+      "columnsTitle": "Les colonnes du mode classique",
+      "columnsDesc": {
+        "gender": "Homme, femme ou sans genre, d'après la fiche d'histoire officielle du héros.",
+        "roles": "Tank, combattant, assassin, mage, tireur ou support. Certains héros en ont deux : un seul rôle en commun donne une case orange.",
+        "lanes": "La position de prédilection : or, expérience, milieu, jungle ou roam. Même logique que pour les rôles.",
+        "specialties": "Les étiquettes du jeu (explosif, contrôle des foules, poursuite…). Orange dès qu'une étiquette est commune.",
+        "damage": "Physiques, magiques ou mixtes. Des dégâts mixtes face à des physiques ou des magiques donnent une case orange.",
+        "range": "Mêlée, distance ou hybride. Une portée hybride face à la mêlée ou à la distance donne une case orange.",
+        "resource": "Ce que consomment les compétences : mana, énergie, ou rien du tout.",
+        "region": "La terre d'origine du héros dans l'univers de Mobile Legends (Empire de Moniyan, Eruditio, Abysse…).",
+        "year": "L'année de sortie. La flèche indique si le héros secret est plus récent ou plus ancien."
+      },
+      "modesTitle": "Les trois modes",
+      "modesDesc": {
+        "classic": "Devinez le héros d'après les cases de couleur : chaque essai vous rapproche du secret. Le héros du jour change à minuit UTC.",
+        "skill": "Une icône de compétence, en noir et blanc. Ses couleurs reviennent après {colour} erreurs, son nom après {name}, un extrait de sa description (nom du héros masqué) après {description}, et le rôle du héros après {roles}.",
+        "practice": "Autant de héros que vous voulez, tirés au hasard, en mode classique ou compétence. Rien ne compte dans les statistiques du jour ; vous pouvez révéler la réponse ou passer au suivant."
+      },
+      "sourceTitle": "D'où viennent les données",
+      "source": "Les traits des héros viennent de notre base, extraite du wiki de Mobile Legends et mise à jour à chaque synchronisation : ce sont les mêmes que sur les fiches des héros. Les compétences et leurs descriptions sont affichées dans votre langue.",
+      "linkHeroes": "Tous les héros",
+      "linkQuiz": "Le quiz du jour",
+      "linkLore": "Les histoires des héros",
+      "linkTierList": "La tier list"
+    },
+    "mlbbdleUI": {
+      "mode": "Mode",
+      "modes": {
+        "classic": "Classique",
+        "skill": "Compétence",
+        "practice": "Entraînement"
+      },
+      "solved": "résolu",
+      "loading": "Chargement…",
+      "loadError": "Impossible de charger le défi du jour. Vérifiez votre connexion, puis réessayez.",
+      "retry": "Réessayer",
+      "unavailable": "Ce mode n'est pas disponible aujourd'hui. Essayez l'autre !",
+      "number": "MLBBdle n° {n} · {date}",
+      "input": "Nom d'un héros…",
+      "noResult": "Aucun héros ne correspond.",
+      "browse": "Parcourir les héros",
+      "guesses": "Essais : {n}",
+      "classicQuestion": "Quel est le héros du jour ?",
+      "classicHelp": "Proposez n'importe quel héros pour commencer : les cases de couleur disent ce qu'il partage avec le héros secret.",
+      "announceFound": "Bravo, c'était {name} ! Essais : {n}.",
+      "announceGuess": "Essai {n} : {name}.",
+      "announceWrong": "Essai {n} : {name}, ce n'est pas le bon héros.",
+      "announceClue": "Nouvel indice débloqué : {clue}.",
+      "heroColumn": "Héros",
+      "columns": {
+        "gender": "Genre",
+        "roles": "Rôle",
+        "lanes": "Lane",
+        "specialties": "Spécialité",
+        "damage": "Dégâts",
+        "range": "Portée",
+        "resource": "Ressource",
+        "region": "Région",
+        "year": "Année"
+      },
+      "unknown": "?",
+      "genders": {
+        "male": "Homme",
+        "female": "Femme",
+        "none": "Sans genre"
+      },
+      "verdicts": {
+        "match": "identique",
+        "partial": "en partie",
+        "miss": "différent",
+        "unknown": "inconnu"
+      },
+      "direction": {
+        "same": "même année",
+        "newer": "le héros secret est plus récent",
+        "older": "le héros secret est plus ancien",
+        "unknown": "année inconnue"
+      },
+      "gridCaption": "Vos essais, du plus récent au plus ancien, comparés au héros secret",
+      "skillQuestion": "À quel héros appartient cette compétence ?",
+      "cluesTitle": "Indices",
+      "clues": {
+        "colour": "Couleurs",
+        "name": "Nom de la compétence",
+        "description": "Description",
+        "roles": "Rôle"
+      },
+      "colourClue": "l'icône s'affiche désormais en couleur",
+      "lockedClue": "{clue} — erreurs avant de le débloquer : {n}",
+      "skillAlt": "Icône de la compétence à identifier",
+      "skillAltGrey": "Icône de la compétence à identifier, en noir et blanc",
+      "yourGuesses": "Vos essais",
+      "winTitle": "Trouvé ! Essais : {n}",
+      "skillWas": "La compétence : {name}",
+      "viewProfile": "Voir la fiche du héros",
+      "gridSummary": "Grille à partager, essais : {n}. Une ligne de carrés de couleur par essai, sans aucun nom de héros.",
+      "share": "Partager mon résultat",
+      "copied": "Résultat copié : collez-le où vous voulez.",
+      "shared": "Résultat partagé.",
+      "copyError": "Copie impossible : sélectionnez la grille à la main.",
+      "shareTitle": "MLBBdle n° {n} · {mode} · essais : {guesses}",
+      "playMode": "Jouer au mode {mode}",
+      "practiseMore": "Continuer à l'entraînement",
+      "yesterday": "Réponse d'hier :",
+      "statsTitle": "Vos statistiques · {mode}",
+      "stats": {
+        "played": "Jours gagnés",
+        "streak": "Série",
+        "best": "Record",
+        "average": "Essais moyens"
+      },
+      "distribution": "Répartition des essais",
+      "distributionRow": "Essais {guesses} : {n}",
+      "newPuzzle": "Un nouveau défi est disponible : jouer",
+      "next": "Prochain héros dans",
+      "practiceType": "Type",
+      "practiceFound": "Trouvés",
+      "practiceBest": "Moins d'essais",
+      "practiceNumber": "Entraînement · héros n° {n}",
+      "answerWas": "La réponse était",
+      "reveal": "Révéler la réponse",
+      "newHero": "Nouveau héros",
+      "skip": "Passer",
+      "practiceQuestion": "Quel est ce héros ?"
     }
   },
   "modeFiche": {
