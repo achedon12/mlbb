@@ -4,18 +4,21 @@ import { donneesLd } from "@/lib/html";
 import Image from "next/image";
 import Link from "@/components/lien";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ShieldAlert, Swords, TriangleAlert } from "lucide-react";
+import { ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
 import { CompetencesHeros } from "@/components/competences-heros";
 import { HistoireHeros } from "@/components/histoire-heros";
 import { FilAriane } from "@/components/fil-ariane";
 
-import { ContresChiffres } from "@/components/contres-chiffres";
+import { CoequipiersParRang, ContresChiffres } from "@/components/contres-chiffres";
 import { RangProvider, SelecteurRang, ValeurParRang } from "@/components/selecteur-rang";
 import { ObjetBuild } from "@/components/objet-build";
 import { BuildsParRang } from "@/components/builds-par-rang";
 import { ChoixBuild } from "@/components/choix-build";
-import { resoudreBuild, resoudreGuide, visuelEmbleme, visuelSort, visuelTalent } from "@/lib/visuels-build";
+import { resoudreBuild, resoudreGuide, visuelEmbleme, visuelObjet, visuelSort, visuelTalent } from "@/lib/visuels-build";
+import { StatistiquesHeros } from "@/components/statistiques-heros";
+import { AjustementsDuHeros } from "@/components/patch-heros";
+import { dureeDe, historiqueDe, tendancesDe } from "@/lib/evolution";
 import { Onglets } from "@/components/onglets";
 
 import {
@@ -28,14 +31,17 @@ import { Carte, Jauge } from "@/components/ui";
 import { BadgeRole } from "@/components/badge-role";
 import {
   buildsJoues,
+  coequipiers,
   competences,
-  guidesJoueurs,
-  contres,
   type ContreChiffre,
+  contres,
+  guidesJoueurs,
   heros,
   herosParSlug,
   histoires,
   illustrations,
+  objets,
+  patchsDetail,
   visuelsCompetences,
 } from "@/lib/donnees";
 import { classementComplet, statsParRang, type StatsRang } from "@/lib/tier-list";
@@ -131,6 +137,7 @@ export default async function PageHeros({ params }: Params) {
   // Taux de l'en-tete, rang par rang : le rang choisi sur la fiche les fait
   // basculer en meme temps que les contres.
   const statsRangs = statsParRang(h.slug);
+  const pourcent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const selonRang = (format: (s: StatsRang) => string) =>
     Object.fromEntries(Object.entries(statsRangs).map(([r, s]) => [r, format(s)]));
   const rangsDisponibles = RANGS_MESURE.filter((r) => statsRangs[r] || contresAffiches[r]);
@@ -154,6 +161,40 @@ export default async function PageHeros({ params }: Params) {
     ]),
   );
   const aBuilds = Object.keys(buildsAffiches).length > 0 || Object.keys(guidesAffiches).length > 0;
+
+  const coequipiersAffiches = Object.fromEntries(
+    Object.entries(coequipiers[h.slug] ?? {}).map(([rang, liste]) => [
+      rang,
+      (liste ?? []).map((c) => ({ ...c, nom: nomDe(c.slug), portrait: portraitDe(c.slug) })),
+    ]),
+  );
+  const aCoequipiers = Object.keys(coequipiersAffiches).length > 0;
+
+  // Build le plus joue sur la position principale, tous rangs : la reference
+  // a laquelle confronter les builds rediges, qui vieillissent d'un patch a
+  // l'autre.
+  const parLane = buildsJoues[h.slug] ?? {};
+  const laneReference = h.lanes.find((l) => parLane[l]) ?? Object.keys(parLane)[0];
+  const reference = laneReference ? (parLane[laneReference]?.all?.[0] ?? null) : null;
+  const nomsObjets = new Map(objets(locale).map((o) => [o.slug, o.nom]));
+  const ecartDe = (b: { objets: string[]; talent: string }) => {
+    if (!reference) return null;
+    const pris = new Set(b.objets.map((o) => visuelObjet(o).slug ?? o));
+    const absents = reference.objets
+      .filter((o) => !pris.has(visuelObjet(o).slug ?? o))
+      .map((o) => nomsObjets.get(visuelObjet(o).slug ?? "") ?? o);
+    const memeTalent = reference.talents.some((x) => x.toLowerCase() === b.talent.toLowerCase());
+    return { absents, talents: memeTalent ? null : reference.talents.join(", ") };
+  };
+
+  // Patchs dates, pour les reperes des courbes, et ajustements du heros.
+  const versionsRecentes = Object.values(patchsDetail).sort((a, b) =>
+    b.version.localeCompare(a.version, undefined, { numeric: true }),
+  );
+  const patchsDates = versionsRecentes.flatMap((p) => (p.date ? [{ version: p.version, date: p.date }] : []));
+  const ajustementsHeros = versionsRecentes.flatMap((p) =>
+    p.ajustements.filter((a) => a.slug === h.slug).map((a) => ({ version: p.version, ajustement: a })),
+  );
 
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -181,9 +222,6 @@ export default async function PageHeros({ params }: Params) {
       */}
       <VitrineProvider skins={skinsComplets} portraitDefaut={h.visuels.portrait}>
       <RangProvider rangs={rangsDisponibles}>
-      <div className="mx-auto max-w-6xl px-4 pt-6">
-        <FilAriane miettes={[{ nom: t("nav.heroes.label"), href: "/heroes" }, { nom: h.nom }]} />
-      </div>
       {/* ── En-tete ────────────────────────────────────────────────────── */}
       <div className="relative border-b border-nuit-700/70 bg-nuit-900/30">
         {fond && (
@@ -219,15 +257,22 @@ export default async function PageHeros({ params }: Params) {
         )}
 
         <div className="relative mx-auto max-w-5xl px-4 py-10">
-          <Link
-            href="/heroes"
-            // Ce lien flotte sur l'illustration, dont la clarte varie d'un
-            // heros a l'autre : il porte donc son propre fond.
-            className="biseau-sm inline-flex items-center gap-1.5 bg-nuit-950/75 px-3 py-1.5 text-sm text-craie-300 backdrop-blur-sm transition-colors hover:text-or-400"
-          >
-            <ArrowLeft size={15} aria-hidden />
-            {t("pages.heroDetail.tousLesHeros")}
-          </Link>
+          {/*
+            Le fil flotte sur l'illustration avec son propre fond. La miette du
+            role mene au catalogue filtre ; celle du heros ouvre les autres.
+          */}
+          <FilAriane
+            miettes={[
+              { nom: t("nav.heroes.label"), href: "/heroes" },
+              ...(h.roles[0] ? [{ nom: t(`roles.${h.roles[0]}`), href: `/heroes?role=${h.roles[0]}` }] : []),
+              {
+                nom: h.nom,
+                freres: [...heros]
+                  .sort((a, b) => a.nom.localeCompare(b.nom))
+                  .map((x) => ({ nom: x.nom, href: `/heroes/${x.slug}` })),
+              },
+            ]}
+          />
 
           <div className="biseau mt-6 flex flex-wrap items-start gap-6 border border-nuit-700/50 bg-nuit-950/75 p-5 backdrop-blur-sm">
             <PortraitVitrine nom={h.nom} portraitDefaut={h.visuels.portrait} />
@@ -301,8 +346,8 @@ export default async function PageHeros({ params }: Params) {
               [t("pages.heroDetail.stat.region"), h.region],
               [t("pages.heroDetail.stat.skins"), h.skins.length || null],
               [t("pages.heroDetail.stat.tierList"), classe ? <ValeurParRang valeurs={selonRang((s) => t("pages.heroDetail.palier", { p: s.palier }))} /> : null],
-              [t("pages.heroDetail.stat.tauxVictoire"), classe ? <ValeurParRang valeurs={selonRang((s) => `${s.victoire.toFixed(1)} %`)} /> : null],
-              [t("pages.heroDetail.stat.tauxBan"), classe ? <ValeurParRang valeurs={selonRang((s) => `${s.ban.toFixed(1)} %`)} /> : null],
+              [t("pages.heroDetail.stat.tauxVictoire"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.victoire)} %`)} /> : null],
+              [t("pages.heroDetail.stat.tauxBan"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.ban)} %`)} /> : null],
             ].map(([label, valeur]) =>
               !valeur ? null : (
                 <div key={String(label)}>
@@ -410,11 +455,17 @@ export default async function PageHeros({ params }: Params) {
               id: "contres",
               label: t("pages.heroDetail.onglet.contres"),
               contenu:
-                aContres || analyse ? (
+                aContres || aCoequipiers || analyse ? (
                   <div className="space-y-8">
                     {aContres && (
                       <section>
                         <ContresChiffres nom={h.nom} parRang={contresAffiches} />
+                      </section>
+                    )}
+
+                    {aCoequipiers && (
+                      <section>
+                        <CoequipiersParRang nom={h.nom} parRang={coequipiersAffiches} />
                       </section>
                     )}
 
@@ -468,6 +519,19 @@ export default async function PageHeros({ params }: Params) {
                         <ChoixBuild libelle={t("builds.talent")} nom={b.talent} image={visuelTalent(b.talent).image} />
                         <ChoixBuild libelle={t("builds.sort")} nom={b.sort} image={visuelSort(b.sort).image} />
                       </div>
+                      {(() => {
+                        const ecart = ecartDe(b);
+                        if (!ecart) return null;
+                        return (
+                          <p className="mt-4 border-t border-nuit-800 pt-3 text-xs leading-relaxed text-craie-500">
+                            <span className="font-semibold text-craie-300">{t("builds.ecartTitre")} · </span>
+                            {ecart.absents.length === 0
+                              ? t("builds.aligne")
+                              : t("builds.ecartObjets", { objets: ecart.absents.join(", ") })}
+                            {ecart.talents && <> {t("builds.ecartTalent", { talent: ecart.talents })}</>}
+                          </p>
+                        );
+                      })()}
                     </Carte>
                   ))}
                   </div>
@@ -475,6 +539,37 @@ export default async function PageHeros({ params }: Params) {
                   )}
                 </div>
               ) : null,
+            },
+            {
+              id: "stats",
+              label: t("pages.heroDetail.onglet.stats"),
+              contenu: (
+                <div className="space-y-12">
+                  <StatistiquesHeros
+                    nom={h.nom}
+                    tendances={tendancesDe(h.slug)}
+                    duree={dureeDe(h.slug)}
+                    historique={historiqueDe(h.slug)}
+                    patchs={patchsDates}
+                    parRang={Object.fromEntries(
+                      Object.entries(statsRangs).map(([r, s]) => [r, { victoire: s.victoire, ban: s.ban }]),
+                    )}
+                  />
+                  <section>
+                    <h3 className="font-titre text-lg font-bold text-craie-100">
+                      {t("pages.heroDetail.statistiques.ajustements")}
+                    </h3>
+                    <p className="mt-1 mb-4 text-sm text-craie-500">
+                      {ajustementsHeros.length > 0
+                        ? t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.nom })
+                        : t("pages.heroDetail.statistiques.aucunAjustement", { nom: h.nom, n: versionsRecentes.length })}
+                    </p>
+                    {ajustementsHeros.length > 0 && (
+                      <AjustementsDuHeros entrees={ajustementsHeros} portrait={h.visuels.icone ?? h.visuels.portrait} />
+                    )}
+                  </section>
+                </div>
+              ),
             },
             {
               id: "skins",

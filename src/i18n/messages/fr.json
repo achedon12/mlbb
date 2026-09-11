@@ -143,7 +143,8 @@
         "competences": "Compétences",
         "contres": "Contres",
         "builds": "Builds",
-        "skins": "Skins"
+        "skins": "Skins",
+        "stats": "Stats"
       },
       "forces": "Forces",
       "faiblesses": "Faiblesses",
@@ -159,7 +160,46 @@
       "metaDescription": "{nom} : {roles} de Mobile Legends: Bang Bang, joué en {lanes}. Contres et builds par rang, compétences, histoire et {skins} skins.",
       "comparer": "Comparer",
       "titreFiche": "{nom} : build, contres et stats",
-      "ogAccroche": "Builds, contres et stats par rang"
+      "ogAccroche": "Builds, contres et stats par rang",
+      "statistiques": {
+        "evolution": "Évolution sur {n} jours",
+        "evolutionIntro": "Taux quotidiens mesurés sur les parties classées, au rang choisi en haut de la fiche.",
+        "mesure": "Taux",
+        "mesures": {
+          "victoire": "Victoire",
+          "ban": "Ban",
+          "selection": "Sélection"
+        },
+        "periode": "Période",
+        "jours": "{n} j",
+        "actuel": "Actuel",
+        "variation": "Variation",
+        "min": "Plus bas",
+        "max": "Plus haut",
+        "resumeCourbe": "Taux de {mesure} : {debut} % au début de la période, {fin} % à la fin.",
+        "historiqueCourt": "L'API ne publie que trente jours : l'historique de ce site s'allonge à chaque mise à jour et marquera les patchs au fil des saisons.",
+        "duree": "Selon la durée de partie",
+        "dureeIntro": "Taux de victoire de {nom} selon la durée de la partie, sur sa position principale.",
+        "minutes": "{de}–{a} min",
+        "minutesPlus": "{de} min et +",
+        "pic": "Meilleure période : {tranche}",
+        "profil": {
+          "debut": "Plus fort en début de partie",
+          "fin": "Plus fort en fin de partie",
+          "stable": "Régulier tout au long de la partie"
+        },
+        "parRang": "Selon le rang",
+        "parRangIntro": "Taux de victoire et de ban dans chaque tranche de rang.",
+        "banCourt": "ban {v} %",
+        "historique": "Historique",
+        "historiqueIntro": "Tous rangs confondus, depuis le {date}. L'historique s'allonge à chaque mise à jour des données ; les traits verticaux marquent les patchs.",
+        "ajustements": "Ajustements par patch",
+        "ajustementsIntro": "Ce que chaque patch récent a changé pour {nom}.",
+        "aucunAjustement": "Aucun ajustement de {nom} dans les {n} derniers patchs.",
+        "aucuneDonnee": "Pas encore de mesure pour ce héros."
+      },
+      "coequipiers": "Meilleurs coéquipiers",
+      "coequipiersIntro": "Les alliés avec lesquels {nom} gagne le plus, en points de victoire au-dessus de sa moyenne."
     },
     "items": {
       "titre": "Objets",
@@ -663,7 +703,15 @@
   "patchHeros": {
     "amelioration": "Amélioration",
     "affaiblissement": "Affaiblissement",
-    "ajustement": "Ajustement"
+    "ajustement": "Ajustement",
+    "detailsAVenir": "détails à venir",
+    "pluriel": {
+      "amelioration": "Améliorations",
+      "affaiblissement": "Affaiblissements",
+      "ajustement": "Ajustements"
+    },
+    "voirFiche": "Voir la fiche de {nom}",
+    "voirPatch": "Lire le patch {version}"
   },
   "emblemesUI": {
     "talents": "Talents décisifs",
@@ -1022,7 +1070,11 @@
     "guide": "Build complet d'un joueur",
     "guideIntro": "L'équipement complet, six objets, proposé par un joueur de ce rang — ou, à défaut, d'un rang supérieur : le guide le mieux noté sur l'académie du jeu. C'est un avis, pas une mesure — il n'a pas de taux de victoire.",
     "guideAuteur": "Meilleur rang de l'auteur : {rang}",
-    "guideVotes": "{n} vote(s)"
+    "guideVotes": "{n} vote(s)",
+    "ecartTitre": "Face au build le plus joué",
+    "ecartObjets": "objets clés absents ici : {objets}.",
+    "ecartTalent": "Talents les plus joués : {talent}.",
+    "aligne": "mêmes objets clés."
   },
   "horsLigne": {
     "bandeau": "Hors ligne — les pages déjà consultées restent disponibles."

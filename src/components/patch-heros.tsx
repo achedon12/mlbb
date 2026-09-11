@@ -76,7 +76,7 @@ export function PatchHeros({
             >
               <span className={s.couleur}>{s.icone}</span>
               <span className="font-semibold text-craie-100">{bilan[type] ?? 0}</span>
-              <span className="text-craie-500">{t(`patchHeros.${type}`)}s</span>
+              <span className="text-craie-500">{t(`patchHeros.pluriel.${type}`)}</span>
             </button>
           );
         })}
@@ -91,16 +91,50 @@ export function PatchHeros({
   );
 }
 
+/**
+ * Ajustements d'un heros au fil des patchs, du plus recent au plus ancien :
+ * la meme ligne que dans les notes de patch, titree par la version.
+ */
+export function AjustementsDuHeros({
+  entrees,
+  portrait,
+}: {
+  entrees: { version: string; ajustement: AjustementHeros }[];
+  portrait: string | null;
+}) {
+  const t = useT();
+  return (
+    <ul className="space-y-2">
+      {entrees.map((e) => (
+        <LigneHeros
+          key={e.version}
+          ajustement={e.ajustement}
+          portrait={portrait}
+          titre={`Patch ${e.version}`}
+          lien={{ href: `/patch-notes/${e.version}`, libelle: t("patchHeros.voirPatch", { version: e.version }) }}
+        />
+      ))}
+    </ul>
+  );
+}
+
 function LigneHeros({
   ajustement,
   portrait,
-  fiche,
+  fiche = false,
+  titre,
+  lien,
 }: {
   ajustement: AjustementHeros;
   portrait: string | null;
-  fiche: boolean;
+  fiche?: boolean;
+  /** Remplace le nom du heros, quand la liste est celle d'un seul heros. */
+  titre?: string;
+  lien?: { href: string; libelle: string };
 }) {
   const t = useT();
+  const cible =
+    lien ?? (fiche ? { href: `/heroes/${ajustement.slug}`, libelle: t("patchHeros.voirFiche", { nom: ajustement.nom }) } : null);
   const [ouvert, setOuvert] = useState(false);
   const s = ajustement.type ? STYLE[ajustement.type] : null;
   const detaille = ajustement.sections.length > 0 || ajustement.intro.length > 0;
@@ -119,7 +153,7 @@ function LigneHeros({
         <PortraitHeros source={portrait} nom={ajustement.nom} taille="moyenne" decoratif />
 
         <span className="min-w-0 flex-1">
-          <span className="font-titre font-bold text-craie-100">{ajustement.nom}</span>
+          <span className="font-titre font-bold text-craie-100">{titre ?? ajustement.nom}</span>
           {s && (
             <span className={cn("mt-0.5 flex items-center gap-1 text-xs font-semibold", s.couleur)}>
               {s.icone}
@@ -135,7 +169,7 @@ function LigneHeros({
             className={cn("shrink-0 text-craie-500 transition-transform", ouvert && "rotate-180")}
           />
         ) : (
-          <span className="shrink-0 text-xs text-craie-500">details a venir</span>
+          <span className="shrink-0 text-xs text-craie-500">{t("patchHeros.detailsAVenir")}</span>
         )}
       </button>
 
@@ -176,12 +210,12 @@ function LigneHeros({
             ))}
           </div>
 
-          {fiche && (
+          {cible && (
             <Link
-              href={`/heroes/${ajustement.slug}`}
+              href={cible.href}
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-or-400 hover:text-or-500"
             >
-              Voir la fiche de {ajustement.nom}
+              {cible.libelle}
               <ArrowRight size={14} aria-hidden />
             </Link>
           )}

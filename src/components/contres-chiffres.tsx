@@ -2,7 +2,7 @@
 
 import Link from "@/components/lien";
 import { PortraitHeros } from "@/components/portrait-heros";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { TrendingDown, TrendingUp, Users } from "lucide-react";
 import { useRang } from "@/components/selecteur-rang";
 import type { RangMesure } from "@/lib/rangs-mesure";
 import { useT } from "@/i18n/fournisseur";
@@ -72,6 +72,32 @@ export function ContresChiffres({
           ton="mauvais"
           entrees={courant.faible}
         />
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Coequipiers qui font le plus gagner le heros, au rang de la fiche : l'ecart
+ * est celui de son taux de victoire quand ils jouent ensemble.
+ */
+export function CoequipiersParRang({
+  nom,
+  parRang,
+}: {
+  nom: string;
+  parRang: Partial<Record<RangMesure, ContreAffiche[]>>;
+}) {
+  const t = useT();
+  const rang = useRang();
+  const liste = parRang[rang] ?? parRang.all;
+  if (!liste?.length) return null;
+
+  return (
+    <div>
+      <p className="mb-4 text-sm leading-relaxed text-craie-500">{t("pages.heroDetail.coequipiersIntro", { nom })}</p>
+      <div className="grid gap-4 md:grid-cols-2">
+        <Colonne titre={t("pages.heroDetail.coequipiers")} icone={<Users size={17} aria-hidden />} ton="bon" entrees={liste} />
       </div>
     </div>
   );

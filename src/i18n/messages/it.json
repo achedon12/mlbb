@@ -143,7 +143,8 @@
         "competences": "Abilità",
         "contres": "Counter",
         "builds": "Build",
-        "skins": "Skin"
+        "skins": "Skin",
+        "stats": "Statistiche"
       },
       "forces": "Punti di forza",
       "faiblesses": "Punti deboli",
@@ -159,7 +160,46 @@
       "metaDescription": "{nom}: {roles} di Mobile Legends: Bang Bang, giocato in {lanes}. Counter e build per rango, abilità, storia e {skins} skin.",
       "comparer": "Confronta",
       "titreFiche": "{nom}: build, counter e statistiche",
-      "ogAccroche": "Build, counter e statistiche per rango"
+      "ogAccroche": "Build, counter e statistiche per rango",
+      "statistiques": {
+        "evolution": "Andamento su {n} giorni",
+        "evolutionIntro": "Tassi giornalieri misurati sulle partite classificate, al rango scelto in cima alla scheda.",
+        "mesure": "Tasso",
+        "mesures": {
+          "victoire": "Vittorie",
+          "ban": "Ban",
+          "selection": "Scelta"
+        },
+        "periode": "Periodo",
+        "jours": "{n} g",
+        "actuel": "Attuale",
+        "variation": "Variazione",
+        "min": "Minimo",
+        "max": "Massimo",
+        "resumeCourbe": "Tasso di {mesure}: {debut}% all'inizio del periodo, {fin}% alla fine.",
+        "historiqueCourt": "L'API pubblica solo trenta giorni: lo storico di questo sito si allunga a ogni aggiornamento e segnerà le patch stagione dopo stagione.",
+        "duree": "Per durata della partita",
+        "dureeIntro": "Tasso di vittoria di {nom} in base alla durata della partita, nella corsia principale.",
+        "minutes": "{de}–{a} min",
+        "minutesPlus": "{de}+ min",
+        "pic": "Momento migliore: {tranche}",
+        "profil": {
+          "debut": "Più forte a inizio partita",
+          "fin": "Più forte a fine partita",
+          "stable": "Costante per tutta la partita"
+        },
+        "parRang": "Per rango",
+        "parRangIntro": "Tassi di vittoria e di ban in ogni fascia di rango.",
+        "banCourt": "ban {v}%",
+        "historique": "Storico",
+        "historiqueIntro": "Tutti i ranghi, dal {date}. Lo storico si allunga a ogni aggiornamento dei dati; le linee verticali indicano le patch.",
+        "ajustements": "Modifiche per patch",
+        "ajustementsIntro": "Cosa ha cambiato ogni patch recente per {nom}.",
+        "aucunAjustement": "Nessuna modifica a {nom} nelle ultime {n} patch.",
+        "aucuneDonnee": "Ancora nessuna misurazione per questo eroe."
+      },
+      "coequipiers": "Migliori compagni",
+      "coequipiersIntro": "Gli alleati con cui {nom} vince di più, in punti di vittoria sopra la media."
     },
     "items": {
       "titre": "Oggetti",
@@ -663,7 +703,15 @@
   "patchHeros": {
     "amelioration": "Buff",
     "affaiblissement": "Nerf",
-    "ajustement": "Modifica"
+    "ajustement": "Modifica",
+    "detailsAVenir": "dettagli in arrivo",
+    "pluriel": {
+      "amelioration": "Potenziamenti",
+      "affaiblissement": "Indebolimenti",
+      "ajustement": "Modifiche"
+    },
+    "voirFiche": "Vedi la scheda di {nom}",
+    "voirPatch": "Leggi la patch {version}"
   },
   "emblemesUI": {
     "talents": "Talenti decisivi",
@@ -1022,7 +1070,11 @@
     "guide": "Build completa di un giocatore",
     "guideIntro": "L'equipaggiamento completo, sei oggetti, proposto da un giocatore di questo rango — o, in mancanza, di un rango superiore: la guida più votata sull'accademia del gioco. È un parere, non una misura — non ha tasso di vittoria.",
     "guideAuteur": "Rango massimo dell'autore: {rang}",
-    "guideVotes": "{n} voto/i"
+    "guideVotes": "{n} voto/i",
+    "ecartTitre": "Rispetto alla build più giocata",
+    "ecartObjets": "oggetti chiave assenti qui: {objets}.",
+    "ecartTalent": "Talenti più giocati: {talent}.",
+    "aligne": "stessi oggetti chiave."
   },
   "horsLigne": {
     "bandeau": "Offline — le pagine già consultate restano disponibili."

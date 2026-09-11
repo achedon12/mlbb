@@ -143,7 +143,8 @@
         "competences": "Skills",
         "contres": "Counters",
         "builds": "Builds",
-        "skins": "Skins"
+        "skins": "Skins",
+        "stats": "Stats"
       },
       "forces": "Strengths",
       "faiblesses": "Weaknesses",
@@ -159,7 +160,46 @@
       "metaDescription": "{nom}: {roles} in Mobile Legends: Bang Bang, played in {lanes}. Counters and builds by rank, skills, lore and {skins} skins.",
       "comparer": "Compare",
       "titreFiche": "{nom}: build, counters and stats",
-      "ogAccroche": "Builds, counters and stats by rank"
+      "ogAccroche": "Builds, counters and stats by rank",
+      "statistiques": {
+        "evolution": "Last {n} days",
+        "evolutionIntro": "Daily rates measured on ranked games, at the rank selected at the top of the page.",
+        "mesure": "Rate",
+        "mesures": {
+          "victoire": "Win",
+          "ban": "Ban",
+          "selection": "Pick"
+        },
+        "periode": "Period",
+        "jours": "{n} d",
+        "actuel": "Current",
+        "variation": "Change",
+        "min": "Lowest",
+        "max": "Highest",
+        "resumeCourbe": "{mesure} rate: {debut}% at the start of the period, {fin}% at the end.",
+        "historiqueCourt": "The API only publishes thirty days: this site's history grows with every update and will mark patches as the seasons go by.",
+        "duree": "By game length",
+        "dureeIntro": "Win rate of {nom} by game length, in the main lane.",
+        "minutes": "{de}–{a} min",
+        "minutesPlus": "{de}+ min",
+        "pic": "Best window: {tranche}",
+        "profil": {
+          "debut": "Stronger early game",
+          "fin": "Stronger late game",
+          "stable": "Consistent throughout the game"
+        },
+        "parRang": "By rank",
+        "parRangIntro": "Win and ban rates in each rank bracket.",
+        "banCourt": "ban {v}%",
+        "historique": "History",
+        "historiqueIntro": "All ranks, since {date}. The history grows with every data update; vertical lines mark patches.",
+        "ajustements": "Patch changes",
+        "ajustementsIntro": "What each recent patch changed for {nom}.",
+        "aucunAjustement": "No changes to {nom} in the last {n} patches.",
+        "aucuneDonnee": "No measurements for this hero yet."
+      },
+      "coequipiers": "Best teammates",
+      "coequipiersIntro": "The allies {nom} wins the most with, in win-rate points above average."
     },
     "items": {
       "titre": "Items",
@@ -663,7 +703,15 @@
   "patchHeros": {
     "amelioration": "Buff",
     "affaiblissement": "Nerf",
-    "ajustement": "Adjustment"
+    "ajustement": "Adjustment",
+    "detailsAVenir": "details coming soon",
+    "pluriel": {
+      "amelioration": "Buffs",
+      "affaiblissement": "Nerfs",
+      "ajustement": "Adjustments"
+    },
+    "voirFiche": "Open the {nom} page",
+    "voirPatch": "Read patch {version}"
   },
   "emblemesUI": {
     "talents": "Key talents",
@@ -1022,7 +1070,11 @@
     "guide": "A player's full build",
     "guideIntro": "The full equipment, six items, suggested by a player of this rank — or, failing that, a higher one: the best-rated guide on the game's academy. It is an opinion, not a measurement — it has no win rate.",
     "guideAuteur": "Author's highest rank: {rang}",
-    "guideVotes": "{n} vote(s)"
+    "guideVotes": "{n} vote(s)",
+    "ecartTitre": "Compared with the most played build",
+    "ecartObjets": "key items missing here: {objets}.",
+    "ecartTalent": "Most played talents: {talent}.",
+    "aligne": "same key items."
   },
   "horsLigne": {
     "bandeau": "Offline — pages you have already visited are still available."
