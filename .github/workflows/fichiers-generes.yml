@@ -1,0 +1,23 @@
+name: Fichiers generes
+
+# src/data/jeu/ et public/visuels/ sont regeneres par la synchronisation : une
+# modification a la main serait ecrasee la nuit suivante. Une pull request qui
+# les touche echoue ici ; la correction se fait dans les scripts, ou sur le
+# wiki source (voir CONTRIBUTING.md).
+on:
+  pull_request:
+
+permissions: {}
+
+jobs:
+  verifier:
+    name: Fichiers generes intouches
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: xalvarez/prevent-file-change-action@dbc67c205c9ed02aa39c497b422c24f364c3e8dd # v3.0.1
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          pattern: '^(src/data/jeu|public/visuels)/'
+          trustedAuthors: achedon12

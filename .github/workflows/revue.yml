@@ -1,0 +1,54 @@
+name: Revue
+
+# Des changements sont demandes : la pull request repasse en brouillon,
+# etiquetee « à corriger ». Remise en « prete pour relecture », elle perd cette
+# etiquette et prend « à relire ».
+#
+# L'evenement de revue n'a qu'un jeton en lecture sur une pull request venue
+# d'un fork : pour celles-la, poser l'etiquette « à corriger » a la main fait
+# la meme chose. pull_request_target est sans risque ici : aucun code de la
+# pull request n'est recupere ni execute, seul gh modifie ses etiquettes.
+on:
+  pull_request_review:
+    types: [submitted]
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
+    types: [labeled, ready_for_review]
+
+permissions: {}
+
+jobs:
+  a-corriger:
+    name: Repasser en brouillon
+    if: >-
+      (github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested') ||
+      (github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'à corriger')
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Etiqueter et repasser en brouillon
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMERO: ${{ github.event.pull_request.number }}
+          DEPOT: ${{ github.repository }}
+        run: |
+          gh pr edit "$NUMERO" --repo "$DEPOT" --add-label "à corriger" || true
+          gh pr edit "$NUMERO" --repo "$DEPOT" --remove-label "à relire" || true
+          # Deja en brouillon : rien a faire.
+          gh pr ready "$NUMERO" --repo "$DEPOT" --undo || true
+
+  a-relire:
+    name: Remettre en relecture
+    if: github.event_name == 'pull_request_target' && github.event.action == 'ready_for_review'
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Changer d'etiquette
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMERO: ${{ github.event.pull_request.number }}
+          DEPOT: ${{ github.repository }}
+        run: |
+          gh pr edit "$NUMERO" --repo "$DEPOT" --remove-label "à corriger" || true
+          gh pr edit "$NUMERO" --repo "$DEPOT" --add-label "à relire" || true

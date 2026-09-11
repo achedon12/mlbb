@@ -29,8 +29,7 @@ on:
         type: boolean
         default: false
 
-permissions:
-  contents: write
+permissions: {}
 
 # Une synchronisation a la fois : deux executions pousseraient les memes fichiers.
 concurrency:
@@ -40,6 +39,8 @@ concurrency:
 jobs:
   synchroniser:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     timeout-minutes: 180
     outputs:
       commit: ${{ steps.commit.outputs.sha }}
@@ -47,8 +48,9 @@ jobs:
     env:
       COMPLETE: ${{ github.event.schedule == '30 3 * * 1' || inputs.complete == true }}
     steps:
-      - uses: actions/checkout@v7
-        with:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        # Identifiants conserves : l'etape de commit pousse sur main.
+        with: # zizmor: ignore[artipacked]
           ref: main
           # Vide, checkout se rabat sur GITHUB_TOKEN.
           ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
@@ -57,7 +59,7 @@ jobs:
         id: cle
         run: echo "presente=${{ secrets.SYNC_DEPLOY_KEY != '' }}" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
           cache: npm
@@ -127,7 +129,7 @@ jobs:
             git commit -q -m "Record hero rate history for $(date -u +%F)"
           fi
           # main a pu avancer pendant la synchronisation : on rejoue par-dessus.
-          for essai in 1 2 3; do
+          for _ in 1 2 3; do
             if git pull -q --rebase origin main && git push -q origin HEAD:main; then
               echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
               git log -1 --stat --format='%h %s' | tail -3
@@ -143,18 +145,23 @@ jobs:
   deployer:
     needs: synchroniser
     if: needs.synchroniser.outputs.commit != '' && needs.synchroniser.outputs.par-cle != 'true'
-    uses: ./.github/workflows/docker.yml
+    # Chemin local : le workflow du commit en cours, comme voulu.
+    uses: ./.github/workflows/docker.yml # zizmor: ignore[self-repository]
     with:
       ref: ${{ needs.synchroniser.outputs.commit }}
       deployer: true
-    secrets: inherit
+    secrets:
+      DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+      DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
     permissions:
       contents: read
 
   aligner:
     needs: synchroniser
     if: needs.synchroniser.outputs.commit != '' && needs.synchroniser.outputs.par-cle != 'true'
-    uses: ./.github/workflows/aligner-develop.yml
-    secrets: inherit
+    # Chemin local : le workflow du commit en cours, comme voulu.
+    uses: ./.github/workflows/aligner-develop.yml # zizmor: ignore[self-repository]
+    secrets:
+      SYNC_DEPLOY_KEY: ${{ secrets.SYNC_DEPLOY_KEY }}
     permissions:
       contents: write

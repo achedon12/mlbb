@@ -140,6 +140,14 @@ npm run build
 Tous doivent passer — la verification automatique les relancera de toute
 facon.
 
+Quelques automatismes accompagnent ensuite la pull request :
+
+- elle echoue d'office si elle modifie `src/data/jeu/` ou `public/visuels/`,
+  regeneres par la synchronisation ;
+- en conflit avec sa branche cible, elle est etiquetee « conflit » : rebasez-la ;
+- si des changements sont demandes, elle repasse en brouillon, etiquetee
+  « à corriger » ; remettez-la en « prete pour relecture » une fois corrigee.
+
 ## La relecture
 
 Chaque contribution passe par une pull request sur GitHub. Elle ne peut etre

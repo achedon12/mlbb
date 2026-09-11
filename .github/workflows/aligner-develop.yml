@@ -16,6 +16,9 @@ on:
   push:
     branches: [main]
   workflow_call:
+    secrets:
+      SYNC_DEPLOY_KEY:
+        required: false
   workflow_dispatch:
 
 permissions:
@@ -30,8 +33,9 @@ jobs:
     name: Reporter main sur develop
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-        with:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        # Identifiants conserves : develop est repoussee a la fin.
+        with: # zizmor: ignore[artipacked]
           fetch-depth: 0
           # Vide, checkout se rabat sur GITHUB_TOKEN.
           ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}

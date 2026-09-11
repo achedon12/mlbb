@@ -1,0 +1,45 @@
+name: Bienvenue
+
+# Premiere pull request d'un contributeur : un mot d'accueil a l'ouverture, un
+# merci a la fusion.
+#
+# pull_request_target est sans risque ici : aucun code de la pull request n'est
+# recupere ni execute, une action epinglee commente.
+on:
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
+    types: [opened, closed]
+    branches: [develop]
+
+permissions: {}
+
+jobs:
+  accueillir:
+    name: Accueillir les nouveaux contributeurs
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: plbstl/first-contribution@2c36bdb58684587f60549a69aaa3ec00b9d5f4fe # v4.3.3
+        with:
+          pr-reactions: rocket
+          pr-opened-msg: >
+            Bienvenue, et merci pour cette première contribution à MLBBDex !
+
+
+            Quelques repères, détaillés dans le
+            [guide de contribution](https://github.com/achedon12/mlbb/blob/develop/CONTRIBUTING.md) :
+
+            - laissez la pull request en brouillon tant que vous y travaillez,
+            puis passez-la en « prête pour relecture » ;
+
+            - les tests doivent passer, et le propriétaire du dépôt la relit
+            avant de la fusionner ;
+
+            - `src/data/jeu/` et `public/visuels/` sont régénérés chaque nuit :
+            n'y touchez pas à la main.
+
+
+            Une question ? Posez-la ici même.
+          pr-merged-msg: >
+            @{fc-author} bravo, votre première contribution est fusionnée ! Elle
+            sera en ligne à la prochaine mise en production de mlbbdex.com.

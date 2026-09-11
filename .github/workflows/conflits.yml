@@ -1,0 +1,32 @@
+name: Conflits
+
+# Etiquette « conflit » sur les pull requests qui ne s'appliquent plus
+# proprement sur leur branche cible : a rebaser avant la relecture. Reverifie
+# a chaque push sur develop ou main, qui peut en rendre d'autres conflictuelles.
+#
+# pull_request_target est sans risque ici : aucun code de la pull request n'est
+# recupere ni execute, une action epinglee pose ou retire l'etiquette.
+on:
+  push:
+    branches: [develop, main]
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
+    types: [opened, reopened, synchronize]
+
+permissions: {}
+
+jobs:
+  etiqueter:
+    name: Etiqueter les conflits
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: eps1lon/actions-label-merge-conflict@0273be72a0bbd58fcd71d0d6c02c209b50d1e5e1 # v3.1.0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          dirtyLabel: conflit
+          commentOnDirty: >
+            Cette pull request est en conflit avec sa branche cible. Rebasez-la
+            (`git fetch origin && git rebase origin/develop`) pour qu'elle
+            puisse etre relue.

@@ -1,0 +1,38 @@
+name: Issues inactives
+
+# Une issue restee sans activite deux mois est etiquetee « inactif », puis
+# fermee deux semaines plus tard si rien ne bouge. Bogues, idees, donnees
+# incorrectes et appels a l'aide ne sont jamais concernes, ni les pull
+# requests.
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  inactives:
+    name: Etiqueter puis fermer les issues inactives
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      issues: write
+    steps:
+      - uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11.0.0
+        with:
+          days-before-stale: 60
+          days-before-close: 14
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          stale-issue-label: inactif
+          exempt-issue-labels: "bug,enhancement,donnees,accessibility,good first issue,help wanted"
+          exempt-issue-assignees: achedon12
+          stale-issue-message: >
+            Cette issue n'a pas bougé depuis deux mois. Sans nouveau commentaire,
+            elle sera fermée dans deux semaines ; un simple message suffit à la
+            garder ouverte.
+          close-issue-message: >
+            Fermée faute d'activité. Si le sujet est toujours d'actualité,
+            rouvrez-la ou ouvrez-en une nouvelle avec les détails à jour.
+          operations-per-run: 100
