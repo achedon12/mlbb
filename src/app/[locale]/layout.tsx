@@ -35,6 +35,12 @@ const inter = Inter({
 type Params = { params: Promise<{ locale: string }> };
 
 /** Une version du site par langue, generee au build. */
+// Seules les quatre langues existent : toute autre valeur du premier segment
+// (/inexistant.txt, que le proxy laisse passer car il contient un point) est
+// une 404 immediate, sans rendre la moindre page. Rendue, elle faisait echouer
+// les metadonnees (date formatee dans une « langue » invalide) en erreur 500.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return LANGUES.map((locale) => ({ locale }));
 }

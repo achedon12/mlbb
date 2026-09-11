@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
   agentRules: false,
   reactStrictMode: true,
   poweredByHeader: false,
+  // La racine ne rend pas <html> (c'est [locale]/layout qui le fait) : une
+  // adresse inconnue hors langue, comme /llms.txt avant sa creation, finissait
+  // en erreur 500 en production. Cette 404 globale rend son propre document.
+  experimental: { globalNotFound: true },
   compress: true,
   // Version du site, lue dans package.json au build : le pied de page
   // l'affiche sans qu'on ait a la reporter a la main.
