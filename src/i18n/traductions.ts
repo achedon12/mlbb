@@ -29,7 +29,7 @@ export type { Arbre, T };
  */
 const SERVEUR_SEULEMENT = [
   "pied", "modeFiche", "histoire", "home", "vedette", "acces", "proses", "nouveauHeros", "articleUI", "articleCat",
-  "donneesHeros",
+  "donneesHeros", "notifPush",
 ];
 
 const estArbre = (x: unknown): x is Arbre => typeof x === "object" && x !== null && !Array.isArray(x);
@@ -44,12 +44,48 @@ function fusionner(base: Arbre, dessus: Arbre): Arbre {
 }
 
 /**
- * Catalogue transmis aux composants client : la langue de la page, completee
- * par la langue par defaut pour les cles manquantes, sans les rubriques
- * reservees au serveur.
+ * Rubriques propres a certaines pages : la mise en page ne les envoie pas, la
+ * page qui en a besoin les ajoute (`messagesPage` + `CompleterMessages`). Le
+ * catalogue client, repete dans chaque page, pesait 46 Ko dont 34 pour ces
+ * rubriques. `pages.introuvable` reste commun : la page 404 peut surgir
+ * partout.
+ */
+export const RUBRIQUES_DE_PAGE = ["pages", "emblemesData"];
+const COMMUNES_MALGRE_TOUT = ["pages.introuvable"];
+
+function complet(langue: Langue): Arbre {
+  return fusionner(MESSAGES[LANGUE_DEFAUT], MESSAGES[langue]);
+}
+
+/** Extrait d'un arbre les seuls chemins pointes demandes (`pages.heroDetail`). */
+function extraire(arbre: Arbre, chemins: string[]): Arbre {
+  const sortie: Arbre = {};
+  for (const chemin of chemins) {
+    const parties = chemin.split(".");
+    let source: string | Arbre | undefined = arbre;
+    for (const p of parties) source = estArbre(source) ? source[p] : undefined;
+    if (source === undefined) continue;
+    let cible = sortie;
+    for (const p of parties.slice(0, -1)) cible = (cible[p] = estArbre(cible[p]) ? cible[p] : {}) as Arbre;
+    cible[parties.at(-1)!] = source;
+  }
+  return sortie;
+}
+
+/**
+ * Catalogue commun transmis aux composants client : la langue de la page,
+ * completee par la langue par defaut pour les cles manquantes, sans les
+ * rubriques reservees au serveur ni celles propres a certaines pages.
  */
 export function messagesClient(langue: Langue): Arbre {
-  const complet = fusionner(MESSAGES[LANGUE_DEFAUT], MESSAGES[langue]);
-  for (const rubrique of SERVEUR_SEULEMENT) delete complet[rubrique];
-  return complet;
+  const tout = complet(langue);
+  const communes = extraire(tout, COMMUNES_MALGRE_TOUT);
+  for (const rubrique of SERVEUR_SEULEMENT) delete tout[rubrique];
+  void communes;
+  return tout;
+}
+
+/** Rubriques de page a ajouter au catalogue commun, pour les composants client de cette page. */
+export function messagesPage(langue: Langue, chemins: string[]): Arbre {
+  return extraire(complet(langue), chemins);
 }

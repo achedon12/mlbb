@@ -64,14 +64,31 @@
     "winRate": {
       "label": "Win rate calculator",
       "desc": "The wins you still need"
-    }
+    },
+    "team": {},
+    "meta": {},
+    "statistics": {},
+    "skins": {},
+    "serverTime": {},
+    "ranks": {},
+    "retribution": {},
+    "quiz": {},
+    "tierListMaker": {},
+    "lore": {},
+    "skinsCalendar": {},
+    "collection": {},
+    "groupes": {},
+    "parRole": {},
+    "parRang": {},
+    "parLane": {},
+    "parRoleTier": {},
+    "spells": {}
   },
   "compte": {
     "connexion": "Log in",
     "monCompte": "My account"
   },
   "pied": {
-    "description": "The French-language knowledge base for Mobile Legends: Bang Bang. An independent project, open to contributions.",
     "codeSource": "Source code",
     "leJeu": "The game",
     "actualites": "News",
@@ -81,11 +98,12 @@
     "monCompte": "My account",
     "mentionsLegales": "Legal notice",
     "confidentialite": "Privacy",
-    "credit": "Data from the Mobile Legends wiki (CC BY-SA) and the arena.rone.dev community API. No match statistics are available.",
     "droits": "independent fan project. Content published by {auteur}.",
     "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Version {v}",
-    "contribuer": "Contribute"
+    "contribuer": "Contribute",
+    "description": "The French-language knowledge base for Mobile Legends: Bang Bang. An independent project, open to contributions.",
+    "credit": "Data from the Mobile Legends wiki (CC BY-SA) and the arena.rone.dev community API. No match statistics are available."
   },
   "langue": {
     "choisir": "Language",
@@ -107,10 +125,10 @@
     "heroes": {
       "titre": "Heroes",
       "chapeau": "The game's {heros} heroes and their {skins} skins, filterable by role and lane. The {analyses} profiles marked “Analysis” also include commentary, builds and counters.",
-      "metaTitre": "All heroes",
       "metaDescription": "The {heros} heroes of Mobile Legends: Bang Bang, filterable by role and lane: portraits, skins, stats and {analyses} written analyses.",
       "ogDescription": "The {heros} heroes of Mobile Legends: Bang Bang, with their {skins} skins.",
-      "listeLd": "Mobile Legends: Bang Bang heroes"
+      "listeLd": "Mobile Legends: Bang Bang heroes",
+      "metaTitre": "All heroes"
     },
     "heroesListe": {
       "rechercher": "Search for a hero",
@@ -237,9 +255,9 @@
     "items": {
       "titre": "Items",
       "chapeau": "The {n} items in the shop. Click an item to see its details; filter by category or search directly for a stat.",
-      "metaTitre": "Items",
       "metaDescription": "The {n} items in Mobile Legends: Bang Bang: stats, unique effects, passives, recipes and prices, with their icons.",
-      "ogDescription": "The game's {n} items, with stats, passives and recipes."
+      "ogDescription": "The game's {n} items, with stats, passives and recipes.",
+      "metaTitre": "Items"
     },
     "itemsListe": {
       "rechercher": "Search for an item, stat or passive",
@@ -262,24 +280,25 @@
     "emblems": {
       "titre": "Emblems and talents",
       "chapeau": "The real question isn't which talents exist, but which ones to take for the role you play. Pick your emblem: the rest of the page reorganizes around it.",
-      "metaTitre": "Emblems, talents and Battle Spells",
       "metaDescription": "Which emblem, talent and Battle Spell to take for your role in Mobile Legends: Bang Bang. Pick your emblem and the page organizes itself around it.",
-      "ogDescription": "What to take for your role: emblems, talents and Battle Spells."
+      "ogDescription": "What to take for your role: emblems, talents and Battle Spells.",
+      "metaTitre": "Emblems, talents and Battle Spells"
     },
     "draft": {
       "titre": "Draft assistant",
       "chapeau": "Enter what you see on the enemy side, lane by lane. The tool suggests answers and explains what backs them up. Add your own picks as you go: the suggestions adjust.",
       "note": "Counters and synergies come from relationships reported by the game, not from opinion. They don't cover every matchup: a hero with no known counter in a lineup isn't necessarily a bad pick — it simply has nothing specific to answer there.",
-      "metaTitre": "Draft assistant",
       "metaDescription": "Enter the enemy lineup: the tool suggests what to pick in each lane and explains why — counters, synergies and win rates.",
-      "ogDescription": "What to pick against the enemy lineup, and why."
+      "ogDescription": "What to pick against the enemy lineup, and why.",
+      "metaTitre": "Draft assistant"
     },
     "compare": {
       "titre": "Compare",
       "chapeau": "Pick two heroes and read their strengths side by side: wiki ratings, win and ban rates reported by the game, roles and lanes. The best value in each row is highlighted.",
-      "metaTitre": "Hero comparison",
       "metaDescription": "Compare two Mobile Legends: Bang Bang heroes side by side: offense, durability, effects, difficulty, win and ban rates, roles and lanes.",
-      "ogDescription": "Two heroes compared side by side: ratings, win and ban rates, roles."
+      "ogDescription": "Two heroes compared side by side: ratings, win and ban rates, roles.",
+      "duels": {},
+      "metaTitre": "Hero comparison"
     },
     "news": {
       "titre": "News and guides",
@@ -292,10 +311,8 @@
     "tierList": {
       "titre": "Tier list",
       "chapeau": "This ranking isn't an opinion: it's calculated from the win and ban rates reported by the game, and rebuilds itself on every sync.",
-      "metaTitre": "Tier list",
       "metaDescription": "Mobile Legends: Bang Bang tier list calculated from the win and ban rates reported by the game. Recalculated on every sync, no opinions.",
       "ogDescription": "Ranking calculated from the game's win and ban rates.",
-      "mesures": "{n} heroes measured · rates recorded on",
       "commentCalcule": "How this ranking is calculated",
       "scorePre": "The score is ",
       "scoreBold": "win rate + a quarter of the ban rate",
@@ -321,12 +338,15 @@
       "metaDescriptionRang": "Mobile Legends hero ranking measured on {rang} ranked games: win, ban and pick rates, refreshed with every sync.",
       "chapeauRang": "The same formula, limited to {rang} games: a hero can dominate at one rank and struggle at another.",
       "conclusion": "A tier list measures how forgiving a hero is, not how far they can take you. A mastered C-tier hero beats an S+ hero picked up yesterday.",
-      "tendances": "The ↑ and ↓ arrows under the win rate show its change over seven days in this rank, when it reaches at least {seuil} points."
+      "tendances": "The ↑ and ↓ arrows under the win rate show its change over seven days in this rank, when it reaches at least {seuil} points.",
+      "laneSeo": {},
+      "rolePluriel": {},
+      "metaTitre": "Tier list",
+      "mesures": "{n} heroes measured · rates recorded on"
     },
     "patchNotes": {
       "titre": "Patch notes",
       "chapeau": "The content of recent updates is reproduced here, section by section. Older patches are still listed, with a link to their original page.",
-      "metaTitre": "Patch notes",
       "metaDescription": "The {n} patches of Mobile Legends: Bang Bang. Details of recent updates can be read right here, without leaving the site.",
       "ogDescription": "The game's {n} patches, with details of the most recent ones.",
       "recenses": "{n} patches listed · {m} readable on the site · synced on",
@@ -341,7 +361,11 @@
       "tous": "All patch notes",
       "archives": "Archive",
       "credit": "Notes taken from the {lien}, under the CC BY-SA license. The original text is published by Moonton; this site does not alter its content.",
-      "creditTraduit": "Notes taken from the {lien}, under the CC BY-SA license, and machine-translated from English. The original text is published by Moonton."
+      "creditTraduit": "Notes taken from the {lien}, under the CC BY-SA license, and machine-translated from English. The original text is published by Moonton.",
+      "changements": {
+        "resume": {}
+      },
+      "metaTitre": "Patch notes"
     },
     "login": {
       "titre": "Log in",
@@ -449,13 +473,13 @@
       "heros": "Browse heroes"
     },
     "winRate": {
-      "metaTitre": "MLBB win rate calculator",
       "titre": "Win rate calculator",
       "chapeau": "How many wins in a row to reach the win rate you want? Enter your matches and current win rate: everything is computed in your browser, nothing is sent.",
       "metaDescription": "Work out how many consecutive wins you need to reach a target win rate in Mobile Legends: Bang Bang, or how many matches at a given pace.",
       "methodeTitre": "How it works",
       "methode1": "With n matches and w wins, reaching a win rate t takes x straight wins such that (w + x) ÷ (n + x) ≥ t, i.e. x = (t × n − w) ÷ (1 − t), rounded up. The number of wins comes from the win rate shown in game, rounded to two decimals: a match is either won or lost, so it is a whole number.",
-      "methode2": "At a pace r above the target, it takes about (t × n − w) ÷ (r − t) matches. If the target is already reached, the calculator shows your margin: how many losses in a row you can take and stay above it."
+      "methode2": "At a pace r above the target, it takes about (t × n − w) ÷ (r − t) matches. If the target is already reached, the calculator shows your margin: how many losses in a row you can take and stay above it.",
+      "metaTitre": "MLBB win rate calculator"
     },
     "contribute": {
       "metaTitre": "Contribute: write a hero analysis",
@@ -601,8 +625,125 @@
       "indispoTexte": "The Moonton service that provides match history is not responding right now. You are still logged in; try again in a few minutes.",
       "videTitre": "No matches yet",
       "videTexte": "This account has no recorded season yet. Play a few matches, then come back: your profile will fill itself in.",
-      "retourCompte": "Back to account"
-    }
+      "retourCompte": "Back to account",
+      "serieVictoires": {},
+      "serieDefaites": {},
+      "evolutionSource": {},
+      "evolutionSaison": {},
+      "parPositionSource": {},
+      "sansRole": {},
+      "sansPosition": {}
+    },
+    "equipe": {},
+    "seo": {
+      "heros": {},
+      "tierList": {},
+      "heroes": {},
+      "items": {},
+      "emblems": {},
+      "draft": {},
+      "compare": {},
+      "patchNotes": {},
+      "patch": {
+        "titreChangements": {}
+      },
+      "winRate": {},
+      "tierLane": {},
+      "tierRole": {},
+      "heroesRole": {},
+      "meta": {},
+      "heureServeur": {},
+      "rangs": {},
+      "chatiment": {},
+      "quiz": {},
+      "createurTier": {},
+      "lore": {},
+      "loreRegion": {},
+      "calendrierSkins": {},
+      "calendrierAnnee": {},
+      "collection": {}
+    },
+    "fraicheur": {},
+    "apercuHeros": {},
+    "fiches": {},
+    "itemDetail": {},
+    "emblemDetail": {},
+    "spellDetail": {},
+    "heroCounters": {
+      "objets": {
+        "raison": {}
+      },
+      "duree": {},
+      "lanes": {},
+      "wiki": {},
+      "autres": {}
+    },
+    "heroesRole": {},
+    "meta": {
+      "resume": {},
+      "paliers": {},
+      "bansPicks": {},
+      "patch": {},
+      "lanes": {}
+    },
+    "statistics": {
+      "lecture": {}
+    },
+    "statisticsTable": {},
+    "skins": {},
+    "skinsGalerie": {
+      "nombre": {}
+    },
+    "heroSkins": {},
+    "duos": {
+      "phases": {},
+      "phase": {},
+      "phaseMinutes": {},
+      "phaseCourt": {},
+      "academie": {}
+    },
+    "versus": {
+      "duree": {},
+      "phaseEn": {},
+      "builds": {},
+      "equipe": {},
+      "liens": {}
+    },
+    "heureServeur": {},
+    "chatiment": {},
+    "rangs": {},
+    "quiz": {
+      "epreuves": {
+        "competence": {},
+        "skin": {},
+        "histoire": {},
+        "objet": {},
+        "duel": {}
+      }
+    },
+    "quizUI": {
+      "stats": {},
+      "types": {},
+      "questions": {},
+      "indices": {},
+      "comparaison": {},
+      "accord": {},
+      "annee": {},
+      "prix": {}
+    },
+    "createurTier": {},
+    "createurTierUI": {},
+    "lore": {
+      "region": {}
+    },
+    "loreUI": {},
+    "calendrierSkins": {
+      "annee": {}
+    },
+    "calendrierSkinsUI": {},
+    "collection": {},
+    "collectionUI": {},
+    "spellsListe": {}
   },
   "modeFiche": {
     "classic": {
@@ -758,10 +899,10 @@
           "h": "What it doesn't contain, and why"
         },
         {
-          "p": "No player stats. Moonton doesn't publish any programming interface: no rankings, no match history, no skill rating, no login status. Sites that show an “MMR” for Mobile Legends estimate it; they don't read it from anywhere."
+          "p": "No player rankings and no “MMR”. Moonton publishes no official interface: the stats shown here — win, ban and pick rates, counters, builds, trends — come from the community API arena.rone.dev, which aggregates ranked games by rank. Sites that show an “MMR” for Mobile Legends estimate it; they don't read it from anywhere."
         },
         {
-          "p": "The only information genuinely verifiable from the outside is the nickname tied to a player ID, via the validation step of top-up platforms. That's exactly what the account linking offered here does, and nothing more."
+          "p": "Once logged in with the in-game verification code, you see your own profile — season, heroes played, recent matches — read on demand through that same API, for you only. It is neither published nor kept beyond a cache of a few minutes."
         },
         {
           "p": "The visuals belong to Moonton. Portraits, icons and skin artwork come from the community wiki and are served by this site so that nothing depends on a third-party domain. They remain Moonton's property, are included for illustration purposes, and will be removed at the rights holder's request. The site's visual identity — midnight blue, gold, cut corners — is inspired by the game's without reusing its interface files."
@@ -782,7 +923,7 @@
           "p": "It's optional: all content is accessible without logging in. Logging in uses Moonton's official verification code — a four-digit code sent to your in-game mailbox. The site never sees your password: it receives a temporary token, stored in a secure cookie, which you delete when you log out."
         },
         {
-          "p": "No database, no account created on the site. Your favorite heroes are stored in your browser, not on a server."
+          "p": "No account is created on the site. Your favorite heroes stay in your browser. Only notifications, if you turn them on, keep your browser's push address and your list of favorites on the server: the privacy page details what is stored and how to delete it."
         },
         {
           "h": "Contribute"
@@ -894,7 +1035,8 @@
           "p": "Since the site keeps no personal data file, there is nothing to access, correct or delete on the server side. You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. For any question, write to [{contact}](mailto:{contact})."
         }
       ]
-    }
+    },
+    "push": {}
   },
   "compareUI": {
     "offensive": "Offense",
@@ -1054,7 +1196,8 @@
       "aucun": "None of your favorites was changed by patch {version}.",
       "modifie": "Changed",
       "rss": "Every hero page also offers an RSS feed of its changes, in the Stats tab."
-    }
+    },
+    "push": {}
   },
   "skinDispo": {
     "Available": "Available",
@@ -1427,5 +1570,26 @@
     "rythme": "Sustained win rate",
     "rythmeParties": "About {n} matches at a {rythme} win rate to reach the target.",
     "rythmeInsuffisant": "At a {rythme} win rate, you will never get above {objectif}: you need to win more often than the target."
+  },
+  "notifPush": {
+    "titre": {}
+  },
+  "equipeUI": {
+    "alertes": {
+      "degats": {}
+    },
+    "profilDuree": {},
+    "profilCourt": {}
+  },
+  "outils": {
+    "heureServeur": {
+      "echeance": {},
+      "groupe": {}
+    },
+    "chatiment": {
+      "objectif": {},
+      "difficulte": {},
+      "aideDifficulte": {}
+    }
   }
 }

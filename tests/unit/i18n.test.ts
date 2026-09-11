@@ -23,7 +23,14 @@ function aplatir(noeud: Noeud, prefixe = "", sortie = new Map<string, string>())
   return sortie;
 }
 
-const variables = (texte: string) => [...new Set(texte.match(/\{\w+\}/g) ?? [])].sort().join(" ");
+/**
+ * Variables propres a la grammaire d'une langue, ramenees a celle qu'elles
+ * remplacent : en francais, la page calcule l'elision (« d'Aamon », « de
+ * Gusion ») et la passe en {deNom}, la ou les autres langues ecrivent {nom}.
+ */
+const EQUIVALENTES: Record<string, string> = { "{deNom}": "{nom}" };
+const variables = (texte: string) =>
+  [...new Set((texte.match(/\{\w+\}/g) ?? []).map((v) => EQUIVALENTES[v] ?? v))].sort().join(" ");
 
 function resoudre(cle: string): Noeud | undefined {
   let courant: Noeud | undefined = CATALOGUES.fr;
