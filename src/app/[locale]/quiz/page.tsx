@@ -1,0 +1,113 @@
+import type { Metadata } from "next";
+import Link from "@/components/lien";
+import { QuizMlbb } from "@/components/quiz-mlbb";
+import { EnTetePage } from "@/components/ui";
+import type { Langue } from "@/i18n/config";
+import { CompleterMessages } from "@/i18n/fournisseur";
+import { donneesOutil, metaPage } from "@/i18n/seo";
+import { creerT, messagesPage } from "@/i18n/traductions";
+import { donneesLd } from "@/lib/html";
+import { ESSAIS, ORDRE_DEFI, PAIRES_DUEL } from "@/lib/quiz";
+import { rosterQuiz } from "@/lib/quiz-donnees";
+
+type Params = { params: Promise<{ locale: Langue }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { locale } = await params;
+  const t = creerT(locale);
+  return metaPage(locale, {
+    titre: t("pages.seo.quiz.titre"),
+    description: t("pages.seo.quiz.description"),
+    chemin: "/quiz",
+    motsCles: ["quiz", "guess the hero", "daily", "Mobile Legends", "MLBB"],
+  });
+}
+
+export default async function PageQuiz({ params }: Params) {
+  const { locale } = await params;
+  const t = creerT(locale);
+  const { heros, objets } = rosterQuiz(locale);
+  // Un jeu jouable dans le navigateur : application web et jeu a la fois.
+  const donneesStructurees = {
+    ...donneesOutil(locale, {
+      nom: t("pages.quiz.titre"),
+      description: t("pages.seo.quiz.description"),
+      chemin: "/quiz",
+      categorie: "GameApplication",
+    }),
+    "@type": ["WebApplication", "Game"],
+    genre: "Trivia",
+  };
+  const titre2 = "font-titre text-2xl font-bold text-craie-100";
+  const lien = "font-semibold text-or-400 transition-colors hover:text-or-500";
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
+      <EnTetePage
+        titre={t("pages.quiz.titre")}
+        chapeau={t("pages.quiz.chapeau")}
+        miettes={[{ nom: t("pages.quiz.miette") }]}
+      />
+      <div className="mx-auto max-w-3xl space-y-14 px-4 py-10">
+        <CompleterMessages messages={messagesPage(locale, ["pages.quizUI"])}>
+          <QuizMlbb heros={heros} objets={objets} />
+        </CompleterMessages>
+
+        <section>
+          <h2 className={titre2}>{t("pages.quiz.reglesTitre")}</h2>
+          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-craie-300">
+            <li>{t("pages.quiz.regle1")}</li>
+            <li>{t("pages.quiz.regle2", { heros: ESSAIS.competence, objets: ESSAIS.objet })}</li>
+            <li>{t("pages.quiz.regle3")}</li>
+            <li>{t("pages.quiz.regle4")}</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className={titre2}>{t("pages.quiz.epreuvesTitre")}</h2>
+          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <dl className="mt-4 space-y-4">
+            {ORDRE_DEFI.map((type) => (
+              <div key={type}>
+                <dt className="font-semibold text-craie-100">{t(`pages.quiz.epreuves.${type}.titre`)}</dt>
+                <dd className="mt-1 leading-relaxed text-craie-300">
+                  {t(`pages.quiz.epreuves.${type}.desc`, { n: PAIRES_DUEL })}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        <section>
+          <h2 className={titre2}>{t("pages.quiz.sourceTitre")}</h2>
+          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-craie-300">{t("pages.quiz.source")}</p>
+          <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <li>
+              <Link href="/heroes" className={lien}>
+                {t("pages.quiz.lienHeros")} →
+              </Link>
+            </li>
+            <li>
+              <Link href="/items" className={lien}>
+                {t("pages.quiz.lienObjets")} →
+              </Link>
+            </li>
+            <li>
+              <Link href="/tier-list" className={lien}>
+                {t("pages.quiz.lienTierList")} →
+              </Link>
+            </li>
+            <li>
+              <Link href="/tools/tier-list-maker" className={lien}>
+                {t("pages.quiz.lienCreateur")} →
+              </Link>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </>
+  );
+}
