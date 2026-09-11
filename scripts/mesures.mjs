@@ -1,3 +1,4 @@
+import { retirerBalises } from "./balises.mjs";
 /**
  * Calculs purs de la synchronisation des mesures : series quotidiennes,
  * historique cumule et compacte, choix des guides de joueurs et combos de
@@ -257,7 +258,7 @@ export function combosDuHeros(records, skills, competencesSite, icones) {
     .filter((d) => d?.desc && Array.isArray(d.skill_id) && d.skill_id.length > 0)
     .map((d) => ({
       type: typeCombo(d.title),
-      description: String(d.desc).replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim(),
+      description: retirerBalises(d.desc).replace(/\s+/g, " ").trim(),
       competences: d.skill_id.map(competence),
     }))
     .sort((a, b) => rang(a) - rang(b));

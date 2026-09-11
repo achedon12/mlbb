@@ -1,3 +1,5 @@
+import { retirerBalises } from "./balises.mjs";
+
 /**
  * Illustrations pleine taille d'une page de heros du wiki.
  *
@@ -33,17 +35,15 @@ export function extraireIllustrations(wikitexte) {
 }
 
 function nettoyerLegende(brut) {
-  return brut
+  const wiki = brut
     .split("|")
     .filter((s) => !/^\s*(link|alt|class)\s*=/i.test(s))
     .join("|")
     .replace(/<br\s*\/?>[\s\S]*$/i, "")
     .replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, "$1")
     .replace(/\{\{[^}]*\}\}/g, "")
-    .replace(/'{2,}/g, "")
-    .replace(/<[^>]+>/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
+    .replace(/'{2,}/g, "");
+  return retirerBalises(wiki).replace(/\s+/g, " ").trim();
 }
 
 /**
