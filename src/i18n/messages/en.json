@@ -163,6 +163,14 @@
     "advanceServer": {
       "label": "Advance Server",
       "desc": "Changes tested before the Official Server"
+    },
+    "objectiveTimer": {
+      "label": "Objective timer",
+      "desc": "Turtle, Lord and buffs in a match"
+    },
+    "mapGuide": {
+      "label": "Map guide",
+      "desc": "Camps, objectives and rotations"
     }
   },
   "compte": {
@@ -934,6 +942,14 @@
       "mlbbdle": {
         "title": "MLBBdle: daily Mobile Legends hero guessing game",
         "description": "Guess the Mobile Legends: Bang Bang hero of the day, Wordle and Loldle style: colour clues on role, lane, region, damage and release year, plus a daily skill-icon mode and endless practice. Free, no sign-up."
+      },
+      "timer": {
+        "title": "MLBB objective timer: Lord and Turtle spawn times",
+        "description": "Free Mobile Legends timer: Turtle at {turtle}, Lord, purple and orange buffs. Log each kill and get an alert {soon} then {urgent} s before each return. Screen stays on, works offline, timings from the wiki."
+      },
+      "map": {
+        "title": "Mobile Legends map guide: jungle camps, Turtle, Lord and rotations",
+        "description": "Interactive schematic map of the Land of Dawn: bases, lanes, turrets, jungle camps, Turtle and Lord, with timings, rewards and rotations by role. Values from the wiki, with sources."
       }
     },
     "fraicheur": {
@@ -2280,6 +2296,271 @@
         "announcedRevamp": "A revamp of {name} is presented in version {v}.",
         "readVersion": "All notes for version {v}"
       }
+    },
+    "timer": {
+      "title": "Objective timer",
+      "lead": "Turtle, Lord and buffs: a timer to keep next to your match. Start it at kick-off or sync it to the in-game clock, tap each kill, and get an alert {soon} then {urgent} seconds before each return.",
+      "timingsTitle": "Objective timings",
+      "turtleTitle": "Turtle",
+      "turtleText": "First Turtle at exactly {first}, next to the EXP lane. It comes back {respawn} s after it dies, but a Turtle killed after {cutoff} does not return: the Lord then appears {after} min later. Still alive at {lordFrom}, it turns into the Lord after {idle} s without taking damage, at {latest} at the latest. At most {max} Turtles per match.",
+      "turtleReward": "Each hero of the team earns {gold1}, {gold2} then {gold3} gold for the first three Turtles, plus a {shield} s shield.",
+      "lordTitle": "Lord",
+      "lordText": "No fixed time for the first one: {after} min after the last Turtle, or from {lordFrom} if a Turtle is still alive. Killed before {lateFrom}, it returns {respawn} s later. After {lateFrom}, the wiki contradicts itself: {late} s in the page text, {infobox} in its infobox. The timer counts to the first value and shows the window up to the second.",
+      "buffsTitle": "Purple and orange buffs",
+      "buffsText": "Orange buff at {orange}, purple buff at {purple}. Each returns {respawn} s after it dies and its effect lasts {duration} s. Each jungle has its own: the timer tracks your buff and the enemy's separately.",
+      "campsTitle": "Other camps",
+      "campsText": "Lithowanderer at {litho} (back {lithoRespawn} s after it dies), Cyclone Eyes at {cyclone} ({cycloneRecharge} s recharge), Little Crab at {littleCrab} (every {littleCrabRespawn} s). The Crab arrives at {crab} according to its page and at {crabGuide} according to the wiki's guide, then returns {crabRespawn} s after it dies. The timer lists them at the start of the match, without alerts.",
+      "usageTitle": "Using it in a match",
+      "usage1": "Put your phone next to the screen and tap “{start}” at kick-off. Already in a match? Type the time shown in game (345 for 3:45), then “{apply}”.",
+      "usage2": "Whenever an objective dies, tap its button: the return is computed from the displayed second. A mistaken tap is undone in one move.",
+      "usage3": "Vibration and beep (off by default) warn you {soon} then {urgent} seconds before each return, and the screen can stay on. Everything runs in the browser: once the page is open, the timer works offline, and the match stays in the tab if you reload.",
+      "usage4": "The timer does not read the match: it only knows what you tell it. Resync it as soon as it drifts by more than a second or two.",
+      "mapLink": "Map guide: camps, Turtle, Lord and rotations",
+      "retributionLink": "Practise Retribution",
+      "sourcesTitle": "Sources",
+      "sourcesIntro": "Mobile Legends wiki pages (Fandom), checked on {date}:",
+      "sourcesNote": "When two wiki values disagree (Lord respawn after {lateFrom}, Crab arrival), the timer shows the window between them instead of picking one."
+    },
+    "timerUI": {
+      "clockTitle": "Game time",
+      "state": {
+        "stopped": "Not started",
+        "running": "Running",
+        "paused": "Paused"
+      },
+      "start": "Start at 0:00",
+      "pause": "Pause",
+      "resume": "Resume",
+      "minus5": "−5 s",
+      "plus5": "+5 s",
+      "minus5Label": "Move the clock back 5 seconds",
+      "plus5Label": "Move the clock forward 5 seconds",
+      "timeField": "Time shown in game",
+      "apply": "Sync",
+      "inputHelp": "E.g. 3:45 or 345. The clock carries on from that time.",
+      "timeError": "Type a time such as 3:45 or 345.",
+      "killsTitle": "Objective killed",
+      "record": "Record kill:",
+      "name": {
+        "turtle": "Turtle",
+        "lord": "Lord",
+        "purple-buff": "Purple buff",
+        "orange-buff": "Orange buff",
+        "lithowanderer": "Lithowanderer",
+        "cyclone": "Cyclone Eyes",
+        "little-crab": "Little Crab",
+        "crab": "Crab",
+        "last-turtle": "Last possible Turtle",
+        "lord-18": "Faster Lord respawn"
+      },
+      "side": {
+        "ours": "ours",
+        "theirs": "theirs"
+      },
+      "up": "Up",
+      "noMoreTurtles": "No more Turtles",
+      "lastKill": "{objective} recorded at {time}",
+      "noKill": "Tap an objective when it dies.",
+      "notStarted": "Start the clock to record kills.",
+      "undo": "Undo",
+      "upcomingTitle": "Upcoming spawns",
+      "upcomingPreview": "Preview of a match just starting: the countdowns begin with the clock.",
+      "at": "at {time}",
+      "milestone": {
+        "last-turtle": "A Turtle killed after this time does not return.",
+        "lord-18": "Killed after this time, the Lord comes back sooner."
+      },
+      "note": {
+        "replacesTurtle": "If the Turtle is still alive, it becomes the Lord between {start} and {end}.",
+        "afterTurtle": "Follows the last Turtle.",
+        "infobox": "The wiki says {start} in its text, {end} in its infobox.",
+        "sourcesDisagree": "The wiki's guide says {start}, the Crab page {end}."
+      },
+      "settingsTitle": "Alerts and screen",
+      "vibration": "Vibration",
+      "sound": "Beep",
+      "thresholds": "At {soon} s and {urgent} s",
+      "notSupported": "Not supported here",
+      "wakeLock": "Keep screen on",
+      "wakeLockHint": "Stops the phone from sleeping",
+      "wakeLockOn": "Screen kept on",
+      "wakeLockDenied": "Refused by the browser",
+      "newMatch": "New match",
+      "confirm": "Tap again to clear",
+      "kept": "The match stays in this tab, even after a reload.",
+      "announce": "{objective} in {n} seconds"
+    },
+    "map": {
+      "title": "Map guide",
+      "lead": "The Land of Dawn in one diagram: bases, lanes, turrets, river, jungle camps, Turtle and Lord. Tap a point to see its role, timing and reward, then follow the rotation for your role.",
+      "mapTitle": "The map, point by point",
+      "reading": "Our own diagram, not to scale, seen from your side: your base in the bottom left. The river cuts the map diagonally and each enemy camp mirrors yours. Timings and rewards come from the wiki; exact camp positions are approximate.",
+      "seconds": "{n} s",
+      "hpAt12": "{start} ({at12} at 12:00)",
+      "healReward": "Healing buff: {hp} HP and {mana}% mana over {duration} s",
+      "wavesValue": "First wave at {first}, then every {interval} s",
+      "timerLink": "Objective timer",
+      "retributionLink": "Retribution test",
+      "tierLink": "Tier list: {role}",
+      "timerCta": "Track Turtle, Lord and buffs in a match with the timer",
+      "sourcesTitle": "Sources",
+      "sourcesIntro": "Mobile Legends wiki pages (Fandom), checked on {date}:",
+      "fact": {
+        "firstSpawn": "First spawn",
+        "respawn": "Respawn",
+        "hp": "HP",
+        "reward": "Reward",
+        "location": "Location",
+        "count": "Count",
+        "range": "Range",
+        "waves": "Waves",
+        "bonus": "Early bonus"
+      },
+      "point": {
+        "turtle": {
+          "name": "Turtle",
+          "role": "Shared objective in the river. The first Turtle always spawns next to the EXP lane; the game shows where the next one will appear. The whole team that kills it gains gold and EXP.",
+          "respawn": "{delay} s after it dies, if it dies before {cutoff}; at most {max} per match",
+          "reward": "{gold1}, {gold2} then {gold3} gold per hero, EXP and a {shield} s team shield; a stronger shield and an attack bonus for the last hit"
+        },
+        "lord": {
+          "name": "Lord",
+          "role": "The strongest monster on the map. The team that kills it summons it: it pushes the enemy's weakest lane and empowers the next minion wave.",
+          "firstSpawn": "{after} min after the last Turtle, or between {from} and {latest} if a Turtle is still alive",
+          "respawn": "{respawn} s after it dies; after {lateFrom}, {late} s per the wiki text, {infobox} per its infobox",
+          "reward": "Next minion wave empowered; the summoned Lord pushes with your team, and nearby allies deal {bonus} extra base magic damage ({cooldown} s cooldown)",
+          "location": "The wiki does not say which pit it uses: a Turtle still alive at {from} turns into the Lord where it stands. The diagram puts it across from the first Turtle; trust the minimap."
+        },
+        "purple-buff": {
+          "name": "Purple buff",
+          "role": "Two monsters (a large and a small Thunder Fenrir) on the left side of each jungle. Once they die, a path opens behind them until they respawn.",
+          "reward": "For {duration} s: skill cooldowns −{cooldown}%, mana cost −{mana}%, energy cost −{energy}%; a kill restores {minion}% HP (minion), {hero}% (hero) or {creep}% (creep)"
+        },
+        "orange-buff": {
+          "name": "Orange buff",
+          "role": "A single monster (Molten Fiend) near the bottom lane, by the second turret.",
+          "reward": "For {duration} s: your attacks on heroes add true damage ({damage} base) and a {slowMelee}% slow (Assassin, Fighter, Tank) or {slowRanged}% (Marksman, Mage, Support), with {penMelee} or {penRanged}% penetration"
+        },
+        "lithowanderer": {
+          "name": "Lithowanderer",
+          "role": "A small river creature near mid that never fights back. Its killer is followed by the Walkie Grass and leaves a Stone Roamer that reveals enemies.",
+          "reward": "Walkie Grass: +{mana}% mana per second to nearby allies, +{speed}% river speed for {duration} s; the Stone Roamer patrols for {patrol} s"
+        },
+        "crab": {
+          "name": "Crab",
+          "role": "In the river, near the side lanes. The Little Crab comes first and respawns often; the Crab then takes its place.",
+          "firstSpawn": "Little Crab at {little}, Crab at {crab} (the wiki's guide says {guide})",
+          "respawn": "Little Crab every {little} s, Crab {crab} s after it dies",
+          "reward": "Gold buff: {gold} gold over {duration} s ({littleGold} over {littleDuration} s for the Little Crab)"
+        },
+        "lizard": {
+          "name": "Horned Lizard",
+          "role": "Small jungle camp. Below half HP, it gains defence."
+        },
+        "beetle": {
+          "name": "Fire Beetle",
+          "role": "Small jungle camp. When it dies, it leaves a weaker Little Fire Beetle that lives up to {larva} s."
+        },
+        "golem": {
+          "name": "Lava Golem",
+          "role": "Small jungle camp with no special ability."
+        },
+        "cyclone": {
+          "name": "Cyclone Eye",
+          "role": "Step on it: after {delay} s, your hero glides forward and can pass through some obstacles.",
+          "respawn": "Recharges {recharge} s after use"
+        },
+        "turret": {
+          "name": "Turrets",
+          "role": "They shoot enemies in range; each consecutive shot on a hero hits {ramp}% harder, up to {rampMax} times. With no enemy minion in range, they take {reduction}% less damage. Outer turrets stay idle until {idle} s after the first wave.",
+          "count": "{perTeam} per team, {perLane} per lane",
+          "range": "Range {range}, sight {sight} (game units)"
+        },
+        "base": {
+          "name": "Base",
+          "role": "Destroy the enemy base to win. It is only exposed once a lane's three turrets are down; when a base turret falls, Super Minions attack that lane."
+        },
+        "exp-lane": {
+          "name": "EXP lane",
+          "role": "The lane next to the first Turtle. Usually held by a Fighter, who relies on skills.",
+          "bonus": "First {waves} waves (until {end}): the cannon minion gives {bonus}% extra EXP"
+        },
+        "mid-lane": {
+          "name": "Mid lane",
+          "role": "The shortest lane: minions reach it before the side lanes. Ideal for a Mage who rotates to the other lanes.",
+          "bonus": "First {waves} waves: {lancers} lancers and {infantry} infantry"
+        },
+        "gold-lane": {
+          "name": "Gold lane",
+          "role": "The lane away from the first Turtle. Usually held by a Marksman, who needs items as soon as possible.",
+          "bonus": "First {waves} waves (until {end}): the cannon minion gives {bonus}% extra gold"
+        }
+      },
+      "rotations": {
+        "title": "Rotations by role",
+        "intro": "The first minutes of each role, in a few pointers. Timings come from the wiki; the rest is advice.",
+        "jungle": {
+          "title": "Jungle",
+          "step1": "Start with the buff closest to the EXP lane (orange at {orange}, purple at {purple}): the clear leaves you level 4 near the Gold lane, ready to gank.",
+          "step2": "Chain the other buff and the small camps on that side; the Lithowanderer ({litho}, near mid) helps you reach level 4.",
+          "step3": "Be at the Turtle for {turtle} with Retribution ready. Buffs return {buff} s after they die: log them in the timer.",
+          "step4": "Leave lane minions to your laners early on. Secure at least one of three: buffs, kills or Turtle."
+        },
+        "roam": {
+          "title": "Roam",
+          "step1": "During the first minute, guard your jungler's first buff against an invade.",
+          "step2": "Head to the Turtle before {turtle}: the roamer comes to help take it.",
+          "step3": "Move from lane to lane to give your team vision.",
+          "step4": "From {share}, your minion and creep rewards are shared with the team: stay grouped."
+        },
+        "gold": {
+          "title": "Gold lane",
+          "step1": "For the first {waves} waves (until {end}), your lane's cannon minion is worth {goldBonus}% more gold: don't miss its last hit.",
+          "step2": "The Crab, in the river near the side lanes, gives {crabGold} gold over {crabDuration} s; the Little Crab shows up from {littleCrab}.",
+          "step3": "Your jungler does not take your minions: they are yours early on.",
+          "step4": "Alone in your lane, wait for the next wave in a bush rather than showing yourself."
+        },
+        "exp": {
+          "title": "EXP lane",
+          "step1": "The first Turtle spawns at {turtle} next to your lane: be level 4 and ready to help.",
+          "step2": "For the first {waves} waves, your lane's cannon minion gives {expBonus}% extra EXP.",
+          "step3": "After the Turtle, go back to farming if the fight isn't winnable."
+        },
+        "mid": {
+          "title": "Mid lane",
+          "step1": "The Lithowanderer spawns at {litho} near mid: mana regen and river speed for whoever finishes it.",
+          "step2": "The first {waves} mid waves have {lancers} lancers and {infantry} infantry: clear fast, then rotate to the sides.",
+          "step3": "Be level 4 for the Turtle at {turtle}, and watch for an invade of your jungle in the first minute."
+        }
+      }
+    },
+    "mapUI": {
+      "mapLabel": "Schematic map of the Land of Dawn",
+      "keyboardHelp": "Tap a point on the map, or move between points with the arrow keys: its card shows alongside.",
+      "listTitle": "Points of interest",
+      "group": {
+        "objective": "Objectives",
+        "buff": "Buffs",
+        "camp": "Camps",
+        "terrain": "Terrain",
+        "lane": "Lanes"
+      },
+      "side": {
+        "ours": "your side",
+        "theirs": "enemy side"
+      },
+      "legend": {
+        "ours": "Your side",
+        "theirs": "Enemy side",
+        "shared": "Shared",
+        "river": "River"
+      },
+      "short": {
+        "exp-lane": "EXP",
+        "mid-lane": "Mid",
+        "gold-lane": "Gold"
+      },
+      "source": "Source:"
     }
   },
   "modeFiche": {

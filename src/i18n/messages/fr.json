@@ -163,6 +163,14 @@
     "advanceServer": {
       "label": "Serveur Advance",
       "desc": "Changements en test avant le serveur officiel"
+    },
+    "objectiveTimer": {
+      "label": "Chrono des objectifs",
+      "desc": "Tortue, Seigneur et buffs en partie"
+    },
+    "mapGuide": {
+      "label": "Guide de la carte",
+      "desc": "Camps, objectifs et rotations"
     }
   },
   "compte": {
@@ -934,6 +942,14 @@
       "mlbbdle": {
         "title": "MLBBdle : le jeu quotidien pour deviner le héros Mobile Legends",
         "description": "Devinez le héros Mobile Legends: Bang Bang du jour, façon Wordle et Loldle : indices de couleur sur le rôle, la lane, la région, les dégâts et l'année de sortie, un mode compétence quotidien et un entraînement sans fin. Gratuit, sans inscription."
+      },
+      "timer": {
+        "title": "Chrono d'objectifs MLBB : apparition du Seigneur et de la Tortue",
+        "description": "Chrono gratuit pour Mobile Legends : Tortue à {turtle}, Seigneur, buffs violet et orange. Notez chaque mort et recevez une alerte {soon} puis {urgent} s avant chaque retour. Écran allumé, hors connexion, horaires tirés du wiki."
+      },
+      "map": {
+        "title": "Carte de Mobile Legends : camps de la jungle, Tortue, Seigneur et rotations",
+        "description": "Carte schématique et interactive de la Terre de l'Aube : bases, lanes, tourelles, camps de la jungle, Tortue et Seigneur, avec horaires, récompenses et rotations par rôle. Valeurs tirées du wiki, sources à l'appui."
       }
     },
     "fraicheur": {
@@ -2280,6 +2296,271 @@
         "announcedRevamp": "Une refonte de {name} est présentée dans la version {v}.",
         "readVersion": "Toutes les notes de la version {v}"
       }
+    },
+    "timer": {
+      "title": "Chrono des objectifs",
+      "lead": "Tortue, Seigneur et buffs : un chrono à poser à côté de la partie. Démarrez-le au coup d'envoi ou calez-le sur l'horloge du jeu, notez chaque mort d'un toucher et recevez une alerte {soon} puis {urgent} secondes avant chaque retour.",
+      "timingsTitle": "Horaires des objectifs",
+      "turtleTitle": "Tortue",
+      "turtleText": "Première Tortue à {first} pile, à côté de la lane EXP. Elle revient {respawn} s après sa mort, mais une Tortue tuée après {cutoff} ne revient plus : le Seigneur apparaît alors {after} min plus tard. Encore en vie à {lordFrom}, elle devient Seigneur après {idle} s sans dégâts, au plus tard à {latest}. Au plus {max} Tortues par partie.",
+      "turtleReward": "Chaque héros de l'équipe gagne {gold1}, {gold2} puis {gold3} pièces d'or pour les trois premières Tortues, et un bouclier de {shield} s.",
+      "lordTitle": "Seigneur",
+      "lordText": "Pas d'heure fixe pour le premier : {after} min après la dernière Tortue, ou dès {lordFrom} si une Tortue est encore en vie. Tué avant {lateFrom}, il revient {respawn} s plus tard. Après {lateFrom}, le wiki se contredit : {late} s dans le texte de la page, {infobox} dans son encadré. Le chrono compte jusqu'à la première valeur et affiche la fenêtre jusqu'à la seconde.",
+      "buffsTitle": "Buffs violet et orange",
+      "buffsText": "Buff orange à {orange}, buff violet à {purple}. Chacun revient {respawn} s après sa mort et son effet dure {duration} s. Chaque jungle a les siens : le chrono suit votre buff et celui de l'adversaire à part.",
+      "campsTitle": "Autres camps",
+      "campsText": "Lithowanderer à {litho} (retour {lithoRespawn} s après sa mort), Yeux du Cyclone à {cyclone} (recharge de {cycloneRecharge} s), petit Crabe à {littleCrab} (toutes les {littleCrabRespawn} s). Le Crabe arrive à {crab} selon sa fiche, à {crabGuide} selon le guide du wiki, puis revient {crabRespawn} s après sa mort. Le chrono les affiche en début de partie, sans alerte.",
+      "usageTitle": "S'en servir en partie",
+      "usage1": "Posez le téléphone à côté de l'écran et touchez « {start} » au coup d'envoi. Déjà en partie ? Tapez le temps affiché en jeu (345 pour 3:45) puis « {apply} ».",
+      "usage2": "À chaque mort d'objectif, touchez son bouton : le retour se calcule à partir de la seconde affichée. Un toucher de travers s'annule d'un geste.",
+      "usage3": "Vibration et bip (coupé par défaut) préviennent {soon} puis {urgent} secondes avant chaque retour, et l'écran peut rester allumé. Tout tourne dans le navigateur : une fois la page ouverte, le chrono marche sans connexion, et la partie reste dans l'onglet si vous rechargez.",
+      "usage4": "Le chrono ne lit pas la partie : il ne sait que ce que vous lui dites. Recalez-le dès que l'écart dépasse une seconde ou deux.",
+      "mapLink": "Guide de la carte : camps, Tortue, Seigneur et rotations",
+      "retributionLink": "S'entraîner au Châtiment",
+      "sourcesTitle": "Sources",
+      "sourcesIntro": "Pages du wiki Mobile Legends (Fandom), consultées le {date} :",
+      "sourcesNote": "Quand deux valeurs du wiki se contredisent (retour du Seigneur après {lateFrom}, arrivée du Crabe), le chrono montre la fenêtre entre les deux plutôt que d'en choisir une."
+    },
+    "timerUI": {
+      "clockTitle": "Temps de jeu",
+      "state": {
+        "stopped": "Pas encore lancé",
+        "running": "En marche",
+        "paused": "En pause"
+      },
+      "start": "Démarrer à 0:00",
+      "pause": "Pause",
+      "resume": "Reprendre",
+      "minus5": "−5 s",
+      "plus5": "+5 s",
+      "minus5Label": "Reculer l'horloge de 5 secondes",
+      "plus5Label": "Avancer l'horloge de 5 secondes",
+      "timeField": "Temps affiché en jeu",
+      "apply": "Caler",
+      "inputHelp": "Ex. 3:45 ou 345. L'horloge repart de ce temps.",
+      "timeError": "Tapez un temps comme 3:45 ou 345.",
+      "killsTitle": "Objectif tué",
+      "record": "Noter la mort :",
+      "name": {
+        "turtle": "Tortue",
+        "lord": "Seigneur",
+        "purple-buff": "Buff violet",
+        "orange-buff": "Buff orange",
+        "lithowanderer": "Lithowanderer",
+        "cyclone": "Yeux du Cyclone",
+        "little-crab": "Petit Crabe",
+        "crab": "Crabe",
+        "last-turtle": "Dernière Tortue possible",
+        "lord-18": "Retour du Seigneur accéléré"
+      },
+      "side": {
+        "ours": "chez nous",
+        "theirs": "chez eux"
+      },
+      "up": "En place",
+      "noMoreTurtles": "Plus de Tortue",
+      "lastKill": "{objective} noté à {time}",
+      "noKill": "Touchez un objectif à sa mort.",
+      "notStarted": "Démarrez l'horloge pour noter les morts.",
+      "undo": "Annuler",
+      "upcomingTitle": "Prochaines apparitions",
+      "upcomingPreview": "Aperçu d'une partie qui démarre : les comptes à rebours partent avec l'horloge.",
+      "at": "à {time}",
+      "milestone": {
+        "last-turtle": "Une Tortue tuée après cette heure ne revient pas.",
+        "lord-18": "Tué après cette heure, le Seigneur revient plus vite."
+      },
+      "note": {
+        "replacesTurtle": "Si la Tortue vit encore, elle devient Seigneur entre {start} et {end}.",
+        "afterTurtle": "Suit la dernière Tortue.",
+        "infobox": "Le wiki dit {start} dans son texte, {end} dans son encadré.",
+        "sourcesDisagree": "Le guide du wiki dit {start}, la fiche du Crabe {end}."
+      },
+      "settingsTitle": "Alertes et écran",
+      "vibration": "Vibration",
+      "sound": "Bip",
+      "thresholds": "À {soon} s et à {urgent} s",
+      "notSupported": "Non pris en charge ici",
+      "wakeLock": "Écran allumé",
+      "wakeLockHint": "Empêche la mise en veille",
+      "wakeLockOn": "Écran maintenu allumé",
+      "wakeLockDenied": "Refusé par le navigateur",
+      "newMatch": "Nouvelle partie",
+      "confirm": "Toucher encore pour effacer",
+      "kept": "La partie reste dans cet onglet, même après un rechargement.",
+      "announce": "{objective} dans {n} secondes"
+    },
+    "map": {
+      "title": "Guide de la carte",
+      "lead": "La Terre de l'Aube en un schéma : bases, lanes, tourelles, rivière, camps de la jungle, Tortue et Seigneur. Touchez un point pour voir son rôle, son horaire et sa récompense, puis suivez la rotation de votre rôle.",
+      "mapTitle": "La carte, point par point",
+      "reading": "Schéma maison, pas à l'échelle, vu depuis votre camp : votre base en bas à gauche. La rivière coupe la carte en diagonale et chaque camp adverse est le reflet du vôtre. Horaires et récompenses viennent du wiki ; la position exacte des camps est approximative.",
+      "seconds": "{n} s",
+      "hpAt12": "{start} (puis {at12} à 12:00)",
+      "healReward": "Buff de soin : {hp} PV et {mana} % de mana en {duration} s",
+      "wavesValue": "Première vague à {first}, puis toutes les {interval} s",
+      "timerLink": "Chrono des objectifs",
+      "retributionLink": "Test de Châtiment",
+      "tierLink": "Tier list : {role}",
+      "timerCta": "Suivre Tortue, Seigneur et buffs en partie avec le chrono",
+      "sourcesTitle": "Sources",
+      "sourcesIntro": "Pages du wiki Mobile Legends (Fandom), consultées le {date} :",
+      "fact": {
+        "firstSpawn": "Première apparition",
+        "respawn": "Réapparition",
+        "hp": "PV",
+        "reward": "Récompense",
+        "location": "Emplacement",
+        "count": "Nombre",
+        "range": "Portée",
+        "waves": "Vagues",
+        "bonus": "Bonus de départ"
+      },
+      "point": {
+        "turtle": {
+          "name": "Tortue",
+          "role": "Objectif commun dans la rivière. La première Tortue apparaît toujours à côté de la lane EXP ; le jeu indique où apparaît la suivante. Toute l'équipe qui l'abat gagne or et EXP.",
+          "respawn": "{delay} s après sa mort, si elle meurt avant {cutoff} ; au plus {max} par partie",
+          "reward": "{gold1}, {gold2} puis {gold3} pièces d'or par héros, EXP et bouclier d'équipe de {shield} s ; bouclier renforcé et bonus d'attaque pour l'auteur du coup final"
+        },
+        "lord": {
+          "name": "Seigneur",
+          "role": "Le monstre le plus puissant de la carte. L'équipe qui le tue l'invoque : il pousse la lane la plus faible de l'adversaire et renforce la prochaine vague de sbires.",
+          "firstSpawn": "{after} min après la dernière Tortue, ou entre {from} et {latest} si une Tortue est encore en vie",
+          "respawn": "{respawn} s après sa mort ; après {lateFrom}, {late} s selon le texte du wiki, {infobox} selon son encadré",
+          "reward": "Prochaine vague de sbires renforcée ; le Seigneur invoqué pousse avec votre équipe, et les alliés proches infligent {bonus} dégâts magiques de base en plus (recharge {cooldown} s)",
+          "location": "Le wiki ne dit pas quelle fosse il occupe : une Tortue encore en vie à {from} devient Seigneur sur place. Le schéma le place en face de la première Tortue ; fiez-vous à la mini-carte."
+        },
+        "purple-buff": {
+          "name": "Buff violet",
+          "role": "Deux monstres (grand et petit Thunder Fenrir) sur le côté gauche de chaque jungle. Une fois tués, un passage s'ouvre derrière eux jusqu'à leur retour.",
+          "reward": "Pendant {duration} s : recharge des compétences −{cooldown} %, coût en mana −{mana} %, en énergie −{energy} % ; une élimination rend {minion} % des PV (sbire), {hero} % (héros) ou {creep} % (monstre)"
+        },
+        "orange-buff": {
+          "name": "Buff orange",
+          "role": "Monstre solitaire (Molten Fiend) près de la lane du bas, vers la deuxième tourelle.",
+          "reward": "Pendant {duration} s : vos attaques sur les héros ajoutent des dégâts bruts ({damage} de base) et un ralentissement de {slowMelee} % (assassin, combattant, tank) ou {slowRanged} % (tireur, mage, support), avec {penMelee} ou {penRanged} % de pénétration"
+        },
+        "lithowanderer": {
+          "name": "Lithowanderer",
+          "role": "Petite créature de la rivière, près du milieu, qui ne riposte jamais. Qui l'achève est suivi par la Walkie Grass et laisse une sentinelle de pierre (Stone Roamer) qui signale les ennemis.",
+          "reward": "Walkie Grass : +{mana} % de mana par seconde aux alliés proches, +{speed} % de vitesse en rivière pendant {duration} s ; la sentinelle patrouille {patrol} s"
+        },
+        "crab": {
+          "name": "Crabe",
+          "role": "Dans la rivière, près des lanes latérales. Le petit Crabe arrive d'abord et revient souvent ; le Crabe prend ensuite sa place.",
+          "firstSpawn": "Petit Crabe à {little}, Crabe à {crab} (le guide du wiki dit {guide})",
+          "respawn": "Petit Crabe toutes les {little} s, Crabe {crab} s après sa mort",
+          "reward": "Buff d'or : {gold} pièces en {duration} s ({littleGold} en {littleDuration} s pour le petit Crabe)"
+        },
+        "lizard": {
+          "name": "Lézard cornu",
+          "role": "Petit camp de la jungle. Sous la moitié de ses PV, il gagne de la défense."
+        },
+        "beetle": {
+          "name": "Scarabée de feu",
+          "role": "Petit camp de la jungle. À sa mort, il laisse un scarabée plus faible qui vit au plus {larva} s."
+        },
+        "golem": {
+          "name": "Golem de lave",
+          "role": "Petit camp de la jungle, sans capacité particulière."
+        },
+        "cyclone": {
+          "name": "Œil du Cyclone",
+          "role": "Passez dessus : après {delay} s, votre héros glisse vers l'avant et peut franchir certains obstacles.",
+          "respawn": "Se recharge {recharge} s après usage"
+        },
+        "turret": {
+          "name": "Tourelles",
+          "role": "Elles tirent sur les ennemis à portée ; chaque tir de suite sur un héros frappe {ramp} % plus fort, jusqu'à {rampMax} fois. Sans sbire ennemi à portée, elles encaissent {reduction} % de dégâts en moins. Les tourelles extérieures restent inactives jusqu'à {idle} s après la première vague.",
+          "count": "{perTeam} par équipe, {perLane} par lane",
+          "range": "Portée {range}, vision {sight} (unités du jeu)"
+        },
+        "base": {
+          "name": "Base",
+          "role": "Détruisez la base adverse pour gagner. Elle n'est exposée qu'une fois les trois tourelles d'une lane tombées ; quand une tourelle de base tombe, des super-sbires attaquent cette lane."
+        },
+        "exp-lane": {
+          "name": "Lane EXP",
+          "role": "La lane à côté de la première Tortue. Souvent tenue par un combattant, qui compte sur ses compétences.",
+          "bonus": "{waves} premières vagues (jusqu'à {end}) : le canon donne {bonus} % d'EXP en plus"
+        },
+        "mid-lane": {
+          "name": "Lane du milieu",
+          "role": "La lane la plus courte : les sbires y arrivent avant ceux des côtés. Idéale pour un mage qui tourne vers les autres lanes.",
+          "bonus": "{waves} premières vagues : {lancers} lanciers et {infantry} fantassin"
+        },
+        "gold-lane": {
+          "name": "Lane Or",
+          "role": "La lane loin de la première Tortue. Souvent tenue par un tireur, qui a besoin d'objets au plus vite.",
+          "bonus": "{waves} premières vagues (jusqu'à {end}) : le canon donne {bonus} % d'or en plus"
+        }
+      },
+      "rotations": {
+        "title": "Rotations par rôle",
+        "intro": "Les premières minutes de chaque rôle, en quelques repères. Les horaires viennent du wiki ; le reste relève du conseil.",
+        "jungle": {
+          "title": "Jungle",
+          "step1": "Commencez par le buff le plus proche de la lane EXP (orange à {orange}, violet à {purple}) : la tournée vous laisse niveau 4 près de la lane Or, prêt à ganker.",
+          "step2": "Enchaînez l'autre buff et les petits camps de ce côté ; le Lithowanderer ({litho}, près du milieu) aide à boucler le niveau 4.",
+          "step3": "Soyez à la Tortue pour {turtle}, Châtiment prêt. Les buffs reviennent {buff} s après leur mort : notez-les dans le chrono.",
+          "step4": "Laissez les sbires aux laners en début de partie. Visez au moins un des trois : buffs, éliminations ou Tortue."
+        },
+        "roam": {
+          "title": "Roam",
+          "step1": "Pendant la première minute, protégez le premier buff de votre jungler contre une invasion.",
+          "step2": "Rejoignez la Tortue avant {turtle} : le roamer vient aider à la prendre.",
+          "step3": "Passez d'une lane à l'autre pour donner de la vision à l'équipe.",
+          "step4": "À partir de {share}, vos gains de sbires et de monstres sont partagés avec l'équipe : restez groupés."
+        },
+        "gold": {
+          "title": "Lane Or",
+          "step1": "Pendant les {waves} premières vagues (jusqu'à {end}), le canon de votre lane rapporte {goldBonus} % d'or en plus : ne ratez pas son dernier coup.",
+          "step2": "Le Crabe, dans la rivière près des lanes latérales, donne {crabGold} pièces d'or en {crabDuration} s ; le petit Crabe arrive dès {littleCrab}.",
+          "step3": "Votre jungler ne prend pas vos sbires : ils sont à vous en début de partie.",
+          "step4": "Seul sur votre lane, attendez la vague suivante dans un buisson plutôt que de vous montrer."
+        },
+        "exp": {
+          "title": "Lane EXP",
+          "step1": "La première Tortue apparaît à {turtle} à côté de votre lane : soyez niveau 4 et prêt à aider.",
+          "step2": "Pendant les {waves} premières vagues, le canon de votre lane donne {expBonus} % d'EXP en plus.",
+          "step3": "Après la Tortue, rentrez farmer si le combat n'est pas jouable."
+        },
+        "mid": {
+          "title": "Milieu",
+          "step1": "Le Lithowanderer apparaît à {litho} près du milieu : régénération de mana et vitesse en rivière pour qui l'achève.",
+          "step2": "Les {waves} premières vagues du milieu comptent {lancers} lanciers et {infantry} fantassin : nettoyez vite, puis tournez vers les côtés.",
+          "step3": "Soyez niveau 4 pour la Tortue à {turtle}, et surveillez l'invasion de votre jungle pendant la première minute."
+        }
+      }
+    },
+    "mapUI": {
+      "mapLabel": "Carte schématique de la Terre de l'Aube",
+      "keyboardHelp": "Touchez un point de la carte, ou passez de l'un à l'autre avec les flèches du clavier : sa fiche s'affiche à côté.",
+      "listTitle": "Points d'intérêt",
+      "group": {
+        "objective": "Objectifs",
+        "buff": "Buffs",
+        "camp": "Camps",
+        "terrain": "Terrain",
+        "lane": "Lanes"
+      },
+      "side": {
+        "ours": "votre camp",
+        "theirs": "camp adverse"
+      },
+      "legend": {
+        "ours": "Votre camp",
+        "theirs": "Camp adverse",
+        "shared": "Commun",
+        "river": "Rivière"
+      },
+      "short": {
+        "exp-lane": "EXP",
+        "mid-lane": "Mid",
+        "gold-lane": "Or"
+      },
+      "source": "Source :"
     }
   },
   "modeFiche": {

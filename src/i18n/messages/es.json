@@ -163,6 +163,14 @@
     "advanceServer": {
       "label": "Servidor Advance",
       "desc": "Cambios en prueba antes del servidor oficial"
+    },
+    "objectiveTimer": {
+      "label": "Temporizador de objetivos",
+      "desc": "Tortuga, Lord y buffs en partida"
+    },
+    "mapGuide": {
+      "label": "Guía del mapa",
+      "desc": "Campamentos, objetivos y rotaciones"
     }
   },
   "compte": {
@@ -934,6 +942,14 @@
       "mlbbdle": {
         "title": "MLBBdle: el juego diario para adivinar el héroe de Mobile Legends",
         "description": "Adivina el héroe de Mobile Legends: Bang Bang del día, al estilo Wordle y Loldle: pistas de colores sobre rol, línea, región, daño y año de lanzamiento, un modo habilidad diario y un entrenamiento sin fin. Gratis y sin registro."
+      },
+      "timer": {
+        "title": "Temporizador de objetivos MLBB: aparición del Lord y la Tortuga",
+        "description": "Temporizador gratis para Mobile Legends: Tortuga en {turtle}, Lord, buffs morado y naranja. Anota cada muerte y recibe un aviso {soon} y luego {urgent} s antes de cada regreso. Pantalla encendida, sin conexión, horarios de la wiki."
+      },
+      "map": {
+        "title": "Guía del mapa de Mobile Legends: campamentos de la jungla, Tortuga, Lord y rotaciones",
+        "description": "Mapa esquemático e interactivo de la Tierra del Amanecer: bases, líneas, torretas, campamentos de la jungla, Tortuga y Lord, con horarios, recompensas y rotaciones por rol. Valores de la wiki, con fuentes."
       }
     },
     "fraicheur": {
@@ -2280,6 +2296,271 @@
         "announcedRevamp": "Se presenta una renovación de {name} en la versión {v}.",
         "readVersion": "Todas las notas de la versión {v}"
       }
+    },
+    "timer": {
+      "title": "Temporizador de objetivos",
+      "lead": "Tortuga, Lord y buffs: un temporizador para tener junto a la partida. Arráncalo al inicio o sincronízalo con el reloj del juego, toca cada muerte y recibe un aviso {soon} y luego {urgent} segundos antes de cada regreso.",
+      "timingsTitle": "Horarios de los objetivos",
+      "turtleTitle": "Tortuga",
+      "turtleText": "Primera Tortuga en el minuto {first} exacto, junto a la EXP Lane. Vuelve {respawn} s después de morir, pero una Tortuga muerta después del minuto {cutoff} ya no vuelve: el Lord aparece entonces {after} min más tarde. Si sigue viva en el minuto {lordFrom}, se convierte en Lord tras {idle} s sin recibir daño, a más tardar en el minuto {latest}. Como máximo {max} Tortugas por partida.",
+      "turtleReward": "Cada héroe del equipo gana {gold1}, {gold2} y luego {gold3} de oro por las tres primeras Tortugas, además de un escudo de {shield} s.",
+      "lordTitle": "Lord",
+      "lordText": "El primero no tiene hora fija: {after} min después de la última Tortuga, o desde el minuto {lordFrom} si una Tortuga sigue viva. Si muere antes del minuto {lateFrom}, vuelve {respawn} s después. Pasado el minuto {lateFrom}, la wiki se contradice: {late} s en el texto de la página y {infobox} en su recuadro. El temporizador cuenta hasta el primer valor y muestra la ventana hasta el segundo.",
+      "buffsTitle": "Buffs morado y naranja",
+      "buffsText": "Buff naranja en el minuto {orange}, buff morado en el minuto {purple}. Cada uno vuelve {respawn} s después de morir y su efecto dura {duration} s. Cada jungla tiene los suyos: el temporizador sigue tu buff y el del rival por separado.",
+      "campsTitle": "Otros campamentos",
+      "campsText": "Lithowanderer en el minuto {litho} (vuelve {lithoRespawn} s después de morir), Ojos del Ciclón en el minuto {cyclone} (recarga de {cycloneRecharge} s), Cangrejo pequeño en el minuto {littleCrab} (cada {littleCrabRespawn} s). El Cangrejo llega en el minuto {crab} según su ficha y en el {crabGuide} según la guía de la wiki; luego vuelve {crabRespawn} s después de morir. El temporizador los muestra al inicio de la partida, sin avisos.",
+      "usageTitle": "Cómo usarlo en partida",
+      "usage1": "Pon el móvil junto a la pantalla y toca «{start}» al inicio. ¿La partida ya empezó? Escribe el tiempo que muestra el juego (345 para 3:45) y luego «{apply}».",
+      "usage2": "Cada vez que muere un objetivo, toca su botón: el regreso se calcula desde el segundo mostrado. Un toque equivocado se deshace con un gesto.",
+      "usage3": "La vibración y el pitido (desactivado por defecto) avisan {soon} y luego {urgent} segundos antes de cada regreso, y la pantalla puede quedarse encendida. Todo funciona en el navegador: con la página abierta, el temporizador va sin conexión y la partida sigue en la pestaña si recargas.",
+      "usage4": "El temporizador no lee la partida: solo sabe lo que tú le dices. Vuelve a sincronizarlo en cuanto se desvíe más de uno o dos segundos.",
+      "mapLink": "Guía del mapa: campamentos, Tortuga, Lord y rotaciones",
+      "retributionLink": "Entrena el Castigo",
+      "sourcesTitle": "Fuentes",
+      "sourcesIntro": "Páginas de la wiki de Mobile Legends (Fandom), consultadas el {date}:",
+      "sourcesNote": "Cuando dos valores de la wiki no coinciden (regreso del Lord después del minuto {lateFrom}, llegada del Cangrejo), el temporizador muestra la ventana entre ambos en lugar de elegir uno."
+    },
+    "timerUI": {
+      "clockTitle": "Tiempo de juego",
+      "state": {
+        "stopped": "Sin iniciar",
+        "running": "En marcha",
+        "paused": "En pausa"
+      },
+      "start": "Empezar en 0:00",
+      "pause": "Pausa",
+      "resume": "Reanudar",
+      "minus5": "−5 s",
+      "plus5": "+5 s",
+      "minus5Label": "Retrasar el reloj 5 segundos",
+      "plus5Label": "Adelantar el reloj 5 segundos",
+      "timeField": "Tiempo que muestra el juego",
+      "apply": "Sincronizar",
+      "inputHelp": "Ej.: 3:45 o 345. El reloj sigue desde ese tiempo.",
+      "timeError": "Escribe un tiempo como 3:45 o 345.",
+      "killsTitle": "Objetivo abatido",
+      "record": "Registrar muerte:",
+      "name": {
+        "turtle": "Tortuga",
+        "lord": "Lord",
+        "purple-buff": "Buff morado",
+        "orange-buff": "Buff naranja",
+        "lithowanderer": "Lithowanderer",
+        "cyclone": "Ojos del Ciclón",
+        "little-crab": "Cangrejo pequeño",
+        "crab": "Cangrejo",
+        "last-turtle": "Última Tortuga posible",
+        "lord-18": "Regreso del Lord más rápido"
+      },
+      "side": {
+        "ours": "nuestro",
+        "theirs": "del rival"
+      },
+      "up": "Disponible",
+      "noMoreTurtles": "Ya no hay Tortugas",
+      "lastKill": "{objective} registrado en el minuto {time}",
+      "noKill": "Toca un objetivo cuando muera.",
+      "notStarted": "Inicia el reloj para registrar muertes.",
+      "undo": "Deshacer",
+      "upcomingTitle": "Próximas apariciones",
+      "upcomingPreview": "Vista previa de una partida que empieza: las cuentas atrás arrancan con el reloj.",
+      "at": "en {time}",
+      "milestone": {
+        "last-turtle": "Una Tortuga muerta después de este momento no vuelve.",
+        "lord-18": "Si muere después de este momento, el Lord vuelve antes."
+      },
+      "note": {
+        "replacesTurtle": "Si la Tortuga sigue viva, se convierte en Lord entre {start} y {end}.",
+        "afterTurtle": "Sigue a la última Tortuga.",
+        "infobox": "La wiki dice {start} en el texto y {end} en el recuadro.",
+        "sourcesDisagree": "La guía de la wiki dice {start}; la ficha del Cangrejo, {end}."
+      },
+      "settingsTitle": "Avisos y pantalla",
+      "vibration": "Vibración",
+      "sound": "Pitido",
+      "thresholds": "A los {soon} s y a los {urgent} s",
+      "notSupported": "No compatible aquí",
+      "wakeLock": "Pantalla encendida",
+      "wakeLockHint": "Evita que se apague",
+      "wakeLockOn": "Pantalla mantenida encendida",
+      "wakeLockDenied": "Rechazado por el navegador",
+      "newMatch": "Nueva partida",
+      "confirm": "Toca otra vez para borrar",
+      "kept": "La partida se queda en esta pestaña, incluso si recargas.",
+      "announce": "{objective} en {n} segundos"
+    },
+    "map": {
+      "title": "Guía del mapa",
+      "lead": "La Tierra del Amanecer en un esquema: bases, líneas, torretas, río, campamentos de la jungla, Tortuga y Lord. Toca un punto para ver su función, su horario y su recompensa, y luego sigue la rotación de tu rol.",
+      "mapTitle": "El mapa, punto por punto",
+      "reading": "Esquema propio, no a escala, visto desde tu lado: tu base abajo a la izquierda. El río cruza el mapa en diagonal y cada campamento rival es el reflejo del tuyo. Horarios y recompensas vienen de la wiki; la posición exacta de los campamentos es aproximada.",
+      "seconds": "{n} s",
+      "hpAt12": "{start} ({at12} en el minuto 12:00)",
+      "healReward": "Buff de curación: {hp} PV y {mana} % de maná en {duration} s",
+      "wavesValue": "Primera oleada en {first}, luego cada {interval} s",
+      "timerLink": "Temporizador de objetivos",
+      "retributionLink": "Prueba de Castigo",
+      "tierLink": "Tier list: {role}",
+      "timerCta": "Sigue la Tortuga, el Lord y los buffs en partida con el temporizador",
+      "sourcesTitle": "Fuentes",
+      "sourcesIntro": "Páginas de la wiki de Mobile Legends (Fandom), consultadas el {date}:",
+      "fact": {
+        "firstSpawn": "Primera aparición",
+        "respawn": "Reaparición",
+        "hp": "PV",
+        "reward": "Recompensa",
+        "location": "Ubicación",
+        "count": "Cantidad",
+        "range": "Alcance",
+        "waves": "Oleadas",
+        "bonus": "Bonus inicial"
+      },
+      "point": {
+        "turtle": {
+          "name": "Tortuga",
+          "role": "Objetivo común en el río. La primera Tortuga aparece siempre junto a la EXP Lane; el juego indica dónde aparecerá la siguiente. Todo el equipo que la mata gana oro y EXP.",
+          "respawn": "{delay} s después de morir, si muere antes del minuto {cutoff}; como máximo {max} por partida",
+          "reward": "{gold1}, {gold2} y luego {gold3} de oro por héroe, EXP y un escudo de equipo de {shield} s; escudo reforzado y bonus de ataque para quien da el golpe final"
+        },
+        "lord": {
+          "name": "Lord",
+          "role": "El monstruo más poderoso del mapa. El equipo que lo mata lo invoca: empuja la línea más débil del rival y refuerza la siguiente oleada de súbditos.",
+          "firstSpawn": "{after} min después de la última Tortuga, o entre {from} y {latest} si una Tortuga sigue viva",
+          "respawn": "{respawn} s después de morir; tras el minuto {lateFrom}, {late} s según el texto de la wiki y {infobox} según su recuadro",
+          "reward": "Siguiente oleada de súbditos reforzada; el Lord invocado empuja con tu equipo y los aliados cercanos infligen {bonus} de daño mágico base extra (recarga de {cooldown} s)",
+          "location": "La wiki no dice qué foso ocupa: una Tortuga que sigue viva en el minuto {from} se convierte en Lord en su sitio. El esquema lo sitúa frente a la primera Tortuga; guíate por el minimapa."
+        },
+        "purple-buff": {
+          "name": "Buff morado",
+          "role": "Dos monstruos (un Thunder Fenrir grande y otro pequeño) en el lado izquierdo de cada jungla. Al morir, se abre un paso detrás de ellos hasta que reaparecen.",
+          "reward": "Durante {duration} s: enfriamiento de habilidades −{cooldown} %, coste de maná −{mana} %, de energía −{energy} %; una muerte recupera el {minion} % de PV (súbdito), el {hero} % (héroe) o el {creep} % (monstruo)"
+        },
+        "orange-buff": {
+          "name": "Buff naranja",
+          "role": "Un monstruo solitario (Molten Fiend) cerca de la línea inferior, a la altura de la segunda torreta.",
+          "reward": "Durante {duration} s: tus ataques a héroes añaden daño verdadero ({damage} base) y una ralentización del {slowMelee} % (asesino, luchador, tanque) o del {slowRanged} % (tirador, mago, soporte), con un {penMelee} o un {penRanged} % de penetración"
+        },
+        "lithowanderer": {
+          "name": "Lithowanderer",
+          "role": "Pequeña criatura del río, cerca de la Mid Lane, que nunca contraataca. A quien la mata le sigue la Walkie Grass y deja un Stone Roamer que revela a los enemigos.",
+          "reward": "Walkie Grass: +{mana} % de maná por segundo a los aliados cercanos, +{speed} % de velocidad en el río durante {duration} s; el Stone Roamer patrulla {patrol} s"
+        },
+        "crab": {
+          "name": "Cangrejo",
+          "role": "En el río, cerca de las líneas laterales. Primero llega el Cangrejo pequeño, que reaparece a menudo; luego el Cangrejo ocupa su lugar.",
+          "firstSpawn": "Cangrejo pequeño en {little}, Cangrejo en {crab} (la guía de la wiki dice {guide})",
+          "respawn": "Cangrejo pequeño cada {little} s, Cangrejo {crab} s después de morir",
+          "reward": "Buff de oro: {gold} de oro en {duration} s ({littleGold} en {littleDuration} s con el Cangrejo pequeño)"
+        },
+        "lizard": {
+          "name": "Lagarto cornudo",
+          "role": "Campamento pequeño de la jungla. Por debajo de la mitad de PV, gana defensa."
+        },
+        "beetle": {
+          "name": "Escarabajo de fuego",
+          "role": "Campamento pequeño de la jungla. Al morir deja un escarabajo más débil que vive como mucho {larva} s."
+        },
+        "golem": {
+          "name": "Gólem de lava",
+          "role": "Campamento pequeño de la jungla, sin habilidades especiales."
+        },
+        "cyclone": {
+          "name": "Ojo del Ciclón",
+          "role": "Písalo: tras {delay} s, tu héroe se desliza hacia delante y puede atravesar algunos obstáculos.",
+          "respawn": "Se recarga {recharge} s después de usarse"
+        },
+        "turret": {
+          "name": "Torretas",
+          "role": "Disparan a los enemigos a su alcance; cada disparo seguido a un héroe golpea un {ramp} % más fuerte, hasta {rampMax} veces. Sin súbditos enemigos cerca, reciben un {reduction} % menos de daño. Las torretas exteriores se quedan inactivas hasta {idle} s después de la primera oleada.",
+          "count": "{perTeam} por equipo, {perLane} por línea",
+          "range": "Alcance {range}, visión {sight} (unidades del juego)"
+        },
+        "base": {
+          "name": "Base",
+          "role": "Destruye la base rival para ganar. Solo queda expuesta cuando caen las tres torretas de una línea; cuando cae una torreta de base, los súper súbditos atacan esa línea."
+        },
+        "exp-lane": {
+          "name": "EXP Lane",
+          "role": "La línea junto a la primera Tortuga. Suele ocuparla un luchador, que depende de sus habilidades.",
+          "bonus": "Primeras {waves} oleadas (hasta el minuto {end}): el súbdito cañón da un {bonus} % más de EXP"
+        },
+        "mid-lane": {
+          "name": "Mid Lane",
+          "role": "La línea más corta: los súbditos llegan antes que a las laterales. Ideal para un mago que rota hacia las demás líneas.",
+          "bonus": "Primeras {waves} oleadas: {lancers} lanceros y {infantry} soldado de infantería"
+        },
+        "gold-lane": {
+          "name": "Gold Lane",
+          "role": "La línea alejada de la primera Tortuga. Suele ocuparla un tirador, que necesita objetos cuanto antes.",
+          "bonus": "Primeras {waves} oleadas (hasta el minuto {end}): el súbdito cañón da un {bonus} % más de oro"
+        }
+      },
+      "rotations": {
+        "title": "Rotaciones por rol",
+        "intro": "Los primeros minutos de cada rol, en unas pocas pautas. Los horarios vienen de la wiki; lo demás son consejos.",
+        "jungle": {
+          "title": "Jungla",
+          "step1": "Empieza por el buff más cercano a la EXP Lane (naranja en {orange}, morado en {purple}): la ronda te deja en nivel 4 cerca de la Gold Lane, listo para emboscar.",
+          "step2": "Sigue con el otro buff y los campamentos pequeños de ese lado; el Lithowanderer ({litho}, cerca de la Mid Lane) ayuda a llegar al nivel 4.",
+          "step3": "Llega a la Tortuga para el minuto {turtle} con el Castigo listo. Los buffs vuelven {buff} s después de morir: anótalos en el temporizador.",
+          "step4": "Al principio, deja los súbditos de las líneas a tus compañeros. Asegura al menos una de tres cosas: buffs, muertes o Tortuga."
+        },
+        "roam": {
+          "title": "Roam",
+          "step1": "Durante el primer minuto, protege el primer buff de tu jungla de una invasión.",
+          "step2": "Ve a la Tortuga antes del minuto {turtle}: el roamer acude a ayudar a tomarla.",
+          "step3": "Pasa de una línea a otra para dar visión al equipo.",
+          "step4": "A partir del minuto {share}, tus recompensas de súbditos y monstruos se reparten con el equipo: seguid agrupados."
+        },
+        "gold": {
+          "title": "Gold Lane",
+          "step1": "Durante las primeras {waves} oleadas (hasta el minuto {end}), el súbdito cañón de tu línea da un {goldBonus} % más de oro: no falles su último golpe.",
+          "step2": "El Cangrejo, en el río cerca de las líneas laterales, da {crabGold} de oro en {crabDuration} s; el Cangrejo pequeño aparece ya en el {littleCrab}.",
+          "step3": "Tu jungla no toma tus súbditos: al principio son tuyos.",
+          "step4": "Si estás solo en tu línea, espera la siguiente oleada en un arbusto en lugar de dejarte ver."
+        },
+        "exp": {
+          "title": "EXP Lane",
+          "step1": "La primera Tortuga aparece en el minuto {turtle} junto a tu línea: llega a nivel 4 y prepárate para ayudar.",
+          "step2": "Durante las primeras {waves} oleadas, el súbdito cañón de tu línea da un {expBonus} % más de EXP.",
+          "step3": "Después de la Tortuga, vuelve a farmear si la pelea no es jugable."
+        },
+        "mid": {
+          "title": "Mid Lane",
+          "step1": "El Lithowanderer aparece en el minuto {litho} cerca de la Mid Lane: regeneración de maná y velocidad en el río para quien lo remate.",
+          "step2": "Las primeras {waves} oleadas de la Mid Lane traen {lancers} lanceros y {infantry} soldado de infantería: limpia rápido y luego rota hacia los lados.",
+          "step3": "Llega a nivel 4 para la Tortuga del minuto {turtle} y vigila las invasiones a tu jungla durante el primer minuto."
+        }
+      }
+    },
+    "mapUI": {
+      "mapLabel": "Mapa esquemático de la Tierra del Amanecer",
+      "keyboardHelp": "Toca un punto del mapa o pasa de uno a otro con las flechas del teclado: su ficha aparece al lado.",
+      "listTitle": "Puntos de interés",
+      "group": {
+        "objective": "Objetivos",
+        "buff": "Buffs",
+        "camp": "Campamentos",
+        "terrain": "Terreno",
+        "lane": "Líneas"
+      },
+      "side": {
+        "ours": "tu lado",
+        "theirs": "lado rival"
+      },
+      "legend": {
+        "ours": "Tu lado",
+        "theirs": "Lado rival",
+        "shared": "Común",
+        "river": "Río"
+      },
+      "short": {
+        "exp-lane": "EXP",
+        "mid-lane": "Mid",
+        "gold-lane": "Gold"
+      },
+      "source": "Fuente:"
     }
   },
   "modeFiche": {
