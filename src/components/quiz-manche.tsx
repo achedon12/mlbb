@@ -207,7 +207,14 @@ export function MancheQuiz({
   }
 
   return (
-    <section className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4 sm:p-6">
+    <section className="relative p-4 sm:p-6">
+      {/*
+        Le biseau (clip-path) est porte par un calque de fond : pose sur la
+        section, il rognait la liste de suggestions du champ et masquait la
+        fenetre « Parcourir les heros », pourtant en position fixe.
+      */}
+      <div aria-hidden className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-900/60" />
+      <div className="relative">
       <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-craie-500">
         <span>
           {etiquette} · {t(`pages.quizUI.types.${manche.type}`)}
@@ -363,6 +370,7 @@ export function MancheQuiz({
           onFermer={() => setRoster(false)}
         />
       )}
+      </div>
     </section>
   );
 }
