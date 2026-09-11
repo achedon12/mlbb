@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { ShieldAlert, Swords, TriangleAlert } from "lucide-react";
 import { BoutonFavori } from "@/components/bouton-favori";
 import { CompetencesHeros } from "@/components/competences-heros";
+import { CombosHeros } from "@/components/combos-heros";
 import { HistoireHeros } from "@/components/histoire-heros";
 import { FilAriane } from "@/components/fil-ariane";
 
@@ -20,6 +21,7 @@ import { StatistiquesHeros } from "@/components/statistiques-heros";
 import { AjustementsDuHeros } from "@/components/patch-heros";
 import { dureeDe, historiqueDe, tendancesDe } from "@/lib/evolution";
 import { Onglets } from "@/components/onglets";
+import { LienFluxHeros } from "@/components/lien-flux-heros";
 
 import {
   PortraitVitrine,
@@ -32,6 +34,7 @@ import { BadgeRole } from "@/components/badge-role";
 import {
   buildsJoues,
   coequipiers,
+  combos,
   competences,
   type ContreChiffre,
   contres,
@@ -42,6 +45,7 @@ import {
   illustrations,
   objets,
   patchsDetail,
+  patchsDetailles,
   visuelsCompetences,
 } from "@/lib/donnees";
 import { classementComplet, statsParRang, type StatsRang } from "@/lib/tier-list";
@@ -49,6 +53,7 @@ import { RANGS_MESURE } from "@/lib/rangs-mesure";
 import { site } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
+import { dateSortie, libelleHeros } from "@/i18n/donnees-heros";
 import { normaliserNomSkin } from "@/lib/utils";
 import { metaPage } from "@/i18n/seo";
 
@@ -193,7 +198,9 @@ export default async function PageHeros({ params }: Params) {
   );
   const patchsDates = versionsRecentes.flatMap((p) => (p.date ? [{ version: p.version, date: p.date }] : []));
   const ajustementsHeros = versionsRecentes.flatMap((p) =>
-    p.ajustements.filter((a) => a.slug === h.slug).map((a) => ({ version: p.version, ajustement: a })),
+    (patchsDetailles(locale)[p.version] ?? p).ajustements
+      .filter((a) => a.slug === h.slug)
+      .map((a) => ({ version: p.version, ajustement: a })),
   );
 
   const donneesStructurees = {
@@ -290,7 +297,7 @@ export default async function PageHeros({ params }: Params) {
                     key={s}
                     className="biseau-sm border border-nuit-600 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-craie-500"
                   >
-                    {s}
+                    {libelleHeros(t, "specialite", s)}
                   </span>
                 ))}
               </div>
@@ -339,11 +346,11 @@ export default async function PageHeros({ params }: Params) {
           <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6">
             {[
               [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
-              [t("pages.heroDetail.stat.sortie"), h.sortie],
-              [t("pages.heroDetail.stat.ressource"), h.ressource],
-              [t("pages.heroDetail.stat.degats"), h.typeDegats],
-              [t("pages.heroDetail.stat.portee"), h.typeAttaque],
-              [t("pages.heroDetail.stat.region"), h.region],
+              [t("pages.heroDetail.stat.sortie"), dateSortie(h.sortie, locale, t)],
+              [t("pages.heroDetail.stat.ressource"), libelleHeros(t, "ressource", h.ressource)],
+              [t("pages.heroDetail.stat.degats"), libelleHeros(t, "degats", h.typeDegats)],
+              [t("pages.heroDetail.stat.portee"), libelleHeros(t, "attaque", h.typeAttaque)],
+              [t("pages.heroDetail.stat.region"), libelleHeros(t, "region", h.region)],
               [t("pages.heroDetail.stat.skins"), h.skins.length || null],
               [t("pages.heroDetail.stat.tierList"), classe ? <ValeurParRang valeurs={selonRang((s) => t("pages.heroDetail.palier", { p: s.palier }))} /> : null],
               [t("pages.heroDetail.stat.tauxVictoire"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.victoire)} %`)} /> : null],
@@ -420,13 +427,12 @@ export default async function PageHeros({ params }: Params) {
                   <p className="mt-3 max-w-2xl leading-relaxed text-craie-300">
                     {t("pages.heroDetail.analyseTexte", { nom: h.nom })}
                   </p>
-                  <a
-                    href={`${site.depot}/blob/main/CONTRIBUTING.md`}
-                    rel="noreferrer"
+                  <Link
+                    href="/contribute"
                     className="mt-5 inline-block text-sm font-semibold text-or-400 underline underline-offset-4 hover:text-or-500"
                   >
                     {t("pages.heroDetail.contribuer")}
-                  </a>
+                  </Link>
                 </Carte>
               ),
             },
@@ -444,11 +450,14 @@ export default async function PageHeros({ params }: Params) {
                   analyse?.competences.length ?? 0,
                 ) || undefined,
               contenu: (
-                <CompetencesHeros
-                  wiki={competencesWiki}
-                  icones={iconesCompetences}
-                  redigees={analyse?.competences ?? null}
-                />
+                <div className="space-y-10">
+                  <CompetencesHeros
+                    wiki={competencesWiki}
+                    icones={iconesCompetences}
+                    redigees={analyse?.competences ?? null}
+                  />
+                  <CombosHeros combos={combos(locale)[h.slug] ?? []} langue={locale} />
+                </div>
               ),
             },
             {
@@ -542,6 +551,7 @@ export default async function PageHeros({ params }: Params) {
             },
             {
               id: "stats",
+              differe: true,
               label: t("pages.heroDetail.onglet.stats"),
               contenu: (
                 <div className="space-y-12">
@@ -554,11 +564,15 @@ export default async function PageHeros({ params }: Params) {
                     parRang={Object.fromEntries(
                       Object.entries(statsRangs).map(([r, s]) => [r, { victoire: s.victoire, ban: s.ban }]),
                     )}
+                    ajustements={ajustementsHeros.map((a) => ({ version: a.version, type: a.ajustement.type }))}
                   />
                   <section>
-                    <h3 className="font-titre text-lg font-bold text-craie-100">
-                      {t("pages.heroDetail.statistiques.ajustements")}
-                    </h3>
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                      <h3 className="font-titre text-lg font-bold text-craie-100">
+                        {t("pages.heroDetail.statistiques.ajustements")}
+                      </h3>
+                      <LienFluxHeros langue={locale} slug={h.slug} />
+                    </div>
                     <p className="mt-1 mb-4 text-sm text-craie-500">
                       {ajustementsHeros.length > 0
                         ? t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.nom })
@@ -573,6 +587,7 @@ export default async function PageHeros({ params }: Params) {
             },
             {
               id: "skins",
+              differe: true,
               label: t("pages.heroDetail.onglet.skins"),
               compteur: skinsComplets.length || undefined,
               contenu:
