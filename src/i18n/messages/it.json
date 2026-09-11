@@ -380,7 +380,42 @@
       "note": "Counter e sinergie provengono dalle relazioni fornite dal gioco, non da un'opinione. Non coprono tutti i duelli: un eroe senza counter noti in una composizione non è per forza una cattiva scelta — semplicemente non ha nulla di particolare da opporle.",
       "metaDescription": "Inserisci la composizione avversaria: lo strumento suggerisce cosa scegliere in ogni lane e spiega perché — counter, sinergie e percentuali di vittoria.",
       "ogDescription": "Cosa scegliere contro la composizione avversaria, e perché.",
-      "lienEquipe": "Squadra già scelta? Analizza la sua composizione"
+      "lienEquipe": "Squadra già scelta? Analizza la sua composizione",
+      "toolsTitle": "Simulatore e assistente draft",
+      "toolsLead": "Gioca un draft completo, ban e poi pick, in formato classificata o torneo contro un bot basato sui nostri dati. Oppure inserisci la composizione avversaria per sapere cosa scegliere, lane per lane.",
+      "simulatorOg": "Un draft MLBB completo, ban e poi pick, contro un bot basato sui dati.",
+      "rules": {
+        "title": "Regole dei formati",
+        "intro": "Il simulatore segue l'ordine descritto dal wiki del gioco e da Liquipedia. Ogni regola rimanda alla sua fonte; ciò che le fonti non precisano è segnalato.",
+        "rankedTitle": "Classificata (Draft Pick)",
+        "rankedAccess": "Il draft si apre dal rango Epic.",
+        "rankedBans": "Il numero di ban dipende dal rango più alto della partita: {epic} per squadra in Epic, {legend} in Legend, {mythic} in Mythic e oltre.",
+        "rankedSimultaneous": "Le due squadre bannano nello stesso momento, in due turni, e possono quindi bannare lo stesso eroe. Le fonti non dicono quanti ban cadono in ciascun turno: il simulatore li riunisce in uno solo.",
+        "picks": "Pick: blu 1, rosso 2, blu 2, rosso 2, blu 2, rosso 1. Un eroe bannato o già scelto non può più essere preso.",
+        "timers": "{ban} secondi per bannare, {pick} per scegliere, per giocatore. Allo scadere il ban resta vuoto e il pick è casuale: il gioco privilegia gli eroi più giocati dal giocatore, che il simulatore non conosce; estrae tra quelli che coprono una lane libera.",
+        "rankedExample": "Ordine in Mythic; in Epic e Legend cambia solo il numero di ban.",
+        "tournamentTitle": "Torneo (MPL, M-series)",
+        "tournamentBans": "{total} ban in tutto, {n} per squadra.",
+        "tournamentOrder": "I ban si fanno a turno, prima la squadra blu (a sinistra), poi i pick nello stesso ordine della classificata.",
+        "tournamentLimit": "Sul palco, le leghe dividono questi ban in due fasi intervallate da pick. Le nostre fonti non pubblicano quest'ordine: il simulatore si attiene a ciò che documentano.",
+        "order": "Ordine delle fasi",
+        "step": "{side} · {action} ×{n}",
+        "shortSides": {
+          "blue": "Blu",
+          "red": "Rosso",
+          "both": "Entrambe"
+        },
+        "actions": {
+          "ban": "ban",
+          "pick": "pick"
+        },
+        "botTitle": "Il bot",
+        "bot": "Il bot banna i primi della classifica del rango scelto, che combina tasso di vittoria e tasso di ban. Per i pick tiene solo gli eroi che aggiungono una lane alla sua squadra e li ordina sui nostri dati del rango: counter ai tuoi pick, duo con i suoi, tasso di vittoria. Ogni scelta è spiegata in una riga.",
+        "advantageTitle": "L'indice di vantaggio",
+        "advantage": "Il bilancio somma gli scarti di vittoria misurati in classificata tra gli eroi delle due squadre e i guadagni dei duo di ciascuna. È una stima ricavata solo da queste misure, non una probabilità di vittoria.",
+        "sources": "Fonti",
+        "sourceRef": "Fonte: {site}, {page}"
+      }
     },
     "compare": {
       "titre": "Confronto",
@@ -844,7 +879,9 @@
       },
       "draft": {
         "titre": "Assistente draft MLBB: counter pick per lane (patch {v})",
-        "description": "Inserisci i pick avversari e ottieni counter pick per ogni lane tra {n} eroi, basati su counter, sinergie e tassi di vittoria (rilevazione: {date}, patch {v}). Gratis, senza registrazione."
+        "description": "Inserisci i pick avversari e ottieni counter pick per ogni lane tra {n} eroi, basati su counter, sinergie e tassi di vittoria (rilevazione: {date}, patch {v}). Gratis, senza registrazione.",
+        "simulatorTitle": "Simulatore di draft MLBB: ban-pick classificata e MPL con counter",
+        "simulatorDescription": "Gioca un draft completo in classificata o MPL: ban e poi pick contro un bot basato su counter e duo misurati di {n} eroi (rilevazione: {date}, patch {v}). Bilancio delle due squadre e link da condividere."
       },
       "compare": {
         "titre": "Confronto eroi MLBB: win rate, tier e statistiche (patch {v})",
@@ -2295,6 +2332,138 @@
         "announcedNew": "{name} è presentato come nuovo eroe nella versione {v}.",
         "announcedRevamp": "Un rework di {name} è presentato nella versione {v}.",
         "readVersion": "Tutte le note della versione {v}"
+      }
+    },
+    "draftSimulatorUI": {
+      "tabsLabel": "Modalità dello strumento",
+      "tabs": {
+        "assistant": "Assistente draft",
+        "simulator": "Simulatore"
+      },
+      "settings": {
+        "title": "Impostazioni del draft",
+        "format": "Formato",
+        "rank": "Rango dei dati",
+        "rankHelp": "In classificata il rango stabilisce anche il numero di ban: {n} per squadra.",
+        "side": "La tua squadra",
+        "bot": "Avversario bot",
+        "botHelp": "Il bot gioca la squadra avversaria in base ai nostri dati del rango scelto e spiega ogni scelta.",
+        "botBoth": "Controlli entrambe le squadre: il bot non ha nulla da giocare.",
+        "timer": "Timer",
+        "timerHelp": "Allo scadere del tempo il ban resta vuoto e il pick viene scelto a caso, come nel gioco.",
+        "start": "Avvia il draft"
+      },
+      "formats": {
+        "ranked": "Classificata",
+        "tournament": "Torneo (MPL, M-series)"
+      },
+      "formatHelp": {
+        "ranked": "Ban simultanei, {n} per squadra a questo rango, poi pick 1-2-2-2-2-1.",
+        "tournament": "{n} ban per squadra a turno, prima il blu, poi pick 1-2-2-2-2-1."
+      },
+      "controls": {
+        "blue": "Blu",
+        "red": "Rosso",
+        "both": "Entrambe"
+      },
+      "sides": {
+        "blue": "Squadra blu",
+        "red": "Squadra rossa"
+      },
+      "timers": {
+        "off": "Nessuno",
+        "30": "{n} s",
+        "game": "Tempi del gioco ({ban} s / {pick} s)"
+      },
+      "you": "tu",
+      "bot": "bot",
+      "actions": {
+        "ban": "ban",
+        "pick": "pick"
+      },
+      "turnAction": {
+        "ban": "ban {k} di {n}",
+        "pick": "pick {k} di {n}"
+      },
+      "yourTurn": "tocca a te",
+      "botTurn": "tocca al bot",
+      "botThinking": "Il bot sta scegliendo…",
+      "finished": "Draft completato",
+      "simultaneous": "Ban simultanei: quelli avversari si svelano a fine turno, e lo stesso eroe può essere bannato da entrambe le parti.",
+      "bans": "Ban",
+      "picks": "Pick",
+      "banSlot": "Ban {k}",
+      "pickSlot": "Pick {k}",
+      "emptyBan": "ban vuoto",
+      "hiddenBan": "ban nascosto",
+      "upcoming": "in arrivo",
+      "inProgress": "in corso",
+      "toPick": "da scegliere",
+      "undo": "Annulla",
+      "restart": "Ricomincia",
+      "changeSettings": "Impostazioni",
+      "skipBan": "Lascia vuoto questo ban",
+      "seconds": "{n} s",
+      "timerLabel": "Tempo rimasto: {n} secondi",
+      "search": "Cerca un eroe",
+      "heroGrid": "Eroi",
+      "banHero": "Banna {name}",
+      "pickHero": "Scegli {name}",
+      "unavailable": "{name}: già bannato o scelto",
+      "hints": {
+        "ban": "Idee per questo ban",
+        "pick": "Idee per questo pick",
+        "banIntro": "I primi della classifica ({rank}).",
+        "pickIntro": "Ordinati sui nostri dati ({rank}): counter ai loro pick, duo con i tuoi, lane da coprire."
+      },
+      "reasons": {
+        "meta": "{tier} ({rank}), {ban}% di ban",
+        "strength": "{rate}% di vittorie al rango",
+        "counter": "counter di {names} ({pts} pt misurati)",
+        "counterWiki": "counter di {names} (relazione indicata dal wiki)",
+        "duo": "duo con {names} ({pts} pt misurati)",
+        "duoWiki": "si combina con {names} (sinergia nota)",
+        "lane": "copre la lane {lane}",
+        "fallback": "miglior scelta rimasta",
+        "skipped": "tempo scaduto: ban lasciato vuoto",
+        "random": "tempo scaduto: eroe a caso"
+      },
+      "log": {
+        "title": "Scelte spiegate",
+        "intro": "Ogni scelta del bot, e quelle imposte dal timer, con il loro motivo.",
+        "empty": "Ancora nessuna scelta da spiegare.",
+        "line": "{side} · {action} {name}: {reason}",
+        "lineLane": "{side} · {action} {name} ({lane}): {reason}"
+      },
+      "announce": {
+        "turn": "Turno {i} di {n}: {side}, {action}, {who}.",
+        "played": "{side}: {action} {name}.",
+        "empty": "{side}: ban lasciato vuoto.",
+        "hidden": "{side} ha bannato un eroe, svelato a fine turno.",
+        "done": "Draft completato: segue il bilancio delle due squadre."
+      },
+      "summary": {
+        "title": "Bilancio del draft",
+        "intro": "Le due squadre passate all'analisi squadra, con i dati della classifica ({rank}).",
+        "advantage": "Vantaggio misurato",
+        "advantageNote": "Stima ricavata dagli scarti di vittoria misurati in classificata ({rank}): scontri tra le due squadre e duo di ciascuna. Non è una probabilità di vittoria.",
+        "index": "{side} avanti: indice di {pts} pt",
+        "even": "Indice nullo: nessuna squadra si distingue nei dati.",
+        "detail": "Scontri {counters} pt · duo blu {blue} pt · duo rossi {red} pt",
+        "noMeasures": "Nessuna misura ({rank}) lega questi dieci eroi: stima impossibile.",
+        "bar": "Indice di vantaggio: {text}",
+        "duos": "Duo misurati",
+        "noDuo": "Nessun duo misurato al rango.",
+        "matchups": "Scontri tra le squadre",
+        "matchupsIntro": "Scarti di vittoria misurati al rango tra un eroe blu e un eroe rosso, letti nei due sensi.",
+        "noMatchup": "Nessuno scontro misurato tra queste due squadre al rango.",
+        "matchup": "{winner} ha la meglio su {loser}: {pts} pt",
+        "fullAnalysis": "Analisi completa",
+        "share": "Condividi questo draft",
+        "shareIntro": "L'indirizzo contiene ban, pick e impostazioni: il draft si riapre così com'è.",
+        "address": "Indirizzo del draft",
+        "newDraft": "Nuovo draft",
+        "lanes": "Lane"
       }
     },
     "timer": {
