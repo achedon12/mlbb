@@ -59,7 +59,7 @@ export function GuideEmblemes({
             {t("emblemesUI.votreRole")}
           </p>
 
-          <ul className="mt-3 flex gap-1.5 overflow-x-auto lg:flex-col lg:overflow-visible">
+          <ul className="mt-3 flex gap-1.5 relative overflow-x-auto lg:flex-col lg:overflow-visible">
             {emblemes.map((e) => {
               const choisi = role === e.role;
               return (

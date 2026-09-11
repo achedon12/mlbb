@@ -242,7 +242,7 @@ export function TableauHeros({
 
   return (
     <>
-      <div className="mt-6 overflow-x-auto">
+      <div className="mt-6 relative overflow-x-auto">
         <table className="w-full text-sm">
           <caption className="sr-only">{t("pages.accountProfile.herosTitre")}</caption>
           <thead>

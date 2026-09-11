@@ -134,7 +134,7 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
             {t("pages.apiDoc.formeTexte")}
           </p>
 
-          <pre className="biseau mt-4 overflow-x-auto border border-nuit-700/70 bg-nuit-950 p-4 text-xs leading-relaxed text-craie-300">
+          <pre className="biseau mt-4 relative overflow-x-auto border border-nuit-700/70 bg-nuit-950 p-4 text-xs leading-relaxed text-craie-300">
 {`{
   "donnees": [ … ],
   "total": 133,

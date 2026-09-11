@@ -136,8 +136,10 @@ export function TableauStatistiques({
         {affichees.length !== lignes.length && ` ${t("pages.heroesListe.compteSur", { total: lignes.length })}`}
       </p>
 
-      {/* Defilement horizontal sur mobile, nom du heros fige a gauche. */}
-      <div className="mt-3 overflow-x-auto border border-nuit-700/70">
+      {/* Defilement horizontal sur mobile, nom du heros fige a gauche. Le
+          conteneur est positionne : les textes .sr-only des cellules, en position
+          absolue, s'y rattachent au lieu d'elargir toute la page. */}
+      <div className="relative mt-3 overflow-x-auto border border-nuit-700/70">
         <table className="tableau-stats">
           <caption className="sr-only">
             {t("pages.statisticsTable.legende", { rang: t(`rangsMesure.${rang}`) })}

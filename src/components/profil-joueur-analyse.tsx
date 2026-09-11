@@ -68,7 +68,7 @@ export function TableauPostes<C extends Role | Lane>({
         </p>
       ) : (
         <>
-          <div className="mt-4 overflow-x-auto">
+          <div className="mt-4 relative overflow-x-auto">
             <table className="w-full text-sm">
               <caption className="sr-only">{titre}</caption>
               <thead>

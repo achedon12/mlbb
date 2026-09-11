@@ -47,7 +47,7 @@ export function TableauUsage({
   const reste = lignes.slice(limite);
   return (
     <>
-      <div className="overflow-x-auto">
+      <div className="relative overflow-x-auto">
         {/* Classes des cellules posees une fois sur la table : chaque ligne reste legere. */}
         <table className={TABLE}>
           <caption className="sr-only">{legende}</caption>
@@ -112,7 +112,7 @@ export function TableauRangs({
   langue: Langue;
 }) {
   return (
-    <div className="overflow-x-auto">
+    <div className="relative overflow-x-auto">
       <table className={TABLE}>
         <caption className="sr-only">{legende}</caption>
         <thead>

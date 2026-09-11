@@ -215,7 +215,7 @@ export default async function PageRangs({ params }: Params) {
           <TitreBloc id="tableau" intro={t("pages.rangs.tableauIntro")}>
             {t("pages.rangs.tableauTitre")}
           </TitreBloc>
-          <div className="mt-6 overflow-x-auto">
+          <div className="mt-6 relative overflow-x-auto">
             <table className="w-full min-w-[40rem] text-left text-sm">
               <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
                 <tr>
@@ -370,7 +370,7 @@ export default async function PageRangs({ params }: Params) {
           </div>
 
           <h3 className="mt-8 font-titre text-xl font-bold text-craie-100">{t("pages.rangs.recompensesTitre")}</h3>
-          <div className="mt-3 overflow-x-auto">
+          <div className="mt-3 relative overflow-x-auto">
             <table className="w-full min-w-[32rem] text-left text-sm">
               <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
                 <tr>

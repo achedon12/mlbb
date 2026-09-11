@@ -352,7 +352,8 @@ export function CalculateurCollection() {
               return (
                 <li key={h.slug} className="py-3">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                    <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-3">
+                    {/* Base de 12rem : sur mobile, le compte et les boutons passent a la ligne plutot que d'ecraser le nom. */}
+                    <label className="flex min-w-0 flex-[1_1_12rem] cursor-pointer items-center gap-3">
                       <input
                         type="checkbox"
                         checked={heros.has(h.slug)}
@@ -450,7 +451,7 @@ export function CalculateurCollection() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           <section>
             <h2 className="font-titre text-xl font-bold text-craie-100">{t("pages.collectionUI.rareteTitre")}</h2>
-            <div className="mt-4 overflow-x-auto">
+            <div className="mt-4 relative overflow-x-auto">
               <table className="w-full text-sm">
                 <caption className="sr-only">{t("pages.collectionUI.rareteTitre")}</caption>
                 <thead>

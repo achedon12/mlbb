@@ -601,7 +601,7 @@ function TableauAgrege({
     // mobile, la colonne des rangs se masque et les liens s'empilent : la
     // ligne tient sans defiler.
     <div className="biseau border border-nuit-700/70 bg-nuit-900/60 p-3">
-      <div className="overflow-x-auto">
+      <div className="relative overflow-x-auto">
       {/*
         Le nom est l'en-tete de sa ligne : « Comparer » et « Counters » en
         tirent leur contexte, sans aria-label repete sur chaque lien.

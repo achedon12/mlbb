@@ -160,7 +160,7 @@ export default async function PageChatiment({ params }: Params) {
           <p className="mt-3 text-sm text-craie-500">{t("pages.chatiment.monstresNote")}</p>
 
           <h3 className="mt-10 font-titre text-xl font-bold text-craie-100">{t("pages.chatiment.difficultesTitre")}</h3>
-          <div className="mt-3 overflow-x-auto">
+          <div className="mt-3 relative overflow-x-auto">
             <table className="w-full min-w-[26rem] text-left text-sm">
               <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
                 <tr>

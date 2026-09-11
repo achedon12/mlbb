@@ -164,7 +164,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
               annees={annees}
               reference={dateReference}
             >
-              <div className="overflow-x-auto">
+              <div className="relative overflow-x-auto">
                 <table className="w-full min-w-[30rem] border-separate border-spacing-1 text-center text-xs">
                   <caption className="mb-2 text-left text-sm text-craie-500">{t("pages.calendrierSkins.tableauLegende")}</caption>
                   <thead>

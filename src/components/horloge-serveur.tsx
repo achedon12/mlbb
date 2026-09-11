@@ -209,7 +209,7 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
           {langues.map((l) => (
             <div key={l}>
               <h3 className="font-titre text-lg font-bold text-or-400">{t(`outils.heureServeur.groupe.${l}`)}</h3>
-              <div className="mt-2 overflow-x-auto">
+              <div className="mt-2 relative overflow-x-auto">
                 <table className="w-full min-w-[20rem] text-left text-sm">
                   <caption className="sr-only">
                     {t("outils.heureServeur.legende", { groupe: t(`outils.heureServeur.groupe.${l}`) })}
