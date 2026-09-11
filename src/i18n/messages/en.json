@@ -2,14 +2,14 @@
   "commun": {
     "marque": "MLBBDex",
     "sousTitre": "Mobile Legends: Bang Bang knowledge base",
-    "accueil": "Welcome",
+    "accueil": "Home",
     "retour": "Back",
     "changerLangue": "Change language",
     "sourceWiki": "Mobile Legends wiki",
-    "licenceWiki": "Content taken and translated from {lien}, under CC BY-SA license.",
-    "allerAuContenu": "Go to content",
-    "filAriane": "Breadcrumbs",
-    "sections": "Sections of the sheet",
+    "licenceWiki": "Content adapted and translated from the {lien}, under the CC BY-SA license.",
+    "allerAuContenu": "Skip to content",
+    "filAriane": "Breadcrumb",
+    "sections": "Page sections",
     "fermer": "Close",
     "descriptionAccueil": "Mobile Legends: Bang Bang knowledge base: all 133 heroes, their counters and builds by rank, the tier list, items, emblems and patch notes."
   },
@@ -17,28 +17,28 @@
     "baseDeDonnees": "Database",
     "actualite": "News",
     "heroes": {
-      "label": "Hero",
-      "desc": "Sheets, builds and analyzes"
+      "label": "Heroes",
+      "desc": "Profiles, builds and analyses"
     },
     "tierList": {
       "label": "Tier list",
       "desc": "The best of the patch"
     },
     "compare": {
-      "label": "Comparator",
-      "desc": "Two heroes face to face"
+      "label": "Compare",
+      "desc": "Two heroes head to head"
     },
     "draft": {
       "label": "Draft",
-      "desc": "Picks and bans simulator"
+      "desc": "Pick and ban simulator"
     },
     "gameModes": {
-      "label": "Game Modes",
-      "desc": "Classic, Ranked, Fighting…"
+      "label": "Game modes",
+      "desc": "Classic, Ranked, Brawl…"
     },
     "items": {
       "label": "Items",
-      "desc": "Equipment and statistics"
+      "desc": "Equipment and stats"
     },
     "emblems": {
       "label": "Emblems",
@@ -46,11 +46,11 @@
     },
     "news": {
       "label": "News",
-      "desc": "The thread of the game"
+      "desc": "The game's news feed"
     },
     "watch": {
-      "label": "Day before",
-      "desc": "Live Aggregated Sources"
+      "label": "Roundup",
+      "desc": "Live aggregated sources"
     },
     "patchNotes": {
       "label": "Patch notes",
@@ -64,7 +64,7 @@
     "monCompte": "My account"
   },
   "pied": {
-    "description": "The French knowledge base on Mobile Legends: Bang Bang. Independent project, open to contributions.",
+    "description": "The French-language knowledge base for Mobile Legends: Bang Bang. An independent project, open to contributions.",
     "codeSource": "Source code",
     "leJeu": "The game",
     "actualites": "News",
@@ -72,9 +72,9 @@
     "apropos": "About",
     "apiPublique": "Public API",
     "monCompte": "My account",
-    "mentionsLegales": "Legal notices",
-    "confidentialite": "Confidentiality",
-    "credit": "Data from the Mobile Legends Wiki (CC BY-SA) and arena.rone.dev Community API. No game statistics are available.",
+    "mentionsLegales": "Legal notice",
+    "confidentialite": "Privacy",
+    "credit": "Data from the Mobile Legends wiki (CC BY-SA) and the arena.rone.dev community API. No match statistics are available.",
     "droits": "independent fan project. Content published by {auteur}.",
     "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd."
   },
@@ -84,21 +84,21 @@
   },
   "pages": {
     "modes": {
-      "titre": "Game Modes",
-      "chapeau": "From classic 5v5 to quick Fighting games, each mode changes the rules. Choose one to discover the details.",
-      "decouvrir": "Discover the mode",
-      "metaDescription": "The game modes of Mobile Legends: Bang Bang, presented one by one, with detailed rules to support.",
+      "titre": "Game modes",
+      "chapeau": "From classic 5v5 to quick Brawl matches, every mode changes the rules. Pick one to see the details.",
+      "decouvrir": "Explore this mode",
+      "metaDescription": "The game modes of Mobile Legends: Bang Bang, presented one by one with their detailed rules.",
       "ogDescription": "Mobile Legends: Bang Bang game modes and what sets them apart.",
       "titreMode": "{nom} mode"
     },
     "modeDetail": {
-      "nonDocumente": "The details of this mode are not yet documented."
+      "nonDocumente": "This mode isn't documented in detail yet."
     },
     "heroes": {
-      "titre": "Hero",
-      "chapeau": "The {heros} heroes of the game and their {skins} skins, filterable by role and position. The {analyses} sheets marked “Analysis” also contain a commentary, builds and counters.",
-      "metaTitre": "All the heroes",
-      "metaDescription": "The {heros} heroes of Mobile Legends: Bang Bang, filterable by role and position: portraits, skins, statistics, and {analyses} written analyses.",
+      "titre": "Heroes",
+      "chapeau": "The game's {heros} heroes and their {skins} skins, filterable by role and lane. The {analyses} profiles marked “Analysis” also include commentary, builds and counters.",
+      "metaTitre": "All heroes",
+      "metaDescription": "The {heros} heroes of Mobile Legends: Bang Bang, filterable by role and lane: portraits, skins, stats and {analyses} written analyses.",
       "ogDescription": "The {heros} heroes of Mobile Legends: Bang Bang, with their {skins} skins."
     },
     "heroesListe": {
@@ -110,272 +110,272 @@
       "triVictoire": "Win rate",
       "triPalier": "Tier list",
       "compte": "{n} heroes",
-      "compteSur": "on {total}",
+      "compteSur": "of {total}",
       "aucun": "No heroes match these filters.",
       "liste": "Hero list"
     },
     "heroDetail": {
-      "tousLesHeros": "All the heroes",
+      "tousLesHeros": "All heroes",
       "notes": {
-        "offensive": "Offensive",
-        "resistance": "Resistance",
+        "offensive": "Offense",
+        "resistance": "Durability",
         "effets": "Effects",
         "difficulte": "Difficulty"
       },
       "stat": {
         "position": "Lane",
-        "sortie": "Exit",
+        "sortie": "Release",
         "ressource": "Resource",
         "degats": "Damage",
-        "portee": "Scope",
+        "portee": "Range",
         "region": "Region",
         "skins": "Skins",
         "tierList": "Tier list",
         "tauxVictoire": "Win rate",
         "tauxBan": "Ban rate"
       },
-      "palier": "Level {p}",
+      "palier": "Tier {p}",
       "onglet": {
         "analyse": "Analysis",
-        "histoire": "History",
-        "competences": "SKILLS",
-        "contres": "Cons",
+        "histoire": "Lore",
+        "competences": "Skills",
+        "contres": "Counters",
         "builds": "Builds",
         "skins": "Skins"
       },
       "forces": "Strengths",
       "faiblesses": "Weaknesses",
-      "analyseEnCours": "Analysis currently being written",
-      "analyseTexte": "The data for {nom} is up to date — it comes directly from the wiki. What's missing is the commentary: what the hero really does, his builds and his counters. This cannot be extracted, it is written.",
+      "analyseEnCours": "Analysis in progress",
+      "analyseTexte": "The data for {nom} is up to date — it comes straight from the wiki. What's missing is the commentary: what the hero actually does, their builds and their counters. That can't be extracted; it has to be written.",
       "contribuer": "Contribute to this analysis →",
-      "contresIntro": "Established on the winning rates of the game: the difference in points indicates how much the rate of {nom} varies against each opponent.",
-      "contresRef": "Reference win rate: {taux}%.",
-      "matchups": "Reading matchups",
-      "matchupsIntro": "Hand-commented duels, beyond the numbers.",
-      "alaise": "{nom} is comfortable against",
-      "difficulte2": "{nom} is in difficulty against",
-      "metaDescription": "{nom}: {roles} in Mobile Legends: Bang Bang, played in {lanes}. Counters and builds by rank, skills, story and {skins} skins.",
+      "contresIntro": "Based on in-game win rates: the gap in points shows how much {nom}'s win rate shifts against each opponent.",
+      "contresRef": "Baseline win rate: {taux}%.",
+      "matchups": "Matchup breakdown",
+      "matchupsIntro": "Matchups commented by hand, beyond the numbers.",
+      "alaise": "{nom} is strong against",
+      "difficulte2": "{nom} struggles against",
+      "metaDescription": "{nom}: {roles} in Mobile Legends: Bang Bang, played in {lanes}. Counters and builds by rank, skills, lore and {skins} skins.",
       "comparer": "Compare"
     },
     "items": {
       "titre": "Items",
-      "chapeau": "The {n} items in the store. Click on an object to see the detail; filter by category or search directly for a statistic.",
+      "chapeau": "The {n} items in the shop. Click an item to see its details; filter by category or search directly for a stat.",
       "metaTitre": "Items",
-      "metaDescription": "The {n} items in Mobile Legends: Bang Bang: statistics, unique effects, passives, recipes and prices, with their visuals.",
-      "ogDescription": "The {n} game items, with stats, passives and recipes."
+      "metaDescription": "The {n} items in Mobile Legends: Bang Bang: stats, unique effects, passives, recipes and prices, with their icons.",
+      "ogDescription": "The game's {n} items, with stats, passives and recipes."
     },
     "itemsListe": {
-      "rechercher": "Search for an item, stat, passive",
-      "compte": "{n} objects",
-      "compteSur": "on {total}",
-      "prix": "Price :",
+      "rechercher": "Search for an item, stat or passive",
+      "compte": "{n} items",
+      "compteSur": "of {total}",
+      "prix": "Price:",
       "or": "gold",
-      "statistiques": "Statistics",
+      "statistiques": "Stats",
       "unique": "Unique",
       "passif": "Passive",
       "actif": "Active",
       "recette": "Recipe",
-      "choisir": "Choose an item to see its stats, passive, and recipe.",
-      "fermer": "Close",
+      "choisir": "Choose an item to see its stats, passive and recipe.",
+      "fermer": "Close details",
       "fusion": "Combine cost: {prix} gold",
-      "fabrique": "Used in"
+      "fabrique": "Builds into"
     },
     "emblems": {
       "titre": "Emblems and talents",
-      "chapeau": "The real question is not what talents exist, but which ones to take for the role you play. Choose your emblem: the rest of the page is reorganized around it.",
-      "metaTitre": "Emblems, talents and spells",
-      "metaDescription": "Which emblem, talent and combat spell to take depending on your role in Mobile Legends: Bang Bang. Choose your emblem, the page is organized around it.",
-      "ogDescription": "What to take depending on your role: emblems, talents and combat spells."
+      "chapeau": "The real question isn't which talents exist, but which ones to take for the role you play. Pick your emblem: the rest of the page reorganizes around it.",
+      "metaTitre": "Emblems, talents and Battle Spells",
+      "metaDescription": "Which emblem, talent and Battle Spell to take for your role in Mobile Legends: Bang Bang. Pick your emblem and the page organizes itself around it.",
+      "ogDescription": "What to take for your role: emblems, talents and Battle Spells."
     },
     "draft": {
-      "titre": "Draft help",
-      "chapeau": "Fill in what you see opposite, lane by lane. The tool suggests answers and says what justifies them. Add your own picks as you go: the suggestions adjust.",
-      "note": "Counters and synergies come from relationships brought up through play, not from an opinion. They do not cover all duels: a hero without a known counter in a composition is not necessarily a bad choice - he simply has nothing in particular to oppose.",
-      "metaTitre": "Draft help",
-      "metaDescription": "Inform the opposing composition: the tool suggests what to take on each lane, and explains why — counters, synergies and victory rates.",
-      "ogDescription": "What to take when faced with the composition opposite, and why."
+      "titre": "Draft assistant",
+      "chapeau": "Enter what you see on the enemy side, lane by lane. The tool suggests answers and explains what backs them up. Add your own picks as you go: the suggestions adjust.",
+      "note": "Counters and synergies come from relationships reported by the game, not from opinion. They don't cover every matchup: a hero with no known counter in a lineup isn't necessarily a bad pick — it simply has nothing specific to answer there.",
+      "metaTitre": "Draft assistant",
+      "metaDescription": "Enter the enemy lineup: the tool suggests what to pick in each lane and explains why — counters, synergies and win rates.",
+      "ogDescription": "What to pick against the enemy lineup, and why."
     },
     "compare": {
-      "titre": "Comparator",
-      "chapeau": "Choose two heroes and read their strengths side by side: wiki ratings, win and ban rates reported by the game, roles and positions. The best value of each line is highlighted.",
-      "metaTitre": "Hero comparator",
-      "metaDescription": "Compare two heroes from Mobile Legends: Bang Bang side by side: offensive, resistance, effects, difficulty, win and ban rates, roles and positions.",
+      "titre": "Compare",
+      "chapeau": "Pick two heroes and read their strengths side by side: wiki ratings, win and ban rates reported by the game, roles and lanes. The best value in each row is highlighted.",
+      "metaTitre": "Hero comparison",
+      "metaDescription": "Compare two Mobile Legends: Bang Bang heroes side by side: offense, durability, effects, difficulty, win and ban rates, roles and lanes.",
       "ogDescription": "Two heroes compared side by side: ratings, win and ban rates, roles."
     },
     "news": {
       "titre": "News and guides",
-      "chapeau": "In-depth articles rather than short ones: what's changing in the meta, why, and what to do about it.",
+      "chapeau": "In-depth articles rather than quick news: what's changing in the meta, why, and what to do about it in your games.",
       "metaTitre": "News and guides",
-      "metaDescription": "Mobile Legends: Bang Bang meta analyses, background guides and patch readings, in French. Available in RSS feed.",
-      "ogDescription": "Meta analyzes and in-depth guides, in French."
+      "metaDescription": "Meta analyses, in-depth guides and patch breakdowns for Mobile Legends: Bang Bang, in French. Available as an RSS feed.",
+      "ogDescription": "Meta analyses and in-depth guides, in French."
     },
     "tierList": {
       "titre": "Tier list",
-      "chapeau": "This ranking is not an opinion: it is calculated from the win and ban rates reported by the game, and is redone on its own at each synchronization.",
+      "chapeau": "This ranking isn't an opinion: it's calculated from the win and ban rates reported by the game, and rebuilds itself on every sync.",
       "metaTitre": "Tier list",
-      "metaDescription": "Tier list of Mobile Legends: Bang Bang calculated from the win and ban rates reported by the game. Recalculated at each synchronization, without opinion.",
+      "metaDescription": "Mobile Legends: Bang Bang tier list calculated from the win and ban rates reported by the game. Recalculated on every sync, no opinions.",
       "ogDescription": "Ranking calculated from the game's win and ban rates.",
-      "mesures": "{n} hero measures · rate noted",
+      "mesures": "{n} heroes measured · rates recorded on",
       "commentCalcule": "How this ranking is calculated",
-      "scorePre": "The score is worth",
+      "scorePre": "The score is ",
       "scoreBold": "win rate + a quarter of the ban rate",
-      "p2": "Win rate measures what a hero produces once played. The ban rate measures what players fear: it catches heroes who are too strong to be left free, whose win rate is deceptively low because they are rarely available.",
-      "p3pre": "Selection rate is not part of the calculation — it measures popularity, not power. It is only used to signal",
+      "p2": "Win rate measures what a hero delivers once picked. Ban rate measures what players fear: it catches heroes too strong to be left open, whose win rate is misleadingly low because they're rarely available.",
+      "p3pre": "Pick rate isn't part of the calculation — it measures popularity, not power. It's only used to mark with an ",
       "asterisque": "asterisk",
-      "p3post": "the heroes played too little for their numbers to be stable.",
-      "palier": "Level {p}",
-      "tropPeu": "Too little is involved for the rates to be reliable",
-      "victoire": "Victory",
+      "p3post": " heroes played too rarely for their numbers to be stable.",
+      "palier": "Tier {p}",
+      "tropPeu": "Played too rarely for the rates to be reliable",
+      "victoire": "Win",
       "ban": "Ban",
       "pick": "Pick",
       "legende": {
-        "S+": "Dominate the patch. To take or to banish.",
-        "S": "Very strong in the majority of compositions.",
-        "A": "Solid, without imposing the pace of the game.",
-        "B": "Correct, but depends on the context or the player.",
-        "C": "Playable, with a real cost compared to alternatives."
+        "S+": "Dominates the patch. Pick or ban.",
+        "S": "Very strong in most lineups.",
+        "A": "Solid, without dictating the pace of the game.",
+        "B": "Decent, but depends on the context or the player.",
+        "C": "Playable, at a real cost compared to the alternatives."
       }
     },
     "patchNotes": {
       "titre": "Patch notes",
-      "chapeau": "The content of recent updates is included here, section by section. Older patches remain listed, with a link to their original page.",
+      "chapeau": "The content of recent updates is reproduced here, section by section. Older patches are still listed, with a link to their original page.",
       "metaTitre": "Patch notes",
-      "metaDescription": "The {n} patches for Mobile Legends: Bang Bang. Details of recent updates can be viewed directly here, without leaving the site.",
-      "ogDescription": "The {n} patches of the game, with details of the most recent ones.",
-      "recenses": "{n} patches listed · {m} available on the site · synchronizes the",
+      "metaDescription": "The {n} patches of Mobile Legends: Bang Bang. Details of recent updates can be read right here, without leaving the site.",
+      "ogDescription": "The game's {n} patches, with details of the most recent ones.",
+      "recenses": "{n} patches listed · {m} readable on the site · synced on",
       "recentes": "Recent updates",
-      "analyses": "Analytics",
-      "analysesIntro": "What the official notes don't say: the real effect of the changes in part.",
-      "anciens": "Older patches are not included in full - their content would represent several megabytes for versions that no one plays anymore.",
-      "officielleDescription": "Official notes of the Mobile Legends: Bang Bang {version} update: new heroes, adjustments and item changes.",
-      "officiellePartage": "Notes of the {version} update."
+      "analyses": "Analyses",
+      "analysesIntro": "What the official notes don't say: the real in-game effect of the changes.",
+      "anciens": "Older patches aren't reproduced in full — their content would take up several megabytes for versions nobody plays anymore.",
+      "officielleDescription": "Official notes for the Mobile Legends: Bang Bang {version} update: new heroes, adjustments and item changes.",
+      "officiellePartage": "Notes for the {version} update."
     },
     "login": {
       "titre": "Log in",
-      "intro": "Connect your game account using the official Moonton verification code. No password is required.",
+      "intro": "Connect your game account with Moonton's official verification code. No password is required.",
       "secu": "The site never sees your password. It only receives a temporary token, stored in a secure cookie, which you delete when you log out.",
       "metaTitre": "Log in",
-      "metaDescription": "Connect your Mobile Legends account by verification code, without password."
+      "metaDescription": "Connect your Mobile Legends account with a verification code, no password needed."
     },
     "watch": {
-      "titre": "Day before",
-      "chapeau": "What the rest of the web publishes about the game: esports community and press, automatically brought together. Each entry returns to its publisher — nothing is copied here.",
-      "metaTitre": "Watch — MLBB news from the web",
-      "metaDescription": "The latest posts from the community and esports press on Mobile Legends: Bang Bang, collected automatically.",
+      "titre": "Roundup",
+      "chapeau": "What the rest of the web publishes about the game: community and esports press, gathered automatically. Each entry links back to its publisher — nothing is copied here.",
+      "metaTitre": "Roundup — MLBB news from around the web",
+      "metaDescription": "The latest posts from the community and esports press about Mobile Legends: Bang Bang, gathered automatically.",
       "ogDescription": "Mobile Legends news from around the web, gathered automatically.",
-      "derniereCollecte": "Last collection on {date} · sources:",
-      "aucune": "No source responds at the moment. The page automatically reloads at the next collection."
+      "derniereCollecte": "Last fetched on {date} · sources:",
+      "aucune": "No source is responding right now. The page will refresh automatically at the next fetch."
     },
     "about": {
       "titre": "About",
-      "chapeau": "An independent, open project, and voluntarily explicit about its limits.",
-      "metaDescription": "What this site is, what it contains, what it cannot contain, and how to contribute to it."
+      "chapeau": "An independent, open project that is deliberately upfront about its limits.",
+      "metaDescription": "What this site is, what it contains, what it can't contain, and how to contribute."
     },
     "legal": {
-      "titre": "Legal notices",
+      "titre": "Legal notice",
       "chapeau": "Who publishes this site, who hosts it, and who owns the content.",
-      "metaDescription": "Publisher, host and owners of site content. Independent fan project, without affiliation with Moonton."
+      "metaDescription": "Publisher, host and owners of the site's content. Independent fan project, not affiliated with Moonton."
     },
     "privacy": {
-      "titre": "Privacy policy",
-      "chapeau": "What the site processes, what it doesn't process, and where your data lives.",
-      "metaDescription": "Cookies, local storage, game account connection and audience measurement: what the site processes, and where."
+      "titre": "Privacy",
+      "chapeau": "What the site processes, what it doesn't, and where your data lives.",
+      "metaDescription": "Cookies, local storage, game account login and audience measurement: what the site processes, and where."
     },
     "account": {
       "metaTitre": "My account",
-      "metaDescription": "Game profile and statistics.",
-      "indisponible": "Profile currently unavailable",
-      "indisponibleTexte": "You are successfully connected, but the Moonton service that provides the profiles is not responding at the moment. Try again in a few minutes.",
+      "metaDescription": "Game profile and stats.",
+      "indisponible": "Profile temporarily unavailable",
+      "indisponibleTexte": "You're logged in, but the Moonton service that provides profiles isn't responding right now. Try again in a few minutes.",
       "seDeconnecter": "Log out",
       "rangActuel": "Current rank",
-      "meilleurRang": "Best rank",
-      "statistiques": "Statistics",
+      "meilleurRang": "Highest rank",
+      "statistiques": "Stats",
       "amis": "Friends",
       "favoris": "Favorite heroes",
       "niveau": "Level",
       "niveauX": "Level {n}",
-      "deconnexion": "Disconnect",
-      "detailIndispo": "The detailed statistics — win rate, history, most played heroes — depend on a Moonton service currently offline. Your profile above remains accessible; the details will come back as soon as the source responds.",
-      "aucuneStat": "No statistics to display."
+      "deconnexion": "Log out",
+      "detailIndispo": "Detailed stats — win rate, match history, most played heroes — depend on a Moonton service that is currently offline. Your profile above is still available; the details will return as soon as the source responds.",
+      "aucuneStat": "No stats to display."
     },
     "apiDoc": {
       "titre": "Public API",
-      "chapeau": "Site data is accessible in JSON, without a key or registration. Help yourself — the only constraint is to cite the source, which accompanies each answer.",
-      "metaDescription": "An open JSON API on the site's Mobile Legends: Bang Bang data: heroes, skills, skins, items, patches and rankings. Without key, without registration.",
-      "ogDescription": "Heroes, objects, patches and classification in JSON, without keys.",
-      "statHeros": "Hero",
+      "chapeau": "The site's data is available as JSON, with no key or sign-up. Help yourself — the only requirement is to credit the source, which comes with every response.",
+      "metaDescription": "An open JSON API for the site's Mobile Legends: Bang Bang data: heroes, skills, skins, items, patches and rankings. No key, no sign-up.",
+      "ogDescription": "Heroes, items, patches and rankings as JSON, no key needed.",
+      "statHeros": "Heroes",
       "statObjets": "Items",
       "statPatchs": "Patches",
-      "statClasses": "Hero classes",
-      "formeTitre": "Form of responses",
-      "formeTexte": "Each response wraps the result in \"data\", attaches the total number of elements when it is a list, and recalls the source of the data.",
+      "statClasses": "Ranked heroes",
+      "formeTitre": "Response format",
+      "formeTexte": "Each response wraps the result in “donnees”, adds the total item count when it's a list, and states the data source.",
       "conditionsTitre": "Terms",
       "c1label": "No key, no quota.",
-      "c1texte": "The responses are static and cached: they cost nothing to serve. Stay reasonable and everything will be fine.",
-      "c2label": "Cite the source.",
-      "c2texte": "The data comes from the community wiki, under CC BY-SA license: reusing it requires crediting it. Information travels with each response.",
-      "c3label": "The analyzes written",
-      "c3texte": "— comments, builds, counters — are produced for this site and covered by its MIT license.",
+      "c1texte": "Responses are static and cached: they cost nothing to serve. Be reasonable and everything will be fine.",
+      "c2label": "Credit the source.",
+      "c2texte": "The data comes from the community wiki, under the CC BY-SA license: reusing it means crediting it. The attribution travels with every response.",
+      "c3label": "Written analyses",
+      "c3texte": "— commentary, builds, counters — are produced for this site and covered by its MIT license.",
       "c4label": "No player data.",
-      "c4texte": "Moonton does not expose any ranking, history or connection status: this API therefore does not offer any, and no other honestly can.",
-      "synchroNote": "The data tracks the site's weekly sync. Latest: {date}.",
+      "c4texte": "Moonton exposes no rankings, match history or login status: so this API offers none, and no other API honestly can.",
+      "synchroNote": "The data follows the site's weekly sync. Latest: {date}.",
       "routes": {
         "heros": {
-          "resume": "List of heroes, without their detailed skills or their skins.",
-          "roleParam": "Keep only this role.",
-          "laneParam": "Keep only this position."
+          "resume": "List of heroes, without detailed skills or skins.",
+          "roleParam": "Only keep this role.",
+          "laneParam": "Only keep this lane."
         },
         "herosSlug": {
-          "resume": "Complete sheet: statistics, skills with their description, skins, visuals, illustrations and written analysis when it exists."
+          "resume": "Full profile: stats, skills with descriptions, skins, images, artwork and the written analysis when there is one."
         },
         "objets": {
           "resume": "Shop items, with stats, passives and recipes.",
-          "catParam": "Keep only this category."
+          "catParam": "Only keep this category."
         },
         "patchs": {
-          "resume": "Versions listed, from the most recent to the oldest."
+          "resume": "Listed versions, from newest to oldest."
         },
         "classement": {
-          "resume": "Ranking calculated: victory rate, ban and selection rate, level and reporting date."
+          "resume": "Calculated ranking: win, ban and pick rates, tier and date recorded."
         }
       }
     },
     "offline": {
-      "titre": "You are offline",
-      "texte": "This page has not been visited on this device yet, so it is not available without a connection. Pages you have already visited, and the site's main sections, remain available.",
+      "titre": "You're offline",
+      "texte": "This page hasn't been visited on this device yet, so it isn't available offline. Pages you've already visited, and the site's main sections, remain available.",
       "accueil": "Back to home"
     },
     "introuvable": {
       "titre": "Page not found",
-      "texte": "This page does not exist, or no longer does. Hero pages are available from the catalog.",
+      "texte": "This page doesn't exist, or no longer does. Hero profiles are available from the catalog.",
       "accueil": "Back to home",
       "heros": "Browse heroes"
     }
   },
   "modeFiche": {
     "classic": {
-      "accroche": "The benchmark 5 against 5",
-      "texte": "Two teams of five, three lanes, one Nexus to destroy. The founding mode, without ranking issues: ideal for discovering a hero or warming up."
+      "accroche": "The reference 5v5",
+      "texte": "Two teams of five, three lanes, one Nexus to destroy. The original mode, with no ranking at stake: ideal for trying out a hero or warming up."
     },
     "ranked": {
       "accroche": "Climb the ranks",
-      "texte": "The competitive line. Each victory earns stars and raises Warning to Mythical Glory, with bans and selection in draft from Epic."
+      "texte": "The competitive queue. Each win earns stars and takes you from Warrior up to Mythical Glory, with bans and draft pick from Epic onward."
     },
     "brawl": {
-      "accroche": "Only one way, right away",
-      "texte": "Single card has a lane, hero draws lots. Short and nervous games, without jungle or long return to base phase."
+      "accroche": "One lane, straight into action",
+      "texte": "A single-lane map with a random hero. Short, intense matches, with no jungle and no long trips back to base."
     },
     "vs-ai": {
-      "accroche": "Take on the computer",
-      "texte": "Opponents controlled by AI, with adjustable difficulty. To test a build or tame a new hero without the pressure of ranking."
+      "accroche": "Take on the AI",
+      "texte": "AI-controlled opponents with adjustable difficulty. For testing a build or learning a new hero without ranking pressure."
     },
     "custom": {
       "accroche": "Your rules",
-      "texte": "Create a tailor-made game: team composition, spectators, map and free parameters. The mode of tournaments and matches between friends."
+      "texte": "Create a custom match: team composition, spectators, map and settings of your choice. The mode for tournaments and matches between friends."
     },
     "arcade-mode": {
-      "accroche": "Ephemeral fashions",
-      "texte": "A rotation of special and festive modes – Magic Hunt, Survival and other variants – offered for a limited time."
+      "accroche": "Limited-time modes",
+      "texte": "A rotation of special and festive modes — Magic Hunt, Survival and other variants — available for a limited time."
     }
   },
   "roles": {
@@ -383,13 +383,13 @@
     "Fighter": "Fighter",
     "Assassin": "Assassin",
     "Mage": "Mage",
-    "Marksman": "Shooter",
+    "Marksman": "Marksman",
     "Support": "Support"
   },
   "lanes": {
-    "Or": "Gold",
-    "Experience": "Experience",
-    "Milieu": "Medium",
+    "Or": "Gold Lane",
+    "Experience": "EXP Lane",
+    "Milieu": "Mid Lane",
     "Jungle": "Jungle",
     "Roam": "Roam"
   },
@@ -400,12 +400,12 @@
     "age": "Age",
     "origine": "Origin",
     "anniversaire": "Birthday",
-    "recit": "The story",
+    "recit": "Story",
     "saviezVous": "Did you know?",
-    "affiliations": "Memberships",
+    "affiliations": "Affiliations",
     "relations": "Relationships",
     "pouvoirs": "Powers",
-    "aucunRecit": "The wiki does not yet publish a story for {nom}."
+    "aucunRecit": "The wiki hasn't published a story for {nom} yet."
   },
   "comp": {
     "Passif": "Passive",
@@ -413,7 +413,7 @@
     "Competence 2": "Skill 2",
     "Ultime": "Ultimate",
     "Competence": "Skill",
-    "nonRecuperees": "This hero's skills have not been retrieved yet.",
+    "nonRecuperees": "This hero's skills haven't been retrieved yet.",
     "aucuneDescription": "No description available for this skill.",
     "recharge": "Cooldown",
     "cout": "Cost",
@@ -421,41 +421,41 @@
   },
   "contres": {
     "fort": "Strong against",
-    "difficulte": "In difficulty against",
+    "difficulte": "Weak against",
     "pts": "pts"
   },
   "home": {
-    "titre1": "The whole game, explains",
+    "titre1": "The whole game, explained",
     "titreAccent": "in French",
-    "lead": "{heros} heroes and their {skins} skins, a tier list calculated on game rates, draft assistance, items, emblems and patch notes. The data synchronizes itself; the analysis is written by hand.",
+    "lead": "{heros} heroes and their {skins} skins, a tier list calculated from in-game rates, a draft assistant, items, emblems and patch notes. The data syncs itself; the analysis is written by hand.",
     "parcourir": "Browse heroes",
-    "aideDraft": "Draft help",
-    "statHeros": "hero",
+    "aideDraft": "Draft assistant",
+    "statHeros": "heroes",
     "statSkins": "skins",
     "statPatchs": "patches",
-    "statAnalyses": "written analyzes",
+    "statAnalyses": "written analyses",
     "commencerTitre": "Where to start",
-    "commencerChapeau": "You play a role, not a catalog. Enter through there.",
-    "classementTitre": "At the head of the patch",
-    "classementChapeau": "Calculated from win and ban rates reported by the game, not an opinion.",
-    "tierListComplete": "Tier list complete",
-    "skinsTitre": "Skin Galleries",
-    "skinsChapeau": "The {skins} skins of the game, with their full-size illustration, their rarity and their price.",
+    "commencerChapeau": "You play a role, not a catalog. Start from there.",
+    "classementTitre": "Top of the patch",
+    "classementChapeau": "Calculated from the win and ban rates reported by the game, not from opinion.",
+    "tierListComplete": "Full tier list",
+    "skinsTitre": "Skin galleries",
+    "skinsChapeau": "The game's {skins} skins, with full-size artwork, rarity and price.",
     "voirHeros": "Browse heroes",
-    "derniereMaj": "Last update",
+    "derniereMaj": "Latest update",
     "toutesActualites": "All news",
-    "synchroChapeau": "Last synchronization on {date}.",
+    "synchroChapeau": "Last synced on {date}.",
     "cartes": {
-      "donneesTitre": "Data updates on its own",
-      "donneesTexte": "Heroes, skins, items, patches and visuals are extracted from the wiki every week. A new hero appears here without anyone realizing it.",
-      "classementTitre": "The ranking does not give an opinion",
-      "classementTexte": "The tier list is calculated based on the win and ban rates reported by the game. The calculation rule is displayed on the page.",
-      "ecritTitre": "What is written remains written",
-      "ecritTexte": "Analyzes, builds and guides are written by hand. No extraction will tell why a hero is strong; This is where contributions count."
+      "donneesTitre": "The data updates itself",
+      "donneesTexte": "Heroes, skins, items, patches and images are pulled from the wiki every week. A new hero shows up here without anyone having to enter it.",
+      "classementTitre": "The ranking has no opinion",
+      "classementTexte": "The tier list is calculated from the win and ban rates reported by the game. The calculation rule is shown on the page.",
+      "ecritTitre": "What's written stays written",
+      "ecritTexte": "Analyses, builds and guides are written by hand. No data extraction can tell why a hero is strong; that's where contributions matter."
     },
     "commentFonctionne": "How this site works",
-    "suivreRss": "Follow publications in RSS",
-    "pourcentVictoires": "% of wins",
+    "suivreRss": "Follow new posts via RSS",
+    "pourcentVictoires": "% win rate",
     "derniersArticles": "Latest articles"
   },
   "vedette": {
@@ -463,10 +463,10 @@
     "role": "Role",
     "position": "Lane",
     "tierList": "Tier list",
-    "victoires": "Victories",
+    "victoires": "Wins",
     "skins": "Skins",
-    "voirFiche": "See his file",
-    "palier": "Level {p}"
+    "voirFiche": "View profile",
+    "palier": "Tier {p}"
   },
   "acces": {
     "compte": "{n} heroes"
@@ -488,37 +488,37 @@
           "h": "What the site contains"
         },
         {
-          "p": "The complete roster, skins for each hero, items, emblems, combat spells and the list of patches. This data is automatically extracted from the community wiki every week: a new hero appears here without anyone having to enter it."
+          "p": "The full roster, every hero's skins, items, emblems, Battle Spells and the list of patches. This data is extracted automatically from the community wiki every week: a new hero shows up here without anyone having to enter it."
         },
         {
-          "p": "Added to this is what no extraction will produce: an analysis written for some of the heroes - what they really do, their builds, their counters - a tier list in which each placement is argued, and background guides."
+          "p": "On top of that comes what no extraction will ever produce: a written analysis for some of the heroes — what they actually do, their builds, their counters — a tier list where every placement is justified, and in-depth guides."
         },
         {
           "h": "What it doesn't contain, and why"
         },
         {
-          "p": "No player statistics. Moonton does not publish any programming interface: neither ranking, nor game history, nor skill index, nor connection status. Sites that display an “MMR” for Mobile Legends estimate it; they don't read it anywhere."
+          "p": "No player stats. Moonton doesn't publish any programming interface: no rankings, no match history, no skill rating, no login status. Sites that show an “MMR” for Mobile Legends estimate it; they don't read it from anywhere."
         },
         {
-          "p": "The only information that can really be verified from the outside is the nickname associated with a player identifier, via the validation stage of the recharge platforms. This is exactly what the account linking offered here does, and nothing more."
+          "p": "The only information genuinely verifiable from the outside is the nickname tied to a player ID, via the validation step of top-up platforms. That's exactly what the account linking offered here does, and nothing more."
         },
         {
-          "p": "Visuals belong to Moonton. Portraits, icons and skin illustrations come from the community wiki and are served by this site so that nothing depends on a third party domain. They remain the property of Moonton, are presented for illustration purposes, and will be removed upon request of the rights holder. The visual identity of the site – midnight blue, gold, cut corners – is inspired by that of the game without using the interface files."
+          "p": "The visuals belong to Moonton. Portraits, icons and skin artwork come from the community wiki and are served by this site so that nothing depends on a third-party domain. They remain Moonton's property, are included for illustration purposes, and will be removed at the rights holder's request. The site's visual identity — midnight blue, gold, cut corners — is inspired by the game's without reusing its interface files."
         },
         {
-          "h": "The day before"
+          "h": "The roundup"
         },
         {
-          "p": "The monitoring section automatically brings together publications from other sites on the game. It only displays the title, the date and a short extract, and systematically refers to the original publisher: nothing is republished there."
+          "p": "The roundup section automatically gathers posts about the game from other sites. It only shows the title, the date and a short excerpt, and always links back to the original publisher: nothing is republished here."
         },
         {
-          "p": "Moonton does not publish any official streams — the game site is an application with non-streamable content. Updates to the game are therefore taken up and commented on by hand in the patch notes, while the day before covers what the rest of the web publishes."
+          "p": "Moonton publishes no official feed — the game's website is an app whose content can't be syndicated. Game updates are therefore reproduced and commented by hand in the patch notes, while the roundup covers what the rest of the web publishes."
         },
         {
           "h": "The account"
         },
         {
-          "p": "It is optional: all content is accessible without logging in. Logging in requires Moonton's official verification code — a four-digit code sent to your in-game email. The site never sees your password: it receives a temporary token, stored in a secure cookie, which you delete when you log out."
+          "p": "It's optional: all content is accessible without logging in. Logging in uses Moonton's official verification code — a four-digit code sent to your in-game mailbox. The site never sees your password: it receives a temporary token, stored in a secure cookie, which you delete when you log out."
         },
         {
           "p": "No database, no account created on the site. Your favorite heroes are stored in your browser, not on a server."
@@ -527,32 +527,32 @@
           "h": "Contribute"
         },
         {
-          "p": "The code and content are public. Hero sheets live in typical TypeScript files, articles in Markdown files: you can add a sheet or correct an error without knowing the rest of the project."
+          "p": "The code and content are public. Hero profiles live in typed TypeScript files, articles in Markdown files: you can add a profile or fix a mistake without knowing the rest of the project."
         },
         {
-          "p": "[The repository is here.]({depot}) Balancing fixes, missing files and rereads are particularly welcome."
+          "p": "[The repository is here.]({depot}) Balance fixes, missing profiles and proofreading are especially welcome."
         },
         {
-          "h": "Mentions"
+          "h": "Trademarks"
         },
         {
-          "p": "Mobile Legends: Bang Bang, its universe, its heroes and their names are registered trademarks of Shanghai Moonton Technology Co., Ltd. This site is an independent fan project, with no affiliation, endorsement, or sponsorship from Moonton."
+          "p": "Mobile Legends: Bang Bang, its universe, its heroes and their names are registered trademarks of Shanghai Moonton Technology Co., Ltd. This site is an independent fan project, with no affiliation, endorsement or sponsorship from Moonton."
         }
       ]
     },
     "legal": {
       "blocs": [
         {
-          "h": "Editor"
+          "h": "Publisher"
         },
         {
-          "p": "This site is published on a personal basis by [{editeur}]({editeurSite}), as part of an independent fan project, non-profit and without commercial structure. This is not a business."
+          "p": "This site is published in a personal capacity by [{editeur}]({editeurSite}), as an independent, non-profit fan project with no commercial structure. It is not a company."
         },
         {
           "p": "Contact: [{contact}](mailto:{contact})"
         },
         {
-          "h": "Host"
+          "h": "Hosting"
         },
         {
           "p": "The site is hosted by [{hebergeur}]({hebergeurSite})."
@@ -561,105 +561,105 @@
           "h": "Intellectual property"
         },
         {
-          "p": "Mobile Legends: Bang Bang, its universe, its heroes, their names and their graphic representations are trademarks and works of Shanghai Moonton Technology Co., Ltd. This site is an independent fan project, with no affiliation, endorsement, or sponsorship from Moonton."
+          "p": "Mobile Legends: Bang Bang, its universe, its heroes, their names and their graphic representations are trademarks and works of Shanghai Moonton Technology Co., Ltd. This site is an independent fan project, with no affiliation, endorsement or sponsorship from Moonton."
         },
         {
-          "p": "The visuals displayed (portraits, icons, emblems, illustrations) come from the community wiki and remain the property of Moonton. They are included for illustration and information purposes. At the request of the beneficiary, they will be removed."
+          "p": "The visuals displayed (portraits, icons, emblems, artwork) come from the community wiki and remain the property of Moonton. They are included for illustration and information purposes. They will be removed at the rights holder's request."
         },
         {
-          "p": "Factual data comes from [Mobile Legends wiki](https://mobilelegends.fandom.com) (CC BY-SA license) and a community API. The code and texts written for this site are published under the MIT license — see [public deposit]({depot})."
+          "p": "Factual data comes from the [Mobile Legends wiki](https://mobilelegends.fandom.com) (CC BY-SA license) and a community API. The code and texts written for this site are published under the MIT license — see the [public repository]({depot})."
         },
         {
-          "h": "Responsibility"
+          "h": "Liability"
         },
         {
-          "p": "The information is provided for information purposes only, without guarantee of accuracy or completeness: the game is evolving, and certain data may be late for an update. Links to third-party sites are the sole responsibility of their authors."
+          "p": "The information is provided for guidance only, with no guarantee of accuracy or completeness: the game evolves, and some data may lag behind an update. Links to third-party sites are the sole responsibility of their authors."
         },
         {
           "h": "Personal data"
         },
         {
-          "p": "Data processing and use of cookies are detailed in the [privacy policy](/privacy)."
+          "p": "Data processing and the use of cookies are detailed in the [privacy policy](/privacy)."
         }
       ]
     },
     "privacy": {
       "blocs": [
         {
-          "p": "This site is designed to operate without storing personal data on a server: it does not have an account database. This page describes what little is processed, and where."
+          "p": "This site is designed to work without storing personal data on a server: it has no account database. This page describes the little that is processed, and where."
         },
         {
           "h": "Cookies"
         },
         {
-          "p": "Only one cookie can be placed, and only if you connect your game account:"
+          "p": "Only one cookie can be set, and only if you connect your game account:"
         },
         {
           "ul": [
-            "`mlbb_jeu` — session cookie strictly necessary for connection. It contains the temporary token given by the Moonton service, never leaves the server (`httpOnly`), and expires by itself. Without connection, no cookies are placed."
+            "`mlbb_jeu` — session cookie strictly necessary for login. It contains the temporary token issued by the Moonton service, never leaves the server (`httpOnly`), and expires on its own. If you don't log in, no cookie is set."
           ]
         },
         {
-          "p": "As this cookie is strictly necessary for the service you request (stay connected), it does not require prior consent. No advertising or tracking cookies are used."
+          "p": "As this cookie is strictly necessary for the service you request (staying logged in), it doesn't require prior consent. No advertising or tracking cookies are used."
         },
         {
           "h": "Storage in your browser"
         },
         {
-          "p": "Your favorite heroes are saved in your browser's local storage (`localStorage`), on your device only. They are not sent to any server and do not leave this browser. Emptying the site data erases it."
+          "p": "Your favorite heroes are saved in your browser's local storage (`localStorage`), on your device only. They are not sent to any server and never leave this browser. Clearing the site data erases them."
         },
         {
-          "h": "Login to game account"
+          "h": "Game account login"
         },
         {
-          "p": "The connection uses the official Moonton flow: you provide your identifier and game server, a verification code is sent to you in-game, and the site receives a temporary token in return. These exchanges pass through a community API (`arena.rone.dev`) and the Moonton authentication service. The site does not record any of this information: the token lives in the session cookie, on the browser side, and disappears upon disconnection or expiration. You are never asked for a password."
+          "p": "Login uses Moonton's official flow: you provide your game ID and server, a verification code is sent to you in-game, and the site receives a temporary token in return. These exchanges go through a community API (`arena.rone.dev`) and Moonton's authentication service. The site stores none of this information: the token lives in the session cookie, on the browser side, and disappears when you log out or when it expires. You are never asked for a password."
         },
         {
           "h": "Third-party content"
         },
         {
-          "p": "The images (portraits, icons, emblems) are served by the hosts of Moonton and the community wiki. Loading a page therefore addresses requests to these services, which can see your IP address, as for any remote resource."
+          "p": "The images (portraits, icons, emblems) are served by Moonton's and the community wiki's hosts. Loading a page therefore sends requests to these services, which can see your IP address, as with any remote resource."
         },
         {
           "h": "Audience measurement"
         },
         {
-          "p": "If audience measurement is activated, it is done with a tool without cookies and without personal data, which does not track visitors from one site to another. No consent banner is then necessary."
+          "p": "If audience measurement is enabled, it uses a cookie-free tool that collects no personal data and doesn't track visitors from one site to another. No consent banner is needed in that case."
         },
         {
           "h": "Your rights"
         },
         {
-          "p": "As the site does not constitute any personal data file, there is nothing to consult, rectify or delete on the server side. You keep control over what lives in your browser (favorites, session) by disconnecting or deleting the site data. For any questions, write to [{contact}](mailto:{contact})."
+          "p": "Since the site keeps no personal data file, there is nothing to access, correct or delete on the server side. You stay in control of what lives in your browser (favorites, session) by logging out or clearing the site data. For any question, write to [{contact}](mailto:{contact})."
         }
       ]
     }
   },
   "compareUI": {
-    "offensive": "Offensive",
-    "resistance": "Resistance",
-    "effets": "Effects/control",
+    "offensive": "Offense",
+    "resistance": "Durability",
+    "effets": "Control effects",
     "difficulte": "Difficulty",
     "premier": "First hero",
     "second": "Second hero",
     "tauxVictoire": "Win rate",
     "tauxBan": "Ban rate",
     "skins": "Skins",
-    "rechercher": "Search a hero…",
+    "rechercher": "Search for a hero…",
     "aucun": "No hero matches."
   },
   "patchHeros": {
-    "amelioration": "Improvement",
-    "affaiblissement": "Weakening",
+    "amelioration": "Buff",
+    "affaiblissement": "Nerf",
     "ajustement": "Adjustment"
   },
   "emblemesUI": {
-    "talents": "Decisive talents",
-    "talentsDesc": "The last floor: he is the one who changes a part.",
+    "talents": "Key talents",
+    "talentsDesc": "The final tier: this is the one that changes a game.",
     "attributs": "Attributes",
-    "attributsDesc": "The first stages adjust the statistics. They count, without deciding.",
-    "sorts": "Combat Spells",
-    "sortsDesc": "A single location: the spell must respond to what the hero lacks."
+    "attributsDesc": "The first tiers fine-tune your stats. They matter, but they don't decide.",
+    "sorts": "Battle Spells",
+    "sortsDesc": "Only one slot: the spell should cover what the hero lacks."
   },
   "skinsUI": {
     "pointsBataille": "Battle Points",
@@ -667,31 +667,31 @@
     "tickets": "Tickets",
     "fragments": "Hero Fragments",
     "gemmes": "Gems",
-    "sortie": "Exit",
+    "sortie": "Release",
     "disponibilite": "Availability",
-    "obtention": "Obtaining",
-    "origine": "Original skin."
+    "obtention": "How to get",
+    "origine": "Default skin."
   },
   "draftUI": {
-    "adverse": "Opposing team",
-    "adverseDesc": "What you see in front of you.",
+    "adverse": "Enemy team",
+    "adverseDesc": "What you see on the other side.",
     "votre": "Your team",
-    "votreDesc": "Your picks already placed. They open up synergies.",
-    "quePrendre": "What to take",
+    "votreDesc": "Your picks so far. They unlock synergies.",
+    "quePrendre": "What to pick",
     "suggestions": "Suggestions",
     "rechercher": "Search for a hero",
     "fermer": "Close",
     "toutEffacer": "Clear all",
-    "intro": "Inform at least one opposing hero. Suggestions are ranked first on counters, then on synergies with your own picks; the victory rate is only used to decide between winners.",
-    "dejaPourvue": "already provided",
-    "aucunContre": "no known cons in this composition",
+    "intro": "Enter at least one enemy hero. Suggestions are ranked first by counters, then by synergy with your own picks; win rate is only used as a tiebreaker.",
+    "dejaPourvue": "already filled",
+    "aucunContre": "no known counter in this lineup",
     "aucunHeros": "No heroes available.",
-    "prendre": "Take",
-    "choisirEn": "Choose {nom} in {lane}",
+    "prendre": "Pick",
+    "choisirEn": "Pick {nom} for {lane}",
     "retirer": "Remove {nom}",
-    "choisirLane": "Choose a hero for the lane {lane}",
-    "placeholderLane": "Heroes of {lane} — or search by name",
-    "choisirUn": "Choose a hero",
+    "choisirLane": "Pick a hero for {lane}",
+    "placeholderLane": "{lane} heroes — or search by name",
+    "choisirUn": "Pick a hero",
     "filtreLane": "Lane",
     "filtreRole": "Role",
     "toutesLanes": "All",
@@ -699,17 +699,17 @@
     "compte": "{n} heroes"
   },
   "nouveauHeros": {
-    "particularite": "Particularity —"
+    "particularite": "Special trait — "
   },
   "loginForm": {
-    "envoiCode": "Sending the code…",
-    "recevoir": "Receive an in-game code",
-    "verification": "Verification…",
+    "envoiCode": "Sending code…",
+    "recevoir": "Get a code in-game",
+    "verification": "Verifying…",
     "seConnecter": "Log in",
-    "recommencer": "Start again with another identifier"
+    "recommencer": "Start over with another ID"
   },
   "articleUI": {
-    "aucune": "No publications yet."
+    "aucune": "No posts yet."
   },
   "articleCat": {
     "Actualite": "News",
@@ -721,68 +721,68 @@
     "guerrier": "Warrior",
     "elite": "Elite",
     "maitre": "Master",
-    "grand-maitre": "Grand Master",
+    "grand-maitre": "Grandmaster",
     "epique": "Epic",
-    "mythique": "Mythical",
+    "mythique": "Mythic",
     "mythique-honneur": "Mythical Honor",
-    "mythique-gloire": "Mythical glory",
+    "mythique-gloire": "Mythical Glory",
     "mythique-immortel": "Mythical Immortal"
   },
   "rangUnite": {
     "etoile": "{n} star",
     "etoiles": "{n} stars",
-    "point": "{n} points",
+    "point": "{n} point",
     "points": "{n} points"
   },
   "favoris": {
-    "intro": "Saves on this device, in this browser — regardless of your account. They do not sync from one device to another.",
-    "aucunPre": "No favorites yet. On a hero sheet,",
+    "intro": "Saved on this device, in this browser — independently of your account. They don't sync between devices.",
+    "aucunPre": "No favorites yet. On a hero's profile, ",
     "aucunLien": "add one",
-    "aucunPost": "to find it here.",
+    "aucunPost": " to find it here.",
     "compte": "{n} heroes",
-    "garde": "keep on hand",
-    "gardes": "keep on hand",
+    "garde": "kept at hand",
+    "gardes": "kept at hand",
     "retirer": "Remove {nom}",
     "dans": "In my favorites",
     "ajouter": "Add to favorites"
   },
   "skinDispo": {
     "Available": "Available",
-    "Limited": "Limit",
-    "Upcoming": "Future"
+    "Limited": "Limited",
+    "Upcoming": "Upcoming"
   },
   "skinRarete": {
     "Common": "Common",
     "Exquisite": "Exquisite",
     "Exceptional": "Exceptional",
     "Deluxe": "Deluxe",
-    "Grand": "Grandiose",
+    "Grand": "Grand",
     "Supreme": "Supreme",
     "origine": "Origin"
   },
   "skinEtiquette": {
     "Elite": "Elite",
     "Special": "Special",
-    "Limited": "Limit",
+    "Limited": "Limited",
     "Epic": "Epic",
     "Legend": "Legend",
     "Collector": "Collector",
     "Seasons": "Seasons",
-    "Luckybox": "Lucky Chest",
-    "StarLight": "Starlight",
+    "Luckybox": "Lucky Box",
+    "StarLight": "StarLight",
     "Valentine": "Valentine's Day",
     "Atomic": "Atomic"
   },
   "emblemesData": {
     "tank-emblem": {
-      "nom": "Tank emblem",
-      "bonus": "PV and resistances",
-      "pourQui": "Engagement tanks and experience lane tanks."
+      "nom": "Tank Emblem",
+      "bonus": "HP and resistances",
+      "pourQui": "Initiator tanks and EXP Lane tanks."
     },
     "fighter-emblem": {
       "nom": "Fighter Emblem",
       "bonus": "Attack damage and lifesteal",
-      "pourQui": "Experienced lane fighters who must win their duel."
+      "pourQui": "EXP Lane fighters who need to win their duel."
     },
     "assassin-emblem": {
       "nom": "Assassin Emblem",
@@ -791,201 +791,201 @@
     },
     "mage-emblem": {
       "nom": "Mage Emblem",
-      "bonus": "Magical power and magical penetration",
-      "pourQui": "Middle lane mages."
+      "bonus": "Magic power and magic penetration",
+      "pourQui": "Mid Lane mages."
     },
     "marksman-emblem": {
-      "nom": "Shooter Emblem",
+      "nom": "Marksman Emblem",
       "bonus": "Attack speed and attack damage",
-      "pourQui": "Gold Lane Shooters."
+      "pourQui": "Gold Lane marksmen."
     },
     "support-emblem": {
       "nom": "Support Emblem",
-      "bonus": "Recharge reduction and movement speed",
+      "bonus": "Cooldown reduction and movement speed",
       "pourQui": "Supports and non-tank roamers."
     },
     "agility": {
       "nom": "Agility",
       "description": "Increases movement speed.",
-      "pourQui": "Roamers and heroes who must move quickly on the map."
+      "pourQui": "Roamers and heroes who need to rotate quickly across the map."
     },
     "swift": {
       "nom": "Swift",
       "description": "Increases attack speed.",
-      "pourQui": "Shooters and fighters have basic attacks."
+      "pourQui": "Marksmen and fighters that rely on basic attacks."
     },
     "vitality": {
       "nom": "Vitality",
-      "description": "Increases maximum HP.",
+      "description": "Increases max HP.",
       "pourQui": "Tanks and fighters."
     },
     "fatal": {
       "nom": "Fatal",
-      "description": "Increases critical hit rate.",
-      "pourQui": "Shooters and Assassins review."
+      "description": "Increases crit chance.",
+      "pourQui": "Crit-based marksmen and assassins."
     },
     "firmness": {
       "nom": "Firmness",
-      "description": "Increases physical and magical resistance.",
-      "pourQui": "Tanks face mixed damage."
+      "description": "Increases physical and magic defense.",
+      "pourQui": "Tanks facing mixed damage."
     },
     "thrill": {
       "nom": "Thrill",
       "description": "Increases attack damage and magic power.",
-      "pourQui": "Carriers of damage, regardless of type."
+      "pourQui": "Damage dealers of any type."
     },
     "tenacity": {
       "nom": "Tenacity",
-      "description": "Increases resistances when HP is low.",
-      "pourQui": "Tanks face an explosive composition."
+      "description": "Increases defenses when HP is low.",
+      "pourQui": "Tanks facing a burst-heavy lineup."
     },
     "seasoned-hunter": {
       "nom": "Seasoned Hunter",
       "description": "Increases damage dealt to jungle monsters.",
-      "pourQui": "Junglers, to secure the objectives."
+      "pourQui": "Junglers, to secure objectives."
     },
     "master-assassin": {
       "nom": "Master Assassin",
       "description": "Increases damage against an isolated target.",
-      "pourQui": "Assassins seeking a duel."
+      "pourQui": "Assassins looking for duels."
     },
     "weakness-finder": {
       "nom": "Weakness Finder",
       "description": "Basic attacks slow the target.",
-      "pourQui": "Fighters without their own control."
+      "pourQui": "Fighters without crowd control of their own."
     },
     "impure-rage": {
       "nom": "Impure Rage",
-      "description": "The next skill deals additional damage and restores mana.",
-      "pourQui": "Mages with frequent skills."
+      "description": "The next skill deals extra damage and restores mana.",
+      "pourQui": "Mages who cast skills often."
     },
     "quantum-charge": {
       "nom": "Quantum Charge",
-      "description": "Skill damage accelerates and heals.",
-      "pourQui": "Heroes who must remain mobile in combat."
+      "description": "Skill damage grants movement speed and healing.",
+      "pourQui": "Heroes who need to stay mobile in fights."
     },
     "weapon-master": {
       "nom": "Weapon Master",
-      "description": "Increases all attack bonuses received from items.",
+      "description": "Increases all attack bonuses gained from items.",
       "pourQui": "Fighters whose damage comes from skills."
     },
     "lethal-ignition": {
       "nom": "Lethal Ignition",
-      "description": "Deal additional damage to a heavily injured target.",
-      "pourQui": "Porters who must conclude quickly."
+      "description": "Deals extra damage to a badly wounded target.",
+      "pourQui": "Carries who need to finish fights fast."
     },
     "concussive-blast": {
       "nom": "Concussive Blast",
-      "description": "Deals area damage based on maximum HP.",
-      "pourQui": "Engagement tanks: Tigreal, Khufra, Atlas."
+      "description": "Deals area damage based on max HP.",
+      "pourQui": "Initiator tanks: Tigreal, Khufra, Atlas."
     },
     "wilderness-blessing": {
       "nom": "Wilderness Blessing",
-      "description": "Increases movement speed outside of combat and on grass.",
+      "description": "Increases movement speed out of combat and in bushes.",
       "pourQui": "Roamers who live in the bushes, like Franco."
     },
     "focusing-mark": {
       "nom": "Focusing Mark",
       "description": "Targets hit take more damage from allies.",
-      "pourQui": "Supports and tanks that play for their carrier."
+      "pourQui": "Supports and tanks who play for their carry."
     },
     "brave-smite": {
       "nom": "Brave Smite",
       "description": "Hitting an enemy with a skill restores HP.",
-      "pourQui": "Experienced lane fighters."
+      "pourQui": "EXP Lane fighters."
     },
     "killing-spree": {
       "nom": "Killing Spree",
-      "description": "An elimination restores HP and speeds up.",
-      "pourQui": "Assassins who chain targets."
+      "description": "A takedown restores HP and grants movement speed.",
+      "pourQui": "Assassins who chain kills."
     },
     "festival-of-blood": {
       "nom": "Festival of Blood",
-      "description": "Skill damage applies lifesteal.",
-      "pourQui": "Combat Mages extends."
+      "description": "Skill damage grants lifesteal.",
+      "pourQui": "Mages built for extended fights."
     },
     "bargain-hunter": {
       "nom": "Bargain Hunter",
       "description": "Reduces the price of items.",
-      "pourQui": "Roamers, whose income is the lowest in the team."
+      "pourQui": "Roamers, whose income is the lowest on the team."
     },
     "pull-yourself-together": {
-      "nom": "Sweater Yourself Together",
-      "description": "Reduces the recharge of combat spells and active items.",
-      "pourQui": "Hero whose Flicker decides the fights."
+      "nom": "Pull Yourself Together",
+      "description": "Reduces the cooldown of Battle Spells and active items.",
+      "pourQui": "Heroes whose Flicker decides fights."
     },
     "flicker": {
       "nom": "Flicker",
       "description": "Teleports the hero a short distance.",
-      "pourQui": "Almost everyone: commitment, escape, cancellation of animation."
+      "pourQui": "Almost everyone: initiating, escaping, animation canceling."
     },
     "execute": {
-      "nom": "Executed",
-      "description": "Inflicts damage based on the target's missing HP.",
-      "pourQui": "Junglers and assassins who must conclude."
+      "nom": "Execute",
+      "description": "Deals damage based on the target's missing HP.",
+      "pourQui": "Junglers and assassins who need to secure kills."
     },
     "retribution": {
       "nom": "Retribution",
-      "description": "Deals significant damage to a monster and strengthens jungle clearing.",
-      "pourQui": "Mandatory on the jungler."
+      "description": "Deals heavy damage to a monster and speeds up jungle clearing.",
+      "pourQui": "Mandatory for the jungler."
     },
     "purify": {
       "nom": "Purify",
-      "description": "Removes control effects and briefly immunizes.",
-      "pourQui": "Carriers targeted by a single control: against Chou, Franco, Kaja."
+      "description": "Removes crowd control effects and grants brief immunity.",
+      "pourQui": "Carries targeted by a single crowd control: against Chou, Franco, Kaja."
     },
     "inspire": {
-      "nom": "Inspired",
-      "description": "Greatly increases attack speed and ignores some armor.",
-      "pourQui": "Shooters have basic attacks."
+      "nom": "Inspire",
+      "description": "Greatly increases attack speed and ignores part of the target's armor.",
+      "pourQui": "Marksmen that rely on basic attacks."
     },
     "sprint": {
       "nom": "Sprint",
-      "description": "Increases movement speed and removes slowdowns.",
-      "pourQui": "Heroes without mobility who must reposition themselves."
+      "description": "Increases movement speed and removes slows.",
+      "pourQui": "Heroes without mobility who need to reposition."
     },
     "petrify": {
       "nom": "Petrify",
-      "description": "Slows and immobilizes nearby enemies.",
-      "pourQui": "Tanks without reliable control."
+      "description": "Slows, then immobilizes nearby enemies.",
+      "pourQui": "Tanks without reliable crowd control."
     },
     "arrival": {
       "nom": "Arrival",
-      "description": "Teleports the hero to a turret or an allied minion.",
-      "pourQui": "Solo lanes which must return quickly after returning to base."
+      "description": "Teleports the hero to an allied turret or minion.",
+      "pourQui": "Solo laners who need to get back quickly after recalling."
     },
     "vengeance": {
-      "nom": "Revenge",
-      "description": "Returns a portion of the damage suffered during the duration.",
-      "pourQui": "Experienced lane fighters."
+      "nom": "Vengeance",
+      "description": "Reflects part of the damage taken for the duration.",
+      "pourQui": "EXP Lane fighters."
     },
     "aegis": {
       "nom": "Aegis",
-      "description": "Grants a shield to self and nearby allies.",
+      "description": "Grants a shield to yourself and nearby allies.",
       "pourQui": "Supports and protective tanks."
     },
     "revitalize": {
       "nom": "Revitalize",
-      "description": "Creates an area that heals the allies present.",
-      "pourQui": "Support in the face of damage spread over time."
+      "description": "Creates an area that heals allies inside it.",
+      "pourQui": "Supports facing damage spread over time."
     }
   },
   "erreur": {
-    "titre": "An error has occurred",
-    "texte": "The site encountered an unexpected problem. Try again in a moment.",
+    "titre": "Something went wrong",
+    "texte": "The site ran into an unexpected problem. Try again in a moment.",
     "reessayer": "Try again"
   },
   "carteHeros": {
-    "palierTitre": "Level {p} of the tier list"
+    "palierTitre": "Tier {p} of the tier list"
   },
   "rangsMesure": {
     "label": "Rank",
     "all": "All ranks",
     "epic": "Epic",
     "legend": "Legend",
-    "mythic": "Mythical",
+    "mythic": "Mythic",
     "honor": "Mythical Honor",
-    "glory": "Mythical glory"
+    "glory": "Mythical Glory"
   },
   "builds": {
     "joues": "Most played builds",

@@ -8,9 +8,7 @@ import { rangLisible } from "./rangs";
 /**
  * Visuels des choix d'un build : objets, embleme, talents et sort.
  *
- * Les images sont rangees sous le nom anglais du jeu, passe en slug. Deux
- * sources nomment ces choix : l'API, en anglais, et les builds rediges, en
- * francais — d'ou une table de passage pour ces derniers.
+ * Les images sont rangees sous le nom anglais du jeu, passe en slug.
  */
 const V = visuels as unknown as Record<"objets" | "emblemes" | "talents" | "sorts", Record<string, string>>;
 
@@ -18,16 +16,10 @@ const cle = (nom: string) =>
   cleRecherche(nom).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /**
- * Noms des builds rediges vers la cle du visuel. Recoupes avec les builds
- * reellement joues : les tanks prennent Concussive Blast, les mages Lethal
- * Ignition, les soutiens Focusing Mark.
+ * Graphies divergentes d'un meme talent. Les builds rediges emploient les noms
+ * anglais du jeu, comme l'API : pas de traduction a tenir.
  */
 const ALIAS: Record<string, string> = {
-  chasseur: "seasoned-hunter",
-  sauveur: "focusing-mark",
-  choc: "concussive-blast",
-  "feu-magique": "lethal-ignition",
-  festin: "festival-of-blood",
   // L'API ecrit « Weapons Master », le wiki « Weapon Master ».
   "weapons-master": "weapon-master",
   execution: "execute",
