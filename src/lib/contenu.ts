@@ -36,8 +36,10 @@ function lireDossier(dossier: string): Article[] {
 
       return {
         // Le nom de fichier commence par la date, qui n'a rien a faire dans
-        // l'URL : elle est deja portee par les donnees structurees.
-        slug: fichier.replace(/\.md$/, "").replace(/^\d{4}-\d{2}-\d{2}-/, ""),
+        // l'URL : elle est deja portee par les donnees structurees. Le reste
+        // devient un segment d'adresse, encode : un nom de fichier ne doit
+        // jamais pouvoir former un lien executable.
+        slug: encodeURIComponent(fichier.replace(/\.md$/, "").replace(/^\d{4}-\d{2}-\d{2}-/, "")),
         titre: String(data.titre ?? "Sans titre"),
         date: String(data.date ?? ""),
         chapeau: String(data.chapeau ?? ""),
