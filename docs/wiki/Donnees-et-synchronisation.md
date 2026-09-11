@@ -88,6 +88,10 @@ Protections (*Settings → Rules → Rulesets*), avec la clé de déploiement
   obligatoires (le commit doit les avoir passés sur `develop`), ni force push
   ni suppression.
 - **`develop`** : historique linéaire, ni force push ni suppression.
+- **`pull-requests`** (sur les deux branches) : toute pull request doit passer
+  **Qualité** et **Tests** et être approuvée par le propriétaire du dépôt,
+  déclaré dans `.github/CODEOWNERS` ; un nouveau commit annule l'approbation.
+  Le propriétaire contourne cette règle pour pousser directement.
 
 Les commits de fusion sont désactivés dans les réglages du dépôt : seuls
 *squash* et *rebase* restent proposés.

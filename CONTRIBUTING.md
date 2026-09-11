@@ -142,9 +142,10 @@ facon.
 
 ## La relecture
 
-Chaque contribution passe par une pull request sur GitHub. Un mainteneur la
-relit sur le fond et la forme : exactitude au patch courant, style,
-originalite. S'il faut changer quelque chose, il le dit en commentaire de la
+Chaque contribution passe par une pull request sur GitHub. Elle ne peut etre
+fusionnee qu'une fois les tests passes et apres l'approbation du proprietaire
+du depot, qui la relit sur le fond et la forme : exactitude au patch courant,
+style, originalite. S'il faut changer quelque chose, il le dit en commentaire de la
 pull request ; une fois fusionnee, l'analyse est en ligne au deploiement
 suivant.
 
