@@ -13,6 +13,10 @@ import { cheminFiltre, cheminRole, FILTRES_LANE, FILTRES_ROLE } from "@/lib/filt
 import { site } from "@/lib/site";
 import { mesureLe, RANGS_CLASSES } from "@/lib/tier-list";
 import { LANGUES } from "@/i18n/config";
+import { monthKeys } from "@/lib/events-server";
+import { CHECKED_ON } from "@/lib/objectives";
+import { esportsUpdatedAt, tournaments } from "@/lib/esports";
+import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions } from "@/lib/advance-server";
 
 /**
  * Plan du site, multilingue.
@@ -75,6 +79,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { chemin: "/tools/retribution", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
     { chemin: "/tools/tier-list-maker", changeFrequency: "monthly", priority: 0.6, lastModified: mesure },
     { chemin: "/quiz", changeFrequency: "daily", priority: 0.6 },
+    { chemin: "/mlbbdle", changeFrequency: "daily", priority: 0.6 },
+    // Objective timings, dated by the day they were checked on the wiki.
+    { chemin: "/tools/timer", changeFrequency: "monthly", priority: 0.6, lastModified: dateDe(CHECKED_ON) },
+    { chemin: "/map", changeFrequency: "monthly", priority: 0.6, lastModified: dateDe(CHECKED_ON) },
+    { chemin: "/tools/nickname", changeFrequency: "yearly", priority: 0.5 },
+    { chemin: "/tools/draw-calculator", changeFrequency: "yearly", priority: 0.5 },
+    { chemin: "/tools/build", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
+    { chemin: "/builds", changeFrequency: "daily", priority: 0.5 },
+    // Monthly skin calendar: one page per month the data documents.
+    { chemin: "/events", changeFrequency: "weekly", priority: 0.7, lastModified: synchronise },
+    ...monthKeys().map((month) => ({
+      chemin: `/events/${month}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+      lastModified: synchronise,
+    })),
+    // Esports hub and one page per covered tournament, dated by the last refresh.
+    { chemin: "/esports", changeFrequency: "weekly", priority: 0.6, lastModified: dateDe(esportsUpdatedAt) },
+    ...tournaments.map((t) => ({
+      chemin: `/esports/${t.slug}`,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+      lastModified: dateDe(esportsUpdatedAt),
+    })),
+    // Advance Server notes, dated by the version they describe.
+    {
+      chemin: "/patch-notes/advance-server",
+      changeFrequency: "weekly",
+      priority: 0.5,
+      lastModified: dateDe(advanceVersions("en")[0]?.date ?? advanceSyncedAt),
+    },
+    ...advanceVersionNumbers.map((version) => ({
+      chemin: `/patch-notes/advance-server/${version}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+      lastModified: dateDe(advanceVersion("en", version)?.date),
+    })),
     { chemin: "/tools/collection", changeFrequency: "monthly", priority: 0.5, lastModified: synchronise },
     { chemin: "/lore", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
     ...regionsLore.map((r) => ({
