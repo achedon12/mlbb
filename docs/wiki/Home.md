@@ -1,29 +1,30 @@
-# MLBBDex — le wiki
+# MLBBDex wiki
 
-**MLBBDex** est une base de connaissances francophone sur *Mobile Legends: Bang Bang* :
-roster complet, fiches héros vérifiées, tier list argumentée, objets, emblèmes,
-histoire des héros, modes de jeu et patch notes.
+**MLBBDex** is a knowledge base for *Mobile Legends: Bang Bang*, in English,
+French, Italian and Spanish: full roster, verified hero pages, reasoned tier
+list, items, emblems, hero lore, game modes and patch notes.
 
-En ligne : <https://mlbbdex.com> · Code : <https://github.com/achedon12/mlbb>
+Live: <https://mlbbdex.com> · Code: <https://github.com/achedon12/mlbb>
 
-> Le parti pris tient en une phrase : **rien n'est publié qui n'ait été vérifié**.
-> Un héros sans fiche est affiché comme tel, plutôt que rempli de valeurs approximatives.
+> The approach fits in one sentence: **nothing is published unless it has been verified**.
+> A hero without a write-up is shown as such, rather than filled with approximate values.
 
-## Sommaire
+## Contents
 
-- **[Architecture](Architecture)** — la pile technique et l'organisation du code.
-- **[Données et synchronisation](Donnees-et-synchronisation)** — d'où viennent les données et comment elles sont rafraîchies.
-- **[API](API)** — les routes JSON publiques, leur format et leurs limites.
-- **[Traductions](Traductions)** — comment les contenus anglais deviennent français.
-- **[Contribuer](Contribuer)** — écrire une analyse, corriger une donnée, ouvrir une PR.
-- **[FAQ](FAQ)** — les questions récurrentes.
+- **[Architecture](Architecture)**: the tech stack and how the code is organized.
+- **[Data and sync](Data-and-sync)**: where the data comes from, how it is refreshed, branches, CI and deployment.
+- **[API](API)**: the public JSON routes, their format and their limits.
+- **[Translations](Translations)**: how content reaches the site's four languages.
+- **[Contributing](Contributing)**: write an analysis, fix a data point, open a pull request.
+- **[FAQ](FAQ)**: recurring questions.
 
-## En bref
+## At a glance
 
 | | |
 | --- | --- |
 | Framework | Next.js 16 (App Router) · React 19 |
-| Style | Tailwind CSS v4 |
-| Données | extraites du wiki Fandom + API communautaire, stockées **en dur** dans le dépôt |
-| Déploiement | image Docker autonome (`output: standalone`) |
-| Mesure d'audience | Matomo, sans cookie |
+| Styling | Tailwind CSS v4 |
+| Languages | English (default), French, Italian, Spanish |
+| Data | extracted from the Fandom wiki + community API, **committed** to the repository |
+| Deployment | self-contained Docker image (`output: standalone`) |
+| Analytics | Matomo, cookieless |

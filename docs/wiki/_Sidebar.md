@@ -1,12 +1,12 @@
 ### MLBBDex
 
-- [Accueil](Home)
+- [Home](Home)
 - [Architecture](Architecture)
-- [Données et synchronisation](Donnees-et-synchronisation)
+- [Data and sync](Data-and-sync)
 - [API](API)
-- [Traductions](Traductions)
-- [Contribuer](Contribuer)
+- [Translations](Translations)
+- [Contributing](Contributing)
 - [FAQ](FAQ)
 
 ---
-[Site](https://mlbbdex.com) · [Dépôt](https://github.com/achedon12/mlbb)
+[Site](https://mlbbdex.com) · [Repository](https://github.com/achedon12/mlbb)

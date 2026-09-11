@@ -25,9 +25,9 @@ const nextConfig: NextConfig = {
   env: { VERSION_SITE: version },
 
   images: {
-    // Les portraits de heros sont servis par le wiki communautaire qui les
-    // heberge. Rien n'est recopie dans ce depot : ce sont des ressources de
-    // Moonton, affichees en pointant vers leur hebergeur.
+    // Les visuels du jeu sont copies en local (public/visuels) par la
+    // synchronisation. Le wiki ne reste autorise que pour les images
+    // incrustees dans les notes de patch qu'on reprend telles quelles.
     remotePatterns: [
       { protocol: "https", hostname: "static.wikia.nocookie.net" },
       // Avatars de profil, servis par le CDN de Moonton.

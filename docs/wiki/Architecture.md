@@ -1,42 +1,45 @@
 # Architecture
 
-## Pile technique
+## Tech stack
 
-- **Next.js 16** (App Router), **React 19** — pages de contenu générées au build (statiques).
-- **Tailwind CSS v4** — thème par jetons (`@theme`), coins biseautés propres au jeu.
-- **TypeScript** de bout en bout.
-- **Docker** — image de production autonome (`output: standalone`).
+- **Next.js 16** (App Router), **React 19**: content pages generated at build time (static).
+- **Tailwind CSS v4**: token-based theme (`@theme`), bevelled corners borrowed from the game.
+- **TypeScript** end to end.
+- **Docker**: self-contained production image (`output: standalone`).
 
-## Principe directeur : tout en local
+## Guiding principle: everything local
 
-Le site ne dépend d'**aucune URL externe à l'exécution**. Chaque donnée et chaque
-image est copiée dans le dépôt :
+The site's content depends on **no external URL at runtime**. Every piece of
+data and every image is copied into the repository:
 
-- les données factuelles vivent dans `src/data/jeu/` (JSON) ;
-- les visuels dans `public/visuels/`.
+- factual data lives in `src/data/jeu/` (JSON);
+- visuals live in `public/visuels/`.
 
-Les seuls scripts autorisés sont ceux qui **récupèrent** ces données (voir
-[Données et synchronisation](Donnees-et-synchronisation)) ; ils tournent hors ligne,
-puis leur sortie est versionnée.
+The only scripts allowed are the ones that **fetch** this data (see
+[Data and sync](Data-and-sync)); they run outside the site, locally or in CI,
+and their output is committed. The one exception is the signed-in account
+area: profile, rank and friends are read live from Moonton, through the
+community API.
 
-## Organisation du code
+## Code layout
 
 ```
 src/
-  app/            Pages (App Router) — héros, tier list, objets, modes, patch notes…
-  components/     Composants d'interface
-  lib/            Accès aux données (donnees.ts), types, utilitaires
+  app/            Pages (App Router): heroes, tier list, items, modes, patch notes, tools…
+  components/     UI components
+  i18n/           Languages, message catalogues, translation helpers
+  lib/            Data access (donnees.ts), types, utilities
   data/
-    jeu/          Données extraites (heros, visuels, statistiques, patchs…)
-    heros/        Analyses écrites à la main (builds, contres, commentaire)
-scripts/          Récupération et traduction des données (voir page dédiée)
-public/visuels/   Images copiées en local
+    jeu/          Extracted data (heroes, visuals, statistics, patches…)
+    heros/        Hand-written analyses (builds, counters, commentary)
+content/          Articles in Markdown, one folder per language
+scripts/          Data fetching and translation (see the dedicated page)
+public/visuels/   Images copied locally
 ```
 
-## Deux origines de données, séparées
+## Two separate data origins
 
-1. **Factuel** (héros, skins, objets, patchs, histoire) : extrait automatiquement,
-   dans `src/data/jeu/`. Ne se modifie pas à la main — la prochaine synchronisation
-   l'écraserait.
-2. **Éditorial** (analyse, builds, contres commentés) : écrit à la main dans
-   `src/data/heros/`, posé par-dessus le factuel via le `slug` du héros.
+1. **Factual** (heroes, skins, items, patches, lore): extracted automatically
+   into `src/data/jeu/`. Never edited by hand: the next sync would overwrite it.
+2. **Editorial** (analysis, builds, annotated counters): written by hand in
+   `src/data/heros/`, layered on top of the factual data through the hero's `slug`.

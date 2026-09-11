@@ -1,45 +1,43 @@
-# Code de conduite
+# Code of conduct
 
-## L'essentiel
+## The short version
 
-Ce projet parle d'un jeu. Personne n'y risque sa carriere, et rien n'y justifie
-d'etre desagreable avec quelqu'un.
+This project is about a game. Nobody's career is at stake here, and nothing
+justifies being unpleasant to anyone.
 
-## Ce qu'on attend
+## What we expect
 
-- **Discuter du contenu, pas des personnes.** « Cette note de tier list me
-  parait fausse, voila pourquoi » plutot que « tu n'y connais rien ».
-- **Accepter le desaccord.** Sur l'equilibrage d'un jeu, deux personnes de
-  bonne foi peuvent lire le meme patch differemment. C'est normal.
-- **Repondre a un debutant comme on aurait voulu qu'on nous reponde.** Une
-  premiere contribution maladroite reste une contribution.
-- **Ecrire en francais ou en anglais**, au choix. Un francais approximatif ne
-  sera jamais un motif de rejet.
+- **Discuss the content, not the people.** "This tier list note looks wrong to
+  me, here is why" rather than "you know nothing about this".
+- **Accept disagreement.** On game balance, two people acting in good faith can
+  read the same patch differently. That is normal.
+- **Answer a beginner the way you would have wanted to be answered.** A clumsy
+  first contribution is still a contribution.
+- **Write in English or in French**, whichever you prefer. Imperfect English or
+  French will never be a reason to turn anything down.
 
-## Ce qui n'est pas accepte
+## What is not accepted
 
-- Insultes, harcelement, remarques discriminatoires de quelque nature que ce
-  soit.
-- Attaques personnelles, y compris sous forme d'ironie.
-- Publication d'informations privees concernant quelqu'un.
-- Toxicite importee du jeu. Le classement d'un contributeur ne dit rien de la
-  valeur de son avis.
+- Insults, harassment, discriminatory remarks of any kind.
+- Personal attacks, including sarcastic ones.
+- Publishing private information about someone.
+- Toxicity imported from the game. A contributor's rank says nothing about the
+  value of their opinion.
 
-## Portee
+## Scope
 
-Ce code s'applique a tous les espaces du projet : issues, pull requests,
-discussions, et toute communication se reclamant du projet.
+This code applies to every space of the project: issues, pull requests,
+discussions, and any communication made on behalf of the project.
 
-## Signalement
+## Reporting
 
-Ouvrir une issue avec le label `conduite`, ou contacter directement le
-mainteneur via son profil GitHub : [achedon12](https://github.com/achedon12).
+Open an issue, or contact the maintainer directly through their GitHub
+profile: [achedon12](https://github.com/achedon12).
 
-Tout signalement est traite serieusement et confidentiellement. Les reponses
-possibles vont du rappel a l'ordre au blocage definitif, selon la gravite et la
-repetition.
+Every report is handled seriously and confidentially. Possible responses range
+from a reminder to a permanent ban, depending on severity and repetition.
 
 ## Attribution
 
-Ce texte s'inspire du [Contributor Covenant](https://www.contributor-covenant.org),
-reecrit pour rester court et applicable.
+This text is inspired by the [Contributor Covenant](https://www.contributor-covenant.org),
+rewritten to stay short and practical.

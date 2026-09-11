@@ -1,108 +1,113 @@
-# Contribuer
+# Contributing
 
-Toute contribution est bienvenue. La plus utile, et de loin : **ecrire
-l'analyse d'un heros qui n'en a pas encore**.
+Every contribution is welcome. The most useful one, by far: **writing the
+analysis of a hero who does not have one yet**.
 
-## Comment le projet est organise
+## How the project is organized
 
-Deux sources de donnees, qu'il ne faut pas confondre.
+Two kinds of data, which must not be confused.
 
-| | Ou | Qui l'ecrit |
+| | Where | Who writes it |
 | --- | --- | --- |
-| **Donnees factuelles** — heros, skins, objets, patchs, visuels | `src/data/jeu/`, `public/visuels/` | Personne : `npm run sync` les extrait du wiki |
-| **Analyse** — commentaire, competences redigees, contres, builds | `src/data/heros/` | Vous |
-| **Articles** — guides, actualites, patch notes | `content/` | Vous |
-| **Tier list, emblemes, sorts** | `src/data/` | Vous |
+| **Factual data**: heroes, skins, items, patches, visuals | `src/data/jeu/`, `public/visuels/` | Nobody: `npm run sync` extracts it from the wiki and the stats API |
+| **Analysis**: commentary, written skills, counters, builds | `src/data/heros/` | You |
+| **Articles**: guides, news, patch notes | `content/fr/` | You |
+| **Tier list notes, emblems** | `src/data/tier-list.ts`, `src/data/emblemes.ts` | You |
 
-> **Ne modifiez jamais `src/data/jeu/` ni `public/visuels/` a la main.**
-> La prochaine synchronisation ecrasera vos changements. Si une donnee du jeu
-> est fausse, elle vient du wiki : la corriger la-bas resout le probleme pour
-> tout le monde, et definitivement.
+> **Never edit `src/data/jeu/` or `public/visuels/` by hand.**
+> The next sync will overwrite your changes. If some game data is wrong, it
+> comes from the wiki: fixing it there solves the problem for everyone, for
+> good.
 
-## Demarrer
+## Getting started
 
 ```bash
 npm install
-cp .env.example .env.local     # renseigner SESSION_SECRET
+cp .env.example .env.local
 npm run dev                    # http://localhost:3001
 ```
 
-Les donnees et les visuels sont deja dans le depot : rien a synchroniser pour
-travailler.
+The data and the visuals are already in the repository: nothing to sync before
+you start working.
 
-## Ecrire une analyse de heros
+## Writing a hero analysis
 
-Le guide complet — chaque champ explique, le modele annote, les regles de
-style et la relecture — est aussi en ligne, dans les quatre langues du site :
-[mlbbdex.com/fr/contribute](https://mlbbdex.com/fr/contribute).
+The full guide (every field explained, the annotated template, the style rules
+and the review) is also online, in the site's four languages:
+[mlbbdex.com/en/contribute](https://mlbbdex.com/en/contribute).
 
-1. Reprendre le `slug` **exact** depuis `src/data/jeu/heros.json`.
-2. Ouvrir le fichier du role dans `src/data/heros/` (`tanks.ts`,
-   `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts`, `supports.ts`).
-3. Recopier le modele annote [`docs/modele-analyse.ts`](docs/modele-analyse.ts)
-   a la fin de la liste, le remplir, puis retirer ses commentaires. Le modele
-   suit le type `AnalyseHeros` de `src/lib/types.ts` : `npm run typecheck` le
-   verifie a chaque passage, il ne peut donc pas se perimer.
+1. Copy the **exact** `slug` from `src/data/jeu/heros.json`.
+2. Open the role file in `src/data/heros/` (`tanks.ts`, `fighters.ts`,
+   `assassins.ts`, `mages.ts`, `marksmen.ts`, `supports.ts`).
+3. Copy the annotated template [`docs/modele-analyse.ts`](docs/modele-analyse.ts)
+   to the end of the list, fill it in, then remove its comments. The template
+   follows the `AnalyseHeros` type from `src/lib/types.ts`: `npm run typecheck`
+   checks it on every run, so it cannot go stale.
 
-N'y remettez pas le role, la position, la date de sortie ni la difficulte :
-tout cela vient deja de la synchronisation.
+Do not add the role, lane, release date or difficulty: all of that already
+comes from the sync.
 
-### Regles de style
+### Style rules
 
-- **Les analyses s'ecrivent en francais**, avec leurs accents : c'est du texte
-  affiche aux visiteurs, pas du code.
-- **Les termes du jeu restent en anglais** : objets, competences, talents et
-  sorts gardent le nom que le joueur retrouve en partie (« Winter Crown »,
-  « Flicker »).
-- **Rien de copie** : ni le wiki, ni un guide, ni une video. Une analyse
-  reprise d'ailleurs, meme reformulee de pres, est refusee.
+- **Analyses are written in French**, with their accents: this is text shown to
+  visitors, not code.
+- **Game terms stay in English**: items, skills, talents and spells keep the
+  name players see in a match ("Winter Crown", "Flicker").
+- **Nothing copied**: not from the wiki, a guide or a video. An analysis taken
+  from elsewhere, even closely reworded, is rejected.
 
-### Ce qui fait une bonne analyse
+### What makes a good analysis
 
-- **`resume`** — une phrase. Elle sert aussi de meta description.
-- **`analyse`** — deux paragraphes separes par une ligne vide : ce que le heros
-  fait reellement, puis ses limites. Pas de superlatifs. « Il est fort » n'est
-  pas une analyse ; « il gagne les combats longs tant que l'adversaire
-  n'achete pas de reduction de soins » en est une.
-- **`competences`** — la description, les recharges et le cout. **Le nom
-  n'est plus affiche** : il vient du wiki, dans la langue du jeu, pour que le
-  lecteur retrouve la competence en partie. Respectez l'ordre passif,
-  competence 1, competence 2, ultime — c'est lui qui apparie votre description
-  a la bonne competence. Ne recopiez pas les valeurs de degats : elles
-  changent presque a chaque patch.
-- **`fortContre` / `faibleContre`** — des `slug`, pas des noms.
-- **`builds`** — le champ `contexte` explique *quand* prendre ce build. Un
-  build sans contexte n'apprend rien a personne.
+- **`resume`**: one sentence. It is also used as the meta description.
+- **`analyse`**: two paragraphs separated by a blank line: what the hero
+  actually does, then their limits. No superlatives. "He is strong" is not an
+  analysis; "he wins long fights as long as the enemy does not buy healing
+  reduction" is.
+- **`competences`**: the description, the cooldowns and the cost. **The name
+  is no longer displayed**: it comes from the wiki, in the game's language, so
+  that readers recognize the skill in a match. Keep the order passive, skill 1,
+  skill 2, ultimate: that order is what matches your description to the right
+  skill. Do not copy damage values: they change almost every patch.
+- **`fortContre` / `faibleContre`** (strong against / weak against): `slug`s,
+  not names.
+- **`builds`**: the `contexte` field explains *when* to pick the build. A build
+  without context teaches nobody anything.
 
-## Ecrire un article
+## Writing an article
 
-Un fichier Markdown dans `content/actualites/` ou `content/patch-notes/`,
-nomme `AAAA-MM-JJ-titre-en-slug.md`. La date sert au tri et disparait de l'URL.
+A Markdown file in `content/fr/actualites/` (news) or `content/fr/patch-notes/`,
+named `YYYY-MM-DD-title-as-slug.md`. The date is used for sorting and is dropped
+from the URL. `npm run traduire` produces the English, Italian and Spanish
+versions.
 
 ```markdown
 ---
-titre: "Titre de l'article"
+titre: "Article title"
 date: "2026-09-09"
 categorie: "Guide"        # Actualite | Patch | Esport | Guide
-auteur: "votre-pseudo"
-chapeau: "Une phrase de resume, reprise en meta description et dans le flux RSS."
-motsCles: ["mot", "cle"]
+auteur: "your-username"
+chapeau: "A one-sentence summary, reused as the meta description and in the RSS feed."
+motsCles: ["keyword", "another"]
 ---
 
-Le corps de l'article, en Markdown.
+The article body, in Markdown.
 ```
 
-## Modifier la tier list
+## Editing the tier list
 
-Dans `src/data/tier-list.ts`. Mettre a jour `patch` et `miseAJour`.
+The ranking itself is not written by hand: it is computed from the win and ban
+rates reported by the game, and updated at every sync (`src/lib/tier-list.ts`).
+What you write is the note for a hero in `notesTierList`
+(`src/data/tier-list.ts`): what the numbers do not say, *why* the hero sits
+where they do at the current patch. A note is optional; a hero without one is
+shown with their numbers only.
 
-**Un placement sans argument n'est pas accepte.** Le champ `note` doit dire ce
-qui justifie la position au patch courant.
+**A note without an argument is not accepted.**
 
-## Relancer une synchronisation
+## Running a sync
 
-Elle tourne toute seule chaque nuit (complete le lundi) et pousse ses donnees
-directement en production. Pour la declencher a la main :
+It runs by itself every night (full sync on Mondays) and pushes its data
+straight to production. To run it by hand:
 
 ```bash
 npm run sync -- --images
@@ -110,25 +115,24 @@ npm run sync -- --images
 
 ## Branches
 
-- `develop` : le travail en cours. **Toutes les pull requests la visent**, et
-  sont fusionnees par *rebase* ou *squash* : jamais de commit de fusion.
-- `main` : la production, deployee a chaque push. Pour publier, une fois la CI
-  verte sur `develop` : `git push origin develop:main` (avance rapide
-  uniquement), ou le bouton **Publier en production** dans *Actions*.
+- `develop`: ongoing work. **Every pull request targets it**, and is merged by
+  *rebase* or *squash*: never a merge commit.
+- `main`: production, deployed on every push. To publish, once CI is green on
+  `develop`: `git push origin develop:main` (fast-forward only), or the
+  **Publier en production** (publish to production) button in *Actions*.
 
 ```bash
 git switch develop && git pull --rebase
-git switch -c ma-contribution
+git switch -c my-contribution
 # ... commits ...
-git push -u origin ma-contribution   # puis pull request vers develop
+git push -u origin my-contribution   # then a pull request to develop
 ```
 
-Les donnees de la synchronisation arrivent chaque nuit sur `main` et sont
-reportees sur `develop`, rejouee par-dessus si besoin : recuperez-la toujours
-avec `git pull --rebase` (ou `git config pull.rebase true`, une fois pour
-toutes).
+The sync data lands on `main` every night and is carried over to `develop`,
+which is replayed on top of it if needed: always pull it with
+`git pull --rebase` (or `git config pull.rebase true`, once and for all).
 
-## Avant d'ouvrir une pull request
+## Before opening a pull request
 
 ```bash
 npm run lint
@@ -137,35 +141,36 @@ npm test
 npm run build
 ```
 
-Tous doivent passer — la verification automatique les relancera de toute
-facon.
+All of them must pass: the automated checks will run them again anyway, along
+with the browser tests (`npm run test:e2e`).
 
-Quelques automatismes accompagnent ensuite la pull request :
+A few automations then follow the pull request:
 
-- elle echoue d'office si elle modifie `src/data/jeu/` ou `public/visuels/`,
-  regeneres par la synchronisation ;
-- en conflit avec sa branche cible, elle est etiquetee « conflit » : rebasez-la ;
-- si des changements sont demandes, elle repasse en brouillon, etiquetee
-  « à corriger » ; remettez-la en « prete pour relecture » une fois corrigee.
+- it fails automatically if it changes `src/data/jeu/` or `public/visuels/`,
+  which the sync regenerates;
+- if it conflicts with its target branch, it gets the `conflit` label: rebase
+  it;
+- if changes are requested, it goes back to draft with the `à corriger` label;
+  mark it "Ready for review" again once it is fixed, and it gets the `à relire`
+  label.
 
-## La relecture
+## Review
 
-Chaque contribution passe par une pull request sur GitHub. Elle ne peut etre
-fusionnee qu'une fois les tests passes et apres l'approbation du proprietaire
-du depot, qui la relit sur le fond et la forme : exactitude au patch courant,
-style, originalite. S'il faut changer quelque chose, il le dit en commentaire de la
-pull request ; une fois fusionnee, l'analyse est en ligne au deploiement
-suivant.
+Every contribution goes through a pull request on GitHub. It can only be
+merged once the tests pass and after approval from the repository owner, who
+reviews both substance and form: accuracy at the current patch, style,
+originality. If something needs to change, they say so in a comment on the
+pull request; once merged, the analysis goes live at the next release to
+production.
 
-Messages de commit en francais, a l'imperatif : « ajoute l'analyse de Ling »,
-« corrige la recharge de Khufra ».
+Commit messages are in English, in the imperative: "Add the Ling analysis",
+"Fix Khufra's cooldown".
 
 ## Style
 
-Le site est en francais. Les commentaires de code aussi : ils expliquent
-**pourquoi**, pas **quoi**. Si un commentaire paraphrase la ligne suivante, il
-vaut mieux l'enlever.
+The site was written in French first: the interface catalogue and the analyses
+start in French, and so do code comments. Comments explain **why**, not
+**what**. If a comment paraphrases the next line, it is better removed.
 
-Une remarque sur les accents : le code et la documentation de ce projet sont
-ecrits sans accents, par coherence avec l'existant. Les textes affiches aux
-visiteurs, eux, en portent normalement.
+A note on accents: code comments are written without accents, for consistency
+with the existing code. Text shown to visitors keeps its accents.

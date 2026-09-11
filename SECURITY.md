@@ -1,55 +1,58 @@
-# Politique de securite
+# Security policy
 
-## Versions suivies
+## Supported versions
 
-Seule la branche `main` est maintenue. Un correctif de securite y est applique
-directement.
+Only the `main` branch, which runs in production, is maintained. Security fixes
+are applied to it directly.
 
-## Signaler une faille
+## Reporting a vulnerability
 
-**N'ouvrez pas d'issue publique pour une faille de securite.**
+**Do not open a public issue for a security vulnerability.**
 
-Utilisez l'onglet **Security → Report a vulnerability** du depot
-([lien direct](https://github.com/achedon12/mlbb/security/advisories/new)). Le
-signalement reste prive tant qu'un correctif n'est pas publie.
+Use the repository's **Security → Report a vulnerability** tab
+([direct link](https://github.com/achedon12/mlbb/security/advisories/new)). The
+report stays private until a fix is released.
 
-A defaut, contactez le mainteneur via son profil GitHub :
+Otherwise, contact the maintainer through their GitHub profile:
 [achedon12](https://github.com/achedon12).
 
-### Ce qui aide
+### What helps
 
-- Ce que vous avez obtenu, et ce que vous auriez du obtenir.
-- Les etapes minimales pour reproduire.
-- La version concernee : commit ou date de deploiement.
+- What you got, and what you should have got.
+- The minimal steps to reproduce.
+- The affected version: commit or deployment date.
 
-Une reponse arrive sous **72 heures**. Un correctif est vise sous **7 jours**
-pour une faille exploitable a distance sans authentification, sous 30 jours
-sinon.
+You will get an answer within **72 hours**. A fix is targeted within **7 days**
+for a vulnerability exploitable remotely without authentication, within 30 days
+otherwise.
 
-### Merci de ne pas
+### Please do not
 
-- Tester sur l'instance publique de facon destructrice : pas de deni de
-  service, pas de suppression de donnees, pas d'acces aux comptes d'autrui.
-- Divulguer publiquement avant qu'un correctif soit disponible.
+- Test destructively against the public instance: no denial of service, no data
+  deletion, no access to other people's accounts.
+- Disclose publicly before a fix is available.
 
-## Perimetre
+## Scope
 
-**Concerne :** le code de ce depot et l'instance <https://mlbb.leoderoin.fr> —
-authentification, sessions, injection, exposition de donnees d'autres
-utilisateurs, XSS, traversee de chemin.
+**In scope:** the code in this repository and the instance at
+<https://mlbbdex.com>: authentication, sessions, injection, exposure of other
+users' data, XSS, path traversal.
 
-**Hors perimetre :**
+**Out of scope:**
 
-- Le jeu Mobile Legends: Bang Bang lui-meme et les services de Moonton. Ce
-  projet n'a aucun lien avec eux ; adressez-vous a l'editeur.
-- Le wiki communautaire dont proviennent les donnees.
-- L'absence d'en-tetes sur des ressources purement statiques, sans impact
-  demontrable.
-- Le volume de requetes sortantes vers les sources publiques agregees.
+- Mobile Legends: Bang Bang itself and Moonton's services. This project has no
+  connection with them; contact the publisher.
+- The community wiki and the community stats API the data comes from.
+- Missing headers on purely static resources, with no demonstrable impact.
+- The volume of outgoing requests to the aggregated public sources.
 
-## Donnees stockees
+## Stored data
 
-Le site conserve, pour un compte cree volontairement : une adresse e-mail, un
-pseudo, un mot de passe derive par scrypt, les identifiants de jeu lies et les
-heros mis en favori. Aucun traceur, aucune mesure d'audience tierce, aucune
-revente. Une faille exposant ces donnees est traitee en priorite haute.
+The site has no user database and never asks for a password. Signing in uses
+the game's official verification code: the site only receives a temporary game
+token, kept in an httpOnly cookie. Favorite heroes live in the browser. The only
+data the server keeps is the optional patch notification subscriptions
+(notification service address, encryption keys, language, favorite heroes), in
+a JSON file. No trackers, no third-party analytics, nothing sold: audience
+measurement, when enabled, is a self-hosted Matomo instance without cookies. A
+vulnerability exposing any of this is treated as high priority.

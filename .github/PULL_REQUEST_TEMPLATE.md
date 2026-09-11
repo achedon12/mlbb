@@ -1,35 +1,36 @@
-## Ce que fait cette pull request
+## What this pull request does
 
-<!-- En une ou deux phrases. Si elle repond a une issue : « Corrige #12 ». -->
+<!-- In one or two sentences. If it resolves an issue: "Fixes #12". -->
 
 ## Type
 
-- [ ] Analyse de heros ecrite ou completee
-- [ ] Correction de donnees ou d'equilibrage
-- [ ] Article : guide, actualite, patch note
-- [ ] Correction de bogue
-- [ ] Fonctionnalite
+- [ ] Hero analysis written or completed
+- [ ] Data or balance fix
+- [ ] Article: guide, news, patch note
+- [ ] Bug fix
+- [ ] Feature
 - [ ] Documentation
 
-## Verifications
+## Checks
 
-- [ ] La pull request vise `develop` (seules les versions vont vers `main`)
-- [ ] `npm run lint` passe
-- [ ] `npm run typecheck` passe
-- [ ] `npm run build` passe
-- [ ] Je n'ai **pas** modifie `src/data/jeu/` a la main
-      (ces fichiers sont ecrases a chaque synchronisation)
+- [ ] The pull request targets `develop` (only releases go to `main`)
+- [ ] `npm run lint` passes
+- [ ] `npm run typecheck` passes
+- [ ] `npm test` passes
+- [ ] `npm run build` passes
+- [ ] I did **not** edit `src/data/jeu/` or `public/visuels/` by hand
+      (these files are overwritten by every sync)
 
 <!--
-Si vous ajoutez une analyse de heros :
-- le `slug` est repris tel quel depuis src/data/jeu/heros.json
-- le champ `contexte` de chaque build explique *quand* le prendre
-- les placements de tier list sont argumentes
+If you add a hero analysis:
+- the `slug` is copied as-is from src/data/jeu/heros.json
+- the `contexte` field of each build explains *when* to pick it
+- tier list placements are argued
 
-Si vous corrigez une donnee du jeu : elle vient du wiki communautaire.
-Corriger le wiki resout le probleme pour tout le monde, et pour de bon.
+If you fix game data: it comes from the community wiki.
+Fixing the wiki solves the problem for everyone, for good.
 -->
 
-## Contexte
+## Context
 
-<!-- Capture d'ecran, lien vers les notes de patch, ou rien si evident. -->
+<!-- Screenshot, link to the patch notes, or nothing if it is obvious. -->
