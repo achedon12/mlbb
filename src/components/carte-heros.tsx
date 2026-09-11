@@ -2,7 +2,7 @@
 
 import Link from "@/components/lien";
 import { useT } from "@/i18n/fournisseur";
-import type { Lane, Palier, Role, VisuelsHeros } from "@/lib/types";
+import type { Lane, Palier, Role } from "@/lib/types";
 import { IndicateurFavori } from "./indicateur-favori";
 import { PortraitHeros } from "./portrait-heros";
 import { BadgeRole } from "./badge-role";
@@ -20,7 +20,8 @@ export interface ApercuHeros {
   nom: string;
   roles: Role[];
   lanes: Lane[];
-  visuels: VisuelsHeros;
+  /** Icone du heros, a defaut son portrait. */
+  portrait: string | null;
   skins: number;
   analyse: boolean;
   /** Taux de victoire remonte par le jeu, ou null si non mesure. */
@@ -43,9 +44,9 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
   return (
     <Link
       href={`/heroes/${heros.slug}`}
-      className="biseau group flex items-start gap-3 border border-nuit-700/70 bg-nuit-900/60 p-3 transition-colors hover:border-or-500/60 hover:bg-nuit-850"
+      className="biseau hors-ecran group flex items-start gap-3 border border-nuit-700/70 bg-nuit-900/60 p-3 transition-colors hover:border-or-500/60 hover:bg-nuit-850"
     >
-      <PortraitHeros source={heros.visuels.icone ?? heros.visuels.portrait} nom={heros.nom} />
+      <PortraitHeros source={heros.portrait} nom={heros.nom} />
 
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">

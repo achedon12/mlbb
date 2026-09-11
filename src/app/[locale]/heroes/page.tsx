@@ -48,7 +48,7 @@ export default async function PageHeros({ params }: Params) {
       nom: h.nom,
       roles: h.roles,
       lanes: h.lanes,
-      visuels: h.visuels,
+      portrait: h.visuels.icone ?? h.visuels.portrait,
       skins: h.skins.length,
       analyse: h.analyse !== null,
       victoire: taux?.victoire ?? null,

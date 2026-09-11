@@ -83,7 +83,7 @@ export default async function PageTierList({ params }: { params: Promise<{ local
 
                 <ul className="mt-4 space-y-1.5">
                   {entrees.map((e) => (
-                    <li key={e.heros.slug}>
+                    <li key={e.heros.slug} className="hors-ecran">
                       <Link
                         href={`/heroes/${e.heros.slug}`}
                         className="biseau-sm group flex flex-wrap items-center gap-x-3 gap-y-2 border border-nuit-700/70 bg-nuit-900/60 p-2.5 transition-colors hover:border-or-500/60 sm:flex-nowrap"

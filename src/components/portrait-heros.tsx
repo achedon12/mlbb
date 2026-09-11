@@ -12,14 +12,14 @@ import { cn } from "@/lib/utils";
  * (liste deroulante) a la fiche.
  */
 const DIMENSIONS = {
-  micro: { classe: "size-6", px: "24px", texte: "text-[0.55rem]" },
-  mini: { classe: "size-7", px: "28px", texte: "text-[0.6rem]" },
-  petite: { classe: "size-8", px: "32px", texte: "text-xs" },
-  icone: { classe: "size-10", px: "40px", texte: "text-sm" },
-  moyenne: { classe: "size-11", px: "44px", texte: "text-base" },
-  vignette: { classe: "size-14", px: "56px", texte: "text-lg" },
-  fiche: { classe: "h-40 w-28", px: "112px", texte: "text-2xl" },
-  skin: { classe: "aspect-[240/390] w-full", px: "(min-width: 640px) 200px, 45vw", texte: "text-2xl" },
+  micro: { classe: "size-6", px: 24, texte: "text-[0.55rem]" },
+  mini: { classe: "size-7", px: 28, texte: "text-[0.6rem]" },
+  petite: { classe: "size-8", px: 32, texte: "text-xs" },
+  icone: { classe: "size-10", px: 40, texte: "text-sm" },
+  moyenne: { classe: "size-11", px: 44, texte: "text-base" },
+  vignette: { classe: "size-14", px: 56, texte: "text-lg" },
+  fiche: { classe: "h-40 w-28", px: 112, hauteur: 160, texte: "text-2xl" },
+  skin: { classe: "aspect-[240/390] w-full", px: null, texte: "text-2xl" },
 } as const;
 
 export function PortraitHeros({
@@ -54,14 +54,30 @@ export function PortraitHeros({
 
   return (
     <span className={cadre}>
-      <Image
-        src={source}
-        alt={decoratif ? "" : (alt ?? nom)}
-        fill
-        sizes={dimensions.px}
-        priority={priorite}
-        className="object-cover"
-      />
+      {/*
+        Taille fixe : largeur et hauteur connues, le navigateur n'a que deux
+        versions a choisir (1x, 2x) au lieu de quinze — des dizaines de Ko de
+        HTML en moins sur les listes. Seul le skin, fluide, garde `sizes`.
+      */}
+      {dimensions.px === null ? (
+        <Image
+          src={source}
+          alt={decoratif ? "" : (alt ?? nom)}
+          fill
+          sizes="(min-width: 640px) 200px, 45vw"
+          priority={priorite}
+          className="object-cover"
+        />
+      ) : (
+        <Image
+          src={source}
+          alt={decoratif ? "" : (alt ?? nom)}
+          width={dimensions.px}
+          height={"hauteur" in dimensions ? dimensions.hauteur : dimensions.px}
+          priority={priorite}
+          className="size-full object-cover"
+        />
+      )}
     </span>
   );
 }

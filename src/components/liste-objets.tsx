@@ -145,7 +145,7 @@ export function ListeObjets({
           {resultats.map((o) => {
             const selectionne = o.slug === objet?.slug;
             return (
-              <li key={o.slug}>
+              <li key={o.slug} className="hors-ecran">
                 <button
                   type="button"
                   id={o.slug}
@@ -160,13 +160,7 @@ export function ListeObjets({
                 >
                   <span className="relative size-11 shrink-0">
                     {o.image ? (
-                      <Image
-                        src={o.image}
-                        alt=""
-                        fill
-                        sizes="44px"
-                        className="object-contain"
-                      />
+                      <Image src={o.image} alt="" width={44} height={44} className="size-full object-contain" />
                     ) : (
                       <span className="grid size-full place-items-center bg-nuit-800 text-[0.6rem] text-craie-500">
                         —

@@ -203,3 +203,13 @@ h1, h2, h3, h4 {
     animation: monter 0.22s ease-out;
   }
 }
+
+/*
+ * Longues listes (heros, tier list, objets) : le navigateur ne calcule le
+ * style et la mise en page d'un element qu'a l'approche de l'ecran. La taille
+ * reelle est retenue une fois l'element affiche.
+ */
+.hors-ecran {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 5rem;
+}
