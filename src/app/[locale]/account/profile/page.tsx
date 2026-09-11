@@ -15,11 +15,30 @@ import {
   SectionProfil,
   TableauHeros,
 } from "@/components/profil-joueur";
+import { EvolutionJoueur, FichesHerosRang, TableauPostes } from "@/components/profil-joueur-analyse";
 import type { Langue } from "@/i18n/config";
+import { CompleterMessages } from "@/i18n/fournisseur";
 import { metaPage } from "@/i18n/seo";
-import { creerT, type T } from "@/i18n/traductions";
+import { creerT, messagesPage, type T } from "@/i18n/traductions";
+import {
+  FENETRE_FORME,
+  PARTIES_MIN_POSTE,
+  evolution,
+  fichesHerosRang,
+  statsParPosition,
+  statsParRole,
+} from "@/lib/analyse-joueur";
+import { pluriel } from "@/lib/format-joueur";
 import type { PartieResume } from "@/lib/joueur-api";
-import { detailsParties, herosDeLaSaison, pageParties, saisons, statistiques } from "@/lib/mlbb-auth";
+import {
+  detailsParties,
+  herosDeLaSaison,
+  historiqueParties,
+  pageParties,
+  saisons,
+  statistiques,
+  type Resultat,
+} from "@/lib/mlbb-auth";
 import {
   PARTIES_ANALYSEES,
   PARTIES_MIN,
@@ -53,6 +72,8 @@ export const dynamic = "force-dynamic";
 /** Heros affiches dans le tableau ; le bilan, lui, les compte tous. */
 const HEROS_AFFICHES = 10;
 
+type Historique = Promise<Resultat<{ parties: PartieResume[]; fin: boolean }>>;
+
 export default async function PageProfilJoueur({
   params,
   searchParams,
@@ -66,13 +87,15 @@ export default async function PageProfilJoueur({
   if (session.etat === "absente") redirect(`/${locale}/login`);
 
   const cadre = (contenu: React.ReactNode) => (
-    <div className="mx-auto max-w-4xl px-4 py-14">
-      <FilAriane
-        miettes={[{ nom: t("pages.account.metaTitre"), href: "/account" }, { nom: t("pages.accountProfile.titre") }]}
-        className="mb-8"
-      />
-      {contenu}
-    </div>
+    <CompleterMessages messages={messagesPage(locale, ["pages.accountProfile"])}>
+      <div className="mx-auto max-w-4xl px-4 py-14">
+        <FilAriane
+          miettes={[{ nom: t("pages.account.metaTitre"), href: "/account" }, { nom: t("pages.accountProfile.titre") }]}
+          className="mb-8"
+        />
+        {contenu}
+      </div>
+    </CompleterMessages>
   );
 
   if (session.etat !== "ok") return cadre(<EtatProfil type={session.etat} t={t} />);
@@ -100,11 +123,19 @@ export default async function PageProfilJoueur({
   const [herosSaison, premiere] = await Promise.all([herosDeLaSaison(jeton, saison), pageParties(jeton, saison, null)]);
   if (herosSaison.etat === "expire" || premiere.etat === "expire") return cadre(<EtatProfil type="expiree" t={t} />);
 
+  // Historique lance ici, attendu plus bas sous `Suspense` : les pages
+  // suivantes se lisent pendant que le reste du profil s'affiche. La premiere
+  // est deja en memoire. Sans elle, inutile d'insister.
+  const historique: Historique | null = premiere.etat === "ok" ? historiqueParties(jeton, saison) : null;
+
   const rang = rangLisible(profil.rangActuel);
   const tranche = trancheDuRang(profil.rangActuel);
   const lignes = herosSaison.etat === "ok" ? comparerHeros(herosSaison.donnees.heros, tranche) : null;
   const parties = premiere.etat === "ok" ? premiere.donnees.entrees : null;
   const nomTranche = t(`rangsMesure.${tranche}`);
+  const attente = (hauteur: string) => (
+    <AnalyseEnCours t={t} texte={t("pages.accountProfile.historiqueEnCours")} className={`mt-6 ${hauteur}`} />
+  );
 
   return cadre(
     <>
@@ -137,6 +168,48 @@ export default async function PageProfilJoueur({
       </SectionProfil>
 
       <SectionProfil
+        id="evolution"
+        titre={t("pages.accountProfile.evolutionTitre")}
+        chapeau={t("pages.accountProfile.evolutionIntro", { n: FENETRE_FORME })}
+      >
+        {historique === null ? (
+          <SectionIndisponible t={t} />
+        ) : (
+          <Suspense fallback={attente("min-h-[20rem]")}>
+            <EvolutionDifferee historique={historique} t={t} langue={locale} />
+          </Suspense>
+        )}
+      </SectionProfil>
+
+      <SectionProfil
+        id="postes"
+        titre={t("pages.accountProfile.postesTitre")}
+        chapeau={t("pages.accountProfile.postesIntro", { n: PARTIES_MIN_POSTE })}
+      >
+        <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:gap-8">
+          {herosSaison.etat === "ok" ? (
+            <TableauPostes
+              type="roles"
+              titre={t("pages.accountProfile.parRoleTitre")}
+              source={t("pages.accountProfile.parRoleSource")}
+              bilan={statsParRole(herosSaison.donnees.heros)}
+              t={t}
+              langue={locale}
+            />
+          ) : (
+            <SectionIndisponible t={t} />
+          )}
+          {historique === null ? (
+            <SectionIndisponible t={t} />
+          ) : (
+            <Suspense fallback={attente("min-h-[12rem]")}>
+              <PositionsDifferees historique={historique} t={t} langue={locale} />
+            </Suspense>
+          )}
+        </div>
+      </SectionProfil>
+
+      <SectionProfil
         id="heros"
         titre={t("pages.accountProfile.herosTitre")}
         chapeau={`${t("pages.accountProfile.herosIntro", { rang: nomTranche })}${
@@ -148,7 +221,15 @@ export default async function PageProfilJoueur({
         ) : lignes.length === 0 ? (
           <p className="mt-6 text-sm text-craie-500">{t("pages.accountProfile.herosVide")}</p>
         ) : (
-          <TableauHeros lignes={lignes.slice(0, HEROS_AFFICHES)} tranche={tranche} t={t} langue={locale} />
+          <>
+            <TableauHeros lignes={lignes.slice(0, HEROS_AFFICHES)} tranche={tranche} t={t} langue={locale} />
+            <FichesHerosRang
+              fiches={fichesHerosRang(lignes, tranche, parties ?? [])}
+              tranche={tranche}
+              t={t}
+              langue={locale}
+            />
+          </>
         )}
       </SectionProfil>
 
@@ -198,6 +279,40 @@ export default async function PageProfilJoueur({
         )}
       </SectionProfil>
     </>,
+  );
+}
+
+/** Historique indisponible ou session expiree, dit a la place d'une section differee. */
+function HistoriqueManquant({ etat, t }: { etat: "expire" | "indisponible"; t: T }) {
+  return etat === "expire" ? (
+    <p className="mt-6 text-sm leading-relaxed text-craie-400">{t("pages.accountProfile.expireTexte")}</p>
+  ) : (
+    <SectionIndisponible t={t} />
+  );
+}
+
+/** Evolution de la saison : attend l'historique des parties, lance par la page. */
+async function EvolutionDifferee({ historique, t, langue }: { historique: Historique; t: T; langue: Langue }) {
+  const r = await historique;
+  if (r.etat !== "ok") return <HistoriqueManquant etat={r.etat} t={t} />;
+  return <EvolutionJoueur evo={evolution(r.donnees.parties)} fin={r.donnees.fin} t={t} langue={langue} />;
+}
+
+/** Positions occupees sur l'historique lu : le meme, partage avec l'evolution. */
+async function PositionsDifferees({ historique, t, langue }: { historique: Historique; t: T; langue: Langue }) {
+  const r = await historique;
+  if (r.etat !== "ok") return <HistoriqueManquant etat={r.etat} t={t} />;
+  const bilan = statsParPosition(r.donnees.parties);
+  const n = bilan.total + bilan.ecartees;
+  return (
+    <TableauPostes
+      type="lanes"
+      titre={t("pages.accountProfile.parPositionTitre")}
+      source={t(`pages.accountProfile.parPositionSource.${pluriel(n, langue)}`, { n })}
+      bilan={bilan}
+      t={t}
+      langue={langue}
+    />
   );
 }
 

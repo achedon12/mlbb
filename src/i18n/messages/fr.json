@@ -671,13 +671,66 @@
       "videTitre": "Aucune partie pour l'instant",
       "videTexte": "Ce compte n'a encore aucune saison enregistrée. Jouez quelques parties, puis revenez : votre profil se remplira tout seul.",
       "retourCompte": "Retour au compte",
-      "serieVictoires": {},
-      "serieDefaites": {},
-      "evolutionSource": {},
-      "evolutionSaison": {},
-      "parPositionSource": {},
-      "sansRole": {},
-      "sansPosition": {}
+      "historiqueEnCours": "Lecture de l'historique des parties…",
+      "evolutionTitre": "Évolution sur la saison",
+      "evolutionIntro": "Votre taux de victoire partie après partie : sur vos {n} dernières parties à chaque instant (trait plein) et cumulé depuis le début de l'historique (tirets). Les séries ne comptent que les parties dont l'issue est connue.",
+      "serieEnCours": "Série en cours",
+      "serieVictoires": {
+        "un": "{n} victoire",
+        "autres": "{n} victoires"
+      },
+      "serieDefaites": {
+        "un": "{n} défaite",
+        "autres": "{n} défaites"
+      },
+      "plusLongueVictoires": "Plus longue série de victoires",
+      "plusLongueDefaites": "Plus longue série de défaites",
+      "dernieresParties": "{n} dernières parties",
+      "serieGlissante": "Sur {n} parties",
+      "serieCumulee": "Cumulé",
+      "courbeResume": "Taux de victoire sur {f} parties glissantes, du {debut} au {fin} : {depart} au début, {arrivee} à la fin, entre {min} et {max}.",
+      "courbeCourte": "Il faut au moins {n} parties dont l'issue est connue pour tracer la courbe.",
+      "evolutionSource": {
+        "un": "Calculé sur votre dernière partie de la saison ({taux} de victoires).",
+        "autres": "Calculé sur vos {n} dernières parties de la saison ({taux} de victoires)."
+      },
+      "evolutionSaison": {
+        "un": "Calculé sur l'unique partie de la saison ({taux} de victoires).",
+        "autres": "Calculé sur les {n} parties de la saison ({taux} de victoires)."
+      },
+      "postesTitre": "Rôles et positions",
+      "postesIntro": "Vos résultats selon le rôle du héros joué et la position occupée. Il faut au moins {n} parties pour être désigné point fort ou point à travailler.",
+      "parRoleTitre": "Par rôle",
+      "parRoleSource": "Toute la saison. Un héros à deux rôles compte dans chacun : les parts peuvent dépasser 100 %.",
+      "parPositionTitre": "Par position",
+      "parPositionSource": {
+        "un": "Position occupée lors de votre dernière partie.",
+        "autres": "Position occupée lors de vos {n} dernières parties."
+      },
+      "colRole": "Rôle",
+      "colPart": "Part",
+      "colVictoire": "Victoires",
+      "pointFort": "Point fort",
+      "aTravailler": "À travailler",
+      "postesBilan": "{fort} vous réussit le mieux ({tauxFort} de victoires), {faible} le moins ({tauxFaible}).",
+      "postesPeu": "Moins de {n} parties sur au moins deux d'entre eux : aucun point fort ne se dégage pour l'instant.",
+      "positionsVide": "Le service ne précise pas la position occupée dans vos parties récentes.",
+      "sansRole": {
+        "un": "{n} partie sur un héros inconnu du site n'est pas comptée.",
+        "autres": "{n} parties sur des héros inconnus du site ne sont pas comptées."
+      },
+      "sansPosition": {
+        "un": "{n} partie sans position connue n'est pas comptée.",
+        "autres": "{n} parties sans position connue ne sont pas comptées."
+      },
+      "faceRangTitre": "Ce que joue votre rang",
+      "faceRangIntro": "Pour vos héros les plus joués : l'écart à la moyenne, le build le plus joué par les joueurs {rang} et les héros qui les mettent le plus en difficulté à ce rang.",
+      "faceRangVide": "Aucune mesure de build ni de contre pour vos héros les plus joués.",
+      "buildRang": "Build le plus joué · {rang}",
+      "contresRang": "Contres difficiles · {rang}",
+      "positionBuild": "Position : {lane}",
+      "voirBuilds": "Tous les builds de {nom}",
+      "voirContres": "Tous les contres de {nom}"
     },
     "equipe": {
       "titre": "Analyse d'équipe",

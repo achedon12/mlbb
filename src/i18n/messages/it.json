@@ -671,13 +671,66 @@
       "videTitre": "Ancora nessuna partita",
       "videTexte": "Questo account non ha ancora nessuna stagione registrata. Gioca qualche partita, poi torna: il tuo profilo si riempirà da solo.",
       "retourCompte": "Torna all'account",
-      "serieVictoires": {},
-      "serieDefaites": {},
-      "evolutionSource": {},
-      "evolutionSaison": {},
-      "parPositionSource": {},
-      "sansRole": {},
-      "sansPosition": {}
+      "historiqueEnCours": "Lettura dello storico delle partite…",
+      "evolutionTitre": "Andamento della stagione",
+      "evolutionIntro": "Il tuo tasso di vittoria partita dopo partita: sulle ultime {n} partite in ogni momento (linea continua) e cumulato dall'inizio dello storico (tratteggio). Le serie contano solo le partite con esito noto.",
+      "serieEnCours": "Serie in corso",
+      "serieVictoires": {
+        "un": "{n} vittoria",
+        "autres": "{n} vittorie"
+      },
+      "serieDefaites": {
+        "un": "{n} sconfitta",
+        "autres": "{n} sconfitte"
+      },
+      "plusLongueVictoires": "Serie di vittorie più lunga",
+      "plusLongueDefaites": "Serie di sconfitte più lunga",
+      "dernieresParties": "Ultime {n} partite",
+      "serieGlissante": "Su {n} partite",
+      "serieCumulee": "Cumulato",
+      "courbeResume": "Tasso di vittoria su {f} partite mobili, dal {debut} al {fin}: {depart} all'inizio, {arrivee} alla fine, tra {min} e {max}.",
+      "courbeCourte": "Servono almeno {n} partite con esito noto per tracciare la curva.",
+      "evolutionSource": {
+        "un": "Calcolato sulla tua ultima partita della stagione ({taux} di vittorie).",
+        "autres": "Calcolato sulle tue ultime {n} partite della stagione ({taux} di vittorie)."
+      },
+      "evolutionSaison": {
+        "un": "Calcolato sull'unica partita della stagione ({taux} di vittorie).",
+        "autres": "Calcolato sulle {n} partite della stagione ({taux} di vittorie)."
+      },
+      "postesTitre": "Ruoli e lane",
+      "postesIntro": "I tuoi risultati in base al ruolo dell'eroe giocato e alla lane occupata. Servono almeno {n} partite per essere indicati come punto di forza o da migliorare.",
+      "parRoleTitre": "Per ruolo",
+      "parRoleSource": "Tutta la stagione. Un eroe con due ruoli conta per entrambi: le quote possono superare il 100%.",
+      "parPositionTitre": "Per lane",
+      "parPositionSource": {
+        "un": "Lane occupata nella tua ultima partita.",
+        "autres": "Lane occupata nelle tue ultime {n} partite."
+      },
+      "colRole": "Ruolo",
+      "colPart": "Quota",
+      "colVictoire": "Vittorie",
+      "pointFort": "Punto di forza",
+      "aTravailler": "Da migliorare",
+      "postesBilan": "{fort} ti riesce meglio ({tauxFort} di vittorie), {faible} meno ({tauxFaible}).",
+      "postesPeu": "Meno di {n} partite su almeno due di essi: nessun punto di forza per ora.",
+      "positionsVide": "Il servizio non indica la lane delle tue partite recenti.",
+      "sansRole": {
+        "un": "{n} partita con un eroe sconosciuto al sito non è conteggiata.",
+        "autres": "{n} partite con eroi sconosciuti al sito non sono conteggiate."
+      },
+      "sansPosition": {
+        "un": "{n} partita senza lane nota non è conteggiata.",
+        "autres": "{n} partite senza lane nota non sono conteggiate."
+      },
+      "faceRangTitre": "Cosa gioca il tuo rango",
+      "faceRangIntro": "Per i tuoi eroi più giocati: lo scarto dalla media, la build più giocata dai giocatori {rang} e gli eroi che li mettono più in difficoltà a quel rango.",
+      "faceRangVide": "Nessun dato di build o counter per i tuoi eroi più giocati.",
+      "buildRang": "Build più giocata · {rang}",
+      "contresRang": "Matchup difficili · {rang}",
+      "positionBuild": "Lane: {lane}",
+      "voirBuilds": "Tutte le build di {nom}",
+      "voirContres": "Tutti i counter di {nom}"
     },
     "equipe": {
       "titre": "Analisi della squadra",

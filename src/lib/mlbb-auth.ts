@@ -254,6 +254,67 @@ export function pageParties(
   return memoriser(jeton, chemin, 120, () => authentifie(chemin, jeton, lireParties));
 }
 
+/** Parties lues au plus pour l'evolution de la saison : cinq pages de vingt. */
+export const HISTORIQUE_MAX = 100;
+/** Pages suivies au plus, si le service rendait moins de vingt parties par page. */
+const PAGES_HISTORIQUE_MAX = 10;
+/** Au-dela, l'historique s'arrete sur ce qui est lu : la section ne doit pas faire attendre. */
+const HISTORIQUE_BUDGET_MS = 8000;
+
+/** La promesse, ou null si elle n'a pas abouti dans le delai. Elle continue sans nous : sa reponse ira en memoire. */
+function dansLeDelai<T>(promesse: Promise<T>, ms: number): Promise<T | null> {
+  let minuterie: ReturnType<typeof setTimeout> | undefined;
+  const delai = new Promise<null>((r) => {
+    minuterie = setTimeout(() => r(null), ms);
+  });
+  return Promise.race([promesse, delai]).finally(() => clearTimeout(minuterie));
+}
+
+/**
+ * Parties recentes de la saison, pages enchainees, jusqu'a `max`.
+ *
+ * Le curseur de chaque page vient de la precedente : les pages ne peuvent pas
+ * etre demandees en parallele. Elles passent par la meme memoire que la liste
+ * des parties — la premiere est deja lue par la page, les suivantes servent
+ * aussi le bouton « parties plus anciennes ». Un budget de temps borne
+ * l'attente ; une page qui manque en cours de route arrete la lecture sur ce
+ * qui est acquis. `fin` dit si le debut de la saison a ete atteint.
+ */
+export async function historiqueParties(
+  jeton: string,
+  saison: number,
+  max = HISTORIQUE_MAX,
+  budget = HISTORIQUE_BUDGET_MS,
+): Promise<Resultat<{ parties: PartieResume[]; fin: boolean }>> {
+  if (!saisonValide(saison)) return { etat: "indisponible" };
+  const debut = Date.now();
+  const vues = new Set<string>();
+  const parties: PartieResume[] = [];
+  let curseur: string | null = null;
+
+  for (let page = 0; page < PAGES_HISTORIQUE_MAX && parties.length < max; page++) {
+    const demande = pageParties(jeton, saison, curseur);
+    // La premiere page est attendue sans limite : sans elle, il n'y a rien a montrer.
+    const r = page === 0 ? await demande : await dansLeDelai(demande, budget - (Date.now() - debut));
+    if (r === null) break;
+    if (r.etat !== "ok") {
+      if (r.etat === "expire" || page === 0) return r;
+      break;
+    }
+    for (const p of r.donnees.entrees) {
+      if (vues.has(p.id)) continue;
+      vues.add(p.id);
+      parties.push(p);
+    }
+    // Un curseur qui ne change pas relancerait la meme page sans fin.
+    if (!r.donnees.suivant || r.donnees.suivant === curseur) {
+      return { etat: "ok", donnees: { parties: parties.slice(0, max), fin: parties.length <= max } };
+    }
+    curseur = r.donnees.suivant;
+  }
+  return { etat: "ok", donnees: { parties: parties.slice(0, max), fin: false } };
+}
+
 /** Pages de heros suivies au plus : bien plus que le nombre de heros du jeu. */
 const PAGES_HEROS_MAX = 5;
 const HEROS_PAR_PAGE = 30;

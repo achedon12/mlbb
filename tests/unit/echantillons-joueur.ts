@@ -113,6 +113,51 @@ export const DETAIL_SCHEMA = {
   },
 };
 
+/**
+ * Une partie de `/api/user/matches`, au format du schema : `res` 1 victoire,
+ * 0 defaite, null issue absente ; `lid` la position, null quand le service ne
+ * la donne pas.
+ */
+export function partieBrute(i: number, hid: number, lid: number | null, res: 0 | 1 | null, ts: number | null) {
+  return {
+    sid: 40, bid_s: `41327177398680${String(i).padStart(5, "0")}`, hid, k: 5, d: 3, a: 7, lid, s: 800, mvp: 0, res, ts,
+    hid_e: entite(hid),
+  };
+}
+
+/**
+ * Page de `/api/user/matches` en texte brut, curseur numerique non cite comme
+ * le rend le service : il depasse 2^53 et doit survivre a la lecture.
+ */
+export function pageHistorique(parties: object[], suivant: string | null) {
+  const pageInfo = { nextCursor: suivant ?? "", hasNext: suivant !== null, count: parties.length };
+  const texte = JSON.stringify({ code: 0, message: "Success", data: { pageInfo, result: parties } });
+  return texte.replace(/"nextCursor":"(\d+)"/, '"nextCursor":$1');
+}
+
+/**
+ * Historique de saison, de la plus ancienne partie a la plus recente : 4
+ * defaites, 7 victoires, 1 defaite, 14 parties en alternance, puis 4
+ * victoires. 30 parties, 18 victoires ; forme 7 sur les 10 dernieres.
+ */
+export const HISTOIRE = "DDDDVVVVVVVD" + "VDVDVDVDVDVDVD" + "VVVV";
+
+/** Debut de l'historique : quatre parties par jour a partir du 1er mars 2026. */
+export const DEBUT_HISTOIRE = Date.UTC(2026, 2, 1) / 1000;
+
+/**
+ * `HISTOIRE` au format du service, des plus recentes aux plus anciennes. Une
+ * partie a l'issue inconnue s'intercale, une autre n'a pas de date.
+ */
+export function historiqueBrut() {
+  const chrono = HISTOIRE.split("").map((c, i) =>
+    partieBrute(i, [84, 20, 17, 36][i % 4], [4, 3, 4, 2][i % 4], c === "V" ? 1 : 0, DEBUT_HISTOIRE + i * 6 * 3600),
+  );
+  chrono.splice(20, 0, partieBrute(900, 84, 4, null, DEBUT_HISTOIRE + 19 * 6 * 3600 + 60));
+  chrono[5].ts = null;
+  return chrono.reverse();
+}
+
 /** Detail complet d'une partie a dix : le joueur et quatre allies en equipe 1, cinq adversaires en equipe 2. */
 export function detailPartie(monHeros: number, ennemis: number[], victoire: boolean, avecEquipes = true) {
   const joueur = (hid: number, f: number | null, rid: number, gagne: boolean) => ({

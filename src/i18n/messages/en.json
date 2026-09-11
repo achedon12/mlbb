@@ -671,13 +671,66 @@
       "videTitre": "No matches yet",
       "videTexte": "This account has no recorded season yet. Play a few matches, then come back: your profile will fill itself in.",
       "retourCompte": "Back to account",
-      "serieVictoires": {},
-      "serieDefaites": {},
-      "evolutionSource": {},
-      "evolutionSaison": {},
-      "parPositionSource": {},
-      "sansRole": {},
-      "sansPosition": {}
+      "historiqueEnCours": "Reading your match history…",
+      "evolutionTitre": "Season progress",
+      "evolutionIntro": "Your win rate match after match: over your last {n} matches at each point (solid line) and cumulative since the start of the history (dashed). Streaks only count matches with a known result.",
+      "serieEnCours": "Current streak",
+      "serieVictoires": {
+        "un": "{n} win",
+        "autres": "{n} wins"
+      },
+      "serieDefaites": {
+        "un": "{n} loss",
+        "autres": "{n} losses"
+      },
+      "plusLongueVictoires": "Longest win streak",
+      "plusLongueDefaites": "Longest losing streak",
+      "dernieresParties": "Last {n} matches",
+      "serieGlissante": "Over {n} matches",
+      "serieCumulee": "Cumulative",
+      "courbeResume": "Win rate over a rolling {f} matches, from {debut} to {fin}: {depart} at the start, {arrivee} at the end, between {min} and {max}.",
+      "courbeCourte": "At least {n} matches with a known result are needed to draw the curve.",
+      "evolutionSource": {
+        "un": "Based on your latest match of the season ({taux} win rate).",
+        "autres": "Based on your last {n} matches of the season ({taux} win rate)."
+      },
+      "evolutionSaison": {
+        "un": "Based on the only match of the season ({taux} win rate).",
+        "autres": "Based on all {n} matches of the season ({taux} win rate)."
+      },
+      "postesTitre": "Roles and lanes",
+      "postesIntro": "Your results by the role of the hero played and the lane you took. A role or lane needs at least {n} matches to be flagged as a strength or a weak spot.",
+      "parRoleTitre": "By role",
+      "parRoleSource": "Whole season. A hero with two roles counts for both, so shares can add up to more than 100%.",
+      "parPositionTitre": "By lane",
+      "parPositionSource": {
+        "un": "Lane played in your latest match.",
+        "autres": "Lane played in your last {n} matches."
+      },
+      "colRole": "Role",
+      "colPart": "Share",
+      "colVictoire": "Win rate",
+      "pointFort": "Strength",
+      "aTravailler": "Needs work",
+      "postesBilan": "{fort} works best for you ({tauxFort} win rate), {faible} the least ({tauxFaible}).",
+      "postesPeu": "Fewer than {n} matches on at least two of them: no clear strength yet.",
+      "positionsVide": "The service does not report the lane of your recent matches.",
+      "sansRole": {
+        "un": "{n} match on a hero unknown to the site is not counted.",
+        "autres": "{n} matches on heroes unknown to the site are not counted."
+      },
+      "sansPosition": {
+        "un": "{n} match with no known lane is not counted.",
+        "autres": "{n} matches with no known lane are not counted."
+      },
+      "faceRangTitre": "What your rank plays",
+      "faceRangIntro": "For your most played heroes: the gap to the average, the build most played by {rang} players, and the heroes that give them the most trouble at that rank.",
+      "faceRangVide": "No build or counter data for your most played heroes.",
+      "buildRang": "Most played build · {rang}",
+      "contresRang": "Tough matchups · {rang}",
+      "positionBuild": "Lane: {lane}",
+      "voirBuilds": "All {nom} builds",
+      "voirContres": "All {nom} counters"
     },
     "equipe": {
       "titre": "Team analyzer",

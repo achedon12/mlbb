@@ -480,11 +480,15 @@ export function ListeBourreaux({
   );
 }
 
-/** Attente du detail des parties, annoncee sans interrompre la lecture. */
-export function AnalyseEnCours({ t }: { t: T }) {
+/**
+ * Attente d'une section lue a part, annoncee sans interrompre la lecture.
+ * `texte` remplace le message par defaut ; `className` reserve la place de la
+ * section a venir, pour que la page ne saute pas a son arrivee.
+ */
+export function AnalyseEnCours({ t, texte, className }: { t: T; texte?: string; className?: string }) {
   return (
-    <p role="status" className="animate-pulse text-sm text-craie-500">
-      {t("pages.accountProfile.analyseEnCours")}
+    <p role="status" className={cn("animate-pulse text-sm text-craie-500", className)}>
+      {texte ?? t("pages.accountProfile.analyseEnCours")}
     </p>
   );
 }
