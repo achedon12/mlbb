@@ -93,6 +93,21 @@ export function lireJson(texte: string): unknown {
 const objet = (v: unknown): Record<string, unknown> =>
   v !== null && typeof v === "object" && !Array.isArray(v) ? (v as Record<string, unknown>) : {};
 
+/**
+ * Object schema whose missing keys still reach their field schema, as null.
+ * zod 3 ran a field's transform on an absent key; zod 4 skips it and leaves the
+ * key undefined, which slips past the `!== null` checks below (an absent `ts`
+ * came out of `horodatage` as an undefined date instead of null). Filling
+ * absent keys keeps both versions alike.
+ */
+function objetTolerant<T extends z.ZodRawShape>(forme: T) {
+  const cles = Object.keys(forme);
+  return z.preprocess((v) => {
+    const o = objet(v);
+    return Object.fromEntries(cles.map((c) => [c, o[c] ?? null]));
+  }, z.object(forme));
+}
+
 /** Nombre tolerant : une chaine numerique est acceptee, tout le reste devient null. */
 const nombre = z.unknown().transform((v): number | null => {
   const n = typeof v === "string" && v.trim() !== "" ? Number(v) : v;
@@ -107,8 +122,17 @@ const texte = z.unknown().transform((v): string | null => {
   return typeof v === "string" && v.trim() !== "" ? v.trim() : null;
 });
 
-/** Fiche de heros jointe par le service (`hid_e`) ; illisible, elle compte pour absente. */
-const entite = z.object({ id: nombre, n: texte, ix: texte }).nullable().catch(null);
+/**
+ * Fiche de heros jointe par le service (`hid_e`) ; illisible, elle compte pour absente.
+ * Anything but an object counts as absent; an object gets its missing keys
+ * filled like the entries above, so a missing `ix` stays a null image.
+ */
+const entite = z
+  .preprocess(
+    (v) => (v !== null && typeof v === "object" && !Array.isArray(v) ? v : null),
+    objetTolerant({ id: nombre, n: texte, ix: texte }).nullable(),
+  )
+  .catch(null);
 
 /** Hotes d'images acceptes par la configuration de `next/image`. */
 const IMAGE_SURE = /^https:\/\/(akmweb|akmpicture)\.youngjoygame\.com\/\S+$/;
@@ -170,7 +194,7 @@ export function saisonsDe(data: unknown): number[] {
   return lireSaisons(objet(data).sids);
 }
 
-const schemaStats = z.object({ wc: compte, tc: compte, as: nombre, gt: nombre, mvpc: compte, wsc: compte, sids: z.unknown() });
+const schemaStats = objetTolerant({ wc: compte, tc: compte, as: nombre, gt: nombre, mvpc: compte, wsc: compte, sids: z.unknown() });
 
 /** Reponse de `/stats`. */
 export function lireStats(data: unknown): StatsJoueur {
@@ -187,7 +211,7 @@ export function lireStats(data: unknown): StatsJoueur {
   };
 }
 
-const schemaFrequent = z.object({ hid: nombre, tc: compte, wc: compte, bs: nombre, hid_e: entite });
+const schemaFrequent = objetTolerant({ hid: nombre, tc: compte, wc: compte, bs: nombre, hid_e: entite });
 
 /** Reponse de `/heroes/frequent` : heros de la saison, avec leurs parties et victoires. */
 export function lireHerosFrequents(data: unknown): Page<HerosFrequent> {
@@ -200,7 +224,7 @@ export function lireHerosFrequents(data: unknown): Page<HerosFrequent> {
   return { entrees, suivant: curseurSuivant(d.pageInfo) };
 }
 
-const schemaPartie = z.object({
+const schemaPartie = objetTolerant({
   sid: compte,
   bid: texte,
   bid_s: texte,
@@ -241,7 +265,7 @@ export function lireParties(data: unknown): Page<PartieResume> {
   return { entrees, suivant: curseurSuivant(d.pageInfo) };
 }
 
-const schemaParticipant = z.object({
+const schemaParticipant = objetTolerant({
   f: compte,
   hid: nombre,
   rid: compte,
