@@ -18,7 +18,7 @@ export function ListeArticles({
 }) {
   const t = creerT(langue);
   if (articles.length === 0) {
-    return <p className="text-craie-500">{t("articleUI.aucune")}</p>;
+    return <p className="text-chalk-500">{t("articleUI.aucune")}</p>;
   }
 
   return (
@@ -27,20 +27,20 @@ export function ListeArticles({
         <li key={a.slug}>
           <Link
             href={`${base}/${a.slug}`}
-            className="biseau block border border-nuit-700/70 bg-nuit-900/60 p-6 transition-colors hover:border-or-500/60"
+            className="bevel block border border-night-700/70 bg-night-900/60 p-6 transition-colors hover:border-gold-500/60"
           >
             <div className="flex flex-wrap items-center gap-3">
-              <span className="text-xs font-semibold uppercase tracking-wide text-or-400">
+              <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
                 {t(`articleCat.${a.categorie}`)}
               </span>
-              <time dateTime={a.date} className="text-xs text-craie-500">
+              <time dateTime={a.date} className="text-xs text-chalk-500">
                 {formaterDate(a.date, LOCALE_HTML[langue])}
               </time>
             </div>
-            <h2 className="mt-2 font-titre text-xl font-bold leading-snug text-craie-100">
+            <h2 className="mt-2 font-heading text-xl font-bold leading-snug text-chalk-100">
               {a.titre}
             </h2>
-            <p className="mt-3 leading-relaxed text-craie-500">{a.chapeau}</p>
+            <p className="mt-3 leading-relaxed text-chalk-500">{a.chapeau}</p>
           </Link>
         </li>
       ))}
@@ -70,30 +70,30 @@ export function CorpsArticle({
     <article className="mx-auto max-w-3xl px-4 py-14">
       <FilAriane miettes={[{ nom: section, href: retour.href }, { nom: article.titre }]} />
 
-      <header className="mt-6 border-b border-nuit-800 pb-8">
+      <header className="mt-6 border-b border-night-800 pb-8">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="text-xs font-semibold uppercase tracking-wide text-or-400">
+          <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
             {t(`articleCat.${article.categorie}`)}
           </span>
-          <time dateTime={article.date} className="text-xs text-craie-500">
+          <time dateTime={article.date} className="text-xs text-chalk-500">
             {formaterDate(article.date, LOCALE_HTML[langue])}
           </time>
-          <span className="text-xs text-craie-500">{t("articleUI.par", { auteur: article.auteur })}</span>
+          <span className="text-xs text-chalk-500">{t("articleUI.par", { auteur: article.auteur })}</span>
         </div>
-        <h1 className="mt-4 font-titre text-3xl font-bold leading-tight text-craie-100 sm:text-4xl">
+        <h1 className="mt-4 font-heading text-3xl font-bold leading-tight text-chalk-100 sm:text-4xl">
           {article.titre}
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-craie-300">{article.chapeau}</p>
+        <p className="mt-4 text-lg leading-relaxed text-chalk-300">{article.chapeau}</p>
       </header>
 
       <div className="prose-mlbb mt-10" dangerouslySetInnerHTML={{ __html: assainirHtml(html) }} />
 
       {article.motsCles.length > 0 && (
-        <ul className="mt-12 flex flex-wrap gap-2 border-t border-nuit-800 pt-6">
+        <ul className="mt-12 flex flex-wrap gap-2 border-t border-night-800 pt-6">
           {article.motsCles.map((m) => (
             <li
               key={m}
-              className="biseau-sm border border-nuit-700 px-2.5 py-1 text-xs text-craie-500"
+              className="bevel-sm border border-night-700 px-2.5 py-1 text-xs text-chalk-500"
             >
               {m}
             </li>

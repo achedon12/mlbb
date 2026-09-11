@@ -152,27 +152,27 @@ export function RechercheGlobale() {
         onClick={() => setOuvert(true)}
         aria-label={t("recherche.ouvrir")}
         aria-keyshortcuts="Control+K Meta+K"
-        className="biseau-sm flex items-center gap-2 border border-nuit-700 px-2 py-1.5 text-sm sm:px-2.5 text-craie-400 transition-colors hover:border-or-500/60 hover:text-or-400"
+        className="bevel-sm flex items-center gap-2 border border-night-700 px-2 py-1.5 text-sm sm:px-2.5 text-chalk-400 transition-colors hover:border-gold-500/60 hover:text-gold-400"
       >
         <Search size={16} aria-hidden />
         <span className="hidden xl:inline">{t("recherche.ouvrir")}</span>
-        <kbd className="hidden rounded border border-nuit-600 px-1 text-[0.7rem] text-craie-500 xl:inline">Ctrl K</kbd>
+        <kbd className="hidden rounded border border-night-600 px-1 text-[0.7rem] text-chalk-500 xl:inline">Ctrl K</kbd>
       </button>
 
       {ouvert && (
         <div
-          className="fixed inset-0 z-50 flex items-start justify-center bg-nuit-950/80 p-4 pt-[10vh] backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-start justify-center bg-night-950/80 p-4 pt-[10vh] backdrop-blur-sm"
           onClick={fermer}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-label={t("recherche.ouvrir")}
-            className="biseau flex max-h-[75vh] w-full max-w-xl flex-col border border-nuit-700 bg-nuit-900 shadow-2xl shadow-black/50"
+            className="bevel flex max-h-[75vh] w-full max-w-xl flex-col border border-night-700 bg-night-900 shadow-2xl shadow-black/50"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center gap-3 border-b border-nuit-800 px-4">
-              <Search size={18} aria-hidden className="shrink-0 text-craie-500" />
+            <div className="flex items-center gap-3 border-b border-night-800 px-4">
+              <Search size={18} aria-hidden className="shrink-0 text-chalk-500" />
               <input
                 autoFocus
                 role="combobox"
@@ -187,20 +187,20 @@ export function RechercheGlobale() {
                 }}
                 onKeyDown={clavier}
                 placeholder={t("recherche.placeholder")}
-                className="min-w-0 flex-1 bg-transparent py-3.5 text-craie-100 outline-none placeholder:text-craie-500"
+                className="min-w-0 flex-1 bg-transparent py-3.5 text-chalk-100 outline-none placeholder:text-chalk-500"
               />
-              <kbd className="hidden rounded border border-nuit-600 px-1.5 text-[0.7rem] text-craie-500 sm:inline">Esc</kbd>
+              <kbd className="hidden rounded border border-night-600 px-1.5 text-[0.7rem] text-chalk-500 sm:inline">Esc</kbd>
             </div>
 
             <div ref={liste} id={`${id}-liste`} role="listbox" className="overflow-y-auto p-2">
               {!entrees ? (
-                <p className="px-3 py-6 text-center text-sm text-craie-500">{t("recherche.chargement")}</p>
+                <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("recherche.chargement")}</p>
               ) : plats.length === 0 ? (
-                <p className="px-3 py-6 text-center text-sm text-craie-500">{t("recherche.aucun")}</p>
+                <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("recherche.aucun")}</p>
               ) : (
                 groupes.map((g) => (
                   <div key={g.type} className="mb-2">
-                    <p className="px-3 pb-1 pt-2 text-xs font-bold uppercase tracking-[0.18em] text-craie-500">
+                    <p className="px-3 pb-1 pt-2 text-xs font-bold uppercase tracking-[0.18em] text-chalk-500">
                       {t(`recherche.groupes.${g.type}`)}
                     </p>
                     {g.entrees.map((e) => {
@@ -221,10 +221,10 @@ export function RechercheGlobale() {
                           onMouseEnter={() => setActif(i)}
                           className={cn(
                             "flex items-center gap-3 rounded-md px-3 py-2",
-                            i === actif ? "bg-nuit-800 text-or-400" : "text-craie-200",
+                            i === actif ? "bg-night-800 text-gold-400" : "text-chalk-200",
                           )}
                         >
-                          <span className="relative grid size-8 shrink-0 place-items-center overflow-hidden rounded bg-nuit-800 text-xs font-bold text-craie-500">
+                          <span className="relative grid size-8 shrink-0 place-items-center overflow-hidden rounded bg-night-800 text-xs font-bold text-chalk-500">
                             {image ? (
                               <Image src={image} alt="" width={32} height={32} className="size-full object-cover" />
                             ) : (
@@ -233,7 +233,7 @@ export function RechercheGlobale() {
                           </span>
                           <span className="min-w-0 flex-1">
                             <span className="block truncate text-sm font-medium">{e.titre}</span>
-                            {e.detail && <span className="block truncate text-xs text-craie-500">{e.detail}</span>}
+                            {e.detail && <span className="block truncate text-xs text-chalk-500">{e.detail}</span>}
                           </span>
                         </Link>
                       );
@@ -242,7 +242,7 @@ export function RechercheGlobale() {
                 ))
               )}
             </div>
-            <p className="border-t border-nuit-800 px-4 py-2 text-xs text-craie-500">{t("recherche.aide")}</p>
+            <p className="border-t border-night-800 px-4 py-2 text-xs text-chalk-500">{t("recherche.aide")}</p>
           </div>
         </div>
       )}

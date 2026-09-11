@@ -36,7 +36,7 @@ interface Filtres {
 const VIDES: Filtres = { recherche: "", heros: null, role: null, serie: null, rarete: null, annee: null };
 
 const CLASSE_CHOIX =
-  "biseau-sm w-full border border-nuit-700 bg-nuit-900 px-3 py-2 text-sm text-craie-100 outline-none transition-colors focus:border-or-500";
+  "bevel-sm w-full border border-night-700 bg-night-900 px-3 py-2 text-sm text-chalk-100 outline-none transition-colors focus:border-gold-500";
 
 /**
  * Explorateur du calendrier : recherche et filtres (heros, role, serie,
@@ -197,7 +197,7 @@ export function ExplorateurSkins({
         )}
       </div>
 
-      <p aria-live="polite" className="mt-6 text-sm text-craie-500">
+      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
         {actif &&
           (erreur
             ? t("pages.calendrierSkinsUI.erreur")
@@ -215,9 +215,9 @@ export function ExplorateurSkins({
               <div className="space-y-10">
                 {tronquerGroupes(resultats.groupes, limite).map((a) => (
                   <section key={a.annee}>
-                    <h3 className="font-titre text-2xl font-bold text-craie-100">
+                    <h3 className="font-heading text-2xl font-bold text-chalk-100">
                       {a.annee}{" "}
-                      <span className="text-sm font-normal text-craie-500">
+                      <span className="text-sm font-normal text-chalk-500">
                         {t(a.total === 1 ? "pages.calendrierSkinsUI.nSkins1" : "pages.calendrierSkinsUI.nSkins", {
                           n: nombre.format(a.total),
                         })}
@@ -225,7 +225,7 @@ export function ExplorateurSkins({
                     </h3>
                     {a.mois.map((m) => (
                       <div key={m.mois ?? "inconnu"} className="mt-4">
-                        <h4 className="text-sm font-semibold uppercase tracking-wide text-or-400">
+                        <h4 className="text-sm font-semibold uppercase tracking-wide text-gold-400">
                           {m.mois ? formatMois.format(Date.UTC(a.annee, m.mois - 1, 1)) : t("pages.calendrierSkinsUI.moisInconnu")}
                         </h4>
                         <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
@@ -274,7 +274,7 @@ function Choix({
 }) {
   return (
     <label className="block">
-      <span className="text-xs uppercase tracking-wide text-craie-500">{libelle}</span>
+      <span className="text-xs uppercase tracking-wide text-chalk-500">{libelle}</span>
       <select value={valeur} onChange={(e) => onChange(e.target.value)} className={`mt-1.5 ${CLASSE_CHOIX}`}>
         <option value="">{tous}</option>
         {options.map(([v, l]) => (

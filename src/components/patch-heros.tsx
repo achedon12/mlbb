@@ -33,13 +33,13 @@ const STYLE: Record<
     icone: <TrendingUp size={14} aria-hidden />,
   },
   affaiblissement: {
-    couleur: "text-sang-500",
-    fond: "border-sang-500/30",
+    couleur: "text-blood-500",
+    fond: "border-blood-500/30",
     icone: <TrendingDown size={14} aria-hidden />,
   },
   ajustement: {
-    couleur: "text-azur-400",
-    fond: "border-azur-500/30",
+    couleur: "text-azure-400",
+    fond: "border-azure-500/30",
     icone: <Minus size={14} aria-hidden />,
   },
 };
@@ -70,13 +70,13 @@ export function PatchHeros({
               onClick={() => setFiltre(actif ? null : type)}
               aria-pressed={actif}
               className={cn(
-                "biseau-sm flex items-center gap-2 border px-3 py-1.5 text-sm transition-colors",
-                actif ? `${s.fond} bg-nuit-850` : "border-nuit-700 hover:border-nuit-600",
+                "bevel-sm flex items-center gap-2 border px-3 py-1.5 text-sm transition-colors",
+                actif ? `${s.fond} bg-night-850` : "border-night-700 hover:border-night-600",
               )}
             >
               <span className={s.couleur}>{s.icone}</span>
-              <span className="font-semibold text-craie-100">{bilan[type] ?? 0}</span>
-              <span className="text-craie-500">{t(`patchHeros.pluriel.${type}`)}</span>
+              <span className="font-semibold text-chalk-100">{bilan[type] ?? 0}</span>
+              <span className="text-chalk-500">{t(`patchHeros.pluriel.${type}`)}</span>
             </button>
           );
         })}
@@ -140,7 +140,7 @@ function LigneHeros({
   const detaille = ajustement.sections.length > 0 || ajustement.intro.length > 0;
 
   return (
-    <li className={cn("biseau border bg-nuit-900/60", s?.fond ?? "border-nuit-700/70")}>
+    <li className={cn("bevel border bg-night-900/60", s?.fond ?? "border-night-700/70")}>
       <button
         type="button"
         onClick={() => detaille && setOuvert((o) => !o)}
@@ -153,7 +153,7 @@ function LigneHeros({
         <PortraitHeros source={portrait} nom={ajustement.nom} taille="moyenne" decoratif />
 
         <span className="min-w-0 flex-1">
-          <span className="font-titre font-bold text-craie-100">{titre ?? ajustement.nom}</span>
+          <span className="font-heading font-bold text-chalk-100">{titre ?? ajustement.nom}</span>
           {s && (
             <span className={cn("mt-0.5 flex items-center gap-1 text-xs font-semibold", s.couleur)}>
               {s.icone}
@@ -166,26 +166,26 @@ function LigneHeros({
           <ChevronDown
             size={18}
             aria-hidden
-            className={cn("shrink-0 text-craie-500 transition-transform", ouvert && "rotate-180")}
+            className={cn("shrink-0 text-chalk-500 transition-transform", ouvert && "rotate-180")}
           />
         ) : (
-          <span className="shrink-0 text-xs text-craie-500">{t("patchHeros.detailsAVenir")}</span>
+          <span className="shrink-0 text-xs text-chalk-500">{t("patchHeros.detailsAVenir")}</span>
         )}
       </button>
 
       {ouvert && detaille && (
-        <div className="border-t border-nuit-800 p-4">
+        <div className="border-t border-night-800 p-4">
           {ajustement.intro && (
-            <p className="mb-4 text-sm leading-relaxed text-craie-300">{ajustement.intro}</p>
+            <p className="mb-4 text-sm leading-relaxed text-chalk-300">{ajustement.intro}</p>
           )}
 
           <div className="space-y-4">
             {ajustement.sections.map((section, i) => (
               <div key={i}>
-                <h4 className="flex flex-wrap items-baseline gap-2 font-titre text-sm font-bold text-or-400">
+                <h4 className="flex flex-wrap items-baseline gap-2 font-heading text-sm font-bold text-gold-400">
                   {section.nom}
                   {section.categorie && (
-                    <span className="text-xs font-medium text-craie-500">{section.categorie}</span>
+                    <span className="text-xs font-medium text-chalk-500">{section.categorie}</span>
                   )}
                 </h4>
                 <ul className="mt-2 space-y-1">
@@ -194,16 +194,16 @@ function LigneHeros({
                       {"apres" in c ? (
                         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                           {c.libelle && (
-                            <span className="text-craie-500">{t("patchHeros.libelle", { libelle: c.libelle })}</span>
+                            <span className="text-chalk-500">{t("patchHeros.libelle", { libelle: c.libelle })}</span>
                           )}
-                          <span className="text-craie-500 line-through decoration-sang-500/50">
+                          <span className="text-chalk-500 line-through decoration-blood-500/50">
                             {c.avant}
                           </span>
-                          <ArrowRight size={12} aria-hidden className="text-craie-500" />
-                          <span className="font-medium text-craie-100">{c.apres}</span>
+                          <ArrowRight size={12} aria-hidden className="text-chalk-500" />
+                          <span className="font-medium text-chalk-100">{c.apres}</span>
                         </div>
                       ) : (
-                        <span className="text-craie-300">{c.texte}</span>
+                        <span className="text-chalk-300">{c.texte}</span>
                       )}
                     </li>
                   ))}
@@ -215,7 +215,7 @@ function LigneHeros({
           {cible && (
             <Link
               href={cible.href}
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-or-400 hover:text-or-500"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-500"
             >
               {cible.libelle}
               <ArrowRight size={14} aria-hidden />

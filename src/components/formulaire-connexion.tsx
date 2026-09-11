@@ -26,7 +26,7 @@ export function FormulaireConnexion() {
   return (
     <form action={envoyer} className="space-y-5">
       <div>
-        <label htmlFor="roleId" className="block text-sm font-medium text-craie-100">
+        <label htmlFor="roleId" className="block text-sm font-medium text-chalk-100">
           {t("loginForm.identifiant")}
         </label>
         <input
@@ -37,12 +37,12 @@ export function FormulaireConnexion() {
           required
           autoFocus
           placeholder={t("loginForm.exempleIdentifiant")}
-          className="biseau-sm mt-2 w-full border border-nuit-700 bg-nuit-900 px-4 py-2.5 text-craie-100 outline-none transition-colors focus:border-or-500"
+          className="bevel-sm mt-2 w-full border border-night-700 bg-night-900 px-4 py-2.5 text-chalk-100 outline-none transition-colors focus:border-gold-500"
         />
       </div>
 
       <div>
-        <label htmlFor="zoneId" className="block text-sm font-medium text-craie-100">
+        <label htmlFor="zoneId" className="block text-sm font-medium text-chalk-100">
           {t("loginForm.serveur")}
         </label>
         <input
@@ -51,11 +51,11 @@ export function FormulaireConnexion() {
           inputMode="numeric"
           defaultValue={etat.zoneId}
           placeholder="6021"
-          className="biseau-sm mt-2 w-full border border-nuit-700 bg-nuit-900 px-4 py-2.5 text-craie-100 outline-none transition-colors focus:border-or-500"
+          className="bevel-sm mt-2 w-full border border-night-700 bg-night-900 px-4 py-2.5 text-chalk-100 outline-none transition-colors focus:border-gold-500"
         />
-        <p className="mt-1.5 text-xs leading-relaxed text-craie-500">
+        <p className="mt-1.5 text-xs leading-relaxed text-chalk-500">
           {aideAvant}
-          <span className="text-craie-300">123456789 (6021)</span>
+          <span className="text-chalk-300">123456789 (6021)</span>
           {aideApres}
         </p>
       </div>
@@ -65,7 +65,7 @@ export function FormulaireConnexion() {
       <button
         type="submit"
         disabled={enCours}
-        className="biseau-sm flex w-full items-center justify-center gap-2 bg-or-500 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400 disabled:opacity-60"
+        className="bevel-sm flex w-full items-center justify-center gap-2 bg-gold-500 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-60"
       >
         <Send size={16} aria-hidden />
         {enCours ? t("loginForm.envoiCode") : t("loginForm.recevoir")}
@@ -87,12 +87,12 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
       <input type="hidden" name="roleId" value={roleId} />
       <input type="hidden" name="zoneId" value={zoneId} />
 
-      <div className="biseau-sm border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400">
+      <div className="bevel-sm border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400">
         {t("loginForm.codeEnvoye")}
       </div>
 
       <div>
-        <label htmlFor="code" className="block text-sm font-medium text-craie-100">
+        <label htmlFor="code" className="block text-sm font-medium text-chalk-100">
           {t("loginForm.code")}
         </label>
         <input
@@ -104,7 +104,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
           required
           autoFocus
           placeholder="0000"
-          className="biseau-sm mt-2 w-full border border-nuit-700 bg-nuit-900 px-4 py-2.5 text-center font-titre text-2xl tracking-[0.5em] text-craie-100 outline-none transition-colors focus:border-or-500"
+          className="bevel-sm mt-2 w-full border border-night-700 bg-night-900 px-4 py-2.5 text-center font-heading text-2xl tracking-[0.5em] text-chalk-100 outline-none transition-colors focus:border-gold-500"
         />
       </div>
 
@@ -113,7 +113,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
       <button
         type="submit"
         disabled={enCours}
-        className="biseau-sm flex w-full items-center justify-center gap-2 bg-or-500 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400 disabled:opacity-60"
+        className="bevel-sm flex w-full items-center justify-center gap-2 bg-gold-500 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-60"
       >
         <KeyRound size={16} aria-hidden />
         {enCours ? t("loginForm.verification") : t("loginForm.seConnecter")}
@@ -122,7 +122,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
       {/* Recommencer si le code n'arrive pas : recharger la page vide le formulaire. */}
       <Link
         href="/login"
-        className="flex items-center justify-center gap-1.5 text-sm text-craie-500 transition-colors hover:text-or-400"
+        className="flex items-center justify-center gap-1.5 text-sm text-chalk-500 transition-colors hover:text-gold-400"
       >
         <ArrowLeft size={14} aria-hidden />
         {t("loginForm.recommencer")}
@@ -133,7 +133,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
 
 function Erreur({ children }: { children: React.ReactNode }) {
   return (
-    <p role="alert" className="biseau-sm border border-sang-500/40 bg-sang-500/10 px-4 py-3 text-sm text-sang-500">
+    <p role="alert" className="bevel-sm border border-blood-500/40 bg-blood-500/10 px-4 py-3 text-sm text-blood-500">
       {children}
     </p>
   );

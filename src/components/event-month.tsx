@@ -92,13 +92,13 @@ export function MonthContent({
         .map(({ mode, skins, empty }) => {
           const title = t(`pages.events.modes.${mode}.title`);
           const count = skins.length > 0 && (
-            <span className="text-base font-normal text-craie-500"> · {skinCount(skins.length)}</span>
+            <span className="text-base font-normal text-chalk-500"> · {skinCount(skins.length)}</span>
           );
           const cards = skins.map((s) => eventCard(s, t, htmlLang, numbers));
           // In the timeline a month's groups share one row: fixed-width cards that wrap.
           const content =
             skins.length === 0 ? (
-              <p className="max-w-xs text-sm leading-relaxed text-craie-400">{empty}</p>
+              <p className="max-w-xs text-sm leading-relaxed text-chalk-400">{empty}</p>
             ) : variant === "page" ? (
               <GrilleSkins cartes={cards} />
             ) : (
@@ -120,7 +120,7 @@ export function MonthContent({
             </section>
           ) : (
             <section key={mode}>
-              <h4 className="mb-3 font-titre text-lg font-semibold text-craie-100">
+              <h4 className="mb-3 font-heading text-lg font-semibold text-chalk-100">
                 {title}
                 {count}
               </h4>
@@ -139,10 +139,10 @@ export function SourceList({ sources, t, locale }: { sources: ListSource[]; t: T
     <ul className="space-y-1 text-sm">
       {sources.map((s) => (
         <li key={s.url}>
-          <a href={s.url} rel="noreferrer nofollow" target="_blank" className="font-semibold text-or-400 hover:underline">
+          <a href={s.url} rel="noreferrer nofollow" target="_blank" className="font-semibold text-gold-400 hover:underline">
             {t("pages.events.sourcePage", { page: s.title })}
           </a>{" "}
-          <span className="text-craie-500">· {t("pages.events.sourceEdited", { date: dateLongue(locale, s.modified) })}</span>
+          <span className="text-chalk-500">· {t("pages.events.sourceEdited", { date: dateLongue(locale, s.modified) })}</span>
         </li>
       ))}
     </ul>

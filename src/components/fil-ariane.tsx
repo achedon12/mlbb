@@ -64,17 +64,17 @@ export function FilAriane({ miettes, className }: { miettes: Miette[]; className
         dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }}
       />
       <nav aria-label={t("commun.filAriane")} className={className}>
-        <ol className="biseau-sm inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1 border border-nuit-700/60 bg-nuit-950/70 px-3 py-1.5 text-sm backdrop-blur-sm">
+        <ol className="bevel-sm inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1 border border-night-700/60 bg-night-950/70 px-3 py-1.5 text-sm backdrop-blur-sm">
           {fil.map((m, i) => {
             const dernier = i === fil.length - 1;
             const accueil = i === 0;
             return (
               <li key={`${m.nom}-${i}`} className="flex min-w-0 items-center gap-1.5">
-                {i > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-craie-600" />}
+                {i > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-chalk-600" />}
                 {m.href && !dernier ? (
                   <Link
                     href={m.href}
-                    className="flex items-center gap-1.5 text-craie-400 transition-colors hover:text-or-400"
+                    className="flex items-center gap-1.5 text-chalk-400 transition-colors hover:text-gold-400"
                   >
                     {accueil && <House size={14} aria-hidden className="shrink-0" />}
                     {/* Sur mobile, la maison suffit a dire « accueil ». */}
@@ -83,7 +83,7 @@ export function FilAriane({ miettes, className }: { miettes: Miette[]; className
                 ) : dernier && freres ? (
                   <PagesSoeurs nom={m.nom} freres={freres} />
                 ) : (
-                  <span aria-current="page" className="truncate font-medium text-craie-100">
+                  <span aria-current="page" className="truncate font-medium text-chalk-100">
                     {m.nom}
                   </span>
                 )}
@@ -163,12 +163,12 @@ function PagesSoeurs({ nom, freres }: { nom: string; freres: { nom: string; href
         aria-expanded={ouvert}
         aria-controls={`${id}-panneau`}
         title={t("commun.freres", { nom })}
-        className="flex min-w-0 items-center gap-1 font-medium text-craie-100 transition-colors hover:text-or-400"
+        className="flex min-w-0 items-center gap-1 font-medium text-chalk-100 transition-colors hover:text-gold-400"
       >
         <span aria-current="page" className="truncate">
           {nom}
         </span>
-        <ChevronsUpDown size={14} aria-hidden className="shrink-0 text-craie-500" />
+        <ChevronsUpDown size={14} aria-hidden className="shrink-0 text-chalk-500" />
         <span className="sr-only">{t("commun.freres", { nom })}</span>
       </button>
 
@@ -178,7 +178,7 @@ function PagesSoeurs({ nom, freres }: { nom: string; freres: { nom: string; href
             ref={panneau}
             id={`${id}-panneau`}
             style={{ top: position.haut, left: position.gauche, width: LARGEUR_PANNEAU }}
-            className="fixed z-50 max-w-[calc(100vw-2rem)] border border-nuit-700 bg-nuit-900 shadow-xl shadow-black/40"
+            className="fixed z-50 max-w-[calc(100vw-2rem)] border border-night-700 bg-night-900 shadow-xl shadow-black/40"
           >
             {freres.length > SEUIL_FILTRE && (
               <input
@@ -187,7 +187,7 @@ function PagesSoeurs({ nom, freres }: { nom: string; freres: { nom: string; href
                 onChange={(e) => setFiltre(e.target.value)}
                 placeholder={t("commun.filtrer")}
                 aria-label={t("commun.filtrer")}
-                className="w-full border-b border-nuit-800 bg-transparent px-3 py-2 text-sm text-craie-100 outline-none placeholder:text-craie-500"
+                className="w-full border-b border-night-800 bg-transparent px-3 py-2 text-sm text-chalk-100 outline-none placeholder:text-chalk-500"
               />
             )}
             <ul ref={liste} className="relative max-h-72 overflow-y-auto p-1">
@@ -199,14 +199,14 @@ function PagesSoeurs({ nom, freres }: { nom: string; freres: { nom: string; href
                     aria-current={f.nom === nom ? "page" : undefined}
                     className={cn(
                       "block truncate rounded-sm px-3 py-1.5 text-sm transition-colors",
-                      f.nom === nom ? "bg-nuit-800 text-or-400" : "text-craie-300 hover:bg-nuit-850 hover:text-or-400",
+                      f.nom === nom ? "bg-night-800 text-gold-400" : "text-chalk-300 hover:bg-night-850 hover:text-gold-400",
                     )}
                   >
                     {f.nom}
                   </Link>
                 </li>
               ))}
-              {visibles.length === 0 && <li className="px-3 py-2 text-sm text-craie-500">{t("recherche.aucun")}</li>}
+              {visibles.length === 0 && <li className="px-3 py-2 text-sm text-chalk-500">{t("recherche.aucun")}</li>}
             </ul>
           </div>,
           document.body,

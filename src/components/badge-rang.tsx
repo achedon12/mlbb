@@ -39,7 +39,7 @@ export function BadgeRang({
       <div className="min-w-0">
         <p
           className={cn(
-            "font-titre font-bold leading-tight",
+            "font-heading font-bold leading-tight",
             taille === "lg" ? "text-xl" : "text-base",
           )}
           style={{ color: rang.couleur }}
@@ -47,8 +47,8 @@ export function BadgeRang({
           {t(`rangsNom.${rang.cle}`)}
           {rang.division && ` ${rang.division}`}
         </p>
-        <p className="mt-0.5 flex items-center gap-1 text-xs text-craie-400">
-          <Star size={11} className="fill-current text-or-400" aria-hidden />
+        <p className="mt-0.5 flex items-center gap-1 text-xs text-chalk-400">
+          <Star size={11} className="fill-current text-gold-400" aria-hidden />
           {unite}
         </p>
       </div>

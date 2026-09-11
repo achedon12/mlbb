@@ -68,11 +68,11 @@ export function ItemPicker({
       role="dialog"
       aria-modal="true"
       aria-label={title}
-      className="fixed inset-0 z-50 grid place-items-center bg-nuit-950/80 p-3 sm:p-4"
+      className="fixed inset-0 z-50 grid place-items-center bg-night-950/80 p-3 sm:p-4"
       onClick={onClose}
     >
       <div className="relative flex max-h-[88vh] w-full max-w-3xl flex-col" onClick={(e) => e.stopPropagation()}>
-        <div aria-hidden className="biseau absolute inset-0 border border-nuit-700 bg-nuit-900" />
+        <div aria-hidden className="bevel absolute inset-0 border border-night-700 bg-night-900" />
         <div className="relative flex min-h-0 flex-1 flex-col p-4 sm:p-5">
           <div className="flex items-center gap-2">
             <ChampRecherche
@@ -87,7 +87,7 @@ export function ItemPicker({
               type="button"
               onClick={onClose}
               aria-label={t("commun.fermer")}
-              className="grid size-11 shrink-0 place-items-center text-craie-500 transition-colors hover:text-craie-100"
+              className="grid size-11 shrink-0 place-items-center text-chalk-500 transition-colors hover:text-chalk-100"
             >
               <X size={20} aria-hidden />
             </button>
@@ -108,7 +108,7 @@ export function ItemPicker({
             <button
               type="button"
               onClick={onRemove}
-              className="mt-3 flex min-h-11 items-center gap-2 self-start border border-sang-500/50 px-3 text-sm text-craie-200 transition-colors hover:border-sang-500 hover:text-craie-100"
+              className="mt-3 flex min-h-11 items-center gap-2 self-start border border-blood-500/50 px-3 text-sm text-chalk-200 transition-colors hover:border-blood-500 hover:text-chalk-100"
             >
               <Trash2 size={16} aria-hidden />
               {t("pages.buildSimulatorUI.removeItem", { item: current.name })}
@@ -119,7 +119,7 @@ export function ItemPicker({
             {t("pages.buildSimulatorUI.results", { n: results.length })}
           </p>
           {results.length === 0 ? (
-            <p className="mt-6 text-center text-sm text-craie-500">{t("pages.buildSimulatorUI.noItem")}</p>
+            <p className="mt-6 text-center text-sm text-chalk-500">{t("pages.buildSimulatorUI.noItem")}</p>
           ) : (
             <ul className="-mx-1 mt-3 grid min-h-0 flex-1 grid-cols-1 gap-2 overflow-y-auto px-1 py-1 min-[380px]:grid-cols-2 sm:grid-cols-3">
               {results.map((o) => (
@@ -128,19 +128,19 @@ export function ItemPicker({
                     type="button"
                     onClick={() => onPick(o.slug)}
                     aria-current={current?.slug === o.slug || undefined}
-                    className="flex min-h-14 w-full items-center gap-2.5 border border-nuit-700 bg-nuit-850 p-2 text-left transition-colors hover:border-or-500/60 aria-[current]:border-or-500"
+                    className="flex min-h-14 w-full items-center gap-2.5 border border-night-700 bg-night-850 p-2 text-left transition-colors hover:border-gold-500/60 aria-[current]:border-gold-500"
                   >
-                    <span className="relative size-10 shrink-0 bg-nuit-800">
+                    <span className="relative size-10 shrink-0 bg-night-800">
                       {o.image && <Image src={o.image} alt="" fill unoptimized className="object-contain" />}
                     </span>
                     <span className="min-w-0">
-                      <span className="block text-sm leading-tight text-craie-100">{o.name}</span>
+                      <span className="block text-sm leading-tight text-chalk-100">{o.name}</span>
                       {o.price !== null && (
-                        <span className="mt-0.5 block text-xs tabular-nums text-or-400">
+                        <span className="mt-0.5 block text-xs tabular-nums text-gold-400">
                           {t("pages.buildSimulatorUI.price", { gold: gold.format(o.price) })}
                         </span>
                       )}
-                      {o.text && <span className="mt-0.5 line-clamp-2 block text-[0.7rem] leading-snug text-craie-500">{o.text}</span>}
+                      {o.text && <span className="mt-0.5 line-clamp-2 block text-[0.7rem] leading-snug text-chalk-500">{o.text}</span>}
                     </span>
                   </button>
                 </li>

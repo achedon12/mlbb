@@ -32,11 +32,11 @@ export interface ApercuHeros {
 
 /** Teinte du badge de palier, du plus fort au plus faible. */
 const COULEUR_PALIER: Record<Palier, string> = {
-  "S+": "border-sang-500/40 text-sang-500",
-  S: "border-or-500/40 text-or-400",
+  "S+": "border-blood-500/40 text-blood-500",
+  S: "border-gold-500/40 text-gold-400",
   A: "border-emerald-500/40 text-emerald-400",
-  B: "border-azur-500/40 text-azur-400",
-  C: "border-nuit-600 text-craie-500",
+  B: "border-azure-500/40 text-azure-400",
+  C: "border-night-600 text-chalk-500",
 };
 
 export function CarteHeros({ heros }: { heros: ApercuHeros }) {
@@ -44,20 +44,20 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
   return (
     <Link
       href={`/heroes/${heros.slug}`}
-      className="biseau hors-ecran group flex items-start gap-3 border border-nuit-700/70 bg-nuit-900/60 p-3 transition-colors hover:border-or-500/60 hover:bg-nuit-850"
+      className="bevel offscreen group flex items-start gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60 hover:bg-night-850"
     >
       <PortraitHeros source={heros.portrait} nom={heros.nom} />
 
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="flex min-w-0 items-center gap-1.5 font-titre text-base font-bold text-craie-100 transition-colors group-hover:text-or-400">
+          <h3 className="flex min-w-0 items-center gap-1.5 font-heading text-base font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
             <span className="truncate">{heros.nom}</span>
             <IndicateurFavori slug={heros.slug} />
           </h3>
           {heros.palier && (
             <span
               className={cn(
-                "biseau-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold",
+                "bevel-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold",
                 COULEUR_PALIER[heros.palier],
               )}
               title={t("carteHeros.palierTitre", { p: heros.palier })}
@@ -73,14 +73,14 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
           ))}
         </div>
 
-        <p className="mt-1.5 flex flex-wrap items-center gap-x-1.5 truncate text-xs text-craie-500">
+        <p className="mt-1.5 flex flex-wrap items-center gap-x-1.5 truncate text-xs text-chalk-500">
           {heros.victoire != null && (
-            <span className="font-semibold text-craie-300">{heros.victoire.toFixed(1)}%</span>
+            <span className="font-semibold text-chalk-300">{heros.victoire.toFixed(1)}%</span>
           )}
           <span>{heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}</span>
           {heros.skins > 0 && <span>· {t("carteHeros.skins", { n: heros.skins })}</span>}
           {heros.analyse && (
-            <span className="font-semibold uppercase tracking-wide text-or-500">· {t("carteHeros.analyse")}</span>
+            <span className="font-semibold uppercase tracking-wide text-gold-500">· {t("carteHeros.analyse")}</span>
           )}
         </p>
       </div>

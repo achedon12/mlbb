@@ -49,10 +49,10 @@ export function useNumberFormats(): NumberFormats {
   }, [language]);
 }
 
-const heading3 = "font-titre text-lg font-bold text-craie-100";
-const label = "text-xs uppercase tracking-wide text-craie-500";
+const heading3 = "font-heading text-lg font-bold text-chalk-100";
+const label = "text-xs uppercase tracking-wide text-chalk-500";
 const button =
-  "biseau-sm inline-flex min-h-11 items-center gap-2 border border-nuit-700 px-3 py-2 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400";
+  "bevel-sm inline-flex min-h-11 items-center gap-2 border border-night-700 px-3 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400";
 
 export function DraftSummary({
   blue,
@@ -121,51 +121,51 @@ export function DraftSummary({
   return (
     <section aria-labelledby="summary-title" className="space-y-8">
       <div>
-        <h2 id="summary-title" className="font-titre text-2xl font-bold text-craie-100">
+        <h2 id="summary-title" className="font-heading text-2xl font-bold text-chalk-100">
           {t("pages.draftSimulatorUI.summary.title")}
         </h2>
-        <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-        <p className="mt-3 text-sm text-craie-500">{t("pages.draftSimulatorUI.summary.intro", { rank: rankName })}</p>
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        <p className="mt-3 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.intro", { rank: rankName })}</p>
       </div>
 
       {/* -- Measured advantage ----------------------------------------- */}
       <Carte>
         <h3 className={heading3}>{t("pages.draftSimulatorUI.summary.advantage")}</h3>
         {!measures ? (
-          <p role="status" className="mt-2 text-sm text-craie-500">
+          <p role="status" className="mt-2 text-sm text-chalk-500">
             {failed ? t("equipeUI.erreur") : t("equipeUI.chargement")}
           </p>
         ) : advantage && index ? (
           <>
-            <p className="mt-2 font-semibold text-craie-100">{index}</p>
+            <p className="mt-2 font-semibold text-chalk-100">{index}</p>
             <div className="relative mt-3">
               <div
                 role="img"
                 aria-label={t("pages.draftSimulatorUI.summary.bar", { text: index })}
-                className="flex h-3 overflow-hidden rounded-full bg-nuit-800"
+                className="flex h-3 overflow-hidden rounded-full bg-night-800"
               >
-                <span className="h-full bg-azur-500" style={{ width: `${advantage.blueShare * 100}%` }} />
-                <span className="h-full bg-sang-500" style={{ width: `${(1 - advantage.blueShare) * 100}%` }} />
+                <span className="h-full bg-azure-500" style={{ width: `${advantage.blueShare * 100}%` }} />
+                <span className="h-full bg-blood-500" style={{ width: `${(1 - advantage.blueShare) * 100}%` }} />
               </div>
-              <span aria-hidden className="absolute -top-1 left-1/2 h-5 w-0.5 -translate-x-1/2 bg-craie-100/70" />
+              <span aria-hidden className="absolute -top-1 left-1/2 h-5 w-0.5 -translate-x-1/2 bg-chalk-100/70" />
             </div>
             <div aria-hidden className="mt-1 flex justify-between text-xs font-semibold">
-              <span className="text-azur-500">{t("pages.draftSimulatorUI.sides.blue")}</span>
-              <span className="text-sang-500">{t("pages.draftSimulatorUI.sides.red")}</span>
+              <span className="text-azure-500">{t("pages.draftSimulatorUI.sides.blue")}</span>
+              <span className="text-blood-500">{t("pages.draftSimulatorUI.sides.red")}</span>
             </div>
-            <p className="mt-3 text-xs text-craie-300">
+            <p className="mt-3 text-xs text-chalk-300">
               {t("pages.draftSimulatorUI.summary.detail", {
                 counters: f.signed(advantage.counters),
                 blue: f.signed(advantage.duos.blue),
                 red: f.signed(advantage.duos.red),
               })}
             </p>
-            <p className="mt-2 text-xs leading-relaxed text-craie-500">
+            <p className="mt-2 text-xs leading-relaxed text-chalk-500">
               {t("pages.draftSimulatorUI.summary.advantageNote", { rank: rankName })}
             </p>
           </>
         ) : (
-          <p className="mt-2 text-sm text-craie-500">{t("pages.draftSimulatorUI.summary.noMeasures", { rank: rankName })}</p>
+          <p className="mt-2 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.noMeasures", { rank: rankName })}</p>
         )}
       </Carte>
 
@@ -189,7 +189,7 @@ export function DraftSummary({
       {measures && (
         <div>
           <h3 className={heading3}>{t("pages.draftSimulatorUI.summary.matchups")}</h3>
-          <p className="mt-1 text-sm text-craie-500">{t("pages.draftSimulatorUI.summary.matchupsIntro")}</p>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.matchupsIntro")}</p>
           {matchups.length > 0 ? (
             <ul className="mt-3 grid gap-2 md:grid-cols-2">
               {matchups.map((m) => {
@@ -200,13 +200,13 @@ export function DraftSummary({
                   <li
                     key={`${m.blue}-${m.red}`}
                     className={cn(
-                      "biseau-sm flex items-center gap-2 border bg-nuit-900/60 px-3 py-2 text-sm",
-                      blueWins ? "border-azur-500/40" : "border-sang-500/40",
+                      "bevel-sm flex items-center gap-2 border bg-night-900/60 px-3 py-2 text-sm",
+                      blueWins ? "border-azure-500/40" : "border-blood-500/40",
                     )}
                   >
                     {a && <VignetteHeros heros={a} petite />}
                     {b && <VignetteHeros heros={b} petite />}
-                    <span className="min-w-0 flex-1 leading-snug text-craie-100">
+                    <span className="min-w-0 flex-1 leading-snug text-chalk-100">
                       {t("pages.draftSimulatorUI.summary.matchup", {
                         winner: nameOf(blueWins ? m.blue : m.red),
                         loser: nameOf(blueWins ? m.red : m.blue),
@@ -218,7 +218,7 @@ export function DraftSummary({
               })}
             </ul>
           ) : (
-            <p className="mt-3 text-sm text-craie-500">{t("pages.draftSimulatorUI.summary.noMatchup")}</p>
+            <p className="mt-3 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.noMatchup")}</p>
           )}
         </div>
       )}
@@ -226,7 +226,7 @@ export function DraftSummary({
       {/* -- Share ------------------------------------------------------ */}
       <div>
         <h3 className={heading3}>{t("pages.draftSimulatorUI.summary.share")}</h3>
-        <p className="mt-1 text-sm text-craie-500">{t("pages.draftSimulatorUI.summary.shareIntro")}</p>
+        <p className="mt-1 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.shareIntro")}</p>
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <label className="min-w-0 flex-1 basis-64">
             <span className="sr-only">{t("pages.draftSimulatorUI.summary.address")}</span>
@@ -234,14 +234,14 @@ export function DraftSummary({
               readOnly
               value={address}
               onFocus={(e) => e.currentTarget.select()}
-              className="biseau-sm min-h-11 w-full border border-nuit-700 bg-nuit-950 px-3 text-sm text-craie-300 outline-none focus:border-or-500"
+              className="bevel-sm min-h-11 w-full border border-night-700 bg-night-950 px-3 text-sm text-chalk-300 outline-none focus:border-gold-500"
             />
           </label>
           <button type="button" onClick={copy} className={button}>
             <Link2 size={15} aria-hidden />
             {t("equipeUI.copier")}
           </button>
-          <span role="status" className="text-xs text-craie-300">
+          <span role="status" className="text-xs text-chalk-300">
             {copied === "ok" && t("equipeUI.lienCopie")}
             {copied === "error" && t("equipeUI.copieImpossible")}
           </span>
@@ -302,15 +302,15 @@ function TeamCard({
   const slugs = analysis.equipe.map((h) => h.slug);
 
   return (
-    <Carte className={side === "blue" ? "border-azur-500/40" : "border-sang-500/40"}>
+    <Carte className={side === "blue" ? "border-azure-500/40" : "border-blood-500/40"}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h3 className={cn("font-titre text-xl font-bold", side === "blue" ? "text-azur-500" : "text-sang-500")}>
+        <h3 className={cn("font-heading text-xl font-bold", side === "blue" ? "text-azure-500" : "text-blood-500")}>
           {t(`pages.draftSimulatorUI.sides.${side}`)}
         </h3>
         {analysis.victoire !== null && (
-          <p className="text-sm text-craie-300">
+          <p className="text-sm text-chalk-300">
             {t("equipeUI.tauxMoyen")} :{" "}
-            <span className="font-semibold tabular-nums text-craie-100">{f.decimal(analysis.victoire)} %</span>
+            <span className="font-semibold tabular-nums text-chalk-100">{f.decimal(analysis.victoire)} %</span>
           </p>
         )}
       </div>
@@ -326,17 +326,17 @@ function TeamCard({
               {h ? (
                 <span className="flex min-w-0 items-center gap-2">
                   <VignetteHeros heros={h} petite />
-                  <span className="truncate text-craie-100">{h.nom}</span>
+                  <span className="truncate text-chalk-100">{h.nom}</span>
                 </span>
               ) : (
-                <span className="italic text-sang-500">{t("equipeUI.aPourvoir")}</span>
+                <span className="italic text-blood-500">{t("equipeUI.aPourvoir")}</span>
               )}
             </li>
           );
         })}
       </ul>
       {affectation.enTrop.length > 0 && (
-        <p className="mt-2 text-xs text-sang-500">{t("equipeUI.sansLane", { noms: affectation.enTrop.map(nameOf).join(", ") })}</p>
+        <p className="mt-2 text-xs text-blood-500">{t("equipeUI.sansLane", { noms: affectation.enTrop.map(nameOf).join(", ") })}</p>
       )}
 
       {degats.partPhysique !== null && (
@@ -348,12 +348,12 @@ function TeamCard({
               physique: f.integer(degats.partPhysique * 100),
               magique: f.integer((1 - degats.partPhysique) * 100),
             })}
-            className="mt-2 flex h-2.5 overflow-hidden rounded-full bg-nuit-800"
+            className="mt-2 flex h-2.5 overflow-hidden rounded-full bg-night-800"
           >
-            <span className="h-full bg-or-500" style={{ width: `${degats.partPhysique * 100}%` }} />
-            <span className="h-full bg-azur-500" style={{ width: `${(1 - degats.partPhysique) * 100}%` }} />
+            <span className="h-full bg-gold-500" style={{ width: `${degats.partPhysique * 100}%` }} />
+            <span className="h-full bg-azure-500" style={{ width: `${(1 - degats.partPhysique) * 100}%` }} />
           </div>
-          <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-craie-300">
+          <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-chalk-300">
             {(["physical", "magic", "mixed"] as const).map(
               (d) =>
                 degats[d] > 0 && (
@@ -362,11 +362,11 @@ function TeamCard({
                       aria-hidden
                       className={cn(
                         "size-2 rounded-full",
-                        d === "physical" ? "bg-or-500" : d === "magic" ? "bg-azur-500" : "bg-craie-500",
+                        d === "physical" ? "bg-gold-500" : d === "magic" ? "bg-azure-500" : "bg-chalk-500",
                       )}
                     />
                     {damageLabels[d]}
-                    <span className="font-semibold tabular-nums text-craie-100">{f.integer(degats[d])}</span>
+                    <span className="font-semibold tabular-nums text-chalk-100">{f.integer(degats[d])}</span>
                   </li>
                 ),
             )}
@@ -381,7 +381,7 @@ function TeamCard({
           if (value === null) return null;
           return (
             <div key={n} className="grid grid-cols-[minmax(0,8rem)_1fr] items-center gap-3 text-sm">
-              <dt className="text-craie-300">{t(`compareUI.${n}`)}</dt>
+              <dt className="text-chalk-300">{t(`compareUI.${n}`)}</dt>
               <dd>
                 <Jauge valeur={value} texte={f.decimal(value)} />
               </dd>
@@ -394,14 +394,14 @@ function TeamCard({
       {alertes.length > 0 ? (
         <ul className="mt-2 space-y-1.5">
           {alertes.map((a) => (
-            <li key={a.type} className="flex gap-2 text-sm leading-snug text-craie-100">
-              <AlertTriangle size={15} aria-hidden className="mt-0.5 shrink-0 text-sang-500" />
+            <li key={a.type} className="flex gap-2 text-sm leading-snug text-chalk-100">
+              <AlertTriangle size={15} aria-hidden className="mt-0.5 shrink-0 text-blood-500" />
               {alertText(a, t, f, nameOf)}
             </li>
           ))}
         </ul>
       ) : (
-        <p className="mt-2 flex gap-2 text-sm text-craie-300">
+        <p className="mt-2 flex gap-2 text-sm text-chalk-300">
           <Check size={15} aria-hidden className="mt-0.5 shrink-0 text-emerald-400" />
           {t("equipeUI.alertes.aucune")}
         </p>
@@ -412,7 +412,7 @@ function TeamCard({
         <ul className="mt-2 space-y-1">
           {duos.map((p) => (
             <li key={`${p.a}-${p.b}`} className="flex items-center gap-2 text-sm">
-              <span className="min-w-0 flex-1 truncate text-craie-100">
+              <span className="min-w-0 flex-1 truncate text-chalk-100">
                 {nameOf(p.a)} + {nameOf(p.b)}
               </span>
               <span className="shrink-0 font-semibold tabular-nums text-emerald-400">
@@ -422,12 +422,12 @@ function TeamCard({
           ))}
         </ul>
       ) : (
-        <p className="mt-2 text-sm text-craie-500">{t("pages.draftSimulatorUI.summary.noDuo")}</p>
+        <p className="mt-2 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.noDuo")}</p>
       )}
 
       <Link
         href={`/tools/team?${ecrireParametres("", slugs, rank)}`}
-        className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+        className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
       >
         {t("pages.draftSimulatorUI.summary.fullAnalysis")} →
       </Link>

@@ -40,11 +40,11 @@ export interface BornesRang {
 }
 
 const COULEUR_PALIER: Record<Palier, string> = {
-  "S+": "border-sang-500/40 text-sang-500",
-  S: "border-or-500/40 text-or-400",
+  "S+": "border-blood-500/40 text-blood-500",
+  S: "border-gold-500/40 text-gold-400",
   A: "border-emerald-500/40 text-emerald-400",
-  B: "border-azur-500/40 text-azur-400",
-  C: "border-nuit-600 text-craie-500",
+  B: "border-azure-500/40 text-azure-400",
+  C: "border-night-600 text-chalk-500",
 };
 const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
 
@@ -157,7 +157,7 @@ export function ComparateurHeros({
           ref={boutonAjout}
           type="button"
           onClick={ajouter}
-          className="biseau-sm mt-3 inline-flex items-center gap-2 border border-dashed border-nuit-600 px-3 py-1.5 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+          className="bevel-sm mt-3 inline-flex items-center gap-2 border border-dashed border-night-600 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
         >
           <Plus size={15} aria-hidden />
           {t("compareUI.ajouter")}
@@ -209,7 +209,7 @@ function Profil({ heros, rang, bornes }: { heros: HerosComparable[]; rang: RangM
   });
   return (
     <section className="mt-8" aria-labelledby={`${id}-h`}>
-      <h2 id={`${id}-h`} className="text-center text-xs uppercase tracking-wide text-craie-500">
+      <h2 id={`${id}-h`} className="text-center text-xs uppercase tracking-wide text-chalk-500">
         {titre}
       </h2>
       <RadarHeros
@@ -218,9 +218,9 @@ function Profil({ heros, rang, bornes }: { heros: HerosComparable[]; rang: RangM
         series={series}
         titre={titre}
         resume={t("compareUI.radarResume")}
-        className="biseau mt-3 border border-nuit-700/70 bg-nuit-900/60 p-3 sm:p-4"
+        className="bevel mt-3 border border-night-700/70 bg-night-900/60 p-3 sm:p-4"
       />
-      <p className="mt-2 text-center text-xs text-craie-500">{t("compareUI.radarEchelle")}</p>
+      <p className="mt-2 text-center text-xs text-chalk-500">{t("compareUI.radarEchelle")}</p>
     </section>
   );
 }
@@ -258,7 +258,7 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
       label: t("compareUI.palier"),
       valeurs: taux.map((x) => (x ? ORDRE_PALIERS.length - ORDRE_PALIERS.indexOf(x[2]) : null)),
       affiche: (_, i) => (
-        <span className={cn("biseau-sm inline-block border px-1.5 py-0.5 text-[0.7rem] font-bold", COULEUR_PALIER[taux[i]![2]])}>
+        <span className={cn("bevel-sm inline-block border px-1.5 py-0.5 text-[0.7rem] font-bold", COULEUR_PALIER[taux[i]![2]])}>
           {taux[i]![2]}
         </span>
       ),
@@ -288,16 +288,16 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
   const noms = new Intl.ListFormat(langue, { style: "long", type: "conjunction" }).format(heros.map((h) => h.nom));
 
   return (
-    <div className="biseau mt-6 relative overflow-x-auto border border-nuit-700/70 bg-nuit-900/60 px-3 py-2 sm:px-4">
+    <div className="bevel mt-6 relative overflow-x-auto border border-night-700/70 bg-night-900/60 px-3 py-2 sm:px-4">
       <table className="w-full text-sm">
         <caption className="sr-only">{t("compareUI.tableau", { noms, rang: t(`rangsMesure.${rang}`) })}</caption>
         <thead>
-          <tr className="border-b border-nuit-800">
+          <tr className="border-b border-night-800">
             <th scope="col" className="py-2">
               <span className="sr-only">{t("compareUI.critere")}</span>
             </th>
             {heros.map((h, i) => (
-              <th scope="col" key={h.slug} className="px-1.5 py-2 text-right font-titre font-bold text-craie-100">
+              <th scope="col" key={h.slug} className="px-1.5 py-2 text-right font-heading font-bold text-chalk-100">
                 <span className="inline-flex items-center justify-end gap-1.5">
                   <TraitLegende {...STYLES_SERIES[i]} className="hidden min-[420px]:block" />
                   {h.nom}
@@ -306,7 +306,7 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-nuit-800">
+        <tbody className="divide-y divide-night-800">
           {lignes.map((l) => {
             const mesurees = l.valeurs.filter((v): v is number => v !== null);
             const cible = l.sens === 1 ? Math.max(...mesurees) : Math.min(...mesurees);
@@ -314,7 +314,7 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
             const departage = l.sens !== 0 && mesurees.length > 1 && new Set(mesurees).size > 1;
             return (
               <tr key={l.cle}>
-                <th scope="row" className="py-2 pr-2 text-left text-xs font-medium uppercase tracking-wide text-craie-500">
+                <th scope="row" className="py-2 pr-2 text-left text-xs font-medium uppercase tracking-wide text-chalk-500">
                   {l.label}
                 </th>
                 {l.valeurs.map((v, i) => {
@@ -322,7 +322,7 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
                   return (
                     <td
                       key={i}
-                      className={cn("px-1.5 py-2 text-right font-semibold tabular-nums", meilleur ? "text-or-400" : "text-craie-300")}
+                      className={cn("px-1.5 py-2 text-right font-semibold tabular-nums", meilleur ? "text-gold-400" : "text-chalk-300")}
                     >
                       {v === null ? "—" : l.affiche(v, i)}
                       {meilleur && <span className="sr-only"> ({t("compareUI.meilleur")})</span>}
@@ -384,14 +384,14 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
   }, [cle]);
 
   const titre = (
-    <h2 className="text-center text-xs uppercase tracking-wide text-craie-500">
+    <h2 className="text-center text-xs uppercase tracking-wide text-chalk-500">
       {t("compareUI.courbes", { n: JOURS_COURBE })}
     </h2>
   );
   const message = (texte: string) => (
     <section className="mt-8">
       {titre}
-      <p role="status" className="biseau mt-3 grid h-[200px] place-items-center border border-nuit-700/70 bg-nuit-900/60 px-4 text-center text-sm text-craie-500">
+      <p role="status" className="bevel mt-3 grid h-[200px] place-items-center border border-night-700/70 bg-night-900/60 px-4 text-center text-sm text-chalk-500">
         {texte}
       </p>
     </section>
@@ -435,11 +435,11 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
     <section className="mt-8">
       {titre}
       {choisi !== rang && (
-        <p className="mt-2 text-center text-xs text-craie-500">
+        <p className="mt-2 text-center text-xs text-chalk-500">
           {t("compareUI.courbesAutreRang", { rang: t(`rangsMesure.${choisi}`) })}
         </p>
       )}
-      <div className="biseau mt-3 border border-nuit-700/70 bg-nuit-900/60 p-3 sm:p-4">
+      <div className="bevel mt-3 border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
         <CourbeTaux
           dates={dates.slice(depuis)}
           series={series}
@@ -451,7 +451,7 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
         />
       </div>
       {sans.map((c) => (
-        <p key={c.heros.slug} className="mt-2 text-xs text-craie-500">
+        <p key={c.heros.slug} className="mt-2 text-xs text-chalk-500">
           {t("compareUI.sansCourbe", { nom: c.heros.nom })}
         </p>
       ))}
@@ -531,7 +531,7 @@ function Selecteur({
   return (
     <div className="relative">
       <div className="mb-1.5 flex items-center justify-between gap-2">
-        <label htmlFor={`${id}-champ`} className="flex items-center gap-2 text-xs uppercase tracking-wide text-craie-500">
+        <label htmlFor={`${id}-champ`} className="flex items-center gap-2 text-xs uppercase tracking-wide text-chalk-500">
           <TraitLegende couleur={motif.couleur} motif={motif.motif} />
           {label}
         </label>
@@ -540,13 +540,13 @@ function Selecteur({
             type="button"
             onClick={retirer}
             aria-label={t("compareUI.retirer", { nom: choisi?.nom ?? label })}
-            className="-my-1 rounded-sm p-1 text-craie-500 transition-colors hover:text-sang-500"
+            className="-my-1 rounded-sm p-1 text-chalk-500 transition-colors hover:text-blood-500"
           >
             <X size={15} aria-hidden />
           </button>
         )}
       </div>
-      <div className="biseau-sm flex items-center gap-2 border border-nuit-700 bg-nuit-900 px-2.5 transition-colors focus-within:border-or-500">
+      <div className="bevel-sm flex items-center gap-2 border border-night-700 bg-night-900 px-2.5 transition-colors focus-within:border-gold-500">
         {!ouvert && choisi && (
           <PortraitHeros source={choisi.icone} nom={choisi.nom} taille="micro" decoratif />
         )}
@@ -575,12 +575,12 @@ function Selecteur({
             setOuvert(true);
           }}
           onKeyDown={clavier}
-          className="min-w-0 flex-1 bg-transparent py-2.5 text-craie-100 outline-none placeholder:text-craie-500"
+          className="min-w-0 flex-1 bg-transparent py-2.5 text-chalk-100 outline-none placeholder:text-chalk-500"
         />
         <ChevronDown
           size={16}
           aria-hidden
-          className={cn("shrink-0 text-craie-500 transition-transform", ouvert && "rotate-180")}
+          className={cn("shrink-0 text-chalk-500 transition-transform", ouvert && "rotate-180")}
         />
       </div>
 
@@ -589,10 +589,10 @@ function Selecteur({
           id={`${id}-liste`}
           role="listbox"
           aria-label={label}
-          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-nuit-700 bg-nuit-900 py-1 shadow-xl shadow-black/40"
+          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-night-700 bg-night-900 py-1 shadow-xl shadow-black/40"
         >
           {resultats.length === 0 ? (
-            <li className="px-3 py-2 text-sm text-craie-500">{t("compareUI.aucun")}</li>
+            <li className="px-3 py-2 text-sm text-chalk-500">{t("compareUI.aucun")}</li>
           ) : (
             resultats.map((h, i) => (
               <li
@@ -606,7 +606,7 @@ function Selecteur({
                 onMouseEnter={() => setActif(i)}
                 className={cn(
                   "flex cursor-pointer items-center gap-2.5 px-3 py-1.5 text-sm",
-                  i === actif ? "bg-nuit-800 text-or-400" : "text-craie-200",
+                  i === actif ? "bg-night-800 text-gold-400" : "text-chalk-200",
                   h.slug === valeur && "font-semibold",
                 )}
               >
@@ -636,24 +636,24 @@ function EnTeteHeros({
   const t = useT();
   const palier = heros.taux[rang]?.[2] ?? null;
   return (
-    <div className={cn("biseau min-w-0 border border-nuit-700/70 bg-nuit-900/60", compact ? "p-2.5 sm:p-4" : "p-4")}>
+    <div className={cn("bevel min-w-0 border border-night-700/70 bg-night-900/60", compact ? "p-2.5 sm:p-4" : "p-4")}>
       <div className={cn("flex gap-3", compact ? "flex-col items-center text-center sm:flex-row sm:text-left" : "items-center")}>
         <PortraitHeros source={heros.icone} nom={heros.nom} taille={compact ? "moyenne" : "vignette"} />
         <div className="min-w-0 max-w-full">
           <div className={cn("flex flex-wrap items-center gap-x-2 gap-y-1", compact && "justify-center sm:justify-start")}>
             <Link
               href={`/heroes/${heros.slug}`}
-              className={cn("font-titre font-bold text-craie-100 hover:text-or-400", compact ? "text-base sm:text-lg" : "truncate text-lg")}
+              className={cn("font-heading font-bold text-chalk-100 hover:text-gold-400", compact ? "text-base sm:text-lg" : "truncate text-lg")}
             >
               {heros.nom}
             </Link>
             {palier && (
-              <span className={cn("biseau-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold", COULEUR_PALIER[palier])}>
+              <span className={cn("bevel-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold", COULEUR_PALIER[palier])}>
                 {palier}
               </span>
             )}
           </div>
-          <p className={cn("mt-0.5 text-xs text-craie-500", compact ? "line-clamp-2 sm:truncate" : "truncate")}>
+          <p className={cn("mt-0.5 text-xs text-chalk-500", compact ? "line-clamp-2 sm:truncate" : "truncate")}>
             {heros.roles.map((r) => t(`roles.${r}`)).join(" · ")}
             {heros.lanes.length > 0 && ` — ${heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ")}`}
           </p>

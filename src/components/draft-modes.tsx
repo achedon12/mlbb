@@ -80,7 +80,7 @@ export function DraftModes({
         role="tablist"
         aria-label={t("pages.draftSimulatorUI.tabsLabel")}
         onKeyDown={onKeyDown}
-        className="flex gap-1 border-b border-nuit-700"
+        className="flex gap-1 border-b border-night-700"
       >
         {MODES.map((m) => (
           <button
@@ -96,8 +96,8 @@ export function DraftModes({
             tabIndex={mode === m ? 0 : -1}
             onClick={() => select(m)}
             className={cn(
-              "-mb-px min-h-11 border-b-2 px-4 py-2 font-titre text-sm font-semibold uppercase tracking-wider transition-colors",
-              mode === m ? "border-or-500 text-or-400" : "border-transparent text-craie-500 hover:text-craie-100",
+              "-mb-px min-h-11 border-b-2 px-4 py-2 font-heading text-sm font-semibold uppercase tracking-wider transition-colors",
+              mode === m ? "border-gold-500 text-gold-400" : "border-transparent text-chalk-500 hover:text-chalk-100",
             )}
           >
             {t(`pages.draftSimulatorUI.tabs.${m}`)}

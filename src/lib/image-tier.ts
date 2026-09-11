@@ -39,7 +39,7 @@ async function charger(source: string): Promise<HTMLImageElement | null> {
 
 /** Police des titres du site (`next/font`), si elle est chargee ; sinon celle du systeme. */
 async function policeTitre(): Promise<string> {
-  const famille = getComputedStyle(document.documentElement).getPropertyValue("--police-titre").trim();
+  const famille = getComputedStyle(document.documentElement).getPropertyValue("--heading-font").trim();
   const police = famille ? `${famille}, sans-serif` : "sans-serif";
   try {
     await document.fonts.load(`700 40px ${police}`);

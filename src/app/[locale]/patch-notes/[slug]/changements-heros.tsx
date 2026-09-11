@@ -12,8 +12,8 @@ import { cn } from "@/lib/utils";
 
 const STYLE: Record<SensAjustement, { couleur: string; bordure: string; icone: React.ReactNode }> = {
   amelioration: { couleur: "text-emerald-400", bordure: "border-emerald-500/30", icone: <TrendingUp size={16} aria-hidden /> },
-  affaiblissement: { couleur: "text-sang-500", bordure: "border-sang-500/30", icone: <TrendingDown size={16} aria-hidden /> },
-  ajustement: { couleur: "text-azur-400", bordure: "border-azur-500/30", icone: <Minus size={16} aria-hidden /> },
+  affaiblissement: { couleur: "text-blood-500", bordure: "border-blood-500/30", icone: <TrendingDown size={16} aria-hidden /> },
+  ajustement: { couleur: "text-azure-400", bordure: "border-azure-500/30", icone: <Minus size={16} aria-hidden /> },
 };
 
 /** Nombre de heros distincts touches par un patch. */
@@ -49,16 +49,16 @@ export function ChangementsHeros({
 
   return (
     <section aria-labelledby="changements-heros" className="mt-10">
-      <h2 id="changements-heros" className="scroll-mt-24 font-titre text-2xl font-bold text-craie-100">
+      <h2 id="changements-heros" className="scroll-mt-24 font-heading text-2xl font-bold text-chalk-100">
         {t("pages.patchNotes.changements.titre", { v: patch.version })}
       </h2>
-      <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-      <p className="mt-4 text-sm text-craie-300">
+      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      <p className="mt-4 text-sm text-chalk-300">
         {t(`pages.patchNotes.changements.resume.${forme}`, { n, v: patch.version })}
         {ancreDetail && (
           <>
             {" "}
-            <a href={`#${ancreDetail}`} className="font-semibold text-or-400 hover:text-or-500">
+            <a href={`#${ancreDetail}`} className="font-semibold text-gold-400 hover:text-gold-500">
               {t("pages.patchNotes.changements.detail")} ↓
             </a>
           </>
@@ -69,10 +69,10 @@ export function ChangementsHeros({
         {SENS_AJUSTEMENT.map((sens) =>
           groupes[sens].length === 0 ? null : (
             <div key={sens}>
-              <h3 className={cn("flex items-center gap-2 font-titre text-lg font-bold", STYLE[sens].couleur)}>
+              <h3 className={cn("flex items-center gap-2 font-heading text-lg font-bold", STYLE[sens].couleur)}>
                 {STYLE[sens].icone}
                 {t(`patchHeros.pluriel.${sens}`)}
-                <span className="text-sm font-medium text-craie-500">{groupes[sens].length}</span>
+                <span className="text-sm font-medium text-chalk-500">{groupes[sens].length}</span>
               </h3>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {groupes[sens].map((a) => {
@@ -86,18 +86,18 @@ export function ChangementsHeros({
                         taille="micro"
                         decoratif
                       />
-                      <span className="font-medium text-craie-100">{fiche?.nom ?? a.nom}</span>
+                      <span className="font-medium text-chalk-100">{fiche?.nom ?? a.nom}</span>
                       {impact && <Impact impact={impact} taux={taux} sr={t} />}
                     </>
                   );
                   const classes = cn(
-                    "biseau-sm flex items-center gap-2 border bg-nuit-900/60 py-1 pl-1 pr-2.5 text-sm",
+                    "bevel-sm flex items-center gap-2 border bg-night-900/60 py-1 pl-1 pr-2.5 text-sm",
                     STYLE[sens].bordure,
                   );
                   return (
                     <li key={a.slug}>
                       {fiche ? (
-                        <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-colors hover:border-or-500/60")}>
+                        <Link href={`/heroes/${a.slug}`} className={cn(classes, "transition-colors hover:border-gold-500/60")}>
                           {contenu}
                         </Link>
                       ) : (
@@ -113,7 +113,7 @@ export function ChangementsHeros({
       </div>
 
       {Object.keys(impacts).length > 0 && (
-        <p className="mt-4 text-xs leading-relaxed text-craie-500">
+        <p className="mt-4 text-xs leading-relaxed text-chalk-500">
           {t("pages.patchNotes.changements.noteImpact", { n: JOURS_IMPACT })}
         </p>
       )}
@@ -135,11 +135,11 @@ function Impact({
   return (
     <span className="whitespace-nowrap text-xs tabular-nums">
       <span aria-hidden>
-        <span className="text-craie-500">{taux(impact.avant)} → </span>
+        <span className="text-chalk-500">{taux(impact.avant)} → </span>
         <span
           className={cn(
             "font-semibold",
-            !net ? "text-craie-300" : impact.ecart > 0 ? "text-emerald-400" : "text-sang-500",
+            !net ? "text-chalk-300" : impact.ecart > 0 ? "text-emerald-400" : "text-blood-500",
           )}
         >
           {taux(impact.apres)}

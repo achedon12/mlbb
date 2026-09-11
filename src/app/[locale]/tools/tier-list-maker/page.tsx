@@ -60,7 +60,7 @@ export default async function PageCreateurTier({ params }: Params) {
     chemin: "/tools/tier-list-maker",
     categorie: "UtilitiesApplication",
   });
-  const titre2 = "font-titre text-2xl font-bold text-craie-100";
+  const titre2 = "font-heading text-2xl font-bold text-chalk-100";
 
   return (
     <>
@@ -77,8 +77,8 @@ export default async function PageCreateurTier({ params }: Params) {
 
         <section className="max-w-3xl">
           <h2 className={titre2}>{t("pages.createurTier.modeEmploiTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <ol className="mt-4 list-decimal space-y-2 pl-5 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <ol className="mt-4 list-decimal space-y-2 pl-5 leading-relaxed text-chalk-300">
             <li>{t("pages.createurTier.etape1")}</li>
             <li>{t("pages.createurTier.etape2")}</li>
             <li>{t("pages.createurTier.etape3")}</li>
@@ -88,13 +88,13 @@ export default async function PageCreateurTier({ params }: Params) {
 
         <section className="max-w-3xl">
           <h2 className={titre2}>{t("pages.createurTier.methodeTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-craie-300">{t("pages.createurTier.methode")}</p>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.createurTier.methode")}</p>
           <p className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <Link href="/tier-list" className="font-semibold text-or-400 transition-colors hover:text-or-500">
+            <Link href="/tier-list" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
               {t("pages.createurTier.lienTierList")} →
             </Link>
-            <Link href="/quiz" className="font-semibold text-or-400 transition-colors hover:text-or-500">
+            <Link href="/quiz" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
               {t("pages.createurTier.lienQuiz")} →
             </Link>
           </p>

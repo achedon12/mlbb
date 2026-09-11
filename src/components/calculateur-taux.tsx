@@ -30,7 +30,7 @@ function Champ({
   const id = useId();
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-wide text-craie-500">
+      <label htmlFor={id} className="text-xs uppercase tracking-wide text-chalk-500">
         {libelle}
       </label>
       <div className="relative mt-1.5">
@@ -42,10 +42,10 @@ function Champ({
           value={valeur}
           onChange={(e) => onChange(e.target.value)}
           aria-invalid={invalide || undefined}
-          className="biseau-sm w-full border border-nuit-700 bg-nuit-900 py-2.5 pl-3 pr-9 text-lg tabular-nums text-craie-100 outline-none transition-colors focus:border-or-500 aria-invalid:border-sang-500/70"
+          className="bevel-sm w-full border border-night-700 bg-night-900 py-2.5 pl-3 pr-9 text-lg tabular-nums text-chalk-100 outline-none transition-colors focus:border-gold-500 aria-invalid:border-blood-500/70"
         />
         {suffixe && (
-          <span aria-hidden className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-craie-500">
+          <span aria-hidden className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-chalk-500">
             {suffixe}
           </span>
         )}
@@ -114,14 +114,14 @@ export function CalculateurTaux() {
       <div aria-live="polite">
         {resultat.etat === "invalide" ? (
           <Carte>
-            <p className="text-sm leading-relaxed text-craie-300">{t("outilTaux.invalide")}</p>
+            <p className="text-sm leading-relaxed text-chalk-300">{t("outilTaux.invalide")}</p>
           </Carte>
         ) : (
-          <Carte className="border-or-500/30">
+          <Carte className="border-gold-500/30">
             {resultat.etat === "victoires" && (
               <>
                 <Chiffre valeur={nombre.format(resultat.victoires)} unite={t("outilTaux.victoiresAffilee")} />
-                <p className="mt-3 leading-relaxed text-craie-300">
+                <p className="mt-3 leading-relaxed text-chalk-300">
                   {t("outilTaux.phraseVictoires", {
                     n: nombre.format(resultat.victoires),
                     actuel: pourcent(situation.taux),
@@ -133,12 +133,12 @@ export function CalculateurTaux() {
             )}
             {resultat.etat === "impossible" && (
               <>
-                <p className="font-titre text-2xl font-bold text-sang-500">{t("outilTaux.impossibleTitre")}</p>
-                <p className="mt-3 leading-relaxed text-craie-300">{t("outilTaux.impossible")}</p>
+                <p className="font-heading text-2xl font-bold text-blood-500">{t("outilTaux.impossibleTitre")}</p>
+                <p className="mt-3 leading-relaxed text-chalk-300">{t("outilTaux.impossible")}</p>
                 {(() => {
                   const repli = calculer({ ...situation, objectif: 99 });
                   return repli.etat === "victoires" ? (
-                    <p className="mt-2 text-sm leading-relaxed text-craie-400">
+                    <p className="mt-2 text-sm leading-relaxed text-chalk-400">
                       {t("outilTaux.impossibleConseil", { objectif: pourcent(99), n: nombre.format(repli.victoires) })}
                     </p>
                   ) : null;
@@ -151,7 +151,7 @@ export function CalculateurTaux() {
                   valeur={resultat.marge === null ? "∞" : nombre.format(resultat.marge)}
                   unite={t("outilTaux.defaitesEncaissables")}
                 />
-                <p className="mt-3 leading-relaxed text-craie-300">
+                <p className="mt-3 leading-relaxed text-chalk-300">
                   {resultat.marge === null
                     ? t("outilTaux.phraseZero")
                     : resultat.marge === 0
@@ -163,7 +163,7 @@ export function CalculateurTaux() {
                 </p>
               </>
             )}
-            <p className="mt-4 border-t border-nuit-800 pt-3 text-xs leading-relaxed text-craie-500">
+            <p className="mt-4 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
               {t("outilTaux.base", {
                 v: nombre.format(resultat.victoiresActuelles),
                 n: nombre.format(situation.parties),
@@ -175,8 +175,8 @@ export function CalculateurTaux() {
 
       {resultat.etat === "victoires" && (
         <Carte>
-          <h2 className="font-titre text-lg font-bold text-craie-100">{t("outilTaux.rythmeTitre")}</h2>
-          <p className="mt-1 text-sm leading-relaxed text-craie-500">{t("outilTaux.rythmeIntro")}</p>
+          <h2 className="font-heading text-lg font-bold text-chalk-100">{t("outilTaux.rythmeTitre")}</h2>
+          <p className="mt-1 text-sm leading-relaxed text-chalk-500">{t("outilTaux.rythmeIntro")}</p>
           <div className="mt-4 max-w-48">
             <Champ
               libelle={t("outilTaux.rythme")}
@@ -186,7 +186,7 @@ export function CalculateurTaux() {
               invalide={hors(lireNombre(rythme))}
             />
           </div>
-          <div aria-live="polite" className="mt-4 text-sm leading-relaxed text-craie-300">
+          <div aria-live="polite" className="mt-4 text-sm leading-relaxed text-chalk-300">
             {(() => {
               const r = lireNombre(rythme);
               if (r === null || hors(r)) return null;
@@ -205,8 +205,8 @@ export function CalculateurTaux() {
 function Chiffre({ valeur, unite }: { valeur: string; unite: string }) {
   return (
     <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-      <span className="font-titre text-5xl font-bold tabular-nums text-or-400">{valeur}</span>
-      <span className="text-lg text-craie-100">{unite}</span>
+      <span className="font-heading text-5xl font-bold tabular-nums text-gold-400">{valeur}</span>
+      <span className="text-lg text-chalk-100">{unite}</span>
     </p>
   );
 }

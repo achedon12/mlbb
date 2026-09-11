@@ -89,7 +89,7 @@ export default async function PageComparateur({ params }: { params: Promise<{ lo
     categorie: "GameApplication",
   });
 
-  const lien = "biseau-sm inline-block border border-nuit-700 px-2.5 py-1 text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400";
+  const lien = "bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400";
 
   return (
     <>
@@ -105,10 +105,10 @@ export default async function PageComparateur({ params }: { params: Promise<{ lo
         <ComparateurHeros heros={comparables} rangs={[...RANGS_CLASSES]} bornes={bornes} />
 
         <section aria-labelledby="duels" className="mt-14">
-          <h2 id="duels" className="font-titre text-xl font-bold text-craie-100">
+          <h2 id="duels" className="font-heading text-xl font-bold text-chalk-100">
             {t("pages.compare.duels.titre")}
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-craie-500">{t("pages.compare.duels.intro")}</p>
+          <p className="mt-2 text-sm leading-relaxed text-chalk-500">{t("pages.compare.duels.intro")}</p>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm">
             {duelsEnAvant().map(({ a, b }) => (
               <li key={segmentPaire(a, b)}>

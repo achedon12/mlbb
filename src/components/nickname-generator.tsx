@@ -57,9 +57,9 @@ async function copyText(text: string): Promise<boolean> {
 }
 
 const copyButton =
-  "biseau-sm inline-flex size-11 shrink-0 items-center justify-center border border-nuit-600 text-craie-300 transition-colors hover:border-or-500 hover:text-or-400";
+  "bevel-sm inline-flex size-11 shrink-0 items-center justify-center border border-night-600 text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400";
 const primaryButton =
-  "biseau-sm inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-or-500 px-4 font-semibold text-nuit-950 transition-colors hover:bg-or-400";
+  "bevel-sm inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-gold-500 px-4 font-semibold text-night-950 transition-colors hover:bg-gold-400";
 
 export function NicknameGenerator() {
   const t = useT();
@@ -108,7 +108,7 @@ export function NicknameGenerator() {
   return (
     <div className="space-y-6">
       <Carte>
-        <label htmlFor={inputId} className="text-xs uppercase tracking-wide text-craie-500">
+        <label htmlFor={inputId} className="text-xs uppercase tracking-wide text-chalk-500">
           {t("pages.nicknameUI.input")}
         </label>
         <div className="mt-1.5 flex flex-wrap gap-3">
@@ -122,19 +122,19 @@ export function NicknameGenerator() {
             autoCapitalize="off"
             spellCheck={false}
             aria-describedby={helpId}
-            className="biseau-sm min-h-11 min-w-0 flex-1 basis-56 border border-nuit-700 bg-nuit-900 px-3 py-2.5 text-lg text-craie-100 outline-none transition-colors focus:border-or-500"
+            className="bevel-sm min-h-11 min-w-0 flex-1 basis-56 border border-night-700 bg-night-900 px-3 py-2.5 text-lg text-chalk-100 outline-none transition-colors focus:border-gold-500"
           />
           <button type="button" onClick={random} className={primaryButton}>
             <Shuffle size={16} aria-hidden />
             {t("pages.nicknameUI.random")}
           </button>
         </div>
-        <p id={helpId} className="mt-2 text-xs leading-relaxed text-craie-500">
+        <p id={helpId} className="mt-2 text-xs leading-relaxed text-chalk-500">
           {t("pages.nicknameUI.help")}
         </p>
 
         <fieldset className="mt-5">
-          <legend className="text-xs uppercase tracking-wide text-craie-500">{t("pages.nicknameUI.decorations")}</legend>
+          <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.nicknameUI.decorations")}</legend>
           <div className="mt-2 flex flex-wrap gap-2">
             {DECORATIONS.map((d) => {
               const active = d.key === decoration.key;
@@ -167,16 +167,16 @@ export function NicknameGenerator() {
 
       {name === "" ? (
         <Carte>
-          <p className="text-sm text-craie-300">{t("pages.nicknameUI.empty")}</p>
+          <p className="text-sm text-chalk-300">{t("pages.nicknameUI.empty")}</p>
         </Carte>
       ) : (
         <>
-          <Carte className="border-or-500/30">
-            <p className="text-xs uppercase tracking-wide text-craie-500">
+          <Carte className="border-gold-500/30">
+            <p className="text-xs uppercase tracking-wide text-chalk-500">
               {t("pages.nicknameUI.selected", { style: t(`pages.nicknameUI.style.${style}`) })}
             </p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
-              <p className="min-w-0 flex-1 basis-48 break-all font-sans text-3xl leading-snug text-or-400 sm:text-4xl">
+              <p className="min-w-0 flex-1 basis-48 break-all font-sans text-3xl leading-snug text-gold-400 sm:text-4xl">
                 {selected}
               </p>
               <button type="button" onClick={() => copy(style)} className={primaryButton}>
@@ -184,22 +184,22 @@ export function NicknameGenerator() {
                 {t("pages.nicknameUI.copy")}
               </button>
             </div>
-            <p className="mt-3 text-sm text-craie-300">
+            <p className="mt-3 text-sm text-chalk-300">
               <span className="tabular-nums">{t("pages.nicknameUI.length", { n: number.format(length.codePoints) })}</span>
               {length.utf16Units !== length.codePoints && (
-                <span className="text-craie-500"> · {t("pages.nicknameUI.units", { u: number.format(length.utf16Units) })}</span>
+                <span className="text-chalk-500"> · {t("pages.nicknameUI.units", { u: number.format(length.utf16Units) })}</span>
               )}
             </p>
             {length.codePoints > GUIDE_LENGTH.max && (
-              <p className="mt-1 text-sm text-sang-500">{t("pages.nicknameUI.overGuide", { max: GUIDE_LENGTH.max })}</p>
+              <p className="mt-1 text-sm text-blood-500">{t("pages.nicknameUI.overGuide", { max: GUIDE_LENGTH.max })}</p>
             )}
-            <p className="mt-3 border-t border-nuit-800 pt-3 text-xs leading-relaxed text-craie-500">
+            <p className="mt-3 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
               {t("pages.nicknameUI.note")}
             </p>
           </Carte>
 
           <section aria-labelledby="styles-title">
-            <h2 id="styles-title" className="font-titre text-xl font-bold text-craie-100">
+            <h2 id="styles-title" className="font-heading text-xl font-bold text-chalk-100">
               {t("pages.nicknameUI.stylesTitle")}
             </h2>
             <ul className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -213,8 +213,8 @@ export function NicknameGenerator() {
                     <div
                       aria-hidden
                       className={cn(
-                        "biseau-sm absolute inset-0 border bg-nuit-900/60 transition-colors",
-                        active ? "border-or-500/70" : "border-nuit-700/70",
+                        "bevel-sm absolute inset-0 border bg-night-900/60 transition-colors",
+                        active ? "border-gold-500/70" : "border-night-700/70",
                       )}
                     />
                     <div className="relative flex items-center gap-2 p-2">
@@ -224,8 +224,8 @@ export function NicknameGenerator() {
                         onClick={() => setStyle(s)}
                         className="min-h-11 min-w-0 flex-1 px-1 text-left"
                       >
-                        <span className="block break-all font-sans text-lg leading-snug text-craie-100">{text}</span>
-                        <span className="block text-xs text-craie-500">{styleName}</span>
+                        <span className="block break-all font-sans text-lg leading-snug text-chalk-100">{text}</span>
+                        <span className="block text-xs text-chalk-500">{styleName}</span>
                       </button>
                       <button
                         type="button"
@@ -233,7 +233,7 @@ export function NicknameGenerator() {
                         aria-label={t("pages.nicknameUI.copyStyle", { style: styleName })}
                         className={copyButton}
                       >
-                        {copied === s ? <Check size={18} aria-hidden className="text-or-400" /> : <Copy size={18} aria-hidden />}
+                        {copied === s ? <Check size={18} aria-hidden className="text-gold-400" /> : <Copy size={18} aria-hidden />}
                       </button>
                     </div>
                   </li>
@@ -253,8 +253,8 @@ export function NicknameGenerator() {
         {toast && (
           <p
             className={cn(
-              "max-w-full break-all border bg-nuit-900 px-4 py-2.5 text-sm font-medium text-craie-100 shadow-lg shadow-black/40",
-              toast.failed ? "border-sang-500/60" : "border-or-500/60",
+              "max-w-full break-all border bg-night-900 px-4 py-2.5 text-sm font-medium text-chalk-100 shadow-lg shadow-black/40",
+              toast.failed ? "border-blood-500/60" : "border-gold-500/60",
             )}
           >
             {toast.text}

@@ -66,8 +66,8 @@ interface Formats {
   ecart: (v: number) => string;
 }
 
-const titre3 = "font-titre text-lg font-bold text-craie-100";
-const intitule = "text-xs uppercase tracking-wide text-craie-500";
+const titre3 = "font-heading text-lg font-bold text-chalk-100";
+const intitule = "text-xs uppercase tracking-wide text-chalk-500";
 
 export function AnalyseEquipe({
   heros,
@@ -149,11 +149,11 @@ export function AnalyseEquipe({
   return (
     <div className="space-y-12">
       <section aria-labelledby="equipe-titre">
-        <h2 id="equipe-titre" className="font-titre text-2xl font-bold text-craie-100">
+        <h2 id="equipe-titre" className="font-heading text-2xl font-bold text-chalk-100">
           {t("equipeUI.votreEquipe")}
         </h2>
-        <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-        <p className="mt-3 text-sm text-craie-500">
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        <p className="mt-3 text-sm text-chalk-500">
           {t("equipeUI.votreEquipeDesc", { n: equipe.length, max: TAILLE_EQUIPE })}
         </p>
 
@@ -174,7 +174,7 @@ export function AnalyseEquipe({
               <button
                 type="button"
                 onClick={() => setOuvert(true)}
-                className="biseau-sm flex h-full min-h-14 w-full items-center justify-center gap-2 border border-dashed border-nuit-600 px-3 py-3 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400 sm:min-h-32 sm:flex-col"
+                className="bevel-sm flex h-full min-h-14 w-full items-center justify-center gap-2 border border-dashed border-night-600 px-3 py-3 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 sm:min-h-32 sm:flex-col"
               >
                 <Plus size={18} aria-hidden />
                 {t("equipeUI.ajouter")}
@@ -184,7 +184,7 @@ export function AnalyseEquipe({
           {/* Places restantes, pour voir d'un coup d'oeil ce qui manque ; sur mobile, le bouton suffit. */}
           {Array.from({ length: Math.max(0, TAILLE_EQUIPE - equipe.length - 1) }, (_, i) => (
             <li key={`vide-${i}`} aria-hidden className="hidden sm:block">
-              <span className="biseau-sm block h-full min-h-32 border border-dashed border-nuit-800" />
+              <span className="bevel-sm block h-full min-h-32 border border-dashed border-night-800" />
             </li>
           ))}
         </ul>
@@ -196,7 +196,7 @@ export function AnalyseEquipe({
               <button
                 type="button"
                 onClick={copier}
-                className="biseau-sm inline-flex items-center gap-2 border border-nuit-700 px-3 py-1.5 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+                className="bevel-sm inline-flex items-center gap-2 border border-night-700 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Link2 size={14} aria-hidden />
                 {t("equipeUI.copier")}
@@ -204,12 +204,12 @@ export function AnalyseEquipe({
               <button
                 type="button"
                 onClick={() => setSlugs([])}
-                className="biseau-sm inline-flex items-center gap-2 border border-nuit-700 px-3 py-1.5 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+                className="bevel-sm inline-flex items-center gap-2 border border-night-700 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <RotateCcw size={14} aria-hidden />
                 {t("draftUI.toutEffacer")}
               </button>
-              <span role="status" className="text-xs text-craie-300">
+              <span role="status" className="text-xs text-chalk-300">
                 {copie === "ok" && t("equipeUI.lienCopie")}
                 {copie === "erreur" && t("equipeUI.copieImpossible")}
               </span>
@@ -219,7 +219,7 @@ export function AnalyseEquipe({
       </section>
 
       {equipe.length === 0 ? (
-        <p className="max-w-2xl leading-relaxed text-craie-500">{t("equipeUI.intro")}</p>
+        <p className="max-w-2xl leading-relaxed text-chalk-500">{t("equipeUI.intro")}</p>
       ) : (
         <Resultats
           analyse={analyse}
@@ -263,21 +263,21 @@ function Emplacement({
 }) {
   const t = useT();
   return (
-    <div className="biseau-sm relative flex h-full items-center gap-3 border border-azur-500/40 bg-nuit-900/60 p-2 pr-9 sm:min-h-32 sm:flex-col sm:gap-1.5 sm:px-2 sm:pb-2.5 sm:pt-3 sm:text-center">
+    <div className="bevel-sm relative flex h-full items-center gap-3 border border-azure-500/40 bg-night-900/60 p-2 pr-9 sm:min-h-32 sm:flex-col sm:gap-1.5 sm:px-2 sm:pb-2.5 sm:pt-3 sm:text-center">
       <VignetteHeros heros={h} />
       <div className="min-w-0 flex-1 sm:w-full">
         <Link
           href={`/heroes/${h.slug}`}
-          className="block truncate font-titre font-bold text-craie-100 transition-colors hover:text-or-400"
+          className="block truncate font-heading font-bold text-chalk-100 transition-colors hover:text-gold-400"
         >
           {h.nom}
         </Link>
-        <p className={cn("truncate text-xs", lane ? "text-craie-300" : "text-sang-500")}>
+        <p className={cn("truncate text-xs", lane ? "text-chalk-300" : "text-blood-500")}>
           {lane ? t(`lanes.${lane}`) : t("equipeUI.horsLane")}
         </p>
         {stats && (
-          <p className="text-xs tabular-nums text-craie-500">
-            <span className="font-semibold text-or-400">{stats[1]}</span> · {formats.nombre(stats[0])} %
+          <p className="text-xs tabular-nums text-chalk-500">
+            <span className="font-semibold text-gold-400">{stats[1]}</span> · {formats.nombre(stats[0])} %
           </p>
         )}
       </div>
@@ -285,7 +285,7 @@ function Emplacement({
         type="button"
         onClick={onRetirer}
         aria-label={t("draftUI.retirer", { nom: h.nom })}
-        className="absolute right-1 top-1 grid size-7 place-items-center text-craie-500 transition-colors hover:text-sang-500"
+        className="absolute right-1 top-1 grid size-7 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
       >
         <X size={14} aria-hidden />
       </button>
@@ -347,20 +347,20 @@ function Resultats({
     <>
       <section aria-labelledby="analyse-titre" className="space-y-10">
         <div>
-          <h2 id="analyse-titre" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="analyse-titre" className="font-heading text-2xl font-bold text-chalk-100">
             {t("equipeUI.analyse")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
           <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {tuiles.map(([libelle, valeur, signe]) => (
-              <div key={libelle} className="biseau-sm border border-nuit-700/70 bg-nuit-900/60 px-3 py-2">
-                <dt className="text-[0.7rem] uppercase tracking-wide text-craie-500">{libelle}</dt>
+              <div key={libelle} className="bevel-sm border border-night-700/70 bg-night-900/60 px-3 py-2">
+                <dt className="text-[0.7rem] uppercase tracking-wide text-chalk-500">{libelle}</dt>
                 <dd
                   className={cn(
-                    "mt-0.5 text-lg font-semibold tabular-nums text-craie-100",
+                    "mt-0.5 text-lg font-semibold tabular-nums text-chalk-100",
                     signe === 1 && "text-emerald-400",
-                    signe === -1 && "text-sang-500",
+                    signe === -1 && "text-blood-500",
                   )}
                 >
                   {valeur}
@@ -378,15 +378,15 @@ function Resultats({
               {alertes.map((a) => (
                 <li
                   key={a.type}
-                  className="biseau-sm flex gap-2.5 border border-sang-500/30 bg-nuit-900/60 px-3 py-2 text-sm leading-relaxed text-craie-100"
+                  className="bevel-sm flex gap-2.5 border border-blood-500/30 bg-night-900/60 px-3 py-2 text-sm leading-relaxed text-chalk-100"
                 >
-                  <AlertTriangle size={16} aria-hidden className="mt-0.5 shrink-0 text-sang-500" />
+                  <AlertTriangle size={16} aria-hidden className="mt-0.5 shrink-0 text-blood-500" />
                   {texteAlerte(a, t, formats, nomDe)}
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="mt-3 flex gap-2.5 text-sm leading-relaxed text-craie-300">
+            <p className="mt-3 flex gap-2.5 text-sm leading-relaxed text-chalk-300">
               <Check size={16} aria-hidden className="mt-0.5 shrink-0 text-emerald-400" />
               {equipe.length >= TAILLE_EQUIPE
                 ? t("equipeUI.alertes.aucune")
@@ -411,17 +411,17 @@ function Resultats({
                     {h ? (
                       <span className="flex min-w-0 items-center gap-2">
                         <VignetteHeros heros={h} petite />
-                        <span className="truncate text-craie-100">{h.nom}</span>
+                        <span className="truncate text-chalk-100">{h.nom}</span>
                       </span>
                     ) : (
-                      <span className="italic text-craie-500">{t("equipeUI.aPourvoir")}</span>
+                      <span className="italic text-chalk-500">{t("equipeUI.aPourvoir")}</span>
                     )}
                   </li>
                 );
               })}
             </ul>
             {affectation.enTrop.length > 0 && (
-              <p className="mt-2 text-xs text-sang-500">
+              <p className="mt-2 text-xs text-blood-500">
                 {t("equipeUI.sansLane", { noms: affectation.enTrop.map(nomDe).join(", ") })}
               </p>
             )}
@@ -432,8 +432,8 @@ function Resultats({
                 <li
                   key={r}
                   className={cn(
-                    "biseau-sm border px-2 py-1 text-xs",
-                    analyse.roles[r] ? "border-nuit-600 text-craie-100" : "border-nuit-800 text-craie-500",
+                    "bevel-sm border px-2 py-1 text-xs",
+                    analyse.roles[r] ? "border-night-600 text-chalk-100" : "border-night-800 text-chalk-500",
                   )}
                 >
                   {t(`roles.${r}`)} <span className="font-semibold tabular-nums">{formats.entier(analyse.roles[r])}</span>
@@ -454,12 +454,12 @@ function Resultats({
                     physique: formats.entier(degats.partPhysique * 100),
                     magique: formats.entier((1 - degats.partPhysique) * 100),
                   })}
-                  className="mt-2 flex h-2.5 overflow-hidden rounded-full bg-nuit-800"
+                  className="mt-2 flex h-2.5 overflow-hidden rounded-full bg-night-800"
                 >
-                  <span className="h-full bg-or-500" style={{ width: `${degats.partPhysique * 100}%` }} />
-                  <span className="h-full bg-azur-500" style={{ width: `${(1 - degats.partPhysique) * 100}%` }} />
+                  <span className="h-full bg-gold-500" style={{ width: `${degats.partPhysique * 100}%` }} />
+                  <span className="h-full bg-azure-500" style={{ width: `${(1 - degats.partPhysique) * 100}%` }} />
                 </div>
-                <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-craie-300">
+                <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-chalk-300">
                   {(["physical", "magic", "mixed"] as const).map(
                     (d) =>
                       degats[d] > 0 && (
@@ -468,11 +468,11 @@ function Resultats({
                             aria-hidden
                             className={cn(
                               "size-2 rounded-full",
-                              d === "physical" ? "bg-or-500" : d === "magic" ? "bg-azur-500" : "bg-craie-500",
+                              d === "physical" ? "bg-gold-500" : d === "magic" ? "bg-azure-500" : "bg-chalk-500",
                             )}
                           />
                           {libellesDegats[d]}
-                          <span className="font-semibold tabular-nums text-craie-100">{formats.entier(degats[d])}</span>
+                          <span className="font-semibold tabular-nums text-chalk-100">{formats.entier(degats[d])}</span>
                         </li>
                       ),
                   )}
@@ -487,7 +487,7 @@ function Resultats({
                 if (valeur === null) return null;
                 return (
                   <div key={n} className="grid grid-cols-[minmax(0,9rem)_1fr] items-center gap-3 text-sm">
-                    <dt className="text-craie-300">{t(`compareUI.${n}`)}</dt>
+                    <dt className="text-chalk-300">{t(`compareUI.${n}`)}</dt>
                     <dd>
                       <Jauge valeur={valeur} texte={formats.nombre(valeur)} />
                     </dd>
@@ -505,11 +505,11 @@ function Resultats({
               <h3 className={titre3}>{t("equipeUI.duree")}</h3>
               {courbe ? (
                 <>
-                  <p className="mt-1 text-sm text-craie-500">
+                  <p className="mt-1 text-sm text-chalk-500">
                     {t("equipeUI.dureeIntro", { rang: t(`rangsMesure.${rang}`) })}
                   </p>
-                  <p className="mt-3 text-sm text-craie-300">
-                    <span className="font-semibold text-or-400">{t(`equipeUI.profilDuree.${courbe.profil}`)}</span>
+                  <p className="mt-3 text-sm text-chalk-300">
+                    <span className="font-semibold text-gold-400">{t(`equipeUI.profilDuree.${courbe.profil}`)}</span>
                     {" · "}
                     {t("equipeUI.pic", { tranche: tranche(courbe.tranches[courbe.pic]) })}
                   </p>
@@ -519,16 +519,16 @@ function Resultats({
                     libelle={tranche}
                     className="mt-4"
                   />
-                  <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-craie-500">
+                  <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-chalk-500">
                     {courbe.parHeros.map(({ slug, profil }) => (
                       <li key={slug}>
-                        <span className="text-craie-100">{nomDe(slug)}</span> · {t(`equipeUI.profilCourt.${profil}`)}
+                        <span className="text-chalk-100">{nomDe(slug)}</span> · {t(`equipeUI.profilCourt.${profil}`)}
                       </li>
                     ))}
                   </ul>
                 </>
               ) : (
-                <p className="mt-2 text-sm text-craie-500">{t("equipeUI.sansDuree")}</p>
+                <p className="mt-2 text-sm text-chalk-500">{t("equipeUI.sansDuree")}</p>
               )}
             </div>
 
@@ -536,7 +536,7 @@ function Resultats({
               {/* ── Synergies ─────────────────────────────────────────── */}
               <div>
                 <h3 className={titre3}>{t("equipeUI.synergies")}</h3>
-                <p className="mt-1 text-sm text-craie-500">{t("equipeUI.synergiesIntro")}</p>
+                <p className="mt-1 text-sm text-chalk-500">{t("equipeUI.synergiesIntro")}</p>
                 {analyse.synergies.length > 0 ? (
                   <ul className="mt-3 space-y-2">
                     {analyse.synergies.map((p) => {
@@ -545,11 +545,11 @@ function Resultats({
                       return (
                         <li
                           key={`${p.a}-${p.b}`}
-                          className="biseau-sm flex items-center gap-2 border border-nuit-700/70 bg-nuit-900/60 px-3 py-2 text-sm"
+                          className="bevel-sm flex items-center gap-2 border border-night-700/70 bg-night-900/60 px-3 py-2 text-sm"
                         >
                           {a && <VignetteHeros heros={a} petite />}
                           {b && <VignetteHeros heros={b} petite />}
-                          <span className="min-w-0 flex-1 text-craie-100">
+                          <span className="min-w-0 flex-1 text-chalk-100">
                             {nomDe(p.a)} + {nomDe(p.b)}
                           </span>
                           {p.points !== null ? (
@@ -557,21 +557,21 @@ function Resultats({
                               {formats.ecart(p.points)} {pts}
                             </span>
                           ) : (
-                            <span className="shrink-0 text-xs text-craie-500">{t("equipeUI.synergieConnue")}</span>
+                            <span className="shrink-0 text-xs text-chalk-500">{t("equipeUI.synergieConnue")}</span>
                           )}
                         </li>
                       );
                     })}
                   </ul>
                 ) : (
-                  <p className="mt-3 text-sm text-craie-500">{t("equipeUI.aucuneSynergie")}</p>
+                  <p className="mt-3 text-sm text-chalk-500">{t("equipeUI.aucuneSynergie")}</p>
                 )}
               </div>
 
               {/* ── Menaces ───────────────────────────────────────────── */}
               <div>
                 <h3 className={titre3}>{t("equipeUI.menaces")}</h3>
-                <p className="mt-1 text-sm text-craie-500">{t("equipeUI.menacesIntro")}</p>
+                <p className="mt-1 text-sm text-chalk-500">{t("equipeUI.menacesIntro")}</p>
                 {analyse.menaces.length > 0 ? (
                   <ul className="mt-3 space-y-2">
                     {analyse.menaces.map((m) => {
@@ -579,17 +579,17 @@ function Resultats({
                       return (
                         <li
                           key={m.slug}
-                          className="biseau-sm flex items-start gap-3 border border-sang-500/30 bg-nuit-900/60 px-3 py-2"
+                          className="bevel-sm flex items-start gap-3 border border-blood-500/30 bg-night-900/60 px-3 py-2"
                         >
                           {h && <VignetteHeros heros={h} />}
                           <div className="min-w-0 flex-1">
                             <Link
                               href={`/heroes/${m.slug}`}
-                              className="font-titre font-bold text-craie-100 transition-colors hover:text-or-400"
+                              className="font-heading font-bold text-chalk-100 transition-colors hover:text-gold-400"
                             >
                               {nomDe(m.slug)}
                             </Link>
-                            <p className="text-xs leading-snug text-craie-300">
+                            <p className="text-xs leading-snug text-chalk-300">
                               {t("equipeUI.gene", { n: m.cibles.length })}{" "}
                               {m.cibles.map(([s, p]) => `${nomDe(s)} (${formats.ecart(p)} ${pts})`).join(", ")}
                             </p>
@@ -599,7 +599,7 @@ function Resultats({
                     })}
                   </ul>
                 ) : (
-                  <p className="mt-3 text-sm text-craie-500">{t("equipeUI.aucuneMenace")}</p>
+                  <p className="mt-3 text-sm text-chalk-500">{t("equipeUI.aucuneMenace")}</p>
                 )}
               </div>
             </div>
@@ -607,7 +607,7 @@ function Resultats({
         ) : (
           <p
             role="status"
-            className="biseau-sm border border-dashed border-nuit-700 px-4 py-3 text-sm text-craie-500"
+            className="bevel-sm border border-dashed border-night-700 px-4 py-3 text-sm text-chalk-500"
           >
             {erreur ? t("equipeUI.erreur") : t("equipeUI.chargement")}
           </p>
@@ -617,16 +617,16 @@ function Resultats({
       {/* ── Picks pour les lanes libres ──────────────────────────────── */}
       {analyse.suggestions.length > 0 && (
         <section aria-labelledby="completer-titre">
-          <h2 id="completer-titre" className="font-titre text-2xl font-bold text-craie-100">
+          <h2 id="completer-titre" className="font-heading text-2xl font-bold text-chalk-100">
             {t("equipeUI.completer")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-3 max-w-2xl text-sm text-craie-500">{t("equipeUI.completerIntro")}</p>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-3 max-w-2xl text-sm text-chalk-500">{t("equipeUI.completerIntro")}</p>
 
           <div className="mt-6 space-y-5">
             {analyse.suggestions.map(({ lane, picks }) => (
               <div key={lane}>
-                <h3 className="font-titre text-sm font-semibold uppercase tracking-wider text-or-400">
+                <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-gold-400">
                   {t(`lanes.${lane}`)}
                 </h3>
                 {picks.length > 0 ? (
@@ -644,7 +644,7 @@ function Resultats({
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-2 text-sm text-craie-500">{t("draftUI.aucunHeros")}</p>
+                  <p className="mt-2 text-sm text-chalk-500">{t("draftUI.aucunHeros")}</p>
                 )}
               </div>
             ))}

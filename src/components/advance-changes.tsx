@@ -28,8 +28,8 @@ import { cn } from "@/lib/utils";
 
 const DIRECTION_STYLE: Record<ChangeDirection, { text: string; border: string; Icon: typeof TrendingUp }> = {
   buff: { text: "text-emerald-400", border: "border-emerald-500/30", Icon: TrendingUp },
-  nerf: { text: "text-sang-500", border: "border-sang-500/30", Icon: TrendingDown },
-  adjust: { text: "text-azur-400", border: "border-azur-500/30", Icon: Minus },
+  nerf: { text: "text-blood-500", border: "border-blood-500/30", Icon: TrendingDown },
+  adjust: { text: "text-azure-400", border: "border-azure-500/30", Icon: Minus },
 };
 
 const DIRECTION_OF = Object.fromEntries(
@@ -50,7 +50,7 @@ export function DirectionBadge({ type, t }: { type: ChangeDirection; t: T }) {
 /** "New", "Removed", "Rework"… as marked by the notes. */
 export function TagBadge({ tag, t }: { tag: ChangeTag; t: T }) {
   return (
-    <span className="inline-block border border-or-500/40 bg-or-500/10 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-or-400">
+    <span className="inline-block border border-gold-500/40 bg-gold-500/10 px-1.5 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-gold-400">
       {t(`pages.advanceServer.tags.${tag}`)}
     </span>
   );
@@ -64,7 +64,7 @@ export function StatusBadge({ underTest, live, t }: { underTest: boolean; live: 
       {t("pages.advanceServer.badgeUnderTest")}
     </span>
   ) : (
-    <span className="inline-block border border-nuit-700 px-2 py-0.5 text-xs font-medium text-craie-500">
+    <span className="inline-block border border-night-700 px-2 py-0.5 text-xs font-medium text-chalk-500">
       {t("pages.advanceServer.badgeOlder", { live })}
     </span>
   );
@@ -90,11 +90,11 @@ export function TestNotice({ t, children }: { t: T; children?: React.ReactNode }
   return (
     <div
       role="note"
-      className="flex gap-3 border border-or-500/40 bg-or-500/5 p-4 text-sm leading-relaxed text-craie-300"
+      className="flex gap-3 border border-gold-500/40 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-300"
     >
-      <FlaskConical size={20} aria-hidden className="mt-0.5 shrink-0 text-or-400" />
+      <FlaskConical size={20} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
       <div className="min-w-0">
-        <p className="font-semibold text-craie-100">{t("pages.advanceServer.warningTitle")}</p>
+        <p className="font-semibold text-chalk-100">{t("pages.advanceServer.warningTitle")}</p>
         <p className="mt-1">{t("pages.advanceServer.warning")}</p>
         {children}
       </div>
@@ -111,8 +111,8 @@ export function BalanceSummary({ balance, t }: { balance: AdvanceVersion["balanc
         return (
           <li key={type} className="flex items-center gap-1.5">
             <Icon size={14} aria-hidden className={text} />
-            <span className="font-semibold tabular-nums text-craie-100">{balance[type]}</span>
-            <span className="text-craie-500">{t(`patchHeros.pluriel.${LIVE_TYPE[type]}`)}</span>
+            <span className="font-semibold tabular-nums text-chalk-100">{balance[type]}</span>
+            <span className="text-chalk-500">{t(`patchHeros.pluriel.${LIVE_TYPE[type]}`)}</span>
           </li>
         );
       })}
@@ -142,10 +142,10 @@ export function HeroChips({
         const { text, border, Icon } = DIRECTION_STYLE[DIRECTION_OF[sens]];
         return (
           <div key={sens}>
-            <Heading className={cn("flex items-center gap-2 font-titre text-base font-bold", text)}>
+            <Heading className={cn("flex items-center gap-2 font-heading text-base font-bold", text)}>
               <Icon size={16} aria-hidden />
               {t(`patchHeros.pluriel.${sens}`)}
-              <span className="text-sm font-medium text-craie-500">{groups[sens].length}</span>
+              <span className="text-sm font-medium text-chalk-500">{groups[sens].length}</span>
             </Heading>
             <ul className="mt-2 flex flex-wrap gap-2">
               {groups[sens].map((h) => {
@@ -158,14 +158,14 @@ export function HeroChips({
                       taille="micro"
                       decoratif
                     />
-                    <span className="font-medium text-craie-100">{page?.nom ?? h.name}</span>
+                    <span className="font-medium text-chalk-100">{page?.nom ?? h.name}</span>
                   </>
                 );
-                const classes = cn("flex items-center gap-2 border bg-nuit-900/60 py-1 pl-1 pr-2.5 text-sm", border);
+                const classes = cn("flex items-center gap-2 border bg-night-900/60 py-1 pl-1 pr-2.5 text-sm", border);
                 return (
                   <li key={h.slug}>
                     {page ? (
-                      <Link href={`/heroes/${h.slug}`} className={cn(classes, "transition-colors hover:border-or-500/60")}>
+                      <Link href={`/heroes/${h.slug}`} className={cn(classes, "transition-colors hover:border-gold-500/60")}>
                         {content}
                       </Link>
                     ) : (
@@ -184,15 +184,15 @@ export function HeroChips({
 
 /** One change: "label: before → after", or a sentence. */
 function ChangeItem({ change, t }: { change: AdvanceChange; t: T }) {
-  if ("text" in change) return <span className="text-craie-300">{change.text}</span>;
+  if ("text" in change) return <span className="text-chalk-300">{change.text}</span>;
   return (
     <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-      {change.label && <span className="text-craie-500">{t("patchHeros.libelle", { libelle: change.label })}</span>}
+      {change.label && <span className="text-chalk-500">{t("patchHeros.libelle", { libelle: change.label })}</span>}
       <span className="sr-only">{t("pages.advanceServer.before")}</span>
-      <span className="text-craie-500 line-through decoration-sang-500/50">{change.before}</span>
-      <ArrowRight size={12} aria-hidden className="shrink-0 self-center text-craie-500" />
+      <span className="text-chalk-500 line-through decoration-blood-500/50">{change.before}</span>
+      <ArrowRight size={12} aria-hidden className="shrink-0 self-center text-chalk-500" />
       <span className="sr-only">{t("pages.advanceServer.after")}</span>
-      <span className="font-medium text-craie-100">{change.after}</span>
+      <span className="font-medium text-chalk-100">{change.after}</span>
     </span>
   );
 }
@@ -212,9 +212,9 @@ function ChangeGroups({ groups, t, headingLevel }: { groups: AdvanceChangeGroup[
         return (
           <div key={i}>
             {g.name ? (
-              <Heading className="flex flex-wrap items-center gap-x-2 gap-y-1 font-titre text-sm font-bold text-or-400">
+              <Heading className="flex flex-wrap items-center gap-x-2 gap-y-1 font-heading text-sm font-bold text-gold-400">
                 {g.name}
-                {g.slot && <span className="text-xs font-medium text-craie-500">{g.slot}</span>}
+                {g.slot && <span className="text-xs font-medium text-chalk-500">{g.slot}</span>}
                 {badges}
               </Heading>
             ) : (
@@ -261,12 +261,12 @@ export function EntryCard({
   return (
     <article
       id={id}
-      className={cn("biseau scroll-mt-24 border bg-nuit-900/60 p-4", style?.border ?? "border-nuit-700/70")}
+      className={cn("bevel scroll-mt-24 border bg-night-900/60 p-4", style?.border ?? "border-night-700/70")}
     >
       <div className="flex items-center gap-3">
         {portrait !== undefined && <PortraitHeros source={portrait} nom={entry.name} taille="moyenne" decoratif />}
         <div className="min-w-0 flex-1">
-          <Heading className="break-words font-titre text-lg font-bold text-craie-100">{entry.name}</Heading>
+          <Heading className="break-words font-heading text-lg font-bold text-chalk-100">{entry.name}</Heading>
           {(entry.type || entry.tag) && (
             <div className="mt-0.5 flex flex-wrap items-center gap-2">
               {entry.type && <DirectionBadge type={entry.type} t={t} />}
@@ -275,16 +275,16 @@ export function EntryCard({
           )}
         </div>
       </div>
-      {entry.intro && <p className="mt-3 text-sm leading-relaxed text-craie-300">{entry.intro}</p>}
+      {entry.intro && <p className="mt-3 text-sm leading-relaxed text-chalk-300">{entry.intro}</p>}
       {entry.sections.length > 0 && (
-        <div className="mt-4 border-t border-nuit-800 pt-4">
+        <div className="mt-4 border-t border-night-800 pt-4">
           <ChangeGroups groups={entry.sections} t={t} headingLevel={headingLevel === 3 ? 4 : 5} />
         </div>
       )}
       {href && (
         <Link
           href={href}
-          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-or-400 hover:text-or-500"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-500"
         >
           {t("pages.advanceServer.openPage", { name: entry.name })}
           <ArrowRight size={14} aria-hidden />
@@ -303,7 +303,7 @@ export function LineList({ lines, t }: { lines: AdvanceLine[]; t: T }) {
           key={i}
           className={cn(
             "break-words",
-            line.level > 0 && "relative pl-4 before:absolute before:left-0 before:top-[0.6em] before:size-1.5 before:bg-or-500/60",
+            line.level > 0 && "relative pl-4 before:absolute before:left-0 before:top-[0.6em] before:size-1.5 before:bg-gold-500/60",
             line.level === 2 && "ml-4",
           )}
         >

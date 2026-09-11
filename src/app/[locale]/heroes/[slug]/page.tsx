@@ -308,7 +308,7 @@ export default async function PageHeros({ params }: Params) {
       <VitrineProvider skins={skinsComplets} portraitDefaut={h.visuels.portrait}>
       <RangProvider rangs={rangsDisponibles}>
       {/* ── En-tete ────────────────────────────────────────────────────── */}
-      <div className="relative border-b border-nuit-700/70 bg-nuit-900/30">
+      <div className="relative border-b border-night-700/70 bg-night-900/30">
         {fond && (
           <div aria-hidden className="absolute inset-0 overflow-hidden">
             <Image
@@ -332,12 +332,12 @@ export default async function PageHeros({ params }: Params) {
               centre. Un degrade oriente marchait donc pour les uns et effacait
               les autres.
             */}
-            <div className="absolute inset-0 bg-nuit-950/55" />
+            <div className="absolute inset-0 bg-night-950/55" />
             {/*
               Le bas de l'en-tete se referme sur le fond de page : la
               transition vers le contenu reste franche, sans coupure nette.
             */}
-            <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-nuit-950 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-night-950 to-transparent" />
           </div>
         )}
 
@@ -359,12 +359,12 @@ export default async function PageHeros({ params }: Params) {
             ]}
           />
 
-          <div className="biseau mt-6 flex flex-wrap items-start gap-6 border border-nuit-700/50 bg-nuit-950/75 p-5 backdrop-blur-sm">
+          <div className="bevel mt-6 flex flex-wrap items-start gap-6 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm">
             <PortraitVitrine nom={h.nom} portraitDefaut={h.visuels.portrait} />
 
             <div className="min-w-0 flex-1 basis-64">
-              <h1 className="font-titre text-4xl font-bold text-craie-100">{h.nom}</h1>
-              {h.titre && <p className="mt-1 text-lg text-or-400">{h.titre}</p>}
+              <h1 className="font-heading text-4xl font-bold text-chalk-100">{h.nom}</h1>
+              {h.titre && <p className="mt-1 text-lg text-gold-400">{h.titre}</p>}
 
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {h.roles.map((r) => (
@@ -373,7 +373,7 @@ export default async function PageHeros({ params }: Params) {
                 {h.specialites.map((s) => (
                   <span
                     key={s}
-                    className="biseau-sm border border-nuit-600 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-craie-500"
+                    className="bevel-sm border border-night-600 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-chalk-500"
                   >
                     {libelleHeros(t, "specialite", s)}
                   </span>
@@ -386,7 +386,7 @@ export default async function PageHeros({ params }: Params) {
                 <BoutonFavori heros={h.slug} />
                 <Link
                   href={`/compare?a=${h.slug}`}
-                  className="biseau-sm flex items-center gap-2 border border-nuit-700 px-4 py-2 text-sm font-medium text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+                  className="bevel-sm flex items-center gap-2 border border-night-700 px-4 py-2 text-sm font-medium text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                 >
                   <Swords size={15} aria-hidden />
                   {t("pages.heroDetail.comparer")}
@@ -404,7 +404,7 @@ export default async function PageHeros({ params }: Params) {
               ].map(([label, valeur]) =>
                 valeur === null ? null : (
                   <div key={String(label)} className="flex items-center gap-3">
-                    <dt className="w-24 shrink-0 text-xs uppercase tracking-wide text-craie-500">
+                    <dt className="w-24 shrink-0 text-xs uppercase tracking-wide text-chalk-500">
                       {label}
                     </dt>
                     <dd className="flex-1">
@@ -422,7 +422,7 @@ export default async function PageHeros({ params }: Params) {
             l'assombrissement de l'illustration : le contraste ne depend alors
             plus de la luminosite de l'artwork, qui change a chaque heros.
           */}
-          <div className="biseau mt-8 border border-nuit-700/50 bg-nuit-950/75 p-5 backdrop-blur-sm">
+          <div className="bevel mt-8 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm">
           <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6">
             {[
               [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
@@ -438,14 +438,14 @@ export default async function PageHeros({ params }: Params) {
             ].map(([label, valeur]) =>
               !valeur ? null : (
                 <div key={String(label)}>
-                  <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
-                  <dd className="mt-1 text-craie-100">{valeur}</dd>
+                  <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
+                  <dd className="mt-1 text-chalk-100">{valeur}</dd>
                 </div>
               ),
             )}
           </dl>
           {/* Rang de toute la fiche : taux, contres et builds le suivent. */}
-          <SelecteurRang className="mt-5 border-t border-nuit-800 pt-4" />
+          <SelecteurRang className="mt-5 border-t border-night-800 pt-4" />
           </div>
         </div>
       </div>
@@ -459,7 +459,7 @@ export default async function PageHeros({ params }: Params) {
               contenu: analyse ? (
                 <div className="space-y-12">
                   <section>
-                    <div className="space-y-4 leading-relaxed text-craie-300">
+                    <div className="space-y-4 leading-relaxed text-chalk-300">
                       {analyse.analyse.split("\n\n").map((p, i) => (
                         <p key={i}>{p}</p>
                       ))}
@@ -468,28 +468,28 @@ export default async function PageHeros({ params }: Params) {
 
                   <section className="grid gap-4 md:grid-cols-2">
                     <Carte className="border-emerald-500/25">
-                      <h2 className="flex items-center gap-2 font-titre text-lg font-bold text-emerald-400">
+                      <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-emerald-400">
                         <Swords size={18} aria-hidden />
                         {t("pages.heroDetail.forces")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
                         {analyse.forces.map((f) => (
-                          <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-craie-300">
+                          <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
                             <span aria-hidden className="mt-2 size-1 shrink-0 bg-emerald-400" />
                             {f}
                           </li>
                         ))}
                       </ul>
                     </Carte>
-                    <Carte className="border-sang-500/25">
-                      <h2 className="flex items-center gap-2 font-titre text-lg font-bold text-sang-500">
+                    <Carte className="border-blood-500/25">
+                      <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-blood-500">
                         <TriangleAlert size={18} aria-hidden />
                         {t("pages.heroDetail.faiblesses")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
                         {analyse.faiblesses.map((f) => (
-                          <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-craie-300">
-                            <span aria-hidden className="mt-2 size-1 shrink-0 bg-sang-500" />
+                          <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
+                            <span aria-hidden className="mt-2 size-1 shrink-0 bg-blood-500" />
                             {f}
                           </li>
                         ))}
@@ -499,17 +499,17 @@ export default async function PageHeros({ params }: Params) {
 
                 </div>
               ) : (
-                <Carte className="border-or-500/30">
-                  <h2 className="flex items-center gap-2 font-titre text-xl font-bold text-or-400">
+                <Carte className="border-gold-500/30">
+                  <h2 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
                     <ShieldAlert size={20} aria-hidden />
                     {t("pages.heroDetail.analyseEnCours")}
                   </h2>
-                  <p className="mt-3 max-w-2xl leading-relaxed text-craie-300">
+                  <p className="mt-3 max-w-2xl leading-relaxed text-chalk-300">
                     {t("pages.heroDetail.analyseTexte", { nom: h.nom })}
                   </p>
                   <Link
                     href="/contribute"
-                    className="mt-5 inline-block text-sm font-semibold text-or-400 underline underline-offset-4 hover:text-or-500"
+                    className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
                   >
                     {t("pages.heroDetail.contribuer")}
                   </Link>
@@ -551,7 +551,7 @@ export default async function PageHeros({ params }: Params) {
                         <ContresChiffres nom={h.nom} parRang={contresAffiches} />
                         <Link
                           href={`/heroes/${h.slug}/counters`}
-                          className="mt-4 inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                          className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                         >
                           {t("pages.heroDetail.pageCounters")} →
                         </Link>
@@ -564,7 +564,7 @@ export default async function PageHeros({ params }: Params) {
                         {duos[h.slug] && (
                           <Link
                             href={`/heroes/${h.slug}/duos`}
-                            className="mt-4 inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                            className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                           >
                             {t("pages.heroDetail.pageDuos")} →
                           </Link>
@@ -574,10 +574,10 @@ export default async function PageHeros({ params }: Params) {
 
                     {analyse && (analyse.fortContre.length > 0 || analyse.faibleContre.length > 0) && (
                       <section>
-                        <h3 className="font-titre text-lg font-bold text-craie-100">
+                        <h3 className="font-heading text-lg font-bold text-chalk-100">
                           {t("pages.heroDetail.matchups")}
                         </h3>
-                        <p className="mt-1 text-sm text-craie-500">
+                        <p className="mt-1 text-sm text-chalk-500">
                           {t("pages.heroDetail.matchupsIntro")}
                         </p>
                         <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -603,21 +603,21 @@ export default async function PageHeros({ params }: Params) {
                   <section>
                   {aBuilds && (
                     <>
-                      <h3 className="font-titre text-lg font-bold text-craie-100">{t("builds.rediges")}</h3>
-                      <p className="mt-1 mb-5 text-sm text-craie-500">{t("builds.redigesIntro")}</p>
+                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("builds.rediges")}</h3>
+                      <p className="mt-1 mb-5 text-sm text-chalk-500">{t("builds.redigesIntro")}</p>
                     </>
                   )}
                   <div className="space-y-4">
                   {analyse.builds.map((b) => (
                     <Carte key={b.nom}>
-                      <h3 className="font-titre text-lg font-bold text-or-400">{b.nom}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-craie-500">{b.contexte}</p>
+                      <h3 className="font-heading text-lg font-bold text-gold-400">{b.nom}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-chalk-500">{b.contexte}</p>
                       <ol className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-6">
                         {b.objets.map((o, i) => (
                           <ObjetBuild key={o} nom={o} rang={i + 1} />
                         ))}
                       </ol>
-                      <div className="mt-5 grid gap-3 border-t border-nuit-800 pt-4 sm:grid-cols-3">
+                      <div className="mt-5 grid gap-3 border-t border-night-800 pt-4 sm:grid-cols-3">
                         <ChoixBuild libelle={t("builds.embleme")} nom={b.embleme} image={visuelEmbleme(b.embleme).image} href={visuelEmbleme(b.embleme).href} />
                         <ChoixBuild libelle={t("builds.talent")} nom={b.talent} image={visuelTalent(b.talent).image} />
                         <ChoixBuild libelle={t("builds.sort")} nom={b.sort} image={visuelSort(b.sort).image} href={visuelSort(b.sort).href} />
@@ -626,8 +626,8 @@ export default async function PageHeros({ params }: Params) {
                         const ecart = ecartDe(b);
                         if (!ecart) return null;
                         return (
-                          <p className="mt-4 border-t border-nuit-800 pt-3 text-xs leading-relaxed text-craie-500">
-                            <span className="font-semibold text-craie-300">{t("builds.ecartTitre")} · </span>
+                          <p className="mt-4 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
+                            <span className="font-semibold text-chalk-300">{t("builds.ecartTitre")} · </span>
                             {ecart.absents.length === 0
                               ? t("builds.aligne")
                               : t("builds.ecartObjets", { objets: ecart.absents.join(", ") })}
@@ -671,12 +671,12 @@ export default async function PageHeros({ params }: Params) {
                   />
                   <section>
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                      <h3 className="font-titre text-lg font-bold text-craie-100">
+                      <h3 className="font-heading text-lg font-bold text-chalk-100">
                         {t("pages.heroDetail.statistiques.ajustements")}
                       </h3>
                       <LienFluxHeros langue={locale} slug={h.slug} />
                     </div>
-                    <p className="mt-1 mb-4 text-sm text-craie-500">
+                    <p className="mt-1 mb-4 text-sm text-chalk-500">
                       {ajustementsHeros.length > 0
                         ? t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.nom })
                         : t("pages.heroDetail.statistiques.aucunAjustement", { nom: h.nom, n: versionsRecentes.length })}
@@ -700,9 +700,9 @@ export default async function PageHeros({ params }: Params) {
               // Les noms des skins, en texte, en attendant la galerie.
               apercu:
                 skinsComplets.length > 0 ? (
-                  <div className="text-sm leading-relaxed text-craie-300">
+                  <div className="text-sm leading-relaxed text-chalk-300">
                     <p>{t("pages.apercuHeros.skins", { nom: h.nom, n: skinsComplets.length })}</p>
-                    <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-craie-500">
+                    <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-chalk-500">
                       {skinsComplets.map((s) => (
                         <li key={s.id}>{s.nom}</li>
                       ))}
@@ -710,7 +710,7 @@ export default async function PageHeros({ params }: Params) {
                     {galerieHeros(h).total > 0 && (
                       <Link
                         href={`/heroes/${h.slug}/skins`}
-                        className="mt-3 inline-block font-semibold text-or-400 hover:text-or-500"
+                        className="mt-3 inline-block font-semibold text-gold-400 hover:text-gold-500"
                       >
                         {t("pages.heroSkins.lienFiche", { n: galerieHeros(h).total })} →
                       </Link>
@@ -723,7 +723,7 @@ export default async function PageHeros({ params }: Params) {
                     {galerieHeros(h).total > 0 && (
                       <Link
                         href={`/heroes/${h.slug}/skins`}
-                        className="inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                        className="inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                       >
                         {t("pages.heroSkins.lienFiche", { n: galerieHeros(h).total })} →
                       </Link>
@@ -752,16 +752,16 @@ function ListeContres({
 }) {
   return (
     <Carte>
-      <h3 className="text-sm font-semibold text-craie-100">{titre}</h3>
+      <h3 className="text-sm font-semibold text-chalk-100">{titre}</h3>
       <ul className="mt-4 flex flex-wrap gap-2">
         {slugs.map((s) => (
           <li key={s}>
             <Link
               href={`/heroes/${s}`}
-              className={`biseau-sm border px-2.5 py-1 text-sm transition-colors ${
+              className={`bevel-sm border px-2.5 py-1 text-sm transition-colors ${
                 ton === "bon"
                   ? "border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10"
-                  : "border-sang-500/30 text-sang-500 hover:bg-sang-500/10"
+                  : "border-blood-500/30 text-blood-500 hover:bg-blood-500/10"
               }`}
             >
               {herosParSlug.get(s)?.nom ?? s}
@@ -852,7 +852,7 @@ function ApercuStatistiques({
   if (phrases.length === 0) return null;
 
   return (
-    <div className="space-y-3 text-sm leading-relaxed text-craie-300">
+    <div className="space-y-3 text-sm leading-relaxed text-chalk-300">
       {phrases.map((p) => (
         <p key={p}>{p}</p>
       ))}

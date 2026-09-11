@@ -63,9 +63,9 @@ const ICONES: Record<TypeManche, LucideIcon> = {
 };
 
 const boutonPrincipal =
-  "biseau-sm inline-flex items-center justify-center gap-2 bg-or-500 px-4 py-2 font-semibold text-nuit-950 transition-colors hover:bg-or-400";
+  "bevel-sm inline-flex items-center justify-center gap-2 bg-gold-500 px-4 py-2 font-semibold text-night-950 transition-colors hover:bg-gold-400";
 const boutonSecondaire =
-  "biseau-sm inline-flex items-center justify-center gap-2 border border-nuit-600 px-4 py-2 text-sm text-craie-300 transition-colors hover:border-or-500 hover:text-or-400";
+  "bevel-sm inline-flex items-center justify-center gap-2 border border-night-600 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400";
 
 export function QuizMlbb({ heros, objets }: { heros: HerosQuiz[]; objets: ObjetRoster[] }) {
   const t = useT();
@@ -165,14 +165,14 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
 
   if (etat === null || !jour) {
     return (
-      <p role="status" className="py-10 text-center text-sm text-craie-500">
+      <p role="status" className="py-10 text-center text-sm text-chalk-500">
         {t("pages.quizUI.chargement")}
       </p>
     );
   }
   if (etat === "erreur") {
     return (
-      <div role="alert" className="biseau border border-sang-500/40 bg-nuit-900/60 p-5 text-sm text-craie-300">
+      <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
         <p>{t("pages.quizUI.erreurChargement")}</p>
         <button type="button" onClick={() => setTentative((n) => n + 1)} className={cn(boutonSecondaire, "mt-3")}>
           {t("pages.quizUI.reessayer")}
@@ -221,10 +221,10 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <p className="font-titre text-lg font-bold text-or-400">
+        <p className="font-heading text-lg font-bold text-gold-400">
           {t("pages.quizUI.defiNumero", { n: defi.numero, date: dateLisible })}
         </p>
-        {etat.local && <p className="text-xs text-craie-500">{t("pages.quizUI.horsLigne")}</p>}
+        {etat.local && <p className="text-xs text-chalk-500">{t("pages.quizUI.horsLigne")}</p>}
       </div>
 
       <nav aria-label={t("pages.quizUI.etapes")}>
@@ -241,11 +241,11 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
                   aria-current={i === courante ? "step" : undefined}
                   aria-label={`${t("pages.quizUI.manche", { n: i + 1, max: defi.manches.length })} · ${t(`pages.quizUI.types.${m.type}`)}${finie ? ` · ${t(reussie ? "pages.quizUI.etapeReussie" : "pages.quizUI.etapeRatee")}` : ""}`}
                   className={cn(
-                    "biseau-sm flex h-11 w-full items-center justify-center border transition-colors",
-                    i === courante ? "border-or-500 bg-or-500/15 text-or-400" : "border-nuit-700 text-craie-500",
+                    "bevel-sm flex h-11 w-full items-center justify-center border transition-colors",
+                    i === courante ? "border-gold-500 bg-gold-500/15 text-gold-400" : "border-night-700 text-chalk-500",
                     finie && reussie && i !== courante && "border-emerald-500/50 text-emerald-400",
-                    finie && !reussie && i !== courante && "border-sang-500/40 text-sang-500",
-                    "hover:border-or-500/70",
+                    finie && !reussie && i !== courante && "border-blood-500/40 text-blood-500",
+                    "hover:border-gold-500/70",
                   )}
                 >
                   <Icone size={18} aria-hidden />
@@ -261,10 +261,10 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
               aria-current={courante === defi.manches.length ? "step" : undefined}
               aria-label={t("pages.quizUI.bilanEtape")}
               className={cn(
-                "biseau-sm flex h-11 w-full items-center justify-center border transition-colors disabled:opacity-40",
+                "bevel-sm flex h-11 w-full items-center justify-center border transition-colors disabled:opacity-40",
                 courante === defi.manches.length
-                  ? "border-or-500 bg-or-500/15 text-or-400"
-                  : "border-nuit-700 text-craie-500 enabled:hover:border-or-500/70",
+                  ? "border-gold-500 bg-gold-500/15 text-gold-400"
+                  : "border-night-700 text-chalk-500 enabled:hover:border-gold-500/70",
               )}
             >
               <Trophy size={18} aria-hidden />
@@ -364,8 +364,8 @@ function Bilan({
   }
 
   return (
-    <section className="biseau border border-or-500/40 bg-nuit-900/60 p-4 sm:p-6">
-      <h3 ref={refTitre} tabIndex={-1} className="font-titre text-2xl font-bold text-craie-100 outline-none">
+    <section className="bevel border border-gold-500/40 bg-night-900/60 p-4 sm:p-6">
+      <h3 ref={refTitre} tabIndex={-1} className="font-heading text-2xl font-bold text-chalk-100 outline-none">
         {t("pages.quizUI.bilanTitre", { points, max })}
       </h3>
 
@@ -385,7 +385,7 @@ function Bilan({
             <Share2 size={16} aria-hidden />
             {t("pages.quizUI.partager")}
           </button>
-          <p aria-live="polite" className="min-h-5 text-sm text-craie-300">
+          <p aria-live="polite" className="min-h-5 text-sm text-chalk-300">
             {statut === "copie"
               ? t("pages.quizUI.copie")
               : statut === "partage"
@@ -401,7 +401,7 @@ function Bilan({
         </div>
       </div>
 
-      <h4 className="mt-8 text-xs uppercase tracking-wide text-craie-500">{t("pages.quizUI.statsTitre")}</h4>
+      <h4 className="mt-8 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.statsTitre")}</h4>
       <dl className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {(
           [
@@ -411,25 +411,25 @@ function Bilan({
             ["moyenne", `${format.format(moyenne)}/${max}`],
           ] as const
         ).map(([cle, valeur]) => (
-          <div key={cle} className="biseau-sm border border-nuit-700/70 bg-nuit-950/40 p-3 text-center">
-            <dt className="text-[0.7rem] uppercase tracking-wide text-craie-500">{t(`pages.quizUI.stats.${cle}`)}</dt>
-            <dd className="font-titre text-2xl font-bold tabular-nums text-craie-100">{valeur}</dd>
+          <div key={cle} className="bevel-sm border border-night-700/70 bg-night-950/40 p-3 text-center">
+            <dt className="text-[0.7rem] uppercase tracking-wide text-chalk-500">{t(`pages.quizUI.stats.${cle}`)}</dt>
+            <dd className="font-heading text-2xl font-bold tabular-nums text-chalk-100">{valeur}</dd>
           </div>
         ))}
       </dl>
 
-      <h4 className="mt-6 text-xs uppercase tracking-wide text-craie-500">{t("pages.quizUI.distribution")}</h4>
+      <h4 className="mt-6 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.distribution")}</h4>
       <ol className="mt-2 space-y-1">
         {distribution.map((n, score) => (
           <li key={score} className="flex items-center gap-2 text-xs tabular-nums">
-            <span className="w-8 shrink-0 text-right text-craie-400">{score}</span>
-            <span aria-hidden className="h-4 flex-1 bg-nuit-800">
+            <span className="w-8 shrink-0 text-right text-chalk-400">{score}</span>
+            <span aria-hidden className="h-4 flex-1 bg-night-800">
               <span
-                className={cn("block h-full", score === points ? "bg-or-500" : "bg-nuit-600")}
+                className={cn("block h-full", score === points ? "bg-gold-500" : "bg-night-600")}
                 style={{ width: `${Math.max(n ? 4 : 0, (n / plusHaut) * 100)}%` }}
               />
             </span>
-            <span className="w-8 shrink-0 text-craie-300">{n}</span>
+            <span className="w-8 shrink-0 text-chalk-300">{n}</span>
             <span className="sr-only">{t("pages.quizUI.distributionLigne", { score, n })}</span>
           </li>
         ))}
@@ -475,7 +475,7 @@ function ProchainDefi({ jour, onNouveauJour }: { jour: string; onNouveauJour: ()
   }
   const h = Math.floor(restant / 3_600_000);
   const m = Math.floor((restant % 3_600_000) / 60_000);
-  return <p className="text-sm text-craie-500">{t("pages.quizUI.prochain", { h, m })}</p>;
+  return <p className="text-sm text-chalk-500">{t("pages.quizUI.prochain", { h, m })}</p>;
 }
 
 /** Une manche au hasard, d'un des types choisis, en evitant les reponses recentes. */
@@ -535,14 +535,14 @@ function Entrainement({ catalogue }: { catalogue: CatalogueQuiz }) {
 
   if (pool === null) {
     return (
-      <p role="status" className="py-10 text-center text-sm text-craie-500">
+      <p role="status" className="py-10 text-center text-sm text-chalk-500">
         {t("pages.quizUI.chargement")}
       </p>
     );
   }
   if (pool === "erreur" || !manche) {
     return (
-      <div role="alert" className="biseau border border-sang-500/40 bg-nuit-900/60 p-5 text-sm text-craie-300">
+      <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
         <p>{t("pages.quizUI.erreurChargement")}</p>
         <button type="button" onClick={() => setTentative((n) => n + 1)} className={cn(boutonSecondaire, "mt-3")}>
           {t("pages.quizUI.reessayer")}
@@ -597,16 +597,16 @@ function Entrainement({ catalogue }: { catalogue: CatalogueQuiz }) {
 
       <dl className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
         <div className="flex gap-1.5">
-          <dt className="text-craie-500">{t("pages.quizUI.serieEntrainement")}</dt>
-          <dd className="font-semibold tabular-nums text-or-400">{serie}</dd>
+          <dt className="text-chalk-500">{t("pages.quizUI.serieEntrainement")}</dt>
+          <dd className="font-semibold tabular-nums text-gold-400">{serie}</dd>
         </div>
         <div className="flex gap-1.5">
-          <dt className="text-craie-500">{t("pages.quizUI.record")}</dt>
-          <dd className="font-semibold tabular-nums text-craie-100">{record.meilleure}</dd>
+          <dt className="text-chalk-500">{t("pages.quizUI.record")}</dt>
+          <dd className="font-semibold tabular-nums text-chalk-100">{record.meilleure}</dd>
         </div>
         <div className="flex gap-1.5">
-          <dt className="text-craie-500">{t("pages.quizUI.reussite")}</dt>
-          <dd className="font-semibold tabular-nums text-craie-100">
+          <dt className="text-chalk-500">{t("pages.quizUI.reussite")}</dt>
+          <dd className="font-semibold tabular-nums text-chalk-100">
             {record.reussies}/{record.jouees}
           </dd>
         </div>

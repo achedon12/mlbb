@@ -78,8 +78,8 @@ export function BuildsParRang({
 
   return (
     <div>
-      <h3 className="font-titre text-lg font-bold text-craie-100">{t("builds.joues")}</h3>
-      <p className="mt-1 text-sm leading-relaxed text-craie-500">{t("builds.jouesIntro")}</p>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("builds.joues")}</h3>
+      <p className="mt-1 text-sm leading-relaxed text-chalk-500">{t("builds.jouesIntro")}</p>
 
       {lanes.length > 1 && (
         <GroupeFiltres legende={t("builds.position")} largeurLegende="" className="mt-4">
@@ -93,9 +93,9 @@ export function BuildsParRang({
 
       <ol className="mt-5 grid gap-4 lg:grid-cols-3">
         {builds.map((b, i) => (
-          <li key={i} className="biseau border border-nuit-700/70 bg-nuit-900/60 p-4">
+          <li key={i} className="bevel border border-night-700/70 bg-night-900/60 p-4">
             <div className="flex items-baseline justify-between gap-2">
-              <span className="font-titre font-bold text-or-400">{t("builds.build", { n: i + 1 })}</span>
+              <span className="font-heading font-bold text-gold-400">{t("builds.build", { n: i + 1 })}</span>
               {b.victoire !== null && (
                 <span className="text-xs font-semibold tabular-nums text-emerald-400">
                   {t("builds.victoire", { taux: b.victoire.toFixed(1) })}
@@ -103,12 +103,12 @@ export function BuildsParRang({
               )}
             </div>
             {b.selection !== null && (
-              <p className="mt-0.5 text-xs tabular-nums text-craie-500">
+              <p className="mt-0.5 text-xs tabular-nums text-chalk-500">
                 {t("builds.selection", { taux: b.selection.toFixed(1) })}
               </p>
             )}
 
-            <p className="mt-4 text-[0.65rem] uppercase tracking-wide text-craie-500">{t("builds.objets")}</p>
+            <p className="mt-4 text-[0.65rem] uppercase tracking-wide text-chalk-500">{t("builds.objets")}</p>
             <ul className="mt-2 grid grid-cols-3 gap-2">
               {b.objets.map((o) => (
                 <li key={o.nom}>
@@ -117,7 +117,7 @@ export function BuildsParRang({
               ))}
             </ul>
 
-            <div className="mt-4 space-y-3 border-t border-nuit-800 pt-4">
+            <div className="mt-4 space-y-3 border-t border-night-800 pt-4">
               {b.embleme && (
                 <ChoixBuild
                   libelle={t("builds.embleme")}
@@ -142,10 +142,10 @@ export function BuildsParRang({
 
       {guide && (
         <section className="mt-8">
-          <h4 className="font-titre font-bold text-craie-100">{t("builds.guide")}</h4>
-          <p className="mt-1 text-sm leading-relaxed text-craie-500">{t("builds.guideIntro")}</p>
-          <div className="biseau mt-4 border border-nuit-700/70 bg-nuit-900/60 p-4">
-            <p className="text-xs text-craie-500">
+          <h4 className="font-heading font-bold text-chalk-100">{t("builds.guide")}</h4>
+          <p className="mt-1 text-sm leading-relaxed text-chalk-500">{t("builds.guideIntro")}</p>
+          <div className="bevel mt-4 border border-night-700/70 bg-night-900/60 p-4">
+            <p className="text-xs text-chalk-500">
               {guide.auteur &&
                 t("builds.guideAuteur", {
                   rang: `${t(`rangsNom.${guide.auteur.cle}`)}${guide.auteur.division ? ` ${guide.auteur.division}` : ""}`,
@@ -160,7 +160,7 @@ export function BuildsParRang({
                 </li>
               ))}
             </ol>
-            <div className="mt-4 grid gap-3 border-t border-nuit-800 pt-4 sm:grid-cols-3 lg:grid-cols-5">
+            <div className="mt-4 grid gap-3 border-t border-night-800 pt-4 sm:grid-cols-3 lg:grid-cols-5">
               {guide.embleme && (
                 <ChoixBuild
                   libelle={t("builds.embleme")}
@@ -195,17 +195,17 @@ function ObjetCle({ objet }: { objet: ObjetResolu }) {
         {objet.image ? (
           <Image src={objet.image} alt="" fill unoptimized className="object-contain" />
         ) : (
-          <span className="grid size-full place-items-center bg-nuit-800 text-xs text-craie-500">
+          <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">
             {objet.nom.charAt(0)}
           </span>
         )}
       </span>
-      <span className="mt-1.5 block text-[0.7rem] leading-tight text-craie-300">{objet.nom}</span>
+      <span className="mt-1.5 block text-[0.7rem] leading-tight text-chalk-300">{objet.nom}</span>
     </>
   );
-  const classe = "biseau-sm block border border-nuit-700 bg-nuit-850 p-2 text-center";
+  const classe = "bevel-sm block border border-night-700 bg-night-850 p-2 text-center";
   return objet.slug ? (
-    <Link href={`/items/${objet.slug}`} className={cn(classe, "transition-colors hover:border-or-500/60")}>
+    <Link href={`/items/${objet.slug}`} className={cn(classe, "transition-colors hover:border-gold-500/60")}>
       {contenu}
     </Link>
   ) : (

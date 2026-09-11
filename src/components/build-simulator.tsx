@@ -63,14 +63,14 @@ function ChoiceChip({
       onClick={onClick}
       className={cn(
         "flex min-h-11 items-center gap-2 border px-2.5 py-1.5 text-left text-sm transition-colors",
-        active ? "border-or-500 bg-or-500/10 text-craie-100" : "border-nuit-700 text-craie-300 hover:border-or-500/60 hover:text-craie-100",
+        active ? "border-gold-500 bg-gold-500/10 text-chalk-100" : "border-night-700 text-chalk-300 hover:border-gold-500/60 hover:text-chalk-100",
       )}
     >
-      <span className="relative size-7 shrink-0 overflow-hidden rounded-full border border-nuit-700 bg-nuit-800">
+      <span className="relative size-7 shrink-0 overflow-hidden rounded-full border border-night-700 bg-night-800">
         {image ? (
           <Image src={image} alt="" fill unoptimized className="object-contain" />
         ) : (
-          <span aria-hidden className="grid size-full place-items-center text-[0.65rem] font-semibold text-craie-500">
+          <span aria-hidden className="grid size-full place-items-center text-[0.65rem] font-semibold text-chalk-500">
             {label.charAt(0)}
           </span>
         )}
@@ -82,7 +82,7 @@ function ChoiceChip({
 
 function SectionTitle({ id, children }: { id: string; children: React.ReactNode }) {
   return (
-    <h2 id={id} className="font-titre text-xl font-bold text-craie-100">
+    <h2 id={id} className="font-heading text-xl font-bold text-chalk-100">
       {children}
     </h2>
   );
@@ -208,7 +208,7 @@ export function BuildSimulator({
     <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
       <div className="min-w-0 space-y-9">
         {ignored.length > 0 && (
-          <p role="status" className="border border-or-500/40 bg-or-500/5 p-3 text-sm text-craie-200">
+          <p role="status" className="border border-gold-500/40 bg-gold-500/5 p-3 text-sm text-chalk-200">
             {t("pages.buildSimulatorUI.linkDamaged", {
               parts: ignored.map((p) => t(`pages.buildSimulatorUI.params.${p}`)).join(", "),
             })}
@@ -221,18 +221,18 @@ export function BuildSimulator({
             <button
               type="button"
               onClick={() => setHeroPickerOpen(true)}
-              className="flex min-h-14 items-center gap-3 border border-nuit-700 bg-nuit-900/60 px-3 py-2 text-left transition-colors hover:border-or-500/60"
+              className="flex min-h-14 items-center gap-3 border border-night-700 bg-night-900/60 px-3 py-2 text-left transition-colors hover:border-gold-500/60"
             >
               {hero ? (
                 <PortraitHeros source={hero.icon} nom={hero.name} taille="icone" decoratif />
               ) : (
-                <span aria-hidden className="grid size-10 place-items-center bg-nuit-800 text-lg text-craie-500">
+                <span aria-hidden className="grid size-10 place-items-center bg-night-800 text-lg text-chalk-500">
                   ?
                 </span>
               )}
               <span>
-                <span className="block font-semibold text-craie-100">{hero ? hero.name : t("pages.buildSimulatorUI.chooseHero")}</span>
-                {hero && <span className="block text-xs text-craie-500">{t("pages.buildSimulatorUI.changeHero")}</span>}
+                <span className="block font-semibold text-chalk-100">{hero ? hero.name : t("pages.buildSimulatorUI.chooseHero")}</span>
+                {hero && <span className="block text-xs text-chalk-500">{t("pages.buildSimulatorUI.changeHero")}</span>}
               </span>
             </button>
 
@@ -242,11 +242,11 @@ export function BuildSimulator({
                 onClick={() => setLevel(build.level - 1)}
                 disabled={build.level <= LEVEL_MIN}
                 aria-label={t("pages.buildSimulatorUI.levelDown")}
-                className="grid size-11 place-items-center border border-nuit-700 text-craie-300 transition-colors hover:border-or-500/60 disabled:opacity-40"
+                className="grid size-11 place-items-center border border-night-700 text-chalk-300 transition-colors hover:border-gold-500/60 disabled:opacity-40"
               >
                 <Minus size={16} aria-hidden />
               </button>
-              <label className="flex flex-col items-center text-xs text-craie-500">
+              <label className="flex flex-col items-center text-xs text-chalk-500">
                 <span>{t("pages.buildSimulatorUI.level", { level: build.level })}</span>
                 <input
                   type="range"
@@ -255,7 +255,7 @@ export function BuildSimulator({
                   step={1}
                   value={build.level}
                   onChange={(e) => setLevel(Number(e.target.value))}
-                  className="mt-1 h-6 w-32 accent-[var(--color-or-500)] sm:w-40"
+                  className="mt-1 h-6 w-32 accent-[var(--color-gold-500)] sm:w-40"
                 />
               </label>
               <button
@@ -263,7 +263,7 @@ export function BuildSimulator({
                 onClick={() => setLevel(build.level + 1)}
                 disabled={build.level >= LEVEL_MAX}
                 aria-label={t("pages.buildSimulatorUI.levelUp")}
-                className="grid size-11 place-items-center border border-nuit-700 text-craie-300 transition-colors hover:border-or-500/60 disabled:opacity-40"
+                className="grid size-11 place-items-center border border-night-700 text-chalk-300 transition-colors hover:border-gold-500/60 disabled:opacity-40"
               >
                 <Plus size={16} aria-hidden />
               </button>
@@ -291,10 +291,10 @@ export function BuildSimulator({
                     className={cn(
                       "flex h-full min-h-24 w-full flex-col items-center justify-center gap-1.5 border p-2 text-center transition-colors",
                       item
-                        ? "border-nuit-700 bg-nuit-850 hover:border-or-500/60"
+                        ? "border-night-700 bg-night-850 hover:border-gold-500/60"
                         : next
-                          ? "border-dashed border-or-500/50 text-or-400 hover:border-or-500"
-                          : "border-dashed border-nuit-800 text-craie-600",
+                          ? "border-dashed border-gold-500/50 text-gold-400 hover:border-gold-500"
+                          : "border-dashed border-night-800 text-chalk-600",
                     )}
                   >
                     {item ? (
@@ -302,7 +302,7 @@ export function BuildSimulator({
                         <span className="relative size-11">
                           {item.image && <Image src={item.image} alt="" fill unoptimized className="object-contain" />}
                         </span>
-                        <span className="line-clamp-2 text-[0.7rem] leading-tight text-craie-200">{item.name}</span>
+                        <span className="line-clamp-2 text-[0.7rem] leading-tight text-chalk-200">{item.name}</span>
                       </>
                     ) : (
                       <Plus size={20} aria-hidden />
@@ -317,7 +317,7 @@ export function BuildSimulator({
         <section aria-labelledby="sim-emblem" className="space-y-4">
           <SectionTitle id="sim-emblem">{t("pages.buildSimulatorUI.emblemTitle")}</SectionTitle>
           <fieldset>
-            <legend className="text-xs uppercase tracking-wide text-craie-500">{t("pages.buildSimulatorUI.emblemSet")}</legend>
+            <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.buildSimulatorUI.emblemSet")}</legend>
             <div className="mt-2 flex flex-wrap gap-2">
               {data.emblems.map((e) => (
                 <ChoiceChip
@@ -332,7 +332,7 @@ export function BuildSimulator({
           </fieldset>
           {tierTalents.map((list, tier) => (
             <fieldset key={tier}>
-              <legend className="text-xs uppercase tracking-wide text-craie-500">{t(`pages.buildSimulatorUI.tiers.t${tier + 1}`)}</legend>
+              <legend className="text-xs uppercase tracking-wide text-chalk-500">{t(`pages.buildSimulatorUI.tiers.t${tier + 1}`)}</legend>
               <div className="mt-2 flex flex-wrap gap-2">
                 {list.map((tl) => (
                   <ChoiceChip
@@ -361,7 +361,7 @@ export function BuildSimulator({
               />
             ))}
           </div>
-          <p className="text-xs text-craie-500">{t("pages.buildSimulatorUI.spellNote")}</p>
+          <p className="text-xs text-chalk-500">{t("pages.buildSimulatorUI.spellNote")}</p>
         </section>
       </div>
 
@@ -370,13 +370,13 @@ export function BuildSimulator({
           <SectionTitle id="sim-result">{t("pages.buildSimulatorUI.resultTitle")}</SectionTitle>
           {result && hero ? (
             <>
-              <p className="text-sm text-craie-400">
+              <p className="text-sm text-chalk-400">
                 {t("pages.buildSimulatorUI.resultFor", { hero: hero.name, level: result.level })}
               </p>
               <BuildStats result={result} names={names} resource={hero.sim.resource} />
             </>
           ) : (
-            <p className="border border-dashed border-nuit-700 p-4 text-sm text-craie-400">{t("pages.buildSimulatorUI.pickHeroFirst")}</p>
+            <p className="border border-dashed border-night-700 p-4 text-sm text-chalk-400">{t("pages.buildSimulatorUI.pickHeroFirst")}</p>
           )}
         </section>
 
@@ -385,16 +385,16 @@ export function BuildSimulator({
             <SectionTitle id="sim-measured">{t("pages.buildSimulatorUI.measuredTitle")}</SectionTitle>
             <ChoixRang rangs={RANGS_MESURE} rang={rank} onChange={setRank} />
             {heroCores === null ? (
-              <p className="text-sm text-craie-500">{t("pages.buildSimulatorUI.measuredLoading")}</p>
+              <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredLoading")}</p>
             ) : build.items.length === 0 ? (
-              <p className="text-sm text-craie-500">{t("pages.buildSimulatorUI.measuredNeedItems")}</p>
+              <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredNeedItems")}</p>
             ) : close.length === 0 ? (
-              <p className="text-sm text-craie-500">{t("pages.buildSimulatorUI.measuredNone")}</p>
+              <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredNone")}</p>
             ) : (
               <ul className="space-y-2">
                 {close.map((c, i) => (
-                  <li key={`${c.lane}-${i}`} className="border border-nuit-800 bg-nuit-900/60 p-3">
-                    <p className="text-sm font-semibold text-craie-100">
+                  <li key={`${c.lane}-${i}`} className="border border-night-800 bg-night-900/60 p-3">
+                    <p className="text-sm font-semibold text-chalk-100">
                       {c.complete
                         ? t("pages.buildSimulatorUI.measuredSame")
                         : t("pages.buildSimulatorUI.measuredClose", { n: c.common, total: new Set(c.items).size })}
@@ -403,19 +403,19 @@ export function BuildSimulator({
                       {c.items.map((slug, j) => {
                         const it = itemsBySlug.get(slug);
                         return (
-                          <li key={`${slug}-${j}`} title={it?.name ?? slug} className="relative size-9 bg-nuit-800">
+                          <li key={`${slug}-${j}`} title={it?.name ?? slug} className="relative size-9 bg-night-800">
                             {it?.image && <Image src={it.image} alt={it.name} fill unoptimized className="object-contain" />}
                           </li>
                         );
                       })}
                     </ul>
-                    <p className="mt-2 text-sm text-craie-300">
+                    <p className="mt-2 text-sm text-chalk-300">
                       {t("pages.buildSimulatorUI.measuredRates", {
                         win: c.winRate === null ? "—" : percent.format(c.winRate / 100),
                         pick: c.pickRate === null ? "—" : percent.format(c.pickRate / 100),
                       })}
                     </p>
-                    <p className="mt-0.5 text-xs text-craie-500">
+                    <p className="mt-0.5 text-xs text-chalk-500">
                       {t("pages.buildSimulatorUI.measuredWhere", {
                         lane: t(`lanes.${c.lane}`),
                         rank: t(`rangsMesure.${c.rank}`),
@@ -426,7 +426,7 @@ export function BuildSimulator({
                 ))}
               </ul>
             )}
-            <p className="text-xs leading-relaxed text-craie-500">{t("pages.buildSimulatorUI.measuredSource")}</p>
+            <p className="text-xs leading-relaxed text-chalk-500">{t("pages.buildSimulatorUI.measuredSource")}</p>
           </section>
         )}
 
@@ -438,13 +438,13 @@ export function BuildSimulator({
               value={shareUrl}
               aria-label={t("pages.buildSimulatorUI.shareUrl")}
               onFocus={(e) => e.currentTarget.select()}
-              className="biseau-sm h-11 min-w-0 flex-1 border border-nuit-700 bg-nuit-900 px-3 text-xs text-craie-300 outline-none focus:border-or-500"
+              className="bevel-sm h-11 min-w-0 flex-1 border border-night-700 bg-night-900 px-3 text-xs text-chalk-300 outline-none focus:border-gold-500"
             />
             <button
               type="button"
               onClick={copyLink}
               disabled={!build.hero}
-              className="biseau-sm flex h-11 items-center gap-2 bg-or-500 px-4 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400 disabled:opacity-50"
+              className="bevel-sm flex h-11 items-center gap-2 bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-50"
             >
               {copied ? <Check size={16} aria-hidden /> : <Copy size={16} aria-hidden />}
               {copied ? t("pages.buildSimulatorUI.copied") : t("pages.buildSimulatorUI.copyLink")}

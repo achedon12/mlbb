@@ -64,7 +64,7 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
       >
         <Link
           href={`/tools/build?h=${hero}`}
-          className="biseau-sm mt-5 inline-flex min-h-11 items-center bg-or-500 px-4 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+          className="bevel-sm mt-5 inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
           {t("pages.communityBuilds.heroCreate", { hero: h.nom })}
         </Link>
@@ -72,15 +72,15 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
       <CompleterMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
         <div className="mx-auto max-w-6xl space-y-6 px-4 py-10">
           {stored === null ? (
-            <p role="alert" className="border border-sang-500/40 p-4 text-craie-300">
+            <p role="alert" className="border border-blood-500/40 p-4 text-chalk-300">
               {t("pages.communityBuilds.unavailable")}
             </p>
           ) : mine.length === 0 ? (
-            <p className="border border-dashed border-nuit-700 p-6 text-craie-300">{t("pages.communityBuilds.heroEmpty", { hero: h.nom })}</p>
+            <p className="border border-dashed border-night-700 p-6 text-chalk-300">{t("pages.communityBuilds.heroEmpty", { hero: h.nom })}</p>
           ) : (
             <>
               {mine.length > MAX_SHOWN && (
-                <p className="text-sm text-craie-500">{t("pages.communityBuilds.shownCount", { n: MAX_SHOWN, total: mine.length })}</p>
+                <p className="text-sm text-chalk-500">{t("pages.communityBuilds.shownCount", { n: MAX_SHOWN, total: mine.length })}</p>
               )}
               <div className="grid gap-4 lg:grid-cols-2">
                 {mine.slice(0, MAX_SHOWN).map((b) => (
@@ -98,7 +98,7 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
             </>
           )}
           <p>
-            <Link href="/builds" className="inline-flex min-h-11 items-center text-sm text-craie-300 underline underline-offset-4 hover:text-or-400">
+            <Link href="/builds" className="inline-flex min-h-11 items-center text-sm text-chalk-300 underline underline-offset-4 hover:text-gold-400">
               {t("pages.communityBuilds.backToHub")}
             </Link>
           </p>

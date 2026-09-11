@@ -22,11 +22,11 @@ const SUMMARY: StatKey[] = ["hp", "physicalAttack", "magicPower", "physicalDefen
 
 function Icon({ src, label, round = false }: { src: string | null; label: string; round?: boolean }) {
   return (
-    <span title={label} className={`relative block size-9 shrink-0 overflow-hidden bg-nuit-800 ${round ? "rounded-full" : ""}`}>
+    <span title={label} className={`relative block size-9 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : ""}`}>
       {src ? (
         <Image src={src} alt={label} fill unoptimized className="object-contain" />
       ) : (
-        <span className="grid size-full place-items-center text-xs text-craie-500">
+        <span className="grid size-full place-items-center text-xs text-chalk-500">
           {label.charAt(0)}
           <span className="sr-only">{label}</span>
         </span>
@@ -60,17 +60,17 @@ export function CommunityBuildCard({
 
   return (
     <article className="relative">
-      <div aria-hidden className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-900/60" />
+      <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
       <div className="relative space-y-3 p-4">
         <header className="flex items-start gap-3">
           {showHero && <PortraitHeros source={hero.icon} nom={hero.name} taille="icone" decoratif />}
           <div className="min-w-0 flex-1">
-            <h3 className="font-titre text-lg font-bold leading-tight text-craie-100">
-              <Link href={`/builds/${build.hero}/${build.id}`} className="break-words transition-colors hover:text-or-400">
+            <h3 className="font-heading text-lg font-bold leading-tight text-chalk-100">
+              <Link href={`/builds/${build.hero}/${build.id}`} className="break-words transition-colors hover:text-gold-400">
                 {build.title}
               </Link>
             </h3>
-            <p className="mt-0.5 text-xs text-craie-500">
+            <p className="mt-0.5 text-xs text-chalk-500">
               {showHero ? `${hero.name} - ` : ""}
               {t("pages.communityBuilds.byLine", { name: build.authorName, date: dateLongue(locale, build.createdAt) })}
             </p>
@@ -85,7 +85,7 @@ export function CommunityBuildCard({
           ))}
         </ul>
 
-        <p className="flex flex-wrap items-center gap-1.5 text-xs text-craie-400">
+        <p className="flex flex-wrap items-center gap-1.5 text-xs text-chalk-400">
           {b.emblem && <Icon src={emblemImage(b.emblem)} label={emblemName(t, b.emblem)} round />}
           {talents.map((k) => (
             <Icon key={k} src={talentImage(k)} label={talentName(t, k)} round />
@@ -99,9 +99,9 @@ export function CommunityBuildCard({
             {SUMMARY.map((key) => {
               const v = result.stats[key].value;
               return (
-                <div key={key} className="flex justify-between gap-2 border-b border-nuit-800 py-1">
-                  <dt className="text-craie-500">{t(`pages.buildSimulatorUI.stats.${key}`)}</dt>
-                  <dd className="tabular-nums text-craie-100">
+                <div key={key} className="flex justify-between gap-2 border-b border-night-800 py-1">
+                  <dt className="text-chalk-500">{t(`pages.buildSimulatorUI.stats.${key}`)}</dt>
+                  <dd className="tabular-nums text-chalk-100">
                     {v === null ? "-" : key === "cooldownReduction" ? percent.format(v / 100) : whole.format(v)}
                   </dd>
                 </div>
@@ -110,19 +110,19 @@ export function CommunityBuildCard({
           </dl>
         )}
 
-        {build.notes && <p className="line-clamp-3 whitespace-pre-line text-sm text-craie-300">{build.notes}</p>}
+        {build.notes && <p className="line-clamp-3 whitespace-pre-line text-sm text-chalk-300">{build.notes}</p>}
 
         <footer className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <VoteButton id={build.id} votes={build.votes} voted={build.voted} own={build.own} signedIn={signedIn} />
           <Link
             href={`/tools/build?${build.code}`}
-            className="inline-flex min-h-11 items-center text-sm text-or-400 underline underline-offset-4 hover:text-or-500"
+            className="inline-flex min-h-11 items-center text-sm text-gold-400 underline underline-offset-4 hover:text-gold-500"
           >
             {t("pages.communityBuilds.openSimulator")}
           </Link>
           <Link
             href={`/builds/${build.hero}/${build.id}`}
-            className="inline-flex min-h-11 items-center text-sm text-craie-300 underline underline-offset-4 hover:text-or-400"
+            className="inline-flex min-h-11 items-center text-sm text-chalk-300 underline underline-offset-4 hover:text-gold-400"
           >
             {t("pages.communityBuilds.details")}
           </Link>

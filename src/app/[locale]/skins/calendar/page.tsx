@@ -65,12 +65,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 /** Intensite d'une case du calendrier, rapportee au mois le plus charge. */
 function teinte(n: number, max: number): string {
-  if (n === 0) return "bg-nuit-900/40 text-craie-600";
+  if (n === 0) return "bg-night-900/40 text-chalk-600";
   const part = n / max;
-  if (part <= 0.25) return "bg-or-500/15 text-craie-200";
-  if (part <= 0.5) return "bg-or-500/30 text-craie-100";
-  if (part <= 0.75) return "bg-or-500/55 text-craie-100";
-  return "bg-or-500/85 text-nuit-950";
+  if (part <= 0.25) return "bg-gold-500/15 text-chalk-200";
+  if (part <= 0.5) return "bg-gold-500/30 text-chalk-100";
+  if (part <= 0.75) return "bg-gold-500/55 text-chalk-100";
+  return "bg-gold-500/85 text-night-950";
 }
 
 export default async function PageCalendrierSkins({ params }: Params) {
@@ -138,12 +138,12 @@ export default async function PageCalendrierSkins({ params }: Params) {
           {ceMois.length > 0 ? (
             grille(ceMois)
           ) : (
-            <p className="max-w-2xl leading-relaxed text-craie-300">
+            <p className="max-w-2xl leading-relaxed text-chalk-300">
               {t("pages.calendrierSkins.ceMoisVide", {
                 mois: moisAnnee(locale, dateReference),
                 dernier: dernierMois ? moisAnnee(locale, `${dernierMois}-01`) : "—",
               })}{" "}
-              <a href="#derniers" className="font-semibold text-or-400 hover:text-or-500">
+              <a href="#derniers" className="font-semibold text-gold-400 hover:text-gold-500">
                 {t("pages.calendrierSkins.voirDerniers")}
               </a>
             </p>
@@ -166,9 +166,9 @@ export default async function PageCalendrierSkins({ params }: Params) {
             >
               <div className="relative overflow-x-auto">
                 <table className="w-full min-w-[30rem] border-separate border-spacing-1 text-center text-xs">
-                  <caption className="mb-2 text-left text-sm text-craie-500">{t("pages.calendrierSkins.tableauLegende")}</caption>
+                  <caption className="mb-2 text-left text-sm text-chalk-500">{t("pages.calendrierSkins.tableauLegende")}</caption>
                   <thead>
-                    <tr className="text-craie-500">
+                    <tr className="text-chalk-500">
                       <th scope="col" className="text-left font-medium">
                         {t("pages.calendrierSkins.colAnnee")}
                       </th>
@@ -195,7 +195,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
                       return (
                         <tr key={a.annee}>
                           <th scope="row" className="pr-1 text-left">
-                            <Link href={`${CHEMIN}/${a.annee}`} className="font-titre text-sm font-bold text-craie-100 hover:text-or-400">
+                            <Link href={`${CHEMIN}/${a.annee}`} className="font-heading text-sm font-bold text-chalk-100 hover:text-gold-400">
                               {a.annee}
                             </Link>
                           </th>
@@ -212,7 +212,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
                                     href={`${CHEMIN}/${a.annee}#m-${String(i + 1).padStart(2, "0")}`}
                                     aria-label={libelle}
                                     title={libelle}
-                                    className={cn("block min-w-6 py-1.5 tabular-nums hover:outline hover:outline-or-400", teinte(n, maxMois))}
+                                    className={cn("block min-w-6 py-1.5 tabular-nums hover:outline hover:outline-gold-400", teinte(n, maxMois))}
                                   >
                                     {n}
                                   </Link>
@@ -222,8 +222,8 @@ export default async function PageCalendrierSkins({ params }: Params) {
                               </td>
                             );
                           })}
-                          <td className="py-1.5 tabular-nums text-craie-400">{parMois.get(null) || ""}</td>
-                          <td className="py-1.5 font-semibold tabular-nums text-craie-100">{nombre.format(a.total)}</td>
+                          <td className="py-1.5 tabular-nums text-chalk-400">{parMois.get(null) || ""}</td>
+                          <td className="py-1.5 font-semibold tabular-nums text-chalk-100">{nombre.format(a.total)}</td>
                         </tr>
                       );
                     })}
@@ -243,16 +243,16 @@ export default async function PageCalendrierSkins({ params }: Params) {
               return (
                 <li
                   key={s.serie}
-                  className="biseau-sm flex items-baseline justify-between gap-3 border border-nuit-700/60 bg-nuit-900/40 px-3 py-2"
+                  className="bevel-sm flex items-baseline justify-between gap-3 border border-night-700/60 bg-night-900/40 px-3 py-2"
                 >
                   {/* Lien simple : l'explorateur lit ses filtres dans l'adresse au chargement. */}
                   <a
                     href={`?serie=${encodeURIComponent(s.serie)}#explorateur`}
-                    className="truncate font-semibold text-craie-100 hover:text-or-400"
+                    className="truncate font-semibold text-chalk-100 hover:text-gold-400"
                   >
                     {libelleSerie(t, s.serie)}
                   </a>
-                  <span className="shrink-0 text-xs tabular-nums text-craie-500">
+                  <span className="shrink-0 text-xs tabular-nums text-chalk-500">
                     {t("pages.calendrierSkins.serieDetail", {
                       n: nSkins(s.total),
                       periode: debut && fin && debut !== fin ? `${debut}–${fin}` : String(debut ?? fin ?? "—"),
@@ -266,7 +266,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
 
         <section id="dates" className="scroll-mt-24">
           <TitreSection>{t("pages.calendrierSkins.datesTitre")}</TitreSection>
-          <div className="max-w-3xl space-y-3 leading-relaxed text-craie-300">
+          <div className="max-w-3xl space-y-3 leading-relaxed text-chalk-300">
             <p>
               {t("pages.calendrierSkins.datesPrecision", {
                 jour: nombre.format(precision.jour),
@@ -279,7 +279,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
             )}
             <p>{t("pages.calendrierSkins.datesOrigine")}</p>
             <p>
-              <Link href="/tools/collection" className="font-semibold text-or-400 hover:text-or-500">
+              <Link href="/tools/collection" className="font-semibold text-gold-400 hover:text-gold-500">
                 {t("pages.calendrierSkins.lienCollection")} →
               </Link>
             </p>

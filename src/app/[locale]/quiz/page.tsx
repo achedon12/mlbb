@@ -38,8 +38,8 @@ export default async function PageQuiz({ params }: Params) {
     "@type": ["WebApplication", "Game"],
     genre: "Trivia",
   };
-  const titre2 = "font-titre text-2xl font-bold text-craie-100";
-  const lien = "font-semibold text-or-400 transition-colors hover:text-or-500";
+  const titre2 = "font-heading text-2xl font-bold text-chalk-100";
+  const lien = "font-semibold text-gold-400 transition-colors hover:text-gold-500";
 
   return (
     <>
@@ -56,8 +56,8 @@ export default async function PageQuiz({ params }: Params) {
 
         <section>
           <h2 className={titre2}>{t("pages.quiz.reglesTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-chalk-300">
             <li>{t("pages.quiz.regle1")}</li>
             <li>{t("pages.quiz.regle2", { heros: ESSAIS.competence, objets: ESSAIS.objet })}</li>
             <li>{t("pages.quiz.regle3")}</li>
@@ -67,12 +67,12 @@ export default async function PageQuiz({ params }: Params) {
 
         <section>
           <h2 className={titre2}>{t("pages.quiz.epreuvesTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-4 space-y-4">
             {ORDRE_DEFI.map((type) => (
               <div key={type}>
-                <dt className="font-semibold text-craie-100">{t(`pages.quiz.epreuves.${type}.titre`)}</dt>
-                <dd className="mt-1 leading-relaxed text-craie-300">
+                <dt className="font-semibold text-chalk-100">{t(`pages.quiz.epreuves.${type}.titre`)}</dt>
+                <dd className="mt-1 leading-relaxed text-chalk-300">
                   {t(`pages.quiz.epreuves.${type}.desc`, { n: PAIRES_DUEL })}
                 </dd>
               </div>
@@ -82,8 +82,8 @@ export default async function PageQuiz({ params }: Params) {
 
         <section>
           <h2 className={titre2}>{t("pages.quiz.sourceTitre")}</h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-craie-300">{t("pages.quiz.source")}</p>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.quiz.source")}</p>
           <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <li>
               <Link href="/heroes" className={lien}>

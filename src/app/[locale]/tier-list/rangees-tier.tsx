@@ -16,7 +16,7 @@ export interface RangeeTier {
 export function RangeesTier({ rangees }: { rangees: RangeeTier[] }) {
   return rangees.map((r) => (
     <nav key={r.libelle} aria-label={r.libelle} className="flex flex-wrap items-center gap-2">
-      <span aria-hidden className="mr-1 shrink-0 text-xs uppercase tracking-wide text-craie-500 sm:w-20">
+      <span aria-hidden className="mr-1 shrink-0 text-xs uppercase tracking-wide text-chalk-500 sm:w-20">
         {r.libelle}
       </span>
       {r.liens.map((l) => (

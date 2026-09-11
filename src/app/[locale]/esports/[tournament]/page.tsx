@@ -87,10 +87,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 const ZONE_STYLE: Record<string, string> = {
   up: "bg-emerald-400",
   seedup: "bg-emerald-300",
-  stayup: "bg-azur-400",
-  stay: "bg-or-400",
-  staydown: "bg-or-500",
-  down: "bg-sang-500",
+  stayup: "bg-azure-400",
+  stay: "bg-gold-400",
+  staydown: "bg-gold-500",
+  down: "bg-blood-500",
 };
 const knownZone = (z: string | null): z is string => z !== null && z in ZONE_STYLE;
 
@@ -179,15 +179,15 @@ export default async function TournamentPage({ params }: Params) {
         <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 lg:grid-cols-4">
           {facts.map(([label, value]) => (
             <div key={label} className="min-w-0">
-              <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
-              <dd className="mt-1 text-sm font-semibold text-craie-100">{value}</dd>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
+              <dd className="mt-1 text-sm font-semibold text-chalk-100">{value}</dd>
             </div>
           ))}
         </dl>
       </EnTetePage>
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
-        {stages.length === 0 && <p className="text-sm text-craie-500">{t("pages.esports.empty")}</p>}
+        {stages.length === 0 && <p className="text-sm text-chalk-500">{t("pages.esports.empty")}</p>}
 
         {stages.map((stage) => (
           <section key={stage.page}>
@@ -220,7 +220,7 @@ export default async function TournamentPage({ params }: Params) {
           </section>
         ))}
         {stages.some((s) => s.standings.length > 0) && (
-          <p className="-mt-8 max-w-3xl text-xs leading-relaxed text-craie-500">
+          <p className="-mt-8 max-w-3xl text-xs leading-relaxed text-chalk-500">
             {t("pages.esports.standings.note")} {t("pages.esports.zones.note")}
           </p>
         )}
@@ -261,12 +261,12 @@ function StandingTable({ standing, caption, t }: { standing: Standing; caption: 
   return (
     <div className="min-w-0">
       {standing.label || standing.title ? (
-        <h3 className="mb-2 font-titre text-lg font-bold text-craie-100">{caption}</h3>
+        <h3 className="mb-2 font-heading text-lg font-bold text-chalk-100">{caption}</h3>
       ) : null}
-      <div className="relative overflow-x-auto border border-nuit-700/70">
+      <div className="relative overflow-x-auto border border-night-700/70">
         <table className="w-full min-w-[22rem] border-collapse text-sm tabular-nums">
           <caption className="sr-only">{t("pages.esports.standings.caption", { title: caption })}</caption>
-          <thead className="bg-nuit-900 text-xs uppercase tracking-wide text-craie-500">
+          <thead className="bg-night-900 text-xs uppercase tracking-wide text-chalk-500">
             <tr>
               <th scope="col" className="w-12 px-3 py-2 text-left font-medium">
                 {t("pages.esports.standings.rank")}
@@ -289,24 +289,24 @@ function StandingTable({ standing, caption, t }: { standing: Standing; caption: 
             {standing.rows.map((r) => {
               const diff = r.games[0] - r.games[1];
               return (
-                <tr key={r.team} className="border-t border-nuit-800">
-                  <td className="relative px-3 py-1.5 text-craie-500">
+                <tr key={r.team} className="border-t border-night-800">
+                  <td className="relative px-3 py-1.5 text-chalk-500">
                     {knownZone(r.zone) && (
                       <span aria-hidden className={cn("absolute inset-y-1 left-0 w-1", ZONE_STYLE[r.zone])} />
                     )}
                     {r.rank}
                     {knownZone(r.zone) && <span className="sr-only">, {t(`pages.esports.zones.${r.zone}`)}</span>}
                   </td>
-                  <th scope="row" className="px-3 py-1.5 text-left font-semibold text-craie-100">
+                  <th scope="row" className="px-3 py-1.5 text-left font-semibold text-chalk-100">
                     {r.team}
                   </th>
-                  <td className={cn(cell, "text-craie-100")}>
+                  <td className={cn(cell, "text-chalk-100")}>
                     {r.series[0]}–{r.series[1]}
                   </td>
-                  <td className={cn(cell, "text-craie-300")}>
+                  <td className={cn(cell, "text-chalk-300")}>
                     {r.games[0]}–{r.games[1]}
                   </td>
-                  <td className={cn(cell, "text-craie-500")}>{diff > 0 ? `+${diff}` : diff}</td>
+                  <td className={cn(cell, "text-chalk-500")}>{diff > 0 ? `+${diff}` : diff}</td>
                 </tr>
               );
             })}
@@ -316,7 +316,7 @@ function StandingTable({ standing, caption, t }: { standing: Standing; caption: 
       {zones.length > 0 && (
         <ul
           aria-label={t("pages.esports.zones.title")}
-          className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-craie-500"
+          className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-chalk-500"
         >
           {zones.map((z) => (
             <li key={z} className="flex items-center gap-1.5">
@@ -334,14 +334,14 @@ function BracketView({ bracket, t, locale }: { bracket: Bracket; t: T; locale: L
   const title = labelText(t, bracket.label, bracket.title);
   return (
     <div>
-      {title && <h3 className="mb-3 font-titre text-lg font-bold text-craie-100">{title}</h3>}
+      {title && <h3 className="mb-3 font-heading text-lg font-bold text-chalk-100">{title}</h3>}
       <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {bracket.rounds.map((r, i) => (
-          <li key={i} className="border border-nuit-700/70 bg-nuit-900/60 p-3">
-            <h4 className="font-titre text-sm font-bold uppercase tracking-wide text-or-400">
+          <li key={i} className="border border-night-700/70 bg-night-900/60 p-3">
+            <h4 className="font-heading text-sm font-bold uppercase tracking-wide text-gold-400">
               {labelText(t, r.label, r.title) ?? t("pages.esports.rounds.round", { n: r.number ?? i + 1 })}
             </h4>
-            <ul className="mt-1 divide-y divide-nuit-800">
+            <ul className="mt-1 divide-y divide-night-800">
               {r.matches.map((m, j) => (
                 <MatchLine key={j} match={m} t={t} locale={locale} />
               ))}
@@ -368,13 +368,13 @@ function MatchLine({ match: m, t, locale }: { match: BracketMatch; t: T; locale:
         <span
           className={cn(
             "min-w-0 truncate",
-            won ? "font-bold text-craie-100" : m.winner ? "text-craie-500" : "text-craie-300",
+            won ? "font-bold text-chalk-100" : m.winner ? "text-chalk-500" : "text-chalk-300",
           )}
         >
           {m.teams[i] ?? placeholderText(t, m.placeholders[i])}
           {won && <span className="sr-only"> ({t("pages.esports.match.winner")})</span>}
         </span>
-        <span className={cn("shrink-0 tabular-nums", won ? "font-bold text-or-400" : "text-craie-500")}>
+        <span className={cn("shrink-0 tabular-nums", won ? "font-bold text-gold-400" : "text-chalk-500")}>
           {played && m.score ? m.score[i] : "–"}
         </span>
       </div>
@@ -385,7 +385,7 @@ function MatchLine({ match: m, t, locale }: { match: BracketMatch; t: T; locale:
       {side(0)}
       {side(1)}
       {m.date && (
-        <time dateTime={m.date} className="mt-0.5 block text-xs text-craie-500">
+        <time dateTime={m.date} className="mt-0.5 block text-xs text-chalk-500">
           {shortDate(locale, m.date)}
         </time>
       )}
@@ -398,12 +398,12 @@ function DraftCard({ match: m, tour, t, locale }: { match: DraftMatch; tour: Tou
   return (
     <Carte className="h-full p-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className="font-titre text-lg font-bold text-craie-100">
+        <h3 className="font-heading text-lg font-bold text-chalk-100">
           {m.teams[0]}{" "}
-          <span className="tabular-nums text-or-400">{m.score ? `${m.score[0]}–${m.score[1]}` : "–"}</span>{" "}
+          <span className="tabular-nums text-gold-400">{m.score ? `${m.score[0]}–${m.score[1]}` : "–"}</span>{" "}
           {m.teams[1]}
         </h3>
-        <p className="text-xs text-craie-500">
+        <p className="text-xs text-chalk-500">
           <time dateTime={m.date}>{shortDate(locale, m.date)}</time>
           {stage && <> · {stageName(t, stage.key, stage.title)}</>}
         </p>
@@ -412,11 +412,11 @@ function DraftCard({ match: m, tour, t, locale }: { match: DraftMatch; tour: Tou
         {m.games.map((g, i) => {
           const other = g.team1Side === "blue" ? "red" : g.team1Side === "red" ? "blue" : null;
           return (
-            <li key={i} className="border-t border-nuit-800 pt-3">
-              <p className="text-xs text-craie-500">
+            <li key={i} className="border-t border-night-800 pt-3">
+              <p className="text-xs text-chalk-500">
                 {t("pages.esports.drafts.game", { n: i + 1 })}
                 {g.duration && <> · {g.duration}</>} ·{" "}
-                <span className="text-craie-300">{t("pages.esports.drafts.won", { team: m.teams[g.winner - 1] })}</span>
+                <span className="text-chalk-300">{t("pages.esports.drafts.won", { team: m.teams[g.winner - 1] })}</span>
               </p>
               <DraftSide team={m.teams[0]} side={g.team1Side} picks={g.picks[0]} bans={g.bans[0]} won={g.winner === 1} t={t} />
               <DraftSide team={m.teams[1]} side={other} picks={g.picks[1]} bans={g.bans[1]} won={g.winner === 2} t={t} />
@@ -449,10 +449,10 @@ function DraftSide({
         {side && (
           <span
             aria-hidden
-            className={cn("size-2 shrink-0 rounded-full", side === "blue" ? "bg-azur-400" : "bg-sang-500")}
+            className={cn("size-2 shrink-0 rounded-full", side === "blue" ? "bg-azure-400" : "bg-blood-500")}
           />
         )}
-        <span className={cn("truncate", won ? "font-semibold text-craie-100" : "text-craie-300")}>{team}</span>
+        <span className={cn("truncate", won ? "font-semibold text-chalk-100" : "text-chalk-300")}>{team}</span>
         {side && <span className="sr-only">({t(`pages.esports.drafts.${side}`)})</span>}
       </p>
       <HeroStrip label={t("pages.esports.drafts.picks")} heroes={picks} />
@@ -465,7 +465,7 @@ function HeroStrip({ label, heroes, ban = false }: { label: string; heroes: stri
   if (heroes.length === 0) return null;
   return (
     <div className="flex items-center gap-1.5">
-      <span className="w-9 text-[0.65rem] uppercase tracking-wide text-craie-500">{label}</span>
+      <span className="w-9 text-[0.65rem] uppercase tracking-wide text-chalk-500">{label}</span>
       <ul className={cn("flex gap-1", ban && "opacity-60 grayscale")}>
         {heroes.map((h, i) => {
           const hero = herosParSlug.get(h);
@@ -476,7 +476,7 @@ function HeroStrip({ label, heroes, ban = false }: { label: string; heroes: stri
               {hero ? (
                 <PortraitHeros source={hero.visuels.icone ?? hero.visuels.portrait} nom={hero.nom} taille="micro" />
               ) : (
-                <span className="text-xs text-craie-300">{h}</span>
+                <span className="text-xs text-chalk-300">{h}</span>
               )}
             </li>
           );

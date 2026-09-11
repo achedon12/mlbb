@@ -24,9 +24,9 @@ export default async function PageConnexion({ params }: { params: Promise<{ loca
   return (
     <div className="mx-auto max-w-md px-4 py-20">
       <FilAriane miettes={[{ nom: t("pages.login.titre") }]} className="mb-8" />
-      <h1 className="font-titre text-3xl font-bold text-craie-100">{t("pages.login.titre")}</h1>
-      <div aria-hidden className="filet-or mt-3 h-0.5 w-16" />
-      <p className="mt-4 text-sm leading-relaxed text-craie-500">
+      <h1 className="font-heading text-3xl font-bold text-chalk-100">{t("pages.login.titre")}</h1>
+      <div aria-hidden className="gold-rule mt-3 h-0.5 w-16" />
+      <p className="mt-4 text-sm leading-relaxed text-chalk-500">
         {t("pages.login.intro")}
       </p>
 
@@ -34,7 +34,7 @@ export default async function PageConnexion({ params }: { params: Promise<{ loca
         <FormulaireConnexion />
       </div>
 
-      <p className="mt-8 flex gap-2 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
+      <p className="mt-8 flex gap-2 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">
         <ShieldCheck size={16} className="mt-0.5 shrink-0 text-emerald-400" aria-hidden />
         {t("pages.login.secu")}
       </p>

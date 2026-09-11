@@ -104,11 +104,11 @@ function Embleme({ palier, taille = 56 }: { palier: PalierEchelle; taille?: numb
 function TitreBloc({ id, children, intro }: { id: string; children: React.ReactNode; intro?: string }) {
   return (
     <>
-      <h2 id={`${id}-titre`} className="font-titre text-2xl font-bold text-craie-100 sm:text-3xl">
+      <h2 id={`${id}-titre`} className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">
         {children}
       </h2>
-      <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-      {intro && <p className="mt-3 max-w-3xl leading-relaxed text-craie-300">{intro}</p>}
+      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+      {intro && <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{intro}</p>}
     </>
   );
 }
@@ -168,13 +168,13 @@ export default async function PageRangs({ params }: Params) {
                   <Carte className="flex h-full gap-4">
                     <Embleme palier={p} />
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs text-craie-500">
+                      <p className="text-xs text-chalk-500">
                         {t("pages.rangs.position", { n: i + 1, total: ECHELLE.length })}
                       </p>
-                      <h3 className="font-titre text-xl font-bold" style={{ color: couleur }}>
+                      <h3 className="font-heading text-xl font-bold" style={{ color: couleur }}>
                         {nomPalier(t, p.cle)}
                       </h3>
-                      <p className="mt-1 text-sm text-craie-300">
+                      <p className="mt-1 text-sm text-chalk-300">
                         {p.points === null
                           ? t("pages.rangs.divisions", { n: p.divisions.length, liste: p.divisions.join(" → ") })
                           : p.points.max === null
@@ -182,21 +182,21 @@ export default async function PageRangs({ params }: Params) {
                             : t("pages.rangs.pointsEntre", { min: p.points.min, max: p.points.max })}
                       </p>
                       {p.etoilesMax !== null && (
-                        <p className="mt-0.5 flex items-center gap-1 text-sm text-craie-400">
-                          <Star size={12} aria-hidden className="fill-current text-or-400" />
+                        <p className="mt-0.5 flex items-center gap-1 text-sm text-chalk-400">
+                          <Star size={12} aria-hidden className="fill-current text-gold-400" />
                           {t("pages.rangs.etoilesParDivision", { n: p.etoilesMax })}
                         </p>
                       )}
                       <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
                         {bans !== null && (
-                          <span className="biseau-sm bg-azur-500/15 px-2 py-0.5 text-azur-400">
+                          <span className="bevel-sm bg-azure-500/15 px-2 py-0.5 text-azure-400">
                             {t("pages.rangs.draft", { n: bans })}
                           </span>
                         )}
                         {p.mesure && (
                           <Link
                             href={cheminTierList(p.mesure)}
-                            className="font-semibold text-or-400 transition-colors hover:text-or-500"
+                            className="font-semibold text-gold-400 transition-colors hover:text-gold-500"
                           >
                             {t("pages.rangs.lienTierList", { rang: t(`rangsMesure.${p.mesure}`) })} →
                           </Link>
@@ -208,7 +208,7 @@ export default async function PageRangs({ params }: Params) {
               );
             })}
           </ol>
-          <p className="mt-4 max-w-3xl text-sm text-craie-500">{t("pages.rangs.echelleNote")}</p>
+          <p className="mt-4 max-w-3xl text-sm text-chalk-500">{t("pages.rangs.echelleNote")}</p>
         </section>
 
         <section id="tableau" aria-labelledby="tableau-titre" className="scroll-mt-20">
@@ -217,7 +217,7 @@ export default async function PageRangs({ params }: Params) {
           </TitreBloc>
           <div className="mt-6 relative overflow-x-auto">
             <table className="w-full min-w-[40rem] text-left text-sm">
-              <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
+              <thead className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
                 <tr>
                   <th scope="col" className="py-2 pr-4 font-medium">{t("pages.rangs.colRang")}</th>
                   <th scope="col" className="py-2 pr-4 font-medium">{t("pages.rangs.colDivisions")}</th>
@@ -232,7 +232,7 @@ export default async function PageRangs({ params }: Params) {
                   const p = palierDeFamille(f);
                   const r = REGLES_FAMILLE[f];
                   return (
-                    <tr key={f} className="border-b border-nuit-800">
+                    <tr key={f} className="border-b border-night-800">
                       <th scope="row" className="py-2.5 pr-4">
                         <span className="flex items-center gap-2">
                           <Embleme palier={p} taille={28} />
@@ -241,24 +241,24 @@ export default async function PageRangs({ params }: Params) {
                           </span>
                         </span>
                       </th>
-                      <td className="py-2.5 pr-4 text-craie-200">{p.divisions.length ? p.divisions.join(" · ") : "—"}</td>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-200">
+                      <td className="py-2.5 pr-4 text-chalk-200">{p.divisions.length ? p.divisions.join(" · ") : "—"}</td>
+                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">
                         {p.etoilesMax ?? t("pages.rangs.pointsAuLieu")}
                       </td>
-                      <td className="py-2.5 pr-4 text-craie-200">
+                      <td className="py-2.5 pr-4 text-chalk-200">
                         {r.bans === null ? t("pages.rangs.sansDraft") : t("pages.rangs.bans", { n: r.bans })}
                       </td>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-200">
+                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">
                         {r.pointsMontee === null ? "—" : entier.format(r.pointsMontee)}
                       </td>
-                      <td className="py-2.5 tabular-nums text-craie-200">{entier.format(r.pointsProtection)}</td>
+                      <td className="py-2.5 tabular-nums text-chalk-200">{entier.format(r.pointsProtection)}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
           </div>
-          <p className="mt-3 max-w-3xl text-sm text-craie-500">{t("pages.rangs.tableauNote")}</p>
+          <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.rangs.tableauNote")}</p>
         </section>
 
         <section id="mythique" aria-labelledby="mythique-titre" className="scroll-mt-20">
@@ -277,10 +277,10 @@ export default async function PageRangs({ params }: Params) {
               <li key={p.cle}>
                 <Carte className="flex h-full flex-col items-center text-center">
                   <Embleme palier={p} taille={64} />
-                  <h3 className="mt-2 font-titre text-lg font-bold" style={{ color: apparencePalier(p).couleur }}>
+                  <h3 className="mt-2 font-heading text-lg font-bold" style={{ color: apparencePalier(p).couleur }}>
                     {nomPalier(t, p.cle)}
                   </h3>
-                  <p className="text-sm tabular-nums text-craie-300">
+                  <p className="text-sm tabular-nums text-chalk-300">
                     {p.points!.max === null
                       ? t("pages.rangs.pointsPlus", { min: p.points!.min })
                       : t("pages.rangs.pointsEntre", { min: p.points!.min, max: p.points!.max })}
@@ -289,7 +289,7 @@ export default async function PageRangs({ params }: Params) {
               </li>
             ))}
           </ol>
-          <p className="mt-4 max-w-3xl text-sm text-craie-400">{t("pages.rangs.mythiquePieces")}</p>
+          <p className="mt-4 max-w-3xl text-sm text-chalk-400">{t("pages.rangs.mythiquePieces")}</p>
         </section>
 
         <section id="heros" aria-labelledby="heros-titre" className="scroll-mt-20">
@@ -307,27 +307,27 @@ export default async function PageRangs({ params }: Params) {
                     {palier ? (
                       <Embleme palier={palier} taille={36} />
                     ) : (
-                      <span aria-hidden className="grid size-9 place-items-center text-or-400">
+                      <span aria-hidden className="grid size-9 place-items-center text-gold-400">
                         <Swords size={24} />
                       </span>
                     )}
-                    <h3 className="font-titre text-lg font-bold text-craie-100">{t(`rangsMesure.${r}`)}</h3>
+                    <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`rangsMesure.${r}`)}</h3>
                   </div>
                   <ol className="mt-3 flex-1 space-y-1.5">
                     {liste.map((e, i) => (
                       <li key={e.heros.slug}>
                         <Link href={`/heroes/${e.heros.slug}`} className="group flex items-center gap-3">
-                          <span className="w-4 text-right text-xs tabular-nums text-craie-500">{i + 1}</span>
+                          <span className="w-4 text-right text-xs tabular-nums text-chalk-500">{i + 1}</span>
                           <PortraitHeros
                             source={e.heros.visuels.icone ?? e.heros.visuels.portrait}
                             nom={e.heros.nom}
                             taille="petite"
                             decoratif
                           />
-                          <span className="min-w-0 flex-1 truncate font-medium text-craie-200 transition-colors group-hover:text-or-400">
+                          <span className="min-w-0 flex-1 truncate font-medium text-chalk-200 transition-colors group-hover:text-gold-400">
                             {e.heros.nom}
                           </span>
-                          <span className="text-sm tabular-nums text-craie-300">
+                          <span className="text-sm tabular-nums text-chalk-300">
                             <span className="sr-only">{t("pages.rangs.victoire")} </span>
                             {pourcentage(locale, e.victoire)}
                           </span>
@@ -337,7 +337,7 @@ export default async function PageRangs({ params }: Params) {
                   </ol>
                   <Link
                     href={cheminTierList(r)}
-                    className="mt-4 text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+                    className="mt-4 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
                   >
                     {r === "all"
                       ? t("pages.rangs.lienTierListTous")
@@ -349,30 +349,30 @@ export default async function PageRangs({ params }: Params) {
             })}
           </div>
           {auSommet.length > 0 && (
-            <p className="mt-4 max-w-3xl leading-relaxed text-craie-300">
+            <p className="mt-4 max-w-3xl leading-relaxed text-chalk-300">
               {t("pages.rangs.herosEcart", { noms: listeNoms(locale, auSommet), rang: t("rangsMesure.glory") })}
             </p>
           )}
-          <p className="mt-3 max-w-3xl text-sm text-craie-500">{t("pages.rangs.herosNote")}</p>
+          <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.rangs.herosNote")}</p>
         </section>
 
         <section id="saison" aria-labelledby="saison-titre" className="scroll-mt-20">
           <TitreBloc id="saison">{t("pages.rangs.saisonTitre")}</TitreBloc>
-          <div className="mt-4 max-w-3xl space-y-3 leading-relaxed text-craie-300">
+          <div className="mt-4 max-w-3xl space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.rangs.remise1")}</p>
             <p>{t("pages.rangs.remise2")}</p>
             <p>{t("pages.rangs.parcours")}</p>
             <p>
-              <Link href="/tools/server-time" className="font-semibold text-or-400 transition-colors hover:text-or-500">
+              <Link href="/tools/server-time" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                 {t("pages.rangs.lienHeure")} →
               </Link>
             </p>
           </div>
 
-          <h3 className="mt-8 font-titre text-xl font-bold text-craie-100">{t("pages.rangs.recompensesTitre")}</h3>
+          <h3 className="mt-8 font-heading text-xl font-bold text-chalk-100">{t("pages.rangs.recompensesTitre")}</h3>
           <div className="mt-3 relative overflow-x-auto">
             <table className="w-full min-w-[32rem] text-left text-sm">
-              <thead className="border-b border-nuit-700 text-xs uppercase tracking-wide text-craie-500">
+              <thead className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
                 <tr>
                   <th scope="col" className="py-2 pr-4 font-medium">{t("pages.rangs.colRangFinal")}</th>
                   <th scope="col" className="py-2 pr-4 font-medium">{t("pages.rangs.colPointsBataille")}</th>
@@ -385,7 +385,7 @@ export default async function PageRangs({ params }: Params) {
                 {RECOMPENSES_SAISON.map((r) => {
                   const p = palierDeFamille(r.famille);
                   return (
-                    <tr key={r.famille} className="border-b border-nuit-800">
+                    <tr key={r.famille} className="border-b border-night-800">
                       <th scope="row" className="py-2.5 pr-4">
                         <span className="flex items-center gap-2">
                           <Embleme palier={p} taille={28} />
@@ -394,36 +394,36 @@ export default async function PageRangs({ params }: Params) {
                           </span>
                         </span>
                       </th>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-200">{entier.format(r.pointsBataille)}</td>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-200">{entier.format(r.tickets)}</td>
-                      <td className="py-2.5 pr-4 tabular-nums text-craie-200">
+                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">{entier.format(r.pointsBataille)}</td>
+                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">{entier.format(r.tickets)}</td>
+                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">
                         {r.fragments === null ? "—" : entier.format(r.fragments)}
                       </td>
-                      <td className="py-2.5 text-craie-200">{r.embleme ? t("pages.rangs.emote") : "—"}</td>
+                      <td className="py-2.5 text-chalk-200">{r.embleme ? t("pages.rangs.emote") : "—"}</td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
           </div>
-          <p className="mt-3 max-w-3xl text-sm text-craie-500">{t("pages.rangs.recompensesNote")}</p>
+          <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.rangs.recompensesNote")}</p>
         </section>
 
-        <section aria-labelledby="sources-titre" className="border-t border-nuit-800 pt-6 text-sm text-craie-500">
-          <h2 id="sources-titre" className="font-semibold text-craie-300">{t("pages.rangs.sourcesTitre")}</h2>
+        <section aria-labelledby="sources-titre" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.rangs.sourcesTitre")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
-              <a href={SOURCES_RANGS.classe} rel="noopener" className="underline transition-colors hover:text-or-400">
+              <a href={SOURCES_RANGS.classe} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.rangs.sourceClasse")}
               </a>
             </li>
             <li>
-              <a href={SOURCES_RANGS.recompenses} rel="noopener" className="underline transition-colors hover:text-or-400">
+              <a href={SOURCES_RANGS.recompenses} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.rangs.sourceRecompenses")}
               </a>
             </li>
             <li>
-              <a href={SOURCES_RANGS.table} rel="noopener" className="underline transition-colors hover:text-or-400">
+              <a href={SOURCES_RANGS.table} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.rangs.sourceTable")}
               </a>
             </li>

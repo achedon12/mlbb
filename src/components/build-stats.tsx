@@ -104,8 +104,8 @@ export function BuildStats({
     <div className="space-y-6">
       {GROUPS.map((g) => (
         <section key={g.key}>
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-craie-500">{t(`pages.buildSimulatorUI.groups.${g.key}`)}</h3>
-          <ul className="mt-1.5 divide-y divide-nuit-800 border-y border-nuit-800">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-chalk-500">{t(`pages.buildSimulatorUI.groups.${g.key}`)}</h3>
+          <ul className="mt-1.5 divide-y divide-night-800 border-y border-night-800">
             {g.stats.map((key) => {
               const s = stats[key];
               const fromItems = s.sources.filter((x) => x.origin === "item" || x.origin === "passive" || x.origin === "conversion");
@@ -119,41 +119,41 @@ export function BuildStats({
                     <summary
                       className={cn(
                         "flex min-h-11 cursor-pointer list-none items-center gap-2 py-1.5 text-sm [&::-webkit-details-marker]:hidden",
-                        idle ? "text-craie-500" : "text-craie-200",
+                        idle ? "text-chalk-500" : "text-chalk-200",
                       )}
                     >
-                      <ChevronDown size={14} aria-hidden className="shrink-0 text-craie-600 transition-transform group-open:rotate-180" />
+                      <ChevronDown size={14} aria-hidden className="shrink-0 text-chalk-600 transition-transform group-open:rotate-180" />
                       <span className="min-w-0 flex-1">{t(`pages.buildSimulatorUI.stats.${key}`)}</span>
                       {capped && (
-                        <span className="shrink-0 bg-or-500/15 px-1.5 py-0.5 text-[0.65rem] uppercase tracking-wide text-or-400">
+                        <span className="shrink-0 bg-gold-500/15 px-1.5 py-0.5 text-[0.65rem] uppercase tracking-wide text-gold-400">
                           {t("pages.buildSimulatorUI.capped")}
                         </span>
                       )}
-                      <span className={cn("shrink-0 font-titre text-base font-bold tabular-nums", idle ? "text-craie-500" : "text-craie-100")}>
+                      <span className={cn("shrink-0 font-heading text-base font-bold tabular-nums", idle ? "text-chalk-500" : "text-chalk-100")}>
                         {format(key, s.value)}
                       </span>
                     </summary>
-                    <div className="mb-2 ml-5 space-y-1 border-l border-nuit-700 pl-3 text-xs text-craie-400">
+                    <div className="mb-2 ml-5 space-y-1 border-l border-night-700 pl-3 text-xs text-chalk-400">
                       <p className="flex justify-between gap-3">
                         <span>
                           {key === "hpRegen"
                             ? t("pages.buildSimulatorUI.baseLevel1")
                             : t("pages.buildSimulatorUI.base", { level: result.level })}
                         </span>
-                        <span className="tabular-nums text-craie-200">
+                        <span className="tabular-nums text-chalk-200">
                           {s.base === null ? t("pages.buildSimulatorUI.baseUnknown") : format(key, s.base)}
                         </span>
                       </p>
                       <p className="flex justify-between gap-3">
                         <span>{t("pages.buildSimulatorUI.fromItems")}</span>
-                        <span className="tabular-nums text-craie-200">{formatAdded(key, sum(fromItems))}</span>
+                        <span className="tabular-nums text-chalk-200">{formatAdded(key, sum(fromItems))}</span>
                       </p>
                       <p className="flex justify-between gap-3">
                         <span>{t("pages.buildSimulatorUI.fromEmblem")}</span>
-                        <span className="tabular-nums text-craie-200">{formatAdded(key, sum(fromEmblem))}</span>
+                        <span className="tabular-nums text-chalk-200">{formatAdded(key, sum(fromEmblem))}</span>
                       </p>
                       {s.sources.length > 0 && (
-                        <ul className="space-y-0.5 pt-1 text-craie-500">
+                        <ul className="space-y-0.5 pt-1 text-chalk-500">
                           {s.sources.map((x, i) => (
                             <li key={`${x.origin}-${x.key}-${i}`} className="flex justify-between gap-3">
                               <span className="min-w-0">{sourceName(x)}</span>
@@ -163,7 +163,7 @@ export function BuildStats({
                         </ul>
                       )}
                       {capped && (
-                        <p className="text-or-400">
+                        <p className="text-gold-400">
                           {t("pages.buildSimulatorUI.capDetail", { cap: format(key, s.cap), raw: format(key, s.raw) })}
                         </p>
                       )}
@@ -177,31 +177,31 @@ export function BuildStats({
       ))}
 
       <section>
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-craie-500">{t("pages.buildSimulatorUI.derived")}</h3>
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-chalk-500">{t("pages.buildSimulatorUI.derived")}</h3>
         <dl className="mt-1.5 grid grid-cols-1 gap-2 min-[380px]:grid-cols-3">
-          <div className="border border-nuit-800 bg-nuit-900/60 p-2.5">
-            <dt className="text-xs text-craie-500">{t("pages.buildSimulatorUI.gold")}</dt>
-            <dd className="font-titre text-lg font-bold tabular-nums text-or-400">{whole.format(result.gold)}</dd>
+          <div className="border border-night-800 bg-night-900/60 p-2.5">
+            <dt className="text-xs text-chalk-500">{t("pages.buildSimulatorUI.gold")}</dt>
+            <dd className="font-heading text-lg font-bold tabular-nums text-gold-400">{whole.format(result.gold)}</dd>
             {result.discountedGold !== null && (
-              <dd className="text-xs text-craie-400">
+              <dd className="text-xs text-chalk-400">
                 {t("pages.buildSimulatorUI.goldDiscounted", { gold: whole.format(result.discountedGold) })}
               </dd>
             )}
           </div>
-          <div className="border border-nuit-800 bg-nuit-900/60 p-2.5">
-            <dt className="text-xs text-craie-500">{t("pages.buildSimulatorUI.effectiveHpPhysical")}</dt>
-            <dd className="font-titre text-lg font-bold tabular-nums text-craie-100">{format("hp", result.effectiveHp.physical)}</dd>
+          <div className="border border-night-800 bg-night-900/60 p-2.5">
+            <dt className="text-xs text-chalk-500">{t("pages.buildSimulatorUI.effectiveHpPhysical")}</dt>
+            <dd className="font-heading text-lg font-bold tabular-nums text-chalk-100">{format("hp", result.effectiveHp.physical)}</dd>
           </div>
-          <div className="border border-nuit-800 bg-nuit-900/60 p-2.5">
-            <dt className="text-xs text-craie-500">{t("pages.buildSimulatorUI.effectiveHpMagic")}</dt>
-            <dd className="font-titre text-lg font-bold tabular-nums text-craie-100">{format("hp", result.effectiveHp.magic)}</dd>
+          <div className="border border-night-800 bg-night-900/60 p-2.5">
+            <dt className="text-xs text-chalk-500">{t("pages.buildSimulatorUI.effectiveHpMagic")}</dt>
+            <dd className="font-heading text-lg font-bold tabular-nums text-chalk-100">{format("hp", result.effectiveHp.magic)}</dd>
           </div>
         </dl>
-        <p className="mt-1.5 text-xs leading-relaxed text-craie-500">{t("pages.buildSimulatorUI.effectiveHpHelp")}</p>
+        <p className="mt-1.5 text-xs leading-relaxed text-chalk-500">{t("pages.buildSimulatorUI.effectiveHpHelp")}</p>
 
         {!compact && (
-          <div className="mt-4 border border-nuit-800 bg-nuit-900/60 p-3">
-            <label htmlFor={defenseId} className="text-xs text-craie-400">
+          <div className="mt-4 border border-night-800 bg-night-900/60 p-3">
+            <label htmlFor={defenseId} className="text-xs text-chalk-400">
               {t("pages.buildSimulatorUI.targetDefense")}
             </label>
             <input
@@ -213,10 +213,10 @@ export function BuildStats({
               onChange={(e) => setDefense(e.target.value)}
               aria-invalid={!defenseValid || undefined}
               aria-describedby={`${defenseId}-help`}
-              className="biseau-sm mt-1 block h-11 w-28 border border-nuit-700 bg-nuit-900 px-3 tabular-nums text-craie-100 outline-none focus:border-or-500 aria-invalid:border-sang-500/70"
+              className="bevel-sm mt-1 block h-11 w-28 border border-night-700 bg-night-900 px-3 tabular-nums text-chalk-100 outline-none focus:border-gold-500 aria-invalid:border-blood-500/70"
             />
             {defenseValid ? (
-              <ul className="mt-2 space-y-1 text-sm text-craie-300" aria-live="polite">
+              <ul className="mt-2 space-y-1 text-sm text-chalk-300" aria-live="polite">
                 <li>
                   {t("pages.buildSimulatorUI.physicalShare", {
                     share: percent.format(share("physicalPenPercent", "physicalPenFlat")),
@@ -231,9 +231,9 @@ export function BuildStats({
                 </li>
               </ul>
             ) : (
-              <p className="mt-2 text-sm text-sang-500">{t("pages.buildSimulatorUI.invalidDefense")}</p>
+              <p className="mt-2 text-sm text-blood-500">{t("pages.buildSimulatorUI.invalidDefense")}</p>
             )}
-            <p id={`${defenseId}-help`} className="mt-2 text-xs leading-relaxed text-craie-500">
+            <p id={`${defenseId}-help`} className="mt-2 text-xs leading-relaxed text-chalk-500">
               {t("pages.buildSimulatorUI.shareHelp")}
             </p>
           </div>
@@ -241,12 +241,12 @@ export function BuildStats({
       </section>
 
       {result.conflicts.length > 0 && (
-        <section className="border border-sang-500/40 bg-sang-500/5 p-3">
-          <h3 className="flex items-center gap-2 text-sm font-semibold text-craie-100">
-            <AlertTriangle size={16} aria-hidden className="text-sang-500" />
+        <section className="border border-blood-500/40 bg-blood-500/5 p-3">
+          <h3 className="flex items-center gap-2 text-sm font-semibold text-chalk-100">
+            <AlertTriangle size={16} aria-hidden className="text-blood-500" />
             {t("pages.buildSimulatorUI.conflicts")}
           </h3>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-craie-300">
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-chalk-300">
             {result.conflicts.map((c, i) => (
               <li key={i}>
                 {c.type === "passive"
@@ -265,8 +265,8 @@ export function BuildStats({
 
       {(result.uncomputed.length > 0 || result.others.length > 0 || result.resourceIgnored) && (
         <section>
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-craie-500">{t("pages.buildSimulatorUI.notComputed")}</h3>
-          <ul className="mt-1.5 space-y-1 text-xs leading-relaxed text-craie-400">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-chalk-500">{t("pages.buildSimulatorUI.notComputed")}</h3>
+          <ul className="mt-1.5 space-y-1 text-xs leading-relaxed text-chalk-400">
             {result.uncomputed.length > 0 && (
               <li>
                 {t("pages.buildSimulatorUI.conditionalPassives", {
@@ -289,7 +289,7 @@ export function BuildStats({
       )}
 
       {!compact && (
-        <ul className="space-y-1 border-t border-nuit-800 pt-3 text-xs leading-relaxed text-craie-500">
+        <ul className="space-y-1 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
           {notes.map((n) => (
             <li key={n}>{n}</li>
           ))}

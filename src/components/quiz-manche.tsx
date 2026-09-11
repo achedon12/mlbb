@@ -47,8 +47,8 @@ interface Indice {
 
 const COULEUR_ACCORD: Record<Accord, string> = {
   oui: "border-emerald-500/60 bg-emerald-500/15 text-emerald-300",
-  partiel: "border-or-500/60 bg-or-500/15 text-or-400",
-  non: "border-sang-500/50 bg-sang-500/10 text-sang-500",
+  partiel: "border-gold-500/60 bg-gold-500/15 text-gold-400",
+  non: "border-blood-500/50 bg-blood-500/10 text-blood-500",
 };
 
 function listeRoles(h: HerosQuiz, t: T) {
@@ -114,7 +114,7 @@ function Pastille({ accord, libelle, valeur, t }: { accord: Accord; libelle: str
   const Icone = accord === "oui" ? Check : accord === "partiel" ? null : X;
   return (
     <span
-      className={cn("biseau-sm inline-flex items-center gap-1 border px-1.5 py-0.5 text-[0.7rem]", COULEUR_ACCORD[accord])}
+      className={cn("bevel-sm inline-flex items-center gap-1 border px-1.5 py-0.5 text-[0.7rem]", COULEUR_ACCORD[accord])}
     >
       {Icone ? <Icone size={12} aria-hidden /> : <span aria-hidden>≈</span>}
       {valeur ?? libelle}
@@ -131,7 +131,7 @@ function PastilleSens({ sens, valeur, famille, t }: { sens: Sens; valeur: string
   const Icone = sens === "plus" ? ArrowUp : sens === "moins" ? ArrowDown : sens === "egal" ? Check : null;
   return (
     <span
-      className={cn("biseau-sm inline-flex items-center gap-1 border px-1.5 py-0.5 text-[0.7rem]", COULEUR_ACCORD[accord])}
+      className={cn("bevel-sm inline-flex items-center gap-1 border px-1.5 py-0.5 text-[0.7rem]", COULEUR_ACCORD[accord])}
       title={t(`pages.quizUI.${famille}.${sens}`)}
     >
       {valeur}
@@ -213,14 +213,14 @@ export function MancheQuiz({
         section, il rognait la liste de suggestions du champ et masquait la
         fenetre « Parcourir les heros », pourtant en position fixe.
       */}
-      <div aria-hidden className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-900/60" />
+      <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
       <div className="relative">
-      <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-craie-500">
+      <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-chalk-500">
         <span>
           {etiquette} · {t(`pages.quizUI.types.${manche.type}`)}
         </span>
         {manche.type !== "duel" && !finie && (
-          <span className="tabular-nums text-craie-300">
+          <span className="tabular-nums text-chalk-300">
             {t("pages.quizUI.essaisRestants", { n: essaisMax(manche) - essais.length })}
           </span>
         )}
@@ -228,7 +228,7 @@ export function MancheQuiz({
       <h3
         ref={refTitre}
         tabIndex={-1}
-        className="mt-2 font-titre text-xl font-bold text-craie-100 outline-none sm:text-2xl"
+        className="mt-2 font-heading text-xl font-bold text-chalk-100 outline-none sm:text-2xl"
       >
         {t(`pages.quizUI.questions.${manche.type}`)}
       </h3>
@@ -243,18 +243,18 @@ export function MancheQuiz({
         <>
           {indices.length > 0 && (
             <div className="mt-5">
-              <h4 className="text-xs uppercase tracking-wide text-craie-500">
+              <h4 className="text-xs uppercase tracking-wide text-chalk-500">
                 {t("pages.quizUI.indicesTitre", { n: visibles, max: indices.length })}
               </h4>
               <ol className="mt-2 space-y-1.5">
                 {indices.map((ind, i) =>
                   i < visibles ? (
-                    <li key={ind.cle} className="border-l-2 border-or-500/60 pl-3 text-sm leading-relaxed text-craie-200">
-                      <span className="font-semibold text-or-400">{t(`pages.quizUI.indices.${ind.cle}`)} : </span>
+                    <li key={ind.cle} className="border-l-2 border-gold-500/60 pl-3 text-sm leading-relaxed text-chalk-200">
+                      <span className="font-semibold text-gold-400">{t(`pages.quizUI.indices.${ind.cle}`)} : </span>
                       {ind.contenu}
                     </li>
                   ) : (
-                    <li key={ind.cle} className="flex items-center gap-2 pl-3 text-xs text-craie-600">
+                    <li key={ind.cle} className="flex items-center gap-2 pl-3 text-xs text-chalk-600">
                       <Lock size={12} aria-hidden />
                       {t("pages.quizUI.indiceVerrouille", { n: i + 1 })}
                     </li>
@@ -280,7 +280,7 @@ export function MancheQuiz({
                   <button
                     type="button"
                     onClick={() => setRoster(true)}
-                    className="biseau-sm flex flex-1 items-center justify-center gap-1.5 border border-nuit-600 px-3 py-2 text-sm text-craie-300 transition-colors hover:border-or-500 hover:text-or-400"
+                    className="bevel-sm flex flex-1 items-center justify-center gap-1.5 border border-night-600 px-3 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400"
                   >
                     <LayoutGrid size={15} aria-hidden />
                     {t("pages.quizUI.parcourir")}
@@ -289,7 +289,7 @@ export function MancheQuiz({
                 <button
                   type="button"
                   onClick={() => onEssai(ABANDON)}
-                  className="biseau-sm flex flex-1 items-center justify-center gap-1.5 border border-nuit-600 px-3 py-2 text-sm text-craie-500 transition-colors hover:border-sang-500 hover:text-sang-500"
+                  className="bevel-sm flex flex-1 items-center justify-center gap-1.5 border border-night-600 px-3 py-2 text-sm text-chalk-500 transition-colors hover:border-blood-500 hover:text-blood-500"
                 >
                   <Flag size={15} aria-hidden />
                   {t("pages.quizUI.passer")}
@@ -310,12 +310,12 @@ export function MancheQuiz({
                   <li
                     key={slug}
                     className={cn(
-                      "biseau-sm flex flex-wrap items-center gap-2 border px-2 py-1.5",
-                      bon ? "border-emerald-500/60 bg-emerald-500/10" : "border-nuit-700/70 bg-nuit-950/40",
+                      "bevel-sm flex flex-wrap items-center gap-2 border px-2 py-1.5",
+                      bon ? "border-emerald-500/60 bg-emerald-500/10" : "border-night-700/70 bg-night-950/40",
                     )}
                   >
                     <PortraitHeros source={essai.icone} nom={essai.nom} taille="petite" decoratif />
-                    <span className={cn("mr-auto text-sm font-medium", bon ? "text-emerald-300" : "text-craie-100")}>
+                    <span className={cn("mr-auto text-sm font-medium", bon ? "text-emerald-300" : "text-chalk-100")}>
                       {essai.nom}
                     </span>
                     {bon ? (
@@ -344,7 +344,7 @@ export function MancheQuiz({
       )}
 
       {manche.type === "duel" && (
-        <p className="mt-4 text-xs text-craie-500">
+        <p className="mt-4 text-xs text-chalk-500">
           {t("pages.quizUI.duelSource", {
             date: new Intl.DateTimeFormat(LOCALE_HTML[langue], { dateStyle: "long", timeZone: "UTC" }).format(
               new Date(mesure),
@@ -428,14 +428,14 @@ function Enonce({
         alt={t("pages.quizUI.altCompetence")}
         width={80}
         height={80}
-        className="biseau-sm size-20 bg-nuit-800"
+        className="bevel-sm size-20 bg-night-800"
       />
     );
   }
   if (manche.type === "skin") {
     const zoom = finie ? 1 : ZOOMS[Math.min(nbErreurs, ZOOMS.length - 1)];
     return (
-      <div className="biseau relative aspect-video w-full overflow-hidden border border-nuit-700 bg-nuit-800">
+      <div className="bevel relative aspect-video w-full overflow-hidden border border-night-700 bg-night-800">
         <Image
           src={manche.image}
           alt={t(finie ? "pages.quizUI.altSkinEntier" : "pages.quizUI.altSkin")}
@@ -450,21 +450,21 @@ function Enonce({
   }
   if (manche.type === "histoire") {
     return (
-      <blockquote className="border-l-2 border-or-500 pl-4 leading-relaxed text-craie-200">
+      <blockquote className="border-l-2 border-gold-500 pl-4 leading-relaxed text-chalk-200">
         {manche.extraits[0]}
       </blockquote>
     );
   }
   if (manche.type === "objet") {
     return (
-      <div className="biseau-sm border border-nuit-700 bg-nuit-950/50 p-4">
-        <ul className="space-y-1 text-sm text-craie-100">
+      <div className="bevel-sm border border-night-700 bg-night-950/50 p-4">
+        <ul className="space-y-1 text-sm text-chalk-100">
           {manche.bonus.split(/,\s*(?=[+-])/).map((b) => (
             <li key={b}>{b}</li>
           ))}
         </ul>
         {manche.prix !== null && (
-          <p className="mt-3 text-sm font-semibold text-or-400">
+          <p className="mt-3 text-sm font-semibold text-gold-400">
             {t("pages.quizUI.prixObjet", { prix: formatPrix.format(manche.prix) })}
           </p>
         )}
@@ -492,26 +492,26 @@ function Resultat({
   return (
     <div
       className={cn(
-        "biseau mt-5 flex flex-wrap items-center gap-4 border p-4",
-        trouve ? "border-emerald-500/60 bg-emerald-500/10" : "border-sang-500/50 bg-sang-500/10",
+        "bevel mt-5 flex flex-wrap items-center gap-4 border p-4",
+        trouve ? "border-emerald-500/60 bg-emerald-500/10" : "border-blood-500/50 bg-blood-500/10",
       )}
     >
       <PortraitHeros source={cible.icone} nom={cible.nom} taille="vignette" decoratif />
       <div className="min-w-0 flex-1">
-        <p className={cn("text-sm font-semibold", trouve ? "text-emerald-300" : "text-sang-500")}>
+        <p className={cn("text-sm font-semibold", trouve ? "text-emerald-300" : "text-blood-500")}>
           {trouve ? t("pages.quizUI.trouve", { n: essais, max: essaisMax(manche) }) : t("pages.quizUI.rate")}
         </p>
-        <p className="font-titre text-xl font-bold text-craie-100">{cible.nom}</p>
+        <p className="font-heading text-xl font-bold text-chalk-100">{cible.nom}</p>
         {manche.type === "skin" && (
-          <p className="text-sm text-craie-300">{t("pages.quizUI.skinNom", { nom: manche.skin })}</p>
+          <p className="text-sm text-chalk-300">{t("pages.quizUI.skinNom", { nom: manche.skin })}</p>
         )}
         {manche.type === "competence" && (
-          <p className="text-sm text-craie-300">{t("pages.quizUI.competenceNom", { nom: manche.nom })}</p>
+          <p className="text-sm text-chalk-300">{t("pages.quizUI.competenceNom", { nom: manche.nom })}</p>
         )}
       </div>
       <Link
         href={objet ? `/items#${cible.slug}` : `/heroes/${cible.slug}`}
-        className="text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+        className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
       >
         {t(objet ? "pages.quizUI.voirObjet" : "pages.quizUI.voirFiche")} →
       </Link>
@@ -544,7 +544,7 @@ function Duel({
         return (
           <li key={`${paire[0].slug}-${paire[1].slug}`}>
             {manche.paires.length > 1 && (
-              <p className="mb-1.5 text-xs uppercase tracking-wide text-craie-500">
+              <p className="mb-1.5 text-xs uppercase tracking-wide text-chalk-500">
                 {t("pages.quizUI.paire", { n: i + 1, max: manche.paires.length })}
               </p>
             )}
@@ -561,18 +561,18 @@ function Duel({
                     aria-pressed={repondu ? choisi : undefined}
                     onClick={() => onEssai(d.slug)}
                     className={cn(
-                      "biseau-sm flex flex-col items-center gap-2 border p-3 text-center transition-colors",
-                      !repondu && "border-nuit-600 hover:border-or-500 hover:bg-nuit-850",
+                      "bevel-sm flex flex-col items-center gap-2 border p-3 text-center transition-colors",
+                      !repondu && "border-night-600 hover:border-gold-500 hover:bg-night-850",
                       repondu && gagnant && "border-emerald-500/60 bg-emerald-500/10",
-                      repondu && !gagnant && "border-nuit-700/70 opacity-80",
-                      repondu && choisi && !gagnant && "border-sang-500/60 bg-sang-500/10",
+                      repondu && !gagnant && "border-night-700/70 opacity-80",
+                      repondu && choisi && !gagnant && "border-blood-500/60 bg-blood-500/10",
                     )}
                   >
                     <PortraitHeros source={h?.icone ?? null} nom={h?.nom ?? d.slug} taille="vignette" decoratif />
-                    <span className="font-titre text-base font-bold text-craie-100">{h?.nom ?? d.slug}</span>
+                    <span className="font-heading text-base font-bold text-chalk-100">{h?.nom ?? d.slug}</span>
                     {repondu && (
                       <span
-                        className={cn("text-sm tabular-nums", gagnant ? "text-emerald-300" : "text-craie-400")}
+                        className={cn("text-sm tabular-nums", gagnant ? "text-emerald-300" : "text-chalk-400")}
                       >
                         {t("pages.quizUI.victoire", { taux: formatTaux.format(d.victoire) })}
                       </span>

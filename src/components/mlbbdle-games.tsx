@@ -51,7 +51,7 @@ const BACKGROUND: Record<Verdict, string> = {
   match: "border-emerald-400/60 bg-emerald-700 text-white",
   partial: "border-orange-400/60 bg-orange-700 text-white",
   miss: "border-red-400/40 bg-red-800 text-white",
-  unknown: "border-nuit-600 bg-nuit-700 text-craie-300",
+  unknown: "border-night-600 bg-night-700 text-chalk-300",
 };
 
 /** A cell's flip: declared here since only this grid uses it. */
@@ -102,7 +102,7 @@ function HeroInput({
       <button
         type="button"
         onClick={() => setBrowsing(true)}
-        className="biseau-sm flex min-h-11 items-center justify-center gap-1.5 border border-nuit-600 px-3 py-2 text-sm text-craie-300 transition-colors hover:border-or-500 hover:text-or-400"
+        className="bevel-sm flex min-h-11 items-center justify-center gap-1.5 border border-night-600 px-3 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400"
       >
         <LayoutGrid size={15} aria-hidden />
         {t("pages.mlbbdleUI.browse")}
@@ -145,16 +145,16 @@ function Board({
   const t = useT();
   return (
     <section className="relative p-4 sm:p-6">
-      <div aria-hidden className="biseau absolute inset-0 border border-nuit-700/70 bg-nuit-900/60" />
+      <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
       <div className="relative">
-        <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-craie-500">
+        <div className="flex flex-wrap items-baseline justify-between gap-2 text-xs uppercase tracking-wide text-chalk-500">
           <span>{label}</span>
-          <span className="tabular-nums text-craie-300">{t("pages.mlbbdleUI.guesses", { n: guesses })}</span>
+          <span className="tabular-nums text-chalk-300">{t("pages.mlbbdleUI.guesses", { n: guesses })}</span>
         </div>
         <h3
           ref={titleRef}
           tabIndex={-1}
-          className="mt-2 font-titre text-xl font-bold text-craie-100 outline-none sm:text-2xl"
+          className="mt-2 font-heading text-xl font-bold text-chalk-100 outline-none sm:text-2xl"
         >
           {question}
         </h3>
@@ -216,7 +216,7 @@ export function ClassicGame({
       {!found && !over && (
         <div className="mt-4">
           <HeroInput catalogue={catalogue} excluded={excluded} onPick={onGuess} />
-          {guesses.length === 0 && <p className="mt-3 text-sm text-craie-400">{t("pages.mlbbdleUI.classicHelp")}</p>}
+          {guesses.length === 0 && <p className="mt-3 text-sm text-chalk-400">{t("pages.mlbbdleUI.classicHelp")}</p>}
         </div>
       )}
       {guesses.length > 0 && <ClassicGrid guesses={guesses} target={target} catalogue={catalogue} />}
@@ -249,14 +249,14 @@ function ClassicGrid({
         <caption className="sr-only">{t("pages.mlbbdleUI.gridCaption")}</caption>
         <thead>
           <tr>
-            <th scope="col" className="px-1 pb-1 align-bottom text-[0.65rem] font-medium uppercase tracking-wide text-craie-500">
+            <th scope="col" className="px-1 pb-1 align-bottom text-[0.65rem] font-medium uppercase tracking-wide text-chalk-500">
               {t("pages.mlbbdleUI.heroColumn")}
             </th>
             {COLUMNS.map((c) => (
               <th
                 key={c}
                 scope="col"
-                className="px-1 pb-1 align-bottom text-[0.65rem] font-medium uppercase leading-tight tracking-wide text-craie-500"
+                className="px-1 pb-1 align-bottom text-[0.65rem] font-medium uppercase leading-tight tracking-wide text-chalk-500"
               >
                 {t(`pages.mlbbdleUI.columns.${c}`)}
               </th>
@@ -276,12 +276,12 @@ function ClassicGrid({
                   scope="row"
                   className={cn(
                     "h-[4.5rem] w-[4.5rem] min-w-[4.5rem] border p-1 align-middle font-normal",
-                    winner ? BACKGROUND.match : "border-nuit-600 bg-nuit-950/60",
+                    winner ? BACKGROUND.match : "border-night-600 bg-night-950/60",
                   )}
                 >
                   <span className="flex flex-col items-center gap-0.5">
                     <PortraitHeros source={h.icon} nom={h.name} taille="icone" decoratif />
-                    <span className="block max-w-[4rem] truncate text-[0.62rem] leading-tight text-craie-100">{h.name}</span>
+                    <span className="block max-w-[4rem] truncate text-[0.62rem] leading-tight text-chalk-100">{h.name}</span>
                   </span>
                 </th>
                 {COLUMNS.map((c, j) => {
@@ -375,23 +375,23 @@ export function SkillGame({
           width={96}
           height={96}
           className={cn(
-            "biseau-sm size-24 shrink-0 bg-nuit-800 transition-[filter] duration-700",
+            "bevel-sm size-24 shrink-0 bg-night-800 transition-[filter] duration-700",
             !unlocked.has("colour") && "grayscale",
           )}
         />
         <div className="min-w-0 flex-1">
-          <h4 className="text-xs uppercase tracking-wide text-craie-500">{t("pages.mlbbdleUI.cluesTitle")}</h4>
+          <h4 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.mlbbdleUI.cluesTitle")}</h4>
           <ol className="mt-2 space-y-1.5">
             {clues.map((clue) =>
               unlocked.has(clue.key) ? (
-                <li key={clue.key} className="border-l-2 border-or-500/60 pl-3 text-sm leading-relaxed text-craie-200">
+                <li key={clue.key} className="border-l-2 border-gold-500/60 pl-3 text-sm leading-relaxed text-chalk-200">
                   {/* A dash rather than a colon: its spacing does not depend on the language. */}
-                  <span className="font-semibold text-or-400">{t(`pages.mlbbdleUI.clues.${clue.key}`)}</span>
+                  <span className="font-semibold text-gold-400">{t(`pages.mlbbdleUI.clues.${clue.key}`)}</span>
                   {" — "}
                   {content(clue.key)}
                 </li>
               ) : (
-                <li key={clue.key} className="flex items-center gap-2 pl-3 text-xs text-craie-500">
+                <li key={clue.key} className="flex items-center gap-2 pl-3 text-xs text-chalk-500">
                   <Lock size={12} aria-hidden />
                   {t("pages.mlbbdleUI.lockedClue", {
                     clue: t(`pages.mlbbdleUI.clues.${clue.key}`),
@@ -420,8 +420,8 @@ export function SkillGame({
               <li
                 key={slug}
                 className={cn(
-                  "biseau-sm flex items-center gap-2 border py-1 pl-1 pr-2.5 text-sm",
-                  right ? BACKGROUND.match : "border-red-400/40 bg-red-800/40 text-craie-100",
+                  "bevel-sm flex items-center gap-2 border py-1 pl-1 pr-2.5 text-sm",
+                  right ? BACKGROUND.match : "border-red-400/40 bg-red-800/40 text-chalk-100",
                 )}
               >
                 <PortraitHeros source={h.icon} nom={h.name} taille="petite" decoratif />

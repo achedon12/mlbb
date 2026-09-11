@@ -81,7 +81,7 @@ export function PortraitVitrine({
   const source = actif.portrait ?? portraitDefaut;
 
   return (
-    <span className="biseau-sm relative h-40 w-28 shrink-0 overflow-hidden bg-nuit-800">
+    <span className="bevel-sm relative h-40 w-28 shrink-0 overflow-hidden bg-night-800">
       {source ? (
         <Image
           src={source}
@@ -92,7 +92,7 @@ export function PortraitVitrine({
           className="object-cover transition-opacity"
         />
       ) : (
-        <span className="grid size-full place-items-center font-titre text-3xl font-bold text-craie-500">
+        <span className="grid size-full place-items-center font-heading text-3xl font-bold text-chalk-500">
           {nom.slice(0, 2).toUpperCase()}
         </span>
       )}
@@ -115,7 +115,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
       {/* Legende des raretes presentes. */}
       <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
         {raretesPresentes(skins.map((s) => s.rarete)).map((r) => (
-          <li key={r.nom} className="flex items-center gap-1.5 text-xs text-craie-500">
+          <li key={r.nom} className="flex items-center gap-1.5 text-xs text-chalk-500">
             <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.couleur }} />
             {tr("skinRarete", r.cle)}
           </li>
@@ -127,7 +127,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
         informations se posent dessus. Choisir un skin change ce fond — c'est
         toute la vitrine en une seule surface, sans image detachee.
       */}
-      <div className="biseau relative mt-5 overflow-hidden border border-nuit-700/70">
+      <div className="bevel relative mt-5 overflow-hidden border border-night-700/70">
         {actif.illustration ? (
           <Image
             key={actif.id}
@@ -154,7 +154,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
         )}
         {/* Voile lateral : les informations restent lisibles a gauche,
             l'illustration respire a droite. */}
-        <div className="absolute inset-0 bg-linear-to-r from-nuit-950 via-nuit-950/85 to-nuit-950/20" />
+        <div className="absolute inset-0 bg-linear-to-r from-night-950 via-night-950/85 to-night-950/20" />
         <span
           aria-hidden
           className="absolute inset-y-0 left-0 w-1"
@@ -163,7 +163,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
 
         <div className="relative flex min-h-72 flex-col justify-end gap-4 p-6 sm:min-h-80 sm:max-w-md">
           <div>
-            <h3 className="font-titre text-3xl font-bold leading-none text-craie-100">
+            <h3 className="font-heading text-3xl font-bold leading-none text-chalk-100">
               {actif.nom}
             </h3>
             {actif.rarete && (
@@ -185,15 +185,15 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
           {Object.entries(actif.prix).length > 0 && (
             <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
               {Object.entries(actif.prix).map(([m, v]) => (
-                <li key={m} className="text-craie-100">
-                  {v} <span className="text-craie-500">{MONNAIES[m] ? t(`skinsUI.${MONNAIES[m]}`) : m}</span>
+                <li key={m} className="text-chalk-100">
+                  {v} <span className="text-chalk-500">{MONNAIES[m] ? t(`skinsUI.${MONNAIES[m]}`) : m}</span>
                 </li>
               ))}
             </ul>
           )}
 
           {!actif.sortie && !actif.disponibilite && Object.keys(actif.prix).length === 0 && (
-            <p className="text-sm text-craie-500">{t("skinsUI.origine")}</p>
+            <p className="text-sm text-chalk-500">{t("skinsUI.origine")}</p>
           )}
         </div>
       </div>
@@ -214,9 +214,9 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
                   borderColor: r.couleur,
                   boxShadow: selectionne ? `0 0 0 2px ${r.halo}, 0 0 12px ${r.halo}` : undefined,
                 }}
-                className="biseau-sm relative block w-full overflow-hidden border-2 transition-shadow"
+                className="bevel-sm relative block w-full overflow-hidden border-2 transition-shadow"
               >
-                <span className="relative block aspect-[240/390] bg-nuit-800">
+                <span className="relative block aspect-[240/390] bg-night-800">
                   {s.portrait ? (
                     <Image
                       src={s.portrait}
@@ -227,10 +227,10 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
                     />
                   ) : null}
                   {!selectionne && (
-                    <span aria-hidden className="absolute inset-0 bg-nuit-950/30" />
+                    <span aria-hidden className="absolute inset-0 bg-night-950/30" />
                   )}
                 </span>
-                <span className="block truncate bg-nuit-900 px-1.5 py-1 text-[0.6rem] leading-tight text-craie-300">
+                <span className="block truncate bg-night-900 px-1.5 py-1 text-[0.6rem] leading-tight text-chalk-300">
                   {s.nom}
                 </span>
               </button>
@@ -245,8 +245,8 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
 function Info({ label, valeur }: { label: string; valeur: string }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wide text-craie-500">{label}</dt>
-      <dd className="mt-0.5 text-craie-100">{valeur}</dd>
+      <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
+      <dd className="mt-0.5 text-chalk-100">{valeur}</dd>
     </div>
   );
 }

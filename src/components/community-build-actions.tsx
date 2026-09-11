@@ -37,11 +37,11 @@ export function VoteButton({
 
   if (own || !signedIn) {
     return (
-      <span className="inline-flex min-h-11 items-center gap-2 text-sm text-craie-300">
-        <ThumbsUp size={16} aria-hidden className="text-craie-500" />
+      <span className="inline-flex min-h-11 items-center gap-2 text-sm text-chalk-300">
+        <ThumbsUp size={16} aria-hidden className="text-chalk-500" />
         <span className="tabular-nums">{t("pages.communityBuildsUI.votes", { n: state.votes })}</span>
         {!own && (
-          <Link href="/login" className="text-or-400 underline underline-offset-4 hover:text-or-500">
+          <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
             {t("pages.communityBuildsUI.signInToVote")}
           </Link>
         )}
@@ -78,8 +78,8 @@ export function VoteButton({
         disabled={busy}
         onClick={toggle}
         className={cn(
-          "biseau-sm flex min-h-11 items-center gap-2 px-3 text-sm font-semibold transition-colors disabled:opacity-60",
-          state.voted ? "bg-or-500 text-nuit-950 hover:bg-or-400" : "border border-nuit-700 text-craie-200 hover:border-or-500/60",
+          "bevel-sm flex min-h-11 items-center gap-2 px-3 text-sm font-semibold transition-colors disabled:opacity-60",
+          state.voted ? "bg-gold-500 text-night-950 hover:bg-gold-400" : "border border-night-700 text-chalk-200 hover:border-gold-500/60",
         )}
       >
         <ThumbsUp size={16} aria-hidden />
@@ -87,7 +87,7 @@ export function VoteButton({
         <span className="tabular-nums">{state.votes}</span>
       </button>
       {error && (
-        <span role="alert" className="mt-1 text-xs text-sang-500">
+        <span role="alert" className="mt-1 text-xs text-blood-500">
           {error}
         </span>
       )}
@@ -127,13 +127,13 @@ export function DeleteBuildButton({ id, hero }: { id: string; hero: string }) {
         type="button"
         onClick={remove}
         disabled={busy}
-        className="flex min-h-11 items-center gap-2 border border-sang-500/50 px-3 text-sm text-craie-200 transition-colors hover:border-sang-500 hover:text-craie-100 disabled:opacity-60"
+        className="flex min-h-11 items-center gap-2 border border-blood-500/50 px-3 text-sm text-chalk-200 transition-colors hover:border-blood-500 hover:text-chalk-100 disabled:opacity-60"
       >
         <Trash2 size={16} aria-hidden />
         {t("pages.communityBuildsUI.delete")}
       </button>
       {error && (
-        <span role="alert" className="mt-1 text-xs text-sang-500">
+        <span role="alert" className="mt-1 text-xs text-blood-500">
           {error}
         </span>
       )}
@@ -208,27 +208,27 @@ export function PublishBuild({ build }: { build: BuildCode }) {
   }
 
   const field =
-    "biseau-sm mt-1 block w-full border border-nuit-700 bg-nuit-900 px-3 text-sm text-craie-100 outline-none transition-colors focus:border-or-500";
+    "bevel-sm mt-1 block w-full border border-night-700 bg-night-900 px-3 text-sm text-chalk-100 outline-none transition-colors focus:border-gold-500";
 
   return (
     <section aria-labelledby="publish-title" className="space-y-3">
-      <h2 id="publish-title" className="font-titre text-xl font-bold text-craie-100">
+      <h2 id="publish-title" className="font-heading text-xl font-bold text-chalk-100">
         {t("pages.communityBuildsUI.publishTitle")}
       </h2>
       {session === null ? (
-        <p className="text-sm text-craie-500">{t("pages.communityBuildsUI.checkingSession")}</p>
+        <p className="text-sm text-chalk-500">{t("pages.communityBuildsUI.checkingSession")}</p>
       ) : !session.connecte ? (
-        <p className="text-sm text-craie-300">
+        <p className="text-sm text-chalk-300">
           {t("pages.communityBuildsUI.signInToPublish")}{" "}
-          <Link href="/login" className="text-or-400 underline underline-offset-4 hover:text-or-500">
+          <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
             {t("pages.communityBuildsUI.signIn")}
           </Link>
         </p>
       ) : (
         <form onSubmit={submit} className="space-y-3">
-          <p className="text-xs text-craie-500">{t("pages.communityBuildsUI.publishAs", { name: session.pseudo ?? "" })}</p>
+          <p className="text-xs text-chalk-500">{t("pages.communityBuildsUI.publishAs", { name: session.pseudo ?? "" })}</p>
           <div>
-            <label htmlFor={titleId} className="flex justify-between text-xs text-craie-400">
+            <label htmlFor={titleId} className="flex justify-between text-xs text-chalk-400">
               <span>{t("pages.communityBuildsUI.titleLabel")}</span>
               <span className="tabular-nums">
                 {[...title].length}/{TITLE_MAX}
@@ -246,7 +246,7 @@ export function PublishBuild({ build }: { build: BuildCode }) {
             />
           </div>
           <div>
-            <label htmlFor={notesId} className="flex justify-between text-xs text-craie-400">
+            <label htmlFor={notesId} className="flex justify-between text-xs text-chalk-400">
               <span>{t("pages.communityBuildsUI.notesLabel")}</span>
               <span className="tabular-nums">
                 {[...notes].length}/{NOTES_MAX}
@@ -261,26 +261,26 @@ export function PublishBuild({ build }: { build: BuildCode }) {
               className={cn(field, "py-2")}
             />
           </div>
-          <p className="text-xs leading-relaxed text-craie-500">{t("pages.communityBuildsUI.rules")}</p>
-          {!ready && <p className="text-sm text-craie-400">{t("pages.communityBuildsUI.needHeroAndItem")}</p>}
+          <p className="text-xs leading-relaxed text-chalk-500">{t("pages.communityBuildsUI.rules")}</p>
+          {!ready && <p className="text-sm text-chalk-400">{t("pages.communityBuildsUI.needHeroAndItem")}</p>}
           <button
             type="submit"
             disabled={!ready || status.type === "sending"}
-            className="biseau-sm flex h-11 items-center gap-2 bg-or-500 px-4 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400 disabled:opacity-50"
+            className="bevel-sm flex h-11 items-center gap-2 bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-50"
           >
             <Send size={16} aria-hidden />
             {status.type === "sending" ? t("pages.communityBuildsUI.publishing") : t("pages.communityBuildsUI.publish")}
           </button>
           {status.type === "done" && (
-            <p role="status" className="text-sm text-craie-200">
+            <p role="status" className="text-sm text-chalk-200">
               {t("pages.communityBuildsUI.published")}{" "}
-              <Link href={`/builds/${status.hero}/${status.id}`} className="text-or-400 underline underline-offset-4 hover:text-or-500">
+              <Link href={`/builds/${status.hero}/${status.id}`} className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
                 {t("pages.communityBuildsUI.viewBuild")}
               </Link>
             </p>
           )}
           {status.type === "error" && (
-            <p role="alert" className="text-sm text-sang-500">
+            <p role="alert" className="text-sm text-blood-500">
               {status.message}
             </p>
           )}

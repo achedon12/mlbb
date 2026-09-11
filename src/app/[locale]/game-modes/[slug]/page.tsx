@@ -42,8 +42,8 @@ function rendreElements(elements: SectionMode["elements"]) {
     blocs.push(
       <ul key={`ul-${cle}`} className="space-y-2.5">
         {liste.map((texte, i) => (
-          <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-craie-300">
-            <span aria-hidden className="mt-2 size-1 shrink-0 bg-or-500" />
+          <li key={i} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
+            <span aria-hidden className="mt-2 size-1 shrink-0 bg-gold-500" />
             {texte}
           </li>
         ))}
@@ -58,7 +58,7 @@ function rendreElements(elements: SectionMode["elements"]) {
     } else {
       viderListe(i);
       blocs.push(
-        <p key={`p-${i}`} className="text-sm leading-relaxed text-craie-300">
+        <p key={`p-${i}`} className="text-sm leading-relaxed text-chalk-300">
           {e.texte}
         </p>,
       );
@@ -93,7 +93,7 @@ export default async function PageMode({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
 
       {/* Banniere de tete, reprenant l'accent du mode. */}
-      <div className="relative isolate overflow-hidden border-b border-nuit-700/70">
+      <div className="relative isolate overflow-hidden border-b border-night-700/70">
         <div
           aria-hidden
           className="absolute inset-0 -z-20"
@@ -110,7 +110,7 @@ export default async function PageMode({ params }: Params) {
             className="pointer-events-none absolute -right-10 top-1/2 -z-10 h-[150%] w-auto -translate-y-1/2 object-contain opacity-25 blur-[1px] sm:opacity-30"
           />
         )}
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-nuit-950/90 via-nuit-950/50 to-transparent" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950/90 via-night-950/50 to-transparent" />
 
         <div className="mx-auto max-w-4xl px-4 py-12">
           <FilAriane
@@ -122,17 +122,17 @@ export default async function PageMode({ params }: Params) {
               },
             ]}
           />
-          <p className="mt-6 font-titre text-xs font-bold uppercase tracking-[0.2em]" style={{ color: clair }}>
+          <p className="mt-6 font-heading text-xs font-bold uppercase tracking-[0.2em]" style={{ color: clair }}>
             {t(`modeFiche.${slug}.accroche`)}
           </p>
-          <h1 className="mt-2 font-titre text-4xl font-bold text-craie-100 sm:text-5xl">{mode.nom}</h1>
-          <p className="mt-4 max-w-2xl leading-relaxed text-craie-200">{t(`modeFiche.${slug}.texte`)}</p>
+          <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100 sm:text-5xl">{mode.nom}</h1>
+          <p className="mt-4 max-w-2xl leading-relaxed text-chalk-200">{t(`modeFiche.${slug}.texte`)}</p>
         </div>
       </div>
 
       <article className="mx-auto max-w-3xl px-4 py-12">
         {mode.description && mode.description !== t(`modeFiche.${slug}.texte`) && (
-          <p className="mb-10 border-l-2 pl-4 leading-relaxed text-craie-300" style={{ borderColor: clair }}>
+          <p className="mb-10 border-l-2 pl-4 leading-relaxed text-chalk-300" style={{ borderColor: clair }}>
             {mode.description}
           </p>
         )}
@@ -141,17 +141,17 @@ export default async function PageMode({ params }: Params) {
           <div className="space-y-10">
             {mode.sections.map((section) => (
               <section key={section.titre}>
-                <h2 className="font-titre text-xl font-bold text-craie-100">{section.titre}</h2>
-                <div aria-hidden className="filet-or mt-2 h-0.5 w-12" />
+                <h2 className="font-heading text-xl font-bold text-chalk-100">{section.titre}</h2>
+                <div aria-hidden className="gold-rule mt-2 h-0.5 w-12" />
                 <div className="mt-4 space-y-4">{rendreElements(section.elements)}</div>
               </section>
             ))}
           </div>
         ) : (
-          <p className="leading-relaxed text-craie-500">{t("pages.modeDetail.nonDocumente")}</p>
+          <p className="leading-relaxed text-chalk-500">{t("pages.modeDetail.nonDocumente")}</p>
         )}
 
-        <CreditWiki t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500" />
+        <CreditWiki t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500" />
       </article>
     </>
   );

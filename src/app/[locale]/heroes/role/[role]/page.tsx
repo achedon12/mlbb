@@ -115,13 +115,13 @@ export default async function PageRole({ params }: Params) {
       <div className="mx-auto max-w-5xl px-4 py-12">
         <Link
           href={cheminFiltre({ type: "role", valeur: role })}
-          className="biseau-sm inline-flex items-center gap-2 bg-or-500 px-4 py-2 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+          className="bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
           {t("pages.heroesRole.voirTierList", r)} →
         </Link>
 
         <nav aria-label={t("pages.heroesRole.autresRoles")} className="mb-8 mt-6 flex flex-wrap items-center gap-2">
-          <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-craie-500">
+          <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-chalk-500">
             {t("pages.heroesRole.autresRoles")}
           </span>
           {ROLES.map((x) => (
@@ -139,16 +139,16 @@ export default async function PageRole({ params }: Params) {
         <ul className="space-y-1.5">
           {liste.map((e) => (
             <li key={e.heros.slug}>
-              <Link href={`/heroes/${e.heros.slug}`} className="ligne-tier">
+              <Link href={`/heroes/${e.heros.slug}`} className="tier-row">
                 <PortraitHeros
                   source={e.heros.visuels.icone ?? e.heros.visuels.portrait}
                   nom={e.heros.nom}
                   taille="icone"
                   decoratif
                 />
-                <div className="ligne-tier-identite sm:w-auto sm:flex-1">
-                  <span className="ligne-tier-nom">{e.heros.nom}</span>
-                  <span className="ligne-tier-lanes">
+                <div className="tier-row-identity sm:w-auto sm:flex-1">
+                  <span className="tier-row-name">{e.heros.nom}</span>
+                  <span className="tier-row-lanes">
                     {e.heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}
                   </span>
                 </div>
@@ -160,9 +160,9 @@ export default async function PageRole({ params }: Params) {
                     </span>
                   </>
                 ) : (
-                  <span className="text-xs text-craie-500">{t("pages.heroesRole.nonMesure")}</span>
+                  <span className="text-xs text-chalk-500">{t("pages.heroesRole.nonMesure")}</span>
                 )}
-                <dl className="ligne-tier-taux">
+                <dl className="tier-row-rates">
                   <div>
                     <dt>{t("pages.tierList.victoire")}</dt>
                     <dd>{e.victoire === null ? "—" : `${pourcent.format(e.victoire)} %`}</dd>

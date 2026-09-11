@@ -52,9 +52,9 @@ export function HorsLigne() {
     <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex justify-center p-3">
       <p
         role="status"
-        className="biseau-sm pointer-events-auto flex items-center gap-2 border border-or-500/40 bg-nuit-900/95 px-4 py-2 text-sm text-craie-100 shadow-lg shadow-black/40 backdrop-blur-sm"
+        className="bevel-sm pointer-events-auto flex items-center gap-2 border border-gold-500/40 bg-night-900/95 px-4 py-2 text-sm text-chalk-100 shadow-lg shadow-black/40 backdrop-blur-sm"
       >
-        <WifiOff size={16} aria-hidden className="shrink-0 text-or-400" />
+        <WifiOff size={16} aria-hidden className="shrink-0 text-gold-400" />
         {t("horsLigne.bandeau")}
       </p>
     </div>

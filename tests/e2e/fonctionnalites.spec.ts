@@ -54,7 +54,7 @@ test.describe("fiche heros", () => {
 test.describe("sur telephone", () => {
   test.use({ viewport: TELEPHONE });
 
-  test("un objet s'ouvre dans un tiroir qui se referme", async ({ page }) => {
+  test("un objet s'ouvre dans un drawer qui se referme", async ({ page }) => {
     await page.goto("/fr/items");
     await page.getByRole("button", { name: /^war axe/i }).click();
 
@@ -69,7 +69,7 @@ test.describe("sur telephone", () => {
     await expect(tiroir).toBeHidden();
   });
 
-  test("une competence s'ouvre dans un tiroir", async ({ page }) => {
+  test("une competence s'ouvre dans un drawer", async ({ page }) => {
     await page.goto("/fr/heroes/belerick");
     await page.getByRole("tab", { name: /comp[ée]tences/i }).click();
     const tuiles = page.getByRole("tabpanel").getByRole("button", { expanded: false });

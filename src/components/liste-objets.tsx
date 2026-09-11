@@ -161,7 +161,7 @@ export function ListeObjets({
         </div>
       </div>
 
-      <p aria-live="polite" className="mt-6 text-sm text-craie-500">
+      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
         {t("pages.itemsListe.compte", { n: resultats.length })}
         {resultats.length !== objets.length && ` ${t("pages.itemsListe.compteSur", { total: objets.length })}`}
       </p>
@@ -171,36 +171,36 @@ export function ListeObjets({
           {resultats.map((o) => {
             const selectionne = o.slug === objet?.slug;
             return (
-              <li key={o.slug} className="hors-ecran">
+              <li key={o.slug} className="offscreen">
                 <button
                   type="button"
                   id={o.slug}
                   onClick={() => selectionner(selectionne ? null : o.slug)}
                   aria-pressed={selectionne}
                   className={cn(
-                    "biseau-sm flex h-full w-full flex-col items-center gap-1.5 border p-2 text-center transition-colors",
+                    "bevel-sm flex h-full w-full flex-col items-center gap-1.5 border p-2 text-center transition-colors",
                     selectionne
-                      ? "border-or-500 bg-or-500/10"
-                      : "border-nuit-700/70 bg-nuit-900/60 hover:border-or-500/50",
+                      ? "border-gold-500 bg-gold-500/10"
+                      : "border-night-700/70 bg-night-900/60 hover:border-gold-500/50",
                   )}
                 >
                   <span className="relative size-11 shrink-0">
                     {o.image ? (
                       <Image src={o.image} alt="" width={44} height={44} className="size-full object-contain" />
                     ) : (
-                      <span className="grid size-full place-items-center bg-nuit-800 text-[0.6rem] text-craie-500">
+                      <span className="grid size-full place-items-center bg-night-800 text-[0.6rem] text-chalk-500">
                         —
                       </span>
                     )}
                   </span>
-                  <span className="text-xs font-medium leading-tight text-craie-100">
+                  <span className="text-xs font-medium leading-tight text-chalk-100">
                     {o.nom}
                   </span>
                   {o.prix !== null && (
                     // L'unite est ecrite en toutes lettres : un nombre nu sous
                     // une icone d'objet se lit comme un niveau ou une quantite,
                     // pas comme un prix.
-                    <span className="text-xs tabular-nums text-or-400">
+                    <span className="text-xs tabular-nums text-gold-400">
                       {o.prix.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
                     </span>
                   )}
@@ -214,7 +214,7 @@ export function ListeObjets({
           {objet ? (
             <FicheObjet objet={objet} catalogue={catalogue} />
           ) : (
-            <p className="biseau border border-dashed border-nuit-700 p-5 text-sm leading-relaxed text-craie-500">
+            <p className="bevel border border-dashed border-night-700 p-5 text-sm leading-relaxed text-chalk-500">
               {t("pages.itemsListe.choisir")}
             </p>
           )}
@@ -248,7 +248,7 @@ function FicheObjet({
   const langue = useLangue();
   const utilisateurs = catalogue.utilisePar[objet.slug] ?? [];
   return (
-            <div className={cn("p-5", !sansCadre && "biseau border border-nuit-700/70 bg-nuit-900/60")}>
+            <div className={cn("p-5", !sansCadre && "bevel border border-night-700/70 bg-night-900/60")}>
               <div className="flex items-start gap-3">
                 {objet.image && (
                   <span className="relative size-14 shrink-0">
@@ -256,18 +256,18 @@ function FicheObjet({
                   </span>
                 )}
                 <div className="min-w-0">
-                  <h2 className="font-titre text-lg font-bold leading-tight text-craie-100">
+                  <h2 className="font-heading text-lg font-bold leading-tight text-chalk-100">
                     {objet.nom}
                   </h2>
                   {objet.resume && (
-                    <p className="mt-0.5 text-xs uppercase tracking-wide text-craie-500">
+                    <p className="mt-0.5 text-xs uppercase tracking-wide text-chalk-500">
                       {objet.resume}
                     </p>
                   )}
                   {objet.prix !== null && (
-                    <p className="mt-1 text-sm text-craie-500">
+                    <p className="mt-1 text-sm text-chalk-500">
                       {t("pages.itemsListe.prix")}{" "}
-                      <span className="font-titre text-or-400">
+                      <span className="font-heading text-gold-400">
                         {objet.prix.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
                       </span>
                     </p>
@@ -280,13 +280,13 @@ function FicheObjet({
                 <RecetteObjet objet={objet} catalogue={catalogue} t={t} langue={langue} vers={versAncre} />
                 {utilisateurs.length > 0 && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-craie-500">{t("pages.itemsListe.utilisePar")}</dt>
+                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.utilisePar")}</dt>
                     <dd className="mt-2 flex flex-wrap gap-1.5">
                       {utilisateurs.map((slug) => (
                         <Link
                           key={slug}
                           href={`/heroes/${slug}`}
-                          className="biseau-sm group flex items-center gap-1.5 border border-nuit-700/70 bg-nuit-900/60 py-1 pl-1 pr-2 transition-colors hover:border-or-500/60"
+                          className="bevel-sm group flex items-center gap-1.5 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2 transition-colors hover:border-gold-500/60"
                         >
                           <PortraitHeros
                             source={catalogue.heros[slug]?.portrait ?? null}
@@ -294,11 +294,11 @@ function FicheObjet({
                             taille="micro"
                             decoratif
                           />
-                          <span className="text-xs text-craie-300 group-hover:text-or-400">{catalogue.heros[slug]?.nom ?? slug}</span>
+                          <span className="text-xs text-chalk-300 group-hover:text-gold-400">{catalogue.heros[slug]?.nom ?? slug}</span>
                         </Link>
                       ))}
                     </dd>
-                    <p className="mt-1.5 text-xs text-craie-500">{t("pages.itemsListe.utiliseParAide")}</p>
+                    <p className="mt-1.5 text-xs text-chalk-500">{t("pages.itemsListe.utiliseParAide")}</p>
                   </div>
                 )}
               </dl>
@@ -306,7 +306,7 @@ function FicheObjet({
               {/* La page de l'objet ajoute ce que la fiche ne peut pas tenir : taux par heros et par rang. */}
               <Link
                 href={`/items/${objet.slug}`}
-                className="mt-5 inline-block text-sm font-semibold text-or-400 underline underline-offset-4 hover:text-or-500"
+                className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
               >
                 {t("pages.itemsListe.pageComplete")} →
               </Link>

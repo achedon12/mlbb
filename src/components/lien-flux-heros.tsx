@@ -13,7 +13,7 @@ export function LienFluxHeros({ langue, slug }: { langue: Langue; slug: string }
     <a
       href={`/${langue}/heroes/${slug}/feed.xml`}
       type="application/rss+xml"
-      className="inline-flex items-center gap-1.5 text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+      className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
     >
       <Rss size={15} aria-hidden />
       {t("pages.heroDetail.statistiques.flux")}

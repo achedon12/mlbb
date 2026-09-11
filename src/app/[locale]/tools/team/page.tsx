@@ -36,7 +36,7 @@ export default async function PageEquipe({ params }: Params) {
       <EnTetePage titre={t("pages.equipe.titre")} chapeau={t("pages.equipe.chapeau")}>
         <Link
           href="/draft"
-          className="mt-5 inline-block text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+          className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
         >
           {t("pages.equipe.lienDraft")} →
         </Link>
@@ -48,7 +48,7 @@ export default async function PageEquipe({ params }: Params) {
           libellesDegats={{ physical: degats("physical"), magic: degats("magic"), mixed: degats("mixed") }}
         />
 
-        <p className="mt-14 border-t border-nuit-800 pt-6 text-sm leading-relaxed text-craie-500">
+        <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">
           {t("pages.equipe.note")}
         </p>
       </div>

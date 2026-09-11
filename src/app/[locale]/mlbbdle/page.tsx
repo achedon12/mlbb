@@ -38,8 +38,8 @@ export default async function MlbbdlePage({ params }: Params) {
     "@type": ["WebApplication", "Game"],
     genre: "Puzzle",
   };
-  const h2 = "font-titre text-2xl font-bold text-craie-100";
-  const link = "font-semibold text-or-400 transition-colors hover:text-or-500";
+  const h2 = "font-heading text-2xl font-bold text-chalk-100";
+  const link = "font-semibold text-gold-400 transition-colors hover:text-gold-500";
   const thresholds = Object.fromEntries(SKILL_CLUES.map((c) => [c.key, c.threshold]));
 
   return (
@@ -59,21 +59,21 @@ export default async function MlbbdlePage({ params }: Params) {
           <h2 id="how-to-play" className={h2}>
             {t("pages.mlbbdle.rulesTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-craie-300">
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-chalk-300">
             <li>{t("pages.mlbbdle.rule1")}</li>
             <li>{t("pages.mlbbdle.rule2")}</li>
             <li>{t("pages.mlbbdle.rule3", { days: WINDOW })}</li>
             <li>{t("pages.mlbbdle.rule4")}</li>
           </ul>
-          <h3 className="mt-6 font-semibold text-craie-100">{t("pages.mlbbdle.coloursTitle")}</h3>
-          <ul className="mt-3 grid gap-2 text-sm text-craie-300 sm:grid-cols-2">
+          <h3 className="mt-6 font-semibold text-chalk-100">{t("pages.mlbbdle.coloursTitle")}</h3>
+          <ul className="mt-3 grid gap-2 text-sm text-chalk-300 sm:grid-cols-2">
             {(
               [
                 ["match", "bg-emerald-700"],
                 ["partial", "bg-orange-700"],
                 ["miss", "bg-red-800"],
-                ["unknown", "bg-nuit-700"],
+                ["unknown", "bg-night-700"],
               ] as const
             ).map(([verdict, background]) => (
               <li key={verdict} className="flex items-start gap-3">
@@ -94,12 +94,12 @@ export default async function MlbbdlePage({ params }: Params) {
           <h2 id="columns" className={h2}>
             {t("pages.mlbbdle.columnsTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-4 grid gap-4 sm:grid-cols-2">
             {COLUMNS.map((c) => (
               <div key={c}>
-                <dt className="font-semibold text-craie-100">{t(`pages.mlbbdleUI.columns.${c}`)}</dt>
-                <dd className="mt-1 text-sm leading-relaxed text-craie-300">{t(`pages.mlbbdle.columnsDesc.${c}`)}</dd>
+                <dt className="font-semibold text-chalk-100">{t(`pages.mlbbdleUI.columns.${c}`)}</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-chalk-300">{t(`pages.mlbbdle.columnsDesc.${c}`)}</dd>
               </div>
             ))}
           </dl>
@@ -109,15 +109,15 @@ export default async function MlbbdlePage({ params }: Params) {
           <h2 id="modes" className={h2}>
             {t("pages.mlbbdle.modesTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-4 space-y-4">
             <div>
-              <dt className="font-semibold text-craie-100">{t("pages.mlbbdleUI.modes.classic")}</dt>
-              <dd className="mt-1 leading-relaxed text-craie-300">{t("pages.mlbbdle.modesDesc.classic")}</dd>
+              <dt className="font-semibold text-chalk-100">{t("pages.mlbbdleUI.modes.classic")}</dt>
+              <dd className="mt-1 leading-relaxed text-chalk-300">{t("pages.mlbbdle.modesDesc.classic")}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-craie-100">{t("pages.mlbbdleUI.modes.skill")}</dt>
-              <dd className="mt-1 leading-relaxed text-craie-300">
+              <dt className="font-semibold text-chalk-100">{t("pages.mlbbdleUI.modes.skill")}</dt>
+              <dd className="mt-1 leading-relaxed text-chalk-300">
                 {t("pages.mlbbdle.modesDesc.skill", {
                   colour: thresholds.colour,
                   name: thresholds.name,
@@ -127,8 +127,8 @@ export default async function MlbbdlePage({ params }: Params) {
               </dd>
             </div>
             <div>
-              <dt className="font-semibold text-craie-100">{t("pages.mlbbdleUI.modes.practice")}</dt>
-              <dd className="mt-1 leading-relaxed text-craie-300">{t("pages.mlbbdle.modesDesc.practice")}</dd>
+              <dt className="font-semibold text-chalk-100">{t("pages.mlbbdleUI.modes.practice")}</dt>
+              <dd className="mt-1 leading-relaxed text-chalk-300">{t("pages.mlbbdle.modesDesc.practice")}</dd>
             </div>
           </dl>
         </section>
@@ -137,8 +137,8 @@ export default async function MlbbdlePage({ params }: Params) {
           <h2 id="source" className={h2}>
             {t("pages.mlbbdle.sourceTitle")}
           </h2>
-          <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-craie-300">{t("pages.mlbbdle.source")}</p>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.mlbbdle.source")}</p>
           <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <li>
               <Link href="/heroes" className={link}>

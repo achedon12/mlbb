@@ -148,13 +148,13 @@ export default async function PageSkinsHeros({ params }: Params) {
           },
         ]}
       >
-        <div className="mt-6 space-y-3 text-sm text-craie-500">
+        <div className="mt-6 space-y-3 text-sm text-chalk-500">
           {parDispo.size > 0 && (
             <dl className="flex flex-wrap gap-x-5 gap-y-1">
               {[...parDispo].map(([dispo, n]) => (
                 <div key={dispo} className="flex gap-1.5">
                   <dt>{tr("skinDispo", dispo)}</dt>
-                  <dd className="font-semibold tabular-nums text-craie-100">{n}</dd>
+                  <dd className="font-semibold tabular-nums text-chalk-100">{n}</dd>
                 </div>
               ))}
             </dl>
@@ -171,7 +171,7 @@ export default async function PageSkinsHeros({ params }: Params) {
             ))}
           </ul>
           <p>
-            <Link href={`/heroes/${h.slug}`} className="font-semibold text-or-400 underline-offset-4 hover:underline">
+            <Link href={`/heroes/${h.slug}`} className="font-semibold text-gold-400 underline-offset-4 hover:underline">
               ← {t("pages.heroDetail.titreFiche", { nom: h.nom })}
             </Link>
           </p>
@@ -196,7 +196,7 @@ export default async function PageSkinsHeros({ params }: Params) {
                   altPortrait={altPortrait(s.nom)}
                 >
                   <p
-                    className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origine ? "text-craie-500" : ""}`}
+                    className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origine ? "text-chalk-500" : ""}`}
                     style={origine ? undefined : { color: r.couleur }}
                   >
                     {tr("skinRarete", r.cle ?? r.nom)}
@@ -232,7 +232,7 @@ export default async function PageSkinsHeros({ params }: Params) {
                 altIllustration={altIllustration(a.nom)}
                 altPortrait=""
               >
-                <p className="mt-2 text-sm text-craie-500">{t("pages.heroSkins.illustrationSeule")}</p>
+                <p className="mt-2 text-sm text-chalk-500">{t("pages.heroSkins.illustrationSeule")}</p>
               </CarteSkin>
             </li>
           ))}
@@ -240,15 +240,15 @@ export default async function PageSkinsHeros({ params }: Params) {
 
         <nav
           aria-label={t("pages.heroSkins.autres")}
-          className="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-nuit-800 pt-6 text-sm"
+          className="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-night-800 pt-6 text-sm"
         >
-          <Link href={`/heroes/${precedent.slug}/skins`} className="text-craie-300 hover:text-or-400">
+          <Link href={`/heroes/${precedent.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
             ← {titreGalerie(t, locale, precedent.nom)}
           </Link>
-          <Link href="/skins" className="font-semibold text-or-400 hover:text-or-500">
+          <Link href="/skins" className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.skins.titre")}
           </Link>
-          <Link href={`/heroes/${suivant.slug}/skins`} className="text-craie-300 hover:text-or-400">
+          <Link href={`/heroes/${suivant.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
             {titreGalerie(t, locale, suivant.nom)} →
           </Link>
         </nav>
@@ -282,8 +282,8 @@ function CarteSkin({
   children: React.ReactNode;
 }) {
   return (
-    <article className="biseau flex h-full flex-col overflow-hidden border border-nuit-700/70 bg-nuit-900/60">
-      <div className="relative aspect-video bg-nuit-800">
+    <article className="bevel flex h-full flex-col overflow-hidden border border-night-700/70 bg-night-900/60">
+      <div className="relative aspect-video bg-night-800">
         {illustration ? (
           <Image
             src={illustration}
@@ -308,7 +308,7 @@ function CarteSkin({
         <span aria-hidden className="absolute inset-y-0 left-0 w-1" style={{ background: couleur }} />
         {illustration && portrait && (
           <span
-            className="biseau-sm absolute bottom-2 right-2 overflow-hidden border-2 bg-nuit-900"
+            className="bevel-sm absolute bottom-2 right-2 overflow-hidden border-2 bg-night-900"
             style={{ borderColor: couleur }}
           >
             <Image src={portrait} alt={altPortrait} width={56} height={91} className="block h-[5.7rem] w-14 object-cover" />
@@ -316,7 +316,7 @@ function CarteSkin({
         )}
       </div>
       <div className="flex-1 p-4">
-        <h2 className="font-titre text-xl font-bold text-craie-100">{nom}</h2>
+        <h2 className="font-heading text-xl font-bold text-chalk-100">{nom}</h2>
         {children}
       </div>
     </article>
@@ -326,8 +326,8 @@ function CarteSkin({
 function Info({ libelle, children }: { libelle: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wide text-craie-500">{libelle}</dt>
-      <dd className="mt-0.5 text-craie-100">{children}</dd>
+      <dt className="text-xs uppercase tracking-wide text-chalk-500">{libelle}</dt>
+      <dd className="mt-0.5 text-chalk-100">{children}</dd>
     </div>
   );
 }

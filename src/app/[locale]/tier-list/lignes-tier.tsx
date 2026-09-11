@@ -40,42 +40,42 @@ export interface LibellesTier {
 
 export function LignesTier({ lignes, libelles }: { lignes: LigneTier[]; libelles: LibellesTier }) {
   return (
-    <ul className="liste-tier mt-4 space-y-1.5">
+    <ul className="tier-rows mt-4 space-y-1.5">
       {lignes.map((l) => {
         const icone = l.icone === undefined ? iconeHabituelle(l.slug) : l.icone;
         return (
           <li key={l.slug}>
-            <Link href={`/heroes/${l.slug}`} className="ligne-tier">
+            <Link href={`/heroes/${l.slug}`} className="tier-row">
               {icone ? (
                 // Icone deja reduite a la synchronisation (webp de 4 a 10 Ko),
                 // servie telle quelle : next/image y ajoutait ses attributs sur
                 // chaque ligne sans rien gagner. Le nom suit, d'ou l'alt vide.
                 // eslint-disable-next-line @next/next/no-img-element -- fichier deja reduit, servi tel quel (voir plus haut)
-                <img src={icone} alt="" width={40} height={40} loading="lazy" className="ligne-tier-icone" />
+                <img src={icone} alt="" width={40} height={40} loading="lazy" className="tier-row-icon" />
               ) : (
-                <span aria-hidden className="ligne-tier-icone grid place-items-center font-titre text-sm font-bold text-craie-500">
+                <span aria-hidden className="tier-row-icon grid place-items-center font-heading text-sm font-bold text-chalk-500">
                   {initiales(l.nom)}
                 </span>
               )}
 
-              <div className="ligne-tier-identite">
-                <span className="ligne-tier-nom">{l.nom}</span>
+              <div className="tier-row-identity">
+                <span className="tier-row-name">{l.nom}</span>
                 {l.faible && (
-                  <span className="ml-1 text-or-400" title={libelles.tropPeu}>
+                  <span className="ml-1 text-gold-400" title={libelles.tropPeu}>
                     *
                   </span>
                 )}
-                <span className="ligne-tier-lanes">{l.lanes}</span>
+                <span className="tier-row-lanes">{l.lanes}</span>
               </div>
 
               {/* Le taux de victoire, premier, est mis en avant par la feuille de style. */}
-              <dl className="ligne-tier-taux">
+              <dl className="tier-row-rates">
                 <Taux libelle={libelles.victoire} valeur={l.victoire} tendance={l.tendance} />
                 <Taux libelle={libelles.ban} valeur={l.ban} />
                 <Taux libelle={libelles.pick} valeur={l.pick} />
               </dl>
 
-              {l.note && <p className="ligne-tier-note">{l.note}</p>}
+              {l.note && <p className="tier-row-note">{l.note}</p>}
             </Link>
           </li>
         );
@@ -91,7 +91,7 @@ function Taux({ libelle, valeur, tendance }: { libelle: string; valeur: string; 
       <dd>
         {valeur}
         {tendance && (
-          <span className={cn("taux-tier-tendance", tendance.hausse ? "text-emerald-400" : "text-sang-500")}>
+          <span className={cn("tier-rate-trend", tendance.hausse ? "text-emerald-400" : "text-blood-500")}>
             <span aria-hidden>
               {tendance.hausse ? "↑" : "↓"}
               {tendance.texte}

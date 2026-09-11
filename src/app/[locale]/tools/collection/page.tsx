@@ -52,7 +52,7 @@ export default async function PageCollection({ params }: Params) {
       </EnTetePage>
 
       <div className="mx-auto max-w-6xl space-y-12 px-4 py-12">
-        <p role="note" className="biseau-sm max-w-3xl border border-or-500/30 bg-or-500/5 p-4 text-sm leading-relaxed text-craie-200">
+        <p role="note" className="bevel-sm max-w-3xl border border-gold-500/30 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-200">
           {t("pages.collection.avertissement")}
         </p>
 
@@ -60,7 +60,7 @@ export default async function PageCollection({ params }: Params) {
 
         <section className="max-w-3xl">
           <TitreSection>{t("pages.collection.methodeTitre")}</TitreSection>
-          <div className="space-y-4 leading-relaxed text-craie-300">
+          <div className="space-y-4 leading-relaxed text-chalk-300">
             <p>
               {t("pages.collection.methodeHeros", {
                 heros: nombre.format(c.heros),
@@ -77,10 +77,10 @@ export default async function PageCollection({ params }: Params) {
             </p>
             <p>{t("pages.collection.methodeStockage")}</p>
             <p className="flex flex-wrap gap-x-6 gap-y-2">
-              <Link href="/skins/calendar" className="font-semibold text-or-400 hover:text-or-500">
+              <Link href="/skins/calendar" className="font-semibold text-gold-400 hover:text-gold-500">
                 {t("pages.collection.lienCalendrier")} →
               </Link>
-              <Link href="/skins" className="font-semibold text-or-400 hover:text-or-500">
+              <Link href="/skins" className="font-semibold text-gold-400 hover:text-gold-500">
                 {t("pages.collection.lienSkins")} →
               </Link>
             </p>

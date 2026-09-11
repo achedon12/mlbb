@@ -51,9 +51,9 @@ type Mode = DailyMode | "practice";
 const DAILY_MODES: DailyMode[] = ["classic", "skill"];
 
 const primaryButton =
-  "biseau-sm inline-flex min-h-11 items-center justify-center gap-2 bg-or-500 px-4 py-2 font-semibold text-nuit-950 transition-colors hover:bg-or-400";
+  "bevel-sm inline-flex min-h-11 items-center justify-center gap-2 bg-gold-500 px-4 py-2 font-semibold text-night-950 transition-colors hover:bg-gold-400";
 const secondaryButton =
-  "biseau-sm inline-flex min-h-11 items-center justify-center gap-2 border border-nuit-600 px-4 py-2 text-sm text-craie-300 transition-colors hover:border-or-500 hover:text-or-400";
+  "bevel-sm inline-flex min-h-11 items-center justify-center gap-2 border border-night-600 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400";
 
 export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Record<string, string> }) {
   const t = useT();
@@ -159,11 +159,11 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
 
       {mode !== "practice" &&
         (puzzle === null || !day ? (
-          <p role="status" className="py-10 text-center text-sm text-craie-500">
+          <p role="status" className="py-10 text-center text-sm text-chalk-500">
             {t("pages.mlbbdleUI.loading")}
           </p>
         ) : puzzle === "error" ? (
-          <div role="alert" className="biseau border border-sang-500/40 bg-nuit-900/60 p-5 text-sm text-craie-300">
+          <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
             <p>{t("pages.mlbbdleUI.loadError")}</p>
             <button type="button" onClick={() => setAttempt((n) => n + 1)} className={cn(secondaryButton, "mt-3")}>
               {t("pages.mlbbdleUI.retry")}
@@ -228,7 +228,7 @@ function DailyPuzzle({
 
   if (!target) {
     return (
-      <p role="status" className="biseau border border-nuit-700/70 bg-nuit-900/60 p-5 text-sm text-craie-300">
+      <p role="status" className="bevel border border-night-700/70 bg-night-900/60 p-5 text-sm text-chalk-300">
         {t("pages.mlbbdleUI.unavailable")}
       </p>
     );
@@ -325,23 +325,23 @@ function WinPanel({
 
   return (
     <section className="relative p-4 sm:p-6">
-      <div aria-hidden className="biseau absolute inset-0 border border-emerald-500/50 bg-nuit-900/70" />
+      <div aria-hidden className="bevel absolute inset-0 border border-emerald-500/50 bg-night-900/70" />
       <div className="relative">
-        <h3 ref={titleRef} tabIndex={-1} className="font-titre text-2xl font-bold text-craie-100 outline-none">
+        <h3 ref={titleRef} tabIndex={-1} className="font-heading text-2xl font-bold text-chalk-100 outline-none">
           {t("pages.mlbbdleUI.winTitle", { n: guesses.length })}
         </h3>
 
         <div className="mt-4 flex flex-wrap items-center gap-4">
           <PortraitHeros source={target.icon} nom={target.name} taille="vignette" decoratif />
           <div className="min-w-0 flex-1">
-            <p className="font-titre text-xl font-bold text-emerald-300">{target.name}</p>
+            <p className="font-heading text-xl font-bold text-emerald-300">{target.name}</p>
             {mode === "skill" && puzzle.skill && (
-              <p className="text-sm text-craie-300">{t("pages.mlbbdleUI.skillWas", { name: puzzle.skill.name })}</p>
+              <p className="text-sm text-chalk-300">{t("pages.mlbbdleUI.skillWas", { name: puzzle.skill.name })}</p>
             )}
           </div>
           <Link
             href={`/heroes/${target.slug}`}
-            className="inline-flex min-h-11 items-center text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+            className="inline-flex min-h-11 items-center text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
           >
             {t("pages.mlbbdleUI.viewProfile")} →
           </Link>
@@ -359,7 +359,7 @@ function WinPanel({
               <Share2 size={16} aria-hidden />
               {t("pages.mlbbdleUI.share")}
             </button>
-            <p aria-live="polite" className="min-h-5 text-sm text-craie-300">
+            <p aria-live="polite" className="min-h-5 text-sm text-chalk-300">
               {status === "copied"
                 ? t("pages.mlbbdleUI.copied")
                 : status === "shared"
@@ -383,19 +383,19 @@ function WinPanel({
         </div>
 
         {yesterday && (
-          <p className="mt-6 flex flex-wrap items-center gap-2 text-sm text-craie-300">
+          <p className="mt-6 flex flex-wrap items-center gap-2 text-sm text-chalk-300">
             <span>{t("pages.mlbbdleUI.yesterday")}</span>
             <PortraitHeros source={yesterday.icon} nom={yesterday.name} taille="petite" decoratif />
             <Link
               href={`/heroes/${yesterday.slug}`}
-              className="inline-flex min-h-11 items-center font-semibold text-or-400 transition-colors hover:text-or-500"
+              className="inline-flex min-h-11 items-center font-semibold text-gold-400 transition-colors hover:text-gold-500"
             >
               {yesterday.name}
             </Link>
           </p>
         )}
 
-        <h4 className="mt-8 text-xs uppercase tracking-wide text-craie-500">
+        <h4 className="mt-8 text-xs uppercase tracking-wide text-chalk-500">
           {t("pages.mlbbdleUI.statsTitle", { mode: t(`pages.mlbbdleUI.modes.${mode}`) })}
         </h4>
         <dl className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
@@ -407,30 +407,30 @@ function WinPanel({
               ["average", format.format(averageGuesses(stats))],
             ] as const
           ).map(([key, value]) => (
-            <div key={key} className="biseau-sm border border-nuit-700/70 bg-nuit-950/40 p-3 text-center">
-              <dt className="text-[0.7rem] uppercase tracking-wide text-craie-500">{t(`pages.mlbbdleUI.stats.${key}`)}</dt>
-              <dd className="font-titre text-2xl font-bold tabular-nums text-craie-100">{value}</dd>
+            <div key={key} className="bevel-sm border border-night-700/70 bg-night-950/40 p-3 text-center">
+              <dt className="text-[0.7rem] uppercase tracking-wide text-chalk-500">{t(`pages.mlbbdleUI.stats.${key}`)}</dt>
+              <dd className="font-heading text-2xl font-bold tabular-nums text-chalk-100">{value}</dd>
             </div>
           ))}
         </dl>
 
-        <h4 className="mt-6 text-xs uppercase tracking-wide text-craie-500">{t("pages.mlbbdleUI.distribution")}</h4>
+        <h4 className="mt-6 text-xs uppercase tracking-wide text-chalk-500">{t("pages.mlbbdleUI.distribution")}</h4>
         <ol className="mt-2 space-y-1">
           {distribution.map((n, i) => {
             const count = i + 1;
             const countLabel = count === LAST_BUCKET ? `${LAST_BUCKET}+` : String(count);
             return (
               <li key={count} className="flex items-center gap-2 text-xs tabular-nums">
-                <span aria-hidden className="w-8 shrink-0 text-right text-craie-400">
+                <span aria-hidden className="w-8 shrink-0 text-right text-chalk-400">
                   {countLabel}
                 </span>
-                <span aria-hidden className="h-4 flex-1 bg-nuit-800">
+                <span aria-hidden className="h-4 flex-1 bg-night-800">
                   <span
-                    className={cn("block h-full", count === bucket ? "bg-emerald-600" : "bg-nuit-600")}
+                    className={cn("block h-full", count === bucket ? "bg-emerald-600" : "bg-night-600")}
                     style={{ width: `${Math.max(n ? 4 : 0, (n / highest) * 100)}%` }}
                   />
                 </span>
-                <span aria-hidden className="w-8 shrink-0 text-craie-300">
+                <span aria-hidden className="w-8 shrink-0 text-chalk-300">
                   {n}
                 </span>
                 <span className="sr-only">{t("pages.mlbbdleUI.distributionRow", { guesses: countLabel, n })}</span>
@@ -472,8 +472,8 @@ function NextPuzzle({ day, onNewDay }: { day: string; onNewDay: () => void }) {
   const time = `${pad(Math.floor(s / 3600))}:${pad(Math.floor((s % 3600) / 60))}:${pad(s % 60)}`;
   // The text changes every second: kept out of any announced region.
   return (
-    <p className="text-sm text-craie-400">
-      {t("pages.mlbbdleUI.next")} <span className="font-semibold tabular-nums text-craie-100">{time}</span>
+    <p className="text-sm text-chalk-400">
+      {t("pages.mlbbdleUI.next")} <span className="font-semibold tabular-nums text-chalk-100">{time}</span>
     </p>
   );
 }
@@ -607,30 +607,30 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
 
       <dl className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
         <div className="flex gap-1.5">
-          <dt className="text-craie-500">{t("pages.mlbbdleUI.practiceFound")}</dt>
-          <dd className="font-semibold tabular-nums text-craie-100">{record.found}</dd>
+          <dt className="text-chalk-500">{t("pages.mlbbdleUI.practiceFound")}</dt>
+          <dd className="font-semibold tabular-nums text-chalk-100">{record.found}</dd>
         </div>
         <div className="flex gap-1.5">
-          <dt className="text-craie-500">{t("pages.mlbbdleUI.stats.average")}</dt>
-          <dd className="font-semibold tabular-nums text-craie-100">
+          <dt className="text-chalk-500">{t("pages.mlbbdleUI.stats.average")}</dt>
+          <dd className="font-semibold tabular-nums text-chalk-100">
             {record.found ? format.format(record.guesses / record.found) : "—"}
           </dd>
         </div>
         <div className="flex gap-1.5">
-          <dt className="text-craie-500">{t("pages.mlbbdleUI.practiceBest")}</dt>
-          <dd className="font-semibold tabular-nums text-or-400">{record.best ?? "—"}</dd>
+          <dt className="text-chalk-500">{t("pages.mlbbdleUI.practiceBest")}</dt>
+          <dd className="font-semibold tabular-nums text-gold-400">{record.best ?? "—"}</dd>
         </div>
       </dl>
 
       {kind === "skill" && skills === "error" ? (
-        <div role="alert" className="biseau border border-sang-500/40 bg-nuit-900/60 p-5 text-sm text-craie-300">
+        <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
           <p>{t("pages.mlbbdleUI.loadError")}</p>
           <button type="button" onClick={() => setSkills(null)} className={cn(secondaryButton, "mt-3")}>
             {t("pages.mlbbdleUI.retry")}
           </button>
         </div>
       ) : !current || !target ? (
-        <p role="status" className="py-10 text-center text-sm text-craie-500">
+        <p role="status" className="py-10 text-center text-sm text-chalk-500">
           {t("pages.mlbbdleUI.loading")}
         </p>
       ) : (
@@ -663,20 +663,20 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
           {finished && (
             <div
               className={cn(
-                "biseau flex flex-wrap items-center gap-4 border p-4",
-                found ? "border-emerald-500/60 bg-emerald-500/10" : "border-sang-500/50 bg-sang-500/10",
+                "bevel flex flex-wrap items-center gap-4 border p-4",
+                found ? "border-emerald-500/60 bg-emerald-500/10" : "border-blood-500/50 bg-blood-500/10",
               )}
             >
               <PortraitHeros source={target.icon} nom={target.name} taille="vignette" decoratif />
               <div className="min-w-0 flex-1">
-                <p className={cn("text-sm font-semibold", found ? "text-emerald-300" : "text-sang-500")}>
+                <p className={cn("text-sm font-semibold", found ? "text-emerald-300" : "text-blood-500")}>
                   {found ? t("pages.mlbbdleUI.winTitle", { n: guesses.length }) : t("pages.mlbbdleUI.answerWas")}
                 </p>
-                <p className="font-titre text-xl font-bold text-craie-100">{target.name}</p>
+                <p className="font-heading text-xl font-bold text-chalk-100">{target.name}</p>
               </div>
               <Link
                 href={`/heroes/${target.slug}`}
-                className="inline-flex min-h-11 items-center text-sm font-semibold text-or-400 transition-colors hover:text-or-500"
+                className="inline-flex min-h-11 items-center text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
               >
                 {t("pages.mlbbdleUI.viewProfile")} →
               </Link>

@@ -29,7 +29,7 @@ const COULEURS = [
  * skins passent ainsi au navigateur pour quelques dizaines de Ko. Filtre par
  * role, recherche sur le nom du heros ou du skin, et affichage par tranches de
  * heros : la page ne rend d'emblee qu'une centaine de vignettes, toutes en
- * chargement differe. Les vignettes s'habillent par `.vignette-skin`
+ * chargement differe. Les vignettes s'habillent par `.skin-thumb`
  * (globals.css).
  */
 export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
@@ -114,20 +114,20 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
         />
       </div>
 
-      <p aria-live="polite" className="mt-6 text-sm text-craie-500">
+      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
         {t("pages.skinsGalerie.compte", { h: resultats.length, n: nombre.format(total) })}
       </p>
 
       {resultats.length === 0 ? (
-        <p className="mt-10 text-craie-500">{t("pages.heroesListe.aucun")}</p>
+        <p className="mt-10 text-chalk-500">{t("pages.heroesListe.aucun")}</p>
       ) : (
         <div className="mt-6 space-y-10">
           {visibles.map((g) => (
             <section key={g.slug} aria-labelledby={`skins-${g.slug}`}>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-nuit-800 pb-2">
-                <h3 id={`skins-${g.slug}`} className="font-titre text-xl font-bold text-craie-100">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-night-800 pb-2">
+                <h3 id={`skins-${g.slug}`} className="font-heading text-xl font-bold text-chalk-100">
                   {g.nom}
-                  <span className="ml-2 text-sm font-medium text-craie-500">
+                  <span className="ml-2 text-sm font-medium text-chalk-500">
                     {t(`pages.skinsGalerie.nombre.${pluriel.select(g.skins.length) === "one" ? "one" : "other"}`, {
                       n: g.skins.length,
                     })}
@@ -136,7 +136,7 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
                 <Link
                   href={`/heroes/${g.slug}/skins`}
                   prefetch={false}
-                  className="text-sm font-semibold text-or-400 hover:text-or-500"
+                  className="text-sm font-semibold text-gold-400 hover:text-gold-500"
                 >
                   {t("pages.skinsGalerie.voirTout")} →
                 </Link>
@@ -150,7 +150,7 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
                       <Link
                         href={`/heroes/${g.slug}/skins#${ancres.get(g.slug)?.get(nom) ?? ""}`}
                         prefetch={false}
-                        className="vignette-skin"
+                        className="skin-thumb"
                         style={{ borderColor: COULEURS[rarete] ?? COULEURS[0] }}
                       >
                         {src ? (
@@ -179,7 +179,7 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
         <button
           type="button"
           onClick={() => setTranches((n) => n + 1)}
-          className="biseau-sm mt-10 w-full border border-nuit-700 px-4 py-3 text-sm font-semibold text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+          className="bevel-sm mt-10 w-full border border-night-700 px-4 py-3 text-sm font-semibold text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
         >
           {t("pages.skinsGalerie.voirPlus", { n: reste })}
         </button>

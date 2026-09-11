@@ -23,13 +23,13 @@ export default async function PageHorsLigne({ params }: { params: Promise<{ loca
   const t = creerT(locale);
   return (
     <div className="mx-auto max-w-xl px-4 py-24 text-center">
-      <WifiOff size={40} aria-hidden className="mx-auto text-or-400" />
-      <h1 className="mt-6 font-titre text-3xl font-bold text-craie-100">{t("pages.offline.titre")}</h1>
-      <div aria-hidden className="filet-or mx-auto mt-3 h-0.5 w-16" />
-      <p className="mt-5 leading-relaxed text-craie-300">{t("pages.offline.texte")}</p>
+      <WifiOff size={40} aria-hidden className="mx-auto text-gold-400" />
+      <h1 className="mt-6 font-heading text-3xl font-bold text-chalk-100">{t("pages.offline.titre")}</h1>
+      <div aria-hidden className="gold-rule mx-auto mt-3 h-0.5 w-16" />
+      <p className="mt-5 leading-relaxed text-chalk-300">{t("pages.offline.texte")}</p>
       <Link
         href={`/${locale}`}
-        className="biseau-sm mt-8 inline-block bg-or-500 px-5 py-2.5 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+        className="bevel-sm mt-8 inline-block bg-gold-500 px-5 py-2.5 font-semibold text-night-950 transition-colors hover:bg-gold-400"
       >
         {t("pages.offline.accueil")}
       </Link>

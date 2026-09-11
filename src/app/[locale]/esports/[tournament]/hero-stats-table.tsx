@@ -57,12 +57,12 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
     setSort((s) => (s.column === column ? { column, descending: !s.descending } : { column, descending: column !== "hero" }));
 
   return (
-    <div className="relative overflow-x-auto border border-nuit-700/70">
+    <div className="relative overflow-x-auto border border-night-700/70">
       <table className="w-full min-w-[36rem] border-collapse text-sm tabular-nums">
         <caption className="sr-only">{t("pages.esportsUI.caption", { name })}</caption>
-        <thead className="bg-nuit-900 text-xs text-craie-500">
+        <thead className="bg-night-900 text-xs text-chalk-500">
           <tr>
-            <SortHeader column="hero" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-nuit-900 text-left">
+            <SortHeader column="hero" sort={sort} onSort={onSort} className="sticky left-0 z-10 bg-night-900 text-left">
               {t("pages.esportsUI.hero")}
             </SortHeader>
             {NUMERIC.map((c) => (
@@ -74,10 +74,10 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
         </thead>
         <tbody>
           {sorted.map((r, i) => (
-            <tr key={r.slug} className="group border-t border-nuit-800">
+            <tr key={r.slug} className="group border-t border-night-800">
               <th
                 scope="row"
-                className="sticky left-0 z-10 w-44 max-w-44 bg-nuit-950 px-3 py-1.5 text-left font-normal group-hover:bg-nuit-900"
+                className="sticky left-0 z-10 w-44 max-w-44 bg-night-950 px-3 py-1.5 text-left font-normal group-hover:bg-night-900"
               >
                 <Link href={`/heroes/${r.slug}`} prefetch={false} className="flex items-center gap-2.5">
                   <ImageLegere
@@ -86,21 +86,21 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
                     largeur={28}
                     hauteur={28}
                     immediate={i < FIRST_ROWS}
-                    className="biseau-sm size-7 shrink-0 bg-nuit-800 object-cover"
+                    className="bevel-sm size-7 shrink-0 bg-night-800 object-cover"
                   />
-                  <b className="truncate font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                  <b className="truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                     {r.name}
                   </b>
                 </Link>
               </th>
-              <td className="px-3 py-1.5 text-right text-craie-100 group-hover:bg-nuit-900">{r.picks}</td>
-              <td className="px-3 py-1.5 text-right text-craie-100 group-hover:bg-nuit-900">{r.bans}</td>
-              <td className="px-3 py-1.5 text-right font-semibold text-or-400 group-hover:bg-nuit-900">
+              <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.picks}</td>
+              <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">{r.bans}</td>
+              <td className="px-3 py-1.5 text-right font-semibold text-gold-400 group-hover:bg-night-900">
                 {percent.format(r.presence / 100)}
               </td>
-              <td className="px-3 py-1.5 text-right text-craie-300 group-hover:bg-nuit-900">{r.wins}</td>
-              <td className="px-3 py-1.5 text-right text-craie-300 group-hover:bg-nuit-900">{r.losses}</td>
-              <td className="px-3 py-1.5 text-right text-craie-100 group-hover:bg-nuit-900">
+              <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.wins}</td>
+              <td className="px-3 py-1.5 text-right text-chalk-300 group-hover:bg-night-900">{r.losses}</td>
+              <td className="px-3 py-1.5 text-right text-chalk-100 group-hover:bg-night-900">
                 {r.winRate === null ? (
                   <>
                     <span aria-hidden>—</span>
@@ -144,8 +144,8 @@ function SortHeader({
         type="button"
         onClick={() => onSort(column)}
         className={cn(
-          "inline-flex items-center gap-1 whitespace-nowrap uppercase tracking-wide transition-colors hover:text-or-400",
-          active && "text-or-400",
+          "inline-flex items-center gap-1 whitespace-nowrap uppercase tracking-wide transition-colors hover:text-gold-400",
+          active && "text-gold-400",
         )}
       >
         {children}

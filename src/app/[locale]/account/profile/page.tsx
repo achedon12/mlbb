@@ -141,9 +141,9 @@ export default async function PageProfilJoueur({
     <>
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
-          <h1 className="font-titre text-3xl font-bold text-craie-100">{t("pages.accountProfile.titre")}</h1>
-          <div aria-hidden className="filet-or mt-3 h-0.5 w-16" />
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-craie-500">
+          <h1 className="font-heading text-3xl font-bold text-chalk-100">{t("pages.accountProfile.titre")}</h1>
+          <div aria-hidden className="gold-rule mt-3 h-0.5 w-16" />
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-500">
             {t("pages.accountProfile.chapeau", { nom: profil.name })}
           </p>
         </div>
@@ -219,7 +219,7 @@ export default async function PageProfilJoueur({
         {lignes === null ? (
           <SectionIndisponible t={t} />
         ) : lignes.length === 0 ? (
-          <p className="mt-6 text-sm text-craie-500">{t("pages.accountProfile.herosVide")}</p>
+          <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.herosVide")}</p>
         ) : (
           <>
             <TableauHeros lignes={lignes.slice(0, HEROS_AFFICHES)} tranche={tranche} t={t} langue={locale} />
@@ -247,9 +247,9 @@ export default async function PageProfilJoueur({
           langue={locale}
           adversaires={
             parties === null ? (
-              <p className="text-sm text-craie-400">{t("pages.accountProfile.sectionIndispo")}</p>
+              <p className="text-sm text-chalk-400">{t("pages.accountProfile.sectionIndispo")}</p>
             ) : parties.length === 0 ? (
-              <p className="text-sm text-craie-400">{t("pages.accountProfile.bourreauxVide")}</p>
+              <p className="text-sm text-chalk-400">{t("pages.accountProfile.bourreauxVide")}</p>
             ) : (
               <Suspense fallback={<AnalyseEnCours t={t} />}>
                 <AnalyseAdversaires
@@ -285,7 +285,7 @@ export default async function PageProfilJoueur({
 /** Historique indisponible ou session expiree, dit a la place d'une section differee. */
 function HistoriqueManquant({ etat, t }: { etat: "expire" | "indisponible"; t: T }) {
   return etat === "expire" ? (
-    <p className="mt-6 text-sm leading-relaxed text-craie-400">{t("pages.accountProfile.expireTexte")}</p>
+    <p className="mt-6 text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.expireTexte")}</p>
   ) : (
     <SectionIndisponible t={t} />
   );
@@ -343,7 +343,7 @@ async function AnalyseAdversaires({
   );
   if (details.etat !== "ok") {
     const cle = details.etat === "expire" ? "expireTexte" : "bourreauxIndispo";
-    return <p className="text-sm leading-relaxed text-craie-400">{t(`pages.accountProfile.${cle}`)}</p>;
+    return <p className="text-sm leading-relaxed text-chalk-400">{t(`pages.accountProfile.${cle}`)}</p>;
   }
 
   const analysees = recentes.flatMap((p) => {

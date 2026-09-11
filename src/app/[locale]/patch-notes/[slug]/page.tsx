@@ -125,14 +125,14 @@ export default async function PagePatch({ params }: Params) {
             ]}
           />
 
-          <header className="mt-6 border-b border-nuit-800 pb-8">
-            <p className="text-xs font-semibold uppercase tracking-wide text-or-400">
+          <header className="mt-6 border-b border-night-800 pb-8">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gold-400">
               {t("pages.patchNotes.officielles")}
             </p>
-            <h1 className="mt-2 font-titre text-4xl font-bold text-craie-100">
+            <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100">
               Patch {patch.version}
             </h1>
-            <p className="mt-3 text-sm text-craie-500">
+            <p className="mt-3 text-sm text-chalk-500">
               {t("pages.patchNotes.nSections", { n: patch.sommaire.length })}
               {patch.date && (
                 <>
@@ -178,11 +178,11 @@ export default async function PagePatch({ params }: Params) {
                     <>
                       <h2
                         id={section.ancre ?? undefined}
-                        className="scroll-mt-24 font-titre text-2xl font-bold text-craie-100"
+                        className="scroll-mt-24 font-heading text-2xl font-bold text-chalk-100"
                       >
                         {section.titre}
                       </h2>
-                      <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
+                      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
                     </>
                   )}
 
@@ -237,7 +237,7 @@ export default async function PagePatch({ params }: Params) {
                 t={t}
                 href={patch.lien}
                 cle={traduit ? "pages.patchNotes.creditTraduit" : "pages.patchNotes.credit"}
-                className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500"
+                className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"
               />
             </article>
           </div>

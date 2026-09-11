@@ -134,7 +134,7 @@ export default async function PageRegion({ params }: Params) {
   const ligneLien = (p: PaireLore) => {
     const natures = [p.deA?.nature, p.deB?.nature].filter((x): x is string => !!x);
     const lien = (slug: string) => (
-      <a href={`/${locale}/heroes/${slug}#histoire`} className="font-semibold text-craie-100 hover:text-or-400">
+      <a href={`/${locale}/heroes/${slug}#histoire`} className="font-semibold text-chalk-100 hover:text-gold-400">
         {nomsHeros.get(slug) ?? slug}
       </a>
     );
@@ -142,7 +142,7 @@ export default async function PageRegion({ params }: Params) {
       <>
         {lien(p.a)} <span aria-hidden>↔</span>
         <span className="sr-only"> {t("pages.lore.et")} </span> {lien(p.b)}
-        {natures.length > 0 && <span className="text-craie-500"> · {natures.join(" / ")}</span>}
+        {natures.length > 0 && <span className="text-chalk-500"> · {natures.join(" / ")}</span>}
       </>
     );
   };
@@ -169,7 +169,7 @@ export default async function PageRegion({ params }: Params) {
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         <section id="en-bref">
           <TitreSection>{t("pages.lore.region.enBrefTitre")}</TitreSection>
-          <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-craie-300 marker:text-or-400">
+          <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
             {faits.map((f) => (
               <li key={f}>{f}</li>
             ))}
@@ -184,25 +184,25 @@ export default async function PageRegion({ params }: Params) {
               const infos = [fiche?.espece, fiche?.age ? t("pages.lore.age", { age: fiche.age }) : null].filter(Boolean);
               return (
                 <li key={x.slug} id={x.slug} className="scroll-mt-24">
-                  <article className="biseau flex h-full gap-4 border border-nuit-700/70 bg-nuit-900/60 p-4">
+                  <article className="bevel flex h-full gap-4 border border-night-700/70 bg-night-900/60 p-4">
                     <PortraitHeros source={x.visuels.portrait ?? x.visuels.icone} nom={x.nom} taille="fiche" decoratif />
                     <div className="min-w-0 flex-1">
-                      <h3 className="font-titre text-xl font-bold text-craie-100">
-                        <Link href={`/heroes/${x.slug}`} className="hover:text-or-400">
+                      <h3 className="font-heading text-xl font-bold text-chalk-100">
+                        <Link href={`/heroes/${x.slug}`} className="hover:text-gold-400">
                           {x.nom}
                         </Link>
                       </h3>
-                      {(fiche?.titre ?? x.titre) && <p className="text-xs text-craie-500">{fiche?.titre ?? x.titre}</p>}
+                      {(fiche?.titre ?? x.titre) && <p className="text-xs text-chalk-500">{fiche?.titre ?? x.titre}</p>}
                       {h[x.slug]?.accroche && (
-                        <p className="mt-2 line-clamp-3 text-sm italic leading-relaxed text-craie-300">{h[x.slug]!.accroche}</p>
+                        <p className="mt-2 line-clamp-3 text-sm italic leading-relaxed text-chalk-300">{h[x.slug]!.accroche}</p>
                       )}
-                      {infos.length > 0 && <p className="mt-2 text-xs text-craie-400">{infos.join(" · ")}</p>}
+                      {infos.length > 0 && <p className="mt-2 text-xs text-chalk-400">{infos.join(" · ")}</p>}
                       {fiche?.affiliations.length ? (
                         <ul className="mt-2 flex flex-wrap gap-1">
                           {fiche.affiliations.slice(0, 3).map((a) => (
                             <li
                               key={a}
-                              className="biseau-sm border border-nuit-700/70 bg-nuit-800/60 px-1.5 py-0.5 text-[0.7rem] text-craie-300"
+                              className="bevel-sm border border-night-700/70 bg-night-800/60 px-1.5 py-0.5 text-[0.7rem] text-chalk-300"
                             >
                               {a}
                             </li>
@@ -211,7 +211,7 @@ export default async function PageRegion({ params }: Params) {
                       ) : null}
                       <Link
                         href={`/heroes/${x.slug}#histoire`}
-                        className="mt-3 inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                        className="mt-3 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                       >
                         {t("pages.lore.lireHistoire", { nom: x.nom })} →
                       </Link>
@@ -226,13 +226,13 @@ export default async function PageRegion({ params }: Params) {
         <section id="liens">
           <TitreSection chapeau={t("pages.lore.region.liensChapeau")}>{t("pages.lore.region.liensTitre")}</TitreSection>
           {resume.internes.length === 0 ? (
-            <p className="text-craie-500">{t("pages.lore.region.aucunLien", { region: nom })}</p>
+            <p className="text-chalk-500">{t("pages.lore.region.aucunLien", { region: nom })}</p>
           ) : (
             <>
               {listePaires(resume.internes.slice(0, LIENS_VISIBLES), false)}
               {resume.internes.length > LIENS_VISIBLES && (
                 <details className="mt-4">
-                  <summary className="cursor-pointer text-sm font-semibold text-or-400 hover:text-or-500">
+                  <summary className="cursor-pointer text-sm font-semibold text-gold-400 hover:text-gold-500">
                     {t("pages.lore.region.autresLiens", { n: resume.internes.length - LIENS_VISIBLES })}
                   </summary>
                   {/* Lignes sans portrait : une grande region compte plus de cent liens. */}
@@ -257,7 +257,7 @@ export default async function PageRegion({ params }: Params) {
         )}
 
         <nav aria-labelledby="autres-regions">
-          <h2 id="autres-regions" className="font-titre text-lg font-bold text-craie-100">
+          <h2 id="autres-regions" className="font-heading text-lg font-bold text-chalk-100">
             {t("pages.lore.region.autresRegions")}
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2">
@@ -267,15 +267,15 @@ export default async function PageRegion({ params }: Params) {
                 <li key={x.cle}>
                   <Link
                     href={`/lore/${x.cle}`}
-                    className="biseau-sm inline-block border border-nuit-700 px-3 py-1.5 text-sm text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400"
+                    className="bevel-sm inline-block border border-night-700 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
-                    {nomRegion(x.nom)} <span className="text-craie-500">· {x.heros.length}</span>
+                    {nomRegion(x.nom)} <span className="text-chalk-500">· {x.heros.length}</span>
                   </Link>
                 </li>
               ))}
           </ul>
           <p className="mt-4">
-            <Link href="/lore" className="text-sm font-semibold text-or-400 hover:text-or-500">
+            <Link href="/lore" className="text-sm font-semibold text-gold-400 hover:text-gold-500">
               ← {t("pages.lore.retourHub")}
             </Link>
           </p>

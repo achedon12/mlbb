@@ -57,7 +57,7 @@ export default async function CommunityBuildPage({ params }: Params) {
   if (stored === undefined) {
     return (
       <div className="mx-auto max-w-3xl px-4 py-16">
-        <p role="alert" className="border border-sang-500/40 p-4 text-craie-300">
+        <p role="alert" className="border border-blood-500/40 p-4 text-chalk-300">
           {t("pages.communityBuilds.unavailable")}
         </p>
       </div>
@@ -76,10 +76,10 @@ export default async function CommunityBuildPage({ params }: Params) {
 
   const choice = (src: string | null, label: string, round = false) => (
     <span className="flex min-w-0 items-center gap-2">
-      <span className={`relative size-9 shrink-0 overflow-hidden bg-nuit-800 ${round ? "rounded-full" : ""}`}>
+      <span className={`relative size-9 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : ""}`}>
         {src && <Image src={src} alt="" fill unoptimized className="object-contain" />}
       </span>
-      <span className="min-w-0 text-sm text-craie-200">{label}</span>
+      <span className="min-w-0 text-sm text-chalk-200">{label}</span>
     </span>
   );
 
@@ -106,27 +106,27 @@ export default async function CommunityBuildPage({ params }: Params) {
               <VoteButton id={build.id} votes={build.votes} voted={build.voted} own={build.own} signedIn={viewer !== null} />
               <Link
                 href={`/tools/build?${build.code}`}
-                className="biseau-sm inline-flex min-h-11 items-center bg-or-500 px-4 text-sm font-semibold text-nuit-950 transition-colors hover:bg-or-400"
+                className="bevel-sm inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
               >
                 {t("pages.communityBuilds.openSimulator")}
               </Link>
               {build.own && <DeleteBuildButton id={build.id} hero={build.hero} />}
             </div>
             {!isIndexable(build.votes) && (
-              <p className="text-xs text-craie-500">{t("pages.communityBuilds.indexNote", { n: INDEX_THRESHOLD })}</p>
+              <p className="text-xs text-chalk-500">{t("pages.communityBuilds.indexNote", { n: INDEX_THRESHOLD })}</p>
             )}
 
             <section aria-labelledby="choices-title" className="space-y-4">
-              <h2 id="choices-title" className="font-titre text-xl font-bold text-craie-100">
+              <h2 id="choices-title" className="font-heading text-xl font-bold text-chalk-100">
                 {t("pages.communityBuilds.choicesTitle")}
               </h2>
-              <p className="text-sm text-craie-400">{t("pages.communityBuilds.level", { level: b.level })}</p>
+              <p className="text-sm text-chalk-400">{t("pages.communityBuilds.level", { level: b.level })}</p>
               <div>
-                <h3 className="text-xs uppercase tracking-wide text-craie-500">{t("pages.communityBuilds.items")}</h3>
+                <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.items")}</h3>
                 <ol className="mt-2 grid grid-cols-1 gap-2 min-[400px]:grid-cols-2 sm:grid-cols-3">
                   {b.items.map((slug, i) => (
                     <li key={`${slug}-${i}`}>
-                      <Link href={`/items/${slug}`} className="flex min-h-11 items-center hover:text-or-400">
+                      <Link href={`/items/${slug}`} className="flex min-h-11 items-center hover:text-gold-400">
                         {choice(itemImage(slug), names.items[slug] ?? slug)}
                       </Link>
                     </li>
@@ -135,11 +135,11 @@ export default async function CommunityBuildPage({ params }: Params) {
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 <div>
-                  <h3 className="text-xs uppercase tracking-wide text-craie-500">{t("pages.communityBuilds.emblem")}</h3>
+                  <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.emblem")}</h3>
                   <div className="mt-2">{b.emblem ? choice(emblemImage(b.emblem), emblemName(t, b.emblem), true) : "-"}</div>
                 </div>
                 <div>
-                  <h3 className="text-xs uppercase tracking-wide text-craie-500">{t("pages.communityBuilds.talents")}</h3>
+                  <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.talents")}</h3>
                   <ul className="mt-2 space-y-2">
                     {b.talents.map((k, i) => (
                       <li key={i}>{k ? choice(talentImage(k), talentName(t, k), true) : "-"}</li>
@@ -147,7 +147,7 @@ export default async function CommunityBuildPage({ params }: Params) {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xs uppercase tracking-wide text-craie-500">{t("pages.communityBuilds.spell")}</h3>
+                  <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.communityBuilds.spell")}</h3>
                   <div className="mt-2">{b.spell ? choice(spellImage(b.spell), spellName(t, b.spell), true) : "-"}</div>
                 </div>
               </div>
@@ -155,17 +155,17 @@ export default async function CommunityBuildPage({ params }: Params) {
 
             {build.notes && (
               <section aria-labelledby="notes-title">
-                <h2 id="notes-title" className="font-titre text-xl font-bold text-craie-100">
+                <h2 id="notes-title" className="font-heading text-xl font-bold text-chalk-100">
                   {t("pages.communityBuilds.notesTitle")}
                 </h2>
-                <p className="mt-3 whitespace-pre-line break-words leading-relaxed text-craie-300">{build.notes}</p>
+                <p className="mt-3 whitespace-pre-line break-words leading-relaxed text-chalk-300">{build.notes}</p>
               </section>
             )}
 
             <p>
               <Link
                 href={`/builds/${build.hero}`}
-                className="inline-flex min-h-11 items-center text-sm text-craie-300 underline underline-offset-4 hover:text-or-400"
+                className="inline-flex min-h-11 items-center text-sm text-chalk-300 underline underline-offset-4 hover:text-gold-400"
               >
                 {t("pages.communityBuilds.backToHero", { hero: heroName })}
               </Link>
@@ -173,13 +173,13 @@ export default async function CommunityBuildPage({ params }: Params) {
           </div>
 
           <aside aria-labelledby="stats-title" className="min-w-0 space-y-4">
-            <h2 id="stats-title" className="font-titre text-xl font-bold text-craie-100">
+            <h2 id="stats-title" className="font-heading text-xl font-bold text-chalk-100">
               {t("pages.communityBuilds.statsTitle")}
             </h2>
             {result && simHero ? (
               <BuildStats result={result} names={names} resource={simHero.resource} />
             ) : (
-              <p className="text-sm text-craie-500">{t("pages.communityBuilds.statsMissing")}</p>
+              <p className="text-sm text-chalk-500">{t("pages.communityBuilds.statsMissing")}</p>
             )}
           </aside>
         </div>

@@ -53,12 +53,12 @@ export function PartiesRecentes({
   };
 
   if (parties.length === 0) {
-    return <p className="mt-6 text-sm text-craie-500">{t("pages.accountProfile.partiesVide")}</p>;
+    return <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.partiesVide")}</p>;
   }
 
   return (
     <div className="mt-6">
-      <ol aria-label={t("pages.accountProfile.partiesTitre")} className="divide-y divide-nuit-800 border-y border-nuit-800">
+      <ol aria-label={t("pages.accountProfile.partiesTitre")} className="divide-y divide-night-800 border-y border-night-800">
         {parties.map((p) => (
           <LignePartie key={p.id} partie={p} />
         ))}
@@ -68,7 +68,7 @@ export function PartiesRecentes({
       </p>
 
       {erreur && (
-        <p role="alert" className="biseau-sm mt-4 border border-sang-500/40 bg-sang-500/10 px-4 py-3 text-sm text-sang-500">
+        <p role="alert" className="bevel-sm mt-4 border border-blood-500/40 bg-blood-500/10 px-4 py-3 text-sm text-blood-500">
           {erreur === "expire" ? (
             <>
               {t("pages.accountProfile.expireTexte")}{" "}
@@ -87,7 +87,7 @@ export function PartiesRecentes({
           type="button"
           onClick={charger}
           disabled={enCours || erreur === "expire"}
-          className="biseau-sm mt-5 flex w-full items-center justify-center gap-2 border border-nuit-700 px-6 py-2.5 text-sm font-semibold text-craie-300 transition-colors hover:border-or-500/60 hover:text-or-400 disabled:opacity-60 sm:w-auto"
+          className="bevel-sm mt-5 flex w-full items-center justify-center gap-2 border border-night-700 px-6 py-2.5 text-sm font-semibold text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 disabled:opacity-60 sm:w-auto"
         >
           {enCours ? (
             <LoaderCircle size={16} className="animate-spin" aria-hidden />
@@ -97,7 +97,7 @@ export function PartiesRecentes({
           {enCours ? t("pages.accountProfile.chargement") : t("pages.accountProfile.voirPlus")}
         </button>
       ) : (
-        <p className="mt-4 text-xs text-craie-500">{t("pages.accountProfile.toutAffiche")}</p>
+        <p className="mt-4 text-xs text-chalk-500">{t("pages.accountProfile.toutAffiche")}</p>
       )}
     </div>
   );
@@ -107,7 +107,7 @@ function LignePartie({ partie: p }: { partie: PartieAffichee }) {
   const t = useT();
   const langue = useLangue();
   const issue = p.victoire === null ? "inconnue" : p.victoire ? "victoire" : "defaite";
-  const couleur = p.victoire === null ? "text-craie-400" : p.victoire ? "text-emerald-400" : "text-sang-500";
+  const couleur = p.victoire === null ? "text-chalk-400" : p.victoire ? "text-emerald-400" : "text-blood-500";
   const lane = p.lane !== null ? LANE_JEU[p.lane] : undefined;
 
   return (
@@ -117,7 +117,7 @@ function LignePartie({ partie: p }: { partie: PartieAffichee }) {
         aria-hidden
         className={cn(
           "w-1 shrink-0 self-stretch",
-          p.victoire === null ? "bg-nuit-700" : p.victoire ? "bg-emerald-400" : "bg-sang-500",
+          p.victoire === null ? "bg-night-700" : p.victoire ? "bg-emerald-400" : "bg-blood-500",
         )}
       />
       <PortraitHeros source={p.heros.portrait} nom={p.heros.nom} taille="icone" decoratif />
@@ -127,20 +127,20 @@ function LignePartie({ partie: p }: { partie: PartieAffichee }) {
           {p.heros.slug ? (
             <Link
               href={`/heroes/${p.heros.slug}`}
-              className="truncate font-semibold text-craie-100 transition-colors hover:text-or-400"
+              className="truncate font-semibold text-chalk-100 transition-colors hover:text-gold-400"
             >
               {p.heros.nom}
             </Link>
           ) : (
-            <span className="truncate font-semibold text-craie-100">{p.heros.nom}</span>
+            <span className="truncate font-semibold text-chalk-100">{p.heros.nom}</span>
           )}
           {p.mvp && (
-            <span className="biseau-sm shrink-0 bg-or-500 px-1.5 py-0.5 text-[0.65rem] font-bold uppercase text-nuit-950">
+            <span className="bevel-sm shrink-0 bg-gold-500 px-1.5 py-0.5 text-[0.65rem] font-bold uppercase text-night-950">
               {t("pages.accountProfile.mvp")}
             </span>
           )}
         </p>
-        <p className="mt-0.5 flex flex-wrap gap-x-2 text-xs text-craie-500">
+        <p className="mt-0.5 flex flex-wrap gap-x-2 text-xs text-chalk-500">
           {lane && <span>{t(`lanes.${lane}`)}</span>}
           {p.note !== null && <span>{t("pages.accountProfile.note", { n: formaterNombre(p.note, langue, 1) })}</span>}
           {p.date !== null && <DatePartie secondes={p.date} />}
@@ -149,7 +149,7 @@ function LignePartie({ partie: p }: { partie: PartieAffichee }) {
 
       <div className="shrink-0 text-right">
         <p className={cn("text-sm font-semibold", couleur)}>{t(`pages.accountProfile.issue.${issue}`)}</p>
-        <p className="mt-0.5 text-xs tabular-nums text-craie-300">
+        <p className="mt-0.5 text-xs tabular-nums text-chalk-300">
           <span aria-hidden>{`${p.eliminations} / ${p.morts} / ${p.assistances}`}</span>
           <span className="sr-only">
             {t("pages.accountProfile.kda", { k: p.eliminations, d: p.morts, a: p.assistances })}

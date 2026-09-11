@@ -83,11 +83,11 @@ export default async function PageLore({ params }: Params) {
               <li key={r.cle}>
                 <Link
                   href={`/lore/${r.cle}`}
-                  className="biseau group flex h-full flex-col gap-3 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
+                  className="bevel group flex h-full flex-col gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
                 >
                   <span className="flex items-baseline justify-between gap-3">
-                    <span className="font-titre text-lg font-bold text-craie-100 group-hover:text-or-400">{nomRegion(r.nom)}</span>
-                    <span className="shrink-0 text-xs text-craie-500">{nHeros(r.heros.length)}</span>
+                    <span className="font-heading text-lg font-bold text-chalk-100 group-hover:text-gold-400">{nomRegion(r.nom)}</span>
+                    <span className="shrink-0 text-xs text-chalk-500">{nHeros(r.heros.length)}</span>
                   </span>
                   <span className="flex flex-wrap gap-1">
                     {r.heros.slice(0, 5).map((x) => (
@@ -118,17 +118,17 @@ export default async function PageLore({ params }: Params) {
             <TitreSection chapeau={t("pages.lore.factionsChapeau")}>{t("pages.lore.factionsTitre")}</TitreSection>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {factions.map((f) => (
-                <li key={f.cle} className="biseau-sm border border-nuit-700/60 bg-nuit-900/40 p-4">
+                <li key={f.cle} className="bevel-sm border border-night-700/60 bg-night-900/40 p-4">
                   <p className="flex items-baseline justify-between gap-3">
-                    <span className="font-semibold text-craie-100">{f.nom}</span>
-                    <span className="shrink-0 text-xs text-craie-500">{nHeros(f.heros.length)}</span>
+                    <span className="font-semibold text-chalk-100">{f.nom}</span>
+                    <span className="shrink-0 text-xs text-chalk-500">{nHeros(f.heros.length)}</span>
                   </p>
                   <ul className="mt-2 flex flex-wrap gap-1.5">
                     {f.heros.map((s) => (
                       <li key={s}>
                         <Link
                           href={`/heroes/${s}#histoire`}
-                          className="biseau-sm inline-block border border-nuit-700/70 bg-nuit-800/60 px-2 py-1 text-xs text-craie-200 transition-colors hover:border-or-500/60 hover:text-or-400"
+                          className="bevel-sm inline-block border border-night-700/70 bg-night-800/60 px-2 py-1 text-xs text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                         >
                           {nomsHeros.get(s) ?? s}
                         </Link>
