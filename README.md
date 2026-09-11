@@ -1,9 +1,9 @@
 # MLBB
 
 <p>
-  <a href="https://github.com/achedon12/mlbb/actions/workflows/qualite.yml"><img alt="Qualite" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/qualite.yml?branch=main&label=qualit%C3%A9&logo=github"></a>
+  <a href="https://github.com/achedon12/mlbb/actions/workflows/quality.yml"><img alt="Qualite" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/quality.yml?branch=main&label=qualit%C3%A9&logo=github"></a>
   <a href="https://github.com/achedon12/mlbb/actions/workflows/tests.yml"><img alt="Tests" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/tests.yml?branch=main&label=tests&logo=vitest"></a>
-  <a href="https://github.com/achedon12/mlbb/actions/workflows/securite.yml"><img alt="Securite" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/securite.yml?branch=main&label=s%C3%A9curit%C3%A9&logo=github"></a>
+  <a href="https://github.com/achedon12/mlbb/actions/workflows/security.yml"><img alt="Securite" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/security.yml?branch=main&label=s%C3%A9curit%C3%A9&logo=github"></a>
   <a href="https://github.com/achedon12/mlbb/actions/workflows/docker.yml"><img alt="Image Docker" src="https://img.shields.io/github/actions/workflow/status/achedon12/mlbb/docker.yml?branch=main&label=docker&logo=docker"></a>
 </p>
 <p>

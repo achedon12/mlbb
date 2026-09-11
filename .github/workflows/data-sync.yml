@@ -160,7 +160,7 @@ jobs:
     needs: synchroniser
     if: needs.synchroniser.outputs.commit != '' && needs.synchroniser.outputs.par-cle != 'true'
     # Chemin local : le workflow du commit en cours, comme voulu.
-    uses: ./.github/workflows/aligner-develop.yml # zizmor: ignore[self-repository]
+    uses: ./.github/workflows/align-develop.yml # zizmor: ignore[self-repository]
     secrets:
       SYNC_DEPLOY_KEY: ${{ secrets.SYNC_DEPLOY_KEY }}
     permissions:

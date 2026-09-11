@@ -46,7 +46,7 @@ jobs:
             echo "::error::develop ne contient pas main : attendez qu'Aligner develop l'ait rejouee sur main, puis relancez."
             exit 1
           fi
-          for workflow in qualite.yml tests.yml; do
+          for workflow in quality.yml tests.yml; do
             etat=$(gh run list --workflow "$workflow" --commit "$develop" --json status,conclusion \
               --jq '.[0] | "\(.status) \(.conclusion)"')
             if [ "$etat" != "completed success" ]; then
