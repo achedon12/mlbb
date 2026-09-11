@@ -14,8 +14,10 @@ import { cn } from "@/lib/utils";
  * Les panneaux sont rendus par le serveur et restent dans le document — seul
  * l'affichage change. Le contenu masque reste donc indexable, et la navigation
  * ne declenche aucune requete. Exception : un panneau `differe` (graphiques,
- * galerie) n'est monte qu'a sa premiere ouverture. Il n'apporte rien aux
- * moteurs, et le monter d'emblee alourdissait l'hydratation de toute la page.
+ * galerie) n'est monte qu'a sa premiere ouverture : le monter d'emblee
+ * alourdissait l'hydratation de toute la page. Son `apercu`, un resume leger
+ * rendu par le serveur, tient sa place jusque-la : les moteurs et le lecteur
+ * sans script y trouvent l'essentiel en texte.
  *
  * Les images d'un panneau masque restent en chargement differe : le navigateur
  * ne les demande qu'a l'ouverture du panneau (verifie dans Chromium).
@@ -32,6 +34,8 @@ export interface Onglet {
   contenu: React.ReactNode;
   /** Monte le contenu a la premiere ouverture seulement. */
   differe?: boolean;
+  /** Resume rendu par le serveur, affiche tant qu'un panneau differe n'est pas monte. */
+  apercu?: React.ReactNode;
 }
 
 export function Onglets({ onglets }: { onglets: Onglet[] }) {
@@ -142,7 +146,7 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
           tabIndex={0}
           className="pt-8 outline-none"
         >
-          {(!o.differe || ouverts.has(o.id)) && o.contenu}
+          {!o.differe || ouverts.has(o.id) ? o.contenu : (o.apercu ?? null)}
         </div>
       ))}
     </div>

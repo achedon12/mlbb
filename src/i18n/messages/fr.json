@@ -102,6 +102,8 @@
     "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Version {v}",
     "contribuer": "Contribuer",
+    "presentation": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien et espagnol. Projet indépendant, ouvert aux contributions.",
+    "sources": "Données de jeu issues du wiki Mobile Legends (CC BY-SA). Taux de victoire, de ban et de sélection, contres et builds les plus joués viennent des statistiques de parties classées du jeu, via l'API communautaire arena.rone.dev.",
     "description": "La base de connaissances francophone sur Mobile Legends: Bang Bang. Projet indépendant, ouvert aux contributions.",
     "credit": "Données du wiki Mobile Legends (CC BY-SA) et de l'API communautaire arena.rone.dev. Aucune statistique de partie n'est disponible."
   },
@@ -636,18 +638,54 @@
     },
     "equipe": {},
     "seo": {
-      "heros": {},
-      "tierList": {},
-      "heroes": {},
-      "items": {},
-      "emblems": {},
-      "draft": {},
-      "compare": {},
-      "patchNotes": {},
+      "heros": {
+        "titre": "{nom} : build, emblème et counters (palier {palier}, patch {v})",
+        "titreSansPalier": "{nom} : build, emblème et counters (patch {v})",
+        "contres": "{nom} est surtout contré par {contres} en {rang}.",
+        "contresTous": "{nom} est surtout contré par {contres}, tous rangs confondus.",
+        "build": "Build le plus joué : {objets}.",
+        "buildEmbleme": "Build le plus joué : {objets}, emblème {embleme}.",
+        "taux": "{victoire} de victoires, palier {palier}."
+      },
+      "tierList": {
+        "titre": "Tier list MLBB {mois} : les meilleurs héros (patch {v})",
+        "titreRang": "Tier list MLBB {rang}, {mois} (patch {v})",
+        "description": "{top} dominent la tier list MLBB relevée le {date} (patch {v}) ; {premier} affiche {victoire} de victoires. {n} héros classés selon leurs taux de victoire et de ban, avec une liste par rang.",
+        "descriptionRang": "{top} dominent la tier list MLBB {rang} relevée le {date} (patch {v}) ; {premier} affiche {victoire} de victoires. {n} héros classés selon leurs taux de victoire et de ban en {rang}."
+      },
+      "heroes": {
+        "titre": "Les {n} héros MLBB : rôles, lanes et paliers (patch {v})",
+        "description": "Les {n} héros de Mobile Legends: Bang Bang avec rôle, lane, palier et taux de victoire (patch {v}, données du {date}). Les plus forts du moment : {top}. Et {skins} skins, {analyses} analyses rédigées."
+      },
+      "items": {
+        "titre": "Les {n} objets MLBB : stats, recettes et prix (patch {v})",
+        "description": "Les {n} objets de Mobile Legends: Bang Bang : statistiques, passifs, recettes et prix. Les plus présents dans les builds les plus joués en ce moment : {top} (patch {v}). Et les héros qui construisent chaque objet."
+      },
+      "emblems": {
+        "titre": "Emblèmes MLBB : talents et sorts par rôle (patch {v})",
+        "description": "Quel emblème, quel talent et quel sort de combat prendre selon votre rôle dans Mobile Legends: Bang Bang. Dans les builds les plus joués en classé, les choix dominants sont {sort} et {talent} (patch {v})."
+      },
+      "draft": {
+        "titre": "Aide au draft MLBB : counter picks par lane (patch {v})",
+        "description": "Saisissez les choix adverses : l'outil propose des counter picks pour chaque lane parmi {n} héros, appuyés sur les contres, synergies et taux de victoire relevés le {date} (patch {v}). Gratuit, sans inscription."
+      },
+      "compare": {
+        "titre": "Comparateur de héros MLBB : winrate et stats (patch {v})",
+        "description": "Comparez deux des {n} héros de Mobile Legends: Bang Bang : palier, taux de victoire et de ban, courbes sur 30 jours, notes, rôles et lanes. Données du {date}, patch {v}."
+      },
+      "patchNotes": {
+        "titre": "Patch notes MLBB : mise à jour {v} et ajustements des héros",
+        "description": "Dernier patch de Mobile Legends : {version}. Héros améliorés : {buffs}, affaiblis : {nerfs}, ajustés : {autres}. Notes complètes des {m} patchs récents, {n} patchs recensés au total."
+      },
       "patch": {
+        "titre": "Patch {v} MLBB : buffs, nerfs et ajustements des héros",
+        "description": "Patch {version} de Mobile Legends. Héros améliorés : {buffs}, affaiblis : {nerfs}, ajustés : {autres}, dont {heros}. Notes officielles, section par section.",
         "titreChangements": {}
       },
-      "winRate": {},
+      "winRate": {
+        "titre": "Calculateur de winrate MLBB : victoires pour votre objectif",
+        "description": "Indiquez vos parties jouées et votre taux de victoire : voyez combien de victoires d'affilée il faut pour atteindre votre objectif dans Mobile Legends: Bang Bang, ou combien de parties à un rythme donné. Gratuit, instantané, sans inscription."
+      },
       "tierLane": {},
       "tierRole": {},
       "heroesRole": {},
@@ -663,8 +701,18 @@
       "calendrierAnnee": {},
       "collection": {}
     },
-    "fraicheur": {},
-    "apercuHeros": {},
+    "fraicheur": {
+      "majLe": "Mis à jour le {date}",
+      "patch": "Patch {v}",
+      "herosClasses": "{n} héros classés"
+    },
+    "apercuHeros": {
+      "evolution": "Sur les {n} derniers jours, le taux de victoire de {nom} est passé de {debut} à {fin}, tous rangs confondus ({ecart} {pts}).",
+      "duree": "{nom} gagne le plus dans les parties de {tranche} ({victoire}) et le moins dans celles de {trancheBas} ({victoireBas}).",
+      "rangs": "Selon le rang, le taux de victoire de {nom} va de {bas} en {rangBas} à {haut} en {rangHaut}.",
+      "ajustements": "Ajustements de {nom} : {n} sur les {total} derniers patchs.",
+      "skins": "Skins de {nom} ({n}) :"
+    },
     "fiches": {},
     "itemDetail": {},
     "emblemDetail": {},

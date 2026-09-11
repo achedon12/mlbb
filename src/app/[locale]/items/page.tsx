@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CompleterMessages } from "@/i18n/fournisseur";
 import { ListeObjets } from "@/components/liste-objets";
 import { EnTetePage } from "@/components/ui";
 import visuels from "@/data/jeu/visuels.json";
@@ -6,17 +7,22 @@ import { buildsJoues, categoriesObjets, herosParSlug, nombreObjets, objets } fro
 import { visuelObjet } from "@/lib/visuels-build";
 import type { VignetteHeros } from "@/components/liste-objets";
 import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { creerT, messagesPage } from "@/i18n/traductions";
 import { metaPage } from "@/i18n/seo";
+import { listeNoms, objetsPopulaires, patchActuel } from "@/lib/fraicheur";
 
 type Params = { params: Promise<{ locale: Langue }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
+  const populaires = objetsPopulaires(locale);
+  const valeurs = { n: nombreObjets, v: patchActuel.version, top: listeNoms(locale, populaires) };
   return metaPage(locale, {
-    titre: t("pages.items.metaTitre"),
-    description: t("pages.items.metaDescription", { n: nombreObjets }),
+    titre: t("pages.seo.items.titre", valeurs),
+    description: populaires.length
+      ? t("pages.seo.items.description", valeurs)
+      : t("pages.items.metaDescription", { n: nombreObjets }),
     partage: t("pages.items.ogDescription", { n: nombreObjets }),
     chemin: "/items",
   });
@@ -59,7 +65,7 @@ export default async function PageObjets({ params }: Params) {
   }
 
   return (
-    <>
+    <CompleterMessages messages={messagesPage(locale, ["pages.itemsListe"])}>
       <EnTetePage titre={t("pages.items.titre")} chapeau={t("pages.items.chapeau", { n: nombreObjets })} />
       <div className="mx-auto max-w-6xl px-4 py-12">
         <ListeObjets
@@ -69,6 +75,6 @@ export default async function PageObjets({ params }: Params) {
           herosVignettes={herosVignettes}
         />
       </div>
-    </>
+    </CompleterMessages>
   );
 }

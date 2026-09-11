@@ -102,6 +102,8 @@
     "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Versión {v}",
     "contribuer": "Contribuir",
+    "presentation": "Héroes, builds y counters por rango, una tier list calculada con las tasas de victoria de las partidas clasificatorias, objetos, emblemas y notas del parche de Mobile Legends: Bang Bang, en español, inglés, francés e italiano. Proyecto independiente, abierto a contribuciones.",
+    "sources": "Datos del juego de la wiki de Mobile Legends (CC BY-SA). Las tasas de victoria, baneo y selección, los counters y las builds más usadas proceden de las estadísticas de partidas clasificatorias del juego, a través de la API comunitaria arena.rone.dev.",
     "description": "La base de conocimiento en francés sobre Mobile Legends: Bang Bang. Proyecto independiente, abierto a contribuciones.",
     "credit": "Datos de la wiki de Mobile Legends (CC BY-SA) y de la API comunitaria arena.rone.dev. No hay estadísticas de partidas disponibles."
   },
@@ -636,18 +638,54 @@
     },
     "equipe": {},
     "seo": {
-      "heros": {},
-      "tierList": {},
-      "heroes": {},
-      "items": {},
-      "emblems": {},
-      "draft": {},
-      "compare": {},
-      "patchNotes": {},
+      "heros": {
+        "titre": "{nom}: build, emblema y counters (tier {palier}, parche {v})",
+        "titreSansPalier": "{nom}: build, emblema y counters (parche {v})",
+        "contres": "Los mejores counters de {nom} en {rang}: {contres}.",
+        "contresTous": "Los mejores counters de {nom} en todos los rangos: {contres}.",
+        "build": "Build más usada: {objets}.",
+        "buildEmbleme": "Build más usada: {objets}, emblema {embleme}.",
+        "taux": "Tasa de victoria del {victoire}, tier {palier}."
+      },
+      "tierList": {
+        "titre": "Tier list MLBB {mois}: mejores héroes (parche {v})",
+        "titreRang": "Tier list MLBB {rang}, {mois} (parche {v})",
+        "description": "{top} lideran la tier list de MLBB medida el {date} (parche {v}): {premier} tiene una tasa de victoria del {victoire}. {n} héroes clasificados por tasa de victoria y de baneo, con una lista por rango.",
+        "descriptionRang": "{top} lideran la tier list de MLBB en {rang}, medida el {date} (parche {v}): {premier} tiene una tasa de victoria del {victoire}. {n} héroes clasificados por tasa de victoria y de baneo en {rang}."
+      },
+      "heroes": {
+        "titre": "Los {n} héroes de MLBB: roles, líneas y tiers (parche {v})",
+        "description": "Los {n} héroes de Mobile Legends: Bang Bang con rol, línea, tier y tasa de victoria (parche {v}, datos del {date}). Los más fuertes ahora: {top}. Además, {skins} skins y {analyses} análisis escritos."
+      },
+      "items": {
+        "titre": "Los {n} objetos MLBB: stats, recetas y precios (parche {v})",
+        "description": "Los {n} objetos de Mobile Legends: Bang Bang con estadísticas, pasivas, recetas y precios. Los más presentes en las builds más usadas ahora: {top} (parche {v}). Y qué héroes usan cada objeto."
+      },
+      "emblems": {
+        "titre": "Emblemas MLBB: talentos y hechizos por rol (parche {v})",
+        "description": "Qué emblema, talento y hechizo de combate elegir para cada rol en Mobile Legends: Bang Bang. En las builds más usadas en clasificatoria, los favoritos son {sort} y {talent} (parche {v})."
+      },
+      "draft": {
+        "titre": "Asistente de draft MLBB: counter picks por línea (parche {v})",
+        "description": "Introduce los picks rivales y obtén counter picks para cada línea entre {n} héroes, según counters, sinergias y tasas de victoria medidas el {date} (parche {v}). Gratis, sin registro."
+      },
+      "compare": {
+        "titre": "Comparador de héroes MLBB: win rate, tier y stats (parche {v})",
+        "description": "Compara dos de los {n} héroes de Mobile Legends: Bang Bang: tier, tasas de victoria y de baneo, curvas de 30 días, valoraciones, roles y líneas. Datos del {date}, parche {v}."
+      },
+      "patchNotes": {
+        "titre": "Notas del parche MLBB: actualización {v} y cambios de héroes",
+        "description": "Último parche de Mobile Legends: {version}. Héroes mejorados: {buffs}, debilitados: {nerfs}, ajustados: {autres}. Notas completas de los {m} parches recientes y {n} parches en total."
+      },
       "patch": {
+        "titre": "Parche {v} de MLBB: buffs, nerfs y cambios de héroes",
+        "description": "Parche {version} de Mobile Legends. Héroes mejorados: {buffs}, debilitados: {nerfs}, ajustados: {autres}, entre ellos {heros}. Notas oficiales, sección por sección.",
         "titreChangements": {}
       },
-      "winRate": {},
+      "winRate": {
+        "titre": "Calculadora de win rate MLBB: victorias para tu objetivo",
+        "description": "Introduce tus partidas jugadas y tu tasa de victoria actual: descubre cuántas victorias seguidas necesitas para llegar a tu objetivo en Mobile Legends: Bang Bang, o cuántas partidas a un ritmo dado. Gratis, al instante y sin registro."
+      },
       "tierLane": {},
       "tierRole": {},
       "heroesRole": {},
@@ -663,8 +701,18 @@
       "calendrierAnnee": {},
       "collection": {}
     },
-    "fraicheur": {},
-    "apercuHeros": {},
+    "fraicheur": {
+      "majLe": "Actualizado el {date}",
+      "patch": "Parche {v}",
+      "herosClasses": "{n} héroes clasificados"
+    },
+    "apercuHeros": {
+      "evolution": "En los últimos {n} días, la tasa de victoria de {nom} pasó del {debut} al {fin} en todos los rangos ({ecart} {pts}).",
+      "duree": "{nom} gana más en las partidas de {tranche} ({victoire}) y menos en las de {trancheBas} ({victoireBas}).",
+      "rangs": "Según el rango, la tasa de victoria de {nom} va del {bas} en {rangBas} al {haut} en {rangHaut}.",
+      "ajustements": "Cambios a {nom}: {n} en los últimos {total} parches.",
+      "skins": "Skins de {nom} ({n}):"
+    },
     "fiches": {},
     "itemDetail": {},
     "emblemDetail": {},

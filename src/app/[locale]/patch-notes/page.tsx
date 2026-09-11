@@ -9,13 +9,25 @@ import { LOCALE_HTML, type Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { metaPage } from "@/i18n/seo";
 import { formaterDate } from "@/lib/utils";
+import { compterAjustements, dateLongue, patchActuel } from "@/lib/fraicheur";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
+  // Le dernier patch, sa date et ses ajustements ouvrent la description.
+  const version = patchActuel.date
+    ? `${patchActuel.version} (${dateLongue(locale, patchActuel.date)})`
+    : patchActuel.version;
   return metaPage(locale, {
-    titre: t("pages.patchNotes.metaTitre"),
-    description: t("pages.patchNotes.metaDescription", { n: patchs.length }),
+    titre: t("pages.seo.patchNotes.titre", { v: patchActuel.version }),
+    description: patchActuel.ajustements.length
+      ? t("pages.seo.patchNotes.description", {
+          version,
+          ...compterAjustements(patchActuel.ajustements),
+          m: Object.keys(patchsDetail).length,
+          n: patchs.length,
+        })
+      : t("pages.patchNotes.metaDescription", { n: patchs.length }),
     partage: t("pages.patchNotes.ogDescription", { n: patchs.length }),
     chemin: "/patch-notes",
   });
