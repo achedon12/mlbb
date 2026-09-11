@@ -2,26 +2,29 @@
 
 import { createContext, useContext, useMemo } from "react";
 import { LANGUE_DEFAUT, type Langue } from "./config";
-import { creerT, type T } from "./traductions";
+import { creerTDepuis, type Arbre, type T } from "./t";
 
 const Contexte = createContext<{ langue: Langue; t: T }>({
   langue: LANGUE_DEFAUT,
-  t: creerT(LANGUE_DEFAUT),
+  t: (cle) => cle,
 });
 
 /**
  * Rend la langue courante et sa fonction de traduction disponibles aux
- * composants client. Les messages sont déjà embarqués dans le bundle (petits) :
- * on ne transmet que la langue, et `creerT` fait le reste.
+ * composants client. Le serveur transmet le seul catalogue de la page
+ * (`messagesClient`) : les quatre catalogues complets pesaient 150 Ko de
+ * JavaScript sur chaque page.
  */
 export function FournisseurLangue({
   langue,
+  messages,
   children,
 }: {
   langue: Langue;
+  messages: Arbre;
   children: React.ReactNode;
 }) {
-  const valeur = useMemo(() => ({ langue, t: creerT(langue) }), [langue]);
+  const valeur = useMemo(() => ({ langue, t: creerTDepuis(messages) }), [langue, messages]);
   return <Contexte.Provider value={valeur}>{children}</Contexte.Provider>;
 }
 

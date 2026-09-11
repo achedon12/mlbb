@@ -7,7 +7,7 @@ import { MesureAudience } from "@/components/mesure-audience";
 import { PiedDePage } from "@/components/pied-de-page";
 import { FournisseurLangue } from "@/i18n/fournisseur";
 import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, estLangue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { creerT, messagesClient } from "@/i18n/traductions";
 import { metaLangues, OG_LOCALE } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
@@ -83,7 +83,7 @@ export default async function LangueLayout({
   return (
     <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[LANGUE_DEFAUT]} className={`${rajdhani.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <FournisseurLangue langue={locale}>
+        <FournisseurLangue langue={locale} messages={messagesClient(locale)}>
           <a
             href="#contenu"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-or-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-nuit-950"
