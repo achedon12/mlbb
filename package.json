@@ -32,6 +32,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "sync": "node scripts/sync.mjs",
+    "sync:evolution": "node scripts/sync.mjs --evolution",
     "traduire": "node scripts/traduire-messages.mjs && node scripts/traduire-donnees.mjs && node scripts/traduire-articles.mjs",
     "test": "vitest run",
     "test:watch": "vitest",

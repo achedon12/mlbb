@@ -28,6 +28,7 @@ import {
 } from "./wikitexte.mjs";
 import { ajustementsHeros, bilan } from "./patch-parser.mjs";
 import { extraireIllustrations, normaliserNomSkin } from "./galerie.mjs";
+import { arrondi, choisirGuide, fusionnerHistorique, serieQuotidienne } from "./mesures.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
 /**
@@ -604,17 +605,8 @@ async function pagesHeros(heros) {
  */
 const RANGS_MESURE = ["all", "epic", "legend", "mythic", "honor", "glory"];
 
-/**
- * Contres reels, avec taux de victoire, pour chaque rang.
- *
- * L'academie expose, pour chaque heros, le taux de victoire de tous ses
- * adversaires et surtout la variation de ce taux quand ils l'affrontent :
- * `increase_win_rate`. Negatif, l'adversaire perd du terrain — le heros le
- * contre ; positif, l'adversaire prend l'avantage. On en tire les contres
- * chiffres, dans les deux sens, la ou l'analyse ecrite ne couvre qu'une
- * poignee de heros.
- */
-async function contresReels(heros) {
+/** Table identifiant de jeu vers slug, depuis le meme endpoint que le reste. */
+async function tableHerosParId(heros) {
   // Table identifiant de jeu vers slug, depuis le meme endpoint que le reste.
   const reponse = await fetch(`${STATS}/heroes?size=200`, {
     headers: { "User-Agent": UA },
@@ -633,6 +625,163 @@ async function contresReels(heros) {
       if (connus.has(slug)) parId.set(id, slug);
     }
   }
+  return parId;
+}
+
+/**
+ * JSON d'une adresse de l'API, ou null si elle ne repond pas. Une erreur
+ * passagere (surcharge, delai) merite deux nouveaux essais, espaces.
+ */
+async function jsonDe(url, essais = 3) {
+  for (let essai = 1; essai <= essais; essai += 1) {
+    try {
+      const rep = await fetch(url, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(20000) });
+      if (rep.ok) return await rep.json();
+      if (rep.status === 404) return null;
+    } catch {
+      // nouvel essai
+    }
+    if (essai < essais) await pause(1000 * 2 ** essai);
+  }
+  return null;
+}
+
+/**
+ * Ecrit evolution.json : series quotidiennes, une ligne par heros pour garder
+ * des diffs lisibles. Un heros que l'API n'a pas servi garde ses mesures
+ * precedentes, et l'historique se cumule d'une synchronisation a l'autre.
+ */
+async function ecrireEvolution(complementaires) {
+  const existante = await lireJson(`${SORTIE}/evolution.json`);
+  const evolution = {
+    tendances: { ...(existante.tendances ?? {}), ...(complementaires?.tendances ?? {}) },
+    duree: { ...(existante.duree ?? {}), ...(complementaires?.duree ?? {}) },
+    historique: fusionnerHistorique(existante.historique ?? {}, complementaires?.tendances ?? {}),
+  };
+  const parLigne = (parCle) => {
+    const lignes = Object.entries(parCle).map(([k, v]) => `    ${JSON.stringify(k)}: ${JSON.stringify(v)}`);
+    return lignes.length > 0 ? `{\n${lignes.join(",\n")}\n  }` : "{}";
+  };
+  await writeFile(
+    `${SORTIE}/evolution.json`,
+    `{\n${Object.entries(evolution).map(([k, v]) => `  "${k}": ${parLigne(v)}`).join(",\n")}\n}\n`,
+  );
+}
+
+/**
+ * `--evolution` : ne rafraichit que coequipiers, tendances et durees de
+ * partie, sur les heros deja synchronises. De quoi completer ces mesures
+ * quand l'API a flanche pendant une synchronisation complete.
+ */
+async function evolutionSeule() {
+  const heros = await lireJson(`${SORTIE}/heros.json`);
+  if (!Array.isArray(heros) || heros.length === 0) throw new Error("Lancer d'abord une synchronisation complete.");
+  // Les heros encore sans mesure d'abord : une relance comble les trous avant
+  // que l'API ne sature.
+  const existante = await lireJson(`${SORTIE}/evolution.json`);
+  const mesure = (h) => Number(Boolean(existante.tendances?.[h.slug]));
+  const ordre = [...heros].sort((a, b) => mesure(a) - mesure(b));
+  console.log(`Coequipiers et tendances (academie), ${heros.filter((h) => !mesure(h)).length} heros sans mesure…`);
+  const complementaires = await coequipiersEtTendances(ordre, await tableHerosParId(heros));
+  const stats = await lireJson(`${SORTIE}/statistiques.json`);
+  stats.coequipiers = { ...(stats.coequipiers ?? {}), ...complementaires.coequipiers };
+  await Promise.all([
+    writeFile(`${SORTIE}/statistiques.json`, JSON.stringify(stats, null, 2) + "\n"),
+    ecrireEvolution(complementaires),
+  ]);
+  console.log(`  ${Object.keys(complementaires.tendances).length} heros mesures`);
+}
+
+/**
+ * Coequipiers, tendances et taux par duree de partie, pour chaque rang.
+ *
+ * L'academie publie, pour chaque heros : la variation de son taux de victoire
+ * selon son coequipier, ses taux quotidiens (victoire, ban, selection) sur
+ * trente jours, et son taux de victoire par tranche de duree de partie — de
+ * quoi dire s'il pese en debut ou en fin de partie. La duree se mesure sur sa
+ * position principale.
+ */
+async function coequipiersEtTendances(heros, parId) {
+  const coequipiers = {};
+  const tendances = {};
+  const duree = {};
+
+  async function mesuresDuRang(h, rang) {
+    const nom = encodeURIComponent(h.nom);
+    const lane = LANES_API[h.lanes[0]];
+    const [equipe, tendance, chrono] = await Promise.all([
+      jsonDe(`${STATS}/academy/heroes/${nom}/teammates?rank=${rang}`),
+      jsonDe(`${STATS}/academy/heroes/${nom}/trends?days=30&rank=${rang}`),
+      lane ? jsonDe(`${STATS}/academy/heroes/${nom}/win-rate/timeline?rank=${rang}&lane=${lane}`) : null,
+    ]);
+
+    const partenaires = equipe?.data?.records?.[0]?.data?.sub_hero;
+    const meilleurs = (Array.isArray(partenaires) ? partenaires : [])
+      .map((a) => ({ slug: parId.get(a.heroid), gain: a.increase_win_rate }))
+      .filter((a) => a.slug && a.slug !== h.slug && typeof a.gain === "number")
+      .sort((a, b) => b.gain - a.gain)
+      .slice(0, 6)
+      .map((a) => ({ slug: a.slug, avantage: Math.round(a.gain * 1000) / 10 }));
+
+    const serie = serieQuotidienne(
+      (tendance?.data?.records?.[0]?.data?.win_rate ?? [])
+        .filter((x) => x?.date && typeof x.win_rate === "number")
+        .map((x) => ({
+          date: x.date,
+          victoire: arrondi(x.win_rate * 100, 1),
+          ban: arrondi(x.ban_rate * 100, 1),
+          selection: arrondi(x.app_rate * 100, 2),
+        })),
+    );
+
+    const tranches = (chrono?.data?.records?.[0]?.data?.time_win_rate ?? [])
+      .filter((x) => typeof x?.win_rate === "number" && typeof x.time_min === "number")
+      .sort((a, b) => a.time_min - b.time_min)
+      .map((x) => ({ de: x.time_min, a: x.time_max ?? null, victoire: arrondi(x.win_rate * 100, 1) }));
+
+    return { meilleurs: meilleurs.length > 0 ? meilleurs : null, serie, tranches: tranches.length > 0 ? tranches : null };
+  }
+
+  let muets = 0;
+  for (const [i, h] of heros.entries()) {
+    // Deux rangs a la fois, trois requetes chacun : au-dela, l'API sature et
+    // repond en erreur pour tout le monde.
+    const resultats = [];
+    for (let k = 0; k < RANGS_MESURE.length; k += 2) {
+      resultats.push(...(await Promise.all(RANGS_MESURE.slice(k, k + 2).map((rang) => mesuresDuRang(h, rang)))));
+    }
+    RANGS_MESURE.forEach((rang, j) => {
+      const { meilleurs, serie, tranches } = resultats[j];
+      if (meilleurs) (coequipiers[h.slug] ??= {})[rang] = meilleurs;
+      if (serie) (tendances[h.slug] ??= {})[rang] = serie;
+      if (tranches) (duree[h.slug] ??= {})[rang] = tranches;
+    });
+    // Une API muette pour huit heros de suite ne reviendra pas d'ici la fin :
+    // on garde l'acquis plutot que d'attendre chaque delai d'expiration.
+    muets = resultats.some((r) => r.meilleurs || r.serie || r.tranches) ? 0 : muets + 1;
+    if (muets >= 8) {
+      console.warn(`\n    API muette depuis ${muets} heros : arret apres ${i + 1 - muets} heros mesures`);
+      break;
+    }
+    process.stdout.write(`\r    coequipiers et tendances ${i + 1}/${heros.length}`);
+    await pause(300);
+  }
+  process.stdout.write("\n");
+  return { coequipiers, tendances, duree };
+}
+
+/**
+ * Contres reels, avec taux de victoire, pour chaque rang.
+ *
+ * L'academie expose, pour chaque heros, le taux de victoire de tous ses
+ * adversaires et surtout la variation de ce taux quand ils l'affrontent :
+ * `increase_win_rate`. Negatif, l'adversaire perd du terrain — le heros le
+ * contre ; positif, l'adversaire prend l'avantage. On en tire les contres
+ * chiffres, dans les deux sens, la ou l'analyse ecrite ne couvre qu'une
+ * poignee de heros.
+ */
+async function contresReels(heros) {
+  const parId = await tableHerosParId(heros);
 
   /** Contres d'un heros dans un rang, ou null si l'API n'a rien pour lui. */
   async function contresDuRang(h, rang) {
@@ -840,18 +989,6 @@ async function buildsReels(heros) {
 
   process.stdout.write("\n");
 
-  // Seuils de rank_level des auteurs, sur l'echelle de src/lib/rangs.ts :
-  // Epique des 76, l'ancienne plage Legende des 106, puis les etoiles
-  // mythiques a partir de 136 — Honneur a 25 etoiles, Gloire a 50. Le niveau
-  // publie est le meilleur rang atteint par l'auteur.
-  const BANDES_AUTEUR = {
-    all: [0, Infinity],
-    epic: [76, 106],
-    legend: [106, 136],
-    mythic: [136, 161],
-    honor: [161, 186],
-    glory: [186, Infinity],
-  };
   const guides = {};
   for (const h of heros) {
     const liste = (guidesBruts[h.slug] ?? []).map((g) => ({ ...g, lane: laneParRoute.get(g.route) ?? null }));
@@ -865,13 +1002,8 @@ async function buildsReels(heros) {
           g.equipement.every((id) => objetParId.has(id)),
       );
       const parRang = {};
-      const parVotes = (a, b) => b.votes - a.votes || b.vues - a.vues;
       for (const rang of RANGS_MESURE) {
-        const [bas, haut] = BANDES_AUTEUR[rang];
-        // D'abord un auteur de ce rang meme ; a defaut, d'un rang superieur.
-        const meilleur =
-          candidats.filter((g) => g.rangAuteur >= bas && g.rangAuteur < haut).sort(parVotes)[0] ??
-          candidats.filter((g) => g.rangAuteur >= bas).sort(parVotes)[0];
+        const meilleur = choisirGuide(candidats, rang);
         if (!meilleur) continue;
         parRang[rang] = {
           objets: meilleur.equipement.map((id) => objetParId.get(id)).filter(Boolean),
@@ -1055,6 +1187,30 @@ async function patchs() {
   }
 
   return [...parVersion.values()].sort((a, b) => comparerVersions(b.version, a.version));
+}
+
+/**
+ * Date de chaque patch detaille : la premiere revision de sa page sur le wiki,
+ * creee le jour de la sortie ou a quelques jours pres. Elle place les patchs
+ * sur les courbes de taux.
+ */
+async function daterPatchs(detail) {
+  for (const patch of Object.values(detail)) {
+    try {
+      const donnees = await api({
+        action: "query",
+        prop: "revisions",
+        titles: patch.titre,
+        rvprop: "timestamp",
+        rvdir: "newer",
+        rvlimit: "1",
+      });
+      const page = Object.values(donnees.query?.pages ?? {})[0];
+      patch.date = page?.revisions?.[0]?.timestamp?.slice(0, 10) ?? null;
+    } catch {
+      patch.date = null;
+    }
+  }
 }
 
 /**
@@ -1465,6 +1621,17 @@ async function principal() {
     console.warn(`  builds indisponibles (${erreur.message}) — inchanges`);
   }
 
+  console.log("Coequipiers et tendances (academie)…");
+  let complementaires = null;
+  try {
+    complementaires = await coequipiersEtTendances(heros, await tableHerosParId(heros));
+    console.log(
+      `  ${Object.keys(complementaires.coequipiers).length} heros avec coequipiers, ${Object.keys(complementaires.tendances).length} avec tendance`,
+    );
+  } catch (erreur) {
+    console.warn(`  coequipiers et tendances indisponibles (${erreur.message}) — inchanges`);
+  }
+
   console.log("Relations entre heros…");
   let liens = null;
   try {
@@ -1481,6 +1648,7 @@ async function principal() {
 
   console.log("Contenu des patchs recents…");
   const detailPatchs = await contenuPatchs(listePatchs);
+  await daterPatchs(detailPatchs);
   console.log(`  ${Object.keys(detailPatchs).length} patchs detailles`);
 
   console.log("Emblemes des rangs…");
@@ -1716,6 +1884,8 @@ async function principal() {
     contres: contres ?? statsExistantes.contres ?? {},
     builds: builds ?? statsExistantes.builds ?? {},
     guides: guides ?? statsExistantes.guides ?? {},
+    // Par heros : celui que l'API n'a pas servi garde ses coequipiers.
+    coequipiers: { ...(statsExistantes.coequipiers ?? {}), ...(complementaires?.coequipiers ?? {}) },
     relations: liens ?? statsExistantes.relations ?? {},
   };
 
@@ -1732,6 +1902,7 @@ async function principal() {
     ecrire("histoires", histoires),
     ecrire("rangs", emblemesRangs),
     ecrire("noms", noms),
+    ecrireEvolution(complementaires),
     // Tous les chemins de visuels, regroupes
     ecrire("visuels", {
       heros: chemins,
@@ -1767,4 +1938,4 @@ async function principal() {
   console.log(`\nEcrit dans ${SORTIE}/`);
 }
 
-await principal();
+await (process.argv.includes("--evolution") ? evolutionSeule() : principal());

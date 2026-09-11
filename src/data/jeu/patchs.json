@@ -2446,7 +2446,8 @@
         "amelioration": 26,
         "affaiblissement": 11,
         "ajustement": 5
-      }
+      },
+      "date": "2026-06-18"
     },
     "1.9.47": {
       "version": "1.9.47",
@@ -3555,7 +3556,8 @@
         "amelioration": 19,
         "affaiblissement": 9,
         "ajustement": 2
-      }
+      },
+      "date": "2025-02-17"
     },
     "1.8.78": {
       "version": "1.8.78",
@@ -3808,7 +3810,8 @@
         "amelioration": 1,
         "affaiblissement": 2,
         "ajustement": 1
-      }
+      },
+      "date": "2024-05-25"
     },
     "1.8.76": {
       "version": "1.8.76",
@@ -4206,7 +4209,8 @@
         "amelioration": 5,
         "affaiblissement": 3,
         "ajustement": 3
-      }
+      },
+      "date": "2024-05-25"
     },
     "1.8.74": {
       "version": "1.8.74",
@@ -4856,7 +4860,8 @@
         "amelioration": 11,
         "affaiblissement": 7,
         "ajustement": 2
-      }
+      },
+      "date": "2024-04-09"
     },
     "1.8.72": {
       "version": "1.8.72",
@@ -5880,7 +5885,8 @@
         "amelioration": 30,
         "affaiblissement": 4,
         "ajustement": 0
-      }
+      },
+      "date": "2024-03-29"
     },
     "1.8.70": {
       "version": "1.8.70",
@@ -6658,7 +6664,8 @@
         "amelioration": 17,
         "affaiblissement": 3,
         "ajustement": 2
-      }
+      },
+      "date": "2024-03-28"
     },
     "1.8.68": {
       "version": "1.8.68",
@@ -6718,7 +6725,8 @@
         "amelioration": 0,
         "affaiblissement": 0,
         "ajustement": 0
-      }
+      },
+      "date": "2024-03-15"
     },
     "1.8.66": {
       "version": "1.8.66",
@@ -7796,7 +7804,8 @@
         "amelioration": 7,
         "affaiblissement": 6,
         "ajustement": 12
-      }
+      },
+      "date": "2024-04-23"
     },
     "1.8.62": {
       "version": "1.8.62",
@@ -8226,7 +8235,8 @@
         "amelioration": 5,
         "affaiblissement": 9,
         "ajustement": 1
-      }
+      },
+      "date": "2024-02-25"
     },
     "1.8.60": {
       "version": "1.8.60",
@@ -9164,7 +9174,8 @@
         "amelioration": 6,
         "affaiblissement": 5,
         "ajustement": 14
-      }
+      },
+      "date": "2024-02-08"
     },
     "1.8.58": {
       "version": "1.8.58",
@@ -9406,7 +9417,8 @@
         "amelioration": 4,
         "affaiblissement": 1,
         "ajustement": 1
-      }
+      },
+      "date": "2024-02-08"
     }
   }
 }

@@ -227,6 +227,8 @@ export interface SectionPatch {
 export interface PatchDetaille {
   version: string;
   titre: string;
+  /** Mise en ligne des notes sur le wiki, a quelques jours de la sortie. */
+  date?: string | null;
   lien: string;
   sommaire: { niveau: number; titre: string; ancre: string }[];
   sections: SectionPatch[];

@@ -1,0 +1,1007 @@
+[
+  {
+    "nom": "Classic",
+    "slug": "classic",
+    "description": "Classic Mode is the first and earliest game mode in Mobile Legends. All other game modes use the rules in Classic as a base. This mode gives 5v5 and the Mobile Legends experience without worrying about losing your Rank, but your win rate will be affected, both from the hero side and the whole.​​​​ Classic Mode is suitable for beginners who need to familiarize themselves with Mobile Legends games. You can freely choose any hero you have, along with the Weekly Free Heroes and any trial cards you possess. However, you cannot have more than one of the same hero on your team. You can also choose which Hero you like, since there is no banning of Heroes unlike in Ranked.",
+    "sections": [
+      {
+        "titre": "Objective",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Like all MOBA Games, the primary goal is to destroy the Enemy Base. This requires you to defend your Turrets and Base, and destroy theirs. Each turret in a specific lane must be destroyed in a sequence for your minions to reach the Base. There are ways to destroy turrets by making use of the minions/creeps to take the damage of the turret's bullets. After destroying the turrets, you will be able to damage/destroy the Enemy Base. Destroying the final Turret in a lane will grant Super Minions that inflict high damage to heroes and clear lanes faster. Sometimes, players get caught up with accumulating kills against enemy heroes instead of focusing on enemy minions and turrets. More kills might result in them getting MVP and farming, but destroying turrets, getting to the Enemy Base and destroying it is the main objective."
+          }
+        ]
+      },
+      {
+        "titre": "Features",
+        "elements": [
+          {
+            "type": "li",
+            "texte": "Celestial Palace/Western Expanse — A field drawing inspiration from the Defense of the Ancients: Allstars (DOTA for short) version of the map, with several tweaked features and mechanics. The game consists of five heroes on each team, who are then put in an arena with the objective of destroying each other's Base Inhibitor, resulting in a victory. The general time it takes to complete most games is about 10–15 minutes, but some games can last over 30 minutes."
+          },
+          {
+            "type": "li",
+            "texte": "The battlefield is divided into three lanes to fight your way to the enemy base."
+          },
+          {
+            "type": "li",
+            "texte": "A Jungle populated with Jungle Monsters grants Healing Buffs, Role Buffs, and Gold Buffs when they are defeated. There are also Boss Monsters which provide gold for your whole team or the Lord fighting by your side."
+          },
+          {
+            "type": "li",
+            "texte": "The Gold Lane can also be taken by Tanks who are roaming for the team to get items quickly to support the team."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/classic.webp"
+  },
+  {
+    "nom": "Ranked",
+    "slug": "ranked",
+    "description": "Ranked is a competitive queue game mode. Players earn or lose stars if they win or lose in this mode. Warrior, Elite, Master, Grandmaster, Epic, Legend, and Mythic (Mythical Honor, Mythical Glory, and Mythical Immortal) are the seven ranks in Mobile Legends: Bang Bang.",
+    "sections": [
+      {
+        "titre": "Matchmaking Rules",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Players can choose three heroes to feature on their lobby and draft phase. These heroes must be played at least once in rank."
+          },
+          {
+            "type": "p",
+            "texte": "Players can play solo or form a team of two, three or five players to queue. Players can invite other players who are one rank higher or lower than them in the lobby. A team of four is unallowed."
+          },
+          {
+            "type": "p",
+            "texte": "When a team with players in different Ranks queue, this is called Flex Rank, and they will only queue matches of the person of highest rank."
+          },
+          {
+            "type": "p",
+            "texte": "Examples:"
+          },
+          {
+            "type": "li",
+            "texte": "A Mythic player teams with an Epic player, both will follow the draft rule of the Mythic player."
+          },
+          {
+            "type": "li",
+            "texte": "A Mythic Glory player teams with a Grandmaster player and a Legend player, all of them will follow the draft rule of the Mythic player, even if Draft Pick is normally unavailable for players in rank lower than Epic."
+          },
+          {
+            "type": "p",
+            "texte": "However, a solo queue player may end up matchmaking with allies in higher or lower rank, this can be triggered by the following:"
+          },
+          {
+            "type": "li",
+            "texte": "Allies play as team, while you are solo. Among the allies in the said team is at least a player with Rank similar to you."
+          },
+          {
+            "type": "li",
+            "texte": "Example: An Epic player teams with a Legend player and you, an Epic player, may meet them."
+          },
+          {
+            "type": "li",
+            "texte": "All players are solo, but enemy team has someone with Rank similar to you."
+          },
+          {
+            "type": "li",
+            "texte": "Example: Your rank is Legend, but 4 of your teammates are Mythic. Then at least one of the enemy is Legend."
+          },
+          {
+            "type": "li",
+            "texte": "When this phenomenon occurs, it is possible that only one member of the team is in a different rank"
+          },
+          {
+            "type": "li",
+            "texte": "Example: Your team has 4 players in Legend Rank, and 1 player in Mythic Rank, it means enemy team may have 1-4 players in Mythic Rank, but there must be someone in Epic Rank."
+          },
+          {
+            "type": "li",
+            "texte": "Due to this Flex Rank mechanics, even a solo queue player at Legend I can queue up with an ally at Epic V, as they are just one rank different, but the gap is vastly different, leading to the widely perceived dark system."
+          },
+          {
+            "type": "p",
+            "texte": "Fast matchmaking option will be proposed if the queue takes too long, this option will match you with even players that you blocked previously."
+          },
+          {
+            "type": "p",
+            "texte": "If the player you blocked queue in team with someone that you don not block, you may still queue with them in match."
+          }
+        ]
+      },
+      {
+        "titre": "Draft Pick",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "When a player reaches Epic V or higher (Grandmaster V or higher in Advanced Server), Draft Pick becomes available for future matches. Unlike Blind Pick, Draft Pick allows both teams to see their heroes while being picked, and allows for up to 10 banned heroes (3 / 4 / 5 bans at Epic / Legend / Mythic) for each team for balancing purposes. Heroes who have already been selected or banned cannot be picked for the duration of the match."
+          }
+        ]
+      },
+      {
+        "titre": "Rank System",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "There are seven ranks in Mobile Legends: Bang Bang. These are: Warrior, Elite, Master, Grandmaster, Epic, Legend, and Mythic."
+          },
+          {
+            "type": "p",
+            "texte": "Each ranks has divisions written in Roman numerals and a number of stars required to be promoted to the next division or rank. If a player exceeds the maximum number of stars in their current division or falls below zero stars, they can advance to the next division or back to the previous division. Completing all divisions from their current rank or being demoted from all divisions will result in a promotion to the next rank or a demotion to the previous rank."
+          },
+          {
+            "type": "p",
+            "texte": "In Mythic, the stars have been replaced with points to advance to the next division."
+          }
+        ]
+      },
+      {
+        "titre": "Star-raising and Star Protection Points",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "There are numerous methods for increasing or preventing star loss, which leads to star-raising and star protection points."
+          },
+          {
+            "type": "p",
+            "texte": "Star-raising allow players to gain an extra star when a player reaches 100% star-raising points on the next win. 100/200/300/500/700/1000 points required at Warrior / Elite / Master / Grandmaster / Epic / Legend. Bonus star raising points cannot be accumulated in Mythic ranks."
+          },
+          {
+            "type": "p",
+            "texte": "Star protection allow players to avoid losing a star from losing a match by reaching 100% star protection points or by using star protection cards. 100/200/300/500/700/1000/1500 points required at Warrior / Elite / Master / Grandmaster / Epic / Legend / Mythic."
+          },
+          {
+            "type": "p",
+            "texte": "Star-protection cards are usually obtained through in-game Events, or through Starlight Rewards. They usually last for only 7 days once obtained or claimed from the Event pages."
+          },
+          {
+            "type": "p",
+            "texte": "Rank-protection card is the card that prevents you from demoting to the previous rank once. It is often acquired after you reach a higher rank: Epic to Legend, Legend to Mythic."
+          },
+          {
+            "type": "p",
+            "texte": "Only star protection points are available in Mythic, as star-raising points are disabled."
+          }
+        ]
+      },
+      {
+        "titre": "Rank Protection Card",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Rank Protection Cards can only be obtained from Rank Promotion Rewards. Unlike Star Protection Points/Cards, they only activate on Defeats which will cause the player to demote in ranks (e.g. A Defeat resulting in a loss of stars from Legend V 0 Stars to Epic I 4 Stars, demoting from Legend rank to Epic rank)."
+          }
+        ]
+      },
+      {
+        "titre": "Rank Reset",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "After a season ends, all players will begin their new season with their new rank based on their rank in the previous season. They also receive the reward for having reached certain Rank."
+          },
+          {
+            "type": "p",
+            "texte": "Rank reset is only applied when the player logs in for the first time in the new season, however their old Rank is not recorded on leaderboard."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/ranked.webp"
+  },
+  {
+    "nom": "Brawl",
+    "slug": "brawl",
+    "description": "Brawl is a game mode in which you are unable to choose your heroes freely. Instead each player will be given a choice between two random heroes. Fights in this mode happen only in one lane with two turrets defending the base in both teams respectively. Brawl matches usually end in a much shorter time compared to Classic Mode and Ranked. This type of match is prefered for raising lost credit scores or complete tasks.",
+    "sections": [
+      {
+        "titre": "Main features",
+        "elements": [
+          {
+            "type": "li",
+            "texte": "Each player is given a choice between 2 random heroes."
+          },
+          {
+            "type": "li",
+            "texte": "Players can only buy items when dead or before leaving Altar area on each respawn."
+          },
+          {
+            "type": "li",
+            "texte": "Altar no longer heals or regenerates mana. All healing effect is halved. Base no longer replenishes itself."
+          },
+          {
+            "type": "li",
+            "texte": "Each hero might have an additional buff or handicap."
+          }
+        ]
+      },
+      {
+        "titre": "Starting",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Players can chat during the selection phase."
+          },
+          {
+            "type": "p",
+            "texte": "All players begin at Level 4 and are given 2500 starting gold to buy items. Once they leave the Base, they must die to be able to purchase items again."
+          }
+        ]
+      },
+      {
+        "titre": "Healing Glyph",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Heroes who rarely die in battle will drop a healing glyph. (Heals both Max HP and Mana.)"
+          }
+        ]
+      },
+      {
+        "titre": "Turrets",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Turrets in Brawl behave similarly as in Classic Games. However turrets are weaker and do not have a golden shield."
+          },
+          {
+            "type": "p",
+            "texte": "The second turret of each side releases a wave that kills all minions upon being destroyed."
+          }
+        ]
+      },
+      {
+        "titre": "Minions",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Gold and experience gained from minions are higher than in Classic Mode."
+          },
+          {
+            "type": "p",
+            "texte": "At the 12 minute mark, Super Minions are deployed to avoid lengthy games."
+          }
+        ]
+      },
+      {
+        "titre": "Crab",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "There are two crabs on opposite sides of the lane that spawn at 0:30 and respawn 30 seconds after their death. Killing a Frozen Crab regenerates small amounts of health, gives some golds and a small shield. Nearby allies who help with the crab is also credited with some gold. This crab can be used as a stepping stone for heroes like Lancelot, Joy or Natalia, interact with certain heroes like Vexana, Benedetta or Yi Sun-shin, or check if enemy is in the nearest bush or commit suicide to buy items when health is too low."
+          }
+        ]
+      },
+      {
+        "titre": "Healing Runes",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "There are two healing runes on opposite sides of the lane that spawn at 0:30 and respawn 35 seconds after being picked up. The timer and sound effect is visible and audible to everyone. The rune continuously heals the one who picks up during the 5-second delay, then regenerates some health and 40% max mana to all allied heroes in range. If the one who picks up dies during the delay, the healing is canceled."
+          }
+        ]
+      },
+      {
+        "titre": "Barrel",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "There is a Barrel on each side that spawns at the 0:20 mark and every 30 seconds after being picked up. Pick this Barrel and shoots towards enemies to catch them off-guard!"
+          },
+          {
+            "type": "p",
+            "texte": "The Barrel makes the user untargetable shortly, deals impact True damage, and has a 15-second cooldown, making it impossible to snatch two barrels at once. When someone picks up a Barrel, a sound is played audible to everyone on the map."
+          },
+          {
+            "type": "p",
+            "texte": "The Barrel is also disabled by rooted effect."
+          },
+          {
+            "type": "p",
+            "texte": "A dead Diggie or untargetable hero can pick up the Barrel."
+          }
+        ]
+      },
+      {
+        "titre": "Matchmaking",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Unlike Classic or Ranked, there is no Rank restrictions in Brawl. Meaning you can queue matches that one side is 5 man solo queue while the other is a team of 5, or one side is 5 man Mythic Immortal while the other is someone who just downloaded the game."
+          },
+          {
+            "type": "p",
+            "texte": "Being AFK, avoiding teamfight or verbal abuse is fully punishable through reports."
+          }
+        ]
+      },
+      {
+        "titre": "Tips & Tricks",
+        "elements": [
+          {
+            "type": "li",
+            "texte": "Recommended Team Composition"
+          },
+          {
+            "type": "p",
+            "texte": "There are many heroes to choose from with different styles of play. Knowing the heroes' skills, strengths, and weaknesses along with optimal positioning is vital. Prioritize Assassins, Mages or Fighters as they have a lot of damage output and crowd control. Avoid Marksman as they are item-dependent and squishy early on, unless those with good minion clearing and area of effect abilities like Beatrix or Granger. Avoid teams with too many Mages, too many Marksmen or too many Tanks."
+          },
+          {
+            "type": "li",
+            "texte": "Recommended Battle Spells"
+          },
+          {
+            "type": "li",
+            "texte": "Flameshot has very low cooldown and can be used to check bush, secure kills or cancel abilities."
+          },
+          {
+            "type": "li",
+            "texte": "At least one player should bring these followng items:"
+          },
+          {
+            "type": "li",
+            "texte": "Revitalize so that their team can resustain after fight as the Altar no longer heals, especially when your team in a bad position that they cannot secure the Healing runes; and"
+          },
+          {
+            "type": "li",
+            "texte": "Purify, if your hero has good damage output but vulnerable to crowd control (CC)."
+          },
+          {
+            "type": "li",
+            "texte": "However, Sprint is not very recommended."
+          },
+          {
+            "type": "li",
+            "texte": "Make use of the crowd"
+          },
+          {
+            "type": "p",
+            "texte": "Brawl's unique map can massively enhance heroes such as Luo Yi, Odette, Lancelot, Xavier, Fanny while heroes that rely too much on basic attacks like Freya or Thamuz become useless."
+          },
+          {
+            "type": "p",
+            "texte": "Likewise, you should avoid staying close together when enemies are Atlas or Tigreal."
+          },
+          {
+            "type": "li",
+            "texte": "Buy the right stuff"
+          },
+          {
+            "type": "p",
+            "texte": "Instead of buying a decent item, buying smaller components might give better advantage. You can also wait a few seconds and ping allies that you almost have enough gold for items.j"
+          },
+          {
+            "type": "p",
+            "texte": "instead of rushing a 5 man team with full Sky Piercer, item that gives healing reduction can greatly counter the enemy team."
+          },
+          {
+            "type": "li",
+            "texte": "Hiding in the bush"
+          },
+          {
+            "type": "p",
+            "texte": "Take advantage of bushes to ambush enemies, especially suitable for heroes like Helcurt, Hilda, Natalia, Luo Yi. Be careful if enemies have such heroes."
+          },
+          {
+            "type": "li",
+            "texte": "Replay hero selection"
+          },
+          {
+            "type": "p",
+            "texte": "At the beginning, players will be given a choice between 2 heroes. If no heroes are very unsuitable for you to play, you roll a dice to get a new hero and send your discarded hero to the pool for others. Sometimes only one hero discarded is enough for everyone to swap. You can chat and ask other players or use quick chats and emotes. Keep in mind that if the hero is discarded twice and disappear from everyone's selection, it might reappear again if you use another dice, which will waste your dice. Up to 10 heroes can appear at the discarded slot."
+          },
+          {
+            "type": "p",
+            "texte": "Some heroes are difficult for you to play, but it does not mean it is difficult for your allies, swap them out and avoid hoarding two good heroes while your allies having none."
+          },
+          {
+            "type": "li",
+            "texte": "Enlist the enemy"
+          },
+          {
+            "type": "p",
+            "texte": "Since it is only one lane, it is easier to guess your opponents' movements and place your hero in the best position to either defend or attack."
+          },
+          {
+            "type": "p",
+            "texte": "When the enemy team has Xavier, Novaria, expect that you will be damaged or revealed while buying items at Altar or reaching the battlefield."
+          },
+          {
+            "type": "p",
+            "texte": "You can check up on enemies's items to see if they left their Altar or not."
+          },
+          {
+            "type": "li",
+            "texte": "Use natural objects"
+          },
+          {
+            "type": "p",
+            "texte": "You can save up a Barrel to escape after diving in, turret dive or use it to shorten the distance with Flicker. Barrels first spawn at 20 seconds, while the first Healing Runes are at 30 seconds, it is best to secure the bush on the right and the glyph close to it, so that your team might at least disable a healing option after fight of the enemies. Use the barrel to stop the enemies when they try to secure the Healing Rune."
+          }
+        ]
+      },
+      {
+        "titre": "Battle Spells",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "All heroes are given Flicker by default alongside another chosen battle spell."
+          },
+          {
+            "type": "p",
+            "texte": "All battle spells begin with 50% of their normal cooldown."
+          }
+        ]
+      },
+      {
+        "titre": "Hero Specifications",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "As some heroes will be too powerful or too disadvantageous in Brawl, some buffs or handicaps are added to some heroes as follows:"
+          },
+          {
+            "type": "p",
+            "texte": "Lastest Version: v350.1 {|class=\"article-table\" !Hero!!Stat changes!!Individual changes"
+          },
+          {
+            "type": "p",
+            "texte": "Passive gain: 10/4"
+          },
+          {
+            "type": "p",
+            "texte": "There are four gates for Chip, each side has one close to the base, while the other twos are on either side of the opposite bushes."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/brawl.webp"
+  },
+  {
+    "nom": "Vs. AI",
+    "slug": "vs-ai",
+    "description": "The \"Vs A.I\" mode in Mobile Legends: Bang Bang was introduced around late 2017, shortly after the game's global release. Originally featuring only Simple and Normal difficulties, the mode underwent significant upgrades, including a Hard mode added during Project Next in 2020 and modernized, challenging A.I. training modes released around November 2023.",
+    "sections": [
+      {
+        "titre": "Mechanics",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "There are three game modes you can pick in this mode: Classic, Brawl and Draft Pick."
+          }
+        ]
+      },
+      {
+        "titre": "Difficulty Levels",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "There are also three difficulty settings: AI: Simple, AI: Normal and AI: Hard."
+          },
+          {
+            "type": "li",
+            "texte": "AI:Easy has very easy AI, good for practicing a hero you have just unlocked or are not yet familiar with."
+          },
+          {
+            "type": "li",
+            "texte": "AI:Normal has slightly more advanced AI opponents who can sometimes pose as a threat as they farm, lane, and carefully use skills. This difficulty is a bit more challenging than AI: Simple, and a much better option to practice a hero in an almost-real fight."
+          },
+          {
+            "type": "li",
+            "texte": "AI:Hard has moderately advanced AI opponents who know when to use their battle spells and properly time their skills to kill their opponent. They also attack turrets correctly unike in normal and simple where they die voluntarily, they also know how to macro, and follow their team, and knows actually how to escape, reccomended to use main hero."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/vs-ai.webp"
+  },
+  {
+    "nom": "Custom",
+    "slug": "custom",
+    "description": "Custom games are very similar to Vs. AI. The difference is the players set themselves up against other people or against AI. Players can invite friends to join, or add AI with existing buttons. Players can also add AI to the opposing team or on your team, you can also play alone with an AI.",
+    "sections": [
+      {
+        "titre": "Note",
+        "elements": [
+          {
+            "type": "li",
+            "texte": "Custom Mode will not affect your Rank, Hero Mastery or Placement. You also won't earn any BP or any EXP."
+          },
+          {
+            "type": "li",
+            "texte": "If you have Trial Cards with heroes you don't still have Draft Pick still has a Bug that allows you to use that Trial Card with the hero you still don't have, the Trial Card won't be consume/used."
+          },
+          {
+            "type": "li",
+            "texte": "Most players usually use custom to 1v1 eachother or host custom matches between 2 team (tournaments)"
+          }
+        ]
+      },
+      {
+        "titre": "History",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Source: https://youtu.be/3mFb0EQrMXE?t=113"
+          },
+          {
+            "type": "p",
+            "texte": "Category:Custom Category:Game Mode"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/custom.webp"
+  },
+  {
+    "nom": "Arcade Mode",
+    "slug": "arcade-mode",
+    "description": "Arcade Modes is an additional game mode in Mobile Legends: Bang Bang that can time-to-time be playable during Special Events, Holidays, or Occasion. The mode feature various strategy based sub-games, that are listed below.",
+    "sections": [
+      {
+        "titre": "Mayhem",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Intense, Fast-pace, Exciting, 5v5 Arcade!"
+          },
+          {
+            "type": "p",
+            "texte": "In the past, this game didn't really have an official name. This Game Mode was first released and it was simply Summer Carnival came and had consumables to upgrade heroes skills,with modified map matching with Summer. During Halloween, this mode came back again with the same feature as Summer Carnival, Modified Skills, Candies as bonus items, and Halloween themed Map. Then Christmas came and the mode had the same features; however, while the Map was changed to fit Christmas, candies were kept as consumables. And then the Easter came out. Finally, Mayhem Mode was introduced: this time the Game Mode didn't have consumables, but it had Modified Skills and Map Changes."
+          },
+          {
+            "type": "p",
+            "texte": "There are only 50 heroes available in this mode."
+          }
+        ]
+      },
+      {
+        "titre": "Mirror",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Duels of the same hero but using different tactics!"
+          },
+          {
+            "type": "p",
+            "texte": "Mirror mode uses the same map as Bruno Cup Mayhem mode (in fact, the map's layout, the Lord, and minions have the same theme), however, during the selection phase, in each team, the players will upvote one amongst the six randomly picked heroes. The one with most votes will be the chosen hero for their entire team. Like Mayhem mode, the players will start at hero level 4 and receive 900 gold. Just as with all game modes, the objective is to destroy the enemy base."
+          }
+        ]
+      },
+      {
+        "titre": "Survival",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Will you be the one who stands to the last?"
+          },
+          {
+            "type": "p",
+            "texte": "Survival is similar to any other Battle Royale game, but with few tweaks in order to fit in Mobile Legends. Survival only works with teams of 3 players in a 99 Players battle (33 Teams) and the Map won't be Celestial Palace or Western Expanse, as in other game modes, it will rather be settled on a unique Map, the Maze of Minos, which is a very large map to fit 99 Players in it. Survival only offers 15 selectable heroes, dividing them into three groups of 5: Physical, Magical, and Defense. Looting in this Game Mode is different from Battle Royales: you have to kill Creeps/Jungle Monster in order make them drop items, and there are 4 New Creeps in this Game Mode, each one with different chances of dropping items for the three categories. To find out more about this game mode click the highlighted text above."
+          },
+          {
+            "type": "p",
+            "texte": "Enter into Eruditio and strive to be the last one standing."
+          },
+          {
+            "type": "p",
+            "texte": "In recent times, a most fascinating competition that grows in popularity by the day has taken Eruditio by storm. Known as \"Survival: Nexus\", it draws in participants from across Eruditio. Convenient terminals allow participants to control virtual Beatrix avatars using only their brainwaves, immersing themselves in a virtual realm. Here, they can take part in a tactical competition in which the last player standing receives a huge reward. Grab the chance while you can, adventurers, and join Survival: Nexus!"
+          }
+        ]
+      },
+      {
+        "titre": "Deathbattle",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Play different heroes in a single-match!"
+          },
+          {
+            "type": "p",
+            "texte": "It is another game type on Mobile Legends, the selection is much similar to survival whereby the player must choose a hero among the randomly selected heroes, whether owned or not. In gameplay, when the hero dies, the player must choose another hero. If there are two players who chose the same hero, he/she must choose another. There are two ways to achieve victory: either to destroy the enemy base or achieve 30 kills before the enemy does. In 2019, this is released in coordination with the Spring Festival. So, the battlefield is matched to this occasion."
+          }
+        ]
+      },
+      {
+        "titre": "Frenzy",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "In this mode, various food items can be found around the mode. By picking different food items up, players can get different buffs that enhances their hero abilities. Some Achievements are exclusive to Frenzy Mode and can only be achieved by playing this mode."
+          },
+          {
+            "type": "p",
+            "texte": "Food items can be found at the spot where some of the creeps are killed, a spot where some of the special minions are killed, a spot where enemy heroes are killed and supply spots inside the home and enemy base."
+          },
+          {
+            "type": "p",
+            "texte": "Food items List"
+          }
+        ]
+      },
+      {
+        "titre": "Evolve",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "It was released on April 20, 2019."
+          },
+          {
+            "type": "p",
+            "texte": "In this game mode, 15 players are dropped in a map where they have to level up and evolve by collecting gems that are dropped by monsters or randomly spawn around the map, aiming to be the last player standing. Killing an enemy player won't eliminate them, they'll rather suffer a respawn penalty time and lose some experience; however, once the first player has reached Level 15 and becomes the \"Devil\", any death is permanent."
+          },
+          {
+            "type": "p",
+            "texte": "Monsters will also drop colored gems that permanently increase stats: red gems increase physical attack, blue gems increase magical attack and green gems increase HP. Different monsters drop different gems. Some higher-level monsters will also drop Battle Spells to equip; only one can be equipped at a time, as one is already given once reaching Level 6."
+          },
+          {
+            "type": "p",
+            "texte": "There is no champion select screen, all players start as Level 1 \"Cells\" and can evolve by reaching certain levels of experience."
+          },
+          {
+            "type": "p",
+            "texte": "Level 1: Cells"
+          },
+          {
+            "type": "p",
+            "texte": "They cannot attack and have low health, but since everyone started in this state, it doesn't represent an issue. They're also the fastest mobs."
+          },
+          {
+            "type": "p",
+            "texte": "Monsters will not spawn at this stage of the game."
+          },
+          {
+            "type": "p",
+            "texte": "Level 3: Minions"
+          },
+          {
+            "type": "p",
+            "texte": "Once reached Level 3, players can choose to evolve into Basic Minion, Ranged Minion or Ballista Minion."
+          },
+          {
+            "type": "p",
+            "texte": "Other than having different attack and speed, this choice also affects all later available evolutions."
+          },
+          {
+            "type": "p",
+            "texte": "After 1 minute has passed, monsters start to appear. At this stage, only blue and red gelatins will appear, but they won't attack players."
+          },
+          {
+            "type": "p",
+            "texte": "Level 6: Minor Monsters"
+          },
+          {
+            "type": "p",
+            "texte": "Players will evolve in different monsters depending on which minion they choose. Minor monster will have one skill each."
+          },
+          {
+            "type": "p",
+            "texte": "Physical route: If the player has chosen Basic Minion, they will evolve in Giant Mouth or Crammer."
+          },
+          {
+            "type": "p",
+            "texte": ": 1. Giant Mouth's skill will deal damage to an enemy equal to a percentage of target's max HP."
+          },
+          {
+            "type": "p",
+            "texte": ": 2. Crammer's skill will greatly increase its lifesteal for some time."
+          },
+          {
+            "type": "p",
+            "texte": "Magical route: If the player has chosen Ranged Minion, they will evolve in Goblin or Crimson Lizard."
+          },
+          {
+            "type": "p",
+            "texte": ": 1. Goblin's skill will launch a high damaging energy ball in one direction."
+          },
+          {
+            "type": "p",
+            "texte": ": 2. Crimson Lizard's skill will create an energy area that continuously deals damage to enemies within."
+          },
+          {
+            "type": "p",
+            "texte": "Tank route: If the player has chosen Ballista Minion, they will evolve in Spinner or Death."
+          },
+          {
+            "type": "p",
+            "texte": ": 1. Spinner's skill will instantly regen a certain amount of HP."
+          },
+          {
+            "type": "p",
+            "texte": ": 2. Death's skill will continuously deal damage to surrounding enemies."
+          },
+          {
+            "type": "p",
+            "texte": "When reaching Level 6, players may also choose one of two random Battle Spells to equip for the rest of the match. The possible Battle Spells are Flicker, Sprint, Execute, Inspire and Aegis."
+          },
+          {
+            "type": "p",
+            "texte": "Level 9: Major Monsters Major monsters will have two skills, many of which are inspired by existing heroes' skill or by attacks that these monsters perform in other game modes."
+          },
+          {
+            "type": "p",
+            "texte": "If the player has chosen Physical route, they will evolve in Gargoyle or Cleaver"
+          },
+          {
+            "type": "p",
+            "texte": ": 1. Gargoyle's skill 1 will increase its movement speed for a while, skill 2 will increase its attack."
+          },
+          {
+            "type": "p",
+            "texte": ": 2. Cleaver's skill 1 is a blink similar to Flicker, its skill 2 is its signature delayed wave attack from other game modes."
+          },
+          {
+            "type": "p",
+            "texte": "If the player has chosen the Magical route, they will evolve in Pioneer or Statued Chaser."
+          },
+          {
+            "type": "p",
+            "texte": ": 1. Pioneer's skill 1 launches an orb that will block enemies similar to Cyclops Ultimate, skill 2 is its signature poison trap from other game modes, but in a straight line."
+          },
+          {
+            "type": "p",
+            "texte": ": 2. Statued Chaser's skill 1 resembles Gusion's first skill (they will throw a dagger in a direction, and if it hits an enemy the skill can be used again to chase them); skill 2 will attack enemies in front of it, dealing great damage."
+          },
+          {
+            "type": "p",
+            "texte": "If the player has chosen Tank evolution, they will evolve in Statued Shocker or Core Guard."
+          },
+          {
+            "type": "p",
+            "texte": ": 1. Statued Shocker's skill 1 will improve its next basic attack, which will stun enemies; skill 2 will provide them with a shield that will explode after some time or when it's destroyed, similar to Uranus' second skill."
+          },
+          {
+            "type": "p",
+            "texte": ": 2. Core Guard's skill 1 will taunt nearby enemies, forcing them to attack, skill 2 will reflect damage received for a period of time. (Both skills resemble Gatotkaca second skill.)"
+          },
+          {
+            "type": "p",
+            "texte": "When reaching Level 9, players may also choose one of two passive buffs that last the rest of the match, depending on their route:"
+          },
+          {
+            "type": "p",
+            "texte": "Physical buffs: 30% Attack Damage or 40% Attack Speed"
+          },
+          {
+            "type": "p",
+            "texte": "Magical buffs: 40% CD reduction or 40% Spell Vamp"
+          },
+          {
+            "type": "p",
+            "texte": "Tank buffs: 2% of health converts to damage or recover 300 HP every 5 seconds"
+          },
+          {
+            "type": "p",
+            "texte": "As soon as at least one player has reached Level 9, Minor Monsters will also start to appear as mobs; they will attack players if provoked and will drop more gems."
+          },
+          {
+            "type": "p",
+            "texte": "A \"Dark Turtle\" may also appear. It can drop large amounts of big Gems. Its location will be visible on every player's map."
+          },
+          {
+            "type": "p",
+            "texte": "Level 12: Heroes (Needs more info: available heroes may specifically change depending on Level 6 and Level 9 routes. More heroes might be available than those listed. )"
+          },
+          {
+            "type": "p",
+            "texte": "If the player has chosen Physical route, Marksman or Assassin heroes will be available."
+          },
+          {
+            "type": "p",
+            "texte": ": Marksman: Karrie, Lesley, Bruno, Claude."
+          },
+          {
+            "type": "p",
+            "texte": ": Assassin: Lancelot, Saber, Freya."
+          },
+          {
+            "type": "p",
+            "texte": "If the player has chosen Magical route, Mage or Support heroes will be available."
+          },
+          {
+            "type": "p",
+            "texte": ": Mage: Odette, Gord, Alice, Esmeralda, Harley."
+          },
+          {
+            "type": "p",
+            "texte": ": Support: Angela, Estes, Nana."
+          },
+          {
+            "type": "p",
+            "texte": "If the player has chosen Tank evolution, Fighter or Tank heroes will be available."
+          },
+          {
+            "type": "p",
+            "texte": ": Fighter: Kaja, Lapu Lapu, Alucard."
+          },
+          {
+            "type": "p",
+            "texte": ": Tank: Hylos, Uranus, Akai, Jhonson."
+          },
+          {
+            "type": "p",
+            "texte": "When the first player has reached Level 13, major monsters will start to appear. They can drop bigger Gems that are worth more than normal ones, and even battle spells to equip. Big exp gems will also start to spawn."
+          },
+          {
+            "type": "p",
+            "texte": "Level 15: The Devil"
+          },
+          {
+            "type": "p",
+            "texte": "The first player to reach Level 15 will become the Devil. They'll become bigger and have their stats increased, but they'll move slower and their position will be revealed to every other player's map. They will also have to the ability to transform for some time into the Lord, gaining new powerful skills that resemble Lord's attack from other game modes."
+          },
+          {
+            "type": "p",
+            "texte": ": Skill 1 and Skill 2, \"Lord Strikes\": Heavily hammers the ground, dealing True Damage to surrounding enemies and leaving a crack under their current position; after a while, the crack will explode dealing damage and knocking up enemies."
+          },
+          {
+            "type": "p",
+            "texte": ": Skill 3, \"Spinning Strikes\": After charging for a short time, the Lord will spin his hammer dealing True Damage to surrounding enemies in a great area."
+          },
+          {
+            "type": "p",
+            "texte": "Any other player that reaches lv 15 will not become the Devil: the only way to claim the title and buffs is to slay the current Devil."
+          },
+          {
+            "type": "p",
+            "texte": "In this final stage, the safe zone will start to shrink slowly, forming a circle centered on the current \"Devil\" and forcing other players towards them.; the zone will move with the Devil, trying to keep them in its center. From now on, killing a player will eliminate them from the match."
+          }
+        ]
+      },
+      {
+        "titre": "Ravage",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Sci-fi style scramble battle."
+          },
+          {
+            "type": "p",
+            "texte": "The mysterious rift in the parallel universe is gradually expanding. An airship from Zlatan is about to crash into the Land of Dawn, which would be a disaster and a challenge! Warriors, the Ravage is now open. Show your courage and strength to save Zlatan and defend the Land of Dawn."
+          },
+          {
+            "type": "p",
+            "texte": "Ravage is a mode where each team consists of 5 different roles and fights for Aquamarines. Each player can choose 5 heroes of different roles before partaking in a Ravage match. After the matchup, each player randomly uses one of the 5 heroes they previously chose."
+          },
+          {
+            "type": "p",
+            "texte": "In this mode, S.A.B.E.R. and V.E.N.O.M. are fighting each other. While they fight, Aquamarines begin to drop around them. The first team that collects a certain amount of Aquamarines will win the match. Being eliminated causes a player to lose all Aquamarines, which scatter on the ground. If a player holds more than 10 Aquamarines, his location will be exposed on the mini-map."
+          },
+          {
+            "type": "p",
+            "texte": "In the center of the Ravage Mode map lies the only HP Regeneration spot. Upon elimination, players quickly respawn in the Control Center and can rejoin the battle very soon. Elimination enemies and collecting their Aquamarines is the goal of this mode."
+          },
+          {
+            "type": "p",
+            "texte": "The first team to accumulate 15 Aquamarines will win this match. No laning, no destroying turrets, to kill, and ravage is the goal of this mode! Come and have fun, you will be the winner!"
+          },
+          {
+            "type": "p",
+            "texte": "From 7–13 August 2020, Ravage Mode came back with a new 3V3 mode. Only 3 out of 5 roles will be used and all players will start with 30,000 and hero level in 15 (max)."
+          }
+        ]
+      },
+      {
+        "titre": "Brawl&Mirror",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Exciting Brawl Match among the Mirrored Heroes!"
+          },
+          {
+            "type": "p",
+            "texte": "Hero Selection: In this mode, players vote for the hero they would like to use out of a random set of heroes. The hero with the most votes will become the hero that is used by the entire team."
+          },
+          {
+            "type": "p",
+            "texte": "Hero Adjustment: In this mode, different heroes receive different attribute buffs to create more balance among heroes of different roles, thus improving the overall game experience."
+          }
+        ]
+      },
+      {
+        "titre": "Chess TD",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Tower Defense Battle Royale Match"
+          },
+          {
+            "type": "p",
+            "texte": "Harper, who was venturing in the southern Abyss, inadvertently enters the Abyss. He discovers that the demons headed by name = Dyrroth are gathering in the Abyss. Soon they will cross the Lantis Mountain and destroy the Moniyan Empire. However, all the creatures along the way will suffer pain brought on by the disaster."
+          },
+          {
+            "type": "p",
+            "texte": "CHESS-TD is an Arcade Mode that is full of fun and strategy! In this mode, 6 will be distributed into 6 maps and confront with each other and with creeps. Players can buy heroes from the shop, buy their own lineup, loot golds, and enhance their troops to get to the victory."
+          },
+          {
+            "type": "p",
+            "texte": "The map is random for every match. Players can buy Heroes from the shop and deploy them on stones that are higher than the ground (slots). Deployed heroes will attack nearby enemies automatically and cast their skill once they gain enough mana."
+          },
+          {
+            "type": "p",
+            "texte": "Definition of Round: A round contains 4 phases: the preparation phase, the get ready phase, the battle phase, and the resolving phase. The preparation phase is for players to buy, deploy, recall, or sell heroes and upgrade the capacity. During the battle phase, one of the other players' heroes will invade your map. If these invaders successfully get to the destination before they are eliminated, you will receive relative damage."
+          },
+          {
+            "type": "p",
+            "texte": "Definition of Gold & Capacity: At the end of each round, players will get a certain amount of Gold and Interest (for every 10 gold owned, get extra 1 gold). Additionally, getting winning streaks or losing streaks will also grant an extra gold bonus. Capacity decides how many heroes you can deploy. The maximum is 9. At the end of each round, you will get 1 Capacity Exp. Also, you can choose to buy 4 Capacity Exp. with 4 golds. The chance to get elite heroes scales with the level of the capacity, at the same time, the chance to get common heroes decays with it."
+          },
+          {
+            "type": "p",
+            "texte": "Hero Level & Star: There are 4 levels for heroes, which indicate the rarity and the cost of them. Generally speaking, high-level heroes should be more powerful. If there are 3 same heroes on the battlefield, they will upgrade into a higher-level hero. Three 1-star heroes will upgrade into a 2-star hero. Three 2-star heroes will upgrade into a 3-star hero."
+          },
+          {
+            "type": "p",
+            "texte": "Synergy: Every hero has 2 attributes: faction & role. The synergy effect will be activated if there are enough heroes with the same attributes on the battlefield (the same heroes' attributes will be counted once only). It is important to take synergy into consideration."
+          }
+        ]
+      },
+      {
+        "titre": "Magic Chess",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "Fast-paced auto chess competition among 8 players."
+          },
+          {
+            "type": "p",
+            "texte": "Magic Chess is an 8-player complex strategy based game mode, where players will compete against each other and random creeps in the Magic Chessboard. The goal of this game is to buy and upgrade your heroes and the little commander, customizing your lineup to trigger and counter more and stronger synergies. The victory belongs to the one stands till the last!"
+          }
+        ]
+      },
+      {
+        "titre": "Shadow Brawl",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "The Brawl on the Bridge of Destruction."
+          },
+          {
+            "type": "p",
+            "texte": "In Shadow Brawl, players vote to select a hero among several randomly appearing heroes. All players in the team will use the same hero to play the game. Players are equipped with name=Blade of Silence which marks the current position and connects a chain to it. The chain will automatically pull your hero back to the marked position after 4s. CD is 20s."
+          }
+        ]
+      },
+      {
+        "titre": "Arena",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "1v1 Auto Card Battle."
+          },
+          {
+            "type": "p",
+            "texte": "A new kind of game has taken Moniyan by storm. The Little Commanders and their magical items can now be found in each and every home throughout the land. The Crystal Balls sense all kinds of life throughout the Land of Dawn and channel their Energy; which is transformed into collectible cards. There are Monster Cards and Hero Cards. Monsters are easily gained and controlled, while heroes require a heftier price and more advanced Energy. Decks are built and battles held with others; people are striving to defeat enemy's Little Commander and achieve victory."
+          },
+          {
+            "type": "p",
+            "texte": "In \"Arena\" mode, you will match up against another player in a 1v1 battle. Your goal is simple, take down your opponent's Little Commander before they take down yours. In order to do so, you will have to use cards to summon Heroes and Monsters and cast spells to fight against your opponent's troops. The battle will keep going until the Little Commander on one side is taken down. \"Shard\", the resource to summon Monsters and use spells, is generated every 3 seconds. And by spending 5 \"Shards\", the resource used to summon Heroes, \"Essence\", will be generated."
+          },
+          {
+            "type": "p",
+            "texte": "After entering the \"Arena\", you will be given a series of tutorials to get you started. After walking through the full tutorial, you will be rewarded 9 basic cards. As you play, you can get cards from Battle Chests and Summoning Orbs. The duplicate cards obtained will be used to upgrade the corresponding cards to give it more strength. In addition, more cards will be unlocked as you progress your rank. All cards will be unlocked when Legend is reached. There are two levels of rarity for Hero cards, Uncommon and Epic. There are two cards, Uncommon and Epic. There are two levels of rarity for Monster/Spell cards as well, Common and Uncommon."
+          },
+          {
+            "type": "p",
+            "texte": "You can earn Cup Points, Battle Points, and Battle Chests after each match. More cards can be unlocked with more Cup Points. You can get Battle Points or cards that are already unlocked from the Battle Chests."
+          }
+        ]
+      },
+      {
+        "titre": "Boommander",
+        "elements": [
+          {
+            "type": "p",
+            "texte": "A fascinating competition called Boommander is now trending in Laladona, and many Little Commanders have become its fans. The rules are simple: collect Fluffy growing in the oasis near the Tree of Origin and cast these explosive puffballs at others. Can you dodge the attacks and blast your opponent? Join Boommander and try it out now! In Boommander Mode, you'll play as Little Commanders and cast Fluffy to compete against each other on maps pieced together with different scene tiles."
+          },
+          {
+            "type": "p",
+            "texte": "Category:Game Mode"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/arcade-mode.webp"
+  }
+]

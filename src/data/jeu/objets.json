@@ -1,0 +1,1592 @@
+[
+  {
+    "slug": "antique-cuirass",
+    "nom": "Antique Cuirass",
+    "resume": "Physical Attack Reduction",
+    "categorie": "Defense",
+    "prix": 2170,
+    "bonus": "+920 HP, +40 Physical Defense, +4 HP Regen",
+    "unique": null,
+    "passif": "Deter: When hit by a skill, reduces the attacker's Physical Damage by 6% for 2 seconds (this effect stacks up to 3 times).",
+    "actif": null,
+    "recette": [
+      "Dreadnaught Armor",
+      "Ares Belt"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "arcane-boots",
+    "nom": "Arcane Boots",
+    "resume": "Magic Penetration",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 Movement Speed, +15 Magic Power, +10 Magic Penetration",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Mystery Codex"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "ares-belt",
+    "nom": "Ares Belt",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 700,
+    "bonus": "+600 HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "athena-s-shield",
+    "nom": "Athena's Shield",
+    "resume": "Resist Burst Magic Damage",
+    "categorie": "Defense",
+    "prix": 2150,
+    "bonus": "+900 HP, +48 Magic Defense, +2 HP Regen",
+    "unique": null,
+    "passif": "Shield: Upon taking Magic Damage from enemy hero skills or Basic Attacks, reduces Magic Damage taken by 25% for 3 seconds (including the damage that triggers the effect)s. Regains this effect 5 seconds after leaving combat.",
+    "actif": null,
+    "recette": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "azure-blade",
+    "nom": "Azure Blade",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 600,
+    "bonus": "+5 Mana Regen, +5% Cooldown Reduction",
+    "unique": null,
+    "passif": "Judgement: After casting a skill, the next Basic Attack within 3 seconds deals 50 extra True Damage (1.5 seconds cooldown).",
+    "actif": null,
+    "recette": [
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "berserker-s-fury",
+    "nom": "Berserker's Fury",
+    "resume": "Crit Chance & Damage",
+    "categorie": "Attack",
+    "prix": 2390,
+    "bonus": "+60 Physical Attack, +25% Crit Chance",
+    "unique": "+30% Crit Damage",
+    "passif": "Doom: When Basic Attacks Crit, they deal extra True Damage equal to 12% of the damage before reduction.",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Javelin",
+      "Javelin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "black-ice-shield",
+    "nom": "Black Ice Shield",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 780,
+    "bonus": "+20 Physical Defense, +20 Magic Defense",
+    "unique": null,
+    "passif": "Fortress Shield: For each enemy hero within 3.55 units, Hybrid Defense is increased by 4, up to 20.",
+    "actif": null,
+    "recette": [
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "blade-armor",
+    "nom": "Blade Armor",
+    "resume": "Damage Reflection",
+    "categorie": "Defense",
+    "prix": 1910,
+    "bonus": "+80 Physical Defense",
+    "unique": "+20% Crit Damage Reduction",
+    "passif": "Bladed Armor: When struck by a Basic Attack, deals Physical Damage equal to 30 (+2% Total Physical Defense)% of the incoming damage (calculated before Damage Reduction) to the attacker and slows them by 15% for 1 second.",
+    "actif": null,
+    "recette": [
+      "Steel Legplates",
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "blade-of-despair",
+    "nom": "Blade of Despair",
+    "resume": "Highest Physical Attack",
+    "categorie": "Attack",
+    "prix": 3010,
+    "bonus": "+160 Physical Attack, +5% Movement Speed",
+    "unique": null,
+    "passif": "Despair: Dealing damage to non-Minion enemies below 50% HP increases Physical Attack by 25% for 2 seconds (takes effect before the damage is dealt).",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Legion Sword"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "blade-of-the-heptaseas",
+    "nom": "Blade of the Heptaseas",
+    "resume": "Best for Assassins",
+    "categorie": "Attack",
+    "prix": 1950,
+    "bonus": "+70 Physical Attack, +250 HP",
+    "unique": "+15 Physical Penetration",
+    "passif": "Ambush: If no damage is taken or dealt within 5 seconds (excluding from Minions or Creeps), the next Basic Attack will deal an additional 160 (+40% Total Physical Attack) Physical Damage and slow the target by 40% for 1.5 seconds.",
+    "actif": null,
+    "recette": [
+      "Fury Hammer",
+      "Ogre Tomahawk"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "blood-wings",
+    "nom": "Blood Wings",
+    "resume": "Speed Boost Shield",
+    "categorie": "Magic",
+    "prix": 2100,
+    "bonus": "+90 Magic Power",
+    "unique": null,
+    "passif": "Guard: Gains a 800 (+100% Magic Power) Shield that will regenerate 20 seconds after being damaged. The Shield also grants 30 Movement Speed while it lasts and 150 Movement Speed for 1 second after it breaks.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "bloodlust-axe",
+    "nom": "Bloodlust Axe",
+    "resume": "Spell Vamp",
+    "categorie": "Attack",
+    "prix": 1970,
+    "bonus": "+70 Physical Attack, +10% Cooldown Reduction",
+    "unique": "+20% Spell Vamp",
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Iron Hunting Bow",
+      "Dagger",
+      "Iron Hunting Bow"
+    ],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "book-of-sages",
+    "nom": "Book of Sages",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 450,
+    "bonus": "+8 Magic Power, +5% Cooldown Reduction",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "boots",
+    "nom": "Boots",
+    "resume": null,
+    "categorie": "Movement",
+    "prix": 250,
+    "bonus": "+20 Movement Speed",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "brute-force-breastplate",
+    "nom": "Brute Force Breastplate",
+    "resume": "Attack, Speed Up, CC Reduction",
+    "categorie": "Defense",
+    "prix": 2070,
+    "bonus": "+800 HP, +20 Physical Defense, +10% Cooldown Reduction",
+    "unique": null,
+    "passif": "Brute Force: Each second after dealing damage, gain 8 extra Adaptive Attack and 2% extra Movement Speed for 4 seconds, up to 6 stacks. Gain 25% extra Control Duration Reduction at full stacks.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Leather Jerkin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "bud-of-hope",
+    "nom": "Bud of Hope",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+250 HP",
+    "unique": null,
+    "passif": "Bud of Hope: Granted by Floryn and Dew. The equipment will reveal its true power once Dew evolves.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "calamity-reaper",
+    "nom": "Calamity Reaper",
+    "resume": "Enhanced Basic Attacks",
+    "categorie": "Magic",
+    "prix": 1950,
+    "bonus": "+70 Magic Power, +100 Mana, +6 Mana Regen, +10% Cooldown Reduction",
+    "unique": null,
+    "passif": "Calamity: In 3 seconds after using the skill, the casters next Basic Attack deals additional True Damage as much as 120% of Magic Power with a cooldown of 1.5 seconds. Then briefly gains 10% Movement Speed.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Azure Blade"
+    ],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "chastise-pauldron",
+    "nom": "Chastise Pauldron",
+    "resume": "Reduce Enemy Attack Speed",
+    "categorie": "Defense",
+    "prix": 2100,
+    "bonus": "+900 HP, +40 Physical Defense",
+    "unique": null,
+    "passif": "Chastise: Taking damage will reduce the Attack Speed and Attack Speed cap of the attacker to 75% of normal for 2 seconds.@ Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 2 seconds. This effect has a 60 seconds cooldown.",
+    "actif": null,
+    "recette": [
+      "Steel Legplates",
+      "Ares Belt"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "clock-of-destiny",
+    "nom": "Clock of Destiny",
+    "resume": "For Magic Tanks",
+    "categorie": "Magic",
+    "prix": 2030,
+    "bonus": "+45 Magic Power, +400 HP, +400 Mana, +10% Cooldown Reduction",
+    "unique": null,
+    "passif": "Destiny: Gains 4.5(+0.5*Hero Level) Hybrid Defense for 5 seconds when dealing Magic Damage to enemy heroes, stacking up to 6 times (can gain 1 stack every 0.4 seconds).@ Gift: When HP drops below 50%, recovers 15% of HP over the next 3 seconds. When Mana drops below 50%, restores 15% of Mana over the next 3 seconds. Cooldown: 60 seconds.",
+    "actif": null,
+    "recette": [
+      "Elegant Gem",
+      "Book of Sages",
+      "Book of Sages"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "concentrated-energy",
+    "nom": "Concentrated Energy",
+    "resume": "Continuous Damage Boost",
+    "categorie": "Magic",
+    "prix": 2020,
+    "bonus": "+75 Magic Power, +400 HP",
+    "unique": "+20% Hybrid Lifesteal",
+    "passif": "Recharge: Increases Magic Power by 5 after dealing Magic Damage (this effect stacks up to 6 times and can only gain 1 stack every 0.4 seconds). When reaching full stacks, increases Magic Damage by 12% for 5 seconds.",
+    "actif": null,
+    "recette": [
+      "Mystic Container",
+      "Magic Wand",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "corrosion-scythe",
+    "nom": "Corrosion Scythe",
+    "resume": "One-Hit Slow",
+    "categorie": "Attack",
+    "prix": 2050,
+    "bonus": "+30 Physical Attack, +30% Attack Speed, +5% Movement Speed",
+    "unique": null,
+    "passif": "Corrosive: Basic Attacks gain 80 extra Physical Damage and slow the target by 8% (halved for ranged Basic Attacks) for 1.5 seconds. Stacks up to 5 times.@ Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "actif": null,
+    "recette": [
+      "Swift Crossbow",
+      "Regular Spear"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "cursed-helmet",
+    "nom": "Cursed Helmet",
+    "resume": "Survivability & Lane Clearing",
+    "categorie": "Defense",
+    "prix": 1910,
+    "bonus": "+1200 HP, +20 Magic Defense",
+    "unique": null,
+    "passif": "Burning Soul: Deals (1.2% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions.@ Curse: Dealing damage with Burning Soul will reduce the target's Hybrid Defense by 3 for 3 seconds. Stacks up to 3 times.",
+    "actif": null,
+    "recette": [
+      "Molten Essence",
+      "Ares Belt",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "dagger",
+    "nom": "Dagger",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 250,
+    "bonus": "+15 Physical Attack",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "demon-hunter-sword",
+    "nom": "Demon Hunter Sword",
+    "resume": "Tank Killer",
+    "categorie": "Attack",
+    "prix": 2180,
+    "bonus": "+35 Physical Attack, +20% Attack Speed",
+    "unique": null,
+    "passif": "Engulf: Basic Attacks deal 8% of the target's current HP as extra Physical Damage (capped at 60 against minions).@ Devour: Each Basic Attack recovers 10(+4*Hero Level) HP. This effect is halved against minions.",
+    "actif": null,
+    "recette": [
+      "Regular Spear",
+      "Vampire Mallet",
+      "Knife"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "demon-shoes",
+    "nom": "Demon Shoes",
+    "resume": "Quick Mana Regen",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 Movement Speed, +10 Mana Regen",
+    "unique": null,
+    "passif": "Mysticism: Getting a kill or assist on an enemy Minion will restore 4% Mana. (An assist occurs when a Minion dies within 2 seconds after taking damage from the hero.)",
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "divine-glaive",
+    "nom": "Divine Glaive",
+    "resume": "Magic Penetration",
+    "categorie": "Magic",
+    "prix": 1970,
+    "bonus": "+65 Magic Power",
+    "unique": "+40% Magic Penetration",
+    "passif": "Spellbreaker: When attacking an enemy, gains 0.1% extra Magic Penetration for each point of the enemy's Magic Defense, capped at 20%.",
+    "actif": null,
+    "recette": [
+      "Magic Wand"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "dominance-ice",
+    "nom": "Dominance Ice",
+    "resume": "Healing Reduction",
+    "categorie": "Defense",
+    "prix": 2010,
+    "bonus": "+40 Physical Defense, +40 Magic Defense, +5% Movement Speed",
+    "unique": null,
+    "passif": "Fortress Shield: For each enemy hero within 5 units, Hybrid Defense is increased by 8, up to 40.@ Lifebane: Reduces Shield and HP Regen effects of nearby enemies within 5 units to 60% of normal for 1 second.",
+    "actif": null,
+    "recette": [
+      "Black Ice Shield",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "dreadnaught-armor",
+    "nom": "Dreadnaught Armor",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 730,
+    "bonus": "+30 Physical Defense",
+    "unique": null,
+    "passif": "Deter: When hit by a skill, reduces the attacker's Physical Damage by 4% for 2 seconds (this effect stacks up to 3 times).",
+    "actif": null,
+    "recette": [
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "elegant-gem",
+    "nom": "Elegant Gem",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 700,
+    "bonus": "+300 HP, +380 Mana",
+    "unique": null,
+    "passif": "Gift: When HP drops below 50%, recovers 15% of HP over the next 3 seconds. When Mana drops below 50%, restores 15% of Mana over the next 3 seconds. Cooldown: 60 seconds.",
+    "actif": null,
+    "recette": [
+      "Power Crystal",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "enchanted-talisman",
+    "nom": "Enchanted Talisman",
+    "resume": "Mana Regen & CD Reduction",
+    "categorie": "Magic",
+    "prix": 2070,
+    "bonus": "+70 Magic Power, +300 HP, +15% Cooldown Reduction",
+    "unique": null,
+    "passif": "Mana Spring: Regenerates 15% of Max Mana every 10 seconds.@ Magic Mastery: Max Cooldown Reduction is increased by 5%.",
+    "actif": null,
+    "recette": [
+      "Tome of Evil",
+      "Magic Necklace",
+      "Magic Wand"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "endless-battle",
+    "nom": "Endless Battle",
+    "resume": "Enhanced Basic Attacks",
+    "categorie": "Attack",
+    "prix": 2330,
+    "bonus": "+60 Physical Attack, +250 HP, +10% Cooldown Reduction, +5% Movement Speed, +5 Mana Regen",
+    "unique": null,
+    "passif": "Divine Justice: After casting a skill, the next Basic Attack within 3 seconds deals (60% Total Physical Attack) extra True Damage and recovers 80 (+40% of Total Physical Attack) HP (1.5 seconds cooldown).",
+    "actif": null,
+    "recette": [
+      "Azure Blade",
+      "Iron Hunting Bow",
+      "Ogre Tomahawk"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "exotic-veil",
+    "nom": "Exotic Veil",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 600,
+    "bonus": "+30 Magic Power, +5% Movement Speed",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Mystery Codex"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "expert-gloves",
+    "nom": "Expert Gloves",
+    "resume": null,
+    "categorie": "Attack & Magic",
+    "prix": 500,
+    "bonus": "+30 Adaptive Attack,",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "feather-of-heaven",
+    "nom": "Feather of Heaven",
+    "resume": "Magic Basic Attacks",
+    "categorie": "Magic",
+    "prix": 2030,
+    "bonus": "+60 Magic Power, +20% Attack Speed, +10% Lifesteal, +5% Cooldown Reduction",
+    "unique": null,
+    "passif": "Affliction: Each Basic Attack deals extra 50 (+30% Total Magic Power) Magic Damage.@ Impulse: Basic Attacks grant 6% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "actif": null,
+    "recette": [
+      "Swift Crossbow",
+      "Book of Sages"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "flask-of-the-oasis",
+    "nom": "Flask of the Oasis",
+    "resume": "Protect Teammates",
+    "categorie": "Magic",
+    "prix": 1850,
+    "bonus": "+60 Magic Power, +300 HP, +10% Cooldown Reduction",
+    "unique": "+12% Healing Effect",
+    "passif": "Blessing: When casting a healing or shield skill, if the target's HP is below 35%, or falls below 35% within 3 seconds, they will get a (100*Hero Level) shield that lasts 3 seconds. When this effect triggers, it also reduces the cooldown of the caster's skills by 2 seconds. (This effect can only trigger once every 60 seconds on the same target, and will not trigger on self-only healing and shield skills.)",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Book of Sages",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "fleeting-time",
+    "nom": "Fleeting Time",
+    "resume": "Ultimate CD Reduction",
+    "categorie": "Attack, Magic & Defense",
+    "prix": 2050,
+    "bonus": "+30 Adaptive Attack, +600 HP, +15% Cooldown Reduction",
+    "unique": null,
+    "passif": "Timestream: Hero kills or assists reduce the Ultimate's current cooldown by 30%.",
+    "actif": null,
+    "recette": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "flower-of-hope",
+    "nom": "Flower of Hope",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+5% Adaptive Attack",
+    "unique": null,
+    "passif": "Flower of Hope: Every 6 seconds, the next skill or Basic Attack deals an additional 60 (+30% Total Physical Attack) (+30% Total Magic Power) Magic Damage.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Floryn's allies"
+  },
+  {
+    "slug": "fury-hammer",
+    "nom": "Fury Hammer",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 830,
+    "bonus": "+35 Physical Attack",
+    "unique": "+12 Physical Penetration",
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Dagger"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "genius-wand",
+    "nom": "Genius Wand",
+    "resume": "Magic Defense Reduction",
+    "categorie": "Magic",
+    "prix": 2000,
+    "bonus": "+75 Magic Power, +5% Movement Speed",
+    "unique": "+10 Magic Penetration",
+    "passif": "Magic: Dealing Magic Damage to enemy heroes will reduce their Magic Defense by 2.5+(0.5*Hero Level) for 2 seconds. Stacks up to 3 times.",
+    "actif": null,
+    "recette": [
+      "Exotic Veil",
+      "Magic Wand"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "glowing-wand",
+    "nom": "Glowing Wand",
+    "resume": "Healing Reduction",
+    "categorie": "Magic",
+    "prix": 2150,
+    "bonus": "+60 Magic Power, +300 HP, +5% Movement Speed",
+    "unique": null,
+    "passif": "Scorch: Dealing Magic Damage burns the targets for 3 seconds, also dealing extra Magic Damage equal to 1% of the target's Max HP per second.@ Lifebane: Dealing damage to the target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.",
+    "actif": null,
+    "recette": [
+      "Exotic Veil",
+      "Mystery Codex",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "golden-staff",
+    "nom": "Golden Staff",
+    "resume": "Enhance Attack Effects",
+    "categorie": "Attack",
+    "prix": 2000,
+    "bonus": "+55 Physical Attack, +15% Attack Speed",
+    "unique": null,
+    "passif": "Swift: Every 1% extra Crit Chance gained is converted into 1% extra Attack Speed.@ Endless Strike: After every 2 non-Crit Basic Attacks, the Attack Speed of the next Basic Attack is increased by 80% (and Attack Speed cap is increased to 500%) and triggers Attack Effects an additional 2 time(s).",
+    "actif": null,
+    "recette": [
+      "Regular Spear",
+      "Dagger",
+      "Dagger"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "great-dragon-spear",
+    "nom": "Great Dragon Spear",
+    "resume": "CD Reduction & Crit",
+    "categorie": "Attack",
+    "prix": 2140,
+    "bonus": "+70 Physical Attack, +10% Cooldown Reduction, +20% Crit Chance",
+    "unique": null,
+    "passif": "Supreme Warrior: After casting an Ultimate, increase Movement Speed by 30% for 7.5 seconds. This effect has a 15 seconds cooldown.",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Iron Hunting Bow",
+      "Javelin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "guardian-helmet",
+    "nom": "Guardian Helmet",
+    "resume": "Constant HP Regen",
+    "categorie": "Defense",
+    "prix": 2500,
+    "bonus": "+1800 HP, +20 HP Regen",
+    "unique": null,
+    "passif": "Recovery: After 5 seconds out of combat, recover (2.5% Total HP) HP per second.@ Defender: Upon taking more than 500 damage in a single instance, recover 30 (+0.3% Total HP)% HP from the excess damage beyond that amount.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Ares Belt",
+      "Ares Belt"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "haas-claws",
+    "nom": "Haas' Claws",
+    "resume": "Lifesteal",
+    "categorie": "Attack",
+    "prix": 2020,
+    "bonus": "+40 Physical Attack, +15% Attack Speed, +20% Crit Chance",
+    "unique": "+20% Lifesteal",
+    "passif": "Frenzy: Critical strikes grant 20% extra Attack Speed for 2 seconds.",
+    "actif": null,
+    "recette": [
+      "Vampire Mallet",
+      "Rogue Meteor",
+      "Dagger"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "healing-necklace",
+    "nom": "Healing Necklace",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 140,
+    "bonus": "+4 HP Regen",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "hero-s-ring",
+    "nom": "Hero's Ring",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 450,
+    "bonus": "+150 HP, +5% Cooldown Reduction",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "holy-crystal",
+    "nom": "Holy Crystal",
+    "resume": "Max Magic Power",
+    "categorie": "Magic",
+    "prix": 3000,
+    "bonus": "+165 Magic Power",
+    "unique": null,
+    "passif": "Mystery: Gains 21%-35% extra Magic Power (scales with level).",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "hunter-strike",
+    "nom": "Hunter Strike",
+    "resume": "Brief Speed-Up",
+    "categorie": "Attack",
+    "prix": 2010,
+    "bonus": "+80 Physical Attack, +10% Cooldown Reduction",
+    "unique": "+15 Physical Penetration",
+    "passif": "Retribution: Dealing damage to the same enemy hero or creep 5 times in a row grants 50% extra Movement Speed that decays over 3 seconds (8 seconds cooldown).",
+    "actif": null,
+    "recette": [
+      "Fury Hammer",
+      "Iron Hunting Bow",
+      "Dagger"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "ice-queen-wand",
+    "nom": "Ice Queen Wand",
+    "resume": "Slow on Skill Hit",
+    "categorie": "Magic",
+    "prix": 2040,
+    "bonus": "+60 Magic Power, +10% Spell Vamp, +300 HP, +7% Movement Speed",
+    "unique": null,
+    "passif": "Ice Bound: When a skill deals damage to an enemy hero, it will also slow them by 10% for 2 seconds (stacks up to 3 times). This effect has a 0.4 seconds cooldown.",
+    "actif": null,
+    "recette": [
+      "Mystic Container",
+      "Exotic Veil",
+      "Mystery Codex"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "immortality",
+    "nom": "Immortality",
+    "resume": "Self-Resurrection",
+    "categorie": "Defense",
+    "prix": 2120,
+    "bonus": "+850 HP, +15 Physical Defense",
+    "unique": null,
+    "passif": "Immortal: Resurrect 2.5 seconds upon death and gets 16% Max HP and a shield that can absorb 150(+70*Hero Level）damage. Shield lasts 3 seconds. This effect has a 210 seconds cooldown.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Vitality Crystal",
+      "Leather Jerkin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "iron-hunting-bow",
+    "nom": "Iron Hunting Bow",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 450,
+    "bonus": "+10 Physical Attack, +5% Cooldown Reduction",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "javelin",
+    "nom": "Javelin",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 320,
+    "bonus": "+8% Crit Chance",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "knife",
+    "nom": "Knife",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 280,
+    "bonus": "+10% Attack Speed",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "lantern-of-hope",
+    "nom": "Lantern of Hope",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+20 Magic Power, +4% Movement Speed, +2% Cooldown Reduction",
+    "unique": null,
+    "passif": "Lantern of Hope: The equipment's attributes scale with hero level.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Floryn"
+  },
+  {
+    "slug": "leather-jerkin",
+    "nom": "Leather Jerkin",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 220,
+    "bonus": "+14 Physical Defense",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "legion-sword",
+    "nom": "Legion Sword",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 910,
+    "bonus": "+60 Physical Attack",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Dagger",
+      "Dagger"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "lightning-truncheon",
+    "nom": "Lightning Truncheon",
+    "resume": "Splash Damage",
+    "categorie": "Magic",
+    "prix": 2250,
+    "bonus": "+75 Magic Power, +400 Mana, +10% Cooldown Reduction",
+    "unique": null,
+    "passif": "Resonate: Every 6 seconds, the next skill echoes, dealing 255 (+85% Magic Power) extra Magic Damage to all enemies in range.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "magic-blade",
+    "nom": "Magic Blade",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 1050,
+    "bonus": "+35 Physical Attack, +10% Lifesteal",
+    "unique": null,
+    "passif": "Lifeline: When taking damage that reduces HP below 30%, gains a (+60*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+    "actif": null,
+    "recette": [
+      "Dagger",
+      "Vampire Mallet"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "magic-necklace",
+    "nom": "Magic Necklace",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 120,
+    "bonus": "+2 Mana Regen",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "magic-potion",
+    "nom": "Magic Potion",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 1500,
+    "bonus": null,
+    "unique": null,
+    "passif": "Increase Power: Automatically used after purchasing, increases Magic Power by 30 and Cooldown Reduction by 10% for 120s. Can only have one potion effect at a time.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "magic-resist-cloak",
+    "nom": "Magic Resist Cloak",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 220,
+    "bonus": "+14 Magic Defense",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "magic-shoes",
+    "nom": "Magic Shoes",
+    "resume": "CD Reduction",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 Movement Speed, +10% Cooldown Reduction, +150 HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Hero's Ring"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "magic-wand",
+    "nom": "Magic Wand",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 820,
+    "bonus": "+45 Magic Power",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Mystery Codex"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "malefic-gun",
+    "nom": "Malefic Gun",
+    "resume": "Attack Range Increase",
+    "categorie": "Attack",
+    "prix": 2120,
+    "bonus": "+40 Physical Attack, +20% Attack Speed",
+    "unique": null,
+    "passif": "Armor Buster: Increase Physical Penetration by 30%.@ Malefic Energy: Increases Basic Attack range by 12%. When hitting a target, gains 10% Movement Speed for 0.5 seconds.",
+    "actif": null,
+    "recette": [
+      "Fury Hammer",
+      "Knife",
+      "Knife"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "malefic-roar",
+    "nom": "Malefic Roar",
+    "resume": "High Physical Penetration",
+    "categorie": "Attack",
+    "prix": 2060,
+    "bonus": "+60 Physical Attack",
+    "unique": null,
+    "passif": "Armor Buster: Increase Physical Penetration by 30%.@ Breaker: When attacking an enemy, gains 0.1% extra Physical Penetration for each point of the enemy's Physical Defense, capped at 30%.",
+    "actif": null,
+    "recette": [
+      "Legion Sword"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "molten-essence",
+    "nom": "Molten Essence",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 800,
+    "bonus": "+540 HP",
+    "unique": null,
+    "passif": "Burning Soul: Deals (0.6% Total HP) Magic Damage to nearby enemies per second. This damage is increased by 125(+15*Hero Level)% against creeps and minions.",
+    "actif": null,
+    "recette": [
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "mystery-codex",
+    "nom": "Mystery Codex",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 300,
+    "bonus": "+15 Magic Power",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "mystic-container",
+    "nom": "Mystic Container",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 500,
+    "bonus": "+15 Magic Power, +8% Spell Vamp",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Mystery Codex"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "necklace-of-durance",
+    "nom": "Necklace of Durance",
+    "resume": "Healing Reduction",
+    "categorie": "Magic",
+    "prix": 2010,
+    "bonus": "+60 Magic Power, +300 HP, +380 Mana, +5% Cooldown Reduction",
+    "unique": null,
+    "passif": "Gift: Regens 20% HP and Mana within 2 seconds of leveling up.@ Lifebane: Upon dealing damage to the target, reduces Shield and HP Regen of the target by 50% for 3 seconds.",
+    "actif": null,
+    "recette": [
+      "Book of Sages",
+      "Elegant Gem",
+      "Mystery Codex"
+    ],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "ogre-tomahawk",
+    "nom": "Ogre Tomahawk",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 650,
+    "bonus": "+25 Physical Attack, +230 HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Dagger",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "oracle",
+    "nom": "Oracle",
+    "resume": "Enhanced Regen",
+    "categorie": "Defense",
+    "prix": 1860,
+    "bonus": "+850 HP, +20 Physical Defense, +20 Magic Defense, +10% Cooldown Reduction",
+    "unique": null,
+    "passif": "Bless: Received Shield and HP Regen effects are increased by 25%.",
+    "actif": null,
+    "recette": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "power-crystal",
+    "nom": "Power Crystal",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 220,
+    "bonus": "+280 Mana",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "power-potion",
+    "nom": "Power Potion",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 1500,
+    "bonus": null,
+    "unique": null,
+    "passif": "Increase Power: Automatically used after purchasing, giving 30 Physical Attack and 15% of Lifesteal for 120s. Can only have one potion effect at a time.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "queen-s-wings",
+    "nom": "Queen's Wings",
+    "resume": "Low-HP Retaliation",
+    "categorie": "Defense",
+    "prix": 2250,
+    "bonus": "+750 HP, +30 Adaptive Attack, +10% Cooldown Reduction, +10% Spell Vamp",
+    "unique": null,
+    "passif": "Demonize: When HP drops below 40%, gains 30% Damage Reduction for 3 seconds and reduces skill cooldowns by 2 seconds. This effect has a 60 seconds cooldown.@ Defiance: For every 1% HP lost, damage is increased by 0.25%, up to 15%.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "radiant-armor",
+    "nom": "Radiant Armor",
+    "resume": "Magic Damage Reduction",
+    "categorie": "Defense",
+    "prix": 1880,
+    "bonus": "+950 HP, +40 Magic Defense, +12 HP Regen",
+    "unique": null,
+    "passif": "Holy Blessing: Taking Magic Damage grants 5(+1*Hero Level) Magic Defense for 5 seconds, up to 6 stacks (can only gain 1 stack(s) every 0.4 seconds).",
+    "actif": null,
+    "recette": [
+      "Silence Robe",
+      "Magic Resist Cloak",
+      "Healing Necklace"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "rapid-boots",
+    "nom": "Rapid Boots",
+    "resume": "Movement Speed",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+55 Movement Speed, +35% Slow Reduction, +12 HP Regen",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Healing Necklace",
+      "Healing Necklace"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "regular-spear",
+    "nom": "Regular Spear",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 600,
+    "bonus": "+20 Physical Attack, +10% Attack Speed",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Knife",
+      "Dagger"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "rock-potion",
+    "nom": "Rock Potion",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 1500,
+    "bonus": null,
+    "unique": null,
+    "passif": "Increase Power: Upon purchase, grants 500 Max HP and 5% Damage Reduction for 120 seconds. Can only have one potion effect at a time.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "rogue-meteor",
+    "nom": "Rogue Meteor",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 900,
+    "bonus": "+15% Attack Speed, +10% Crit Chance",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Knife",
+      "Javelin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "rose-gold-meteor",
+    "nom": "Rose Gold Meteor",
+    "resume": "Low-HP Shield",
+    "categorie": "Attack",
+    "prix": 2030,
+    "bonus": "+30 Physical Attack, +20% Attack Speed, +10% Lifesteal",
+    "unique": null,
+    "passif": "Dragon Scale: Every 4 extra Physical Attack increases Hybrid Defense by 1, up to 50 (effect is halved if Main Role is not Fighter).@ Lifeline: When taking damage that reduces HP below 30%, gains a (120*Hero Level) shield (increases with level) and 50% Movement Speed that rapidly decays over 3 seconds. This effect has a 60 seconds cooldown.",
+    "actif": null,
+    "recette": [
+      "Magic Blade",
+      "Knife"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "scarlet-phantom",
+    "nom": "Scarlet Phantom",
+    "resume": "Crit & Attack Speed",
+    "categorie": "Attack",
+    "prix": 2020,
+    "bonus": "+30 Physical Attack, +20% Attack Speed, +25% Crit Chance",
+    "unique": null,
+    "passif": "Frenzy: Critical strikes grant 30% extra Attack Speed and 5% extra Crit Chance for 2 seconds.",
+    "actif": null,
+    "recette": [
+      "Rogue Meteor",
+      "Javelin"
+    ],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "sea-halberd",
+    "nom": "Sea Halberd",
+    "resume": "Healing Reduction",
+    "categorie": "Attack",
+    "prix": 2050,
+    "bonus": "+80 Physical Attack, +20% Attack Speed",
+    "unique": null,
+    "passif": "Lifebane: Dealing damage to a target will reduce the Shield and HP Regen effects on them to 60% of normal for 3 seconds.@ Punish: Increase damage by 8% against enemy heroes with higher extra HP.",
+    "actif": null,
+    "recette": [
+      "Legion Sword",
+      "Regular Spear"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "shadow-twinblades",
+    "nom": "Shadow Twinblades",
+    "resume": "Best for Assassins",
+    "categorie": "Magic",
+    "prix": 1960,
+    "bonus": "+75 Magic Power, +15% Magic Lifesteal, +5% Movement Speed",
+    "unique": null,
+    "passif": "Assassination: If no damage is taken or dealt within 5 sseconds, the next Basic Attack will deal extra Magic Damage equal to 200 plus 50% Magic Power, and inflict 60% slow effects upon the target for 1.5 seconds.",
+    "actif": null,
+    "recette": [
+      "Exotic Veil",
+      "Mystic Container"
+    ],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "shimmering-lantern",
+    "nom": "Shimmering Lantern",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": null,
+    "bonus": "+20 Magic Power, +5% Movement Speed",
+    "unique": null,
+    "passif": "Floryn can share the power of Dew's Lantern with an allied hero. The Lantern is not strong enough yet and can evolve once it absorbs enough energy in battle.",
+    "actif": null,
+    "recette": [],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "silence-robe",
+    "nom": "Silence Robe",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 1020,
+    "bonus": "+540 HP, +23 Magic Defense",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Vitality Crystal",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "sky-piercer",
+    "nom": "Sky Piercer",
+    "resume": "Best for Finishers",
+    "categorie": "Attack & Magic",
+    "prix": 1500,
+    "bonus": "+60 Adaptive Attack, +15 Movement Speed",
+    "unique": null,
+    "passif": "Lethality: After dealing damage to an enemy hero, executes the hero if their HP is lower than 4%. Gains 10 stack(s) of Lethality for each kill and loses 30% current stack(s) for each death. Each stack of Lethality increases the HP threshold of the execute effect by 0.1%, stacking up 80 times.",
+    "actif": null,
+    "recette": [
+      "Expert Gloves",
+      "Expert Gloves"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "starlium-scythe",
+    "nom": "Starlium Scythe",
+    "resume": "Enhanced Basic Attacks",
+    "categorie": "Magic",
+    "prix": 2120,
+    "bonus": "+75 Magic Power, +10% Cooldown Reduction, +8% Hybrid Lifesteal, +6 Mana Regen",
+    "unique": null,
+    "passif": "Crisis: After casting a skill, the next Basic Attack within 3 seconds deals 90 (+60% Total Magic Power) extra True Damage and reduces the target's Movement Speed by 15% for 1.5 seconds (1.5 seconds cooldown).",
+    "actif": null,
+    "recette": [
+      "Azure Blade",
+      "Book of Sages",
+      "Magic Wand"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "steel-legplates",
+    "nom": "Steel Legplates",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 630,
+    "bonus": "+35 Physical Defense",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Leather Jerkin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "swift-boots",
+    "nom": "Swift Boots",
+    "resume": "Attack Speed",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 Movement Speed, +15% Attack Speed",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Knife"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "swift-crossbow",
+    "nom": "Swift Crossbow",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 1000,
+    "bonus": "+20% Attack Speed",
+    "unique": null,
+    "passif": "Crossbow: Each Basic Attack deals 40 extra Adaptive Damage.@ Impulse: Basic Attacks grant 3% extra Attack Speed for 3 seconds, capped at 5 stacks.",
+    "actif": null,
+    "recette": [
+      "Knife",
+      "Knife"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "thunder-belt",
+    "nom": "Thunder Belt",
+    "resume": "Damage for Tanks",
+    "categorie": "Defense",
+    "prix": 1820,
+    "bonus": "+600 HP, +15 Physical Defense, +15 Magic Defense, +20 Movement Speed",
+    "unique": null,
+    "passif": "Thunderbolt: Every 4 seconds, the next Basic Attack deals 50 (+100% Extra Physical Defense) (+100% Extra Magic Defense) extra True Damage to the target and enemies around them, and briefly slows them by 99%. Hybrid Defense permanently increases by 1 each time the attack hits an enemy hero. (This effect is reduced to 50% for Marksmen, Mages, and Assassins)",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "tome-of-evil",
+    "nom": "Tome of Evil",
+    "resume": null,
+    "categorie": "Magic",
+    "prix": 950,
+    "bonus": "+30 Magic Power, +2 Mana Regen, +10% Cooldown Reduction",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [
+      "Magic Necklace",
+      "Book of Sages"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "tough-boots",
+    "nom": "Tough Boots",
+    "resume": "CC Duration Reduction",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 Movement Speed, +18 Magic Defense",
+    "unique": null,
+    "passif": "Fortitude: CC and Slow Duration reduced by 25%.",
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Magic Resist Cloak"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "twilight-armor",
+    "nom": "Twilight Armor",
+    "resume": "High Damage Resistance",
+    "categorie": "Defense",
+    "prix": 2100,
+    "bonus": "+1200 HP, +15 Physical Defense",
+    "unique": null,
+    "passif": "Twilight: Upon taking more than 500 damage in a single instance, the excess damage beyond that amount is reduced by 20 (+0.2% Total HP)%.@ Redemption: When incoming damage reduces HP below 30%, recover 20% Max HP over the next 4 seconds. This effect has a 60 seconds cooldown.",
+    "actif": null,
+    "recette": [
+      "Ares Belt",
+      "Ares Belt",
+      "Leather Jerkin"
+    ],
+    "pourQui": "Removed"
+  },
+  {
+    "slug": "vampire-mallet",
+    "nom": "Vampire Mallet",
+    "resume": null,
+    "categorie": "Attack",
+    "prix": 400,
+    "bonus": "+8 Physical Attack, +8% Lifesteal",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "vitality-crystal",
+    "nom": "Vitality Crystal",
+    "resume": null,
+    "categorie": "Defense",
+    "prix": 300,
+    "bonus": "+230 HP",
+    "unique": null,
+    "passif": null,
+    "actif": null,
+    "recette": [],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "war-axe",
+    "nom": "War Axe",
+    "resume": "Continuous Damage Boost",
+    "categorie": "Attack",
+    "prix": 2100,
+    "bonus": "+35 Physical Attack, +400 HP, +10% Cooldown Reduction, +8% Hybrid Lifesteal",
+    "unique": null,
+    "passif": "Fighting Spirit: Attacks grants 12 extra Physical Attack per second for 4 seconds, up to 6 stacks. Deals 10% extra True Damage based on the damage dealt (no damage reduction counted) at full stacks. (Marksmen, Mages, and Supports only receive 50% of these stacked effects.)",
+    "actif": null,
+    "recette": [
+      "Ogre Tomahawk",
+      "Iron Hunting Bow",
+      "Hero's Ring"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "warrior-boots",
+    "nom": "Warrior Boots",
+    "resume": "Stackable Physical Defense",
+    "categorie": "Movement",
+    "prix": 720,
+    "bonus": "+40 Movement Speed, +18 Physical Defense",
+    "unique": null,
+    "passif": "Valor: Gains 4 extra Physical Defense for 3 seconds when taking Physical Damage, up to 20.",
+    "actif": null,
+    "recette": [
+      "Boots",
+      "Leather Jerkin"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "wind-of-nature",
+    "nom": "Wind of Nature",
+    "resume": "Physical Damage Immunity",
+    "categorie": "Attack",
+    "prix": 1910,
+    "bonus": "+30 Physical Attack, +20% Attack Speed, +10% Lifesteal",
+    "unique": null,
+    "passif": null,
+    "actif": "Wind Chant: Become immune to all Physical Damage for 2 seconds (duration is halved if Main Role is not Marksman; 90 seconds cooldown).",
+    "recette": [
+      "Regular Spear",
+      "Vampire Mallet"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "windtalker",
+    "nom": "Windtalker",
+    "resume": "Splash Damage",
+    "categorie": "Attack",
+    "prix": 1880,
+    "bonus": "+35% Attack Speed, +20% Crit Chance, +20 Movement Speed",
+    "unique": null,
+    "passif": "Typhoon: Every 5–2 seconds (reduced by 0.2 seconds for each Basic Attack), the next Basic Attack will hit up to 3 enemy units for 150–362 Magic Damage. (This attack can Crit and the damage increases to 200% against Minions.)",
+    "actif": null,
+    "recette": [
+      "Rogue Meteor",
+      "Knife"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "winter-crown",
+    "nom": "Winter Crown",
+    "resume": "Temporary Invincibility",
+    "categorie": "Attack & Magic",
+    "prix": 1910,
+    "bonus": "+45 Adaptive Attack, +400 HP, +5% Cooldown Reduction",
+    "unique": null,
+    "passif": null,
+    "actif": "Frozen: Becomes frozen, untargetable, and immune to damage for 2 seconds (100 seconds cooldown). Cannot move or cast skills while frozen, but skills already cast won't be interrupted.",
+    "recette": [
+      "Expert Gloves",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "pourQui": "All heroes"
+  },
+  {
+    "slug": "wishing-lantern",
+    "nom": "Wishing Lantern",
+    "resume": "Counter High HP",
+    "categorie": "Magic",
+    "prix": 2250,
+    "bonus": "+75 Magic Power, +400 Mana, +10% Cooldown Reduction",
+    "unique": null,
+    "passif": "Butterfly Goddess: For every 900 Magic Damage dealt to an enemy hero (calculated before Damage Reduction), a Butterfly Goddess is summoned to attack the enemy hero, dealing Magic Damage equal to 8% of their Current HP.",
+    "actif": null,
+    "recette": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "pourQui": "All heroes"
+  }
+]
