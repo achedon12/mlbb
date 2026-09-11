@@ -380,7 +380,42 @@
       "note": "Counters and synergies come from relationships reported by the game, not from opinion. They don't cover every matchup: a hero with no known counter in a lineup isn't necessarily a bad pick — it simply has nothing specific to answer there.",
       "metaDescription": "Enter the enemy lineup: the tool suggests what to pick in each lane and explains why — counters, synergies and win rates.",
       "ogDescription": "What to pick against the enemy lineup, and why.",
-      "lienEquipe": "Team already picked? Analyze its composition"
+      "lienEquipe": "Team already picked? Analyze its composition",
+      "toolsTitle": "Draft simulator and assistant",
+      "toolsLead": "Play a full draft, bans then picks, in ranked or tournament format against a bot driven by our data. Or enter the enemy lineup to see what to pick, lane by lane.",
+      "simulatorOg": "A full MLBB draft, bans then picks, against a data-driven bot.",
+      "rules": {
+        "title": "Format rules",
+        "intro": "The simulator follows the order described by the game wiki and by Liquipedia. Each rule links to its source; what the sources leave out is flagged.",
+        "rankedTitle": "Ranked (Draft Pick)",
+        "rankedAccess": "Draft Pick opens from the Epic rank.",
+        "rankedBans": "The number of bans depends on the highest rank in the match: {epic} per team in Epic, {legend} in Legend, {mythic} in Mythic and above.",
+        "rankedSimultaneous": "Both teams ban at the same time, over two rounds, so they can ban the same hero. The sources do not say how many bans fall in each round: the simulator groups them into one.",
+        "picks": "Picks: blue 1, red 2, blue 2, red 2, blue 2, red 1. A banned or already picked hero cannot be picked.",
+        "timers": "{ban} seconds to ban, {pick} to pick, per player. When time runs out, the ban stays empty and the pick is random: the game favours the player's most played heroes, which the simulator does not know, so it draws among heroes that fill an open lane.",
+        "rankedExample": "Order in Mythic; in Epic and Legend only the number of bans changes.",
+        "tournamentTitle": "Tournament (MPL, M-series)",
+        "tournamentBans": "{total} bans in all, {n} per team.",
+        "tournamentOrder": "Bans are taken in turns, blue team (left) first, then picks in the same order as ranked.",
+        "tournamentLimit": "On stage, leagues split these bans into two phases with picks in between. Our sources do not publish that order: the simulator sticks to what they document.",
+        "order": "Step order",
+        "step": "{side} · {action} ×{n}",
+        "shortSides": {
+          "blue": "Blue",
+          "red": "Red",
+          "both": "Both"
+        },
+        "actions": {
+          "ban": "ban",
+          "pick": "pick"
+        },
+        "botTitle": "The bot",
+        "bot": "The bot bans from the top of the ranking at the chosen rank, which combines win rate and ban rate. For its picks it only keeps heroes that add a lane to its team, ranked on our data at that rank: counters to your picks, duos with its own, win rate. Every choice is explained in one line.",
+        "advantageTitle": "The advantage index",
+        "advantage": "The summary adds up the win-rate gaps measured in ranked games between the heroes of both teams, plus each team's duo gains. It is an estimate built from those measurements only, not a win probability.",
+        "sources": "Sources",
+        "sourceRef": "Source: {site}, {page}"
+      }
     },
     "compare": {
       "titre": "Compare",
@@ -844,7 +879,9 @@
       },
       "draft": {
         "titre": "MLBB Draft Assistant: Counter Picks by Lane (Patch {v})",
-        "description": "Enter the enemy picks and get counter picks for each lane among {n} heroes, backed by counters, synergies and win rates measured on {date} (patch {v}). Free, no sign-up."
+        "description": "Enter the enemy picks and get counter picks for each lane among {n} heroes, backed by counters, synergies and win rates measured on {date} (patch {v}). Free, no sign-up.",
+        "simulatorTitle": "MLBB draft simulator: ranked and MPL ban-pick with counters",
+        "simulatorDescription": "Play a full ranked or MPL draft: bans then picks against a bot backed by the measured counters and duos of {n} heroes (data from {date}, patch {v}). Summary of both teams and a shareable link."
       },
       "compare": {
         "titre": "MLBB Hero Comparison: Win Rate, Tier & Stats (Patch {v})",
@@ -2295,6 +2332,138 @@
         "announcedNew": "{name} is presented as a new hero in version {v}.",
         "announcedRevamp": "A revamp of {name} is presented in version {v}.",
         "readVersion": "All notes for version {v}"
+      }
+    },
+    "draftSimulatorUI": {
+      "tabsLabel": "Tool mode",
+      "tabs": {
+        "assistant": "Draft assistant",
+        "simulator": "Simulator"
+      },
+      "settings": {
+        "title": "Draft settings",
+        "format": "Format",
+        "rank": "Data rank",
+        "rankHelp": "In ranked, the rank also sets the number of bans: {n} per team.",
+        "side": "Your side",
+        "bot": "Bot opponent",
+        "botHelp": "The bot plays the other side from our data at the chosen rank, and explains every choice.",
+        "botBoth": "You control both sides: the bot has nothing to play.",
+        "timer": "Timer",
+        "timerHelp": "When time runs out, a ban is left empty and a pick is chosen at random, as in the game.",
+        "start": "Start the draft"
+      },
+      "formats": {
+        "ranked": "Ranked",
+        "tournament": "Tournament (MPL, M-series)"
+      },
+      "formatHelp": {
+        "ranked": "Simultaneous bans, {n} per team at this rank, then picks 1-2-2-2-2-1.",
+        "tournament": "{n} bans per team taken in turns, blue first, then picks 1-2-2-2-2-1."
+      },
+      "controls": {
+        "blue": "Blue",
+        "red": "Red",
+        "both": "Both"
+      },
+      "sides": {
+        "blue": "Blue team",
+        "red": "Red team"
+      },
+      "timers": {
+        "off": "Off",
+        "30": "{n} s",
+        "game": "Game timers ({ban} s / {pick} s)"
+      },
+      "you": "you",
+      "bot": "bot",
+      "actions": {
+        "ban": "ban",
+        "pick": "pick"
+      },
+      "turnAction": {
+        "ban": "ban {k} of {n}",
+        "pick": "pick {k} of {n}"
+      },
+      "yourTurn": "your turn",
+      "botTurn": "bot's turn",
+      "botThinking": "The bot is choosing…",
+      "finished": "Draft complete",
+      "simultaneous": "Simultaneous bans: the other side's bans are revealed at the end of the round, and both sides may ban the same hero.",
+      "bans": "Bans",
+      "picks": "Picks",
+      "banSlot": "Ban {k}",
+      "pickSlot": "Pick {k}",
+      "emptyBan": "empty ban",
+      "hiddenBan": "hidden ban",
+      "upcoming": "upcoming",
+      "inProgress": "in progress",
+      "toPick": "to pick",
+      "undo": "Undo",
+      "restart": "Restart",
+      "changeSettings": "Settings",
+      "skipBan": "Leave this ban empty",
+      "seconds": "{n} s",
+      "timerLabel": "Time left: {n} seconds",
+      "search": "Search a hero",
+      "heroGrid": "Heroes",
+      "banHero": "Ban {name}",
+      "pickHero": "Pick {name}",
+      "unavailable": "{name}: already banned or picked",
+      "hints": {
+        "ban": "Ideas for this ban",
+        "pick": "Ideas for this pick",
+        "banIntro": "Top of the ranking ({rank}).",
+        "pickIntro": "Ranked on our data ({rank}): counters to their picks, duos with yours, lane to fill."
+      },
+      "reasons": {
+        "meta": "{tier} ({rank}), {ban}% ban rate",
+        "strength": "{rate}% win rate at this rank",
+        "counter": "counters {names} ({pts} pts measured)",
+        "counterWiki": "counters {names} (relation listed by the wiki)",
+        "duo": "duo with {names} ({pts} pts measured)",
+        "duoWiki": "works with {names} (known synergy)",
+        "lane": "fills the {lane} lane",
+        "fallback": "best remaining choice",
+        "skipped": "time ran out: ban left empty",
+        "random": "time ran out: random hero"
+      },
+      "log": {
+        "title": "Choices explained",
+        "intro": "Every bot choice, and those forced by the timer, with their reason.",
+        "empty": "No choice to explain yet.",
+        "line": "{side} · {action} {name}: {reason}",
+        "lineLane": "{side} · {action} {name} ({lane}): {reason}"
+      },
+      "announce": {
+        "turn": "Turn {i} of {n}: {side}, {action}, {who}.",
+        "played": "{side}: {action} {name}.",
+        "empty": "{side}: ban left empty.",
+        "hidden": "{side} banned a hero, revealed at the end of the round.",
+        "done": "Draft complete: the summary of both teams follows."
+      },
+      "summary": {
+        "title": "Draft summary",
+        "intro": "Both teams run through the team analyzer, with the ranking data ({rank}).",
+        "advantage": "Measured advantage",
+        "advantageNote": "An estimate built from win-rate gaps measured in ranked games ({rank}): matchups between the two teams and duos within each. It is not a win probability.",
+        "index": "{side} ahead: index of {pts} pts",
+        "even": "Index at zero: neither team stands out in the data.",
+        "detail": "Matchups {counters} pts · blue duos {blue} pts · red duos {red} pts",
+        "noMeasures": "No measurement ({rank}) links these ten heroes: no estimate possible.",
+        "bar": "Advantage index: {text}",
+        "duos": "Measured duos",
+        "noDuo": "No measured duo at this rank.",
+        "matchups": "Matchups between the teams",
+        "matchupsIntro": "Win-rate gaps measured at this rank between a blue hero and a red hero, read both ways.",
+        "noMatchup": "No measured matchup between these two teams at this rank.",
+        "matchup": "{winner} has the edge over {loser}: {pts} pts",
+        "fullAnalysis": "Full analysis",
+        "share": "Share this draft",
+        "shareIntro": "The address holds the bans, picks and settings: the draft reopens exactly as it is.",
+        "address": "Draft address",
+        "newDraft": "New draft",
+        "lanes": "Lanes"
       }
     },
     "timer": {

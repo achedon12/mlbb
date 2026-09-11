@@ -380,7 +380,42 @@
       "note": "Les contres et les synergies proviennent des relations remontées par le jeu, pas d'une opinion. Elles ne couvrent pas tous les duels : un héros sans contre connu dans une composition n'est pas pour autant un mauvais choix — il n'a simplement rien de particulier à y opposer.",
       "metaDescription": "Renseignez la composition adverse : l'outil propose quoi prendre sur chaque lane, et explique pourquoi — contres, synergies et taux de victoire.",
       "ogDescription": "Quoi prendre face à la composition d'en face, et pourquoi.",
-      "lienEquipe": "Votre équipe est déjà faite ? Analysez sa composition"
+      "lienEquipe": "Votre équipe est déjà faite ? Analysez sa composition",
+      "toolsTitle": "Simulateur et aide au draft",
+      "toolsLead": "Jouez un draft complet, bans puis picks, au format classé ou tournoi, face à un bot qui s'appuie sur nos mesures. Ou renseignez la composition adverse pour savoir quoi prendre, lane par lane.",
+      "simulatorOg": "Un draft MLBB complet, bans puis picks, face à un bot nourri de mesures.",
+      "rules": {
+        "title": "Règles des formats",
+        "intro": "Le simulateur suit l'ordre décrit par le wiki du jeu et par Liquipedia. Chaque règle renvoie à sa source ; ce que les sources ne précisent pas est signalé.",
+        "rankedTitle": "Partie classée (Draft Pick)",
+        "rankedAccess": "Le draft s'ouvre à partir du rang Épique.",
+        "rankedBans": "Le nombre de bans dépend du rang le plus haut de la partie : {epic} par équipe en Épique, {legend} en Légende, {mythic} en Mythique et au-delà.",
+        "rankedSimultaneous": "Les deux équipes bannissent en même temps, en deux manches, et peuvent donc bannir le même héros. Les sources ne disent pas combien de bans tombent dans chaque manche : le simulateur les réunit en une seule.",
+        "picks": "Picks : bleu 1, rouge 2, bleu 2, rouge 2, bleu 2, rouge 1. Un héros banni ou déjà choisi ne peut plus l'être.",
+        "timers": "{ban} secondes pour bannir, {pick} pour choisir, par joueur. À l'expiration, le ban reste vide et le pick est tiré au hasard : le jeu privilégie les héros les plus joués du joueur, que le simulateur ne connaît pas ; il tire parmi ceux qui comblent une lane libre.",
+        "rankedExample": "Ordre en Mythique ; en Épique et en Légende, seul le nombre de bans change.",
+        "tournamentTitle": "Tournoi (MPL, M-series)",
+        "tournamentBans": "{total} bans au total, {n} par équipe.",
+        "tournamentOrder": "Les bans se font à tour de rôle, l'équipe bleue (à gauche) d'abord, puis les picks dans le même ordre qu'en partie classée.",
+        "tournamentLimit": "Sur scène, les ligues répartissent ces bans en deux phases entrecoupées de picks. Nos sources ne publient pas cet ordre : le simulateur s'en tient à ce qu'elles documentent.",
+        "order": "Ordre des étapes",
+        "step": "{side} · {action} ×{n}",
+        "shortSides": {
+          "blue": "Bleu",
+          "red": "Rouge",
+          "both": "Les deux"
+        },
+        "actions": {
+          "ban": "ban",
+          "pick": "pick"
+        },
+        "botTitle": "Le bot",
+        "bot": "Le bot bannit dans le haut du classement du rang choisi, qui combine taux de victoire et taux de ban. Pour ses picks, il ne retient que les héros qui ajoutent une lane à son équipe et les classe sur nos mesures du rang : contres face à vos picks, duos avec les siens, taux de victoire. Chaque choix est expliqué en une ligne.",
+        "advantageTitle": "L'indice d'avantage",
+        "advantage": "Le bilan additionne les écarts de victoire mesurés en partie classée entre les héros des deux équipes, et les gains des duos de chacune. C'est une estimation tirée de ces seules mesures, pas une probabilité de victoire.",
+        "sources": "Sources",
+        "sourceRef": "Source : {site}, {page}"
+      }
     },
     "compare": {
       "titre": "Comparateur",
@@ -844,7 +879,9 @@
       },
       "draft": {
         "titre": "Aide au draft MLBB : counter picks par lane (patch {v})",
-        "description": "Saisissez les choix adverses : l'outil propose des counter picks pour chaque lane parmi {n} héros, appuyés sur les contres, synergies et taux de victoire relevés le {date} (patch {v}). Gratuit, sans inscription."
+        "description": "Saisissez les choix adverses : l'outil propose des counter picks pour chaque lane parmi {n} héros, appuyés sur les contres, synergies et taux de victoire relevés le {date} (patch {v}). Gratuit, sans inscription.",
+        "simulatorTitle": "Simulateur de draft MLBB : ban-pick classé et MPL avec counters",
+        "simulatorDescription": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Bilan des deux équipes et lien à partager."
       },
       "compare": {
         "titre": "Comparateur de héros MLBB : winrate et stats (patch {v})",
@@ -2295,6 +2332,138 @@
         "announcedNew": "{name} est présenté comme nouveau héros dans la version {v}.",
         "announcedRevamp": "Une refonte de {name} est présentée dans la version {v}.",
         "readVersion": "Toutes les notes de la version {v}"
+      }
+    },
+    "draftSimulatorUI": {
+      "tabsLabel": "Mode de l'outil",
+      "tabs": {
+        "assistant": "Aide au draft",
+        "simulator": "Simulateur"
+      },
+      "settings": {
+        "title": "Réglages du draft",
+        "format": "Format",
+        "rank": "Rang des données",
+        "rankHelp": "En partie classée, le rang fixe aussi le nombre de bans : {n} par équipe.",
+        "side": "Votre camp",
+        "bot": "Adversaire bot",
+        "botHelp": "Le bot joue le camp d'en face à partir de nos mesures du rang choisi, et explique chaque choix.",
+        "botBoth": "Vous tenez les deux camps : le bot n'a rien à jouer.",
+        "timer": "Minuteur",
+        "timerHelp": "À l'expiration, un ban reste vide et un pick est tiré au hasard, comme dans le jeu.",
+        "start": "Lancer le draft"
+      },
+      "formats": {
+        "ranked": "Partie classée",
+        "tournament": "Tournoi (MPL, M-series)"
+      },
+      "formatHelp": {
+        "ranked": "Bans simultanés, {n} par équipe à ce rang, puis picks 1-2-2-2-2-1.",
+        "tournament": "{n} bans par équipe à tour de rôle, le bleu d'abord, puis picks 1-2-2-2-2-1."
+      },
+      "controls": {
+        "blue": "Bleu",
+        "red": "Rouge",
+        "both": "Les deux"
+      },
+      "sides": {
+        "blue": "Équipe bleue",
+        "red": "Équipe rouge"
+      },
+      "timers": {
+        "off": "Sans",
+        "30": "{n} s",
+        "game": "Délais du jeu ({ban} s / {pick} s)"
+      },
+      "you": "vous",
+      "bot": "bot",
+      "actions": {
+        "ban": "ban",
+        "pick": "pick"
+      },
+      "turnAction": {
+        "ban": "ban {k} sur {n}",
+        "pick": "pick {k} sur {n}"
+      },
+      "yourTurn": "à vous",
+      "botTurn": "au bot",
+      "botThinking": "Le bot choisit…",
+      "finished": "Draft terminé",
+      "simultaneous": "Bans simultanés : ceux d'en face se dévoilent à la fin de la manche, et un même héros peut être banni des deux côtés.",
+      "bans": "Bans",
+      "picks": "Picks",
+      "banSlot": "Ban {k}",
+      "pickSlot": "Pick {k}",
+      "emptyBan": "ban vide",
+      "hiddenBan": "ban caché",
+      "upcoming": "à venir",
+      "inProgress": "en cours",
+      "toPick": "à choisir",
+      "undo": "Annuler",
+      "restart": "Recommencer",
+      "changeSettings": "Réglages",
+      "skipBan": "Laisser ce ban vide",
+      "seconds": "{n} s",
+      "timerLabel": "Temps restant : {n} secondes",
+      "search": "Rechercher un héros",
+      "heroGrid": "Héros",
+      "banHero": "Bannir {name}",
+      "pickHero": "Choisir {name}",
+      "unavailable": "{name} : déjà banni ou choisi",
+      "hints": {
+        "ban": "Pistes pour ce ban",
+        "pick": "Pistes pour ce pick",
+        "banIntro": "Le haut du classement ({rank}).",
+        "pickIntro": "Classées sur nos mesures ({rank}) : contres face à leurs picks, duos avec les vôtres, lane à combler."
+      },
+      "reasons": {
+        "meta": "{tier} ({rank}), {ban} % de bans",
+        "strength": "{rate} % de victoires au rang",
+        "counter": "contre {names} ({pts} pts mesurés)",
+        "counterWiki": "contre {names} (relation relevée par le wiki)",
+        "duo": "duo avec {names} ({pts} pts mesurés)",
+        "duoWiki": "se combine avec {names} (synergie connue)",
+        "lane": "comble la lane {lane}",
+        "fallback": "meilleur choix restant",
+        "skipped": "délai écoulé : ban laissé vide",
+        "random": "délai écoulé : héros tiré au hasard"
+      },
+      "log": {
+        "title": "Choix expliqués",
+        "intro": "Chaque choix du bot, et ceux imposés par le minuteur, avec leur raison.",
+        "empty": "Aucun choix à expliquer pour l'instant.",
+        "line": "{side} · {action} {name} : {reason}",
+        "lineLane": "{side} · {action} {name} ({lane}) : {reason}"
+      },
+      "announce": {
+        "turn": "Tour {i} sur {n} : {side}, {action}, {who}.",
+        "played": "{side} : {action} {name}.",
+        "empty": "{side} : ban laissé vide.",
+        "hidden": "{side} a banni un héros, dévoilé à la fin de la manche.",
+        "done": "Draft terminé : le bilan des deux équipes suit."
+      },
+      "summary": {
+        "title": "Bilan du draft",
+        "intro": "Les deux équipes passées à l'analyse d'équipe, avec les mesures du classement ({rank}).",
+        "advantage": "Avantage mesuré",
+        "advantageNote": "Estimation tirée des écarts de victoire mesurés en partie classée ({rank}) : duels entre les deux équipes et duos de chacune. Ce n'est pas une probabilité de victoire.",
+        "index": "{side} devant : indice de {pts} pts",
+        "even": "Indice nul : aucune équipe ne se détache sur les mesures.",
+        "detail": "Duels {counters} pts · duos bleus {blue} pts · duos rouges {red} pts",
+        "noMeasures": "Aucune mesure ({rank}) ne relie ces dix héros : pas d'estimation possible.",
+        "bar": "Indice d'avantage : {text}",
+        "duos": "Duos mesurés",
+        "noDuo": "Aucun duo mesuré au rang.",
+        "matchups": "Duels entre les équipes",
+        "matchupsIntro": "Écarts de victoire mesurés au rang entre un héros bleu et un héros rouge, lus dans les deux sens.",
+        "noMatchup": "Aucun duel mesuré entre ces deux équipes au rang.",
+        "matchup": "{winner} prend l'avantage sur {loser} : {pts} pts",
+        "fullAnalysis": "Analyse complète",
+        "share": "Partager ce draft",
+        "shareIntro": "L'adresse contient les bans, les picks et les réglages : le draft se rouvre tel quel.",
+        "address": "Adresse du draft",
+        "newDraft": "Nouveau draft",
+        "lanes": "Lanes"
       }
     },
     "timer": {
