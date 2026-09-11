@@ -61,7 +61,10 @@
     },
     "ouvrir": "Apri il menu",
     "fermer": "Chiudi il menu",
-    "winRate": {}
+    "winRate": {
+      "label": "Calcolatore di win rate",
+      "desc": "Le vittorie che ti mancano"
+    }
   },
   "compte": {
     "connexion": "Accedi",
@@ -81,7 +84,8 @@
     "credit": "Dati dal wiki di Mobile Legends (CC BY-SA) e dall'API della community arena.rone.dev. Non è disponibile alcuna statistica delle partite.",
     "droits": "progetto di fan indipendente. Contenuti pubblicati da {auteur}.",
     "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
-    "version": "Versione {v}"
+    "version": "Versione {v}",
+    "contribuer": "Contribuisci"
   },
   "langue": {
     "choisir": "Lingua",
@@ -214,7 +218,8 @@
           },
           "vide": "Non c'è ancora abbastanza distanza: servono almeno {n} giorni misurati prima e dopo una patch, e lo storico di questo sito inizia il {date}.",
           "videSansHistorique": "Non c'è ancora uno storico per misurare l'effetto delle patch su {nom}."
-        }
+        },
+        "flux": "Segui via RSS"
       },
       "coequipiers": "Migliori compagni",
       "coequipiersIntro": "Gli alleati con cui {nom} vince di più, in punti di vittoria sopra la media.",
@@ -441,15 +446,82 @@
       "accueil": "Torna alla home",
       "heros": "Vedi gli eroi"
     },
-    "winRate": {},
+    "winRate": {
+      "metaTitre": "Calcolatore di win rate MLBB",
+      "titre": "Calcolatore di win rate",
+      "chapeau": "Quante vittorie di fila servono per raggiungere il win rate che vuoi? Inserisci partite e win rate attuale: il calcolo avviene nel tuo browser, senza inviare nulla.",
+      "metaDescription": "Calcola quante vittorie consecutive servono per raggiungere un win rate obiettivo in Mobile Legends: Bang Bang, o quante partite a un ritmo dato.",
+      "methodeTitre": "Il calcolo",
+      "methode1": "Con n partite e v vittorie, raggiungere un win rate t richiede x vittorie di fila tali che (v + x) ÷ (n + x) ≥ t, cioè x = (t × n − v) ÷ (1 − t), arrotondato per eccesso. Il numero di vittorie si ricava dal win rate mostrato dal gioco, arrotondato a due decimali: una partita si vince o si perde, quindi è un numero intero.",
+      "methode2": "A un ritmo r superiore all'obiettivo servono circa (t × n − v) ÷ (r − t) partite. Se l'obiettivo è già raggiunto, il calcolatore mostra il tuo margine: quante sconfitte di fila puoi incassare restando sopra."
+    },
     "contribute": {
-      "groupe": {},
-      "champs": {
-        "competence": {},
-        "build": {}
+      "metaTitre": "Contribuisci: scrivi l'analisi di un eroe",
+      "titre": "Scrivere l'analisi di un eroe",
+      "chapeau": "I dati del gioco si aggiornano da soli; il commento, invece, va scritto. Ecco come redigere l'analisi di un eroe e proporla al sito.",
+      "metaDescription": "Guida alla contribuzione di MLBBDex: i campi di un'analisi, un modello commentato, le regole di stile e la revisione tramite pull request su GitHub.",
+      "resume": "Scrivere l'analisi di un eroe e proporla",
+      "statAnalyses": "Eroi analizzati",
+      "statAttente": "In attesa di un'analisi",
+      "principeTitre": "Cosa scrivi",
+      "principe1": "Ruoli, corsie, abilità, skin, statistiche e build giocate arrivano dalla sincronizzazione automatica con la wiki e l'API della community. Un'analisi aggiunge solo ciò che nessuna estrazione produce: cosa fa davvero l'eroe, i suoi punti di forza e le sue debolezze, i counter e build spiegate.",
+      "principe2": "Le analisi si scrivono in francese, la lingua originale del sito. Ognuna è una voce TypeScript, aggiunta al file del ruolo dell'eroe in `src/data/heros/`.",
+      "champsTitre": "I campi",
+      "champsIntro": "Un'analisi segue il tipo `AnalyseHeros` di `src/lib/types.ts`. Abilità e build hanno ciascuna la propria forma.",
+      "groupe": {
+        "analyse": "L'analisi — AnalyseHeros",
+        "competence": "Un'abilità — Competence",
+        "build": "Una build — Build"
       },
-      "style": {},
-      "relecture": {}
+      "facultatif": "facoltativo",
+      "champs": {
+        "slug": "Identificativo esatto dell'eroe, come compare in `src/data/jeu/heros.json`.",
+        "resume": "Una frase su ciò che rende unico l'eroe. Serve anche da meta description.",
+        "analyse": "Due paragrafi separati da una riga vuota: cosa fa realmente l'eroe, poi i suoi limiti.",
+        "competences": "Le abilità nell'ordine del gioco: passiva, abilità 1, abilità 2, ultimate. È l'ordine ad associare ogni descrizione all'abilità della wiki.",
+        "forces": "Da tre a cinque punti brevi, osservabili in partita.",
+        "faiblesses": "Da tre a cinque punti brevi, con ciò che li sfrutta.",
+        "fortContre": "Slug degli eroi contro cui è a suo agio.",
+        "faibleContre": "Slug degli eroi che lo mettono in difficoltà.",
+        "builds": "Una o più build, ognuna con il suo contesto.",
+        "competence": {
+          "type": "Posizione dell'abilità.",
+          "nom": "Nome inglese, come nel gioco. Il sito mostra quello della wiki.",
+          "description": "Cosa permette l'abilità e quando usarla, senza valori di danno.",
+          "recharge": "Ricarica per livello, in secondi. Assente per una passiva.",
+          "cout": "Costo per livello. Assente se l'eroe non usa mana."
+        },
+        "build": {
+          "nom": "Nome breve della build.",
+          "contexte": "Quando scegliere questa build. Una build senza contesto non insegna niente a nessuno.",
+          "objets": "Sei oggetti, con il nome inglese, in ordine di acquisto.",
+          "embleme": "Emblema consigliato, chiamato come nelle analisi esistenti (« Emblème de mage »).",
+          "talent": "Talento principale dell'emblema, nome inglese.",
+          "sort": "Magia di battaglia, nome inglese."
+        }
+      },
+      "modeleTitre": "Modello commentato",
+      "modeleIntro": "Copia questo modello in fondo alla lista del file del ruolo, compilalo, poi togli i commenti. `npm run typecheck` lo verifica a ogni esecuzione: segue sempre il tipo in vigore.",
+      "modeleLien": "Vedi il modello su GitHub",
+      "styleTitre": "Regole di stile",
+      "style": {
+        "accents": "Gli accenti ovunque il francese li richieda: il testo di un'analisi è mostrato ai visitatori, anche se il codice del progetto ne fa a meno.",
+        "termes": "I termini del gioco restano in inglese: oggetti, abilità, talenti e magie mantengono il nome che il giocatore ritrova in partita (« Winter Crown », « Flicker »).",
+        "original": "Niente di copiato: né wiki, né guide, né video. Un'analisi presa altrove, anche se riformulata da vicino, sarà rifiutata.",
+        "valeurs": "Niente valori di danno: cambiano quasi a ogni patch. Descrivi l'effetto, non il numero.",
+        "concret": "Concretezza piuttosto che superlativi: « vince gli scontri lunghi finché l'avversario non compra riduzione delle cure » vale più di « è molto forte »."
+      },
+      "relectureTitre": "La revisione, tramite pull request",
+      "relecture": {
+        "fork": "Fai un fork del repository GitHub e crea un branch per la tua analisi.",
+        "ajout": "Aggiungi la voce al file del ruolo: `tanks.ts`, `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts` o `supports.ts`.",
+        "verifier": "Esegui `npm run lint`, `npm run typecheck` e `npm test`. I controlli automatici li rilanceranno comunque.",
+        "ouvrir": "Apri una pull request con un titolo chiaro all'imperativo, in francese: « ajoute l'analyse de Ling ».",
+        "relire": "Un maintainer rivede contenuto e forma — correttezza per la patch corrente, stile, originalità — e commenta la pull request se qualcosa va cambiato.",
+        "fusion": "Una volta unita, l'analisi va online al deploy successivo, e il tuo nome resta nella cronologia del repository."
+      },
+      "lienPR": "Apri una pull request",
+      "lienGuide": "Guida completa su GitHub (CONTRIBUTING.md)"
     },
     "accountProfile": {
       "nParties": {},
@@ -903,7 +975,12 @@
     "retirer": "Rimuovi {nom}",
     "dans": "Nei miei preferiti",
     "ajouter": "Aggiungi ai preferiti",
-    "alerte": {}
+    "alerte": {
+      "titre": "I tuoi preferiti nella patch {version}",
+      "aucun": "Nessuno dei tuoi preferiti è stato modificato dalla patch {version}.",
+      "modifie": "Modificato",
+      "rss": "Ogni scheda eroe offre anche un feed RSS delle sue modifiche, nella scheda Statistiche."
+    }
   },
   "skinDispo": {
     "Available": "Disponibile",
@@ -1187,7 +1264,9 @@
       "heros": "Eroi",
       "objet": "Oggetti",
       "patch": "Patch notes",
-      "page": "Pagine"
+      "page": "Pagine",
+      "competence": "Abilità",
+      "skin": "Skin"
     }
   },
   "donneesHeros": {
@@ -1253,5 +1332,26 @@
       "other": "punti"
     }
   },
-  "outilTaux": {}
+  "outilTaux": {
+    "parties": "Partite giocate",
+    "tauxActuel": "Win rate attuale",
+    "objectif": "Win rate obiettivo",
+    "objectifsCourants": "Obiettivi comuni",
+    "invalide": "Inserisci un numero intero di partite (almeno una) e percentuali comprese tra 0 e 100%.",
+    "victoiresAffilee": "vittorie di fila",
+    "phraseVictoires": "Senza nessuna sconfitta, {n} vittorie di fila portano il tuo win rate da {actuel} a {objectif}, per {total} partite in totale.",
+    "impossibleTitre": "Obiettivo irraggiungibile",
+    "impossible": "Un win rate del 100% significa non aver mai perso: dopo una sconfitta, nessuna serie di vittorie può riportarti del tutto lì.",
+    "impossibleConseil": "Per il {objectif} bastano {n} vittorie di fila.",
+    "defaitesEncaissables": "sconfitte che puoi permetterti",
+    "phraseAtteint": "Obiettivo già raggiunto: puoi perdere {n} partite di fila restando al {objectif} o più.",
+    "phraseLimite": "Obiettivo raggiunto, senza margine: la prossima sconfitta ti porterà sotto il {objectif}.",
+    "phraseZero": "Nessuna serie di sconfitte può portare un win rate sotto lo 0%.",
+    "base": "Base del calcolo: {v} vittorie su {n} partite. Il gioco arrotonda il win rate che mostra; il numero di vittorie, invece, è intero.",
+    "rythmeTitre": "E senza una serie perfetta?",
+    "rythmeIntro": "Nel tempo, il tuo win rate si avvicina a quello che mantieni partita dopo partita. Inseriscine uno per sapere quante partite serviranno.",
+    "rythme": "Win rate mantenuto",
+    "rythmeParties": "Circa {n} partite con un win rate del {rythme} per raggiungere l'obiettivo.",
+    "rythmeInsuffisant": "Con un win rate del {rythme}, non supererai mai il {objectif}: devi vincere più spesso dell'obiettivo."
+  }
 }

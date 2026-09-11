@@ -61,7 +61,10 @@
     },
     "ouvrir": "Open menu",
     "fermer": "Close menu",
-    "winRate": {}
+    "winRate": {
+      "label": "Win rate calculator",
+      "desc": "The wins you still need"
+    }
   },
   "compte": {
     "connexion": "Log in",
@@ -81,7 +84,8 @@
     "credit": "Data from the Mobile Legends wiki (CC BY-SA) and the arena.rone.dev community API. No match statistics are available.",
     "droits": "independent fan project. Content published by {auteur}.",
     "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
-    "version": "Version {v}"
+    "version": "Version {v}",
+    "contribuer": "Contribute"
   },
   "langue": {
     "choisir": "Language",
@@ -214,7 +218,8 @@
           },
           "vide": "Not enough hindsight yet: it takes at least {n} measured days on each side of a patch, and this site's history starts on {date}.",
           "videSansHistorique": "No history yet to measure how patches affected {nom}."
-        }
+        },
+        "flux": "Follow via RSS"
       },
       "coequipiers": "Best teammates",
       "coequipiersIntro": "The allies {nom} wins the most with, in win-rate points above average.",
@@ -441,15 +446,82 @@
       "accueil": "Back to home",
       "heros": "Browse heroes"
     },
-    "winRate": {},
+    "winRate": {
+      "metaTitre": "MLBB win rate calculator",
+      "titre": "Win rate calculator",
+      "chapeau": "How many wins in a row to reach the win rate you want? Enter your matches and current win rate: everything is computed in your browser, nothing is sent.",
+      "metaDescription": "Work out how many consecutive wins you need to reach a target win rate in Mobile Legends: Bang Bang, or how many matches at a given pace.",
+      "methodeTitre": "How it works",
+      "methode1": "With n matches and w wins, reaching a win rate t takes x straight wins such that (w + x) ÷ (n + x) ≥ t, i.e. x = (t × n − w) ÷ (1 − t), rounded up. The number of wins comes from the win rate shown in game, rounded to two decimals: a match is either won or lost, so it is a whole number.",
+      "methode2": "At a pace r above the target, it takes about (t × n − w) ÷ (r − t) matches. If the target is already reached, the calculator shows your margin: how many losses in a row you can take and stay above it."
+    },
     "contribute": {
-      "groupe": {},
-      "champs": {
-        "competence": {},
-        "build": {}
+      "metaTitre": "Contribute: write a hero analysis",
+      "titre": "Write a hero analysis",
+      "chapeau": "Game data updates itself; commentary has to be written. Here is how to write a hero analysis and submit it to the site.",
+      "metaDescription": "MLBBDex contribution guide: the fields of a hero analysis, an annotated template, style rules and review through a GitHub pull request.",
+      "resume": "Write a hero analysis and submit it",
+      "statAnalyses": "Heroes analysed",
+      "statAttente": "Awaiting an analysis",
+      "principeTitre": "What you write",
+      "principe1": "Roles, lanes, skills, skins, statistics and popular builds come from the automatic sync with the wiki and the community API. An analysis adds only what no extraction produces: what the hero really does, strengths and weaknesses, counters and explained builds.",
+      "principe2": "Analyses are written in French, the site's original language. Each one is a TypeScript entry added to the hero's role file in `src/data/heros/`.",
+      "champsTitre": "The fields",
+      "champsIntro": "An analysis follows the `AnalyseHeros` type in `src/lib/types.ts`. Its skills and builds each have their own shape.",
+      "groupe": {
+        "analyse": "The analysis — AnalyseHeros",
+        "competence": "A skill — Competence",
+        "build": "A build — Build"
       },
-      "style": {},
-      "relecture": {}
+      "facultatif": "optional",
+      "champs": {
+        "slug": "The hero's exact identifier, as listed in `src/data/jeu/heros.json`.",
+        "resume": "One sentence on what makes the hero unique. It is also used as the meta description.",
+        "analyse": "Two paragraphs separated by a blank line: what the hero actually does, then their limits.",
+        "competences": "Skills in game order: passive, skill 1, skill 2, ultimate. The order is what matches each description to the wiki skill.",
+        "forces": "Three to five short points, visible in a match.",
+        "faiblesses": "Three to five short points, with what exploits them.",
+        "fortContre": "Slugs of heroes this hero handles comfortably.",
+        "faibleContre": "Slugs of heroes that give this hero trouble.",
+        "builds": "One or more builds, each with its context.",
+        "competence": {
+          "type": "Skill slot.",
+          "nom": "English name, as in game. The site displays the wiki's name.",
+          "description": "What the skill does and when to use it, without damage values.",
+          "recharge": "Cooldown per level, in seconds. Omitted for a passive.",
+          "cout": "Cost per level. Omitted if the hero does not use mana."
+        },
+        "build": {
+          "nom": "Short name for the build.",
+          "contexte": "When to pick this build. A build without context teaches nobody anything.",
+          "objets": "Six items, by their English name, in buying order.",
+          "embleme": "Recommended emblem, named as in existing analyses (\"Emblème de mage\").",
+          "talent": "Main emblem talent, English name.",
+          "sort": "Battle spell, English name."
+        }
+      },
+      "modeleTitre": "Annotated template",
+      "modeleIntro": "Copy this template to the end of the role file's list, fill it in, then remove its comments. `npm run typecheck` checks it on every run, so it always follows the current type.",
+      "modeleLien": "View the template on GitHub",
+      "styleTitre": "Style rules",
+      "style": {
+        "accents": "French accents wherever the language needs them: the analysis text is shown to visitors, even though the project's code goes without.",
+        "termes": "Game terms stay in English: items, skills, talents and spells keep the name players see in game (\"Winter Crown\", \"Flicker\").",
+        "original": "Nothing copied: no wiki, guide or video. An analysis taken from elsewhere, even closely reworded, will be rejected.",
+        "valeurs": "No damage values: they change almost every patch. Describe the effect, not the number.",
+        "concret": "Concrete over superlatives: \"he wins long fights as long as the enemy doesn't buy healing reduction\" beats \"he is very strong\"."
+      },
+      "relectureTitre": "Review, through a pull request",
+      "relecture": {
+        "fork": "Fork the GitHub repository and create a branch for your analysis.",
+        "ajout": "Add the entry to the role file: `tanks.ts`, `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts` or `supports.ts`.",
+        "verifier": "Run `npm run lint`, `npm run typecheck` and `npm test`. Automated checks will run them again anyway.",
+        "ouvrir": "Open a pull request with a clear title in the imperative, in French: \"ajoute l'analyse de Ling\".",
+        "relire": "A maintainer reviews substance and form — accuracy for the current patch, style, originality — and comments on the pull request if something needs to change.",
+        "fusion": "Once merged, the analysis goes live with the next deployment, and your name stays in the repository history."
+      },
+      "lienPR": "Open a pull request",
+      "lienGuide": "Full guide on GitHub (CONTRIBUTING.md)"
     },
     "accountProfile": {
       "nParties": {},
@@ -903,7 +975,12 @@
     "retirer": "Remove {nom}",
     "dans": "In my favorites",
     "ajouter": "Add to favorites",
-    "alerte": {}
+    "alerte": {
+      "titre": "Your favorites in patch {version}",
+      "aucun": "None of your favorites was changed by patch {version}.",
+      "modifie": "Changed",
+      "rss": "Every hero page also offers an RSS feed of its changes, in the Stats tab."
+    }
   },
   "skinDispo": {
     "Available": "Available",
@@ -1187,7 +1264,9 @@
       "heros": "Heroes",
       "objet": "Items",
       "patch": "Patch notes",
-      "page": "Pages"
+      "page": "Pages",
+      "competence": "Skills",
+      "skin": "Skins"
     }
   },
   "donneesHeros": {
@@ -1253,5 +1332,26 @@
       "other": "points"
     }
   },
-  "outilTaux": {}
+  "outilTaux": {
+    "parties": "Matches played",
+    "tauxActuel": "Current win rate",
+    "objectif": "Target win rate",
+    "objectifsCourants": "Common targets",
+    "invalide": "Enter a whole number of matches (at least one) and win rates between 0 and 100%.",
+    "victoiresAffilee": "wins in a row",
+    "phraseVictoires": "Without a single loss, {n} wins in a row take your win rate from {actuel} to {objectif}, for {total} matches in total.",
+    "impossibleTitre": "Target out of reach",
+    "impossible": "A 100% win rate means never having lost: after one loss, no winning streak can bring you all the way back.",
+    "impossibleConseil": "For {objectif}, {n} wins in a row are enough.",
+    "defaitesEncaissables": "losses you can afford",
+    "phraseAtteint": "Target already reached: you can lose {n} matches in a row and stay at {objectif} or above.",
+    "phraseLimite": "Target reached with no margin: your next loss will take you below {objectif}.",
+    "phraseZero": "No losing streak can take a win rate below 0%.",
+    "base": "Based on {v} wins out of {n} matches. The game rounds the win rate it shows; the number of wins is a whole number.",
+    "rythmeTitre": "And without a perfect streak?",
+    "rythmeIntro": "Over time, your win rate moves towards the one you keep up match after match. Enter one to see how many matches it will take.",
+    "rythme": "Sustained win rate",
+    "rythmeParties": "About {n} matches at a {rythme} win rate to reach the target.",
+    "rythmeInsuffisant": "At a {rythme} win rate, you will never get above {objectif}: you need to win more often than the target."
+  }
 }

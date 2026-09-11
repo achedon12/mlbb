@@ -39,6 +39,7 @@ const JEU = [
   { href: "/tier-list", cle: "tierList" },
   { href: "/compare", cle: "compare" },
   { href: "/draft", cle: "draft" },
+  { href: "/tools/win-rate", cle: "winRate" },
   { href: "/game-modes", cle: "gameModes" },
   { href: "/items", cle: "items" },
   { href: "/emblems", cle: "emblems" },
@@ -53,6 +54,7 @@ const ACTUALITE = [
 const SITE = [
   { href: "/api-doc", cle: "apiPublique" },
   { href: "/about", cle: "apropos" },
+  { href: "/contribute", cle: "contribuer" },
   { href: "/account", cle: "monCompte" },
   { href: "/legal", cle: "mentionsLegales" },
   { href: "/privacy", cle: "confidentialite" },

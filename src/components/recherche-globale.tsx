@@ -12,8 +12,8 @@ import { ORDRE_TYPES, type EntreeRecherche } from "@/lib/recherche";
 import { cleRecherche, cn } from "@/lib/utils";
 
 /**
- * Recherche globale : heros, objets, notes de patch et rubriques, depuis
- * n'importe quelle page. Ctrl+K (Cmd+K sur Mac) l'ouvre et la ferme. L'index
+ * Recherche globale : heros, objets, competences, skins, notes de patch et
+ * rubriques, depuis n'importe quelle page. Ctrl+K (Cmd+K sur Mac) l'ouvre et la ferme. L'index
  * est un fichier statique par langue, demande a la premiere ouverture
  * seulement : il ne pese rien tant qu'on ne cherche pas.
  */
@@ -95,6 +95,13 @@ export function RechercheGlobale() {
     })).filter((g) => g.entrees.length > 0);
   }, [entrees, recherche]);
   const plats = useMemo(() => groupes.flatMap((g) => g.entrees), [groupes]);
+  // Skins et competences arrivent sans image : elles prennent l'icone de leur
+  // heros, dont l'entree porte l'adresse de la fiche sans ancre.
+  const icones = useMemo(
+    () => new Map((entrees ?? []).flatMap((e) => (e.type === "heros" && e.image ? [[e.href, e.image]] : []))),
+    [entrees],
+  );
+  const imageDe = (e: EntreeRecherche) => e.image ?? icones.get(e.href.split("#")[0]) ?? null;
 
   useEffect(() => {
     liste.current?.querySelector(`[data-index="${actif}"]`)?.scrollIntoView({ block: "nearest" });
@@ -104,6 +111,23 @@ export function RechercheGlobale() {
     setOuvert(false);
     setRecherche("");
     setActif(0);
+  };
+
+  /**
+   * Un resultat qui vise un onglet de la page ouverte (« #skins ») ne change
+   * que l'ancre : le routeur ne declencherait pas `hashchange`, que la fiche
+   * ecoute pour ouvrir l'onglet. Le navigateur s'en charge alors — en videant
+   * d'abord l'ancre si c'est deja la bonne, pour que l'evenement parte.
+   * Renvoie vrai si la navigation est faite.
+   */
+  const ancreLocale = (href: string) => {
+    const [chemin, ancre] = prefixer(href, langue).split("#");
+    if (ancre === undefined || chemin !== window.location.pathname) return false;
+    if (window.location.hash === `#${ancre}`) {
+      window.history.replaceState(window.history.state, "", window.location.pathname + window.location.search);
+    }
+    window.location.hash = ancre;
+    return true;
   };
 
   const clavier = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -117,7 +141,7 @@ export function RechercheGlobale() {
       e.preventDefault();
       const cible = plats[actif];
       fermer();
-      router.push(prefixer(cible.href, langue));
+      if (!ancreLocale(cible.href)) router.push(prefixer(cible.href, langue));
     }
   };
 
@@ -128,7 +152,7 @@ export function RechercheGlobale() {
         onClick={() => setOuvert(true)}
         aria-label={t("recherche.ouvrir")}
         aria-keyshortcuts="Control+K Meta+K"
-        className="biseau-sm flex items-center gap-2 border border-nuit-700 px-2.5 py-1.5 text-sm text-craie-400 transition-colors hover:border-or-500/60 hover:text-or-400"
+        className="biseau-sm flex items-center gap-2 border border-nuit-700 px-2 py-1.5 text-sm sm:px-2.5 text-craie-400 transition-colors hover:border-or-500/60 hover:text-or-400"
       >
         <Search size={16} aria-hidden />
         <span className="hidden xl:inline">{t("recherche.ouvrir")}</span>
@@ -181,6 +205,7 @@ export function RechercheGlobale() {
                     </p>
                     {g.entrees.map((e) => {
                       const i = plats.indexOf(e);
+                      const image = imageDe(e);
                       return (
                         <Link
                           key={`${e.type}-${e.href}-${e.titre}`}
@@ -189,7 +214,10 @@ export function RechercheGlobale() {
                           role="option"
                           aria-selected={i === actif}
                           href={e.href}
-                          onClick={fermer}
+                          onClick={(clic) => {
+                            if (ancreLocale(e.href)) clic.preventDefault();
+                            fermer();
+                          }}
                           onMouseEnter={() => setActif(i)}
                           className={cn(
                             "flex items-center gap-3 rounded-md px-3 py-2",
@@ -197,8 +225,8 @@ export function RechercheGlobale() {
                           )}
                         >
                           <span className="relative grid size-8 shrink-0 place-items-center overflow-hidden rounded bg-nuit-800 text-xs font-bold text-craie-500">
-                            {e.image ? (
-                              <Image src={e.image} alt="" width={32} height={32} className="size-full object-cover" />
+                            {image ? (
+                              <Image src={image} alt="" width={32} height={32} className="size-full object-cover" />
                             ) : (
                               e.titre.charAt(0)
                             )}

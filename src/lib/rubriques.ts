@@ -1,4 +1,5 @@
 import {
+  Calculator,
   Gamepad2,
   Gem,
   Newspaper,
@@ -24,6 +25,7 @@ export const BASE: Entree[] = [
   { href: "/tier-list", cle: "tierList", icone: Trophy },
   { href: "/compare", cle: "compare", icone: Scale },
   { href: "/draft", cle: "draft", icone: Swords },
+  { href: "/tools/win-rate", cle: "winRate", icone: Calculator },
   { href: "/game-modes", cle: "gameModes", icone: Gamepad2 },
   { href: "/items", cle: "items", icone: Package },
   { href: "/emblems", cle: "emblems", icone: Gem },

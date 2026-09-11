@@ -3,7 +3,7 @@ import visuels from "@/data/jeu/visuels.json";
 import { LANGUES, type Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { article, articles } from "@/lib/contenu";
-import { heros, objets, patchsDetail } from "@/lib/donnees";
+import { competences, heros, objets, patchsDetail } from "@/lib/donnees";
 import type { EntreeRecherche } from "@/lib/recherche";
 import { ACTUALITE, BASE } from "@/lib/rubriques";
 
@@ -21,6 +21,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
   const locale = (await params).locale as Langue;
   const t = creerT(locale);
   const images = (visuels as unknown as { objets: Record<string, string> }).objets;
+  const competencesLangue = competences(locale);
 
   const entrees: EntreeRecherche[] = [
     ...heros.map((h) => ({
@@ -37,6 +38,17 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
       href: `/items#${o.slug}`,
       image: images[o.slug] ?? null,
     })),
+    // Skins et competences menent a l'onglet de la fiche, ouvert par l'ancre.
+    // Sans image : 1 600 chemins de visuels multipliaient l'index par huit. La
+    // recherche leur prete l'icone de leur heros, deja dans l'index.
+    ...heros.flatMap((h) =>
+      (competencesLangue[h.slug] ?? []).flatMap((c) =>
+        c ? [{ type: "competence" as const, titre: c.nom, detail: h.nom, href: `/heroes/${h.slug}#competences` }] : [],
+      ),
+    ),
+    ...heros.flatMap((h) =>
+      h.skins.map((s) => ({ type: "skin" as const, titre: s.nom, detail: h.nom, href: `/heroes/${h.slug}#skins` })),
+    ),
     ...Object.values(patchsDetail).map((p) => ({
       type: "patch" as const,
       titre: `Patch ${p.version}`,
@@ -59,6 +71,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
       detail: t(`nav.${e.cle}.desc`),
       href: e.href,
     })),
+    { type: "page" as const, titre: t("pages.contribute.titre"), detail: t("pages.contribute.resume"), href: "/contribute" },
   ];
 
   return NextResponse.json(entrees, { headers: { "Cache-Control": "public, max-age=3600" } });

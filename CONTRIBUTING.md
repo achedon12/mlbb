@@ -32,13 +32,30 @@ travailler.
 
 ## Ecrire une analyse de heros
 
+Le guide complet — chaque champ explique, le modele annote, les regles de
+style et la relecture — est aussi en ligne, dans les quatre langues du site :
+[mlbbdex.com/fr/contribute](https://mlbbdex.com/fr/contribute).
+
 1. Reprendre le `slug` **exact** depuis `src/data/jeu/heros.json`.
 2. Ouvrir le fichier du role dans `src/data/heros/` (`tanks.ts`,
    `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts`, `supports.ts`).
-3. Ajouter une entree suivant le type `AnalyseHeros` de `src/lib/types.ts`.
+3. Recopier le modele annote [`docs/modele-analyse.ts`](docs/modele-analyse.ts)
+   a la fin de la liste, le remplir, puis retirer ses commentaires. Le modele
+   suit le type `AnalyseHeros` de `src/lib/types.ts` : `npm run typecheck` le
+   verifie a chaque passage, il ne peut donc pas se perimer.
 
 N'y remettez pas le role, la position, la date de sortie ni la difficulte :
 tout cela vient deja de la synchronisation.
+
+### Regles de style
+
+- **Les analyses s'ecrivent en francais**, avec leurs accents : c'est du texte
+  affiche aux visiteurs, pas du code.
+- **Les termes du jeu restent en anglais** : objets, competences, talents et
+  sorts gardent le nom que le joueur retrouve en partie (« Winter Crown »,
+  « Flicker »).
+- **Rien de copie** : ni le wiki, ni un guide, ni une video. Une analyse
+  reprise d'ailleurs, meme reformulee de pres, est refusee.
 
 ### Ce qui fait une bonne analyse
 
@@ -96,11 +113,20 @@ npm run sync -- --images
 ```bash
 npm run lint
 npm run typecheck
+npm test
 npm run build
 ```
 
-Les trois doivent passer — la verification automatique les relancera de toute
+Tous doivent passer — la verification automatique les relancera de toute
 facon.
+
+## La relecture
+
+Chaque contribution passe par une pull request sur GitHub. Un mainteneur la
+relit sur le fond et la forme : exactitude au patch courant, style,
+originalite. S'il faut changer quelque chose, il le dit en commentaire de la
+pull request ; une fois fusionnee, l'analyse est en ligne au deploiement
+suivant.
 
 Messages de commit en francais, a l'imperatif : « ajoute l'analyse de Ling »,
 « corrige la recharge de Khufra ».

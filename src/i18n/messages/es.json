@@ -61,7 +61,10 @@
     },
     "ouvrir": "Abrir el menú",
     "fermer": "Cerrar el menú",
-    "winRate": {}
+    "winRate": {
+      "label": "Calculadora de tasa de victoria",
+      "desc": "Las victorias que te faltan"
+    }
   },
   "compte": {
     "connexion": "Iniciar sesión",
@@ -81,7 +84,8 @@
     "credit": "Datos de la wiki de Mobile Legends (CC BY-SA) y de la API comunitaria arena.rone.dev. No hay estadísticas de partidas disponibles.",
     "droits": "proyecto de fans independiente. Contenido publicado por {auteur}.",
     "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
-    "version": "Versión {v}"
+    "version": "Versión {v}",
+    "contribuer": "Contribuir"
   },
   "langue": {
     "choisir": "Idioma",
@@ -214,7 +218,8 @@
           },
           "vide": "Todavía falta perspectiva: se necesitan al menos {n} días medidos a cada lado de un parche, y el historial de este sitio empieza el {date}.",
           "videSansHistorique": "Todavía no hay historial para medir el efecto de los parches en {nom}."
-        }
+        },
+        "flux": "Seguir por RSS"
       },
       "coequipiers": "Mejores compañeros",
       "coequipiersIntro": "Los aliados con los que {nom} gana más, en puntos de victoria sobre su media.",
@@ -441,15 +446,82 @@
       "accueil": "Volver al inicio",
       "heros": "Ver los héroes"
     },
-    "winRate": {},
+    "winRate": {
+      "metaTitre": "Calculadora de tasa de victoria MLBB",
+      "titre": "Calculadora de tasa de victoria",
+      "chapeau": "¿Cuántas victorias seguidas necesitas para alcanzar la tasa que buscas? Indica tus partidas y tu tasa actual: el cálculo se hace en tu navegador, sin enviar nada.",
+      "metaDescription": "Calcula cuántas victorias consecutivas necesitas para alcanzar una tasa de victoria objetivo en Mobile Legends: Bang Bang, o cuántas partidas a un ritmo dado.",
+      "methodeTitre": "El cálculo",
+      "methode1": "Con n partidas y v victorias, alcanzar una tasa t requiere x victorias seguidas tales que (v + x) ÷ (n + x) ≥ t, es decir x = (t × n − v) ÷ (1 − t), redondeado hacia arriba. El número de victorias se deduce de la tasa que muestra el juego, redondeada a dos decimales: una partida se gana o se pierde, así que es un número entero.",
+      "methode2": "A un ritmo r superior al objetivo, hacen falta unas (t × n − v) ÷ (r − t) partidas. Si el objetivo ya se ha alcanzado, la calculadora muestra tu margen: cuántas derrotas seguidas puedes encajar sin bajar de él."
+    },
     "contribute": {
-      "groupe": {},
-      "champs": {
-        "competence": {},
-        "build": {}
+      "metaTitre": "Contribuir: escribir el análisis de un héroe",
+      "titre": "Escribir el análisis de un héroe",
+      "chapeau": "Los datos del juego se actualizan solos; el comentario, en cambio, hay que escribirlo. Así se redacta el análisis de un héroe y se propone al sitio.",
+      "metaDescription": "Guía de contribución de MLBBDex: los campos de un análisis de héroe, una plantilla comentada, las reglas de estilo y la revisión mediante pull request en GitHub.",
+      "resume": "Redactar el análisis de un héroe y proponerlo",
+      "statAnalyses": "Héroes analizados",
+      "statAttente": "Pendientes de análisis",
+      "principeTitre": "Lo que escribes",
+      "principe1": "Roles, líneas, habilidades, skins, estadísticas y builds jugadas llegan por la sincronización automática con la wiki y la API de la comunidad. Un análisis solo aporta lo que ninguna extracción produce: lo que el héroe hace de verdad, sus fortalezas y debilidades, sus counters y builds explicadas.",
+      "principe2": "Los análisis se escriben en francés, el idioma original del sitio. Cada uno es una entrada TypeScript, añadida al archivo del rol del héroe en `src/data/heros/`.",
+      "champsTitre": "Los campos",
+      "champsIntro": "Un análisis sigue el tipo `AnalyseHeros` de `src/lib/types.ts`. Sus habilidades y sus builds tienen cada una su propia forma.",
+      "groupe": {
+        "analyse": "El análisis — AnalyseHeros",
+        "competence": "Una habilidad — Competence",
+        "build": "Una build — Build"
       },
-      "style": {},
-      "relecture": {}
+      "facultatif": "opcional",
+      "champs": {
+        "slug": "Identificador exacto del héroe, tal como figura en `src/data/jeu/heros.json`.",
+        "resume": "Una frase sobre lo que hace único al héroe. También sirve de meta description.",
+        "analyse": "Dos párrafos separados por una línea vacía: lo que el héroe hace realmente y, después, sus límites.",
+        "competences": "Las habilidades en el orden del juego: pasiva, habilidad 1, habilidad 2, definitiva. Es el orden lo que asocia cada descripción a la habilidad de la wiki.",
+        "forces": "De tres a cinco puntos breves, observables en partida.",
+        "faiblesses": "De tres a cinco puntos breves, con lo que los aprovecha.",
+        "fortContre": "Slugs de los héroes contra los que se siente cómodo.",
+        "faibleContre": "Slugs de los héroes que lo ponen en apuros.",
+        "builds": "Una o varias builds, cada una con su contexto.",
+        "competence": {
+          "type": "Posición de la habilidad.",
+          "nom": "Nombre en inglés, como en el juego. El sitio muestra el de la wiki.",
+          "description": "Lo que permite la habilidad y cuándo usarla, sin valores de daño.",
+          "recharge": "Enfriamiento por nivel, en segundos. Ausente en una pasiva.",
+          "cout": "Coste por nivel. Ausente si el héroe no usa maná."
+        },
+        "build": {
+          "nom": "Nombre corto de la build.",
+          "contexte": "Cuándo elegir esta build. Una build sin contexto no enseña nada a nadie.",
+          "objets": "Seis objetos, con su nombre en inglés, en orden de compra.",
+          "embleme": "Emblema recomendado, nombrado como en los análisis existentes («Emblème de mage»).",
+          "talent": "Talento principal del emblema, nombre en inglés.",
+          "sort": "Hechizo de combate, nombre en inglés."
+        }
+      },
+      "modeleTitre": "Plantilla comentada",
+      "modeleIntro": "Copia esta plantilla al final de la lista del archivo del rol, rellénala y quita sus comentarios. `npm run typecheck` la comprueba en cada ejecución: siempre sigue el tipo vigente.",
+      "modeleLien": "Ver la plantilla en GitHub",
+      "styleTitre": "Reglas de estilo",
+      "style": {
+        "accents": "Acentos allí donde el francés los pida: el texto de un análisis se muestra a los visitantes, aunque el código del proyecto prescinda de ellos.",
+        "termes": "Los términos del juego se quedan en inglés: objetos, habilidades, talentos y hechizos conservan el nombre que el jugador encuentra en partida («Winter Crown», «Flicker»).",
+        "original": "Nada copiado: ni wiki, ni guías, ni vídeos. Un análisis tomado de otro sitio, aunque se reformule de cerca, será rechazado.",
+        "valeurs": "Sin valores de daño: cambian casi en cada parche. Describe el efecto, no la cifra.",
+        "concret": "Lo concreto antes que los superlativos: «gana los combates largos mientras el rival no compre reducción de curación» vale más que «es muy fuerte»."
+      },
+      "relectureTitre": "La revisión, mediante pull request",
+      "relecture": {
+        "fork": "Haz un fork del repositorio de GitHub y crea una rama para tu análisis.",
+        "ajout": "Añade la entrada al archivo del rol: `tanks.ts`, `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts` o `supports.ts`.",
+        "verifier": "Ejecuta `npm run lint`, `npm run typecheck` y `npm test`. La verificación automática los volverá a lanzar de todos modos.",
+        "ouvrir": "Abre una pull request con un título claro en imperativo, en francés: «ajoute l'analyse de Ling».",
+        "relire": "Un mantenedor revisa fondo y forma —exactitud respecto al parche actual, estilo, originalidad— y comenta la pull request si hay que cambiar algo.",
+        "fusion": "Una vez fusionada, el análisis se publica en el siguiente despliegue, y tu nombre queda en el historial del repositorio."
+      },
+      "lienPR": "Abrir una pull request",
+      "lienGuide": "Guía completa en GitHub (CONTRIBUTING.md)"
     },
     "accountProfile": {
       "nParties": {},
@@ -903,7 +975,12 @@
     "retirer": "Quitar {nom}",
     "dans": "En mis favoritos",
     "ajouter": "Añadir a favoritos",
-    "alerte": {}
+    "alerte": {
+      "titre": "Tus favoritos en el parche {version}",
+      "aucun": "Ninguno de tus favoritos ha cambiado en el parche {version}.",
+      "modifie": "Modificado",
+      "rss": "Cada ficha de héroe ofrece también un feed RSS de sus cambios, en la pestaña Estadísticas."
+    }
   },
   "skinDispo": {
     "Available": "Disponible",
@@ -1187,7 +1264,9 @@
       "heros": "Héroes",
       "objet": "Objetos",
       "patch": "Notas del parche",
-      "page": "Páginas"
+      "page": "Páginas",
+      "competence": "Habilidades",
+      "skin": "Skins"
     }
   },
   "donneesHeros": {
@@ -1253,5 +1332,26 @@
       "other": "puntos"
     }
   },
-  "outilTaux": {}
+  "outilTaux": {
+    "parties": "Partidas jugadas",
+    "tauxActuel": "Tasa de victoria actual",
+    "objectif": "Tasa objetivo",
+    "objectifsCourants": "Objetivos habituales",
+    "invalide": "Indica un número entero de partidas (al menos una) y tasas entre 0 y 100 %.",
+    "victoiresAffilee": "victorias seguidas",
+    "phraseVictoires": "Sin ninguna derrota, {n} victorias seguidas llevan tu tasa de {actuel} a {objectif}, con {total} partidas en total.",
+    "impossibleTitre": "Objetivo inalcanzable",
+    "impossible": "Una tasa del 100 % supone no haber perdido nunca: tras una derrota, ninguna racha de victorias permite volver del todo.",
+    "impossibleConseil": "Para un {objectif}, bastan {n} victorias seguidas.",
+    "defaitesEncaissables": "derrotas que puedes permitirte",
+    "phraseAtteint": "Objetivo ya alcanzado: puedes perder {n} partidas seguidas y mantenerte en {objectif} o más.",
+    "phraseLimite": "Objetivo alcanzado, sin margen: tu próxima derrota te dejará por debajo de {objectif}.",
+    "phraseZero": "Ninguna racha de derrotas puede bajar una tasa por debajo del 0 %.",
+    "base": "Base del cálculo: {v} victorias de {n} partidas. El juego redondea la tasa que muestra; el número de victorias, en cambio, es entero.",
+    "rythmeTitre": "¿Y sin una racha perfecta?",
+    "rythmeIntro": "Con el tiempo, tu tasa se acerca a la que mantienes partida tras partida. Indica una para saber cuántas partidas harán falta.",
+    "rythme": "Tasa mantenida",
+    "rythmeParties": "Unas {n} partidas con una tasa del {rythme} para alcanzar el objetivo.",
+    "rythmeInsuffisant": "Con una tasa del {rythme}, nunca superarás el {objectif}: tienes que ganar más a menudo que el objetivo."
+  }
 }
