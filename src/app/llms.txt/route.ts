@@ -1,4 +1,5 @@
-import { heros } from "@/lib/donnees";
+import { contres, heros } from "@/lib/donnees";
+import { rangsParPaire } from "@/lib/paires";
 import { site } from "@/lib/site";
 import { mesureLe } from "@/lib/tier-list";
 
@@ -14,6 +15,9 @@ const lien = (chemin: string) => `${site.url}/en${chemin}`;
 
 export function GET() {
   const date = mesureLe ? mesureLe.slice(0, 10) : null;
+  // Exemple de duel pris parmi ceux du sitemap (mesures a deux rangs au moins) :
+  // une paire ecrite en dur peut disparaitre des mesures et renvoyer une 404.
+  const duel = [...rangsParPaire(contres, (s) => heros.some((h) => h.slug === s))].find(([, n]) => n >= 2)?.[0];
   const texte = `# ${site.nom}
 
 > Mobile Legends: Bang Bang knowledge base: all ${heros.length} heroes with builds, counters, teammates and win, pick and ban rates measured by rank, tier lists by rank, lane and role, items, emblems, battle spells, skins, lore and patch notes. Available in English, French, Italian and Spanish.
@@ -26,7 +30,7 @@ Statistics come from ranked games aggregated by the community API arena.rone.dev
 - [Hero page](${lien("/heroes/aamon")}): builds and emblems by rank, skills, counters, teammates, 30-day trends, win rate by game length and patch history. Same pattern for every hero: /en/heroes/{slug}.
 - [Counters](${lien("/heroes/aamon/counters")}): who beats a hero, by rank, and how to counter it. Pattern: /en/heroes/{slug}/counters.
 - [Best duos](${lien("/heroes/aamon/duos")}): teammates that raise a hero's win rate. Pattern: /en/heroes/{slug}/duos.
-- [Head-to-head](${lien("/compare/aamon-vs-gloo")}): matchup statistics for two heroes. Pattern: /en/compare/{a}-vs-{b}, slugs in alphabetical order.
+- [Head-to-head](${lien(duel ? `/compare/${duel}` : "/compare")}): matchup statistics for two heroes. Pattern: /en/compare/{a}-vs-{b}, slugs in alphabetical order.
 - [Statistics](${lien("/statistics")}): sortable win, pick and ban rates for every hero and rank.
 
 ## Tier lists
