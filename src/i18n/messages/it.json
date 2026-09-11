@@ -78,7 +78,8 @@
     "confidentialite": "Privacy",
     "credit": "Dati dal wiki di Mobile Legends (CC BY-SA) e dall'API della community arena.rone.dev. Non è disponibile alcuna statistica delle partite.",
     "droits": "progetto di fan indipendente. Contenuti pubblicati da {auteur}.",
-    "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd."
+    "marque": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
+    "version": "Versione {v}"
   },
   "langue": {
     "choisir": "Lingua",

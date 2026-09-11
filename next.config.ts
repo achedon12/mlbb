@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { version } from "./package.json";
 
 /**
  * Le site a une partie serveur — sessions de connexion en jeu, appels a l'API
@@ -15,6 +16,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  // Version du site, lue dans package.json au build : le pied de page
+  // l'affiche sans qu'on ait a la reporter a la main.
+  env: { VERSION_SITE: version },
 
   images: {
     // Les portraits de heros sont servis par le wiki communautaire qui les

@@ -114,6 +114,7 @@ export function PiedDePage({ langue }: { langue: Langue }) {
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs leading-relaxed text-craie-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {ANNEE} {site.nom} — {t("pied.droits", { auteur: site.auteur })}
+            <span className="text-craie-600"> · {t("pied.version", { v: process.env.VERSION_SITE ?? "" })}</span>
           </p>
           <p className="text-craie-600">{t("pied.marque")}</p>
         </div>
