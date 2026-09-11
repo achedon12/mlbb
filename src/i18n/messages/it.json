@@ -159,6 +159,10 @@
     "mlbbdle": {
       "label": "MLBBdle",
       "desc": "Il Wordle degli eroi, ogni giorno"
+    },
+    "advanceServer": {
+      "label": "Advance Server",
+      "desc": "Modifiche in prova prima del server ufficiale"
     }
   },
   "compte": {
@@ -2196,6 +2200,86 @@
       "newHero": "Nuovo eroe",
       "skip": "Salta",
       "practiceQuestion": "Chi è questo eroe?"
+    },
+    "advanceServer": {
+      "title": "Patch notes dell'Advance Server",
+      "lead": "L'Advance Server è il server di prova di Mobile Legends: le modifiche di bilanciamento ci arrivano prima che sul server ufficiale. Ecco le sue note, versione per versione, riprese dalla wiki della community.",
+      "crumb": "Advance Server",
+      "warningTitle": "Modifiche in prova",
+      "warning": "Tutto ciò che trovi qui è in prova sull'Advance Server: queste modifiche possono ancora cambiare, o non arrivare mai sul server ufficiale.",
+      "statusUnderTest": "La versione {v} è in prova: è più recente dell'attuale patch del server ufficiale, la {live}.",
+      "statusNone": "Sulla wiki non è documentata alcuna versione dell'Advance Server più recente dell'attuale patch ufficiale ({live}). Le ultime note di prova pubblicate lì sono quelle della versione {v} ({date}).",
+      "statusNoneUndated": "Sulla wiki non è documentata alcuna versione dell'Advance Server più recente dell'attuale patch ufficiale ({live}). Le ultime note di prova pubblicate lì sono quelle della versione {v}.",
+      "syncedAt": "Dati della wiki rilevati il {date}.",
+      "latest": "Ultima versione documentata",
+      "readAll": "Tutte le modifiche della versione {v}",
+      "versions": "Versioni dettagliate",
+      "versionsIntro": "Le {n} versioni di prova più recenti, con le modifiche a eroi, oggetti e sistema.",
+      "archive": "Archivio",
+      "archiveIntro": "Le {n} versioni più vecchie non sono riportate qui: le loro note restano consultabili sulla wiki.",
+      "empty": "Al momento non è stato possibile recuperare note dell'Advance Server.",
+      "badgeUnderTest": "In prova",
+      "badgeOlder": "Precedente alla patch {live}",
+      "dateNotes": "Arrivata sull'Advance Server il {date}",
+      "dateWiki": "Note pubblicate sulla wiki il {date}",
+      "noDate": "Data non indicata",
+      "heroCount": {
+        "one": "{n} eroe modificato",
+        "other": "{n} eroi modificati"
+      },
+      "noHeroChanges": "Nessuna modifica agli eroi in questa versione.",
+      "credit": "Note riprese dalla {lien}, con licenza CC BY-SA. Il testo originale è pubblicato da Moonton; questo sito non ne modifica il contenuto.",
+      "creditTranslated": "Note riprese dalla {lien}, con licenza CC BY-SA, e tradotte automaticamente dall'inglese. Il testo originale è pubblicato da Moonton.",
+      "eyebrow": "Note dell'Advance Server",
+      "heading": "Advance Server {v}",
+      "sourceLink": "Pagina sorgente sulla wiki",
+      "summary": "In breve",
+      "designers": "Dagli sviluppatori",
+      "newHeroes": "Nuovi eroi e rework",
+      "kind": {
+        "new": "Nuovo eroe",
+        "revamp": "Rework"
+      },
+      "heroChanges": "Modifiche agli eroi",
+      "heroChangesSummary": {
+        "one": "{n} eroe modificato nella versione {v} dell'Advance Server.",
+        "other": "{n} eroi modificati nella versione {v} dell'Advance Server."
+      },
+      "details": "Dettaglio per eroe",
+      "categories": {
+        "items": "Oggetti",
+        "emblems": "Emblemi e talenti",
+        "spells": "Incantesimi di battaglia",
+        "system": "Campo di battaglia e sistema"
+      },
+      "tags": {
+        "new": "Nuovo",
+        "removed": "Rimosso",
+        "rework": "Rework",
+        "merge": "Fusione",
+        "fix": "Correzione",
+        "split": "Separazione"
+      },
+      "openPage": "Apri la scheda di {name}",
+      "before": "prima:",
+      "after": "dopo:",
+      "allVersions": "Tutte le versioni dell'Advance Server",
+      "seo": {
+        "title": "Patch notes Advance Server MLBB {v}: buff, nerf e modifiche",
+        "titleGeneric": "Patch notes Advance Server MLBB: buff, nerf e modifiche",
+        "description": "Note dell'Advance Server, il server di prova di Mobile Legends: ultima versione documentata {version}, con {buffs} buff, {nerfs} nerf e {adjust} ritocchi agli eroi. Modifiche in prova, che possono cambiare prima del server ufficiale.",
+        "descriptionVersion": "Advance Server MLBB {version}: {buffs} eroi potenziati, {nerfs} indeboliti e {adjust} ritoccati, tra cui {heroes}. Modifiche in prova, che possono cambiare prima del server ufficiale.",
+        "descriptionVersionNoHeroes": "Advance Server MLBB {version}: modifiche a oggetti e sistema in prova, che possono cambiare prima del server ufficiale.",
+        "share": "Le modifiche in prova sull'Advance Server di Mobile Legends, versione per versione.",
+        "keywords": "Advance Server MLBB, patch notes Advance Server, server di prova Mobile Legends, buff, nerf"
+      },
+      "next": {
+        "title": "In prova sull'Advance Server",
+        "intro": "Modifiche a {name} in prova sull'Advance Server. Possono ancora cambiare, o non arrivare mai sul server ufficiale.",
+        "announcedNew": "{name} è presentato come nuovo eroe nella versione {v}.",
+        "announcedRevamp": "Un rework di {name} è presentato nella versione {v}.",
+        "readVersion": "Tutte le note della versione {v}"
+      }
     }
   },
   "modeFiche": {
