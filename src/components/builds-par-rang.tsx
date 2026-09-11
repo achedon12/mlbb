@@ -13,6 +13,8 @@ import { cn } from "@/lib/utils";
 export interface VisuelResolu {
   nom: string;
   image: string | null;
+  /** Page du choix (embleme, sort), quand elle existe. */
+  href?: string;
 }
 
 export interface ObjetResolu extends VisuelResolu {
@@ -121,6 +123,7 @@ export function BuildsParRang({
                   libelle={t("builds.embleme")}
                   nom={nomEmbleme(b.embleme.nom)}
                   image={b.embleme.image}
+                  href={b.embleme.href}
                 />
               )}
               {b.talents.map((talent, j) => (
@@ -131,7 +134,7 @@ export function BuildsParRang({
                   image={talent.image}
                 />
               ))}
-              {b.sort && <ChoixBuild libelle={t("builds.sort")} nom={b.sort.nom} image={b.sort.image} />}
+              {b.sort && <ChoixBuild libelle={t("builds.sort")} nom={b.sort.nom} image={b.sort.image} href={b.sort.href} />}
             </div>
           </li>
         ))}
@@ -163,6 +166,7 @@ export function BuildsParRang({
                   libelle={t("builds.embleme")}
                   nom={nomEmbleme(guide.embleme.nom)}
                   image={guide.embleme.image}
+                  href={guide.embleme.href}
                 />
               )}
               {guide.talents.map((talent, j) => (
@@ -174,7 +178,7 @@ export function BuildsParRang({
                 />
               ))}
               {guide.sort && (
-                <ChoixBuild libelle={t("builds.sort")} nom={guide.sort.nom} image={guide.sort.image} />
+                <ChoixBuild libelle={t("builds.sort")} nom={guide.sort.nom} image={guide.sort.image} href={guide.sort.href} />
               )}
             </div>
           </div>
@@ -201,7 +205,7 @@ function ObjetCle({ objet }: { objet: ObjetResolu }) {
   );
   const classe = "biseau-sm block border border-nuit-700 bg-nuit-850 p-2 text-center";
   return objet.slug ? (
-    <Link href={`/items#${objet.slug}`} className={cn(classe, "transition-colors hover:border-or-500/60")}>
+    <Link href={`/items/${objet.slug}`} className={cn(classe, "transition-colors hover:border-or-500/60")}>
       {contenu}
     </Link>
   ) : (

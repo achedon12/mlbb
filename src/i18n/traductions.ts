@@ -80,9 +80,8 @@ function extraire(arbre: Arbre, chemins: string[]): Arbre {
 export function messagesClient(langue: Langue): Arbre {
   const tout = complet(langue);
   const communes = extraire(tout, COMMUNES_MALGRE_TOUT);
-  for (const rubrique of SERVEUR_SEULEMENT) delete tout[rubrique];
-  void communes;
-  return tout;
+  for (const rubrique of [...SERVEUR_SEULEMENT, ...RUBRIQUES_DE_PAGE]) delete tout[rubrique];
+  return fusionner(tout, communes);
 }
 
 /** Rubriques de page a ajouter au catalogue commun, pour les composants client de cette page. */

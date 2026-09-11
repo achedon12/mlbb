@@ -39,6 +39,7 @@ const JEU = [
   { href: "/tier-list", cle: "tierList" },
   { href: "/compare", cle: "compare" },
   { href: "/draft", cle: "draft" },
+  { href: "/tools/team", cle: "team" },
   { href: "/tools/win-rate", cle: "winRate" },
   { href: "/game-modes", cle: "gameModes" },
   { href: "/items", cle: "items" },
@@ -76,7 +77,7 @@ export function PiedDePage({ langue }: { langue: Langue }) {
             </span>
             <span className="font-titre text-lg font-bold tracking-wide text-craie-100">{site.nom}</span>
           </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-craie-500">{t("pied.description")}</p>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-craie-500">{t("pied.presentation")}</p>
           <div className="mt-5 flex items-center gap-4">
             <a
               href={site.depot}
@@ -109,7 +110,7 @@ export function PiedDePage({ langue }: { langue: Langue }) {
       </div>
 
       <div className="border-t border-nuit-800/80">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-craie-600">{t("pied.credit")}</p>
+        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-craie-600">{t("pied.sources")}</p>
       </div>
 
       <div className="border-t border-nuit-800">

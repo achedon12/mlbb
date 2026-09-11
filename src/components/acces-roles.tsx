@@ -1,4 +1,5 @@
 import Link from "@/components/lien";
+import { cheminRole } from "@/lib/filtres-tier-list";
 import type { Role } from "@/lib/types";
 import type { Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
@@ -26,7 +27,7 @@ export function AccesRoles({ compte, langue }: { compte: Record<Role, number>; l
       {(Object.keys(COULEURS) as Role[]).map((role) => (
         <li key={role}>
           <Link
-            href={`/heroes?role=${role}`}
+            href={cheminRole(role)}
             className={cn(
               "biseau flex h-full flex-col justify-between border bg-linear-to-b to-transparent p-4 transition-transform hover:-translate-y-0.5",
               COULEURS[role],

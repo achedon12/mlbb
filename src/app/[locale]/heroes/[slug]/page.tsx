@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CompleterMessages } from "@/i18n/fournisseur";
 import { LOCALE_HTML } from "@/i18n/config";
 import { donneesLd } from "@/lib/html";
 import Image from "next/image";
@@ -18,6 +19,8 @@ import { BuildsParRang } from "@/components/builds-par-rang";
 import { ChoixBuild } from "@/components/choix-build";
 import { resoudreBuild, resoudreGuide, visuelEmbleme, visuelObjet, visuelSort, visuelTalent } from "@/lib/visuels-build";
 import { StatistiquesHeros } from "@/components/statistiques-heros";
+import { galerieHeros } from "@/lib/skins-heros";
+import { duos } from "@/lib/duos";
 import { AjustementsDuHeros } from "@/components/patch-heros";
 import { dureeDe, historiqueDe, tendancesDe } from "@/lib/evolution";
 import { Onglets } from "@/components/onglets";
@@ -48,14 +51,20 @@ import {
   patchsDetailles,
   visuelsCompetences,
 } from "@/lib/donnees";
-import { classementComplet, statsParRang, type StatsRang } from "@/lib/tier-list";
-import { RANGS_MESURE } from "@/lib/rangs-mesure";
-import { site } from "@/lib/site";
+import { classementComplet, statsParRang, tauxParSlug, type StatsRang } from "@/lib/tier-list";
+import { RANGS_MESURE, type RangMesure } from "@/lib/rangs-mesure";
+import { cheminRole } from "@/lib/filtres-tier-list";
+import { site, urlAbsolue } from "@/lib/site";
 import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { creerT, messagesPage } from "@/i18n/traductions";
 import { dateSortie, libelleHeros } from "@/i18n/donnees-heros";
 import { normaliserNomSkin } from "@/lib/utils";
 import { metaPage } from "@/i18n/seo";
+import { LigneFraicheur } from "@/components/fraicheur";
+import { dateLongue, dateMesure, listeNoms, patchActuel, pourcentage } from "@/lib/fraicheur";
+import { formaterEcart } from "@/lib/tendances";
+import type { TrancheDuree } from "@/lib/evolution";
+import type { Heros } from "@/lib/types";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
@@ -70,26 +79,82 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!h) return {};
 
   const tm = creerT(locale);
-  // Le resume redige n'existe qu'en francais : les autres langues prennent la
-  // description generee, dans leur langue.
-  const description =
-    (locale === "fr" ? h.analyse?.resume : undefined) ??
-    tm("pages.heroDetail.metaDescription", {
-      nom: h.titre ? `${h.nom}, ${h.titre}` : h.nom,
-      roles: h.roles.map((r) => tm(`roles.${r}`)).join(" / "),
-      lanes: h.lanes.map((l) => tm(`lanes.${l}`)).join(", ") || "—",
-      skins: h.skins.length,
-    });
-
+  const palier = tauxParSlug.get(h.slug)?.palier;
+  const v = patchActuel.version;
   return metaPage(locale, {
-    // Titre calque sur les recherches (« aamon build », « aamon counter ») :
-    // l'epithete reste dans la description et sur la page.
-    titre: tm("pages.heroDetail.titreFiche", { nom: h.nom }),
-    description,
+    // Titre calque sur les recherches (« aamon build », « aamon emblem »,
+    // « aamon counter »), avec le palier et le patch : les resultats qui
+    // portent un repere de fraicheur sont ceux qu'on clique. L'epithete reste
+    // sur la page.
+    titre: palier
+      ? tm("pages.seo.heros.titre", { nom: h.nom, palier, v })
+      : tm("pages.seo.heros.titreSansPalier", { nom: h.nom, v }),
+    description: descriptionHeros(locale, h),
     chemin: `/heroes/${slug}`,
     type: "article",
     image: `/${locale}/heroes/${slug}/opengraph-image`,
   });
+}
+
+/** Build le plus joue sur la position principale du heros, tous rangs. */
+function buildPrincipal(h: Heros) {
+  const parLane = buildsJoues[h.slug] ?? {};
+  const lane = h.lanes.find((l) => parLane[l]) ?? Object.keys(parLane)[0];
+  return lane ? (parLane[lane]?.all?.[0] ?? null) : null;
+}
+
+/**
+ * Description en phrases de donnees, comme les extraits qui se cliquent : qui
+ * contre le heros (en Mythique quand ce rang est mesure), son build le plus
+ * joue, son taux de victoire et son palier, puis la date du releve. Sans
+ * aucune mesure, la presentation generale.
+ */
+function descriptionHeros(locale: Langue, h: Heros): string {
+  const t = creerT(locale);
+  const phrases: string[] = [];
+
+  const parRang = contres[h.slug] ?? {};
+  const rang: RangMesure | null = parRang.mythic?.faible.length ? "mythic" : parRang.all?.faible.length ? "all" : null;
+  if (rang) {
+    const noms = listeNoms(locale, parRang[rang]!.faible.slice(0, 3).map((c) => herosParSlug.get(c.slug)?.nom ?? c.slug));
+    phrases.push(
+      rang === "all"
+        ? t("pages.seo.heros.contresTous", { nom: h.nom, contres: noms })
+        : t("pages.seo.heros.contres", { nom: h.nom, contres: noms, rang: t(`rangsMesure.${rang}`) }),
+    );
+  }
+
+  const build = buildPrincipal(h);
+  if (build?.objets.length) {
+    const nomsObjets = new Map(objets(locale).map((o) => [o.slug, o.nom]));
+    const liste = build.objets.map((o) => nomsObjets.get(visuelObjet(o).slug ?? "") ?? o).join(", ");
+    const role = build.embleme ? t(`roles.${build.embleme}`) : null;
+    phrases.push(
+      build.embleme
+        ? t("pages.seo.heros.buildEmbleme", {
+            objets: liste,
+            embleme: role === `roles.${build.embleme}` ? build.embleme : role!,
+          })
+        : t("pages.seo.heros.build", { objets: liste }),
+    );
+  }
+
+  const taux = tauxParSlug.get(h.slug);
+  if (taux) phrases.push(t("pages.seo.heros.taux", { victoire: pourcentage(locale, taux.victoire), palier: taux.palier }));
+
+  if (phrases.length > 0) return [...phrases, `${t("pages.fraicheur.majLe", { date: dateLongue(locale) })}.`].join(" ");
+
+  // Le resume redige n'existe qu'en francais : les autres langues prennent la
+  // description generee, dans leur langue.
+  return (
+    (locale === "fr" ? h.analyse?.resume : undefined) ??
+    t("pages.heroDetail.metaDescription", {
+      nom: h.titre ? `${h.nom}, ${h.titre}` : h.nom,
+      roles: h.roles.map((r) => t(`roles.${r}`)).join(" / "),
+      lanes: h.lanes.map((l) => t(`lanes.${l}`)).join(", ") || "—",
+      skins: h.skins.length,
+    })
+  );
 }
 
 export default async function PageHeros({ params }: Params) {
@@ -178,9 +243,7 @@ export default async function PageHeros({ params }: Params) {
   // Build le plus joue sur la position principale, tous rangs : la reference
   // a laquelle confronter les builds rediges, qui vieillissent d'un patch a
   // l'autre.
-  const parLane = buildsJoues[h.slug] ?? {};
-  const laneReference = h.lanes.find((l) => parLane[l]) ?? Object.keys(parLane)[0];
-  const reference = laneReference ? (parLane[laneReference]?.all?.[0] ?? null) : null;
+  const reference = buildPrincipal(h);
   const nomsObjets = new Map(objets(locale).map((o) => [o.slug, o.nom]));
   const ecartDe = (b: { objets: string[]; talent: string }) => {
     if (!reference) return null;
@@ -203,20 +266,33 @@ export default async function PageHeros({ params }: Params) {
       .map((a) => ({ version: p.version, ajustement: a })),
   );
 
+  const historique = historiqueDe(h.slug);
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
-    description: analyse?.resume,
+    // La description de la page, dans sa langue : le resume redige n'existe
+    // qu'en francais et s'affichait sous un `inLanguage` anglais.
+    description: descriptionHeros(locale, h),
+    image: h.visuels.portrait ? urlAbsolue(h.visuels.portrait) : undefined,
     inLanguage: LOCALE_HTML[locale],
-    author: { "@type": "Person", name: site.auteur },
-    publisher: { "@type": "Organization", name: site.nom, url: site.url },
+    // Premiere mesure conservee pour ce heros : la fiche publie ses chiffres
+    // depuis. La modification suit le dernier releve des taux.
+    datePublished: historique?.debut ?? dateMesure,
+    dateModified: dateMesure,
+    author: { "@type": "Person", name: site.auteur, url: `https://github.com/${site.auteur}` },
+    publisher: {
+      "@type": "Organization",
+      name: site.nom,
+      url: site.url,
+      logo: { "@type": "ImageObject", url: urlAbsolue("/apple-icon.png") },
+    },
     mainEntityOfPage: `${site.url}/${locale}/heroes/${slug}`,
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
   };
 
   return (
-    <>
+    <CompleterMessages messages={messagesPage(locale, ["pages.heroDetail"])}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
@@ -266,12 +342,12 @@ export default async function PageHeros({ params }: Params) {
         <div className="relative mx-auto max-w-5xl px-4 py-10">
           {/*
             Le fil flotte sur l'illustration avec son propre fond. La miette du
-            role mene au catalogue filtre ; celle du heros ouvre les autres.
+            role mene a la page du role ; celle du heros ouvre les autres.
           */}
           <FilAriane
             miettes={[
               { nom: t("nav.heroes.label"), href: "/heroes" },
-              ...(h.roles[0] ? [{ nom: t(`roles.${h.roles[0]}`), href: `/heroes?role=${h.roles[0]}` }] : []),
+              ...(h.roles[0] ? [{ nom: t(`roles.${h.roles[0]}`), href: cheminRole(h.roles[0]) }] : []),
               {
                 nom: h.nom,
                 freres: [...heros]
@@ -301,6 +377,8 @@ export default async function PageHeros({ params }: Params) {
                   </span>
                 ))}
               </div>
+
+              <LigneFraicheur langue={locale} className="mt-4" />
 
               <div className="mt-5 flex flex-wrap items-center gap-3">
                 <BoutonFavori heros={h.slug} />
@@ -469,12 +547,26 @@ export default async function PageHeros({ params }: Params) {
                     {aContres && (
                       <section>
                         <ContresChiffres nom={h.nom} parRang={contresAffiches} />
+                        <Link
+                          href={`/heroes/${h.slug}/counters`}
+                          className="mt-4 inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                        >
+                          {t("pages.heroDetail.pageCounters")} →
+                        </Link>
                       </section>
                     )}
 
                     {aCoequipiers && (
                       <section>
                         <CoequipiersParRang nom={h.nom} parRang={coequipiersAffiches} />
+                        {duos[h.slug] && (
+                          <Link
+                            href={`/heroes/${h.slug}/duos`}
+                            className="mt-4 inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                          >
+                            {t("pages.heroDetail.pageDuos")} →
+                          </Link>
+                        )}
                       </section>
                     )}
 
@@ -524,9 +616,9 @@ export default async function PageHeros({ params }: Params) {
                         ))}
                       </ol>
                       <div className="mt-5 grid gap-3 border-t border-nuit-800 pt-4 sm:grid-cols-3">
-                        <ChoixBuild libelle={t("builds.embleme")} nom={b.embleme} image={visuelEmbleme(b.embleme).image} />
+                        <ChoixBuild libelle={t("builds.embleme")} nom={b.embleme} image={visuelEmbleme(b.embleme).image} href={visuelEmbleme(b.embleme).href} />
                         <ChoixBuild libelle={t("builds.talent")} nom={b.talent} image={visuelTalent(b.talent).image} />
-                        <ChoixBuild libelle={t("builds.sort")} nom={b.sort} image={visuelSort(b.sort).image} />
+                        <ChoixBuild libelle={t("builds.sort")} nom={b.sort} image={visuelSort(b.sort).image} href={visuelSort(b.sort).href} />
                       </div>
                       {(() => {
                         const ecart = ecartDe(b);
@@ -553,13 +645,22 @@ export default async function PageHeros({ params }: Params) {
               id: "stats",
               differe: true,
               label: t("pages.heroDetail.onglet.stats"),
+              apercu: (
+                <ApercuStatistiques
+                  langue={locale}
+                  h={h}
+                  statsRangs={statsRangs}
+                  ajustements={ajustementsHeros.length}
+                  patchs={versionsRecentes.length}
+                />
+              ),
               contenu: (
                 <div className="space-y-12">
                   <StatistiquesHeros
                     nom={h.nom}
                     tendances={tendancesDe(h.slug)}
                     duree={dureeDe(h.slug)}
-                    historique={historiqueDe(h.slug)}
+                    historique={historique}
                     patchs={patchsDates}
                     parRang={Object.fromEntries(
                       Object.entries(statsRangs).map(([r, s]) => [r, { victoire: s.victoire, ban: s.ban }]),
@@ -590,9 +691,39 @@ export default async function PageHeros({ params }: Params) {
               differe: true,
               label: t("pages.heroDetail.onglet.skins"),
               compteur: skinsComplets.length || undefined,
+              // Les noms des skins, en texte, en attendant la galerie.
+              apercu:
+                skinsComplets.length > 0 ? (
+                  <div className="text-sm leading-relaxed text-craie-300">
+                    <p>{t("pages.apercuHeros.skins", { nom: h.nom, n: skinsComplets.length })}</p>
+                    <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-craie-500">
+                      {skinsComplets.map((s) => (
+                        <li key={s.id}>{s.nom}</li>
+                      ))}
+                    </ul>
+                    {galerieHeros(h).total > 0 && (
+                      <Link
+                        href={`/heroes/${h.slug}/skins`}
+                        className="mt-3 inline-block font-semibold text-or-400 hover:text-or-500"
+                      >
+                        {t("pages.heroSkins.lienFiche", { n: galerieHeros(h).total })} →
+                      </Link>
+                    )}
+                  </div>
+                ) : null,
               contenu:
                 skinsComplets.length > 0 ? (
-                  <VitrineSkins skins={skinsComplets} />
+                  <div className="space-y-5">
+                    {galerieHeros(h).total > 0 && (
+                      <Link
+                        href={`/heroes/${h.slug}/skins`}
+                        className="inline-block text-sm font-semibold text-or-400 hover:text-or-500"
+                      >
+                        {t("pages.heroSkins.lienFiche", { n: galerieHeros(h).total })} →
+                      </Link>
+                    )}
+                    <VitrineSkins skins={skinsComplets} />
+                  </div>
                 ) : null,
             },
           ]}
@@ -600,7 +731,7 @@ export default async function PageHeros({ params }: Params) {
       </div>
       </RangProvider>
       </VitrineProvider>
-    </>
+    </CompleterMessages>
   );
 }
 
@@ -633,5 +764,92 @@ function ListeContres({
         ))}
       </ul>
     </Carte>
+  );
+}
+
+/**
+ * Resume des statistiques en phrases, rendu par le serveur dans l'onglet
+ * differe : evolution sur trente jours, duree de partie favorable, ecart entre
+ * les rangs et ajustements recents. Les graphiques le remplacent a
+ * l'ouverture ; d'ici la, moteurs et lecteurs en ont l'essentiel en texte.
+ */
+function ApercuStatistiques({
+  langue,
+  h,
+  statsRangs,
+  ajustements,
+  patchs,
+}: {
+  langue: Langue;
+  h: Heros;
+  statsRangs: Partial<Record<RangMesure, StatsRang>>;
+  ajustements: number;
+  patchs: number;
+}) {
+  const t = creerT(langue);
+  const pourcent = (v: number) => pourcentage(langue, v);
+  const phrases: string[] = [];
+
+  const mesures = (tendancesDe(h.slug).all?.victoire ?? []).flatMap((v, k) => (v === null ? [] : [[k, v] as const]));
+  if (mesures.length > 1) {
+    const [k0, debut] = mesures[0];
+    const [k1, fin] = mesures[mesures.length - 1];
+    phrases.push(
+      t("pages.apercuHeros.evolution", {
+        nom: h.nom,
+        n: k1 - k0 + 1,
+        debut: pourcent(debut),
+        fin: pourcent(fin),
+        ecart: formaterEcart(fin - debut, langue),
+        pts: t("contres.pts"),
+      }),
+    );
+  }
+
+  const tranches = [...(dureeDe(h.slug).all ?? [])].sort((a, b) => b.victoire - a.victoire);
+  if (tranches.length > 1) {
+    const libelle = (x: TrancheDuree) =>
+      x.a === null
+        ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.de })
+        : t("pages.heroDetail.statistiques.minutes", { de: x.de, a: x.a });
+    const haute = tranches[0];
+    const basse = tranches[tranches.length - 1];
+    phrases.push(
+      t("pages.apercuHeros.duree", {
+        nom: h.nom,
+        tranche: libelle(haute),
+        victoire: pourcent(haute.victoire),
+        trancheBas: libelle(basse),
+        victoireBas: pourcent(basse.victoire),
+      }),
+    );
+  }
+
+  const rangs = RANGS_MESURE.filter((r) => r !== "all" && statsRangs[r]).sort(
+    (a, b) => statsRangs[a]!.victoire - statsRangs[b]!.victoire,
+  );
+  if (rangs.length > 1) {
+    const bas = rangs[0];
+    const haut = rangs[rangs.length - 1];
+    phrases.push(
+      t("pages.apercuHeros.rangs", {
+        nom: h.nom,
+        bas: pourcent(statsRangs[bas]!.victoire),
+        rangBas: t(`rangsMesure.${bas}`),
+        haut: pourcent(statsRangs[haut]!.victoire),
+        rangHaut: t(`rangsMesure.${haut}`),
+      }),
+    );
+  }
+
+  if (ajustements > 0) phrases.push(t("pages.apercuHeros.ajustements", { nom: h.nom, n: ajustements, total: patchs }));
+  if (phrases.length === 0) return null;
+
+  return (
+    <div className="space-y-3 text-sm leading-relaxed text-craie-300">
+      {phrases.map((p) => (
+        <p key={p}>{p}</p>
+      ))}
+    </div>
   );
 }

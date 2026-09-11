@@ -25,6 +25,7 @@ import type { Role } from "@/lib/types";
 import { cn, formaterDate } from "@/lib/utils";
 import type { Langue } from "@/i18n/config";
 import { LOCALE_HTML } from "@/i18n/config";
+import { BASE } from "@/lib/rubriques";
 import { creerT, type T } from "@/i18n/traductions";
 
 /** Donnees structurees de l'accueil, dans la langue de la page. */
@@ -66,6 +67,9 @@ const detail = patchsDetail as unknown as Record<
  * Un tirage aleatoire changerait le visuel a chaque rechargement — l'accueil
  * doit rester reconnaissable d'une visite a l'autre dans la journee.
  */
+/** Outils interactifs du menu, repris en grille sur l'accueil. */
+const OUTILS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz"].includes(e.href));
+
 function herosDuJour() {
   const eligibles = heros.filter((h) => illustrations[h.slug]);
   if (eligibles.length === 0) return null;
@@ -186,6 +190,33 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
           {t("home.commencerTitre")}
         </TitreSection>
         <AccesRoles compte={parRole} langue={locale} />
+      </section>
+
+      {/* ── Outils ─────────────────────────────────────────────────────── */}
+      {/*
+        Tires du menu : un outil ajoute aux rubriques apparait ici sans autre
+        changement.
+      */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <TitreSection chapeau={t("home.outilsChapeau")}>{t("home.outilsTitre")}</TitreSection>
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {OUTILS.map(({ href, cle, icone: Icone }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className="biseau group flex h-full items-start gap-3 border border-nuit-700/70 bg-nuit-900/60 p-4 transition-colors hover:border-or-500/60"
+              >
+                <Icone size={20} aria-hidden className="mt-0.5 shrink-0 text-or-400" />
+                <span className="min-w-0">
+                  <span className="block font-titre font-bold text-craie-100 transition-colors group-hover:text-or-400">
+                    {t(`nav.${cle}.label`)}
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-craie-500">{t(`nav.${cle}.desc`)}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* ── Sommet du classement ───────────────────────────────────────── */}

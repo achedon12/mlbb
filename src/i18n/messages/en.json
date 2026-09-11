@@ -113,12 +113,37 @@
       "label": "Collection value",
       "desc": "Your heroes and skins in diamonds"
     },
-    "groupes": {},
-    "parRole": {},
-    "parRang": {},
-    "parLane": {},
-    "parRoleTier": {},
-    "spells": {}
+    "principal": "Main navigation",
+    "groupes": {
+      "heros": "Heroes",
+      "tierLists": "Tier lists",
+      "jeu": "Game",
+      "outils": "Tools",
+      "actualite": "News"
+    },
+    "parRole": {
+      "label": "By role",
+      "desc": "Each role's heroes, with their tier."
+    },
+    "parRang": {
+      "label": "By rank",
+      "desc": "The ranking measured in each rank bracket."
+    },
+    "parLane": {
+      "label": "By lane",
+      "desc": "The best heroes for each lane."
+    },
+    "parRoleTier": {
+      "label": "By role",
+      "desc": "The tier list for each role."
+    },
+    "spells": {
+      "label": "Battle spells",
+      "desc": "Spells, their cooldown and the heroes who take them."
+    },
+    "tousLesSkins": "All skins",
+    "tousLesEmblemes": "All emblems",
+    "sousMenu": "Open the {nom} submenu"
   },
   "compte": {
     "connexion": "Log in",
@@ -139,9 +164,7 @@
     "version": "Version {v}",
     "contribuer": "Contribute",
     "presentation": "Mobile Legends: Bang Bang heroes, builds and counters by rank, a tier list calculated from ranked win rates, items, emblems and patch notes, in English, French, Italian and Spanish. An independent project, open to contributions.",
-    "sources": "Game data from the Mobile Legends wiki (CC BY-SA). Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API.",
-    "description": "The French-language knowledge base for Mobile Legends: Bang Bang. An independent project, open to contributions.",
-    "credit": "Data from the Mobile Legends wiki (CC BY-SA) and the arena.rone.dev community API. No match statistics are available."
+    "sources": "Game data from the Mobile Legends wiki (CC BY-SA). Win, ban and pick rates, counters and most played builds come from the game's ranked match statistics, through the arena.rone.dev community API."
   },
   "langue": {
     "choisir": "Language",
@@ -165,8 +188,7 @@
       "chapeau": "The game's {heros} heroes and their {skins} skins, filterable by role and lane. The {analyses} profiles marked “Analysis” also include commentary, builds and counters.",
       "metaDescription": "The {heros} heroes of Mobile Legends: Bang Bang, filterable by role and lane: portraits, skins, stats and {analyses} written analyses.",
       "ogDescription": "The {heros} heroes of Mobile Legends: Bang Bang, with their {skins} skins.",
-      "listeLd": "Mobile Legends: Bang Bang heroes",
-      "metaTitre": "All heroes"
+      "listeLd": "Mobile Legends: Bang Bang heroes"
     },
     "heroesListe": {
       "rechercher": "Search for a hero",
@@ -288,14 +310,16 @@
         },
         "attaqueDeBase": "Basic attack",
         "ordre": "Skill order"
-      }
+      },
+      "pageCounters": "Full counters page",
+      "pageDuos": "All measured duos",
+      "duosCourt": "Duos"
     },
     "items": {
       "titre": "Items",
       "chapeau": "The {n} items in the shop. Click an item to see its details; filter by category or search directly for a stat.",
       "metaDescription": "The {n} items in Mobile Legends: Bang Bang: stats, unique effects, passives, recipes and prices, with their icons.",
-      "ogDescription": "The game's {n} items, with stats, passives and recipes.",
-      "metaTitre": "Items"
+      "ogDescription": "The game's {n} items, with stats, passives and recipes."
     },
     "itemsListe": {
       "rechercher": "Search for an item, stat or passive",
@@ -320,8 +344,7 @@
       "titre": "Emblems and talents",
       "chapeau": "The real question isn't which talents exist, but which ones to take for the role you play. Pick your emblem: the rest of the page reorganizes around it.",
       "metaDescription": "Which emblem, talent and Battle Spell to take for your role in Mobile Legends: Bang Bang. Pick your emblem and the page organizes itself around it.",
-      "ogDescription": "What to take for your role: emblems, talents and Battle Spells.",
-      "metaTitre": "Emblems, talents and Battle Spells"
+      "ogDescription": "What to take for your role: emblems, talents and Battle Spells."
     },
     "draft": {
       "titre": "Draft assistant",
@@ -329,8 +352,7 @@
       "note": "Counters and synergies come from relationships reported by the game, not from opinion. They don't cover every matchup: a hero with no known counter in a lineup isn't necessarily a bad pick — it simply has nothing specific to answer there.",
       "metaDescription": "Enter the enemy lineup: the tool suggests what to pick in each lane and explains why — counters, synergies and win rates.",
       "ogDescription": "What to pick against the enemy lineup, and why.",
-      "lienEquipe": "Team already picked? Analyze its composition",
-      "metaTitre": "Draft assistant"
+      "lienEquipe": "Team already picked? Analyze its composition"
     },
     "compare": {
       "titre": "Compare",
@@ -341,8 +363,7 @@
       "duels": {
         "titre": "Head-to-head matchups",
         "intro": "Win-rate gaps measured by the game when one hero faces the other, rank by rank. A few of the most one-sided matchups among the top-ranked heroes:"
-      },
-      "metaTitre": "Hero comparison"
+      }
     },
     "news": {
       "titre": "News and guides",
@@ -405,9 +426,7 @@
       "chapeauLane": "The {n} heroes who play {lane}, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "chapeauRole": "All {n} {pluriel} in the game, main or secondary role, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "noteFiltre": "Ranking across all ranks. The by-rank lists, for their part, cover every lane and every role.",
-      "voirRole": "All {pluriel} and their lanes",
-      "metaTitre": "Tier list",
-      "mesures": "{n} heroes measured · rates recorded on"
+      "voirRole": "All {pluriel} and their lanes"
     },
     "patchNotes": {
       "titre": "Patch notes",
@@ -437,8 +456,7 @@
         "detail": "Full change details",
         "impact": "average win rate: {avant} before the patch, {apres} after",
         "noteImpact": "Average win rate across all ranks over the {n} days before and after the patch, when the history covers that period."
-      },
-      "metaTitre": "Patch notes"
+      }
     },
     "login": {
       "titre": "Log in",
@@ -551,8 +569,7 @@
       "metaDescription": "Work out how many consecutive wins you need to reach a target win rate in Mobile Legends: Bang Bang, or how many matches at a given pace.",
       "methodeTitre": "How it works",
       "methode1": "With n matches and w wins, reaching a win rate t takes x straight wins such that (w + x) ÷ (n + x) ≥ t, i.e. x = (t × n − w) ÷ (1 − t), rounded up. The number of wins comes from the win rate shown in game, rounded to two decimals: a match is either won or lost, so it is a whole number.",
-      "methode2": "At a pace r above the target, it takes about (t × n − w) ÷ (r − t) matches. If the target is already reached, the calculator shows your margin: how many losses in a row you can take and stay above it.",
-      "metaTitre": "MLBB win rate calculator"
+      "methode2": "At a pace r above the target, it takes about (t × n − w) ÷ (r − t) matches. If the target is already reached, the calculator shows your margin: how many losses in a row you can take and stay above it."
     },
     "contribute": {
       "metaTitre": "Contribute: write a hero analysis",
@@ -1768,7 +1785,13 @@
       "toutesLesSeries": "Show all series ({n})",
       "moinsSeries": "Show fewer series"
     },
-    "spellsListe": {}
+    "spellsListe": {
+      "titre": "Battle spells",
+      "chapeau": "The game's {n} battle spells, their cooldown and the heroes who take them in ranked.",
+      "metaTitre": "MLBB Battle Spells: All {n} Spells and Their Best Heroes",
+      "metaDescription": "Flicker, Retribution, Execute… every Mobile Legends battle spell with its cooldown and the heroes who take it in ranked.",
+      "recharge": "Cooldown: {s}s"
+    }
   },
   "modeFiche": {
     "classic": {
@@ -1883,7 +1906,9 @@
       "aucuneHausse": "No hero is clearly rising this week.",
       "aucuneBaisse": "No hero is clearly falling this week."
     },
-    "lireNotes": "Read the notes"
+    "lireNotes": "Read the notes",
+    "outilsTitre": "Tools",
+    "outilsChapeau": "Prepare a match, test a pick, practice."
   },
   "vedette": {
     "herosDuJour": "Hero of the day",
@@ -2544,7 +2569,9 @@
       "patch": "Patch notes",
       "page": "Pages",
       "competence": "Skills",
-      "skin": "Skins"
+      "skin": "Skins",
+      "embleme": "Emblems",
+      "sort": "Battle spells"
     }
   },
   "donneesHeros": {

@@ -3,43 +3,50 @@
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "@/components/lien";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Database, Newspaper, type LucideIcon } from "lucide-react";
-import { ACTUALITE, BASE, type Entree } from "@/lib/rubriques";
+import { ChevronDown, ChevronRight } from "lucide-react";
+import { ACTUALITE, BASE, GROUPES, type Entree, type Groupe, type Noeud } from "@/lib/rubriques";
 import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 /**
  * Navigation de bureau.
  *
- * Les dix rubriques sont rangees en deux menus deroulants — la base de
- * donnees et l'actualite. Chaque entree porte une icone et, via le catalogue
- * de traductions, un libelle et une courte description dans la langue courante.
+ * Cinq familles en menus deroulants — heros, tier lists, jeu, outils,
+ * actualite. Chaque entree porte une icone, un libelle et une courte
+ * description ; celles qui regroupent des sous-pages (tier list par rang, par
+ * lane, emblemes…) ouvrent un sous-menu lateral, au survol, au clic ou avec la
+ * fleche droite.
  */
-
 
 export function estActif(chemin: string, href: string) {
   // Le chemin porte un prefixe de langue (/fr/heroes) : on compare la fin.
   return chemin.endsWith(href) || chemin.includes(`${href}/`);
 }
 
+/** Libelle d'un noeud : sa cle de navigation, ou sa cle de traduction directe. */
+export function libelleNoeud(t: (cle: string) => string, n: Noeud): string {
+  return n.cle ? t(`nav.${n.cle}.label`) : t(n.libelle ?? "");
+}
+
+const actifDans = (chemin: string, n: Noeud): boolean =>
+  (n.href ? estActif(chemin, n.href) : false) || (n.enfants ?? []).some((e) => actifDans(chemin, e));
+
 function Deroulant({
-  titre,
-  icone: Icone,
-  entrees,
+  groupe,
   ouvert,
   onOuvrir,
   onFermer,
 }: {
-  titre: string;
-  icone: LucideIcon;
-  entrees: Entree[];
+  groupe: Groupe;
   ouvert: boolean;
   onOuvrir: () => void;
   onFermer: () => void;
 }) {
+  const t = useT();
   const chemin = usePathname();
   const panneauId = useId();
-  const groupeActif = entrees.some((e) => estActif(chemin, e.href));
+  const groupeActif = groupe.noeuds.some((n) => actifDans(chemin, n));
+  const { icone: Icone } = groupe;
 
   return (
     <div className="relative" onMouseEnter={onOuvrir} onMouseLeave={onFermer}>
@@ -49,12 +56,12 @@ function Deroulant({
         aria-controls={panneauId}
         onClick={() => (ouvert ? onFermer() : onOuvrir())}
         className={cn(
-          "flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+          "flex items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium transition-colors xl:px-3",
           groupeActif || ouvert ? "text-craie-100" : "text-craie-300 hover:text-craie-100",
         )}
       >
         <Icone size={16} aria-hidden className={groupeActif ? "text-or-400" : ""} />
-        {titre}
+        {t(`nav.groupes.${groupe.cle}`)}
         <ChevronDown size={14} aria-hidden className={cn("transition-transform duration-200", ouvert && "rotate-180")} />
         <span
           aria-hidden
@@ -66,16 +73,147 @@ function Deroulant({
       </button>
 
       <div id={panneauId} hidden={!ouvert} className="absolute left-0 top-full z-50 pt-2">
-        <div className="biseau w-80 border border-nuit-700/80 bg-nuit-900/98 p-2 shadow-2xl shadow-nuit-950/60 backdrop-blur">
-          <ul className="grid gap-0.5">
-            {entrees.map((entree) => (
-              <li key={entree.href}>
-                <LienMenu entree={entree} actif={estActif(chemin, entree.href)} onClick={onFermer} className="items-start" />
+        {/*
+          Le biseau (clip-path) est porte par un calque de fond : pose sur le
+          panneau lui-meme, il rognerait les sous-menus qui en debordent.
+        */}
+        <div className={cn("relative p-2", groupe.large ? "w-[36rem]" : "w-80")}>
+          <div
+            aria-hidden
+            className="biseau absolute inset-0 border border-nuit-700/80 bg-nuit-900/98 shadow-2xl shadow-nuit-950/60 backdrop-blur"
+          />
+          <ul className={cn("relative grid gap-0.5", groupe.large && "grid-cols-2")}>
+            {groupe.noeuds.map((n) => (
+              <li key={n.href ?? n.cle}>
+                {n.enfants ? (
+                  <NoeudAvecSousMenu noeud={n} chemin={chemin} onNaviguer={onFermer} />
+                ) : (
+                  <LienMenu
+                    entree={n as Entree}
+                    actif={estActif(chemin, n.href!)}
+                    onClick={onFermer}
+                    className="items-start"
+                  />
+                )}
               </li>
             ))}
           </ul>
         </div>
       </div>
+    </div>
+  );
+}
+
+/**
+ * Entree qui regroupe des sous-pages. La ligne mene a sa page quand elle en a
+ * une ; la fleche, ou le survol, ouvre la liste des sous-pages a droite.
+ */
+function NoeudAvecSousMenu({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin: string; onNaviguer: () => void }) {
+  const t = useT();
+  const id = useId();
+  const [ouvert, setOuvert] = useState(false);
+  const fleche = useRef<HTMLButtonElement>(null);
+  const liste = useRef<HTMLUListElement>(null);
+  const nom = libelleNoeud(t, noeud);
+  const actif = actifDans(chemin, noeud);
+
+  const ouvrirEtEntrer = () => {
+    setOuvert(true);
+    // Le sous-menu vient d'etre rendu : on y place le focus au tour suivant.
+    requestAnimationFrame(() => liste.current?.querySelector<HTMLElement>("a")?.focus());
+  };
+
+  const auClavier = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowRight" && !ouvert) {
+      e.preventDefault();
+      ouvrirEtEntrer();
+    } else if (e.key === "ArrowLeft" && ouvert) {
+      e.preventDefault();
+      setOuvert(false);
+      fleche.current?.focus();
+    }
+  };
+
+  const contenu = (
+    <>
+      {noeud.icone && (
+        <span
+          className={cn(
+            "biseau-sm grid size-9 shrink-0 place-items-center transition-colors",
+            actif ? "bg-or-500 text-nuit-950" : "bg-nuit-800 text-craie-300 group-hover:text-or-400",
+          )}
+        >
+          <noeud.icone size={17} aria-hidden />
+        </span>
+      )}
+      <span className="min-w-0 text-left">
+        <span className={cn("block text-sm font-semibold", actif ? "text-or-400" : "text-craie-100")}>{nom}</span>
+        {noeud.cle && <span className="block text-xs text-craie-400">{t(`nav.${noeud.cle}.desc`)}</span>}
+      </span>
+    </>
+  );
+  const classeLigne = cn(
+    "group flex min-w-0 flex-1 items-start gap-3 rounded-md p-2.5 transition-colors",
+    ouvert || actif ? "bg-nuit-800/70" : "hover:bg-nuit-800/60",
+  );
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setOuvert(true)}
+      onMouseLeave={() => setOuvert(false)}
+      onKeyDown={auClavier}
+    >
+      <div className="flex items-stretch">
+        {noeud.href ? (
+          <Link href={noeud.href} onClick={onNaviguer} className={classeLigne}>
+            {contenu}
+          </Link>
+        ) : (
+          <button type="button" onClick={() => (ouvert ? setOuvert(false) : ouvrirEtEntrer())} className={classeLigne}>
+            {contenu}
+          </button>
+        )}
+        <button
+          ref={fleche}
+          type="button"
+          aria-expanded={ouvert}
+          aria-controls={id}
+          aria-label={t("nav.sousMenu", { nom })}
+          onClick={() => (ouvert ? setOuvert(false) : ouvrirEtEntrer())}
+          className="grid w-8 shrink-0 place-items-center rounded-md text-craie-500 transition-colors hover:text-or-400"
+        >
+          <ChevronRight size={16} aria-hidden className={cn("transition-transform", ouvert && "translate-x-0.5")} />
+        </button>
+      </div>
+
+      {ouvert && (
+        <div id={id} className="absolute left-full top-0 z-50 pl-2">
+          <ul
+            ref={liste}
+            className="biseau min-w-52 border border-nuit-700/80 bg-nuit-900/98 p-1.5 shadow-2xl shadow-nuit-950/60 backdrop-blur"
+          >
+            {noeud.enfants!.map((e) => {
+              const enfantActif = e.href ? chemin.endsWith(e.href) : false;
+              return (
+                <li key={e.href}>
+                  <Link
+                    href={e.href!}
+                    onClick={onNaviguer}
+                    aria-current={enfantActif ? "page" : undefined}
+                    className={cn(
+                      "block rounded-md px-3 py-2 text-sm transition-colors",
+                      enfantActif ? "bg-nuit-800 text-or-400" : "text-craie-200 hover:bg-nuit-800/70 hover:text-or-400",
+                    )}
+                  >
+                    {libelleNoeud(t, e)}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
@@ -146,27 +284,20 @@ export function MenuBureau() {
   }, [ouvert]);
 
   return (
-    <nav ref={conteneur} aria-label={t("nav.baseDeDonnees")} className="hidden items-center gap-1 lg:flex">
-      <Deroulant
-        titre={t("nav.baseDeDonnees")}
-        icone={Database}
-        entrees={BASE}
-        ouvert={ouvert === "base"}
-        onOuvrir={() => setOuvert("base")}
-        onFermer={() => setOuvert((o) => (o === "base" ? null : o))}
-      />
-      <Deroulant
-        titre={t("nav.actualite")}
-        icone={Newspaper}
-        entrees={ACTUALITE}
-        ouvert={ouvert === "actu"}
-        onOuvrir={() => setOuvert("actu")}
-        onFermer={() => setOuvert((o) => (o === "actu" ? null : o))}
-      />
+    <nav ref={conteneur} aria-label={t("nav.principal")} className="hidden items-center gap-0.5 lg:flex">
+      {GROUPES.map((g) => (
+        <Deroulant
+          key={g.cle}
+          groupe={g}
+          ouvert={ouvert === g.cle}
+          onOuvrir={() => setOuvert(g.cle)}
+          onFermer={() => setOuvert((o) => (o === g.cle ? null : o))}
+        />
+      ))}
     </nav>
   );
 }
 
 // Reexportees pour le menu mobile.
-export { ACTUALITE, BASE };
-export type { Entree };
+export { ACTUALITE, BASE, GROUPES };
+export type { Entree, Groupe, Noeud };

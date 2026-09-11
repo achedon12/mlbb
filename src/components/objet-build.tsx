@@ -8,7 +8,7 @@ import { objets } from "@/lib/donnees";
  *
  * L'image compte plus que le nom : en jeu, un joueur reconnait ses objets a
  * leur icone. Le nom reste affiche dessous pour qui ne les connait pas encore,
- * et le tout renvoie a la fiche de l'objet.
+ * et le tout renvoie a la page de l'objet.
  */
 const IMAGES = visuels.objets as Record<string, string>;
 const PAR_NOM = new Map(objets("en").map((o) => [o.nom, o]));
@@ -55,7 +55,7 @@ export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
   return (
     <li>
       <Link
-        href={`/objets#${objet.slug}`}
+        href={`/items/${objet.slug}`}
         title={objet.bonus ?? objet.nom}
         className="biseau-sm block border border-nuit-700 bg-nuit-850 p-2 text-center transition-colors hover:border-or-500/60"
       >

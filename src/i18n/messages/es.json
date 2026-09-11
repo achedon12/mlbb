@@ -113,12 +113,37 @@
       "label": "Valor de la colección",
       "desc": "Tus héroes y skins en diamantes"
     },
-    "groupes": {},
-    "parRole": {},
-    "parRang": {},
-    "parLane": {},
-    "parRoleTier": {},
-    "spells": {}
+    "principal": "Navegación principal",
+    "groupes": {
+      "heros": "Héroes",
+      "tierLists": "Tier lists",
+      "jeu": "Juego",
+      "outils": "Herramientas",
+      "actualite": "Novedades"
+    },
+    "parRole": {
+      "label": "Por rol",
+      "desc": "Los héroes de cada rol, con su tier."
+    },
+    "parRang": {
+      "label": "Por rango",
+      "desc": "La clasificación medida en cada rango."
+    },
+    "parLane": {
+      "label": "Por línea",
+      "desc": "Los mejores héroes de cada línea."
+    },
+    "parRoleTier": {
+      "label": "Por rol",
+      "desc": "La tier list de cada rol."
+    },
+    "spells": {
+      "label": "Hechizos de combate",
+      "desc": "Los hechizos, su recarga y los héroes que los eligen."
+    },
+    "tousLesSkins": "Todas las skins",
+    "tousLesEmblemes": "Todos los emblemas",
+    "sousMenu": "Abrir el submenú {nom}"
   },
   "compte": {
     "connexion": "Iniciar sesión",
@@ -139,9 +164,7 @@
     "version": "Versión {v}",
     "contribuer": "Contribuir",
     "presentation": "Héroes, builds y counters por rango, una tier list calculada con las tasas de victoria de las partidas clasificatorias, objetos, emblemas y notas del parche de Mobile Legends: Bang Bang, en español, inglés, francés e italiano. Proyecto independiente, abierto a contribuciones.",
-    "sources": "Datos del juego de la wiki de Mobile Legends (CC BY-SA). Las tasas de victoria, baneo y selección, los counters y las builds más usadas proceden de las estadísticas de partidas clasificatorias del juego, a través de la API comunitaria arena.rone.dev.",
-    "description": "La base de conocimiento en francés sobre Mobile Legends: Bang Bang. Proyecto independiente, abierto a contribuciones.",
-    "credit": "Datos de la wiki de Mobile Legends (CC BY-SA) y de la API comunitaria arena.rone.dev. No hay estadísticas de partidas disponibles."
+    "sources": "Datos del juego de la wiki de Mobile Legends (CC BY-SA). Las tasas de victoria, baneo y selección, los counters y las builds más usadas proceden de las estadísticas de partidas clasificatorias del juego, a través de la API comunitaria arena.rone.dev."
   },
   "langue": {
     "choisir": "Idioma",
@@ -165,8 +188,7 @@
       "chapeau": "Los {heros} héroes del juego y sus {skins} skins, filtrables por rol y línea. Las {analyses} fichas marcadas «Análisis» incluyen además un comentario, builds y counters.",
       "metaDescription": "Los {heros} héroes de Mobile Legends: Bang Bang, filtrables por rol y línea: retratos, skins, estadísticas y {analyses} análisis redactados.",
       "ogDescription": "Los {heros} héroes de Mobile Legends: Bang Bang, con sus {skins} skins.",
-      "listeLd": "Héroes de Mobile Legends: Bang Bang",
-      "metaTitre": "Todos los héroes"
+      "listeLd": "Héroes de Mobile Legends: Bang Bang"
     },
     "heroesListe": {
       "rechercher": "Buscar un héroe",
@@ -288,14 +310,16 @@
         },
         "attaqueDeBase": "Ataque básico",
         "ordre": "Orden de las habilidades"
-      }
+      },
+      "pageCounters": "Página completa de counters",
+      "pageDuos": "Todos los dúos medidos",
+      "duosCourt": "Dúos"
     },
     "items": {
       "titre": "Objetos",
       "chapeau": "Los {n} objetos de la tienda. Haz clic en un objeto para ver el detalle; filtra por categoría o busca directamente una estadística.",
       "metaDescription": "Los {n} objetos de Mobile Legends: Bang Bang: estadísticas, efectos únicos, pasivas, recetas y precios, con su imagen.",
-      "ogDescription": "Los {n} objetos del juego, con estadísticas, pasivas y recetas.",
-      "metaTitre": "Objetos"
+      "ogDescription": "Los {n} objetos del juego, con estadísticas, pasivas y recetas."
     },
     "itemsListe": {
       "rechercher": "Buscar un objeto, una estadística, una pasiva",
@@ -320,8 +344,7 @@
       "titre": "Emblemas y talentos",
       "chapeau": "La verdadera pregunta no es qué talentos existen, sino cuáles elegir para el rol que juegas. Elige tu emblema: el resto de la página se reorganiza en torno a él.",
       "metaDescription": "Qué emblema, qué talento y qué hechizo de combate elegir según tu rol en Mobile Legends: Bang Bang. Elige tu emblema y la página se organiza en torno a él.",
-      "ogDescription": "Qué elegir según tu rol: emblemas, talentos y hechizos de combate.",
-      "metaTitre": "Emblemas, talentos y hechizos de combate"
+      "ogDescription": "Qué elegir según tu rol: emblemas, talentos y hechizos de combate."
     },
     "draft": {
       "titre": "Asistente de draft",
@@ -329,8 +352,7 @@
       "note": "Los counters y las sinergias provienen de las relaciones que reporta el juego, no de una opinión. No cubren todos los enfrentamientos: un héroe sin counter conocido en una composición no es por ello una mala elección — simplemente no tiene nada particular que oponerle.",
       "metaDescription": "Indica la composición rival: la herramienta sugiere qué elegir en cada línea y explica por qué — counters, sinergias y tasas de victoria.",
       "ogDescription": "Qué elegir frente a la composición rival, y por qué.",
-      "lienEquipe": "¿Ya tienes tu equipo? Analiza su composición",
-      "metaTitre": "Asistente de draft"
+      "lienEquipe": "¿Ya tienes tu equipo? Analiza su composición"
     },
     "compare": {
       "titre": "Comparador",
@@ -341,8 +363,7 @@
       "duels": {
         "titre": "Enfrentamientos directos",
         "intro": "Diferencias de tasa de victoria medidas por el juego cuando un héroe se enfrenta al otro, rango por rango. Algunos de los enfrentamientos más desiguales entre los héroes mejor clasificados:"
-      },
-      "metaTitre": "Comparador de héroes"
+      }
     },
     "news": {
       "titre": "Noticias y guías",
@@ -405,9 +426,7 @@
       "chapeauLane": "Los {n} héroes que se juegan en {lane}, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "chapeauRole": "Los {n} {pluriel} del juego, rol principal o secundario, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "noteFiltre": "Clasificación con todos los rangos. Las listas por rango, en cambio, reúnen todas las líneas y todos los roles.",
-      "voirRole": "Todos los {pluriel} y sus líneas",
-      "metaTitre": "Tier list",
-      "mesures": "{n} héroes medidos · tasas registradas el"
+      "voirRole": "Todos los {pluriel} y sus líneas"
     },
     "patchNotes": {
       "titre": "Notas del parche",
@@ -437,8 +456,7 @@
         "detail": "Detalle de los cambios",
         "impact": "tasa de victoria media: {avant} antes del parche, {apres} después",
         "noteImpact": "Tasa de victoria media en todos los rangos durante los {n} días anteriores y posteriores al parche, cuando el historial cubre ese periodo."
-      },
-      "metaTitre": "Notas del parche"
+      }
     },
     "login": {
       "titre": "Iniciar sesión",
@@ -551,8 +569,7 @@
       "metaDescription": "Calcula cuántas victorias consecutivas necesitas para alcanzar una tasa de victoria objetivo en Mobile Legends: Bang Bang, o cuántas partidas a un ritmo dado.",
       "methodeTitre": "El cálculo",
       "methode1": "Con n partidas y v victorias, alcanzar una tasa t requiere x victorias seguidas tales que (v + x) ÷ (n + x) ≥ t, es decir x = (t × n − v) ÷ (1 − t), redondeado hacia arriba. El número de victorias se deduce de la tasa que muestra el juego, redondeada a dos decimales: una partida se gana o se pierde, así que es un número entero.",
-      "methode2": "A un ritmo r superior al objetivo, hacen falta unas (t × n − v) ÷ (r − t) partidas. Si el objetivo ya se ha alcanzado, la calculadora muestra tu margen: cuántas derrotas seguidas puedes encajar sin bajar de él.",
-      "metaTitre": "Calculadora de tasa de victoria MLBB"
+      "methode2": "A un ritmo r superior al objetivo, hacen falta unas (t × n − v) ÷ (r − t) partidas. Si el objetivo ya se ha alcanzado, la calculadora muestra tu margen: cuántas derrotas seguidas puedes encajar sin bajar de él."
     },
     "contribute": {
       "metaTitre": "Contribuir: escribir el análisis de un héroe",
@@ -1768,7 +1785,13 @@
       "toutesLesSeries": "Ver todas las series ({n})",
       "moinsSeries": "Ver menos series"
     },
-    "spellsListe": {}
+    "spellsListe": {
+      "titre": "Hechizos de combate",
+      "chapeau": "Los {n} hechizos de combate del juego, su recarga y los héroes que los eligen en clasificatoria.",
+      "metaTitre": "Hechizos de combate MLBB: los {n} hechizos y sus mejores héroes",
+      "metaDescription": "Flicker, Retribution, Execute… cada hechizo de combate de Mobile Legends con su recarga y los héroes que lo eligen en clasificatoria.",
+      "recharge": "Recarga: {s} s"
+    }
   },
   "modeFiche": {
     "classic": {
@@ -1883,7 +1906,9 @@
       "aucuneHausse": "Ningún héroe sube claramente esta semana.",
       "aucuneBaisse": "Ningún héroe baja claramente esta semana."
     },
-    "lireNotes": "Leer las notas"
+    "lireNotes": "Leer las notas",
+    "outilsTitre": "Herramientas",
+    "outilsChapeau": "Preparar una partida, probar una elección, entrenar."
   },
   "vedette": {
     "herosDuJour": "Héroe del día",
@@ -2544,7 +2569,9 @@
       "patch": "Notas del parche",
       "page": "Páginas",
       "competence": "Habilidades",
-      "skin": "Skins"
+      "skin": "Skins",
+      "embleme": "Emblemas",
+      "sort": "Hechizos de combate"
     }
   },
   "donneesHeros": {

@@ -1,6 +1,6 @@
 /** Une entree de la recherche globale. */
 export interface EntreeRecherche {
-  type: "heros" | "objet" | "competence" | "skin" | "patch" | "page";
+  type: "heros" | "objet" | "embleme" | "sort" | "competence" | "skin" | "patch" | "page";
   titre: string;
   /** Precision affichee sous le titre : epithete, categorie, heros, sous-titre. */
   detail?: string;
@@ -14,4 +14,4 @@ export interface EntreeRecherche {
  * aussi dans le detail de ses skins et competences, qu'il ne doit pas
  * preceder.
  */
-export const ORDRE_TYPES: EntreeRecherche["type"][] = ["heros", "objet", "competence", "skin", "patch", "page"];
+export const ORDRE_TYPES: EntreeRecherche["type"][] = ["heros", "objet", "embleme", "sort", "competence", "skin", "patch", "page"];

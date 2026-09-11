@@ -1,5 +1,5 @@
 import visuels from "@/data/jeu/visuels.json";
-import { emblemes } from "@/data/emblemes";
+import { emblemes, slugEmbleme, sortsDeCombat } from "@/data/emblemes";
 import type { BuildResolu, GuideResolu, ObjetResolu, VisuelResolu } from "@/components/builds-par-rang";
 import { objets, type BuildJoue, type GuideJoueur } from "./donnees";
 import { cleRecherche } from "./utils";
@@ -26,6 +26,10 @@ const ALIAS: Record<string, string> = {
   inspiration: "inspire",
 };
 
+/**
+ * Cle unique d'un talent ou d'un sort, graphies divergentes rapprochees : celle
+ * des textes (`emblemesData`) et des pages de sorts.
+ */
 export function cleChoix(nom: string): string {
   const k = cle(nom);
   return ALIAS[k] ?? k;
@@ -37,12 +41,20 @@ function resoudre(table: Record<string, string>, nom: string): VisuelResolu {
 }
 
 export const visuelTalent = (nom: string) => resoudre(V.talents, nom);
-export const visuelSort = (nom: string) => resoudre(V.sorts, nom);
+/**
+ * Un sort mene a sa page quand elle existe : sorts decrits a la main et sorts
+ * que les builds joues citent avec un visuel (voir `sortsFiches`, src/lib/fiches-usage.ts).
+ */
+export function visuelSort(nom: string): VisuelResolu {
+  const visuel = resoudre(V.sorts, nom);
+  const k = cleChoix(nom);
+  return sortsDeCombat.some((s) => s.cle === k) || V.sorts[k] ? { ...visuel, href: `/spells/${k}` } : visuel;
+}
 
 /** L'API nomme l'embleme par son role (« Marksman »), les builds rediges en toutes lettres. */
 export function visuelEmbleme(nom: string): VisuelResolu {
   const e = emblemes.find((x) => x.nom === nom || x.role === nom);
-  return { nom, image: e ? (V.emblemes[e.cle] ?? null) : null };
+  return e ? { nom, image: V.emblemes[e.cle] ?? null, href: `/emblems/${slugEmbleme(e)}` } : { nom, image: null };
 }
 
 const OBJETS_PAR_NOM = new Map(objets("en").map((o) => [o.nom, o]));

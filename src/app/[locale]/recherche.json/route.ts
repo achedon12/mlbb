@@ -3,7 +3,10 @@ import visuels from "@/data/jeu/visuels.json";
 import { LANGUES, type Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { article, articles } from "@/lib/contenu";
-import { competences, heros, objets, patchsDetail } from "@/lib/donnees";
+import { competences, contres, heros, objets, patchsDetail } from "@/lib/donnees";
+import { duos } from "@/lib/duos";
+import { regionsLore } from "@/lib/lore";
+import { emblemesFiches, sortsFiches } from "@/lib/fiches-usage";
 import type { EntreeRecherche } from "@/lib/recherche";
 import { ACTUALITE, BASE } from "@/lib/rubriques";
 
@@ -31,13 +34,43 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
       href: `/heroes/${h.slug}`,
       image: h.visuels.icone ?? h.visuels.portrait,
     })),
+    // Une entree « counters » par heros mesure : la requete « {heros} counter » est la plus cherchee.
+    ...heros
+      .filter((h) => contres[h.slug])
+      .map((h) => ({
+        type: "heros" as const,
+        titre: `${h.nom} · ${t("pages.heroDetail.onglet.contres")}`,
+        href: `/heroes/${h.slug}/counters`,
+        image: h.visuels.icone ?? h.visuels.portrait,
+      })),
+    ...heros
+      .filter((h) => duos[h.slug])
+      .map((h) => ({
+        type: "heros" as const,
+        titre: `${h.nom} · ${t("pages.heroDetail.duosCourt")}`,
+        href: `/heroes/${h.slug}/duos`,
+        image: h.visuels.icone ?? h.visuels.portrait,
+      })),
+    // Regions du lore : la page de chaque region regroupe ses heros et leurs histoires.
+    ...regionsLore.map((r) => ({ type: "page" as const, titre: r.nom, detail: t("nav.lore.label"), href: `/lore/${r.cle}` })),
     ...objets(locale).map((o) => ({
       type: "objet" as const,
       titre: o.nom,
       detail: t(`categories.${o.categorie}`),
-      href: `/items#${o.slug}`,
+      href: `/items/${o.slug}`,
       image: images[o.slug] ?? null,
     })),
+    ...emblemesFiches.map((f) => {
+      const cle = `emblemesData.${f.embleme.cle}.nom`;
+      const nom = t(cle);
+      return {
+        type: "embleme" as const,
+        titre: nom === cle ? f.embleme.nom : nom,
+        href: `/emblems/${f.slug}`,
+        image: (visuels as unknown as { emblemes: Record<string, string> }).emblemes[f.embleme.cle] ?? null,
+      };
+    }),
+    ...sortsFiches.map((s) => ({ type: "sort" as const, titre: s.nom, href: `/spells/${s.slug}`, image: s.image })),
     // Skins et competences menent a l'onglet de la fiche, ouvert par l'ancre.
     // Sans image : 1 600 chemins de visuels multipliaient l'index par huit. La
     // recherche leur prete l'icone de leur heros, deja dans l'index.
