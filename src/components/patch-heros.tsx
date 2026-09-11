@@ -193,7 +193,9 @@ function LigneHeros({
                     <li key={j} className="text-sm">
                       {"apres" in c ? (
                         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                          {c.libelle && <span className="text-craie-500">{c.libelle} :</span>}
+                          {c.libelle && (
+                            <span className="text-craie-500">{t("patchHeros.libelle", { libelle: c.libelle })}</span>
+                          )}
                           <span className="text-craie-500 line-through decoration-sang-500/50">
                             {c.avant}
                           </span>

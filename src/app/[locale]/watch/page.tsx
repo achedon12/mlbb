@@ -3,7 +3,7 @@ import Link from "@/components/lien";
 import { ExternalLink } from "lucide-react";
 import { EnTetePage } from "@/components/ui";
 import { mesureVeille, sources, veille } from "@/lib/veille";
-import type { Langue } from "@/i18n/config";
+import { LOCALE_HTML, type Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { metaPage } from "@/i18n/seo";
 import { formaterDate } from "@/lib/utils";
@@ -23,6 +23,8 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
   const { locale } = await params;
   const t = creerT(locale);
   const actualites = veille();
+  const date = (iso: string) => formaterDate(iso, LOCALE_HTML[locale]);
+  const [creditAvant, creditApres = ""] = t("pages.watch.credit").split("{lien}");
 
   return (
     <>
@@ -31,7 +33,7 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
         chapeau={t("pages.watch.chapeau")}
       >
         <p className="mt-6 text-sm text-craie-500">
-          {t("pages.watch.derniereCollecte", { date: formaterDate(mesureVeille) })}{" "}
+          {t("pages.watch.derniereCollecte", { date: date(mesureVeille) })}{" "}
           {sources.map((s, i) => (
             <span key={s.slug}>
               {i > 0 && ", "}
@@ -65,7 +67,7 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
                       </span>
                       {a.date && (
                         <time dateTime={a.date} className="text-xs text-craie-500">
-                          {formaterDate(a.date)}
+                          {date(a.date)}
                         </time>
                       )}
                     </div>
@@ -88,14 +90,11 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
         )}
 
         <p className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
-          Les titres et extraits appartiennent a leurs auteurs respectifs et
-          sont affichés ici pour renvoyer vers la publication d&apos;origine.
-          Moonton ne publie pas de flux officiel : les mises a jour du jeu sont
-          reprises et commentees dans la section{" "}
+          {creditAvant}
           <Link href="/patch-notes" className="text-or-400 hover:underline">
-            patch notes
+            {t("nav.patchNotes.label")}
           </Link>
-          .
+          {creditApres}
         </p>
       </div>
     </>

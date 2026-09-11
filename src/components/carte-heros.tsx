@@ -78,9 +78,9 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
             <span className="font-semibold text-craie-300">{heros.victoire.toFixed(1)}%</span>
           )}
           <span>{heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}</span>
-          {heros.skins > 0 && <span>· {heros.skins} skins</span>}
+          {heros.skins > 0 && <span>· {t("carteHeros.skins", { n: heros.skins })}</span>}
           {heros.analyse && (
-            <span className="font-semibold uppercase tracking-wide text-or-500">· Analyse</span>
+            <span className="font-semibold uppercase tracking-wide text-or-500">· {t("carteHeros.analyse")}</span>
           )}
         </p>
       </div>

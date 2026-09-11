@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useT } from "@/i18n/fournisseur";
 import { cn } from "@/lib/utils";
 
 /**
@@ -17,6 +18,7 @@ export interface Entree {
 }
 
 export function SommairePatch({ entrees }: { entrees: Entree[] }) {
+  const t = useT();
   const [actif, setActif] = useState<string | null>(null);
 
   useEffect(() => {
@@ -41,9 +43,9 @@ export function SommairePatch({ entrees }: { entrees: Entree[] }) {
   }, [entrees]);
 
   return (
-    <nav aria-label="Sommaire" className="lg:sticky lg:top-24">
+    <nav aria-label={t("commun.sommaire")} className="lg:sticky lg:top-24">
       <p className="font-titre text-sm font-semibold uppercase tracking-wider text-or-400">
-        Sommaire
+        {t("commun.sommaire")}
       </p>
       <ul className="mt-3 space-y-0.5 border-l border-nuit-800">
         {entrees.map((e) => (

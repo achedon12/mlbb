@@ -27,7 +27,10 @@ export type { Arbre, T };
  * pas l'usage. Une rubrique citee dans un composant client, meme passee en
  * argument (`tr("skinRarete", …)`), doit rester hors de cette liste.
  */
-const SERVEUR_SEULEMENT = ["pied", "modeFiche", "histoire", "home", "vedette", "acces", "proses", "nouveauHeros", "articleUI", "articleCat"];
+const SERVEUR_SEULEMENT = [
+  "pied", "modeFiche", "histoire", "home", "vedette", "acces", "proses", "nouveauHeros", "articleUI", "articleCat",
+  "donneesHeros",
+];
 
 const estArbre = (x: unknown): x is Arbre => typeof x === "object" && x !== null && !Array.isArray(x);
 

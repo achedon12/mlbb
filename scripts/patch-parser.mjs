@@ -172,7 +172,7 @@ export function ajustementsHeros(wikitexte) {
     // les tableaux — on en ouvre une implicite.
     const changement = ligne.match(/^\*+\s*(.+)/);
     if (changement) {
-      if (!sousSection) ajouterSousSection("Attributs", null, null);
+      if (!sousSection) ajouterSousSection("Attributes", null, null);
       const analyse = analyserChangement(changement[1]);
       const vide = "texte" in analyse ? !analyse.texte : !analyse.avant && !analyse.apres;
       if (!vide) sousSection.changements.push(analyse);

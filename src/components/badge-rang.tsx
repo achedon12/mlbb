@@ -31,7 +31,7 @@ export function BadgeRang({
     <div className="flex items-center gap-3">
       <Image
         src={rang.image}
-        alt={rang.nom}
+        alt={t(`rangsNom.${rang.cle}`)}
         width={dim}
         height={dim}
         className="shrink-0 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"

@@ -2498,7 +2498,7 @@
           "intro": "As the only hero with 3 HP bars, Masha lacks the appropriate skills and strength when facing other heroes. We're making her more aggressive by differentiating her 3 HP bars and making each skill cast count, while allowing her to enter and exit the fight at will under certain conditions. In the meantime, players will have to be more careful with the timing of each skill cast (especially with only one HP bar left) as she has lost some of her durability advantages. We're also adding the Jungle as her secondary position and changing her default Battle Setup. (Masha needs equipment to provide extra Attack Speed and HP Regen rather than Defense.) Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -3477,7 +3477,7 @@
           "intro": "Slightly nerfed Irithel's damage in mid-to-late game. Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -3888,7 +3888,7 @@
           "intro": "Reduced Zhuxin's mobility and control abilities. Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -3974,7 +3974,7 @@
           "intro": "Our previous changes to Minotaur's Enrage regen made him too powerful against heroes that rely on multi-hit basic attack|basic attacks. In addition, his HP is a bit overtuned since he's a CC tank. So we're making new changes to his Enrage regen and reducing the healing of his Motivation Roar skill. nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -4178,7 +4178,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -4543,7 +4543,7 @@
           "intro": "Without Blink skills, Miya needs a greater range. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -4637,7 +4637,7 @@
           "intro": "Slightly reduced his late-game Enhanced Basic Attack damage.",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -4687,7 +4687,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -4980,7 +4980,7 @@
           "intro": "Gloo has been on the bench for quite some time. While he shines in the early and mid game, Gloo struggles to deal with back line enemies in the late game (generally, Gloo has to pull their carry back to his allies to have a chance). So we want to increase Gloo's ability to kill enemies solo. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5017,7 +5017,7 @@
           "intro": "With Control Immunity when she has her last HP bar removed, Masha can be easily controlled constantly, which doesn't feel great. In addition, her high HP cost makes it difficult for her to prepare for late game team fights. To remedy this, we're reverting some of the changes to her base stats. Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5340,7 +5340,7 @@
           "intro": "Reduced the Mana Cost of some skills to match the purple Buff adjustment. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5377,7 +5377,7 @@
           "intro": "Reduced the Mana Cost of some skills to match the purple Buff adjustment. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5426,7 +5426,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5451,7 +5451,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5476,7 +5476,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5501,7 +5501,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5526,7 +5526,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5551,7 +5551,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5576,7 +5576,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5601,7 +5601,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5626,7 +5626,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5651,7 +5651,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5676,7 +5676,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5701,7 +5701,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5726,7 +5726,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5751,7 +5751,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5776,7 +5776,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5801,7 +5801,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5826,7 +5826,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5846,7 +5846,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5866,7 +5866,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -5989,7 +5989,7 @@
           "intro": "Ling is weak in the early and mid game and can't get instant kills in the late game, so we adjusted the damage ratio of his skills and his Basic Attack, which hopefully will help him deal more damage in the early game but reduce his sustained damage in the late game. Also reduced the Energy Cost of some skills to match the purple Buff adjustment. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -6265,7 +6265,7 @@
           "intro": "The removal of Control Immunity makes it easy to kite Masha in some situations, so we increased her Basic Attack Range and reduced the cooldown on her ranged damage to give her more room to manoeuvre. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7102,7 +7102,7 @@
           "intro": "Due to her Passive, Layla can only deal a lot of damage to enemies from a distance, but her lack of mobility makes it difficult for her to get away from enemies. So we'll lower the damage bonus and increase her attack instead. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7149,7 +7149,7 @@
           "intro": "Miya is too weak in early-game 1v1 fights, so we want to increase her Arrow of Eclipse hit rate and balance her early and late game damage. Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7199,7 +7199,7 @@
           "intro": "Natan is too powerful with the new Radiant Armor, so we've lowered his late-game damage abilities while shortening his Ultimate's foreswing to make him easier and more flexible to use. Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7333,7 +7333,7 @@
           "intro": "Diggie's early-game damage is too powerful against the soloing enemy. Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7353,7 +7353,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7390,7 +7390,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7425,7 +7425,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7450,7 +7450,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7480,7 +7480,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7510,7 +7510,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7545,7 +7545,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7575,7 +7575,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7605,7 +7605,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7640,7 +7640,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7665,7 +7665,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7690,7 +7690,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7725,7 +7725,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7755,7 +7755,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -7785,7 +7785,7 @@
           "intro": "As a Basic Attack Fighter with no skill to boost his Attack Speed, Argus needs more Attack now that Attack Speed equipment has been nerfed. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8069,7 +8069,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8106,7 +8106,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8126,7 +8126,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8151,7 +8151,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8176,7 +8176,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8196,7 +8196,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8216,7 +8216,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8618,7 +8618,7 @@
           "intro": "Increased Arrow of Eclipse hit rate and early game damage. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8668,7 +8668,7 @@
           "intro": "Due to her Malefic Gun, Layla can only deal a lot of damage to enemies from a distance, but her lack of mobility makes it difficult for her to get away from enemies. So we'll lower the damage bonus and increase her attack instead. Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8715,7 +8715,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8740,7 +8740,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8775,7 +8775,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8800,7 +8800,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8835,7 +8835,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8865,7 +8865,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8900,7 +8900,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8930,7 +8930,7 @@
           "intro": "Attributes buff",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8960,7 +8960,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -8995,7 +8995,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -9020,7 +9020,7 @@
           "intro": "Attributes nerf",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -9045,7 +9045,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -9080,7 +9080,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -9115,7 +9115,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -9145,7 +9145,7 @@
           "intro": "Attributes adjust",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [
@@ -9246,7 +9246,7 @@
           "intro": "Aurora not only has powerful Crowd Control, but also massive late-game damage. After gaining high Magic Power, she also gets increased Control Duration from her Ultimate, and has great Magic Bonuses for her skills and Ultimate. Therefore, we're lowering her Skill 1 Bonus Damage slightly while maintaining her Base Damage in the early and mid game to ensure she can still clear lanes. Hailstone Blast nerf (Updated on All Servers)",
           "sections": [
             {
-              "nom": "Attributs",
+              "nom": "Attributes",
               "categorie": null,
               "type": null,
               "changements": [

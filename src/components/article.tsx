@@ -1,10 +1,10 @@
 import Link from "@/components/lien";
 import { assainirHtml } from "@/lib/html";
-import type { Langue } from "@/i18n/config";
+import { LOCALE_HTML, type Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { FilAriane } from "@/components/fil-ariane";
 import type { Article } from "@/lib/types";
-import { navigation } from "@/lib/site";
+import { ACTUALITE } from "@/lib/rubriques";
 import { formaterDate } from "@/lib/utils";
 
 export function ListeArticles({
@@ -34,7 +34,7 @@ export function ListeArticles({
                 {t(`articleCat.${a.categorie}`)}
               </span>
               <time dateTime={a.date} className="text-xs text-craie-500">
-                {formaterDate(a.date)}
+                {formaterDate(a.date, LOCALE_HTML[langue])}
               </time>
             </div>
             <h2 className="mt-2 font-titre text-xl font-bold leading-snug text-craie-100">
@@ -63,7 +63,8 @@ export function CorpsArticle({
   const t = creerT(langue);
   // Nom de section pour le fil d'Ariane : celui de la navigation plutot que le
   // libelle du lien retour (« Tous les… »), qui ne nomme pas la rubrique.
-  const section = navigation.find((n) => n.href === retour.href)?.label ?? retour.label;
+  const rubrique = ACTUALITE.find((r) => r.href === retour.href);
+  const section = rubrique ? t(`nav.${rubrique.cle}.label`) : retour.label;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-14">
@@ -75,9 +76,9 @@ export function CorpsArticle({
             {t(`articleCat.${article.categorie}`)}
           </span>
           <time dateTime={article.date} className="text-xs text-craie-500">
-            {formaterDate(article.date)}
+            {formaterDate(article.date, LOCALE_HTML[langue])}
           </time>
-          <span className="text-xs text-craie-500">par {article.auteur}</span>
+          <span className="text-xs text-craie-500">{t("articleUI.par", { auteur: article.auteur })}</span>
         </div>
         <h1 className="mt-4 font-titre text-3xl font-bold leading-tight text-craie-100 sm:text-4xl">
           {article.titre}

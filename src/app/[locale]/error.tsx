@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "@/components/lien";
+import { useT } from "@/i18n/fournisseur";
 
 /**
  * Frontiere d'erreur des pages.
@@ -18,6 +19,7 @@ export default function Erreur({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const t = useT();
   useEffect(() => {
     console.error(error);
     // On reporte l'incident au journal du serveur, sans bloquer l'affichage.
@@ -34,27 +36,22 @@ export default function Erreur({
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-32 text-center">
-      <p className="font-titre text-6xl font-bold text-sang-500">Oups</p>
-      <h1 className="mt-4 font-titre text-2xl font-bold text-craie-100">
-        Une erreur est survenue
-      </h1>
-      <p className="mt-4 leading-relaxed text-craie-500">
-        Quelque chose s&apos;est mal passe en chargeant cette page. Vous pouvez
-        reessayer, ou revenir a l&apos;accueil.
-      </p>
+      <p className="font-titre text-6xl font-bold text-sang-500">{t("erreur.oups")}</p>
+      <h1 className="mt-4 font-titre text-2xl font-bold text-craie-100">{t("erreur.titre")}</h1>
+      <p className="mt-4 leading-relaxed text-craie-500">{t("erreur.textePage")}</p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
         <button
           type="button"
           onClick={reset}
           className="biseau-sm bg-or-500 px-6 py-3 font-semibold text-nuit-950 transition-colors hover:bg-or-400"
         >
-          Reessayer
+          {t("erreur.reessayer")}
         </button>
         <Link
           href="/"
           className="biseau-sm border border-nuit-600 px-6 py-3 font-semibold text-craie-100 transition-colors hover:border-or-500/60 hover:text-or-400"
         >
-          Retour a l&apos;accueil
+          {t("erreur.accueil")}
         </Link>
       </div>
     </div>

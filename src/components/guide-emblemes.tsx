@@ -54,7 +54,7 @@ export function GuideEmblemes({
       <aside className="mb-10 lg:mb-0">
         <div className="lg:sticky lg:top-24">
           <p className="font-titre text-xs font-semibold uppercase tracking-wider text-craie-500">
-            Votre role
+            {t("emblemesUI.votreRole")}
           </p>
 
           <ul className="mt-3 flex gap-1.5 overflow-x-auto lg:flex-col lg:overflow-visible">
@@ -75,7 +75,7 @@ export function GuideEmblemes({
                     )}
                   >
                     <Visuel source={images[e.cle]} taille={28} />
-                    <span className="hidden text-sm font-medium lg:block">{e.role}</span>
+                    <span className="hidden text-sm font-medium lg:block">{t(`roles.${e.role}`)}</span>
                   </button>
                 </li>
               );
@@ -88,13 +88,12 @@ export function GuideEmblemes({
               onClick={() => setRole(null)}
               className="mt-3 px-2.5 text-xs text-craie-500 underline underline-offset-4 hover:text-or-400"
             >
-              Retirer le filtre
+              {t("emblemesUI.retirerFiltre")}
             </button>
           )}
 
           <p className="mt-6 hidden max-w-48 text-xs leading-relaxed text-craie-500 lg:block">
-            Choisir un role remonte ce qui lui convient. Le reste passe en
-            retrait, sans disparaitre.
+            {t("emblemesUI.aideRole")}
           </p>
         </div>
       </aside>
@@ -197,7 +196,7 @@ function Section({
                     key={r}
                     className="border border-nuit-700 px-1.5 py-0.5 text-[0.65rem] uppercase tracking-wide text-craie-500"
                   >
-                    {r}
+                    {t(`roles.${r}`)}
                   </li>
                 ))}
               </ul>

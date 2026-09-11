@@ -5,6 +5,7 @@ import { CorpsArticle } from "@/components/article";
 import { article, articles, enHtml } from "@/lib/contenu";
 import type { Langue } from "@/i18n/config";
 import { donneesBillet, metaPage } from "@/i18n/seo";
+import { creerT } from "@/i18n/traductions";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
@@ -45,7 +46,7 @@ export default async function PageArticle({ params }: Params) {
         langue={locale}
         article={a}
         html={enHtml(a.contenu)}
-        retour={{ href: "/news", label: "Toutes les actualites" }}
+        retour={{ href: "/news", label: creerT(locale)("pages.news.toutes") }}
       />
     </>
   );

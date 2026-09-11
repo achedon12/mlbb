@@ -117,7 +117,8 @@ export function Jauge({ valeur, max = 10 }: { valeur: number; max?: number }) {
       <span className="w-6 shrink-0 text-right text-xs tabular-nums text-craie-300">
         {valeur}
       </span>
-      <span className="sr-only">sur {max}</span>
+      {/* « / 10 » se lit dans toutes les langues : la jauge sert aussi hors d'un composant client. */}
+      <span className="sr-only">/ {max}</span>
     </span>
   );
 }

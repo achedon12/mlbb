@@ -5,7 +5,7 @@ import { ListeArticles } from "@/components/article";
 import { EnTetePage } from "@/components/ui";
 import { patchs, patchsDetail, synchro } from "@/lib/donnees";
 import { articles } from "@/lib/contenu";
-import type { Langue } from "@/i18n/config";
+import { LOCALE_HTML, type Langue } from "@/i18n/config";
 import { creerT } from "@/i18n/traductions";
 import { metaPage } from "@/i18n/seo";
 import { formaterDate } from "@/lib/utils";
@@ -38,7 +38,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
       >
         <p className="mt-6 text-sm text-craie-500">
           {t("pages.patchNotes.recenses", { n: patchs.length, m: avecDetail.length })}{" "}
-          <time dateTime={synchro.date}>{formaterDate(synchro.date)}</time>
+          <time dateTime={synchro.date}>{formaterDate(synchro.date, LOCALE_HTML[locale])}</time>
         </p>
       </EnTetePage>
 
@@ -80,7 +80,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
         )}
 
         <section>
-          <h2 className="font-titre text-2xl font-bold text-craie-100">Archives</h2>
+          <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.patchNotes.archives")}</h2>
           <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
           <p className="mt-3 text-sm text-craie-500">
             {t("pages.patchNotes.anciens")}

@@ -8,7 +8,8 @@ import { PortraitHeros } from "@/components/portrait-heros";
 import { Puce } from "@/components/puce";
 import { Tiroir } from "@/components/tiroir";
 import type { ObjetGenere } from "@/lib/types";
-import { useT } from "@/i18n/fournisseur";
+import { LOCALE_HTML } from "@/i18n/config";
+import { useLangue, useT } from "@/i18n/fournisseur";
 import { cleRecherche, cn } from "@/lib/utils";
 
 /**
@@ -69,6 +70,7 @@ export function ListeObjets({
 }) {
   const [recherche, setRecherche] = useState("");
   const t = useT();
+  const langue = useLangue();
   const [categorie, setCategorie] = useState<string | null>(null);
 
   const slugsConnus = useMemo(() => new Set(objets.map((o) => o.slug)), [objets]);
@@ -193,7 +195,7 @@ export function ListeObjets({
                     // une icone d'objet se lit comme un niveau ou une quantite,
                     // pas comme un prix.
                     <span className="text-xs tabular-nums text-or-400">
-                      {o.prix.toLocaleString("fr-FR")} or
+                      {o.prix.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
                     </span>
                   )}
                 </button>

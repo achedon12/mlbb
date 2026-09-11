@@ -66,7 +66,8 @@ for (const tl of CIBLES) {
   }
   const arbre = await mapArbre(source, (s) => cache[`${tl}|${s}`] ?? s);
   await writeFile(`src/i18n/messages/${tl}.json`, JSON.stringify(arbre, null, 2) + "\n");
-  await writeFile(CACHE, JSON.stringify(cache, null, 0) + "\n");
+  // Meme forme que le fichier versionne : une entree par ligne, diffs lisibles.
+  await writeFile(CACHE, JSON.stringify(cache, null, 2) + "\n");
   console.log(`${tl}.json : ${uniques.length} messages (${manquants.length} nouveaux)`);
 }
 console.log("Catalogues traduits.");

@@ -1,3 +1,7 @@
+import combosEn from "@/data/jeu/combos.json";
+import combosFr from "@/data/jeu/combos/fr.json";
+import combosIt from "@/data/jeu/combos/it.json";
+import combosEs from "@/data/jeu/combos/es.json";
 import competencesEn from "@/data/jeu/competences/en.json";
 import competencesFr from "@/data/jeu/competences/fr.json";
 import competencesIt from "@/data/jeu/competences/it.json";
@@ -20,6 +24,9 @@ import tierNotesFr from "@/data/jeu/tier-notes/fr.json";
 import tierNotesIt from "@/data/jeu/tier-notes/it.json";
 import tierNotesEs from "@/data/jeu/tier-notes/es.json";
 import patchsGenere from "@/data/jeu/patchs.json";
+import patchsFr from "@/data/jeu/patchs/fr.json";
+import patchsIt from "@/data/jeu/patchs/it.json";
+import patchsEs from "@/data/jeu/patchs/es.json";
 import skinsGenere from "@/data/jeu/skins.json";
 import synchroGenere from "@/data/jeu/synchro.json";
 import statistiquesGenere from "@/data/jeu/statistiques.json";
@@ -71,6 +78,30 @@ export const herosParSlug = new Map(heros.map((h) => [h.slug, h]));
 const COMPETENCES = { en: competencesEn, fr: competencesFr, it: competencesIt, es: competencesEs };
 export function competences(locale: Langue): Record<string, (CompetenceWiki | null)[]> {
   return COMPETENCES[locale] as unknown as Record<string, (CompetenceWiki | null)[]>;
+}
+
+/**
+ * Combos conseilles par le jeu, par heros : l'ordre des competences et le
+ * conseil qui l'accompagne. Une competence non reconnue garde l'icone du CDN ;
+ * `attaque` marque l'attaque de base, qui n'a pas de nom propre.
+ */
+export interface CompetenceCombo {
+  nom: string | null;
+  icone: string | null;
+  attaque?: boolean;
+}
+export interface ComboHeros {
+  type: "laning" | "teamfight" | null;
+  description: string;
+  competences: CompetenceCombo[];
+}
+/**
+ * Les descriptions arrivent en anglais : chaque langue lit ce fichier en
+ * attendant sa traduction, qui n'aura qu'a remplacer son entree ici.
+ */
+const COMBOS = { en: combosEn, fr: combosFr, it: combosIt, es: combosEs };
+export function combos(locale: Langue): Record<string, ComboHeros[]> {
+  return COMBOS[locale] as unknown as Record<string, ComboHeros[]>;
 }
 
 /** Icone de chaque competence, indexee par son nom anglais. */
@@ -159,6 +190,29 @@ export const guidesJoueurs =
 
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
 export const patchsDetail = patchsGenere.detail as unknown as Record<string, PatchDetaille>;
+
+/**
+ * Patchs detailles dans la langue demandee. L'anglais est la source du wiki ;
+ * les autres langues sont traduites en amont (`npm run traduire:donnees`). Un
+ * patch pas encore traduit — synchro plus recente que la traduction — garde
+ * son texte anglais plutot que de disparaitre : c'est alors le meme objet que
+ * dans `patchsDetail`.
+ */
+const PATCHS_TRADUITS = { fr: patchsFr, it: patchsIt, es: patchsEs } as unknown as Record<
+  Exclude<Langue, "en">,
+  Record<string, PatchDetaille>
+>;
+const patchsParLangue = new Map<Langue, Record<string, PatchDetaille>>();
+export function patchsDetailles(locale: Langue): Record<string, PatchDetaille> {
+  if (locale === "en") return patchsDetail;
+  let liste = patchsParLangue.get(locale);
+  if (!liste) {
+    const traduits = PATCHS_TRADUITS[locale];
+    liste = Object.fromEntries(Object.entries(patchsDetail).map(([v, p]) => [v, traduits[v] ?? p]));
+    patchsParLangue.set(locale, liste);
+  }
+  return liste;
+}
 
 /** Modes de jeu, dans la langue demandee. */
 const MODES = { en: modesEn, fr: modesFr, it: modesIt, es: modesEs };

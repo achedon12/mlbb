@@ -29,7 +29,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Modes de jeu de Mobile Legends: Bang Bang",
+    name: t("pages.modes.listeLd"),
     numberOfItems: liste.length,
     itemListElement: liste.map((m, i) => ({
       "@type": "ListItem",

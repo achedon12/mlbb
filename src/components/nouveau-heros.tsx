@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "@/components/lien";
 import { ArrowRight, Sparkles } from "lucide-react";
+import type { Langue } from "@/i18n/config";
+import { creerT } from "@/i18n/traductions";
 import type { NouveauHeros } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +21,8 @@ export interface NouveauHerosEnrichi extends NouveauHeros {
  * texte : une banniere avec l'illustration du heros, puis ses competences en
  * cartes — role, nom, effets — pour saisir son kit d'un coup d'oeil.
  */
-export function NouveauHeros({ heros }: { heros: NouveauHerosEnrichi }) {
+export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; langue: Langue }) {
+  const t = creerT(langue);
   return (
     <div>
       {/* Banniere : illustration en fond, identite par-dessus. */}
@@ -52,7 +55,7 @@ export function NouveauHeros({ heros }: { heros: NouveauHerosEnrichi }) {
           <div className="min-w-0">
             <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-or-400">
               <Sparkles size={13} aria-hidden />
-              Nouveau heros
+              {t("nouveauHeros.titre")}
             </p>
             {heros.epithete && (
               <p className="mt-1 font-titre text-sm text-craie-300">{heros.epithete}</p>
@@ -67,7 +70,7 @@ export function NouveauHeros({ heros }: { heros: NouveauHerosEnrichi }) {
                     key={role}
                     className="biseau-sm border border-nuit-700 bg-nuit-900/70 px-2 py-0.5 text-xs font-medium text-craie-300"
                   >
-                    {role}
+                    {t(`roles.${role}`)}
                   </span>
                 ))}
               </div>
@@ -86,7 +89,7 @@ export function NouveauHeros({ heros }: { heros: NouveauHerosEnrichi }) {
           ))}
           {heros.feature && (
             <p className="biseau-sm border-l-2 border-or-500 bg-nuit-900/60 px-4 py-3 text-sm leading-relaxed text-craie-200">
-              <span className="font-semibold text-or-400">Particularite — </span>
+              <span className="font-semibold text-or-400">{t("nouveauHeros.particularite")}</span>
               {heros.feature}
             </p>
           )}
@@ -97,7 +100,9 @@ export function NouveauHeros({ heros }: { heros: NouveauHerosEnrichi }) {
       {heros.competences.length > 0 && (
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {heros.competences.map((c, i) => {
-            const combo = /combo/i.test(c.role);
+            // Le role peut etre traduit ; le « + » des competences combinees
+            // (« 1st + 2nd Combo Skill ») survit, lui, a la traduction.
+            const combo = /combo|\+/i.test(c.role);
             return (
               <div
                 key={i}
@@ -141,7 +146,7 @@ export function NouveauHeros({ heros }: { heros: NouveauHerosEnrichi }) {
           href={`/heroes/${heros.slug}`}
           className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-or-400 hover:text-or-500"
         >
-          Voir la fiche complete de {heros.nom}
+          {t("nouveauHeros.voirFiche", { nom: heros.nom })}
           <ArrowRight size={14} aria-hidden />
         </Link>
       )}

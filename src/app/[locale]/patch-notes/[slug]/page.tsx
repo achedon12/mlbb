@@ -3,14 +3,15 @@ import { creerT } from "@/i18n/traductions";
 import { assainirHtml, donneesLd } from "@/lib/html";
 import { notFound } from "next/navigation";
 import { CorpsArticle } from "@/components/article";
+import { CreditWiki } from "@/components/credit-wiki";
 import { FilAriane } from "@/components/fil-ariane";
 import { NouveauHeros } from "@/components/nouveau-heros";
 import { PatchHeros } from "@/components/patch-heros";
 import { SommairePatch } from "@/components/sommaire-patch";
-import { herosParSlug, illustrations, patchsDetail } from "@/lib/donnees";
+import { herosParSlug, illustrations, patchsDetail, patchsDetailles } from "@/lib/donnees";
 import { article, articles, enHtml } from "@/lib/contenu";
 import { site } from "@/lib/site";
-import type { Langue } from "@/i18n/config";
+import { LOCALE_HTML, type Langue } from "@/i18n/config";
 import { donneesBillet, metaPage } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
@@ -61,15 +62,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function PagePatch({ params }: Params) {
   const { locale, slug } = await params;
-  const patch = patchs[slug];
+  const patch = patchsDetailles(locale)[slug];
+  const t = creerT(locale);
 
   // ── Notes officielles reprises du wiki ────────────────────────────────
   if (patch) {
+    // Un patch pas encore traduit est servi dans sa langue d'origine.
+    const traduit = patch !== patchsDetail[slug];
     const donneesStructurees = {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: `Patch ${patch.version}`,
-      inLanguage: "en",
+      inLanguage: traduit ? LOCALE_HTML[locale] : "en",
       isBasedOn: patch.lien,
       publisher: { "@type": "Organization", name: site.nom, url: site.url },
       mainEntityOfPage: `${site.url}/${locale}/patch-notes/${slug}`,
@@ -85,7 +89,7 @@ export default async function PagePatch({ params }: Params) {
         <div className="mx-auto max-w-6xl px-4 py-12">
           <FilAriane
             miettes={[
-              { nom: "Patch notes", href: "/patch-notes" },
+              { nom: t("nav.patchNotes.label"), href: "/patch-notes" },
               {
                 nom: `Patch ${patch.version}`,
                 freres: Object.values(patchsDetail)
@@ -97,13 +101,13 @@ export default async function PagePatch({ params }: Params) {
 
           <header className="mt-6 border-b border-nuit-800 pb-8">
             <p className="text-xs font-semibold uppercase tracking-wide text-or-400">
-              Notes officielles
+              {t("pages.patchNotes.officielles")}
             </p>
             <h1 className="mt-2 font-titre text-4xl font-bold text-craie-100">
               Patch {patch.version}
             </h1>
             <p className="mt-3 text-sm text-craie-500">
-              {patch.sommaire.length} sections
+              {t("pages.patchNotes.nSections", { n: patch.sommaire.length })}
             </p>
           </header>
 
@@ -153,6 +157,7 @@ export default async function PagePatch({ params }: Params) {
                           return (
                             <NouveauHeros
                               key={h.slug}
+                              langue={locale}
                               heros={{
                                 ...h,
                                 portrait: fiche?.visuels.portrait ?? null,
@@ -186,19 +191,12 @@ export default async function PagePatch({ params }: Params) {
                 </section>
               ))}
 
-              <p className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500">
-            Notes reprises du{" "}
-            <a
-              href={patch.lien}
-              rel="noreferrer nofollow"
-              target="_blank"
-              className="text-or-400 hover:underline"
-            >
-              wiki Mobile Legends
-            </a>
-                , sous licence CC BY-SA. Le texte original est publie par
-                Moonton ; ce site n&apos;en modifie pas le contenu.
-              </p>
+              <CreditWiki
+                t={t}
+                href={patch.lien}
+                cle={traduit ? "pages.patchNotes.creditTraduit" : "pages.patchNotes.credit"}
+                className="mt-12 border-t border-nuit-800 pt-6 text-xs leading-relaxed text-craie-500"
+              />
             </article>
           </div>
         </div>
@@ -222,7 +220,7 @@ export default async function PagePatch({ params }: Params) {
         langue={locale}
         article={a}
         html={enHtml(a.contenu)}
-        retour={{ href: "/patch-notes", label: "Tous les patch notes" }}
+        retour={{ href: "/patch-notes", label: t("pages.patchNotes.tous") }}
       />
     </>
   );

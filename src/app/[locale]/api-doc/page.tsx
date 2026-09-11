@@ -86,7 +86,7 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
 
       <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">
         <section>
-          <h2 className="font-titre text-2xl font-bold text-craie-100">Points d&apos;entree</h2>
+          <h2 className="font-titre text-2xl font-bold text-craie-100">{t("pages.apiDoc.pointsEntree")}</h2>
           <div aria-hidden className="filet-or mt-2 h-0.5 w-16" />
 
           <div className="mt-6 space-y-4">

@@ -30,7 +30,7 @@ export default async function PageHeros({ params }: Params) {
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Heros de Mobile Legends: Bang Bang",
+    name: t("pages.heroes.listeLd"),
     numberOfItems: heros.length,
     itemListElement: heros.map((h, i) => ({
       "@type": "ListItem",
