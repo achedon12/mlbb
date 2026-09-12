@@ -54,7 +54,7 @@ export function SelecteurLangue({ langue }: { langue: Langue }) {
       <button
         type="button"
         aria-expanded={ouvert}
-        aria-label={t("langue.changer")}
+        aria-label={t("language.change")}
         onClick={() => setOuvert((o) => !o)}
         className="flex items-center gap-1.5 rounded-md px-2.5 py-2 text-sm font-medium text-chalk-300 transition-colors hover:text-chalk-100"
       >

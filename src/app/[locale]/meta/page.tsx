@@ -67,13 +67,13 @@ const RELEVE = (() => {
 
 const version = () => patchActuel?.version ?? "—";
 
-const titreSeo = (t: T, locale: Langue) => t("pages.seo.meta.titre", { date: dateLongue(locale), v: version() });
+const titreSeo = (t: T, locale: Langue) => t("pages.seo.meta.title", { date: dateLongue(locale), v: version() });
 
 function descriptionRapport(t: T, locale: Langue): string {
   const premier = classementComplet[0];
   const banni = RELEVE.bannis[0];
   if (!premier || !banni) {
-    return t("pages.meta.chapeau", { date: dateLongue(locale), n: classementComplet.length, v: version() });
+    return t("pages.meta.lead", { date: dateLongue(locale), n: classementComplet.length, v: version() });
   }
   return t("pages.seo.meta.description", {
     date: dateLongue(locale),
@@ -117,29 +117,29 @@ export default async function PageRapportMeta({ params }: Params) {
   // Le resume : des phrases-gabarits remplies par les chiffres, rien d'autre.
   const resume = [
     premier &&
-      t("pages.meta.resume.tete", {
+      t("pages.meta.summary.top", {
         nom: premier.hero.name,
         palier: premier.tier,
         victoire: pourcentage(locale, premier.winRate),
         ban: pourcentage(locale, premier.banRate),
       }),
     hausse &&
-      t("pages.meta.resume.hausse", {
+      t("pages.meta.summary.rise", {
         nom: nom(hausse.slug),
         avant: pourcentage(locale, hausse.variation.avant),
         actuel: pourcentage(locale, hausse.variation.actuel),
         jours: hausse.variation.jours,
       }),
     baisse &&
-      t("pages.meta.resume.baisse", {
+      t("pages.meta.summary.fall", {
         nom: nom(baisse.slug),
         avant: pourcentage(locale, baisse.variation.avant),
         actuel: pourcentage(locale, baisse.variation.actuel),
         jours: baisse.variation.jours,
       }),
     changements > 0 &&
-      t("pages.meta.resume.paliers", { montees: paliers.montees.length, descentes: paliers.descentes.length }),
-    bannis[0] && t("pages.meta.resume.banni", { nom: bannis[0].hero.name, ban: pourcentage(locale, bannis[0].banRate) }),
+      t("pages.meta.summary.tiers", { montees: paliers.montees.length, descentes: paliers.descentes.length }),
+    bannis[0] && t("pages.meta.summary.banned", { nom: bannis[0].hero.name, ban: pourcentage(locale, bannis[0].banRate) }),
   ].filter((p): p is string => typeof p === "string");
 
   // Article date du releve : c'est lui qui change le contenu, chaque jour.
@@ -165,8 +165,8 @@ export default async function PageRapportMeta({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <EnTetePage
-        titre={t("pages.meta.titre", { date })}
-        chapeau={t("pages.meta.chapeau", { date, n: classementComplet.length, v: version() })}
+        titre={t("pages.meta.title", { date })}
+        chapeau={t("pages.meta.lead", { date, n: classementComplet.length, v: version() })}
       >
         <LigneFraicheur langue={locale} className="mt-6" />
         {resume.length > 0 && (
@@ -186,19 +186,19 @@ export default async function PageRapportMeta({ params }: Params) {
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         {/* ── Hausses et baisses ─────────────────────────────────────────── */}
         <section>
-          <TitreSection chapeau={t("home.tendances.chapeau", { seuil })}>{t("home.tendances.titre")}</TitreSection>
+          <TitreSection chapeau={t("home.trends.lead", { seuil })}>{t("home.trends.title")}</TitreSection>
           <div className="grid gap-8 md:grid-cols-2">
             <Mouvements
-              titre={t("home.tendances.hausse")}
-              vide={t("home.tendances.aucuneHausse")}
+              titre={t("home.trends.rise")}
+              vide={t("home.trends.noRise")}
               mouvements={semaine.hausses}
               hausse
               langue={locale}
               t={t}
             />
             <Mouvements
-              titre={t("home.tendances.baisse")}
-              vide={t("home.tendances.aucuneBaisse")}
+              titre={t("home.trends.fall")}
+              vide={t("home.trends.noFall")}
               mouvements={semaine.baisses}
               hausse={false}
               langue={locale}
@@ -209,18 +209,18 @@ export default async function PageRapportMeta({ params }: Params) {
 
         {/* ── Changements de palier ──────────────────────────────────────── */}
         <section>
-          <TitreSection chapeau={t("pages.meta.paliers.chapeau")}>{t("pages.meta.paliers.titre")}</TitreSection>
+          <TitreSection chapeau={t("pages.meta.tiers.lead")}>{t("pages.meta.tiers.title")}</TitreSection>
           <div className="grid gap-8 md:grid-cols-2">
             <Paliers
-              titre={t("pages.meta.paliers.montees")}
-              vide={t("pages.meta.paliers.aucuneMontee")}
+              titre={t("pages.meta.tiers.promotions")}
+              vide={t("pages.meta.tiers.noPromotion")}
               changements={paliers.montees.slice(0, NOMBRE_PALIERS)}
               hausse
               t={t}
             />
             <Paliers
-              titre={t("pages.meta.paliers.descentes")}
-              vide={t("pages.meta.paliers.aucuneDescente")}
+              titre={t("pages.meta.tiers.demotions")}
+              vide={t("pages.meta.tiers.noDemotion")}
               changements={paliers.descentes.slice(0, NOMBRE_PALIERS)}
               hausse={false}
               t={t}
@@ -230,17 +230,17 @@ export default async function PageRapportMeta({ params }: Params) {
 
         {/* ── Bans et picks ──────────────────────────────────────────────── */}
         <section>
-          <TitreSection chapeau={t("pages.meta.bansPicks.chapeau", { date })}>
-            {t("pages.meta.bansPicks.titre")}
+          <TitreSection chapeau={t("pages.meta.bansPicks.lead", { date })}>
+            {t("pages.meta.bansPicks.title")}
           </TitreSection>
           <div className="grid gap-8 md:grid-cols-2">
             <Classement
-              titre={t("pages.meta.bansPicks.bannis")}
+              titre={t("pages.meta.bansPicks.banned")}
               entrees={bannis}
               valeur={(e) => pourcentage(locale, e.banRate)}
             />
             <Classement
-              titre={t("pages.meta.bansPicks.joues")}
+              titre={t("pages.meta.bansPicks.played")}
               entrees={joues}
               valeur={(e) => pourcentage(locale, e.pickRate)}
             />
@@ -253,29 +253,29 @@ export default async function PageRapportMeta({ params }: Params) {
             <TitreSection
               chapeau={
                 patchActuel.date
-                  ? t("pages.patchNotes.publieLe", { date: dateLongue(locale, patchActuel.date) })
+                  ? t("pages.patchNotes.publishedOn", { date: dateLongue(locale, patchActuel.date) })
                   : undefined
               }
-              action={{ href: `/patch-notes/${patchActuel.version}`, label: t("home.lireNotes") }}
+              action={{ href: `/patch-notes/${patchActuel.version}`, label: t("home.readNotes") }}
             >
-              {t("pages.meta.patch.titre", { v: patchActuel.version })}
+              {t("pages.meta.patch.title", { v: patchActuel.version })}
             </TitreSection>
             <div className="space-y-6">
               {patchActuel.newHeroes.length > 0 && (
-                <GroupeHeros titre={t("pages.meta.patch.nouveaux")} liste={patchActuel.newHeroes} couleur="text-gold-400" />
+                <GroupeHeros titre={t("pages.meta.patch.newcomers")} liste={patchActuel.newHeroes} couleur="text-gold-400" />
               )}
               {SENS_AJUSTEMENT.map((sens) =>
                 patch[sens].length > 0 ? (
                   <GroupeHeros
                     key={sens}
-                    titre={t(`patchHeros.pluriel.${sens}`)}
+                    titre={t(`patchHeroes.plural.${sens}`)}
                     liste={patch[sens]}
                     couleur={COULEUR[sens]}
                   />
                 ) : null,
               )}
               {patchActuel.newHeroes.length === 0 && SENS_AJUSTEMENT.every((s) => patch[s].length === 0) && (
-                <p className="text-sm text-chalk-500">{t("pages.meta.patch.aucun")}</p>
+                <p className="text-sm text-chalk-500">{t("pages.meta.patch.none")}</p>
               )}
             </div>
           </section>
@@ -283,7 +283,7 @@ export default async function PageRapportMeta({ params }: Params) {
 
         {/* ── Meilleurs heros par lane ───────────────────────────────────── */}
         <section>
-          <TitreSection chapeau={t("pages.meta.lanes.chapeau")}>{t("pages.meta.lanes.titre")}</TitreSection>
+          <TitreSection chapeau={t("pages.meta.lanes.lead")}>{t("pages.meta.lanes.title")}</TitreSection>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {parLane.map(({ lane, entrees }) => (
               <div key={lane} className="bevel flex flex-col border border-night-700/70 bg-night-900/60 p-4">
@@ -303,7 +303,7 @@ export default async function PageRapportMeta({ params }: Params) {
                             {e.hero.name}
                           </span>
                           <span className="block text-xs text-chalk-500">
-                            {t("pages.meta.lanes.ligne", { palier: e.tier, victoire: pourcentage(locale, e.winRate) })}
+                            {t("pages.meta.lanes.row", { palier: e.tier, victoire: pourcentage(locale, e.winRate) })}
                           </span>
                         </span>
                       </Link>
@@ -314,7 +314,7 @@ export default async function PageRapportMeta({ params }: Params) {
                   href={cheminFiltre({ type: "lane", valeur: lane })}
                   className="mt-4 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
                 >
-                  {t("pages.meta.lanes.voir", { lane: t(`pages.tierList.laneSeo.${lane}`) })} →
+                  {t("pages.meta.lanes.see", { lane: t(`pages.tierList.laneSeo.${lane}`) })} →
                 </Link>
               </div>
             ))}
@@ -322,7 +322,7 @@ export default async function PageRapportMeta({ params }: Params) {
         </section>
 
         <p className="border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">
-          {t("pages.meta.methode", { date, seuil })}
+          {t("pages.meta.method", { date, seuil })}
         </p>
       </div>
     </>
@@ -387,13 +387,13 @@ function Mouvements({
             <li key={slug}>
               <LigneHeros
                 slug={slug}
-                detail={`${pourcent.format(v.avant)} → ${pourcent.format(v.actuel)} ${t("home.pourcentVictoires")}`}
+                detail={`${pourcent.format(v.avant)} → ${pourcent.format(v.actuel)} ${t("home.winPercent")}`}
               >
                 <span
                   className={cn("shrink-0 font-semibold tabular-nums", hausse ? "text-emerald-400" : "text-blood-500")}
                 >
                   <span aria-hidden>
-                    {formaterEcart(v.ecart, langue)} {t("contres.pts")}
+                    {formaterEcart(v.ecart, langue)} {t("counters.pts")}
                   </span>
                   <span className="sr-only">{decrireEcart(t, langue, v.ecart, v.jours)}</span>
                 </span>
@@ -444,7 +444,7 @@ function Paliers({
                   <span className="text-chalk-500">→</span>
                   <BadgePalier palier={c.apres} />
                 </span>
-                <span className="sr-only">{t("pages.meta.paliers.sr", { avant: c.avant, apres: c.apres })}</span>
+                <span className="sr-only">{t("pages.meta.tiers.sr", { avant: c.avant, apres: c.apres })}</span>
               </LigneHeros>
             </li>
           ))}

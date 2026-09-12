@@ -205,23 +205,23 @@ export function construireMessage(
   if (touches.length === 1) {
     const [h] = touches;
     return {
-      titre: t(`notifPush.titre.${h.type ?? "ajustement"}`, { version, nom: nom(h.slug) }),
-      corps: t("notifPush.corpsUn"),
+      titre: t(`pushNotif.title.${h.type ?? "ajustement"}`, { version, nom: nom(h.slug) }),
+      corps: t("pushNotif.bodyOne"),
       url: `/${langue}/heroes/${h.slug}#stats`,
       tag,
       langue,
     };
   }
   const lignes = touches.slice(0, MAX_HEROS_CITES).map((h) =>
-    t("notifPush.ligne", {
+    t("pushNotif.row", {
       nom: nom(h.slug),
-      type: h.type ? t(`patchHeros.${h.type}`) : t("favoris.alerte.modifie"),
+      type: h.type ? t(`patchHeroes.${h.type}`) : t("favourites.alert.changed"),
     }),
   );
   const reste = touches.length - MAX_HEROS_CITES;
-  if (reste > 0) lignes.push(t(reste > 1 ? "notifPush.autres" : "notifPush.autre", { n: reste }));
+  if (reste > 0) lignes.push(t(reste > 1 ? "pushNotif.others" : "pushNotif.other", { n: reste }));
   return {
-    titre: t("notifPush.titrePlusieurs", { version, n: touches.length }),
+    titre: t("pushNotif.titleMany", { version, n: touches.length }),
     corps: lignes.join("\n"),
     url: `/${langue}/patch-notes/${version}`,
     tag,

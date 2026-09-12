@@ -39,7 +39,7 @@ const LARGEUR_PANNEAU = 288;
 export function FilAriane({ miettes, className }: { miettes: Miette[]; className?: string }) {
   const t = useT();
   const langue = useLangue();
-  const fil: Miette[] = [{ nom: t("commun.accueil"), href: "/" }, ...miettes];
+  const fil: Miette[] = [{ nom: t("common.home"), href: "/" }, ...miettes];
   // Les moteurs veulent des adresses completes, langue comprise : un lien sans
   // prefixe n'est resolu que par la redirection du proxy.
   const adresse = (href: string) => `${site.url}/${langue}${href === "/" ? "" : href}`;
@@ -63,7 +63,7 @@ export function FilAriane({ miettes, className }: { miettes: Miette[]; className
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }}
       />
-      <nav aria-label={t("commun.filAriane")} className={className}>
+      <nav aria-label={t("common.breadcrumb")} className={className}>
         <ol className="bevel-sm inline-flex max-w-full flex-wrap items-center gap-x-1.5 gap-y-1 border border-night-700/60 bg-night-950/70 px-3 py-1.5 text-sm backdrop-blur-sm">
           {fil.map((m, i) => {
             const dernier = i === fil.length - 1;
@@ -162,14 +162,14 @@ function PagesSoeurs({ nom, freres }: { nom: string; freres: { nom: string; href
         onClick={basculer}
         aria-expanded={ouvert}
         aria-controls={`${id}-panneau`}
-        title={t("commun.freres", { nom })}
+        title={t("common.siblings", { nom })}
         className="flex min-w-0 items-center gap-1 font-medium text-chalk-100 transition-colors hover:text-gold-400"
       >
         <span aria-current="page" className="truncate">
           {nom}
         </span>
         <ChevronsUpDown size={14} aria-hidden className="shrink-0 text-chalk-500" />
-        <span className="sr-only">{t("commun.freres", { nom })}</span>
+        <span className="sr-only">{t("common.siblings", { nom })}</span>
       </button>
 
       {ouvert &&
@@ -185,8 +185,8 @@ function PagesSoeurs({ nom, freres }: { nom: string; freres: { nom: string; href
                 autoFocus
                 value={filtre}
                 onChange={(e) => setFiltre(e.target.value)}
-                placeholder={t("commun.filtrer")}
-                aria-label={t("commun.filtrer")}
+                placeholder={t("common.filter")}
+                aria-label={t("common.filter")}
                 className="w-full border-b border-night-800 bg-transparent px-3 py-2 text-sm text-chalk-100 outline-none placeholder:text-chalk-500"
               />
             )}
@@ -206,7 +206,7 @@ function PagesSoeurs({ nom, freres }: { nom: string; freres: { nom: string; href
                   </Link>
                 </li>
               ))}
-              {visibles.length === 0 && <li className="px-3 py-2 text-sm text-chalk-500">{t("recherche.aucun")}</li>}
+              {visibles.length === 0 && <li className="px-3 py-2 text-sm text-chalk-500">{t("search.none")}</li>}
             </ul>
           </div>,
           document.body,

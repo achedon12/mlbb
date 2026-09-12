@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function PageStatistiques({ params }: Params) {
   const { locale } = await params;
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.heroesListe", "pages.statisticsTable"])}>
+    <CompleterMessages messages={messagesPage(locale, ["pages.heroesList", "pages.statisticsTable"])}>
       <Statistiques locale={locale} rang="all" />
     </CompleterMessages>
   );

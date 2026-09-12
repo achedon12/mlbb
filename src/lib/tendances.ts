@@ -324,9 +324,9 @@ export function pluriel(valeur: number, langue: string, decimales = 1): "one" | 
  */
 export function decrireEcart(t: T, langue: string, ecart: number, jours: number): string {
   const v = new Intl.NumberFormat(langue, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(Math.abs(ecart));
-  return t(ecart > 0 ? "tendances.hausse" : "tendances.baisse", {
+  return t(ecart > 0 ? "trends.rise" : "trends.fall", {
     v,
-    unite: t(`tendances.point.${pluriel(ecart, langue)}`),
+    unite: t(`trends.point.${pluriel(ecart, langue)}`),
     n: jours,
   });
 }

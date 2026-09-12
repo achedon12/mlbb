@@ -38,22 +38,22 @@ function fiche(locale: Langue, slug: string) {
   const s = sortsFiches.find((x) => x.slug === slug);
   if (!s) return null;
   const t = creerT(locale);
-  const nom = texteChoix(t, slug, "nom", s.nom)!;
+  const nom = texteChoix(t, slug, "name", s.nom)!;
   const effet = texteChoix(t, slug, "description");
-  const pourQui = texteChoix(t, slug, "pourQui");
+  const pourQui = texteChoix(t, slug, "bestFor");
   const heros = usage("sort", slug);
   const premier = heros[0];
   const phrases = [
-    ...(effet ? [t("pages.spellDetail.descEffet", { nom, effet })] : []),
+    ...(effet ? [t("pages.spellDetail.effectDesc", { nom, effet })] : []),
     premier
       ? premier.victoire === null
-        ? t("pages.fiches.descHerosSimple", { heros: listeNoms(locale, heros.slice(0, 3).map((h) => nomHeros(h.slug))) })
-        : t("pages.fiches.descHeros", {
+        ? t("pages.sheets.heroDescSimple", { heros: listeNoms(locale, heros.slice(0, 3).map((h) => nomHeros(h.slug))) })
+        : t("pages.sheets.heroDesc", {
             heros: listeNoms(locale, heros.slice(0, 3).map((h) => nomHeros(h.slug))),
             premier: nomHeros(premier.slug),
             taux: pourcentage(locale, premier.victoire),
           })
-      : t("pages.spellDetail.descAucun", { nom }),
+      : t("pages.spellDetail.noneDesc", { nom }),
   ];
   return {
     s,
@@ -62,9 +62,9 @@ function fiche(locale: Langue, slug: string) {
     effet,
     pourQui,
     heros,
-    titre: t("pages.spellDetail.titre", { nom, v: patchActuel?.version ?? "" }),
+    titre: t("pages.spellDetail.title", { nom, v: patchActuel?.version ?? "" }),
     chapeau: phrases.join(" "),
-    description: [...phrases, t("pages.fiches.descMaj", { date: dateLongue(locale) })].join(" "),
+    description: [...phrases, t("pages.sheets.updateDesc", { date: dateLongue(locale) })].join(" "),
   };
 }
 
@@ -89,7 +89,7 @@ export default async function PageSort({ params }: Params) {
       return e
         ? [{
             cle: p.cle,
-            nom: texteChoix(t, e.embleme.key, "nom", e.embleme.name)!,
+            nom: texteChoix(t, e.embleme.key, "name", e.embleme.name)!,
             image: e.image,
             part: p.part,
             href: `/emblems/${e.slug}`,
@@ -97,7 +97,7 @@ export default async function PageSort({ params }: Params) {
         : [];
     });
 
-  const titreHeros = t("pages.fiches.herosTitre");
+  const titreHeros = t("pages.sheets.heroesTitle");
   const donnees = donneesFiche(locale, {
     titre: fi.titre,
     description: fi.description,
@@ -105,7 +105,7 @@ export default async function PageSort({ params }: Params) {
     nom,
     resume: fi.effet,
     image: s.image,
-    listeNom: t("pages.fiches.listeLd", { nom }),
+    listeNom: t("pages.sheets.listLd", { nom }),
     heros: heros.slice(0, 10).map((h) => ({ nom: nomHeros(h.slug), slug: h.slug })),
   });
 
@@ -120,7 +120,7 @@ export default async function PageSort({ params }: Params) {
           { nom: t("nav.emblems.label"), href: "/emblems" },
           {
             nom,
-            freres: sortsFiches.map((x) => ({ nom: texteChoix(t, x.slug, "nom", x.nom)!, href: `/spells/${x.slug}` })),
+            freres: sortsFiches.map((x) => ({ nom: texteChoix(t, x.slug, "name", x.nom)!, href: `/spells/${x.slug}` })),
           },
         ]}
       >
@@ -131,20 +131,20 @@ export default async function PageSort({ params }: Params) {
         <Carte>
           <dl className="grid gap-4 text-sm sm:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
             <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.effet")}</dt>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.effect")}</dt>
               <dd className="mt-1 leading-relaxed text-chalk-100">
-                {fi.effet ?? <span className="text-chalk-500">{t("pages.spellDetail.sansDescription")}</span>}
+                {fi.effet ?? <span className="text-chalk-500">{t("pages.spellDetail.noDescription")}</span>}
               </dd>
             </div>
             {s.recharge !== null && (
               <div>
-                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.recharge")}</dt>
-                <dd className="mt-1 font-heading tabular-nums text-gold-400">{t("pages.spellDetail.secondes", { n: s.recharge })}</dd>
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.spellDetail.cooldown")}</dt>
+                <dd className="mt-1 font-heading tabular-nums text-gold-400">{t("pages.spellDetail.seconds", { n: s.recharge })}</dd>
               </div>
             )}
             {fi.pourQui && (
               <div className="sm:col-span-2">
-                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.fiches.pourQui")}</dt>
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.sheets.bestFor")}</dt>
                 <dd className="mt-1 leading-relaxed text-chalk-300">{fi.pourQui}</dd>
               </div>
             )}
@@ -152,17 +152,17 @@ export default async function PageSort({ params }: Params) {
         </Carte>
 
         <section>
-          <TitreSection chapeau={t("pages.fiches.aide")}>{titreHeros}</TitreSection>
+          <TitreSection chapeau={t("pages.sheets.help")}>{titreHeros}</TitreSection>
           {heros.length > 0 ? (
             <TableauUsage lignes={heros} legende={titreHeros} t={t} langue={locale} />
           ) : (
-            <p className="text-sm text-chalk-500">{t("pages.fiches.aucun")}</p>
+            <p className="text-sm text-chalk-500">{t("pages.sheets.none")}</p>
           )}
         </section>
 
         {emblemes.length > 0 && (
           <section>
-            <TitreSection chapeau={t("pages.spellDetail.emblemesIntro")}>{t("pages.spellDetail.emblemesTitre")}</TitreSection>
+            <TitreSection chapeau={t("pages.spellDetail.emblemsIntro")}>{t("pages.spellDetail.emblemsTitle")}</TitreSection>
             <div className="max-w-md">
               <PartsChoix langue={locale} entrees={emblemes} />
             </div>
@@ -171,13 +171,13 @@ export default async function PageSort({ params }: Params) {
 
         {heros.length > 0 && (
           <section>
-            <TitreSection chapeau={t("pages.fiches.parRangIntro")}>{t("pages.fiches.parRang")}</TitreSection>
-            <TableauRangs resume={resumeRangs("sort", slug)} legende={t("pages.fiches.parRang")} t={t} langue={locale} />
+            <TitreSection chapeau={t("pages.sheets.byRankIntro")}>{t("pages.sheets.byRank")}</TitreSection>
+            <TableauRangs resume={resumeRangs("sort", slug)} legende={t("pages.sheets.byRank")} t={t} langue={locale} />
           </section>
         )}
 
         <section>
-          <TitreSection>{t("pages.spellDetail.autres")}</TitreSection>
+          <TitreSection>{t("pages.spellDetail.others")}</TitreSection>
           <ListeLiens
             liens={sortsFiches
               .filter((x) => x.slug !== slug)
@@ -185,9 +185,9 @@ export default async function PageSort({ params }: Params) {
                 const n = usage("sort", x.slug).length;
                 return {
                   href: `/spells/${x.slug}`,
-                  nom: texteChoix(t, x.slug, "nom", x.nom)!,
+                  nom: texteChoix(t, x.slug, "name", x.nom)!,
                   image: x.image,
-                  detail: n ? t("pages.fiches.nHeros", { n }) : undefined,
+                  detail: n ? t("pages.sheets.nHeroes", { n }) : undefined,
                 };
               })}
           />

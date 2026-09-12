@@ -105,19 +105,19 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
   const quotidienne = prochaineRemiseQuotidienne(maintenant);
   const hebdo = prochaineRemiseHebdo(maintenant);
   const echeances: { cle: string; icone: LucideIcon; cible: number }[] = [
-    { cle: "quotidienne", icone: Clock, cible: quotidienne },
-    { cle: "hebdomadaire", icone: CalendarClock, cible: hebdo },
+    { cle: "daily", icone: Clock, cible: quotidienne },
+    { cle: "weekly", icone: CalendarClock, cible: hebdo },
     { cle: "starlight", icone: Sparkles, cible: prochainStarlight(maintenant) },
   ];
   const finSaison = prochaineFinSaison(fins, maintenant);
-  const zone = fuseau ? t("outils.heureServeur.heureLocale") : "UTC";
+  const zone = fuseau ? t("tools.serverTime.localTime") : "UTC";
   const langues = [langue, ...ORDRE_LANGUES.filter((l) => l !== langue)];
 
   return (
     <div className="space-y-12">
       <Carte className="text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-chalk-500">
-          {t("outils.heureServeur.heureServeur")}
+          {t("tools.serverTime.serverTime")}
         </p>
         <p role="timer" className="mt-2 font-heading text-6xl font-bold tabular-nums text-gold-400 sm:text-7xl" suppressHydrationWarning>
           {f.heure(maintenant, FUSEAU_SERVEUR)}
@@ -127,14 +127,14 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
         </p>
         <p className="mt-3 text-sm text-chalk-500" suppressHydrationWarning>
           {fuseau
-            ? t("outils.heureServeur.votreHeure", { heure: f.heure(maintenant, fuseau), fuseau })
-            : t("outils.heureServeur.heureUtc", { heure: f.heure(maintenant, "UTC") })}
+            ? t("tools.serverTime.yourTime", { heure: f.heure(maintenant, fuseau), fuseau })
+            : t("tools.serverTime.utcTime", { heure: f.heure(maintenant, "UTC") })}
         </p>
       </Carte>
 
       <section aria-labelledby="rebours-titre">
         <h2 id="rebours-titre" className="font-heading text-2xl font-bold text-chalk-100">
-          {t("outils.heureServeur.reboursTitre")}
+          {t("tools.serverTime.countdownTitle")}
         </h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
         <ul className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -143,13 +143,13 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
               <Carte className="h-full">
                 <p className="flex items-center gap-2 text-sm font-semibold text-chalk-200">
                   <Icone size={16} aria-hidden className="text-gold-400" />
-                  {t(`outils.heureServeur.echeance.${cle}`)}
+                  {t(`tools.serverTime.deadline.${cle}`)}
                 </p>
                 <p role="timer" className="mt-2 font-heading text-4xl font-bold text-chalk-100">
                   <Rebours ms={cible - maintenant} jours={f.jours} />
                 </p>
                 <p className="mt-1 text-sm text-chalk-500" suppressHydrationWarning>
-                  {t("outils.heureServeur.le", { date: f.dateHeure(cible, ici), zone })}
+                  {t("tools.serverTime.on", { date: f.dateHeure(cible, ici), zone })}
                 </p>
               </Carte>
             </li>
@@ -158,7 +158,7 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
             <Carte className="h-full">
               <p className="flex items-center gap-2 text-sm font-semibold text-chalk-200">
                 <Trophy size={16} aria-hidden className="text-gold-400" />
-                {t("outils.heureServeur.echeance.saison")}
+                {t("tools.serverTime.deadline.season")}
               </p>
               {finSaison ? (
                 <>
@@ -166,7 +166,7 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
                     <Rebours ms={finSaison.fin - maintenant} jours={f.jours} />
                   </p>
                   <p className="mt-1 text-sm text-chalk-500" suppressHydrationWarning>
-                    {t("outils.heureServeur.finSaison", {
+                    {t("tools.serverTime.seasonEnd", {
                       n: finSaison.saison,
                       date: f.dateHeure(finSaison.fin, ici),
                       zone,
@@ -177,9 +177,9 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
               ) : (
                 <>
                   <p className="mt-2 font-heading text-2xl font-bold text-chalk-300">
-                    {t("outils.heureServeur.finSaisonInconnue")}
+                    {t("tools.serverTime.seasonEndUnknown")}
                   </p>
-                  <p className="mt-1 text-sm text-chalk-500">{t("outils.heureServeur.finSaisonInconnueDetail")}</p>
+                  <p className="mt-1 text-sm text-chalk-500">{t("tools.serverTime.seasonEndUnknownDetail")}</p>
                 </>
               )}
             </Carte>
@@ -188,7 +188,7 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
 
         {fuseau && (
           <p className="bevel-sm mt-4 border border-gold-500/40 bg-gold-500/10 p-4 text-sm text-chalk-200">
-            {t("outils.heureServeur.chezVous", {
+            {t("tools.serverTime.yourPlace", {
               fuseau,
               decalage: libelleDecalage(decalageFuseau(fuseau, maintenant)),
               quotidienne: f.heureCourte(quotidienne, fuseau),
@@ -200,26 +200,26 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
 
       <section aria-labelledby="pays-titre">
         <h2 id="pays-titre" className="font-heading text-2xl font-bold text-chalk-100">
-          {t("outils.heureServeur.paysTitre")}
+          {t("tools.serverTime.countriesTitle")}
         </h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-        <p className="mt-3 max-w-2xl text-sm text-chalk-400">{t("outils.heureServeur.paysIntro")}</p>
+        <p className="mt-3 max-w-2xl text-sm text-chalk-400">{t("tools.serverTime.countriesIntro")}</p>
 
         <div className="mt-6 space-y-8">
           {langues.map((l) => (
             <div key={l}>
-              <h3 className="font-heading text-lg font-bold text-gold-400">{t(`outils.heureServeur.groupe.${l}`)}</h3>
+              <h3 className="font-heading text-lg font-bold text-gold-400">{t(`tools.serverTime.group.${l}`)}</h3>
               <div className="mt-2 relative overflow-x-auto">
                 <table className="w-full min-w-[20rem] text-left text-sm">
                   <caption className="sr-only">
-                    {t("outils.heureServeur.legende", { groupe: t(`outils.heureServeur.groupe.${l}`) })}
+                    {t("tools.serverTime.legend", { groupe: t(`tools.serverTime.group.${l}`) })}
                   </caption>
                   <thead className="text-xs uppercase tracking-wide text-chalk-500">
                     <tr>
-                      <th scope="col" className="py-2 pr-3 font-medium">{t("outils.heureServeur.colPays")}</th>
-                      <th scope="col" className="py-2 pr-3 font-medium">{t("outils.heureServeur.colQuotidienne")}</th>
-                      <th scope="col" className="py-2 pr-3 font-medium">{t("outils.heureServeur.colHebdo")}</th>
-                      <th scope="col" className="py-2 font-medium">{t("outils.heureServeur.colMaintenant")}</th>
+                      <th scope="col" className="py-2 pr-3 font-medium">{t("tools.serverTime.colCountry")}</th>
+                      <th scope="col" className="py-2 pr-3 font-medium">{t("tools.serverTime.colDaily")}</th>
+                      <th scope="col" className="py-2 pr-3 font-medium">{t("tools.serverTime.colWeekly")}</th>
+                      <th scope="col" className="py-2 font-medium">{t("tools.serverTime.colNow")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -234,7 +234,7 @@ export function HorlogeServeur({ reference, fins }: { reference: number; fins: F
                             </span>
                             <span className="block text-xs font-normal text-chalk-500" suppressHydrationWarning>
                               {libelleDecalage(decalageFuseau(p.fuseau, maintenant))}
-                              {vous && ` · ${t("outils.heureServeur.vous")}`}
+                              {vous && ` · ${t("tools.serverTime.you")}`}
                             </span>
                           </th>
                           <td className="py-2 pr-3 tabular-nums text-chalk-200" suppressHydrationWarning>

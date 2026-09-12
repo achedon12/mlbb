@@ -40,13 +40,13 @@ export function ListeHistoires({ groupes, total }: { groupes: GroupeHistoires[];
 
   return (
     <div>
-      <ChampRecherche valeur={recherche} onChange={setRecherche} libelle={t("pages.loreUI.rechercher")} className="max-w-md" />
+      <ChampRecherche valeur={recherche} onChange={setRecherche} libelle={t("pages.loreUI.search")} className="max-w-md" />
       <p aria-live="polite" className="mt-3 text-sm text-chalk-500">
         {!terme
           ? t("pages.loreUI.total", { n: total })
           : trouves === 0
-            ? t("pages.loreUI.aucun")
-            : t(trouves === 1 ? "pages.loreUI.trouve" : "pages.loreUI.trouves", { n: trouves })}
+            ? t("pages.loreUI.none")
+            : t(trouves === 1 ? "pages.loreUI.found1" : "pages.loreUI.found", { n: trouves })}
       </p>
       {visibles.map((g) => (
         <section key={g.cle} className="mt-8">
@@ -55,7 +55,7 @@ export function ListeHistoires({ groupes, total }: { groupes: GroupeHistoires[];
               {g.nom}
             </Link>
             <span className="shrink-0 text-xs text-chalk-500">
-              {t(g.heros.length === 1 ? "pages.loreUI.nHeros1" : "pages.loreUI.nHeros", { n: g.heros.length })}
+              {t(g.heros.length === 1 ? "pages.loreUI.nHeroes1" : "pages.loreUI.nHeroes", { n: g.heros.length })}
             </span>
           </h3>
           <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">

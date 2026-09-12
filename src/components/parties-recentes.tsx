@@ -53,31 +53,31 @@ export function PartiesRecentes({
   };
 
   if (parties.length === 0) {
-    return <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.partiesVide")}</p>;
+    return <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.gamesEmpty")}</p>;
   }
 
   return (
     <div className="mt-6">
-      <ol aria-label={t("pages.accountProfile.partiesTitre")} className="divide-y divide-night-800 border-y border-night-800">
+      <ol aria-label={t("pages.accountProfile.gamesTitle")} className="divide-y divide-night-800 border-y border-night-800">
         {parties.map((p) => (
           <LignePartie key={p.id} partie={p} />
         ))}
       </ol>
       <p aria-live="polite" className="sr-only">
-        {t(`pages.accountProfile.partiesAffichees.${pluriel(parties.length, langue)}`, { n: parties.length })}
+        {t(`pages.accountProfile.gamesShown.${pluriel(parties.length, langue)}`, { n: parties.length })}
       </p>
 
       {erreur && (
         <p role="alert" className="bevel-sm mt-4 border border-blood-500/40 bg-blood-500/10 px-4 py-3 text-sm text-blood-500">
           {erreur === "expire" ? (
             <>
-              {t("pages.accountProfile.expireTexte")}{" "}
+              {t("pages.accountProfile.expiredText")}{" "}
               <Link href="/login" className="font-semibold underline underline-offset-4">
-                {t("pages.accountProfile.seReconnecter")}
+                {t("pages.accountProfile.signInAgain")}
               </Link>
             </>
           ) : (
-            t("pages.accountProfile.erreurChargement")
+            t("pages.accountProfile.loadError")
           )}
         </p>
       )}
@@ -94,10 +94,10 @@ export function PartiesRecentes({
           ) : (
             <ChevronDown size={16} aria-hidden />
           )}
-          {enCours ? t("pages.accountProfile.chargement") : t("pages.accountProfile.voirPlus")}
+          {enCours ? t("pages.accountProfile.loading") : t("pages.accountProfile.seeMore")}
         </button>
       ) : (
-        <p className="mt-4 text-xs text-chalk-500">{t("pages.accountProfile.toutAffiche")}</p>
+        <p className="mt-4 text-xs text-chalk-500">{t("pages.accountProfile.allShown")}</p>
       )}
     </div>
   );
@@ -106,7 +106,7 @@ export function PartiesRecentes({
 function LignePartie({ partie: p }: { partie: PartieAffichee }) {
   const t = useT();
   const langue = useLangue();
-  const issue = p.victoire === null ? "inconnue" : p.victoire ? "victoire" : "defaite";
+  const issue = p.victoire === null ? "unknown" : p.victoire ? "win" : "loss";
   const couleur = p.victoire === null ? "text-chalk-400" : p.victoire ? "text-emerald-400" : "text-blood-500";
   const lane = p.lane !== null ? LANE_JEU[p.lane] : undefined;
 
@@ -142,13 +142,13 @@ function LignePartie({ partie: p }: { partie: PartieAffichee }) {
         </p>
         <p className="mt-0.5 flex flex-wrap gap-x-2 text-xs text-chalk-500">
           {lane && <span>{t(`lanes.${lane}`)}</span>}
-          {p.note !== null && <span>{t("pages.accountProfile.note", { n: formaterNombre(p.note, langue, 1) })}</span>}
+          {p.note !== null && <span>{t("pages.accountProfile.rating", { n: formaterNombre(p.note, langue, 1) })}</span>}
           {p.date !== null && <DatePartie secondes={p.date} />}
         </p>
       </div>
 
       <div className="shrink-0 text-right">
-        <p className={cn("text-sm font-semibold", couleur)}>{t(`pages.accountProfile.issue.${issue}`)}</p>
+        <p className={cn("text-sm font-semibold", couleur)}>{t(`pages.accountProfile.outcome.${issue}`)}</p>
         <p className="mt-0.5 text-xs tabular-nums text-chalk-300">
           <span aria-hidden>{`${p.eliminations} / ${p.morts} / ${p.assistances}`}</span>
           <span className="sr-only">

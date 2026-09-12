@@ -104,13 +104,13 @@ export function SelecteurHeros({
               setRecherche(valeur);
               if (valeur.trim()) setLaneFiltre(null);
             }}
-            libelle={t("draftUI.rechercher")}
+            libelle={t("draftUI.search")}
             className="flex-1"
           />
           <button
             type="button"
             onClick={onFermer}
-            aria-label={t("draftUI.fermer")}
+            aria-label={t("draftUI.close")}
             className="grid size-9 place-items-center text-chalk-500 hover:text-chalk-100"
           >
             <X size={18} aria-hidden />
@@ -118,9 +118,9 @@ export function SelecteurHeros({
         </div>
 
         <div className="mt-3 space-y-2">
-          <GroupeFiltres legende={t("draftUI.filtreLane")} largeurLegende="w-16" className="gap-1.5">
+          <GroupeFiltres legende={t("draftUI.laneFilter")} largeurLegende="w-16" className="gap-1.5">
             <Puce dense actif={laneFiltre === null} onClick={() => setLaneFiltre(null)}>
-              {t("draftUI.toutesLanes")}
+              {t("draftUI.allLanes")}
             </Puce>
             {LANES.map((l) => (
               <Puce dense key={l} actif={laneFiltre === l} onClick={() => setLaneFiltre(l)}>
@@ -128,9 +128,9 @@ export function SelecteurHeros({
               </Puce>
             ))}
           </GroupeFiltres>
-          <GroupeFiltres legende={t("draftUI.filtreRole")} largeurLegende="w-16" className="gap-1.5">
+          <GroupeFiltres legende={t("draftUI.roleFilter")} largeurLegende="w-16" className="gap-1.5">
             <Puce dense actif={role === null} onClick={() => setRole(null)}>
-              {t("draftUI.tousRoles")}
+              {t("draftUI.allRoles")}
             </Puce>
             {ROLES.map((r) => (
               <Puce dense key={r} actif={role === r} onClick={() => setRole(role === r ? null : r)}>
@@ -141,7 +141,7 @@ export function SelecteurHeros({
         </div>
 
         <p aria-live="polite" className="mt-3 text-xs text-chalk-500">
-          {t("draftUI.compte", { n: resultats.length })}
+          {t("draftUI.account", { n: resultats.length })}
         </p>
 
         <ul className="mt-2 grid grid-cols-3 gap-1.5 overflow-y-auto sm:grid-cols-4 md:grid-cols-5">
@@ -159,7 +159,7 @@ export function SelecteurHeros({
             </li>
           ))}
           {resultats.length === 0 && (
-            <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.aucunHeros")}</li>
+            <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.noHero")}</li>
           )}
         </ul>
       </div>
@@ -206,10 +206,10 @@ export function CarteSuggestion({
               className={cn("text-xs leading-snug", r.favorable ? "text-emerald-400" : "text-blood-500")}
             >
               {r.favorable ? "+ " : "− "}
-              {t(`draftUI.raisons.${r.type}`, { detail: r.detail })}
+              {t(`draftUI.reasons.${r.type}`, { detail: r.detail })}
             </li>
           ))}
-          {s.raisons.length === 0 && <li className="text-xs text-chalk-500">{vide ?? t("draftUI.aucunContre")}</li>}
+          {s.raisons.length === 0 && <li className="text-xs text-chalk-500">{vide ?? t("draftUI.noCounter")}</li>}
         </ul>
       </div>
       <button
@@ -218,7 +218,7 @@ export function CarteSuggestion({
         title={titrePrendre}
         className="bevel-sm self-start border border-night-600 px-2 py-1 text-xs text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400"
       >
-        {t("draftUI.prendre")}
+        {t("draftUI.pick")}
       </button>
     </div>
   );

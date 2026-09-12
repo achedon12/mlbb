@@ -50,10 +50,10 @@ const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
 
 /** Cle de traduction de chaque note du jeu. */
 const LIBELLE_NOTE: Record<keyof HerosComparable["notes"], string> = {
-  offense: "offensive",
-  durability: "resistance",
-  abilityEffects: "effets",
-  difficulty: "difficulte",
+  offense: "offense",
+  durability: "durability",
+  abilityEffects: "abilityEffects",
+  difficulty: "difficulty",
 };
 
 /** Deux heros au moins, trois au plus : au-dela, radar et courbes deviennent illisibles. */
@@ -141,7 +141,7 @@ export function ComparateurHeros({
   };
 
   const choisis = choix.map((s) => parSlug.get(s)).filter((h): h is HerosComparable => h !== undefined);
-  const libelles = [t("compareUI.premier"), t("compareUI.second"), t("compareUI.troisieme")];
+  const libelles = [t("compareUI.first"), t("compareUI.second"), t("compareUI.third")];
   const trois = choisis.length === MAX_HEROS;
 
   return (
@@ -168,7 +168,7 @@ export function ComparateurHeros({
           className="bevel-sm mt-3 inline-flex items-center gap-2 border border-dashed border-night-600 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
         >
           <Plus size={15} aria-hidden />
-          {t("compareUI.ajouter")}
+          {t("compareUI.add")}
         </button>
       )}
 
@@ -181,10 +181,10 @@ export function ComparateurHeros({
           </div>
 
           {rangs.length > 1 && (
-            <GroupeFiltres legende={t("rangsMesure.label")} largeurLegende="" className="mt-6 justify-center">
+            <GroupeFiltres legende={t("measuredRanks.label")} largeurLegende="" className="mt-6 justify-center">
               {rangs.map((r) => (
                 <Puce key={r} dense actif={r === rang} onClick={() => setRang(r)}>
-                  {t(`rangsMesure.${r}`)}
+                  {t(`measuredRanks.${r}`)}
                 </Puce>
               ))}
             </GroupeFiltres>
@@ -203,9 +203,9 @@ export function ComparateurHeros({
 function Profil({ heros, rang, bornes }: { heros: HerosComparable[]; rang: RangMesure; bornes: BornesRang | null }) {
   const t = useT();
   const id = useId().replace(/[^a-zA-Z0-9-]/g, "");
-  const titre = t("compareUI.profil", { rang: t(`rangsMesure.${rang}`) });
+  const titre = t("compareUI.profile", { rang: t(`measuredRanks.${rang}`) });
   const axes = AXES_RADAR.map((a) =>
-    t(a === "victoire" ? "compareUI.tauxVictoire" : a === "ban" ? "compareUI.tauxBan" : `compareUI.${a}`),
+    t(a === "victoire" ? "compareUI.winRate" : a === "ban" ? "compareUI.banRate" : `compareUI.${a}`),
   );
   const series = heros.map((h, i) => {
     const x = h.taux[rang];
@@ -225,10 +225,10 @@ function Profil({ heros, rang, bornes }: { heros: HerosComparable[]; rang: RangM
         axes={axes}
         series={series}
         titre={titre}
-        resume={t("compareUI.radarResume")}
+        resume={t("compareUI.radarSummary")}
         className="bevel mt-3 border border-night-700/70 bg-night-900/60 p-3 sm:p-4"
       />
-      <p className="mt-2 text-center text-xs text-chalk-500">{t("compareUI.radarEchelle")}</p>
+      <p className="mt-2 text-center text-xs text-chalk-500">{t("compareUI.radarScale")}</p>
     </section>
   );
 }
@@ -263,7 +263,7 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
   const lignes: LigneTableau[] = [
     {
       cle: "palier",
-      label: t("compareUI.palier"),
+      label: t("compareUI.tier"),
       valeurs: taux.map((x) => (x ? ORDRE_PALIERS.length - ORDRE_PALIERS.indexOf(x[2]) : null)),
       affiche: (_, i) => (
         <span className={cn("bevel-sm inline-block border px-1.5 py-0.5 text-[0.7rem] font-bold", COULEUR_PALIER[taux[i]![2]])}>
@@ -274,14 +274,14 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
     },
     {
       cle: "victoire",
-      label: t("compareUI.tauxVictoire"),
+      label: t("compareUI.winRate"),
       valeurs: taux.map((x) => x?.[0] ?? null),
       affiche: (v) => pourcent.format(v / 100),
       sens: 1,
     },
     {
       cle: "ban",
-      label: t("compareUI.tauxBan"),
+      label: t("compareUI.banRate"),
       valeurs: taux.map((x) => x?.[1] ?? null),
       affiche: (v) => pourcent.format(v / 100),
       sens: -1,
@@ -298,11 +298,11 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
   return (
     <div className="bevel mt-6 relative overflow-x-auto border border-night-700/70 bg-night-900/60 px-3 py-2 sm:px-4">
       <table className="w-full text-sm">
-        <caption className="sr-only">{t("compareUI.tableau", { noms, rang: t(`rangsMesure.${rang}`) })}</caption>
+        <caption className="sr-only">{t("compareUI.table", { noms, rang: t(`measuredRanks.${rang}`) })}</caption>
         <thead>
           <tr className="border-b border-night-800">
             <th scope="col" className="py-2">
-              <span className="sr-only">{t("compareUI.critere")}</span>
+              <span className="sr-only">{t("compareUI.criterion")}</span>
             </th>
             {heros.map((h, i) => (
               <th scope="col" key={h.slug} className="px-1.5 py-2 text-right font-heading font-bold text-chalk-100">
@@ -333,7 +333,7 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
                       className={cn("px-1.5 py-2 text-right font-semibold tabular-nums", meilleur ? "text-gold-400" : "text-chalk-300")}
                     >
                       {v === null ? "—" : l.affiche(v, i)}
-                      {meilleur && <span className="sr-only"> ({t("compareUI.meilleur")})</span>}
+                      {meilleur && <span className="sr-only"> ({t("compareUI.best")})</span>}
                     </td>
                   );
                 })}
@@ -393,7 +393,7 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
 
   const titre = (
     <h2 className="text-center text-xs uppercase tracking-wide text-chalk-500">
-      {t("compareUI.courbes", { n: JOURS_COURBE })}
+      {t("compareUI.curves", { n: JOURS_COURBE })}
     </h2>
   );
   const message = (texte: string) => (
@@ -406,14 +406,14 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
   );
 
   const donnees = heros.map((h) => charges[h.slug]);
-  if (donnees.some((d) => d === undefined)) return message(t("compareUI.chargement"));
-  if (donnees.some((d) => d === "erreur")) return message(t("compareUI.erreurCourbes"));
+  if (donnees.some((d) => d === undefined)) return message(t("compareUI.loading"));
+  if (donnees.some((d) => d === "erreur")) return message(t("compareUI.curvesError"));
   const series30 = donnees as TendancesVictoire[];
 
   const parHeros = series30.map((d) => RANGS_MESURE.filter((r) => mesures(d[r]).length > 1));
   const communs = RANGS_MESURE.filter((r) => parHeros.every((l) => l.includes(r)));
   const rangs = communs.length > 0 ? communs : RANGS_MESURE.filter((r) => parHeros.some((l) => l.includes(r)));
-  if (rangs.length === 0) return message(t("compareUI.aucuneCourbeHeros"));
+  if (rangs.length === 0) return message(t("compareUI.noHeroCurve"));
   const choisi = rangs.includes(rang) ? rang : rangs[0];
 
   // Couleur et motif attaches a la place du heros, comme dans le radar : le
@@ -435,7 +435,7 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
   const details = series
     .map((s) => {
       const v = s.valeurs.filter((x): x is number => x !== null);
-      return t("compareUI.resumeHeros", { nom: s.nom, debut: nombre.format(v[0]), fin: nombre.format(v.at(-1)!) });
+      return t("compareUI.heroSummary", { nom: s.nom, debut: nombre.format(v[0]), fin: nombre.format(v.at(-1)!) });
     })
     .join(" ; ");
 
@@ -444,23 +444,23 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
       {titre}
       {choisi !== rang && (
         <p className="mt-2 text-center text-xs text-chalk-500">
-          {t("compareUI.courbesAutreRang", { rang: t(`rangsMesure.${choisi}`) })}
+          {t("compareUI.curvesOtherRank", { rang: t(`measuredRanks.${choisi}`) })}
         </p>
       )}
       <div className="bevel mt-3 border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
         <CourbeTaux
           dates={dates.slice(depuis)}
           series={series}
-          libelle={t("compareUI.resumeCourbes", {
+          libelle={t("compareUI.curvesSummary", {
             n: JOURS_COURBE,
-            rang: t(`rangsMesure.${choisi}`).toLocaleLowerCase(langue),
+            rang: t(`measuredRanks.${choisi}`).toLocaleLowerCase(langue),
             details,
           })}
         />
       </div>
       {sans.map((c) => (
         <p key={c.heros.slug} className="mt-2 text-xs text-chalk-500">
-          {t("compareUI.sansCourbe", { nom: c.heros.nom })}
+          {t("compareUI.noCurveAtRank", { nom: c.heros.nom })}
         </p>
       ))}
     </section>
@@ -547,7 +547,7 @@ function Selecteur({
           <button
             type="button"
             onClick={retirer}
-            aria-label={t("compareUI.retirer", { nom: choisi?.nom ?? label })}
+            aria-label={t("compareUI.remove", { nom: choisi?.nom ?? label })}
             className="-my-1 rounded-sm p-1 text-chalk-500 transition-colors hover:text-blood-500"
           >
             <X size={15} aria-hidden />
@@ -570,7 +570,7 @@ function Selecteur({
           }
           autoComplete="off"
           value={ouvert ? recherche : (choisi?.nom ?? "")}
-          placeholder={t("compareUI.rechercher")}
+          placeholder={t("compareUI.search")}
           onFocus={() => {
             setOuvert(true);
             setRecherche("");
@@ -600,7 +600,7 @@ function Selecteur({
           className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-night-700 bg-night-900 py-1 shadow-xl shadow-black/40"
         >
           {resultats.length === 0 ? (
-            <li className="px-3 py-2 text-sm text-chalk-500">{t("compareUI.aucun")}</li>
+            <li className="px-3 py-2 text-sm text-chalk-500">{t("compareUI.none")}</li>
           ) : (
             resultats.map((h, i) => (
               <li

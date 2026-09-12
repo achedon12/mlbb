@@ -34,7 +34,7 @@ export function generateStaticParams() {
 
 const nomHeros = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 const nomEmbleme = (t: T, f: (typeof emblemesFiches)[number]) =>
-  texteChoix(t, f.embleme.key, "nom", f.embleme.name)!;
+  texteChoix(t, f.embleme.key, "name", f.embleme.name)!;
 
 /**
  * Ce que la page et ses metadonnees disent d'un embleme : ses bonus, les heros
@@ -46,7 +46,7 @@ function fiche(locale: Langue, slug: string) {
   const t = creerT(locale);
   const nom = nomEmbleme(t, f);
   const bonus = texteChoix(t, f.embleme.key, "bonus", f.embleme.bonus)!;
-  const pourQui = texteChoix(t, f.embleme.key, "pourQui", f.embleme.bestFor)!;
+  const pourQui = texteChoix(t, f.embleme.key, "bestFor", f.embleme.bestFor)!;
   const heros = usage("embleme", slug);
   const talents = talentsAvecEmbleme(slug);
   const premier = heros[0];
@@ -59,10 +59,10 @@ function fiche(locale: Langue, slug: string) {
           heros: listeNoms(locale, heros.slice(0, 3).map((h) => nomHeros(h.slug))),
         }),
         ...(talents[2].length
-          ? [t("pages.emblemDetail.descTalents", { talents: listeNoms(locale, talents[2].slice(0, 2).map((p) => nomTalent(t, p.cle))) })]
+          ? [t("pages.emblemDetail.talentsDesc", { talents: listeNoms(locale, talents[2].slice(0, 2).map((p) => nomTalent(t, p.cle))) })]
           : []),
       ]
-    : [t("pages.emblemDetail.descSans", { nom, bonus, pourQui })];
+    : [t("pages.emblemDetail.descWithout", { nom, bonus, pourQui })];
   return {
     f,
     t,
@@ -71,9 +71,9 @@ function fiche(locale: Langue, slug: string) {
     pourQui,
     heros,
     talents,
-    titre: t("pages.emblemDetail.titre", { nom, v: patchActuel?.version ?? "" }),
+    titre: t("pages.emblemDetail.title", { nom, v: patchActuel?.version ?? "" }),
     chapeau: phrases.join(" "),
-    description: [...phrases, t("pages.fiches.descMaj", { date: dateLongue(locale) })].join(" "),
+    description: [...phrases, t("pages.sheets.updateDesc", { date: dateLongue(locale) })].join(" "),
   };
 }
 
@@ -97,19 +97,19 @@ export default async function PageEmbleme({ params }: Params) {
       const s = sortsParSlug.get(p.cle);
       return {
         cle: p.cle,
-        nom: texteChoix(t, p.cle, "nom", s?.nom ?? p.cle)!,
+        nom: texteChoix(t, p.cle, "name", s?.nom ?? p.cle)!,
         image: s?.image ?? null,
         part: p.part,
         href: s ? `/spells/${p.cle}` : undefined,
       };
     });
   const etages = [
-    t("pages.emblemDetail.etage", { n: 1 }),
-    t("pages.emblemDetail.etage", { n: 2 }),
-    t("emblemesUI.talents"),
+    t("pages.emblemDetail.tier", { n: 1 }),
+    t("pages.emblemDetail.tier", { n: 2 }),
+    t("emblemsUI.talents"),
   ];
 
-  const titreHeros = t("pages.fiches.herosTitre");
+  const titreHeros = t("pages.sheets.heroesTitle");
   const donnees = donneesFiche(locale, {
     titre: fi.titre,
     description: fi.description,
@@ -117,7 +117,7 @@ export default async function PageEmbleme({ params }: Params) {
     nom,
     resume: fi.bonus,
     image: f.image,
-    listeNom: t("pages.fiches.listeLd", { nom }),
+    listeNom: t("pages.sheets.listLd", { nom }),
     heros: heros.slice(0, 10).map((h) => ({ nom: nomHeros(h.slug), slug: h.slug })),
   });
 
@@ -144,24 +144,24 @@ export default async function PageEmbleme({ params }: Params) {
               <dd className="mt-1 text-chalk-100">{fi.bonus}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.fiches.pourQui")}</dt>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.sheets.bestFor")}</dt>
               <dd className="mt-1 leading-relaxed text-chalk-300">{fi.pourQui}</dd>
             </div>
           </dl>
         </Carte>
 
         <section>
-          <TitreSection chapeau={t("pages.fiches.aide")}>{titreHeros}</TitreSection>
+          <TitreSection chapeau={t("pages.sheets.help")}>{titreHeros}</TitreSection>
           {heros.length > 0 ? (
             <TableauUsage lignes={heros} legende={titreHeros} t={t} langue={locale} />
           ) : (
-            <p className="text-sm text-chalk-500">{t("pages.fiches.aucun")}</p>
+            <p className="text-sm text-chalk-500">{t("pages.sheets.none")}</p>
           )}
         </section>
 
         {talents.some((e) => e.length > 0) && (
           <section>
-            <TitreSection chapeau={t("pages.emblemDetail.talentsIntro")}>{t("pages.emblemDetail.talentsTitre")}</TitreSection>
+            <TitreSection chapeau={t("pages.emblemDetail.talentsIntro")}>{t("pages.emblemDetail.talentsTitle")}</TitreSection>
             <div className="grid gap-8 md:grid-cols-3">
               {talents.map((parts, i) => (
                 <div key={etages[i]}>
@@ -183,7 +183,7 @@ export default async function PageEmbleme({ params }: Params) {
 
         {sorts.length > 0 && (
           <section>
-            <TitreSection chapeau={t("pages.emblemDetail.sortsIntro")}>{t("pages.emblemDetail.sortsTitre")}</TitreSection>
+            <TitreSection chapeau={t("pages.emblemDetail.spellsIntro")}>{t("pages.emblemDetail.spellsTitle")}</TitreSection>
             <div className="max-w-md">
               <PartsChoix langue={locale} entrees={sorts} />
             </div>
@@ -192,10 +192,10 @@ export default async function PageEmbleme({ params }: Params) {
 
         {heros.length > 0 && (
           <section>
-            <TitreSection chapeau={t("pages.fiches.parRangIntro")}>{t("pages.fiches.parRang")}</TitreSection>
+            <TitreSection chapeau={t("pages.sheets.byRankIntro")}>{t("pages.sheets.byRank")}</TitreSection>
             <TableauRangs
               resume={resumeRangs("embleme", slug)}
-              legende={t("pages.fiches.parRang")}
+              legende={t("pages.sheets.byRank")}
               t={t}
               langue={locale}
             />
@@ -203,7 +203,7 @@ export default async function PageEmbleme({ params }: Params) {
         )}
 
         <section>
-          <TitreSection>{t("pages.emblemDetail.autres")}</TitreSection>
+          <TitreSection>{t("pages.emblemDetail.others")}</TitreSection>
           <ListeLiens
             liens={emblemesFiches
               .filter((e) => e.slug !== slug)
@@ -213,7 +213,7 @@ export default async function PageEmbleme({ params }: Params) {
                   href: `/emblems/${e.slug}`,
                   nom: nomEmbleme(t, e),
                   image: e.image,
-                  detail: n ? t("pages.fiches.nHeros", { n }) : undefined,
+                  detail: n ? t("pages.sheets.nHeroes", { n }) : undefined,
                 };
               })}
           />

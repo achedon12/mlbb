@@ -61,7 +61,7 @@ function Deroulant({
         )}
       >
         <Icone size={16} aria-hidden className={groupeActif ? "text-gold-400" : ""} />
-        {t(`nav.groupes.${groupe.cle}`)}
+        {t(`nav.groups.${groupe.cle}`)}
         <ChevronDown size={14} aria-hidden className={cn("transition-transform duration-200", ouvert && "rotate-180")} />
         <span
           aria-hidden
@@ -179,7 +179,7 @@ function NoeudAvecSousMenu({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin
           type="button"
           aria-expanded={ouvert}
           aria-controls={id}
-          aria-label={t("nav.sousMenu", { nom })}
+          aria-label={t("nav.submenu", { nom })}
           onClick={() => (ouvert ? setOuvert(false) : ouvrirEtEntrer())}
           className="grid w-8 shrink-0 place-items-center rounded-md text-chalk-500 transition-colors hover:text-gold-400"
         >
@@ -284,7 +284,7 @@ export function MenuBureau() {
   }, [ouvert]);
 
   return (
-    <nav ref={conteneur} aria-label={t("nav.principal")} className="hidden items-center gap-0.5 lg:flex">
+    <nav ref={conteneur} aria-label={t("nav.main")} className="hidden items-center gap-0.5 lg:flex">
       {GROUPES.map((g) => (
         <Deroulant
           key={g.cle}

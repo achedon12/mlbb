@@ -28,9 +28,9 @@ const patchs = patchsDetail;
 function titrePatch(locale: Langue, patch: PatchDetaille): string {
   const t = creerT(locale);
   const n = nombreHerosModifies(patch);
-  if (n === 0) return t("pages.seo.patch.titre", { v: patch.version });
+  if (n === 0) return t("pages.seo.patch.title", { v: patch.version });
   const forme = new Intl.PluralRules(locale).select(n) === "one" ? "one" : "other";
-  return t(`pages.seo.patch.titreChangements.${forme}`, { v: patch.version, n });
+  return t(`pages.seo.patch.titleChanges.${forme}`, { v: patch.version, n });
 }
 
 /**
@@ -63,8 +63,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
             ...compterAjustements(patch.adjustments),
             heros: listeNoms(locale, noms),
           })
-        : t("pages.patchNotes.officielleDescription", { version: patch.version }),
-      partage: t("pages.patchNotes.officiellePartage", { version: patch.version }),
+        : t("pages.patchNotes.officialDescription", { version: patch.version }),
+      partage: t("pages.patchNotes.officialShare", { version: patch.version }),
       chemin: `/patch-notes/${slug}`,
       type: "article",
       publie: patch.date ?? undefined,
@@ -127,7 +127,7 @@ export default async function PagePatch({ params }: Params) {
 
           <header className="mt-6 border-b border-night-800 pb-8">
             <p className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-              {t("pages.patchNotes.officielles")}
+              {t("pages.patchNotes.official")}
             </p>
             <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100">
               Patch {patch.version}
@@ -138,7 +138,7 @@ export default async function PagePatch({ params }: Params) {
                 <>
                   {" · "}
                   <time dateTime={patch.date}>
-                    {t("pages.patchNotes.publieLe", { date: dateLongue(locale, patch.date) })}
+                    {t("pages.patchNotes.publishedOn", { date: dateLongue(locale, patch.date) })}
                   </time>
                 </>
               )}
@@ -236,7 +236,7 @@ export default async function PagePatch({ params }: Params) {
               <CreditWiki
                 t={t}
                 href={patch.link}
-                cle={traduit ? "pages.patchNotes.creditTraduit" : "pages.patchNotes.credit"}
+                cle={traduit ? "pages.patchNotes.creditTranslated" : "pages.patchNotes.credit"}
                 className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"
               />
             </article>
@@ -262,7 +262,7 @@ export default async function PagePatch({ params }: Params) {
         langue={locale}
         article={a}
         html={enHtml(a.content)}
-        retour={{ href: "/patch-notes", label: t("pages.patchNotes.tous") }}
+        retour={{ href: "/patch-notes", label: t("pages.patchNotes.all") }}
       />
     </>
   );

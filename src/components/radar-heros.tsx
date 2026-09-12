@@ -31,7 +31,7 @@ export interface SerieRadar {
 }
 
 /** Notes du jeu (sur 10), puis taux de victoire et de ban : les six axes du comparateur. */
-export const AXES_RADAR = ["offensive", "resistance", "effets", "difficulte", "victoire", "ban"] as const;
+export const AXES_RADAR = ["offense", "durability", "abilityEffects", "difficulty", "victoire", "ban"] as const;
 
 /**
  * Valeur ramenee entre 0,1 et 1 sur l'etendue [min, max] du rang : le heros

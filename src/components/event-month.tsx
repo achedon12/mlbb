@@ -78,7 +78,7 @@ export function MonthContent({
   const htmlLang = LOCALE_HTML[locale];
   const numbers = new Intl.NumberFormat(htmlLang);
   const skinCount = (n: number) =>
-    t(n === 1 ? "pages.calendrierSkins.nSkins1" : "pages.calendrierSkins.nSkins", { n: numbers.format(n) });
+    t(n === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", { n: numbers.format(n) });
   const groups: { mode: ObtainMode; skins: EventSkin[]; empty?: string }[] = [
     { mode: "starlight", skins: m.starlight, empty: t("pages.events.noStarlight") },
     { mode: "collector", skins: m.collector, empty: m.noCollector ? t("pages.events.noCollector") : undefined },

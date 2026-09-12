@@ -63,7 +63,7 @@ export default async function EventsPage({ params }: Params) {
   const link = "font-semibold text-gold-400 transition-colors hover:text-gold-500";
   const externalLink = "font-semibold text-gold-400 hover:underline";
   const skinCount = (n: number) =>
-    t(n === 1 ? "pages.calendrierSkins.nSkins1" : "pages.calendrierSkins.nSkins", { n: numbers.format(n) });
+    t(n === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", { n: numbers.format(n) });
 
   const byYear = new Map<string, EventMonth[]>();
   for (const m of all) byYear.set(m.month.slice(0, 4), [...(byYear.get(m.month.slice(0, 4)) ?? []), m]);
@@ -226,7 +226,7 @@ export default async function EventsPage({ params }: Params) {
                     <li key={m.month}>
                       <Link
                         href={`${PATH}/${m.month}`}
-                        title={t("pages.calendrierSkins.caseMois", { mois: monthText(locale, m.month), n: m.total })}
+                        title={t("pages.skinsCalendar.monthCell", { mois: monthText(locale, m.month), n: m.total })}
                         className={cn(
                           "bevel-sm inline-block border px-2.5 py-1 text-xs transition-colors hover:border-gold-500/60 hover:text-gold-400",
                           m.month === currentMonth ? "border-gold-500/60 text-gold-400" : "border-night-700 text-chalk-300",

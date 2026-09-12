@@ -14,14 +14,14 @@ import { donneesOutil, metaPage } from "@/i18n/seo";
 /** Description en donnees : heros comparables, date du releve et patch. */
 function descriptionComparateur(locale: Langue): string {
   const t = creerT(locale);
-  return t("pages.seo.compare.descriptionTrois", { n: heros.length, date: dateLongue(locale), v: patchActuel.version });
+  return t("pages.seo.compare.descriptionThree", { n: heros.length, date: dateLongue(locale), v: patchActuel.version });
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.compare.titre", { v: patchActuel.version }),
+    titre: t("pages.seo.compare.title", { v: patchActuel.version }),
     description: descriptionComparateur(locale),
     partage: t("pages.compare.ogDescription"),
     chemin: "/compare",
@@ -83,7 +83,7 @@ export default async function PageComparateur({ params }: { params: Promise<{ lo
   const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
   const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.compare.titre"),
+    nom: t("pages.compare.title"),
     description: descriptionComparateur(locale),
     chemin: "/compare",
     categorie: "GameApplication",
@@ -98,22 +98,22 @@ export default async function PageComparateur({ params }: { params: Promise<{ lo
         dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <EnTetePage
-        titre={t("pages.compare.titre")}
-        chapeau={t("pages.compare.chapeauTrois")}
+        titre={t("pages.compare.title")}
+        chapeau={t("pages.compare.leadThree")}
       />
       <div className="mx-auto max-w-3xl px-4 py-12">
         <ComparateurHeros heros={comparables} rangs={[...RANGS_CLASSES]} bornes={bornes} />
 
         <section aria-labelledby="duels" className="mt-14">
           <h2 id="duels" className="font-heading text-xl font-bold text-chalk-100">
-            {t("pages.compare.duels.titre")}
+            {t("pages.compare.duels.title")}
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-chalk-500">{t("pages.compare.duels.intro")}</p>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm">
             {duelsEnAvant().map(({ a, b }) => (
               <li key={segmentPaire(a, b)}>
                 <Link href={cheminPaire(a, b)} className={lien}>
-                  {t("pages.versus.titre", { a: nomDe(a), b: nomDe(b) })}
+                  {t("pages.versus.title", { a: nomDe(a), b: nomDe(b) })}
                 </Link>
               </li>
             ))}

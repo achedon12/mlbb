@@ -113,7 +113,7 @@ describe("filtres de la galerie", () => {
 });
 
 describe("titres de galerie", () => {
-  const t = creerTDepuis({ pages: { heroSkins: { titre: "Skins de {nom}", titreElision: "Skins d'{nom}" } } });
+  const t = creerTDepuis({ pages: { heroSkins: { title: "Skins de {nom}", titleElision: "Skins d'{nom}" } } });
 
   it("elide en francais devant une voyelle, et seulement la", () => {
     expect(titreGalerie(t, "fr", "Aamon")).toBe("Skins d'Aamon");

@@ -96,9 +96,9 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
     chemin: "/draft",
     categorie: "GameApplication",
   });
-  // The `donneesHeros` catalog stays on the server: damage labels leave
+  // The `heroData` catalog stays on the server: damage labels leave
   // already resolved, as for the team analyzer.
-  const damage = (key: TypeDegats) => libelleHeros(t, "degats", key) ?? key;
+  const damage = (key: TypeDegats) => libelleHeros(t, "damage", key) ?? key;
   const heading2 = "font-heading text-2xl font-bold text-chalk-100";
   const heading3 = "font-heading text-lg font-bold text-chalk-100";
   const list = "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-chalk-300";
@@ -114,7 +114,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
           href="/tools/team"
           className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
         >
-          {t("pages.draft.lienEquipe")} →
+          {t("pages.draft.teamLink")} →
         </Link>
       </EnTetePage>
       <div className="mx-auto max-w-5xl px-4 py-12">
@@ -221,7 +221,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
           </div>
         </section>
 
-        <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">{t("pages.draft.note")}</p>
+        <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">{t("pages.draft.rating")}</p>
       </div>
     </>
   );

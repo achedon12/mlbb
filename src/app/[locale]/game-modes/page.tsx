@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.modes.titre"),
+    titre: t("pages.modes.title"),
     description: t("pages.modes.metaDescription"),
     partage: t("pages.modes.ogDescription"),
     chemin: "/game-modes",
@@ -29,14 +29,14 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: t("pages.modes.listeLd"),
+    name: t("pages.modes.listLd"),
     numberOfItems: liste.length,
     itemListElement: liste.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: m.name,
       url: `${site.url}/${locale}/game-modes/${m.slug}`,
-      description: t(`modeFiche.${m.slug}.texte`),
+      description: t(`modeSheet.${m.slug}.text`),
     })),
   };
 
@@ -47,8 +47,8 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
         dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees).replace(/</g, "\\u003c") }}
       />
       <EnTetePage
-        titre={t("pages.modes.titre")}
-        chapeau={t("pages.modes.chapeau")}
+        titre={t("pages.modes.title")}
+        chapeau={t("pages.modes.lead")}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12">
@@ -86,17 +86,17 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                     className="font-heading text-[0.7rem] font-bold uppercase tracking-[0.2em]"
                     style={{ color: clair }}
                   >
-                    {t(`modeFiche.${mode.slug}.accroche`)}
+                    {t(`modeSheet.${mode.slug}.tagline`)}
                   </p>
                   <h2 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">{mode.name}</h2>
                   <p className="max-w-xl text-sm leading-relaxed text-chalk-300">
-                    {t(`modeFiche.${mode.slug}.texte`)}
+                    {t(`modeSheet.${mode.slug}.text`)}
                   </p>
                   <span
                     className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold transition-transform group-hover:translate-x-0.5"
                     style={{ color: clair }}
                   >
-                    {t("pages.modes.decouvrir")}
+                    {t("pages.modes.discover")}
                     <ArrowRight size={16} aria-hidden />
                   </span>
                 </div>

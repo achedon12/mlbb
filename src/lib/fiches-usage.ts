@@ -109,14 +109,14 @@ export function partsAvec(type: TypeChoix, cle: string, autre: TypeChoix): PartC
   return partsParChoix(buildsJoues, contient(type, cle), EXTRAIRE[autre]);
 }
 
-/** Texte d'un embleme, talent ou sort (`emblemesData`), ou le repli fourni. */
+/** Texte d'un embleme, talent ou sort (`emblemData`), ou le repli fourni. */
 export function texteChoix(t: T, cle: string, champ: string, repli: string | null = null): string | null {
-  const k = `emblemesData.${cle}.${champ}`;
+  const k = `emblemData.${cle}.${champ}`;
   const v = t(k);
   return v === k ? repli : v;
 }
 
-export const nomTalent = (t: T, cle: string) => texteChoix(t, cle, "nom", nomsJoues.get(cle) ?? cle)!;
+export const nomTalent = (t: T, cle: string) => texteChoix(t, cle, "name", nomsJoues.get(cle) ?? cle)!;
 export const imageTalent = (cle: string) => V.talents[cle] ?? null;
 
 const absolue = (chemin: string) => (/^https?:/.test(chemin) ? chemin : `${site.url}${chemin}`);

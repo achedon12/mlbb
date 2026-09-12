@@ -48,7 +48,7 @@ const nomFiltre = (t: T, f: FiltreTier) => (f.type === "lane" ? t(`lanes.${f.val
 function reperesFiltre(t: T, f: FiltreTier): Record<string, string> {
   return f.type === "lane"
     ? { lane: t(`pages.tierList.laneSeo.${f.valeur}`) }
-    : { role: t(`roles.${f.valeur}`), pluriel: t(`pages.tierList.rolePluriel.${f.valeur}`) };
+    : { role: t(`roles.${f.valeur}`), pluriel: t(`pages.tierList.rolePlural.${f.valeur}`) };
 }
 
 /**
@@ -58,15 +58,15 @@ function reperesFiltre(t: T, f: FiltreTier): Record<string, string> {
  */
 export function metaTierList(locale: Langue, rang: RangMesure, filtre: FiltreTier | null = null): Metadata {
   const t = creerT(locale);
-  const reperes = { mois: moisAnnee(locale), v: patchActuel.version, rang: t(`rangsMesure.${rang}`) };
+  const reperes = { mois: moisAnnee(locale), v: patchActuel.version, rang: t(`measuredRanks.${rang}`) };
   const titre = filtre
-    ? t(filtre.type === "lane" ? "pages.seo.tierLane.titre" : "pages.seo.tierRole.titre", {
+    ? t(filtre.type === "lane" ? "pages.seo.tierLane.title" : "pages.seo.tierRole.title", {
         ...reperes,
         ...reperesFiltre(t, filtre),
       })
     : rang === "all"
-      ? t("pages.seo.tierList.titre", reperes)
-      : t("pages.seo.tierList.titreRang", reperes);
+      ? t("pages.seo.tierList.title", reperes)
+      : t("pages.seo.tierList.titleRank", reperes);
   return metaPage(locale, {
     titre,
     description: descriptionTierList(locale, rang, filtre),
@@ -79,13 +79,13 @@ export function metaTierList(locale: Langue, rang: RangMesure, filtre: FiltreTie
 function descriptionTierList(locale: Langue, rang: RangMesure, filtre: FiltreTier | null): string {
   const t = creerT(locale);
   const classement = classementDe(rang, filtre);
-  const nomRang = t(`rangsMesure.${rang}`);
+  const nomRang = t(`measuredRanks.${rang}`);
   const premier = classement[0];
   if (!premier) {
     if (filtre) return chapeauFiltre(t, filtre, 0);
     return rang === "all"
       ? t("pages.tierList.metaDescription")
-      : t("pages.tierList.metaDescriptionRang", { rang: nomRang });
+      : t("pages.tierList.metaDescriptionRank", { rang: nomRang });
   }
   const valeurs = {
     top: listeNoms(locale, classement.slice(0, 3).map((e) => e.hero.name)),
@@ -104,11 +104,11 @@ function descriptionTierList(locale: Langue, rang: RangMesure, filtre: FiltreTie
   }
   return rang === "all"
     ? t("pages.seo.tierList.description", valeurs)
-    : t("pages.seo.tierList.descriptionRang", valeurs);
+    : t("pages.seo.tierList.descriptionRank", valeurs);
 }
 
 function chapeauFiltre(t: T, f: FiltreTier, n: number): string {
-  return t(f.type === "lane" ? "pages.tierList.chapeauLane" : "pages.tierList.chapeauRole", {
+  return t(f.type === "lane" ? "pages.tierList.leadLane" : "pages.tierList.leadRole", {
     ...reperesFiltre(t, f),
     n,
   });
@@ -127,18 +127,18 @@ export function TierList({
   const t = creerT(locale);
   const notes = tierNotesDe(locale);
   const classement = classementDe(rang, filtre);
-  const nomRang = t(`rangsMesure.${rang}`);
+  const nomRang = t(`measuredRanks.${rang}`);
   const chemin = cheminDe(rang, filtre);
   const titre = filtre
-    ? t(filtre.type === "lane" ? "pages.tierList.titreLane" : "pages.tierList.titreRole", reperesFiltre(t, filtre))
+    ? t(filtre.type === "lane" ? "pages.tierList.titleLane" : "pages.tierList.titleRole", reperesFiltre(t, filtre))
     : rang === "all"
-      ? t("pages.tierList.titre")
-      : t("pages.tierList.titreRang", { rang: nomRang });
+      ? t("pages.tierList.title")
+      : t("pages.tierList.titleRank", { rang: nomRang });
   const chapeau = filtre
     ? chapeauFiltre(t, filtre, classement.length)
     : rang === "all"
-      ? t("pages.tierList.chapeau")
-      : t("pages.tierList.chapeauRang", { rang: nomRang });
+      ? t("pages.tierList.lead")
+      : t("pages.tierList.leadRank", { rang: nomRang });
   const pourcent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const taux = (v: number) => `${pourcent.format(v)} %`;
 
@@ -173,10 +173,10 @@ export function TierList({
     };
   };
   const libelles = {
-    victoire: t("pages.tierList.victoire"),
+    victoire: t("pages.tierList.win"),
     ban: t("pages.tierList.ban"),
     pick: t("pages.tierList.pick"),
-    tropPeu: t("pages.tierList.tropPeu"),
+    tropPeu: t("pages.tierList.tooFew"),
   };
 
   // Tout le classement de la page, dans son ordre, avec la date du releve.
@@ -191,7 +191,7 @@ export function TierList({
 
   const miettes: Miette[] | undefined = filtre
     ? [
-        { nom: t("pages.tierList.titre"), href: "/tier-list" },
+        { nom: t("pages.tierList.title"), href: "/tier-list" },
         {
           nom: nomFiltre(t, filtre),
           freres: (filtre.type === "lane" ? FILTRES_LANE : FILTRES_ROLE).map((f) => ({
@@ -203,10 +203,10 @@ export function TierList({
     : rang === "all"
       ? undefined
       : [
-          { nom: t("pages.tierList.titre"), href: "/tier-list" },
+          { nom: t("pages.tierList.title"), href: "/tier-list" },
           {
             nom: nomRang,
-            freres: RANGS_CLASSES.map((r) => ({ nom: t(`rangsMesure.${r}`), href: cheminDu(r) })),
+            freres: RANGS_CLASSES.map((r) => ({ nom: t(`measuredRanks.${r}`), href: cheminDu(r) })),
           },
         ];
 
@@ -214,15 +214,15 @@ export function TierList({
   const memeFiltre = (f: FiltreTier) => filtre?.type === f.type && filtre.valeur === f.valeur;
   const rangees: RangeeTier[] = [
     {
-      libelle: t("pages.tierList.parRang"),
-      liens: RANGS_CLASSES.map((r) => ({ href: cheminDu(r), nom: t(`rangsMesure.${r}`), actif: !filtre && r === rang })),
+      libelle: t("pages.tierList.byRank"),
+      liens: RANGS_CLASSES.map((r) => ({ href: cheminDu(r), nom: t(`measuredRanks.${r}`), actif: !filtre && r === rang })),
     },
     {
-      libelle: t("pages.tierList.parLane"),
+      libelle: t("pages.tierList.byLane"),
       liens: FILTRES_LANE.map((f) => ({ href: cheminFiltre(f), nom: nomFiltre(t, f), actif: memeFiltre(f) })),
     },
     {
-      libelle: t("pages.tierList.parRole"),
+      libelle: t("pages.tierList.byRole"),
       liens: FILTRES_ROLE.map((f) => ({ href: cheminFiltre(f), nom: nomFiltre(t, f), actif: memeFiltre(f) })),
     },
   ];
@@ -236,7 +236,7 @@ export function TierList({
       <EnTetePage titre={titre} chapeau={chapeau} miettes={miettes}>
         <LigneFraicheur
           langue={locale}
-          avant={t("pages.fraicheur.herosClasses", { n: classement.length })}
+          avant={t("pages.freshness.heroesRanked", { n: classement.length })}
           className="mt-6"
         />
       </EnTetePage>
@@ -246,12 +246,12 @@ export function TierList({
           <RangeesTier rangees={rangees} />
           {filtre && (
             <p className="text-sm leading-relaxed text-chalk-500">
-              {t("pages.tierList.noteFiltre")}
+              {t("pages.tierList.filterNote")}
               {filtre.type === "role" && (
                 <>
                   {" "}
                   <Link href={cheminRole(filtre.valeur)} className="font-semibold text-gold-400 hover:text-gold-500">
-                    {t("pages.tierList.voirRole", reperesFiltre(t, filtre))} →
+                    {t("pages.tierList.seeRole", reperesFiltre(t, filtre))} →
                   </Link>
                 </>
               )}
@@ -262,12 +262,12 @@ export function TierList({
         {/* Le lecteur doit pouvoir contester le classement : on montre la regle. */}
         <p className="mb-6 text-sm">
           <Link href={rang === "all" ? "/statistics" : `/statistics/${rang}`} className="font-semibold text-gold-400 hover:text-gold-500">
-            {t("pages.statistics.lienDepuisTierList")} →
+            {t("pages.statistics.fromTierListLink")} →
           </Link>
         </p>
         <details className="bevel mb-10 border border-night-700/70 bg-night-900/60 p-5">
           <summary className="cursor-pointer font-heading font-bold text-gold-400">
-            {t("pages.tierList.commentCalcule")}
+            {t("pages.tierList.howCalculated")}
           </summary>
           <div className="mt-4 space-y-3 text-sm leading-relaxed text-chalk-300">
             <p>
@@ -276,9 +276,9 @@ export function TierList({
             <p>{t("pages.tierList.p2")}</p>
             <p>
               {t("pages.tierList.p3pre")}
-              <span className="text-gold-400">{t("pages.tierList.asterisque")}</span>{t("pages.tierList.p3post")}
+              <span className="text-gold-400">{t("pages.tierList.asterisk")}</span>{t("pages.tierList.p3post")}
             </p>
-            <p>{t("pages.tierList.tendances", { seuil: pourcent.format(SEUIL_NOTABLE) })}</p>
+            <p>{t("pages.tierList.trends", { seuil: pourcent.format(SEUIL_NOTABLE) })}</p>
           </div>
         </details>
 
@@ -293,10 +293,10 @@ export function TierList({
                   <BadgePalier palier={palier} />
                   <div>
                     <h2 className="font-heading text-xl font-bold text-chalk-100">
-                      {t("pages.tierList.palier", { p: palier })}
+                      {t("pages.tierList.tier", { p: palier })}
                       <span className="ml-2 text-sm font-medium text-chalk-500">{entrees.length}</span>
                     </h2>
-                    <p className="text-sm text-chalk-500">{t(`pages.tierList.legende.${palier}`)}</p>
+                    <p className="text-sm text-chalk-500">{t(`pages.tierList.legend.${palier}`)}</p>
                   </div>
                 </div>
 

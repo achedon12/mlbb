@@ -51,7 +51,7 @@ export function TableauPostes<C extends Role | Lane>({
 }) {
   const nom = (cle: C) => t(`${type}.${cle}`);
   const colonne = type === "roles" ? t("pages.accountProfile.colRole") : t("builds.position");
-  const cleEcartees = type === "roles" ? "sansRole" : "sansPosition";
+  const cleEcartees = type === "roles" ? "noRole" : "noPosition";
 
   return (
     <div className="min-w-0">
@@ -61,10 +61,10 @@ export function TableauPostes<C extends Role | Lane>({
       {bilan.lignes.length === 0 ? (
         <p className="mt-4 text-sm leading-relaxed text-chalk-400">
           {type === "roles"
-            ? t("pages.accountProfile.herosVide")
+            ? t("pages.accountProfile.heroesEmpty")
             : bilan.ecartees > 0
-              ? t("pages.accountProfile.positionsVide")
-              : t("pages.accountProfile.partiesVide")}
+              ? t("pages.accountProfile.positionsEmpty")
+              : t("pages.accountProfile.gamesEmpty")}
         </p>
       ) : (
         <>
@@ -77,13 +77,13 @@ export function TableauPostes<C extends Role | Lane>({
                     {colonne}
                   </th>
                   <th scope="col" className="px-2 py-2 text-right font-medium">
-                    {t("pages.accountProfile.parties")}
+                    {t("pages.accountProfile.games")}
                   </th>
                   <th scope="col" className="px-2 py-2 text-right font-medium">
-                    {t("pages.accountProfile.colPart")}
+                    {t("pages.accountProfile.colShare")}
                   </th>
                   <th scope="col" className="py-2 pl-2 text-right font-medium">
-                    {t("pages.accountProfile.colVictoire")}
+                    {t("pages.accountProfile.colWin")}
                   </th>
                 </tr>
               </thead>
@@ -103,7 +103,7 @@ export function TableauPostes<C extends Role | Lane>({
                             )}
                           >
                             {fort ? <Trophy size={12} aria-hidden /> : <TrendingDown size={12} aria-hidden />}
-                            {t(fort ? "pages.accountProfile.pointFort" : "pages.accountProfile.aTravailler")}
+                            {t(fort ? "pages.accountProfile.strongPoint" : "pages.accountProfile.toImprove")}
                           </span>
                         )}
                       </th>
@@ -134,13 +134,13 @@ export function TableauPostes<C extends Role | Lane>({
 
           <p className="mt-3 text-sm leading-relaxed text-chalk-300">
             {bilan.fort && bilan.faible
-              ? t("pages.accountProfile.postesBilan", {
+              ? t("pages.accountProfile.rolesSummary", {
                   fort: nom(bilan.fort),
                   tauxFort: formaterPourcent(bilan.lignes.find((l) => l.cle === bilan.fort)!.taux, langue),
                   faible: nom(bilan.faible),
                   tauxFaible: formaterPourcent(bilan.lignes.find((l) => l.cle === bilan.faible)!.taux, langue),
                 })
-              : t("pages.accountProfile.postesPeu", { n: PARTIES_MIN_POSTE })}
+              : t("pages.accountProfile.rolesFew", { n: PARTIES_MIN_POSTE })}
           </p>
           {bilan.ecartees > 0 && (
             <p className="mt-2 text-xs text-chalk-500">
@@ -188,15 +188,15 @@ export function EvolutionJoueur({
   t: T;
   langue: Langue;
 }) {
-  if (evo.parties === 0) return <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.partiesVide")}</p>;
+  if (evo.parties === 0) return <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.gamesEmpty")}</p>;
 
   const serie = evo.serieEnCours;
   const nombreDe = (n: number) => formaterNombre(n, langue);
-  const cleSerie = serie?.victoire ? "serieVictoires" : "serieDefaites";
-  const cleSource = fin ? "evolutionSaison" : "evolutionSource";
+  const cleSerie = serie?.victoire ? "winStreak" : "lossStreak";
+  const cleSource = fin ? "trendSeason" : "trendSource";
   const courbe = evo.courbe;
   const resume = courbe
-    ? t("pages.accountProfile.courbeResume", {
+    ? t("pages.accountProfile.curveSummary", {
         f: FENETRE_FORME,
         debut: jour(courbe.dates[0], langue),
         fin: jour(courbe.dates.at(-1)!, langue),
@@ -211,7 +211,7 @@ export function EvolutionJoueur({
     <>
       <dl className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <Tuile
-          label={t("pages.accountProfile.serieEnCours")}
+          label={t("pages.accountProfile.currentStreak")}
           ton={serie ? (serie.victoire ? "bon" : "mauvais") : undefined}
         >
           {serie ? (
@@ -223,9 +223,9 @@ export function EvolutionJoueur({
             "—"
           )}
         </Tuile>
-        <Tuile label={t("pages.accountProfile.plusLongueVictoires")}>{nombreDe(evo.meilleureSerie)}</Tuile>
-        <Tuile label={t("pages.accountProfile.plusLongueDefaites")}>{nombreDe(evo.pireSerie)}</Tuile>
-        <Tuile label={t("pages.accountProfile.dernieresParties", { n: FENETRE_FORME })}>
+        <Tuile label={t("pages.accountProfile.longestWinStreak")}>{nombreDe(evo.meilleureSerie)}</Tuile>
+        <Tuile label={t("pages.accountProfile.longestLossStreak")}>{nombreDe(evo.pireSerie)}</Tuile>
+        <Tuile label={t("pages.accountProfile.recentGames", { n: FENETRE_FORME })}>
           {evo.forme !== null ? formaterPourcent(evo.forme, langue) : "—"}
         </Tuile>
       </dl>
@@ -236,12 +236,12 @@ export function EvolutionJoueur({
             dates={courbe.dates}
             series={[
               {
-                nom: t("pages.accountProfile.serieGlissante", { n: FENETRE_FORME }),
+                nom: t("pages.accountProfile.rollingSeries", { n: FENETRE_FORME }),
                 valeurs: courbe.glissante,
                 couleur: "text-gold-400",
               },
               {
-                nom: t("pages.accountProfile.serieCumulee"),
+                nom: t("pages.accountProfile.cumulativeSeries"),
                 valeurs: courbe.cumulee,
                 couleur: "text-azure-400",
                 tirets: true,
@@ -253,7 +253,7 @@ export function EvolutionJoueur({
         </div>
       ) : (
         <p className="mt-4 text-sm leading-relaxed text-chalk-400">
-          {t("pages.accountProfile.courbeCourte", { n: FENETRE_FORME + 1 })}
+          {t("pages.accountProfile.curveShort", { n: FENETRE_FORME + 1 })}
         </p>
       )}
 
@@ -322,7 +322,7 @@ export function FichesHerosRang({
   t: T;
   langue: Langue;
 }) {
-  const nomRang = (r: RangMesure) => t(`rangsMesure.${r}`);
+  const nomRang = (r: RangMesure) => t(`measuredRanks.${r}`);
   const nomEmbleme = (nom: string) => {
     const role = t(`roles.${nom}`);
     return role === `roles.${nom}` ? nom : role;
@@ -330,13 +330,13 @@ export function FichesHerosRang({
 
   return (
     <div className="mt-10">
-      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.accountProfile.faceRangTitre")}</h3>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.accountProfile.vsRankTitle")}</h3>
       <p className="mt-1 max-w-2xl text-sm leading-relaxed text-chalk-500">
-        {t("pages.accountProfile.faceRangIntro", { rang: nomRang(tranche) })}
+        {t("pages.accountProfile.vsRankIntro", { rang: nomRang(tranche) })}
       </p>
 
       {fiches.length === 0 ? (
-        <p className="mt-4 text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.faceRangVide")}</p>
+        <p className="mt-4 text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.vsRankEmpty")}</p>
       ) : (
         <ul className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {fiches.map(({ ligne, lane, build, rangBuild, faibles, rangContres }) => {
@@ -354,11 +354,11 @@ export function FichesHerosRang({
                       {nom}
                     </Link>
                     <p className="text-xs text-chalk-500">
-                      {t(`pages.accountProfile.nParties.${pluriel(ligne.parties, langue)}`, { n: ligne.parties })}
+                      {t(`pages.accountProfile.nGames.${pluriel(ligne.parties, langue)}`, { n: ligne.parties })}
                       {ligne.moyenne !== null && (
                         <>
                           {" · "}
-                          {t("pages.accountProfile.sousMoyenneDetail", {
+                          {t("pages.accountProfile.belowAverageDetail", {
                             taux: formaterPourcent(ligne.taux, langue),
                             moyenne: formaterPourcent(ligne.moyenne, langue),
                           })}
@@ -379,7 +379,7 @@ export function FichesHerosRang({
                               : "text-chalk-300",
                       )}
                     >
-                      {`${formaterEcart(ligne.ecart, langue)} ${t("contres.pts")}`}
+                      {`${formaterEcart(ligne.ecart, langue)} ${t("counters.pts")}`}
                     </span>
                   )}
                 </div>
@@ -387,22 +387,22 @@ export function FichesHerosRang({
                 {build && rangBuild && (
                   <section className="mt-4 border-t border-night-800 pt-3">
                     <h4 className="text-xs font-semibold uppercase tracking-wide text-chalk-400">
-                      {t("pages.accountProfile.buildRang", { rang: nomRang(rangBuild) })}
+                      {t("pages.accountProfile.buildRank", { rang: nomRang(rangBuild) })}
                     </h4>
                     <p className="mt-0.5 text-xs text-chalk-500">
                       {[
                         lane ? t("pages.accountProfile.positionBuild", { lane: t(`lanes.${lane}`) }) : null,
                         build.victoire !== null
-                          ? t("builds.victoire", { taux: formaterNombre(build.victoire, langue, 1) })
+                          ? t("builds.win", { taux: formaterNombre(build.victoire, langue, 1) })
                           : null,
                         build.selection !== null
-                          ? t("builds.selection", { taux: formaterNombre(build.selection, langue, 1) })
+                          ? t("builds.pick", { taux: formaterNombre(build.selection, langue, 1) })
                           : null,
                       ]
                         .filter(Boolean)
                         .join(" · ")}
                     </p>
-                    <ul aria-label={t("builds.objets")} className="mt-2 grid grid-cols-3 gap-1.5">
+                    <ul aria-label={t("builds.items")} className="mt-2 grid grid-cols-3 gap-1.5">
                       {build.objets.map((o, i) => (
                         <li key={`${o.nom}-${i}`}>
                           <ObjetIcone objet={o} />
@@ -412,13 +412,13 @@ export function FichesHerosRang({
                     <div className="mt-3 grid grid-cols-2 gap-2">
                       {build.embleme && (
                         <ChoixBuild
-                          libelle={t("builds.embleme")}
+                          libelle={t("builds.emblem")}
                           nom={nomEmbleme(build.embleme.nom)}
                           image={build.embleme.image}
                         />
                       )}
                       {build.sort && (
-                        <ChoixBuild libelle={t("builds.sort")} nom={build.sort.nom} image={build.sort.image} />
+                        <ChoixBuild libelle={t("builds.spell")} nom={build.sort.nom} image={build.sort.image} />
                       )}
                     </div>
                     {build.talents.length > 0 && (
@@ -430,7 +430,7 @@ export function FichesHerosRang({
                       </p>
                     )}
                     <LienOnglet href={`/heroes/${slug}#builds`}>
-                      {t("pages.accountProfile.voirBuilds", { nom })}
+                      {t("pages.accountProfile.seeBuilds", { nom })}
                     </LienOnglet>
                   </section>
                 )}
@@ -439,7 +439,7 @@ export function FichesHerosRang({
                   <section className="mt-4 border-t border-night-800 pt-3">
                     <h4 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-chalk-400">
                       <Swords size={13} aria-hidden />
-                      {t("pages.accountProfile.contresRang", { rang: nomRang(rangContres) })}
+                      {t("pages.accountProfile.countersRank", { rang: nomRang(rangContres) })}
                     </h4>
                     <ul className="mt-2 space-y-1">
                       {faibles.map((c) => (
@@ -453,14 +453,14 @@ export function FichesHerosRang({
                               {c.heros.nom}
                             </span>
                             <span className="shrink-0 text-xs font-semibold tabular-nums text-blood-500">
-                              {`${formaterEcart(c.avantage, langue)} ${t("contres.pts")}`}
+                              {`${formaterEcart(c.avantage, langue)} ${t("counters.pts")}`}
                             </span>
                           </Link>
                         </li>
                       ))}
                     </ul>
                     <LienOnglet href={`/heroes/${slug}#contres`}>
-                      {t("pages.accountProfile.voirContres", { nom })}
+                      {t("pages.accountProfile.seeCounters", { nom })}
                     </LienOnglet>
                   </section>
                 )}

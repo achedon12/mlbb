@@ -326,7 +326,7 @@ export function ObjectiveTimer() {
                   )}
                 >
                   {match.running ? <Pause aria-hidden size={20} /> : <Play aria-hidden size={20} />}
-                  {t(match.running ? "pages.timerUI.pause" : "pages.timerUI.resume")}
+                  {t(match.running ? "pages.timerUI.pause" : "pages.timerUI.summary")}
                 </button>
                 <button
                   type="button"
@@ -578,7 +578,7 @@ function EventRow({ e, time, name }: { e: GameEvent; time: number; name: string 
   const level = milestone || spawned ? "calm" : urgency(remaining(e.at, time));
   const when = e.until !== null ? `${formatTime(e.at)}–${formatTime(e.until)}` : formatTime(e.at);
   const range = { start: formatTime(e.at), end: formatTime(e.until ?? e.at) };
-  const note = milestone ? t(`pages.timerUI.milestone.${e.key}`) : e.note ? t(`pages.timerUI.note.${e.note}`, range) : null;
+  const note = milestone ? t(`pages.timerUI.milestone.${e.key}`) : e.note ? t(`pages.timerUI.rating.${e.note}`, range) : null;
 
   return (
     <li

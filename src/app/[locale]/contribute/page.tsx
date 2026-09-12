@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.contribute.metaTitre"),
+    titre: t("pages.contribute.metaTitle"),
     description: t("pages.contribute.metaDescription"),
     chemin: "/contribute",
   });
@@ -32,44 +32,44 @@ interface Champ {
 /** Les trois types d'une analyse, dans l'ordre de `src/lib/types.ts`. */
 const GROUPES: { cle: string; champs: Champ[] }[] = [
   {
-    cle: "analyse",
+    cle: "analysis",
     champs: [
       { nom: "slug", type: "string", cle: "slug" },
-      { nom: "resume", type: "string", cle: "resume" },
-      { nom: "analyse", type: "string", cle: "analyse" },
-      { nom: "competences", type: "Competence[]", cle: "competences" },
-      { nom: "forces", type: "string[]", cle: "forces" },
-      { nom: "faiblesses", type: "string[]", cle: "faiblesses" },
-      { nom: "fortContre", type: "string[]", cle: "fortContre" },
-      { nom: "faibleContre", type: "string[]", cle: "faibleContre" },
+      { nom: "resume", type: "string", cle: "summary" },
+      { nom: "analyse", type: "string", cle: "analysis" },
+      { nom: "competences", type: "Competence[]", cle: "skills" },
+      { nom: "forces", type: "string[]", cle: "strengths" },
+      { nom: "faiblesses", type: "string[]", cle: "weaknesses" },
+      { nom: "fortContre", type: "string[]", cle: "strongAgainst" },
+      { nom: "faibleContre", type: "string[]", cle: "weakAgainst" },
       { nom: "builds", type: "Build[]", cle: "builds" },
     ],
   },
   {
-    cle: "competence",
+    cle: "skill",
     champs: [
-      { nom: "type", type: '"Passif" | "Competence 1" | "Competence 2" | "Ultime"', cle: "competence.type" },
-      { nom: "nom", type: "string", cle: "competence.nom" },
-      { nom: "description", type: "string", cle: "competence.description" },
-      { nom: "recharge", type: "number[]", cle: "competence.recharge", facultatif: true },
-      { nom: "cout", type: "number[]", cle: "competence.cout", facultatif: true },
+      { nom: "type", type: '"Passif" | "Competence 1" | "Competence 2" | "Ultime"', cle: "skill.type" },
+      { nom: "nom", type: "string", cle: "skill.name" },
+      { nom: "description", type: "string", cle: "skill.description" },
+      { nom: "recharge", type: "number[]", cle: "skill.cooldown", facultatif: true },
+      { nom: "cout", type: "number[]", cle: "skill.cost", facultatif: true },
     ],
   },
   {
     cle: "build",
     champs: [
-      { nom: "nom", type: "string", cle: "build.nom" },
-      { nom: "contexte", type: "string", cle: "build.contexte" },
-      { nom: "objets", type: "string[]", cle: "build.objets" },
-      { nom: "embleme", type: "string", cle: "build.embleme" },
+      { nom: "nom", type: "string", cle: "build.name" },
+      { nom: "contexte", type: "string", cle: "build.context" },
+      { nom: "objets", type: "string[]", cle: "build.items" },
+      { nom: "embleme", type: "string", cle: "build.emblem" },
       { nom: "talent", type: "string", cle: "build.talent" },
-      { nom: "sort", type: "string", cle: "build.sort" },
+      { nom: "sort", type: "string", cle: "build.spell" },
     ],
   },
 ];
 
-const STYLE = ["accents", "termes", "original", "valeurs", "concret"];
-const ETAPES = ["fork", "ajout", "verifier", "ouvrir", "relire", "fusion"];
+const STYLE = ["accents", "terms", "original", "values", "concrete"];
+const ETAPES = ["fork", "add", "check", "open", "reread", "merge"];
 
 const MODELE = "docs/modele-analyse.ts";
 
@@ -116,11 +116,11 @@ export default async function PageContribuer({ params }: Params) {
 
   return (
     <>
-      <EnTetePage titre={t("pages.contribute.titre")} chapeau={t("pages.contribute.chapeau")}>
+      <EnTetePage titre={t("pages.contribute.title")} chapeau={t("pages.contribute.lead")}>
         <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-3 text-sm">
           {[
             [t("pages.contribute.statAnalyses"), herosAnalyses.length],
-            [t("pages.contribute.statAttente"), heros.length - herosAnalyses.length],
+            [t("pages.contribute.statPending"), heros.length - herosAnalyses.length],
           ].map(([label, valeur]) => (
             <div key={String(label)}>
               <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
@@ -131,19 +131,19 @@ export default async function PageContribuer({ params }: Params) {
       </EnTetePage>
 
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
-        <Section titre={t("pages.contribute.principeTitre")}>
+        <Section titre={t("pages.contribute.principleTitle")}>
           <div className="space-y-4 leading-relaxed text-chalk-300">
-            <p>{avecCode(t("pages.contribute.principe1"))}</p>
-            <p>{avecCode(t("pages.contribute.principe2"))}</p>
+            <p>{avecCode(t("pages.contribute.principle1"))}</p>
+            <p>{avecCode(t("pages.contribute.principle2"))}</p>
           </div>
         </Section>
 
-        <Section titre={t("pages.contribute.champsTitre")}>
-          <p className="mb-5 leading-relaxed text-chalk-300">{avecCode(t("pages.contribute.champsIntro"))}</p>
+        <Section titre={t("pages.contribute.fieldsTitle")}>
+          <p className="mb-5 leading-relaxed text-chalk-300">{avecCode(t("pages.contribute.fieldsIntro"))}</p>
           <div className="space-y-5">
             {GROUPES.map((g) => (
               <Carte key={g.cle}>
-                <h3 className="font-heading text-lg font-bold text-gold-400">{t(`pages.contribute.groupe.${g.cle}`)}</h3>
+                <h3 className="font-heading text-lg font-bold text-gold-400">{t(`pages.contribute.group.${g.cle}`)}</h3>
                 <dl className="mt-3 divide-y divide-night-800">
                   {g.champs.map((c) => (
                     <div key={c.cle} className="grid gap-1 py-3 sm:grid-cols-[13rem_1fr] sm:gap-5">
@@ -151,11 +151,11 @@ export default async function PageContribuer({ params }: Params) {
                         <code className="font-mono text-sm text-chalk-100">{c.nom}</code>
                         <span className="mt-0.5 block break-words font-mono text-xs text-chalk-500">
                           {c.type}
-                          {c.facultatif && ` · ${t("pages.contribute.facultatif")}`}
+                          {c.facultatif && ` · ${t("pages.contribute.optional")}`}
                         </span>
                       </dt>
                       <dd className="text-sm leading-relaxed text-chalk-300">
-                        {avecCode(t(`pages.contribute.champs.${c.cle}`))}
+                        {avecCode(t(`pages.contribute.fields.${c.cle}`))}
                       </dd>
                     </div>
                   ))}
@@ -165,13 +165,13 @@ export default async function PageContribuer({ params }: Params) {
           </div>
         </Section>
 
-        <Section titre={t("pages.contribute.modeleTitre")}>
-          <p className="leading-relaxed text-chalk-300">{avecCode(t("pages.contribute.modeleIntro"))}</p>
+        <Section titre={t("pages.contribute.templateTitle")}>
+          <p className="leading-relaxed text-chalk-300">{avecCode(t("pages.contribute.templateIntro"))}</p>
           {modele && (
             <pre
               tabIndex={0}
               role="region"
-              aria-label={t("pages.contribute.modeleTitre")}
+              aria-label={t("pages.contribute.templateTitle")}
               className="bevel mt-4 max-h-[36rem] overflow-auto border border-night-700/70 bg-night-950 p-4 text-xs leading-relaxed text-chalk-300 outline-none focus-visible:border-gold-500"
             >
               <code>{modele}</code>
@@ -179,11 +179,11 @@ export default async function PageContribuer({ params }: Params) {
           )}
           <a href={`${site.depot}/blob/main/${MODELE}`} rel="noreferrer" className={`mt-4 ${lienExterne}`}>
             <FileCode size={16} aria-hidden />
-            {t("pages.contribute.modeleLien")}
+            {t("pages.contribute.templateLink")}
           </a>
         </Section>
 
-        <Section titre={t("pages.contribute.styleTitre")}>
+        <Section titre={t("pages.contribute.styleTitle")}>
           <ul className="space-y-3">
             {STYLE.map((cle) => (
               <li key={cle} className="flex gap-3 leading-relaxed text-chalk-300">
@@ -194,7 +194,7 @@ export default async function PageContribuer({ params }: Params) {
           </ul>
         </Section>
 
-        <Section titre={t("pages.contribute.relectureTitre")}>
+        <Section titre={t("pages.contribute.reviewTitle")}>
           <ol className="space-y-4">
             {ETAPES.map((cle, i) => (
               <li key={cle} className="flex gap-4 leading-relaxed text-chalk-300">
@@ -204,18 +204,18 @@ export default async function PageContribuer({ params }: Params) {
                 >
                   {i + 1}
                 </span>
-                <span className="min-w-0 pt-1">{avecCode(t(`pages.contribute.relecture.${cle}`))}</span>
+                <span className="min-w-0 pt-1">{avecCode(t(`pages.contribute.review.${cle}`))}</span>
               </li>
             ))}
           </ol>
           <Carte className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-gold-500/30">
             <a href={`${site.depot}/compare`} rel="noreferrer" className={lienExterne}>
               <GitPullRequest size={16} aria-hidden />
-              {t("pages.contribute.lienPR")}
+              {t("pages.contribute.prLink")}
             </a>
             <a href={`${site.depot}/blob/main/CONTRIBUTING.md`} rel="noreferrer" className={lienExterne}>
               <BookOpen size={16} aria-hidden />
-              {t("pages.contribute.lienGuide")}
+              {t("pages.contribute.guideLink")}
             </a>
           </Carte>
         </Section>

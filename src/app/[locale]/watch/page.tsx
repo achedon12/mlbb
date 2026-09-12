@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.watch.metaTitre"),
+    titre: t("pages.watch.metaTitle"),
     description: t("pages.watch.metaDescription"),
     partage: t("pages.watch.ogDescription"),
     chemin: "/watch",
@@ -29,11 +29,11 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
   return (
     <>
       <EnTetePage
-        titre={t("pages.watch.titre")}
-        chapeau={t("pages.watch.chapeau")}
+        titre={t("pages.watch.title")}
+        chapeau={t("pages.watch.lead")}
       >
         <p className="mt-6 text-sm text-chalk-500">
-          {t("pages.watch.derniereCollecte", { date: date(mesureVeille) })}{" "}
+          {t("pages.watch.lastCollected", { date: date(mesureVeille) })}{" "}
           {sources.map((s, i) => (
             <span key={s.slug}>
               {i > 0 && ", "}
@@ -48,7 +48,7 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
       <div className="mx-auto max-w-4xl px-4 py-14">
         {actualites.length === 0 ? (
           <p className="text-chalk-500">
-            {t("pages.watch.aucune")}
+            {t("pages.watch.none")}
           </p>
         ) : (
           <ul className="space-y-3">

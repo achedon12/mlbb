@@ -99,11 +99,11 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
             setRecherche(v);
             setTranches(1);
           }}
-          libelle={t("pages.heroesListe.rechercher")}
+          libelle={t("pages.heroesList.search")}
           className="max-w-md"
         />
         <ChoixUnique
-          legende={t("pages.heroesListe.role")}
+          legende={t("pages.heroesList.role")}
           valeurs={ROLES}
           actif={role}
           onChange={(r) => {
@@ -115,11 +115,11 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
-        {t("pages.skinsGalerie.compte", { h: resultats.length, n: nombre.format(total) })}
+        {t("pages.skinsGallery.account", { h: resultats.length, n: nombre.format(total) })}
       </p>
 
       {resultats.length === 0 ? (
-        <p className="mt-10 text-chalk-500">{t("pages.heroesListe.aucun")}</p>
+        <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
       ) : (
         <div className="mt-6 space-y-10">
           {visibles.map((g) => (
@@ -128,7 +128,7 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
                 <h3 id={`skins-${g.slug}`} className="font-heading text-xl font-bold text-chalk-100">
                   {g.nom}
                   <span className="ml-2 text-sm font-medium text-chalk-500">
-                    {t(`pages.skinsGalerie.nombre.${pluriel.select(g.skins.length) === "one" ? "one" : "other"}`, {
+                    {t(`pages.skinsGallery.count.${pluriel.select(g.skins.length) === "one" ? "one" : "other"}`, {
                       n: g.skins.length,
                     })}
                   </span>
@@ -138,7 +138,7 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
                   prefetch={false}
                   className="text-sm font-semibold text-gold-400 hover:text-gold-500"
                 >
-                  {t("pages.skinsGalerie.voirTout")} →
+                  {t("pages.skinsGallery.seeAll")} →
                 </Link>
               </div>
               <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-8">
@@ -156,7 +156,7 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
                         {src ? (
                           <ImageLegere
                             src={src}
-                            alt={t("pages.skinsGalerie.alt", { heros: g.nom, skin: nom })}
+                            alt={t("pages.skinsGallery.alt", { heros: g.nom, skin: nom })}
                             largeur={120}
                             hauteur={195}
                           />
@@ -181,7 +181,7 @@ export function GalerieSkins({ groupes }: { groupes: GroupeSkins[] }) {
           onClick={() => setTranches((n) => n + 1)}
           className="bevel-sm mt-10 w-full border border-night-700 px-4 py-3 text-sm font-semibold text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
         >
-          {t("pages.skinsGalerie.voirPlus", { n: reste })}
+          {t("pages.skinsGallery.seeMore", { n: reste })}
         </button>
       )}
     </div>

@@ -8,7 +8,7 @@ export function CreditWiki({
   t,
   href,
   className,
-  cle = "commun.licenceWiki",
+  cle = "common.wikiLicence",
 }: {
   t: T;
   href: string;
@@ -20,7 +20,7 @@ export function CreditWiki({
     <p className={className ?? "mt-8 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"}>
       {avant}
       <a href={href} rel="noreferrer nofollow" target="_blank" className="text-gold-400 hover:underline">
-        {t("commun.sourceWiki")}
+        {t("common.sourceWiki")}
       </a>
       {apres}
     </p>

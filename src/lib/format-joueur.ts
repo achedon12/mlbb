@@ -34,8 +34,8 @@ export function formaterEcart(points: number, langue: Langue): string {
 }
 
 /** Forme a employer pour un nombre, selon les regles de pluriel de la langue. */
-export function pluriel(n: number, langue: Langue): "un" | "autres" {
-  return new Intl.PluralRules(LOCALE_HTML[langue]).select(n) === "one" ? "un" : "autres";
+export function pluriel(n: number, langue: Langue): "one" | "other" {
+  return new Intl.PluralRules(LOCALE_HTML[langue]).select(n) === "one" ? "one" : "other";
 }
 
 /** Rapport (eliminations + assistances) / morts, une mort comptee au minimum. */

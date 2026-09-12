@@ -51,23 +51,23 @@ export function ContresChiffres({
   return (
     <div>
       <p className="mb-4 text-sm leading-relaxed text-chalk-500">
-        {t("pages.heroDetail.contresIntro", { nom })}
+        {t("pages.heroDetail.countersIntro", { nom })}
         {courant.winRate !== null && (
           <span className="text-chalk-300">
-            {" "}{t("pages.heroDetail.contresRef", { taux: courant.winRate })}
+            {" "}{t("pages.heroDetail.countersRef", { taux: courant.winRate })}
           </span>
         )}
       </p>
 
       <div className="grid gap-4 md:grid-cols-2">
         <Colonne
-          titre={t("contres.fort")}
+          titre={t("counters.strong")}
           icone={<TrendingUp size={17} aria-hidden />}
           ton="bon"
           entrees={courant.strong}
         />
         <Colonne
-          titre={t("contres.difficulte")}
+          titre={t("counters.difficulty")}
           icone={<TrendingDown size={17} aria-hidden />}
           ton="mauvais"
           entrees={courant.weak}
@@ -95,9 +95,9 @@ export function CoequipiersParRang({
 
   return (
     <div>
-      <p className="mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroDetail.coequipiersIntro", { nom })}</p>
+      <p className="mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroDetail.teammatesIntro", { nom })}</p>
       <div className="grid gap-4 md:grid-cols-2">
-        <Colonne titre={t("pages.heroDetail.coequipiers")} icone={<Users size={17} aria-hidden />} ton="bon" entrees={liste} />
+        <Colonne titre={t("pages.heroDetail.teammates")} icone={<Users size={17} aria-hidden />} ton="bon" entrees={liste} />
       </div>
     </div>
   );
@@ -134,7 +134,7 @@ function Colonne({
               <span className="min-w-0 flex-1 truncate text-sm text-chalk-100">{e.nom}</span>
               <span className={cn("shrink-0 text-xs font-semibold tabular-nums", couleur)}>
                 {e.advantage > 0 ? "+" : ""}
-                {e.advantage.toFixed(1)} {t("contres.pts")}
+                {e.advantage.toFixed(1)} {t("counters.pts")}
               </span>
             </Link>
           </li>

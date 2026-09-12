@@ -16,11 +16,11 @@ import { cn } from "@/lib/utils";
 type Etat = EtatNotifications | "chargement";
 
 const MESSAGES: Partial<Record<Etat, string>> = {
-  actif: "favoris.push.actif",
-  inactif: "favoris.push.inactif",
-  refuse: "favoris.push.refuse",
-  "non-supporte": "favoris.push.nonSupporte",
-  "ios-installer": "favoris.push.iosInstaller",
+  actif: "favourites.push.active",
+  inactif: "favourites.push.inactive",
+  refuse: "favourites.push.denied",
+  "non-supporte": "favourites.push.unsupported",
+  "ios-installer": "favourites.push.iosInstall",
 };
 
 /**
@@ -73,7 +73,7 @@ export function BasculeNotifications({ favoris }: { favoris: readonly string[] }
 
   const actif = etat === "actif";
   const bloque = etat === "non-supporte" || etat === "ios-installer";
-  const cle = occupe ? "favoris.push.enCours" : erreur ? "favoris.push.erreur" : MESSAGES[etat];
+  const cle = occupe ? "favourites.push.pending" : erreur ? "favourites.push.error" : MESSAGES[etat];
   const Icone = actif ? BellRing : Bell;
 
   return (
@@ -82,10 +82,10 @@ export function BasculeNotifications({ favoris }: { favoris: readonly string[] }
         <Icone size={16} aria-hidden className={cn("mt-0.5 shrink-0", actif ? "text-gold-400" : "text-chalk-500")} />
         <div className="min-w-0 flex-1">
           <p id={`${id}-titre`} className="text-sm font-semibold text-chalk-100">
-            {t("favoris.push.titre")}
+            {t("favourites.push.title")}
           </p>
           <p id={`${id}-desc`} className="mt-1 text-xs leading-relaxed text-chalk-500">
-            {t("favoris.push.description")}
+            {t("favourites.push.description")}
           </p>
         </div>
         <button
@@ -126,9 +126,9 @@ export function BasculeNotifications({ favoris }: { favoris: readonly string[] }
         {cle ? t(cle) : ""}
       </p>
       <p className="mt-2 text-xs leading-relaxed text-chalk-500">
-        {t("favoris.push.vie")}{" "}
+        {t("favourites.push.life")}{" "}
         <Link href="/privacy" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">
-          {t("favoris.push.lienConfidentialite")}
+          {t("favourites.push.privacyLink")}
         </Link>
       </p>
     </div>
@@ -147,7 +147,7 @@ export function ClocheNotifications({ favoris }: { favoris: readonly string[] })
   if (etat === "chargement" || etat === "indisponible" || etat === "non-supporte") return null;
 
   const actif = etat === "actif";
-  const cle = !clic ? undefined : occupe ? "favoris.push.enCours" : erreur ? "favoris.push.erreur" : MESSAGES[etat];
+  const cle = !clic ? undefined : occupe ? "favourites.push.pending" : erreur ? "favourites.push.error" : MESSAGES[etat];
   const Icone = actif ? BellRing : Bell;
 
   return (
@@ -155,8 +155,8 @@ export function ClocheNotifications({ favoris }: { favoris: readonly string[] })
       <button
         type="button"
         aria-pressed={actif}
-        aria-label={t("favoris.push.titre")}
-        title={t("favoris.push.titre")}
+        aria-label={t("favourites.push.title")}
+        title={t("favourites.push.title")}
         aria-busy={occupe}
         disabled={occupe}
         onClick={() => {

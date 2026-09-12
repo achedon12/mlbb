@@ -265,7 +265,7 @@ function LigneTemps({
   ] as const;
   return (
     <figure className="mt-4">
-      <figcaption className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.ligneTemps")}</figcaption>
+      <figcaption className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.rowTime")}</figcaption>
       <div className="relative mb-9 mt-10 h-2 bg-night-800">
         <div
           aria-hidden
@@ -273,7 +273,7 @@ function LigneTemps({
           style={{ width: `${part(vous ?? adverse)}%` }}
         />
         <span aria-hidden className="absolute -top-1.5 left-0 h-5 w-0.5 bg-chalk-300" />
-        <span className="absolute left-0 top-4 text-xs text-chalk-500">{t("outils.chatiment.ligneSeuil")}</span>
+        <span className="absolute left-0 top-4 text-xs text-chalk-500">{t("tools.retribution.rowThreshold")}</span>
         {reperes.map(({ cle, ms, couleur, fond, icone: Icone, haut }) => {
           if (ms === null) return null;
           const p = part(ms);
@@ -289,7 +289,7 @@ function LigneTemps({
                 )}
               >
                 <Icone size={13} aria-hidden />
-                {t(cle === "vous" ? "outils.chatiment.ligneVous" : "outils.chatiment.ligneAdverse", {
+                {t(cle === "vous" ? "tools.retribution.rowYou" : "tools.retribution.rowEnemy", {
                   ms: nombre.format(ms),
                 })}
               </span>
@@ -352,8 +352,8 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
   const monstre = useRef<HTMLDivElement>(null);
   const flash = useRef<HTMLDivElement>(null);
 
-  const nomObjectif = (o: CleObjectif) => t(`outils.chatiment.objectif.${o}`);
-  const nomDifficulte = (d: Difficulte) => t(`outils.chatiment.difficulte.${d}`);
+  const nomObjectif = (o: CleObjectif) => t(`tools.retribution.objective.${o}`);
+  const nomDifficulte = (d: Difficulte) => t(`tools.retribution.difficulty.${d}`);
 
   function changerPhase(p: Phase) {
     jeu.current.phase = p;
@@ -393,8 +393,8 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
     switch (r.issue) {
       case "securise":
         return {
-          titre: t("outils.chatiment.issueSecurise"),
-          detail: t("outils.chatiment.detailSecurise", {
+          titre: t("tools.retribution.outcomeSecured"),
+          detail: t("tools.retribution.detailSecured", {
             precision: pourcent.format(r.precision ?? 0),
             reaction: nombre.format(r.reaction ?? 0),
             points: nombre.format(r.points),
@@ -402,16 +402,16 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
         };
       case "tropTot":
         return {
-          titre: t("outils.chatiment.issueTropTot"),
-          detail: t("outils.chatiment.detailTropTot", { reste: nombre.format(r.reste ?? 0), recharge: RECHARGE_CHATIMENT_S }),
+          titre: t("tools.retribution.outcomeTooEarly"),
+          detail: t("tools.retribution.detailTooEarly", { reste: nombre.format(r.reste ?? 0), recharge: RECHARGE_CHATIMENT_S }),
         };
       case "vole":
         return {
-          titre: t("outils.chatiment.issueVole"),
-          detail: t("outils.chatiment.detailVole", { reaction: nombre.format(r.reactionAdverse ?? 0) }),
+          titre: t("tools.retribution.outcomeStolen"),
+          detail: t("tools.retribution.detailStolen", { reaction: nombre.format(r.reactionAdverse ?? 0) }),
         };
       default:
-        return { titre: t("outils.chatiment.issueRate"), detail: t("outils.chatiment.detailRate") };
+        return { titre: t("tools.retribution.outcomeMissed"), detail: t("tools.retribution.detailMissed") };
     }
   }
 
@@ -430,25 +430,25 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
     );
     return {
       marque: site.nom,
-      titre: t("outils.chatiment.carteTitre"),
-      sousTitre: [nomObjectif(j.objectif), nomDifficulte(j.difficulte), t("outils.chatiment.niveauCourt", { n: j.niveau })]
+      titre: t("tools.retribution.mapTitle"),
+      sousTitre: [nomObjectif(j.objectif), nomDifficulte(j.difficulte), t("tools.retribution.levelShort", { n: j.niveau })]
         .join(" · "),
       total: b.total,
       formater: (n) => nombre.format(n),
-      libelleScore: t("outils.chatiment.points"),
+      libelleScore: t("tools.retribution.points"),
       stats: [
-        { libelle: t("outils.chatiment.securises"), valeur: `${b.securises}/${b.manches}` },
+        { libelle: t("tools.retribution.secured"), valeur: `${b.securises}/${b.manches}` },
         {
-          libelle: t("outils.chatiment.meilleureReaction"),
+          libelle: t("tools.retribution.bestReaction"),
           valeur: b.meilleureReaction === null ? "—" : `${nombre.format(b.meilleureReaction)} ms`,
         },
         {
-          libelle: t("outils.chatiment.precisionMoyenne"),
+          libelle: t("tools.retribution.averageAccuracy"),
           valeur: b.precisionMoyenne === null ? "—" : pourcent.format(b.precisionMoyenne),
         },
       ],
       manches: serie.map((r) => r.issue),
-      record: record ? t("outils.chatiment.nouveauRecord") : null,
+      record: record ? t("tools.retribution.newRecord") : null,
       adresse: adresse.replace(/^https?:\/\//, ""),
       polices: { titre: police("--heading-font"), corps: police("--body-font") },
       portrait: charge ? portrait : null,
@@ -515,7 +515,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
     changerPhase(fini ? "bilan" : "resultat");
     const v = verdict(r);
     const total = bilanSerie(serie).total;
-    setAnnonce(`${v.titre} ${v.detail}${fini ? ` ${t("outils.chatiment.annonceBilan", { points: nombre.format(total) })}` : ""}`);
+    setAnnonce(`${v.titre} ${v.detail}${fini ? ` ${t("tools.retribution.announceSummary", { points: nombre.format(total) })}` : ""}`);
     if (fini) void produireApercu(serie, record);
   }
 
@@ -567,7 +567,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
     setEclats([]);
     changerPhase("pret");
     setAnnonce(
-      t("outils.chatiment.annonceManche", {
+      t("tools.retribution.announceRound", {
         n: j.resultats.length + 1,
         total: MANCHES_PAR_SERIE,
         objectif: nomObjectif(objectif),
@@ -647,7 +647,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
 
   const bilan = phase === "bilan" ? bilanSerie(resultats) : null;
   const texte = bilan
-    ? t("outils.chatiment.textePartage", {
+    ? t("tools.retribution.shareText", {
         objectif: nomObjectif(objectif),
         difficulte: nomDifficulte(difficulte),
         points: nombre.format(bilan.total),
@@ -681,9 +681,9 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             ? new File([image], "mlbbdex-retribution.png", { type: "image/png" })
             : null;
       if (fichier && navigator.canShare?.({ files: [fichier] })) {
-        await navigator.share({ files: [fichier], title: t("outils.chatiment.carteTitre"), text: `${texte} ${adresse}` });
+        await navigator.share({ files: [fichier], title: t("tools.retribution.mapTitle"), text: `${texte} ${adresse}` });
       } else if (typeof navigator.share === "function") {
-        await navigator.share({ title: t("outils.chatiment.carteTitre"), text: texte, url: adresse });
+        await navigator.share({ title: t("tools.retribution.mapTitle"), text: texte, url: adresse });
       } else {
         await copier();
       }
@@ -711,11 +711,11 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
   const mancheCourante = Math.min(MANCHES_PAR_SERIE, resultats.length + (verrouille ? 1 : 0));
   const segment = (o.segment / pvMax) * 100;
   const libelleBouton = {
-    attente: t("outils.chatiment.commencer"),
-    pret: t("outils.chatiment.pret"),
-    combat: t("outils.chatiment.frapper"),
-    resultat: t("outils.chatiment.suivante"),
-    bilan: t("outils.chatiment.nouvelleSerie"),
+    attente: t("tools.retribution.start"),
+    pret: t("tools.retribution.ready"),
+    combat: t("tools.retribution.smite"),
+    resultat: t("tools.retribution.next"),
+    bilan: t("tools.retribution.newRun"),
   }[phase];
   const classeChoix = (actif: boolean) =>
     cn(
@@ -727,10 +727,10 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
     <div className="space-y-6">
       <Carte>
         <fieldset disabled={verrouille} className="space-y-6 disabled:opacity-60">
-          <legend className="sr-only">{t("outils.chatiment.reglages")}</legend>
+          <legend className="sr-only">{t("tools.retribution.settings")}</legend>
           <div>
             <p id={ids.objectif} className="text-xs uppercase tracking-wide text-chalk-500">
-              {t("outils.chatiment.objectifLabel")}
+              {t("tools.retribution.objectiveLabel")}
             </p>
             <div role="group" aria-labelledby={ids.objectif} className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
               {CLES_OBJECTIFS.map((cle) => {
@@ -764,7 +764,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                       {nomObjectif(cle)}
                     </span>
                     <span className="text-xs tabular-nums text-chalk-500">
-                      {t("outils.chatiment.pvMax", { pv: nombre.format(OBJECTIFS[cle].pv) })}
+                      {t("tools.retribution.maxHp", { pv: nombre.format(OBJECTIFS[cle].pv) })}
                     </span>
                   </button>
                 );
@@ -774,7 +774,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
 
           <div>
             <p id={ids.difficulte} className="text-xs uppercase tracking-wide text-chalk-500">
-              {t("outils.chatiment.difficulteLabel")}
+              {t("tools.retribution.difficultyLabel")}
             </p>
             <div role="group" aria-labelledby={ids.difficulte} className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
               {DIFFICULTES_ORDRE.map((d) => {
@@ -809,13 +809,13 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 );
               })}
             </div>
-            <p className="mt-2 text-sm text-chalk-400">{t(`outils.chatiment.aideDifficulte.${difficulte}`)}</p>
+            <p className="mt-2 text-sm text-chalk-400">{t(`tools.retribution.difficultyHelp.${difficulte}`)}</p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
             <div>
               <label htmlFor={ids.niveau} className="text-xs uppercase tracking-wide text-chalk-500">
-                {t("outils.chatiment.niveauLabel")}
+                {t("tools.retribution.levelLabel")}
               </label>
               {/* Les degats de chaque niveau, le niveau choisi en or : la courbe se lit d'un coup d'oeil. */}
               <div aria-hidden className="mt-3 flex h-12 items-end gap-1">
@@ -834,7 +834,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 max={NIVEAU_MAX}
                 step={1}
                 value={niveau}
-                aria-valuetext={t("outils.chatiment.niveauOption", { n: niveau, degats: nombre.format(seuil) })}
+                aria-valuetext={t("tools.retribution.levelOption", { n: niveau, degats: nombre.format(seuil) })}
                 onChange={(e) => {
                   setNiveau(Number(e.target.value));
                   reinitialiser();
@@ -851,15 +851,15 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               <img src={ICONE_CHATIMENT} alt="" width={48} height={48} className="size-12 rounded-full" />
               <div>
                 <p className="text-xs uppercase tracking-wide text-chalk-400">
-                  {t("outils.chatiment.niveauCourt", { n: niveau })}
+                  {t("tools.retribution.levelShort", { n: niveau })}
                 </p>
                 <p className="font-heading text-3xl font-bold leading-none tabular-nums text-gold-400">{nombre.format(seuil)}</p>
-                <p className="mt-0.5 text-xs text-chalk-400">{t("outils.chatiment.degatsBruts")}</p>
+                <p className="mt-0.5 text-xs text-chalk-400">{t("tools.retribution.rawDamage")}</p>
               </div>
             </div>
           </div>
           <p className="text-sm text-chalk-300">
-            {t("outils.chatiment.seuilPhrase", { degats: nombre.format(seuil), conseille: o.niveauConseille })}
+            {t("tools.retribution.thresholdSentence", { degats: nombre.format(seuil), conseille: o.niveauConseille })}
           </p>
         </fieldset>
       </Carte>
@@ -877,12 +877,12 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <p className="text-xs uppercase tracking-wide text-chalk-500">
-                {t("outils.chatiment.manche")}{" "}
+                {t("tools.retribution.round")}{" "}
                 <span className="font-heading text-base font-bold tabular-nums text-chalk-100">
                   {mancheCourante}/{MANCHES_PAR_SERIE}
                 </span>
               </p>
-              <ol className="mt-2 flex items-center gap-1.5" aria-label={t("outils.chatiment.manches")}>
+              <ol className="mt-2 flex items-center gap-1.5" aria-label={t("tools.retribution.rounds")}>
                 {Array.from({ length: MANCHES_PAR_SERIE }, (_, i) => {
                   const r = resultats[i];
                   const enCours = !r && verrouille && i === resultats.length;
@@ -899,7 +899,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                     >
                       {r?.issue === "securise" && <Zap size={13} aria-hidden />}
                       {r && r.issue !== "securise" && <Skull size={12} aria-hidden />}
-                      <span className="sr-only">{r ? verdict(r).titre : t("outils.chatiment.aJouer")}</span>
+                      <span className="sr-only">{r ? verdict(r).titre : t("tools.retribution.toPlay")}</span>
                     </li>
                   );
                 })}
@@ -907,13 +907,13 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             </div>
             <dl className="flex gap-5 text-right text-sm">
               <div>
-                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.score")}</dt>
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.score")}</dt>
                 <dd className="font-heading text-2xl font-bold tabular-nums text-gold-400">
                   {nombre.format(resultats.reduce((s, r) => s + r.points, 0))}
                 </dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.suite")}</dt>
+                <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.run")}</dt>
                 <dd className="flex items-center justify-end gap-1 font-heading text-2xl font-bold tabular-nums text-chalk-100">
                   {records.enCours > 0 && <Flame size={18} aria-hidden className="text-gold-400" />}
                   {nombre.format(records.enCours)}
@@ -956,7 +956,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 aria-hidden
                 className="absolute top-[38%] animate-pulse font-heading text-4xl font-bold uppercase tracking-wider text-chalk-100 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
               >
-                {t("outils.chatiment.pret")}
+                {t("tools.retribution.ready")}
               </p>
             )}
             {dernier && (
@@ -972,14 +972,14 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               {nomObjectif(objectif)}
             </h2>
             <p className="text-sm text-chalk-500">
-              {t("outils.chatiment.pvMax", { pv: nombre.format(o.pv) })} · {nomDifficulte(difficulte)}
+              {t("tools.retribution.maxHp", { pv: nombre.format(o.pv) })} · {nomDifficulte(difficulte)}
             </p>
           </div>
 
           <div>
             <div
               role="progressbar"
-              aria-label={t("outils.chatiment.barre", { objectif: nomObjectif(objectif) })}
+              aria-label={t("tools.retribution.bar", { objectif: nomObjectif(objectif) })}
               aria-valuemin={0}
               aria-valuemax={pvMax}
               aria-valuenow={pvAffiche}
@@ -1027,11 +1027,11 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             <div className="mt-2 flex flex-wrap justify-between gap-2 text-sm">
               <span className="tabular-nums text-chalk-300">
                 {reglage.pvChiffres
-                  ? t("outils.chatiment.pvRestants", { pv: nombre.format(pvAffiche), max: nombre.format(pvMax) })
-                  : t("outils.chatiment.pvMasques")}
+                  ? t("tools.retribution.hpLeft", { pv: nombre.format(pvAffiche), max: nombre.format(pvMax) })
+                  : t("tools.retribution.hpHidden")}
               </span>
               <span className={reglage.repere ? "text-gold-400" : "text-chalk-500"}>
-                {reglage.repere ? t("outils.chatiment.repere", { degats: nombre.format(seuil) }) : t("outils.chatiment.sansRepere")}
+                {reglage.repere ? t("tools.retribution.marker", { degats: nombre.format(seuil) }) : t("tools.retribution.noMarker")}
               </span>
             </div>
           </div>
@@ -1087,7 +1087,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             </span>
           </button>
           <p id={ids.aide} className="text-center text-xs text-chalk-500">
-            {t("outils.chatiment.aide")}
+            {t("tools.retribution.help")}
           </p>
 
           {dernier && (
@@ -1120,33 +1120,33 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
       {bilan && (
         <Carte className="space-y-6">
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("outils.chatiment.bilanTitre")}</h2>
+            <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("tools.retribution.summaryTitle")}</h2>
             {nouveauRecord && (
               <span className="bevel-sm inline-flex items-center gap-1.5 bg-gold-500 px-3 py-1 font-heading text-sm font-bold text-night-950">
                 <Trophy size={15} aria-hidden />
-                {t("outils.chatiment.nouveauRecord")}
+                {t("tools.retribution.newRecord")}
               </span>
             )}
           </div>
           <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.points")}</dt>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.points")}</dt>
               <dd className="font-heading text-3xl font-bold tabular-nums text-gold-400">{nombre.format(bilan.total)}</dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.securises")}</dt>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.secured")}</dt>
               <dd className="font-heading text-3xl font-bold tabular-nums text-chalk-100">
                 {bilan.securises}/{bilan.manches}
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.meilleureReaction")}</dt>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.bestReaction")}</dt>
               <dd className="font-heading text-3xl font-bold tabular-nums text-chalk-100">
                 {bilan.meilleureReaction === null ? "—" : `${nombre.format(bilan.meilleureReaction)} ms`}
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("outils.chatiment.precisionMoyenne")}</dt>
+              <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("tools.retribution.averageAccuracy")}</dt>
               <dd className="font-heading text-3xl font-bold tabular-nums text-chalk-100">
                 {bilan.precisionMoyenne === null ? "—" : pourcent.format(bilan.precisionMoyenne)}
               </dd>
@@ -1155,7 +1155,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
 
           <figure>
             <figcaption className="text-xs uppercase tracking-wide text-chalk-500">
-              {t("outils.chatiment.graphiqueBilan")}
+              {t("tools.retribution.summaryChart")}
             </figcaption>
             <ol className="mt-3 flex h-44 items-end gap-2 sm:gap-4">
               {resultats.map((r, i) => {
@@ -1182,14 +1182,14 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
           </figure>
 
           {(filmage || video) && (
-            <div role="group" aria-label={t("outils.chatiment.formatApercu")} className="flex flex-wrap gap-2">
+            <div role="group" aria-label={t("tools.retribution.previewFormat")} className="flex flex-wrap gap-2">
               <Puce actif={vue === "video"} dense onClick={() => setVue("video")}>
                 <Film size={14} aria-hidden className="-mt-0.5 mr-1.5 inline" />
-                {t("outils.chatiment.apercuVideo")}
+                {t("tools.retribution.videoPreview")}
               </Puce>
               <Puce actif={vue === "image"} dense onClick={() => setVue("image")}>
                 <ImageIcon size={14} aria-hidden className="-mt-0.5 mr-1.5 inline" />
-                {t("outils.chatiment.apercuImage")}
+                {t("tools.retribution.imagePreview")}
               </Puce>
             </div>
           )}
@@ -1204,7 +1204,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               loop
               muted
               playsInline
-              aria-label={`${t("outils.chatiment.carteTitre")} — ${texte}`}
+              aria-label={`${t("tools.retribution.mapTitle")} — ${texte}`}
               className="bevel h-auto w-full border border-night-700 bg-night-950"
             />
           ) : vue === "video" && filmage ? (
@@ -1214,7 +1214,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
             >
               <span className="flex items-center gap-3">
                 <span aria-hidden className="size-5 animate-spin rounded-full border-2 border-night-600 border-t-gold-400" />
-                {t("outils.chatiment.videoPreparation")}
+                {t("tools.retribution.videoPreparing")}
               </span>
             </div>
           ) : (
@@ -1224,7 +1224,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 src={apercu}
                 width={LARGEUR_CARTE}
                 height={HAUTEUR_CARTE}
-                alt={`${t("outils.chatiment.carteTitre")} — ${texte}`}
+                alt={`${t("tools.retribution.mapTitle")} — ${texte}`}
                 className="bevel h-auto w-full border border-night-700"
               />
             )
@@ -1237,7 +1237,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               className="bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
             >
               <Share2 size={16} aria-hidden />
-              {t("outils.chatiment.partager")}
+              {t("tools.retribution.share")}
             </button>
             <button
               type="button"
@@ -1245,7 +1245,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
               className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
             >
               <Copy size={16} aria-hidden />
-              {t("outils.chatiment.copier")}
+              {t("tools.retribution.copy")}
             </button>
             {apercu && (
               <a
@@ -1254,7 +1254,7 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Download size={16} aria-hidden />
-                {t("outils.chatiment.telecharger")}
+                {t("tools.retribution.download")}
               </a>
             )}
             {video && (
@@ -1264,13 +1264,13 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
                 className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Film size={16} aria-hidden />
-                {t("outils.chatiment.telechargerVideo")}
+                {t("tools.retribution.downloadVideo")}
               </a>
             )}
           </div>
           <p role="status" className="min-h-5 text-sm text-chalk-400">
-            {partage === "copie" && t("outils.chatiment.copie")}
-            {partage === "erreur" && t("outils.chatiment.erreurPartage")}
+            {partage === "copie" && t("tools.retribution.copied")}
+            {partage === "erreur" && t("tools.retribution.shareError")}
           </p>
         </Carte>
       )}
@@ -1278,33 +1278,33 @@ export function EntraineurChatiment({ adresse }: { adresse: string }) {
       <Carte>
         <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-chalk-100">
           <Trophy size={18} aria-hidden className="text-gold-400" />
-          {t("outils.chatiment.recordsTitre")}
+          {t("tools.retribution.recordsTitle")}
         </h2>
         <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-3">
           <div className="bevel-sm border border-gold-500/30 bg-gold-500/5 p-3">
             <dt className="text-chalk-500">
-              {t("outils.chatiment.recordReglage", { objectif: nomObjectif(objectif), difficulte: nomDifficulte(difficulte) })}
+              {t("tools.retribution.recordSetting", { objectif: nomObjectif(objectif), difficulte: nomDifficulte(difficulte) })}
             </dt>
             <dd className="mt-1 font-heading text-2xl font-bold tabular-nums text-gold-400">
               {record ? nombre.format(record.total) : "—"}
             </dd>
           </div>
           <div className="bevel-sm border border-night-700/70 bg-night-950/40 p-3">
-            <dt className="text-chalk-500">{t("outils.chatiment.suiteEnCours")}</dt>
+            <dt className="text-chalk-500">{t("tools.retribution.currentRun")}</dt>
             <dd className="mt-1 flex items-center gap-1.5 font-heading text-2xl font-bold tabular-nums text-chalk-100">
               <Flame size={18} aria-hidden className={records.enCours > 0 ? "text-gold-400" : "text-chalk-600"} />
               {nombre.format(records.enCours)}
             </dd>
           </div>
           <div className="bevel-sm border border-night-700/70 bg-night-950/40 p-3">
-            <dt className="text-chalk-500">{t("outils.chatiment.meilleureSuite")}</dt>
+            <dt className="text-chalk-500">{t("tools.retribution.bestRun")}</dt>
             <dd className="mt-1 flex items-center gap-1.5 font-heading text-2xl font-bold tabular-nums text-chalk-100">
               <Crown size={18} aria-hidden className="text-chalk-500" />
               {nombre.format(records.meilleureSuite)}
             </dd>
           </div>
         </dl>
-        <p className="mt-3 text-xs text-chalk-500">{t("outils.chatiment.recordsLocaux")}</p>
+        <p className="mt-3 text-xs text-chalk-500">{t("tools.retribution.localRecords")}</p>
       </Carte>
     </div>
   );

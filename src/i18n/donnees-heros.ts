@@ -6,12 +6,12 @@ import type { T } from "./t";
  * portee, region, specialites, et date de sortie.
  *
  * Le wiki les publie en anglais. Le catalogue les traduit sous
- * `donneesHeros.<champ>.<cle>`, la cle etant la valeur ramenee a un slug
+ * `heroData.<champ>.<cle>`, la cle etant la valeur ramenee a un slug
  * (« Moniyan Empire » → `moniyan-empire`). Une valeur que le catalogue ne
  * connait pas encore — une synchro peut en amener une nouvelle — s'affiche
  * telle quelle plutot que sous forme de cle.
  */
-export type ChampHeros = "ressource" | "degats" | "attaque" | "region" | "specialite";
+export type ChampHeros = "resource" | "damage" | "attack" | "region" | "specialty";
 
 /** Coquilles du wiki, rattachees a la valeur correcte. */
 const ALIAS: Record<string, string> = { phyiscal: "physical" };
@@ -41,7 +41,7 @@ export function cleValeur(valeur: string): string {
 
 export function libelleHeros(t: T, champ: ChampHeros, valeur: string | null): string | null {
   if (!valeur) return null;
-  const cle = `donneesHeros.${champ}.${cleValeur(valeur)}`;
+  const cle = `heroData.${champ}.${cleValeur(valeur)}`;
   const libelle = t(cle);
   return libelle === cle ? valeurWiki(valeur) : libelle;
 }
@@ -54,7 +54,7 @@ export function libelleHeros(t: T, champ: ChampHeros, valeur: string | null): st
 export function dateSortie(valeur: string | null, langue: Langue, t: T): string | null {
   if (!valeur) return null;
   const brut = valeurWiki(valeur);
-  if (/^tba$/i.test(brut)) return t("donneesHeros.sortie.aVenir");
+  if (/^tba$/i.test(brut)) return t("heroData.release.upcoming");
   const m = brut.match(/^(?:(\d{1,2}) )?([A-Za-z]+) (\d{4})$/);
   const mois = m ? MOIS.indexOf(m[2].toLowerCase()) : -1;
   if (!m || mois < 0) return brut;

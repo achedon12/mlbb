@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.collection.titre"),
+    titre: t("pages.seo.collection.title"),
     description: description(locale),
     chemin: CHEMIN,
     motsCles: ["MLBB collection value", "skin value", "diamonds", "Mobile Legends skins", "calculator"],
@@ -38,7 +38,7 @@ export default async function PageCollection({ params }: Params) {
   const nombre = new Intl.NumberFormat(LOCALE_HTML[locale]);
   const c = couverturePrix(catalogueSkins());
   const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.collection.titre"),
+    nom: t("pages.collection.title"),
     description: description(locale),
     chemin: CHEMIN,
     categorie: "UtilitiesApplication",
@@ -47,41 +47,41 @@ export default async function PageCollection({ params }: Params) {
   return (
     <CompleterMessages messages={messagesPage(locale, ["pages.collectionUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
-      <EnTetePage titre={t("pages.collection.titre")} chapeau={t("pages.collection.chapeau")}>
+      <EnTetePage titre={t("pages.collection.title")} chapeau={t("pages.collection.lead")}>
         <LigneFraicheur langue={locale} className="mt-4" />
       </EnTetePage>
 
       <div className="mx-auto max-w-6xl space-y-12 px-4 py-12">
         <p role="note" className="bevel-sm max-w-3xl border border-gold-500/30 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-200">
-          {t("pages.collection.avertissement")}
+          {t("pages.collection.warning")}
         </p>
 
         <CalculateurCollection />
 
         <section className="max-w-3xl">
-          <TitreSection>{t("pages.collection.methodeTitre")}</TitreSection>
+          <TitreSection>{t("pages.collection.methodTitle")}</TitreSection>
           <div className="space-y-4 leading-relaxed text-chalk-300">
             <p>
-              {t("pages.collection.methodeHeros", {
+              {t("pages.collection.methodHeroes", {
                 heros: nombre.format(c.heros),
                 diamants: nombre.format(c.herosDiamants),
               })}
             </p>
             <p>
-              {t("pages.collection.methodeSkins", {
+              {t("pages.collection.methodSkins", {
                 skins: nombre.format(c.skins),
                 diamants: nombre.format(c.skinsDiamants),
                 autres: nombre.format(c.skinsAutreMonnaie),
                 sansPrix: nombre.format(c.skins - c.skinsDiamants - c.skinsAutreMonnaie),
               })}
             </p>
-            <p>{t("pages.collection.methodeStockage")}</p>
+            <p>{t("pages.collection.methodStorage")}</p>
             <p className="flex flex-wrap gap-x-6 gap-y-2">
               <Link href="/skins/calendar" className="font-semibold text-gold-400 hover:text-gold-500">
-                {t("pages.collection.lienCalendrier")} →
+                {t("pages.collection.calendarLink")} →
               </Link>
               <Link href="/skins" className="font-semibold text-gold-400 hover:text-gold-500">
-                {t("pages.collection.lienSkins")} →
+                {t("pages.collection.skinsLink")} →
               </Link>
             </p>
           </div>

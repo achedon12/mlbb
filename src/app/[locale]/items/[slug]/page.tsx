@@ -44,21 +44,21 @@ function fiche(locale: Langue, slug: string) {
   if (!o) return null;
   const t = creerT(locale);
   const heros = usage("objet", slug);
-  const prix = o.price === null ? null : `${o.price.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsListe.or")}`;
+  const prix = o.price === null ? null : `${o.price.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsList.gold")}`;
   const details = [t(`categories.${o.category}`), prix].filter(Boolean).join(", ");
   const effet = o.bonus ?? o.summary;
   const phrases = [
     effet
-      ? t("pages.itemDetail.descObjet", { nom: o.name, details, effet: sansPoint(effet) })
-      : t("pages.itemDetail.descObjetSeul", { nom: o.name, details }),
+      ? t("pages.itemDetail.itemDesc", { nom: o.name, details, effet: sansPoint(effet) })
+      : t("pages.itemDetail.itemDescAlone", { nom: o.name, details }),
   ];
   const premier = heros[0];
   if (premier) {
     const noms = listeNoms(locale, heros.slice(0, 3).map((h) => nomHeros(h.slug)));
     phrases.push(
       premier.victoire === null
-        ? t("pages.itemDetail.descHerosSimple", { heros: noms })
-        : t("pages.itemDetail.descHeros", {
+        ? t("pages.itemDetail.heroDescSimple", { heros: noms })
+        : t("pages.itemDetail.heroDesc", {
             heros: noms,
             premier: nomHeros(premier.slug),
             taux: pourcentage(locale, premier.victoire),
@@ -69,9 +69,9 @@ function fiche(locale: Langue, slug: string) {
     o,
     t,
     heros,
-    titre: t("pages.itemDetail.titre", { nom: o.name, v: patchActuel?.version ?? "" }),
+    titre: t("pages.itemDetail.title", { nom: o.name, v: patchActuel?.version ?? "" }),
     chapeau: phrases.join(" "),
-    description: [...phrases, t("pages.fiches.descMaj", { date: dateLongue(locale) })].join(" "),
+    description: [...phrases, t("pages.sheets.updateDesc", { date: dateLongue(locale) })].join(" "),
   };
 }
 
@@ -99,7 +99,7 @@ export default async function PageObjet({ params }: Params) {
   const objet = apercus.find((x) => x.slug === slug)!;
   const catalogue = catalogueRecettes(apercus);
   const aFabrication = objet.recipe.length > 0 || (catalogue.debouches.get(objet.name)?.length ?? 0) > 0;
-  const prix = (n: number) => `${n.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsListe.or")}`;
+  const prix = (n: number) => `${n.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsList.gold")}`;
   const categorie = t(`categories.${o.category}`);
 
   // Objets voisins : meme categorie, les plus proches en prix, puis ranges par prix.
@@ -110,7 +110,7 @@ export default async function PageObjet({ params }: Params) {
     .slice(0, 8)
     .sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
 
-  const titreHeros = t("pages.itemDetail.herosTitre", { nom: o.name });
+  const titreHeros = t("pages.itemDetail.heroesTitle", { nom: o.name });
   const donnees = donneesFiche(locale, {
     titre: f.titre,
     description: f.description,
@@ -145,16 +145,16 @@ export default async function PageObjet({ params }: Params) {
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
         <section className={cn("grid gap-4", aFabrication && "md:grid-cols-2")}>
           <Carte>
-            <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.effets")}</h2>
+            <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.effects")}</h2>
             <dl className="mt-4 space-y-3 text-sm">
               <div className="flex flex-wrap gap-x-10 gap-y-3">
                 <div>
-                  <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.categorie")}</dt>
+                  <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.category")}</dt>
                   <dd className="mt-1 text-chalk-100">{categorie}</dd>
                 </div>
                 {o.price !== null && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.prix")}</dt>
+                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.price")}</dt>
                     <dd className="mt-1 font-heading text-gold-400">{prix(o.price)}</dd>
                   </div>
                 )}
@@ -164,7 +164,7 @@ export default async function PageObjet({ params }: Params) {
           </Carte>
           {aFabrication && (
             <Carte>
-              <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.fabrication")}</h2>
+              <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.itemDetail.crafting")}</h2>
               <dl className="mt-4 space-y-4 text-sm">
                 <RecetteObjet objet={objet} catalogue={catalogue} t={t} langue={locale} vers={versPage} />
               </dl>
@@ -173,24 +173,24 @@ export default async function PageObjet({ params }: Params) {
         </section>
 
         <section>
-          <TitreSection chapeau={t("pages.fiches.aide")}>{titreHeros}</TitreSection>
+          <TitreSection chapeau={t("pages.sheets.help")}>{titreHeros}</TitreSection>
           {heros.length > 0 ? (
             <TableauUsage lignes={heros} legende={titreHeros} t={t} langue={locale} />
           ) : (
-            <p className="text-sm text-chalk-500">{t("pages.fiches.aucun")}</p>
+            <p className="text-sm text-chalk-500">{t("pages.sheets.none")}</p>
           )}
         </section>
 
         {heros.length > 0 && (
           <section>
-            <TitreSection chapeau={t("pages.fiches.parRangIntro")}>{t("pages.fiches.parRang")}</TitreSection>
-            <TableauRangs resume={resumeRangs("objet", slug)} legende={t("pages.fiches.parRang")} t={t} langue={locale} />
+            <TitreSection chapeau={t("pages.sheets.byRankIntro")}>{t("pages.sheets.byRank")}</TitreSection>
+            <TableauRangs resume={resumeRangs("objet", slug)} legende={t("pages.sheets.byRank")} t={t} langue={locale} />
           </section>
         )}
 
         {similaires.length > 0 && (
           <section>
-            <TitreSection>{t("pages.itemDetail.similaires", { categorie })}</TitreSection>
+            <TitreSection>{t("pages.itemDetail.similar", { categorie })}</TitreSection>
             <ListeLiens
               liens={similaires.map((x) => ({
                 href: `/items/${x.slug}`,

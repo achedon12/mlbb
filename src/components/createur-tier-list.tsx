@@ -155,7 +155,7 @@ export function CreateurTierList({
           setPrecedente(gardee);
         }
         setEtat(partagee);
-        setAnnonce(t("pages.createurTierUI.partageeChargee"));
+        setAnnonce(t("pages.tierMakerUI.sharedLoaded"));
       } else if (gardee) {
         setEtat(gardee);
       }
@@ -201,23 +201,23 @@ export function CreateurTierList({
     const r = cible ? suivant.rangees.find((x) => x.id === cible) : undefined;
     setAnnonce(
       r
-        ? t("pages.createurTierUI.annoncePlace", {
+        ? t("pages.tierMakerUI.announcePlaced", {
             nom: nom(slug),
             rangee: nomRangee(r),
             position: r.heros.indexOf(slug) + 1,
             n: r.heros.length,
           })
-        : t("pages.createurTierUI.annonceReserve", { nom: nom(slug) }),
+        : t("pages.tierMakerUI.announceBench", { nom: nom(slug) }),
     );
   }
 
   function basculerSelection(slug: string) {
     if (selection === slug) {
       setSelection(null);
-      setAnnonce(t("pages.createurTierUI.annonceDeselection"));
+      setAnnonce(t("pages.tierMakerUI.announceDeselect"));
     } else {
       setSelection(slug);
-      setAnnonce(t("pages.createurTierUI.annonceSelection", { nom: nom(slug) }));
+      setAnnonce(t("pages.tierMakerUI.announceSelect", { nom: nom(slug) }));
     }
   }
 
@@ -229,7 +229,7 @@ export function CreateurTierList({
     setEtat(suivant);
     if (r) {
       setAnnonce(
-        t("pages.createurTierUI.annonceDeplace", {
+        t("pages.tierMakerUI.announceMoved", {
           nom: nom(selection),
           position: r.heros.indexOf(selection) + 1,
           n: r.heros.length,
@@ -282,27 +282,27 @@ export function CreateurTierList({
 
   function chargerMeta() {
     const liste = groupes[rang];
-    if (!liste || !confirmer(t("pages.createurTierUI.confirmerRemplacement"))) return;
-    const libelleRang = t(`rangsMesure.${rang}`);
-    setEtat(preremplir(heros.map((h) => h.slug), liste, t("pages.createurTierUI.titreMeta", { rang: libelleRang })));
+    if (!liste || !confirmer(t("pages.tierMakerUI.confirmReplace"))) return;
+    const libelleRang = t(`measuredRanks.${rang}`);
+    setEtat(preremplir(heros.map((h) => h.slug), liste, t("pages.tierMakerUI.titleMeta", { rang: libelleRang })));
     setSelection(null);
     setEdition(null);
-    setAnnonce(t("pages.createurTierUI.annonceMeta", { rang: libelleRang }));
+    setAnnonce(t("pages.tierMakerUI.announceMeta", { rang: libelleRang }));
   }
 
   function vider() {
-    if (!confirmer(t("pages.createurTierUI.confirmerVider"))) return;
+    if (!confirmer(t("pages.tierMakerUI.confirmEmpty"))) return;
     setEtat(viderRangees(etat));
     setSelection(null);
-    setAnnonce(t("pages.createurTierUI.annonceVide"));
+    setAnnonce(t("pages.tierMakerUI.announceEmpty"));
   }
 
   function reinitialiser() {
-    if (!confirmer(t("pages.createurTierUI.confirmerReinitialiser"))) return;
+    if (!confirmer(t("pages.tierMakerUI.confirmReset"))) return;
     setEtat(etatDefaut());
     setSelection(null);
     setEdition(null);
-    setAnnonce(t("pages.createurTierUI.annonceReinitialise"));
+    setAnnonce(t("pages.tierMakerUI.announceReset"));
   }
 
   function restaurer() {
@@ -310,27 +310,27 @@ export function CreateurTierList({
     setEtat(precedente);
     setPrecedente(null);
     ecrireListe(CLE_PRECEDENTE, null);
-    setAnnonce(t("pages.createurTierUI.annonceRestauree"));
+    setAnnonce(t("pages.tierMakerUI.announceRestored"));
   }
 
   function ajouter() {
-    const suivant = ajouterRangee(etat, `n${Date.now().toString(36)}`, t("pages.createurTierUI.nouvelleRangee"));
+    const suivant = ajouterRangee(etat, `n${Date.now().toString(36)}`, t("pages.tierMakerUI.newRow"));
     setEtat(suivant);
     setEdition(suivant.rangees.at(-1)?.id ?? null);
-    setAnnonce(t("pages.createurTierUI.annonceRangeeAjoutee"));
+    setAnnonce(t("pages.tierMakerUI.announceRowAdded"));
   }
 
   function supprimer(r: Rangee) {
     setEtat(supprimerRangee(etat, r.id));
     setEdition(null);
-    setAnnonce(t("pages.createurTierUI.annonceRangeeSupprimee", { nom: nomRangee(r) }));
+    setAnnonce(t("pages.tierMakerUI.announceRowRemoved", { nom: nomRangee(r) }));
   }
 
-  const titreImage = etat.titre.trim() || t("pages.createurTierUI.titreDefaut");
+  const titreImage = etat.titre.trim() || t("pages.tierMakerUI.titleDefault");
   const tactile = () => window.matchMedia("(pointer: coarse)").matches;
 
   async function telecharger() {
-    setStatut(t("pages.createurTierUI.exportEnCours"));
+    setStatut(t("pages.tierMakerUI.exporting"));
     try {
       const date = new Intl.DateTimeFormat(LOCALE_HTML[langue], { dateStyle: "long" }).format(new Date());
       const blob = await exporterImage(etat, {
@@ -343,7 +343,7 @@ export function CreateurTierList({
       if (tactile() && navigator.canShare?.({ files: [piece] })) {
         try {
           await navigator.share({ files: [piece], title: titreImage });
-          setStatut(t("pages.createurTierUI.exportPartage"));
+          setStatut(t("pages.tierMakerUI.exportShare"));
           return;
         } catch (e) {
           if ((e as DOMException).name === "AbortError") {
@@ -360,9 +360,9 @@ export function CreateurTierList({
       lien.click();
       lien.remove();
       setTimeout(() => URL.revokeObjectURL(url), 10_000);
-      setStatut(t("pages.createurTierUI.exportOk"));
+      setStatut(t("pages.tierMakerUI.exportDone"));
     } catch {
-      setStatut(t("pages.createurTierUI.exportErreur"));
+      setStatut(t("pages.tierMakerUI.exportError"));
     }
   }
 
@@ -371,7 +371,7 @@ export function CreateurTierList({
     if (tactile() && typeof navigator.share === "function") {
       try {
         await navigator.share({ url, title: titreImage });
-        setStatut(t("pages.createurTierUI.lienPartage"));
+        setStatut(t("pages.tierMakerUI.linkShared"));
         return;
       } catch (e) {
         if ((e as DOMException).name === "AbortError") return;
@@ -379,9 +379,9 @@ export function CreateurTierList({
     }
     try {
       await navigator.clipboard.writeText(url);
-      setStatut(t("pages.createurTierUI.lienCopie"));
+      setStatut(t("pages.tierMakerUI.linkCopied"));
     } catch {
-      setStatut(t("pages.createurTierUI.lienErreur"));
+      setStatut(t("pages.tierMakerUI.linkError"));
     }
   }
 
@@ -427,11 +427,11 @@ export function CreateurTierList({
     <div ref={racine} className={cn("space-y-6", selection && "pb-36 sm:pb-24")}>
       {precedente && (
         <div className="bevel-sm flex flex-wrap items-center justify-between gap-3 border border-azure-500/50 bg-azure-500/10 px-4 py-3 text-sm text-chalk-200">
-          <span>{t("pages.createurTierUI.partageeBandeau")}</span>
+          <span>{t("pages.tierMakerUI.sharedBanner")}</span>
           <span className="flex gap-2">
             <button type="button" onClick={restaurer} className={bouton}>
               <Undo2 size={15} aria-hidden />
-              {t("pages.createurTierUI.revenirMaListe")}
+              {t("pages.tierMakerUI.backToMyList")}
             </button>
             <button
               type="button"
@@ -439,7 +439,7 @@ export function CreateurTierList({
                 setPrecedente(null);
                 ecrireListe(CLE_PRECEDENTE, null);
               }}
-              aria-label={t("pages.createurTierUI.fermer")}
+              aria-label={t("pages.tierMakerUI.close")}
               className={petitBouton}
             >
               <X size={15} aria-hidden />
@@ -450,12 +450,12 @@ export function CreateurTierList({
 
       <div className="flex flex-col gap-3 lg:flex-row lg:items-end">
         <label className="flex-1">
-          <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.createurTierUI.titreListe")}</span>
+          <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.tierMakerUI.titleList")}</span>
           <input
             type="text"
             value={etat.titre}
             maxLength={TITRE_MAX}
-            placeholder={t("pages.createurTierUI.titreDefaut")}
+            placeholder={t("pages.tierMakerUI.titleDefault")}
             onChange={(e) => setEtat({ ...etat, titre: e.target.value })}
             className="bevel-sm mt-1 w-full border border-night-700 bg-night-950 px-3 py-2 font-heading text-lg font-bold text-chalk-100 outline-none transition-colors placeholder:text-chalk-600 focus:border-gold-500"
           />
@@ -463,19 +463,19 @@ export function CreateurTierList({
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={telecharger} className={bouton}>
             <Download size={15} aria-hidden />
-            {t("pages.createurTierUI.exporter")}
+            {t("pages.tierMakerUI.export")}
           </button>
           <button type="button" onClick={partagerLien} className={bouton}>
             <Link2 size={15} aria-hidden />
-            {t("pages.createurTierUI.partagerLien")}
+            {t("pages.tierMakerUI.shareLink")}
           </button>
           <button type="button" onClick={vider} className={bouton}>
             <RotateCcw size={15} aria-hidden />
-            {t("pages.createurTierUI.vider")}
+            {t("pages.tierMakerUI.empty")}
           </button>
           <button type="button" onClick={reinitialiser} className={bouton}>
             <Trash2 size={15} aria-hidden />
-            {t("pages.createurTierUI.reinitialiser")}
+            {t("pages.tierMakerUI.reset")}
           </button>
         </div>
       </div>
@@ -486,17 +486,17 @@ export function CreateurTierList({
       <details className="bevel-sm border border-night-700/70 bg-night-900/40 px-4 py-3 text-sm text-chalk-300">
         <summary className="cursor-pointer font-semibold text-chalk-100">
           <Wand2 size={15} aria-hidden className="mr-1.5 inline text-gold-400" />
-          {t("pages.createurTierUI.preremplirTitre")}
+          {t("pages.tierMakerUI.prefillTitle")}
         </summary>
-        <p className="mt-2 leading-relaxed">{t("pages.createurTierUI.preremplirIntro")}</p>
+        <p className="mt-2 leading-relaxed">{t("pages.tierMakerUI.prefillIntro")}</p>
         <ChoixRang rangs={rangs} rang={rang} onChange={setRang} className="mt-3" />
         <button type="button" onClick={chargerMeta} className={cn(bouton, "mt-3")}>
           <Wand2 size={15} aria-hidden />
-          {t("pages.createurTierUI.preremplir", { rang: t(`rangsMesure.${rang}`) })}
+          {t("pages.tierMakerUI.prefill", { rang: t(`measuredRanks.${rang}`) })}
         </button>
       </details>
 
-      <section aria-label={t("pages.createurTierUI.rangees")} className="space-y-1">
+      <section aria-label={t("pages.tierMakerUI.rows")} className="space-y-1">
         {etat.rangees.map((r, i) => (
           <div key={r.id}>
             <div className="flex min-h-[3.75rem] border border-night-700/70 bg-night-900/60">
@@ -504,7 +504,7 @@ export function CreateurTierList({
                 <button
                   type="button"
                   onClick={(e) => poser(selection, r.id, null, e.detail === 0)}
-                  aria-label={t("pages.createurTierUI.placerIci", { nom: nom(selection), rangee: nomRangee(r) })}
+                  aria-label={t("pages.tierMakerUI.placeHere", { nom: nom(selection), rangee: nomRangee(r) })}
                   className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-heading text-lg font-bold ring-inset hover:ring-2 hover:ring-white/70 sm:w-24"
                   style={{ background: r.couleur, color: couleurTexte(r.couleur) }}
                 >
@@ -519,7 +519,7 @@ export function CreateurTierList({
                 </div>
               )}
               <ul
-                aria-label={t("pages.createurTierUI.contenuRangee", { nom: nomRangee(r), n: r.heros.length, i: i + 1 })}
+                aria-label={t("pages.tierMakerUI.rowContent", { nom: nomRangee(r), n: r.heros.length, i: i + 1 })}
                 onKeyDown={naviguer}
                 onClick={(e) => {
                   if (selection && e.target === e.currentTarget) poser(selection, r.id);
@@ -548,7 +548,7 @@ export function CreateurTierList({
                 type="button"
                 onClick={() => setEdition(edition === r.id ? null : r.id)}
                 aria-expanded={edition === r.id}
-                aria-label={t("pages.createurTierUI.modifierRangee", { nom: nomRangee(r) })}
+                aria-label={t("pages.tierMakerUI.editRow", { nom: nomRangee(r) })}
                 className="grid w-9 shrink-0 place-items-center border-l border-night-700/70 text-chalk-500 transition-colors hover:text-gold-400"
               >
                 <Settings2 size={16} aria-hidden />
@@ -575,7 +575,7 @@ export function CreateurTierList({
           className={cn(bouton, "mt-2 w-full")}
         >
           <Plus size={15} aria-hidden />
-          {t("pages.createurTierUI.ajouterRangee")}
+          {t("pages.tierMakerUI.addRow")}
         </button>
       </section>
 
@@ -596,19 +596,19 @@ export function CreateurTierList({
       >
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h2 id="reserve-titre" className="font-heading text-xl font-bold text-chalk-100">
-            {t("pages.createurTierUI.reserve")}
+            {t("pages.tierMakerUI.bench")}
           </h2>
           <p className="text-xs text-chalk-500">
-            {t("pages.createurTierUI.reserveCompte", { n: heros.length - places.size, total: heros.length })}
+            {t("pages.tierMakerUI.benchCount", { n: heros.length - places.size, total: heros.length })}
           </p>
         </div>
-        <p className="mt-1 text-xs leading-relaxed text-chalk-500">{t("pages.createurTierUI.aide")}</p>
+        <p className="mt-1 text-xs leading-relaxed text-chalk-500">{t("pages.tierMakerUI.help")}</p>
 
         <div className="mt-3 space-y-2">
-          <ChampRecherche dense valeur={recherche} onChange={setRecherche} libelle={t("draftUI.rechercher")} />
-          <GroupeFiltres legende={t("draftUI.filtreRole")} largeurLegende="w-16" className="gap-1.5">
+          <ChampRecherche dense valeur={recherche} onChange={setRecherche} libelle={t("draftUI.search")} />
+          <GroupeFiltres legende={t("draftUI.roleFilter")} largeurLegende="w-16" className="gap-1.5">
             <Puce dense actif={role === null} onClick={() => setRole(null)}>
-              {t("draftUI.tousRoles")}
+              {t("draftUI.allRoles")}
             </Puce>
             {ROLES.map((r) => (
               <Puce dense key={r} actif={role === r} onClick={() => setRole(role === r ? null : r)}>
@@ -616,9 +616,9 @@ export function CreateurTierList({
               </Puce>
             ))}
           </GroupeFiltres>
-          <GroupeFiltres legende={t("draftUI.filtreLane")} largeurLegende="w-16" className="gap-1.5">
+          <GroupeFiltres legende={t("draftUI.laneFilter")} largeurLegende="w-16" className="gap-1.5">
             <Puce dense actif={lane === null} onClick={() => setLane(null)}>
-              {t("draftUI.toutesLanes")}
+              {t("draftUI.allLanes")}
             </Puce>
             {LANES.map((l) => (
               <Puce dense key={l} actif={lane === l} onClick={() => setLane(lane === l ? null : l)}>
@@ -629,7 +629,7 @@ export function CreateurTierList({
         </div>
 
         <ul
-          aria-label={t("pages.createurTierUI.reserve")}
+          aria-label={t("pages.tierMakerUI.bench")}
           onKeyDown={naviguer}
           onClick={(e) => {
             if (selection && places.has(selection) && e.target === e.currentTarget) poser(selection, null);
@@ -641,7 +641,7 @@ export function CreateurTierList({
           ))}
           {reserve.length === 0 && (
             <li className="w-full py-4 text-center text-sm text-chalk-500">
-              {places.size === heros.length ? t("pages.createurTierUI.reserveVide") : t("draftUI.aucunHeros")}
+              {places.size === heros.length ? t("pages.tierMakerUI.benchEmpty") : t("draftUI.noHero")}
             </li>
           )}
         </ul>
@@ -654,13 +654,13 @@ export function CreateurTierList({
       {choisi && selection && (
         <div
           role="region"
-          aria-label={t("pages.createurTierUI.barreAction", { nom: choisi.nom })}
+          aria-label={t("pages.tierMakerUI.actionBar", { nom: choisi.nom })}
           className="fixed inset-x-0 bottom-0 z-40 border-t border-gold-500/40 bg-night-900/95 px-3 py-2.5 shadow-2xl shadow-black/60 backdrop-blur-sm"
         >
           <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2">
             <PortraitHeros source={choisi.icone} nom={choisi.nom} taille="petite" decoratif />
             <span className="mr-1 font-semibold text-chalk-100">{choisi.nom}</span>
-            <span className="text-xs text-chalk-500">{t("pages.createurTierUI.placerDans")}</span>
+            <span className="text-xs text-chalk-500">{t("pages.tierMakerUI.placeIn")}</span>
             <span className="flex flex-wrap gap-1">
               {etat.rangees.map((r) => (
                 <button
@@ -668,7 +668,7 @@ export function CreateurTierList({
                   type="button"
                   onClick={(e) => poser(selection, r.id, null, e.detail === 0)}
                   aria-current={rangeeChoisie?.id === r.id ? "true" : undefined}
-                  aria-label={t("pages.createurTierUI.placerIci", { nom: choisi.nom, rangee: nomRangee(r) })}
+                  aria-label={t("pages.tierMakerUI.placeHere", { nom: choisi.nom, rangee: nomRangee(r) })}
                   className={cn(
                     "bevel-sm h-9 min-w-9 max-w-24 truncate px-2 text-sm font-bold",
                     rangeeChoisie?.id === r.id && "ring-2 ring-white",
@@ -685,7 +685,7 @@ export function CreateurTierList({
                   <button
                     type="button"
                     onClick={(e) => decalerSelection(-1, e.detail === 0)}
-                    aria-label={t("pages.createurTierUI.reculer")}
+                    aria-label={t("pages.tierMakerUI.moveBack")}
                     className={petitBouton}
                   >
                     <ArrowLeft size={15} aria-hidden />
@@ -693,7 +693,7 @@ export function CreateurTierList({
                   <button
                     type="button"
                     onClick={(e) => decalerSelection(1, e.detail === 0)}
-                    aria-label={t("pages.createurTierUI.avancer")}
+                    aria-label={t("pages.tierMakerUI.moveForward")}
                     className={petitBouton}
                   >
                     <ArrowRight size={15} aria-hidden />
@@ -703,14 +703,14 @@ export function CreateurTierList({
                     onClick={(e) => poser(selection, null, null, e.detail === 0)}
                     className={cn(bouton, "h-9 py-0")}
                   >
-                    {t("pages.createurTierUI.versReserve")}
+                    {t("pages.tierMakerUI.toBench")}
                   </button>
                 </>
               )}
               <button
                 type="button"
                 onClick={() => setSelection(null)}
-                aria-label={t("pages.createurTierUI.deselectionner")}
+                aria-label={t("pages.tierMakerUI.deselect")}
                 className={petitBouton}
               >
                 <X size={15} aria-hidden />
@@ -747,7 +747,7 @@ function PanneauRangee({
   return (
     <div className="flex flex-wrap items-end gap-3 border border-t-0 border-night-700/70 bg-night-950/60 p-3">
       <label className="min-w-40 flex-1">
-        <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.createurTierUI.nomRangee")}</span>
+        <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.tierMakerUI.rowName")}</span>
         <input
           type="text"
           autoFocus
@@ -759,7 +759,7 @@ function PanneauRangee({
         />
       </label>
       <fieldset>
-        <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.createurTierUI.couleur")}</legend>
+        <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.tierMakerUI.colour")}</legend>
         <div className="mt-1 flex flex-wrap items-center gap-1">
           {PALETTE.map((c) => (
             <button
@@ -767,13 +767,13 @@ function PanneauRangee({
               type="button"
               onClick={() => onModifier({ couleur: c })}
               aria-pressed={rangee.couleur === c}
-              aria-label={t("pages.createurTierUI.couleurNom", { couleur: c })}
+              aria-label={t("pages.tierMakerUI.colourName", { couleur: c })}
               className={cn("bevel-sm size-8", rangee.couleur === c && "ring-2 ring-white")}
               style={{ background: c }}
             />
           ))}
           <label className="bevel-sm grid size-8 cursor-pointer place-items-center overflow-hidden border border-night-600">
-            <span className="sr-only">{t("pages.createurTierUI.couleurPerso")}</span>
+            <span className="sr-only">{t("pages.tierMakerUI.customColour")}</span>
             <input
               type="color"
               value={rangee.couleur}
@@ -788,7 +788,7 @@ function PanneauRangee({
           type="button"
           onClick={() => onDeplacer(-1)}
           disabled={premiere}
-          aria-label={t("pages.createurTierUI.monter")}
+          aria-label={t("pages.tierMakerUI.moveUp")}
           className={petitBouton}
         >
           <ArrowUp size={15} aria-hidden />
@@ -797,7 +797,7 @@ function PanneauRangee({
           type="button"
           onClick={() => onDeplacer(1)}
           disabled={derniere}
-          aria-label={t("pages.createurTierUI.descendre")}
+          aria-label={t("pages.tierMakerUI.moveDown")}
           className={petitBouton}
         >
           <ArrowDown size={15} aria-hidden />
@@ -806,12 +806,12 @@ function PanneauRangee({
           type="button"
           onClick={onSupprimer}
           disabled={seule}
-          aria-label={t("pages.createurTierUI.supprimerRangee", { nom: rangee.nom || "—" })}
+          aria-label={t("pages.tierMakerUI.deleteRow", { nom: rangee.nom || "—" })}
           className={cn(petitBouton, "hover:border-blood-500 hover:text-blood-500")}
         >
           <Trash2 size={15} aria-hidden />
         </button>
-        <button type="button" onClick={onFermer} aria-label={t("pages.createurTierUI.fermer")} className={petitBouton}>
+        <button type="button" onClick={onFermer} aria-label={t("pages.tierMakerUI.close")} className={petitBouton}>
           <X size={15} aria-hidden />
         </button>
       </div>

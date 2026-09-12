@@ -16,9 +16,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.equipe.metaTitre"),
-    description: t("pages.equipe.metaDescription"),
-    partage: t("pages.equipe.ogDescription"),
+    titre: t("pages.team.metaTitle"),
+    description: t("pages.team.metaDescription"),
+    partage: t("pages.team.ogDescription"),
     chemin: "/tools/team",
     motsCles: ["team composition", "team comp", "analyzer", "synergy", "counter", "Mobile Legends", "MLBB"],
   });
@@ -27,18 +27,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function PageEquipe({ params }: Params) {
   const { locale } = await params;
   const t = creerT(locale);
-  // Le catalogue `donneesHeros` reste cote serveur : les trois libelles de
+  // Le catalogue `heroData` reste cote serveur : les trois libelles de
   // degats partent deja resolus.
-  const degats = (cle: TypeDegats) => libelleHeros(t, "degats", cle) ?? cle;
+  const degats = (cle: TypeDegats) => libelleHeros(t, "damage", cle) ?? cle;
 
   return (
     <>
-      <EnTetePage titre={t("pages.equipe.titre")} chapeau={t("pages.equipe.chapeau")}>
+      <EnTetePage titre={t("pages.team.title")} chapeau={t("pages.team.lead")}>
         <Link
           href="/draft"
           className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
         >
-          {t("pages.equipe.lienDraft")} →
+          {t("pages.team.draftLink")} →
         </Link>
       </EnTetePage>
       <div className="mx-auto max-w-5xl px-4 py-12">
@@ -49,7 +49,7 @@ export default async function PageEquipe({ params }: Params) {
         />
 
         <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">
-          {t("pages.equipe.note")}
+          {t("pages.team.rating")}
         </p>
       </div>
     </>

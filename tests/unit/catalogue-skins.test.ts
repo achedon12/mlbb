@@ -175,7 +175,7 @@ describe("index compact", () => {
 });
 
 describe("textePrix", () => {
-  const t = creerTDepuis({ skinsUI: { diamants: "Diamonds", pointsBataille: "Battle Points" } });
+  const t = creerTDepuis({ skinsUI: { diamonds: "Diamonds", battlePoints: "Battle Points" } });
   const nombre = new Intl.NumberFormat("en");
   it("ecrit chaque monnaie chiffree, dans l'ordre des monnaies", () => {
     expect(textePrix({ bp: 32000, dm: 599 }, t, nombre)).toBe("599 diamonds · 32,000 battle points");

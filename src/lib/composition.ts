@@ -15,7 +15,7 @@ import type { Lane, NotesHeros, Palier, Role } from "./types";
 
 export const TAILLE_EQUIPE = 5;
 
-/** Type de degats, sous la cle du catalogue (`donneesHeros.degats.*`). */
+/** Type de degats, sous la cle du catalogue (`heroData.damage.*`). */
 export type TypeDegats = "physical" | "magic" | "mixed";
 
 /** Ce que l'analyse lit d'un heros, pour tout le roster. */

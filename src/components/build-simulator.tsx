@@ -418,7 +418,7 @@ export function BuildSimulator({
                     <p className="mt-0.5 text-xs text-chalk-500">
                       {t("pages.buildSimulatorUI.measuredWhere", {
                         lane: t(`lanes.${c.lane}`),
-                        rank: t(`rangsMesure.${c.rank}`),
+                        rank: t(`measuredRanks.${c.rank}`),
                         date: measuredDate,
                       })}
                     </p>

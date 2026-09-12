@@ -129,9 +129,9 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
             Mobile Legends: Bang Bang
           </p>
           <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold leading-tight text-chalk-100 sm:text-6xl">
-            {t("home.titre1")}{" "}
+            {t("home.title1")}{" "}
             <span className="bg-linear-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
-              {t("home.titreAccent")}
+              {t("home.titleAccent")}
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chalk-300">
@@ -143,7 +143,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
               href="/heroes"
               className="bevel-sm flex items-center gap-2 bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
             >
-              {t("home.parcourir")}
+              {t("home.browse")}
               <ArrowRight size={18} aria-hidden />
             </Link>
             <Link
@@ -151,15 +151,15 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
               className="bevel-sm flex items-center gap-2 border border-night-600 px-6 py-3 font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
             >
               <Swords size={17} aria-hidden />
-              {t("home.aideDraft")}
+              {t("home.draftHelp")}
             </Link>
           </div>
 
           <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-night-800 pt-8 sm:grid-cols-4">
             {[
-              { valeur: heros.length, label: t("home.statHeros") },
+              { valeur: heros.length, label: t("home.statHeroes") },
               { valeur: nombreSkins, label: t("home.statSkins") },
-              { valeur: patchs.length, label: t("home.statPatchs") },
+              { valeur: patchs.length, label: t("home.statPatches") },
               { valeur: herosAnalyses.length, label: t("home.statAnalyses") },
             ].map((s) => (
               <div key={s.label}>
@@ -191,8 +191,8 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
 
       {/* ── Entree par role ────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <TitreSection chapeau={t("home.commencerChapeau")}>
-          {t("home.commencerTitre")}
+        <TitreSection chapeau={t("home.startLead")}>
+          {t("home.startTitle")}
         </TitreSection>
         <AccesRoles compte={parRole} langue={locale} />
       </section>
@@ -203,7 +203,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
         changement.
       */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
-        <TitreSection chapeau={t("home.outilsChapeau")}>{t("home.outilsTitre")}</TitreSection>
+        <TitreSection chapeau={t("home.toolsLead")}>{t("home.toolsTitle")}</TitreSection>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {OUTILS.map(({ href, cle, icone: Icone }) => (
             <li key={href}>
@@ -228,10 +228,10 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       <section className="border-y border-night-700/70 bg-night-900/30">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
-            chapeau={t("home.classementChapeau")}
-            action={{ href: "/tier-list", label: t("home.tierListComplete") }}
+            chapeau={t("home.rankingLead")}
+            action={{ href: "/tier-list", label: t("home.fullTierList") }}
           >
-            {t("home.classementTitre")}
+            {t("home.rankingTitle")}
           </TitreSection>
 
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -256,7 +256,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   <span className="font-heading font-bold text-chalk-100">{e.hero.name}</span>
                   <span className="text-xs text-chalk-500">
                     {new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(e.winRate)}{" "}
-                    {t("home.pourcentVictoires")}
+                    {t("home.winPercent")}
                   </span>
                 </Link>
               </li>
@@ -269,25 +269,25 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       {(semaine.hausses.length > 0 || semaine.baisses.length > 0) && (
         <section className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
-            chapeau={t("home.tendances.chapeau", {
+            chapeau={t("home.trends.lead", {
               seuil: new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(SEUIL_NOTABLE),
             })}
-            action={{ href: "/tier-list", label: t("home.tierListComplete") }}
+            action={{ href: "/tier-list", label: t("home.fullTierList") }}
           >
-            {t("home.tendances.titre")}
+            {t("home.trends.title")}
           </TitreSection>
           <div className="grid gap-8 md:grid-cols-2">
             <ListeMouvements
-              titre={t("home.tendances.hausse")}
-              vide={t("home.tendances.aucuneHausse")}
+              titre={t("home.trends.rise")}
+              vide={t("home.trends.noRise")}
               mouvements={semaine.hausses}
               hausse
               locale={locale}
               t={t}
             />
             <ListeMouvements
-              titre={t("home.tendances.baisse")}
-              vide={t("home.tendances.aucuneBaisse")}
+              titre={t("home.trends.fall")}
+              vide={t("home.trends.noFall")}
               mouvements={semaine.baisses}
               hausse={false}
               locale={locale}
@@ -301,10 +301,10 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       {skinsEnAvant.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 py-16">
           <TitreSection
-            chapeau={t("home.skinsChapeau", { skins: nombreSkins })}
-            action={{ href: "/heroes", label: t("home.voirHeros") }}
+            chapeau={t("home.skinsLead", { skins: nombreSkins })}
+            action={{ href: "/heroes", label: t("home.seeHeroes") }}
           >
-            {t("home.skinsTitre")}
+            {t("home.skinsTitle")}
           </TitreSection>
 
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
@@ -339,7 +339,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_2fr]">
           {dernierPatch && (
             <div>
-              <TitreSection chapeau="">{t("home.derniereMaj")}</TitreSection>
+              <TitreSection chapeau="">{t("home.lastUpdate")}</TitreSection>
               <Carte>
                 <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gold-400">
                   <TrendingUp size={14} aria-hidden />
@@ -356,7 +356,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   href={`/patch-notes/${dernierPatch.version}`}
                   className="mt-5 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                 >
-                  {t("home.lireNotes")} →
+                  {t("home.readNotes")} →
                 </Link>
               </Carte>
             </div>
@@ -365,9 +365,9 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
           <div>
             <TitreSection
               chapeau=""
-              action={{ href: "/news", label: t("home.toutesActualites") }}
+              action={{ href: "/news", label: t("home.allNews") }}
             >
-              {t("home.derniersArticles")}
+              {t("home.latestArticles")}
             </TitreSection>
             <ul className="space-y-3">
               {articles.map((a) => (
@@ -378,7 +378,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   >
                     <span className="flex flex-wrap items-center gap-3">
                       <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-                        {t(`articleCat.${a.category}`)}
+                        {t(`articleCategory.${a.category}`)}
                       </span>
                       <time dateTime={a.date} className="text-xs text-chalk-500">
                         {formaterDate(a.date, LOCALE_HTML[locale])}
@@ -400,25 +400,25 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
 
       {/* ── Fonctionnement ─────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <TitreSection chapeau={t("home.synchroChapeau", { date: formaterDate(synchro.date, LOCALE_HTML[locale]) })}>
-          {t("home.commentFonctionne")}
+        <TitreSection chapeau={t("home.syncLead", { date: formaterDate(synchro.date, LOCALE_HTML[locale]) })}>
+          {t("home.howItWorks")}
         </TitreSection>
         <div className="grid gap-4 md:grid-cols-3">
           {[
             {
-              titre: t("home.cartes.donneesTitre"),
+              titre: t("home.cards.dataTitle"),
               texte:
-                t("home.cartes.donneesTexte"),
+                t("home.cards.dataText"),
             },
             {
-              titre: t("home.cartes.classementTitre"),
+              titre: t("home.cards.rankingTitle"),
               texte:
-                t("home.cartes.classementTexte"),
+                t("home.cards.rankingText"),
             },
             {
-              titre: t("home.cartes.ecritTitre"),
+              titre: t("home.cards.writtenTitle"),
               texte:
-                t("home.cartes.ecritTexte"),
+                t("home.cards.writtenText"),
             },
           ].map((c) => (
             <Carte key={c.titre}>
@@ -431,7 +431,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
         <p className="mt-8 flex items-center gap-2 text-sm text-chalk-500">
           <Rss size={15} aria-hidden className="text-gold-400" />
           <Link href="/feed.xml" className="hover:text-gold-400">
-            {t("home.suivreRss")}
+            {t("home.followRss")}
           </Link>
         </p>
       </section>
@@ -491,7 +491,7 @@ function ListeMouvements({
                       {h.name}
                     </span>
                     <span className="block text-xs text-chalk-500">
-                      {pourcent.format(v.actuel)} {t("home.pourcentVictoires")}
+                      {pourcent.format(v.actuel)} {t("home.winPercent")}
                     </span>
                   </span>
                   <span
@@ -502,7 +502,7 @@ function ListeMouvements({
                   >
                     <Icone size={15} aria-hidden />
                     <span aria-hidden>
-                      {formaterEcart(v.ecart, locale)} {t("contres.pts")}
+                      {formaterEcart(v.ecart, locale)} {t("counters.pts")}
                     </span>
                     <span className="sr-only">{decrireEcart(t, locale, v.ecart, v.jours)}</span>
                   </span>

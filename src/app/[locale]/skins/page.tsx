@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const n = new Intl.NumberFormat(locale).format(nombreSkinsGaleries);
   const dernier = derniersSkins(1)[0];
   return metaPage(locale, {
-    titre: t("pages.skins.metaTitre", { n }),
+    titre: t("pages.skins.metaTitle", { n }),
     description: t("pages.skins.metaDescription", {
       n,
       h: herosAvecSkins.length,
@@ -53,7 +53,7 @@ export default async function PageSkins({ params }: Params) {
   const n = new Intl.NumberFormat(locale).format(nombreSkinsGaleries);
   const derniers = derniersSkins(DERNIERS);
   const tries = [...herosAvecSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
-  const chapeau = t("pages.skins.chapeau", { n, h: tries.length });
+  const chapeau = t("pages.skins.lead", { n, h: tries.length });
   const absolue = (chemin: string) => new URL(chemin, site.url).toString();
 
   // Les derniers skins seulement : chaque galerie de heros porte les siens,
@@ -61,7 +61,7 @@ export default async function PageSkins({ params }: Params) {
   const donnees = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: t("pages.skins.titre"),
+    name: t("pages.skins.title"),
     description: chapeau,
     url: `${site.url}/${locale}/skins`,
     inLanguage: LOCALE_HTML[locale],
@@ -69,7 +69,7 @@ export default async function PageSkins({ params }: Params) {
     isPartOf: { "@type": "WebSite", name: site.nom, url: site.url },
     mainEntity: {
       "@type": "ImageGallery",
-      name: t("pages.skins.derniers"),
+      name: t("pages.skins.latest"),
       associatedMedia: derniers.flatMap(({ heros: h, skin: s }) => {
         const chemin = s.illustration ?? s.portrait;
         if (!chemin) return [];
@@ -91,20 +91,20 @@ export default async function PageSkins({ params }: Params) {
   };
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.heroesListe", "pages.skinsGalerie"])}>
+    <CompleterMessages messages={messagesPage(locale, ["pages.heroesList", "pages.skinsGallery"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
-      <EnTetePage titre={t("pages.skins.titre")} chapeau={chapeau}>
+      <EnTetePage titre={t("pages.skins.title")} chapeau={chapeau}>
         <p className="mt-6 text-sm text-chalk-500">
-          <time dateTime={synchro.date}>{t("pages.skins.majLe", { date: dateLongue(locale, synchro.date) })}</time>
+          <time dateTime={synchro.date}>{t("pages.skins.updatedOn", { date: dateLongue(locale, synchro.date) })}</time>
         </p>
       </EnTetePage>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
         <section aria-labelledby="derniers-skins">
           <h2 id="derniers-skins" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.skins.derniers")}
+            {t("pages.skins.latest")}
           </h2>
-          <p className="mt-1 text-sm text-chalk-500">{t("pages.skins.derniersIntro")}</p>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.skins.latestIntro")}</p>
           <ul className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
             {derniers.map(({ heros: h, skin: s }, i) => {
               const g = galerieHeros(h);
@@ -142,7 +142,7 @@ export default async function PageSkins({ params }: Params) {
 
         <section aria-labelledby="galerie-skins">
           <h2 id="galerie-skins" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.skins.galerie")}
+            {t("pages.skins.gallery")}
           </h2>
           <div className="mt-5">
             <GalerieSkins groupes={groupesSkins()} />

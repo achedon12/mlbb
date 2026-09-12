@@ -149,40 +149,40 @@ export function ExplorateurSkins({
         <ChampRecherche
           valeur={f.recherche}
           onChange={(recherche) => maj({ recherche })}
-          libelle={t("pages.calendrierSkinsUI.rechercher")}
+          libelle={t("pages.skinsCalendarUI.search")}
           className="max-w-md"
         />
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           <Choix
-            libelle={t("pages.calendrierSkinsUI.heros")}
+            libelle={t("pages.skinsCalendarUI.heroes")}
             valeur={f.heros ?? ""}
             onChange={(v) => maj({ heros: v || null })}
-            tous={t("pages.calendrierSkinsUI.tous")}
+            tous={t("pages.skinsCalendarUI.allHeroes")}
             options={heros.map(([slug, nom]) => [slug, nom])}
           />
           <Choix
-            libelle={t("pages.calendrierSkinsUI.serie")}
+            libelle={t("pages.skinsCalendarUI.series")}
             valeur={f.serie ?? ""}
             onChange={(v) => maj({ serie: v || null })}
-            tous={t("pages.calendrierSkinsUI.toutes")}
+            tous={t("pages.skinsCalendarUI.all")}
             options={series.map((s) => [s, libelleSerie(t, s)])}
           />
           <Choix
-            libelle={t("pages.calendrierSkinsUI.annee")}
+            libelle={t("pages.skinsCalendarUI.year")}
             valeur={f.annee === null ? "" : String(f.annee)}
             onChange={(v) => maj({ annee: v ? Number(v) : null })}
-            tous={t("pages.calendrierSkinsUI.toutes")}
+            tous={t("pages.skinsCalendarUI.all")}
             options={annees.map((a) => [String(a), String(a)])}
           />
         </div>
-        <GroupeFiltres legende={t("pages.calendrierSkinsUI.role")}>
+        <GroupeFiltres legende={t("pages.skinsCalendarUI.role")}>
           {ROLES_INDEX.map((r) => (
             <Puce key={r} dense actif={f.role === r} onClick={() => maj({ role: f.role === r ? null : r })}>
               {t(`roles.${r}`)}
             </Puce>
           ))}
         </GroupeFiltres>
-        <GroupeFiltres legende={t("pages.calendrierSkinsUI.rarete")}>
+        <GroupeFiltres legende={t("pages.skinsCalendarUI.rarity")}>
           {RANGS_RARETE.map((rang) => (
             <Puce key={rang} dense actif={f.rarete === rang} onClick={() => maj({ rarete: f.rarete === rang ? null : rang })}>
               <span aria-hidden className="mr-1.5 inline-block size-2 border-2" style={{ borderColor: rareteDeRang(rang).couleur }} />
@@ -192,7 +192,7 @@ export function ExplorateurSkins({
         </GroupeFiltres>
         {actif && (
           <button type="button" onClick={() => maj(VIDES)} className={classesPuce(false, true)}>
-            {t("pages.calendrierSkinsUI.effacer")}
+            {t("pages.skinsCalendarUI.clear")}
           </button>
         )}
       </div>
@@ -200,10 +200,10 @@ export function ExplorateurSkins({
       <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
         {actif &&
           (erreur
-            ? t("pages.calendrierSkinsUI.erreur")
+            ? t("pages.skinsCalendarUI.error")
             : !resultats
-              ? t("pages.calendrierSkinsUI.chargement")
-              : t(resultats.total === 1 ? "pages.calendrierSkinsUI.resultat" : "pages.calendrierSkinsUI.resultats", {
+              ? t("pages.skinsCalendarUI.loading")
+              : t(resultats.total === 1 ? "pages.skinsCalendarUI.result" : "pages.skinsCalendarUI.results", {
                   n: nombre.format(resultats.total),
                 }))}
       </p>
@@ -218,7 +218,7 @@ export function ExplorateurSkins({
                     <h3 className="font-heading text-2xl font-bold text-chalk-100">
                       {a.annee}{" "}
                       <span className="text-sm font-normal text-chalk-500">
-                        {t(a.total === 1 ? "pages.calendrierSkinsUI.nSkins1" : "pages.calendrierSkinsUI.nSkins", {
+                        {t(a.total === 1 ? "pages.skinsCalendarUI.nSkins1" : "pages.skinsCalendarUI.nSkins", {
                           n: nombre.format(a.total),
                         })}
                       </span>
@@ -226,7 +226,7 @@ export function ExplorateurSkins({
                     {a.mois.map((m) => (
                       <div key={m.mois ?? "inconnu"} className="mt-4">
                         <h4 className="text-sm font-semibold uppercase tracking-wide text-gold-400">
-                          {m.mois ? formatMois.format(Date.UTC(a.annee, m.mois - 1, 1)) : t("pages.calendrierSkinsUI.moisInconnu")}
+                          {m.mois ? formatMois.format(Date.UTC(a.annee, m.mois - 1, 1)) : t("pages.skinsCalendarUI.unknownMonth")}
                         </h4>
                         <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
                           {m.skins.map((s) => (
@@ -249,7 +249,7 @@ export function ExplorateurSkins({
                 ))}
                 {resultats.total > limite && (
                   <button type="button" onClick={() => setLimite((l) => l + PAS)} className={classesPuce(false)}>
-                    {t("pages.calendrierSkinsUI.plus", { n: nombre.format(Math.min(PAS, resultats.total - limite)) })}
+                    {t("pages.skinsCalendarUI.more", { n: nombre.format(Math.min(PAS, resultats.total - limite)) })}
                   </button>
                 )}
               </div>

@@ -59,10 +59,10 @@ export function ChoixRang({
 }) {
   const t = useT();
   return (
-    <GroupeFiltres legende={t("rangsMesure.label")} largeurLegende="" className={className}>
+    <GroupeFiltres legende={t("measuredRanks.label")} largeurLegende="" className={className}>
       {rangs.map((r) => (
         <Puce key={r} actif={r === rang} onClick={() => onChange(r)}>
-          {t(`rangsMesure.${r}`)}
+          {t(`measuredRanks.${r}`)}
         </Puce>
       ))}
     </GroupeFiltres>

@@ -18,7 +18,7 @@ export function ListeArticles({
 }) {
   const t = creerT(langue);
   if (articles.length === 0) {
-    return <p className="text-chalk-500">{t("articleUI.aucune")}</p>;
+    return <p className="text-chalk-500">{t("articleUI.none")}</p>;
   }
 
   return (
@@ -31,7 +31,7 @@ export function ListeArticles({
           >
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-                {t(`articleCat.${a.category}`)}
+                {t(`articleCategory.${a.category}`)}
               </span>
               <time dateTime={a.date} className="text-xs text-chalk-500">
                 {formaterDate(a.date, LOCALE_HTML[langue])}
@@ -73,12 +73,12 @@ export function CorpsArticle({
       <header className="mt-6 border-b border-night-800 pb-8">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-            {t(`articleCat.${article.category}`)}
+            {t(`articleCategory.${article.category}`)}
           </span>
           <time dateTime={article.date} className="text-xs text-chalk-500">
             {formaterDate(article.date, LOCALE_HTML[langue])}
           </time>
-          <span className="text-xs text-chalk-500">{t("articleUI.par", { auteur: article.author })}</span>
+          <span className="text-xs text-chalk-500">{t("articleUI.by", { auteur: article.author })}</span>
         </div>
         <h1 className="mt-4 font-heading text-3xl font-bold leading-tight text-chalk-100 sm:text-4xl">
           {article.title}

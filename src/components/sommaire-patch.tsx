@@ -43,9 +43,9 @@ export function SommairePatch({ entrees }: { entrees: Entree[] }) {
   }, [entrees]);
 
   return (
-    <nav aria-label={t("commun.sommaire")} className="lg:sticky lg:top-24">
+    <nav aria-label={t("common.contents")} className="lg:sticky lg:top-24">
       <p className="font-heading text-sm font-semibold uppercase tracking-wider text-gold-400">
-        {t("commun.sommaire")}
+        {t("common.contents")}
       </p>
       <ul className="mt-3 space-y-0.5 border-l border-night-800">
         {entrees.map((e) => (

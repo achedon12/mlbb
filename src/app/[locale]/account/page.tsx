@@ -22,7 +22,7 @@ import { resumeDernierPatch } from "@/lib/suivi-patchs";
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  return { title: t("pages.account.metaTitre"), description: t("pages.account.metaDescription"), alternates: metaLangues(locale, "/account"), robots: { index: false, follow: false } };
+  return { title: t("pages.account.metaTitle"), description: t("pages.account.metaDescription"), alternates: metaLangues(locale, "/account"), robots: { index: false, follow: false } };
 }
 
 /** Page personnelle : jamais mise en cache. */
@@ -50,12 +50,12 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
         <Carte className="border-gold-500/30">
           <h1 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
             <CircleAlert size={20} aria-hidden />
-            {t("pages.account.indisponible")}
+            {t("pages.account.unavailable")}
           </h1>
-          <p className="mt-3 leading-relaxed text-chalk-300">{t("pages.account.indisponibleTexte")}</p>
+          <p className="mt-3 leading-relaxed text-chalk-300">{t("pages.account.unavailableText")}</p>
           <form action={deconnecter} className="mt-5">
             <button type="submit" className="text-sm text-chalk-500 underline underline-offset-4 hover:text-blood-500">
-              {t("pages.account.seDeconnecter")}
+              {t("pages.account.signOut")}
             </button>
           </form>
         </Carte>
@@ -77,7 +77,7 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-14">
-      <FilAriane miettes={[{ nom: t("pages.account.metaTitre") }]} className="mb-8" />
+      <FilAriane miettes={[{ nom: t("pages.account.metaTitle") }]} className="mb-8" />
       {/* ── En-tete de profil ──────────────────────────────────────────── */}
       <div className="flex flex-wrap items-center gap-5">
         <span className="bevel relative size-20 shrink-0 overflow-hidden bg-night-800">
@@ -96,7 +96,7 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
             <BadgeRang rang={rang} taille="sm" />
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-chalk-500">
-            <span>{t("pages.account.niveauX", { n: profil.level })}</span>
+            <span>{t("pages.account.levelX", { n: profil.level })}</span>
             <span>{nomPays(profil.pays)}</span>
             <span>ID {profil.roleId} ({profil.zoneId})</span>
           </div>
@@ -108,7 +108,7 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
             className="bevel-sm flex items-center gap-2 border border-night-700 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-blood-500/50 hover:text-blood-500"
           >
             <LogOut size={15} aria-hidden />
-            {t("pages.account.deconnexion")}
+            {t("pages.account.signedOut")}
           </button>
         </form>
       </div>
@@ -116,24 +116,24 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
       {/* ── Rangs et chiffres ──────────────────────────────────────────── */}
       <dl className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="bevel border border-night-700/70 bg-night-900/60 p-4">
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.rangActuel")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.currentRank")}</dt>
           <dd className="mt-2">
             <BadgeRang rang={rang} taille="lg" />
           </dd>
         </div>
         <div className="bevel border border-night-700/70 bg-night-900/60 p-4">
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.meilleurRang")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.bestRank")}</dt>
           <dd className="mt-2">
             <BadgeRang rang={rangMax} taille="lg" />
           </dd>
         </div>
-        <Chiffre label={t("pages.account.niveau")} valeur={profil.level} />
-        <Chiffre label={t("pages.account.amis")} valeur={listeAmis.etat === "ok" ? listeAmis.donnees.length : "—"} />
+        <Chiffre label={t("pages.account.level")} valeur={profil.level} />
+        <Chiffre label={t("pages.account.friends")} valeur={listeAmis.etat === "ok" ? listeAmis.donnees.length : "—"} />
       </dl>
 
       {/* ── Statistiques ───────────────────────────────────────────────── */}
       <section className="mt-12">
-        <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.statistiques")}</h2>
+        <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.statistics")}</h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
         {stats.etat === "ok" ? (
@@ -141,7 +141,7 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
         ) : (
           <Carte className="mt-6 border-gold-500/25">
             <p className="text-sm leading-relaxed text-chalk-300">
-              {t("pages.account.detailIndispo")}
+              {t("pages.account.detailUnavailable")}
             </p>
           </Carte>
         )}
@@ -154,9 +154,9 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
           <Trophy size={22} className="shrink-0 text-gold-400" aria-hidden />
           <span className="min-w-0 flex-1">
             <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-              {t("pages.account.lienProfil")}
+              {t("pages.account.profileLink")}
             </span>
-            <span className="mt-0.5 block text-sm text-chalk-500">{t("pages.account.lienProfilTexte")}</span>
+            <span className="mt-0.5 block text-sm text-chalk-500">{t("pages.account.profileLinkText")}</span>
           </span>
           <ChevronRight size={18} className="shrink-0 text-chalk-500" aria-hidden />
         </Link>
@@ -166,7 +166,7 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
       {listeAmis.etat === "ok" && listeAmis.donnees.length > 0 && (
         <section className="mt-12">
           <div className="flex items-baseline gap-3">
-            <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.amis")}</h2>
+            <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.friends")}</h2>
             <span className="text-sm text-chalk-500">{listeAmis.donnees.length}</span>
           </div>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -195,7 +195,7 @@ export default async function PageCompte({ params }: { params: Promise<{ locale:
 
       {/* ── Favoris (locaux) ───────────────────────────────────────────── */}
       <section className="mt-12">
-        <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.favoris")}</h2>
+        <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.favourites")}</h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
         <FavorisCompte dernierPatch={resumeDernierPatch()} />
       </section>
@@ -219,19 +219,19 @@ function Chiffre({ label, valeur }: { label: string; valeur: number | string }) 
 function ResumeStatistiques({ stats, langue }: { stats: StatsJoueur; langue: Langue }) {
   const t = creerT(langue);
   if (stats.parties === 0) {
-    return <p className="mt-6 text-sm text-chalk-500">{t("pages.account.aucuneStat")}</p>;
+    return <p className="mt-6 text-sm text-chalk-500">{t("pages.account.noStat")}</p>;
   }
 
   return (
     <dl className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
-      <Chiffre label={t("pages.accountProfile.parties")} valeur={formaterNombre(stats.parties, langue)} />
+      <Chiffre label={t("pages.accountProfile.games")} valeur={formaterNombre(stats.parties, langue)} />
       <Chiffre
-        label={t("pages.heroDetail.stat.tauxVictoire")}
+        label={t("pages.heroDetail.stat.winRate")}
         valeur={formaterPourcent((stats.victoires / stats.parties) * 100, langue)}
       />
       {stats.mvp !== null && <Chiffre label={t("pages.accountProfile.mvp")} valeur={formaterNombre(stats.mvp, langue)} />}
       {stats.meilleureSerie !== null && (
-        <Chiffre label={t("pages.accountProfile.meilleureSerie")} valeur={formaterNombre(stats.meilleureSerie, langue)} />
+        <Chiffre label={t("pages.accountProfile.bestStreak")} valeur={formaterNombre(stats.meilleureSerie, langue)} />
       )}
     </dl>
   );

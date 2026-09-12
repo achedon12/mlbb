@@ -49,7 +49,7 @@ const portraitDe = (slug: string) => {
 const connus = <E extends { slug: string }>(liste: E[] = []) => liste.filter((e) => herosParSlug.has(e.slug));
 const noms = (nom: string) => ({ nom, deNom: deNom(nom) });
 const contexteDe = (t: T, rang: RangMesure) =>
-  rang === "all" ? t("pages.duos.tousRangs") : t("pages.duos.auRang", { rang: t(`rangsMesure.${rang}`) });
+  rang === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rang: t(`measuredRanks.${rang}`) });
 
 /** « Marcel (+1,1 pts), Grock et Akai » : le premier porte son ecart, les suivants leur nom. */
 function tete(locale: Langue, t: T, liste: Duo[]) {
@@ -66,15 +66,15 @@ function synthese(locale: Langue, h: Heros) {
   const parRang = duosDe(h.slug);
   const rang = rangDeSynthese(duosCommeContres(parRang));
   const meilleurs = connus(rang ? parRang[rang]?.best : []).slice(0, 3);
-  if (!rang || meilleurs.length === 0) return { rang, phrase: t("pages.duos.aucuneMesure", { nom: h.name }) };
+  if (!rang || meilleurs.length === 0) return { rang, phrase: t("pages.duos.noMeasure", { nom: h.name }) };
   const pires = connus(parRang[rang]?.worst).slice(0, 2);
   const variables = { contexte: contexteDe(t, rang), nom: h.name, meilleurs: tete(locale, t, meilleurs) };
   return {
     rang,
     phrase:
       pires.length > 0
-        ? t("pages.duos.synthese", { ...variables, pires: tete(locale, t, pires) })
-        : t("pages.duos.syntheseSansPires", variables),
+        ? t("pages.duos.overview", { ...variables, pires: tete(locale, t, pires) })
+        : t("pages.duos.overviewNoWorst", variables),
   };
 }
 
@@ -87,9 +87,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     // Patch dans le titre, comme les pages counters : les resultats qui menent
     // sur « best duo » portent une date ou une version.
     titre: patchActuel
-      ? t("pages.duos.metaTitre", { ...noms(h.name), v: patchActuel.version })
-      : t("pages.duos.metaTitreSansPatch", noms(h.name)),
-    description: `${synthese(locale, h).phrase} ${t("pages.duos.majLe", { date: dateLongue(locale) })}`,
+      ? t("pages.duos.metaTitle", { ...noms(h.name), v: patchActuel.version })
+      : t("pages.duos.metaTitleNoPatch", noms(h.name)),
+    description: `${synthese(locale, h).phrase} ${t("pages.duos.updatedOn", { date: dateLongue(locale) })}`,
     chemin: `/heroes/${slug}/duos`,
     type: "article",
     image: `/${locale}/heroes/${slug}/opengraph-image`,
@@ -139,17 +139,17 @@ export default async function PageDuos({ params }: Params) {
     : [];
 
   const liens = [
-    { href: `/heroes/${slug}`, label: t("pages.duos.lienFiche", n) },
-    { href: `/heroes/${slug}/counters`, label: t("pages.duos.lienContres", n) },
+    { href: `/heroes/${slug}`, label: t("pages.duos.sheetLink", n) },
+    { href: `/heroes/${slug}/counters`, label: t("pages.duos.countersLink", n) },
     ...(premier
       ? [
-          { href: `/compare?a=${slug}&b=${premier}`, label: t("pages.duos.lienComparer", { nom: h.name, autre: nomDe(premier) }) },
-          { href: `/heroes/${premier}/duos`, label: t("pages.duos.titre", noms(nomDe(premier))) },
+          { href: `/compare?a=${slug}&b=${premier}`, label: t("pages.duos.compareLink", { nom: h.name, autre: nomDe(premier) }) },
+          { href: `/heroes/${premier}/duos`, label: t("pages.duos.title", noms(nomDe(premier))) },
         ]
       : []),
   ];
 
-  const titre = t("pages.duos.titre", n);
+  const titre = t("pages.duos.title", n);
   const adresse = `${site.url}/${locale}/heroes/${slug}/duos`;
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -177,7 +177,7 @@ export default async function PageDuos({ params }: Params) {
             {
               "@type": "ItemList",
               "@id": `${adresse}#duos`,
-              name: t("pages.duos.meilleurs", n),
+              name: t("pages.duos.best", n),
               itemListOrder: "https://schema.org/ItemListOrderDescending",
               numberOfItems: meilleurs.length,
               itemListElement: meilleurs.map((c, i) => ({
@@ -206,14 +206,14 @@ export default async function PageDuos({ params }: Params) {
           { nom: t("nav.heroes.label"), href: "/heroes" },
           { nom: h.name, href: `/heroes/${slug}` },
           {
-            nom: t("pages.duos.miette"),
+            nom: t("pages.duos.crumb"),
             freres: [...heros]
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((x) => ({ nom: x.name, href: `/heroes/${x.slug}/duos` })),
           },
         ]}
       >
-        <LigneFraicheur langue={locale} avant={t("pages.duos.fenetre", { n: JOURS_DUOS })} className="mt-4" />
+        <LigneFraicheur langue={locale} avant={t("pages.duos.window", { n: JOURS_DUOS })} className="mt-4" />
         <ul className="mt-5 flex flex-wrap gap-2 text-sm">
           {liens.map((l) => (
             <li key={l.href}>
@@ -232,18 +232,18 @@ export default async function PageDuos({ params }: Params) {
             {meilleurs.length > 0 && (
               <section aria-labelledby="meilleurs" className="min-w-0">
                 <h2 id="meilleurs" className="font-heading text-2xl font-bold text-chalk-100">
-                  {t("pages.duos.meilleurs", n)}
+                  {t("pages.duos.best", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.meilleursIntro", n)}</p>
+                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.bestIntro", n)}</p>
                 <TableauAgrege t={t} lignes={meilleurs} ton="bon" total={tranchesMesurees} slug={slug} ecart={ecart} />
               </section>
             )}
             {pires.length > 0 && (
               <section aria-labelledby="pires" className="min-w-0">
                 <h2 id="pires" className="font-heading text-2xl font-bold text-chalk-100">
-                  {t("pages.duos.pires", n)}
+                  {t("pages.duos.worst", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.piresIntro", n)}</p>
+                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.worstIntro", n)}</p>
                 <TableauAgrege t={t} lignes={pires} ton="mauvais" total={tranchesMesurees} slug={slug} ecart={ecart} />
               </section>
             )}
@@ -254,12 +254,12 @@ export default async function PageDuos({ params }: Params) {
         {rangPrincipal && parPhase.length > 0 && (
           <section aria-labelledby="phases">
             <h2 id="phases" className="font-heading text-2xl font-bold text-chalk-100">
-              {t("pages.duos.phases.titre", n)}
+              {t("pages.duos.phases.title", n)}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
-              {t(avecGain ? "pages.duos.phases.intro" : "pages.duos.phases.introSansGain", {
+              {t(avecGain ? "pages.duos.phases.intro" : "pages.duos.phases.introNoGain", {
                 ...n,
-                rang: t(`rangsMesure.${rangPrincipal}`),
+                rang: t(`measuredRanks.${rangPrincipal}`),
               })}
             </p>
             <ul className="mt-5 grid gap-4 sm:grid-cols-3">
@@ -274,12 +274,12 @@ export default async function PageDuos({ params }: Params) {
                       <span className="font-heading text-lg font-bold">{nomDe(p.slug)}</span>
                     </Link>
                     <p className="mt-2 text-sm text-chalk-300">
-                      {t("pages.duos.phases.tauxDuo", { taux: pourcentage(locale, p.victoire) })}
+                      {t("pages.duos.phases.duoRate", { taux: pourcentage(locale, p.victoire) })}
                       {p.gain !== null && (
                         <>
                           {" · "}
                           <span className={cn("font-semibold tabular-nums", p.gain >= 0 ? "text-emerald-400" : "text-blood-500")}>
-                            {t("pages.duos.phases.gainSeul", { ecart: ecart(p.gain), nom: h.name })}
+                            {t("pages.duos.phases.gainAlone", { ecart: ecart(p.gain), nom: h.name })}
                           </span>
                         </>
                       )}
@@ -298,9 +298,9 @@ export default async function PageDuos({ params }: Params) {
         {rangs.length > 0 && (
           <section aria-labelledby="par-rang">
             <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
-              {t("pages.duos.parRang")}
+              {t("pages.duos.byRank")}
             </h2>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.parRangIntro", n)}</p>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.byRankIntro", n)}</p>
             <div className="mt-5 space-y-3">
               {rangs.map((r) => {
                 const d = parRang[r]!;
@@ -318,10 +318,10 @@ export default async function PageDuos({ params }: Params) {
                         aria-hidden
                         className="shrink-0 text-chalk-500 transition-transform group-open:rotate-180"
                       />
-                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`rangsMesure.${r}`)}</h3>
+                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
                       {(d.winRate ?? s?.winRate) != null && (
                         <span className="text-sm text-chalk-500">
-                          {t("pages.duos.tauxSeul", { taux: pourcentage(locale, d.winRate ?? s!.winRate) })}
+                          {t("pages.duos.rateAlone", { taux: pourcentage(locale, d.winRate ?? s!.winRate) })}
                         </span>
                       )}
                     </summary>
@@ -329,7 +329,7 @@ export default async function PageDuos({ params }: Params) {
                       <div className="min-w-0">
                         <h4 className="flex items-center gap-2 font-heading font-bold text-emerald-400">
                           <Users size={16} aria-hidden />
-                          {t("pages.duos.meilleursCourt")}
+                          {t("pages.duos.bestShort")}
                         </h4>
                         <div className="relative overflow-x-auto">
                           <TableauPhases
@@ -346,7 +346,7 @@ export default async function PageDuos({ params }: Params) {
                         <div className="min-w-0 relative overflow-x-auto">
                           <h4 className="flex items-center gap-2 font-heading font-bold text-blood-500">
                             <ThumbsDown size={16} aria-hidden />
-                            {t("pages.duos.piresCourt")}
+                            {t("pages.duos.worstShort")}
                           </h4>
                           <ListeEcarts t={t} lignes={connus(d.worst)} ecart={ecart} />
                         </div>
@@ -364,13 +364,13 @@ export default async function PageDuos({ params }: Params) {
         {academie.length > 0 && (
           <section aria-labelledby="academie">
             <h2 id="academie" className="font-heading text-2xl font-bold text-chalk-100">
-              {t("pages.duos.academie.titre", n)}
+              {t("pages.duos.academy.title", n)}
             </h2>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.academie.intro", n)}</p>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.academy.intro", n)}</p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {academie.map((r) => (
                 <Carte key={r} className="min-w-0 relative overflow-x-auto p-4">
-                  <h3 className="font-heading font-bold text-chalk-100">{t(`rangsMesure.${r}`)}</h3>
+                  <h3 className="font-heading font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
                   <ListeEcarts t={t} lignes={connus(coequipiers[slug]?.[r])} ecart={ecart} />
                 </Carte>
               ))}
@@ -379,14 +379,14 @@ export default async function PageDuos({ params }: Params) {
         )}
 
         {rangs.length === 0 && academie.length === 0 && (
-          <p className="text-sm text-chalk-400">{t("pages.duos.aucuneMesure", n)}</p>
+          <p className="text-sm text-chalk-400">{t("pages.duos.noMeasure", n)}</p>
         )}
 
         {/* ── Autres pages duos, meme position ────────────────────────── */}
         {voisins.length > 0 && lanePrincipale && (
           <section aria-labelledby="autres">
             <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
-              {t("pages.duos.autres", { lane: t(`lanes.${lanePrincipale}`) })}
+              {t("pages.duos.others", { lane: t(`lanes.${lanePrincipale}`) })}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2 text-sm">
               {voisins.map((x) => (
@@ -395,7 +395,7 @@ export default async function PageDuos({ params }: Params) {
                     href={`/heroes/${x.slug}/duos`}
                     className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
-                    {t("pages.duos.titre", noms(x.name))}
+                    {t("pages.duos.title", noms(x.name))}
                   </Link>
                 </li>
               ))}
@@ -432,10 +432,10 @@ function TableauAgrege({
       <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:whitespace-nowrap [&_td+td]:text-right">
         <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
           <tr>
-            <th scope="col" className="text-left">{t("pages.duos.colPartenaire")}</th>
+            <th scope="col" className="text-left">{t("pages.duos.colPartner")}</th>
             <th scope="col">{t("pages.duos.colGain")}</th>
-            <th scope="col">{t("pages.duos.colRangs")}</th>
-            <th scope="col"><span className="sr-only">{t("pages.duos.colLiens")}</span></th>
+            <th scope="col">{t("pages.duos.colRanks")}</th>
+            <th scope="col"><span className="sr-only">{t("pages.duos.colLinks")}</span></th>
           </tr>
         </thead>
         <tbody className="divide-y divide-night-800">
@@ -450,22 +450,22 @@ function TableauAgrege({
               <td className={cn("font-semibold tabular-nums", ton === "bon" ? "text-emerald-400" : "text-blood-500")}>
                 {ecart(c.moyenne)}
               </td>
-              <td className="tabular-nums text-chalk-400">{t("pages.duos.rangsCites", { n: c.rangs, total })}</td>
+              <td className="tabular-nums text-chalk-400">{t("pages.duos.ranksListed", { n: c.rangs, total })}</td>
               <td className="text-xs">
                 <Link
                   href={`/compare?a=${slug}&b=${c.slug}`}
-                  aria-label={t("pages.duos.lienComparer", { nom, autre: nomDe(c.slug) })}
+                  aria-label={t("pages.duos.compareLink", { nom, autre: nomDe(c.slug) })}
                   className="text-gold-400 hover:text-gold-500"
                 >
-                  {t("pages.duos.comparer")}
+                  {t("pages.duos.compare")}
                 </Link>
                 {" · "}
                 <Link
                   href={`/heroes/${c.slug}/duos`}
-                  aria-label={t("pages.duos.titre", noms(nomDe(c.slug)))}
+                  aria-label={t("pages.duos.title", noms(nomDe(c.slug)))}
                   className="text-gold-400 hover:text-gold-500"
                 >
-                  {t("pages.duos.lienCourt")}
+                  {t("pages.duos.shortLink")}
                 </Link>
               </td>
             </tr>
@@ -514,12 +514,12 @@ function TableauPhases({
     >
       <thead>
         <tr>
-          <th scope="col" className="text-left">{t("pages.duos.colPartenaire")}</th>
+          <th scope="col" className="text-left">{t("pages.duos.colPartner")}</th>
           {compact && <th scope="col">{t("pages.duos.colGain")}</th>}
           {PHASES.map((p) => (
             <th scope="col" key={p}>
               <abbr title={`${t(`pages.duos.phase.${p}`)} (${t(`pages.duos.phaseMinutes.${p}`)})`} className="no-underline">
-                {t(`pages.duos.phaseCourt.${p}`)}
+                {t(`pages.duos.phaseShort.${p}`)}
               </abbr>
             </th>
           ))}
@@ -552,7 +552,7 @@ function ListeEcarts({ t, lignes, ecart }: { t: T; lignes: { slug: string; advan
     <table className="mt-2 w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-2 [&_td+td]:text-right [&_td+td]:tabular-nums">
       <thead className="sr-only">
         <tr>
-          <th scope="col">{t("pages.duos.colPartenaire")}</th>
+          <th scope="col">{t("pages.duos.colPartner")}</th>
           <th scope="col">{t("pages.duos.colGain")}</th>
         </tr>
       </thead>

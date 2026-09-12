@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.lore.titre"),
+    titre: t("pages.seo.lore.title"),
     description: description(locale),
     chemin: "/lore",
     motsCles: ["MLBB lore", "Mobile Legends lore", "Land of Dawn", "Moniyan Empire", "hero story"],
@@ -53,7 +53,7 @@ export default async function PageLore({ params }: Params) {
   // Les factions de deux heros restent sur les pages de region : le hub garde les plus grandes.
   const factions = factionsLore(locale, 3);
   const total = regionsLore.reduce((n, r) => n + r.heros.length, 0);
-  const nHeros = (n: number) => t(n === 1 ? "pages.lore.nHeros1" : "pages.lore.nHeros", { n });
+  const nHeros = (n: number) => t(n === 1 ? "pages.lore.nHeroes1" : "pages.lore.nHeroes", { n });
   const regionLibelle = (slug: string) => {
     const cle = regionDe(slug);
     const r = regionsLore.find((x) => x.cle === cle);
@@ -61,7 +61,7 @@ export default async function PageLore({ params }: Params) {
   };
 
   const donneesStructurees = donneesListeHeros(locale, {
-    nom: t("pages.lore.listeLd"),
+    nom: t("pages.lore.listLd"),
     description: description(locale),
     chemin: "/lore",
     heros: regionsLore.flatMap((r) => r.heros.map((x) => ({ nom: x.name, slug: x.slug }))),
@@ -71,13 +71,13 @@ export default async function PageLore({ params }: Params) {
     <CompleterMessages messages={messagesPage(locale, ["pages.loreUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
       <EnTetePage
-        titre={t("pages.lore.titre")}
-        chapeau={t("pages.lore.chapeau", { n: nombreHistoires(locale), regions: regionsLore.length, liens: paires.length })}
+        titre={t("pages.lore.title")}
+        chapeau={t("pages.lore.lead", { n: nombreHistoires(locale), regions: regionsLore.length, liens: paires.length })}
       />
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         <section id="regions">
-          <TitreSection chapeau={t("pages.lore.regionsChapeau")}>{t("pages.lore.regionsTitre")}</TitreSection>
+          <TitreSection chapeau={t("pages.lore.regionsLead")}>{t("pages.lore.regionsTitle")}</TitreSection>
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {regionsLore.map((r) => (
               <li key={r.cle}>
@@ -102,7 +102,7 @@ export default async function PageLore({ params }: Params) {
 
         {vedettes.length > 0 && (
           <section id="liens">
-            <TitreSection chapeau={t("pages.lore.liensChapeau")}>{t("pages.lore.liensTitre")}</TitreSection>
+            <TitreSection chapeau={t("pages.lore.linksLead")}>{t("pages.lore.linksTitle")}</TitreSection>
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {vedettes.map((p) => (
                 <li key={`${p.a}-${p.b}`}>
@@ -115,7 +115,7 @@ export default async function PageLore({ params }: Params) {
 
         {factions.length > 0 && (
           <section id="factions">
-            <TitreSection chapeau={t("pages.lore.factionsChapeau")}>{t("pages.lore.factionsTitre")}</TitreSection>
+            <TitreSection chapeau={t("pages.lore.factionsLead")}>{t("pages.lore.factionsTitle")}</TitreSection>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {factions.map((f) => (
                 <li key={f.cle} className="bevel-sm border border-night-700/60 bg-night-900/40 p-4">
@@ -142,7 +142,7 @@ export default async function PageLore({ params }: Params) {
         )}
 
         <section id="histoires">
-          <TitreSection chapeau={t("pages.lore.histoiresChapeau")}>{t("pages.lore.histoiresTitre")}</TitreSection>
+          <TitreSection chapeau={t("pages.lore.storiesLead")}>{t("pages.lore.storiesTitle")}</TitreSection>
           <ListeHistoires
             total={total}
             groupes={regionsLore.map((r) => ({

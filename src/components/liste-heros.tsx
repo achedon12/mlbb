@@ -13,9 +13,9 @@ const LANES: Lane[] = ["Or", "Experience", "Milieu", "Jungle", "Roam"];
 
 type Tri = "nom" | "victoire" | "palier";
 const TRIS: { cle: Tri; cleI18n: string }[] = [
-  { cle: "nom", cleI18n: "triNom" },
-  { cle: "victoire", cleI18n: "triVictoire" },
-  { cle: "palier", cleI18n: "triPalier" },
+  { cle: "nom", cleI18n: "sortName" },
+  { cle: "victoire", cleI18n: "sortWin" },
+  { cle: "palier", cleI18n: "sortTier" },
 ];
 const RANG_PALIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
 
@@ -101,29 +101,29 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
         <ChampRecherche
           valeur={recherche}
           onChange={setRecherche}
-          libelle={t("pages.heroesListe.rechercher")}
+          libelle={t("pages.heroesList.search")}
           className="max-w-md"
         />
 
-        <Filtres legende={t("pages.heroesListe.role")} valeurs={ROLES} actif={role} onChange={setRole} libelle={(r) => t(`roles.${r}`)} />
-        <Filtres legende={t("pages.heroesListe.position")} valeurs={LANES} actif={lane} onChange={setLane} libelle={(l) => t(`lanes.${l}`)} />
+        <Filtres legende={t("pages.heroesList.role")} valeurs={ROLES} actif={role} onChange={setRole} libelle={(r) => t(`roles.${r}`)} />
+        <Filtres legende={t("pages.heroesList.position")} valeurs={LANES} actif={lane} onChange={setLane} libelle={(l) => t(`lanes.${l}`)} />
 
-        <GroupeFiltres legende={t("pages.heroesListe.trier")}>
+        <GroupeFiltres legende={t("pages.heroesList.sort")}>
           {TRIS.map((tri_) => (
             <Puce key={tri_.cle} actif={tri === tri_.cle} onClick={() => setTri(tri_.cle)}>
-              {t(`pages.heroesListe.${tri_.cleI18n}`)}
+              {t(`pages.heroesList.${tri_.cleI18n}`)}
             </Puce>
           ))}
         </GroupeFiltres>
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
-        {t("pages.heroesListe.compte", { n: resultats.length })}
-        {resultats.length !== heros.length && ` ${t("pages.heroesListe.compteSur", { total: heros.length })}`}
+        {t("pages.heroesList.account", { n: resultats.length })}
+        {resultats.length !== heros.length && ` ${t("pages.heroesList.countOf", { total: heros.length })}`}
       </p>
 
       {/* Titre de la grille pour les lecteurs d'ecran : les cartes portent des h3. */}
-      <h2 className="sr-only">{t("pages.heroesListe.liste")}</h2>
+      <h2 className="sr-only">{t("pages.heroesList.list")}</h2>
       {resultats.length > 0 ? (
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {resultats.map((h) => (
@@ -131,7 +131,7 @@ export function ListeHeros({ heros }: { heros: ApercuHeros[] }) {
           ))}
         </div>
       ) : (
-        <p className="mt-10 text-chalk-500">{t("pages.heroesListe.aucun")}</p>
+        <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
       )}
     </div>
   );

@@ -78,8 +78,8 @@ export function BuildsParRang({
 
   return (
     <div>
-      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("builds.joues")}</h3>
-      <p className="mt-1 text-sm leading-relaxed text-chalk-500">{t("builds.jouesIntro")}</p>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("builds.played")}</h3>
+      <p className="mt-1 text-sm leading-relaxed text-chalk-500">{t("builds.playedIntro")}</p>
 
       {lanes.length > 1 && (
         <GroupeFiltres legende={t("builds.position")} largeurLegende="" className="mt-4">
@@ -98,17 +98,17 @@ export function BuildsParRang({
               <span className="font-heading font-bold text-gold-400">{t("builds.build", { n: i + 1 })}</span>
               {b.victoire !== null && (
                 <span className="text-xs font-semibold tabular-nums text-emerald-400">
-                  {t("builds.victoire", { taux: b.victoire.toFixed(1) })}
+                  {t("builds.win", { taux: b.victoire.toFixed(1) })}
                 </span>
               )}
             </div>
             {b.selection !== null && (
               <p className="mt-0.5 text-xs tabular-nums text-chalk-500">
-                {t("builds.selection", { taux: b.selection.toFixed(1) })}
+                {t("builds.pick", { taux: b.selection.toFixed(1) })}
               </p>
             )}
 
-            <p className="mt-4 text-[0.65rem] uppercase tracking-wide text-chalk-500">{t("builds.objets")}</p>
+            <p className="mt-4 text-[0.65rem] uppercase tracking-wide text-chalk-500">{t("builds.items")}</p>
             <ul className="mt-2 grid grid-cols-3 gap-2">
               {b.objets.map((o) => (
                 <li key={o.nom}>
@@ -120,7 +120,7 @@ export function BuildsParRang({
             <div className="mt-4 space-y-3 border-t border-night-800 pt-4">
               {b.embleme && (
                 <ChoixBuild
-                  libelle={t("builds.embleme")}
+                  libelle={t("builds.emblem")}
                   nom={nomEmbleme(b.embleme.nom)}
                   image={b.embleme.image}
                   href={b.embleme.href}
@@ -134,7 +134,7 @@ export function BuildsParRang({
                   image={talent.image}
                 />
               ))}
-              {b.sort && <ChoixBuild libelle={t("builds.sort")} nom={b.sort.nom} image={b.sort.image} href={b.sort.href} />}
+              {b.sort && <ChoixBuild libelle={t("builds.spell")} nom={b.sort.nom} image={b.sort.image} href={b.sort.href} />}
             </div>
           </li>
         ))}
@@ -147,8 +147,8 @@ export function BuildsParRang({
           <div className="bevel mt-4 border border-night-700/70 bg-night-900/60 p-4">
             <p className="text-xs text-chalk-500">
               {guide.auteur &&
-                t("builds.guideAuteur", {
-                  rang: `${t(`rangsNom.${guide.auteur.cle}`)}${guide.auteur.division ? ` ${guide.auteur.division}` : ""}`,
+                t("builds.guideAuthor", {
+                  rang: `${t(`rankNames.${guide.auteur.cle}`)}${guide.auteur.division ? ` ${guide.auteur.division}` : ""}`,
                 })}
               {guide.auteur && " · "}
               {t("builds.guideVotes", { n: guide.votes })}
@@ -163,7 +163,7 @@ export function BuildsParRang({
             <div className="mt-4 grid gap-3 border-t border-night-800 pt-4 sm:grid-cols-3 lg:grid-cols-5">
               {guide.embleme && (
                 <ChoixBuild
-                  libelle={t("builds.embleme")}
+                  libelle={t("builds.emblem")}
                   nom={nomEmbleme(guide.embleme.nom)}
                   image={guide.embleme.image}
                   href={guide.embleme.href}
@@ -178,7 +178,7 @@ export function BuildsParRang({
                 />
               ))}
               {guide.sort && (
-                <ChoixBuild libelle={t("builds.sort")} nom={guide.sort.nom} image={guide.sort.image} href={guide.sort.href} />
+                <ChoixBuild libelle={t("builds.spell")} nom={guide.sort.nom} image={guide.sort.image} href={guide.sort.href} />
               )}
             </div>
           </div>

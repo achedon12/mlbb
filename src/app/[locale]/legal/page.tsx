@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.legal.titre"),
+    titre: t("pages.legal.title"),
     description: t("pages.legal.metaDescription"),
     chemin: "/legal",
   });
@@ -23,7 +23,7 @@ export default async function PageMentionsLegales({ params }: Params) {
   const t = creerT(locale);
   return (
     <>
-      <EnTetePage titre={t("pages.legal.titre")} chapeau={t("pages.legal.chapeau")} />
+      <EnTetePage titre={t("pages.legal.title")} chapeau={t("pages.legal.lead")} />
       <Prose
         langue={locale}
         cle="legal"

@@ -17,15 +17,15 @@ import type { ContresParRang } from "@/lib/donnees";
 import type { Lane } from "@/lib/types";
 
 const t = creerTDepuis({
-  contres: { pts: "pts" },
-  rangsMesure: { mythic: "Mythique", all: "Tous rangs" },
+  counters: { pts: "pts" },
+  measuredRanks: { mythic: "Mythique", all: "Tous rangs" },
   pages: {
     heroCounters: {
-      tousRangs: "Tous rangs confondus",
-      auRang: "En {rang}",
-      synthese: "{contexte}, {nom} souffre le plus face à {faibles}, et prend l'avantage sur {forts}.",
-      syntheseSansForts: "{contexte}, {nom} souffre le plus face à {faibles}.",
-      aucuneMesure: "Pas encore de counter mesuré pour {nom}.",
+      allRanks: "Tous rangs confondus",
+      atRank: "En {rang}",
+      overview: "{contexte}, {nom} souffre le plus face à {faibles}, et prend l'avantage sur {forts}.",
+      overviewNoStrong: "{contexte}, {nom} souffre le plus face à {faibles}.",
+      noMeasure: "Pas encore de counter mesuré pour {nom}.",
     },
   },
 });
@@ -128,8 +128,8 @@ describe("objets contre un heros", () => {
       "tough-boots",
     ]);
     // La coquille du wiki compte comme physique.
-    expect(raisonsContre(profil({ typeDegats: "Phyiscal" }))).toEqual(["physique"]);
-    expect(raisonsContre(profil({ typeDegats: "Mixed" }))).toEqual(["magique", "physique"]);
+    expect(raisonsContre(profil({ typeDegats: "Phyiscal" }))).toEqual(["physical"]);
+    expect(raisonsContre(profil({ typeDegats: "Mixed" }))).toEqual(["magic", "physical"]);
   });
 
   it("ajoute les regles de role et de specialite, sans citer deux fois un objet", () => {
@@ -137,8 +137,8 @@ describe("objets contre un heros", () => {
       profil({ typeDegats: "Magic", roles: ["Marksman"], specialites: ["Regen", "Crowd Control"] }),
       tous,
     );
-    expect(conseils.filter((c) => c.slug === "tough-boots")).toEqual([{ slug: "tough-boots", raison: "magique" }]);
-    expect(new Set(conseils.map((c) => c.raison))).toEqual(new Set(["magique", "attaques", "soins"]));
+    expect(conseils.filter((c) => c.slug === "tough-boots")).toEqual([{ slug: "tough-boots", raison: "magic" }]);
+    expect(new Set(conseils.map((c) => c.raison))).toEqual(new Set(["magic", "attacks", "healing"]));
   });
 
   it("detecte le vol de vie dans les bonus du build joue, et ecarte les objets absents du catalogue", () => {

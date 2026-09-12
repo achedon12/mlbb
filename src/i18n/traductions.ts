@@ -25,11 +25,11 @@ export type { Arbre, T };
 /**
  * Rubriques lues seulement par des composants serveur : le navigateur n'en a
  * pas l'usage. Une rubrique citee dans un composant client, meme passee en
- * argument (`tr("skinRarete", …)`), doit rester hors de cette liste.
+ * argument (`tr("skinRarity", …)`), doit rester hors de cette liste.
  */
 const SERVEUR_SEULEMENT = [
-  "pied", "modeFiche", "histoire", "home", "vedette", "acces", "proses", "nouveauHeros", "articleUI", "articleCat",
-  "donneesHeros", "notifPush",
+  "footer", "modeSheet", "story", "home", "featured", "access", "prose", "newHero", "articleUI", "articleCategory",
+  "heroData", "pushNotif",
 ];
 
 const estArbre = (x: unknown): x is Arbre => typeof x === "object" && x !== null && !Array.isArray(x);
@@ -47,11 +47,11 @@ function fusionner(base: Arbre, dessus: Arbre): Arbre {
  * Rubriques propres a certaines pages : la mise en page ne les envoie pas, la
  * page qui en a besoin les ajoute (`messagesPage` + `CompleterMessages`). Le
  * catalogue client, repete dans chaque page, pesait 46 Ko dont 34 pour ces
- * rubriques. `pages.introuvable` reste commun : la page 404 peut surgir
+ * rubriques. `pages.notFound` reste commun : la page 404 peut surgir
  * partout.
  */
-export const RUBRIQUES_DE_PAGE = ["pages", "emblemesData"];
-const COMMUNES_MALGRE_TOUT = ["pages.introuvable"];
+export const RUBRIQUES_DE_PAGE = ["pages", "emblemData"];
+const COMMUNES_MALGRE_TOUT = ["pages.notFound"];
 
 function complet(langue: Langue): Arbre {
   return fusionner(MESSAGES[LANGUE_DEFAUT], MESSAGES[langue]);

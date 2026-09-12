@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.heroes.titre", { n: heros.length, v: patchActuel.version }),
+    titre: t("pages.seo.heroes.title", { n: heros.length, v: patchActuel.version }),
     description: descriptionCatalogue(locale),
     partage: t("pages.heroes.ogDescription", { heros: heros.length, skins: nombreSkins }),
     chemin: "/heroes",
@@ -41,7 +41,7 @@ export default async function PageHeros({ params }: Params) {
   const t = creerT(locale);
 
   const donneesStructurees = donneesListeHeros(locale, {
-    nom: t("pages.heroes.listeLd"),
+    nom: t("pages.heroes.listLd"),
     description: descriptionCatalogue(locale),
     chemin: "/heroes",
     heros: heros.map((h) => ({ nom: h.name, slug: h.slug })),
@@ -65,14 +65,14 @@ export default async function PageHeros({ params }: Params) {
   });
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.heroesListe"])}>
+    <CompleterMessages messages={messagesPage(locale, ["pages.heroesList"])}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
       />
       <EnTetePage
-        titre={t("pages.heroes.titre")}
-        chapeau={t("pages.heroes.chapeau", {
+        titre={t("pages.heroes.title")}
+        chapeau={t("pages.heroes.lead", {
           heros: heros.length,
           skins: nombreSkins,
           analyses: herosAnalyses.length,

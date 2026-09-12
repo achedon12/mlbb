@@ -41,7 +41,7 @@ function Section({
         className="flex w-full items-center gap-2 px-2 py-3 text-left text-sm font-semibold text-chalk-100"
       >
         <Icone size={17} aria-hidden className="text-gold-400" />
-        <span className="flex-1">{t(`nav.groupes.${groupe.cle}`)}</span>
+        <span className="flex-1">{t(`nav.groups.${groupe.cle}`)}</span>
         <ChevronDown size={16} aria-hidden className={cn("text-chalk-500 transition-transform", ouverte && "rotate-180")} />
       </button>
       <ul id={id} hidden={!ouverte} className="pb-2">
@@ -101,7 +101,7 @@ function NoeudMobile({ noeud, chemin, onNaviguer }: { noeud: Noeud; chemin: stri
           type="button"
           aria-expanded={ouvert}
           aria-controls={id}
-          aria-label={t("nav.sousMenu", { nom })}
+          aria-label={t("nav.submenu", { nom })}
           onClick={() => setOuvert((o) => !o)}
           className="grid w-11 shrink-0 place-items-center text-chalk-500"
         >
@@ -149,7 +149,7 @@ export function MenuMobile() {
         onClick={() => setOuvert((o) => !o)}
         aria-expanded={ouvert}
         aria-controls="menu-mobile"
-        aria-label={ouvert ? t("nav.fermer") : t("nav.ouvrir")}
+        aria-label={ouvert ? t("nav.close") : t("nav.open")}
         className="grid size-9 place-items-center text-chalk-300 transition-colors hover:text-gold-400"
       >
         {ouvert ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
@@ -164,7 +164,7 @@ export function MenuMobile() {
 
       <nav
         id="menu-mobile"
-        aria-label={t("nav.principal")}
+        aria-label={t("nav.main")}
         hidden={!ouvert}
         className="absolute inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-night-700 bg-night-950 px-3 pb-4 shadow-2xl shadow-night-950/60"
       >

@@ -42,7 +42,7 @@ export function DirectionBadge({ type, t }: { type: ChangeDirection; t: T }) {
   return (
     <span className={cn("inline-flex items-center gap-1 text-xs font-semibold", text)}>
       <Icon size={14} aria-hidden />
-      {t(`patchHeros.${LIVE_TYPE[type]}`)}
+      {t(`patchHeroes.${LIVE_TYPE[type]}`)}
     </span>
   );
 }
@@ -112,7 +112,7 @@ export function BalanceSummary({ balance, t }: { balance: AdvanceVersion["balanc
           <li key={type} className="flex items-center gap-1.5">
             <Icon size={14} aria-hidden className={text} />
             <span className="font-semibold tabular-nums text-chalk-100">{balance[type]}</span>
-            <span className="text-chalk-500">{t(`patchHeros.pluriel.${LIVE_TYPE[type]}`)}</span>
+            <span className="text-chalk-500">{t(`patchHeroes.plural.${LIVE_TYPE[type]}`)}</span>
           </li>
         );
       })}
@@ -144,7 +144,7 @@ export function HeroChips({
           <div key={sens}>
             <Heading className={cn("flex items-center gap-2 font-heading text-base font-bold", text)}>
               <Icon size={16} aria-hidden />
-              {t(`patchHeros.pluriel.${sens}`)}
+              {t(`patchHeroes.plural.${sens}`)}
               <span className="text-sm font-medium text-chalk-500">{groups[sens].length}</span>
             </Heading>
             <ul className="mt-2 flex flex-wrap gap-2">
@@ -187,7 +187,7 @@ function ChangeItem({ change, t }: { change: AdvanceChange; t: T }) {
   if ("text" in change) return <span className="text-chalk-300">{change.text}</span>;
   return (
     <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-      {change.label && <span className="text-chalk-500">{t("patchHeros.libelle", { libelle: change.label })}</span>}
+      {change.label && <span className="text-chalk-500">{t("patchHeroes.label", { libelle: change.label })}</span>}
       <span className="sr-only">{t("pages.advanceServer.before")}</span>
       <span className="text-chalk-500 line-through decoration-blood-500/50">{change.before}</span>
       <ArrowRight size={12} aria-hidden className="shrink-0 self-center text-chalk-500" />

@@ -28,7 +28,7 @@ export default async function PageStatistiquesRang({ params }: Params) {
   const { locale, rang } = await params;
   if (!estRang(rang)) notFound();
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.heroesListe", "pages.statisticsTable"])}>
+    <CompleterMessages messages={messagesPage(locale, ["pages.heroesList", "pages.statisticsTable"])}>
       <Statistiques locale={locale} rang={rang} />
     </CompleterMessages>
   );

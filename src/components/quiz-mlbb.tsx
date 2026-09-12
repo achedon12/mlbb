@@ -92,10 +92,10 @@ export function QuizMlbb({ heros, objets }: { heros: HerosQuiz[]; objets: ObjetR
     <div>
       <GroupeFiltres legende={t("pages.quizUI.mode")} largeurLegende="" className="mb-6">
         <Puce actif={mode === "jour"} onClick={() => choisirMode("jour")}>
-          {t("pages.quizUI.modeJour")}
+          {t("pages.quizUI.dailyMode")}
         </Puce>
         <Puce actif={mode === "entrainement"} onClick={() => choisirMode("entrainement")}>
-          {t("pages.quizUI.modeEntrainement")}
+          {t("pages.quizUI.practiceMode")}
         </Puce>
       </GroupeFiltres>
       <div hidden={mode !== "jour"}>
@@ -166,16 +166,16 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
   if (etat === null || !jour) {
     return (
       <p role="status" className="py-10 text-center text-sm text-chalk-500">
-        {t("pages.quizUI.chargement")}
+        {t("pages.quizUI.loading")}
       </p>
     );
   }
   if (etat === "erreur") {
     return (
       <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
-        <p>{t("pages.quizUI.erreurChargement")}</p>
+        <p>{t("pages.quizUI.loadError")}</p>
         <button type="button" onClick={() => setTentative((n) => n + 1)} className={cn(boutonSecondaire, "mt-3")}>
-          {t("pages.quizUI.reessayer")}
+          {t("pages.quizUI.retry")}
         </button>
       </div>
     );
@@ -222,12 +222,12 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
     <div className="space-y-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <p className="font-heading text-lg font-bold text-gold-400">
-          {t("pages.quizUI.defiNumero", { n: defi.numero, date: dateLisible })}
+          {t("pages.quizUI.puzzleNumber", { n: defi.numero, date: dateLisible })}
         </p>
-        {etat.local && <p className="text-xs text-chalk-500">{t("pages.quizUI.horsLigne")}</p>}
+        {etat.local && <p className="text-xs text-chalk-500">{t("pages.quizUI.offline")}</p>}
       </div>
 
-      <nav aria-label={t("pages.quizUI.etapes")}>
+      <nav aria-label={t("pages.quizUI.steps")}>
         <ol className="grid grid-cols-6 gap-1.5">
           {defi.manches.map((m, i) => {
             const finie = mancheFinie(m, essais[i] ?? []);
@@ -239,7 +239,7 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
                   type="button"
                   onClick={() => aller(i)}
                   aria-current={i === courante ? "step" : undefined}
-                  aria-label={`${t("pages.quizUI.manche", { n: i + 1, max: defi.manches.length })} · ${t(`pages.quizUI.types.${m.type}`)}${finie ? ` · ${t(reussie ? "pages.quizUI.etapeReussie" : "pages.quizUI.etapeRatee")}` : ""}`}
+                  aria-label={`${t("pages.quizUI.round", { n: i + 1, max: defi.manches.length })} · ${t(`pages.quizUI.types.${m.type}`)}${finie ? ` · ${t(reussie ? "pages.quizUI.stepSolved" : "pages.quizUI.stepMissed")}` : ""}`}
                   className={cn(
                     "bevel-sm flex h-11 w-full items-center justify-center border transition-colors",
                     i === courante ? "border-gold-500 bg-gold-500/15 text-gold-400" : "border-night-700 text-chalk-500",
@@ -259,7 +259,7 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
               onClick={() => aller(defi.manches.length)}
               disabled={!termine}
               aria-current={courante === defi.manches.length ? "step" : undefined}
-              aria-label={t("pages.quizUI.bilanEtape")}
+              aria-label={t("pages.quizUI.stepSummary")}
               className={cn(
                 "bevel-sm flex h-11 w-full items-center justify-center border transition-colors disabled:opacity-40",
                 courante === defi.manches.length
@@ -281,7 +281,7 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
             essais={essais[courante] ?? []}
             catalogue={catalogue}
             onEssai={(slug) => jouer(courante, slug)}
-            etiquette={t("pages.quizUI.manche", { n: courante + 1, max: defi.manches.length })}
+            etiquette={t("pages.quizUI.round", { n: courante + 1, max: defi.manches.length })}
             refTitre={titre}
             mesure={defi.mesure}
           />
@@ -292,7 +292,7 @@ function DefiDuJour({ catalogue, onEntrainement }: { catalogue: CatalogueQuiz; o
                 onClick={() => aller(termine ? defi.manches.length : mancheOuverte(defi, essais))}
                 className={boutonPrincipal}
               >
-                {termine ? t("pages.quizUI.voirBilan") : t("pages.quizUI.suivante")} →
+                {termine ? t("pages.quizUI.seeSummary") : t("pages.quizUI.nextRound")} →
               </button>
             </div>
           )}
@@ -366,7 +366,7 @@ function Bilan({
   return (
     <section className="bevel border border-gold-500/40 bg-night-900/60 p-4 sm:p-6">
       <h3 ref={refTitre} tabIndex={-1} className="font-heading text-2xl font-bold text-chalk-100 outline-none">
-        {t("pages.quizUI.bilanTitre", { points, max })}
+        {t("pages.quizUI.summaryTitle", { points, max })}
       </h3>
 
       <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-start">
@@ -383,25 +383,25 @@ function Bilan({
         <div className="flex-1 space-y-3">
           <button type="button" onClick={partager} className={cn(boutonPrincipal, "w-full sm:w-auto")}>
             <Share2 size={16} aria-hidden />
-            {t("pages.quizUI.partager")}
+            {t("pages.quizUI.share")}
           </button>
           <p aria-live="polite" className="min-h-5 text-sm text-chalk-300">
             {statut === "copie"
-              ? t("pages.quizUI.copie")
+              ? t("pages.quizUI.copied")
               : statut === "partage"
-                ? t("pages.quizUI.partage")
+                ? t("pages.quizUI.shared")
                 : statut === "erreur"
-                  ? t("pages.quizUI.erreurCopie")
+                  ? t("pages.quizUI.copyError")
                   : ""}
           </p>
           <ProchainDefi jour={jour} onNouveauJour={onNouveauJour} />
           <button type="button" onClick={onEntrainement} className={boutonSecondaire}>
-            {t("pages.quizUI.entrainer")} →
+            {t("pages.quizUI.practise")} →
           </button>
         </div>
       </div>
 
-      <h4 className="mt-8 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.statsTitre")}</h4>
+      <h4 className="mt-8 text-xs uppercase tracking-wide text-chalk-500">{t("pages.quizUI.statsTitle")}</h4>
       <dl className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {(
           [
@@ -430,7 +430,7 @@ function Bilan({
               />
             </span>
             <span className="w-8 shrink-0 text-chalk-300">{n}</span>
-            <span className="sr-only">{t("pages.quizUI.distributionLigne", { score, n })}</span>
+            <span className="sr-only">{t("pages.quizUI.distributionRow", { score, n })}</span>
           </li>
         ))}
       </ol>
@@ -442,11 +442,11 @@ function Bilan({
 function resume(m: Manche, essais: string[], t: T): string {
   const type = t(`pages.quizUI.types.${m.type}`);
   if (m.type === "duel") {
-    return t("pages.quizUI.resumeDuel", { type, n: pointsManche(m, essais), max: m.paires.length });
+    return t("pages.quizUI.summaryDuel", { type, n: pointsManche(m, essais), max: m.paires.length });
   }
   return mancheReussie(m, essais)
-    ? t("pages.quizUI.resumeTrouve", { type, n: essais.length })
-    : t("pages.quizUI.resumeRate", { type });
+    ? t("pages.quizUI.summaryFound", { type, n: essais.length })
+    : t("pages.quizUI.summaryMissed", { type });
 }
 
 /** Compte a rebours jusqu'a minuit UTC ; passe minuit, le nouveau defi se lance d'un clic. */
@@ -469,13 +469,13 @@ function ProchainDefi({ jour, onNouveauJour }: { jour: string; onNouveauJour: ()
   if (restant <= 0) {
     return (
       <button type="button" onClick={onNouveauJour} className={boutonSecondaire}>
-        {t("pages.quizUI.nouveauDefi")}
+        {t("pages.quizUI.newPuzzle")}
       </button>
     );
   }
   const h = Math.floor(restant / 3_600_000);
   const m = Math.floor((restant % 3_600_000) / 60_000);
-  return <p className="text-sm text-chalk-500">{t("pages.quizUI.prochain", { h, m })}</p>;
+  return <p className="text-sm text-chalk-500">{t("pages.quizUI.next", { h, m })}</p>;
 }
 
 /** Une manche au hasard, d'un des types choisis, en evitant les reponses recentes. */
@@ -536,16 +536,16 @@ function Entrainement({ catalogue }: { catalogue: CatalogueQuiz }) {
   if (pool === null) {
     return (
       <p role="status" className="py-10 text-center text-sm text-chalk-500">
-        {t("pages.quizUI.chargement")}
+        {t("pages.quizUI.loading")}
       </p>
     );
   }
   if (pool === "erreur" || !manche) {
     return (
       <div role="alert" className="bevel border border-blood-500/40 bg-night-900/60 p-5 text-sm text-chalk-300">
-        <p>{t("pages.quizUI.erreurChargement")}</p>
+        <p>{t("pages.quizUI.loadError")}</p>
         <button type="button" onClick={() => setTentative((n) => n + 1)} className={cn(boutonSecondaire, "mt-3")}>
-          {t("pages.quizUI.reessayer")}
+          {t("pages.quizUI.retry")}
         </button>
       </div>
     );
@@ -587,7 +587,7 @@ function Entrainement({ catalogue }: { catalogue: CatalogueQuiz }) {
 
   return (
     <div className="space-y-5">
-      <GroupeFiltres legende={t("pages.quizUI.typesFiltre")} largeurLegende="" className="gap-1.5">
+      <GroupeFiltres legende={t("pages.quizUI.typeFilters")} largeurLegende="" className="gap-1.5">
         {ORDRE_DEFI.map((type) => (
           <Puce key={type} dense actif={types.includes(type)} onClick={() => basculer(type)}>
             {t(`pages.quizUI.types.${type}`)}
@@ -597,7 +597,7 @@ function Entrainement({ catalogue }: { catalogue: CatalogueQuiz }) {
 
       <dl className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
         <div className="flex gap-1.5">
-          <dt className="text-chalk-500">{t("pages.quizUI.serieEntrainement")}</dt>
+          <dt className="text-chalk-500">{t("pages.quizUI.practiceStreak")}</dt>
           <dd className="font-semibold tabular-nums text-gold-400">{serie}</dd>
         </div>
         <div className="flex gap-1.5">
@@ -605,7 +605,7 @@ function Entrainement({ catalogue }: { catalogue: CatalogueQuiz }) {
           <dd className="font-semibold tabular-nums text-chalk-100">{record.meilleure}</dd>
         </div>
         <div className="flex gap-1.5">
-          <dt className="text-chalk-500">{t("pages.quizUI.reussite")}</dt>
+          <dt className="text-chalk-500">{t("pages.quizUI.successRate")}</dt>
           <dd className="font-semibold tabular-nums text-chalk-100">
             {record.reussies}/{record.jouees}
           </dd>
@@ -625,7 +625,7 @@ function Entrainement({ catalogue }: { catalogue: CatalogueQuiz }) {
       {finie && (
         <div className="flex justify-end">
           <button type="button" onClick={suivante} className={boutonPrincipal}>
-            {t("pages.quizUI.questionSuivante")} →
+            {t("pages.quizUI.nextQuestion")} →
           </button>
         </div>
       )}

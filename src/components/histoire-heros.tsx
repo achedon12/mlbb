@@ -25,12 +25,12 @@ import { creerT } from "@/i18n/traductions";
 type ChampTexte = "title" | "species" | "gender" | "age" | "origin" | "birthday";
 
 const CHAMPS: { cle: ChampTexte; libelle: string; icone: LucideIcon }[] = [
-  { cle: "title", libelle: "titre", icone: Crown },
-  { cle: "species", libelle: "espece", icone: PawPrint },
-  { cle: "gender", libelle: "genre", icone: Users },
+  { cle: "title", libelle: "title", icone: Crown },
+  { cle: "species", libelle: "species", icone: PawPrint },
+  { cle: "gender", libelle: "gender", icone: Users },
   { cle: "age", libelle: "age", icone: Hourglass },
-  { cle: "origin", libelle: "origine", icone: MapPin },
-  { cle: "birthday", libelle: "anniversaire", icone: Cake },
+  { cle: "origin", libelle: "origin", icone: MapPin },
+  { cle: "birthday", libelle: "birthday", icone: Cake },
 ];
 
 function GroupeChips({
@@ -92,7 +92,7 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
             <section>
               <h2 className="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.15em] text-gold-400">
                 <BookOpen size={16} aria-hidden />
-                {t("histoire.recit")}
+                {t("story.story")}
               </h2>
               <div className="mt-5 max-w-[68ch] space-y-4 text-[0.95rem] leading-[1.8] text-chalk-300">
                 {premier && (
@@ -108,7 +108,7 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
           ) : (
             !tagline && (
               <p className="leading-relaxed text-chalk-500">
-                {t("histoire.aucunRecit", { nom })}
+                {t("story.noStory", { nom })}
               </p>
             )
           )}
@@ -129,7 +129,7 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
                       <Icone size={15} aria-hidden />
                     </span>
                     <div className="min-w-0">
-                      <dt className="text-xs uppercase tracking-wide text-chalk-500">{t(`histoire.${libelle}`)}</dt>
+                      <dt className="text-xs uppercase tracking-wide text-chalk-500">{t(`story.${libelle}`)}</dt>
                       <dd className="mt-0.5 text-chalk-100">{profile[cle]}</dd>
                     </div>
                   </div>
@@ -140,9 +140,9 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
               profile.relations.length > 0 ||
               profile.powers.length > 0) && (
               <dl className="mt-5 space-y-4 border-t border-night-800 pt-5 text-sm">
-                <GroupeChips titre={t("histoire.pouvoirs")} valeurs={profile.powers} icone={Wand2} />
-                <GroupeChips titre={t("histoire.affiliations")} valeurs={profile.affiliations} icone={Flag} />
-                <GroupeChips titre={t("histoire.relations")} valeurs={profile.relations} icone={Users} />
+                <GroupeChips titre={t("story.powers")} valeurs={profile.powers} icone={Wand2} />
+                <GroupeChips titre={t("story.affiliations")} valeurs={profile.affiliations} icone={Flag} />
+                <GroupeChips titre={t("story.relations")} valeurs={profile.relations} icone={Users} />
               </dl>
             )}
           </aside>
@@ -154,7 +154,7 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
         <section className="border-t border-night-800 pt-10">
           <h2 className="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.15em] text-azure-400">
             <Sparkles size={16} aria-hidden />
-            {t("histoire.saviezVous")}
+            {t("story.didYouKnow")}
           </h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
             {trivia.map((a, i) => (

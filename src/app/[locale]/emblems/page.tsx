@@ -12,15 +12,15 @@ import { choixPopulaires, patchActuel } from "@/lib/fraicheur";
 export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
-  // Noms anglais de l'API (« Seasoned Hunter ») vers le catalogue (« emblemesData.seasoned-hunter.nom »).
+  // Noms anglais de l'API (« Seasoned Hunter ») vers le catalogue (« emblemData.seasoned-hunter.name »).
   const nomChoix = (nom: string) => {
-    const cle = `emblemesData.${nom.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.nom`;
+    const cle = `emblemData.${nom.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.nom`;
     const traduit = t(cle);
     return traduit === cle ? nom : traduit;
   };
   const { sort, talent } = choixPopulaires();
   return metaPage(locale, {
-    titre: t("pages.seo.emblems.titre", { v: patchActuel.version }),
+    titre: t("pages.seo.emblems.title", { v: patchActuel.version }),
     description:
       sort && talent
         ? t("pages.seo.emblems.description", { sort: nomChoix(sort), talent: nomChoix(talent), v: patchActuel.version })
@@ -40,10 +40,10 @@ export default async function PageEmblemes({ params }: { params: Promise<{ local
   const { locale } = await params;
   const t = creerT(locale);
   return (
-    <CompleterMessages messages={messagesPage(locale, ["emblemesData"])}>
+    <CompleterMessages messages={messagesPage(locale, ["emblemData"])}>
       <EnTetePage
-        titre={t("pages.emblems.titre")}
-        chapeau={t("pages.emblems.chapeau")}
+        titre={t("pages.emblems.title")}
+        chapeau={t("pages.emblems.lead")}
       />
       <div className="mx-auto max-w-6xl px-4 py-12">
         <GuideEmblemes

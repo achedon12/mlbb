@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.chatiment.titre"),
-    description: t("pages.seo.chatiment.description"),
+    titre: t("pages.seo.retribution.title"),
+    description: t("pages.seo.retribution.description"),
     chemin: CHEMIN,
     motsCles: ["retribution", "retribution test", "jungle", "Lord", "Turtle", "timing", "Mobile Legends", "MLBB"],
   });
@@ -47,8 +47,8 @@ export default async function PageChatiment({ params }: Params) {
   const t = creerT(locale);
   const entier = new Intl.NumberFormat(locale);
   const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.chatiment.titre"),
-    description: t("pages.seo.chatiment.description"),
+    nom: t("pages.retribution.title"),
+    description: t("pages.seo.retribution.description"),
     chemin: CHEMIN,
     categorie: "GameApplication",
   });
@@ -61,44 +61,44 @@ export default async function PageChatiment({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
-      <EnTetePage titre={t("pages.chatiment.titre")} chapeau={t("pages.chatiment.chapeau")} />
+      <EnTetePage titre={t("pages.retribution.title")} chapeau={t("pages.retribution.lead")} />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
         <EntraineurChatiment adresse={`${site.url}/${locale}${CHEMIN}`} />
 
         <section aria-labelledby="regles-titre">
           <h2 id="regles-titre" className={titreSection}>
-            {t("pages.chatiment.reglesTitre")}
+            {t("pages.retribution.rulesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.chatiment.regle1")}</p>
-            <p>{t("pages.chatiment.regle2", { recharge: RECHARGE_CHATIMENT_S })}</p>
+            <p>{t("pages.retribution.rule1")}</p>
+            <p>{t("pages.retribution.rule2", { recharge: RECHARGE_CHATIMENT_S })}</p>
             <p>
-              {t("pages.chatiment.regle3", {
+              {t("pages.retribution.rule3", {
                 precision: POIDS_PRECISION,
                 vitesse: POIDS_VITESSE,
                 pleine: REACTION_PLEINE_MS,
                 nulle: entier.format(REACTION_NULLE_MS),
               })}
             </p>
-            <p>{t("pages.chatiment.regle4", { n: MANCHES_PAR_SERIE })}</p>
+            <p>{t("pages.retribution.rule4", { n: MANCHES_PAR_SERIE })}</p>
           </div>
         </section>
 
         <section aria-labelledby="valeurs-titre">
           <h2 id="valeurs-titre" className={titreSection}>
-            {t("pages.chatiment.valeursTitre")}
+            {t("pages.retribution.valuesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <p className="mt-4 leading-relaxed text-chalk-300">
-            {t("pages.chatiment.degatsIntro", { base: CHATIMENT_BASE, parNiveau: CHATIMENT_PAR_NIVEAU })}
+            {t("pages.retribution.damageIntro", { base: CHATIMENT_BASE, parNiveau: CHATIMENT_PAR_NIVEAU })}
           </p>
           <ol className="mt-5 space-y-1.5">
             {niveaux.map((n) => {
               const degats = degatsChatiment(n);
               return (
                 <li key={n} className="grid grid-cols-[5rem_1fr_3.5rem] items-center gap-3 text-sm">
-                  <span className="text-chalk-500">{t("pages.chatiment.niveau", { n })}</span>
+                  <span className="text-chalk-500">{t("pages.retribution.level", { n })}</span>
                   <span aria-hidden className="h-3 bg-night-800">
                     <span
                       className="block h-full bg-gradient-to-r from-gold-600 to-gold-400"
@@ -111,7 +111,7 @@ export default async function PageChatiment({ params }: Params) {
             })}
           </ol>
 
-          <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.chatiment.monstresTitre")}</h3>
+          <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.retribution.monstersTitle")}</h3>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {CLES_OBJECTIFS.map((cle) => {
               const o = OBJECTIFS[cle];
@@ -129,9 +129,9 @@ export default async function PageChatiment({ params }: Params) {
                   />
                   <div className="min-w-0 flex-1">
                     <p className="flex flex-wrap items-baseline justify-between gap-x-3">
-                      <span className="font-semibold text-chalk-100">{t(`outils.chatiment.objectif.${cle}`)}</span>
+                      <span className="font-semibold text-chalk-100">{t(`tools.retribution.objective.${cle}`)}</span>
                       <span className="font-heading font-bold tabular-nums text-chalk-100">
-                        {t("outils.chatiment.pvMax", { pv: entier.format(o.pv) })}
+                        {t("tools.retribution.maxHp", { pv: entier.format(o.pv) })}
                       </span>
                     </p>
                     {/* Longueur relative au plus gros objectif ; un trait par segment de la barre de vie. */}
@@ -146,10 +146,10 @@ export default async function PageChatiment({ params }: Params) {
                     </div>
                     <p className="mt-1.5 flex flex-wrap justify-between gap-x-3 text-xs text-chalk-500">
                       <span>
-                        {t("pages.chatiment.colSegment")} : <span className="tabular-nums">{entier.format(o.segment)}</span>
+                        {t("pages.retribution.colSegment")} : <span className="tabular-nums">{entier.format(o.segment)}</span>
                       </span>
                       <a href={o.source} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                        {t("pages.chatiment.wiki")}
+                        {t("pages.retribution.wiki")}
                       </a>
                     </p>
                   </div>
@@ -157,17 +157,17 @@ export default async function PageChatiment({ params }: Params) {
               );
             })}
           </ul>
-          <p className="mt-3 text-sm text-chalk-500">{t("pages.chatiment.monstresNote")}</p>
+          <p className="mt-3 text-sm text-chalk-500">{t("pages.retribution.monstersNote")}</p>
 
-          <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.chatiment.difficultesTitre")}</h3>
+          <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.retribution.difficultiesTitle")}</h3>
           <div className="mt-3 relative overflow-x-auto">
             <table className="w-full min-w-[26rem] text-left text-sm">
               <thead className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
                 <tr>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colDifficulte")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colAdverse")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.chatiment.colRepere")}</th>
-                  <th scope="col" className="py-2 font-medium">{t("pages.chatiment.colPvChiffres")}</th>
+                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.retribution.colDifficulty")}</th>
+                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.retribution.colEnemy")}</th>
+                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.retribution.colMarker")}</th>
+                  <th scope="col" className="py-2 font-medium">{t("pages.retribution.colHpNumbers")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -176,7 +176,7 @@ export default async function PageChatiment({ params }: Params) {
                   return (
                     <tr key={d} className="border-b border-night-800">
                       <th scope="row" className="py-2.5 pr-4 font-medium text-chalk-100">
-                        {t(`outils.chatiment.difficulte.${d}`)}
+                        {t(`tools.retribution.difficulty.${d}`)}
                       </th>
                       <td className="py-2.5 pr-4">
                         <div className="flex items-center gap-3">
@@ -195,10 +195,10 @@ export default async function PageChatiment({ params }: Params) {
                         </div>
                       </td>
                       <td className="py-2.5 pr-4 text-chalk-300">
-                        {r.repere ? t("pages.chatiment.oui") : t("pages.chatiment.non")}
+                        {r.repere ? t("pages.retribution.yes") : t("pages.retribution.no")}
                       </td>
                       <td className="py-2.5 text-chalk-300">
-                        {r.pvChiffres ? t("pages.chatiment.oui") : t("pages.chatiment.non")}
+                        {r.pvChiffres ? t("pages.retribution.yes") : t("pages.retribution.no")}
                       </td>
                     </tr>
                   );
@@ -206,18 +206,18 @@ export default async function PageChatiment({ params }: Params) {
               </tbody>
             </table>
           </div>
-          <p className="mt-3 text-sm text-chalk-500">{t("pages.chatiment.valeursEntrainement")}</p>
+          <p className="mt-3 text-sm text-chalk-500">{t("pages.retribution.trainingValues")}</p>
         </section>
 
         <section aria-labelledby="sources-titre" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.chatiment.sourcesTitre")}</h2>
+          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.retribution.sourcesTitle")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
               <a href={SOURCE_CHATIMENT} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.chatiment.sourceChatiment")}
+                {t("pages.retribution.sourceRetribution")}
               </a>
             </li>
-            <li>{t("pages.chatiment.sourceMonstres")}</li>
+            <li>{t("pages.retribution.sourceMonsters")}</li>
           </ul>
         </section>
       </div>

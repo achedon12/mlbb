@@ -44,7 +44,7 @@ export function AccueilVedette({
 
       <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
         <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
-          {t("vedette.herosDuJour")}
+          {t("featured.heroOfTheDay")}
         </p>
 
         <h2 className="mt-3 font-heading text-5xl font-bold leading-none text-chalk-100 sm:text-6xl">
@@ -54,11 +54,11 @@ export function AccueilVedette({
 
         <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           {[
-            [t("vedette.role"), heros.roles.map((r) => t(`roles.${r}`)).join(", ")],
-            [t("vedette.position"), heros.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
-            palier ? [t("vedette.tierList"), t("vedette.palier", { p: palier })] : null,
-            victoire !== null ? [t("vedette.victoires"), `${victoire.toFixed(1)} %`] : null,
-            heros.skins.length ? [t("vedette.skins"), String(heros.skins.length)] : null,
+            [t("featured.role"), heros.roles.map((r) => t(`roles.${r}`)).join(", ")],
+            [t("featured.position"), heros.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
+            palier ? [t("featured.tierList"), t("featured.tier", { p: palier })] : null,
+            victoire !== null ? [t("featured.wins"), `${victoire.toFixed(1)} %`] : null,
+            heros.skins.length ? [t("featured.skins"), String(heros.skins.length)] : null,
           ]
             .filter((e): e is [string, string] => e !== null && Boolean(e[1]))
             .map(([label, valeur]) => (
@@ -73,7 +73,7 @@ export function AccueilVedette({
           href={`/heroes/${heros.slug}`}
           className="bevel-sm mt-8 inline-flex items-center gap-2 bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
-          {t("vedette.voirFiche")}
+          {t("featured.seeSheet")}
           <ArrowRight size={18} aria-hidden />
         </Link>
       </div>

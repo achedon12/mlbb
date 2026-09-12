@@ -26,7 +26,7 @@ export const SOURCES_RANGS = {
 } as const;
 
 export interface PalierEchelle {
-  /** Cle d'embleme et de libelle (`rangsNom.*`). */
+  /** Cle d'embleme et de libelle (`rankNames.*`). */
   cle: string;
   /** Divisions, de la plus basse a la plus haute ; vide dans la famille Mythique. */
   divisions: string[];

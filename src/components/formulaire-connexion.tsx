@@ -17,7 +17,7 @@ import { useT } from "@/i18n/fournisseur";
 export function FormulaireConnexion() {
   const t = useT();
   const [etat, envoyer, enCours] = useActionState<Etat, FormData>(demanderCode, {});
-  const [aideAvant, aideApres = ""] = t("loginForm.aideServeur").split("{exemple}");
+  const [aideAvant, aideApres = ""] = t("loginForm.serverHelp").split("{exemple}");
 
   if (etat.codeEnvoye) {
     return <FormulaireCode roleId={etat.roleId!} zoneId={etat.zoneId!} />;
@@ -27,7 +27,7 @@ export function FormulaireConnexion() {
     <form action={envoyer} className="space-y-5">
       <div>
         <label htmlFor="roleId" className="block text-sm font-medium text-chalk-100">
-          {t("loginForm.identifiant")}
+          {t("loginForm.playerId")}
         </label>
         <input
           id="roleId"
@@ -36,14 +36,14 @@ export function FormulaireConnexion() {
           defaultValue={etat.roleId}
           required
           autoFocus
-          placeholder={t("loginForm.exempleIdentifiant")}
+          placeholder={t("loginForm.playerIdExample")}
           className="bevel-sm mt-2 w-full border border-night-700 bg-night-900 px-4 py-2.5 text-chalk-100 outline-none transition-colors focus:border-gold-500"
         />
       </div>
 
       <div>
         <label htmlFor="zoneId" className="block text-sm font-medium text-chalk-100">
-          {t("loginForm.serveur")}
+          {t("loginForm.server")}
         </label>
         <input
           id="zoneId"
@@ -68,7 +68,7 @@ export function FormulaireConnexion() {
         className="bevel-sm flex w-full items-center justify-center gap-2 bg-gold-500 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-60"
       >
         <Send size={16} aria-hidden />
-        {enCours ? t("loginForm.envoiCode") : t("loginForm.recevoir")}
+        {enCours ? t("loginForm.sendingCode") : t("loginForm.receiveCode")}
       </button>
     </form>
   );
@@ -88,7 +88,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
       <input type="hidden" name="zoneId" value={zoneId} />
 
       <div className="bevel-sm border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400">
-        {t("loginForm.codeEnvoye")}
+        {t("loginForm.codeSent")}
       </div>
 
       <div>
@@ -116,7 +116,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
         className="bevel-sm flex w-full items-center justify-center gap-2 bg-gold-500 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-60"
       >
         <KeyRound size={16} aria-hidden />
-        {enCours ? t("loginForm.verification") : t("loginForm.seConnecter")}
+        {enCours ? t("loginForm.verification") : t("loginForm.signIn")}
       </button>
 
       {/* Recommencer si le code n'arrive pas : recharger la page vide le formulaire. */}
@@ -125,7 +125,7 @@ function FormulaireCode({ roleId, zoneId }: { roleId: string; zoneId: string }) 
         className="flex items-center justify-center gap-1.5 text-sm text-chalk-500 transition-colors hover:text-gold-400"
       >
         <ArrowLeft size={14} aria-hidden />
-        {t("loginForm.recommencer")}
+        {t("loginForm.startOver")}
       </Link>
     </form>
   );

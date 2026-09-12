@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.about.titre"),
+    titre: t("pages.about.title"),
     description: t("pages.about.metaDescription"),
     chemin: "/about",
   });
@@ -23,7 +23,7 @@ export default async function PageAPropos({ params }: Params) {
   const t = creerT(locale);
   return (
     <>
-      <EnTetePage titre={t("pages.about.titre")} chapeau={t("pages.about.chapeau")} />
+      <EnTetePage titre={t("pages.about.title")} chapeau={t("pages.about.lead")} />
       <Prose langue={locale} cle="about" variables={{ depot: site.depot }} />
     </>
   );

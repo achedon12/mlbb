@@ -86,7 +86,7 @@ function variables(locale: Langue, t: T, rang: RangMesure, lignes: LigneStat[]) 
   const meilleur = premierSelon(lignes, "victoire");
   return {
     v: patchActuel?.version ?? "",
-    rang: t(`rangsMesure.${rang}`),
+    rang: t(`measuredRanks.${rang}`),
     n: lignes.length,
     nom: meilleur.nom,
     taux: pourcentage(locale, meilleur.victoire),
@@ -99,8 +99,8 @@ export function metaStatistiques(locale: Langue, rang: RangMesure): Metadata {
   const tous = rang === "all";
   const v = variables(locale, t, rang, lignesDuRang(rang));
   return metaPage(locale, {
-    titre: t(tous ? "pages.statistics.metaTitre" : "pages.statistics.metaTitreRang", v),
-    description: t(tous ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRang", v),
+    titre: t(tous ? "pages.statistics.metaTitle" : "pages.statistics.metaTitleRank", v),
+    description: t(tous ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRank", v),
     chemin: cheminStatistiques(rang),
   });
 }
@@ -109,8 +109,8 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
   const t = creerT(locale);
   const tous = rang === "all";
   const lignes = lignesDuRang(rang);
-  const nomRang = t(`rangsMesure.${rang}`);
-  const titre = tous ? t("pages.statistics.titre") : t("pages.statistics.titreRang", { rang: nomRang });
+  const nomRang = t(`measuredRanks.${rang}`);
+  const titre = tous ? t("pages.statistics.title") : t("pages.statistics.titleRank", { rang: nomRang });
   const victoire = premierSelon(lignes, "victoire");
   const ban = premierSelon(lignes, "ban");
   const pick = premierSelon(lignes, "selection");
@@ -127,8 +127,8 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
   const donnees = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    name: t("pages.statistics.ldNom", { rang: nomRang }),
-    description: t(tous ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRang", variables(locale, t, rang, lignes)),
+    name: t("pages.statistics.ldName", { rang: nomRang }),
+    description: t(tous ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRank", variables(locale, t, rang, lignes)),
     url: `${site.url}/${locale}${cheminStatistiques(rang)}`,
     inLanguage: LOCALE_HTML[locale],
     isAccessibleForFree: true,
@@ -159,27 +159,27 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
       <EnTetePage
         titre={titre}
-        chapeau={tous ? t("pages.statistics.chapeau") : t("pages.statistics.chapeauRang", { rang: nomRang })}
+        chapeau={tous ? t("pages.statistics.lead") : t("pages.statistics.leadRank", { rang: nomRang })}
         miettes={
           tous
             ? undefined
             : [
-                { nom: t("pages.statistics.titre"), href: "/statistics" },
+                { nom: t("pages.statistics.title"), href: "/statistics" },
                 {
                   nom: nomRang,
-                  freres: RANGS_CLASSES.map((r) => ({ nom: t(`rangsMesure.${r}`), href: cheminStatistiques(r) })),
+                  freres: RANGS_CLASSES.map((r) => ({ nom: t(`measuredRanks.${r}`), href: cheminStatistiques(r) })),
                 },
               ]
         }
       >
-        <LigneFraicheur langue={locale} avant={t("pages.statistics.mesures", { n: lignes.length })} className="mt-6" />
+        <LigneFraicheur langue={locale} avant={t("pages.statistics.measures", { n: lignes.length })} className="mt-6" />
       </EnTetePage>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         {/* Phrase de donnees : ce que les resultats de recherche reprennent en extrait. */}
         <p className="mb-8 max-w-3xl leading-relaxed text-chalk-300">
-          {t("pages.statistics.resume", {
-            contexte: tous ? t("pages.statistics.contexteTous") : t("pages.statistics.contexteRang", { rang: nomRang }),
+          {t("pages.statistics.summary", {
+            contexte: tous ? t("pages.statistics.contextAll") : t("pages.statistics.contextRank", { rang: nomRang }),
             victoire: victoire.nom,
             tauxVictoire: pourcentage(locale, victoire.victoire),
             ban: ban.nom,
@@ -193,17 +193,17 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
 
         <section className="mt-12">
           <div className="grid gap-6 md:grid-cols-2">
-            <Mouvements locale={locale} t={t} titre={t("pages.statistics.hausses")} liste={hausses} />
-            <Mouvements locale={locale} t={t} titre={t("pages.statistics.baisses")} liste={baisses} />
+            <Mouvements locale={locale} t={t} titre={t("pages.statistics.rises")} liste={hausses} />
+            <Mouvements locale={locale} t={t} titre={t("pages.statistics.falls")} liste={baisses} />
           </div>
-          <p className="mt-3 text-xs text-chalk-500">{t("pages.statistics.mouvementsIntro", { seuil })}</p>
+          <p className="mt-3 text-xs text-chalk-500">{t("pages.statistics.movementsIntro", { seuil })}</p>
         </section>
 
         <details className="bevel mt-10 border border-night-700/70 bg-night-900/60 p-5">
-          <summary className="cursor-pointer font-heading font-bold text-gold-400">{t("pages.statistics.lecture.titre")}</summary>
+          <summary className="cursor-pointer font-heading font-bold text-gold-400">{t("pages.statistics.reading.title")}</summary>
           <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-chalk-300">
-            {(["victoire", "ban", "selection", "tendance", "courbe", "palier", "faible"] as const).map((c) => (
-              <li key={c}>{t(`pages.statistics.lecture.${c}`, { seuil })}</li>
+            {(["win", "ban", "pick", "trend", "curve", "tier", "weak"] as const).map((c) => (
+              <li key={c}>{t(`pages.statistics.reading.${c}`, { seuil })}</li>
             ))}
           </ul>
         </details>
@@ -213,12 +213,12 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
             href={tous ? "/tier-list" : `/tier-list/${rang}`}
             className="font-semibold text-gold-400 underline-offset-4 hover:underline"
           >
-            {tous ? t("pages.tierList.titre") : t("pages.tierList.titreRang", { rang: nomRang })} →
+            {tous ? t("pages.tierList.title") : t("pages.tierList.titleRank", { rang: nomRang })} →
           </Link>
           <span className="text-chalk-500">
             {t("pages.statistics.api")}{" "}
             <Link href="/api-doc" className="font-semibold text-gold-400 underline-offset-4 hover:underline">
-              {t("pages.statistics.apiLien")}
+              {t("pages.statistics.apiLink")}
             </Link>
           </span>
         </p>
@@ -232,7 +232,7 @@ function Mouvements({ locale, t, titre, liste }: { locale: Langue; t: T; titre: 
     <div className="bevel border border-night-700/70 bg-night-900/60 p-5">
       <h2 className="font-heading text-lg font-bold text-chalk-100">{titre}</h2>
       {liste.length === 0 ? (
-        <p className="mt-3 text-sm text-chalk-500">{t("pages.statistics.aucunMouvement")}</p>
+        <p className="mt-3 text-sm text-chalk-500">{t("pages.statistics.noMovement")}</p>
       ) : (
         <ol className="mt-3 space-y-1.5 text-sm">
           {liste.map(({ slug, variation }) => (

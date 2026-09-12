@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     ? `${patchActuel.version} (${dateLongue(locale, patchActuel.date)})`
     : patchActuel.version;
   return metaPage(locale, {
-    titre: t("pages.seo.patchNotes.titre", { v: patchActuel.version }),
+    titre: t("pages.seo.patchNotes.title", { v: patchActuel.version }),
     description: patchActuel.adjustments.length
       ? t("pages.seo.patchNotes.description", {
           version,
@@ -45,11 +45,11 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
   return (
     <>
       <EnTetePage
-        titre={t("pages.patchNotes.titre")}
-        chapeau={t("pages.patchNotes.chapeau")}
+        titre={t("pages.patchNotes.title")}
+        chapeau={t("pages.patchNotes.lead")}
       >
         <p className="mt-6 text-sm text-chalk-500">
-          {t("pages.patchNotes.recenses", { n: patchs.length, m: avecDetail.length })}{" "}
+          {t("pages.patchNotes.listed", { n: patchs.length, m: avecDetail.length })}{" "}
           <time dateTime={synchro.date}>{formaterDate(synchro.date, LOCALE_HTML[locale])}</time>
         </p>
       </EnTetePage>
@@ -57,7 +57,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
         <section>
           <h2 className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.patchNotes.recentes")}
+            {t("pages.patchNotes.recent")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
@@ -95,7 +95,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
           <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.patchNotes.archives")}</h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <p className="mt-3 text-sm text-chalk-500">
-            {t("pages.patchNotes.anciens")}
+            {t("pages.patchNotes.older")}
           </p>
 
           <ul className="mt-6 grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">

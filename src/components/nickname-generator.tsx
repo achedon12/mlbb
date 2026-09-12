@@ -194,7 +194,7 @@ export function NicknameGenerator() {
               <p className="mt-1 text-sm text-blood-500">{t("pages.nicknameUI.overGuide", { max: GUIDE_LENGTH.max })}</p>
             )}
             <p className="mt-3 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
-              {t("pages.nicknameUI.note")}
+              {t("pages.nicknameUI.rating")}
             </p>
           </Carte>
 

@@ -77,7 +77,7 @@ export function formaterEcart(locale: Langue, t: T, valeur: number): string {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   }).format(valeur);
-  return `${n} ${t("contres.pts")}`;
+  return `${n} ${t("counters.pts")}`;
 }
 
 /** « A, B et C », « A, B and C ». */
@@ -108,15 +108,15 @@ export function phraseSynthese(
 ): string {
   const contexte =
     o.rang === "all"
-      ? t("pages.heroCounters.tousRangs")
-      : t("pages.heroCounters.auRang", { rang: t(`rangsMesure.${o.rang}`) });
+      ? t("pages.heroCounters.allRanks")
+      : t("pages.heroCounters.atRank", { rang: t(`measuredRanks.${o.rang}`) });
   const faibles = [...o.faible].sort((a, b) => a.advantage - b.advantage).slice(0, 3);
   const forts = [...o.fort].sort((a, b) => b.advantage - a.advantage).slice(0, 2);
-  if (faibles.length === 0) return t("pages.heroCounters.aucuneMesure", { nom: o.nom });
+  if (faibles.length === 0) return t("pages.heroCounters.noMeasure", { nom: o.nom });
   const variables = { contexte, nom: o.nom, faibles: tete(locale, t, faibles) };
   return forts.length > 0
-    ? t("pages.heroCounters.synthese", { ...variables, forts: tete(locale, t, forts) })
-    : t("pages.heroCounters.syntheseSansForts", variables);
+    ? t("pages.heroCounters.overview", { ...variables, forts: tete(locale, t, forts) })
+    : t("pages.heroCounters.overviewNoStrong", variables);
 }
 
 // ── Objets conseilles, par regle ───────────────────────────────────
@@ -126,7 +126,7 @@ export function phraseSynthese(
  * regle lue sur la fiche du heros (type de degats, role, specialites) et sur
  * son build le plus joue (vol de vie).
  */
-export type RaisonObjet = "magique" | "physique" | "attaques" | "soins" | "controle";
+export type RaisonObjet = "magic" | "physical" | "attacks" | "healing" | "control";
 
 /**
  * Objets de reference de chaque regle, par slug du catalogue. Les soins ont un
@@ -134,11 +134,11 @@ export type RaisonObjet = "magique" | "physique" | "attaques" | "soins" | "contr
  * celui qui entre dans son build.
  */
 export const OBJETS_PAR_RAISON: Record<RaisonObjet, string[]> = {
-  magique: ["athena-s-shield", "radiant-armor", "tough-boots"],
-  physique: ["antique-cuirass", "warrior-boots"],
-  attaques: ["blade-armor", "chastise-pauldron"],
-  soins: ["dominance-ice", "sea-halberd", "necklace-of-durance"],
-  controle: ["tough-boots"],
+  magic: ["athena-s-shield", "radiant-armor", "tough-boots"],
+  physical: ["antique-cuirass", "warrior-boots"],
+  attacks: ["blade-armor", "chastise-pauldron"],
+  healing: ["dominance-ice", "sea-halberd", "necklace-of-durance"],
+  control: ["tough-boots"],
 };
 
 export interface ProfilMenace {
@@ -160,11 +160,11 @@ export function porteVolDeVie(bonus: (string | null)[]): boolean {
 export function raisonsContre(p: ProfilMenace): RaisonObjet[] {
   const degats = (p.typeDegats ?? "").toLowerCase().replace("phyiscal", "physical");
   const raisons: RaisonObjet[] = [];
-  if (degats === "magic" || degats === "mixed") raisons.push("magique");
-  if (degats === "physical" || degats === "mixed") raisons.push("physique");
-  if (p.roles.includes("Marksman")) raisons.push("attaques");
-  if (p.specialites.includes("Regen") || p.volDeVie) raisons.push("soins");
-  if (p.specialites.some((s) => s === "Crowd Control" || s === "Control")) raisons.push("controle");
+  if (degats === "magic" || degats === "mixed") raisons.push("magic");
+  if (degats === "physical" || degats === "mixed") raisons.push("physical");
+  if (p.roles.includes("Marksman")) raisons.push("attacks");
+  if (p.specialites.includes("Regen") || p.volDeVie) raisons.push("healing");
+  if (p.specialites.some((s) => s === "Crowd Control" || s === "Control")) raisons.push("control");
   return raisons;
 }
 

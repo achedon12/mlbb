@@ -162,7 +162,7 @@ export function pairesVedettes(paires: readonly PaireLore[], nombre: number): Pa
 // ── Regions et factions ────────────────────────────────────────────
 
 export interface RegionLore {
-  /** Slug de la region, cle de son libelle (`donneesHeros.region.<cle>`) et de son adresse. */
+  /** Slug de la region, cle de son libelle (`heroData.region.<cle>`) et de son adresse. */
   cle: string;
   /** Nom anglais du wiki. */
   nom: string;

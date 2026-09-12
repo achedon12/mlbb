@@ -60,7 +60,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
 
   const items = entrees
     .map(({ version, date, ajustement: a }) => {
-      const type = a.type ? t(`patchHeros.${a.type}`) : null;
+      const type = a.type ? t(`patchHeroes.${a.type}`) : null;
       const titre = type ? `Patch ${version} — ${type}` : `Patch ${version}`;
       const lien = urlAbsolue(`/${locale}/patch-notes/${version}`);
       return `    <item>
@@ -78,9 +78,9 @@ ${date ? `      <pubDate>${new Date(date).toUTCString()}</pubDate>\n` : ""}${typ
      xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>${echapper(`${h.name} — ${t("pages.heroDetail.statistiques.ajustements")} · ${site.nom}`)}</title>
+    <title>${echapper(`${h.name} — ${t("pages.heroDetail.statistics.adjustments")} · ${site.nom}`)}</title>
     <link>${fiche}</link>
-    <description>${echapper(t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.name }))}</description>
+    <description>${echapper(t("pages.heroDetail.statistics.adjustmentsIntro", { nom: h.name }))}</description>
     <language>${LOCALE_HTML[locale].toLowerCase()}</language>
 ${dernier ? `    <lastBuildDate>${new Date(dernier).toUTCString()}</lastBuildDate>\n` : ""}    <generator>${echapper(site.nom)}</generator>
     <atom:link href="${urlAbsolue(`/${locale}/heroes/${slug}/feed.xml`)}" rel="self" type="application/rss+xml" />

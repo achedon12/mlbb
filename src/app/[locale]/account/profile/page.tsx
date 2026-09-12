@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const t = creerT(locale);
   return {
     ...metaPage(locale, {
-      titre: t("pages.accountProfile.metaTitre"),
+      titre: t("pages.accountProfile.metaTitle"),
       description: t("pages.accountProfile.metaDescription"),
       chemin: "/account/profile",
     }),
@@ -90,7 +90,7 @@ export default async function PageProfilJoueur({
     <CompleterMessages messages={messagesPage(locale, ["pages.accountProfile"])}>
       <div className="mx-auto max-w-4xl px-4 py-14">
         <FilAriane
-          miettes={[{ nom: t("pages.account.metaTitre"), href: "/account" }, { nom: t("pages.accountProfile.titre") }]}
+          miettes={[{ nom: t("pages.account.metaTitle"), href: "/account" }, { nom: t("pages.accountProfile.title") }]}
           className="mb-8"
         />
         {contenu}
@@ -132,19 +132,19 @@ export default async function PageProfilJoueur({
   const tranche = trancheDuRang(profil.rangActuel);
   const lignes = herosSaison.etat === "ok" ? comparerHeros(herosSaison.donnees.heros, tranche) : null;
   const parties = premiere.etat === "ok" ? premiere.donnees.entrees : null;
-  const nomTranche = t(`rangsMesure.${tranche}`);
+  const nomTranche = t(`measuredRanks.${tranche}`);
   const attente = (hauteur: string) => (
-    <AnalyseEnCours t={t} texte={t("pages.accountProfile.historiqueEnCours")} className={`mt-6 ${hauteur}`} />
+    <AnalyseEnCours t={t} texte={t("pages.accountProfile.historyPending")} className={`mt-6 ${hauteur}`} />
   );
 
   return cadre(
     <>
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
-          <h1 className="font-heading text-3xl font-bold text-chalk-100">{t("pages.accountProfile.titre")}</h1>
+          <h1 className="font-heading text-3xl font-bold text-chalk-100">{t("pages.accountProfile.title")}</h1>
           <div aria-hidden className="gold-rule mt-3 h-0.5 w-16" />
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-500">
-            {t("pages.accountProfile.chapeau", { nom: profil.name })}
+            {t("pages.accountProfile.lead", { nom: profil.name })}
           </p>
         </div>
         <BadgeRang rang={rang} taille="sm" />
@@ -152,7 +152,7 @@ export default async function PageProfilJoueur({
 
       {sids.length > 1 && <NavSaisons saisons={sids} courante={saison} t={t} />}
 
-      <SectionProfil id="bilan" titre={t("pages.accountProfile.bilanTitre", { n: saison })}>
+      <SectionProfil id="bilan" titre={t("pages.accountProfile.summaryTitle", { n: saison })}>
         {herosSaison.etat === "ok" ? (
           <BilanJoueur
             bilan={bilanSaison(herosSaison.donnees.heros)}
@@ -169,8 +169,8 @@ export default async function PageProfilJoueur({
 
       <SectionProfil
         id="evolution"
-        titre={t("pages.accountProfile.evolutionTitre")}
-        chapeau={t("pages.accountProfile.evolutionIntro", { n: FENETRE_FORME })}
+        titre={t("pages.accountProfile.trendTitle")}
+        chapeau={t("pages.accountProfile.trendIntro", { n: FENETRE_FORME })}
       >
         {historique === null ? (
           <SectionIndisponible t={t} />
@@ -183,15 +183,15 @@ export default async function PageProfilJoueur({
 
       <SectionProfil
         id="postes"
-        titre={t("pages.accountProfile.postesTitre")}
-        chapeau={t("pages.accountProfile.postesIntro", { n: PARTIES_MIN_POSTE })}
+        titre={t("pages.accountProfile.rolesTitle")}
+        chapeau={t("pages.accountProfile.rolesIntro", { n: PARTIES_MIN_POSTE })}
       >
         <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:gap-8">
           {herosSaison.etat === "ok" ? (
             <TableauPostes
               type="roles"
-              titre={t("pages.accountProfile.parRoleTitre")}
-              source={t("pages.accountProfile.parRoleSource")}
+              titre={t("pages.accountProfile.byRoleTitle")}
+              source={t("pages.accountProfile.byRoleSource")}
               bilan={statsParRole(herosSaison.donnees.heros)}
               t={t}
               langue={locale}
@@ -211,15 +211,15 @@ export default async function PageProfilJoueur({
 
       <SectionProfil
         id="heros"
-        titre={t("pages.accountProfile.herosTitre")}
-        chapeau={`${t("pages.accountProfile.herosIntro", { rang: nomTranche })}${
-          tranche === "all" ? ` ${t("pages.accountProfile.trancheSousEpique")}` : ""
+        titre={t("pages.accountProfile.heroesTitle")}
+        chapeau={`${t("pages.accountProfile.heroesIntro", { rang: nomTranche })}${
+          tranche === "all" ? ` ${t("pages.accountProfile.belowEpicBracket")}` : ""
         }`}
       >
         {lignes === null ? (
           <SectionIndisponible t={t} />
         ) : lignes.length === 0 ? (
-          <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.herosVide")}</p>
+          <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.heroesEmpty")}</p>
         ) : (
           <>
             <TableauHeros lignes={lignes.slice(0, HEROS_AFFICHES)} tranche={tranche} t={t} langue={locale} />
@@ -235,8 +235,8 @@ export default async function PageProfilJoueur({
 
       <SectionProfil
         id="conseils"
-        titre={t("pages.accountProfile.conseilsTitre")}
-        chapeau={t("pages.accountProfile.conseilsIntro", { n: PARTIES_MIN })}
+        titre={t("pages.accountProfile.adviceTitle")}
+        chapeau={t("pages.accountProfile.adviceIntro", { n: PARTIES_MIN })}
       >
         <ConseilsHeros
           lignes={lignes}
@@ -247,9 +247,9 @@ export default async function PageProfilJoueur({
           langue={locale}
           adversaires={
             parties === null ? (
-              <p className="text-sm text-chalk-400">{t("pages.accountProfile.sectionIndispo")}</p>
+              <p className="text-sm text-chalk-400">{t("pages.accountProfile.sectionUnavailable")}</p>
             ) : parties.length === 0 ? (
-              <p className="text-sm text-chalk-400">{t("pages.accountProfile.bourreauxVide")}</p>
+              <p className="text-sm text-chalk-400">{t("pages.accountProfile.nemesesEmpty")}</p>
             ) : (
               <Suspense fallback={<AnalyseEnCours t={t} />}>
                 <AnalyseAdversaires
@@ -266,7 +266,7 @@ export default async function PageProfilJoueur({
         />
       </SectionProfil>
 
-      <SectionProfil id="parties" titre={t("pages.accountProfile.partiesTitre")}>
+      <SectionProfil id="parties" titre={t("pages.accountProfile.gamesTitle")}>
         {premiere.etat === "ok" ? (
           <PartiesRecentes
             key={saison}
@@ -285,7 +285,7 @@ export default async function PageProfilJoueur({
 /** Historique indisponible ou session expiree, dit a la place d'une section differee. */
 function HistoriqueManquant({ etat, t }: { etat: "expire" | "indisponible"; t: T }) {
   return etat === "expire" ? (
-    <p className="mt-6 text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.expireTexte")}</p>
+    <p className="mt-6 text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.expiredText")}</p>
   ) : (
     <SectionIndisponible t={t} />
   );
@@ -307,8 +307,8 @@ async function PositionsDifferees({ historique, t, langue }: { historique: Histo
   return (
     <TableauPostes
       type="lanes"
-      titre={t("pages.accountProfile.parPositionTitre")}
-      source={t(`pages.accountProfile.parPositionSource.${pluriel(n, langue)}`, { n })}
+      titre={t("pages.accountProfile.byPositionTitle")}
+      source={t(`pages.accountProfile.byPositionSource.${pluriel(n, langue)}`, { n })}
       bilan={bilan}
       t={t}
       langue={langue}

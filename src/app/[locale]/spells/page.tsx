@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.spellsListe.metaTitre", { n: sortsFiches.length }),
-    description: t("pages.spellsListe.metaDescription"),
+    titre: t("pages.spellsList.metaTitle", { n: sortsFiches.length }),
+    description: t("pages.spellsList.metaDescription"),
     chemin: "/spells",
   });
 }
@@ -27,8 +27,8 @@ export default async function PageSorts({ params }: { params: Promise<{ locale: 
   return (
     <>
       <EnTetePage
-        titre={t("pages.spellsListe.titre")}
-        chapeau={t("pages.spellsListe.chapeau", { n: sortsFiches.length })}
+        titre={t("pages.spellsList.title")}
+        chapeau={t("pages.spellsList.lead", { n: sortsFiches.length })}
       />
       <div className="mx-auto max-w-5xl px-4 py-12">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -52,7 +52,7 @@ export default async function PageSorts({ params }: { params: Promise<{ locale: 
                     {s.nom}
                   </span>
                   {s.recharge !== null && (
-                    <span className="block text-xs text-chalk-500">{t("pages.spellsListe.recharge", { s: s.recharge })}</span>
+                    <span className="block text-xs text-chalk-500">{t("pages.spellsList.cooldown", { s: s.recharge })}</span>
                   )}
                 </span>
               </Link>

@@ -221,7 +221,7 @@ export default async function TournamentPage({ params }: Params) {
         ))}
         {stages.some((s) => s.standings.length > 0) && (
           <p className="-mt-8 max-w-3xl text-xs leading-relaxed text-chalk-500">
-            {t("pages.esports.standings.note")} {t("pages.esports.zones.note")}
+            {t("pages.esports.standings.rating")} {t("pages.esports.zones.rating")}
           </p>
         )}
 

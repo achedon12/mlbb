@@ -73,12 +73,12 @@ export function mlbbdleRoster(locale: Langue): Roster {
         roles: h.roles,
         lanes: h.lanes,
         specialties: h.specialties.flatMap((s) => {
-          const key = note("specialties", "specialite", s);
+          const key = note("specialties", "specialty", s);
           return key ? [key] : [];
         }),
-        damage: note("damage", "degats", h.damageType),
-        range: note("range", "attaque", h.attackType),
-        resource: note("resource", "ressource", h.resource),
+        damage: note("damage", "damage", h.damageType),
+        range: note("range", "attack", h.attackType),
+        resource: note("resource", "resource", h.resource),
         region: note("region", "region", h.region),
         year: Number(h.year) || null,
       };

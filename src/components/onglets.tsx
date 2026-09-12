@@ -100,7 +100,7 @@ export function Onglets({ onglets }: { onglets: Onglet[] }) {
       <div
         ref={liste}
         role="tablist"
-        aria-label={t("commun.sections")}
+        aria-label={t("common.sections")}
         className="flex scroll-mt-20 flex-wrap gap-1 border-b border-night-700/70"
       >
         {visibles.map((o, i) => {

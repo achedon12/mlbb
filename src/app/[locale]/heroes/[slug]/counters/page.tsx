@@ -83,7 +83,7 @@ function synthese(locale: Langue, h: Heros) {
   const phrase =
     rang && mesure
       ? phraseSynthese(locale, t, { nom: h.name, rang, faible: avecNoms(mesure.weak), fort: avecNoms(mesure.strong) })
-      : t("pages.heroCounters.aucuneMesure", { nom: h.name });
+      : t("pages.heroCounters.noMeasure", { nom: h.name });
   return { rang, phrase };
 }
 
@@ -98,12 +98,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   // (« Yi Sun-shin ») pousserait le patch au-dela de la coupe des resultats :
   // le titre court le garde visible.
   const variables = { ...noms(h.name), v: patchActuel?.version ?? "" };
-  const complet = t(patchActuel ? "pages.heroCounters.metaTitre" : "pages.heroCounters.metaTitreSansPatch", variables);
-  const titre = patchActuel && complet.length > TITRE_LONG ? t("pages.heroCounters.metaTitreCourt", variables) : complet;
+  const complet = t(patchActuel ? "pages.heroCounters.metaTitle" : "pages.heroCounters.metaTitleNoPatch", variables);
+  const titre = patchActuel && complet.length > TITRE_LONG ? t("pages.heroCounters.metaTitleShort", variables) : complet;
   return {
     ...metaPage(locale, {
       titre,
-      description: `${phrase} ${t("pages.heroCounters.majLe", { date: dateLongue(locale) })}`,
+      description: `${phrase} ${t("pages.heroCounters.updatedOn", { date: dateLongue(locale) })}`,
       chemin: `/heroes/${slug}/counters`,
       type: "article",
       image: `/${locale}/heroes/${slug}/opengraph-image`,
@@ -162,15 +162,15 @@ export default async function PageContres({ params }: Params) {
   const moments = momentsPartie(tranches);
   const nomTranche = (x: TrancheDuree) =>
     x.to === null
-      ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.from })
-      : t("pages.heroDetail.statistiques.minutes", { de: x.from, a: x.to });
+      ? t("pages.heroDetail.statistics.minutesPlus", { de: x.from })
+      : t("pages.heroDetail.statistics.minutes", { de: x.from, a: x.to });
 
   const lanesContres = contresParLane(contresAgreges, (s) => herosParSlug.get(s)?.lanes ?? [], h.lanes);
   const relation = relations[slug];
   const wiki = relation
     ? ([
-        [t("pages.heroDetail.alaise", n), relation.strongAgainst, "bon"],
-        [t("pages.heroDetail.difficulte2", n), relation.weakAgainst, "mauvais"],
+        [t("pages.heroDetail.comfortable", n), relation.strongAgainst, "bon"],
+        [t("pages.heroDetail.difficulty2", n), relation.weakAgainst, "mauvais"],
         [t("pages.heroCounters.wiki.synergies", n), relation.synergies, "bon"],
       ] as const).map(([titre, slugs, ton]) => ({ titre, ton, slugs: slugs.filter((s) => herosParSlug.has(s)) }))
     : [];
@@ -187,17 +187,17 @@ export default async function PageContres({ params }: Params) {
 
   const rangTierList = rangPrincipal && rangPrincipal !== "all" && RANGS_CLASSES.includes(rangPrincipal) ? rangPrincipal : null;
   const liens = [
-    { href: `/heroes/${slug}#contres`, label: t("pages.heroCounters.lienFiche", n) },
-    { href: `/heroes/${slug}#builds`, label: t("pages.heroCounters.lienBuilds", n) },
+    { href: `/heroes/${slug}#contres`, label: t("pages.heroCounters.sheetLink", n) },
+    { href: `/heroes/${slug}#builds`, label: t("pages.heroCounters.buildsLink", n) },
     ...(premier
-      ? [{ href: cheminPaire(slug, premier), label: t("pages.heroCounters.lienComparer", { nom: h.name, autre: nomDe(premier) }) }]
+      ? [{ href: cheminPaire(slug, premier), label: t("pages.heroCounters.compareLink", { nom: h.name, autre: nomDe(premier) }) }]
       : []),
     rangTierList
-      ? { href: `/tier-list/${rangTierList}`, label: t("pages.tierList.titreRang", { rang: t(`rangsMesure.${rangTierList}`) }) }
+      ? { href: `/tier-list/${rangTierList}`, label: t("pages.tierList.titleRank", { rang: t(`measuredRanks.${rangTierList}`) }) }
       : { href: "/tier-list", label: t("nav.tierList.label") },
   ];
 
-  const titre = t("pages.heroCounters.titre", n);
+  const titre = t("pages.heroCounters.title", n);
   const adresse = `${site.url}/${locale}/heroes/${slug}/counters`;
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -225,7 +225,7 @@ export default async function PageContres({ params }: Params) {
             {
               "@type": "ItemList",
               "@id": `${adresse}#contres`,
-              name: t("pages.heroCounters.meilleursContres", n),
+              name: t("pages.heroCounters.bestCounters", n),
               itemListOrder: "https://schema.org/ItemListOrderDescending",
               numberOfItems: meilleurs.length,
               itemListElement: meilleurs.map((c, i) => ({
@@ -252,7 +252,7 @@ export default async function PageContres({ params }: Params) {
           { nom: h.name, href: `/heroes/${slug}` },
           // Pas de `freres` ici : 133 liens de plus dans la charge RSC de chaque
           // page, quand la section « autres pages » mene deja aux voisins.
-          { nom: t("pages.heroDetail.onglet.contres") },
+          { nom: t("pages.heroDetail.tab.counters") },
         ]}
       >
         <LigneFraicheur langue={locale} className="mt-4" />
@@ -278,10 +278,10 @@ export default async function PageContres({ params }: Params) {
             {meilleurs.length > 0 && (
               <section aria-labelledby="meilleurs" className="min-w-0">
                 <h2 id="meilleurs" className="font-heading text-2xl font-bold text-chalk-100">
-                  {t("pages.heroCounters.meilleursContres", n)}
+                  {t("pages.heroCounters.bestCounters", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">
-                  {t("pages.heroCounters.meilleursContresIntro", n)}
+                  {t("pages.heroCounters.bestCountersIntro", n)}
                 </p>
                 <TableauAgrege t={t} lignes={meilleurs} ton="mauvais" total={tranchesMesurees} slug={slug} ecart={ecart} />
               </section>
@@ -289,9 +289,9 @@ export default async function PageContres({ params }: Params) {
             {victimes.length > 0 && (
               <section aria-labelledby="victimes" className="min-w-0">
                 <h2 id="victimes" className="font-heading text-2xl font-bold text-chalk-100">
-                  {t("pages.heroCounters.victimes", n)}
+                  {t("pages.heroCounters.victims", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroCounters.victimesIntro", n)}</p>
+                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroCounters.victimsIntro", n)}</p>
                 <TableauAgrege t={t} lignes={victimes} ton="bon" total={tranchesMesurees} slug={slug} ecart={ecart} />
               </section>
             )}
@@ -305,12 +305,12 @@ export default async function PageContres({ params }: Params) {
         {rangs.length > 0 && (
           <section aria-labelledby="par-rang">
             <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
-              {t("pages.heroCounters.parRang")}
+              {t("pages.heroCounters.byRank")}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
-              {t("pages.heroDetail.contresIntro", n)} {t("pages.heroCounters.parRangIntro", n)}
+              {t("pages.heroDetail.countersIntro", n)} {t("pages.heroCounters.byRankIntro", n)}
             </p>
-            <nav aria-label={t("pages.heroCounters.rangsNav")} className="mt-4">
+            <nav aria-label={t("pages.heroCounters.ranksNav")} className="mt-4">
               <ul className="flex flex-wrap gap-2 text-sm">
                 {rangs.map((r) => (
                   <li key={r}>
@@ -318,7 +318,7 @@ export default async function PageContres({ params }: Params) {
                       href={`#rang-${r}`}
                       className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400"
                     >
-                      {t(`rangsMesure.${r}`)}
+                      {t(`measuredRanks.${r}`)}
                     </a>
                   </li>
                 ))}
@@ -342,24 +342,24 @@ export default async function PageContres({ params }: Params) {
                         aria-hidden
                         className="shrink-0 text-chalk-500 transition-transform group-open:rotate-180"
                       />
-                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`rangsMesure.${r}`)}</h3>
+                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
                       {s && (
                         <span className="text-sm text-chalk-500">
-                          {t("pages.heroDetail.palier", { p: s.tier })} ·{" "}
-                          {t("builds.victoire", { taux: decimal.format(s.winRate) })}
+                          {t("pages.heroDetail.tier", { p: s.tier })} ·{" "}
+                          {t("builds.win", { taux: decimal.format(s.winRate) })}
                         </span>
                       )}
                     </summary>
                     <div className="border-t border-night-800 p-4">
                       {mesure?.winRate != null && (
                         <p className="mb-4 text-sm text-chalk-500">
-                          {t("pages.heroDetail.contresRef", { taux: decimal.format(mesure.winRate) })}
+                          {t("pages.heroDetail.countersRef", { taux: decimal.format(mesure.winRate) })}
                         </p>
                       )}
                       <div className={cn("grid gap-6 md:grid-cols-3", STYLE_TABLEAUX_RANG)}>
                         <TableauRang
                           t={t}
-                          titre={t("contres.difficulte")}
+                          titre={t("counters.difficulty")}
                           icone={<TrendingDown size={16} aria-hidden />}
                           ton="mauvais"
                           lignes={connus(mesure?.weak)}
@@ -367,7 +367,7 @@ export default async function PageContres({ params }: Params) {
                         />
                         <TableauRang
                           t={t}
-                          titre={t("contres.fort")}
+                          titre={t("counters.strong")}
                           icone={<TrendingUp size={16} aria-hidden />}
                           ton="bon"
                           lignes={connus(mesure?.strong)}
@@ -375,7 +375,7 @@ export default async function PageContres({ params }: Params) {
                         />
                         <TableauRang
                           t={t}
-                          titre={t("pages.heroDetail.coequipiers")}
+                          titre={t("pages.heroDetail.teammates")}
                           icone={<Users size={16} aria-hidden />}
                           ton="bon"
                           lignes={connus(coequipiers[slug]?.[r])}
@@ -394,22 +394,22 @@ export default async function PageContres({ params }: Params) {
         {/* ── Comment le contrer ──────────────────────────────────────── */}
         <section aria-labelledby="contrer">
           <h2 id="contrer" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.heroCounters.commentContrer", n)}
+            {t("pages.heroCounters.howToCounter", n)}
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
-            {t("pages.heroCounters.commentContrerIntro", n)}
+            {t("pages.heroCounters.howToCounterIntro", n)}
           </p>
 
           <div className="mt-5 grid gap-4 lg:grid-cols-3">
             <Carte>
-              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.objets.titre", n)}</h3>
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.items.title", n)}</h3>
               <p className="bevel-sm mt-2 inline-block border border-gold-500/40 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-gold-400">
-                {t("pages.heroCounters.objets.regle")}
+                {t("pages.heroCounters.items.rule")}
               </p>
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">
-                {t("pages.heroCounters.objets.intro", {
+                {t("pages.heroCounters.items.intro", {
                   ...n,
-                  degats: libelleHeros(t, "degats", h.damageType)?.toLocaleLowerCase(locale) ?? "—",
+                  degats: libelleHeros(t, "damage", h.damageType)?.toLocaleLowerCase(locale) ?? "—",
                 })}
               </p>
               {groupesObjets.length > 0 ? (
@@ -417,7 +417,7 @@ export default async function PageContres({ params }: Params) {
                   {groupesObjets.map((g) => (
                     <div key={g.raison}>
                       <h4 className="text-xs font-semibold uppercase tracking-wide text-chalk-400">
-                        {t(`pages.heroCounters.objets.raison.${g.raison satisfies RaisonObjet}`)}
+                        {t(`pages.heroCounters.items.reason.${g.raison satisfies RaisonObjet}`)}
                       </h4>
                       <ul className="mt-2 space-y-2">
                         {g.objets.map((o) => (
@@ -446,16 +446,16 @@ export default async function PageContres({ params }: Params) {
                   ))}
                 </div>
               ) : (
-                <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.objets.aucun", n)}</p>
+                <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.items.none", n)}</p>
               )}
             </Carte>
 
             <Carte>
-              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.duree.titre", n)}</h3>
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.duration.title", n)}</h3>
               {moments && tranches && rangDuree ? (
                 <>
                   <p className="mt-3 text-sm leading-relaxed text-chalk-300">
-                    {t("pages.heroCounters.duree.phrase", {
+                    {t("pages.heroCounters.duration.sentence", {
                       nom: h.name,
                       faible: nomTranche(moments.faible),
                       tauxFaible: pourcentage(locale, moments.faible.winRate),
@@ -464,18 +464,18 @@ export default async function PageContres({ params }: Params) {
                     })}
                   </p>
                   <p className="mt-1 text-xs text-chalk-500">
-                    {t(`pages.heroDetail.statistiques.profil.${moments.profil}`)} ·{" "}
-                    {t("pages.heroCounters.duree.rang", { rang: t(`rangsMesure.${rangDuree}`) })}
+                    {t(`pages.heroDetail.statistics.profile.${moments.profil}`)} ·{" "}
+                    {t("pages.heroCounters.duration.rank", { rang: t(`measuredRanks.${rangDuree}`) })}
                   </p>
                   <BarresDuree tranches={tranches} moments={moments} nomTranche={nomTranche} locale={locale} />
                 </>
               ) : (
-                <p className="mt-3 text-sm text-chalk-400">{t("pages.heroCounters.duree.aucune", n)}</p>
+                <p className="mt-3 text-sm text-chalk-400">{t("pages.heroCounters.duration.none", n)}</p>
               )}
             </Carte>
 
             <Carte>
-              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.lanes.titre")}</h3>
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.lanes.title")}</h3>
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">{t("pages.heroCounters.lanes.intro", n)}</p>
               {lanesContres.length > 0 ? (
                 <dl className="mt-4 space-y-3">
@@ -508,7 +508,7 @@ export default async function PageContres({ params }: Params) {
                   ))}
                 </dl>
               ) : (
-                <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.aucuneMesure", n)}</p>
+                <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.noMeasure", n)}</p>
               )}
             </Carte>
           </div>
@@ -518,7 +518,7 @@ export default async function PageContres({ params }: Params) {
         {aWiki && (
           <section aria-labelledby="wiki">
             <h2 id="wiki" className="font-heading text-2xl font-bold text-chalk-100">
-              {t("pages.heroCounters.wiki.titre")}
+              {t("pages.heroCounters.wiki.title")}
             </h2>
             <p className="mt-2 text-sm text-chalk-500">{t("pages.heroCounters.wiki.intro")}</p>
             <div className="mt-4 grid gap-4 md:grid-cols-3">
@@ -554,7 +554,7 @@ export default async function PageContres({ params }: Params) {
         {voisins.length > 0 && lanePrincipale && (
           <section aria-labelledby="autres">
             <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
-              {t("pages.heroCounters.autres.titre", { lane: t(`lanes.${lanePrincipale}`) })}
+              {t("pages.heroCounters.others.title", { lane: t(`lanes.${lanePrincipale}`) })}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2 text-sm">
               {voisins.map((x) => (
@@ -563,7 +563,7 @@ export default async function PageContres({ params }: Params) {
                     href={`/heroes/${x.slug}/counters`}
                     className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
-                    {t("pages.heroCounters.titre", noms(x.name))}
+                    {t("pages.heroCounters.title", noms(x.name))}
                   </Link>
                 </li>
               ))}
@@ -615,10 +615,10 @@ function TableauAgrege({
       >
         <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
           <tr>
-            <th scope="col" className="text-left">{t("pages.heroCounters.colHeros")}</th>
-            <th scope="col">{t("pages.heroCounters.colEcart")}</th>
-            <th scope="col" className="max-sm:hidden">{t("pages.heroCounters.colRangs")}</th>
-            <th scope="col"><span className="sr-only">{t("pages.heroCounters.colLiens")}</span></th>
+            <th scope="col" className="text-left">{t("pages.heroCounters.colHero")}</th>
+            <th scope="col">{t("pages.heroCounters.colGap")}</th>
+            <th scope="col" className="max-sm:hidden">{t("pages.heroCounters.colRanks")}</th>
+            <th scope="col"><span className="sr-only">{t("pages.heroCounters.colLinks")}</span></th>
           </tr>
         </thead>
         <tbody className="divide-y divide-night-800">
@@ -634,15 +634,15 @@ function TableauAgrege({
                 {ecart(c.moyenne)}
               </td>
               <td className="tabular-nums text-chalk-400 max-sm:hidden">
-                {t("pages.heroCounters.rangsCites", { n: c.rangs, total })}
+                {t("pages.heroCounters.ranksListed", { n: c.rangs, total })}
               </td>
               <td>
                 <Link href={cheminPaire(slug, c.slug)} className="max-sm:block">
-                  {t("pages.heroDetail.comparer")}
+                  {t("pages.heroDetail.compare")}
                 </Link>
                 <span aria-hidden className="max-sm:hidden"> · </span>
                 <Link href={`/heroes/${c.slug}/counters`} className="max-sm:block">
-                  {t("pages.heroCounters.lienCourt")}
+                  {t("pages.heroCounters.shortLink")}
                 </Link>
               </td>
             </tr>
@@ -701,9 +701,9 @@ function TableauRang({
       <table className={couleur}>
         <thead className="sr-only">
           <tr>
-            <th scope="col">{t("pages.heroCounters.colHeros")}</th>
-            <th scope="col">{t("pages.heroCounters.colEcart")}</th>
-            {pageContres && <th scope="col">{t("pages.heroCounters.colLiens")}</th>}
+            <th scope="col">{t("pages.heroCounters.colHero")}</th>
+            <th scope="col">{t("pages.heroCounters.colGap")}</th>
+            {pageContres && <th scope="col">{t("pages.heroCounters.colLinks")}</th>}
           </tr>
         </thead>
         <tbody>
@@ -718,7 +718,7 @@ function TableauRang({
                 <td>{ecart(e.advantage)}</td>
                 {pageContres && (
                   <td>
-                    <Link href={`/heroes/${e.slug}/counters`}>{t("pages.heroCounters.lienCourt")}</Link>
+                    <Link href={`/heroes/${e.slug}/counters`}>{t("pages.heroCounters.shortLink")}</Link>
                   </td>
                 )}
               </tr>

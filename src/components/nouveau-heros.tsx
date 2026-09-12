@@ -55,7 +55,7 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
           <div className="min-w-0">
             <p className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-gold-400">
               <Sparkles size={13} aria-hidden />
-              {t("nouveauHeros.titre")}
+              {t("newHero.title")}
             </p>
             {heros.epithet && (
               <p className="mt-1 font-heading text-sm text-chalk-300">{heros.epithet}</p>
@@ -89,7 +89,7 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
           ))}
           {heros.feature && (
             <p className="bevel-sm border-l-2 border-gold-500 bg-night-900/60 px-4 py-3 text-sm leading-relaxed text-chalk-200">
-              <span className="font-semibold text-gold-400">{t("nouveauHeros.particularite")}</span>
+              <span className="font-semibold text-gold-400">{t("newHero.highlight")}</span>
               {heros.feature}
             </p>
           )}
@@ -146,7 +146,7 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
           href={`/heroes/${heros.slug}`}
           className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-500"
         >
-          {t("nouveauHeros.voirFiche", { nom: heros.name })}
+          {t("newHero.seeSheet", { nom: heros.name })}
           <ArrowRight size={14} aria-hidden />
         </Link>
       )}

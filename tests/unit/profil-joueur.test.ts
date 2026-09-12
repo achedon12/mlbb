@@ -299,9 +299,9 @@ describe("mise en forme", () => {
     expect(formaterPourcent(62.5, "fr")).toMatch(/^62,5\s%$/u);
     expect(formaterEcart(4.25, "en")).toBe("+4.3");
     expect(formaterEcart(-3, "en")).toBe("-3");
-    expect(pluriel(1, "fr")).toBe("un");
-    expect(pluriel(0, "fr")).toBe("un");
-    expect(pluriel(0, "en")).toBe("autres");
+    expect(pluriel(1, "fr")).toBe("one");
+    expect(pluriel(0, "fr")).toBe("one");
+    expect(pluriel(0, "en")).toBe("other");
     expect(ratioKda(14, 0, 11)).toBe(25);
     expect(LANE_JEU[4]).toBe("Jungle");
   });

@@ -25,8 +25,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!mode) return {};
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.modes.titreMode", { nom: mode.name }),
-    description: t(`modeFiche.${slug}.texte`),
+    titre: t("pages.modes.titleMode", { nom: mode.name }),
+    description: t(`modeSheet.${slug}.text`),
     chemin: `/game-modes/${slug}`,
     type: "article",
   });
@@ -79,8 +79,8 @@ export default async function PageMode({ params }: Params) {
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${t("pages.modes.titreMode", { nom: mode.name })} — Mobile Legends: Bang Bang`,
-    description: t(`modeFiche.${slug}.texte`),
+    headline: `${t("pages.modes.titleMode", { nom: mode.name })} — Mobile Legends: Bang Bang`,
+    description: t(`modeSheet.${slug}.text`),
     inLanguage: LOCALE_HTML[locale],
     author: { "@type": "Person", name: site.auteur },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
@@ -123,15 +123,15 @@ export default async function PageMode({ params }: Params) {
             ]}
           />
           <p className="mt-6 font-heading text-xs font-bold uppercase tracking-[0.2em]" style={{ color: clair }}>
-            {t(`modeFiche.${slug}.accroche`)}
+            {t(`modeSheet.${slug}.tagline`)}
           </p>
           <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100 sm:text-5xl">{mode.name}</h1>
-          <p className="mt-4 max-w-2xl leading-relaxed text-chalk-200">{t(`modeFiche.${slug}.texte`)}</p>
+          <p className="mt-4 max-w-2xl leading-relaxed text-chalk-200">{t(`modeSheet.${slug}.text`)}</p>
         </div>
       </div>
 
       <article className="mx-auto max-w-3xl px-4 py-12">
-        {mode.description && mode.description !== t(`modeFiche.${slug}.texte`) && (
+        {mode.description && mode.description !== t(`modeSheet.${slug}.text`) && (
           <p className="mb-10 border-l-2 pl-4 leading-relaxed text-chalk-300" style={{ borderColor: clair }}>
             {mode.description}
           </p>
@@ -148,7 +148,7 @@ export default async function PageMode({ params }: Params) {
             ))}
           </div>
         ) : (
-          <p className="leading-relaxed text-chalk-500">{t("pages.modeDetail.nonDocumente")}</p>
+          <p className="leading-relaxed text-chalk-500">{t("pages.modeDetail.undocumented")}</p>
         )}
 
         <CreditWiki t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500" />

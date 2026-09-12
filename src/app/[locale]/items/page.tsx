@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const populaires = objetsPopulaires(locale);
   const valeurs = { n: nombreObjets, v: patchActuel.version, top: listeNoms(locale, populaires) };
   return metaPage(locale, {
-    titre: t("pages.seo.items.titre", valeurs),
+    titre: t("pages.seo.items.title", valeurs),
     description: populaires.length
       ? t("pages.seo.items.description", valeurs)
       : t("pages.items.metaDescription", { n: nombreObjets }),
@@ -65,8 +65,8 @@ export default async function PageObjets({ params }: Params) {
   }
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.itemsListe"])}>
-      <EnTetePage titre={t("pages.items.titre")} chapeau={t("pages.items.chapeau", { n: nombreObjets })} />
+    <CompleterMessages messages={messagesPage(locale, ["pages.itemsList"])}>
+      <EnTetePage titre={t("pages.items.title")} chapeau={t("pages.items.lead", { n: nombreObjets })} />
       <div className="mx-auto max-w-6xl px-4 py-12">
         <ListeObjets
           objets={apercus}

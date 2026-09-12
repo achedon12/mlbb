@@ -60,9 +60,9 @@ export function SectionProfil({
  */
 export function EtatProfil({ type, t }: { type: "expiree" | "indisponible" | "vide"; t: T }) {
   const cles = {
-    expiree: ["expireTitre", "expireTexte"],
-    indisponible: ["indispoTitre", "indispoTexte"],
-    vide: ["videTitre", "videTexte"],
+    expiree: ["expiredTitle", "expiredText"],
+    indisponible: ["unavailableTitle", "unavailableText"],
+    vide: ["emptyTitle", "emptyText"],
   }[type];
 
   return (
@@ -78,7 +78,7 @@ export function EtatProfil({ type, t }: { type: "expiree" | "indisponible" | "vi
             type="submit"
             className="bevel-sm bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
           >
-            {t("pages.accountProfile.seReconnecter")}
+            {t("pages.accountProfile.signInAgain")}
           </button>
         </form>
       ) : (
@@ -86,7 +86,7 @@ export function EtatProfil({ type, t }: { type: "expiree" | "indisponible" | "vi
           href="/account"
           className="mt-5 inline-block text-sm text-chalk-500 underline underline-offset-4 transition-colors hover:text-gold-400"
         >
-          {t("pages.accountProfile.retourCompte")}
+          {t("pages.accountProfile.backToAccount")}
         </Link>
       )}
     </Carte>
@@ -97,7 +97,7 @@ export function EtatProfil({ type, t }: { type: "expiree" | "indisponible" | "vi
 export function SectionIndisponible({ t }: { t: T }) {
   return (
     <Carte className="mt-6 border-gold-500/25">
-      <p className="text-sm leading-relaxed text-chalk-300">{t("pages.accountProfile.sectionIndispo")}</p>
+      <p className="text-sm leading-relaxed text-chalk-300">{t("pages.accountProfile.sectionUnavailable")}</p>
     </Carte>
   );
 }
@@ -105,9 +105,9 @@ export function SectionIndisponible({ t }: { t: T }) {
 /** Choix de la saison : de simples liens, qui marchent sans JavaScript. */
 export function NavSaisons({ saisons, courante, t }: { saisons: number[]; courante: number; t: T }) {
   return (
-    <nav aria-label={t("pages.accountProfile.choixSaison")} className="mt-6 flex flex-wrap items-center gap-2">
+    <nav aria-label={t("pages.accountProfile.seasonChoice")} className="mt-6 flex flex-wrap items-center gap-2">
       <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-chalk-500">
-        {t("pages.accountProfile.choixSaison")}
+        {t("pages.accountProfile.seasonChoice")}
       </span>
       {saisons.map((s) => (
         <Link
@@ -117,7 +117,7 @@ export function NavSaisons({ saisons, courante, t }: { saisons: number[]; couran
           aria-current={s === courante ? "page" : undefined}
           className={classesPuce(s === courante, true)}
         >
-          {t("pages.accountProfile.saison", { n: s })}
+          {t("pages.accountProfile.season", { n: s })}
         </Link>
       ))}
     </nav>
@@ -164,38 +164,38 @@ export function BilanJoueur({
     <>
       <dl className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <div className="bevel col-span-2 border border-night-700/70 bg-night-900/60 p-4 lg:col-span-1">
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.rangActuel")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.currentRank")}</dt>
           <dd className="mt-2">
             <BadgeRang rang={rang} />
           </dd>
         </div>
-        <Chiffre label={t("pages.accountProfile.parties")}>{formaterNombre(bilan.parties, langue)}</Chiffre>
-        <Chiffre label={t("pages.heroDetail.stat.tauxVictoire")}>
+        <Chiffre label={t("pages.accountProfile.games")}>{formaterNombre(bilan.parties, langue)}</Chiffre>
+        <Chiffre label={t("pages.heroDetail.stat.winRate")}>
           {bilan.taux !== null ? formaterPourcent(bilan.taux, langue) : "—"}
         </Chiffre>
-        <Chiffre label={t("pages.accountProfile.herosJoues")}>{formaterNombre(bilan.heros, langue)}</Chiffre>
+        <Chiffre label={t("pages.accountProfile.heroesPlayed")}>{formaterNombre(bilan.heros, langue)}</Chiffre>
       </dl>
-      {!complet && <p className="mt-3 text-xs text-chalk-500">{t("pages.accountProfile.bilanPartiel")}</p>}
+      {!complet && <p className="mt-3 text-xs text-chalk-500">{t("pages.accountProfile.partialSummary")}</p>}
 
       {stats && stats.parties > 0 && (
         <div className="mt-6">
           <h3 className="text-sm font-semibold text-chalk-300">
             {saisons.length > 0
-              ? t("pages.accountProfile.surLesSaisons", {
+              ? t("pages.accountProfile.overSeasons", {
                   liste: new Intl.ListFormat(LOCALE_HTML[langue], { type: "conjunction" }).format(saisons),
                 })
-              : t("pages.accountProfile.surToutesSaisons")}
+              : t("pages.accountProfile.overAllSeasons")}
           </h3>
           <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-4">
-            <Mini label={t("pages.accountProfile.parties")}>{formaterNombre(stats.parties, langue)}</Mini>
-            <Mini label={t("pages.heroDetail.stat.tauxVictoire")}>
+            <Mini label={t("pages.accountProfile.games")}>{formaterNombre(stats.parties, langue)}</Mini>
+            <Mini label={t("pages.heroDetail.stat.winRate")}>
               {formaterPourcent((stats.victoires / stats.parties) * 100, langue)}
             </Mini>
             {stats.mvp !== null && (
               <Mini label={t("pages.accountProfile.mvp")}>{formaterNombre(stats.mvp, langue)}</Mini>
             )}
             {stats.meilleureSerie !== null && (
-              <Mini label={t("pages.accountProfile.meilleureSerie")}>{formaterNombre(stats.meilleureSerie, langue)}</Mini>
+              <Mini label={t("pages.accountProfile.bestStreak")}>{formaterNombre(stats.meilleureSerie, langue)}</Mini>
             )}
           </dl>
         </div>
@@ -244,20 +244,20 @@ export function TableauHeros({
     <>
       <div className="mt-6 relative overflow-x-auto">
         <table className="w-full text-sm">
-          <caption className="sr-only">{t("pages.accountProfile.herosTitre")}</caption>
+          <caption className="sr-only">{t("pages.accountProfile.heroesTitle")}</caption>
           <thead>
             <tr className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
               <th scope="col" className="py-2 pr-2 text-left font-medium">
-                {t("pages.accountProfile.colHeros")}
+                {t("pages.accountProfile.colHero")}
               </th>
               <th scope="col" className="px-2 py-2 text-right font-medium">
-                {t("pages.accountProfile.vous")}
+                {t("pages.accountProfile.you")}
               </th>
               <th scope="col" className="px-2 py-2 text-right font-medium">
-                {t("pages.accountProfile.moyenneRang", { rang: t(`rangsMesure.${tranche}`) })}
+                {t("pages.accountProfile.rankAverage", { rang: t(`measuredRanks.${tranche}`) })}
               </th>
               <th scope="col" className="py-2 pl-2 text-right font-medium">
-                {t("pages.accountProfile.ecart")}
+                {t("pages.accountProfile.gap")}
               </th>
             </tr>
           </thead>
@@ -282,7 +282,7 @@ export function TableauHeros({
                           {l.heros.nom}
                         </span>
                         <span className="block text-xs text-chalk-500">
-                          {t(`pages.accountProfile.nParties.${pluriel(l.parties, langue)}`, { n: l.parties })}
+                          {t(`pages.accountProfile.nGames.${pluriel(l.parties, langue)}`, { n: l.parties })}
                         </span>
                       </span>
                     </LienHeros>
@@ -301,7 +301,7 @@ export function TableauHeros({
                     )}
                   </td>
                   <td className={cn("whitespace-nowrap pl-2 text-right font-semibold tabular-nums", couleur)}>
-                    {l.ecart !== null ? `${formaterEcart(l.ecart, langue)} ${t("contres.pts")}` : <SansMesure t={t} />}
+                    {l.ecart !== null ? `${formaterEcart(l.ecart, langue)} ${t("counters.pts")}` : <SansMesure t={t} />}
                   </td>
                 </tr>
               );
@@ -309,9 +309,9 @@ export function TableauHeros({
           </tbody>
         </table>
       </div>
-      {repli && <p className="mt-3 text-xs text-chalk-500">* {t("pages.accountProfile.noteToutRang")}</p>}
+      {repli && <p className="mt-3 text-xs text-chalk-500">* {t("pages.accountProfile.allRanksNote")}</p>}
       <p className="mt-2 text-xs text-chalk-500">
-        {t("pages.accountProfile.sourceMoyenne", { date: formaterDate(mesureLe, LOCALE_HTML[langue]) })}
+        {t("pages.accountProfile.sourceAverage", { date: formaterDate(mesureLe, LOCALE_HTML[langue]) })}
       </p>
     </>
   );
@@ -321,7 +321,7 @@ function SansMesure({ t }: { t: T }) {
   return (
     <>
       <span aria-hidden>—</span>
-      <span className="sr-only">{t("pages.accountProfile.sansMesure")}</span>
+      <span className="sr-only">{t("pages.accountProfile.noMeasure")}</span>
     </>
   );
 }
@@ -401,22 +401,22 @@ export function ConseilsHeros({
   t: T;
   langue: Langue;
 }) {
-  const rang = t(`rangsMesure.${tranche}`);
-  const indispo = t("pages.accountProfile.sectionIndispo");
+  const rang = t(`measuredRanks.${tranche}`);
+  const indispo = t("pages.accountProfile.sectionUnavailable");
 
   return (
     <div className="mt-6 grid gap-4 md:grid-cols-3">
       <CarteConseil
         ton="bon"
         icone={<Trophy size={17} aria-hidden />}
-        titre={t("pages.accountProfile.meilleursTitre")}
-        texte={t("pages.accountProfile.meilleursTexte")}
+        titre={t("pages.accountProfile.bestTitle")}
+        texte={t("pages.accountProfile.bestText")}
       >
         <ListeHerosConseil
-          vide={lignes ? t("pages.accountProfile.meilleursVide") : indispo}
+          vide={lignes ? t("pages.accountProfile.bestEmpty") : indispo}
           entrees={meilleurs.map((l) => ({
             heros: l.heros,
-            detail: t("pages.accountProfile.meilleurDetail", { taux: formaterPourcent(l.taux, langue), n: l.parties }),
+            detail: t("pages.accountProfile.bestDetail", { taux: formaterPourcent(l.taux, langue), n: l.parties }),
           }))}
         />
       </CarteConseil>
@@ -424,14 +424,14 @@ export function ConseilsHeros({
       <CarteConseil
         ton="mauvais"
         icone={<ThumbsDown size={17} aria-hidden />}
-        titre={t("pages.accountProfile.sousMoyenneTitre")}
-        texte={t("pages.accountProfile.sousMoyenneTexte", { rang })}
+        titre={t("pages.accountProfile.belowAverageTitle")}
+        texte={t("pages.accountProfile.belowAverageText", { rang })}
       >
         <ListeHerosConseil
-          vide={lignes ? t("pages.accountProfile.sousMoyenneVide") : indispo}
+          vide={lignes ? t("pages.accountProfile.belowAverageEmpty") : indispo}
           entrees={sousMoyenne.map((l) => ({
             heros: l.heros,
-            detail: t("pages.accountProfile.sousMoyenneDetail", {
+            detail: t("pages.accountProfile.belowAverageDetail", {
               taux: formaterPourcent(l.taux, langue),
               moyenne: formaterPourcent(l.moyenne ?? 0, langue),
             }),
@@ -442,8 +442,8 @@ export function ConseilsHeros({
       <CarteConseil
         ton="alerte"
         icone={<ShieldAlert size={17} aria-hidden />}
-        titre={t("pages.accountProfile.bourreauxTitre")}
-        texte={t("pages.accountProfile.bourreauxTexte")}
+        titre={t("pages.accountProfile.nemesesTitle")}
+        texte={t("pages.accountProfile.nemesesText")}
       >
         {adversaires}
       </CarteConseil>
@@ -462,19 +462,19 @@ export function ListeBourreaux({
   langue: Langue;
 }) {
   if (analyse.analysees === 0) {
-    return <p className="text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.bourreauxSansEquipes")}</p>;
+    return <p className="text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.nemesesNoTeams")}</p>;
   }
   return (
     <>
       <ListeHerosConseil
-        vide={t("pages.accountProfile.bourreauxVide")}
+        vide={t("pages.accountProfile.nemesesEmpty")}
         entrees={analyse.liste.map((b) => ({
           heros: b.heros,
-          detail: t("pages.accountProfile.bourreauDetail", { d: b.defaites, n: b.rencontres }),
+          detail: t("pages.accountProfile.nemesisDetail", { d: b.defaites, n: b.rencontres }),
         }))}
       />
       <p className="mt-3 text-xs text-chalk-500">
-        {t(`pages.accountProfile.bourreauxSource.${pluriel(analyse.analysees, langue)}`, { n: analyse.analysees })}
+        {t(`pages.accountProfile.nemesesSource.${pluriel(analyse.analysees, langue)}`, { n: analyse.analysees })}
       </p>
     </>
   );
@@ -488,7 +488,7 @@ export function ListeBourreaux({
 export function AnalyseEnCours({ t, texte, className }: { t: T; texte?: string; className?: string }) {
   return (
     <p role="status" className={cn("animate-pulse text-sm text-chalk-500", className)}>
-      {texte ?? t("pages.accountProfile.analyseEnCours")}
+      {texte ?? t("pages.accountProfile.analysisPending")}
     </p>
   );
 }

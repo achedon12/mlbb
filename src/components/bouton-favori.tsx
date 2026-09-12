@@ -38,7 +38,7 @@ export function BoutonFavori({ heros }: { heros: string }) {
         )}
       >
         <Star size={15} aria-hidden fill={favori ? "currentColor" : "none"} />
-        {favori ? t("favoris.dans") : t("favoris.ajouter")}
+        {favori ? t("favourites.in") : t("favourites.add")}
       </button>
       {favori && <ClocheNotifications favoris={favoris} />}
     </>

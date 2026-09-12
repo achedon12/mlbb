@@ -50,25 +50,25 @@ export function EffetsObjet({ objet, t }: { objet: ApercuObjet; t: T }) {
     <>
       {objet.bonus && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.statistiques")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.statistics")}</dt>
           <dd className="mt-1 leading-snug text-chalk-100">{objet.bonus}</dd>
         </div>
       )}
       {objet.unique && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.unique")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.unique")}</dt>
           <dd className="mt-1 leading-snug text-azure-400">{objet.unique}</dd>
         </div>
       )}
       {objet.passive && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.passif")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.passive")}</dt>
           <dd className="mt-1 leading-relaxed text-chalk-300">{objet.passive}</dd>
         </div>
       )}
       {objet.active && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.actif")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.active")}</dt>
           <dd className="mt-1 leading-relaxed text-chalk-300">{objet.active}</dd>
         </div>
       )}
@@ -96,12 +96,12 @@ export function RecetteObjet({
     <>
       {objet.recipe.length > 0 && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.recette")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.recipe")}</dt>
           <dd className="mt-2">
             <ArbreRecette noms={objet.recipe} catalogue={catalogue} t={t} langue={langue} vers={vers} />
             {fusion !== null && (
               <p className="mt-2 text-xs text-chalk-500">
-                {t("pages.itemsListe.fusion", { prix: nombre(langue, fusion) })}
+                {t("pages.itemsList.merge", { prix: nombre(langue, fusion) })}
               </p>
             )}
           </dd>
@@ -109,7 +109,7 @@ export function RecetteObjet({
       )}
       {fabrique.length > 0 && (
         <div>
-          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.fabrique")}</dt>
+          <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.buildsInto")}</dt>
           <dd className="mt-2 flex flex-wrap gap-1.5">
             {fabrique.map((o) => (
               <span key={o.slug} className="contents">
@@ -159,7 +159,7 @@ export function ArbreRecette({
             <span className="min-w-0 flex-1 truncate text-sm text-chalk-100 group-hover:text-gold-400">{nom}</span>
             {o?.price != null && (
               <span className="shrink-0 text-xs tabular-nums text-gold-400">
-                {nombre(langue, o.price)} {t("pages.itemsListe.or")}
+                {nombre(langue, o.price)} {t("pages.itemsList.gold")}
               </span>
             )}
           </>

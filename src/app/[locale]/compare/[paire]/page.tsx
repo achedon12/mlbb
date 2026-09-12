@@ -55,28 +55,28 @@ function resoudre(paire: string): { a: Heros; b: Heros } | null {
 }
 
 const contexteDe = (t: T, rang: RangMesure) =>
-  rang === "all" ? t("pages.duos.tousRangs") : t("pages.duos.auRang", { rang: t(`rangsMesure.${rang}`) });
+  rang === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rang: t(`measuredRanks.${rang}`) });
 
 /** Verdict du duel, commun a la description, au chapeau et a la reponse de la FAQ. */
 function verdict(locale: Langue, a: Heros, b: Heros) {
   const t = creerT(locale);
   const duels = duelParRang(contres, a.slug, b.slug);
   const ref = duelDeReference(duels);
-  if (!ref) return { duels, ref, phrase: t("pages.versus.aucuneMesure", { a: a.name, b: b.name }) };
+  if (!ref) return { duels, ref, phrase: t("pages.versus.noMeasure", { a: a.name, b: b.name }) };
   const points = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const [gagnant, perdant] = ref.avantage >= 0 ? [a, b] : [b, a];
   const contexte = contexteDe(t, ref.rang);
   const tete =
     Math.abs(ref.avantage) < SEUIL_EQUILIBRE
-      ? t("pages.versus.equilibre", { contexte, a: a.name, b: b.name })
+      ? t("pages.versus.balanced", { contexte, a: a.name, b: b.name })
       : t("pages.versus.verdict", {
           contexte,
           gagnant: gagnant.name,
           perdant: perdant.name,
-          ecart: `${points.format(Math.abs(ref.avantage))} ${t("contres.pts")}`,
+          ecart: `${points.format(Math.abs(ref.avantage))} ${t("counters.pts")}`,
         });
   const g = rangsGagnes(duels);
-  const suite = g.total > 1 ? ` ${t("pages.versus.rangs", { a: a.name, na: g.a, b: b.name, nb: g.b, total: g.total })}` : "";
+  const suite = g.total > 1 ? ` ${t("pages.versus.ranks", { a: a.name, na: g.a, b: b.name, nb: g.b, total: g.total })}` : "";
   return { duels, ref, phrase: `${tete}${suite}` };
 }
 
@@ -87,8 +87,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const t = creerT(locale);
   const noms = { a: p.a.name, b: p.b.name };
   return metaPage(locale, {
-    titre: patchActuel ? t("pages.versus.metaTitre", { ...noms, v: patchActuel.version }) : t("pages.versus.metaTitreSansPatch", noms),
-    description: `${verdict(locale, p.a, p.b).phrase} ${t("pages.duos.majLe", { date: dateLongue(locale) })}`,
+    titre: patchActuel ? t("pages.versus.metaTitle", { ...noms, v: patchActuel.version }) : t("pages.versus.metaTitleNoPatch", noms),
+    description: `${verdict(locale, p.a, p.b).phrase} ${t("pages.duos.updatedOn", { date: dateLongue(locale) })}`,
     chemin: cheminPaire(p.a.slug, p.b.slug),
     type: "article",
   });
@@ -124,17 +124,17 @@ export default async function PageFaceAFace({ params }: Params) {
     ecarts.length === 0
       ? null
       : ecarts.every((e) => e > 0)
-        ? t("pages.versus.duree.toujours", { nom: a.name })
+        ? t("pages.versus.duration.always", { nom: a.name })
         : ecarts.every((e) => e < 0)
-          ? t("pages.versus.duree.toujours", { nom: b.name })
+          ? t("pages.versus.duration.always", { nom: b.name })
           : lecture.a && lecture.b
-            ? t("pages.versus.duree.phrase", {
+            ? t("pages.versus.duration.sentence", {
                 a: a.name,
-                phaseA: t(`pages.versus.phaseEn.${lecture.a}`),
+                phaseA: t(`pages.versus.phaseIn.${lecture.a}`),
                 b: b.name,
-                phaseB: t(`pages.versus.phaseEn.${lecture.b}`),
+                phaseB: t(`pages.versus.phaseIn.${lecture.b}`),
               })
-            : t("pages.versus.duree.egal", { a: a.name, b: b.name });
+            : t("pages.versus.duration.equal", { a: a.name, b: b.name });
 
   // Profils au rang du verdict : taux de la tier list et notes du jeu.
   const [sa, sb] = [statsParRang(a.slug)[rangRef], statsParRang(b.slug)[rangRef]];
@@ -162,7 +162,7 @@ export default async function PageFaceAFace({ params }: Params) {
       .filter((e) => e.slug !== sauf.slug && herosParSlug.has(e.slug))
       .slice(0, 6);
 
-  const titre = t("pages.versus.titre", { a: a.name, b: b.name });
+  const titre = t("pages.versus.title", { a: a.name, b: b.name });
   const question = t("pages.versus.question", { a: a.name, b: b.name });
   const chemin = cheminPaire(a.slug, b.slug);
   const adresse = `${site.url}/${locale}${chemin}`;
@@ -204,16 +204,16 @@ export default async function PageFaceAFace({ params }: Params) {
 
       <EnTetePage
         titre={titre}
-        chapeau={t("pages.versus.chapeau", { a: a.name, b: b.name })}
+        chapeau={t("pages.versus.lead", { a: a.name, b: b.name })}
         miettes={[
-          { nom: t("pages.compare.titre"), href: "/compare" },
+          { nom: t("pages.compare.title"), href: "/compare" },
           {
             nom: titre,
             // Pages soeurs : les autres duels mesures du premier heros.
             freres: adversairesMesures(contres, a.slug)
               .filter((e) => herosParSlug.has(e.slug))
               .slice(0, 20)
-              .map((e) => ({ nom: t("pages.versus.titre", { a: a.name, b: nomDe(e.slug) }), href: cheminPaire(a.slug, e.slug) }))
+              .map((e) => ({ nom: t("pages.versus.title", { a: a.name, b: nomDe(e.slug) }), href: cheminPaire(a.slug, e.slug) }))
               .sort((x, y) => x.nom.localeCompare(y.nom)),
           },
         ]}
@@ -240,7 +240,7 @@ export default async function PageFaceAFace({ params }: Params) {
               <span className="font-heading text-lg font-bold text-chalk-100">{h.name}</span>
               {s && (
                 <span className="text-xs text-chalk-500">
-                  {t("pages.heroDetail.palier", { p: s.tier })} · {pourcentage(locale, s.winRate)}
+                  {t("pages.heroDetail.tier", { p: s.tier })} · {pourcentage(locale, s.winRate)}
                 </span>
               )}
               <TraitLegende {...STYLES_SERIES[i]} />
@@ -262,21 +262,21 @@ export default async function PageFaceAFace({ params }: Params) {
               <TableauDuel t={t} duels={duels} a={a} b={b} ecart={ecart} />
             </div>
           )}
-          <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.versus.noteEcarts", { a: a.name, b: b.name })}</p>
+          <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.versus.gapsNote", { a: a.name, b: b.name })}</p>
         </section>
 
         {/* ── Debut ou fin de partie ──────────────────────────────────── */}
         {rangDuree && phraseDuree && (
           <section aria-labelledby="duree">
             <h2 id="duree" className={h2}>
-              {t("pages.versus.duree.titre")}
+              {t("pages.versus.duration.title")}
             </h2>
             <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{phraseDuree}</p>
             <div className="bevel mt-4 relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
               <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:text-right [&_td+td]:tabular-nums [&_th+th]:pl-3 [&_th+th]:text-right">
                 <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium">
                   <tr>
-                    <th scope="col" className="text-left">{t("pages.versus.duree.colPhase")}</th>
+                    <th scope="col" className="text-left">{t("pages.versus.duration.colPhase")}</th>
                     <th scope="col">{a.name}</th>
                     <th scope="col">{b.name}</th>
                   </tr>
@@ -302,7 +302,7 @@ export default async function PageFaceAFace({ params }: Params) {
               </table>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-chalk-500">
-              {t("pages.versus.duree.note", { rang: t(`rangsMesure.${rangDuree}`) })}
+              {t("pages.versus.duration.rating", { rang: t(`measuredRanks.${rangDuree}`) })}
             </p>
           </section>
         )}
@@ -311,7 +311,7 @@ export default async function PageFaceAFace({ params }: Params) {
         {/* Tableau seul, sans radar : la page reste legere, et le radar vit au comparateur. */}
         <section aria-labelledby="profils">
           <h2 id="profils" className={h2}>
-            {t("pages.versus.profils", { rang: t(`rangsMesure.${rangRef}`) })}
+            {t("pages.versus.profiles", { rang: t(`measuredRanks.${rangRef}`) })}
           </h2>
           <div className="mt-4 max-w-xl">
             <div className="bevel relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
@@ -319,7 +319,7 @@ export default async function PageFaceAFace({ params }: Params) {
                 <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
                   <tr>
                     <th scope="col" className="text-left">
-                      <span className="sr-only">{t("compareUI.critere")}</span>
+                      <span className="sr-only">{t("compareUI.criterion")}</span>
                     </th>
                     <th scope="col">{a.name}</th>
                     <th scope="col">{b.name}</th>
@@ -327,21 +327,21 @@ export default async function PageFaceAFace({ params }: Params) {
                 </thead>
                 <tbody className="divide-y divide-night-800 [&_th]:py-1.5 [&_th]:text-left [&_th]:text-xs [&_th]:font-medium [&_th]:uppercase [&_th]:tracking-wide [&_th]:text-chalk-500">
                   <tr>
-                    <th scope="row">{t("compareUI.tauxVictoire")}</th>
+                    <th scope="row">{t("compareUI.winRate")}</th>
                     <td>{sa ? pourcentage(locale, sa.winRate) : "—"}</td>
                     <td>{sb ? pourcentage(locale, sb.winRate) : "—"}</td>
                   </tr>
                   <tr>
-                    <th scope="row">{t("compareUI.tauxBan")}</th>
+                    <th scope="row">{t("compareUI.banRate")}</th>
                     <td>{sa ? pourcentage(locale, sa.banRate) : "—"}</td>
                     <td>{sb ? pourcentage(locale, sb.banRate) : "—"}</td>
                   </tr>
                   {(
                     [
-                      ["offensive", "offense"],
-                      ["resistance", "durability"],
-                      ["effets", "abilityEffects"],
-                      ["difficulte", "difficulty"],
+                      ["offense", "offense"],
+                      ["durability", "durability"],
+                      ["abilityEffects", "abilityEffects"],
+                      ["difficulty", "difficulty"],
                     ] as const
                   ).map(([libelle, champ]) => (
                     <tr key={champ}>
@@ -360,7 +360,7 @@ export default async function PageFaceAFace({ params }: Params) {
         {builds.some((x) => x.joue || x.contre.length > 0) && (
           <section aria-labelledby="builds">
             <h2 id="builds" className={h2}>
-              {t("pages.versus.builds.titre")}
+              {t("pages.versus.builds.title")}
             </h2>
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               {builds.map(({ h, autre, joue, contre }) => (
@@ -369,7 +369,7 @@ export default async function PageFaceAFace({ params }: Params) {
                   {joue && (
                     <>
                       <p className="mt-2 text-xs uppercase tracking-wide text-chalk-500">
-                        {t("pages.versus.builds.joue", { lane: t(`lanes.${joue.lane}`) })}
+                        {t("pages.versus.builds.played", { lane: t(`lanes.${joue.lane}`) })}
                       </p>
                       <ListeObjets
                         objets={joue.build.items.map((nom) => {
@@ -380,7 +380,7 @@ export default async function PageFaceAFace({ params }: Params) {
                       {(joue.build.emblem || joue.build.spell) && (
                         <p className="mt-2 text-xs text-chalk-400">
                           {[joue.build.emblem, joue.build.spell].filter(Boolean).join(" · ")}
-                          {joue.build.winRate != null && ` · ${t("builds.victoire", { taux: decimal.format(joue.build.winRate) })}`}
+                          {joue.build.winRate != null && ` · ${t("builds.win", { taux: decimal.format(joue.build.winRate) })}`}
                         </p>
                       )}
                     </>
@@ -388,8 +388,8 @@ export default async function PageFaceAFace({ params }: Params) {
                   {contre.length > 0 && (
                     <>
                       <p className="mt-4 text-xs uppercase tracking-wide text-chalk-500">
-                        {t("pages.versus.builds.contre", { nom: autre.name })}{" "}
-                        <span className="normal-case tracking-normal">· {t("pages.versus.builds.regle")}</span>
+                        {t("pages.versus.builds.against", { nom: autre.name })}{" "}
+                        <span className="normal-case tracking-normal">· {t("pages.versus.builds.rule")}</span>
                       </p>
                       <ListeObjets objets={contre.map((o) => ({ nom: o.name, slug: o.slug }))} />
                     </>
@@ -404,12 +404,12 @@ export default async function PageFaceAFace({ params }: Params) {
         {equipe.length > 0 && (
           <section aria-labelledby="equipe">
             <h2 id="equipe" className={h2}>
-              {t("pages.versus.equipe.titre", { a: a.name, b: b.name })}
+              {t("pages.versus.team.title", { a: a.name, b: b.name })}
             </h2>
             <ul className="mt-3 space-y-1.5 text-sm text-chalk-300">
               {equipe.map((e) => (
                 <li key={`${e.rang}-${e.de}`}>
-                  {t("pages.versus.equipe.ligne", {
+                  {t("pages.versus.team.row", {
                     contexte: contexteDe(t, e.rang),
                     de: nomDe(e.de),
                     avec: nomDe(e.avec),
@@ -418,35 +418,35 @@ export default async function PageFaceAFace({ params }: Params) {
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-xs text-chalk-500">{t("pages.versus.equipe.note")}</p>
+            <p className="mt-2 text-xs text-chalk-500">{t("pages.versus.team.rating")}</p>
           </section>
         )}
 
         {/* ── Pour aller plus loin ────────────────────────────────────── */}
         <section aria-labelledby="liens">
           <h2 id="liens" className="font-heading text-xl font-bold text-chalk-100">
-            {t("pages.versus.liens.titre")}
+            {t("pages.versus.links.title")}
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm">
             <li>
               <Link href={`/compare?a=${a.slug}&b=${b.slug}`} className={puce}>
-                {t("pages.versus.liens.comparateur")}
+                {t("pages.versus.links.comparator")}
               </Link>
             </li>
             {[a, b].flatMap((h) => [
               <li key={`${h.slug}-fiche`}>
                 <Link href={`/heroes/${h.slug}`} className={puce}>
-                  {t("pages.duos.lienFiche", { nom: h.name })}
+                  {t("pages.duos.sheetLink", { nom: h.name })}
                 </Link>
               </li>,
               <li key={`${h.slug}-contres`}>
                 <Link href={`/heroes/${h.slug}/counters`} className={puce}>
-                  {t("pages.duos.lienContres", { nom: h.name })}
+                  {t("pages.duos.countersLink", { nom: h.name })}
                 </Link>
               </li>,
               <li key={`${h.slug}-duos`}>
                 <Link href={`/heroes/${h.slug}/duos`} className={puce}>
-                  {t("pages.duos.titre", { nom: h.name })}
+                  {t("pages.duos.title", { nom: h.name })}
                 </Link>
               </li>,
             ])}
@@ -458,12 +458,12 @@ export default async function PageFaceAFace({ params }: Params) {
             ].map(({ h, autres }) =>
               autres.length > 0 ? (
                 <div key={h.slug}>
-                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.liens.autres", { nom: h.name })}</h3>
+                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.links.others", { nom: h.name })}</h3>
                   <ul className="mt-2 flex flex-wrap gap-2 text-sm">
                     {autres.map((e) => (
                       <li key={e.slug}>
                         <Link href={cheminPaire(h.slug, e.slug)} className={puce}>
-                          {t("pages.versus.titre", { a: h.name, b: nomDe(e.slug) })}
+                          {t("pages.versus.title", { a: h.name, b: nomDe(e.slug) })}
                         </Link>
                       </li>
                     ))}
@@ -498,10 +498,10 @@ function TableauDuel({
     <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:text-right [&_td+td]:whitespace-nowrap [&_td+td]:tabular-nums">
       <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
         <tr>
-          <th scope="col" className="text-left">{t("pages.versus.colRang")}</th>
-          <th scope="col">{t("pages.versus.colAvantage")}</th>
-          <th scope="col">{t("pages.versus.colFace", { de: a.name, face: b.name })}</th>
-          <th scope="col">{t("pages.versus.colFace", { de: b.name, face: a.name })}</th>
+          <th scope="col" className="text-left">{t("pages.versus.colRank")}</th>
+          <th scope="col">{t("pages.versus.colAdvantage")}</th>
+          <th scope="col">{t("pages.versus.colAgainst", { de: a.name, face: b.name })}</th>
+          <th scope="col">{t("pages.versus.colAgainst", { de: b.name, face: a.name })}</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-night-800">
@@ -509,10 +509,10 @@ function TableauDuel({
           const equilibre = Math.abs(d.avantage) < SEUIL_EQUILIBRE;
           return (
             <tr key={d.rang}>
-              <td className="text-chalk-300">{t(`rangsMesure.${d.rang}`)}</td>
+              <td className="text-chalk-300">{t(`measuredRanks.${d.rang}`)}</td>
               <td className="font-semibold">
                 {equilibre ? (
-                  <span className="text-chalk-400">{t("pages.versus.equilibreCourt")}</span>
+                  <span className="text-chalk-400">{t("pages.versus.balancedShort")}</span>
                 ) : (
                   <span className="text-gold-400">
                     {(d.avantage > 0 ? a : b).name} {ecart(Math.abs(d.avantage))}

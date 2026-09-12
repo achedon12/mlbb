@@ -76,7 +76,7 @@ export function AnalyseEquipe({
 }: {
   heros: HerosEquipe[];
   rangs: RangMesure[];
-  /** Libelles des types de degats, resolus par le serveur (`donneesHeros` n'est pas envoye au navigateur). */
+  /** Libelles des types de degats, resolus par le serveur (`heroData` n'est pas envoye au navigateur). */
   libellesDegats: Record<TypeDegats, string>;
 }) {
   const t = useT();
@@ -150,11 +150,11 @@ export function AnalyseEquipe({
     <div className="space-y-12">
       <section aria-labelledby="equipe-titre">
         <h2 id="equipe-titre" className="font-heading text-2xl font-bold text-chalk-100">
-          {t("equipeUI.votreEquipe")}
+          {t("teamUI.yourTeam")}
         </h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
         <p className="mt-3 text-sm text-chalk-500">
-          {t("equipeUI.votreEquipeDesc", { n: equipe.length, max: TAILLE_EQUIPE })}
+          {t("teamUI.yourTeamDesc", { n: equipe.length, max: TAILLE_EQUIPE })}
         </p>
 
         <ul className="mt-4 grid gap-2 sm:grid-cols-5">
@@ -177,7 +177,7 @@ export function AnalyseEquipe({
                 className="bevel-sm flex h-full min-h-14 w-full items-center justify-center gap-2 border border-dashed border-night-600 px-3 py-3 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 sm:min-h-32 sm:flex-col"
               >
                 <Plus size={18} aria-hidden />
-                {t("equipeUI.ajouter")}
+                {t("teamUI.add")}
               </button>
             </li>
           )}
@@ -199,7 +199,7 @@ export function AnalyseEquipe({
                 className="bevel-sm inline-flex items-center gap-2 border border-night-700 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Link2 size={14} aria-hidden />
-                {t("equipeUI.copier")}
+                {t("teamUI.copy")}
               </button>
               <button
                 type="button"
@@ -207,11 +207,11 @@ export function AnalyseEquipe({
                 className="bevel-sm inline-flex items-center gap-2 border border-night-700 px-3 py-1.5 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <RotateCcw size={14} aria-hidden />
-                {t("draftUI.toutEffacer")}
+                {t("draftUI.clearAll")}
               </button>
               <span role="status" className="text-xs text-chalk-300">
-                {copie === "ok" && t("equipeUI.lienCopie")}
-                {copie === "erreur" && t("equipeUI.copieImpossible")}
+                {copie === "ok" && t("teamUI.linkCopied")}
+                {copie === "erreur" && t("teamUI.copyFailed")}
               </span>
             </div>
           )}
@@ -219,7 +219,7 @@ export function AnalyseEquipe({
       </section>
 
       {equipe.length === 0 ? (
-        <p className="max-w-2xl leading-relaxed text-chalk-500">{t("equipeUI.intro")}</p>
+        <p className="max-w-2xl leading-relaxed text-chalk-500">{t("teamUI.intro")}</p>
       ) : (
         <Resultats
           analyse={analyse}
@@ -238,7 +238,7 @@ export function AnalyseEquipe({
           heros={heros}
           exclus={new Set(slugs)}
           lane={equipe.length ? (affectation.manquantes[0] ?? null) : null}
-          titre={t("equipeUI.choisir")}
+          titre={t("teamUI.choose")}
           onChoisir={ajouter}
           onFermer={() => setOuvert(false)}
         />
@@ -273,7 +273,7 @@ function Emplacement({
           {h.nom}
         </Link>
         <p className={cn("truncate text-xs", lane ? "text-chalk-300" : "text-blood-500")}>
-          {lane ? t(`lanes.${lane}`) : t("equipeUI.horsLane")}
+          {lane ? t(`lanes.${lane}`) : t("teamUI.offLane")}
         </p>
         {stats && (
           <p className="text-xs tabular-nums text-chalk-500">
@@ -284,7 +284,7 @@ function Emplacement({
       <button
         type="button"
         onClick={onRetirer}
-        aria-label={t("draftUI.retirer", { nom: h.nom })}
+        aria-label={t("draftUI.remove", { nom: h.nom })}
         className="absolute right-1 top-1 grid size-7 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
       >
         <X size={14} aria-hidden />
@@ -296,16 +296,16 @@ function Emplacement({
 function texteAlerte(a: Alerte, t: T, formats: Formats, nomDe: (slug: string) => string): string {
   switch (a.type) {
     case "lanes":
-      return t("equipeUI.alertes.lanes", {
+      return t("teamUI.alerts.lanes", {
         lanes: a.lanes.map((l) => t(`lanes.${l}`)).join(", "),
         noms: a.enTrop.map(nomDe).join(", "),
       });
     case "tank":
-      return t("equipeUI.alertes.tank");
+      return t("teamUI.alerts.tank");
     case "degats":
-      return t(`equipeUI.alertes.degats.${a.dominant}`);
+      return t(`teamUI.alerts.damage.${a.dominant}`);
     default:
-      return t(`equipeUI.alertes.${a.type}`, { v: formats.nombre(a.valeur) });
+      return t(`teamUI.alerts.${a.type}`, { v: formats.nombre(a.valeur) });
   }
 }
 
@@ -331,16 +331,16 @@ function Resultats({
   const t = useT();
   const nomDe = (slug: string) => parSlug.get(slug)?.nom ?? slug;
   const { equipe, affectation, alertes, degats, notes, courbe } = analyse;
-  const pts = t("contres.pts");
+  const pts = t("counters.pts");
   const v = analyse.victoire;
   const tranche = (x: Tranche) =>
-    x.to === null ? t("equipeUI.minutesPlus", { de: x.from }) : t("equipeUI.minutes", { de: x.from, a: x.to });
+    x.to === null ? t("teamUI.minutesPlus", { de: x.from }) : t("teamUI.minutes", { de: x.from, a: x.to });
 
   const tuiles: [string, string, number][] = [
-    [t("equipeUI.tauxMoyen"), v === null ? "—" : `${formats.nombre(v)} %`, v === null ? 0 : v >= 50.5 ? 1 : v <= 49.5 ? -1 : 0],
-    [t("equipeUI.lanesCouvertes"), `${LANES.length - affectation.manquantes.length} / ${LANES.length}`, 0],
-    [t("equipeUI.synergiesCompte"), mesures ? formats.entier(analyse.synergies.length) : "—", 0],
-    [t("equipeUI.menacesCompte"), mesures ? formats.entier(analyse.menaces.length) : "—", 0],
+    [t("teamUI.averageRate"), v === null ? "—" : `${formats.nombre(v)} %`, v === null ? 0 : v >= 50.5 ? 1 : v <= 49.5 ? -1 : 0],
+    [t("teamUI.lanesCovered"), `${LANES.length - affectation.manquantes.length} / ${LANES.length}`, 0],
+    [t("teamUI.synergyCount"), mesures ? formats.entier(analyse.synergies.length) : "—", 0],
+    [t("teamUI.threatCount"), mesures ? formats.entier(analyse.menaces.length) : "—", 0],
   ];
 
   return (
@@ -348,7 +348,7 @@ function Resultats({
       <section aria-labelledby="analyse-titre" className="space-y-10">
         <div>
           <h2 id="analyse-titre" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("equipeUI.analyse")}
+            {t("teamUI.analysis")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
@@ -372,7 +372,7 @@ function Resultats({
 
         {/* ── Points d'attention ─────────────────────────────────────── */}
         <div>
-          <h3 className={titre3}>{t("equipeUI.alertes.titre")}</h3>
+          <h3 className={titre3}>{t("teamUI.alerts.title")}</h3>
           {alertes.length > 0 ? (
             <ul className="mt-3 space-y-2">
               {alertes.map((a) => (
@@ -389,10 +389,10 @@ function Resultats({
             <p className="mt-3 flex gap-2.5 text-sm leading-relaxed text-chalk-300">
               <Check size={16} aria-hidden className="mt-0.5 shrink-0 text-emerald-400" />
               {equipe.length >= TAILLE_EQUIPE
-                ? t("equipeUI.alertes.aucune")
+                ? t("teamUI.alerts.none")
                 : equipe.length < MIN_ALERTES
-                  ? t("equipeUI.alertes.tropPeu", { n: MIN_ALERTES })
-                  : t("equipeUI.alertes.aucunePartielle")}
+                  ? t("teamUI.alerts.tooFew", { n: MIN_ALERTES })
+                  : t("teamUI.alerts.nonePartial")}
             </p>
           )}
         </div>
@@ -400,7 +400,7 @@ function Resultats({
         <div className="grid gap-6 lg:grid-cols-2">
           {/* ── Lanes et roles ───────────────────────────────────────── */}
           <Carte>
-            <h3 className={titre3}>{t("equipeUI.lanesRoles")}</h3>
+            <h3 className={titre3}>{t("teamUI.lanesRoles")}</h3>
             <ul className="mt-3 space-y-1.5">
               {LANES.map((lane) => {
                 const slug = affectation.lanes[lane];
@@ -414,7 +414,7 @@ function Resultats({
                         <span className="truncate text-chalk-100">{h.nom}</span>
                       </span>
                     ) : (
-                      <span className="italic text-chalk-500">{t("equipeUI.aPourvoir")}</span>
+                      <span className="italic text-chalk-500">{t("teamUI.toFill")}</span>
                     )}
                   </li>
                 );
@@ -422,11 +422,11 @@ function Resultats({
             </ul>
             {affectation.enTrop.length > 0 && (
               <p className="mt-2 text-xs text-blood-500">
-                {t("equipeUI.sansLane", { noms: affectation.enTrop.map(nomDe).join(", ") })}
+                {t("teamUI.noLane", { noms: affectation.enTrop.map(nomDe).join(", ") })}
               </p>
             )}
 
-            <p className={cn("mt-5", intitule)}>{t("equipeUI.roles")}</p>
+            <p className={cn("mt-5", intitule)}>{t("teamUI.roles")}</p>
             <ul className="mt-2 flex flex-wrap gap-1.5">
               {ROLES.map((r) => (
                 <li
@@ -444,13 +444,13 @@ function Resultats({
 
           {/* ── Profil : degats et notes du jeu ──────────────────────── */}
           <Carte>
-            <h3 className={titre3}>{t("equipeUI.profil")}</h3>
+            <h3 className={titre3}>{t("teamUI.profile")}</h3>
             {degats.partPhysique !== null && (
               <>
-                <p className={cn("mt-3", intitule)}>{t("equipeUI.degats")}</p>
+                <p className={cn("mt-3", intitule)}>{t("teamUI.damage")}</p>
                 <div
                   role="img"
-                  aria-label={t("equipeUI.partDegats", {
+                  aria-label={t("teamUI.damageShare", {
                     physique: formats.entier(degats.partPhysique * 100),
                     magique: formats.entier((1 - degats.partPhysique) * 100),
                   })}
@@ -480,7 +480,7 @@ function Resultats({
               </>
             )}
 
-            <p className={cn("mt-5", intitule)}>{t("equipeUI.notes")}</p>
+            <p className={cn("mt-5", intitule)}>{t("teamUI.ratings")}</p>
             <dl className="mt-2 space-y-2">
               {NOTES.map((n) => {
                 const valeur = notes[n];
@@ -502,16 +502,16 @@ function Resultats({
           <>
             {/* ── Duree de partie ────────────────────────────────────── */}
             <div>
-              <h3 className={titre3}>{t("equipeUI.duree")}</h3>
+              <h3 className={titre3}>{t("teamUI.duration")}</h3>
               {courbe ? (
                 <>
                   <p className="mt-1 text-sm text-chalk-500">
-                    {t("equipeUI.dureeIntro", { rang: t(`rangsMesure.${rang}`) })}
+                    {t("teamUI.durationIntro", { rang: t(`measuredRanks.${rang}`) })}
                   </p>
                   <p className="mt-3 text-sm text-chalk-300">
-                    <span className="font-semibold text-gold-400">{t(`equipeUI.profilDuree.${courbe.profil}`)}</span>
+                    <span className="font-semibold text-gold-400">{t(`teamUI.durationProfile.${courbe.profil}`)}</span>
                     {" · "}
-                    {t("equipeUI.pic", { tranche: tranche(courbe.tranches[courbe.pic]) })}
+                    {t("teamUI.peak", { tranche: tranche(courbe.tranches[courbe.pic]) })}
                   </p>
                   <BarresDuree
                     tranches={courbe.tranches.map((x, i) => ({ ...x, winRate: courbe.victoire[i] }))}
@@ -522,21 +522,21 @@ function Resultats({
                   <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5 text-xs text-chalk-500">
                     {courbe.parHeros.map(({ slug, profil }) => (
                       <li key={slug}>
-                        <span className="text-chalk-100">{nomDe(slug)}</span> · {t(`equipeUI.profilCourt.${profil}`)}
+                        <span className="text-chalk-100">{nomDe(slug)}</span> · {t(`teamUI.profileShort.${profil}`)}
                       </li>
                     ))}
                   </ul>
                 </>
               ) : (
-                <p className="mt-2 text-sm text-chalk-500">{t("equipeUI.sansDuree")}</p>
+                <p className="mt-2 text-sm text-chalk-500">{t("teamUI.noDuration")}</p>
               )}
             </div>
 
             <div className="grid gap-6 lg:grid-cols-2">
               {/* ── Synergies ─────────────────────────────────────────── */}
               <div>
-                <h3 className={titre3}>{t("equipeUI.synergies")}</h3>
-                <p className="mt-1 text-sm text-chalk-500">{t("equipeUI.synergiesIntro")}</p>
+                <h3 className={titre3}>{t("teamUI.synergies")}</h3>
+                <p className="mt-1 text-sm text-chalk-500">{t("teamUI.synergiesIntro")}</p>
                 {analyse.synergies.length > 0 ? (
                   <ul className="mt-3 space-y-2">
                     {analyse.synergies.map((p) => {
@@ -557,21 +557,21 @@ function Resultats({
                               {formats.ecart(p.points)} {pts}
                             </span>
                           ) : (
-                            <span className="shrink-0 text-xs text-chalk-500">{t("equipeUI.synergieConnue")}</span>
+                            <span className="shrink-0 text-xs text-chalk-500">{t("teamUI.knownSynergy")}</span>
                           )}
                         </li>
                       );
                     })}
                   </ul>
                 ) : (
-                  <p className="mt-3 text-sm text-chalk-500">{t("equipeUI.aucuneSynergie")}</p>
+                  <p className="mt-3 text-sm text-chalk-500">{t("teamUI.noSynergy")}</p>
                 )}
               </div>
 
               {/* ── Menaces ───────────────────────────────────────────── */}
               <div>
-                <h3 className={titre3}>{t("equipeUI.menaces")}</h3>
-                <p className="mt-1 text-sm text-chalk-500">{t("equipeUI.menacesIntro")}</p>
+                <h3 className={titre3}>{t("teamUI.threats")}</h3>
+                <p className="mt-1 text-sm text-chalk-500">{t("teamUI.threatsIntro")}</p>
                 {analyse.menaces.length > 0 ? (
                   <ul className="mt-3 space-y-2">
                     {analyse.menaces.map((m) => {
@@ -590,7 +590,7 @@ function Resultats({
                               {nomDe(m.slug)}
                             </Link>
                             <p className="text-xs leading-snug text-chalk-300">
-                              {t("equipeUI.gene", { n: m.cibles.length })}{" "}
+                              {t("teamUI.bothers", { n: m.cibles.length })}{" "}
                               {m.cibles.map(([s, p]) => `${nomDe(s)} (${formats.ecart(p)} ${pts})`).join(", ")}
                             </p>
                           </div>
@@ -599,7 +599,7 @@ function Resultats({
                     })}
                   </ul>
                 ) : (
-                  <p className="mt-3 text-sm text-chalk-500">{t("equipeUI.aucuneMenace")}</p>
+                  <p className="mt-3 text-sm text-chalk-500">{t("teamUI.noThreat")}</p>
                 )}
               </div>
             </div>
@@ -609,7 +609,7 @@ function Resultats({
             role="status"
             className="bevel-sm border border-dashed border-night-700 px-4 py-3 text-sm text-chalk-500"
           >
-            {erreur ? t("equipeUI.erreur") : t("equipeUI.chargement")}
+            {erreur ? t("teamUI.error") : t("teamUI.loading")}
           </p>
         )}
       </section>
@@ -618,10 +618,10 @@ function Resultats({
       {analyse.suggestions.length > 0 && (
         <section aria-labelledby="completer-titre">
           <h2 id="completer-titre" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("equipeUI.completer")}
+            {t("teamUI.complete")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <p className="mt-3 max-w-2xl text-sm text-chalk-500">{t("equipeUI.completerIntro")}</p>
+          <p className="mt-3 max-w-2xl text-sm text-chalk-500">{t("teamUI.completeIntro")}</p>
 
           <div className="mt-6 space-y-5">
             {analyse.suggestions.map(({ lane, picks }) => (
@@ -636,15 +636,15 @@ function Resultats({
                         <CarteSuggestion
                           suggestion={s}
                           premiere={i === 0}
-                          titrePrendre={t("draftUI.choisirEn", { nom: s.heros.nom, lane: t(`lanes.${lane}`) })}
+                          titrePrendre={t("draftUI.chooseIn", { nom: s.heros.nom, lane: t(`lanes.${lane}`) })}
                           onPrendre={() => onAjouter(s.heros.slug)}
-                          vide={t("equipeUI.aucuneRaison")}
+                          vide={t("teamUI.noReason")}
                         />
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-2 text-sm text-chalk-500">{t("draftUI.aucunHeros")}</p>
+                  <p className="mt-2 text-sm text-chalk-500">{t("draftUI.noHero")}</p>
                 )}
               </div>
             ))}
