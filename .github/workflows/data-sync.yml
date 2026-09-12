@@ -131,7 +131,7 @@ jobs:
         run: |
           # Donnees, visuels, traductions et leurs caches : rien d'autre (le build
           # ne doit rien glisser dans le commit).
-          git add -A -- src/data public/visuels content src/i18n/messages 'scripts/traductions*.json' scripts/advance-server-translations.json scripts/esports-cache.json
+          git add -A -- src/data public/visuels content src/i18n/messages 'scripts/*.json'
           # synchro.json porte l'horodatage de l'execution : seul, il ne merite
           # pas de commit.
           if git diff --cached --quiet -- . ':(exclude)src/data/jeu/synchro.json'; then
