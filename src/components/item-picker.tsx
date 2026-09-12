@@ -86,7 +86,7 @@ export function ItemPicker({
             <button
               type="button"
               onClick={onClose}
-              aria-label={t("commun.fermer")}
+              aria-label={t("common.close")}
               className="grid size-11 shrink-0 place-items-center text-chalk-500 transition-colors hover:text-chalk-100"
             >
               <X size={20} aria-hidden />

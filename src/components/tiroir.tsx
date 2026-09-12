@@ -66,7 +66,7 @@ export function Tiroir({
           type="button"
           autoFocus
           onClick={() => fermer.current()}
-          aria-label={libelleFermer ?? t("commun.fermer")}
+          aria-label={libelleFermer ?? t("common.close")}
           className="absolute right-3 top-2 z-10 grid size-9 place-items-center text-chalk-500 transition-colors hover:text-chalk-100"
         >
           <X size={18} aria-hidden />

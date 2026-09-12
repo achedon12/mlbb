@@ -43,11 +43,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   if (!estLangue(locale)) return {};
   const t = creerT(locale);
-  const titre = `${site.nom} — ${t("commun.sousTitre")}`;
+  const titre = `${site.nom} — ${t("common.subtitle")}`;
 
   return {
     title: { default: titre, template: `%s — ${site.nom}` },
-    description: t("commun.descriptionAccueil"),
+    description: t("common.homeDescription"),
     alternates: {
       // Racine de la langue : canonique et hreflang de l'accueil. Les pages
       // filles declarent leurs propres alternates via `metaLangues`.
@@ -61,13 +61,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url: `${site.url}/${locale}`,
       siteName: site.nom,
       title: titre,
-      description: t("commun.descriptionAccueil"),
+      description: t("common.homeDescription"),
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: titre,
-      description: t("commun.descriptionAccueil"),
+      description: t("common.homeDescription"),
       images: ["/opengraph-image"],
     },
   };
@@ -92,7 +92,7 @@ export default async function LangueLayout({
             href="#contenu"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-gold-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-night-950"
           >
-            {t("commun.allerAuContenu")}
+            {t("common.skipToContent")}
           </a>
           <EnTete langue={locale} />
           <main id="contenu" className="flex-1">

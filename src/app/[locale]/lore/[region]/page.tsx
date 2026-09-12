@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const t = creerT(locale);
   const nom = libelleHeros(t, "region", r.nom)!;
   return metaPage(locale, {
-    titre: t("pages.seo.loreRegion.titre", { region: nom }),
+    titre: t("pages.seo.loreRegion.title", { region: nom }),
     description: t("pages.seo.loreRegion.description", {
       region: nom,
       n: r.heros.length,
@@ -81,14 +81,14 @@ export default async function PageRegion({ params }: Params) {
 
   // Faits tires des donnees, un par ligne : rien n'y est ecrit a la main.
   const faits: string[] = [
-    t("pages.lore.region.faitRoles", {
+    t("pages.lore.region.factRoles", {
       n: r.heros.length,
       roles: listeNoms(locale, resume.roles.slice(0, 3).map((x) => `${t(`roles.${x.role}`)} (${x.n})`)),
     }),
   ];
   if (resume.premier && resume.dernier) {
     faits.push(
-      t("pages.lore.region.faitArrivees", {
+      t("pages.lore.region.factArrivals", {
         premier: resume.premier.name,
         datePremier: dateSortie(resume.premier.release, locale, t) ?? "",
         dernier: resume.dernier.name,
@@ -97,22 +97,22 @@ export default async function PageRegion({ params }: Params) {
     );
   } else if (resume.premier) {
     faits.push(
-      t("pages.lore.region.faitArrivee", {
+      t("pages.lore.region.factArrival", {
         nom: resume.premier.name,
         date: dateSortie(resume.premier.release, locale, t) ?? "",
       }),
     );
   }
   if (resume.factions.length) {
-    faits.push(t("pages.lore.region.faitFactions", { liste: listeNoms(locale, resume.factions.map((f) => `${f.nom} (${f.n})`)) }));
+    faits.push(t("pages.lore.region.factFactions", { liste: listeNoms(locale, resume.factions.map((f) => `${f.nom} (${f.n})`)) }));
   }
   if (resume.especes.length) {
-    faits.push(t("pages.lore.region.faitEspeces", { liste: listeNoms(locale, resume.especes.map((e) => `${e.nom} (${e.n})`)) }));
+    faits.push(t("pages.lore.region.factSpecies", { liste: listeNoms(locale, resume.especes.map((e) => `${e.nom} (${e.n})`)) }));
   }
-  faits.push(t("pages.lore.region.faitLiens", { internes: resume.internes.length, externes: resume.externes.length }));
+  faits.push(t("pages.lore.region.factLinks", { internes: resume.internes.length, externes: resume.externes.length }));
   if (resume.voisines.length) {
     faits.push(
-      t("pages.lore.region.faitVoisines", {
+      t("pages.lore.region.factNeighbours", {
         liste: listeNoms(
           locale,
           resume.voisines.slice(0, 3).map((v) => `${nomRegion(regionParCle.get(v.cle)?.nom ?? v.cle)} (${v.n})`),
@@ -141,14 +141,14 @@ export default async function PageRegion({ params }: Params) {
     return (
       <>
         {lien(p.a)} <span aria-hidden>↔</span>
-        <span className="sr-only"> {t("pages.lore.et")} </span> {lien(p.b)}
+        <span className="sr-only"> {t("pages.lore.and")} </span> {lien(p.b)}
         {natures.length > 0 && <span className="text-chalk-500"> · {natures.join(" / ")}</span>}
       </>
     );
   };
 
   const donneesStructurees = donneesListeHeros(locale, {
-    nom: t("pages.seo.loreRegion.titre", { region: nom }),
+    nom: t("pages.seo.loreRegion.title", { region: nom }),
     description: faits[0],
     chemin: `/lore/${r.cle}`,
     heros: r.heros.map((x) => ({ nom: x.name, slug: x.slug })),
@@ -159,16 +159,16 @@ export default async function PageRegion({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
       <EnTetePage
         titre={nom}
-        chapeau={t("pages.lore.region.chapeau", { region: nom, n: r.heros.length })}
+        chapeau={t("pages.lore.region.lead", { region: nom, n: r.heros.length })}
         miettes={[
-          { nom: t("pages.lore.miette"), href: "/lore" },
+          { nom: t("pages.lore.crumb"), href: "/lore" },
           { nom, freres: regionsLore.map((x) => ({ nom: nomRegion(x.nom), href: `/lore/${x.cle}` })) },
         ]}
       />
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         <section id="en-bref">
-          <TitreSection>{t("pages.lore.region.enBrefTitre")}</TitreSection>
+          <TitreSection>{t("pages.lore.region.inBriefTitle")}</TitreSection>
           <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
             {faits.map((f) => (
               <li key={f}>{f}</li>
@@ -177,7 +177,7 @@ export default async function PageRegion({ params }: Params) {
         </section>
 
         <section id="heros">
-          <TitreSection chapeau={t("pages.lore.region.herosChapeau")}>{t("pages.lore.region.herosTitre", { region: nom })}</TitreSection>
+          <TitreSection chapeau={t("pages.lore.region.heroesLead")}>{t("pages.lore.region.heroesTitle", { region: nom })}</TitreSection>
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {r.heros.map((x) => {
               const fiche = h[x.slug]?.profile;
@@ -213,7 +213,7 @@ export default async function PageRegion({ params }: Params) {
                         href={`/heroes/${x.slug}#histoire`}
                         className="mt-3 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                       >
-                        {t("pages.lore.lireHistoire", { nom: x.name })} →
+                        {t("pages.lore.readStory", { nom: x.name })} →
                       </Link>
                     </div>
                   </article>
@@ -224,16 +224,16 @@ export default async function PageRegion({ params }: Params) {
         </section>
 
         <section id="liens">
-          <TitreSection chapeau={t("pages.lore.region.liensChapeau")}>{t("pages.lore.region.liensTitre")}</TitreSection>
+          <TitreSection chapeau={t("pages.lore.region.linksLead")}>{t("pages.lore.region.linksTitle")}</TitreSection>
           {resume.internes.length === 0 ? (
-            <p className="text-chalk-500">{t("pages.lore.region.aucunLien", { region: nom })}</p>
+            <p className="text-chalk-500">{t("pages.lore.region.noLink", { region: nom })}</p>
           ) : (
             <>
               {listePaires(resume.internes.slice(0, LIENS_VISIBLES), false)}
               {resume.internes.length > LIENS_VISIBLES && (
                 <details className="mt-4">
                   <summary className="cursor-pointer text-sm font-semibold text-gold-400 hover:text-gold-500">
-                    {t("pages.lore.region.autresLiens", { n: resume.internes.length - LIENS_VISIBLES })}
+                    {t("pages.lore.region.otherLinks", { n: resume.internes.length - LIENS_VISIBLES })}
                   </summary>
                   {/* Lignes sans portrait : une grande region compte plus de cent liens. */}
                   <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-2 text-sm leading-relaxed md:grid-cols-2">
@@ -249,8 +249,8 @@ export default async function PageRegion({ params }: Params) {
 
         {resume.externes.length > 0 && (
           <section id="au-dela">
-            <TitreSection chapeau={t("pages.lore.region.externesChapeau", { region: nom })}>
-              {t("pages.lore.region.externesTitre")}
+            <TitreSection chapeau={t("pages.lore.region.externalLead", { region: nom })}>
+              {t("pages.lore.region.externalTitle")}
             </TitreSection>
             {listePaires(resume.externes.slice(0, 8), true)}
           </section>
@@ -258,7 +258,7 @@ export default async function PageRegion({ params }: Params) {
 
         <nav aria-labelledby="autres-regions">
           <h2 id="autres-regions" className="font-heading text-lg font-bold text-chalk-100">
-            {t("pages.lore.region.autresRegions")}
+            {t("pages.lore.region.otherRegions")}
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2">
             {regionsLore
@@ -276,7 +276,7 @@ export default async function PageRegion({ params }: Params) {
           </ul>
           <p className="mt-4">
             <Link href="/lore" className="text-sm font-semibold text-gold-400 hover:text-gold-500">
-              ← {t("pages.lore.retourHub")}
+              ← {t("pages.lore.backToHub")}
             </Link>
           </p>
         </nav>

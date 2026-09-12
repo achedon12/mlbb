@@ -89,8 +89,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     // portent un repere de fraicheur sont ceux qu'on clique. L'epithete reste
     // sur la page.
     titre: palier
-      ? tm("pages.seo.heros.titre", { nom: h.name, palier, v })
-      : tm("pages.seo.heros.titreSansPalier", { nom: h.name, v }),
+      ? tm("pages.seo.hero.title", { nom: h.name, palier, v })
+      : tm("pages.seo.hero.titleNoTier", { nom: h.name, v }),
     description: descriptionHeros(locale, h),
     chemin: `/heroes/${slug}`,
     type: "article",
@@ -121,8 +121,8 @@ function descriptionHeros(locale: Langue, h: Heros): string {
     const noms = listeNoms(locale, parRang[rang]!.weak.slice(0, 3).map((c) => herosParSlug.get(c.slug)?.name ?? c.slug));
     phrases.push(
       rang === "all"
-        ? t("pages.seo.heros.contresTous", { nom: h.name, contres: noms })
-        : t("pages.seo.heros.contres", { nom: h.name, contres: noms, rang: t(`rangsMesure.${rang}`) }),
+        ? t("pages.seo.hero.countersAll", { nom: h.name, contres: noms })
+        : t("pages.seo.hero.counters", { nom: h.name, contres: noms, rang: t(`measuredRanks.${rang}`) }),
     );
   }
 
@@ -133,18 +133,18 @@ function descriptionHeros(locale: Langue, h: Heros): string {
     const role = build.emblem ? t(`roles.${build.emblem}`) : null;
     phrases.push(
       build.emblem
-        ? t("pages.seo.heros.buildEmbleme", {
+        ? t("pages.seo.hero.buildEmblem", {
             objets: liste,
             embleme: role === `roles.${build.emblem}` ? build.emblem : role!,
           })
-        : t("pages.seo.heros.build", { objets: liste }),
+        : t("pages.seo.hero.build", { objets: liste }),
     );
   }
 
   const taux = tauxParSlug.get(h.slug);
-  if (taux) phrases.push(t("pages.seo.heros.taux", { victoire: pourcentage(locale, taux.victoire), palier: taux.palier }));
+  if (taux) phrases.push(t("pages.seo.hero.rate", { victoire: pourcentage(locale, taux.victoire), palier: taux.palier }));
 
-  if (phrases.length > 0) return [...phrases, `${t("pages.fraicheur.majLe", { date: dateLongue(locale) })}.`].join(" ");
+  if (phrases.length > 0) return [...phrases, `${t("pages.freshness.updatedOn", { date: dateLongue(locale) })}.`].join(" ");
 
   // Le resume redige n'existe qu'en francais : les autres langues prennent la
   // description generee, dans leur langue.
@@ -375,7 +375,7 @@ export default async function PageHeros({ params }: Params) {
                     key={s}
                     className="bevel-sm border border-night-600 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-chalk-500"
                   >
-                    {libelleHeros(t, "specialite", s)}
+                    {libelleHeros(t, "specialty", s)}
                   </span>
                 ))}
               </div>
@@ -389,7 +389,7 @@ export default async function PageHeros({ params }: Params) {
                   className="bevel-sm flex items-center gap-2 border border-night-700 px-4 py-2 text-sm font-medium text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                 >
                   <Swords size={15} aria-hidden />
-                  {t("pages.heroDetail.comparer")}
+                  {t("pages.heroDetail.compare")}
                 </Link>
               </div>
             </div>
@@ -397,10 +397,10 @@ export default async function PageHeros({ params }: Params) {
             {/* Notes du jeu, en jauges plutot qu'en chiffres nus. */}
             <dl className="grid min-w-0 flex-1 basis-56 gap-2.5">
               {[
-                [t("pages.heroDetail.notes.offensive"), h.ratings.offense],
-                [t("pages.heroDetail.notes.resistance"), h.ratings.durability],
-                [t("pages.heroDetail.notes.effets"), h.ratings.abilityEffects],
-                [t("pages.heroDetail.notes.difficulte"), h.ratings.difficulty],
+                [t("pages.heroDetail.ratings.offense"), h.ratings.offense],
+                [t("pages.heroDetail.ratings.durability"), h.ratings.durability],
+                [t("pages.heroDetail.ratings.effects"), h.ratings.abilityEffects],
+                [t("pages.heroDetail.ratings.difficulty"), h.ratings.difficulty],
               ].map(([label, valeur]) =>
                 valeur === null ? null : (
                   <div key={String(label)} className="flex items-center gap-3">
@@ -426,15 +426,15 @@ export default async function PageHeros({ params }: Params) {
           <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6">
             {[
               [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
-              [t("pages.heroDetail.stat.sortie"), dateSortie(h.release, locale, t)],
-              [t("pages.heroDetail.stat.ressource"), libelleHeros(t, "ressource", h.resource)],
-              [t("pages.heroDetail.stat.degats"), libelleHeros(t, "degats", h.damageType)],
-              [t("pages.heroDetail.stat.portee"), libelleHeros(t, "attaque", h.attackType)],
+              [t("pages.heroDetail.stat.release"), dateSortie(h.release, locale, t)],
+              [t("pages.heroDetail.stat.resource"), libelleHeros(t, "resource", h.resource)],
+              [t("pages.heroDetail.stat.damage"), libelleHeros(t, "damage", h.damageType)],
+              [t("pages.heroDetail.stat.range"), libelleHeros(t, "attack", h.attackType)],
               [t("pages.heroDetail.stat.region"), libelleHeros(t, "region", h.region)],
               [t("pages.heroDetail.stat.skins"), h.skins.length || null],
-              [t("pages.heroDetail.stat.tierList"), classe ? <ValeurParRang valeurs={selonRang((s) => t("pages.heroDetail.palier", { p: s.tier }))} /> : null],
-              [t("pages.heroDetail.stat.tauxVictoire"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.winRate)} %`)} /> : null],
-              [t("pages.heroDetail.stat.tauxBan"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.banRate)} %`)} /> : null],
+              [t("pages.heroDetail.stat.tierList"), classe ? <ValeurParRang valeurs={selonRang((s) => t("pages.heroDetail.tier", { p: s.tier }))} /> : null],
+              [t("pages.heroDetail.stat.winRate"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.winRate)} %`)} /> : null],
+              [t("pages.heroDetail.stat.banRate"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.banRate)} %`)} /> : null],
             ].map(([label, valeur]) =>
               !valeur ? null : (
                 <div key={String(label)}>
@@ -455,7 +455,7 @@ export default async function PageHeros({ params }: Params) {
           onglets={[
             {
               id: "analyse",
-              label: t("pages.heroDetail.onglet.analyse"),
+              label: t("pages.heroDetail.tab.analysis"),
               contenu: analyse ? (
                 <div className="space-y-12">
                   <section>
@@ -470,7 +470,7 @@ export default async function PageHeros({ params }: Params) {
                     <Carte className="border-emerald-500/25">
                       <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-emerald-400">
                         <Swords size={18} aria-hidden />
-                        {t("pages.heroDetail.forces")}
+                        {t("pages.heroDetail.strengths")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
                         {analyse.strengths.map((f) => (
@@ -484,7 +484,7 @@ export default async function PageHeros({ params }: Params) {
                     <Carte className="border-blood-500/25">
                       <h2 className="flex items-center gap-2 font-heading text-lg font-bold text-blood-500">
                         <TriangleAlert size={18} aria-hidden />
-                        {t("pages.heroDetail.faiblesses")}
+                        {t("pages.heroDetail.weaknesses")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
                         {analyse.weaknesses.map((f) => (
@@ -502,28 +502,28 @@ export default async function PageHeros({ params }: Params) {
                 <Carte className="border-gold-500/30">
                   <h2 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
                     <ShieldAlert size={20} aria-hidden />
-                    {t("pages.heroDetail.analyseEnCours")}
+                    {t("pages.heroDetail.analysisPending")}
                   </h2>
                   <p className="mt-3 max-w-2xl leading-relaxed text-chalk-300">
-                    {t("pages.heroDetail.analyseTexte", { nom: h.name })}
+                    {t("pages.heroDetail.analysisText", { nom: h.name })}
                   </p>
                   <Link
                     href="/contribute"
                     className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
                   >
-                    {t("pages.heroDetail.contribuer")}
+                    {t("pages.heroDetail.contribute")}
                   </Link>
                 </Carte>
               ),
             },
             {
               id: "histoire",
-              label: t("pages.heroDetail.onglet.histoire"),
+              label: t("pages.heroDetail.tab.story"),
               contenu: aHistoire ? <HistoireHeros histoire={histoire} nom={h.name} langue={locale} /> : null,
             },
             {
               id: "competences",
-              label: t("pages.heroDetail.onglet.competences"),
+              label: t("pages.heroDetail.tab.skills"),
               compteur:
                 Math.max(
                   competencesWiki.filter(Boolean).length,
@@ -542,7 +542,7 @@ export default async function PageHeros({ params }: Params) {
             },
             {
               id: "contres",
-              label: t("pages.heroDetail.onglet.contres"),
+              label: t("pages.heroDetail.tab.counters"),
               contenu:
                 aContres || aCoequipiers || analyse ? (
                   <div className="space-y-8">
@@ -581,8 +581,8 @@ export default async function PageHeros({ params }: Params) {
                           {t("pages.heroDetail.matchupsIntro")}
                         </p>
                         <div className="mt-4 grid gap-4 md:grid-cols-2">
-                          <ListeContres titre={t("pages.heroDetail.alaise", { nom: h.name })} slugs={analyse.strongAgainst} ton="bon" />
-                          <ListeContres titre={t("pages.heroDetail.difficulte2", { nom: h.name })} slugs={analyse.weakAgainst} ton="mauvais" />
+                          <ListeContres titre={t("pages.heroDetail.comfortable", { nom: h.name })} slugs={analyse.strongAgainst} ton="bon" />
+                          <ListeContres titre={t("pages.heroDetail.difficulty2", { nom: h.name })} slugs={analyse.weakAgainst} ton="mauvais" />
                         </div>
                       </section>
                     )}
@@ -591,7 +591,7 @@ export default async function PageHeros({ params }: Params) {
             },
             {
               id: "builds",
-              label: t("pages.heroDetail.onglet.builds"),
+              label: t("pages.heroDetail.tab.builds"),
               contenu: aBuilds || analyse ? (
                 <div className="space-y-10">
                   {aBuilds && (
@@ -603,8 +603,8 @@ export default async function PageHeros({ params }: Params) {
                   <section>
                   {aBuilds && (
                     <>
-                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("builds.rediges")}</h3>
-                      <p className="mt-1 mb-5 text-sm text-chalk-500">{t("builds.redigesIntro")}</p>
+                      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("builds.written")}</h3>
+                      <p className="mt-1 mb-5 text-sm text-chalk-500">{t("builds.writtenIntro")}</p>
                     </>
                   )}
                   <div className="space-y-4">
@@ -618,20 +618,20 @@ export default async function PageHeros({ params }: Params) {
                         ))}
                       </ol>
                       <div className="mt-5 grid gap-3 border-t border-night-800 pt-4 sm:grid-cols-3">
-                        <ChoixBuild libelle={t("builds.embleme")} nom={b.emblem} image={visuelEmbleme(b.emblem).image} href={visuelEmbleme(b.emblem).href} />
+                        <ChoixBuild libelle={t("builds.emblem")} nom={b.emblem} image={visuelEmbleme(b.emblem).image} href={visuelEmbleme(b.emblem).href} />
                         <ChoixBuild libelle={t("builds.talent")} nom={b.talent} image={visuelTalent(b.talent).image} />
-                        <ChoixBuild libelle={t("builds.sort")} nom={b.spell} image={visuelSort(b.spell).image} href={visuelSort(b.spell).href} />
+                        <ChoixBuild libelle={t("builds.spell")} nom={b.spell} image={visuelSort(b.spell).image} href={visuelSort(b.spell).href} />
                       </div>
                       {(() => {
                         const ecart = ecartDe(b);
                         if (!ecart) return null;
                         return (
                           <p className="mt-4 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
-                            <span className="font-semibold text-chalk-300">{t("builds.ecartTitre")} · </span>
+                            <span className="font-semibold text-chalk-300">{t("builds.gapTitle")} · </span>
                             {ecart.absents.length === 0
-                              ? t("builds.aligne")
-                              : t("builds.ecartObjets", { objets: ecart.absents.join(", ") })}
-                            {ecart.talents && <> {t("builds.ecartTalent", { talent: ecart.talents })}</>}
+                              ? t("builds.aligned")
+                              : t("builds.gapItems", { objets: ecart.absents.join(", ") })}
+                            {ecart.talents && <> {t("builds.gapTalent", { talent: ecart.talents })}</>}
                           </p>
                         );
                       })()}
@@ -646,7 +646,7 @@ export default async function PageHeros({ params }: Params) {
             {
               id: "stats",
               differe: true,
-              label: t("pages.heroDetail.onglet.stats"),
+              label: t("pages.heroDetail.tab.stats"),
               apercu: (
                 <ApercuStatistiques
                   langue={locale}
@@ -672,14 +672,14 @@ export default async function PageHeros({ params }: Params) {
                   <section>
                     <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                       <h3 className="font-heading text-lg font-bold text-chalk-100">
-                        {t("pages.heroDetail.statistiques.ajustements")}
+                        {t("pages.heroDetail.statistics.adjustments")}
                       </h3>
                       <LienFluxHeros langue={locale} slug={h.slug} />
                     </div>
                     <p className="mt-1 mb-4 text-sm text-chalk-500">
                       {ajustementsHeros.length > 0
-                        ? t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.name })
-                        : t("pages.heroDetail.statistiques.aucunAjustement", { nom: h.name, n: versionsRecentes.length })}
+                        ? t("pages.heroDetail.statistics.adjustmentsIntro", { nom: h.name })
+                        : t("pages.heroDetail.statistics.noAdjustment", { nom: h.name, n: versionsRecentes.length })}
                     </p>
                     {ajustementsHeros.length > 0 && (
                       <AjustementsDuHeros entrees={ajustementsHeros} portrait={h.images.icon ?? h.images.portrait} />
@@ -695,13 +695,13 @@ export default async function PageHeros({ params }: Params) {
             {
               id: "skins",
               differe: true,
-              label: t("pages.heroDetail.onglet.skins"),
+              label: t("pages.heroDetail.tab.skins"),
               compteur: skinsComplets.length || undefined,
               // Les noms des skins, en texte, en attendant la galerie.
               apercu:
                 skinsComplets.length > 0 ? (
                   <div className="text-sm leading-relaxed text-chalk-300">
-                    <p>{t("pages.apercuHeros.skins", { nom: h.name, n: skinsComplets.length })}</p>
+                    <p>{t("pages.heroPreview.skins", { nom: h.name, n: skinsComplets.length })}</p>
                     <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-chalk-500">
                       {skinsComplets.map((s) => (
                         <li key={s.id}>{s.name}</li>
@@ -712,7 +712,7 @@ export default async function PageHeros({ params }: Params) {
                         href={`/heroes/${h.slug}/skins`}
                         className="mt-3 inline-block font-semibold text-gold-400 hover:text-gold-500"
                       >
-                        {t("pages.heroSkins.lienFiche", { n: galerieHeros(h).total })} →
+                        {t("pages.heroSkins.sheetLink", { n: galerieHeros(h).total })} →
                       </Link>
                     )}
                   </div>
@@ -725,7 +725,7 @@ export default async function PageHeros({ params }: Params) {
                         href={`/heroes/${h.slug}/skins`}
                         className="inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                       >
-                        {t("pages.heroSkins.lienFiche", { n: galerieHeros(h).total })} →
+                        {t("pages.heroSkins.sheetLink", { n: galerieHeros(h).total })} →
                       </Link>
                     )}
                     <VitrineSkins skins={skinsComplets} />
@@ -801,13 +801,13 @@ function ApercuStatistiques({
     const [k0, debut] = mesures[0];
     const [k1, fin] = mesures[mesures.length - 1];
     phrases.push(
-      t("pages.apercuHeros.evolution", {
+      t("pages.heroPreview.trend", {
         nom: h.name,
         n: k1 - k0 + 1,
         debut: pourcent(debut),
         fin: pourcent(fin),
         ecart: formaterEcart(fin - debut, langue),
-        pts: t("contres.pts"),
+        pts: t("counters.pts"),
       }),
     );
   }
@@ -816,12 +816,12 @@ function ApercuStatistiques({
   if (tranches.length > 1) {
     const libelle = (x: TrancheDuree) =>
       x.to === null
-        ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.from })
-        : t("pages.heroDetail.statistiques.minutes", { de: x.from, a: x.to });
+        ? t("pages.heroDetail.statistics.minutesPlus", { de: x.from })
+        : t("pages.heroDetail.statistics.minutes", { de: x.from, a: x.to });
     const haute = tranches[0];
     const basse = tranches[tranches.length - 1];
     phrases.push(
-      t("pages.apercuHeros.duree", {
+      t("pages.heroPreview.duration", {
         nom: h.name,
         tranche: libelle(haute),
         victoire: pourcent(haute.winRate),
@@ -838,17 +838,17 @@ function ApercuStatistiques({
     const bas = rangs[0];
     const haut = rangs[rangs.length - 1];
     phrases.push(
-      t("pages.apercuHeros.rangs", {
+      t("pages.heroPreview.ranks", {
         nom: h.name,
         bas: pourcent(statsRangs[bas]!.winRate),
-        rangBas: t(`rangsMesure.${bas}`),
+        rangBas: t(`measuredRanks.${bas}`),
         haut: pourcent(statsRangs[haut]!.winRate),
-        rangHaut: t(`rangsMesure.${haut}`),
+        rangHaut: t(`measuredRanks.${haut}`),
       }),
     );
   }
 
-  if (ajustements > 0) phrases.push(t("pages.apercuHeros.ajustements", { nom: h.name, n: ajustements, total: patchs }));
+  if (ajustements > 0) phrases.push(t("pages.heroPreview.adjustments", { nom: h.name, n: ajustements, total: patchs }));
   if (phrases.length === 0) return null;
 
   return (

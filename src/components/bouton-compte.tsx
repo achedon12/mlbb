@@ -46,7 +46,7 @@ export function BoutonCompte() {
       className="bevel-sm grid h-9 min-w-9 place-items-center bg-gold-500 px-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 sm:block sm:px-4 sm:py-2"
     >
       <LogIn size={18} aria-hidden className="sm:hidden" />
-      <span className="max-sm:sr-only">{t("compte.connexion")}</span>
+      <span className="max-sm:sr-only">{t("account.signIn")}</span>
     </Link>
   );
 }

@@ -74,7 +74,7 @@ export function StatistiquesHeros({
     new Intl.NumberFormat(langue, { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
 
   if (!serie && !tranches && rangs.length < 2) {
-    return <p className="text-sm text-chalk-500">{t("pages.heroDetail.statistiques.aucuneDonnee")}</p>;
+    return <p className="text-sm text-chalk-500">{t("pages.heroDetail.statistics.noData")}</p>;
   }
 
   const points = serie ? pointsDe(serie, mesure).slice(-periode) : [];
@@ -88,22 +88,22 @@ export function StatistiquesHeros({
       {serie && valeurs.length > 1 && (
         <section>
           <h3 className="font-heading text-lg font-bold text-chalk-100">
-            {t("pages.heroDetail.statistiques.evolution", { n: periode })}
+            {t("pages.heroDetail.statistics.trend", { n: periode })}
           </h3>
-          <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistiques.evolutionIntro")}</p>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistics.trendIntro")}</p>
 
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
-            <GroupeFiltres legende={t("pages.heroDetail.statistiques.mesure")} largeurLegende="">
+            <GroupeFiltres legende={t("pages.heroDetail.statistics.measure")} largeurLegende="">
               {MESURES.map((m) => (
                 <Puce key={m} dense actif={m === mesure} onClick={() => setMesure(m)}>
-                  {t(`pages.heroDetail.statistiques.mesures.${m}`)}
+                  {t(`pages.heroDetail.statistics.measures.${m}`)}
                 </Puce>
               ))}
             </GroupeFiltres>
-            <GroupeFiltres legende={t("pages.heroDetail.statistiques.periode")} largeurLegende="">
+            <GroupeFiltres legende={t("pages.heroDetail.statistics.period")} largeurLegende="">
               {PERIODES.map((p) => (
                 <Puce key={p} dense actif={p === periode} onClick={() => setPeriode(p)}>
-                  {t("pages.heroDetail.statistiques.jours", { n: p })}
+                  {t("pages.heroDetail.statistics.days", { n: p })}
                 </Puce>
               ))}
             </GroupeFiltres>
@@ -111,14 +111,14 @@ export function StatistiquesHeros({
 
           <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
-              [t("pages.heroDetail.statistiques.actuel"), `${nombre(fin!, decimales)} %`, null],
+              [t("pages.heroDetail.statistics.current"), `${nombre(fin!, decimales)} %`, null],
               [
-                t("pages.heroDetail.statistiques.variation"),
-                `${fin! - debut! > 0 ? "+" : ""}${nombre(fin! - debut!, decimales)} ${t("contres.pts")}`,
+                t("pages.heroDetail.statistics.change"),
+                `${fin! - debut! > 0 ? "+" : ""}${nombre(fin! - debut!, decimales)} ${t("counters.pts")}`,
                 mesure === "victoire" ? Math.sign(fin! - debut!) : 0,
               ],
-              [t("pages.heroDetail.statistiques.min"), `${nombre(Math.min(...valeurs), decimales)} %`, null],
-              [t("pages.heroDetail.statistiques.max"), `${nombre(Math.max(...valeurs), decimales)} %`, null],
+              [t("pages.heroDetail.statistics.min"), `${nombre(Math.min(...valeurs), decimales)} %`, null],
+              [t("pages.heroDetail.statistics.max"), `${nombre(Math.max(...valeurs), decimales)} %`, null],
             ].map(([libelle, valeur, signe]) => (
               <div key={String(libelle)} className="bevel-sm border border-night-700/70 bg-night-900/60 px-3 py-2">
                 <dt className="text-[0.7rem] uppercase tracking-wide text-chalk-500">{libelle}</dt>
@@ -140,14 +140,14 @@ export function StatistiquesHeros({
               points={points}
               reperes={reperes}
               decimales={decimales}
-              libelle={t("pages.heroDetail.statistiques.resumeCourbe", {
-                mesure: t(`pages.heroDetail.statistiques.mesures.${mesure}`),
+              libelle={t("pages.heroDetail.statistics.curveSummary", {
+                mesure: t(`pages.heroDetail.statistics.measures.${mesure}`),
                 debut: nombre(debut!, decimales),
                 fin: nombre(fin!, decimales),
               })}
             />
           </div>
-          {!long && <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.heroDetail.statistiques.historiqueCourt")}</p>}
+          {!long && <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.heroDetail.statistics.historyShort")}</p>}
         </section>
       )}
 
@@ -155,8 +155,8 @@ export function StatistiquesHeros({
 
       {rangs.length > 1 && (
         <section>
-          <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.parRang")}</h3>
-          <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistiques.parRangIntro")}</p>
+          <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistics.byRank")}</h3>
+          <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistics.byRankIntro")}</p>
           <ul className="mt-4 space-y-2.5">
             {(() => {
               const taux = rangs.map((r) => parRang[r]!.winRate);
@@ -167,7 +167,7 @@ export function StatistiquesHeros({
                 return (
                   <li key={r} className="flex items-center gap-3 text-sm">
                     <span className={cn("w-28 shrink-0", r === rang ? "font-semibold text-gold-400" : "text-chalk-300")}>
-                      {t(`rangsMesure.${r}`)}
+                      {t(`measuredRanks.${r}`)}
                     </span>
                     <span className="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-night-800">
                       <span
@@ -177,7 +177,7 @@ export function StatistiquesHeros({
                     </span>
                     <span className="w-14 shrink-0 text-right tabular-nums text-chalk-100">{nombre(s.winRate)} %</span>
                     <span className="hidden w-20 shrink-0 text-right text-xs tabular-nums text-chalk-500 sm:block">
-                      {t("pages.heroDetail.statistiques.banCourt", { v: nombre(s.banRate) })}
+                      {t("pages.heroDetail.statistics.banShort", { v: nombre(s.banRate) })}
                     </span>
                   </li>
                 );
@@ -189,9 +189,9 @@ export function StatistiquesHeros({
 
       {long && historique && (
         <section>
-          <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.historique")}</h3>
+          <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistics.history")}</h3>
           <p className="mt-1 text-sm text-chalk-500">
-            {t("pages.heroDetail.statistiques.historiqueIntro", {
+            {t("pages.heroDetail.statistics.historyIntro", {
               date: new Intl.DateTimeFormat(langue, { dateStyle: "long", timeZone: "UTC" }).format(
                 new Date(`${historique.start}T00:00:00Z`),
               ),
@@ -201,7 +201,7 @@ export function StatistiquesHeros({
             <CourbeTaux
               points={long}
               reperes={reperes}
-              libelle={t("pages.heroDetail.statistiques.historique")}
+              libelle={t("pages.heroDetail.statistics.history")}
             />
           </div>
         </section>
@@ -246,21 +246,21 @@ function EffetPatchs({
 
   return (
     <section>
-      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.impact.titre")}</h3>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistics.impact.title")}</h3>
       <p className="mt-1 text-sm text-chalk-500">
-        {t("pages.heroDetail.statistiques.impact.intro", { nom, n: JOURS_IMPACT })}
+        {t("pages.heroDetail.statistics.impact.intro", { nom, n: JOURS_IMPACT })}
       </p>
 
       {impacts.length === 0 ? (
         <p className="bevel-sm mt-4 border border-dashed border-night-700 px-4 py-3 text-sm leading-relaxed text-chalk-500">
           {historique
-            ? t("pages.heroDetail.statistiques.impact.vide", {
+            ? t("pages.heroDetail.statistics.impact.empty", {
                 n: MESURES_MIN_IMPACT,
                 date: new Intl.DateTimeFormat(langue, { dateStyle: "long", timeZone: "UTC" }).format(
                   new Date(`${historique.start}T00:00:00Z`),
                 ),
               })
-            : t("pages.heroDetail.statistiques.impact.videSansHistorique", { nom })}
+            : t("pages.heroDetail.statistics.impact.emptyNoHistory", { nom })}
         </p>
       ) : (
         <ul className="mt-4 space-y-2">
@@ -272,11 +272,11 @@ function EffetPatchs({
                 className="bevel-sm flex flex-wrap items-center gap-x-4 gap-y-1 border border-night-700/70 bg-night-900/60 px-3 py-2 text-sm"
               >
                 <span className="font-semibold text-chalk-100">
-                  {t("pages.heroDetail.statistiques.impact.patch", { version: i.version })}
+                  {t("pages.heroDetail.statistics.impact.patch", { version: i.version })}
                 </span>
                 {i.type && (
                   <span className={cn("bevel-sm border px-1.5 py-0.5 text-[0.7rem]", COULEUR_TYPE[i.type])}>
-                    {t(`patchHeros.${i.type}`)}
+                    {t(`patchHeroes.${i.type}`)}
                   </span>
                 )}
                 <span className="tabular-nums text-chalk-300">
@@ -284,7 +284,7 @@ function EffetPatchs({
                     {nombre(i.avant)} % → {nombre(i.apres)} %
                   </span>
                   <span className="sr-only">
-                    {t("pages.heroDetail.statistiques.impact.avantApres", {
+                    {t("pages.heroDetail.statistics.impact.beforeAfter", {
                       avant: nombre(i.avant),
                       apres: nombre(i.apres),
                     })}
@@ -296,11 +296,11 @@ function EffetPatchs({
                     signe === 1 ? "text-emerald-400" : signe === -1 ? "text-blood-500" : "text-chalk-100",
                   )}
                 >
-                  {formaterEcart(i.ecart, langue)} {t("contres.pts")}
+                  {formaterEcart(i.ecart, langue)} {t("counters.pts")}
                 </span>
                 {i.verdict && (
                   <span className="text-xs text-chalk-500">
-                    {t(`pages.heroDetail.statistiques.impact.verdict.${i.verdict}`)}
+                    {t(`pages.heroDetail.statistics.impact.verdict.${i.verdict}`)}
                   </span>
                 )}
               </li>
@@ -330,19 +330,19 @@ function Duree({
   const meilleure = taux.indexOf(Math.max(...taux));
   const libelle = (x: Pick<TrancheDuree, "from" | "to">) =>
     x.to === null
-      ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.from })
-      : t("pages.heroDetail.statistiques.minutes", { de: x.from, a: x.to });
+      ? t("pages.heroDetail.statistics.minutesPlus", { de: x.from })
+      : t("pages.heroDetail.statistics.minutes", { de: x.from, a: x.to });
 
   return (
     <section>
-      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistiques.duree")}</h3>
-      <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistiques.dureeIntro", { nom })}</p>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistics.duration")}</h3>
+      <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistics.durationIntro", { nom })}</p>
       <p className="mt-3 text-sm text-chalk-300">
         <span className="font-semibold text-gold-400">
-          {t(`pages.heroDetail.statistiques.profil.${profilDuree(taux)}`)}
+          {t(`pages.heroDetail.statistics.profile.${profilDuree(taux)}`)}
         </span>
         {" · "}
-        {t("pages.heroDetail.statistiques.pic", { tranche: libelle(tranches[meilleure]) })}
+        {t("pages.heroDetail.statistics.peak", { tranche: libelle(tranches[meilleure]) })}
       </p>
 
       <BarresDuree tranches={tranches} nombre={nombre} libelle={libelle} className="mt-4" />

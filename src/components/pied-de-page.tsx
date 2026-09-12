@@ -13,7 +13,7 @@ function Colonne({
 }: {
   titre: string;
   liens: readonly { href: string; cle: string }[];
-  prefixe: "nav" | "pied";
+  prefixe: "nav" | "footer";
   t: T;
 }) {
   return (
@@ -23,7 +23,7 @@ function Colonne({
         {liens.map((lien) => (
           <li key={lien.href}>
             <Link href={lien.href} className="text-sm text-chalk-500 transition-colors hover:text-chalk-100">
-              {prefixe === "nav" ? t(`nav.${lien.cle}.label`) : t(`pied.${lien.cle}`)}
+              {prefixe === "nav" ? t(`nav.${lien.cle}.label`) : t(`footer.${lien.cle}`)}
             </Link>
           </li>
         ))}
@@ -62,12 +62,12 @@ const ACTUALITE = [
 ];
 
 const SITE = [
-  { href: "/api-doc", cle: "apiPublique" },
-  { href: "/about", cle: "apropos" },
-  { href: "/contribute", cle: "contribuer" },
-  { href: "/account", cle: "monCompte" },
-  { href: "/legal", cle: "mentionsLegales" },
-  { href: "/privacy", cle: "confidentialite" },
+  { href: "/api-doc", cle: "publicApi" },
+  { href: "/about", cle: "about" },
+  { href: "/contribute", cle: "contribute" },
+  { href: "/account", cle: "myAccount" },
+  { href: "/legal", cle: "legalNotice" },
+  { href: "/privacy", cle: "privacy" },
 ];
 
 export function PiedDePage({ langue }: { langue: Langue }) {
@@ -86,7 +86,7 @@ export function PiedDePage({ langue }: { langue: Langue }) {
             </span>
             <span className="font-heading text-lg font-bold tracking-wide text-chalk-100">{site.nom}</span>
           </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-chalk-500">{t("pied.presentation")}</p>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-chalk-500">{t("footer.intro")}</p>
           <div className="mt-5 flex items-center gap-4">
             <a
               href={site.depot}
@@ -95,7 +95,7 @@ export function PiedDePage({ langue }: { langue: Langue }) {
               target="_blank"
             >
               <GithubMark />
-              {t("pied.codeSource")}
+              {t("footer.sourceCode")}
             </a>
             <Link
               href="/feed.xml"
@@ -107,28 +107,28 @@ export function PiedDePage({ langue }: { langue: Langue }) {
           </div>
         </div>
 
-        <nav aria-label={t("pied.leJeu")}>
-          <Colonne titre={t("pied.leJeu")} liens={JEU} prefixe="nav" t={t} />
+        <nav aria-label={t("footer.theGame")}>
+          <Colonne titre={t("footer.theGame")} liens={JEU} prefixe="nav" t={t} />
         </nav>
-        <nav aria-label={t("pied.actualites")}>
-          <Colonne titre={t("pied.actualites")} liens={ACTUALITE} prefixe="nav" t={t} />
+        <nav aria-label={t("footer.news")}>
+          <Colonne titre={t("footer.news")} liens={ACTUALITE} prefixe="nav" t={t} />
         </nav>
-        <nav aria-label={t("pied.leSite")}>
-          <Colonne titre={t("pied.leSite")} liens={SITE} prefixe="pied" t={t} />
+        <nav aria-label={t("footer.theSite")}>
+          <Colonne titre={t("footer.theSite")} liens={SITE} prefixe="footer" t={t} />
         </nav>
       </div>
 
       <div className="border-t border-night-800/80">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-chalk-600">{t("pied.sources")}</p>
+        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-chalk-600">{t("footer.sources")}</p>
       </div>
 
       <div className="border-t border-night-800">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {ANNEE} {site.nom} — {t("pied.droits", { auteur: site.auteur })}
-            <span className="text-chalk-600"> · {t("pied.version", { v: process.env.VERSION_SITE ?? "" })}</span>
+            © {ANNEE} {site.nom} — {t("footer.rights", { auteur: site.auteur })}
+            <span className="text-chalk-600"> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>
           </p>
-          <p className="text-chalk-600">{t("pied.marque")}</p>
+          <p className="text-chalk-600">{t("footer.brand")}</p>
         </div>
       </div>
     </footer>

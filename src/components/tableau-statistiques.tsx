@@ -94,9 +94,9 @@ export function TableauStatistiques({
   return (
     <div>
       <div className="flex flex-col gap-4">
-        <nav aria-label={t("rangsMesure.label")} className="flex flex-wrap items-center gap-2">
+        <nav aria-label={t("measuredRanks.label")} className="flex flex-wrap items-center gap-2">
           <span aria-hidden className="mr-1 w-20 shrink-0 text-xs uppercase tracking-wide text-chalk-500">
-            {t("rangsMesure.label")}
+            {t("measuredRanks.label")}
           </span>
           {rangs.map((r) => (
             <Link
@@ -105,25 +105,25 @@ export function TableauStatistiques({
               aria-current={r === rang ? "page" : undefined}
               className={classesPuce(r === rang)}
             >
-              {t(`rangsMesure.${r}`)}
+              {t(`measuredRanks.${r}`)}
             </Link>
           ))}
         </nav>
         <ChampRecherche
           valeur={etat.recherche}
           onChange={(recherche) => maj({ recherche })}
-          libelle={t("pages.heroesListe.rechercher")}
+          libelle={t("pages.heroesList.search")}
           className="max-w-md"
         />
         <ChoixUnique
-          legende={t("pages.heroesListe.role")}
+          legende={t("pages.heroesList.role")}
           valeurs={ROLES}
           actif={etat.role}
           onChange={(role) => maj({ role })}
           libelle={(r) => t(`roles.${r}`)}
         />
         <ChoixUnique
-          legende={t("pages.heroesListe.position")}
+          legende={t("pages.heroesList.position")}
           valeurs={LANES}
           actif={etat.lane}
           onChange={(lane) => maj({ lane })}
@@ -132,8 +132,8 @@ export function TableauStatistiques({
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
-        {t("pages.heroesListe.compte", { n: affichees.length })}
-        {affichees.length !== lignes.length && ` ${t("pages.heroesListe.compteSur", { total: lignes.length })}`}
+        {t("pages.heroesList.account", { n: affichees.length })}
+        {affichees.length !== lignes.length && ` ${t("pages.heroesList.countOf", { total: lignes.length })}`}
       </p>
 
       {/* Defilement horizontal sur mobile, nom du heros fige a gauche. Le
@@ -142,29 +142,29 @@ export function TableauStatistiques({
       <div className="relative mt-3 overflow-x-auto border border-night-700/70">
         <table className="stats-table">
           <caption className="sr-only">
-            {t("pages.statisticsTable.legende", { rang: t(`rangsMesure.${rang}`) })}
+            {t("pages.statisticsTable.legend", { rang: t(`measuredRanks.${rang}`) })}
           </caption>
           <thead>
             <tr>
               <Entete colonne="nom" {...entete}>
-                {t("pages.statisticsTable.heros")}
+                {t("pages.statisticsTable.heroes")}
               </Entete>
               <Entete colonne="palier" {...entete}>
-                {t("pages.statisticsTable.palier")}
+                {t("pages.statisticsTable.tier")}
               </Entete>
               <Entete colonne="victoire" {...entete}>
-                {t("pages.statisticsTable.victoire")}
+                {t("pages.statisticsTable.win")}
               </Entete>
               <Entete colonne="tendance" {...entete}>
-                {t("pages.statisticsTable.ecart")}
+                {t("pages.statisticsTable.gap")}
               </Entete>
               <Entete colonne="ban" {...entete}>
                 {t("pages.statisticsTable.ban")}
               </Entete>
               <Entete colonne="selection" {...entete}>
-                {t("pages.statisticsTable.selection")}
+                {t("pages.statisticsTable.pick")}
               </Entete>
-              <th scope="col">{t("pages.statisticsTable.courbe")}</th>
+              <th scope="col">{t("pages.statisticsTable.curve")}</th>
             </tr>
           </thead>
           <tbody>
@@ -174,7 +174,7 @@ export function TableauStatistiques({
             {affichees.length === 0 && (
               <tr>
                 <td colSpan={7} className="py-10 text-center">
-                  {t("pages.heroesListe.aucun")}
+                  {t("pages.heroesList.none")}
                 </td>
               </tr>
             )}
@@ -230,9 +230,9 @@ function Ligne({ ligne: l, premiere, taux }: { ligne: LigneStat; premiere: boole
             <b>
               {l.nom}
               {l.faible && (
-                <span className="text-gold-400" title={t("pages.statisticsTable.faible")}>
+                <span className="text-gold-400" title={t("pages.statisticsTable.weak")}>
                   {" *"}
-                  <span className="sr-only">{t("pages.statisticsTable.faible")}</span>
+                  <span className="sr-only">{t("pages.statisticsTable.weak")}</span>
                 </span>
               )}
             </b>
@@ -250,9 +250,9 @@ function Ligne({ ligne: l, premiere, taux }: { ligne: LigneStat; premiere: boole
       <td>{taux(l.victoire)}</td>
       <td className={l.ecart === undefined ? undefined : sens(l.ecart)}>
         {l.ecart === undefined ? (
-          <span title={t("pages.statisticsTable.sansMesure")}>
+          <span title={t("pages.statisticsTable.noMeasure")}>
             <span aria-hidden>—</span>
-            <span className="sr-only">{t("pages.statisticsTable.sansMesure")}</span>
+            <span className="sr-only">{t("pages.statisticsTable.noMeasure")}</span>
           </span>
         ) : notable(l.ecart) ? (
           <>
@@ -271,7 +271,7 @@ function Ligne({ ligne: l, premiere, taux }: { ligne: LigneStat; premiere: boole
             viewBox={`0 0 ${POINTS_COURBE - 1} ${HAUTEUR_COURBE}`}
             preserveAspectRatio="none"
             role="img"
-            aria-label={t("pages.statisticsTable.courbeAria", { debut: taux(l.debut), fin: taux(l.fin) })}
+            aria-label={t("pages.statisticsTable.curveAria", { debut: taux(l.debut), fin: taux(l.fin) })}
             className={sens(evolution)}
           >
             <path d={cheminCourbe(l.courbe)} />

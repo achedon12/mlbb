@@ -39,7 +39,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
       .filter((h) => contres[h.slug])
       .map((h) => ({
         type: "heros" as const,
-        title: `${h.name} · ${t("pages.heroDetail.onglet.contres")}`,
+        title: `${h.name} · ${t("pages.heroDetail.tab.counters")}`,
         href: `/heroes/${h.slug}/counters`,
         image: h.images.icon ?? h.images.portrait,
       })),
@@ -47,7 +47,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
       .filter((h) => duos[h.slug])
       .map((h) => ({
         type: "heros" as const,
-        title: `${h.name} · ${t("pages.heroDetail.duosCourt")}`,
+        title: `${h.name} · ${t("pages.heroDetail.duosShort")}`,
         href: `/heroes/${h.slug}/duos`,
         image: h.images.icon ?? h.images.portrait,
       })),
@@ -61,7 +61,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
       image: images[o.slug] ?? null,
     })),
     ...emblemesFiches.map((f) => {
-      const cle = `emblemesData.${f.embleme.key}.nom`;
+      const cle = `emblemData.${f.embleme.key}.nom`;
       const nom = t(cle);
       return {
         type: "embleme" as const,
@@ -104,7 +104,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ loc
       detail: t(`nav.${e.cle}.desc`),
       href: e.href,
     })),
-    { type: "page" as const, title: t("pages.contribute.titre"), detail: t("pages.contribute.resume"), href: "/contribute" },
+    { type: "page" as const, title: t("pages.contribute.title"), detail: t("pages.contribute.summary"), href: "/contribute" },
   ];
 
   return NextResponse.json(entrees, { headers: { "Cache-Control": "public, max-age=3600" } });

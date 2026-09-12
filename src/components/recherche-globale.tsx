@@ -150,12 +150,12 @@ export function RechercheGlobale() {
       <button
         type="button"
         onClick={() => setOuvert(true)}
-        aria-label={t("recherche.ouvrir")}
+        aria-label={t("search.open")}
         aria-keyshortcuts="Control+K Meta+K"
         className="bevel-sm flex items-center gap-2 border border-night-700 px-2 py-1.5 text-sm sm:px-2.5 text-chalk-400 transition-colors hover:border-gold-500/60 hover:text-gold-400"
       >
         <Search size={16} aria-hidden />
-        <span className="hidden xl:inline">{t("recherche.ouvrir")}</span>
+        <span className="hidden xl:inline">{t("search.open")}</span>
         <kbd className="hidden rounded border border-night-600 px-1 text-[0.7rem] text-chalk-500 xl:inline">Ctrl K</kbd>
       </button>
 
@@ -167,7 +167,7 @@ export function RechercheGlobale() {
           <div
             role="dialog"
             aria-modal="true"
-            aria-label={t("recherche.ouvrir")}
+            aria-label={t("search.open")}
             className="bevel flex max-h-[75vh] w-full max-w-xl flex-col border border-night-700 bg-night-900 shadow-2xl shadow-black/50"
             onClick={(e) => e.stopPropagation()}
           >
@@ -179,14 +179,14 @@ export function RechercheGlobale() {
                 aria-expanded
                 aria-controls={`${id}-liste`}
                 aria-activedescendant={plats[actif] ? `${id}-${actif}` : undefined}
-                aria-label={t("recherche.placeholder")}
+                aria-label={t("search.placeholder")}
                 value={recherche}
                 onChange={(e) => {
                   setRecherche(e.target.value);
                   setActif(0);
                 }}
                 onKeyDown={clavier}
-                placeholder={t("recherche.placeholder")}
+                placeholder={t("search.placeholder")}
                 className="min-w-0 flex-1 bg-transparent py-3.5 text-chalk-100 outline-none placeholder:text-chalk-500"
               />
               <kbd className="hidden rounded border border-night-600 px-1.5 text-[0.7rem] text-chalk-500 sm:inline">Esc</kbd>
@@ -194,14 +194,14 @@ export function RechercheGlobale() {
 
             <div ref={liste} id={`${id}-liste`} role="listbox" className="overflow-y-auto p-2">
               {!entrees ? (
-                <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("recherche.chargement")}</p>
+                <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("search.loading")}</p>
               ) : plats.length === 0 ? (
-                <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("recherche.aucun")}</p>
+                <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("search.none")}</p>
               ) : (
                 groupes.map((g) => (
                   <div key={g.type} className="mb-2">
                     <p className="px-3 pb-1 pt-2 text-xs font-bold uppercase tracking-[0.18em] text-chalk-500">
-                      {t(`recherche.groupes.${g.type}`)}
+                      {t(`search.groups.${g.type}`)}
                     </p>
                     {g.entrees.map((e) => {
                       const i = plats.indexOf(e);
@@ -242,7 +242,7 @@ export function RechercheGlobale() {
                 ))
               )}
             </div>
-            <p className="border-t border-night-800 px-4 py-2 text-xs text-chalk-500">{t("recherche.aide")}</p>
+            <p className="border-t border-night-800 px-4 py-2 text-xs text-chalk-500">{t("search.help")}</p>
           </div>
         </div>
       )}

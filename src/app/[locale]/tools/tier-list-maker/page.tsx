@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.createurTier.titre"),
-    description: t("pages.seo.createurTier.description"),
+    titre: t("pages.seo.tierMaker.title"),
+    description: t("pages.seo.tierMaker.description"),
     chemin: "/tools/tier-list-maker",
     motsCles: ["tier list maker", "tier list", "create", "share", "Mobile Legends", "MLBB"],
   });
@@ -55,8 +55,8 @@ export default async function PageCreateurTier({ params }: Params) {
   const t = creerT(locale);
   const { roster, groupes } = donnees();
   const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.createurTier.titre"),
-    description: t("pages.seo.createurTier.description"),
+    nom: t("pages.tierMaker.title"),
+    description: t("pages.seo.tierMaker.description"),
     chemin: "/tools/tier-list-maker",
     categorie: "UtilitiesApplication",
   });
@@ -66,36 +66,36 @@ export default async function PageCreateurTier({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
       <EnTetePage
-        titre={t("pages.createurTier.titre")}
-        chapeau={t("pages.createurTier.chapeau")}
-        miettes={[{ nom: t("nav.tierList.label"), href: "/tier-list" }, { nom: t("pages.createurTier.miette") }]}
+        titre={t("pages.tierMaker.title")}
+        chapeau={t("pages.tierMaker.lead")}
+        miettes={[{ nom: t("nav.tierList.label"), href: "/tier-list" }, { nom: t("pages.tierMaker.crumb") }]}
       />
       <div className="mx-auto max-w-5xl space-y-14 px-4 py-10">
-        <CompleterMessages messages={messagesPage(locale, ["pages.createurTierUI"])}>
+        <CompleterMessages messages={messagesPage(locale, ["pages.tierMakerUI"])}>
           <CreateurTierList heros={roster} groupes={groupes} rangs={RANGS_CLASSES} />
         </CompleterMessages>
 
         <section className="max-w-3xl">
-          <h2 className={titre2}>{t("pages.createurTier.modeEmploiTitre")}</h2>
+          <h2 className={titre2}>{t("pages.tierMaker.howToTitle")}</h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <ol className="mt-4 list-decimal space-y-2 pl-5 leading-relaxed text-chalk-300">
-            <li>{t("pages.createurTier.etape1")}</li>
-            <li>{t("pages.createurTier.etape2")}</li>
-            <li>{t("pages.createurTier.etape3")}</li>
-            <li>{t("pages.createurTier.etape4")}</li>
+            <li>{t("pages.tierMaker.step1")}</li>
+            <li>{t("pages.tierMaker.step2")}</li>
+            <li>{t("pages.tierMaker.step3")}</li>
+            <li>{t("pages.tierMaker.step4")}</li>
           </ol>
         </section>
 
         <section className="max-w-3xl">
-          <h2 className={titre2}>{t("pages.createurTier.methodeTitre")}</h2>
+          <h2 className={titre2}>{t("pages.tierMaker.methodTitle")}</h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.createurTier.methode")}</p>
+          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.tierMaker.method")}</p>
           <p className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <Link href="/tier-list" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.createurTier.lienTierList")} →
+              {t("pages.tierMaker.tierListLink")} →
             </Link>
             <Link href="/quiz" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.createurTier.lienQuiz")} →
+              {t("pages.tierMaker.quizLink")} →
             </Link>
           </p>
         </section>

@@ -13,7 +13,7 @@ import { RUBRIQUES_DE_PAGE } from "@/i18n/traductions";
  */
 const RACINE = resolve(__dirname, "../..");
 const SRC = join(RACINE, "src");
-const COMMUNES = ["pages.introuvable"];
+const COMMUNES = ["pages.notFound"];
 
 function fichiers(dossier: string): string[] {
   return readdirSync(dossier).flatMap((nom) => {
@@ -56,7 +56,7 @@ function rubriquesNecessaires(entree: string): Map<string, string> {
         ...s.matchAll(/\bt\(\s*["']([a-zA-Z0-9_.]+)["']/g),
         ...s.matchAll(/\bt\(\s*`([a-zA-Z0-9_.]+)\$\{/g),
         ...s.matchAll(/\bt\(\s*[^()]*?\?\s*["']([a-zA-Z0-9_.]+)["']\s*:\s*["']([a-zA-Z0-9_.]+)["']/g),
-        ...s.matchAll(/`((?:pages|emblemesData)\.[a-zA-Z0-9_.]*)\$\{/g),
+        ...s.matchAll(/`((?:pages|emblemData)\.[a-zA-Z0-9_.]*)\$\{/g),
       ].flatMap((m) => m.slice(1).filter(Boolean));
       for (const cle of cles) {
         const [tete, sous] = cle.split(".");

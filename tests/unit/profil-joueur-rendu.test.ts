@@ -117,8 +117,8 @@ describe("analyses du profil", () => {
     const html = rendre(h(TableauPostes, { type: "roles", titre: "Par rôle", source: "Saison", bilan, t, langue: "fr" }));
     expect(html.match(/scope="row"/g)).toHaveLength(5);
     expect(html).toContain(t("roles.Assassin"));
-    expect(html).toContain(t("pages.accountProfile.pointFort"));
-    expect(html).toContain(t("pages.accountProfile.aTravailler"));
+    expect(html).toContain(t("pages.accountProfile.strongPoint"));
+    expect(html).toContain(t("pages.accountProfile.toImprove"));
     expect(html).toContain(formaterPourcent((33 / 58) * 100, "fr"));
   });
 
@@ -130,7 +130,7 @@ describe("analyses du profil", () => {
     const html = rendre(h(TableauPostes, { type: "lanes", titre: "Par position", source: "", bilan, t, langue: "fr" }));
     expect(html).toContain(t("lanes.Jungle"));
     expect(bilan.ecartees).toBe(1);
-    expect(html).toContain(t("pages.accountProfile.sansPosition.un", { n: 1 }));
+    expect(html).toContain(t("pages.accountProfile.noPosition.one", { n: 1 }));
   });
 
   it("rend series, forme et courbe de l'evolution", () => {

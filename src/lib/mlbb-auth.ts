@@ -93,10 +93,10 @@ export async function envoyerCode(
 
     // errorInvalidZoneId / role null : la saisie ne correspond a aucun compte.
     // Les raisons sont des cles du catalogue : le formulaire les traduit.
-    return { ok: false, raison: "loginForm.erreurs.inconnu" };
+    return { ok: false, raison: "loginForm.errors.unknown" };
   } catch (e) {
     void journaliserErreur("envoi du code de verification", e);
-    return { ok: false, raison: "loginForm.erreurs.indisponible" };
+    return { ok: false, raison: "loginForm.errors.unavailable" };
   }
 }
 
@@ -123,10 +123,10 @@ export async function connecter(
     if (reponse.ok && donnees.code === 0 && donnees.data?.jwt) {
       return { ok: true, jeton: donnees.data.jwt };
     }
-    return { ok: false, raison: "loginForm.erreurs.codeIncorrect" };
+    return { ok: false, raison: "loginForm.errors.wrongCode" };
   } catch (e) {
     void journaliserErreur("echange du code contre un jeton", e);
-    return { ok: false, raison: "loginForm.erreurs.indisponible" };
+    return { ok: false, raison: "loginForm.errors.unavailable" };
   }
 }
 

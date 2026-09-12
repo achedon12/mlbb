@@ -46,7 +46,7 @@ export default async function PageArticle({ params }: Params) {
         langue={locale}
         article={a}
         html={enHtml(a.content)}
-        retour={{ href: "/news", label: creerT(locale)("pages.news.toutes") }}
+        retour={{ href: "/news", label: creerT(locale)("pages.news.all") }}
       />
     </>
   );

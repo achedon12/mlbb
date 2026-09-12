@@ -11,7 +11,7 @@ import es from "@/i18n/messages/es.json";
  *
  * Les quatre langues portent les memes cles et les memes variables, et toute
  * cle citee dans le code existe : une cle absente s'afficherait telle quelle
- * (« pages.heroes.titre ») au lecteur, une variable manquante resterait entre
+ * (« pages.heroes.title ») au lecteur, une variable manquante resterait entre
  * accolades.
  */
 type Noeud = string | Noeud[] | { [cle: string]: Noeud };

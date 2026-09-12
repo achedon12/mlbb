@@ -29,10 +29,10 @@ export function PaireLoreCarte({
       <div className="flex flex-wrap gap-x-2">
         <dt className="text-chalk-500">
           {h.name} <span aria-hidden>→</span>
-          <span className="sr-only"> {t("pages.lore.envers")} </span> {autre.name}
+          <span className="sr-only"> {t("pages.lore.about")} </span> {autre.name}
           <span aria-hidden> ·</span>
         </dt>
-        <dd className="text-chalk-200">{lien.nature ?? t("pages.lore.sansNature")}</dd>
+        <dd className="text-chalk-200">{lien.nature ?? t("pages.lore.noNature")}</dd>
       </div>
     );
 

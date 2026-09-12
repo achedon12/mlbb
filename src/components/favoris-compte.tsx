@@ -22,7 +22,7 @@ function NotePortee() {
     <p className="mt-4 flex items-start gap-2 text-xs leading-relaxed text-chalk-500">
       <MonitorSmartphone size={14} aria-hidden className="mt-0.5 shrink-0" />
       <span>
-        {t("favoris.intro")}
+        {t("favourites.intro")}
       </span>
     </p>
   );
@@ -46,11 +46,11 @@ function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: Re
     <div className="bevel mt-5 border border-gold-500/30 bg-night-900/60 p-4">
       <h3 className="flex items-center gap-2 text-sm font-semibold text-chalk-100">
         <BellRing size={15} aria-hidden className="shrink-0 text-gold-400" />
-        {t("favoris.alerte.titre", { version: patch.version })}
+        {t("favourites.alert.title", { version: patch.version })}
       </h3>
       {touches.length === 0 ? (
         <p className="mt-2 text-sm leading-relaxed text-chalk-500">
-          {t("favoris.alerte.aucun", { version: patch.version })}
+          {t("favourites.alert.none", { version: patch.version })}
         </p>
       ) : (
         <ul className="mt-3 space-y-2">
@@ -68,7 +68,7 @@ function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: Re
                 </Link>
                 <span className={cn("flex items-center gap-1 text-xs font-semibold", tendance?.couleur ?? "text-chalk-400")}>
                   {Icone && <Icone size={13} aria-hidden />}
-                  {type ? t(`patchHeros.${type}`) : t("favoris.alerte.modifie")}
+                  {type ? t(`patchHeroes.${type}`) : t("favourites.alert.changed")}
                 </span>
               </li>
             );
@@ -77,9 +77,9 @@ function AlertePatch({ favoris, patch }: { favoris: readonly string[]; patch: Re
       )}
       <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
         <Link href={`/patch-notes/${patch.version}`} className="font-semibold text-gold-400 hover:text-gold-500">
-          {t("patchHeros.voirPatch", { version: patch.version })} →
+          {t("patchHeroes.seePatch", { version: patch.version })} →
         </Link>
-        <span>{t("favoris.alerte.rss")}</span>
+        <span>{t("favourites.alert.rss")}</span>
       </p>
     </div>
   );
@@ -100,11 +100,11 @@ export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePa
     return (
       <div>
         <p className="mt-6 text-sm leading-relaxed text-chalk-500">
-          {t("favoris.aucunPre")}
+          {t("favourites.nonePre")}
           <Link href="/heroes" className="text-gold-400 underline underline-offset-4">
-            {t("favoris.aucunLien")}
+            {t("favourites.noLink")}
           </Link>
-          {t("favoris.aucunPost")}
+          {t("favourites.nonePost")}
         </p>
         <BasculeNotifications favoris={favoris} />
         <NotePortee />
@@ -115,8 +115,8 @@ export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePa
   return (
     <div>
       <p className="mt-6 text-sm text-chalk-400">
-        {t("favoris.compte", { n: favoris.length })}{" "}
-        {favoris.length > 1 ? t("favoris.gardes") : t("favoris.garde")}.
+        {t("favourites.account", { n: favoris.length })}{" "}
+        {favoris.length > 1 ? t("favourites.kept") : t("favourites.kept1")}.
       </p>
       <ul className="mt-3 flex flex-wrap gap-2">
         {favoris.map((slug) => (
@@ -131,7 +131,7 @@ export function FavorisCompte({ dernierPatch = null }: { dernierPatch?: ResumePa
             <button
               type="button"
               onClick={() => basculerFavori(slug)}
-              aria-label={t("favoris.retirer", { nom: herosParSlug[slug] ?? slug })}
+              aria-label={t("favourites.remove", { nom: herosParSlug[slug] ?? slug })}
               className="grid size-9 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
             >
               <X size={14} aria-hidden />

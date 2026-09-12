@@ -117,7 +117,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
         {raretesPresentes(skins.map((s) => s.rarity)).map((r) => (
           <li key={r.nom} className="flex items-center gap-1.5 text-xs text-chalk-500">
             <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.couleur }} />
-            {tr("skinRarete", r.cle)}
+            {tr("skinRarity", r.cle)}
           </li>
         ))}
       </ul>
@@ -171,15 +171,15 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
                 className="mt-1.5 text-sm font-semibold uppercase tracking-wide"
                 style={{ color: rarete(actif.rarity).couleur }}
               >
-                {tr("skinRarete", rarete(actif.rarity).cle)}
+                {tr("skinRarity", rarete(actif.rarity).cle)}
               </p>
             )}
           </div>
 
           <dl className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            {actif.release && <Info label={t("skinsUI.sortie")} valeur={actif.release} />}
-            {actif.availability && <Info label={t("skinsUI.disponibilite")} valeur={tr("skinDispo", actif.availability)} />}
-            {actif.label && <Info label={t("skinsUI.obtention")} valeur={tr("skinEtiquette", actif.label)} />}
+            {actif.release && <Info label={t("skinsUI.release")} valeur={actif.release} />}
+            {actif.availability && <Info label={t("skinsUI.availability")} valeur={tr("skinAvailability", actif.availability)} />}
+            {actif.label && <Info label={t("skinsUI.obtained")} valeur={tr("skinLabel", actif.label)} />}
           </dl>
 
           {Object.entries(actif.price).length > 0 && (
@@ -193,7 +193,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
           )}
 
           {!actif.release && !actif.availability && Object.keys(actif.price).length === 0 && (
-            <p className="text-sm text-chalk-500">{t("skinsUI.origine")}</p>
+            <p className="text-sm text-chalk-500">{t("skinsUI.originalSkin")}</p>
           )}
         </div>
       </div>

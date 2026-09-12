@@ -60,8 +60,8 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
     <div className="space-y-8">
       <div className="grid gap-6 lg:grid-cols-2">
         <Colonne
-          titre={t("draftUI.adverse")}
-          aide={t("draftUI.adverseDesc")}
+          titre={t("draftUI.enemy")}
+          aide={t("draftUI.enemyDesc")}
           camp="ennemis"
           selection={ennemis}
           parSlug={parSlug}
@@ -70,8 +70,8 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
           accent="blood"
         />
         <Colonne
-          titre={t("draftUI.votre")}
-          aide={t("draftUI.votreDesc")}
+          titre={t("draftUI.yours")}
+          aide={t("draftUI.yoursDesc")}
           camp="allies"
           selection={allies}
           parSlug={parSlug}
@@ -91,13 +91,13 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
           className="bevel-sm inline-flex items-center gap-2 border border-night-700 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
         >
           <RotateCcw size={14} aria-hidden />
-          {t("draftUI.toutEffacer")}
+          {t("draftUI.clearAll")}
         </button>
       )}
 
       {/* ── Suggestions ──────────────────────────────────────────────── */}
       <section>
-        <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("draftUI.quePrendre")}</h2>
+        <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("draftUI.whatToPick")}</h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
         {vide ? (
@@ -112,7 +112,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                   {lane}
                   {allies[lane] && (
                     <span className="ml-2 font-medium normal-case tracking-normal text-chalk-500">
-                      {t("draftUI.dejaPourvue")}
+                      {t("draftUI.alreadyFilled")}
                     </span>
                   )}
                 </h3>
@@ -124,7 +124,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
                         <CarteSuggestion
                           suggestion={s}
                           premiere={rang === 0}
-                          titrePrendre={t("draftUI.choisirEn", { nom: s.heros.nom, lane: t(`lanes.${lane}`) })}
+                          titrePrendre={t("draftUI.chooseIn", { nom: s.heros.nom, lane: t(`lanes.${lane}`) })}
                           onPrendre={() => choisir("allies", lane, s.heros.slug)}
                         />
                       </li>
@@ -142,7 +142,7 @@ export function OutilDraft({ heros }: { heros: HerosDraft[] }) {
           heros={heros}
           exclus={new Set([...listeEnnemis, ...listeAllies])}
           lane={ouvert.lane}
-          titre={t("draftUI.choisirLane", { lane: t(`lanes.${ouvert.lane}`) })}
+          titre={t("draftUI.chooseLane", { lane: t(`lanes.${ouvert.lane}`) })}
           onChoisir={(slug) => choisir(ouvert.camp, ouvert.lane, slug)}
           onFermer={() => setOuvert(null)}
         />
@@ -199,7 +199,7 @@ function Colonne({
                   <button
                     type="button"
                     onClick={() => onRetirer(lane)}
-                    aria-label={t("draftUI.retirer", { nom: heros.nom })}
+                    aria-label={t("draftUI.remove", { nom: heros.nom })}
                     className="grid size-6 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
                   >
                     <X size={13} aria-hidden />
@@ -211,7 +211,7 @@ function Colonne({
                   onClick={() => onOuvrir({ camp, lane })}
                   className="bevel-sm flex-1 border border-dashed border-night-700 px-3 py-2 text-left text-sm text-chalk-500 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                 >
-                  {t("draftUI.choisirUn")}
+                  {t("draftUI.chooseOne")}
                 </button>
               )}
             </li>

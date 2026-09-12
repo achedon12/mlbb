@@ -28,7 +28,7 @@ const ALIAS: Record<string, string> = {
 
 /**
  * Cle unique d'un talent ou d'un sort, graphies divergentes rapprochees : celle
- * des textes (`emblemesData`) et des pages de sorts.
+ * des textes (`emblemData`) et des pages de sorts.
  */
 export function cleChoix(nom: string): string {
   const k = cle(nom);

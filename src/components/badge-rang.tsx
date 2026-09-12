@@ -24,14 +24,14 @@ export function BadgeRang({
   const dim = taille === "lg" ? 56 : taille === "sm" ? 32 : 44;
   const unite =
     rang.uniteEtoiles === "point"
-      ? t(rang.etoiles > 1 ? "rangUnite.points" : "rangUnite.point", { n: rang.etoiles })
-      : t(rang.etoiles > 1 ? "rangUnite.etoiles" : "rangUnite.etoile", { n: rang.etoiles });
+      ? t(rang.etoiles > 1 ? "rankUnit.points" : "rankUnit.point", { n: rang.etoiles })
+      : t(rang.etoiles > 1 ? "rankUnit.stars" : "rankUnit.star", { n: rang.etoiles });
 
   return (
     <div className="flex items-center gap-3">
       <Image
         src={rang.image}
-        alt={t(`rangsNom.${rang.cle}`)}
+        alt={t(`rankNames.${rang.cle}`)}
         width={dim}
         height={dim}
         className="shrink-0 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
@@ -44,7 +44,7 @@ export function BadgeRang({
           )}
           style={{ color: rang.couleur }}
         >
-          {t(`rangsNom.${rang.cle}`)}
+          {t(`rankNames.${rang.cle}`)}
           {rang.division && ` ${rang.division}`}
         </p>
         <p className="mt-0.5 flex items-center gap-1 text-xs text-chalk-400">

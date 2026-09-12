@@ -60,7 +60,7 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
                 "bevel-sm shrink-0 border px-1.5 py-0.5 text-[0.7rem] font-bold",
                 COULEUR_PALIER[heros.palier],
               )}
-              title={t("carteHeros.palierTitre", { p: heros.palier })}
+              title={t("heroCard.tierTitle", { p: heros.palier })}
             >
               {heros.palier}
             </span>
@@ -78,9 +78,9 @@ export function CarteHeros({ heros }: { heros: ApercuHeros }) {
             <span className="font-semibold text-chalk-300">{heros.victoire.toFixed(1)}%</span>
           )}
           <span>{heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}</span>
-          {heros.skins > 0 && <span>· {t("carteHeros.skins", { n: heros.skins })}</span>}
+          {heros.skins > 0 && <span>· {t("heroCard.skins", { n: heros.skins })}</span>}
           {heros.analyse && (
-            <span className="font-semibold uppercase tracking-wide text-gold-500">· {t("carteHeros.analyse")}</span>
+            <span className="font-semibold uppercase tracking-wide text-gold-500">· {t("heroCard.analysis")}</span>
           )}
         </p>
       </div>

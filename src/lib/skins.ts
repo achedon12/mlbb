@@ -15,11 +15,11 @@ export interface SkinComplet extends Skin {
 
 /** Monnaies du jeu, aux sigles peu parlants : cle de leur libelle sous `skinsUI`. */
 export const MONNAIES: Record<string, string> = {
-  bp: "pointsBataille",
-  dm: "diamants",
+  bp: "battlePoints",
+  dm: "diamonds",
   ticket: "tickets",
   hf: "fragments",
-  lg: "gemmes",
+  lg: "gems",
 };
 
 /**

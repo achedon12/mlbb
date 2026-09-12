@@ -98,7 +98,7 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
                   borderRadius: 10,
                 }}
               >
-                {t("pages.heroDetail.palier", { p: taux.palier })}
+                {t("pages.heroDetail.tier", { p: taux.palier })}
               </div>
               <div
                 style={{
@@ -111,12 +111,12 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
                 }}
               >
                 <span style={{ fontSize: 38, fontWeight: 700 }}>{`${pourcent.format(taux.victoire)} %`}</span>
-                <span style={{ fontSize: 24, color: "#9aa7c2" }}>{t("pages.heroDetail.stat.tauxVictoire")}</span>
+                <span style={{ fontSize: 24, color: "#9aa7c2" }}>{t("pages.heroDetail.stat.winRate")}</span>
               </div>
             </div>
           )}
           <div style={{ display: "flex", marginTop: 40, fontSize: 26, color: "#9aa7c2" }}>
-            {t("pages.heroDetail.ogAccroche")}
+            {t("pages.heroDetail.ogTagline")}
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
  * justifie son choix.
  */
 function texteEmb(t: (k: string) => string, cle: string, champ: string, repli: string | undefined) {
-  const k = `emblemesData.${cle}.${champ}`;
+  const k = `emblemData.${cle}.${champ}`;
   const v = t(k);
   return v === k ? (repli ?? "") : v;
 }
@@ -56,7 +56,7 @@ export function GuideEmblemes({
       <aside className="mb-10 lg:mb-0">
         <div className="lg:sticky lg:top-24">
           <p className="font-heading text-xs font-semibold uppercase tracking-wider text-chalk-500">
-            {t("emblemesUI.votreRole")}
+            {t("emblemsUI.yourRole")}
           </p>
 
           <ul className="mt-3 flex gap-1.5 relative overflow-x-auto lg:flex-col lg:overflow-visible">
@@ -68,7 +68,7 @@ export function GuideEmblemes({
                     type="button"
                     onClick={() => setRole(choisi ? null : e.role)}
                     aria-pressed={choisi}
-                    title={texteEmb(t, e.key, "pourQui", e.bestFor)}
+                    title={texteEmb(t, e.key, "bestFor", e.bestFor)}
                     className={cn(
                       "flex w-full items-center gap-2.5 border-l-2 px-2.5 py-2 text-left transition-colors",
                       choisi
@@ -90,7 +90,7 @@ export function GuideEmblemes({
               onClick={() => setRole(null)}
               className="mt-3 px-2.5 text-xs text-chalk-500 underline underline-offset-4 hover:text-gold-400"
             >
-              {t("emblemesUI.retirerFiltre")}
+              {t("emblemsUI.removeFilter")}
             </button>
           )}
 
@@ -100,12 +100,12 @@ export function GuideEmblemes({
               href={`/emblems/${slugEmbleme(choisi)}`}
               className="mt-2 block px-2.5 text-xs font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
             >
-              {t("emblemesUI.voirPage", { nom: texteEmb(t, choisi.key, "nom", choisi.name) })} →
+              {t("emblemsUI.seePage", { nom: texteEmb(t, choisi.key, "name", choisi.name) })} →
             </Link>
           )}
 
           <p className="mt-6 hidden max-w-48 text-xs leading-relaxed text-chalk-500 lg:block">
-            {t("emblemesUI.aideRole")}
+            {t("emblemsUI.roleHelp")}
           </p>
         </div>
       </aside>
@@ -113,22 +113,22 @@ export function GuideEmblemes({
       {/* ── Contenu ──────────────────────────────────────────────────── */}
       <div className="min-w-0 space-y-12">
         <Section
-          titre={t("emblemesUI.talents")}
-          chapeau={t("emblemesUI.talentsDesc")}
+          titre={t("emblemsUI.talents")}
+          chapeau={t("emblemsUI.talentsDesc")}
           entrees={ordonner(talents.filter((t) => t.decisive))}
           images={images}
           adapte={adapte}
         />
         <Section
-          titre={t("emblemesUI.attributs")}
-          chapeau={t("emblemesUI.attributsDesc")}
+          titre={t("emblemsUI.attributes")}
+          chapeau={t("emblemsUI.attributesDesc")}
           entrees={ordonner(talents.filter((t) => !t.decisive))}
           images={images}
           adapte={adapte}
         />
         <Section
-          titre={t("emblemesUI.sorts")}
-          chapeau={t("emblemesUI.sortsDesc")}
+          titre={t("emblemsUI.spells")}
+          chapeau={t("emblemsUI.spellsDesc")}
           entrees={ordonner(sorts)}
           images={images}
           adapte={adapte}
@@ -192,10 +192,10 @@ function Section({
                   <h3 className="font-heading font-bold leading-tight text-chalk-100">
                     {lien ? (
                       <Link href={lien(e.key)} className="underline-offset-4 hover:text-gold-400 hover:underline">
-                        {texteEmb(t, e.key, "nom", e.name)}
+                        {texteEmb(t, e.key, "name", e.name)}
                       </Link>
                     ) : (
-                      texteEmb(t, e.key, "nom", e.name)
+                      texteEmb(t, e.key, "name", e.name)
                     )}
                   </h3>
                   {e.cooldown !== undefined && (
@@ -209,7 +209,7 @@ function Section({
                     {texteEmb(t, e.key, "description", e.description)}
                   </p>
                 )}
-                <p className="mt-1 text-xs leading-relaxed text-chalk-500">{texteEmb(t, e.key, "pourQui", e.bestFor)}</p>
+                <p className="mt-1 text-xs leading-relaxed text-chalk-500">{texteEmb(t, e.key, "bestFor", e.bestFor)}</p>
               </div>
 
               <ul className="hidden shrink-0 flex-wrap content-start gap-1 sm:flex sm:w-40">

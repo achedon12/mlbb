@@ -42,7 +42,7 @@ function description(t: T, locale: Langue, h: Heros, g: GalerieHeros): string {
   const base = t("pages.heroSkins.metaDescription", { nom: h.name, n: g.total });
   const recent = plusRecent(g);
   if (!recent) return base;
-  return `${base} ${t("pages.heroSkins.dernier", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}`;
+  return `${base} ${t("pages.heroSkins.latest", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}`;
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const g = galerieHeros(h);
   const el = elide(locale, h.name);
   return metaPage(locale, {
-    titre: t(el ? "pages.heroSkins.metaTitreElision" : "pages.heroSkins.metaTitre", { nom: h.name, n: g.total }),
+    titre: t(el ? "pages.heroSkins.metaTitleElision" : "pages.heroSkins.metaTitle", { nom: h.name, n: g.total }),
     description: description(t, locale, h, g),
     chemin: `/heroes/${slug}/skins`,
     image: `/${locale}/heroes/${slug}/opengraph-image`,
@@ -138,12 +138,12 @@ export default async function PageSkinsHeros({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
       <EnTetePage
         titre={titre}
-        chapeau={t("pages.heroSkins.chapeau", { nom: h.name, n: g.total })}
+        chapeau={t("pages.heroSkins.lead", { nom: h.name, n: g.total })}
         miettes={[
           { nom: t("nav.heroes.label"), href: "/heroes" },
           { nom: h.name, href: `/heroes/${h.slug}` },
           {
-            nom: t("pages.heroDetail.onglet.skins"),
+            nom: t("pages.heroDetail.tab.skins"),
             freres: voisins.map((x) => ({ nom: x.name, href: `/heroes/${x.slug}/skins` })),
           },
         ]}
@@ -153,26 +153,26 @@ export default async function PageSkinsHeros({ params }: Params) {
             <dl className="flex flex-wrap gap-x-5 gap-y-1">
               {[...parDispo].map(([dispo, n]) => (
                 <div key={dispo} className="flex gap-1.5">
-                  <dt>{tr("skinDispo", dispo)}</dt>
+                  <dt>{tr("skinAvailability", dispo)}</dt>
                   <dd className="font-semibold tabular-nums text-chalk-100">{n}</dd>
                 </div>
               ))}
             </dl>
           )}
           {recent && (
-            <p>{t("pages.heroSkins.dernier", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}</p>
+            <p>{t("pages.heroSkins.latest", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}</p>
           )}
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
             {raretesPresentes(g.skins.map((s) => s.rarity)).map((r) => (
               <li key={r.nom} className="flex items-center gap-1.5 text-xs">
                 <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.couleur }} />
-                {tr("skinRarete", r.cle ?? r.nom)}
+                {tr("skinRarity", r.cle ?? r.nom)}
               </li>
             ))}
           </ul>
           <p>
             <Link href={`/heroes/${h.slug}`} className="font-semibold text-gold-400 underline-offset-4 hover:underline">
-              ← {t("pages.heroDetail.titreFiche", { nom: h.name })}
+              ← {t("pages.heroDetail.titleSheet", { nom: h.name })}
             </Link>
           </p>
         </div>
@@ -199,11 +199,11 @@ export default async function PageSkinsHeros({ params }: Params) {
                     className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origine ? "text-chalk-500" : ""}`}
                     style={origine ? undefined : { color: r.couleur }}
                   >
-                    {tr("skinRarete", r.cle ?? r.nom)}
+                    {tr("skinRarity", r.cle ?? r.nom)}
                   </p>
                   <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                     {s.release && (
-                      <Info libelle={t("skinsUI.sortie")}>
+                      <Info libelle={t("skinsUI.release")}>
                         {DATE_ISO.test(s.release) ? (
                           <time dateTime={s.release}>{formaterSortie(s.release, locale)}</time>
                         ) : (
@@ -212,10 +212,10 @@ export default async function PageSkinsHeros({ params }: Params) {
                       </Info>
                     )}
                     {s.availability && (
-                      <Info libelle={t("skinsUI.disponibilite")}>{tr("skinDispo", s.availability)}</Info>
+                      <Info libelle={t("skinsUI.availability")}>{tr("skinAvailability", s.availability)}</Info>
                     )}
-                    {s.label && <Info libelle={t("skinsUI.obtention")}>{tr("skinEtiquette", s.label)}</Info>}
-                    {tarif && <Info libelle={t("pages.heroSkins.prix")}>{tarif}</Info>}
+                    {s.label && <Info libelle={t("skinsUI.obtained")}>{tr("skinLabel", s.label)}</Info>}
+                    {tarif && <Info libelle={t("pages.heroSkins.price")}>{tarif}</Info>}
                   </dl>
                 </CarteSkin>
               </li>
@@ -232,21 +232,21 @@ export default async function PageSkinsHeros({ params }: Params) {
                 altIllustration={altIllustration(a.nom)}
                 altPortrait=""
               >
-                <p className="mt-2 text-sm text-chalk-500">{t("pages.heroSkins.illustrationSeule")}</p>
+                <p className="mt-2 text-sm text-chalk-500">{t("pages.heroSkins.illustrationOnly")}</p>
               </CarteSkin>
             </li>
           ))}
         </ol>
 
         <nav
-          aria-label={t("pages.heroSkins.autres")}
+          aria-label={t("pages.heroSkins.others")}
           className="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-night-800 pt-6 text-sm"
         >
           <Link href={`/heroes/${precedent.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
             ← {titreGalerie(t, locale, precedent.name)}
           </Link>
           <Link href="/skins" className="font-semibold text-gold-400 hover:text-gold-500">
-            {t("pages.skins.titre")}
+            {t("pages.skins.title")}
           </Link>
           <Link href={`/heroes/${suivant.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
             {titreGalerie(t, locale, suivant.name)} →

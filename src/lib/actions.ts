@@ -13,7 +13,7 @@ import { fermerSession, ouvrirSession } from "./session";
  * jeton, l'authentification chez Moonton.
  */
 export interface Etat {
-  /** Cle du catalogue (`loginForm.erreurs.*`) : le formulaire l'affiche dans la langue de la page. */
+  /** Cle du catalogue (`loginForm.errors.*`) : le formulaire l'affiche dans la langue de la page. */
   erreur?: string;
   /** Passe a vrai une fois le code envoye : le formulaire affiche alors le champ code. */
   codeEnvoye?: boolean;
@@ -22,8 +22,8 @@ export interface Etat {
 }
 
 const identifiants = z.object({
-  roleId: z.coerce.number().int().positive("loginForm.erreurs.identifiant"),
-  zoneId: z.coerce.number().int().positive("loginForm.erreurs.serveur"),
+  roleId: z.coerce.number().int().positive("loginForm.errors.playerId"),
+  zoneId: z.coerce.number().int().positive("loginForm.errors.server"),
 });
 
 /** Sépare « 123456789 (6021) » colle dans le champ identifiant. */
@@ -47,7 +47,7 @@ export async function demanderCode(_precedent: Etat, donnees: FormData): Promise
   if (!analyse.success) {
     // Un nombre illisible leve l'erreur de type de zod, pas notre message : on retombe alors sur la cle generique.
     const message = analyse.error.issues[0]?.message;
-    const erreur = message?.startsWith("loginForm.") ? message : "loginForm.erreurs.saisie";
+    const erreur = message?.startsWith("loginForm.") ? message : "loginForm.errors.invalidInput";
     return { erreur, roleId: brutRole, zoneId: brutZone };
   }
 
@@ -70,7 +70,7 @@ export async function verifierCode(_precedent: Etat, donnees: FormData): Promise
 
   if (!analyse.success || !/^\d{4}$/.test(String(code))) {
     return {
-      erreur: "loginForm.erreurs.code",
+      erreur: "loginForm.errors.code",
       codeEnvoye: true,
       roleId: String(donnees.get("roleId") ?? ""),
       zoneId: String(donnees.get("zoneId") ?? ""),

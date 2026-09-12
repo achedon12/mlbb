@@ -82,27 +82,27 @@ export function CalculateurTaux() {
       <Carte>
         <div className="grid gap-4 sm:grid-cols-3">
           <Champ
-            libelle={t("outilTaux.parties")}
+            libelle={t("winRateTool.games")}
             valeur={parties}
             onChange={setParties}
             invalide={hors(lus.parties, true)}
           />
           <Champ
-            libelle={t("outilTaux.tauxActuel")}
+            libelle={t("winRateTool.currentRate")}
             valeur={taux}
             onChange={setTaux}
             suffixe="%"
             invalide={hors(lus.taux)}
           />
           <Champ
-            libelle={t("outilTaux.objectif")}
+            libelle={t("winRateTool.objective")}
             valeur={objectif}
             onChange={setObjectif}
             suffixe="%"
             invalide={hors(lus.objectif)}
           />
         </div>
-        <GroupeFiltres legende={t("outilTaux.objectifsCourants")} largeurLegende="w-auto" className="mt-5">
+        <GroupeFiltres legende={t("winRateTool.commonTargets")} largeurLegende="w-auto" className="mt-5">
           {OBJECTIFS.map((o) => (
             <Puce key={o} dense actif={lus.objectif === o} onClick={() => setObjectif(String(o))}>
               {pourcent(o)}
@@ -114,15 +114,15 @@ export function CalculateurTaux() {
       <div aria-live="polite">
         {resultat.etat === "invalide" ? (
           <Carte>
-            <p className="text-sm leading-relaxed text-chalk-300">{t("outilTaux.invalide")}</p>
+            <p className="text-sm leading-relaxed text-chalk-300">{t("winRateTool.invalid")}</p>
           </Carte>
         ) : (
           <Carte className="border-gold-500/30">
             {resultat.etat === "victoires" && (
               <>
-                <Chiffre valeur={nombre.format(resultat.victoires)} unite={t("outilTaux.victoiresAffilee")} />
+                <Chiffre valeur={nombre.format(resultat.victoires)} unite={t("winRateTool.winsInARow")} />
                 <p className="mt-3 leading-relaxed text-chalk-300">
-                  {t("outilTaux.phraseVictoires", {
+                  {t("winRateTool.winsSentence", {
                     n: nombre.format(resultat.victoires),
                     actuel: pourcent(situation.taux),
                     objectif: pourcent(situation.objectif),
@@ -133,13 +133,13 @@ export function CalculateurTaux() {
             )}
             {resultat.etat === "impossible" && (
               <>
-                <p className="font-heading text-2xl font-bold text-blood-500">{t("outilTaux.impossibleTitre")}</p>
-                <p className="mt-3 leading-relaxed text-chalk-300">{t("outilTaux.impossible")}</p>
+                <p className="font-heading text-2xl font-bold text-blood-500">{t("winRateTool.impossibleTitle")}</p>
+                <p className="mt-3 leading-relaxed text-chalk-300">{t("winRateTool.impossible")}</p>
                 {(() => {
                   const repli = calculer({ ...situation, objectif: 99 });
                   return repli.etat === "victoires" ? (
                     <p className="mt-2 text-sm leading-relaxed text-chalk-400">
-                      {t("outilTaux.impossibleConseil", { objectif: pourcent(99), n: nombre.format(repli.victoires) })}
+                      {t("winRateTool.impossibleAdvice", { objectif: pourcent(99), n: nombre.format(repli.victoires) })}
                     </p>
                   ) : null;
                 })()}
@@ -149,14 +149,14 @@ export function CalculateurTaux() {
               <>
                 <Chiffre
                   valeur={resultat.marge === null ? "∞" : nombre.format(resultat.marge)}
-                  unite={t("outilTaux.defaitesEncaissables")}
+                  unite={t("winRateTool.lossesAffordable")}
                 />
                 <p className="mt-3 leading-relaxed text-chalk-300">
                   {resultat.marge === null
-                    ? t("outilTaux.phraseZero")
+                    ? t("winRateTool.zeroSentence")
                     : resultat.marge === 0
-                      ? t("outilTaux.phraseLimite", { objectif: pourcent(situation.objectif) })
-                      : t("outilTaux.phraseAtteint", {
+                      ? t("winRateTool.limitSentence", { objectif: pourcent(situation.objectif) })
+                      : t("winRateTool.reachedSentence", {
                           n: nombre.format(resultat.marge),
                           objectif: pourcent(situation.objectif),
                         })}
@@ -164,7 +164,7 @@ export function CalculateurTaux() {
               </>
             )}
             <p className="mt-4 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
-              {t("outilTaux.base", {
+              {t("winRateTool.base", {
                 v: nombre.format(resultat.victoiresActuelles),
                 n: nombre.format(situation.parties),
               })}
@@ -175,11 +175,11 @@ export function CalculateurTaux() {
 
       {resultat.etat === "victoires" && (
         <Carte>
-          <h2 className="font-heading text-lg font-bold text-chalk-100">{t("outilTaux.rythmeTitre")}</h2>
-          <p className="mt-1 text-sm leading-relaxed text-chalk-500">{t("outilTaux.rythmeIntro")}</p>
+          <h2 className="font-heading text-lg font-bold text-chalk-100">{t("winRateTool.paceTitle")}</h2>
+          <p className="mt-1 text-sm leading-relaxed text-chalk-500">{t("winRateTool.paceIntro")}</p>
           <div className="mt-4 max-w-48">
             <Champ
-              libelle={t("outilTaux.rythme")}
+              libelle={t("winRateTool.pace")}
               valeur={rythme}
               onChange={setRythme}
               suffixe="%"
@@ -192,8 +192,8 @@ export function CalculateurTaux() {
               if (r === null || hors(r)) return null;
               const m = partiesAuRythme(situation, r);
               return m === null
-                ? t("outilTaux.rythmeInsuffisant", { rythme: pourcent(r), objectif: pourcent(situation.objectif) })
-                : t("outilTaux.rythmeParties", { n: nombre.format(m), rythme: pourcent(r) });
+                ? t("winRateTool.paceTooLow", { rythme: pourcent(r), objectif: pourcent(situation.objectif) })
+                : t("winRateTool.paceGames", { n: nombre.format(m), rythme: pourcent(r) });
             })()}
           </div>
         </Carte>

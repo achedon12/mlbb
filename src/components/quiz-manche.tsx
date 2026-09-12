@@ -63,7 +63,7 @@ function indicesDe(manche: Manche, cible: HerosQuiz | undefined, t: T): Indice[]
   const liste: (Indice | null)[] = [];
   if (manche.type === "competence" && cible) {
     liste.push(
-      { cle: "nomCompetence", contenu: manche.nom },
+      { cle: "skillName", contenu: manche.nom },
       manche.extrait ? { cle: "description", contenu: <q>{manche.extrait}</q> } : null,
       { cle: "roles", contenu: listeRoles(cible, t) },
       { cle: "lanes", contenu: listeLanes(cible, t) },
@@ -72,25 +72,25 @@ function indicesDe(manche: Manche, cible: HerosQuiz | undefined, t: T): Indice[]
     liste.push(
       { cle: "roles", contenu: listeRoles(cible, t) },
       { cle: "lanes", contenu: listeLanes(cible, t) },
-      cible.annee ? { cle: "annee", contenu: String(cible.annee) } : null,
+      cible.annee ? { cle: "year", contenu: String(cible.annee) } : null,
       { cle: "skin", contenu: manche.skin },
     );
   } else if (manche.type === "histoire" && cible) {
     liste.push(
-      manche.extraits[1] ? { cle: "extrait", contenu: <q>{manche.extraits[1]}</q> } : null,
+      manche.extraits[1] ? { cle: "excerpt", contenu: <q>{manche.extraits[1]}</q> } : null,
       cible.region ? { cle: "region", contenu: cible.region } : null,
       { cle: "roles", contenu: listeRoles(cible, t) },
       {
-        cle: "initiale",
-        contenu: t("pages.quizUI.initiale", { lettre: cible.nom[0], n: cible.nom.replace(/[^\p{L}]/gu, "").length }),
+        cle: "initial",
+        contenu: t("pages.quizUI.initial", { lettre: cible.nom[0], n: cible.nom.replace(/[^\p{L}]/gu, "").length }),
       },
     );
   } else if (manche.type === "objet") {
     liste.push(
-      { cle: "categorie", contenu: manche.categorie },
+      { cle: "category", contenu: manche.categorie },
       manche.recette.length
         ? {
-            cle: "recette",
+            cle: "recipe",
             contenu: (
               <span className="flex flex-wrap gap-2">
                 {manche.recette.map((r, i) => (
@@ -103,7 +103,7 @@ function indicesDe(manche: Manche, cible: HerosQuiz | undefined, t: T): Indice[]
             ),
           }
         : null,
-      manche.passif ? { cle: "passif", contenu: <q>{manche.passif}</q> } : null,
+      manche.passif ? { cle: "passive", contenu: <q>{manche.passif}</q> } : null,
     );
   }
   return liste.filter((x): x is Indice => x !== null);
@@ -119,14 +119,14 @@ function Pastille({ accord, libelle, valeur, t }: { accord: Accord; libelle: str
       {Icone ? <Icone size={12} aria-hidden /> : <span aria-hidden>≈</span>}
       {valeur ?? libelle}
       <span className="sr-only">
-        {valeur ? ` (${libelle})` : ""} : {t(`pages.quizUI.accord.${accord}`)}
+        {valeur ? ` (${libelle})` : ""} : {t(`pages.quizUI.agreement.${accord}`)}
       </span>
     </span>
   );
 }
 
 /** Pastille de sens : la reponse est plus recente, plus chere… ou egale. */
-function PastilleSens({ sens, valeur, famille, t }: { sens: Sens; valeur: string; famille: "annee" | "prix"; t: T }) {
+function PastilleSens({ sens, valeur, famille, t }: { sens: Sens; valeur: string; famille: "year" | "price"; t: T }) {
   const accord: Accord = sens === "egal" ? "oui" : "non";
   const Icone = sens === "plus" ? ArrowUp : sens === "moins" ? ArrowDown : sens === "egal" ? Check : null;
   return (
@@ -191,18 +191,18 @@ export function MancheQuiz({
       const bon = reponsesDuel(manche)[i];
       const h = catalogue.herosParSlug.get(bon);
       const taux = formatTaux.format(manche.paires[i].find((d) => d.slug === bon)?.victoire ?? 0);
-      return t(dernier === bon ? "pages.quizUI.annonceDuelBon" : "pages.quizUI.annonceDuelFaux", {
+      return t(dernier === bon ? "pages.quizUI.announceDuelRight" : "pages.quizUI.announceDuelWrong", {
         nom: h?.nom ?? bon,
         taux,
       });
     }
-    if (dernier === manche.reponse) return t("pages.quizUI.annonceTrouve", { nom: nomReponse });
-    if (finie) return t("pages.quizUI.annonceRate", { nom: nomReponse });
+    if (dernier === manche.reponse) return t("pages.quizUI.announceFound", { nom: nomReponse });
+    if (finie) return t("pages.quizUI.announceMissed", { nom: nomReponse });
     const essai = catalogue.herosParSlug.get(dernier)?.nom ?? catalogue.objetsParSlug.get(dernier)?.nom ?? dernier;
     const nouvel = indices[visibles - 1];
     return [
-      t("pages.quizUI.annonceFaux", { nom: essai, n: essaisMax(manche) - essais.length }),
-      nouvel ? t("pages.quizUI.annonceIndice", { titre: t(`pages.quizUI.indices.${nouvel.cle}`) }) : "",
+      t("pages.quizUI.announceWrong", { nom: essai, n: essaisMax(manche) - essais.length }),
+      nouvel ? t("pages.quizUI.announceClue", { titre: t(`pages.quizUI.clues.${nouvel.cle}`) }) : "",
     ].join(" ");
   }
 
@@ -221,7 +221,7 @@ export function MancheQuiz({
         </span>
         {manche.type !== "duel" && !finie && (
           <span className="tabular-nums text-chalk-300">
-            {t("pages.quizUI.essaisRestants", { n: essaisMax(manche) - essais.length })}
+            {t("pages.quizUI.triesLeft", { n: essaisMax(manche) - essais.length })}
           </span>
         )}
       </div>
@@ -244,19 +244,19 @@ export function MancheQuiz({
           {indices.length > 0 && (
             <div className="mt-5">
               <h4 className="text-xs uppercase tracking-wide text-chalk-500">
-                {t("pages.quizUI.indicesTitre", { n: visibles, max: indices.length })}
+                {t("pages.quizUI.cluesTitle", { n: visibles, max: indices.length })}
               </h4>
               <ol className="mt-2 space-y-1.5">
                 {indices.map((ind, i) =>
                   i < visibles ? (
                     <li key={ind.cle} className="border-l-2 border-gold-500/60 pl-3 text-sm leading-relaxed text-chalk-200">
-                      <span className="font-semibold text-gold-400">{t(`pages.quizUI.indices.${ind.cle}`)} : </span>
+                      <span className="font-semibold text-gold-400">{t(`pages.quizUI.clues.${ind.cle}`)} : </span>
                       {ind.contenu}
                     </li>
                   ) : (
                     <li key={ind.cle} className="flex items-center gap-2 pl-3 text-xs text-chalk-600">
                       <Lock size={12} aria-hidden />
-                      {t("pages.quizUI.indiceVerrouille", { n: i + 1 })}
+                      {t("pages.quizUI.lockedClue", { n: i + 1 })}
                     </li>
                   ),
                 )}
@@ -270,8 +270,8 @@ export function MancheQuiz({
                 <ChampDevinette
                   options={estObjet ? catalogue.objets : catalogue.heros}
                   exclus={exclus}
-                  libelle={t(estObjet ? "pages.quizUI.champObjet" : "pages.quizUI.champHeros")}
-                  aucun={t("pages.quizUI.aucunResultat")}
+                  libelle={t(estObjet ? "pages.quizUI.itemField" : "pages.quizUI.heroField")}
+                  aucun={t("pages.quizUI.noResult")}
                   onChoisir={onEssai}
                 />
               </div>
@@ -283,7 +283,7 @@ export function MancheQuiz({
                     className="bevel-sm flex flex-1 items-center justify-center gap-1.5 border border-night-600 px-3 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500 hover:text-gold-400"
                   >
                     <LayoutGrid size={15} aria-hidden />
-                    {t("pages.quizUI.parcourir")}
+                    {t("pages.quizUI.browse")}
                   </button>
                 )}
                 <button
@@ -292,14 +292,14 @@ export function MancheQuiz({
                   className="bevel-sm flex flex-1 items-center justify-center gap-1.5 border border-night-600 px-3 py-2 text-sm text-chalk-500 transition-colors hover:border-blood-500 hover:text-blood-500"
                 >
                   <Flag size={15} aria-hidden />
-                  {t("pages.quizUI.passer")}
+                  {t("pages.quizUI.skip")}
                 </button>
               </div>
             </div>
           )}
 
           {joues.length > 0 && (
-            <ol className="mt-4 space-y-1.5" aria-label={t("pages.quizUI.vosEssais")}>
+            <ol className="mt-4 space-y-1.5" aria-label={t("pages.quizUI.yourTries")}>
               {joues.map((slug) => {
                 const bon = slug === reponse;
                 const h = catalogue.herosParSlug.get(slug);
@@ -319,7 +319,7 @@ export function MancheQuiz({
                       {essai.nom}
                     </span>
                     {bon ? (
-                      <Check size={16} className="text-emerald-400" aria-label={t("pages.quizUI.accord.oui")} />
+                      <Check size={16} className="text-emerald-400" aria-label={t("pages.quizUI.agreement.oui")} />
                     ) : h && cible ? (
                       <ComparaisonHeros essai={h} cible={cible} t={t} />
                     ) : o && cibleObjet ? (
@@ -362,7 +362,7 @@ export function MancheQuiz({
           heros={catalogue.heros}
           exclus={exclus}
           lane={null}
-          titre={t("pages.quizUI.parcourir")}
+          titre={t("pages.quizUI.browse")}
           onChoisir={(slug) => {
             setRoster(false);
             onEssai(slug);
@@ -379,10 +379,10 @@ function ComparaisonHeros({ essai, cible, t }: { essai: HerosQuiz; cible: HerosQ
   const c = comparerHeros(essai, cible);
   return (
     <span className="flex flex-wrap gap-1">
-      <Pastille accord={c.roles} libelle={t("pages.quizUI.comparaison.roles")} t={t} />
-      <Pastille accord={c.lanes} libelle={t("pages.quizUI.comparaison.lanes")} t={t} />
-      {essai.annee !== null && <PastilleSens sens={c.annee} valeur={String(essai.annee)} famille="annee" t={t} />}
-      <Pastille accord={c.region} libelle={t("pages.quizUI.comparaison.region")} t={t} />
+      <Pastille accord={c.roles} libelle={t("pages.quizUI.comparison.roles")} t={t} />
+      <Pastille accord={c.lanes} libelle={t("pages.quizUI.comparison.lanes")} t={t} />
+      {essai.annee !== null && <PastilleSens sens={c.annee} valeur={String(essai.annee)} famille="year" t={t} />}
+      <Pastille accord={c.region} libelle={t("pages.quizUI.comparison.region")} t={t} />
     </span>
   );
 }
@@ -401,8 +401,8 @@ function ComparaisonObjet({
   const c = comparerObjets(essai, cible);
   return (
     <span className="flex flex-wrap gap-1">
-      {essai.prix !== null && <PastilleSens sens={c.prix} valeur={formatPrix.format(essai.prix)} famille="prix" t={t} />}
-      <Pastille accord={c.categorie} libelle={t("pages.quizUI.comparaison.categorie")} valeur={essai.categorie} t={t} />
+      {essai.prix !== null && <PastilleSens sens={c.prix} valeur={formatPrix.format(essai.prix)} famille="price" t={t} />}
+      <Pastille accord={c.categorie} libelle={t("pages.quizUI.comparison.category")} valeur={essai.categorie} t={t} />
     </span>
   );
 }
@@ -425,7 +425,7 @@ function Enonce({
     return (
       <Image
         src={manche.icone}
-        alt={t("pages.quizUI.altCompetence")}
+        alt={t("pages.quizUI.altSkill")}
         width={80}
         height={80}
         className="bevel-sm size-20 bg-night-800"
@@ -438,7 +438,7 @@ function Enonce({
       <div className="bevel relative aspect-video w-full overflow-hidden border border-night-700 bg-night-800">
         <Image
           src={manche.image}
-          alt={t(finie ? "pages.quizUI.altSkinEntier" : "pages.quizUI.altSkin")}
+          alt={t(finie ? "pages.quizUI.altSkinFull" : "pages.quizUI.altSkin")}
           fill
           sizes="(min-width: 768px) 720px, 100vw"
           draggable={false}
@@ -465,7 +465,7 @@ function Enonce({
         </ul>
         {manche.prix !== null && (
           <p className="mt-3 text-sm font-semibold text-gold-400">
-            {t("pages.quizUI.prixObjet", { prix: formatPrix.format(manche.prix) })}
+            {t("pages.quizUI.itemPrice", { prix: formatPrix.format(manche.prix) })}
           </p>
         )}
       </div>
@@ -499,21 +499,21 @@ function Resultat({
       <PortraitHeros source={cible.icone} nom={cible.nom} taille="vignette" decoratif />
       <div className="min-w-0 flex-1">
         <p className={cn("text-sm font-semibold", trouve ? "text-emerald-300" : "text-blood-500")}>
-          {trouve ? t("pages.quizUI.trouve", { n: essais, max: essaisMax(manche) }) : t("pages.quizUI.rate")}
+          {trouve ? t("pages.quizUI.found", { n: essais, max: essaisMax(manche) }) : t("pages.quizUI.missed")}
         </p>
         <p className="font-heading text-xl font-bold text-chalk-100">{cible.nom}</p>
         {manche.type === "skin" && (
-          <p className="text-sm text-chalk-300">{t("pages.quizUI.skinNom", { nom: manche.skin })}</p>
+          <p className="text-sm text-chalk-300">{t("pages.quizUI.skinName", { nom: manche.skin })}</p>
         )}
         {manche.type === "competence" && (
-          <p className="text-sm text-chalk-300">{t("pages.quizUI.competenceNom", { nom: manche.nom })}</p>
+          <p className="text-sm text-chalk-300">{t("pages.quizUI.skillName", { nom: manche.nom })}</p>
         )}
       </div>
       <Link
         href={objet ? `/items#${cible.slug}` : `/heroes/${cible.slug}`}
         className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
       >
-        {t(objet ? "pages.quizUI.voirObjet" : "pages.quizUI.voirFiche")} →
+        {t(objet ? "pages.quizUI.seeItem" : "pages.quizUI.seeSheet")} →
       </Link>
     </div>
   );
@@ -545,7 +545,7 @@ function Duel({
           <li key={`${paire[0].slug}-${paire[1].slug}`}>
             {manche.paires.length > 1 && (
               <p className="mb-1.5 text-xs uppercase tracking-wide text-chalk-500">
-                {t("pages.quizUI.paire", { n: i + 1, max: manche.paires.length })}
+                {t("pages.quizUI.pair", { n: i + 1, max: manche.paires.length })}
               </p>
             )}
             <div className="grid grid-cols-2 gap-2">
@@ -574,12 +574,12 @@ function Duel({
                       <span
                         className={cn("text-sm tabular-nums", gagnant ? "text-emerald-300" : "text-chalk-400")}
                       >
-                        {t("pages.quizUI.victoire", { taux: formatTaux.format(d.victoire) })}
+                        {t("pages.quizUI.win", { taux: formatTaux.format(d.victoire) })}
                       </span>
                     )}
                     {repondu && choisi && (
                       <span className="sr-only">
-                        {t(gagnant ? "pages.quizUI.duelBon" : "pages.quizUI.duelFaux")}
+                        {t(gagnant ? "pages.quizUI.duelRight" : "pages.quizUI.duelWrong")}
                       </span>
                     )}
                   </button>

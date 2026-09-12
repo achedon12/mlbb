@@ -21,7 +21,7 @@ export function IndicateurFavori({ slug, className }: { slug: string; className?
   return (
     <Star
       size={14}
-      aria-label={t("favoris.dans")}
+      aria-label={t("favourites.in")}
       className={cn("shrink-0 text-gold-500", className)}
       fill="currentColor"
     />

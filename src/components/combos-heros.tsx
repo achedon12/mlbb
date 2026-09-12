@@ -16,7 +16,7 @@ export function CombosHeros({ combos, langue }: { combos: ComboHeros[]; langue: 
 
   return (
     <section>
-      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.combos.titre")}</h3>
+      <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.combos.title")}</h3>
       <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.combos.intro")}</p>
       <ul className="mt-4 grid gap-3 lg:grid-cols-2">
         {combos.map((combo, i) => (
@@ -26,9 +26,9 @@ export function CombosHeros({ combos, langue }: { combos: ComboHeros[]; langue: 
                 {t(`pages.heroDetail.combos.types.${combo.type}`)}
               </p>
             )}
-            <ol aria-label={t("pages.heroDetail.combos.ordre")} className="mt-2 flex flex-wrap items-center gap-1">
+            <ol aria-label={t("pages.heroDetail.combos.order")} className="mt-2 flex flex-wrap items-center gap-1">
               {combo.skills.map((c, j) => {
-                const nom = c.basicAttack ? t("pages.heroDetail.combos.attaqueDeBase") : (c.name ?? "");
+                const nom = c.basicAttack ? t("pages.heroDetail.combos.basicAttack") : (c.name ?? "");
                 return (
                   <li key={j} className="flex items-center gap-1">
                     {j > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-chalk-500" />}

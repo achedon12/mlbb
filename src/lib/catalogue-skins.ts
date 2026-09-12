@@ -33,13 +33,13 @@ export type Prix = Partial<Record<Monnaie, number>>;
 
 /** Libelle de chaque monnaie, sous `skinsUI`. */
 export const LIBELLE_MONNAIE: Record<Monnaie, string> = {
-  dm: "diamants",
-  bp: "pointsBataille",
+  dm: "diamonds",
+  bp: "battlePoints",
   ticket: "tickets",
-  mc: "noyauxMagiques",
-  lg: "gemmes",
+  mc: "magicCores",
+  lg: "gems",
   hf: "fragments",
-  mythcoin: "piecesMythiques",
+  mythcoin: "mythicCoins",
 };
 
 export interface HerosCatalogue {
@@ -375,8 +375,8 @@ export function libelleOu(t: T, cle: string, valeur: string): string {
   return trad === `${cle}.${valeur}` ? valeur : trad;
 }
 
-export const libelleRarete = (t: T, rang: number) => t(`skinRarete.${rareteDeRang(rang).cle}`);
-export const libelleSerie = (t: T, serie: string) => libelleOu(t, "skinEtiquette", serie);
+export const libelleRarete = (t: T, rang: number) => t(`skinRarity.${rareteDeRang(rang).cle}`);
+export const libelleSerie = (t: T, serie: string) => libelleOu(t, "skinLabel", serie);
 
 /** « 599 diamants · 32 000 points de bataille », ou null sans prix chiffre. */
 export function textePrix(prix: Prix, t: T, nombre: Intl.NumberFormat): string | null {

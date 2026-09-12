@@ -148,7 +148,7 @@ export function ListeObjets({
         <ChampRecherche
           valeur={recherche}
           onChange={setRecherche}
-          libelle={t("pages.itemsListe.rechercher")}
+          libelle={t("pages.itemsList.search")}
           className="max-w-md"
         />
 
@@ -162,8 +162,8 @@ export function ListeObjets({
       </div>
 
       <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
-        {t("pages.itemsListe.compte", { n: resultats.length })}
-        {resultats.length !== objets.length && ` ${t("pages.itemsListe.compteSur", { total: objets.length })}`}
+        {t("pages.itemsList.account", { n: resultats.length })}
+        {resultats.length !== objets.length && ` ${t("pages.itemsList.countOf", { total: objets.length })}`}
       </p>
 
       <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_21rem]">
@@ -201,7 +201,7 @@ export function ListeObjets({
                     // une icone d'objet se lit comme un niveau ou une quantite,
                     // pas comme un prix.
                     <span className="text-xs tabular-nums text-gold-400">
-                      {o.price.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
+                      {o.price.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsList.gold")}
                     </span>
                   )}
                 </button>
@@ -215,7 +215,7 @@ export function ListeObjets({
             <FicheObjet objet={objet} catalogue={catalogue} />
           ) : (
             <p className="bevel border border-dashed border-night-700 p-5 text-sm leading-relaxed text-chalk-500">
-              {t("pages.itemsListe.choisir")}
+              {t("pages.itemsList.choose")}
             </p>
           )}
         </aside>
@@ -226,7 +226,7 @@ export function ListeObjets({
         redescendre sous une grille de cent objets pour la lire.
       */}
       {objet && (
-        <Tiroir titre={objet.name} onFermer={fermerObjet} libelleFermer={t("pages.itemsListe.fermer")}>
+        <Tiroir titre={objet.name} onFermer={fermerObjet} libelleFermer={t("pages.itemsList.close")}>
           <FicheObjet objet={objet} catalogue={catalogue} sansCadre />
         </Tiroir>
       )}
@@ -266,9 +266,9 @@ function FicheObjet({
                   )}
                   {objet.price !== null && (
                     <p className="mt-1 text-sm text-chalk-500">
-                      {t("pages.itemsListe.prix")}{" "}
+                      {t("pages.itemsList.price")}{" "}
                       <span className="font-heading text-gold-400">
-                        {objet.price.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
+                        {objet.price.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsList.gold")}
                       </span>
                     </p>
                   )}
@@ -280,7 +280,7 @@ function FicheObjet({
                 <RecetteObjet objet={objet} catalogue={catalogue} t={t} langue={langue} vers={versAncre} />
                 {utilisateurs.length > 0 && (
                   <div>
-                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.utilisePar")}</dt>
+                    <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsList.usedBy")}</dt>
                     <dd className="mt-2 flex flex-wrap gap-1.5">
                       {utilisateurs.map((slug) => (
                         <Link
@@ -298,7 +298,7 @@ function FicheObjet({
                         </Link>
                       ))}
                     </dd>
-                    <p className="mt-1.5 text-xs text-chalk-500">{t("pages.itemsListe.utiliseParAide")}</p>
+                    <p className="mt-1.5 text-xs text-chalk-500">{t("pages.itemsList.usedByHelp")}</p>
                   </div>
                 )}
               </dl>
@@ -308,7 +308,7 @@ function FicheObjet({
                 href={`/items/${objet.slug}`}
                 className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
               >
-                {t("pages.itemsListe.pageComplete")} →
+                {t("pages.itemsList.fullPage")} →
               </Link>
             </div>
   );

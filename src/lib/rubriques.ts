@@ -58,14 +58,14 @@ export interface Noeud {
   href?: string;
   /** Cle `nav.<cle>` : libelle et description. */
   cle?: string;
-  /** Cle de traduction complete du libelle, pour les sous-pages (`roles.Tank`, `rangsMesure.mythic`…). */
+  /** Cle de traduction complete du libelle, pour les sous-pages (`roles.Tank`, `measuredRanks.mythic`…). */
   libelle?: string;
   icone?: LucideIcon;
   enfants?: Noeud[];
 }
 
 export interface Groupe {
-  /** Cle `nav.groupes.<cle>` du titre de la famille. */
+  /** Cle `nav.groups.<cle>` du titre de la famille. */
   cle: string;
   icone: LucideIcon;
   noeuds: Noeud[];
@@ -75,12 +75,12 @@ export interface Groupe {
 
 export const GROUPES: Groupe[] = [
   {
-    cle: "heros",
+    cle: "heroes",
     icone: Users,
     noeuds: [
       { href: "/heroes", cle: "heroes", icone: Users },
       {
-        cle: "parRole",
+        cle: "byRole",
         icone: Shield,
         enfants: ROLES.map((r) => ({ href: cheminRole(r), libelle: `roles.${r}` })),
       },
@@ -90,7 +90,7 @@ export const GROUPES: Groupe[] = [
         cle: "skins",
         icone: Palette,
         enfants: [
-          { href: "/skins", libelle: "nav.tousLesSkins" },
+          { href: "/skins", libelle: "nav.allSkins" },
           { href: "/skins/calendar", libelle: "nav.skinsCalendar.label" },
         ],
       },
@@ -103,20 +103,20 @@ export const GROUPES: Groupe[] = [
     noeuds: [
       { href: "/tier-list", cle: "tierList", icone: Trophy },
       {
-        cle: "parRang",
+        cle: "byRank",
         icone: Medal,
         enfants: RANGS_MESURE.filter((r) => r !== "all").map((r) => ({
           href: `/tier-list/${r}`,
-          libelle: `rangsMesure.${r}`,
+          libelle: `measuredRanks.${r}`,
         })),
       },
       {
-        cle: "parLane",
+        cle: "byLane",
         icone: Route,
         enfants: LANES.map((l) => ({ href: `/tier-list/lane/${SLUGS_LANE[l]}`, libelle: `lanes.${l}` })),
       },
       {
-        cle: "parRoleTier",
+        cle: "byRoleTier",
         icone: Shield,
         enfants: ROLES.map((r) => ({ href: `/tier-list/role/${SLUGS_ROLE[r]}`, libelle: `roles.${r}` })),
       },
@@ -124,7 +124,7 @@ export const GROUPES: Groupe[] = [
     ],
   },
   {
-    cle: "jeu",
+    cle: "game",
     icone: Package,
     noeuds: [
       { href: "/items", cle: "items", icone: Package },
@@ -133,7 +133,7 @@ export const GROUPES: Groupe[] = [
         cle: "emblems",
         icone: Gem,
         enfants: [
-          { href: "/emblems", libelle: "nav.tousLesEmblemes" },
+          { href: "/emblems", libelle: "nav.allEmblems" },
           ...ROLES.map((r) => ({ href: `/emblems/${SLUGS_ROLE[r]}`, libelle: `roles.${r}` })),
         ],
       },
@@ -144,7 +144,7 @@ export const GROUPES: Groupe[] = [
     ],
   },
   {
-    cle: "outils",
+    cle: "tools",
     icone: Wrench,
     large: true,
     noeuds: [
@@ -166,7 +166,7 @@ export const GROUPES: Groupe[] = [
     ],
   },
   {
-    cle: "actualite",
+    cle: "news",
     icone: Newspaper,
     noeuds: [
       { href: "/news", cle: "news", icone: Newspaper },
@@ -183,5 +183,5 @@ export const GROUPES: Groupe[] = [
 const pages = (g: Groupe): Entree[] =>
   g.noeuds.flatMap((n) => (n.href && n.cle && n.icone ? [{ href: n.href, cle: n.cle, icone: n.icone }] : []));
 
-export const BASE: Entree[] = GROUPES.filter((g) => g.cle !== "actualite").flatMap(pages);
-export const ACTUALITE: Entree[] = GROUPES.filter((g) => g.cle === "actualite").flatMap(pages);
+export const BASE: Entree[] = GROUPES.filter((g) => g.cle !== "news").flatMap(pages);
+export const ACTUALITE: Entree[] = GROUPES.filter((g) => g.cle === "news").flatMap(pages);

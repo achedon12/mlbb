@@ -63,7 +63,7 @@ const emblemRecord = (key: string) => emblemes.find((e) => e.key === `${key}-emb
 
 export function emblemName(t: T, key: string): string {
   const record = emblemRecord(key);
-  return record ? texteChoix(t, record.key, "nom", record.name)! : t("pages.buildSimulator.commonEmblem");
+  return record ? texteChoix(t, record.key, "name", record.name)! : t("pages.buildSimulator.commonEmblem");
 }
 
 export function emblemImage(key: string): string | null {
@@ -73,7 +73,7 @@ export function emblemImage(key: string): string | null {
 
 export function spellName(t: T, key: string): string {
   const s = sortsFiches.find((x) => x.slug === key);
-  return texteChoix(t, key, "nom", s?.nom ?? key)!;
+  return texteChoix(t, key, "name", s?.nom ?? key)!;
 }
 
 export const spellImage = (key: string): string | null => sortsFiches.find((x) => x.slug === key)?.image ?? null;

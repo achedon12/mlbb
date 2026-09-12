@@ -53,10 +53,10 @@ export function TableauUsage({
           <caption className="sr-only">{legende}</caption>
           <thead>
             <tr className={ENTETE}>
-              <th scope="col">{t("pages.fiches.heros")}</th>
+              <th scope="col">{t("pages.sheets.heroes")}</th>
               <th scope="col" className="hidden sm:table-cell">{t("builds.position")}</th>
-              <th scope="col" className="text-right">{t("pages.fiches.part")}</th>
-              <th scope="col" className="text-right">{t("pages.heroDetail.stat.tauxVictoire")}</th>
+              <th scope="col" className="text-right">{t("pages.sheets.share")}</th>
+              <th scope="col" className="text-right">{t("pages.heroDetail.stat.winRate")}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-night-800 tabular-nums text-chalk-100">
@@ -84,7 +84,7 @@ export function TableauUsage({
       </div>
       {reste.length > 0 && (
         <p className="mt-4 text-sm leading-relaxed text-chalk-500">
-          {t("pages.fiches.aussi")}{" "}
+          {t("pages.sheets.also")}{" "}
           {reste.map((l, i) => (
             <Fragment key={l.slug}>
               {i > 0 && ", "}
@@ -117,17 +117,17 @@ export function TableauRangs({
         <caption className="sr-only">{legende}</caption>
         <thead>
           <tr className={ENTETE}>
-            <th scope="col">{t("rangsMesure.label")}</th>
-            <th scope="col" className="text-right">{t("pages.fiches.nbHeros")}</th>
-            <th scope="col">{t("pages.fiches.enTete")}</th>
-            <th scope="col" className="text-right">{t("pages.fiches.victoireMoy")}</th>
+            <th scope="col">{t("measuredRanks.label")}</th>
+            <th scope="col" className="text-right">{t("pages.sheets.heroCount")}</th>
+            <th scope="col">{t("pages.sheets.leading")}</th>
+            <th scope="col" className="text-right">{t("pages.sheets.avgWin")}</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-night-800 tabular-nums text-chalk-100">
           {resume.map((r) => (
             <tr key={r.rang}>
               <th scope="row" className="text-left text-chalk-300">
-                {t(`rangsMesure.${r.rang}`)}
+                {t(`measuredRanks.${r.rang}`)}
               </th>
               <td className="text-right">{r.heros}</td>
               <td>

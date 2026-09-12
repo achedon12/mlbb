@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.heureServeur.titre"),
-    description: t("pages.seo.heureServeur.description", { utc: heureServeurEn(locale, HEURE_REMISE, "UTC") }),
+    titre: t("pages.seo.serverTime.title"),
+    description: t("pages.seo.serverTime.description", { utc: heureServeurEn(locale, HEURE_REMISE, "UTC") }),
     chemin: CHEMIN,
     motsCles: ["server time", "daily reset", "weekly reset", "reset time", "Starlight", "Mobile Legends", "MLBB"],
   });
@@ -55,21 +55,21 @@ export default async function PageHeureServeur({ params }: Params) {
   const exemple = FUSEAU_EXEMPLE[locale];
   const annonce = FINS.at(-1);
   const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.heureServeur.titre"),
-    description: t("pages.seo.heureServeur.description", { utc }),
+    nom: t("pages.serverTime.title"),
+    description: t("pages.seo.serverTime.description", { utc }),
     chemin: CHEMIN,
     categorie: "UtilitiesApplication",
   });
 
   const regles = [
-    { titre: t("pages.heureServeur.fuseauTitre"), texte: t("pages.heureServeur.fuseauTexte") },
-    { titre: t("pages.heureServeur.quotidienneTitre"), texte: t("pages.heureServeur.quotidienneTexte", { utc }) },
-    { titre: t("pages.heureServeur.hebdoTitre"), texte: t("pages.heureServeur.hebdoTexte", { utc }) },
-    { titre: t("pages.heureServeur.starlightTitre"), texte: t("pages.heureServeur.starlightTexte", { utc }) },
-    { titre: t("pages.heureServeur.saisonTitre"), texte: t("pages.heureServeur.saisonTexte") },
+    { titre: t("pages.serverTime.timezoneTitle"), texte: t("pages.serverTime.timezoneText") },
+    { titre: t("pages.serverTime.dailyTitle"), texte: t("pages.serverTime.dailyText", { utc }) },
+    { titre: t("pages.serverTime.weeklyTitle"), texte: t("pages.serverTime.weeklyText", { utc }) },
+    { titre: t("pages.serverTime.starlightTitle"), texte: t("pages.serverTime.starlightText", { utc }) },
+    { titre: t("pages.serverTime.seasonTitle"), texte: t("pages.serverTime.seasonText") },
     {
-      titre: t("pages.heureServeur.majTitre"),
-      texte: t("pages.heureServeur.majTexte", {
+      titre: t("pages.serverTime.updateTitle"),
+      texte: t("pages.serverTime.updateText", {
         debut: heureServeurEn(locale, 18, "UTC"),
         fin: heureServeurEn(locale, 22, "UTC"),
       }),
@@ -78,28 +78,28 @@ export default async function PageHeureServeur({ params }: Params) {
 
   const faq = [
     {
-      q: t("pages.heureServeur.faq1q"),
-      r: t("pages.heureServeur.faq1r", {
+      q: t("pages.serverTime.faq1q"),
+      r: t("pages.serverTime.faq1a", {
         utc,
         ete: heureServeurEn(locale, HEURE_REMISE, exemple, 6),
         hiver: heureServeurEn(locale, HEURE_REMISE, exemple, 0),
         manille: heureServeurEn(locale, HEURE_REMISE, "Asia/Manila"),
       }),
     },
-    { q: t("pages.heureServeur.faq2q"), r: t("pages.heureServeur.faq2r") },
-    { q: t("pages.heureServeur.faq3q"), r: t("pages.heureServeur.faq3r") },
+    { q: t("pages.serverTime.faq2q"), r: t("pages.serverTime.faq2a") },
+    { q: t("pages.serverTime.faq3q"), r: t("pages.serverTime.faq3a") },
   ];
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
-      <EnTetePage titre={t("pages.heureServeur.titre")} chapeau={t("pages.heureServeur.chapeau", { utc })} />
+      <EnTetePage titre={t("pages.serverTime.title")} chapeau={t("pages.serverTime.lead", { utc })} />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
         <HorlogeServeur reference={instantRendu()} fins={FINS} />
 
         <section aria-labelledby="regles-titre">
           <h2 id="regles-titre" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.heureServeur.reglesTitre")}
+            {t("pages.serverTime.rulesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -114,7 +114,7 @@ export default async function PageHeureServeur({ params }: Params) {
 
         <section aria-labelledby="faq-titre">
           <h2 id="faq-titre" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.heureServeur.faqTitre")}
+            {t("pages.serverTime.faqTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <div className="mt-5 space-y-6">
@@ -127,28 +127,28 @@ export default async function PageHeureServeur({ params }: Params) {
           </div>
           <p className="mt-6 text-sm">
             <Link href="/ranks" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.heureServeur.lienRangs")} →
+              {t("pages.serverTime.ranksLink")} →
             </Link>
           </p>
         </section>
 
         <section aria-labelledby="sources-titre" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.heureServeur.sourcesTitre")}</h2>
+          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.serverTime.sourcesTitle")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
               <a href={SOURCES_HEURE.serveur} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.heureServeur.sourceServeur")}
+                {t("pages.serverTime.sourceServer")}
               </a>
             </li>
             <li>
               <a href={SOURCES_HEURE.starlight} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.heureServeur.sourceStarlight")}
+                {t("pages.serverTime.sourceStarlight")}
               </a>
             </li>
             {annonce && (
               <li>
                 <a href={annonce.lien} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                  {t("pages.heureServeur.sourcePatch", { v: annonce.patch, n: annonce.saison })}
+                  {t("pages.serverTime.sourcePatch", { v: annonce.patch, n: annonce.saison })}
                 </a>
               </li>
             )}

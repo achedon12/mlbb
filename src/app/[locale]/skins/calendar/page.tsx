@@ -43,7 +43,7 @@ function description(locale: Langue): string {
   const annees = anneesCalendrier();
   const dernier = plusRecents(sortis, 1)[0];
   const heros = herosDuCatalogue();
-  return t("pages.seo.calendrierSkins.description", {
+  return t("pages.seo.skinsCalendar.description", {
     n: new Intl.NumberFormat(LOCALE_HTML[locale]).format(sortis.length),
     debut: annees.at(-1) ?? "",
     fin: annees[0] ?? "",
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.calendrierSkins.titre"),
+    titre: t("pages.seo.skinsCalendar.title"),
     description: description(locale),
     chemin: CHEMIN,
     motsCles: ["MLBB skins", "skin release date", "Mobile Legends skins", "Collector", "StarLight", "Epic", "Legend"],
@@ -104,60 +104,60 @@ export default async function PageCalendrierSkins({ params }: Params) {
   const maxMois = Math.max(1, ...groupes.flatMap((a) => a.mois.filter((m) => m.mois).map((m) => m.skins.length)));
 
   const nSkins = (n: number) =>
-    t(n === 1 ? "pages.calendrierSkins.nSkins1" : "pages.calendrierSkins.nSkins", { n: nombre.format(n) });
+    t(n === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", { n: nombre.format(n) });
 
   const grille = (liste: SkinCatalogue[]) => (
     <GrilleSkins cartes={liste.map((s) => proprietesCarteSkin(s, heros.get(s.heros)?.nom ?? s.heros, t, langueHtml, nombre))} />
   );
 
   const donneesStructurees = donneesListeSkins(locale, {
-    nom: t("pages.calendrierSkins.titre"),
+    nom: t("pages.skinsCalendar.title"),
     description: description(locale),
     chemin: CHEMIN,
-    elements: annees.map((a) => ({ nom: t("pages.calendrierSkins.annee.titre", { annee: a }), chemin: `${CHEMIN}/${a}` })),
+    elements: annees.map((a) => ({ nom: t("pages.skinsCalendar.year.title", { annee: a }), chemin: `${CHEMIN}/${a}` })),
   });
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
       <EnTetePage
-        titre={t("pages.calendrierSkins.titre")}
-        chapeau={t("pages.calendrierSkins.chapeau", {
+        titre={t("pages.skinsCalendar.title")}
+        chapeau={t("pages.skinsCalendar.lead", {
           n: nombre.format(sortis.length),
           debut: annees.at(-1) ?? "",
           fin: annees[0] ?? "",
         })}
-        miettes={[{ nom: t("pages.calendrierSkins.mietteSkins"), href: "/skins" }, { nom: t("pages.calendrierSkins.miette") }]}
+        miettes={[{ nom: t("pages.skinsCalendar.crumbSkins"), href: "/skins" }, { nom: t("pages.skinsCalendar.crumb") }]}
       >
         <LigneFraicheur langue={locale} className="mt-4" />
       </EnTetePage>
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         <section id="ce-mois" className="scroll-mt-24">
-          <TitreSection>{t("pages.calendrierSkins.ceMoisTitre", { mois: moisAnnee(locale, dateReference) })}</TitreSection>
+          <TitreSection>{t("pages.skinsCalendar.thisMonthTitle", { mois: moisAnnee(locale, dateReference) })}</TitreSection>
           {ceMois.length > 0 ? (
             grille(ceMois)
           ) : (
             <p className="max-w-2xl leading-relaxed text-chalk-300">
-              {t("pages.calendrierSkins.ceMoisVide", {
+              {t("pages.skinsCalendar.thisMonthEmpty", {
                 mois: moisAnnee(locale, dateReference),
                 dernier: dernierMois ? moisAnnee(locale, `${dernierMois}-01`) : "—",
               })}{" "}
               <a href="#derniers" className="font-semibold text-gold-400 hover:text-gold-500">
-                {t("pages.calendrierSkins.voirDerniers")}
+                {t("pages.skinsCalendar.seeLatest")}
               </a>
             </p>
           )}
         </section>
 
         <section id="derniers" className="scroll-mt-24">
-          <TitreSection chapeau={t("pages.calendrierSkins.derniersChapeau")}>{t("pages.calendrierSkins.derniersTitre")}</TitreSection>
+          <TitreSection chapeau={t("pages.skinsCalendar.latestLead")}>{t("pages.skinsCalendar.latestTitle")}</TitreSection>
           {grille(recents)}
         </section>
 
         <section id="explorateur" className="scroll-mt-24">
-          <TitreSection chapeau={t("pages.calendrierSkins.explorerChapeau")}>{t("pages.calendrierSkins.explorerTitre")}</TitreSection>
-          <CompleterMessages messages={messagesPage(locale, ["pages.calendrierSkinsUI"])}>
+          <TitreSection chapeau={t("pages.skinsCalendar.exploreLead")}>{t("pages.skinsCalendar.exploreTitle")}</TitreSection>
+          <CompleterMessages messages={messagesPage(locale, ["pages.skinsCalendarUI"])}>
             <ExplorateurSkins
               heros={[...heros.values()].sort((a, b) => a.nom.localeCompare(b.nom, "en")).map((h) => [h.slug, h.nom])}
               series={series.map((s) => s.serie)}
@@ -166,11 +166,11 @@ export default async function PageCalendrierSkins({ params }: Params) {
             >
               <div className="relative overflow-x-auto">
                 <table className="w-full min-w-[30rem] border-separate border-spacing-1 text-center text-xs">
-                  <caption className="mb-2 text-left text-sm text-chalk-500">{t("pages.calendrierSkins.tableauLegende")}</caption>
+                  <caption className="mb-2 text-left text-sm text-chalk-500">{t("pages.skinsCalendar.tableLegend")}</caption>
                   <thead>
                     <tr className="text-chalk-500">
                       <th scope="col" className="text-left font-medium">
-                        {t("pages.calendrierSkins.colAnnee")}
+                        {t("pages.skinsCalendar.colYear")}
                       </th>
                       {Array.from({ length: 12 }, (_, i) => (
                         <th key={i} scope="col" className="font-medium">
@@ -180,12 +180,12 @@ export default async function PageCalendrierSkins({ params }: Params) {
                         </th>
                       ))}
                       <th scope="col" className="font-medium">
-                        <abbr title={t("pages.calendrierSkins.moisInconnu")} className="no-underline">
+                        <abbr title={t("pages.skinsCalendar.unknownMonth")} className="no-underline">
                           ?
                         </abbr>
                       </th>
                       <th scope="col" className="font-medium">
-                        {t("pages.calendrierSkins.colTotal")}
+                        {t("pages.skinsCalendar.colTotal")}
                       </th>
                     </tr>
                   </thead>
@@ -201,7 +201,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
                           </th>
                           {Array.from({ length: 12 }, (_, i) => {
                             const n = parMois.get(i + 1) ?? 0;
-                            const libelle = t("pages.calendrierSkins.caseMois", {
+                            const libelle = t("pages.skinsCalendar.monthCell", {
                               mois: formatLong.format(Date.UTC(a.annee, i, 1)),
                               n,
                             });
@@ -235,7 +235,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
         </section>
 
         <section id="series" className="scroll-mt-24">
-          <TitreSection chapeau={t("pages.calendrierSkins.seriesChapeau")}>{t("pages.calendrierSkins.seriesTitre")}</TitreSection>
+          <TitreSection chapeau={t("pages.skinsCalendar.seriesLead")}>{t("pages.skinsCalendar.seriesTitle")}</TitreSection>
           <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {series.slice(0, 24).map((s) => {
               const debut = lireSortie(s.premiere)?.annee;
@@ -253,7 +253,7 @@ export default async function PageCalendrierSkins({ params }: Params) {
                     {libelleSerie(t, s.serie)}
                   </a>
                   <span className="shrink-0 text-xs tabular-nums text-chalk-500">
-                    {t("pages.calendrierSkins.serieDetail", {
+                    {t("pages.skinsCalendar.seriesDetail", {
                       n: nSkins(s.total),
                       periode: debut && fin && debut !== fin ? `${debut}–${fin}` : String(debut ?? fin ?? "—"),
                     })}
@@ -265,26 +265,26 @@ export default async function PageCalendrierSkins({ params }: Params) {
         </section>
 
         <section id="dates" className="scroll-mt-24">
-          <TitreSection>{t("pages.calendrierSkins.datesTitre")}</TitreSection>
+          <TitreSection>{t("pages.skinsCalendar.datesTitle")}</TitreSection>
           <div className="max-w-3xl space-y-3 leading-relaxed text-chalk-300">
             <p>
-              {t("pages.calendrierSkins.datesPrecision", {
+              {t("pages.skinsCalendar.datesPrecision", {
                 jour: nombre.format(precision.jour),
                 mois: nombre.format(precision.mois),
                 annee: nombre.format(precision.annee),
               })}
             </p>
             {aVenir + futurs > 0 && (
-              <p>{t("pages.calendrierSkins.datesEcartes", { aVenir: nombre.format(aVenir), futurs: nombre.format(futurs) })}</p>
+              <p>{t("pages.skinsCalendar.datesSkipped", { aVenir: nombre.format(aVenir), futurs: nombre.format(futurs) })}</p>
             )}
-            <p>{t("pages.calendrierSkins.datesOrigine")}</p>
+            <p>{t("pages.skinsCalendar.datesOrigin")}</p>
             <p>
               <Link href="/tools/collection" className="font-semibold text-gold-400 hover:text-gold-500">
-                {t("pages.calendrierSkins.lienCollection")} →
+                {t("pages.skinsCalendar.collectionLink")} →
               </Link>
             </p>
           </div>
-          <CreditWiki t={t} href={synchro.source} cle="pages.calendrierSkins.source" />
+          <CreditWiki t={t} href={synchro.source} cle="pages.skinsCalendar.source" />
         </section>
       </div>
     </>

@@ -173,7 +173,7 @@ export function PublishBuild({ build }: { build: BuildCode }) {
 
   function errorMessage(httpStatus: number, error: string | undefined): string {
     if (httpStatus === 400 && error === "title") return t("pages.communityBuildsUI.errors.title", { min: TITLE_MIN, max: TITLE_MAX });
-    if (httpStatus === 400 && error === "notes") return t("pages.communityBuildsUI.errors.notes", { max: NOTES_MAX });
+    if (httpStatus === 400 && error === "notes") return t("pages.communityBuildsUI.errors.ratings", { max: NOTES_MAX });
     if (httpStatus === 400 && error === "link") return t("pages.communityBuildsUI.errors.link");
     if (httpStatus === 400 && error === "build") return t("pages.communityBuildsUI.errors.build");
     if (httpStatus === 401) return t("pages.communityBuildsUI.errors.signIn");

@@ -299,7 +299,7 @@ export function DraftSimulator({
       <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
         <div className="min-w-0 flex-1 basis-56">
           <p className={label}>
-            {t(`pages.draftSimulatorUI.formats.${settings.format}`)} · {t(`rangsMesure.${settings.rank}`)}
+            {t(`pages.draftSimulatorUI.formats.${settings.format}`)} · {t(`measuredRanks.${settings.rank}`)}
           </p>
           <p className="font-heading text-xl font-bold text-chalk-100">
             {turn ? (
@@ -362,7 +362,7 @@ export function DraftSimulator({
               </h3>
               <p className="mt-1 text-sm text-chalk-500">
                 {t(isBan ? "pages.draftSimulatorUI.hints.banIntro" : "pages.draftSimulatorUI.hints.pickIntro", {
-                  rank: t(`rangsMesure.${settings.rank}`),
+                  rank: t(`measuredRanks.${settings.rank}`),
                 })}
               </p>
               <ul className="mt-3 grid gap-2 sm:grid-cols-3">
@@ -405,7 +405,7 @@ export function DraftSimulator({
               )}
               {!mine && (
                 <p className="text-sm text-chalk-500">
-                  {measuresState === undefined ? t("equipeUI.chargement") : t("pages.draftSimulatorUI.botThinking")}
+                  {measuresState === undefined ? t("teamUI.loading") : t("pages.draftSimulatorUI.botThinking")}
                 </p>
               )}
             </div>
@@ -421,23 +421,23 @@ export function DraftSimulator({
               <ChampRecherche dense valeur={search} onChange={setSearch} libelle={t("pages.draftSimulatorUI.search")} />
             </form>
             <ChoiceRow
-              legend={t("draftUI.filtreLane")}
-              all={t("draftUI.toutesLanes")}
+              legend={t("draftUI.laneFilter")}
+              all={t("draftUI.allLanes")}
               values={LANES}
               selected={laneFilter}
               labelOf={(l) => t(`lanes.${l}`)}
               onChange={setLaneFilter}
             />
             <ChoiceRow
-              legend={t("draftUI.filtreRole")}
-              all={t("draftUI.tousRoles")}
+              legend={t("draftUI.roleFilter")}
+              all={t("draftUI.allRoles")}
               values={ROLES}
               selected={role}
               labelOf={(r) => t(`roles.${r}`)}
               onChange={setRole}
             />
             <p aria-live="polite" className="text-xs text-chalk-500">
-              {t("draftUI.compte", { n: results.length })}
+              {t("draftUI.account", { n: results.length })}
             </p>
             <ul className="grid max-h-[60vh] grid-cols-4 gap-1.5 overflow-y-auto pr-1 sm:grid-cols-6 md:grid-cols-8">
               {results.map((h) => {
@@ -467,7 +467,7 @@ export function DraftSimulator({
                 );
               })}
               {results.length === 0 && (
-                <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.aucunHeros")}</li>
+                <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.noHero")}</li>
               )}
             </ul>
           </section>
@@ -534,7 +534,7 @@ function reasonText(
 ): string {
   switch (r.type) {
     case "meta":
-      return t("pages.draftSimulatorUI.reasons.meta", { tier: r.tier, ban: f.integer(r.banRate), rank: t(`rangsMesure.${rank}`) });
+      return t("pages.draftSimulatorUI.reasons.meta", { tier: r.tier, ban: f.integer(r.banRate), rank: t(`measuredRanks.${rank}`) });
     case "strength":
       return t("pages.draftSimulatorUI.reasons.strength", { rate: f.decimal(r.winRate) });
     case "counter":
@@ -609,7 +609,7 @@ function SettingsScreen({
           legend={t("pages.draftSimulatorUI.settings.rank")}
           values={formatRanks}
           selected={settings.rank}
-          labelOf={(r) => t(`rangsMesure.${r}`)}
+          labelOf={(r) => t(`measuredRanks.${r}`)}
           onChange={(r) => r && onChange({ rank: r })}
         />
         {settings.format === "ranked" && (

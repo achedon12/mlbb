@@ -134,20 +134,20 @@ describe("destinataires d'un patch", () => {
 
 describe("message d'une notification", () => {
   const messages = {
-    notifPush: {
-      titre: {
+    pushNotif: {
+      title: {
         amelioration: "Patch {version} : amélioration pour {nom}",
         affaiblissement: "Patch {version} : affaiblissement pour {nom}",
         ajustement: "Patch {version} : ajustements pour {nom}",
       },
-      titrePlusieurs: "Patch {version} : {n} de vos favoris modifiés",
-      corpsUn: "Le détail est sur sa fiche, dans l'onglet Stats.",
-      ligne: "{nom} : {type}",
-      autre: "et {n} autre",
-      autres: "et {n} autres",
+      titleMany: "Patch {version} : {n} de vos favoris modifiés",
+      bodyOne: "Le détail est sur sa fiche, dans l'onglet Stats.",
+      row: "{nom} : {type}",
+      other: "et {n} autre",
+      others: "et {n} autres",
     },
-    patchHeros: { amelioration: "Amélioration", affaiblissement: "Affaiblissement", ajustement: "Ajustement" },
-    favoris: { alerte: { modifie: "Modifié" } },
+    patchHeroes: { amelioration: "Amélioration", affaiblissement: "Affaiblissement", ajustement: "Ajustement" },
+    favourites: { alert: { changed: "Modifié" } },
   } satisfies Arbre;
   const t = creerTDepuis(messages);
   const noms = { khufra: "Khufra", layla: "Layla", saber: "Saber", ruby: "Ruby", tigreal: "Tigreal" };

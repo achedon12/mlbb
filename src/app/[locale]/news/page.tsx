@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const { locale } = await params;
   const t = creerT(locale);
   const meta = metaPage(locale, {
-    titre: t("pages.news.metaTitre"),
+    titre: t("pages.news.metaTitle"),
     description: t("pages.news.metaDescription"),
     partage: t("pages.news.ogDescription"),
     chemin: "/news",
@@ -30,8 +30,8 @@ export default async function PageActualites({ params }: { params: Promise<{ loc
   return (
     <>
       <EnTetePage
-        titre={t("pages.news.titre")}
-        chapeau={t("pages.news.chapeau")}
+        titre={t("pages.news.title")}
+        chapeau={t("pages.news.lead")}
       />
       <div className="mx-auto max-w-3xl px-4 py-14">
         <ListeArticles articles={liste} base="/news" langue={locale} />

@@ -76,7 +76,7 @@ export function PatchHeros({
             >
               <span className={s.couleur}>{s.icone}</span>
               <span className="font-semibold text-chalk-100">{bilan[type] ?? 0}</span>
-              <span className="text-chalk-500">{t(`patchHeros.pluriel.${type}`)}</span>
+              <span className="text-chalk-500">{t(`patchHeroes.plural.${type}`)}</span>
             </button>
           );
         })}
@@ -111,7 +111,7 @@ export function AjustementsDuHeros({
           ajustement={e.ajustement}
           portrait={portrait}
           titre={`Patch ${e.version}`}
-          lien={{ href: `/patch-notes/${e.version}`, libelle: t("patchHeros.voirPatch", { version: e.version }) }}
+          lien={{ href: `/patch-notes/${e.version}`, libelle: t("patchHeroes.seePatch", { version: e.version }) }}
         />
       ))}
     </ul>
@@ -134,7 +134,7 @@ function LigneHeros({
 }) {
   const t = useT();
   const cible =
-    lien ?? (fiche ? { href: `/heroes/${ajustement.slug}`, libelle: t("patchHeros.voirFiche", { nom: ajustement.name }) } : null);
+    lien ?? (fiche ? { href: `/heroes/${ajustement.slug}`, libelle: t("patchHeroes.seeSheet", { nom: ajustement.name }) } : null);
   const [ouvert, setOuvert] = useState(false);
   const s = ajustement.type ? STYLE[ajustement.type] : null;
   const detaille = ajustement.sections.length > 0 || ajustement.intro.length > 0;
@@ -157,7 +157,7 @@ function LigneHeros({
           {s && (
             <span className={cn("mt-0.5 flex items-center gap-1 text-xs font-semibold", s.couleur)}>
               {s.icone}
-              {t(`patchHeros.${ajustement.type}`)}
+              {t(`patchHeroes.${ajustement.type}`)}
             </span>
           )}
         </span>
@@ -169,7 +169,7 @@ function LigneHeros({
             className={cn("shrink-0 text-chalk-500 transition-transform", ouvert && "rotate-180")}
           />
         ) : (
-          <span className="shrink-0 text-xs text-chalk-500">{t("patchHeros.detailsAVenir")}</span>
+          <span className="shrink-0 text-xs text-chalk-500">{t("patchHeroes.detailsSoon")}</span>
         )}
       </button>
 
@@ -194,7 +194,7 @@ function LigneHeros({
                       {"after" in c ? (
                         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                           {c.label && (
-                            <span className="text-chalk-500">{t("patchHeros.libelle", { libelle: c.label })}</span>
+                            <span className="text-chalk-500">{t("patchHeroes.label", { libelle: c.label })}</span>
                           )}
                           <span className="text-chalk-500 line-through decoration-blood-500/50">
                             {c.before}

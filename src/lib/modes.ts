@@ -1,6 +1,6 @@
 /**
  * Couleur d'accent de chaque mode de jeu. L'accroche et le résumé éditoriaux
- * vivent dans le catalogue de traductions (`modeFiche.<slug>`), pour exister
+ * vivent dans le catalogue de traductions (`modeSheet.<slug>`), pour exister
  * dans chaque langue ; ici on ne garde que ce qui ne se traduit pas.
  */
 

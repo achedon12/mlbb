@@ -94,7 +94,7 @@ export function DraftSummary({
   );
   const advantage = measures ? measuredAdvantage(blue, red, measures) : null;
   const matchups = measures ? matchupsBetween(blue, red, measures).slice(0, 8) : [];
-  const rankName = t(`rangsMesure.${rank}`);
+  const rankName = t(`measuredRanks.${rank}`);
   // Shown after a draft played in the browser: the address exists.
   const address = typeof window === "undefined" ? "" : `${window.location.origin}${window.location.pathname}?${query}`;
 
@@ -133,7 +133,7 @@ export function DraftSummary({
         <h3 className={heading3}>{t("pages.draftSimulatorUI.summary.advantage")}</h3>
         {!measures ? (
           <p role="status" className="mt-2 text-sm text-chalk-500">
-            {failed ? t("equipeUI.erreur") : t("equipeUI.chargement")}
+            {failed ? t("teamUI.error") : t("teamUI.loading")}
           </p>
         ) : advantage && index ? (
           <>
@@ -239,11 +239,11 @@ export function DraftSummary({
           </label>
           <button type="button" onClick={copy} className={button}>
             <Link2 size={15} aria-hidden />
-            {t("equipeUI.copier")}
+            {t("teamUI.copy")}
           </button>
           <span role="status" className="text-xs text-chalk-300">
-            {copied === "ok" && t("equipeUI.lienCopie")}
-            {copied === "error" && t("equipeUI.copieImpossible")}
+            {copied === "ok" && t("teamUI.linkCopied")}
+            {copied === "error" && t("teamUI.copyFailed")}
           </span>
         </div>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -264,16 +264,16 @@ export function DraftSummary({
 function alertText(a: Alerte, t: T, f: NumberFormats, nameOf: (slug: string) => string): string {
   switch (a.type) {
     case "lanes":
-      return t("equipeUI.alertes.lanes", {
+      return t("teamUI.alerts.lanes", {
         lanes: a.lanes.map((l) => t(`lanes.${l}`)).join(", "),
         noms: a.enTrop.map(nameOf).join(", "),
       });
     case "tank":
-      return t("equipeUI.alertes.tank");
+      return t("teamUI.alerts.tank");
     case "degats":
-      return t(`equipeUI.alertes.degats.${a.dominant}`);
+      return t(`teamUI.alerts.damage.${a.dominant}`);
     default:
-      return t(`equipeUI.alertes.${a.type}`, { v: f.decimal(a.valeur) });
+      return t(`teamUI.alerts.${a.type}`, { v: f.decimal(a.valeur) });
   }
 }
 
@@ -309,7 +309,7 @@ function TeamCard({
         </h3>
         {analysis.victoire !== null && (
           <p className="text-sm text-chalk-300">
-            {t("equipeUI.tauxMoyen")} :{" "}
+            {t("teamUI.averageRate")} :{" "}
             <span className="font-semibold tabular-nums text-chalk-100">{f.decimal(analysis.victoire)} %</span>
           </p>
         )}
@@ -329,22 +329,22 @@ function TeamCard({
                   <span className="truncate text-chalk-100">{h.nom}</span>
                 </span>
               ) : (
-                <span className="italic text-blood-500">{t("equipeUI.aPourvoir")}</span>
+                <span className="italic text-blood-500">{t("teamUI.toFill")}</span>
               )}
             </li>
           );
         })}
       </ul>
       {affectation.enTrop.length > 0 && (
-        <p className="mt-2 text-xs text-blood-500">{t("equipeUI.sansLane", { noms: affectation.enTrop.map(nameOf).join(", ") })}</p>
+        <p className="mt-2 text-xs text-blood-500">{t("teamUI.noLane", { noms: affectation.enTrop.map(nameOf).join(", ") })}</p>
       )}
 
       {degats.partPhysique !== null && (
         <>
-          <p className={cn("mt-5", label)}>{t("equipeUI.degats")}</p>
+          <p className={cn("mt-5", label)}>{t("teamUI.damage")}</p>
           <div
             role="img"
-            aria-label={t("equipeUI.partDegats", {
+            aria-label={t("teamUI.damageShare", {
               physique: f.integer(degats.partPhysique * 100),
               magique: f.integer((1 - degats.partPhysique) * 100),
             })}
@@ -374,7 +374,7 @@ function TeamCard({
         </>
       )}
 
-      <p className={cn("mt-5", label)}>{t("equipeUI.notes")}</p>
+      <p className={cn("mt-5", label)}>{t("teamUI.ratings")}</p>
       <dl className="mt-2 space-y-2">
         {NOTES.map((n) => {
           const value = notes[n];
@@ -390,7 +390,7 @@ function TeamCard({
         })}
       </dl>
 
-      <p className={cn("mt-5", label)}>{t("equipeUI.alertes.titre")}</p>
+      <p className={cn("mt-5", label)}>{t("teamUI.alerts.title")}</p>
       {alertes.length > 0 ? (
         <ul className="mt-2 space-y-1.5">
           {alertes.map((a) => (
@@ -403,7 +403,7 @@ function TeamCard({
       ) : (
         <p className="mt-2 flex gap-2 text-sm text-chalk-300">
           <Check size={15} aria-hidden className="mt-0.5 shrink-0 text-emerald-400" />
-          {t("equipeUI.alertes.aucune")}
+          {t("teamUI.alerts.none")}
         </p>
       )}
 
@@ -416,7 +416,7 @@ function TeamCard({
                 {nameOf(p.a)} + {nameOf(p.b)}
               </span>
               <span className="shrink-0 font-semibold tabular-nums text-emerald-400">
-                {f.signed(p.points)} {t("contres.pts")}
+                {f.signed(p.points)} {t("counters.pts")}
               </span>
             </li>
           ))}

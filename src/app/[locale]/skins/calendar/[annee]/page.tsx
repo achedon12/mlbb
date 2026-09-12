@@ -56,7 +56,7 @@ function description(locale: Langue, a: AnneeSkins): string {
   const t = creerT(locale);
   const f = faitsAnnee(a);
   const heros = herosDuCatalogue();
-  return t("pages.seo.calendrierAnnee.description", {
+  return t("pages.seo.calendarYear.description", {
     annee: a.annee,
     n: a.total,
     series: listeNoms(locale, f.series.slice(0, 3).map((s) => `${libelleSerie(t, s.serie)} (${s.total})`)) || "—",
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!a) return {};
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.calendrierAnnee.titre", { annee: a.annee }),
+    titre: t("pages.seo.calendarYear.title", { annee: a.annee }),
     description: description(locale, a),
     chemin: `/skins/calendar/${a.annee}`,
     motsCles: [`MLBB skins ${a.annee}`, `Mobile Legends skins ${a.annee}`, "skin release date"],
@@ -95,20 +95,20 @@ export default async function PageAnneeSkins({ params }: Params) {
 
   const faits = [
     f.series.length > 0 &&
-      t("pages.calendrierSkins.annee.faitSeries", {
+      t("pages.skinsCalendar.year.factSeries", {
         liste: listeNoms(locale, f.series.slice(0, 5).map((s) => `${libelleSerie(t, s.serie)} (${s.total})`)),
       }),
     f.heros.length > 0 &&
-      t("pages.calendrierSkins.annee.faitHeros", {
+      t("pages.skinsCalendar.year.factHeroes", {
         liste: listeNoms(locale, f.heros.slice(0, 3).map(([s, n]) => `${heros.get(s)?.nom ?? s} (${n})`)),
       }),
-    t("pages.calendrierSkins.annee.faitRaretes", {
+    t("pages.skinsCalendar.year.factRarities", {
       liste: listeNoms(locale, f.raretes.map(([r, n]) => `${libelleRarete(t, r)} (${n})`)),
     }),
   ].filter((x): x is string => !!x);
 
   const donneesStructurees = donneesListeSkins(locale, {
-    nom: t("pages.calendrierSkins.annee.titre", { annee: a.annee }),
+    nom: t("pages.skinsCalendar.year.title", { annee: a.annee }),
     description: description(locale, a),
     chemin: `/skins/calendar/${a.annee}`,
     elements: a.mois.flatMap((m) =>
@@ -117,7 +117,7 @@ export default async function PageAnneeSkins({ params }: Params) {
   });
 
   const navigation = (
-    <nav aria-label={t("pages.calendrierSkins.annee.navAnnees")} className="flex flex-wrap justify-between gap-3 text-sm">
+    <nav aria-label={t("pages.skinsCalendar.year.navYears")} className="flex flex-wrap justify-between gap-3 text-sm">
       {precedente ? (
         <Link href={`/skins/calendar/${precedente}`} className="font-semibold text-gold-400 hover:text-gold-500">
           ← {precedente}
@@ -126,7 +126,7 @@ export default async function PageAnneeSkins({ params }: Params) {
         <span />
       )}
       <Link href="/skins/calendar" className="text-chalk-300 hover:text-gold-400">
-        {t("pages.calendrierSkins.miette")}
+        {t("pages.skinsCalendar.crumb")}
       </Link>
       {suivante ? (
         <Link href={`/skins/calendar/${suivante}`} className="font-semibold text-gold-400 hover:text-gold-500">
@@ -142,11 +142,11 @@ export default async function PageAnneeSkins({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
       <EnTetePage
-        titre={t("pages.calendrierSkins.annee.titre", { annee: a.annee })}
-        chapeau={t("pages.calendrierSkins.annee.chapeau", { annee: a.annee, n: nombre.format(a.total) })}
+        titre={t("pages.skinsCalendar.year.title", { annee: a.annee })}
+        chapeau={t("pages.skinsCalendar.year.lead", { annee: a.annee, n: nombre.format(a.total) })}
         miettes={[
-          { nom: t("pages.calendrierSkins.mietteSkins"), href: "/skins" },
-          { nom: t("pages.calendrierSkins.miette"), href: "/skins/calendar" },
+          { nom: t("pages.skinsCalendar.crumbSkins"), href: "/skins" },
+          { nom: t("pages.skinsCalendar.crumb"), href: "/skins/calendar" },
           { nom: String(a.annee), freres: annees.map((x) => ({ nom: String(x), href: `/skins/calendar/${x}` })) },
         ]}
       >
@@ -160,7 +160,7 @@ export default async function PageAnneeSkins({ params }: Params) {
               <li key={x}>{x}</li>
             ))}
           </ul>
-          <nav aria-label={t("pages.calendrierSkins.annee.navMois")} className="mt-6">
+          <nav aria-label={t("pages.skinsCalendar.year.navMonths")} className="mt-6">
             <ul className="flex flex-wrap gap-2">
               {a.mois.map((m) => (
                 <li key={ancre(m.mois)}>
@@ -168,7 +168,7 @@ export default async function PageAnneeSkins({ params }: Params) {
                     href={`#${ancre(m.mois)}`}
                     className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-xs text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
-                    {m.mois ? nomMois(m.mois) : t("pages.calendrierSkins.moisInconnu")}{" "}
+                    {m.mois ? nomMois(m.mois) : t("pages.skinsCalendar.unknownMonth")}{" "}
                     <span className="text-chalk-500">· {m.skins.length}</span>
                   </a>
                 </li>
@@ -180,9 +180,9 @@ export default async function PageAnneeSkins({ params }: Params) {
         {a.mois.map((m) => (
           <section key={ancre(m.mois)} id={ancre(m.mois)} className="scroll-mt-24">
             <TitreSection>
-              {m.mois ? nomMois(m.mois) : t("pages.calendrierSkins.moisInconnu")}{" "}
+              {m.mois ? nomMois(m.mois) : t("pages.skinsCalendar.unknownMonth")}{" "}
               <span className="text-base font-normal text-chalk-500">
-                · {t(m.skins.length === 1 ? "pages.calendrierSkins.nSkins1" : "pages.calendrierSkins.nSkins", {
+                · {t(m.skins.length === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", {
                   n: nombre.format(m.skins.length),
                 })}
               </span>
@@ -194,7 +194,7 @@ export default async function PageAnneeSkins({ params }: Params) {
         ))}
 
         {navigation}
-        <CreditWiki t={t} href={synchro.source} cle="pages.calendrierSkins.source" />
+        <CreditWiki t={t} href={synchro.source} cle="pages.skinsCalendar.source" />
       </div>
     </>
   );

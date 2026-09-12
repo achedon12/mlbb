@@ -50,16 +50,16 @@ export function ChangementsHeros({
   return (
     <section aria-labelledby="changements-heros" className="mt-10">
       <h2 id="changements-heros" className="scroll-mt-24 font-heading text-2xl font-bold text-chalk-100">
-        {t("pages.patchNotes.changements.titre", { v: patch.version })}
+        {t("pages.patchNotes.changes.title", { v: patch.version })}
       </h2>
       <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
       <p className="mt-4 text-sm text-chalk-300">
-        {t(`pages.patchNotes.changements.resume.${forme}`, { n, v: patch.version })}
+        {t(`pages.patchNotes.changes.summary.${forme}`, { n, v: patch.version })}
         {ancreDetail && (
           <>
             {" "}
             <a href={`#${ancreDetail}`} className="font-semibold text-gold-400 hover:text-gold-500">
-              {t("pages.patchNotes.changements.detail")} ↓
+              {t("pages.patchNotes.changes.detail")} ↓
             </a>
           </>
         )}
@@ -71,7 +71,7 @@ export function ChangementsHeros({
             <div key={sens}>
               <h3 className={cn("flex items-center gap-2 font-heading text-lg font-bold", STYLE[sens].couleur)}>
                 {STYLE[sens].icone}
-                {t(`patchHeros.pluriel.${sens}`)}
+                {t(`patchHeroes.plural.${sens}`)}
                 <span className="text-sm font-medium text-chalk-500">{groupes[sens].length}</span>
               </h3>
               <ul className="mt-3 flex flex-wrap gap-2">
@@ -114,7 +114,7 @@ export function ChangementsHeros({
 
       {Object.keys(impacts).length > 0 && (
         <p className="mt-4 text-xs leading-relaxed text-chalk-500">
-          {t("pages.patchNotes.changements.noteImpact", { n: JOURS_IMPACT })}
+          {t("pages.patchNotes.changes.impactNote", { n: JOURS_IMPACT })}
         </p>
       )}
     </section>
@@ -146,7 +146,7 @@ function Impact({
         </span>
       </span>
       <span className="sr-only">
-        {sr("pages.patchNotes.changements.impact", { avant: taux(impact.avant), apres: taux(impact.apres) })}
+        {sr("pages.patchNotes.changes.impact", { avant: taux(impact.avant), apres: taux(impact.apres) })}
       </span>
     </span>
   );

@@ -274,9 +274,9 @@ describe("affichage", () => {
 
   it("decrit l'ecart en toutes lettres", () => {
     const t = creerTDepuis({
-      tendances: {
-        hausse: "en hausse de {v} {unite} en {n} jours",
-        baisse: "en baisse de {v} {unite} en {n} jours",
+      trends: {
+        rise: "en hausse de {v} {unite} en {n} jours",
+        fall: "en baisse de {v} {unite} en {n} jours",
         point: { one: "point", other: "points" },
       },
     });

@@ -48,7 +48,7 @@ function herosDuRole(role: Role) {
 
 const reperes = (t: T, role: Role, n: number) => ({
   role: t(`roles.${role}`),
-  pluriel: t(`pages.tierList.rolePluriel.${role}`),
+  pluriel: t(`pages.tierList.rolePlural.${role}`),
   n,
 });
 
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!role) return {};
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.heroesRole.titre", { ...reperes(t, role, herosDuRole(role).length), v: patchActuel.version }),
+    titre: t("pages.seo.heroesRole.title", { ...reperes(t, role, herosDuRole(role).length), v: patchActuel.version }),
     description: description(locale, role),
     chemin: cheminRole(role),
   });
@@ -83,7 +83,7 @@ export default async function PageRole({ params }: Params) {
   const t = creerT(locale);
   const liste = herosDuRole(role);
   const r = reperes(t, role, liste.length);
-  const titre = t("pages.heroesRole.titre", r);
+  const titre = t("pages.heroesRole.title", r);
   const pourcent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   const donneesStructurees = donneesListeHeros(locale, {
@@ -103,13 +103,13 @@ export default async function PageRole({ params }: Params) {
       />
       <EnTetePage
         titre={titre}
-        chapeau={t("pages.heroesRole.chapeau", r)}
+        chapeau={t("pages.heroesRole.lead", r)}
         miettes={[
           { nom: t("nav.heroes.label"), href: "/heroes" },
           { nom: r.role, freres: ROLES.map((x) => ({ nom: t(`roles.${x}`), href: cheminRole(x) })) },
         ]}
       >
-        <LigneFraicheur langue={locale} avant={t("pages.heroesRole.nHeros", r)} className="mt-6" />
+        <LigneFraicheur langue={locale} avant={t("pages.heroesRole.nHeroes", r)} className="mt-6" />
       </EnTetePage>
 
       <div className="mx-auto max-w-5xl px-4 py-12">
@@ -117,12 +117,12 @@ export default async function PageRole({ params }: Params) {
           href={cheminFiltre({ type: "role", valeur: role })}
           className="bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
-          {t("pages.heroesRole.voirTierList", r)} →
+          {t("pages.heroesRole.seeTierList", r)} →
         </Link>
 
-        <nav aria-label={t("pages.heroesRole.autresRoles")} className="mb-8 mt-6 flex flex-wrap items-center gap-2">
+        <nav aria-label={t("pages.heroesRole.otherRoles")} className="mb-8 mt-6 flex flex-wrap items-center gap-2">
           <span aria-hidden className="mr-1 text-xs uppercase tracking-wide text-chalk-500">
-            {t("pages.heroesRole.autresRoles")}
+            {t("pages.heroesRole.otherRoles")}
           </span>
           {ROLES.map((x) => (
             <Link
@@ -154,17 +154,17 @@ export default async function PageRole({ params }: Params) {
                 </div>
                 {e.palier ? (
                   <>
-                    <span className="sr-only">{t("pages.tierList.palier", { p: e.palier })}</span>
+                    <span className="sr-only">{t("pages.tierList.tier", { p: e.palier })}</span>
                     <span aria-hidden>
                       <BadgePalier palier={e.palier} />
                     </span>
                   </>
                 ) : (
-                  <span className="text-xs text-chalk-500">{t("pages.heroesRole.nonMesure")}</span>
+                  <span className="text-xs text-chalk-500">{t("pages.heroesRole.notMeasured")}</span>
                 )}
                 <dl className="tier-row-rates">
                   <div>
-                    <dt>{t("pages.tierList.victoire")}</dt>
+                    <dt>{t("pages.tierList.win")}</dt>
                     <dd>{e.victoire === null ? "—" : `${pourcent.format(e.victoire)} %`}</dd>
                   </div>
                 </dl>

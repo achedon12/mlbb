@@ -31,7 +31,7 @@ export const RARETES: Record<string, Rarete> = {
 
 /** Le skin d'origine n'a pas de rarete : il n'a jamais ete achete. */
 export const RARETE_ORIGINE: Rarete = {
-  cle: "origine",
+  cle: "origin",
   nom: "Origine",
   couleur: "#3a4767",
   halo: "rgba(58,71,103,0.4)",

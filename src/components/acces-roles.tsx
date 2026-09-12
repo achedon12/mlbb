@@ -34,7 +34,7 @@ export function AccesRoles({ compte, langue }: { compte: Record<Role, number>; l
             )}
           >
             <span className="font-heading text-lg font-bold">{t(`roles.${role}`)}</span>
-            <span className="mt-3 text-xs text-chalk-500">{t("acces.compte", { n: compte[role] })}</span>
+            <span className="mt-3 text-xs text-chalk-500">{t("access.account", { n: compte[role] })}</span>
           </Link>
         </li>
       ))}
