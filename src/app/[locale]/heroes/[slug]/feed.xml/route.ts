@@ -31,12 +31,12 @@ function detail(a: AjustementHeros): string {
   const intro = a.intro ? `<p>${echapper(a.intro)}</p>` : "";
   const sections = a.sections
     .map((s) => {
-      const titre = s.categorie ? `${s.nom} (${s.categorie})` : s.nom;
-      const lignes = s.changements
+      const titre = s.category ? `${s.name} (${s.category})` : s.name;
+      const lignes = s.changes
         .map((c) =>
-          "texte" in c
-            ? `<li>${echapper(c.texte)}</li>`
-            : `<li>${c.libelle ? `${echapper(c.libelle)}: ` : ""}${echapper(c.avant)} → ${echapper(c.apres)}</li>`,
+          "text" in c
+            ? `<li>${echapper(c.text)}</li>`
+            : `<li>${c.label ? `${echapper(c.label)}: ` : ""}${echapper(c.before)} → ${echapper(c.after)}</li>`,
         )
         .join("");
       return `<h4>${echapper(titre)}</h4><ul>${lignes}</ul>`;
@@ -78,9 +78,9 @@ ${date ? `      <pubDate>${new Date(date).toUTCString()}</pubDate>\n` : ""}${typ
      xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>${echapper(`${h.nom} — ${t("pages.heroDetail.statistiques.ajustements")} · ${site.nom}`)}</title>
+    <title>${echapper(`${h.name} — ${t("pages.heroDetail.statistiques.ajustements")} · ${site.nom}`)}</title>
     <link>${fiche}</link>
-    <description>${echapper(t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.nom }))}</description>
+    <description>${echapper(t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.name }))}</description>
     <language>${LOCALE_HTML[locale].toLowerCase()}</language>
 ${dernier ? `    <lastBuildDate>${new Date(dernier).toUTCString()}</lastBuildDate>\n` : ""}    <generator>${echapper(site.nom)}</generator>
     <atom:link href="${urlAbsolue(`/${locale}/heroes/${slug}/feed.xml`)}" rel="self" type="application/rss+xml" />

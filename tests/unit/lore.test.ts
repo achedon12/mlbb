@@ -29,11 +29,11 @@ describe("decouperRelation", () => {
 
 describe("herosCites", () => {
   const motifs = motifsHeros([
-    { slug: "sun", nom: "Sun" },
-    { slug: "yi-sun-shin", nom: "Yi Sun-shin" },
-    { slug: "yin", nom: "Yin" },
-    { slug: "chang-e", nom: "Chang'e" },
-    { slug: "aamon", nom: "Aamon" },
+    { slug: "sun", name: "Sun" },
+    { slug: "yi-sun-shin", name: "Yi Sun-shin" },
+    { slug: "yin", name: "Yin" },
+    { slug: "chang-e", name: "Chang'e" },
+    { slug: "aamon", name: "Aamon" },
   ]);
 
   it("trouve les noms en mots entiers, sans casse, dans l'ordre de lecture", () => {
@@ -50,12 +50,12 @@ describe("herosCites", () => {
 
 describe("liens et paires", () => {
   const liste = [
-    { slug: "aamon", nom: "Aamon" },
-    { slug: "gusion", nom: "Gusion" },
-    { slug: "alice", nom: "Alice" },
-    { slug: "miya", nom: "Miya" },
+    { slug: "aamon", name: "Aamon" },
+    { slug: "gusion", name: "Gusion" },
+    { slug: "alice", name: "Alice" },
+    { slug: "miya", name: "Miya" },
   ];
-  const fiche = (relations: string[]) => ({ fiche: { relations, affiliations: [], espece: null } });
+  const fiche = (relations: string[]) => ({ profile: { relations, affiliations: [], species: null } });
   const en = {
     aamon: fiche(["Gusion (younger brother)"]),
     gusion: fiche(["Aamon (older brother)"]),
@@ -86,7 +86,7 @@ describe("liens et paires", () => {
   });
 
   it("classe un lien personnel et reciproque avant une liste d'ennemis", () => {
-    const noms = new Map(liste.map((h) => [h.slug, h.nom]));
+    const noms = new Map(liste.map((h) => [h.slug, h.name]));
     const paires = pairesLore(liens, noms);
     expect([paires[0].a, paires[0].b]).toEqual(["aamon", "gusion"]);
     expect(paires[0].deA?.nature).toBe("frère cadet");

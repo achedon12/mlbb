@@ -23,17 +23,17 @@ import { cleChoix, visuelObjet } from "./visuels-build";
  * adresses. Calculs faits une fois par type et par rang, au build.
  */
 
-const V = visuels as unknown as Record<"objets" | "emblemes" | "talents" | "sorts", Record<string, string>>;
+const V = visuels as unknown as Record<"items" | "emblems" | "talents" | "spells", Record<string, string>>;
 
 export const emblemesFiches = emblemes.map((e) => ({
   slug: slugEmbleme(e),
   embleme: e,
-  image: V.emblemes[e.cle] ?? null,
+  image: V.emblems[e.key] ?? null,
 }));
 
 /** L'API nomme l'embleme par son role (« Marksman ») ; « All », l'embleme commun, n'a pas de fiche. */
 function emblemeDuBuild(nom: string | null): Embleme | undefined {
-  return nom ? emblemes.find((e) => e.role === nom || e.nom === nom) : undefined;
+  return nom ? emblemes.find((e) => e.role === nom || e.name === nom) : undefined;
 }
 
 /** Toutes les graphies vues dans les builds joues, par cle : le repli des noms sans traduction. */
@@ -42,7 +42,7 @@ for (const parLane of Object.values(buildsJoues)) {
   for (const parRang of Object.values(parLane)) {
     for (const liste of Object.values(parRang)) {
       for (const b of liste ?? []) {
-        if (b.sort) nomsJoues.set(cleChoix(b.sort), b.sort);
+        if (b.spell) nomsJoues.set(cleChoix(b.spell), b.spell);
         for (const talent of b.talents) nomsJoues.set(cleChoix(talent), talent);
       }
     }
@@ -59,23 +59,23 @@ export interface SortFiche {
 
 /** Sorts decrits a la main, completes de ceux que les builds joues citent sans description. */
 export const sortsFiches: SortFiche[] = [
-  ...new Set([...sortsDeCombat.map((s) => s.cle), ...[...nomsJoues.keys()].filter((k) => V.sorts[k])]),
+  ...new Set([...sortsDeCombat.map((s) => s.key), ...[...nomsJoues.keys()].filter((k) => V.spells[k])]),
 ]
   .map((slug) => {
-    const s = sortsDeCombat.find((x) => x.cle === slug);
-    return { slug, nom: s?.nom ?? nomsJoues.get(slug) ?? slug, recharge: s?.recharge ?? null, image: V.sorts[slug] ?? null };
+    const s = sortsDeCombat.find((x) => x.key === slug);
+    return { slug, nom: s?.name ?? nomsJoues.get(slug) ?? slug, recharge: s?.cooldown ?? null, image: V.spells[slug] ?? null };
   })
   .sort((a, b) => a.nom.localeCompare(b.nom));
 
 export type TypeChoix = "objet" | "embleme" | "sort";
 
 const EXTRAIRE: Record<TypeChoix, Extraire> = {
-  objet: (b) => b.objets.flatMap((nom) => visuelObjet(nom).slug ?? []),
+  objet: (b) => b.items.flatMap((nom) => visuelObjet(nom).slug ?? []),
   embleme: (b) => {
-    const e = emblemeDuBuild(b.embleme);
+    const e = emblemeDuBuild(b.emblem);
     return e ? [slugEmbleme(e)] : [];
   },
-  sort: (b) => (b.sort ? [cleChoix(b.sort)] : []),
+  sort: (b) => (b.spell ? [cleChoix(b.spell)] : []),
 };
 
 const contient = (type: TypeChoix, cle: string) => (b: BuildJoue) => [...EXTRAIRE[type](b)].includes(cle);

@@ -19,7 +19,7 @@ function descriptionCatalogue(locale: Langue): string {
     n: heros.length,
     v: patchActuel.version,
     date: dateLongue(locale),
-    top: listeNoms(locale, classementComplet.slice(0, 3).map((e) => e.heros.nom)),
+    top: listeNoms(locale, classementComplet.slice(0, 3).map((e) => e.hero.name)),
     skins: nombreSkins,
     analyses: herosAnalyses.length,
   });
@@ -44,7 +44,7 @@ export default async function PageHeros({ params }: Params) {
     nom: t("pages.heroes.listeLd"),
     description: descriptionCatalogue(locale),
     chemin: "/heroes",
-    heros: heros.map((h) => ({ nom: h.nom, slug: h.slug })),
+    heros: heros.map((h) => ({ nom: h.name, slug: h.slug })),
     modifie: dateMesure,
   });
 
@@ -53,12 +53,12 @@ export default async function PageHeros({ params }: Params) {
     const taux = tauxParSlug.get(h.slug);
     return {
       slug: h.slug,
-      nom: h.nom,
+      nom: h.name,
       roles: h.roles,
       lanes: h.lanes,
-      portrait: h.visuels.icone ?? h.visuels.portrait,
+      portrait: h.images.icon ?? h.images.portrait,
       skins: h.skins.length,
-      analyse: h.analyse !== null,
+      analyse: h.analysis !== null,
       victoire: taux?.victoire ?? null,
       palier: taux?.palier ?? null,
     };

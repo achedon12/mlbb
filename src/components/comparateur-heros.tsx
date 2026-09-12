@@ -23,10 +23,10 @@ export interface HerosComparable {
   roles: string[];
   lanes: string[];
   notes: {
-    offensive: number | null;
-    resistance: number | null;
-    effets: number | null;
-    difficulte: number | null;
+    offense: number | null;
+    durability: number | null;
+    abilityEffects: number | null;
+    difficulty: number | null;
   };
   /** Un rang absent n'a pas de classement pour ce heros. */
   taux: Partial<Record<RangMesure, TauxRang>>;
@@ -47,6 +47,14 @@ const COULEUR_PALIER: Record<Palier, string> = {
   C: "border-night-600 text-chalk-500",
 };
 const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
+
+/** Cle de traduction de chaque note du jeu. */
+const LIBELLE_NOTE: Record<keyof HerosComparable["notes"], string> = {
+  offense: "offensive",
+  durability: "resistance",
+  abilityEffects: "effets",
+  difficulty: "difficulte",
+};
 
 /** Deux heros au moins, trois au plus : au-dela, radar et courbes deviennent illisibles. */
 const MAX_HEROS = 3;
@@ -247,7 +255,7 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
   const taux = heros.map((h) => h.taux[rang] ?? null);
   const note = (cle: keyof HerosComparable["notes"], sens: 1 | 0): LigneTableau => ({
     cle,
-    label: t(`compareUI.${cle}`),
+    label: t(`compareUI.${LIBELLE_NOTE[cle]}`),
     valeurs: heros.map((h) => h.notes[cle]),
     affiche: (v) => entier.format(v),
     sens,
@@ -278,11 +286,11 @@ function TableauComparatif({ heros, rang }: { heros: HerosComparable[]; rang: Ra
       affiche: (v) => pourcent.format(v / 100),
       sens: -1,
     },
-    note("offensive", 1),
-    note("resistance", 1),
-    note("effets", 1),
+    note("offense", 1),
+    note("durability", 1),
+    note("abilityEffects", 1),
     // Une difficulte plus basse n'est pas un avantage en soi : personne en tete.
-    note("difficulte", 0),
+    note("difficulty", 0),
     { cle: "skins", label: t("compareUI.skins"), valeurs: heros.map((h) => h.skins), affiche: (v) => entier.format(v), sens: 1 },
   ];
   const noms = new Intl.ListFormat(langue, { style: "long", type: "conjunction" }).format(heros.map((h) => h.nom));
@@ -359,7 +367,7 @@ function chargerTendances(slug: string): Promise<TendancesVictoire> {
   return requete;
 }
 
-const mesures = (s: SerieVictoire | undefined) => (s?.victoire ?? []).filter((v): v is number => v !== null);
+const mesures = (s: SerieVictoire | undefined) => (s?.winRate ?? []).filter((v): v is number => v !== null);
 
 /**
  * Taux de victoire des heros choisis sur trente jours, superposes. Le
@@ -412,7 +420,7 @@ function CourbesComparees({ heros, rang }: { heros: HerosComparable[]; rang: Ran
   // troisieme garde les siens meme quand un autre n'a pas de mesure.
   const cotes = heros.map((h, i) => ({ heros: h, serie: series30[i][choisi], ...STYLES_SERIES[i] }));
   const { dates, valeurs } = alignerSeries(
-    cotes.map((c) => ({ debut: c.serie?.debut ?? "", valeurs: c.serie?.victoire ?? [] })),
+    cotes.map((c) => ({ debut: c.serie?.start ?? "", valeurs: c.serie?.winRate ?? [] })),
   );
   const depuis = Math.max(0, dates.length - JOURS_COURBE);
   const tirets = (m: MotifTrait) => m !== "plein";

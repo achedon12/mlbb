@@ -13,12 +13,12 @@ import { NextResponse } from "next/server";
 export function reponseApi(donnees: unknown, options: { total?: number } = {}) {
   return NextResponse.json(
     {
-      donnees,
+      data: donnees,
       ...(options.total !== undefined ? { total: options.total } : {}),
       source: {
-        nom: "Mobile Legends Wiki",
+        name: "Mobile Legends Wiki",
         url: "https://mobilelegends.fandom.com",
-        licence: "CC BY-SA",
+        license: "CC BY-SA",
       },
     },
     {
@@ -36,7 +36,7 @@ export function reponseApi(donnees: unknown, options: { total?: number } = {}) {
 
 export function introuvable(quoi: string) {
   return NextResponse.json(
-    { erreur: `${quoi} introuvable` },
+    { error: `${quoi} not found` },
     { status: 404, headers: { "Access-Control-Allow-Origin": "*" } },
   );
 }

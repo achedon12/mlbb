@@ -45,16 +45,16 @@ export function normaliser(v: number | null, [min, max]: readonly [number, numbe
 
 /** Valeurs d'un heros sur AXES_RADAR : notes sur 10, taux ramenes sur l'etendue du rang. */
 export function valeursRadar(
-  notes: { offensive: number | null; resistance: number | null; effets: number | null; difficulte: number | null },
+  notes: { offense: number | null; durability: number | null; abilityEffects: number | null; difficulty: number | null },
   taux: { victoire: number; ban: number } | null,
   bornes: { victoire: readonly [number, number]; ban: readonly [number, number] } | null,
 ): (number | null)[] {
   const note = (v: number | null) => (v === null ? null : Math.min(1, Math.max(0, v / 10)));
   return [
-    note(notes.offensive),
-    note(notes.resistance),
-    note(notes.effets),
-    note(notes.difficulte),
+    note(notes.offense),
+    note(notes.durability),
+    note(notes.abilityEffects),
+    note(notes.difficulty),
     taux && bornes ? normaliser(taux.victoire, bornes.victoire) : null,
     taux && bornes ? normaliser(taux.ban, bornes.ban) : null,
   ];

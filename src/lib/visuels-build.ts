@@ -10,7 +10,7 @@ import { rangLisible } from "./rangs";
  *
  * Les images sont rangees sous le nom anglais du jeu, passe en slug.
  */
-const V = visuels as unknown as Record<"objets" | "emblemes" | "talents" | "sorts", Record<string, string>>;
+const V = visuels as unknown as Record<"items" | "emblems" | "talents" | "spells", Record<string, string>>;
 
 const cle = (nom: string) =>
   cleRecherche(nom).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -46,44 +46,44 @@ export const visuelTalent = (nom: string) => resoudre(V.talents, nom);
  * que les builds joues citent avec un visuel (voir `sortsFiches`, src/lib/fiches-usage.ts).
  */
 export function visuelSort(nom: string): VisuelResolu {
-  const visuel = resoudre(V.sorts, nom);
+  const visuel = resoudre(V.spells, nom);
   const k = cleChoix(nom);
-  return sortsDeCombat.some((s) => s.cle === k) || V.sorts[k] ? { ...visuel, href: `/spells/${k}` } : visuel;
+  return sortsDeCombat.some((s) => s.key === k) || V.spells[k] ? { ...visuel, href: `/spells/${k}` } : visuel;
 }
 
 /** L'API nomme l'embleme par son role (« Marksman »), les builds rediges en toutes lettres. */
 export function visuelEmbleme(nom: string): VisuelResolu {
-  const e = emblemes.find((x) => x.nom === nom || x.role === nom);
-  return e ? { nom, image: V.emblemes[e.cle] ?? null, href: `/emblems/${slugEmbleme(e)}` } : { nom, image: null };
+  const e = emblemes.find((x) => x.name === nom || x.role === nom);
+  return e ? { nom, image: V.emblems[e.key] ?? null, href: `/emblems/${slugEmbleme(e)}` } : { nom, image: null };
 }
 
-const OBJETS_PAR_NOM = new Map(objets("en").map((o) => [o.nom, o]));
+const OBJETS_PAR_NOM = new Map(objets("en").map((o) => [o.name, o]));
 
 export function visuelObjet(nom: string): ObjetResolu {
   // Les bottes portent parfois leur enchantement (« Swift Boots - Encourage ») :
   // le visuel est celui des bottes.
   const o = OBJETS_PAR_NOM.get(nom) ?? OBJETS_PAR_NOM.get(nom.split(" - ")[0]);
-  return { nom, slug: o?.slug ?? null, image: o ? (V.objets[o.slug] ?? null) : null };
+  return { nom, slug: o?.slug ?? null, image: o ? (V.items[o.slug] ?? null) : null };
 }
 
 export function resoudreBuild(b: BuildJoue): BuildResolu {
   return {
-    objets: b.objets.map(visuelObjet),
-    embleme: b.embleme ? visuelEmbleme(b.embleme) : null,
+    objets: b.items.map(visuelObjet),
+    embleme: b.emblem ? visuelEmbleme(b.emblem) : null,
     talents: b.talents.map(visuelTalent),
-    sort: b.sort ? visuelSort(b.sort) : null,
-    victoire: b.victoire,
-    selection: b.selection,
+    sort: b.spell ? visuelSort(b.spell) : null,
+    victoire: b.winRate,
+    selection: b.pickRate,
   };
 }
 
 export function resoudreGuide(g: GuideJoueur): GuideResolu {
-  const rang = g.rangAuteur > 0 ? rangLisible(g.rangAuteur) : null;
+  const rang = g.authorRank > 0 ? rangLisible(g.authorRank) : null;
   return {
-    objets: g.objets.map(visuelObjet),
-    embleme: g.embleme ? visuelEmbleme(g.embleme) : null,
+    objets: g.items.map(visuelObjet),
+    embleme: g.emblem ? visuelEmbleme(g.emblem) : null,
     talents: g.talents.map(visuelTalent),
-    sort: g.sort ? visuelSort(g.sort) : null,
+    sort: g.spell ? visuelSort(g.spell) : null,
     auteur: rang ? { cle: rang.cle, division: rang.division } : null,
     votes: g.votes,
   };

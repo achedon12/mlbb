@@ -4,15 +4,15 @@ import type { Palier } from "@/lib/types";
 
 /** Regle simplifiee : le score est le taux de victoire, trois paliers. */
 const regle = {
-  score: (t: { victoire: number; ban: number }) => t.victoire,
+  score: (t: { winRate: number; banRate: number }) => t.winRate,
   palier: (s: number): Palier => (s >= 53 ? "S" : s >= 50 ? "A" : "B"),
 };
 
 /** Huit jours de mesures, du taux d'il y a sept jours au taux du jour, interpoles. */
 const serie = (avant: number, apres: number): SerieTier => ({
-  debut: "2026-09-04",
-  victoire: Array.from({ length: 8 }, (_, k) => Math.round((avant + ((apres - avant) * k) / 7) * 10) / 10),
-  ban: Array.from({ length: 8 }, () => 5),
+  start: "2026-09-04",
+  winRate: Array.from({ length: 8 }, (_, k) => Math.round((avant + ((apres - avant) * k) / 7) * 10) / 10),
+  banRate: Array.from({ length: 8 }, () => 5),
 });
 
 describe("changements de palier", () => {
@@ -40,8 +40,8 @@ describe("changements de palier", () => {
   });
 
   it("ne dit rien sans serie, sans reference a J-7 ou sans ban mesure", () => {
-    const courte: SerieTier = { debut: "2026-09-09", victoire: [50, 51, 54], ban: [5, 5, 5] };
-    const sansBan: SerieTier = { ...serie(49, 54), ban: Array.from({ length: 8 }, () => null) };
+    const courte: SerieTier = { start: "2026-09-09", winRate: [50, 51, 54], banRate: [5, 5, 5] };
+    const sansBan: SerieTier = { ...serie(49, 54), banRate: Array.from({ length: 8 }, () => null) };
     const resultat = changementsDePalier(
       [
         { slug: "rien", serie: null, palierActuel: "S" },
@@ -72,11 +72,11 @@ describe("resume d'un patch", () => {
 describe("premiers selon une mesure", () => {
   it("trie du plus haut au plus bas, a egalite par slug, sans toucher a l'entree", () => {
     const entrees = [
-      { heros: { slug: "b" }, ban: 10 },
-      { heros: { slug: "a" }, ban: 10 },
-      { heros: { slug: "c" }, ban: 30 },
+      { hero: { slug: "b" }, ban: 10 },
+      { hero: { slug: "a" }, ban: 10 },
+      { hero: { slug: "c" }, ban: 30 },
     ];
-    expect(premiersSelon(entrees, (e) => e.ban, 2).map((e) => e.heros.slug)).toEqual(["c", "a"]);
-    expect(entrees[0].heros.slug).toBe("b");
+    expect(premiersSelon(entrees, (e) => e.ban, 2).map((e) => e.hero.slug)).toEqual(["c", "a"]);
+    expect(entrees[0].hero.slug).toBe("b");
   });
 });

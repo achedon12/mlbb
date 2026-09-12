@@ -14,13 +14,13 @@ export interface ContreAffiche {
   nom: string;
   portrait: string | null;
   /** Ecart de taux de victoire, en points (positif = avantage). */
-  avantage: number;
+  advantage: number;
 }
 
 export interface ContresAffiches {
-  fort: ContreAffiche[];
-  faible: ContreAffiche[];
-  mesure: number | null;
+  strong: ContreAffiche[];
+  weak: ContreAffiche[];
+  winRate: number | null;
 }
 
 /**
@@ -52,9 +52,9 @@ export function ContresChiffres({
     <div>
       <p className="mb-4 text-sm leading-relaxed text-chalk-500">
         {t("pages.heroDetail.contresIntro", { nom })}
-        {courant.mesure !== null && (
+        {courant.winRate !== null && (
           <span className="text-chalk-300">
-            {" "}{t("pages.heroDetail.contresRef", { taux: courant.mesure })}
+            {" "}{t("pages.heroDetail.contresRef", { taux: courant.winRate })}
           </span>
         )}
       </p>
@@ -64,13 +64,13 @@ export function ContresChiffres({
           titre={t("contres.fort")}
           icone={<TrendingUp size={17} aria-hidden />}
           ton="bon"
-          entrees={courant.fort}
+          entrees={courant.strong}
         />
         <Colonne
           titre={t("contres.difficulte")}
           icone={<TrendingDown size={17} aria-hidden />}
           ton="mauvais"
-          entrees={courant.faible}
+          entrees={courant.weak}
         />
       </div>
     </div>
@@ -133,8 +133,8 @@ function Colonne({
               <PortraitHeros source={e.portrait} nom={e.nom} taille="petite" decoratif />
               <span className="min-w-0 flex-1 truncate text-sm text-chalk-100">{e.nom}</span>
               <span className={cn("shrink-0 text-xs font-semibold tabular-nums", couleur)}>
-                {e.avantage > 0 ? "+" : ""}
-                {e.avantage.toFixed(1)} {t("contres.pts")}
+                {e.advantage > 0 ? "+" : ""}
+                {e.advantage.toFixed(1)} {t("contres.pts")}
               </span>
             </Link>
           </li>

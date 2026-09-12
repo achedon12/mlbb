@@ -8,27 +8,25 @@ a Discord bot, a dashboard or another site without redoing the extraction.
 - **On the site**: the same documentation, with clickable examples, at
   [mlbbdex.com/en/api-doc](https://mlbbdex.com/en/api-doc)
 
-Route, parameter and field names are in French, as in the code: `heros`
-(heroes), `objets` (items), `patchs` (patches), `classement` (ranking), `sante`
-(health), `donnees` (data).
+Route, parameter and field names are in English, as in the code.
 
 ## Routes
 
 | Route | Content | Parameters |
 | --- | --- | --- |
-| `GET /api/v1/heros` | The roster: a summary of each hero (roles, lanes, ratings, skills…) | `role`: Tank, Fighter, Assassin, Mage, Marksman, Support · `lane`: Or (gold), Jungle, Milieu (mid), Experience, Roam |
-| `GET /api/v1/heros/{slug}` | A hero's full page: base stats, ratings, skills, skins… | — |
-| `GET /api/v1/objets` | The item catalogue: price, bonuses, passive, active, recipe | `categorie`: Attack, Magic, Defense, Movement (exact match, case-insensitive) |
-| `GET /api/v1/patchs` | The list of patch notes, with a link to each one | — |
-| `GET /api/v1/classement` | The computed tier list: tier, win, ban and pick rates, score | — |
-| `GET /api/sante` | Service health check (`{ "etat": "ok" }`) | — |
+| `GET /api/v1/heroes` | The roster: a summary of each hero (roles, lanes, ratings, skills…) | `role`: Tank, Fighter, Assassin, Mage, Marksman, Support · `lane`: Or (gold), Jungle, Milieu (mid), Experience, Roam |
+| `GET /api/v1/heroes/{slug}` | A hero's full page: base stats, ratings, skills, skins… | — |
+| `GET /api/v1/items` | The item catalogue: price, bonuses, passive, active, recipe | `category`: Attack, Magic, Defense, Movement (exact match, case-insensitive) |
+| `GET /api/v1/patches` | The list of patch notes, with a link to each one | — |
+| `GET /api/v1/rankings` | The computed tier list: tier, win, ban and pick rates, score | — |
+| `GET /api/sante` | Service health check (`{ "status": "ok" }`) | — |
 
 Examples:
 
 ```sh
-curl "https://mlbbdex.com/api/v1/heros?role=Tank&lane=Roam"
-curl "https://mlbbdex.com/api/v1/heros/khufra"
-curl "https://mlbbdex.com/api/v1/objets?categorie=Defense"
+curl "https://mlbbdex.com/api/v1/heroes?role=Tank&lane=Roam"
+curl "https://mlbbdex.com/api/v1/heroes/khufra"
+curl "https://mlbbdex.com/api/v1/items?category=Defense"
 ```
 
 Parameters can be combined: `?role=Tank&lane=Roam` returns the tanks played in
@@ -40,25 +38,25 @@ Every response wraps its data the same way:
 
 ```json
 {
-  "donnees": [],
+  "data": [],
   "total": 18,
   "source": {
-    "nom": "Mobile Legends Wiki",
+    "name": "Mobile Legends Wiki",
     "url": "https://mobilelegends.fandom.com",
-    "licence": "CC BY-SA"
+    "license": "CC BY-SA"
   }
 }
 ```
 
-- `donnees`: an array for a list, an object for a single entry. For
-  `/api/v1/classement`, an object `{ mesureLe, heros }`: `mesureLe` is the date
-  the rates were measured, which is separate from the sync.
+- `data`: an array for a list, an object for a single entry. For
+  `/api/v1/rankings`, an object `{ measuredAt, heroes }`: `measuredAt` is the
+  date the rates were measured, which is separate from the sync.
 - `total`: present on lists, the number of items returned.
 - `source`: where the data comes from and its license, repeated in the
   `X-Data-License` header.
 
-An unknown identifier (`/api/v1/heros/inconnu`) returns `404` and
-`{ "erreur": "… introuvable" }` ("not found").
+An unknown identifier (`/api/v1/heroes/unknown`) returns `404` and
+`{ "error": "… not found" }`.
 
 ## Limits and fair use
 

@@ -18,7 +18,7 @@ export function HeroProStats({ slug, locale }: { slug: string; locale: Langue })
   const hero = herosParSlug.get(slug);
   if (!pro || !hero) return null;
   const t = creerT(locale);
-  const ranked = classementComplet.find((e) => e.heros.slug === slug);
+  const ranked = classementComplet.find((e) => e.hero.slug === slug);
   const share = (n: number) => t("pages.esports.heroPro.share", { value: pourcentage(locale, (n / pro.games) * 100) });
   const tiles = [
     {
@@ -37,7 +37,7 @@ export function HeroProStats({ slug, locale }: { slug: string; locale: Langue })
       ? [
           {
             label: t("pages.esports.heroPro.ranked"),
-            value: pourcentage(locale, ranked.victoire),
+            value: pourcentage(locale, ranked.winRate),
             detail: t("pages.esports.heroPro.rankedDetail", { value: pourcentage(locale, rankedPresence(ranked)) }),
           },
         ]
@@ -47,7 +47,7 @@ export function HeroProStats({ slug, locale }: { slug: string; locale: Langue })
   return (
     <section>
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.esports.heroPro.title", { name: hero.nom })}</h3>
+        <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.esports.heroPro.title", { name: hero.name })}</h3>
         <Link href="/esports" className="text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
           {t("pages.esports.heroPro.link")} →
         </Link>

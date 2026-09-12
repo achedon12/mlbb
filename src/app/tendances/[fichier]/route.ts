@@ -26,7 +26,7 @@ export async function GET(_requete: Request, { params }: { params: Promise<{ fic
   // Un heros pas encore mesure rend un objet vide : le client l'affiche comme tel.
   const parRang: Record<string, SerieVictoire> = {};
   for (const [rang, serie] of Object.entries(tendancesDe(slug))) {
-    if (serie) parRang[rang] = { debut: serie.debut, victoire: serie.victoire };
+    if (serie) parRang[rang] = { start: serie.start, winRate: serie.winRate };
   }
   return NextResponse.json(parRang, { headers: { "Cache-Control": "public, max-age=3600" } });
 }

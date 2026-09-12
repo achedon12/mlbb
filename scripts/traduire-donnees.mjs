@@ -75,11 +75,11 @@ const collecter = (rebuild) => (d) => {
 function histoiresTextes(d) {
   const out = [];
   for (const h of Object.values(d)) {
-    if (h.accroche) out.push(h.accroche);
-    out.push(...(h.lore ?? []), ...(h.anecdotes ?? []));
-    if (h.fiche) {
-      for (const c of ["titre", "espece", "genre", "age", "origine"]) if (h.fiche[c]) out.push(h.fiche[c]);
-      out.push(...(h.fiche.affiliations ?? []), ...(h.fiche.relations ?? []), ...(h.fiche.pouvoirs ?? []));
+    if (h.tagline) out.push(h.tagline);
+    out.push(...(h.lore ?? []), ...(h.trivia ?? []));
+    if (h.profile) {
+      for (const c of ["title", "species", "gender", "age", "origin"]) if (h.profile[c]) out.push(h.profile[c]);
+      out.push(...(h.profile.affiliations ?? []), ...(h.profile.relations ?? []), ...(h.profile.powers ?? []));
     }
   }
   return out;
@@ -88,23 +88,23 @@ function histoiresRebuild(d, t) {
   const tl_ = (liste) => (liste ?? []).map(t);
   const o = {};
   for (const [slug, h] of Object.entries(d)) {
-    const f = h.fiche;
+    const f = h.profile;
     o[slug] = {
-      accroche: t(h.accroche),
+      tagline: t(h.tagline),
       lore: tl_(h.lore),
-      anecdotes: tl_(h.anecdotes),
-      fiche: f
+      trivia: tl_(h.trivia),
+      profile: f
         ? {
-            nomComplet: f.nomComplet,
-            titre: t(f.titre),
-            espece: t(f.espece),
-            genre: t(f.genre),
+            fullName: f.fullName,
+            title: t(f.title),
+            species: t(f.species),
+            gender: t(f.gender),
             age: t(f.age),
-            origine: t(f.origine),
-            anniversaire: f.anniversaire,
+            origin: t(f.origin),
+            birthday: f.birthday,
             affiliations: tl_(f.affiliations),
             relations: tl_(f.relations),
-            pouvoirs: tl_(f.pouvoirs),
+            powers: tl_(f.powers),
           }
         : null,
     };
@@ -119,7 +119,7 @@ function competencesTextes(d) {
 }
 const competencesRebuild = (d, t) =>
   Object.fromEntries(
-    Object.entries(d).map(([s, l]) => [s, l.map((c) => (c ? { nom: c.nom, description: t(c.description) } : c))]),
+    Object.entries(d).map(([s, l]) => [s, l.map((c) => (c ? { name: c.name, description: t(c.description) } : c))]),
   );
 
 function modesTextes(d) {
@@ -127,8 +127,8 @@ function modesTextes(d) {
   for (const m of d) {
     if (m.description) out.push(m.description);
     for (const s of m.sections ?? []) {
-      out.push(s.titre);
-      for (const e of s.elements ?? []) out.push(e.texte);
+      out.push(s.title);
+      for (const e of s.elements ?? []) out.push(e.text);
     }
   }
   return out;
@@ -138,12 +138,12 @@ const modesRebuild = (d, t) =>
     ...m,
     description: t(m.description),
     sections: (m.sections ?? []).map((s) => ({
-      titre: t(s.titre),
-      elements: (s.elements ?? []).map((e) => ({ type: e.type, texte: t(e.texte) })),
+      title: t(s.title),
+      elements: (s.elements ?? []).map((e) => ({ type: e.type, text: t(e.text) })),
     })),
   }));
 
-const CHAMPS_OBJET = ["resume", "bonus", "unique", "passif", "actif", "pourQui"];
+const CHAMPS_OBJET = ["summary", "bonus", "unique", "passive", "active", "bestFor"];
 function objetsTextes(d) {
   const out = [];
   for (const o of d) for (const c of CHAMPS_OBJET) if (o[c]) out.push(o[c]);
@@ -162,29 +162,29 @@ const tierNotesRebuild = (d, t) => Object.fromEntries(Object.entries(d).map(([s,
  * l'illustration), valeurs avant/apres, ancres et liens.
  */
 // Le parseur nomme en francais la sous-section implicite des attributs.
-const nomSection = (s) => (s.categorie ? s.nom : s.nom === "Attributs" ? "Attributes" : s.nom);
+const nomSection = (s) => (s.category ? s.name : s.name === "Attributs" ? "Attributes" : s.name);
 const patchsRebuild = (d, t) =>
   Object.fromEntries(
     Object.entries(d).map(([version, p]) => [
       version,
       {
         ...p,
-        sommaire: p.sommaire.map((s) => ({ ...s, titre: t(s.titre) })),
-        sections: p.sections.map((s) => ({ ...s, titre: t(s.titre), html: traduireHtml(s.html, t) })),
-        nouveaux: p.nouveaux.map((n) => ({
+        toc: p.toc.map((s) => ({ ...s, title: t(s.title) })),
+        sections: p.sections.map((s) => ({ ...s, title: t(s.title), html: traduireHtml(s.html, t) })),
+        newHeroes: p.newHeroes.map((n) => ({
           ...n,
           lore: n.lore.map(t),
           feature: t(n.feature),
-          competences: n.competences.map((c) => ({ ...c, role: t(c.role), description: c.description.map(t) })),
+          skills: n.skills.map((c) => ({ ...c, role: t(c.role), description: c.description.map(t) })),
         })),
-        ajustements: p.ajustements.map((a) => ({
+        adjustments: p.adjustments.map((a) => ({
           ...a,
           intro: t(a.intro),
           sections: a.sections.map((s) => ({
             ...s,
-            nom: s.categorie ? s.nom : t(nomSection(s)),
-            categorie: t(s.categorie),
-            changements: s.changements.map((c) => ("texte" in c ? { ...c, texte: t(c.texte) } : { ...c, libelle: t(c.libelle) })),
+            name: s.category ? s.name : t(nomSection(s)),
+            category: t(s.category),
+            changes: s.changes.map((c) => ("text" in c ? { ...c, text: t(c.text) } : { ...c, label: t(c.label) })),
           })),
         })),
       },
@@ -217,7 +217,7 @@ const JEUX = {
   patchs: {
     source: "en",
     fichier: "src/data/jeu/patchs.json",
-    extraire: (d) => d.detail,
+    extraire: (d) => d.details,
     textes: collecter(patchsRebuild),
     rebuild: patchsRebuild,
   },

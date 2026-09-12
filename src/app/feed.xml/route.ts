@@ -29,16 +29,16 @@ export function GET(): Response {
 
   const entrees = articles
     .map((a) => {
-      const lien = chemin(a.categorie, a.slug);
+      const lien = chemin(a.category, a.slug);
       return `    <item>
-      <title>${echapper(a.titre)}</title>
+      <title>${echapper(a.title)}</title>
       <link>${lien}</link>
       <guid isPermaLink="true">${lien}</guid>
       <pubDate>${new Date(a.date).toUTCString()}</pubDate>
-      <dc:creator>${echapper(a.auteur)}</dc:creator>
-      <category>${echapper(a.categorie)}</category>
-      <description>${echapper(a.chapeau)}</description>
-      <content:encoded><![CDATA[${enHtml(a.contenu)}]]></content:encoded>
+      <dc:creator>${echapper(a.author)}</dc:creator>
+      <category>${echapper(a.category)}</category>
+      <description>${echapper(a.summary)}</description>
+      <content:encoded><![CDATA[${enHtml(a.content)}]]></content:encoded>
     </item>`;
     })
     .join("\n");

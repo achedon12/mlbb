@@ -32,10 +32,10 @@ import { visuelObjet } from "./visuels-build";
  * text says so ("one potion effect at a time").
  */
 
-const V = visuels as unknown as Record<"objets" | "emblemes", Record<string, string>>;
+const V = visuels as unknown as Record<"items" | "emblems", Record<string, string>>;
 
-const isPurchasable = (o: { prix: number | null; passif: string | null }) =>
-  o.prix !== null && !/one potion effect/i.test(o.passif ?? "");
+const isPurchasable = (o: { price: number | null; passive: string | null }) =>
+  o.price !== null && !/one potion effect/i.test(o.passive ?? "");
 
 const englishItems = objets("en").filter(isPurchasable);
 
@@ -59,16 +59,16 @@ export const codeCatalog: CodeCatalog = {
 // -- Names and images, per language -----------------------------------------
 
 /** "tank" to its record in `src/data/emblemes.ts`, which carries the image and the translated name. */
-const emblemRecord = (key: string) => emblemes.find((e) => e.cle === `${key}-emblem`);
+const emblemRecord = (key: string) => emblemes.find((e) => e.key === `${key}-emblem`);
 
 export function emblemName(t: T, key: string): string {
   const record = emblemRecord(key);
-  return record ? texteChoix(t, record.cle, "nom", record.nom)! : t("pages.buildSimulator.commonEmblem");
+  return record ? texteChoix(t, record.key, "nom", record.name)! : t("pages.buildSimulator.commonEmblem");
 }
 
 export function emblemImage(key: string): string | null {
   const record = emblemRecord(key);
-  return record ? (V.emblemes[record.cle] ?? null) : null;
+  return record ? (V.emblems[record.key] ?? null) : null;
 }
 
 export function spellName(t: T, key: string): string {
@@ -77,7 +77,7 @@ export function spellName(t: T, key: string): string {
 }
 
 export const spellImage = (key: string): string | null => sortsFiches.find((x) => x.slug === key)?.image ?? null;
-export const itemImage = (slug: string): string | null => V.objets[slug] ?? null;
+export const itemImage = (slug: string): string | null => V.items[slug] ?? null;
 export const talentName = nomTalent;
 export const talentImage = imageTalent;
 
@@ -88,18 +88,18 @@ export function simulatorData(locale: Langue, t: T): SimulatorData {
       .filter((h) => simCatalog.heroes.has(h.slug))
       .map((h) => ({
         slug: h.slug,
-        name: h.nom,
+        name: h.name,
         lanes: h.lanes,
         roles: h.roles,
-        icon: h.visuels.icone,
+        icon: h.images.icon,
         sim: simCatalog.heroes.get(h.slug)!,
       })),
     items: [...simCatalog.items.values()].map((o) => {
       const tr = translated.get(o.slug);
       const text = [tr?.bonus, tr?.unique].filter((x) => x && x !== "None").join(", ");
-      return { ...o, name: tr?.nom ?? o.name, image: itemImage(o.slug), text: text || null };
+      return { ...o, name: tr?.name ?? o.name, image: itemImage(o.slug), text: text || null };
     }),
-    categories: [...new Set(englishItems.map((o) => o.categorie))],
+    categories: [...new Set(englishItems.map((o) => o.category))],
     emblems: [...simCatalog.emblems.values()].map((e) => ({ ...e, name: emblemName(t, e.key), image: emblemImage(e.key) })),
     talents: [...simCatalog.talents.values()].map((tl) => ({ ...tl, name: nomTalent(t, tl.key), image: imageTalent(tl.key) })),
     spells: sortsFiches.map((s) => ({ key: s.slug, name: spellName(t, s.slug), image: s.image })),
@@ -108,7 +108,7 @@ export function simulatorData(locale: Langue, t: T): SimulatorData {
 
 /** Display names of the whole catalog, for pages that show builds without the simulator. */
 export function buildNames(locale: Langue, t: T): BuildNames {
-  const translated = new Map(objets(locale).map((o) => [o.slug, o.nom]));
+  const translated = new Map(objets(locale).map((o) => [o.slug, o.name]));
   return namesFrom({
     items: [...simCatalog.items.values()].map((o) => ({ slug: o.slug, name: translated.get(o.slug) ?? o.name })),
     emblems: [...simCatalog.emblems.keys()].map((key) => ({ key, name: emblemName(t, key) })),
@@ -130,9 +130,9 @@ export function measuredCores(slug: string): MeasuredCore[] {
       (byRank[rank] ?? []).map((b) => ({
         lane,
         rank,
-        items: b.objets.flatMap((name) => visuelObjet(name).slug ?? []),
-        winRate: b.victoire,
-        pickRate: b.selection,
+        items: b.items.flatMap((name) => visuelObjet(name).slug ?? []),
+        winRate: b.winRate,
+        pickRate: b.pickRate,
       })),
     ),
   );

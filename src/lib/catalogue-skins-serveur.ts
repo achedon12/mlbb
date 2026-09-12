@@ -70,28 +70,28 @@ export function catalogueSkins(): Catalogue {
   if (cache) return cache;
   // Un heros sans aucun skin recense (annonce, pas encore sorti) ne peut pas etre possede.
   const avecSkins = heros.filter((h) => h.skins.length > 0);
-  const series = graphiesSeries(avecSkins.flatMap((h) => h.skins.map((s) => s.etiquette)));
+  const series = graphiesSeries(avecSkins.flatMap((h) => h.skins.map((s) => s.label)));
   const skins: SkinCatalogue[] = avecSkins.flatMap((h) => {
     const galerie = galerieHeros(h).skins;
-    const ancres = ancresDe(galerie.map((s) => s.nom));
+    const ancres = ancresDe(galerie.map((s) => s.name));
     return galerie.map((s, i) => ({
       id: s.id,
-      nom: s.nom,
+      nom: s.name,
       heros: h.slug,
       // Une rarete inconnue compte comme la plus commune plutot que de passer pour un skin d'origine.
-      rarete: s.rarete ? (RARETES[s.rarete]?.rang ?? 1) : 0,
-      serie: s.etiquette ? (series.get(s.etiquette.toLowerCase()) ?? s.etiquette) : null,
-      sortie: s.sortie,
-      dispo: (DISPOS as readonly string[]).includes(s.disponibilite ?? "") ? (s.disponibilite as Dispo) : null,
-      prix: lirePrix(s.prix),
-      obtention: nettoyerObtention(s.prix.other),
+      rarete: s.rarity ? (RARETES[s.rarity]?.rang ?? 1) : 0,
+      serie: s.label ? (series.get(s.label.toLowerCase()) ?? s.label) : null,
+      sortie: s.release,
+      dispo: (DISPOS as readonly string[]).includes(s.availability ?? "") ? (s.availability as Dispo) : null,
+      prix: lirePrix(s.price),
+      obtention: nettoyerObtention(s.price.other),
       image: s.portrait ?? s.illustration,
       ancre: ancres[i],
     }));
   });
   cache = {
     maj: dateReference,
-    heros: avecSkins.map((h) => ({ slug: h.slug, nom: h.nom, roles: h.roles, icone: h.visuels.icone ?? h.visuels.portrait })),
+    heros: avecSkins.map((h) => ({ slug: h.slug, nom: h.name, roles: h.roles, icone: h.images.icon ?? h.images.portrait })),
     skins,
   };
   return cache;

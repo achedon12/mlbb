@@ -594,7 +594,7 @@
       "statPatchs": "Patches",
       "statClasses": "Ranked heroes",
       "formeTitre": "Response format",
-      "formeTexte": "Each response wraps the result in “donnees”, adds the total item count when it's a list, and states the data source.",
+      "formeTexte": "Each response wraps the result in “data”, adds the total item count when it's a list, and states the data source.",
       "conditionsTitre": "Terms",
       "c1label": "No key, no quota.",
       "c1texte": "Responses are static and cached: they cost nothing to serve. Be reasonable and everything will be fine.",
@@ -2568,8 +2568,8 @@
         "red": "Red team"
       },
       "timers": {
-        "off": "Off",
         "30": "{n} s",
+        "off": "Off",
         "game": "Game timers ({ban} s / {pick} s)"
       },
       "you": "you",

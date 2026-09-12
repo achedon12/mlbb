@@ -35,12 +35,12 @@ class Cumul {
   private brut: number[] = [];
 
   ajouter(b: BuildJoue) {
-    const part = b.selection ?? 0;
+    const part = b.pickRate ?? 0;
     this.part += part;
-    if (b.victoire === null) return;
-    this.brut.push(b.victoire);
+    if (b.winRate === null) return;
+    this.brut.push(b.winRate);
     if (part > 0) {
-      this.gagne += b.victoire * part;
+      this.gagne += b.winRate * part;
       this.pese += part;
     }
   }
@@ -138,7 +138,7 @@ export function partsParChoix(
     for (const parRang of Object.values(parLane)) {
       for (const b of parRang[rang] ?? []) {
         if (!retenir(b)) continue;
-        const p = b.selection && b.selection > 0 ? b.selection : 0.01;
+        const p = b.pickRate && b.pickRate > 0 ? b.pickRate : 0.01;
         total += p;
         for (const cle of new Set(extraire(b))) poids.set(cle, (poids.get(cle) ?? 0) + p);
       }

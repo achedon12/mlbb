@@ -40,7 +40,7 @@ type Params = { params: Promise<{ locale: Langue }> };
  */
 const PATH = "/esports";
 
-const heroName = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const heroName = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
@@ -239,10 +239,10 @@ function HeroList({
                 href={`/heroes/${h.slug}`}
                 className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
               >
-                <PortraitHeros source={hero.visuels.icone ?? hero.visuels.portrait} nom={hero.nom} taille="petite" decoratif />
+                <PortraitHeros source={hero.images.icon ?? hero.images.portrait} nom={hero.name} taille="petite" decoratif />
                 <span className="min-w-0 flex-1">
                   <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                    {hero.nom}
+                    {hero.name}
                   </span>
                   <span className="block text-xs text-chalk-500">{detail(h)}</span>
                 </span>
@@ -305,13 +305,13 @@ function VersusTable({
                     <th scope="row" className="px-3 py-1.5 text-left font-normal">
                       <Link href={`/heroes/${r.slug}`} className="group flex items-center gap-2">
                         <PortraitHeros
-                          source={hero.visuels.icone ?? hero.visuels.portrait}
-                          nom={hero.nom}
+                          source={hero.images.icon ?? hero.images.portrait}
+                          nom={hero.name}
                           taille="mini"
                           decoratif
                         />
                         <span className="truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                          {hero.nom}
+                          {hero.name}
                         </span>
                       </Link>
                     </th>

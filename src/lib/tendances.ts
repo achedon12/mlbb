@@ -12,7 +12,7 @@ import type { TypeAjustement } from "./types";
  */
 
 /** Serie quotidienne du taux de victoire, alignee sur sa date de debut ; un jour manquant vaut null. */
-export type SerieVictoire = Pick<SerieTaux, "debut" | "victoire" | "mesureDepuis">;
+export type SerieVictoire = Pick<SerieTaux, "start" | "winRate" | "measuredSince">;
 
 const JOUR_MS = 86_400_000;
 const temps = (date: string) => Date.parse(`${date}T00:00:00Z`);
@@ -77,7 +77,7 @@ export interface Variation {
  * tendance plutot qu'une tendance inventee.
  */
 export function variationSemaine(serie: SerieVictoire | null | undefined): Variation | null {
-  const valeurs = serie?.victoire ?? [];
+  const valeurs = serie?.winRate ?? [];
   const fin = valeurs.length - 1;
 
   let dernier = -1;
@@ -109,7 +109,7 @@ export function variationSemaine(serie: SerieVictoire | null | undefined): Varia
     avant,
     ecart: arrondi(actuel - avant),
     jours: dernier - reference,
-    date: decalerDate(serie.debut, dernier),
+    date: decalerDate(serie.start, dernier),
   };
 }
 
@@ -188,16 +188,16 @@ export interface ImpactPatch {
  */
 export function impactPatch(historique: SerieVictoire | null | undefined, date: string | null | undefined) {
   if (!historique || !date) return null;
-  const jourPatch = joursEntre(historique.debut, date);
+  const jourPatch = joursEntre(historique.start, date);
   if (!Number.isFinite(jourPatch)) return null;
   // Les semaines compactees sont interpolees jour par jour : ce ne sont pas
   // des mesures, elles lisseraient l'impact d'un patch ancien.
-  const premierMesure = historique.mesureDepuis ? Math.max(0, joursEntre(historique.debut, historique.mesureDepuis)) : 0;
+  const premierMesure = historique.measuredSince ? Math.max(0, joursEntre(historique.start, historique.measuredSince)) : 0;
 
   const releves = (de: number, a: number) => {
     const sortie: number[] = [];
     for (let k = de; k <= a; k++) {
-      const v = jourPatch + k >= premierMesure ? historique.victoire[jourPatch + k] : null;
+      const v = jourPatch + k >= premierMesure ? historique.winRate[jourPatch + k] : null;
       if (mesure(v)) sortie.push(v);
     }
     return sortie;
@@ -262,12 +262,12 @@ export function impactsDuHeros(
  * lu par la fonction fournie — `historiqueDe` cote serveur.
  */
 export function impactsDuPatch(
-  patch: { version: string; date?: string | null; ajustements: { slug: string; type: TypeAjustement | null }[] },
+  patch: { version: string; date?: string | null; adjustments: { slug: string; type: TypeAjustement | null }[] },
   historiqueDe: (slug: string) => SerieVictoire | null | undefined,
 ): Record<string, ImpactAjustement> {
   const sortie: Record<string, ImpactAjustement> = {};
   if (!patch.date) return sortie;
-  for (const a of patch.ajustements) {
+  for (const a of patch.adjustments) {
     const impact = impactAjustement(historiqueDe(a.slug), { version: patch.version, date: patch.date, type: a.type });
     if (impact) sortie[a.slug] = impact;
   }

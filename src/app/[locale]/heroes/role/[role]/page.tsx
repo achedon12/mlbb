@@ -35,13 +35,13 @@ export function generateStaticParams() {
  * rangs) ; ceux que le jeu ne mesure pas encore ferment la liste, par nom.
  */
 function herosDuRole(role: Role) {
-  const classes = classementComplet.filter((e) => e.heros.roles.includes(role));
-  const mesures = new Set(classes.map((e) => e.heros.slug));
+  const classes = classementComplet.filter((e) => e.hero.roles.includes(role));
+  const mesures = new Set(classes.map((e) => e.hero.slug));
   const autres = heros
     .filter((h) => h.roles.includes(role) && !mesures.has(h.slug))
-    .sort((a, b) => a.nom.localeCompare(b.nom));
+    .sort((a, b) => a.name.localeCompare(b.name));
   return [
-    ...classes.map((e) => ({ heros: e.heros, palier: e.palier, victoire: e.victoire as number | null })),
+    ...classes.map((e) => ({ heros: e.hero, palier: e.tier, victoire: e.winRate as number | null })),
     ...autres.map((h) => ({ heros: h, palier: null, victoire: null })),
   ];
 }
@@ -58,7 +58,7 @@ function description(locale: Langue, role: Role): string {
   const liste = herosDuRole(role);
   return t("pages.seo.heroesRole.description", {
     ...reperes(t, role, liste.length),
-    top: listeNoms(locale, liste.filter((e) => e.palier).slice(0, 3).map((e) => e.heros.nom)),
+    top: listeNoms(locale, liste.filter((e) => e.palier).slice(0, 3).map((e) => e.heros.name)),
     date: dateLongue(locale),
     v: patchActuel.version,
   });
@@ -90,7 +90,7 @@ export default async function PageRole({ params }: Params) {
     nom: titre,
     description: description(locale, role),
     chemin: cheminRole(role),
-    heros: liste.map((e) => ({ nom: e.heros.nom, slug: e.heros.slug })),
+    heros: liste.map((e) => ({ nom: e.heros.name, slug: e.heros.slug })),
     modifie: dateMesure,
     classe: true,
   });
@@ -141,13 +141,13 @@ export default async function PageRole({ params }: Params) {
             <li key={e.heros.slug}>
               <Link href={`/heroes/${e.heros.slug}`} className="tier-row">
                 <PortraitHeros
-                  source={e.heros.visuels.icone ?? e.heros.visuels.portrait}
-                  nom={e.heros.nom}
+                  source={e.heros.images.icon ?? e.heros.images.portrait}
+                  nom={e.heros.name}
                   taille="icone"
                   decoratif
                 />
                 <div className="tier-row-identity sm:w-auto sm:flex-1">
-                  <span className="tier-row-name">{e.heros.nom}</span>
+                  <span className="tier-row-name">{e.heros.name}</span>
                   <span className="tier-row-lanes">
                     {e.heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}
                   </span>

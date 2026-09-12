@@ -31,7 +31,7 @@ import { poolQuiz } from "./quiz-donnees";
  * English so the key does not depend on the translation.
  */
 function genderOf(slug: string): Gender | null {
-  const raw = histoires("en")[slug]?.fiche?.genre?.trim().toLowerCase() ?? "";
+  const raw = histoires("en")[slug]?.profile?.gender?.trim().toLowerCase() ?? "";
   if (/^(man|male)$/.test(raw)) return "male";
   if (/^(wom[ae]n|female)$/.test(raw)) return "female";
   if (raw.startsWith("genderless")) return "none";
@@ -67,20 +67,20 @@ export function mlbbdleRoster(locale: Langue): Roster {
       for (const l of h.lanes) labels[`lanes.${l}`] = t(`lanes.${l}`);
       return {
         slug: h.slug,
-        name: h.nom,
-        icon: h.visuels.icone ?? h.visuels.portrait,
+        name: h.name,
+        icon: h.images.icon ?? h.images.portrait,
         gender,
         roles: h.roles,
         lanes: h.lanes,
-        specialties: h.specialites.flatMap((s) => {
+        specialties: h.specialties.flatMap((s) => {
           const key = note("specialties", "specialite", s);
           return key ? [key] : [];
         }),
-        damage: note("damage", "degats", h.typeDegats),
-        range: note("range", "attaque", h.typeAttaque),
-        resource: note("resource", "ressource", h.ressource),
+        damage: note("damage", "degats", h.damageType),
+        range: note("range", "attaque", h.attackType),
+        resource: note("resource", "ressource", h.resource),
         region: note("region", "region", h.region),
-        year: Number(h.annee) || null,
+        year: Number(h.year) || null,
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
@@ -94,7 +94,7 @@ export function mlbbdleCandidates(): Candidate[] {
   const skills = poolQuiz("en").competences;
   return heros.map((h) => ({
     slug: h.slug,
-    since: eligibleFrom(h.sortie ? valeurWiki(h.sortie) : null),
+    since: eligibleFrom(h.release ? valeurWiki(h.release) : null),
     hasSkill: Boolean(skills[h.slug]?.length),
   }));
 }

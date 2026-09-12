@@ -239,7 +239,7 @@ export interface FicheHerosRang {
 /** Heros de la fiche du site, pret a afficher. */
 function afficheDuSite(slug: string): HerosAffiche | null {
   const h = herosParSlug.get(slug);
-  return h ? { slug: h.slug, nom: h.nom, portrait: h.visuels.portrait } : null;
+  return h ? { slug: h.slug, nom: h.name, portrait: h.images.portrait } : null;
 }
 
 /**
@@ -260,7 +260,7 @@ function laneDuJoueur(slug: string, disponibles: string[], recentes: PartieResum
 }
 
 /** Le plus joue d'abord : la plus forte part des parties. */
-const parSelection = (a: BuildJoue, b: BuildJoue) => (b.selection ?? -1) - (a.selection ?? -1);
+const parSelection = (a: BuildJoue, b: BuildJoue) => (b.pickRate ?? -1) - (a.pickRate ?? -1);
 
 /** Le rang demande, ou tous rangs confondus a defaut. */
 function auRang<V>(parRang: Partial<Record<RangMesure, V>> | undefined, tranche: RangMesure) {
@@ -292,12 +292,12 @@ export function fichesHerosRang(
     const plusJoue = [...(builds?.valeur ?? [])].sort(parSelection)[0];
 
     const mesure = auRang(contres[slug], tranche);
-    const faibles = [...(mesure?.valeur.faible ?? [])]
-      .filter((c) => c.avantage < 0)
-      .sort((a, b) => a.avantage - b.avantage)
+    const faibles = [...(mesure?.valeur.weak ?? [])]
+      .filter((c) => c.advantage < 0)
+      .sort((a, b) => a.advantage - b.advantage)
       .flatMap((c) => {
         const heros = afficheDuSite(c.slug);
-        return heros ? [{ heros, avantage: c.avantage }] : [];
+        return heros ? [{ heros, avantage: c.advantage }] : [];
       })
       .slice(0, 3);
 

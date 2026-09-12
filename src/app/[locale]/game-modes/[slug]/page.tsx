@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!mode) return {};
   const t = creerT(locale);
   return metaPage(locale, {
-    titre: t("pages.modes.titreMode", { nom: mode.nom }),
+    titre: t("pages.modes.titreMode", { nom: mode.name }),
     description: t(`modeFiche.${slug}.texte`),
     chemin: `/game-modes/${slug}`,
     type: "article",
@@ -54,12 +54,12 @@ function rendreElements(elements: SectionMode["elements"]) {
 
   elements.forEach((e, i) => {
     if (e.type === "li") {
-      liste.push(e.texte);
+      liste.push(e.text);
     } else {
       viderListe(i);
       blocs.push(
         <p key={`p-${i}`} className="text-sm leading-relaxed text-chalk-300">
-          {e.texte}
+          {e.text}
         </p>,
       );
     }
@@ -79,7 +79,7 @@ export default async function PageMode({ params }: Params) {
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${t("pages.modes.titreMode", { nom: mode.nom })} — Mobile Legends: Bang Bang`,
+    headline: `${t("pages.modes.titreMode", { nom: mode.name })} — Mobile Legends: Bang Bang`,
     description: t(`modeFiche.${slug}.texte`),
     inLanguage: LOCALE_HTML[locale],
     author: { "@type": "Person", name: site.auteur },
@@ -117,15 +117,15 @@ export default async function PageMode({ params }: Params) {
             miettes={[
               { nom: t("nav.gameModes.label"), href: "/game-modes" },
               {
-                nom: mode.nom,
-                freres: modesSlugs.map((s) => ({ nom: modeParSlug(locale, s)?.nom ?? s, href: `/game-modes/${s}` })),
+                nom: mode.name,
+                freres: modesSlugs.map((s) => ({ nom: modeParSlug(locale, s)?.name ?? s, href: `/game-modes/${s}` })),
               },
             ]}
           />
           <p className="mt-6 font-heading text-xs font-bold uppercase tracking-[0.2em]" style={{ color: clair }}>
             {t(`modeFiche.${slug}.accroche`)}
           </p>
-          <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100 sm:text-5xl">{mode.nom}</h1>
+          <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100 sm:text-5xl">{mode.name}</h1>
           <p className="mt-4 max-w-2xl leading-relaxed text-chalk-200">{t(`modeFiche.${slug}.texte`)}</p>
         </div>
       </div>
@@ -140,8 +140,8 @@ export default async function PageMode({ params }: Params) {
         {mode.sections.length > 0 ? (
           <div className="space-y-10">
             {mode.sections.map((section) => (
-              <section key={section.titre}>
-                <h2 className="font-heading text-xl font-bold text-chalk-100">{section.titre}</h2>
+              <section key={section.title}>
+                <h2 className="font-heading text-xl font-bold text-chalk-100">{section.title}</h2>
                 <div aria-hidden className="gold-rule mt-2 h-0.5 w-12" />
                 <div className="mt-4 space-y-4">{rendreElements(section.elements)}</div>
               </section>

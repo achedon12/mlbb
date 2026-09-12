@@ -28,7 +28,7 @@ import type { Heros } from "./types";
  * quelques Ko.
  */
 
-const ICONES_OBJETS = (visuelsGenere as unknown as { objets: Record<string, string> }).objets;
+const ICONES_OBJETS = (visuelsGenere as unknown as { items: Record<string, string> }).items;
 
 /**
  * Par heros : de quoi varier l'entrainement sans alourdir le vivier. Trois
@@ -51,19 +51,19 @@ function nettoyerWiki(texte: string): string {
 
 /** Nom du heros et nom complet de son histoire (« Aamon Paxley ») : a masquer partout. */
 function nomsDe(h: Heros, locale: Langue): string[] {
-  const complet = histoires(locale)[h.slug]?.fiche?.nomComplet;
-  return complet ? [h.nom, complet] : [h.nom];
+  const complet = histoires(locale)[h.slug]?.profile?.fullName;
+  return complet ? [h.name, complet] : [h.name];
 }
 
 function herosQuiz(locale: Langue): HerosQuiz[] {
   const t = creerT(locale);
   return heros.map((h) => ({
     slug: h.slug,
-    nom: h.nom,
-    icone: h.visuels.icone ?? h.visuels.portrait,
+    nom: h.name,
+    icone: h.images.icon ?? h.images.portrait,
     roles: h.roles,
     lanes: h.lanes,
-    annee: Number(h.annee) || null,
+    annee: Number(h.year) || null,
     region: libelleHeros(t, "region", h.region),
   }));
 }
@@ -73,11 +73,11 @@ function competencesQuiz(h: Heros, locale: Langue): CompetenceQuiz[] {
   const noms = nomsDe(h, locale);
   return (competences(locale)[h.slug] ?? [])
     .flatMap((c) =>
-      c && icones[c.nom]
+      c && icones[c.name]
         ? [
             {
-              nom: masquerNom(c.nom, noms),
-              icone: icones[c.nom],
+              nom: masquerNom(c.name, noms),
+              icone: icones[c.name],
               extrait: c.description
                 ? couper(masquerNom(nettoyerWiki(c.description), noms), LONGUEUR_DESCRIPTION)
                 : null,
@@ -99,7 +99,7 @@ function extraitsHistoire(h: Heros, locale: Langue): string[] {
   if (!histoire) return [];
   const noms = nomsDe(h, locale);
   const extraits = histoire.lore
-    .filter((p) => !p.startsWith("=") && p.length >= 90 && p !== histoire.accroche)
+    .filter((p) => !p.startsWith("=") && p.length >= 90 && p !== histoire.tagline)
     .map((p) => couper(masquerNom(nettoyerWiki(p), noms), LONGUEUR_EXTRAIT));
   return [...extraits.filter((e) => e.includes(MASQUE)), ...extraits.filter((e) => !e.includes(MASQUE))].slice(
     0,
@@ -121,24 +121,24 @@ function objetsQuiz(locale: Langue): ObjetQuiz[] {
   const liste = objets(locale);
   const parSlug = new Map(liste.map((o) => [o.slug, o]));
   // Les recettes citent les composants par leur nom anglais.
-  const slugParNom = new Map([...objets("en"), ...liste].map((o) => [o.nom, o.slug]));
+  const slugParNom = new Map([...objets("en"), ...liste].map((o) => [o.name, o.slug]));
   return liste
-    .filter((o) => o.prix && o.bonus)
+    .filter((o) => o.price && o.bonus)
     .map((o) => {
-      const categorie = t(`categories.${o.categorie}`);
-      const passif = o.passif ?? o.unique ?? o.actif;
+      const categorie = t(`categories.${o.category}`);
+      const passif = o.passive ?? o.unique ?? o.active;
       return {
         slug: o.slug,
-        nom: o.nom,
+        nom: o.name,
         icone: ICONES_OBJETS[o.slug] ?? null,
-        prix: o.prix,
-        categorie: categorie === `categories.${o.categorie}` ? o.categorie : categorie,
+        prix: o.price,
+        categorie: categorie === `categories.${o.category}` ? o.category : categorie,
         bonus: o.bonus!,
-        recette: o.recette.map((nom) => {
+        recette: o.recipe.map((nom) => {
           const slug = slugParNom.get(nom);
-          return { nom: (slug && parSlug.get(slug)?.nom) || nom, icone: (slug && ICONES_OBJETS[slug]) || null };
+          return { nom: (slug && parSlug.get(slug)?.name) || nom, icone: (slug && ICONES_OBJETS[slug]) || null };
         }),
-        passif: passif ? couper(masquerNom(nettoyerWiki(passif), [o.nom]), LONGUEUR_PASSIF) : null,
+        passif: passif ? couper(masquerNom(nettoyerWiki(passif), [o.name]), LONGUEUR_PASSIF) : null,
       };
     });
 }
@@ -162,7 +162,7 @@ export function poolQuiz(locale: Langue): PoolQuiz {
       skins: avec((h) => skinsQuiz(h, locale)),
       objets: objetsQuiz(locale),
       victoires: Object.fromEntries(
-        classementComplet.filter((e) => !e.faibleEchantillon).map((e) => [e.heros.slug, e.victoire]),
+        classementComplet.filter((e) => !e.lowSample).map((e) => [e.hero.slug, e.winRate]),
       ),
     };
     POOLS.set(locale, pool);

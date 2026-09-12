@@ -35,12 +35,12 @@ const match = (t1, t2, games, date = "August 14, 2026 - 15:00 {{abbr/ICT}}", bes
   }}`;
 
 const SITE_HEROES = [
-  { slug: "guinevere", nom: "Guinevere" },
-  { slug: "yi-sun-shin", nom: "Yi Sun-shin" },
-  { slug: "x-borg", nom: "X.Borg" },
-  { slug: "atlas", nom: "Atlas" },
-  { slug: "claude", nom: "Claude" },
-  { slug: "fanny", nom: "Fanny" },
+  { slug: "guinevere", name: "Guinevere" },
+  { slug: "yi-sun-shin", name: "Yi Sun-shin" },
+  { slug: "x-borg", name: "X.Borg" },
+  { slug: "atlas", name: "Atlas" },
+  { slug: "claude", name: "Claude" },
+  { slug: "fanny", name: "Fanny" },
 ];
 const ALIASES = readAliasTable(`return {
   ['guin'] = 'Guinevere',

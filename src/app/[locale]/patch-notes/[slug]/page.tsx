@@ -53,14 +53,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (patch) {
     const t = creerT(locale);
     // Description en donnees : date, ajustements par sens et premiers heros touches.
-    const noms = [...new Set(patch.ajustements.map((a) => herosParSlug.get(a.slug)?.nom ?? a.nom))].slice(0, 4);
+    const noms = [...new Set(patch.adjustments.map((a) => herosParSlug.get(a.slug)?.name ?? a.name))].slice(0, 4);
     const version = patch.date ? `${patch.version} (${dateLongue(locale, patch.date)})` : patch.version;
     return metaPage(locale, {
       titre: titrePatch(locale, patch),
       description: noms.length
         ? t("pages.seo.patch.description", {
             version,
-            ...compterAjustements(patch.ajustements),
+            ...compterAjustements(patch.adjustments),
             heros: listeNoms(locale, noms),
           })
         : t("pages.patchNotes.officielleDescription", { version: patch.version }),
@@ -75,13 +75,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!a) return {};
 
   return metaPage(locale, {
-    titre: a.titre,
-    description: a.chapeau,
+    titre: a.title,
+    description: a.summary,
     chemin: `/patch-notes/${slug}`,
     type: "article",
-    motsCles: a.motsCles,
+    motsCles: a.keywords,
     publie: a.date,
-    auteur: a.auteur,
+    auteur: a.author,
   });
 }
 
@@ -100,7 +100,7 @@ export default async function PagePatch({ params }: Params) {
       headline: titrePatch(locale, patch),
       ...(patch.date ? { datePublished: patch.date, dateModified: patch.date } : {}),
       inLanguage: traduit ? LOCALE_HTML[locale] : "en",
-      isBasedOn: patch.lien,
+      isBasedOn: patch.link,
       publisher: { "@type": "Organization", name: site.nom, url: site.url },
       mainEntityOfPage: `${site.url}/${locale}/patch-notes/${slug}`,
     };
@@ -133,7 +133,7 @@ export default async function PagePatch({ params }: Params) {
               Patch {patch.version}
             </h1>
             <p className="mt-3 text-sm text-chalk-500">
-              {t("pages.patchNotes.nSections", { n: patch.sommaire.length })}
+              {t("pages.patchNotes.nSections", { n: patch.toc.length })}
               {patch.date && (
                 <>
                   {" · "}
@@ -145,11 +145,11 @@ export default async function PagePatch({ params }: Params) {
             </p>
           </header>
 
-          {patch.ajustements.length > 0 && (
+          {patch.adjustments.length > 0 && (
             <ChangementsHeros
               patch={patch}
               langue={locale}
-              ancreDetail={patch.sections.find((s) => s.role === "ajustements")?.ancre ?? null}
+              ancreDetail={patch.sections.find((s) => s.role === "ajustements")?.anchor ?? null}
             />
           )}
 
@@ -160,7 +160,7 @@ export default async function PagePatch({ params }: Params) {
           */}
           <div className="mt-10 gap-10 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
             <aside className="mb-10 lg:mb-0">
-              {patch.sommaire.length > 0 && <SommairePatch entrees={patch.sommaire} />}
+              {patch.toc.length > 0 && <SommairePatch entrees={patch.toc} />}
             </aside>
 
             <article className="min-w-0 max-w-3xl">
@@ -173,27 +173,27 @@ export default async function PagePatch({ params }: Params) {
                 comme l'exige sa licence.
               */}
               {patch.sections.map((section, i) => (
-                <section key={section.ancre ?? i} className="mb-12">
-                  {section.titre && (
+                <section key={section.anchor ?? i} className="mb-12">
+                  {section.title && (
                     <>
                       <h2
-                        id={section.ancre ?? undefined}
+                        id={section.anchor ?? undefined}
                         className="scroll-mt-24 font-heading text-2xl font-bold text-chalk-100"
                       >
-                        {section.titre}
+                        {section.title}
                       </h2>
                       <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
                     </>
                   )}
 
-                  <div className={section.titre ? "mt-5" : undefined}>
+                  <div className={section.title ? "mt-5" : undefined}>
                     {section.role === "nouveaux" ? (
                       <div className="space-y-10">
-                        {patch.nouveaux.map((h) => {
+                        {patch.newHeroes.map((h) => {
                           const fiche = herosParSlug.get(h.slug);
                           const illus = illustrations[h.slug] ?? {};
                           const illustration =
-                            (h.epithete ? illus[h.epithete] : undefined) ??
+                            (h.epithet ? illus[h.epithet] : undefined) ??
                             Object.values(illus)[0] ??
                             null;
                           return (
@@ -202,7 +202,7 @@ export default async function PagePatch({ params }: Params) {
                               langue={locale}
                               heros={{
                                 ...h,
-                                portrait: fiche?.visuels.portrait ?? null,
+                                portrait: fiche?.images.portrait ?? null,
                                 illustration,
                                 roles: fiche?.roles ?? [],
                                 fiche: Boolean(fiche),
@@ -213,15 +213,15 @@ export default async function PagePatch({ params }: Params) {
                       </div>
                     ) : section.role === "ajustements" ? (
                       <PatchHeros
-                        ajustements={patch.ajustements.map((a) => ({
+                        ajustements={patch.adjustments.map((a) => ({
                           ...a,
                           portrait:
-                            herosParSlug.get(a.slug)?.visuels.icone ??
-                            herosParSlug.get(a.slug)?.visuels.portrait ??
+                            herosParSlug.get(a.slug)?.images.icon ??
+                            herosParSlug.get(a.slug)?.images.portrait ??
                             null,
                           fiche: herosParSlug.has(a.slug),
                         }))}
-                        bilan={patch.bilan}
+                        bilan={patch.balance}
                       />
                     ) : (
                       <div
@@ -235,7 +235,7 @@ export default async function PagePatch({ params }: Params) {
 
               <CreditWiki
                 t={t}
-                href={patch.lien}
+                href={patch.link}
                 cle={traduit ? "pages.patchNotes.creditTraduit" : "pages.patchNotes.credit"}
                 className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"
               />
@@ -261,7 +261,7 @@ export default async function PagePatch({ params }: Params) {
       <CorpsArticle
         langue={locale}
         article={a}
-        html={enHtml(a.contenu)}
+        html={enHtml(a.content)}
         retour={{ href: "/patch-notes", label: t("pages.patchNotes.tous") }}
       />
     </>

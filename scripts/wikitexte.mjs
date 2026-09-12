@@ -261,16 +261,16 @@ export function ficheHistoire(wikitexte) {
 
   const genreBrut = texteChamp(c.gender)?.toLowerCase();
   const fiche = {
-    nomComplet: texteChamp(c.full_name),
-    titre: texteChamp(c.title),
-    espece: texteChamp(c.species),
-    genre: genreBrut ? (GENRES[genreBrut] ?? texteChamp(c.gender)) : null,
+    fullName: texteChamp(c.full_name),
+    title: texteChamp(c.title),
+    species: texteChamp(c.species),
+    gender: genreBrut ? (GENRES[genreBrut] ?? texteChamp(c.gender)) : null,
     age: texteChamp(c.age),
-    origine: texteChamp(c.born),
-    anniversaire: anniversaire(c.birthday),
+    origin: texteChamp(c.born),
+    birthday: anniversaire(c.birthday),
     affiliations: elementsListe(c.affiliation),
     relations: elementsListe(c.relationships),
-    pouvoirs: elementsListe(c.abilities),
+    powers: elementsListe(c.abilities),
   };
 
   // Une fiche entierement vide ne merite pas d'etre conservee.
@@ -353,7 +353,7 @@ export function blocsSection(corps) {
   const viderParagraphe = () => {
     if (!paragraphe.length) return;
     const texte = nettoyerDescription(paragraphe.join(" "));
-    if (texte && texte.length > 1) blocs.push({ type: "p", texte });
+    if (texte && texte.length > 1) blocs.push({ type: "p", text: texte });
     paragraphe = [];
   };
 
@@ -366,7 +366,7 @@ export function blocsSection(corps) {
     if (/^[*#]+/.test(l)) {
       viderParagraphe();
       const texte = nettoyerDescription(l.replace(/^[*#]+\s*/, ""));
-      if (texte && texte.length > 1) blocs.push({ type: "li", texte });
+      if (texte && texte.length > 1) blocs.push({ type: "li", text: texte });
       continue;
     }
     // Titres residuels, gabarits isoles : sans interet ici.
@@ -399,7 +399,7 @@ export function sectionsPage(wikitexte, ignorer = []) {
     const suivant = entetes.slice(i + 1).find((x) => x.niveau <= 2);
     const corps = wikitexte.slice(e.fin, suivant ? suivant.position : undefined);
     const elements = blocsSection(corps);
-    if (elements.length) sections.push({ titre: e.titre, elements });
+    if (elements.length) sections.push({ title: e.titre, elements });
   }
   return sections;
 }

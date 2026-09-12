@@ -24,7 +24,7 @@ const heros = (slug: string, o: Partial<HerosEquipe> = {}): HerosEquipe => ({
   icone: null,
   synergies: [],
   degats: "physical",
-  notes: { offensive: 5, resistance: 5, effets: 5, difficulte: 5 },
+  notes: { offense: 5, durability: 5, abilityEffects: 5, difficulty: 5 },
   ...o,
 });
 
@@ -32,9 +32,9 @@ const mesures = (o: Partial<MesuresRang> = {}): MesuresRang => ({
   rang: "all",
   stats: {},
   tranches: [
-    { de: 10, a: 12 },
-    { de: 12, a: 14 },
-    { de: 14, a: null },
+    { from: 10, to: 12 },
+    { from: 12, to: 14 },
+    { from: 14, to: null },
   ],
   duree: {},
   coequipiers: {},
@@ -44,11 +44,11 @@ const mesures = (o: Partial<MesuresRang> = {}): MesuresRang => ({
 
 /** Une composition sans faiblesse : une lane chacun, degats et notes varies. */
 const equilibree = [
-  heros("tank", { lanes: ["Roam"], roles: ["Tank"], notes: { offensive: 3, resistance: 9, effets: 8, difficulte: 4 } }),
-  heros("jungle", { lanes: ["Jungle"], roles: ["Assassin"], notes: { offensive: 8, resistance: 3, effets: 3, difficulte: 5 } }),
-  heros("mage", { lanes: ["Milieu"], roles: ["Mage"], degats: "magic", notes: { offensive: 8, resistance: 2, effets: 7, difficulte: 5 } }),
-  heros("tireur", { lanes: ["Or"], notes: { offensive: 8, resistance: 2, effets: 2, difficulte: 4 } }),
-  heros("combattant", { lanes: ["Experience"], roles: ["Fighter"], degats: "magic", notes: { offensive: 6, resistance: 7, effets: 5, difficulte: 5 } }),
+  heros("tank", { lanes: ["Roam"], roles: ["Tank"], notes: { offense: 3, durability: 9, abilityEffects: 8, difficulty: 4 } }),
+  heros("jungle", { lanes: ["Jungle"], roles: ["Assassin"], notes: { offense: 8, durability: 3, abilityEffects: 3, difficulty: 5 } }),
+  heros("mage", { lanes: ["Milieu"], roles: ["Mage"], degats: "magic", notes: { offense: 8, durability: 2, abilityEffects: 7, difficulty: 5 } }),
+  heros("tireur", { lanes: ["Or"], notes: { offense: 8, durability: 2, abilityEffects: 2, difficulty: 4 } }),
+  heros("combattant", { lanes: ["Experience"], roles: ["Fighter"], degats: "magic", notes: { offense: 6, durability: 7, abilityEffects: 5, difficulty: 5 } }),
 ];
 
 describe("affecterLanes", () => {
@@ -88,10 +88,10 @@ describe("profil de l'equipe", () => {
   it("moyenne les notes en ignorant celles qui manquent", () => {
     expect(
       profilNotes([
-        heros("a", { notes: { offensive: 6, resistance: 4, effets: 3, difficulte: null } }),
-        heros("b", { notes: { offensive: 8, resistance: 5, effets: 4, difficulte: 6 } }),
+        heros("a", { notes: { offense: 6, durability: 4, abilityEffects: 3, difficulty: null } }),
+        heros("b", { notes: { offense: 8, durability: 5, abilityEffects: 4, difficulty: 6 } }),
       ]),
-    ).toEqual({ offensive: 7, resistance: 4.5, effets: 3.5, difficulte: 6 });
+    ).toEqual({ offense: 7, durability: 4.5, abilityEffects: 3.5, difficulty: 6 });
   });
 });
 
@@ -186,7 +186,7 @@ describe("synergies et menaces", () => {
 describe("alertes", () => {
   it("signale lanes en double, absence de tank, degats uniformes et notes faibles", () => {
     const equipe = ["a", "b", "c", "d", "e"].map((s) =>
-      heros(s, { notes: { offensive: 8, resistance: 3, effets: 2, difficulte: 7 } }),
+      heros(s, { notes: { offense: 8, durability: 3, abilityEffects: 2, difficulty: 7 } }),
     );
     const liste = alertes(equipe, affecterLanes(equipe));
     expect(liste.map((a) => a.type)).toEqual(["lanes", "tank", "degats", "controle", "fragile", "difficile"]);

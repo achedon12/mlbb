@@ -22,37 +22,37 @@ import type { Heros, Palier } from "./types";
  * pas la puissance. Il sert uniquement a signaler les mesures peu fiables.
  */
 export interface EntreeClassee {
-  heros: Heros;
-  palier: Palier;
-  victoire: number;
-  ban: number;
-  selection: number;
+  hero: Heros;
+  tier: Palier;
+  winRate: number;
+  banRate: number;
+  pickRate: number;
   score: number;
   /** Vrai quand le heros est trop peu joue pour que ses taux soient stables. */
-  faibleEchantillon: boolean;
+  lowSample: boolean;
   /** Commentaire ecrit a la main, quand il existe. */
-  note: string | null;
+  comment: string | null;
 }
 
 interface Taux {
-  victoire: number;
-  ban: number;
-  selection: number;
+  winRate: number;
+  banRate: number;
+  pickRate: number;
 }
 
 interface Classement {
   /** Date a laquelle les taux ont ete releves, distincte de la synchronisation. */
-  mesure: string;
-  taux: Record<string, Taux>;
+  measuredAt: string;
+  rates: Record<string, Taux>;
   /** Memes taux, rang par rang. Absent d'un fichier anterieur a ce decoupage. */
-  parRang?: Partial<Record<RangMesure, Record<string, Taux>>>;
+  byRank?: Partial<Record<RangMesure, Record<string, Taux>>>;
 }
 
-const CLASSEMENT = statistiques.classement as unknown as Classement;
-const TAUX = CLASSEMENT.taux;
+const CLASSEMENT = statistiques.rankings as unknown as Classement;
+const TAUX = CLASSEMENT.rates;
 
 /** Date du releve, a afficher plutot que celle de la derniere synchronisation. */
-export const mesureLe = CLASSEMENT.mesure;
+export const mesureLe = CLASSEMENT.measuredAt;
 
 /** En dessous de ce taux de selection, les mesures deviennent bruitees. */
 const SEUIL_FIABILITE = 0.3;
@@ -64,8 +64,8 @@ const SEUIL_FIABILITE = 0.3;
  */
 const POIDS_BAN = 0.25;
 
-function score(t: Pick<Taux, "victoire" | "ban">): number {
-  return t.victoire + t.ban * POIDS_BAN;
+function score(t: Pick<Taux, "winRate" | "banRate">): number {
+  return t.winRate + t.banRate * POIDS_BAN;
 }
 
 /** Bornes de palier, en points de score. */
@@ -92,14 +92,14 @@ function classer(taux: Record<string, Taux>): EntreeClassee[] {
       const valeur = score(t);
 
       return {
-        heros: h,
-        palier: palier(valeur),
-        victoire: t.victoire,
-        ban: t.ban,
-        selection: t.selection,
+        hero: h,
+        tier: palier(valeur),
+        winRate: t.winRate,
+        banRate: t.banRate,
+        pickRate: t.pickRate,
         score: Math.round(valeur * 100) / 100,
-        faibleEchantillon: t.selection < SEUIL_FIABILITE,
-        note: notesTierList[h.slug] ?? null,
+        lowSample: t.pickRate < SEUIL_FIABILITE,
+        comment: notesTierList[h.slug] ?? null,
       };
     })
     .sort((a, b) => b.score - a.score);
@@ -109,9 +109,9 @@ export const classementComplet = classer(TAUX);
 
 /** Taux et palier d'un heros dans un rang donne. */
 export interface StatsRang {
-  victoire: number;
-  ban: number;
-  palier: Palier;
+  winRate: number;
+  banRate: number;
+  tier: Palier;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface StatsRang {
  */
 const CLASSEMENTS_PAR_RANG = new Map(
   RANGS_MESURE.flatMap((r) => {
-    const taux = r === "all" ? TAUX : CLASSEMENT.parRang?.[r];
+    const taux = r === "all" ? TAUX : CLASSEMENT.byRank?.[r];
     return taux
-      ? [[r, new Map(classer(taux).map((e) => [e.heros.slug, e]))] as const]
+      ? [[r, new Map(classer(taux).map((e) => [e.hero.slug, e]))] as const]
       : [];
   }),
 );
@@ -134,7 +134,7 @@ export function statsParRang(
   for (const [rang, entrees] of CLASSEMENTS_PAR_RANG) {
     const e = entrees.get(slug);
     if (e)
-      sortie[rang] = { victoire: e.victoire, ban: e.ban, palier: e.palier };
+      sortie[rang] = { winRate: e.winRate, banRate: e.banRate, tier: e.tier };
   }
   return sortie;
 }
@@ -142,12 +142,12 @@ export function statsParRang(
 /** Taux et palier par heros, pour enrichir le catalogue sans le recalculer. */
 export const tauxParSlug = new Map(
   classementComplet.map((e) => [
-    e.heros.slug,
+    e.hero.slug,
     {
-      victoire: e.victoire,
-      ban: e.ban,
-      palier: e.palier,
-      faibleEchantillon: e.faibleEchantillon,
+      victoire: e.winRate,
+      ban: e.banRate,
+      palier: e.tier,
+      faibleEchantillon: e.lowSample,
     },
   ]),
 );

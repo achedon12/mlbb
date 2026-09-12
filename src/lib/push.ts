@@ -147,7 +147,7 @@ export function validerDemande(
 
 export interface PatchAjuste {
   version: string;
-  ajustements: readonly { slug: string; type: TypeAjustement | null }[];
+  adjustments: readonly { slug: string; type: TypeAjustement | null }[];
 }
 
 export interface HerosTouche {
@@ -167,7 +167,7 @@ export interface Envoi {
  */
 export function destinataires(abonnes: readonly Abonne[], patch: PatchAjuste): Envoi[] {
   const parSlug = new Map<string, HerosTouche>();
-  for (const a of patch.ajustements) if (!parSlug.has(a.slug)) parSlug.set(a.slug, { slug: a.slug, type: a.type });
+  for (const a of patch.adjustments) if (!parSlug.has(a.slug)) parSlug.set(a.slug, { slug: a.slug, type: a.type });
   const envois: Envoi[] = [];
   for (const abonne of abonnes) {
     const favoris = new Set(abonne.favoris);

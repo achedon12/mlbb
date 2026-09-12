@@ -4,17 +4,17 @@ import { partsParChoix, resumeParRang, usageParChoix } from "@/lib/usage-builds"
 import { emblemesFiches, sortsFiches, usage } from "@/lib/fiches-usage";
 import { objets } from "@/lib/donnees";
 
-const build = (objets: string[], selection: number | null, victoire: number | null, extra: Partial<BuildJoue> = {}): BuildJoue => ({
-  objets,
-  embleme: "Assassin",
+const build = (items: string[], pickRate: number | null, winRate: number | null, extra: Partial<BuildJoue> = {}): BuildJoue => ({
+  items,
+  emblem: "Assassin",
   talents: ["Thrill", "Seasoned Hunter", "Killing Spree"],
-  sort: "Retribution",
-  victoire,
-  selection,
+  spell: "Retribution",
+  winRate,
+  pickRate,
   ...extra,
 });
 
-const parObjet = (b: BuildJoue) => b.objets;
+const parObjet = (b: BuildJoue) => b.items;
 
 const builds: Record<string, BuildsHeros> = {
   aamon: {
@@ -88,9 +88,9 @@ describe("resumeParRang", () => {
 describe("partsParChoix", () => {
   it("repartit un choix parmi les builds retenus, ponderes par leur part", () => {
     const parts = partsParChoix(
-      { a: { Jungle: { all: [build([], 3, 50, { sort: "Flicker" }), build([], 1, 50), build([], 4, 50, { embleme: "Mage" })] } } },
-      (b) => b.embleme === "Assassin",
-      (b) => (b.sort ? [b.sort] : []),
+      { a: { Jungle: { all: [build([], 3, 50, { spell: "Flicker" }), build([], 1, 50), build([], 4, 50, { emblem: "Mage" })] } } },
+      (b) => b.emblem === "Assassin",
+      (b) => (b.spell ? [b.spell] : []),
     );
     expect(parts).toEqual([
       { cle: "Flicker", part: 75 },

@@ -35,9 +35,9 @@ export function lirePaire(segment: string): { a: string; b: string; canonique: b
   return { a, b, canonique: a < b };
 }
 
-const listes = (m: { fort?: ContreChiffre[]; faible?: ContreChiffre[] } | undefined) => [
-  ...(m?.fort ?? []),
-  ...(m?.faible ?? []),
+const listes = (m: { strong?: ContreChiffre[]; weak?: ContreChiffre[] } | undefined) => [
+  ...(m?.strong ?? []),
+  ...(m?.weak ?? []),
 ];
 
 /**
@@ -77,11 +77,11 @@ export function adversairesMesures(contres: Record<string, ContresParRang>, slug
   const ecarts = new Map<string, number>();
   const noter = (autre: string, v: number) => ecarts.set(autre, Math.max(ecarts.get(autre) ?? 0, Math.abs(v)));
   for (const r of RANGS_MESURE) {
-    for (const e of listes(contres[slug]?.[r])) if (e.slug !== slug) noter(e.slug, e.avantage);
+    for (const e of listes(contres[slug]?.[r])) if (e.slug !== slug) noter(e.slug, e.advantage);
   }
   for (const [autre, parRang] of Object.entries(contres)) {
     if (autre === slug) continue;
-    for (const r of RANGS_MESURE) for (const e of listes(parRang[r])) if (e.slug === slug) noter(autre, e.avantage);
+    for (const r of RANGS_MESURE) for (const e of listes(parRang[r])) if (e.slug === slug) noter(autre, e.advantage);
   }
   return [...ecarts]
     .map(([s, ecart]) => ({ slug: s, ecart }))
@@ -109,7 +109,7 @@ export interface DuelRang {
 }
 
 export function duelParRang(contres: Record<string, ContresParRang>, a: string, b: string): DuelRang[] {
-  const ecart = (x: string, y: string, r: RangMesure) => listes(contres[x]?.[r]).find((e) => e.slug === y)?.avantage ?? null;
+  const ecart = (x: string, y: string, r: RangMesure) => listes(contres[x]?.[r]).find((e) => e.slug === y)?.advantage ?? null;
   return RANGS_MESURE.flatMap((rang) => {
     const aContreB = ecart(a, b, rang);
     const bContreA = ecart(b, a, rang);
@@ -149,20 +149,20 @@ export const DEBUTS_TRANCHES_DUO = [10, 12, 14, 16, 18, 20] as const;
 export const phaseDe = (minutes: number): Phase => (minutes < 14 ? "debut" : minutes < 18 ? "milieu" : "fin");
 
 interface Tranche {
-  de: number;
-  victoire: number | null;
+  from: number;
+  winRate: number | null;
 }
 
 /** Taux moyen de chaque phase d'une courbe de duree ; null pour une phase sans tranche. */
 export function tauxParPhase(tranches: Tranche[] | undefined): Record<Phase, number | null> {
   const parPhase = (phase: Phase) =>
-    moyenne((tranches ?? []).flatMap((t) => (t.victoire !== null && phaseDe(t.de) === phase ? [t.victoire] : [])));
+    moyenne((tranches ?? []).flatMap((t) => (t.winRate !== null && phaseDe(t.from) === phase ? [t.winRate] : [])));
   return { debut: parPhase("debut"), milieu: parPhase("milieu"), fin: parPhase("fin") };
 }
 
 /** Tranches d'un duo, du tableau aligne sur DEBUTS_TRANCHES_DUO a des tranches datees. */
 export const tranchesDuo = (phases: (number | null)[] | undefined): Tranche[] =>
-  (phases ?? []).slice(0, DEBUTS_TRANCHES_DUO.length).map((victoire, i) => ({ de: DEBUTS_TRANCHES_DUO[i], victoire }));
+  (phases ?? []).slice(0, DEBUTS_TRANCHES_DUO.length).map((winRate, i) => ({ from: DEBUTS_TRANCHES_DUO[i], winRate }));
 
 export interface PhaseDuo {
   phase: Phase;
@@ -176,12 +176,12 @@ export interface PhaseDuo {
 }
 
 export function phasesDuo(phases: (number | null)[] | undefined, tranchesHeros: Tranche[] | undefined): PhaseDuo[] {
-  const seul = new Map((tranchesHeros ?? []).flatMap((t) => (t.victoire === null ? [] : [[t.de, t.victoire] as const])));
+  const seul = new Map((tranchesHeros ?? []).flatMap((t) => (t.winRate === null ? [] : [[t.from, t.winRate] as const])));
   return PHASES.flatMap((phase) => {
-    const duo = tranchesDuo(phases).filter((t): t is { de: number; victoire: number } => t.victoire !== null && phaseDe(t.de) === phase);
+    const duo = tranchesDuo(phases).filter((t): t is { from: number; winRate: number } => t.winRate !== null && phaseDe(t.from) === phase);
     if (duo.length === 0) return [];
-    const ecarts = duo.flatMap((t) => (seul.has(t.de) ? [t.victoire - seul.get(t.de)!] : []));
-    return [{ phase, victoire: moyenne(duo.map((t) => t.victoire))!, gain: moyenne(ecarts) }];
+    const ecarts = duo.flatMap((t) => (seul.has(t.from) ? [t.winRate - seul.get(t.from)!] : []));
+    return [{ phase, victoire: moyenne(duo.map((t) => t.winRate))!, gain: moyenne(ecarts) }];
   });
 }
 
@@ -230,7 +230,7 @@ export function lecturePhases(duel: ReturnType<typeof phasesDuel>): { a: Phase |
 /** Duos au format des contres : `fort` pour les meilleurs partenaires, `faible` pour les pires. */
 export function duosCommeContres(parRang: DuosParRang): ContresParRang {
   return Object.fromEntries(
-    Object.entries(parRang).flatMap(([r, d]) => (d ? [[r, { fort: d.meilleurs, faible: d.pires, mesure: d.mesure }]] : [])),
+    Object.entries(parRang).flatMap(([r, d]) => (d ? [[r, { strong: d.best, weak: d.worst, winRate: d.winRate }]] : [])),
   );
 }
 
@@ -260,10 +260,10 @@ export function liensEquipe(
       [b, a],
     ].flatMap(([de, avec]): LienEquipe[] => {
       const d = duos[de]?.[rang];
-      const duo = [...(d?.meilleurs ?? []), ...(d?.pires ?? [])].find((e) => e.slug === avec);
-      if (duo) return [{ rang, de, avec, avantage: duo.avantage, source: "duos" }];
+      const duo = [...(d?.best ?? []), ...(d?.worst ?? [])].find((e) => e.slug === avec);
+      if (duo) return [{ rang, de, avec, avantage: duo.advantage, source: "duos" }];
       const c = coequipiers[de]?.[rang]?.find((e) => e.slug === avec);
-      return c ? [{ rang, de, avec, avantage: c.avantage, source: "coequipiers" }] : [];
+      return c ? [{ rang, de, avec, avantage: c.advantage, source: "coequipiers" }] : [];
     }),
   );
 }

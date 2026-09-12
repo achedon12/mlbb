@@ -135,7 +135,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { chemin: "/ranks", changeFrequency: "weekly", priority: 0.6, lastModified: mesure },
     { chemin: "/game-modes", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
     { chemin: "/news", changeFrequency: "daily", priority: 0.8, lastModified: dateDe(actualites[0]?.date) },
-    { chemin: "/watch", changeFrequency: "hourly", priority: 0.6, lastModified: dateDe(veille.mesure) },
+    { chemin: "/watch", changeFrequency: "hourly", priority: 0.6, lastModified: dateDe(veille.measuredAt) },
     {
       chemin: "/patch-notes",
       changeFrequency: "weekly",

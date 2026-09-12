@@ -25,76 +25,76 @@ export type Lane = "Or" | "Experience" | "Milieu" | "Jungle" | "Roam";
 // ─────────────────────────────────────────────────────────────
 
 export interface NotesHeros {
-  offensive: number | null;
-  resistance: number | null;
-  effets: number | null;
-  difficulte: number | null;
+  offense: number | null;
+  durability: number | null;
+  abilityEffects: number | null;
+  difficulty: number | null;
 }
 
 export interface HerosGenere {
   slug: string;
-  nom: string;
+  name: string;
   /** Identifiant du wiki, qui sert aussi a nommer les visuels. */
   id: string;
-  titre: string | null;
+  title: string | null;
   roles: Role[];
   lanes: Lane[];
   /** Etiquettes secondaires : le wiki en utilise une quinzaine. */
-  specialites: string[];
-  sortie: string | null;
-  annee: string | null;
-  ressource: string | null;
-  typeDegats: string | null;
-  typeAttaque: string | null;
+  specialties: string[];
+  release: string | null;
+  year: string | null;
+  resource: string | null;
+  damageType: string | null;
+  attackType: string | null;
   region: string | null;
-  notes: NotesHeros;
+  ratings: NotesHeros;
   stats: Record<string, string> | null;
 }
 
 export interface Skin {
   id: string;
-  nom: string;
-  sortie: string | null;
-  disponibilite: string | null;
-  rarete: string | null;
-  etiquette: string | null;
-  prix: Record<string, string>;
+  name: string;
+  release: string | null;
+  availability: string | null;
+  rarity: string | null;
+  label: string | null;
+  price: Record<string, string>;
 }
 
 export interface ObjetGenere {
   slug: string;
-  nom: string;
-  resume: string | null;
-  categorie: string;
-  prix: number | null;
+  name: string;
+  summary: string | null;
+  category: string;
+  price: number | null;
   bonus: string | null;
   unique: string | null;
-  passif: string | null;
-  actif: string | null;
-  recette: string[];
-  pourQui: string | null;
+  passive: string | null;
+  active: string | null;
+  recipe: string[];
+  bestFor: string | null;
 }
 
 export interface Patch {
   version: string;
-  titre: string;
-  lien: string;
+  title: string;
+  link: string;
 }
 
 /** Chemins locaux des visuels d'un heros. Aucune URL externe. */
 export interface VisuelsHeros {
   portrait: string | null;
-  icone: string | null;
+  icon: string | null;
   skins: Record<string, string>;
 }
 
 export interface Synchro {
   date: string;
   source: string;
-  heros: number;
+  heroes: number;
   skins: number;
-  objets: number;
-  patchs: number;
+  items: number;
+  patches: number;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -111,28 +111,28 @@ export type TypeCompetence = "Passif" | "Competence 1" | "Competence 2" | "Ultim
  * francais pour ce heros.
  */
 export interface CompetenceWiki {
-  nom: string;
+  name: string;
   description: string | null;
 }
 
 export interface Competence {
   type: TypeCompetence;
-  nom: string;
+  name: string;
   description: string;
   /** Recharge par niveau, en secondes. Absente pour un passif. */
-  recharge?: number[];
+  cooldown?: number[];
   /** Cout par niveau. Absent si le heros n'utilise pas de mana. */
-  cout?: number[];
+  cost?: number[];
 }
 
 export interface Build {
-  nom: string;
+  name: string;
   /** Dans quelle situation choisir ce build. */
-  contexte: string;
-  objets: string[];
-  embleme: string;
+  context: string;
+  items: string[];
+  emblem: string;
   talent: string;
-  sort: string;
+  spell: string;
 }
 
 /**
@@ -142,55 +142,55 @@ export interface Build {
 export interface AnalyseHeros {
   slug: string;
   /** Presentation courte, reprise en meta description. */
-  resume: string;
+  summary: string;
   /** Deux paragraphes : ce que le heros fait, puis ses limites. */
-  analyse: string;
-  competences: Competence[];
-  forces: string[];
-  faiblesses: string[];
-  fortContre: string[];
-  faibleContre: string[];
+  analysis: string;
+  skills: Competence[];
+  strengths: string[];
+  weaknesses: string[];
+  strongAgainst: string[];
+  weakAgainst: string[];
   builds: Build[];
 }
 
 /** Un heros tel que l'affiche le site : donnees du wiki, analyse si elle existe. */
 export interface Heros extends HerosGenere {
-  visuels: VisuelsHeros;
+  images: VisuelsHeros;
   skins: Skin[];
-  analyse: AnalyseHeros | null;
+  analysis: AnalyseHeros | null;
 }
 
 export type Palier = "S+" | "S" | "A" | "B" | "C";
 
 export interface EntreeTierList {
-  heros: string;
-  palier: Palier;
+  hero: string;
+  tier: Palier;
   lane: Lane;
-  note: string;
+  comment: string;
 }
 
 export interface TierList {
   patch: string;
-  miseAJour: string;
-  entrees: EntreeTierList[];
+  updated: string;
+  entries: EntreeTierList[];
 }
 
 /** Un changement d'equilibrage : soit un avant/apres, soit un simple texte. */
 export type Changement =
-  | { libelle: string | null; avant: string; apres: string }
-  | { texte: string };
+  | { label: string | null; before: string; after: string }
+  | { text: string };
 
 export interface SectionAjustement {
-  nom: string;
-  categorie: string | null;
+  name: string;
+  category: string | null;
   type: TypeAjustement | null;
-  changements: Changement[];
+  changes: Changement[];
 }
 
 export type TypeAjustement = "amelioration" | "affaiblissement" | "ajustement";
 
 export interface AjustementHeros {
-  nom: string;
+  name: string;
   slug: string;
   type: TypeAjustement | null;
   intro: string;
@@ -200,25 +200,25 @@ export interface AjustementHeros {
 /** Une competence d'un nouveau heros : role (passif, skill 1…), nom, effets. */
 export interface CompetenceNouvelle {
   role: string;
-  nom: string | null;
+  name: string | null;
   description: string[];
 }
 
 /** Presentation structuree d'un heros introduit par le patch. */
 export interface NouveauHeros {
-  nom: string;
+  name: string;
   slug: string;
-  epithete: string | null;
-  ancre: string | null;
+  epithet: string | null;
+  anchor: string | null;
   lore: string[];
   feature: string | null;
-  competences: CompetenceNouvelle[];
+  skills: CompetenceNouvelle[];
 }
 
 /** Une section de premier niveau du corps du patch. */
 export interface SectionPatch {
-  ancre: string | null;
-  titre: string | null;
+  anchor: string | null;
+  title: string | null;
   html: string;
   /** Sections reprises par un composant riche plutot que par le HTML brut. */
   role: "nouveaux" | "ajustements" | null;
@@ -226,43 +226,43 @@ export interface SectionPatch {
 
 export interface PatchDetaille {
   version: string;
-  titre: string;
+  title: string;
   /** Mise en ligne des notes sur le wiki, a quelques jours de la sortie. */
   date?: string | null;
-  lien: string;
-  sommaire: { niveau: number; titre: string; ancre: string }[];
+  link: string;
+  toc: { level: number; title: string; anchor: string }[];
   sections: SectionPatch[];
-  nouveaux: NouveauHeros[];
-  ajustements: AjustementHeros[];
-  bilan: Record<TypeAjustement, number>;
+  newHeroes: NouveauHeros[];
+  adjustments: AjustementHeros[];
+  balance: Record<TypeAjustement, number>;
 }
 
 export interface Article {
   slug: string;
-  titre: string;
+  title: string;
   date: string;
-  chapeau: string;
-  categorie: "Actualite" | "Patch" | "Esport" | "Guide";
-  auteur: string;
-  motsCles: string[];
-  contenu: string;
+  summary: string;
+  category: "Actualite" | "Patch" | "Esport" | "Guide";
+  author: string;
+  keywords: string[];
+  content: string;
 }
 
 /** Un bloc de contenu d'une section : un paragraphe ou un point de liste. */
 export interface BlocSection {
   type: "p" | "li";
-  texte: string;
+  text: string;
 }
 
 /** Une section detaillee d'un mode (objectif, regles, fonctionnalites…). */
 export interface SectionMode {
-  titre: string;
+  title: string;
   elements: BlocSection[];
 }
 
 /** Un mode de jeu, tire du wiki : nom, presentation, sections detaillees et visuel. */
 export interface ModeDeJeu {
-  nom: string;
+  name: string;
   slug: string;
   description: string | null;
   sections: SectionMode[];
@@ -274,16 +274,16 @@ export interface ModeDeJeu {
  * du wiki. Chaque champ est optionnel : le wiki les remplit inegalement.
  */
 export interface FicheHistoire {
-  nomComplet: string | null;
-  titre: string | null;
-  espece: string | null;
-  genre: string | null;
+  fullName: string | null;
+  title: string | null;
+  species: string | null;
+  gender: string | null;
   age: string | null;
-  origine: string | null;
-  anniversaire: string | null;
+  origin: string | null;
+  birthday: string | null;
   affiliations: string[];
   relations: string[];
-  pouvoirs: string[];
+  powers: string[];
 }
 
 /**
@@ -291,8 +291,8 @@ export interface FicheHistoire {
  * recit long du wiki (en paragraphes), la fiche narrative et les anecdotes.
  */
 export interface HistoireHeros {
-  accroche: string | null;
+  tagline: string | null;
   lore: string[];
-  fiche: FicheHistoire | null;
-  anecdotes: string[];
+  profile: FicheHistoire | null;
+  trivia: string[];
 }

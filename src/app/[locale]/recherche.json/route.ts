@@ -23,88 +23,88 @@ export function generateStaticParams() {
 export async function GET(_requete: Request, { params }: { params: Promise<{ locale: string }> }) {
   const locale = (await params).locale as Langue;
   const t = creerT(locale);
-  const images = (visuels as unknown as { objets: Record<string, string> }).objets;
+  const images = (visuels as unknown as { items: Record<string, string> }).items;
   const competencesLangue = competences(locale);
 
   const entrees: EntreeRecherche[] = [
     ...heros.map((h) => ({
       type: "heros" as const,
-      titre: h.nom,
-      detail: [h.titre, h.roles.map((r) => t(`roles.${r}`)).join(" / ")].filter(Boolean).join(" · "),
+      title: h.name,
+      detail: [h.title, h.roles.map((r) => t(`roles.${r}`)).join(" / ")].filter(Boolean).join(" · "),
       href: `/heroes/${h.slug}`,
-      image: h.visuels.icone ?? h.visuels.portrait,
+      image: h.images.icon ?? h.images.portrait,
     })),
     // Une entree « counters » par heros mesure : la requete « {heros} counter » est la plus cherchee.
     ...heros
       .filter((h) => contres[h.slug])
       .map((h) => ({
         type: "heros" as const,
-        titre: `${h.nom} · ${t("pages.heroDetail.onglet.contres")}`,
+        title: `${h.name} · ${t("pages.heroDetail.onglet.contres")}`,
         href: `/heroes/${h.slug}/counters`,
-        image: h.visuels.icone ?? h.visuels.portrait,
+        image: h.images.icon ?? h.images.portrait,
       })),
     ...heros
       .filter((h) => duos[h.slug])
       .map((h) => ({
         type: "heros" as const,
-        titre: `${h.nom} · ${t("pages.heroDetail.duosCourt")}`,
+        title: `${h.name} · ${t("pages.heroDetail.duosCourt")}`,
         href: `/heroes/${h.slug}/duos`,
-        image: h.visuels.icone ?? h.visuels.portrait,
+        image: h.images.icon ?? h.images.portrait,
       })),
     // Regions du lore : la page de chaque region regroupe ses heros et leurs histoires.
-    ...regionsLore.map((r) => ({ type: "page" as const, titre: r.nom, detail: t("nav.lore.label"), href: `/lore/${r.cle}` })),
+    ...regionsLore.map((r) => ({ type: "page" as const, title: r.nom, detail: t("nav.lore.label"), href: `/lore/${r.cle}` })),
     ...objets(locale).map((o) => ({
       type: "objet" as const,
-      titre: o.nom,
-      detail: t(`categories.${o.categorie}`),
+      title: o.name,
+      detail: t(`categories.${o.category}`),
       href: `/items/${o.slug}`,
       image: images[o.slug] ?? null,
     })),
     ...emblemesFiches.map((f) => {
-      const cle = `emblemesData.${f.embleme.cle}.nom`;
+      const cle = `emblemesData.${f.embleme.key}.nom`;
       const nom = t(cle);
       return {
         type: "embleme" as const,
-        titre: nom === cle ? f.embleme.nom : nom,
+        title: nom === cle ? f.embleme.name : nom,
         href: `/emblems/${f.slug}`,
-        image: (visuels as unknown as { emblemes: Record<string, string> }).emblemes[f.embleme.cle] ?? null,
+        image: (visuels as unknown as { emblems: Record<string, string> }).emblems[f.embleme.key] ?? null,
       };
     }),
-    ...sortsFiches.map((s) => ({ type: "sort" as const, titre: s.nom, href: `/spells/${s.slug}`, image: s.image })),
+    ...sortsFiches.map((s) => ({ type: "sort" as const, title: s.nom, href: `/spells/${s.slug}`, image: s.image })),
     // Skins et competences menent a l'onglet de la fiche, ouvert par l'ancre.
     // Sans image : 1 600 chemins de visuels multipliaient l'index par huit. La
     // recherche leur prete l'icone de leur heros, deja dans l'index.
     ...heros.flatMap((h) =>
       (competencesLangue[h.slug] ?? []).flatMap((c) =>
-        c ? [{ type: "competence" as const, titre: c.nom, detail: h.nom, href: `/heroes/${h.slug}#competences` }] : [],
+        c ? [{ type: "competence" as const, title: c.name, detail: h.name, href: `/heroes/${h.slug}#competences` }] : [],
       ),
     ),
     ...heros.flatMap((h) =>
-      h.skins.map((s) => ({ type: "skin" as const, titre: s.nom, detail: h.nom, href: `/heroes/${h.slug}#skins` })),
+      h.skins.map((s) => ({ type: "skin" as const, title: s.name, detail: h.name, href: `/heroes/${h.slug}#skins` })),
     ),
     ...Object.values(patchsDetail).map((p) => ({
       type: "patch" as const,
-      titre: `Patch ${p.version}`,
-      detail: p.titre,
+      title: `Patch ${p.version}`,
+      detail: p.title,
       href: `/patch-notes/${p.version}`,
     })),
     ...articles("patch-notes").map((a) => ({
       type: "patch" as const,
-      titre: article("patch-notes", a.slug, locale)?.titre ?? a.titre,
+      title: article("patch-notes", a.slug, locale)?.title ?? a.title,
       href: `/patch-notes/${a.slug}`,
     })),
     ...articles("actualites").map((a) => ({
       type: "page" as const,
-      titre: article("actualites", a.slug, locale)?.titre ?? a.titre,
+      title: article("actualites", a.slug, locale)?.title ?? a.title,
       href: `/news/${a.slug}`,
     })),
     ...[...BASE, ...ACTUALITE].map((e) => ({
       type: "page" as const,
-      titre: t(`nav.${e.cle}.label`),
+      title: t(`nav.${e.cle}.label`),
       detail: t(`nav.${e.cle}.desc`),
       href: e.href,
     })),
-    { type: "page" as const, titre: t("pages.contribute.titre"), detail: t("pages.contribute.resume"), href: "/contribute" },
+    { type: "page" as const, title: t("pages.contribute.titre"), detail: t("pages.contribute.resume"), href: "/contribute" },
   ];
 
   return NextResponse.json(entrees, { headers: { "Cache-Control": "public, max-age=3600" } });

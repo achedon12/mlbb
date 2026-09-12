@@ -110,7 +110,7 @@ describe("demandes de l'API", () => {
 describe("destinataires d'un patch", () => {
   const patch = {
     version: "2.1.88",
-    ajustements: [
+    adjustments: [
       { slug: "saber", type: "amelioration" as const },
       { slug: "khufra", type: "amelioration" as const },
       { slug: "layla", type: "affaiblissement" as const },

@@ -27,7 +27,7 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
     <div>
       {/* Banniere : illustration en fond, identite par-dessus. */}
       <div
-        id={heros.ancre ?? undefined}
+        id={heros.anchor ?? undefined}
         className="bevel relative scroll-mt-24 overflow-hidden border border-night-800"
       >
         {heros.illustration && (
@@ -48,7 +48,7 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
         <div className="relative flex items-center gap-4 p-5 sm:p-6">
           {heros.portrait && (
             <span className="bevel-sm relative size-16 shrink-0 overflow-hidden border border-gold-500/40 sm:size-20">
-              <Image src={heros.portrait} alt={heros.nom} fill sizes="80px" className="object-cover" />
+              <Image src={heros.portrait} alt={heros.name} fill sizes="80px" className="object-cover" />
             </span>
           )}
 
@@ -57,11 +57,11 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
               <Sparkles size={13} aria-hidden />
               {t("nouveauHeros.titre")}
             </p>
-            {heros.epithete && (
-              <p className="mt-1 font-heading text-sm text-chalk-300">{heros.epithete}</p>
+            {heros.epithet && (
+              <p className="mt-1 font-heading text-sm text-chalk-300">{heros.epithet}</p>
             )}
             <h3 className="font-heading text-3xl font-bold text-chalk-100 sm:text-4xl">
-              {heros.nom}
+              {heros.name}
             </h3>
             {heros.roles.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-1.5">
@@ -97,9 +97,9 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
       )}
 
       {/* Kit : une carte par competence. */}
-      {heros.competences.length > 0 && (
+      {heros.skills.length > 0 && (
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
-          {heros.competences.map((c, i) => {
+          {heros.skills.map((c, i) => {
             // Le role peut etre traduit ; le « + » des competences combinees
             // (« 1st + 2nd Combo Skill ») survit, lui, a la traduction.
             const combo = /combo|\+/i.test(c.role);
@@ -122,8 +122,8 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
                   >
                     {c.role}
                   </span>
-                  {c.nom && (
-                    <span className="font-heading text-sm font-bold text-chalk-100">{c.nom}</span>
+                  {c.name && (
+                    <span className="font-heading text-sm font-bold text-chalk-100">{c.name}</span>
                   )}
                 </div>
                 {c.description.length > 0 && (
@@ -146,7 +146,7 @@ export function NouveauHeros({ heros, langue }: { heros: NouveauHerosEnrichi; la
           href={`/heroes/${heros.slug}`}
           className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-500"
         >
-          {t("nouveauHeros.voirFiche", { nom: heros.nom })}
+          {t("nouveauHeros.voirFiche", { nom: heros.name })}
           <ArrowRight size={14} aria-hidden />
         </Link>
       )}

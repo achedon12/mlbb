@@ -15,7 +15,7 @@ import { RARETE_ORIGINE } from "@/lib/raretes";
  * the month timeline and each month's page.
  */
 
-export const heroName = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+export const heroName = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
 /** Month inside a sentence: "septembre 2025", "September 2025", "septiembre de 2025". */
 export const monthText = (locale: Langue, month: string) => moisAnnee(locale, `${month}-01`);

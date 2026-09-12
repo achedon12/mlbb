@@ -31,9 +31,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 }
 
 const images: Record<string, string> = {
-  ...(visuels.emblemes as Record<string, string>),
+  ...(visuels.emblems as Record<string, string>),
   ...(visuels.talents as Record<string, string>),
-  ...(visuels.sorts as Record<string, string>),
+  ...(visuels.spells as Record<string, string>),
 };
 
 export default async function PageEmblemes({ params }: { params: Promise<{ locale: Langue }> }) {

@@ -75,7 +75,7 @@ export function RechercheGlobale() {
     const terme = cleRecherche(recherche.trim());
     const trouves = entrees.flatMap((e) => {
       if (!terme) return e.type === "page" ? [{ e, score: 0 }] : [];
-      const titre = cleRecherche(e.titre);
+      const titre = cleRecherche(e.title);
       const score = titre.startsWith(terme)
         ? 0
         : titre.includes(terme)
@@ -89,7 +89,7 @@ export function RechercheGlobale() {
       type,
       entrees: trouves
         .filter((x) => x.e.type === type)
-        .sort((a, b) => a.score - b.score || a.e.titre.localeCompare(b.e.titre))
+        .sort((a, b) => a.score - b.score || a.e.title.localeCompare(b.e.title))
         .slice(0, PAR_GROUPE)
         .map((x) => x.e),
     })).filter((g) => g.entrees.length > 0);
@@ -208,7 +208,7 @@ export function RechercheGlobale() {
                       const image = imageDe(e);
                       return (
                         <Link
-                          key={`${e.type}-${e.href}-${e.titre}`}
+                          key={`${e.type}-${e.href}-${e.title}`}
                           id={`${id}-${i}`}
                           data-index={i}
                           role="option"
@@ -228,11 +228,11 @@ export function RechercheGlobale() {
                             {image ? (
                               <Image src={image} alt="" width={32} height={32} className="size-full object-cover" />
                             ) : (
-                              e.titre.charAt(0)
+                              e.title.charAt(0)
                             )}
                           </span>
                           <span className="min-w-0 flex-1">
-                            <span className="block truncate text-sm font-medium">{e.titre}</span>
+                            <span className="block truncate text-sm font-medium">{e.title}</span>
                             {e.detail && <span className="block truncate text-xs text-chalk-500">{e.detail}</span>}
                           </span>
                         </Link>

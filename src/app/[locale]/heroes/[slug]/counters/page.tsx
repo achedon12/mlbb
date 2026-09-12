@@ -50,12 +50,12 @@ import { visuelObjet } from "@/lib/visuels-build";
 type Params = { params: Promise<{ locale: Langue; slug: string }> };
 
 interface Relation {
-  fortContre: string[];
-  faibleContre: string[];
+  strongAgainst: string[];
+  weakAgainst: string[];
   synergies: string[];
 }
 const relations = statistiques.relations as unknown as Record<string, Relation>;
-const iconesObjets = (visuels as unknown as { objets: Record<string, string> }).objets;
+const iconesObjets = (visuels as unknown as { items: Record<string, string> }).items;
 
 /** Une page par heros ; un slug inconnu tombe sur la 404. */
 export const dynamicParams = false;
@@ -64,10 +64,10 @@ export function generateStaticParams() {
   return heros.map((h) => ({ slug: h.slug }));
 }
 
-const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 const portraitDe = (slug: string) => {
   const x = herosParSlug.get(slug);
-  return x?.visuels.icone ?? x?.visuels.portrait ?? null;
+  return x?.images.icon ?? x?.images.portrait ?? null;
 };
 /** Ecarte un adversaire que le catalogue ne connait pas (synchro partielle). */
 const connus = <E extends { slug: string }>(liste: E[] = []) => liste.filter((e) => herosParSlug.has(e.slug));
@@ -82,8 +82,8 @@ function synthese(locale: Langue, h: Heros) {
   const avecNoms = (liste: ContreChiffre[]) => connus(liste).map((e) => ({ ...e, nom: nomDe(e.slug) }));
   const phrase =
     rang && mesure
-      ? phraseSynthese(locale, t, { nom: h.nom, rang, faible: avecNoms(mesure.faible), fort: avecNoms(mesure.fort) })
-      : t("pages.heroCounters.aucuneMesure", { nom: h.nom });
+      ? phraseSynthese(locale, t, { nom: h.name, rang, faible: avecNoms(mesure.weak), fort: avecNoms(mesure.strong) })
+      : t("pages.heroCounters.aucuneMesure", { nom: h.name });
   return { rang, phrase };
 }
 
@@ -97,7 +97,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   // tous une date ou une version, et celle-ci suit les synchros. Un nom long
   // (« Yi Sun-shin ») pousserait le patch au-dela de la coupe des resultats :
   // le titre court le garde visible.
-  const variables = { ...noms(h.nom), v: patchActuel?.version ?? "" };
+  const variables = { ...noms(h.name), v: patchActuel?.version ?? "" };
   const complet = t(patchActuel ? "pages.heroCounters.metaTitre" : "pages.heroCounters.metaTitreSansPatch", variables);
   const titre = patchActuel && complet.length > TITRE_LONG ? t("pages.heroCounters.metaTitreCourt", variables) : complet;
   return {
@@ -123,7 +123,7 @@ export default async function PageContres({ params }: Params) {
   if (!h) notFound();
 
   const t = creerT(locale);
-  const n = noms(h.nom);
+  const n = noms(h.name);
   const ecart = (v: number) => formaterEcart(locale, t, v);
   const decimal = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
@@ -133,8 +133,8 @@ export default async function PageContres({ params }: Params) {
   const rangs = RANGS_MESURE.filter((r) => parRang[r] || coequipiers[slug]?.[r]?.length);
   // Tranches lues pour l'agregat : `all` ne compte qu'a defaut de tranche.
   const tranchesMesurees = RANGS_MESURE.filter((r) => r !== "all" && parRang[r]).length || (parRang.all ? 1 : 0);
-  const contresAgreges = connus(agregerContres(parRang, "faible"));
-  const victimes = connus(agregerContres(parRang, "fort")).slice(0, 8);
+  const contresAgreges = connus(agregerContres(parRang, "weak"));
+  const victimes = connus(agregerContres(parRang, "strong")).slice(0, 8);
   const meilleurs = contresAgreges.slice(0, 8);
   const premier = meilleurs[0]?.slug;
 
@@ -145,9 +145,9 @@ export default async function PageContres({ params }: Params) {
   const parLane = buildsJoues[slug] ?? {};
   const laneReference = h.lanes.find((l) => parLane[l]) ?? Object.keys(parLane)[0];
   const buildReference = laneReference ? parLane[laneReference]?.all?.[0] : undefined;
-  const bonusJoues = (buildReference?.objets ?? []).map((o) => bonusAnglais.get(visuelObjet(o).slug ?? "") ?? null);
+  const bonusJoues = (buildReference?.items ?? []).map((o) => bonusAnglais.get(visuelObjet(o).slug ?? "") ?? null);
   const conseils = objetsContre(
-    { typeDegats: h.typeDegats, roles: h.roles, specialites: h.specialites, volDeVie: porteVolDeVie(bonusJoues) },
+    { typeDegats: h.damageType, roles: h.roles, specialites: h.specialties, volDeVie: porteVolDeVie(bonusJoues) },
     (s) => catalogue.has(s),
   );
   const groupesObjets = [...new Set(conseils.map((c) => c.raison))].map((raison) => ({
@@ -161,16 +161,16 @@ export default async function PageContres({ params }: Params) {
   const tranches = rangDuree ? durees[rangDuree] : undefined;
   const moments = momentsPartie(tranches);
   const nomTranche = (x: TrancheDuree) =>
-    x.a === null
-      ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.de })
-      : t("pages.heroDetail.statistiques.minutes", { de: x.de, a: x.a });
+    x.to === null
+      ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.from })
+      : t("pages.heroDetail.statistiques.minutes", { de: x.from, a: x.to });
 
   const lanesContres = contresParLane(contresAgreges, (s) => herosParSlug.get(s)?.lanes ?? [], h.lanes);
   const relation = relations[slug];
   const wiki = relation
     ? ([
-        [t("pages.heroDetail.alaise", n), relation.fortContre, "bon"],
-        [t("pages.heroDetail.difficulte2", n), relation.faibleContre, "mauvais"],
+        [t("pages.heroDetail.alaise", n), relation.strongAgainst, "bon"],
+        [t("pages.heroDetail.difficulte2", n), relation.weakAgainst, "mauvais"],
         [t("pages.heroCounters.wiki.synergies", n), relation.synergies, "bon"],
       ] as const).map(([titre, slugs, ton]) => ({ titre, ton, slugs: slugs.filter((s) => herosParSlug.has(s)) }))
     : [];
@@ -180,9 +180,9 @@ export default async function PageContres({ params }: Params) {
   const lanePrincipale = h.lanes[0];
   const voisins = lanePrincipale
     ? classementComplet
-        .filter((e) => e.heros.slug !== slug && e.heros.lanes.includes(lanePrincipale))
+        .filter((e) => e.hero.slug !== slug && e.hero.lanes.includes(lanePrincipale))
         .slice(0, 12)
-        .map((e) => e.heros)
+        .map((e) => e.hero)
     : [];
 
   const rangTierList = rangPrincipal && rangPrincipal !== "all" && RANGS_CLASSES.includes(rangPrincipal) ? rangPrincipal : null;
@@ -190,7 +190,7 @@ export default async function PageContres({ params }: Params) {
     { href: `/heroes/${slug}#contres`, label: t("pages.heroCounters.lienFiche", n) },
     { href: `/heroes/${slug}#builds`, label: t("pages.heroCounters.lienBuilds", n) },
     ...(premier
-      ? [{ href: cheminPaire(slug, premier), label: t("pages.heroCounters.lienComparer", { nom: h.nom, autre: nomDe(premier) }) }]
+      ? [{ href: cheminPaire(slug, premier), label: t("pages.heroCounters.lienComparer", { nom: h.name, autre: nomDe(premier) }) }]
       : []),
     rangTierList
       ? { href: `/tier-list/${rangTierList}`, label: t("pages.tierList.titreRang", { rang: t(`rangsMesure.${rangTierList}`) }) }
@@ -249,7 +249,7 @@ export default async function PageContres({ params }: Params) {
         chapeau={phrase}
         miettes={[
           { nom: t("nav.heroes.label"), href: "/heroes" },
-          { nom: h.nom, href: `/heroes/${slug}` },
+          { nom: h.name, href: `/heroes/${slug}` },
           // Pas de `freres` ici : 133 liens de plus dans la charge RSC de chaque
           // page, quand la section « autres pages » mene deja aux voisins.
           { nom: t("pages.heroDetail.onglet.contres") },
@@ -345,15 +345,15 @@ export default async function PageContres({ params }: Params) {
                       <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`rangsMesure.${r}`)}</h3>
                       {s && (
                         <span className="text-sm text-chalk-500">
-                          {t("pages.heroDetail.palier", { p: s.palier })} ·{" "}
-                          {t("builds.victoire", { taux: decimal.format(s.victoire) })}
+                          {t("pages.heroDetail.palier", { p: s.tier })} ·{" "}
+                          {t("builds.victoire", { taux: decimal.format(s.winRate) })}
                         </span>
                       )}
                     </summary>
                     <div className="border-t border-night-800 p-4">
-                      {mesure?.mesure != null && (
+                      {mesure?.winRate != null && (
                         <p className="mb-4 text-sm text-chalk-500">
-                          {t("pages.heroDetail.contresRef", { taux: decimal.format(mesure.mesure) })}
+                          {t("pages.heroDetail.contresRef", { taux: decimal.format(mesure.winRate) })}
                         </p>
                       )}
                       <div className={cn("grid gap-6 md:grid-cols-3", STYLE_TABLEAUX_RANG)}>
@@ -362,7 +362,7 @@ export default async function PageContres({ params }: Params) {
                           titre={t("contres.difficulte")}
                           icone={<TrendingDown size={16} aria-hidden />}
                           ton="mauvais"
-                          lignes={connus(mesure?.faible)}
+                          lignes={connus(mesure?.weak)}
                           ecart={ecart}
                         />
                         <TableauRang
@@ -370,7 +370,7 @@ export default async function PageContres({ params }: Params) {
                           titre={t("contres.fort")}
                           icone={<TrendingUp size={16} aria-hidden />}
                           ton="bon"
-                          lignes={connus(mesure?.fort)}
+                          lignes={connus(mesure?.strong)}
                           ecart={ecart}
                         />
                         <TableauRang
@@ -409,7 +409,7 @@ export default async function PageContres({ params }: Params) {
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">
                 {t("pages.heroCounters.objets.intro", {
                   ...n,
-                  degats: libelleHeros(t, "degats", h.typeDegats)?.toLocaleLowerCase(locale) ?? "—",
+                  degats: libelleHeros(t, "degats", h.damageType)?.toLocaleLowerCase(locale) ?? "—",
                 })}
               </p>
               {groupesObjets.length > 0 ? (
@@ -435,8 +435,8 @@ export default async function PageContres({ params }: Params) {
                                 <span aria-hidden className="bevel-sm size-8 shrink-0 bg-night-800" />
                               )}
                               <span className="min-w-0">
-                                <span className="block text-sm text-chalk-100 group-hover/objet:text-gold-400">{o.nom}</span>
-                                {o.resume && <span className="block text-xs text-chalk-500">{o.resume}</span>}
+                                <span className="block text-sm text-chalk-100 group-hover/objet:text-gold-400">{o.name}</span>
+                                {o.summary && <span className="block text-xs text-chalk-500">{o.summary}</span>}
                               </span>
                             </Link>
                           </li>
@@ -456,11 +456,11 @@ export default async function PageContres({ params }: Params) {
                 <>
                   <p className="mt-3 text-sm leading-relaxed text-chalk-300">
                     {t("pages.heroCounters.duree.phrase", {
-                      nom: h.nom,
+                      nom: h.name,
                       faible: nomTranche(moments.faible),
-                      tauxFaible: pourcentage(locale, moments.faible.victoire),
+                      tauxFaible: pourcentage(locale, moments.faible.winRate),
                       fort: nomTranche(moments.fort),
-                      tauxFort: pourcentage(locale, moments.fort.victoire),
+                      tauxFort: pourcentage(locale, moments.fort.winRate),
                     })}
                   </p>
                   <p className="mt-1 text-xs text-chalk-500">
@@ -563,7 +563,7 @@ export default async function PageContres({ params }: Params) {
                     href={`/heroes/${x.slug}/counters`}
                     className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
-                    {t("pages.heroCounters.titre", noms(x.nom))}
+                    {t("pages.heroCounters.titre", noms(x.name))}
                   </Link>
                 </li>
               ))}
@@ -715,7 +715,7 @@ function TableauRang({
                 <th scope="row">
                   <Link href={`/heroes/${e.slug}`}>{nom}</Link>
                 </th>
-                <td>{ecart(e.avantage)}</td>
+                <td>{ecart(e.advantage)}</td>
                 {pageContres && (
                   <td>
                     <Link href={`/heroes/${e.slug}/counters`}>{t("pages.heroCounters.lienCourt")}</Link>
@@ -744,12 +744,12 @@ function BarresDuree({
 }) {
   // Echelle resserree sur l'etendue mesuree : quelques points d'ecart restent
   // visibles, ce qu'une echelle de 0 a 100 % ecraserait.
-  const bas = moments.faible.victoire - 0.5;
-  const etendue = moments.fort.victoire - bas || 1;
+  const bas = moments.faible.winRate - 0.5;
+  const etendue = moments.fort.winRate - bas || 1;
   return (
     <ul className="mt-4 space-y-1.5 text-xs">
       {tranches.map((x) => (
-        <li key={x.de} className="grid grid-cols-[5.5rem_1fr_3.5rem] items-center gap-2">
+        <li key={x.from} className="grid grid-cols-[5.5rem_1fr_3.5rem] items-center gap-2">
           <span className="text-chalk-400">{nomTranche(x)}</span>
           <span aria-hidden className="h-2 bg-night-800">
             <span
@@ -757,10 +757,10 @@ function BarresDuree({
                 "block h-full",
                 x === moments.faible ? "bg-blood-500" : x === moments.fort ? "bg-emerald-400" : "bg-azure-500",
               )}
-              style={{ width: `${Math.round(15 + (85 * (x.victoire - bas)) / etendue)}%` }}
+              style={{ width: `${Math.round(15 + (85 * (x.winRate - bas)) / etendue)}%` }}
             />
           </span>
-          <span className="text-right tabular-nums text-chalk-300">{pourcentage(locale, x.victoire)}</span>
+          <span className="text-right tabular-nums text-chalk-300">{pourcentage(locale, x.winRate)}</span>
         </li>
       ))}
     </ul>

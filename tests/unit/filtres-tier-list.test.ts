@@ -13,7 +13,7 @@ import {
 } from "@/lib/filtres-tier-list";
 import type { Lane, Role } from "@/lib/types";
 
-const heros = (slug: string, lanes: Lane[], roles: Role[]) => ({ heros: { slug, lanes, roles } });
+const heros = (slug: string, lanes: Lane[], roles: Role[]) => ({ hero: { slug, lanes, roles } });
 
 describe("adresses des lanes et des roles", () => {
   it("fait l'aller-retour entre valeur interne et adresse anglaise", () => {
@@ -45,14 +45,14 @@ describe("filtre du classement", () => {
   ];
 
   it("garde les heros d'une lane, dans l'ordre du classement", () => {
-    expect(filtrerClassement(classement, { type: "lane", valeur: "Experience" }).map((e) => e.heros.slug)).toEqual([
+    expect(filtrerClassement(classement, { type: "lane", valeur: "Experience" }).map((e) => e.hero.slug)).toEqual([
       "b",
       "c",
     ]);
   });
 
   it("compte un role secondaire", () => {
-    expect(filtrerClassement(classement, { type: "role", valeur: "Fighter" }).map((e) => e.heros.slug)).toEqual([
+    expect(filtrerClassement(classement, { type: "role", valeur: "Fighter" }).map((e) => e.hero.slug)).toEqual([
       "b",
       "c",
     ]);
@@ -60,6 +60,6 @@ describe("filtre du classement", () => {
 
   it("laisse tout passer sans filtre", () => {
     expect(filtrerClassement(classement, null)).toHaveLength(3);
-    expect(correspond(classement[0].heros, null)).toBe(true);
+    expect(correspond(classement[0].hero, null)).toBe(true);
   });
 });

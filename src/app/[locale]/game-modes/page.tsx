@@ -34,7 +34,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
     itemListElement: liste.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      name: m.nom,
+      name: m.name,
       url: `${site.url}/${locale}/game-modes/${m.slug}`,
       description: t(`modeFiche.${m.slug}.texte`),
     })),
@@ -88,7 +88,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                   >
                     {t(`modeFiche.${mode.slug}.accroche`)}
                   </p>
-                  <h2 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">{mode.nom}</h2>
+                  <h2 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">{mode.name}</h2>
                   <p className="max-w-xl text-sm leading-relaxed text-chalk-300">
                     {t(`modeFiche.${mode.slug}.texte`)}
                   </p>

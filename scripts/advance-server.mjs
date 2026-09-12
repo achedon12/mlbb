@@ -257,7 +257,7 @@ export function normalizeBody(lines) {
 
 /** The live parser's change, with English field names. */
 function toChange(c) {
-  return "texte" in c ? { text: c.texte } : { label: c.libelle, before: c.avant, after: c.apres };
+  return "text" in c ? { text: c.text } : { label: c.label, before: c.before, after: c.after };
 }
 
 const LIVE_TYPES = { amelioration: "buff", affaiblissement: "nerf", ajustement: "adjust" };
@@ -272,19 +272,19 @@ export function analyzeBody(lines) {
   const [entry] = ajustementsHeros(`==Hero Adjustments==\n:{{hi|_}} {{pci|adjust}}\n${text}\n`);
   const remaining = [...subtitles];
   const sections = (entry?.sections ?? []).map((s) => {
-    const i = remaining.findIndex((r) => r.name === s.nom);
+    const i = remaining.findIndex((r) => r.name === s.name);
     const found = i === -1 ? null : remaining.splice(i, 1)[0];
     return {
       // Changes listed before any subtitle get a group the parser names
       // "Attributes": the source has no heading there, so neither do we.
-      name: found ? s.nom : null,
-      slot: s.categorie,
+      name: found ? s.name : null,
+      slot: s.category,
       type: LIVE_TYPES[s.type] ?? null,
       tag: found?.tag ?? null,
       // A generic heading ("Attributes", "Price") gets translated; a skill
       // name stays the game's own.
       generic: found ? found.generic : false,
-      changes: s.changements.map(toChange),
+      changes: s.changes.map(toChange),
     };
   });
   return { intro: entry?.intro ?? "", sections };
@@ -498,9 +498,9 @@ function slugify(name) {
     .replace(/^-|-$/g, "");
 }
 
-/** Name → slug index, from a `{ slug, nom }` list (the site's data files). */
+/** Name → slug index, from a `{ slug, name }` list (the site's data files). */
 export function buildIndex(list) {
-  return new Map(list.map((x) => [nameKey(x.nom), x.slug]));
+  return new Map(list.map((x) => [nameKey(x.name), x.slug]));
 }
 
 /**

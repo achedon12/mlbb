@@ -60,13 +60,13 @@ export function objetsPopulaires(locale: Langue, nombre = 3): string[] {
   const heros = new Map<string, Set<string>>();
   for (const [slug, parLane] of Object.entries(buildsJoues)) {
     for (const parRang of Object.values(parLane)) {
-      for (const nom of parRang.all?.[0]?.objets ?? []) {
+      for (const nom of parRang.all?.[0]?.items ?? []) {
         const cible = visuelObjet(nom).slug;
         if (cible) heros.set(cible, (heros.get(cible) ?? new Set()).add(slug));
       }
     }
   }
-  const noms = new Map(objets(locale).map((o) => [o.slug, o.nom]));
+  const noms = new Map(objets(locale).map((o) => [o.slug, o.name]));
   return [...heros]
     .sort((a, b) => b[1].size - a[1].size || a[0].localeCompare(b[0]))
     .slice(0, nombre)
@@ -84,7 +84,7 @@ export function choixPopulaires(): { sort: string | null; talent: string | null 
     for (const parRang of Object.values(parLane)) {
       const b = parRang.all?.[0];
       if (!b) continue;
-      if (b.sort) sorts.set(b.sort, (sorts.get(b.sort) ?? 0) + 1);
+      if (b.spell) sorts.set(b.spell, (sorts.get(b.spell) ?? 0) + 1);
       for (const t of b.talents) talents.set(t, (talents.get(t) ?? 0) + 1);
     }
   }

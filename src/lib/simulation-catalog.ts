@@ -10,7 +10,7 @@ import { classementDuRang, RANGS_CLASSES } from "./tier-list";
  * the team analyzer (`/composition/<rank>.json`).
  */
 
-const EMPTY_NOTES = { offensive: null, resistance: null, effets: null, difficulte: null };
+const EMPTY_NOTES = { offense: null, durability: null, abilityEffects: null, difficulty: null };
 
 /**
  * The draft record, completed with the damage type and game ratings the team
@@ -42,9 +42,9 @@ export function metaByRank(): Partial<Record<RangMesure, MetaEntry[]>> {
     RANGS_CLASSES.map((rank) => [
       rank,
       classementDuRang(rank)
-        .filter((e) => !e.faibleEchantillon)
+        .filter((e) => !e.lowSample)
         .slice(0, META_SIZE)
-        .map((e) => ({ slug: e.heros.slug, tier: e.palier, banRate: e.ban, winRate: e.victoire })),
+        .map((e) => ({ slug: e.hero.slug, tier: e.tier, banRate: e.banRate, winRate: e.winRate })),
     ]),
   );
 }

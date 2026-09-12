@@ -32,9 +32,9 @@ export function generateStaticParams() {
   return emblemesFiches.map((e) => ({ slug: e.slug }));
 }
 
-const nomHeros = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const nomHeros = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 const nomEmbleme = (t: T, f: (typeof emblemesFiches)[number]) =>
-  texteChoix(t, f.embleme.cle, "nom", f.embleme.nom)!;
+  texteChoix(t, f.embleme.key, "nom", f.embleme.name)!;
 
 /**
  * Ce que la page et ses metadonnees disent d'un embleme : ses bonus, les heros
@@ -45,8 +45,8 @@ function fiche(locale: Langue, slug: string) {
   if (!f) return null;
   const t = creerT(locale);
   const nom = nomEmbleme(t, f);
-  const bonus = texteChoix(t, f.embleme.cle, "bonus", f.embleme.bonus)!;
-  const pourQui = texteChoix(t, f.embleme.cle, "pourQui", f.embleme.pourQui)!;
+  const bonus = texteChoix(t, f.embleme.key, "bonus", f.embleme.bonus)!;
+  const pourQui = texteChoix(t, f.embleme.key, "pourQui", f.embleme.bestFor)!;
   const heros = usage("embleme", slug);
   const talents = talentsAvecEmbleme(slug);
   const premier = heros[0];

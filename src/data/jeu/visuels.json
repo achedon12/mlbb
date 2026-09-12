@@ -1,8 +1,8 @@
 {
-  "heros": {
+  "heroes": {
     "aamon": {
       "portrait": "/visuels/heros/aamon/portrait.png",
-      "icone": "/visuels/heros/aamon/icone.png",
+      "icon": "/visuels/heros/aamon/icone.png",
       "skins": {
         "1091": "/visuels/heros/aamon/skins/1091-duke-of-shards.png",
         "1092": "/visuels/heros/aamon/skins/1092-night-s-edge.png",
@@ -13,7 +13,7 @@
     },
     "akai": {
       "portrait": "/visuels/heros/akai/portrait.png",
-      "icone": "/visuels/heros/akai/icone.png",
+      "icon": "/visuels/heros/akai/icone.png",
       "skins": {
         "100910": "/visuels/heros/akai/skins/100910-marvelous-maestro.png",
         "091": "/visuels/heros/akai/skins/091-panda-warrior.png",
@@ -29,7 +29,7 @@
     },
     "aldous": {
       "portrait": "/visuels/heros/aldous/portrait.png",
-      "icone": "/visuels/heros/aldous/icone.png",
+      "icon": "/visuels/heros/aldous/icone.png",
       "skins": {
         "641": "/visuels/heros/aldous/skins/641-contractor.png",
         "642": "/visuels/heros/aldous/skins/642-red-mantle.png",
@@ -44,7 +44,7 @@
     },
     "alice": {
       "portrait": "/visuels/heros/alice/portrait.png",
-      "icone": "/visuels/heros/alice/icone.png",
+      "icon": "/visuels/heros/alice/icone.png",
       "skins": {
         "041": "/visuels/heros/alice/skins/041-queen-of-blood.png",
         "042": "/visuels/heros/alice/skins/042-spirit-woman.png",
@@ -57,7 +57,7 @@
     },
     "alpha": {
       "portrait": "/visuels/heros/alpha/portrait.png",
-      "icone": "/visuels/heros/alpha/icone.png",
+      "icon": "/visuels/heros/alpha/icone.png",
       "skins": {
         "281": "/visuels/heros/alpha/skins/281-blade-of-enmity.png",
         "282": "/visuels/heros/alpha/skins/282-onimusha-commander.png",
@@ -72,7 +72,7 @@
     },
     "alucard": {
       "portrait": "/visuels/heros/alucard/portrait.png",
-      "icone": "/visuels/heros/alucard/icone.png",
+      "icon": "/visuels/heros/alucard/icone.png",
       "skins": {
         "100710": "/visuels/heros/alucard/skins/100710-obi-wan-kenobi.png",
         "100711": "/visuels/heros/alucard/skins/100711-demon-s-bane.png",
@@ -89,7 +89,7 @@
     },
     "angela": {
       "portrait": "/visuels/heros/angela/portrait.png",
-      "icone": "/visuels/heros/angela/icone.png",
+      "icon": "/visuels/heros/angela/icone.png",
       "skins": {
         "551": "/visuels/heros/angela/skins/551-bunnylove.png",
         "552": "/visuels/heros/angela/skins/552-dove-love.png",
@@ -106,7 +106,7 @@
     },
     "arlott": {
       "portrait": "/visuels/heros/arlott/portrait.png",
-      "icone": "/visuels/heros/arlott/icone.png",
+      "icon": "/visuels/heros/arlott/icone.png",
       "skins": {
         "1201": "/visuels/heros/arlott/skins/1201-lone-lancer.png",
         "1202": "/visuels/heros/arlott/skins/1202-wandering-spear.png",
@@ -116,7 +116,7 @@
     },
     "atlas": {
       "portrait": "/visuels/heros/atlas/portrait.png",
-      "icone": "/visuels/heros/atlas/icone.png",
+      "icon": "/visuels/heros/atlas/icone.png",
       "skins": {
         "931": "/visuels/heros/atlas/skins/931-ocean-gladiator.png",
         "932": "/visuels/heros/atlas/skins/932-reactor-core.png",
@@ -128,7 +128,7 @@
     },
     "aulus": {
       "portrait": "/visuels/heros/aulus/portrait.png",
-      "icone": "/visuels/heros/aulus/icone.png",
+      "icon": "/visuels/heros/aulus/icone.png",
       "skins": {
         "1081": "/visuels/heros/aulus/skins/1081-warrior-of-ferocity.png",
         "1082": "/visuels/heros/aulus/skins/1082-berserker.png",
@@ -139,7 +139,7 @@
     },
     "aurora": {
       "portrait": "/visuels/heros/aurora/portrait.png",
-      "icone": "/visuels/heros/aurora/icone.png",
+      "icon": "/visuels/heros/aurora/icone.png",
       "skins": {
         "361": "/visuels/heros/aurora/skins/361-maiden-of-the-glacier.png",
         "362": "/visuels/heros/aurora/skins/362-nature-s-throne.png",
@@ -152,7 +152,7 @@
     },
     "badang": {
       "portrait": "/visuels/heros/badang/portrait.png",
-      "icone": "/visuels/heros/badang/icone.png",
+      "icon": "/visuels/heros/badang/icone.png",
       "skins": {
         "771": "/visuels/heros/badang/skins/771-tribal-warrior.png",
         "772": "/visuels/heros/badang/skins/772-ironfists.png",
@@ -165,7 +165,7 @@
     },
     "balmond": {
       "portrait": "/visuels/heros/balmond/portrait.png",
-      "icone": "/visuels/heros/balmond/icone.png",
+      "icon": "/visuels/heros/balmond/icone.png",
       "skins": {
         "021": "/visuels/heros/balmond/skins/021-bloody-beast.png",
         "022": "/visuels/heros/balmond/skins/022-power-source.png",
@@ -180,7 +180,7 @@
     },
     "bane": {
       "portrait": "/visuels/heros/bane/portrait.png",
-      "icone": "/visuels/heros/bane/icone.png",
+      "icon": "/visuels/heros/bane/icone.png",
       "skins": {
         "111": "/visuels/heros/bane/skins/111-frozen-king.png",
         "112": "/visuels/heros/bane/skins/112-castle-master.png",
@@ -192,7 +192,7 @@
     },
     "barats": {
       "portrait": "/visuels/heros/barats/portrait.png",
-      "icone": "/visuels/heros/barats/icone.png",
+      "icon": "/visuels/heros/barats/icone.png",
       "skins": {
         "991": "/visuels/heros/barats/skins/991-dino-rider.png",
         "992": "/visuels/heros/barats/skins/992-armored-lizard.png",
@@ -204,7 +204,7 @@
     },
     "baxia": {
       "portrait": "/visuels/heros/baxia/portrait.png",
-      "icone": "/visuels/heros/baxia/icone.png",
+      "icon": "/visuels/heros/baxia/icone.png",
       "skins": {
         "871": "/visuels/heros/baxia/skins/871-mystic-tortoise.png",
         "872": "/visuels/heros/baxia/skins/872-wild-totem.png",
@@ -216,7 +216,7 @@
     },
     "beatrix": {
       "portrait": "/visuels/heros/beatrix/portrait.png",
-      "icone": "/visuels/heros/beatrix/icone.png",
+      "icon": "/visuels/heros/beatrix/icone.png",
       "skins": {
         "1051": "/visuels/heros/beatrix/skins/1051-dawnbreak-soldier.png",
         "1052": "/visuels/heros/beatrix/skins/1052-x-factor.png",
@@ -229,7 +229,7 @@
     },
     "belerick": {
       "portrait": "/visuels/heros/belerick/portrait.png",
-      "icone": "/visuels/heros/belerick/icone.png",
+      "icon": "/visuels/heros/belerick/icone.png",
       "skins": {
         "701": "/visuels/heros/belerick/skins/701-guard-of-nature.png",
         "702": "/visuels/heros/belerick/skins/702-tiger-s-claw.png",
@@ -241,7 +241,7 @@
     },
     "benedetta": {
       "portrait": "/visuels/heros/benedetta/portrait.png",
-      "icone": "/visuels/heros/benedetta/icone.png",
+      "icon": "/visuels/heros/benedetta/icone.png",
       "skins": {
         "971": "/visuels/heros/benedetta/skins/971-shadow-ranger.png",
         "972": "/visuels/heros/benedetta/skins/972-honor-blade.png",
@@ -255,7 +255,7 @@
     },
     "brody": {
       "portrait": "/visuels/heros/brody/portrait.png",
-      "icone": "/visuels/heros/brody/icone.png",
+      "icon": "/visuels/heros/brody/icone.png",
       "skins": {
         "1001": "/visuels/heros/brody/skins/1001-the-lone-star.png",
         "1002": "/visuels/heros/brody/skins/1002-nameless-stray.png",
@@ -269,7 +269,7 @@
     },
     "bruno": {
       "portrait": "/visuels/heros/bruno/portrait.png",
-      "icone": "/visuels/heros/bruno/icone.png",
+      "icon": "/visuels/heros/bruno/icone.png",
       "skins": {
         "121": "/visuels/heros/bruno/skins/121-the-protector.png",
         "122": "/visuels/heros/bruno/skins/122-vanguard-elite.png",
@@ -285,7 +285,7 @@
     },
     "carmilla": {
       "portrait": "/visuels/heros/carmilla/portrait.png",
-      "icone": "/visuels/heros/carmilla/icone.png",
+      "icon": "/visuels/heros/carmilla/icone.png",
       "skins": {
         "921": "/visuels/heros/carmilla/skins/921-shadow-of-twilight.png",
         "922": "/visuels/heros/carmilla/skins/922-wisteria-countess.png",
@@ -296,7 +296,7 @@
     },
     "cecilion": {
       "portrait": "/visuels/heros/cecilion/portrait.png",
-      "icone": "/visuels/heros/cecilion/icone.png",
+      "icon": "/visuels/heros/cecilion/icone.png",
       "skins": {
         "911": "/visuels/heros/cecilion/skins/911-embrace-of-night.png",
         "912": "/visuels/heros/cecilion/skins/912-wisteria-count.png",
@@ -309,7 +309,7 @@
     },
     "chang-e": {
       "portrait": "/visuels/heros/chang-e/portrait.png",
-      "icone": "/visuels/heros/chang-e/icone.png",
+      "icon": "/visuels/heros/chang-e/icone.png",
       "skins": {
         "611": "/visuels/heros/chang-e/skins/611-moon-palace-immortal.png",
         "612": "/visuels/heros/chang-e/skins/612-moonstruck.png",
@@ -326,7 +326,7 @@
     },
     "chip": {
       "portrait": "/visuels/heros/chip/portrait.png",
-      "icone": "/visuels/heros/chip/icone.png",
+      "icon": "/visuels/heros/chip/icone.png",
       "skins": {
         "1241": "/visuels/heros/chip/skins/1241-phase-technician.png",
         "1242": "/visuels/heros/chip/skins/1242-nexus-engineer.png",
@@ -335,7 +335,7 @@
     },
     "chou": {
       "portrait": "/visuels/heros/chou/portrait.png",
-      "icone": "/visuels/heros/chou/icone.png",
+      "icon": "/visuels/heros/chou/icone.png",
       "skins": {
         "261": "/visuels/heros/chou/skins/261-kung-fu-boy.png",
         "262": "/visuels/heros/chou/skins/262-hip-hop-boy.png",
@@ -353,7 +353,7 @@
     },
     "cici": {
       "portrait": "/visuels/heros/cici/portrait.png",
-      "icone": "/visuels/heros/cici/icone.png",
+      "icon": "/visuels/heros/cici/icone.png",
       "skins": {
         "1231": "/visuels/heros/cici/skins/1231-buoyant-performer.png",
         "1232": "/visuels/heros/cici/skins/1232-whimsical-carnival.png",
@@ -362,7 +362,7 @@
     },
     "claude": {
       "portrait": "/visuels/heros/claude/portrait.png",
-      "icone": "/visuels/heros/claude/icone.png",
+      "icon": "/visuels/heros/claude/icone.png",
       "skins": {
         "651": "/visuels/heros/claude/skins/651-master-thief.png",
         "652": "/visuels/heros/claude/skins/652-golden-bullet.png",
@@ -380,7 +380,7 @@
     },
     "clint": {
       "portrait": "/visuels/heros/clint/portrait.png",
-      "icone": "/visuels/heros/clint/icone.png",
+      "icon": "/visuels/heros/clint/icone.png",
       "skins": {
         "131": "/visuels/heros/clint/skins/131-west-justice.png",
         "132": "/visuels/heros/clint/skins/132-sun-n-sand.png",
@@ -397,7 +397,7 @@
     },
     "cyclops": {
       "portrait": "/visuels/heros/cyclops/portrait.png",
-      "icone": "/visuels/heros/cyclops/icone.png",
+      "icon": "/visuels/heros/cyclops/icone.png",
       "skins": {
         "331": "/visuels/heros/cyclops/skins/331-starsoul-magician.png",
         "332": "/visuels/heros/cyclops/skins/332-exorcist.png",
@@ -412,7 +412,7 @@
     },
     "diggie": {
       "portrait": "/visuels/heros/diggie/portrait.png",
-      "icone": "/visuels/heros/diggie/icone.png",
+      "icon": "/visuels/heros/diggie/icone.png",
       "skins": {
         "481": "/visuels/heros/diggie/skins/481-timekeeper.png",
         "482": "/visuels/heros/diggie/skins/482-pigeoneer.png",
@@ -424,12 +424,12 @@
     },
     "dori": {
       "portrait": null,
-      "icone": null,
+      "icon": null,
       "skins": {}
     },
     "dyrroth": {
       "portrait": "/visuels/heros/dyrroth/portrait.png",
-      "icone": "/visuels/heros/dyrroth/icone.png",
+      "icon": "/visuels/heros/dyrroth/icone.png",
       "skins": {
         "851": "/visuels/heros/dyrroth/skins/851-prince-of-the-abyss.png",
         "852": "/visuels/heros/dyrroth/skins/852-scalebore.png",
@@ -442,7 +442,7 @@
     },
     "edith": {
       "portrait": "/visuels/heros/edith/portrait.png",
-      "icone": "/visuels/heros/edith/icone.png",
+      "icon": "/visuels/heros/edith/icone.png",
       "skins": {
         "1111": "/visuels/heros/edith/skins/1111-ancient-guard.png",
         "1112": "/visuels/heros/edith/skins/1112-celestial-safeguard.png",
@@ -454,7 +454,7 @@
     },
     "esmeralda": {
       "portrait": "/visuels/heros/esmeralda/portrait.png",
-      "icone": "/visuels/heros/esmeralda/icone.png",
+      "icon": "/visuels/heros/esmeralda/icone.png",
       "skins": {
         "811": "/visuels/heros/esmeralda/skins/811-astrologer.png",
         "812": "/visuels/heros/esmeralda/skins/812-ruddy-dusk.png",
@@ -469,7 +469,7 @@
     },
     "estes": {
       "portrait": "/visuels/heros/estes/portrait.png",
-      "icone": "/visuels/heros/estes/icone.png",
+      "icon": "/visuels/heros/estes/icone.png",
       "skins": {
         "341": "/visuels/heros/estes/skins/341-moon-elf-king.png",
         "342": "/visuels/heros/estes/skins/342-holy-priest.png",
@@ -484,7 +484,7 @@
     },
     "eudora": {
       "portrait": "/visuels/heros/eudora/portrait.png",
-      "icone": "/visuels/heros/eudora/icone.png",
+      "icon": "/visuels/heros/eudora/icone.png",
       "skins": {
         "151": "/visuels/heros/eudora/skins/151-lightning-weaver.png",
         "152": "/visuels/heros/eudora/skins/152-flame-red-lips.png",
@@ -498,7 +498,7 @@
     },
     "fanny": {
       "portrait": "/visuels/heros/fanny/portrait.png",
-      "icone": "/visuels/heros/fanny/icone.png",
+      "icon": "/visuels/heros/fanny/icone.png",
       "skins": {
         "171": "/visuels/heros/fanny/skins/171-blade-dancer.png",
         "172": "/visuels/heros/fanny/skins/172-campus-youth.png",
@@ -516,7 +516,7 @@
     },
     "faramis": {
       "portrait": "/visuels/heros/faramis/portrait.png",
-      "icone": "/visuels/heros/faramis/icone.png",
+      "icon": "/visuels/heros/faramis/icone.png",
       "skins": {
         "761": "/visuels/heros/faramis/skins/761-soul-binder.png",
         "762": "/visuels/heros/faramis/skins/762-dark-necro.png",
@@ -528,7 +528,7 @@
     },
     "floryn": {
       "portrait": "/visuels/heros/floryn/portrait.png",
-      "icone": "/visuels/heros/floryn/icone.png",
+      "icon": "/visuels/heros/floryn/icone.png",
       "skins": {
         "1121": "/visuels/heros/floryn/skins/1121-the-budding-hope.png",
         "1122": "/visuels/heros/floryn/skins/1122-springtide.png",
@@ -540,7 +540,7 @@
     },
     "franco": {
       "portrait": "/visuels/heros/franco/portrait.png",
-      "icone": "/visuels/heros/franco/icone.png",
+      "icon": "/visuels/heros/franco/icone.png",
       "skins": {
         "101": "/visuels/heros/franco/skins/101-frozen-warrior.png",
         "102": "/visuels/heros/franco/skins/102-masterchef.png",
@@ -556,7 +556,7 @@
     },
     "fredrinn": {
       "portrait": "/visuels/heros/fredrinn/portrait.png",
-      "icone": "/visuels/heros/fredrinn/icone.png",
+      "icon": "/visuels/heros/fredrinn/icone.png",
       "skins": {
         "1171": "/visuels/heros/fredrinn/skins/1171-rogue-appraiser.png",
         "1172": "/visuels/heros/fredrinn/skins/1172-regal-renegade.png",
@@ -568,7 +568,7 @@
     },
     "freya": {
       "portrait": "/visuels/heros/freya/portrait.png",
-      "icone": "/visuels/heros/freya/icone.png",
+      "icon": "/visuels/heros/freya/icone.png",
       "skins": {
         "221": "/visuels/heros/freya/skins/221-valkyrie.png",
         "222": "/visuels/heros/freya/skins/222-dark-rose.png",
@@ -584,7 +584,7 @@
     },
     "gatotkaca": {
       "portrait": "/visuels/heros/gatotkaca/portrait.png",
-      "icone": "/visuels/heros/gatotkaca/icone.png",
+      "icon": "/visuels/heros/gatotkaca/icone.png",
       "skins": {
         "411": "/visuels/heros/gatotkaca/skins/411-mighty-legend.png",
         "412": "/visuels/heros/gatotkaca/skins/412-mighty-guardian.png",
@@ -597,7 +597,7 @@
     },
     "gloo": {
       "portrait": "/visuels/heros/gloo/portrait.png",
-      "icone": "/visuels/heros/gloo/icone.png",
+      "icon": "/visuels/heros/gloo/icone.png",
       "skins": {
         "1041": "/visuels/heros/gloo/skins/1041-swamp-spirits.png",
         "1042": "/visuels/heros/gloo/skins/1042-verdant-enchanter.png",
@@ -606,7 +606,7 @@
     },
     "gord": {
       "portrait": "/visuels/heros/gord/portrait.png",
-      "icone": "/visuels/heros/gord/icone.png",
+      "icon": "/visuels/heros/gord/icone.png",
       "skins": {
         "231": "/visuels/heros/gord/skins/231-professor-of-the-mystics.png",
         "232": "/visuels/heros/gord/skins/232-professor-of-hell.png",
@@ -620,7 +620,7 @@
     },
     "granger": {
       "portrait": "/visuels/heros/granger/portrait.png",
-      "icone": "/visuels/heros/granger/icone.png",
+      "icon": "/visuels/heros/granger/icone.png",
       "skins": {
         "791": "/visuels/heros/granger/skins/791-death-chanter.png",
         "792": "/visuels/heros/granger/skins/792-bardic-whisper.png",
@@ -637,7 +637,7 @@
     },
     "grock": {
       "portrait": "/visuels/heros/grock/portrait.png",
-      "icone": "/visuels/heros/grock/icone.png",
+      "icon": "/visuels/heros/grock/icone.png",
       "skins": {
         "441": "/visuels/heros/grock/skins/441-fortress-titan.png",
         "442": "/visuels/heros/grock/skins/442-grave-guardian.png",
@@ -651,7 +651,7 @@
     },
     "guinevere": {
       "portrait": "/visuels/heros/guinevere/portrait.png",
-      "icone": "/visuels/heros/guinevere/icone.png",
+      "icon": "/visuels/heros/guinevere/icone.png",
       "skins": {
         "801": "/visuels/heros/guinevere/skins/801-ms-violet.png",
         "802": "/visuels/heros/guinevere/skins/802-fleur-de-bleau.png",
@@ -668,7 +668,7 @@
     },
     "gusion": {
       "portrait": "/visuels/heros/gusion/portrait.png",
-      "icone": "/visuels/heros/gusion/icone.png",
+      "icon": "/visuels/heros/gusion/icone.png",
       "skins": {
         "561": "/visuels/heros/gusion/skins/561-holy-blade.png",
         "562": "/visuels/heros/gusion/skins/562-moonlight-sonata.png",
@@ -686,7 +686,7 @@
     },
     "hanabi": {
       "portrait": "/visuels/heros/hanabi/portrait.png",
-      "icone": "/visuels/heros/hanabi/icone.png",
+      "icon": "/visuels/heros/hanabi/icone.png",
       "skins": {
         "601": "/visuels/heros/hanabi/skins/601-scarlet-flower.png",
         "602": "/visuels/heros/hanabi/skins/602-resplendent-iris.png",
@@ -703,7 +703,7 @@
     },
     "hanzo": {
       "portrait": "/visuels/heros/hanzo/portrait.png",
-      "icone": "/visuels/heros/hanzo/icone.png",
+      "icon": "/visuels/heros/hanzo/icone.png",
       "skins": {
         "691": "/visuels/heros/hanzo/skins/691-akuma-ninja.png",
         "692": "/visuels/heros/hanzo/skins/692-the-pale-phantom.png",
@@ -714,7 +714,7 @@
     },
     "harith": {
       "portrait": "/visuels/heros/harith/portrait.png",
-      "icone": "/visuels/heros/harith/icone.png",
+      "icon": "/visuels/heros/harith/icone.png",
       "skins": {
         "731": "/visuels/heros/harith/skins/731-time-traveler.png",
         "732": "/visuels/heros/harith/skins/732-savannah-cat.png",
@@ -729,7 +729,7 @@
     },
     "harley": {
       "portrait": "/visuels/heros/harley/portrait.png",
-      "icone": "/visuels/heros/harley/icone.png",
+      "icon": "/visuels/heros/harley/icone.png",
       "skins": {
         "421": "/visuels/heros/harley/skins/421-mage-genius.png",
         "422": "/visuels/heros/harley/skins/422-naughty-joker.png",
@@ -744,7 +744,7 @@
     },
     "hayabusa": {
       "portrait": "/visuels/heros/hayabusa/portrait.png",
-      "icone": "/visuels/heros/hayabusa/icone.png",
+      "icon": "/visuels/heros/hayabusa/icone.png",
       "skins": {
         "211": "/visuels/heros/hayabusa/skins/211-crimson-shadow.png",
         "212": "/visuels/heros/hayabusa/skins/212-spacetime-shadow.png",
@@ -761,7 +761,7 @@
     },
     "helcurt": {
       "portrait": "/visuels/heros/helcurt/portrait.png",
-      "icone": "/visuels/heros/helcurt/icone.png",
+      "icon": "/visuels/heros/helcurt/icone.png",
       "skins": {
         "511": "/visuels/heros/helcurt/skins/511-shadowbringer.png",
         "512": "/visuels/heros/helcurt/skins/512-exoracial-executer.png",
@@ -775,7 +775,7 @@
     },
     "hilda": {
       "portrait": "/visuels/heros/hilda/portrait.png",
-      "icone": "/visuels/heros/hilda/icone.png",
+      "icon": "/visuels/heros/hilda/icone.png",
       "skins": {
         "351": "/visuels/heros/hilda/skins/351-power-of-megalith.png",
         "352": "/visuels/heros/hilda/skins/352-power-of-wildness.png",
@@ -787,7 +787,7 @@
     },
     "hirara": {
       "portrait": "/visuels/heros/hirara/portrait.png",
-      "icone": "/visuels/heros/hirara/icone.png",
+      "icon": "/visuels/heros/hirara/icone.png",
       "skins": {
         "1331": "/visuels/heros/hirara/skins/1331-fallen-scarlet.png",
         "1332": "/visuels/heros/hirara/skins/1332-gilded-embers.png"
@@ -795,7 +795,7 @@
     },
     "hylos": {
       "portrait": "/visuels/heros/hylos/portrait.png",
-      "icone": "/visuels/heros/hylos/icone.png",
+      "icon": "/visuels/heros/hylos/icone.png",
       "skins": {
         "491": "/visuels/heros/hylos/skins/491-grand-warden.png",
         "492": "/visuels/heros/hylos/skins/492-abyssal-shaman.png",
@@ -807,7 +807,7 @@
     },
     "irithel": {
       "portrait": "/visuels/heros/irithel/portrait.png",
-      "icone": "/visuels/heros/irithel/icone.png",
+      "icon": "/visuels/heros/irithel/icone.png",
       "skins": {
         "431": "/visuels/heros/irithel/skins/431-jungle-heart.png",
         "432": "/visuels/heros/irithel/skins/432-silver-cyclone.png",
@@ -821,7 +821,7 @@
     },
     "ixia": {
       "portrait": "/visuels/heros/ixia/portrait.png",
-      "icone": "/visuels/heros/ixia/icone.png",
+      "icon": "/visuels/heros/ixia/icone.png",
       "skins": {
         "1211": "/visuels/heros/ixia/skins/1211-archlight-outlaw.png",
         "1212": "/visuels/heros/ixia/skins/1212-shifting-sand.png",
@@ -830,7 +830,7 @@
     },
     "jawhead": {
       "portrait": "/visuels/heros/jawhead/portrait.png",
-      "icone": "/visuels/heros/jawhead/icone.png",
+      "icon": "/visuels/heros/jawhead/icone.png",
       "skins": {
         "541": "/visuels/heros/jawhead/skins/541-steel-sweetheart.png",
         "542": "/visuels/heros/jawhead/skins/542-girl-scout.png",
@@ -846,7 +846,7 @@
     },
     "johnson": {
       "portrait": "/visuels/heros/johnson/portrait.png",
-      "icone": "/visuels/heros/johnson/icone.png",
+      "icon": "/visuels/heros/johnson/icone.png",
       "skins": {
         "321": "/visuels/heros/johnson/skins/321-wild-engine.png",
         "322": "/visuels/heros/johnson/skins/322-fire-chief.png",
@@ -861,7 +861,7 @@
     },
     "joy": {
       "portrait": "/visuels/heros/joy/portrait.png",
-      "icone": "/visuels/heros/joy/icone.png",
+      "icon": "/visuels/heros/joy/icone.png",
       "skins": {
         "1181": "/visuels/heros/joy/skins/1181-flash-of-miracle.png",
         "1182": "/visuels/heros/joy/skins/1182-feline-ranger.png",
@@ -871,7 +871,7 @@
     },
     "julian": {
       "portrait": "/visuels/heros/julian/portrait.png",
-      "icone": "/visuels/heros/julian/icone.png",
+      "icon": "/visuels/heros/julian/icone.png",
       "skins": {
         "1161": "/visuels/heros/julian/skins/1161-scarlet-raven.png",
         "1162": "/visuels/heros/julian/skins/1162-silent-edge.png",
@@ -882,7 +882,7 @@
     },
     "kadita": {
       "portrait": "/visuels/heros/kadita/portrait.png",
-      "icone": "/visuels/heros/kadita/icone.png",
+      "icon": "/visuels/heros/kadita/icone.png",
       "skins": {
         "751": "/visuels/heros/kadita/skins/751-ocean-goddess.png",
         "752": "/visuels/heros/kadita/skins/752-atlantean-princess.png",
@@ -894,7 +894,7 @@
     },
     "kagura": {
       "portrait": "/visuels/heros/kagura/portrait.png",
-      "icone": "/visuels/heros/kagura/icone.png",
+      "icon": "/visuels/heros/kagura/icone.png",
       "skins": {
         "251": "/visuels/heros/kagura/skins/251-onmyouji-master.png",
         "252": "/visuels/heros/kagura/skins/252-flower-season.png",
@@ -910,7 +910,7 @@
     },
     "kaja": {
       "portrait": "/visuels/heros/kaja/portrait.png",
-      "icone": "/visuels/heros/kaja/icone.png",
+      "icon": "/visuels/heros/kaja/icone.png",
       "skins": {
         "621": "/visuels/heros/kaja/skins/621-nazar-king.png",
         "622": "/visuels/heros/kaja/skins/622-commandment.png",
@@ -923,7 +923,7 @@
     },
     "kalea": {
       "portrait": "/visuels/heros/kalea/portrait.png",
-      "icone": "/visuels/heros/kalea/icone.png",
+      "icon": "/visuels/heros/kalea/icone.png",
       "skins": {
         "1281": "/visuels/heros/kalea/skins/1281-surging-wave.png",
         "1282": "/visuels/heros/kalea/skins/1282-shimmering-waves.png",
@@ -932,7 +932,7 @@
     },
     "karina": {
       "portrait": "/visuels/heros/karina/portrait.png",
-      "icone": "/visuels/heros/karina/icone.png",
+      "icon": "/visuels/heros/karina/icone.png",
       "skins": {
         "081": "/visuels/heros/karina/skins/081-shadow-blade.png",
         "082": "/visuels/heros/karina/skins/082-phantom-blade.png",
@@ -947,7 +947,7 @@
     },
     "karrie": {
       "portrait": "/visuels/heros/karrie/portrait.png",
-      "icone": "/visuels/heros/karrie/icone.png",
+      "icon": "/visuels/heros/karrie/icone.png",
       "skins": {
         "401": "/visuels/heros/karrie/skins/401-lost-star.png",
         "402": "/visuels/heros/karrie/skins/402-rising-star.png",
@@ -964,7 +964,7 @@
     },
     "khaleed": {
       "portrait": "/visuels/heros/khaleed/portrait.png",
-      "icone": "/visuels/heros/khaleed/icone.png",
+      "icon": "/visuels/heros/khaleed/icone.png",
       "skins": {
         "981": "/visuels/heros/khaleed/skins/981-desert-scimitar.png",
         "982": "/visuels/heros/khaleed/skins/982-prince-of-sand.png",
@@ -975,7 +975,7 @@
     },
     "khufra": {
       "portrait": "/visuels/heros/khufra/portrait.png",
-      "icone": "/visuels/heros/khufra/icone.png",
+      "icon": "/visuels/heros/khufra/icone.png",
       "skins": {
         "781": "/visuels/heros/khufra/skins/781-desert-tyrant.png",
         "782": "/visuels/heros/khufra/skins/782-desert-owl.png",
@@ -989,7 +989,7 @@
     },
     "kimmy": {
       "portrait": "/visuels/heros/kimmy/portrait.png",
-      "icone": "/visuels/heros/kimmy/icone.png",
+      "icon": "/visuels/heros/kimmy/icone.png",
       "skins": {
         "711": "/visuels/heros/kimmy/skins/711-hoverjet-outrider.png",
         "712": "/visuels/heros/kimmy/skins/712-steam-researcher.png",
@@ -1004,7 +1004,7 @@
     },
     "lancelot": {
       "portrait": "/visuels/heros/lancelot/portrait.png",
-      "icone": "/visuels/heros/lancelot/icone.png",
+      "icon": "/visuels/heros/lancelot/icone.png",
       "skins": {
         "471": "/visuels/heros/lancelot/skins/471-blade-of-roses.png",
         "472": "/visuels/heros/lancelot/skins/472-masked-knight.png",
@@ -1022,7 +1022,7 @@
     },
     "lapu-lapu": {
       "portrait": "/visuels/heros/lapu-lapu/portrait.png",
-      "icone": "/visuels/heros/lapu-lapu/icone.png",
+      "icon": "/visuels/heros/lapu-lapu/icone.png",
       "skins": {
         "371": "/visuels/heros/lapu-lapu/skins/371-courageous-blade.png",
         "372": "/visuels/heros/lapu-lapu/skins/372-ancestral-blade.png",
@@ -1035,7 +1035,7 @@
     },
     "layla": {
       "portrait": "/visuels/heros/layla/portrait.png",
-      "icone": "/visuels/heros/layla/icone.png",
+      "icon": "/visuels/heros/layla/icone.png",
       "skins": {
         "181": "/visuels/heros/layla/skins/181-energy-gunner.png",
         "182": "/visuels/heros/layla/skins/182-green-flash.png",
@@ -1052,7 +1052,7 @@
     },
     "leomord": {
       "portrait": "/visuels/heros/leomord/portrait.png",
-      "icone": "/visuels/heros/leomord/icone.png",
+      "icon": "/visuels/heros/leomord/icone.png",
       "skins": {
         "671": "/visuels/heros/leomord/skins/671-sworn-sword.png",
         "672": "/visuels/heros/leomord/skins/672-hell-knight.png",
@@ -1067,7 +1067,7 @@
     },
     "lesley": {
       "portrait": "/visuels/heros/lesley/portrait.png",
-      "icone": "/visuels/heros/lesley/icone.png",
+      "icon": "/visuels/heros/lesley/icone.png",
       "skins": {
         "531": "/visuels/heros/lesley/skins/531-deadly-sniper.png",
         "532": "/visuels/heros/lesley/skins/532-royal-musketeer.png",
@@ -1086,7 +1086,7 @@
     },
     "ling": {
       "portrait": "/visuels/heros/ling/portrait.png",
-      "icone": "/visuels/heros/ling/icone.png",
+      "icon": "/visuels/heros/ling/icone.png",
       "skins": {
         "841": "/visuels/heros/ling/skins/841-cyan-finch.png",
         "842": "/visuels/heros/ling/skins/842-fiery-dance.png",
@@ -1101,7 +1101,7 @@
     },
     "lolita": {
       "portrait": "/visuels/heros/lolita/portrait.png",
-      "icone": "/visuels/heros/lolita/icone.png",
+      "icon": "/visuels/heros/lolita/icone.png",
       "skins": {
         "201": "/visuels/heros/lolita/skins/201-steel-elf.png",
         "202": "/visuels/heros/lolita/skins/202-soldier-in-training.png",
@@ -1115,7 +1115,7 @@
     },
     "lukas": {
       "portrait": "/visuels/heros/lukas/portrait.png",
-      "icone": "/visuels/heros/lukas/icone.png",
+      "icon": "/visuels/heros/lukas/icone.png",
       "skins": {
         "1271": "/visuels/heros/lukas/skins/1271-beast-of-light.png",
         "1272": "/visuels/heros/lukas/skins/1272-ardent-roar.png",
@@ -1124,7 +1124,7 @@
     },
     "lunox": {
       "portrait": "/visuels/heros/lunox/portrait.png",
-      "icone": "/visuels/heros/lunox/icone.png",
+      "icon": "/visuels/heros/lunox/icone.png",
       "skins": {
         "681": "/visuels/heros/lunox/skins/681-twilight-goddess.png",
         "682": "/visuels/heros/lunox/skins/682-bloody-mary.png",
@@ -1140,7 +1140,7 @@
     },
     "luo-yi": {
       "portrait": "/visuels/heros/luo-yi/portrait.png",
-      "icone": "/visuels/heros/luo-yi/icone.png",
+      "icon": "/visuels/heros/luo-yi/icone.png",
       "skins": {
         "961": "/visuels/heros/luo-yi/skins/961-yin-yang-geomancer.png",
         "962": "/visuels/heros/luo-yi/skins/962-yin-yang-mage.png",
@@ -1154,7 +1154,7 @@
     },
     "lylia": {
       "portrait": "/visuels/heros/lylia/portrait.png",
-      "icone": "/visuels/heros/lylia/icone.png",
+      "icon": "/visuels/heros/lylia/icone.png",
       "skins": {
         "861": "/visuels/heros/lylia/skins/861-little-witch.png",
         "862": "/visuels/heros/lylia/skins/862-school-idol.png",
@@ -1167,7 +1167,7 @@
     },
     "marcel": {
       "portrait": "/visuels/heros/marcel/portrait.png",
-      "icone": "/visuels/heros/marcel/icone.png",
+      "icon": "/visuels/heros/marcel/icone.png",
       "skins": {
         "1321": "/visuels/heros/marcel/skins/1321-soul-photographer.png",
         "1322": "/visuels/heros/marcel/skins/1322-split-shadows.png"
@@ -1175,7 +1175,7 @@
     },
     "martis": {
       "portrait": "/visuels/heros/martis/portrait.png",
-      "icone": "/visuels/heros/martis/icone.png",
+      "icon": "/visuels/heros/martis/icone.png",
       "skins": {
         "581": "/visuels/heros/martis/skins/581-ashura-king.png",
         "582": "/visuels/heros/martis/skins/582-tyrant.png",
@@ -1189,7 +1189,7 @@
     },
     "masha": {
       "portrait": "/visuels/heros/masha/portrait.png",
-      "icone": "/visuels/heros/masha/icone.png",
+      "icon": "/visuels/heros/masha/icone.png",
       "skins": {
         "881": "/visuels/heros/masha/skins/881-wild-oats-fist.png",
         "882": "/visuels/heros/masha/skins/882-winter-guard.png",
@@ -1202,7 +1202,7 @@
     },
     "mathilda": {
       "portrait": "/visuels/heros/mathilda/portrait.png",
-      "icone": "/visuels/heros/mathilda/icone.png",
+      "icon": "/visuels/heros/mathilda/icone.png",
       "skins": {
         "1021": "/visuels/heros/mathilda/skins/1021-swift-plume.png",
         "1022": "/visuels/heros/mathilda/skins/1022-unrestrained-delight.png",
@@ -1213,7 +1213,7 @@
     },
     "melissa": {
       "portrait": "/visuels/heros/melissa/portrait.png",
-      "icone": "/visuels/heros/melissa/icone.png",
+      "icon": "/visuels/heros/melissa/icone.png",
       "skins": {
         "1141": "/visuels/heros/melissa/skins/1141-cursed-needle.png",
         "1142": "/visuels/heros/melissa/skins/1142-twinge-weaver.png",
@@ -1225,7 +1225,7 @@
     },
     "minotaur": {
       "portrait": "/visuels/heros/minotaur/portrait.png",
-      "icone": "/visuels/heros/minotaur/icone.png",
+      "icon": "/visuels/heros/minotaur/icone.png",
       "skins": {
         "191": "/visuels/heros/minotaur/skins/191-son-of-minos.png",
         "192": "/visuels/heros/minotaur/skins/192-bursting-yama.png",
@@ -1237,7 +1237,7 @@
     },
     "minsitthar": {
       "portrait": "/visuels/heros/minsitthar/portrait.png",
-      "icone": "/visuels/heros/minsitthar/icone.png",
+      "icon": "/visuels/heros/minsitthar/icone.png",
       "skins": {
         "741": "/visuels/heros/minsitthar/skins/741-courageous-warrior.png",
         "742": "/visuels/heros/minsitthar/skins/742-king-of-war.png",
@@ -1249,7 +1249,7 @@
     },
     "miya": {
       "portrait": "/visuels/heros/miya/portrait.png",
-      "icone": "/visuels/heros/miya/icone.png",
+      "icon": "/visuels/heros/miya/icone.png",
       "skins": {
         "100110": "/visuels/heros/miya/skins/100110-moon-priestess.png",
         "100111": "/visuels/heros/miya/skins/100111-doom-catalyst.png",
@@ -1269,7 +1269,7 @@
     },
     "moskov": {
       "portrait": "/visuels/heros/moskov/portrait.png",
-      "icone": "/visuels/heros/moskov/icone.png",
+      "icon": "/visuels/heros/moskov/icone.png",
       "skins": {
         "311": "/visuels/heros/moskov/skins/311-spear-of-quiescence.png",
         "312": "/visuels/heros/moskov/skins/312-spear-of-bone-dragon.png",
@@ -1286,7 +1286,7 @@
     },
     "nana": {
       "portrait": "/visuels/heros/nana/portrait.png",
-      "icone": "/visuels/heros/nana/icone.png",
+      "icon": "/visuels/heros/nana/icone.png",
       "skins": {
         "100510": "/visuels/heros/nana/skins/100510-mistbender-nana.png",
         "051": "/visuels/heros/nana/skins/051-sweet-leonin.png",
@@ -1302,7 +1302,7 @@
     },
     "natalia": {
       "portrait": "/visuels/heros/natalia/portrait.png",
-      "icone": "/visuels/heros/natalia/icone.png",
+      "icon": "/visuels/heros/natalia/icone.png",
       "skins": {
         "241": "/visuels/heros/natalia/skins/241-bright-claw.png",
         "242": "/visuels/heros/natalia/skins/242-glass-blade.png",
@@ -1317,7 +1317,7 @@
     },
     "natan": {
       "portrait": "/visuels/heros/natan/portrait.png",
-      "icone": "/visuels/heros/natan/icone.png",
+      "icon": "/visuels/heros/natan/icone.png",
       "skins": {
         "1071": "/visuels/heros/natan/skins/1071-spacetime-walker.png",
         "1072": "/visuels/heros/natan/skins/1072-time-wielder.png",
@@ -1330,7 +1330,7 @@
     },
     "nolan": {
       "portrait": "/visuels/heros/nolan/portrait.png",
-      "icone": "/visuels/heros/nolan/icone.png",
+      "icon": "/visuels/heros/nolan/icone.png",
       "skins": {
         "1221": "/visuels/heros/nolan/skins/1221-cosmic-wayfinder.png",
         "1222": "/visuels/heros/nolan/skins/1222-voidwalker.png",
@@ -1340,7 +1340,7 @@
     },
     "novaria": {
       "portrait": "/visuels/heros/novaria/portrait.png",
-      "icone": "/visuels/heros/novaria/icone.png",
+      "icon": "/visuels/heros/novaria/icone.png",
       "skins": {
         "1191": "/visuels/heros/novaria/skins/1191-star-rebel.png",
         "1192": "/visuels/heros/novaria/skins/1192-dark-star.png",
@@ -1350,7 +1350,7 @@
     },
     "obsidia": {
       "portrait": "/visuels/heros/obsidia/portrait.png",
-      "icone": "/visuels/heros/obsidia/icone.png",
+      "icon": "/visuels/heros/obsidia/icone.png",
       "skins": {
         "1301": "/visuels/heros/obsidia/skins/1301-sovereign-of-dark-s-end.png",
         "1302": "/visuels/heros/obsidia/skins/1302-undying-remnants.png"
@@ -1358,7 +1358,7 @@
     },
     "odette": {
       "portrait": "/visuels/heros/odette/portrait.png",
-      "icone": "/visuels/heros/odette/icone.png",
+      "icon": "/visuels/heros/odette/icone.png",
       "skins": {
         "461": "/visuels/heros/odette/skins/461-swan-princess.png",
         "462": "/visuels/heros/odette/skins/462-black-swan.png",
@@ -1373,7 +1373,7 @@
     },
     "paquito": {
       "portrait": "/visuels/heros/paquito/portrait.png",
-      "icone": "/visuels/heros/paquito/icone.png",
+      "icon": "/visuels/heros/paquito/icone.png",
       "skins": {
         "1031": "/visuels/heros/paquito/skins/1031-the-heavenly-fist.png",
         "1032": "/visuels/heros/paquito/skins/1032-death-blow.png",
@@ -1388,7 +1388,7 @@
     },
     "pharsa": {
       "portrait": "/visuels/heros/pharsa/portrait.png",
-      "icone": "/visuels/heros/pharsa/icone.png",
+      "icon": "/visuels/heros/pharsa/icone.png",
       "skins": {
         "521": "/visuels/heros/pharsa/skins/521-wings-of-vengeance.png",
         "522": "/visuels/heros/pharsa/skins/522-wings-of-heaven.png",
@@ -1405,7 +1405,7 @@
     },
     "phoveus": {
       "portrait": "/visuels/heros/phoveus/portrait.png",
-      "icone": "/visuels/heros/phoveus/icone.png",
+      "icon": "/visuels/heros/phoveus/icone.png",
       "skins": {
         "1061": "/visuels/heros/phoveus/skins/1061-chains-of-sin.png",
         "1062": "/visuels/heros/phoveus/skins/1062-monolith-watcher.png",
@@ -1414,7 +1414,7 @@
     },
     "popol-and-kupa": {
       "portrait": "/visuels/heros/popol-and-kupa/portrait.png",
-      "icone": "/visuels/heros/popol-and-kupa/icone.png",
+      "icon": "/visuels/heros/popol-and-kupa/icone.png",
       "skins": {
         "941": "/visuels/heros/popol-and-kupa/skins/941-icefield-companions.png",
         "942": "/visuels/heros/popol-and-kupa/skins/942-hunting-pals.png",
@@ -1427,7 +1427,7 @@
     },
     "rafaela": {
       "portrait": "/visuels/heros/rafaela/portrait.png",
-      "icone": "/visuels/heros/rafaela/icone.png",
+      "icon": "/visuels/heros/rafaela/icone.png",
       "skins": {
         "141": "/visuels/heros/rafaela/skins/141-wings-of-holiness.png",
         "142": "/visuels/heros/rafaela/skins/142-fertility-goddess.png",
@@ -1442,7 +1442,7 @@
     },
     "roger": {
       "portrait": "/visuels/heros/roger/portrait.png",
-      "icone": "/visuels/heros/roger/icone.png",
+      "icon": "/visuels/heros/roger/icone.png",
       "skins": {
         "391": "/visuels/heros/roger/skins/391-dire-wolf-hunter.png",
         "392": "/visuels/heros/roger/skins/392-dark-gent.png",
@@ -1457,7 +1457,7 @@
     },
     "ruby": {
       "portrait": "/visuels/heros/ruby/portrait.png",
-      "icone": "/visuels/heros/ruby/icone.png",
+      "icon": "/visuels/heros/ruby/icone.png",
       "skins": {
         "291": "/visuels/heros/ruby/skins/291-little-red-hood.png",
         "292": "/visuels/heros/ruby/skins/292-cat-girl.png",
@@ -1474,7 +1474,7 @@
     },
     "saber": {
       "portrait": "/visuels/heros/saber/portrait.png",
-      "icone": "/visuels/heros/saber/icone.png",
+      "icon": "/visuels/heros/saber/icone.png",
       "skins": {
         "031": "/visuels/heros/saber/skins/031-wandering-sword.png",
         "032": "/visuels/heros/saber/skins/032-golden-flash.png",
@@ -1489,7 +1489,7 @@
     },
     "selena": {
       "portrait": "/visuels/heros/selena/portrait.png",
-      "icone": "/visuels/heros/selena/icone.png",
+      "icon": "/visuels/heros/selena/icone.png",
       "skins": {
         "631": "/visuels/heros/selena/skins/631-abyssal-witch.png",
         "632": "/visuels/heros/selena/skins/632-wasp-queen.png",
@@ -1505,7 +1505,7 @@
     },
     "silvanna": {
       "portrait": "/visuels/heros/silvanna/portrait.png",
-      "icone": "/visuels/heros/silvanna/icone.png",
+      "icon": "/visuels/heros/silvanna/icone.png",
       "skins": {
         "901": "/visuels/heros/silvanna/skins/901-imperial-knightess.png",
         "902": "/visuels/heros/silvanna/skins/902-hallowed-lance.png",
@@ -1521,7 +1521,7 @@
     },
     "sora": {
       "portrait": "/visuels/heros/sora/portrait.png",
-      "icone": "/visuels/heros/sora/icone.png",
+      "icon": "/visuels/heros/sora/icone.png",
       "skins": {
         "1311": "/visuels/heros/sora/skins/1311-shifting-cloud.png",
         "1312": "/visuels/heros/sora/skins/1312-azure-cloud.png"
@@ -1529,7 +1529,7 @@
     },
     "sun": {
       "portrait": "/visuels/heros/sun/portrait.png",
-      "icone": "/visuels/heros/sun/icone.png",
+      "icon": "/visuels/heros/sun/icone.png",
       "skins": {
         "271": "/visuels/heros/sun/skins/271-monkey-king.png",
         "272": "/visuels/heros/sun/skins/272-battle-buddha.png",
@@ -1543,7 +1543,7 @@
     },
     "suyou": {
       "portrait": "/visuels/heros/suyou/portrait.png",
-      "icone": "/visuels/heros/suyou/icone.png",
+      "icon": "/visuels/heros/suyou/icone.png",
       "skins": {
         "1261": "/visuels/heros/suyou/skins/1261-mask-of-the-immortal.png",
         "1262": "/visuels/heros/suyou/skins/1262-venerated-vigilance.png",
@@ -1552,7 +1552,7 @@
     },
     "terizla": {
       "portrait": "/visuels/heros/terizla/portrait.png",
-      "icone": "/visuels/heros/terizla/icone.png",
+      "icon": "/visuels/heros/terizla/icone.png",
       "skins": {
         "821": "/visuels/heros/terizla/skins/821-executioner.png",
         "822": "/visuels/heros/terizla/skins/822-abyss-guard.png",
@@ -1565,7 +1565,7 @@
     },
     "thamuz": {
       "portrait": "/visuels/heros/thamuz/portrait.png",
-      "icone": "/visuels/heros/thamuz/icone.png",
+      "icon": "/visuels/heros/thamuz/icone.png",
       "skins": {
         "721": "/visuels/heros/thamuz/skins/721-lord-lava.png",
         "722": "/visuels/heros/thamuz/skins/722-lord-of-wraith.png",
@@ -1577,7 +1577,7 @@
     },
     "tigreal": {
       "portrait": "/visuels/heros/tigreal/portrait.png",
-      "icone": "/visuels/heros/tigreal/icone.png",
+      "icon": "/visuels/heros/tigreal/icone.png",
       "skins": {
         "061": "/visuels/heros/tigreal/skins/061-warrior-of-dawn.png",
         "062": "/visuels/heros/tigreal/skins/062-dark-guardian.png",
@@ -1591,7 +1591,7 @@
     },
     "uranus": {
       "portrait": "/visuels/heros/uranus/portrait.png",
-      "icone": "/visuels/heros/uranus/icone.png",
+      "icon": "/visuels/heros/uranus/icone.png",
       "skins": {
         "591": "/visuels/heros/uranus/skins/591-aethereal-defender.png",
         "592": "/visuels/heros/uranus/skins/592-ancient-soul.png",
@@ -1604,7 +1604,7 @@
     },
     "vale": {
       "portrait": "/visuels/heros/vale/portrait.png",
-      "icone": "/visuels/heros/vale/icone.png",
+      "icon": "/visuels/heros/vale/icone.png",
       "skins": {
         "661": "/visuels/heros/vale/skins/661-windtalker.png",
         "662": "/visuels/heros/vale/skins/662-cerulean-winds.png",
@@ -1619,7 +1619,7 @@
     },
     "valentina": {
       "portrait": "/visuels/heros/valentina/portrait.png",
-      "icone": "/visuels/heros/valentina/icone.png",
+      "icon": "/visuels/heros/valentina/icone.png",
       "skins": {
         "1101": "/visuels/heros/valentina/skins/1101-prophetess-of-the-night.png",
         "1102": "/visuels/heros/valentina/skins/1102-twilight-charmer.png",
@@ -1631,7 +1631,7 @@
     },
     "valir": {
       "portrait": "/visuels/heros/valir/portrait.png",
-      "icone": "/visuels/heros/valir/icone.png",
+      "icon": "/visuels/heros/valir/icone.png",
       "skins": {
         "571": "/visuels/heros/valir/skins/571-son-of-flames.png",
         "572": "/visuels/heros/valir/skins/572-pale-flame.png",
@@ -1648,7 +1648,7 @@
     },
     "vexana": {
       "portrait": "/visuels/heros/vexana/portrait.png",
-      "icone": "/visuels/heros/vexana/icone.png",
+      "icon": "/visuels/heros/vexana/icone.png",
       "skins": {
         "381": "/visuels/heros/vexana/skins/381-shimmer-of-hope.png",
         "382": "/visuels/heros/vexana/skins/382-lucent-beacon.png",
@@ -1662,7 +1662,7 @@
     },
     "wanwan": {
       "portrait": "/visuels/heros/wanwan/portrait.png",
-      "icone": "/visuels/heros/wanwan/icone.png",
+      "icon": "/visuels/heros/wanwan/icone.png",
       "skins": {
         "891": "/visuels/heros/wanwan/skins/891-agile-tiger.png",
         "892": "/visuels/heros/wanwan/skins/892-darting-star.png",
@@ -1677,7 +1677,7 @@
     },
     "x-borg": {
       "portrait": "/visuels/heros/x-borg/portrait.png",
-      "icone": "/visuels/heros/x-borg/icone.png",
+      "icon": "/visuels/heros/x-borg/icone.png",
       "skins": {
         "831": "/visuels/heros/x-borg/skins/831-firaga-armor.png",
         "832": "/visuels/heros/x-borg/skins/832-blue-storm.png",
@@ -1690,7 +1690,7 @@
     },
     "xavier": {
       "portrait": "/visuels/heros/xavier/portrait.png",
-      "icone": "/visuels/heros/xavier/icone.png",
+      "icon": "/visuels/heros/xavier/icone.png",
       "skins": {
         "1151": "/visuels/heros/xavier/skins/1151-defier-of-light.png",
         "1152": "/visuels/heros/xavier/skins/1152-verdict-of-light.png",
@@ -1701,7 +1701,7 @@
     },
     "yi-sun-shin": {
       "portrait": "/visuels/heros/yi-sun-shin/portrait.png",
-      "icone": "/visuels/heros/yi-sun-shin/icone.png",
+      "icon": "/visuels/heros/yi-sun-shin/icone.png",
       "skins": {
         "301": "/visuels/heros/yi-sun-shin/skins/301-paenlong-legend.png",
         "302": "/visuels/heros/yi-sun-shin/skins/302-major-general.png",
@@ -1715,7 +1715,7 @@
     },
     "yin": {
       "portrait": "/visuels/heros/yin/portrait.png",
-      "icone": "/visuels/heros/yin/icone.png",
+      "icon": "/visuels/heros/yin/icone.png",
       "skins": {
         "1131": "/visuels/heros/yin/skins/1131-martial-genius.png",
         "1132": "/visuels/heros/yin/skins/1132-fists-of-valor.png",
@@ -1727,7 +1727,7 @@
     },
     "yu-zhong": {
       "portrait": "/visuels/heros/yu-zhong/portrait.png",
-      "icone": "/visuels/heros/yu-zhong/icone.png",
+      "icon": "/visuels/heros/yu-zhong/icone.png",
       "skins": {
         "951": "/visuels/heros/yu-zhong/skins/951-black-dragon.png",
         "952": "/visuels/heros/yu-zhong/skins/952-emerald-dragon.png",
@@ -1740,7 +1740,7 @@
     },
     "yve": {
       "portrait": "/visuels/heros/yve/portrait.png",
-      "icone": "/visuels/heros/yve/icone.png",
+      "icon": "/visuels/heros/yve/icone.png",
       "skins": {
         "1011": "/visuels/heros/yve/skins/1011-astrowarden.png",
         "1012": "/visuels/heros/yve/skins/1012-forest-hymn.png",
@@ -1750,7 +1750,7 @@
     },
     "zetian": {
       "portrait": "/visuels/heros/zetian/portrait.png",
-      "icone": "/visuels/heros/zetian/icone.png",
+      "icon": "/visuels/heros/zetian/icone.png",
       "skins": {
         "1291": "/visuels/heros/zetian/skins/1291-celestial-empress.png",
         "1292": "/visuels/heros/zetian/skins/1292-heavenly-splendor.png"
@@ -1758,7 +1758,7 @@
     },
     "zhask": {
       "portrait": "/visuels/heros/zhask/portrait.png",
-      "icone": "/visuels/heros/zhask/icone.png",
+      "icon": "/visuels/heros/zhask/icone.png",
       "skins": {
         "501": "/visuels/heros/zhask/skins/501-the-king-of-swarms.png",
         "502": "/visuels/heros/zhask/skins/502-crystallized-predator.png",
@@ -1770,7 +1770,7 @@
     },
     "zhuxin": {
       "portrait": "/visuels/heros/zhuxin/portrait.png",
-      "icone": "/visuels/heros/zhuxin/icone.png",
+      "icon": "/visuels/heros/zhuxin/icone.png",
       "skins": {
         "1251": "/visuels/heros/zhuxin/skins/1251-beacon-of-spirits.png",
         "1252": "/visuels/heros/zhuxin/skins/1252-ethereal-serenity.png",
@@ -1779,7 +1779,7 @@
     },
     "zilong": {
       "portrait": "/visuels/heros/zilong/portrait.png",
-      "icone": "/visuels/heros/zilong/icone.png",
+      "icon": "/visuels/heros/zilong/icone.png",
       "skins": {
         "161": "/visuels/heros/zilong/skins/161-spear-of-dragon.png",
         "162": "/visuels/heros/zilong/skins/162-elite-warrior.png",
@@ -3180,7 +3180,7 @@
       "Dragon of Prosperity": "/visuels/heros/zilong/illustrations/dragon-of-prosperity.webp"
     }
   },
-  "competences": {
+  "skills": {
     "aamon": {
       "Invisible Armor": "/visuels/competences/invisible-armor.webp",
       "Soul Shards": "/visuels/competences/soul-shards.webp",
@@ -4016,7 +4016,7 @@
       "Supreme Warrior": "/visuels/competences/supreme-warrior.webp"
     }
   },
-  "objets": {
+  "items": {
     "calamity-reaper": "/visuels/objets/calamity-reaper.png",
     "blade-armor": "/visuels/objets/blade-armor.png",
     "feather-of-heaven": "/visuels/objets/feather-of-heaven.png",
@@ -4120,7 +4120,7 @@
     "winter-crown": "/visuels/objets/winter-crown.png",
     "wishing-lantern": "/visuels/objets/wishing-lantern.png"
   },
-  "emblemes": {
+  "emblems": {
     "tank-emblem": "/visuels/emblemes/tank-emblem.png",
     "mage-emblem": "/visuels/emblemes/mage-emblem.png",
     "assassin-emblem": "/visuels/emblemes/assassin-emblem.png",
@@ -4157,7 +4157,7 @@
     "temporal-reign": "/visuels/talents/temporal-reign.png",
     "war-cry": "/visuels/talents/war-cry.png"
   },
-  "sorts": {
+  "spells": {
     "retribution": "/visuels/sorts/retribution.png",
     "execute": "/visuels/sorts/execute.png",
     "inspire": "/visuels/sorts/inspire.png",

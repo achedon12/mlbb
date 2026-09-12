@@ -30,11 +30,11 @@ import {
  * attribute slips past the reader unnoticed.
  */
 
-type RawItem = { slug: string; nom: string; categorie: string; prix: number | null; bonus: string | null; unique: string | null; passif: string | null };
+type RawItem = { slug: string; name: string; category: string; price: number | null; bonus: string | null; unique: string | null; passive: string | null };
 type RawHero = Parameters<typeof prepareHero>[0];
 
 const item = (o: Partial<RawItem> & { slug: string }): SimItem =>
-  prepareItem({ nom: o.slug, categorie: "Attack", prix: 1000, bonus: null, unique: null, passif: null, ...o });
+  prepareItem({ name: o.slug, category: "Attack", price: 1000, bonus: null, unique: null, passive: null, ...o });
 
 const hero = (h: Partial<SimHero> = {}): SimHero => ({
   slug: "test",
@@ -138,9 +138,9 @@ describe("heroes", () => {
     expect(aamon).toMatchObject({ resource: "mana", damageType: "magic", hp: [2614, 4742], hpRegen: 8, movementSpeed: 250 });
     const fanny = prepareHero((heroesJson as RawHero[]).find((h) => h.slug === "fanny")!);
     expect(fanny).toMatchObject({ resource: "energy", mana: null });
-    expect(prepareHero({ slug: "dori", nom: "Dori", typeDegats: "Magic", ressource: "Mana", stats: {} }).hp).toBeNull();
+    expect(prepareHero({ slug: "dori", name: "Dori", damageType: "Magic", resource: "Mana", stats: {} }).hp).toBeNull();
     expect(
-      prepareHero({ slug: "x", nom: "X", typeDegats: "Phyiscal", ressource: "None", stats: { mana1: "0", mana15: "0" } }),
+      prepareHero({ slug: "x", name: "X", damageType: "Phyiscal", resource: "None", stats: { mana1: "0", mana15: "0" } }),
     ).toMatchObject({ damageType: "physical", resource: "none" });
   });
 
@@ -153,8 +153,8 @@ describe("heroes", () => {
 });
 
 describe("stat computation", () => {
-  const blade = item({ slug: "blade", bonus: "+60 Physical Attack, +10% Cooldown Reduction", prix: 2000 });
-  const helmet = item({ slug: "helmet", categorie: "Defense", bonus: "+1200 HP, +20 Magic Defense", prix: 1900 });
+  const blade = item({ slug: "blade", bonus: "+60 Physical Attack, +10% Cooldown Reduction", price: 2000 });
+  const helmet = item({ slug: "helmet", category: "Defense", bonus: "+1200 HP, +20 Magic Defense", price: 1900 });
 
   it("adds the base at the level and the items, with the breakdown", () => {
     const r = simulate(build({ level: 15, items: ["blade", "helmet"] }), catalog([blade, helmet]))!;
@@ -184,7 +184,7 @@ describe("stat computation", () => {
     const talisman = item({
       slug: "talisman",
       bonus: "+15% Cooldown Reduction",
-      passif: "Mana Spring: Regenerates 15% of Max Mana every 10 seconds.@ Magic Mastery: Max Cooldown Reduction is increased by 5%.",
+      passive: "Mana Spring: Regenerates 15% of Max Mana every 10 seconds.@ Magic Mastery: Max Cooldown Reduction is increased by 5%.",
     });
     const r2 = simulate(build({ items: [...four, "talisman"] }), catalog([book, talisman]))!;
     expect(r2.stats.cooldownReduction).toMatchObject({ raw: 75, value: 45, cap: 45 });
@@ -201,8 +201,8 @@ describe("stat computation", () => {
   });
 
   it("does not stack two passives with the same name and flags the conflict", () => {
-    const gun = item({ slug: "gun", passif: "Armor Buster: Increase Physical Penetration by 30%.@ Malefic Energy: Increases range." });
-    const roar = item({ slug: "roar", passif: "Armor Buster: Increase Physical Penetration by 30%." });
+    const gun = item({ slug: "gun", passive: "Armor Buster: Increase Physical Penetration by 30%.@ Malefic Energy: Increases range." });
+    const roar = item({ slug: "roar", passive: "Armor Buster: Increase Physical Penetration by 30%." });
     const r = simulate(build({ items: ["gun", "roar"] }), catalog([gun, roar]))!;
     expect(r.stats.physicalPenPercent.value).toBe(30);
     expect(r.conflicts).toContainEqual({ type: "passive", name: "Armor Buster", items: ["gun", "roar"] });
@@ -210,8 +210,8 @@ describe("stat computation", () => {
   });
 
   it("flags two pairs of boots", () => {
-    const b1 = item({ slug: "b1", categorie: "Movement", bonus: "+40 Movement Speed" });
-    const b2 = item({ slug: "b2", categorie: "Movement", bonus: "+40 Movement Speed" });
+    const b1 = item({ slug: "b1", category: "Movement", bonus: "+40 Movement Speed" });
+    const b2 = item({ slug: "b2", category: "Movement", bonus: "+40 Movement Speed" });
     const r = simulate(build({ items: ["b1", "b2"] }), catalog([b1, b2]))!;
     expect(r.conflicts).toContainEqual({ type: "boots", items: ["b1", "b2"] });
     expect(r.stats.movementSpeed.value).toBe(330);
@@ -268,7 +268,7 @@ describe("stat computation", () => {
     const staff = item({
       slug: "staff",
       bonus: "+55 Physical Attack, +15% Attack Speed",
-      passif: "Swift: Every 1% extra Crit Chance gained is converted into 1% extra Attack Speed.",
+      passive: "Swift: Every 1% extra Crit Chance gained is converted into 1% extra Attack Speed.",
     });
     const javelin = item({ slug: "javelin", bonus: "+8% Crit Chance" });
     const r = simulate(build({ items: ["staff", "javelin"] }), catalog([staff, javelin]))!;
@@ -278,7 +278,7 @@ describe("stat computation", () => {
   });
 
   it("applies Bargain Hunter's discount to gold", () => {
-    const strike = item({ slug: "strike", prix: 2010 });
+    const strike = item({ slug: "strike", price: 2010 });
     const r = simulate(build({ items: ["strike"], talents: [null, "bargain-hunter", null] }), catalog([strike]))!;
     expect(r.gold).toBe(2010);
     expect(r.discountedGold).toBe(1910);

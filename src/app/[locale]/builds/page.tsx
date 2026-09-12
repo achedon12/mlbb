@@ -45,7 +45,7 @@ export default async function CommunityBuildsPage({ params }: Params) {
   const itemNames = buildNames(locale, t).items;
   const heroOf = (slug: string) => {
     const h = herosParSlug.get(slug);
-    return { name: h?.nom ?? slug, icon: h?.visuels.icone ?? null };
+    return { name: h?.name ?? slug, icon: h?.images.icon ?? null };
   };
 
   const week = stored

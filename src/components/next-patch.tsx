@@ -17,7 +17,7 @@ export function NextPatch({ slug, locale }: { slug: string; locale: Langue }) {
   const upcoming = upcomingForHero(advanceVersions(locale), slug, patchActuel.version);
   if (upcoming.length === 0) return null;
   const t = creerT(locale);
-  const name = herosParSlug.get(slug)?.nom ?? slug;
+  const name = herosParSlug.get(slug)?.name ?? slug;
 
   return (
     <section aria-labelledby="next-patch" className="scroll-mt-24">

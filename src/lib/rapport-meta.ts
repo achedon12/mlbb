@@ -13,9 +13,9 @@ const ORDRE: Palier[] = ["S+", "S", "A", "B", "C"];
 
 /** Taux quotidiens d'un heros : victoire et ban, un jour manquant valant null. */
 export interface SerieTier {
-  debut: string;
-  victoire: (number | null)[];
-  ban: (number | null)[];
+  start: string;
+  winRate: (number | null)[];
+  banRate: (number | null)[];
 }
 
 export interface ChangementPalier {
@@ -42,15 +42,15 @@ export interface ChangementPalier {
  */
 export function changementsDePalier(
   entrees: { slug: string; serie?: SerieTier | null; palierActuel?: Palier | null }[],
-  regle: { score: (t: { victoire: number; ban: number }) => number; palier: (score: number) => Palier },
+  regle: { score: (t: { winRate: number; banRate: number }) => number; palier: (score: number) => Palier },
 ): { montees: ChangementPalier[]; descentes: ChangementPalier[] } {
   const changements = entrees.flatMap(({ slug, serie, palierActuel }) => {
     if (!serie || !palierActuel) return [];
-    const scores = serie.victoire.map((v, i) => {
-      const b = serie.ban[i];
-      return typeof v === "number" && typeof b === "number" ? regle.score({ victoire: v, ban: b }) : null;
+    const scores = serie.winRate.map((v, i) => {
+      const b = serie.banRate[i];
+      return typeof v === "number" && typeof b === "number" ? regle.score({ winRate: v, banRate: b }) : null;
     });
-    const variation = variationSemaine({ debut: serie.debut, victoire: scores } satisfies SerieVictoire);
+    const variation = variationSemaine({ start: serie.start, winRate: scores } satisfies SerieVictoire);
     if (!variation) return [];
     const avant = regle.palier(variation.avant);
     const apres = regle.palier(variation.actuel);
@@ -96,12 +96,12 @@ export function grouperAjustements<A extends Pick<AjustementHeros, "slug" | "typ
 }
 
 /** Les `nombre` premiers d'une liste selon une mesure, du plus haut au plus bas, a egalite par slug. */
-export function premiersSelon<E extends { heros: { slug: string } }>(
+export function premiersSelon<E extends { hero: { slug: string } }>(
   entrees: E[],
   mesure: (e: E) => number,
   nombre = 5,
 ): E[] {
   return [...entrees]
-    .sort((a, b) => mesure(b) - mesure(a) || a.heros.slug.localeCompare(b.heros.slug))
+    .sort((a, b) => mesure(b) - mesure(a) || a.hero.slug.localeCompare(b.hero.slug))
     .slice(0, nombre);
 }

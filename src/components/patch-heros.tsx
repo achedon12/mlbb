@@ -84,7 +84,7 @@ export function PatchHeros({
 
       <ul className="mt-5 space-y-2">
         {visibles.map((a) => (
-          <LigneHeros key={a.slug + a.nom} ajustement={a} portrait={a.portrait} fiche={a.fiche} />
+          <LigneHeros key={a.slug + a.name} ajustement={a} portrait={a.portrait} fiche={a.fiche} />
         ))}
       </ul>
     </div>
@@ -134,7 +134,7 @@ function LigneHeros({
 }) {
   const t = useT();
   const cible =
-    lien ?? (fiche ? { href: `/heroes/${ajustement.slug}`, libelle: t("patchHeros.voirFiche", { nom: ajustement.nom }) } : null);
+    lien ?? (fiche ? { href: `/heroes/${ajustement.slug}`, libelle: t("patchHeros.voirFiche", { nom: ajustement.name }) } : null);
   const [ouvert, setOuvert] = useState(false);
   const s = ajustement.type ? STYLE[ajustement.type] : null;
   const detaille = ajustement.sections.length > 0 || ajustement.intro.length > 0;
@@ -150,10 +150,10 @@ function LigneHeros({
           detaille ? "cursor-pointer" : "cursor-default",
         )}
       >
-        <PortraitHeros source={portrait} nom={ajustement.nom} taille="moyenne" decoratif />
+        <PortraitHeros source={portrait} nom={ajustement.name} taille="moyenne" decoratif />
 
         <span className="min-w-0 flex-1">
-          <span className="font-heading font-bold text-chalk-100">{titre ?? ajustement.nom}</span>
+          <span className="font-heading font-bold text-chalk-100">{titre ?? ajustement.name}</span>
           {s && (
             <span className={cn("mt-0.5 flex items-center gap-1 text-xs font-semibold", s.couleur)}>
               {s.icone}
@@ -183,27 +183,27 @@ function LigneHeros({
             {ajustement.sections.map((section, i) => (
               <div key={i}>
                 <h4 className="flex flex-wrap items-baseline gap-2 font-heading text-sm font-bold text-gold-400">
-                  {section.nom}
-                  {section.categorie && (
-                    <span className="text-xs font-medium text-chalk-500">{section.categorie}</span>
+                  {section.name}
+                  {section.category && (
+                    <span className="text-xs font-medium text-chalk-500">{section.category}</span>
                   )}
                 </h4>
                 <ul className="mt-2 space-y-1">
-                  {section.changements.map((c, j) => (
+                  {section.changes.map((c, j) => (
                     <li key={j} className="text-sm">
-                      {"apres" in c ? (
+                      {"after" in c ? (
                         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-                          {c.libelle && (
-                            <span className="text-chalk-500">{t("patchHeros.libelle", { libelle: c.libelle })}</span>
+                          {c.label && (
+                            <span className="text-chalk-500">{t("patchHeros.libelle", { libelle: c.label })}</span>
                           )}
                           <span className="text-chalk-500 line-through decoration-blood-500/50">
-                            {c.avant}
+                            {c.before}
                           </span>
                           <ArrowRight size={12} aria-hidden className="text-chalk-500" />
-                          <span className="font-medium text-chalk-100">{c.apres}</span>
+                          <span className="font-medium text-chalk-100">{c.after}</span>
                         </div>
                       ) : (
-                        <span className="text-chalk-300">{c.texte}</span>
+                        <span className="text-chalk-300">{c.text}</span>
                       )}
                     </li>
                   ))}

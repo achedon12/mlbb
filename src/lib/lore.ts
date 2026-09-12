@@ -42,10 +42,10 @@ export interface MotifHeros {
 const echapper = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /** Nom de chaque heros en mot entier : « Yin » ne se trouve pas dans « Yinyang ». */
-export function motifsHeros(liste: readonly { slug: string; nom: string }[]): MotifHeros[] {
+export function motifsHeros(liste: readonly { slug: string; name: string }[]): MotifHeros[] {
   return liste.map((h) => ({
     slug: h.slug,
-    motif: new RegExp(`(?<![\\p{L}\\p{N}])${echapper(h.nom)}(?![\\p{L}\\p{N}])`, "iu"),
+    motif: new RegExp(`(?<![\\p{L}\\p{N}])${echapper(h.name)}(?![\\p{L}\\p{N}])`, "iu"),
   }));
 }
 
@@ -78,11 +78,11 @@ export interface LienLore {
   groupe: number;
 }
 
-type FicheRelations = { fiche: { relations: string[]; affiliations: string[]; espece: string | null } | null };
+type FicheRelations = { profile: { relations: string[]; affiliations: string[]; species: string | null } | null };
 
 /** Liens d'une liste de heros, a partir de leurs fiches anglaises et de celles de la langue de la page. */
 export function construireLiens(
-  liste: readonly { slug: string; nom: string }[],
+  liste: readonly { slug: string; name: string }[],
   en: Record<string, FicheRelations>,
   langue: Record<string, FicheRelations>,
 ): LienLore[] {
@@ -90,8 +90,8 @@ export function construireLiens(
   const vus = new Set<string>();
   const liens: LienLore[] = [];
   for (const h of liste) {
-    const relations = en[h.slug]?.fiche?.relations ?? [];
-    const traduites = langue[h.slug]?.fiche?.relations ?? [];
+    const relations = en[h.slug]?.profile?.relations ?? [];
+    const traduites = langue[h.slug]?.profile?.relations ?? [];
     relations.forEach((ligne, i) => {
       const { noms, nature } = decouperRelation(ligne);
       const cites = herosCites(noms, motifs, h.slug);
@@ -180,13 +180,13 @@ export function grouperParRegion(liste: readonly Heros[]): RegionLore[] {
     regions.set(cle, r);
   }
   return [...regions.values()]
-    .map((r) => ({ ...r, heros: [...r.heros].sort((a, b) => a.nom.localeCompare(b.nom, "en")) }))
+    .map((r) => ({ ...r, heros: [...r.heros].sort((a, b) => a.name.localeCompare(b.name, "en")) }))
     .sort((a, b) => b.heros.length - a.heros.length || a.nom.localeCompare(b.nom, "en"));
 }
 
 export const regionsLore = grouperParRegion(heros);
 export const regionParCle = new Map(regionsLore.map((r) => [r.cle, r]));
-export const nomsHeros = new Map(heros.map((h) => [h.slug, h.nom]));
+export const nomsHeros = new Map(heros.map((h) => [h.slug, h.name]));
 const regionDuHeros = new Map(regionsLore.flatMap((r) => r.heros.map((h) => [h.slug, r.cle] as const)));
 export const regionDe = (slug: string) => regionDuHeros.get(slug) ?? null;
 
@@ -223,8 +223,8 @@ export function factionsLore(locale: Langue, minimum = 2): FactionLore[] {
   const langue = histoires(locale);
   const groupes = new Map<string, { heros: string[]; libelles: Map<string, number> }>();
   for (const h of heros) {
-    const affiliations = en[h.slug]?.fiche?.affiliations ?? [];
-    const traduites = langue[h.slug]?.fiche?.affiliations ?? [];
+    const affiliations = en[h.slug]?.profile?.affiliations ?? [];
+    const traduites = langue[h.slug]?.profile?.affiliations ?? [];
     affiliations.forEach((a, i) => {
       if (HOSTILE.test(a)) return;
       const cle = cleValeur(a);
@@ -290,9 +290,9 @@ export function resumeRegion(region: RegionLore, locale: Langue): ResumeRegion {
 
   const roles = compter(region.heros.flatMap((h) => h.roles)).map(([role, n]) => ({ role, n }));
   const dates = region.heros
-    .map((h) => ({ h, cle: cleSortieHeros(h.sortie) }))
+    .map((h) => ({ h, cle: cleSortieHeros(h.release) }))
     .filter((x): x is { h: Heros; cle: string } => x.cle !== null)
-    .sort((a, b) => a.cle.localeCompare(b.cle) || a.h.nom.localeCompare(b.h.nom, "en"));
+    .sort((a, b) => a.cle.localeCompare(b.cle) || a.h.name.localeCompare(b.h.name, "en"));
 
   const factions = factionsLore(locale)
     .map((f) => ({ nom: f.nom, n: f.heros.filter((s) => membres.has(s)).length }))
@@ -303,9 +303,9 @@ export function resumeRegion(region: RegionLore, locale: Langue): ResumeRegion {
   // Especes regroupees par leur nom anglais, affichees dans la langue de la page.
   const especes = new Map<string, { nom: string; n: number }>();
   for (const h of region.heros) {
-    const cle = en[h.slug]?.fiche?.espece?.trim().toLowerCase();
+    const cle = en[h.slug]?.profile?.species?.trim().toLowerCase();
     if (!cle) continue;
-    const e = especes.get(cle) ?? { nom: langue[h.slug]?.fiche?.espece ?? en[h.slug]!.fiche!.espece!, n: 0 };
+    const e = especes.get(cle) ?? { nom: langue[h.slug]?.profile?.species ?? en[h.slug]!.profile!.species!, n: 0 };
     e.n += 1;
     especes.set(cle, e);
   }
@@ -331,8 +331,8 @@ export function resumeRegion(region: RegionLore, locale: Langue): ResumeRegion {
 
 /** Termes de recherche d'un heros sur le hub : nom, nom complet, titre et affiliations, sans casse ni accents. */
 export function termesLore(h: Heros, locale: Langue, region: string): string {
-  const fiche = histoires(locale)[h.slug]?.fiche;
-  return cleRecherche([h.nom, fiche?.nomComplet, fiche?.titre, h.titre, region, ...(fiche?.affiliations ?? [])].filter(Boolean).join(" "))
+  const fiche = histoires(locale)[h.slug]?.profile;
+  return cleRecherche([h.name, fiche?.fullName, fiche?.title, h.title, region, ...(fiche?.affiliations ?? [])].filter(Boolean).join(" "))
     .replace(/["\\]/g, " ")
     .replace(/\s+/g, " ")
     .trim();

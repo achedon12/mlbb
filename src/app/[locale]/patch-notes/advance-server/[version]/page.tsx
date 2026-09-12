@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!v) return {};
   const t = creerT(locale);
   // The date, the hero counts and the first heroes named fill the description.
-  const names = [...new Set(v.heroes.map((h) => herosParSlug.get(h.slug)?.nom ?? h.name))].slice(0, 4);
+  const names = [...new Set(v.heroes.map((h) => herosParSlug.get(h.slug)?.name ?? h.name))].slice(0, 4);
   const label = v.date ? `${v.version} (${dateLongue(locale, v.date)})` : v.version;
   return metaPage(locale, {
     titre: t("pages.advanceServer.seo.title", { v: v.version }),
@@ -214,9 +214,9 @@ export default async function AdvanceServerVersionPage({ params }: Params) {
                       <EntryCard
                         key={`${h.slug}-${i}`}
                         id={i === v.heroes.findIndex((x) => x.slug === h.slug) ? `hero-${h.slug}` : undefined}
-                        entry={{ ...h, name: page?.nom ?? h.name }}
+                        entry={{ ...h, name: page?.name ?? h.name }}
                         t={t}
-                        portrait={page?.visuels.icone ?? page?.visuels.portrait ?? null}
+                        portrait={page?.images.icon ?? page?.images.portrait ?? null}
                         href={page ? `/heroes/${h.slug}` : undefined}
                         headingLevel={4}
                       />

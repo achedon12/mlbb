@@ -40,10 +40,10 @@ export function generateStaticParams() {
   return heros.map((h) => ({ slug: h.slug }));
 }
 
-const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 const portraitDe = (slug: string) => {
   const x = herosParSlug.get(slug);
-  return x?.visuels.icone ?? x?.visuels.portrait ?? null;
+  return x?.images.icon ?? x?.images.portrait ?? null;
 };
 /** Ecarte un partenaire que le catalogue ne connait pas (synchro partielle). */
 const connus = <E extends { slug: string }>(liste: E[] = []) => liste.filter((e) => herosParSlug.has(e.slug));
@@ -55,7 +55,7 @@ const contexteDe = (t: T, rang: RangMesure) =>
 function tete(locale: Langue, t: T, liste: Duo[]) {
   const [premier, ...suite] = liste;
   return listeNoms(locale, [
-    `${nomDe(premier.slug)} (${formaterEcart(locale, t, premier.avantage)})`,
+    `${nomDe(premier.slug)} (${formaterEcart(locale, t, premier.advantage)})`,
     ...suite.map((e) => nomDe(e.slug)),
   ]);
 }
@@ -65,10 +65,10 @@ function synthese(locale: Langue, h: Heros) {
   const t = creerT(locale);
   const parRang = duosDe(h.slug);
   const rang = rangDeSynthese(duosCommeContres(parRang));
-  const meilleurs = connus(rang ? parRang[rang]?.meilleurs : []).slice(0, 3);
-  if (!rang || meilleurs.length === 0) return { rang, phrase: t("pages.duos.aucuneMesure", { nom: h.nom }) };
-  const pires = connus(parRang[rang]?.pires).slice(0, 2);
-  const variables = { contexte: contexteDe(t, rang), nom: h.nom, meilleurs: tete(locale, t, meilleurs) };
+  const meilleurs = connus(rang ? parRang[rang]?.best : []).slice(0, 3);
+  if (!rang || meilleurs.length === 0) return { rang, phrase: t("pages.duos.aucuneMesure", { nom: h.name }) };
+  const pires = connus(parRang[rang]?.worst).slice(0, 2);
+  const variables = { contexte: contexteDe(t, rang), nom: h.name, meilleurs: tete(locale, t, meilleurs) };
   return {
     rang,
     phrase:
@@ -87,8 +87,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     // Patch dans le titre, comme les pages counters : les resultats qui menent
     // sur « best duo » portent une date ou une version.
     titre: patchActuel
-      ? t("pages.duos.metaTitre", { ...noms(h.nom), v: patchActuel.version })
-      : t("pages.duos.metaTitreSansPatch", noms(h.nom)),
+      ? t("pages.duos.metaTitre", { ...noms(h.name), v: patchActuel.version })
+      : t("pages.duos.metaTitreSansPatch", noms(h.name)),
     description: `${synthese(locale, h).phrase} ${t("pages.duos.majLe", { date: dateLongue(locale) })}`,
     chemin: `/heroes/${slug}/duos`,
     type: "article",
@@ -105,7 +105,7 @@ export default async function PageDuos({ params }: Params) {
   if (!h) notFound();
 
   const t = creerT(locale);
-  const n = noms(h.nom);
+  const n = noms(h.name);
   const ecart = (v: number) => formaterEcart(locale, t, v);
 
   const parRang = duosDe(slug);
@@ -114,15 +114,15 @@ export default async function PageDuos({ params }: Params) {
   const rangs = RANGS_MESURE.filter((r) => parRang[r]);
   // Tranches lues pour l'agregat : `all` ne compte qu'a defaut de tranche.
   const tranchesMesurees = RANGS_MESURE.filter((r) => r !== "all" && parRang[r]).length || (parRang.all ? 1 : 0);
-  const meilleurs = connus(agregerContres(commeContres, "fort")).slice(0, 8);
-  const pires = connus(agregerContres(commeContres, "faible")).slice(0, 6);
+  const meilleurs = connus(agregerContres(commeContres, "strong")).slice(0, 8);
+  const pires = connus(agregerContres(commeContres, "weak")).slice(0, 6);
   const premier = meilleurs[0]?.slug;
   const stats = statsParRang(slug);
 
   // Phases : au rang de la synthese, contre la courbe de duree du heros seul au meme rang.
   const durees = dureeDe(slug);
   const tranchesSeul = rangPrincipal ? durees[rangPrincipal] : undefined;
-  const duosPrincipaux = rangPrincipal ? connus(parRang[rangPrincipal]?.meilleurs) : [];
+  const duosPrincipaux = rangPrincipal ? connus(parRang[rangPrincipal]?.best) : [];
   const parPhase = meilleursParPhase(duosPrincipaux, tranchesSeul);
   const avecGain = parPhase.some((p) => p.gain !== null);
 
@@ -133,9 +133,9 @@ export default async function PageDuos({ params }: Params) {
   const lanePrincipale = h.lanes[0];
   const voisins = lanePrincipale
     ? classementComplet
-        .filter((e) => e.heros.slug !== slug && e.heros.lanes.includes(lanePrincipale))
+        .filter((e) => e.hero.slug !== slug && e.hero.lanes.includes(lanePrincipale))
         .slice(0, 12)
-        .map((e) => e.heros)
+        .map((e) => e.hero)
     : [];
 
   const liens = [
@@ -143,7 +143,7 @@ export default async function PageDuos({ params }: Params) {
     { href: `/heroes/${slug}/counters`, label: t("pages.duos.lienContres", n) },
     ...(premier
       ? [
-          { href: `/compare?a=${slug}&b=${premier}`, label: t("pages.duos.lienComparer", { nom: h.nom, autre: nomDe(premier) }) },
+          { href: `/compare?a=${slug}&b=${premier}`, label: t("pages.duos.lienComparer", { nom: h.name, autre: nomDe(premier) }) },
           { href: `/heroes/${premier}/duos`, label: t("pages.duos.titre", noms(nomDe(premier))) },
         ]
       : []),
@@ -204,12 +204,12 @@ export default async function PageDuos({ params }: Params) {
         chapeau={phrase}
         miettes={[
           { nom: t("nav.heroes.label"), href: "/heroes" },
-          { nom: h.nom, href: `/heroes/${slug}` },
+          { nom: h.name, href: `/heroes/${slug}` },
           {
             nom: t("pages.duos.miette"),
             freres: [...heros]
-              .sort((a, b) => a.nom.localeCompare(b.nom))
-              .map((x) => ({ nom: x.nom, href: `/heroes/${x.slug}/duos` })),
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((x) => ({ nom: x.name, href: `/heroes/${x.slug}/duos` })),
           },
         ]}
       >
@@ -279,7 +279,7 @@ export default async function PageDuos({ params }: Params) {
                         <>
                           {" · "}
                           <span className={cn("font-semibold tabular-nums", p.gain >= 0 ? "text-emerald-400" : "text-blood-500")}>
-                            {t("pages.duos.phases.gainSeul", { ecart: ecart(p.gain), nom: h.nom })}
+                            {t("pages.duos.phases.gainSeul", { ecart: ecart(p.gain), nom: h.name })}
                           </span>
                         </>
                       )}
@@ -319,9 +319,9 @@ export default async function PageDuos({ params }: Params) {
                         className="shrink-0 text-chalk-500 transition-transform group-open:rotate-180"
                       />
                       <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`rangsMesure.${r}`)}</h3>
-                      {(d.mesure ?? s?.victoire) != null && (
+                      {(d.winRate ?? s?.winRate) != null && (
                         <span className="text-sm text-chalk-500">
-                          {t("pages.duos.tauxSeul", { taux: pourcentage(locale, d.mesure ?? s!.victoire) })}
+                          {t("pages.duos.tauxSeul", { taux: pourcentage(locale, d.winRate ?? s!.winRate) })}
                         </span>
                       )}
                     </summary>
@@ -335,20 +335,20 @@ export default async function PageDuos({ params }: Params) {
                           <TableauPhases
                             t={t}
                             locale={locale}
-                            duos={connus(d.meilleurs)}
+                            duos={connus(d.best)}
                             tranches={durees[r]}
                             ecart={ecart}
                             compact
                           />
                         </div>
                       </div>
-                      {connus(d.pires).length > 0 && (
+                      {connus(d.worst).length > 0 && (
                         <div className="min-w-0 relative overflow-x-auto">
                           <h4 className="flex items-center gap-2 font-heading font-bold text-blood-500">
                             <ThumbsDown size={16} aria-hidden />
                             {t("pages.duos.piresCourt")}
                           </h4>
-                          <ListeEcarts t={t} lignes={connus(d.pires)} ecart={ecart} />
+                          <ListeEcarts t={t} lignes={connus(d.worst)} ecart={ecart} />
                         </div>
                       )}
                     </div>
@@ -395,7 +395,7 @@ export default async function PageDuos({ params }: Params) {
                     href={`/heroes/${x.slug}/duos`}
                     className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
-                    {t("pages.duos.titre", noms(x.nom))}
+                    {t("pages.duos.titre", noms(x.name))}
                   </Link>
                 </li>
               ))}
@@ -534,7 +534,7 @@ function TableauPhases({
                 <span className="truncate">{nomDe(d.slug)}</span>
               </Link>
             </td>
-            {compact && <td className="font-semibold text-emerald-400">{ecart(d.avantage)}</td>}
+            {compact && <td className="font-semibold text-emerald-400">{ecart(d.advantage)}</td>}
             {PHASES.map((p) => (
               <td key={p}>{cellule(phases.get(p))}</td>
             ))}
@@ -546,7 +546,7 @@ function TableauPhases({
 }
 
 /** Liste courte : partenaire et ecart en points, sans phases. */
-function ListeEcarts({ t, lignes, ecart }: { t: T; lignes: { slug: string; avantage: number }[]; ecart: (v: number) => string }) {
+function ListeEcarts({ t, lignes, ecart }: { t: T; lignes: { slug: string; advantage: number }[]; ecart: (v: number) => string }) {
   if (lignes.length === 0) return null;
   return (
     <table className="mt-2 w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-2 [&_td+td]:text-right [&_td+td]:tabular-nums">
@@ -564,7 +564,7 @@ function ListeEcarts({ t, lignes, ecart }: { t: T; lignes: { slug: string; avant
                 {nomDe(e.slug)}
               </Link>
             </td>
-            <td className={cn("font-semibold", e.avantage >= 0 ? "text-emerald-400" : "text-blood-500")}>{ecart(e.avantage)}</td>
+            <td className={cn("font-semibold", e.advantage >= 0 ? "text-emerald-400" : "text-blood-500")}>{ecart(e.advantage)}</td>
           </tr>
         ))}
       </tbody>

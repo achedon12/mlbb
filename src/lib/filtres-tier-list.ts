@@ -60,9 +60,9 @@ export function correspond(h: { lanes: Lane[]; roles: Role[] }, f: FiltreTier | 
 }
 
 /** Entrees d'un classement retenues par le filtre, dans leur ordre. */
-export function filtrerClassement<E extends { heros: { lanes: Lane[]; roles: Role[] } }>(
+export function filtrerClassement<E extends { hero: { lanes: Lane[]; roles: Role[] } }>(
   entrees: E[],
   f: FiltreTier | null,
 ): E[] {
-  return f ? entrees.filter((e) => correspond(e.heros, f)) : entrees;
+  return f ? entrees.filter((e) => correspond(e.hero, f)) : entrees;
 }

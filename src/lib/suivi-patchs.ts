@@ -20,7 +20,7 @@ export interface AjustementDate {
 /** Ajustements d'un heros, patch par patch, du plus recent au plus ancien. */
 export function ajustementsDe(slug: string): AjustementDate[] {
   return patchsRecents.flatMap((p) =>
-    p.ajustements.filter((a) => a.slug === slug).map((ajustement) => ({ version: p.version, date: p.date ?? null, ajustement })),
+    p.adjustments.filter((a) => a.slug === slug).map((ajustement) => ({ version: p.version, date: p.date ?? null, ajustement })),
   );
 }
 
@@ -39,5 +39,5 @@ export interface ResumePatch {
 export function resumeDernierPatch(): ResumePatch | null {
   const p = patchsRecents[0];
   if (!p) return null;
-  return { version: p.version, date: p.date ?? null, types: Object.fromEntries(p.ajustements.map((a) => [a.slug, a.type])) };
+  return { version: p.version, date: p.date ?? null, types: Object.fromEntries(p.adjustments.map((a) => [a.slug, a.type])) };
 }

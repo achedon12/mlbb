@@ -47,7 +47,7 @@ export function GET(): Response {
     ...heros.map((h) =>
       entree(
         `/${l}/heroes/${h.slug}`,
-        [galerieHeros(h).skins[0]?.portrait ?? h.visuels.portrait, Object.values(illustrations[h.slug] ?? {})[0]],
+        [galerieHeros(h).skins[0]?.portrait ?? h.images.portrait, Object.values(illustrations[h.slug] ?? {})[0]],
         modifie,
       ),
     ),

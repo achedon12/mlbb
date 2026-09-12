@@ -1,10 +1,10 @@
 ---
-titre: "Experience lane: win your lane without ever killing anyone"
+title: "Experience lane: win your lane without ever killing anyone"
 date: "2026-09-01"
-categorie: "Guide"
-auteur: "achedon12"
-chapeau: "The experience lane is gained from the wave of minions and the turret, not from the duel. Which changes everything in the way you play it."
-motsCles: ["lane experience", "guide", "macro", "farm", "split push"]
+category: "Guide"
+author: "achedon12"
+summary: "The experience lane is gained from the wave of minions and the turret, not from the duel. Which changes everything in the way you play it."
+keywords: ["lane experience", "guide", "macro", "farm", "split push"]
 ---
 
 The lane of experience produces more bad habits than any

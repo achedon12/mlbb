@@ -32,8 +32,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 function donnees() {
   const roster: HerosTier[] = heros.map((h) => ({
     slug: h.slug,
-    nom: h.nom,
-    icone: h.visuels.icone ?? h.visuels.portrait,
+    nom: h.name,
+    icone: h.images.icon ?? h.images.portrait,
     roles: h.roles,
     lanes: h.lanes,
   }));
@@ -43,7 +43,7 @@ function donnees() {
       const entrees = classementDuRang(rang);
       return [
         rang,
-        ORDRE_PALIERS.map((p) => entrees.filter((e) => e.palier === p).flatMap((e) => indice.get(e.heros.slug) ?? [])),
+        ORDRE_PALIERS.map((p) => entrees.filter((e) => e.tier === p).flatMap((e) => indice.get(e.hero.slug) ?? [])),
       ];
     }),
   );

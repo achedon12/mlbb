@@ -29,14 +29,14 @@ const cleNom = (nom: string) => cleRecherche(nom).replace(/[^a-z0-9]/g, "");
  * heros 1, « 011 ».
  */
 const PAR_HID = new Map(heros.map((h) => [Math.floor(Number(h.id) / 10), h]));
-const PAR_NOM = new Map(heros.map((h) => [cleNom(h.nom), h]));
+const PAR_NOM = new Map(heros.map((h) => [cleNom(h.name), h]));
 
 export function herosAffiche(h: HerosJeu): HerosAffiche {
   // Le nom d'abord : un nouveau heros numerote autrement ne doit pas en
   // emprunter un autre. L'identifiant rattrape les graphies divergentes.
   const site = PAR_NOM.get(cleNom(h.nom)) ?? PAR_HID.get(h.hid);
   if (!site) return { slug: null, nom: h.nom, portrait: h.image };
-  return { slug: site.slug, nom: site.nom, portrait: site.visuels.portrait ?? h.image };
+  return { slug: site.slug, nom: site.name, portrait: site.images.portrait ?? h.image };
 }
 
 /**
@@ -64,7 +64,7 @@ export function trancheDuRang(rankLevel: number): RangMesure {
 export function moyenneDuRang(slug: string, tranche: RangMesure): { victoire: number; tranche: RangMesure } | null {
   const stats = statsParRang(slug);
   const retenue = stats[tranche] ? tranche : stats.all ? "all" : null;
-  return retenue ? { victoire: stats[retenue]!.victoire, tranche: retenue } : null;
+  return retenue ? { victoire: stats[retenue]!.winRate, tranche: retenue } : null;
 }
 
 export interface LigneHeros {

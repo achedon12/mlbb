@@ -27,36 +27,36 @@ interface Route {
 
 const ROUTES: Route[] = [
   {
-    chemin: "/api/v1/heros",
+    chemin: "/api/v1/heroes",
     cle: "heros",
     parametres: [
       { nom: "role", valeurs: "Tank, Fighter, Assassin, Mage, Marksman, Support", role: "roleParam" },
       { nom: "lane", valeurs: "Or, Jungle, Milieu, Experience, Roam", role: "laneParam" },
     ],
-    exemple: "/api/v1/heros?role=Tank&lane=Roam",
+    exemple: "/api/v1/heroes?role=Tank&lane=Roam",
   },
   {
-    chemin: "/api/v1/heros/{slug}",
+    chemin: "/api/v1/heroes/{slug}",
     cle: "herosSlug",
-    exemple: "/api/v1/heros/khufra",
+    exemple: "/api/v1/heroes/khufra",
   },
   {
-    chemin: "/api/v1/objets",
+    chemin: "/api/v1/items",
     cle: "objets",
     parametres: [
-      { nom: "categorie", valeurs: "Attack, Magic, Defense, Movement, Jungling, Roaming", role: "catParam" },
+      { nom: "category", valeurs: "Attack, Magic, Defense, Movement, Jungling, Roaming", role: "catParam" },
     ],
-    exemple: "/api/v1/objets?categorie=Defense",
+    exemple: "/api/v1/items?category=Defense",
   },
   {
-    chemin: "/api/v1/patchs",
+    chemin: "/api/v1/patches",
     cle: "patchs",
-    exemple: "/api/v1/patchs",
+    exemple: "/api/v1/patches",
   },
   {
-    chemin: "/api/v1/classement",
+    chemin: "/api/v1/rankings",
     cle: "classement",
-    exemple: "/api/v1/classement",
+    exemple: "/api/v1/rankings",
   },
 ];
 
@@ -136,12 +136,12 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
 
           <pre className="bevel mt-4 relative overflow-x-auto border border-night-700/70 bg-night-950 p-4 text-xs leading-relaxed text-chalk-300">
 {`{
-  "donnees": [ … ],
+  "data": [ … ],
   "total": 133,
   "source": {
-    "nom": "Mobile Legends Wiki",
+    "name": "Mobile Legends Wiki",
     "url": "https://mobilelegends.fandom.com",
-    "licence": "CC BY-SA"
+    "license": "CC BY-SA"
   }
 }`}
           </pre>

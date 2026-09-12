@@ -19,7 +19,7 @@ describe("prefixer", () => {
   });
 
   it("laisse les adresses hors langue et externes", () => {
-    for (const href of ["/api/v1/heros", "/visuels/rangs/epique.webp", "/feed.xml", "/sw.js", "https://github.com/achedon12/mlbb", "//cdn.exemple.fr/a.png", "#contenu"]) {
+    for (const href of ["/api/v1/heroes", "/visuels/rangs/epique.webp", "/feed.xml", "/sw.js", "https://github.com/achedon12/mlbb", "//cdn.exemple.fr/a.png", "#contenu"]) {
       expect(prefixer(href, "fr")).toBe(href);
     }
   });

@@ -88,9 +88,9 @@ function descriptionTierList(locale: Langue, rang: RangMesure, filtre: FiltreTie
       : t("pages.tierList.metaDescriptionRang", { rang: nomRang });
   }
   const valeurs = {
-    top: listeNoms(locale, classement.slice(0, 3).map((e) => e.heros.nom)),
-    premier: premier.heros.nom,
-    victoire: pourcentage(locale, premier.victoire),
+    top: listeNoms(locale, classement.slice(0, 3).map((e) => e.hero.name)),
+    premier: premier.hero.name,
+    victoire: pourcentage(locale, premier.winRate),
     n: classement.length,
     date: dateLongue(locale),
     v: patchActuel.version,
@@ -156,19 +156,19 @@ export function TierList({
 
   // Une ligne compacte par heros : les champs vides ne sont pas envoyes.
   const ligne = (e: EntreeClassee): LigneTier => {
-    const evolution = tendance(e.heros.slug);
-    const note = notes[e.heros.slug] ?? e.note;
-    const icone = e.heros.visuels.icone ?? e.heros.visuels.portrait;
+    const evolution = tendance(e.hero.slug);
+    const note = notes[e.hero.slug] ?? e.comment;
+    const icone = e.hero.images.icon ?? e.hero.images.portrait;
     return {
-      slug: e.heros.slug,
-      nom: e.heros.nom,
-      ...(icone === iconeHabituelle(e.heros.slug) ? {} : { icone }),
-      lanes: e.heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—",
-      victoire: taux(e.victoire),
-      ban: taux(e.ban),
-      pick: taux(e.selection),
+      slug: e.hero.slug,
+      nom: e.hero.name,
+      ...(icone === iconeHabituelle(e.hero.slug) ? {} : { icone }),
+      lanes: e.hero.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—",
+      victoire: taux(e.winRate),
+      ban: taux(e.banRate),
+      pick: taux(e.pickRate),
       ...(evolution ? { tendance: evolution } : {}),
-      ...(e.faibleEchantillon ? { faible: true } : {}),
+      ...(e.lowSample ? { faible: true } : {}),
       ...(note ? { note } : {}),
     };
   };
@@ -184,7 +184,7 @@ export function TierList({
     nom: titre,
     description: descriptionTierList(locale, rang, filtre),
     chemin,
-    heros: classement.map((e) => ({ nom: e.heros.nom, slug: e.heros.slug })),
+    heros: classement.map((e) => ({ nom: e.hero.name, slug: e.hero.slug })),
     modifie: dateMesure,
     classe: true,
   });
@@ -284,7 +284,7 @@ export function TierList({
 
         <div className="space-y-10">
           {ORDRE_PALIERS.map((palier) => {
-            const entrees = classement.filter((e) => e.palier === palier);
+            const entrees = classement.filter((e) => e.tier === palier);
             if (entrees.length === 0) return null;
 
             return (

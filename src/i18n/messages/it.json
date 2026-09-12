@@ -594,7 +594,7 @@
       "statPatchs": "Patch",
       "statClasses": "Eroi in classifica",
       "formeTitre": "Formato delle risposte",
-      "formeTexte": "Ogni risposta racchiude il risultato in «donnees», aggiunge il numero totale di elementi quando si tratta di un elenco e indica la fonte dei dati.",
+      "formeTexte": "Ogni risposta racchiude il risultato in «data», aggiunge il numero totale di elementi quando si tratta di un elenco e indica la fonte dei dati.",
       "conditionsTitre": "Condizioni",
       "c1label": "Nessuna chiave, nessun limite.",
       "c1texte": "Le risposte sono statiche e in cache: servirle non costa nulla. Usale con buon senso e andrà tutto bene.",
@@ -2568,8 +2568,8 @@
         "red": "Squadra rossa"
       },
       "timers": {
-        "off": "Nessuno",
         "30": "{n} s",
+        "off": "Nessuno",
         "game": "Tempi del gioco ({ban} s / {pick} s)"
       },
       "you": "tu",

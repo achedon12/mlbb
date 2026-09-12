@@ -19,7 +19,7 @@ import {
 } from "@/lib/tendances";
 
 /** Serie de 30 jours a partir du 11 aout 2026. */
-const serie = (victoire: (number | null)[], debut = "2026-08-11"): SerieVictoire => ({ debut, victoire });
+const serie = (winRate: (number | null)[], start = "2026-08-11"): SerieVictoire => ({ start, winRate });
 const constante = (v: number, n = 30): (number | null)[] => Array.from({ length: n }, () => v);
 
 describe("dates", () => {
@@ -154,16 +154,16 @@ describe("impactPatch", () => {
 
   it("ne regarde que sept jours de chaque cote", () => {
     const h = avantApres(50, 49);
-    h.victoire[0] = 10; // J-14 : hors fenetre
-    h.victoire[29] = 90; // J+15 : hors fenetre
+    h.winRate[0] = 10; // J-14 : hors fenetre
+    h.winRate[29] = 90; // J+15 : hors fenetre
     expect(impactPatch(h, "2026-09-15")).toMatchObject({ avant: 50, apres: 49, ecart: -1 });
   });
 
   it("exige quatre jours mesures de chaque cote", () => {
     const h = avantApres(50, 51);
-    for (const k of [7, 8, 9, 10]) h.victoire[k] = null; // reste J-3, J-2, J-1
+    for (const k of [7, 8, 9, 10]) h.winRate[k] = null; // reste J-3, J-2, J-1
     expect(impactPatch(h, "2026-09-15")).toBeNull();
-    h.victoire[10] = 50;
+    h.winRate[10] = 50;
     expect(impactPatch(h, "2026-09-15")).toMatchObject({ joursAvant: 4, ecart: 1 });
   });
 
@@ -224,7 +224,7 @@ describe("impactsDuHeros et impactsDuPatch", () => {
     const patch = {
       version: "2.1.90",
       date: "2026-09-15",
-      ajustements: [
+      adjustments: [
         { slug: "chip", type: "affaiblissement" as const },
         { slug: "sans-historique", type: "amelioration" as const },
       ],

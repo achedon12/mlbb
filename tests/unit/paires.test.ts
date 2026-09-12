@@ -22,9 +22,9 @@ import {
 } from "@/lib/paires";
 
 const rang = (fort: [string, number][], faible: [string, number][] = []) => ({
-  fort: fort.map(([slug, avantage]) => ({ slug, avantage })),
-  faible: faible.map(([slug, avantage]) => ({ slug, avantage })),
-  mesure: 50,
+  strong: fort.map(([slug, advantage]) => ({ slug, advantage })),
+  weak: faible.map(([slug, advantage]) => ({ slug, advantage })),
+  winRate: 50,
 });
 
 const contres: Record<string, ContresParRang> = {
@@ -95,12 +95,12 @@ describe("duelParRang", () => {
 
 describe("phases de partie", () => {
   const seul = [
-    { de: 10, a: 12, victoire: 50 },
-    { de: 12, a: 14, victoire: 51 },
-    { de: 14, a: 16, victoire: 50 },
-    { de: 16, a: 18, victoire: 50 },
-    { de: 18, a: 20, victoire: 49 },
-    { de: 20, a: null, victoire: 48 },
+    { from: 10, to: 12, winRate: 50 },
+    { from: 12, to: 14, winRate: 51 },
+    { from: 14, to: 16, winRate: 50 },
+    { from: 16, to: 18, winRate: 50 },
+    { from: 18, to: 20, winRate: 49 },
+    { from: 20, to: null, winRate: 48 },
   ];
 
   it("range les minutes en debut, milieu et fin", () => {
@@ -122,19 +122,19 @@ describe("phases de partie", () => {
 
   it("choisit le meilleur partenaire de chaque phase", () => {
     const duos = [
-      { slug: "marcel", avantage: 1, phases: [60, 58, 52, 51, 49, 48] },
-      { slug: "grock", avantage: 1, phases: [47, 48, 53, 53, 52, 53] },
+      { slug: "marcel", advantage: 1, phases: [60, 58, 52, 51, 49, 48] },
+      { slug: "grock", advantage: 1, phases: [47, 48, 53, 53, 52, 53] },
     ];
     expect(meilleursParPhase(duos, seul).map((p) => [p.phase, p.slug])).toEqual([
       ["debut", "marcel"],
       ["milieu", "grock"],
       ["fin", "grock"],
     ]);
-    expect(meilleursParPhase([{ slug: "akai", avantage: 1 }], seul)).toEqual([]);
+    expect(meilleursParPhase([{ slug: "akai", advantage: 1 }], seul)).toEqual([]);
   });
 
   it("lit qui mene selon la duree entre deux heros", () => {
-    const autre = seul.map((x) => ({ ...x, victoire: x.de < 14 ? 49 : 51 }));
+    const autre = seul.map((x) => ({ ...x, winRate: x.from < 14 ? 49 : 51 }));
     const duel = phasesDuel(seul, autre);
     expect(duel.map((x) => x.ecart)).toEqual([1.5, -1, -2.5]);
     expect(lecturePhases(duel)).toEqual({ a: "debut", b: "fin" });
@@ -144,16 +144,16 @@ describe("phases de partie", () => {
 
 describe("meme equipe", () => {
   const duos: Record<string, DuosParRang> = {
-    aamon: { mythic: { mesure: 51, meilleurs: [{ slug: "fanny", avantage: 1.2 }], pires: [] } },
-    fanny: { all: { mesure: 50, meilleurs: [], pires: [{ slug: "aamon", avantage: -6.1 }] } },
+    aamon: { mythic: { winRate: 51, best: [{ slug: "fanny", advantage: 1.2 }], worst: [] } },
+    fanny: { all: { winRate: 50, best: [], worst: [{ slug: "aamon", advantage: -6.1 }] } },
   };
 
   it("lit les duos au format des contres", () => {
-    expect(duosCommeContres(duos.aamon).mythic?.fort[0]).toEqual({ slug: "fanny", avantage: 1.2 });
+    expect(duosCommeContres(duos.aamon).mythic?.strong[0]).toEqual({ slug: "fanny", advantage: 1.2 });
   });
 
   it("prend les duos d'abord, les coequipiers de l'academie a defaut", () => {
-    const coequipiers = { aamon: { all: [{ slug: "fanny", avantage: 0.8 }], mythic: [{ slug: "fanny", avantage: 9 }] } };
+    const coequipiers = { aamon: { all: [{ slug: "fanny", advantage: 0.8 }], mythic: [{ slug: "fanny", advantage: 9 }] } };
     expect(liensEquipe(duos, coequipiers, "aamon", "fanny")).toEqual([
       { rang: "all", de: "aamon", avec: "fanny", avantage: 0.8, source: "coequipiers" },
       { rang: "all", de: "fanny", avec: "aamon", avantage: -6.1, source: "duos" },
@@ -172,7 +172,7 @@ describe("radar", () => {
   });
 
   it("donne six valeurs : quatre notes sur 10, puis victoire et ban", () => {
-    const notes = { offensive: 7, resistance: 3, effets: null, difficulte: 12 };
+    const notes = { offense: 7, durability: 3, abilityEffects: null, difficulty: 12 };
     expect(valeursRadar(notes, { victoire: 55, ban: 0 }, { victoire: [45, 55], ban: [0, 50] })).toEqual([
       0.7, 0.3, null, 1, 1, 0.1,
     ]);

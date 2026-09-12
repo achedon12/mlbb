@@ -60,16 +60,16 @@ export function CompetencesHeros({
   const fiches: Fiche[] = Array.from({ length: nombre }, (_, i) => {
     const officielle = officielles[i];
     const redigee = redigees?.[i];
-    const nomWiki = officielle?.nom;
+    const nomWiki = officielle?.name;
     return {
-      nom: nomWiki ?? redigee?.nom ?? t("comp.Competence"),
+      nom: nomWiki ?? redigee?.name ?? t("comp.Competence"),
       type: redigee?.type ?? TYPES[i] ?? "Competence",
       icone: nomWiki ? icones[nomWiki] : undefined,
       // L'analyse redigee prime : elle explique, la description officielle se
       // contente d'enoncer. A defaut, le texte du jeu vaut mieux que rien.
       description: redigee?.description ?? officielle?.description ?? null,
-      recharge: redigee?.recharge,
-      cout: redigee?.cout,
+      recharge: redigee?.cooldown,
+      cout: redigee?.cost,
     };
   });
   const detail = ouverte === null ? null : fiches[ouverte];

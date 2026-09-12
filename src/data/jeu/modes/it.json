@@ -1,36 +1,36 @@
 [
   {
-    "nom": "Classic",
+    "name": "Classic",
     "slug": "classic",
     "description": "La modalità classica è la prima e la più antica modalità di gioco di Mobile Legends. Tutte le altre modalità di gioco utilizzano come base le regole classiche. Questa modalità offre l'esperienza 5v5 e Mobile Legends senza timore di perdere il tuo grado, ma la tua percentuale di vittorie ne risentirà, sia dal lato dell'eroe che in generale.​​​​ La modalità classica è adatta ai principianti che hanno bisogno di familiarizzare con i giochi Mobile Legends. Puoi scegliere liberamente qualsiasi eroe che possiedi, nonché eroi settimanali gratuiti e tutte le carte di prova che possiedi. Tuttavia, non puoi avere più di un eroe nella tua squadra. Puoi anche scegliere l'eroe che preferisci, poiché non è previsto il divieto degli eroi a differenza della modalità classificata.",
     "sections": [
       {
-        "titre": "Obiettivo",
+        "title": "Obiettivo",
         "elements": [
           {
             "type": "p",
-            "texte": "Come tutti i giochi MOBA, l'obiettivo principale è distruggere la base nemica. Ciò richiede che tu difenda le tue torrette e la tua base e distrugga le loro. Ogni torretta in una corsia specifica deve essere distrutta in sequenza affinché i tuoi servitori raggiungano la base. Esistono modi per distruggere le torrette utilizzando minion/creep per subire danni dai proiettili delle torrette. Dopo aver distrutto le torrette, potrai danneggiare/distruggere la base nemica. Distruggere l'ultima torretta in una corsia garantirà super servitori che infliggono danni elevati agli eroi e liberano le corsie più velocemente. A volte i giocatori sono costretti a accumulare uccisioni contro gli eroi nemici invece di concentrarsi sui servitori e sulle torrette nemiche. Più uccisioni potrebbero far ottenere loro MVP e coltivare, ma distruggere le torrette, accedere alla base nemica e distruggerla è l'obiettivo principale."
+            "text": "Come tutti i giochi MOBA, l'obiettivo principale è distruggere la base nemica. Ciò richiede che tu difenda le tue torrette e la tua base e distrugga le loro. Ogni torretta in una corsia specifica deve essere distrutta in sequenza affinché i tuoi servitori raggiungano la base. Esistono modi per distruggere le torrette utilizzando minion/creep per subire danni dai proiettili delle torrette. Dopo aver distrutto le torrette, potrai danneggiare/distruggere la base nemica. Distruggere l'ultima torretta in una corsia garantirà super servitori che infliggono danni elevati agli eroi e liberano le corsie più velocemente. A volte i giocatori sono costretti a accumulare uccisioni contro gli eroi nemici invece di concentrarsi sui servitori e sulle torrette nemiche. Più uccisioni potrebbero far ottenere loro MVP e coltivare, ma distruggere le torrette, accedere alla base nemica e distruggerla è l'obiettivo principale."
           }
         ]
       },
       {
-        "titre": "Caratteristiche",
+        "title": "Caratteristiche",
         "elements": [
           {
             "type": "li",
-            "texte": "Palazzo Celestiale/Distesa Occidentale: un campo ispirato alla versione Defense of the Ancients: Allstars (in breve DOTA) della mappa, con diverse funzionalità e meccaniche modificate. Il gioco è composto da cinque eroi di ciascuna squadra, che vengono poi posizionati in un'arena con l'obiettivo di distruggere l'inibitore di base di tutti, ottenendo la vittoria. Il tempo normalmente necessario per completare la maggior parte dei giochi è di circa 10-15 minuti, ma alcuni giochi possono durare più di 30 minuti."
+            "text": "Palazzo Celestiale/Distesa Occidentale: un campo ispirato alla versione Defense of the Ancients: Allstars (in breve DOTA) della mappa, con diverse funzionalità e meccaniche modificate. Il gioco è composto da cinque eroi di ciascuna squadra, che vengono poi posizionati in un'arena con l'obiettivo di distruggere l'inibitore di base di tutti, ottenendo la vittoria. Il tempo normalmente necessario per completare la maggior parte dei giochi è di circa 10-15 minuti, ma alcuni giochi possono durare più di 30 minuti."
           },
           {
             "type": "li",
-            "texte": "Il campo di battaglia è diviso in tre corsie per raggiungere la base nemica."
+            "text": "Il campo di battaglia è diviso in tre corsie per raggiungere la base nemica."
           },
           {
             "type": "li",
-            "texte": "Una giungla popolata da mostri della giungla garantisce potenziamenti curativi, potenziamenti di ruolo e potenziamenti d'oro quando viene sconfitta. Ci sono anche Mostri Boss che forniscono oro per tutta la tua squadra o per il Signore che combatte al tuo fianco."
+            "text": "Una giungla popolata da mostri della giungla garantisce potenziamenti curativi, potenziamenti di ruolo e potenziamenti d'oro quando viene sconfitta. Ci sono anche Mostri Boss che forniscono oro per tutta la tua squadra o per il Signore che combatte al tuo fianco."
           },
           {
             "type": "li",
-            "texte": "Il Sentiero d'Oro può essere intrapreso anche dai carri armati che si muovono per la squadra per ottenere rapidamente oggetti per supportare la squadra."
+            "text": "Il Sentiero d'Oro può essere intrapreso anche dai carri armati che si muovono per la squadra per ottenere rapidamente oggetti per supportare la squadra."
           }
         ]
       }
@@ -38,153 +38,153 @@
     "image": "/visuels/modes/classic.webp"
   },
   {
-    "nom": "Ranked",
+    "name": "Ranked",
     "slug": "ranked",
     "description": "La classifica è una modalità di gioco competitiva in coda. I giocatori guadagnano o perdono stelle se vincono o perdono in questa modalità. Guerriero, Elite, Maestro, Gran Maestro, Epico, Leggenda e Mitico (Onore mitico, Gloria mitica e Immortale mitico) sono i sette gradi di Mobile Legends: Bang Bang.",
     "sections": [
       {
-        "titre": "Regole di connessione",
+        "title": "Regole di connessione",
         "elements": [
           {
             "type": "p",
-            "texte": "I giocatori possono scegliere tre eroi da includere nella lobby e nella fase di draft. Questi eroi devono essere giocati almeno una volta di seguito."
+            "text": "I giocatori possono scegliere tre eroi da includere nella lobby e nella fase di draft. Questi eroi devono essere giocati almeno una volta di seguito."
           },
           {
             "type": "p",
-            "texte": "I giocatori possono giocare da soli o formare una squadra di due, tre o cinque giocatori per mettersi in coda. I giocatori possono invitare altri giocatori di rango superiore o inferiore al loro nella lobby. Non è consentita una squadra di quattro persone."
+            "text": "I giocatori possono giocare da soli o formare una squadra di due, tre o cinque giocatori per mettersi in coda. I giocatori possono invitare altri giocatori di rango superiore o inferiore al loro nella lobby. Non è consentita una squadra di quattro persone."
           },
           {
             "type": "p",
-            "texte": "Quando una squadra con giocatori di ranghi diversi fa la coda, si chiama Flex Rank e metterà in coda solo le partite della persona con il punteggio più alto."
+            "text": "Quando una squadra con giocatori di ranghi diversi fa la coda, si chiama Flex Rank e metterà in coda solo le partite della persona con il punteggio più alto."
           },
           {
             "type": "p",
-            "texte": "Esempi:"
+            "text": "Esempi:"
           },
           {
             "type": "li",
-            "texte": "Un giocatore Mitico fa squadra con un giocatore Epico, entrambi seguiranno le regole del draft del giocatore Mitico."
+            "text": "Un giocatore Mitico fa squadra con un giocatore Epico, entrambi seguiranno le regole del draft del giocatore Mitico."
           },
           {
             "type": "li",
-            "texte": "Un giocatore di Mythic Glory fa squadra con un giocatore Grandmaster e un giocatore Legend, i quali seguiranno tutti la regola del draft del giocatore Mythic, sebbene la scelta al Draft non sia normalmente disponibile per i giocatori al di sotto del grado Epico."
+            "text": "Un giocatore di Mythic Glory fa squadra con un giocatore Grandmaster e un giocatore Legend, i quali seguiranno tutti la regola del draft del giocatore Mythic, sebbene la scelta al Draft non sia normalmente disponibile per i giocatori al di sotto del grado Epico."
           },
           {
             "type": "p",
-            "texte": "Tuttavia, un giocatore in coda in solitario potrebbe ritrovarsi a fare matchmaking con alleati di grado superiore o inferiore, ciò può essere attivato da quanto segue:"
+            "text": "Tuttavia, un giocatore in coda in solitario potrebbe ritrovarsi a fare matchmaking con alleati di grado superiore o inferiore, ciò può essere attivato da quanto segue:"
           },
           {
             "type": "li",
-            "texte": "Gli alleati giocano in squadra mentre tu sei da solo. Tra gli alleati di detta squadra c'è almeno un giocatore di grado simile al tuo."
+            "text": "Gli alleati giocano in squadra mentre tu sei da solo. Tra gli alleati di detta squadra c'è almeno un giocatore di grado simile al tuo."
           },
           {
             "type": "li",
-            "texte": "Esempio: un giocatore Epic fa squadra con un giocatore Legend e tu, un giocatore Epic, puoi incontrarli."
+            "text": "Esempio: un giocatore Epic fa squadra con un giocatore Legend e tu, un giocatore Epic, puoi incontrarli."
           },
           {
             "type": "li",
-            "texte": "Tutti i giocatori giocano da soli, ma la squadra nemica ha qualcuno con un grado simile al tuo."
+            "text": "Tutti i giocatori giocano da soli, ma la squadra nemica ha qualcuno con un grado simile al tuo."
           },
           {
             "type": "li",
-            "texte": "Esempio: il tuo grado è Leggenda, ma 4 dei tuoi compagni di squadra sono Mitici. Quindi almeno uno dei nemici è Legend."
+            "text": "Esempio: il tuo grado è Leggenda, ma 4 dei tuoi compagni di squadra sono Mitici. Quindi almeno uno dei nemici è Legend."
           },
           {
             "type": "li",
-            "texte": "Quando si verifica questo fenomeno, è possibile che solo un membro della squadra sia in un grado diverso."
+            "text": "Quando si verifica questo fenomeno, è possibile che solo un membro della squadra sia in un grado diverso."
           },
           {
             "type": "li",
-            "texte": "Esempio: la tua squadra ha 4 giocatori al grado Leggenda e 1 giocatore al grado Mitico, ciò significa che la squadra nemica può avere 1-4 giocatori al grado Mitico, ma deve esserci qualcuno al grado Epico."
+            "text": "Esempio: la tua squadra ha 4 giocatori al grado Leggenda e 1 giocatore al grado Mitico, ciò significa che la squadra nemica può avere 1-4 giocatori al grado Mitico, ma deve esserci qualcuno al grado Epico."
           },
           {
             "type": "li",
-            "texte": "Grazie a questa meccanica Flex Rank, anche un giocatore solista di Legend I può mettersi in coda con un alleato di Epic V, poiché sono solo di un grado diverso, ma il divario è molto diverso, portando al sistema oscuro ampiamente percepito."
+            "text": "Grazie a questa meccanica Flex Rank, anche un giocatore solista di Legend I può mettersi in coda con un alleato di Epic V, poiché sono solo di un grado diverso, ma il divario è molto diverso, portando al sistema oscuro ampiamente percepito."
           },
           {
             "type": "p",
-            "texte": "Se la coda impiega troppo tempo verrà offerta un'opzione di matchmaking rapido, questa opzione ti abbinerà anche ai giocatori che hai bloccato in precedenza."
+            "text": "Se la coda impiega troppo tempo verrà offerta un'opzione di matchmaking rapido, questa opzione ti abbinerà anche ai giocatori che hai bloccato in precedenza."
           },
           {
             "type": "p",
-            "texte": "Se il giocatore che hai bloccato fa squadra con qualcuno che non blocchi, puoi comunque metterti in coda con lui durante la partita."
+            "text": "Se il giocatore che hai bloccato fa squadra con qualcuno che non blocchi, puoi comunque metterti in coda con lui durante la partita."
           }
         ]
       },
       {
-        "titre": "Scelte al draft",
+        "title": "Scelte al draft",
         "elements": [
           {
             "type": "p",
-            "texte": "Quando un giocatore raggiunge Epic V o superiore (Grandmaster V o superiore nel server avanzato), la scelta al draft diventa disponibile per le partite future. A differenza della scelta alla cieca, la scelta al draft consente a entrambe le squadre di vedere i propri eroi durante la selezione e consente fino a 10 eroi banditi (3/4/5 ban in Epico/Leggenda/Mitico) per ciascuna squadra a fini di bilanciamento. Gli eroi già selezionati o banditi non possono essere scelti per tutta la durata della partita."
+            "text": "Quando un giocatore raggiunge Epic V o superiore (Grandmaster V o superiore nel server avanzato), la scelta al draft diventa disponibile per le partite future. A differenza della scelta alla cieca, la scelta al draft consente a entrambe le squadre di vedere i propri eroi durante la selezione e consente fino a 10 eroi banditi (3/4/5 ban in Epico/Leggenda/Mitico) per ciascuna squadra a fini di bilanciamento. Gli eroi già selezionati o banditi non possono essere scelti per tutta la durata della partita."
           }
         ]
       },
       {
-        "titre": "Sistema di classificazione",
+        "title": "Sistema di classificazione",
         "elements": [
           {
             "type": "p",
-            "texte": "Ci sono sette gradi in Mobile Legends: Bang Bang. Sono: Guerriero, Elite, Maestro, Gran Maestro, Epico, Leggendario e Mitico."
+            "text": "Ci sono sette gradi in Mobile Legends: Bang Bang. Sono: Guerriero, Elite, Maestro, Gran Maestro, Epico, Leggendario e Mitico."
           },
           {
             "type": "p",
-            "texte": "Ogni grado ha divisioni scritte in numeri romani e un certo numero di stelle necessarie per essere promossi alla divisione o al grado successivo. Se un giocatore supera il numero massimo di stelle nella divisione attuale o scende al di sotto di zero stelle, può passare alla divisione successiva o tornare alla divisione precedente. Completare tutte le divisioni dal rango attuale o essere retrocesso da tutte le divisioni comporterà la promozione al rango successivo o la retrocessione al rango precedente."
+            "text": "Ogni grado ha divisioni scritte in numeri romani e un certo numero di stelle necessarie per essere promossi alla divisione o al grado successivo. Se un giocatore supera il numero massimo di stelle nella divisione attuale o scende al di sotto di zero stelle, può passare alla divisione successiva o tornare alla divisione precedente. Completare tutte le divisioni dal rango attuale o essere retrocesso da tutte le divisioni comporterà la promozione al rango successivo o la retrocessione al rango precedente."
           },
           {
             "type": "p",
-            "texte": "In Mythic, le stelle sono state sostituite con punti per avanzare alla divisione successiva."
+            "text": "In Mythic, le stelle sono state sostituite con punti per avanzare alla divisione successiva."
           }
         ]
       },
       {
-        "titre": "Punti di aumento delle stelle e di protezione delle stelle",
+        "title": "Punti di aumento delle stelle e di protezione delle stelle",
         "elements": [
           {
             "type": "p",
-            "texte": "Esistono molti metodi per aumentare o prevenire la perdita di stelle, portando all'elevazione delle stelle e ai punti di protezione."
+            "text": "Esistono molti metodi per aumentare o prevenire la perdita di stelle, portando all'elevazione delle stelle e ai punti di protezione."
           },
           {
             "type": "p",
-            "texte": "Star Raising consente ai giocatori di guadagnare una stella aggiuntiva quando un giocatore raggiunge il 100% di Star Raising Points alla vittoria successiva. 100/200/300/500/700/1000 punti richiesti in Guerriero/Elite/Maestro/Grande Maestro/Epico/Leggenda. I punti bonus per l'aumento delle stelle non possono essere accumulati nei gradi Mitici."
+            "text": "Star Raising consente ai giocatori di guadagnare una stella aggiuntiva quando un giocatore raggiunge il 100% di Star Raising Points alla vittoria successiva. 100/200/300/500/700/1000 punti richiesti in Guerriero/Elite/Maestro/Grande Maestro/Epico/Leggenda. I punti bonus per l'aumento delle stelle non possono essere accumulati nei gradi Mitici."
           },
           {
             "type": "p",
-            "texte": "Protezione Stella consente ai giocatori di evitare di perdere una stella in una partita raggiungendo il 100% di punti Protezione Stella o utilizzando le carte Protezione Stella. 100/200/300/500/700/1000/1500 punti richiesti in Guerriero / Elite / Maestro / Gran Maestro / Epico / Leggenda / Mitico."
+            "text": "Protezione Stella consente ai giocatori di evitare di perdere una stella in una partita raggiungendo il 100% di punti Protezione Stella o utilizzando le carte Protezione Stella. 100/200/300/500/700/1000/1500 punti richiesti in Guerriero / Elite / Maestro / Gran Maestro / Epico / Leggenda / Mitico."
           },
           {
             "type": "p",
-            "texte": "Le carte Protezione Stellare si ottengono solitamente tramite eventi di gioco o tramite Starlight Rewards. Generalmente durano solo 7 giorni una volta ottenuti o rivendicati nelle pagine degli eventi."
+            "text": "Le carte Protezione Stellare si ottengono solitamente tramite eventi di gioco o tramite Starlight Rewards. Generalmente durano solo 7 giorni una volta ottenuti o rivendicati nelle pagine degli eventi."
           },
           {
             "type": "p",
-            "texte": "La carta protezione del rango è la carta che ti impedisce di retrocedere una volta raggiunto il rango precedente. Spesso viene acquisito dopo aver raggiunto un rango più alto: da Epico a Leggendario, da Leggenda a Mitico."
+            "text": "La carta protezione del rango è la carta che ti impedisce di retrocedere una volta raggiunto il rango precedente. Spesso viene acquisito dopo aver raggiunto un rango più alto: da Epico a Leggendario, da Leggenda a Mitico."
           },
           {
             "type": "p",
-            "texte": "In Mythic sono disponibili solo i punti protezione stella, poiché i punti ottenimento stelle sono disabilitati."
+            "text": "In Mythic sono disponibili solo i punti protezione stella, poiché i punti ottenimento stelle sono disabilitati."
           }
         ]
       },
       {
-        "titre": "Carta di protezione del rango",
+        "title": "Carta di protezione del rango",
         "elements": [
           {
             "type": "p",
-            "texte": "Le carte di protezione del grado possono essere ottenute solo dai premi di promozione del grado. A differenza dei punti/carte protezione stella, si attivano solo in caso di sconfitte che comportano la retrocessione di un giocatore (ad esempio, una sconfitta che comporta la perdita di stelle da Leggenda V 0 stelle a Epico I 4 stelle, retrocedendo dal grado Leggenda al grado Epico)."
+            "text": "Le carte di protezione del grado possono essere ottenute solo dai premi di promozione del grado. A differenza dei punti/carte protezione stella, si attivano solo in caso di sconfitte che comportano la retrocessione di un giocatore (ad esempio, una sconfitta che comporta la perdita di stelle da Leggenda V 0 stelle a Epico I 4 stelle, retrocedendo dal grado Leggenda al grado Epico)."
           }
         ]
       },
       {
-        "titre": "Reimpostazione del grado",
+        "title": "Reimpostazione del grado",
         "elements": [
           {
             "type": "p",
-            "texte": "Una volta terminata la stagione, tutti i giocatori inizieranno la nuova stagione con il nuovo grado in base alla classifica della stagione precedente. Ricevono anche la ricompensa per aver raggiunto un certo grado."
+            "text": "Una volta terminata la stagione, tutti i giocatori inizieranno la nuova stagione con il nuovo grado in base alla classifica della stagione precedente. Ricevono anche la ricompensa per aver raggiunto un certo grado."
           },
           {
             "type": "p",
-            "texte": "Il ripristino della classifica viene applicato solo quando il giocatore accede per la prima volta nella nuova stagione, ma la sua vecchia classifica non viene salvata nella classifica."
+            "text": "Il ripristino della classifica viene applicato solo quando il giocatore accede per la prima volta nella nuova stagione, ma la sua vecchia classifica non viene salvata nella classifica."
           }
         ]
       }
@@ -192,267 +192,267 @@
     "image": "/visuels/modes/ranked.webp"
   },
   {
-    "nom": "Brawl",
+    "name": "Brawl",
     "slug": "brawl",
     "description": "Brawl è una modalità di gioco in cui non puoi scegliere liberamente i tuoi eroi. Invece, ogni giocatore avrà due eroi casuali tra cui scegliere. Le battaglie in questa modalità si svolgono solo su un'unica corsia con due torrette che difendono rispettivamente la base in entrambe le squadre. Le partite di rissa generalmente terminano in un tempo molto più breve rispetto alla modalità classica e alla modalità classificata. Questo tipo di corrispondenza è preferibile per aumentare i punteggi di credito persi o completare attività.",
     "sections": [
       {
-        "titre": "Caratteristiche principali",
+        "title": "Caratteristiche principali",
         "elements": [
           {
             "type": "li",
-            "texte": "Ogni giocatore può scegliere tra 2 eroi casuali."
+            "text": "Ogni giocatore può scegliere tra 2 eroi casuali."
           },
           {
             "type": "li",
-            "texte": "I giocatori possono acquistare oggetti solo dopo la morte o prima di lasciare l'area dell'altare ogni volta che si rigenerano."
+            "text": "I giocatori possono acquistare oggetti solo dopo la morte o prima di lasciare l'area dell'altare ogni volta che si rigenerano."
           },
           {
             "type": "li",
-            "texte": "L'altare non cura più né rigenera il mana. Tutti gli effetti curativi sono dimezzati. La base non viene più rifornita."
+            "text": "L'altare non cura più né rigenera il mana. Tutti gli effetti curativi sono dimezzati. La base non viene più rifornita."
           },
           {
             "type": "li",
-            "texte": "Ogni eroe può avere un buff o un handicap aggiuntivo."
+            "text": "Ogni eroe può avere un buff o un handicap aggiuntivo."
           }
         ]
       },
       {
-        "titre": "Partenza",
+        "title": "Partenza",
         "elements": [
           {
             "type": "p",
-            "texte": "I giocatori possono chattare durante la fase di selezione."
+            "text": "I giocatori possono chattare durante la fase di selezione."
           },
           {
             "type": "p",
-            "texte": "Tutti i giocatori iniziano al livello 4 e ricevono 2.500 oro iniziale per acquistare oggetti. Una volta che lasciano la base, devono morire per poter acquistare nuovamente gli oggetti."
+            "text": "Tutti i giocatori iniziano al livello 4 e ricevono 2.500 oro iniziale per acquistare oggetti. Una volta che lasciano la base, devono morire per poter acquistare nuovamente gli oggetti."
           }
         ]
       },
       {
-        "titre": "Glifo della guarigione",
+        "title": "Glifo della guarigione",
         "elements": [
           {
             "type": "p",
-            "texte": "Gli eroi che muoiono raramente in combattimento lasceranno cadere un glifo curativo. (Cura sia HP massimi che Mana.)"
+            "text": "Gli eroi che muoiono raramente in combattimento lasceranno cadere un glifo curativo. (Cura sia HP massimi che Mana.)"
           }
         ]
       },
       {
-        "titre": "Torrette",
+        "title": "Torrette",
         "elements": [
           {
             "type": "p",
-            "texte": "Le torrette in Brawl si comportano come nei giochi classici. Tuttavia le torrette sono più deboli e non hanno uno scudo dorato."
+            "text": "Le torrette in Brawl si comportano come nei giochi classici. Tuttavia le torrette sono più deboli e non hanno uno scudo dorato."
           },
           {
             "type": "p",
-            "texte": "La seconda torretta su ciascun lato rilascia un'onda che uccide tutti i servitori quando viene distrutta."
+            "text": "La seconda torretta su ciascun lato rilascia un'onda che uccide tutti i servitori quando viene distrutta."
           }
         ]
       },
       {
-        "titre": "Servi",
+        "title": "Servi",
         "elements": [
           {
             "type": "p",
-            "texte": "L'oro e l'esperienza guadagnati dai servitori sono più alti che nella modalità classica."
+            "text": "L'oro e l'esperienza guadagnati dai servitori sono più alti che nella modalità classica."
           },
           {
             "type": "p",
-            "texte": "Dopo 12 minuti vengono schierati i Super Minion per evitare partite lunghe."
+            "text": "Dopo 12 minuti vengono schierati i Super Minion per evitare partite lunghe."
           }
         ]
       },
       {
-        "titre": "Granchio",
+        "title": "Granchio",
         "elements": [
           {
             "type": "p",
-            "texte": "Ci sono due granchi sui lati opposti del percorso che si generano a 0:30 e si rigenerano 30 secondi dopo la morte. Uccidere un granchio ghiacciato rigenera piccole quantità di salute, fornisce oro e un piccolo scudo. Anche gli alleati vicini che aiutano con il granchio ricevono oro. Questo granchio può essere utilizzato come trampolino di lancio per eroi come Lancillotto, Joy o Natalia, interagisci con alcuni eroi come Vexana, Benedetta o Yi Sun-shin, oppure controlla se il nemico è nel cespuglio più vicino o ucciditi per acquistare oggetti quando la loro salute è troppo bassa."
+            "text": "Ci sono due granchi sui lati opposti del percorso che si generano a 0:30 e si rigenerano 30 secondi dopo la morte. Uccidere un granchio ghiacciato rigenera piccole quantità di salute, fornisce oro e un piccolo scudo. Anche gli alleati vicini che aiutano con il granchio ricevono oro. Questo granchio può essere utilizzato come trampolino di lancio per eroi come Lancillotto, Joy o Natalia, interagisci con alcuni eroi come Vexana, Benedetta o Yi Sun-shin, oppure controlla se il nemico è nel cespuglio più vicino o ucciditi per acquistare oggetti quando la loro salute è troppo bassa."
           }
         ]
       },
       {
-        "titre": "Rune curative",
+        "title": "Rune curative",
         "elements": [
           {
             "type": "p",
-            "texte": "Ci sono due rune curative sui lati opposti del percorso che appaiono a 0:30 e riappaiono 35 secondi dopo essere state raccolte. Il timer e l'effetto sonoro sono visibili e udibili da tutti. La runa cura continuamente il raccoglitore per un ritardo di 5 secondi, quindi rigenera un po' di salute e fino al 40% di mana a tutti gli eroi alleati nel raggio d'azione. Se il recuperatore muore durante il ritardo, la guarigione viene annullata."
+            "text": "Ci sono due rune curative sui lati opposti del percorso che appaiono a 0:30 e riappaiono 35 secondi dopo essere state raccolte. Il timer e l'effetto sonoro sono visibili e udibili da tutti. La runa cura continuamente il raccoglitore per un ritardo di 5 secondi, quindi rigenera un po' di salute e fino al 40% di mana a tutti gli eroi alleati nel raggio d'azione. Se il recuperatore muore durante il ritardo, la guarigione viene annullata."
           }
         ]
       },
       {
-        "titre": "Barile",
+        "title": "Barile",
         "elements": [
           {
             "type": "p",
-            "texte": "C'è un barile su ciascun lato che appare alle 0:20 e ogni 30 secondi dopo essere stato raccolto. Scegli questo barile e spara ai nemici per sorprenderli!"
+            "text": "C'è un barile su ciascun lato che appare alle 0:20 e ogni 30 secondi dopo essere stato raccolto. Scegli questo barile e spara ai nemici per sorprenderli!"
           },
           {
             "type": "p",
-            "texte": "Il barile rende l'utente non bersagliabile in breve tempo, infligge danni reali e ha un tempo di recupero di 15 secondi, rendendo impossibile estrarre due barili contemporaneamente. Quando qualcuno prende in mano un barile, viene emesso un suono, udibile da tutti sulla mappa."
+            "text": "Il barile rende l'utente non bersagliabile in breve tempo, infligge danni reali e ha un tempo di recupero di 15 secondi, rendendo impossibile estrarre due barili contemporaneamente. Quando qualcuno prende in mano un barile, viene emesso un suono, udibile da tutti sulla mappa."
           },
           {
             "type": "p",
-            "texte": "Anche il Barile è disabilitato dall'effetto radicato."
+            "text": "Anche il Barile è disabilitato dall'effetto radicato."
           },
           {
             "type": "p",
-            "texte": "Un Diggie morto o un eroe non bersagliabile possono raccogliere il barile."
+            "text": "Un Diggie morto o un eroe non bersagliabile possono raccogliere il barile."
           }
         ]
       },
       {
-        "titre": "Matchmaking",
+        "title": "Matchmaking",
         "elements": [
           {
             "type": "p",
-            "texte": "A differenza delle modalità Classica o Classificata, in Brawl non ci sono restrizioni di rango. Ciò significa che puoi mettere in coda partite in cui una parte è una coda in solitario da 5 uomini mentre l'altra è una squadra da 5, o una parte è un Mythic Immortal da 5 uomini mentre l'altra è qualcuno che ha appena scaricato il gioco."
+            "text": "A differenza delle modalità Classica o Classificata, in Brawl non ci sono restrizioni di rango. Ciò significa che puoi mettere in coda partite in cui una parte è una coda in solitario da 5 uomini mentre l'altra è una squadra da 5, o una parte è un Mythic Immortal da 5 uomini mentre l'altra è qualcuno che ha appena scaricato il gioco."
           },
           {
             "type": "p",
-            "texte": "Essere AFK, evitare scontri di squadra o abusi verbali è interamente punibile attraverso la segnalazione."
+            "text": "Essere AFK, evitare scontri di squadra o abusi verbali è interamente punibile attraverso la segnalazione."
           }
         ]
       },
       {
-        "titre": "Suggerimenti e trucchi",
+        "title": "Suggerimenti e trucchi",
         "elements": [
           {
             "type": "li",
-            "texte": "Composizione della squadra consigliata"
+            "text": "Composizione della squadra consigliata"
           },
           {
             "type": "p",
-            "texte": "Ci sono molti eroi tra cui scegliere con stili di gioco diversi. Conoscere le abilità, i punti di forza e di debolezza degli eroi, nonché il loro posizionamento ottimale, è essenziale. Dai la priorità ad Assassini, Maghi o Guerrieri poiché infliggono molti danni e forniscono controllo sulla folla. Evita i tiratori scelti poiché all'inizio dipendono dagli oggetti e sono fragili, a meno che non abbiano una buona eliminazione dei minion e abilità ad area di effetto come Beatrix o Granger. Evita le squadre con troppi maghi, troppi cecchini o troppi carri armati."
+            "text": "Ci sono molti eroi tra cui scegliere con stili di gioco diversi. Conoscere le abilità, i punti di forza e di debolezza degli eroi, nonché il loro posizionamento ottimale, è essenziale. Dai la priorità ad Assassini, Maghi o Guerrieri poiché infliggono molti danni e forniscono controllo sulla folla. Evita i tiratori scelti poiché all'inizio dipendono dagli oggetti e sono fragili, a meno che non abbiano una buona eliminazione dei minion e abilità ad area di effetto come Beatrix o Granger. Evita le squadre con troppi maghi, troppi cecchini o troppi carri armati."
           },
           {
             "type": "li",
-            "texte": "Incantesimi di combattimento consigliati"
+            "text": "Incantesimi di combattimento consigliati"
           },
           {
             "type": "li",
-            "texte": "Flameshot ha un tempo di recupero molto basso e può essere utilizzato per controllare il cespuglio, uccidere in sicurezza o negare abilità."
+            "text": "Flameshot ha un tempo di recupero molto basso e può essere utilizzato per controllare il cespuglio, uccidere in sicurezza o negare abilità."
           },
           {
             "type": "li",
-            "texte": "Almeno un giocatore deve portare con sé quanto segue:"
+            "text": "Almeno un giocatore deve portare con sé quanto segue:"
           },
           {
             "type": "li",
-            "texte": "Rivitalizza in modo che la tua squadra possa sostenere dopo il combattimento poiché l'altare non guarisce più, specialmente quando la tua squadra è in una brutta posizione e non può assicurarsi le rune curative; E"
+            "text": "Rivitalizza in modo che la tua squadra possa sostenere dopo il combattimento poiché l'altare non guarisce più, specialmente quando la tua squadra è in una brutta posizione e non può assicurarsi le rune curative; E"
           },
           {
             "type": "li",
-            "texte": "Purifica, se il tuo eroe ha un buon danno ma è vulnerabile al controllo della folla (CC)."
+            "text": "Purifica, se il tuo eroe ha un buon danno ma è vulnerabile al controllo della folla (CC)."
           },
           {
             "type": "li",
-            "texte": "Tuttavia, Sprint non è altamente raccomandato."
+            "text": "Tuttavia, Sprint non è altamente raccomandato."
           },
           {
             "type": "li",
-            "texte": "Godetevi la folla"
+            "text": "Godetevi la folla"
           },
           {
             "type": "p",
-            "texte": "La carta unica di Brawl può potenziare in modo massiccio eroi come Luo Yi, Odette, Lancillotto, Xavier e Fanny, mentre gli eroi che fanno troppo affidamento sugli attacchi base come Freya o Thamuz diventano inutili."
+            "text": "La carta unica di Brawl può potenziare in modo massiccio eroi come Luo Yi, Odette, Lancillotto, Xavier e Fanny, mentre gli eroi che fanno troppo affidamento sugli attacchi base come Freya o Thamuz diventano inutili."
           },
           {
             "type": "p",
-            "texte": "Allo stesso modo, dovrai evitare di restare vicini quando i nemici sono Atlas o Tigreal."
+            "text": "Allo stesso modo, dovrai evitare di restare vicini quando i nemici sono Atlas o Tigreal."
           },
           {
             "type": "li",
-            "texte": "Compra le cose giuste"
+            "text": "Compra le cose giuste"
           },
           {
             "type": "p",
-            "texte": "Invece di acquistare un articolo decente, acquistare componenti più piccoli potrebbe offrire un vantaggio migliore. Puoi anche attendere qualche secondo e inviare un messaggio ai tuoi alleati che hai quasi abbastanza oro per acquistare oggetti.j"
+            "text": "Invece di acquistare un articolo decente, acquistare componenti più piccoli potrebbe offrire un vantaggio migliore. Puoi anche attendere qualche secondo e inviare un messaggio ai tuoi alleati che hai quasi abbastanza oro per acquistare oggetti.j"
           },
           {
             "type": "p",
-            "texte": "Invece di assalire una squadra di 5 uomini con Sky Piercer completo, un oggetto che riduce la guarigione può contrastare notevolmente la squadra nemica."
+            "text": "Invece di assalire una squadra di 5 uomini con Sky Piercer completo, un oggetto che riduce la guarigione può contrastare notevolmente la squadra nemica."
           },
           {
             "type": "li",
-            "texte": "Nascosto nella boscaglia"
+            "text": "Nascosto nella boscaglia"
           },
           {
             "type": "p",
-            "texte": "Approfitta dei cespugli per tendere un'imboscata ai nemici, particolarmente adatto per eroi come Helcurt, Hilda, Natalia, Luo Yi. Fai attenzione se i nemici hanno tali eroi."
+            "text": "Approfitta dei cespugli per tendere un'imboscata ai nemici, particolarmente adatto per eroi come Helcurt, Hilda, Natalia, Luo Yi. Fai attenzione se i nemici hanno tali eroi."
           },
           {
             "type": "li",
-            "texte": "Riproduci la selezione dell'eroe"
+            "text": "Riproduci la selezione dell'eroe"
           },
           {
             "type": "p",
-            "texte": "All'inizio, i giocatori potranno scegliere tra 2 eroi. Se nessun eroe è davvero adatto a te, lancia un dado per ottenere un nuovo eroe e mandare il tuo eroe scartato nella riserva per gli altri. A volte basta un solo eroe scartato perché tutti possano scambiarlo. Puoi chattare e chiedere ad altri giocatori o utilizzare chat veloci ed emote. Tieni presente che se l'eroe viene scartato due volte e scompare dalla selezione di tutti, potrebbe riapparire se usi un altro dado, il che sprecherebbe i tuoi dadi. Fino a 10 eroi possono apparire nel luogo abbandonato."
+            "text": "All'inizio, i giocatori potranno scegliere tra 2 eroi. Se nessun eroe è davvero adatto a te, lancia un dado per ottenere un nuovo eroe e mandare il tuo eroe scartato nella riserva per gli altri. A volte basta un solo eroe scartato perché tutti possano scambiarlo. Puoi chattare e chiedere ad altri giocatori o utilizzare chat veloci ed emote. Tieni presente che se l'eroe viene scartato due volte e scompare dalla selezione di tutti, potrebbe riapparire se usi un altro dado, il che sprecherebbe i tuoi dadi. Fino a 10 eroi possono apparire nel luogo abbandonato."
           },
           {
             "type": "p",
-            "texte": "Alcuni eroi sono difficili da giocare per te, ma ciò non significa che sia difficile per i tuoi alleati, scambiali ed evita di accumulare due buoni eroi mentre i tuoi alleati non ne hanno."
+            "text": "Alcuni eroi sono difficili da giocare per te, ma ciò non significa che sia difficile per i tuoi alleati, scambiali ed evita di accumulare due buoni eroi mentre i tuoi alleati non ne hanno."
           },
           {
             "type": "li",
-            "texte": "Arruolare il nemico"
+            "text": "Arruolare il nemico"
           },
           {
             "type": "p",
-            "texte": "Poiché c'è solo una corsia, è più facile indovinare le mosse dei tuoi avversari e posizionare il tuo eroe nella posizione migliore per difendere o attaccare."
+            "text": "Poiché c'è solo una corsia, è più facile indovinare le mosse dei tuoi avversari e posizionare il tuo eroe nella posizione migliore per difendere o attaccare."
           },
           {
             "type": "p",
-            "texte": "Quando la squadra nemica ha Xavier, Novaria, aspettati di essere danneggiato o rivelato acquistando oggetti dall'altare o raggiungendo il campo di battaglia."
+            "text": "Quando la squadra nemica ha Xavier, Novaria, aspettati di essere danneggiato o rivelato acquistando oggetti dall'altare o raggiungendo il campo di battaglia."
           },
           {
             "type": "p",
-            "texte": "Puoi controllare gli oggetti dei nemici per vedere se hanno lasciato il loro altare o meno."
+            "text": "Puoi controllare gli oggetti dei nemici per vedere se hanno lasciato il loro altare o meno."
           },
           {
             "type": "li",
-            "texte": "Usa oggetti naturali"
+            "text": "Usa oggetti naturali"
           },
           {
             "type": "p",
-            "texte": "Puoi salvare un barile per scappare dopo un'immersione, un'immersione in torretta o usarlo per accorciare la distanza con Flicker. I barili compaiono per la prima volta dopo 20 secondi, mentre le prime rune curative durano 30 secondi. È meglio proteggere il cespuglio a destra e il glifo nelle vicinanze, in modo che la tua squadra possa almeno disattivare un'opzione di guarigione dopo che i nemici hanno combattuto. Usa il barile per fermare i nemici quando cercano di impossessarsi della runa curativa."
+            "text": "Puoi salvare un barile per scappare dopo un'immersione, un'immersione in torretta o usarlo per accorciare la distanza con Flicker. I barili compaiono per la prima volta dopo 20 secondi, mentre le prime rune curative durano 30 secondi. È meglio proteggere il cespuglio a destra e il glifo nelle vicinanze, in modo che la tua squadra possa almeno disattivare un'opzione di guarigione dopo che i nemici hanno combattuto. Usa il barile per fermare i nemici quando cercano di impossessarsi della runa curativa."
           }
         ]
       },
       {
-        "titre": "Incantesimi di combattimento",
+        "title": "Incantesimi di combattimento",
         "elements": [
           {
             "type": "p",
-            "texte": "Tutti gli eroi ricevono Flicker per impostazione predefinita insieme a un altro incantesimo di combattimento scelto."
+            "text": "Tutti gli eroi ricevono Flicker per impostazione predefinita insieme a un altro incantesimo di combattimento scelto."
           },
           {
             "type": "p",
-            "texte": "Tutti gli incantesimi di combattimento iniziano al 50% del loro normale tempo di recupero."
+            "text": "Tutti gli incantesimi di combattimento iniziano al 50% del loro normale tempo di recupero."
           }
         ]
       },
       {
-        "titre": "Specifiche dell'eroe",
+        "title": "Specifiche dell'eroe",
         "elements": [
           {
             "type": "p",
-            "texte": "Poiché alcuni eroi saranno troppo potenti o troppo svantaggiati in Brawl, alcuni buff o handicap verranno aggiunti ad alcuni eroi come segue:"
+            "text": "Poiché alcuni eroi saranno troppo potenti o troppo svantaggiati in Brawl, alcuni buff o handicap verranno aggiunti ad alcuni eroi come segue:"
           },
           {
             "type": "p",
-            "texte": "Ultima versione: v350.1 {|class=\"article-table\" !Heroes!!Cambiamenti alle statistiche!!Cambiamenti individuali"
+            "text": "Ultima versione: v350.1 {|class=\"article-table\" !Heroes!!Cambiamenti alle statistiche!!Cambiamenti individuali"
           },
           {
             "type": "p",
-            "texte": "Guadagno passivo: 10/4"
+            "text": "Guadagno passivo: 10/4"
           },
           {
             "type": "p",
-            "texte": "Ci sono quattro porte per Chip, ogni lato ne ha una vicino alla base, mentre le altre due sono su entrambi i lati dei cespugli opposti."
+            "text": "Ci sono quattro porte per Chip, ogni lato ne ha una vicino alla base, mentre le altre due sono su entrambi i lati dei cespugli opposti."
           }
         ]
       }
@@ -460,37 +460,37 @@
     "image": "/visuels/modes/brawl.webp"
   },
   {
-    "nom": "Vs. AI",
+    "name": "Vs. AI",
     "slug": "vs-ai",
     "description": "La modalità \"Vs A.I\" in Mobile Legends: Bang Bang è stata introdotta verso la fine del 2017, poco dopo l'uscita globale del gioco. Originariamente caratterizzata solo da difficoltà facili e normali, la modalità ha subito aggiornamenti significativi, tra cui una modalità difficile aggiunta durante Project Next nel 2020 e un'intelligenza artificiale modernizzata e stimolante. metodi di formazione pubblicati intorno a novembre 2023.",
     "sections": [
       {
-        "titre": "Meccanico",
+        "title": "Meccanico",
         "elements": [
           {
             "type": "p",
-            "texte": "Ci sono tre modalità di gioco che puoi scegliere in questa modalità: Classica, Brawl e Draft Pick."
+            "text": "Ci sono tre modalità di gioco che puoi scegliere in questa modalità: Classica, Brawl e Draft Pick."
           }
         ]
       },
       {
-        "titre": "Livelli di difficoltà",
+        "title": "Livelli di difficoltà",
         "elements": [
           {
             "type": "p",
-            "texte": "Esistono anche tre livelli di difficoltà: AI: Semplice, AI: Normale e AI: Difficile."
+            "text": "Esistono anche tre livelli di difficoltà: AI: Semplice, AI: Normale e AI: Difficile."
           },
           {
             "type": "li",
-            "texte": "AI:Easy ha un'intelligenza artificiale molto semplice, ideale per esercitarsi con un eroe che hai appena sbloccato o che non conosci ancora."
+            "text": "AI:Easy ha un'intelligenza artificiale molto semplice, ideale per esercitarsi con un eroe che hai appena sbloccato o che non conosci ancora."
           },
           {
             "type": "li",
-            "texte": "IA: Normale ha avversari IA leggermente più avanzati che a volte possono rappresentare una minaccia durante il farming, usa le loro abilità con attenzione. Questa difficoltà è un po' più complessa dell'intelligenza artificiale: semplice e un'opzione molto migliore per addestrare un eroe in un combattimento quasi reale."
+            "text": "IA: Normale ha avversari IA leggermente più avanzati che a volte possono rappresentare una minaccia durante il farming, usa le loro abilità con attenzione. Questa difficoltà è un po' più complessa dell'intelligenza artificiale: semplice e un'opzione molto migliore per addestrare un eroe in un combattimento quasi reale."
           },
           {
             "type": "li",
-            "texte": "AI:Hard ha avversari IA moderatamente avanzati che sanno quando usare i loro incantesimi di combattimento e cronometrano correttamente le loro abilità per uccidere il loro avversario. Attaccano anche le torrette correttamente, a differenza del normale e del semplice dove muoiono apposta, sanno anche come macro e tracciare la propria squadra, e in realtà sanno come scappare, si consiglia di utilizzare l'eroe principale."
+            "text": "AI:Hard ha avversari IA moderatamente avanzati che sanno quando usare i loro incantesimi di combattimento e cronometrano correttamente le loro abilità per uccidere il loro avversario. Attaccano anche le torrette correttamente, a differenza del normale e del semplice dove muoiono apposta, sanno anche come macro e tracciare la propria squadra, e in realtà sanno come scappare, si consiglia di utilizzare l'eroe principale."
           }
         ]
       }
@@ -498,37 +498,37 @@
     "image": "/visuels/modes/vs-ai.webp"
   },
   {
-    "nom": "Custom",
+    "name": "Custom",
     "slug": "custom",
     "description": "I giochi personalizzati sono molto simili a Vs. AI. La differenza è che i giocatori si contrappongono ad altre persone o all'intelligenza artificiale. I giocatori possono invitare gli amici a unirsi al gioco o aggiungere l'intelligenza artificiale con i pulsanti esistenti. I giocatori possono anche aggiungere un'IA alla squadra avversaria o alla tua squadra, puoi anche giocare da solo con un'IA.",
     "sections": [
       {
-        "titre": "Nota",
+        "title": "Nota",
         "elements": [
           {
             "type": "li",
-            "texte": "La modalità personalizzata non influirà sul tuo grado, maestria dell'eroe o posizionamento. Inoltre non otterrai alcun BP o EXP."
+            "text": "La modalità personalizzata non influirà sul tuo grado, maestria dell'eroe o posizionamento. Inoltre non otterrai alcun BP o EXP."
           },
           {
             "type": "li",
-            "texte": "Se hai carte di prova con eroi che non hai ancora scelto al Draft, c'è ancora un bug che ti permette di usare quella carta di prova con l'eroe che ancora non hai, la carta di prova non verrà consumata/usata."
+            "text": "Se hai carte di prova con eroi che non hai ancora scelto al Draft, c'è ancora un bug che ti permette di usare quella carta di prova con l'eroe che ancora non hai, la carta di prova non verrà consumata/usata."
           },
           {
             "type": "li",
-            "texte": "La maggior parte dei giocatori solitamente utilizza la personalizzazione per competere in 1v1 o organizzare partite personalizzate tra 2 squadre (tornei)."
+            "text": "La maggior parte dei giocatori solitamente utilizza la personalizzazione per competere in 1v1 o organizzare partite personalizzate tra 2 squadre (tornei)."
           }
         ]
       },
       {
-        "titre": "Storia",
+        "title": "Storia",
         "elements": [
           {
             "type": "p",
-            "texte": "Fonte: https://youtu.be/3mFb0EQrMXE?t=113"
+            "text": "Fonte: https://youtu.be/3mFb0EQrMXE?t=113"
           },
           {
             "type": "p",
-            "texte": "Categoria: Categoria personalizzata: Modalità di gioco"
+            "text": "Categoria: Categoria personalizzata: Modalità di gioco"
           }
         ]
       }
@@ -536,468 +536,468 @@
     "image": "/visuels/modes/custom.webp"
   },
   {
-    "nom": "Arcade Mode",
+    "name": "Arcade Mode",
     "slug": "arcade-mode",
     "description": "Le modalità Arcade sono una modalità di gioco aggiuntiva in Mobile Legends: Bang Bang a cui è possibile giocare di tanto in tanto durante eventi speciali, festività o occasioni. La modalità presenta vari sottogiochi basati sulla strategia, elencati di seguito.",
     "sections": [
       {
-        "titre": "Caos",
+        "title": "Caos",
         "elements": [
           {
             "type": "p",
-            "texte": "Arcade 5v5 intenso, veloce ed emozionante!"
+            "text": "Arcade 5v5 intenso, veloce ed emozionante!"
           },
           {
             "type": "p",
-            "texte": "In passato, questo gioco non aveva un nome ufficiale. Questa modalità di gioco è stata rilasciata per la prima volta ed è stato semplicemente il Carnevale estivo ad arrivare e conteneva materiali di consumo per migliorare le abilità degli eroi, con una mappa modificata corrispondente all'Estate. Durante Halloween, questa modalità è tornata con le stesse funzionalità del Carnevale estivo, abilità modificate, caramelle bonus e mappa a tema Halloween. Poi arrivò Natale e la modalità ebbe le stesse caratteristiche; Tuttavia, anche se la mappa è stata modificata per adattarla al Natale, le caramelle sono state conservate come materiali di consumo. E poi è arrivata la Pasqua. Infine, è stata introdotta la modalità Caos: questa volta la modalità di gioco non aveva consumabili, ma aveva abilità modificate e cambi di mappa."
+            "text": "In passato, questo gioco non aveva un nome ufficiale. Questa modalità di gioco è stata rilasciata per la prima volta ed è stato semplicemente il Carnevale estivo ad arrivare e conteneva materiali di consumo per migliorare le abilità degli eroi, con una mappa modificata corrispondente all'Estate. Durante Halloween, questa modalità è tornata con le stesse funzionalità del Carnevale estivo, abilità modificate, caramelle bonus e mappa a tema Halloween. Poi arrivò Natale e la modalità ebbe le stesse caratteristiche; Tuttavia, anche se la mappa è stata modificata per adattarla al Natale, le caramelle sono state conservate come materiali di consumo. E poi è arrivata la Pasqua. Infine, è stata introdotta la modalità Caos: questa volta la modalità di gioco non aveva consumabili, ma aveva abilità modificate e cambi di mappa."
           },
           {
             "type": "p",
-            "texte": "Ci sono solo 50 eroi disponibili in questa modalità."
+            "text": "Ci sono solo 50 eroi disponibili in questa modalità."
           }
         ]
       },
       {
-        "titre": "Specchio",
+        "title": "Specchio",
         "elements": [
           {
             "type": "p",
-            "texte": "Duelli dello stesso eroe ma che utilizzano tattiche diverse!"
+            "text": "Duelli dello stesso eroe ma che utilizzano tattiche diverse!"
           },
           {
             "type": "p",
-            "texte": "La modalità Specchio utilizza la stessa mappa della modalità Bruno Cup Mayhem (in effetti, il layout della mappa, Lord e minion hanno lo stesso tema), tuttavia, durante la fase di selezione, in ogni squadra, i giocatori voteranno per uno tra sei eroi scelti casualmente. Chi otterrà più voti sarà l'eroe scelto per l'intera squadra. Similmente alla modalità Caos, i giocatori inizieranno dal livello eroe 4 e riceveranno 900 oro. Come in tutte le modalità di gioco, l'obiettivo è distruggere la base nemica."
+            "text": "La modalità Specchio utilizza la stessa mappa della modalità Bruno Cup Mayhem (in effetti, il layout della mappa, Lord e minion hanno lo stesso tema), tuttavia, durante la fase di selezione, in ogni squadra, i giocatori voteranno per uno tra sei eroi scelti casualmente. Chi otterrà più voti sarà l'eroe scelto per l'intera squadra. Similmente alla modalità Caos, i giocatori inizieranno dal livello eroe 4 e riceveranno 900 oro. Come in tutte le modalità di gioco, l'obiettivo è distruggere la base nemica."
           }
         ]
       },
       {
-        "titre": "Sopravvivenza",
+        "title": "Sopravvivenza",
         "elements": [
           {
             "type": "p",
-            "texte": "Sarai tu quello che durerà fino all'ultimo?"
+            "text": "Sarai tu quello che durerà fino all'ultimo?"
           },
           {
             "type": "p",
-            "texte": "Survival è simile a qualsiasi altro gioco Battle Royale, ma con alcune modifiche per adattarsi a Mobile Legends. La modalità Sopravvivenza funziona solo con squadre di 3 giocatori in una battaglia da 99 giocatori (33 squadre) e la mappa non sarà il Palazzo Celeste o la Distesa Occidentale, come in altre modalità di gioco, ma sarà ambientata su un'unica mappa, il Labirinto di Minosse, che è una mappa molto grande per ospitare 99 giocatori. Survival offre solo 15 eroi selezionabili, dividendoli in tre gruppi da 5: Fisico, Magia e Difesa. Il saccheggio in questa modalità di gioco è diverso da Battle Royale: devi uccidere Creep/Mostri della giungla per fargli rilasciare oggetti, e ci sono 4 nuovi Creep in questa modalità di gioco, ciascuno con diverse possibilità di rilasciare oggetti per le tre categorie. Per saperne di più su questa modalità di gioco, fai clic sul testo evidenziato sopra."
+            "text": "Survival è simile a qualsiasi altro gioco Battle Royale, ma con alcune modifiche per adattarsi a Mobile Legends. La modalità Sopravvivenza funziona solo con squadre di 3 giocatori in una battaglia da 99 giocatori (33 squadre) e la mappa non sarà il Palazzo Celeste o la Distesa Occidentale, come in altre modalità di gioco, ma sarà ambientata su un'unica mappa, il Labirinto di Minosse, che è una mappa molto grande per ospitare 99 giocatori. Survival offre solo 15 eroi selezionabili, dividendoli in tre gruppi da 5: Fisico, Magia e Difesa. Il saccheggio in questa modalità di gioco è diverso da Battle Royale: devi uccidere Creep/Mostri della giungla per fargli rilasciare oggetti, e ci sono 4 nuovi Creep in questa modalità di gioco, ciascuno con diverse possibilità di rilasciare oggetti per le tre categorie. Per saperne di più su questa modalità di gioco, fai clic sul testo evidenziato sopra."
           },
           {
             "type": "p",
-            "texte": "Entra in Eruditio e sforzati di essere l'ultimo in piedi."
+            "text": "Entra in Eruditio e sforzati di essere l'ultimo in piedi."
           },
           {
             "type": "p",
-            "texte": "Negli ultimi tempi, un concorso molto affascinante, la cui popolarità cresce di giorno in giorno, ha preso d'assalto l'Eruditio. Conosciuto come “Survival: Nexus”, attira partecipanti da tutta Eruditio. Comodi terminali consentono ai partecipanti di controllare gli avatar virtuali di Beatrix utilizzando solo le onde cerebrali, immergendosi in un regno virtuale. Qui potranno partecipare ad una competizione tattica in cui l'ultimo giocatore rimasto in piedi riceverà un'enorme ricompensa. Cogli l'occasione finché puoi, avventurieri, e unisciti a Survival: Nexus!"
+            "text": "Negli ultimi tempi, un concorso molto affascinante, la cui popolarità cresce di giorno in giorno, ha preso d'assalto l'Eruditio. Conosciuto come “Survival: Nexus”, attira partecipanti da tutta Eruditio. Comodi terminali consentono ai partecipanti di controllare gli avatar virtuali di Beatrix utilizzando solo le onde cerebrali, immergendosi in un regno virtuale. Qui potranno partecipare ad una competizione tattica in cui l'ultimo giocatore rimasto in piedi riceverà un'enorme ricompensa. Cogli l'occasione finché puoi, avventurieri, e unisciti a Survival: Nexus!"
           }
         ]
       },
       {
-        "titre": "Battaglia fino alla morte",
+        "title": "Battaglia fino alla morte",
         "elements": [
           {
             "type": "p",
-            "texte": "Gioca con eroi diversi in una partita!"
+            "text": "Gioca con eroi diversi in una partita!"
           },
           {
             "type": "p",
-            "texte": "Questo è un altro tipo di gioco in Mobile Legends, la selezione è molto simile alla sopravvivenza in cui il giocatore deve scegliere un eroe tra gli eroi selezionati casualmente, indipendentemente dal fatto che lo possieda o meno. Nel gioco, quando l'eroe muore, il giocatore deve scegliere un altro eroe. Se due giocatori hanno scelto lo stesso eroe, devono sceglierne un altro. Esistono due modi per ottenere la vittoria: distruggere la base nemica o ottenere 30 vittorie prima del nemico. Nel 2019 esce in coordinazione con il Festival di Primavera. Il campo di battaglia quindi è all’altezza della situazione."
+            "text": "Questo è un altro tipo di gioco in Mobile Legends, la selezione è molto simile alla sopravvivenza in cui il giocatore deve scegliere un eroe tra gli eroi selezionati casualmente, indipendentemente dal fatto che lo possieda o meno. Nel gioco, quando l'eroe muore, il giocatore deve scegliere un altro eroe. Se due giocatori hanno scelto lo stesso eroe, devono sceglierne un altro. Esistono due modi per ottenere la vittoria: distruggere la base nemica o ottenere 30 vittorie prima del nemico. Nel 2019 esce in coordinazione con il Festival di Primavera. Il campo di battaglia quindi è all’altezza della situazione."
           }
         ]
       },
       {
-        "titre": "Frenesia",
+        "title": "Frenesia",
         "elements": [
           {
             "type": "p",
-            "texte": "In questa modalità è possibile trovare vari alimenti. Raccogliendo diversi prodotti alimentari, i giocatori possono ottenere diversi potenziamenti che migliorano le loro abilità da eroe. Alcuni obiettivi sono esclusivi della modalità Frenzy e possono essere ottenuti solo giocando a questa modalità."
+            "text": "In questa modalità è possibile trovare vari alimenti. Raccogliendo diversi prodotti alimentari, i giocatori possono ottenere diversi potenziamenti che migliorano le loro abilità da eroe. Alcuni obiettivi sono esclusivi della modalità Frenzy e possono essere ottenuti solo giocando a questa modalità."
           },
           {
             "type": "p",
-            "texte": "Il cibo può essere trovato dove vengono uccisi alcuni mostri, dove vengono uccisi alcuni servitori speciali, dove vengono uccisi gli eroi nemici e nei punti di rifornimento all'interno della casa e della base nemica."
+            "text": "Il cibo può essere trovato dove vengono uccisi alcuni mostri, dove vengono uccisi alcuni servitori speciali, dove vengono uccisi gli eroi nemici e nei punti di rifornimento all'interno della casa e della base nemica."
           },
           {
             "type": "p",
-            "texte": "Elenco dei prodotti alimentari"
+            "text": "Elenco dei prodotti alimentari"
           }
         ]
       },
       {
-        "titre": "Evolvi",
+        "title": "Evolvi",
         "elements": [
           {
             "type": "p",
-            "texte": "È stato rilasciato il 20 aprile 2019."
+            "text": "È stato rilasciato il 20 aprile 2019."
           },
           {
             "type": "p",
-            "texte": "In questa modalità di gioco, 15 giocatori vengono lanciati su una mappa dove devono salire di livello ed evolversi raccogliendo gemme lasciate cadere dai mostri o apparendo casualmente sulla mappa, con l'obiettivo di essere l'ultimo giocatore in piedi. Uccidere un giocatore nemico non lo eliminerà, anzi subirà una penalità di tempo di respawn e perderà esperienza; tuttavia, una volta che il primo giocatore raggiunge il livello 15 e diventa il \"Diavolo\", tutte le morti sono permanenti."
+            "text": "In questa modalità di gioco, 15 giocatori vengono lanciati su una mappa dove devono salire di livello ed evolversi raccogliendo gemme lasciate cadere dai mostri o apparendo casualmente sulla mappa, con l'obiettivo di essere l'ultimo giocatore in piedi. Uccidere un giocatore nemico non lo eliminerà, anzi subirà una penalità di tempo di respawn e perderà esperienza; tuttavia, una volta che il primo giocatore raggiunge il livello 15 e diventa il \"Diavolo\", tutte le morti sono permanenti."
           },
           {
             "type": "p",
-            "texte": "I mostri lasceranno anche cadere gemme colorate che aumentano permanentemente le statistiche: le gemme rosse aumentano l'attacco fisico, le gemme blu aumentano l'attacco magico e le gemme verdi aumentano gli HP. Mostri diversi rilasciano gemme diverse. Alcuni mostri di livello superiore lasceranno anche cadere incantesimi di combattimento da equipaggiare; Se ne può equipaggiare solo uno alla volta, poiché uno viene già assegnato al raggiungimento del livello 6."
+            "text": "I mostri lasceranno anche cadere gemme colorate che aumentano permanentemente le statistiche: le gemme rosse aumentano l'attacco fisico, le gemme blu aumentano l'attacco magico e le gemme verdi aumentano gli HP. Mostri diversi rilasciano gemme diverse. Alcuni mostri di livello superiore lasceranno anche cadere incantesimi di combattimento da equipaggiare; Se ne può equipaggiare solo uno alla volta, poiché uno viene già assegnato al raggiungimento del livello 6."
           },
           {
             "type": "p",
-            "texte": "Non esiste una schermata di selezione del campione, tutti i giocatori iniziano come \"Celle\" di livello 1 e possono progredire raggiungendo determinati livelli di esperienza."
+            "text": "Non esiste una schermata di selezione del campione, tutti i giocatori iniziano come \"Celle\" di livello 1 e possono progredire raggiungendo determinati livelli di esperienza."
           },
           {
             "type": "p",
-            "texte": "Livello 1: celle"
+            "text": "Livello 1: celle"
           },
           {
             "type": "p",
-            "texte": "Non possono attaccare e hanno poca salute, ma poiché tutti hanno iniziato in questo stato, questo non è un problema. Sono anche i mostri più veloci."
+            "text": "Non possono attaccare e hanno poca salute, ma poiché tutti hanno iniziato in questo stato, questo non è un problema. Sono anche i mostri più veloci."
           },
           {
             "type": "p",
-            "texte": "I mostri non appariranno a questo punto del gioco."
+            "text": "I mostri non appariranno a questo punto del gioco."
           },
           {
             "type": "p",
-            "texte": "Livello 3: Servitori"
+            "text": "Livello 3: Servitori"
           },
           {
             "type": "p",
-            "texte": "Una volta raggiunto il livello 3, i giocatori possono scegliere di evolversi in Servitore base, Servitore a distanza o Servitore balista."
+            "text": "Una volta raggiunto il livello 3, i giocatori possono scegliere di evolversi in Servitore base, Servitore a distanza o Servitore balista."
           },
           {
             "type": "p",
-            "texte": "Questa scelta, oltre ad avere attacco e velocità differenti, influisce anche su tutte le successive evoluzioni disponibili."
+            "text": "Questa scelta, oltre ad avere attacco e velocità differenti, influisce anche su tutte le successive evoluzioni disponibili."
           },
           {
             "type": "p",
-            "texte": "Dopo 1 minuto, i mostri iniziano ad apparire. A questo punto appariranno solo le gelatine blu e rosse, ma non attaccheranno i giocatori."
+            "text": "Dopo 1 minuto, i mostri iniziano ad apparire. A questo punto appariranno solo le gelatine blu e rosse, ma non attaccheranno i giocatori."
           },
           {
             "type": "p",
-            "texte": "Livello 6: Mostri Minori"
+            "text": "Livello 6: Mostri Minori"
           },
           {
             "type": "p",
-            "texte": "I giocatori si evolveranno in mostri diversi a seconda del servitore che scelgono. I mostri minori avranno ciascuno un'abilità."
+            "text": "I giocatori si evolveranno in mostri diversi a seconda del servitore che scelgono. I mostri minori avranno ciascuno un'abilità."
           },
           {
             "type": "p",
-            "texte": "Percorso fisico: se il giocatore sceglie Basic Minion, si evolverà in Giant Mouth o Crammer."
+            "text": "Percorso fisico: se il giocatore sceglie Basic Minion, si evolverà in Giant Mouth o Crammer."
           },
           {
             "type": "p",
-            "texte": ":1. L'abilità di Giant Mouth infliggerà a un nemico un danno pari a una percentuale degli HP massimi del bersaglio."
+            "text": ":1. L'abilità di Giant Mouth infliggerà a un nemico un danno pari a una percentuale degli HP massimi del bersaglio."
           },
           {
             "type": "p",
-            "texte": ":2. L'abilità di Crammer aumenterà significativamente il suo rubavita per un po'."
+            "text": ":2. L'abilità di Crammer aumenterà significativamente il suo rubavita per un po'."
           },
           {
             "type": "p",
-            "texte": "Viaggio magico: se il giocatore sceglie un Servitore a distanza, si evolverà in un Goblin o in una Lucertola Cremisi."
+            "text": "Viaggio magico: se il giocatore sceglie un Servitore a distanza, si evolverà in un Goblin o in una Lucertola Cremisi."
           },
           {
             "type": "p",
-            "texte": ":1. L'abilità del Goblin lancerà una sfera di energia molto dannosa in una direzione."
+            "text": ":1. L'abilità del Goblin lancerà una sfera di energia molto dannosa in una direzione."
           },
           {
             "type": "p",
-            "texte": ":2. L'abilità di Crimson Lizard creerà una zona di energia che infligge continuamente danni ai nemici all'interno."
+            "text": ":2. L'abilità di Crimson Lizard creerà una zona di energia che infligge continuamente danni ai nemici all'interno."
           },
           {
             "type": "p",
-            "texte": "Carro armato di percorso: se il giocatore sceglie Ballista Minion, si evolverà in Spinner o Death."
+            "text": "Carro armato di percorso: se il giocatore sceglie Ballista Minion, si evolverà in Spinner o Death."
           },
           {
             "type": "p",
-            "texte": ":1. L'abilità di Spinner rigenererà istantaneamente una certa quantità di HP."
+            "text": ":1. L'abilità di Spinner rigenererà istantaneamente una certa quantità di HP."
           },
           {
             "type": "p",
-            "texte": ":2. L'abilità della morte infliggerà continuamente danni ai nemici circostanti."
+            "text": ":2. L'abilità della morte infliggerà continuamente danni ai nemici circostanti."
           },
           {
             "type": "p",
-            "texte": "Quando raggiungono il livello 6, i giocatori possono anche scegliere uno dei due incantesimi di combattimento casuali da equipaggiare per il resto della partita. I possibili incantesimi di combattimento sono Flicker, Sprint, Execute, Inspire e Aegis."
+            "text": "Quando raggiungono il livello 6, i giocatori possono anche scegliere uno dei due incantesimi di combattimento casuali da equipaggiare per il resto della partita. I possibili incantesimi di combattimento sono Flicker, Sprint, Execute, Inspire e Aegis."
           },
           {
             "type": "p",
-            "texte": "Livello 9: Mostri Maggiori I mostri Maggiori avranno due abilità, molte delle quali sono ispirate alle abilità degli eroi esistenti o agli attacchi che questi mostri eseguono in altre modalità di gioco."
+            "text": "Livello 9: Mostri Maggiori I mostri Maggiori avranno due abilità, molte delle quali sono ispirate alle abilità degli eroi esistenti o agli attacchi che questi mostri eseguono in altre modalità di gioco."
           },
           {
             "type": "p",
-            "texte": "Se il giocatore sceglie il percorso fisico, si evolverà in Gargoyle o Cleaver."
+            "text": "Se il giocatore sceglie il percorso fisico, si evolverà in Gargoyle o Cleaver."
           },
           {
             "type": "p",
-            "texte": ": 1. L'abilità 1 del Gargoyle aumenterà la sua velocità di movimento per un po', l'abilità 2 aumenterà il suo attacco."
+            "text": ": 1. L'abilità 1 del Gargoyle aumenterà la sua velocità di movimento per un po', l'abilità 2 aumenterà il suo attacco."
           },
           {
             "type": "p",
-            "texte": ":2. L'abilità 1 di Cleaver è uno sfarfallio simile a Flicker, la sua abilità 2 è il suo caratteristico attacco a onda ritardata da altre modalità di gioco."
+            "text": ":2. L'abilità 1 di Cleaver è uno sfarfallio simile a Flicker, la sua abilità 2 è il suo caratteristico attacco a onda ritardata da altre modalità di gioco."
           },
           {
             "type": "p",
-            "texte": "Se il giocatore ha scelto il percorso Magico, si evolverà in un Pioniere o in un Cacciatore di Statue."
+            "text": "Se il giocatore ha scelto il percorso Magico, si evolverà in un Pioniere o in un Cacciatore di Statue."
           },
           {
             "type": "p",
-            "texte": ":1. L'abilità 1 di Pioneer lancia una sfera che bloccherà i nemici in modo simile a Cyclops Ultimate, l'abilità 2 è la sua trappola avvelenata caratteristica di altre modalità di gioco, ma in linea retta."
+            "text": ":1. L'abilità 1 di Pioneer lancia una sfera che bloccherà i nemici in modo simile a Cyclops Ultimate, l'abilità 2 è la sua trappola avvelenata caratteristica di altre modalità di gioco, ma in linea retta."
           },
           {
             "type": "p",
-            "texte": ":2. L'abilità 1 di Statued Chaser è simile alla prima abilità di Gusion (lanceranno un pugnale in una direzione e, se colpisce un nemico, l'abilità potrà essere utilizzata di nuovo per inseguirlo); l'abilità 2 attaccherà i nemici di fronte, infliggendo danni elevati."
+            "text": ":2. L'abilità 1 di Statued Chaser è simile alla prima abilità di Gusion (lanceranno un pugnale in una direzione e, se colpisce un nemico, l'abilità potrà essere utilizzata di nuovo per inseguirlo); l'abilità 2 attaccherà i nemici di fronte, infliggendo danni elevati."
           },
           {
             "type": "p",
-            "texte": "Se il giocatore sceglie l'evoluzione Tank, si evolverà in Statued Shocker o Core Guard."
+            "text": "Se il giocatore sceglie l'evoluzione Tank, si evolverà in Statued Shocker o Core Guard."
           },
           {
             "type": "p",
-            "texte": ": 1. L'abilità 1 di Statued Shocker potenzierà il suo prossimo attacco base, che stordirà i nemici; l'abilità 2 fornirà loro uno scudo che esploderà dopo un certo periodo di tempo o quando verrà distrutto, in modo simile alla seconda abilità di Urano."
+            "text": ": 1. L'abilità 1 di Statued Shocker potenzierà il suo prossimo attacco base, che stordirà i nemici; l'abilità 2 fornirà loro uno scudo che esploderà dopo un certo periodo di tempo o quando verrà distrutto, in modo simile alla seconda abilità di Urano."
           },
           {
             "type": "p",
-            "texte": ":2. L'abilità 1 della Core Guard provocherà i nemici vicini, costringendoli ad attaccare, l'abilità 2 rifletterà il danno ricevuto per un certo tempo. (Entrambe le abilità assomigliano alla seconda abilità di Gatotkaca.)"
+            "text": ":2. L'abilità 1 della Core Guard provocherà i nemici vicini, costringendoli ad attaccare, l'abilità 2 rifletterà il danno ricevuto per un certo tempo. (Entrambe le abilità assomigliano alla seconda abilità di Gatotkaca.)"
           },
           {
             "type": "p",
-            "texte": "Una volta raggiunto il livello 9, i giocatori possono anche scegliere uno dei due buff passivi che durano per il resto della partita, a seconda del loro percorso:"
+            "text": "Una volta raggiunto il livello 9, i giocatori possono anche scegliere uno dei due buff passivi che durano per il resto della partita, a seconda del loro percorso:"
           },
           {
             "type": "p",
-            "texte": "Buff fisici: 30% di attacco fisico o 40% di velocità di attacco"
+            "text": "Buff fisici: 30% di attacco fisico o 40% di velocità di attacco"
           },
           {
             "type": "p",
-            "texte": "Buff magici: riduzione del CD del 40% o vampiro magico del 40%."
+            "text": "Buff magici: riduzione del CD del 40% o vampiro magico del 40%."
           },
           {
             "type": "p",
-            "texte": "Tank Buffs: 2% della salute convertita in danno o recupera 300 HP ogni 5 secondi"
+            "text": "Tank Buffs: 2% della salute convertita in danno o recupera 300 HP ogni 5 secondi"
           },
           {
             "type": "p",
-            "texte": "Una volta che almeno un giocatore avrà raggiunto il livello 9, anche i mostri minori inizieranno ad apparire come mostri; attaccheranno i giocatori se provocati e lasceranno cadere più gemme."
+            "text": "Una volta che almeno un giocatore avrà raggiunto il livello 9, anche i mostri minori inizieranno ad apparire come mostri; attaccheranno i giocatori se provocati e lasceranno cadere più gemme."
           },
           {
             "type": "p",
-            "texte": "Potrebbe anche apparire una “tartaruga nera”. Può far cadere grandi quantità di gemme di grandi dimensioni. La sua posizione sarà visibile sulla mappa di ogni giocatore."
+            "text": "Potrebbe anche apparire una “tartaruga nera”. Può far cadere grandi quantità di gemme di grandi dimensioni. La sua posizione sarà visibile sulla mappa di ogni giocatore."
           },
           {
             "type": "p",
-            "texte": "Livello 12: Eroe (sono necessarie maggiori informazioni: gli eroi disponibili possono cambiare in modo specifico in base ai percorsi di livello 6 e 9. Potrebbero essere disponibili più eroi di quelli elencati.)"
+            "text": "Livello 12: Eroe (sono necessarie maggiori informazioni: gli eroi disponibili possono cambiare in modo specifico in base ai percorsi di livello 6 e 9. Potrebbero essere disponibili più eroi di quelli elencati.)"
           },
           {
             "type": "p",
-            "texte": "Se il giocatore ha scelto il percorso fisico, saranno disponibili gli eroi Tiratore scelto o Assassino."
+            "text": "Se il giocatore ha scelto il percorso fisico, saranno disponibili gli eroi Tiratore scelto o Assassino."
           },
           {
             "type": "p",
-            "texte": ": Cecchino: Karrie, Lesley, Bruno, Claude."
+            "text": ": Cecchino: Karrie, Lesley, Bruno, Claude."
           },
           {
             "type": "p",
-            "texte": ": Assassini: Lancillotto, Sciabola, Freya."
+            "text": ": Assassini: Lancillotto, Sciabola, Freya."
           },
           {
             "type": "p",
-            "texte": "Se il giocatore sceglie il percorso magico, saranno disponibili Maghi o Eroi di supporto."
+            "text": "Se il giocatore sceglie il percorso magico, saranno disponibili Maghi o Eroi di supporto."
           },
           {
             "type": "p",
-            "texte": ": Mago: Odette, Gord, Alice, Esmeralda, Harley."
+            "text": ": Mago: Odette, Gord, Alice, Esmeralda, Harley."
           },
           {
             "type": "p",
-            "texte": ": Supporto: Angela, Estes, Nana."
+            "text": ": Supporto: Angela, Estes, Nana."
           },
           {
             "type": "p",
-            "texte": "Se il giocatore sceglie l'evoluzione del carro armato, saranno disponibili gli eroi combattente o carro armato."
+            "text": "Se il giocatore sceglie l'evoluzione del carro armato, saranno disponibili gli eroi combattente o carro armato."
           },
           {
             "type": "p",
-            "texte": ": Combattente: Kaja, Lapu Lapu, Alucard."
+            "text": ": Combattente: Kaja, Lapu Lapu, Alucard."
           },
           {
             "type": "p",
-            "texte": ": Serbatoio: Hylos, Urano, Akai, Jhonson."
+            "text": ": Serbatoio: Hylos, Urano, Akai, Jhonson."
           },
           {
             "type": "p",
-            "texte": "Quando il primo giocatore raggiunge il livello 13, inizieranno ad apparire i mostri principali. Possono rilasciare gemme più grandi che valgono più delle gemme normali e persino incantesimi di combattimento equipaggiabili. Inizieranno ad apparire anche gemme di esperienza di grandi dimensioni."
+            "text": "Quando il primo giocatore raggiunge il livello 13, inizieranno ad apparire i mostri principali. Possono rilasciare gemme più grandi che valgono più delle gemme normali e persino incantesimi di combattimento equipaggiabili. Inizieranno ad apparire anche gemme di esperienza di grandi dimensioni."
           },
           {
             "type": "p",
-            "texte": "Livello 15: Il Diavolo"
+            "text": "Livello 15: Il Diavolo"
           },
           {
             "type": "p",
-            "texte": "Il primo giocatore a raggiungere il livello 15 diventerà il Diavolo. Diventeranno più grandi e le loro statistiche aumenteranno, ma si muoveranno più lentamente e la loro posizione verrà rivelata sulle mappe di tutti gli altri giocatori. Avranno anche la capacità di trasformarsi in un Lord per un certo periodo, acquisendo nuove e potenti abilità che assomigliano all'attacco del Lord di altre modalità di gioco."
+            "text": "Il primo giocatore a raggiungere il livello 15 diventerà il Diavolo. Diventeranno più grandi e le loro statistiche aumenteranno, ma si muoveranno più lentamente e la loro posizione verrà rivelata sulle mappe di tutti gli altri giocatori. Avranno anche la capacità di trasformarsi in un Lord per un certo periodo, acquisendo nuove e potenti abilità che assomigliano all'attacco del Lord di altre modalità di gioco."
           },
           {
             "type": "p",
-            "texte": ": Abilità 1 e Abilità 2, \"Lord Strikes\": Colpisce pesantemente il terreno, infliggendo danni reali ai nemici circostanti e lasciando una crepa sotto la loro posizione attuale; dopo un po' la crepa esploderà, infliggendo danni e abbattendo i nemici."
+            "text": ": Abilità 1 e Abilità 2, \"Lord Strikes\": Colpisce pesantemente il terreno, infliggendo danni reali ai nemici circostanti e lasciando una crepa sotto la loro posizione attuale; dopo un po' la crepa esploderà, infliggendo danni e abbattendo i nemici."
           },
           {
             "type": "p",
-            "texte": ": Abilità 3, \"Attacchi rotanti\": Dopo aver caricato per un breve periodo, il Signore farà girare il suo martello, infliggendo danni reali ai nemici circostanti in un'ampia area."
+            "text": ": Abilità 3, \"Attacchi rotanti\": Dopo aver caricato per un breve periodo, il Signore farà girare il suo martello, infliggendo danni reali ai nemici circostanti in un'ampia area."
           },
           {
             "type": "p",
-            "texte": "Qualsiasi altro giocatore che raggiunga il livello 15 non diventerà il Diavolo: l'unico modo per rivendicare il titolo e i potenziamenti è uccidere l'attuale Diavolo."
+            "text": "Qualsiasi altro giocatore che raggiunga il livello 15 non diventerà il Diavolo: l'unico modo per rivendicare il titolo e i potenziamenti è uccidere l'attuale Diavolo."
           },
           {
             "type": "p",
-            "texte": "In questa fase finale, la zona sicura inizierà a restringersi lentamente, formando un cerchio centrato sull'attuale \"Diavolo\" e costringendo gli altri giocatori ad avvicinarsi a lui. l'area si sposterà con il Diavolo, cercando di mantenerli al centro. Ora uccidere un giocatore lo eliminerà dalla partita."
+            "text": "In questa fase finale, la zona sicura inizierà a restringersi lentamente, formando un cerchio centrato sull'attuale \"Diavolo\" e costringendo gli altri giocatori ad avvicinarsi a lui. l'area si sposterà con il Diavolo, cercando di mantenerli al centro. Ora uccidere un giocatore lo eliminerà dalla partita."
           }
         ]
       },
       {
-        "titre": "Devastare",
+        "title": "Devastare",
         "elements": [
           {
             "type": "p",
-            "texte": "Battaglia di arrampicata in stile fantascientifico."
+            "text": "Battaglia di arrampicata in stile fantascientifico."
           },
           {
             "type": "p",
-            "texte": "La misteriosa spaccatura nell'universo parallelo si sta gradualmente allargando. Un dirigibile Zlatan sta per schiantarsi nella Terra dell'Alba, il che sarebbe un disastro e una sfida! Warriors, Ravage è ora aperto. Mostra il tuo coraggio e la tua forza per salvare Zlatan e difendere la Terra dell'Alba."
+            "text": "La misteriosa spaccatura nell'universo parallelo si sta gradualmente allargando. Un dirigibile Zlatan sta per schiantarsi nella Terra dell'Alba, il che sarebbe un disastro e una sfida! Warriors, Ravage è ora aperto. Mostra il tuo coraggio e la tua forza per salvare Zlatan e difendere la Terra dell'Alba."
           },
           {
             "type": "p",
-            "texte": "Ravage è una modalità in cui ogni squadra è composta da 5 ruoli diversi e combatte per gli Acquamarini. Ogni giocatore può scegliere 5 eroi con ruoli diversi prima di partecipare a una partita di Ravage. Dopo lo scontro, ogni giocatore utilizza casualmente uno dei 5 eroi scelti in precedenza."
+            "text": "Ravage è una modalità in cui ogni squadra è composta da 5 ruoli diversi e combatte per gli Acquamarini. Ogni giocatore può scegliere 5 eroi con ruoli diversi prima di partecipare a una partita di Ravage. Dopo lo scontro, ogni giocatore utilizza casualmente uno dei 5 eroi scelti in precedenza."
           },
           {
             "type": "p",
-            "texte": "In questa modalità, S.A.B.E.R. e V.E.N.O.M. stanno combattendo. Mentre combattono, le acquamarine iniziano a cadere intorno a loro. La prima squadra che raccoglierà una certa quantità di Acquamarina vincerà la partita. L'eliminazione fa sì che il giocatore perda tutte le acquamarine, che si disperdono sul terreno. Se un giocatore ha più di 10 acquamarine, la loro posizione verrà mostrata sulla minimappa."
+            "text": "In questa modalità, S.A.B.E.R. e V.E.N.O.M. stanno combattendo. Mentre combattono, le acquamarine iniziano a cadere intorno a loro. La prima squadra che raccoglierà una certa quantità di Acquamarina vincerà la partita. L'eliminazione fa sì che il giocatore perda tutte le acquamarine, che si disperdono sul terreno. Se un giocatore ha più di 10 acquamarine, la loro posizione verrà mostrata sulla minimappa."
           },
           {
             "type": "p",
-            "texte": "Al centro della mappa della modalità Ravage c'è l'unico punto di rigenerazione HP. Una volta eliminati, i giocatori rinascono rapidamente nel Centro di controllo e possono unirsi alla battaglia molto rapidamente. Eliminare i nemici e raccogliere le loro acquamarine è l'obiettivo di questa modalità."
+            "text": "Al centro della mappa della modalità Ravage c'è l'unico punto di rigenerazione HP. Una volta eliminati, i giocatori rinascono rapidamente nel Centro di controllo e possono unirsi alla battaglia molto rapidamente. Eliminare i nemici e raccogliere le loro acquamarine è l'obiettivo di questa modalità."
           },
           {
             "type": "p",
-            "texte": "La prima squadra ad accumulare 15 Acquamarine vincerà questa partita. Nessuna corsia, nessuna torretta distruttiva, uccidere e devastare è l'obiettivo di questa modalità! Vieni a divertirti, sarai il vincitore!"
+            "text": "La prima squadra ad accumulare 15 Acquamarine vincerà questa partita. Nessuna corsia, nessuna torretta distruttiva, uccidere e devastare è l'obiettivo di questa modalità! Vieni a divertirti, sarai il vincitore!"
           },
           {
             "type": "p",
-            "texte": "Dal 7 al 13 agosto 2020, la modalità Ravage è tornata con una nuova modalità 3V3. Verranno utilizzati solo 3 ruoli su 5 e tutti i giocatori inizieranno con 30.000 e un livello eroe pari a 15 (massimo)."
+            "text": "Dal 7 al 13 agosto 2020, la modalità Ravage è tornata con una nuova modalità 3V3. Verranno utilizzati solo 3 ruoli su 5 e tutti i giocatori inizieranno con 30.000 e un livello eroe pari a 15 (massimo)."
           }
         ]
       },
       {
-        "titre": "Rissa e specchio",
+        "title": "Rissa e specchio",
         "elements": [
           {
             "type": "p",
-            "texte": "Emozionante incontro di rissa tra eroi specchiati!"
+            "text": "Emozionante incontro di rissa tra eroi specchiati!"
           },
           {
             "type": "p",
-            "texte": "Selezione dell'eroe: in questa modalità, i giocatori votano per l'eroe che desiderano utilizzare da un set casuale di eroi. L'eroe con più voti diventerà l'eroe utilizzato dall'intera squadra."
+            "text": "Selezione dell'eroe: in questa modalità, i giocatori votano per l'eroe che desiderano utilizzare da un set casuale di eroi. L'eroe con più voti diventerà l'eroe utilizzato dall'intera squadra."
           },
           {
             "type": "p",
-            "texte": "Regolazione dell'eroe: in questa modalità, eroi diversi ricevono aggiornamenti di attributi diversi per creare più equilibrio tra eroi di ruoli diversi, migliorando l'esperienza di gioco complessiva."
+            "text": "Regolazione dell'eroe: in questa modalità, eroi diversi ricevono aggiornamenti di attributi diversi per creare più equilibrio tra eroi di ruoli diversi, migliorando l'esperienza di gioco complessiva."
           }
         ]
       },
       {
-        "titre": "TD Scacchi",
+        "title": "TD Scacchi",
         "elements": [
           {
             "type": "p",
-            "texte": "Partita di Battle Royale di difesa della torre"
+            "text": "Partita di Battle Royale di difesa della torre"
           },
           {
             "type": "p",
-            "texte": "Harper, che si stava avventurando nell'Abisso meridionale, entra inavvertitamente nell'Abisso. Scopre che i demoni guidati dal nome =Dyrroth si stanno radunando nell'Abisso. Presto attraverseranno il Monte Lantis e distruggeranno l'Impero Moniyan. Tuttavia, tutte le creature che si intromettono soffriranno a causa della catastrofe."
+            "text": "Harper, che si stava avventurando nell'Abisso meridionale, entra inavvertitamente nell'Abisso. Scopre che i demoni guidati dal nome =Dyrroth si stanno radunando nell'Abisso. Presto attraverseranno il Monte Lantis e distruggeranno l'Impero Moniyan. Tuttavia, tutte le creature che si intromettono soffriranno a causa della catastrofe."
           },
           {
             "type": "p",
-            "texte": "CHESS-TD è una modalità Arcade piena di divertimento e strategia! In questa modalità, 6 saranno distribuiti su 6 mappe e si affronteranno l'un l'altro oltre ai brividi. I giocatori possono acquistare eroi dal negozio, acquistare il proprio elenco, saccheggiare oro e potenziare le proprie truppe per ottenere la vittoria."
+            "text": "CHESS-TD è una modalità Arcade piena di divertimento e strategia! In questa modalità, 6 saranno distribuiti su 6 mappe e si affronteranno l'un l'altro oltre ai brividi. I giocatori possono acquistare eroi dal negozio, acquistare il proprio elenco, saccheggiare oro e potenziare le proprie truppe per ottenere la vittoria."
           },
           {
             "type": "p",
-            "texte": "La mappa è casuale per ogni partita. I giocatori possono acquistare Eroi dal negozio e schierarli su pietre più alte del terreno (slot). Gli eroi schierati attaccheranno automaticamente i nemici vicini e lanceranno la loro abilità una volta che avranno guadagnato abbastanza mana."
+            "text": "La mappa è casuale per ogni partita. I giocatori possono acquistare Eroi dal negozio e schierarli su pietre più alte del terreno (slot). Gli eroi schierati attaccheranno automaticamente i nemici vicini e lanceranno la loro abilità una volta che avranno guadagnato abbastanza mana."
           },
           {
             "type": "p",
-            "texte": "Definizione del round: Un round contiene 4 fasi: la fase di preparazione, la fase di preparazione, la fase di combattimento e la fase di risoluzione. La fase di preparazione prevede che i giocatori acquistino, schierino, richiamino o vendano eroi e migliorino le loro abilità. Durante la fase di combattimento, uno degli eroi degli altri giocatori invaderà la tua mappa. Se questi invasori raggiungono la loro destinazione prima di essere eliminati, subirai un relativo danno."
+            "text": "Definizione del round: Un round contiene 4 fasi: la fase di preparazione, la fase di preparazione, la fase di combattimento e la fase di risoluzione. La fase di preparazione prevede che i giocatori acquistino, schierino, richiamino o vendano eroi e migliorino le loro abilità. Durante la fase di combattimento, uno degli eroi degli altri giocatori invaderà la tua mappa. Se questi invasori raggiungono la loro destinazione prima di essere eliminati, subirai un relativo danno."
           },
           {
             "type": "p",
-            "texte": "Definizione di oro e abilità: alla fine di ogni round, i giocatori riceveranno una certa quantità di oro e interessi (per ogni 10 monete d'oro possedute, ottengono 1 moneta d'oro extra). Inoltre, ottenere serie di vittorie o sconfitte garantirà anche un bonus in oro aggiuntivo. La capacità decide quanti eroi puoi schierare. Il massimo è 9. Alla fine di ogni round, otterrai 1 Esperienza Abilità. Inoltre, puoi scegliere di acquistare 4 abilità Exp. con 4 medaglie d'oro. La possibilità di ottenere eroi d'élite aumenta con il livello di abilità, allo stesso tempo diminuisce la possibilità di ottenere eroi comuni."
+            "text": "Definizione di oro e abilità: alla fine di ogni round, i giocatori riceveranno una certa quantità di oro e interessi (per ogni 10 monete d'oro possedute, ottengono 1 moneta d'oro extra). Inoltre, ottenere serie di vittorie o sconfitte garantirà anche un bonus in oro aggiuntivo. La capacità decide quanti eroi puoi schierare. Il massimo è 9. Alla fine di ogni round, otterrai 1 Esperienza Abilità. Inoltre, puoi scegliere di acquistare 4 abilità Exp. con 4 medaglie d'oro. La possibilità di ottenere eroi d'élite aumenta con il livello di abilità, allo stesso tempo diminuisce la possibilità di ottenere eroi comuni."
           },
           {
             "type": "p",
-            "texte": "Livello e stella dell'eroe: ci sono 4 livelli per gli eroi, che indicano la loro rarità e costo. In generale, gli eroi di alto livello dovrebbero essere più potenti. Se ci sono 3 eroi uguali sul campo di battaglia, diventeranno un eroe di livello superiore. Tre eroi a 1 stella diventeranno un eroe a 2 stelle. Tre eroi a 2 stelle diventeranno un eroe a 3 stelle."
+            "text": "Livello e stella dell'eroe: ci sono 4 livelli per gli eroi, che indicano la loro rarità e costo. In generale, gli eroi di alto livello dovrebbero essere più potenti. Se ci sono 3 eroi uguali sul campo di battaglia, diventeranno un eroe di livello superiore. Tre eroi a 1 stella diventeranno un eroe a 2 stelle. Tre eroi a 2 stelle diventeranno un eroe a 3 stelle."
           },
           {
             "type": "p",
-            "texte": "Sinergia: ogni eroe ha 2 attributi: fazione e ruolo. L'effetto sinergico verrà attivato se ci sono abbastanza eroi con gli stessi attributi sul campo di battaglia (gli attributi degli stessi eroi verranno conteggiati una sola volta). È importante tenere conto della sinergia."
+            "text": "Sinergia: ogni eroe ha 2 attributi: fazione e ruolo. L'effetto sinergico verrà attivato se ci sono abbastanza eroi con gli stessi attributi sul campo di battaglia (gli attributi degli stessi eroi verranno conteggiati una sola volta). È importante tenere conto della sinergia."
           }
         ]
       },
       {
-        "titre": "Scacchi magici",
+        "title": "Scacchi magici",
         "elements": [
           {
             "type": "p",
-            "texte": "Gara di scacchi automatica veloce tra 8 giocatori."
+            "text": "Gara di scacchi automatica veloce tra 8 giocatori."
           },
           {
             "type": "p",
-            "texte": "Magic Chess è una complessa modalità di gioco di strategia per 8 giocatori, in cui i giocatori competeranno l'uno contro l'altro e contro mostri casuali sulla scacchiera magica. L'obiettivo di questo gioco è acquistare e potenziare i tuoi eroi e il Piccolo Comandante, personalizzando il tuo allineamento per innescare e contrastare sinergie sempre più forti. La vittoria appartiene a chi resiste fino all'ultimo!"
+            "text": "Magic Chess è una complessa modalità di gioco di strategia per 8 giocatori, in cui i giocatori competeranno l'uno contro l'altro e contro mostri casuali sulla scacchiera magica. L'obiettivo di questo gioco è acquistare e potenziare i tuoi eroi e il Piccolo Comandante, personalizzando il tuo allineamento per innescare e contrastare sinergie sempre più forti. La vittoria appartiene a chi resiste fino all'ultimo!"
           }
         ]
       },
       {
-        "titre": "Rissa d'Ombra",
+        "title": "Rissa d'Ombra",
         "elements": [
           {
             "type": "p",
-            "texte": "La lotta sul ponte della distruzione."
+            "text": "La lotta sul ponte della distruzione."
           },
           {
             "type": "p",
-            "texte": "In Shadow Brawl, i giocatori votano per selezionare un eroe tra diversi eroi che appaiono casualmente. Tutti i giocatori della squadra utilizzeranno lo stesso eroe per giocare. I giocatori sono dotati di name=Blade of Silence che segna la posizione attuale e collega ad essa una catena. La catena riporterà automaticamente il tuo eroe nella posizione contrassegnata dopo 4 secondi. Il CD dura 20 secondi."
+            "text": "In Shadow Brawl, i giocatori votano per selezionare un eroe tra diversi eroi che appaiono casualmente. Tutti i giocatori della squadra utilizzeranno lo stesso eroe per giocare. I giocatori sono dotati di name=Blade of Silence che segna la posizione attuale e collega ad essa una catena. La catena riporterà automaticamente il tuo eroe nella posizione contrassegnata dopo 4 secondi. Il CD dura 20 secondi."
           }
         ]
       },
       {
-        "titre": "Arena",
+        "title": "Arena",
         "elements": [
           {
             "type": "p",
-            "texte": "Battaglia di carte automatica 1v1."
+            "text": "Battaglia di carte automatica 1v1."
           },
           {
             "type": "p",
-            "texte": "Un nuovo tipo di gioco ha preso d'assalto Moniyan. I Piccoli Comandanti e i loro oggetti magici ora possono essere trovati in ogni casa del paese. Le sfere di cristallo rilevano tutti i tipi di vita nella Terra dell'Alba e incanalano la loro energia; che si trasformano in carte collezionabili. Ci sono carte Mostro e carte Eroe. I mostri sono facili da guadagnare e controllare, mentre gli eroi richiedono un prezzo più alto ed energia più avanzata. Si costruiscono mazzi e si combattono battaglie con gli altri; le persone si sforzano di sconfiggere il piccolo comandante nemico e ottenere la vittoria."
+            "text": "Un nuovo tipo di gioco ha preso d'assalto Moniyan. I Piccoli Comandanti e i loro oggetti magici ora possono essere trovati in ogni casa del paese. Le sfere di cristallo rilevano tutti i tipi di vita nella Terra dell'Alba e incanalano la loro energia; che si trasformano in carte collezionabili. Ci sono carte Mostro e carte Eroe. I mostri sono facili da guadagnare e controllare, mentre gli eroi richiedono un prezzo più alto ed energia più avanzata. Si costruiscono mazzi e si combattono battaglie con gli altri; le persone si sforzano di sconfiggere il piccolo comandante nemico e ottenere la vittoria."
           },
           {
             "type": "p",
-            "texte": "Nella modalità \"Arena\", affronterai un altro giocatore in una battaglia 1v1. Il tuo obiettivo è semplice: eliminare il Piccolo Comandante del tuo avversario prima che sia lui a sconfiggere il tuo. Per fare ciò, dovrai utilizzare le carte per evocare Eroi e Mostri e lanciare incantesimi per combattere contro le truppe del tuo avversario. La battaglia continuerà finché il Piccolo Comandante da una parte non verrà eliminato. \"Shard\", la risorsa per evocare mostri e usare incantesimi, viene generata ogni 3 secondi. E spendendo 5 “Frammenti”, verrà generata la risorsa utilizzata per evocare gli Eroi, “Essenza”."
+            "text": "Nella modalità \"Arena\", affronterai un altro giocatore in una battaglia 1v1. Il tuo obiettivo è semplice: eliminare il Piccolo Comandante del tuo avversario prima che sia lui a sconfiggere il tuo. Per fare ciò, dovrai utilizzare le carte per evocare Eroi e Mostri e lanciare incantesimi per combattere contro le truppe del tuo avversario. La battaglia continuerà finché il Piccolo Comandante da una parte non verrà eliminato. \"Shard\", la risorsa per evocare mostri e usare incantesimi, viene generata ogni 3 secondi. E spendendo 5 “Frammenti”, verrà generata la risorsa utilizzata per evocare gli Eroi, “Essenza”."
           },
           {
             "type": "p",
-            "texte": "Dopo essere entrato nell'\"Arena\", riceverai una serie di tutorial per aiutarti a iniziare. Dopo aver seguito il tutorial completo, sarai ricompensato con 9 carte base. Mentre giochi, puoi ottenere carte dai bauli da battaglia e dalle sfere di evocazione. Le carte duplicate ottenute serviranno per migliorare le carte corrispondenti per dargli più forza. Inoltre, man mano che avanzi nella classifica verranno sbloccate più carte. Tutte le carte verranno sbloccate quando verrà raggiunta la leggenda. Esistono due livelli di rarità per le carte Eroe: Non comune ed Epica. Esistono due mappe, Non comune ed Epica. Ci sono anche due livelli di rarità per le carte Mostro/Magia: Comune e Non comune."
+            "text": "Dopo essere entrato nell'\"Arena\", riceverai una serie di tutorial per aiutarti a iniziare. Dopo aver seguito il tutorial completo, sarai ricompensato con 9 carte base. Mentre giochi, puoi ottenere carte dai bauli da battaglia e dalle sfere di evocazione. Le carte duplicate ottenute serviranno per migliorare le carte corrispondenti per dargli più forza. Inoltre, man mano che avanzi nella classifica verranno sbloccate più carte. Tutte le carte verranno sbloccate quando verrà raggiunta la leggenda. Esistono due livelli di rarità per le carte Eroe: Non comune ed Epica. Esistono due mappe, Non comune ed Epica. Ci sono anche due livelli di rarità per le carte Mostro/Magia: Comune e Non comune."
           },
           {
             "type": "p",
-            "texte": "Puoi guadagnare punti Coppa, punti battaglia e forzieri battaglia dopo ogni partita. Più carte possono essere sbloccate con più punti coppa. Puoi ottenere punti battaglia o carte già sbloccate dai forzieri di battaglia."
+            "text": "Puoi guadagnare punti Coppa, punti battaglia e forzieri battaglia dopo ogni partita. Più carte possono essere sbloccate con più punti coppa. Puoi ottenere punti battaglia o carte già sbloccate dai forzieri di battaglia."
           }
         ]
       },
       {
-        "titre": "Boummandre",
+        "title": "Boummandre",
         "elements": [
           {
             "type": "p",
-            "texte": "Un'affascinante competizione chiamata Boommander è ora di tendenza a Laladona e molti Piccoli Comandanti sono diventati suoi fan. Le regole sono semplici: raccogli Fluffy che cresce nell'oasi vicino all'Albero delle Origini e lancia queste palline esplosive agli altri. Riesci a schivare gli attacchi e far esplodere il tuo avversario? Unisciti a Boommander e provalo subito! Nella modalità Boommander, giochi nei panni di piccoli comandanti e lanci Fluffy per competere su mappe ricostituite con diverse tessere di scena."
+            "text": "Un'affascinante competizione chiamata Boommander è ora di tendenza a Laladona e molti Piccoli Comandanti sono diventati suoi fan. Le regole sono semplici: raccogli Fluffy che cresce nell'oasi vicino all'Albero delle Origini e lancia queste palline esplosive agli altri. Riesci a schivare gli attacchi e far esplodere il tuo avversario? Unisciti a Boommander e provalo subito! Nella modalità Boommander, giochi nei panni di piccoli comandanti e lanci Fluffy per competere su mappe ricostituite con diverse tessere di scena."
           },
           {
             "type": "p",
-            "texte": "Categoria:Modalità di gioco"
+            "text": "Categoria:Modalità di gioco"
           }
         ]
       }

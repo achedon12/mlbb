@@ -41,23 +41,23 @@ function lignesDuRang(rang: RangMesure): LigneStat[] {
   const deja = lignesParRang.get(rang);
   if (deja) return deja;
   const lignes = classementDuRang(rang).map((e): LigneStat => {
-    const serie = tendancesDe(e.heros.slug)[rang];
+    const serie = tendancesDe(e.hero.slug)[rang];
     const variation = variationSemaine(serie);
-    const mesures = serie?.victoire.filter(estMesure) ?? [];
-    const courbe = serie ? echelonnerCourbe(serie.victoire) : null;
+    const mesures = serie?.winRate.filter(estMesure) ?? [];
+    const courbe = serie ? echelonnerCourbe(serie.winRate) : null;
     return {
-      slug: e.heros.slug,
-      nom: e.heros.nom,
-      roles: e.heros.roles,
-      lanes: e.heros.lanes,
-      palier: e.palier,
+      slug: e.hero.slug,
+      nom: e.hero.name,
+      roles: e.hero.roles,
+      lanes: e.hero.lanes,
+      palier: e.tier,
       score: e.score,
-      victoire: e.victoire,
-      ban: e.ban,
-      selection: e.selection,
+      victoire: e.winRate,
+      ban: e.banRate,
+      selection: e.pickRate,
       // Champs absents plutot que nuls : 132 lignes partent au navigateur.
       ...(variation ? { ecart: variation.ecart, jours: variation.jours } : {}),
-      ...(e.faibleEchantillon ? { faible: true as const } : {}),
+      ...(e.lowSample ? { faible: true as const } : {}),
       ...(courbe ? { courbe, debut: mesures[0], fin: mesures.at(-1) } : {}),
     };
   });
@@ -74,9 +74,9 @@ function periode(rang: RangMesure, lignes: LigneStat[]): string | null {
   let fin: string | null = null;
   for (const l of lignes) {
     const s = tendancesDe(l.slug)[rang];
-    if (!s?.victoire.length) continue;
-    const dernier = decalerDate(s.debut, s.victoire.length - 1);
-    if (!debut || s.debut < debut) debut = s.debut;
+    if (!s?.winRate.length) continue;
+    const dernier = decalerDate(s.start, s.winRate.length - 1);
+    if (!debut || s.start < debut) debut = s.start;
     if (!fin || dernier > fin) fin = dernier;
   }
   return debut && fin ? `${debut}/${fin}` : null;
@@ -148,7 +148,7 @@ export function Statistiques({ locale, rang }: { locale: Langue; rang: RangMesur
     ...(tous
       ? {
           distribution: [
-            { "@type": "DataDownload", encodingFormat: "application/json", contentUrl: `${site.url}/api/v1/classement` },
+            { "@type": "DataDownload", encodingFormat: "application/json", contentUrl: `${site.url}/api/v1/rankings` },
           ],
         }
       : {}),
@@ -238,7 +238,7 @@ function Mouvements({ locale, t, titre, liste }: { locale: Langue; t: T; titre: 
           {liste.map(({ slug, variation }) => (
             <li key={slug} className="flex items-baseline justify-between gap-3">
               <Link href={`/heroes/${slug}`} className="font-medium text-chalk-100 hover:text-gold-400">
-                {herosParSlug.get(slug)?.nom ?? slug}
+                {herosParSlug.get(slug)?.name ?? slug}
               </Link>
               <span className="tabular-nums text-chalk-500">
                 <span

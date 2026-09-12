@@ -10,8 +10,8 @@ import { objets } from "@/lib/donnees";
  * leur icone. Le nom reste affiche dessous pour qui ne les connait pas encore,
  * et le tout renvoie a la page de l'objet.
  */
-const IMAGES = visuels.objets as Record<string, string>;
-const PAR_NOM = new Map(objets("en").map((o) => [o.nom, o]));
+const IMAGES = visuels.items as Record<string, string>;
+const PAR_NOM = new Map(objets("en").map((o) => [o.name, o]));
 
 export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
   const objet = PAR_NOM.get(nom);
@@ -56,7 +56,7 @@ export function ObjetBuild({ nom, rang }: { nom: string; rang: number }) {
     <li>
       <Link
         href={`/items/${objet.slug}`}
-        title={objet.bonus ?? objet.nom}
+        title={objet.bonus ?? objet.name}
         className="bevel-sm block border border-night-700 bg-night-850 p-2 text-center transition-colors hover:border-gold-500/60"
       >
         {contenu}

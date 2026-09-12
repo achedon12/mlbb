@@ -56,14 +56,14 @@ const seuilMythique = (cle: string) => ECHELLE.find((p) => p.cle === cle)?.point
 /** Les heros qui gagnent le plus dans une tranche de rang, hors echantillons trop maigres. */
 function meilleurs(rang: RangMesure) {
   return classementDuRang(rang)
-    .filter((e) => !e.faibleEchantillon)
-    .sort((a, b) => b.victoire - a.victoire)
+    .filter((e) => !e.lowSample)
+    .sort((a, b) => b.winRate - a.winRate)
     .slice(0, TOP);
 }
 
 function description(locale: Langue) {
   const t = creerT(locale);
-  const top = meilleurs("mythic").slice(0, 3).map((e) => e.heros.nom);
+  const top = meilleurs("mythic").slice(0, 3).map((e) => e.hero.name);
   return top.length
     ? t("pages.seo.rangs.description", { n: ECHELLE.length, top: listeNoms(locale, top), date: dateLongue(locale) })
     : t("pages.seo.rangs.descriptionSimple", { n: ECHELLE.length });
@@ -118,8 +118,8 @@ export default async function PageRangs({ params }: Params) {
   const t = creerT(locale);
   const entier = new Intl.NumberFormat(locale);
   const titre = t("pages.rangs.titre");
-  const tetes = meilleurs("all").map((e) => e.heros.slug);
-  const auSommet = meilleurs("glory").filter((e) => !tetes.includes(e.heros.slug)).map((e) => e.heros.nom);
+  const tetes = meilleurs("all").map((e) => e.hero.slug);
+  const auSommet = meilleurs("glory").filter((e) => !tetes.includes(e.hero.slug)).map((e) => e.hero.name);
 
   const donneesStructurees = {
     "@context": "https://schema.org",
@@ -315,21 +315,21 @@ export default async function PageRangs({ params }: Params) {
                   </div>
                   <ol className="mt-3 flex-1 space-y-1.5">
                     {liste.map((e, i) => (
-                      <li key={e.heros.slug}>
-                        <Link href={`/heroes/${e.heros.slug}`} className="group flex items-center gap-3">
+                      <li key={e.hero.slug}>
+                        <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-3">
                           <span className="w-4 text-right text-xs tabular-nums text-chalk-500">{i + 1}</span>
                           <PortraitHeros
-                            source={e.heros.visuels.icone ?? e.heros.visuels.portrait}
-                            nom={e.heros.nom}
+                            source={e.hero.images.icon ?? e.hero.images.portrait}
+                            nom={e.hero.name}
                             taille="petite"
                             decoratif
                           />
                           <span className="min-w-0 flex-1 truncate font-medium text-chalk-200 transition-colors group-hover:text-gold-400">
-                            {e.heros.nom}
+                            {e.hero.name}
                           </span>
                           <span className="text-sm tabular-nums text-chalk-300">
                             <span className="sr-only">{t("pages.rangs.victoire")} </span>
-                            {pourcentage(locale, e.victoire)}
+                            {pourcentage(locale, e.winRate)}
                           </span>
                         </Link>
                       </li>

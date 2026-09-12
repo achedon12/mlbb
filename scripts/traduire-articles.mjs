@@ -59,7 +59,7 @@ for (const tl of CIBLES) {
       let entete = m[1];
       const corps = m[2];
       // Titre et chapeau de l'en-tete.
-      for (const champ of ["titre", "chapeau"]) {
+      for (const champ of ["title", "summary"]) {
         const re = new RegExp(`^(${champ}:\\s*)(.+)$`, "m");
         const mm = entete.match(re);
         if (mm) {

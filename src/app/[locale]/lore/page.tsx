@@ -20,7 +20,7 @@ type Params = { params: Promise<{ locale: Langue }> };
 /** Heros dont le wiki publie un recit ou une fiche narrative. */
 function nombreHistoires(locale: Langue): number {
   const h = histoires(locale);
-  return regionsLore.reduce((n, r) => n + r.heros.filter((x) => h[x.slug]?.lore.length || h[x.slug]?.fiche).length, 0);
+  return regionsLore.reduce((n, r) => n + r.heros.filter((x) => h[x.slug]?.lore.length || h[x.slug]?.profile).length, 0);
 }
 
 function description(locale: Langue): string {
@@ -64,7 +64,7 @@ export default async function PageLore({ params }: Params) {
     nom: t("pages.lore.listeLd"),
     description: description(locale),
     chemin: "/lore",
-    heros: regionsLore.flatMap((r) => r.heros.map((x) => ({ nom: x.nom, slug: x.slug }))),
+    heros: regionsLore.flatMap((r) => r.heros.map((x) => ({ nom: x.name, slug: x.slug }))),
   });
 
   return (
@@ -91,7 +91,7 @@ export default async function PageLore({ params }: Params) {
                   </span>
                   <span className="flex flex-wrap gap-1">
                     {r.heros.slice(0, 5).map((x) => (
-                      <PortraitHeros key={x.slug} source={x.visuels.icone ?? x.visuels.portrait} nom={x.nom} taille="mini" decoratif />
+                      <PortraitHeros key={x.slug} source={x.images.icon ?? x.images.portrait} nom={x.name} taille="mini" decoratif />
                     ))}
                   </span>
                 </Link>
@@ -151,9 +151,9 @@ export default async function PageLore({ params }: Params) {
               heros: r.heros.map(
                 (x): EntreeHistoire => [
                   x.slug,
-                  x.nom,
-                  h[x.slug]?.accroche ?? h[x.slug]?.fiche?.titre ?? x.titre,
-                  x.visuels.icone ?? x.visuels.portrait,
+                  x.name,
+                  h[x.slug]?.tagline ?? h[x.slug]?.profile?.title ?? x.title,
+                  x.images.icon ?? x.images.portrait,
                   termesLore(x, locale, nomRegion(r.nom)),
                 ],
               ),
