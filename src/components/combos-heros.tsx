@@ -27,14 +27,14 @@ export function CombosHeros({ combos, langue }: { combos: ComboHeros[]; langue: 
               </p>
             )}
             <ol aria-label={t("pages.heroDetail.combos.ordre")} className="mt-2 flex flex-wrap items-center gap-1">
-              {combo.competences.map((c, j) => {
-                const nom = c.attaque ? t("pages.heroDetail.combos.attaqueDeBase") : (c.nom ?? "");
+              {combo.skills.map((c, j) => {
+                const nom = c.basicAttack ? t("pages.heroDetail.combos.attaqueDeBase") : (c.name ?? "");
                 return (
                   <li key={j} className="flex items-center gap-1">
                     {j > 0 && <ChevronRight size={14} aria-hidden className="shrink-0 text-chalk-500" />}
                     <span title={nom} className="relative block size-10 overflow-hidden rounded-sm bg-night-800">
-                      {c.icone ? (
-                        <Image src={c.icone} alt={nom} fill sizes="40px" className="object-contain" />
+                      {c.icon ? (
+                        <Image src={c.icon} alt={nom} fill sizes="40px" className="object-contain" />
                       ) : (
                         <span className="grid size-full place-items-center text-xs text-chalk-500">
                           <span aria-hidden>—</span>

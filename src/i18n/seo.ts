@@ -26,13 +26,13 @@ export function donneesBillet(a: Article, chemin: string, locale: Langue) {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: a.titre,
-    description: a.chapeau,
+    headline: a.title,
+    description: a.summary,
     datePublished: a.date,
     dateModified: a.date,
     inLanguage: LOCALE_HTML[locale],
-    keywords: a.motsCles.join(", "),
-    author: { "@type": "Person", name: a.auteur, url: `https://github.com/${a.auteur}` },
+    keywords: a.keywords.join(", "),
+    author: { "@type": "Person", name: a.author, url: `https://github.com/${a.author}` },
     publisher: { "@type": "Organization", name: site.nom, url: site.url },
     mainEntityOfPage: `${site.url}/${locale}${chemin}`,
   };

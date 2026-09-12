@@ -49,18 +49,18 @@ const RELEVE = (() => {
     NOMBRE,
   );
   const paliers = changementsDePalier(
-    classementComplet.map((e) => ({ slug: e.heros.slug, serie: tendancesDe(e.heros.slug).all, palierActuel: e.palier })),
+    classementComplet.map((e) => ({ slug: e.hero.slug, serie: tendancesDe(e.hero.slug).all, palierActuel: e.tier })),
     regleTierList,
   );
   return {
     semaine,
     paliers,
-    bannis: premiersSelon(classementComplet, (e) => e.ban, NOMBRE),
-    joues: premiersSelon(classementComplet, (e) => e.selection, NOMBRE),
-    patch: patchActuel ? grouperAjustements(patchActuel.ajustements) : null,
+    bannis: premiersSelon(classementComplet, (e) => e.banRate, NOMBRE),
+    joues: premiersSelon(classementComplet, (e) => e.pickRate, NOMBRE),
+    patch: patchActuel ? grouperAjustements(patchActuel.adjustments) : null,
     parLane: LANES.map((lane) => ({
       lane,
-      entrees: classementComplet.filter((e) => e.heros.lanes.includes(lane)).slice(0, 3),
+      entrees: classementComplet.filter((e) => e.hero.lanes.includes(lane)).slice(0, 3),
     })),
   };
 })();
@@ -78,9 +78,9 @@ function descriptionRapport(t: T, locale: Langue): string {
   return t("pages.seo.meta.description", {
     date: dateLongue(locale),
     v: version(),
-    premier: premier.heros.nom,
-    banni: banni.heros.nom,
-    ban: pourcentage(locale, banni.ban),
+    premier: premier.hero.name,
+    banni: banni.hero.name,
+    ban: pourcentage(locale, banni.banRate),
   });
 }
 
@@ -108,7 +108,7 @@ export default async function PageRapportMeta({ params }: Params) {
   const { semaine, paliers, bannis, joues, patch, parLane } = RELEVE;
   const date = dateLongue(locale);
   const seuil = new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(SEUIL_NOTABLE);
-  const nom = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+  const nom = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
   const premier = classementComplet[0];
   const hausse = semaine.hausses[0];
   const baisse = semaine.baisses[0];
@@ -118,10 +118,10 @@ export default async function PageRapportMeta({ params }: Params) {
   const resume = [
     premier &&
       t("pages.meta.resume.tete", {
-        nom: premier.heros.nom,
-        palier: premier.palier,
-        victoire: pourcentage(locale, premier.victoire),
-        ban: pourcentage(locale, premier.ban),
+        nom: premier.hero.name,
+        palier: premier.tier,
+        victoire: pourcentage(locale, premier.winRate),
+        ban: pourcentage(locale, premier.banRate),
       }),
     hausse &&
       t("pages.meta.resume.hausse", {
@@ -139,7 +139,7 @@ export default async function PageRapportMeta({ params }: Params) {
       }),
     changements > 0 &&
       t("pages.meta.resume.paliers", { montees: paliers.montees.length, descentes: paliers.descentes.length }),
-    bannis[0] && t("pages.meta.resume.banni", { nom: bannis[0].heros.nom, ban: pourcentage(locale, bannis[0].ban) }),
+    bannis[0] && t("pages.meta.resume.banni", { nom: bannis[0].hero.name, ban: pourcentage(locale, bannis[0].banRate) }),
   ].filter((p): p is string => typeof p === "string");
 
   // Article date du releve : c'est lui qui change le contenu, chaque jour.
@@ -237,12 +237,12 @@ export default async function PageRapportMeta({ params }: Params) {
             <Classement
               titre={t("pages.meta.bansPicks.bannis")}
               entrees={bannis}
-              valeur={(e) => pourcentage(locale, e.ban)}
+              valeur={(e) => pourcentage(locale, e.banRate)}
             />
             <Classement
               titre={t("pages.meta.bansPicks.joues")}
               entrees={joues}
-              valeur={(e) => pourcentage(locale, e.selection)}
+              valeur={(e) => pourcentage(locale, e.pickRate)}
             />
           </div>
         </section>
@@ -261,8 +261,8 @@ export default async function PageRapportMeta({ params }: Params) {
               {t("pages.meta.patch.titre", { v: patchActuel.version })}
             </TitreSection>
             <div className="space-y-6">
-              {patchActuel.nouveaux.length > 0 && (
-                <GroupeHeros titre={t("pages.meta.patch.nouveaux")} liste={patchActuel.nouveaux} couleur="text-gold-400" />
+              {patchActuel.newHeroes.length > 0 && (
+                <GroupeHeros titre={t("pages.meta.patch.nouveaux")} liste={patchActuel.newHeroes} couleur="text-gold-400" />
               )}
               {SENS_AJUSTEMENT.map((sens) =>
                 patch[sens].length > 0 ? (
@@ -274,7 +274,7 @@ export default async function PageRapportMeta({ params }: Params) {
                   />
                 ) : null,
               )}
-              {patchActuel.nouveaux.length === 0 && SENS_AJUSTEMENT.every((s) => patch[s].length === 0) && (
+              {patchActuel.newHeroes.length === 0 && SENS_AJUSTEMENT.every((s) => patch[s].length === 0) && (
                 <p className="text-sm text-chalk-500">{t("pages.meta.patch.aucun")}</p>
               )}
             </div>
@@ -290,20 +290,20 @@ export default async function PageRapportMeta({ params }: Params) {
                 <h3 className="font-heading text-lg font-bold text-gold-400">{t(`lanes.${lane}`)}</h3>
                 <ol className="mt-3 flex-1 space-y-2.5">
                   {entrees.map((e) => (
-                    <li key={e.heros.slug}>
-                      <Link href={`/heroes/${e.heros.slug}`} className="group flex items-center gap-2.5">
+                    <li key={e.hero.slug}>
+                      <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-2.5">
                         <PortraitHeros
-                          source={e.heros.visuels.icone ?? e.heros.visuels.portrait}
-                          nom={e.heros.nom}
+                          source={e.hero.images.icon ?? e.hero.images.portrait}
+                          nom={e.hero.name}
                           taille="petite"
                           decoratif
                         />
                         <span className="min-w-0 flex-1">
                           <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                            {e.heros.nom}
+                            {e.hero.name}
                           </span>
                           <span className="block text-xs text-chalk-500">
-                            {t("pages.meta.lanes.ligne", { palier: e.palier, victoire: pourcentage(locale, e.victoire) })}
+                            {t("pages.meta.lanes.ligne", { palier: e.tier, victoire: pourcentage(locale, e.winRate) })}
                           </span>
                         </span>
                       </Link>
@@ -338,10 +338,10 @@ function LigneHeros({ slug, detail, children }: { slug: string; detail?: string;
       href={`/heroes/${slug}`}
       className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60"
     >
-      <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="icone" decoratif />
+      <PortraitHeros source={h.images.icon ?? h.images.portrait} nom={h.name} taille="icone" decoratif />
       <span className="min-w-0 flex-1">
         <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-          {h.nom}
+          {h.name}
         </span>
         {detail && <span className="block text-xs text-chalk-500">{detail}</span>}
       </span>
@@ -469,8 +469,8 @@ function Classement({
       <h3 className="mb-3 font-heading text-lg font-bold text-chalk-100">{titre}</h3>
       <ol className="space-y-2">
         {entrees.map((e) => (
-          <li key={e.heros.slug}>
-            <LigneHeros slug={e.heros.slug}>
+          <li key={e.hero.slug}>
+            <LigneHeros slug={e.hero.slug}>
               <span className="shrink-0 font-semibold tabular-nums text-gold-400">{valeur(e)}</span>
             </LigneHeros>
           </li>
@@ -487,7 +487,7 @@ function GroupeHeros({
   couleur,
 }: {
   titre: string;
-  liste: { slug: string; nom: string }[];
+  liste: { slug: string; name: string }[];
   couleur: string;
 }) {
   return (
@@ -501,12 +501,12 @@ function GroupeHeros({
           const contenu = (
             <>
               <PortraitHeros
-                source={h?.visuels.icone ?? h?.visuels.portrait ?? null}
-                nom={h?.nom ?? a.nom}
+                source={h?.images.icon ?? h?.images.portrait ?? null}
+                nom={h?.name ?? a.name}
                 taille="micro"
                 decoratif
               />
-              <span className="font-medium text-chalk-100">{h?.nom ?? a.nom}</span>
+              <span className="font-medium text-chalk-100">{h?.name ?? a.name}</span>
             </>
           );
           const classes = "bevel-sm flex items-center gap-2 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2.5 text-sm";

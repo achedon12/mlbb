@@ -153,12 +153,12 @@ export function HeroChips({
                 const content = (
                   <>
                     <PortraitHeros
-                      source={page?.visuels.icone ?? page?.visuels.portrait ?? null}
-                      nom={page?.nom ?? h.name}
+                      source={page?.images.icon ?? page?.images.portrait ?? null}
+                      nom={page?.name ?? h.name}
                       taille="micro"
                       decoratif
                     />
-                    <span className="font-medium text-chalk-100">{page?.nom ?? h.name}</span>
+                    <span className="font-medium text-chalk-100">{page?.name ?? h.name}</span>
                   </>
                 );
                 const classes = cn("flex items-center gap-2 border bg-night-900/60 py-1 pl-1 pr-2.5 text-sm", border);

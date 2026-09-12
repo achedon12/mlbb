@@ -89,8 +89,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     // portent un repere de fraicheur sont ceux qu'on clique. L'epithete reste
     // sur la page.
     titre: palier
-      ? tm("pages.seo.heros.titre", { nom: h.nom, palier, v })
-      : tm("pages.seo.heros.titreSansPalier", { nom: h.nom, v }),
+      ? tm("pages.seo.heros.titre", { nom: h.name, palier, v })
+      : tm("pages.seo.heros.titreSansPalier", { nom: h.name, v }),
     description: descriptionHeros(locale, h),
     chemin: `/heroes/${slug}`,
     type: "article",
@@ -116,26 +116,26 @@ function descriptionHeros(locale: Langue, h: Heros): string {
   const phrases: string[] = [];
 
   const parRang = contres[h.slug] ?? {};
-  const rang: RangMesure | null = parRang.mythic?.faible.length ? "mythic" : parRang.all?.faible.length ? "all" : null;
+  const rang: RangMesure | null = parRang.mythic?.weak.length ? "mythic" : parRang.all?.weak.length ? "all" : null;
   if (rang) {
-    const noms = listeNoms(locale, parRang[rang]!.faible.slice(0, 3).map((c) => herosParSlug.get(c.slug)?.nom ?? c.slug));
+    const noms = listeNoms(locale, parRang[rang]!.weak.slice(0, 3).map((c) => herosParSlug.get(c.slug)?.name ?? c.slug));
     phrases.push(
       rang === "all"
-        ? t("pages.seo.heros.contresTous", { nom: h.nom, contres: noms })
-        : t("pages.seo.heros.contres", { nom: h.nom, contres: noms, rang: t(`rangsMesure.${rang}`) }),
+        ? t("pages.seo.heros.contresTous", { nom: h.name, contres: noms })
+        : t("pages.seo.heros.contres", { nom: h.name, contres: noms, rang: t(`rangsMesure.${rang}`) }),
     );
   }
 
   const build = buildPrincipal(h);
-  if (build?.objets.length) {
-    const nomsObjets = new Map(objets(locale).map((o) => [o.slug, o.nom]));
-    const liste = build.objets.map((o) => nomsObjets.get(visuelObjet(o).slug ?? "") ?? o).join(", ");
-    const role = build.embleme ? t(`roles.${build.embleme}`) : null;
+  if (build?.items.length) {
+    const nomsObjets = new Map(objets(locale).map((o) => [o.slug, o.name]));
+    const liste = build.items.map((o) => nomsObjets.get(visuelObjet(o).slug ?? "") ?? o).join(", ");
+    const role = build.emblem ? t(`roles.${build.emblem}`) : null;
     phrases.push(
-      build.embleme
+      build.emblem
         ? t("pages.seo.heros.buildEmbleme", {
             objets: liste,
-            embleme: role === `roles.${build.embleme}` ? build.embleme : role!,
+            embleme: role === `roles.${build.emblem}` ? build.emblem : role!,
           })
         : t("pages.seo.heros.build", { objets: liste }),
     );
@@ -149,9 +149,9 @@ function descriptionHeros(locale: Langue, h: Heros): string {
   // Le resume redige n'existe qu'en francais : les autres langues prennent la
   // description generee, dans leur langue.
   return (
-    (locale === "fr" ? h.analyse?.resume : undefined) ??
+    (locale === "fr" ? h.analysis?.summary : undefined) ??
     t("pages.heroDetail.metaDescription", {
-      nom: h.titre ? `${h.nom}, ${h.titre}` : h.nom,
+      nom: h.title ? `${h.name}, ${h.title}` : h.name,
       roles: h.roles.map((r) => t(`roles.${r}`)).join(" / "),
       lanes: h.lanes.map((l) => t(`lanes.${l}`)).join(", ") || "—",
       skins: h.skins.length,
@@ -164,9 +164,9 @@ export default async function PageHeros({ params }: Params) {
   const h = herosParSlug.get(slug);
   if (!h) notFound();
 
-  const classe = classementComplet.find((e) => e.heros.slug === slug);
+  const classe = classementComplet.find((e) => e.hero.slug === slug);
   const t = creerT(locale);
-  const analyse = h.analyse;
+  const analyse = h.analysis;
   const competencesWiki = competences(locale)[h.slug] ?? [];
   const iconesCompetences = visuelsCompetences[h.slug] ?? {};
   const illustrationsHeros = illustrations[h.slug] ?? {};
@@ -175,7 +175,7 @@ export default async function PageHeros({ params }: Params) {
   const fond = Object.values(illustrationsHeros)[0] ?? null;
   const histoire = histoires(locale)[h.slug] ?? null;
   const aHistoire =
-    !!histoire && (histoire.lore.length > 0 || !!histoire.fiche || histoire.anecdotes.length > 0);
+    !!histoire && (histoire.lore.length > 0 || !!histoire.profile || histoire.trivia.length > 0);
 
   // Jointure des trois sources : le skin porte son id, son portrait (par id) et
   // son illustration (par nom). La vitrine s'en sert pour tout synchroniser.
@@ -186,13 +186,13 @@ export default async function PageHeros({ params }: Params) {
   );
   const skinsComplets: SkinComplet[] = h.skins.map((s) => ({
     ...s,
-    portrait: h.visuels.skins[s.id] ?? null,
+    portrait: h.images.skins[s.id] ?? null,
     illustration:
-      illustrationsHeros[s.nom] ?? illustrationParNom.get(normaliserNomSkin(s.nom)) ?? null,
+      illustrationsHeros[s.name] ?? illustrationParNom.get(normaliserNomSkin(s.name)) ?? null,
   }));
   const portraitDe = (slug: string) =>
-    herosParSlug.get(slug)?.visuels.icone ?? herosParSlug.get(slug)?.visuels.portrait ?? null;
-  const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+    herosParSlug.get(slug)?.images.icon ?? herosParSlug.get(slug)?.images.portrait ?? null;
+  const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
   // Le selecteur de rang tourne dans le navigateur, qui n'a pas le catalogue :
   // noms et portraits des adversaires sont donc resolus ici, pour chaque rang.
@@ -201,7 +201,7 @@ export default async function PageHeros({ params }: Params) {
   const contresAffiches = Object.fromEntries(
     Object.entries(contres[h.slug] ?? {}).map(([rang, c]) => [
       rang,
-      { fort: resoudre(c.fort), faible: resoudre(c.faible), mesure: c.mesure },
+      { strong: resoudre(c.strong), weak: resoudre(c.weak), winRate: c.winRate },
     ]),
   );
   const aContres = Object.keys(contresAffiches).length > 0;
@@ -246,11 +246,11 @@ export default async function PageHeros({ params }: Params) {
   // a laquelle confronter les builds rediges, qui vieillissent d'un patch a
   // l'autre.
   const reference = buildPrincipal(h);
-  const nomsObjets = new Map(objets(locale).map((o) => [o.slug, o.nom]));
-  const ecartDe = (b: { objets: string[]; talent: string }) => {
+  const nomsObjets = new Map(objets(locale).map((o) => [o.slug, o.name]));
+  const ecartDe = (b: { items: string[]; talent: string }) => {
     if (!reference) return null;
-    const pris = new Set(b.objets.map((o) => visuelObjet(o).slug ?? o));
-    const absents = reference.objets
+    const pris = new Set(b.items.map((o) => visuelObjet(o).slug ?? o));
+    const absents = reference.items
       .filter((o) => !pris.has(visuelObjet(o).slug ?? o))
       .map((o) => nomsObjets.get(visuelObjet(o).slug ?? "") ?? o);
     const memeTalent = reference.talents.some((x) => x.toLowerCase() === b.talent.toLowerCase());
@@ -263,7 +263,7 @@ export default async function PageHeros({ params }: Params) {
   );
   const patchsDates = versionsRecentes.flatMap((p) => (p.date ? [{ version: p.version, date: p.date }] : []));
   const ajustementsHeros = versionsRecentes.flatMap((p) =>
-    (patchsDetailles(locale)[p.version] ?? p).ajustements
+    (patchsDetailles(locale)[p.version] ?? p).adjustments
       .filter((a) => a.slug === h.slug)
       .map((a) => ({ version: p.version, ajustement: a })),
   );
@@ -272,15 +272,15 @@ export default async function PageHeros({ params }: Params) {
   const donneesStructurees = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: h.titre ? `${h.nom} — ${h.titre}` : h.nom,
+    headline: h.title ? `${h.name} — ${h.title}` : h.name,
     // La description de la page, dans sa langue : le resume redige n'existe
     // qu'en francais et s'affichait sous un `inLanguage` anglais.
     description: descriptionHeros(locale, h),
-    image: h.visuels.portrait ? urlAbsolue(h.visuels.portrait) : undefined,
+    image: h.images.portrait ? urlAbsolue(h.images.portrait) : undefined,
     inLanguage: LOCALE_HTML[locale],
     // Premiere mesure conservee pour ce heros : la fiche publie ses chiffres
     // depuis. La modification suit le dernier releve des taux.
-    datePublished: historique?.debut ?? dateMesure,
+    datePublished: historique?.start ?? dateMesure,
     dateModified: dateMesure,
     author: { "@type": "Person", name: site.auteur, url: `https://github.com/${site.auteur}` },
     publisher: {
@@ -305,7 +305,7 @@ export default async function PageHeros({ params }: Params) {
         le partagent, si bien que choisir un skin met a jour le portrait de tete
         comme la grande illustration.
       */}
-      <VitrineProvider skins={skinsComplets} portraitDefaut={h.visuels.portrait}>
+      <VitrineProvider skins={skinsComplets} portraitDefaut={h.images.portrait}>
       <RangProvider rangs={rangsDisponibles}>
       {/* ── En-tete ────────────────────────────────────────────────────── */}
       <div className="relative border-b border-night-700/70 bg-night-900/30">
@@ -351,26 +351,26 @@ export default async function PageHeros({ params }: Params) {
               { nom: t("nav.heroes.label"), href: "/heroes" },
               ...(h.roles[0] ? [{ nom: t(`roles.${h.roles[0]}`), href: cheminRole(h.roles[0]) }] : []),
               {
-                nom: h.nom,
+                nom: h.name,
                 freres: [...heros]
-                  .sort((a, b) => a.nom.localeCompare(b.nom))
-                  .map((x) => ({ nom: x.nom, href: `/heroes/${x.slug}` })),
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((x) => ({ nom: x.name, href: `/heroes/${x.slug}` })),
               },
             ]}
           />
 
           <div className="bevel mt-6 flex flex-wrap items-start gap-6 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm">
-            <PortraitVitrine nom={h.nom} portraitDefaut={h.visuels.portrait} />
+            <PortraitVitrine nom={h.name} portraitDefaut={h.images.portrait} />
 
             <div className="min-w-0 flex-1 basis-64">
-              <h1 className="font-heading text-4xl font-bold text-chalk-100">{h.nom}</h1>
-              {h.titre && <p className="mt-1 text-lg text-gold-400">{h.titre}</p>}
+              <h1 className="font-heading text-4xl font-bold text-chalk-100">{h.name}</h1>
+              {h.title && <p className="mt-1 text-lg text-gold-400">{h.title}</p>}
 
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {h.roles.map((r) => (
                   <BadgeRole key={r} role={r} />
                 ))}
-                {h.specialites.map((s) => (
+                {h.specialties.map((s) => (
                   <span
                     key={s}
                     className="bevel-sm border border-night-600 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-chalk-500"
@@ -397,10 +397,10 @@ export default async function PageHeros({ params }: Params) {
             {/* Notes du jeu, en jauges plutot qu'en chiffres nus. */}
             <dl className="grid min-w-0 flex-1 basis-56 gap-2.5">
               {[
-                [t("pages.heroDetail.notes.offensive"), h.notes.offensive],
-                [t("pages.heroDetail.notes.resistance"), h.notes.resistance],
-                [t("pages.heroDetail.notes.effets"), h.notes.effets],
-                [t("pages.heroDetail.notes.difficulte"), h.notes.difficulte],
+                [t("pages.heroDetail.notes.offensive"), h.ratings.offense],
+                [t("pages.heroDetail.notes.resistance"), h.ratings.durability],
+                [t("pages.heroDetail.notes.effets"), h.ratings.abilityEffects],
+                [t("pages.heroDetail.notes.difficulte"), h.ratings.difficulty],
               ].map(([label, valeur]) =>
                 valeur === null ? null : (
                   <div key={String(label)} className="flex items-center gap-3">
@@ -426,15 +426,15 @@ export default async function PageHeros({ params }: Params) {
           <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6">
             {[
               [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
-              [t("pages.heroDetail.stat.sortie"), dateSortie(h.sortie, locale, t)],
-              [t("pages.heroDetail.stat.ressource"), libelleHeros(t, "ressource", h.ressource)],
-              [t("pages.heroDetail.stat.degats"), libelleHeros(t, "degats", h.typeDegats)],
-              [t("pages.heroDetail.stat.portee"), libelleHeros(t, "attaque", h.typeAttaque)],
+              [t("pages.heroDetail.stat.sortie"), dateSortie(h.release, locale, t)],
+              [t("pages.heroDetail.stat.ressource"), libelleHeros(t, "ressource", h.resource)],
+              [t("pages.heroDetail.stat.degats"), libelleHeros(t, "degats", h.damageType)],
+              [t("pages.heroDetail.stat.portee"), libelleHeros(t, "attaque", h.attackType)],
               [t("pages.heroDetail.stat.region"), libelleHeros(t, "region", h.region)],
               [t("pages.heroDetail.stat.skins"), h.skins.length || null],
-              [t("pages.heroDetail.stat.tierList"), classe ? <ValeurParRang valeurs={selonRang((s) => t("pages.heroDetail.palier", { p: s.palier }))} /> : null],
-              [t("pages.heroDetail.stat.tauxVictoire"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.victoire)} %`)} /> : null],
-              [t("pages.heroDetail.stat.tauxBan"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.ban)} %`)} /> : null],
+              [t("pages.heroDetail.stat.tierList"), classe ? <ValeurParRang valeurs={selonRang((s) => t("pages.heroDetail.palier", { p: s.tier }))} /> : null],
+              [t("pages.heroDetail.stat.tauxVictoire"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.winRate)} %`)} /> : null],
+              [t("pages.heroDetail.stat.tauxBan"), classe ? <ValeurParRang valeurs={selonRang((s) => `${pourcent.format(s.banRate)} %`)} /> : null],
             ].map(([label, valeur]) =>
               !valeur ? null : (
                 <div key={String(label)}>
@@ -460,7 +460,7 @@ export default async function PageHeros({ params }: Params) {
                 <div className="space-y-12">
                   <section>
                     <div className="space-y-4 leading-relaxed text-chalk-300">
-                      {analyse.analyse.split("\n\n").map((p, i) => (
+                      {analyse.analysis.split("\n\n").map((p, i) => (
                         <p key={i}>{p}</p>
                       ))}
                     </div>
@@ -473,7 +473,7 @@ export default async function PageHeros({ params }: Params) {
                         {t("pages.heroDetail.forces")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
-                        {analyse.forces.map((f) => (
+                        {analyse.strengths.map((f) => (
                           <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
                             <span aria-hidden className="mt-2 size-1 shrink-0 bg-emerald-400" />
                             {f}
@@ -487,7 +487,7 @@ export default async function PageHeros({ params }: Params) {
                         {t("pages.heroDetail.faiblesses")}
                       </h2>
                       <ul className="mt-4 space-y-2.5">
-                        {analyse.faiblesses.map((f) => (
+                        {analyse.weaknesses.map((f) => (
                           <li key={f} className="flex gap-2.5 text-sm leading-relaxed text-chalk-300">
                             <span aria-hidden className="mt-2 size-1 shrink-0 bg-blood-500" />
                             {f}
@@ -505,7 +505,7 @@ export default async function PageHeros({ params }: Params) {
                     {t("pages.heroDetail.analyseEnCours")}
                   </h2>
                   <p className="mt-3 max-w-2xl leading-relaxed text-chalk-300">
-                    {t("pages.heroDetail.analyseTexte", { nom: h.nom })}
+                    {t("pages.heroDetail.analyseTexte", { nom: h.name })}
                   </p>
                   <Link
                     href="/contribute"
@@ -519,7 +519,7 @@ export default async function PageHeros({ params }: Params) {
             {
               id: "histoire",
               label: t("pages.heroDetail.onglet.histoire"),
-              contenu: aHistoire ? <HistoireHeros histoire={histoire} nom={h.nom} langue={locale} /> : null,
+              contenu: aHistoire ? <HistoireHeros histoire={histoire} nom={h.name} langue={locale} /> : null,
             },
             {
               id: "competences",
@@ -527,14 +527,14 @@ export default async function PageHeros({ params }: Params) {
               compteur:
                 Math.max(
                   competencesWiki.filter(Boolean).length,
-                  analyse?.competences.length ?? 0,
+                  analyse?.skills.length ?? 0,
                 ) || undefined,
               contenu: (
                 <div className="space-y-10">
                   <CompetencesHeros
                     wiki={competencesWiki}
                     icones={iconesCompetences}
-                    redigees={analyse?.competences ?? null}
+                    redigees={analyse?.skills ?? null}
                   />
                   <CombosHeros combos={combos(locale)[h.slug] ?? []} langue={locale} />
                 </div>
@@ -548,7 +548,7 @@ export default async function PageHeros({ params }: Params) {
                   <div className="space-y-8">
                     {aContres && (
                       <section>
-                        <ContresChiffres nom={h.nom} parRang={contresAffiches} />
+                        <ContresChiffres nom={h.name} parRang={contresAffiches} />
                         <Link
                           href={`/heroes/${h.slug}/counters`}
                           className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
@@ -560,7 +560,7 @@ export default async function PageHeros({ params }: Params) {
 
                     {aCoequipiers && (
                       <section>
-                        <CoequipiersParRang nom={h.nom} parRang={coequipiersAffiches} />
+                        <CoequipiersParRang nom={h.name} parRang={coequipiersAffiches} />
                         {duos[h.slug] && (
                           <Link
                             href={`/heroes/${h.slug}/duos`}
@@ -572,7 +572,7 @@ export default async function PageHeros({ params }: Params) {
                       </section>
                     )}
 
-                    {analyse && (analyse.fortContre.length > 0 || analyse.faibleContre.length > 0) && (
+                    {analyse && (analyse.strongAgainst.length > 0 || analyse.weakAgainst.length > 0) && (
                       <section>
                         <h3 className="font-heading text-lg font-bold text-chalk-100">
                           {t("pages.heroDetail.matchups")}
@@ -581,8 +581,8 @@ export default async function PageHeros({ params }: Params) {
                           {t("pages.heroDetail.matchupsIntro")}
                         </p>
                         <div className="mt-4 grid gap-4 md:grid-cols-2">
-                          <ListeContres titre={t("pages.heroDetail.alaise", { nom: h.nom })} slugs={analyse.fortContre} ton="bon" />
-                          <ListeContres titre={t("pages.heroDetail.difficulte2", { nom: h.nom })} slugs={analyse.faibleContre} ton="mauvais" />
+                          <ListeContres titre={t("pages.heroDetail.alaise", { nom: h.name })} slugs={analyse.strongAgainst} ton="bon" />
+                          <ListeContres titre={t("pages.heroDetail.difficulte2", { nom: h.name })} slugs={analyse.weakAgainst} ton="mauvais" />
                         </div>
                       </section>
                     )}
@@ -609,18 +609,18 @@ export default async function PageHeros({ params }: Params) {
                   )}
                   <div className="space-y-4">
                   {analyse.builds.map((b) => (
-                    <Carte key={b.nom}>
-                      <h3 className="font-heading text-lg font-bold text-gold-400">{b.nom}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-chalk-500">{b.contexte}</p>
+                    <Carte key={b.name}>
+                      <h3 className="font-heading text-lg font-bold text-gold-400">{b.name}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-chalk-500">{b.context}</p>
                       <ol className="mt-5 grid grid-cols-3 gap-2 sm:grid-cols-6">
-                        {b.objets.map((o, i) => (
+                        {b.items.map((o, i) => (
                           <ObjetBuild key={o} nom={o} rang={i + 1} />
                         ))}
                       </ol>
                       <div className="mt-5 grid gap-3 border-t border-night-800 pt-4 sm:grid-cols-3">
-                        <ChoixBuild libelle={t("builds.embleme")} nom={b.embleme} image={visuelEmbleme(b.embleme).image} href={visuelEmbleme(b.embleme).href} />
+                        <ChoixBuild libelle={t("builds.embleme")} nom={b.emblem} image={visuelEmbleme(b.emblem).image} href={visuelEmbleme(b.emblem).href} />
                         <ChoixBuild libelle={t("builds.talent")} nom={b.talent} image={visuelTalent(b.talent).image} />
-                        <ChoixBuild libelle={t("builds.sort")} nom={b.sort} image={visuelSort(b.sort).image} href={visuelSort(b.sort).href} />
+                        <ChoixBuild libelle={t("builds.sort")} nom={b.spell} image={visuelSort(b.spell).image} href={visuelSort(b.spell).href} />
                       </div>
                       {(() => {
                         const ecart = ecartDe(b);
@@ -659,13 +659,13 @@ export default async function PageHeros({ params }: Params) {
               contenu: (
                 <div className="space-y-12">
                   <StatistiquesHeros
-                    nom={h.nom}
+                    nom={h.name}
                     tendances={tendancesDe(h.slug)}
                     duree={dureeDe(h.slug)}
                     historique={historique}
                     patchs={patchsDates}
                     parRang={Object.fromEntries(
-                      Object.entries(statsRangs).map(([r, s]) => [r, { victoire: s.victoire, ban: s.ban }]),
+                      Object.entries(statsRangs).map(([r, s]) => [r, { victoire: s.winRate, ban: s.banRate }]),
                     )}
                     ajustements={ajustementsHeros.map((a) => ({ version: a.version, type: a.ajustement.type }))}
                   />
@@ -678,11 +678,11 @@ export default async function PageHeros({ params }: Params) {
                     </div>
                     <p className="mt-1 mb-4 text-sm text-chalk-500">
                       {ajustementsHeros.length > 0
-                        ? t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.nom })
-                        : t("pages.heroDetail.statistiques.aucunAjustement", { nom: h.nom, n: versionsRecentes.length })}
+                        ? t("pages.heroDetail.statistiques.ajustementsIntro", { nom: h.name })
+                        : t("pages.heroDetail.statistiques.aucunAjustement", { nom: h.name, n: versionsRecentes.length })}
                     </p>
                     {ajustementsHeros.length > 0 && (
-                      <AjustementsDuHeros entrees={ajustementsHeros} portrait={h.visuels.icone ?? h.visuels.portrait} />
+                      <AjustementsDuHeros entrees={ajustementsHeros} portrait={h.images.icon ?? h.images.portrait} />
                     )}
                     {/* Changes being tested on the Advance Server; renders nothing otherwise. */}
                     <NextPatch slug={h.slug} locale={locale} />
@@ -701,10 +701,10 @@ export default async function PageHeros({ params }: Params) {
               apercu:
                 skinsComplets.length > 0 ? (
                   <div className="text-sm leading-relaxed text-chalk-300">
-                    <p>{t("pages.apercuHeros.skins", { nom: h.nom, n: skinsComplets.length })}</p>
+                    <p>{t("pages.apercuHeros.skins", { nom: h.name, n: skinsComplets.length })}</p>
                     <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-chalk-500">
                       {skinsComplets.map((s) => (
-                        <li key={s.id}>{s.nom}</li>
+                        <li key={s.id}>{s.name}</li>
                       ))}
                     </ul>
                     {galerieHeros(h).total > 0 && (
@@ -764,7 +764,7 @@ function ListeContres({
                   : "border-blood-500/30 text-blood-500 hover:bg-blood-500/10"
               }`}
             >
-              {herosParSlug.get(s)?.nom ?? s}
+              {herosParSlug.get(s)?.name ?? s}
             </Link>
           </li>
         ))}
@@ -796,13 +796,13 @@ function ApercuStatistiques({
   const pourcent = (v: number) => pourcentage(langue, v);
   const phrases: string[] = [];
 
-  const mesures = (tendancesDe(h.slug).all?.victoire ?? []).flatMap((v, k) => (v === null ? [] : [[k, v] as const]));
+  const mesures = (tendancesDe(h.slug).all?.winRate ?? []).flatMap((v, k) => (v === null ? [] : [[k, v] as const]));
   if (mesures.length > 1) {
     const [k0, debut] = mesures[0];
     const [k1, fin] = mesures[mesures.length - 1];
     phrases.push(
       t("pages.apercuHeros.evolution", {
-        nom: h.nom,
+        nom: h.name,
         n: k1 - k0 + 1,
         debut: pourcent(debut),
         fin: pourcent(fin),
@@ -812,43 +812,43 @@ function ApercuStatistiques({
     );
   }
 
-  const tranches = [...(dureeDe(h.slug).all ?? [])].sort((a, b) => b.victoire - a.victoire);
+  const tranches = [...(dureeDe(h.slug).all ?? [])].sort((a, b) => b.winRate - a.winRate);
   if (tranches.length > 1) {
     const libelle = (x: TrancheDuree) =>
-      x.a === null
-        ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.de })
-        : t("pages.heroDetail.statistiques.minutes", { de: x.de, a: x.a });
+      x.to === null
+        ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.from })
+        : t("pages.heroDetail.statistiques.minutes", { de: x.from, a: x.to });
     const haute = tranches[0];
     const basse = tranches[tranches.length - 1];
     phrases.push(
       t("pages.apercuHeros.duree", {
-        nom: h.nom,
+        nom: h.name,
         tranche: libelle(haute),
-        victoire: pourcent(haute.victoire),
+        victoire: pourcent(haute.winRate),
         trancheBas: libelle(basse),
-        victoireBas: pourcent(basse.victoire),
+        victoireBas: pourcent(basse.winRate),
       }),
     );
   }
 
   const rangs = RANGS_MESURE.filter((r) => r !== "all" && statsRangs[r]).sort(
-    (a, b) => statsRangs[a]!.victoire - statsRangs[b]!.victoire,
+    (a, b) => statsRangs[a]!.winRate - statsRangs[b]!.winRate,
   );
   if (rangs.length > 1) {
     const bas = rangs[0];
     const haut = rangs[rangs.length - 1];
     phrases.push(
       t("pages.apercuHeros.rangs", {
-        nom: h.nom,
-        bas: pourcent(statsRangs[bas]!.victoire),
+        nom: h.name,
+        bas: pourcent(statsRangs[bas]!.winRate),
         rangBas: t(`rangsMesure.${bas}`),
-        haut: pourcent(statsRangs[haut]!.victoire),
+        haut: pourcent(statsRangs[haut]!.winRate),
         rangHaut: t(`rangsMesure.${haut}`),
       }),
     );
   }
 
-  if (ajustements > 0) phrases.push(t("pages.apercuHeros.ajustements", { nom: h.nom, n: ajustements, total: patchs }));
+  if (ajustements > 0) phrases.push(t("pages.apercuHeros.ajustements", { nom: h.name, n: ajustements, total: patchs }));
   if (phrases.length === 0) return null;
 
   return (

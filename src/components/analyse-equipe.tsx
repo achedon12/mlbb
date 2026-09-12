@@ -334,7 +334,7 @@ function Resultats({
   const pts = t("contres.pts");
   const v = analyse.victoire;
   const tranche = (x: Tranche) =>
-    x.a === null ? t("equipeUI.minutesPlus", { de: x.de }) : t("equipeUI.minutes", { de: x.de, a: x.a });
+    x.to === null ? t("equipeUI.minutesPlus", { de: x.from }) : t("equipeUI.minutes", { de: x.from, a: x.to });
 
   const tuiles: [string, string, number][] = [
     [t("equipeUI.tauxMoyen"), v === null ? "—" : `${formats.nombre(v)} %`, v === null ? 0 : v >= 50.5 ? 1 : v <= 49.5 ? -1 : 0],
@@ -514,7 +514,7 @@ function Resultats({
                     {t("equipeUI.pic", { tranche: tranche(courbe.tranches[courbe.pic]) })}
                   </p>
                   <BarresDuree
-                    tranches={courbe.tranches.map((x, i) => ({ ...x, victoire: courbe.victoire[i] }))}
+                    tranches={courbe.tranches.map((x, i) => ({ ...x, winRate: courbe.victoire[i] }))}
                     nombre={formats.nombre}
                     libelle={tranche}
                     className="mt-4"

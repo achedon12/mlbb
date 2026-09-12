@@ -41,9 +41,9 @@ function figures(region: RegionLore, locale: Langue): string[] {
     for (const s of [p.a, p.b]) liens.set(s, (liens.get(s) ?? 0) + 1);
   }
   return [...region.heros]
-    .sort((a, b) => (liens.get(b.slug) ?? 0) - (liens.get(a.slug) ?? 0) || a.nom.localeCompare(b.nom, "en"))
+    .sort((a, b) => (liens.get(b.slug) ?? 0) - (liens.get(a.slug) ?? 0) || a.name.localeCompare(b.name, "en"))
     .slice(0, 3)
-    .map((h) => h.nom);
+    .map((h) => h.name);
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       noms: listeNoms(locale, figures(r, locale)),
     }),
     chemin: `/lore/${r.cle}`,
-    motsCles: [`${r.nom} MLBB`, "MLBB lore", "Mobile Legends lore", ...r.heros.slice(0, 5).map((h) => `${h.nom} lore`)],
+    motsCles: [`${r.nom} MLBB`, "MLBB lore", "Mobile Legends lore", ...r.heros.slice(0, 5).map((h) => `${h.name} lore`)],
   });
 }
 
@@ -89,17 +89,17 @@ export default async function PageRegion({ params }: Params) {
   if (resume.premier && resume.dernier) {
     faits.push(
       t("pages.lore.region.faitArrivees", {
-        premier: resume.premier.nom,
-        datePremier: dateSortie(resume.premier.sortie, locale, t) ?? "",
-        dernier: resume.dernier.nom,
-        dateDernier: dateSortie(resume.dernier.sortie, locale, t) ?? "",
+        premier: resume.premier.name,
+        datePremier: dateSortie(resume.premier.release, locale, t) ?? "",
+        dernier: resume.dernier.name,
+        dateDernier: dateSortie(resume.dernier.release, locale, t) ?? "",
       }),
     );
   } else if (resume.premier) {
     faits.push(
       t("pages.lore.region.faitArrivee", {
-        nom: resume.premier.nom,
-        date: dateSortie(resume.premier.sortie, locale, t) ?? "",
+        nom: resume.premier.name,
+        date: dateSortie(resume.premier.release, locale, t) ?? "",
       }),
     );
   }
@@ -151,7 +151,7 @@ export default async function PageRegion({ params }: Params) {
     nom: t("pages.seo.loreRegion.titre", { region: nom }),
     description: faits[0],
     chemin: `/lore/${r.cle}`,
-    heros: r.heros.map((x) => ({ nom: x.nom, slug: x.slug })),
+    heros: r.heros.map((x) => ({ nom: x.name, slug: x.slug })),
   });
 
   return (
@@ -180,21 +180,21 @@ export default async function PageRegion({ params }: Params) {
           <TitreSection chapeau={t("pages.lore.region.herosChapeau")}>{t("pages.lore.region.herosTitre", { region: nom })}</TitreSection>
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {r.heros.map((x) => {
-              const fiche = h[x.slug]?.fiche;
-              const infos = [fiche?.espece, fiche?.age ? t("pages.lore.age", { age: fiche.age }) : null].filter(Boolean);
+              const fiche = h[x.slug]?.profile;
+              const infos = [fiche?.species, fiche?.age ? t("pages.lore.age", { age: fiche.age }) : null].filter(Boolean);
               return (
                 <li key={x.slug} id={x.slug} className="scroll-mt-24">
                   <article className="bevel flex h-full gap-4 border border-night-700/70 bg-night-900/60 p-4">
-                    <PortraitHeros source={x.visuels.portrait ?? x.visuels.icone} nom={x.nom} taille="fiche" decoratif />
+                    <PortraitHeros source={x.images.portrait ?? x.images.icon} nom={x.name} taille="fiche" decoratif />
                     <div className="min-w-0 flex-1">
                       <h3 className="font-heading text-xl font-bold text-chalk-100">
                         <Link href={`/heroes/${x.slug}`} className="hover:text-gold-400">
-                          {x.nom}
+                          {x.name}
                         </Link>
                       </h3>
-                      {(fiche?.titre ?? x.titre) && <p className="text-xs text-chalk-500">{fiche?.titre ?? x.titre}</p>}
-                      {h[x.slug]?.accroche && (
-                        <p className="mt-2 line-clamp-3 text-sm italic leading-relaxed text-chalk-300">{h[x.slug]!.accroche}</p>
+                      {(fiche?.title ?? x.title) && <p className="text-xs text-chalk-500">{fiche?.title ?? x.title}</p>}
+                      {h[x.slug]?.tagline && (
+                        <p className="mt-2 line-clamp-3 text-sm italic leading-relaxed text-chalk-300">{h[x.slug]!.tagline}</p>
                       )}
                       {infos.length > 0 && <p className="mt-2 text-xs text-chalk-400">{infos.join(" · ")}</p>}
                       {fiche?.affiliations.length ? (
@@ -213,7 +213,7 @@ export default async function PageRegion({ params }: Params) {
                         href={`/heroes/${x.slug}#histoire`}
                         className="mt-3 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                       >
-                        {t("pages.lore.lireHistoire", { nom: x.nom })} →
+                        {t("pages.lore.lireHistoire", { nom: x.name })} →
                       </Link>
                     </div>
                   </article>

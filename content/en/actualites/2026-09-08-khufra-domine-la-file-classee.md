@@ -1,10 +1,10 @@
 ---
-titre: "Why Khufra has become essential in ranked queue"
+title: "Why Khufra has become essential in ranked queue"
 date: "2026-09-08"
-categorie: "Actualite"
-auteur: "achedon12"
-chapeau: "A single hero meets an entire category of the roster. A look back at why Khufra is present in almost every high ranked game."
-motsCles: ["khufra", "tier list", "file classee", "tank", "meta"]
+category: "Actualite"
+author: "achedon12"
+summary: "A single hero meets an entire category of the roster. A look back at why Khufra is present in almost every high ranked game."
+keywords: ["khufra", "tier list", "file classee", "tank", "meta"]
 ---
 
 There are strong heroes, and there are heroes who respond to a problem that

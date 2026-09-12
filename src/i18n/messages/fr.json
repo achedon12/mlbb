@@ -594,7 +594,7 @@
       "statPatchs": "Patchs",
       "statClasses": "Héros classés",
       "formeTitre": "Forme des réponses",
-      "formeTexte": "Chaque réponse enveloppe le résultat dans « donnees », y joint le nombre total d'éléments quand il s'agit d'une liste, et rappelle la source des données.",
+      "formeTexte": "Chaque réponse enveloppe le résultat dans « data », y joint le nombre total d'éléments quand il s'agit d'une liste, et rappelle la source des données.",
       "conditionsTitre": "Conditions",
       "c1label": "Pas de clé, pas de quota.",
       "c1texte": "Les réponses sont statiques et mises en cache : elles ne coûtent rien à servir. Restez raisonnable et tout ira bien.",
@@ -2568,8 +2568,8 @@
         "red": "Équipe rouge"
       },
       "timers": {
-        "off": "Sans",
         "30": "{n} s",
+        "off": "Sans",
         "game": "Délais du jeu ({ban} s / {pick} s)"
       },
       "you": "vous",

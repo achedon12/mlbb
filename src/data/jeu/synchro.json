@@ -1,12 +1,12 @@
 {
   "date": "2026-09-11T08:19:47.275Z",
   "source": "https://mobilelegends.fandom.com",
-  "heros": 133,
+  "heroes": 133,
   "skins": 1007,
-  "objets": 102,
-  "patchs": 221,
-  "classement": 132,
-  "contres": 132,
+  "items": 102,
+  "patches": 221,
+  "rankings": 132,
+  "counters": 132,
   "builds": 132,
   "sources": [
     "https://mobilelegends.fandom.com",

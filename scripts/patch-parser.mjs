@@ -74,15 +74,15 @@ function analyserChangement(ligne) {
     const sep = parts[0].indexOf(":");
     if (sep !== -1) {
       return {
-        libelle: parts[0].slice(0, sep).trim(),
-        avant: parts[0].slice(sep + 1).trim(),
-        apres: parts[1].trim(),
+        label: parts[0].slice(0, sep).trim(),
+        before: parts[0].slice(sep + 1).trim(),
+        after: parts[1].trim(),
       };
     }
-    return { libelle: null, avant: parts[0].trim(), apres: parts[1].trim() };
+    return { label: null, before: parts[0].trim(), after: parts[1].trim() };
   }
 
-  return { texte };
+  return { text: texte };
 }
 
 /** Nettoie une ligne de wikitexte en conservant la fleche comme separateur. */
@@ -118,7 +118,7 @@ export function ajustementsHeros(wikitexte) {
   let sousSection = null;
 
   const ajouterSousSection = (nom, categorie, type) => {
-    sousSection = { nom, categorie, type, changements: [] };
+    sousSection = { name: nom, category: categorie, type, changes: [] };
     courant.sections.push(sousSection);
   };
 
@@ -144,7 +144,7 @@ export function ajustementsHeros(wikitexte) {
     const enteteHeros = ligne.match(/^\{\{hi\|([^}]+)\}\}\s*\{\{pci\|(buff|nerf|adjust)\}\}/i);
     if (enteteHeros) {
       courant = {
-        nom: enteteHeros[1].trim(),
+        name: enteteHeros[1].trim(),
         type: typeChangement(enteteHeros[2].toLowerCase()),
         intro: "",
         sections: [],
@@ -174,8 +174,8 @@ export function ajustementsHeros(wikitexte) {
     if (changement) {
       if (!sousSection) ajouterSousSection("Attributes", null, null);
       const analyse = analyserChangement(changement[1]);
-      const vide = "texte" in analyse ? !analyse.texte : !analyse.avant && !analyse.apres;
-      if (!vide) sousSection.changements.push(analyse);
+      const vide = "text" in analyse ? !analyse.text : !analyse.before && !analyse.after;
+      if (!vide) sousSection.changes.push(analyse);
       continue;
     }
 

@@ -13,16 +13,16 @@ export const dynamic = "force-static";
 export function GET() {
   return reponseApi(
     {
-      mesureLe,
-      heros: classementComplet.map((e) => ({
-        slug: e.heros.slug,
-        nom: e.heros.nom,
-        palier: e.palier,
-        victoire: e.victoire,
-        ban: e.ban,
-        selection: e.selection,
+      measuredAt: mesureLe,
+      heroes: classementComplet.map((e) => ({
+        slug: e.hero.slug,
+        name: e.hero.name,
+        tier: e.tier,
+        winRate: e.winRate,
+        banRate: e.banRate,
+        pickRate: e.pickRate,
         score: e.score,
-        faibleEchantillon: e.faibleEchantillon,
+        lowSample: e.lowSample,
       })),
     },
     { total: classementComplet.length },

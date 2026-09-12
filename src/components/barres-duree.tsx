@@ -13,13 +13,13 @@ export function BarresDuree({
   libelle,
   className,
 }: {
-  tranches: (Tranche & { victoire: number })[];
+  tranches: (Tranche & { winRate: number })[];
   nombre: (v: number) => string;
   /** « 10–12 min », « 20 min et + ». */
   libelle: (x: Tranche) => string;
   className?: string;
 }) {
-  const taux = tranches.map((x) => x.victoire);
+  const taux = tranches.map((x) => x.winRate);
   const bas = Math.min(...taux) - 1;
   const haut = Math.max(...taux);
   const meilleure = taux.indexOf(haut);
@@ -32,14 +32,14 @@ export function BarresDuree({
       )}
     >
       {tranches.map((x, i) => (
-        <div key={x.de} className="flex min-w-0 flex-1 flex-col items-center gap-1">
+        <div key={x.from} className="flex min-w-0 flex-1 flex-col items-center gap-1">
           <span className={cn("text-xs tabular-nums", i === meilleure ? "font-semibold text-gold-400" : "text-chalk-300")}>
-            {nombre(x.victoire)}
+            {nombre(x.winRate)}
           </span>
           <div className="flex w-full flex-1 items-end">
             <div
               className={cn("w-full rounded-t-sm", i === meilleure ? "bg-gold-500" : "bg-chalk-500/40")}
-              style={{ height: `${Math.max(6, ((x.victoire - bas) / (haut - bas)) * 100)}%` }}
+              style={{ height: `${Math.max(6, ((x.winRate - bas) / (haut - bas)) * 100)}%` }}
             />
           </div>
           <span className="text-center text-[0.65rem] leading-tight text-chalk-500 sm:text-xs">{libelle(x)}</span>

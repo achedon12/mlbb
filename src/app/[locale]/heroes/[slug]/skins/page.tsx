@@ -35,14 +35,14 @@ const DATE_ISO = /^\d{4}(-\d{2}){0,2}$/;
 
 /** Skin du catalogue le plus recent parmi ceux dont la date se lit. */
 function plusRecent(g: GalerieHeros): SkinComplet | null {
-  return g.skins.filter((s) => DATE_ISO.test(s.sortie ?? "")).sort((a, b) => b.sortie!.localeCompare(a.sortie!))[0] ?? null;
+  return g.skins.filter((s) => DATE_ISO.test(s.release ?? "")).sort((a, b) => b.release!.localeCompare(a.release!))[0] ?? null;
 }
 
 function description(t: T, locale: Langue, h: Heros, g: GalerieHeros): string {
-  const base = t("pages.heroSkins.metaDescription", { nom: h.nom, n: g.total });
+  const base = t("pages.heroSkins.metaDescription", { nom: h.name, n: g.total });
   const recent = plusRecent(g);
   if (!recent) return base;
-  return `${base} ${t("pages.heroSkins.dernier", { skin: recent.nom, date: formaterSortie(recent.sortie!, locale) })}`;
+  return `${base} ${t("pages.heroSkins.dernier", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}`;
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -51,9 +51,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!h) return {};
   const t = creerT(locale);
   const g = galerieHeros(h);
-  const el = elide(locale, h.nom);
+  const el = elide(locale, h.name);
   return metaPage(locale, {
-    titre: t(el ? "pages.heroSkins.metaTitreElision" : "pages.heroSkins.metaTitre", { nom: h.nom, n: g.total }),
+    titre: t(el ? "pages.heroSkins.metaTitreElision" : "pages.heroSkins.metaTitre", { nom: h.name, n: g.total }),
     description: description(t, locale, h, g),
     chemin: `/heroes/${slug}/skins`,
     image: `/${locale}/heroes/${slug}/opengraph-image`,
@@ -75,14 +75,14 @@ export default async function PageSkinsHeros({ params }: Params) {
     return trad === cle ? v : trad;
   };
   const nombre = new Intl.NumberFormat(locale);
-  const titre = titreGalerie(t, locale, h.nom);
+  const titre = titreGalerie(t, locale, h.name);
   const ancres = ancresGalerie(g);
   const recent = plusRecent(g);
   const absolue = (chemin: string) => new URL(chemin, site.url).toString();
-  const altIllustration = (skin: string) => t("pages.heroSkins.altIllustration", { skin, nom: h.nom });
-  const altPortrait = (skin: string) => t("pages.heroSkins.altPortrait", { skin, nom: h.nom });
+  const altIllustration = (skin: string) => t("pages.heroSkins.altIllustration", { skin, nom: h.name });
+  const altPortrait = (skin: string) => t("pages.heroSkins.altPortrait", { skin, nom: h.name });
   const prix = (s: SkinComplet) =>
-    Object.entries(s.prix)
+    Object.entries(s.price)
       .map(([m, v]) => {
         // « other » porte un texte (« Twilight Pass »), pas un montant.
         if (m === "other") return v;
@@ -92,9 +92,9 @@ export default async function PageSkinsHeros({ params }: Params) {
       .join(" / ");
 
   const parDispo = new Map<string, number>();
-  for (const s of g.skins) if (s.disponibilite) parDispo.set(s.disponibilite, (parDispo.get(s.disponibilite) ?? 0) + 1);
+  for (const s of g.skins) if (s.availability) parDispo.set(s.availability, (parDispo.get(s.availability) ?? 0) + 1);
 
-  const voisins = [...herosAvecSkins].sort((a, b) => a.nom.localeCompare(b.nom, "en"));
+  const voisins = [...herosAvecSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
   const position = voisins.findIndex((x) => x.slug === h.slug);
   const precedent = voisins[(position - 1 + voisins.length) % voisins.length];
   const suivant = voisins[(position + 1) % voisins.length];
@@ -123,9 +123,9 @@ export default async function PageSkinsHeros({ params }: Params) {
         const chemin = s.illustration ?? s.portrait;
         if (!chemin) return [];
         return [
-          image(chemin, s.nom, s.illustration ? altIllustration(s.nom) : altPortrait(s.nom), {
+          image(chemin, s.name, s.illustration ? altIllustration(s.name) : altPortrait(s.name), {
             ...(s.illustration && s.portrait ? { thumbnailUrl: absolue(s.portrait) } : {}),
-            ...(s.sortie && DATE_ISO.test(s.sortie) ? { datePublished: s.sortie } : {}),
+            ...(s.release && DATE_ISO.test(s.release) ? { datePublished: s.release } : {}),
           }),
         ];
       }),
@@ -138,13 +138,13 @@ export default async function PageSkinsHeros({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
       <EnTetePage
         titre={titre}
-        chapeau={t("pages.heroSkins.chapeau", { nom: h.nom, n: g.total })}
+        chapeau={t("pages.heroSkins.chapeau", { nom: h.name, n: g.total })}
         miettes={[
           { nom: t("nav.heroes.label"), href: "/heroes" },
-          { nom: h.nom, href: `/heroes/${h.slug}` },
+          { nom: h.name, href: `/heroes/${h.slug}` },
           {
             nom: t("pages.heroDetail.onglet.skins"),
-            freres: voisins.map((x) => ({ nom: x.nom, href: `/heroes/${x.slug}/skins` })),
+            freres: voisins.map((x) => ({ nom: x.name, href: `/heroes/${x.slug}/skins` })),
           },
         ]}
       >
@@ -160,10 +160,10 @@ export default async function PageSkinsHeros({ params }: Params) {
             </dl>
           )}
           {recent && (
-            <p>{t("pages.heroSkins.dernier", { skin: recent.nom, date: formaterSortie(recent.sortie!, locale) })}</p>
+            <p>{t("pages.heroSkins.dernier", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}</p>
           )}
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
-            {raretesPresentes(g.skins.map((s) => s.rarete)).map((r) => (
+            {raretesPresentes(g.skins.map((s) => s.rarity)).map((r) => (
               <li key={r.nom} className="flex items-center gap-1.5 text-xs">
                 <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.couleur }} />
                 {tr("skinRarete", r.cle ?? r.nom)}
@@ -172,7 +172,7 @@ export default async function PageSkinsHeros({ params }: Params) {
           </ul>
           <p>
             <Link href={`/heroes/${h.slug}`} className="font-semibold text-gold-400 underline-offset-4 hover:underline">
-              ← {t("pages.heroDetail.titreFiche", { nom: h.nom })}
+              ← {t("pages.heroDetail.titreFiche", { nom: h.name })}
             </Link>
           </p>
         </div>
@@ -181,19 +181,19 @@ export default async function PageSkinsHeros({ params }: Params) {
       <div className="mx-auto max-w-6xl px-4 py-10">
         <ol className="grid gap-6 md:grid-cols-2">
           {g.skins.map((s, i) => {
-            const r = rarete(s.rarete);
-            const origine = !s.rarete;
+            const r = rarete(s.rarity);
+            const origine = !s.rarity;
             const tarif = prix(s);
             return (
               <li key={ancres[i]} id={ancres[i]} className="scroll-mt-24">
                 <CarteSkin
-                  nom={s.nom}
+                  nom={s.name}
                   illustration={s.illustration}
                   portrait={s.portrait}
                   couleur={r.couleur}
                   premier={i === 0}
-                  altIllustration={altIllustration(s.nom)}
-                  altPortrait={altPortrait(s.nom)}
+                  altIllustration={altIllustration(s.name)}
+                  altPortrait={altPortrait(s.name)}
                 >
                   <p
                     className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origine ? "text-chalk-500" : ""}`}
@@ -202,19 +202,19 @@ export default async function PageSkinsHeros({ params }: Params) {
                     {tr("skinRarete", r.cle ?? r.nom)}
                   </p>
                   <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
-                    {s.sortie && (
+                    {s.release && (
                       <Info libelle={t("skinsUI.sortie")}>
-                        {DATE_ISO.test(s.sortie) ? (
-                          <time dateTime={s.sortie}>{formaterSortie(s.sortie, locale)}</time>
+                        {DATE_ISO.test(s.release) ? (
+                          <time dateTime={s.release}>{formaterSortie(s.release, locale)}</time>
                         ) : (
-                          s.sortie
+                          s.release
                         )}
                       </Info>
                     )}
-                    {s.disponibilite && (
-                      <Info libelle={t("skinsUI.disponibilite")}>{tr("skinDispo", s.disponibilite)}</Info>
+                    {s.availability && (
+                      <Info libelle={t("skinsUI.disponibilite")}>{tr("skinDispo", s.availability)}</Info>
                     )}
-                    {s.etiquette && <Info libelle={t("skinsUI.obtention")}>{tr("skinEtiquette", s.etiquette)}</Info>}
+                    {s.label && <Info libelle={t("skinsUI.obtention")}>{tr("skinEtiquette", s.label)}</Info>}
                     {tarif && <Info libelle={t("pages.heroSkins.prix")}>{tarif}</Info>}
                   </dl>
                 </CarteSkin>
@@ -243,13 +243,13 @@ export default async function PageSkinsHeros({ params }: Params) {
           className="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-night-800 pt-6 text-sm"
         >
           <Link href={`/heroes/${precedent.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
-            ← {titreGalerie(t, locale, precedent.nom)}
+            ← {titreGalerie(t, locale, precedent.name)}
           </Link>
           <Link href="/skins" className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.skins.titre")}
           </Link>
           <Link href={`/heroes/${suivant.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
-            {titreGalerie(t, locale, suivant.nom)} →
+            {titreGalerie(t, locale, suivant.name)} →
           </Link>
         </nav>
       </div>

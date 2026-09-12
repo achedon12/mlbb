@@ -1,10 +1,10 @@
 ---
-titre: "Perché Khufra è diventato essenziale nella coda classificata"
+title: "Perché Khufra è diventato essenziale nella coda classificata"
 date: "2026-09-08"
-categorie: "Actualite"
-auteur: "achedon12"
-chapeau: "Un singolo eroe soddisfa un'intera categoria del roster. Uno sguardo al motivo per cui Khufra è presente in quasi tutte le partite di alto livello."
-motsCles: ["khufra", "tier list", "file classee", "tank", "meta"]
+category: "Actualite"
+author: "achedon12"
+summary: "Un singolo eroe soddisfa un'intera categoria del roster. Uno sguardo al motivo per cui Khufra è presente in quasi tutte le partite di alto livello."
+keywords: ["khufra", "tier list", "file classee", "tank", "meta"]
 ---
 
 Ci sono eroi forti e ci sono eroi che rispondono a questo problema

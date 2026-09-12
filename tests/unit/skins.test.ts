@@ -171,7 +171,7 @@ describe("galeries des heros (donnees synchronisees)", () => {
   });
 
   it("classe les derniers skins du plus recent au plus ancien", () => {
-    const dates = derniersSkins(12).map((e) => e.skin.sortie!);
+    const dates = derniersSkins(12).map((e) => e.skin.release!);
     expect(dates.length).toBeGreaterThan(0);
     expect(dates).toEqual([...dates].sort().reverse());
   });

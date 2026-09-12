@@ -48,9 +48,9 @@ export function AccueilVedette({
         </p>
 
         <h2 className="mt-3 font-heading text-5xl font-bold leading-none text-chalk-100 sm:text-6xl">
-          {heros.nom}
+          {heros.name}
         </h2>
-        {heros.titre && <p className="mt-2 text-xl text-gold-400">{heros.titre}</p>}
+        {heros.title && <p className="mt-2 text-xl text-gold-400">{heros.title}</p>}
 
         <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
           {[

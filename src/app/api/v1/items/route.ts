@@ -8,9 +8,9 @@ import { reponseApi } from "@/lib/api";
 export const dynamic = "force-dynamic";
 
 export function GET(requete: Request) {
-  const categorie = new URL(requete.url).searchParams.get("categorie");
-  const resultats = categorie
-    ? tous.filter((o) => o.categorie.toLowerCase() === categorie.toLowerCase())
+  const category = new URL(requete.url).searchParams.get("category");
+  const resultats = category
+    ? tous.filter((o) => o.category.toLowerCase() === category.toLowerCase())
     : tous;
 
   return reponseApi(resultats, { total: resultats.length });

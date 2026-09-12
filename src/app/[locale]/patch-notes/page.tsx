@@ -20,10 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
     : patchActuel.version;
   return metaPage(locale, {
     titre: t("pages.seo.patchNotes.titre", { v: patchActuel.version }),
-    description: patchActuel.ajustements.length
+    description: patchActuel.adjustments.length
       ? t("pages.seo.patchNotes.description", {
           version,
-          ...compterAjustements(patchActuel.ajustements),
+          ...compterAjustements(patchActuel.adjustments),
           m: Object.keys(patchsDetail).length,
           n: patchs.length,
         })
@@ -63,7 +63,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
             {avecDetail.map((p) => (
-              <li key={p.titre}>
+              <li key={p.title}>
                 <Link
                   href={`/patch-notes/${p.version}`}
                   className="bevel group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
@@ -101,9 +101,9 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
           <ul className="mt-6 grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
             {autres.map((p) => (
               // Le titre est unique ; la version ne l'est pas toujours.
-              <li key={p.titre}>
+              <li key={p.title}>
                 <a
-                  href={p.lien}
+                  href={p.link}
                   rel="noreferrer nofollow"
                   target="_blank"
                   className="bevel-sm group flex items-center justify-between gap-2 border border-night-700/70 px-3 py-2 text-sm transition-colors hover:border-gold-500/60"

@@ -1,10 +1,10 @@
 ---
-titre: "La riduzione delle cure, la statistica che nessuno si compra"
+title: "La riduzione delle cure, la statistica che nessuno si compra"
 date: "2026-09-05"
-categorie: "Guide"
-auteur: "achedon12"
-chapeau: "Estes, Yu Zhong, Uranus, Esmeralda: buona parte delle partite perse in coda classificata si giocano su un oggetto che nessuno prende."
-motsCles: ["reduction de soins", "guide", "objets", "estes", "yu zhong"]
+category: "Guide"
+author: "achedon12"
+summary: "Estes, Yu Zhong, Uranus, Esmeralda: buona parte delle partite perse in coda classificata si giocano su un oggetto che nessuno prende."
+keywords: ["reduction de soins", "guide", "objets", "estes", "yu zhong"]
 ---
 
 Questo è il rimprovero più frequente dopo una sconfitta: “ci hanno pensato i loro Este

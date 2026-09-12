@@ -473,7 +473,7 @@ export const normalizeName = (name) =>
  * be reported rather than guessed.
  */
 export function createHeroResolver(aliases, siteHeroes) {
-  const byName = new Map(siteHeroes.map((h) => [normalizeName(h.nom), h.slug]));
+  const byName = new Map(siteHeroes.map((h) => [normalizeName(h.name), h.slug]));
   const unknown = new Map();
   const lookup = (raw) => {
     const key = raw.toLowerCase().trim();

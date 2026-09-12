@@ -137,27 +137,27 @@ function normaliserHeros(brut) {
     .filter(([nom, h]) => nom !== "Mystery Hero" && !vide(h.id) && !vide(h.name))
     .map(([, h]) => ({
       slug: slugifier(h.name),
-      nom: String(h.name),
+      name: String(h.name),
       id: String(h.id),
-      titre: propre(h.title),
+      title: propre(h.title),
       roles: liste(h.role1, h.role2),
       lanes: liste(h.lane1, h.lane2).map((l) => LANES[l] ?? l),
-      specialites: liste(h.specialty1, h.specialty2),
-      sortie: propre(h.release_date),
-      annee: propre(h.release_year) ?? extraireAnnee(h.release_date),
-      ressource: propre(h.resource),
-      typeDegats: propre(h.dmg_type),
-      typeAttaque: propre(h.atk_type),
+      specialties: liste(h.specialty1, h.specialty2),
+      release: propre(h.release_date),
+      year: propre(h.release_year) ?? extraireAnnee(h.release_date),
+      resource: propre(h.resource),
+      damageType: propre(h.dmg_type),
+      attackType: propre(h.atk_type),
       region: propre(h.region),
-      notes: {
-        offensive: nombre(h.ratings?.offense),
-        resistance: nombre(h.ratings?.durability),
-        effets: nombre(h.ratings?.control_effect ?? h.ratings?.ability_effects),
-        difficulte: nombre(h.ratings?.difficulty),
+      ratings: {
+        offense: nombre(h.ratings?.offense),
+        durability: nombre(h.ratings?.durability),
+        abilityEffects: nombre(h.ratings?.control_effect ?? h.ratings?.ability_effects),
+        difficulty: nombre(h.ratings?.difficulty),
       },
       stats: h.stats && typeof h.stats === "object" ? normaliserStats(h.stats) : null,
     }))
-    .sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
+    .sort((a, b) => a.name.localeCompare(b.name, "fr"));
 }
 
 function nombre(v) {
@@ -192,12 +192,12 @@ function normaliserSkins(brut) {
       .filter((s) => !vide(s.id) && !vide(s.name))
       .map((s) => ({
         id: String(s.id),
-        nom: String(s.name),
-        sortie: propre(s.release)?.replace(/-XX/g, "") ?? null,
-        disponibilite: propre(s.availability),
-        rarete: propre(s.tier),
-        etiquette: propre(s.tag),
-        prix: Object.fromEntries(
+        name: String(s.name),
+        release: propre(s.release)?.replace(/-XX/g, "") ?? null,
+        availability: propre(s.availability),
+        rarity: propre(s.tier),
+        label: propre(s.tag),
+        price: Object.fromEntries(
           Object.entries(s.price ?? {})
             .map(([m, v]) => [m, propre(v)])
             .filter(([, v]) => v),
@@ -225,18 +225,18 @@ function normaliserObjets(brut) {
     .filter(([, o]) => nombre(o.price) > 0 || !vide(o.bonus))
     .map(([, o]) => ({
       slug: slugifier(o.name),
-      nom: String(o.name),
-      resume: propre(o.caption),
-      categorie: propre(o.type) ?? "Autre",
-      prix: nombre(o.price),
+      name: String(o.name),
+      summary: propre(o.caption),
+      category: propre(o.type) ?? "Autre",
+      price: nombre(o.price),
       bonus: propre(o.bonus),
       unique: propre(o.unique),
-      passif: propre(o.passive),
-      actif: propre(o.active),
-      recette: propre(o.recipe)?.split(",").map((x) => x.trim()).filter(Boolean) ?? [],
-      pourQui: propre(o.availability),
+      passive: propre(o.passive),
+      active: propre(o.active),
+      recipe: propre(o.recipe)?.split(",").map((x) => x.trim()).filter(Boolean) ?? [],
+      bestFor: propre(o.availability),
     }))
-    .sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
+    .sort((a, b) => a.name.localeCompare(b.name, "fr"));
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -375,21 +375,21 @@ function planVisuels(heros, skins, portraits, icones) {
 
   for (const h of heros) {
     const dossier = `visuels/heros/${h.slug}`;
-    const entree = { portrait: null, icone: null, skins: {} };
+    const entree = { portrait: null, icon: null, skins: {} };
 
     if (portraits[h.id]) {
       entree.portrait = `/${dossier}/portrait.png`;
       plan.push({ url: portraits[h.id], chemin: `public/${dossier}/portrait.png` });
     }
     if (icones[h.id]) {
-      entree.icone = `/${dossier}/icone.png`;
+      entree.icon = `/${dossier}/icone.png`;
       plan.push({ url: icones[h.id], chemin: `public/${dossier}/icone.png` });
     }
 
     for (const skin of skins[h.slug] ?? []) {
       const url = portraits[skin.id];
       if (!url) continue;
-      const fichier = `${skin.id}-${slugifier(skin.nom)}.png`;
+      const fichier = `${skin.id}-${slugifier(skin.name)}.png`;
       entree.skins[skin.id] = `/${dossier}/skins/${fichier}`;
       plan.push({ url, chemin: `public/${dossier}/skins/${fichier}` });
     }
@@ -545,7 +545,7 @@ function extraireDePage(wikitexte) {
       if (suivant.type === "titre") break;
       if (suivant.valeur) {
         parSection[e.valeur] = {
-          nom: suivant.valeur,
+          name: suivant.valeur,
           description: suivant.description,
           image: suivant.image ?? null,
         };
@@ -574,7 +574,7 @@ async function pagesHeros(heros) {
 
     const donnees = await api({
       action: "query",
-      titles: lot.map((h) => h.nom).join("|"),
+      titles: lot.map((h) => h.name).join("|"),
       prop: "revisions",
       rvprop: "content",
       rvslots: "main",
@@ -591,7 +591,7 @@ async function pagesHeros(heros) {
     );
 
     for (const h of lot) {
-      const texte = parTitre.get(redirections.get(h.nom) ?? h.nom);
+      const texte = parTitre.get(redirections.get(h.name) ?? h.name);
       if (texte) sortie[h.slug] = extraireDePage(texte);
     }
 
@@ -662,9 +662,9 @@ async function jsonDe(url, essais = 3) {
 async function ecrireEvolution(complementaires) {
   const existante = await lireJson(`${SORTIE}/evolution.json`);
   const evolution = {
-    tendances: { ...(existante.tendances ?? {}), ...(complementaires?.tendances ?? {}) },
-    duree: { ...(existante.duree ?? {}), ...(complementaires?.duree ?? {}) },
-    historique: fusionnerHistorique(existante.historique ?? {}, complementaires?.tendances ?? {}),
+    trends: { ...(existante.trends ?? {}), ...(complementaires?.tendances ?? {}) },
+    duration: { ...(existante.duration ?? {}), ...(complementaires?.duree ?? {}) },
+    history: fusionnerHistorique(existante.history ?? {}, complementaires?.tendances ?? {}),
   };
   const parLigne = (parCle) => {
     const lignes = Object.entries(parCle).map(([k, v]) => `    ${JSON.stringify(k)}: ${JSON.stringify(v)}`);
@@ -687,12 +687,12 @@ async function evolutionSeule() {
   // Les heros encore sans mesure d'abord : une relance comble les trous avant
   // que l'API ne sature.
   const existante = await lireJson(`${SORTIE}/evolution.json`);
-  const mesure = (h) => Number(Boolean(existante.tendances?.[h.slug]));
+  const mesure = (h) => Number(Boolean(existante.trends?.[h.slug]));
   const ordre = [...heros].sort((a, b) => mesure(a) - mesure(b));
   console.log(`Coequipiers et tendances (academie), ${heros.filter((h) => !mesure(h)).length} heros sans mesure…`);
   const complementaires = await coequipiersEtTendances(ordre, await tableHerosParId(heros));
   const stats = await lireJson(`${SORTIE}/statistiques.json`);
-  stats.coequipiers = { ...(stats.coequipiers ?? {}), ...complementaires.coequipiers };
+  stats.teammates = { ...(stats.teammates ?? {}), ...complementaires.coequipiers };
   await Promise.all([
     writeFile(`${SORTIE}/statistiques.json`, JSON.stringify(stats, null, 2) + "\n"),
     ecrireEvolution(complementaires),
@@ -710,7 +710,7 @@ async function combosArena(heros, skillsArena, competencesSite, icones) {
   const sortie = {};
   let muets = 0;
   for (const [i, h] of heros.entries()) {
-    const reponse = await jsonDe(`${STATS}/heroes/${encodeURIComponent(h.nom)}/skill-combos`);
+    const reponse = await jsonDe(`${STATS}/heroes/${encodeURIComponent(h.name)}/skill-combos`);
     const records = reponse?.data?.records;
     muets = reponse ? 0 : muets + 1;
     if (Array.isArray(records)) {
@@ -752,7 +752,7 @@ async function combosSeuls() {
   console.log("Fiches des heros (API)…");
   const { competences: skillsArena } = await competencesArena(heros);
   const competencesSite = await lireJson(`${SORTIE}/competences.json`);
-  const icones = (await lireJson(`${SORTIE}/visuels.json`)).competences ?? {};
+  const icones = (await lireJson(`${SORTIE}/visuels.json`)).skills ?? {};
   console.log("Combos de competences (API)…");
   const combos = await combosArena(heros, skillsArena, competencesSite, icones);
   const total = await ecrireCombos(combos);
@@ -777,7 +777,7 @@ async function duosArena(heros, parId) {
   const sortie = {};
   let muets = 0;
   for (const [i, h] of heros.entries()) {
-    const nom = encodeURIComponent(h.nom);
+    const nom = encodeURIComponent(h.name);
     const resultats = [];
     for (let k = 0; k < RANGS_MESURE.length; k += EN_VOL_DUOS) {
       const lot = RANGS_MESURE.slice(k, k + EN_VOL_DUOS);
@@ -811,7 +811,7 @@ async function duosArena(heros, parId) {
  * servi garde sa mesure precedente.
  */
 async function ecrireDuos(duos) {
-  const existants = (await lireJson(`${SORTIE}/duos.json`)).heros ?? {};
+  const existants = (await lireJson(`${SORTIE}/duos.json`)).heroes ?? {};
   const tous = fusionnerDuos(existants, duos ?? {});
   await writeFile(`${SORTIE}/duos.json`, serialiserDuos(JOURS_DUOS, tous));
   return Object.keys(tous).length;
@@ -824,7 +824,7 @@ async function ecrireDuos(duos) {
 async function duosSeuls() {
   const heros = await lireJson(`${SORTIE}/heros.json`);
   if (!Array.isArray(heros) || heros.length === 0) throw new Error("Lancer d'abord une synchronisation complete.");
-  const existants = (await lireJson(`${SORTIE}/duos.json`)).heros ?? {};
+  const existants = (await lireJson(`${SORTIE}/duos.json`)).heroes ?? {};
   const mesure = (h) => Number(Boolean(existants[h.slug]));
   const ordre = [...heros].sort((a, b) => mesure(a) - mesure(b));
   console.log(`Duos (compatibilite, ${JOURS_DUOS} jours), ${heros.filter((h) => !mesure(h)).length} heros sans mesure…`);
@@ -848,7 +848,7 @@ async function coequipiersEtTendances(heros, parId) {
   const duree = {};
 
   async function mesuresDuRang(h, rang) {
-    const nom = encodeURIComponent(h.nom);
+    const nom = encodeURIComponent(h.name);
     const lane = LANES_API[h.lanes[0]];
     const [equipe, tendance, chrono] = await Promise.all([
       jsonDe(`${STATS}/academy/heroes/${nom}/teammates?rank=${rang}`),
@@ -862,23 +862,23 @@ async function coequipiersEtTendances(heros, parId) {
       .filter((a) => a.slug && a.slug !== h.slug && typeof a.gain === "number")
       .sort((a, b) => b.gain - a.gain)
       .slice(0, 6)
-      .map((a) => ({ slug: a.slug, avantage: Math.round(a.gain * 1000) / 10 }));
+      .map((a) => ({ slug: a.slug, advantage: Math.round(a.gain * 1000) / 10 }));
 
     const serie = serieQuotidienne(
       (tendance?.data?.records?.[0]?.data?.win_rate ?? [])
         .filter((x) => x?.date && typeof x.win_rate === "number")
         .map((x) => ({
           date: x.date,
-          victoire: arrondi(x.win_rate * 100, 1),
-          ban: arrondi(x.ban_rate * 100, 1),
-          selection: arrondi(x.app_rate * 100, 2),
+          winRate: arrondi(x.win_rate * 100, 1),
+          banRate: arrondi(x.ban_rate * 100, 1),
+          pickRate: arrondi(x.app_rate * 100, 2),
         })),
     );
 
     const tranches = (chrono?.data?.records?.[0]?.data?.time_win_rate ?? [])
       .filter((x) => typeof x?.win_rate === "number" && typeof x.time_min === "number")
       .sort((a, b) => a.time_min - b.time_min)
-      .map((x) => ({ de: x.time_min, a: x.time_max ?? null, victoire: arrondi(x.win_rate * 100, 1) }));
+      .map((x) => ({ from: x.time_min, to: x.time_max ?? null, winRate: arrondi(x.win_rate * 100, 1) }));
 
     return { meilleurs: meilleurs.length > 0 ? meilleurs : null, serie, tranches: tranches.length > 0 ? tranches : null };
   }
@@ -928,7 +928,7 @@ async function contresReels(heros) {
   async function contresDuRang(h, rang) {
     try {
       const rep = await fetch(
-        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/counters?rank=${rang}`,
+        `${STATS}/academy/heroes/${encodeURIComponent(h.name)}/counters?rank=${rang}`,
         { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(20000) },
       );
       if (!rep.ok) return null;
@@ -949,14 +949,14 @@ async function contresReels(heros) {
       // ce duel : positive, il gagne davantage → il contre l'adversaire ;
       // negative, il est en difficulte. On trie du plus favorable au moins.
       const parDelta = [...notes].sort((a, b) => b.delta - a.delta);
-      const point = (a) => ({ slug: a.slug, avantage: Math.round(a.delta * 1000) / 10 });
+      const point = (a) => ({ slug: a.slug, advantage: Math.round(a.delta * 1000) / 10 });
 
       return {
         // avantage positif : le heros est fort contre cette cible.
-        fort: parDelta.slice(0, 6).map(point),
+        strong: parDelta.slice(0, 6).map(point),
         // avantage negatif : le heros est en difficulte.
-        faible: parDelta.slice(-6).reverse().map(point),
-        mesure: bloc.main_hero_win_rate
+        weak: parDelta.slice(-6).reverse().map(point),
+        winRate: bloc.main_hero_win_rate
           ? Math.round(bloc.main_hero_win_rate * 1000) / 10
           : null,
       };
@@ -1038,7 +1038,7 @@ async function buildsReels(heros) {
   async function buildsDuRang(h, l, lane, rang) {
     try {
       const rep = await fetch(
-        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/builds?rank=${rang}&lane=${lane}`,
+        `${STATS}/academy/heroes/${encodeURIComponent(h.name)}/builds?rank=${rang}&lane=${lane}`,
         { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(20000) },
       );
       if (!rep.ok) return null;
@@ -1056,14 +1056,14 @@ async function buildsReels(heros) {
         .sort((a, b) => (b.build_pick_rate ?? 0) - (a.build_pick_rate ?? 0))
         .slice(0, 3)
         .map((b) => ({
-          objets: (b.equipid ?? []).map((id) => objetParId.get(id)).filter(Boolean),
-          embleme: b.emblem?.data?.emblemname ?? null,
+          items: (b.equipid ?? []).map((id) => objetParId.get(id)).filter(Boolean),
+          emblem: b.emblem?.data?.emblemname ?? null,
           talents: (b.new_rune_skill ?? [])
             .map((id) => talentParId.get(id)?.skillname)
             .filter(Boolean),
-          sort: sortParId.get(b.skillid)?.skillname ?? b.battleskill?.data?.__data?.skillname ?? null,
-          victoire: arrondir(b.build_win_rate),
-          selection: arrondir(b.build_pick_rate),
+          spell: sortParId.get(b.skillid)?.skillname ?? b.battleskill?.data?.__data?.skillname ?? null,
+          winRate: arrondir(b.build_win_rate),
+          pickRate: arrondir(b.build_pick_rate),
         }));
     } catch {
       /* un rang en echec n'interrompt pas la synchronisation */
@@ -1075,7 +1075,7 @@ async function buildsReels(heros) {
   async function guidesDuHeros(h) {
     try {
       const rep = await fetch(
-        `${STATS}/academy/heroes/${encodeURIComponent(h.nom)}/recommended?size=100`,
+        `${STATS}/academy/heroes/${encodeURIComponent(h.name)}/recommended?size=100`,
         { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(30000) },
       );
       if (!rep.ok) return [];
@@ -1093,9 +1093,9 @@ async function buildsReels(heros) {
             talents: Array.isArray(embleme?.emblem_gifts) ? embleme.emblem_gifts : [],
             sortId: d?.spell?.spell_id ?? null,
             route: d?.hero?.hero_lane != null ? String(d.hero.hero_lane) : null,
-            rangAuteur: Number(r?.user?.historyRankLevel) || 0,
+            authorRank: Number(r?.user?.historyRankLevel) || 0,
             votes: Number(r?.vote_all?.total) || 0,
-            vues: Number(r?.dynamic?.views) || 0,
+            views: Number(r?.dynamic?.views) || 0,
           },
         ];
       });
@@ -1147,13 +1147,13 @@ async function buildsReels(heros) {
         const meilleur = choisirGuide(candidats, rang);
         if (!meilleur) continue;
         parRang[rang] = {
-          objets: meilleur.equipement.map((id) => objetParId.get(id)).filter(Boolean),
-          embleme: emblemeParId.get(meilleur.emblemeId) ?? null,
+          items: meilleur.equipement.map((id) => objetParId.get(id)).filter(Boolean),
+          emblem: emblemeParId.get(meilleur.emblemeId) ?? null,
           talents: meilleur.talents.map((id) => talentParId.get(id)?.skillname).filter(Boolean),
-          sort: sortParId.get(meilleur.sortId)?.skillname ?? null,
-          rangAuteur: meilleur.rangAuteur,
+          spell: sortParId.get(meilleur.sortId)?.skillname ?? null,
+          authorRank: meilleur.authorRank,
           votes: meilleur.votes,
-          vues: meilleur.vues,
+          views: meilleur.views,
         };
       }
       if (Object.keys(parRang).length > 0) parLane[l] = parRang;
@@ -1201,9 +1201,9 @@ async function classement(heros) {
       }
 
       taux[cle] = {
-        victoire: arrondir(d.main_hero_win_rate),
-        ban: arrondir(d.main_hero_ban_rate),
-        selection: arrondir(d.main_hero_appearance_rate),
+        winRate: arrondir(d.main_hero_win_rate),
+        banRate: arrondir(d.main_hero_ban_rate),
+        pickRate: arrondir(d.main_hero_appearance_rate),
       };
     }
     return { taux, orphelins };
@@ -1265,8 +1265,8 @@ async function relations(heros) {
         .filter(Boolean);
 
     sortie[slug] = {
-      fortContre: lire("strong"),
-      faibleContre: lire("weak"),
+      strongAgainst: lire("strong"),
+      weakAgainst: lire("weak"),
       synergies: lire("assist"),
     };
   }
@@ -1333,12 +1333,12 @@ async function patchs() {
 
     const candidat = {
       version,
-      titre: m.title,
-      lien: `https://mobilelegends.fandom.com/wiki/${encodeURIComponent(m.title.replace(/ /g, "_"))}`,
+      title: m.title,
+      link: `https://mobilelegends.fandom.com/wiki/${encodeURIComponent(m.title.replace(/ /g, "_"))}`,
     };
 
     const existant = parVersion.get(version);
-    if (!existant || rang(candidat.titre) < rang(existant.titre)) {
+    if (!existant || rang(candidat.title) < rang(existant.title)) {
       parVersion.set(version, candidat);
     }
   }
@@ -1357,7 +1357,7 @@ async function daterPatchs(detail) {
       const donnees = await api({
         action: "query",
         prop: "revisions",
-        titles: patch.titre,
+        titles: patch.title,
         rvprop: "timestamp",
         rvdir: "newer",
         rvlimit: "1",
@@ -1385,7 +1385,7 @@ async function contenuPatchs(liste) {
     try {
       const donnees = await api({
         action: "parse",
-        page: patch.titre,
+        page: patch.title,
         prop: "text",
         disabletoc: "1",
         formatversion: "2",
@@ -1401,7 +1401,7 @@ async function contenuPatchs(liste) {
       try {
         const wt = await api({
           action: "parse",
-          page: patch.titre,
+          page: patch.title,
           prop: "wikitext",
           formatversion: "2",
         });
@@ -1411,7 +1411,7 @@ async function contenuPatchs(liste) {
         // Sans le wikitexte, on garde au moins le rendu HTML.
       }
 
-      const { html } = nettoyerRendu(brut, patch.lien);
+      const { html } = nettoyerRendu(brut, patch.link);
 
       // Le corps est decoupe en sections : la page en rend certaines telles
       // quelles et en remplace d'autres — nouveaux heros, ajustements — par un
@@ -1420,10 +1420,10 @@ async function contenuPatchs(liste) {
       const sections = decouperSections(html);
       let nouveaux = [];
       const sectionsRendues = sections.map((s) => {
-        const t = (s.titre ?? "").toLowerCase();
+        const t = (s.title ?? "").toLowerCase();
         if (/hero adjustments/.test(t)) return { ...s, html: "", role: "ajustements" };
         if (/new hero/.test(t)) {
-          nouveaux = nouveauxHeros(s.html).map((h) => ({ ...h, slug: slugifier(h.nom) }));
+          nouveaux = nouveauxHeros(s.html).map((h) => ({ ...h, slug: slugifier(h.name) }));
           return { ...s, html: "", role: "nouveaux" };
         }
         return { ...s, role: null };
@@ -1431,14 +1431,14 @@ async function contenuPatchs(liste) {
 
       contenus[patch.version] = {
         version: patch.version,
-        titre: patch.titre,
-        lien: patch.lien,
-        sommaire: sommaire(html),
+        title: patch.title,
+        link: patch.link,
+        toc: sommaire(html),
         sections: sectionsRendues,
-        nouveaux,
+        newHeroes: nouveaux,
         // Ajustements de heros ramenes a des slugs, pour lier aux fiches.
-        ajustements: ajustements.map((a) => ({ ...a, slug: slugifier(a.nom) })),
-        bilan: bilan(ajustements),
+        adjustments: ajustements.map((a) => ({ ...a, slug: slugifier(a.name) })),
+        balance: bilan(ajustements),
       };
     } catch {
       // Une page illisible ne doit pas interrompre la synchronisation.
@@ -1496,7 +1496,7 @@ async function competencesArena(heros) {
 
   for (const [i, h] of heros.entries()) {
     try {
-      const rep = await fetch(`${STATS}/heroes/${encodeURIComponent(h.nom)}?lang=en`, {
+      const rep = await fetch(`${STATS}/heroes/${encodeURIComponent(h.name)}?lang=en`, {
         headers: { "User-Agent": UA },
         signal: AbortSignal.timeout(20000),
       });
@@ -1507,9 +1507,9 @@ async function competencesArena(heros) {
           sortie[h.slug] = skills.map((s) => ({
             // Identifiant de jeu : c'est par lui que les combos designent la competence.
             id: s.skillid ?? null,
-            nom: String(s.skillname ?? "").trim(),
+            name: String(s.skillname ?? "").trim(),
             description: nettoyerSkillDesc(s.skilldesc) || null,
-            icone: s.skillicon ? String(s.skillicon) : null,
+            icon: s.skillicon ? String(s.skillicon) : null,
           }));
         }
         const accroche = String(data?.story ?? "").trim();
@@ -1606,7 +1606,7 @@ async function modesDeJeu() {
     const c = (await contenu(e.page)) ?? (await contenu(e.nom));
 
     modes.push({
-      nom: e.nom,
+      name: e.nom,
       slug: slugifier(e.nom),
       description: c?.description ?? null,
       sections: c?.sections ?? [],
@@ -1748,10 +1748,10 @@ async function principal() {
 
     const liste = [];
     for (let i = 0; i < n; i += 1) {
-      const nom = wiki[i]?.nom ?? arena[i]?.nom ?? ancien[i]?.nom ?? null;
+      const nom = wiki[i]?.name ?? arena[i]?.name ?? ancien[i]?.name ?? null;
       const description =
         wiki[i]?.description ?? arena[i]?.description ?? ancien[i]?.description ?? null;
-      liste.push(nom || description ? { nom, description } : null);
+      liste.push(nom || description ? { name: nom, description } : null);
     }
     competencesFinales[h.slug] = liste;
   }
@@ -1766,10 +1766,10 @@ async function principal() {
     const accroche = accroches[h.slug] ?? null;
     if (!recit && !accroche) continue;
     histoires[h.slug] = {
-      accroche,
+      tagline: accroche,
       lore: recit?.lore ?? [],
-      fiche: recit?.fiche ?? null,
-      anecdotes: recit?.anecdotes ?? [],
+      profile: recit?.fiche ?? null,
+      trivia: recit?.anecdotes ?? [],
     };
   }
   console.log(`  ${Object.keys(histoires).length} histoires de heros`);
@@ -1830,7 +1830,7 @@ async function principal() {
   let liens = null;
   try {
     liens = await relations(heros);
-    const n = Object.values(liens).reduce((t, r) => t + r.fortContre.length, 0);
+    const n = Object.values(liens).reduce((t, r) => t + r.strongAgainst.length, 0);
     console.log(`  ${Object.keys(liens).length} heros, ${n} relations de contre`);
   } catch (erreur) {
     console.warn(`  relations indisponibles (${erreur.message}) — inchangees`);
@@ -1907,14 +1907,14 @@ async function principal() {
   const nomsCompetences = [
     ...new Set(
       Object.entries(competencesFinales).flatMap(([slug, cs]) =>
-        cs.map((c, i) => (c?.nom ? fichierIcone(slug, i, c.nom) : null)).filter(Boolean),
+        cs.map((c, i) => (c?.name ? fichierIcone(slug, i, c.name) : null)).filter(Boolean),
       ),
     ),
   ];
   const urlsCompetences = await urlsFichiers(nomsCompetences);
 
   // Icones deja resolues : dernier recours si ni le wiki ni l'API ne repondent.
-  const visuelsExistants = (await lireJson(`${SORTIE}/visuels.json`)).competences ?? {};
+  const visuelsExistants = (await lireJson(`${SORTIE}/visuels.json`)).skills ?? {};
 
   let iconesArena = 0;
   const visuelsCompetences = {};
@@ -1922,7 +1922,7 @@ async function principal() {
     const arena = skillsArena[slug] ?? [];
     const icones = {};
     comps.forEach((competence, i) => {
-      const nom = competence?.nom;
+      const nom = competence?.name;
       if (!nom) return;
       const urlWiki = urlsCompetences[fichierIcone(slug, i, nom)];
       if (urlWiki) {
@@ -1934,13 +1934,13 @@ async function principal() {
           optimiser: true,
           largeur: 128,
         });
-      } else if (arena[i]?.icone) {
+      } else if (arena[i]?.icon) {
         // Repli : l'icone officielle du CDN de l'API, copiee en local comme le
         // reste — le site ne sert aucune image depuis un hote externe.
         const fichier = `${slugifier(nom)}.webp`;
         icones[nom] = `/visuels/competences/${fichier}`;
         plan.push({
-          url: arena[i].icone,
+          url: arena[i].icon,
           chemin: `public/visuels/competences/${fichier}`,
           optimiser: true,
           largeur: 128,
@@ -1988,7 +1988,7 @@ async function principal() {
     // L'illustration est rangee sous le nom du module de donnees, celui que la
     // fiche utilise pour la retrouver, des que la legende le reconnait.
     const nomsModule = new Map(
-      (skins[slug] ?? []).map((s) => [normaliserNomSkin(s.nom), s.nom]),
+      (skins[slug] ?? []).map((s) => [normaliserNomSkin(s.name), s.name]),
     );
     for (const { fichier, skin } of page.illustrations) {
       const cle = fichier.replace(/\.(jpg|png)$/, "");
@@ -2013,7 +2013,7 @@ async function principal() {
 
   console.log("Resolution des objets, emblemes, talents et sorts…");
   const [urlsObjets, urlsEmblemes, urlsTalents, urlsSorts] = await Promise.all([
-    urlsFichiers(objets.map((o) => o.nom)),
+    urlsFichiers(objets.map((o) => o.name)),
     urlsFichiers(EMBLEMES),
     urlsFichiers(TALENTS),
     urlsFichiers(SORTS),
@@ -2084,19 +2084,19 @@ async function principal() {
   // rythme que le reste.
   const statsExistantes = await lireJson(`${SORTIE}/statistiques.json`);
   const statistiques = {
-    classement: stats
-      ? { mesure: new Date().toISOString(), taux: stats.all, parRang: stats }
-      : (statsExistantes.classement ?? { mesure: null, taux: {} }),
-    contres: contres ?? statsExistantes.contres ?? {},
+    rankings: stats
+      ? { measuredAt: new Date().toISOString(), rates: stats.all, byRank: stats }
+      : (statsExistantes.rankings ?? { measuredAt: null, rates: {} }),
+    counters: contres ?? statsExistantes.counters ?? {},
     builds: builds ?? statsExistantes.builds ?? {},
     guides: guides ?? statsExistantes.guides ?? {},
     // Par heros : celui que l'API n'a pas servi garde ses coequipiers.
-    coequipiers: { ...(statsExistantes.coequipiers ?? {}), ...(complementaires?.coequipiers ?? {}) },
+    teammates: { ...(statsExistantes.teammates ?? {}), ...(complementaires?.coequipiers ?? {}) },
     relations: liens ?? statsExistantes.relations ?? {},
   };
 
   // Table nom-par-slug, embarquee cote client sans le reste du catalogue.
-  const noms = Object.fromEntries(heros.map((h) => [h.slug, h.nom]));
+  const noms = Object.fromEntries(heros.map((h) => [h.slug, h.name]));
 
   await Promise.all([
     // Catalogue
@@ -2113,27 +2113,27 @@ async function principal() {
     ecrireDuos(duos),
     // Tous les chemins de visuels, regroupes
     ecrire("visuels", {
-      heros: chemins,
+      heroes: chemins,
       illustrations,
-      competences: visuelsCompetences,
-      objets: visuelsObjets,
-      emblemes: visuelsEmblemes,
+      skills: visuelsCompetences,
+      items: visuelsObjets,
+      emblems: visuelsEmblemes,
       talents: visuelsTalents,
-      sorts: visuelsSorts,
+      spells: visuelsSorts,
     }),
     // Mesures et patchs, regroupes
     ecrire("statistiques", statistiques),
-    ecrire("patchs", { liste: listePatchs, detail: detailPatchs }),
+    ecrire("patchs", { list: listePatchs, details: detailPatchs }),
     // Metadonnees de la synchronisation
     ecrire("synchro", {
       date: new Date().toISOString(),
       source: "https://mobilelegends.fandom.com",
-      heros: heros.length,
+      heroes: heros.length,
       skins: nbSkins,
-      objets: objets.length,
-      patchs: listePatchs.length,
-      classement: stats ? Object.keys(stats.all).length : null,
-      contres: contres ? Object.keys(contres).length : null,
+      items: objets.length,
+      patches: listePatchs.length,
+      rankings: stats ? Object.keys(stats.all).length : null,
+      counters: contres ? Object.keys(contres).length : null,
       builds: builds ? Object.keys(builds).length : null,
       // Le wiki fournit le catalogue ; l'API communautaire fournit les mesures.
       sources: [

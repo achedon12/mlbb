@@ -28,7 +28,7 @@ export function generateStaticParams() {
   return sortsFiches.map((s) => ({ slug: s.slug }));
 }
 
-const nomHeros = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const nomHeros = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
 /**
  * Ce que la page et ses metadonnees disent d'un sort : son effet quand il est
@@ -89,7 +89,7 @@ export default async function PageSort({ params }: Params) {
       return e
         ? [{
             cle: p.cle,
-            nom: texteChoix(t, e.embleme.cle, "nom", e.embleme.nom)!,
+            nom: texteChoix(t, e.embleme.key, "nom", e.embleme.name)!,
             image: e.image,
             part: p.part,
             href: `/emblems/${e.slug}`,

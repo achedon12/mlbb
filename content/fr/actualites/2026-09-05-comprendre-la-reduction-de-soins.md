@@ -1,10 +1,10 @@
 ---
-titre: "La réduction de soins, la statistique que personne n'achète"
+title: "La réduction de soins, la statistique que personne n'achète"
 date: "2026-09-05"
-categorie: "Guide"
-auteur: "achedon12"
-chapeau: "Estes, Yu Zhong, Uranus, Esmeralda : une bonne partie des parties perdues en file classée se joue sur un objet que personne ne prend."
-motsCles: ["réduction de soins", "guide", "objets", "estes", "yu zhong"]
+category: "Guide"
+author: "achedon12"
+summary: "Estes, Yu Zhong, Uranus, Esmeralda : une bonne partie des parties perdues en file classée se joue sur un objet que personne ne prend."
+keywords: ["réduction de soins", "guide", "objets", "estes", "yu zhong"]
 ---
 
 C'est le reproche le plus fréquent après une défaite : « leur Estes soignait

@@ -31,18 +31,18 @@ export function catalogueEquipe(): HerosEquipe[] {
       roles: h.roles,
       icone: h.icone,
       synergies: h.synergies,
-      degats: degatsDe(fiche?.typeDegats ?? null),
-      notes: fiche?.notes ?? { offensive: null, resistance: null, effets: null, difficulte: null },
+      degats: degatsDe(fiche?.damageType ?? null),
+      notes: fiche?.ratings ?? { offense: null, durability: null, abilityEffects: null, difficulty: null },
     };
   });
 }
 
-const ecarts = (liste: { slug: string; avantage: number }[] | undefined): Ecart[] =>
-  (liste ?? []).map((e) => [e.slug, e.avantage]);
+const ecarts = (liste: { slug: string; advantage: number }[] | undefined): Ecart[] =>
+  (liste ?? []).map((e) => [e.slug, e.advantage]);
 
 export function mesuresRang(rang: RangMesure): MesuresRang {
   const stats: MesuresRang["stats"] = Object.fromEntries(
-    classementDuRang(rang).map((e) => [e.heros.slug, [e.victoire, e.palier]]),
+    classementDuRang(rang).map((e) => [e.hero.slug, [e.winRate, e.tier]]),
   );
 
   // Les tranches de duree sont les memes pour tous les heros : on les ecrit
@@ -53,9 +53,9 @@ export function mesuresRang(rang: RangMesure): MesuresRang {
   for (const h of heros) {
     const liste = dureeDe(h.slug)[rang];
     if (!liste?.length) continue;
-    if (tranches.length === 0) tranches = liste.map(({ de, a }) => ({ de, a }));
-    if (liste.length === tranches.length && liste.every((x, i) => x.de === tranches[i].de)) {
-      duree[h.slug] = liste.map((x) => x.victoire);
+    if (tranches.length === 0) tranches = liste.map(({ from, to }) => ({ from, to }));
+    if (liste.length === tranches.length && liste.every((x, i) => x.from === tranches[i].from)) {
+      duree[h.slug] = liste.map((x) => x.winRate);
     }
   }
 
@@ -68,6 +68,6 @@ export function mesuresRang(rang: RangMesure): MesuresRang {
     tranches,
     duree,
     coequipiers: parHeros((s) => ecarts(coequipiers[s]?.[rang])),
-    faible: parHeros((s) => ecarts(contres[s]?.[rang]?.faible)),
+    faible: parHeros((s) => ecarts(contres[s]?.[rang]?.weak)),
   };
 }

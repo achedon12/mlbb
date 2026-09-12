@@ -43,12 +43,12 @@ export function VitrineProvider({
   const valeur: Contexte = {
     actif: actif ?? {
       id: "",
-      nom: "",
-      sortie: null,
-      disponibilite: null,
-      rarete: null,
-      etiquette: null,
-      prix: {},
+      name: "",
+      release: null,
+      availability: null,
+      rarity: null,
+      label: null,
+      price: {},
       portrait: portraitDefaut,
       illustration: null,
     },
@@ -85,7 +85,7 @@ export function PortraitVitrine({
       {source ? (
         <Image
           src={source}
-          alt={`${nom}${actif.nom ? ` — ${actif.nom}` : ""}`}
+          alt={`${nom}${actif.name ? ` — ${actif.name}` : ""}`}
           fill
           priority
           sizes="112px"
@@ -114,7 +114,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
     <div>
       {/* Legende des raretes presentes. */}
       <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
-        {raretesPresentes(skins.map((s) => s.rarete)).map((r) => (
+        {raretesPresentes(skins.map((s) => s.rarity)).map((r) => (
           <li key={r.nom} className="flex items-center gap-1.5 text-xs text-chalk-500">
             <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.couleur }} />
             {tr("skinRarete", r.cle)}
@@ -158,33 +158,33 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
         <span
           aria-hidden
           className="absolute inset-y-0 left-0 w-1"
-          style={{ background: rarete(actif.rarete).couleur }}
+          style={{ background: rarete(actif.rarity).couleur }}
         />
 
         <div className="relative flex min-h-72 flex-col justify-end gap-4 p-6 sm:min-h-80 sm:max-w-md">
           <div>
             <h3 className="font-heading text-3xl font-bold leading-none text-chalk-100">
-              {actif.nom}
+              {actif.name}
             </h3>
-            {actif.rarete && (
+            {actif.rarity && (
               <p
                 className="mt-1.5 text-sm font-semibold uppercase tracking-wide"
-                style={{ color: rarete(actif.rarete).couleur }}
+                style={{ color: rarete(actif.rarity).couleur }}
               >
-                {tr("skinRarete", rarete(actif.rarete).cle)}
+                {tr("skinRarete", rarete(actif.rarity).cle)}
               </p>
             )}
           </div>
 
           <dl className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            {actif.sortie && <Info label={t("skinsUI.sortie")} valeur={actif.sortie} />}
-            {actif.disponibilite && <Info label={t("skinsUI.disponibilite")} valeur={tr("skinDispo", actif.disponibilite)} />}
-            {actif.etiquette && <Info label={t("skinsUI.obtention")} valeur={tr("skinEtiquette", actif.etiquette)} />}
+            {actif.release && <Info label={t("skinsUI.sortie")} valeur={actif.release} />}
+            {actif.availability && <Info label={t("skinsUI.disponibilite")} valeur={tr("skinDispo", actif.availability)} />}
+            {actif.label && <Info label={t("skinsUI.obtention")} valeur={tr("skinEtiquette", actif.label)} />}
           </dl>
 
-          {Object.entries(actif.prix).length > 0 && (
+          {Object.entries(actif.price).length > 0 && (
             <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-              {Object.entries(actif.prix).map(([m, v]) => (
+              {Object.entries(actif.price).map(([m, v]) => (
                 <li key={m} className="text-chalk-100">
                   {v} <span className="text-chalk-500">{MONNAIES[m] ? t(`skinsUI.${MONNAIES[m]}`) : m}</span>
                 </li>
@@ -192,7 +192,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
             </ul>
           )}
 
-          {!actif.sortie && !actif.disponibilite && Object.keys(actif.prix).length === 0 && (
+          {!actif.release && !actif.availability && Object.keys(actif.price).length === 0 && (
             <p className="text-sm text-chalk-500">{t("skinsUI.origine")}</p>
           )}
         </div>
@@ -202,14 +202,14 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
       <ul className="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-7">
         {skins.map((s) => {
           const selectionne = s.id === actif.id;
-          const r = rarete(s.rarete);
+          const r = rarete(s.rarity);
           return (
             <li key={s.id}>
               <button
                 type="button"
                 onClick={() => choisir(s.id)}
                 aria-pressed={selectionne}
-                title={`${s.nom} — ${r.nom}`}
+                title={`${s.name} — ${r.nom}`}
                 style={{
                   borderColor: r.couleur,
                   boxShadow: selectionne ? `0 0 0 2px ${r.halo}, 0 0 12px ${r.halo}` : undefined,
@@ -231,7 +231,7 @@ export function VitrineSkins({ skins }: { skins: SkinComplet[] }) {
                   )}
                 </span>
                 <span className="block truncate bg-night-900 px-1.5 py-1 text-[0.6rem] leading-tight text-chalk-300">
-                  {s.nom}
+                  {s.name}
                 </span>
               </button>
             </li>

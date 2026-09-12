@@ -214,7 +214,7 @@ describe("comparaison aux moyennes du site", () => {
   it("prend la moyenne de la tranche, ou tous rangs a defaut", () => {
     const m = moyenneDuRang("ling", "mythic")!;
     const stats = statsParRang("ling");
-    expect(m.victoire).toBe(stats[m.tranche]!.victoire);
+    expect(m.victoire).toBe(stats[m.tranche]!.winRate);
     expect(m.tranche).toBe(stats.mythic ? "mythic" : "all");
     expect(moyenneDuRang("heros-inexistant", "mythic")).toBeNull();
   });

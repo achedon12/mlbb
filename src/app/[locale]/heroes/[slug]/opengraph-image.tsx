@@ -45,7 +45,7 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
   // le build, et ne lit pas le WebP — d'ou la conversion, recadree sur la zone
   // la plus parlante de l'image.
   let portrait: string | null = null;
-  const chemin = Object.values(illustrations[slug] ?? {})[0] ?? h?.visuels.portrait;
+  const chemin = Object.values(illustrations[slug] ?? {})[0] ?? h?.images.portrait;
   if (chemin) {
     try {
       const png = await sharp(await readFile(join(process.cwd(), "public", chemin)))
@@ -77,9 +77,9 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "64px", flex: 1 }}>
           <div style={{ display: "flex", fontSize: 30, fontWeight: 800, color: "#f5c451" }}>{site.nom}</div>
           <div style={{ display: "flex", marginTop: 28, fontSize: 88, fontWeight: 800, lineHeight: 1 }}>
-            {h?.nom ?? slug}
+            {h?.name ?? slug}
           </div>
-          {h?.titre && <div style={{ display: "flex", marginTop: 14, fontSize: 36, color: "#9aa7c2" }}>{h.titre}</div>}
+          {h?.title && <div style={{ display: "flex", marginTop: 14, fontSize: 36, color: "#9aa7c2" }}>{h.title}</div>}
           {h && (
             <div style={{ display: "flex", marginTop: 20, fontSize: 30, color: "#cfd6e6" }}>
               {h.roles.map((r) => t(`roles.${r}`)).join(" · ")}

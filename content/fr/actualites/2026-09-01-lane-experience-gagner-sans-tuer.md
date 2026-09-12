@@ -1,10 +1,10 @@
 ---
-titre: "Lane d'expérience : gagner sa lane sans jamais tuer personne"
+title: "Lane d'expérience : gagner sa lane sans jamais tuer personne"
 date: "2026-09-01"
-categorie: "Guide"
-auteur: "achedon12"
-chapeau: "La lane d'expérience se gagne à la vague de sbires et à la tourelle, pas au duel. Ce qui change tout dans la façon de la jouer."
-motsCles: ["lane expérience", "guide", "macro", "farm", "split push"]
+category: "Guide"
+author: "achedon12"
+summary: "La lane d'expérience se gagne à la vague de sbires et à la tourelle, pas au duel. Ce qui change tout dans la façon de la jouer."
+keywords: ["lane expérience", "guide", "macro", "farm", "split push"]
 ---
 
 La lane d'expérience produit plus de mauvaises habitudes que n'importe quelle

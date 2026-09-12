@@ -22,10 +22,16 @@ import { cn } from "@/lib/utils";
 
 type Mesure = "victoire" | "ban" | "selection";
 const MESURES: Mesure[] = ["victoire", "ban", "selection"];
+/** Champ de la serie correspondant a chaque mesure affichee. */
+const CHAMP: Record<Mesure, "winRate" | "banRate" | "pickRate"> = {
+  victoire: "winRate",
+  ban: "banRate",
+  selection: "pickRate",
+};
 const PERIODES = [7, 15, 30];
 
 /** Une serie alignee, jour par jour. */
-const pointsDe = (serie: SerieTaux, mesure: Mesure): PointCourbe[] => pointsDates(serie.debut, serie[mesure]);
+const pointsDe = (serie: SerieTaux, mesure: Mesure): PointCourbe[] => pointsDates(serie.start, serie[CHAMP[mesure]]);
 
 const mesurees = (points: PointCourbe[]) => points.flatMap((p) => (p.valeur === null ? [] : [p.valeur]));
 
@@ -49,7 +55,7 @@ export function StatistiquesHeros({
   duree: Partial<Record<RangMesure, TrancheDuree[]>>;
   historique: SerieTaux | null;
   patchs: { version: string; date: string }[];
-  parRang: Partial<Record<RangMesure, { victoire: number; ban: number }>>;
+  parRang: Partial<Record<RangMesure, { winRate: number; banRate: number }>>;
   /** Patchs qui ont touche le heros, pour en mesurer l'effet. */
   ajustements?: { version: string; type: TypeAjustement | null }[];
 }) {
@@ -75,7 +81,7 @@ export function StatistiquesHeros({
   const valeurs = mesurees(points);
   const debut = valeurs[0];
   const fin = valeurs.at(-1);
-  const long = historique && historique.victoire.length > 31 ? pointsDe(historique, "victoire") : null;
+  const long = historique && historique.winRate.length > 31 ? pointsDe(historique, "victoire") : null;
 
   return (
     <div className="space-y-12">
@@ -153,7 +159,7 @@ export function StatistiquesHeros({
           <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistiques.parRangIntro")}</p>
           <ul className="mt-4 space-y-2.5">
             {(() => {
-              const taux = rangs.map((r) => parRang[r]!.victoire);
+              const taux = rangs.map((r) => parRang[r]!.winRate);
               const bas = Math.min(...taux) - 1;
               const haut = Math.max(...taux) + 0.5;
               return rangs.map((r) => {
@@ -166,12 +172,12 @@ export function StatistiquesHeros({
                     <span className="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-night-800">
                       <span
                         className={cn("block h-full rounded-full", r === rang ? "bg-gold-500" : "bg-chalk-500/50")}
-                        style={{ width: `${((s.victoire - bas) / (haut - bas)) * 100}%` }}
+                        style={{ width: `${((s.winRate - bas) / (haut - bas)) * 100}%` }}
                       />
                     </span>
-                    <span className="w-14 shrink-0 text-right tabular-nums text-chalk-100">{nombre(s.victoire)} %</span>
+                    <span className="w-14 shrink-0 text-right tabular-nums text-chalk-100">{nombre(s.winRate)} %</span>
                     <span className="hidden w-20 shrink-0 text-right text-xs tabular-nums text-chalk-500 sm:block">
-                      {t("pages.heroDetail.statistiques.banCourt", { v: nombre(s.ban) })}
+                      {t("pages.heroDetail.statistiques.banCourt", { v: nombre(s.banRate) })}
                     </span>
                   </li>
                 );
@@ -187,7 +193,7 @@ export function StatistiquesHeros({
           <p className="mt-1 text-sm text-chalk-500">
             {t("pages.heroDetail.statistiques.historiqueIntro", {
               date: new Intl.DateTimeFormat(langue, { dateStyle: "long", timeZone: "UTC" }).format(
-                new Date(`${historique.debut}T00:00:00Z`),
+                new Date(`${historique.start}T00:00:00Z`),
               ),
             })}
           </p>
@@ -251,7 +257,7 @@ function EffetPatchs({
             ? t("pages.heroDetail.statistiques.impact.vide", {
                 n: MESURES_MIN_IMPACT,
                 date: new Intl.DateTimeFormat(langue, { dateStyle: "long", timeZone: "UTC" }).format(
-                  new Date(`${historique.debut}T00:00:00Z`),
+                  new Date(`${historique.start}T00:00:00Z`),
                 ),
               })
             : t("pages.heroDetail.statistiques.impact.videSansHistorique", { nom })}
@@ -320,12 +326,12 @@ function Duree({
   nombre: (v: number) => string;
 }) {
   const t = useT();
-  const taux = tranches.map((x) => x.victoire);
+  const taux = tranches.map((x) => x.winRate);
   const meilleure = taux.indexOf(Math.max(...taux));
-  const libelle = (x: Pick<TrancheDuree, "de" | "a">) =>
-    x.a === null
-      ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.de })
-      : t("pages.heroDetail.statistiques.minutes", { de: x.de, a: x.a });
+  const libelle = (x: Pick<TrancheDuree, "from" | "to">) =>
+    x.to === null
+      ? t("pages.heroDetail.statistiques.minutesPlus", { de: x.from })
+      : t("pages.heroDetail.statistiques.minutes", { de: x.from, a: x.to });
 
   return (
     <section>

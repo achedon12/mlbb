@@ -31,16 +31,16 @@ export function ListeArticles({
           >
             <div className="flex flex-wrap items-center gap-3">
               <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-                {t(`articleCat.${a.categorie}`)}
+                {t(`articleCat.${a.category}`)}
               </span>
               <time dateTime={a.date} className="text-xs text-chalk-500">
                 {formaterDate(a.date, LOCALE_HTML[langue])}
               </time>
             </div>
             <h2 className="mt-2 font-heading text-xl font-bold leading-snug text-chalk-100">
-              {a.titre}
+              {a.title}
             </h2>
-            <p className="mt-3 leading-relaxed text-chalk-500">{a.chapeau}</p>
+            <p className="mt-3 leading-relaxed text-chalk-500">{a.summary}</p>
           </Link>
         </li>
       ))}
@@ -68,29 +68,29 @@ export function CorpsArticle({
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-14">
-      <FilAriane miettes={[{ nom: section, href: retour.href }, { nom: article.titre }]} />
+      <FilAriane miettes={[{ nom: section, href: retour.href }, { nom: article.title }]} />
 
       <header className="mt-6 border-b border-night-800 pb-8">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-            {t(`articleCat.${article.categorie}`)}
+            {t(`articleCat.${article.category}`)}
           </span>
           <time dateTime={article.date} className="text-xs text-chalk-500">
             {formaterDate(article.date, LOCALE_HTML[langue])}
           </time>
-          <span className="text-xs text-chalk-500">{t("articleUI.par", { auteur: article.auteur })}</span>
+          <span className="text-xs text-chalk-500">{t("articleUI.par", { auteur: article.author })}</span>
         </div>
         <h1 className="mt-4 font-heading text-3xl font-bold leading-tight text-chalk-100 sm:text-4xl">
-          {article.titre}
+          {article.title}
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-chalk-300">{article.chapeau}</p>
+        <p className="mt-4 text-lg leading-relaxed text-chalk-300">{article.summary}</p>
       </header>
 
       <div className="prose-mlbb mt-10" dangerouslySetInnerHTML={{ __html: assainirHtml(html) }} />
 
-      {article.motsCles.length > 0 && (
+      {article.keywords.length > 0 && (
         <ul className="mt-12 flex flex-wrap gap-2 border-t border-night-800 pt-6">
-          {article.motsCles.map((m) => (
+          {article.keywords.map((m) => (
             <li
               key={m}
               className="bevel-sm border border-night-700 px-2.5 py-1 text-xs text-chalk-500"

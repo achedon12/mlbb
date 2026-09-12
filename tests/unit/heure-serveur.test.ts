@@ -66,7 +66,7 @@ describe("durees et fuseaux", () => {
 });
 
 describe("fins de saison annoncees", () => {
-  const patch = (date: string, html: string) => ({ version: "x", lien: "https://exemple", date, sections: [{ html }] });
+  const patch = (date: string, html: string) => ({ version: "x", link: "https://exemple", date, sections: [{ html }] });
 
   it("lit l'heure serveur d'une fin de saison et la convertit en UTC", () => {
     const fins = finsDeSaison([patch("2024-03-05", "<li>S31 will end at 23:59:59 on 3/15 (Server Time).</li>")]);

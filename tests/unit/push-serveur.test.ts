@@ -44,7 +44,7 @@ const etat = () => JSON.parse(readFileSync(join(dossier, "push-etat.json"), "utf
 
 const patch = (version: string) => ({
   version,
-  ajustements: [
+  adjustments: [
     { slug: "khufra", type: "amelioration" as const },
     { slug: "layla", type: "affaiblissement" as const },
   ],

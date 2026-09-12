@@ -36,13 +36,13 @@ const dixieme = (v: number) => Math.round(v * 10) / 10;
  */
 const comparables: HerosComparable[] = heros.map((h) => ({
   slug: h.slug,
-  nom: h.nom,
-  icone: h.visuels.icone ?? h.visuels.portrait,
+  nom: h.name,
+  icone: h.images.icon ?? h.images.portrait,
   roles: h.roles,
   lanes: h.lanes,
-  notes: h.notes,
+  notes: h.ratings,
   taux: Object.fromEntries(
-    Object.entries(statsParRang(h.slug)).map(([r, s]) => [r, [dixieme(s.victoire), dixieme(s.ban), s.palier] satisfies TauxRang]),
+    Object.entries(statsParRang(h.slug)).map(([r, s]) => [r, [dixieme(s.winRate), dixieme(s.banRate), s.tier] satisfies TauxRang]),
   ),
   skins: h.skins.length,
 }));
@@ -52,7 +52,7 @@ const bornes: Partial<Record<(typeof RANGS_CLASSES)[number], BornesRang>> = Obje
   RANGS_CLASSES.map((r) => {
     const entrees = classementDuRang(r);
     const etendue = (valeurs: number[]): [number, number] => [Math.min(...valeurs), Math.max(...valeurs)];
-    return [r, { victoire: etendue(entrees.map((e) => e.victoire)), ban: etendue(entrees.map((e) => e.ban)) }];
+    return [r, { victoire: etendue(entrees.map((e) => e.winRate)), ban: etendue(entrees.map((e) => e.banRate)) }];
   }),
 );
 
@@ -66,12 +66,12 @@ function duelsEnAvant(): { a: string; b: string }[] {
   const vus = new Set<string>();
   const sortie: { a: string; b: string }[] = [];
   for (const e of classementComplet) {
-    const autre = adversairesMesures(contres, e.heros.slug).find(
-      (x) => herosParSlug.has(x.slug) && !vus.has(segmentPaire(e.heros.slug, x.slug)),
+    const autre = adversairesMesures(contres, e.hero.slug).find(
+      (x) => herosParSlug.has(x.slug) && !vus.has(segmentPaire(e.hero.slug, x.slug)),
     );
     if (!autre) continue;
-    vus.add(segmentPaire(e.heros.slug, autre.slug));
-    sortie.push({ a: e.heros.slug, b: autre.slug });
+    vus.add(segmentPaire(e.hero.slug, autre.slug));
+    sortie.push({ a: e.hero.slug, b: autre.slug });
     if (sortie.length === DUELS_EN_AVANT) break;
   }
   return sortie;
@@ -80,7 +80,7 @@ function duelsEnAvant(): { a: string; b: string }[] {
 export default async function PageComparateur({ params }: { params: Promise<{ locale: Langue }> }) {
   const { locale } = await params;
   const t = creerT(locale);
-  const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+  const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
   const donneesStructurees = donneesOutil(locale, {
     nom: t("pages.compare.titre"),

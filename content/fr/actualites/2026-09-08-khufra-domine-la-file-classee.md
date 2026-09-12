@@ -1,10 +1,10 @@
 ---
-titre: "Pourquoi Khufra est devenu incontournable en file classée"
+title: "Pourquoi Khufra est devenu incontournable en file classée"
 date: "2026-09-08"
-categorie: "Actualite"
-auteur: "achedon12"
-chapeau: "Un seul héros répond à toute une catégorie du roster. Retour sur la raison pour laquelle Khufra est présent dans presque toutes les parties classées hautes."
-motsCles: ["khufra", "tier list", "file classée", "tank", "meta"]
+category: "Actualite"
+author: "achedon12"
+summary: "Un seul héros répond à toute une catégorie du roster. Retour sur la raison pour laquelle Khufra est présent dans presque toutes les parties classées hautes."
+keywords: ["khufra", "tier list", "file classée", "tank", "meta"]
 ---
 
 Il y a des héros forts, et il y a des héros qui répondent à un problème que

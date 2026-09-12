@@ -149,12 +149,12 @@ describe("fichesHerosRang", () => {
     expect(fiches.map((f) => f.ligne.heros.slug)).toEqual(["ling", "lolita", "fanny"]);
 
     const ling = fiches[0];
-    const attendu = [...buildsJoues.ling.Jungle.mythic!].sort((a, b) => (b.selection ?? 0) - (a.selection ?? 0))[0];
+    const attendu = [...buildsJoues.ling.Jungle.mythic!].sort((a, b) => (b.pickRate ?? 0) - (a.pickRate ?? 0))[0];
     expect(ling).toMatchObject({ lane: "Jungle", rangBuild: "mythic", rangContres: "mythic" });
-    expect(ling.build!.objets.map((o) => o.nom)).toEqual(attendu.objets);
+    expect(ling.build!.objets.map((o) => o.nom)).toEqual(attendu.items);
     expect(ling.build!.objets[0].slug).not.toBeNull();
 
-    const pires = [...contres.ling.mythic!.faible].sort((a, b) => a.avantage - b.avantage).slice(0, 3);
+    const pires = [...contres.ling.mythic!.weak].sort((a, b) => a.advantage - b.advantage).slice(0, 3);
     expect(ling.faibles.map((c) => c.heros.slug)).toEqual(pires.map((c) => c.slug));
     const ecarts = ling.faibles.map((c) => c.avantage);
     expect(ecarts).toEqual([...ecarts].sort((a, b) => a - b));

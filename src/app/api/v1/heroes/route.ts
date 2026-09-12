@@ -23,15 +23,15 @@ export function GET(requete: Request) {
     .filter((h) => (lane ? h.lanes.includes(lane) : true))
     .map((h) => ({
       slug: h.slug,
-      nom: h.nom,
-      titre: h.titre,
+      name: h.name,
+      title: h.title,
       roles: h.roles,
       lanes: h.lanes,
-      specialites: h.specialites,
-      sortie: h.sortie,
-      notes: h.notes,
+      specialties: h.specialties,
+      release: h.release,
+      ratings: h.ratings,
       skins: h.skins.length,
-      competences: (competences("en")[h.slug] ?? []).map((c) => c?.nom ?? null),
+      skills: (competences("en")[h.slug] ?? []).map((c) => c?.name ?? null),
     }));
 
   return reponseApi(resultats, { total: resultats.length });

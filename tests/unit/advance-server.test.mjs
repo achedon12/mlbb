@@ -18,15 +18,15 @@ import {
 import { isUnderTest, upcomingForHero } from "@/lib/advance-server";
 
 const HEROES = buildIndex([
-  { slug: "leomord", nom: "Leomord" },
-  { slug: "suyou", nom: "Suyou" },
-  { slug: "phoveus", nom: "Phoveus" },
-  { slug: "julian", nom: "Julian" },
-  { slug: "cici", nom: "Cici" },
-  { slug: "aurora", nom: "Aurora" },
-  { slug: "popol-and-kupa", nom: "Popol and Kupa" },
+  { slug: "leomord", name: "Leomord" },
+  { slug: "suyou", name: "Suyou" },
+  { slug: "phoveus", name: "Phoveus" },
+  { slug: "julian", name: "Julian" },
+  { slug: "cici", name: "Cici" },
+  { slug: "aurora", name: "Aurora" },
+  { slug: "popol-and-kupa", name: "Popol and Kupa" },
 ]);
-const ITEMS = buildIndex([{ slug: "windtalker", nom: "Windtalker" }]);
+const ITEMS = buildIndex([{ slug: "windtalker", name: "Windtalker" }]);
 
 const PAGE = `{{Infobox patch note
   | patch = 1.8.92

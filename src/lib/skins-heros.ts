@@ -40,8 +40,8 @@ export function skinsComplets(h: Heros): SkinComplet[] {
   const parNom = new Map(Object.entries(parHeros).map(([nom, chemin]) => [normaliserNomSkin(nom), chemin]));
   return h.skins.map((s) => ({
     ...s,
-    portrait: h.visuels.skins[s.id] ?? null,
-    illustration: parHeros[s.nom] ?? parNom.get(normaliserNomSkin(s.nom)) ?? null,
+    portrait: h.images.skins[s.id] ?? null,
+    illustration: parHeros[s.name] ?? parNom.get(normaliserNomSkin(s.name)) ?? null,
   }));
 }
 
@@ -78,7 +78,7 @@ export function titreGalerie(t: T, locale: Langue, nom: string): string {
 
 /** Ancres des skins d'une galerie, dans l'ordre d'affichage : catalogue, puis illustrations seules. */
 export function ancresGalerie(g: GalerieHeros): string[] {
-  return ancresUniques([...g.skins.map((s) => s.nom), ...g.autres.map((a) => a.nom)]);
+  return ancresUniques([...g.skins.map((s) => s.name), ...g.autres.map((a) => a.nom)]);
 }
 
 /**
@@ -87,18 +87,18 @@ export function ancresGalerie(g: GalerieHeros): string[] {
  */
 export function groupesSkins(): GroupeSkins[] {
   return [...herosAvecSkins]
-    .sort((a, b) => a.nom.localeCompare(b.nom, "en"))
+    .sort((a, b) => a.name.localeCompare(b.name, "en"))
     .map((h) => {
       const g = galerieHeros(h);
       return {
         slug: h.slug,
-        nom: h.nom,
+        nom: h.name,
         roles: h.roles,
         skins: [
           ...g.skins.map((s): VignetteSkin => [
-            s.nom,
-            coderImage(h.slug, s.nom, s.portrait ? s.id : null, s.portrait ?? s.illustration),
-            s.rarete ? (RARETES[s.rarete]?.rang ?? 0) : 0,
+            s.name,
+            coderImage(h.slug, s.name, s.portrait ? s.id : null, s.portrait ?? s.illustration),
+            s.rarity ? (RARETES[s.rarity]?.rang ?? 0) : 0,
           ]),
           ...g.autres.map((a): VignetteSkin => [a.nom, coderImage(h.slug, a.nom, null, a.illustration), 0]),
         ],
@@ -110,7 +110,7 @@ export function groupesSkins(): GroupeSkins[] {
 export function derniersSkins(nombre: number): { heros: Heros; skin: SkinComplet }[] {
   return herosAvecSkins
     .flatMap((h) => galerieHeros(h).skins.map((skin) => ({ heros: h, skin })))
-    .filter((e) => /^\d{4}-\d{2}-\d{2}$/.test(e.skin.sortie ?? ""))
-    .sort((a, b) => b.skin.sortie!.localeCompare(a.skin.sortie!) || a.skin.nom.localeCompare(b.skin.nom, "en"))
+    .filter((e) => /^\d{4}-\d{2}-\d{2}$/.test(e.skin.release ?? ""))
+    .sort((a, b) => b.skin.release!.localeCompare(a.skin.release!) || a.skin.name.localeCompare(b.skin.name, "en"))
     .slice(0, nombre);
 }

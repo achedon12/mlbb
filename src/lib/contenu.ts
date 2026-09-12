@@ -40,13 +40,13 @@ function lireDossier(dossier: string): Article[] {
         // devient un segment d'adresse, encode : un nom de fichier ne doit
         // jamais pouvoir former un lien executable.
         slug: encodeURIComponent(fichier.replace(/\.md$/, "").replace(/^\d{4}-\d{2}-\d{2}-/, "")),
-        titre: String(data.titre ?? "Sans titre"),
+        title: String(data.title ?? "Sans titre"),
         date: String(data.date ?? ""),
-        chapeau: String(data.chapeau ?? ""),
-        categorie: (data.categorie ?? "Actualite") as Article["categorie"],
-        auteur: String(data.auteur ?? "achedon12"),
-        motsCles: Array.isArray(data.motsCles) ? data.motsCles.map(String) : [],
-        contenu: content,
+        summary: String(data.summary ?? ""),
+        category: (data.category ?? "Actualite") as Article["category"],
+        author: String(data.author ?? "achedon12"),
+        keywords: Array.isArray(data.keywords) ? data.keywords.map(String) : [],
+        content: content,
       } satisfies Article;
     })
     .sort((a, b) => b.date.localeCompare(a.date));

@@ -105,8 +105,8 @@ export function decouperSections(html) {
   for (const noeud of racine.childNodes) {
     if (noeud.rawTagName === "h2") {
       courante = {
-        ancre: noeud.getAttribute("id") ?? null,
-        titre: noeud.text.trim(),
+        anchor: noeud.getAttribute("id") ?? null,
+        title: noeud.text.trim(),
         html: "",
       };
       sections.push(courante);
@@ -115,7 +115,7 @@ export function decouperSections(html) {
 
     // Contenu avant le premier h2 : on l'ouvre dans une section sans titre.
     if (!courante) {
-      courante = { ancre: null, titre: null, html: "" };
+      courante = { anchor: null, title: null, html: "" };
       sections.push(courante);
     }
 
@@ -124,7 +124,7 @@ export function decouperSections(html) {
 
   return sections
     .map((s) => ({ ...s, html: s.html.trim() }))
-    .filter((s) => s.titre || s.html);
+    .filter((s) => s.title || s.html);
 }
 
 /**
@@ -151,12 +151,12 @@ export function nouveauxHeros(sectionHtml) {
       const nom = (morceaux.length > 1 ? morceaux.pop() : brut).trim();
       const epithete = morceaux.join(" - ").trim() || null;
       courant = {
-        nom,
-        epithete,
-        ancre: noeud.getAttribute("id") ?? null,
+        name: nom,
+        epithet: epithete,
+        anchor: noeud.getAttribute("id") ?? null,
         lore: [],
         feature: null,
-        competences: [],
+        skills: [],
       };
       heros.push(courant);
       continue;
@@ -174,7 +174,7 @@ export function nouveauxHeros(sectionHtml) {
         const role = (coupe >= 0 ? etiquette.slice(0, coupe) : etiquette).trim();
         const nom =
           coupe >= 0 ? etiquette.slice(coupe).replace(/^\s[-–—]\s/, "").trim() : null;
-        courant.competences.push({ role, nom, description: [] });
+        courant.skills.push({ role, name: nom, description: [] });
         continue;
       }
 
@@ -191,7 +191,7 @@ export function nouveauxHeros(sectionHtml) {
     }
 
     if (tag === "ul") {
-      const derniere = courant.competences.at(-1);
+      const derniere = courant.skills.at(-1);
       if (!derniere) continue;
       for (const item of noeud.querySelectorAll("li")) {
         const texte = item.text.replace(/\s+/g, " ").trim();
@@ -225,9 +225,9 @@ export function sommaire(html) {
   return parse(html)
     .querySelectorAll("h2, h3")
     .map((t) => ({
-      niveau: t.rawTagName === "h2" ? 2 : 3,
-      titre: t.text.trim(),
-      ancre: t.getAttribute("id") ?? null,
+      level: t.rawTagName === "h2" ? 2 : 3,
+      title: t.text.trim(),
+      anchor: t.getAttribute("id") ?? null,
     }))
-    .filter((t) => t.ancre && t.titre.length > 0 && t.titre.length < 120);
+    .filter((t) => t.anchor && t.title.length > 0 && t.title.length < 120);
 }

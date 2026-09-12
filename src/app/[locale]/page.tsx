@@ -59,7 +59,7 @@ const donneesAccueil = (locale: Langue) => ({
 
 const detail = patchsDetail as unknown as Record<
   string,
-  { version: string; sommaire: { titre: string }[] }
+  { version: string; toc: { title: string }[] }
 >;
 
 /**
@@ -94,7 +94,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
   const dernierPatch = patchs.find((p) => detail[p.version]);
 
   const classe = vedette
-    ? classementComplet.find((e) => e.heros.slug === vedette.heros.slug)
+    ? classementComplet.find((e) => e.hero.slug === vedette.heros.slug)
     : null;
 
   const parRole = Object.fromEntries(
@@ -112,7 +112,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
     .map((h) => {
       const entrees = Object.entries(illustrations[h.slug]);
       const [nom, image] = entrees[entrees.length - 1];
-      return { slug: h.slug, heros: h.nom, skin: nom, image };
+      return { slug: h.slug, heros: h.name, skin: nom, image };
     });
 
   return (
@@ -183,8 +183,8 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
         <AccueilVedette
           heros={vedette.heros}
           illustration={vedette.illustration}
-          palier={classe?.palier ?? null}
-          victoire={classe?.victoire ?? null}
+          palier={classe?.tier ?? null}
+          victoire={classe?.winRate ?? null}
           langue={locale}
         />
       )}
@@ -236,15 +236,15 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
 
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {sommet.map((e) => (
-              <li key={e.heros.slug}>
+              <li key={e.hero.slug}>
                 <Link
-                  href={`/heroes/${e.heros.slug}`}
+                  href={`/heroes/${e.hero.slug}`}
                   className="bevel flex h-full flex-col items-center gap-2 border border-night-700/70 bg-night-900/60 p-4 text-center transition-colors hover:border-gold-500/60"
                 >
                   <span className="bevel-sm relative size-16 overflow-hidden bg-night-800">
-                    {e.heros.visuels.portrait && (
+                    {e.hero.images.portrait && (
                       <Image
-                        src={e.heros.visuels.portrait}
+                        src={e.hero.images.portrait}
                         alt=""
                         fill
                         sizes="64px"
@@ -252,10 +252,10 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                       />
                     )}
                   </span>
-                  <BadgePalier palier={e.palier} />
-                  <span className="font-heading font-bold text-chalk-100">{e.heros.nom}</span>
+                  <BadgePalier palier={e.tier} />
+                  <span className="font-heading font-bold text-chalk-100">{e.hero.name}</span>
                   <span className="text-xs text-chalk-500">
-                    {new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(e.victoire)}{" "}
+                    {new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(e.winRate)}{" "}
                     {t("home.pourcentVictoires")}
                   </span>
                 </Link>
@@ -346,9 +346,9 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                   Patch {dernierPatch.version}
                 </p>
                 <ul className="mt-4 space-y-1.5">
-                  {detail[dernierPatch.version].sommaire.slice(0, 5).map((s) => (
-                    <li key={s.titre} className="text-sm leading-snug text-chalk-300">
-                      {s.titre}
+                  {detail[dernierPatch.version].toc.slice(0, 5).map((s) => (
+                    <li key={s.title} className="text-sm leading-snug text-chalk-300">
+                      {s.title}
                     </li>
                   ))}
                 </ul>
@@ -373,22 +373,22 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
               {articles.map((a) => (
                 <li key={a.slug}>
                   <Link
-                    href={`/${a.categorie === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
+                    href={`/${a.category === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
                     className="bevel block border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
                   >
                     <span className="flex flex-wrap items-center gap-3">
                       <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-                        {t(`articleCat.${a.categorie}`)}
+                        {t(`articleCat.${a.category}`)}
                       </span>
                       <time dateTime={a.date} className="text-xs text-chalk-500">
                         {formaterDate(a.date, LOCALE_HTML[locale])}
                       </time>
                     </span>
                     <span className="mt-1.5 block font-heading text-lg font-bold leading-snug text-chalk-100">
-                      {a.titre}
+                      {a.title}
                     </span>
                     <span className="mt-1.5 block text-sm leading-relaxed text-chalk-500">
-                      {a.chapeau}
+                      {a.summary}
                     </span>
                   </Link>
                 </li>
@@ -485,10 +485,10 @@ function ListeMouvements({
                   href={`/heroes/${slug}`}
                   className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60"
                 >
-                  <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="icone" decoratif />
+                  <PortraitHeros source={h.images.icon ?? h.images.portrait} nom={h.name} taille="icone" decoratif />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                      {h.nom}
+                      {h.name}
                     </span>
                     <span className="block text-xs text-chalk-500">
                       {pourcent.format(v.actuel)} {t("home.pourcentVictoires")}

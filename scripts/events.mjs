@@ -108,7 +108,7 @@ export function readGallery(wikitext) {
 
 /** Entries linked to their hero's slug; an unknown hero keeps its name, without a slug. */
 export function attachHeroes(entries, heroes) {
-  const byName = new Map(heroes.map((h) => [nameKey(h.nom), h.slug]));
+  const byName = new Map(heroes.map((h) => [nameKey(h.name), h.slug]));
   return entries.map((e) => (e.none ? e : { ...e, hero: byName.get(nameKey(e.heroName)) ?? null }));
 }
 

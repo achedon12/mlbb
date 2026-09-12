@@ -14,26 +14,26 @@ export async function GET(
 ) {
   const { slug } = await params;
   const h = herosParSlug.get(slug);
-  if (!h) return introuvable("Heros");
+  if (!h) return introuvable("Hero");
 
   return reponseApi({
     slug: h.slug,
-    nom: h.nom,
-    titre: h.titre,
+    name: h.name,
+    title: h.title,
     roles: h.roles,
     lanes: h.lanes,
-    specialites: h.specialites,
-    sortie: h.sortie,
-    ressource: h.ressource,
-    typeDegats: h.typeDegats,
-    typeAttaque: h.typeAttaque,
+    specialties: h.specialties,
+    release: h.release,
+    resource: h.resource,
+    damageType: h.damageType,
+    attackType: h.attackType,
     region: h.region,
-    notes: h.notes,
-    statistiques: h.stats,
-    competences: competences("en")[h.slug] ?? [],
+    ratings: h.ratings,
+    stats: h.stats,
+    skills: competences("en")[h.slug] ?? [],
     skins: h.skins,
-    visuels: h.visuels,
+    images: h.images,
     illustrations: illustrations[h.slug] ?? {},
-    analyse: h.analyse,
+    analysis: h.analysis,
   });
 }

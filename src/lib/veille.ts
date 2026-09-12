@@ -15,36 +15,36 @@ import veilleGenere from "@/data/jeu/veille.json";
 
 export interface Source {
   slug: string;
-  nom: string;
+  name: string;
   /** Page d'accueil de la source, affichee comme credit. */
   site: string;
 }
 
 export const sources: Source[] = [
-  { slug: "reddit", nom: "r/MobileLegendsGame", site: "https://www.reddit.com/r/MobileLegendsGame/" },
-  { slug: "esports-gg", nom: "Esports.gg", site: "https://esports.gg/" },
+  { slug: "reddit", name: "r/MobileLegendsGame", site: "https://www.reddit.com/r/MobileLegendsGame/" },
+  { slug: "esports-gg", name: "Esports.gg", site: "https://esports.gg/" },
 ];
 
 export interface Actualite {
-  titre: string;
-  lien: string;
+  title: string;
+  link: string;
   date: string;
-  extrait: string;
+  excerpt: string;
   source: string;
   sourceSlug: string;
 }
 
 interface Instantane {
-  mesure: string;
-  actualites: Actualite[];
+  measuredAt: string;
+  news: Actualite[];
 }
 
 const instantane = veilleGenere as unknown as Instantane;
 
 /** Date de l'instantane (derniere collecte des flux). */
-export const mesureVeille = instantane.mesure;
+export const mesureVeille = instantane.measuredAt;
 
 /** Les actualites de l'instantane, deja triees du plus recent au plus ancien. */
 export function veille(limite = 40): Actualite[] {
-  return instantane.actualites.slice(0, limite);
+  return instantane.news.slice(0, limite);
 }

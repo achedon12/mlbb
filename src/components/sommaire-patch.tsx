@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
  * lecture et met en avant la section a l'ecran.
  */
 export interface Entree {
-  niveau: number;
-  titre: string;
-  ancre: string;
+  level: number;
+  title: string;
+  anchor: string;
 }
 
 export function SommairePatch({ entrees }: { entrees: Entree[] }) {
@@ -23,7 +23,7 @@ export function SommairePatch({ entrees }: { entrees: Entree[] }) {
 
   useEffect(() => {
     const titres = entrees
-      .map((e) => document.getElementById(e.ancre))
+      .map((e) => document.getElementById(e.anchor))
       .filter((n): n is HTMLElement => n !== null);
     if (titres.length === 0) return;
 
@@ -49,19 +49,19 @@ export function SommairePatch({ entrees }: { entrees: Entree[] }) {
       </p>
       <ul className="mt-3 space-y-0.5 border-l border-night-800">
         {entrees.map((e) => (
-          <li key={e.ancre}>
+          <li key={e.anchor}>
             <a
-              href={`#${e.ancre}`}
-              aria-current={actif === e.ancre ? "true" : undefined}
+              href={`#${e.anchor}`}
+              aria-current={actif === e.anchor ? "true" : undefined}
               className={cn(
                 "-ml-px block border-l py-1 text-sm leading-snug transition-colors",
-                e.niveau === 3 ? "pl-6 text-xs" : "pl-3",
-                actif === e.ancre
+                e.level === 3 ? "pl-6 text-xs" : "pl-3",
+                actif === e.anchor
                   ? "border-gold-500 text-gold-400"
                   : "border-transparent text-chalk-500 hover:text-chalk-100",
               )}
             >
-              {e.titre}
+              {e.title}
             </a>
           </li>
         ))}

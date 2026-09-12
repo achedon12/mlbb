@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const count = ((await listBuilds().catch(() => [])) ?? []).filter((b) => b.build.hero === hero).length;
   return {
     ...metaPage(locale, {
-      titre: t("pages.seo.communityBuildsHero.title", { hero: h.nom }),
-      description: t("pages.seo.communityBuildsHero.description", { hero: h.nom }),
+      titre: t("pages.seo.communityBuildsHero.title", { hero: h.name }),
+      description: t("pages.seo.communityBuildsHero.description", { hero: h.name }),
       chemin: `/builds/${hero}`,
     }),
     ...(count === 0 ? { robots: { index: false, follow: true } } : {}),
@@ -52,21 +52,21 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
   const { builds: stored, viewer, now } = await readCommunity();
   const mine = stored ? sortBuilds(stored.filter((b) => b.build.hero === hero), "votes", now) : [];
   const itemNames = buildNames(locale, t).items;
-  const heroView = { name: h.nom, icon: h.visuels.icone };
+  const heroView = { name: h.name, icon: h.images.icon };
 
   return (
     <>
       <EnTetePage
-        titre={t("pages.communityBuilds.heroTitle", { hero: h.nom })}
-        chapeau={t("pages.communityBuilds.heroLead", { hero: h.nom })}
-        miettes={[{ nom: t("pages.communityBuilds.title"), href: "/builds" }, { nom: h.nom }]}
-        icone={<PortraitHeros source={h.visuels.icone} nom={h.nom} taille="vignette" decoratif />}
+        titre={t("pages.communityBuilds.heroTitle", { hero: h.name })}
+        chapeau={t("pages.communityBuilds.heroLead", { hero: h.name })}
+        miettes={[{ nom: t("pages.communityBuilds.title"), href: "/builds" }, { nom: h.name }]}
+        icone={<PortraitHeros source={h.images.icon} nom={h.name} taille="vignette" decoratif />}
       >
         <Link
           href={`/tools/build?h=${hero}`}
           className="bevel-sm mt-5 inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
-          {t("pages.communityBuilds.heroCreate", { hero: h.nom })}
+          {t("pages.communityBuilds.heroCreate", { hero: h.name })}
         </Link>
       </EnTetePage>
       <CompleterMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
@@ -76,7 +76,7 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
               {t("pages.communityBuilds.unavailable")}
             </p>
           ) : mine.length === 0 ? (
-            <p className="border border-dashed border-night-700 p-6 text-chalk-300">{t("pages.communityBuilds.heroEmpty", { hero: h.nom })}</p>
+            <p className="border border-dashed border-night-700 p-6 text-chalk-300">{t("pages.communityBuilds.heroEmpty", { hero: h.name })}</p>
           ) : (
             <>
               {mine.length > MAX_SHOWN && (

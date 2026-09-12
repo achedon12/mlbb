@@ -1,10 +1,10 @@
 ---
-titre: "Por qué Khufra se ha vuelto esencial en la cola clasificatoria"
+title: "Por qué Khufra se ha vuelto esencial en la cola clasificatoria"
 date: "2026-09-08"
-categorie: "Actualite"
-auteur: "achedon12"
-chapeau: "Un solo héroe se encuentra con toda una categoría del plantel. Una mirada retrospectiva a por qué Khufra está presente en casi todos los juegos de alto ranking."
-motsCles: ["khufra", "tier list", "file classee", "tank", "meta"]
+category: "Actualite"
+author: "achedon12"
+summary: "Un solo héroe se encuentra con toda una categoría del plantel. Una mirada retrospectiva a por qué Khufra está presente en casi todos los juegos de alto ranking."
+keywords: ["khufra", "tier list", "file classee", "tank", "meta"]
 ---
 
 Hay héroes fuertes y hay héroes que responden a un problema que

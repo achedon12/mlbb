@@ -17,8 +17,8 @@ const STYLE: Record<SensAjustement, { couleur: string; bordure: string; icone: R
 };
 
 /** Nombre de heros distincts touches par un patch. */
-export function nombreHerosModifies(patch: Pick<PatchDetaille, "ajustements">): number {
-  const groupes = grouperAjustements(patch.ajustements);
+export function nombreHerosModifies(patch: Pick<PatchDetaille, "adjustments">): number {
+  const groupes = grouperAjustements(patch.adjustments);
   return SENS_AJUSTEMENT.reduce((n, sens) => n + groupes[sens].length, 0);
 }
 
@@ -40,7 +40,7 @@ export function ChangementsHeros({
   ancreDetail: string | null;
 }) {
   const t = creerT(langue);
-  const groupes = grouperAjustements(patch.ajustements);
+  const groupes = grouperAjustements(patch.adjustments);
   const impacts = impactsDuPatch(patch, historiqueDe);
   const n = nombreHerosModifies(patch);
   const forme = new Intl.PluralRules(langue).select(n) === "one" ? "one" : "other";
@@ -81,12 +81,12 @@ export function ChangementsHeros({
                   const contenu = (
                     <>
                       <PortraitHeros
-                        source={fiche?.visuels.icone ?? fiche?.visuels.portrait ?? null}
-                        nom={fiche?.nom ?? a.nom}
+                        source={fiche?.images.icon ?? fiche?.images.portrait ?? null}
+                        nom={fiche?.name ?? a.name}
                         taille="micro"
                         decoratif
                       />
-                      <span className="font-medium text-chalk-100">{fiche?.nom ?? a.nom}</span>
+                      <span className="font-medium text-chalk-100">{fiche?.name ?? a.name}</span>
                       {impact && <Impact impact={impact} taux={taux} sr={t} />}
                     </>
                   );

@@ -9,8 +9,8 @@ import { classementComplet } from "./tier-list";
  * classement, que le navigateur n'a pas a charger.
  */
 interface Relation {
-  fortContre: string[];
-  faibleContre: string[];
+  strongAgainst: string[];
+  weakAgainst: string[];
   synergies: string[];
 }
 
@@ -22,16 +22,16 @@ const relations = statistiques.relations as unknown as Record<string, Relation>;
  * calcul et pesent lourd multiplies par 133.
  */
 export function herosDraft(): HerosDraft[] {
-  const taux = new Map(classementComplet.map((e) => [e.heros.slug, e.victoire]));
+  const taux = new Map(classementComplet.map((e) => [e.hero.slug, e.winRate]));
   return heros.map((h) => ({
     slug: h.slug,
-    nom: h.nom,
+    nom: h.name,
     lanes: h.lanes,
     roles: h.roles,
-    icone: h.visuels.icone ?? h.visuels.portrait,
+    icone: h.images.icon ?? h.images.portrait,
     victoire: taux.get(h.slug) ?? null,
-    fortContre: relations[h.slug]?.fortContre ?? [],
-    faibleContre: relations[h.slug]?.faibleContre ?? [],
+    fortContre: relations[h.slug]?.strongAgainst ?? [],
+    faibleContre: relations[h.slug]?.weakAgainst ?? [],
     // Synergies ecrites par le wiki, completees des coequipiers qui font le
     // plus gagner le heros en partie classee.
     synergies: [

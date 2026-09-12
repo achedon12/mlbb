@@ -288,7 +288,7 @@ export interface ProVsRankedRow {
  * tenth of the share of games where the hero is picked. A hero cannot be both
  * picked and banned in the same game, so the two add up.
  */
-export const rankedPresence = (r: { selection: number; ban: number }) => Math.min(100, r.selection * 10 + r.ban);
+export const rankedPresence = (r: { pickRate: number; banRate: number }) => Math.min(100, r.pickRate * 10 + r.banRate);
 
 /** Rank of each value (1 = highest); ties share the rank. */
 export function ranks(values: Map<string, number>): Map<string, number> {
@@ -305,7 +305,7 @@ export function ranks(values: Map<string, number>): Map<string, number> {
  */
 export function compareProRanked(
   pro: { slug: string; presence: number }[],
-  ranked: { slug: string; selection: number; ban: number; victoire: number }[],
+  ranked: { slug: string; pickRate: number; banRate: number; winRate: number }[],
 ): ProVsRankedRow[] {
   const proBySlug = new Map(pro.map((h) => [h.slug, h.presence]));
   const proRanks = ranks(new Map(ranked.map((r) => [r.slug, proBySlug.get(r.slug) ?? 0])));
@@ -316,7 +316,7 @@ export function compareProRanked(
     proRank: proRanks.get(r.slug)!,
     rankedPresence: rankedPresence(r),
     rankedRank: rankedRanks.get(r.slug)!,
-    rankedWinRate: r.victoire,
+    rankedWinRate: r.winRate,
     gap: rankedRanks.get(r.slug)! - proRanks.get(r.slug)!,
   }));
 }
@@ -330,7 +330,7 @@ export function proVsRanked(now = new Date(), n = 8) {
   const { heroes, games } = combine(metaTournaments(now));
   const rows = compareProRanked(
     heroes,
-    classementComplet.map((e) => ({ slug: e.heros.slug, selection: e.selection, ban: e.ban, victoire: e.victoire })),
+    classementComplet.map((e) => ({ slug: e.hero.slug, pickRate: e.pickRate, banRate: e.banRate, winRate: e.winRate })),
   );
   return {
     games,

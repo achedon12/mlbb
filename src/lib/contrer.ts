@@ -41,14 +41,14 @@ const arrondi = (v: number) => Math.round(v * 10) / 10;
  * devant : c'est un contre regulier, pas l'accident d'une tranche. A egalite,
  * l'ecart moyen le plus marque l'emporte.
  */
-export function agregerContres(parRang: ContresParRang, sens: "fort" | "faible"): ContreAgrege[] {
+export function agregerContres(parRang: ContresParRang, sens: "strong" | "weak"): ContreAgrege[] {
   const tranches = RANGS_MESURE.filter((r) => r !== "all" && parRang[r]);
   const lus = tranches.length > 0 ? tranches : parRang.all ? (["all"] as const) : [];
   const cumul = new Map<string, { rangs: number; somme: number }>();
   for (const rang of lus) {
     for (const e of parRang[rang]?.[sens] ?? []) {
       const c = cumul.get(e.slug) ?? { rangs: 0, somme: 0 };
-      cumul.set(e.slug, { rangs: c.rangs + 1, somme: c.somme + e.avantage });
+      cumul.set(e.slug, { rangs: c.rangs + 1, somme: c.somme + e.advantage });
     }
   }
   return [...cumul]
@@ -56,7 +56,7 @@ export function agregerContres(parRang: ContresParRang, sens: "fort" | "faible")
     .sort(
       (a, b) =>
         b.rangs - a.rangs ||
-        (sens === "fort" ? b.moyenne - a.moyenne : a.moyenne - b.moyenne) ||
+        (sens === "strong" ? b.moyenne - a.moyenne : a.moyenne - b.moyenne) ||
         a.slug.localeCompare(b.slug),
     );
 }
@@ -86,9 +86,9 @@ export function listeNoms(locale: Langue, noms: string[]): string {
 }
 
 /** « Gloo (−4,3 pts), Hayabusa et Silvanna » : le premier porte son ecart, les suivants leur nom. */
-function tete(locale: Langue, t: T, liste: { nom: string; avantage: number }[]): string {
+function tete(locale: Langue, t: T, liste: { nom: string; advantage: number }[]): string {
   const [premier, ...suite] = liste;
-  return listeNoms(locale, [`${premier.nom} (${formaterEcart(locale, t, premier.avantage)})`, ...suite.map((e) => e.nom)]);
+  return listeNoms(locale, [`${premier.nom} (${formaterEcart(locale, t, premier.advantage)})`, ...suite.map((e) => e.nom)]);
 }
 
 /**
@@ -102,16 +102,16 @@ export function phraseSynthese(
   o: {
     nom: string;
     rang: RangMesure;
-    faible: { nom: string; avantage: number }[];
-    fort: { nom: string; avantage: number }[];
+    faible: { nom: string; advantage: number }[];
+    fort: { nom: string; advantage: number }[];
   },
 ): string {
   const contexte =
     o.rang === "all"
       ? t("pages.heroCounters.tousRangs")
       : t("pages.heroCounters.auRang", { rang: t(`rangsMesure.${o.rang}`) });
-  const faibles = [...o.faible].sort((a, b) => a.avantage - b.avantage).slice(0, 3);
-  const forts = [...o.fort].sort((a, b) => b.avantage - a.avantage).slice(0, 2);
+  const faibles = [...o.faible].sort((a, b) => a.advantage - b.advantage).slice(0, 3);
+  const forts = [...o.fort].sort((a, b) => b.advantage - a.advantage).slice(0, 2);
   if (faibles.length === 0) return t("pages.heroCounters.aucuneMesure", { nom: o.nom });
   const variables = { contexte, nom: o.nom, faibles: tete(locale, t, faibles) };
   return forts.length > 0
@@ -194,10 +194,10 @@ export interface MomentsPartie {
 /** Tranche de duree ou le heros gagne le moins, et celle ou il gagne le plus. */
 export function momentsPartie(tranches: TrancheDuree[] | undefined): MomentsPartie | null {
   if (!tranches || tranches.length < 2) return null;
-  const faible = tranches.reduce((m, x) => (x.victoire < m.victoire ? x : m));
-  const fort = tranches.reduce((m, x) => (x.victoire > m.victoire ? x : m));
+  const faible = tranches.reduce((m, x) => (x.winRate < m.winRate ? x : m));
+  const fort = tranches.reduce((m, x) => (x.winRate > m.winRate ? x : m));
   if (faible === fort) return null;
-  return { faible, fort, profil: profilDuree(tranches.map((x) => x.victoire)) };
+  return { faible, fort, profil: profilDuree(tranches.map((x) => x.winRate)) };
 }
 
 // ── Contres par position ───────────────────────────────────────────

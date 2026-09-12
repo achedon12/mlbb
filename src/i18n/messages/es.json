@@ -594,7 +594,7 @@
       "statPatchs": "Parches",
       "statClasses": "Héroes clasificados",
       "formeTitre": "Formato de las respuestas",
-      "formeTexte": "Cada respuesta envuelve el resultado en «donnees», añade el número total de elementos cuando se trata de una lista e indica la fuente de los datos.",
+      "formeTexte": "Cada respuesta envuelve el resultado en «data», añade el número total de elementos cuando se trata de una lista e indica la fuente de los datos.",
       "conditionsTitre": "Condiciones",
       "c1label": "Sin clave, sin cuota.",
       "c1texte": "Las respuestas son estáticas y están en caché: servirlas no cuesta nada. Úsala con sensatez y todo irá bien.",
@@ -2568,8 +2568,8 @@
         "red": "Equipo rojo"
       },
       "timers": {
-        "off": "Sin",
         "30": "{n} s",
+        "off": "Sin",
         "game": "Tiempos del juego ({ban} s / {pick} s)"
       },
       "you": "tú",

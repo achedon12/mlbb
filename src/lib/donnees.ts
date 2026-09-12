@@ -56,17 +56,17 @@ import type {
  * une seule fois, pour que les pages n'aient jamais a savoir d'ou vient quoi.
  */
 
-const VISUELS_VIDES: VisuelsHeros = { portrait: null, icone: null, skins: {} };
+const VISUELS_VIDES: VisuelsHeros = { portrait: null, icon: null, skins: {} };
 
-const visuels = visuelsGenere.heros as unknown as Record<string, VisuelsHeros>;
+const visuels = visuelsGenere.heroes as unknown as Record<string, VisuelsHeros>;
 const skinsParHeros = skinsGenere as unknown as Record<string, Skin[]>;
 const parSlugAnalyse = new Map(analyses.map((a) => [a.slug, a]));
 
 export const heros: Heros[] = (herosGenere as unknown as HerosGenere[]).map((h) => ({
   ...h,
-  visuels: visuels[h.slug] ?? VISUELS_VIDES,
+  images: visuels[h.slug] ?? VISUELS_VIDES,
   skins: skinsParHeros[h.slug] ?? [],
-  analyse: parSlugAnalyse.get(h.slug) ?? null,
+  analysis: parSlugAnalyse.get(h.slug) ?? null,
 }));
 
 export const herosParSlug = new Map(heros.map((h) => [h.slug, h]));
@@ -86,14 +86,14 @@ export function competences(locale: Langue): Record<string, (CompetenceWiki | nu
  * `attaque` marque l'attaque de base, qui n'a pas de nom propre.
  */
 export interface CompetenceCombo {
-  nom: string | null;
-  icone: string | null;
-  attaque?: boolean;
+  name: string | null;
+  icon: string | null;
+  basicAttack?: boolean;
 }
 export interface ComboHeros {
   type: "laning" | "teamfight" | null;
   description: string;
-  competences: CompetenceCombo[];
+  skills: CompetenceCombo[];
 }
 /**
  * Les descriptions arrivent en anglais : chaque langue lit ce fichier en
@@ -105,7 +105,7 @@ export function combos(locale: Langue): Record<string, ComboHeros[]> {
 }
 
 /** Icone de chaque competence, indexee par son nom anglais. */
-export const visuelsCompetences = visuelsGenere.competences as unknown as Record<
+export const visuelsCompetences = visuelsGenere.skills as unknown as Record<
   string,
   Record<string, string>
 >;
@@ -120,12 +120,12 @@ export const visuelsCompetences = visuelsGenere.competences as unknown as Record
 export interface ContreChiffre {
   slug: string;
   /** Ecart de taux de victoire, en points (positif = avantage). */
-  avantage: number;
+  advantage: number;
 }
 export interface ContresHeros {
-  fort: ContreChiffre[];
-  faible: ContreChiffre[];
-  mesure: number | null;
+  strong: ContreChiffre[];
+  weak: ContreChiffre[];
+  winRate: number | null;
 }
 /** Un rang absent n'a pas ete mesure pour ce heros. */
 export type ContresParRang = Partial<Record<RangMesure, ContresHeros>>;
@@ -135,11 +135,11 @@ export type ContresParRang = Partial<Record<RangMesure, ContresHeros>>;
  * `all` plutot que de faire tomber la fiche.
  */
 function parRang(brut: ContresParRang | ContresHeros): ContresParRang {
-  return "fort" in brut ? { all: brut } : brut;
+  return "strong" in brut ? { all: brut } : brut;
 }
 export const contres: Record<string, ContresParRang> = Object.fromEntries(
   Object.entries(
-    statistiquesGenere.contres as unknown as Record<string, ContresParRang | ContresHeros>,
+    statistiquesGenere.counters as unknown as Record<string, ContresParRang | ContresHeros>,
   ).map(([slug, c]) => [slug, parRang(c)]),
 );
 
@@ -149,13 +149,13 @@ export const contres: Record<string, ContresParRang> = Object.fromEntries(
  * position (Or, Jungle…), puis par rang.
  */
 export interface BuildJoue {
-  objets: string[];
+  items: string[];
   /** Role de l'embleme, tel que nomme par l'API (« Marksman »). */
-  embleme: string | null;
+  emblem: string | null;
   talents: string[];
-  sort: string | null;
-  victoire: number | null;
-  selection: number | null;
+  spell: string | null;
+  winRate: number | null;
+  pickRate: number | null;
 }
 export type BuildsHeros = Record<string, Partial<Record<RangMesure, BuildJoue[]>>>;
 export const buildsJoues =
@@ -168,28 +168,28 @@ export const buildsJoues =
 /** Coequipiers qui font le plus gagner un heros, par rang (en points de victoire). */
 export interface Coequipier {
   slug: string;
-  avantage: number;
+  advantage: number;
 }
 export type CoequipiersParRang = Partial<Record<RangMesure, Coequipier[]>>;
 export const coequipiers =
-  (statistiquesGenere as unknown as { coequipiers?: Record<string, CoequipiersParRang> }).coequipiers ?? {};
+  (statistiquesGenere as unknown as { teammates?: Record<string, CoequipiersParRang> }).teammates ?? {};
 
 export interface GuideJoueur {
-  objets: string[];
-  embleme: string | null;
+  items: string[];
+  emblem: string | null;
   talents: string[];
-  sort: string | null;
+  spell: string | null;
   /** Meilleur rank_level atteint par l'auteur. */
-  rangAuteur: number;
+  authorRank: number;
   votes: number;
-  vues: number;
+  views: number;
 }
 export type GuidesHeros = Record<string, Partial<Record<RangMesure, GuideJoueur>>>;
 export const guidesJoueurs =
   (statistiquesGenere as unknown as { guides?: Record<string, GuidesHeros> }).guides ?? {};
 
 /** Contenu detaille des patchs recents, avec ajustements de heros structures. */
-export const patchsDetail = patchsGenere.detail as unknown as Record<string, PatchDetaille>;
+export const patchsDetail = patchsGenere.details as unknown as Record<string, PatchDetaille>;
 
 /**
  * Patchs detailles dans la langue demandee. L'anglais est la source du wiki ;
@@ -250,11 +250,11 @@ export function tierNotes(locale: Langue): Record<string, string> {
   return TIER_NOTES[locale] as Record<string, string>;
 }
 
-export const patchs = patchsGenere.liste as unknown as Patch[];
+export const patchs = patchsGenere.list as unknown as Patch[];
 export const synchro = synchroGenere as unknown as Synchro;
 
 /** Heros disposant d'une analyse redigee, mis en avant dans les listes. */
-export const herosAnalyses = heros.filter((h) => h.analyse !== null);
+export const herosAnalyses = heros.filter((h) => h.analysis !== null);
 
 /** Nombre total de skins, affiche sur l'accueil. */
 export const nombreSkins = heros.reduce((n, h) => n + h.skins.length, 0);
@@ -271,7 +271,7 @@ const ORDRE_CATEGORIES = [
   "Attack, Magic & Defense",
 ];
 
-export const categoriesObjets = [...new Set((objetsEn as unknown as ObjetGenere[]).map((o) => o.categorie))].sort(
+export const categoriesObjets = [...new Set((objetsEn as unknown as ObjetGenere[]).map((o) => o.category))].sort(
   (a, b) => {
     const ia = ORDRE_CATEGORIES.indexOf(a);
     const ib = ORDRE_CATEGORIES.indexOf(b);

@@ -36,8 +36,8 @@ export type Ecart = [slug: string, points: number];
 
 /** Tranche de duree de partie, en minutes ; `a` nul pour la derniere, ouverte. */
 export interface Tranche {
-  de: number;
-  a: number | null;
+  from: number;
+  to: number | null;
 }
 
 /**
@@ -137,7 +137,7 @@ export function repartitionDegats(equipe: Pick<HerosEquipe, "degats">[]): Degats
 }
 
 export type Note = keyof NotesHeros;
-export const NOTES: Note[] = ["offensive", "resistance", "effets", "difficulte"];
+export const NOTES: Note[] = ["offense", "durability", "abilityEffects", "difficulty"];
 
 /** Moyenne de chaque note du jeu (sur 10), sur les heros qui l'ont. */
 export function profilNotes(equipe: Pick<HerosEquipe, "notes">[]): Record<Note, number | null> {
@@ -302,12 +302,14 @@ export function alertes(equipe: HerosEquipe[], affectation: Affectation): Alerte
     else if (degats.partPhysique <= 1 - SEUILS.degats) sortie.push({ type: "degats", dominant: "magic" });
   }
   const notes = profilNotes(equipe);
-  if (notes.effets !== null && notes.effets < SEUILS.controle) sortie.push({ type: "controle", valeur: notes.effets });
-  if (notes.resistance !== null && notes.resistance < SEUILS.resistance) {
-    sortie.push({ type: "fragile", valeur: notes.resistance });
+  if (notes.abilityEffects !== null && notes.abilityEffects < SEUILS.controle) {
+    sortie.push({ type: "controle", valeur: notes.abilityEffects });
   }
-  if (notes.difficulte !== null && notes.difficulte >= SEUILS.difficulte) {
-    sortie.push({ type: "difficile", valeur: notes.difficulte });
+  if (notes.durability !== null && notes.durability < SEUILS.resistance) {
+    sortie.push({ type: "fragile", valeur: notes.durability });
+  }
+  if (notes.difficulty !== null && notes.difficulty >= SEUILS.difficulte) {
+    sortie.push({ type: "difficile", valeur: notes.difficulty });
   }
   return sortie;
 }

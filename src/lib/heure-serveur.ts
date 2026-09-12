@@ -140,7 +140,7 @@ const MOTIF_FIN = /\bS(\d+) will end at (\d{1,2}):(\d{2}):(\d{2}) on (\d{1,2})\/
  * decembre, fin en janvier).
  */
 export function finsDeSaison(
-  patchs: { version: string; lien: string; date?: string | null; sections: { html: string }[] }[],
+  patchs: { version: string; link: string; date?: string | null; sections: { html: string }[] }[],
 ): FinSaison[] {
   const fins = new Map<number, FinSaison>();
   for (const p of patchs) {
@@ -153,7 +153,7 @@ export function finsDeSaison(
         const [, saison, h, mi, s, mois, jour] = m.map(Number);
         let fin = instantServeur(annee, mois - 1, jour, h, mi, s);
         if (fin < publie - 31 * JOUR) fin = instantServeur(annee + 1, mois - 1, jour, h, mi, s);
-        if (!fins.has(saison) || fins.get(saison)!.fin < fin) fins.set(saison, { saison, fin, patch: p.version, lien: p.lien });
+        if (!fins.has(saison) || fins.get(saison)!.fin < fin) fins.set(saison, { saison, fin, patch: p.version, lien: p.link });
       }
     }
   }

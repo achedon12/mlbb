@@ -38,7 +38,7 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
             <span key={s.slug}>
               {i > 0 && ", "}
               <a href={s.site} rel="noreferrer nofollow" className="text-gold-400 hover:underline">
-                {s.nom}
+                {s.name}
               </a>
             </span>
           ))}
@@ -53,9 +53,9 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
         ) : (
           <ul className="space-y-3">
             {actualites.map((a) => (
-              <li key={a.lien}>
+              <li key={a.link}>
                 <a
-                  href={a.lien}
+                  href={a.link}
                   rel="noreferrer nofollow"
                   target="_blank"
                   className="bevel group flex gap-4 border border-night-700/70 bg-night-900/60 p-5 transition-colors hover:border-gold-500/60"
@@ -72,10 +72,10 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
                       )}
                     </div>
                     <h2 className="mt-1.5 font-heading text-lg font-bold leading-snug text-chalk-100 transition-colors group-hover:text-gold-400">
-                      {a.titre}
+                      {a.title}
                     </h2>
-                    {a.extrait && (
-                      <p className="mt-2 text-sm leading-relaxed text-chalk-500">{a.extrait}</p>
+                    {a.excerpt && (
+                      <p className="mt-2 text-sm leading-relaxed text-chalk-500">{a.excerpt}</p>
                     )}
                   </div>
                   <ExternalLink

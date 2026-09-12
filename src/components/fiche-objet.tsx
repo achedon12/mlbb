@@ -24,10 +24,10 @@ export interface CatalogueRecettes {
 }
 
 export function catalogueRecettes(objets: ApercuObjet[]): CatalogueRecettes {
-  const parNom = new Map(objets.map((o) => [o.nom, o]));
+  const parNom = new Map(objets.map((o) => [o.name, o]));
   const debouches = new Map<string, ApercuObjet[]>();
   for (const o of objets) {
-    for (const c of new Set(o.recette)) debouches.set(c, [...(debouches.get(c) ?? []), o]);
+    for (const c of new Set(o.recipe)) debouches.set(c, [...(debouches.get(c) ?? []), o]);
   }
   return { parNom, debouches };
 }
@@ -37,9 +37,9 @@ export type VersObjet = (o: ApercuObjet, contenu: ReactNode, className: string) 
 
 /** Ce que coute l'assemblage lui-meme, une fois les composants en poche. */
 export function coutFusion(objet: ApercuObjet, catalogue: CatalogueRecettes): number | null {
-  const composants = objet.recette.map((nom) => catalogue.parNom.get(nom));
-  if (objet.prix === null || composants.length === 0 || !composants.every((c) => c?.prix != null)) return null;
-  return objet.prix - composants.reduce((somme, c) => somme + (c?.prix ?? 0), 0);
+  const composants = objet.recipe.map((nom) => catalogue.parNom.get(nom));
+  if (objet.price === null || composants.length === 0 || !composants.every((c) => c?.price != null)) return null;
+  return objet.price - composants.reduce((somme, c) => somme + (c?.price ?? 0), 0);
 }
 
 const nombre = (langue: Langue, n: number) => n.toLocaleString(LOCALE_HTML[langue]);
@@ -60,16 +60,16 @@ export function EffetsObjet({ objet, t }: { objet: ApercuObjet; t: T }) {
           <dd className="mt-1 leading-snug text-azure-400">{objet.unique}</dd>
         </div>
       )}
-      {objet.passif && (
+      {objet.passive && (
         <div>
           <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.passif")}</dt>
-          <dd className="mt-1 leading-relaxed text-chalk-300">{objet.passif}</dd>
+          <dd className="mt-1 leading-relaxed text-chalk-300">{objet.passive}</dd>
         </div>
       )}
-      {objet.actif && (
+      {objet.active && (
         <div>
           <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.actif")}</dt>
-          <dd className="mt-1 leading-relaxed text-chalk-300">{objet.actif}</dd>
+          <dd className="mt-1 leading-relaxed text-chalk-300">{objet.active}</dd>
         </div>
       )}
     </>
@@ -91,14 +91,14 @@ export function RecetteObjet({
   vers: VersObjet;
 }) {
   const fusion = coutFusion(objet, catalogue);
-  const fabrique = catalogue.debouches.get(objet.nom) ?? [];
+  const fabrique = catalogue.debouches.get(objet.name) ?? [];
   return (
     <>
-      {objet.recette.length > 0 && (
+      {objet.recipe.length > 0 && (
         <div>
           <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemsListe.recette")}</dt>
           <dd className="mt-2">
-            <ArbreRecette noms={objet.recette} catalogue={catalogue} t={t} langue={langue} vers={vers} />
+            <ArbreRecette noms={objet.recipe} catalogue={catalogue} t={t} langue={langue} vers={vers} />
             {fusion !== null && (
               <p className="mt-2 text-xs text-chalk-500">
                 {t("pages.itemsListe.fusion", { prix: nombre(langue, fusion) })}
@@ -117,7 +117,7 @@ export function RecetteObjet({
                   o,
                   <>
                     <IconeObjet image={o.image} taille={22} />
-                    <span className="text-xs text-chalk-300 group-hover:text-gold-400">{o.nom}</span>
+                    <span className="text-xs text-chalk-300 group-hover:text-gold-400">{o.name}</span>
                   </>,
                   "bevel-sm group flex items-center gap-1.5 border border-night-700/70 bg-night-900/60 py-1 pl-1 pr-2 transition-colors hover:border-gold-500/60",
                 )}
@@ -157,9 +157,9 @@ export function ArbreRecette({
           <>
             <IconeObjet image={o?.image ?? null} taille={28} />
             <span className="min-w-0 flex-1 truncate text-sm text-chalk-100 group-hover:text-gold-400">{nom}</span>
-            {o?.prix != null && (
+            {o?.price != null && (
               <span className="shrink-0 text-xs tabular-nums text-gold-400">
-                {nombre(langue, o.prix)} {t("pages.itemsListe.or")}
+                {nombre(langue, o.price)} {t("pages.itemsListe.or")}
               </span>
             )}
           </>
@@ -169,9 +169,9 @@ export function ArbreRecette({
           <li key={`${nom}-${i}`}>
             {o ? vers(o, contenu, classe) : <span className={classe}>{contenu}</span>}
             {/* Garde-fou : une recette mal saisie ne doit pas boucler sans fin. */}
-            {o && o.recette.length > 0 && profondeur < 4 && (
+            {o && o.recipe.length > 0 && profondeur < 4 && (
               <ArbreRecette
-                noms={o.recette}
+                noms={o.recipe}
                 catalogue={catalogue}
                 t={t}
                 langue={langue}

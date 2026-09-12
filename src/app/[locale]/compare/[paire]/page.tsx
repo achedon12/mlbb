@@ -44,7 +44,7 @@ export function generateStaticParams() {
   return [];
 }
 
-const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
 /** Les deux heros d'un segment canonique, ou null. */
 function resoudre(paire: string): { a: Heros; b: Heros } | null {
@@ -62,21 +62,21 @@ function verdict(locale: Langue, a: Heros, b: Heros) {
   const t = creerT(locale);
   const duels = duelParRang(contres, a.slug, b.slug);
   const ref = duelDeReference(duels);
-  if (!ref) return { duels, ref, phrase: t("pages.versus.aucuneMesure", { a: a.nom, b: b.nom }) };
+  if (!ref) return { duels, ref, phrase: t("pages.versus.aucuneMesure", { a: a.name, b: b.name }) };
   const points = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const [gagnant, perdant] = ref.avantage >= 0 ? [a, b] : [b, a];
   const contexte = contexteDe(t, ref.rang);
   const tete =
     Math.abs(ref.avantage) < SEUIL_EQUILIBRE
-      ? t("pages.versus.equilibre", { contexte, a: a.nom, b: b.nom })
+      ? t("pages.versus.equilibre", { contexte, a: a.name, b: b.name })
       : t("pages.versus.verdict", {
           contexte,
-          gagnant: gagnant.nom,
-          perdant: perdant.nom,
+          gagnant: gagnant.name,
+          perdant: perdant.name,
           ecart: `${points.format(Math.abs(ref.avantage))} ${t("contres.pts")}`,
         });
   const g = rangsGagnes(duels);
-  const suite = g.total > 1 ? ` ${t("pages.versus.rangs", { a: a.nom, na: g.a, b: b.nom, nb: g.b, total: g.total })}` : "";
+  const suite = g.total > 1 ? ` ${t("pages.versus.rangs", { a: a.name, na: g.a, b: b.name, nb: g.b, total: g.total })}` : "";
   return { duels, ref, phrase: `${tete}${suite}` };
 }
 
@@ -85,7 +85,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const p = resoudre(paire);
   if (!p) return {};
   const t = creerT(locale);
-  const noms = { a: p.a.nom, b: p.b.nom };
+  const noms = { a: p.a.name, b: p.b.name };
   return metaPage(locale, {
     titre: patchActuel ? t("pages.versus.metaTitre", { ...noms, v: patchActuel.version }) : t("pages.versus.metaTitreSansPatch", noms),
     description: `${verdict(locale, p.a, p.b).phrase} ${t("pages.duos.majLe", { date: dateLongue(locale) })}`,
@@ -124,17 +124,17 @@ export default async function PageFaceAFace({ params }: Params) {
     ecarts.length === 0
       ? null
       : ecarts.every((e) => e > 0)
-        ? t("pages.versus.duree.toujours", { nom: a.nom })
+        ? t("pages.versus.duree.toujours", { nom: a.name })
         : ecarts.every((e) => e < 0)
-          ? t("pages.versus.duree.toujours", { nom: b.nom })
+          ? t("pages.versus.duree.toujours", { nom: b.name })
           : lecture.a && lecture.b
             ? t("pages.versus.duree.phrase", {
-                a: a.nom,
+                a: a.name,
                 phaseA: t(`pages.versus.phaseEn.${lecture.a}`),
-                b: b.nom,
+                b: b.name,
                 phaseB: t(`pages.versus.phaseEn.${lecture.b}`),
               })
-            : t("pages.versus.duree.egal", { a: a.nom, b: b.nom });
+            : t("pages.versus.duree.egal", { a: a.name, b: b.name });
 
   // Profils au rang du verdict : taux de la tier list et notes du jeu.
   const [sa, sb] = [statsParRang(a.slug)[rangRef], statsParRang(b.slug)[rangRef]];
@@ -143,9 +143,9 @@ export default async function PageFaceAFace({ params }: Params) {
   const catalogue = new Map(objets(locale).map((o) => [o.slug, o]));
   const bonusAnglais = new Map(objets("en").map((o) => [o.slug, o.bonus]));
   const contreDe = (h: Heros) => {
-    const bonus = (buildDe(h, "all")?.build.objets ?? []).map((o) => bonusAnglais.get(visuelObjet(o).slug ?? "") ?? null);
+    const bonus = (buildDe(h, "all")?.build.items ?? []).map((o) => bonusAnglais.get(visuelObjet(o).slug ?? "") ?? null);
     return objetsContre(
-      { typeDegats: h.typeDegats, roles: h.roles, specialites: h.specialites, volDeVie: porteVolDeVie(bonus) },
+      { typeDegats: h.damageType, roles: h.roles, specialites: h.specialties, volDeVie: porteVolDeVie(bonus) },
       (s) => catalogue.has(s),
     )
       .slice(0, 4)
@@ -162,8 +162,8 @@ export default async function PageFaceAFace({ params }: Params) {
       .filter((e) => e.slug !== sauf.slug && herosParSlug.has(e.slug))
       .slice(0, 6);
 
-  const titre = t("pages.versus.titre", { a: a.nom, b: b.nom });
-  const question = t("pages.versus.question", { a: a.nom, b: b.nom });
+  const titre = t("pages.versus.titre", { a: a.name, b: b.name });
+  const question = t("pages.versus.question", { a: a.name, b: b.name });
   const chemin = cheminPaire(a.slug, b.slug);
   const adresse = `${site.url}/${locale}${chemin}`;
   const donneesStructurees = {
@@ -179,7 +179,7 @@ export default async function PageFaceAFace({ params }: Params) {
         author: { "@type": "Person", name: site.auteur },
         publisher: { "@type": "Organization", name: site.nom, url: site.url },
         mainEntityOfPage: adresse,
-        about: [a, b].map((h) => ({ "@type": "Thing", name: h.nom, url: `${site.url}/${locale}/heroes/${h.slug}` })),
+        about: [a, b].map((h) => ({ "@type": "Thing", name: h.name, url: `${site.url}/${locale}/heroes/${h.slug}` })),
         isPartOf: {
           "@type": "VideoGame",
           name: "Mobile Legends: Bang Bang",
@@ -204,7 +204,7 @@ export default async function PageFaceAFace({ params }: Params) {
 
       <EnTetePage
         titre={titre}
-        chapeau={t("pages.versus.chapeau", { a: a.nom, b: b.nom })}
+        chapeau={t("pages.versus.chapeau", { a: a.name, b: b.name })}
         miettes={[
           { nom: t("pages.compare.titre"), href: "/compare" },
           {
@@ -213,7 +213,7 @@ export default async function PageFaceAFace({ params }: Params) {
             freres: adversairesMesures(contres, a.slug)
               .filter((e) => herosParSlug.has(e.slug))
               .slice(0, 20)
-              .map((e) => ({ nom: t("pages.versus.titre", { a: a.nom, b: nomDe(e.slug) }), href: cheminPaire(a.slug, e.slug) }))
+              .map((e) => ({ nom: t("pages.versus.titre", { a: a.name, b: nomDe(e.slug) }), href: cheminPaire(a.slug, e.slug) }))
               .sort((x, y) => x.nom.localeCompare(y.nom)),
           },
         ]}
@@ -236,11 +236,11 @@ export default async function PageFaceAFace({ params }: Params) {
                 i === 1 && "order-3",
               )}
             >
-              <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="vignette" decoratif />
-              <span className="font-heading text-lg font-bold text-chalk-100">{h.nom}</span>
+              <PortraitHeros source={h.images.icon ?? h.images.portrait} nom={h.name} taille="vignette" decoratif />
+              <span className="font-heading text-lg font-bold text-chalk-100">{h.name}</span>
               {s && (
                 <span className="text-xs text-chalk-500">
-                  {t("pages.heroDetail.palier", { p: s.palier })} · {pourcentage(locale, s.victoire)}
+                  {t("pages.heroDetail.palier", { p: s.tier })} · {pourcentage(locale, s.winRate)}
                 </span>
               )}
               <TraitLegende {...STYLES_SERIES[i]} />
@@ -262,7 +262,7 @@ export default async function PageFaceAFace({ params }: Params) {
               <TableauDuel t={t} duels={duels} a={a} b={b} ecart={ecart} />
             </div>
           )}
-          <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.versus.noteEcarts", { a: a.nom, b: b.nom })}</p>
+          <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.versus.noteEcarts", { a: a.name, b: b.name })}</p>
         </section>
 
         {/* ── Debut ou fin de partie ──────────────────────────────────── */}
@@ -277,8 +277,8 @@ export default async function PageFaceAFace({ params }: Params) {
                 <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium">
                   <tr>
                     <th scope="col" className="text-left">{t("pages.versus.duree.colPhase")}</th>
-                    <th scope="col">{a.nom}</th>
-                    <th scope="col">{b.nom}</th>
+                    <th scope="col">{a.name}</th>
+                    <th scope="col">{b.name}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-night-800">
@@ -321,26 +321,33 @@ export default async function PageFaceAFace({ params }: Params) {
                     <th scope="col" className="text-left">
                       <span className="sr-only">{t("compareUI.critere")}</span>
                     </th>
-                    <th scope="col">{a.nom}</th>
-                    <th scope="col">{b.nom}</th>
+                    <th scope="col">{a.name}</th>
+                    <th scope="col">{b.name}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-night-800 [&_th]:py-1.5 [&_th]:text-left [&_th]:text-xs [&_th]:font-medium [&_th]:uppercase [&_th]:tracking-wide [&_th]:text-chalk-500">
                   <tr>
                     <th scope="row">{t("compareUI.tauxVictoire")}</th>
-                    <td>{sa ? pourcentage(locale, sa.victoire) : "—"}</td>
-                    <td>{sb ? pourcentage(locale, sb.victoire) : "—"}</td>
+                    <td>{sa ? pourcentage(locale, sa.winRate) : "—"}</td>
+                    <td>{sb ? pourcentage(locale, sb.winRate) : "—"}</td>
                   </tr>
                   <tr>
                     <th scope="row">{t("compareUI.tauxBan")}</th>
-                    <td>{sa ? pourcentage(locale, sa.ban) : "—"}</td>
-                    <td>{sb ? pourcentage(locale, sb.ban) : "—"}</td>
+                    <td>{sa ? pourcentage(locale, sa.banRate) : "—"}</td>
+                    <td>{sb ? pourcentage(locale, sb.banRate) : "—"}</td>
                   </tr>
-                  {(["offensive", "resistance", "effets", "difficulte"] as const).map((cle) => (
-                    <tr key={cle}>
-                      <th scope="row">{t(`compareUI.${cle}`)}</th>
-                      <td>{a.notes[cle] ?? "—"}</td>
-                      <td>{b.notes[cle] ?? "—"}</td>
+                  {(
+                    [
+                      ["offensive", "offense"],
+                      ["resistance", "durability"],
+                      ["effets", "abilityEffects"],
+                      ["difficulte", "difficulty"],
+                    ] as const
+                  ).map(([libelle, champ]) => (
+                    <tr key={champ}>
+                      <th scope="row">{t(`compareUI.${libelle}`)}</th>
+                      <td>{a.ratings[champ] ?? "—"}</td>
+                      <td>{b.ratings[champ] ?? "—"}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -358,22 +365,22 @@ export default async function PageFaceAFace({ params }: Params) {
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               {builds.map(({ h, autre, joue, contre }) => (
                 <Carte key={h.slug} className="p-4">
-                  <h3 className="font-heading text-lg font-bold text-chalk-100">{h.nom}</h3>
+                  <h3 className="font-heading text-lg font-bold text-chalk-100">{h.name}</h3>
                   {joue && (
                     <>
                       <p className="mt-2 text-xs uppercase tracking-wide text-chalk-500">
                         {t("pages.versus.builds.joue", { lane: t(`lanes.${joue.lane}`) })}
                       </p>
                       <ListeObjets
-                        objets={joue.build.objets.map((nom) => {
+                        objets={joue.build.items.map((nom) => {
                           const slugObjet = visuelObjet(nom).slug;
-                          return { nom: (slugObjet && catalogue.get(slugObjet)?.nom) || nom, slug: slugObjet };
+                          return { nom: (slugObjet && catalogue.get(slugObjet)?.name) || nom, slug: slugObjet };
                         })}
                       />
-                      {(joue.build.embleme || joue.build.sort) && (
+                      {(joue.build.emblem || joue.build.spell) && (
                         <p className="mt-2 text-xs text-chalk-400">
-                          {[joue.build.embleme, joue.build.sort].filter(Boolean).join(" · ")}
-                          {joue.build.victoire != null && ` · ${t("builds.victoire", { taux: decimal.format(joue.build.victoire) })}`}
+                          {[joue.build.emblem, joue.build.spell].filter(Boolean).join(" · ")}
+                          {joue.build.winRate != null && ` · ${t("builds.victoire", { taux: decimal.format(joue.build.winRate) })}`}
                         </p>
                       )}
                     </>
@@ -381,10 +388,10 @@ export default async function PageFaceAFace({ params }: Params) {
                   {contre.length > 0 && (
                     <>
                       <p className="mt-4 text-xs uppercase tracking-wide text-chalk-500">
-                        {t("pages.versus.builds.contre", { nom: autre.nom })}{" "}
+                        {t("pages.versus.builds.contre", { nom: autre.name })}{" "}
                         <span className="normal-case tracking-normal">· {t("pages.versus.builds.regle")}</span>
                       </p>
-                      <ListeObjets objets={contre.map((o) => ({ nom: o.nom, slug: o.slug }))} />
+                      <ListeObjets objets={contre.map((o) => ({ nom: o.name, slug: o.slug }))} />
                     </>
                   )}
                 </Carte>
@@ -397,7 +404,7 @@ export default async function PageFaceAFace({ params }: Params) {
         {equipe.length > 0 && (
           <section aria-labelledby="equipe">
             <h2 id="equipe" className={h2}>
-              {t("pages.versus.equipe.titre", { a: a.nom, b: b.nom })}
+              {t("pages.versus.equipe.titre", { a: a.name, b: b.name })}
             </h2>
             <ul className="mt-3 space-y-1.5 text-sm text-chalk-300">
               {equipe.map((e) => (
@@ -429,17 +436,17 @@ export default async function PageFaceAFace({ params }: Params) {
             {[a, b].flatMap((h) => [
               <li key={`${h.slug}-fiche`}>
                 <Link href={`/heroes/${h.slug}`} className={puce}>
-                  {t("pages.duos.lienFiche", { nom: h.nom })}
+                  {t("pages.duos.lienFiche", { nom: h.name })}
                 </Link>
               </li>,
               <li key={`${h.slug}-contres`}>
                 <Link href={`/heroes/${h.slug}/counters`} className={puce}>
-                  {t("pages.duos.lienContres", { nom: h.nom })}
+                  {t("pages.duos.lienContres", { nom: h.name })}
                 </Link>
               </li>,
               <li key={`${h.slug}-duos`}>
                 <Link href={`/heroes/${h.slug}/duos`} className={puce}>
-                  {t("pages.duos.titre", { nom: h.nom })}
+                  {t("pages.duos.titre", { nom: h.name })}
                 </Link>
               </li>,
             ])}
@@ -451,12 +458,12 @@ export default async function PageFaceAFace({ params }: Params) {
             ].map(({ h, autres }) =>
               autres.length > 0 ? (
                 <div key={h.slug}>
-                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.liens.autres", { nom: h.nom })}</h3>
+                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.liens.autres", { nom: h.name })}</h3>
                   <ul className="mt-2 flex flex-wrap gap-2 text-sm">
                     {autres.map((e) => (
                       <li key={e.slug}>
                         <Link href={cheminPaire(h.slug, e.slug)} className={puce}>
-                          {t("pages.versus.titre", { a: h.nom, b: nomDe(e.slug) })}
+                          {t("pages.versus.titre", { a: h.name, b: nomDe(e.slug) })}
                         </Link>
                       </li>
                     ))}
@@ -493,8 +500,8 @@ function TableauDuel({
         <tr>
           <th scope="col" className="text-left">{t("pages.versus.colRang")}</th>
           <th scope="col">{t("pages.versus.colAvantage")}</th>
-          <th scope="col">{t("pages.versus.colFace", { de: a.nom, face: b.nom })}</th>
-          <th scope="col">{t("pages.versus.colFace", { de: b.nom, face: a.nom })}</th>
+          <th scope="col">{t("pages.versus.colFace", { de: a.name, face: b.name })}</th>
+          <th scope="col">{t("pages.versus.colFace", { de: b.name, face: a.name })}</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-night-800">
@@ -508,7 +515,7 @@ function TableauDuel({
                   <span className="text-chalk-400">{t("pages.versus.equilibreCourt")}</span>
                 ) : (
                   <span className="text-gold-400">
-                    {(d.avantage > 0 ? a : b).nom} {ecart(Math.abs(d.avantage))}
+                    {(d.avantage > 0 ? a : b).name} {ecart(Math.abs(d.avantage))}
                   </span>
                 )}
               </td>

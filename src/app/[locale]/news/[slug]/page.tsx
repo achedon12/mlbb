@@ -19,13 +19,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!a) return {};
 
   return metaPage(locale, {
-    titre: a.titre,
-    description: a.chapeau,
+    titre: a.title,
+    description: a.summary,
     chemin: `/news/${slug}`,
     type: "article",
-    motsCles: a.motsCles,
+    motsCles: a.keywords,
     publie: a.date,
-    auteur: a.auteur,
+    auteur: a.author,
   });
 }
 
@@ -45,7 +45,7 @@ export default async function PageArticle({ params }: Params) {
       <CorpsArticle
         langue={locale}
         article={a}
-        html={enHtml(a.contenu)}
+        html={enHtml(a.content)}
         retour={{ href: "/news", label: creerT(locale)("pages.news.toutes") }}
       />
     </>

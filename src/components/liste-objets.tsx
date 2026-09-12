@@ -123,12 +123,12 @@ export function ListeObjets({
     return objets.filter((o) => {
       // L'objet ouvert reste toujours affiche, meme hors du filtre courant.
       if (o.slug === actif) return true;
-      if (categorie && o.categorie !== categorie) return false;
+      if (categorie && o.category !== categorie) return false;
       if (!terme) return true;
       return (
-        cleRecherche(o.nom).includes(terme) ||
+        cleRecherche(o.name).includes(terme) ||
         cleRecherche(o.bonus ?? "").includes(terme) ||
-        cleRecherche(o.passif ?? "").includes(terme)
+        cleRecherche(o.passive ?? "").includes(terme)
       );
     });
   }, [objets, recherche, categorie, actif]);
@@ -194,14 +194,14 @@ export function ListeObjets({
                     )}
                   </span>
                   <span className="text-xs font-medium leading-tight text-chalk-100">
-                    {o.nom}
+                    {o.name}
                   </span>
-                  {o.prix !== null && (
+                  {o.price !== null && (
                     // L'unite est ecrite en toutes lettres : un nombre nu sous
                     // une icone d'objet se lit comme un niveau ou une quantite,
                     // pas comme un prix.
                     <span className="text-xs tabular-nums text-gold-400">
-                      {o.prix.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
+                      {o.price.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
                     </span>
                   )}
                 </button>
@@ -226,7 +226,7 @@ export function ListeObjets({
         redescendre sous une grille de cent objets pour la lire.
       */}
       {objet && (
-        <Tiroir titre={objet.nom} onFermer={fermerObjet} libelleFermer={t("pages.itemsListe.fermer")}>
+        <Tiroir titre={objet.name} onFermer={fermerObjet} libelleFermer={t("pages.itemsListe.fermer")}>
           <FicheObjet objet={objet} catalogue={catalogue} sansCadre />
         </Tiroir>
       )}
@@ -257,18 +257,18 @@ function FicheObjet({
                 )}
                 <div className="min-w-0">
                   <h2 className="font-heading text-lg font-bold leading-tight text-chalk-100">
-                    {objet.nom}
+                    {objet.name}
                   </h2>
-                  {objet.resume && (
+                  {objet.summary && (
                     <p className="mt-0.5 text-xs uppercase tracking-wide text-chalk-500">
-                      {objet.resume}
+                      {objet.summary}
                     </p>
                   )}
-                  {objet.prix !== null && (
+                  {objet.price !== null && (
                     <p className="mt-1 text-sm text-chalk-500">
                       {t("pages.itemsListe.prix")}{" "}
                       <span className="font-heading text-gold-400">
-                        {objet.prix.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
+                        {objet.price.toLocaleString(LOCALE_HTML[langue])} {t("pages.itemsListe.or")}
                       </span>
                     </p>
                   )}

@@ -28,8 +28,8 @@ export function PaireLoreCarte({
     lien && (
       <div className="flex flex-wrap gap-x-2">
         <dt className="text-chalk-500">
-          {h.nom} <span aria-hidden>→</span>
-          <span className="sr-only"> {t("pages.lore.envers")} </span> {autre.nom}
+          {h.name} <span aria-hidden>→</span>
+          <span className="sr-only"> {t("pages.lore.envers")} </span> {autre.name}
           <span aria-hidden> ·</span>
         </dt>
         <dd className="text-chalk-200">{lien.nature ?? t("pages.lore.sansNature")}</dd>
@@ -38,9 +38,9 @@ export function PaireLoreCarte({
 
   const heros = (h: typeof a, region: string | null | undefined) => (
     <Link href={`/heroes/${h.slug}#histoire`} className="flex min-w-0 items-center gap-2 hover:text-gold-400">
-      <PortraitHeros source={h.visuels.icone ?? h.visuels.portrait} nom={h.nom} taille="icone" decoratif />
+      <PortraitHeros source={h.images.icon ?? h.images.portrait} nom={h.name} taille="icone" decoratif />
       <span className="min-w-0">
-        <span className="block truncate font-semibold text-chalk-100">{h.nom}</span>
+        <span className="block truncate font-semibold text-chalk-100">{h.name}</span>
         {region && <span className="block truncate text-xs text-chalk-500">{region}</span>}
       </span>
     </Link>

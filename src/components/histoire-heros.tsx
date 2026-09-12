@@ -22,15 +22,15 @@ import { creerT } from "@/i18n/traductions";
  * illustree et les anecdotes en cartes.
  */
 
-type ChampTexte = "titre" | "espece" | "genre" | "age" | "origine" | "anniversaire";
+type ChampTexte = "title" | "species" | "gender" | "age" | "origin" | "birthday";
 
-const CHAMPS: { cle: ChampTexte; icone: LucideIcon }[] = [
-  { cle: "titre", icone: Crown },
-  { cle: "espece", icone: PawPrint },
-  { cle: "genre", icone: Users },
-  { cle: "age", icone: Hourglass },
-  { cle: "origine", icone: MapPin },
-  { cle: "anniversaire", icone: Cake },
+const CHAMPS: { cle: ChampTexte; libelle: string; icone: LucideIcon }[] = [
+  { cle: "title", libelle: "titre", icone: Crown },
+  { cle: "species", libelle: "espece", icone: PawPrint },
+  { cle: "gender", libelle: "genre", icone: Users },
+  { cle: "age", libelle: "age", icone: Hourglass },
+  { cle: "origin", libelle: "origine", icone: MapPin },
+  { cle: "birthday", libelle: "anniversaire", icone: Cake },
 ];
 
 function GroupeChips({
@@ -65,13 +65,13 @@ function GroupeChips({
 
 export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; nom: string; langue: Langue }) {
   const t = creerT(langue);
-  const { accroche, lore, fiche, anecdotes } = histoire;
+  const { tagline, lore, profile, trivia } = histoire;
   const [premier, ...suite] = lore;
 
   return (
     <div className="space-y-12">
       {/* Accroche en exergue. */}
-      {accroche && (
+      {tagline && (
         <figure className="relative overflow-hidden">
           <Quote
             aria-hidden
@@ -80,7 +80,7 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
             strokeWidth={1.5}
           />
           <blockquote className="relative pl-6 font-heading text-xl italic leading-relaxed text-chalk-100 sm:text-2xl">
-            {accroche}
+            {tagline}
           </blockquote>
         </figure>
       )}
@@ -106,7 +106,7 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
               </div>
             </section>
           ) : (
-            !accroche && (
+            !tagline && (
               <p className="leading-relaxed text-chalk-500">
                 {t("histoire.aucunRecit", { nom })}
               </p>
@@ -115,34 +115,34 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
         </div>
 
         {/* La fiche d'identite. */}
-        {fiche && (
+        {profile && (
           <aside className="bevel border border-night-700/60 bg-night-950/50 p-5 lg:sticky lg:top-24">
             <h2 className="font-heading text-sm font-bold uppercase tracking-wide text-chalk-100">
-              {fiche.nomComplet ?? nom}
+              {profile.fullName ?? nom}
             </h2>
             <div aria-hidden className="gold-rule mt-3 h-0.5 w-12" />
             <dl className="mt-5 space-y-4 text-sm">
-              {CHAMPS.map(({ cle, icone: Icone }) =>
-                fiche[cle] ? (
+              {CHAMPS.map(({ cle, libelle, icone: Icone }) =>
+                profile[cle] ? (
                   <div key={cle} className="flex gap-3">
                     <span className="mt-0.5 text-chalk-500">
                       <Icone size={15} aria-hidden />
                     </span>
                     <div className="min-w-0">
-                      <dt className="text-xs uppercase tracking-wide text-chalk-500">{t(`histoire.${cle}`)}</dt>
-                      <dd className="mt-0.5 text-chalk-100">{fiche[cle]}</dd>
+                      <dt className="text-xs uppercase tracking-wide text-chalk-500">{t(`histoire.${libelle}`)}</dt>
+                      <dd className="mt-0.5 text-chalk-100">{profile[cle]}</dd>
                     </div>
                   </div>
                 ) : null,
               )}
             </dl>
-            {(fiche.affiliations.length > 0 ||
-              fiche.relations.length > 0 ||
-              fiche.pouvoirs.length > 0) && (
+            {(profile.affiliations.length > 0 ||
+              profile.relations.length > 0 ||
+              profile.powers.length > 0) && (
               <dl className="mt-5 space-y-4 border-t border-night-800 pt-5 text-sm">
-                <GroupeChips titre={t("histoire.pouvoirs")} valeurs={fiche.pouvoirs} icone={Wand2} />
-                <GroupeChips titre={t("histoire.affiliations")} valeurs={fiche.affiliations} icone={Flag} />
-                <GroupeChips titre={t("histoire.relations")} valeurs={fiche.relations} icone={Users} />
+                <GroupeChips titre={t("histoire.pouvoirs")} valeurs={profile.powers} icone={Wand2} />
+                <GroupeChips titre={t("histoire.affiliations")} valeurs={profile.affiliations} icone={Flag} />
+                <GroupeChips titre={t("histoire.relations")} valeurs={profile.relations} icone={Users} />
               </dl>
             )}
           </aside>
@@ -150,14 +150,14 @@ export function HistoireHeros({ histoire, nom, langue }: { histoire: Histoire; n
       </div>
 
       {/* Anecdotes. */}
-      {anecdotes.length > 0 && (
+      {trivia.length > 0 && (
         <section className="border-t border-night-800 pt-10">
           <h2 className="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.15em] text-azure-400">
             <Sparkles size={16} aria-hidden />
             {t("histoire.saviezVous")}
           </h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-            {anecdotes.map((a, i) => (
+            {trivia.map((a, i) => (
               <li
                 key={i}
                 className="bevel-sm border border-night-700/50 bg-night-900/40 p-4 text-sm leading-relaxed text-chalk-300"

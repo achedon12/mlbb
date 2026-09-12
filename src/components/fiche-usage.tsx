@@ -13,10 +13,10 @@ import type { ResumeRang, UsageHeros } from "@/lib/usage-builds";
  * tableaux lisibles sans JavaScript, et par les moteurs.
  */
 
-const nomDe = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 const portraitDe = (slug: string) => {
   const h = herosParSlug.get(slug);
-  return h?.visuels.icone ?? h?.visuels.portrait ?? null;
+  return h?.images.icon ?? h?.images.portrait ?? null;
 };
 /** Le lien ouvre directement l'onglet des builds de la fiche heros. */
 const lienBuilds = (slug: string) => `/heroes/${slug}#builds`;

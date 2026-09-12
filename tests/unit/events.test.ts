@@ -128,8 +128,8 @@ describe("script: wiki monthly lists", () => {
 
   it("links heroes by name, ignoring case and punctuation, and sorts by month", () => {
     const heroes = [
-      { slug: "yi-sun-shin", nom: "Yi Sun-shin" },
-      { slug: "hanabi", nom: "Hanabi" },
+      { slug: "yi-sun-shin", name: "Yi Sun-shin" },
+      { slug: "hanabi", name: "Hanabi" },
     ];
     const linked = attachHeroes(
       [

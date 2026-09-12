@@ -63,12 +63,12 @@ export function GuideEmblemes({
             {emblemes.map((e) => {
               const choisi = role === e.role;
               return (
-                <li key={e.cle} className="shrink-0 lg:shrink">
+                <li key={e.key} className="shrink-0 lg:shrink">
                   <button
                     type="button"
                     onClick={() => setRole(choisi ? null : e.role)}
                     aria-pressed={choisi}
-                    title={texteEmb(t, e.cle, "pourQui", e.pourQui)}
+                    title={texteEmb(t, e.key, "pourQui", e.bestFor)}
                     className={cn(
                       "flex w-full items-center gap-2.5 border-l-2 px-2.5 py-2 text-left transition-colors",
                       choisi
@@ -76,7 +76,7 @@ export function GuideEmblemes({
                         : "border-transparent text-chalk-500 hover:border-night-600 hover:text-chalk-300",
                     )}
                   >
-                    <Visuel source={images[e.cle]} taille={28} />
+                    <Visuel source={images[e.key]} taille={28} />
                     <span className="hidden text-sm font-medium lg:block">{t(`roles.${e.role}`)}</span>
                   </button>
                 </li>
@@ -100,7 +100,7 @@ export function GuideEmblemes({
               href={`/emblems/${slugEmbleme(choisi)}`}
               className="mt-2 block px-2.5 text-xs font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
             >
-              {t("emblemesUI.voirPage", { nom: texteEmb(t, choisi.cle, "nom", choisi.nom) })} →
+              {t("emblemesUI.voirPage", { nom: texteEmb(t, choisi.key, "nom", choisi.name) })} →
             </Link>
           )}
 
@@ -115,14 +115,14 @@ export function GuideEmblemes({
         <Section
           titre={t("emblemesUI.talents")}
           chapeau={t("emblemesUI.talentsDesc")}
-          entrees={ordonner(talents.filter((t) => t.decisif))}
+          entrees={ordonner(talents.filter((t) => t.decisive))}
           images={images}
           adapte={adapte}
         />
         <Section
           titre={t("emblemesUI.attributs")}
           chapeau={t("emblemesUI.attributsDesc")}
-          entrees={ordonner(talents.filter((t) => !t.decisif))}
+          entrees={ordonner(talents.filter((t) => !t.decisive))}
           images={images}
           adapte={adapte}
         />
@@ -140,12 +140,12 @@ export function GuideEmblemes({
 }
 
 interface Entree {
-  cle: string;
-  nom: string;
+  key: string;
+  name: string;
   roles: Role[];
   description?: string;
-  recharge?: number;
-  pourQui: string;
+  cooldown?: number;
+  bestFor: string;
 }
 
 function Section({
@@ -179,37 +179,37 @@ function Section({
           const retenu = adapte(e.roles);
           return (
             <li
-              key={e.cle}
+              key={e.key}
               className={cn(
                 "flex gap-4 py-3 transition-opacity",
                 retenu ? "" : "opacity-40",
               )}
             >
-              <Visuel source={images[e.cle]} taille={40} />
+              <Visuel source={images[e.key]} taille={40} />
 
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-baseline gap-x-3">
                   <h3 className="font-heading font-bold leading-tight text-chalk-100">
                     {lien ? (
-                      <Link href={lien(e.cle)} className="underline-offset-4 hover:text-gold-400 hover:underline">
-                        {texteEmb(t, e.cle, "nom", e.nom)}
+                      <Link href={lien(e.key)} className="underline-offset-4 hover:text-gold-400 hover:underline">
+                        {texteEmb(t, e.key, "nom", e.name)}
                       </Link>
                     ) : (
-                      texteEmb(t, e.cle, "nom", e.nom)
+                      texteEmb(t, e.key, "nom", e.name)
                     )}
                   </h3>
-                  {e.recharge !== undefined && (
+                  {e.cooldown !== undefined && (
                     <span className="text-xs tabular-nums text-gold-400">
-                      {e.recharge} s
+                      {e.cooldown} s
                     </span>
                   )}
                 </div>
                 {e.description && (
                   <p className="mt-0.5 text-sm leading-snug text-chalk-300">
-                    {texteEmb(t, e.cle, "description", e.description)}
+                    {texteEmb(t, e.key, "description", e.description)}
                   </p>
                 )}
-                <p className="mt-1 text-xs leading-relaxed text-chalk-500">{texteEmb(t, e.cle, "pourQui", e.pourQui)}</p>
+                <p className="mt-1 text-xs leading-relaxed text-chalk-500">{texteEmb(t, e.key, "pourQui", e.bestFor)}</p>
               </div>
 
               <ul className="hidden shrink-0 flex-wrap content-start gap-1 sm:flex sm:w-40">

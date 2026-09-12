@@ -1,7 +1,7 @@
 /** Une entree de la recherche globale. */
 export interface EntreeRecherche {
   type: "heros" | "objet" | "embleme" | "sort" | "competence" | "skin" | "patch" | "page";
-  titre: string;
+  title: string;
   /** Precision affichee sous le titre : epithete, categorie, heros, sous-titre. */
   detail?: string;
   /** Adresse sans langue ; le lien ajoute celle de la page. */

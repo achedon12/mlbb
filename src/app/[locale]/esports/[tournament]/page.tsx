@@ -43,7 +43,7 @@ export function generateStaticParams() {
   return tournaments.map((t) => ({ tournament: t.slug }));
 }
 
-const heroName = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const heroName = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 
 /** "MPL ID Season 18: …", "M7 World Championship: …", "MSC 2026: …". */
 function seoTitle(t: T, tour: Tournament): string {
@@ -471,10 +471,10 @@ function HeroStrip({ label, heroes, ban = false }: { label: string; heroes: stri
           const hero = herosParSlug.get(h);
           return (
             // flex: the portrait is a span, sized only once it is a flex item.
-            <li key={`${h}-${i}`} title={hero?.nom ?? h} className="flex">
+            <li key={`${h}-${i}`} title={hero?.name ?? h} className="flex">
 
               {hero ? (
-                <PortraitHeros source={hero.visuels.icone ?? hero.visuels.portrait} nom={hero.nom} taille="micro" />
+                <PortraitHeros source={hero.images.icon ?? hero.images.portrait} nom={hero.name} taille="micro" />
               ) : (
                 <span className="text-xs text-chalk-300">{h}</span>
               )}

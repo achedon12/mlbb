@@ -1,10 +1,10 @@
 ---
-titre: "The reduction in care, the statistic that no one buys"
+title: "The reduction in care, the statistic that no one buys"
 date: "2026-09-05"
-categorie: "Guide"
-auteur: "achedon12"
-chapeau: "Estes, Yu Zhong, Uranus, Esmeralda: a good part of the games lost in ranked queue are played on an object that no one takes."
-motsCles: ["reduction de soins", "guide", "objets", "estes", "yu zhong"]
+category: "Guide"
+author: "achedon12"
+summary: "Estes, Yu Zhong, Uranus, Esmeralda: a good part of the games lost in ranked queue are played on an object that no one takes."
+keywords: ["reduction de soins", "guide", "objets", "estes", "yu zhong"]
 ---
 
 This is the most frequent reproach after a defeat: “their Estes took care of

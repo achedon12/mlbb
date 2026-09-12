@@ -1,10 +1,10 @@
 ---
-titre: "Corsia esperienza: vinci la tua corsia senza mai uccidere nessuno"
+title: "Corsia esperienza: vinci la tua corsia senza mai uccidere nessuno"
 date: "2026-09-01"
-categorie: "Guide"
-auteur: "achedon12"
-chapeau: "La corsia esperienza si ottiene dall'ondata di servitori e dalla torretta, non dal duello. Il che cambia tutto nel modo in cui lo giochi."
-motsCles: ["lane experience", "guide", "macro", "farm", "split push"]
+category: "Guide"
+author: "achedon12"
+summary: "La corsia esperienza si ottiene dall'ondata di servitori e dalla torretta, non dal duello. Il che cambia tutto nel modo in cui lo giochi."
+keywords: ["lane experience", "guide", "macro", "farm", "split push"]
 ---
 
 Il percorso dell’esperienza produce più cattive abitudini di qualunque altro

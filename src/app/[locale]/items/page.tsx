@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const images = visuels.objets as Record<string, string>;
+const images = visuels.items as Record<string, string>;
 
 export default async function PageObjets({ params }: Params) {
   const { locale } = await params;
@@ -42,12 +42,12 @@ export default async function PageObjets({ params }: Params) {
   for (const [slug, parLane] of Object.entries(buildsJoues)) {
     for (const parRang of Object.values(parLane)) {
       for (const build of parRang.all ?? []) {
-        for (const nom of build.objets) {
+        for (const nom of build.items) {
           const cible = visuelObjet(nom).slug;
           if (!cible) continue;
           const parHeros = usage.get(cible) ?? new Map<string, number>();
           usage.set(cible, parHeros);
-          parHeros.set(slug, Math.max(parHeros.get(slug) ?? 0, build.selection ?? 0));
+          parHeros.set(slug, Math.max(parHeros.get(slug) ?? 0, build.pickRate ?? 0));
         }
       }
     }
@@ -61,7 +61,7 @@ export default async function PageObjets({ params }: Params) {
   const herosVignettes: Record<string, VignetteHeros> = {};
   for (const slug of new Set(Object.values(utilisePar).flat())) {
     const h = herosParSlug.get(slug);
-    if (h) herosVignettes[slug] = { nom: h.nom, portrait: h.visuels.icone ?? h.visuels.portrait };
+    if (h) herosVignettes[slug] = { nom: h.name, portrait: h.images.icon ?? h.images.portrait };
   }
 
   return (

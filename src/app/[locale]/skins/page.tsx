@@ -40,8 +40,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: t("pages.skins.metaDescription", {
       n,
       h: herosAvecSkins.length,
-      dernier: dernier?.skin.nom ?? "—",
-      heros: dernier?.heros.nom ?? "—",
+      dernier: dernier?.skin.name ?? "—",
+      heros: dernier?.heros.name ?? "—",
     }),
     chemin: "/skins",
   });
@@ -52,7 +52,7 @@ export default async function PageSkins({ params }: Params) {
   const t = creerT(locale);
   const n = new Intl.NumberFormat(locale).format(nombreSkinsGaleries);
   const derniers = derniersSkins(DERNIERS);
-  const tries = [...herosAvecSkins].sort((a, b) => a.nom.localeCompare(b.nom, "en"));
+  const tries = [...herosAvecSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
   const chapeau = t("pages.skins.chapeau", { n, h: tries.length });
   const absolue = (chemin: string) => new URL(chemin, site.url).toString();
 
@@ -77,13 +77,13 @@ export default async function PageSkins({ params }: Params) {
           {
             "@type": "ImageObject",
             contentUrl: absolue(chemin),
-            name: s.nom,
+            name: s.name,
             caption: s.illustration
-              ? t("pages.heroSkins.altIllustration", { skin: s.nom, nom: h.nom })
-              : t("pages.heroSkins.altPortrait", { skin: s.nom, nom: h.nom }),
+              ? t("pages.heroSkins.altIllustration", { skin: s.name, nom: h.name })
+              : t("pages.heroSkins.altPortrait", { skin: s.name, nom: h.name }),
             creditText: "Moonton",
             copyrightNotice: "© Moonton",
-            datePublished: s.sortie,
+            datePublished: s.release,
           },
         ];
       }),
@@ -114,12 +114,12 @@ export default async function PageSkins({ params }: Params) {
                   <Link href={`/heroes/${h.slug}/skins#${ancresGalerie(g)[g.skins.indexOf(s)]}`} className="group block">
                     <span
                       className="bevel-sm relative block aspect-[240/390] overflow-hidden border-2 bg-night-800"
-                      style={{ borderColor: rarete(s.rarete).couleur }}
+                      style={{ borderColor: rarete(s.rarity).couleur }}
                     >
                       {image && (
                         <ImageLegere
                           src={image}
-                          alt={t("pages.heroSkins.altPortrait", { skin: s.nom, nom: h.nom })}
+                          alt={t("pages.heroSkins.altPortrait", { skin: s.name, nom: h.name })}
                           largeur={120}
                           hauteur={195}
                           immediate={i < IMMEDIATES}
@@ -128,10 +128,10 @@ export default async function PageSkins({ params }: Params) {
                       )}
                     </span>
                     <span className="mt-1.5 block truncate text-sm font-semibold text-chalk-100 group-hover:text-gold-400">
-                      {s.nom}
+                      {s.name}
                     </span>
                     <span className="block truncate text-xs text-chalk-500">
-                      {h.nom} · <time dateTime={s.sortie!}>{formaterSortie(s.sortie!, locale)}</time>
+                      {h.name} · <time dateTime={s.release!}>{formaterSortie(s.release!, locale)}</time>
                     </span>
                   </Link>
                 </li>
@@ -158,7 +158,7 @@ export default async function PageSkins({ params }: Params) {
             {tries.map((h) => (
               <li key={h.slug}>
                 <Link href={`/heroes/${h.slug}/skins`} prefetch={false}>
-                  {h.nom}
+                  {h.name}
                 </Link>{" "}
                 {galerieHeros(h).total}
               </li>

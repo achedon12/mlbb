@@ -25,32 +25,32 @@ export function serieQuotidienne(points, pas = 1) {
   const premier = numeroJour(tries[0].date);
   const n = (numeroJour(tries.at(-1).date) - premier) / pas + 1;
   const serie = {
-    debut: tries[0].date,
-    victoire: Array(n).fill(null),
-    ban: Array(n).fill(null),
-    selection: Array(n).fill(null),
+    start: tries[0].date,
+    winRate: Array(n).fill(null),
+    banRate: Array(n).fill(null),
+    pickRate: Array(n).fill(null),
   };
   for (const p of tries) {
     const k = (numeroJour(p.date) - premier) / pas;
-    serie.victoire[k] = p.victoire;
-    serie.ban[k] = p.ban;
-    serie.selection[k] = p.selection;
+    serie.winRate[k] = p.winRate;
+    serie.banRate[k] = p.banRate;
+    serie.pickRate[k] = p.pickRate;
   }
   return serie;
 }
 
 /** Inverse de serieQuotidienne : un point par jour (ou par semaine) mesure. */
 export function pointsDe(serie, pas = 1) {
-  if (!serie?.victoire) return [];
-  const debut = numeroJour(serie.debut);
-  return serie.victoire.flatMap((v, k) =>
+  if (!serie?.winRate) return [];
+  const debut = numeroJour(serie.start);
+  return serie.winRate.flatMap((v, k) =>
     v == null
       ? []
       : [{
           date: dateDuJour(debut + k * pas),
-          victoire: v,
-          ban: serie.ban?.[k] ?? null,
-          selection: serie.selection?.[k] ?? null,
+          winRate: v,
+          banRate: serie.banRate?.[k] ?? null,
+          pickRate: serie.pickRate?.[k] ?? null,
         }],
   );
 }
@@ -59,7 +59,7 @@ export function pointsDe(serie, pas = 1) {
 export const JOURS_QUOTIDIENS = 90;
 
 /** Precision des moyennes hebdomadaires, celle des mesures du jeu. */
-const DECIMALES = { victoire: 1, ban: 1, selection: 2 };
+const DECIMALES = { winRate: 1, banRate: 1, pickRate: 2 };
 
 function moyenne(valeurs, decimales) {
   const mesurees = valeurs.filter((v) => typeof v === "number");
@@ -93,9 +93,9 @@ export function compacterHistorique(points, semainesExistantes = [], jours = JOU
       date,
       {
         date,
-        victoire: moyenne(ps.map((p) => p.victoire), DECIMALES.victoire),
-        ban: moyenne(ps.map((p) => p.ban), DECIMALES.ban),
-        selection: moyenne(ps.map((p) => p.selection), DECIMALES.selection),
+        winRate: moyenne(ps.map((p) => p.winRate), DECIMALES.winRate),
+        banRate: moyenne(ps.map((p) => p.banRate), DECIMALES.banRate),
+        pickRate: moyenne(ps.map((p) => p.pickRate), DECIMALES.pickRate),
       },
     ]),
   );
@@ -103,7 +103,7 @@ export function compacterHistorique(points, semainesExistantes = [], jours = JOU
 
   const serie = serieQuotidienne(recents);
   const hebdo = serieQuotidienne([...semaines.values()], 7);
-  return hebdo ? { ...serie, semaines: hebdo } : serie;
+  return hebdo ? { ...serie, weeks: hebdo } : serie;
 }
 
 /**
@@ -118,7 +118,7 @@ export function fusionnerHistorique(existant, tendances, jours = JOURS_QUOTIDIEN
   for (const slug of new Set([...Object.keys(existant), ...Object.keys(tendances)])) {
     const parDate = new Map();
     for (const p of [...pointsDe(existant[slug]), ...pointsDe(tendances[slug]?.all)]) parDate.set(p.date, p);
-    const serie = compacterHistorique([...parDate.values()], pointsDe(existant[slug]?.semaines, 7), jours);
+    const serie = compacterHistorique([...parDate.values()], pointsDe(existant[slug]?.weeks, 7), jours);
     if (serie) sortie[slug] = serie;
   }
   return sortie;
@@ -145,10 +145,10 @@ export const BANDES_AUTEUR = {
  */
 export function choisirGuide(candidats, rang) {
   const [bas, haut] = BANDES_AUTEUR[rang];
-  const parVotes = (a, b) => b.votes - a.votes || b.vues - a.vues;
+  const parVotes = (a, b) => b.votes - a.votes || b.views - a.views;
   return (
-    candidats.filter((g) => g.rangAuteur >= bas && g.rangAuteur < haut).sort(parVotes)[0] ??
-    candidats.filter((g) => g.rangAuteur >= bas).sort(parVotes)[0] ??
+    candidats.filter((g) => g.authorRank >= bas && g.authorRank < haut).sort(parVotes)[0] ??
+    candidats.filter((g) => g.authorRank >= bas).sort(parVotes)[0] ??
     null
   );
 }
@@ -187,15 +187,15 @@ export function duosDuRang(bloc, parId, slug, max = 10) {
       .filter(({ a, slug: s }) => s && s !== slug && typeof a.increase_win_rate === "number")
       .map(({ a, slug: s }) => {
         const p = phases(a);
-        return { slug: s, avantage: Math.round(a.increase_win_rate * 1000) / 10, ...(p ? { phases: p } : {}) };
+        return { slug: s, advantage: Math.round(a.increase_win_rate * 1000) / 10, ...(p ? { phases: p } : {}) };
       });
-  const meilleurs = partenaires(bloc?.sub_hero).filter((d) => d.avantage > 0).sort((a, b) => b.avantage - a.avantage);
-  const pires = partenaires(bloc?.sub_hero_last).filter((d) => d.avantage < 0).sort((a, b) => a.avantage - b.avantage);
+  const meilleurs = partenaires(bloc?.sub_hero).filter((d) => d.advantage > 0).sort((a, b) => b.advantage - a.advantage);
+  const pires = partenaires(bloc?.sub_hero_last).filter((d) => d.advantage < 0).sort((a, b) => a.advantage - b.advantage);
   if (meilleurs.length === 0 && pires.length === 0) return null;
   return {
-    mesure: typeof bloc.main_hero_win_rate === "number" ? arrondi(bloc.main_hero_win_rate * 100, 1) : null,
-    meilleurs: meilleurs.slice(0, max),
-    pires: pires.slice(0, max),
+    winRate: typeof bloc.main_hero_win_rate === "number" ? arrondi(bloc.main_hero_win_rate * 100, 1) : null,
+    best: meilleurs.slice(0, max),
+    worst: pires.slice(0, max),
   };
 }
 
@@ -216,7 +216,7 @@ export function serialiserDuos(jours, heros) {
   const lignes = Object.keys(heros)
     .sort()
     .map((slug) => `    ${JSON.stringify(slug)}: ${JSON.stringify(heros[slug])}`);
-  return `{\n  "jours": ${jours},\n  "heros": ${lignes.length > 0 ? `{\n${lignes.join(",\n")}\n  }` : "{}"}\n}\n`;
+  return `{\n  "days": ${jours},\n  "heroes": ${lignes.length > 0 ? `{\n${lignes.join(",\n")}\n  }` : "{}"}\n}\n`;
 }
 
 const normaliserNom = (nom) => String(nom ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -236,20 +236,20 @@ const typeCombo = (titre) => ORDRE_COMBOS.find((t) => normaliserNom(titre).start
  * fiches, porte un identifiant rond (celui du heros suivi de 00).
  */
 export function combosDuHeros(records, skills, competencesSite, icones) {
-  const nomsSite = new Map(competencesSite.filter((c) => c?.nom).map((c) => [normaliserNom(c.nom), c.nom]));
+  const nomsSite = new Map(competencesSite.filter((c) => c?.name).map((c) => [normaliserNom(c.name), c.name]));
   const parId = new Map(skills.map((s) => [s.id, s]));
   const premierId = new Map();
-  for (const s of skills) if (!premierId.has(normaliserNom(s.nom))) premierId.set(normaliserNom(s.nom), s.id);
+  for (const s of skills) if (!premierId.has(normaliserNom(s.name))) premierId.set(normaliserNom(s.name), s.id);
 
   const competence = (brute) => {
     const id = brute?.data?.skillid;
     const distante = brute?.data?.skillicon ? String(brute.data.skillicon) : null;
     const skill = parId.get(id);
-    if (!skill) return id % 100 === 0 ? { nom: null, icone: distante, attaque: true } : { nom: null, icone: distante };
-    const cle = normaliserNom(skill.nom);
-    const nom = nomsSite.get(cle) ?? (skill.nom || null);
-    if (premierId.get(cle) === id && nom && icones[nom]) return { nom, icone: icones[nom] };
-    return { nom, icone: distante ?? skill.icone ?? null };
+    if (!skill) return id % 100 === 0 ? { name: null, icon: distante, basicAttack: true } : { name: null, icon: distante };
+    const cle = normaliserNom(skill.name);
+    const nom = nomsSite.get(cle) ?? (skill.name || null);
+    if (premierId.get(cle) === id && nom && icones[nom]) return { name: nom, icon: icones[nom] };
+    return { name: nom, icon: distante ?? skill.icon ?? null };
   };
 
   const rang = (c) => (c.type ? ORDRE_COMBOS.indexOf(c.type) : ORDRE_COMBOS.length);
@@ -259,7 +259,7 @@ export function combosDuHeros(records, skills, competencesSite, icones) {
     .map((d) => ({
       type: typeCombo(d.title),
       description: retirerBalises(d.desc).replace(/\s+/g, " ").trim(),
-      competences: d.skill_id.map(competence),
+      skills: d.skill_id.map(competence),
     }))
     .sort((a, b) => rang(a) - rang(b));
 }

@@ -31,9 +31,9 @@ const t = creerTDepuis({
 });
 
 const mesure = (faible: [string, number][], fort: [string, number][] = []) => ({
-  faible: faible.map(([slug, avantage]) => ({ slug, avantage })),
-  fort: fort.map(([slug, avantage]) => ({ slug, avantage })),
-  mesure: 50,
+  weak: faible.map(([slug, advantage]) => ({ slug, advantage })),
+  strong: fort.map(([slug, advantage]) => ({ slug, advantage })),
+  winRate: 50,
 });
 
 describe("deNom", () => {
@@ -54,17 +54,17 @@ describe("agregerContres", () => {
   };
 
   it("lit les tranches une a une, sans compter `all`, et classe par regularite puis par ecart", () => {
-    expect(agregerContres(parRang, "faible")).toEqual([
+    expect(agregerContres(parRang, "weak")).toEqual([
       { slug: "gloo", rangs: 2, moyenne: -2.5 },
       { slug: "lolita", rangs: 1, moyenne: -5 },
       { slug: "atlas", rangs: 1, moyenne: -4 },
     ]);
-    expect(agregerContres(parRang, "fort").map((c) => c.slug)).toEqual(["cici", "marcel"]);
+    expect(agregerContres(parRang, "strong").map((c) => c.slug)).toEqual(["cici", "marcel"]);
   });
 
   it("retombe sur `all` quand aucune tranche n'est mesuree", () => {
-    expect(agregerContres({ all: mesure([["gloo", -9]]) }, "faible")).toEqual([{ slug: "gloo", rangs: 1, moyenne: -9 }]);
-    expect(agregerContres({}, "faible")).toEqual([]);
+    expect(agregerContres({ all: mesure([["gloo", -9]]) }, "weak")).toEqual([{ slug: "gloo", rangs: 1, moyenne: -9 }]);
+    expect(agregerContres({}, "weak")).toEqual([]);
   });
 
   it("choisit Mythique pour la synthese, sinon tous rangs, sinon le premier rang mesure", () => {
@@ -77,15 +77,15 @@ describe("agregerContres", () => {
 
 describe("phraseSynthese", () => {
   const faible = [
-    { nom: "Hayabusa", avantage: -3 },
-    { nom: "Gloo", avantage: -4.3 },
-    { nom: "Silvanna", avantage: -2.7 },
-    { nom: "Lolita", avantage: -2.6 },
+    { nom: "Hayabusa", advantage: -3 },
+    { nom: "Gloo", advantage: -4.3 },
+    { nom: "Silvanna", advantage: -2.7 },
+    { nom: "Lolita", advantage: -2.6 },
   ];
   const fort = [
-    { nom: "Marcel", avantage: 3.2 },
-    { nom: "Cici", avantage: 3.3 },
-    { nom: "Claude", avantage: 2.8 },
+    { nom: "Marcel", advantage: 3.2 },
+    { nom: "Cici", advantage: 3.3 },
+    { nom: "Claude", advantage: 2.8 },
   ];
 
   it("cite trois contres et deux victimes, le premier de chaque avec son ecart", () => {
@@ -154,19 +154,19 @@ describe("objets contre un heros", () => {
 describe("momentsPartie", () => {
   it("trouve la tranche la plus faible et la plus forte", () => {
     const tranches = [
-      { de: 10, a: 12, victoire: 53 },
-      { de: 12, a: 14, victoire: 50 },
-      { de: 14, a: null, victoire: 48 },
+      { from: 10, to: 12, winRate: 53 },
+      { from: 12, to: 14, winRate: 50 },
+      { from: 14, to: null, winRate: 48 },
     ];
     const m = momentsPartie(tranches)!;
-    expect(m.faible.de).toBe(14);
-    expect(m.fort.de).toBe(10);
+    expect(m.faible.from).toBe(14);
+    expect(m.fort.from).toBe(10);
     expect(m.profil).toBe("debut");
   });
 
   it("ne dit rien d'une courbe plate ou trop courte", () => {
-    expect(momentsPartie([{ de: 10, a: null, victoire: 50 }])).toBeNull();
-    expect(momentsPartie([{ de: 10, a: 12, victoire: 50 }, { de: 12, a: null, victoire: 50 }])).toBeNull();
+    expect(momentsPartie([{ from: 10, to: null, winRate: 50 }])).toBeNull();
+    expect(momentsPartie([{ from: 10, to: 12, winRate: 50 }, { from: 12, to: null, winRate: 50 }])).toBeNull();
     expect(momentsPartie(undefined)).toBeNull();
   });
 });

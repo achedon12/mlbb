@@ -30,8 +30,8 @@ export function generateStaticParams() {
   return objets("en").map((o) => ({ slug: o.slug }));
 }
 
-const images = visuels.objets as Record<string, string>;
-const nomHeros = (slug: string) => herosParSlug.get(slug)?.nom ?? slug;
+const images = visuels.items as Record<string, string>;
+const nomHeros = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
 /** Un effet se termine deja par un point : la phrase n'en ajoute pas un second. */
 const sansPoint = (texte: string) => texte.replace(/[.\s]+$/, "");
 
@@ -44,13 +44,13 @@ function fiche(locale: Langue, slug: string) {
   if (!o) return null;
   const t = creerT(locale);
   const heros = usage("objet", slug);
-  const prix = o.prix === null ? null : `${o.prix.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsListe.or")}`;
-  const details = [t(`categories.${o.categorie}`), prix].filter(Boolean).join(", ");
-  const effet = o.bonus ?? o.resume;
+  const prix = o.price === null ? null : `${o.price.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsListe.or")}`;
+  const details = [t(`categories.${o.category}`), prix].filter(Boolean).join(", ");
+  const effet = o.bonus ?? o.summary;
   const phrases = [
     effet
-      ? t("pages.itemDetail.descObjet", { nom: o.nom, details, effet: sansPoint(effet) })
-      : t("pages.itemDetail.descObjetSeul", { nom: o.nom, details }),
+      ? t("pages.itemDetail.descObjet", { nom: o.name, details, effet: sansPoint(effet) })
+      : t("pages.itemDetail.descObjetSeul", { nom: o.name, details }),
   ];
   const premier = heros[0];
   if (premier) {
@@ -69,7 +69,7 @@ function fiche(locale: Langue, slug: string) {
     o,
     t,
     heros,
-    titre: t("pages.itemDetail.titre", { nom: o.nom, v: patchActuel?.version ?? "" }),
+    titre: t("pages.itemDetail.titre", { nom: o.name, v: patchActuel?.version ?? "" }),
     chapeau: phrases.join(" "),
     description: [...phrases, t("pages.fiches.descMaj", { date: dateLongue(locale) })].join(" "),
   };
@@ -98,25 +98,25 @@ export default async function PageObjet({ params }: Params) {
   const apercus: ApercuObjet[] = objets(locale).map((x) => ({ ...x, image: images[x.slug] ?? null }));
   const objet = apercus.find((x) => x.slug === slug)!;
   const catalogue = catalogueRecettes(apercus);
-  const aFabrication = objet.recette.length > 0 || (catalogue.debouches.get(objet.nom)?.length ?? 0) > 0;
+  const aFabrication = objet.recipe.length > 0 || (catalogue.debouches.get(objet.name)?.length ?? 0) > 0;
   const prix = (n: number) => `${n.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsListe.or")}`;
-  const categorie = t(`categories.${o.categorie}`);
+  const categorie = t(`categories.${o.category}`);
 
   // Objets voisins : meme categorie, les plus proches en prix, puis ranges par prix.
-  const ecart = (x: ApercuObjet) => Math.abs((x.prix ?? 0) - (o.prix ?? 0));
+  const ecart = (x: ApercuObjet) => Math.abs((x.price ?? 0) - (o.price ?? 0));
   const similaires = apercus
-    .filter((x) => x.categorie === o.categorie && x.slug !== slug)
+    .filter((x) => x.category === o.category && x.slug !== slug)
     .sort((a, b) => ecart(a) - ecart(b))
     .slice(0, 8)
-    .sort((a, b) => (a.prix ?? 0) - (b.prix ?? 0));
+    .sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
 
-  const titreHeros = t("pages.itemDetail.herosTitre", { nom: o.nom });
+  const titreHeros = t("pages.itemDetail.herosTitre", { nom: o.name });
   const donnees = donneesFiche(locale, {
     titre: f.titre,
     description: f.description,
     chemin: `/items/${slug}`,
-    nom: o.nom,
-    resume: o.resume,
+    nom: o.name,
+    resume: o.summary,
     image: objet.image,
     listeNom: titreHeros,
     heros: heros.slice(0, 10).map((h) => ({ nom: nomHeros(h.slug), slug: h.slug })),
@@ -126,16 +126,16 @@ export default async function PageObjet({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
       <EnTetePage
-        titre={o.nom}
+        titre={o.name}
         chapeau={f.chapeau}
         icone={objet.image ? <IconeObjet image={objet.image} taille={64} /> : undefined}
         miettes={[
           { nom: t("nav.items.label"), href: "/items" },
           {
-            nom: o.nom,
+            nom: o.name,
             freres: [...apercus]
-              .sort((a, b) => a.nom.localeCompare(b.nom))
-              .map((x) => ({ nom: x.nom, href: `/items/${x.slug}` })),
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((x) => ({ nom: x.name, href: `/items/${x.slug}` })),
           },
         ]}
       >
@@ -152,10 +152,10 @@ export default async function PageObjet({ params }: Params) {
                   <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.categorie")}</dt>
                   <dd className="mt-1 text-chalk-100">{categorie}</dd>
                 </div>
-                {o.prix !== null && (
+                {o.price !== null && (
                   <div>
                     <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.itemDetail.prix")}</dt>
-                    <dd className="mt-1 font-heading text-gold-400">{prix(o.prix)}</dd>
+                    <dd className="mt-1 font-heading text-gold-400">{prix(o.price)}</dd>
                   </div>
                 )}
               </div>
@@ -194,9 +194,9 @@ export default async function PageObjet({ params }: Params) {
             <ListeLiens
               liens={similaires.map((x) => ({
                 href: `/items/${x.slug}`,
-                nom: x.nom,
+                nom: x.name,
                 image: x.image,
-                detail: x.prix === null ? undefined : prix(x.prix),
+                detail: x.price === null ? undefined : prix(x.price),
               }))}
             />
           </section>

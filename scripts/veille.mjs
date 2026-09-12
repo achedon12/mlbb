@@ -71,16 +71,16 @@ function normaliser(flux, source) {
       const lien =
         typeof lienBrut === "string" ? lienBrut : String(premier(lienBrut)?.["@_href"] ?? "");
       return {
-        titre,
-        lien,
+        title: titre,
+        link: lien,
         date: String(e.pubDate ?? e.updated ?? e.published ?? ""),
-        extrait: extrait(typeof corps === "object" ? corps?.["#text"] : corps),
+        excerpt: extrait(typeof corps === "object" ? corps?.["#text"] : corps),
         source: source.nom,
         sourceSlug: source.slug,
       };
     })
-    .filter((a) => a.titre && a.lien)
-    .filter((a) => !source.filtrer || concerneLeJeu(a.titre, a.extrait));
+    .filter((a) => a.title && a.link)
+    .filter((a) => !source.filtrer || concerneLeJeu(a.title, a.excerpt));
 }
 
 async function lireSource(source) {
@@ -103,12 +103,12 @@ const lots = await Promise.all(sources.map(lireSource));
 const vues = new Set();
 const actualites = lots
   .flat()
-  .filter((a) => (vues.has(a.lien) ? false : (vues.add(a.lien), true)))
+  .filter((a) => (vues.has(a.link) ? false : (vues.add(a.link), true)))
   .sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
   .slice(0, LIMITE);
 
 await writeFile(
   SORTIE,
-  JSON.stringify({ mesure: new Date().toISOString(), actualites }, null, 2) + "\n",
+  JSON.stringify({ measuredAt: new Date().toISOString(), news: actualites }, null, 2) + "\n",
 );
 console.log(`veille : ${actualites.length} entrees ecrites dans ${SORTIE}`);

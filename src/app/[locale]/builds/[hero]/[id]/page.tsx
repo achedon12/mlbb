@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const stored = await load(id);
   if (!stored) return { robots: { index: false, follow: true } };
   const t = creerT(locale);
-  const hero = herosParSlug.get(stored.build.hero)?.nom ?? stored.build.hero;
+  const hero = herosParSlug.get(stored.build.hero)?.name ?? stored.build.hero;
   return {
     ...metaPage(locale, {
       titre: t("pages.seo.communityBuild.title", { title: stored.title, hero }),
@@ -68,7 +68,7 @@ export default async function CommunityBuildPage({ params }: Params) {
   const { viewer, now } = await viewerAndTime();
   const build = toPublic(stored, viewer, now);
   const h = herosParSlug.get(build.hero);
-  const heroName = h?.nom ?? build.hero;
+  const heroName = h?.name ?? build.hero;
   const simHero = simCatalog.heroes.get(build.hero);
   const result = simulate(build.build, simCatalog);
   const names = buildNames(locale, t);
@@ -97,7 +97,7 @@ export default async function CommunityBuildPage({ params }: Params) {
           { nom: heroName, href: `/builds/${build.hero}` },
           { nom: build.title },
         ]}
-        icone={h ? <PortraitHeros source={h.visuels.icone} nom={heroName} taille="vignette" decoratif /> : undefined}
+        icone={h ? <PortraitHeros source={h.images.icon} nom={heroName} taille="vignette" decoratif /> : undefined}
       />
       <CompleterMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">

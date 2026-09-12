@@ -226,21 +226,21 @@ const pair = (a: unknown, b: unknown): Pair | null => {
 /** Wiki hero record (`heros.json`, French field names of the shared data) to the simulator shape. */
 export function prepareHero(h: {
   slug: string;
-  nom: string;
-  typeDegats: string | null;
-  ressource: string | null;
+  name: string;
+  damageType: string | null;
+  resource: string | null;
   stats?: Record<string, string> | null;
 }): SimHero {
   const s = h.stats ?? {};
   const mana = pair(s.mana1, s.mana15);
-  const usesMana = h.ressource === "Mana" || (mana !== null && mana[1] > 0 && h.ressource !== "Energy");
-  const damage = h.typeDegats ?? "";
+  const usesMana = h.resource === "Mana" || (mana !== null && mana[1] > 0 && h.resource !== "Energy");
+  const damage = h.damageType ?? "";
   return {
     slug: h.slug,
-    name: h.nom,
+    name: h.name,
     // "Phyiscal": a wiki typo, read as physical.
     damageType: /^mag/i.test(damage) ? "magic" : /^mix/i.test(damage) ? "mixed" : "physical",
-    resource: usesMana ? "mana" : h.ressource === "Energy" ? "energy" : "none",
+    resource: usesMana ? "mana" : h.resource === "Energy" ? "energy" : "none",
     hp: pair(s.hp1, s.hp15),
     mana: usesMana ? mana : null,
     physicalAttack: pair(s.physical_atk1, s.physical_atk15),
@@ -267,24 +267,24 @@ export interface SimItem {
 /** Wiki item record (`objets.json`, French field names of the shared data) to the simulator shape. */
 export function prepareItem(o: {
   slug: string;
-  nom: string;
-  categorie: string;
-  prix: number | null;
+  name: string;
+  category: string;
+  price: number | null;
   bonus: string | null;
   unique: string | null;
-  passif: string | null;
+  passive: string | null;
 }): SimItem {
   const bonus = parseBonus(o.bonus);
   const unique = parseBonus(o.unique);
   return {
     slug: o.slug,
-    name: o.nom,
-    category: o.categorie,
-    price: o.prix,
+    name: o.name,
+    category: o.category,
+    price: o.price,
     bonuses: bonus.bonuses,
     unique: unique.bonuses,
     others: [...bonus.others, ...unique.others],
-    passives: parsePassives(o.passif),
+    passives: parsePassives(o.passive),
   };
 }
 

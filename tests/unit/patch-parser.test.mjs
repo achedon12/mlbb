@@ -30,15 +30,15 @@ describe("ajustementsHeros — format recent (listes, fleche →)", () => {
   const heros = ajustementsHeros(FORMAT_RECENT);
 
   it("extrait les deux heros avec leur type", () => {
-    expect(heros.map((h) => [h.nom, h.type])).toEqual([
+    expect(heros.map((h) => [h.name, h.type])).toEqual([
       ["Saber", "amelioration"],
       ["Ruby", "affaiblissement"],
     ]);
   });
 
   it("coupe le changement en avant / apres", () => {
-    const change = heros[0].sections[0].changements[0];
-    expect(change).toMatchObject({ libelle: "Mana Cost", avant: "70-45", apres: "40-60" });
+    const change = heros[0].sections[0].changes[0];
+    expect(change).toMatchObject({ label: "Mana Cost", before: "70-45", after: "40-60" });
   });
 });
 
@@ -47,12 +47,12 @@ describe("ajustementsHeros — ancien format (tableau, separateur >>)", () => {
 
   it("lit le heros malgre le balisage de tableau", () => {
     expect(heros).toHaveLength(1);
-    expect(heros[0]).toMatchObject({ nom: "Silvanna", type: "amelioration" });
+    expect(heros[0]).toMatchObject({ name: "Silvanna", type: "amelioration" });
   });
 
   it("normalise le separateur >> en avant / apres", () => {
-    const change = heros[0].sections.at(-1).changements[0];
-    expect(change).toMatchObject({ avant: "95-145", apres: "70-110" });
+    const change = heros[0].sections.at(-1).changes[0];
+    expect(change).toMatchObject({ before: "95-145", after: "70-110" });
   });
 });
 
