@@ -110,7 +110,7 @@ export default async function GameModePage({ params }: Params) {
             className="pointer-events-none absolute -right-10 top-1/2 -z-10 h-[150%] w-auto -translate-y-1/2 object-contain opacity-25 blur-[1px] sm:opacity-30"
           />
         )}
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950/90 via-night-950/50 to-transparent" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-linear-to-r from-night-950/90 via-night-950/50 to-transparent" />
 
         <div className="mx-auto max-w-4xl px-4 py-12">
           <Breadcrumb

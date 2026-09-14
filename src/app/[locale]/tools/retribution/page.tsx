@@ -101,7 +101,7 @@ export default async function RetributionPage({ params }: Params) {
                   <span className="text-chalk-500">{t("pages.retribution.level", { n })}</span>
                   <span aria-hidden className="h-3 bg-night-800">
                     <span
-                      className="block h-full bg-gradient-to-r from-gold-600 to-gold-400"
+                      className="block h-full bg-linear-to-r from-gold-600 to-gold-400"
                       style={{ width: `${(damage / damageMax) * 100}%` }}
                     />
                   </span>
@@ -137,7 +137,7 @@ export default async function RetributionPage({ params }: Params) {
                     {/* Longueur relative au plus gros objectif ; un trait par segment de la barre de vie. */}
                     <div aria-hidden className="mt-2 h-2.5 bg-night-950">
                       <div
-                        className="h-full bg-gradient-to-r from-blood-500 to-[#ff7a66]"
+                        className="h-full bg-linear-to-r from-blood-500 to-[#ff7a66]"
                         style={{
                           width: `${(o.hp / hpMaxObjectives) * 100}%`,
                           backgroundImage: `repeating-linear-gradient(to right, transparent 0 calc(${segment}% - 1px), rgba(6, 8, 15, 0.9) calc(${segment}% - 1px) ${segment}%), linear-gradient(to right, #d94848, #ff7a66)`,

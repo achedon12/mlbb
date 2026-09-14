@@ -996,7 +996,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               />
               <div
                 className={cn(
-                  "absolute inset-y-0 left-0 bg-gradient-to-b transition-[width] duration-100 ease-linear",
+                  "absolute inset-y-0 left-0 bg-linear-to-b transition-[width] duration-100 ease-linear",
                   hasRange ? "from-[#ffe08a] to-gold-500" : "from-[#ff7a66] to-blood-500",
                 )}
                 style={{ width: `${part}%` }}
@@ -1169,7 +1169,7 @@ export function RetributionTrainer({ address }: { address: string }) {
                       aria-hidden
                       className={cn(
                         "bevel-sm w-full",
-                        passed ? "bg-gradient-to-t from-gold-600 to-gold-400" : "bg-blood-500/40",
+                        passed ? "bg-linear-to-t from-gold-600 to-gold-400" : "bg-blood-500/40",
                       )}
                       style={{ height: `${Math.max(4, (r.points / 1000) * 72)}%` }}
                     />
