@@ -16,6 +16,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { existsSync } from "node:fs";
 import { analyzeTableLua } from "./lua.mjs";
+import { clean, count, empty, normalizeHeroes, slugify } from "./heroes.mjs";
 import { splitSections, cleanRender, newHeroes, toc } from "./patch-notes.mjs";
 import {
   cleanDescription,
@@ -53,15 +54,6 @@ const UA = "MLBB-sync/1.0 (https://mlbbdex.com; contact via github.com/achedon12
 const OUTPUT = "src/data/game";
 
 const WITH_IMAGES = process.argv.includes("--images");
-
-/** Wiki lane names mapped to the site's lane tokens. */
-const LANES = {
-  "Gold Lane": "Gold",
-  "EXP Lane": "Exp",
-  "Mid Lane": "Mid",
-  Jungle: "Jungle",
-  Roaming: "Roam",
-};
 
 // ─────────────────────────────────────────────────────────────
 // Wiki access
@@ -111,77 +103,6 @@ async function moduleLua(title) {
 // ─────────────────────────────────────────────────────────────
 // Normalization
 // ─────────────────────────────────────────────────────────────
-
-/** A stable URL identifier, insensitive to accents and punctuation. */
-function slugify(name) {
-  return String(name)
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    // Apostrophes and dots separate words: "Chang'e" becomes "chang-e" and
-    // "X.Borg" becomes "x-borg", rather than gluing the pieces into one
-    // unreadable block.
-    .replace(/['’.]/g, "-")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-}
-
-/** The wiki leaves fields set to `<name>` in its templates: that is not a value. */
-const empty = (v) => !v || String(v).startsWith("<") || String(v).trim() === "";
-const clean = (v) => (empty(v) ? null : String(v).trim());
-const list = (...v) => v.map(clean).filter(Boolean);
-
-function normalizeHeroes(raw) {
-  return Object.entries(raw)
-    .filter(([name, h]) => name !== "Mystery Hero" && !empty(h.id) && !empty(h.name))
-    .map(([, h]) => ({
-      slug: slugify(h.name),
-      name: String(h.name),
-      id: String(h.id),
-      title: clean(h.title),
-      roles: list(h.role1, h.role2),
-      lanes: list(h.lane1, h.lane2).map((l) => LANES[l] ?? l),
-      specialties: list(h.specialty1, h.specialty2),
-      release: clean(h.release_date),
-      year: clean(h.release_year) ?? extractYear(h.release_date),
-      resource: clean(h.resource),
-      damageType: clean(h.dmg_type),
-      attackType: clean(h.atk_type),
-      region: clean(h.region),
-      ratings: {
-        offense: count(h.ratings?.offense),
-        durability: count(h.ratings?.durability),
-        abilityEffects: count(h.ratings?.control_effect ?? h.ratings?.ability_effects),
-        difficulty: count(h.ratings?.difficulty),
-      },
-      stats: h.stats && typeof h.stats === "object" ? normalizeStats(h.stats) : null,
-    }))
-    .sort((a, b) => a.name.localeCompare(b.name, "fr"));
-}
-
-function count(v) {
-  if (empty(v)) return null;
-  const n = Number(String(v).replace(",", "."));
-  // `|| null` is tempting, but it would turn a legitimate zero into a missing
-  // value: in JavaScript, 0 is falsy.
-  return Number.isFinite(n) ? n : null;
-}
-
-function extractYear(date) {
-  const found = String(date ?? "").match(/\b(20\d{2})\b/);
-  return found ? found[1] : null;
-}
-
-function normalizeStats(stats) {
-  const keep = [
-    "hp1", "hp15", "hp_regen1", "mana1", "mana15",
-    "physical_atk1", "physical_atk15", "physical_def1", "physical_def15",
-    "magic_def1", "magic_def15", "movement_spd", "basic_atk_range",
-  ];
-  const output = {};
-  for (const key of keep) if (!empty(stats[key])) output[key] = String(stats[key]);
-  return Object.keys(output).length ? output : null;
-}
 
 function normalizeSkins(raw) {
   const byHero = {};
@@ -1701,7 +1622,8 @@ async function main() {
     moduleLua("Module:Equipment/data"),
   ]);
 
-  const heroes = normalizeHeroes(rawHeroes);
+  // The previous catalogue covers an entry an edit blanked or removed.
+  const heroes = normalizeHeroes(rawHeroes, await readJson(`${OUTPUT}/heroes.json`));
   const skins = normalizeSkins(rawSkins);
   const items = normalizeItems(rawItems);
 
