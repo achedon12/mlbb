@@ -45,6 +45,14 @@ jobs:
             echo "::error::develop does not contain main: wait until Align develop has replayed it on main, then run this again."
             exit 1
           fi
+          # A sync runs for up to an hour on the main it checked out: publishing
+          # meanwhile makes its commit conflict and its data is lost.
+          running=$(gh run list --workflow data-sync.yml --json status \
+            --jq '[.[] | select(.status == "in_progress" or .status == "queued")] | length')
+          if [ "$running" != "0" ]; then
+            echo "::error::A data sync is running: publish once it has finished."
+            exit 1
+          fi
           for workflow in quality.yml tests.yml; do
             state=$(gh run list --workflow "$workflow" --commit "$develop" --json status,conclusion \
               --jq '.[0] | "\(.status) \(.conclusion)"')

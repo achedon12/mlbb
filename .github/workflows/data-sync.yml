@@ -148,9 +148,18 @@ jobs:
           else
             git commit -q -m "Record hero rate history for $(date -u +%F)"
           fi
-          # main may have moved during the sync: replay on top of it.
+          # main may have moved during the sync: replay on top of it. A conflict
+          # means a release changed the synced files meanwhile (renamed or
+          # reshaped data): this run's data was produced for the old main, so it
+          # is dropped rather than forced in; running the sync again regenerates
+          # it with the new code.
           for _ in 1 2 3; do
-            if git pull -q --rebase origin main && git push -q origin HEAD:main; then
+            if ! git pull -q --rebase origin main; then
+              git rebase --abort 2> /dev/null || true
+              echo "::error::main changed the synced files during this run (a release?): this run's data is discarded. Run the sync again."
+              exit 1
+            fi
+            if git push -q origin HEAD:main; then
               echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
               git log -1 --stat --format='%h %s' | tail -3
               exit 0
