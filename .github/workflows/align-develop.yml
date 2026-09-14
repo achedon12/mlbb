@@ -61,10 +61,31 @@ jobs:
             echo "develop avance jusqu'a $(git rev-parse --short HEAD)."
             exit 0
           fi
+          # The nightly sync commits generated data on main, with main's scripts.
+          # When develop changed the same files (a schema change, typically),
+          # replaying develop conflicts every night and blocks publishing. That
+          # data is regenerated at the next sync, so develop's version wins;
+          # a conflict on anything else still needs a human.
           if ! git rebase -q origin/main; then
-            git rebase --abort
-            echo "::error::Les commits de develop entrent en conflit avec main : rebasez develop sur main a la main."
-            exit 1
+            while git rev-parse -q --verify REBASE_HEAD > /dev/null; do
+              conflicts=$(git diff --name-only --diff-filter=U)
+              others=$(printf '%s\n' "$conflicts" | grep -vE '^(src/data/|public/visuels/|scripts/[^/]+\.json$)' || true)
+              if [ -z "$conflicts" ] || [ -n "$others" ]; then
+                git rebase --abort
+                echo "::error::Les commits de develop entrent en conflit avec main : rebasez develop sur main a la main."
+                exit 1
+              fi
+              for f in $conflicts; do
+                if git cat-file -e "REBASE_HEAD:$f" 2> /dev/null; then
+                  git checkout REBASE_HEAD -- "$f"
+                  git add -- "$f"
+                else
+                  git rm -q -- "$f"
+                fi
+              done
+              echo "::warning::Generated data conflict, develop's version kept: $(printf '%s\n' "$conflicts" | tr '\n' ' ')"
+              GIT_EDITOR=true git rebase --continue > /dev/null || true
+            done
           fi
           # Le bail refuse d'ecraser un push arrive sur develop pendant le rebase.
           git push -q --force-with-lease="develop:$avant" origin HEAD:develop
