@@ -9,21 +9,20 @@ import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Navigation de bureau.
+ * Desktop navigation.
  *
- * Cinq familles en menus deroulants — heros, tier lists, jeu, outils,
- * actualite. Chaque entree porte une icone, un libelle et une courte
- * description ; celles qui regroupent des sous-pages (tier list par rang, par
- * lane, emblemes…) ouvrent un sous-menu lateral, au survol, au clic ou avec la
- * fleche droite.
+ * Five families in dropdown menus — heroes, tier lists, game, tools,
+ * news. Each entry carries an icon, a label and a short description; those
+ * that group sub-pages (tier list by rank, by lane, emblems…) open a side
+ * submenu on hover, on click or with the right arrow key.
  */
 
 export function isActive(path: string, href: string) {
-  // Le chemin porte un prefixe de langue (/fr/heroes) : on compare la fin.
+  // The path carries a locale prefix (/fr/heroes): compare the end.
   return path.endsWith(href) || path.includes(`${href}/`);
 }
 
-/** Libelle d'un noeud : sa cle de navigation, ou sa cle de traduction directe. */
+/** Label of a node: its navigation key, or its direct translation key. */
 export function labelNode(t: (key: string) => string, n: MenuNode): string {
   return n.key ? t(`nav.${n.key}.label`) : t(n.label ?? "");
 }
@@ -74,8 +73,8 @@ function Dropdown({
 
       <div id={panelId} hidden={!open} className="absolute left-0 top-full z-50 pt-2">
         {/*
-          Le biseau (clip-path) est porte par un calque de fond : pose sur le
-          panneau lui-meme, il rognerait les sous-menus qui en debordent.
+          The bevel (clip-path) sits on a background layer: applied to the
+          panel itself, it would clip the submenus that overflow it.
         */}
         <div className={cn("relative p-2", group.large ? "w-[36rem]" : "w-80")}>
           <div
@@ -105,8 +104,8 @@ function Dropdown({
 }
 
 /**
- * Entree qui regroupe des sous-pages. La ligne mene a sa page quand elle en a
- * une ; la fleche, ou le survol, ouvre la liste des sous-pages a droite.
+ * Entry that groups sub-pages. The row leads to its page when it has one;
+ * the arrow, or hovering, opens the list of sub-pages on the right.
  */
 function NodeWithSubmenu({ node, path, onNavigate }: { node: MenuNode; path: string; onNavigate: () => void }) {
   const t = useT();
@@ -119,7 +118,7 @@ function NodeWithSubmenu({ node, path, onNavigate }: { node: MenuNode; path: str
 
   const openAndFocus = () => {
     setOpen(true);
-    // Le sous-menu vient d'etre rendu : on y place le focus au tour suivant.
+    // The submenu has just been rendered: move focus into it on the next frame.
     requestAnimationFrame(() => list.current?.querySelector<HTMLElement>("a")?.focus());
   };
 
@@ -219,8 +218,8 @@ function NodeWithSubmenu({ node, path, onNavigate }: { node: MenuNode; path: str
 }
 
 /**
- * Une rubrique du menu : icone, libelle et courte description. La meme au
- * bureau et sur mobile.
+ * A menu item: icon, label and short description. The same on desktop and
+ * on mobile.
  */
 export function LinkMenu({
   entry,
@@ -298,6 +297,6 @@ export function DesktopMenu() {
   );
 }
 
-// Reexportees pour le menu mobile.
+// Re-exported for the mobile menu.
 export { NEWS, BASE, GROUPS };
 export type { Entry, Group, MenuNode };

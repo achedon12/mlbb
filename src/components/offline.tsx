@@ -5,15 +5,15 @@ import { WifiOff } from "lucide-react";
 import { useLocale, useT } from "@/i18n/provider";
 
 /**
- * Consultation hors ligne.
+ * Offline browsing.
  *
- * Enregistre le service worker (`public/sw.js`) et lui confie les rubriques
- * principales de la langue courante, pour qu'elles restent lisibles sans
- * connexion des la premiere visite. Les fiches ne sont gardees qu'une fois
- * consultees : les 133 d'avance peseraient des dizaines de megaoctets.
+ * Registers the service worker (`public/sw.js`) and hands it the main
+ * sections of the current locale, so they stay readable offline from the
+ * first visit. Detail pages are only kept once viewed: all 133 up front
+ * would weigh tens of megabytes.
  *
- * Sans reseau, un bandeau le signale. En developpement, rien n'est
- * enregistre : un cache de pages generait le rechargement a chaud.
+ * Without a network, a banner says so. In development nothing is
+ * registered: a page cache got in the way of hot reload.
  */
 const SECTIONS = ["", "/heroes", "/tier-list", "/items", "/emblems", "/draft", "/compare", "/game-modes", "/patch-notes", "/news"];
 
@@ -43,7 +43,7 @@ export function Offline() {
         });
       })
       .catch(() => {
-        /* sans service worker, le site fonctionne simplement en ligne */
+        /* without a service worker, the site simply works online */
       });
   }, [locale]);
 

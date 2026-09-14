@@ -6,11 +6,11 @@ import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 
 /**
- * Page « hors ligne ».
+ * "Offline" page.
  *
- * Le service worker la garde en cache des son installation et la sert a la
- * place d'une page jamais consultee quand le reseau manque. Elle n'a rien a
- * faire dans un moteur de recherche.
+ * The service worker caches it as soon as it installs and serves it in
+ * place of a never-visited page when the network is missing. It has no
+ * business in a search engine.
  */
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;

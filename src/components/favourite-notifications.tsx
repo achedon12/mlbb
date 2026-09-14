@@ -8,9 +8,9 @@ import { enable, disable, stateCurrent, sync, type NotificationState } from "@/l
 import { cn } from "@/lib/utils";
 
 /**
- * Notifications de patch pour les favoris : l'interrupteur de la liste des
- * favoris et la cloche des fiches. La fonction reste invisible tant que le
- * serveur n'a pas ses cles, et la permission n'est demandee qu'au clic.
+ * Patch notifications for favourites: the toggle of the favourites
+ * list and the bell on hero pages. The feature stays invisible as long as the
+ * server lacks its keys, and permission is only requested on click.
  */
 
 type State = NotificationState | "loading";
@@ -24,9 +24,9 @@ const MESSAGES: Partial<Record<State, string>> = {
 };
 
 /**
- * Repercute chaque changement de favoris au serveur quand ce navigateur est
- * abonne. A monter la ou les favoris changent, meme sans interrupteur : sans
- * abonnement, ce n'est qu'une lecture du stockage local.
+ * Passes every favourites change on to the server when this browser is
+ * subscribed. Mount it wherever favourites change, even without a toggle: without
+ * a subscription, it is only a read of local storage.
  */
 export function useNotificationSync(favourites: readonly string[]) {
   const locale = useLocale();
@@ -64,7 +64,7 @@ function useNotifications(favourites: readonly string[]) {
   return { state, busy, error, toggle };
 }
 
-/** Interrupteur complet, sous la liste des favoris. */
+/** Full toggle, under the favourites list. */
 export function NotificationToggle({ favourites }: { favourites: readonly string[] }) {
   const t = useT();
   const id = useId();
@@ -136,9 +136,9 @@ export function NotificationToggle({ favourites }: { favourites: readonly string
 }
 
 /**
- * Cloche compacte, a cote du bouton de favori d'une fiche. Elle agit sur les
- * notifications de tous les favoris, pas du seul heros. Le message d'etat
- * n'apparait qu'apres un clic, sur sa propre ligne en fin de rangee.
+ * Compact bell, next to a hero page's favourite button. It acts on the
+ * notifications of all favourites, not just this hero. The status message
+ * only appears after a click, on its own line at the end of the row.
  */
 export function NotificationBell({ favourites }: { favourites: readonly string[] }) {
   const t = useT();
@@ -172,7 +172,7 @@ export function NotificationBell({ favourites }: { favourites: readonly string[]
       >
         <Icon size={15} aria-hidden />
       </button>
-      {/* Toujours presente pour etre annoncee ; masquee (hors flux) tant qu'elle est vide. */}
+      {/* Always present so it gets announced; hidden (out of flow) while empty. */}
       <p
         role="status"
         className={cn(

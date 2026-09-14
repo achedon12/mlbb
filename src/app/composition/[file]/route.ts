@@ -3,14 +3,14 @@ import { measuresRank } from "@/lib/composition-data";
 import { RANKS_CLASSES } from "@/lib/tier-list";
 
 /**
- * Mesures d'un rang pour l'analyse d'equipe : taux et paliers, taux par duree
- * de partie, coequipiers et contres de tout le roster. Un fichier statique par
- * rang (`/composition/mythic.json`), que l'outil demande au choix du rang
- * plutot que d'embarquer les six dans la page.
+ * One rank's measurements for the team analysis: rates and tiers, rates by game
+ * length, teammates and counters of the whole roster. One static file per
+ * rank (`/composition/mythic.json`), which the tool requests when a rank is
+ * chosen rather than embedding all six in the page.
  *
- * L'adresse porte une extension : le proxy laisse passer les chemins a point
- * sans prefixe de langue (voir `src/proxy.ts`), et ces donnees ne dependent
- * pas de la langue.
+ * The address carries an extension: the proxy lets dotted paths through
+ * without a language prefix (see `src/proxy.ts`), and this data does not
+ * depend on the language.
  */
 export const dynamic = "force-static";
 export const dynamicParams = false;

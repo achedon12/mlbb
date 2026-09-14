@@ -1,37 +1,37 @@
 /**
- * Heure du serveur MLBB et remises a zero.
+ * MLBB server time and resets.
  *
- * Module pur, sans donnees : le composant client de l'horloge l'importe tel
- * quel. Toutes les echeances se calculent en millisecondes UTC, a partir d'une
- * seule constante de fuseau.
+ * Pure module, without data: the clock client component imports it as
+ * is. All deadlines are computed in UTC milliseconds, from a
+ * single timezone constant.
  */
 
 const MINUTE = 60_000;
 const DAY = 86_400_000;
 
 /**
- * Decalage de l'heure serveur sur UTC, en minutes : UTC-8, toute l'annee, sans
- * heure d'ete.
+ * Server time offset from UTC, in minutes: UTC-8, all year round, without
+ * daylight saving time.
  *
- * Source : wiki Fandom, page « Server time » (consultee le 11 septembre 2026),
- * https://mobilelegends.fandom.com/wiki/Server_time — « Coordinated Universal
- * Time (UTC) subtracted by eight hours ». Son tableau le recoupe (00:00 serveur
- * = 16:00 a Manille, 09:00 a Paris l'hiver), comme les notes de patch, qui
- * datent fins et debuts de saison « (Server Time) ». Les sources qui annoncent
- * « minuit UTC+8 » confondent le fuseau du public asiatique avec celui du jeu.
+ * Source: Fandom wiki, "Server time" page (accessed on September 11, 2026),
+ * https://mobilelegends.fandom.com/wiki/Server_time — "Coordinated Universal
+ * Time (UTC) subtracted by eight hours". Its table confirms it (00:00 server
+ * = 16:00 in Manila, 09:00 in Paris in winter), as do the patch notes, which
+ * date season ends and starts "(Server Time)". Sources that claim
+ * "midnight UTC+8" confuse the Asian audience's timezone with the game's.
  */
 export const SERVER_OFFSET_MIN = -8 * 60;
 
-/** Le meme fuseau pour Intl. Les zones `Etc/` inversent le signe : `Etc/GMT+8` vaut UTC-8. */
+/** The same timezone for Intl. `Etc/` zones invert the sign: `Etc/GMT+8` means UTC-8. */
 export const SERVER_TIMEZONE = "Etc/GMT+8";
 
 /**
- * Heure serveur des remises, meme source : taches quotidiennes a 00:00, taches
- * hebdomadaires le lundi a 00:00. Le Starlight repart le 1er de chaque mois a
- * 00:00 (page « StarLight » du meme wiki).
+ * Server time of resets, same source: daily tasks at 00:00, weekly
+ * tasks on Monday at 00:00. Starlight restarts on the 1st of each month at
+ * 00:00 ("StarLight" page of the same wiki).
  */
 export const TIME_RESET = 0;
-/** Jour de la remise hebdomadaire, numerote comme `getUTCDay` : 1 = lundi. */
+/** Day of the weekly reset, numbered like `getUTCDay`: 1 = Monday. */
 export const DAY_RESET_WEEKLY = 1;
 
 export const TIME_SOURCES = {
@@ -39,24 +39,24 @@ export const TIME_SOURCES = {
   starlight: "https://mobilelegends.fandom.com/wiki/StarLight",
 } as const;
 
-/** Instant UTC d'une heure « murale » du serveur (annee, mois 0-11, jour, heure…). */
+/** UTC instant of a server "wall clock" time (year, month 0-11, day, hour…). */
 function instantServer(year: number, month: number, day: number, time = 0, minute = 0, second = 0): number {
   return Date.UTC(year, month, day, time, minute, second) - SERVER_OFFSET_MIN * MINUTE;
 }
 
-/** Heure murale du serveur : une date dont les champs UTC donnent l'heure serveur. */
+/** Server wall clock time: a date whose UTC fields give the server time. */
 export function wallServer(instant: number): Date {
   return new Date(instant + SERVER_OFFSET_MIN * MINUTE);
 }
 
-/** Prochaine remise quotidienne, strictement apres `maintenant`. */
+/** Next daily reset, strictly after `now`. */
 export function nextResetDaily(now: number): number {
   const m = wallServer(now);
   const today = instantServer(m.getUTCFullYear(), m.getUTCMonth(), m.getUTCDate(), TIME_RESET);
   return today > now ? today : today + DAY;
 }
 
-/** Prochaine remise hebdomadaire (lundi 00:00 serveur), strictement apres `maintenant`. */
+/** Next weekly reset (Monday 00:00 server), strictly after `now`. */
 export function nextResetWeekly(now: number): number {
   const m = wallServer(now);
   const gap = (DAY_RESET_WEEKLY - m.getUTCDay() + 7) % 7;
@@ -64,7 +64,7 @@ export function nextResetWeekly(now: number): number {
   return target > now ? target : target + 7 * DAY;
 }
 
-/** Prochain depart du Starlight (1er du mois, 00:00 serveur), strictement apres `maintenant`. */
+/** Next Starlight start (1st of the month, 00:00 server), strictly after `now`. */
 export function nextStarlight(now: number): number {
   const m = wallServer(now);
   const ceMonth = instantServer(m.getUTCFullYear(), m.getUTCMonth(), 1, TIME_RESET);
@@ -78,7 +78,7 @@ export interface Duration {
   seconds: number;
 }
 
-/** Decoupe une duree en jours, heures, minutes et secondes entieres ; jamais negative. */
+/** Splits a duration into whole days, hours, minutes and seconds; never negative. */
 export function split(ms: number): Duration {
   const s = Math.max(0, Math.floor(ms / 1000));
   return {
@@ -90,8 +90,8 @@ export function split(ms: number): Duration {
 }
 
 /**
- * Decalage d'un fuseau IANA sur UTC a un instant donne, en minutes : il suit
- * l'heure d'ete, ce qu'un decalage fixe ne ferait pas.
+ * Offset of an IANA timezone from UTC at a given instant, in minutes: it follows
+ * daylight saving time, which a fixed offset would not.
  */
 export function offsetTimezone(timezone: string, instant: number): number {
   const matches = new Intl.DateTimeFormat("en-US", {
@@ -109,7 +109,7 @@ export function offsetTimezone(timezone: string, instant: number): number {
   return Math.round((wall - Math.floor(instant / 1000) * 1000) / MINUTE);
 }
 
-/** « UTC+2 », « UTC−3 », « UTC+5:30 », « UTC ». */
+/** "UTC+2", "UTC−3", "UTC+5:30", "UTC". */
 export function labelOffset(minutes: number): string {
   if (minutes === 0) return "UTC";
   const absolute = Math.abs(minutes);
@@ -117,27 +117,27 @@ export function labelOffset(minutes: number): string {
   return `UTC${minutes > 0 ? "+" : "−"}${Math.floor(absolute / 60)}${rest ? `:${String(rest).padStart(2, "0")}` : ""}`;
 }
 
-/** Fin de saison classee, telle que l'annoncent les notes de patch. */
+/** End of a ranked season, as announced by the patch notes. */
 export interface EndSeason {
   season: number;
-  /** Instant UTC, en millisecondes. */
+  /** UTC instant, in milliseconds. */
   end: number;
-  /** Version du patch qui l'annonce. */
+  /** Version of the patch that announces it. */
   patch: string;
   link: string;
 }
 
 /**
- * « S31 will end at 23:59:59 on 3/15 (Server Time). » : la seule forme sous
- * laquelle le jeu date une fin de saison. Mois et jour, sans annee.
+ * "S31 will end at 23:59:59 on 3/15 (Server Time).": the only form in
+ * which the game dates a season end. Month and day, without year.
  */
 const PATTERN_END = /\bS(\d+) will end at (\d{1,2}):(\d{2}):(\d{2}) on (\d{1,2})\/(\d{1,2}) \(Server Time\)/gi;
 
 /**
- * Fins de saison annoncees dans les notes de patch synchronisees, de la plus
- * ancienne a la plus recente. L'annee manque : c'est celle du patch, ou la
- * suivante quand la date tombe plus d'un mois avant sa publication (patch de
- * decembre, fin en janvier).
+ * Season ends announced in the synced patch notes, from oldest
+ * to most recent. The year is missing: it is the patch's, or the
+ * next one when the date falls more than a month before its publication (December
+ * patch, end in January).
  */
 export function endsOfSeason(
   patches: { version: string; link: string; date?: string | null; sections: { html: string }[] }[],
@@ -160,19 +160,19 @@ export function endsOfSeason(
   return [...ends.values()].sort((a, b) => a.end - b.end);
 }
 
-/** Prochaine fin de saison encore a venir, ou null quand aucune n'est annoncee. */
+/** Next upcoming season end, or null when none is announced. */
 export function nextEndSeason(ends: EndSeason[], now: number): EndSeason | null {
   return ends.find((f) => f.end > now) ?? null;
 }
 
 /**
- * Pays du tableau des heures locales, par langue du site : ceux ou le jeu a le
- * plus de joueurs parlant cette langue. Le nom du pays vient d'Intl
- * (`DisplayNames`), dans la langue du lecteur ; la ville ne sert qu'a
- * distinguer les pays a plusieurs fuseaux.
+ * Countries of the local times table, by site language: those where the game has the
+ * most players speaking that language. The country name comes from Intl
+ * (`DisplayNames`), in the reader's language; the city is only used to
+ * tell apart countries with several timezones.
  */
 export interface CountryTimezone {
-  /** Code ISO 3166-1. */
+  /** ISO 3166-1 code. */
   country: string;
   timezone: string;
   city?: string;

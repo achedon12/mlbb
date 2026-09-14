@@ -6,7 +6,7 @@ import { createT } from "@/i18n/translations";
 import type { NewHero } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-/** Enrichissement resolu cote serveur : visuels et existence de fiche. */
+/** Enrichment resolved on the server: visuals and whether a hero page exists. */
 export interface EnrichedNewHero extends NewHero {
   portrait: string | null;
   illustration: string | null;
@@ -15,17 +15,17 @@ export interface EnrichedNewHero extends NewHero {
 }
 
 /**
- * Presentation d'un heros introduit par le patch.
+ * Showcase of a hero introduced by the patch.
  *
- * La partie la plus marquante d'une mise a jour merite mieux qu'un mur de
- * texte : une banniere avec l'illustration du heros, puis ses competences en
- * cartes — role, nom, effets — pour saisir son kit d'un coup d'oeil.
+ * The most striking part of an update deserves better than a wall of text:
+ * a banner with the hero's artwork, then their skills as cards — role, name,
+ * effects — to grasp the kit at a glance.
  */
 export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; locale: Locale }) {
   const t = createT(locale);
   return (
     <div>
-      {/* Banniere : illustration en fond, identite par-dessus. */}
+      {/* Banner: artwork in the background, identity on top. */}
       <div
         id={heroes.anchor ?? undefined}
         className="bevel relative scroll-mt-24 overflow-hidden border border-night-800"
@@ -79,7 +79,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
         </div>
       </div>
 
-      {/* Histoire et trait distinctif. */}
+      {/* Story and distinctive trait. */}
       {(heroes.lore.length > 0 || heroes.feature) && (
         <div className="mt-4 space-y-3">
           {heroes.lore.map((row, i) => (
@@ -96,12 +96,12 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
         </div>
       )}
 
-      {/* Kit : une carte par competence. */}
+      {/* Kit: one card per skill. */}
       {heroes.skills.length > 0 && (
         <div className="mt-6 grid gap-3 sm:grid-cols-2">
           {heroes.skills.map((c, i) => {
-            // Le role peut etre traduit ; le « + » des competences combinees
-            // (« 1st + 2nd Combo Skill ») survit, lui, a la traduction.
+            // The role may be translated; the "+" of combined skills
+            // ("1st + 2nd Combo Skill") survives translation.
             const combo = /combo|\+/i.test(c.role);
             return (
               <div

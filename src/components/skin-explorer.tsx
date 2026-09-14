@@ -22,7 +22,7 @@ import {
 } from "@/lib/skin-catalog";
 import type { Role } from "@/lib/types";
 
-/** Skins affiches par pas : un millier de vignettes d'un coup ne servirait personne. */
+/** Skins shown per step: a thousand thumbnails at once would help no one. */
 const STEP = 48;
 
 interface Filters {
@@ -39,13 +39,14 @@ const CLASS_CHOICE =
   "bevel-sm w-full border border-night-700 bg-night-900 px-3 py-2 text-sm text-chalk-100 outline-none transition-colors focus:border-gold-500";
 
 /**
- * Explorateur du calendrier : recherche et filtres (heros, role, serie,
- * rarete, annee) sur tous les skins sortis.
+ * Calendar explorer: search and filters (hero, role, series, rarity, year) on
+ * every released skin.
  *
- * Sans filtre, il laisse voir la vue d'ensemble rendue par le serveur
- * (`children`). L'index des skins n'est demande qu'au premier geste dans les
- * filtres, ou d'emblee quand l'adresse en porte (`?serie=Collector`) : les
- * filtres passent par l'URL, ce qui rend une vue partageable.
+ * Without a filter, it shows the overview rendered by the server
+ * (`children`). The skin index is only requested on the first interaction
+ * with the filters, or right away when the address carries some
+ * (`?serie=Collector`): filters go through the URL, which makes a view
+ * shareable.
  */
 export function SkinExplorer({
   heroes,
@@ -57,7 +58,7 @@ export function SkinExplorer({
   heroes: [slug: string, name: string][];
   series: string[];
   years: number[];
-  /** Date des donnees : au-dela, un skin n'est pas encore sorti. */
+  /** Data date: past it, a skin is not released yet. */
   reference: string;
   children: React.ReactNode;
 }) {
@@ -75,9 +76,9 @@ export function SkinExplorer({
     setLimit(STEP);
   };
 
-  // Meme principe que le catalogue des heros : l'URL n'est lue qu'apres le
-  // montage (serveur et hydratation partent de vide), puis chaque changement
-  // s'y reporte.
+  // Same principle as the hero catalogue: the URL is only read after mount
+  // (server and hydration start empty), then every change is written back
+  // to it.
   const rise = useRef(false);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -96,7 +97,7 @@ export function SkinExplorer({
         year: countOf("annee", years),
       };
       if (Object.values(readValues).some((v) => v !== null && v !== "")) {
-        setF(readValues); // eslint-disable-line react-hooks/set-state-in-effect -- lecture de l'URL apres montage
+        setF(readValues); // eslint-disable-line react-hooks/set-state-in-effect -- reading the URL after mount
         return;
       }
     }
@@ -140,7 +141,7 @@ export function SkinExplorer({
 
   return (
     <div>
-      {/* Le premier geste dans les filtres suffit a demander l'index. */}
+      {/* The first interaction with the filters is enough to request the index. */}
       <div
         className="space-y-4"
         onFocusCapture={() => void loadCatalog(locale).catch(() => undefined)}

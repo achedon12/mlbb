@@ -1,10 +1,10 @@
 /**
- * Couleur d'accent de chaque mode de jeu. L'accroche et le résumé éditoriaux
- * vivent dans le catalogue de traductions (`modeSheet.<slug>`), pour exister
- * dans chaque langue ; ici on ne garde que ce qui ne se traduit pas.
+ * Accent colour of each game mode. The editorial tagline and summary live in
+ * the translation catalogue (`modeSheet.<slug>`), so they exist in every
+ * language; only what does not get translated is kept here.
  */
 
-/** Deux teintes, du plus sombre au plus clair, pour le dégradé d'accent. */
+/** Two shades, darkest to lightest, for the accent gradient. */
 export const ACCENTS_MODES: Record<string, [string, string]> = {
   classic: ["#1b4f96", "#4da3ff"],
   ranked: ["#8a6415", "#f5c451"],

@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-/** Intensite d'une case du calendrier, rapportee au mois le plus charge. */
+/** Intensity of a calendar cell, relative to the busiest month. */
 function tint(n: number, max: number): string {
   if (n === 0) return "bg-night-900/40 text-chalk-600";
   const part = n / max;
@@ -89,7 +89,7 @@ export default async function SkinsCalendarPage({ params }: Params) {
   const recent = newest(released, 12);
   const lastMonth = recent[0]?.release?.slice(0, 7) ?? null;
 
-  // Ecartes, et comptes pour le dire : skins annonces, ou dates apres le releve.
+  // Excluded, and counted to say so: announced skins, or dates after the measurement.
   const others = catalogSkins().skins.filter((s) => !isOrigin(s) && !released.includes(s));
   const upcomingCount = others.filter((s) => s.availability === "Upcoming").length;
   const futureCount = others.filter((s) => s.availability !== "Upcoming" && readRelease(s.release)).length;
@@ -245,7 +245,7 @@ export default async function SkinsCalendarPage({ params }: Params) {
                   key={s.series}
                   className="bevel-sm flex items-baseline justify-between gap-3 border border-night-700/60 bg-night-900/40 px-3 py-2"
                 >
-                  {/* Lien simple : l'explorateur lit ses filtres dans l'adresse au chargement. */}
+                  {/* Plain link: the explorer reads its filters from the address on load. */}
                   <a
                     href={`?serie=${encodeURIComponent(s.series)}#explorateur`}
                     className="truncate font-semibold text-chalk-100 hover:text-gold-400"

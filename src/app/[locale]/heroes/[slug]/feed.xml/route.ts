@@ -6,10 +6,10 @@ import { adjustmentsOf } from "@/lib/patch-tracking";
 import type { HeroAdjustment } from "@/lib/types";
 
 /**
- * Flux RSS d'un heros : ses ajustements, patch par patch. S'y abonner, c'est
- * etre prevenu quand son heros change, sans surveiller les notes de patch.
- * Un fichier statique par heros et par langue ; seuls les libelles changent
- * d'une langue a l'autre, le detail des changements venant du wiki.
+ * A hero's RSS feed: its adjustments, patch by patch. Subscribing means
+ * being told when your hero changes, without watching the patch notes.
+ * One static file per hero and per language; only the labels change
+ * from one language to another, the change details coming from the wiki.
  */
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -26,7 +26,7 @@ function escape(text: string): string {
     .replace(/"/g, "&quot;");
 }
 
-/** Detail d'un ajustement, en HTML simple : introduction, puis section par section. */
+/** Detail of an adjustment, in plain HTML: introduction, then section by section. */
 function detail(a: HeroAdjustment): string {
   const intro = a.intro ? `<p>${escape(a.intro)}</p>` : "";
   const sections = a.sections
@@ -42,7 +42,7 @@ function detail(a: HeroAdjustment): string {
       return `<h4>${escape(title)}</h4><ul>${rows}</ul>`;
     })
     .join("");
-  // `]]>` fermerait la section CDATA.
+  // `]]>` would close the CDATA section.
   return (intro + sections).replaceAll("]]>", "]]&gt;");
 }
 

@@ -5,12 +5,12 @@ import { X } from "lucide-react";
 import { useT } from "@/i18n/provider";
 
 /**
- * Tiroir mobile.
+ * Mobile drawer.
  *
- * Un panneau qui monte du bas de l'ecran, pour lire un detail sans perdre sa
- * place dans une longue liste. Il masque la page derriere un voile, bloque son
- * defilement et se ferme par la croix, un toucher sur le voile ou Echap.
- * Au-dela de `lg`, il ne s'affiche pas : le detail y a sa place dans la page.
+ * A panel that slides up from the bottom of the screen, to read a detail
+ * without losing your place in a long list. It hides the page behind an
+ * overlay, locks its scrolling and closes with the cross, a tap on the overlay
+ * or Escape. Beyond `lg`, it does not show: the detail has its place in the page.
  */
 export function Drawer({
   title,
@@ -20,13 +20,13 @@ export function Drawer({
 }: {
   title: string;
   onClose: () => void;
-  /** Libelle de la croix ; « Fermer » par defaut. */
+  /** Label of the cross; "Close" by default. */
   labelClose?: string;
   children: React.ReactNode;
 }) {
   const t = useT();
-  // La fermeture peut changer a chaque rendu : on garde la derniere sans
-  // reinstaller les ecouteurs.
+  // The close handler may change on every render: keep the latest without
+  // reinstalling the listeners.
   const close = useRef(onClose);
   useEffect(() => {
     close.current = onClose;

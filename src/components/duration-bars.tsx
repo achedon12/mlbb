@@ -2,10 +2,10 @@ import type { Bucket } from "@/lib/composition";
 import { cn } from "@/lib/utils";
 
 /**
- * Taux de victoire par tranche de duree de partie, en barres, la meilleure en
- * or. Partagees par la fiche heros et l'analyse d'equipe. Le libelle des
- * tranches vient de l'appelant, tire de son propre catalogue : chaque page
- * n'envoie au navigateur que ses rubriques (`messagesPage`).
+ * Win rate per match-duration bucket, as bars, the best one in gold. Shared
+ * by the hero page and the team analysis. The bucket labels come from the
+ * caller, drawn from its own catalogue: each page only sends its own sections
+ * to the browser (`messagesPage`).
  */
 export function DurationBars({
   buckets,
@@ -15,7 +15,7 @@ export function DurationBars({
 }: {
   buckets: (Bucket & { winRate: number })[];
   count: (v: number) => string;
-  /** « 10–12 min », « 20 min et + ». */
+  /** "10–12 min", "20 min and up". */
   label: (x: Bucket) => string;
   className?: string;
 }) {

@@ -3,35 +3,35 @@ import type { T } from "@/i18n/t";
 import type { AdjustmentType } from "@/lib/types";
 
 /**
- * Notifications de patch : la partie sans effet de bord.
+ * Patch notifications: the side-effect-free part.
  *
- * Validation des demandes d'abonnement, choix des abonnes a prevenir pour un
- * patch et redaction des messages. Rien ici ne lit le disque ni le reseau :
- * le stockage et l'envoi vivent dans `push-serveur.ts`, ce qui garde ces
- * regles testables en isolation.
+ * Validation of subscription requests, choice of the subscribers to notify for
+ * a patch, and message writing. Nothing here reads the disk or the network:
+ * storage and sending live in `push-server.ts`, which keeps these rules
+ * testable in isolation.
  */
 
-/** Corps de requete maximal : un abonnement et 133 slugs tiennent en 3 Ko. */
+/** Maximum request body: a subscription and 133 slugs fit in 3 KB. */
 export const SIZE_MAX_BODY = 6_000;
-/** Plafond de favoris par abonnement, au-dela du roster actuel. */
+/** Cap on favourites per subscription, above the current roster. */
 export const MAX_FAVOURITES = 200;
-/** Plafond d'abonnements conserves, pour qu'un script ne remplisse pas le disque. */
+/** Cap on stored subscriptions, so a script cannot fill the disk. */
 export const MAX_SUBSCRIBERS = 50_000;
-/** Heros cites nommement dans une notification ; les suivants sont comptes. */
+/** Heroes named in a notification; the rest are counted. */
 export const MAX_CITED_HEROES = 3;
 
 /**
- * Services de notification des navigateurs. Le serveur envoie ses requetes a
- * l'adresse fournie par l'abonnement : la restreindre a ces hotes empeche
- * d'en faire un relais vers des adresses internes.
+ * Browser push services. The server sends its requests to the address given
+ * by the subscription: restricting it to these hosts prevents turning it into
+ * a relay towards internal addresses.
  */
 const HOSTS_PUSH = [
   "fcm.googleapis.com", // Chrome, Edge Android, Opera, Samsung Internet, Brave
   "android.googleapis.com",
-  "jmt17.google.com", // Chromium hors Google Chrome (distributions Linux…)
+  "jmt17.google.com", // Chromium other than Google Chrome (Linux distributions…)
   ".push.services.mozilla.com", // Firefox
-  ".notify.windows.com", // Edge sous Windows
-  ".push.apple.com", // Safari (macOS, iOS en application installee)
+  ".notify.windows.com", // Edge on Windows
+  ".push.apple.com", // Safari (macOS, iOS as an installed app)
 ];
 
 export interface SubscriptionKeys {
@@ -39,7 +39,7 @@ export interface SubscriptionKeys {
   auth: string;
 }
 
-/** Abonnement tel que `PushSubscription.toJSON()` le decrit, une fois valide. */
+/** Subscription as `PushSubscription.toJSON()` describes it, once validated. */
 export interface StoredSubscription {
   endpoint: string;
   cles: SubscriptionKeys;
@@ -48,7 +48,7 @@ export interface StoredSubscription {
 export interface Subscriber extends StoredSubscription {
   langue: Locale;
   favoris: string[];
-  /** Dates ISO de creation et de derniere mise a jour. */
+  /** ISO dates of creation and last update. */
   cree: string;
   maj: string;
 }
@@ -58,7 +58,7 @@ export function hostPushAllowed(host: string): boolean {
   return HOSTS_PUSH.some((suffix) => (suffix.startsWith(".") ? h.endsWith(suffix) : h === suffix));
 }
 
-/** Adresse d'abonnement : https, sans identifiants ni port exotique, chez un service connu. */
+/** Subscription address: https, no credentials or unusual port, at a known service. */
 export function endpointValid(raw: unknown): string | null {
   if (typeof raw !== "string" || raw.length > 1_024) return null;
   let url: URL;
@@ -74,15 +74,15 @@ export function endpointValid(raw: unknown): string | null {
 
 const BASE64URL = /^[A-Za-z0-9_-]+={0,2}$/;
 
-/** Longueur en octets d'une chaine base64url, sans la decoder. */
+/** Byte length of a base64url string, without decoding it. */
 function bytes(value: string): number {
   const withoutFill = value.replace(/=+$/, "");
   return Math.floor((withoutFill.length * 3) / 4);
 }
 
 /**
- * Cles de chiffrement : `p256dh` est un point P-256 non compresse (65 octets),
- * `auth` un secret de 16 octets. Toute autre forme est refusee.
+ * Encryption keys: `p256dh` is an uncompressed P-256 point (65 bytes),
+ * `auth` a 16-byte secret. Any other shape is rejected.
  */
 function keysValid(raw: unknown): SubscriptionKeys | null {
   if (typeof raw !== "object" || raw === null) return null;
@@ -104,9 +104,9 @@ export function subscriptionValid(raw: unknown): StoredSubscription | null {
 const SHAPE_SLUG = /^[a-z0-9-]{1,40}$/;
 
 /**
- * Favoris : un tableau de slugs, dedoublonne. Une forme invalide refuse la
- * demande ; un slug bien forme mais absent du catalogue (heros retire, liste
- * ancienne) est simplement ecarte, pour ne pas bloquer l'abonnement.
+ * Favourites: an array of slugs, deduplicated. An invalid shape rejects the
+ * request; a well-formed slug missing from the catalogue (removed hero, old
+ * list) is simply dropped, so as not to block the subscription.
  */
 export function validFavourites(raw: unknown, known: ReadonlySet<string>): string[] | null {
   if (!Array.isArray(raw) || raw.length > MAX_FAVOURITES) return null;
@@ -120,8 +120,8 @@ export type PushRequest =
   | { type: "unsubscribe"; abonnement: StoredSubscription };
 
 /**
- * Valide le corps d'une requete de l'API d'abonnement. Renvoie `null` des
- * qu'un champ manque ou sort de sa forme : la route repond alors 400.
+ * Validates the body of a subscription API request. Returns `null` as soon as
+ * a field is missing or malformed: the route then responds 400.
  */
 export function validateRequest(
   type: PushRequest["type"],
@@ -143,7 +143,7 @@ export function validateRequest(
   return { type, abonnement: subscription, langue: locale ?? null, favoris: list };
 }
 
-// ── Destinataires et messages ──────────────────────────────────────
+// ── Recipients and messages ────────────────────────────────────────
 
 export interface AdjustedPatch {
   version: string;
@@ -161,9 +161,9 @@ export interface Send {
 }
 
 /**
- * Abonnes a prevenir : ceux dont un favori au moins figure dans les
- * ajustements du patch. Les heros touches suivent l'ordre des notes de patch ;
- * un heros cite deux fois n'y figure qu'une fois.
+ * Subscribers to notify: those with at least one favourite among the patch
+ * adjustments. Affected heroes follow the patch notes order; a hero listed
+ * twice appears only once.
  */
 export function recipients(subscribers: readonly Subscriber[], patch: AdjustedPatch): Send[] {
   const bySlug = new Map<string, TouchedHero>();
@@ -177,21 +177,21 @@ export function recipients(subscribers: readonly Subscriber[], patch: AdjustedPa
   return sends;
 }
 
-/** Contenu d'une notification, transmis chiffre au service worker. */
+/** Notification content, sent encrypted to the service worker. */
 export interface PushMessage {
   titre: string;
   corps: string;
-  /** Chemin sur le site, ouvert au clic. */
+  /** Path on the site, opened on click. */
   url: string;
-  /** Une seule notification par patch : une seconde remplace la premiere. */
+  /** A single notification per patch: a second one replaces the first. */
   tag: string;
   langue: Locale;
 }
 
 /**
- * Redige la notification d'un abonne, dans sa langue. Un seul heros touche :
- * le titre le nomme et le clic ouvre l'onglet Stats de sa fiche. Plusieurs :
- * le titre les compte, le corps en cite trois et le clic ouvre le patch.
+ * Writes a subscriber's notification, in their language. A single affected
+ * hero: the title names it and a click opens the Stats tab of its page.
+ * Several: the title counts them, the body names three and a click opens the patch.
  */
 export function buildMessage(
   t: T,
@@ -229,7 +229,7 @@ export function buildMessage(
   };
 }
 
-/** Compare deux versions de patch (« 2.1.88 » > « 1.9.47 »). */
+/** Compares two patch versions ("2.1.88" > "1.9.47"). */
 export function compareVersions(a: string, b: string): number {
   return a.localeCompare(b, undefined, { numeric: true });
 }

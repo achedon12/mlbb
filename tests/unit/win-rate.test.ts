@@ -2,13 +2,13 @@ import { describe, expect, it } from "vitest";
 import { compute, readCount, matchesAuPace, currentWins } from "@/lib/win-rate";
 
 /**
- * Les valeurs attendues ont ete confrontees a l'API communautaire
- * (arena.rone.dev/api/addon/win-rate-calculator), qui fait le meme calcul en
- * flottants.
+ * Expected values were checked against the community API
+ * (arena.rone.dev/api/addon/win-rate-calculator), which does the same
+ * computation in floats.
  */
 describe("compute — consecutive wins", () => {
   it("matches the API on common cases", () => {
-    // API : 25 et 37 victoires.
+    // API: 25 and 37 wins.
     expect(compute({ matches: 100, rate: 50, objective: 60 })).toEqual({
       state: "wins",
       wins: 25,
@@ -18,7 +18,7 @@ describe("compute — consecutive wins", () => {
   });
 
   it("stays exact where floats overflow", () => {
-    // L'API repond 4991 : 5 + 4990 victoires sur 5000 parties font 99,9 % pile.
+    // The API answers 4991: 5 + 4990 wins out of 5000 matches is exactly 99.9 %.
     expect(compute({ matches: 10, rate: 50, objective: 99.9 })).toMatchObject({ state: "wins", wins: 4990 });
   });
 
@@ -29,12 +29,12 @@ describe("compute — consecutive wins", () => {
 
   it("declares 100 % unreachable after a loss", () => {
     expect(compute({ matches: 100, rate: 50, objective: 100 })).toMatchObject({ state: "impossible" });
-    // Sans defaite, 100 % est deja la.
+    // Without a loss, 100 % is already there.
     expect(compute({ matches: 12, rate: 100, objective: 100 })).toMatchObject({ state: "reached", margin: 0 });
   });
 
   it("counts affordable losses when the goal is below the current rate", () => {
-    // 60 victoires sur 100 : apres 20 defaites, 60 sur 120 font 50 % tout juste.
+    // 60 wins out of 100: after 20 losses, 60 out of 120 is exactly 50 %.
     expect(compute({ matches: 100, rate: 60, objective: 50 })).toEqual({
       state: "reached",
       margin: 20,
@@ -55,7 +55,7 @@ describe("matchesAuPace", () => {
   const s = { matches: 100, rate: 50, objective: 60 };
 
   it("gives the matches to play at a sustained rate", () => {
-    // 10 victoires manquantes, 10 points d'avance par partie a 70 % : 100 parties.
+    // 10 wins missing, 10 points gained per match at 70 %: 100 matches.
     expect(matchesAuPace(s, 70)).toBe(100);
     expect(matchesAuPace(s, 100)).toBe(25);
   });

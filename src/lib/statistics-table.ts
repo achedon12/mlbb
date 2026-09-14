@@ -4,24 +4,24 @@ import { keySearch } from "./utils";
 import { laneFromParam } from "./draft";
 
 /**
- * Tableau des statistiques : tri, filtres, etat d'URL et mini-courbes, en
- * calculs purs. La page serveur construit les lignes et rend le tableau dans
- * l'ordre par defaut ; le composant client les reordonne et les filtre avec ce
- * seul module, sans embarquer les donnees du jeu.
+ * Statistics table: sorting, filters, URL state and sparklines, as
+ * pure computations. The server page builds the rows and renders the table in
+ * default order; the client component reorders and filters them with this
+ * module alone, without bundling the game data.
  */
 
 export const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 export const LANES: Lane[] = ["Gold", "Exp", "Mid", "Jungle", "Roam"];
 
-/** Adresse du tableau d'un rang : « tous rangs » garde l'adresse principale. */
+/** Address of a rank's table: "all ranks" keeps the main address. */
 export const pathStatistics = (rank: MeasuredRank) => (rank === "all" ? "/statistics" : `/statistics/${rank}`);
 
-/** Icone d'un heros, rangee par la synchronisation sous un nom fixe : inutile de l'envoyer ligne par ligne. */
+/** Hero icon, stored by the sync under a fixed name: no need to send it row by row. */
 export const heroIcon = (slug: string) => `/visuels/heros/${slug}/icone.png`;
 
 /**
- * Une ligne du tableau, telle qu'elle part au navigateur. Il y en a 132 : rien
- * de ce qui se deduit (icone, trace de la courbe), et aucun champ vide.
+ * A table row, as it is sent to the browser. There are 132 of them: nothing
+ * that can be derived (icon, curve path), and no empty field.
  */
 export interface RowStat {
   slug: string;
@@ -29,26 +29,26 @@ export interface RowStat {
   roles: Role[];
   lanes: Lane[];
   tier: Tier;
-  /** Score de la tier list : departage deux heros d'un meme palier. */
+  /** Tier list score: breaks ties between two heroes of the same tier. */
   score: number;
   win: number;
   ban: number;
   pick: number;
-  /** Ecart du taux de victoire sur une semaine, en points, et jours compares ; absents sans mesure fiable. */
+  /** Win rate change over a week, in points, and days compared; absent without a reliable measurement. */
   gap?: number;
   days?: number;
-  /** Trop peu joue pour que ses taux soient stables. */
+  /** Played too little for its rates to be stable. */
   weak?: true;
-  /** Mini-courbe sur trente jours (voir `echelonnerCourbe`), avec la premiere et la derniere mesure. */
+  /** Thirty-day sparkline (see `scaleCurve`), with the first and last measurement. */
   curve?: string;
   start?: number;
   end?: number;
 }
 
 /**
- * Ligne telle qu'elle voyage vers le navigateur, en tuple : les noms de champs
- * repetes sur 132 lignes pesaient pres de 20 Ko. Roles et positions y sont
- * des chiffres (`coderListe`) ; une valeur absente vaut null.
+ * Row as it travels to the browser, as a tuple: field names
+ * repeated over 132 rows weighed nearly 20 KB. Roles and lanes are
+ * digits there (`encodeList`); a missing value is null.
  */
 export type CompactRow = [
   slug: string,
@@ -69,9 +69,9 @@ export type CompactRow = [
 ];
 
 /**
- * Liste courte (deux roles, trois positions au plus) codee en un nombre, un
- * chiffre par element (sa place dans `reference`, plus un) : l'ordre est
- * garde, le role principal reste en tete.
+ * Short list (two roles, three lanes at most) encoded as one number, one
+ * digit per element (its position in `reference`, plus one): order is
+ * kept, the main role stays first.
  */
 export function encodeList<T>(values: readonly T[], reference: readonly T[]): number {
   return Number(values.map((v) => reference.indexOf(v) + 1).filter((i) => i > 0).join("") || 0);
@@ -149,10 +149,10 @@ export interface StateTable {
   search: string;
 }
 
-/** Ordre rendu par le serveur : le taux de victoire, du plus haut au plus bas. */
+/** Order rendered by the server: win rate, from highest to lowest. */
 export const STATE_DEFAULT: StateTable = { sort: "win", order: "desc", role: null, lane: null, search: "" };
 
-/** Sens du premier clic sur une colonne : alphabetique pour le nom, du plus fort au plus faible ailleurs. */
+/** Direction of the first click on a column: alphabetical for the name, strongest to weakest elsewhere. */
 export const orderInitial = (c: ColumnSort): Order => (c === "name" ? "asc" : "desc");
 
 const RANK_TIER: Record<Tier, number> = { "S+": 5, S: 4, A: 3, B: 2, C: 1 };
@@ -171,9 +171,9 @@ function value(l: RowStat, c: Exclude<ColumnSort, "name">): number | null {
 const compareNames = (a: RowStat, b: RowStat) => a.name.localeCompare(b.name, "en");
 
 /**
- * Lignes triees sur une colonne. Un heros sans mesure (ecart de la semaine)
- * passe en fin de liste dans les deux sens ; a egalite, l'ordre alphabetique
- * departage : le resultat ne depend pas de l'ordre d'entree.
+ * Rows sorted by a column. A hero without a measurement (weekly change)
+ * goes to the end of the list in both directions; on ties, alphabetical order
+ * decides: the result does not depend on input order.
  */
 export function sortRows(rows: readonly RowStat[], sort: ColumnSort, order: Order): RowStat[] {
   const direction = order === "asc" ? 1 : -1;
@@ -186,7 +186,7 @@ export function sortRows(rows: readonly RowStat[], sort: ColumnSort, order: Orde
   });
 }
 
-/** Lignes qui passent les filtres : role, position, et recherche sans casse ni accents. */
+/** Rows that pass the filters: role, lane, and case- and accent-insensitive search. */
 export function filterRows(
   rows: readonly RowStat[],
   f: Pick<StateTable, "role" | "lane" | "search">,
@@ -203,7 +203,7 @@ export function filterRows(
 /** Sort tokens used before the English ones, still present in shared addresses (`?tri=victoire`). */
 const LEGACY_SORTS: Record<string, ColumnSort> = { nom: "name", palier: "tier", victoire: "win", tendance: "trend", selection: "pick" };
 
-/** Etat lu dans l'URL (`?tri=ban&ordre=asc&role=Mage&lane=Jungle&q=…`) ; une valeur inconnue garde le defaut. */
+/** State read from the URL (`?tri=ban&ordre=asc&role=Mage&lane=Jungle&q=…`); an unknown value keeps the default. */
 export function readState(params: URLSearchParams): StateTable {
   const requested = params.get("tri");
   const sort = COLUMNS_SORT.find((c) => c === (LEGACY_SORTS[requested ?? ""] ?? requested)) ?? STATE_DEFAULT.sort;
@@ -218,8 +218,8 @@ export function readState(params: URLSearchParams): StateTable {
 }
 
 /**
- * Report de l'etat dans des parametres d'URL existants, sans les valeurs par
- * defaut : l'adresse du tableau non filtre reste nue, donc canonique.
+ * Writes the state into existing URL parameters, without default
+ * values: the unfiltered table's address stays bare, hence canonical.
  */
 export function writeState(state: StateTable, base = new URLSearchParams()): URLSearchParams {
   const params = new URLSearchParams(base);
@@ -237,20 +237,20 @@ export function writeState(state: StateTable, base = new URLSearchParams()): URL
   return params;
 }
 
-// ── Mini-courbe ────────────────────────────────────────────────────
+// ── Sparkline ────────────────────────────────────────────────────
 
-/** Points de la mini-courbe : un tous les deux jours sur trente. */
+/** Sparkline points: one every two days over thirty. */
 export const POINTS_CURVE = 15;
-/** Hauteur du dessin, en unites ; en largeur, une unite separe deux points. */
+/** Drawing height, in units; horizontally, one unit separates two points. */
 export const HEIGHT_CURVE = 20;
 
 /**
- * Ordonnees de la mini-courbe, en texte compact : « 9 9 10 - 11 ». Les jours
- * sont regroupes en `points` tranches (moyenne des jours mesures). L'echelle
- * est propre a la serie, mais jamais plus serree que `ecartMin` points : un
- * taux stable reste plat au lieu de grossir l'arrondi du jeu. Une tranche
- * sans mesure vaut « - » et coupera le trait. Moins de deux tranches
- * mesurees : pas de courbe.
+ * Sparkline y values, as compact text: "9 9 10 - 11". Days
+ * are grouped into `points` buckets (average of measured days). The scale
+ * is specific to the series, but never tighter than `gapMin` points: a
+ * stable rate stays flat instead of magnifying the game's rounding. A bucket
+ * without a measurement is "-" and will break the line. Fewer than two measured
+ * buckets: no curve.
  */
 export function scaleCurve(
   values: (number | null)[],
@@ -274,13 +274,13 @@ export function scaleCurve(
     min = milieu - gapMin / 2;
     max = milieu + gapMin / 2;
   }
-  // Une unite de marge garde l'epaisseur du trait dans le cadre.
+  // One unit of margin keeps the line thickness inside the frame.
   return buckets
     .map((v) => (v === null ? "-" : String(Math.round(1 + (height - 2) * (1 - (v - min) / (max - min))))))
     .join(" ");
 }
 
-/** Trace SVG d'une mini-courbe : un point par unite de largeur, le trait coupe sur « - ». */
+/** SVG path of a sparkline: one point per width unit, the line broken on "-". */
 export function pathCurve(scale: string): string {
   let trace = "";
   let inProgress = false;
@@ -289,14 +289,14 @@ export function pathCurve(scale: string): string {
       inProgress = false;
       return;
     }
-    // Apres un deplacement, les couples suivants sont des segments : pas besoin de « L ».
+    // After a move, the following pairs are segments: no need for "L".
     trace += `${inProgress ? " " : "M"}${x} ${y}`;
     inProgress = true;
   });
   return trace;
 }
 
-/** Taux au format de la langue, a une decimale : « 52,4 % », « 52.4% ». */
+/** Rate in the locale's format, with one decimal: "52,4 %", "52.4%". */
 export function formatterRate(locale: string): (v: number) => string {
   const f = new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 });
   return (v) => f.format(v / 100);

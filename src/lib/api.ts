@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 
 /**
- * Reponses de l'API publique.
+ * Public API responses.
  *
- * Les donnees du site sont extraites d'un wiki sous licence CC BY-SA : les
- * republier suppose de crediter la source, ce que chaque reponse fait via ses
- * en-tetes plutot que de compter sur la bonne volonte du consommateur.
+ * The site's data is extracted from a wiki under the CC BY-SA license:
+ * republishing it requires crediting the source, which every response does
+ * through its headers rather than relying on the consumer's goodwill.
  *
- * Le cache est genereux : ces donnees ne changent qu'a la synchronisation
- * hebdomadaire, et rien ne justifie de recalculer une reponse identique.
+ * Caching is generous: this data only changes at the weekly sync, and
+ * nothing justifies recomputing an identical response.
  */
 export function responseApi(data: unknown, options: { total?: number } = {}) {
   return NextResponse.json(
@@ -24,10 +24,10 @@ export function responseApi(data: unknown, options: { total?: number } = {}) {
     {
       headers: {
         "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800",
-        // L'API est faite pour etre consommee depuis un navigateur tiers.
+        // The API is meant to be consumed from third-party browsers.
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
-        // Un en-tete HTTP n'accepte que du latin-1 : pas de tiret cadratin ici.
+        // An HTTP header only accepts Latin-1: no em dash here.
         "X-Data-License": "CC BY-SA / Mobile Legends Wiki",
       },
     },

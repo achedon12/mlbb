@@ -1,13 +1,13 @@
 /**
- * Demarrage du serveur.
+ * Server startup.
  *
- * Next appelle `register()` une fois par demarrage. On y annonce le dernier
- * patch aux abonnes des notifications, s'il ne l'a pas encore ete : une
- * synchronisation de donnees arrive par un commit suivi d'un redeploiement,
- * donc un nouveau patch coincide toujours avec un demarrage.
+ * Next calls `register()` once per startup. It announces the latest
+ * patch to notification subscribers, if that has not been done yet: a
+ * data sync arrives through a commit followed by a redeployment,
+ * so a new patch always coincides with a startup.
  *
- * Seul le runtime Node est concerne (pas l'edge), jamais le build, et rien
- * n'est charge tant que les cles VAPID sont absentes.
+ * Only the Node runtime is concerned (not the edge), never the build, and nothing
+ * is loaded while the VAPID keys are missing.
  */
 export async function register() {
   if (process.env.NEXT_RUNTIME !== "nodejs") return;
@@ -18,6 +18,6 @@ export async function register() {
     import("@/lib/push-server"),
     import("@/lib/patch-tracking"),
   ]);
-  // Sans attendre : le serveur repond pendant l'envoi, qui ne leve jamais.
+  // Without waiting: the server answers during the send, which never throws.
   void notifyOnStartup(recentPatches[0]);
 }

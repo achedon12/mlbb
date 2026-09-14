@@ -1,18 +1,18 @@
 /**
- * Traduction d'un fragment HTML du wiki, balisage intact.
+ * Translation of a wiki HTML fragment, markup intact.
  *
- * On traduit par suites de texte (textes et balises en ligne : liens, gras,
- * italique…) plutot que noeud par noeud : une phrase coupee par un lien se
- * traduirait en morceaux sans suite. Les balises en ligne sont remplacees par
- * des marqueurs que le traducteur preserve, puis remises a leur place. Si les
- * marqueurs reviennent incomplets ou dans le desordre, la suite retombe sur une
- * traduction texte par texte : moins fluide, mais le balisage ne peut pas etre
- * casse. Les nombres, les attributs et la structure ne passent jamais par le
- * traducteur.
+ * Translation works on text runs (texts and inline tags: links, bold,
+ * italic…) rather than node by node: a sentence split by a link would
+ * translate into disconnected pieces. Inline tags are replaced with
+ * markers the translator preserves, then put back in place. If the
+ * markers come back incomplete or out of order, the run falls back to
+ * text-by-text translation: less fluent, but the markup cannot be
+ * broken. Numbers, attributes and structure never go through the
+ * translator.
  */
 import { parse } from "node-html-parser";
 
-const PROTECTED = String.fromCharCode(0xe000); // zone privee Unicode : preservee par le traducteur
+const PROTECTED = String.fromCharCode(0xe000); // Unicode private use area: preserved by the translator
 const MARKER = new RegExp(`${PROTECTED}\\s*(\\d+)\\s*${PROTECTED}`, "g");
 const ONLINE = new Set([
   "a", "abbr", "b", "br", "code", "em", "font", "i", "img", "s", "small", "span", "strong", "sub", "sup", "u",
@@ -32,7 +32,7 @@ function online(node) {
   return ONLINE.has(node.rawTagName.toLowerCase()) && node.childNodes.every(online);
 }
 
-/** Texte d'une suite, balises remplacees par des marqueurs numerotes dans l'ordre. */
+/** Text of a run, tags replaced with markers numbered in order. */
 function protect(nodes) {
   const tags = [];
   const mark = (tag) => `${PROTECTED}${tags.push(tag) - 1}${PROTECTED}`;
@@ -44,7 +44,7 @@ function protect(nodes) {
   return { on: nodes.map(visit).join(""), tags };
 }
 
-/** Remet les balises ; null si les marqueurs ne reviennent pas tous, dans l'ordre. */
+/** Puts the tags back; null if the markers do not all come back, in order. */
 function restore(translated, tags) {
   const chunks = translated.split(MARKER);
   let html = "";
@@ -57,7 +57,7 @@ function restore(translated, tags) {
   return expected === tags.length && !html.includes(PROTECTED) ? html : null;
 }
 
-/** Repli : chaque texte traduit seul, balises d'origine en place. */
+/** Fallback: each text translated alone, original tags in place. */
 function textByText(n, t) {
   if (n.nodeType === TEXT) {
     const text = n.text.trim();
@@ -76,14 +76,14 @@ function translateRun(run, t) {
   const text = on.trim();
   if (!toTranslate(text.replace(MARKER, " "))) return raw;
   const translated = t(text);
-  // Pas (encore) de traduction : le HTML d'origine, a l'identique.
+  // No translation (yet): the original HTML, unchanged.
   if (!translated || translated === text) return raw;
   const html = restore(translated, tags);
   if (html === null) return run.map((n) => textByText(n, t)).join("");
   return on.match(/^\s*/)[0] + html + on.match(/\s*$/)[0];
 }
 
-/** Traduit une suite de noeuds freres : les suites en ligne d'un bloc, les blocs recursivement. */
+/** Translates a sequence of sibling nodes: a block's inline runs, blocks recursively. */
 function process(nodes, t) {
   let html = "";
   let run = [];
@@ -106,10 +106,10 @@ function process(nodes, t) {
 }
 
 /**
- * Traduit le texte d'un fragment HTML. `t` recoit un texte (marqueurs compris)
- * et rend sa traduction, ou le texte lui-meme s'il n'en a pas : le fragment
- * sort alors inchange. Passer un `t` qui collecte ses entrees donne la liste
- * des textes a traduire.
+ * Translates the text of an HTML fragment. `t` receives a text (markers included)
+ * and returns its translation, or the text itself if it has none: the fragment
+ * then comes out unchanged. Passing a `t` that collects its inputs yields the list
+ * of texts to translate.
  */
 export function translateHtml(html, t) {
   if (!html) return html;

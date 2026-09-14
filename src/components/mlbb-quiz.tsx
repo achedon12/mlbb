@@ -45,13 +45,13 @@ import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Quiz MLBB : le defi du jour, le meme pour tous, et un entrainement sans fin.
+ * MLBB quiz: the daily challenge, the same for everyone, and endless practice.
  *
- * La page est statique : elle n'apporte que le roster (noms, icones, traits
- * compares). Le defi du jour arrive apres le montage, pour la date UTC du
- * visiteur (`/quiz/day/<langue>-<date>.json`, quelques Ko) ; le vivier de
- * l'entrainement seulement a son ouverture. Tous deux restent sur l'appareil :
- * une fois la page visitee, le quiz se joue hors ligne.
+ * The page is static: it only ships the roster (names, icons, compared
+ * traits). The daily challenge arrives after mount, for the visitor's UTC
+ * date (`/quiz/day/<locale>-<date>.json`, a few KB); the practice pool only
+ * when practice is opened. Both stay on the device: once the page has been
+ * visited, the quiz plays offline.
  */
 
 const ICONS: Record<TypeRound, LucideIcon> = {
@@ -70,8 +70,8 @@ const secondaryButton =
 export function QuizMlbb({ heroes, items }: { heroes: QuizHero[]; items: ItemRoster[] }) {
   const t = useT();
   const [mode, setMode] = useState<"daily" | "practice">("daily");
-  // L'entrainement n'est monte qu'a sa premiere ouverture : son vivier ne se
-  // telecharge pas pour qui ne fait que le defi. Il reste monte ensuite.
+  // Practice is only mounted when first opened: its pool is not downloaded
+  // for players who only do the challenge. It stays mounted afterwards.
   const [practiceOpen, setPracticeOpen] = useState(false);
   const catalog = useMemo<CatalogQuiz>(
     () => ({
@@ -112,7 +112,7 @@ export function QuizMlbb({ heroes, items }: { heroes: QuizHero[]; items: ItemRos
   );
 }
 
-/** Premiere manche encore a jouer ; le nombre de manches quand tout est joue (le bilan). */
+/** First round still to play; the number of rounds once everything is played (the summary). */
 function roundOpen(challenge: Challenge, attempts: string[][]): number {
   const i = challenge.manches.findIndex((m, j) => !roundFinished(m, attempts[j] ?? []));
   return i < 0 ? challenge.manches.length : i;
@@ -131,11 +131,11 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
   const titleSummary = useRef<HTMLHeadingElement>(null);
   const focus = useRef(false);
 
-  // Le jour se lit apres le montage : la page, statique, ne connait ni
-  // l'heure ni la memoire du visiteur.
+  // The day is read after mount: the static page knows neither the time
+  // nor the visitor's stored progress.
   useEffect(() => {
     const today = dayUtc(new Date());
-    /* eslint-disable react-hooks/set-state-in-effect -- horloge et stockage lus apres montage */
+    /* eslint-disable react-hooks/set-state-in-effect -- clock and storage read after mount */
     setDay(today);
     setStats(readStats());
     setAttempts(readMatch(today) ?? []);
@@ -158,7 +158,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
     };
   }, [day, locale, tentative]);
 
-  // Le focus suit la manche suivante : un lecteur d'ecran l'annonce aussitot.
+  // Focus follows the next round: a screen reader announces it right away.
   useEffect(() => {
     if (!focus.current) return;
     focus.current = false;
@@ -344,8 +344,8 @@ function Summary({
   const average = stats.joues ? distribution.reduce((s, n, i) => s + n * i, 0) / stats.joues : 0;
   const format = new Intl.NumberFormat(LOCALE_HTML[locale], { maximumFractionDigits: 1 });
 
-  // Le partage natif sert sur mobile ; ailleurs, il ouvrirait une fenetre
-  // systeme la ou le presse-papiers suffit.
+  // Native sharing is for mobile; elsewhere it would open a system dialog
+  // where the clipboard is enough.
   async function share() {
     const touch = window.matchMedia("(pointer: coarse)").matches;
     if (touch && typeof navigator.share === "function") {
@@ -440,7 +440,7 @@ function Summary({
   );
 }
 
-/** Resume d'une manche pour les lecteurs d'ecran : la grille d'emojis ne se lit pas. */
+/** Round summary for screen readers: the emoji grid cannot be read aloud. */
 function summary(m: Round, attempts: string[], t: T): string {
   const type = t(`pages.quizUI.types.${m.type}`);
   if (m.type === "duel") {
@@ -451,7 +451,7 @@ function summary(m: Round, attempts: string[], t: T): string {
     : t("pages.quizUI.summaryMissed", { type });
 }
 
-/** Compte a rebours jusqu'a minuit UTC ; passe minuit, le nouveau defi se lance d'un clic. */
+/** Countdown to UTC midnight; past midnight, the new challenge starts with one click. */
 function NextChallenge({ day, onNewDay }: { day: string; onNewDay: () => void }) {
   const t = useT();
   const [remaining, setRemaining] = useState<number | null>(null);
@@ -480,7 +480,7 @@ function NextChallenge({ day, onNewDay }: { day: string; onNewDay: () => void })
   return <p className="text-sm text-chalk-500">{t("pages.quizUI.next", { h, m })}</p>;
 }
 
-/** Une manche au hasard, d'un des types choisis, en evitant les reponses recentes. */
+/** A random round of one of the chosen types, avoiding recent answers. */
 function draw(pool: PoolQuiz, types: TypeRound[], recent: string[]): Round | null {
   const type = types[Math.floor(Math.random() * types.length)] ?? "skill";
   const random = () => Math.random();
@@ -509,7 +509,7 @@ function Practice({ catalog }: { catalog: CatalogQuiz }) {
   const focus = useRef(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- stockage lu apres montage
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- storage read after mount
     setRecord(readPractice());
   }, []);
 

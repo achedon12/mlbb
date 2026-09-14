@@ -1,13 +1,13 @@
 /**
- * Connexion au compte de jeu.
+ * Game account login.
  *
- * Moonton n'expose pas d'API, mais son flux officiel de connexion par code
- * existe : le jeu envoie un code a quatre chiffres dans la messagerie du
- * joueur, et ce code, valide cinq minutes, prouve qu'on possede le compte.
- * Une API communautaire relaie ce flux et renvoie un jeton d'acces.
+ * Moonton exposes no API, but its official code-based login flow exists:
+ * the game sends a four-digit code to the player's in-game mailbox, and
+ * that code, valid for five minutes, proves account ownership.
+ * A community API relays this flow and returns an access token.
  *
- * Tout passe par le serveur : le jeton n'est jamais expose au navigateur, et
- * aucun mot de passe n'est jamais demande ni transmis.
+ * Everything goes through the server: the token is never exposed to the
+ * browser, and no password is ever requested or transmitted.
  */
 import { createHash } from "node:crypto";
 import {
@@ -29,11 +29,11 @@ import { logError } from "@/lib/log";
 const BASE = "https://arena.rone.dev/api/user";
 
 /**
- * Sous-systeme d'authentification de Moonton.
+ * Moonton authentication subsystem.
  *
- * Distinct du battle-report : c'est le service qui gere les comptes, et il
- * reste en ligne quand les statistiques de partie sont coupees. Le jeton
- * obtenu par le flux de connexion y est directement accepte.
+ * Separate from the battle report: this is the service that manages accounts,
+ * and it stays online when match statistics are down. The token obtained
+ * through the login flow is accepted there as is.
  */
 const MOONTON = "https://sg-api.mobilelegends.com/base";
 const X_ACTID = "2728785";
@@ -45,7 +45,7 @@ const UA = "MLBBDex/1.0 (+https://mlbbdex.com)";
 
 export interface Friend {
   nom: string;
-  /** Chemin de l'avatar sur le CDN, ou null pour l'avatar par defaut. */
+  /** Avatar path on the CDN, or null for the default avatar. */
   avatar: string | null;
 }
 
@@ -74,9 +74,9 @@ async function apiCall(path: string, options: RequestInit = {}) {
 }
 
 /**
- * Demande l'envoi d'un code de verification dans la messagerie du joueur.
- * Ne revele pas si le compte existe : un identifiant inconnu echoue au meme
- * titre qu'un service indisponible, sans distinction exploitable.
+ * Requests a verification code in the player's in-game mailbox.
+ * Does not reveal whether the account exists: an unknown ID fails just like
+ * an unavailable service, with no exploitable difference.
  */
 export async function sendCode(
   roleId: number,
@@ -91,18 +91,18 @@ export async function sendCode(
     const data = (await response.json()) as { code?: number; message?: string };
     if (response.ok && data.code === 0) return { ok: true };
 
-    // errorInvalidZoneId / role null : la saisie ne correspond a aucun compte.
-    // Les raisons sont des cles du catalogue : le formulaire les traduit.
+    // errorInvalidZoneId / null role: the input matches no account.
+    // Reasons are catalogue keys: the form translates them.
     return { ok: false, raison: "loginForm.errors.unknown" };
   } catch (e) {
-    void logError("envoi du code de verification", e);
+    void logError("sending the verification code", e);
     return { ok: false, raison: "loginForm.errors.unavailable" };
   }
 }
 
 /**
- * Echange le code contre un jeton d'acces.
- * Le jeton est un JWT signe par le service, valide plusieurs jours.
+ * Exchanges the code for an access token.
+ * The token is a JWT signed by the service, valid for several days.
  */
 export async function connect(
   roleId: number,
@@ -125,18 +125,18 @@ export async function connect(
     }
     return { ok: false, raison: "loginForm.errors.wrongCode" };
   } catch (e) {
-    void logError("echange du code contre un jeton", e);
+    void logError("exchanging the code for a token", e);
     return { ok: false, raison: "loginForm.errors.unavailable" };
   }
 }
 
 /**
- * Etat d'une reponse authentifiee.
+ * State of an authenticated response.
  *
- * Trois cas se distinguent, parce qu'ils appellent des reactions differentes :
- * la session a expire (il faut deconnecter), la donnee existe, ou la source
- * Moonton est ponctuellement coupee — ce qu'elle signale par un code a elle,
- * et qui ne doit pas passer pour une panne du site.
+ * Three cases are kept apart because they call for different reactions:
+ * the session has expired (log out), the data exists, or the Moonton source
+ * is temporarily down — which it signals with its own code, and which must
+ * not look like a site outage.
  */
 export type Result<T> =
   | { etat: "ok"; donnees: T }
@@ -154,32 +154,32 @@ async function authenticated<T>(
     if (response.status === 401) return { etat: "expired" };
     if (!response.ok) return { etat: "unavailable" };
 
-    // Lu en texte : curseurs et identifiants de partie depassent la precision
-    // des nombres, `lireJson` les garde en chaines.
+    // Read as text: cursors and match IDs exceed number precision,
+    // `readJson` keeps them as strings.
     const envelope = (readJson(await response.text()) ?? {}) as { code?: unknown; data?: unknown };
-    // 10407 : l'endpoint Moonton relaye est momentanement hors service. Tout
-    // autre code non nul dit de meme qu'il n'y a rien d'exploitable.
+    // 10407: the relayed Moonton endpoint is temporarily out of service. Any
+    // other non-zero code likewise means there is nothing usable.
     if ((typeof envelope.code === "number" && envelope.code !== 0) || envelope.data == null) {
       return { etat: "unavailable" };
     }
 
     return { etat: "ok", donnees: transform(envelope.data) };
   } catch (e) {
-    void logError("appel authentifie au service Moonton", e);
+    void logError("authenticated call to the Moonton service", e);
     return { etat: "unavailable" };
   }
 }
 
 /**
- * Memoire courte des reponses authentifiees.
+ * Short-lived cache of authenticated responses.
  *
- * Une visite du profil appelle le service une quinzaine de fois — saisons,
- * heros, parties, puis le detail des dernieres parties. Recharger la page ou
- * paginer ne doit pas tout redemander : chaque reponse reussie est gardee
- * quelques minutes en memoire du serveur, sous une cle derivee du jeton —
- * jamais le jeton lui-meme. Rien n'est ecrit sur disque ni partage entre
- * joueurs, et un echec n'est jamais retenu. Deux appels simultanes au meme
- * chemin partagent la meme requete.
+ * A profile visit calls the service about fifteen times — seasons, heroes,
+ * matches, then the details of the latest matches. Reloading the page or
+ * paginating must not request everything again: each successful response is
+ * kept a few minutes in server memory, under a key derived from the token —
+ * never the token itself. Nothing is written to disk or shared between
+ * players, and a failure is never kept. Two simultaneous calls to the same
+ * path share the same request.
  */
 const MEMORY = new Map<string, { end: number; value: Promise<Result<unknown>> }>();
 const MEMORY_MAX = 500;
@@ -201,7 +201,7 @@ function remember<T>(
   void value.then((r) => {
     if (r.etat !== "ok" && MEMORY.get(key)?.value === value) MEMORY.delete(key);
   });
-  // Au-dela du plafond, les entrees les plus anciennes sortent les premieres.
+  // Beyond the cap, the oldest entries are evicted first.
   for (const old of MEMORY.keys()) {
     if (MEMORY.size <= MEMORY_MAX) break;
     MEMORY.delete(old);
@@ -209,7 +209,7 @@ function remember<T>(
   return value;
 }
 
-/** Profil de base : ce qui reste accessible meme quand les stats sont coupees. */
+/** Basic profile: what stays reachable even when stats are down. */
 export function profile(token: string): Promise<Result<Profile>> {
   return authenticated("/info?lang=en", token, (data) => {
     const d = data as Record<string, unknown>;
@@ -226,19 +226,19 @@ export function profile(token: string): Promise<Result<Profile>> {
   });
 }
 
-/** Statistiques d'ensemble, sur les saisons que le service a gardees. Souvent coupees. */
+/** Overall statistics, over the seasons the service has kept. Often down. */
 export function statistics(token: string): Promise<Result<StatsPlayer>> {
   return remember(token, "/stats", 300, () => authenticated("/stats?lang=en", token, readStats));
 }
 
-/** Saisons ou le joueur a des parties, de la plus recente a la plus ancienne. */
+/** Seasons in which the player has matches, from newest to oldest. */
 export function seasons(token: string): Promise<Result<number[]>> {
   return remember(token, "/season", 3600, () => authenticated("/season?lang=en", token, seasonsOf));
 }
 
 const seasonValid = (s: number) => Number.isInteger(s) && s > 0 && s < 1000;
 
-/** Une page de parties de la saison, des plus recentes aux plus anciennes. */
+/** One page of the season's matches, from newest to oldest. */
 export function pageMatches(
   token: string,
   season: number,
@@ -254,14 +254,14 @@ export function pageMatches(
   return remember(token, path, 120, () => authenticated(path, token, readMatches));
 }
 
-/** Parties lues au plus pour l'evolution de la saison : cinq pages de vingt. */
+/** Maximum matches read for the season trend: five pages of twenty. */
 export const HISTORY_MAX = 100;
-/** Pages suivies au plus, si le service rendait moins de vingt parties par page. */
+/** Maximum pages followed, in case the service returned fewer than twenty matches per page. */
 const PAGES_HISTORY_MAX = 10;
-/** Au-dela, l'historique s'arrete sur ce qui est lu : la section ne doit pas faire attendre. */
+/** Past this, the history stops at what has been read: the section must not keep users waiting. */
 const HISTORY_BUDGET_MS = 8000;
 
-/** La promesse, ou null si elle n'a pas abouti dans le delai. Elle continue sans nous : sa reponse ira en memoire. */
+/** The promise, or null if it did not settle in time. It keeps running without us: its response will land in the cache. */
 function inDelay<T>(promise: Promise<T>, ms: number): Promise<T | null> {
   let timer: ReturnType<typeof setTimeout> | undefined;
   const delay = new Promise<null>((r) => {
@@ -271,14 +271,14 @@ function inDelay<T>(promise: Promise<T>, ms: number): Promise<T | null> {
 }
 
 /**
- * Parties recentes de la saison, pages enchainees, jusqu'a `max`.
+ * Recent matches of the season, pages chained, up to `max`.
  *
- * Le curseur de chaque page vient de la precedente : les pages ne peuvent pas
- * etre demandees en parallele. Elles passent par la meme memoire que la liste
- * des parties — la premiere est deja lue par la page, les suivantes servent
- * aussi le bouton « parties plus anciennes ». Un budget de temps borne
- * l'attente ; une page qui manque en cours de route arrete la lecture sur ce
- * qui est acquis. `fin` dit si le debut de la saison a ete atteint.
+ * Each page's cursor comes from the previous one: pages cannot be requested
+ * in parallel. They go through the same cache as the match list — the first
+ * one is already read by the page, the next ones also serve the "older
+ * matches" button. A time budget bounds the wait; a page missing along the
+ * way stops reading at what has been gathered. `end` tells whether the start
+ * of the season was reached.
  */
 export async function historyMatches(
   token: string,
@@ -294,7 +294,7 @@ export async function historyMatches(
 
   for (let page = 0; page < PAGES_HISTORY_MAX && matches.length < max; page++) {
     const request = pageMatches(token, season, cursor);
-    // La premiere page est attendue sans limite : sans elle, il n'y a rien a montrer.
+    // The first page is awaited without a limit: without it, there is nothing to show.
     const r = page === 0 ? await request : await inDelay(request, budget - (Date.now() - start));
     if (r === null) break;
     if (r.etat !== "ok") {
@@ -306,7 +306,7 @@ export async function historyMatches(
       views.add(p.id);
       matches.push(p);
     }
-    // Un curseur qui ne change pas relancerait la meme page sans fin.
+    // A cursor that does not change would request the same page forever.
     if (!r.donnees.next || r.donnees.next === cursor) {
       return { etat: "ok", donnees: { matches: matches.slice(0, max), end: matches.length <= max } };
     }
@@ -315,16 +315,16 @@ export async function historyMatches(
   return { etat: "ok", donnees: { matches: matches.slice(0, max), end: false } };
 }
 
-/** Pages de heros suivies au plus : bien plus que le nombre de heros du jeu. */
+/** Maximum hero pages followed: far more than the number of heroes in the game. */
 const MAX_HERO_PAGES = 5;
 const HEROES_PER_PAGE = 30;
 
 /**
- * Tous les heros joues dans la saison, pages enchainees.
+ * All heroes played in the season, pages chained.
  *
- * Leur somme donne le bilan de la saison, que le service ne fournit pas tout
- * fait. Si une page intermediaire manque, on garde ce qui a ete lu et on le
- * signale : le bilan est alors un minimum, pas un total.
+ * Their sum gives the season summary, which the service does not provide
+ * ready-made. If an intermediate page is missing, what was read is kept and
+ * flagged: the summary is then a minimum, not a total.
  */
 export async function seasonHeroes(
   token: string,
@@ -350,7 +350,7 @@ export async function seasonHeroes(
       seen.add(h.hero.hid);
       heroes.push(h);
     }
-    // Un curseur qui ne change pas relancerait la meme page sans fin.
+    // A cursor that does not change would request the same page forever.
     if (!r.donnees.next || r.donnees.next === cursor) {
       return { etat: "ok", donnees: { heroes, full: true } };
     }
@@ -359,7 +359,7 @@ export async function seasonHeroes(
   return { etat: "ok", donnees: { heroes, full: false } };
 }
 
-/** Detail d'une partie : ses participants, equipes comprises. Une partie jouee ne change plus. */
+/** Match details: its participants, teams included. A played match never changes. */
 export function detailMatch(token: string, season: number, id: string): Promise<Result<Participant[]>> {
   if (!seasonValid(season) || !ID.test(id)) return Promise.resolve({ etat: "unavailable" });
   const path = `/matches/${id}?sid=${season}&lang=en`;
@@ -367,9 +367,9 @@ export function detailMatch(token: string, season: number, id: string): Promise<
 }
 
 /**
- * Detail de plusieurs parties, quatre appels a la fois pour menager le
- * service. Une partie dont le detail manque est simplement absente du
- * resultat ; une session expiree interrompt tout.
+ * Details of several matches, four calls at a time to spare the service.
+ * A match whose details are missing is simply absent from the result;
+ * an expired session stops everything.
  */
 export async function detailsMatches(
   token: string,
@@ -393,12 +393,11 @@ export async function detailsMatches(
 }
 
 /**
- * Liste d'amis du joueur.
+ * The player's friend list.
  *
- * Le battle-report expose aussi les amis, mais il est hors ligne ; cette
- * route-ci, sur le sous-systeme d'authentification, renvoie les noms et les
- * avatars. Les identifiants y sont hachés — on ne peut donc pas lier un ami a
- * sa fiche, seulement l'afficher.
+ * The battle report also exposes friends, but it is offline; this route, on
+ * the authentication subsystem, returns names and avatars. IDs are hashed
+ * there — so a friend cannot be linked to their profile, only displayed.
  */
 export async function friends(token: string): Promise<Result<Friend[]>> {
   const { roleId, zoneId } = identity(token);
@@ -442,12 +441,12 @@ export async function friends(token: string): Promise<Result<Friend[]>> {
     }));
     return { etat: "ok", donnees: list };
   } catch (e) {
-    void logError("appel authentifie au service Moonton", e);
+    void logError("authenticated call to the Moonton service", e);
     return { etat: "unavailable" };
   }
 }
 
-/** Charge utile du JWT (claim `Ext`), sans verification de signature. */
+/** JWT payload (`Ext` claim), without signature verification. */
 function load(token: string): Record<string, unknown> {
   try {
     const p = token.split(".")[1];
@@ -457,13 +456,13 @@ function load(token: string): Record<string, unknown> {
   }
 }
 
-/** Identifiant et serveur portes par le jeton. */
+/** ID and server carried by the token. */
 export function identity(token: string): { roleId: number; zoneId: number } {
   const ext = (load(token).Ext ?? {}) as Record<string, unknown>;
   return { roleId: Number(ext.roleId ?? 0), zoneId: Number(ext.zoneId ?? 0) };
 }
 
-/** Lit `exp` du JWT sans en verifier la signature — seul le service la connait. */
+/** Reads the JWT `exp` without verifying its signature — only the service knows it. */
 export function expiration(token: string): number | null {
   const exp = load(token).exp;
   return typeof exp === "number" ? exp : null;

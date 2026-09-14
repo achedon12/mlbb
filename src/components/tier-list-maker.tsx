@@ -53,19 +53,19 @@ import type { Lane, Role } from "@/lib/types";
 import { keySearch, cn } from "@/lib/utils";
 
 /**
- * Createur de tier list.
+ * Tier list maker.
  *
- * Trois facons de ranger un heros, pour tous les ecrans et toutes les mains :
+ * Three ways to place a hero, for every screen and every hand:
  *
- * - glisser-deposer a la souris, sur une rangee ou devant un heros ;
- * - toucher un heros, puis sa rangee — ou un palier de la barre qui apparait
- *   en bas de l'ecran, sans avoir a remonter la page sur mobile ;
- * - au clavier : Entree selectionne, les chiffres 1 a 9 posent dans la
- *   rangee correspondante, 0 rend a la reserve, les fleches parcourent.
+ * - mouse drag and drop, onto a row or in front of a hero;
+ * - tap a hero, then its row — or a tier in the bar that appears at the
+ *   bottom of the screen, without scrolling back up on mobile;
+ * - keyboard: Enter selects, digits 1 to 9 drop into the matching row,
+ *   0 sends back to the bench, arrow keys move around.
  *
- * Chaque geste est annonce aux lecteurs d'ecran. La liste se garde dans le
- * navigateur, se partage par un lien (`?l=`, voir `lib/createur-tier`) et
- * s'exporte en PNG.
+ * Every action is announced to screen readers. The list is kept in the
+ * browser, shared through a link (`?l=`, see `lib/tier-maker`) and
+ * exported as PNG.
  */
 
 export interface TierHero {
@@ -93,7 +93,7 @@ function writeList(key: string, state: StateTier | null) {
     if (state) localStorage.setItem(key, serialize(state));
     else localStorage.removeItem(key);
   } catch {
-    /* stockage refuse : la liste vit le temps de la visite */
+    /* storage denied: the list lives for the duration of the visit */
   }
 }
 
@@ -108,7 +108,7 @@ export function TierListMaker({
   ranks,
 }: {
   heroes: TierHero[];
-  /** Par rang, les indices des heros de chaque palier de notre tier list (S+ a C). */
+  /** Per rank, the hero indices of each tier in our tier list (S+ to C). */
   groups: Partial<Record<MeasuredRank, number[][]>>;
   ranks: MeasuredRank[];
 }) {
@@ -132,13 +132,13 @@ export function TierListMaker({
   const root = useRef<HTMLDivElement>(null);
   const focusAfter = useRef<string | null>(null);
 
-  // Apres le montage : une liste partagee (?l=) passe devant la liste gardee,
-  // qui reste recuperable d'un clic.
+  // After mount: a shared list (?l=) takes precedence over the saved list,
+  // which stays recoverable in one click.
   useEffect(() => {
     const code = new URLSearchParams(window.location.search).get("l");
     const kept = readList(KEY_LIST, known);
     if (!code) {
-      /* eslint-disable react-hooks/set-state-in-effect -- stockage lu apres montage */
+      /* eslint-disable react-hooks/set-state-in-effect -- storage read after mount */
       if (kept) setState(kept);
       setPrevious(readList(KEY_PREVIOUS, known));
       setLoad(true);
@@ -160,7 +160,7 @@ export function TierListMaker({
         setState(kept);
       }
       setLoad(true);
-      // L'adresse redevient celle de l'outil : recharger garde la liste modifiee.
+      // The URL goes back to the tool's own: reloading keeps the edited list.
       window.history.replaceState(null, "", window.location.pathname);
     });
     return () => {
@@ -172,7 +172,7 @@ export function TierListMaker({
     if (load) writeList(KEY_LIST, state);
   }, [state, load]);
 
-  // Au clavier, le heros deplace garde le focus dans sa nouvelle rangee.
+  // With the keyboard, the moved hero keeps focus in its new row.
   useEffect(() => {
     const slug = focusAfter.current;
     if (!slug) return;
@@ -255,7 +255,7 @@ export function TierListMaker({
     }
   }
 
-  /** Fleches, Debut et Fin : d'un heros a l'autre dans le meme groupe. */
+  /** Arrows, Home and End: from one hero to the next within the same group. */
   function navigate(e: React.KeyboardEvent<HTMLElement>) {
     const buttons = [...e.currentTarget.querySelectorAll<HTMLButtonElement>("[data-heros]")];
     const i = buttons.indexOf(document.activeElement as HTMLButtonElement);
@@ -410,7 +410,7 @@ export function TierListMaker({
           active ? "scale-105 bg-gold-500 motion-reduce:scale-100" : "hover:bg-night-800",
         )}
       >
-        {/* L'image, glissable par defaut, prendrait le geste a la place du bouton. */}
+        {/* The image, draggable by default, would steal the gesture from the button. */}
         <HeroPortrait source={h.icon} name={h.name} size="icon" decorative className="pointer-events-none" />
         {withName ? (
           <span className={cn("w-12 truncate text-center text-[0.6rem]", active ? "text-night-950" : "text-chalk-400")}>
@@ -723,7 +723,7 @@ export function TierListMaker({
   );
 }
 
-/** Reglages d'une rangee : nom, couleur, place, suppression. */
+/** Row settings: name, colour, position, deletion. */
 function PanelRow({
   row,
   first,

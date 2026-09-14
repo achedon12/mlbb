@@ -13,8 +13,8 @@ import { metaLocales, OG_LOCALE } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
 /**
- * Polices auto-hebergees : `next/font` les telecharge au build et les sert
- * depuis le site — aucune requete tierce au chargement.
+ * Self-hosted fonts: `next/font` downloads them at build time and serves them
+ * from the site — no third-party request on load.
  */
 const rajdhani = Rajdhani({
   subsets: ["latin"],
@@ -23,9 +23,9 @@ const rajdhani = Rajdhani({
   display: "swap",
 });
 
-// Le texte courant ne se repeint pas a l'arrivee de la police : sans elle a
-// temps, la page garde sa police de secours, aux metriques ajustees par
-// next/font. Les titres gardent Rajdhani quoi qu'il arrive.
+// Body text is not repainted when the font arrives: without it in
+// time, the page keeps its fallback font, with metrics adjusted by
+// next/font. Headings keep Rajdhani no matter what.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--body-font",
@@ -34,7 +34,7 @@ const inter = Inter({
 
 type Params = { params: Promise<{ locale: string }> };
 
-/** Une version du site par langue, generee au build. */
+/** One version of the site per language, generated at build time. */
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
@@ -49,8 +49,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: { default: title, template: `%s — ${site.name}` },
     description: t("common.homeDescription"),
     alternates: {
-      // Racine de la langue : canonique et hreflang de l'accueil. Les pages
-      // filles declarent leurs propres alternates via `metaLangues`.
+      // Language root: canonical and hreflang of the home page. Child pages
+      // declare their own alternates via `metaLocales`.
       ...metaLocales(locale, ""),
       types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.name}` }] },
     },

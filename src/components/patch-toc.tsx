@@ -5,11 +5,11 @@ import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Sommaire d'une note de patch.
+ * Table of contents of a patch note.
  *
- * Une note fait plusieurs dizaines de milliers de caracteres : sans reperes,
- * on ne trouve pas la section des ajustements de heros. Le sommaire suit la
- * lecture et met en avant la section a l'ecran.
+ * A note runs to tens of thousands of characters: without landmarks, the
+ * hero adjustments section is impossible to find. The table of contents
+ * follows the reading and highlights the section on screen.
  */
 export interface Entry {
   level: number;
@@ -27,9 +27,9 @@ export function PatchToc({ entries }: { entries: Entry[] }) {
       .filter((n): n is HTMLElement => n !== null);
     if (titles.length === 0) return;
 
-    // La zone d'observation est resserree vers le haut de l'ecran : la section
-    // « courante » est celle qu'on vient d'atteindre, pas celle qui occupe le
-    // plus de place.
+    // The observed area is narrowed towards the top of the screen: the
+    // "current" section is the one just reached, not the one taking up the
+    // most space.
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.filter((e) => e.isIntersecting);

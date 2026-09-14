@@ -1,8 +1,8 @@
 import { removeTags } from "./tags.mjs";
 /**
- * Calculs purs de la synchronisation des mesures : series quotidiennes,
- * historique cumule et compacte, choix des guides de joueurs et combos de
- * competences. Isoles du script pour etre testes sans reseau.
+ * Pure computations of the measures sync: daily series, cumulative compacted
+ * history, choice of player guides and skill combos. Kept apart from the
+ * script so they can be tested without network access.
  */
 
 const DAY = 86400000;
@@ -11,13 +11,13 @@ export const dateOfDay = (n) => new Date(n * DAY).toISOString().slice(0, 10);
 export const rounded = (v, decimals) =>
   typeof v === "number" ? Math.round(v * 10 ** decimals) / 10 ** decimals : null;
 
-/** Lundi de la semaine d'un numero de jour : le jour 0, 1er janvier 1970, etait un jeudi. */
+/** Monday of a day number's week: day 0, January 1st 1970, was a Thursday. */
 const monday = (n) => n - ((((n + 3) % 7) + 7) % 7);
 
 /**
- * Series alignees sur une meme date de debut, un point tous les `pas` jours
- * (1 : quotidienne, 7 : hebdomadaire). Un point manquant reste un trou (null)
- * plutot que de decaler les suivants.
+ * Series aligned on a shared start date, one point every `step` days
+ * (1: daily, 7: weekly). A missing point stays a gap (null) rather than
+ * shifting the following ones.
  */
 export function dailyStreak(points, step = 1) {
   if (points.length === 0) return null;
@@ -39,7 +39,7 @@ export function dailyStreak(points, step = 1) {
   return series;
 }
 
-/** Inverse de serieQuotidienne : un point par jour (ou par semaine) mesure. */
+/** Inverse of dailyStreak: one point per measured day (or week). */
 export function pointsOf(series, step = 1) {
   if (!series?.winRate) return [];
   const start = numberDay(series.start);
@@ -55,10 +55,10 @@ export function pointsOf(series, step = 1) {
   );
 }
 
-/** Jours gardes au jour pres dans l'historique ; au-dela, une moyenne par semaine. */
+/** Days kept at daily precision in the history; beyond that, one average per week. */
 export const DAILY_DAYS = 90;
 
-/** Precision des moyennes hebdomadaires, celle des mesures du jeu. */
+/** Precision of weekly averages, matching the game's measures. */
 const DECIMALS = { winRate: 1, banRate: 1, pickRate: 2 };
 
 function average(values, decimals) {
@@ -67,13 +67,12 @@ function average(values, decimals) {
 }
 
 /**
- * Serie stockee d'un heros : les `jours` derniers jours au jour pres, les
- * semaines plus anciennes en moyennes, rangees sous `semaines` (datees de leur
- * lundi, un point tous les sept jours). La coupure tombe un lundi : seules des
- * semaines entieres sont moyennees, et une semaine compactee ne bouge plus.
- * Si une semaine deja compactee recoit malgre tout des jours (fenetre
- * raccourcie, rattrapage), la moyenne existante prime : elle portait plus de
- * mesures.
+ * A hero's stored series: the last `days` days at daily precision, older
+ * weeks as averages, stored under `weeks` (dated by their Monday, one point
+ * every seven days). The cutoff falls on a Monday: only whole weeks are
+ * averaged, and a compacted week never moves again. If an already compacted
+ * week still receives days (shortened window, backfill), the existing
+ * average wins: it carried more measures.
  */
 export function compactHistory(points, weeksExisting = [], days = DAILY_DAYS) {
   if (points.length === 0) return null;
@@ -107,11 +106,11 @@ export function compactHistory(points, weeksExisting = [], days = DAILY_DAYS) {
 }
 
 /**
- * Historique long, tous rangs confondus. L'API ne remonte que trente jours :
- * chaque synchronisation verse les siens ici, et le fichier grandit patch
- * apres patch — d'une moyenne par semaine au-dela de JOURS_QUOTIDIENS, pour
- * rester compact. Un jour deja connu prend la mesure la plus recente. Un
- * fichier d'avant la compaction, tout au jour pres, se lit tel quel.
+ * Long history, all ranks combined. The API only goes back thirty days: each
+ * sync pours its own in here, and the file grows patch after patch — one
+ * average per week beyond DAILY_DAYS, to stay compact. An already known day
+ * takes the most recent measure. A file from before compaction, all at daily
+ * precision, is read as is.
  */
 export function mergeHistory(existing, trends, days = DAILY_DAYS) {
   const output = {};
@@ -125,10 +124,10 @@ export function mergeHistory(existing, trends, days = DAILY_DAYS) {
 }
 
 /**
- * Seuils de rank_level des auteurs de guides, sur l'echelle de
- * src/lib/ranks.ts : Epique des 76, Legende des 106, puis les
- * etoiles mythiques a partir de 136 — Honneur a 25 etoiles, Gloire a 50. Le
- * niveau publie est le meilleur rang atteint par l'auteur.
+ * rank_level thresholds of guide authors, on the scale of
+ * src/lib/ranks.ts: Epic from 76, Legend from 106, then the
+ * mythic stars from 136 — Honor at 25 stars, Glory at 50. The
+ * published level is the best rank the author has reached.
  */
 export const AUTHOR_BANDS = {
   all: [0, Infinity],
@@ -140,8 +139,8 @@ export const AUTHOR_BANDS = {
 };
 
 /**
- * Guide retenu pour un rang : le plus vote parmi les auteurs de ce rang ; a
- * defaut, d'un rang superieur. Null quand aucun auteur n'atteint le rang.
+ * Guide picked for a rank: the most voted among authors of that rank; failing
+ * that, from a higher rank. Null when no author reaches the rank.
  */
 export function chooseGuide(candidates, rank) {
   const [bottom, top] = AUTHOR_BANDS[rank];
@@ -154,10 +153,10 @@ export function chooseGuide(candidates, rank) {
 }
 
 /**
- * Tranches de duree des duos, en minutes : celles de la courbe de duree d'un
- * heros (evolution.json), de 10 a 20 minutes et plus. L'API publie aussi
- * « moins de 6 », « 6-8 » et « 8-10 » : des parties abandonnees ou a
- * l'echantillon trop maigre (un duo a 92 % entre 6 et 8 minutes), ecartees.
+ * Duo duration buckets, in minutes: the same as a hero's duration curve
+ * (evolution.json), from 10 to 20 minutes and more. The API also publishes
+ * "under 6", "6-8" and "8-10": surrendered games or samples too thin (a duo
+ * at 92% between 6 and 8 minutes), dropped.
  */
 export const BUCKETS_DUO = [
   ["min_win_rate10_12", 10],
@@ -169,12 +168,12 @@ export const BUCKETS_DUO = [
 ];
 
 /**
- * Duos d'un heros dans un rang, depuis `/heroes/{h}/compatibility` : les
- * partenaires qui font le plus monter son taux de victoire (`sub_hero`) et
- * ceux qui le font le plus baisser (`sub_hero_last`), cinq de chaque cote.
- * `increase_win_rate` devient un ecart en points ; le taux du duo par tranche
- * de duree, un pourcentage — null quand la tranche est vide (0 pile).
- * Null quand l'API n'a aucun partenaire connu pour ce rang.
+ * A hero's duos in a rank, from `/heroes/{h}/compatibility`: the partners
+ * that raise its win rate the most (`sub_hero`) and those that lower it the
+ * most (`sub_hero_last`), five on each side.
+ * `increase_win_rate` becomes a gap in points; the duo's rate per duration
+ * bucket, a percentage — null when the bucket is empty (exactly 0).
+ * Null when the API knows no partner for this rank.
  */
 export function duosOfRank(block, byId, slug, max = 10) {
   const phases = (a) => {
@@ -200,8 +199,8 @@ export function duosOfRank(block, byId, slug, max = 10) {
 }
 
 /**
- * Duos du fichier existant completes par une nouvelle lecture, rang par rang :
- * un rang que l'API n'a pas servi cette fois garde sa mesure precedente.
+ * Duos from the existing file topped up by a new read, rank by rank: a rank
+ * the API did not serve this time keeps its previous measure.
  */
 export function mergeDuos(existing, incoming) {
   const output = {};
@@ -211,7 +210,7 @@ export function mergeDuos(existing, incoming) {
   return output;
 }
 
-/** duos.json : fenetre de mesure, puis un heros par ligne, dans l'ordre des slugs. */
+/** duos.json: measurement window, then one hero per line, in slug order. */
 export function serializeDuos(days, heroes) {
   const rows = Object.keys(heroes)
     .sort()
@@ -222,18 +221,18 @@ export function serializeDuos(days, heroes) {
 const normalizeName = (name) => String(name ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const ORDER_COMBOS = ["laning", "teamfight"];
 
-/** « LANING COMBOS » → laning ; null pour un titre inconnu. */
+/** "LANING COMBOS" → laning; null for an unknown title. */
 const typeCombo = (title) => ORDER_COMBOS.find((t) => normalizeName(title).startsWith(t)) ?? null;
 
 /**
- * Combos d'un heros, depuis les enregistrements de l'API (`skill-combos`).
+ * A hero's combos, from the API records (`skill-combos`).
  *
- * Chaque competence y arrive en identifiant de jeu. La fiche du heros cote API
- * (`skills` : id, nom) donne son nom, qui retrouve le nom affiche par le site
- * (`competencesSite`, le wiki) et son icone locale (`icones`, par nom). Une
- * forme transformee reprend le nom d'une competence sous un autre identifiant :
- * elle garde l'icone du CDN, qui la distingue. L'attaque de base, absente des
- * fiches, porte un identifiant rond (celui du heros suivi de 00).
+ * Each skill arrives there as a game identifier. The hero's API sheet
+ * (`skills`: id, name) gives its name, which maps to the name shown by the
+ * site (`skillsSite`, the wiki) and to its local icon (`icons`, by name). A
+ * transformed form reuses a skill's name under another identifier: it keeps
+ * the CDN icon, which tells it apart. The basic attack, missing from the
+ * sheets, has a round identifier (the hero's followed by 00).
  */
 export function heroCombos(records, skills, skillsSite, icons) {
   const namesSite = new Map(skillsSite.filter((c) => c?.name).map((c) => [normalizeName(c.name), c.name]));

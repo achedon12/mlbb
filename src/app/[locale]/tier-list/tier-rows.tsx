@@ -9,9 +9,9 @@ export interface TierRow {
 }
 
 /**
- * Puces vers les autres tier lists : par rang, par lane, par role. Composant
- * client pour le poids : seuls les libelles et les adresses voyagent dans les
- * donnees de la page, et non dix-sept fois la meme liste de classes.
+ * Chips to the other tier lists: by rank, by lane, by role. Client
+ * component for weight: only the labels and the addresses travel in the
+ * page data, and not seventeen times the same list of classes.
  */
 export function TierRows({ rows }: { rows: TierRow[] }) {
   return rows.map((r) => (

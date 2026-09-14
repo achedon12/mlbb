@@ -13,7 +13,7 @@ import type { Tier } from "@/lib/types";
 import { useLocale, useT } from "@/i18n/provider";
 import { keySearch, cn } from "@/lib/utils";
 
-/** Taux d'un rang : victoire et ban en %, palier de la tier list. */
+/** Rates for one rank: win and ban in %, tier list tier. */
 export type RateRank = [win: number, ban: number, tier: Tier];
 
 export interface HeroComparable {
@@ -28,12 +28,12 @@ export interface HeroComparable {
     abilityEffects: number | null;
     difficulty: number | null;
   };
-  /** Un rang absent n'a pas de classement pour ce heros. */
+  /** A missing rank has no ranking for this hero. */
   rate: Partial<Record<MeasuredRank, RateRank>>;
   skins: number;
 }
 
-/** Etendue des taux d'un rang sur tout le catalogue : l'echelle du radar. */
+/** Range of a rank's rates across the whole catalogue: the radar's scale. */
 export interface BoundsRank {
   win: [number, number];
   ban: [number, number];
@@ -48,7 +48,7 @@ const COLOR_TIER: Record<Tier, string> = {
 };
 const ORDER_TIERS: Tier[] = ["S+", "S", "A", "B", "C"];
 
-/** Cle de traduction de chaque note du jeu. */
+/** Translation key of each in-game rating. */
 const LABEL_NOTE: Record<keyof HeroComparable["notes"], string> = {
   offense: "offense",
   durability: "durability",
@@ -56,17 +56,17 @@ const LABEL_NOTE: Record<keyof HeroComparable["notes"], string> = {
   difficulty: "difficulty",
 };
 
-/** Deux heros au moins, trois au plus : au-dela, radar et courbes deviennent illisibles. */
+/** Two heroes at least, three at most: beyond that, radar and curves become unreadable. */
 const MAX_HEROES = 3;
 const SETTINGS = ["a", "b", "c"] as const;
 
 /**
- * Comparateur de deux ou trois heros.
+ * Comparator for two or three heroes.
  *
- * Notes du jeu et taux du rang choisi se lisent dans un radar, puis dans un
- * tableau ou la meilleure valeur de chaque ligne ressort ; les courbes de
- * victoire sur trente jours se superposent dessous. Chaque heros garde sa
- * couleur et son motif de trait d'un bout a l'autre.
+ * In-game ratings and the chosen rank's rates show in a radar, then in a
+ * table where the best value of each row stands out; the thirty-day win
+ * curves are overlaid below. Each hero keeps its colour and line pattern
+ * throughout.
  */
 export function HeroComparator({
   heroes,
@@ -74,7 +74,7 @@ export function HeroComparator({
   bounds,
 }: {
   heroes: HeroComparable[];
-  /** Rangs qui ont un classement, tous rangs confondus en tete. */
+  /** Ranks that have a ranking, all ranks combined first. */
   ranks: MeasuredRank[];
   bounds: Partial<Record<MeasuredRank, BoundsRank>>;
 }) {
@@ -85,12 +85,11 @@ export function HeroComparator({
   const buttonAdd = useRef<HTMLButtonElement>(null);
   const thirdField = useRef<HTMLInputElement>(null);
 
-  // Le choix passe par l'URL cote client, ce qui garde la page statique et rend
-  // la comparaison partageable. Le rendu serveur et la premiere hydratation
-  // partent des deux premiers heros (identiques des deux cotes, donc sans
-  // desaccord) ; apres le montage seulement, on adopte ?a=&b=&c=&rang= s'ils
-  // designent des heros et un rang connus, puis chaque changement se reporte
-  // dans l'URL.
+  // The choice goes through the URL on the client, which keeps the page static
+  // and makes the comparison shareable. Server rendering and first hydration
+  // start from the first two heroes (identical on both sides, so no mismatch);
+  // only after mount do we adopt ?a=&b=&c=&rang= if they name known heroes and
+  // a known rank, then every change is written back to the URL.
   const rise = useRef(false);
   useEffect(() => {
     if (!rise.current) {
@@ -100,10 +99,10 @@ export function HeroComparator({
       const r = params.get("rang") as MeasuredRank | null;
       let lu = false;
       if (readValues.length > 0) {
-        // Un seul heros dans l'adresse (lien « Comparer » d'une fiche) : le
-        // second est le premier du catalogue qui n'est pas lui.
+        // A single hero in the address ("Compare" link from a hero page): the
+        // second is the first catalogue hero that is not that one.
         const other = heroes.find((h) => h.slug !== readValues[0])?.slug;
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- lecture de l'URL apres montage
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- reading the URL after mount
         setChoice(readValues.length > 1 ? readValues.slice(0, MAX_HEROES) : other ? [readValues[0], other] : readValues);
         lu = true;
       }
@@ -119,7 +118,7 @@ export function HeroComparator({
     window.history.replaceState(null, "", `?${params}`);
   }, [choice, rank, bySlug, heroes, ranks]);
 
-  // Choisir un heros deja pris ailleurs echange les deux places.
+  // Picking a hero already chosen elsewhere swaps the two slots.
   const change = (i: number) => (slug: string) =>
     setChoice((c) => {
       const next = [...c];
@@ -132,7 +131,7 @@ export function HeroComparator({
     const free = heroes.find((h) => !choice.includes(h.slug));
     if (!free) return;
     setChoice((c) => [...c, free.slug]);
-    // Le bouton disparait : le focus passe au nouveau champ, qui ouvre sa liste.
+    // The button disappears: focus moves to the new field, which opens its list.
     requestAnimationFrame(() => thirdField.current?.focus());
   };
   const remove = () => {
@@ -199,7 +198,7 @@ export function HeroComparator({
   );
 }
 
-/** Radar des notes du jeu et des taux du rang, une toile par heros. */
+/** Radar of in-game ratings and rank rates, one web per hero. */
 function Profile({ heroes, rank, bounds }: { heroes: HeroComparable[]; rank: MeasuredRank; bounds: BoundsRank | null }) {
   const t = useT();
   const id = useId().replace(/[^a-zA-Z0-9-]/g, "");
@@ -238,14 +237,14 @@ interface RowTable {
   label: string;
   values: (number | null)[];
   shown: (v: number, i: number) => React.ReactNode;
-  /** 1 : la plus haute l'emporte ; -1 : la plus basse ; 0 : personne en tete. */
+  /** 1: highest wins; -1: lowest wins; 0: nobody leads. */
   direction: 1 | -1 | 0;
 }
 
 /**
- * Valeurs exactes, un heros par colonne : le pendant lisible du radar. Sur
- * chaque ligne, la meilleure valeur ressort, en couleur et en toutes lettres
- * pour les lecteurs d'ecran.
+ * Exact values, one hero per column: the readable counterpart of the radar. On
+ * each row, the best value stands out, in colour and spelled out for screen
+ * readers.
  */
 function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: MeasuredRank }) {
   const t = useT();
@@ -289,7 +288,7 @@ function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: Mea
     note("offense", 1),
     note("durability", 1),
     note("abilityEffects", 1),
-    // Une difficulte plus basse n'est pas un avantage en soi : personne en tete.
+    // Lower difficulty is not an advantage in itself: nobody leads.
     note("difficulty", 0),
     { key: "skins", label: t("compareUI.skins"), values: heroes.map((h) => h.skins), shown: (v) => integer.format(v), direction: 1 },
   ];
@@ -318,7 +317,7 @@ function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: Mea
           {rows.map((l) => {
             const measured = l.values.filter((v): v is number => v !== null);
             const target = l.direction === 1 ? Math.max(...measured) : Math.min(...measured);
-            // Personne en tete quand tous sont a egalite ou qu'une seule valeur est connue.
+            // Nobody leads when all are tied or only one value is known.
             const tieBreak = l.direction !== 0 && measured.length > 1 && new Set(measured).size > 1;
             return (
               <tr key={l.key}>
@@ -350,7 +349,7 @@ type TrendsWin = Partial<Record<MeasuredRank, WinStreak>>;
 
 const DAYS_CURVE = 30;
 
-/** Requetes deja lancees, par heros : revenir a un heros ne recharge rien. */
+/** Requests already started, per hero: coming back to a hero reloads nothing. */
 const requests = new Map<string, Promise<TrendsWin>>();
 
 function loadTrends(slug: string): Promise<TrendsWin> {
@@ -360,7 +359,7 @@ function loadTrends(slug: string): Promise<TrendsWin> {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json() as Promise<TrendsWin>;
     });
-    // Un echec ne reste pas en memoire : la prochaine selection retente.
+    // A failure is not cached: the next selection retries.
     request.catch(() => requests.delete(slug));
     requests.set(slug, request);
   }
@@ -370,11 +369,11 @@ function loadTrends(slug: string): Promise<TrendsWin> {
 const measures = (s: WinStreak | undefined) => (s?.winRate ?? []).filter((v): v is number => v !== null);
 
 /**
- * Taux de victoire des heros choisis sur trente jours, superposes. Le
- * catalogue du comparateur n'a pas l'historique : chaque heros choisi fait
- * venir son fichier statique (`/trends/<slug>.json`), une fois par visite.
- * Les courbes suivent le rang du comparateur ; a defaut de mesure a ce rang,
- * elles passent au premier rang que tous ont en commun, et le disent.
+ * Thirty-day win rates of the chosen heroes, overlaid. The comparator's
+ * catalogue has no history: each chosen hero fetches its static file
+ * (`/trends/<slug>.json`), once per visit. The curves follow the comparator's
+ * rank; without data at that rank, they fall back to the first rank all
+ * heroes share, and say so.
  */
 function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: MeasuredRank }) {
   const t = useT();
@@ -416,8 +415,8 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
   if (ranks.length === 0) return message(t("compareUI.noHeroCurve"));
   const chosen = ranks.includes(rank) ? rank : ranks[0];
 
-  // Couleur et motif attaches a la place du heros, comme dans le radar : le
-  // troisieme garde les siens meme quand un autre n'a pas de mesure.
+  // Colour and pattern are tied to the hero's slot, as in the radar: the third
+  // keeps its own even when another has no data.
   const sides = heroes.map((h, i) => ({ heroes: h, series: series30[i][chosen], ...SERIES_STYLES[i] }));
   const { dates, values } = alignSeries(
     sides.map((c) => ({ start: c.series?.start ?? "", values: c.series?.winRate ?? [] })),
@@ -468,12 +467,12 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
 }
 
 /**
- * Choix d'un heros, par recherche.
+ * Hero selection, by search.
  *
- * Un menu deroulant de 133 noms oblige a faire defiler la liste ; ici, on tape
- * les premieres lettres et la liste se resserre. Le champ affiche le heros
- * choisi tant qu'on ne cherche pas. Clavier : fleches pour parcourir, Entree
- * pour choisir, Echap pour abandonner.
+ * A dropdown of 133 names forces scrolling through the list; here, you type
+ * the first letters and the list narrows. The field shows the chosen hero
+ * while not searching. Keyboard: arrows to browse, Enter to choose, Escape to
+ * cancel.
  */
 function Picker({
   label,
@@ -488,10 +487,10 @@ function Picker({
   heroes: HeroComparable[];
   value: string;
   onChange: (v: string) => void;
-  /** Couleur et trait du heros dans le radar et les courbes. */
+  /** Hero's colour and line in the radar and the curves. */
   pattern: { color: string; pattern: PatternTrait };
   refField?: React.Ref<HTMLInputElement>;
-  /** Present pour un selecteur facultatif : bouton pour le retirer. */
+  /** Present for an optional picker: button to remove it. */
   remove?: () => void;
 }) {
   const t = useT();
@@ -506,7 +505,7 @@ function Picker({
     return q ? heroes.filter((h) => keySearch(h.name).includes(q)) : heroes;
   }, [heroes, search]);
 
-  // L'option active reste visible quand on la deplace au clavier.
+  // The active option stays visible when moved with the keyboard.
   useEffect(() => {
     if (!open) return;
     const slug = results[active]?.slug;
@@ -608,7 +607,7 @@ function Picker({
                 id={`${id}-${h.slug}`}
                 role="option"
                 aria-selected={h.slug === value}
-                // Empeche le champ de perdre le focus avant la prise en compte du clic.
+                // Keeps the field from losing focus before the click is handled.
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => choose(h)}
                 onMouseEnter={() => setActive(i)}
@@ -638,7 +637,7 @@ function HeroHeader({
   hero: HeroComparable;
   rank: MeasuredRank;
   style: { color: string; pattern: PatternTrait };
-  /** Trois heros de front : portrait au-dessus du nom sur les petits ecrans. */
+  /** Three heroes side by side: portrait above the name on small screens. */
   compact: boolean;
 }) {
   const t = useT();

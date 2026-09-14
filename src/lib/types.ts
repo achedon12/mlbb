@@ -1,27 +1,27 @@
 /**
- * Modele de donnees du site.
+ * Site data model.
  *
- * Deux origines distinctes, volontairement separees :
+ * Two distinct origins, deliberately kept apart:
  *
- * - les **donnees factuelles** (heros, skins, objets, patchs) sont extraites
- *   automatiquement du wiki par `npm run sync` et vivent dans
- *   `src/data/game/`. Elles ne se modifient pas a la main : la prochaine
- *   synchronisation les ecraserait.
- * - l'**analyse editoriale** (commentaire, builds, contres) est ecrite a la
- *   main dans `src/data/heroes/`. Elle vient se poser par-dessus, par `slug`.
+ * - **factual data** (heroes, skins, items, patches) is extracted
+ *   automatically from the wiki by `npm run sync` and lives in
+ *   `src/data/game/`. It is not edited by hand: the next
+ *   sync would overwrite it.
+ * - **editorial analysis** (comment, builds, counters) is written by
+ *   hand in `src/data/heroes/`. It is layered on top, by `slug`.
  *
- * Cette separation permet au catalogue de rester a jour tout seul, sans
- * empecher d'ecrire du contenu qu'aucune extraction ne produira jamais.
+ * This separation lets the catalogue stay up to date on its own, without
+ * preventing content that no extraction will ever produce from being written.
  */
 
-/** Les six roles du jeu. */
+/** The game's six roles. */
 export type Role = "Tank" | "Fighter" | "Assassin" | "Mage" | "Marksman" | "Support";
 
-/** Positions, traduites depuis les noms anglais du wiki. */
+/** Lanes, translated from the wiki's English names. */
 export type Lane = "Gold" | "Exp" | "Mid" | "Jungle" | "Roam";
 
 // ─────────────────────────────────────────────────────────────
-// Donnees extraites du wiki
+// Data extracted from the wiki
 // ─────────────────────────────────────────────────────────────
 
 export interface HeroRatings {
@@ -34,12 +34,12 @@ export interface HeroRatings {
 export interface GeneratedHero {
   slug: string;
   name: string;
-  /** Identifiant du wiki, qui sert aussi a nommer les visuels. */
+  /** Wiki identifier, also used to name the visuals. */
   id: string;
   title: string | null;
   roles: Role[];
   lanes: Lane[];
-  /** Etiquettes secondaires : le wiki en utilise une quinzaine. */
+  /** Secondary tags: the wiki uses about fifteen of them. */
   specialties: string[];
   release: string | null;
   year: string | null;
@@ -81,7 +81,7 @@ export interface Patch {
   link: string;
 }
 
-/** Chemins locaux des visuels d'un heros. Aucune URL externe. */
+/** Local paths of a hero's visuals. No external URL. */
 export interface HeroVisuals {
   portrait: string | null;
   icon: string | null;
@@ -98,17 +98,17 @@ export interface SyncInfo {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Analyse ecrite a la main
+// Hand-written analysis
 // ─────────────────────────────────────────────────────────────
 
 export type SkillType = "Passive" | "Skill 1" | "Skill 2" | "Ultimate";
 
 /**
- * Competence telle que le wiki la decrit.
+ * Skill as the wiki describes it.
  *
- * Le nom est celui du jeu ; la description est le texte officiel, ramene en
- * clair. Elle sert de repli quand personne n'a encore ecrit d'analyse en
- * francais pour ce heros.
+ * The name is the game's; the description is the official text, converted to
+ * plain text. It serves as a fallback when no one has written an analysis in
+ * French for this hero yet.
  */
 export interface WikiSkill {
   name: string;
@@ -119,15 +119,15 @@ export interface Skill {
   type: SkillType;
   name: string;
   description: string;
-  /** Recharge par niveau, en secondes. Absente pour un passif. */
+  /** Cooldown per level, in seconds. Absent for a passive. */
   cooldown?: number[];
-  /** Cout par niveau. Absent si le heros n'utilise pas de mana. */
+  /** Cost per level. Absent if the hero does not use mana. */
   cost?: number[];
 }
 
 export interface Build {
   name: string;
-  /** Dans quelle situation choisir ce build. */
+  /** In which situation to pick this build. */
   context: string;
   items: string[];
   emblem: string;
@@ -136,14 +136,14 @@ export interface Build {
 }
 
 /**
- * Analyse d'un heros. Tous les champs factuels (roles, lanes, sortie…) sont
- * absents ici : ils viennent de la synchronisation.
+ * Analysis of a hero. All factual fields (roles, lanes, release…) are
+ * absent here: they come from the sync.
  */
 export interface HeroAnalysis {
   slug: string;
-  /** Presentation courte, reprise en meta description. */
+  /** Short introduction, reused as meta description. */
   summary: string;
-  /** Deux paragraphes : ce que le heros fait, puis ses limites. */
+  /** Two paragraphs: what the hero does, then their limits. */
   analysis: string;
   skills: Skill[];
   strengths: string[];
@@ -153,7 +153,7 @@ export interface HeroAnalysis {
   builds: Build[];
 }
 
-/** Un heros tel que l'affiche le site : donnees du wiki, analyse si elle existe. */
+/** A hero as the site displays it: wiki data, analysis if it exists. */
 export interface Hero extends GeneratedHero {
   images: HeroVisuals;
   skins: Skin[];
@@ -175,7 +175,7 @@ export interface TierList {
   entries: TierListEntry[];
 }
 
-/** Un changement d'equilibrage : soit un avant/apres, soit un simple texte. */
+/** A balance change: either a before/after, or plain text. */
 export type Change =
   | { label: string | null; before: string; after: string }
   | { text: string };
@@ -197,14 +197,14 @@ export interface HeroAdjustment {
   sections: AdjustmentSection[];
 }
 
-/** Une competence d'un nouveau heros : role (passif, skill 1…), nom, effets. */
+/** A skill of a new hero: role (passive, skill 1…), name, effects. */
 export interface NewHeroSkill {
   role: string;
   name: string | null;
   description: string[];
 }
 
-/** Presentation structuree d'un heros introduit par le patch. */
+/** Structured presentation of a hero introduced by the patch. */
 export interface NewHero {
   name: string;
   slug: string;
@@ -215,19 +215,19 @@ export interface NewHero {
   skills: NewHeroSkill[];
 }
 
-/** Une section de premier niveau du corps du patch. */
+/** A top-level section of the patch body. */
 export interface PatchSection {
   anchor: string | null;
   title: string | null;
   html: string;
-  /** Sections reprises par un composant riche plutot que par le HTML brut. */
+  /** Sections rendered by a rich component rather than raw HTML. */
   role: "newHeroes" | "adjustments" | null;
 }
 
 export interface DetailedPatch {
   version: string;
   title: string;
-  /** Mise en ligne des notes sur le wiki, a quelques jours de la sortie. */
+  /** Notes going live on the wiki, a few days from the release. */
   date?: string | null;
   link: string;
   toc: { level: number; title: string; anchor: string }[];
@@ -248,19 +248,19 @@ export interface Article {
   content: string;
 }
 
-/** Un bloc de contenu d'une section : un paragraphe ou un point de liste. */
+/** A content block of a section: a paragraph or a list item. */
 export interface SectionBlock {
   type: "p" | "li";
   text: string;
 }
 
-/** Une section detaillee d'un mode (objectif, regles, fonctionnalites…). */
+/** A detailed section of a mode (objective, rules, features…). */
 export interface ModeSection {
   title: string;
   elements: SectionBlock[];
 }
 
-/** Un mode de jeu, tire du wiki : nom, presentation, sections detaillees et visuel. */
+/** A game mode, taken from the wiki: name, introduction, detailed sections and visual. */
 export interface GameMode {
   name: string;
   slug: string;
@@ -270,8 +270,8 @@ export interface GameMode {
 }
 
 /**
- * Fiche narrative d'un heros, extraite du gabarit `{{Infobox hero story}}`
- * du wiki. Chaque champ est optionnel : le wiki les remplit inegalement.
+ * Narrative profile of a hero, extracted from the wiki's `{{Infobox hero story}}`
+ * template. Each field is optional: the wiki fills them unevenly.
  */
 export interface StoryProfile {
   fullName: string | null;
@@ -287,8 +287,8 @@ export interface StoryProfile {
 }
 
 /**
- * Histoire d'un heros. Trois apports : l'accroche d'une ligne de l'API, le
- * recit long du wiki (en paragraphes), la fiche narrative et les anecdotes.
+ * Story of a hero. Three inputs: the one-line tagline from the API, the
+ * long wiki lore (in paragraphs), the narrative profile and the trivia.
  */
 export interface HeroStory {
   tagline: string | null;

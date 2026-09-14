@@ -1,14 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
 
 /**
- * Parcours des fonctionnalites : chaque test part d'une page fraiche et vise
- * un comportement, pas un rendu. Les libelles francais sont lus avec ou sans
- * accents, les catalogues de messages evoluant en parallele.
+ * Feature journeys: each test starts from a fresh page and targets a behavior,
+ * not a rendering. French labels are matched with or without accents, as the
+ * message catalogs evolve in parallel.
  */
 
 const PHONE = { width: 390, height: 844 };
 
-/** Le groupe de filtres « Rang » d'une fiche heros (fieldset + legend). */
+/** The "Rang" filter group of a hero page (fieldset + legend). */
 const pickerRank = (page: Page) => page.getByRole("group", { name: /^rang$/i });
 
 test.describe("hero page", () => {
@@ -26,7 +26,7 @@ test.describe("hero page", () => {
     await expect(mythic).toHaveAttribute("aria-pressed", "true");
     await expect(all).toHaveAttribute("aria-pressed", "false");
     await expect(group.locator('[aria-pressed="true"]')).toHaveCount(1);
-    // Changer d'onglet ne fait pas apparaitre un second selecteur.
+    // Switching tabs does not bring up a second selector.
     await page.getByRole("tab", { name: /builds/i }).click();
     await expect(pickerRank(page)).toHaveCount(1);
   });
@@ -36,7 +36,7 @@ test.describe("hero page", () => {
     await page.getByRole("tab", { name: /builds/i }).click();
     const panel = page.getByRole("tabpanel");
     await expect(panel.getByRole("heading", { name: /builds les plus jou[ée]s/i })).toBeVisible();
-    // Chaque build liste ses objets cles, avec leur visuel.
+    // Each build lists its key items, with their image.
     const build = panel.getByRole("listitem").filter({ hasText: /build 1/i }).first();
     await expect(build).toBeVisible();
     await expect(build.locator("img").first()).toBeVisible();
@@ -61,7 +61,7 @@ test.describe("on mobile", () => {
     const drawer = page.getByRole("dialog", { name: /war axe/i });
     await expect(drawer).toBeVisible();
     await expect(drawer.getByRole("heading", { name: /war axe/i })).toBeVisible();
-    // Objet present dans les builds joues : la fiche cite les heros qui le prennent.
+    // Item found in played builds: the sheet lists the heroes who take it.
     await expect(drawer.getByText(/utilis[ée] par/i)).toBeVisible();
     await expect(drawer.getByRole("link").first()).toHaveAttribute("href", /\/heroes\//);
 
@@ -96,7 +96,7 @@ test("the draft offers the full roster, filters and suggests", async ({ page }) 
   const heroCountLabel = picker.getByText(/^\d+ h[ée]ros$/i);
   const heroCount = async () => Number((await heroCountLabel.textContent())?.match(/\d+/)?.[0]);
 
-  // Ouvert sur une lane ; « Toutes » elargit au roster entier.
+  // Opens on a lane; "Toutes" widens to the whole roster.
   const onLane = await heroCount();
   await picker.getByRole("button", { name: /^toutes$/i }).click();
   await expect(picker.getByRole("button", { name: /^toutes$/i })).toHaveAttribute("aria-pressed", "true");
@@ -104,12 +104,12 @@ test("the draft offers the full roster, filters and suggests", async ({ page }) 
   expect(all).toBeGreaterThan(100);
   expect(all).toBeGreaterThan(onLane);
 
-  // Le filtre de role resserre la liste.
+  // The role filter narrows the list.
   await picker.getByRole("button", { name: /^tank$/i }).click();
   await expect.poll(heroCount).toBeLessThan(all);
   await expect.poll(heroCount).toBeGreaterThan(0);
 
-  // Choisir un adversaire fait apparaitre des suggestions.
+  // Picking an opponent brings up suggestions.
   await picker.getByRole("button", { name: "Khufra" }).click();
   await expect(picker).toBeHidden();
   await expect(enemy.getByText("Khufra")).toBeVisible();
@@ -140,8 +140,8 @@ test.describe("tier list by rank", () => {
     const nav = page.getByRole("navigation", { name: /par rang/i });
     await expect(nav).toBeVisible();
     await nav.getByRole("link", { name: /^mythique$/i }).click();
-    // En developpement, la page du rang se compile a la premiere navigation :
-    // sous la charge de plusieurs workers, cela depasse le delai par defaut.
+    // In development, the rank page compiles on first navigation: under the
+    // load of several workers, that exceeds the default timeout.
     await expect(page).toHaveURL(/\/fr\/tier-list\/mythic$/, { timeout: 20_000 });
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(/mythique/i);
     await expect(
@@ -158,7 +158,7 @@ test.describe("tier list by rank", () => {
 test.describe("global search", () => {
   test("Ctrl+K opens search and Enter opens the result", async ({ page }) => {
     await page.goto("/fr");
-    // Le raccourci n'est ecoute qu'une fois la page hydratee.
+    // The shortcut is only listened to once the page is hydrated.
     const button = page.getByRole("banner").getByRole("button", { name: /^rechercher$/i });
     await expect(button).toBeVisible();
     const dialog = page.getByRole("dialog", { name: /rechercher/i });

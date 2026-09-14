@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { spreadHistory } from "@/lib/evolution";
 import { impactPatch } from "@/lib/trends";
 
-/** Historique compacte : trois semaines de moyennes, puis quatorze jours mesures. */
+/** Compacted history: three weeks of averages, then fourteen measured days. */
 const stored = {
   start: "2026-03-02",
   winRate: Array.from({ length: 14 }, (_, k) => 50 + k / 10),
@@ -20,7 +20,7 @@ describe("patch impact on a compacted history", () => {
   });
 
   it("does not measure a patch with interpolated days", () => {
-    // Patch le 2 mars : les sept jours d'avant ne sont que des semaines etalees.
+    // Patch on 2 March: the seven days before are only spread-out weeks.
     expect(impactPatch(series, "2026-03-02")).toBeNull();
   });
 

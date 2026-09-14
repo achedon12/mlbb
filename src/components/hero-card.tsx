@@ -9,28 +9,28 @@ import { RoleBadge } from "./role-badge";
 import { cn } from "@/lib/utils";
 
 /**
- * Vignette d'un heros.
+ * Hero card.
  *
- * Elle ne recoit que ce qu'elle affiche : le heros complet porte des
- * competences, des builds et des statistiques dont la carte n'a aucun usage,
- * et qui alourdiraient inutilement la page cote client.
+ * It only receives what it shows: the full hero carries
+ * skills, builds and statistics the card has no use for,
+ * and which would needlessly weigh down the client-side page.
  */
 export interface HeroPreview {
   slug: string;
   name: string;
   roles: Role[];
   lanes: Lane[];
-  /** Icone du heros, a defaut son portrait. */
+  /** Hero icon, or its portrait as a fallback. */
   portrait: string | null;
   skins: number;
   analysis: boolean;
-  /** Taux de victoire remonte par le jeu, ou null si non mesure. */
+  /** Win rate reported by the game, or null if not measured. */
   win: number | null;
-  /** Palier de la tier list, ou null si non classe. */
+  /** Tier list tier, or null if unranked. */
   tier: Tier | null;
 }
 
-/** Teinte du badge de palier, du plus fort au plus faible. */
+/** Tier badge tint, from strongest to weakest. */
 const COLOR_TIER: Record<Tier, string> = {
   "S+": "border-blood-500/40 text-blood-500",
   S: "border-gold-500/40 text-gold-400",

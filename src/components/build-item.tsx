@@ -4,11 +4,11 @@ import visuals from "@/data/game/visuals.json";
 import { itemsFor } from "@/lib/data";
 
 /**
- * Objet dans l'ordre d'achat d'un build.
+ * Item in a build's purchase order.
  *
- * L'image compte plus que le nom : en jeu, un joueur reconnait ses objets a
- * leur icone. Le nom reste affiche dessous pour qui ne les connait pas encore,
- * et le tout renvoie a la page de l'objet.
+ * The image matters more than the name: in game, players recognise their items by
+ * their icon. The name stays shown below for those who do not know them yet,
+ * and the whole thing links to the item page.
  */
 const IMAGES = visuals.items as Record<string, string>;
 const BY_NAME = new Map(itemsFor("en").map((o) => [o.name, o]));
@@ -33,7 +33,7 @@ export function BuildItem({ name, rank }: { name: string; rank: number }) {
             {rank}
           </span>
         )}
-        {/* Le rang dit l'ordre d'achat, qui compte autant que la liste. */}
+        {/* The number gives the purchase order, which matters as much as the list. */}
         <span className="absolute -left-1 -top-1 grid size-4 place-items-center bg-gold-500 text-[0.6rem] font-bold text-night-950">
           {rank}
         </span>

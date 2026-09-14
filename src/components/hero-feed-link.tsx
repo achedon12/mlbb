@@ -3,9 +3,8 @@ import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 
 /**
- * Lien vers le flux RSS des ajustements d'un heros. Un `<a>` simple : le
- * routeur de Next n'a rien a faire d'un fichier XML, et ne doit pas le
- * precharger.
+ * Link to a hero's RSS feed of adjustments. A plain `<a>`: the Next router
+ * has no business with an XML file, and must not prefetch it.
  */
 export function HeroFeedLink({ locale, slug }: { locale: Locale; slug: string }) {
   const t = createT(locale);

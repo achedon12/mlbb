@@ -1,29 +1,29 @@
 /**
- * Calculateur de taux de victoire.
+ * Win rate calculator.
  *
- * Le jeu affiche un taux arrondi et un nombre de parties ; on en deduit le
- * nombre de victoires (entier : une partie se gagne ou se perd), puis ce qu'il
- * faut pour atteindre l'objectif. Pour `n` parties et `v` victoires, un
- * objectif `t` demande `x` victoires d'affilee telles que (v + x) / (n + x) >= t,
- * soit x = ceil((t·n − v) / (1 − t)).
+ * The game shows a rounded rate and a number of games; from them we derive the
+ * number of wins (an integer: a game is won or lost), then what it
+ * takes to reach the target. For `n` games and `v` wins, a
+ * target `t` requires `x` wins in a row such that (v + x) / (n + x) >= t,
+ * i.e. x = ceil((t·n − v) / (1 − t)).
  *
- * Tous les pourcentages passent en centiemes de point entiers (48,53 % donne
- * 4853) : le calcul reste exact. En flottants, 99,9 % sur 10 parties a 50 %
- * donnait 4991 victoires au lieu de 4990 — l'erreur que commet l'API
- * communautaire qui a servi de reference.
+ * All percentages are converted to integer hundredths of a point (48.53% gives
+ * 4853): the computation stays exact. With floats, 99.9% over 10 games at 50%
+ * gave 4991 wins instead of 4990 — the mistake made by the community
+ * API that served as reference.
  */
 
-/** Precision retenue : deux decimales, comme l'affichage du jeu. */
+/** Precision used: two decimals, like the game's display. */
 const SCALE = 10_000;
 
-/** Nombre de parties au-dela duquel la saisie est jugee fantaisiste. */
+/** Number of games beyond which the input is considered bogus. */
 export const MATCHES_MAX = 1_000_000;
 
 const hundredths = (percent: number) => Math.round(percent * 100);
 
 /**
- * Lit un nombre saisi : la virgule decimale des langues europeennes vaut le
- * point. Une saisie vide ou illisible donne `null`.
+ * Reads a typed number: the decimal comma of European languages counts as the
+ * point. An empty or unreadable input gives `null`.
  */
 export function readCount(input: string): number | null {
   const text = input.trim().replace(",", ".").replace(/\s|%/g, "");
@@ -33,26 +33,26 @@ export function readCount(input: string): number | null {
 }
 
 export interface Situation {
-  /** Parties jouees. */
+  /** Games played. */
   matches: number;
-  /** Taux de victoire actuel, en pourcent. */
+  /** Current win rate, in percent. */
   rate: number;
-  /** Taux vise, en pourcent. */
+  /** Target rate, in percent. */
   objective: number;
 }
 
 export type Result =
   | { state: "invalid" }
-  /** Objectif de 100 % avec au moins une defaite : aucune serie n'y mene. */
+  /** 100% target with at least one loss: no streak gets there. */
   | { state: "impossible"; currentWins: number }
   | { state: "wins"; wins: number; currentWins: number }
   /**
-   * Objectif deja atteint : `marge` defaites d'affilee le laissent tenir,
-   * `null` quand aucune serie ne peut le faire tomber (objectif de 0 %).
+   * Target already reached: `margin` losses in a row keep it,
+   * `null` when no streak can bring it down (0% target).
    */
   | { state: "reached"; margin: number | null; currentWins: number };
 
-/** Saisie exploitable : des parties entieres, des taux entre 0 et 100. */
+/** Usable input: whole games, rates between 0 and 100. */
 export function situationValid(s: Situation): boolean {
   return (
     Number.isInteger(s.matches) &&
@@ -62,7 +62,7 @@ export function situationValid(s: Situation): boolean {
   );
 }
 
-/** Victoires deja acquises : le taux affiche est arrondi, les victoires non. */
+/** Wins already secured: the displayed rate is rounded, wins are not. */
 export function currentWins(matches: number, rate: number): number {
   return Math.min(matches, Math.max(0, Math.round((matches * hundredths(rate)) / SCALE)));
 }
@@ -72,8 +72,8 @@ export function compute(s: Situation): Result {
   const n = s.matches;
   const v = currentWins(n, s.rate);
   const t = hundredths(s.objective);
-  // Avance, en centiemes de partie, des victoires acquises sur celles que
-  // demande l'objectif ; negative tant qu'il n'est pas atteint.
+  // Lead, in hundredths of a game, of secured wins over those the
+  // target requires; negative until it is reached.
   const lead = SCALE * v - t * n;
 
   if (lead >= 0) {
@@ -84,9 +84,9 @@ export function compute(s: Situation): Result {
 }
 
 /**
- * Parties a jouer a un rythme donne pour atteindre l'objectif : sur la duree,
- * le taux tend vers ce rythme. `null` si le rythme ne depasse pas l'objectif —
- * il n'y mene jamais —, 0 si l'objectif est deja atteint.
+ * Games to play at a given pace to reach the target: over time,
+ * the rate tends toward that pace. `null` if the pace does not exceed the target —
+ * it never gets there —, 0 if the target is already reached.
  */
 export function matchesAuPace(s: Situation, pace: number): number | null {
   if (!situationValid(s) || !Number.isFinite(pace) || pace < 0 || pace > 100) return null;

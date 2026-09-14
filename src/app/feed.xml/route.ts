@@ -2,12 +2,12 @@ import { toHtml, allArticles } from "@/lib/content";
 import { site, absoluteUrl } from "@/lib/site";
 
 /**
- * Flux RSS.
+ * RSS feed.
  *
- * Le flux porte le contenu complet de chaque article dans `content:encoded`,
- * pas seulement un resume tronque : un lecteur RSS doit pouvoir lire sans
- * revenir sur le site. `description` reste le chapeau, pour les agregateurs
- * qui n'affichent qu'un extrait.
+ * The feed carries the full content of each article in `content:encoded`,
+ * not just a truncated summary: an RSS reader must be able to read without
+ * coming back to the site. `description` stays the standfirst, for aggregators
+ * that only show an excerpt.
  */
 export const dynamic = "force-static";
 

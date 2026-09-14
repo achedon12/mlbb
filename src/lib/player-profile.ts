@@ -1,11 +1,11 @@
 /**
- * Profil de joueur : ses chiffres, rapportes a ceux du site.
+ * Player profile: their figures, compared with the site's.
  *
- * Le service donne les parties et les heros joues ; le site connait le taux de
- * victoire de chaque heros dans chaque tranche de rang. Rapprocher les deux
- * situe le joueur face aux autres joueurs de son niveau, et en tire quelques
- * conseils simples. Tout est calcule ici, sans appel reseau : pages et tests
- * passent des reponses deja lues par `joueur-api`.
+ * The service provides the matches and heroes played; the site knows each
+ * hero's win rate in each rank bracket. Combining both places the player
+ * against other players of their level, and yields a few simple tips.
+ * Everything is computed here, with no network call: pages and tests pass
+ * responses already read by `player-api`.
  */
 import { allHeroes } from "./data";
 import type { FrequentHero, GameHero, Participant, MatchSummary } from "./player-api";
@@ -14,7 +14,7 @@ import type { MeasuredRank } from "./measured-ranks";
 import { statsByRank } from "./tier-list";
 import { keySearch } from "./utils";
 
-/** Heros pret a afficher : fiche du site quand elle existe, sinon ce qu'en dit le service. */
+/** Hero ready to display: the site sheet when it exists, otherwise what the service says. */
 export interface ShownHero {
   slug: string | null;
   name: string;
@@ -24,27 +24,26 @@ export interface ShownHero {
 const keyName = (name: string) => keySearch(name).replace(/[^a-z0-9]/g, "");
 
 /**
- * Identifiant du jeu vers fiche du site. Le wiki numerote les heros comme le
- * jeu, suivis d'un chiffre : Fanny, heros 17 du jeu, est « 171 » ; Miya,
- * heros 1, « 011 ».
+ * Game ID to site sheet. The wiki numbers heroes like the game, followed by a
+ * digit: Fanny, game hero 17, is "171"; Miya, hero 1, "011".
  */
 const BY_HID = new Map(allHeroes.map((h) => [Math.floor(Number(h.id) / 10), h]));
 const BY_NAME = new Map(allHeroes.map((h) => [keyName(h.name), h]));
 
 export function shownHero(h: GameHero): ShownHero {
-  // Le nom d'abord : un nouveau heros numerote autrement ne doit pas en
-  // emprunter un autre. L'identifiant rattrape les graphies divergentes.
+  // Name first: a new hero numbered differently must not borrow another
+  // one. The ID catches diverging spellings.
   const site = BY_NAME.get(keyName(h.name)) ?? BY_HID.get(h.hid);
   if (!site) return { slug: null, name: h.name, portrait: h.image };
   return { slug: site.slug, name: site.name, portrait: site.images.portrait ?? h.image };
 }
 
 /**
- * Tranche de mesure du rang du joueur.
+ * Measurement bracket of the player's rank.
  *
- * Le site mesure les heros d'Epique a Gloire mythique. En dessous, aucune
- * tranche ne correspond : on compare a tous rangs confondus. Immortel, au-dela
- * de la derniere tranche mesuree, se compare a Gloire.
+ * The site measures heroes from Epic to Mythic Glory. Below that, no bracket
+ * matches: the comparison is against all ranks combined. Immortal, beyond the
+ * last measured bracket, is compared with Glory.
  */
 const BUCKETS: Partial<Record<string, MeasuredRank>> = {
   epic: "epic",
@@ -60,7 +59,7 @@ export function bucketOfRank(rankLevel: number): MeasuredRank {
   return BUCKETS[readableRank(rankLevel).key] ?? "all";
 }
 
-/** Taux de victoire d'un heros dans la tranche, ou tous rangs confondus a defaut. */
+/** A hero's win rate in the bracket, or all ranks combined as a fallback. */
 export function averageOfRank(slug: string, bucket: MeasuredRank): { win: number; bucket: MeasuredRank } | null {
   const stats = statsByRank(slug);
   const kept = stats[bucket] ? bucket : stats.all ? "all" : null;
@@ -71,17 +70,17 @@ export interface HeroRow {
   hero: ShownHero;
   matches: number;
   wins: number;
-  /** Taux de victoire du joueur, en points (0 a 100). */
+  /** Player's win rate, in points (0 to 100). */
   rate: number;
-  /** Taux de victoire du heros chez tous les joueurs de la tranche, en points. */
+  /** Hero's win rate among all players of the bracket, in points. */
   average: number | null;
   bucketAverage: MeasuredRank | null;
-  /** Taux du joueur moins la moyenne, en points. */
+  /** Player's rate minus the average, in points. */
   gap: number | null;
   note: number | null;
 }
 
-/** Heros joues, du plus au moins joue, chacun face a la moyenne de la tranche. */
+/** Heroes played, from most to least played, each against the bracket average. */
 export function compareHeroes(frequents: FrequentHero[], bucket: MeasuredRank): HeroRow[] {
   return frequents
     .filter((f) => f.matches > 0)
@@ -106,27 +105,27 @@ export function compareHeroes(frequents: FrequentHero[], bucket: MeasuredRank): 
 export interface SummarySeason {
   matches: number;
   wins: number;
-  /** Taux de victoire, en points ; null sans partie. */
+  /** Win rate, in points; null without matches. */
   rate: number | null;
   heroes: number;
 }
 
-/** Bilan de la saison, somme des heros joues : le service ne le donne pas tout fait. */
+/** Season summary, summed over heroes played: the service does not provide it ready-made. */
 export function summarySeason(frequents: FrequentHero[]): SummarySeason {
   const matches = frequents.reduce((n, f) => n + f.matches, 0);
   const wins = frequents.reduce((n, f) => n + f.wins, 0);
   return { matches, wins, rate: matches ? (wins / matches) * 100 : null, heroes: frequents.length };
 }
 
-/** En dessous, un taux de victoire sur un heros ne dit encore rien. */
+/** Below this, a win rate on a hero says nothing yet. */
 export const MATCHES_MIN = 5;
-/** Ecart a la moyenne, en points, a partir duquel un heros est signale. */
+/** Gap from the average, in points, from which a hero is flagged. */
 export const MARGIN_POINTS = 3;
 
 /**
- * Borne basse de l'intervalle de Wilson (90 %). Classe les heros sur ce que
- * leur taux garantit plutot que sur ce qu'il affiche : 5 victoires en 5
- * parties passent derriere 17 en 20.
+ * Lower bound of the Wilson interval (90%). Ranks heroes by what their rate
+ * guarantees rather than what it shows: 5 wins in 5 matches rank behind 17
+ * in 20.
  */
 function boundLow(wins: number, matches: number): number {
   if (matches === 0) return 0;
@@ -138,7 +137,7 @@ function boundLow(wins: number, matches: number): number {
   return (center - margin) / (1 + z2 / matches);
 }
 
-/** Heros qui font gagner le joueur, assez joues pour que ce soit credible. */
+/** Heroes that win games for the player, played enough to be credible. */
 export function bestHero(rows: HeroRow[], howMany = 3): HeroRow[] {
   return rows
     .filter((l) => l.matches >= MATCHES_MIN && l.rate > 50)
@@ -147,9 +146,9 @@ export function bestHero(rows: HeroRow[], howMany = 3): HeroRow[] {
 }
 
 /**
- * Heros nettement sous la moyenne de la tranche. Classes par parties perdues
- * de trop — l'ecart fois le nombre de parties : un heros un peu faible mais
- * tres joue coute plus qu'un echec ponctuel.
+ * Heroes clearly below the bracket average. Ranked by excess matches lost —
+ * the gap times the number of matches: a slightly weak but heavily played
+ * hero costs more than a one-off failure.
  */
 export function belowAverageHeroes(rows: HeroRow[], howMany = 3): HeroRow[] {
   const missing = (l: HeroRow) => (-(l.gap ?? 0) * l.matches) / 100;
@@ -159,11 +158,11 @@ export function belowAverageHeroes(rows: HeroRow[], howMany = 3): HeroRow[] {
     .slice(0, howMany);
 }
 
-/** Nombre de parties recentes dont on lit le detail pour reperer les adversaires. */
+/** Number of recent matches whose details are read to spot opponents. */
 export const ANALYZED_MATCHES = 12;
 
 export interface AnalyzedMatch {
-  /** Issue selon la liste des parties ; a defaut, celle du detail. */
+  /** Outcome according to the match list; failing that, the details' one. */
   win: boolean | null;
   participants: Participant[];
 }
@@ -175,12 +174,12 @@ export interface Nemesis {
 }
 
 /**
- * Heros adverses qui reviennent dans les defaites du joueur.
+ * Opposing heroes that keep showing up in the player's losses.
  *
- * Le joueur se retrouve dans le detail par son identifiant ; son equipe
- * designe, par difference, les adversaires. Une partie ou il n'apparait pas,
- * ou sans equipes, est ignoree plutot que devinee. Un heros n'est retenu qu'a
- * partir de deux defaites : une seule ne fait pas une tendance.
+ * The player is found in the details by their ID; their team identifies, by
+ * elimination, the opponents. A match where they do not appear, or without
+ * teams, is ignored rather than guessed. A hero is only kept from two losses
+ * on: a single one does not make a trend.
  */
 export function nemeses(
   matches: AnalyzedMatch[],
@@ -221,7 +220,7 @@ export function nemeses(
   return { list, analyzed };
 }
 
-/** Partie prete a afficher, transmissible telle quelle au navigateur. */
+/** Match ready to display, sendable as is to the browser. */
 export interface MatchShown {
   id: string;
   hero: ShownHero;

@@ -1,13 +1,13 @@
 /**
- * Createur de tier list : etat, operations et partage par lien.
+ * Tier list maker: state, operations and sharing by link.
  *
- * Module pur, sans donnees : la page lui passe le roster. Chaque operation
- * rend un nouvel etat ; l'interface n'a qu'a le ranger.
+ * Pure module, without data: the page passes it the roster. Each operation
+ * returns a new state; the interface only has to store it.
  *
- * Le lien partage porte toute la liste dans `?l=` : titre, rangees (nom,
- * couleur, heros par slug), en texte compresse puis en base64url. Les slugs
- * plutot que des indices : un lien reste valable quand un heros s'ajoute au
- * roster. Un lien de 133 heros tient en moins d'un kilo-octet.
+ * The shared link carries the whole list in `?l=`: title, rows (name,
+ * color, heroes by slug), as compressed text then base64url. Slugs
+ * rather than indices: a link stays valid when a hero is added to the
+ * roster. A 133-hero link fits in under one kilobyte.
  */
 
 export interface Row {
@@ -31,14 +31,14 @@ export const ROWS_DEFAULT: { name: string; color: string }[] = [
   { name: "D", color: "#a78bfa" },
 ];
 
-/** Couleurs proposees d'un clic ; le selecteur du navigateur donne le reste. */
+/** Colors offered in one click; the browser picker provides the rest. */
 export const PALETTE = [...ROWS_DEFAULT.map((r) => r.color), "#f472b6", "#94a3b8"];
 
 export const MAX_ROWS = 12;
 export const NAME_MAX = 20;
 export const TITLE_MAX = 60;
 const COLOR_NEUTRAL = "#94a3b8";
-/** Au-dela, un lien est rejete sans etre lu : aucune liste legitime n'en approche. */
+/** Beyond this, a link is rejected without being read: no legitimate list comes close. */
 const CODE_MAX = 12_000;
 const TEXT_MAX = 40_000;
 
@@ -51,8 +51,8 @@ export function rowOf(state: StateTier, slug: string): Row | undefined {
 }
 
 /**
- * Pose un heros dans une rangee, avant `avant` s'il y est, sinon a la fin ;
- * `cible` nul le rend a la reserve.
+ * Places a hero in a row, before `before` if it is there, otherwise at the end;
+ * a null `target` returns it to the pool.
  */
 export function place(state: StateTier, slug: string, target: string | null, before?: string | null): StateTier {
   const tierRows = state.rows.map((r) => ({ ...r, heroes: r.heroes.filter((s) => s !== slug) }));
@@ -64,7 +64,7 @@ export function place(state: StateTier, slug: string, target: string | null, bef
   return { ...state, rows: tierRows };
 }
 
-/** Avance ou recule un heros dans sa rangee. */
+/** Moves a hero forward or back within its row. */
 export function shift(state: StateTier, slug: string, delta: number): StateTier {
   return {
     ...state,
@@ -79,7 +79,7 @@ export function shift(state: StateTier, slug: string, delta: number): StateTier 
   };
 }
 
-/** Monte ou descend un heros d'une rangee, a la fin de la nouvelle. */
+/** Moves a hero up or down one row, at the end of the new one. */
 export function changeOfRow(state: StateTier, slug: string, delta: number): StateTier {
   const i = state.rows.findIndex((r) => r.heroes.includes(slug));
   const target = state.rows[i + delta];
@@ -92,7 +92,7 @@ export function addRow(state: StateTier, id: string, name: string): StateTier {
   return { ...state, rows: [...state.rows, { id, name: clean(name, NAME_MAX), color, heroes: [] }] };
 }
 
-/** Retire une rangee ; ses heros retournent a la reserve. */
+/** Removes a row; its heroes go back to the pool. */
 export function deleteRow(state: StateTier, id: string): StateTier {
   if (state.rows.length <= 1) return state;
   return { ...state, rows: state.rows.filter((r) => r.id !== id) };
@@ -127,9 +127,9 @@ export function clearRows(state: StateTier): StateTier {
 }
 
 /**
- * Liste de depart tiree de notre tier list : `groupes` donne, palier par
- * palier (S+ a C), les indices des heros dans `slugs`, du plus fort au plus
- * faible. La rangee D reste vide : notre classement s'arrete a C.
+ * Starting list taken from our tier list: `groups` gives, tier by
+ * tier (S+ to C), the indices of heroes in `slugs`, from strongest to
+ * weakest. The D row stays empty: our ranking stops at C.
  */
 export function prefill(slugs: string[], groups: number[][], title = ""): StateTier {
   const state = stateDefault(title);
@@ -139,7 +139,7 @@ export function prefill(slugs: string[], groups: number[][], title = ""): StateT
   };
 }
 
-/** Texte lisible sur un fond de cette couleur : sombre sur clair, clair sur sombre. */
+/** Readable text on a background of this color: dark on light, light on dark. */
 export function colorText(background: string): string {
   const m = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i.exec(background);
   if (!m) return "#ffffff";
@@ -151,14 +151,14 @@ export function colorText(background: string): string {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Partage par lien
+// Sharing by link
 // ─────────────────────────────────────────────────────────────
 
 function clean(text: string, max: number): string {
   return text.replace(/[\t\n\r]/g, " ").trim().slice(0, max);
 }
 
-/** Une ligne pour le titre, puis une par rangee : nom, couleur, heros. */
+/** One line for the title, then one per row: name, color, heroes. */
 export function serialize(state: StateTier): string {
   return [
     clean(state.title, TITLE_MAX),
@@ -169,8 +169,8 @@ export function serialize(state: StateTier): string {
 }
 
 /**
- * Relit une liste, sans faire confiance au lien : heros inconnus et doublons
- * ecartes, couleurs invalides remplacees, nombre de rangees borne.
+ * Reads a list back, without trusting the link: unknown heroes and duplicates
+ * dropped, invalid colors replaced, number of rows capped.
  */
 export function deserialize(text: string, known: Set<string>): StateTier | null {
   const [title = "", ...rows] = text.split("\n");
@@ -211,7 +211,7 @@ function fromBase64Url(code: string): Uint8Array | null {
   }
 }
 
-/** Passe des octets dans un flux de (de)compression, en s'arretant au-dela de `max`. */
+/** Pipes bytes through a (de)compression stream, stopping beyond `max`. */
 async function transform(
   bytes: Uint8Array,
   feed: CompressionStream | DecompressionStream,
@@ -246,8 +246,8 @@ async function transform(
 const compressionAvailable = () => typeof CompressionStream !== "undefined";
 
 /**
- * Code du lien : « 2 » + texte compresse, ou « 1 » + texte brut quand la
- * compression manque ou ne gagne rien (une liste presque vide).
+ * Link code: "2" + compressed text, or "1" + raw text when
+ * compression is unavailable or gains nothing (an almost empty list).
  */
 export async function encodeTier(state: StateTier, compress = true): Promise<string> {
   const bytes = new TextEncoder().encode(serialize(state));

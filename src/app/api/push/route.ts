@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import { configPush } from "@/lib/push-server";
 
 /**
- * Cle publique VAPID des notifications de patch.
+ * Public VAPID key for patch notifications.
  *
- * Lue a l'execution plutot que figee au build (`NEXT_PUBLIC_…`) : les cles se
- * posent sur le serveur, sans reconstruire l'image. `cle: null` signifie que
- * la fonction est desactivee — l'interface la masque alors.
+ * Read at runtime rather than frozen at build time (`NEXT_PUBLIC_…`): the keys
+ * are set on the server, without rebuilding the image. `cle: null` means the
+ * feature is disabled — the interface then hides it.
  */
 export const dynamic = "force-dynamic";
 

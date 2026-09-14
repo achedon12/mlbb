@@ -20,24 +20,24 @@ import { useLocale, useT } from "@/i18n/provider";
 import { keySearch, cn } from "@/lib/utils";
 
 /**
- * Catalogue des objets.
+ * Item catalogue.
  *
- * Une grille dense d'icones plutot que des fiches empilees : on compare des
- * objets, et comparer suppose de les voir ensemble. Le detail complet s'ouvre
- * dans un panneau lateral, ce qui evite de repeter dix lignes de statistiques
- * sur chaque vignette. Chaque objet a aussi sa page, rendue au serveur.
+ * A dense grid of icons rather than stacked cards: we compare
+ * items, and comparing means seeing them together. The full detail opens
+ * in a side panel, which avoids repeating ten lines of statistics
+ * on every thumbnail. Each item also has its own page, rendered on the server.
  */
 export type { PreviewItem };
 
-/** Heros cite par un objet : de quoi afficher sa vignette. */
+/** Hero cited by an item: enough to show their thumbnail. */
 export interface HeroThumb {
   name: string;
   portrait: string | null;
 }
 
 /**
- * Le catalogue vu depuis les recettes et les builds : chaque objet par son nom,
- * ce qu'il sert a fabriquer, et les heros qui le prennent.
+ * The catalogue seen from recipes and builds: each item by name,
+ * what it is used to craft, and the heroes who pick it.
  */
 interface Catalog extends CatalogRecipes {
   usedBy: Record<string, string[]>;
@@ -45,10 +45,10 @@ interface Catalog extends CatalogRecipes {
 }
 
 /**
- * Change l'objet ouvert.
+ * Changes the open item.
  *
- * `replaceState` ne declenche pas `hashchange` : on previent donc nous-memes,
- * sinon l'affichage ne suivrait pas le changement d'adresse.
+ * `replaceState` does not fire `hashchange`: so we dispatch it ourselves,
+ * otherwise the display would not follow the address change.
  */
 function select(slug: string | null) {
   history.replaceState(null, "", slug ? `#${slug}` : window.location.pathname);
@@ -59,7 +59,7 @@ function closeItem() {
   select(null);
 }
 
-/** Dans le catalogue, un autre objet s'ouvre sur place, par l'ancre. */
+/** In the catalogue, another item opens in place, through the anchor. */
 const toAnchor: ToItem = (o, content, className) => (
   <button type="button" onClick={() => select(o.slug)} className={className}>
     {content}
@@ -74,7 +74,7 @@ export function ItemList({
 }: {
   items: PreviewItem[];
   categories: string[];
-  /** Heros qui prennent chaque objet (par slug d'objet), les plus joues d'abord. */
+  /** Heroes who pick each item (by item slug), most played first. */
   usedBy: Record<string, string[]>;
   heroThumbs: Record<string, HeroThumb>;
 }) {
@@ -86,12 +86,12 @@ export function ItemList({
   const slugsKnown = useMemo(() => new Set(items.map((o) => o.slug)), [items]);
 
   /**
-   * L'objet ouvert est designe par l'adresse, pas par un etat local.
+   * The open item is designated by the address, not by local state.
    *
-   * Les builds des fiches heros renvoient ici avec une ancre — par exemple
-   * `/objets#bloodlust-axe`. Faire de l'adresse la source unique evite d'avoir
-   * a synchroniser deux verites : le lien entrant, la selection et le lien
-   * partageable decrivent tous la meme chose.
+   * Hero page builds link here with an anchor, for example
+   * `/items#bloodlust-axe`. Making the address the single source avoids having
+   * to sync two truths: the incoming link, the selection and the shareable
+   * link all describe the same thing.
    */
   const anchor = useSyncExternalStore(
     (refresh) => {
@@ -99,7 +99,7 @@ export function ItemList({
       return () => window.removeEventListener("hashchange", refresh);
     },
     () => window.location.hash,
-    // Rendu serveur : aucune ancre connue.
+    // Server render: no known anchor.
     () => "",
   );
 
@@ -108,8 +108,8 @@ export function ItemList({
     return target && slugsKnown.has(target) ? target : null;
   }, [anchor, slugsKnown]);
 
-  // Un objet designe par l'adresse doit etre visible : on amene la grille
-  // dessus plutot que de laisser l'utilisateur le chercher.
+  // An item designated by the address must be visible: we scroll the grid
+  // to it rather than leaving the user to look for it.
   useEffect(() => {
     if (!active) return;
     const image = requestAnimationFrame(() => {
@@ -121,7 +121,7 @@ export function ItemList({
   const results = useMemo(() => {
     const term = keySearch(search.trim());
     return items.filter((o) => {
-      // L'objet ouvert reste toujours affiche, meme hors du filtre courant.
+      // The open item always stays shown, even outside the current filter.
       if (o.slug === active) return true;
       if (category && o.category !== category) return false;
       if (!term) return true;
@@ -135,8 +135,8 @@ export function ItemList({
 
   const item = items.find((o) => o.slug === active) ?? null;
 
-  // Les recettes nomment leurs composants : on les retrouve par nom, et on lit
-  // les recettes a l'envers pour savoir ce que chaque objet sert a fabriquer.
+  // Recipes name their components: we find them by name, and read
+  // recipes backwards to know what each item is used to craft.
   const catalog = useMemo<Catalog>(
     () => ({ ...catalogRecipes(items), usedBy, heroes: heroThumbs }),
     [items, usedBy, heroThumbs],
@@ -197,9 +197,9 @@ export function ItemList({
                     {o.name}
                   </span>
                   {o.price !== null && (
-                    // L'unite est ecrite en toutes lettres : un nombre nu sous
-                    // une icone d'objet se lit comme un niveau ou une quantite,
-                    // pas comme un prix.
+                    // The unit is spelled out: a bare number under
+                    // an item icon reads as a level or a quantity,
+                    // not as a price.
                     <span className="text-xs tabular-nums text-gold-400">
                       {o.price.toLocaleString(LOCALE_HTML[locale])} {t("pages.itemsList.gold")}
                     </span>
@@ -222,8 +222,8 @@ export function ItemList({
       </div>
 
       {/*
-        Sur mobile, la fiche monte en tiroir depuis le bas : pas besoin de
-        redescendre sous une grille de cent objets pour la lire.
+        On mobile, the card slides up as a drawer from the bottom: no need to
+        scroll down past a grid of a hundred items to read it.
       */}
       {item && (
         <Drawer title={item.name} onClose={closeItem} labelClose={t("pages.itemsList.close")}>
@@ -234,7 +234,7 @@ export function ItemList({
   );
 }
 
-/** Fiche detaillee d'un objet, commune a la colonne laterale et au tiroir. */
+/** Detailed item card, shared by the side column and the drawer. */
 function ItemSheet({
   item,
   catalog,
@@ -303,7 +303,7 @@ function ItemSheet({
                 )}
               </dl>
 
-              {/* La page de l'objet ajoute ce que la fiche ne peut pas tenir : taux par heros et par rang. */}
+              {/* The item page adds what the card cannot hold: rates per hero and per rank. */}
               <Link
                 href={`/items/${item.slug}`}
                 className="mt-5 inline-block text-sm font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"

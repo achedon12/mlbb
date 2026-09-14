@@ -6,16 +6,16 @@ import { connect as connectGame, sendCode } from "./mlbb-auth";
 import { closeSession, openSession } from "./session";
 
 /**
- * Actions de connexion.
+ * Login actions.
  *
- * Le parcours tient en deux temps : demander un code, puis l'echanger contre
- * une session. Aucune donnee n'est stockee cote site — l'identite vit dans le
- * jeton, l'authentification chez Moonton.
+ * The flow has two steps: request a code, then exchange it for a session.
+ * No data is stored on the site — identity lives in the token,
+ * authentication at Moonton.
  */
 export interface State {
-  /** Cle du catalogue (`loginForm.errors.*`) : le formulaire l'affiche dans la langue de la page. */
+  /** Catalogue key (`loginForm.errors.*`): the form displays it in the page's language. */
   error?: string;
-  /** Passe a vrai une fois le code envoye : le formulaire affiche alors le champ code. */
+  /** Set to true once the code is sent: the form then shows the code field. */
   codeSent?: boolean;
   roleId?: string;
   zoneId?: string;
@@ -26,7 +26,7 @@ const credentials = z.object({
   zoneId: z.coerce.number().int().positive("loginForm.errors.server"),
 });
 
-/** Sépare « 123456789 (6021) » colle dans le champ identifiant. */
+/** Splits "123456789 (6021)" pasted into the ID field. */
 function split(raw: string): { roleId: string; zoneId: string } | null {
   const glued = raw.match(/^\s*(\d+)\s*\((\d+)\)\s*$/);
   return glued ? { roleId: glued[1], zoneId: glued[2] } : null;
@@ -36,7 +36,7 @@ export async function requestCode(_previous: State, data: FormData): Promise<Sta
   let rawRole = String(data.get("roleId") ?? "").trim();
   let rawZone = String(data.get("zoneId") ?? "").trim();
 
-  // Identifiant complet colle dans le premier champ : le serveur suit.
+  // Full ID pasted into the first field: the server follows it.
   const glued = split(rawRole);
   if (glued) {
     rawRole = glued.roleId;
@@ -45,7 +45,7 @@ export async function requestCode(_previous: State, data: FormData): Promise<Sta
 
   const analysis = credentials.safeParse({ roleId: rawRole, zoneId: rawZone });
   if (!analysis.success) {
-    // Un nombre illisible leve l'erreur de type de zod, pas notre message : on retombe alors sur la cle generique.
+    // An unreadable number raises zod's type error, not our message: fall back to the generic key.
     const message = analysis.error.issues[0]?.message;
     const error = message?.startsWith("loginForm.") ? message : "loginForm.errors.invalidInput";
     return { error, roleId: rawRole, zoneId: rawZone };
@@ -98,7 +98,7 @@ export async function disconnect(): Promise<void> {
   redirect("/");
 }
 
-/** Session expiree : on vide le cookie et on repart du formulaire de connexion. */
+/** Expired session: clear the cookie and start again from the login form. */
 export async function reconnect(): Promise<void> {
   await closeSession();
   redirect("/login");

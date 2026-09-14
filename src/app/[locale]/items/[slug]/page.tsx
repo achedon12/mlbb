@@ -24,7 +24,7 @@ import { cn } from "@/lib/utils";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** Une page par objet, generee au build ; toute autre adresse est une 404. */
+/** One page per item, generated at build time; any other address is a 404. */
 export const dynamicParams = false;
 export function generateStaticParams() {
   return itemsFor("en").map((o) => ({ slug: o.slug }));
@@ -32,12 +32,12 @@ export function generateStaticParams() {
 
 const images = visuals.items as Record<string, string>;
 const heroName = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
-/** Un effet se termine deja par un point : la phrase n'en ajoute pas un second. */
+/** An effect already ends with a period: the sentence does not add a second one. */
 const withoutPoint = (text: string) => text.replace(/[.\s]+$/, "");
 
 /**
- * Ce que la page et ses metadonnees disent d'un objet. Titre et description
- * sont faits des donnees : nom, prix, effet, heros qui le prennent, patch.
+ * What the page and its metadata say about an item. Title and description
+ * are made from data: name, price, effect, heroes that take it, patch.
  */
 function sheet(locale: Locale, slug: string) {
   const o = itemsFor(locale).find((x) => x.slug === slug);
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return metaPage(locale, { title: f.title, description: f.description, path: `/items/${slug}` });
 }
 
-/** Sur la page d'un objet, un autre objet s'ouvre sur sa propre page. */
+/** On an item's page, another item opens on its own page. */
 const toPage: ToItem = (o, content, className) => (
   <Link href={`/items/${o.slug}`} className={className}>
     {content}
@@ -102,7 +102,7 @@ export default async function ItemPage({ params }: Params) {
   const price = (n: number) => `${n.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsList.gold")}`;
   const category = t(`categories.${o.category}`);
 
-  // Objets voisins : meme categorie, les plus proches en prix, puis ranges par prix.
+  // Neighboring items: same category, the closest in price, then sorted by price.
   const gap = (x: PreviewItem) => Math.abs((x.price ?? 0) - (o.price ?? 0));
   const similar = previews
     .filter((x) => x.category === o.category && x.slug !== slug)

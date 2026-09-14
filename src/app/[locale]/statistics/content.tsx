@@ -26,17 +26,17 @@ import { rankingOfRank, RANKS_CLASSES } from "@/lib/tier-list";
 import { cn } from "@/lib/utils";
 
 /**
- * Statistiques des heros d'une tranche de rang : le tableau complet des taux
- * (victoire, ban, selection), leur ecart sur sept jours et leur courbe sur
- * trente. Comme la tier list, chaque rang a sa propre adresse ; la page
- * principale montre tous rangs confondus.
+ * Hero statistics for a rank slice: the full table of rates
+ * (win, ban, pick), their seven-day change and their thirty-day
+ * curve. Like the tier list, each rank has its own address; the main
+ * page shows all ranks combined.
  */
 
 const isMeasured = (v: number | null): v is number => typeof v === "number";
 
 const rowsByRank = new Map<MeasuredRank, RowStat[]>();
 
-/** Lignes du tableau, dans l'ordre du classement ; memorisees, la page et ses metadonnees les partagent. */
+/** Table rows, in ranking order; memoized, the page and its metadata share them. */
 function rowsOfRank(rank: MeasuredRank): RowStat[] {
   const already = rowsByRank.get(rank);
   if (already) return already;
@@ -55,7 +55,7 @@ function rowsOfRank(rank: MeasuredRank): RowStat[] {
       win: e.winRate,
       ban: e.banRate,
       pick: e.pickRate,
-      // Champs absents plutot que nuls : 132 lignes partent au navigateur.
+      // Absent rather than null fields: 132 rows go to the browser.
       ...(variation ? { gap: variation.gap, days: variation.days } : {}),
       ...(e.lowSample ? { weak: true as const } : {}),
       ...(curve ? { curve, start: measures[0], end: measures.at(-1) } : {}),
@@ -68,7 +68,7 @@ function rowsOfRank(rank: MeasuredRank): RowStat[] {
 const firstBy = (rows: RowStat[], key: "win" | "ban" | "pick") =>
   rows.reduce((a, b) => (b[key] > a[key] ? b : a));
 
-/** Jours couverts par les courbes du rang, pour la couverture temporelle du jeu de donnees. */
+/** Days covered by the rank's curves, for the dataset's temporal coverage. */
 function period(rank: MeasuredRank, rows: RowStat[]): string | null {
   let start: string | null = null;
   let end: string | null = null;
@@ -121,9 +121,9 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
   const threshold = new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE);
   const coverage = period(rank, rows);
 
-  // Jeu de donnees plutot que liste : c'est ce que la page publie, et Google
-  // Dataset Search l'indexe. La liste ordonnee des heros existe deja sur la
-  // tier list du meme rang.
+  // Dataset rather than list: it is what the page publishes, and Google
+  // Dataset Search indexes it. The ordered list of heroes already exists on the
+  // tier list of the same rank.
   const data = {
     "@context": "https://schema.org",
     "@type": "Dataset",
@@ -144,7 +144,7 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
       name: t(`pages.statisticsTable.${c}`),
       unitText: "%",
     })),
-    // L'API publique ne sert que le classement tous rangs.
+    // The public API only serves the all-ranks ranking.
     ...(all
       ? {
           distribution: [
@@ -176,7 +176,7 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
       </PageHeader>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
-        {/* Phrase de donnees : ce que les resultats de recherche reprennent en extrait. */}
+        {/* Data sentence: what search results pick up as a snippet. */}
         <p className="mb-8 max-w-3xl leading-relaxed text-chalk-300">
           {t("pages.statistics.summary", {
             contexte: all ? t("pages.statistics.contextAll") : t("pages.statistics.contextRank", { rang: nameRank }),

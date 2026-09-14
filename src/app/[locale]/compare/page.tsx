@@ -11,7 +11,7 @@ import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { dataTool, metaPage } from "@/i18n/seo";
 
-/** Description en donnees : heros comparables, date du releve et patch. */
+/** Description built from data: comparable heroes, measurement date and patch. */
 function descriptionComparator(locale: Locale): string {
   const t = createT(locale);
   return t("pages.seo.compare.descriptionThree", { n: allHeroes.length, date: longDate(locale), v: patchCurrent.version });
@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 const tenth = (v: number) => Math.round(v * 10) / 10;
 
 /**
- * Catalogue du comparateur : taux par rang en triplets compacts (victoire,
- * ban, palier) — six rangs pour 133 heros passent dans la page sans l'alourdir.
+ * Comparator catalog: rates by rank as compact triplets (win,
+ * ban, tier) — six ranks for 133 heroes fit in the page without weighing it down.
  */
 const comparables: HeroComparable[] = allHeroes.map((h) => ({
   slug: h.slug,
@@ -47,7 +47,7 @@ const comparables: HeroComparable[] = allHeroes.map((h) => ({
   skins: h.skins.length,
 }));
 
-/** Etendue des taux de chaque rang, sur tout le catalogue : l'echelle des axes « taux » du radar. */
+/** Rate range of each rank, over the whole catalog: the scale of the radar's "rate" axes. */
 const bounds: Partial<Record<(typeof RANKS_CLASSES)[number], BoundsRank>> = Object.fromEntries(
   RANKS_CLASSES.map((r) => {
     const entries = rankingOfRank(r);
@@ -57,9 +57,9 @@ const bounds: Partial<Record<(typeof RANKS_CLASSES)[number], BoundsRank>> = Obje
 );
 
 /**
- * Face-a-face mis en avant sous l'outil : pour chacun des heros les mieux
- * classes, son duel mesure le plus tranche. Le chemin des moteurs vers les
- * pages `/compare/{a}-vs-{b}`, qu'aucun menu ne liste.
+ * Head-to-heads featured under the tool: for each of the top-ranked
+ * heroes, its most one-sided measured duel. The search engines' path to the
+ * `/compare/{a}-vs-{b}` pages, which no menu lists.
  */
 const FEATURED_DUELS = 12;
 function featuredDuels(): { a: string; b: string }[] {

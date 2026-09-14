@@ -5,10 +5,10 @@ import { createT } from "@/i18n/translations";
 import type { ComboHero } from "@/lib/data";
 
 /**
- * Combos conseilles par le jeu : pour chaque phase (lane, combat d'equipe),
- * l'ordre des competences en icones, puis le conseil qui l'accompagne. Les
- * icones reprennent celles des tuiles de competences juste au-dessus ; le nom
- * de chacune passe par l'infobulle et le texte alternatif.
+ * Combos recommended by the game: for each phase (laning, team fight), the
+ * skill order as icons, then the accompanying tip. The icons match the skill
+ * tiles just above; each one's name goes through the tooltip and the alt
+ * text.
  */
 export function HeroCombos({ combos, locale }: { combos: ComboHero[]; locale: Locale }) {
   if (combos.length === 0) return null;

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
-/** Manifeste : permet l'ajout a l'ecran d'accueil sur mobile. */
+/** Manifest: enables adding to the home screen on mobile. */
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: site.title,

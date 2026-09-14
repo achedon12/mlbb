@@ -7,12 +7,12 @@ import itCatalog from "@/i18n/messages/it.json";
 import es from "@/i18n/messages/es.json";
 
 /**
- * Coherence des catalogues de messages.
+ * Message catalog consistency.
  *
- * Les quatre langues portent les memes cles et les memes variables, et toute
- * cle citee dans le code existe : une cle absente s'afficherait telle quelle
- * (« pages.heroes.title ») au lecteur, une variable manquante resterait entre
- * accolades.
+ * The four locales carry the same keys and the same variables, and every key
+ * referenced in the code exists: a missing key would be shown as is
+ * ("pages.heroes.title") to the reader, a missing variable would stay between
+ * braces.
  */
 type Node = string | Node[] | { [key: string]: Node };
 const CATALOGUES: Record<string, Node> = { fr, en, it: itCatalog, es } as unknown as Record<string, Node>;
@@ -24,9 +24,9 @@ function flatten(node: Node, prefix = "", output = new Map<string, string>()): M
 }
 
 /**
- * Variables propres a la grammaire d'une langue, ramenees a celle qu'elles
- * remplacent : en francais, la page calcule l'elision (« d'Aamon », « de
- * Gusion ») et la passe en {deNom}, la ou les autres langues ecrivent {nom}.
+ * Variables specific to one language's grammar, mapped back to the one they
+ * replace: in French, the page computes the elision ("d'Aamon", "de Gusion")
+ * and passes it as {deNom}, where the other locales write {nom}.
  */
 const EQUIVALENT: Record<string, string> = { "{deNom}": "{nom}" };
 const variables = (text: string) =>
@@ -44,10 +44,10 @@ function resolve(key: string): Node | undefined {
 const flat = Object.fromEntries(Object.entries(CATALOGUES).map(([l, c]) => [l, flatten(c)]));
 
 /**
- * Cles citees dans le code. On suit `t` et toute fonction obtenue par
- * `creerT(…)` ou `useT()` (`tm`, …) ; les appels a une cle litterale, a une
- * alternative de deux litteraux, et a un gabarit dont on verifie le prefixe
- * fixe (`roles.${r}` suppose un objet `roles`).
+ * Keys referenced in the code. It follows `t` and any function obtained from
+ * `creerT(…)` or `useT()` (`tm`, …); calls with a literal key, with a choice
+ * between two literals, and with a template whose fixed prefix is checked
+ * (`roles.${r}` implies a `roles` object).
  */
 function keysOfCode() {
   const literal: { file: string; key: string }[] = [];
@@ -97,7 +97,7 @@ describe("message catalogs", () => {
       for (const [locale, keys] of Object.entries(flat)) {
         const translated = keys.get(key);
         if (translated !== undefined && variables(translated) !== variables(text)) {
-          differences.push(`${locale} ${key} : [${variables(translated)}] au lieu de [${variables(text)}]`);
+          differences.push(`${locale} ${key}: [${variables(translated)}] instead of [${variables(text)}]`);
         }
       }
     }
@@ -106,17 +106,17 @@ describe("message catalogs", () => {
 
   it("every key referenced in the code exists", () => {
     const { literal, prefixes } = keysOfCode();
-    // Garde-fou : un balayage qui ne trouve rien ne prouverait rien.
+    // Safeguard: a scan that finds nothing would prove nothing.
     expect(literal.length).toBeGreaterThan(200);
     const missing = literal
       .filter(({ key }) => typeof resolve(key) !== "string")
-      .map(({ file, key }) => `${file} : ${key}`);
+      .map(({ file, key }) => `${file}: ${key}`);
     const prefixesMissing = prefixes
       .filter(({ prefix }) => {
         const node = resolve(prefix);
         return typeof node !== "object" || node === null;
       })
-      .map(({ file, prefix }) => `${file} : ${prefix}.*`);
+      .map(({ file, prefix }) => `${file}: ${prefix}.*`);
     expect([...new Set([...missing, ...prefixesMissing])]).toEqual([]);
   });
 });

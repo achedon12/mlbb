@@ -2,13 +2,13 @@ import { describe, expect, it } from "vitest";
 import { changesOfTier, groupAdjustments, firstNBy, type SeriesTier } from "@/lib/meta-report";
 import type { Tier } from "@/lib/types";
 
-/** Regle simplifiee : le score est le taux de victoire, trois paliers. */
+/** Simplified rule: the score is the win rate, three tiers. */
 const rule = {
   score: (t: { winRate: number; banRate: number }) => t.winRate,
   tier: (s: number): Tier => (s >= 53 ? "S" : s >= 50 ? "A" : "B"),
 };
 
-/** Huit jours de mesures, du taux d'il y a sept jours au taux du jour, interpoles. */
+/** Eight days of measures, interpolated from the rate seven days ago to today's rate. */
 const series = (before: number, after: number): SeriesTier => ({
   start: "2026-09-04",
   winRate: Array.from({ length: 8 }, (_, k) => Math.round((before + ((after - before) * k) / 7) * 10) / 10),

@@ -1,10 +1,10 @@
 import { colorText, type StateTier } from "./tier-maker";
 
 /**
- * Image d'une tier list, dessinee dans un canevas du navigateur.
+ * Image of a tier list, drawn in a browser canvas.
  *
- * Les vignettes viennent de `public/visuels`, sur le meme domaine : le canevas
- * n'est pas « teinte » et s'exporte en PNG sans proxy ni en-tete CORS.
+ * Thumbnails come from `public/visuels`, on the same domain: the canvas
+ * is not "tainted" and exports to PNG without a proxy or CORS header.
  */
 
 const WIDTH = 1200;
@@ -37,19 +37,19 @@ async function load(source: string): Promise<HTMLImageElement | null> {
   }
 }
 
-/** Police des titres du site (`next/font`), si elle est chargee ; sinon celle du systeme. */
+/** Site heading font (`next/font`), if loaded; otherwise the system one. */
 async function fontTitle(): Promise<string> {
   const family = getComputedStyle(document.documentElement).getPropertyValue("--heading-font").trim();
   const font = family ? `${family}, sans-serif` : "sans-serif";
   try {
     await document.fonts.load(`700 40px ${font}`);
   } catch {
-    /* police de secours */
+    /* fallback font */
   }
   return font;
 }
 
-/** Plus grande taille, de `max` a 14 px, a laquelle le texte tient dans `largeur`. */
+/** Largest size, from `max` down to 14 px, at which the text fits in `width`. */
 function adjust(ctx: CanvasRenderingContext2D, text: string, font: string, width: number, max: number) {
   for (let size = max; size > 14; size -= 2) {
     ctx.font = `700 ${size}px ${font}`;
@@ -112,7 +112,7 @@ export async function exportImage(
       const yy = y + GAP + Math.floor(k / byRow) * (ICON + GAP);
       const image = images.get(slug);
       if (image) {
-        // Recadrage carre, cale en haut : un portrait garde le visage.
+        // Square crop, aligned to the top: a portrait keeps the face.
         const side = Math.min(image.naturalWidth, image.naturalHeight);
         ctx.drawImage(image, (image.naturalWidth - side) / 2, 0, side, side, x, yy, ICON, ICON);
       } else {

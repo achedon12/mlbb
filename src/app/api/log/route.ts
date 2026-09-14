@@ -2,16 +2,16 @@ import { NextResponse } from "next/server";
 import { log } from "@/lib/log";
 
 /**
- * Reception des erreurs survenues cote navigateur.
+ * Intake of errors raised in the browser.
  *
- * Les frontieres d'erreur et le rapporteur global (src/components/
- * rapport-erreurs.tsx) y postent le message, la pile et le chemin : les
- * incidents clients rejoignent ainsi le meme journal que les incidents
- * serveur, plutot que de rester dans la seule console du visiteur.
+ * Error boundaries and the global reporter (src/components/
+ * error-reporter.tsx) post the message, the stack and the path to it: client
+ * incidents thus land in the same log as server incidents, rather than
+ * staying in the visitor's console alone.
  *
- * La route est publique : un corps trop gros est ignore, et une meme adresse
- * ne peut pas envoyer plus de trente rapports par minute, pour qu'un script
- * malveillant ou une boucle d'erreurs ne remplisse pas le disque.
+ * The route is public: an oversized body is ignored, and a single address
+ * cannot send more than thirty reports per minute, so that a malicious
+ * script or an error loop does not fill the disk.
  */
 const SIZE_MAX = 8_000;
 const BY_MINUTE = 30;
@@ -21,7 +21,7 @@ function allowed(address: string): boolean {
   const now = Date.now();
   const tracking = sends.get(address);
   if (!tracking || now - tracking.start > 60_000) {
-    // La table ne garde que la minute en cours : on la vide quand elle grossit.
+    // The table only keeps the current minute: it is cleared when it grows.
     if (sends.size > 5_000) sends.clear();
     sends.set(address, { start: now, count: 1 });
     return true;
@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     const raw = await request.text();
     if (raw.length > SIZE_MAX) return new NextResponse(null, { status: 413 });
     const body = JSON.parse(raw) as Record<string, unknown>;
-    await log("error", "erreur navigateur", {
+    await log("error", "browser error", {
       source: "client",
       type: text(body.type, 20) ?? "frontiere",
       message: text(body.message, 500) ?? "",
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
       navigateur: text(request.headers.get("user-agent"), 200),
     });
   } catch {
-    // Un rapport malforme ne doit rien casser.
+    // A malformed report must not break anything.
   }
   return new NextResponse(null, { status: 204 });
 }

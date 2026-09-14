@@ -1,10 +1,10 @@
 /**
- * Traduit les articles Markdown du francais vers en/it/es.
+ * Translates the Markdown articles from French to en/it/es.
  *
- * Source : `content/fr/<section>/*.md`. Sorties : `content/<langue>/…`. On
- * traduit le titre et le chapeau de l'en-tete YAML, et le corps paragraphe par
- * paragraphe (les titres `##`, listes et emphases sont preserves). Le cache est
- * partage avec les autres donnees. Ne tourne qu'a la main ou en CI.
+ * Source: `content/fr/<section>/*.md`. Outputs: `content/<locale>/…`. The
+ * title and summary of the YAML front matter are translated, and the body paragraph by
+ * paragraph (`##` headings, lists and emphasis are preserved). The cache is
+ * shared with the other data. Only runs by hand or in CI.
  */
 import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
 import { pause, translateBatch } from "./translation-google.mjs";
@@ -26,10 +26,10 @@ async function translate(text, tl) {
   return t.replace(t.trim(), cache[key]);
 }
 
-/** Traduit une ligne de corps, en preservant son marqueur Markdown de tete. */
+/** Translates a body line, preserving its leading Markdown marker. */
 async function translateRow(row, tl) {
   if (!row.trim()) return row;
-  // Marqueur de tete : #, -, *, >, chiffres de liste — on le garde tel quel.
+  // Leading marker: #, -, *, >, list numbers — kept as is.
   const m = row.match(/^(\s*(?:#{1,6}\s+|[-*>]\s+|\d+\.\s+)?)([\s\S]*)$/);
   const prefix = m[1] ?? "";
   const body = m[2] ?? row;
@@ -58,7 +58,7 @@ for (const tl of TARGETS) {
       if (!m) continue;
       let header = m[1];
       const body = m[2];
-      // Titre et chapeau de l'en-tete.
+      // Front matter title and summary.
       for (const field of ["title", "summary"]) {
         const re = new RegExp(`^(${field}:\\s*)(.+)$`, "m");
         const mm = header.match(re);
@@ -75,4 +75,4 @@ for (const tl of TARGETS) {
     console.log(`content/${tl}/${section}`);
   }
 }
-console.log("Articles traduits.");
+console.log("Articles translated.");

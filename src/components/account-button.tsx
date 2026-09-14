@@ -8,10 +8,10 @@ import { useT } from "@/i18n/provider";
 type Session = { connected: boolean; pseudo?: string };
 
 /**
- * Acces au compte dans l'en-tete.
+ * Account access in the header.
  *
- * L'espace est reserve des le premier rendu pour qu'aucun decalage de mise en
- * page ne se produise une fois la session connue.
+ * The space is reserved from the first render so that no layout shift
+ * happens once the session is known.
  */
 export function AccountButton() {
   const t = useT();
@@ -28,8 +28,8 @@ export function AccountButton() {
     };
   }, []);
 
-  // Sur mobile, une simple icone : le libelle ne tient pas a cote du menu
-  // sous 375 px de large. Il reste lu par les lecteurs d'ecran.
+  // On mobile, a plain icon: the label does not fit next to the menu
+  // below 375 px wide. Screen readers still read it.
   if (!session) return <span aria-hidden className="h-9 w-9 sm:w-24" />;
 
   return session.connected ? (

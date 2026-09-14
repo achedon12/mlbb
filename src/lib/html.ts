@@ -1,13 +1,13 @@
 import sanitizeHtml from "sanitize-html";
 
 /**
- * Assainissement du HTML rendu.
+ * Sanitisation of rendered HTML.
  *
- * Le contenu des notes de patch vient du wiki, editable par n'importe qui : il
- * ne peut pas etre injecte tel quel dans la page. On n'autorise qu'une liste
- * blanche de balises et d'attributs de mise en forme, on force les liens en
- * externes sans reference, et on n'accepte que les schemas d'URL surs — ni
- * `javascript:`, ni gestionnaire d'evenement, ni `<script>` ne survit.
+ * Patch note content comes from the wiki, editable by anyone: it cannot be
+ * injected into the page as is. Only an allowlist of formatting tags and
+ * attributes is permitted, links are forced to external without referrer, and
+ * only safe URL schemes are accepted — no `javascript:`, event handler or
+ * `<script>` survives.
  */
 const OPTIONS: sanitizeHtml.IOptions = {
   allowedTags: [
@@ -17,7 +17,7 @@ const OPTIONS: sanitizeHtml.IOptions = {
   ],
   allowedAttributes: {
     a: ["href", "rel", "target"],
-    // Les ancres des titres servent le sommaire des notes de patch.
+    // Heading anchors serve the patch notes table of contents.
     "*": ["id"],
   },
   allowedSchemes: ["http", "https", "mailto"],
@@ -31,12 +31,12 @@ export function cleanHtml(html: string): string {
 }
 
 /**
- * Serialise des donnees pour un `<script type="application/ld+json">`.
+ * Serialises data for a `<script type="application/ld+json">`.
  *
- * `JSON.stringify` seul ne protege pas : une valeur contenant `</script>`
- * fermerait la balise et permettrait l'injection. On neutralise donc le
- * caractere `<`, ce qui empeche toute sortie de la balise sans alterer la
- * validite du JSON.
+ * `JSON.stringify` alone does not protect: a value containing `</script>`
+ * would close the tag and allow injection. The `<` character is therefore
+ * escaped, which prevents any escape from the tag without affecting the
+ * validity of the JSON.
  */
 export function serializeJsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");

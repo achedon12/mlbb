@@ -1,13 +1,13 @@
 import { getImageProps } from "next/image";
 
 /**
- * Image a taille fixe servie en une seule adresse optimisee, celle du 2x.
+ * Fixed-size image served from a single optimised address, the 2x one.
  *
- * `next/image` ecrit pour chaque image un `srcset` de deux adresses, un `src`
- * et un style : pres de 400 octets, plus que le reste d'une ligne de tableau.
- * Sur 132 lignes ou une centaine de vignettes, c'etait le premier poste du
- * HTML. L'adresse reste celle de l'optimiseur de Next (redimensionnee, en
- * AVIF ou WebP) ; seul le choix entre 1x et 2x disparait, au profit du 2x.
+ * `next/image` writes for each image a two-address `srcset`, a `src` and a
+ * style: nearly 400 bytes, more than the rest of a table row. Over 132 rows
+ * or a hundred thumbnails, it was the largest item in the HTML. The address
+ * is still the Next optimiser's (resized, as AVIF or WebP); only the choice
+ * between 1x and 2x goes away, in favour of 2x.
  */
 export function LightImage({
   src,
@@ -21,13 +21,13 @@ export function LightImage({
   alt: string;
   width: number;
   height: number;
-  /** Premier ecran : chargee tout de suite plutot qu'a l'approche. */
+  /** Above the fold: loaded right away rather than on approach. */
   immediate?: boolean;
   className?: string;
 }) {
   const { props } = getImageProps({ src, alt, width, height });
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- adresse de l'optimiseur de Next, sans srcset (voir plus haut)
+    // eslint-disable-next-line @next/next/no-img-element -- Next optimiser address, without srcset (see above)
     <img
       src={props.src}
       alt={alt}

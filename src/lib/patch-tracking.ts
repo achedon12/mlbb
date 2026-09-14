@@ -2,11 +2,11 @@ import { patchDetails } from "@/lib/data";
 import type { HeroAdjustment, AdjustmentType } from "@/lib/types";
 
 /**
- * Suivi des ajustements, heros par heros : le flux RSS de chaque fiche et
- * l'alerte des favoris s'en servent.
+ * Adjustment tracking, hero by hero: each hero page's RSS feed and the
+ * favourites alert use it.
  */
 
-/** Patchs detailles, du plus recent au plus ancien — dans l'ordre des versions. */
+/** Detailed patches, newest to oldest — in version order. */
 export const recentPatches = Object.values(patchDetails).sort((a, b) =>
   b.version.localeCompare(a.version, undefined, { numeric: true }),
 );
@@ -17,7 +17,7 @@ export interface AdjustmentDate {
   adjustment: HeroAdjustment;
 }
 
-/** Ajustements d'un heros, patch par patch, du plus recent au plus ancien. */
+/** A hero's adjustments, patch by patch, newest to oldest. */
 export function adjustmentsOf(slug: string): AdjustmentDate[] {
   return recentPatches.flatMap((p) =>
     p.adjustments.filter((a) => a.slug === slug).map((adjustment) => ({ version: p.version, date: p.date ?? null, adjustment })),
@@ -25,10 +25,9 @@ export function adjustmentsOf(slug: string): AdjustmentDate[] {
 }
 
 /**
- * Dernier patch reduit a l'essentiel pour les favoris : sa version, sa date et
- * le type d'ajustement de chaque heros touche. Quelques centaines d'octets
- * transmis au navigateur, la ou le patch complet en pese des dizaines de
- * milliers.
+ * Latest patch trimmed to the essentials for favourites: its version, its date
+ * and the adjustment type of each affected hero. A few hundred bytes sent to
+ * the browser, where the full patch weighs tens of thousands.
  */
 export interface SummaryPatch {
   version: string;

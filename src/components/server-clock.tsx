@@ -21,16 +21,16 @@ import {
 import { cn } from "@/lib/utils";
 
 /**
- * Horloge du serveur, comptes a rebours des remises et heure locale de la
- * remise dans les principaux pays de chaque langue du site.
+ * Server clock, reset countdowns and local reset time in the main countries of
+ * each site language.
  *
- * Le premier rendu part de l'instant `reference`, fixe par le serveur : HTML et
- * hydratation disent la meme chose, et les moteurs lisent un tableau complet.
- * L'horloge du navigateur prend ensuite le relais, calee sur chaque seconde.
+ * The first render starts from the `reference` instant, set by the server: HTML
+ * and hydration agree, and search engines read a complete table. The browser
+ * clock then takes over, aligned on each second.
  */
 const ORDER_LOCALES: Locale[] = ["fr", "en", "it", "es"];
 
-// Une seule minuterie pour toute la page, partagee par les abonnes.
+// A single timer for the whole page, shared by subscribers.
 let instant = 0;
 let timer: ReturnType<typeof setTimeout> | undefined;
 const subscribers = new Set<() => void>();
@@ -54,7 +54,7 @@ const readInstant = () => instant || (instant = Date.now());
 const subscribeToNothing = () => () => {};
 const readTimezone = () => Intl.DateTimeFormat().resolvedOptions().timeZone || null;
 
-/** Formateurs Intl, crees une fois par langue, forme et fuseau. */
+/** Intl formatters, created once per language, shape and time zone. */
 function useFormats(siteLocale: Locale) {
   return useMemo(() => {
     const locale = LOCALE_HTML[siteLocale];
@@ -98,7 +98,7 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
   const siteLocale = useLocale();
   const f = useFormats(siteLocale);
   const now = useSyncExternalStore(subscribeToClock, readInstant, () => reference);
-  // Fuseau du lecteur : inconnu du serveur, lu une fois la page hydratee.
+  // Reader's time zone: unknown to the server, read once the page is hydrated.
   const timezone = useSyncExternalStore(subscribeToNothing, readTimezone, () => null);
   const here = timezone ?? "UTC";
 

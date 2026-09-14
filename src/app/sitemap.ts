@@ -19,19 +19,19 @@ import { esportsUpdatedAt, tournaments } from "@/lib/esports";
 import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions } from "@/lib/advance-server";
 
 /**
- * Plan du site, multilingue.
+ * Multilingual sitemap.
  *
- * Chaque page existe dans chaque langue, sous son prefixe (`/fr/heroes`…) : on
- * emet une entree par langue. Les versions d'une meme page sont reliees par les
- * `hreflang` de son en-tete HTML (`metaLangues`), pas ici : Google n'en demande
- * qu'une declaration, et les liens `xhtml:link` faisaient afficher le plan par
- * les navigateurs comme un bloc de texte plutot que comme un arbre XML.
+ * Every page exists in every language, under its prefix (`/fr/heroes`…): we
+ * emit one entry per language. The versions of a page are linked by the
+ * `hreflang` of its HTML head (`metaLocales`), not here: Google only asks for
+ * one declaration, and the `xhtml:link` links made browsers display the sitemap
+ * as a block of text rather than as an XML tree.
  *
- * `lastModified` dit quand le contenu a vraiment change : date du releve des
- * taux pour les pages de statistiques, date du patch pour ses notes, date de
- * l'article, date de synchronisation pour les autres donnees du jeu. Les
- * textes fixes (mentions, confidentialite…) n'en portent pas : une date qui
- * bougerait chaque jour sans raison apprendrait aux moteurs a l'ignorer.
+ * `lastModified` says when the content really changed: the rate measurement
+ * date for statistics pages, the patch date for its notes, the article's
+ * date, the sync date for the other game data. Fixed
+ * texts (legal notice, privacy…) carry none: a date that
+ * moved every day for no reason would teach engines to ignore it.
  */
 type Path = {
   path: string;
@@ -40,14 +40,14 @@ type Path = {
   lastModified?: Date;
 };
 
-/** Date AAAA-MM-JJ ou ISO complete ; rien pour une date absente ou illisible. */
+/** YYYY-MM-DD or full ISO date; nothing for a missing or unreadable date. */
 function dateOf(iso: string | null | undefined): Date | undefined {
   if (!iso) return undefined;
   const date = new Date(iso.length === 10 ? `${iso}T00:00:00Z` : iso);
   return Number.isNaN(date.getTime()) ? undefined : date;
 }
 
-/** La plus recente de plusieurs dates ISO. */
+/** The most recent of several ISO dates. */
 const newest = (...isos: (string | null | undefined)[]) =>
   dateOf(isos.filter((d): d is string => !!d).sort().at(-1));
 
@@ -157,11 +157,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: synced,
     })),
     ...allHeroes.map((h) => statistics(`/heroes/${h.slug}`, "weekly", 0.6)),
-    // Pages derivees des mesures : datees du releve, comme les fiches.
+    // Pages derived from the measurements: dated by the measurement, like hero pages.
     ...allHeroes.filter((h) => counters[h.slug]).map((h) => statistics(`/heroes/${h.slug}/counters`, "weekly", 0.6)),
     ...allHeroes.filter((h) => duos[h.slug]).map((h) => statistics(`/heroes/${h.slug}/duos`, "weekly", 0.5)),
-    // Duels : seules les paires mesurees a deux rangs au moins, les autres
-    // restent accessibles mais trop minces pour etre proposees aux moteurs.
+    // Duels: only pairs measured at two ranks at least, the others
+    // stay reachable but too thin to be offered to engines.
     ...[...ranksByPair(counters, (s) => allHeroes.some((h) => h.slug === s))]
       .filter(([, n]) => n >= 2)
       .map(([segment]) => statistics(`/compare/${segment}`, "weekly", 0.4)),
@@ -194,7 +194,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   ];
 
-  // Pour chaque chemin, une URL par langue ; les hreflang vivent dans les pages.
+  // For each path, one URL per language; the hreflang live in the pages.
   return paths.flatMap(({ path, changeFrequency, priority, lastModified }) =>
     LOCALES.map((l) => ({
       url: `${site.url}/${l}${path}`,

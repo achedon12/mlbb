@@ -2,19 +2,19 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Portrait ou icone d'un heros.
+ * Portrait or icon of a hero.
  *
- * Les visuels sont servis par le site lui-meme, jamais depuis un domaine
- * tiers : `npm run sync -- --images` les range sous `public/visuels/`. Quand
- * un visuel manque, on affiche les initiales plutot qu'un trou dans la grille.
+ * Images are served by the site itself, never from a third-party domain:
+ * `npm run sync -- --images` stores them under `public/visuels/`. When an
+ * image is missing, the initials are shown rather than a hole in the grid.
  *
- * Toutes les vignettes de heros du site passent par ici, de la plus petite
- * (liste deroulante) a la fiche.
+ * Every hero thumbnail on the site goes through here, from the smallest
+ * (dropdown list) to the hero page.
  */
 /**
- * Icones de heros : webp de 4 a 10 Ko, deja reduits a la synchronisation. En
- * petite taille, l'optimiseur n'y gagne rien et son srcset alourdissait chaque
- * vignette d'une liste de 200 octets de HTML : on les sert telles quelles.
+ * Hero icons: 4 to 10 KB webp files, already downsized during sync. At small
+ * sizes the optimiser gains nothing, and its srcset added 200 bytes of HTML to
+ * every thumbnail in a list: they are served as is.
  */
 const ICON_LOCALE = /^\/visuels\/heros\/[^/]+\/icone\.[a-z]+$/;
 const SIZE_MAX_ICON = 56;
@@ -44,9 +44,9 @@ export function HeroPortrait({
   size?: keyof typeof DIMENSIONS;
   className?: string;
   priority?: boolean;
-  /** Vignette posee a cote du nom : l'image n'apprend rien de plus aux lecteurs d'ecran. */
+  /** Thumbnail placed next to the name: the image tells screen readers nothing more. */
   decorative?: boolean;
-  /** Texte alternatif ; a defaut, le nom du heros, lisible dans toutes les langues. */
+  /** Alternative text; defaults to the hero's name, readable in every language. */
   alt?: string;
 }) {
   const dimensions = DIMENSIONS[size];
@@ -63,9 +63,9 @@ export function HeroPortrait({
   return (
     <span className={frame}>
       {/*
-        Taille fixe : largeur et hauteur connues, le navigateur n'a que deux
-        versions a choisir (1x, 2x) au lieu de quinze — des dizaines de Ko de
-        HTML en moins sur les listes. Seul le skin, fluide, garde `sizes`.
+        Fixed size: with width and height known, the browser only has two
+        versions to pick from (1x, 2x) instead of fifteen — tens of KB less
+        HTML on lists. Only the fluid skin keeps `sizes`.
       */}
       {dimensions.px === null ? (
         <Image

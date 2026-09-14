@@ -18,16 +18,15 @@ import {
 } from "@/lib/push";
 
 /**
- * Notifications de patch : stockage des abonnements et envoi.
+ * Patch notifications: subscription storage and sending.
  *
- * Le site n'a pas de base de donnees : les abonnements tiennent dans un
- * fichier JSON du dossier `DONNEES_DIR`, reecrit en entier a chaque
- * changement — fichier temporaire puis renommage, pour qu'un arret brutal ne
- * laisse jamais un fichier a moitie ecrit. Les ecritures passent l'une apres
- * l'autre dans une file, le serveur etant un processus unique.
+ * The site has no database: subscriptions live in a JSON file in the
+ * `DATA_DIR` folder, fully rewritten on every change — temporary file then
+ * rename, so that a hard stop never leaves a half-written file. Writes go
+ * one after another through a queue, the server being a single process.
  *
- * Le dernier patch notifie est garde a cote : un redemarrage ne renvoie
- * jamais les notifications d'un patch deja annonce.
+ * The last notified patch is kept alongside: a restart never resends the
+ * notifications of an already announced patch.
  */
 
 // ── Configuration ──────────────────────────────────────────────────
@@ -41,8 +40,8 @@ export interface PushConfig {
 let configWarned = false;
 
 /**
- * Cles VAPID lues dans l'environnement, a l'execution : l'image n'a pas a les
- * connaitre au build. Sans elles, la fonction est simplement absente.
+ * VAPID keys read from the environment, at runtime: the image does not need
+ * to know them at build time. Without them, the feature is simply absent.
  */
 export function configPush(): PushConfig | null {
   const publicKey = process.env.VAPID_PUBLIC_KEY?.trim() ?? "";
@@ -54,7 +53,7 @@ export function configPush(): PushConfig | null {
   if (!valid) {
     if (!configWarned) {
       configWarned = true;
-      void log("warning", "notifications : cles VAPID incompletes ou mal formees, fonction desactivee");
+      void log("warning", "notifications: VAPID keys incomplete or malformed, feature disabled");
     }
     return null;
   }
@@ -67,7 +66,7 @@ const folder = () => (process.env.DATA_DIR ?? process.env.DONNEES_DIR)?.trim() |
 const fileSubscribers = () => join(folder(), "push-abonnements.json");
 const fileState = () => join(folder(), "push-etat.json");
 
-// ── Fichiers ───────────────────────────────────────────────────────
+// ── Files ──────────────────────────────────────────────────────────
 
 export class ErrorStorage extends Error {}
 
@@ -77,13 +76,13 @@ async function readJson<T>(filePath: string): Promise<T | null> {
     raw = await readFile(filePath, "utf8");
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
-    throw new ErrorStorage(`lecture impossible : ${filePath}`, { cause: error });
+    throw new ErrorStorage(`cannot read: ${filePath}`, { cause: error });
   }
   try {
     return JSON.parse(raw) as T;
   } catch (error) {
-    // Surtout ne pas repartir de zero : la prochaine ecriture effacerait tout.
-    throw new ErrorStorage(`fichier illisible : ${filePath}`, { cause: error });
+    // Never start over from scratch: the next write would erase everything.
+    throw new ErrorStorage(`unreadable file: ${filePath}`, { cause: error });
   }
 }
 
@@ -95,11 +94,11 @@ async function writeJson(filePath: string, data: unknown): Promise<void> {
     await rename(temporary, filePath);
   } catch (error) {
     await rm(temporary, { force: true }).catch(() => {});
-    throw new ErrorStorage(`ecriture impossible : ${filePath}`, { cause: error });
+    throw new ErrorStorage(`cannot write: ${filePath}`, { cause: error });
   }
 }
 
-/** File d'attente : une lecture-modification-ecriture a la fois. */
+/** Queue: one read-modify-write at a time. */
 let queue: Promise<unknown> = Promise.resolve();
 function serially<T>(task: () => Promise<T>): Promise<T> {
   const run = queue.then(task, task);
@@ -133,11 +132,11 @@ const readState = () => readJson<PushState>(fileState()).catch(() => null);
 const writeState = (version: string) =>
   writeJson(fileState(), { dernierPatch: version, date: new Date().toISOString() } satisfies PushState);
 
-// ── Abonnements ────────────────────────────────────────────────────
+// ── Subscriptions ──────────────────────────────────────────────────
 
 /**
- * Comparaison a temps constant : secret `auth` d'un abonnement (preuve de
- * possession) ou jeton de la route d'administration.
+ * Constant-time comparison: a subscription's `auth` secret (proof of
+ * possession) or the admin route token.
  */
 export function sameSecret(a: string, b: string): boolean {
   const ha = createHash("sha256").update(a).digest();
@@ -148,7 +147,7 @@ export function sameSecret(a: string, b: string): boolean {
 const matches = (subscriber: Subscriber, subscription: StoredSubscription) =>
   subscriber.endpoint === subscription.endpoint && sameSecret(subscriber.cles.auth, subscription.cles.auth);
 
-/** Cree ou remplace l'abonnement de ce navigateur. */
+/** Creates or replaces this browser's subscription. */
 export function saveSubscriber(
   subscription: StoredSubscription,
   locale: Locale,
@@ -164,7 +163,7 @@ export function saveSubscriber(
   });
 }
 
-/** Met a jour les favoris (et la langue) d'un abonnement connu. */
+/** Updates the favourites (and language) of a known subscription. */
 export function majSubscriber(
   subscription: StoredSubscription,
   favourites: string[],
@@ -189,12 +188,12 @@ export function deleteSubscriber(subscription: StoredSubscription): Promise<"ok"
   });
 }
 
-/** Identifiant court et stable d'un abonne, pour les bilans : l'adresse n'y figure jamais. */
+/** Short, stable subscriber ID for summaries: the address never appears in them. */
 export const idSubscriber = (endpoint: string) => createHash("sha256").update(endpoint).digest("hex").slice(0, 12);
 
-// ── Limitation de debit ────────────────────────────────────────────
+// ── Rate limiting ──────────────────────────────────────────────────
 
-/** Fenetre fixe par adresse, comme pour le journal client. */
+/** Fixed window per address, as for the client log. */
 export function limitByMinute(maximum: number): (address: string) => boolean {
   const tracked = new Map<string, { start: number; count: number }>();
   return (address) => {
@@ -213,9 +212,9 @@ export function limitByMinute(maximum: number): (address: string) => boolean {
 export const addressOf = (request: Request) =>
   request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "inconnue";
 
-// ── Envoi ──────────────────────────────────────────────────────────
+// ── Sending ────────────────────────────────────────────────────────
 
-/** Erreur d'envoi : `statusCode` est celui du service de notification. */
+/** Send error: `statusCode` is the push service's. */
 export type Sender = (subscription: StoredSubscription, load: string, topic: string) => Promise<void>;
 
 function senderWebPush(config: PushConfig): Sender {
@@ -225,7 +224,7 @@ function senderWebPush(config: PushConfig): Sender {
       load,
       {
         vapidDetails: { subject: config.subject, publicKey: config.publicKey, privateKey: config.privateKey },
-        // Un patch reste une nouvelle quelques jours : au-dela, inutile de la livrer.
+        // A patch stays news for a few days: past that, no point delivering it.
         TTL: 4 * 24 * 3600,
         urgency: "normal",
         topic,
@@ -246,7 +245,7 @@ export interface BroadcastSummary {
   abonnes: number;
   destinataires: number;
   parLangue: Partial<Record<Locale, number>>;
-  /** Quelques messages rediges, pour verifier le rendu avant un envoi. */
+  /** A few written messages, to check the rendering before sending. */
   apercus: SendPreview[];
   envoyes: number;
   echecs: number;
@@ -256,9 +255,9 @@ export interface BroadcastSummary {
 const BY_BATCH = 10;
 
 /**
- * Prepare, et envoie si `envoyer`, la notification de chaque abonne touche
- * par le patch. Les abonnements que le service declare disparus (404, 410)
- * sont effaces. `cible` restreint l'envoi a un abonne, pour un essai.
+ * Prepares, and sends if `send`, the notification of each subscriber affected
+ * by the patch. Subscriptions the service reports as gone (404, 410) are
+ * deleted. `target` restricts sending to one subscriber, for a test.
  */
 export async function broadcast(
   patch: AdjustedPatch,
@@ -292,7 +291,7 @@ export async function broadcast(
 
   const config = configPush();
   const sender = options.sender ?? (config ? senderWebPush(config) : null);
-  if (!sender) throw new Error("notifications : cles VAPID absentes");
+  if (!sender) throw new Error("notifications: VAPID keys missing");
 
   const topic = `patch-${patch.version.replace(/[^A-Za-z0-9_-]/g, "_")}`.slice(0, 32);
   const gone: StoredSubscription[] = [];
@@ -311,7 +310,7 @@ export async function broadcast(
         gone.push(batch[j].send.subscriber);
       } else {
         summary.echecs += 1;
-        void log("warning", "notification non delivree", {
+        void log("warning", "notification not delivered", {
           version: patch.version,
           statut: status ?? null,
           service: new URL(batch[j].send.subscriber.endpoint).hostname,
@@ -327,7 +326,7 @@ export async function broadcast(
       return { subscribers: remaining, result: list.length - remaining.length };
     });
   }
-  await log("info", "notifications de patch", {
+  await log("info", "patch notifications", {
     version: patch.version,
     destinataires: summary.destinataires,
     envoyes: summary.envoyes,
@@ -345,20 +344,20 @@ export type StartupOutcome =
   | { action: "sent"; summary: BroadcastSummary };
 
 /**
- * Appele a chaque demarrage avec le dernier patch connu des donnees.
+ * Called on every startup with the latest patch known to the data.
  *
- * - Premier passage (aucun etat) : on note le patch sans rien envoyer — les
- *   abonnes n'ont pas a recevoir l'annonce d'un patch deja ancien.
- * - Patch deja notifie, ou plus ancien que le dernier notifie : rien.
- * - Patch plus recent : l'etat est ecrit AVANT l'envoi. Un arret en plein
- *   envoi fait perdre quelques notifications, jamais en doubler.
+ * - First run (no state): the patch is recorded without sending anything —
+ *   subscribers need not be told about an already old patch.
+ * - Patch already notified, or older than the last notified one: nothing.
+ * - Newer patch: the state is written BEFORE sending. A stop mid-send loses
+ *   a few notifications, never duplicates them.
  */
 export function notifyNewPatch(patch: AdjustedPatch, sender?: Sender): Promise<StartupOutcome> {
   return serialState(async () => {
     const state = await readState();
     if (!state?.dernierPatch) {
       await writeState(patch.version);
-      await log("info", "notifications : premier demarrage, patch enregistre sans envoi", { version: patch.version });
+      await log("info", "notifications: first startup, patch recorded without sending", { version: patch.version });
       return { action: "recorded", version: patch.version };
     }
     if (state.dernierPatch === patch.version) return { action: "already-notified", version: patch.version };
@@ -376,9 +375,9 @@ export type ManualOutcome =
   | { action: "sent"; bilan: BroadcastSummary; dernierNotifie: string | null };
 
 /**
- * Declenchement manuel (route protegee). Par defaut, une simulation. Un envoi
- * cible (un seul abonne) sert d'essai et ne touche pas a l'etat ; un envoi a
- * tous refuse un patch deja notifie, sauf `forcer`, et le note sinon.
+ * Manual trigger (protected route). A dry run by default. A targeted send
+ * (a single subscriber) is a test and leaves the state alone; a send to all
+ * refuses an already notified patch, unless `force`, and records it otherwise.
  */
 export function triggerManually(
   patch: AdjustedPatch,
@@ -401,7 +400,7 @@ export function triggerManually(
   });
 }
 
-/** Les decisions sur l'etat ne se chevauchent pas (demarrage et route manuelle). */
+/** State decisions never overlap (startup and manual route). */
 let queueState: Promise<unknown> = Promise.resolve();
 function serialState<T>(task: () => Promise<T>): Promise<T> {
   const run = queueState.then(task, task);
@@ -409,15 +408,15 @@ function serialState<T>(task: () => Promise<T>): Promise<T> {
   return run;
 }
 
-/** Point d'entree du demarrage : ne leve jamais, journalise tout. */
+/** Startup entry point: never throws, logs everything. */
 export async function notifyOnStartup(patch: AdjustedPatch | undefined): Promise<void> {
   if (!patch || !configPush()) return;
   try {
     const issue = await notifyNewPatch(patch);
     if (issue.action === "older") {
-      await log("warning", "notifications : patch des donnees plus ancien que le dernier notifie", issue);
+      await log("warning", "notifications: data patch older than the last notified one", issue);
     }
   } catch (error) {
-    await logError("notifications : echec au demarrage", error, { version: patch.version });
+    await logError("notifications: startup failure", error, { version: patch.version });
   }
 }

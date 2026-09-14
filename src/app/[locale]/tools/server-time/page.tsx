@@ -13,12 +13,12 @@ type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/tools/server-time";
 
-/** Fins de saison annoncees dans les notes de patch synchronisees ; le composant garde celle a venir. */
+/** Season ends announced in the synced patch notes; the component keeps the upcoming one. */
 const ENDS = endsOfSeason(Object.values(patchDetails));
 
 /**
- * Pays de reference des exemples de la FAQ, par langue : leur heure locale de
- * remise, ete comme hiver, se calcule a partir du fuseau du serveur.
+ * Reference country of the FAQ examples, per language: their local reset
+ * time, summer and winter alike, is computed from the server's time zone.
  */
 const TIMEZONE_EXAMPLE: Record<Locale, string> = {
   fr: "Europe/Paris",
@@ -27,7 +27,7 @@ const TIMEZONE_EXAMPLE: Record<Locale, string> = {
   es: "Europe/Madrid",
 };
 
-/** Heure « murale » du serveur convertie dans un fuseau, a une date donnee. */
+/** The server's "wall clock" time converted into a time zone, at a given date. */
 function serverTimeIn(locale: Locale, time: number, timezone: string, month = 0) {
   const instant = Date.UTC(2026, month, 5, time) - SERVER_OFFSET_MIN * 60_000;
   return new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: timezone }).format(

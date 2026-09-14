@@ -6,12 +6,12 @@ import type { MeasuredRank } from "@/lib/measured-ranks";
 import { FilterGroup, Chip } from "@/components/chip";
 
 /**
- * Rang de reference d'une fiche heros.
+ * Reference rank of a hero page.
  *
- * Taux de l'en-tete et contres changent d'un rang a l'autre : un seul etat les
- * pilote, pour qu'un joueur Mythique lise toute la fiche a son niveau. Le
- * selecteur, unique, se place sous les taux de l'en-tete : visible quel que
- * soit l'onglet ouvert.
+ * Header rates and counters change from one rank to another: a single state
+ * drives them, so that a Mythic player reads the whole page at their level. The
+ * picker, a single one, sits under the header rates: visible whichever
+ * tab is open.
  */
 interface Context {
   rank: MeasuredRank;
@@ -34,7 +34,7 @@ export function RankProvider({
   );
 }
 
-/** Hors d'une fiche, pas de selecteur : tout se lit tous rangs confondus. */
+/** Outside a hero page, no picker: everything reads across all ranks. */
 export function useRank(): MeasuredRank {
   return useContext(RankContext)?.rank ?? "all";
 }
@@ -45,7 +45,7 @@ export function RankPicker({ className }: { className?: string }) {
   return <ChoiceRank ranks={context.ranks} rank={context.rank} onChange={context.setRank} className={className} />;
 }
 
-/** Puces des rangs, sans etat : la fiche les pilote par son contexte, un outil par le sien. */
+/** Rank chips, stateless: the hero page drives them through its context, a tool through its own. */
 export function ChoiceRank({
   ranks,
   rank,
@@ -69,7 +69,7 @@ export function ChoiceRank({
   );
 }
 
-/** Valeur qui suit le rang choisi, ou la mesure tous rangs a defaut. */
+/** Value that follows the chosen rank, or the all-ranks measurement as a fallback. */
 export function ValueByRank({ values }: { values: Partial<Record<MeasuredRank, string>> }) {
   const rank = useRank();
   return <>{values[rank] ?? values.all ?? null}</>;

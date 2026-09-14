@@ -70,7 +70,7 @@ import type { Hero } from "@/lib/types";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** Une page par heros, generee au build. */
+/** One page per hero, generated at build time. */
 export function generateStaticParams() {
   return allHeroes.map((h) => ({ slug: h.slug }));
 }
@@ -84,10 +84,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const tier = rateBySlug.get(h.slug)?.tier;
   const v = patchCurrent.version;
   return metaPage(locale, {
-    // Titre calque sur les recherches (« aamon build », « aamon emblem »,
-    // « aamon counter »), avec le palier et le patch : les resultats qui
-    // portent un repere de fraicheur sont ceux qu'on clique. L'epithete reste
-    // sur la page.
+    // Title modeled on searches ("aamon build", "aamon emblem",
+    // "aamon counter"), with the tier and the patch: the results that
+    // carry a freshness marker are the ones that get clicked. The epithet stays
+    // on the page.
     title: tier
       ? tm("pages.seo.hero.title", { nom: h.name, palier: tier, v })
       : tm("pages.seo.hero.titleNoTier", { nom: h.name, v }),
@@ -98,7 +98,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-/** Build le plus joue sur la position principale du heros, tous rangs. */
+/** Most played build on the hero's main lane, all ranks. */
 function buildMain(h: Hero) {
   const byLane = buildsPlayed[h.slug] ?? {};
   const lane = h.lanes.find((l) => byLane[l]) ?? Object.keys(byLane)[0];
@@ -106,10 +106,10 @@ function buildMain(h: Hero) {
 }
 
 /**
- * Description en phrases de donnees, comme les extraits qui se cliquent : qui
- * contre le heros (en Mythique quand ce rang est mesure), son build le plus
- * joue, son taux de victoire et son palier, puis la date du releve. Sans
- * aucune mesure, la presentation generale.
+ * Description in data sentences, like the snippets that get clicked: who
+ * counters the hero (at Mythic when that rank is measured), its most
+ * played build, its win rate and its tier, then the measurement date. Without
+ * any measurement, the general overview.
  */
 function descriptionHero(locale: Locale, h: Hero): string {
   const t = createT(locale);
@@ -146,8 +146,8 @@ function descriptionHero(locale: Locale, h: Hero): string {
 
   if (sentences.length > 0) return [...sentences, `${t("pages.freshness.updatedOn", { date: longDate(locale) })}.`].join(" ");
 
-  // Le resume redige n'existe qu'en francais : les autres langues prennent la
-  // description generee, dans leur langue.
+  // The written summary only exists in French: the other languages take the
+  // generated description, in their own language.
   return (
     (locale === "fr" ? h.analysis?.summary : undefined) ??
     t("pages.heroDetail.metaDescription", {
@@ -170,17 +170,17 @@ export default async function HeroPage({ params }: Params) {
   const skillsWiki = skills(locale)[h.slug] ?? [];
   const iconsSkills = visualsSkills[h.slug] ?? {};
   const illustrationsHero = illustrations[h.slug] ?? {};
-  // L'illustration du skin d'origine sert de fond : c'est celle qui represente
-  // le heros tel qu'on le rencontre par defaut.
+  // The original skin's illustration serves as background: it is the one that
+  // shows the hero as met by default.
   const background = Object.values(illustrationsHero)[0] ?? null;
   const story = stories(locale)[h.slug] ?? null;
   const hasStory =
     !!story && (story.lore.length > 0 || !!story.profile || story.trivia.length > 0);
 
-  // Jointure des trois sources : le skin porte son id, son portrait (par id) et
-  // son illustration (par nom). La vitrine s'en sert pour tout synchroniser.
-  // L'illustration se retrouve aussi par nom normalise : la legende du wiki
-  // n'a pas toujours la casse du module (« Vessel Of Deceit »).
+  // Join of the three sources: the skin carries its id, its portrait (by id) and
+  // its illustration (by name). The showcase uses it to keep everything in sync.
+  // The illustration is also matched by normalized name: the wiki's caption
+  // does not always have the module's casing ("Vessel Of Deceit").
   const illustrationByName = new Map(
     Object.entries(illustrationsHero).map(([name, path]) => [normalizeNameSkin(name), path]),
   );
@@ -194,8 +194,8 @@ export default async function HeroPage({ params }: Params) {
     heroesBySlug.get(slug)?.images.icon ?? heroesBySlug.get(slug)?.images.portrait ?? null;
   const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
 
-  // Le selecteur de rang tourne dans le navigateur, qui n'a pas le catalogue :
-  // noms et portraits des adversaires sont donc resolus ici, pour chaque rang.
+  // The rank selector runs in the browser, which does not have the catalog:
+  // opponents' names and portraits are therefore resolved here, for each rank.
   const resolve = (list: CounterFigure[]) =>
     list.map((e) => ({ ...e, name: nameOf(e.slug), portrait: portraitOf(e.slug) }));
   const countersShown = Object.fromEntries(
@@ -206,16 +206,16 @@ export default async function HeroPage({ params }: Params) {
   );
   const hasCounters = Object.keys(countersShown).length > 0;
 
-  // Taux de l'en-tete, rang par rang : le rang choisi sur la fiche les fait
-  // basculer en meme temps que les contres.
+  // Header rates, rank by rank: the rank chosen on the hero page switches
+  // them together with the counters.
   const statsRanks = statsByRank(h.slug);
   const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const valuesByRank = (format: (s: StatsRank) => string) =>
     Object.fromEntries(Object.entries(statsRanks).map(([r, s]) => [r, format(s)]));
   const ranksAvailable = MEASURED_RANKS.filter((r) => statsRanks[r] || countersShown[r]);
 
-  // Builds joues, resolus ici pour la meme raison : visuels et catalogue
-  // restent cote serveur.
+  // Played builds, resolved here for the same reason: visuals and catalog
+  // stay on the server.
   const buildsShown = Object.fromEntries(
     Object.entries(buildsPlayed[h.slug] ?? {}).map(([lane, byRank]) => [
       lane,
@@ -242,9 +242,9 @@ export default async function HeroPage({ params }: Params) {
   );
   const hasTeammates = Object.keys(teammatesShown).length > 0;
 
-  // Build le plus joue sur la position principale, tous rangs : la reference
-  // a laquelle confronter les builds rediges, qui vieillissent d'un patch a
-  // l'autre.
+  // Most played build on the main lane, all ranks: the reference
+  // to hold the written builds against, which age from one patch to
+  // the next.
   const reference = buildMain(h);
   const namesItems = new Map(itemsFor(locale).map((o) => [o.slug, o.name]));
   const gapOf = (b: { items: string[]; talent: string }) => {
@@ -257,7 +257,7 @@ export default async function HeroPage({ params }: Params) {
     return { missing, talents: sameTalent ? null : reference.talents.join(", ") };
   };
 
-  // Patchs dates, pour les reperes des courbes, et ajustements du heros.
+  // Dated patches, for the chart markers, and the hero's adjustments.
   const versionsRecent = Object.values(patchDetails).sort((a, b) =>
     b.version.localeCompare(a.version, undefined, { numeric: true }),
   );
@@ -273,13 +273,13 @@ export default async function HeroPage({ params }: Params) {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: h.title ? `${h.name} — ${h.title}` : h.name,
-    // La description de la page, dans sa langue : le resume redige n'existe
-    // qu'en francais et s'affichait sous un `inLanguage` anglais.
+    // The page description, in its language: the written summary only exists
+    // in French and was shown under an English `inLanguage`.
     description: descriptionHero(locale, h),
     image: h.images.portrait ? absoluteUrl(h.images.portrait) : undefined,
     inLanguage: LOCALE_HTML[locale],
-    // Premiere mesure conservee pour ce heros : la fiche publie ses chiffres
-    // depuis. La modification suit le dernier releve des taux.
+    // First measurement kept for this hero: the page has published its figures
+    // since then. The modification follows the latest rate measurement.
     datePublished: history?.start ?? dateMeasure,
     dateModified: dateMeasure,
     author: { "@type": "Person", name: site.author, url: `https://github.com/${site.author}` },
@@ -301,13 +301,13 @@ export default async function HeroPage({ params }: Params) {
       />
 
       {/*
-        Un seul etat de skin pour toute la fiche : l'en-tete et l'onglet skins
-        le partagent, si bien que choisir un skin met a jour le portrait de tete
-        comme la grande illustration.
+        A single skin state for the whole hero page: the header and the skins tab
+        share it, so choosing a skin updates the header portrait
+        as well as the large illustration.
       */}
       <ShowcaseProvider skins={skinsFull} portraitDefault={h.images.portrait}>
       <RankProvider ranks={ranksAvailable}>
-      {/* ── En-tete ────────────────────────────────────────────────────── */}
+      {/* ── Header ─────────────────────────────────────────────────────── */}
       <div className="relative border-b border-night-700/70 bg-night-900/30">
         {background && (
           <div aria-hidden className="absolute inset-0 overflow-hidden">
@@ -317,25 +317,25 @@ export default async function HeroPage({ params }: Params) {
               fill
               priority
               sizes="100vw"
-              // Fond assombri par un voile : une qualite reduite ne se voit pas,
-              // et c'est l'element le plus lourd a charger sur mobile.
+              // Background darkened by an overlay: a reduced quality does not show,
+              // and it is the heaviest element to load on mobile.
               quality={50}
-              // Le bandeau est bien plus large que l'illustration n'est haute :
-              // cadrer en haut ne montrerait que le ciel. On vise le tiers
-              // superieur, ou se trouve le personnage.
+              // The banner is much wider than the illustration is tall:
+              // framing at the top would only show the sky. We aim at the upper
+              // third, where the character is.
               className="object-cover object-[50%_30%] brightness-110"
             />
             {/*
-              Un voile uniforme plutot qu'un degrade lateral : la zone claire
-              d'une illustration n'est pas au meme endroit d'un heros a
-              l'autre — celle de Khufra est sombre a droite, celle de Miya au
-              centre. Un degrade oriente marchait donc pour les uns et effacait
-              les autres.
+              A uniform overlay rather than a side gradient: the light area
+              of an illustration is not in the same place from one hero to
+              another — Khufra's is dark on the right, Miya's in the
+              center. A directional gradient thus worked for some and washed out
+              the others.
             */}
             <div className="absolute inset-0 bg-night-950/55" />
             {/*
-              Le bas de l'en-tete se referme sur le fond de page : la
-              transition vers le contenu reste franche, sans coupure nette.
+              The bottom of the header closes onto the page background: the
+              transition to the content stays clean, without a hard cut.
             */}
             <div className="absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-night-950 to-transparent" />
           </div>
@@ -343,8 +343,8 @@ export default async function HeroPage({ params }: Params) {
 
         <div className="relative mx-auto max-w-5xl px-4 py-10">
           {/*
-            Le fil flotte sur l'illustration avec son propre fond. La miette du
-            role mene a la page du role ; celle du heros ouvre les autres.
+            The breadcrumb floats over the illustration with its own background. The
+            role crumb leads to the role page; the hero crumb opens the others.
           */}
           <Breadcrumb
             crumbs={[
@@ -394,7 +394,7 @@ export default async function HeroPage({ params }: Params) {
               </div>
             </div>
 
-            {/* Notes du jeu, en jauges plutot qu'en chiffres nus. */}
+            {/* In-game ratings, as gauges rather than bare figures. */}
             <dl className="grid min-w-0 flex-1 basis-56 gap-2.5">
               {[
                 [t("pages.heroDetail.ratings.offense"), h.ratings.offense],
@@ -416,11 +416,11 @@ export default async function HeroPage({ params }: Params) {
             </dl>
           </div>
 
-          {/* ── Faits ────────────────────────────────────────────────── */}
+          {/* ── Facts ─────────────────────────────────────────────────── */}
           {/*
-            Les informations posent leur propre fond plutot que de compter sur
-            l'assombrissement de l'illustration : le contraste ne depend alors
-            plus de la luminosite de l'artwork, qui change a chaque heros.
+            The information sets its own background rather than relying on
+            the illustration being darkened: the contrast then no longer depends
+            on the artwork's brightness, which changes with each hero.
           */}
           <div className="bevel mt-8 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm">
           <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6">
@@ -444,7 +444,7 @@ export default async function HeroPage({ params }: Params) {
               ),
             )}
           </dl>
-          {/* Rang de toute la fiche : taux, contres et builds le suivent. */}
+          {/* Rank for the whole hero page: rates, counters and builds follow it. */}
           <RankPicker className="mt-5 border-t border-night-800 pt-4" />
           </div>
         </div>
@@ -697,7 +697,7 @@ export default async function HeroPage({ params }: Params) {
               deferred: true,
               label: t("pages.heroDetail.tab.skins"),
               counter: skinsFull.length || undefined,
-              // Les noms des skins, en texte, en attendant la galerie.
+              // Skin names, as text, until the gallery loads.
               preview:
                 skinsFull.length > 0 ? (
                   <div className="text-sm leading-relaxed text-chalk-300">
@@ -774,10 +774,10 @@ function ListCounters({
 }
 
 /**
- * Resume des statistiques en phrases, rendu par le serveur dans l'onglet
- * differe : evolution sur trente jours, duree de partie favorable, ecart entre
- * les rangs et ajustements recents. Les graphiques le remplacent a
- * l'ouverture ; d'ici la, moteurs et lecteurs en ont l'essentiel en texte.
+ * Statistics summary in sentences, rendered by the server in the deferred
+ * tab: thirty-day trend, favorable game length, gap between
+ * ranks and recent adjustments. The charts replace it on
+ * opening; until then, engines and readers get the gist as text.
  */
 function PreviewStatistics({
   locale,

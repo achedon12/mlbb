@@ -1,24 +1,24 @@
 /**
- * Traduction du rang.
+ * Rank translation.
  *
- * Le profil renvoie un `rank_level` numerique — 166 — qui ne dit rien a un
- * lecteur. De Guerrier a Legende, chaque division couvre une plage de rankid
- * fixe, tiree de la table officielle du jeu (rankid 1 a 135). Au-dela commence
- * la famille Mythique, qui n'a plus de divisions mais des « points » : ils
- * marquent le passage de Mythique a Honneur mythique (25), Gloire mythique
- * (50), puis Immortel (100). Chaque palier a son embleme officiel.
+ * The profile returns a numeric `rank_level` — 166 — which means nothing to a
+ * reader. From Warrior to Legend, each division covers a fixed rankid
+ * range, taken from the game's official table (rankid 1 to 135). Beyond that begins
+ * the Mythic family, which no longer has divisions but "points": they
+ * mark the move from Mythic to Mythic Honor (25), Mythic Glory
+ * (50), then Immortal (100). Each tier has its official emblem.
  */
 import ranksData from "@/data/game/ranks.json";
 
 const IMAGES = (ranksData as { images: Record<string, string> }).images;
 
 interface Tier {
-  /** Seuil bas du rank_level, inclus. */
+  /** Lower rank_level bound, inclusive. */
   min: number;
   name: string;
-  /** Chiffre romain de la division, du plus bas au plus haut. */
+  /** Roman numeral of the division, from lowest to highest. */
   division: string;
-  /** Cle d'embleme, commune a toutes les divisions d'un meme rang. */
+  /** Emblem key, shared by all divisions of the same rank. */
   key: string;
   color: string;
 }
@@ -51,20 +51,20 @@ const TIERS: Tier[] = [
   { min: 130, name: "Legende", division: "I", key: "legend", color: "#ffb84d" },
 ];
 
-/** Premier rank_level de la famille Mythique, juste apres Legende I. */
+/** First rank_level of the Mythic family, right after Legend I. */
 const MYTHIC_MIN = 136;
 
 /**
- * rank_level correspondant a la premiere etoile mythique.
+ * rank_level matching the first mythic star.
  *
- * La table officielle (/api/academy/ranks) place Legende V a I sur 106-135 :
- * les etoiles mythiques ne comptent qu'a partir de 136, si bien qu'un compte de
- * 166 correspond a 30 etoiles, pas a 60. Repere sur un compte reel : rank_level
- * 166 = 30 etoiles (Honneur).
+ * The official table (/api/academy/ranks) puts Legend V to I at 106-135:
+ * mythic stars only count from 136, so an account at
+ * 166 has 30 stars, not 60. Checked on a real account: rank_level
+ * 166 = 30 stars (Honor).
  */
 const MYTHIC_BASE = 136;
 
-/** Sous-paliers mythiques, par etoiles cumulees depuis l'entree en Mythique. */
+/** Mythic sub-tiers, by stars accumulated since entering Mythic. */
 const MYTHIC = [
   { threshold: 100, name: "Immortel mythique", key: "mythic-immortal", color: "#ff3d6b" },
   { threshold: 50, name: "Gloire mythique", key: "mythic-glory", color: "#ff6b3d" },
@@ -73,19 +73,19 @@ const MYTHIC = [
 ];
 
 export interface ReadableRank {
-  /** Cle d'embleme, langue-independante, pour la traduction du nom. */
+  /** Emblem key, language-independent, for translating the name. */
   key: string;
   name: string;
-  /** Chiffre romain de la division (vide en Mythique). */
+  /** Roman numeral of the division (empty in Mythic). */
   division: string;
   color: string;
-  /** URL de l'embleme officiel du rang. */
+  /** URL of the rank's official emblem. */
   image: string;
-  /** Etoiles dans la division, ou points mythiques accumules. */
+  /** Stars in the division, or accumulated mythic points. */
   stars: number;
-  /** Libelle des etoiles : « etoiles » sous Mythique, « points » au-dessus. */
+  /** Star label: "stars" below Mythic, "points" above. */
   unitStars: "star" | "point";
-  /** Vrai dans la famille Mythique. */
+  /** True in the Mythic family. */
   mythic: boolean;
 }
 
@@ -105,7 +105,7 @@ export function readableRank(rankLevel: number): ReadableRank {
     };
   }
 
-  // Le dernier palier dont le seuil est atteint.
+  // The last tier whose threshold is reached.
   let chosen = TIERS[0];
   for (const p of TIERS) if (rankLevel >= p.min) chosen = p;
 
@@ -121,7 +121,7 @@ export function readableRank(rankLevel: number): ReadableRank {
   };
 }
 
-/** Nom de pays a partir du code ISO, quand il est connu. */
+/** Country name from the ISO code, when known. */
 const COUNTRY: Record<string, string> = {
   FR: "France",
   BE: "Belgique",

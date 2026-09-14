@@ -12,7 +12,7 @@ import { choicePopular, patchCurrent } from "@/lib/freshness";
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = createT(locale);
-  // Noms anglais de l'API (« Seasoned Hunter ») vers le catalogue (« emblemData.seasoned-hunter.name »).
+  // English API names ("Seasoned Hunter") to the catalog ("emblemData.seasoned-hunter.name").
   const nameChoice = (name: string) => {
     const key = `emblemData.${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.nom`;
     const translated = t(key);

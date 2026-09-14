@@ -48,7 +48,7 @@ export function ListArticles({
   );
 }
 
-/** Corps d'article : en-tete, contenu rendu, et retour a la liste. */
+/** Article body: header, rendered content, and back link to the list. */
 export function BodyArticle({
   locale,
   article,
@@ -61,8 +61,8 @@ export function BodyArticle({
   locale: Locale;
 }) {
   const t = createT(locale);
-  // Nom de section pour le fil d'Ariane : celui de la navigation plutot que le
-  // libelle du lien retour (« Tous les… »), qui ne nomme pas la rubrique.
+  // Section name for the breadcrumb: the navigation one rather than the back
+  // link label ("All…"), which does not name the section.
   const navEntry = NEWS.find((r) => r.href === back.href);
   const section = navEntry ? t(`nav.${navEntry.key}.label`) : back.label;
 

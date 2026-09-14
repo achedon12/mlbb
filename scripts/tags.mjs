@@ -1,12 +1,12 @@
 /**
- * Texte brut d'une chaine qui peut porter du HTML : legendes du wiki,
- * descriptions de l'API des mesures.
+ * Plain text of a string that may carry HTML: wiki captions,
+ * descriptions from the stats API.
  *
- * Un remplacement par expression reguliere en un seul passage laisserait se
- * reformer une balise imbriquee (« <scr<b>ipt> » redonne « <script> »). Ici,
- * un parcours caractere par caractere retire chaque balise, et recommence
- * jusqu'a ce que rien ne bouge : aucun « < » suivi d'une lettre, de « / », de
- * « ! » ou de « ? » ne sort jamais. Un chevron de texte (« PV < 30 % ») reste.
+ * A single-pass regular expression replacement would let a nested tag
+ * re-form (« <scr<b>ipt> » yields « <script> »). Here,
+ * a character-by-character walk strips each tag, and starts over
+ * until nothing changes: no « < » followed by a letter, « / »,
+ * « ! » or « ? » ever gets out. A text angle bracket (« HP < 30 % ») stays.
  */
 export function removeTags(text) {
   let previous;

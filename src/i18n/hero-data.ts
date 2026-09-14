@@ -2,18 +2,18 @@ import { LOCALE_HTML, type Locale } from "./config";
 import type { T } from "./t";
 
 /**
- * Libelles des donnees de heros tirees du wiki : ressource, type de degats,
- * portee, region, specialites, et date de sortie.
+ * Labels of hero data taken from the wiki: resource, damage type,
+ * range, region, specialties, and release date.
  *
- * Le wiki les publie en anglais. Le catalogue les traduit sous
- * `heroData.<champ>.<cle>`, la cle etant la valeur ramenee a un slug
- * (« Moniyan Empire » → `moniyan-empire`). Une valeur que le catalogue ne
- * connait pas encore — une synchro peut en amener une nouvelle — s'affiche
- * telle quelle plutot que sous forme de cle.
+ * The wiki publishes them in English. The catalog translates them under
+ * `heroData.<field>.<key>`, the key being the value reduced to a slug
+ * ("Moniyan Empire" → `moniyan-empire`). A value the catalog does not
+ * know yet — a sync can bring a new one — is shown
+ * as is rather than as a key.
  */
 export type HeroField = "resource" | "damage" | "attack" | "region" | "specialty";
 
-/** Coquilles du wiki, rattachees a la valeur correcte. */
+/** Wiki typos, mapped to the correct value. */
 const ALIAS: Record<string, string> = { phyiscal: "physical" };
 
 const MONTH = [
@@ -21,7 +21,7 @@ const MONTH = [
   "july", "august", "september", "october", "november", "december",
 ];
 
-/** Retire un reste de lien wiki : « [[Cible|Libelle]] » ou « Cible|Libelle » gardent le libelle. */
+/** Strips a wiki link leftover: "[[Target|Label]]" or "Target|Label" keep the label. */
 export function valueWiki(value: string): string {
   return value
     .replace(/^\[\[(?:[^\]|]*\|)?([^\]]*)\]\]$/, "$1")
@@ -47,9 +47,9 @@ export function heroLabel(t: T, field: HeroField, value: string | null): string 
 }
 
 /**
- * Date de sortie dans la langue de la page. Le wiki ecrit « 26 October 2021 »,
- * parfois le mois seul (« January 2017 ») ou l'annee seule, qui reste telle
- * quelle ; « TBA » designe un heros annonce.
+ * Release date in the page's language. The wiki writes "26 October 2021",
+ * sometimes the month alone ("January 2017") or the year alone, which stays
+ * as is; "TBA" denotes an announced hero.
  */
 export function releaseDate(value: string | null, locale: Locale, t: T): string | null {
   if (!value) return null;

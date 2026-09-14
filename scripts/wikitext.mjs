@@ -1,16 +1,16 @@
 /**
- * Conversion du wikitexte en texte lisible.
+ * Converts wikitext into readable text.
  *
- * Les descriptions de competences melangent des liens internes, des gabarits
- * de mise en forme et des annotations de calcul (`{{scale|...}}`) qui n'ont de
- * sens que sur le wiki. On garde la phrase, on jette la mecanique d'affichage.
+ * Skill descriptions mix internal links, formatting templates and scaling
+ * annotations (`{{scale|...}}`) that only make sense on the wiki. We keep the
+ * sentence and drop the display machinery.
  */
 /**
- * Retire toute balise HTML, jusqu'a stabilite.
+ * Strips every HTML tag, until stable.
  *
- * Un unique passage laisserait passer les balises imbriquees — retirer
- * `<a<b>c>` peut recreer une balise valide. On repete donc tant que la chaine
- * change, si bien qu'aucun `<...>` ne subsiste.
+ * A single pass would let nested tags through — stripping `<a<b>c>` can
+ * recreate a valid tag. So we repeat while the string changes, so that no
+ * `<...>` remains.
  */
 export function withoutTags(text) {
   let output = String(text);
@@ -25,12 +25,12 @@ export function withoutTags(text) {
 export function cleanDescription(raw) {
   const withoutHtml = withoutTags(
     String(raw)
-      // Annotations de calcul : elles decrivent une formule, pas un effet.
+      // Scaling annotations: they describe a formula, not an effect.
       .replace(/\{\{scale\|[^}]*\}\}/gi, "")
-      // Gabarits de mise en valeur : seul le texte compte.
+      // Emphasis templates: only the text matters.
       .replace(/\{\{[Bb]\|([^}]*)\}\}/g, "$1")
       .replace(/\{\{(?:hi|ii|Hi|II)\|([^}]*)\}\}/g, "$1")
-      // Liens internes, avec ou sans libelle.
+      // Internal links, with or without a label.
       .replace(/\[\[[^\]|]*\|([^\]]*)\]\]/g, "$1")
       .replace(/\[\[([^\]]*)\]\]/g, "$1")
       .replace(/<nowiki>([\s\S]*?)<\/nowiki>/g, "$1")
@@ -38,20 +38,20 @@ export function cleanDescription(raw) {
   );
   return (
     withoutHtml
-      // Italique et gras du wikitexte.
+      // Wikitext italics and bold.
       .replace(/'{2,}/g, "")
       .replace(/&ndash;/g, "–")
       .replace(/&nbsp;/g, " ")
       .replace(/&amp;/g, "&")
-      // Gabarit inconnu : on garde son premier argument, qui est le texte
-      // affiche par convention. Prendre tout ce qui suit la premiere barre
-      // laisserait les separateurs des gabarits a plusieurs arguments —
-      // « cannot be targeted|untargetable » au lieu de « cannot be targeted ».
+      // Unknown template: keep its first argument, which is the displayed text
+      // by convention. Taking everything after the first pipe would leave the
+      // separators of multi-argument templates —
+      // "cannot be targeted|untargetable" instead of "cannot be targeted".
       .replace(/\{\{[^}|]*\|([^}|]*)(?:\|[^}]*)?\}\}/g, "$1")
-      // Gabarit sans argument : il ne porte aucun texte.
+      // Template without arguments: it carries no text.
       .replace(/\{\{[^}]*\}\}/g, "")
       .replace(/\s+/g, " ")
-      // Le retrait des annotations laisse un blanc avant le pourcentage.
+      // Removing annotations leaves a space before the percent sign.
       .replace(/\s+%/g, "%")
       .replace(/\s+([.,;:])/g, "$1")
       .trim()
@@ -59,7 +59,7 @@ export function cleanDescription(raw) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Histoire des heros : lore, fiche narrative, anecdotes
+// Hero story: lore, story sheet, trivia
 // ─────────────────────────────────────────────────────────────
 
 const MONTH = [
@@ -68,9 +68,9 @@ const MONTH = [
 ];
 
 /**
- * Retire ce qui n'a de sens que sur le wiki : les references (souvent de
- * longs blocs avec galeries), les gabarits d'annotation et les marqueurs de
- * mise en page. Le reste du nettoyage reste a la charge de l'appelant.
+ * Strips what only makes sense on the wiki: references (often long blocks
+ * with galleries), annotation templates and layout markers. The rest of the
+ * cleanup is left to the caller.
  */
 function withoutCruft(raw) {
   return removeLinksFile(String(raw))
@@ -78,7 +78,7 @@ function withoutCruft(raw) {
     .replace(/<ref[^>]*>[\s\S]*?<\/ref>/gi, "")
     .replace(/<gallery[^>]*>[\s\S]*?<\/gallery>/gi, "")
     .replace(/\{\{(?:clr|cite|retcon|translation|main|see also)\b[^}]*\}\}/gi, "")
-    // Liens externes : on garde le libelle, on jette l'URL.
+    // External links: keep the label, drop the URL.
     .replace(/\[https?:\/\/\S+\s+([^\]]*)\]/g, "$1")
     .replace(/\[https?:\/\/\S+\]/g, "")
     .replace(/&sect;/g, "§")
@@ -88,11 +88,11 @@ function withoutCruft(raw) {
 const EXTENSIONS_IMAGE = /\.(?:png|jpe?g|gif|svg|webp)$/i;
 
 /**
- * Retire les liens d'image, par comptage de crochets : leur legende peut
- * contenir des liens imbriques qu'une expression reguliere simple couperait
- * au mauvais endroit. Le wiki les ecrit de deux facons — prefixees
- * (`[[File:...]]`, `[[Image:...]]`) ou par simple nom de fichier
- * (`[[Layla lore.png|center|512px]]`) — reconnues ici a l'extension.
+ * Strips image links by counting brackets: their caption may contain nested
+ * links that a simple regular expression would cut in the wrong place. The
+ * wiki writes them two ways — prefixed (`[[File:...]]`, `[[Image:...]]`) or
+ * as a bare file name (`[[Layla lore.png|center|512px]]`) — recognised here
+ * by their extension.
  */
 function removeLinksFile(text) {
   const re = /\[\[/g;
@@ -121,7 +121,7 @@ function removeLinksFile(text) {
   return output;
 }
 
-/** Retire entierement un gabarit `{{Nom ...}}` du texte, imbrications comprises. */
+/** Removes a `{{Name ...}}` template from the text entirely, nested ones included. */
 function removeTemplate(text, name) {
   const re = new RegExp(`\\{\\{${name}\\b`, "i");
   const m = re.exec(text);
@@ -140,11 +140,11 @@ function removeTemplate(text, name) {
 }
 
 /**
- * Le lore d'un heros, rendu en paragraphes lisibles.
+ * A hero's lore, rendered as readable paragraphs.
  *
- * On separe d'abord sur les lignes vides, puis on nettoie chaque paragraphe
- * comme une description : ainsi les coupures de paragraphe survivent au
- * passage, la ou `nettoyerDescription` seule aplatirait tout en une ligne.
+ * We first split on blank lines, then clean each paragraph like a
+ * description: paragraph breaks survive the process, where `cleanDescription`
+ * alone would flatten everything onto one line.
  */
 export function cleanLore(raw) {
   return withoutCruft(raw)
@@ -154,8 +154,8 @@ export function cleanLore(raw) {
 }
 
 /**
- * Extrait le corps d'un gabarit `{{Nom ...}}` par comptage d'accolades, seul
- * moyen fiable quand le gabarit en imbrique d'autres.
+ * Extracts the body of a `{{Name ...}}` template by counting braces, the only
+ * reliable way when the template nests others.
  */
 function bodyTemplate(wikitext, name) {
   const re = new RegExp(`\\{\\{${name}\\b`, "i");
@@ -178,9 +178,9 @@ function bodyTemplate(wikitext, name) {
 }
 
 /**
- * Decoupe le corps d'un gabarit en champs `nom = valeur`. La coupe se fait sur
- * les barres de premier niveau : une barre a l'interieur d'un gabarit imbrique
- * ou d'un lien appartient a la valeur, pas a la structure.
+ * Splits a template body into `name = value` fields. The split happens on
+ * top-level pipes: a pipe inside a nested template or a link belongs to the
+ * value, not to the structure.
  */
 function fieldsTemplate(body) {
   const fields = {};
@@ -212,7 +212,7 @@ function fieldsTemplate(body) {
   return fields;
 }
 
-/** Un champ dont la valeur est une liste `*element` devient un tableau nettoye. */
+/** A field whose value is a `*item` list becomes a cleaned array. */
 function elementsList(value) {
   if (!value) return [];
   const raw = withoutCruft(value);
@@ -226,7 +226,7 @@ function elementsList(value) {
   return alone ? [alone] : [];
 }
 
-/** `{{birthday|7|28}}` devient « 28 juillet » ; les autres formes restent brutes. */
+/** `{{birthday|7|28}}` becomes "28 juillet"; other forms stay raw. */
 function anniversary(value) {
   if (!value) return null;
   const m = value.match(/\{\{birthday\|(\d{1,2})\|(\d{1,2})\}\}/i);
@@ -240,7 +240,7 @@ function anniversary(value) {
 
 const GENRES = { male: "Homme", female: "Femme", "n/a": null, none: null };
 
-/** Localise les entrees de la fiche : la valeur brute d'abord, sinon rien. */
+/** Localises the sheet entries: the raw value first, otherwise nothing. */
 function textField(value) {
   if (!value) return null;
   const light = cleanDescription(withoutCruft(value));
@@ -248,15 +248,15 @@ function textField(value) {
 }
 
 /**
- * Reconstruit la fiche narrative d'un heros a partir de son gabarit
- * `{{Infobox hero story}}`. Chaque champ est optionnel : le wiki les remplit
- * de facon inegale d'un heros a l'autre.
+ * Rebuilds a hero's story sheet from its `{{Infobox hero story}}` template.
+ * Every field is optional: the wiki fills them unevenly from one hero to
+ * another.
  */
 export function sheetStory(wikitext) {
   const body = bodyTemplate(wikitext, "Infobox hero story");
   if (!body) return null;
-  // On retire references et galeries avant le decoupage : leurs barres
-  // internes ne sont pas des separateurs de champs et fausseraient la coupe.
+  // Strip references and galleries before splitting: their inner pipes are
+  // not field separators and would break the split.
   const c = fieldsTemplate(withoutCruft(body));
 
   const genreRaw = textField(c.gender)?.toLowerCase();
@@ -273,7 +273,7 @@ export function sheetStory(wikitext) {
     powers: elementsList(c.abilities),
   };
 
-  // Une fiche entierement vide ne merite pas d'etre conservee.
+  // An entirely empty sheet is not worth keeping.
   const useful = Object.values(sheet).some((v) =>
     Array.isArray(v) ? v.length > 0 : Boolean(v),
   );
@@ -281,9 +281,9 @@ export function sheetStory(wikitext) {
 }
 
 /**
- * Renvoie le contenu d'une section de premier niveau, borne au prochain titre
- * de niveau egal ou superieur. `titres` liste les intitules acceptes, essayes
- * dans l'ordre.
+ * Returns the content of a top-level section, bounded by the next heading of
+ * the same or a higher level. `titles` lists the accepted headings, tried in
+ * order.
  */
 export function sectionWiki(wikitext, titles) {
   const headers = [
@@ -301,13 +301,13 @@ export function sectionWiki(wikitext, titles) {
 }
 
 /**
- * Assemble l'histoire d'un heros : le lore en paragraphes, la fiche narrative
- * et les anecdotes. Renvoie `null` si la page n'offre rien d'exploitable.
+ * Assembles a hero's story: the lore as paragraphs, the story sheet and the
+ * trivia. Returns `null` if the page offers nothing usable.
  */
 export function extractStory(wikitext) {
-  // La prose vit dans la sous-section « Lore ». A defaut, certains heros la
-  // placent directement sous « Story », melee au gabarit de fiche : on le
-  // retire pour ne garder que le recit.
+  // The prose lives in the "Lore" subsection. Failing that, some heroes put
+  // it directly under "Story", mixed with the sheet template: we strip the
+  // template to keep only the narrative.
   const rawLore = sectionWiki(wikitext, ["Lore", "Story"]);
   const lore = rawLore ? cleanLore(removeTemplate(rawLore, "Infobox hero story")) : [];
 
@@ -326,10 +326,10 @@ export function extractStory(wikitext) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Sections d'une page (modes de jeu)
+// Page sections (game modes)
 // ─────────────────────────────────────────────────────────────
 
-/** Retire les tables wiki `{| … |}`, imbrications comprises. */
+/** Strips wiki tables `{| … |}`, nested ones included. */
 function withoutTables(text) {
   let output = String(text);
   let before;
@@ -341,9 +341,9 @@ function withoutTables(text) {
 }
 
 /**
- * Transforme le corps d'une section en une suite de blocs : chaque bloc est un
- * paragraphe (`p`) ou un point de liste (`li`), deja nettoye. Les tables,
- * galeries, images et references sont ecartees.
+ * Turns a section body into a sequence of blocks: each block is a paragraph
+ * (`p`) or a list item (`li`), already cleaned. Tables, galleries, images and
+ * references are dropped.
  */
 export function blocksSection(body) {
   const clean = withoutTables(withoutCruft(body));
@@ -369,7 +369,7 @@ export function blocksSection(body) {
       if (text && text.length > 1) blocks.push({ type: "li", text });
       continue;
     }
-    // Titres residuels, gabarits isoles : sans interet ici.
+    // Leftover headings, standalone templates: of no interest here.
     if (/^=+/.test(l) || /^\{\{/.test(l) || /^\|/.test(l)) {
       clearParagraph();
       continue;
@@ -381,8 +381,8 @@ export function blocksSection(body) {
 }
 
 /**
- * Decoupe une page en sections de premier niveau (`==`), chacune rendue en
- * blocs. Les intitules listes dans `ignorer` (en minuscules) sont sautes.
+ * Splits a page into top-level sections (`==`), each rendered as blocks.
+ * Headings listed in `ignore` (lowercase) are skipped.
  */
 export function sectionsPage(wikitext, ignore = []) {
   const toSkip = new Set(ignore.map((s) => s.toLowerCase()));

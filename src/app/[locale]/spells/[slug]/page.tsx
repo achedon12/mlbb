@@ -22,7 +22,7 @@ import { serializeJsonLd } from "@/lib/html";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** Une page par sort de combat, generee au build ; toute autre adresse est une 404. */
+/** One page per battle spell, generated at build time; any other address is a 404. */
 export const dynamicParams = false;
 export function generateStaticParams() {
   return spellSheets.map((s) => ({ slug: s.slug }));
@@ -31,8 +31,8 @@ export function generateStaticParams() {
 const heroName = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
 
 /**
- * Ce que la page et ses metadonnees disent d'un sort : son effet quand il est
- * decrit (aucune description n'est inventee), et les heros qui le prennent.
+ * What the page and its metadata say about a spell: its effect when it is
+ * described (no description is invented), and the heroes that take it.
  */
 function sheet(locale: Locale, slug: string) {
   const s = spellSheets.find((x) => x.slug === slug);

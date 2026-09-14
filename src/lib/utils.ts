@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-/** Fusionne des classes Tailwind en resolvant les conflits. */
+/** Merges Tailwind classes, resolving conflicts. */
 export function cn(...entries: ClassValue[]): string {
   return twMerge(clsx(entries));
 }
@@ -15,16 +15,16 @@ function formatDate(locale: string): Intl.DateTimeFormat {
   }));
 }
 
-/** Formate une date dans la langue demandee (BCP-47), francais par defaut. */
+/** Formats a date in the requested language (BCP-47), French by default. */
 export function formatShortDate(iso: string, locale = "fr-FR"): string {
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? iso : formatDate(locale).format(d);
 }
 
 /**
- * Cle de comparaison d'un nom de skin. Legende du wiki et module de donnees ne
- * s'accordent pas toujours sur la casse ou la ponctuation : « Vessel Of
- * Deceit » et « Vessel of Deceit » designent le meme skin. Meme regle que
+ * Comparison key of a skin name. The wiki legend and the data module do not
+ * always agree on casing or punctuation: "Vessel Of
+ * Deceit" and "Vessel of Deceit" refer to the same skin. Same rule as
  * `scripts/gallery.mjs`.
  */
 export function normalizeNameSkin(name: string): string {
@@ -34,8 +34,8 @@ export function normalizeNameSkin(name: string): string {
 }
 
 /**
- * Cle de recherche : sans casse ni accents. « Epique » trouve « Épique », et
- * « chang » trouve « Chang'e ». Toutes les recherches du site passent par la.
+ * Search key: case- and accent-insensitive. "Epique" finds "Épique", and
+ * "chang" finds "Chang'e". Every search on the site goes through it.
  */
 export function keySearch(text: string): string {
   return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");

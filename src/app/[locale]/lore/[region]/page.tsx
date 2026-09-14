@@ -24,7 +24,7 @@ import {
 
 type Params = { params: Promise<{ locale: Locale; region: string }> };
 
-/** Liens montres d'emblee ; les autres se deplient. */
+/** Links shown right away; the others expand. */
 const LINKS_VISIBLE = 10;
 
 export const dynamicParams = false;
@@ -33,7 +33,7 @@ export function generateStaticParams() {
   return regionsLore.map((r) => ({ region: r.key }));
 }
 
-/** Heros les plus lies aux autres dans leurs fiches : les figures de la region, pour la description. */
+/** Heroes most linked to the others in their profiles: the region's figures, for the description. */
 function figures(region: RegionLore, locale: Locale): string[] {
   const summary = summaryRegion(region, locale);
   const links = new Map<string, number>();
@@ -79,7 +79,7 @@ export default async function LoreRegionPage({ params }: Params) {
     return x ? nameRegion(x.name) : null;
   };
 
-  // Faits tires des donnees, un par ligne : rien n'y est ecrit a la main.
+  // Facts drawn from the data, one per line: nothing here is written by hand.
   const facts: string[] = [
     t("pages.lore.region.factRoles", {
       n: r.heroes.length,
@@ -235,7 +235,7 @@ export default async function LoreRegionPage({ params }: Params) {
                   <summary className="cursor-pointer text-sm font-semibold text-gold-400 hover:text-gold-500">
                     {t("pages.lore.region.otherLinks", { n: summary.internal.length - LINKS_VISIBLE })}
                   </summary>
-                  {/* Lignes sans portrait : une grande region compte plus de cent liens. */}
+                  {/* Rows without portraits: a large region counts more than a hundred links. */}
                   <ul className="mt-4 grid grid-cols-1 gap-x-8 gap-y-2 text-sm leading-relaxed md:grid-cols-2">
                     {summary.internal.slice(LINKS_VISIBLE).map((p) => (
                       <li key={`${p.a}-${p.b}`}>{rowLink(p)}</li>

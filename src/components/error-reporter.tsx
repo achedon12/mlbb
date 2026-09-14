@@ -3,15 +3,14 @@
 import { useEffect } from "react";
 
 /**
- * Remonte au journal du serveur les erreurs qu'aucune frontiere React
- * n'attrape : exception dans un gestionnaire d'evenement, promesse rejetee,
- * script tiers. Sans lui, une erreur comme celle de `startTime` ne laissait de
- * trace que dans la console du visiteur.
+ * Reports to the server log the errors no React boundary catches: an
+ * exception in an event handler, a rejected promise, a third-party script.
+ * Without it, an error like the `startTime` one only left a trace in the
+ * visitor's console.
  *
- * Garde-fous : les erreurs des extensions du navigateur sont ignorees (ce
- * n'est pas notre code), une meme erreur n'est envoyee qu'une fois, et une page
- * n'en envoie jamais plus de cinq — une boucle d'erreurs ne doit pas inonder
- * le journal.
+ * Safeguards: errors from browser extensions are ignored (not our code), a
+ * given error is sent only once, and a page never sends more than five — an
+ * error loop must not flood the log.
  */
 const MAX_BY_PAGE = 5;
 const EXTENSION = /(chrome|moz|safari|safari-web)-extension:\/\//;
@@ -38,7 +37,7 @@ export function ErrorReporter() {
     };
 
     const onError = (e: ErrorEvent) =>
-      send(e.message || "erreur sans message", e.error instanceof Error ? e.error.stack : undefined, e.filename);
+      send(e.message || "error without message", e.error instanceof Error ? e.error.stack : undefined, e.filename);
     const onReject = (e: PromiseRejectionEvent) => {
       const reason = e.reason;
       send(reason instanceof Error ? reason.message : String(reason), reason instanceof Error ? reason.stack : undefined);

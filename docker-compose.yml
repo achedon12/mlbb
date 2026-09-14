@@ -18,8 +18,8 @@ services:
     read_only: true
     volumes:
       - ./logs:/app/logs
-      # Abonnements aux notifications de patch et dernier patch annonce : un
-      # volume nomme, conserve d'un `up -d --build` a l'autre (pas par `down -v`).
+      # Patch notification subscriptions and last announced patch: a named
+      # volume, kept from one `up -d --build` to the next (not by `down -v`).
       - donnees:/app/donnees-serveur
     tmpfs:
       - /tmp

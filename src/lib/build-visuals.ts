@@ -6,9 +6,9 @@ import { keySearch } from "./utils";
 import { readableRank } from "./ranks";
 
 /**
- * Visuels des choix d'un build : objets, embleme, talents et sort.
+ * Visuals of a build's choices: items, emblem, talents and spell.
  *
- * Les images sont rangees sous le nom anglais du jeu, passe en slug.
+ * Images are stored under the game's English name, slugified.
  */
 const V = visuals as unknown as Record<"items" | "emblems" | "talents" | "spells", Record<string, string>>;
 
@@ -16,19 +16,19 @@ const key = (name: string) =>
   keySearch(name).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 /**
- * Graphies divergentes d'un meme talent. Les builds rediges emploient les noms
- * anglais du jeu, comme l'API : pas de traduction a tenir.
+ * Diverging spellings of the same talent. Written builds use the game's
+ * English names, like the API: no translation to maintain.
  */
 const ALIAS: Record<string, string> = {
-  // L'API ecrit « Weapons Master », le wiki « Weapon Master ».
+  // The API writes "Weapons Master", the wiki "Weapon Master".
   "weapons-master": "weapon-master",
   execution: "execute",
   inspiration: "inspire",
 };
 
 /**
- * Cle unique d'un talent ou d'un sort, graphies divergentes rapprochees : celle
- * des textes (`emblemData`) et des pages de sorts.
+ * Unique key of a talent or spell, with diverging spellings merged: the one
+ * used by the texts (`emblemData`) and the spell pages.
  */
 export function keyChoice(name: string): string {
   const k = key(name);
@@ -42,8 +42,8 @@ function resolve(table: Record<string, string>, name: string): ResolvedVisual {
 
 export const visualTalent = (name: string) => resolve(V.talents, name);
 /**
- * Un sort mene a sa page quand elle existe : sorts decrits a la main et sorts
- * que les builds joues citent avec un visuel (voir `sortsFiches`, src/lib/usage-sheets.ts).
+ * A spell links to its page when one exists: hand-written spells and spells
+ * that played builds name with a visual (see `spellSheets`, src/lib/usage-sheets.ts).
  */
 export function spellVisual(name: string): ResolvedVisual {
   const visual = resolve(V.spells, name);
@@ -51,7 +51,7 @@ export function spellVisual(name: string): ResolvedVisual {
   return battleSpells.some((s) => s.key === k) || V.spells[k] ? { ...visual, href: `/spells/${k}` } : visual;
 }
 
-/** L'API nomme l'embleme par son role (« Marksman »), les builds rediges en toutes lettres. */
+/** The API names the emblem by its role ("Marksman"), written builds by its full name. */
 export function visualEmblem(name: string): ResolvedVisual {
   const e = emblems.find((x) => x.name === name || x.role === name);
   return e ? { name, image: V.emblems[e.key] ?? null, href: `/emblems/${slugEmblem(e)}` } : { name, image: null };
@@ -60,8 +60,8 @@ export function visualEmblem(name: string): ResolvedVisual {
 const ITEMS_BY_NAME = new Map(itemsFor("en").map((o) => [o.name, o]));
 
 export function visualItem(name: string): ResolvedItem {
-  // Les bottes portent parfois leur enchantement (« Swift Boots - Encourage ») :
-  // le visuel est celui des bottes.
+  // Boots sometimes carry their enchantment ("Swift Boots - Encourage"):
+  // the visual is the boots' one.
   const o = ITEMS_BY_NAME.get(name) ?? ITEMS_BY_NAME.get(name.split(" - ")[0]);
   return { name, slug: o?.slug ?? null, image: o ? (V.items[o.slug] ?? null) : null };
 }

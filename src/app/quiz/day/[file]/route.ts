@@ -4,12 +4,12 @@ import { shiftDay, EPOCH, isValidDay, dayUtc } from "@/lib/quiz";
 import { challengeOfDay } from "@/lib/quiz-data";
 
 /**
- * Defi du jour d'une langue (`/quiz/day/fr-2026-09-11.json`) : cinq manches,
- * quelques Ko. La page reste statique ; le navigateur demande le defi de sa
- * date UTC apres le montage.
+ * A language's daily challenge (`/quiz/day/fr-2026-09-11.json`): five rounds,
+ * a few KB. The page stays static; the browser requests the challenge for its
+ * UTC date after mounting.
  *
- * Seuls les jours depuis le premier defi sont servis, jusqu'au lendemain : une
- * horloge un peu en avance ne tombe pas sur une erreur.
+ * Only days since the first challenge are served, up to tomorrow: a
+ * slightly fast clock does not hit an error.
  */
 export const dynamic = "force-dynamic";
 
@@ -20,7 +20,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ fil
   const today = dayUtc(new Date());
   if (day < EPOCH || day > shiftDay(today, 1)) return new NextResponse(null, { status: 404 });
 
-  // Un defi passe ne change plus ; celui du jour peut suivre une synchro.
+  // A past challenge no longer changes; today's may follow a sync.
   const cache = day < today ? "public, max-age=86400" : "public, max-age=600";
   return NextResponse.json(challengeOfDay(locale as Parameters<typeof challengeOfDay>[0], day), {
     headers: { "Cache-Control": cache },

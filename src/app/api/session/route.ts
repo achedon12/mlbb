@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import { profileCurrent } from "@/lib/session";
 
 /**
- * Etat de session pour l'en-tete.
+ * Session state for the header.
  *
- * Lu apres l'affichage, ce qui laisse les pages de contenu generees au build.
- * Ne renvoie que le pseudo : l'en-tete n'a besoin de rien d'autre.
+ * Read after rendering, which leaves content pages generated at build time.
+ * Only returns the nickname: the header needs nothing else.
  */
 export const dynamic = "force-dynamic";
 

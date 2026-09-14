@@ -8,15 +8,15 @@ import { subscribeToFavourites, toggleFavourite, serverFavourites, snapshotFavou
 import { cn } from "@/lib/utils";
 
 /**
- * Bouton de favori.
+ * Favourite button.
  *
- * L'etat vit dans le navigateur : `useSyncExternalStore` s'y abonne. Le
- * troisieme argument — l'instantane cote serveur — renvoie « pas favori »,
- * l'etat neutre affiche jusqu'a ce que le navigateur ait rendu la main.
+ * The state lives in the browser: `useSyncExternalStore` subscribes to it. The
+ * third argument (the server snapshot) returns "not a favourite", the
+ * neutral state shown until the browser takes over.
  *
- * Une fois le heros en favori, une cloche propose les notifications de patch
- * (masquee si le serveur ne les offre pas). Chaque changement de favori est
- * repercute a l'abonnement, s'il y en a un.
+ * Once the hero is a favourite, a bell offers patch notifications
+ * (hidden when the server does not provide them). Every favourite change is
+ * passed on to the subscription, if there is one.
  */
 export function FavouriteButton({ hero: heroes }: { hero: string }) {
   const t = useT();

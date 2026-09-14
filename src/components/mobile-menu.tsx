@@ -9,10 +9,9 @@ import { cn } from "@/lib/utils";
 import { isActive, GROUPS, LinkMenu, labelNode, type Entry, type Group, type MenuNode } from "./desktop-menu";
 
 /**
- * Menu de navigation en petite largeur : les memes cinq familles que le
- * bureau, en sections repliables ; les entrees a sous-pages se deplient en
- * accordeon plutot qu'en panneau lateral, que l'ecran n'a pas la place
- * d'afficher.
+ * Narrow-width navigation menu: the same five families as desktop, as
+ * collapsible sections; entries with sub-pages expand as an accordion rather
+ * than a side panel, which the screen has no room to show.
  */
 
 function Section({
@@ -59,7 +58,7 @@ function Section({
   );
 }
 
-/** Entree a sous-pages : sa page quand elle en a une, et la liste depliable des sous-pages. */
+/** Entry with sub-pages: its own page when it has one, and the expandable list of sub-pages. */
 function NodeMobile({ node, path, onNavigate }: { node: MenuNode; path: string; onNavigate: () => void }) {
   const t = useT();
   const id = useId();
@@ -133,7 +132,7 @@ export function MobileMenu() {
   const t = useT();
   const [open, setOpen] = useState(false);
   const path = usePathname();
-  // La famille de la page courante s'ouvre d'elle-meme.
+  // The current page's family opens by itself.
   const [section, setSection] = useState<string | null>(null);
   const current = GROUPS.find((g) =>
     g.nodes.some((n) => (n.href && isActive(path, n.href)) || (n.children ?? []).some((e) => e.href && isActive(path, e.href))),

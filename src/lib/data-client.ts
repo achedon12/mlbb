@@ -1,10 +1,10 @@
 import names from "@/data/game/names.json";
 
 /**
- * Table nom-par-slug utilisable cote client.
+ * Name-by-slug table usable on the client.
  *
- * Les composants client ont besoin du nom d'un heros sans embarquer tout le
- * catalogue — competences, skins et builds n'ont rien a faire dans un bundle
- * de navigateur. Cette table n'est que `{ slug: nom }`.
+ * Client components need a hero's name without shipping the whole catalogue —
+ * skills, skins and builds have no place in a browser bundle. This table is
+ * only `{ slug: name }`.
  */
 export const heroesBySlug = names as Record<string, string>;

@@ -1,22 +1,22 @@
 /**
- * Raretes des skins.
+ * Skin rarities.
  *
- * Le jeu encadre chaque skin d'une couleur qui dit immediatement sa rarete :
- * on reconnait un skin Supreme a son contour avant d'avoir lu son nom. On
- * reprend ce code.
+ * The game frames each skin with a color that tells its rarity at a glance:
+ * a Supreme skin is recognized by its outline before its name is read. We
+ * reuse that code.
  *
- * Les six paliers sont ceux employes par le jeu, du plus commun au plus rare.
- * Les couleurs sont ecrites en dur plutot qu'en classes Tailwind : elles
- * servent a la fois a une bordure et a une ombre portee, et une classe ne peut
- * pas etre composee dynamiquement sans casser la purge de Tailwind.
+ * The six tiers are the ones used by the game, from most common to rarest.
+ * Colors are hard-coded rather than Tailwind classes: they
+ * serve both a border and a drop shadow, and a class cannot
+ * be composed dynamically without breaking Tailwind's purge.
  */
 export interface Rarity {
-  /** Clef anglaise d'origine, pour la traduction. */
+  /** Original English key, for translation. */
   key: string;
   name: string;
   color: string;
   halo: string;
-  /** Rang, du plus commun au plus rare. Sert au tri et a la legende. */
+  /** Rank, from most common to rarest. Used for sorting and the legend. */
   rank: number;
 }
 
@@ -29,7 +29,7 @@ export const RARITIES: Record<string, Rarity> = {
   Supreme: { key: "Supreme", name: "Supreme", color: "#ff4d6d", halo: "rgba(255,77,109,0.5)", rank: 6 },
 };
 
-/** Le skin d'origine n'a pas de rarete : il n'a jamais ete achete. */
+/** The original skin has no rarity: it was never bought. */
 export const RARITY_ORIGIN: Rarity = {
   key: "origin",
   name: "Origine",
@@ -42,8 +42,8 @@ export function rarity(name: string | null | undefined): Rarity {
   if (!name) return RARITY_ORIGIN;
   return (
     RARITIES[name] ?? {
-      // Une rarete inconnue garde son libelle d'origine plutot que d'etre
-      // fondue dans un fourre-tout : c'est le signal qu'il faut la traduire.
+      // An unknown rarity keeps its original label rather than being
+      // lumped into a catch-all: it signals that it needs translating.
       name,
       color: RARITY_ORIGIN.color,
       halo: RARITY_ORIGIN.halo,
@@ -52,7 +52,7 @@ export function rarity(name: string | null | undefined): Rarity {
   );
 }
 
-/** Raretes presentes dans une liste de skins, triees du plus commun au plus rare. */
+/** Rarities present in a list of skins, sorted from most common to rarest. */
 export function presentRarities(raritiesRaw: (string | null)[]): Rarity[] {
   const views = new Map<string, Rarity>();
   for (const raw of raritiesRaw) {

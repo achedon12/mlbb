@@ -41,35 +41,35 @@ import { pathRole, SLUGS_LANE, SLUGS_ROLE } from "./tier-list-filters";
 import { MEASURED_RANKS } from "./measured-ranks";
 
 /**
- * Rubriques du site.
+ * Site sections.
  *
- * Le menu les range en cinq familles ; certaines entrees ouvrent un sous-menu
- * (tier list par rang, par lane, par role, emblemes…). Les listes a plat
- * `BASE` et `ACTUALITE`, tirees des memes familles, restent la source de la
- * recherche globale et de la grille d'outils de l'accueil.
+ * The menu sorts them into five families; some entries open a submenu
+ * (tier list by rank, by lane, by role, emblems…). The flat lists
+ * `BASE` and `NEWS`, taken from the same families, remain the source of the
+ * global search and of the home page tools grid.
  *
- * Module sans donnees de jeu : il est lu par les menus, cote navigateur.
+ * Module without game data: it is read by the menus, in the browser.
  */
 export type Entry = { href: string; key: string; icon: LucideIcon };
 
-/** Un element du menu : une page, un groupe de sous-pages, ou les deux. */
+/** A menu item: a page, a group of subpages, or both. */
 export interface MenuNode {
-  /** Page de l'entree ; absente pour un simple groupe (« Par rang »). */
+  /** Page of the entry; absent for a plain group ("By rank"). */
   href?: string;
-  /** Cle `nav.<cle>` : libelle et description. */
+  /** `nav.<key>` key: label and description. */
   key?: string;
-  /** Cle de traduction complete du libelle, pour les sous-pages (`roles.Tank`, `measuredRanks.mythic`…). */
+  /** Full translation key of the label, for subpages (`roles.Tank`, `measuredRanks.mythic`…). */
   label?: string;
   icon?: LucideIcon;
   children?: MenuNode[];
 }
 
 export interface Group {
-  /** Cle `nav.groups.<cle>` du titre de la famille. */
+  /** `nav.groups.<key>` key of the family title. */
   key: string;
   icon: LucideIcon;
   nodes: MenuNode[];
-  /** Panneau sur deux colonnes, pour une famille nombreuse. */
+  /** Two-column panel, for a large family. */
   large?: boolean;
 }
 
@@ -179,7 +179,7 @@ export const GROUPS: Group[] = [
   },
 ];
 
-/** Pages de premier niveau d'une famille : celles qui ont une adresse, un libelle et une icone. */
+/** Top-level pages of a family: those with an address, a label and an icon. */
 const pages = (g: Group): Entry[] =>
   g.nodes.flatMap((n) => (n.href && n.key && n.icon ? [{ href: n.href, key: n.key, icon: n.icon }] : []));
 

@@ -17,9 +17,9 @@ import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 
 /**
- * L'histoire d'un heros, mise en page pour la lecture : une accroche en
- * exergue, le recit en pleine largeur avec une lettrine, une fiche d'identite
- * illustree et les anecdotes en cartes.
+ * A hero's story, laid out for reading: a highlighted tagline, the full-width
+ * narrative with a drop cap, an illustrated identity card and the trivia as
+ * cards.
  */
 
 type FieldText = "title" | "species" | "gender" | "age" | "origin" | "birthday";
@@ -70,7 +70,7 @@ export function HeroStory({ story, name, locale }: { story: Story; name: string;
 
   return (
     <div className="space-y-12">
-      {/* Accroche en exergue. */}
+      {/* Highlighted tagline. */}
       {tagline && (
         <figure className="relative overflow-hidden">
           <Quote
@@ -86,7 +86,7 @@ export function HeroStory({ story, name, locale }: { story: Story; name: string;
       )}
 
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-start">
-        {/* Le recit, en colonne de lecture. */}
+        {/* The narrative, in a reading column. */}
         <div className="min-w-0">
           {lore.length > 0 ? (
             <section>
@@ -114,7 +114,7 @@ export function HeroStory({ story, name, locale }: { story: Story; name: string;
           )}
         </div>
 
-        {/* La fiche d'identite. */}
+        {/* The identity card. */}
         {profile && (
           <aside className="bevel border border-night-700/60 bg-night-950/50 p-5 lg:sticky lg:top-24">
             <h2 className="font-heading text-sm font-bold uppercase tracking-wide text-chalk-100">
@@ -149,7 +149,7 @@ export function HeroStory({ story, name, locale }: { story: Story; name: string;
         )}
       </div>
 
-      {/* Anecdotes. */}
+      {/* Trivia. */}
       {trivia.length > 0 && (
         <section className="border-t border-night-800 pt-10">
           <h2 className="flex items-center gap-2 font-heading text-sm font-bold uppercase tracking-[0.15em] text-azure-400">

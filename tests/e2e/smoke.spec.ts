@@ -50,10 +50,10 @@ test("the breadcrumb leads from the hero page to the catalog", async ({ page }) 
 });
 
 test("the site remains browsable offline", async ({ page, context }) => {
-  test.skip(!process.env.CI, "le service worker n'est actif qu'en production");
+  test.skip(!process.env.CI, "the service worker is only active in production");
   await page.goto("/fr/heroes");
-  // Le service worker doit controler la page avant la suite : sinon la fiche
-  // ne passerait pas par lui et ne serait pas gardee.
+  // The service worker must control the page before going on: otherwise the
+  // hero page would not go through it and would not be kept.
   await page.waitForFunction(() => !!navigator.serviceWorker.controller, null, { timeout: 30_000 });
   await page.goto("/fr/heroes/khufra");
   await page.waitForFunction(async () => !!(await caches.match(location.href)), null, { timeout: 30_000 });
@@ -62,7 +62,7 @@ test("the site remains browsable offline", async ({ page, context }) => {
   await page.goto("/fr/heroes/khufra");
   await expect(page.getByRole("heading", { name: "Khufra", level: 1 })).toBeVisible();
   await expect(page.getByRole("status").filter({ hasText: /hors ligne/i })).toBeVisible();
-  // Une fiche jamais consultee mene a la page « hors ligne ».
+  // A hero page never visited leads to the "offline" page.
   await page.goto("/fr/heroes/fanny");
   await expect(page.getByRole("heading", { name: /hors ligne/i, level: 1 })).toBeVisible();
   await context.setOffline(false);

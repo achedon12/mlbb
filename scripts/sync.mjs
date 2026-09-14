@@ -1,17 +1,16 @@
 /**
- * Synchronisation des donnees du jeu.
+ * Game data synchronization.
  *
- * Tout ce que le site affiche sur les heros, les skins, les objets et les
- * patchs est extrait du wiki communautaire, qui range ses donnees dans des
- * modules Scribunto — des tables Lua structurees, bien plus fiables a lire que
- * du HTML rendu.
+ * Everything the site shows about heroes, skins, items and patches is
+ * extracted from the community wiki, which stores its data in Scribunto
+ * modules — structured Lua tables, far more reliable to read than rendered
+ * HTML.
  *
- *     npm run sync            donnees seules
- *     npm run sync -- --images   donnees + telechargement des visuels
+ *     npm run sync            data only
+ *     npm run sync -- --images   data + visuals download
  *
- * Le resultat est ecrit dans `src/data/game/`. Les visuels vont dans
- * `public/visuels/`, versionnes avec le depot : le build de l'image n'a besoin
- * d'aucun acces au wiki.
+ * The output is written to `src/data/game/`. Visuals go to `public/visuels/`,
+ * versioned with the repository: the image build needs no access to the wiki.
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
@@ -40,15 +39,15 @@ import {
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
 /**
- * Statistiques de partie.
+ * Match statistics.
  *
- * Le wiki decrit le jeu mais ne mesure rien. Cette API communautaire expose
- * les taux de victoire, de ban et de selection remontes par le jeu — la seule
- * source verifiable permettant un classement qui ne soit pas une opinion.
+ * The wiki describes the game but measures nothing. This community API exposes
+ * the win, ban and pick rates reported by the game — the only verifiable
+ * source for a ranking that is not an opinion.
  */
 const STATS = "https://arena.rone.dev/api";
 
-/** Nombre de patch notes dont on recupere le contenu complet. */
+/** Number of patch notes whose full content is fetched. */
 const DETAILED_PATCHES = 12;
 const UA = "MLBB-sync/1.0 (https://mlbbdex.com; contact via github.com/achedon12)";
 const OUTPUT = "src/data/game";
@@ -65,7 +64,7 @@ const LANES = {
 };
 
 // ─────────────────────────────────────────────────────────────
-// Acces au wiki
+// Wiki access
 // ─────────────────────────────────────────────────────────────
 
 async function api(settings) {
@@ -81,7 +80,7 @@ async function api(settings) {
         signal: AbortSignal.timeout(45000),
       });
       if (response.ok) return response.json();
-      // 429 : on laisse le service respirer avant de reessayer.
+      // 429: give the service some breathing room before retrying.
       if (response.status === 429) await pause(3000 * attempt);
       else throw new Error(`HTTP ${response.status}`);
     } catch (error) {
@@ -89,7 +88,7 @@ async function api(settings) {
       await pause(1500 * attempt);
     }
   }
-  throw new Error("Wiki injoignable.");
+  throw new Error("Wiki unreachable.");
 }
 
 const pause = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -104,30 +103,30 @@ async function moduleLua(title) {
   });
 
   const page = Object.values(data.query.pages)[0];
-  if (!page?.revisions) throw new Error(`Module introuvable : ${title}`);
+  if (!page?.revisions) throw new Error(`Module not found: ${title}`);
 
   return analyzeTableLua(page.revisions[0].slots.main["*"]);
 }
 
 // ─────────────────────────────────────────────────────────────
-// Normalisation
+// Normalization
 // ─────────────────────────────────────────────────────────────
 
-/** Un identifiant d'URL stable, insensible aux accents et a la ponctuation. */
+/** A stable URL identifier, insensitive to accents and punctuation. */
 function slugify(name) {
   return String(name)
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
-    // L'apostrophe et le point separent des mots : « Chang'e » donne
-    // « chang-e », et « X.Borg » donne « x-borg », plutot que de coller les
-    // morceaux en un seul bloc illisible.
+    // Apostrophes and dots separate words: "Chang'e" becomes "chang-e" and
+    // "X.Borg" becomes "x-borg", rather than gluing the pieces into one
+    // unreadable block.
     .replace(/['’.]/g, "-")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 }
 
-/** Le wiki laisse des champs a `<nom>` dans ses gabarits : ce n'est pas une valeur. */
+/** The wiki leaves fields set to `<name>` in its templates: that is not a value. */
 const empty = (v) => !v || String(v).startsWith("<") || String(v).trim() === "";
 const clean = (v) => (empty(v) ? null : String(v).trim());
 const list = (...v) => v.map(clean).filter(Boolean);
@@ -163,8 +162,8 @@ function normalizeHeroes(raw) {
 function count(v) {
   if (empty(v)) return null;
   const n = Number(String(v).replace(",", "."));
-  // `|| null` serait tentant, mais transformerait un zero legitime en absence
-  // de valeur : en JavaScript, 0 est faux.
+  // `|| null` is tempting, but it would turn a legitimate zero into a missing
+  // value: in JavaScript, 0 is falsy.
   return Number.isFinite(n) ? n : null;
 }
 
@@ -214,14 +213,14 @@ function normalizeSkins(raw) {
 function normalizeItems(raw) {
   return Object.entries(raw)
     .filter(([, o]) => !empty(o?.name))
-    // Le module du wiki melange aux objets des lignes de gabarit qui n'en sont
-    // pas : des effets isoles (« Passive - Favor ») et des drapeaux de
-    // mecanique (« Throw Forbidden »). Aucun n'a de prix, de statistiques ni
-    // d'effet propre — c'est le critere qui les distingue d'un vrai objet.
-    // Un objet de boutique a un prix, ou au minimum des statistiques. Ce qui
-    // n'a ni l'un ni l'autre est un enchantement ou une bascule d'interaction
-    // entre heros (« Allow Throw », « Passive - Favor ») : le wiki les range
-    // dans le meme module, le site ne doit pas les presenter comme des objets.
+    // The wiki module mixes in template rows that are not items: standalone
+    // effects ("Passive - Favor") and mechanic flags ("Throw Forbidden"). None
+    // has a price, stats or an effect of its own — that is what sets them
+    // apart from a real item.
+    // A shop item has a price, or at least stats. Anything with neither is an
+    // enchantment or an interaction toggle between heroes ("Allow Throw",
+    // "Passive - Favor"): the wiki keeps them in the same module, the site
+    // must not present them as items.
     .filter(([, o]) => count(o.price) > 0 || !empty(o.bonus))
     .map(([, o]) => ({
       slug: slugify(o.name),
@@ -240,15 +239,15 @@ function normalizeItems(raw) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Visuels
+// Visuals
 // ─────────────────────────────────────────────────────────────
 
 /**
- * Resout les URL d'images par lots.
+ * Resolves image URLs in batches.
  *
- * Le wiki nomme les visuels d'apres l'identifiant du heros ou du skin, la meme
- * convention pour les deux. On interroge par paquets de 50, la limite de l'API
- * pour une requete anonyme.
+ * The wiki names visuals after the hero or skin identifier, the same
+ * convention for both. Queries go out in batches of 50, the API limit for an
+ * anonymous request.
  */
 async function urlsImages(credentials, variant) {
   const found = {};
@@ -268,7 +267,7 @@ async function urlsImages(credentials, variant) {
       const source = page.imageinfo?.[0]?.url;
       if (!source) continue;
       const id = page.title.match(/Hero(\w+)-/)?.[1];
-      // Le suffixe de cache ne sert a rien et rend l'URL instable.
+      // The cache suffix is useless and makes the URL unstable.
       if (id) found[id] = source.split("/revision/")[0];
     }
 
@@ -281,11 +280,11 @@ async function urlsImages(credentials, variant) {
 }
 
 /**
- * Resout des fichiers du wiki designes par leur nom exact.
+ * Resolves wiki files referenced by their exact name.
  *
- * Les visuels de heros suivent une convention numerique ; les objets, les
- * emblemes, les talents et les sorts sont nommes d'apres leur libelle anglais.
- * Cette fonction sert ce second cas.
+ * Hero visuals follow a numeric convention; items, emblems, talents and
+ * spells are named after their English label. This function covers the
+ * second case.
  */
 async function urlsFiles(names, extension = "png") {
   const found = {};
@@ -301,8 +300,8 @@ async function urlsFiles(names, extension = "png") {
       iiprop: "url",
     });
 
-    // Le wiki normalise certains titres (espaces, apostrophes) : on suit ses
-    // redirections pour retrouver le nom demande.
+    // The wiki normalizes some titles (spaces, apostrophes): follow its
+    // redirections to get back to the requested name.
     const normalized = new Map(
       (data.query?.normalized ?? []).map((n) => [n.to, n.from]),
     );
@@ -322,13 +321,13 @@ async function urlsFiles(names, extension = "png") {
 }
 
 /**
- * Telecharge un visuel s'il n'est pas deja present.
+ * Downloads a visual unless it is already present.
  *
- * Les illustrations pleine taille du wiki vont jusqu'a 3 Mo piece, pour 745
- * fichiers : telles quelles, elles pesent plus de 200 Mo dans le depot et a
- * chaque clonage. On les ramene a une largeur utile pour le web et on les
- * convertit en WebP, ce qui divise le volume par six sans difference visible
- * a l'ecran. Les portraits et les icones, deja petits, sont copies tels quels.
+ * The wiki's full-size illustrations weigh up to 3 MB each, across 745 files:
+ * as is, they add more than 200 MB to the repository and to every clone. They
+ * are scaled down to a useful web width and converted to WebP, which cuts the
+ * size by six with no visible difference on screen. Portraits and icons,
+ * already small, are copied as is.
  */
 async function download(url, path, optimize = false, width = 1280) {
   if (existsSync(path)) return "deja";
@@ -359,11 +358,10 @@ async function download(url, path, optimize = false, width = 1280) {
 }
 
 /**
- * Range les visuels par heros.
+ * Arranges visuals by hero.
  *
- * Le site ne doit dependre d'aucune URL externe : chaque image est copiee
- * localement, sous un chemin lisible plutot que sous l'identifiant numerique
- * du wiki.
+ * The site must not depend on any external URL: every image is copied
+ * locally, under a readable path rather than the wiki's numeric identifier.
  *
  *     public/visuels/heros/khufra/portrait.png
  *     public/visuels/heros/khufra/icone.png
@@ -401,7 +399,7 @@ function planVisuals(heroes, skins, portraits, icons) {
 }
 
 /**
- * Range les visuels qui ne dependent pas d'un heros.
+ * Arranges visuals that do not belong to a hero.
  *
  *     public/visuels/objets/blade-of-despair.png
  *     public/visuels/emblemes/tank.png
@@ -422,11 +420,11 @@ function planFiles(urls, folder) {
 }
 
 /**
- * Emblemes, talents et sorts de combat.
+ * Emblems, talents and battle spells.
  *
- * Le wiki n'expose pas de module de donnees pour eux : la liste est declaree
- * ici, et chaque nom a ete verifie comme correspondant a un fichier existant.
- * Un nom qui cesserait d'exister disparait simplement des visuels.
+ * The wiki exposes no data module for them: the list is declared here, and
+ * every name was checked against an existing file. A name that stops existing
+ * simply drops out of the visuals.
  */
 const EMBLEMS = [
   "Tank Emblem", "Fighter Emblem", "Assassin Emblem",
@@ -448,26 +446,26 @@ const SPELLS = [
 ];
 
 // ─────────────────────────────────────────────────────────────
-// Competences et illustrations
+// Skills and illustrations
 // ─────────────────────────────────────────────────────────────
 
 /**
- * Extrait les competences et les illustrations depuis la page d'un heros.
+ * Extracts skills and illustrations from a hero page.
  *
- * Deux informations que les modules de donnees ne portent pas :
+ * Two pieces of information the data modules do not carry:
  *
- * - le gabarit `{{Ability}}` declare le **nom anglais** de chaque competence,
- *   qui est aussi le nom de son icone sur le wiki ;
- * - la galerie « Splash art » liste les illustrations pleine taille de chaque
- *   skin, bien plus grandes que les portraits de la boutique.
+ * - the `{{Ability}}` template declares the **English name** of each skill,
+ *   which is also the name of its icon on the wiki;
+ * - the "Splash art" gallery lists the full-size illustrations of each skin,
+ *   much larger than the shop portraits.
  */
 /**
- * Extrait les gabarits `{{Ability ...}}` d'une page, accolades comptees.
+ * Extracts the `{{Ability ...}}` templates of a page by counting braces.
  *
- * Une regex echouerait : la description imbrique d'autres gabarits (`{{Scale}}`,
- * `{{ai}}`), et le gabarit ferme tantot par « \n}} », tantot par « }} » colle
- * au dernier champ. On compte donc les accolades pour trouver la vraie
- * fermeture, quelle que soit la mise en page.
+ * A regex would fail: the description nests other templates (`{{Scale}}`,
+ * `{{ai}}`), and the template closes sometimes with "\n}}", sometimes with "}}"
+ * stuck to the last field. Braces are therefore counted to find the real
+ * closing, whatever the layout.
  */
 function templatesAbility(wikitext) {
   const results = [];
@@ -497,14 +495,13 @@ function templatesAbility(wikitext) {
 }
 
 function extractFromPage(wikitext) {
-  // Les competences sont declarees section par section, et chaque section
-  // n'en contient qu'une — parfois aucune. On borne donc la recherche entre
-  // un titre et le suivant.
+  // Skills are declared section by section, and each section holds only one
+  // — sometimes none. The search is therefore bounded between one heading and
+  // the next.
   //
-  // Prendre simplement les gabarits `{{Ability}}` dans l'ordre du texte
-  // donnerait un resultat faux a deux titres : une page mentionne les
-  // competences d'autres heros, et une section sans gabarit ferait remonter
-  // celui de la section d'apres.
+  // Simply taking the `{{Ability}}` templates in text order would be wrong on
+  // two counts: a page mentions other heroes' skills, and a section without a
+  // template would pull up the one from the following section.
   const events = [
     ...[...wikitext.matchAll(/^=+\s*(.+?)\s*=+\s*$/gm)].map((m) => ({
       position: m.index,
@@ -512,8 +509,8 @@ function extractFromPage(wikitext) {
       value: m[1].trim().toLowerCase(),
     })),
     ...templatesAbility(wikitext).map(({ position, body }) => {
-      // La description court jusqu'au champ suivant du gabarit. Un nom de
-      // champ peut contenir un chiffre (`term-1`), d'ou la classe elargie.
+      // The description runs until the template's next field. A field name
+      // may contain a digit (`term-1`), hence the wider class.
       const description = body.match(
         /\|?\s*description\s*=\s*([\s\S]+?)(?=\n\s*\|\s*[a-z0-9-]+\s*=|$)/i,
       )?.[1];
@@ -523,11 +520,11 @@ function extractFromPage(wikitext) {
         type: "competence",
         value: withoutTags(body.match(/\|?\s*name\s*=\s*(.+)/)?.[1] ?? "").trim() || undefined,
         description: description ? cleanDescription(description) : null,
-        // Le nom du fichier d'icone, souvent distinct du nom affiche : la
-        // competence « Contract: Transform » a pour image « Contract Transform »
-        // (sans les deux-points, absents des noms de fichier). L'espace apres
-        // le « = » est borne a la ligne pour ne pas capturer le champ suivant
-        // quand la valeur est vide.
+        // The icon file name, often different from the displayed name: the
+        // skill "Contract: Transform" has the image "Contract Transform"
+        // (without the colon, which file names lack). The whitespace after
+        // the "=" is limited to the line so the next field is not captured
+        // when the value is empty.
         image: body.match(/\|\s*image\s*=[ \t]*(.+)/i)?.[1]?.trim() || null,
       };
     }),
@@ -539,8 +536,8 @@ function extractFromPage(wikitext) {
   for (const [i, e] of events.entries()) {
     if (e.type !== "titre" || !EXPECTED.includes(e.value)) continue;
 
-    // On avance jusqu'au titre suivant : ce qui se trouve entre les deux
-    // appartient a cette section.
+    // Move on to the next heading: whatever lies between the two belongs to
+    // this section.
     for (const next of events.slice(i + 1)) {
       if (next.type === "titre") break;
       if (next.value) {
@@ -554,18 +551,18 @@ function extractFromPage(wikitext) {
     }
   }
 
-  // On conserve les emplacements vides : la position dans la liste porte le
-  // sens (passif, competence 1, competence 2, ultime).
+  // Empty slots are kept: the position in the list carries the meaning
+  // (passive, skill 1, skill 2, ultimate).
   const skills = EXPECTED.map((key) => bySection[key] ?? null);
 
-  // La galerie « Splash art » liste les illustrations pleine taille de chaque
-  // skin, bien plus grandes que les portraits de la boutique.
+  // The "Splash art" gallery lists the full-size illustrations of each skin,
+  // much larger than the shop portraits.
   const illustrations = extractIllustrations(wikitext);
 
   return { skills, illustrations, story: extractStory(wikitext) };
 }
 
-/** Parcourt les pages de heros, par lots, pour en extraire ces deux blocs. */
+/** Walks through hero pages, in batches, to extract these two blocks. */
 async function heroPages(heroes) {
   const output = {};
 
@@ -604,23 +601,23 @@ async function heroPages(heroes) {
 }
 
 /**
- * Rangs mesures, dans l'ordre de l'API.
+ * Measured ranks, in API order.
  *
- * `all` agrege toutes les parties ; les autres isolent une tranche du
- * classement, de Epique a Gloire mythique. Taux et matchups changent vraiment
- * d'une tranche a l'autre — le pire adversaire d'Aamon n'est pas le meme en
- * Epique et en Gloire —, d'ou une mesure par rang plutot qu'une seule moyenne.
+ * `all` aggregates every match; the others isolate one bracket of the ladder,
+ * from Epic to Mythic Glory. Rates and matchups really change from one bracket
+ * to the next — Aamon's worst opponent is not the same in Epic and in Glory —,
+ * hence one measurement per rank rather than a single average.
  */
 const MEASURED_RANKS = ["all", "epic", "legend", "mythic", "honor", "glory"];
 
-/** Table identifiant de jeu vers slug, depuis le meme endpoint que le reste. */
+/** Game identifier to slug table, from the same endpoint as the rest. */
 async function heroTableById(heroes) {
-  // Table identifiant de jeu vers slug, depuis le meme endpoint que le reste.
+  // Game identifier to slug table, from the same endpoint as the rest.
   const response = await fetch(`${STATS}/heroes?size=200`, {
     headers: { "User-Agent": UA },
     signal: AbortSignal.timeout(30000),
   });
-  if (!response.ok) throw new Error(`Table des heros indisponible : HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`Hero table unavailable: HTTP ${response.status}`);
 
   const records = (await response.json())?.data?.records ?? [];
   const byId = new Map();
@@ -637,8 +634,8 @@ async function heroTableById(heroes) {
 }
 
 /**
- * JSON d'une adresse de l'API, ou null si elle ne repond pas. Une erreur
- * passagere (surcharge, delai) merite deux nouveaux essais, espaces.
+ * JSON from an API address, or null if it does not answer. A transient error
+ * (overload, timeout) deserves two more attempts, spaced out.
  */
 async function jsonFrom(url, attempts = 3) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
@@ -647,7 +644,7 @@ async function jsonFrom(url, attempts = 3) {
       if (rep.ok) return await rep.json();
       if (rep.status === 404) return null;
     } catch {
-      // nouvel essai
+      // retry
     }
     if (attempt < attempts) await pause(1000 * 2 ** attempt);
   }
@@ -655,9 +652,9 @@ async function jsonFrom(url, attempts = 3) {
 }
 
 /**
- * Ecrit evolution.json : series quotidiennes, une ligne par heros pour garder
- * des diffs lisibles. Un heros que l'API n'a pas servi garde ses mesures
- * precedentes, et l'historique se cumule d'une synchronisation a l'autre.
+ * Writes evolution.json: daily series, one line per hero to keep diffs
+ * readable. A hero the API did not serve keeps its previous measurements, and
+ * the history accumulates from one synchronization to the next.
  */
 async function writeEvolution(complementary) {
   const existing = await readJson(`${OUTPUT}/evolution.json`);
@@ -677,19 +674,19 @@ async function writeEvolution(complementary) {
 }
 
 /**
- * `--evolution` : ne rafraichit que coequipiers, tendances et durees de
- * partie, sur les heros deja synchronises. De quoi completer ces mesures
- * quand l'API a flanche pendant une synchronisation complete.
+ * `--evolution`: refreshes only teammates, trends and match durations, on
+ * heroes already synchronized. Enough to fill in these measurements when the
+ * API gave out during a full synchronization.
  */
 async function evolutionSingle() {
   const heroes = await readJson(`${OUTPUT}/heroes.json`);
-  if (!Array.isArray(heroes) || heroes.length === 0) throw new Error("Lancer d'abord une synchronisation complete.");
-  // Les heros encore sans mesure d'abord : une relance comble les trous avant
-  // que l'API ne sature.
+  if (!Array.isArray(heroes) || heroes.length === 0) throw new Error("Run a full synchronization first.");
+  // Heroes still without measurements first: a rerun fills the gaps before
+  // the API saturates.
   const existing = await readJson(`${OUTPUT}/evolution.json`);
   const measure = (h) => Number(Boolean(existing.trends?.[h.slug]));
   const order = [...heroes].sort((a, b) => measure(a) - measure(b));
-  console.log(`Coequipiers et tendances (academie), ${heroes.filter((h) => !measure(h)).length} heros sans mesure…`);
+  console.log(`Teammates and trends (academy), ${heroes.filter((h) => !measure(h)).length} heroes without measurements…`);
   const complementary = await teammatesAndTrends(order, await heroTableById(heroes));
   const stats = await readJson(`${OUTPUT}/statistics.json`);
   stats.teammates = { ...(stats.teammates ?? {}), ...complementary.teammates };
@@ -697,14 +694,14 @@ async function evolutionSingle() {
     writeFile(`${OUTPUT}/statistics.json`, JSON.stringify(stats, null, 2) + "\n"),
     writeEvolution(complementary),
   ]);
-  console.log(`  ${Object.keys(complementary.trends).length} heros mesures`);
+  console.log(`  ${Object.keys(complementary.trends).length} heroes measured`);
 }
 
 /**
- * Combos de competences conseilles par le jeu, par heros : l'API les decrit en
- * anglais et designe chaque competence par son identifiant, que la fiche du
- * heros (`skillsArena`, voir competencesArena) traduit en nom. L'icone locale
- * est reprise quand la competence est reconnue, sinon celle du CDN.
+ * Skill combos recommended by the game, per hero: the API describes them in
+ * English and refers to each skill by its identifier, which the hero sheet
+ * (`skillsArena`, see fetchArenaSkills) turns into a name. The local icon is
+ * used when the skill is recognized, otherwise the CDN one.
  */
 async function combosArena(heroes, skillsArena, skillsSite, icons) {
   const output = {};
@@ -718,9 +715,9 @@ async function combosArena(heroes, skillsArena, skillsSite, icons) {
       if (combos.length > 0) output[h.slug] = combos;
     }
     process.stdout.write(`\r    combos ${i + 1}/${heroes.length}`);
-    // Meme garde-fou que les tendances : une API muette ne reviendra pas d'ici la fin.
+    // Same safeguard as trends: a silent API will not come back before the end.
     if (silent >= 8) {
-      console.warn(`\n    API muette depuis ${silent} heros : arret des combos`);
+      console.warn(`\n    API silent for ${silent} heroes: stopping combos`);
       break;
     }
     await pause(200);
@@ -730,8 +727,8 @@ async function combosArena(heroes, skillsArena, skillsSite, icons) {
 }
 
 /**
- * Ecrit combos.json, une ligne par heros. Un heros que l'API n'a pas servi
- * garde ses combos precedents.
+ * Writes combos.json, one line per hero. A hero the API did not serve keeps
+ * its previous combos.
  */
 async function writeCombos(combos) {
   const all = { ...(await readJson(`${OUTPUT}/combos.json`)), ...combos };
@@ -743,35 +740,35 @@ async function writeCombos(combos) {
 }
 
 /**
- * `--combos` : ne relit que les combos, sur les heros, competences et icones
- * deja synchronises. Aucun autre fichier n'est reecrit.
+ * `--combos`: re-reads only combos, on heroes, skills and icons already
+ * synchronized. No other file is rewritten.
  */
 async function combosOnly() {
   const heroes = await readJson(`${OUTPUT}/heroes.json`);
-  if (!Array.isArray(heroes) || heroes.length === 0) throw new Error("Lancer d'abord une synchronisation complete.");
-  console.log("Fiches des heros (API)…");
+  if (!Array.isArray(heroes) || heroes.length === 0) throw new Error("Run a full synchronization first.");
+  console.log("Hero sheets (API)…");
   const { skills: skillsArena } = await fetchArenaSkills(heroes);
   const skillsSite = await readJson(`${OUTPUT}/skills.json`);
   const icons = (await readJson(`${OUTPUT}/visuals.json`)).skills ?? {};
-  console.log("Combos de competences (API)…");
+  console.log("Skill combos (API)…");
   const combos = await combosArena(heroes, skillsArena, skillsSite, icons);
   const total = await writeCombos(combos);
-  console.log(`  ${Object.keys(combos).length} heros relus, ${total} dans combos.json`);
+  console.log(`  ${Object.keys(combos).length} heroes re-read, ${total} in combos.json`);
 }
 
-/** Fenetre des duos, en jours : la plus large que l'API accepte, pour des paires rares mais mesurees. */
+/** Duo window, in days: the widest the API accepts, so rare pairs still get measured. */
 const DAYS_DUOS = 30;
-/** Requetes de duos en vol a la fois : au-dela de six, l'API sature et repond en erreur pour tout le monde. */
+/** Duo requests in flight at once: beyond six, the API saturates and errors out for everyone. */
 const DUOS_IN_FLIGHT = 6;
 
 /**
- * Duos de chaque heros, pour chaque rang : les cinq partenaires qui font le
- * plus monter son taux de victoire, les cinq qui le font le plus baisser, et
- * le taux du duo par tranche de duree de partie (`/heroes/{h}/compatibility`).
+ * Duos of each hero, for each rank: the five partners that raise its win rate
+ * the most, the five that lower it the most, and the duo's rate per match
+ * duration bracket (`/heroes/{h}/compatibility`).
  *
- * Les six rangs d'un heros partent ensemble, six requetes en vol au plus ;
- * chacune retente deux fois (jsonDe). Une API muette pour huit heros de suite
- * ne reviendra pas d'ici la fin : on garde l'acquis.
+ * A hero's six ranks go out together, six requests in flight at most; each
+ * retries twice (jsonFrom). An API silent for eight heroes in a row will not
+ * come back before the end: what was gathered is kept.
  */
 async function duosArena(heroes, byId) {
   const output = {};
@@ -796,7 +793,7 @@ async function duosArena(heroes, byId) {
 
     silent = results.some(Boolean) ? 0 : silent + 1;
     if (silent >= 8) {
-      console.warn(`\n    API muette depuis ${silent} heros : arret des duos apres ${i + 1 - silent} heros`);
+      console.warn(`\n    API silent for ${silent} heroes: stopping duos after ${i + 1 - silent} heroes`);
       break;
     }
     process.stdout.write(`\r    duos ${i + 1}/${heroes.length}`);
@@ -807,8 +804,8 @@ async function duosArena(heroes, byId) {
 }
 
 /**
- * Ecrit duos.json, un heros par ligne. Un heros ou un rang que l'API n'a pas
- * servi garde sa mesure precedente.
+ * Writes duos.json, one hero per line. A hero or rank the API did not serve
+ * keeps its previous measurement.
  */
 async function writeDuos(duos) {
   const existing = (await readJson(`${OUTPUT}/duos.json`)).heroes ?? {};
@@ -818,29 +815,28 @@ async function writeDuos(duos) {
 }
 
 /**
- * `--duos` : ne relit que les duos, sur les heros deja synchronises. Aucun
- * autre fichier n'est reecrit. Les heros encore sans duo passent d'abord.
+ * `--duos`: re-reads only duos, on heroes already synchronized. No other file
+ * is rewritten. Heroes still without duos go first.
  */
 async function duosOnly() {
   const heroes = await readJson(`${OUTPUT}/heroes.json`);
-  if (!Array.isArray(heroes) || heroes.length === 0) throw new Error("Lancer d'abord une synchronisation complete.");
+  if (!Array.isArray(heroes) || heroes.length === 0) throw new Error("Run a full synchronization first.");
   const existing = (await readJson(`${OUTPUT}/duos.json`)).heroes ?? {};
   const measure = (h) => Number(Boolean(existing[h.slug]));
   const order = [...heroes].sort((a, b) => measure(a) - measure(b));
-  console.log(`Duos (compatibilite, ${DAYS_DUOS} jours), ${heroes.filter((h) => !measure(h)).length} heros sans mesure…`);
+  console.log(`Duos (compatibility, ${DAYS_DUOS} days), ${heroes.filter((h) => !measure(h)).length} heroes without measurements…`);
   const duos = await duosArena(order, await heroTableById(heroes));
   const total = await writeDuos(duos);
-  console.log(`  ${Object.keys(duos).length} heros relus, ${total} dans duos.json`);
+  console.log(`  ${Object.keys(duos).length} heroes re-read, ${total} in duos.json`);
 }
 
 /**
- * Coequipiers, tendances et taux par duree de partie, pour chaque rang.
+ * Teammates, trends and rates per match duration, for each rank.
  *
- * L'academie publie, pour chaque heros : la variation de son taux de victoire
- * selon son coequipier, ses taux quotidiens (victoire, ban, selection) sur
- * trente jours, et son taux de victoire par tranche de duree de partie — de
- * quoi dire s'il pese en debut ou en fin de partie. La duree se mesure sur sa
- * position principale.
+ * The academy publishes, for each hero: the change in its win rate depending
+ * on its teammate, its daily rates (win, ban, pick) over thirty days, and its
+ * win rate per match duration bracket — enough to tell whether it matters
+ * early or late in the match. Duration is measured on its main lane.
  */
 async function teammatesAndTrends(heroes, byId) {
   const teammates = {};
@@ -885,8 +881,8 @@ async function teammatesAndTrends(heroes, byId) {
 
   let silent = 0;
   for (const [i, h] of heroes.entries()) {
-    // Deux rangs a la fois, trois requetes chacun : au-dela, l'API sature et
-    // repond en erreur pour tout le monde.
+    // Two ranks at a time, three requests each: beyond that, the API saturates
+    // and errors out for everyone.
     const results = [];
     for (let k = 0; k < MEASURED_RANKS.length; k += 2) {
       results.push(...(await Promise.all(MEASURED_RANKS.slice(k, k + 2).map((rank) => measuresOfRank(h, rank)))));
@@ -897,14 +893,14 @@ async function teammatesAndTrends(heroes, byId) {
       if (series) (trends[h.slug] ??= {})[rank] = series;
       if (buckets) (duration[h.slug] ??= {})[rank] = buckets;
     });
-    // Une API muette pour huit heros de suite ne reviendra pas d'ici la fin :
-    // on garde l'acquis plutot que d'attendre chaque delai d'expiration.
+    // An API silent for eight heroes in a row will not come back before the
+    // end: keep what was gathered rather than wait out every timeout.
     silent = results.some((r) => r.best || r.series || r.buckets) ? 0 : silent + 1;
     if (silent >= 8) {
-      console.warn(`\n    API muette depuis ${silent} heros : arret apres ${i + 1 - silent} heros mesures`);
+      console.warn(`\n    API silent for ${silent} heroes: stopping after ${i + 1 - silent} heroes measured`);
       break;
     }
-    process.stdout.write(`\r    coequipiers et tendances ${i + 1}/${heroes.length}`);
+    process.stdout.write(`\r    teammates and trends ${i + 1}/${heroes.length}`);
     await pause(300);
   }
   process.stdout.write("\n");
@@ -912,19 +908,18 @@ async function teammatesAndTrends(heroes, byId) {
 }
 
 /**
- * Contres reels, avec taux de victoire, pour chaque rang.
+ * Actual counters, with win rates, for each rank.
  *
- * L'academie expose, pour chaque heros, le taux de victoire de tous ses
- * adversaires et surtout la variation de ce taux quand ils l'affrontent :
- * `increase_win_rate`. Negatif, l'adversaire perd du terrain — le heros le
- * contre ; positif, l'adversaire prend l'avantage. On en tire les contres
- * chiffres, dans les deux sens, la ou l'analyse ecrite ne couvre qu'une
- * poignee de heros.
+ * The academy exposes, for each hero, the win rate of all its opponents and,
+ * above all, how that rate changes when they face it: `increase_win_rate`.
+ * Negative, the opponent loses ground — the hero counters it; positive, the
+ * opponent gains the upper hand. This yields counters backed by numbers, both
+ * ways, where the written analysis covers only a handful of heroes.
  */
 async function actualCounters(heroes) {
   const byId = await heroTableById(heroes);
 
-  /** Contres d'un heros dans un rang, ou null si l'API n'a rien pour lui. */
+  /** A hero's counters in one rank, or null if the API has nothing for it. */
   async function countersOfRank(h, rank) {
     try {
       const rep = await fetch(
@@ -937,7 +932,7 @@ async function actualCounters(heroes) {
       const opponents = Array.isArray(block?.sub_hero) ? block.sub_hero : [];
       if (opponents.length === 0) return null;
 
-      // On ne retient que les adversaires connus, avec leur variation.
+      // Keep only known opponents, with their change.
       const notes = opponents
         .map((a) => ({
           slug: byId.get(a.heroid),
@@ -945,23 +940,23 @@ async function actualCounters(heroes) {
         }))
         .filter((a) => a.slug && a.slug !== h.slug);
 
-      // `increase_win_rate` est la variation du taux de victoire du heros dans
-      // ce duel : positive, il gagne davantage → il contre l'adversaire ;
-      // negative, il est en difficulte. On trie du plus favorable au moins.
+      // `increase_win_rate` is the change in the hero's win rate in this duel:
+      // positive, it wins more → it counters the opponent; negative, it
+      // struggles. Sorted from most to least favorable.
       const byDelta = [...notes].sort((a, b) => b.delta - a.delta);
       const point = (a) => ({ slug: a.slug, advantage: Math.round(a.delta * 1000) / 10 });
 
       return {
-        // avantage positif : le heros est fort contre cette cible.
+        // positive advantage: the hero is strong against this target.
         strong: byDelta.slice(0, 6).map(point),
-        // avantage negatif : le heros est en difficulte.
+        // negative advantage: the hero struggles.
         weak: byDelta.slice(-6).reverse().map(point),
         winRate: block.main_hero_win_rate
           ? Math.round(block.main_hero_win_rate * 1000) / 10
           : null,
       };
     } catch {
-      /* un rang en echec n'interrompt pas la synchronisation */
+      /* a failed rank does not interrupt the synchronization */
       return null;
     }
   }
@@ -969,8 +964,8 @@ async function actualCounters(heroes) {
   const output = {};
 
   for (const [i, h] of heroes.entries()) {
-    // Les six rangs d'un meme heros partent ensemble : l'API met pres de trois
-    // secondes a repondre, en serie la synchronisation durerait une demi-heure.
+    // The six ranks of a hero go out together: the API takes nearly three
+    // seconds to answer, so in series the synchronization would last half an hour.
     const results = await Promise.all(MEASURED_RANKS.map((rank) => countersOfRank(h, rank)));
     const byRank = {};
     MEASURED_RANKS.forEach((rank, j) => {
@@ -978,7 +973,7 @@ async function actualCounters(heroes) {
     });
     if (Object.keys(byRank).length > 0) output[h.slug] = byRank;
 
-    process.stdout.write(`\r    contres ${i + 1}/${heroes.length}`);
+    process.stdout.write(`\r    counters ${i + 1}/${heroes.length}`);
     await pause(150);
   }
 
@@ -986,23 +981,23 @@ async function actualCounters(heroes) {
   return output;
 }
 
-/** Positions du site vers le parametre `lane` de l'API. */
+/** Site lanes mapped to the API `lane` parameter. */
 const API_LANES = { Gold: "gold", Exp: "exp", Mid: "mid", Jungle: "jungle", Roam: "roam" };
 
 /**
- * Builds reellement joues, par position et par rang.
+ * Builds actually played, per lane and per rank.
  *
- * L'academie publie, pour chaque heros, position et rang, les builds du moment
- * avec leurs taux de selection et de victoire : trois objets cles, l'embleme,
- * ses trois talents et le sort. On garde les trois plus joues. Objets, talents
- * et sorts arrivent en identifiants : trois tables de l'API les traduisent en
- * noms, ceux-la memes qui relient chaque choix a son visuel.
+ * The academy publishes, for each hero, lane and rank, the current builds with
+ * their pick and win rates: three core items, the emblem, its three talents and
+ * the spell. The three most played are kept. Items, talents and spells arrive
+ * as identifiers: three API tables turn them into names, the very names that
+ * link each choice to its visual.
  *
- * Ces builds ne portent que les objets cles. L'equipement complet n'existe que
- * dans les guides publies par les joueurs sur l'academie : pour chaque
- * position et chaque rang, on retient le guide a six objets le mieux note d'un
- * auteur de ce rang, ou a defaut d'un rang superieur. C'est un avis, pas une
- * mesure — la fiche le presente comme tel.
+ * These builds carry only the core items. The full equipment exists only in
+ * the guides players publish on the academy: for each lane and each rank, the
+ * best-rated six-item guide from an author of that rank is kept, or failing
+ * that from a higher rank. It is an opinion, not a measurement — the sheet
+ * presents it as such.
  */
 async function buildsActual(heroes) {
   const table = async (path) => {
@@ -1010,7 +1005,7 @@ async function buildsActual(heroes) {
       headers: { "User-Agent": UA },
       signal: AbortSignal.timeout(30000),
     });
-    if (!rep.ok) throw new Error(`Table ${path} indisponible : HTTP ${rep.status}`);
+    if (!rep.ok) throw new Error(`Table ${path} unavailable: HTTP ${rep.status}`);
     return ((await rep.json())?.data?.records ?? []).map((r) => r?.data).filter(Boolean);
   };
   const [talents, sorts, equipmentList] = await Promise.all([
@@ -1022,11 +1017,11 @@ async function buildsActual(heroes) {
   const talentById = new Map(talents.map((t) => [t.giftid, t.emblemskill]));
   const spellById = new Map(sorts.map((s) => [s.battleskillid, s.__data]));
   const itemById = new Map(equipmentList.map((e) => [e.equipid, e.equipname]));
-  // Remplis au fil des builds classes : aucune table de l'API ne les donne.
+  // Filled in as ranked builds come in: no API table provides them.
   const emblemById = new Map();
   const laneByRoute = new Map();
 
-  // Icones officielles, pour les talents et sorts recents que le wiki n'a pas.
+  // Official icons, for recent talents and spells the wiki lacks.
   const icons = { talents: {}, sorts: {} };
   for (const t of talentById.values()) {
     if (t?.skillname && t.skillicon) icons.talents[t.skillname] = t.skillicon;
@@ -1066,12 +1061,12 @@ async function buildsActual(heroes) {
           pickRate: round(b.build_pick_rate),
         }));
     } catch {
-      /* un rang en echec n'interrompt pas la synchronisation */
+      /* a failed rank does not interrupt the synchronization */
       return null;
     }
   }
 
-  /** Guides de joueurs a equipement complet, bruts : les noms se resolvent a la fin. */
+  /** Raw player guides with full equipment: names are resolved at the end. */
   async function heroGuides(h) {
     try {
       const rep = await fetch(
@@ -1113,7 +1108,7 @@ async function buildsActual(heroes) {
     for (const l of h.lanes) {
       const lane = API_LANES[l];
       if (!lane) continue;
-      // Comme pour les contres, les six rangs d'une position partent ensemble.
+      // As with counters, the six ranks of a lane go out together.
       const results = await Promise.all(MEASURED_RANKS.map((rank) => buildsOfRank(h, l, lane, rank)));
       const byRank = {};
       MEASURED_RANKS.forEach((rank, j) => {
@@ -1135,8 +1130,8 @@ async function buildsActual(heroes) {
     const list = (guidesRaw[h.slug] ?? []).map((g) => ({ ...g, lane: laneByRoute.get(g.route) ?? null }));
     const byLane = {};
     for (const l of h.lanes) {
-      // Un guide sans position reconnue ne vaut que pour un heros a position unique.
-      // Seuls comptent les guides dont les six objets se reconnaissent.
+      // A guide without a recognized lane only applies to a single-lane hero.
+      // Only guides whose six items are all recognized count.
       const candidates = list.filter(
         (g) =>
           (g.lane === l || (g.lane === null && h.lanes.length === 1)) &&
@@ -1165,15 +1160,15 @@ async function buildsActual(heroes) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Classement
+// Ranking
 // ─────────────────────────────────────────────────────────────
 
 /**
- * Taux de victoire, de ban et de selection, pour chaque rang.
+ * Win, ban and pick rates, for each rank.
  *
- * Les identifiants de cette API ne sont pas ceux du wiki : le rapprochement se
- * fait par nom, apres passage au meme format de slug. Un heros sans
- * correspondance est simplement ignore plutot que rattache au hasard.
+ * This API's identifiers are not the wiki's: matching is done by name, after
+ * converting both to the same slug format. A hero without a match is simply
+ * ignored rather than attached at random.
  */
 async function ranking(heroes) {
   const known = new Set(heroes.map((h) => h.slug));
@@ -1183,7 +1178,7 @@ async function ranking(heroes) {
       headers: { "User-Agent": UA },
       signal: AbortSignal.timeout(30000),
     });
-    if (!response.ok) throw new Error(`Statistiques indisponibles (${rank}) : HTTP ${response.status}`);
+    if (!response.ok) throw new Error(`Statistics unavailable (${rank}): HTTP ${response.status}`);
 
     const records = (await response.json())?.data?.records ?? [];
     const rate = {};
@@ -1209,15 +1204,15 @@ async function ranking(heroes) {
     return { rate, orphans };
   }
 
-  // Six requetes seulement : elles partent ensemble.
+  // Only six requests: they go out together.
   const results = await Promise.allSettled(MEASURED_RANKS.map(rateOfRank));
 
-  // Sans la mesure tous rangs, la tier list n'a plus de base : on echoue, et
-  // l'appelant conserve le classement precedent. Un autre rang manquant est
-  // simplement omis.
+  // Without the all-ranks measurement, the tier list has no basis: fail, and
+  // the caller keeps the previous ranking. Any other missing rank is simply
+  // omitted.
   if (results[0].status === "rejected") throw results[0].reason;
   const { orphans } = results[0].value;
-  if (orphans.length) console.log(`  sans correspondance : ${orphans.join(", ")}`);
+  if (orphans.length) console.log(`  unmatched: ${orphans.join(", ")}`);
 
   const byRank = {};
   MEASURED_RANKS.forEach((rank, i) => {
@@ -1227,11 +1222,11 @@ async function ranking(heroes) {
 }
 
 /**
- * Relations entre heros : contres et synergies.
+ * Relations between heroes: counters and synergies.
  *
- * L'API expose, pour chaque heros, ceux contre lesquels il est fort, ceux qui
- * le mettent en difficulte, et ceux avec qui il se combine. Ses identifiants
- * ne sont pas ceux du wiki : le rapprochement se fait par nom.
+ * The API exposes, for each hero, those it is strong against, those that give
+ * it trouble, and those it combines with. Its identifiers are not the wiki's:
+ * matching is done by name.
  */
 async function relations(heroes) {
   const bySlug = new Map(heroes.map((h) => [h.slug, h]));
@@ -1240,11 +1235,11 @@ async function relations(heroes) {
     headers: { "User-Agent": UA },
     signal: AbortSignal.timeout(30000),
   });
-  if (!response.ok) throw new Error(`Relations indisponibles : HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`Relations unavailable: HTTP ${response.status}`);
 
   const records = (await response.json())?.data?.records ?? [];
 
-  // Table identifiant de l'API vers slug du site, construite depuis les noms.
+  // API identifier to site slug table, built from the names.
   const byId = new Map();
   for (const entry of records) {
     const name = entry?.data?.hero?.data?.name;
@@ -1274,11 +1269,11 @@ async function relations(heroes) {
   return output;
 }
 
-/** Les taux arrivent en fraction ; on les stocke en pourcentage a deux decimales. */
+/** Rates arrive as fractions; they are stored as percentages with two decimals. */
 const round = (v) => (typeof v === "number" ? Math.round(v * 10000) / 100 : null);
 
 // ─────────────────────────────────────────────────────────────
-// Patchs
+// Patches
 // ─────────────────────────────────────────────────────────────
 
 async function patches() {
@@ -1314,10 +1309,10 @@ async function patches() {
   } while (run);
 
   /**
-   * Le wiki publie plusieurs pages pour une meme version : les notes
-   * officielles, celles du serveur de test (« Advanced Server »), et parfois
-   * un ajustement d'equilibrage separe. On ne garde que la plus autoritaire —
-   * afficher trois fois « 1.8.30 » n'apprendrait rien a personne.
+   * The wiki publishes several pages for the same version: the official notes,
+   * the test server ones ("Advanced Server"), and sometimes a separate balance
+   * adjustment. Only the most authoritative is kept — showing "1.8.30" three
+   * times would tell nobody anything.
    */
   const rank = (title) => {
     if (/advanced server/i.test(title)) return 2;
@@ -1347,9 +1342,9 @@ async function patches() {
 }
 
 /**
- * Date de chaque patch detaille : la premiere revision de sa page sur le wiki,
- * creee le jour de la sortie ou a quelques jours pres. Elle place les patchs
- * sur les courbes de taux.
+ * Date of each detailed patch: the first revision of its wiki page, created
+ * on release day or within a few days. It places patches on the rate
+ * charts.
  */
 async function daterPatchs(detail) {
   for (const patch of Object.values(detail)) {
@@ -1371,12 +1366,12 @@ async function daterPatchs(detail) {
 }
 
 /**
- * Contenu complet des patch notes les plus recents.
+ * Full content of the most recent patch notes.
  *
- * On demande au wiki son propre rendu HTML plutot que d'analyser du wikitext,
- * puis on nettoie ce qui n'a de sens que sur le wiki. Seuls les derniers
- * patchs sont recuperes : les 249 pages representeraient plusieurs megaoctets
- * pour un contenu que plus personne ne consulte.
+ * The wiki is asked for its own HTML rendering rather than parsing wikitext,
+ * then whatever only makes sense on the wiki is cleaned out. Only the latest
+ * patches are fetched: all 249 pages would amount to several megabytes of
+ * content nobody reads anymore.
  */
 async function contentPatchs(list) {
   const contents = {};
@@ -1394,9 +1389,9 @@ async function contentPatchs(list) {
       const raw = data.parse?.text;
       if (!raw) continue;
 
-      // Deux lectures complementaires : le rendu HTML pour les sections libres
-      // (mot des concepteurs, terrain), et le wikitexte pour extraire les
-      // ajustements de heros en donnees structurees — heros, type, diffs.
+      // Two complementary reads: the HTML rendering for free-form sections
+      // (designers' note, battlefield), and the wikitext to extract hero
+      // adjustments as structured data — hero, type, diffs.
       let adjustments = [];
       try {
         const wt = await api({
@@ -1408,15 +1403,15 @@ async function contentPatchs(list) {
         const wikitext = wt.parse?.wikitext;
         if (wikitext) adjustments = heroAdjustments(wikitext);
       } catch {
-        // Sans le wikitexte, on garde au moins le rendu HTML.
+        // Without the wikitext, at least the HTML rendering is kept.
       }
 
       const { html } = cleanRender(raw, patch.link);
 
-      // Le corps est decoupe en sections : la page en rend certaines telles
-      // quelles et en remplace d'autres — nouveaux heros, ajustements — par un
-      // composant riche. On extrait la presentation des nouveaux heros et on
-      // vide le HTML des sections reprises par un composant, inutile a garder.
+      // The body is split into sections: the page renders some as is and
+      // replaces others — new heroes, adjustments — with a rich component. The
+      // new heroes' presentation is extracted and the HTML of sections taken
+      // over by a component is emptied, as there is no point keeping it.
       const sections = splitSections(html);
       let introduced = [];
       const sectionsRendered = sections.map((s) => {
@@ -1436,15 +1431,15 @@ async function contentPatchs(list) {
         toc: toc(html),
         sections: sectionsRendered,
         newHeroes: introduced,
-        // Ajustements de heros ramenes a des slugs, pour lier aux fiches.
+        // Hero adjustments mapped to slugs, to link to the hero pages.
         adjustments: adjustments.map((a) => ({ ...a, slug: slugify(a.name) })),
         balance: summary(adjustments),
       };
     } catch {
-      // Une page illisible ne doit pas interrompre la synchronisation.
+      // An unreadable page must not interrupt the synchronization.
     }
 
-    process.stdout.write(`\r    patchs ${i + 1}/${Math.min(DETAILED_PATCHES, list.length)}`);
+    process.stdout.write(`\r    patches ${i + 1}/${Math.min(DETAILED_PATCHES, list.length)}`);
     await pause(400);
   }
 
@@ -1452,7 +1447,7 @@ async function contentPatchs(list) {
   return contents;
 }
 
-/** Trie 1.9.40 apres 1.9.9, ce qu'un tri alphabetique ne fait pas. */
+/** Sorts 1.9.40 after 1.9.9, which an alphabetical sort does not. */
 function compareVersions(a, b) {
   const x = a.split(".").map(Number);
   const y = b.split(".").map(Number);
@@ -1460,7 +1455,7 @@ function compareVersions(a, b) {
   return 0;
 }
 
-/** Lit un JSON deja genere, ou un objet vide s'il n'existe pas encore. */
+/** Reads an already generated JSON, or an empty object if it does not exist yet. */
 async function readJson(path) {
   try {
     return JSON.parse(await readFile(path, "utf8"));
@@ -1469,7 +1464,7 @@ async function readJson(path) {
   }
 }
 
-/** Nettoie une description de competence renvoyee par l'API (balises, sauts). */
+/** Cleans a skill description returned by the API (tags, line breaks). */
 function cleanSkillDesc(raw) {
   return withoutTags(String(raw ?? "").replace(/<br\s*\/?>/gi, " "))
     .replace(/&nbsp;/g, " ")
@@ -1481,17 +1476,17 @@ function cleanSkillDesc(raw) {
 }
 
 /**
- * Competences depuis l'API communautaire, en repli du wiki.
+ * Skills from the community API, as a fallback for the wiki.
  *
- * Certaines pages du wiki n'exposent pas leurs competences — nom, description
- * ou icone manquants. L'API les fournit toutes : nom, texte du jeu et icone
- * officielle. On les recupere pour completer ce que le wiki laisse de cote,
- * sans jamais ecraser ce qu'il fournit deja.
+ * Some wiki pages do not expose their skills — name, description or icon
+ * missing. The API provides them all: name, in-game text and official icon.
+ * They are fetched to fill in what the wiki leaves out, without ever
+ * overwriting what it already provides.
  */
 async function fetchArenaSkills(heroes) {
   const output = {};
-  // L'API expose aussi une accroche d'une ligne (« story ») : on la recolte
-  // au passage, sans interrogation supplementaire.
+  // The API also exposes a one-line tagline ("story"): it is collected along
+  // the way, without an extra query.
   const taglines = {};
 
   for (const [i, h] of heroes.entries()) {
@@ -1505,7 +1500,7 @@ async function fetchArenaSkills(heroes) {
         const skills = (data?.heroskilllist ?? []).flatMap((g) => g.skilllist ?? []);
         if (skills.length > 0) {
           output[h.slug] = skills.map((s) => ({
-            // Identifiant de jeu : c'est par lui que les combos designent la competence.
+            // Game identifier: combos refer to the skill through it.
             id: s.skillid ?? null,
             name: String(s.skillname ?? "").trim(),
             description: cleanSkillDesc(s.skilldesc) || null,
@@ -1516,10 +1511,10 @@ async function fetchArenaSkills(heroes) {
         if (tagline) taglines[h.slug] = tagline;
       }
     } catch {
-      // Un heros en echec ne doit pas interrompre la synchronisation.
+      // A failed hero must not interrupt the synchronization.
     }
 
-    process.stdout.write(`\r    competences arena ${i + 1}/${heroes.length}`);
+    process.stdout.write(`\r    arena skills ${i + 1}/${heroes.length}`);
     await pause(200);
   }
 
@@ -1528,12 +1523,12 @@ async function fetchArenaSkills(heroes) {
 }
 
 /**
- * Modes de jeu, depuis le wiki.
+ * Game modes, from the wiki.
  *
- * La page « Game Modes » liste les modes de combat officiels dans une galerie ;
- * chaque mode a sa propre page, dont on tire le paragraphe de presentation et
- * l'image. L'API communautaire ne couvre pas les modes : le wiki est la seule
- * source structuree.
+ * The "Game Modes" page lists the official battle modes in a gallery; each
+ * mode has its own page, from which the introduction paragraph and the image
+ * are taken. The community API does not cover modes: the wiki is the only
+ * structured source.
  */
 async function modesOfGame() {
   const gallery = await api({
@@ -1550,7 +1545,7 @@ async function modesOfGame() {
   }));
   if (entries.length === 0) return [];
 
-  // Images : une seule requete pour tous les fichiers de la galerie.
+  // Images: a single request for all gallery files.
   const dataImg = await api({
     action: "query",
     titles: entries.map((e) => `File:${e.file}`).join("|"),
@@ -1563,17 +1558,17 @@ async function modesOfGame() {
       .map((p) => [p.title.replace(/^File:/, ""), p.imageinfo[0].url.split("/revision")[0]]),
   );
 
-  // Le paragraphe de presentation d'un mode : on le tire de sa page. Le lien de
-  // la galerie et le libelle affiche different parfois (« Arcade » vs « Arcade
-  // Mode ») ; on tente les deux avant d'abandonner.
-  // Sections de service, sans interet pour un lecteur : on les ecarte.
+  // A mode's introduction paragraph is taken from its page. The gallery link
+  // and the displayed label sometimes differ ("Arcade" vs "Arcade Mode");
+  // both are tried before giving up.
+  // Housekeeping sections, of no interest to a reader: they are skipped.
   const SECTIONS_IGNOREES = [
     "trivia", "gallery", "references", "navigation", "see also",
     "ranked mode subpages", "external links",
   ];
 
-  // On lit la page une fois, en wikitexte brut, pour en tirer l'introduction
-  // et les sections detaillees.
+  // The page is read once, as raw wikitext, to extract the introduction and
+  // the detailed sections.
   const content = async (title) => {
     try {
       const rep = await api({
@@ -1588,7 +1583,7 @@ async function modesOfGame() {
       const wt = page?.revisions?.[0]?.slots?.main?.["*"];
       if (!wt) return null;
 
-      // L'introduction : ce qui precede le premier titre de section.
+      // The introduction: whatever precedes the first section heading.
       const intro = wt.split(/\n==/)[0];
       const description = cleanLore(intro).find((p) => p.length > 40) ?? null;
 
@@ -1601,8 +1596,8 @@ async function modesOfGame() {
 
   const modes = [];
   for (const e of entries) {
-    // Le lien de la galerie et le libelle affiche different parfois
-    // (« Arcade » vs « Arcade Mode ») : on tente les deux.
+    // The gallery link and the displayed label sometimes differ
+    // ("Arcade" vs "Arcade Mode"): both are tried.
     const c = (await content(e.page)) ?? (await content(e.name));
 
     modes.push({
@@ -1619,13 +1614,13 @@ async function modesOfGame() {
 }
 
 /**
- * Emblemes officiels des rangs.
+ * Official rank emblems.
  *
- * Le decoupage des rangs (de Guerrier a Epique, puis la famille Mythique) est
- * stable et code cote site ; seuls les emblemes sont recuperes ici, depuis le
- * wiki, pour rester frais si leur fichier change. Les sous-paliers mythiques
- * (Honneur, Gloire, Immortel) n'existent pas dans la table du jeu : on prend
- * leurs images du wiki, ou elles sont documentees.
+ * The rank tiers (from Warrior to Epic, then the Mythic family) are stable and
+ * coded on the site side; only the emblems are fetched here, from the wiki, to
+ * stay fresh if their file changes. The Mythic sub-tiers (Honor, Glory,
+ * Immortal) do not exist in the game table: their images are taken from the
+ * wiki, where they are documented.
  */
 async function ranks() {
   const FILES = {
@@ -1668,8 +1663,8 @@ async function ranks() {
 }
 
 /**
- * Portraits des monstres de l'entraineur de Chatiment : l'image principale de
- * leur page du wiki. Le Seigneur de 12 minutes reprend celui de 8 minutes.
+ * Portraits of the Retribution trainer's monsters: the main image of their
+ * wiki page. The 12-minute Lord reuses the 8-minute one.
  */
 async function monsters() {
   const PAGES = { lord: "Lord", turtle: "Turtle", "purple-buff": "Thunder Fenrir", "orange-buff": "Molten Fiend" };
@@ -1699,7 +1694,7 @@ async function monsters() {
 async function main() {
   await mkdir(OUTPUT, { recursive: true });
 
-  console.log("Lecture des modules du wiki…");
+  console.log("Reading wiki modules…");
   const [rawHeroes, rawSkins, rawItems] = await Promise.all([
     moduleLua("Module:Hero/data"),
     moduleLua("Module:Skin/data"),
@@ -1711,9 +1706,9 @@ async function main() {
   const items = normalizeItems(rawItems);
 
   const nbSkins = Object.values(skins).reduce((n, s) => n + s.length, 0);
-  console.log(`  ${heroes.length} heros, ${nbSkins} skins, ${items.length} objets`);
+  console.log(`  ${heroes.length} heroes, ${nbSkins} skins, ${items.length} items`);
 
-  console.log("Lecture des pages de heros…");
+  console.log("Reading hero pages…");
   const pages = await heroPages(heroes);
   const nbSkills = Object.values(pages).reduce(
     (n, p) => n + p.skills.filter(Boolean).length,
@@ -1725,18 +1720,17 @@ async function main() {
   );
   const nbIllustrations = Object.values(pages).reduce((n, p) => n + p.illustrations.length, 0);
   console.log(
-    `  ${nbSkills} competences (${nbDescriptions} decrites), ${nbIllustrations} illustrations`,
+    `  ${nbSkills} skills (${nbDescriptions} described), ${nbIllustrations} illustrations`,
   );
 
-  console.log("Competences en repli (API)…");
+  console.log("Fallback skills (API)…");
   const { skills: skillsArena, taglines } = await fetchArenaSkills(heroes);
-  console.log(`  ${Object.keys(skillsArena).length} heros couverts par l'API`);
+  console.log(`  ${Object.keys(skillsArena).length} heroes covered by the API`);
 
-  // Fusion wiki + API : le wiki prime, l'API comble nom, description et icone
-  // manquants. Les deux listes suivent le meme ordre (passif → ultime). En
-  // dernier recours, on garde ce qui avait deja ete complete : une panne de
-  // l'API ne doit pas effacer un enrichissement obtenu lors d'un passage
-  // precedent.
+  // Wiki + API merge: the wiki wins, the API fills in missing name,
+  // description and icon. Both lists follow the same order (passive →
+  // ultimate). As a last resort, whatever was already filled in is kept: an
+  // API outage must not erase enrichment obtained during a previous run.
   const skillsExisting = await readJson(`${OUTPUT}/skills.json`);
   const finalSkills = {};
   for (const h of heroes) {
@@ -1756,10 +1750,10 @@ async function main() {
     finalSkills[h.slug] = list;
   }
 
-  // ── Histoire des heros ─────────────────────────────────────────────
-  // Deux apports complementaires : l'accroche d'une ligne de l'API et le
-  // recit long du wiki (lore, fiche narrative, anecdotes). On n'inscrit un
-  // heros que s'il apporte au moins l'un des deux.
+  // ── Hero stories ───────────────────────────────────────────────────
+  // Two complementary sources: the API's one-line tagline and the wiki's long
+  // story (lore, narrative profile, trivia). A hero is only listed if it
+  // brings at least one of the two.
   const stories = {};
   for (const h of heroes) {
     const story = pages[h.slug]?.story ?? null;
@@ -1772,102 +1766,102 @@ async function main() {
       trivia: story?.trivia ?? [],
     };
   }
-  console.log(`  ${Object.keys(stories).length} histoires de heros`);
+  console.log(`  ${Object.keys(stories).length} hero stories`);
 
-  console.log("Classement des heros…");
+  console.log("Hero ranking…");
   let stats = {};
   try {
     stats = await ranking(heroes);
-    console.log(`  ${Object.keys(stats.all).length} heros mesures, ${Object.keys(stats).length} rangs`);
+    console.log(`  ${Object.keys(stats.all).length} heroes measured, ${Object.keys(stats).length} ranks`);
   } catch (error) {
-    // Une source de statistiques indisponible ne doit pas faire echouer toute
-    // la synchronisation : le site retombe sur le classement precedent.
-    console.warn(`  statistiques indisponibles (${error.message}) — classement inchange`);
+    // An unavailable statistics source must not fail the whole
+    // synchronization: the site falls back on the previous ranking.
+    console.warn(`  statistics unavailable (${error.message}) — ranking unchanged`);
     stats = null;
   }
 
-  console.log("Contres reels (academie)…");
+  console.log("Actual counters (academy)…");
   let counters = null;
   try {
     counters = await actualCounters(heroes);
-    console.log(`  ${Object.keys(counters).length} heros avec contres chiffres`);
+    console.log(`  ${Object.keys(counters).length} heroes with measured counters`);
   } catch (error) {
-    console.warn(`  contres indisponibles (${error.message}) — inchanges`);
+    console.warn(`  counters unavailable (${error.message}) — unchanged`);
   }
 
-  console.log("Builds joues (academie)…");
+  console.log("Played builds (academy)…");
   let builds = null;
   let guides = null;
   let iconsBuilds = { talents: {}, sorts: {} };
   try {
     ({ builds, guides, icons: iconsBuilds } = await buildsActual(heroes));
-    console.log(`  ${Object.keys(builds).length} heros avec builds, ${Object.keys(guides).length} avec un guide complet`);
+    console.log(`  ${Object.keys(builds).length} heroes with builds, ${Object.keys(guides).length} with a full guide`);
   } catch (error) {
-    console.warn(`  builds indisponibles (${error.message}) — inchanges`);
+    console.warn(`  builds unavailable (${error.message}) — unchanged`);
   }
 
-  console.log("Coequipiers et tendances (academie)…");
+  console.log("Teammates and trends (academy)…");
   let complementary = null;
   try {
     complementary = await teammatesAndTrends(heroes, await heroTableById(heroes));
     console.log(
-      `  ${Object.keys(complementary.teammates).length} heros avec coequipiers, ${Object.keys(complementary.trends).length} avec tendance`,
+      `  ${Object.keys(complementary.teammates).length} heroes with teammates, ${Object.keys(complementary.trends).length} with trends`,
     );
   } catch (error) {
-    console.warn(`  coequipiers et tendances indisponibles (${error.message}) — inchanges`);
+    console.warn(`  teammates and trends unavailable (${error.message}) — unchanged`);
   }
 
-  console.log("Duos (compatibilite)…");
+  console.log("Duos (compatibility)…");
   let duos = null;
   try {
     duos = await duosArena(heroes, await heroTableById(heroes));
-    console.log(`  ${Object.keys(duos).length} heros avec duos`);
+    console.log(`  ${Object.keys(duos).length} heroes with duos`);
   } catch (error) {
-    console.warn(`  duos indisponibles (${error.message}) — inchanges`);
+    console.warn(`  duos unavailable (${error.message}) — unchanged`);
   }
 
-  console.log("Relations entre heros…");
+  console.log("Relations between heroes…");
   let links = null;
   try {
     links = await relations(heroes);
     const n = Object.values(links).reduce((t, r) => t + r.strongAgainst.length, 0);
-    console.log(`  ${Object.keys(links).length} heros, ${n} relations de contre`);
+    console.log(`  ${Object.keys(links).length} heroes, ${n} counter relations`);
   } catch (error) {
-    console.warn(`  relations indisponibles (${error.message}) — inchangees`);
+    console.warn(`  relations unavailable (${error.message}) — unchanged`);
   }
 
-  console.log("Liste des patchs…");
+  console.log("Patch list…");
   const listPatchs = await patches();
-  console.log(`  ${listPatchs.length} patchs`);
+  console.log(`  ${listPatchs.length} patches`);
 
-  console.log("Contenu des patchs recents…");
+  console.log("Recent patch content…");
   const detailPatchs = await contentPatchs(listPatchs);
   await daterPatchs(detailPatchs);
-  console.log(`  ${Object.keys(detailPatchs).length} patchs detailles`);
+  console.log(`  ${Object.keys(detailPatchs).length} detailed patches`);
 
-  console.log("Emblemes des rangs…");
+  console.log("Rank emblems…");
   const emblemsRanks = await ranks();
-  console.log(`  ${Object.keys(emblemsRanks.images).length} emblemes`);
+  console.log(`  ${Object.keys(emblemsRanks.images).length} emblems`);
 
-  console.log("Modes de jeu…");
+  console.log("Game modes…");
   const modes = await modesOfGame();
-  console.log(`  ${modes.length} modes (${modes.filter((m) => m.description).length} decrits)`);
+  console.log(`  ${modes.length} modes (${modes.filter((m) => m.description).length} described)`);
 
-  console.log("Resolution des visuels…");
+  console.log("Resolving visuals…");
   const credentials = [
     ...heroes.map((h) => h.id),
     ...Object.values(skins).flat().map((s) => s.id),
   ];
-  // Deux formats : le portrait vertical pour les fiches et les galeries,
-  // l'icone carree pour les listes compactes.
+  // Two formats: the vertical portrait for hero pages and galleries, the
+  // square icon for compact lists.
   const portraits = await urlsImages(credentials, "portrait");
   const icons = await urlsImages(heroes.map((h) => h.id), "icon");
-  console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icons).length} icones`);
+  console.log(`  ${Object.keys(portraits).length} portraits, ${Object.keys(icons).length} icons`);
 
   const { plan, paths } = planVisuals(heroes, skins, portraits, icons);
 
-  // Emblemes de rang copies en local, comme le reste : aucune image servie
-  // depuis un hote externe a l'execution.
+  // Rank emblems copied locally, like everything else: no image served from an
+  // external host at runtime.
   for (const [key, url] of Object.entries(emblemsRanks.images)) {
     if (!url || url.startsWith("/")) continue;
     plan.push({
@@ -1879,15 +1873,15 @@ async function main() {
     emblemsRanks.images[key] = `/visuels/rangs/${key}.webp`;
   }
 
-  // Portraits des monstres de l'entraineur de Chatiment, a la meme enseigne.
+  // Portraits of the Retribution trainer's monsters, same treatment.
   for (const [key, url] of Object.entries(await monsters())) {
     plan.push({ url, path: `public/visuels/monstres/${key}.webp`, optimize: true, width: 320 });
   }
 
-  // ── Visuels des modes ──────────────────────────────────────────────
-  // Comme le reste, l'image d'un mode est copiee en local : le site ne doit
-  // dependre d'aucune URL externe a l'execution. On planifie le telechargement
-  // et on remplace l'URL du wiki par le chemin local dans `modes.json`.
+  // ── Mode visuals ───────────────────────────────────────────────────
+  // Like everything else, a mode's image is copied locally: the site must not
+  // depend on any external URL at runtime. The download is planned and the
+  // wiki URL is replaced with the local path in `modes.json`.
   for (const mode of modes) {
     if (!mode.image || mode.image.startsWith("/")) continue;
     plan.push({
@@ -1899,10 +1893,10 @@ async function main() {
     mode.image = `/visuels/modes/${mode.slug}.webp`;
   }
 
-  // ── Icones de competences ──────────────────────────────────────────
-  // Le fichier d'icone porte le nom du champ « image » du gabarit quand il
-  // existe, souvent distinct du nom affiche (« Contract Transform » pour la
-  // competence « Contract: Transform ») ; sinon on retombe sur le nom.
+  // ── Skill icons ────────────────────────────────────────────────────
+  // The icon file takes the name from the template's "image" field when it
+  // exists, often different from the displayed name ("Contract Transform" for
+  // the skill "Contract: Transform"); otherwise it falls back on the name.
   const fileIcon = (slug, i, name) => pages[slug]?.skills?.[i]?.image ?? name;
   const namesSkills = [
     ...new Set(
@@ -1913,7 +1907,7 @@ async function main() {
   ];
   const urlsSkills = await urlsFiles(namesSkills);
 
-  // Icones deja resolues : dernier recours si ni le wiki ni l'API ne repondent.
+  // Already resolved icons: last resort if neither the wiki nor the API answers.
   const visualsExisting = (await readJson(`${OUTPUT}/visuals.json`)).skills ?? {};
 
   let iconsArena = 0;
@@ -1935,8 +1929,8 @@ async function main() {
           width: 128,
         });
       } else if (arena[i]?.icon) {
-        // Repli : l'icone officielle du CDN de l'API, copiee en local comme le
-        // reste — le site ne sert aucune image depuis un hote externe.
+        // Fallback: the official icon from the API CDN, copied locally like
+        // everything else — the site serves no image from an external host.
         const file = `${slugify(name)}.webp`;
         icons[name] = `/visuels/competences/${file}`;
         plan.push({
@@ -1947,29 +1941,28 @@ async function main() {
         });
         iconsArena += 1;
       } else if (visualsExisting[slug]?.[name]) {
-        // Ni wiki ni API : on conserve l'icone deja resolue precedemment.
+        // Neither wiki nor API: keep the icon resolved previously.
         icons[name] = visualsExisting[slug][name];
       }
     });
     if (Object.keys(icons).length) visualsSkills[slug] = icons;
   }
   console.log(
-    `  ${Object.keys(urlsSkills).length}/${namesSkills.length} icones du wiki` +
-      (iconsArena ? `, ${iconsArena} completees par l'API` : ""),
+    `  ${Object.keys(urlsSkills).length}/${namesSkills.length} wiki icons` +
+      (iconsArena ? `, ${iconsArena} filled in by the API` : ""),
   );
 
-  // ── Combos de competences ──────────────────────────────────────────
-  // Apres les icones : un combo reprend l'icone locale de chaque competence
-  // reconnue.
-  console.log("Combos de competences (API)…");
+  // ── Skill combos ───────────────────────────────────────────────────
+  // After the icons: a combo reuses the local icon of each recognized skill.
+  console.log("Skill combos (API)…");
   const combos = await combosArena(heroes, skillsArena, finalSkills, visualsSkills);
-  console.log(`  ${Object.keys(combos).length} heros avec combos`);
+  console.log(`  ${Object.keys(combos).length} heroes with combos`);
 
-  // ── Illustrations pleine taille ────────────────────────────────────
+  // ── Full-size illustrations ────────────────────────────────────────
   const namesIllustrations = [
     ...new Set(Object.values(pages).flatMap((p) => p.illustrations.map((i) => i.file))),
   ];
-  // Les illustrations sont en .jpg comme en .png : on interroge les deux.
+  // Illustrations come as .jpg as well as .png: both are queried.
   const [toJpg, toPng] = await Promise.all([
     urlsFiles(
       namesIllustrations.filter((f) => f.endsWith(".jpg")).map((f) => f.replace(/\.jpg$/, "")),
@@ -1985,8 +1978,8 @@ async function main() {
   const illustrations = {};
   for (const [slug, page] of Object.entries(pages)) {
     const bySkin = {};
-    // L'illustration est rangee sous le nom du module de donnees, celui que la
-    // fiche utilise pour la retrouver, des que la legende le reconnait.
+    // The illustration is stored under the data module's name, the one the
+    // hero page uses to find it, as soon as the caption matches it.
     const namesModule = new Map(
       (skins[slug] ?? []).map((s) => [normalizeNameSkin(s.name), s.name]),
     );
@@ -1995,7 +1988,7 @@ async function main() {
       const url = urlsIllustrations[key];
       if (!url || !skin) continue;
       const nameSkin = namesModule.get(normalizeNameSkin(skin)) ?? skin;
-      // Premiere illustration retenue : les suivantes sont d'anciens visuels.
+      // First illustration wins: the following ones are older visuals.
       if (bySkin[nameSkin]) continue;
       const nameFile = `${slugify(nameSkin)}.webp`;
       bySkin[nameSkin] = `/visuels/heros/${slug}/illustrations/${nameFile}`;
@@ -2008,10 +2001,10 @@ async function main() {
     if (Object.keys(bySkin).length) illustrations[slug] = bySkin;
   }
   console.log(
-    `  ${Object.keys(urlsIllustrations).length}/${namesIllustrations.length} illustrations pleine taille`,
+    `  ${Object.keys(urlsIllustrations).length}/${namesIllustrations.length} full-size illustrations`,
   );
 
-  console.log("Resolution des objets, emblemes, talents et sorts…");
+  console.log("Resolving items, emblems, talents and spells…");
   const [urlsItems, urlsEmblems, urlsTalents, spellUrls] = await Promise.all([
     urlsFiles(items.map((o) => o.name)),
     urlsFiles(EMBLEMS),
@@ -2030,9 +2023,10 @@ async function main() {
   const [visualsItems, visualsEmblems, visualsTalents, spellVisuals] =
     batches.map((l) => l.paths);
 
-  // Talents et sorts recents absents du wiki (Rupture, War Cry, Flameshot…) :
-  // l'icone officielle de l'API les complete, copiee en local comme le reste.
-  // Sans --images, on ne reference que ce qui est deja sur le disque.
+  // Recent talents and spells missing from the wiki (Rupture, War Cry,
+  // Flameshot…): the API's official icon fills them in, copied locally like
+  // everything else. Without --images, only what is already on disk is
+  // referenced.
   for (const [type, icons, target] of [
     ["talents", iconsBuilds.talents, visualsTalents],
     ["sorts", iconsBuilds.sorts, spellVisuals],
@@ -2047,19 +2041,19 @@ async function main() {
   }
 
   console.log(
-    `  ${Object.keys(visualsItems).length}/${items.length} objets, ` +
-      `${Object.keys(visualsEmblems).length} emblemes, ` +
+    `  ${Object.keys(visualsItems).length}/${items.length} items, ` +
+      `${Object.keys(visualsEmblems).length} emblems, ` +
       `${Object.keys(visualsTalents).length} talents, ` +
-      `${Object.keys(spellVisuals).length} sorts`,
+      `${Object.keys(spellVisuals).length} spells`,
   );
 
   if (WITH_IMAGES) {
-    console.log(`Telechargement de ${plan.length} visuels…`);
+    console.log(`Downloading ${plan.length} visuals…`);
     let ok = 0;
     let already = 0;
     let failures = 0;
 
-    // Par petits paquets : assez rapide, sans saturer le wiki.
+    // In small batches: fast enough, without saturating the wiki.
     for (let i = 0; i < plan.length; i += 8) {
       const results = await Promise.all(
         plan.slice(i, i + 8).map((v) => download(v.url, v.path, v.optimize, v.width)),
@@ -2069,19 +2063,18 @@ async function main() {
       failures += results.filter((r) => r === "echec").length;
       process.stdout.write(`\r    ${Math.min(i + 8, plan.length)}/${plan.length}`);
     }
-    console.log(`\n  ${ok} telecharges, ${already} deja presents, ${failures} echecs`);
+    console.log(`\n  ${ok} downloaded, ${already} already present, ${failures} failed`);
   } else {
-    console.log("  (relancer avec --images pour telecharger les visuels)");
+    console.log("  (rerun with --images to download the visuals)");
   }
 
   const write = (name, data) =>
     writeFile(`${OUTPUT}/${name}.json`, JSON.stringify(data, null, 2) + "\n");
 
-  // Les mesures (classement, contres, synergies) sont regroupees dans un seul
-  // fichier. Chacune a sa propre disponibilite : quand une source ne repond
-  // pas, on conserve la valeur precedente plutot que de l'effacer. Le
-  // classement garde en plus sa date, car il ne se rafraichit pas au meme
-  // rythme que le reste.
+  // Measurements (ranking, counters, synergies) are grouped in a single file.
+  // Each has its own availability: when a source does not answer, the
+  // previous value is kept rather than erased. The ranking also keeps its
+  // date, since it does not refresh at the same pace as the rest.
   const statsExisting = await readJson(`${OUTPUT}/statistics.json`);
   const statistics = {
     rankings: stats
@@ -2090,12 +2083,12 @@ async function main() {
     counters: counters ?? statsExisting.counters ?? {},
     builds: builds ?? statsExisting.builds ?? {},
     guides: guides ?? statsExisting.guides ?? {},
-    // Par heros : celui que l'API n'a pas servi garde ses coequipiers.
+    // Per hero: one the API did not serve keeps its teammates.
     teammates: { ...(statsExisting.teammates ?? {}), ...(complementary?.teammates ?? {}) },
     relations: links ?? statsExisting.relations ?? {},
   };
 
-  // Table nom-par-slug, embarquee cote client sans le reste du catalogue.
+  // Name-by-slug table, shipped client-side without the rest of the catalog.
   const names = Object.fromEntries(heroes.map((h) => [h.slug, h.name]));
 
   await Promise.all([
@@ -2111,7 +2104,7 @@ async function main() {
     writeEvolution(complementary),
     writeCombos(combos),
     writeDuos(duos),
-    // Tous les chemins de visuels, regroupes
+    // All visual paths, grouped
     write("visuals", {
       heroes: paths,
       illustrations,
@@ -2121,10 +2114,10 @@ async function main() {
       talents: visualsTalents,
       spells: spellVisuals,
     }),
-    // Mesures et patchs, regroupes
+    // Measurements and patches, grouped
     write("statistics", statistics),
     write("patches", { list: listPatchs, details: detailPatchs }),
-    // Metadonnees de la synchronisation
+    // Synchronization metadata
     write("sync", {
       date: new Date().toISOString(),
       source: "https://mobilelegends.fandom.com",
@@ -2135,7 +2128,7 @@ async function main() {
       rankings: stats ? Object.keys(stats.all).length : null,
       counters: counters ? Object.keys(counters).length : null,
       builds: builds ? Object.keys(builds).length : null,
-      // Le wiki fournit le catalogue ; l'API communautaire fournit les mesures.
+      // The wiki provides the catalog; the community API provides the measurements.
       sources: [
         "https://mobilelegends.fandom.com",
         "https://arena.rone.dev",
@@ -2143,7 +2136,7 @@ async function main() {
     }),
   ]);
 
-  console.log(`\nEcrit dans ${OUTPUT}/`);
+  console.log(`\nWritten to ${OUTPUT}/`);
 }
 
 await (process.argv.includes("--evolution")

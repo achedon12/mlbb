@@ -5,9 +5,9 @@ import { messagesFor } from "@/i18n/translations";
 type Block = { h?: string; p?: string; ul?: string[] };
 
 /**
- * Rend une page de prose depuis le catalogue. Contenu = tableau de blocs :
- * titre `h`, paragraphe `p`, ou liste `ul`. Le texte accepte des liens
- * `[texte](url)`, du code `` `code` `` et des variables `{clef}`.
+ * Renders a prose page from the catalogue. Content = array of blocks:
+ * heading `h`, paragraph `p`, or list `ul`. Text accepts links
+ * `[text](url)`, code `` `code` `` and variables `{key}`.
  */
 export function Prose({
   locale,
@@ -26,7 +26,7 @@ export function Prose({
 
   const inline = (text: string, key: string) => {
     const out: React.ReactNode[] = [];
-    // Découpe successive : liens, puis code, sur le texte substitué.
+    // Successive split: links, then code, on the substituted text.
     const re = /\[([^\]]+)\]\(([^)]+)\)|`([^`]+)`/g;
     let last = 0;
     let m: RegExpExecArray | null;

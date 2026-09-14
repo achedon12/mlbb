@@ -3,28 +3,28 @@ import type { Duo, DuosByRank } from "./duos";
 import { MEASURED_RANKS, type MeasuredRank } from "./measured-ranks";
 
 /**
- * Logique des pages de paires de heros : face-a-face (`/compare/a-vs-b`) et
- * duos (`/heroes/{slug}/duos`). Module pur — aucun fichier de donnees importe,
- * les types seuls — pour etre teste sans charger le jeu.
+ * Logic of the hero pair pages: head-to-head (`/compare/a-vs-b`) and
+ * duos (`/heroes/{slug}/duos`). Pure module — no data file imported, only
+ * types — so it can be tested without loading the game.
  */
 
-// ── Adresse d'une paire ────────────────────────────────────────────
+// ── Pair address ───────────────────────────────────────────────────
 
 export const SEPARATOR_PAIR = "-vs-";
 
-/** Ordre canonique d'une paire : alphabetique des slugs. */
+/** Canonical order of a pair: alphabetical by slug. */
 export const orderPair = (a: string, b: string): [string, string] => (a < b ? [a, b] : [b, a]);
 
-/** « aamon-vs-fanny », quel que soit l'ordre donne. */
+/** "aamon-vs-fanny", whatever the order given. */
 export const segmentPair = (a: string, b: string) => orderPair(a, b).join(SEPARATOR_PAIR);
 
-/** Chemin sans langue de la page face-a-face. */
+/** Locale-less path of the head-to-head page. */
 export const pathPair = (a: string, b: string) => `/compare/${segmentPair(a, b)}`;
 
 /**
- * Deux slugs d'un segment « a-vs-b ». Les slugs contiennent des tirets
- * (« x-borg », « yi-sun-shin ») mais jamais « -vs- ». Null pour un segment mal
- * forme ou un heros oppose a lui-meme ; `canonique` dit si l'ordre est le bon.
+ * The two slugs of an "a-vs-b" segment. Slugs contain hyphens
+ * ("x-borg", "yi-sun-shin") but never "-vs-". Null for a malformed segment
+ * or a hero set against itself; `canonical` tells whether the order is right.
  */
 export function readPair(segment: string): { a: string; b: string; canonical: boolean } | null {
   const i = segment.indexOf(SEPARATOR_PAIR);
@@ -41,15 +41,15 @@ const lists = (m: { strong?: CounterFigure[]; weak?: CounterFigure[] } | undefin
 ];
 
 /**
- * Paires au duel mesure : b figure parmi les ecarts les plus marques de a
- * (listes `fort` ou `faible`), ou l'inverse, a un rang au moins. Segments
- * canoniques, tries. `existe` ecarte un heros absent du catalogue.
+ * Pairs with a measured duel: b is among a's most marked gaps (`strong` or
+ * `weak` lists), or the reverse, in at least one rank. Canonical segments,
+ * sorted. `exists` rules out a hero missing from the catalogue.
  */
 export function pairsMeasured(counters: Record<string, CountersByRank>, exists: (slug: string) => boolean): string[] {
   return [...ranksByPair(counters, exists).keys()].sort();
 }
 
-/** Nombre de rangs ou chaque paire est mesuree, dans un sens ou dans l'autre. */
+/** Number of ranks in which each pair is measured, in either direction. */
 export function ranksByPair(
   counters: Record<string, CountersByRank>,
   exists: (slug: string) => boolean,
@@ -69,9 +69,9 @@ export function ranksByPair(
 }
 
 /**
- * Adversaires au duel mesure d'un heros, avec l'ecart le plus marque releve
- * entre eux, dans un sens ou dans l'autre, en valeur absolue : du duel le plus
- * tranche au plus serre.
+ * A hero's opponents with a measured duel, with the most marked gap recorded
+ * between them, in either direction, in absolute value: from the most
+ * one-sided duel to the closest.
  */
 export function measuredOpponents(counters: Record<string, CountersByRank>, slug: string): { slug: string; gap: number }[] {
   const gaps = new Map<string, number>();
@@ -88,22 +88,22 @@ export function measuredOpponents(counters: Record<string, CountersByRank>, slug
     .sort((x, y) => y.gap - x.gap || x.slug.localeCompare(y.slug));
 }
 
-// ── Face-a-face ────────────────────────────────────────────────────
+// ── Head-to-head ───────────────────────────────────────────────────
 
 const rounded = (v: number) => Math.round(v * 10) / 10;
 const average = (values: number[]) =>
   values.length > 0 ? rounded(values.reduce((s, v) => s + v, 0) / values.length) : null;
 
-/** Duel de deux heros dans un rang, du point de vue de `a`. */
+/** Duel of two heroes in a rank, from `a`'s point of view. */
 export interface DuelRank {
   rank: MeasuredRank;
-  /** Variation du taux de victoire de a quand il affronte b, lue dans les listes de a (points). */
+  /** Change in a's win rate when facing b, read from a's lists (points). */
   aAgainstB: number | null;
-  /** Variation du taux de victoire de b quand il affronte a, lue dans les listes de b. */
+  /** Change in b's win rate when facing a, read from b's lists. */
   bAgainstA: number | null;
   /**
-   * Avantage de a, en points : aContreB et l'oppose de bContreA, moyennes
-   * quand les deux sont mesures. Positif, a prend le dessus.
+   * a's advantage, in points: aAgainstB and the negation of bAgainstA, averaged
+   * when both are measured. Positive means a has the upper hand.
    */
   advantage: number;
 }
@@ -119,15 +119,15 @@ export function duelByRank(counters: Record<string, CountersByRank>, a: string, 
   });
 }
 
-/** Rang de la synthese : Mythique, rang de reference des joueurs classes, sinon tous rangs, sinon le premier mesure. */
+/** Rank of the summary: Mythic, the reference rank for ranked players, else all ranks, else the first measured. */
 export function duelOfReference(duels: DuelRank[]): DuelRank | null {
   return duels.find((d) => d.rank === "mythic") ?? duels.find((d) => d.rank === "all") ?? duels[0] ?? null;
 }
 
-/** Ecart sous lequel un duel est dit equilibre, en points. */
+/** Gap below which a duel counts as balanced, in points. */
 export const THRESHOLD_BALANCE = 0.3;
 
-/** Rangs de tranche (hors « tous rangs ») ou chacun prend le dessus. */
+/** Band ranks (excluding "all ranks") where each side has the upper hand. */
 export function ranksWon(duels: DuelRank[]): { a: number; b: number; total: number } {
   const buckets = duels.filter((d) => d.rank !== "all");
   return {
@@ -137,15 +137,15 @@ export function ranksWon(duels: DuelRank[]): { a: number; b: number; total: numb
   };
 }
 
-// ── Phases de partie ───────────────────────────────────────────────
+// ── Match phases ───────────────────────────────────────────────────
 
 export type Phase = "early" | "mid" | "late";
 export const PHASES: readonly Phase[] = ["early", "mid", "late"];
 
-/** Minutes de debut des tranches d'un duo, dans l'ordre du fichier (TRANCHES_DUO, scripts/measures.mjs). */
+/** Start minutes of a duo's buckets, in file order (BUCKETS_DUO, scripts/measures.mjs). */
 export const STARTS_BUCKETS_DUO = [10, 12, 14, 16, 18, 20] as const;
 
-/** Debut de partie : 10 a 14 minutes ; milieu : 14 a 18 ; fin : 18 et plus. */
+/** Early game: 10 to 14 minutes; mid: 14 to 18; late: 18 and beyond. */
 export const phaseOf = (minutes: number): Phase => (minutes < 14 ? "early" : minutes < 18 ? "mid" : "late");
 
 interface Bucket {
@@ -153,24 +153,24 @@ interface Bucket {
   winRate: number | null;
 }
 
-/** Taux moyen de chaque phase d'une courbe de duree ; null pour une phase sans tranche. */
+/** Average rate of each phase of a duration curve; null for a phase with no bucket. */
 export function rateByPhase(buckets: Bucket[] | undefined): Record<Phase, number | null> {
   const byPhase = (phase: Phase) =>
     average((buckets ?? []).flatMap((t) => (t.winRate !== null && phaseOf(t.from) === phase ? [t.winRate] : [])));
   return { early: byPhase("early"), mid: byPhase("mid"), late: byPhase("late") };
 }
 
-/** Tranches d'un duo, du tableau aligne sur DEBUTS_TRANCHES_DUO a des tranches datees. */
+/** A duo's buckets, from the array aligned on STARTS_BUCKETS_DUO to timed buckets. */
 export const bucketsDuo = (phases: (number | null)[] | undefined): Bucket[] =>
   (phases ?? []).slice(0, STARTS_BUCKETS_DUO.length).map((winRate, i) => ({ from: STARTS_BUCKETS_DUO[i], winRate }));
 
 export interface PhaseDuo {
   phase: Phase;
-  /** Taux de victoire du duo sur la phase, en %. */
+  /** The duo's win rate over the phase, in %. */
   win: number;
   /**
-   * Gain sur le heros seul a la meme duree et au meme rang, en points :
-   * moyenne des ecarts tranche par tranche, la ou les deux sont mesures.
+   * Gain over the hero alone at the same duration and rank, in points:
+   * average of the bucket-by-bucket gaps, where both are measured.
    */
   gain: number | null;
 }
@@ -186,8 +186,8 @@ export function phasesDuo(phases: (number | null)[] | undefined, heroBuckets: Bu
 }
 
 /**
- * Meilleur partenaire de chaque phase : le plus fort gain sur le heros seul,
- * ou le plus fort taux quand un candidat n'a pas de gain mesurable.
+ * Best partner of each phase: the highest gain over the hero alone,
+ * or the highest rate when a candidate has no measurable gain.
  */
 export function bestByPhase(duos: Duo[], heroBuckets: Bucket[] | undefined): ({ slug: string } & PhaseDuo)[] {
   return PHASES.flatMap((phase) => {
@@ -202,7 +202,7 @@ export function bestByPhase(duos: Duo[], heroBuckets: Bucket[] | undefined): ({ 
   });
 }
 
-/** Deux heros face a la duree de partie : taux de chacun par phase, et l'ecart a − b. */
+/** Two heroes against match duration: each one's rate per phase, and the gap a − b. */
 export function phasesDuel(
   ta: Bucket[] | undefined,
   tb: Bucket[] | undefined,
@@ -217,7 +217,7 @@ export function phasesDuel(
   }));
 }
 
-/** Phase la plus favorable a a (ecart le plus haut, positif) et a b (le plus bas, negatif). */
+/** Phase most favourable to a (highest gap, positive) and to b (lowest, negative). */
 export function readPhases(duel: ReturnType<typeof phasesDuel>): { a: Phase | null; b: Phase | null } {
   const measures = duel.filter((p): p is typeof p & { gap: number } => p.gap !== null);
   const top = measures.reduce<(typeof measures)[number] | null>((m, p) => (!m || p.gap > m.gap ? p : m), null);
@@ -225,9 +225,9 @@ export function readPhases(duel: ReturnType<typeof phasesDuel>): { a: Phase | nu
   return { a: top && top.gap > 0 ? top.phase : null, b: bottom && bottom.gap < 0 ? bottom.phase : null };
 }
 
-// ── Meme equipe ────────────────────────────────────────────────────
+// ── Same team ──────────────────────────────────────────────────────
 
-/** Duos au format des contres : `fort` pour les meilleurs partenaires, `faible` pour les pires. */
+/** Duos in counters format: `strong` for the best partners, `weak` for the worst. */
 export function duosAsCounters(byRank: DuosByRank): CountersByRank {
   return Object.fromEntries(
     Object.entries(byRank).flatMap(([r, d]) => (d ? [[r, { strong: d.best, weak: d.worst, winRate: d.winRate }]] : [])),
@@ -236,17 +236,17 @@ export function duosAsCounters(byRank: DuosByRank): CountersByRank {
 
 export interface LinkTeam {
   rank: MeasuredRank;
-  /** Heros dont le taux varie. */
+  /** Hero whose rate changes. */
   de: string;
-  /** Coequipier qui le fait varier. */
+  /** Teammate who makes it change. */
   partner: string;
   advantage: number;
   source: "duos" | "coequipiers";
 }
 
 /**
- * Ce que chacun gagne ou perd a jouer avec l'autre, rang par rang : les duos
- * (compatibilite) d'abord, les coequipiers de l'academie a defaut.
+ * What each one gains or loses playing with the other, rank by rank: duos
+ * (compatibility) first, academy teammates as a fallback.
  */
 export function linksTeam(
   duos: Record<string, DuosByRank>,

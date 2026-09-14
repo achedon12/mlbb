@@ -6,9 +6,9 @@ import { useLocale } from "@/i18n/provider";
 import { prefix } from "@/i18n/links";
 
 /**
- * Seules passent les adresses internes, les ancres et les liens web. Une
- * adresse venue des donnees en « javascript: » ou « data: » s'executerait au
- * clic : elle devient une ancre vide.
+ * Only internal addresses, anchors and web links pass. An address coming
+ * from the data as « javascript: » or « data: » would run on click: it
+ * becomes an empty anchor.
  */
 const SAFE_ADDRESS = /^(?:\/(?!\/)|#|\?|https?:\/\/|mailto:)/i;
 
@@ -17,9 +17,9 @@ export function safeAddress(href: string): string {
 }
 
 /**
- * Lien interne du site : `next/link`, avec la langue courante ajoutee aux
- * adresses. Les pages ecrivent « /heroes » ; le lien pointe vers « /fr/heroes »
- * sans passer par la redirection du proxy.
+ * Internal site link: `next/link`, with the current locale added to the
+ * address. Pages write « /heroes »; the link points to « /fr/heroes »
+ * without going through the proxy redirect.
  */
 export default function Link({ href, ...rest }: ComponentProps<typeof NextLink>) {
   const locale = useLocale();

@@ -91,7 +91,7 @@ describe("links and pairs", () => {
     expect([pairs[0].a, pairs[0].b]).toEqual(["aamon", "gusion"]);
     expect(pairs[0].deA?.nature).toBe("frère cadet");
     expect(pairs[0].deB?.nature).toBe("frère aîné");
-    // Chaque heros n'apparait qu'une fois dans la vitrine.
+    // Each hero appears only once in the showcase.
     const featured = pairsFeatured(pairs, 5);
     const slugs = featured.flatMap((p) => [p.a, p.b]);
     expect(new Set(slugs).size).toBe(slugs.length);

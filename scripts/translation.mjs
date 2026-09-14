@@ -1,11 +1,11 @@
 /**
- * Traduction en francais des contenus extraits en anglais (histoires des
- * heros, details des modes).
+ * French translation of content extracted in English (hero
+ * stories, mode details).
  *
- * Le wiki et l'API communautaire ne publient qu'en anglais. On traduit une
- * seule fois, a la synchronisation, et on met le resultat en cache : une
- * phrase deja traduite ne repart jamais sur le reseau. Le cache est un simple
- * dictionnaire anglais → francais, versionne avec le depot.
+ * The wiki and the community API only publish in English. Translation happens
+ * once, at sync time, and the result is cached: a
+ * sentence already translated never goes back over the network. The cache is a plain
+ * English → French dictionary, versioned with the repository.
  */
 import { readFile, writeFile } from "node:fs/promises";
 import { pause, translateBatch as translateBatchGoogle } from "./translation-google.mjs";
@@ -14,7 +14,7 @@ import { existsSync } from "node:fs";
 const CACHE = "scripts/translations.json";
 
 
-/** Un lot d'au plus dix textes, borne aussi par la longueur totale de l'URL. */
+/** A batch of at most ten texts, also capped by the total URL length. */
 function batches(texts) {
   const groups = [];
   let current = [];
@@ -35,13 +35,13 @@ function batches(texts) {
 const translateBatch = (batch) => translateBatchGoogle(batch, "en", "fr", { tolerant: true });
 
 /**
- * Traducteur a cache. On l'instancie une fois, on lui demande de traduire
- * autant de textes que voulu, puis on enregistre le cache a la fin.
+ * Caching translator. Instantiate it once, ask it to translate
+ * as many texts as needed, then save the cache at the end.
  */
 export async function createTranslator() {
   const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
 
-  /** Traduit une liste de textes ; renvoie une Map original → francais. */
+  /** Translates a list of texts; returns a Map original → French. */
   async function translate(texts) {
     const unique = [...new Set(texts.map((t) => String(t).trim()).filter(Boolean))];
     const missing = unique.filter((t) => !(t in cache));
@@ -52,7 +52,7 @@ export async function createTranslator() {
       group.forEach((original, k) => {
         cache[original] = outputs[k] ?? original;
       });
-      process.stdout.write(`\r    traduction ${i + 1}/${groups.length} lots`);
+      process.stdout.write(`\r    translation ${i + 1}/${groups.length} batches`);
       await pause(250);
     }
     if (groups.length) process.stdout.write("\n");
@@ -60,14 +60,14 @@ export async function createTranslator() {
     return new Map(unique.map((t) => [t, cache[t] ?? t]));
   }
 
-  /** Traduit une chaine unique (ou renvoie null pour une entree vide). */
+  /** Translates a single string (or returns null for an empty input). */
   async function translateOne(text) {
     if (!text) return null;
     const m = await translate([text]);
     return m.get(String(text).trim()) ?? text;
   }
 
-  /** Traduit un tableau de chaines, dans l'ordre. */
+  /** Translates an array of strings, in order. */
   async function translateList(list) {
     if (!list?.length) return [];
     const m = await translate(list);
@@ -75,7 +75,7 @@ export async function createTranslator() {
   }
 
   async function save() {
-    // Cache trie par clef : les diffs restent lisibles d'une synchro a l'autre.
+    // Cache sorted by key: diffs stay readable from one sync to the next.
     const sorted = Object.fromEntries(Object.keys(cache).sort().map((k) => [k, cache[k]]));
     await writeFile(CACHE, JSON.stringify(sorted, null, 2) + "\n");
   }

@@ -8,19 +8,19 @@ import { GlobalSearch } from "./global-search";
 import { LocalePicker } from "./locale-picker";
 
 /**
- * En-tete du site.
+ * Site header.
  *
- * Sans lecture de session cote serveur : l'etat de connexion est charge par
- * `BoutonCompte` apres l'affichage, ce qui laisse toutes les pages de contenu
- * generees au build.
+ * No server-side session read: the sign-in state is loaded by
+ * `AccountButton` after render, which keeps every content page generated
+ * at build time.
  *
- * La navigation est rangee en deux menus deroulants (`MenuBureau`) a partir des
- * grands ecrans ; en dessous, le menu deplie (`MenuMobile`) prend le relais.
+ * Navigation is arranged in two dropdown menus (`DesktopMenu`) from large
+ * screens up; below that, the expanded menu (`MobileMenu`) takes over.
  */
 export function Header({ locale }: { locale: Locale }) {
   return (
     <header className="sticky top-0 z-40 border-b border-night-700/70 bg-night-950/85 backdrop-blur">
-      {/* Liseré doré en tête, rappel du filet des titres. */}
+      {/* Gold edge at the top, echoing the heading rule. */}
       <div aria-hidden className="h-px w-full bg-linear-to-r from-transparent via-gold-500/60 to-transparent" />
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-2 px-4">
         <Link href="/" className="group flex shrink-0 items-center gap-2.5">

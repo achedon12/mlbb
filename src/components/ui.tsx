@@ -3,7 +3,7 @@ import Link from "@/components/link";
 import type { Tier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-/** Titre de section, avec le filet dore repris de l'interface du jeu. */
+/** Section title, with the gold rule borrowed from the game's interface. */
 export function SectionTitle({
   children,
   lead,
@@ -33,7 +33,7 @@ export function SectionTitle({
 }
 
 
-/** Couleurs d'un palier, reprises par le tableau des statistiques. */
+/** Colours of a tier, reused by the statistics table. */
 export const COLOR_TIER: Record<Tier, string> = {
   "S+": "bg-blood-500 text-night-950",
   S: "bg-gold-500 text-night-950",
@@ -55,7 +55,7 @@ export function BadgeTier({ tier }: { tier: Tier }) {
   );
 }
 
-/** Carte generique : surface biseautee sombre, utilisee partout. */
+/** Generic card: dark bevelled surface, used everywhere. */
 export function Card({
   className,
   children,
@@ -74,7 +74,7 @@ export function Card({
   );
 }
 
-/** Bandeau d'en-tete de page, commun a toutes les sections. */
+/** Page header banner, shared by all sections. */
 export function PageHeader({
   title,
   lead,
@@ -84,9 +84,9 @@ export function PageHeader({
 }: {
   title: string;
   lead: string;
-  /** Fil d'Ariane ; par defaut, la page seule sous l'accueil. */
+  /** Breadcrumb; by default, the page alone under the home page. */
   crumbs?: Crumb[];
-  /** Visuel pose devant le titre (icone d'objet, d'embleme, de sort). */
+  /** Visual placed before the title (item, emblem or spell icon). */
   icon?: React.ReactNode;
   children?: React.ReactNode;
 }) {
@@ -112,8 +112,8 @@ export function PageHeader({
 }
 
 /**
- * Note du jeu, affichee en barre plutot qu'en chiffre nu : on compare deux
- * heros d'un coup d'oeil, ce qu'une valeur seule ne permet pas.
+ * In-game rating, shown as a bar rather than a bare number: two heroes can be
+ * compared at a glance, which a lone value does not allow.
  */
 export function Gauge({
   value,
@@ -122,7 +122,7 @@ export function Gauge({
 }: {
   value: number;
   max?: number;
-  /** Valeur affichee, deja formatee pour la langue (une moyenne a decimale). */
+  /** Displayed value, already formatted for the locale (an average with decimals). */
   text?: string;
 }) {
   const part = Math.max(0, Math.min(1, value / max));
@@ -138,7 +138,7 @@ export function Gauge({
       <span className="w-6 shrink-0 text-right text-xs tabular-nums text-chalk-300">
         {text ?? value}
       </span>
-      {/* « / 10 » se lit dans toutes les langues : la jauge sert aussi hors d'un composant client. */}
+      {/* "/ 10" reads the same in every language: the gauge is also used outside client components. */}
       <span className="sr-only">/ {max}</span>
     </span>
   );

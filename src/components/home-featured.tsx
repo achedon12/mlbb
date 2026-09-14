@@ -6,11 +6,11 @@ import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 
 /**
- * Heros mis en avant, en pleine largeur.
+ * Featured hero, full width.
  *
- * L'accueil doit dire en une image de quoi le site parle. Le heros change
- * chaque jour, sans aleatoire : un tirage au sort donnerait un visuel
- * different a chaque rechargement, ce qui empeche de reconnaitre la page.
+ * The home page must say in one image what the site is about. The hero changes
+ * every day, without randomness: a random draw would give a different visual
+ * on every reload, which makes the page hard to recognise.
  */
 export function HomeFeatured({
   hero: heroes,
@@ -37,7 +37,7 @@ export function HomeFeatured({
           sizes="100vw"
           className="object-cover object-[60%_25%]"
         />
-        {/* Le texte occupe la gauche : le voile y est franc, et s'ouvre a droite. */}
+        {/* The text sits on the left: the overlay is solid there, and opens up to the right. */}
         <div className="absolute inset-0 bg-linear-to-r from-night-950 via-night-950/85 to-night-950/30" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-night-950 to-transparent" />
       </div>

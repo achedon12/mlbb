@@ -3,13 +3,13 @@ import { historyMatches } from "@/lib/mlbb-auth";
 import { pageHistory, matchRaw } from "./player-samples";
 
 /**
- * Pagination de l'historique, service simule : chaque page repond selon son
- * curseur. Le jeton change a chaque test, la memoire des reponses etant
- * indexee par jeton.
+ * History pagination, simulated service: each page answers according to its
+ * cursor. The token changes in every test, since the response cache is keyed
+ * by token.
  */
 const CURSORS = ["4143043017340290910", "4143043017340290911", "4143043017340290912"];
 
-/** Trois pages de vingt, puis une de cinq ; la deuxieme repete la derniere partie de la premiere. */
+/** Three pages of twenty, then one of five; the second repeats the last match of the first. */
 const series = (start: number, n: number, hid: number, lid: number, res: 0 | 1, ts: number) =>
   Array.from({ length: n }, (_, i) => matchRaw(start + i, hid, lid, res, ts - i));
 const PAGES: Record<string, string> = {
@@ -45,11 +45,11 @@ describe("historyMatches", () => {
     const r = await historyMatches(token(), 40);
     expect(r.etat).toBe("ok");
     if (r.etat !== "ok") return;
-    // 65 entrees, dont une repetee d'une page a l'autre.
+    // 65 entries, one of them repeated from one page to the next.
     expect(r.donnees.matches).toHaveLength(64);
     expect(new Set(r.donnees.matches.map((p) => p.id)).size).toBe(64);
     expect(r.donnees.end).toBe(true);
-    // Curseurs transmis intacts, malgre leurs 19 chiffres.
+    // Cursors passed on intact, despite their 19 digits.
     expect(calls).toEqual(["", ...CURSORS]);
   });
 

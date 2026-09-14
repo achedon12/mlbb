@@ -6,11 +6,11 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 /**
- * Image de partage par defaut.
+ * Default share image.
  *
- * Reprise sur les cartes des reseaux et messageries quand une page n'en definit
- * pas de plus specifique. Sobre et lisible : le nom du site, une accroche, aux
- * couleurs de la marque, pour que le lien ne s'affiche jamais nu.
+ * Used on social network and messaging cards when a page does not define
+ * a more specific one. Plain and readable: the site name, a tagline, in
+ * the brand colors, so the link is never shown bare.
  */
 export default function Image() {
   return new ImageResponse(

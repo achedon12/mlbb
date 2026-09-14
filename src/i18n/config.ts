@@ -1,13 +1,13 @@
 /**
- * Configuration des langues.
+ * Language configuration.
  *
- * Le site est servi par prefixe de langue (`/en`, `/fr`, `/it`, `/es`), ce qui
- * donne une URL distincte par langue — la forme la plus lisible pour les
- * moteurs, qui indexent alors chaque version separement et les relient par
+ * The site is served by language prefix (`/en`, `/fr`, `/it`, `/es`), which
+ * gives a distinct URL per language — the most readable form for
+ * engines, which then index each version separately and link them through
  * `hreflang`.
  *
- * L'anglais est la langue par defaut (portee la plus large, et langue d'origine
- * des donnees du jeu) ; c'est aussi la cible du `hreflang="x-default"`.
+ * English is the default language (widest reach, and original language
+ * of the game data); it is also the target of `hreflang="x-default"`.
  */
 export const LOCALES = ["en", "fr", "it", "es"] as const;
 
@@ -15,7 +15,7 @@ export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = "en";
 
-/** Etiquette affichee dans le selecteur, dans la langue elle-meme. */
+/** Label shown in the selector, in the language itself. */
 export const LOCALE_NAME: Record<Locale, string> = {
   en: "English",
   fr: "Français",
@@ -23,7 +23,7 @@ export const LOCALE_NAME: Record<Locale, string> = {
   es: "Español",
 };
 
-/** Code BCP-47 pour l'attribut `lang` et les métadonnées. */
+/** BCP-47 code for the `lang` attribute and metadata. */
 export const LOCALE_HTML: Record<Locale, string> = {
   en: "en",
   fr: "fr-FR",

@@ -1,15 +1,15 @@
 /**
- * Recuperation du contenu des patch notes.
+ * Fetching patch note content.
  *
- * Le wiki rend lui-meme son wikitext en HTML : on lui demande le rendu plutot
- * que d'ecrire un analyseur de wikitext, puis on nettoie ce qui n'a de sens
- * que sur le wiki — liens d'edition, infobox, navigation, ancres internes.
+ * The wiki renders its own wikitext to HTML: we ask it for the rendering
+ * rather than write a wikitext parser, then clean up what only makes sense
+ * on the wiki — edit links, infoboxes, navigation, internal anchors.
  *
- * Le resultat est du HTML sobre : titres, paragraphes, listes, tableaux.
+ * The result is plain HTML: headings, paragraphs, lists, tables.
  */
 import { parse } from "node-html-parser";
 
-/** Elements sans aucun interet hors du wiki. */
+/** Elements of no use outside the wiki. */
 const TO_DELETE = [
   ".mw-editsection",
   ".navbox",
@@ -34,14 +34,14 @@ export function cleanRender(html, origin) {
     for (const node of root.querySelectorAll(picker)) node.remove();
   }
 
-  // Les liens relatifs du wiki pointeraient dans le vide une fois recopies :
-  // on les rend absolus, et on marque leur caractere externe.
+  // The wiki's relative links would point nowhere once copied: make them
+  // absolute, and mark them as external.
   for (const link of root.querySelectorAll("a")) {
     const href = link.getAttribute("href") ?? "";
     if (href.startsWith("/wiki/")) {
       link.setAttribute("href", `https://mobilelegends.fandom.com${href}`);
     } else if (href.startsWith("#") || href === "") {
-      // Ancre vers une section supprimee : on garde le texte, pas le lien.
+      // Anchor to a removed section: keep the text, not the link.
       link.replaceWith(link.innerHTML);
       continue;
     }
@@ -49,31 +49,31 @@ export function cleanRender(html, origin) {
     link.setAttribute("target", "_blank");
   }
 
-  // Les images du wiki sont chargees en differe par un attribut maison ; sans
-  // le script du wiki, elles resteraient vides. On les retire.
+  // The wiki's images are lazy-loaded through a custom attribute; without the
+  // wiki's script, they would stay empty. Remove them.
   for (const image of root.querySelectorAll("img")) image.remove();
 
-  // Les classes du wiki n'ont aucun sens dans notre feuille de style.
+  // The wiki's classes mean nothing in our stylesheet.
   for (const node of root.querySelectorAll("[class]")) {
     node.removeAttribute("class");
   }
   for (const node of root.querySelectorAll("[style]")) {
     node.removeAttribute("style");
   }
-  // Les identifiants du wiki servent ses propres ancres ; on les remplace par
-  // les notres plus bas.
+  // The wiki's ids serve its own anchors; we replace them with ours
+  // further down.
   for (const node of root.querySelectorAll("[id]")) node.removeAttribute("id");
 
-  // Chaque titre recoit une ancre : sans elle, un sommaire ne peut pointer
-  // nulle part, et une note de patch fait plusieurs dizaines de milliers de
-  // caracteres.
+  // Every heading gets an anchor: without it, a table of contents cannot
+  // point anywhere, and a patch note runs to tens of thousands of
+  // characters.
   const seen = new Set();
   for (const title of root.querySelectorAll("h2, h3, h4")) {
     const text = title.text.trim();
     if (!text) continue;
 
     let anchor = toAnchor(text);
-    // Deux sections peuvent porter le meme nom dans une meme page.
+    // Two sections can share the same name within a page.
     let suffix = 2;
     while (seen.has(anchor)) anchor = `${toAnchor(text)}-${suffix++}`;
     seen.add(anchor);
@@ -91,11 +91,11 @@ export function cleanRender(html, origin) {
 }
 
 /**
- * Decoupe le HTML nettoye en sections de premier niveau.
+ * Splits the cleaned HTML into top-level sections.
  *
- * Chaque titre h2 ouvre une section qui court jusqu'au h2 suivant, en gardant
- * ses sous-titres h3. Le decoupage laisse la page composer : rendre certaines
- * sections telles quelles, en remplacer d'autres par un composant riche.
+ * Each h2 heading opens a section that runs until the next h2, keeping its
+ * h3 subheadings. The split lets the page compose: render some sections as
+ * is, replace others with a rich component.
  */
 export function splitSections(html) {
   const root = parse(html);
@@ -113,7 +113,7 @@ export function splitSections(html) {
       continue;
     }
 
-    // Contenu avant le premier h2 : on l'ouvre dans une section sans titre.
+    // Content before the first h2: put it in an untitled section.
     if (!current) {
       current = { anchor: null, title: null, html: "" };
       sections.push(current);
@@ -128,12 +128,12 @@ export function splitSections(html) {
 }
 
 /**
- * Extrait la presentation structuree des nouveaux heros d'une section.
+ * Extracts the structured presentation of new heroes from a section.
  *
- * Le wiki suit une grammaire reguliere : un sous-titre nomme le heros, un
- * paragraphe raconte son histoire et sa « Hero feature », puis chaque
- * competence est un paragraphe en gras — role et nom — suivi d'une liste de
- * descriptions. On la ramene a des donnees pour un affichage soigne.
+ * The wiki follows a regular grammar: a subheading names the hero, a
+ * paragraph tells its story and its "Hero feature", then each skill is a
+ * bold paragraph — role and name — followed by a list of descriptions. We
+ * turn it into data for a polished display.
  */
 export function newHeroes(sectionHtml) {
   const root = parse(sectionHtml);
@@ -144,8 +144,8 @@ export function newHeroes(sectionHtml) {
     const tag = node.rawTagName;
 
     if (tag === "h3") {
-      // « New Hero: Fallen Scarlet - Hirara » → epithete « Fallen Scarlet »,
-      // nom « Hirara ».
+      // "New Hero: Fallen Scarlet - Hirara" → epithet "Fallen Scarlet",
+      // name "Hirara".
       const raw = node.text.trim().replace(/^New Hero\s*:\s*/i, "");
       const chunks = raw.split(/\s[-–—]\s/);
       const name = (chunks.length > 1 ? chunks.pop() : raw).trim();
@@ -169,7 +169,7 @@ export function newHeroes(sectionHtml) {
       const label = bold ? bold.text.replace(/\s+/g, " ").trim() : "";
 
       if (bold && /(Passive|Skill|Combo|Ultimate|Ult\b)/i.test(label)) {
-        // « Passive - Twin Fans: Ukifune » → role puis nom de competence.
+        // "Passive - Twin Fans: Ukifune" → role then skill name.
         const cut = label.search(/\s[-–—]\s/);
         const role = (cut >= 0 ? label.slice(0, cut) : label).trim();
         const name =
@@ -178,8 +178,8 @@ export function newHeroes(sectionHtml) {
         continue;
       }
 
-      // Paragraphe d'histoire : les lignes sont separees par des <br>, et la
-      // derniere annonce souvent la « Hero feature ».
+      // Story paragraph: lines are separated by <br>, and the last one often
+      // announces the "Hero feature".
       for (const block of node.innerHTML.split(/<br\s*\/?>/i)) {
         const row = parse(block).text.replace(/\s+/g, " ").trim();
         if (!row) continue;
@@ -203,7 +203,7 @@ export function newHeroes(sectionHtml) {
   return heroes;
 }
 
-/** Identifiant d'ancre stable, derive du titre. */
+/** Stable anchor id, derived from the heading. */
 function toAnchor(text) {
   return text
     .normalize("NFD")
@@ -215,11 +215,10 @@ function toAnchor(text) {
 }
 
 /**
- * Sommaire de la page, deux niveaux.
+ * Page table of contents, two levels.
  *
- * Il est construit apres le nettoyage, donc sur les ancres reellement
- * presentes dans le document : un sommaire qui pointe a cote serait pire que
- * pas de sommaire.
+ * It is built after cleanup, so on the anchors actually present in the
+ * document: a table of contents pointing at nothing would be worse than none.
  */
 export function toc(html) {
   return parse(html)

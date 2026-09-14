@@ -26,9 +26,9 @@ export default async function PrivacyPage({ params }: Params) {
       <PageHeader title={t("pages.privacy.title")} lead={t("pages.privacy.lead")} />
       <Prose locale={locale} messageKey="privacy" variables={{ contact: legal.contact }} />
       {/*
-        Notifications de patch : seule donnee conservee par le serveur, et
-        seulement a la demande. Toujours decrites : la page est generee au
-        build, qui ne sait pas si les cles VAPID seront posees.
+        Patch notifications: the only data kept by the server, and
+        only on request. Always described: the page is generated at
+        build time, which does not know whether the VAPID keys will be set.
       */}
       <section aria-labelledby="notifications-push" className="prose-mlbb mx-auto -mt-14 max-w-3xl px-4 pb-14">
         <h2 id="notifications-push">{t("prose.push.title")}</h2>

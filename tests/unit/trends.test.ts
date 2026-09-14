@@ -18,7 +18,7 @@ import {
   type WinStreak,
 } from "@/lib/trends";
 
-/** Serie de 30 jours a partir du 11 aout 2026. */
+/** 30-day series starting on 11 August 2026. */
 const series = (winRate: (number | null)[], start = "2026-08-11"): WinStreak => ({ start, winRate });
 const constant = (v: number, n = 30): (number | null)[] => Array.from({ length: n }, () => v);
 
@@ -75,7 +75,7 @@ describe("variationWeek", () => {
     v[28] = 51;
     v[27] = 51;
     v[26] = 51;
-    v[19] = 50; // J-10 : hors tolerance
+    v[19] = 50; // D-10: outside tolerance
     expect(variationWeek(series(v))).toBeNull();
   });
 
@@ -143,7 +143,7 @@ describe("movesWeek", () => {
 });
 
 describe("impactPatch", () => {
-  // Historique du 1er au 30 septembre ; patch le 15 (indice 14).
+  // History from 1 to 30 September; patch on the 15th (index 14).
   const beforeAfter = (before: number, after: number, dayPatch = 99) =>
     series(Array.from({ length: 30 }, (_, k) => (k === 14 ? dayPatch : k < 14 ? before : after)), "2026-09-01");
 
@@ -154,23 +154,23 @@ describe("impactPatch", () => {
 
   it("only looks at seven days on each side", () => {
     const h = beforeAfter(50, 49);
-    h.winRate[0] = 10; // J-14 : hors fenetre
-    h.winRate[29] = 90; // J+15 : hors fenetre
+    h.winRate[0] = 10; // D-14: outside the window
+    h.winRate[29] = 90; // D+15: outside the window
     expect(impactPatch(h, "2026-09-15")).toMatchObject({ before: 50, after: 49, gap: -1 });
   });
 
   it("requires four measured days on each side", () => {
     const h = beforeAfter(50, 51);
-    for (const k of [7, 8, 9, 10]) h.winRate[k] = null; // reste J-3, J-2, J-1
+    for (const k of [7, 8, 9, 10]) h.winRate[k] = null; // leaves D-3, D-2, D-1
     expect(impactPatch(h, "2026-09-15")).toBeNull();
     h.winRate[10] = 50;
     expect(impactPatch(h, "2026-09-15")).toMatchObject({ daysBefore: 4, gap: 1 });
   });
 
   it("returns nothing when the history starts after the patch", () => {
-    // La situation actuelle : historique depuis le 11 aout 2026, dernier patch le 18 juin.
+    // The current situation: history since 11 August 2026, last patch on 18 June.
     expect(impactPatch(series(constant(50)), "2026-06-18")).toBeNull();
-    // Patch trop recent : moins de quatre jours mesures apres.
+    // Patch too recent: fewer than four measured days after it.
     expect(impactPatch(series(constant(50)), "2026-09-07")).toBeNull();
   });
 

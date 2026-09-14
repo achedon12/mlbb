@@ -21,18 +21,18 @@ import { rankingFull, measure } from "./tier-list";
 import type { Hero } from "./types";
 
 /**
- * Vivier du quiz, prepare cote serveur dans chaque langue : competences,
- * extraits d'histoire, skins, objets et taux de victoire, deja reduits a ce que
- * les manches affichent, noms des heros masques. Le catalogue complet pese
- * plusieurs megaoctets ; le vivier, une centaine de Ko, et le defi du jour
- * quelques Ko.
+ * Quiz pool, prepared server-side in each language: skills,
+ * story excerpts, skins, items and win rates, already reduced to what
+ * the rounds display, hero names masked. The full catalogue weighs
+ * several megabytes; the pool, about a hundred KB, and the daily challenge
+ * a few KB.
  */
 
 const ICONS_ITEMS = (generatedVisuals as unknown as { items: Record<string, string> }).items;
 
 /**
- * Par heros : de quoi varier l'entrainement sans alourdir le vivier. Trois
- * competences et deux extraits de 340 caracteres le ramenaient de 400 a 250 Ko.
+ * Per hero: enough to vary practice without bloating the pool. Three
+ * skills and two 340-character excerpts brought it down from 400 to 250 KB.
  */
 const SKINS_BY_HERO = 3;
 const SKILLS_BY_HERO = 3;
@@ -42,14 +42,14 @@ const LENGTH_DESCRIPTION = 150;
 const LENGTH_PASSIVE = 200;
 
 /**
- * Restes de modeles du wiki dans les descriptions : « Passif|e », « Prowler|e »,
- * « Mark|mark ». Le mot garde, la suite du tube part.
+ * Wiki template leftovers in descriptions: "Passif|e", "Prowler|e",
+ * "Mark|mark". The word is kept, what follows the pipe is dropped.
  */
 function cleanWiki(text: string): string {
   return text.replace(/\|[\p{L}-]*/gu, "").replace(/\s{2,}/g, " ");
 }
 
-/** Nom du heros et nom complet de son histoire (« Aamon Paxley ») : a masquer partout. */
+/** Hero name and full name from their story ("Aamon Paxley"): to be masked everywhere. */
 function namesOf(h: Hero, locale: Locale): string[] {
   const full = stories(locale)[h.slug]?.profile?.fullName;
   return full ? [h.name, full] : [h.name];
@@ -90,9 +90,9 @@ function skillsQuiz(h: Hero, locale: Locale): SkillQuiz[] {
 }
 
 /**
- * Paragraphes du recit, titres et accroche exclus. Ceux ou le nom du heros
- * apparaissait passent en tete : ils parlent de lui, pas d'un personnage
- * secondaire.
+ * Paragraphs of the lore, headings and tagline excluded. Those where the hero's name
+ * appeared come first: they are about the hero, not a side
+ * character.
  */
 function excerptsStory(h: Hero, locale: Locale): string[] {
   const story = stories(locale)[h.slug];
@@ -107,7 +107,7 @@ function excerptsStory(h: Hero, locale: Locale): string[] {
   );
 }
 
-/** Quelques illustrations par heros, toujours les memes d'une construction a l'autre. */
+/** A few illustrations per hero, always the same from one build to the next. */
 function skinsQuiz(h: Hero, locale: Locale): SkinQuiz[] {
   const names = namesOf(h, locale);
   return Object.entries(illustrations[h.slug] ?? {})
@@ -120,7 +120,7 @@ function itemsQuiz(locale: Locale): ItemQuiz[] {
   const t = createT(locale);
   const list = itemsFor(locale);
   const bySlug = new Map(list.map((o) => [o.slug, o]));
-  // Les recettes citent les composants par leur nom anglais.
+  // Recipes list components by their English name.
   const slugByName = new Map([...itemsFor("en"), ...list].map((o) => [o.name, o.slug]));
   return list
     .filter((o) => o.price && o.bonus)
@@ -170,7 +170,7 @@ export function poolQuiz(locale: Locale): PoolQuiz {
   return pool;
 }
 
-/** Ce que la page envoie d'emblee : de quoi proposer et comparer les reponses. */
+/** What the page sends up front: enough to suggest and compare answers. */
 export function rosterQuiz(locale: Locale): { heroes: QuizHero[]; items: ItemRoster[] } {
   const pool = poolQuiz(locale);
   return {

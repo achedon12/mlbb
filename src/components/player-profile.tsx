@@ -23,14 +23,14 @@ import { measure } from "@/lib/tier-list";
 import { cn, formatShortDate } from "@/lib/utils";
 
 /**
- * Blocs du profil de joueur.
+ * Player profile blocks.
  *
- * Composants serveur sans etat : ils recoivent des donnees deja lues et la
- * fonction de traduction, si bien que les tests les rendent avec des reponses
- * d'exemple, sans session ni appel au service.
+ * Stateless server components: they receive already-read data and the
+ * translation function, so tests render them with sample responses, with no
+ * session and no call to the service.
  */
 
-/** Section du profil : titre, filet dore, chapeau facultatif. */
+/** Profile section: title, gold rule, optional lead. */
 export function SectionProfile({
   id,
   title,
@@ -55,8 +55,8 @@ export function SectionProfile({
 }
 
 /**
- * Etat de page entiere : session expiree, source coupee ou compte sans
- * partie. Chacun dit quoi faire — se reconnecter, attendre, aller jouer.
+ * Whole-page state: expired session, source down or account with no match.
+ * Each one says what to do — sign in again, wait, go play.
  */
 export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "empty"; t: T }) {
   const keys = {
@@ -93,7 +93,7 @@ export function StateProfile({ type, t }: { type: "expired" | "unavailable" | "e
   );
 }
 
-/** A la place d'une section dont la source ne repond pas : le reste du profil s'affiche. */
+/** In place of a section whose source does not respond: the rest of the profile is shown. */
 export function SectionUnavailable({ t }: { t: T }) {
   return (
     <Card className="mt-6 border-gold-500/25">
@@ -102,7 +102,7 @@ export function SectionUnavailable({ t }: { t: T }) {
   );
 }
 
-/** Choix de la saison : de simples liens, qui marchent sans JavaScript. */
+/** Season choice: plain links, which work without JavaScript. */
 export function NavSeasons({ seasons, current, t }: { seasons: number[]; current: number; t: T }) {
   return (
     <nav aria-label={t("pages.accountProfile.seasonChoice")} className="mt-6 flex flex-wrap items-center gap-2">
@@ -142,7 +142,7 @@ function Mini({ label, children }: { label: string; children: React.ReactNode })
   );
 }
 
-/** Bilan de la saison, puis, plus discret, celui de toutes les saisons suivies. */
+/** Season summary, then, more discreetly, that of all tracked seasons. */
 export function PlayerSummary({
   summary,
   full,
@@ -223,9 +223,9 @@ function HeroLink({
 }
 
 /**
- * Heros les plus joues, face a la moyenne de la tranche. Un tableau : on y
- * compare des colonnes de chiffres, et les lecteurs d'ecran annoncent chaque
- * valeur avec son en-tete.
+ * Most played heroes, against the bracket average. A table: columns of figures
+ * are compared there, and screen readers announce each value with its
+ * header.
  */
 export function HeroTable({
   rows,
@@ -263,7 +263,7 @@ export function HeroTable({
           </thead>
           <tbody className="divide-y divide-night-800">
             {rows.map((l) => {
-              // En dessous du minimum de parties, l'ecart s'affiche sans couleur : il ne dit rien encore.
+              // Below the minimum match count, the gap is shown without colour: it tells nothing yet.
               const reliable = l.matches >= MATCHES_MIN && l.gap !== null;
               const color = !reliable
                 ? "text-chalk-400"
@@ -378,10 +378,10 @@ function ListHeroTip({ entries, empty }: { entries: { hero: ShownHero; detail: s
 }
 
 /**
- * Conseils : points forts, heros sous la moyenne de la tranche, et les
- * adversaires qui reviennent dans les defaites. Ces derniers demandent le
- * detail de plusieurs parties : la page les passe deja enveloppes dans un
- * `Suspense`, pour que le reste s'affiche sans les attendre.
+ * Advice: strengths, heroes below the bracket average, and the opponents who
+ * keep showing up in losses. The latter need the details of several matches:
+ * the page passes them already wrapped in a `Suspense`, so the rest renders
+ * without waiting for them.
  */
 export function HeroTips({
   rows,
@@ -392,7 +392,7 @@ export function HeroTips({
   t,
   locale,
 }: {
-  /** null quand la liste des heros n'a pas pu etre lue. */
+  /** null when the hero list could not be read. */
   rows: HeroRow[] | null;
   best: HeroRow[];
   belowAverage: HeroRow[];
@@ -451,7 +451,7 @@ export function HeroTips({
   );
 }
 
-/** Adversaires les plus presents dans les defaites recentes. */
+/** Opponents most present in recent losses. */
 export function ListNemeses({
   analysis,
   t,
@@ -481,9 +481,9 @@ export function ListNemeses({
 }
 
 /**
- * Attente d'une section lue a part, annoncee sans interrompre la lecture.
- * `texte` remplace le message par defaut ; `className` reserve la place de la
- * section a venir, pour que la page ne saute pas a son arrivee.
+ * Wait for a section read separately, announced without interrupting reading.
+ * `text` replaces the default message; `className` reserves the space of the
+ * upcoming section, so the page does not jump when it arrives.
  */
 export function AnalysisInProgress({ t, text, className }: { t: T; text?: string; className?: string }) {
   return (

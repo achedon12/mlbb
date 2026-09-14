@@ -11,11 +11,11 @@ import type { MatchShown } from "@/lib/player-profile";
 import { cn } from "@/lib/utils";
 
 /**
- * Dernieres parties du joueur, page apres page.
+ * The player's recent matches, page by page.
  *
- * La premiere page arrive avec le profil, rendue cote serveur ; les suivantes
- * sont demandees a une action serveur avec le seul curseur de pagination, et
- * s'ajoutent a la liste sans recharger le reste du profil.
+ * The first page arrives with the profile, rendered server-side; the next ones
+ * are requested from a server action with only the pagination cursor, and are
+ * appended to the list without reloading the rest of the profile.
  */
 export function RecentMatches({
   season,
@@ -47,7 +47,7 @@ export function RecentMatches({
         const views = new Set(before.map((p) => p.id));
         return [...before, ...run.matches.filter((p) => !views.has(p.id))];
       });
-      // Un curseur qui ne bouge pas redemanderait la meme page sans fin.
+      // A cursor that does not move would request the same page forever.
       setNext(run.next && run.next !== cursor ? run.next : null);
     });
   };
@@ -112,7 +112,7 @@ function RowMatch({ match: p }: { match: MatchShown }) {
 
   return (
     <li className="flex items-center gap-3 py-3">
-      {/* Liseré de couleur : un repere de plus, l'issue est aussi ecrite en toutes lettres. */}
+      {/* Colour edge: one more cue, the outcome is also spelled out. */}
       <span
         aria-hidden
         className={cn(
@@ -163,9 +163,9 @@ function RowMatch({ match: p }: { match: MatchShown }) {
 const nothingToHear = () => () => {};
 
 /**
- * Date d'une partie. Faux au rendu serveur et a l'hydratation, vrai ensuite :
- * l'heure locale n'apparait qu'une fois le fuseau du lecteur connu, sans
- * desaccord entre le HTML du serveur et celui du navigateur.
+ * Match date. False during server render and hydration, true afterwards:
+ * local time only appears once the reader's time zone is known, with no
+ * mismatch between the server HTML and the browser's.
  */
 function DateMatch({ seconds }: { seconds: number }) {
   const locale = useLocale();

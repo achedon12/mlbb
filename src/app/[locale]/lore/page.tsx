@@ -17,7 +17,7 @@ import { factionsLore, heroNames, pairsOf, pairsFeatured, regionOf, regionsLore,
 
 type Params = { params: Promise<{ locale: Locale }> };
 
-/** Heros dont le wiki publie un recit ou une fiche narrative. */
+/** Heroes for whom the wiki publishes a story or a narrative profile. */
 function countStories(locale: Locale): number {
   const h = stories(locale);
   return regionsLore.reduce((n, r) => n + r.heroes.filter((x) => h[x.slug]?.lore.length || h[x.slug]?.profile).length, 0);
@@ -50,7 +50,7 @@ export default async function LorePage({ params }: Params) {
   const nameRegion = (name: string) => heroLabel(t, "region", name)!;
   const pairs = pairsOf(locale);
   const featured = pairsFeatured(pairs, 8);
-  // Les factions de deux heros restent sur les pages de region : le hub garde les plus grandes.
+  // Two-hero factions stay on the region pages: the hub keeps the largest ones.
   const factions = factionsLore(locale, 3);
   const total = regionsLore.reduce((n, r) => n + r.heroes.length, 0);
   const heroCount = (n: number) => t(n === 1 ? "pages.lore.nHeroes1" : "pages.lore.nHeroes", { n });

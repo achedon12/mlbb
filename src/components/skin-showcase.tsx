@@ -7,15 +7,16 @@ import { rarity, presentRarities } from "@/lib/rarities";
 import { CURRENCIES, type SkinFull } from "@/lib/skins";
 
 /**
- * Vitrine des skins.
+ * Skin showcase.
  *
- * Un seul endroit ou l'on choisit un skin, et tout suit : la grande
- * illustration, le panneau d'informations, et jusqu'au portrait en tete de
- * fiche. L'etat du skin choisi est donc partage entre l'en-tete et l'onglet,
- * via ce contexte — sans quoi il faudrait deux selecteurs desynchronises.
+ * A single place where a skin is chosen, and everything follows: the large
+ * illustration, the info panel, and even the portrait at the top of the hero
+ * page. The chosen skin state is therefore shared between the header and the
+ * tab, through this context — otherwise two out-of-sync selectors would be
+ * needed.
  *
- * Le type et la jointure des skins vivent dans `@/lib/skins` et
- * `@/lib/skins-heros`, partages avec la galerie de chaque heros.
+ * The skin type and join live in `@/lib/skins` and `@/lib/hero-skins`, shared
+ * with each hero's gallery.
  */
 export type { SkinFull };
 
@@ -38,8 +39,8 @@ export function ShowcaseProvider({
   const [activeId, setActiveId] = useState(skins[0]?.id ?? "");
   const active = skins.find((s) => s.id === activeId) ?? skins[0];
 
-  // Un heros peut n'avoir aucun skin recense : le contexte reste utilisable,
-  // il porte alors le seul portrait de base.
+  // A hero may have no listed skin: the context stays usable, and then only
+  // holds the base portrait.
   const value: Context = {
     active: active ?? {
       id: "",
@@ -60,15 +61,15 @@ export function ShowcaseProvider({
 
 function useSkin() {
   const ctx = useContext(SkinContext);
-  if (!ctx) throw new Error("useSkin hors d'un VitrineProvider");
+  if (!ctx) throw new Error("useSkin outside a ShowcaseProvider");
   return ctx;
 }
 
 /**
- * Portrait de tete de fiche.
+ * Portrait at the top of the hero page.
  *
- * Suit le skin choisi dans la vitrine. Sans skin ou sans image, il retombe sur
- * le portrait de base plutot que de laisser un trou.
+ * Follows the skin chosen in the showcase. Without a skin or an image, it
+ * falls back to the base portrait rather than leaving a hole.
  */
 export function ShowcasePortrait({
   name,
@@ -100,7 +101,7 @@ export function ShowcasePortrait({
   );
 }
 
-/** L'onglet : grande illustration, informations, et grille de selection. */
+/** The tab: large illustration, info, and selection grid. */
 export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
   const t = useT();
   const tr = (ns: string, v: string) => {
@@ -112,7 +113,7 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
 
   return (
     <div>
-      {/* Legende des raretes presentes. */}
+      {/* Legend of the rarities present. */}
       <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
         {presentRarities(skins.map((s) => s.rarity)).map((r) => (
           <li key={r.name} className="flex items-center gap-1.5 text-xs text-chalk-500">
@@ -123,9 +124,9 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
       </ul>
 
       {/*
-        Panneau unique : l'illustration du skin choisi occupe le fond, les
-        informations se posent dessus. Choisir un skin change ce fond — c'est
-        toute la vitrine en une seule surface, sans image detachee.
+        Single panel: the chosen skin's illustration fills the background, the
+        info sits on top. Choosing a skin changes that background — the whole
+        showcase on one surface, with no detached image.
       */}
       <div className="bevel relative mt-5 overflow-hidden border border-night-700/70">
         {active.illustration ? (
@@ -138,9 +139,9 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
             className="object-cover object-top"
           />
         ) : (
-          // Sans illustration sur le wiki, le portrait de boutique prend le
-          // relais, cale a droite : le panneau garde une image plutot qu'un
-          // fond vide.
+          // Without an illustration on the wiki, the shop portrait takes over,
+          // aligned right: the panel keeps an image rather than an empty
+          // background.
           active.portrait && (
             <Image
               key={active.id}
@@ -152,8 +153,8 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
             />
           )
         )}
-        {/* Voile lateral : les informations restent lisibles a gauche,
-            l'illustration respire a droite. */}
+        {/* Side veil: the info stays readable on the left,
+            the illustration breathes on the right. */}
         <div className="absolute inset-0 bg-linear-to-r from-night-950 via-night-950/85 to-night-950/20" />
         <span
           aria-hidden
@@ -198,7 +199,7 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
         </div>
       </div>
 
-      {/* ── Grille de selection ────────────────────────────────────────── */}
+      {/* ── Selection grid ─────────────────────────────────────────────── */}
       <ul className="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-7">
         {skins.map((s) => {
           const selected = s.id === active.id;

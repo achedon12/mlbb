@@ -5,28 +5,28 @@ import { usualIcon } from "@/lib/tier-list-filters";
 import { cn } from "@/lib/utils";
 
 /**
- * Lignes d'un palier de la tier list.
+ * Rows of one tier list tier.
  *
- * Composant client pour une raison de poids : rendue par le serveur, chaque
- * ligne etait ecrite deux fois dans la page, en HTML puis dans les donnees
- * React qui l'accompagnent (plus de 300 Ko pour 132 heros). Ici seules les
- * valeurs voyagent, une ligne compacte par heros, et le balisage n'est ecrit
- * qu'une fois, sans classe repetee : les styles vivent dans `globals.css`.
- * Textes et nombres arrivent formates, rien a traduire ici.
+ * Client component for a weight reason: rendered by the server, each
+ * row was written twice in the page, as HTML then in the React
+ * data that comes with it (over 300 KB for 132 heroes). Here only the
+ * values travel, one compact row per hero, and the markup is written
+ * only once, with no repeated class: the styles live in `globals.css`.
+ * Texts and numbers arrive formatted, nothing to translate here.
  */
 export interface RowTier {
   slug: string;
   name: string;
-  /** Icone ailleurs qu'a son emplacement habituel ; null quand il n'y en a pas. */
+  /** Icon somewhere other than its usual slot; null when there is none. */
   icon?: string | null;
-  /** Lanes du heros, deja traduites et jointes. */
+  /** The hero's lanes, already translated and joined. */
   lanes: string;
   win: string;
   ban: string;
   pick: string;
-  /** Evolution sur sept jours : fleche et ecart, et sa description pour les lecteurs d'ecran. */
+  /** Seven-day change: arrow and gap, and its description for screen readers. */
   trend?: { rise: boolean; text: string; description: string };
-  /** Trop peu joue pour que ses taux soient stables. */
+  /** Played too little for its rates to be stable. */
   weak?: boolean;
   note?: string;
 }
@@ -47,10 +47,10 @@ export function TierLines({ rows, labels }: { rows: RowTier[]; labels: LabelsTie
           <li key={l.slug}>
             <Link href={`/heroes/${l.slug}`} className="tier-row">
               {icon ? (
-                // Icone deja reduite a la synchronisation (webp de 4 a 10 Ko),
-                // servie telle quelle : next/image y ajoutait ses attributs sur
-                // chaque ligne sans rien gagner. Le nom suit, d'ou l'alt vide.
-                // eslint-disable-next-line @next/next/no-img-element -- fichier deja reduit, servi tel quel (voir plus haut)
+                // Icon already shrunk at sync time (webp of 4 to 10 KB),
+                // served as is: next/image added its attributes to
+                // each row for no gain. The name follows, hence the empty alt.
+                // eslint-disable-next-line @next/next/no-img-element -- file already shrunk, served as is (see above)
                 <img src={icon} alt="" width={40} height={40} loading="lazy" className="tier-row-icon" />
               ) : (
                 <span aria-hidden className="tier-row-icon grid place-items-center font-heading text-sm font-bold text-chalk-500">
@@ -68,7 +68,7 @@ export function TierLines({ rows, labels }: { rows: RowTier[]; labels: LabelsTie
                 <span className="tier-row-lanes">{l.lanes}</span>
               </div>
 
-              {/* Le taux de victoire, premier, est mis en avant par la feuille de style. */}
+              {/* The win rate, first, is highlighted by the stylesheet. */}
               <dl className="tier-row-rates">
                 <Rate label={labels.win} value={l.win} trend={l.trend} />
                 <Rate label={labels.ban} value={l.ban} />

@@ -12,7 +12,7 @@ import {
 } from "../../scripts/measures.mjs";
 
 const point = (date, winRate) => ({ date, winRate, banRate: winRate / 10, pickRate: winRate / 100 });
-/** `n` jours consecutifs a partir de `debut`, le taux montant de 0,1 point par jour. */
+/** `n` consecutive days from `start`, the rate rising by 0.1 point per day. */
 const days = (start, n, base = 50) =>
   Array.from({ length: n }, (_, k) => point(dateOfDay(numberDay(start) + k), Math.round((base + k / 10) * 10) / 10));
 
@@ -55,7 +55,7 @@ describe("mergeHistory", () => {
   });
 
   it("reads a pre-compaction file and compacts it along the way", () => {
-    // 120 jours au jour pres, format historique : rien sous `semaines`.
+    // Exactly 120 days, legacy format: nothing under `weeks`.
     const old = { aamon: dailyStreak(days("2026-05-01", 120)) };
     const trends = { aamon: { all: dailyStreak(days("2026-08-29", 1, 60)) } };
     const s = mergeHistory(old, trends).aamon;
@@ -75,14 +75,14 @@ describe("mergeHistory", () => {
 
 describe("compactHistory", () => {
   it("keeps 90 days day by day, starting on a Monday, and averages the weeks before", () => {
-    // 2026-06-01 est un lundi ; 150 jours menent au 2026-10-28.
+    // 2026-06-01 is a Monday; 150 days lead to 2026-10-28.
     const s = compactHistory(days("2026-06-01", 150));
     expect(new Date(`${s.start}T00:00:00Z`).getUTCDay()).toBe(1);
     expect(s.winRate.length).toBeGreaterThanOrEqual(90);
     expect(s.winRate.length).toBeLessThan(97);
     expect(s.winRate.at(-1)).toBe(64.9);
     expect(s.weeks.start).toBe("2026-06-01");
-    // Premiere semaine : 50,0 … 50,6, moyenne 50,3.
+    // First week: 50.0 … 50.6, average 50.3.
     expect(s.weeks.winRate[0]).toBe(50.3);
     expect(s.weeks.pickRate[0]).toBe(0.5);
     expect(numberDay(s.weeks.start) + 7 * s.weeks.winRate.length).toBe(numberDay(s.start));
@@ -110,15 +110,15 @@ describe("spreadHistory", () => {
   it("returns a continuous daily series, weeks interpolated down to days", () => {
     const stored = compactHistory(days("2026-06-01", 150));
     const s = spreadHistory(stored);
-    // Premier point : le jeudi de la premiere semaine, a sa moyenne.
+    // First point: the Thursday of the first week, at its average.
     expect(s.start).toBe("2026-06-04");
     expect(s.winRate[0]).toBe(50.3);
     expect(s.winRate.every((v) => v !== null)).toBe(true);
     expect(s.pickRate.every((v) => v !== null)).toBe(true);
-    // La partie recente est rendue telle quelle, a sa date.
+    // The recent part is returned as is, at its date.
     expect(s.winRate.slice(-stored.winRate.length)).toEqual(stored.winRate);
     expect(numberDay(s.start) + s.winRate.length - 1).toBe(numberDay("2026-10-28"));
-    // Une serie lineaire reste lineaire : pas de palier entre deux semaines.
+    // A linear series stays linear: no step between two weeks.
     expect(s.winRate[3]).toBeCloseTo(50.6, 1);
   });
 

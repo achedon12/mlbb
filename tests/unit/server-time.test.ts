@@ -29,9 +29,9 @@ describe("server time (UTC-8)", () => {
   });
 
   it("sets the weekly reset on Monday at 00:00 server time", () => {
-    // Vendredi 11 septembre 2026 -> lundi 14.
+    // Friday 11 September 2026 -> Monday 14.
     expect(iso(nextResetWeekly(t("2026-09-11T12:00:00Z")))).toBe("2026-09-14T08:00:00.000Z");
-    // Lundi 07:00 UTC : encore dimanche 23:00 au serveur.
+    // Monday 07:00 UTC: still Sunday 23:00 on the server.
     expect(iso(nextResetWeekly(t("2026-09-14T07:00:00Z")))).toBe("2026-09-14T08:00:00.000Z");
     expect(iso(nextResetWeekly(t("2026-09-14T08:00:00Z")))).toBe("2026-09-21T08:00:00.000Z");
   });

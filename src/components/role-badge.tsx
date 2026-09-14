@@ -4,7 +4,7 @@ import { useT } from "@/i18n/provider";
 import type { Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-/** Couleurs par role, reprises de la charte du jeu. */
+/** Colours per role, taken from the game's style guide. */
 const COLOR_ROLE: Record<Role, string> = {
   Tank: "bg-azure-500/15 text-azure-400 ring-azure-500/30",
   Fighter: "bg-blood-500/15 text-blood-500 ring-blood-500/30",

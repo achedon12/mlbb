@@ -9,7 +9,7 @@ const byId = new Map([
   [39, "gusion"],
 ]);
 
-/** Partenaire tel que le renvoie l'API : taux entre 0 et 1, tranches de duree a plat. */
+/** Partner as the API returns it: rates between 0 and 1, duration buckets flattened. */
 const partner = (heroid, gain, buckets = {}) => ({ heroid, increase_win_rate: gain, hero_win_rate: 0.5, ...buckets });
 
 describe("duosOfRank", () => {
@@ -55,7 +55,7 @@ describe("duosOfRank", () => {
     const d = duosOfRank(block, byId, "aamon");
     expect(BUCKETS_DUO).toHaveLength(6);
     expect(d.best[0].phases).toEqual([48.3, 53.2, null, 52.9, 52.4, 53.4]);
-    // Sans aucune tranche mesuree, pas de cle `phases` du tout.
+    // Without any measured bucket, no `phases` key at all.
     expect(d.best[1]).not.toHaveProperty("phases");
   });
 

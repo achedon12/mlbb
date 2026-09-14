@@ -6,12 +6,12 @@ import { showMatch, type MatchShown } from "./player-profile";
 import { closeSession, tokenCurrent } from "./session";
 
 /**
- * Parties suivantes du profil de joueur.
+ * Next matches of the player profile.
  *
- * Le navigateur ne transmet que la saison et le curseur de pagination ; le
- * jeton reste dans son cookie httpOnly, lu ici, cote serveur. Les parties
- * repartent deja mises en forme — fiche du site, portrait — et rien de plus
- * que ce que la page affiche.
+ * The browser only sends the season and the pagination cursor; the token
+ * stays in its httpOnly cookie, read here, server-side. Matches are sent back
+ * already formatted — site sheet, portrait — and nothing more than what the
+ * page displays.
  */
 export type RunMatches =
   | { state: "ok"; matches: MatchShown[]; next: string | null }
@@ -19,7 +19,7 @@ export type RunMatches =
   | { state: "unavailable" };
 
 export async function nextMatches(season: number, cursor: string): Promise<RunMatches> {
-  // Entrees venues du navigateur : rien ne part vers le service sans controle.
+  // Inputs from the browser: nothing goes to the service unchecked.
   const valid =
     Number.isInteger(season) && season > 0 && season < 1000 && typeof cursor === "string" && ID.test(cursor);
   if (!valid) return { state: "unavailable" };

@@ -1,20 +1,19 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Radar de heros : une toile par heros sur des axes communs, chaque valeur
- * ramenee entre 0 et 1. SVG pur, sans script ni mesure de la page : il se rend
- * tel quel cote serveur comme dans un composant client, et le `viewBox` le met
- * a la largeur du cadre. Le dessin n'est qu'une forme : les valeurs exactes
- * vivent dans le tableau que la page place a cote, et le resume (`resume`)
- * le dit aux lecteurs d'ecran.
+ * Hero radar: one web per hero on shared axes, each value scaled between 0
+ * and 1. Pure SVG, with no script or page measurement: it renders as is on the
+ * server as in a client component, and the `viewBox` fits it to the frame's
+ * width. The drawing is only a shape: exact values live in the table the page
+ * places next to it, and the summary (`summary`) tells screen readers so.
  */
 
 export type PatternTrait = "solid" | "dashed" | "dotted";
 
-/** Motif du trait : l'identite d'une serie ne repose pas sur la seule couleur. */
+/** Line pattern: a series' identity does not rely on colour alone. */
 export const DASHES: Record<PatternTrait, string | undefined> = { solid: undefined, dashed: "6 4", dotted: "1.5 3.5" };
 
-/** Couleur et motif de chaque heros compare, dans l'ordre des selecteurs. */
+/** Colour and pattern of each compared hero, in picker order. */
 export const SERIES_STYLES: { color: string; pattern: PatternTrait }[] = [
   { color: "text-gold-400", pattern: "solid" },
   { color: "text-azure-400", pattern: "dashed" },
@@ -23,19 +22,19 @@ export const SERIES_STYLES: { color: string; pattern: PatternTrait }[] = [
 
 export interface SeriesRadar {
   name: string;
-  /** Une valeur par axe, entre 0 et 1 ; null pour un axe non mesure. */
+  /** One value per axis, between 0 and 1; null for an unmeasured axis. */
   values: (number | null)[];
-  /** Classe de couleur (`text-…`), reprise par la legende. */
+  /** Colour class (`text-…`), reused by the legend. */
   color: string;
   pattern?: PatternTrait;
 }
 
-/** Notes du jeu (sur 10), puis taux de victoire et de ban : les six axes du comparateur. */
+/** In-game ratings (out of 10), then win and ban rates: the comparator's six axes. */
 export const AXES_RADAR = ["offense", "durability", "abilityEffects", "difficulty", "win", "ban"] as const;
 
 /**
- * Valeur ramenee entre 0,1 et 1 sur l'etendue [min, max] du rang : le heros
- * le plus bas reste visible, pres du centre, plutot que confondu avec lui.
+ * Value scaled between 0.1 and 1 over the rank's [min, max] range: the lowest
+ * hero stays visible, near the centre, rather than merged with it.
  */
 export function normalize(v: number | null, [min, max]: readonly [number, number]): number | null {
   if (v === null) return null;
@@ -43,7 +42,7 @@ export function normalize(v: number | null, [min, max]: readonly [number, number
   return 0.1 + 0.9 * Math.min(1, Math.max(0, (v - min) / (max - min)));
 }
 
-/** Valeurs d'un heros sur AXES_RADAR : notes sur 10, taux ramenes sur l'etendue du rang. */
+/** A hero's values on AXES_RADAR: ratings out of 10, rates scaled to the rank's range. */
 export function valuesRadar(
   notes: { offense: number | null; durability: number | null; abilityEffects: number | null; difficulty: number | null },
   rate: { win: number; ban: number } | null,
@@ -60,14 +59,14 @@ export function valuesRadar(
   ];
 }
 
-// Dessin : une unite vaut un pixel quand le cadre fait 360 de large.
+// Drawing: one unit is one pixel when the frame is 360 wide.
 const L = 360;
 const H = 292;
 const CX = 180;
 const CY = 150;
 const R = 92;
 
-/** Libelle d'axe sur deux lignes au plus, coupe entre deux mots vers le milieu. */
+/** Axis label on two lines at most, split between two words near the middle. */
 function cut(label: string): string[] {
   if (label.length <= 13 || !label.includes(" ")) return [label];
   const words = label.split(" ");
@@ -87,13 +86,13 @@ export function HeroRadar({
   summary,
   className,
 }: {
-  /** Prefixe des identifiants du dessin, unique dans la page. */
+  /** Prefix of the drawing's ids, unique in the page. */
   id: string;
-  /** Libelle de chaque axe, dans l'ordre des valeurs. */
+  /** Label of each axis, in value order. */
   axes: string[];
   series: SeriesRadar[];
   title: string;
-  /** Resume lu a la place du dessin : ou trouver les valeurs exactes. */
+  /** Summary read instead of the drawing: where to find the exact values. */
   summary: string;
   className?: string;
 }) {
@@ -146,7 +145,7 @@ export function HeroRadar({
           const sin = Math.sin(angle(i));
           const rows = cut(label);
           const anchor = Math.abs(cos) < 0.2 ? "middle" : cos > 0 ? "start" : "end";
-          // En haut, le texte monte au-dessus du sommet ; en bas, il descend ; sur les cotes, il se centre.
+          // At the top, text rises above the vertex; at the bottom, it drops; on the sides, it centres.
           const y0 = sin < -0.5 ? y - 12 * (rows.length - 1) : sin > 0.5 ? y + 9 : y + 4 - 6 * (rows.length - 1);
           return (
             <text key={i} x={x.toFixed(1)} y={y0.toFixed(1)} textAnchor={anchor} className="fill-chalk-300 text-[11px]">
@@ -171,7 +170,7 @@ export function HeroRadar({
   );
 }
 
-/** Echantillon du trait d'une serie, pour une legende ou un en-tete. */
+/** Sample of a series' line, for a legend or a header. */
 export function TraitLegend({ color, pattern = "solid", className }: { color: string; pattern?: PatternTrait; className?: string }) {
   return (
     <svg aria-hidden width="20" height="6" className={cn("shrink-0", color, className)}>

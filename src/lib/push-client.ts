@@ -1,20 +1,20 @@
 import type { Locale } from "@/i18n/config";
 
 /**
- * Notifications de patch, cote navigateur.
+ * Patch notifications, browser side.
  *
- * Abonne ce navigateur aupres de son service de notification (Google,
- * Mozilla, Apple…) avec la cle publique du serveur, puis confie l'abonnement
- * au serveur avec la langue et les favoris. Les favoris vivant dans le
- * navigateur, chaque changement est repercute au serveur.
+ * Subscribes this browser with its push service (Google, Mozilla, Apple…)
+ * using the server's public key, then hands the subscription to the server
+ * along with the language and favourites. Since favourites live in the
+ * browser, every change is forwarded to the server.
  *
- * La permission n'est demandee qu'au clic sur l'interrupteur : jamais au
- * chargement d'une page.
+ * Permission is only requested when the toggle is clicked: never on page
+ * load.
  */
 export type NotificationState =
-  | "unavailable" // fonction desactivee sur le serveur : rien a afficher
+  | "unavailable" // feature disabled on the server: nothing to show
   | "unsupported"
-  | "ios-install" // iPhone et iPad : seulement une fois le site installe
+  | "ios-install" // iPhone and iPad: only once the site is installed
   | "refused"
   | "inactive"
   | "active";
@@ -34,19 +34,19 @@ function setFlag(active: boolean) {
     if (active) localStorage.setItem(FLAG, "1");
     else localStorage.removeItem(FLAG);
   } catch {
-    /* stockage indisponible : la synchronisation attendra la page des favoris */
+    /* storage unavailable: syncing will wait for the favourites page */
   }
 }
 
 let key: Promise<string | null> | null = null;
 
-/** Cle publique VAPID, demandee une fois par chargement. */
+/** VAPID public key, requested once per page load. */
 export function publicKey(): Promise<string | null> {
   key ??= fetch("/api/push", { cache: "no-store" })
     .then((r) => (r.ok ? r.json() : null))
     .then((d: { key?: unknown } | null) => (typeof d?.key === "string" ? d.key : null))
     .catch(() => {
-      key = null; // hors ligne : on reessaiera
+      key = null; // offline: retry later
       return null;
     });
   return key;
@@ -64,16 +64,16 @@ function isInstalled(): boolean {
 }
 
 export function browserSupport(): "ok" | "unsupported" | "ios-install" {
-  // Safari sur iOS n'offre les notifications qu'aux sites installes sur l'ecran d'accueil.
+  // Safari on iOS only offers notifications to sites installed on the home screen.
   if (isIOS() && !isInstalled()) return "ios-install";
   const full = "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
   return full ? "ok" : "unsupported";
 }
 
 /**
- * Enregistrement du service worker. En production, `HorsLigne` l'a deja fait.
- * En developpement, il n'est enregistre qu'a l'activation, sans son cache —
- * qui generait le rechargement a chaud (voir `public/sw.js`).
+ * Service worker registration. In production, `Offline` has already done it.
+ * In development, it is only registered on activation, without its cache —
+ * which interfered with hot reloading (see `public/sw.js`).
  */
 async function record(create: boolean): Promise<ServiceWorkerRegistration | null> {
   const existing = await navigator.serviceWorker.getRegistration("/");
@@ -87,7 +87,7 @@ async function currentSubscription(): Promise<PushSubscription | null> {
   return (await reg?.pushManager.getSubscription()) ?? null;
 }
 
-/** Etat affiche par l'interrupteur, sans rien demander a l'utilisateur. */
+/** State shown by the toggle, without prompting the user. */
 export async function stateCurrent(): Promise<NotificationState> {
   if (!(await publicKey())) return "unavailable";
   const support = browserSupport();
@@ -120,7 +120,7 @@ function call(method: "POST" | "PATCH" | "DELETE", body: object): Promise<Respon
   });
 }
 
-/** Demande la permission, abonne le navigateur et confie l'abonnement au serveur. */
+/** Requests permission, subscribes the browser and hands the subscription to the server. */
 export async function enable(locale: Locale, favourites: readonly string[]): Promise<NotificationState> {
   const vapidKey = await publicKey();
   if (!vapidKey) return "unavailable";
@@ -129,10 +129,10 @@ export async function enable(locale: Locale, favourites: readonly string[]): Pro
   if (permission !== "granted") return "inactive";
 
   const reg = await record(true);
-  if (!reg) throw new Error("service worker indisponible");
+  if (!reg) throw new Error("service worker unavailable");
   const bytes = bytesOf(vapidKey);
   let subscription = await reg.pushManager.getSubscription();
-  // Cles changees sur le serveur : l'ancien abonnement ne recevrait plus rien.
+  // Keys changed on the server: the old subscription would receive nothing.
   if (subscription && !sameBytes(subscription.options.applicationServerKey, bytes)) {
     await subscription.unsubscribe();
     subscription = null;
@@ -142,19 +142,19 @@ export async function enable(locale: Locale, favourites: readonly string[]): Pro
   const response = await call("POST", { abonnement: subscription.toJSON(), langue: locale, favoris: favourites });
   if (!response.ok) {
     await subscription.unsubscribe().catch(() => {});
-    throw new Error(`abonnement refuse (${response.status})`);
+    throw new Error(`subscription rejected (${response.status})`);
   }
   setFlag(true);
   lastSync = syncKey(locale, favourites);
   return "active";
 }
 
-/** Desabonne le navigateur et efface l'abonnement du serveur. */
+/** Unsubscribes the browser and deletes the subscription from the server. */
 export async function disable(): Promise<NotificationState> {
   setFlag(false);
   const subscription = await currentSubscription();
   if (subscription) {
-    // Si le serveur est injoignable, il effacera l'abonnement a son prochain envoi (410).
+    // If the server is unreachable, it will delete the subscription on its next send (410).
     await call("DELETE", { abonnement: subscription.toJSON() }).catch(() => {});
     await subscription.unsubscribe();
   }
@@ -167,15 +167,15 @@ let lastSync = "";
 let timer: ReturnType<typeof setTimeout> | undefined;
 
 /**
- * Repercute les favoris (et la langue) au serveur, si ce navigateur est
- * abonne. Appele a chaque changement : les appels rapproches se regroupent.
+ * Forwards favourites (and language) to the server, if this browser is
+ * subscribed. Called on every change: calls close together are batched.
  */
 export function sync(locale: Locale, favourites: readonly string[]): void {
   if (!readFlag() || syncKey(locale, favourites) === lastSync) return;
   clearTimeout(timer);
   timer = setTimeout(() => {
     syncNow(locale, favourites).catch(() => {
-      /* nouvel essai au prochain changement ou au prochain chargement */
+      /* retried on the next change or the next page load */
     });
   }, 800);
 }
@@ -186,7 +186,7 @@ async function syncNow(locale: Locale, favourites: readonly string[]) {
   if (!subscription) return;
   const body = { abonnement: subscription.toJSON(), langue: locale, favoris: favourites };
   let response = await call("PATCH", body);
-  // Abonnement efface cote serveur entre-temps : on le recree.
+  // Subscription deleted server-side in the meantime: recreate it.
   if (response.status === 404) response = await call("POST", body);
   if (response.ok) lastSync = syncKey(locale, favourites);
 }

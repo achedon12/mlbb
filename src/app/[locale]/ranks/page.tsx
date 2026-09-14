@@ -26,11 +26,11 @@ import { site } from "@/lib/site";
 import { rankingOfRank, RANKS_CLASSES } from "@/lib/tier-list";
 
 /**
- * Systeme de rangs : l'echelle de Guerrier a Immortel mythique, ses divisions,
- * ses etoiles et ses points, puis ce que nos mesures disent de chaque tranche
- * de rang (les heros qui y gagnent le plus). La structure vient de
- * `echelle-rangs.ts`, les taux de la tier list : la page suit les
- * synchronisations sans retouche.
+ * Rank system: the ladder from Warrior to Mythical Immortal, its divisions,
+ * its stars and its points, then what our measurements say about each rank
+ * slice (the heroes that win the most there). The structure comes from
+ * `rank-scale.ts`, the rates from the tier list: the page follows the
+ * syncs without any touch-up.
  */
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -45,15 +45,15 @@ const SECTIONS = [
   ["saison", "seasonTitle"],
 ] as const;
 
-/** Legende n'a pas de nom de rang dans le catalogue : on reprend celui de sa tranche de mesure. */
+/** Legend has no rank name in the catalog: we reuse that of its measurement slice. */
 const nameTier = (t: T, key: string) => (key === "legend" ? t("measuredRanks.legend") : t(`rankNames.${key}`));
 
 const pathTierList = (r: MeasuredRank) => (r === "all" ? "/tier-list" : `/tier-list/${r}`);
 
-/** Points qui ouvrent un palier mythique, lus dans l'echelle plutot qu'ecrits dans les libelles. */
+/** Points that open a mythic tier, read from the ladder rather than written in the labels. */
 const thresholdMythic = (key: string) => SCALE.find((p) => p.key === key)?.points?.min ?? 0;
 
-/** Les heros qui gagnent le plus dans une tranche de rang, hors echantillons trop maigres. */
+/** The heroes that win the most in a rank slice, excluding samples that are too thin. */
 function best(rank: MeasuredRank) {
   return rankingOfRank(rank)
     .filter((e) => !e.lowSample)
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 function Emblem({ tier, size = 56 }: { tier: TierScale; size?: number }) {
   const { image, color } = tierAppearance(tier);
-  // Le nom du rang est ecrit a cote : l'embleme est decoratif.
+  // The rank name is written next to it: the emblem is decorative.
   if (image) {
     return (
       <Image

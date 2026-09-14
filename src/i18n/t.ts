@@ -1,15 +1,15 @@
 /**
- * Fonction de traduction, sans aucun catalogue.
+ * Translation function, without any catalog.
  *
- * Ce module ne fait qu'interpreter un arbre de messages. Les composants client
- * l'utilisent avec le seul catalogue de leur langue, recu du serveur : les
- * catalogues complets n'ont rien a faire dans le JavaScript du navigateur.
+ * This module only interprets a message tree. Client components
+ * use it with just their language's catalog, received from the server: the
+ * full catalogs have no business in the browser's JavaScript.
  */
 export type Tree = { [key: string]: string | Tree };
 
 export type T = (key: string, variables?: Record<string, string | number>) => string;
 
-/** Resout une cle pointee (`nav.heroes`) dans l'arbre de messages. */
+/** Resolves a dotted key (`nav.heroes`) in the message tree. */
 function resolve(tree: Tree, key: string): string | undefined {
   let current: string | Tree | undefined = tree;
   for (const match of key.split(".")) {
@@ -20,8 +20,8 @@ function resolve(tree: Tree, key: string): string | undefined {
 }
 
 /**
- * Fabrique une fonction de traduction. Une cle absente retombe sur l'arbre de
- * secours, puis sur la cle elle-meme : jamais d'ecran vide.
+ * Builds a translation function. A missing key falls back on the fallback
+ * tree, then on the key itself: never a blank screen.
  */
 export function createTFrom(messages: Tree, fallback?: Tree): T {
   return (key, variables) => {

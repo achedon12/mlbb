@@ -1,22 +1,22 @@
 import generatedWatch from "@/data/game/watch.json";
 
 /**
- * Veille automatique.
+ * Automatic news watch.
  *
- * Le site agrege des flux publics et n'affiche que ce qu'un agregateur peut
- * legitimement montrer : un titre, une date, un court extrait et un lien vers
- * la source. Le contenu integral n'est jamais recopie — on renvoie chez
- * l'editeur d'origine.
+ * The site aggregates public feeds and only shows what an aggregator can
+ * legitimately show: a title, a date, a short excerpt and a link to
+ * the source. The full content is never copied — readers are sent to
+ * the original publisher.
  *
- * Aucune interrogation reseau a l'execution : l'instantane est pris en amont
- * par `scripts/watch.mjs` (en CI, a intervalle regulier) et lu ici depuis
- * `src/data/game/watch.json`. Le site ne depend d'aucun service externe.
+ * No network request at runtime: the snapshot is taken upstream
+ * by `scripts/watch.mjs` (in CI, at regular intervals) and read here from
+ * `src/data/game/watch.json`. The site depends on no external service.
  */
 
 export interface Source {
   slug: string;
   name: string;
-  /** Page d'accueil de la source, affichee comme credit. */
+  /** Home page of the source, shown as credit. */
   site: string;
 }
 
@@ -41,10 +41,10 @@ interface Snapshot {
 
 const snapshot = generatedWatch as unknown as Snapshot;
 
-/** Date de l'instantane (derniere collecte des flux). */
+/** Snapshot date (last feed collection). */
 export const measureWatch = snapshot.measuredAt;
 
-/** Les actualites de l'instantane, deja triees du plus recent au plus ancien. */
+/** News items of the snapshot, already sorted from most recent to oldest. */
 export function watch(limit = 40): News[] {
   return snapshot.news.slice(0, limit);
 }

@@ -42,7 +42,7 @@ const measures = (o: Partial<MeasuresRank> = {}): MeasuresRank => ({
   ...o,
 });
 
-/** Une composition sans faiblesse : une lane chacun, degats et notes varies. */
+/** A composition with no weakness: one lane each, varied damage and ratings. */
 const balanced = [
   heroes("tank", { lanes: ["Roam"], roles: ["Tank"], notes: { offense: 3, durability: 9, abilityEffects: 8, difficulty: 4 } }),
   heroes("jungle", { lanes: ["Jungle"], roles: ["Assassin"], notes: { offense: 8, durability: 3, abilityEffects: 3, difficulty: 5 } }),
@@ -105,7 +105,7 @@ describe("match duration", () => {
   it("averages measured heroes, bucket by bucket", () => {
     const curve = curveTeam(
       ["a", "b", "c", "d"],
-      // c est decoupe autrement, d n'est pas mesure : tous deux sont ecartes.
+      // c is bucketed differently, d is not measured: both are left out.
       measures({ duree: { a: [49, 51, 54], b: [53, 51, 49], c: [50, 50] } }),
     );
     expect(curve?.win).toEqual([51, 51, 51.5]);
@@ -219,7 +219,7 @@ describe("analyzeTeam", () => {
     expect(analysis.suggestions.map((s) => s.lane)).toEqual(["Jungle", "Mid", "Exp", "Roam"]);
     const jungle = analysis.suggestions[0].picks;
     expect(jungle.map((p) => p.hero.slug)).toEqual(["j1", "j3", "j2"]);
-    // Un coequipier mesure au rang compte comme une synergie.
+    // A teammate measured at the rank counts as a synergy.
     expect(jungle[2].reasons.map((r) => r.type)).toContain("synergy");
   });
 
@@ -228,7 +228,7 @@ describe("analyzeTeam", () => {
     expect(analysis.team).toHaveLength(5);
     expect(analysis.suggestions).toEqual([]);
     expect(analysis.assignment.missing).toEqual([]);
-    // Sans les mesures du rang, ce qui en depend reste vide.
+    // Without the rank's measures, whatever depends on them stays empty.
     expect(analysis.win).toBeNull();
     expect(analysis.curve).toBeNull();
     expect(analysis.threats).toEqual([]);

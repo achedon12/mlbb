@@ -1,15 +1,15 @@
 /**
- * Traduit les donnees de contenu vers les autres langues.
+ * Translates the content data into the other languages.
  *
- * Chaque jeu de donnees a une langue source (le francais pour ce qui est
- * extrait du wiki puis traduit, l'anglais pour les objets bruts et les patchs) ;
- * on en derive les trois autres langues. Tout est mis en cache
- * (`scripts/translations-data.json`, clef source+cible+texte) : une phrase
- * deja traduite ne repart jamais sur le reseau. Ce script ne tourne qu'a la
- * main ou en CI ; l'application ne traduit rien.
+ * Each dataset has a source language (French for what is
+ * extracted from the wiki then translated, English for raw items and patches);
+ * the three other languages are derived from it. Everything is cached
+ * (`scripts/translations-data.json`, key source+target+text): a sentence
+ * already translated never goes back over the network. This script only runs by
+ * hand or in CI; the application translates nothing.
  *
- * `node scripts/translate-data.mjs patchs combos` ne traite que les jeux
- * nommes ; sans argument, tous.
+ * `node scripts/translate-data.mjs patchs combos` only processes the named
+ * datasets; with no argument, all of them.
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pause, translateBatch } from "./translation-google.mjs";
@@ -23,8 +23,8 @@ const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {}
 const save = () => writeFile(CACHE, JSON.stringify(cache, null, 0) + "\n");
 
 /**
- * Lots d'au plus dix textes, bornes aussi en longueur : tout part dans l'URL,
- * et un paragraphe de patch encode (marqueurs compris) peut peser plusieurs Ko.
+ * Batches of at most ten texts, also capped in length: everything goes in the URL,
+ * and an encoded patch paragraph (markers included) can weigh several KB.
  */
 function batches(texts) {
   const groups = [];
@@ -51,8 +51,8 @@ async function prepare(texts, sl, tl) {
   for (const [i, batch] of groups.entries()) {
     const outputs = await translateBatch(batch, sl, tl);
     batch.forEach((o, k) => (cache[`${sl}|${tl}|${o}`] = outputs[k] ?? o));
-    process.stdout.write(`\r    ${sl}->${tl} ${i + 1}/${groups.length} lots`);
-    // Un long passage (les patchs) ne perd pas tout sur une coupure reseau.
+    process.stdout.write(`\r    ${sl}->${tl} ${i + 1}/${groups.length} batches`);
+    // A long run (the patches) does not lose everything on a network drop.
     if (i % 50 === 49) await save();
     await pause(200);
   }
@@ -61,7 +61,7 @@ async function prepare(texts, sl, tl) {
 
 const tr = (sl, tl) => (t) => (t ? (cache[`${sl}|${tl}|${String(t).trim()}`] ?? t) : t);
 
-/** Textes a traduire d'un jeu : ceux que sa reconstruction demande, dans l'ordre. */
+/** Texts to translate for a dataset: those its rebuild asks for, in order. */
 const collect = (rebuild) => (d) => {
   const out = [];
   rebuild(d, (x) => {
@@ -71,7 +71,7 @@ const collect = (rebuild) => (d) => {
   return out;
 };
 
-// ── Configuration par jeu de donnees ───────────────────────────────
+// ── Per-dataset configuration ──────────────────────────────────────
 function storiesTexts(d) {
   const out = [];
   for (const h of Object.values(d)) {
@@ -156,12 +156,12 @@ const tierNotesTexts = (d) => Object.values(d);
 const tierNotesRebuild = (d, t) => Object.fromEntries(Object.entries(d).map(([s, v]) => [s, t(v)]));
 
 /**
- * Patchs detailles : textes des ajustements, nouveaux heros, titres et HTML
- * libre des sections. Restent tels quels : noms de heros et de competences
- * (ceux du jeu, comme sur les fiches), epithetes (elles designent aussi
- * l'illustration), valeurs avant/apres, ancres et liens.
+ * Detailed patches: adjustment texts, new heroes, titles and free-form HTML
+ * of the sections. Left as is: hero and skill names
+ * (the game's own, as on the hero pages), epithets (they also name
+ * the illustration), before/after values, anchors and links.
  */
-// Le parseur nomme en francais la sous-section implicite des attributs.
+// The parser names the implicit attributes subsection in French.
 const nameSection = (s) => (s.category ? s.name : s.name === "Attributs" ? "Attributes" : s.name);
 const patchsRebuild = (d, t) =>
   Object.fromEntries(
@@ -191,7 +191,7 @@ const patchsRebuild = (d, t) =>
     ]),
   );
 
-/** Combos : seuls les champs `description` (texte ou liste de textes) se traduisent, ou qu'ils soient. */
+/** Combos: only `description` fields (text or list of texts) are translated, wherever they are. */
 function descriptionsRebuild(d, t) {
   if (Array.isArray(d)) return d.map((x) => descriptionsRebuild(x, t));
   if (!d || typeof d !== "object") return d;
@@ -204,9 +204,9 @@ function descriptionsRebuild(d, t) {
 }
 
 /**
- * `fichier` : source hors du dossier du jeu (un fichier de synchro qui ne se
- * decoupe pas par langue) ; `extraire` en garde la partie a traduire.
- * `optional` : le jeu est saute tant que sa source n'existe pas.
+ * `file`: source outside the dataset folder (a sync file that is not
+ * split per language); `extract` keeps the part to translate.
+ * `optional`: the dataset is skipped as long as its source does not exist.
  */
 const GAMES = {
   stories: { source: "fr", texts: storiesTexts, rebuild: storiesRebuild },
@@ -231,28 +231,28 @@ const GAMES = {
 };
 
 const requests = process.argv.slice(2);
-for (const name of requests) if (!(name in GAMES)) throw new Error(`Jeu inconnu : ${name}`);
+for (const name of requests) if (!(name in GAMES)) throw new Error(`Unknown dataset: ${name}`);
 
 for (const [name, cfg] of Object.entries(GAMES)) {
   if (requests.length && !requests.includes(name)) continue;
   const file = cfg.file ?? `src/data/game/${name}/${cfg.source}.json`;
   if (!existsSync(file)) {
     if (cfg.optional) {
-      console.log(`${name} : ${file} absent, rien a traduire`);
+      console.log(`${name}: ${file} missing, nothing to translate`);
       continue;
     }
-    throw new Error(`Source absente : ${file}`);
+    throw new Error(`Missing source: ${file}`);
   }
   const raw = JSON.parse(await readFile(file, "utf8"));
   const source = cfg.extract ? cfg.extract(raw) : raw;
   const all = cfg.texts(source);
-  console.log(`${name} (${cfg.source}) : ${new Set(all.map((x) => String(x).trim())).size} textes uniques`);
+  console.log(`${name} (${cfg.source}): ${new Set(all.map((x) => String(x).trim())).size} unique texts`);
   await mkdir(`src/data/game/${name}`, { recursive: true });
   for (const tl of LOCALES.filter((l) => l !== cfg.source)) {
     await prepare(all, cfg.source, tl);
     const t = tr(cfg.source, tl);
-    // Seconde passe : un bloc HTML dont la traduction a perdu ses balises
-    // retombe sur ses textes un par un, qu'il faut alors traduire aussi.
+    // Second pass: an HTML block whose translation lost its tags
+    // falls back to its texts one by one, which then need translating too.
     const missing = [];
     cfg.rebuild(source, (x) => {
       if (x && !(`${cfg.source}|${tl}|${String(x).trim()}` in cache)) missing.push(x);
@@ -265,4 +265,4 @@ for (const [name, cfg] of Object.entries(GAMES)) {
     console.log(`  ${name}/${tl}.json`);
   }
 }
-console.log("Donnees traduites.");
+console.log("Data translated.");

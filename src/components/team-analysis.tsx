@@ -31,16 +31,16 @@ import type { Lane, Tier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Analyse d'une composition d'equipe.
+ * Team composition analysis.
  *
- * Jusqu'a cinq heros, sans position imposee ; tout le calcul vient de
- * `lib/composition`. Le catalogue arrive avec la page, les mesures du rang
- * choisi a part (`/composition/<rang>.json`), une fois par visite. Equipe et
- * rang passent par l'URL (`?h=…&rang=…`), lue apres le montage : la page reste
- * statique, et une composition se partage par son lien.
+ * Up to five heroes, with no fixed position; all computation comes from
+ * `lib/composition`. The catalogue ships with the page, the chosen rank's
+ * measures separately (`/composition/<rang>.json`), once per visit. Team and
+ * rank go through the URL (`?h=…&rang=…`), read after mount: the page stays
+ * static, and a composition is shared by its link.
  */
 
-/** Requetes deja lancees, par rang : revenir a un rang ne recharge rien. */
+/** Requests already started, per rank: coming back to a rank reloads nothing. */
 const requests = new Map<MeasuredRank, Promise<MeasuresRank>>();
 
 function loadMeasures(rank: MeasuredRank): Promise<MeasuresRank> {
@@ -50,19 +50,19 @@ function loadMeasures(rank: MeasuredRank): Promise<MeasuresRank> {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json() as Promise<MeasuresRank>;
     });
-    // Un echec ne reste pas en memoire : revenir au rang retente.
+    // A failure is not cached: coming back to the rank retries.
     request.catch(() => requests.delete(rank));
     requests.set(rank, request);
   }
   return request;
 }
 
-/** Nombres dans la langue de la page. */
+/** Numbers in the page's language. */
 interface Formats {
-  /** Une decimale : taux, moyennes. */
+  /** One decimal: rates, averages. */
   count: (v: number) => string;
   integer: (v: number) => string;
-  /** Ecart signe, en points. */
+  /** Signed gap, in points. */
   gap: (v: number) => string;
 }
 
@@ -76,7 +76,7 @@ export function TeamAnalysis({
 }: {
   heroes: TeamHero[];
   ranks: MeasuredRank[];
-  /** Libelles des types de degats, resolus par le serveur (`heroData` n'est pas envoye au navigateur). */
+  /** Damage type labels, resolved by the server (`heroData` is not sent to the browser). */
   labelsDamage: Record<TypeDamage, string>;
 }) {
   const t = useT();
@@ -89,16 +89,16 @@ export function TeamAnalysis({
 
   const bySlug = useMemo(() => new Map(heroes.map((h) => [h.slug, h])), [heroes]);
 
-  // Serveur et premiere hydratation partent d'une equipe vide (identiques,
-  // donc sans desaccord) ; apres le montage seulement, on adopte ?h= et
-  // ?rang=, puis chaque changement se reporte dans l'URL.
+  // Server and first hydration start from an empty team (identical, so no
+  // mismatch); only after mount do we adopt ?h= and ?rang=, then every change
+  // is written back to the URL.
   const rise = useRef(false);
   useEffect(() => {
     if (!rise.current) {
       rise.current = true;
       const lu = readSettings(window.location.search, new Set(bySlug.keys()), ranks);
       if (lu.slugs.length || lu.rank) {
-        /* eslint-disable react-hooks/set-state-in-effect -- lecture de l'URL apres montage */
+        /* eslint-disable react-hooks/set-state-in-effect -- reading the URL after mount */
         if (lu.slugs.length) setSlugs(lu.slugs);
         if (lu.rank) setRank(lu.rank);
         /* eslint-enable react-hooks/set-state-in-effect */
@@ -181,7 +181,7 @@ export function TeamAnalysis({
               </button>
             </li>
           )}
-          {/* Places restantes, pour voir d'un coup d'oeil ce qui manque ; sur mobile, le bouton suffit. */}
+          {/* Remaining slots, to see at a glance what is missing; on mobile, the button is enough. */}
           {Array.from({ length: Math.max(0, SIZE_TEAM - team.length - 1) }, (_, i) => (
             <li key={`vide-${i}`} aria-hidden className="hidden sm:block">
               <span className="bevel-sm block h-full min-h-32 border border-dashed border-night-800" />
@@ -247,7 +247,7 @@ export function TeamAnalysis({
   );
 }
 
-/** Un heros de l'equipe : sa lane attribuee, son palier et son taux au rang. */
+/** A team hero: its assigned lane, its tier and its rate at the rank. */
 function Slot({
   hero: h,
   lane,
@@ -370,7 +370,7 @@ function Results({
           </dl>
         </div>
 
-        {/* ── Points d'attention ─────────────────────────────────────── */}
+        {/* ── Warnings ───────────────────────────────────────────────── */}
         <div>
           <h3 className={heading3}>{t("teamUI.alerts.title")}</h3>
           {alerts.length > 0 ? (
@@ -398,7 +398,7 @@ function Results({
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          {/* ── Lanes et roles ───────────────────────────────────────── */}
+          {/* ── Lanes and roles ──────────────────────────────────────── */}
           <Card>
             <h3 className={heading3}>{t("teamUI.lanesRoles")}</h3>
             <ul className="mt-3 space-y-1.5">
@@ -442,7 +442,7 @@ function Results({
             </ul>
           </Card>
 
-          {/* ── Profil : degats et notes du jeu ──────────────────────── */}
+          {/* ── Profile: damage and in-game ratings ──────────────────── */}
           <Card>
             <h3 className={heading3}>{t("teamUI.profile")}</h3>
             {damage.partPhysique !== null && (
@@ -500,7 +500,7 @@ function Results({
 
         {measures ? (
           <>
-            {/* ── Duree de partie ────────────────────────────────────── */}
+            {/* ── Match duration ─────────────────────────────────────── */}
             <div>
               <h3 className={heading3}>{t("teamUI.duration")}</h3>
               {curve ? (
@@ -568,7 +568,7 @@ function Results({
                 )}
               </div>
 
-              {/* ── Menaces ───────────────────────────────────────────── */}
+              {/* ── Threats ───────────────────────────────────────────── */}
               <div>
                 <h3 className={heading3}>{t("teamUI.threats")}</h3>
                 <p className="mt-1 text-sm text-chalk-500">{t("teamUI.threatsIntro")}</p>
@@ -614,7 +614,7 @@ function Results({
         )}
       </section>
 
-      {/* ── Picks pour les lanes libres ──────────────────────────────── */}
+      {/* ── Picks for the open lanes ─────────────────────────────────── */}
       {analysis.suggestions.length > 0 && (
         <section aria-labelledby="completer-titre">
           <h2 id="completer-titre" className="font-heading text-2xl font-bold text-chalk-100">

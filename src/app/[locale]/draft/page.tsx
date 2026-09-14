@@ -25,7 +25,7 @@ import { metaByRank, simulationHeroes } from "@/lib/simulation-catalog";
 import { RANKS_CLASSES } from "@/lib/tier-list";
 import { cn } from "@/lib/utils";
 
-/** Description en donnees : heros couverts, date du releve et patch. */
+/** Description built from data: covered heroes, measurement date and patch. */
 function descriptionDraft(locale: Locale): string {
   const t = createT(locale);
   return t("pages.seo.draft.simulatorDescription", { n: allHeroes.length, date: longDate(locale), v: patchCurrent.version });

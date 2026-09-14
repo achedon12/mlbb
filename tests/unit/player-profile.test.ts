@@ -203,7 +203,7 @@ describe("bucketOfRank", () => {
     expect(bucketOfRank(140)).toBe("mythic");
     expect(bucketOfRank(166)).toBe("honor");
     expect(bucketOfRank(190)).toBe("glory");
-    // Immortel : au-dela de la derniere tranche, compare a Gloire.
+    // Immortal: beyond the last bucket, compared with Glory.
     expect(bucketOfRank(240)).toBe("glory");
   });
 });
@@ -238,7 +238,7 @@ describe("comparison with site averages", () => {
 describe("advice", () => {
   it("prefers a solid rate over a flattering rate on few matches", () => {
     const best = bestHero(compareHeroes(readFrequentHeroes(FREQUENT_HEROES.data).entries, "mythic"));
-    // Fanny 7/8 et Ling 17/25 ; Miya 4/4 n'a pas assez de parties.
+    // Fanny 7/8 and Ling 17/25; Miya 4/4 does not have enough matches.
     expect(best.map((l) => l.hero.slug)).toEqual(["fanny", "ling"]);
   });
 
@@ -270,9 +270,9 @@ describe("nemeses", () => {
         match([109, 30, 31, 65, 1], false),
         match([109, 30, 50, 51, 52], false),
         match([109, 60, 61, 62, 63], true),
-        // Issue absente de la liste : celle du detail prend le relais.
+        // Outcome missing from the list: the detail's outcome takes over.
         match([109, 70, 71, 72, 73], null),
-        // Sans le joueur, ou sans equipes : ignorees.
+        // Without the player, or without teams: ignored.
         { win: false, participants: readDetailMatch(DETAIL_SCHEMA.data) },
         match([109, 30, 80, 81, 82], false, false),
       ],

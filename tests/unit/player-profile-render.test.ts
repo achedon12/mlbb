@@ -2,7 +2,7 @@ import { createElement as h, type ReactElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 
-// Les actions serveur lisent les cookies de Next : hors requete, on les remplace.
+// Server actions read Next's cookies: outside a request, they are replaced.
 vi.mock("@/lib/actions", () => ({ reconnect: vi.fn(), disconnect: vi.fn() }));
 vi.mock("@/lib/profile-actions", () => ({ nextMatches: vi.fn() }));
 
@@ -18,14 +18,14 @@ import { showMatch, summarySeason, compareHeroes } from "@/lib/player-profile";
 import { readableRank } from "@/lib/ranks";
 import { FREQUENT_HEROES, MATCHES_TEXT, STATS, historyRaw, pageHistory, matchRaw } from "./player-samples";
 
-/** Le rendu echappe apostrophes et guillemets du texte : on compare au texte tel qu'on le lit. */
+/** Rendering escapes apostrophes and quotes in the text: compare with the text as it reads. */
 const decodeEntities = (html: string) =>
   html.replace(/&#x27;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 
 /**
- * Rendu du profil de joueur avec les reponses d'exemple : la connexion reelle
- * demande un code recu en jeu, ces rendus sont la seule verification possible
- * de bout en bout hors ligne.
+ * Player profile rendering with the sample responses: a real login requires a
+ * code received in the game, so these renders are the only possible offline
+ * end-to-end check.
  */
 const render = (element: ReactElement) =>
   decodeEntities(
@@ -33,7 +33,7 @@ const render = (element: ReactElement) =>
       h(LocaleProvider, {
         locale: "fr",
         messages: messagesClient("fr"),
-        // Comme la page : catalogue commun, plus les rubriques propres au profil.
+        // Like the page: shared catalog, plus the profile's own sections.
         children: h(ExtendMessages, { messages: messagesPage("fr", ["pages.accountProfile"]), children: element }),
       }),
     ),
@@ -53,7 +53,7 @@ describe("RecentMatches", () => {
     expect(html).toContain('href="/fr/heroes/fanny"');
     expect(html).toContain("14 / 1 / 11");
     expect(html).toMatch(/<time dateTime="2026-03-30T08:06:39.000Z">/i);
-    // Heros inconnu du site : nom du service, sans lien.
+    // Hero unknown to the site: the service's name, without a link.
     expect(html).toContain("Nouveau Heros");
     expect(html).not.toContain("/heroes/null");
     expect(html).toContain("<button");
@@ -123,7 +123,7 @@ describe("profile analyses", () => {
   });
 
   it("renders history positions, flagging matches without a position", () => {
-    // Chou, deux positions au catalogue, sans `lid` : la partie ne peut etre rangee.
+    // Chou, two positions in the catalog, no `lid`: the match cannot be placed.
     const raw = readJson(pageHistory([matchRaw(950, 26, null, 1, 1774857999)], null)) as { data: unknown };
     const chou = readMatches(raw.data);
     const summary = statsByPosition([...history, ...readMatches(dataMatchesText).entries, ...chou.entries]);

@@ -1,24 +1,24 @@
 /**
- * Constantes du site, centralisees pour que les metadonnees, le plan du site
- * et le flux RSS restent coherents entre eux.
+ * Site constants, centralized so that metadata, the sitemap
+ * and the RSS feed stay consistent with each other.
  */
 export const site = {
   name: "MLBBDex",
-  // Nom de l'application installee, image de partage, flux RSS : l'anglais,
-  // langue par defaut du site.
+  // Installed app name, share image, RSS feed: English, the site's
+  // default language.
   title: "MLBBDex — Mobile Legends: Bang Bang knowledge base",
   description:
     "Hero pages, builds and counters by rank, tier lists, items, emblems, patch notes and news for Mobile Legends: Bang Bang, in English, French, Italian and Spanish.",
-  // `||` et non `??` : dans l'image Docker, un `ARG` non fourni devient une
-  // chaine vide (et non `undefined`). Sans ce repli, `new URL("")` echouerait
-  // a la construction — c'est ce qui cassait le build de l'image en CI.
+  // `||` and not `??`: in the Docker image, an `ARG` that is not provided becomes an
+  // empty string (not `undefined`). Without this fallback, `new URL("")` would fail
+  // at build time — that is what broke the image build in CI.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://mlbbdex.com",
   locale: "en",
   author: "achedon12",
   depot: "https://github.com/achedon12/mlbb",
 } as const;
 
-/** Informations legales : editeur, hebergeur, contact. */
+/** Legal information: publisher, host, contact. */
 export const legal = {
   publisher: "Leo Deroin",
   publisherSite: "https://leoderoin.fr",
@@ -28,11 +28,11 @@ export const legal = {
 } as const;
 
 /**
- * Navigation principale.
+ * Main navigation.
  *
- * Deux familles : ce qui decrit le jeu, et ce qui raconte son actualite. Les
- * separer visuellement evite une file de huit liens ou l'oeil ne distingue
- * plus rien.
+ * Two families: what describes the game, and what covers its news. Separating
+ * them visually avoids a row of eight links where the eye can no longer
+ * tell anything apart.
  */
 export const navigation = [
   { href: "/heroes", label: "Heros", group: "game" },

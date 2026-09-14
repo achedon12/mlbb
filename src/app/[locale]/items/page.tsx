@@ -35,9 +35,9 @@ export default async function ItemsPage({ params }: Params) {
   const t = createT(locale);
   const previews = itemsFor(locale).map((o) => ({ ...o, image: images[o.slug] ?? null }));
 
-  // Heros qui prennent chaque objet dans leurs builds les plus joues, tous
-  // rangs confondus, le plus joue d'abord. Le navigateur ne recoit que des
-  // identifiants, et une seule table des heros cites.
+  // Heroes that take each item in their most played builds, all
+  // ranks combined, most played first. The browser only receives
+  // ids, and a single table of the heroes cited.
   const usage = new Map<string, Map<string, number>>();
   for (const [slug, byLane] of Object.entries(buildsPlayed)) {
     for (const byRank of Object.values(byLane)) {

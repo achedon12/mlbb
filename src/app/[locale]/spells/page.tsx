@@ -7,9 +7,9 @@ import { createT } from "@/i18n/translations";
 import { spellSheets } from "@/lib/usage-sheets";
 
 /**
- * Index des sorts de combat : chacun mene a sa page (heros qui le prennent,
- * emblemes associes). La page manquait au menu et a la recherche « mlbb
- * battle spells ».
+ * Battle spells index: each one leads to its page (heroes that take it,
+ * associated emblems). The page was missing from the menu and from the "mlbb
+ * battle spells" search.
  */
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -40,7 +40,7 @@ export default async function SpellsPage({ params }: { params: Promise<{ locale:
               >
                 <span className="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-full border border-night-700 bg-night-800">
                   {s.image ? (
-                    // Icone deja optimisee par la synchro : un seul fichier, sans srcset.
+                    // Icon already optimized by the sync: a single file, no srcset.
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={s.image} alt="" width={48} height={48} loading="lazy" className="size-full object-contain" />
                   ) : (

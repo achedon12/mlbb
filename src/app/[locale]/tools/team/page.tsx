@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function TeamPage({ params }: Params) {
   const { locale } = await params;
   const t = createT(locale);
-  // Le catalogue `heroData` reste cote serveur : les trois libelles de
-  // degats partent deja resolus.
+  // The `heroData` catalog stays on the server: the three damage labels
+  // leave already resolved.
   const damage = (key: TypeDamage) => heroLabel(t, "damage", key) ?? key;
 
   return (

@@ -1,7 +1,7 @@
 import { skills, allHeroes, heroesBySlug, illustrations } from "@/lib/data";
 import { notFound, responseApi } from "@/lib/api";
 
-/** Fiche complete d'un heros : competences, skins, visuels et analyse. */
+/** Full hero record: skills, skins, visuals and analysis. */
 export const dynamic = "force-static";
 
 export function generateStaticParams() {

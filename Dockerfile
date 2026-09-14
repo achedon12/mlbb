@@ -38,8 +38,8 @@ ENV NODE_ENV=production \
     HOSTNAME=0.0.0.0 \
     DATA_DIR=/app/donnees-serveur
 
-# Le dossier des donnees existe dans l'image, au nom de l'utilisateur : un
-# volume nomme monte dessus en herite la propriete a sa creation.
+# The data folder exists in the image, owned by the user: a named volume
+# mounted on it inherits that ownership when it is created.
 RUN apk add --no-cache wget \
  && addgroup -g 1001 -S nodejs \
  && adduser -u 1001 -S nextjs -G nodejs \

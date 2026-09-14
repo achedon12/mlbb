@@ -2,46 +2,46 @@ import type { NextConfig } from "next";
 import { version } from "./package.json";
 
 /**
- * Le site a une partie serveur — sessions de connexion en jeu, appels a l'API
- * communautaire — donc pas d'export statique. `standalone` produit un dossier
- * autonome contenant uniquement les fichiers reellement utilises, ce qui donne
- * une image de production nettement plus legere que l'arborescence complete.
+ * The site has a server side — in-game login sessions, calls to the community
+ * API — so no static export. `standalone` produces a self-contained folder
+ * holding only the files actually used, which gives a production image much
+ * lighter than the full tree.
  */
 const nextConfig: NextConfig = {
   output: "standalone",
-  // Next genere sinon des fichiers d'instructions pour agents a la racine du
-  // depot. Ce projet est publie sous le nom de son auteur : rien de tel n'a a
-  // y figurer.
+  // Otherwise Next generates agent instruction files at the repository root.
+  // This project is published under its author's name: nothing of the kind
+  // belongs there.
   agentRules: false,
   reactStrictMode: true,
   poweredByHeader: false,
-  // La racine ne rend pas <html> (c'est [locale]/layout qui le fait) : une
-  // adresse inconnue hors langue, comme /llms.txt avant sa creation, finissait
-  // en erreur 500 en production. Cette 404 globale rend son propre document.
+  // The root does not render <html> ([locale]/layout does): an unknown address
+  // outside any locale, such as /llms.txt before it existed, ended in a 500
+  // error in production. This global 404 renders its own document.
   experimental: { globalNotFound: true },
   compress: true,
-  // Version du site, lue dans package.json au build : le pied de page
-  // l'affiche sans qu'on ait a la reporter a la main.
+  // Site version, read from package.json at build time: the footer shows it
+  // without having to copy it by hand.
   env: { VERSION_SITE: version },
 
   images: {
-    // Les visuels du jeu sont copies en local (public/visuels) par la
-    // synchronisation. Le wiki ne reste autorise que pour les images
-    // incrustees dans les notes de patch qu'on reprend telles quelles.
+    // Game visuals are copied locally (public/visuels) by the sync. The wiki
+    // stays allowed only for images embedded in the patch notes, which are
+    // reused as they are.
     remotePatterns: [
       { protocol: "https", hostname: "static.wikia.nocookie.net" },
-      // Avatars de profil, servis par le CDN de Moonton.
+      // Profile avatars, served by Moonton's CDN.
       { protocol: "https", hostname: "akmpicture.youngjoygame.com" },
-      // Icones de competences en repli, quand le wiki ne les fournit pas.
+      // Fallback skill icons, when the wiki does not provide them.
       { protocol: "https", hostname: "akmweb.youngjoygame.com" },
     ],
     formats: ["image/avif", "image/webp"],
-    // 50 : fonds assombris (banniere des fiches) ; 75 : tout le reste.
+    // 50: darkened backgrounds (detail page banner); 75: everything else.
     qualities: [50, 75],
   },
 
-  // Les routes sont passees en anglais. Les anciennes adresses francaises,
-  // deja indexees et partagees, redirigent en permanence vers les nouvelles.
+  // Routes moved to English. The old French addresses, already indexed and
+  // shared, redirect permanently to the new ones.
   async redirects() {
     return [
       { source: "/heros/:path*", destination: "/heroes/:path*", permanent: true },
@@ -61,8 +61,8 @@ const nextConfig: NextConfig = {
 
   async headers() {
     return [
-      // Le service worker doit etre relu a chaque visite : une version en cache
-      // HTTP retarderait la mise a jour du cache hors ligne.
+      // The service worker must be fetched again on every visit: a version in
+      // the HTTP cache would delay the offline cache update.
       {
         source: "/sw.js",
         headers: [

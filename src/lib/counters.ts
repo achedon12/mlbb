@@ -8,38 +8,38 @@ import type { T } from "@/i18n/t";
 import type { Lane, Role } from "./types";
 
 /**
- * Logique de la page « counters » d'un heros : tout ce qui se deduit des
- * donnees, sans rien rediger. Module pur — ni catalogue ni fichier importe —
- * pour etre teste sans charger les donnees du jeu.
+ * Logic of a hero's "counters" page: everything derived from the data,
+ * without writing any prose. Pure module — no catalogue or file imported —
+ * so it can be tested without loading the game data.
  */
 
 /**
- * « d'Aamon », « de Gusion » : complement du nom en francais, elide devant une
- * voyelle. Le « h » et le « y » des noms du jeu se prononcent : pas d'elision.
+ * « d'Aamon », « de Gusion »: French possessive complement, elided before a
+ * vowel. The "h" and "y" in game names are pronounced: no elision.
  */
 export function frenchOf(name: string): string {
   return /^[aeiouàâäéèêëîïôöùûü]/i.test(name) ? `d'${name}` : `de ${name}`;
 }
 
-// ── Contres, tous rangs confondus ──────────────────────────────────
+// ── Counters, all ranks combined ───────────────────────────────────
 
-/** Un adversaire cite dans plusieurs rangs, avec l'ecart moyen du heros face a lui. */
+/** An opponent named in several ranks, with the hero's average gap against them. */
 export interface AggregatedCounter {
   slug: string;
-  /** Nombre de rangs ou il figure parmi les ecarts les plus marques. */
+  /** Number of ranks where they appear among the largest gaps. */
   ranks: number;
-  /** Ecart moyen, en points, sur ces rangs (du point de vue du heros de la page). */
+  /** Average gap, in points, over those ranks (from the page hero's point of view). */
   average: number;
 }
 
 const rounded = (v: number) => Math.round(v * 10) / 10;
 
 /**
- * Adversaires les plus marques, rangs confondus. Les tranches de rang sont
- * lues une a une — `all` les agrege deja et compterait double — et `all` ne
- * sert qu'a defaut de tranche. Un adversaire present dans plus de rangs passe
- * devant : c'est un contre regulier, pas l'accident d'une tranche. A egalite,
- * l'ecart moyen le plus marque l'emporte.
+ * Most pronounced opponents, all ranks combined. Rank buckets are read one
+ * by one — `all` already aggregates them and would count twice — and `all`
+ * is only used when there is no bucket. An opponent present in more ranks
+ * comes first: it is a consistent counter, not a one-bucket fluke. On a tie,
+ * the most pronounced average gap wins.
  */
 export function aggregateCounters(byRank: CountersByRank, direction: "strong" | "weak"): AggregatedCounter[] {
   const buckets = MEASURED_RANKS.filter((r) => r !== "all" && byRank[r]);
@@ -61,16 +61,16 @@ export function aggregateCounters(byRank: CountersByRank, direction: "strong" | 
     );
 }
 
-/** Rang de la phrase de synthese : Mythique, rang de reference des joueurs classes, sinon tous rangs. */
+/** Rank of the summary sentence: Mythic, the reference rank for ranked players, otherwise all ranks. */
 export function summaryRank(byRank: CountersByRank): MeasuredRank | null {
   if (byRank.mythic) return "mythic";
   if (byRank.all) return "all";
   return MEASURED_RANKS.find((r) => byRank[r]) ?? null;
 }
 
-// ── Phrase de synthese ─────────────────────────────────────────────
+// ── Summary sentence ───────────────────────────────────────────────
 
-/** « +3,3 pts », « −4,3 pts » : ecart signe, une decimale, au format de la langue. */
+/** « +3,3 pts », « −4,3 pts »: signed gap, one decimal, in the locale's format. */
 export function formatGap(locale: Locale, t: T, value: number): string {
   const n = new Intl.NumberFormat(locale, {
     signDisplay: "exceptZero",
@@ -85,16 +85,16 @@ export function listNames(locale: Locale, names: string[]): string {
   return new Intl.ListFormat(locale, { style: "long", type: "conjunction" }).format(names);
 }
 
-/** « Gloo (−4,3 pts), Hayabusa et Silvanna » : le premier porte son ecart, les suivants leur nom. */
+/** "Gloo (−4.3 pts), Hayabusa and Silvanna": the first carries its gap, the others just their name. */
 function head(locale: Locale, t: T, list: { name: string; advantage: number }[]): string {
   const [first, ...run] = list;
   return listNames(locale, [`${first.name} (${formatGap(locale, t, first.advantage)})`, ...run.map((e) => e.name)]);
 }
 
 /**
- * Phrase de synthese, faite des seules mesures : « En Mythique, Aamon souffre
- * le plus face a Gloo (−4,3 pts), Hayabusa et Silvanna, et prend l'avantage
- * sur Cici (+3,1 pts) et Marcel. » Trois contres, deux victimes au plus.
+ * Summary sentence, built from measurements only: "In Mythic, Aamon struggles
+ * most against Gloo (−4.3 pts), Hayabusa and Silvanna, and has the edge over
+ * Cici (+3.1 pts) and Marcel." Three counters, two victims at most.
  */
 export function summarySentence(
   locale: Locale,
@@ -119,19 +119,19 @@ export function summarySentence(
     : t("pages.heroCounters.overviewNoStrong", variables);
 }
 
-// ── Objets conseilles, par regle ───────────────────────────────────
+// ── Recommended items, by rule ─────────────────────────────────────
 
 /**
- * Pourquoi un objet est propose. Aucune mesure de victoire derriere : une
- * regle lue sur la fiche du heros (type de degats, role, specialites) et sur
- * son build le plus joue (vol de vie).
+ * Why an item is suggested. No win measurement behind it: a rule read from
+ * the hero's page (damage type, role, specialties) and from their most
+ * played build (lifesteal).
  */
 export type ReasonItem = "magic" | "physical" | "attacks" | "healing" | "control";
 
 /**
- * Objets de reference de chaque regle, par slug du catalogue. Les soins ont un
- * objet par famille d'equipement — defense, physique, magie — : chacun prend
- * celui qui entre dans son build.
+ * Reference items for each rule, by catalogue slug. Healing has one item per
+ * equipment family — defense, physical, magic —: each player takes the one
+ * that fits their build.
  */
 export const ITEMS_BY_REASON: Record<ReasonItem, string[]> = {
   magic: ["athena-s-shield", "radiant-armor", "tough-boots"],
@@ -142,21 +142,21 @@ export const ITEMS_BY_REASON: Record<ReasonItem, string[]> = {
 };
 
 export interface ProfileThreat {
-  /** Type de degats du wiki (« Magic », « Physical », « Mixed » ; la coquille « Phyiscal » existe). */
+  /** Wiki damage type ("Magic", "Physical", "Mixed"; the typo "Phyiscal" exists). */
   typeDamage: string | null;
   roles: Role[];
-  /** Specialites du wiki, en anglais (« Regen », « Crowd Control »). */
+  /** Wiki specialties, in English ("Regen", "Crowd Control"). */
   specialties: string[];
-  /** Vrai quand son build le plus joue porte du vol de vie ou du vol de sort. */
+  /** True when their most played build has lifesteal or spell vamp. */
   lifesteal: boolean;
 }
 
-/** Bonus d'objets qui soignent leur porteur a chaque coup. */
+/** Item bonuses that heal their wearer on each hit. */
 export function hasLifesteal(bonus: (string | null)[]): boolean {
   return bonus.some((b) => !!b && /lifesteal|spell vamp/i.test(b));
 }
 
-/** Regles qui s'appliquent au heros, dans l'ordre d'affichage. */
+/** Rules that apply to the hero, in display order. */
 export function reasonsCounter(p: ProfileThreat): ReasonItem[] {
   const damage = (p.typeDamage ?? "").toLowerCase().replace("phyiscal", "physical");
   const reasons: ReasonItem[] = [];
@@ -169,8 +169,8 @@ export function reasonsCounter(p: ProfileThreat): ReasonItem[] {
 }
 
 /**
- * Objets a opposer au heros, sans doublon : un objet cite par deux regles garde
- * la premiere. `existe` ecarte un slug disparu du catalogue apres une synchro.
+ * Items to build against the hero, without duplicates: an item named by two
+ * rules keeps the first. `exists` drops a slug gone from the catalogue after a sync.
  */
 export function itemsCounter(p: ProfileThreat, exists: (slug: string) => boolean): { slug: string; reason: ReasonItem }[] {
   const seen = new Set<string>();
@@ -183,7 +183,7 @@ export function itemsCounter(p: ProfileThreat, exists: (slug: string) => boolean
   );
 }
 
-// ── Duree de partie ────────────────────────────────────────────────
+// ── Match duration ─────────────────────────────────────────────────
 
 export interface MomentsMatch {
   weak: BucketDuration;
@@ -191,7 +191,7 @@ export interface MomentsMatch {
   profile: ProfileDuration;
 }
 
-/** Tranche de duree ou le heros gagne le moins, et celle ou il gagne le plus. */
+/** Duration bucket where the hero wins least, and the one where they win most. */
 export function momentsMatch(buckets: BucketDuration[] | undefined): MomentsMatch | null {
   if (!buckets || buckets.length < 2) return null;
   const weak = buckets.reduce((m, x) => (x.winRate < m.winRate ? x : m));
@@ -200,12 +200,12 @@ export function momentsMatch(buckets: BucketDuration[] | undefined): MomentsMatc
   return { weak, strong, profile: profileDuration(buckets.map((x) => x.winRate)) };
 }
 
-// ── Contres par position ───────────────────────────────────────────
+// ── Counters by position ───────────────────────────────────────────
 
 /**
- * Contres regroupes par la position qu'ils jouent : le duel direct sur la lane
- * du heros d'abord, puis les autres positions. Un contre joue a plusieurs
- * positions figure sous chacune.
+ * Counters grouped by the position they play: the direct matchup on the
+ * hero's lane first, then the other positions. A counter played in several
+ * positions appears under each.
  */
 export function countersByLane(
   counters: AggregatedCounter[],

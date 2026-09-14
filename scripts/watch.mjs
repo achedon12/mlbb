@@ -1,13 +1,13 @@
 /**
- * Instantane de la veille.
+ * News watch snapshot.
  *
- * Le site ne doit interroger aucun service externe a l'execution : ce script
- * lit les flux publics une fois (en CI, a intervalle regulier) et ecrit le
- * resultat dans `src/data/game/watch.json`. La page « Veille » se contente
- * ensuite de lire ce fichier.
+ * The site must not query any external service at runtime: this script
+ * reads the public feeds once (in CI, at a regular interval) and writes the
+ * result to `src/data/game/watch.json`. The « Watch » page then only
+ * reads this file.
  *
- * On n'affiche que ce qu'un agregateur peut legitimement montrer : titre, date,
- * court extrait et lien vers la source. Le contenu integral n'est jamais copie.
+ * Only what an aggregator may legitimately show is displayed: title, date,
+ * short excerpt and link to the source. The full content is never copied.
  */
 import { writeFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
@@ -111,4 +111,4 @@ await writeFile(
   OUTPUT,
   JSON.stringify({ measuredAt: new Date().toISOString(), news }, null, 2) + "\n",
 );
-console.log(`veille : ${news.length} entrees ecrites dans ${OUTPUT}`);
+console.log(`watch: ${news.length} entries written to ${OUTPUT}`);

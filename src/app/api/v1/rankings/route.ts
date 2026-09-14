@@ -2,11 +2,11 @@ import { rankingFull, measure } from "@/lib/tier-list";
 import { responseApi } from "@/lib/api";
 
 /**
- * Classement calcule.
+ * Computed ranking.
  *
- * La date du releve accompagne les taux : sa source peut etre indisponible
- * quand le reste du site se met a jour, et un chiffre sans date laisserait
- * croire qu'il est frais.
+ * The measurement date comes with the rates: its source can be unavailable
+ * while the rest of the site updates, and a figure without a date would
+ * suggest it is fresh.
  */
 export const dynamic = "force-static";
 

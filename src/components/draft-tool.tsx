@@ -9,12 +9,12 @@ import type { Lane } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Aide au draft.
+ * Draft helper.
  *
- * On renseigne ce que l'adversaire a pris, lane par lane ; l'outil propose des
- * reponses et dit pourquoi. Les choix de sa propre equipe se renseignent de la
- * meme facon, ce qui affine les suggestions au fur et a mesure : un pick
- * allie ouvre des synergies, un pick adverse ferme des options.
+ * You enter what the enemy has picked, lane by lane; the tool suggests
+ * answers and explains why. Your own team's picks are entered the same way,
+ * which refines the suggestions as you go: an allied pick opens synergies,
+ * an enemy pick closes options.
  */
 type Camp = "enemies" | "allies";
 
@@ -40,7 +40,7 @@ export function DraftTool({ heroes }: { heroes: DraftHero[] }) {
     () =>
       LANES.map((lane) => ({
         lane,
-        // Une lane deja pourvue n'a pas besoin de suggestion.
+        // A lane already filled needs no suggestion.
         picks: allies[lane]
           ? []
           : suggest({ candidates: heroes, lane, enemies: listEnemies, allies: listAllies }),

@@ -29,17 +29,17 @@ import { cn } from "@/lib/utils";
 type Params = { params: Promise<{ locale: Locale }> };
 
 /**
- * Rapport meta de la semaine.
+ * Weekly meta report.
  *
- * Page generee au build a partir des donnees synchronisees, et donc refaite a
- * chaque synchronisation quotidienne : hausses et baisses du taux de victoire,
- * changements de palier, heros les plus bannis et les plus joues, dernier
- * patch, meilleurs heros par lane. Aucune prose inventee : chaque phrase est
- * un gabarit rempli par les chiffres du releve, et une rubrique sans donnees
- * le dit plutot que de broder.
+ * Page generated at build time from the synced data, and therefore rebuilt at
+ * each daily sync: win rate risers and fallers,
+ * tier changes, most banned and most played heroes, latest
+ * patch, best heroes per lane. No invented prose: each sentence is
+ * a template filled with the measurement's figures, and a section without data
+ * says so rather than embellishing.
  */
 const PATH = "/meta";
-/** Lignes par liste : assez pour voir le mouvement, sans refaire la tier list. */
+/** Rows per list: enough to see the movement, without redoing the tier list. */
 const COUNT = 5;
 const COUNT_TIERS = 8;
 
@@ -114,7 +114,7 @@ export default async function MetaReportPage({ params }: Params) {
   const drop = week.drops[0];
   const changes = tiers.climbs.length + tiers.drops.length;
 
-  // Le resume : des phrases-gabarits remplies par les chiffres, rien d'autre.
+  // The summary: template sentences filled with figures, nothing else.
   const summary = [
     first &&
       t("pages.meta.summary.top", {
@@ -142,7 +142,7 @@ export default async function MetaReportPage({ params }: Params) {
     banned[0] && t("pages.meta.summary.banned", { nom: banned[0].hero.name, ban: percentage(locale, banned[0].banRate) }),
   ].filter((p): p is string => typeof p === "string");
 
-  // Article date du releve : c'est lui qui change le contenu, chaque jour.
+  // Article dated by the measurement: it is what changes the content, every day.
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -184,7 +184,7 @@ export default async function MetaReportPage({ params }: Params) {
       </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
-        {/* ── Hausses et baisses ─────────────────────────────────────────── */}
+        {/* ── Risers and fallers ─────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("home.trends.lead", { seuil: threshold })}>{t("home.trends.title")}</SectionTitle>
           <div className="grid gap-8 md:grid-cols-2">
@@ -207,7 +207,7 @@ export default async function MetaReportPage({ params }: Params) {
           </div>
         </section>
 
-        {/* ── Changements de palier ──────────────────────────────────────── */}
+        {/* ── Tier changes ───────────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("pages.meta.tiers.lead")}>{t("pages.meta.tiers.title")}</SectionTitle>
           <div className="grid gap-8 md:grid-cols-2">
@@ -228,7 +228,7 @@ export default async function MetaReportPage({ params }: Params) {
           </div>
         </section>
 
-        {/* ── Bans et picks ──────────────────────────────────────────────── */}
+        {/* ── Bans and picks ─────────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("pages.meta.bansPicks.lead", { date })}>
             {t("pages.meta.bansPicks.title")}
@@ -247,7 +247,7 @@ export default async function MetaReportPage({ params }: Params) {
           </div>
         </section>
 
-        {/* ── Dernier patch ──────────────────────────────────────────────── */}
+        {/* ── Latest patch ───────────────────────────────────────────────── */}
         {patchCurrent && patch && (
           <section>
             <SectionTitle
@@ -281,7 +281,7 @@ export default async function MetaReportPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Meilleurs heros par lane ───────────────────────────────────── */}
+        {/* ── Best heroes per lane ───────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("pages.meta.lanes.lead")}>{t("pages.meta.lanes.title")}</SectionTitle>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -329,7 +329,7 @@ export default async function MetaReportPage({ params }: Params) {
   );
 }
 
-/** Ligne d'un heros : portrait, nom, un detail sous le nom, une valeur a droite. */
+/** A hero row: portrait, name, a detail under the name, a value on the right. */
 function HeroRow({ slug, detail, children }: { slug: string; detail?: string; children?: React.ReactNode }) {
   const h = heroesBySlug.get(slug);
   if (!h) return null;
@@ -350,7 +350,7 @@ function HeroRow({ slug, detail, children }: { slug: string; detail?: string; ch
   );
 }
 
-/** Hausses ou baisses : taux d'il y a sept jours et du jour, ecart en points. */
+/** Risers or fallers: rate seven days ago and today, gap in points. */
 function Moves({
   title,
   empty,
@@ -406,7 +406,7 @@ function Moves({
   );
 }
 
-/** Montees ou descentes de palier : ancien et nouveau palier. */
+/** Tier promotions or demotions: old and new tier. */
 function Tiers({
   title,
   empty,
@@ -454,7 +454,7 @@ function Tiers({
   );
 }
 
-/** Les premiers selon un taux (ban, selection), avec la valeur. */
+/** The top ones by a rate (ban, pick), with the value. */
 function Ranking({
   title,
   entries,
@@ -480,7 +480,7 @@ function Ranking({
   );
 }
 
-/** Heros d'un patch, en pastilles : lien vers la fiche quand elle existe. */
+/** A patch's heroes, as chips: link to the hero page when it exists. */
 function HeroGroup({
   title,
   list,

@@ -7,12 +7,12 @@ import { requestCode, checkCode, type State } from "@/lib/actions";
 import { useT } from "@/i18n/provider";
 
 /**
- * Connexion en deux temps.
+ * Two-step sign-in.
  *
- * D'abord l'identifiant et le serveur, qui declenchent l'envoi d'un code dans
- * la messagerie du jeu ; puis le code, qui ouvre la session. L'etat renvoye
- * par la premiere action porte le passage a la seconde, si bien que le meme
- * composant enchaine les deux sans navigation.
+ * First the player ID and server, which trigger sending a code to the in-game
+ * mailbox; then the code, which opens the session. The state returned by the
+ * first action carries the move to the second, so the same component chains
+ * both without navigation.
  */
 export function LoginForm() {
   const t = useT();
@@ -119,7 +119,7 @@ function CodeForm({ roleId, zoneId }: { roleId: string; zoneId: string }) {
         {inProgress ? t("loginForm.verification") : t("loginForm.signIn")}
       </button>
 
-      {/* Recommencer si le code n'arrive pas : recharger la page vide le formulaire. */}
+      {/* Start over if the code does not arrive: reloading the page clears the form. */}
       <Link
         href="/login"
         className="flex items-center justify-center gap-1.5 text-sm text-chalk-500 transition-colors hover:text-gold-400"

@@ -27,7 +27,7 @@ export default async function QuizPage({ params }: Params) {
   const { locale } = await params;
   const t = createT(locale);
   const { heroes, items } = rosterQuiz(locale);
-  // Un jeu jouable dans le navigateur : application web et jeu a la fois.
+  // A game playable in the browser: both a web application and a game.
   const structuredData = {
     ...dataTool(locale, {
       name: t("pages.quiz.title"),

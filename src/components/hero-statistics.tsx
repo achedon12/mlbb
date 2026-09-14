@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 
 type Measure = "win" | "ban" | "pick";
 const MEASURES: Measure[] = ["win", "ban", "pick"];
-/** Champ de la serie correspondant a chaque mesure affichee. */
+/** Series field matching each displayed measure. */
 const FIELD: Record<Measure, "winRate" | "banRate" | "pickRate"> = {
   win: "winRate",
   ban: "banRate",
@@ -30,16 +30,16 @@ const FIELD: Record<Measure, "winRate" | "banRate" | "pickRate"> = {
 };
 const PERIODS = [7, 15, 30];
 
-/** Une serie alignee, jour par jour. */
+/** A series aligned day by day. */
 const pointsOf = (series: SeriesRate, measure: Measure): PointCurve[] => pointsDates(series.start, series[FIELD[measure]]);
 
 const measured = (points: PointCurve[]) => points.flatMap((p) => (p.value === null ? [] : [p.value]));
 
 /**
- * Statistiques d'un heros dans le temps : taux quotidiens sur trente jours,
- * taux de victoire selon la duree de partie, comparaison des rangs et
- * historique long. Tout suit le rang choisi en haut de la fiche ; les donnees
- * arrivent avec la page, sans requete au changement de rang.
+ * A hero's statistics over time: daily rates over thirty days, win rate by
+ * match duration, rank comparison and long history. Everything follows the
+ * rank chosen at the top of the hero page; the data arrives with the page,
+ * with no request when the rank changes.
  */
 export function HeroStatistics({
   name,
@@ -56,7 +56,7 @@ export function HeroStatistics({
   history: SeriesRate | null;
   patches: { version: string; date: string }[];
   byRank: Partial<Record<MeasuredRank, { winRate: number; banRate: number }>>;
-  /** Patchs qui ont touche le heros, pour en mesurer l'effet. */
+  /** Patches that affected the hero, to measure their effect. */
   adjustments?: { version: string; type: AdjustmentType | null }[];
 }) {
   const t = useT();
@@ -219,10 +219,10 @@ const COLOR_TYPE: Record<AdjustmentType, string> = {
 };
 
 /**
- * Effet de chaque patch sur le taux de victoire : moyenne des sept jours
- * d'avant contre celle des sept jours d'apres, et verdict (« le nerf a-t-il
- * porte ? »). Tant que l'historique ne couvre pas un patch des deux cotes, un
- * message le dit plutot qu'un bloc vide ; sans patch date, rien.
+ * Effect of each patch on the win rate: average of the seven days before
+ * against that of the seven days after, and a verdict ("did the nerf land?").
+ * As long as the history does not cover a patch on both sides, a message says
+ * so rather than an empty block; with no dated patch, nothing.
  */
 function EffectPatchs({
   name,
@@ -313,8 +313,8 @@ function EffectPatchs({
 }
 
 /**
- * Taux de victoire par duree de partie : dit si le heros pese en debut ou en
- * fin de partie, mieux qu'une etiquette « early » ou « late » posee a la main.
+ * Win rate by match duration: tells whether the hero matters early or late in
+ * the match, better than a hand-set "early" or "late" label.
  */
 function Duration({
   name,

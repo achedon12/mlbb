@@ -4,10 +4,10 @@ import { site } from "@/lib/site";
 import { measure } from "@/lib/tier-list";
 
 /**
- * /llms.txt : presentation du site pour les modeles de langage, au format
- * recommande (https://llmstxt.org) — un titre H1, un resume en citation, puis
- * des sections de liens. En anglais, langue commune des robots ; les autres
- * langues sont signalees une fois.
+ * /llms.txt: site overview for language models, in the recommended
+ * format (https://llmstxt.org) — an H1 title, a quoted summary, then
+ * link sections. In English, the common language of bots; the other
+ * languages are mentioned once.
  */
 export const dynamic = "force-static";
 
@@ -15,8 +15,8 @@ const link = (path: string) => `${site.url}/en${path}`;
 
 export function GET() {
   const date = measure ? measure.slice(0, 10) : null;
-  // Exemple de duel pris parmi ceux du sitemap (mesures a deux rangs au moins) :
-  // une paire ecrite en dur peut disparaitre des mesures et renvoyer une 404.
+  // Sample duel taken from those in the sitemap (measured at two ranks at least):
+  // a hard-coded pair can drop out of the measurements and return a 404.
   const duel = [...ranksByPair(counters, (s) => allHeroes.some((h) => h.slug === s))].find(([, n]) => n >= 2)?.[0];
   const text = `# ${site.name}
 

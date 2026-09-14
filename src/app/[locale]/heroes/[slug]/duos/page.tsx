@@ -22,18 +22,18 @@ import type { Hero } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Page « duos » d'un heros : avec qui il gagne, rang par rang et selon la
- * duree de partie.
+ * A hero's "duos" page: who it wins with, rank by rank and by
+ * game length.
  *
- * Les mesures viennent de la compatibilite publiee par le jeu : la variation
- * de son taux de victoire avec chaque partenaire, et le taux du duo par
- * tranche de duree, rapporte au taux du heros seul a la meme duree. Tout est
- * rendu cote serveur, chaque rang dans son `<details>`.
+ * The measurements come from the compatibility published by the game: the change
+ * in its win rate with each partner, and the duo's rate per
+ * length slice, relative to the hero's solo rate at the same length. Everything is
+ * rendered on the server, each rank in its `<details>`.
  */
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** Une page par heros ; un slug inconnu tombe sur la 404. */
+/** One page per hero; an unknown slug falls on the 404. */
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -45,13 +45,13 @@ const portraitOf = (slug: string) => {
   const x = heroesBySlug.get(slug);
   return x?.images.icon ?? x?.images.portrait ?? null;
 };
-/** Ecarte un partenaire que le catalogue ne connait pas (synchro partielle). */
+/** Drops a partner the catalog does not know (partial sync). */
 const known = <E extends { slug: string }>(list: E[] = []) => list.filter((e) => heroesBySlug.has(e.slug));
 const names = (name: string) => ({ nom: name, deNom: frenchOf(name) });
 const contextOf = (t: T, rank: MeasuredRank) =>
   rank === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rang: t(`measuredRanks.${rank}`) });
 
-/** « Marcel (+1,1 pts), Grock et Akai » : le premier porte son ecart, les suivants leur nom. */
+/** "Marcel (+1.1 pts), Grock and Akai": the first carries its gap, the others their name. */
 function head(locale: Locale, t: T, list: Duo[]) {
   const [first, ...run] = list;
   return listNames(locale, [
@@ -60,7 +60,7 @@ function head(locale: Locale, t: T, list: Duo[]) {
   ]);
 }
 
-/** Phrase de synthese, commune a la description et au chapeau de la page. */
+/** Summary sentence, shared by the description and the page standfirst. */
 function summary(locale: Locale, h: Hero) {
   const t = createT(locale);
   const byRank = duosOf(h.slug);
@@ -84,8 +84,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!h) return {};
   const t = createT(locale);
   const meta = metaPage(locale, {
-    // Patch dans le titre, comme les pages counters : les resultats qui menent
-    // sur « best duo » portent une date ou une version.
+    // Patch in the title, like the counters pages: the results that rank
+    // for "best duo" carry a date or a version.
     title: patchCurrent
       ? t("pages.duos.metaTitle", { ...names(h.name), v: patchCurrent.version })
       : t("pages.duos.metaTitleNoPatch", names(h.name)),
@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     type: "article",
     image: `/${locale}/heroes/${slug}/opengraph-image`,
   });
-  // Sans duo ni coequipier mesure, la page n'apprend rien : hors de l'index, liens suivis.
+  // With no measured duo or teammate, the page teaches nothing: out of the index, links followed.
   const measure = Object.keys(duosOf(slug)).length > 0 || Object.keys(teammates[slug] ?? {}).length > 0;
   return measure ? meta : { ...meta, robots: { index: false, follow: true } };
 }
@@ -112,24 +112,24 @@ export default async function DuosPage({ params }: Params) {
   const { rank: rankMain, sentence } = summary(locale, h);
   const asCounters = duosAsCounters(byRank);
   const ranks = MEASURED_RANKS.filter((r) => byRank[r]);
-  // Tranches lues pour l'agregat : `all` ne compte qu'a defaut de tranche.
+  // Slices read for the aggregate: `all` only counts when no slice exists.
   const bucketsMeasured = MEASURED_RANKS.filter((r) => r !== "all" && byRank[r]).length || (byRank.all ? 1 : 0);
   const best = known(aggregateCounters(asCounters, "strong")).slice(0, 8);
   const worst = known(aggregateCounters(asCounters, "weak")).slice(0, 6);
   const first = best[0]?.slug;
   const stats = statsByRank(slug);
 
-  // Phases : au rang de la synthese, contre la courbe de duree du heros seul au meme rang.
+  // Phases: at the summary's rank, against the hero's solo length curve at the same rank.
   const durations = durationOf(slug);
   const bucketsAlone = rankMain ? durations[rankMain] : undefined;
   const mainDuos = rankMain ? known(byRank[rankMain]?.best) : [];
   const byPhase = bestByPhase(mainDuos, bucketsAlone);
   const withGain = byPhase.some((p) => p.gain !== null);
 
-  // Repli : sans duo mesure, les coequipiers releves par l'academie.
+  // Fallback: without a measured duo, the teammates recorded by the academy.
   const academy = ranks.length === 0 ? MEASURED_RANKS.filter((r) => known(teammates[slug]?.[r]).length > 0) : [];
 
-  // Pages duos des heros de la meme position, les mieux classes d'abord.
+  // Duos pages of heroes on the same lane, best ranked first.
   const laneMain = h.lanes[0];
   const neighbours = laneMain
     ? rankingFull
@@ -226,7 +226,7 @@ export default async function DuosPage({ params }: Params) {
       </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
-        {/* ── Synthese, rangs confondus ───────────────────────────────── */}
+        {/* ── Summary, all ranks combined ───────────────────────────── */}
         {(best.length > 0 || worst.length > 0) && (
           <div className="grid gap-8 lg:grid-cols-2">
             {best.length > 0 && (
@@ -250,7 +250,7 @@ export default async function DuosPage({ params }: Params) {
           </div>
         )}
 
-        {/* ── Selon la duree de partie ────────────────────────────────── */}
+        {/* ── By game length ───────────────────────────────────────── */}
         {rankMain && byPhase.length > 0 && (
           <section aria-labelledby="phases">
             <h2 id="phases" className="font-heading text-2xl font-bold text-chalk-100">
@@ -294,7 +294,7 @@ export default async function DuosPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Rang par rang ───────────────────────────────────────────── */}
+        {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
           <section aria-labelledby="par-rang">
             <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
@@ -360,7 +360,7 @@ export default async function DuosPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Repli : coequipiers de l'academie ───────────────────────── */}
+        {/* ── Fallback: academy teammates ──────────────────────────── */}
         {academy.length > 0 && (
           <section aria-labelledby="academie">
             <h2 id="academie" className="font-heading text-2xl font-bold text-chalk-100">
@@ -382,7 +382,7 @@ export default async function DuosPage({ params }: Params) {
           <p className="text-sm text-chalk-400">{t("pages.duos.noMeasure", n)}</p>
         )}
 
-        {/* ── Autres pages duos, meme position ────────────────────────── */}
+        {/* ── Other duos pages, same lane ──────────────────────────── */}
         {neighbours.length > 0 && laneMain && (
           <section aria-labelledby="autres">
             <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
@@ -408,8 +408,8 @@ export default async function DuosPage({ params }: Params) {
 }
 
 /**
- * Partenaires rangs confondus : ecart moyen, nombre de rangs ou ils figurent,
- * et les deux suites naturelles — le comparateur et leur propre page duos.
+ * Partners across all ranks: average gap, number of ranks where they appear,
+ * and the two natural next steps — the comparator and their own duos page.
  */
 function AggregatedTable({
   t,
@@ -477,10 +477,10 @@ function AggregatedTable({
 }
 
 /**
- * Partenaires d'un rang et leur effet selon la duree de partie : gain sur le
- * heros seul a la meme duree quand sa courbe est mesuree, sinon le taux du
- * duo. Le style des cellules est pose sur le tableau : moins de classes a
- * repeter dans le HTML.
+ * A rank's partners and their effect by game length: gain over the
+ * solo hero at the same length when its curve is measured, otherwise the
+ * duo's rate. Cell style is set on the table: fewer classes to
+ * repeat in the HTML.
  */
 function TablePhases({
   t,
@@ -495,7 +495,7 @@ function TablePhases({
   duos: Duo[];
   buckets: BucketDuration[] | undefined;
   gap: (v: number) => string;
-  /** Dans un rang : le gain global en tete, sans portrait. */
+  /** Within a rank: the overall gain first, no portrait. */
   compact?: boolean;
 }) {
   if (duos.length === 0) return null;
@@ -545,7 +545,7 @@ function TablePhases({
   );
 }
 
-/** Liste courte : partenaire et ecart en points, sans phases. */
+/** Short list: partner and gap in points, no phases. */
 function ListGaps({ t, rows, gap }: { t: T; rows: { slug: string; advantage: number }[]; gap: (v: number) => string }) {
   if (rows.length === 0) return null;
   return (

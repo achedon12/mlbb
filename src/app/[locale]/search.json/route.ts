@@ -11,8 +11,8 @@ import type { EntrySearch } from "@/lib/search";
 import { NEWS, BASE } from "@/lib/sections";
 
 /**
- * Index de la recherche globale, un fichier statique par langue. Le navigateur
- * ne le demande qu'a la premiere ouverture de la recherche.
+ * Global search index, one static file per language. The browser
+ * only requests it the first time the search is opened.
  */
 export const dynamic = "force-static";
 
@@ -34,7 +34,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       href: `/heroes/${h.slug}`,
       image: h.images.icon ?? h.images.portrait,
     })),
-    // Une entree « counters » par heros mesure : la requete « {heros} counter » est la plus cherchee.
+    // One "counters" entry per measured hero: the "{hero} counter" query is the most searched.
     ...allHeroes
       .filter((h) => counters[h.slug])
       .map((h) => ({
@@ -51,7 +51,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
         href: `/heroes/${h.slug}/duos`,
         image: h.images.icon ?? h.images.portrait,
       })),
-    // Regions du lore : la page de chaque region regroupe ses heros et leurs histoires.
+    // Lore regions: each region's page gathers its heroes and their stories.
     ...regionsLore.map((r) => ({ type: "page" as const, title: r.name, detail: t("nav.lore.label"), href: `/lore/${r.key}` })),
     ...itemsFor(locale).map((o) => ({
       type: "item" as const,
@@ -71,9 +71,9 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       };
     }),
     ...spellSheets.map((s) => ({ type: "spell" as const, title: s.name, href: `/spells/${s.slug}`, image: s.image })),
-    // Skins et competences menent a l'onglet de la fiche, ouvert par l'ancre.
-    // Sans image : 1 600 chemins de visuels multipliaient l'index par huit. La
-    // recherche leur prete l'icone de leur heros, deja dans l'index.
+    // Skins and skills lead to the hero page tab, opened by the anchor.
+    // No image: 1,600 visual paths made the index eight times larger. The
+    // search lends them their hero's icon, already in the index.
     ...allHeroes.flatMap((h) =>
       (skillsLocale[h.slug] ?? []).flatMap((c) =>
         c ? [{ type: "skill" as const, title: c.name, detail: h.name, href: `/heroes/${h.slug}#competences` }] : [],

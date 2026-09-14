@@ -8,11 +8,11 @@ import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Sélecteur de langue.
+ * Language picker.
  *
- * Change le préfixe de langue du chemin courant et mémorise le choix dans un
- * cookie, si bien que les liens non préfixés du site ramènent ensuite vers la
- * bonne langue (la redirection est faite côté serveur, à partir de ce cookie).
+ * Changes the locale prefix of the current path and remembers the choice in a
+ * cookie, so the site's unprefixed links then lead back to the right locale
+ * (the redirect is done server-side, based on that cookie).
  */
 export function LocalePicker({ locale }: { locale: Locale }) {
   const t = useT();
@@ -35,7 +35,7 @@ export function LocalePicker({ locale }: { locale: Locale }) {
     };
   }, [open]);
 
-  /** Remplace le préfixe de langue du chemin courant. */
+  /** Replaces the locale prefix of the current path. */
   function pathTo(target: Locale): string {
     const parts = path.split("/").filter(Boolean);
     const rest = isLocale(parts[0]) ? parts.slice(1) : parts;
@@ -43,8 +43,8 @@ export function LocalePicker({ locale }: { locale: Locale }) {
   }
 
   function choose(target: Locale) {
-    // La navigation vers le chemin prefixe suffit : le proxy pose alors le
-    // cookie de langue, qui conservera le choix pour les liens non prefixes.
+    // Navigating to the prefixed path is enough: the proxy then sets the
+    // locale cookie, which keeps the choice for unprefixed links.
     setOpen(false);
     router.push(pathTo(target));
   }

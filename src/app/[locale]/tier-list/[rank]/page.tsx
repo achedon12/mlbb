@@ -7,7 +7,7 @@ import { metaTierList, TierList } from "../content";
 
 type Params = { params: Promise<{ locale: Locale; rank: string }> };
 
-/** Une page par rang mesure ; « tous rangs » reste l'adresse principale. */
+/** One page per measured rank; "all ranks" stays the main address. */
 const RANKS = RANKS_CLASSES.filter((r) => r !== "all");
 const isRank = (r: string): r is MeasuredRank => (RANKS as string[]).includes(r);
 

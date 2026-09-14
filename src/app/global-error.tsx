@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, type Locale } from "@/i18n/config";
 
 /**
- * Ses trois phrases, en dur : importer le catalogue ici le remettrait dans le
- * JavaScript de chaque page, cette frontiere etant chargee d'avance.
+ * Its three sentences, hard-coded: importing the catalog here would put it back
+ * into every page's JavaScript, since this boundary is loaded ahead of time.
  */
 const TEXTS: Record<Locale, { title: string; text: string; retry: string }> = {
   "fr": {
@@ -31,11 +31,11 @@ const TEXTS: Record<Locale, { title: string; text: string; retry: string }> = {
 };
 
 /**
- * Frontiere d'erreur de dernier recours.
+ * Last-resort error boundary.
  *
- * Elle ne se declenche que si la mise en page racine elle-meme echoue : Next a
- * alors remplace tout le document, d'ou le `<html>`/`<body>` complets et des
- * styles en ligne, la feuille de style pouvant ne pas etre chargee.
+ * It only fires if the root layout itself fails: Next has then
+ * replaced the whole document, hence the full `<html>`/`<body>` and the
+ * inline styles, since the stylesheet may not be loaded.
  */
 export default function GlobalError({
   error,
@@ -44,7 +44,7 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  // La page d'erreur remplace tout le document : la langue se lit dans l'adresse.
+  // The error page replaces the whole document: the language is read from the address.
   const locale =
     (typeof window !== "undefined"
       ? LOCALES.find((l) => window.location.pathname.split("/")[1] === l)

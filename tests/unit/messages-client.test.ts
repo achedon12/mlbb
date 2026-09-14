@@ -4,12 +4,12 @@ import { describe, expect, it } from "vitest";
 import { PAGE_SECTIONS } from "@/i18n/translations";
 
 /**
- * Le catalogue client commun n'emporte pas les rubriques de page
- * (`RUBRIQUES_DE_PAGE`) : chaque page ajoute celles de ses composants client
- * via `messagesPage(locale, [...])`. Ce test suit les imports de chaque page
- * jusqu'aux modules executes dans le navigateur, releve les cles qu'ils citent
- * et verifie que la page fournit toutes les rubriques de page necessaires.
- * Sans lui, un oubli ne se verrait qu'a l'ecran, sous forme de cle brute.
+ * The shared client catalog does not carry the page sections
+ * (`PAGE_SECTIONS`): each page adds those of its client components through
+ * `messagesPage(locale, [...])`. This test follows each page's imports down to
+ * the modules run in the browser, collects the keys they reference and checks
+ * that the page provides every page section needed.
+ * Without it, an omission would only show on screen, as a raw key.
  */
 const ROOT = resolve(__dirname, "../..");
 const SRC = join(ROOT, "src");
@@ -39,7 +39,7 @@ const imports = (f: string) =>
     .filter((x): x is string => x !== null);
 const isClient = (f: string) => /^\s*["']use client["']/.test(read(f));
 
-/** Rubriques de page citees par les modules executes dans le navigateur, depuis `entree`. */
+/** Page sections referenced by the modules run in the browser, from `entry`. */
 function requiredSections(entry: string): Map<string, string> {
   const needs = new Map<string, string>();
   const seen = new Set<string>();
@@ -70,7 +70,7 @@ function requiredSections(entry: string): Map<string, string> {
   return needs;
 }
 
-/** Rubriques ajoutees par une page : litteraux passes a `messagesPage(…, [...])`. */
+/** Sections added by a page: literals passed to `messagesPage(…, [...])`. */
 const provided = (f: string) =>
   [...read(f).matchAll(/messagesPage\([^,]+,\s*\[([^\]]*)\]/g)].flatMap((m) =>
     [...m[1].matchAll(/["']([^"']+)["']/g)].map((x) => x[1]),
@@ -89,7 +89,7 @@ describe("client catalog per page", () => {
       const data = provided(page);
       return [...requiredSections(page)]
         .filter(([section]) => !data.some((d) => section === d || section.startsWith(`${d}.`)))
-        .map(([section, source]) => `${relative(ROOT, page)} : ${section} (cite par ${source})`);
+        .map(([section, source]) => `${relative(ROOT, page)}: ${section} (referenced by ${source})`);
     });
     expect(missing).toEqual([]);
   });

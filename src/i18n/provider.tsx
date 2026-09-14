@@ -11,12 +11,12 @@ const Context = createContext<{ locale: Locale; messages: Tree; t: T }>({
 });
 
 /**
- * Rend la langue courante et sa fonction de traduction disponibles aux
- * composants client. La mise en page transmet le catalogue commun
- * (`messagesClient`) ; une page y ajoute ses propres rubriques avec
- * `CompleterMessages`. Les quatre catalogues complets pesaient 150 Ko de
- * JavaScript sur chaque page, puis le catalogue client entier 46 Ko de
- * donnees dans chaque page.
+ * Makes the current language and its translation function available to
+ * client components. The layout passes the shared catalog
+ * (`messagesClient`); a page adds its own sections with
+ * `ExtendMessages`. The four full catalogs weighed 150 KB of
+ * JavaScript on every page, then the whole client catalog 46 KB of
+ * data in every page.
  */
 export function LocaleProvider({
   locale,
@@ -42,7 +42,7 @@ function merge(base: Tree, above: Tree): Tree {
   return output;
 }
 
-/** Ajoute au catalogue courant les rubriques propres a une page (`messagesPage`). */
+/** Adds a page's own sections (`messagesPage`) to the current catalog. */
 export function ExtendMessages({ messages, children }: { messages: Tree; children: React.ReactNode }) {
   const parent = useContext(Context);
   const value = useMemo(() => {

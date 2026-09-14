@@ -2,12 +2,12 @@ import type { Locale } from "@/i18n/config";
 import { generateChallenge, ORDER_CHALLENGE, STATS_EMPTY, type Challenge, type PoolQuiz, type StatsQuiz } from "./quiz";
 
 /**
- * Memoire du quiz dans le navigateur : statistiques, partie du jour en cours,
- * record de l'entrainement, et derniers defi et vivier recus — de quoi jouer
- * hors ligne une fois la page visitee. Rien ne quitte l'appareil.
+ * Quiz memory in the browser: statistics, today's game in progress,
+ * practice record, and the latest challenge and pool received — enough to play
+ * offline once the page has been visited. Nothing leaves the device.
  *
- * Le stockage peut manquer (navigation privee, quota) : chaque acces echoue
- * en silence, et le quiz fonctionne alors le temps de la visite.
+ * Storage may be unavailable (private browsing, quota): each access fails
+ * silently, and the quiz then works for the duration of the visit.
  */
 const KEYS = {
   stats: "mlbb_quiz_stats",
@@ -30,7 +30,7 @@ function write(key: string, value: unknown) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
   } catch {
-    /* stockage plein ou refuse : la visite continue sans memoire */
+    /* storage full or denied: the visit continues without memory */
   }
 }
 
@@ -44,8 +44,8 @@ export function writeStats(stats: StatsQuiz) {
 }
 
 /**
- * Essais de la partie du jour. Ils ne dependent pas de la langue (des slugs) :
- * changer de langue en cours de partie la reprend ou elle en etait.
+ * Attempts of today's game. They do not depend on the language (slugs):
+ * switching language mid-game resumes where it left off.
  */
 export function readMatch(day: string): string[][] | null {
   const p = read<{ jour: string; essais: string[][] }>(KEYS.match);
@@ -76,16 +76,16 @@ async function json<T>(url: string): Promise<T> {
   return (await response.json()) as T;
 }
 
-/** Vivier deja demande pendant la visite, par langue. */
+/** Pool already requested during the visit, per language. */
 const pools = new Map<Locale, Promise<PoolQuiz>>();
 
-/** Vivier de l'entrainement : le reseau d'abord, la derniere copie gardee sinon. */
+/** Practice pool: network first, otherwise the last saved copy. */
 export function loadPool(locale: Locale): Promise<PoolQuiz> {
   let request = pools.get(locale);
   if (!request) {
     request = json<PoolQuiz>(`/quiz/${locale}.json`).then(
       (pool) => {
-        // Une seule langue gardee : quatre viviers peseraient pour rien.
+        // Only one language kept: four pools would weigh for nothing.
         write(KEYS.pool, { langue: locale, pool });
         return pool;
       },
@@ -102,9 +102,9 @@ export function loadPool(locale: Locale): Promise<PoolQuiz> {
 }
 
 /**
- * Defi du jour. Deja recu aujourd'hui : relu sur l'appareil. Sinon demande au
- * serveur ; sans reseau, tire du vivier garde, par le meme calcul que le
- * serveur (`local` le signale).
+ * Daily challenge. Already received today: read back from the device. Otherwise requested from
+ * the server; offline, drawn from the saved pool, with the same computation as the
+ * server (`local` flags it).
  */
 export async function loadChallenge(locale: Locale, day: string): Promise<{ challenge: Challenge; local: boolean }> {
   const keep = read<{ langue: Locale; defi: Challenge }>(KEYS.challenge);

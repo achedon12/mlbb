@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** Apparence d'une puce, reprise par les liens qui jouent le meme role. */
+/** Chip styling, reused by links that play the same role. */
 export function classesChip(active: boolean, dense = false) {
   return cn(
     "bevel-sm font-medium transition-colors",
@@ -12,9 +12,9 @@ export function classesChip(active: boolean, dense = false) {
 }
 
 /**
- * Bouton-filtre : dore quand il est actif, en contour sinon. Le meme partout —
- * rang, position, role, categorie, tri — pour qu'un filtre se reconnaisse
- * d'une page a l'autre.
+ * Filter button: gold when active, outlined otherwise. The same everywhere —
+ * rank, lane, role, category, sort — so a filter is recognisable from one
+ * page to the next.
  */
 export function Chip({
   active,
@@ -39,7 +39,7 @@ export function Chip({
   );
 }
 
-/** Rangee de puces a choix unique : un second clic sur la puce active la relache. */
+/** Single-choice chip row: a second click on the active chip releases it. */
 export function ChoiceUnique<T extends string>({
   legend,
   values,
@@ -64,7 +64,7 @@ export function ChoiceUnique<T extends string>({
   );
 }
 
-/** Rangee de filtres et son intitule, annonce aussi aux lecteurs d'ecran. */
+/** Filter row and its label, also announced to screen readers. */
 export function FilterGroup({
   legend,
   widthLegend = "w-20",
@@ -72,7 +72,7 @@ export function FilterGroup({
   children,
 }: {
   legend: string;
-  /** Largeur de l'intitule visible, pour aligner plusieurs rangees. */
+  /** Width of the visible label, to align several rows. */
   widthLegend?: string;
   className?: string;
   children: React.ReactNode;

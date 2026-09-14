@@ -21,11 +21,11 @@ const SORTS: { key: Sort; keyI18n: string }[] = [
 const RANK_TIER: Record<string, number> = { "S+": 0, S: 1, A: 2, B: 3, C: 4 };
 
 /**
- * Catalogue filtrable.
+ * Filterable catalogue.
  *
- * Le filtrage se fait sur le client a partir des donnees deja presentes dans
- * la page : pas d'aller-retour reseau a chaque clic, pour un volume qui reste
- * petit une fois les champs inutiles ecartes.
+ * Filtering happens on the client from the data already in
+ * the page: no network round trip on each click, for a volume that stays
+ * small once unused fields are dropped.
  */
 export function HeroList({ heroes }: { heroes: HeroPreview[] }) {
   const t = useT();
@@ -34,12 +34,12 @@ export function HeroList({ heroes }: { heroes: HeroPreview[] }) {
   const [lane, setLane] = useState<Lane | null>(null);
   const [sort, setSort] = useState<Sort>("name");
 
-  // Recherche, role et position passent par l'URL cote client, ce qui garde la
-  // page statique et rend un filtre partageable — joignable depuis l'accueil,
-  // le fil d'Ariane d'une fiche ou l'action de recherche du moteur. Serveur et
-  // premiere hydratation partent de vide (identiques, donc sans desaccord) ;
-  // apres le montage seulement, on adopte ?q=, ?role= et ?lane=, puis chaque
-  // changement se reporte dans l'URL.
+  // Search, role and lane go through the URL on the client, which keeps the
+  // page static and makes a filter shareable, reachable from the home page,
+  // a hero page's breadcrumb or the search engine's search action. Server and
+  // first hydration start empty (identical, so no mismatch);
+  // only after mount do we adopt ?q=, ?role= and ?lane=, then every
+  // change is written back to the URL.
   const rise = useRef(false);
   useEffect(() => {
     if (!rise.current) {
@@ -49,7 +49,7 @@ export function HeroList({ heroes }: { heroes: HeroPreview[] }) {
       const roleUrl = ROLES.find((r) => r === params.get("role")) ?? null;
       const laneUrl = laneFromParam(params.get("lane"));
       if (q || roleUrl || laneUrl) {
-        /* eslint-disable react-hooks/set-state-in-effect -- lecture de l'URL apres montage */
+        /* eslint-disable react-hooks/set-state-in-effect -- reading the URL after mount */
         if (q) setSearch(q);
         if (roleUrl) setRole(roleUrl);
         if (laneUrl) setLane(laneUrl);
@@ -82,7 +82,7 @@ export function HeroList({ heroes }: { heroes: HeroPreview[] }) {
 
     const ordered = [...filters];
     if (sort === "win") {
-      // Les heros non mesures passent en fin de liste.
+      // Unmeasured heroes go to the end of the list.
       ordered.sort((a, b) => (b.win ?? -1) - (a.win ?? -1));
     } else if (sort === "tier") {
       ordered.sort(
@@ -123,7 +123,7 @@ export function HeroList({ heroes }: { heroes: HeroPreview[] }) {
         {results.length !== heroes.length && ` ${t("pages.heroesList.countOf", { total: heroes.length })}`}
       </p>
 
-      {/* Titre de la grille pour les lecteurs d'ecran : les cartes portent des h3. */}
+      {/* Grid heading for screen readers: the cards carry h3s. */}
       <h2 className="sr-only">{t("pages.heroesList.list")}</h2>
       {results.length > 0 ? (
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

@@ -2,9 +2,9 @@ import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 /**
- * Champ de recherche a loupe, commun au catalogue des heros, aux objets et au
- * draft. La loupe passe au-dessus du champ : sans cela, le fond du champ, qui
- * forme son propre plan d'empilement, la recouvrait.
+ * Search field with a magnifier, shared by the hero catalogue, the items and
+ * the draft. The magnifier sits above the field: otherwise the field's
+ * background, which forms its own stacking context, covered it.
  */
 export function SearchField({
   value,
@@ -16,7 +16,7 @@ export function SearchField({
 }: {
   value: string;
   onChange: (value: string) => void;
-  /** Texte d'exemple, et nom du champ pour les lecteurs d'ecran. */
+  /** Placeholder text, and field name for screen readers. */
   label: string;
   dense?: boolean;
   autoFocus?: boolean;

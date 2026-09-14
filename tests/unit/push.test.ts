@@ -14,8 +14,8 @@ import {
 } from "@/lib/push";
 
 /**
- * Notifications de patch : validation des demandes, choix des destinataires
- * et redaction des messages — la partie sans disque ni reseau.
+ * Patch notifications: request validation, recipient selection and message
+ * writing — the part with no disk or network.
  */
 const keyPair = () => ({
   p256dh: Buffer.concat([Buffer.from([4]), randomBytes(64)]).toString("base64url"),

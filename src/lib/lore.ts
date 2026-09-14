@@ -5,22 +5,22 @@ import type { Hero, Role } from "./types";
 import { keySearch } from "./utils";
 
 /**
- * Lore : regions, factions et liens entre heros.
+ * Lore: regions, factions and links between heroes.
  *
- * Tout vient des donnees : la region de chaque heros (`heros.json`) et sa
- * fiche narrative du wiki (`histoires`), en quatre langues. Aucun texte n'est
- * ecrit ici : un lien n'existe que si la fiche d'un heros en nomme un autre,
- * et sa nature est celle que la fiche lui donne.
+ * Everything comes from the data: each hero's region (`heroes.json`) and its
+ * narrative profile from the wiki (`stories`), in four languages. No text is
+ * written here: a link exists only if a hero's profile names another, and its
+ * nature is the one the profile gives it.
  *
- * Les noms se cherchent dans la fiche anglaise : les autres langues traduisent
- * parfois un nom de heros (« Minotaure », « Sabre »). Les listes des quatre
- * langues etant alignees, la nature du lien se lit ensuite a la meme position
- * dans la langue de la page.
+ * Names are searched in the English profile: other languages sometimes
+ * translate a hero name ("Minotaure", "Sabre"). The four languages' lists
+ * being aligned, the link's nature is then read at the same position in the
+ * page's language.
  */
 
 // ── Relations ──────────────────────────────────────────────────────
 
-/** « Gusion, Eren (younger brothers) » : les noms, puis la nature du lien, entre les parentheses finales. */
+/** "Gusion, Eren (younger brothers)": the names, then the link's nature, in the final parentheses. */
 export function splitRelation(text: string): { names: string; nature: string | null } {
   const t = text.trim();
   if (!t.endsWith(")")) return { names: t, nature: null };
@@ -41,7 +41,7 @@ export interface HeroPattern {
 
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-/** Nom de chaque heros en mot entier : « Yin » ne se trouve pas dans « Yinyang ». */
+/** Each hero's name as a whole word: "Yin" is not found in "Yinyang". */
 export function heroPatterns(list: readonly { slug: string; name: string }[]): HeroPattern[] {
   return list.map((h) => ({
     slug: h.slug,
@@ -50,8 +50,8 @@ export function heroPatterns(list: readonly { slug: string; name: string }[]): H
 }
 
 /**
- * Heros nommes dans une liste de noms, dans l'ordre de lecture. Un nom inclus
- * dans un nom plus long ne compte pas : « Sun » dans « Yi Sun-shin ».
+ * Heroes named in a list of names, in reading order. A name contained in a
+ * longer name does not count: "Sun" in "Yi Sun-shin".
  */
 export function citedHeroes(names: string, patterns: readonly HeroPattern[], own?: string): string[] {
   const found = patterns.flatMap((m) => {
@@ -68,19 +68,19 @@ export function citedHeroes(names: string, patterns: readonly HeroPattern[], own
 }
 
 export interface LinkLore {
-  /** Heros dont la fiche nomme l'autre. */
+  /** Hero whose profile names the other. */
   de: string;
   to: string;
-  /** Nature du lien selon la fiche de `de`, dans la langue de la page. */
+  /** Nature of the link according to the profile of `de`, in the page's language. */
   nature: string | null;
   natureEn: string | null;
-  /** Nombre de heros nommes sur la meme ligne : « ennemis » a quinze pese moins que « frere ». */
+  /** Number of heroes named on the same line: "enemies" shared by fifteen weighs less than "brother". */
   group: number;
 }
 
 type SheetRelations = { profile: { relations: string[]; affiliations: string[]; species: string | null } | null };
 
-/** Liens d'une liste de heros, a partir de leurs fiches anglaises et de celles de la langue de la page. */
+/** Links of a list of heroes, from their English profiles and those in the page's language. */
 export function buildLinks(
   list: readonly { slug: string; name: string }[],
   en: Record<string, SheetRelations>,
@@ -110,13 +110,13 @@ export function buildLinks(
 export interface LorePair {
   a: string;
   b: string;
-  /** Ce que la fiche de `a` dit de `b`, et l'inverse ; null quand la fiche ne le nomme pas. */
+  /** What the profile of `a` says about `b`, and the reverse; null when the profile does not name it. */
   deA: LinkLore | null;
   deB: LinkLore | null;
   score: number;
 }
 
-/** Liens de parente, d'amour, d'amitie, de rivalite ou d'apprentissage, lus dans la nature anglaise. */
+/** Family, love, friendship, rivalry or mentorship links, read from the English nature. */
 const NEARBY =
   /\b(brother|sister|sibling|father|mother|parent|son|daughter|twin|wife|husband|lover|love|crush|fianc|rival|mentor|master|student|disciple|apprentice|teacher|cousin|uncle|aunt|nephew|niece|grand|friend|adopt|guardian|partner)/i;
 
@@ -126,9 +126,8 @@ function weight(l: LinkLore | null): number {
 }
 
 /**
- * Paires de heros liees, de la plus marquante a la plus diffuse : un lien
- * nomme des deux cotes, personnel et singulier, passe devant une liste
- * d'ennemis.
+ * Linked hero pairs, from the most striking to the most diffuse: a link named
+ * on both sides, personal and one-to-one, ranks ahead of a list of enemies.
  */
 export function pairsLore(links: readonly LinkLore[], names: ReadonlyMap<string, string>): LorePair[] {
   const pairs = new Map<string, LorePair>();
@@ -146,7 +145,7 @@ export function pairsLore(links: readonly LinkLore[], names: ReadonlyMap<string,
     .sort((x, y) => y.score - x.score || name(x.a).localeCompare(name(y.a), "en") || name(x.b).localeCompare(name(y.b), "en"));
 }
 
-/** Les paires les plus marquantes, chaque heros n'apparaissant qu'une fois. */
+/** The most striking pairs, each hero appearing only once. */
 export function pairsFeatured(pairs: readonly LorePair[], count: number): LorePair[] {
   const taken = new Set<string>();
   const chosen: LorePair[] = [];
@@ -159,17 +158,17 @@ export function pairsFeatured(pairs: readonly LorePair[], count: number): LorePa
   return chosen;
 }
 
-// ── Regions et factions ────────────────────────────────────────────
+// ── Regions and factions ───────────────────────────────────────────
 
 export interface RegionLore {
-  /** Slug de la region, cle de son libelle (`heroData.region.<cle>`) et de son adresse. */
+  /** Region slug, key of its label (`heroData.region.<key>`) and of its address. */
   key: string;
-  /** Nom anglais du wiki. */
+  /** English name from the wiki. */
   name: string;
   heroes: Hero[];
 }
 
-/** Regions, de la plus peuplee a la moins peuplee ; heros par ordre alphabetique. */
+/** Regions, from most to least populated; heroes in alphabetical order. */
 export function groupByRegion(list: readonly Hero[]): RegionLore[] {
   const regions = new Map<string, RegionLore>();
   for (const h of list) {
@@ -204,7 +203,7 @@ export function linksLore(locale: Locale): LinkLore[] {
 
 export const pairsOf = (locale: Locale) => pairsLore(linksLore(locale), heroNames);
 
-/** Affiliation « contre » ou passee (« The Abyss (hostile) ») : un camp adverse, pas une faction. */
+/** Opposing or past affiliation ("The Abyss (hostile)"): an enemy camp, not a faction. */
 const HOSTILE = /hostile|enem|former/i;
 
 export interface FactionLore {
@@ -214,9 +213,9 @@ export interface FactionLore {
 }
 
 /**
- * Factions citees par au moins deux fiches, de la plus nombreuse a la plus
- * petite. Regroupees par leur nom anglais ; le libelle est celui que la
- * langue de la page donne le plus souvent.
+ * Factions cited by at least two profiles, from largest to smallest. Grouped
+ * by their English name; the label is the one the page's language gives most
+ * often.
  */
 export function factionsLore(locale: Locale, minimum = 2): FactionLore[] {
   const en = stories("en");
@@ -251,7 +250,7 @@ const MONTH = [
   "july", "august", "september", "october", "november", "december",
 ];
 
-/** « 26 October 2021 » → « 2021-10-26 », « January 2017 » → « 2017-01 », « 2016 » ; null pour « TBA ». */
+/** "26 October 2021" → "2021-10-26", "January 2017" → "2017-01", "2016"; null for "TBA". */
 export function heroReleaseKey(release: string | null): string | null {
   const m = release?.trim().match(/^(?:(\d{1,2}) )?(?:([A-Za-z]+) )?(\d{4})$/);
   if (!m) return null;
@@ -264,14 +263,14 @@ export function heroReleaseKey(release: string | null): string | null {
 
 export interface SummaryRegion {
   roles: { role: Role; n: number }[];
-  /** Premier et dernier heros de la region arrives dans le jeu. */
+  /** First and last heroes of the region released in the game. */
   first: Hero | null;
   last: Hero | null;
   factions: { name: string; n: number }[];
   species: { name: string; n: number }[];
-  /** Paires de heros de la region liees entre elles. */
+  /** Pairs of the region's heroes linked to each other. */
   internal: LorePair[];
-  /** Paires qui relient la region aux autres. */
+  /** Pairs linking the region to the others. */
   external: LorePair[];
   neighbours: { key: string; n: number }[];
 }
@@ -282,7 +281,7 @@ function tally<T>(values: T[]): [T, number][] {
   return [...m].sort((a, b) => b[1] - a[1]);
 }
 
-/** Portrait d'une region, en chiffres tires des fiches : de quoi ecrire son resume sans rien inventer. */
+/** Portrait of a region, in figures taken from the profiles: enough to write its summary without inventing anything. */
 export function summaryRegion(region: RegionLore, locale: Locale): SummaryRegion {
   const members = new Set(region.heroes.map((h) => h.slug));
   const en = stories("en");
@@ -300,7 +299,7 @@ export function summaryRegion(region: RegionLore, locale: Locale): SummaryRegion
     .sort((a, b) => b.n - a.n || a.name.localeCompare(b.name))
     .slice(0, 4);
 
-  // Especes regroupees par leur nom anglais, affichees dans la langue de la page.
+  // Species grouped by their English name, shown in the page's language.
   const species = new Map<string, { name: string; n: number }>();
   for (const h of region.heroes) {
     const key = en[h.slug]?.profile?.species?.trim().toLowerCase();
@@ -329,7 +328,7 @@ export function summaryRegion(region: RegionLore, locale: Locale): SummaryRegion
   };
 }
 
-/** Termes de recherche d'un heros sur le hub : nom, nom complet, titre et affiliations, sans casse ni accents. */
+/** A hero's search terms on the hub: name, full name, title and affiliations, case- and accent-insensitive. */
 export function termsLore(h: Hero, locale: Locale, region: string): string {
   const sheet = stories(locale)[h.slug]?.profile;
   return keySearch([h.name, sheet?.fullName, sheet?.title, h.title, region, ...(sheet?.affiliations ?? [])].filter(Boolean).join(" "))

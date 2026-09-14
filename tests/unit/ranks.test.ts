@@ -11,7 +11,7 @@ describe("readableRank — Warrior to Epic tiers", () => {
   });
 
   it("counts the stars within the division", () => {
-    // Epique I couvre rank_level 100 a 105 : 103 = 4e etoile.
+    // Epic I covers rank_level 100 to 105: 103 = 4th star.
     const r = readableRank(103);
     expect(r.name).toBe("Epique");
     expect(r.division).toBe("I");
@@ -48,14 +48,14 @@ describe("readableRank — Mythic family", () => {
   });
 
   it("respects the sub-tier thresholds", () => {
-    expect(readableRank(160).name).toBe("Mythique"); // 24 etoiles
+    expect(readableRank(160).name).toBe("Mythique"); // 24 stars
     expect(readableRank(161).name).toBe("Honneur mythique"); // 25
     expect(readableRank(186).name).toBe("Gloire mythique"); // 50
     expect(readableRank(236).name).toBe("Immortel mythique"); // 100
   });
 
   it("never drops below zero stars when entering Mythic", () => {
-    // Table officielle : Mythique commence a 136, apres Legende I.
+    // Official table: Mythic starts at 136, after Legend I.
     expect(readableRank(136).stars).toBe(0);
     expect(readableRank(136).mythic).toBe(true);
   });

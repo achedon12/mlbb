@@ -12,11 +12,11 @@ import type { Lane, Role } from "@/lib/types";
 import { keySearch, cn } from "@/lib/utils";
 
 /**
- * Pieces communes a l'aide au draft et a l'analyse d'equipe : la vignette d'un
- * heros, la fenetre de choix dans le roster et la carte d'une suggestion.
+ * Pieces shared by the draft helper and the team analysis: a hero's
+ * thumbnail, the roster picker window and a suggestion card.
  */
 
-/** Ce qu'il faut d'un heros pour le montrer et le filtrer. */
+/** What a hero needs to be shown and filtered. */
 export interface HeroPickable {
   slug: string;
   name: string;
@@ -36,12 +36,12 @@ export function HeroThumb({
 }
 
 /**
- * Choix d'un heros dans le roster.
+ * Picking a hero from the roster.
  *
- * Tout le roster est proposable. La liste s'ouvre sur les heros de la lane
- * demandee (ou sur tous), « Toutes » l'elargit aux 133, et le filtre de role
- * la resserre. Taper un nom cherche dans tout le roster : la lane se relache
- * d'elle-meme.
+ * The whole roster can be picked. The list opens on the heroes of the requested
+ * lane (or on all of them), "All" widens it to the 133, and the role filter
+ * narrows it. Typing a name searches the whole roster: the lane lets go
+ * on its own.
  */
 export function HeroSelector({
   heroes,
@@ -53,9 +53,9 @@ export function HeroSelector({
 }: {
   heroes: HeroPickable[];
   excluded: Set<string>;
-  /** Lane sur laquelle la liste s'ouvre ; null pour tout le roster. */
+  /** Lane the list opens on; null for the whole roster. */
   lane: Lane | null;
-  /** Nom de la fenetre pour les lecteurs d'ecran. */
+  /** Window name for screen readers. */
   title: string;
   onChoose: (slug: string) => void;
   onClose: () => void;
@@ -167,7 +167,7 @@ export function HeroSelector({
   );
 }
 
-/** Un heros propose, ses arguments et le bouton qui le prend. */
+/** A suggested hero, its reasons and the button that picks it. */
 export function CardSuggestion({
   suggestion: s,
   first,
@@ -176,11 +176,11 @@ export function CardSuggestion({
   empty,
 }: {
   suggestion: Suggestion;
-  /** La meilleure de sa lane, soulignee. */
+  /** The best in its lane, highlighted. */
   first: boolean;
   titleTake: string;
   onTake: () => void;
-  /** Ligne affichee quand aucun argument ne ressort ; par defaut, celle du draft. */
+  /** Row shown when no reason stands out; defaults to the draft one. */
   empty?: string;
 }) {
   const t = useT();

@@ -1,29 +1,29 @@
 /**
- * Moteur de l'entraineur de Chatiment (Retribution).
+ * Retribution trainer engine.
  *
- * Module pur : tirage des coups, verdict d'une frappe, points, bilan d'une
- * serie et records. Le composant client n'y ajoute que l'horloge et l'ecran ;
- * les tests rejouent tout avec un generateur a graine.
+ * Pure module: hit generation, strike verdict, points, run
+ * summary and records. The client component only adds the clock and the screen;
+ * tests replay everything with a seeded generator.
  *
- * Deux sortes de valeurs, a ne pas confondre :
+ * Two kinds of values, not to be confused:
  *
- * - **sourcees** — degats du Chatiment et PV des monstres, tires du wiki Fandom
- *   (consulte le 11 septembre 2026) ;
- * - **d'entrainement** — rythme des coups, degats de l'equipe, reaction du
- *   jungler adverse, niveaux conseilles : reglees pour que l'exercice ressemble
- *   a un vrai combat, sans pretendre reproduire le jeu.
+ * - **sourced** — Retribution damage and monster HP, taken from the Fandom wiki
+ *   (accessed on September 11, 2026);
+ * - **training** — hit pace, team damage, enemy jungler
+ *   reaction, recommended levels: tuned so the exercise feels like
+ *   a real fight, without claiming to reproduce the game.
  */
 
 /**
- * Degats du Chatiment : 520 (+80 x niveau du heros) degats bruts, de 600 au
- * niveau 1 a 1720 au niveau 15. Source : modele « Spell data Retribution » du
- * wiki Fandom, https://mobilelegends.fandom.com/wiki/Retribution
+ * Retribution damage: 520 (+80 x hero level) true damage, from 600 at
+ * level 1 to 1720 at level 15. Source: "Spell data Retribution" template of the
+ * Fandom wiki, https://mobilelegends.fandom.com/wiki/Retribution
  */
 export const RETRIBUTION_BASE = 520;
 export const RETRIBUTION_BY_LEVEL = 80;
 export const LEVEL_MIN = 1;
 export const LEVEL_MAX = 15;
-/** Recharge du Chatiment, en secondes (meme source) : un Chatiment rate ne revient pas a temps. */
+/** Retribution cooldown, in seconds (same source): a missed Retribution does not come back in time. */
 export const COOLDOWN_RETRIBUTION_S = 35;
 
 export const SOURCE_RETRIBUTION = "https://mobilelegends.fandom.com/wiki/Retribution";
@@ -37,22 +37,22 @@ export type ObjectiveKey = "turtle" | "lord" | "lord-12" | "purple-buff" | "oran
 
 export interface Objective {
   /**
-   * PV du monstre (source) : colonnes « Initial ATTR » et « ATTR after 12 MIN »
-   * de la fiche du wiki Fandom.
+   * Monster HP (sourced): "Initial ATTR" and "ATTR after 12 MIN" columns
+   * of the Fandom wiki page.
    */
   hp: number;
   /**
-   * PV par segment de la barre de vie (source) : 2 000 pour la Tortue et le
-   * Seigneur, 1 000 pour les autres creatures (notes de patch citees par le
-   * wiki, pages « Lord » et « Turtle »).
+   * HP per segment of the health bar (sourced): 2,000 for Turtle and
+   * Lord, 1,000 for other creatures (patch notes quoted by the
+   * wiki, "Lord" and "Turtle" pages).
    */
   segment: number;
-  /** Niveau du jungler propose par defaut — valeur d'entrainement. */
+  /** Jungler level suggested by default — training value. */
   levelRecommended: number;
-  /** Moment du combat, pour le libelle : a l'apparition ou apres 12 minutes. */
+  /** Moment of the fight, for the label: at spawn or after 12 minutes. */
   moment: "spawn" | "12min";
   source: string;
-  /** Portrait local, copie depuis la page du wiki par la synchronisation. */
+  /** Local portrait, copied from the wiki page by the sync. */
   image: string;
 }
 
@@ -104,27 +104,27 @@ export const OBJECTIVE_KEYS = Object.keys(OBJECTIVES) as ObjectiveKey[];
 export type Difficulty = "easy" | "normal" | "hard" | "pro";
 export const DIFFICULTY_ORDER: Difficulty[] = ["easy", "normal", "hard", "pro"];
 
-/** Reglage d'une difficulte — valeurs d'entrainement, toutes. */
+/** Settings of a difficulty — training values, all of them. */
 export interface Setting {
   /**
-   * Temps que met l'equipe, a son rythme moyen, pour faire passer le monstre
-   * du seuil du Chatiment a zero : la fenetre de tir. Les degats par seconde
-   * s'en deduisent (seuil / fenetre).
+   * Time the team takes, at its average pace, to bring the monster
+   * from the Retribution threshold to zero: the strike window. Damage per second
+   * is derived from it (threshold / window).
    */
   windowMs: number;
-  /** Intervalle entre deux coups, en ms : plus court, plus dur a suivre. */
+  /** Interval between two hits, in ms: shorter is harder to follow. */
   interval: [number, number];
-  /** Ecart relatif des degats d'un coup autour de la moyenne. */
+  /** Relative spread of a hit's damage around the average. */
   noise: number;
-  /** Probabilite qu'un coup soit une competence alliee (x2 a x3). */
+  /** Probability that a hit is an ally skill (x2 to x3). */
   pSkill: number;
-  /** Probabilite qu'un coup s'accompagne d'une rafale de l'equipe adverse. */
+  /** Probability that a hit comes with a burst from the enemy team. */
   pBurst: number;
-  /** Rafale adverse, en fraction du seuil du Chatiment. */
+  /** Enemy burst, as a fraction of the Retribution threshold. */
   burst: [number, number];
-  /** Reaction du jungler adverse une fois le seuil franchi, en ms. */
+  /** Enemy jungler reaction once the threshold is crossed, in ms. */
   reactionEnemy: [number, number];
-  /** Aides a l'ecran : repere du seuil sur la barre, PV chiffres. */
+  /** On-screen aids: threshold marker on the bar, HP figures. */
   marker: boolean;
   hpFigures: boolean;
 }
@@ -176,14 +176,14 @@ export const SETTINGS: Record<Difficulty, Setting> = {
   },
 };
 
-/** Duree du combat avant le seuil, en secondes au rythme moyen : l'attente, puis la tension. */
+/** Fight duration before the threshold, in seconds at average pace: the wait, then the tension. */
 const BEFORE_THRESHOLD_S: [number, number] = [2.5, 5.5];
-/** Un coup qui franchit le seuil laisse au moins cette part du seuil : jamais de manche perdue d'avance. */
+/** A hit that crosses the threshold leaves at least this share of the threshold: never a round lost in advance. */
 const REST_MIN_AU_THRESHOLD = 0.3;
 
 export const ROUNDS_PER_RUN = 5;
 
-/** Generateur pseudo-aleatoire a graine (mulberry32) : une manche se rejoue a l'identique. */
+/** Seeded pseudo-random generator (mulberry32): a round replays identically. */
 export function createRandom(seed: number): () => number {
   let a = seed >>> 0;
   return () => {
@@ -201,9 +201,9 @@ export interface Round {
   hpMax: number;
   threshold: number;
   hpStart: number;
-  /** Degats par seconde de l'equipe, en moyenne. */
+  /** Team damage per second, on average. */
   dps: number;
-  /** Reaction du jungler adverse pour cette manche, en ms. */
+  /** Enemy jungler reaction for this round, in ms. */
   reactionEnemy: number;
 }
 
@@ -217,7 +217,7 @@ export function prepareRound(objective: ObjectiveKey, difficulty: Difficulty, le
 }
 
 export interface Hit {
-  /** Attente avant ce coup, en ms. */
+  /** Wait before this hit, in ms. */
   interval: number;
   damage: number;
   source: "ally" | "skill" | "enemy";
@@ -225,11 +225,11 @@ export interface Hit {
 }
 
 /**
- * Coup suivant. Les degats suivent le rythme moyen de l'equipe, avec du bruit,
- * des competences alliees et des rafales adverses. Deux garde-fous : un coup
- * ne fait jamais passer le monstre d'au-dessus du seuil a zero, et celui qui
- * franchit le seuil laisse au moins 30 % du seuil — il reste toujours une
- * fenetre de tir.
+ * Next hit. Damage follows the team's average pace, with noise,
+ * ally skills and enemy bursts. Two safeguards: a hit
+ * never takes the monster from above the threshold to zero, and the one that
+ * crosses the threshold leaves at least 30% of the threshold — there is always a
+ * strike window.
  */
 export function hitNext(hp: number, round: Round, difficulty: Difficulty, random: () => number): Hit {
   const r = SETTINGS[difficulty];
@@ -258,20 +258,20 @@ export type Issue = "secured" | "tooEarly" | "stolen" | "missed";
 export interface Result {
   issue: Issue;
   points: number;
-  /** Part de la fenetre gardee : PV a la frappe / PV au franchissement du seuil. */
+  /** Share of the window kept: HP at strike / HP when the threshold was crossed. */
   accuracy: number | null;
-  /** Temps entre le franchissement du seuil et la frappe, en ms. */
+  /** Time between the threshold crossing and the strike, in ms. */
   reaction: number | null;
-  /** PV restants apres un Chatiment trop tot. */
+  /** HP left after a Retribution cast too early. */
   rest: number | null;
-  /** Reaction du jungler adverse, quand il a vole le monstre. */
+  /** Enemy jungler reaction, when they stole the monster. */
   reactionEnemy: number | null;
 }
 
 /**
- * Points d'une frappe reussie, sur 1 000 : 700 pour la precision (la part des
- * PV du seuil encore la au moment de frapper), 300 pour la vitesse (pleine
- * sous 150 ms, nulle au-dela d'une seconde).
+ * Points for a successful strike, out of 1,000: 700 for accuracy (the share of
+ * threshold HP still there when striking), 300 for speed (full
+ * under 150 ms, zero beyond one second).
  */
 export const WEIGHT_ACCURACY = 700;
 export const WEIGHT_SPEED = 300;
@@ -284,11 +284,11 @@ export function pointsHit(accuracy: number, reaction: number): number {
   return Math.round(WEIGHT_ACCURACY * p + WEIGHT_SPEED * v);
 }
 
-/** Verdict d'une frappe du joueur. */
+/** Verdict of a player strike. */
 export function evaluateHit(o: {
   hp: number;
   threshold: number;
-  /** PV juste apres le coup qui a franchi le seuil ; null s'il ne l'est pas encore. */
+  /** HP right after the hit that crossed the threshold; null if not crossed yet. */
   hpCrossing: number | null;
   reaction: number | null;
 }): Result {
@@ -334,11 +334,11 @@ export function runSummary(results: Result[]): Summary {
   };
 }
 
-/** Records gardes dans le navigateur. */
+/** Records kept in the browser. */
 export interface Records {
-  /** Meilleur total de serie, par objectif et difficulte (`seigneur:difficile`). */
+  /** Best run total, by objective and difficulty (`lord:hard`). */
   series: Record<string, { total: number; date: string }>;
-  /** Frappes reussies d'affilee, en cours et au mieux. */
+  /** Successful strikes in a row, current and best. */
   enCours: number;
   meilleureSuite: number;
 }
@@ -347,13 +347,13 @@ export const RECORDS_EMPTY: Records = { series: {}, enCours: 0, meilleureSuite: 
 
 export const keyRecord = (objective: ObjectiveKey, difficulty: Difficulty) => `${objective}:${difficulty}`;
 
-/** Suite de frappes reussies apres une manche : +1, ou retour a zero. */
+/** Streak of successful strikes after a round: +1, or back to zero. */
 export function afterRound(records: Records, issue: Issue): Records {
   const inProgress = issue === "secured" ? records.enCours + 1 : 0;
   return { ...records, enCours: inProgress, meilleureSuite: Math.max(records.meilleureSuite, inProgress) };
 }
 
-/** Records apres une serie complete, et si elle bat le precedent. */
+/** Records after a complete run, and whether it beats the previous one. */
 export function afterRun(
   records: Records,
   key: string,
@@ -376,7 +376,7 @@ const LEGACY_RECORD_TOKENS: Record<string, string> = {
 };
 const currentRecordKey = (key: string) => key.split(":").map((part) => LEGACY_RECORD_TOKENS[part] ?? part).join(":");
 
-/** Relit des records stockes, en ignorant tout ce qui n'a pas la bonne forme. */
+/** Reads stored records, ignoring anything that does not have the right shape. */
 export function readRecords(raw: string | null): Records {
   if (!raw) return RECORDS_EMPTY;
   try {

@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-/** Un champ d'un type de l'analyse ; sa description vient du catalogue. */
+/** A field of one analysis type; its description comes from the catalog. */
 interface Field {
   name: string;
   type: string;
@@ -29,7 +29,7 @@ interface Field {
   optional?: boolean;
 }
 
-/** Les trois types d'une analyse, dans l'ordre de `src/lib/types.ts`. */
+/** The three types of an analysis, in the order of `src/lib/types.ts`. */
 const GROUPS: { key: string; fields: Field[] }[] = [
   {
     key: "analysis",
@@ -74,8 +74,8 @@ const STEPS = ["fork", "add", "check", "open", "reread", "merge"];
 const TEMPLATE = "docs/modele-analyse.ts";
 
 /**
- * Le modele du depot, affiche tel quel : la page ne peut pas diverger du
- * fichier, que le compilateur verifie contre le type.
+ * The repository's template, shown as is: the page cannot drift from the
+ * file, which the compiler checks against the type.
  */
 function readTemplate(): string | null {
   try {
@@ -85,7 +85,7 @@ function readTemplate(): string | null {
   }
 }
 
-/** Le catalogue marque le code entre accents graves : `npm run lint`. */
+/** The catalog marks code between backticks: `npm run lint`. */
 function withCode(text: string) {
   return text.split(/`([^`]+)`/).map((chunk, i) =>
     i % 2 ? (

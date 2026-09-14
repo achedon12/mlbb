@@ -4,13 +4,13 @@ import { trendsOf } from "@/lib/evolution";
 import type { WinStreak } from "@/lib/trends";
 
 /**
- * Taux de victoire quotidiens d'un heros sur trente jours, par rang : un
- * fichier statique par heros (`/trends/aamon.json`), que le comparateur
- * demande a la selection d'un heros plutot que d'embarquer tout l'historique.
+ * A hero's daily win rates over thirty days, by rank: one
+ * static file per hero (`/trends/aamon.json`), which the comparator
+ * requests when a hero is selected rather than embedding the whole history.
  *
- * L'adresse porte une extension : le proxy laisse passer les chemins a point
- * sans prefixe de langue ni limitation de debit (voir `src/proxy.ts`), et ces
- * donnees ne dependent pas de la langue.
+ * The address carries an extension: the proxy lets dotted paths through
+ * without a language prefix or rate limiting (see `src/proxy.ts`), and this
+ * data does not depend on the language.
  */
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -23,7 +23,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ fil
   const slug = (await params).file.replace(/\.json$/, "");
   if (!heroesBySlug.has(slug)) return new NextResponse(null, { status: 404 });
 
-  // Un heros pas encore mesure rend un objet vide : le client l'affiche comme tel.
+  // A hero not measured yet returns an empty object: the client shows it as such.
   const byRank: Record<string, WinStreak> = {};
   for (const [rank, series] of Object.entries(trendsOf(slug))) {
     if (series) byRank[rank] = { start: series.start, winRate: series.winRate };

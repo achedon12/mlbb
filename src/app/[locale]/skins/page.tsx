@@ -16,18 +16,18 @@ import { formatRelease } from "@/lib/skins";
 import { anchorsGallery, lastSkins, heroGallery, groupsSkins, heroesWithSkins, gallerySkinCount } from "@/lib/hero-skins";
 
 /**
- * Catalogue de tous les skins, heros par heros.
+ * Catalog of every skin, hero by hero.
  *
- * Un millier de vignettes ne tiennent pas dans une page legere : le serveur
- * rend les derniers skins sortis, la premiere tranche de heros et l'index de
- * toutes les galeries ; la galerie filtrable charge la suite a la demande.
- * Chaque skin reste indexe sur la galerie de son heros.
+ * A thousand thumbnails do not fit in a light page: the server
+ * renders the latest released skins, the first batch of heroes and the index of
+ * every gallery; the filterable gallery loads the rest on demand.
+ * Each skin stays indexed on its hero's gallery.
  */
 
 type Params = { params: Promise<{ locale: Locale }> };
 
 const LAST = 12;
-/** Vignettes des derniers skins chargees d'emblee : la premiere rangee. */
+/** Thumbnails of the latest skins loaded right away: the first row. */
 const IMMEDIATES = 4;
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -56,8 +56,8 @@ export default async function SkinsPage({ params }: Params) {
   const lead = t("pages.skins.lead", { n, h: sorted.length });
   const absolute = (path: string) => new URL(path, site.url).toString();
 
-  // Les derniers skins seulement : chaque galerie de heros porte les siens,
-  // et la liste des 132 galeries doublait le poids de la page.
+  // Only the latest skins: each hero gallery carries its own,
+  // and the list of the 132 galleries doubled the page weight.
   const data = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -149,7 +149,7 @@ export default async function SkinsPage({ params }: Params) {
           </div>
         </section>
 
-        {/* Toutes les galeries en liens simples : moteurs et lecteurs atteignent chaque heros sans filtre ni clic. */}
+        {/* Every gallery as plain links: engines and readers reach each hero without filter or click. */}
         <nav aria-labelledby="index-skins">
           <h2 id="index-skins" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.skins.index")}

@@ -66,10 +66,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   };
 }
 
-/** Page personnelle : jamais mise en cache. Les reponses du service le sont, brievement, cote serveur. */
+/** Personal page: never cached. The service's responses are, briefly, on the server. */
 export const dynamic = "force-dynamic";
 
-/** Heros affiches dans le tableau ; le bilan, lui, les compte tous. */
+/** Heroes shown in the table; the summary counts all of them. */
 const SHOWN_HEROES = 10;
 
 type History = Promise<Result<{ matches: MatchSummary[]; end: boolean }>>;
@@ -101,8 +101,8 @@ export default async function PlayerProfilePage({
   if (session.state !== "ok") return frame(<StateProfile type={session.state} t={t} />);
   const { token, profile } = session;
 
-  // Saisons d'abord : toutes les autres routes les exigent. `/stats` les
-  // porte aussi, ce qui sert de repli quand `/season` ne repond pas.
+  // Seasons first: every other route requires them. `/stats` carries
+  // them too, which serves as a fallback when `/season` does not answer.
   const [stats, listSeasons] = await Promise.all([statistics(token), seasons(token)]);
   if (stats.etat === "expired" || listSeasons.etat === "expired") return frame(<StateProfile type="expired" t={t} />);
 
@@ -123,9 +123,9 @@ export default async function PlayerProfilePage({
   const [seasonHeroList, first] = await Promise.all([seasonHeroes(token, season), pageMatches(token, season, null)]);
   if (seasonHeroList.etat === "expired" || first.etat === "expired") return frame(<StateProfile type="expired" t={t} />);
 
-  // Historique lance ici, attendu plus bas sous `Suspense` : les pages
-  // suivantes se lisent pendant que le reste du profil s'affiche. La premiere
-  // est deja en memoire. Sans elle, inutile d'insister.
+  // History started here, awaited further down under `Suspense`: the
+  // following pages load while the rest of the profile renders. The first one
+  // is already in memory. Without it, no point insisting.
   const history: History | null = first.etat === "ok" ? historyMatches(token, season) : null;
 
   const rank = readableRank(profile.rankCurrent);
@@ -282,7 +282,7 @@ export default async function PlayerProfilePage({
   );
 }
 
-/** Historique indisponible ou session expiree, dit a la place d'une section differee. */
+/** History unavailable or session expired, stated in place of a deferred section. */
 function HistoryMissing({ state, t }: { state: "expired" | "unavailable"; t: T }) {
   return state === "expired" ? (
     <p className="mt-6 text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.expiredText")}</p>
@@ -291,14 +291,14 @@ function HistoryMissing({ state, t }: { state: "expired" | "unavailable"; t: T }
   );
 }
 
-/** Evolution de la saison : attend l'historique des parties, lance par la page. */
+/** Season progression: awaits the match history, started by the page. */
 async function DeferredEvolution({ history, t, locale }: { history: History; t: T; locale: Locale }) {
   const r = await history;
   if (r.etat !== "ok") return <HistoryMissing state={r.etat} t={t} />;
   return <EvolutionPlayer evo={evolution(r.donnees.matches)} end={r.donnees.end} t={t} locale={locale} />;
 }
 
-/** Positions occupees sur l'historique lu : le meme, partage avec l'evolution. */
+/** Lanes played over the history read: the same one, shared with the progression. */
 async function DeferredPositions({ history, t, locale }: { history: History; t: T; locale: Locale }) {
   const r = await history;
   if (r.etat !== "ok") return <HistoryMissing state={r.etat} t={t} />;
@@ -317,9 +317,9 @@ async function DeferredPositions({ history, t, locale }: { history: History; t: 
 }
 
 /**
- * Adversaires des dernieres parties. Composant serveur a part, rendu sous
- * `Suspense` : le detail d'une douzaine de parties prend du temps, le reste
- * du profil n'a pas a l'attendre. Le jeton reste ici, cote serveur.
+ * Opponents of the latest games. A separate server component, rendered under
+ * `Suspense`: the detail of a dozen games takes time, the rest
+ * of the profile does not have to wait for it. The token stays here, on the server.
  */
 async function OpponentAnalysis({
   token,

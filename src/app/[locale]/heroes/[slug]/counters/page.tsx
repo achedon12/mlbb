@@ -39,12 +39,12 @@ import { cn } from "@/lib/utils";
 import { visualItem } from "@/lib/build-visuals";
 
 /**
- * Page « counters » d'un heros : qui prendre contre lui, rang par rang.
+ * A hero's "counters" page: who to pick against it, rank by rank.
  *
- * La requete « {heros} counter » est la plus demandee apres le build, et
- * aucune page ne lui repondait : les contres vivaient dans un onglet de la
- * fiche. Tout est rendu cote serveur — chaque rang dans son `<details>`,
- * ouvert ou non —, si bien que la page porte toutes les mesures sans script.
+ * The "{hero} counter" query is the most searched after the build, and
+ * no page answered it: counters lived in a tab of the hero
+ * page. Everything is rendered on the server — each rank in its `<details>`,
+ * open or not —, so the page carries every measurement without a script.
  */
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
@@ -57,7 +57,7 @@ interface Relation {
 const relations = statistics.relations as unknown as Record<string, Relation>;
 const iconsItems = (visuals as unknown as { items: Record<string, string> }).items;
 
-/** Une page par heros ; un slug inconnu tombe sur la 404. */
+/** One page per hero; an unknown slug falls on the 404. */
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -69,11 +69,11 @@ const portraitOf = (slug: string) => {
   const x = heroesBySlug.get(slug);
   return x?.images.icon ?? x?.images.portrait ?? null;
 };
-/** Ecarte un adversaire que le catalogue ne connait pas (synchro partielle). */
+/** Drops an opponent the catalog does not know (partial sync). */
 const known = <E extends { slug: string }>(list: E[] = []) => list.filter((e) => heroesBySlug.has(e.slug));
 const names = (name: string) => ({ nom: name, deNom: frenchOf(name) });
 
-/** Phrase de synthese, commune a la description et au chapeau de la page. */
+/** Summary sentence, shared by the description and the page standfirst. */
 function summary(locale: Locale, h: Hero) {
   const t = createT(locale);
   const byRank = counters[h.slug] ?? {};
@@ -93,10 +93,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!h) return {};
   const t = createT(locale);
   const { rank, sentence } = summary(locale, h);
-  // Patch dans le titre : les resultats qui menent sur « counter » portent
-  // tous une date ou une version, et celle-ci suit les synchros. Un nom long
-  // (« Yi Sun-shin ») pousserait le patch au-dela de la coupe des resultats :
-  // le titre court le garde visible.
+  // Patch in the title: the results that rank for "counter" all
+  // carry a date or a version, and this one follows the syncs. A long name
+  // ("Yi Sun-shin") would push the patch past the results' cut-off:
+  // the short title keeps it visible.
   const variables = { ...names(h.name), v: patchCurrent?.version ?? "" };
   const full = t(patchCurrent ? "pages.heroCounters.metaTitle" : "pages.heroCounters.metaTitleNoPatch", variables);
   const title = patchCurrent && full.length > TITLE_LONG ? t("pages.heroCounters.metaTitleShort", variables) : full;
@@ -108,13 +108,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       type: "article",
       image: `/${locale}/heroes/${slug}/opengraph-image`,
     }),
-    // Sans aucune mesure (heros tout juste sorti), la page n'a rien a dire :
-    // elle reste accessible mais hors de l'index, comme une page mince.
+    // Without any measurement (hero just released), the page has nothing to say:
+    // it stays reachable but out of the index, like a thin page.
     ...(rank ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
-/** Au-dela, le titre complet est coupe dans les resultats avant le numero de patch. */
+/** Beyond this, the full title is cut in the results before the patch number. */
 const TITLE_LONG = 62;
 
 export default async function CountersPage({ params }: Params) {
@@ -131,15 +131,15 @@ export default async function CountersPage({ params }: Params) {
   const { rank: rankMain, sentence } = summary(locale, h);
   const stats = statsByRank(slug);
   const ranks = MEASURED_RANKS.filter((r) => byRank[r] || teammates[slug]?.[r]?.length);
-  // Tranches lues pour l'agregat : `all` ne compte qu'a defaut de tranche.
+  // Slices read for the aggregate: `all` only counts when no slice exists.
   const bucketsMeasured = MEASURED_RANKS.filter((r) => r !== "all" && byRank[r]).length || (byRank.all ? 1 : 0);
   const aggregatedCounters = known(aggregateCounters(byRank, "weak"));
   const victims = known(aggregateCounters(byRank, "strong")).slice(0, 8);
   const best = aggregatedCounters.slice(0, 8);
   const first = best[0]?.slug;
 
-  // Objets par regle : fiche du heros, et vol de vie lu sur son build le plus
-  // joue (bonus du catalogue anglais, ou « Lifesteal » s'ecrit toujours pareil).
+  // Items by rule: hero record, and lifesteal read from its most played
+  // build (bonuses of the English catalog, where "Lifesteal" is always spelled the same).
   const catalog = new Map(itemsFor(locale).map((o) => [o.slug, o]));
   const englishBonus = new Map(itemsFor("en").map((o) => [o.slug, o.bonus]));
   const byLane = buildsPlayed[slug] ?? {};
@@ -155,7 +155,7 @@ export default async function CountersPage({ params }: Params) {
     items: tips.filter((c) => c.reason === reason).map((c) => catalog.get(c.slug)!),
   }));
 
-  // Duree de partie, au rang de la synthese quand il est mesure.
+  // Game length, at the summary's rank when it is measured.
   const durations = durationOf(slug);
   const rankDuration = rankMain && durations[rankMain] ? rankMain : durations.all ? "all" : null;
   const buckets = rankDuration ? durations[rankDuration] : undefined;
@@ -176,7 +176,7 @@ export default async function CountersPage({ params }: Params) {
     : [];
   const hasWiki = wiki.some((w) => w.slugs.length > 0);
 
-  // Pages counters des heros de la meme position, les mieux classes d'abord.
+  // Counters pages of heroes on the same lane, best ranked first.
   const laneMain = h.lanes[0];
   const neighbours = laneMain
     ? rankingFull
@@ -250,8 +250,8 @@ export default async function CountersPage({ params }: Params) {
         crumbs={[
           { name: t("nav.heroes.label"), href: "/heroes" },
           { name: h.name, href: `/heroes/${slug}` },
-          // Pas de `freres` ici : 133 liens de plus dans la charge RSC de chaque
-          // page, quand la section « autres pages » mene deja aux voisins.
+          // No `siblings` here: 133 more links in each page's RSC payload,
+          // when the "other pages" section already leads to the neighbors.
           { name: t("pages.heroDetail.tab.counters") },
         ]}
       >
@@ -271,10 +271,10 @@ export default async function CountersPage({ params }: Params) {
       </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
-        {/* ── Synthese, rangs confondus ───────────────────────────────── */}
+        {/* ── Summary, all ranks combined ───────────────────────────── */}
         {(best.length > 0 || victims.length > 0) && (
           <div className="grid gap-8 lg:grid-cols-2">
-            {/* min-w-0 : sans lui, la piste de grille s'elargit a la largeur du tableau et deborde a 390 px. */}
+            {/* min-w-0: without it, the grid track widens to the table's width and overflows at 390 px. */}
             {best.length > 0 && (
               <section aria-labelledby="meilleurs" className="min-w-0">
                 <h2 id="meilleurs" className="font-heading text-2xl font-bold text-chalk-100">
@@ -298,10 +298,10 @@ export default async function CountersPage({ params }: Params) {
           </div>
         )}
 
-        {/* Deplie le rang vise par une ancre (« #rang-mythic ») : Chromium ne le fait pas seul. */}
+        {/* Opens the rank targeted by an anchor ("#rang-mythic"): Chromium does not do it on its own. */}
         <OpenAnchor />
 
-        {/* ── Rang par rang ───────────────────────────────────────────── */}
+        {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
           <section aria-labelledby="par-rang">
             <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
@@ -391,7 +391,7 @@ export default async function CountersPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Comment le contrer ──────────────────────────────────────── */}
+        {/* ── How to counter it ────────────────────────────────────── */}
         <section aria-labelledby="contrer">
           <h2 id="contrer" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.heroCounters.howToCounter", n)}
@@ -514,7 +514,7 @@ export default async function CountersPage({ params }: Params) {
           </div>
         </section>
 
-        {/* ── Relations du wiki ───────────────────────────────────────── */}
+        {/* ── Wiki relations ───────────────────────────────────────── */}
         {hasWiki && (
           <section aria-labelledby="wiki">
             <h2 id="wiki" className="font-heading text-2xl font-bold text-chalk-100">
@@ -550,7 +550,7 @@ export default async function CountersPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Autres pages counters, meme position ────────────────────── */}
+        {/* ── Other counters pages, same lane ──────────────────────── */}
         {neighbours.length > 0 && laneMain && (
           <section aria-labelledby="autres">
             <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
@@ -576,9 +576,9 @@ export default async function CountersPage({ params }: Params) {
 }
 
 /**
- * Contres rangs confondus : ecart moyen, nombre de rangs ou l'adversaire
- * figure, et les deux suites naturelles — le face-a-face au comparateur et sa
- * propre page counters.
+ * Counters across all ranks: average gap, number of ranks where the opponent
+ * appears, and the two natural next steps — the head-to-head in the comparator
+ * and its own counters page.
  */
 function AggregatedTable({
   t,
@@ -596,15 +596,15 @@ function AggregatedTable({
   gap: (v: number) => string;
 }) {
   return (
-    // Le defilement vit sur un conteneur a part : `bevel` impose son propre
-    // `overflow`, et le tableau debordait alors de la page a 390 px. Sur
-    // mobile, la colonne des rangs se masque et les liens s'empilent : la
-    // ligne tient sans defiler.
+    // Scrolling lives on a separate container: `bevel` sets its own
+    // `overflow`, and the table then overflowed the page at 390 px. On
+    // mobile, the ranks column hides and the links stack: the
+    // row fits without scrolling.
     <div className="bevel border border-night-700/70 bg-night-900/60 p-3">
       <div className="relative overflow-x-auto">
       {/*
-        Le nom est l'en-tete de sa ligne : « Comparer » et « Counters » en
-        tirent leur contexte, sans aria-label repete sur chaque lien.
+        The name is its row's header: "Compare" and "Counters" take
+        their context from it, without an aria-label repeated on each link.
       */}
       <table
         className={cn(
@@ -655,9 +655,9 @@ function AggregatedTable({
 }
 
 /**
- * Style des listes de rang, pose une fois sur leur conteneur : cent lignes par
- * page, et pas une classe sur les cellules. La couleur du tableau donne celle
- * de l'ecart ; noms et liens reprennent la leur.
+ * Style of the rank lists, set once on their container: a hundred rows per
+ * page, and not one class on the cells. The table's color gives that
+ * of the gap; names and links keep their own.
  */
 const STYLE_TABLES_RANK = cn(
   "[&_table]:mt-2 [&_table]:w-full [&_table]:text-sm [&_tbody_th]:py-1 [&_tbody_th]:text-left [&_tbody_th]:font-normal",
@@ -667,10 +667,10 @@ const STYLE_TABLES_RANK = cn(
 );
 
 /**
- * Une liste d'un rang : adversaires ou coequipiers, ecart en points. Sans
- * portrait : six rangs de dix-huit lignes en porteraient plus d'une centaine,
- * soit la moitie du poids de la page. Les portraits restent sur les tableaux
- * de synthese, en tete.
+ * One rank's list: opponents or teammates, gap in points. No
+ * portrait: six ranks of eighteen rows would carry over a hundred of them,
+ * half the page weight. Portraits stay on the summary tables,
+ * at the top.
  */
 function TableRank({
   t,
@@ -687,7 +687,7 @@ function TableRank({
   tone: "good" | "bad";
   rows: CounterFigure[];
   gap: (v: number) => string;
-  /** Lien vers la page counters de chaque heros ; sans objet pour des coequipiers. */
+  /** Link to each hero's counters page; not applicable to teammates. */
   pageCounters?: boolean;
 }) {
   if (rows.length === 0) return null;
@@ -710,7 +710,7 @@ function TableRank({
           {rows.map((e) => {
             const name = nameOf(e.slug);
             return (
-              // Nom en en-tete de ligne : le lien « Counters » y prend son contexte.
+              // Name as row header: the "Counters" link takes its context from it.
               <tr key={e.slug}>
                 <th scope="row">
                   <Link href={`/heroes/${e.slug}`}>{name}</Link>
@@ -730,7 +730,7 @@ function TableRank({
   );
 }
 
-/** Taux de victoire par duree de partie, en barres : la tranche la plus faible en rouge, la plus forte en vert. */
+/** Win rate by game length, as bars: the weakest slice in red, the strongest in green. */
 function DurationBars({
   buckets,
   moments,
@@ -742,8 +742,8 @@ function DurationBars({
   nameBucket: (x: BucketDuration) => string;
   locale: Locale;
 }) {
-  // Echelle resserree sur l'etendue mesuree : quelques points d'ecart restent
-  // visibles, ce qu'une echelle de 0 a 100 % ecraserait.
+  // Scale narrowed to the measured range: a few points of gap stay
+  // visible, which a 0 to 100 % scale would flatten.
   const bottom = moments.weak.winRate - 0.5;
   const extent = moments.strong.winRate - bottom || 1;
   return (

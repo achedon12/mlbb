@@ -15,25 +15,25 @@ import { anchorsGallery, elide, heroGallery, heroesWithSkins, titleGallery, type
 import type { Hero } from "@/lib/types";
 
 /**
- * Galerie des skins d'un heros : chaque skin avec son illustration, son
- * portrait de boutique, sa rarete, sa sortie, sa disponibilite et son prix,
- * tout rendu par le serveur. La vitrine de la fiche montre un skin a la fois ;
- * ici, tout se lit — et s'indexe — d'un coup.
+ * A hero's skin gallery: each skin with its illustration, its
+ * shop portrait, its rarity, its release, its availability and its price,
+ * all rendered by the server. The hero page showcase shows one skin at a time;
+ * here, everything is read — and indexed — at once.
  */
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
 export const dynamicParams = false;
 
-/** Une galerie par heros qui a au moins un skin ou une illustration. */
+/** One gallery per hero that has at least one skin or illustration. */
 export function generateStaticParams() {
   return heroesWithSkins.map((h) => ({ slug: h.slug }));
 }
 
-/** Date lisible par une machine : jour, mois ou annee (« 201X » n'en est pas une). */
+/** Machine-readable date: day, month or year ("201X" is not one). */
 const DATE_ISO = /^\d{4}(-\d{2}){0,2}$/;
 
-/** Skin du catalogue le plus recent parmi ceux dont la date se lit. */
+/** Most recent catalog skin among those whose date can be read. */
 function newest(g: HeroGallery): SkinFull | null {
   return g.skins.filter((s) => DATE_ISO.test(s.release ?? "")).sort((a, b) => b.release!.localeCompare(a.release!))[0] ?? null;
 }
@@ -68,7 +68,7 @@ export default async function HeroSkinsPage({ params }: Params) {
   if (g.total === 0) notFound();
 
   const t = createT(locale);
-  // Rarete, disponibilite et etiquette inconnues du catalogue gardent leur libelle d'origine.
+  // Rarity, availability and tag unknown to the catalog keep their original label.
   const tr = (ns: string, v: string) => {
     const key = `${ns}.${v}`;
     const translated = t(key);
@@ -84,7 +84,7 @@ export default async function HeroSkinsPage({ params }: Params) {
   const price = (s: SkinFull) =>
     Object.entries(s.price)
       .map(([m, v]) => {
-        // « other » porte un texte (« Twilight Pass »), pas un montant.
+        // "other" carries a text ("Twilight Pass"), not an amount.
         if (m === "other") return v;
         const amount = /^\d+$/.test(v) ? count.format(Number(v)) : v;
         return `${amount} ${CURRENCIES[m] ? t(`skinsUI.${CURRENCIES[m]}`) : m}`;
@@ -258,9 +258,9 @@ export default async function HeroSkinsPage({ params }: Params) {
 }
 
 /**
- * Carte d'un skin : l'illustration en 16/9, le portrait de boutique en
- * medaillon, un filet a la couleur de la rarete. Sans illustration, le
- * portrait occupe le cadre.
+ * A skin's card: the illustration in 16/9, the shop portrait as a
+ * medallion, a rule in the rarity's color. Without an illustration, the
+ * portrait fills the frame.
  */
 function SkinCard({
   name,

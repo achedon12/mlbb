@@ -3,59 +3,59 @@ import type { MeasuredRank } from "./measured-ranks";
 import type { Lane, HeroRatings, Tier, Role } from "./types";
 
 /**
- * Analyse d'une composition d'equipe.
+ * Team composition analysis.
  *
- * Jusqu'a cinq heros choisis sans position imposee : le module leur attribue
- * les lanes, fait le compte des roles et des degats, moyenne leurs notes et
- * leurs taux par duree de partie, puis cherche dans les mesures du jeu ce qui
- * les lie (coequipiers qui se font gagner) et ce qui les menace (adversaires
- * qui en genent plusieurs). Aucune donnee importee : le module tourne dans le
- * navigateur sur ce que la page lui passe, et se teste sans le catalogue.
+ * Up to five heroes picked with no set position: the module assigns their
+ * lanes, counts roles and damage types, averages their ratings and their
+ * rates by match duration, then looks in the game's measurements for what
+ * binds them (teammates who win together) and what threatens them (opponents
+ * who hinder several of them). No imported data: the module runs in the
+ * browser on what the page passes it, and is tested without the catalogue.
  */
 
 export const SIZE_TEAM = 5;
 
-/** Type de degats, sous la cle du catalogue (`heroData.damage.*`). */
+/** Damage type, under the catalogue key (`heroData.damage.*`). */
 export type TypeDamage = "physical" | "magic" | "mixed";
 
-/** Ce que l'analyse lit d'un heros, pour tout le roster. */
+/** What the analysis reads from a hero, for the whole roster. */
 export interface TeamHero {
   slug: string;
   name: string;
   lanes: Lane[];
   roles: Role[];
   icon: string | null;
-  /** Synergies connues : relations du wiki et meilleurs coequipiers tous rangs. */
+  /** Known synergies: wiki relations and best teammates across all ranks. */
   synergies: string[];
   damage: TypeDamage | null;
   notes: HeroRatings;
 }
 
-/** Heros cite par une mesure, avec l'ecart de victoire en points. */
+/** Hero named by a measurement, with the win-rate gap in points. */
 export type Gap = [slug: string, points: number];
 
-/** Tranche de duree de partie, en minutes ; `a` nul pour la derniere, ouverte. */
+/** Match duration bucket, in minutes; `to` null for the last, open-ended one. */
 export interface Bucket {
   from: number;
   to: number | null;
 }
 
 /**
- * Mesures d'un rang pour tout le roster. Un fichier statique par rang
- * (`/composition/<rang>.json`) : la page n'embarque rien de ce qui depend du
- * rang, et le navigateur ne charge que les rangs consultes.
+ * Measurements of one rank for the whole roster. One static file per rank
+ * (`/composition/<rank>.json`): the page embeds nothing that depends on the
+ * rank, and the browser only loads the ranks viewed.
  */
 export interface MeasuresRank {
   rang: MeasuredRank;
-  /** Taux de victoire et palier de chaque heros classe au rang. */
+  /** Win rate and tier of each hero ranked at this rank. */
   stats: Record<string, [win: number, tier: Tier]>;
-  /** Tranches communes a tous les heros. */
+  /** Buckets shared by all heroes. */
   tranches: Bucket[];
-  /** Taux de victoire de chaque heros par tranche, dans l'ordre de `tranches`. */
+  /** Win rate of each hero per bucket, in the order of `tranches`. */
   duree: Record<string, number[]>;
-  /** Coequipiers qui font le plus gagner chaque heros. */
+  /** Teammates who raise each hero's win rate the most. */
   coequipiers: Record<string, Gap[]>;
-  /** Adversaires contre qui chaque heros perd le plus (ecart negatif). */
+  /** Opponents against whom each hero loses the most (negative gap). */
   faible: Record<string, Gap[]>;
 }
 
@@ -65,19 +65,19 @@ const round = (v: number, d = 2) => Math.round(v * 10 ** d) / 10 ** d;
 // ── Lanes ──────────────────────────────────────────────────────────
 
 export interface Assignment {
-  /** Heros place sur chaque lane pourvue. */
+  /** Hero placed on each filled lane. */
   lanes: Partial<Record<Lane, string>>;
-  /** Heros sans lane libre : toutes ses positions sont prises par d'autres. */
+  /** Heroes with no free lane: all their positions are taken by others. */
   extra: string[];
-  /** Lanes que personne ne tient. */
+  /** Lanes nobody holds. */
   missing: Lane[];
 }
 
 /**
- * Place chaque heros sur une de ses lanes, une lane par heros. On cherche
- * d'abord a en pourvoir le plus possible, puis a garder chacun au plus pres de
- * sa position principale (la premiere de sa liste). Cinq heros, cinq lanes :
- * l'essai exhaustif reste instantane.
+ * Places each hero on one of their lanes, one lane per hero. It first tries
+ * to fill as many lanes as possible, then to keep each hero as close as
+ * possible to their main position (the first in their list). Five heroes,
+ * five lanes: the exhaustive search stays instant.
  */
 export function assignLanes(team: Pick<TeamHero, "slug" | "lanes">[]): Assignment {
   const best = { choice: [] as (Lane | null)[], filled: -1, cost: Infinity };
@@ -115,9 +115,9 @@ export function assignLanes(team: Pick<TeamHero, "slug" | "lanes">[]): Assignmen
   return { lanes, extra, missing: LANES.filter((l) => !lanes[l]) };
 }
 
-// ── Roles, degats, notes ───────────────────────────────────────────
+// ── Roles, damage, ratings ─────────────────────────────────────────
 
-/** Nombre de heros par role ; un heros a deux roles compte dans les deux. */
+/** Number of heroes per role; a hero with two roles counts in both. */
 export function countRoles(team: Pick<TeamHero, "roles">[]): Record<Role, number> {
   const count = Object.fromEntries(ROLES.map((r) => [r, 0])) as Record<Role, number>;
   for (const h of team) for (const r of h.roles) count[r] += 1;
@@ -125,7 +125,7 @@ export function countRoles(team: Pick<TeamHero, "roles">[]): Record<Role, number
 }
 
 export interface Damage extends Record<TypeDamage, number> {
-  /** Part des degats physiques, un heros mixte comptant pour moitie ; null sans heros renseigne. */
+  /** Share of physical damage, a mixed hero counting as half; null when no hero has the data. */
   partPhysique: number | null;
 }
 
@@ -139,7 +139,7 @@ export function breakdownDamage(team: Pick<TeamHero, "damage">[]): Damage {
 export type Note = keyof HeroRatings;
 export const NOTES: Note[] = ["offense", "durability", "abilityEffects", "difficulty"];
 
-/** Moyenne de chaque note du jeu (sur 10), sur les heros qui l'ont. */
+/** Average of each in-game rating (out of 10), over the heroes that have it. */
 export function profileNotes(team: Pick<TeamHero, "notes">[]): Record<Note, number | null> {
   return Object.fromEntries(
     NOTES.map((n) => {
@@ -149,14 +149,14 @@ export function profileNotes(team: Pick<TeamHero, "notes">[]): Record<Note, numb
   ) as Record<Note, number | null>;
 }
 
-// ── Duree de partie ────────────────────────────────────────────────
+// ── Match duration ─────────────────────────────────────────────────
 
 export type ProfileDuration = "early" | "late" | "stable";
 
 /**
- * Ecart, en points, entre les deux dernieres tranches et les deux premieres
- * au-dela duquel on parle d'une equipe (ou d'un heros) de debut ou de fin de
- * partie. La meme regle sert a la fiche heros.
+ * Gap, in points, between the last two buckets and the first two beyond
+ * which a team (or a hero) counts as early-game or late-game. The same rule
+ * is used on the hero page.
  */
 export const THRESHOLD_PROFILE = 1;
 
@@ -168,16 +168,16 @@ export function profileDuration(rate: number[]): ProfileDuration {
 
 export interface CurveTeam {
   buckets: Bucket[];
-  /** Moyenne des heros mesures, tranche par tranche. */
+  /** Average of the measured heroes, bucket by bucket. */
   win: number[];
   profile: ProfileDuration;
-  /** Indice de la meilleure tranche. */
+  /** Index of the best bucket. */
   pic: number;
-  /** Profil de chaque heros mesure, pour dire qui porte quelle phase. */
+  /** Profile of each measured hero, to tell who carries which phase. */
   byHero: { slug: string; profile: ProfileDuration }[];
 }
 
-/** Puissance de l'equipe selon la duree de partie : la moyenne des courbes de ses heros. */
+/** Team strength by match duration: the average of its heroes' curves. */
 export function curveTeam(slugs: string[], measures: MeasuresRank): CurveTeam | null {
   const n = measures.tranches.length;
   const measures_ = slugs.flatMap((s) => (measures.duree[s]?.length === n ? [[s, measures.duree[s]] as const] : []));
@@ -192,20 +192,20 @@ export function curveTeam(slugs: string[], measures: MeasuresRank): CurveTeam | 
   };
 }
 
-// ── Synergies et menaces ───────────────────────────────────────────
+// ── Synergies and threats ──────────────────────────────────────────
 
 export interface Pair {
   a: string;
   b: string;
-  /** Gain mesure au rang, en points ; null pour une synergie connue sans mesure a ce rang. */
+  /** Gain measured at the rank, in points; null for a known synergy with no measurement at this rank. */
   points: number | null;
 }
 
 /**
- * Paires de l'equipe qui fonctionnent. Une mesure est dirigee (« A gagne plus
- * avec B ») et ne figure que dans le top de l'un des deux : on lit les deux
- * sens et on garde le meilleur gain. A defaut de mesure, une synergie connue
- * (relation du wiki, coequipier tous rangs) compte, sans chiffre.
+ * Team pairs that work well. A measurement is directed ("A wins more with
+ * B") and only appears in the top list of one of the two: both directions
+ * are read and the best gain is kept. Without a measurement, a known synergy
+ * (wiki relation, all-ranks teammate) counts, without a figure.
  */
 export function synergiesInternal(
   team: Pick<TeamHero, "slug" | "synergies">[],
@@ -228,18 +228,18 @@ export function synergiesInternal(
 
 export interface Threat {
   slug: string;
-  /** Heros de l'equipe genes, avec l'ecart qu'ils subissent (negatif). */
+  /** Team heroes hindered, with the gap they suffer (negative). */
   targets: Gap[];
-  /** Somme des ecarts : plus elle est basse, plus la menace pese. */
+  /** Sum of the gaps: the lower it is, the heavier the threat. */
   total: number;
 }
 
-/** Nombre de heros de l'equipe qu'un adversaire doit gener pour etre une menace. */
+/** Number of team heroes an opponent must hinder to count as a threat. */
 export const MIN_TARGETS = 2;
 
 /**
- * Adversaires contre qui plusieurs heros de l'equipe perdent le plus : les
- * candidats au ban. Classes par nombre de victimes, puis par ecart cumule.
+ * Opponents against whom several team heroes lose the most: the ban
+ * candidates. Sorted by number of victims, then by cumulative gap.
  */
 export function threats(slugs: string[], measures: MeasuresRank, limit = 6): Threat[] {
   const byOpponent = new Map<string, Gap[]>();
@@ -260,7 +260,7 @@ export function threats(slugs: string[], measures: MeasuresRank, limit = 6): Thr
     .slice(0, limit);
 }
 
-// ── Points d'attention ─────────────────────────────────────────────
+// ── Warnings ───────────────────────────────────────────────────────
 
 export type Alert =
   | { type: "lanes"; lanes: Lane[]; extra: string[] }
@@ -269,22 +269,22 @@ export type Alert =
   | { type: "control" | "fragile" | "hard"; value: number };
 
 /**
- * Seuils des alertes, sur la moyenne des notes (sur 10). Ils se placent vers
- * le dixieme d'equipes tirees au hasard le plus extreme : une alerte signale
- * un vrai desequilibre, pas une composition simplement moyenne.
+ * Alert thresholds, on the average ratings (out of 10). They sit around the
+ * most extreme tenth of randomly drawn teams: an alert flags a real
+ * imbalance, not a merely average composition.
  */
 export const THRESHOLDS = {
-  /** En dessous, l'equipe manque de controle. */
+  /** Below this, the team lacks crowd control. */
   control: 3.5,
-  /** En dessous, elle encaisse mal. */
+  /** Below this, it cannot take much damage. */
   resistance: 4,
-  /** A partir de la, elle demande de la maitrise. */
+  /** From this point, it demands mastery. */
   difficulty: 6,
-  /** Part d'un seul type de degats a partir de laquelle l'adversaire s'en protege a peu de frais. */
+  /** Share of a single damage type from which the opponent can cheaply protect against it. */
   damage: 0.8,
 };
 
-/** Nombre de heros a partir duquel l'equilibre de l'equipe se juge. */
+/** Number of heroes from which the team's balance is judged. */
 export const MIN_ALERTS = 3;
 
 export function alerts(team: TeamHero[], assignment: Assignment): Alert[] {
@@ -317,9 +317,9 @@ export function alerts(team: TeamHero[], assignment: Assignment): Alert[] {
 // ── Suggestions ────────────────────────────────────────────────────
 
 /**
- * Picks proposes pour les lanes libres : la suggestion du draft, sans
- * adversaire, sur les synergies avec l'equipe et le taux de victoire au rang.
- * Les coequipiers mesures au rang s'ajoutent aux synergies connues.
+ * Picks suggested for the free lanes: the draft suggestion, with no
+ * opponent, based on synergies with the team and the win rate at the rank.
+ * Teammates measured at the rank are added to the known synergies.
  */
 export function suggestionsTeam({
   catalog,
@@ -335,7 +335,7 @@ export function suggestionsTeam({
   limit?: number;
 }): { lane: Lane; picks: Suggestion[] }[] {
   if (lanes.length === 0) return [];
-  // Sans adversaire, les relations de contre n'entrent pas dans le calcul.
+  // With no opponent, counter relations do not enter the calculation.
   const candidates: DraftHero[] = catalog.map((h) => ({
     ...h,
     win: measures?.stats[h.slug]?.[0] ?? null,
@@ -346,7 +346,7 @@ export function suggestionsTeam({
   return lanes.map((lane) => ({ lane, picks: suggest({ candidates, lane, enemies: [], allies: slugs, limit }) }));
 }
 
-// ── Ensemble ───────────────────────────────────────────────────────
+// ── Overall ────────────────────────────────────────────────────────
 
 export interface Analysis {
   team: TeamHero[];
@@ -355,7 +355,7 @@ export interface Analysis {
   damage: Damage;
   notes: Record<Note, number | null>;
   alerts: Alert[];
-  /** Tout ce qui suit depend du rang : null ou vide tant que ses mesures manquent. */
+  /** Everything below depends on the rank: null or empty while its measurements are missing. */
   win: number | null;
   curve: CurveTeam | null;
   synergies: Pair[];
@@ -396,9 +396,9 @@ export function analyzeTeam({
   };
 }
 
-// ── Adresse partageable ────────────────────────────────────────────
+// ── Shareable URL ──────────────────────────────────────────────────
 
-/** Lit `?h=slug1,slug2&rang=mythic`, en ecartant ce que la page ne connait pas. */
+/** Reads `?h=slug1,slug2&rang=mythic`, discarding what the page does not know. */
 export function readSettings(
   search: string,
   known: Set<string>,
@@ -417,9 +417,9 @@ export function readSettings(
 }
 
 /**
- * Parametres de l'adresse pour une equipe et un rang, les autres conserves.
- * Les slugs n'ont ni espace ni caractere reserve : la virgule reste lisible
- * plutot que d'etre encodee en %2C. Tous rangs, le rang par defaut, s'omet.
+ * URL parameters for a team and a rank, others kept.
+ * Slugs have no spaces or reserved characters: the comma stays readable
+ * instead of being encoded as %2C. All ranks, the default, is omitted.
  */
 export function writeSettings(search: string, slugs: string[], rank: MeasuredRank): string {
   const params = new URLSearchParams(search);

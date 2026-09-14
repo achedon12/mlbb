@@ -1,11 +1,11 @@
 /**
- * Appel au traducteur Google, commun a tous les scripts de traduction.
+ * Google Translate call, shared by all translation scripts.
  *
- * Un lot de textes part en une requete. En cas de limite de debit (429), on
- * attend et on reessaie ; si la reponse ne compte pas autant de traductions
- * que de textes, on retombe sur un traitement texte par texte. Un texte seul
- * dont la reponse reste incoherente leve une erreur, plutot que de se
- * relancer sans fin.
+ * A batch of texts goes out in one request. On rate limiting (429), it
+ * waits and retries; if the response does not hold as many translations
+ * as texts, it falls back to text-by-text processing. A single text
+ * whose response stays inconsistent throws an error, rather than
+ * retrying forever.
  */
 const ENDPOINT = "https://clients5.google.com/translate_a/t";
 const UA = "Mozilla/5.0 (compatible; MLBBDex/1.0)";
@@ -13,10 +13,10 @@ const UA = "Mozilla/5.0 (compatible; MLBBDex/1.0)";
 export const pause = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
- * Traduit un lot de textes de `sl` vers `tl`, dans l'ordre.
+ * Translates a batch of texts from `sl` to `tl`, in order.
  *
- * `tolerant` : dans le repli texte par texte, un texte intraduisible garde sa
- * forme d'origine au lieu d'interrompre tout le lot.
+ * `tolerant`: in the text-by-text fallback, an untranslatable text keeps its
+ * original form instead of aborting the whole batch.
  */
 export async function translateBatch(batch, sl, tl, { tolerant: lenient = false } = {}) {
   const url = new URL(ENDPOINT);
@@ -30,7 +30,7 @@ export async function translateBatch(batch, sl, tl, { tolerant: lenient = false 
       const rep = await fetch(url, { headers: { "User-Agent": UA }, signal: AbortSignal.timeout(30000) });
       if (rep.ok) {
         const data = await rep.json();
-        // Un seul texte renvoie ["…"] ; plusieurs renvoient ["…", "…", …].
+        // A single text returns ["…"]; several return ["…", "…", …].
         const outputs = Array.isArray(data) ? data.flat(Infinity) : [];
         if (outputs.length === batch.length) return outputs.map(String);
         break;
@@ -43,8 +43,8 @@ export async function translateBatch(batch, sl, tl, { tolerant: lenient = false 
     }
   }
 
-  if (batch.length === 1) throw new Error("Reponse de traduction incoherente");
-  // Repli : chaque texte seul, plus lent mais fiable.
+  if (batch.length === 1) throw new Error("Inconsistent translation response");
+  // Fallback: each text alone, slower but reliable.
   const outputs = [];
   for (const t of batch) {
     try {

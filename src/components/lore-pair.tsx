@@ -6,10 +6,10 @@ import { heroesBySlug } from "@/lib/data";
 import type { LinkLore, LorePair } from "@/lib/lore";
 
 /**
- * Deux heros lies par leurs fiches : ce que chacune dit de l'autre, mot pour
- * mot (« frere cadet », « rivale »). Un cote reste muet quand sa fiche ne
- * nomme pas l'autre heros. `regions` : libelle de la region de chacun, pour
- * les liens qui sortent d'une region.
+ * Two heroes linked by their pages: what each one says about the other, word
+ * for word ("younger brother", "rival"). A side stays silent when its page
+ * does not name the other hero. `regions`: each one's region label, for the
+ * links that cross a region boundary.
  */
 export function LorePairCard({
   pair,

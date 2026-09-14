@@ -8,12 +8,12 @@ import type { MeasuredRank } from "@/lib/measured-ranks";
 import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
-/** Adversaire resolu par le serveur : le navigateur n'a pas le catalogue. */
+/** Opponent resolved by the server: the browser does not have the catalogue. */
 export interface CounterShown {
   slug: string;
   name: string;
   portrait: string | null;
-  /** Ecart de taux de victoire, en points (positif = avantage). */
+  /** Win rate gap, in points (positive = advantage). */
   advantage: number;
 }
 
@@ -24,16 +24,16 @@ export interface CountersShown {
 }
 
 /**
- * Contres etablis sur les taux de victoire du jeu, rang par rang.
+ * Counters based on the game's win rates, rank by rank.
  *
- * Chaque ligne porte l'ecart en points, sa vraie information : « fort contre
- * Wanwan » ne dit rien, « +3,3 points contre Wanwan » situe l'avantage. Les
- * portraits rendent la lecture immediate — on reconnait un heros a sa tete
- * avant son nom.
+ * Each row carries the gap in points, its real information: "strong against
+ * Wanwan" says nothing, "+3.3 points against Wanwan" sizes the advantage. The
+ * portraits make it instant to read: a hero is recognised by their face
+ * before their name.
  *
- * Un matchup ne pese pas pareil en Epique et en Gloire mythique : le rang de la
- * fiche bascule d'une mesure a l'autre. Toutes arrivent avec la page, qui reste
- * statique — changer de rang ne declenche aucune requete.
+ * A matchup does not weigh the same in Epic and in Mythical Glory: the page's
+ * rank switches from one measurement to another. They all arrive with the page, which stays
+ * static: changing rank triggers no request.
  */
 export function MeasuredCounters({
   name,
@@ -44,7 +44,7 @@ export function MeasuredCounters({
 }) {
   const t = useT();
   const rank = useRank();
-  // Le rang de la fiche peut manquer ici : on retombe sur tous rangs.
+  // The page's rank may be missing here: fall back to all ranks.
   const current = byRank[rank] ?? byRank.all;
   if (!current) return null;
 
@@ -78,8 +78,8 @@ export function MeasuredCounters({
 }
 
 /**
- * Coequipiers qui font le plus gagner le heros, au rang de la fiche : l'ecart
- * est celui de son taux de victoire quand ils jouent ensemble.
+ * Teammates who make the hero win the most, at the page's rank: the gap
+ * is that of its win rate when they play together.
  */
 export function TeammatesByRank({
   name,

@@ -9,23 +9,22 @@ import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Competences d'un heros.
+ * A hero's skills.
  *
- * Deux sources se rejoignent ici : le wiki fournit le **nom officiel** de
- * chaque competence — qui est aussi la cle de son icone — ainsi que sa
- * description d'origine, et l'analyse redigee fournit un commentaire en
- * francais quand quelqu'un l'a ecrit. Les deux listes suivent le meme ordre
- * (passif, competence 1, competence 2, ultime), c'est ce qui permet de les
- * apparier.
+ * Two sources meet here: the wiki provides the **official name** of each
+ * skill — which is also the key of its icon — along with its original
+ * description, and the written analysis provides a commentary in French when
+ * someone has written one. Both lists follow the same order (passive,
+ * skill 1, skill 2, ultimate), which is what lets them be paired.
  *
- * Le nom affiche est celui du wiki, jamais une traduction : le jeu est en
- * anglais, et une traduction maison empecherait le lecteur de retrouver la
- * competence en partie.
+ * The displayed name is the wiki's, never a translation: the game is in
+ * English, and a home-made translation would stop the reader from finding
+ * the skill in a match.
  *
- * La vue est compacte : icone, type et nom tiennent sur une ligne de tuiles.
- * Le detail — description, recharge, cout — s'ouvre au clic sur une tuile et se
- * referme au second : sous les tuiles sur grand ecran, dans un tiroir sur
- * mobile.
+ * The view is compact: icon, type and name fit on one row of tiles. The
+ * detail — description, cooldown, cost — opens when a tile is clicked and
+ * closes on the second click: under the tiles on large screens, in a drawer
+ * on mobile.
  */
 const TYPES = ["Passive", "Skill 1", "Skill 2", "Ultimate"] as const;
 
@@ -65,8 +64,8 @@ export function HeroSkills({
       name: nameWiki ?? writtenSkill?.name ?? t("skills.Skill"),
       type: writtenSkill?.type ?? TYPES[i] ?? "Skill",
       icon: nameWiki ? icons[nameWiki] : undefined,
-      // L'analyse redigee prime : elle explique, la description officielle se
-      // contente d'enoncer. A defaut, le texte du jeu vaut mieux que rien.
+      // The written analysis wins: it explains, while the official description
+      // merely states. Failing that, the game's text beats nothing.
       description: writtenSkill?.description ?? officialSkill?.description ?? null,
       cooldown: writtenSkill?.cooldown,
       cost: writtenSkill?.cost,

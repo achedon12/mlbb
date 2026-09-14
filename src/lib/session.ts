@@ -3,12 +3,12 @@ import { cache } from "react";
 import { expiration, profile, type Profile } from "./mlbb-auth";
 
 /**
- * Session de jeu.
+ * Game session.
  *
- * Le jeton fourni par le service de connexion est range dans un cookie
- * httpOnly : il ne quitte jamais le serveur, et le site n'a aucun etat a
- * conserver de son cote — pas de base, pas de table de sessions. Se
- * deconnecter, c'est effacer le cookie ; expirer, c'est le jeton qui le dit.
+ * The token provided by the login service is stored in an httpOnly
+ * cookie: it never leaves the server, and the site has no state to
+ * keep on its side — no database, no sessions table. Logging
+ * out means deleting the cookie; expiry is what the token says.
  */
 const COOKIE = "mlbb_jeu";
 
@@ -30,20 +30,20 @@ export async function closeSession(): Promise<void> {
 }
 
 /**
- * Ferme la session quand c'est permis. Pendant le rendu d'une page, les
- * cookies sont en lecture seule et Next refuse d'y toucher : le cookie reste
- * alors en place, et l'appel de l'en-tete a `/api/session` — un gestionnaire
- * de route, lui autorise — le videra au passage.
+ * Closes the session when allowed. During a page render,
+ * cookies are read-only and Next refuses to touch them: the cookie then stays
+ * in place, and the header's call to `/api/session` — a route
+ * handler, which is allowed — will clear it along the way.
  */
 async function closeIfPossible(): Promise<void> {
   try {
     await closeSession();
   } catch {
-    // Rendu de page : cookie en lecture seule.
+    // Page render: read-only cookie.
   }
 }
 
-/** Jeton courant, ou null. Un jeton expire est traite comme absent. */
+/** Current token, or null. An expired token is treated as missing. */
 export async function tokenCurrent(): Promise<string | null> {
   const token = (await cookies()).get(COOKIE)?.value;
   if (!token) return null;
@@ -55,12 +55,12 @@ export async function tokenCurrent(): Promise<string | null> {
 }
 
 /**
- * Etat de la session.
+ * Session state.
  *
- * Les pages du compte doivent distinguer une session expiree — il faut se
- * reconnecter — d'une source momentanement coupee — il suffit d'attendre. Le
- * jeton n'est rendu qu'au code serveur qui appelle le service ; il n'a rien a
- * faire dans les proprietes d'un composant client.
+ * Account pages must distinguish an expired session — the user must
+ * log in again — from a temporarily unavailable source — waiting is enough. The
+ * token is only returned to the server code that calls the service; it has no business
+ * in a client component's props.
  */
 export type StateSession =
   | { state: "missing" }
@@ -69,9 +69,9 @@ export type StateSession =
   | { state: "ok"; token: string; profile: Profile };
 
 /**
- * Une reponse « expire » du service — jeton revoque avant son echeance —
- * ferme la session au passage quand c'est permis : le prochain rendu la verra
- * vide, sans qu'un jeton mort traine dans le cookie.
+ * An "expired" response from the service — token revoked before its expiry —
+ * closes the session along the way when allowed: the next render will see it
+ * empty, without a dead token lingering in the cookie.
  */
 async function readSession(): Promise<StateSession> {
   const token = await tokenCurrent();
@@ -82,14 +82,14 @@ async function readSession(): Promise<StateSession> {
     await closeIfPossible();
     return { state: "expired" };
   }
-  // Source indisponible : on garde la session, mais on n'a pas le profil.
+  // Source unavailable: the session is kept, but the profile is not available.
   return result.etat === "ok" ? { state: "ok", token, profile: result.donnees } : { state: "unavailable", token };
 }
 
-/** Etat de la session, lu une fois par rendu de page. */
+/** Session state, read once per page render. */
 export const sessionPlayer = cache(readSession);
 
-/** Profil de la session courante, ou null. */
+/** Profile of the current session, or null. */
 export async function profileCurrent(): Promise<Profile | null> {
   const session = await readSession();
   return session.state === "ok" ? session.profile : null;

@@ -7,21 +7,21 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { useT } from "@/i18n/provider";
 import { keySearch } from "@/lib/utils";
 
-/** Un heros de la liste, en tuple : slug, nom, accroche, icone, termes de recherche deja normalises. */
+/** A hero of the list, as a tuple: slug, name, tagline, icon, already normalised search terms. */
 export type EntryStory = [slug: string, name: string, tagline: string | null, icon: string | null, terms: string];
 
 export interface GroupStories {
   key: string;
-  /** Nom de la region, dans la langue de la page. */
+  /** Region name, in the page's language. */
   name: string;
   heroes: EntryStory[];
 }
 
 /**
- * Toutes les histoires, par region, avec une recherche sur le nom, le nom
- * complet, le titre et les affiliations. Le serveur rend la liste entiere ;
- * le navigateur ne recoit que ces tuples, pas une seconde fois l'arbre de
- * cent trente cartes.
+ * All the stories, by region, with a search on the name, full name, title
+ * and affiliations. The server renders the whole list; the browser only
+ * receives these tuples, not the tree of a hundred and thirty cards a second
+ * time.
  */
 export function StoryList({ groups, total }: { groups: GroupStories[]; total: number }) {
   const t = useT();

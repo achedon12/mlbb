@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { StoredSubscription } from "@/lib/push";
 import type { Sender } from "@/lib/push-server";
 
-// Le journal ecrirait dans `logs/` : on le fait taire.
+// The logger would write to `logs/`: silence it.
 vi.mock("@/lib/log", () => ({ log: vi.fn(async () => {}), logError: vi.fn(async () => {}) }));
 
 const {
@@ -20,9 +20,9 @@ const {
 } = await import("@/lib/push-server");
 
 /**
- * Stockage des abonnements et regles d'envoi, sur un dossier temporaire et un
- * envoyeur factice : jamais deux fois le meme patch, rien au premier
- * demarrage, les abonnements disparus effaces.
+ * Subscription storage and sending rules, on a temporary folder and a fake
+ * sender: never the same patch twice, nothing on first start, gone
+ * subscriptions deleted.
  */
 let folder: string;
 beforeEach(() => {
@@ -50,11 +50,11 @@ const patch = (version: string) => ({
   ],
 });
 
-/** Envoyeur factice : les adresses « disparu » repondent 410, « panne » 500. */
+/** Fake sender: "disparu" endpoints answer 410, "panne" ones 500. */
 const fakeSender = () =>
   vi.fn<Sender>(async (a) => {
     if (a.endpoint.includes("disparu")) throw Object.assign(new Error("Gone"), { statusCode: 410 });
-    if (a.endpoint.includes("panne")) throw Object.assign(new Error("Erreur"), { statusCode: 500 });
+    if (a.endpoint.includes("panne")) throw Object.assign(new Error("Error"), { statusCode: 500 });
   });
 
 describe("subscriptions", () => {

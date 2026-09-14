@@ -188,7 +188,7 @@ const SUBTITLE_PCI = /^[:|]*\s*([^'{}*#:|=<>[\]]{2,60}?)\s*:?\s*((?:\{\{pci\|\w+
 
 /**
  * Body of an entry (a hero, an item…) rewritten in the grammar that
- * `ajustementsHeros` reads: subtitles as `{{link|…}}` or `{{ai|…}}`, changes
+ * `heroAdjustments` reads: subtitles as `{{link|…}}` or `{{ai|…}}`, changes
  * as `* …`. The notes write subtitles several ways (bold, followed by a
  * `{{pci}}`, or a short plain line followed by a list) and only their
  * position tells them apart from a sentence.

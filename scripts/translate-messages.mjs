@@ -1,13 +1,13 @@
 /**
- * Traduit le catalogue de messages de l'interface.
+ * Translates the interface message catalogue.
  *
- * Le catalogue source est `src/i18n/messages/fr.json` (le francais, langue
- * d'origine du site). On en derive `en.json`, `it.json` et `es.json`. Les
- * marqueurs `{variable}` sont mis a l'abri avant traduction pour ne pas etre
- * alteres, puis restaures.
+ * The source catalogue is `src/i18n/messages/fr.json` (French, the site's
+ * original language). `en.json`, `it.json` and `es.json` are derived from it. The
+ * `{variable}` markers are shielded before translation so they are not
+ * altered, then restored.
  *
- * Comme le reste, ce script ne tourne qu'a la main ou en CI : le resultat est
- * versionne, l'application ne traduit jamais a l'execution.
+ * Like the rest, this script only runs by hand or in CI: the output is
+ * versioned, the application never translates at runtime.
  */
 import { readFile, writeFile } from "node:fs/promises";
 import { pause, translateBatch as translateBatchGoogle } from "./translation-google.mjs";
@@ -18,13 +18,13 @@ const TARGETS = ["en", "it", "es"];
 
 const CACHE = "scripts/translations-messages.json";
 const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
-const PROTECTED = String.fromCharCode(0xE000); // zone privee Unicode : preservee par le traducteur
+const PROTECTED = String.fromCharCode(0xE000); // Unicode private use area: preserved by the translator
 
-/** Remplace les `{var}` par des marqueurs surs, renvoie le texte et la table. */
+/** Replaces `{var}` with safe markers, returns the text and the table. */
 function protect(text) {
   const vars = [];
-  // On met a l'abri : variables {x}, code `x`, et l'URL d'un lien (…). Le
-  // libelle d'un lien [texte] reste, lui, traduit.
+  // Shielded: variables {x}, code `x`, and a link's URL (…). A link's
+  // label [text] is still translated.
   const on = text.replace(/\{\w+\}|`[^`]+`|\]\([^)]+\)/g, (m) => {
     vars.push(m);
     return `${PROTECTED}${vars.length - 1}${PROTECTED}`;
@@ -38,7 +38,7 @@ function restore(text, vars) {
 
 const translateBatch = (batch, tl) => translateBatchGoogle(batch, "fr", tl);
 
-/** Applique une fonction async a chaque feuille (string) de l'arbre. */
+/** Applies an async function to every leaf (string) of the tree. */
 async function mapTree(tree, fn) {
   if (typeof tree === "string") return fn(tree);
   const output = Array.isArray(tree) ? [] : {};
@@ -49,7 +49,7 @@ async function mapTree(tree, fn) {
 const source = JSON.parse(await readFile(SOURCE, "utf8"));
 
 for (const tl of TARGETS) {
-  // On collecte toutes les feuilles, on protege, on traduit par lots, on remet.
+  // Collect every leaf, shield, translate in batches, restore.
   const leaves = [];
   await mapTree(source, (s) => {
     leaves.push(s);
@@ -66,8 +66,8 @@ for (const tl of TARGETS) {
   }
   const tree = await mapTree(source, (s) => cache[`${tl}|${s}`] ?? s);
   await writeFile(`src/i18n/messages/${tl}.json`, JSON.stringify(tree, null, 2) + "\n");
-  // Meme forme que le fichier versionne : une entree par ligne, diffs lisibles.
+  // Same shape as the versioned file: one entry per line, readable diffs.
   await writeFile(CACHE, JSON.stringify(cache, null, 2) + "\n");
-  console.log(`${tl}.json : ${unique.length} messages (${missing.length} nouveaux)`);
+  console.log(`${tl}.json: ${unique.length} messages (${missing.length} new)`);
 }
-console.log("Catalogues traduits.");
+console.log("Catalogues translated.");

@@ -2,39 +2,39 @@ import generatedEvolution from "@/data/game/evolution.json";
 import type { MeasuredRank } from "./measured-ranks";
 
 /**
- * Evolution des taux d'un heros : series quotidiennes sur trente jours par
- * rang, taux de victoire par duree de partie, et historique long cumule d'une
- * synchronisation a l'autre. Lu par la seule fiche heros : le fichier reste
- * hors des pages qui n'en ont pas besoin.
+ * Trend of a hero's rates: daily series over thirty days per rank, win rate
+ * by match duration, and a long history accumulated from one sync to the
+ * next. Read only by the hero page: the file stays out of pages that do not
+ * need it.
  */
 
-/** Taux quotidiens alignes sur une date de debut ; un jour manquant vaut null. */
+/** Daily rates aligned on a start date; a missing day is null. */
 export interface SeriesRate {
   start: string;
   winRate: (number | null)[];
   banRate: (number | null)[];
   pickRate: (number | null)[];
   /**
-   * Premier jour reellement mesure au jour pres, quand la serie commence par
-   * des semaines etalees (valeurs interpolees). Un calcul qui veut des
-   * mesures, pas une courbe, doit ignorer les jours d'avant.
+   * First day actually measured day by day, when the series starts with
+   * spread-out weeks (interpolated values). A computation that needs
+   * measurements, not a curve, must ignore the days before.
    */
   measuredSince?: string;
 }
 
 /**
- * Historique tel que stocke : les derniers jours au jour pres, les semaines
- * plus anciennes en moyennes (voir compacterHistorique, scripts/measures.mjs).
- * `semaines.debut` est un lundi, un point tous les sept jours.
+ * History as stored: the latest days day by day, older weeks as averages
+ * (see compactHistory, scripts/measures.mjs).
+ * `weeks.start` is a Monday, one point every seven days.
  */
 export interface HistoryStored extends SeriesRate {
   weeks?: SeriesRate;
 }
 
-/** Taux de victoire sur une tranche de duree de partie, en minutes. */
+/** Win rate over a match duration bucket, in minutes. */
 export interface BucketDuration {
   from: number;
-  /** Absent pour la derniere tranche, ouverte (« 20 min et plus »). */
+  /** Absent for the last, open-ended bucket ("20 min and more"). */
   to: number | null;
   winRate: number;
 }
@@ -53,12 +53,12 @@ const dateOfDay = (n: number) => new Date(n * DAY).toISOString().slice(0, 10);
 const MEASURES = ["winRate", "banRate", "pickRate"] as const;
 
 /**
- * Ramene un historique compacte a une serie quotidienne. Chaque moyenne
- * hebdomadaire est posee au milieu de sa semaine (le jeudi), et les jours qui
- * separent deux points connus sont interpoles, jusqu'au premier jour mesure au
- * jour pres : la courbe reste continue, sans trou ni palier. La serie commence
- * au premier jeudi — rien n'est extrapole — et la partie recente est rendue
- * telle quelle. Un historique sans semaines est deja quotidien.
+ * Turns a compacted history back into a daily series. Each weekly average is
+ * placed in the middle of its week (the Thursday), and the days between two
+ * known points are interpolated, up to the first day measured day by day: the
+ * curve stays continuous, with no gap or step. The series starts on the first
+ * Thursday — nothing is extrapolated — and the recent part is returned as is.
+ * A history without weeks is already daily.
  */
 export function spreadHistory(stored: HistoryStored): SeriesRate {
   const { weeks, ...daily } = stored;
@@ -76,8 +76,8 @@ export function spreadHistory(stored: HistoryStored): SeriesRate {
     measuredSince: daily.start,
   };
   for (const m of MEASURES) {
-    // Points connus, en numero de jour : les jeudis des semaines mesurees, puis
-    // le premier jour mesure de la partie quotidienne, qui raccorde les deux.
+    // Known points, as day numbers: the Thursdays of the measured weeks, then
+    // the first measured day of the daily part, which joins the two.
     const known = weeks[m].flatMap((v, k) => (v === null ? [] : [[monday + 7 * k + 3, v] as const]));
     const k = daily[m].findIndex((v) => v !== null);
     if (k >= 0) known.push([first + days + k, daily[m][k]!]);

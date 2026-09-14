@@ -1,12 +1,12 @@
 import { defineConfig, devices } from "@playwright/test";
 
 /**
- * Tests de navigateur (Playwright).
+ * Browser tests (Playwright).
  *
- * En integration continue, l'application est construite puis servie en mode
- * production ; en local, on reutilise le serveur de developpement s'il tourne
- * deja. Les tests visent le parcours, pas le pixel : ils verifient que les
- * pages cles s'ouvrent et repondent aux interactions.
+ * In continuous integration, the app is built then served in production mode;
+ * locally, the development server is reused if it is already running. The
+ * tests target the user journey, not the pixel: they check that key pages
+ * open and respond to interactions.
  */
 export default defineConfig({
   testDir: "tests/e2e",

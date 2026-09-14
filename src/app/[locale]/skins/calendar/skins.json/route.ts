@@ -4,10 +4,10 @@ import { encodeIndex } from "@/lib/skin-catalog";
 import { catalogSkins } from "@/lib/skin-catalog-server";
 
 /**
- * Index compact de tous les skins (heros, rarete, serie, date, prix,
- * portrait), un fichier statique par langue. Le calendrier ne le demande
- * qu'au premier filtre, le calculateur de collection a son ouverture : ni
- * l'un ni l'autre n'embarque le millier de skins dans sa page.
+ * Compact index of every skin (hero, rarity, series, date, price,
+ * portrait), one static file per language. The calendar only requests it
+ * on the first filter, the collection calculator when it opens: neither
+ * one embeds the thousand skins in its page.
  */
 export const dynamic = "force-static";
 

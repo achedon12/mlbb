@@ -6,18 +6,18 @@ import type { GeneratedItem } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Pieces de la fiche d'un objet, communes au catalogue (panneau lateral et
- * tiroir, dans le navigateur) et a la page de chaque objet (rendue au serveur).
+ * Parts of an item sheet, shared by the catalogue (side panel and drawer, in
+ * the browser) and each item's page (rendered on the server).
  *
- * Aucun hook : l'appelant fournit la traduction, la langue, et la facon
- * d'ouvrir un autre objet — un bouton qui change l'ancre dans le catalogue, un
- * lien vers sa page ailleurs.
+ * No hooks: the caller provides the translation, the language, and the way
+ * to open another item — a button that changes the anchor in the catalogue, a
+ * link to its page elsewhere.
  */
 export interface PreviewItem extends GeneratedItem {
   image: string | null;
 }
 
-/** Les objets par nom, et ce que chacun sert a fabriquer (recettes lues a l'envers). */
+/** Items by name, and what each one builds into (recipes read backwards). */
 export interface CatalogRecipes {
   byName: Map<string, PreviewItem>;
   outlets: Map<string, PreviewItem[]>;
@@ -32,10 +32,10 @@ export function catalogRecipes(items: PreviewItem[]): CatalogRecipes {
   return { byName, outlets };
 }
 
-/** Ouvre un autre objet : recoit l'objet vise, le contenu du lien et ses classes. */
+/** Opens another item: receives the target item, the link content and its classes. */
 export type ToItem = (o: PreviewItem, content: ReactNode, className: string) => ReactNode;
 
-/** Ce que coute l'assemblage lui-meme, une fois les composants en poche. */
+/** What the assembly itself costs, once the components are owned. */
 export function costMerge(item: PreviewItem, catalog: CatalogRecipes): number | null {
   const components = item.recipe.map((name) => catalog.byName.get(name));
   if (item.price === null || components.length === 0 || !components.every((c) => c?.price != null)) return null;
@@ -44,7 +44,7 @@ export function costMerge(item: PreviewItem, catalog: CatalogRecipes): number | 
 
 const count = (locale: Locale, n: number) => n.toLocaleString(LOCALE_HTML[locale]);
 
-/** Statistiques et effets, en paires `dt`/`dd` a placer dans un `dl`. */
+/** Stats and effects, as `dt`/`dd` pairs to place in a `dl`. */
 export function EffectsItem({ item, t }: { item: PreviewItem; t: T }) {
   return (
     <>
@@ -76,7 +76,7 @@ export function EffectsItem({ item, t }: { item: PreviewItem; t: T }) {
   );
 }
 
-/** Recette (avec le cout de fusion) et objets que celui-ci sert a fabriquer, en paires `dt`/`dd`. */
+/** Recipe (with the merge cost) and items this one builds into, as `dt`/`dd` pairs. */
 export function RecipeItem({
   item,
   catalog,
@@ -131,8 +131,8 @@ export function RecipeItem({
 }
 
 /**
- * Arbre de fabrication : chaque composant avec son icone et son prix, puis ses
- * propres composants en retrait. Chaque composant ouvre sa propre fiche.
+ * Build tree: each component with its icon and price, then its own components
+ * indented. Each component opens its own sheet.
  */
 export function RecipeTree({
   names,
@@ -168,7 +168,7 @@ export function RecipeTree({
         return (
           <li key={`${name}-${i}`}>
             {o ? to(o, content, cssClass) : <span className={cssClass}>{content}</span>}
-            {/* Garde-fou : une recette mal saisie ne doit pas boucler sans fin. */}
+            {/* Safeguard: a mistyped recipe must not loop forever. */}
             {o && o.recipe.length > 0 && depth < 4 && (
               <RecipeTree
                 names={o.recipe}
@@ -187,9 +187,9 @@ export function RecipeTree({
 }
 
 /**
- * Icone a taille fixe : largeur et hauteur connues, le navigateur n'a que deux
- * versions a choisir (1x, 2x). En `fill`, chaque icone emportait les quinze
- * largeurs de la configuration, soit 1 Ko de HTML par vignette.
+ * Fixed-size icon: with width and height known, the browser only has two
+ * versions to choose from (1x, 2x). With `fill`, each icon carried the fifteen
+ * configured widths, i.e. 1 KB of HTML per thumbnail.
  */
 export function ItemIcon({ image, size }: { image: string | null; size: number }) {
   return (

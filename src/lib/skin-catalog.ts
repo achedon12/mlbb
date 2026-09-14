@@ -4,7 +4,7 @@ import { anchorSkin } from "./skins";
 import type { Role } from "./types";
 import { keySearch } from "./utils";
 
-/** Dossier des visuels d'un heros : les chemins de l'index s'y rapportent, pour peser moins. */
+/** Folder of a hero's visuals: index paths are relative to it, to weigh less. */
 const folder = (slug: string) => `/visuels/heros/${slug}/`;
 export const heroRelative = (slug: string, path: string | null) =>
   path?.startsWith(folder(slug)) ? path.slice(folder(slug).length) : path;
@@ -12,26 +12,26 @@ export const absoluteHero = (slug: string, path: string | null) =>
   path && !path.startsWith("/") ? `${folder(slug)}${path}` : path;
 
 /**
- * Catalogue des skins, pour le calendrier des sorties et le calculateur de
- * collection.
+ * Skin catalogue, for the release calendar and the collection
+ * calculator.
  *
- * Le serveur publie un index compact (`/{langue}/skins/calendar/skins.json`),
- * en tuples, sans noms de champs repetes : un millier de skins partent au
- * navigateur, et seulement au premier besoin. Ce module le decode en objets
- * lisibles et porte les calculs communs (dates, regroupements, filtres). Il
- * n'importe aucune donnee : un composant client peut l'utiliser.
+ * The server publishes a compact index (`/{locale}/skins/calendar/skins.json`),
+ * as tuples, without repeated field names: about a thousand skins are sent to the
+ * browser, and only when first needed. This module decodes it into readable
+ * objects and holds the shared computations (dates, grouping, filters). It
+ * imports no data: a client component can use it.
  */
 
 export const ROLES_INDEX: readonly Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 export const AVAILABILITIES = ["Available", "Limited", "Upcoming"] as const;
 export type Availability = (typeof AVAILABILITIES)[number];
 
-/** Monnaies chiffrees d'un prix. Le texte d'obtention (`other` du wiki) est a part. */
+/** Numeric currencies of a price. The acquisition text (wiki `other`) is separate. */
 export const NUMERIC_CURRENCIES = ["dm", "bp", "ticket", "mc", "lg", "hf", "mythcoin"] as const;
 export type Currency = (typeof NUMERIC_CURRENCIES)[number];
 export type Price = Partial<Record<Currency, number>>;
 
-/** Libelle de chaque monnaie, sous `skinsUI`. */
+/** Label of each currency, under `skinsUI`. */
 export const LABEL_CURRENCY: Record<Currency, string> = {
   dm: "diamonds",
   bp: "battlePoints",
@@ -52,35 +52,35 @@ export interface CatalogHero {
 export interface SkinCatalog {
   id: string;
   name: string;
-  /** Slug du heros. */
+  /** Hero slug. */
   hero: string;
-  /** Rang de rarete (1 Commun a 6 Supreme), 0 pour le skin d'origine. */
+  /** Rarity rank (1 Common to 6 Supreme), 0 for the original skin. */
   rarity: number;
-  /** Serie ou evenement (« Collector », « StarLight »), tel que le wiki l'etiquette. */
+  /** Series or event ("Collector", "StarLight"), as labeled by the wiki. */
   series: string | null;
-  /** Date telle que le wiki la donne : « 2025-05-01 », « 2025-05 », « 2025 », parfois « 202X ». */
+  /** Date as the wiki gives it: "2025-05-01", "2025-05", "2025", sometimes "202X". */
   release: string | null;
   availability: Availability | null;
   price: Price;
-  /** Moyen d'obtention en clair, quand il remplace ou complete le prix (« 2025/05 StarLight Member »). */
+  /** Acquisition method in plain text, when it replaces or completes the price ("2025/05 StarLight Member"). */
   acquisition: string | null;
-  /** Portrait de boutique, a defaut l'illustration ; chemin absolu. */
+  /** Shop portrait, otherwise the illustration; absolute path. */
   image: string | null;
-  /** Ancre du skin dans la galerie de son heros. */
+  /** Anchor of the skin in its hero's gallery. */
   anchor: string;
 }
 
-/** Le skin d'origine vient avec le heros : son prix est celui du heros. */
+/** The original skin comes with the hero: its price is the hero's. */
 export const isOrigin = (s: SkinCatalog) => s.rarity === 0;
 
 export interface Catalog {
-  /** Date de la synchronisation, ISO (jour). */
+  /** Sync date, ISO (day). */
   maj: string;
   heroes: CatalogHero[];
   skins: SkinCatalog[];
 }
 
-// ── Index compact ───────────────────────────────────────────────────
+// ── Compact index ───────────────────────────────────────────────────
 
 export type HeroIndex = [slug: string, name: string, roles: number[], icon: string | null];
 export type SkinIndex = [
@@ -88,15 +88,15 @@ export type SkinIndex = [
   id: string,
   name: string,
   rarity: number,
-  /** Position dans `series`, -1 sans serie. */
+  /** Position in `series`, -1 without series. */
   series: number,
-  /** Vide quand le wiki ne date pas le skin. */
+  /** Empty when the wiki does not date the skin. */
   release: string,
-  /** Position dans `DISPOS`, -1 inconnue. */
+  /** Position in `AVAILABILITIES`, -1 unknown. */
   availability: number,
   price: Price,
   acquisition: string | null,
-  /** Relative au dossier du heros quand elle y est. */
+  /** Relative to the hero folder when it is inside it. */
   image: string | null,
 ];
 
@@ -108,8 +108,8 @@ export interface IndexSkins {
 }
 
 /**
- * Ancres des skins d'un heros, dans l'ordre de sa galerie : deux noms qui se
- * reduisent au meme texte prennent un suffixe. Meme regle que `ancresGalerie`.
+ * Anchors of a hero's skins, in gallery order: two names that
+ * reduce to the same text get a suffix. Same rule as `uniqueAnchors`.
  */
 export function anchorsOf(names: readonly string[]): string[] {
   const views = new Map<string, number>();
@@ -121,7 +121,7 @@ export function anchorsOf(names: readonly string[]): string[] {
   });
 }
 
-/** Series classees de la plus fournie a la plus rare : les plus courantes ont les plus petits numeros. */
+/** Series sorted from most populated to rarest: the most common get the smallest numbers. */
 function seriesDictionary(skins: readonly SkinCatalog[]): string[] {
   const counts = new Map<string, number>();
   for (const s of skins) if (s.series) counts.set(s.series, (counts.get(s.series) ?? 0) + 1);
@@ -179,7 +179,7 @@ export function decodeIndex(index: IndexSkins): Catalog {
       anchor: "",
     };
   });
-  // Les ancres se recalculent dans l'ordre de chaque galerie, plutot que de voyager dans l'index.
+  // Anchors are recomputed in each gallery's order, rather than travelling in the index.
   const byHero = new Map<string, SkinCatalog[]>();
   for (const s of skins) byHero.set(s.hero, [...(byHero.get(s.hero) ?? []), s]);
   for (const list of byHero.values()) {
@@ -189,7 +189,7 @@ export function decodeIndex(index: IndexSkins): Catalog {
   return { maj: index.maj, heroes, skins };
 }
 
-/** Index charge une seule fois par visite, au premier besoin. */
+/** Index loaded only once per visit, when first needed. */
 let promise: Promise<Catalog> | null = null;
 export function loadCatalog(locale: string): Promise<Catalog> {
   promise ??= fetch(`/${locale}/skins/calendar/skins.json`)
@@ -199,7 +199,7 @@ export function loadCatalog(locale: string): Promise<Catalog> {
     })
     .then(decodeIndex)
     .catch((e) => {
-      // Un echec (hors ligne) ne doit pas bloquer le prochain essai.
+      // A failure (offline) must not block the next attempt.
       promise = null;
       throw e;
     });
@@ -216,7 +216,7 @@ export interface ReleaseDate {
 
 const FORMAT_RELEASE = /^(\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/;
 
-/** Date du wiki, au jour, au mois ou a l'annee ; null quand elle est approximative (« 202X ») ou absente. */
+/** Wiki date, to the day, month or year; null when approximate ("202X") or missing. */
 export function readRelease(release: string | null | undefined): ReleaseDate | null {
   const m = release ? FORMAT_RELEASE.exec(release) : null;
   if (!m) return null;
@@ -224,9 +224,9 @@ export function readRelease(release: string | null | undefined): ReleaseDate | n
 }
 
 /**
- * Skin sorti a la date de reference : date lisible, ni annonce (« a venir »),
- * ni date posterieure. Une date au mois ou a l'annee se compare a sa
- * precision : « 2026-09 » est sorti le 11 septembre 2026.
+ * Skin released as of the reference date: readable date, neither announced ("upcoming"),
+ * nor a later date. A date to the month or year is compared at its
+ * precision: "2026-09" is released on September 11, 2026.
  */
 export function isReleased(s: SkinCatalog, reference: string): boolean {
   if (s.availability === "Upcoming" || !s.release || !readRelease(s.release)) return false;
@@ -234,7 +234,7 @@ export function isReleased(s: SkinCatalog, reference: string): boolean {
 }
 
 export interface MonthSkins {
-  /** 1 a 12, null quand le wiki ne donne que l'annee. */
+  /** 1 to 12, null when the wiki only gives the year. */
   month: number | null;
   skins: SkinCatalog[];
 }
@@ -245,10 +245,10 @@ export interface YearSkins {
 }
 
 /**
- * Skins ranges par annee puis par mois. `recent` : annees et mois du plus
- * recent au plus ancien ; `chronologique` : l'annee se lit de janvier a
- * decembre. Les skins dates a l'annee seule ferment toujours leur annee. Un
- * skin sans date lisible est ecarte.
+ * Skins grouped by year then by month. `recent`: years and months from most
+ * recent to oldest; `chronologique`: the year reads from January to
+ * December. Skins dated to the year only always close their year. A
+ * skin without a readable date is dropped.
  */
 export function groupByDate(
   skins: readonly SkinCatalog[],
@@ -278,7 +278,7 @@ export function groupByDate(
     });
 }
 
-/** Les `limite` premiers skins de groupes deja ordonnes, groupes compris : l'affichage s'allonge par pas. */
+/** The first `limit` skins of already ordered groups, groups included: the display grows in steps. */
 export function truncateGroups(groups: readonly YearSkins[], limit: number): YearSkins[] {
   let rest = limit;
   const output: YearSkins[] = [];
@@ -296,7 +296,7 @@ export function truncateGroups(groups: readonly YearSkins[], limit: number): Yea
   return output;
 }
 
-/** Les skins dates au moins au mois, du plus recent au plus ancien. */
+/** Skins dated at least to the month, from most recent to oldest. */
 export function newest(skins: readonly SkinCatalog[], count: number): SkinCatalog[] {
   return skins
     .filter((s) => (readRelease(s.release)?.month ?? null) !== null)
@@ -304,7 +304,7 @@ export function newest(skins: readonly SkinCatalog[], count: number): SkinCatalo
     .slice(0, count);
 }
 
-// ── Filtres et series ──────────────────────────────────────────────
+// ── Filters and series ──────────────────────────────────────────────
 
 export interface FiltersSkins {
   search?: string;
@@ -315,7 +315,7 @@ export interface FiltersSkins {
   year?: number | null;
 }
 
-/** La recherche porte sur le nom du skin et sur celui de son heros, sans casse ni accents. */
+/** Search matches the skin name and its hero's name, case- and accent-insensitive. */
 export function filterSkins(
   skins: readonly SkinCatalog[],
   heroes: ReadonlyMap<string, CatalogHero>,
@@ -337,12 +337,12 @@ export function filterSkins(
 export interface StatSeries {
   series: string;
   total: number;
-  /** Premiere et derniere date connues de la serie. */
+  /** First and last known dates of the series. */
   first: string | null;
   last: string | null;
 }
 
-/** Series presentes, de la plus fournie a la plus rare. */
+/** Series present, from most populated to rarest. */
 export function seriesStats(skins: readonly SkinCatalog[]): StatSeries[] {
   const bySeries = new Map<string, StatSeries>();
   for (const s of skins) {
@@ -358,7 +358,7 @@ export function seriesStats(skins: readonly SkinCatalog[]): StatSeries[] {
   return [...bySeries.values()].sort((a, b) => b.total - a.total || a.series.localeCompare(b.series, "en"));
 }
 
-// ── Libelles ───────────────────────────────────────────────────────
+// ── Labels ───────────────────────────────────────────────────────
 
 const BY_RANK: Rarity[] = [RARITY_ORIGIN, ...Object.values(RARITIES).sort((a, b) => a.rank - b.rank)];
 
@@ -366,10 +366,10 @@ export function rarityOfRank(rank: number): Rarity {
   return BY_RANK[rank] ?? RARITY_ORIGIN;
 }
 
-/** Rangs des raretes achetables, du plus commun au plus rare. */
+/** Ranks of purchasable rarities, from most common to rarest. */
 export const RANKS_RARITY = BY_RANK.slice(1).map((r) => r.rank);
 
-/** Libelle traduit d'une valeur du wiki, ou la valeur elle-meme quand le catalogue ne la connait pas. */
+/** Translated label of a wiki value, or the value itself when the catalogue does not know it. */
 export function orLabel(t: T, key: string, value: string): string {
   const translated = t(`${key}.${value}`);
   return translated === `${key}.${value}` ? value : translated;
@@ -378,7 +378,7 @@ export function orLabel(t: T, key: string, value: string): string {
 export const labelRarity = (t: T, rank: number) => t(`skinRarity.${rarityOfRank(rank).key}`);
 export const seriesLabel = (t: T, series: string) => orLabel(t, "skinLabel", series);
 
-/** « 599 diamants · 32 000 points de bataille », ou null sans prix chiffre. */
+/** "599 diamonds · 32,000 battle points", or null without a numeric price. */
 export function textPrice(price: Price, t: T, count: Intl.NumberFormat): string | null {
   const matches = NUMERIC_CURRENCIES.flatMap((m) =>
     price[m] != null ? [`${count.format(price[m]!)} ${t(`skinsUI.${LABEL_CURRENCY[m]}`).toLowerCase()}`] : [],
@@ -386,5 +386,5 @@ export function textPrice(price: Price, t: T, count: Intl.NumberFormat): string 
   return matches.length ? matches.join(" · ") : null;
 }
 
-/** Galerie du heros, ouverte sur le skin. */
+/** Hero gallery, opened on the skin. */
 export const linkSkin = (s: SkinCatalog) => `/heroes/${s.hero}/skins#${s.anchor}`;

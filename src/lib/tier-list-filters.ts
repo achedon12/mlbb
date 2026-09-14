@@ -2,12 +2,12 @@ import { LANES, ROLES } from "./draft";
 import type { Lane, Role } from "./types";
 
 /**
- * Tier lists par lane et par role, et pages de role du catalogue.
+ * Tier lists by lane and by role, and role pages of the catalogue.
  *
- * Les adresses sont en anglais, comme le reste du site et comme les recherches
- * des joueurs (« jungle tier list », « best marksman mlbb ») ; les valeurs
- * internes, elles, restent celles des donnees (`Or`, `Milieu`…). Module sans
- * donnees : les tests et les composants client l'importent sans rien embarquer.
+ * Addresses are in English, like the rest of the site and like players'
+ * searches ("jungle tier list", "best marksman mlbb"); internal values
+ * stay those of the data (`Gold`, `Mid`…). Module without
+ * data: tests and client components import it without bundling anything.
  */
 export const SLUGS_LANE: Record<Lane, string> = {
   Gold: "gold",
@@ -26,40 +26,40 @@ export const SLUGS_ROLE: Record<Role, string> = {
   Support: "support",
 };
 
-/** Lane designee par son adresse, ou null. */
+/** Lane designated by its address, or null. */
 export const laneOfSlug = (slug: string): Lane | null => LANES.find((l) => SLUGS_LANE[l] === slug) ?? null;
 
-/** Role designe par son adresse, ou null. */
+/** Role designated by its address, or null. */
 export const roleOfSlug = (slug: string): Role | null => ROLES.find((r) => SLUGS_ROLE[r] === slug) ?? null;
 
 export type FilterTier = { type: "lane"; value: Lane } | { type: "role"; value: Role };
 
-/** Adresse de la tier list d'une lane ou d'un role, sans langue. */
+/** Address of a lane's or role's tier list, without locale. */
 export function pathFilter(f: FilterTier): string {
   return f.type === "lane" ? `/tier-list/lane/${SLUGS_LANE[f.value]}` : `/tier-list/role/${SLUGS_ROLE[f.value]}`;
 }
 
-/** Page d'un role dans le catalogue des heros. */
+/** Page of a role in the hero catalogue. */
 export const pathRole = (role: Role) => `/heroes/role/${SLUGS_ROLE[role]}`;
 
-/** Filtres de toutes les lanes, puis de tous les roles, dans l'ordre du jeu. */
+/** Filters for every lane, then every role, in game order. */
 export const FILTERS_LANE: FilterTier[] = LANES.map((value) => ({ type: "lane", value }));
 export const FILTERS_ROLE: FilterTier[] = ROLES.map((value) => ({ type: "role", value }));
 
 /**
- * Emplacement habituel de l'icone d'un heros (`npm run sync -- --images`). Les
- * lignes de la tier list ne transmettent l'icone que lorsqu'elle est ailleurs :
- * inutile de repeter 132 fois le meme chemin dans la page.
+ * Usual location of a hero's icon (`npm run sync -- --images`). Tier list
+ * rows only send the icon when it is elsewhere:
+ * no need to repeat the same path 132 times in the page.
  */
 export const usualIcon = (slug: string) => `/visuels/heros/${slug}/icone.png`;
 
-/** Vrai quand le heros joue la lane, ou tient le role (principal ou secondaire). */
+/** True when the hero plays the lane, or holds the role (main or secondary). */
 export function matches(h: { lanes: Lane[]; roles: Role[] }, f: FilterTier | null): boolean {
   if (!f) return true;
   return f.type === "lane" ? h.lanes.includes(f.value) : h.roles.includes(f.value);
 }
 
-/** Entrees d'un classement retenues par le filtre, dans leur ordre. */
+/** Entries of a ranking kept by the filter, in their order. */
 export function filterRanking<E extends { hero: { lanes: Lane[]; roles: Role[] } }>(
   entries: E[],
   f: FilterTier | null,

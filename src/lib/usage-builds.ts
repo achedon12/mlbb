@@ -2,32 +2,32 @@ import type { BuildPlayed, BuildsHero } from "./data";
 import { MEASURED_RANKS, type MeasuredRank } from "./measured-ranks";
 
 /**
- * Usage d'un choix de build — objet, embleme, sort — lu dans les builds
- * reellement joues.
+ * Usage of a build choice — item, emblem, spell — read from the builds
+ * actually played.
  *
- * Chaque heros publie, par position et par rang, ses trois builds les plus
- * joues avec leur part des parties (`selection`) et leur taux de victoire.
- * Retourner ces tableaux donne ce qu'aucune fiche d'objet ne dit : qui prend
- * cet objet, sur quelle position, et avec quel resultat.
+ * Each hero publishes, by lane and by rank, its three most played builds
+ * with their share of games (`selection`) and their win rate.
+ * Turning these tables around gives what no item page says: who takes
+ * this item, in which lane, and with what result.
  *
- * Fonctions pures, sans donnees importees : les tests leur passent des builds
- * fabriques a la main.
+ * Pure functions, without imported data: tests pass them hand-made
+ * builds.
  */
 
-/** Cles d'un build pour le type de choix etudie (slugs d'objets, embleme, sort). */
+/** Keys of a build for the studied choice type (item slugs, emblem, spell). */
 export type Extract = (b: BuildPlayed) => Iterable<string>;
 
 export interface UsageHero {
   slug: string;
-  /** Position ou le choix pese le plus pour ce heros. */
+  /** Lane where the choice weighs the most for this hero. */
   lane: string;
-  /** Part des parties du heros, sur cette position, jouees avec un build qui contient le choix (en %). */
+  /** Share of the hero's games, in this lane, played with a build containing the choice (in %). */
   selection: number;
-  /** Taux de victoire de ces builds, moyenne ponderee par leur part (en %). */
+  /** Win rate of these builds, average weighted by their share (in %). */
   win: number | null;
 }
 
-/** Cumul de builds : part totale et taux de victoire pondere. */
+/** Build accumulator: total share and weighted win rate. */
 class Total {
   part = 0;
   private won = 0;
@@ -45,7 +45,7 @@ class Total {
     }
   }
 
-  /** Sans part connue, la moyenne simple plutot qu'aucun taux. */
+  /** Without a known share, the simple average rather than no rate. */
   get win(): number | null {
     if (this.pese > 0) return this.won / this.pese;
     return this.raw.length ? this.raw.reduce((s, v) => s + v, 0) / this.raw.length : null;
@@ -56,9 +56,9 @@ const byPart = (a: UsageHero, b: UsageHero) =>
   b.selection - a.selection || (b.win ?? 0) - (a.win ?? 0) || a.slug.localeCompare(b.slug);
 
 /**
- * Pour chaque choix, les heros qui le prennent au rang demande, le plus engage
- * d'abord. Un heros n'apparait qu'une fois, sur la position ou le choix occupe
- * la plus grande part de ses parties.
+ * For each choice, the heroes that take it at the requested rank, the most committed
+ * first. A hero appears only once, in the lane where the choice takes
+ * the largest share of their games.
  */
 export function usageByChoice(
   builds: Record<string, BuildsHero>,
@@ -70,7 +70,7 @@ export function usageByChoice(
     for (const [lane, byRank] of Object.entries(byLane)) {
       const totals = new Map<string, Total>();
       for (const b of byRank[rank] ?? []) {
-        // Un objet pris deux fois dans le meme build ne compte qu'une fois.
+        // An item taken twice in the same build only counts once.
         for (const key of new Set(extract(b))) {
           const c = totals.get(key) ?? new Total();
           c.add(b);
@@ -92,15 +92,15 @@ export function usageByChoice(
 
 export interface SummaryRank {
   rank: MeasuredRank;
-  /** Nombre de heros qui prennent le choix a ce rang. */
+  /** Number of heroes taking the choice at this rank. */
   heroes: number;
-  /** Heros le plus engage a ce rang. */
+  /** Most committed hero at this rank. */
   first: UsageHero | null;
-  /** Taux de victoire moyen des builds concernes, pondere par leur part (en %). */
+  /** Average win rate of the builds concerned, weighted by their share (in %). */
   win: number | null;
 }
 
-/** Une ligne par rang mesure, a partir des usages deja calcules pour chacun. */
+/** One row per measured rank, from the usages already computed for each. */
 export function summaryByRank(usages: Partial<Record<MeasuredRank, UsageHero[]>>): SummaryRank[] {
   return MEASURED_RANKS.map((rank) => {
     const list = usages[rank] ?? [];
@@ -117,14 +117,14 @@ export function summaryByRank(usages: Partial<Record<MeasuredRank, UsageHero[]>>
 
 export interface PartChoice {
   key: string;
-  /** Part des builds retenus, ponderee par leur part des parties (en %). */
+  /** Share of the kept builds, weighted by their share of games (in %). */
   part: number;
 }
 
 /**
- * Repartition d'un choix parmi les builds qui en remplissent un autre : les
- * talents pris avec un embleme, les sorts pris avec lui. Chaque build pese sa
- * part des parties ; un build sans part connue pese comme le plus faible.
+ * Distribution of a choice among builds that fill another one: the
+ * talents taken with an emblem, the spells taken with it. Each build weighs its
+ * share of games; a build without a known share weighs as the weakest.
  */
 export function partsByChoice(
   builds: Record<string, BuildsHero>,

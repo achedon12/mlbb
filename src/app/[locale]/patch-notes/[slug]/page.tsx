@@ -22,8 +22,8 @@ type Params = { params: Promise<{ locale: Locale; slug: string }> };
 const patches = patchDetails;
 
 /**
- * « MLBB Patch 2.1.88: All Hero Buffs & Nerfs (42 changes) » : le nombre de
- * heros touches, tire des notes, dit d'emblee l'ampleur du patch.
+ * "MLBB Patch 2.1.88: All Hero Buffs & Nerfs (42 changes)": the number of
+ * heroes affected, taken from the notes, tells the patch's scale right away.
  */
 function titlePatch(locale: Locale, patch: DetailedPatch): string {
   const t = createT(locale);
@@ -34,10 +34,10 @@ function titlePatch(locale: Locale, patch: DetailedPatch): string {
 }
 
 /**
- * Une meme route sert deux choses : les notes officielles reprises du wiki,
- * designees par leur numero de version, et les analyses redigees, designees
- * par leur slug. Les deux ne peuvent pas entrer en collision — un numero de
- * version n'est jamais un slug d'article.
+ * A single route serves two things: the official notes taken from the wiki,
+ * designated by their version number, and the written analyses, designated
+ * by their slug. The two cannot collide — a version
+ * number is never an article slug.
  */
 export function generateStaticParams() {
   return [
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   if (patch) {
     const t = createT(locale);
-    // Description en donnees : date, ajustements par sens et premiers heros touches.
+    // Description built from data: date, adjustments by direction and first heroes affected.
     const names = [...new Set(patch.adjustments.map((a) => heroesBySlug.get(a.slug)?.name ?? a.name))].slice(0, 4);
     const version = patch.date ? `${patch.version} (${longDate(locale, patch.date)})` : patch.version;
     return metaPage(locale, {
@@ -90,9 +90,9 @@ export default async function PatchPage({ params }: Params) {
   const patch = detailedPatches(locale)[slug];
   const t = createT(locale);
 
-  // ── Notes officielles reprises du wiki ────────────────────────────────
+  // ── Official notes taken from the wiki ────────────────────────────────
   if (patch) {
-    // Un patch pas encore traduit est servi dans sa langue d'origine.
+    // A patch not yet translated is served in its original language.
     const translated = patch !== patchDetails[slug];
     const structuredData = {
       "@context": "https://schema.org",
@@ -154,9 +154,9 @@ export default async function PatchPage({ params }: Params) {
           )}
 
           {/*
-            Le sommaire accompagne la lecture plutot que de la preceder : une
-            note de patch se parcourt par sections, on n'en lit presque jamais
-            l'integralite.
+            The table of contents accompanies the reading rather than preceding it: a
+            patch note is browsed by section, it is almost never read
+            in full.
           */}
           <div className="mt-10 gap-10 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
             <aside className="mb-10 lg:mb-0">
@@ -165,12 +165,12 @@ export default async function PatchPage({ params }: Params) {
 
             <article className="min-w-0 max-w-3xl">
               {/*
-                Les notes sont rendues section par section, dans leur ordre
-                d'origine. Deux sections sont reprises par un composant riche a
-                leur place exacte — la presentation des nouveaux heros et le
-                tableau des ajustements — le reste garde le HTML du wiki, nettoye
-                a la synchronisation. La source est creditee sous l'article,
-                comme l'exige sa licence.
+                The notes are rendered section by section, in their original
+                order. Two sections are taken over by a rich component at
+                their exact place — the new heroes showcase and the
+                adjustments table — the rest keeps the wiki's HTML, cleaned
+                at sync time. The source is credited under the article,
+                as its license requires.
               */}
               {patch.sections.map((section, i) => (
                 <section key={section.anchor ?? i} className="mb-12">
@@ -246,7 +246,7 @@ export default async function PatchPage({ params }: Params) {
     );
   }
 
-  // ── Analyse redigee ───────────────────────────────────────────────────
+  // ── Written analysis ───────────────────────────────────────────────────
   const a = article("patch-notes", slug, locale);
   if (!a) notFound();
 

@@ -4,17 +4,17 @@ import { site } from "@/lib/site";
 import { heroGallery, heroesWithSkins } from "@/lib/hero-skins";
 
 /**
- * Plan des images : illustrations et portraits de skins, rattaches aux pages
- * qui les affichent, dans chaque langue. Les skins se cherchent dans Google
- * Images, et le plan principal (`sitemap.ts`) ne liste que des pages.
+ * Image sitemap: skin illustrations and portraits, attached to the pages
+ * that display them, in every language. Skins are searched for in Google
+ * Images, and the main sitemap (`sitemap.ts`) only lists pages.
  *
- * Seule l'adresse de chaque image est donnee : Google ne lit plus les titres
- * ni les legendes des plans d'images depuis 2022 ; les textes alternatifs des
- * pages font ce travail.
+ * Only each image's address is given: Google no longer reads the titles
+ * or captions of image sitemaps since 2022; the pages' alt texts
+ * do that job.
  */
 export const dynamic = "force-static";
 
-/** Plafond de Google par page. */
+/** Google's cap per sitemap. */
 const MAX_IMAGES = 1000;
 
 function escape(text: string): string {
@@ -43,7 +43,7 @@ function entry(page: string, images: (string | null | undefined)[], changed: str
 export function GET(): Response {
   const changed = sync.date.slice(0, 10);
   const entries = LOCALES.flatMap((l) => [
-    // Fiche : le portrait de tete (celui du skin d'origine) et l'illustration de fond.
+    // Hero page: the header portrait (that of the original skin) and the background illustration.
     ...allHeroes.map((h) =>
       entry(
         `/${l}/heroes/${h.slug}`,
@@ -51,7 +51,7 @@ export function GET(): Response {
         changed,
       ),
     ),
-    // Galerie : chaque illustration et chaque portrait de boutique.
+    // Gallery: each illustration and each shop portrait.
     ...heroesWithSkins.map((h) => {
       const g = heroGallery(h);
       return entry(

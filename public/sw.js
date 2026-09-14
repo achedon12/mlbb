@@ -1,18 +1,18 @@
 /**
- * Service worker : le site reste consultable sans connexion, et recoit les
- * notifications de patch.
+ * Service worker: the site stays browsable without a connection, and receives
+ * patch notifications.
  *
- * - Pages : reseau d'abord, cache en secours. Hors ligne, une page deja vue
- *   s'affiche telle qu'a la derniere visite ; une page jamais vue renvoie vers
- *   la page « hors ligne » de sa langue.
- * - Fichiers du build (/_next/static) : cache d'abord. Leur nom porte une
- *   empreinte : un fichier en cache ne peut pas etre perime.
- * - Images et polices : cache d'abord, nombre d'entrees plafonne.
- * - API et donnees de navigation React (RSC) : jamais mises en cache. Quand une
- *   navigation interne echoue faute de reseau, Next retombe sur un chargement
- *   classique de la page — que ce service worker sait servir.
- * - Notifications : le serveur envoie un message chiffre (titre, texte,
- *   chemin) ; on l'affiche, et un clic ouvre le chemin sur le site.
+ * - Pages: network first, cache as fallback. Offline, a page already seen
+ *   shows as it was on the last visit; a page never seen leads to the
+ *   "offline" page of its locale.
+ * - Build files (/_next/static): cache first. Their name carries a hash: a
+ *   cached file cannot be stale.
+ * - Images and fonts: cache first, with a capped number of entries.
+ * - API and React navigation data (RSC): never cached. When an internal
+ *   navigation fails for lack of network, Next falls back to a regular page
+ *   load — which this service worker can serve.
+ * - Notifications: the server sends an encrypted message (title, text,
+ *   path); it is shown, and a click opens the path on the site.
  */
 const VERSION = "v1";
 const CACHE_PAGES = `pages-${VERSION}`;
@@ -26,9 +26,9 @@ const MAX_IMAGES = 800;
 const MAX_DONNEES = 300;
 
 /**
- * En developpement, le service worker n'est enregistre que pour essayer les
- * notifications, sous « /sw.js?cache=0 » : sans cache, qui genererait le
- * rechargement a chaud. En production, l'adresse est « /sw.js ».
+ * In development, the service worker is only registered to try out
+ * notifications, as "/sw.js?cache=0": without a cache, which would get in the
+ * way of hot reloading. In production, the address is "/sw.js".
  */
 const CACHE_ACTIF = new URL(self.location.href).searchParams.get("cache") !== "0";
 
@@ -37,7 +37,7 @@ self.addEventListener("install", (event) => {
     event.waitUntil(self.skipWaiting());
     return;
   }
-  // La page « hors ligne » de chaque langue doit exister avant tout besoin.
+  // The "offline" page of each locale must exist before it is ever needed.
   event.waitUntil(
     caches
       .open(CACHE_PAGES)
@@ -84,15 +84,15 @@ self.addEventListener("fetch", (event) => {
   }
 });
 
-/** Prechauffage : la page envoie la liste des rubriques a garder hors ligne. */
+/** Prewarming: the page sends the list of sections to keep offline. */
 self.addEventListener("message", (event) => {
   if (!CACHE_ACTIF || event.data?.type !== "prechauffer" || !Array.isArray(event.data.urls)) return;
   event.waitUntil(prechauffer(event.data.urls));
 });
 
 /**
- * Notification de patch. Le navigateur exige qu'un message recu s'affiche :
- * meme illisible, on montre une notification generique plutot que rien.
+ * Patch notification. The browser requires every received message to be shown:
+ * even when unreadable, a generic notification is shown rather than nothing.
  */
 self.addEventListener("push", (event) => {
   let message = {};
@@ -113,19 +113,19 @@ self.addEventListener("push", (event) => {
   );
 });
 
-/** Clic : on revient sur l'onglet deja ouvert a cette adresse, sinon on l'ouvre. */
+/** Click: focus the tab already open at this address, otherwise open it. */
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   event.waitUntil(ouvrir(adresseSure(event.notification.data?.url)));
 });
 
-/** Seules les adresses du site s'ouvrent depuis une notification. */
+/** Only the site's own addresses open from a notification. */
 function adresseSure(brute) {
   try {
     const url = new URL(brute || "/", self.location.origin);
     if (url.origin === self.location.origin) return url.href;
   } catch {
-    /* adresse illisible : accueil */
+    /* unreadable address: home page */
   }
   return `${self.location.origin}/`;
 }
@@ -149,10 +149,9 @@ async function page(event, url) {
       (await cache.match(url.href)) ?? (await cache.match(url.pathname, { ignoreSearch: true }));
     if (enCache) return enCache;
 
-    // Les liens internes n'ont pas de prefixe de langue (« /heroes ») : en
-    // ligne, le proxy le retablit. Hors ligne, on cherche la page dans la
-    // langue de la page d'ou l'on vient, puis dans celle du navigateur, puis
-    // dans les autres.
+    // Internal links have no locale prefix ("/heroes"): online, the proxy
+    // restores it. Offline, the page is looked up in the locale of the page we
+    // came from, then in the browser's, then in the others.
     const langueDe = (chemin) =>
       LANGUES.find((l) => chemin === `/${l}` || chemin.startsWith(`/${l}/`));
     const prefixee = langueDe(url.pathname);
@@ -177,9 +176,9 @@ async function page(event, url) {
 }
 
 /**
- * Range une page. Une reponse issue d'une redirection (« / » vers « /fr ») ne
- * peut pas servir une navigation : on en garde une copie propre, sous
- * l'adresse demandee comme sous l'adresse finale.
+ * Stores a page. A response that came through a redirect ("/" to "/fr") cannot
+ * serve a navigation: a clean copy is kept, under the requested address as
+ * well as under the final one.
  */
 async function ranger(cache, url, reponse) {
   const propre = reponse.redirected
@@ -204,9 +203,8 @@ async function cacheDabord(event, nom, max) {
 }
 
 /**
- * Donnees chargees a la demande (mesures par rang de l'analyse d'equipe,
- * tendances du comparateur, index de la recherche) : fraiches en ligne, la
- * derniere copie hors ligne.
+ * Data loaded on demand (per-rank measures of the team analysis, compare page
+ * trends, search index): fresh online, the last copy offline.
  */
 async function reseauDabord(event, nom, max) {
   const cache = await caches.open(nom);
@@ -219,7 +217,7 @@ async function reseauDabord(event, nom, max) {
   }
 }
 
-/** Les entrees les plus anciennes partent en premier : `keys()` suit l'ordre d'ajout. */
+/** The oldest entries go first: `keys()` follows insertion order. */
 async function limiter(cache, max) {
   const cles = await cache.keys();
   for (let i = 0; i < cles.length - max; i += 1) await cache.delete(cles[i]);
@@ -234,7 +232,7 @@ async function prechauffer(urls) {
       const reponse = await fetch(url.href, { credentials: "same-origin" });
       if (reponse.ok) await ranger(cache, url, reponse);
     } catch {
-      return; // plus de reseau : on reprendra a la prochaine visite
+      return; // network gone: resume on the next visit
     }
   }
 }

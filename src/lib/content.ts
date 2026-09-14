@@ -6,18 +6,18 @@ import type { Article } from "./types";
 import { DEFAULT_LOCALE, type Locale } from "@/i18n/config";
 
 /**
- * Lecture des articles.
+ * Article reading.
  *
- * Le contenu vit dans `content/` en Markdown avec un en-tete YAML : un
- * contributeur peut ouvrir une pull request sans toucher au code. La lecture
- * se fait au build, jamais au runtime — les pages sont statiques.
+ * Content lives in `content/` as Markdown with a YAML header: a contributor
+ * can open a pull request without touching the code. Reading happens at
+ * build time, never at runtime — pages are static.
  */
 const ROOT = path.join(process.cwd(), "content");
 
 const SECTIONS = ["news", "patch-notes"] as const;
 type Section = (typeof SECTIONS)[number];
 
-/** Dossier d'une section pour une langue, avec repli sur le francais. */
+/** Folder of a section for a language, falling back to the default locale. */
 function folderOf(section: Section, locale: Locale): string {
   const local = path.join(ROOT, locale, section);
   if (fs.existsSync(local) && fs.readdirSync(local).some((f) => f.endsWith(".md"))) return local;
@@ -35,10 +35,10 @@ function readFolder(folder: string): Article[] {
       const { data, content } = matter(raw);
 
       return {
-        // Le nom de fichier commence par la date, qui n'a rien a faire dans
-        // l'URL : elle est deja portee par les donnees structurees. Le reste
-        // devient un segment d'adresse, encode : un nom de fichier ne doit
-        // jamais pouvoir former un lien executable.
+        // The file name starts with the date, which does not belong in the
+        // URL: it is already carried by the structured data. The rest
+        // becomes a URL segment, encoded: a file name must never be able to
+        // form an executable link.
         slug: encodeURIComponent(file.replace(/\.md$/, "").replace(/^\d{4}-\d{2}-\d{2}-/, "")),
         title: String(data.title ?? "Sans titre"),
         date: String(data.date ?? ""),
@@ -56,7 +56,7 @@ export function articles(section: Section, locale: Locale = DEFAULT_LOCALE): Art
   return readFolder(folderOf(section, locale));
 }
 
-/** Tous les articles confondus, du plus recent au plus ancien. */
+/** All articles combined, from newest to oldest. */
 export function allArticles(locale: Locale = DEFAULT_LOCALE): Article[] {
   return SECTIONS.flatMap((s) => articles(s, locale)).sort((a, b) => b.date.localeCompare(a.date));
 }
@@ -65,7 +65,7 @@ export function article(section: Section, slug: string, locale: Locale = DEFAULT
   return articles(section, locale).find((a) => a.slug === slug);
 }
 
-/** Rend le Markdown d'un article en HTML. */
+/** Renders an article's Markdown to HTML. */
 export function toHtml(markdown: string): string {
   return marked.parse(markdown, { async: false });
 }

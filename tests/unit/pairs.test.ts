@@ -116,7 +116,7 @@ describe("game phases", () => {
       { phase: "mid", win: 51, gain: 1 },
       { phase: "late", win: 51, gain: 2.5 },
     ]);
-    // Sans courbe du heros seul, le taux du duo reste, sans gain.
+    // Without the solo hero's curve, the duo's rate remains, with no gain.
     expect(phasesDuo([52, null, null, null, null, null], undefined)).toEqual([{ phase: "early", win: 52, gain: null }]);
   });
 

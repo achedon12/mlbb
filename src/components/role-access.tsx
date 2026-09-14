@@ -6,10 +6,10 @@ import { createT } from "@/i18n/translations";
 import { cn } from "@/lib/utils";
 
 /**
- * Entree dans le catalogue par role.
+ * Entry into the catalogue by role.
  *
- * Un visiteur arrive rarement en cherchant « la liste des heros » : il joue un
- * role. Ces six portes couvrent la quasi-totalite des intentions d'arrivee.
+ * A visitor rarely arrives looking for "the hero list": they play a role.
+ * These six doors cover almost every arrival intent.
  */
 const COLORS: Record<Role, string> = {
   Tank: "from-azure-500/20 border-azure-500/40 text-azure-400",

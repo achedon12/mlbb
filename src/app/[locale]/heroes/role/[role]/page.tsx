@@ -19,10 +19,10 @@ import { heroListData, metaPage } from "@/i18n/seo";
 type Params = { params: Promise<{ locale: Locale; role: string }> };
 
 /**
- * Page d'un role : ses heros, du plus fort au plus faible, avec palier, taux de
- * victoire et lanes. Elle remplace `/heroes?role=…` comme cible du fil
- * d'Ariane des fiches : cette adresse-la se canonise sur le catalogue entier,
- * alors qu'une page de role peut etre indexee pour elle-meme.
+ * A role's page: its heroes, from strongest to weakest, with tier, win
+ * rate and lanes. It replaces `/heroes?role=…` as the breadcrumb target
+ * of hero pages: that address canonicalizes to the whole catalog,
+ * whereas a role page can be indexed on its own.
  */
 export const dynamicParams = false;
 
@@ -31,8 +31,8 @@ export function generateStaticParams() {
 }
 
 /**
- * Heros du role, principal ou secondaire, dans l'ordre de la tier list (tous
- * rangs) ; ceux que le jeu ne mesure pas encore ferment la liste, par nom.
+ * Heroes of the role, main or secondary, in tier list order (all
+ * ranks); those the game does not measure yet close the list, by name.
  */
 function roleHeroes(role: Role) {
   const classes = rankingFull.filter((e) => e.hero.roles.includes(role));
@@ -52,7 +52,7 @@ const markers = (t: T, role: Role, n: number) => ({
   n,
 });
 
-/** Description en donnees : effectif, trois premiers, date du releve et patch. */
+/** Description built from data: roster size, top three, measurement date and patch. */
 function description(locale: Locale, role: Role): string {
   const t = createT(locale);
   const list = roleHeroes(role);

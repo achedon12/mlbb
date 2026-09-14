@@ -4,10 +4,10 @@ import { longDate, dateMeasure, patchCurrent } from "@/lib/freshness";
 import { cn } from "@/lib/utils";
 
 /**
- * « Mis a jour le 11 septembre 2026 · Patch 2.1.88 » : date du releve des taux
- * et patch en cours, affiches en tete des pages de donnees. Le lecteur sait de
- * quand datent les chiffres ; les moteurs y lisent une date visible, reprise
- * par le `dateModified` des donnees structurees.
+ * « Updated on 11 September 2026 · Patch 2.1.88 »: date of the rate snapshot
+ * and current patch, shown at the top of data pages. Readers know how old the
+ * figures are; search engines read a visible date, echoed by the
+ * `dateModified` of the structured data.
  */
 export function FreshnessLine({
   locale,
@@ -15,7 +15,7 @@ export function FreshnessLine({
   className,
 }: {
   locale: Locale;
-  /** Texte place avant la date (« 132 heros classes »). */
+  /** Text placed before the date (« 132 ranked heroes »). */
   before?: string;
   className?: string;
 }) {

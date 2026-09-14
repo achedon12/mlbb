@@ -36,7 +36,7 @@ function yearOf(year: string): YearSkins | null {
   return groupByDate(releasedSkins().filter((s) => readRelease(s.release)?.year === n), "chronologique")[0] ?? null;
 }
 
-/** Series et heros qui dominent l'annee, en chiffres. */
+/** Series and heroes that dominate the year, in figures. */
 function factsYear(a: YearSkins) {
   const skins = a.month.flatMap((m) => m.skins);
   const byHero = new Map<string, number>();

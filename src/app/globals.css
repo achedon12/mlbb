@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 /*
- * Direction visuelle.
+ * Visual direction.
  *
- * Le jeu utilise un bleu nuit profond, de l'or, et des formes coupees en
- * bevel — on reprend ces trois idees sans copier ses ressources graphiques,
- * qui appartiennent a Moonton. Aucune image du jeu n'est redistribuee ici :
- * les couleurs et les angles suffisent a poser l'univers.
+ * The game uses a deep midnight blue, gold, and bevel-cut shapes — we
+ * borrow these three ideas without copying its graphic assets,
+ * which belong to Moonton. No game image is redistributed here:
+ * the colors and the angles are enough to set the universe.
  */
 @theme {
   --color-night-950: #06080f;
@@ -59,11 +59,11 @@ h1, h2, h3, h4 {
 }
 
 /*
- * Focus clavier visible.
+ * Visible keyboard focus.
  *
- * Sans indicateur, on ne sait plus ou l'on est en naviguant au clavier. Un
- * anneau dore, decale, reste lisible sur le fond sombre comme sur les cartes,
- * et `:focus-visible` le reserve au clavier — la souris ne le declenche pas.
+ * Without an indicator, keyboard users lose track of where they are. An
+ * offset golden ring stays readable on the dark background as on cards,
+ * and `:focus-visible` keeps it for the keyboard — the mouse does not trigger it.
  */
 :focus-visible {
   outline: 2px solid var(--color-gold-400);
@@ -71,7 +71,7 @@ h1, h2, h3, h4 {
   border-radius: 2px;
 }
 
-/* Coin biseaute, motif recurrent de l'interface du jeu. */
+/* Beveled corner, a recurring pattern of the game's interface. */
 @utility bevel {
   clip-path: polygon(0 0, calc(100% - 0.75rem) 0, 100% 0.75rem, 100% 100%, 0.75rem 100%, 0 calc(100% - 0.75rem));
 }
@@ -80,16 +80,16 @@ h1, h2, h3, h4 {
   clip-path: polygon(0 0, calc(100% - 0.45rem) 0, 100% 0.45rem, 100% 100%, 0.45rem 100%, 0 calc(100% - 0.45rem));
 }
 
-/* Filet dore utilise pour souligner les titres de section. */
+/* Golden rule used to underline section headings. */
 @utility gold-rule {
   background: linear-gradient(90deg, var(--color-gold-500), transparent);
 }
 
 /*
- * Mise en forme des articles.
+ * Article styling.
  *
- * Ecrite a la main plutot qu'avec le plugin typography : le site n'a qu'un
- * seul gabarit d'article, et cela evite une dependance de plus.
+ * Handwritten rather than using the typography plugin: the site has only one
+ * article template, and it avoids one more dependency.
  */
 .prose-mlbb {
   line-height: 1.75;
@@ -127,12 +127,12 @@ h1, h2, h3, h4 {
 }
 
 /*
- * Notes de patch reprises du wiki.
+ * Patch notes taken from the wiki.
  *
- * Elles arrivent avec des titres nombreux, des listes imbriquees et des
- * tableaux d'equilibrage. Sans traitement, tout se ressemble et la page
- * devient illisible : les titres reprennent donc le filet dore des sections
- * du site, et les tableaux tiennent dans leur propre zone de defilement.
+ * They come with many headings, nested lists and balance
+ * tables. Untreated, everything looks alike and the page
+ * becomes unreadable: headings therefore reuse the golden rule of the site's
+ * sections, and tables sit in their own scroll area.
  */
 .prose-mlbb h2 {
   padding-bottom: 0.5rem;
@@ -176,7 +176,7 @@ h1, h2, h3, h4 {
   color: var(--color-chalk-100);
   font-weight: 600;
 }
-/* Le titre vise par une ancre ne doit pas se coller sous l'en-tete fixe. */
+/* A heading targeted by an anchor must not stick under the fixed header. */
 .prose-mlbb :is(h2, h3, h4)[id] {
   scroll-margin-top: 5rem;
 }
@@ -189,7 +189,7 @@ h1, h2, h3, h4 {
   }
 }
 
-/* Tiroir mobile : il monte depuis le bas de l'ecran. */
+/* Mobile drawer: it slides up from the bottom of the screen. */
 @keyframes slide-up {
   from {
     transform: translateY(100%);
@@ -205,9 +205,9 @@ h1, h2, h3, h4 {
 }
 
 /*
- * Longues listes (heros, tier list, objets) : le navigateur ne calcule le
- * style et la mise en page d'un element qu'a l'approche de l'ecran. La taille
- * reelle est retenue une fois l'element affiche.
+ * Long lists (heroes, tier list, items): the browser only computes the
+ * style and layout of an element as it approaches the screen. The actual
+ * size is remembered once the element has been displayed.
  */
 .offscreen {
   content-visibility: auto;
@@ -215,16 +215,16 @@ h1, h2, h3, h4 {
 }
 
 /*
- * Lignes de la tier list. Les memes utilitaires se repetaient sur 132 lignes,
- * dans le HTML puis dans les donnees de la page : 150 Ko d'attributs class par
- * rang. Nommes une fois ici, ils ne pesent plus rien. La couche components
- * laisse les utilitaires ponctuels (accent, fleches) l'emporter.
+ * Tier list rows. The same utilities were repeated over 132 rows,
+ * in the HTML then in the page data: 150 KB of class attributes per
+ * rank. Named once here, they weigh nothing anymore. The components layer
+ * lets one-off utilities (accent, arrows) win.
  */
 @layer components {
   .tier-row {
     @apply bevel-sm flex flex-wrap items-center gap-x-3 gap-y-2 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60 sm:flex-nowrap;
   }
-  /* Rendu differe des lignes hors ecran (voir .offscreen), sans classe sur chaque ligne. */
+  /* Deferred rendering of off-screen rows (see .offscreen), without a class on each row. */
   .tier-rows > li {
     content-visibility: auto;
     contain-intrinsic-size: auto 5rem;
@@ -250,7 +250,7 @@ h1, h2, h3, h4 {
   .tier-row-icon {
     @apply bevel-sm size-10 shrink-0 bg-night-800 object-cover;
   }
-  /* Taux d'une ligne : libelle au-dessus, valeur dessous, le premier (victoire) en or. */
+  /* A row's rate: label above, value below, the first one (win) in gold. */
   .tier-row-rates > div {
     @apply w-12 text-right sm:w-14;
   }
@@ -269,10 +269,10 @@ h1, h2, h3, h4 {
 }
 
 /*
- * Tableau des statistiques et vignettes de skins, meme regle que la tier
- * list : les cellules et les vignettes n'ont pas de classe, le tableau et le
- * lien portent la leur. 132 lignes ou une centaine de vignettes ne repetent
- * plus leurs utilitaires dans le HTML et dans les donnees de la page.
+ * Statistics table and skin thumbnails, same rule as the tier
+ * list: cells and thumbnails have no class, the table and the
+ * link carry theirs. 132 rows or a hundred thumbnails no longer repeat
+ * their utilities in the HTML and in the page data.
  */
 @layer components {
   .stats-table {
@@ -290,7 +290,7 @@ h1, h2, h3, h4 {
   .stats-table tbody tr {
     @apply border-t border-night-800;
   }
-  /* Colonne du heros, figee a gauche pendant le defilement horizontal. */
+  /* Hero column, pinned to the left during horizontal scrolling. */
   .stats-table :is(th, td):first-child {
     @apply sticky left-0 z-10 bg-night-950 text-left;
   }
@@ -337,7 +337,7 @@ h1, h2, h3, h4 {
     stroke-linejoin: round;
     stroke-linecap: round;
   }
-  /* Le dessin s'etire en largeur ; le trait, lui, garde son epaisseur. */
+  /* The drawing stretches horizontally; the stroke keeps its thickness. */
   .stats-table svg path {
     vector-effect: non-scaling-stroke;
   }

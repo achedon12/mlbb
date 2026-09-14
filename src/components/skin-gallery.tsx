@@ -11,10 +11,10 @@ import { uniqueAnchors, filterGroups, imageOfThumb, type GroupSkins } from "@/li
 import { ROLES } from "@/lib/statistics-table";
 import type { Role } from "@/lib/types";
 
-/** Heros affiches par tranche : la premiere part rendue du serveur, la suite a la demande. */
+/** Heroes shown per batch: the first one rendered on the server, the rest on demand. */
 const BY_BUCKET = 12;
 
-/** Couleur de contour par rang de rarete ; 0 vaut le skin d'origine ou une rarete inconnue. */
+/** Outline colour per rarity rank; 0 stands for the default skin or an unknown rarity. */
 const COLORS = [
   RARITY_ORIGIN.color,
   ...Object.values(RARITIES)
@@ -23,14 +23,13 @@ const COLORS = [
 ];
 
 /**
- * Galerie filtrable de tous les skins, groupes par heros.
+ * Filterable gallery of every skin, grouped by hero.
  *
- * Les vignettes arrivent en tuples compacts (`VignetteSkin`) : un millier de
- * skins passent ainsi au navigateur pour quelques dizaines de Ko. Filtre par
- * role, recherche sur le nom du heros ou du skin, et affichage par tranches de
- * heros : la page ne rend d'emblee qu'une centaine de vignettes, toutes en
- * chargement differe. Les vignettes s'habillent par `.skin-thumb`
- * (globals.css).
+ * Thumbnails arrive as compact tuples (`SkinThumb`): a thousand skins reach
+ * the browser for a few tens of KB. Filter by role, search on the hero or
+ * skin name, and display in batches of heroes: the page renders only about a
+ * hundred thumbnails up front, all lazy-loaded. Thumbnails are styled by
+ * `.skin-thumb` (globals.css).
  */
 export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
   const t = useT();
@@ -39,8 +38,8 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
   const [role, setRole] = useState<Role | null>(null);
   const [buckets, setBuckets] = useState(1);
 
-  // Meme regle que le catalogue des heros : le rendu serveur part sans filtre,
-  // l'URL (?q=, ?role=) n'est lue qu'apres le montage, puis suit chaque changement.
+  // Same rule as the hero catalogue: the server render starts unfiltered,
+  // the URL (?q=, ?role=) is only read after mount, then follows every change.
   const rise = useRef(false);
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -49,7 +48,7 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
       const q = params.get("q");
       const roleUrl = ROLES.find((r) => r === params.get("role")) ?? null;
       if (q || roleUrl) {
-        /* eslint-disable react-hooks/set-state-in-effect -- lecture de l'URL apres montage */
+        /* eslint-disable react-hooks/set-state-in-effect -- reading the URL after mount */
         if (q) setSearch(q);
         if (roleUrl) setRole(roleUrl);
         /* eslint-enable react-hooks/set-state-in-effect */
@@ -68,7 +67,7 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
     window.history.replaceState(null, "", suffix ? `?${suffix}` : window.location.pathname);
   }, [search, role]);
 
-  // Ancres calculees sur la galerie complete : un filtre ne doit pas les decaler.
+  // Anchors computed on the full gallery: a filter must not shift them.
   const anchors = useMemo(
     () =>
       new Map(
@@ -163,7 +162,7 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
                         ) : (
                           <i aria-hidden />
                         )}
-                        {/* Nom visible, deja dit par le texte alternatif : masque aux lecteurs d'ecran quand l'image est la. */}
+                        {/* Visible name, already given by the alt text: hidden from screen readers when the image is there. */}
                         <span aria-hidden={src ? true : undefined}>{name}</span>
                       </Link>
                     </li>

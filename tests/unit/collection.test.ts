@@ -22,7 +22,7 @@ const skin = (p: Partial<SkinCatalog> & { id: string; hero: string }): SkinCatal
   ...p,
 });
 
-/** Deux heros : l'un vendu en diamants et en points de bataille, l'autre en points de bataille seulement. */
+/** Two heroes: one sold for diamonds and battle points, the other for battle points only. */
 const catalog: Catalog = {
   maj: "2026-09-11",
   heroes: [

@@ -3,11 +3,11 @@ import { LOCALES, LOCALE_HTML } from "@/i18n/config";
 import "./globals.css";
 
 /**
- * 404 des adresses hors langue (/quelque-chose.txt, /foo). La racine ne rend
- * pas <html> — c'est la mise en page de [locale] qui le fait —, si bien que
- * sans cette page une adresse inconnue finissait en erreur 500 en production.
- * Elle rend donc son propre document, avec ses textes en dur, comme la
- * frontiere d'erreur globale : aucune langue n'est connue a ce stade.
+ * 404 for addresses outside a language (/something.txt, /foo). The root does
+ * not render <html> — the [locale] layout does —, so without this page
+ * an unknown address ended up as a 500 error in production.
+ * It therefore renders its own document, with hard-coded texts, like the
+ * global error boundary: no language is known at this point.
  */
 export const metadata: Metadata = {
   title: "404 — MLBBDex",

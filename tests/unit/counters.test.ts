@@ -127,7 +127,7 @@ describe("items against a hero", () => {
       "radiant-armor",
       "tough-boots",
     ]);
-    // La coquille du wiki compte comme physique.
+    // The wiki's typo counts as physical.
     expect(reasonsCounter(profile({ typeDamage: "Phyiscal" }))).toEqual(["physical"]);
     expect(reasonsCounter(profile({ typeDamage: "Mixed" }))).toEqual(["magic", "physical"]);
   });

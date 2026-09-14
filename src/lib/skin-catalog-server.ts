@@ -18,15 +18,15 @@ import {
 } from "./skin-catalog";
 
 /**
- * Catalogue des skins cote serveur : jointure du module de skins du wiki et
- * des portraits de boutique, en objets `SkinCatalogue`. Les pages du
- * calendrier le lisent directement ; l'index compact en est l'encodage.
+ * Server-side skin catalogue: join of the wiki skins module and
+ * the shop portraits, into `SkinCatalog` objects. The calendar
+ * pages read it directly; the compact index is its encoding.
  */
 
-/** Date des donnees : « ce mois-ci » et « sorti » se jugent a cette date, pas a celle du build. */
+/** Data date: "this month" and "released" are judged against this date, not the build date. */
 export const dateReference = sync.date.slice(0, 10);
 
-/** Retire les liens du wiki : « [[MLBB × Naruto|MLBB X Naruto]] » garde son libelle. */
+/** Strips wiki links: "[[MLBB × Naruto|MLBB X Naruto]]" keeps its label. */
 export function cleanObtain(text: string | undefined): string | null {
   if (!text) return null;
   const clean = text
@@ -36,7 +36,7 @@ export function cleanObtain(text: string | undefined): string | null {
   return clean || null;
 }
 
-/** Prix chiffres ; une valeur illisible est ignoree plutot que comptee pour zero. */
+/** Numeric prices; an unreadable value is ignored rather than counted as zero. */
 export function readPrice(raw: Record<string, string>): Price {
   const price: Price = {};
   for (const m of NUMERIC_CURRENCIES) {
@@ -47,8 +47,8 @@ export function readPrice(raw: Record<string, string>): Price {
 }
 
 /**
- * Le wiki ecrit parfois la meme serie avec deux casses (« Annual StarLight »,
- * « Annual Starlight ») : elles se rangent sous la graphie la plus courante.
+ * The wiki sometimes writes the same series with two casings ("Annual StarLight",
+ * "Annual Starlight"): they are grouped under the most common spelling.
  */
 function seriesSpellings(values: (string | null)[]): Map<string, string> {
   const counts = new Map<string, Map<string, number>>();
@@ -68,7 +68,7 @@ let cache: Catalog | null = null;
 
 export function catalogSkins(): Catalog {
   if (cache) return cache;
-  // Un heros sans aucun skin recense (annonce, pas encore sorti) ne peut pas etre possede.
+  // A hero with no listed skin (announced, not released yet) cannot be owned.
   const withSkins = allHeroes.filter((h) => h.skins.length > 0);
   const series = seriesSpellings(withSkins.flatMap((h) => h.skins.map((s) => s.label)));
   const skins: SkinCatalog[] = withSkins.flatMap((h) => {
@@ -78,7 +78,7 @@ export function catalogSkins(): Catalog {
       id: s.id,
       name: s.name,
       hero: h.slug,
-      // Une rarete inconnue compte comme la plus commune plutot que de passer pour un skin d'origine.
+      // An unknown rarity counts as the most common rather than passing for an original skin.
       rarity: s.rarity ? (RARITIES[s.rarity]?.rank ?? 1) : 0,
       series: s.label ? (series.get(s.label.toLowerCase()) ?? s.label) : null,
       release: s.release,
@@ -97,24 +97,24 @@ export function catalogSkins(): Catalog {
   return cache;
 }
 
-/** Skins du calendrier : sortis a la date des donnees, sans les skins d'origine (ce sont des sorties de heros). */
+/** Calendar skins: released as of the data date, without original skins (those are hero releases). */
 export function releasedSkins(): SkinCatalog[] {
   return catalogSkins().skins.filter((s) => !isOrigin(s) && isReleased(s, dateReference));
 }
 
-/** Annees qui ont au moins un skin sorti, de la plus recente a la plus ancienne. */
+/** Years with at least one released skin, from most recent to oldest. */
 export function calendarYears(): number[] {
   return [...new Set(releasedSkins().map((s) => readRelease(s.release)!.year))].sort((a, b) => b - a);
 }
 
-/** Heros indexes par slug, pour les filtres et les liens. */
+/** Heroes indexed by slug, for filters and links. */
 export function catalogHeroes() {
   return new Map(catalogSkins().heroes.map((h) => [h.slug, h]));
 }
 
 /**
- * Donnees structurees d'une page qui liste des skins ou des pages de skins :
- * la page, sa date de mise a jour et sa liste ordonnee.
+ * Structured data of a page listing skins or skin pages:
+ * the page, its last modified date and its ordered list.
  */
 export function dataListSkins(
   locale: Locale,

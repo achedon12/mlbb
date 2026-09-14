@@ -12,9 +12,9 @@ import type { AdjustmentType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Note de portee : les favoris ne sont pas lies au compte de jeu — ils vivent
- * dans ce navigateur. Le dire clairement evite de croire qu'ils suivraient
- * d'un appareil a l'autre, ou qu'ils dependraient de la connexion.
+ * Scope note: favourites are not tied to the game account — they live in
+ * this browser. Saying so clearly avoids the belief that they follow from one
+ * device to another, or depend on being signed in.
  */
 function NoteRange() {
   const t = useT();
@@ -35,8 +35,8 @@ const TREND: Record<AdjustmentType, { icon: LucideIcon; color: string }> = {
 };
 
 /**
- * Favoris touches par le dernier patch : on sait d'un coup d'oeil lesquels
- * ont ete ameliores, affaiblis ou retouches, sans lire toutes les notes.
+ * Favourites affected by the latest patch: you see at a glance which were
+ * buffed, nerfed or adjusted, without reading all the notes.
  */
 function AlertPatch({ favourites, patch }: { favourites: readonly string[]; patch: SummaryPatch }) {
   const t = useT();
@@ -86,10 +86,10 @@ function AlertPatch({ favourites, patch }: { favourites: readonly string[]; patc
 }
 
 /**
- * Liste des heros mis en favori, lue depuis le navigateur. `dernierPatch`, un
- * resume de quelques centaines d'octets, signale ceux que le patch a touches.
- * L'interrupteur des notifications de patch reste visible sans favori : on
- * peut s'abonner d'avance, ou se desabonner apres avoir tout retire.
+ * List of favourite heroes, read from the browser. `lastPatch`, a summary of
+ * a few hundred bytes, flags those the patch affected. The patch notification
+ * toggle stays visible with no favourites: you can subscribe ahead of time, or
+ * unsubscribe after removing everything.
  */
 export function AccountFavourites({ lastPatch = null }: { lastPatch?: SummaryPatch | null }) {
   const t = useT();

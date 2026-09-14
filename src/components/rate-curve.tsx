@@ -9,29 +9,29 @@ export interface PointCurve {
   value: number | null;
 }
 
-/** Evenement date a marquer d'un trait vertical : un patch. */
+/** Dated event to mark with a vertical line: a patch. */
 export interface Marker {
   date: string;
   label: string;
 }
 
-/** Serie superposee aux autres, alignee jour par jour sur `dates`. */
+/** Series overlaid on the others, aligned day by day on `dates`. */
 export interface SeriesCurve {
   name: string;
   values: (number | null)[];
-  /** Classe de couleur du trait (`text-…`), reprise par la legende et le survol. */
+  /** Line colour class (`text-…`), reused by the legend and the hover. */
   color: string;
-  /** Trait en tirets : l'identite de la serie ne repose pas sur la seule couleur. */
+  /** Dashed line: the series identity does not rely on colour alone. */
   dashes?: boolean;
 }
 
-/** Une serie (`points`) ou plusieurs, alignees sur les memes dates (`dates` et `series`). */
+/** One series (`points`) or several, aligned on the same dates (`dates` and `series`). */
 type Data =
   | { points: PointCurve[]; dates?: never; series?: never }
   | { dates: string[]; series: SeriesCurve[]; points?: never };
 
-// Hauteur et marges du dessin, en pixels : la largeur suit celle du cadre,
-// si bien qu'une unite du dessin vaut un pixel et le texte garde sa taille.
+// Drawing height and margins, in pixels: the width follows the frame's, so
+// one drawing unit equals one pixel and the text keeps its size.
 const H = 200;
 const LEFT = 42;
 const RIGHT = 8;
@@ -40,14 +40,14 @@ const BOTTOM = 26;
 const DASHES = "6 4";
 
 /**
- * Courbe d'un taux au fil des jours, dessinee en SVG : pas de bibliotheque de
- * graphiques pour une ligne et trois graduations. Un jour sans mesure coupe
- * le trace plutot que de relier deux points qui n'ont rien a voir. Le survol
- * (souris ou doigt) affiche la valeur du jour.
+ * Curve of a rate over the days, drawn in SVG: no charting library for one
+ * line and three ticks. A day without a measure breaks the line rather than
+ * joining two unrelated points. Hovering (mouse or finger) shows the day's
+ * value.
  *
- * Plusieurs series se superposent sur une echelle commune : legende sous le
- * dessin, nom de chaque serie au bout de sa ligne, et une infobulle qui donne
- * au survol la valeur de chacune.
+ * Several series overlay on a shared scale: legend under the drawing, each
+ * series name at the end of its line, and a tooltip giving each one's value
+ * on hover.
  */
 export function RateCurve({
   markers = [],
@@ -57,7 +57,7 @@ export function RateCurve({
 }: Data & {
   markers?: Marker[];
   decimals?: number;
-  /** Resume lu par les lecteurs d'ecran a la place du dessin. */
+  /** Summary read by screen readers instead of the drawing. */
   label: string;
 }) {
   const locale = useLocale();
@@ -107,7 +107,7 @@ export function RateCurve({
     return d;
   };
   const paths = traces.map((s) => traceOf(s.values));
-  // L'aire sous la courbe n'a de sens que pour une serie seule, sans trou.
+  // The area under the curve only makes sense for a single series with no gap.
   const withoutHole = !multiple && traces[0].values.every((v) => v !== null);
   const area = withoutHole ? `${paths[0]}L${x(n - 1)},${H - BOTTOM}L${x(0)},${H - BOTTOM}Z` : null;
 
@@ -124,8 +124,8 @@ export function RateCurve({
   const active = hover !== null && traces.some((s) => s.values[hover] != null) ? hover : null;
   const onRight = active !== null && active > n / 2;
 
-  // Nom de chaque serie au bout de sa ligne : la plus haute au-dessus, les
-  // autres en dessous, pour que deux fins proches ne se chevauchent pas.
+  // Each series name at the end of its line: the highest one above, the
+  // others below, so that two close line ends do not overlap.
   const ends = traces
     .map((s, k) => {
       let i = s.values.length - 1;
@@ -257,7 +257,7 @@ export function RateCurve({
         )}
       </svg>
 
-      {/* Plusieurs series : la valeur du jour de chacune, dans une infobulle. */}
+      {/* Several series: each one's value for the day, in a tooltip. */}
       {multiple && active !== null && (
         <div
           aria-hidden
@@ -293,7 +293,7 @@ export function RateCurve({
   );
 }
 
-/** Echantillon du trait d'une serie, pour la legende et l'infobulle. */
+/** Sample of a series line, for the legend and the tooltip. */
 function Badge({ series }: { series: SeriesCurve }) {
   return (
     <svg aria-hidden width="18" height="6" className={cn("shrink-0", series.color)}>

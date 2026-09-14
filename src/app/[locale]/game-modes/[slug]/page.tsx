@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-/** Regroupe les points de liste consecutifs pour les rendre dans un seul `<ul>`. */
+/** Groups consecutive list items to render them in a single `<ul>`. */
 function renderElements(elements: ModeSection["elements"]) {
   const blocks: React.ReactNode[] = [];
   let list: string[] = [];
@@ -92,7 +92,7 @@ export default async function GameModePage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
-      {/* Banniere de tete, reprenant l'accent du mode. */}
+      {/* Top banner, using the mode's accent. */}
       <div className="relative isolate overflow-hidden border-b border-night-700/70">
         <div
           aria-hidden

@@ -54,15 +54,16 @@ import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Entraineur de Chatiment : le monstre encaisse les coups de l'equipe dans une
- * petite arene — il tremble, les degats s'envolent, sa barre de vie fond — et
- * le joueur frappe (le sort, Espace ou Entree) des que les PV passent sous les
- * degats de son Chatiment. Trop tot, le sort part dans le vide ; trop tard, le
- * jungler adverse l'emporte. Chaque manche se termine sur sa chronologie :
- * votre frappe face a celle du jungler adverse, en millisecondes.
+ * Retribution trainer: the monster takes the team's hits in a small arena —
+ * it shakes, damage numbers fly off, its health bar melts — and the player
+ * strikes (the spell, Space or Enter) as soon as its HP drops below their
+ * Retribution damage. Too early, the spell hits nothing; too late, the enemy
+ * jungler takes it. Each round ends on its timeline: your strike against the
+ * enemy jungler's, in milliseconds.
  *
- * Tout se joue dans le navigateur, sans requete : une fois la page visitee, le
- * service worker la sert hors ligne. Records et suites restent sur l'appareil.
+ * Everything runs in the browser, with no request: once the page has been
+ * visited, the service worker serves it offline. Records and streaks stay on
+ * the device.
  */
 const KEY_STORAGE = "mlbb_chatiment";
 const EVENT_RECORDS = "mlbb-chatiment";
@@ -73,7 +74,7 @@ const ICONS: Record<ObjectiveKey, LucideIcon> = {
   "purple-buff": Sparkles,
   "orange-buff": Flame,
 };
-/** Teinte d'ambiance de l'arene, prise sur le portrait de chaque monstre. */
+/** Arena ambient tint, taken from each monster's portrait. */
 const TINTS: Record<ObjectiveKey, string> = {
   turtle: "#2dd4bf",
   lord: "#a78bfa",
@@ -81,7 +82,7 @@ const TINTS: Record<ObjectiveKey, string> = {
   "purple-buff": "#818cf8",
   "orange-buff": "#fb923c",
 };
-/** Intensite de chaque difficulte : barres allumees, du vert au rouge. */
+/** Intensity of each difficulty: lit bars, from green to red. */
 const INTENSITIES: Record<Difficulty, { n: number; color: string }> = {
   easy: { n: 1, color: "#34d399" },
   normal: { n: 2, color: "#4da3ff" },
@@ -89,9 +90,9 @@ const INTENSITIES: Record<Difficulty, { n: number; color: string }> = {
   pro: { n: 4, color: "#d94848" },
 };
 const ICON_RETRIBUTION = "/visuels/sorts/retribution.png";
-/** Attente entre l'annonce d'une manche et le premier coup, en ms : impossible a anticiper. */
+/** Delay between a round's announcement and the first hit, in ms: impossible to anticipate. */
 const READY_MS: [number, number] = [700, 1300];
-/** Apres un verdict, les appuis sont ignores un instant : un appui de trop ne relance pas la manche. */
+/** After a verdict, presses are ignored for a moment: one press too many does not restart the round. */
 const BLOCK_MS = 500;
 const SHARDS_MAX = 6;
 const LEVELS = Array.from({ length: LEVEL_MAX - LEVEL_MIN + 1 }, (_, i) => LEVEL_MIN + i);
@@ -103,8 +104,8 @@ interface Shard {
   source: Hit["source"];
 }
 
-// Records : le navigateur est la source, lue comme un magasin externe. Sans
-// stockage (navigation privee stricte), ils vivent en memoire le temps de la visite.
+// Records: the browser is the source, read as an external store. Without
+// storage (strict private browsing), they live in memory for the visit.
 let memory: string | null = null;
 function readRaw(): string | null {
   try {
@@ -118,7 +119,7 @@ function save(records: Records) {
   try {
     localStorage.setItem(KEY_STORAGE, memory);
   } catch {
-    // Stockage refuse : la copie en memoire suffit.
+    // Storage refused: the in-memory copy is enough.
   }
   window.dispatchEvent(new Event(EVENT_RECORDS));
 }
@@ -139,7 +140,7 @@ function subscribeToMotion(reminder: () => void) {
 }
 const motionReduced = () => window.matchMedia(REQUEST_MOTION).matches;
 
-/** Horloge des reactions : jamais appelee pendant le rendu, seulement par les minuteries et les appuis. */
+/** Reaction clock: never called during render, only by timers and presses. */
 const timestamp = () => performance.now();
 
 function seed(): number {
@@ -148,7 +149,7 @@ function seed(): number {
   return draw[0];
 }
 
-/** Degats d'un coup, qui s'envolent au-dessus du monstre (immobiles si le mouvement est reduit). */
+/** Damage of a hit, flying above the monster (static when motion is reduced). */
 function DamageFigure({ shard, text, reduced }: { shard: Shard; text: string; reduced: boolean }) {
   const ref = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -178,7 +179,7 @@ function DamageFigure({ shard, text, reduced }: { shard: Shard; text: string; re
   );
 }
 
-/** Eclair dore qui s'abat sur le monstre quand le Chatiment le securise. */
+/** Golden bolt striking the monster when Retribution secures it. */
 function Flash() {
   const ref = useRef<SVGSVGElement>(null);
   useEffect(() => {
@@ -211,7 +212,7 @@ function Flash() {
   );
 }
 
-/** Verdict frappe en travers de l'arene. */
+/** Verdict stamped across the arena. */
 function Buffer({ passed, title, points, reduced }: { passed: boolean; title: string; points: string; reduced: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -241,8 +242,8 @@ function Buffer({ passed, title, points, reduced }: { passed: boolean; title: st
 }
 
 /**
- * Chronologie d'une manche, a partir du passage sous le seuil : la frappe du
- * joueur, quand il y en a eu une, et celle du jungler adverse.
+ * Timeline of a round, from the moment HP drops below the threshold: the
+ * player's strike, when there was one, and the enemy jungler's.
  */
 function RowTime({
   you,
@@ -257,7 +258,7 @@ function RowTime({
 }) {
   const scale = Math.max(1000, enemy, you ?? 0) * 1.08;
   const part = (ms: number) => (ms / scale) * 100;
-  // Une etiquette pres d'un bord s'aligne sur lui, au lieu de deborder.
+  // A label near an edge aligns to it instead of overflowing.
   const placement = (p: number) => (p < 12 ? "left-0" : p > 82 ? "right-0" : "-translate-x-1/2");
   const markers = [
     { key: "vous", ms: you, color: "text-gold-400", background: "bg-gold-400", icon: Target, top: true },
@@ -328,7 +329,7 @@ export function RetributionTrainer({ address }: { address: string }) {
   const [recording, setRecording] = useState(false);
   const [view, setView] = useState<"video" | "image">("video");
 
-  // Etat du combat, lu et ecrit par les minuteries : il vit hors du rendu.
+  // Fight state, read and written by the timers: it lives outside render.
   const game = useRef({
     phase: "waiting" as Phase,
     objective: "lord" as ObjectiveKey,
@@ -369,7 +370,7 @@ export function RetributionTrainer({ address }: { address: string }) {
     game.current.timers.push(setTimeout(action, ms));
   }
 
-  /** Le monstre tremble sous le coup, plus fort pour une competence ou une rafale adverse. */
+  /** The monster shakes under the hit, harder for a skill or an enemy burst. */
   function shake(source: Hit["source"]) {
     if (motionReduced()) return;
     const strong = source !== "ally";
@@ -421,7 +422,7 @@ export function RetributionTrainer({ address }: { address: string }) {
     await document.fonts?.ready;
     const style = getComputedStyle(document.documentElement);
     const font = (variable: string) => `${style.getPropertyValue(variable).trim() || "system-ui"}, system-ui, sans-serif`;
-    // Portrait local (meme origine) : le canvas reste exportable.
+    // Local portrait (same origin): the canvas stays exportable.
     const portrait = new Image();
     portrait.src = OBJECTIVES[j.objective].image;
     const load = await portrait.decode().then(
@@ -466,7 +467,7 @@ export function RetributionTrainer({ address }: { address: string }) {
     return new Promise((ok) => canvas.toBlob(ok, "image/png"));
   }
 
-  /** L'image de la carte d'abord, puis sa video, filmee en quelques secondes. */
+  /** The card image first, then its video, recorded in a few seconds. */
   async function producePreview(series: Result[], record: boolean) {
     const j = game.current;
     const d = await cardData(series, record);
@@ -483,7 +484,7 @@ export function RetributionTrainer({ address }: { address: string }) {
     setRecording(true);
     const film = await recordCard(d).catch(() => null);
     setRecording(false);
-    // Une nouvelle partie a pu commencer pendant le tournage : la video ne lui correspond plus.
+    // A new game may have started during recording: the video no longer matches it.
     if (!film || j.results !== series) return;
     j.video = { blob: film, url: URL.createObjectURL(film) };
     setVideo({ url: j.video.url, extension: film.type.includes("mp4") ? "mp4" : "webm" });
@@ -610,7 +611,7 @@ export function RetributionTrainer({ address }: { address: string }) {
     changePhase("waiting");
   }
 
-  // Le raccourci clavier appelle toujours la version courante de `frapper`.
+  // The keyboard shortcut always calls the current version of `strike`.
   const hitCurrent = useRef(strike);
   useEffect(() => {
     hitCurrent.current = strike;
@@ -621,7 +622,7 @@ export function RetributionTrainer({ address }: { address: string }) {
     const targetIgnored = (e: KeyboardEvent) => {
       const target = e.target instanceof HTMLElement ? e.target : null;
       if (target?.closest("input, select, textarea, [contenteditable='true']")) return true;
-      // Hors combat, Espace garde son role sur les autres boutons et liens.
+      // Outside a fight, Space keeps its role on other buttons and links.
       return j.phase !== "fight" && !!target?.closest("button, a, summary") && target !== button.current;
     };
     const press = (e: KeyboardEvent) => {
@@ -673,7 +674,7 @@ export function RetributionTrainer({ address }: { address: string }) {
   async function shareResult() {
     const { image, video: film } = game.current;
     try {
-      // On partage ce que montre l'apercu : la video, ou l'image.
+      // Share what the preview shows: the video, or the image.
       const file =
         view === "video" && film && video
           ? new File([film.blob], `mlbbdex-retribution.${video.extension}`, { type: film.blob.type })
@@ -703,9 +704,9 @@ export function RetributionTrainer({ address }: { address: string }) {
   const partThreshold = Math.min(100, (threshold / hpMax) * 100);
   const locked = phase === "ready" || phase === "fight";
   const last = phase === "result" || phase === "summary" ? (results.at(-1) ?? null) : null;
-  // Le monstre tombe, sauf quand le Chatiment est parti trop tot : il reste alors debout.
+  // The monster falls, unless Retribution went off too early: it then stays standing.
   const killed = last !== null && last.issue !== "tooEarly";
-  // Aux difficultes qui montrent le repere, la barre vire a l'or sous le seuil.
+  // On difficulties that show the marker, the bar turns gold below the threshold.
   const hasRange = phase === "fight" && setting.marker && hpShown <= threshold;
   const record = records.series[keyRecord(objective, difficulty)];
   const roundCurrent = Math.min(ROUNDS_PER_RUN, results.length + (locked ? 1 : 0));
@@ -747,7 +748,7 @@ export function RetributionTrainer({ address }: { address: string }) {
                     }}
                     className={cn("group flex flex-col items-center gap-2 p-3 text-center", classChoice(active))}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element -- portrait local, deja reduit */}
+                    {/* eslint-disable-next-line @next/next/no-img-element -- local portrait, already downsized */}
                     <img
                       src={OBJECTIVES[key].image}
                       alt=""
@@ -817,7 +818,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               <label htmlFor={ids.level} className="text-xs uppercase tracking-wide text-chalk-500">
                 {t("tools.retribution.levelLabel")}
               </label>
-              {/* Les degats de chaque niveau, le niveau choisi en or : la courbe se lit d'un coup d'oeil. */}
+              {/* Damage at each level, the chosen level in gold: the curve reads at a glance. */}
               <div aria-hidden className="mt-3 flex h-12 items-end gap-1">
                 {LEVELS.map((n) => (
                   <span
@@ -847,7 +848,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               </div>
             </div>
             <div className="bevel-sm flex items-center gap-3 border border-gold-500/40 bg-gold-500/10 px-4 py-3">
-              {/* eslint-disable-next-line @next/next/no-img-element -- icone locale du sort */}
+              {/* eslint-disable-next-line @next/next/no-img-element -- local spell icon */}
               <img src={ICON_RETRIBUTION} alt="" width={48} height={48} className="size-12 rounded-full" />
               <div>
                 <p className="text-xs uppercase tracking-wide text-chalk-400">
@@ -865,7 +866,7 @@ export function RetributionTrainer({ address }: { address: string }) {
       </Card>
 
       <section aria-labelledby={`${ids.help}-titre`} className="relative">
-        {/* Le biseau est porte par le fond : pose sur l'arene, il rognerait les chiffres qui s'envolent. */}
+        {/* The bevel is carried by the background: on the arena itself, it would clip the flying numbers. */}
         <div
           aria-hidden
           className="bevel absolute inset-0 border border-night-700/70 bg-night-950"
@@ -925,7 +926,7 @@ export function RetributionTrainer({ address }: { address: string }) {
           <div className="relative flex flex-col items-center pt-2">
             <div ref={monster} className="relative size-40 sm:size-52">
               <div aria-hidden className="absolute -inset-5 rounded-full opacity-50 blur-2xl" style={{ background: tint }} />
-              {/* eslint-disable-next-line @next/next/no-img-element -- portrait local, deja reduit */}
+              {/* eslint-disable-next-line @next/next/no-img-element -- local portrait, already downsized */}
               <img
                 src={o.image}
                 alt=""
@@ -988,7 +989,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               {setting.marker && (
                 <div aria-hidden className="absolute inset-y-0 left-0 bg-gold-400/10" style={{ width: `${partThreshold}%` }} />
               )}
-              {/* Traine claire : la vie perdue s'efface un instant apres le coup, comme en jeu. */}
+              {/* Light trail: lost health fades a moment after the hit, as in game. */}
               <div
                 aria-hidden
                 className="absolute inset-y-0 left-0 bg-chalk-100/60 transition-[width] delay-150 duration-500 ease-out"
@@ -1043,7 +1044,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               if (e.button === 0) strike();
             }}
             onClick={(e) => {
-              // Clic clavier (Entree) ou d'aide technique ; le pointeur est deja traite a l'appui.
+              // Keyboard (Enter) or assistive-technology click; the pointer is already handled on press.
               if (e.detail === 0 && timestamp() - game.current.lastKey > BLOCK_MS) strike();
             }}
             aria-keyshortcuts="Space"
@@ -1064,7 +1065,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               )}
             >
               {phase === "fight" && <span className="absolute -inset-2 animate-ping rounded-full border-2 border-gold-400/50" />}
-              {/* eslint-disable-next-line @next/next/no-img-element -- icone locale du sort */}
+              {/* eslint-disable-next-line @next/next/no-img-element -- local spell icon */}
               <img
                 src={ICON_RETRIBUTION}
                 alt=""
@@ -1219,7 +1220,7 @@ export function RetributionTrainer({ address }: { address: string }) {
             </div>
           ) : (
             preview && (
-              // eslint-disable-next-line @next/next/no-img-element -- image generee dans le navigateur (URL blob)
+              // eslint-disable-next-line @next/next/no-img-element -- image generated in the browser (blob URL)
               <img
                 src={preview}
                 width={WIDTH_CARD}

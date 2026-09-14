@@ -34,7 +34,7 @@ import { keySearch, cn } from "@/lib/utils";
 
 type View = "all" | "owned" | "missing";
 const VIEWS: View[] = ["all", "owned", "missing"];
-/** Series montrees d'abord ; les autres se deplient. */
+/** Series shown first; the others expand. */
 const VISIBLE_SERIES = 10;
 
 const toggle = (set: ReadonlySet<string>, key: string) => {
@@ -45,12 +45,12 @@ const toggle = (set: ReadonlySet<string>, key: string) => {
 };
 
 /**
- * Calculateur de collection : le joueur coche ses heros et ses skins, et voit
- * ce qu'ils valent au prix de la boutique du jeu, en diamants.
+ * Collection calculator: the player ticks their heroes and skins, and sees
+ * what they are worth at the in-game shop price, in diamonds.
  *
- * L'index des skins est demande au chargement de l'outil, jamais embarque
- * dans la page. La collection se garde dans le navigateur (`localStorage`) :
- * rien ne part vers un serveur.
+ * The skin index is requested when the tool loads, never bundled into the
+ * page. The collection is kept in the browser (`localStorage`): nothing is
+ * sent to a server.
  */
 export function CollectionCalculator() {
   const t = useT();
@@ -73,7 +73,7 @@ export function CollectionCalculator() {
     [locale],
   );
 
-  // Index et sauvegarde arrivent ensemble : la collection ne s'affiche qu'une fois les deux lus.
+  // Index and saved data arrive together: the collection only shows once both are read.
   useEffect(() => {
     let cancelled = false;
     loadCatalog(locale).then(
@@ -83,7 +83,7 @@ export function CollectionCalculator() {
         try {
           raw = localStorage.getItem(KEY_COLLECTION);
         } catch {
-          // Stockage refuse (navigation privee stricte) : la collection reste le temps de la visite.
+          // Storage refused (strict private browsing): the collection lasts for the visit.
         }
         const p = readOwnership(raw);
         setHero(new Set(p.heros));
@@ -102,7 +102,7 @@ export function CollectionCalculator() {
     try {
       localStorage.setItem(KEY_COLLECTION, writeOwnership({ heros: heroes, skins }));
     } catch {
-      // Idem : pas de sauvegarde possible, le calcul reste juste.
+      // Same: no saving possible, the calculation stays correct.
     }
   }, [catalog, heroes, skins]);
 
@@ -132,10 +132,10 @@ export function CollectionCalculator() {
       if (!nameFound) sk = sk.filter((s) => keySearch(s.name).includes(term));
       if (view === "owned") sk = sk.filter((s) => skins.has(s.id));
       if (view === "missing") sk = sk.filter((s) => !skins.has(s.id));
-      // Le heros reste s'il passe lui-meme les filtres, ou s'il lui reste des skins a montrer.
+      // The hero stays if it passes the filters itself, or if it still has skins to show.
       const heroPasses = nameFound && !series && (view === "all" || (view === "owned") === heroes.has(h.slug));
       if (!heroPasses && sk.length === 0) return [];
-      // Une recherche par nom de skin ou une serie deplie d'office les heros concernes.
+      // A search by skin name or a series expands the matching heroes automatically.
       return [{ h, sk, expanded: (!!term && !nameFound) || !!series }];
     });
   }, [data, search, role, series, view, heroes, skins]);
@@ -203,7 +203,7 @@ export function CollectionCalculator() {
       await navigator.clipboard.writeText(`${text}\n${url}`);
       setShare("copied");
     } catch (e) {
-      // Fermer la feuille de partage n'est pas un echec.
+      // Closing the share sheet is not a failure.
       if ((e as Error).name !== "AbortError") setShare("failed");
     }
   }
@@ -211,7 +211,7 @@ export function CollectionCalculator() {
   return (
     <div className="space-y-10">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
-        {/* ── Bilan ─────────────────────────────────────────────────── */}
+        {/* ── Summary ───────────────────────────────────────────────── */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:order-2" aria-labelledby="bilan-titre">
           <Card className="border-gold-500/30">
             <h2 id="bilan-titre" className="text-xs uppercase tracking-wide text-chalk-500">
@@ -352,7 +352,7 @@ export function CollectionCalculator() {
               return (
                 <li key={h.slug} className="py-3">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                    {/* Base de 12rem : sur mobile, le compte et les boutons passent a la ligne plutot que d'ecraser le nom. */}
+                    {/* 12rem basis: on mobile, the count and buttons wrap rather than squash the name. */}
                     <label className="flex min-w-0 flex-[1_1_12rem] cursor-pointer items-center gap-3">
                       <input
                         type="checkbox"

@@ -2,16 +2,16 @@ import { variationWeek, type WinStreak } from "./trends";
 import type { HeroAdjustment, Tier, AdjustmentType } from "./types";
 
 /**
- * Calculs du rapport meta de la semaine et du resume des patchs.
+ * Computations for the weekly meta report and the patch summary.
  *
- * Fonctions pures : la regle de la tier list (score, palier) est fournie par
- * l'appelant, comme l'historique l'est a `impactsDuPatch`. Les tests en
- * donnent une version simplifiee, sans lire les donnees du jeu.
+ * Pure functions: the tier list rule (score, tier) is supplied by the caller,
+ * just as the history is to `impactsOfPatch`. Tests pass a simplified version,
+ * without reading game data.
  */
 
 const ORDER: Tier[] = ["S+", "S", "A", "B", "C"];
 
-/** Taux quotidiens d'un heros : victoire et ban, un jour manquant valant null. */
+/** A hero's daily rates: win and ban, a missing day being null. */
 export interface SeriesTier {
   start: string;
   winRate: (number | null)[];
@@ -22,23 +22,23 @@ export interface ChangeTier {
   slug: string;
   before: Tier;
   after: Tier;
-  /** Paliers franchis, positif pour une montee. */
+  /** Tiers crossed, positive for a climb. */
   gap: number;
-  /** Score actuel, pour departager. */
+  /** Current score, for tie-breaking. */
   score: number;
-  /** Jours separant les deux mesures. */
+  /** Days between the two measurements. */
   days: number;
 }
 
 /**
- * Heros qui ont change de palier en une semaine. Le score du jour et celui de
- * J-7 sont recalcules sur les series quotidiennes, par la regle de la tier
- * list, avec la tolerance de `variationSemaine` sur les jours manquants.
+ * Heroes that changed tier within a week. Today's score and the D-7 score
+ * are recomputed from the daily series, using the tier list rule, with the
+ * tolerance of `variationWeek` for missing days.
  *
- * Les series sont arrondies au dixieme, le classement non : un heros pose sur
- * une borne pourrait changer de palier d'une source a l'autre sans que rien
- * n'ait bouge. On ne retient donc un changement que si le palier recalcule du
- * jour est bien celui de la tier list affichee.
+ * Series are rounded to one decimal, the ranking is not: a hero sitting on a
+ * boundary could change tier from one source to the other without anything
+ * having moved. A change is therefore kept only if today's recomputed tier
+ * matches the one in the displayed tier list.
  */
 export function changesOfTier(
   entries: { slug: string; series?: SeriesTier | null; tierCurrent?: Tier | null }[],
@@ -73,14 +73,14 @@ export function changesOfTier(
   };
 }
 
-/** Sens d'un ajustement pour les listes : un type inconnu compte comme simple ajustement. */
+/** Direction of an adjustment for lists: an unknown type counts as a plain adjustment. */
 export type AdjustmentDirection = AdjustmentType;
 export const ADJUSTMENT_DIRECTIONS: AdjustmentDirection[] = ["buff", "nerf", "adjust"];
 
 /**
- * Heros touches par un patch, par sens : ameliores, affaiblis, ajustes. Un
- * heros cite deux fois (competence puis attributs) n'apparait qu'une fois, a
- * sa premiere mention.
+ * Heroes affected by a patch, by direction: buffed, nerfed, adjusted. A hero
+ * mentioned twice (skill then attributes) appears only once, at its first
+ * mention.
  */
 export function groupAdjustments<A extends Pick<HeroAdjustment, "slug" | "type">>(
   adjustments: A[],
@@ -95,7 +95,7 @@ export function groupAdjustments<A extends Pick<HeroAdjustment, "slug" | "type">
   return groups;
 }
 
-/** Les `nombre` premiers d'une liste selon une mesure, du plus haut au plus bas, a egalite par slug. */
+/** The first `count` entries of a list by a measure, highest to lowest, ties broken by slug. */
 export function firstNBy<E extends { hero: { slug: string } }>(
   entries: E[],
   measure: (e: E) => number,

@@ -7,17 +7,16 @@ import type { Hero } from "./types";
 import { normalizeNameSkin } from "./utils";
 
 /**
- * Galerie des skins d'un heros, cote serveur : jointure du catalogue (id, nom,
- * rarete, prix), des portraits de boutique (par id) et des illustrations du
- * wiki (par nom).
+ * A hero's skin gallery, server side: join of the catalogue (id, name,
+ * rarity, price), the shop portraits (by id) and the wiki artwork (by name).
  *
- * Le wiki a souvent une illustration d'avance sur le catalogue : un skin sorti
- * depuis la derniere mise a jour du module de donnees n'a encore ni rarete ni
- * prix, mais deja son illustration. Ces illustrations seules sont gardees a
- * part plutot que perdues.
+ * The wiki often has an artwork ahead of the catalogue: a skin released since
+ * the last update of the data module has neither rarity nor price yet, but
+ * already has its artwork. These lone artworks are kept aside rather than
+ * lost.
  */
 
-/** Illustration qu'aucun skin du catalogue ne reclame : un skin plus recent que le catalogue. */
+/** Artwork no catalogue skin claims: a skin newer than the catalogue. */
 export interface IllustrationSingle {
   name: string;
   illustration: string;
@@ -26,14 +25,14 @@ export interface IllustrationSingle {
 export interface HeroGallery {
   skins: SkinFull[];
   others: IllustrationSingle[];
-  /** Skins du catalogue et illustrations seules. */
+  /** Catalogue skins and lone artworks. */
   total: number;
 }
 
 /**
- * Jointure du catalogue et des visuels. L'illustration se retrouve aussi par
- * nom normalise : la legende du wiki n'a pas toujours la casse du module
- * (« Vessel Of Deceit »).
+ * Join of the catalogue and the visuals. The artwork is also matched by
+ * normalised name: the wiki caption does not always have the module's casing
+ * ("Vessel Of Deceit").
  */
 export function skinsFull(h: Hero): SkinFull[] {
   const byHero = illustrations[h.slug] ?? {};
@@ -51,7 +50,7 @@ export function heroGallery(h: Hero): HeroGallery {
   const already = cache.get(h.slug);
   if (already) return already;
   const skins = skinsFull(h);
-  // Une illustration deja portee par un skin du catalogue n'est pas une illustration seule.
+  // An artwork already carried by a catalogue skin is not a lone artwork.
   const taken = new Set(skins.map((s) => s.illustration));
   const others = Object.entries(illustrations[h.slug] ?? {})
     .filter(([, path]) => !taken.has(path))
@@ -61,29 +60,29 @@ export function heroGallery(h: Hero): HeroGallery {
   return gallery;
 }
 
-/** Heros qui ont au moins un skin ou une illustration : chacun a sa galerie. */
+/** Heroes with at least one skin or artwork: each gets its gallery. */
 export const heroesWithSkins = allHeroes.filter((h) => heroGallery(h).total > 0);
 
-/** Nombre de skins recenses, illustrations seules comprises. */
+/** Number of listed skins, lone artworks included. */
 export const gallerySkinCount = heroesWithSkins.reduce((n, h) => n + heroGallery(h).total, 0);
 
-/** Le francais elide devant une voyelle : « Skins d'Aamon », mais « Skins de Balmond ». */
+/** French elides before a vowel: "Skins d'Aamon", but "Skins de Balmond". */
 export const elide = (locale: Locale, name: string) => locale === "fr" && /^[aeiouàâäéèêëîïôöùûü]/i.test(name);
 
-/** Titre de la galerie d'un heros, dans la langue de la page. */
+/** Title of a hero's gallery, in the page's language. */
 export function titleGallery(t: T, locale: Locale, name: string): string {
   const e = elide(locale, name);
   return t(e ? "pages.heroSkins.titleElision" : "pages.heroSkins.title", { nom: name });
 }
 
-/** Ancres des skins d'une galerie, dans l'ordre d'affichage : catalogue, puis illustrations seules. */
+/** Skin anchors of a gallery, in display order: catalogue, then lone artworks. */
 export function anchorsGallery(g: HeroGallery): string[] {
   return uniqueAnchors([...g.skins.map((s) => s.name), ...g.others.map((a) => a.name)]);
 }
 
 /**
- * Groupes du catalogue de tous les skins, par ordre alphabetique de heros, en
- * vignettes compactes : le portrait de boutique, a defaut l'illustration.
+ * Groups of the all-skins catalogue, in alphabetical hero order, as compact
+ * thumbnails: the shop portrait, else the artwork.
  */
 export function groupsSkins(): GroupSkins[] {
   return [...heroesWithSkins]
@@ -106,7 +105,7 @@ export function groupsSkins(): GroupSkins[] {
     });
 }
 
-/** Skins du catalogue dates au jour pres, du plus recent au plus ancien, avec leur heros. */
+/** Catalogue skins dated to the day, newest to oldest, with their hero. */
 export function lastSkins(count: number): { hero: Hero; skin: SkinFull }[] {
   return heroesWithSkins
     .flatMap((h) => heroGallery(h).skins.map((skin) => ({ hero: h, skin })))

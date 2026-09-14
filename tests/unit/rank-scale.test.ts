@@ -3,8 +3,8 @@ import { SCALE, RULES_FAMILY, tierAppearance } from "@/lib/rank-scale";
 import { readableRank } from "@/lib/ranks";
 
 /**
- * L'echelle de la page des rangs et la traduction des profils (`rangs.ts`)
- * reposent sur la meme table officielle : ces tests les empechent de diverger.
+ * The ranks page scale and the profile translation (`ranks.ts`) rely on the
+ * same official table: these tests keep them from drifting apart.
  */
 describe("rank scale", () => {
   it("covers rank_level values with no gap or overlap", () => {
@@ -17,7 +17,7 @@ describe("rank scale", () => {
 
   it("aligns divisions and stars with ranks.ts, from Warrior to Epic", () => {
     for (const p of SCALE.filter((x) => x.divisions.length)) {
-      // Plage de chaque division, lue dans rangs.ts.
+      // Range of each division, read from ranks.ts.
       const ranges = new Map<string, number>();
       for (let n = p.rankLevel.start; n <= p.rankLevel.end!; n += 1) {
         const r = readableRank(n);

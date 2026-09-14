@@ -2,18 +2,18 @@ import type { Role, Skin } from "./types";
 import { keySearch } from "./utils";
 
 /**
- * Skins : types et calculs communs a la vitrine de la fiche, a la galerie d'un
- * heros et au catalogue de tous les skins. Module sans donnees, importable par
- * un composant client.
+ * Skins: types and computations shared by the hero page showcase, a hero's
+ * gallery and the catalogue of all skins. Module without data, importable by
+ * a client component.
  */
 
-/** Un skin du catalogue, avec son portrait de boutique et son illustration pleine taille. */
+/** A catalogue skin, with its shop portrait and full-size illustration. */
 export interface SkinFull extends Skin {
   portrait: string | null;
   illustration: string | null;
 }
 
-/** Monnaies du jeu, aux sigles peu parlants : cle de leur libelle sous `skinsUI`. */
+/** Game currencies, with unhelpful abbreviations: key of their label under `skinsUI`. */
 export const CURRENCIES: Record<string, string> = {
   bp: "battlePoints",
   dm: "diamonds",
@@ -23,10 +23,10 @@ export const CURRENCIES: Record<string, string> = {
 };
 
 /**
- * Nom de fichier d'un skin, selon la regle de la synchronisation : « Night's
- * Edge » donne `night-s-edge`. Sert aussi d'ancre dans la galerie ; les
- * parentheses restent, a la difference de `normaliserNomSkin` : « Ken (Outfit
- * 2) » ne doit pas se confondre avec « Ken ».
+ * File name of a skin, following the sync rule: "Night's
+ * Edge" gives `night-s-edge`. Also used as an anchor in the gallery;
+ * parentheses are kept, unlike `normalizeNameSkin`: "Ken (Outfit
+ * 2)" must not be confused with "Ken".
  */
 export function fileSkin(name: string): string {
   return keySearch(name)
@@ -34,10 +34,10 @@ export function fileSkin(name: string): string {
     .replace(/^-|-$/g, "");
 }
 
-/** Ancre d'un skin dans la galerie de son heros : `skin-night-s-edge`. */
+/** Anchor of a skin in its hero's gallery: `skin-night-s-edge`. */
 export const anchorSkin = (name: string) => `skin-${fileSkin(name) || "sans-nom"}`;
 
-/** Ancres d'une liste de skins, rendues uniques : deux noms qui se reduisent au meme texte prennent un suffixe. */
+/** Anchors of a list of skins, made unique: two names that reduce to the same text get a suffix. */
 export function uniqueAnchors(names: readonly string[]): string[] {
   const views = new Map<string, number>();
   return names.map((name) => {
@@ -49,9 +49,9 @@ export function uniqueAnchors(names: readonly string[]): string[] {
 }
 
 /**
- * Date de sortie telle que le wiki la donne : au jour, au mois, a l'annee, ou
- * approximative (« 201X »), rendue au format de la langue quand elle est
- * complete et telle quelle sinon.
+ * Release date as the wiki gives it: to the day, month, year, or
+ * approximate ("201X"), rendered in the locale's format when it is
+ * complete and as is otherwise.
  */
 export function formatRelease(release: string, locale: string): string {
   if (/^\d{4}-\d{2}-\d{2}$/.test(release)) {
@@ -65,13 +65,13 @@ export function formatRelease(release: string, locale: string): string {
   return release;
 }
 
-// ── Vignettes du catalogue ─────────────────────────────────────────
+// ── Catalogue thumbnails ─────────────────────────────────────────
 
 /**
- * Vignette du catalogue, en tuple : un millier de skins partent au
- * navigateur, et les noms de champs repetes pesaient plus que les valeurs.
- * L'image est codee au plus court par `coderImage` ; la rarete est son rang
- * (0 a 6, voir `RARETES`).
+ * Catalogue thumbnail, as a tuple: about a thousand skins are sent to the
+ * browser, and repeated field names weighed more than the values.
+ * The image is encoded as short as possible by `encodeImage`; the rarity is its rank
+ * (0 to 6, see `RARITIES`).
  */
 export type SkinThumb = [name: string, image: string | null, rarity: number];
 
@@ -82,32 +82,32 @@ export interface GroupSkins {
   skins: SkinThumb[];
 }
 
-/** Dossier des visuels d'un heros. */
+/** Folder of a hero's visuals. */
 export const heroFolder = (slug: string) => `/visuels/heros/${slug}/`;
 
-/** Chemin d'une image, raccourci quand il est sous le dossier du heros (`skins/1091-duke-of-shards.png`). */
+/** Image path, shortened when it is under the hero folder (`skins/1091-duke-of-shards.png`). */
 export function shortenImage(slug: string, path: string | null): string | null {
   if (!path) return null;
   const folder = heroFolder(slug);
   return path.startsWith(folder) ? path.slice(folder.length) : path;
 }
 
-/** Chemin raccourci par `raccourcirImage`, rendu absolu. */
+/** Path shortened by `shortenImage`, made absolute. */
 export function imageThumb(slug: string, image: string | null): string | null {
   if (!image) return null;
   return image.startsWith("/") ? image : `${heroFolder(slug)}${image}`;
 }
 
-/** Portrait de boutique, tel que la synchronisation le range : `skins/1091-duke-of-shards.png`. */
+/** Shop portrait, as the sync stores it: `skins/1091-duke-of-shards.png`. */
 export const portraitSkin = (slug: string, id: string, name: string) =>
   `${heroFolder(slug)}skins/${id}-${fileSkin(name)}.png`;
-/** Illustration, telle que la synchronisation la range : `illustrations/duke-of-shards.webp`. */
+/** Illustration, as the sync stores it: `illustrations/duke-of-shards.webp`. */
 export const illustrationSkin = (slug: string, name: string) => `${heroFolder(slug)}illustrations/${fileSkin(name)}.webp`;
 
 /**
- * Image d'une vignette, sous sa forme la plus courte : l'id du skin quand son
- * portrait suit la regle de nommage, « * » pour une illustration qui la suit,
- * le chemin complet sinon (une poignee de noms a esperluette).
+ * Image of a thumbnail, in its shortest form: the skin id when its
+ * portrait follows the naming rule, "*" for an illustration that follows it,
+ * the full path otherwise (a handful of names with an ampersand).
  */
 export function encodeImage(slug: string, name: string, id: string | null, path: string | null): string | null {
   if (!path) return null;
@@ -116,7 +116,7 @@ export function encodeImage(slug: string, name: string, id: string | null, path:
   return path;
 }
 
-/** Chemin de l'image d'une vignette codee par `coderImage`. */
+/** Image path of a thumbnail encoded by `encodeImage`. */
 export function imageOfThumb(slug: string, [name, image]: SkinThumb): string | null {
   if (!image) return null;
   if (image === "*") return illustrationSkin(slug, name);
@@ -124,9 +124,9 @@ export function imageOfThumb(slug: string, [name, image]: SkinThumb): string | n
 }
 
 /**
- * Groupes qui passent les filtres. Un role garde les heros qui l'ont. La
- * recherche garde un heros entier quand elle trouve son nom, sinon ses seuls
- * skins dont le nom correspond : « vessel » trouve les skins Soul Vessels.
+ * Groups that pass the filters. A role keeps the heroes that have it. The
+ * search keeps a whole hero when it matches their name, otherwise only their
+ * skins whose name matches: "vessel" finds the Soul Vessels skins.
  */
 export function filterGroups(
   groups: readonly GroupSkins[],

@@ -2,13 +2,12 @@ import type { Role } from "./types";
 import type { Lane } from "./types";
 
 /**
- * Suggestion de picks.
+ * Pick suggestions.
  *
- * Le principe : un heros vaut d'etre pris s'il gene ceux d'en face, s'il ne
- * leur est pas vulnerable, s'il se combine avec ce que son equipe a deja
- * choisi, et s'il tient la route dans l'absolu. Ces quatre signaux n'ont pas
- * le meme poids — contrer un adversaire precis compte plus qu'un demi-point de
- * taux de victoire.
+ * The idea: a hero is worth picking if it hinders the opponents, is not
+ * vulnerable to them, combines with what its team has already picked, and
+ * holds up on its own. These four signals do not weigh the same — countering
+ * a specific opponent counts more than half a point of win rate.
  */
 
 export const LANES: Lane[] = ["Gold", "Jungle", "Mid", "Exp", "Roam"];
@@ -20,7 +19,7 @@ export const laneFromParam = (value: string | null): Lane | null =>
   value === null ? null : (LANES.find((l) => l === value) ?? LEGACY_LANES[value] ?? null);
 export const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 
-/** Ce dont l'outil a besoin pour chaque heros ; le reste alourdirait la page. */
+/** What the tool needs for each hero; anything more would weigh the page down. */
 export interface DraftHero {
   slug: string;
   name: string;
@@ -34,11 +33,11 @@ export interface DraftHero {
 }
 
 export interface Reason {
-  /** Nature de l'argument ; la phrase se compose dans la langue de la page. */
+  /** Kind of argument; the sentence is built in the page's language. */
   type: "counter" | "countered" | "synergy" | "win";
-  /** Heros en cause, ou taux de victoire. */
+  /** Heroes involved, or win rate. */
   detail: string;
-  /** Positif quand l'argument joue en faveur du heros. */
+  /** True when the argument works in the hero's favour. */
   favorable: boolean;
 }
 
@@ -49,18 +48,17 @@ export interface Suggestion {
 }
 
 /**
- * Poids des signaux.
+ * Signal weights.
  *
- * Contrer un adversaire vaut trois points ; en subir un en coute autant. La
- * synergie compte moitie moins : elle aide, mais ne decide pas d'un duel de
- * lane. Le taux de victoire n'intervient qu'en depart d'egalite — d'ou son
- * echelle volontairement reduite.
+ * Countering an opponent is worth three points; being countered costs as
+ * much. Synergy counts half as much: it helps, but does not decide a lane
+ * duel. Win rate only breaks ties — hence its deliberately small scale.
  */
 const WEIGHT = {
   counter: 3,
   counteredBy: -3,
   synergy: 1.5,
-  /** Ecart au taux d'equilibre (50 %), divise pour rester un simple arbitre. */
+  /** Gap from the break-even rate (50 %), scaled down to stay a mere tie-breaker. */
   win: 0.4,
 };
 
@@ -73,9 +71,9 @@ export function suggest({
 }: {
   candidates: DraftHero[];
   lane: Lane;
-  /** Slugs adverses, toutes lanes confondues. */
+  /** Enemy slugs, all lanes combined. */
   enemies: string[];
-  /** Slugs deja choisis par l'equipe. */
+  /** Slugs already picked by the team. */
   allies: string[];
   limit?: number;
 }): Suggestion[] {
@@ -87,9 +85,9 @@ export function suggest({
       const reasons: Reason[] = [];
       let score = 0;
 
-      // Une relation de contre est declaree d'un seul cote : « A est fort
-      // contre B » n'implique pas que la fiche de B mentionne A. On lit donc
-      // les deux sens, sans quoi la moitie des contres resterait invisible.
+      // A counter relation is declared on one side only: "A is strong
+      // against B" does not imply that B's page mentions A. Both directions
+      // are read, otherwise half the counters would stay invisible.
       const byEnemy = new Map(
         candidates.filter((c) => enemies.includes(c.slug)).map((c) => [c.slug, c]),
       );

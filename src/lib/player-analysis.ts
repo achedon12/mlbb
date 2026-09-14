@@ -1,9 +1,9 @@
 /**
- * Analyses du profil de joueur : roles et positions, evolution au fil des
- * parties, et ce que joue le rang du joueur sur ses heros.
+ * Player profile analyses: roles and lanes, trend over matches, and what the
+ * player's rank plays on their heroes.
  *
- * Calculs purs, sans appel reseau, comme `profil-joueur` : pages et tests leur
- * passent des reponses deja lues par `joueur-api`.
+ * Pure computations, no network call, like `player-profile`: pages and tests
+ * pass them responses already read by `player-api`.
  */
 import type { ResolvedBuild } from "@/components/builds-by-rank";
 import { buildsPlayed, counters, heroesBySlug, type BuildPlayed } from "./data";
@@ -15,30 +15,30 @@ import type { Lane, Role } from "./types";
 import { resolveBuild } from "./build-visuals";
 
 // ─────────────────────────────────────────────────────────────
-// Roles et positions
+// Roles and lanes
 // ─────────────────────────────────────────────────────────────
 
-/** En dessous, un role ou une position n'est ni point fort ni point faible : trop peu de parties. */
+/** Below this, a role or lane is neither a strength nor a weakness: too few matches. */
 export const MATCHES_MIN_ROLE = 10;
 
 export interface RowRole<C extends string> {
   key: C;
   matches: number;
   wins: number;
-  /** Taux de victoire, en points. */
+  /** Win rate, in points. */
   rate: number;
-  /** Part des parties comptees, en points. */
+  /** Share of counted matches, in points. */
   part: number;
 }
 
 export interface SummaryRoles<C extends string> {
-  /** Du plus au moins joue. */
+  /** From most to least played. */
   rows: RowRole<C>[];
-  /** Base de la part des parties. */
+  /** Base of the match share. */
   total: number;
-  /** Parties qui n'ont pu etre rattachees a rien : heros inconnu du site, position absente. */
+  /** Matches that could not be attached to anything: hero unknown to the site, missing lane. */
   excluded: number;
-  /** Meilleur et plus faible taux parmi ceux joues au moins `PARTIES_MIN_POSTE` fois. */
+  /** Best and weakest rates among those played at least `MATCHES_MIN_ROLE` times. */
   strong: C | null;
   weak: C | null;
 }
@@ -64,7 +64,7 @@ function summaryRoles<C extends string>(tallies: Counters<C>, total: number, exc
     }))
     .sort((a, b) => b.matches - a.matches || b.rate - a.rate);
 
-  // A taux egal, le plus joue l'emporte : son taux est le plus sur.
+  // On equal rates, the most played wins: its rate is the most reliable.
   const kept = rows.filter((l) => l.matches >= MATCHES_MIN_ROLE);
   const strong = [...kept].sort((a, b) => b.rate - a.rate || b.matches - a.matches)[0];
   const weak = [...kept].sort((a, b) => a.rate - b.rate || b.matches - a.matches)[0];
@@ -78,9 +78,9 @@ const sheetOf = (h: MatchSummary["hero"]) => {
 };
 
 /**
- * Parties de la saison par role du heros, d'apres le catalogue du site. Un
- * heros a deux roles compte dans chacun : la somme des parts peut depasser
- * cent. Un heros inconnu du site est ecarte plutot que devine.
+ * Season matches by hero role, according to the site catalogue. A hero with
+ * two roles counts in each: the shares can add up to more than a hundred.
+ * A hero unknown to the site is left out rather than guessed.
  */
 export function statsByRole(frequents: FrequentHero[]): SummaryRoles<Role> {
   const tallies: Counters<Role> = new Map();
@@ -97,9 +97,9 @@ export function statsByRole(frequents: FrequentHero[]): SummaryRoles<Role> {
 }
 
 /**
- * Position occupee partie par partie. Le service la donne (`lid`) ; a defaut,
- * un heros qui n'a qu'une position au catalogue la prete. Une partie a l'issue
- * inconnue ne compte pas : elle ne dirait rien du taux.
+ * Lane played, match by match. The service provides it (`lid`); failing that,
+ * a hero with a single lane in the catalogue lends it. A match with an unknown
+ * outcome does not count: it would say nothing about the rate.
  */
 export function positionOf(p: MatchSummary): Lane | null {
   if (p.lane !== null && GAME_LANE[p.lane]) return GAME_LANE[p.lane];
@@ -125,10 +125,10 @@ export function statsByPosition(matches: MatchSummary[]): SummaryRoles<Lane> {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Evolution au fil des parties
+// Trend over matches
 // ─────────────────────────────────────────────────────────────
 
-/** Parties de la moyenne glissante, et de la « forme » recente. */
+/** Matches in the rolling average, and in the recent "form". */
 export const WINDOW_SHAPE = 10;
 
 export interface Series {
@@ -137,20 +137,20 @@ export interface Series {
 }
 
 export interface Evolution {
-  /** Parties dont l'issue est connue. */
+  /** Matches whose outcome is known. */
   matches: number;
   wins: number;
-  /** Serie en cours, a partir de la partie la plus recente. */
+  /** Ongoing streak, starting from the most recent match. */
   ongoingSeries: Series | null;
-  /** Plus longues series de victoires et de defaites. */
+  /** Longest win and loss streaks. */
   bestStreak: number;
   worstStreak: number;
-  /** Taux sur les `FENETRE_FORME` dernieres parties ; null s'il y en a moins. */
+  /** Rate over the last `WINDOW_SHAPE` matches; null if there are fewer. */
   shape: number | null;
   /**
-   * Courbe, de la plus ancienne partie a la plus recente, a partir de la
-   * premiere fenetre complete : une date (jour UTC) par partie, le taux
-   * glissant et le taux cumule. null faute de deux points, ou de dates.
+   * Curve, from oldest to most recent match, starting at the first full
+   * window: one date (UTC day) per match, the rolling rate and the cumulative
+   * rate. null without two points, or without dates.
    */
   curve: { dates: string[]; rolling: number[]; cumulative: number[] } | null;
 }
@@ -158,9 +158,9 @@ export interface Evolution {
 const dayUtc = (seconds: number) => new Date(seconds * 1000).toISOString().slice(0, 10);
 
 /**
- * Jour de chaque partie. Une partie sans date prend celle de sa voisine plus
- * ancienne, ou a defaut plus recente : la courbe exige une date par point, et
- * l'ordre du service fait foi. null si aucune partie n'est datee.
+ * Day of each match. A match without a date takes that of its older neighbour,
+ * or failing that its newer one: the curve needs one date per point, and the
+ * service's order is authoritative. null if no match is dated.
  */
 function datesOf(timer: MatchSummary[]): string[] | null {
   const known = timer.map((p) => (p.date !== null && Number.isFinite(p.date) ? dayUtc(p.date) : null));
@@ -171,9 +171,8 @@ function datesOf(timer: MatchSummary[]): string[] | null {
 }
 
 /**
- * Evolution sur l'historique lu, des plus recentes aux plus anciennes comme
- * les rend le service. Les parties a l'issue inconnue sont laissees de cote :
- * elles ne cassent pas une serie.
+ * Trend over the history read, newest to oldest as the service returns it.
+ * Matches with an unknown outcome are skipped: they do not break a streak.
  */
 export function evolution(matches: MatchSummary[], window = WINDOW_SHAPE): Evolution {
   const timer = matches.filter((p) => p.win !== null).reverse();
@@ -216,36 +215,36 @@ export function evolution(matches: MatchSummary[], window = WINDOW_SHAPE): Evolu
 }
 
 // ─────────────────────────────────────────────────────────────
-// Ce que joue le rang
+// What the rank plays
 // ─────────────────────────────────────────────────────────────
 
 export interface CounterHard {
   hero: ShownHero;
-  /** Ecart de taux de victoire du heros du joueur face a lui, en points (negatif). */
+  /** Win rate gap of the player's hero against it, in points (negative). */
   advantage: number;
 }
 
 export interface HeroRankSheet {
   row: HeroRow & { hero: { slug: string } };
-  /** Position du build retenu. */
+  /** Lane of the chosen build. */
   lane: Lane | null;
   build: ResolvedBuild | null;
-  /** Rang dont vient le build : celui du joueur, ou tous rangs a defaut. */
+  /** Rank the build comes from: the player's, or all ranks as a fallback. */
   rankBuild: MeasuredRank | null;
   weak: CounterHard[];
   rankCounters: MeasuredRank | null;
 }
 
-/** Heros de la fiche du site, pret a afficher. */
+/** Hero from the site sheet, ready to display. */
 function shownOnSite(slug: string): ShownHero | null {
   const h = heroesBySlug.get(slug);
   return h ? { slug: h.slug, name: h.name, portrait: h.images.portrait } : null;
 }
 
 /**
- * Position a retenir pour les builds d'un heros : celle ou le joueur l'a le
- * plus joue recemment, si le rang y a des builds ; sinon la premiere position
- * du catalogue qui en a, puis la premiere mesuree.
+ * Lane to use for a hero's builds: the one where the player played it most
+ * recently, if the rank has builds there; otherwise the first catalogue lane
+ * that has some, then the first measured one.
  */
 function laneOfPlayer(slug: string, available: string[], recent: MatchSummary[]): string | null {
   const played = new Map<string, number>();
@@ -259,10 +258,10 @@ function laneOfPlayer(slug: string, available: string[], recent: MatchSummary[])
   return catalog ?? available[0] ?? null;
 }
 
-/** Le plus joue d'abord : la plus forte part des parties. */
+/** Most played first: the highest share of matches. */
 const bySelection = (a: BuildPlayed, b: BuildPlayed) => (b.pickRate ?? -1) - (a.pickRate ?? -1);
 
-/** Le rang demande, ou tous rangs confondus a defaut. */
+/** The requested rank, or all ranks combined as a fallback. */
 function atRank<V>(byRank: Partial<Record<MeasuredRank, V>> | undefined, bucket: MeasuredRank) {
   if (byRank?.[bucket] !== undefined) return { value: byRank[bucket]!, rank: bucket };
   if (byRank?.all !== undefined) return { value: byRank.all, rank: "all" as MeasuredRank };
@@ -270,9 +269,9 @@ function atRank<V>(byRank: Partial<Record<MeasuredRank, V>> | undefined, bucket:
 }
 
 /**
- * Pour les heros les plus joues : le build le plus joue a son rang — la plus
- * forte part des parties — et les heros qui le mettent le plus en difficulte a
- * ce rang. Un heros sans aucune de ces mesures est passe.
+ * For the most played heroes: the most played build at their rank — the
+ * highest share of matches — and the heroes that trouble it most at that
+ * rank. A hero with none of these measures is skipped.
  */
 export function heroRankSheets(
   rows: HeroRow[],

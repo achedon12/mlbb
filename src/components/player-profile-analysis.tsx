@@ -21,19 +21,19 @@ import type { Lane, Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Analyses du profil de joueur : roles et positions, evolution, et ce que
- * joue le rang du joueur sur ses heros.
+ * Player profile analyses: roles and lanes, trend, and what
+ * the player's rank plays on their heroes.
  *
- * Composants serveur sans etat, comme ceux de `profil-joueur` : ils recoivent
- * des chiffres deja calcules et la fonction de traduction. Seule la courbe est
- * un composant client ; elle ne recoit que des nombres et des dates.
+ * Stateless server components, like those of `player-profile`: they receive
+ * already computed figures and the translation function. Only the chart is
+ * a client component; it only receives numbers and dates.
  */
 
 // ─────────────────────────────────────────────────────────────
-// Roles et positions
+// Roles and lanes
 // ─────────────────────────────────────────────────────────────
 
-/** Tableau des parties par role ou par position, points fort et faible signales. */
+/** Table of matches by role or by lane, with strong and weak points flagged. */
 export function TableRoles<C extends Role | Lane>({
   type,
   title,
@@ -112,7 +112,7 @@ export function TableRoles<C extends Role | Lane>({
                       </td>
                       <td className="px-2 text-right tabular-nums text-chalk-300">
                         <span className="whitespace-nowrap">{formatPercent(l.part, locale)}</span>
-                        {/* Jauge de la part : un repere de plus, la valeur est ecrite a cote. */}
+                        {/* Share gauge: one more visual cue, the value is written next to it. */}
                         <span aria-hidden className="ml-auto mt-1 block h-1 w-14 max-w-full bg-night-800">
                           <span className="block h-full bg-gold-500/70" style={{ width: `${Math.min(100, l.part)}%` }} />
                         </span>
@@ -154,7 +154,7 @@ export function TableRoles<C extends Role | Lane>({
 }
 
 // ─────────────────────────────────────────────────────────────
-// Evolution
+// Trend
 // ─────────────────────────────────────────────────────────────
 
 function Tile({ label, tone, children }: { label: string; tone?: "good" | "bad"; children: React.ReactNode }) {
@@ -175,7 +175,7 @@ function Tile({ label, tone, children }: { label: string; tone?: "good" | "bad";
 
 const day = (d: string, locale: Locale) => formatDateMatch(Date.parse(`${d}T00:00:00Z`) / 1000, locale, false);
 
-/** Series et forme recente, puis la courbe du taux de victoire partie apres partie. */
+/** Streaks and recent form, then the win rate curve match after match. */
 export function EvolutionPlayer({
   evo,
   end,
@@ -183,7 +183,7 @@ export function EvolutionPlayer({
   locale,
 }: {
   evo: Evolution;
-  /** Vrai quand l'historique lu couvre toute la saison. */
+  /** True when the history read covers the whole season. */
   end: boolean;
   t: T;
   locale: Locale;
@@ -268,7 +268,7 @@ export function EvolutionPlayer({
 }
 
 // ─────────────────────────────────────────────────────────────
-// Ce que joue le rang
+// What the rank plays
 // ─────────────────────────────────────────────────────────────
 
 function ItemIconData({ item }: { item: ResolvedItem }) {
@@ -307,9 +307,9 @@ function LinkTab({ href, children }: { href: string; children: React.ReactNode }
 }
 
 /**
- * Heros les plus joues face a ce que joue le rang : l'ecart au taux moyen,
- * le build le plus joue a ce rang et les heros qui le mettent en difficulte.
- * Chaque bloc mene a l'onglet correspondant de la fiche du heros.
+ * Most played heroes against what the rank plays: the gap to the average rate,
+ * the most played build at that rank and the heroes that give them trouble.
+ * Each block leads to the matching tab of the hero page.
  */
 export function HeroRankSheets({
   sheets,

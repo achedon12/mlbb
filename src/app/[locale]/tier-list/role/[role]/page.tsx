@@ -6,7 +6,7 @@ import { metaTierList, TierList } from "../../content";
 
 type Params = { params: Promise<{ locale: Locale; role: string }> };
 
-/** Une page par role, tous rangs confondus : « /tier-list/role/marksman ». */
+/** One page per role, all ranks combined: "/tier-list/role/marksman". */
 export const dynamicParams = false;
 
 export function generateStaticParams() {

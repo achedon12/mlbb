@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-/** Sonde de sante appelee par le HEALTHCHECK du conteneur. */
+/** Health probe called by the container's HEALTHCHECK. */
 export function GET() {
   return NextResponse.json({ status: "ok" }, { headers: { "Cache-Control": "no-store" } });
 }

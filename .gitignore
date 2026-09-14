@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files — le modele est versionne, les valeurs reelles jamais
+# env files — the template is committed, real values never
 .env*
 !.env.example
 
@@ -41,17 +41,17 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Configuration d'IDE
+# IDE configuration
 /.idea
 
-# Ce projet utilise npm
+# This project uses npm
 /pnpm-lock.yaml
 /yarn.lock
 
-# Journaux applicatifs (runtime)
+# Application logs (runtime)
 /logs
 
-# Donnees du serveur (abonnements aux notifications) : jamais versionnees
+# Server data (notification subscriptions): never committed
 /donnees-serveur
 
 # Playwright

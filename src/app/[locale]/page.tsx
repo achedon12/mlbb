@@ -29,7 +29,7 @@ import { notFound } from "next/navigation";
 import { BASE } from "@/lib/sections";
 import { createT, type T } from "@/i18n/translations";
 
-/** Donnees structurees de l'accueil, dans la langue de la page. */
+/** Home page structured data, in the page's language. */
 const dataHome = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@graph": [
@@ -63,12 +63,12 @@ const detail = patchDetails as unknown as Record<
 >;
 
 /**
- * Heros mis en avant, choisi par le jour de l'annee.
+ * Featured hero, chosen by the day of the year.
  *
- * Un tirage aleatoire changerait le visuel a chaque rechargement — l'accueil
- * doit rester reconnaissable d'une visite a l'autre dans la journee.
+ * A random draw would change the visual on every reload — the home page
+ * must stay recognizable from one visit to the next during the day.
  */
-/** Outils interactifs du menu, repris en grille sur l'accueil. */
+/** Interactive tools from the menu, shown as a grid on the home page. */
 const TOOLS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle"].includes(e.href));
 
 function heroOfTheDay() {
@@ -82,9 +82,9 @@ function heroOfTheDay() {
 
 export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  // /inexistant.txt arrive ici avec « inexistant.txt » pour langue : la page
-  // se rend en meme temps que la mise en page, et ses nombres formates dans
-  // cette langue invalide la faisaient echouer en 500 avant la 404.
+  // /nonexistent.txt arrives here with "nonexistent.txt" as its language: the page
+  // renders together with the layout, and its numbers formatted in
+  // that invalid language made it fail with a 500 before the 404.
   if (!isLocale(locale)) notFound();
   const t = createT(locale);
   const featured = heroOfTheDay();
@@ -104,8 +104,8 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
     ]),
   ) as Record<Role, number>;
 
-  // Quelques skins recents, choisis pour leur illustration : l'accueil doit
-  // montrer ce que le site contient, pas seulement l'annoncer.
+  // A few recent skins, chosen for their illustration: the home page must
+  // show what the site contains, not just announce it.
   const featuredSkins = allHeroes
     .filter((h) => illustrations[h.slug] && h.skins.length > 3)
     .slice(0, 6)
@@ -122,7 +122,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(dataHome(locale)) }}
       />
 
-      {/* ── Bandeau d'accroche ─────────────────────────────────────────── */}
+      {/* ── Hero banner ────────────────────────────────────────────────── */}
       <section className="border-b border-night-700/70">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
           <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
@@ -178,7 +178,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </div>
       </section>
 
-      {/* ── Heros du jour ──────────────────────────────────────────────── */}
+      {/* ── Hero of the day ────────────────────────────────────────────── */}
       {featured && (
         <HomeFeatured
           hero={featured.heroes}
@@ -189,7 +189,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         />
       )}
 
-      {/* ── Entree par role ────────────────────────────────────────────── */}
+      {/* ── Browse by role ─────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <SectionTitle lead={t("home.startLead")}>
           {t("home.startTitle")}
@@ -197,10 +197,10 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         <RoleAccess count={byRole} locale={locale} />
       </section>
 
-      {/* ── Outils ─────────────────────────────────────────────────────── */}
+      {/* ── Tools ──────────────────────────────────────────────────────── */}
       {/*
-        Tires du menu : un outil ajoute aux rubriques apparait ici sans autre
-        changement.
+        Taken from the menu: a tool added to the sections appears here with no other
+        change.
       */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
         <SectionTitle lead={t("home.toolsLead")}>{t("home.toolsTitle")}</SectionTitle>
@@ -224,7 +224,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </ul>
       </section>
 
-      {/* ── Sommet du classement ───────────────────────────────────────── */}
+      {/* ── Top of the ranking ─────────────────────────────────────────── */}
       <section className="border-y border-night-700/70 bg-night-900/30">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <SectionTitle
@@ -265,7 +265,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </div>
       </section>
 
-      {/* ── Tendances de la semaine ────────────────────────────────────── */}
+      {/* ── Trends of the week ─────────────────────────────────────────── */}
       {(week.rises.length > 0 || week.drops.length > 0) && (
         <section className="mx-auto max-w-6xl px-4 py-16">
           <SectionTitle
@@ -334,7 +334,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </section>
       )}
 
-      {/* ── Patch et articles ──────────────────────────────────────────── */}
+      {/* ── Patch and articles ─────────────────────────────────────────── */}
       <section className="border-t border-night-700/70 bg-night-900/30">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_2fr]">
           {lastPatch && (
@@ -398,7 +398,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </div>
       </section>
 
-      {/* ── Fonctionnement ─────────────────────────────────────────────── */}
+      {/* ── How it works ───────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
         <SectionTitle lead={t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_HTML[locale]) })}>
           {t("home.howItWorks")}
@@ -440,9 +440,9 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 }
 
 /**
- * Hausses ou baisses de la semaine : portrait, taux actuel et ecart en points.
- * La fleche et la couleur doublent le signe ; les lecteurs d'ecran entendent
- * l'ecart en toutes lettres.
+ * Risers or fallers of the week: portrait, current rate and gap in points.
+ * The arrow and the color double the sign; screen readers hear
+ * the gap spelled out.
  */
 function ListMoves({
   title,

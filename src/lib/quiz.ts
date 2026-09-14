@@ -2,41 +2,41 @@ import type { Lane, Role } from "./types";
 import { keySearch } from "./utils";
 
 /**
- * Quiz MLBB : defi du jour et entrainement.
+ * MLBB quiz: daily challenge and practice.
  *
- * Module sans donnees ni dependance au navigateur. Le serveur s'en sert pour
- * tirer le defi du jour dans le vivier (`quiz-donnees.ts`) ; le client, pour
- * refaire ce meme tirage hors ligne a partir du vivier garde en cache, et pour
- * les manches de l'entrainement.
+ * Module with no data and no browser dependency. The server uses it to
+ * draw the daily challenge from the pool (`quiz-data.ts`); the client, to
+ * redo the same draw offline from the cached pool, and for
+ * practice rounds.
  *
- * Le defi ne depend que de la date UTC : tout le monde a le meme, dans toutes
- * les langues — seuls les textes changent. Chaque choix prend le candidat au
- * plus petit hachage de « date + slug » plutot qu'un indice dans une liste :
- * l'arrivee d'un nouveau heros ne rebat pas les defis deja joues.
+ * The challenge depends only on the UTC date: everyone gets the same one, in
+ * every language — only the texts change. Each pick takes the candidate with
+ * the smallest hash of "date + slug" rather than an index in a list:
+ * a newly released hero does not reshuffle challenges already played.
  */
 
 export type TypeRound = "skill" | "skin" | "story" | "item" | "duel";
 export type GuessType = Exclude<TypeRound, "duel">;
 
-/** Ordre des manches du defi du jour, repris par la grille de partage. */
+/** Order of the daily challenge rounds, also used by the share grid. */
 export const ORDER_CHALLENGE: TypeRound[] = ["skill", "skin", "story", "item", "duel"];
 
-/** Essais par manche : cinq pour un heros parmi 133, quatre pour un objet. */
+/** Attempts per round: five for a hero among 133, four for an item. */
 export const ATTEMPTS: Record<GuessType, number> = { skill: 5, skin: 5, story: 5, item: 4 };
 
-/** Paires du duel « plus ou moins » : trois le jour, une a l'entrainement. */
+/** Pairs in the "higher or lower" duel: three daily, one in practice. */
 export const PAIRS_DUEL = 3;
 
-/** Premier defi : le numero d'un jour se compte a partir de celui-ci. */
+/** First challenge: a day's number is counted from this one. */
 export const EPOCH = "2026-09-11";
 
-/** Essai qui abandonne la manche : il la termine sans compter comme erreur de plus. */
+/** Attempt that gives up the round: it ends it without counting as one more error. */
 export const ABANDON = "-";
 
-/** Agrandissement de l'illustration d'un skin, erreur apres erreur. */
+/** Zoom level of a skin illustration, error after error. */
 export const ZOOMS = [3.2, 2.4, 1.8, 1.35, 1];
 
-/** Pictogramme de chaque manche dans la grille partagee : il ne dit rien de la reponse. */
+/** Icon of each round in the shared grid: it reveals nothing about the answer. */
 export const EMOJI_ROUND: Record<TypeRound, string> = {
   skill: "✨",
   skin: "🎨",
@@ -46,10 +46,10 @@ export const EMOJI_ROUND: Record<TypeRound, string> = {
 };
 
 // ─────────────────────────────────────────────────────────────
-// Vivier
+// Pool
 // ─────────────────────────────────────────────────────────────
 
-/** Un heros tel que le quiz le compare : de quoi proposer, comparer et donner des indices. */
+/** A hero as the quiz compares it: enough to suggest, compare and give hints. */
 export interface QuizHero {
   slug: string;
   nom: string;
@@ -57,31 +57,31 @@ export interface QuizHero {
   roles: Role[];
   lanes: Lane[];
   annee: number | null;
-  /** Region, deja traduite. */
+  /** Region, already translated. */
   region: string | null;
 }
 
-/** Un objet tel que le champ de reponse le propose et le compare. */
+/** An item as the answer field suggests and compares it. */
 export interface ItemRoster {
   slug: string;
   nom: string;
   icone: string | null;
   prix: number | null;
-  /** Categorie, deja traduite. */
+  /** Category, already translated. */
   categorie: string;
 }
 
 export interface ItemQuiz extends ItemRoster {
   bonus: string;
   recette: { nom: string; icone: string | null }[];
-  /** Passif ou effet unique, nom de l'objet masque. */
+  /** Passive or unique effect, item name masked. */
   passif: string | null;
 }
 
 export interface SkillQuiz {
   nom: string;
   icone: string;
-  /** Debut de la description, nom du heros masque. */
+  /** Start of the description, hero name masked. */
   extrait: string | null;
 }
 
@@ -91,26 +91,26 @@ export interface SkinQuiz {
 }
 
 /**
- * Tout ce qu'il faut pour tirer des manches, dans une langue. Le serveur le
- * sert a l'entrainement (`/quiz/<langue>.json`) ; le defi du jour n'en envoie
- * que le tirage.
+ * Everything needed to draw rounds, in one language. The server
+ * serves it for practice (`/quiz/<locale>.json`); the daily challenge only sends
+ * the draw.
  */
 export interface PoolQuiz {
-  /** Change a chaque synchronisation : le cache du navigateur se renouvelle alors. */
+  /** Changes on every sync: the browser cache is then refreshed. */
   version: string;
-  /** Date du releve des taux de victoire. */
+  /** Date of the win rate snapshot. */
   mesure: string;
   heros: QuizHero[];
   competences: Record<string, SkillQuiz[]>;
   histoires: Record<string, string[]>;
   skins: Record<string, SkinQuiz[]>;
   objets: ItemQuiz[];
-  /** Taux de victoire tous rangs, heros assez joues seulement. */
+  /** Win rate across all ranks, heroes with enough games only. */
   victoires: Record<string, number>;
 }
 
 // ─────────────────────────────────────────────────────────────
-// Manches
+// Rounds
 // ─────────────────────────────────────────────────────────────
 
 export interface DuelHero {
@@ -121,7 +121,7 @@ export type PairDuel = [DuelHero, DuelHero];
 
 export type Round =
   | { type: "skill"; reponse: string; nom: string; icone: string; extrait: string | null }
-  /** `foyer` : point de l'illustration sur lequel l'image est agrandie, en fractions. */
+  /** `foyer`: point of the illustration the image is zoomed on, as fractions. */
   | { type: "skin"; reponse: string; image: string; skin: string; foyer: [number, number] }
   | { type: "story"; reponse: string; extraits: string[] }
   | {
@@ -144,13 +144,13 @@ export interface Challenge {
 }
 
 /**
- * Source de hasard d'un tirage : a une cle, elle associe un nombre de [0, 1[.
- * Le defi du jour la tire d'un hachage (meme cle, meme nombre) ; l'entrainement
- * de `Math.random`.
+ * Randomness source for a draw: maps a key to a number in [0, 1[.
+ * The daily challenge derives it from a hash (same key, same number); practice
+ * from `Math.random`.
  */
 export type Draw = (key: string) => number;
 
-/** Hachage FNV-1a sur 32 bits : court, sans dependance, identique partout. */
+/** 32-bit FNV-1a hash: short, dependency-free, identical everywhere. */
 export function hash(text: string): number {
   let h = 0x811c9dc5;
   for (let i = 0; i < text.length; i++) {
@@ -160,12 +160,12 @@ export function hash(text: string): number {
   return h >>> 0;
 }
 
-/** Tirage reproductible : une graine, puis chaque cle donne toujours le meme nombre. */
+/** Reproducible draw: one seed, then each key always gives the same number. */
 export function fixedDraw(seed: string): Draw {
   return (key) => hash(`${seed}|${key}`) / 4294967296;
 }
 
-/** Candidat au plus petit tirage : stable quand la liste s'allonge d'un element qui ne gagne pas. */
+/** Candidate with the smallest draw: stable when the list grows by an element that does not win. */
 function choose<T>(candidates: T[], key: (x: T) => string, draw: Draw): T | undefined {
   let best: T | undefined;
   let value = Infinity;
@@ -183,9 +183,9 @@ const hint = (n: number, r: number) => Math.min(n - 1, Math.floor(r * n));
 const rounded = (v: number) => Math.round(v * 100) / 100;
 
 /**
- * Une manche du type demande. `exclus` evite de reprendre un heros ou un
- * objet deja tire (il est complete au passage) ; `paires` fixe la longueur du
- * duel. Rend `null` quand le vivier n'a aucun candidat.
+ * A round of the requested type. `excluded` avoids reusing a hero or an
+ * item already drawn (it is filled in along the way); `pairs` sets the length of the
+ * duel. Returns `null` when the pool has no candidate.
  */
 export function generateRound(
   pool: PoolQuiz,
@@ -211,7 +211,7 @@ export function generateRound(
     const list = pool.skins[h.slug];
     const s = list[hint(list.length, draw(`skin:${h.slug}:lequel`))];
     excluded.add(h.slug);
-    // Le foyer reste vers le centre, la ou se tient le personnage.
+    // The zoom point stays near the center, where the character stands.
     const home: [number, number] = [
       rounded(0.3 + 0.4 * draw(`skin:${h.slug}:x`)),
       rounded(0.25 + 0.35 * draw(`skin:${h.slug}:y`)),
@@ -245,8 +245,8 @@ export function generateRound(
     };
   }
 
-  // Duel : deux heros aux taux assez ecartes pour qu'il y ait une reponse,
-  // pas assez pour qu'elle saute aux yeux.
+  // Duel: two heroes with win rates far enough apart for there to be an answer,
+  // not so far that it is obvious.
   const measures = free.filter((h) => pool.victoires[h.slug] !== undefined);
   const pairs: PairDuel[] = [];
   for (let n = 0; n < (o.pairs ?? 1); n++) {
@@ -272,7 +272,7 @@ export function generateRound(
   return pairs.length ? { type: "duel", paires: pairs } : null;
 }
 
-/** Defi du jour : une manche de chaque type, dans l'ordre de la grille, sans heros repete. */
+/** Daily challenge: one round of each type, in grid order, with no repeated hero. */
 export function generateChallenge(pool: PoolQuiz, day: string): Challenge {
   const draw = fixedDraw(`defi:${day}`);
   const excluded = new Set<string>();
@@ -287,7 +287,7 @@ export function generateChallenge(pool: PoolQuiz, day: string): Challenge {
 // Dates
 // ─────────────────────────────────────────────────────────────
 
-/** Jour UTC d'une date, « 2026-09-11 » : le defi change a minuit UTC pour tout le monde. */
+/** UTC day of a date, "2026-09-11": the challenge changes at midnight UTC for everyone. */
 export function dayUtc(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
@@ -309,7 +309,7 @@ export function numberChallenge(day: string): number {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Textes
+// Texts
 // ─────────────────────────────────────────────────────────────
 
 export const MASK = "▢▢▢";
@@ -317,10 +317,10 @@ export const MASK = "▢▢▢";
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /**
- * Masque un nom dans un texte : le nom complet, sans casse, puis chacune de
- * ses parties d'au moins trois lettres qui commence par une majuscule
- * (« Popol and Kupa » masque « Popol » et « Kupa », pas « and » ; « Yi
- * Sun-shin » masque « Sun » sans toucher au soleil d'une phrase).
+ * Masks a name in a text: the full name, case-insensitive, then each of
+ * its parts of at least three letters that starts with an uppercase letter
+ * ("Popol and Kupa" masks "Popol" and "Kupa", not "and"; "Yi
+ * Sun-shin" masks "Sun" without touching the sun in a sentence).
  */
 export function maskName(text: string, names: string[]): string {
   let output = text;
@@ -335,7 +335,7 @@ export function maskName(text: string, names: string[]): string {
   return output;
 }
 
-/** Coupe un texte vers `max` caracteres, a la fin d'une phrase si possible, sinon d'un mot. */
+/** Cuts a text to about `max` characters, at the end of a sentence if possible, otherwise of a word. */
 export function cut(text: string, max: number): string {
   const clean = text.replace(/\s+/g, " ").trim();
   if (clean.length <= max) return clean;
@@ -347,10 +347,10 @@ export function cut(text: string, max: number): string {
 }
 
 // ─────────────────────────────────────────────────────────────
-// Reponses et comparaisons
+// Answers and comparisons
 // ─────────────────────────────────────────────────────────────
 
-/** Vainqueur de chaque paire du duel. */
+/** Winner of each duel pair. */
 export function responsesDuel(round: Extract<Round, { type: "duel" }>): string[] {
   return round.paires.map(([a, b]) => (a.victoire >= b.victoire ? a.slug : b.slug));
 }
@@ -359,7 +359,7 @@ export function attemptsMax(round: Round): number {
   return round.type === "duel" ? round.paires.length : ATTEMPTS[round.type];
 }
 
-/** Erreurs d'une devinette : elles debloquent les indices, une par une. */
+/** Errors in a guessing round: they unlock hints, one by one. */
 export function errors(round: Round, attempts: string[]): number {
   if (round.type === "duel") return 0;
   return attempts.filter((e) => e !== ABANDON && e !== round.reponse).length;
@@ -378,7 +378,7 @@ export function roundFinished(round: Round, attempts: string[]): boolean {
   return attempts.includes(round.reponse) || attempts.includes(ABANDON) || attempts.length >= ATTEMPTS[round.type];
 }
 
-/** Points : un par devinette trouvee, un par paire du duel. */
+/** Points: one per guess found, one per duel pair. */
 export function pointsRound(round: Round, attempts: string[]): number {
   if (round.type === "duel") {
     const good = responsesDuel(round);
@@ -392,7 +392,7 @@ export function pointsMax(rounds: Round[]): number {
 }
 
 export type Agreement = "yes" | "partial" | "no";
-/** Position de la reponse par rapport a l'essai : `plus` = plus recent, plus cher. */
+/** Position of the answer relative to the attempt: `higher` = more recent, more expensive. */
 export type Direction = "equal" | "higher" | "lower" | "unknown";
 
 function agreement<T>(attempt: T[], target: T[]): Agreement {
@@ -406,7 +406,7 @@ function direction(attempt: number | null, target: number | null): Direction {
   return attempt === target ? "equal" : target > attempt ? "higher" : "lower";
 }
 
-/** Ce qu'un mauvais heros a en commun avec la reponse : un indice de plus a chaque essai. */
+/** What a wrong hero has in common with the answer: one more hint with each attempt. */
 export function compareHeroes(attempt: QuizHero, target: QuizHero) {
   return {
     roles: agreement(attempt.roles, target.roles),
@@ -424,8 +424,8 @@ export function compareItems(attempt: ItemRoster, target: ItemRoster) {
 }
 
 /**
- * Propositions du champ de reponse : le debut du nom d'abord, puis le debut
- * d'un mot, puis n'importe quelle partie. Sans casse ni accents.
+ * Answer field suggestions: the start of the name first, then the start
+ * of a word, then any part. Case- and accent-insensitive.
  */
 export function searchOptions<T extends { slug: string; name: string }>(
   options: T[],
@@ -451,13 +451,13 @@ export function searchOptions<T extends { slug: string; name: string }>(
 }
 
 // ─────────────────────────────────────────────────────────────
-// Partage et statistiques
+// Sharing and statistics
 // ─────────────────────────────────────────────────────────────
 
 /**
- * Ligne de la grille : un carre par essai, sans rien dire de la reponse. Les
- * essais non joues restent noirs ; une manche abandonnee se remplit de rouge,
- * pour ne pas se lire comme une manche pas encore jouee.
+ * Grid row: one square per attempt, revealing nothing about the answer. Unplayed
+ * attempts stay black; an abandoned round fills with red,
+ * so it does not read as a round not yet played.
  */
 export function rowGrid(round: Round, attempts: string[]): string {
   if (round.type === "duel") {
@@ -487,15 +487,15 @@ export interface StatsQuiz {
   joues: number;
   serie: number;
   meilleure: number;
-  /** Dernier jour termine. */
+  /** Last completed day. */
   dernier: string | null;
-  /** Nombre de defis par score, de 0 au maximum. */
+  /** Number of challenges per score, from 0 to the maximum. */
   distribution: number[];
 }
 
 export const STATS_EMPTY: StatsQuiz = { joues: 0, serie: 0, meilleure: 0, dernier: null, distribution: [] };
 
-/** Enregistre un defi termine. Un jour deja compte ne l'est pas deux fois. */
+/** Records a completed challenge. A day already counted is not counted twice. */
 export function saveMatch(stats: StatsQuiz, day: string, points: number): StatsQuiz {
   if (stats.dernier === day) return stats;
   const series = stats.dernier === shiftDay(day, -1) ? stats.serie + 1 : 1;
@@ -505,7 +505,7 @@ export function saveMatch(stats: StatsQuiz, day: string, points: number): StatsQ
   return { joues: stats.joues + 1, serie: series, meilleure: Math.max(stats.meilleure, series), dernier: day, distribution };
 }
 
-/** Serie a afficher : rompue si ni aujourd'hui ni hier n'ont ete joues. */
+/** Streak to display: broken if neither today nor yesterday was played. */
 export function currentStreak(stats: StatsQuiz, today: string): number {
   return stats.dernier === today || stats.dernier === shiftDay(today, -1) ? stats.serie : 0;
 }

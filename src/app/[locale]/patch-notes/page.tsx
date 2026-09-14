@@ -14,7 +14,7 @@ import { countAdjustments, longDate, patchCurrent } from "@/lib/freshness";
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = createT(locale);
-  // Le dernier patch, sa date et ses ajustements ouvrent la description.
+  // The latest patch, its date and its adjustments open the description.
   const version = patchCurrent.date
     ? `${patchCurrent.version} (${longDate(locale, patchCurrent.date)})`
     : patchCurrent.version;
@@ -100,7 +100,7 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
 
           <ul className="mt-6 grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
             {others.map((p) => (
-              // Le titre est unique ; la version ne l'est pas toujours.
+              // The title is unique; the version is not always.
               <li key={p.title}>
                 <a
                   href={p.link}

@@ -3,9 +3,9 @@
 import { SkinCard, type PropsCardSkin } from "@/components/skin-card";
 
 /**
- * Grille de vignettes de skins. Rendue par le serveur, mais portee par un
- * composant client : le navigateur ne recoit que les proprietes des cartes,
- * pas une seconde fois leur arbre complet — une annee en compte plus de cent.
+ * Grid of skin thumbnails. Rendered by the server, but carried by a client
+ * component: the browser only receives the cards' props, not their full tree
+ * a second time — a year holds more than a hundred.
  */
 export function SkinGrid({ cards }: { cards: PropsCardSkin[] }) {
   return (

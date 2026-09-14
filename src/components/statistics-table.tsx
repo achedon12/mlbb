@@ -33,32 +33,31 @@ import {
 import { describeGap, formatGap, THRESHOLD_NOTABLE } from "@/lib/trends";
 import { cn } from "@/lib/utils";
 
-/** Lignes dont l'icone se charge tout de suite : celles du premier ecran. */
+/** Rows whose icon loads immediately: those on the first screen. */
 const FIRST = 8;
 
 const notable = (gap: number) => Math.abs(gap) >= THRESHOLD_NOTABLE - 1e-9;
-/** Classe d'une evolution : verte en hausse, rouge en baisse, rien sous le seuil du bruit. */
+/** Class of a trend: green when rising, red when falling, nothing below the noise threshold. */
 const direction = (gap: number) => (!notable(gap) ? undefined : gap > 0 ? "rising" : "falling");
 
 /**
- * Tableau des statistiques, triable et filtrable.
+ * Statistics table, sortable and filterable.
  *
- * Le serveur le rend en entier, dans l'ordre par defaut : moteurs et lecteurs
- * sans JavaScript lisent toutes les lignes. Dans le navigateur, le tri, les
- * filtres et la recherche reordonnent ces memes lignes, sans requete. L'etat
- * passe dans l'URL apres le montage, comme le catalogue des heros : un tri se
- * partage, et les liens de rang le conservent.
+ * The server renders it in full, in the default order: search engines and
+ * readers without JavaScript get every row. In the browser, sorting, filters
+ * and search reorder those same rows, with no request. The state goes into
+ * the URL after mount, like the hero catalogue: a sort can be shared, and the
+ * rank links keep it.
  *
- * Les cellules n'ont pas de classe : `.stats-table` (globals.css) les
- * habille par position, sans quoi les memes utilitaires se repetaient sur
- * 132 lignes.
+ * Cells have no class: `.stats-table` (globals.css) styles them by position,
+ * otherwise the same utilities would repeat over 132 rows.
  */
 export function StatisticsTable({
   compactes,
   rank,
   ranks,
 }: {
-  /** Lignes en tuples (`coderLigne`), decodees une fois ici. */
+  /** Rows as tuples (`encodeRow`), decoded once here. */
   compactes: CompactRow[];
   rank: MeasuredRank;
   ranks: readonly MeasuredRank[];
@@ -75,7 +74,7 @@ export function StatisticsTable({
       rise.current = true;
       const lu = readState(new URLSearchParams(window.location.search));
       if (writeState(lu).toString()) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- lecture de l'URL apres montage
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- URL read after mount
         setState(lu);
         return;
       }
@@ -136,9 +135,9 @@ export function StatisticsTable({
         {shown.length !== rows.length && ` ${t("pages.heroesList.countOf", { total: rows.length })}`}
       </p>
 
-      {/* Defilement horizontal sur mobile, nom du heros fige a gauche. Le
-          conteneur est positionne : les textes .sr-only des cellules, en position
-          absolue, s'y rattachent au lieu d'elargir toute la page. */}
+      {/* Horizontal scrolling on mobile, hero name pinned on the left. The
+          container is positioned: the cells' absolutely positioned .sr-only
+          texts attach to it instead of widening the whole page. */}
       <div className="relative mt-3 overflow-x-auto border border-night-700/70">
         <table className="stats-table">
           <caption className="sr-only">
@@ -185,7 +184,7 @@ export function StatisticsTable({
   );
 }
 
-/** En-tete triable : le bouton porte l'action, `aria-sort` annonce l'ordre courant. */
+/** Sortable header: the button carries the action, `aria-sort` announces the current order. */
 function Header({
   column,
   state,

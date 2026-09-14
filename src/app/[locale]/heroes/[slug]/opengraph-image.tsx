@@ -10,10 +10,10 @@ import { rateBySlug } from "@/lib/tier-list";
 
 export const size = { width: 1200, height: 630 };
 
-// Une carte illustree pese un demi-megaoctet : 133 heros en quatre langues
-// alourdiraient le build de 300 Mo pour des images que seuls les robots des
-// reseaux sociaux demandent. Aucune n'est donc generee au build ; chacune
-// l'est a sa premiere demande, puis servie depuis le cache une semaine.
+// An illustrated card weighs half a megabyte: 133 heroes in four languages
+// would add 300 MB to the build for images that only social network
+// bots request. None is therefore generated at build time; each one
+// is on its first request, then served from the cache for a week.
 export const revalidate = 604800;
 
 export function generateStaticParams() {
@@ -31,8 +31,8 @@ const COLOR_TIER: Record<string, string> = {
 };
 
 /**
- * Image de partage d'une fiche : portrait, palier et taux de victoire. Un lien
- * partage montre le heros, plutot que la carte generique du site.
+ * Share image of a hero page: portrait, tier and win rate. A shared
+ * link shows the hero, rather than the site's generic card.
  */
 export default async function Image({ params }: { params: Promise<{ locale: Locale; slug: string }> }) {
   const { locale, slug } = await params;
@@ -40,10 +40,10 @@ export default async function Image({ params }: { params: Promise<{ locale: Loca
   const h = heroesBySlug.get(slug);
   const rate = rateBySlug.get(slug);
 
-  // L'illustration du skin d'origine, a defaut le portrait, lue sur le disque
-  // et embarquee : le moteur d'images ne va pas la chercher sur le site pendant
-  // le build, et ne lit pas le WebP — d'ou la conversion, recadree sur la zone
-  // la plus parlante de l'image.
+  // The original skin's illustration, or else the portrait, read from disk
+  // and embedded: the image engine does not fetch it from the site during
+  // the build, and does not read WebP — hence the conversion, cropped on the
+  // most telling area of the image.
   let portrait: string | null = null;
   const path = Object.values(illustrations[slug] ?? {})[0] ?? h?.images.portrait;
   if (path) {

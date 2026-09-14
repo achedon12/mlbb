@@ -1,12 +1,12 @@
 import { LOCALES, type Locale } from "./config";
 
 /**
- * Ajoute la langue a une adresse interne : « /heroes » devient « /fr/heroes ».
+ * Adds the language to an internal address: "/heroes" becomes "/fr/heroes".
  *
- * Sans prefixe, le proxy redirige chaque lien vers la bonne langue : un saut
- * de plus pour chaque clic, et pour chaque lien suivi par un moteur. Les
- * adresses externes, deja prefixees ou hors langue (API, fichiers) passent
- * telles quelles.
+ * Without a prefix, the proxy redirects each link to the right language: one more
+ * hop for every click, and for every link followed by an engine. External
+ * addresses, already prefixed or outside a language (API, files) pass
+ * through unchanged.
  */
 const PREFIXED = new RegExp(`^/(${LOCALES.join("|")})(/|$|\\?|#)`);
 const OUTSIDE_LOCALE =

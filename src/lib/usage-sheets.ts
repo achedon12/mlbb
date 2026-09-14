@@ -18,9 +18,9 @@ import {
 import { keyChoice, visualItem } from "./build-visuals";
 
 /**
- * Donnees des pages d'objet, d'embleme et de sort : qui prend quoi, d'apres
- * les builds reellement joues (`buildsJoues`), et les listes qui fixent leurs
- * adresses. Calculs faits une fois par type et par rang, au build.
+ * Data for item, emblem and spell pages: who takes what, based on
+ * the builds actually played (`buildsPlayed`), and the lists that set their
+ * addresses. Computed once per type and per rank, at build time.
  */
 
 const V = visuals as unknown as Record<"items" | "emblems" | "talents" | "spells", Record<string, string>>;
@@ -31,12 +31,12 @@ export const emblemsSheets = emblems.map((e) => ({
   image: V.emblems[e.key] ?? null,
 }));
 
-/** L'API nomme l'embleme par son role (« Marksman ») ; « All », l'embleme commun, n'a pas de fiche. */
+/** The API names the emblem by its role ("Marksman"); "All", the common emblem, has no page. */
 function emblemOfBuild(name: string | null): Emblem | undefined {
   return name ? emblems.find((e) => e.role === name || e.name === name) : undefined;
 }
 
-/** Toutes les graphies vues dans les builds joues, par cle : le repli des noms sans traduction. */
+/** Every spelling seen in played builds, by key: the fallback for untranslated names. */
 const namesPlayed = new Map<string, string>();
 for (const byLane of Object.values(buildsPlayed)) {
   for (const byRank of Object.values(byLane)) {
@@ -51,13 +51,13 @@ for (const byLane of Object.values(buildsPlayed)) {
 
 export interface SpellSheet {
   slug: string;
-  /** Nom anglais du jeu. */
+  /** English in-game name. */
   name: string;
   cooldown: number | null;
   image: string | null;
 }
 
-/** Sorts decrits a la main, completes de ceux que les builds joues citent sans description. */
+/** Hand-described spells, completed with those played builds mention without a description. */
 export const spellSheets: SpellSheet[] = [
   ...new Set([...battleSpells.map((s) => s.key), ...[...namesPlayed.keys()].filter((k) => V.spells[k])]),
 ]
@@ -82,7 +82,7 @@ const includes = (type: TypeChoice, key: string) => (b: BuildPlayed) => [...EXTR
 
 const usages = new Map<string, Map<string, UsageHero[]>>();
 
-/** Heros qui prennent ce choix au rang demande, le plus engage d'abord. */
+/** Heroes taking this choice at the requested rank, the most committed first. */
 export function usage(type: TypeChoice, key: string, rank: MeasuredRank = "all"): UsageHero[] {
   const k = `${type}|${rank}`;
   let byChoice = usages.get(k);
@@ -97,19 +97,19 @@ export function summaryRanks(type: TypeChoice, key: string): SummaryRank[] {
   return summaryByRank(Object.fromEntries(MEASURED_RANKS.map((r) => [r, usage(type, key, r)])));
 }
 
-/** Talents pris avec un embleme, etage par etage (deux attributs, puis le talent decisif). */
+/** Talents taken with an emblem, tier by tier (two attributes, then the core talent). */
 export function talentsWithEmblem(slug: string): PartChoice[][] {
   return [0, 1, 2].map((level) =>
     partsByChoice(buildsPlayed, includes("emblem", slug), (b) => (b.talents[level] ? [keyChoice(b.talents[level])] : [])),
   );
 }
 
-/** Repartition d'un autre type de choix parmi les builds qui contiennent celui-ci. */
+/** Distribution of another choice type among builds that contain this one. */
 export function partsWith(type: TypeChoice, key: string, other: TypeChoice): PartChoice[] {
   return partsByChoice(buildsPlayed, includes(type, key), EXTRACT[other]);
 }
 
-/** Texte d'un embleme, talent ou sort (`emblemData`), ou le repli fourni. */
+/** Text of an emblem, talent or spell (`emblemData`), or the provided fallback. */
 export function textChoice(t: T, key: string, field: string, fallback: string | null = null): string | null {
   const k = `emblemData.${key}.${field}`;
   const v = t(k);
@@ -122,8 +122,8 @@ export const imageTalent = (key: string) => V.talents[key] ?? null;
 const absolute = (path: string) => (/^https?:/.test(path) ? path : `${site.url}${path}`);
 
 /**
- * Donnees structurees d'une page d'objet, d'embleme ou de sort : la page, la
- * chose qu'elle decrit, et la liste ordonnee des heros qui la prennent le plus.
+ * Structured data of an item, emblem or spell page: the page, the
+ * thing it describes, and the ordered list of heroes that take it the most.
  */
 export function dataSheet(
   locale: Locale,

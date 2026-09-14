@@ -4,14 +4,14 @@ import { laneFromParam } from "@/lib/draft";
 import type { Lane, Role } from "@/lib/types";
 
 /**
- * Liste des heros.
+ * Hero list.
  *
- * Filtrable par role et par position. La liste ne porte pas les competences
- * ni les skins : une reponse de plusieurs megaoctets serait inutilisable pour
- * un appelant qui ne cherche qu'a lister.
+ * Filterable by role and by lane. The list carries neither skills nor
+ * skins: a response of several megabytes would be unusable for a caller
+ * that only wants to list.
  */
-// Cette route lit des parametres de requete : la figer au build
-// renverrait la meme reponse quel que soit le filtre demande.
+// This route reads query parameters: freezing it at build time
+// would return the same response whatever the requested filter.
 export const dynamic = "force-dynamic";
 
 export function GET(request: Request) {

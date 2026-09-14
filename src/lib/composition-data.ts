@@ -7,20 +7,20 @@ import type { MeasuredRank } from "./measured-ranks";
 import { rankingOfRank } from "./tier-list";
 
 /**
- * Donnees de l'analyse d'equipe, preparees cote serveur : le catalogue, qui
- * part avec la page, et les mesures d'un rang, servies a part
- * (`/composition/<rang>.json`).
+ * Team analysis data, prepared server-side: the catalogue, which ships with
+ * the page, and the measurements of one rank, served separately
+ * (`/composition/<rank>.json`).
  */
 
 const TYPES_DAMAGE: TypeDamage[] = ["physical", "magic", "mixed"];
 
-/** Type de degats du wiki ramene a sa cle ; coquilles comprises (« Phyiscal »). */
+/** Wiki damage type mapped to its key; typos included ("Phyiscal"). */
 function damageOf(value: string | null): TypeDamage | null {
   const key = value ? keyValue(value) : null;
   return TYPES_DAMAGE.find((t) => t === key) ?? null;
 }
 
-/** Le roster, reduit a ce que l'analyse lit. Taux et relations de contre dependent du rang : ils n'y sont pas. */
+/** The roster, reduced to what the analysis reads. Rates and counter relations depend on the rank: they are not included. */
 export function catalogTeam(): TeamHero[] {
   return draftHeroes().map((h) => {
     const sheet = heroesBySlug.get(h.slug);
@@ -45,9 +45,9 @@ export function measuresRank(rank: MeasuredRank): MeasuresRank {
     rankingOfRank(rank).map((e) => [e.hero.slug, [e.winRate, e.tier]]),
   );
 
-  // Les tranches de duree sont les memes pour tous les heros : on les ecrit
-  // une fois. Un heros decoupe autrement (fichier plus ancien) est ecarte
-  // plutot que de fausser la moyenne.
+  // Duration buckets are the same for all heroes: they are written once.
+  // A hero bucketed differently (older file) is left out rather than
+  // skewing the average.
   let buckets: Bucket[] = [];
   const duration: MeasuresRank["duree"] = {};
   for (const h of allHeroes) {

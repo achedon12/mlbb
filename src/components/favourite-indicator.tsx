@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 import { useT } from "@/i18n/provider";
 
 /**
- * Etoile marquant un heros favori dans une liste.
+ * Star marking a favourite hero in a list.
  *
- * L'etat vit dans le navigateur ; le composant ne rend rien tant que le heros
- * n'est pas favori, pour ne pas encombrer la carte. Il permet de reperer ses
- * favoris d'un coup d'oeil en parcourant le catalogue.
+ * The state lives in the browser; the component renders nothing while the
+ * hero is not a favourite, so as not to clutter the card. It lets you spot
+ * your favourites at a glance while browsing the catalogue.
  */
 export function FavouriteIndicator({ slug, className }: { slug: string; className?: string }) {
   const t = useT();

@@ -26,7 +26,7 @@ import { serializeJsonLd } from "@/lib/html";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** Une page par embleme, generee au build ; toute autre adresse est une 404. */
+/** One page per emblem, generated at build time; any other address is a 404. */
 export const dynamicParams = false;
 export function generateStaticParams() {
   return emblemsSheets.map((e) => ({ slug: e.slug }));
@@ -37,8 +37,8 @@ const nameEmblem = (t: T, f: (typeof emblemsSheets)[number]) =>
   textChoice(t, f.emblem.key, "name", f.emblem.name)!;
 
 /**
- * Ce que la page et ses metadonnees disent d'un embleme : ses bonus, les heros
- * qui le prennent dans leurs builds les plus joues, et les talents choisis avec.
+ * What the page and its metadata say about an emblem: its bonuses, the heroes
+ * that take it in their most played builds, and the talents chosen with it.
  */
 function sheet(locale: Locale, slug: string) {
   const f = emblemsSheets.find((e) => e.slug === slug);

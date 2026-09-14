@@ -5,36 +5,35 @@ import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Onglets.
+ * Tabs.
  *
- * La fiche d'un heros empile analyse, competences, contres, builds et parfois
- * quatorze skins : d'un seul tenant, elle devient impraticable. Les onglets
- * decoupent sans rien cacher.
+ * A hero page stacks analysis, skills, counters, builds and sometimes
+ * fourteen skins: in one piece, it becomes unusable. Tabs split it up
+ * without hiding anything.
  *
- * Les panneaux sont rendus par le serveur et restent dans le document — seul
- * l'affichage change. Le contenu masque reste donc indexable, et la navigation
- * ne declenche aucune requete. Exception : un panneau `differe` (graphiques,
- * galerie) n'est monte qu'a sa premiere ouverture : le monter d'emblee
- * alourdissait l'hydratation de toute la page. Son `apercu`, un resume leger
- * rendu par le serveur, tient sa place jusque-la : les moteurs et le lecteur
- * sans script y trouvent l'essentiel en texte.
+ * Panels are rendered by the server and stay in the document — only their
+ * visibility changes. Hidden content therefore stays indexable, and
+ * navigating triggers no request. Exception: a `deferred` panel (charts,
+ * gallery) is only mounted when first opened: mounting it upfront weighed
+ * down hydration of the whole page. Its `preview`, a light server-rendered
+ * summary, stands in until then: search engines and script-less readers find
+ * the essentials there as text.
  *
- * Les images d'un panneau masque restent en chargement differe : le navigateur
- * ne les demande qu'a l'ouverture du panneau (verifie dans Chromium).
+ * Images in a hidden panel stay lazy-loaded: the browser only requests them
+ * when the panel opens (checked in Chromium).
  *
- * L'onglet ouvert se lit et s'ecrit dans l'ancre de l'adresse (#skins,
- * #builds…) : un lien peut mener droit a un onglet, et l'adresse partagee
- * rouvre le meme.
+ * The open tab is read from and written to the URL hash (#skins, #builds…):
+ * a link can lead straight to a tab, and a shared URL reopens the same one.
  */
 export interface Tab {
   id: string;
   label: string;
-  /** Compteur affiche a cote du libelle, quand il apporte quelque chose. */
+  /** Counter shown next to the label, when it adds something. */
   counter?: number;
   content: React.ReactNode;
-  /** Monte le contenu a la premiere ouverture seulement. */
+  /** Mounts the content only when first opened. */
   deferred?: boolean;
-  /** Resume rendu par le serveur, affiche tant qu'un panneau differe n'est pas monte. */
+  /** Server-rendered summary, shown until a deferred panel is mounted. */
   preview?: React.ReactNode;
 }
 
@@ -46,8 +45,8 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const list = useRef<HTMLDivElement>(null);
 
-  // Un onglet sans contenu n'a pas de raison d'apparaitre : un heros sans
-  // skin ni analyse ne doit pas afficher des sections vides.
+  // A tab without content has no reason to appear: a hero with no skin and
+  // no analysis must not show empty sections.
   const visible = tabs.filter((o) => o.content);
 
   const openTab = (id: string) => {
@@ -55,8 +54,8 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
     setOpen((o) => (o.has(id) ? o : new Set(o).add(id)));
   };
 
-  // L'ancre choisit l'onglet a l'arrivee, puis a chaque lien interne vers
-  // une autre ancre de la meme fiche.
+  // The hash picks the tab on arrival, then on every internal link to
+  // another anchor of the same page.
   useEffect(() => {
     const followAnchor = (scroll: boolean) => {
       const id = decodeURIComponent(window.location.hash.slice(1));
@@ -68,17 +67,17 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
     const onChange = () => followAnchor(true);
     window.addEventListener("hashchange", onChange);
     return () => window.removeEventListener("hashchange", onChange);
-    // Les onglets d'une fiche ne changent pas apres le rendu.
+    // A page's tabs do not change after render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const choose = (id: string) => {
     openTab(id);
-    // replaceState : changer d'onglet ne remplit pas l'historique du navigateur.
+    // replaceState: switching tabs does not fill the browser history.
     window.history.replaceState(null, "", `#${id}`);
   };
 
-  /** Fleches et Debut/Fin, comme l'attend un lecteur d'ecran sur des onglets. */
+  /** Arrows and Home/End, as a screen reader expects on tabs. */
   function byKeyboard(event: React.KeyboardEvent, index: number) {
     const keys: Record<string, number> = {
       ArrowLeft: index - 1,

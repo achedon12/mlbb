@@ -8,21 +8,19 @@ import {
 } from "./skin-catalog";
 
 /**
- * Valeur d'une collection : ce que coutent, au prix de la boutique du jeu, les
- * heros et les skins qu'un joueur a coches. Rien d'autre : ni valeur de
- * revente, ni estimation de compte — la vente de comptes est interdite par les
- * conditions de Moonton. Module sans donnees, importable par un composant
- * client.
+ * Value of a collection: what the heroes and skins a player has ticked cost,
+ * at the in-game shop price. Nothing else: no resale value, no account
+ * appraisal — account selling is forbidden by Moonton's terms. Data-free
+ * module, importable by a client component.
  *
- * Le prix d'un heros est celui de son skin d'origine, qui vient avec lui.
- * Beaucoup s'achetent en diamants ou en points de bataille : le total en
- * diamants ne compte que le prix en diamants, les points de bataille sont
- * additionnes a part.
+ * A hero's price is that of their original skin, which comes with them.
+ * Many are bought with diamonds or battle points: the diamond total only
+ * counts diamond prices, battle points are summed separately.
  */
 
 export interface Ownership {
   heros: ReadonlySet<string>;
-  /** Identifiants des skins, hors skins d'origine (portes par `heros`). */
+  /** Skin IDs, excluding original skins (carried by `heros`). */
   skins: ReadonlySet<string>;
 }
 
@@ -35,26 +33,26 @@ export interface RowSummary {
 export interface Summary {
   heroes: RowSummary & {
     battlePoints: number;
-    /** Heros possedes dont le prix n'existe pas en diamants (points de bataille, fragments…). */
+    /** Owned heroes with no diamond price (battle points, fragments…). */
     withoutDiamond: number;
   };
   skins: RowSummary & {
-    /** Skins possedes sans prix en diamants : evenement, tirage, StarLight, pass. */
+    /** Owned skins with no diamond price: event, draw, StarLight, pass. */
     withoutDiamond: number;
-    /** Autres monnaies des skins possedes (noyaux magiques, gemmes…), hors diamants. */
+    /** Other currencies of owned skins (magic cores, gems…), excluding diamonds. */
     others: Partial<Record<Currency, number>>;
   };
-  /** Heros et skins, en diamants. */
+  /** Heroes and skins, in diamonds. */
   diamonds: number;
   byRarity: (RowSummary & { rank: number })[];
   bySeries: (RowSummary & { series: string })[];
   plusRare: SkinCatalog[];
 }
 
-/** Skins que l'on peut cocher : sortis ou deja en boutique, hors skins d'origine et skins annonces. */
+/** Skins that can be ticked: released or already in the shop, excluding original and announced skins. */
 export const skinsCollectible = (c: Catalog) => c.skins.filter((s) => !isOrigin(s) && s.availability !== "Upcoming");
 
-/** Skin d'origine de chaque heros : il porte le prix du heros. */
+/** Original skin of each hero: it carries the hero's price. */
 export function originsByHero(c: Catalog): Map<string, SkinCatalog> {
   const m = new Map<string, SkinCatalog>();
   for (const s of c.skins) if (isOrigin(s) && !m.has(s.hero)) m.set(s.hero, s);
@@ -62,9 +60,9 @@ export function originsByHero(c: Catalog): Map<string, SkinCatalog> {
 }
 
 /**
- * Du plus rare au plus courant : rarete, puis edition limitee, puis serie la
- * moins fournie, puis le plus ancien. Le premier de la liste est la piece
- * maitresse de la collection.
+ * From rarest to most common: rarity, then limited edition, then smallest
+ * series, then oldest. The first in the list is the collection's
+ * centerpiece.
  */
 export function compareRarity(runLength: ReadonlyMap<string, number>) {
   const size = (s: SkinCatalog) => (s.series ? (runLength.get(s.series) ?? Infinity) : Infinity);
@@ -126,7 +124,7 @@ export function summaryCollection(c: Catalog, p: Ownership, rareCount = 6): Summ
     skins,
     diamonds: heroes.diamonds + skins.diamonds,
     byRarity: [...byRarity.values()].sort((a, b) => b.rank - a.rank),
-    // Series entamees d'abord, par taux de completion ; puis les plus fournies.
+    // Started series first, by completion rate; then the largest.
     bySeries: [...bySeries.values()].sort(
       (a, b) =>
         Number(b.owned > 0) - Number(a.owned > 0) ||
@@ -139,8 +137,8 @@ export function summaryCollection(c: Catalog, p: Ownership, rareCount = 6): Summ
 }
 
 /**
- * Couverture des prix du catalogue, pour dire honnetement ce que le total
- * compte : heros et skins chiffres en diamants, et les autres.
+ * Price coverage of the catalogue, to state honestly what the total counts:
+ * heroes and skins priced in diamonds, and the rest.
  */
 export function coveragePrice(c: Catalog) {
   const origins = originsByHero(c);
@@ -154,7 +152,7 @@ export function coveragePrice(c: Catalog) {
   };
 }
 
-// ── Sauvegarde locale ──────────────────────────────────────────────
+// ── Local save ─────────────────────────────────────────────────────
 
 export const KEY_COLLECTION = "mlbbdex:collection";
 
@@ -163,7 +161,7 @@ export interface StoredOwnership {
   skins: string[];
 }
 
-/** Relit la sauvegarde ; une valeur abimee ou d'un autre format donne une collection vide. */
+/** Reads the save back; a corrupted or differently shaped value yields an empty collection. */
 export function readOwnership(raw: string | null): StoredOwnership {
   const empty = { heros: [], skins: [] };
   if (!raw) return empty;

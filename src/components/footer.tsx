@@ -4,7 +4,7 @@ import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
 import { site } from "@/lib/site";
 
-/** Colonne de liens du pied de page. `prefixe` choisit la famille de clés. */
+/** Footer link column. `prefix` picks the key family. */
 function Column({
   title,
   links,

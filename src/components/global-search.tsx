@@ -12,10 +12,10 @@ import { ORDER_TYPES, type EntrySearch } from "@/lib/search";
 import { keySearch, cn } from "@/lib/utils";
 
 /**
- * Recherche globale : heros, objets, competences, skins, notes de patch et
- * rubriques, depuis n'importe quelle page. Ctrl+K (Cmd+K sur Mac) l'ouvre et la ferme. L'index
- * est un fichier statique par langue, demande a la premiere ouverture
- * seulement : il ne pese rien tant qu'on ne cherche pas.
+ * Global search: heroes, items, skills, skins, patch notes and sections, from
+ * any page. Ctrl+K (Cmd+K on Mac) opens and closes it. The index is one static
+ * file per language, requested on first open only: it weighs nothing until
+ * you search.
  */
 const INDEX = new Map<Locale, Promise<EntrySearch[]>>();
 
@@ -30,7 +30,7 @@ function load(locale: Locale): Promise<EntrySearch[]> {
   return promise;
 }
 
-/** Resultats affiches par groupe. */
+/** Results shown per group. */
 const BY_GROUP = 6;
 
 export function GlobalSearch() {
@@ -68,8 +68,8 @@ export function GlobalSearch() {
     };
   }, [open, entries, locale]);
 
-  // Sans recherche, les rubriques ; sinon les correspondances, celles qui
-  // commencent par le terme d'abord.
+  // Without a query, the sections; otherwise the matches, those starting with
+  // the term first.
   const groups = useMemo(() => {
     if (!entries) return [];
     const term = keySearch(search.trim());
@@ -95,8 +95,8 @@ export function GlobalSearch() {
     })).filter((g) => g.entries.length > 0);
   }, [entries, search]);
   const flat = useMemo(() => groups.flatMap((g) => g.entries), [groups]);
-  // Skins et competences arrivent sans image : elles prennent l'icone de leur
-  // heros, dont l'entree porte l'adresse de la fiche sans ancre.
+  // Skins and skills come without an image: they take their hero's icon,
+  // whose entry holds the hero page address without an anchor.
   const icons = useMemo(
     () => new Map((entries ?? []).flatMap((e) => (e.type === "hero" && e.image ? [[e.href, e.image]] : []))),
     [entries],
@@ -114,11 +114,11 @@ export function GlobalSearch() {
   };
 
   /**
-   * Un resultat qui vise un onglet de la page ouverte (« #skins ») ne change
-   * que l'ancre : le routeur ne declencherait pas `hashchange`, que la fiche
-   * ecoute pour ouvrir l'onglet. Le navigateur s'en charge alors — en videant
-   * d'abord l'ancre si c'est deja la bonne, pour que l'evenement parte.
-   * Renvoie vrai si la navigation est faite.
+   * A result pointing to a tab of the open page ("#skins") only changes the
+   * anchor: the router would not fire `hashchange`, which the hero page
+   * listens to in order to open the tab. The browser handles it then — first
+   * clearing the anchor if it is already the right one, so the event fires.
+   * Returns true if navigation was done.
    */
   const anchorLocale = (href: string) => {
     const [path, anchor] = prefix(href, locale).split("#");

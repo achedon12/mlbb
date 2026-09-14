@@ -4,7 +4,7 @@ import { visualItem } from "./build-visuals";
 import type { AdjustmentType } from "./types";
 import type { Locale } from "@/i18n/config";
 
-/** Ajustements de heros d'un patch, par sens : ameliores, affaiblis, autres. */
+/** A patch's hero adjustments, by direction: buffed, nerfed, other. */
 export function countAdjustments(adjustments: { type: AdjustmentType | null }[]) {
   const buffs = adjustments.filter((a) => a.type === "buff").length;
   const nerfs = adjustments.filter((a) => a.type === "nerf").length;
@@ -12,49 +12,49 @@ export function countAdjustments(adjustments: { type: AdjustmentType | null }[])
 }
 
 /**
- * Reperes de fraicheur des pages de donnees : patch en cours et date du releve.
+ * Freshness markers of the data pages: current patch and measurement date.
  *
- * Les resultats qui menent sur « tier list », « build » ou « counter » portent
- * tous un mois, une annee ou un numero de patch dans leur titre. Ces valeurs
- * sortent ici des donnees synchronisees : titres, descriptions et mentions
- * « mis a jour » suivent les synchronisations sans retouche.
+ * Results leading to "tier list", "build" or "counter" all carry a month, a
+ * year or a patch number in their title. Those values come here from the
+ * synced data: titles, descriptions and "updated" mentions follow the syncs
+ * with no manual edit.
  */
 
-/** Dernier patch detaille, par numero de version. */
+/** Latest detailed patch, by version number. */
 export const patchCurrent = Object.values(patchDetails).sort((a, b) =>
   b.version.localeCompare(a.version, undefined, { numeric: true }),
 )[0];
 
-/** Date du releve des taux, ISO : la date « mis a jour » des pages de donnees. */
+/** Rate measurement date, ISO: the "updated" date of the data pages. */
 export const dateMeasure = measure;
 
 const date = (iso: string) => new Date(iso.length === 10 ? `${iso}T00:00:00Z` : iso);
 
-/** « septembre 2026 », « September 2026 », « septiembre de 2026 ». */
+/** "septembre 2026", "September 2026", "septiembre de 2026". */
 export function monthYear(locale: Locale, iso = dateMeasure): string {
   return new Intl.DateTimeFormat(locale, { month: "long", year: "numeric", timeZone: "UTC" }).format(date(iso));
 }
 
-/** « 11 septembre 2026 », « September 11, 2026 ». */
+/** "11 septembre 2026", "September 11, 2026". */
 export function longDate(locale: Locale, iso = dateMeasure): string {
   return new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(date(iso));
 }
 
-/** Pourcentage a une decimale, au format de la langue : « 52,4 % », « 52.4% ». */
+/** Percentage with one decimal, in the language's format: "52,4 %", "52.4%". */
 export function percentage(locale: Locale, value: number): string {
   return new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(
     value / 100,
   );
 }
 
-/** « A, B et C », « A, B and C ». */
+/** "A, B et C", "A, B and C". */
 export function listNames(locale: Locale, names: string[]): string {
   return new Intl.ListFormat(locale, { style: "long", type: "conjunction" }).format(names);
 }
 
 /**
- * Objets les plus presents dans les builds les plus joues, tous rangs : le
- * nombre de heros qui les prennent, du plus au moins courant.
+ * Items most present in the most played builds, all ranks: the number of
+ * heroes taking them, from most to least common.
  */
 export function itemsPopular(locale: Locale, count = 3): string[] {
   const heroes = new Map<string, Set<string>>();
@@ -74,8 +74,8 @@ export function itemsPopular(locale: Locale, count = 3): string[] {
 }
 
 /**
- * Sort de combat et talent les plus choisis dans le build le plus joue de
- * chaque heros, tous rangs. Noms anglais, tels que les donne l'API.
+ * Battle spell and talent most chosen in each hero's most played build, all
+ * ranks. English names, as the API gives them.
  */
 export function choicePopular(): { sort: string | null; talent: string | null } {
   const sorts = new Map<string, number>();

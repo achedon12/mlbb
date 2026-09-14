@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   return { title: t("pages.account.metaTitle"), description: t("pages.account.metaDescription"), alternates: metaLocales(locale, "/account"), robots: { index: false, follow: false } };
 }
 
-/** Page personnelle : jamais mise en cache. */
+/** Personal page: never cached. */
 export const dynamic = "force-dynamic";
 
 export default async function AccountPage({ params }: { params: Promise<{ locale: Locale }> }) {
@@ -35,7 +35,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   if (session.state === "missing") redirect("/login");
 
   if (session.state === "expired") {
-    // Jeton revoque avant son echeance : il faut un nouveau code.
+    // Token revoked before it expires: a new code is needed.
     return (
       <div className="mx-auto max-w-2xl px-4 py-20">
         <StateProfile type="expired" t={t} />
@@ -44,7 +44,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   }
 
   if (session.state === "unavailable") {
-    // Jeton valide mais profil indisponible : la source Moonton est coupee.
+    // Valid token but profile unavailable: the Moonton source is down.
     return (
       <div className="mx-auto max-w-2xl px-4 py-20">
         <Card className="border-gold-500/30">
@@ -65,8 +65,8 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
 
   const { token, profile } = session;
 
-  // Deux sources en parallele : les stats (souvent coupees) et les amis
-  // (sur le sous-systeme d'auth, qui reste en ligne).
+  // Two sources in parallel: stats (often down) and friends
+  // (on the auth subsystem, which stays online).
   const [stats, friendList] = await Promise.all([
     statistics(token),
     friends(token),
@@ -78,7 +78,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
   return (
     <div className="mx-auto max-w-4xl px-4 py-14">
       <Breadcrumb crumbs={[{ name: t("pages.account.metaTitle") }]} className="mb-8" />
-      {/* ── En-tete de profil ──────────────────────────────────────────── */}
+      {/* ── Profile header ─────────────────────────────────────────────── */}
       <div className="flex flex-wrap items-center gap-5">
         <span className="bevel relative size-20 shrink-0 overflow-hidden bg-night-800">
           {profile.avatar ? (
@@ -113,7 +113,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         </form>
       </div>
 
-      {/* ── Rangs et chiffres ──────────────────────────────────────────── */}
+      {/* ── Ranks and figures ──────────────────────────────────────────── */}
       <dl className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="bevel border border-night-700/70 bg-night-900/60 p-4">
           <dt className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.account.currentRank")}</dt>
@@ -131,7 +131,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         <Figure label={t("pages.account.friends")} value={friendList.etat === "ok" ? friendList.donnees.length : "—"} />
       </dl>
 
-      {/* ── Statistiques ───────────────────────────────────────────────── */}
+      {/* ── Statistics ─────────────────────────────────────────────────── */}
       <section className="mt-12">
         <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.statistics")}</h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -146,7 +146,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
           </Card>
         )}
 
-        {/* Le profil detaille a ses propres etats : le lien reste meme quand les stats sont coupees. */}
+        {/* The detailed profile has its own states: the link stays even when stats are down. */}
         <Link
           href="/account/profile"
           className="bevel group mt-6 flex items-center gap-4 border border-gold-500/30 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
@@ -162,7 +162,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         </Link>
       </section>
 
-      {/* ── Amis ───────────────────────────────────────────────────────── */}
+      {/* ── Friends ────────────────────────────────────────────────────── */}
       {friendList.etat === "ok" && friendList.donnees.length > 0 && (
         <section className="mt-12">
           <div className="flex items-baseline gap-3">
@@ -193,7 +193,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         </section>
       )}
 
-      {/* ── Favoris (locaux) ───────────────────────────────────────────── */}
+      {/* ── Favorites (local) ──────────────────────────────────────────── */}
       <section className="mt-12">
         <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.favourites")}</h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -213,8 +213,8 @@ function Figure({ label, value }: { label: string; value: number | string }) {
 }
 
 /**
- * Chiffres d'ensemble, sur les saisons que le service a gardees. Le detail —
- * saison par saison, heros par heros — est sur le profil de joueur.
+ * Overall figures, over the seasons the service has kept. The detail —
+ * season by season, hero by hero — is on the player profile.
  */
 function SummaryStatistics({ stats, locale }: { stats: StatsPlayer; locale: Locale }) {
   const t = createT(locale);

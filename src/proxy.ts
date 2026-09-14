@@ -3,19 +3,19 @@ import type { NextRequest } from "next/server";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/config";
 
 /**
- * Deux roles :
+ * Two roles:
  *
- * 1. **Langue** — le site vit sous un prefixe de langue (`/fr`, `/en`…). Une
- *    adresse sans prefixe est redirigee vers la langue du visiteur, choisie
- *    d'apres son cookie, sinon d'apres l'en-tete `Accept-Language`, sinon la
- *    langue par defaut. Les liens internes n'ont donc pas a porter la langue :
- *    la redirection la retablit, et le cookie la conserve.
+ * 1. **Language** — the site lives under a language prefix (`/fr`, `/en`…). An
+ *    address without a prefix is redirected to the visitor's language, chosen
+ *    from their cookie, otherwise from the `Accept-Language` header, otherwise the
+ *    default language. Internal links therefore do not need to carry the language:
+ *    the redirect restores it, and the cookie keeps it.
  *
- * 2. **Limitation de debit de l'API** — une fenetre fixe par adresse IP lisse
- *    les abus, sans etat externe.
+ * 2. **API rate limiting** — a fixed window per IP address smooths out
+ *    abuse, without external state.
  */
 
-// ── Limitation de debit ────────────────────────────────────────────
+// ── Rate limiting ──────────────────────────────────────────────────
 const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 90;
 const buckets = new Map<string, { count: number; reset: number }>();
@@ -38,7 +38,7 @@ function rateLimitApi(request: NextRequest) {
     if (bucket.count > MAX_PER_WINDOW) {
       const retryAfter = Math.max(1, Math.ceil((bucket.reset - now) / 1000));
       return NextResponse.json(
-        { erreur: "Trop de requetes. Reessayez dans un instant." },
+        { erreur: "Too many requests. Try again in a moment." },
         { status: 429, headers: { "Retry-After": String(retryAfter) } },
       );
     }
@@ -49,7 +49,7 @@ function rateLimitApi(request: NextRequest) {
   return NextResponse.next();
 }
 
-// ── Langue ─────────────────────────────────────────────────────────
+// ── Language ───────────────────────────────────────────────────────
 function preferredLocale(request: NextRequest): Locale {
   const cookie = request.cookies.get("langue")?.value;
   if (cookie && isLocale(cookie)) return cookie;
@@ -69,7 +69,7 @@ export function proxy(request: NextRequest) {
 
   if (pathname.startsWith("/api/")) return rateLimitApi(request);
 
-  // Chemin deja prefixe par une langue : on laisse passer, cookie a jour.
+  // Path already prefixed with a language: let it through, cookie up to date.
   const first = pathname.split("/")[1];
   if (isLocale(first)) {
     const response = NextResponse.next();
@@ -79,7 +79,7 @@ export function proxy(request: NextRequest) {
     return response;
   }
 
-  // Sinon on redirige vers la langue du visiteur, en conservant le chemin.
+  // Otherwise redirect to the visitor's language, keeping the path.
   const locale = preferredLocale(request);
   const url = request.nextUrl.clone();
   url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
@@ -89,8 +89,8 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Tout, sauf les fichiers internes de Next, les ressources statiques et les
-  // fichiers racine servis tels quels (plan du site, robots, flux, images…).
+  // Everything except Next's internal files, static assets and the
+  // root files served as is (sitemap, robots, feeds, images…).
   matcher: [
     "/((?!_next/|.*\\..*|feed\\.xml|sitemap\\.xml|robots\\.txt|opengraph-image|manifest\\.webmanifest|icon).*)",
     "/api/:path*",

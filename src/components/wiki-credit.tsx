@@ -1,8 +1,8 @@
 import type { T } from "@/i18n/translations";
 
 /**
- * Crédit « repris et traduit du wiki », dans la langue courante. `cle` : une
- * autre phrase de crédit, avec le même `{lien}` à la place du nom du wiki.
+ * Credit "taken and translated from the wiki", in the current locale. `messageKey`: another
+ * credit sentence, with the same `{lien}` in place of the wiki name.
  */
 export function WikiCredit({
   t,

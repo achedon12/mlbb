@@ -14,7 +14,7 @@ import { FREQUENT_HEROES, historyRaw, pageHistory } from "./player-samples";
 
 const frequents = readFrequentHeroes(FREQUENT_HEROES.data).entries;
 
-/** Partie deja lue ; le nom « #hid » fait retrouver la fiche du site par l'identifiant du jeu. */
+/** Match already read; the name "#hid" finds the site's hero page from the game id. */
 let number = 0;
 const match = (hid: number, lane: number | null, win: boolean | null, date: number | null = null): MatchSummary => ({
   id: String(++number),
@@ -31,7 +31,7 @@ const match = (hid: number, lane: number | null, win: boolean | null, date: numb
 });
 const repeat = (n: number, factory: (i: number) => MatchSummary) => Array.from({ length: n }, (_, i) => factory(i));
 
-/** L'historique d'exemple, relu comme le fait la page : texte brut, grands entiers compris. */
+/** The sample history, read back the way the page does: raw text, big integers included. */
 const history = readMatches((readJson(pageHistory(historyRaw(), null)) as { data: unknown }).data).entries;
 
 describe("statsByRole", () => {
@@ -42,7 +42,7 @@ describe("statsByRole", () => {
     expect(summary.excluded).toBe(0);
     expect(summary.rows.map((l) => [l.key, l.matches, l.wins])).toEqual([
       ["Assassin", 33, 24],
-      // Lolita est Support et Tank : ses parties comptent dans les deux.
+      // Lolita is Support and Tank: her matches count in both.
       ["Support", 12, 4],
       ["Tank", 12, 4],
       ["Marksman", 7, 5],
@@ -53,7 +53,7 @@ describe("statsByRole", () => {
   });
 
   it("only names a strength and a weakness from the minimum match count", () => {
-    // Tireur (5 sur 7) a un meilleur taux que Tank, mais trop peu de parties.
+    // Marksman (5 out of 7) has a better rate than Tank, but too few matches.
     expect(summary.strong).toBe("Assassin");
     expect(summary.weak).toBe("Support");
   });
@@ -73,11 +73,11 @@ describe("statsByPosition", () => {
     ...repeat(12, (i) => match(84, 4, i < 9)),
     ...repeat(10, (i) => match(20, 3, i < 3)),
     ...repeat(3, () => match(36, 2, true)),
-    // Sans `lid` : Miya n'a qu'une position au catalogue, Chou en a deux, le nouveau heros aucune.
+    // Without `lid`: Miya has a single position in the catalog, Chou has two, the new hero none.
     ...repeat(2, () => match(1, null, false)),
     match(26, null, true),
     match(999, null, true),
-    // Issue inconnue : ne compte nulle part.
+    // Unknown outcome: counts nowhere.
     match(84, 4, null),
   ];
   const summary = statsByPosition(matches);

@@ -16,18 +16,18 @@ const STYLE: Record<AdjustmentDirection, { color: string; border: string; icon: 
   adjust: { color: "text-azure-400", border: "border-azure-500/30", icon: <Minus size={16} aria-hidden /> },
 };
 
-/** Nombre de heros distincts touches par un patch. */
+/** Number of distinct heroes affected by a patch. */
 export function changedHeroCount(patch: Pick<DetailedPatch, "adjustments">): number {
   const groups = groupAdjustments(patch.adjustments);
   return ADJUSTMENT_DIRECTIONS.reduce((n, direction) => n + groups[direction].length, 0);
 }
 
 /**
- * Toutes les modifications de heros d'un patch, en trois listes : ameliores,
- * affaiblis, ajustes. Rendues par le serveur, avec un lien vers chaque fiche :
- * la liste detaillee plus bas ne montre les siens qu'une fois depliee. Quand
- * l'historique des taux couvre le patch, chaque heros porte son taux de
- * victoire moyen des sept jours d'avant et d'apres ; sinon, rien.
+ * All of a patch's hero changes, in three lists: buffed,
+ * nerfed, adjusted. Rendered by the server, with a link to each hero page:
+ * the detailed list further down only shows its own once expanded. When
+ * the rate history covers the patch, each hero carries its average win
+ * rate over the seven days before and after; otherwise, nothing.
  */
 export function HeroChanges({
   patch,
@@ -36,7 +36,7 @@ export function HeroChanges({
 }: {
   patch: DetailedPatch;
   locale: Locale;
-  /** Ancre de la section detaillee des ajustements, quand le patch en a une. */
+  /** Anchor of the detailed adjustments section, when the patch has one. */
   anchorDetail: string | null;
 }) {
   const t = createT(locale);
@@ -121,7 +121,7 @@ export function HeroChanges({
   );
 }
 
-/** « 51,2 % → 52,4 % » : la couleur suit le sens de l'ecart, au-dela du bruit. */
+/** "51.2 % → 52.4 %": the color follows the direction of the gap, beyond the noise. */
 function Impact({
   impact,
   rate,

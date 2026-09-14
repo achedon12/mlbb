@@ -23,20 +23,20 @@ import { cn } from "@/lib/utils";
 import { visualItem } from "@/lib/build-visuals";
 
 /**
- * Page face-a-face « {a} vs {b} » : qui gagne le duel, rang par rang.
+ * Head-to-head page "{a} vs {b}": who wins the duel, rank by rank.
  *
- * Seules les paires au duel mesure ont une page — b parmi les ecarts les plus
- * marques de a, ou l'inverse, a un rang au moins —, dans l'ordre alphabetique
- * des slugs : l'ordre inverse n'est pas genere et tombe sur la 404. Page
- * sobre, tout en composants serveur : quelques milliers d'adresses par langue.
+ * Only pairs with a measured duel get a page — b among a's most marked
+ * gaps, or the reverse, at one rank at least —, in alphabetical order
+ * of the slugs: the reverse order is not generated and falls on the 404. A
+ * plain page, all server components: a few thousand addresses per language.
  */
 
 type Params = { params: Promise<{ locale: Locale; pair: string }> };
 
-// Pres de 3 000 paires en quatre langues : les generer au build ajouterait des
-// gigaoctets pour des pages que l'on visite une a une. Chacune est rendue a sa
-// premiere demande, puis servie depuis le cache une journee ; une paire non
-// mesuree ou dans l'ordre inverse tombe toujours sur la 404 (`resoudre`).
+// Nearly 3,000 pairs in four languages: generating them at build time would add
+// gigabytes for pages visited one at a time. Each one is rendered on its
+// first request, then served from the cache for a day; an unmeasured pair
+// or one in reverse order still falls on the 404 (`resolve`).
 export const dynamicParams = true;
 export const revalidate = 86400;
 
@@ -46,7 +46,7 @@ export function generateStaticParams() {
 
 const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
 
-/** Les deux heros d'un segment canonique, ou null. */
+/** The two heroes of a canonical segment, or null. */
 function resolve(pair: string): { a: Hero; b: Hero } | null {
   const p = readPair(pair);
   const a = p?.canonical ? heroesBySlug.get(p.a) : undefined;
@@ -57,7 +57,7 @@ function resolve(pair: string): { a: Hero; b: Hero } | null {
 const contextOf = (t: T, rank: MeasuredRank) =>
   rank === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rang: t(`measuredRanks.${rank}`) });
 
-/** Verdict du duel, commun a la description, au chapeau et a la reponse de la FAQ. */
+/** Duel verdict, shared by the description, the standfirst and the FAQ answer. */
 function verdict(locale: Locale, a: Hero, b: Hero) {
   const t = createT(locale);
   const duels = duelByRank(counters, a.slug, b.slug);
@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-/** Build le plus joue d'un heros sur sa position principale, au rang demande ou tous rangs. */
+/** A hero's most played build on its main lane, at the requested rank or all ranks. */
 function buildOf(h: Hero, rank: MeasuredRank) {
   const byLane = buildsPlayed[h.slug] ?? {};
   const lane = h.lanes.find((l) => byLane[l]) ?? Object.keys(byLane)[0];
@@ -114,7 +114,7 @@ export default async function VersusPage({ params }: Params) {
   const { duels, ref, sentence } = verdict(locale, a, b);
   const rankRef: MeasuredRank = ref?.rank ?? "all";
 
-  // Taux par duree de partie : au rang du verdict quand les deux y sont mesures.
+  // Win rate by game length: at the verdict's rank when both are measured there.
   const [da, db] = [durationOf(a.slug), durationOf(b.slug)];
   const rankDuration: MeasuredRank | null = da[rankRef] && db[rankRef] ? rankRef : da.all && db.all ? "all" : null;
   const byPhase = rankDuration ? phasesDuel(da[rankDuration], db[rankDuration]) : [];
@@ -136,10 +136,10 @@ export default async function VersusPage({ params }: Params) {
               })
             : t("pages.versus.duration.equal", { a: a.name, b: b.name });
 
-  // Profils au rang du verdict : taux de la tier list et notes du jeu.
+  // Profiles at the verdict's rank: tier list rates and in-game ratings.
   const [sa, sb] = [statsByRank(a.slug)[rankRef], statsByRank(b.slug)[rankRef]];
 
-  // Builds : le plus joue de chacun, et les objets qu'une regle oppose a l'autre.
+  // Builds: each one's most played, and the items a rule sets against the other.
   const catalog = new Map(itemsFor(locale).map((o) => [o.slug, o]));
   const englishBonus = new Map(itemsFor("en").map((o) => [o.slug, o.bonus]));
   const counterOf = (h: Hero) => {
@@ -209,7 +209,7 @@ export default async function VersusPage({ params }: Params) {
           { name: t("pages.compare.title"), href: "/compare" },
           {
             name: title,
-            // Pages soeurs : les autres duels mesures du premier heros.
+            // Sibling pages: the first hero's other measured duels.
             siblings: measuredOpponents(counters, a.slug)
               .filter((e) => heroesBySlug.has(e.slug))
               .slice(0, 20)
@@ -222,7 +222,7 @@ export default async function VersusPage({ params }: Params) {
       </PageHeader>
 
       <div className="mx-auto max-w-4xl space-y-12 px-4 py-10">
-        {/* ── Les deux heros ──────────────────────────────────────────── */}
+        {/* ── The two heroes ─────────────────────────────────────────── */}
         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
           {[
             { h: a, s: sa },
@@ -251,7 +251,7 @@ export default async function VersusPage({ params }: Params) {
           </span>
         </div>
 
-        {/* ── Verdict, rang par rang ──────────────────────────────────── */}
+        {/* ── Verdict, rank by rank ─────────────────────────────────── */}
         <section aria-labelledby="verdict">
           <h2 id="verdict" className={h2}>
             {question}
@@ -265,7 +265,7 @@ export default async function VersusPage({ params }: Params) {
           <p className="mt-2 text-xs leading-relaxed text-chalk-500">{t("pages.versus.gapsNote", { a: a.name, b: b.name })}</p>
         </section>
 
-        {/* ── Debut ou fin de partie ──────────────────────────────────── */}
+        {/* ── Early or late game ───────────────────────────────────── */}
         {rankDuration && sentenceDuration && (
           <section aria-labelledby="duree">
             <h2 id="duree" className={h2}>
@@ -307,8 +307,8 @@ export default async function VersusPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Profils ─────────────────────────────────────────────────── */}
-        {/* Tableau seul, sans radar : la page reste legere, et le radar vit au comparateur. */}
+        {/* ── Profiles ─────────────────────────────────────────────── */}
+        {/* Table only, no radar: the page stays light, and the radar lives in the comparator. */}
         <section aria-labelledby="profils">
           <h2 id="profils" className={h2}>
             {t("pages.versus.profiles", { rang: t(`measuredRanks.${rankRef}`) })}
@@ -356,7 +356,7 @@ export default async function VersusPage({ params }: Params) {
           </div>
         </section>
 
-        {/* ── Builds ──────────────────────────────────────────────────── */}
+        {/* ── Builds ───────────────────────────────────────────────── */}
         {builds.some((x) => x.played || x.counter.length > 0) && (
           <section aria-labelledby="builds">
             <h2 id="builds" className={h2}>
@@ -400,7 +400,7 @@ export default async function VersusPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Dans la meme equipe ─────────────────────────────────────── */}
+        {/* ── On the same team ─────────────────────────────────────── */}
         {team.length > 0 && (
           <section aria-labelledby="equipe">
             <h2 id="equipe" className={h2}>
@@ -422,7 +422,7 @@ export default async function VersusPage({ params }: Params) {
           </section>
         )}
 
-        {/* ── Pour aller plus loin ────────────────────────────────────── */}
+        {/* ── Going further ────────────────────────────────────────── */}
         <section aria-labelledby="liens">
           <h2 id="liens" className="font-heading text-xl font-bold text-chalk-100">
             {t("pages.versus.links.title")}
@@ -478,7 +478,7 @@ export default async function VersusPage({ params }: Params) {
   );
 }
 
-/** Ecarts du duel par rang : l'avantage net, puis ce que chacun perd ou gagne face a l'autre. */
+/** Duel gaps by rank: the net advantage, then what each one loses or gains against the other. */
 function TableDuel({
   t,
   duels,
@@ -530,8 +530,8 @@ function TableDuel({
 }
 
 /**
- * Objets en ligne, par leur nom, lien vers le catalogue quand l'objet y figure.
- * Sans icone : des milliers de pages face-a-face, chacune doit rester legere.
+ * Items inline, by name, linked to the catalog when the item is listed.
+ * No icon: thousands of head-to-head pages, each one must stay light.
  */
 function ItemList({ items: list }: { items: { name: string; slug: string | null }[] }) {
   return (

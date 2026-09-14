@@ -53,7 +53,7 @@ export default async function RetributionPage({ params }: Params) {
     category: "GameApplication",
   });
   const levels = Array.from({ length: LEVEL_MAX - LEVEL_MIN + 1 }, (_, i) => LEVEL_MIN + i);
-  // Echelles des graphiques : la plus grande valeur de chaque serie remplit la barre.
+  // Chart scales: the largest value of each series fills the bar.
   const damageMax = damageRetribution(LEVEL_MAX);
   const hpMaxObjectives = Math.max(...OBJECTIVE_KEYS.map((c) => OBJECTIVES[c].hp));
   const reactionMax = Math.max(...DIFFICULTY_ORDER.map((d) => SETTINGS[d].reactionEnemy[1]));
@@ -118,7 +118,7 @@ export default async function RetributionPage({ params }: Params) {
               const segment = (o.segment / o.hp) * 100;
               return (
                 <li key={key} className="bevel-sm flex items-center gap-4 border border-night-700/70 bg-night-900/60 p-3">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- portrait local, deja reduit */}
+                  {/* eslint-disable-next-line @next/next/no-img-element -- local portrait, already shrunk */}
                   <img
                     src={o.image}
                     alt=""
@@ -134,7 +134,7 @@ export default async function RetributionPage({ params }: Params) {
                         {t("tools.retribution.maxHp", { pv: integer.format(o.hp) })}
                       </span>
                     </p>
-                    {/* Longueur relative au plus gros objectif ; un trait par segment de la barre de vie. */}
+                    {/* Length relative to the biggest objective; one tick per health bar segment. */}
                     <div aria-hidden className="mt-2 h-2.5 bg-night-950">
                       <div
                         className="h-full bg-linear-to-r from-blood-500 to-[#ff7a66]"

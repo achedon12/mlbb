@@ -4,9 +4,9 @@ import type { DraftHero } from "./draft";
 import { rankingFull } from "./tier-list";
 
 /**
- * Fiche reduite de chaque heros, pour l'aide au draft et l'analyse d'equipe.
- * Lue cote serveur seulement : elle tire les relations du wiki et le
- * classement, que le navigateur n'a pas a charger.
+ * Reduced profile of each hero, for the draft helper and team analysis.
+ * Read server-side only: it pulls the wiki relations and the ranking, which
+ * the browser does not need to load.
  */
 interface Relation {
   strongAgainst: string[];
@@ -17,9 +17,9 @@ interface Relation {
 const relations = statistics.relations as unknown as Record<string, Relation>;
 
 /**
- * On n'envoie au client que ce dont les outils se servent : la fiche complete
- * d'un heros porte des competences et des skins qui n'entrent pas dans le
- * calcul et pesent lourd multiplies par 133.
+ * Only what the tools use is sent to the client: a hero's full profile carries
+ * skills and skins that play no part in the computation and weigh a lot
+ * multiplied by 133.
  */
 export function draftHeroes(): DraftHero[] {
   const rate = new Map(rankingFull.map((e) => [e.hero.slug, e.winRate]));
@@ -32,8 +32,8 @@ export function draftHeroes(): DraftHero[] {
     win: rate.get(h.slug) ?? null,
     strongAgainst: relations[h.slug]?.strongAgainst ?? [],
     weakAgainst: relations[h.slug]?.weakAgainst ?? [],
-    // Synergies ecrites par le wiki, completees des coequipiers qui font le
-    // plus gagner le heros en partie classee.
+    // Synergies written by the wiki, completed with the teammates who raise
+    // the hero's win rate the most in ranked matches.
     synergies: [
       ...new Set([...(relations[h.slug]?.synergies ?? []), ...(teammates[h.slug]?.all ?? []).map((c) => c.slug)]),
     ],

@@ -11,37 +11,37 @@ import { keySearch, cn } from "@/lib/utils";
 
 export interface Crumb {
   name: string;
-  /** Lien de la miette ; absent pour la page courante. */
+  /** Link of the crumb; absent for the current page. */
   href?: string;
   /**
-   * Pages de meme niveau, proposees depuis la miette courante : on passe d'un
-   * heros, d'un patch ou d'un rang a l'autre sans remonter a la liste.
+   * Pages of the same level, offered from the current crumb: move from one
+   * hero, patch or rank to another without going back up to the list.
    */
   siblings?: { name: string; href: string }[];
 }
 
-/** Au-dela, la liste des pages soeurs s'ouvre sur un champ de filtre. */
+/** Beyond this, the list of sibling pages opens with a filter field. */
 const THRESHOLD_FILTER = 10;
 const WIDTH_PANEL = 288;
 
 /**
- * Fil d'Ariane.
+ * Breadcrumb.
  *
- * Rend la position dans le site et emet en meme temps le balisage
- * `BreadcrumbList` : les moteurs affichent alors le chemin sous le resultat
- * plutot que l'URL brute, et le lecteur remonte d'un niveau sans la barre du
- * navigateur.
+ * Renders the position in the site and emits the `BreadcrumbList` markup at
+ * the same time: search engines then show the path under the result rather
+ * than the raw URL, and the reader goes up a level without the browser's
+ * address bar.
  *
- * L'accueil ouvre toujours le fil : aucune page n'a a le declarer. Le fil pose
- * son propre fond, lisible sur un en-tete illustre comme sur un fond uni.
- * Quand la page a des soeurs, la derniere miette les propose dans un menu.
+ * Home always starts the trail: no page has to declare it. The trail sets its
+ * own background, readable on an illustrated header as on a plain one. When
+ * the page has siblings, the last crumb offers them in a menu.
  */
 export function Breadcrumb({ crumbs, className }: { crumbs: Crumb[]; className?: string }) {
   const t = useT();
   const locale = useLocale();
   const trail: Crumb[] = [{ name: t("common.home"), href: "/" }, ...crumbs];
-  // Les moteurs veulent des adresses completes, langue comprise : un lien sans
-  // prefixe n'est resolu que par la redirection du proxy.
+  // Search engines want full addresses, locale included: a link without a
+  // prefix is only resolved by the proxy's redirect.
   const address = (href: string) => `${site.url}/${locale}${href === "/" ? "" : href}`;
   const data = {
     "@context": "https://schema.org",
@@ -77,7 +77,7 @@ export function Breadcrumb({ crumbs, className }: { crumbs: Crumb[]; className?:
                     className="flex items-center gap-1.5 text-chalk-400 transition-colors hover:text-gold-400"
                   >
                     {home && <House size={14} aria-hidden className="shrink-0" />}
-                    {/* Sur mobile, la maison suffit a dire « accueil ». */}
+                    {/* On mobile, the house icon is enough to say "home". */}
                     <span className={cn(home && "sr-only sm:not-sr-only")}>{m.name}</span>
                   </Link>
                 ) : last && siblings ? (
@@ -97,10 +97,10 @@ export function Breadcrumb({ crumbs, className }: { crumbs: Crumb[]; className?:
 }
 
 /**
- * Derniere miette ouvrant la liste des pages soeurs. Le panneau est rendu a la
- * racine du document — la forme biseautee du fil le rognerait — et se place
- * sous la miette sans deborder de l'ecran. Il se ferme au clic exterieur, a
- * Echap, au defilement de la page et au choix d'une page.
+ * Last crumb, opening the list of sibling pages. The panel is rendered at the
+ * document root — the trail's bevelled shape would clip it — and sits under
+ * the crumb without overflowing the screen. It closes on an outside click, on
+ * Escape, on page scroll and when a page is chosen.
  */
 function SisterPages({ name, siblings }: { name: string; siblings: { name: string; href: string }[] }) {
   const t = useT();
@@ -122,7 +122,7 @@ function SisterPages({ name, siblings }: { name: string; siblings: { name: strin
     const escape = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
     };
-    // La page courante au milieu de la liste, sans faire defiler la page.
+    // The current page in the middle of the list, without scrolling the page.
     const current = list.current?.querySelector<HTMLElement>('[aria-current="page"]');
     if (list.current && current) {
       list.current.scrollTop = current.offsetTop - list.current.clientHeight / 2;
@@ -140,7 +140,7 @@ function SisterPages({ name, siblings }: { name: string; siblings: { name: strin
   }, [open]);
 
   const toggle = () => {
-    // Le panneau part de la miette, recule s'il sortirait de l'ecran.
+    // The panel starts at the crumb, and moves back if it would leave the screen.
     const button = root.current?.getBoundingClientRect();
     if (button) {
       setPosition({

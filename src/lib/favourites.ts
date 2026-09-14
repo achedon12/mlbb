@@ -1,10 +1,10 @@
 /**
- * Favoris.
+ * Favourites.
  *
- * Ils vivent dans le navigateur, plus dans une base : le site n'a plus de
- * compte a lui, l'identite est celle du jeu. Un favori est donc une commodite
- * locale — la liste des heros qu'on garde sous la main — pas une donnee a
- * synchroniser entre appareils.
+ * They live in the browser, no longer in a database: the site no longer has
+ * accounts of its own, identity is the game's. A favourite is therefore a
+ * local convenience — the list of heroes kept close at hand — not data to
+ * sync across devices.
  */
 const KEY = "mlbb_favoris";
 
@@ -21,7 +21,7 @@ export function isFavourite(slug: string): boolean {
   return readFavourites().includes(slug);
 }
 
-/** Ajoute ou retire un heros, et renvoie le nouvel etat. */
+/** Adds or removes a hero, and returns the new state. */
 export function toggleFavourite(slug: string): boolean {
   const current = readFavourites();
   const present = current.includes(slug);
@@ -29,22 +29,22 @@ export function toggleFavourite(slug: string): boolean {
 
   try {
     localStorage.setItem(KEY, JSON.stringify(next));
-    // Prevenir les autres composants de la page (bouton et liste du compte).
+    // Notify the other components of the page (button and account list).
     window.dispatchEvent(new CustomEvent("mlbb:favoris"));
   } catch {
-    /* stockage indisponible : le favori ne persiste pas, sans casser la page */
+    /* storage unavailable: the favourite does not persist, without breaking the page */
   }
 
   return !present;
 }
 
 /**
- * Abonnement au store des favoris pour React.
+ * Subscription to the favourites store for React.
  *
- * `useSyncExternalStore` est fait pour ca : lire une source exterieure a React
- * — ici le stockage du navigateur — et se reabonner a ses changements sans
- * declencher de rendu en cascade. L'evenement « mlbb:favoris » relie les
- * composants d'une meme page ; « storage » relie les onglets.
+ * `useSyncExternalStore` is made for this: reading a source outside React —
+ * here the browser storage — and resubscribing to its changes without
+ * triggering cascading renders. The "mlbb:favoris" event links the components
+ * of a single page; "storage" links the tabs.
  */
 export function subscribeToFavourites(reminder: () => void): () => void {
   window.addEventListener("mlbb:favoris", reminder);
@@ -56,26 +56,26 @@ export function subscribeToFavourites(reminder: () => void): () => void {
 }
 
 /**
- * Tableau vide partage.
+ * Shared empty array.
  *
- * `useSyncExternalStore` compare les instantanes par reference : renvoyer un
- * `[]` neuf a chaque appel — cote serveur comme en repli — declenche une
- * boucle de rendu. Une seule reference gelee l'evite.
+ * `useSyncExternalStore` compares snapshots by reference: returning a fresh
+ * `[]` on every call — server side as in the fallback — triggers a render
+ * loop. A single frozen reference avoids it.
  */
 const EMPTY: readonly string[] = Object.freeze([]);
 
-/** Instantane serveur : aucun favori connu hors du navigateur. */
+/** Server snapshot: no favourite is known outside the browser. */
 export function serverFavourites(): readonly string[] {
   return EMPTY;
 }
 
-/** Instantane stable : le meme contenu renvoie la meme reference. */
+/** Stable snapshot: the same content returns the same reference. */
 let cache: { raw: string; list: string[] } = { raw: "", list: [] };
 export function snapshotFavourites(): string[] {
   try {
     const raw = localStorage.getItem(KEY) ?? "";
     if (raw !== cache.raw) cache = { raw, list: raw ? JSON.parse(raw) : [] };
-    // Meme reference gelee que l'instantane serveur quand il n'y a rien.
+    // Same frozen reference as the server snapshot when there is nothing.
     return cache.list.length ? cache.list : (EMPTY as string[]);
   } catch {
     return cache.list;

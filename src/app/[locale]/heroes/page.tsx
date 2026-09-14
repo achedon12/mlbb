@@ -12,7 +12,7 @@ import { heroListData, metaPage } from "@/i18n/seo";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
-/** Description en donnees : effectif, patch et date du releve, trois premiers de la tier list. */
+/** Description built from data: roster size, patch and measurement date, top three of the tier list. */
 function descriptionCatalog(locale: Locale): string {
   const t = createT(locale);
   return t("pages.seo.heroes.description", {
@@ -48,7 +48,7 @@ export default async function HeroPage({ params }: Params) {
     changed: dateMeasure,
   });
 
-  // On n'envoie au client que les champs affiches par les vignettes.
+  // Only the fields shown by the thumbnails are sent to the client.
   const previews = allHeroes.map((h) => {
     const rate = rateBySlug.get(h.slug);
     return {

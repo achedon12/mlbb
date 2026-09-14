@@ -25,9 +25,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 /**
- * Le roster reduit a la vignette et aux filtres, et notre tier list de chaque
- * rang en indices dans ce roster (palier par palier, du plus fort au plus
- * faible) : quelques Ko pour pre-remplir la liste dans n'importe quel rang.
+ * The roster reduced to the thumbnail and filters, and our tier list for each
+ * rank as indices into that roster (tier by tier, from strongest to
+ * weakest): a few KB to prefill the list at any rank.
  */
 function data() {
   const roster: TierHero[] = allHeroes.map((h) => ({

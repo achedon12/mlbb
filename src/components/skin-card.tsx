@@ -12,10 +12,10 @@ import {
 import { formatRelease } from "@/lib/skins";
 
 /**
- * Vignette d'un skin : portrait de boutique cerne de la couleur de sa rarete,
- * son nom (vers la galerie du heros), son heros et quelques lignes deja
- * formatees. Ni etat ni traduction : le calendrier, rendu par le serveur, et
- * son explorateur, cote client, la partagent.
+ * Skin thumbnail: shop portrait framed in its rarity colour, its name (linking
+ * to the hero's gallery), its hero and a few pre-formatted lines. No state
+ * and no translation: the server-rendered calendar and its client-side
+ * explorer share it.
  */
 export interface PropsCardSkin {
   name: string;

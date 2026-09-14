@@ -12,10 +12,10 @@ export interface GuessOption {
 }
 
 /**
- * Champ de reponse du quiz : une liste deroulante qui se resserre a la frappe
- * (motif « combobox » de l'ARIA). Fleches pour parcourir, Entree pour valider
- * la proposition en surbrillance, Echap pour fermer. Choisir une proposition
- * vaut reponse : pas de faute de frappe possible.
+ * Quiz answer field: a dropdown list that narrows as you type
+ * (ARIA "combobox" pattern). Arrows to browse, Enter to confirm
+ * the highlighted suggestion, Escape to close. Picking a suggestion
+ * counts as the answer: no typo possible.
  */
 export function GuessField({
   options,
@@ -26,11 +26,11 @@ export function GuessField({
   disabled = false,
 }: {
   options: GuessOption[];
-  /** Deja proposes : ils ne reviennent pas dans la liste. */
+  /** Already guessed: they do not come back in the list. */
   excluded: Set<string>;
-  /** Texte d'exemple, et nom du champ pour les lecteurs d'ecran. */
+  /** Placeholder text, and field name for screen readers. */
   label: string;
-  /** Ligne affichee quand rien ne correspond. */
+  /** Row shown when nothing matches. */
   none: string;
   onChoose: (slug: string) => void;
   disabled?: boolean;
@@ -40,8 +40,8 @@ export function GuessField({
   const [text, setText] = useState("");
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
-  // La liste s'ouvre sous le champ, ou au-dessus quand la place manque en bas
-  // de l'ecran (champ en bas de page, clavier ouvert sur mobile).
+  // The list opens below the field, or above when there is not enough room at the bottom
+  // of the screen (field at the bottom of the page, keyboard open on mobile).
   const [toTop, setToTop] = useState(false);
   const results = useMemo(() => searchOptions(options, text, excluded), [options, text, excluded]);
   const visible = open && text.trim().length > 0;
@@ -126,7 +126,7 @@ export function GuessField({
             id={`${id}-${i}`}
             role="option"
             aria-selected={i === current}
-            // Le champ garde le focus : la liste ne se ferme pas avant le clic.
+            // The field keeps focus: the list does not close before the click.
             onMouseDown={(e) => e.preventDefault()}
             onClick={() => choose(o)}
             onMouseMove={() => setActive(i)}

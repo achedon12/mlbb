@@ -12,17 +12,17 @@ import {
 } from "@/lib/push-server";
 
 /**
- * Abonnement aux notifications de patch.
+ * Subscription to patch notifications.
  *
- * - POST : abonne ce navigateur (abonnement, langue, favoris) ;
- * - PATCH : met a jour ses favoris ;
- * - DELETE : le desabonne.
+ * - POST: subscribes this browser (subscription, language, favorites);
+ * - PATCH: updates its favorites;
+ * - DELETE: unsubscribes it.
  *
- * Chaque requete porte l'abonnement complet (`PushSubscription.toJSON()`) :
- * modifier ou supprimer exige son secret `auth`, que seul le navigateur
- * abonne connait. La route est publique : corps plafonne, favoris limites au
- * catalogue, adresse limitee aux services de notification connus, et vingt
- * requetes par minute et par adresse IP au plus.
+ * Every request carries the full subscription (`PushSubscription.toJSON()`):
+ * changing or deleting it requires its `auth` secret, which only the
+ * subscribed browser knows. The route is public: capped body, favorites limited
+ * to the catalog, endpoint limited to known push services, and at most twenty
+ * requests per minute per IP address.
  */
 export const dynamic = "force-dynamic";
 
@@ -37,24 +37,24 @@ async function readRequest<K extends PushRequest["type"]>(
   type: K,
 ): Promise<Extract<PushRequest, { type: K }> | NextResponse> {
   if (!configPush()) return refusal(404, "notifications desactivees");
-  if (!allowed(addressOf(request))) return refusal(429, "trop de requetes");
-  // Un formulaire d'un autre site ne peut pas envoyer de JSON sans requete
-  // preliminaire CORS, que cette route n'accepte pas.
+  if (!allowed(addressOf(request))) return refusal(429, "too many requests");
+  // A form on another site cannot send JSON without a CORS preflight
+  // request, which this route does not accept.
   if (request.headers.get("sec-fetch-site") === "cross-site") return refusal(403, "origine refusee");
   if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) {
     return refusal(415, "JSON attendu");
   }
-  if (Number(request.headers.get("content-length") ?? 0) > SIZE_MAX_BODY) return refusal(413, "corps trop gros");
+  if (Number(request.headers.get("content-length") ?? 0) > SIZE_MAX_BODY) return refusal(413, "body too large");
   const raw = await request.text();
-  if (raw.length > SIZE_MAX_BODY) return refusal(413, "corps trop gros");
+  if (raw.length > SIZE_MAX_BODY) return refusal(413, "body too large");
   let body: unknown;
   try {
     body = JSON.parse(raw);
   } catch {
-    return refusal(400, "JSON invalide");
+    return refusal(400, "invalid JSON");
   }
   const pushRequest = validateRequest(type, body, SLUGS);
-  if (!pushRequest || pushRequest.type !== type) return refusal(400, "demande invalide");
+  if (!pushRequest || pushRequest.type !== type) return refusal(400, "invalid request");
   return pushRequest as Extract<PushRequest, { type: K }>;
 }
 
@@ -62,7 +62,7 @@ async function storage(action: string, task: () => Promise<NextResponse>): Promi
   try {
     return await task();
   } catch (error) {
-    await logError(`notifications : echec de l'${action}`, error);
+    await logError(`notifications: ${action} failed`, error);
     return refusal(503, "stockage indisponible");
   }
 }
@@ -70,7 +70,7 @@ async function storage(action: string, task: () => Promise<NextResponse>): Promi
 export async function POST(request: Request) {
   const pushRequest = await readRequest(request, "subscribe");
   if (pushRequest instanceof NextResponse) return pushRequest;
-  return storage("abonnement", async () => {
+  return storage("subscription", async () => {
     const issue = await saveSubscriber(pushRequest.abonnement, pushRequest.langue, pushRequest.favoris);
     if (issue === "full") return refusal(503, "trop d'abonnements");
     return NextResponse.json({ etat: issue }, { status: issue === "created" ? 201 : 200, headers: WITHOUT_CACHE });
@@ -80,18 +80,18 @@ export async function POST(request: Request) {
 export async function PATCH(request: Request) {
   const pushRequest = await readRequest(request, "update");
   if (pushRequest instanceof NextResponse) return pushRequest;
-  return storage("mise a jour", async () => {
+  return storage("update", async () => {
     const issue = await majSubscriber(pushRequest.abonnement, pushRequest.favoris, pushRequest.langue);
-    // 404 : le navigateur se reabonne (abonnement efface cote serveur entre-temps).
-    return issue === "unknown" ? refusal(404, "abonnement inconnu") : new NextResponse(null, { status: 204 });
+    // 404: the browser subscribes again (subscription deleted server-side in the meantime).
+    return issue === "unknown" ? refusal(404, "unknown subscription") : new NextResponse(null, { status: 204 });
   });
 }
 
 export async function DELETE(request: Request) {
   const pushRequest = await readRequest(request, "unsubscribe");
   if (pushRequest instanceof NextResponse) return pushRequest;
-  return storage("desinscription", async () => {
-    // Meme reponse que l'abonnement ait existe ou non : la suppression est idempotente.
+  return storage("unsubscription", async () => {
+    // Same response whether the subscription existed or not: deletion is idempotent.
     await deleteSubscriber(pushRequest.abonnement);
     return new NextResponse(null, { status: 204 });
   });

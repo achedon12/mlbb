@@ -7,7 +7,7 @@ import { ArrowRight, ChevronDown, Minus, TrendingDown, TrendingUp } from "lucide
 import type { HeroAdjustment, AdjustmentType } from "@/lib/types";
 import { useT } from "@/i18n/provider";
 
-/** Ajustement enrichi cote serveur : portrait et existence de fiche resolus. */
+/** Adjustment enriched server-side: portrait and detail-page existence resolved. */
 export interface EnrichedAdjustment extends HeroAdjustment {
   portrait: string | null;
   sheet: boolean;
@@ -15,13 +15,13 @@ export interface EnrichedAdjustment extends HeroAdjustment {
 import { cn } from "@/lib/utils";
 
 /**
- * Ajustements de heros d'un patch.
+ * Hero adjustments of a patch.
  *
- * Le wikitexte des notes suit une grammaire reguliere : chaque heros a un type
- * — amelioration, affaiblissement, ajustement — et, quand le wiki les detaille,
- * des changements « avant → apres ». On les montre en liste : portrait, badge
- * de type, et le detail deplie a la demande. Un mur de texte devient une liste
- * ou l'on trouve son heros d'un coup d'oeil.
+ * The notes' wikitext follows a regular grammar: each hero has a type
+ * — buff, nerf, adjustment — and, when the wiki details them, « before →
+ * after » changes. We show them as a list: portrait, type badge, and the
+ * detail expanded on demand. A wall of text becomes a list where you find
+ * your hero at a glance.
  */
 const STYLE: Record<
   AdjustmentType,
@@ -58,7 +58,7 @@ export function HeroPatch({
 
   return (
     <div>
-      {/* Bilan : trois compteurs qui filtrent la liste. */}
+      {/* Summary: three counters that filter the list. */}
       <div className="flex flex-wrap gap-2">
         {(Object.keys(STYLE) as AdjustmentType[]).map((type) => {
           const active = filter === type;
@@ -92,8 +92,8 @@ export function HeroPatch({
 }
 
 /**
- * Ajustements d'un heros au fil des patchs, du plus recent au plus ancien :
- * la meme ligne que dans les notes de patch, titree par la version.
+ * A hero's adjustments across patches, newest to oldest: the same row as in
+ * the patch notes, titled by the version.
  */
 export function HeroAdjustments({
   entries,
@@ -128,7 +128,7 @@ function HeroRow({
   adjustment: HeroAdjustment;
   portrait: string | null;
   sheet?: boolean;
-  /** Remplace le nom du heros, quand la liste est celle d'un seul heros. */
+  /** Replaces the hero name, when the list covers a single hero. */
   title?: string;
   link?: { href: string; label: string };
 }) {

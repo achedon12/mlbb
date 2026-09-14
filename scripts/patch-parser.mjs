@@ -1,33 +1,33 @@
 import { cleanDescription } from "./wikitext.mjs";
 
 /**
- * Analyse structuree d'une note de patch.
+ * Structured parsing of a patch note.
  *
- * Le wikitexte des patch notes suit une grammaire reguliere qu'un rendu HTML
- * aplatit : chaque heros ajuste est introduit par `{{hi|Nom}} {{pci|type}}`,
- * ses competences par `{{ai|Nom|Type}}`, et chaque changement par une ligne
- * `* Libelle : ancien → nouveau`. On en tire une structure exploitable plutot
- * qu'un mur de texte, ce que seul un affichage generique permettrait sinon.
+ * Patch note wikitext follows a regular grammar that HTML rendering
+ * flattens: each adjusted hero is introduced by `{{hi|Name}} {{pci|type}}`,
+ * its skills by `{{ai|Name|Type}}`, and each change by a
+ * `* Label: old → new` line. We turn it into a usable structure rather than
+ * a wall of text, which is all a generic display would allow otherwise.
  *
- * Ce qui n'entre pas dans cette grammaire — mot des concepteurs, nouveaux
- * heros, ajustements de terrain — est conserve tel quel, en HTML nettoye.
+ * What does not fit this grammar — designers' notes, new heroes, map
+ * adjustments — is kept as is, as cleaned HTML.
  */
 
-// Deux notations d'evolution ont cohabite au fil des versions : « → » dans les
-// notes recentes, « >> » dans les tableaux plus anciens.
+// Two change notations have coexisted across versions: "→" in recent notes,
+// ">>" in older tables.
 const ARROW = /&#x2192;|&rarr;|→|&gt;&gt;|>>/g;
 
-/** Type de changement, tel que le wiki l'annote. */
+/** Change type, as annotated by the wiki. */
 function typeChange(raw) {
   return { buff: "buff", nerf: "nerf", adjust: "adjust" }[raw] ?? null;
 }
 
 /**
- * Rend lisible une annotation de calcul `{{scale|...}}`.
+ * Makes a `{{scale|...}}` scaling annotation readable.
  *
- * Le wiki y encode une valeur qui croit avec le niveau — une base et des
- * increments. On la restitue en clair (« 100 +80 MP ») plutot que de la jeter,
- * sinon un changement d'attribut se reduirait a « avant → apres » sans valeurs.
+ * The wiki encodes a value there that grows with level — a base and
+ * increments. We render it in plain text ("100 +80 MP") rather than drop it,
+ * otherwise an attribute change would shrink to "before → after" with no values.
  */
 function renderScale(params) {
   const LABELS = {
@@ -59,18 +59,18 @@ function renderScale(params) {
 }
 
 /**
- * Coupe une ligne de changement en avant / apres quand elle en contient.
+ * Splits a change line into before / after when it contains them.
  *
- * « Base HP: 2440 → 2500 » se lit bien mieux en deux colonnes qu'en phrase.
- * Une ligne sans fleche reste un simple texte.
+ * "Base HP: 2440 → 2500" reads much better in two columns than as a sentence.
+ * A line without an arrow stays plain text.
  */
 function analyzeChange(row) {
   const text = cleanRow(row);
   const parts = text.split(/\s*(?:→)\s*/);
 
   if (parts.length === 2) {
-    // Le libelle precede le premier « : » ; sinon toute la partie gauche est
-    // l'ancienne valeur.
+    // The label precedes the first ":"; otherwise the whole left part is the
+    // old value.
     const sep = parts[0].indexOf(":");
     if (sep !== -1) {
       return {
@@ -85,30 +85,30 @@ function analyzeChange(row) {
   return { text };
 }
 
-/** Nettoie une ligne de wikitexte en conservant la fleche comme separateur. */
+/** Cleans a wikitext line, keeping the arrow as a separator. */
 function cleanRow(row) {
-  // Les valeurs chiffrees passent par `{{scale|...}}` : on les restitue avant
-  // que le nettoyage generique ne les efface.
+  // Numeric values go through `{{scale|...}}`: render them before the generic
+  // cleanup erases them.
   const withValues = row.replace(/\{\{scale\|([^}]*)\}\}/gi, (_, p) => renderScale(p));
   return cleanDescription(withValues.replace(ARROW, " → ")).replace(/\s*→\s*/g, " → ");
 }
 
 /**
- * Extrait les ajustements de heros d'un bloc de wikitexte.
+ * Extracts hero adjustments from a block of wikitext.
  *
- * Chaque heros ouvre un bloc jusqu'au heros suivant. A l'interieur, les
- * sous-titres `: {{...}}` ouvrent des sous-sections (attributs, competences),
- * et les lignes `* ...` sont les changements de la sous-section courante.
+ * Each hero opens a block that runs until the next hero. Inside, the
+ * `: {{...}}` subtitles open subsections (attributes, skills), and the
+ * `* ...` lines are the changes of the current subsection.
  */
 export function heroAdjustments(wikitext) {
-  // Le titre porte un numero romain qui a change de version en version
-  // (« I. », « II. »…), parfois suivi d'une espace avant les « == ».
+  // The heading carries a Roman numeral that changed from version to version
+  // ("I.", "II."…), sometimes followed by a space before the "==".
   const header = wikitext.match(/^(==+)\s*(?:[IVXLCDM]+\.\s*)?Hero Adjustments\b.*$/im);
   if (!header) return [];
 
   const start = header.index + header[0].length;
   const level = header[1].length;
-  // Jusqu'au prochain titre de niveau egal ou superieur.
+  // Up to the next heading of the same or a higher level.
   const run = wikitext.slice(start);
   const end = run.search(new RegExp(`^={2,${level}}[^=]`, "m"));
   const block = end === -1 ? run : run.slice(0, end);
@@ -123,12 +123,12 @@ export function heroAdjustments(wikitext) {
   };
 
   for (const raw of block.split("\n")) {
-    // Structure de tableau du wiki : sans interet pour le contenu.
+    // Wiki table structure: irrelevant to the content.
     if (/^\s*(?:\{\||\|\}|\|-|!)/.test(raw)) continue;
 
-    // Deux mises en forme ont coexiste : les cellules de tableau (« | … ») et
-    // les listes de definition (« : … »). On retire le marqueur de tete tout
-    // en retenant s'il s'agissait d'une cellule de prose.
+    // Two layouts have coexisted: table cells ("| …") and definition lists
+    // (": …"). We strip the leading marker while remembering whether it was a
+    // prose cell.
     let row = raw;
     let cellProse = false;
     if (/^\s*\|/.test(row)) {
@@ -140,7 +140,7 @@ export function heroAdjustments(wikitext) {
     row = row.trim();
     if (!row) continue;
 
-    // Ouverture d'un heros : {{hi|Nom}} {{pci|type}}
+    // Hero opening: {{hi|Name}} {{pci|type}}
     const heroHeader = row.match(/^\{\{hi\|([^}]+)\}\}\s*\{\{pci\|(buff|nerf|adjust)\}\}/i);
     if (heroHeader) {
       current = {
@@ -155,7 +155,7 @@ export function heroAdjustments(wikitext) {
     }
     if (!current) continue;
 
-    // Sous-titre : « {{link|Attributes}} {{pci|type}} » ou « {{ai|Nom|Type}} ».
+    // Subtitle: "{{link|Attributes}} {{pci|type}}" or "{{ai|Name|Type}}".
     const subtitle = row.match(
       /^\{\{(?:link|ai)\|([^}|]+)(?:\|([^}]+))?\}\}\s*(?:\{\{pci\|(buff|nerf|adjust)\}\})?\s*$/i,
     );
@@ -168,8 +168,8 @@ export function heroAdjustments(wikitext) {
       continue;
     }
 
-    // Changement : « * … ». Sans sous-section ouverte — attribut de base dans
-    // les tableaux — on en ouvre une implicite.
+    // Change: "* …". With no open subsection — base attribute in tables — we
+    // open an implicit one.
     const change = row.match(/^\*+\s*(.+)/);
     if (change) {
       if (!subSection) addSubsection("Attributes", null, null);
@@ -179,20 +179,20 @@ export function heroAdjustments(wikitext) {
       continue;
     }
 
-    // Prose : intro du heros (cellule « Change » d'un tableau, ou ligne « : »)
-    // tant qu'aucune sous-section n'a ete ouverte.
+    // Prose: hero intro (a table's "Change" cell, or a ":" line) as long as
+    // no subsection has been opened.
     if (!subSection && (cellProse || true)) {
       const text = cleanDescription(row);
       if (text) current.intro = current.intro ? `${current.intro} ${text}` : text;
     }
   }
 
-  // On garde tous les heros ajustes, meme ceux dont le wiki n'a pas encore
-  // detaille les changements : « buffe » sans detail reste une information.
+  // Keep every adjusted hero, even those whose changes the wiki has not
+  // detailed yet: "buffed" without details is still information.
   return heroes;
 }
 
-/** Resume chiffre pour l'en-tete : combien d'ameliorations, d'affaiblissements. */
+/** Numeric summary for the header: how many buffs, how many nerfs. */
 export function summary(heroes) {
   const count = { buff: 0, nerf: 0, adjust: 0 };
   for (const h of heroes) if (h.type) count[h.type] += 1;

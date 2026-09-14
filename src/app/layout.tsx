@@ -3,10 +3,10 @@ import { site } from "@/lib/site";
 import "./globals.css";
 
 /**
- * Racine de l'arbre. La langue etant portee par le segment `[locale]`, c'est
- * la mise en page de ce segment qui rend `<html>` et `<body>` ; celle-ci ne
- * fait que traverser. Les metadonnees communes (base des URL, robots) vivent
- * ici, une seule fois pour tout le site.
+ * Root of the tree. Since the language is carried by the `[locale]` segment, it
+ * is that segment's layout that renders `<html>` and `<body>`; this one only
+ * passes through. Shared metadata (URL base, robots) lives
+ * here, once for the whole site.
  */
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

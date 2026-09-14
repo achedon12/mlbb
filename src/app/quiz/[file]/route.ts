@@ -3,12 +3,12 @@ import { isLocale, LOCALES } from "@/i18n/config";
 import { poolQuiz } from "@/lib/quiz-data";
 
 /**
- * Vivier de l'entrainement du quiz, un fichier statique par langue
- * (`/quiz/fr.json`). Le navigateur ne le demande qu'en passant a
- * l'entrainement, et le garde pour rejouer hors ligne.
+ * Quiz practice pool, one static file per language
+ * (`/quiz/fr.json`). The browser only requests it when switching to
+ * practice, and keeps it to replay offline.
  *
- * L'adresse porte une extension : le proxy laisse passer les chemins a point
- * sans prefixe de langue (voir `src/proxy.ts`).
+ * The address carries an extension: the proxy lets dotted paths through
+ * without a language prefix (see `src/proxy.ts`).
  */
 export const dynamic = "force-static";
 export const dynamicParams = false;

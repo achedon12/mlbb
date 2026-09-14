@@ -1,20 +1,20 @@
 /**
- * Echelle des rangs classes, de Guerrier a Immortel mythique.
+ * Ranked tier scale, from Warrior to Mythic Immortal.
  *
- * Deux sources, qui concordent :
+ * Two sources, which agree:
  *
- * - divisions et plages de `rank_level` : la table officielle du jeu, telle que
- *   la renvoie l'API de statistiques (`/api/academy/ranks`, 29 entrees, relevee
- *   le 11 septembre 2026). C'est la table dont `rangs.ts` tire ses seuils ; les
- *   tests verifient que les deux restent alignes ;
- * - etoiles par division, points mythiques, draft, bans et points d'etoiles :
- *   la page « Ranked » du wiki Fandom (consultee le 11 septembre 2026).
+ * - divisions and `rank_level` ranges: the game's official table, as
+ *   returned by the statistics API (`/api/academy/ranks`, 29 entries, retrieved
+ *   on September 11, 2026). It is the table `ranks.ts` takes its thresholds from; the
+ *   tests check that both stay aligned;
+ * - stars per division, mythic points, draft, bans and star points:
+ *   the "Ranked" page of the Fandom wiki (accessed on September 11, 2026).
  *
- * Une division couvre `etoilesMax + 1` rank_level (de 0 a max etoiles), sauf
- * Guerrier II et I, qui en couvrent trois : on y entre avec une etoile.
+ * A division covers `starsMax + 1` rank_levels (from 0 to max stars), except
+ * Warrior II and I, which cover three: you enter them with one star.
  *
- * Les recompenses de fin de saison viennent de la page « Season Rank Rewards »
- * du meme wiki : des montants d'une saison passee, a presenter comme tels.
+ * End-of-season rewards come from the "Season Rank Rewards" page
+ * of the same wiki: amounts from a past season, to be presented as such.
  */
 import { readableRank } from "./ranks";
 import type { MeasuredRank } from "./measured-ranks";
@@ -26,19 +26,19 @@ export const SOURCES_RANKS = {
 } as const;
 
 export interface TierScale {
-  /** Cle d'embleme et de libelle (`rankNames.*`). */
+  /** Emblem and label key (`rankNames.*`). */
   key: string;
-  /** Divisions, de la plus basse a la plus haute ; vide dans la famille Mythique. */
+  /** Divisions, from lowest to highest; empty in the Mythic family. */
   divisions: string[];
-  /** Etoiles maximum par division ; null dans la famille Mythique, qui compte des points. */
+  /** Maximum stars per division; null in the Mythic family, which counts points. */
   starsMax: number | null;
-  /** Points mythiques du palier, bornes incluses ; `max` null pour le dernier. */
+  /** Mythic points of the tier, bounds included; `max` null for the last one. */
   points: { min: number; max: number | null } | null;
-  /** Plage de rank_level de la table officielle ; `fin` null pour le dernier palier. */
+  /** rank_level range from the official table; `end` null for the last tier. */
   rankLevel: { start: number; end: number | null };
-  /** Tranche de rang pour laquelle le jeu publie des mesures, s'il y en a une. */
+  /** Rank bracket for which the game publishes measurements, if any. */
   measure: MeasuredRank | null;
-  /** Famille du palier, pour les regles communes (draft, points d'etoiles). */
+  /** Tier family, for shared rules (draft, star points). */
   family: FamilyRank;
 }
 
@@ -137,17 +137,17 @@ export const SCALE: TierScale[] = [
   },
 ];
 
-/** Couleur et embleme d'un palier : ceux de `rangs.ts`, sauf Legende, qui n'y figure pas. */
+/** Color and emblem of a tier: those from `ranks.ts`, except Legend, which is not listed there. */
 export function tierAppearance(p: TierScale): { color: string; image: string | null } {
   const r = readableRank(p.rankLevel.start);
   return { color: r.color, image: r.image };
 }
 
 /**
- * Regles par famille, page « Ranked » : le draft s'ouvre en Epique V, avec 3,
- * 4 puis 5 bans par equipe en Epique, Legende et Mythique ; les points de
- * montee donnent une etoile de plus a 100 %, ceux de protection evitent d'en
- * perdre une. La famille Mythique n'a pas de points de montee.
+ * Rules per family, "Ranked" page: the draft opens at Epic V, with 3,
+ * 4 then 5 bans per team in Epic, Legend and Mythic; climb
+ * points grant one extra star at 100%, protection points prevent
+ * losing one. The Mythic family has no climb points.
  */
 export const RULES_FAMILY: Record<
   FamilyRank,
@@ -163,9 +163,9 @@ export const RULES_FAMILY: Record<
 };
 
 /**
- * Recompenses de fin de saison par rang final, page « Season Rank Rewards » :
- * points de bataille, tickets et fragments premium. Montants d'une saison
- * passee ; le jeu les ajuste parfois.
+ * End-of-season rewards by final rank, "Season Rank Rewards" page:
+ * battle points, tickets and premium fragments. Amounts from a past
+ * season; the game sometimes adjusts them.
  */
 export const REWARDS_SEASON: {
   family: FamilyRank;
@@ -183,7 +183,7 @@ export const REWARDS_SEASON: {
   { family: "mythic", battlePoints: 10000, tickets: 750, fragments: null, emblem: true },
 ];
 
-/** Palier de la famille (le premier), pour afficher son nom et son embleme. */
+/** First tier of the family, to display its name and emblem. */
 export function tierOfFamily(family: FamilyRank): TierScale {
   return SCALE.find((p) => p.family === family)!;
 }

@@ -1,13 +1,13 @@
 /**
- * Reponses d'exemple de l'API de statistiques joueur (arena.rone.dev).
+ * Sample responses from the player statistics API (arena.rone.dev).
  *
- * Reprises des exemples du schema OpenAPI du service, puis etendues : plusieurs
- * heros et parties, des entrees abimees comme le service peut en renvoyer, et
- * le detail d'une partie a dix joueurs. Aucune n'a ete relevee sur un compte
- * reel — la connexion demande un code recu dans la messagerie du jeu.
+ * Taken from the examples of the service's OpenAPI schema, then extended:
+ * several heroes and matches, damaged entries such as the service can return,
+ * and the detail of a ten-player match. None was captured on a real account —
+ * logging in requires a code received in the game's inbox.
  */
 
-/** Joueur fictif, avec l'identifiant d'exemple du formulaire de connexion. */
+/** Fictional player, with the sample id of the login form. */
 export const ME = { roleId: 123456789, zoneId: 6021 };
 
 const CDN = "https://akmweb.youngjoygame.com/web/svnres/img/mlbb/community";
@@ -26,7 +26,7 @@ const NAMES: Record<number, string> = {
 
 const entity = (hid: number) => ({ id: hid, n: NAMES[hid] ?? `Heros ${hid}`, ix: `${CDN}/100_${hid}.png`, i2x: "" });
 
-/** `/api/user/stats`, exemple du schema. */
+/** `/api/user/stats`, schema example. */
 export const STATS = {
   code: 0,
   message: "Success",
@@ -43,14 +43,14 @@ export const STATS = {
   },
 };
 
-/** `/api/user/season`, exemple du schema. */
+/** `/api/user/season`, schema example. */
 export const SEASONS = { code: 0, message: "Success", data: { sids: [40, 39, 38, 37] } };
 
 /**
- * `/api/user/matches`, en texte brut : curseur et identifiants depassent 2^53
- * et ne doivent pas etre arrondis a la lecture. La deuxieme partie n'a que son
- * `bid` numerique ; les deux avant-dernieres sont illisibles ; la derniere
- * melange chaines, millisecondes et issue inconnue.
+ * `/api/user/matches`, as raw text: cursor and ids exceed 2^53 and must not be
+ * rounded when read. The second match only has its numeric `bid`; the two
+ * before last are unreadable; the last one mixes strings, milliseconds and an
+ * unknown outcome.
  */
 export const MATCHES_TEXT = `{"code":0,"message":"Success","traceID":"53cd62802d24dc512ffd908e1d6d06bc","data":{
 "pageInfo":{"nextCursor":4143043017340290910,"hasNext":true,"count":7},
@@ -69,15 +69,15 @@ export const MATCHES_TEXT = `{"code":0,"message":"Success","traceID":"53cd62802d
  "ts":1774820000000,"hid_e":{"id":999,"n":"Nouveau Heros","ix":""}}
 ]}}`;
 
-/** Derniere page : plus de suite. */
+/** Last page: nothing after it. */
 export const MATCHES_END = {
   code: 0,
   data: { pageInfo: { nextCursor: "", hasNext: false, count: 0 }, result: [] },
 };
 
 /**
- * `/api/user/heroes/frequent`. Le curseur vide avec `hasNext` vrai vient tel
- * quel de l'exemple du schema.
+ * `/api/user/heroes/frequent`. The empty cursor with `hasNext` true comes
+ * straight from the schema example.
  */
 export const FREQUENT_HEROES = {
   code: 0,
@@ -98,7 +98,7 @@ export const FREQUENT_HEROES = {
   },
 };
 
-/** `/api/user/matches/{match_id}`, exemple du schema : un seul participant, sans le joueur. */
+/** `/api/user/matches/{match_id}`, schema example: a single participant, without the player. */
 export const DETAIL_SCHEMA = {
   code: 0,
   message: "Success",
@@ -114,9 +114,9 @@ export const DETAIL_SCHEMA = {
 };
 
 /**
- * Une partie de `/api/user/matches`, au format du schema : `res` 1 victoire,
- * 0 defaite, null issue absente ; `lid` la position, null quand le service ne
- * la donne pas.
+ * A match from `/api/user/matches`, in the schema format: `res` 1 win, 0 loss,
+ * null missing outcome; `lid` the position, null when the service does not
+ * give it.
  */
 export function matchRaw(i: number, hid: number, lid: number | null, res: 0 | 1 | null, ts: number | null) {
   return {
@@ -126,8 +126,8 @@ export function matchRaw(i: number, hid: number, lid: number | null, res: 0 | 1 
 }
 
 /**
- * Page de `/api/user/matches` en texte brut, curseur numerique non cite comme
- * le rend le service : il depasse 2^53 et doit survivre a la lecture.
+ * Page of `/api/user/matches` as raw text, with an unquoted numeric cursor as
+ * the service returns it: it exceeds 2^53 and must survive reading.
  */
 export function pageHistory(matches: object[], next: string | null) {
   const pageInfo = { nextCursor: next ?? "", hasNext: next !== null, count: matches.length };
@@ -136,18 +136,18 @@ export function pageHistory(matches: object[], next: string | null) {
 }
 
 /**
- * Historique de saison, de la plus ancienne partie a la plus recente : 4
- * defaites, 7 victoires, 1 defaite, 14 parties en alternance, puis 4
- * victoires. 30 parties, 18 victoires ; forme 7 sur les 10 dernieres.
+ * Season history, from the oldest match to the most recent: 4 losses, 7 wins,
+ * 1 loss, 14 alternating matches, then 4 wins. 30 matches, 18 wins; form 7 out
+ * of the last 10.
  */
 export const STORY = "DDDDVVVVVVVD" + "VDVDVDVDVDVDVD" + "VVVV";
 
-/** Debut de l'historique : quatre parties par jour a partir du 1er mars 2026. */
+/** Start of the history: four matches per day from 1 March 2026. */
 export const START_STORY = Date.UTC(2026, 2, 1) / 1000;
 
 /**
- * `HISTOIRE` au format du service, des plus recentes aux plus anciennes. Une
- * partie a l'issue inconnue s'intercale, une autre n'a pas de date.
+ * `STORY` in the service format, from the most recent to the oldest. A match
+ * with an unknown outcome is slipped in, another has no date.
  */
 export function historyRaw() {
   const timer = STORY.split("").map((c, i) =>
@@ -158,7 +158,7 @@ export function historyRaw() {
   return timer.reverse();
 }
 
-/** Detail complet d'une partie a dix : le joueur et quatre allies en equipe 1, cinq adversaires en equipe 2. */
+/** Full detail of a ten-player match: the player and four allies in team 1, five opponents in team 2. */
 export function detailMatch(myHero: number, enemies: number[], win: boolean, withTeams = true) {
   const player = (hid: number, f: number | null, rid: number, won: boolean) => ({
     f, hid, rid, zid: ME.zoneId, k: 3, d: 4, a: 5, tfr: 0.4, o: 50000, op: 0.2, s: 700, mvp: 0, its: [2305], eq: 0,

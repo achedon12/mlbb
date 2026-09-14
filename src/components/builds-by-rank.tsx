@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 export interface ResolvedVisual {
   name: string;
   image: string | null;
-  /** Page du choix (embleme, sort), quand elle existe. */
+  /** Page of the choice (emblem, spell), when it exists. */
   href?: string;
 }
 
@@ -21,39 +21,39 @@ export interface ResolvedItem extends ResolvedVisual {
   slug: string | null;
 }
 
-/** Build resolu par le serveur : le navigateur n'a ni catalogue ni visuels. */
+/** Build resolved by the server: the browser has neither catalogue nor visuals. */
 export interface ResolvedBuild {
   items: ResolvedItem[];
   emblem: ResolvedVisual | null;
   talents: ResolvedVisual[];
   sort: ResolvedVisual | null;
-  /** Taux de victoire du build, en %. */
+  /** Build win rate, in %. */
   win: number | null;
-  /** Part des parties ou il apparait, en %. */
+  /** Share of matches it appears in, in %. */
   selection: number | null;
 }
 
-/** Guide de joueur resolu : equipement complet, sans taux mesure. */
+/** Resolved player guide: full equipment, no measured rate. */
 export interface ResolvedGuide {
   items: ResolvedItem[];
   emblem: ResolvedVisual | null;
   talents: ResolvedVisual[];
   sort: ResolvedVisual | null;
-  /** Meilleur rang atteint par l'auteur, en cle d'embleme de rang. */
+  /** Author's highest rank reached, as a rank emblem key. */
   author: { key: string; division: string } | null;
   votes: number;
 }
 
 /**
- * Builds reellement joues, rang par rang.
+ * Builds actually played, rank by rank.
  *
- * Ils suivent le rang choisi sur la fiche : un Mythique ne s'equipe pas comme
- * un Epique. Un heros joue sur deux positions a un build par position — le
- * choix de la position n'apparait que dans ce cas.
+ * They follow the rank chosen on the hero page: a Mythic does not gear up like
+ * an Epic. A hero played in two lanes has one build per lane; the
+ * lane choice only shows up in that case.
  *
- * Les builds mesures ne portent que les objets cles. L'equipement complet vient
- * a part, d'un guide de joueur : deux sources distinctes, jamais melangees
- * sous un meme taux de victoire.
+ * Measured builds only carry the core items. The full equipment comes
+ * separately, from a player guide: two distinct sources, never mixed
+ * under the same win rate.
  */
 export function BuildsByRank({
   byLane,
@@ -67,7 +67,7 @@ export function BuildsByRank({
   const lanes = [...new Set([...Object.keys(byLane), ...Object.keys(guides)])];
   const [lane, setLane] = useState(lanes[0]);
   const byRank = byLane[lane] ?? {};
-  // Le rang de la fiche peut manquer pour cette position : repli sur tous rangs.
+  // The page's rank may be missing for this lane: fall back to all ranks.
   const builds = byRank[rank] ?? byRank.all ?? [];
   const guide = guides[lane]?.[rank] ?? guides[lane]?.all ?? null;
 

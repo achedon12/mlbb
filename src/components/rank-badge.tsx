@@ -7,11 +7,11 @@ import { useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 
 /**
- * Badge de rang : embleme officiel, nom, division et compte d'etoiles.
+ * Rank badge: official emblem, name, division and star count.
  *
- * Le meme rang se montre en deux tailles — en tete de profil et dans les
- * cartes de chiffres — d'ou un composant unique, l'embleme portant l'essentiel
- * de la lecture visuelle.
+ * The same rank shows in two sizes — at the top of the profile and in the
+ * stat cards — hence a single component, with the emblem carrying most of the
+ * visual reading.
  */
 export function RankBadge({
   rank,

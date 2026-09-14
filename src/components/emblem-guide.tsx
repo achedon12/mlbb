@@ -9,16 +9,16 @@ import type { Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
- * Guide des emblemes.
+ * Emblem guide.
  *
- * Presente en document de reference plutot qu'en vitrine : un rail de roles
- * toujours visible a gauche, et des lignes denses a droite. Une grille de
- * cartes obligeait a balayer la page en zigzag pour comparer deux talents ;
- * alignes, ils se lisent d'un seul mouvement vertical.
+ * Laid out as a reference document rather than a showcase: a role rail always
+ * visible on the left, and dense rows on the right. A card grid forced a
+ * zigzag scan of the page to compare two talents; aligned, they read in a
+ * single vertical sweep.
  *
- * Le role choisi ne filtre pas, il ordonne : ce qu'on ne prend pas reste
- * visible, en retrait. Masquer priverait le lecteur de la comparaison qui
- * justifie son choix.
+ * The chosen role does not filter, it orders: what you don't pick stays
+ * visible, dimmed. Hiding it would deprive the reader of the comparison that
+ * justifies their choice.
  */
 function textEmb(t: (k: string) => string, key: string, field: string, fallback: string | undefined) {
   const k = `emblemData.${key}.${field}`;
@@ -52,7 +52,7 @@ export function EmblemGuide({
 
   return (
     <div className="gap-10 lg:grid lg:grid-cols-[13rem_minmax(0,1fr)]">
-      {/* ── Rail des roles ───────────────────────────────────────────── */}
+      {/* ── Role rail ────────────────────────────────────────────────── */}
       <aside className="mb-10 lg:mb-0">
         <div className="lg:sticky lg:top-24">
           <p className="font-heading text-xs font-semibold uppercase tracking-wider text-chalk-500">
@@ -94,7 +94,7 @@ export function EmblemGuide({
             </button>
           )}
 
-          {/* L'embleme choisi a sa page : heros qui le jouent, talents pris avec. */}
+          {/* The chosen emblem has its own page: heroes who play it, talents taken with it. */}
           {chosen && (
             <Link
               href={`/emblems/${slugEmblem(chosen)}`}
@@ -110,7 +110,7 @@ export function EmblemGuide({
         </div>
       </aside>
 
-      {/* ── Contenu ──────────────────────────────────────────────────── */}
+      {/* ── Content ──────────────────────────────────────────────────── */}
       <div className="min-w-0 space-y-12">
         <Section
           title={t("emblemsUI.talents")}
@@ -161,7 +161,7 @@ function Section({
   entries: Entry[];
   images: Record<string, string>;
   adapted: (roles: Role[]) => boolean;
-  /** Adresse de la page de chaque entree, quand elle en a une (les sorts). */
+  /** Page address of each entry, when it has one (spells). */
   link?: (key: string) => string;
 }) {
   const t = useT();
@@ -173,7 +173,7 @@ function Section({
       </div>
       <p className="mt-1 text-sm text-chalk-500">{lead}</p>
 
-      {/* Lignes plutot que cartes : deux entrees se comparent alignees. */}
+      {/* Rows rather than cards: two entries compare side by side. */}
       <ul className="mt-4 divide-y divide-night-800 border-y border-night-800">
         {entries.map((e) => {
           const kept = adapted(e.roles);

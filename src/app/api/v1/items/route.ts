@@ -2,9 +2,9 @@ import { itemsFor } from "@/lib/data";
 const all = itemsFor("en");
 import { responseApi } from "@/lib/api";
 
-/** Objets de la boutique, filtrables par categorie. */
-// Cette route lit des parametres de requete : la figer au build
-// renverrait la meme reponse quel que soit le filtre demande.
+/** Shop items, filterable by category. */
+// This route reads query parameters: freezing it at build time
+// would return the same response whatever the requested filter.
 export const dynamic = "force-dynamic";
 
 export function GET(request: Request) {

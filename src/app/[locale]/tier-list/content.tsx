@@ -26,24 +26,24 @@ import { TierLines, type RowTier } from "./tier-lines";
 import { TierRows, type TierRow } from "./tier-rows";
 
 /**
- * Tier list d'une tranche de rang, d'une lane ou d'un role. La page principale
- * montre tous rangs confondus ; chaque rang, chaque lane et chaque role a sa
- * propre adresse, pour etre partage et reference (« tier list mythique »,
- * « best jungle heroes »). Lanes et roles portent sur tous les rangs : croiser
- * les deux multiplierait les pages sans rien apprendre de plus.
+ * Tier list of a rank slice, a lane or a role. The main page
+ * shows all ranks combined; each rank, each lane and each role has its
+ * own address, to be shared and referenced ("tier list mythique",
+ * "best jungle heroes"). Lanes and roles cover all ranks: crossing
+ * the two would multiply pages without teaching anything more.
  */
 const rankPath = (rank: MeasuredRank) => (rank === "all" ? "/tier-list" : `/tier-list/${rank}`);
 const pagePath = (rank: MeasuredRank, filter: FilterTier | null) => (filter ? pathFilter(filter) : rankPath(rank));
 
-/** Classement de la page : celui du rang, restreint a la lane ou au role. */
+/** The page's ranking: the rank's, restricted to the lane or the role. */
 const rankingOf = (rank: MeasuredRank, filter: FilterTier | null) => filterRanking(rankingOfRank(rank), filter);
 
-/** Nom court d'une lane ou d'un role, celui des puces et du fil d'Ariane. */
+/** Short name of a lane or a role, the one of the chips and the breadcrumb. */
 const nameFilter = (t: T, f: FilterTier) => (f.type === "lane" ? t(`lanes.${f.value}`) : t(`roles.${f.value}`));
 
 /**
- * Formes employees par les titres et les phrases : la lane telle que les
- * joueurs la cherchent (« gold lane » plutot que « Or »), le role au pluriel.
+ * Forms used by titles and sentences: the lane as
+ * players search for it ("gold lane" rather than "Or"), the role in the plural.
  */
 function markersFilter(t: T, f: FilterTier): Record<string, string> {
   return f.type === "lane"
@@ -52,9 +52,9 @@ function markersFilter(t: T, f: FilterTier): Record<string, string> {
 }
 
 /**
- * Titre calque sur les recherches recurrentes (« mlbb tier list septembre
- * 2026 », « best jungle heroes mlbb ») : mois du releve et patch en cours,
- * tires des donnees.
+ * Title modeled on recurring searches ("mlbb tier list septembre
+ * 2026", "best jungle heroes mlbb"): measurement month and current patch,
+ * drawn from the data.
  */
 export function metaTierList(locale: Locale, rank: MeasuredRank, filter: FilterTier | null = null): Metadata {
   const t = createT(locale);
@@ -75,7 +75,7 @@ export function metaTierList(locale: Locale, rank: MeasuredRank, filter: FilterT
   });
 }
 
-/** Phrase de donnees : les trois premiers, le taux du premier, la date et le patch du releve. */
+/** Data sentence: the top three, the first one's rate, the measurement date and patch. */
 function descriptionTierList(locale: Locale, rank: MeasuredRank, filter: FilterTier | null): string {
   const t = createT(locale);
   const ranking = rankingOf(rank, filter);
@@ -121,7 +121,7 @@ export function TierList({
 }: {
   locale: Locale;
   rank: MeasuredRank;
-  /** Lane ou role ; le classement porte alors sur tous les rangs. */
+  /** Lane or role; the ranking then covers all ranks. */
   filter?: FilterTier | null;
 }) {
   const t = createT(locale);
@@ -142,8 +142,8 @@ export function TierList({
   const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const rate = (v: number) => `${percent.format(v)} %`;
 
-  // Evolution du taux de victoire sur sept jours, dans le rang de la page ;
-  // rien quand la serie manque ou que l'ecart se confond avec l'arrondi.
+  // Seven-day win rate change, in the page's rank;
+  // nothing when the series is missing or the gap is lost in rounding.
   const trend = (slug: string) => {
     const v = variationWeek(trendsOf(slug)[rank]);
     if (!isNotable(v)) return null;
@@ -154,7 +154,7 @@ export function TierList({
     };
   };
 
-  // Une ligne compacte par heros : les champs vides ne sont pas envoyes.
+  // One compact row per hero: empty fields are not sent.
   const row = (e: RankedEntry): RowTier => {
     const evolution = trend(e.hero.slug);
     const note = notes[e.hero.slug] ?? e.comment;
@@ -179,7 +179,7 @@ export function TierList({
     tooFew: t("pages.tierList.tooFew"),
   };
 
-  // Tout le classement de la page, dans son ordre, avec la date du releve.
+  // The page's whole ranking, in order, with the measurement date.
   const structuredData = heroListData(locale, {
     name: title,
     description: descriptionTierList(locale, rank, filter),
@@ -210,7 +210,7 @@ export function TierList({
           },
         ];
 
-  // Trois entrees vers les autres listes : par rang, par lane, par role.
+  // Three entries to the other lists: by rank, by lane, by role.
   const sameFilter = (f: FilterTier) => filter?.type === f.type && filter.value === f.value;
   const tierRows: TierRow[] = [
     {
@@ -259,7 +259,7 @@ export function TierList({
           )}
         </div>
 
-        {/* Le lecteur doit pouvoir contester le classement : on montre la regle. */}
+        {/* The reader must be able to challenge the ranking: we show the rule. */}
         <p className="mb-6 text-sm">
           <Link href={rank === "all" ? "/statistics" : `/statistics/${rank}`} className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.statistics.fromTierListLink")} →

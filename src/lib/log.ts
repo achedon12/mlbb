@@ -2,13 +2,12 @@ import { appendFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
 
 /**
- * Journal serveur.
+ * Server log.
  *
- * Les erreurs partent toujours vers la sortie standard — captee par le
- * conteneur — et, quand le dossier est inscriptible, dans un fichier range par
- * jour sous `logs/`. Les erreurs sont ecrites a part des evenements ordinaires
- * pour se retrouver d'un coup d'oeil. Le journal ne doit jamais interrompre une
- * requete : toute panne d'ecriture est avalee.
+ * Errors always go to standard output — captured by the container — and, when
+ * the folder is writable, to a per-day file under `logs/`. Errors are written
+ * apart from ordinary events so they can be found at a glance. The log must
+ * never interrupt a request: any write failure is swallowed.
  */
 const FOLDER = process.env.LOGS_DIR ?? "logs";
 
@@ -26,18 +25,18 @@ export async function log(
 ): Promise<void> {
   const row = JSON.stringify({ t: new Date().toISOString(), niveau: level, message, ...context }) + "\n";
 
-  // Sortie standard : toujours, pour les plateformes qui collectent les logs.
+  // Standard output: always, for platforms that collect logs.
   (level === "error" ? console.error : console.log)(row.trimEnd());
 
   try {
     await mkdir(FOLDER, { recursive: true });
     await appendFile(join(FOLDER, fileOfDay(level)), row, "utf8");
   } catch {
-    // Dossier en lecture seule ou indisponible : la sortie standard suffit.
+    // Read-only or unavailable folder: standard output is enough.
   }
 }
 
-/** Raccourci pour la journalisation d'une erreur, avec cause serialisee. */
+/** Shortcut for logging an error, with a serialised cause. */
 export function logError(
   message: string,
   cause?: unknown,

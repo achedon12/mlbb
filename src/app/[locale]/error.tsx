@@ -5,12 +5,12 @@ import Link from "@/components/link";
 import { useT } from "@/i18n/provider";
 
 /**
- * Frontiere d'erreur des pages.
+ * Page error boundary.
  *
- * Une erreur imprevue dans un segment (donnee absente, appel qui echoue) est
- * rattrapee ici plutot que d'afficher l'ecran brut de Next. Le detail part vers
- * la console du serveur ; le lecteur, lui, garde une sortie propre et le moyen
- * de reessayer.
+ * An unexpected error in a segment (missing data, failing call) is
+ * caught here rather than showing Next's raw screen. The detail goes to
+ * the server console; the reader gets a clean way out and the means
+ * to try again.
  */
 export default function ErrorPage({
   error,
@@ -22,7 +22,7 @@ export default function ErrorPage({
   const t = useT();
   useEffect(() => {
     console.error(error);
-    // On reporte l'incident au journal du serveur, sans bloquer l'affichage.
+    // Report the incident to the server log, without blocking rendering.
     const body = JSON.stringify({
       message: error.message,
       chemin: window.location.pathname,

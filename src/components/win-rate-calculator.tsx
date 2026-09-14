@@ -8,9 +8,9 @@ import { Card } from "@/components/ui";
 import { compute, readCount, matchesAuPace, type Situation } from "@/lib/win-rate";
 
 /**
- * Calculateur de taux de victoire : combien de victoires d'affilee pour
- * atteindre un objectif, et combien de parties a un rythme donne. Tout se
- * calcule dans le navigateur, a chaque frappe ; aucune requete.
+ * Win rate calculator: how many wins in a row to reach a target, and how many
+ * games at a given pace. Everything is computed in the browser, on every
+ * keystroke; no request.
  */
 const OBJECTIVES = [50, 55, 60, 65, 70];
 
@@ -58,7 +58,7 @@ export function WinRateCalculator() {
   const t = useT();
   const locale = useLocale();
   const count = new Intl.NumberFormat(LOCALE_HTML[locale], { maximumFractionDigits: 2 });
-  // Valeurs d'exemple, ecrites avec le separateur decimal de la langue.
+  // Sample values, written with the locale's decimal separator.
   const [matches, setMatches] = useState("250");
   const [rate, setRate] = useState(() => count.format(48.5));
   const [objective, setObjective] = useState("55");
@@ -71,7 +71,7 @@ export function WinRateCalculator() {
     objective: readValues.objective ?? Number.NaN,
   };
   const result = compute(situation);
-  // « 55 % » en francais, « 55% » en anglais : l'espace suit la langue.
+  // « 55 % » in French, « 55% » in English: the space follows the locale.
   const percentage = new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 2 });
   const percent = (p: number) => percentage.format(p / 100);
   const outOfRange = (p: number | null, integer = false) =>

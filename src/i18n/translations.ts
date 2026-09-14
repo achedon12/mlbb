@@ -8,14 +8,14 @@ import es from "./messages/es.json";
 const MESSAGES: Record<Locale, Tree> = { en, fr, it, es } as unknown as Record<Locale, Tree>;
 
 /**
- * Fabrique la fonction de traduction d'une langue. Une clé absente retombe sur
- * la langue par défaut, puis sur la clé elle-même : jamais d'écran vide.
+ * Builds a language's translation function. A missing key falls back on
+ * the default language, then on the key itself: never a blank screen.
  */
 export function createT(locale: Locale): T {
   return createTFrom(MESSAGES[locale], MESSAGES[DEFAULT_LOCALE]);
 }
 
-/** Messages complets d'une langue, pour les passer à un provider client. */
+/** A language's full messages, to pass them to a client provider. */
 export function messagesFor(locale: Locale): Tree {
   return MESSAGES[locale];
 }
@@ -23,9 +23,9 @@ export function messagesFor(locale: Locale): Tree {
 export type { Tree, T };
 
 /**
- * Rubriques lues seulement par des composants serveur : le navigateur n'en a
- * pas l'usage. Une rubrique citee dans un composant client, meme passee en
- * argument (`tr("skinRarity", …)`), doit rester hors de cette liste.
+ * Sections read only by server components: the browser has no
+ * use for them. A section cited in a client component, even passed as an
+ * argument (`tr("skinRarity", …)`), must stay out of this list.
  */
 const SERVER_ONLY = [
   "footer", "modeSheet", "story", "home", "featured", "access", "prose", "newHero", "articleUI", "articleCategory",
@@ -44,11 +44,11 @@ function merge(base: Tree, above: Tree): Tree {
 }
 
 /**
- * Rubriques propres a certaines pages : la mise en page ne les envoie pas, la
- * page qui en a besoin les ajoute (`messagesPage` + `CompleterMessages`). Le
- * catalogue client, repete dans chaque page, pesait 46 Ko dont 34 pour ces
- * rubriques. `pages.notFound` reste commun : la page 404 peut surgir
- * partout.
+ * Sections specific to certain pages: the layout does not send them, the
+ * page that needs them adds them (`messagesPage` + `ExtendMessages`). The
+ * client catalog, repeated in every page, weighed 46 KB, 34 of which for these
+ * sections. `pages.notFound` stays shared: the 404 page can appear
+ * anywhere.
  */
 export const PAGE_SECTIONS = ["pages", "emblemData"];
 const ALWAYS_COMMON = ["pages.notFound"];
@@ -57,7 +57,7 @@ function full(locale: Locale): Tree {
   return merge(MESSAGES[DEFAULT_LOCALE], MESSAGES[locale]);
 }
 
-/** Extrait d'un arbre les seuls chemins pointes demandes (`pages.heroDetail`). */
+/** Extracts from a tree only the requested dotted paths (`pages.heroDetail`). */
 function extract(tree: Tree, paths: string[]): Tree {
   const output: Tree = {};
   for (const path of paths) {
@@ -73,9 +73,9 @@ function extract(tree: Tree, paths: string[]): Tree {
 }
 
 /**
- * Catalogue commun transmis aux composants client : la langue de la page,
- * completee par la langue par defaut pour les cles manquantes, sans les
- * rubriques reservees au serveur ni celles propres a certaines pages.
+ * Shared catalog passed to client components: the page's language,
+ * completed by the default language for missing keys, without the
+ * server-only sections or those specific to certain pages.
  */
 export function messagesClient(locale: Locale): Tree {
   const all = full(locale);
@@ -84,7 +84,7 @@ export function messagesClient(locale: Locale): Tree {
   return merge(all, common);
 }
 
-/** Rubriques de page a ajouter au catalogue commun, pour les composants client de cette page. */
+/** Page sections to add to the shared catalog, for this page's client components. */
 export function messagesPage(locale: Locale, paths: string[]): Tree {
   return extract(full(locale), paths);
 }

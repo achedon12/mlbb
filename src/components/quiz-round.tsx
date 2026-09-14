@@ -28,9 +28,9 @@ import {
 import { cn } from "@/lib/utils";
 
 /**
- * Une manche du quiz : l'enonce, les indices qui se debloquent a chaque
- * erreur, le champ de reponse et les essais deja joues. Sans etat de partie :
- * le defi du jour et l'entrainement tiennent les essais, cette vue les montre.
+ * One quiz round: the prompt, the hints unlocked by each
+ * wrong guess, the answer field and the guesses already played. No game state:
+ * the daily challenge and practice mode hold the guesses, this view shows them.
  */
 
 export interface CatalogQuiz {
@@ -61,7 +61,7 @@ function listLanes(h: QuizHero, t: T) {
   return h.lanes.map((l) => t(`lanes.${l}`)).join(" / ") || "—";
 }
 
-/** Indices de la manche, dans l'ordre ou les erreurs les debloquent. */
+/** Round hints, in the order wrong guesses unlock them. */
 function hintsOf(round: Round, target: QuizHero | undefined, t: T): Hint[] {
   const list: (Hint | null)[] = [];
   if (round.type === "skill" && target) {
@@ -112,7 +112,7 @@ function hintsOf(round: Round, target: QuizHero | undefined, t: T): Hint[] {
   return list.filter((x): x is Hint => x !== null);
 }
 
-/** Pastille de comparaison : l'essai partage-t-il ce trait avec la reponse ? */
+/** Comparison pill: does the guess share this trait with the answer? */
 function Badge({ agreement, label, value, t }: { agreement: Agreement; label: string; value?: string; t: T }) {
   const Icon = agreement === "yes" ? Check : agreement === "partial" ? null : X;
   return (
@@ -128,7 +128,7 @@ function Badge({ agreement, label, value, t }: { agreement: Agreement; label: st
   );
 }
 
-/** Pastille de sens : la reponse est plus recente, plus chere… ou egale. */
+/** Direction pill: the answer is more recent, more expensive... or equal. */
 function DirectionBadge({ direction, value, family, t }: { direction: Direction; value: string; family: "year" | "price"; t: T }) {
   const agreement: Agreement = direction === "equal" ? "yes" : "no";
   const Icon = direction === "higher" ? ArrowUp : direction === "lower" ? ArrowDown : direction === "equal" ? Check : null;
@@ -157,10 +157,10 @@ export function RoundQuiz({
   attempts: string[];
   catalog: CatalogQuiz;
   onAttempt: (slug: string) => void;
-  /** Position de la manche, « Manche 2/5 ». */
+  /** Round position, "Round 2/5". */
   roundLabel: string;
   refTitle?: React.Ref<HTMLHeadingElement>;
-  /** Date du releve des taux, citee par le duel. */
+  /** Date the rates were collected, cited by the duel. */
   measure: string;
 }) {
   const t = useT();
@@ -212,9 +212,9 @@ export function RoundQuiz({
   return (
     <section className="relative p-4 sm:p-6">
       {/*
-        Le biseau (clip-path) est porte par un calque de fond : pose sur la
-        section, il rognait la liste de suggestions du champ et masquait la
-        fenetre « Parcourir les heros », pourtant en position fixe.
+        The bevel (clip-path) is carried by a background layer: set on the
+        section, it clipped the field's suggestion list and hid the
+        "Browse heroes" window, even though it is fixed-positioned.
       */}
       <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
       <div className="relative">
@@ -410,7 +410,7 @@ function ComparisonItem({
   );
 }
 
-/** Ce que la manche montre d'emblee ; l'illustration d'un skin se degage erreur apres erreur. */
+/** What the round shows up front; a skin's artwork is revealed guess after guess. */
 function Statement({
   round,
   nbErrors,

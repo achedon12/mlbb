@@ -21,7 +21,7 @@ import { allHeroes } from "@/lib/data";
 const slugs = allHeroes.map((h) => h.slug);
 const known = new Set(slugs);
 
-/** Liste complete : les 133 heros repartis sur six rangees, titre et noms accentues. */
+/** Full list: the 133 heroes spread over six rows, accented title and names. */
 function listFull(): StateTier {
   const state = stateDefault("Ma tier list — été 🔥");
   return {

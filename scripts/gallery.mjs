@@ -1,13 +1,13 @@
 import { removeTags } from "./tags.mjs";
 
 /**
- * Illustrations pleine taille d'une page de heros du wiki.
+ * Full-size illustrations from a wiki hero page.
  *
- * Les pages ne suivent pas toutes le meme gabarit : la section s'appelle
- * « Splash art », « Splash arts » ou « Artwork », elle s'ouvre parfois sur une
- * note, et empile souvent plusieurs galeries (visuels actuels, puis anciens).
- * Les lignes omettent parfois le prefixe « File: », et les legendes portent du
- * balisage — liens, gras, seconde ligne de precision.
+ * Pages do not all follow the same template: the section is called
+ * « Splash art », « Splash arts » or « Artwork », it sometimes opens with a
+ * note, and often stacks several galleries (current visuals, then older ones).
+ * Rows sometimes omit the « File: » prefix, and captions carry markup —
+ * links, bold, a second line of detail.
  */
 export function extractIllustrations(wikitext) {
   const output = [];
@@ -16,8 +16,8 @@ export function extractIllustrations(wikitext) {
   for (const title of wikitext.matchAll(/^(=+)\s*(?:splash arts?|artworks?)\s*=+[ \t]*$/gim)) {
     const level = title[1].length;
     const run = wikitext.slice(title.index + title[0].length);
-    // La section court jusqu'au prochain titre de meme niveau ou plus haut ;
-    // ses sous-sections en font partie.
+    // The section runs up to the next heading of the same or a higher level;
+    // its subsections belong to it.
     const end = run.search(new RegExp(`^={1,${level}}[^=]`, "m"));
     const section = end === -1 ? run : run.slice(0, end);
 
@@ -47,9 +47,9 @@ function cleanLegend(raw) {
 }
 
 /**
- * Cle de comparaison d'un nom de skin. Legende du wiki et module de donnees ne
- * s'accordent pas toujours sur la casse ou la ponctuation : « Vessel Of
- * Deceit » et « Vessel of Deceit » designent le meme skin.
+ * Comparison key for a skin name. The wiki caption and the data module do not
+ * always agree on case or punctuation: « Vessel Of
+ * Deceit » and « Vessel of Deceit » refer to the same skin.
  */
 export function normalizeNameSkin(name) {
   return name

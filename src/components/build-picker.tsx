@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "@/components/link";
 
 /**
- * Un choix de build — embleme, talent ou sort : l'icone d'abord, le nom
- * ensuite. En jeu, on reconnait ces choix a leur icone bien avant de lire leur
- * nom. Sans visuel connu, l'initiale tient la place. Avec `href`, le choix mene
- * a sa page (embleme, sort).
+ * A build choice — emblem, talent or spell: the icon first, the name second.
+ * In game, these choices are recognised by their icon long before their name
+ * is read. Without a known image, the initial stands in. With `href`, the
+ * choice leads to its page (emblem, spell).
  */
 export function BuildPicker({
   label,

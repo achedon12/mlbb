@@ -1,19 +1,19 @@
 import Script from "next/script";
 
 /**
- * Mesure d'audience Matomo, sans cookie ni donnee personnelle.
+ * Matomo audience measurement, with no cookie and no personal data.
  *
- * Rien n'est charge par defaut. En renseignant `NEXT_PUBLIC_MATOMO_URL` et
- * `NEXT_PUBLIC_MATOMO_SITE_ID`, le site inclut le traceur Matomo, configure
- * pour ne poser aucun cookie — donc sans bandeau de consentement a afficher.
- * L'instance est celle, auto-hebergee, de l'editeur.
+ * Nothing is loaded by default. Setting `NEXT_PUBLIC_MATOMO_URL` and
+ * `NEXT_PUBLIC_MATOMO_SITE_ID` makes the site include the Matomo tracker,
+ * configured to set no cookie — so no consent banner is needed. The instance
+ * is the publisher's own self-hosted one.
  */
 export function Analytics() {
   const url = process.env.NEXT_PUBLIC_MATOMO_URL;
   const siteId = process.env.NEXT_PUBLIC_MATOMO_SITE_ID;
   if (!url || !siteId) return null;
 
-  // On garantit un slash final pour construire les URL du traceur.
+  // Ensure a trailing slash to build the tracker URLs.
   const base = url.endsWith("/") ? url : `${url}/`;
 
   return (

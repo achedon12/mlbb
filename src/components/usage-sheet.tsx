@@ -9,8 +9,8 @@ import { percentage } from "@/lib/freshness";
 import type { SummaryRank, UsageHero } from "@/lib/usage-builds";
 
 /**
- * Blocs communs aux pages d'objet, d'embleme et de sort, rendus au serveur :
- * tableaux lisibles sans JavaScript, et par les moteurs.
+ * Blocks shared by the item, emblem and spell pages, rendered on the server:
+ * tables readable without JavaScript, and by search engines.
  */
 
 const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
@@ -18,18 +18,18 @@ const portraitOf = (slug: string) => {
   const h = heroesBySlug.get(slug);
   return h?.images.icon ?? h?.images.portrait ?? null;
 };
-/** Le lien ouvre directement l'onglet des builds de la fiche heros. */
+/** The link opens the builds tab of the hero page directly. */
 const linkBuilds = (slug: string) => `/heroes/${slug}#builds`;
 const rate = (locale: Locale, v: number | null) => (v === null ? "—" : percentage(locale, v));
 
-/** Espacement des cellules, pose une fois sur la table plutot que sur chaque cellule. */
+/** Cell spacing, set once on the table rather than on every cell. */
 const TABLE =
   "w-full text-sm [&_td]:py-2 [&_td]:pr-3 [&_td:last-child]:pr-0 [&_th]:py-2 [&_th]:pr-3 [&_th:last-child]:pr-0 [&_th]:font-medium";
 const HEADER = "border-b border-night-700 text-left text-xs uppercase tracking-wide text-chalk-500";
 
 /**
- * Heros qui prennent le choix : position, part des parties et taux de
- * victoire. Au-dela de `limite`, les suivants passent en simple liste de liens.
+ * Heroes who take the choice: position, share of matches and win rate.
+ * Beyond `limit`, the rest become a plain list of links.
  */
 export function TableUsage({
   rows,
@@ -48,7 +48,7 @@ export function TableUsage({
   return (
     <>
       <div className="relative overflow-x-auto">
-        {/* Classes des cellules posees une fois sur la table : chaque ligne reste legere. */}
+        {/* Cell classes set once on the table: each row stays light. */}
         <table className={TABLE}>
           <caption className="sr-only">{legend}</caption>
           <thead>
@@ -69,7 +69,7 @@ export function TableUsage({
                       <span className="block truncate font-medium text-chalk-100 group-hover:text-gold-400">
                         {nameOf(l.slug)}
                       </span>
-                      {/* Sur mobile, la position passe sous le nom plutot que dans sa colonne. */}
+                      {/* On mobile, the position goes under the name rather than in its own column. */}
                       <span className="block text-xs text-chalk-500 sm:hidden">{t(`lanes.${l.lane}`)}</span>
                     </span>
                   </Link>
@@ -99,7 +99,7 @@ export function TableUsage({
   );
 }
 
-/** Une ligne par rang : combien de heros prennent le choix, lequel en tete, et le taux moyen. */
+/** One row per rank: how many heroes take the choice, which one leads, and the average rate. */
 export function TableRanks({
   summary,
   legend,
@@ -152,12 +152,12 @@ export interface EntryPart {
   key: string;
   name: string;
   image: string | null;
-  /** Part en %. */
+  /** Share in %. */
   part: number;
   href?: string;
 }
 
-/** Choix associes (talents, sorts, emblemes), chacun avec sa part en barre. */
+/** Associated choices (talents, spells, emblems), each with its share as a bar. */
 export function PartsChoice({ entries, locale }: { entries: EntryPart[]; locale: Locale }) {
   return (
     <ul className="space-y-3">
@@ -185,7 +185,7 @@ export function PartsChoice({ entries, locale }: { entries: EntryPart[]; locale:
   );
 }
 
-/** Grille de liens vers des pages voisines (objets de la meme categorie, autres emblemes, autres sorts). */
+/** Grid of links to neighbouring pages (items of the same category, other emblems, other spells). */
 export function ListLinks({ links }: { links: { href: string; name: string; image: string | null; detail?: string }[] }) {
   return (
     <ul className="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-2">
