@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: t("pages.seo.loreRegion.description", {
       region: name,
       n: r.heroes.length,
-      noms: listNames(locale, figures(r, locale)),
+      names: listNames(locale, figures(r, locale)),
     }),
     path: `/lore/${r.key}`,
     keywords: [`${r.name} MLBB`, "MLBB lore", "Mobile Legends lore", ...r.heroes.slice(0, 5).map((h) => `${h.name} lore`)],
@@ -89,31 +89,31 @@ export default async function LoreRegionPage({ params }: Params) {
   if (summary.first && summary.last) {
     facts.push(
       t("pages.lore.region.factArrivals", {
-        premier: summary.first.name,
-        datePremier: releaseDate(summary.first.release, locale, t) ?? "",
-        dernier: summary.last.name,
-        dateDernier: releaseDate(summary.last.release, locale, t) ?? "",
+        first: summary.first.name,
+        firstDate: releaseDate(summary.first.release, locale, t) ?? "",
+        latest: summary.last.name,
+        lastDate: releaseDate(summary.last.release, locale, t) ?? "",
       }),
     );
   } else if (summary.first) {
     facts.push(
       t("pages.lore.region.factArrival", {
-        nom: summary.first.name,
+        name: summary.first.name,
         date: releaseDate(summary.first.release, locale, t) ?? "",
       }),
     );
   }
   if (summary.factions.length) {
-    facts.push(t("pages.lore.region.factFactions", { liste: listNames(locale, summary.factions.map((f) => `${f.name} (${f.n})`)) }));
+    facts.push(t("pages.lore.region.factFactions", { list: listNames(locale, summary.factions.map((f) => `${f.name} (${f.n})`)) }));
   }
   if (summary.species.length) {
-    facts.push(t("pages.lore.region.factSpecies", { liste: listNames(locale, summary.species.map((e) => `${e.name} (${e.n})`)) }));
+    facts.push(t("pages.lore.region.factSpecies", { list: listNames(locale, summary.species.map((e) => `${e.name} (${e.n})`)) }));
   }
-  facts.push(t("pages.lore.region.factLinks", { internes: summary.internal.length, externes: summary.external.length }));
+  facts.push(t("pages.lore.region.factLinks", { internal: summary.internal.length, external: summary.external.length }));
   if (summary.neighbours.length) {
     facts.push(
       t("pages.lore.region.factNeighbours", {
-        liste: listNames(
+        list: listNames(
           locale,
           summary.neighbours.slice(0, 3).map((v) => `${nameRegion(regionByKey.get(v.key)?.name ?? v.key)} (${v.n})`),
         ),
@@ -134,7 +134,7 @@ export default async function LoreRegionPage({ params }: Params) {
   const rowLink = (p: LorePair) => {
     const natures = [p.deA?.nature, p.deB?.nature].filter((x): x is string => !!x);
     const link = (slug: string) => (
-      <a href={`/${locale}/heroes/${slug}#histoire`} className="font-semibold text-chalk-100 hover:text-gold-400">
+      <a href={`/${locale}/heroes/${slug}#story`} className="font-semibold text-chalk-100 hover:text-gold-400">
         {heroNames.get(slug) ?? slug}
       </a>
     );
@@ -159,7 +159,7 @@ export default async function LoreRegionPage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader
         title={name}
-        lead={t("pages.lore.region.lead", { region: name, n: r.heroes.length })}
+        lead={t("pages.lore.region.lead", { region: name })}
         crumbs={[
           { name: t("pages.lore.crumb"), href: "/lore" },
           { name, siblings: regionsLore.map((x) => ({ name: nameRegion(x.name), href: `/lore/${x.key}` })) },
@@ -167,7 +167,7 @@ export default async function LoreRegionPage({ params }: Params) {
       />
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
-        <section id="en-bref">
+        <section id="overview">
           <SectionTitle>{t("pages.lore.region.inBriefTitle")}</SectionTitle>
           <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
             {facts.map((f) => (
@@ -176,12 +176,12 @@ export default async function LoreRegionPage({ params }: Params) {
           </ul>
         </section>
 
-        <section id="heros">
-          <SectionTitle lead={t("pages.lore.region.heroesLead")}>{t("pages.lore.region.heroesTitle", { region: name })}</SectionTitle>
+        <section id="heroes">
+          <SectionTitle lead={t("pages.lore.region.heroesLead")}>{t("pages.lore.region.heroesTitle")}</SectionTitle>
           <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {r.heroes.map((x) => {
               const sheet = h[x.slug]?.profile;
-              const infos = [sheet?.species, sheet?.age ? t("pages.lore.age", { age: sheet.age }) : null].filter(Boolean);
+              const facts = [sheet?.species, sheet?.age ? t("pages.lore.age", { age: sheet.age }) : null].filter(Boolean);
               return (
                 <li key={x.slug} id={x.slug} className="scroll-mt-24">
                   <article className="bevel flex h-full gap-4 border border-night-700/70 bg-night-900/60 p-4">
@@ -196,7 +196,7 @@ export default async function LoreRegionPage({ params }: Params) {
                       {h[x.slug]?.tagline && (
                         <p className="mt-2 line-clamp-3 text-sm italic leading-relaxed text-chalk-300">{h[x.slug]!.tagline}</p>
                       )}
-                      {infos.length > 0 && <p className="mt-2 text-xs text-chalk-400">{infos.join(" · ")}</p>}
+                      {facts.length > 0 && <p className="mt-2 text-xs text-chalk-400">{facts.join(" · ")}</p>}
                       {sheet?.affiliations.length ? (
                         <ul className="mt-2 flex flex-wrap gap-1">
                           {sheet.affiliations.slice(0, 3).map((a) => (
@@ -210,10 +210,10 @@ export default async function LoreRegionPage({ params }: Params) {
                         </ul>
                       ) : null}
                       <Link
-                        href={`/heroes/${x.slug}#histoire`}
+                        href={`/heroes/${x.slug}#story`}
                         className="mt-3 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                       >
-                        {t("pages.lore.readStory", { nom: x.name })} →
+                        {t("pages.lore.readStory")} →
                       </Link>
                     </div>
                   </article>
@@ -223,10 +223,10 @@ export default async function LoreRegionPage({ params }: Params) {
           </ul>
         </section>
 
-        <section id="liens">
+        <section id="links">
           <SectionTitle lead={t("pages.lore.region.linksLead")}>{t("pages.lore.region.linksTitle")}</SectionTitle>
           {summary.internal.length === 0 ? (
-            <p className="text-chalk-500">{t("pages.lore.region.noLink", { region: name })}</p>
+            <p className="text-chalk-500">{t("pages.lore.region.noLink")}</p>
           ) : (
             <>
               {listPairs(summary.internal.slice(0, LINKS_VISIBLE), false)}
@@ -248,16 +248,16 @@ export default async function LoreRegionPage({ params }: Params) {
         </section>
 
         {summary.external.length > 0 && (
-          <section id="au-dela">
-            <SectionTitle lead={t("pages.lore.region.externalLead", { region: name })}>
+          <section id="beyond">
+            <SectionTitle lead={t("pages.lore.region.externalLead")}>
               {t("pages.lore.region.externalTitle")}
             </SectionTitle>
             {listPairs(summary.external.slice(0, 8), true)}
           </section>
         )}
 
-        <nav aria-labelledby="autres-regions">
-          <h2 id="autres-regions" className="font-heading text-lg font-bold text-chalk-100">
+        <nav aria-labelledby="other-regions">
+          <h2 id="other-regions" className="font-heading text-lg font-bold text-chalk-100">
             {t("pages.lore.region.otherRegions")}
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2">

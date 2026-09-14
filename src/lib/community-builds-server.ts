@@ -43,12 +43,12 @@ export async function currentPlayer(): Promise<Player> {
   if (known && known.until > now) return known.player;
 
   const result = await profile(token);
-  if (result.etat === "expired") return { status: "none" };
-  if (result.etat !== "ok" || !result.donnees.roleId) return { status: "unavailable" };
+  if (result.status === "expired") return { status: "none" };
+  if (result.status !== "ok" || !result.data.roleId) return { status: "unavailable" };
   const player: Player = {
     status: "ok",
-    id: accountId(result.donnees.roleId, result.donnees.zoneId),
-    name: result.donnees.name.slice(0, 40) || "?",
+    id: accountId(result.data.roleId, result.data.zoneId),
+    name: result.data.name.slice(0, 40) || "?",
   };
   if (CONFIRMED.size >= CONFIRMED_MAX) CONFIRMED.clear();
   CONFIRMED.set(key, { until: now + CONFIRMED_TTL_MS, player });

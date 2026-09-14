@@ -151,7 +151,7 @@ describe("profile analyses", () => {
     const sheets = heroRankSheets(compareHeroes(frequents, "mythic"), "mythic", history);
     const html = render(h(HeroRankSheets, { sheets, bucket: "mythic", t, locale: "fr" }));
     expect(html).toContain('href="/fr/heroes/ling#builds"');
-    expect(html).toContain('href="/fr/heroes/ling#contres"');
+    expect(html).toContain('href="/fr/heroes/ling#counters"');
     expect(html).toMatch(/href="\/fr\/items#[a-z0-9-]+"/);
     expect(html.match(/<li class="bevel/g)).toHaveLength(3);
   });

@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { useT } from "@/i18n/provider";
+import { resolveAnchor, type AnchorAliases } from "@/lib/anchors";
 import { cn } from "@/lib/utils";
 
 /**
@@ -24,6 +25,8 @@ import { cn } from "@/lib/utils";
  *
  * The open tab is read from and written to the URL hash (#skins, #builds…):
  * a link can lead straight to a tab, and a shared URL reopens the same one.
+ * `aliases` maps renamed tab ids to the current ones, so that links shared
+ * before the rename ("#histoire") still open their tab.
  */
 export interface Tab {
   id: string;
@@ -37,7 +40,7 @@ export interface Tab {
   preview?: React.ReactNode;
 }
 
-export function Tabs({ tabs }: { tabs: Tab[] }) {
+export function Tabs({ tabs, aliases = {} }: { tabs: Tab[]; aliases?: AnchorAliases }) {
   const t = useT();
   const [active, setActive] = useState(tabs[0]?.id);
   const [openTabs, setOpen] = useState(() => new Set(tabs[0] ? [tabs[0].id] : []));
@@ -58,8 +61,11 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
   // another anchor of the same page.
   useEffect(() => {
     const followAnchor = (scroll: boolean) => {
-      const id = decodeURIComponent(window.location.hash.slice(1));
+      const hash = decodeURIComponent(window.location.hash.slice(1));
+      const renamed = resolveAnchor(hash, aliases);
+      const id = renamed ?? hash;
       if (!visible.some((o) => o.id === id)) return;
+      if (renamed) window.history.replaceState(null, "", `#${id}`);
       openTab(id);
       if (scroll) list.current?.scrollIntoView({ block: "start" });
     };
@@ -67,7 +73,7 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
     const onChange = () => followAnchor(true);
     window.addEventListener("hashchange", onChange);
     return () => window.removeEventListener("hashchange", onChange);
-    // A page's tabs do not change after render.
+    // A page's tabs and aliases do not change after render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -113,7 +119,7 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
               role="tab"
               id={`${base}-${o.id}`}
               aria-selected={selected}
-              aria-controls={`${base}-${o.id}-panneau`}
+              aria-controls={`${base}-${o.id}-panel`}
               tabIndex={selected ? 0 : -1}
               onClick={() => choose(o.id)}
               onKeyDown={(e) => byKeyboard(e, i)}
@@ -139,7 +145,7 @@ export function Tabs({ tabs }: { tabs: Tab[] }) {
         <div
           key={o.id}
           role="tabpanel"
-          id={`${base}-${o.id}-panneau`}
+          id={`${base}-${o.id}-panel`}
           aria-labelledby={`${base}-${o.id}`}
           hidden={o.id !== active}
           tabIndex={0}

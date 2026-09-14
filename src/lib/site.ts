@@ -15,7 +15,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://mlbbdex.com",
   locale: "en",
   author: "achedon12",
-  depot: "https://github.com/achedon12/mlbb",
+  repository: "https://github.com/achedon12/mlbb",
 } as const;
 
 /** Legal information: publisher, host, contact. */
@@ -26,28 +26,6 @@ export const legal = {
   host: "Lord Hosting",
   hostSite: "https://lord-hosting.com",
 } as const;
-
-/**
- * Main navigation.
- *
- * Two families: what describes the game, and what covers its news. Separating
- * them visually avoids a row of eight links where the eye can no longer
- * tell anything apart.
- */
-export const navigation = [
-  { href: "/heroes", label: "Heros", group: "game" },
-  { href: "/tier-list", label: "Tier list", group: "game" },
-  { href: "/compare", label: "Comparateur", group: "game" },
-  { href: "/draft", label: "Draft", group: "game" },
-  { href: "/game-modes", label: "Modes", group: "game" },
-  { href: "/items", label: "Objets", group: "game" },
-  { href: "/emblems", label: "Emblemes", group: "game" },
-  { href: "/news", label: "Actualites", group: "news" },
-  { href: "/watch", label: "Veille", group: "news" },
-  { href: "/patch-notes", label: "Patch notes", group: "news" },
-] as const;
-
-export type Group = (typeof navigation)[number]["group"];
 
 export function absoluteUrl(path: string): string {
   return new URL(path, site.url).toString();

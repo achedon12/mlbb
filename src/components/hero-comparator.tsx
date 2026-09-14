@@ -202,7 +202,7 @@ export function HeroComparator({
 function Profile({ heroes, rank, bounds }: { heroes: HeroComparable[]; rank: MeasuredRank; bounds: BoundsRank | null }) {
   const t = useT();
   const id = useId().replace(/[^a-zA-Z0-9-]/g, "");
-  const title = t("compareUI.profile", { rang: t(`measuredRanks.${rank}`) });
+  const title = t("compareUI.profile", { rank: t(`measuredRanks.${rank}`) });
   const axes = AXES_RADAR.map((a) =>
     t(a === "win" ? "compareUI.winRate" : a === "ban" ? "compareUI.banRate" : `compareUI.${a}`),
   );
@@ -297,7 +297,7 @@ function ComparisonTable({ heroes, rank }: { heroes: HeroComparable[]; rank: Mea
   return (
     <div className="bevel mt-6 relative overflow-x-auto border border-night-700/70 bg-night-900/60 px-3 py-2 sm:px-4">
       <table className="w-full text-sm">
-        <caption className="sr-only">{t("compareUI.table", { noms: names, rang: t(`measuredRanks.${rank}`) })}</caption>
+        <caption className="sr-only">{t("compareUI.table", { names: names, rank: t(`measuredRanks.${rank}`) })}</caption>
         <thead>
           <tr className="border-b border-night-800">
             <th scope="col" className="py-2">
@@ -434,7 +434,7 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
   const details = series
     .map((s) => {
       const v = s.values.filter((x): x is number => x !== null);
-      return t("compareUI.heroSummary", { nom: s.name, debut: count.format(v[0]), fin: count.format(v.at(-1)!) });
+      return t("compareUI.heroSummary", { name: s.name, start: count.format(v[0]), end: count.format(v.at(-1)!) });
     })
     .join(" ; ");
 
@@ -443,7 +443,7 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
       {title}
       {chosen !== rank && (
         <p className="mt-2 text-center text-xs text-chalk-500">
-          {t("compareUI.curvesOtherRank", { rang: t(`measuredRanks.${chosen}`) })}
+          {t("compareUI.curvesOtherRank", { rank: t(`measuredRanks.${chosen}`) })}
         </p>
       )}
       <div className="bevel mt-3 border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
@@ -452,14 +452,14 @@ function ComparedCurves({ heroes, rank }: { heroes: HeroComparable[]; rank: Meas
           series={series}
           label={t("compareUI.curvesSummary", {
             n: DAYS_CURVE,
-            rang: t(`measuredRanks.${chosen}`).toLocaleLowerCase(locale),
+            rank: t(`measuredRanks.${chosen}`).toLocaleLowerCase(locale),
             details,
           })}
         />
       </div>
       {without.map((c) => (
         <p key={c.heroes.slug} className="mt-2 text-xs text-chalk-500">
-          {t("compareUI.noCurveAtRank", { nom: c.heroes.name })}
+          {t("compareUI.noCurveAtRank", { name: c.heroes.name })}
         </p>
       ))}
     </section>
@@ -538,7 +538,7 @@ function Picker({
   return (
     <div className="relative">
       <div className="mb-1.5 flex items-center justify-between gap-2">
-        <label htmlFor={`${id}-champ`} className="flex items-center gap-2 text-xs uppercase tracking-wide text-chalk-500">
+        <label htmlFor={`${id}-field`} className="flex items-center gap-2 text-xs uppercase tracking-wide text-chalk-500">
           <TraitLegend color={pattern.color} pattern={pattern.pattern} />
           {label}
         </label>
@@ -546,7 +546,7 @@ function Picker({
           <button
             type="button"
             onClick={remove}
-            aria-label={t("compareUI.remove", { nom: chosen?.name ?? label })}
+            aria-label={t("compareUI.remove", { name: chosen?.name ?? label })}
             className="-my-1 rounded-sm p-1 text-chalk-500 transition-colors hover:text-blood-500"
           >
             <X size={15} aria-hidden />
@@ -559,10 +559,10 @@ function Picker({
         )}
         <input
           ref={refField}
-          id={`${id}-champ`}
+          id={`${id}-field`}
           role="combobox"
           aria-expanded={open}
-          aria-controls={`${id}-liste`}
+          aria-controls={`${id}-list`}
           aria-autocomplete="list"
           aria-activedescendant={
             open && results[active] ? `${id}-${results[active].slug}` : undefined
@@ -593,7 +593,7 @@ function Picker({
 
       {open && (
         <ul
-          id={`${id}-liste`}
+          id={`${id}-list`}
           role="listbox"
           aria-label={label}
           className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-night-700 bg-night-900 py-1 shadow-xl shadow-black/40"

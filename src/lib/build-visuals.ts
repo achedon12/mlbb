@@ -71,7 +71,7 @@ export function resolveBuild(b: BuildPlayed): ResolvedBuild {
     items: b.items.map(visualItem),
     emblem: b.emblem ? visualEmblem(b.emblem) : null,
     talents: b.talents.map(visualTalent),
-    sort: b.spell ? spellVisual(b.spell) : null,
+    spell: b.spell ? spellVisual(b.spell) : null,
     win: b.winRate,
     selection: b.pickRate,
   };
@@ -83,7 +83,7 @@ export function resolveGuide(g: GuidePlayer): ResolvedGuide {
     items: g.items.map(visualItem),
     emblem: g.emblem ? visualEmblem(g.emblem) : null,
     talents: g.talents.map(visualTalent),
-    sort: g.spell ? spellVisual(g.spell) : null,
+    spell: g.spell ? spellVisual(g.spell) : null,
     author: rank ? { key: rank.key, division: rank.division } : null,
     votes: g.votes,
   };

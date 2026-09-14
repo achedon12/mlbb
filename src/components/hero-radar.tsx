@@ -106,11 +106,11 @@ export function HeroRadar({
       <svg
         viewBox={`0 0 ${L} ${H}`}
         role="img"
-        aria-labelledby={`${id}-titre ${id}-resume`}
+        aria-labelledby={`${id}-title ${id}-summary`}
         className="mx-auto block h-auto w-full max-w-[26rem]"
       >
-        <title id={`${id}-titre`}>{title}</title>
-        <desc id={`${id}-resume`}>{summary}</desc>
+        <title id={`${id}-title`}>{title}</title>
+        <desc id={`${id}-summary`}>{summary}</desc>
         <g fill="none" stroke="currentColor" className="text-night-700">
           {[0.25, 0.5, 0.75, 1].map((a) => (
             <polygon key={a} points={polygon(Array(n).fill(a))} strokeWidth={a === 1 ? 1.2 : 0.7} />

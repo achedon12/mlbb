@@ -124,7 +124,7 @@ export function DraftTool({ heroes }: { heroes: DraftHero[] }) {
                         <CardSuggestion
                           suggestion={s}
                           first={rank === 0}
-                          titleTake={t("draftUI.chooseIn", { nom: s.hero.name, lane: t(`lanes.${lane}`) })}
+                          titleTake={t("draftUI.chooseIn", { name: s.hero.name, lane: t(`lanes.${lane}`) })}
                           onTake={() => choose("allies", lane, s.hero.slug)}
                         />
                       </li>
@@ -199,7 +199,7 @@ function Column({
                   <button
                     type="button"
                     onClick={() => onRemove(lane)}
-                    aria-label={t("draftUI.remove", { nom: heroes.name })}
+                    aria-label={t("draftUI.remove", { name: heroes.name })}
                     className="grid size-6 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
                   >
                     <X size={13} aria-hidden />

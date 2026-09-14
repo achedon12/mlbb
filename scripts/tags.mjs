@@ -35,3 +35,35 @@ function unPassage(text) {
   }
   return output;
 }
+
+/**
+ * Wikitext without its HTML comments (`<!-- … -->`).
+ *
+ * Same trap as tags: removing comments in a single pass lets one re-form
+ * from the pieces around a removed one (« <!<!---->-- x --> » yields
+ * « <!-- x --> »). The text is scanned, then scanned again until nothing
+ * changes. An unclosed comment runs to the end of the text, as MediaWiki
+ * reads it.
+ */
+export function removeComments(text) {
+  let previous;
+  let current = String(text);
+  do {
+    previous = current;
+    current = commentPass(current);
+  } while (current !== previous);
+  return current;
+}
+
+function commentPass(text) {
+  let output = "";
+  let from = 0;
+  for (;;) {
+    const start = text.indexOf("<!--", from);
+    if (start === -1) return output + text.slice(from);
+    output += text.slice(from, start);
+    const end = text.indexOf("-->", start + 4);
+    if (end === -1) return output;
+    from = end + 3;
+  }
+}

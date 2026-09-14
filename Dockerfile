@@ -26,7 +26,7 @@ RUN --mount=type=cache,target=/app/.next/cache \
 FROM node:22-alpine AS runner
 
 LABEL org.opencontainers.image.title="mlbb" \
-      org.opencontainers.image.description="Base de connaissances Mobile Legends: Bang Bang — heros, builds, tier list et actualites." \
+      org.opencontainers.image.description="Mobile Legends: Bang Bang knowledge base — heroes, builds, tier list and news." \
       org.opencontainers.image.source="https://github.com/achedon12/mlbb" \
       org.opencontainers.image.licenses="MIT"
 

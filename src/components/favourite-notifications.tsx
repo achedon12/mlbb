@@ -81,7 +81,7 @@ export function NotificationToggle({ favourites }: { favourites: readonly string
       <div className="flex items-start gap-3">
         <Icon size={16} aria-hidden className={cn("mt-0.5 shrink-0", active ? "text-gold-400" : "text-chalk-500")} />
         <div className="min-w-0 flex-1">
-          <p id={`${id}-titre`} className="text-sm font-semibold text-chalk-100">
+          <p id={`${id}-title`} className="text-sm font-semibold text-chalk-100">
             {t("favourites.push.title")}
           </p>
           <p id={`${id}-desc`} className="mt-1 text-xs leading-relaxed text-chalk-500">
@@ -92,8 +92,8 @@ export function NotificationToggle({ favourites }: { favourites: readonly string
           type="button"
           role="switch"
           aria-checked={active}
-          aria-labelledby={`${id}-titre`}
-          aria-describedby={`${id}-desc ${id}-etat`}
+          aria-labelledby={`${id}-title`}
+          aria-describedby={`${id}-desc ${id}-state`}
           aria-busy={busy}
           disabled={blocked || busy}
           onClick={toggle}
@@ -116,7 +116,7 @@ export function NotificationToggle({ favourites }: { favourites: readonly string
         </button>
       </div>
       <p
-        id={`${id}-etat`}
+        id={`${id}-state`}
         role="status"
         className={cn(
           "mt-2 text-xs leading-relaxed",

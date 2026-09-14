@@ -13,7 +13,7 @@ export async function GET() {
   const profile = await profileCurrent().catch(() => null);
 
   return NextResponse.json(
-    profile ? { connecte: true, pseudo: profile.name } : { connecte: false },
+    profile ? { connected: true, pseudo: profile.name } : { connected: false },
     { headers: { "Cache-Control": "private, no-store" } },
   );
 }

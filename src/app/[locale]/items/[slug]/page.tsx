@@ -49,19 +49,19 @@ function sheet(locale: Locale, slug: string) {
   const effect = o.bonus ?? o.summary;
   const sentences = [
     effect
-      ? t("pages.itemDetail.itemDesc", { nom: o.name, details, effet: withoutPoint(effect) })
-      : t("pages.itemDetail.itemDescAlone", { nom: o.name, details }),
+      ? t("pages.itemDetail.itemDesc", { name: o.name, details, effect: withoutPoint(effect) })
+      : t("pages.itemDetail.itemDescAlone", { name: o.name, details }),
   ];
   const first = heroes[0];
   if (first) {
     const names = listNames(locale, heroes.slice(0, 3).map((h) => heroName(h.slug)));
     sentences.push(
       first.win === null
-        ? t("pages.itemDetail.heroDescSimple", { heros: names })
+        ? t("pages.itemDetail.heroDescSimple", { heroes: names })
         : t("pages.itemDetail.heroDesc", {
-            heros: names,
-            premier: heroName(first.slug),
-            taux: percentage(locale, first.win),
+            heroes: names,
+            first: heroName(first.slug),
+            rate: percentage(locale, first.win),
           }),
     );
   }
@@ -69,7 +69,7 @@ function sheet(locale: Locale, slug: string) {
     o,
     t,
     heroes,
-    title: t("pages.itemDetail.title", { nom: o.name, v: patchCurrent?.version ?? "" }),
+    title: t("pages.itemDetail.title", { name: o.name, v: patchCurrent?.version ?? "" }),
     lead: sentences.join(" "),
     description: [...sentences, t("pages.sheets.updateDesc", { date: longDate(locale) })].join(" "),
   };
@@ -110,7 +110,7 @@ export default async function ItemPage({ params }: Params) {
     .slice(0, 8)
     .sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
 
-  const heroTitle = t("pages.itemDetail.heroesTitle", { nom: o.name });
+  const heroTitle = t("pages.itemDetail.heroesTitle", { name: o.name });
   const data = dataSheet(locale, {
     title: f.title,
     description: f.description,
@@ -190,7 +190,7 @@ export default async function ItemPage({ params }: Params) {
 
         {similar.length > 0 && (
           <section>
-            <SectionTitle>{t("pages.itemDetail.similar", { categorie: category })}</SectionTitle>
+            <SectionTitle>{t("pages.itemDetail.similar", { category: category })}</SectionTitle>
             <ListLinks
               links={similar.map((x) => ({
                 href: `/items/${x.slug}`,

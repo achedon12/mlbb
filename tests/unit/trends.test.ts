@@ -226,7 +226,7 @@ describe("heroImpacts and impactsOfPatch", () => {
       date: "2026-09-15",
       adjustments: [
         { slug: "chip", type: "nerf" as const },
-        { slug: "sans-historique", type: "buff" as const },
+        { slug: "no-history", type: "buff" as const },
       ],
     };
     const r = impactsOfPatch(patch, (slug) => (slug === "chip" ? h : null));
@@ -275,8 +275,8 @@ describe("display", () => {
   it("describes the gap in words", () => {
     const t = createTFrom({
       trends: {
-        rise: "en hausse de {v} {unite} en {n} jours",
-        fall: "en baisse de {v} {unite} en {n} jours",
+        rise: "en hausse de {v} {unit} en {n} jours",
+        fall: "en baisse de {v} {unit} en {n} jours",
         point: { one: "point", other: "points" },
       },
     });

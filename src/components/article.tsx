@@ -78,7 +78,7 @@ export function BodyArticle({
           <time dateTime={article.date} className="text-xs text-chalk-500">
             {formatShortDate(article.date, LOCALE_HTML[locale])}
           </time>
-          <span className="text-xs text-chalk-500">{t("articleUI.by", { auteur: article.author })}</span>
+          <span className="text-xs text-chalk-500">{t("articleUI.by", { author: article.author })}</span>
         </div>
         <h1 className="mt-4 font-heading text-3xl font-bold leading-tight text-chalk-100 sm:text-4xl">
           {article.title}

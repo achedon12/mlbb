@@ -141,7 +141,7 @@ export function DeleteBuildButton({ id, hero }: { id: string; hero: string }) {
   );
 }
 
-type Session = { connecte: boolean; pseudo?: string };
+type Session = { connected: boolean; pseudo?: string };
 type Status =
   | { type: "idle" }
   | { type: "sending" }
@@ -163,7 +163,7 @@ export function PublishBuild({ build }: { build: BuildCode }) {
     fetch("/api/session")
       .then((r) => r.json() as Promise<Session>)
       .then((d) => !cancelled && setSession(d))
-      .catch(() => !cancelled && setSession({ connecte: false }));
+      .catch(() => !cancelled && setSession({ connected: false }));
     return () => {
       cancelled = true;
     };
@@ -217,7 +217,7 @@ export function PublishBuild({ build }: { build: BuildCode }) {
       </h2>
       {session === null ? (
         <p className="text-sm text-chalk-500">{t("pages.communityBuildsUI.checkingSession")}</p>
-      ) : !session.connecte ? (
+      ) : !session.connected ? (
         <p className="text-sm text-chalk-300">
           {t("pages.communityBuildsUI.signInToPublish")}{" "}
           <Link href="/login" className="text-gold-400 underline underline-offset-4 hover:text-gold-500">

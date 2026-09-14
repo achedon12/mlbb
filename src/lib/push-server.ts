@@ -164,7 +164,7 @@ export function saveSubscriber(
 }
 
 /** Updates the favourites (and language) of a known subscription. */
-export function majSubscriber(
+export function updateSubscriber(
   subscription: StoredSubscription,
   favourites: string[],
   locale: Locale | null,
@@ -210,7 +210,7 @@ export function limitByMinute(maximum: number): (address: string) => boolean {
 }
 
 export const addressOf = (request: Request) =>
-  request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "inconnue";
+  request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";
 
 // ── Sending ────────────────────────────────────────────────────────
 
@@ -236,20 +236,20 @@ function senderWebPush(config: PushConfig): Sender {
 
 export interface SendPreview extends PushMessage {
   id: string;
-  heros: string[];
+  heroes: string[];
 }
 
 export interface BroadcastSummary {
   version: string;
   simulation: boolean;
-  abonnes: number;
-  destinataires: number;
-  parLangue: Partial<Record<Locale, number>>;
+  subscribers: number;
+  recipients: number;
+  byLocale: Partial<Record<Locale, number>>;
   /** A few written messages, to check the rendering before sending. */
-  apercus: SendPreview[];
-  envoyes: number;
-  echecs: number;
-  supprimes: number;
+  previews: SendPreview[];
+  sent: number;
+  failed: number;
+  removed: number;
 }
 
 const BY_BATCH = 10;
@@ -275,17 +275,17 @@ export async function broadcast(
   const summary: BroadcastSummary = {
     version: patch.version,
     simulation: !options.send,
-    abonnes: subscribers.length,
-    destinataires: sends.length,
-    parLangue: Object.fromEntries(LOCALES.filter((l) => byLocale[l]).map((l) => [l, byLocale[l]])),
-    apercus: messages.slice(0, options.maxPreviews ?? 5).map(({ send, message }) => ({
+    subscribers: subscribers.length,
+    recipients: sends.length,
+    byLocale: Object.fromEntries(LOCALES.filter((l) => byLocale[l]).map((l) => [l, byLocale[l]])),
+    previews: messages.slice(0, options.maxPreviews ?? 5).map(({ send, message }) => ({
       id: idSubscriber(send.subscriber.endpoint),
-      heros: send.keys.map((h) => h.slug),
+      heroes: send.keys.map((h) => h.slug),
       ...message,
     })),
-    envoyes: 0,
-    echecs: 0,
-    supprimes: 0,
+    sent: 0,
+    failed: 0,
+    removed: 0,
   };
   if (!options.send || messages.length === 0) return summary;
 
@@ -302,37 +302,37 @@ export async function broadcast(
     );
     results.forEach((r, j) => {
       if (r.status === "fulfilled") {
-        summary.envoyes += 1;
+        summary.sent += 1;
         return;
       }
       const status = (r.reason as { statusCode?: number })?.statusCode;
       if (status === 404 || status === 410) {
         gone.push(batch[j].send.subscriber);
       } else {
-        summary.echecs += 1;
+        summary.failed += 1;
         void log("warning", "notification not delivered", {
           version: patch.version,
-          statut: status ?? null,
+          status: status ?? null,
           service: new URL(batch[j].send.subscriber.endpoint).hostname,
-          erreur: r.reason instanceof Error ? r.reason.message.slice(0, 200) : String(r.reason).slice(0, 200),
+          error: r.reason instanceof Error ? r.reason.message.slice(0, 200) : String(r.reason).slice(0, 200),
         });
       }
     });
   }
 
   if (gone.length) {
-    summary.supprimes = await editSubscribers((list) => {
+    summary.removed = await editSubscribers((list) => {
       const remaining = list.filter((a) => !gone.some((d) => matches(a, d)));
       return { subscribers: remaining, result: list.length - remaining.length };
     });
   }
   await log("info", "patch notifications", {
     version: patch.version,
-    destinataires: summary.destinataires,
-    envoyes: summary.envoyes,
-    echecs: summary.echecs,
-    supprimes: summary.supprimes,
-    cible: options.target ?? null,
+    recipients: summary.recipients,
+    sent: summary.sent,
+    failed: summary.failed,
+    removed: summary.removed,
+    target: options.target ?? null,
   });
   return summary;
 }
@@ -340,7 +340,7 @@ export async function broadcast(
 export type StartupOutcome =
   | { action: "recorded"; version: string }
   | { action: "already-notified"; version: string }
-  | { action: "older"; version: string; dernier: string }
+  | { action: "older"; version: string; lastNotified: string }
   | { action: "sent"; summary: BroadcastSummary };
 
 /**
@@ -362,7 +362,7 @@ export function notifyNewPatch(patch: AdjustedPatch, sender?: Sender): Promise<S
     }
     if (state.dernierPatch === patch.version) return { action: "already-notified", version: patch.version };
     if (compareVersions(patch.version, state.dernierPatch) < 0) {
-      return { action: "older", version: patch.version, dernier: state.dernierPatch };
+      return { action: "older", version: patch.version, lastNotified: state.dernierPatch };
     }
     await writeState(patch.version);
     return { action: "sent", summary: await broadcast(patch, { send: true, sender }) };
@@ -370,9 +370,9 @@ export function notifyNewPatch(patch: AdjustedPatch, sender?: Sender): Promise<S
 }
 
 export type ManualOutcome =
-  | { action: "simulation"; bilan: BroadcastSummary; dernierNotifie: string | null }
-  | { action: "refused"; raison: "already-notified"; dernierNotifie: string }
-  | { action: "sent"; bilan: BroadcastSummary; dernierNotifie: string | null };
+  | { action: "simulation"; summary: BroadcastSummary; lastNotified: string | null }
+  | { action: "refused"; reason: "already-notified"; lastNotified: string }
+  | { action: "sent"; summary: BroadcastSummary; lastNotified: string | null };
 
 /**
  * Manual trigger (protected route). A dry run by default. A targeted send
@@ -387,16 +387,16 @@ export function triggerManually(
     const state = await readState();
     const lastNotified = state?.dernierPatch ?? null;
     if (!options.send) {
-      return { action: "simulation", bilan: await broadcast(patch, { send: false, target: options.target, maxPreviews: 20 }), dernierNotifie: lastNotified };
+      return { action: "simulation", summary: await broadcast(patch, { send: false, target: options.target, maxPreviews: 20 }), lastNotified };
     }
     if (!options.target) {
       if (lastNotified === patch.version && !options.force) {
-        return { action: "refused", raison: "already-notified", dernierNotifie: lastNotified };
+        return { action: "refused", reason: "already-notified", lastNotified };
       }
       if (!lastNotified || compareVersions(patch.version, lastNotified) > 0) await writeState(patch.version);
     }
     const summary = await broadcast(patch, { send: true, target: options.target, sender: options.sender });
-    return { action: "sent", bilan: summary, dernierNotifie: lastNotified };
+    return { action: "sent", summary, lastNotified };
   });
 }
 

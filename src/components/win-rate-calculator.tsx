@@ -124,8 +124,8 @@ export function WinRateCalculator() {
                 <p className="mt-3 leading-relaxed text-chalk-300">
                   {t("winRateTool.winsSentence", {
                     n: count.format(result.wins),
-                    actuel: percent(situation.rate),
-                    objectif: percent(situation.objective),
+                    current: percent(situation.rate),
+                    objective: percent(situation.objective),
                     total: count.format(situation.matches + result.wins),
                   })}
                 </p>
@@ -139,7 +139,7 @@ export function WinRateCalculator() {
                   const fallback = compute({ ...situation, objective: 99 });
                   return fallback.state === "wins" ? (
                     <p className="mt-2 text-sm leading-relaxed text-chalk-400">
-                      {t("winRateTool.impossibleAdvice", { objectif: percent(99), n: count.format(fallback.wins) })}
+                      {t("winRateTool.impossibleAdvice", { objective: percent(99), n: count.format(fallback.wins) })}
                     </p>
                   ) : null;
                 })()}
@@ -155,10 +155,10 @@ export function WinRateCalculator() {
                   {result.margin === null
                     ? t("winRateTool.zeroSentence")
                     : result.margin === 0
-                      ? t("winRateTool.limitSentence", { objectif: percent(situation.objective) })
+                      ? t("winRateTool.limitSentence", { objective: percent(situation.objective) })
                       : t("winRateTool.reachedSentence", {
                           n: count.format(result.margin),
-                          objectif: percent(situation.objective),
+                          objective: percent(situation.objective),
                         })}
                 </p>
               </>
@@ -192,8 +192,8 @@ export function WinRateCalculator() {
               if (r === null || outOfRange(r)) return null;
               const m = matchesAuPace(situation, r);
               return m === null
-                ? t("winRateTool.paceTooLow", { rythme: percent(r), objectif: percent(situation.objective) })
-                : t("winRateTool.paceGames", { n: count.format(m), rythme: percent(r) });
+                ? t("winRateTool.paceTooLow", { pace: percent(r), objective: percent(situation.objective) })
+                : t("winRateTool.paceGames", { n: count.format(m), pace: percent(r) });
             })()}
           </div>
         </Card>

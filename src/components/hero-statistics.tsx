@@ -141,9 +141,9 @@ export function HeroStatistics({
               markers={markers}
               decimals={decimals}
               label={t("pages.heroDetail.statistics.curveSummary", {
-                mesure: t(`pages.heroDetail.statistics.measures.${measure}`),
-                debut: count(start!, decimals),
-                fin: count(end!, decimals),
+                measure: t(`pages.heroDetail.statistics.measures.${measure}`),
+                start: count(start!, decimals),
+                end: count(end!, decimals),
               })}
             />
           </div>
@@ -207,7 +207,7 @@ export function HeroStatistics({
         </section>
       )}
 
-      <EffectPatchs name={name} history={history} adjustments={adjustments} patches={patches} count={count} />
+      <EffectPatches name={name} history={history} adjustments={adjustments} patches={patches} count={count} />
     </div>
   );
 }
@@ -224,7 +224,7 @@ const COLOR_TYPE: Record<AdjustmentType, string> = {
  * As long as the history does not cover a patch on both sides, a message says
  * so rather than an empty block; with no dated patch, nothing.
  */
-function EffectPatchs({
+function EffectPatches({
   name,
   history,
   adjustments,
@@ -248,7 +248,7 @@ function EffectPatchs({
     <section>
       <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistics.impact.title")}</h3>
       <p className="mt-1 text-sm text-chalk-500">
-        {t("pages.heroDetail.statistics.impact.intro", { nom: name, n: DAYS_IMPACT })}
+        {t("pages.heroDetail.statistics.impact.intro", { name: name, n: DAYS_IMPACT })}
       </p>
 
       {impacts.length === 0 ? (
@@ -260,7 +260,7 @@ function EffectPatchs({
                   new Date(`${history.start}T00:00:00Z`),
                 ),
               })
-            : t("pages.heroDetail.statistics.impact.emptyNoHistory", { nom: name })}
+            : t("pages.heroDetail.statistics.impact.emptyNoHistory", { name: name })}
         </p>
       ) : (
         <ul className="mt-4 space-y-2">
@@ -285,8 +285,8 @@ function EffectPatchs({
                   </span>
                   <span className="sr-only">
                     {t("pages.heroDetail.statistics.impact.beforeAfter", {
-                      avant: count(i.before),
-                      apres: count(i.after),
+                      before: count(i.before),
+                      after: count(i.after),
                     })}
                   </span>
                 </span>
@@ -330,19 +330,19 @@ function Duration({
   const best = rate.indexOf(Math.max(...rate));
   const label = (x: Pick<BucketDuration, "from" | "to">) =>
     x.to === null
-      ? t("pages.heroDetail.statistics.minutesPlus", { de: x.from })
-      : t("pages.heroDetail.statistics.minutes", { de: x.from, a: x.to });
+      ? t("pages.heroDetail.statistics.minutesPlus", { from: x.from })
+      : t("pages.heroDetail.statistics.minutes", { from: x.from, to: x.to });
 
   return (
     <section>
       <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistics.duration")}</h3>
-      <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistics.durationIntro", { nom: name })}</p>
+      <p className="mt-1 text-sm text-chalk-500">{t("pages.heroDetail.statistics.durationIntro", { name: name })}</p>
       <p className="mt-3 text-sm text-chalk-300">
         <span className="font-semibold text-gold-400">
           {t(`pages.heroDetail.statistics.profile.${profileDuration(rate)}`)}
         </span>
         {" · "}
-        {t("pages.heroDetail.statistics.peak", { tranche: label(buckets[best]) })}
+        {t("pages.heroDetail.statistics.peak", { window: label(buckets[best]) })}
       </p>
 
       <DurationBars buckets={buckets} count={count} label={label} className="mt-4" />

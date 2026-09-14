@@ -134,7 +134,7 @@ function HeroRow({
 }) {
   const t = useT();
   const target =
-    link ?? (sheet ? { href: `/heroes/${adjustment.slug}`, label: t("patchHeroes.seeSheet", { nom: adjustment.name }) } : null);
+    link ?? (sheet ? { href: `/heroes/${adjustment.slug}`, label: t("patchHeroes.seeSheet", { name: adjustment.name }) } : null);
   const [open, setOpen] = useState(false);
   const s = adjustment.type ? STYLE[adjustment.type] : null;
   const detailed = adjustment.sections.length > 0 || adjustment.intro.length > 0;
@@ -194,7 +194,7 @@ function HeroRow({
                       {"after" in c ? (
                         <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                           {c.label && (
-                            <span className="text-chalk-500">{t("patchHeroes.label", { libelle: c.label })}</span>
+                            <span className="text-chalk-500">{t("patchHeroes.label", { label: c.label })}</span>
                           )}
                           <span className="text-chalk-500 line-through decoration-blood-500/50">
                             {c.before}

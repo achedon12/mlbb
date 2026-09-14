@@ -78,12 +78,12 @@ async function readSession(): Promise<StateSession> {
   if (!token) return { state: "missing" };
 
   const result = await profile(token);
-  if (result.etat === "expired") {
+  if (result.status === "expired") {
     await closeIfPossible();
     return { state: "expired" };
   }
   // Source unavailable: the session is kept, but the profile is not available.
-  return result.etat === "ok" ? { state: "ok", token, profile: result.donnees } : { state: "unavailable", token };
+  return result.status === "ok" ? { state: "ok", token, profile: result.data } : { state: "unavailable", token };
 }
 
 /** Session state, read once per page render. */

@@ -49,7 +49,7 @@ export function measuresRank(rank: MeasuredRank): MeasuresRank {
   // A hero bucketed differently (older file) is left out rather than
   // skewing the average.
   let buckets: Bucket[] = [];
-  const duration: MeasuresRank["duree"] = {};
+  const duration: MeasuresRank["duration"] = {};
   for (const h of allHeroes) {
     const list = durationOf(h.slug)[rank];
     if (!list?.length) continue;
@@ -63,11 +63,11 @@ export function measuresRank(rank: MeasuredRank): MeasuresRank {
     Object.fromEntries(allHeroes.flatMap((h) => (read(h.slug).length ? [[h.slug, read(h.slug)]] : [])));
 
   return {
-    rang: rank,
+    rank: rank,
     stats,
-    tranches: buckets,
-    duree: duration,
-    coequipiers: byHero((s) => gaps(teammates[s]?.[rank])),
-    faible: byHero((s) => gaps(counters[s]?.[rank]?.weak)),
+    buckets: buckets,
+    duration: duration,
+    teammates: byHero((s) => gaps(teammates[s]?.[rank])),
+    weak: byHero((s) => gaps(counters[s]?.[rank]?.weak)),
   };
 }

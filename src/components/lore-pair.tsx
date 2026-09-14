@@ -37,7 +37,7 @@ export function LorePairCard({
     );
 
   const heroes = (h: typeof a, region: string | null | undefined) => (
-    <Link href={`/heroes/${h.slug}#histoire`} className="flex min-w-0 items-center gap-2 hover:text-gold-400">
+    <Link href={`/heroes/${h.slug}#story`} className="flex min-w-0 items-center gap-2 hover:text-gold-400">
       <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
       <span className="min-w-0">
         <span className="block truncate font-semibold text-chalk-100">{h.name}</span>

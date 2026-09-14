@@ -63,7 +63,7 @@ export function monthStatus(month: string, reference: string): MonthStatus {
 
 // ── Assembly ───────────────────────────────────────────────────────
 
-/** Calendar skin; `notInCatalogue`: known from the wiki lists only, without rarity or price. */
+/** Calendar skin; `notInCatalog`: known from the wiki lists only, without rarity or price. */
 export interface EventSkin extends SkinCatalog {
   notInCatalog?: boolean;
 }

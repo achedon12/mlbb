@@ -226,7 +226,7 @@ export default async function EventsPage({ params }: Params) {
                     <li key={m.month}>
                       <Link
                         href={`${PATH}/${m.month}`}
-                        title={t("pages.skinsCalendar.monthCell", { mois: monthText(locale, m.month), n: m.total })}
+                        title={t("pages.skinsCalendar.monthCell", { month: monthText(locale, m.month), n: m.total })}
                         className={cn(
                           "bevel-sm inline-block border px-2.5 py-1 text-xs transition-colors hover:border-gold-500/60 hover:text-gold-400",
                           m.month === currentMonth ? "border-gold-500/60 text-gold-400" : "border-night-700 text-chalk-300",

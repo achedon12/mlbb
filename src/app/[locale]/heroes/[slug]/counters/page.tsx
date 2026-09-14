@@ -71,7 +71,7 @@ const portraitOf = (slug: string) => {
 };
 /** Drops an opponent the catalog does not know (partial sync). */
 const known = <E extends { slug: string }>(list: E[] = []) => list.filter((e) => heroesBySlug.has(e.slug));
-const names = (name: string) => ({ nom: name, deNom: frenchOf(name) });
+const names = (name: string) => ({ name, ofName: frenchOf(name) });
 
 /** Summary sentence, shared by the description and the page standfirst. */
 function summary(locale: Locale, h: Hero) {
@@ -83,7 +83,7 @@ function summary(locale: Locale, h: Hero) {
   const sentence =
     rank && measure
       ? summarySentence(locale, t, { name: h.name, rank, weak: withNames(measure.weak), strong: withNames(measure.strong) })
-      : t("pages.heroCounters.noMeasure", { nom: h.name });
+      : t("pages.heroCounters.noMeasure", { name: h.name });
   return { rank, sentence };
 }
 
@@ -162,8 +162,8 @@ export default async function CountersPage({ params }: Params) {
   const moments = momentsMatch(buckets);
   const nameBucket = (x: BucketDuration) =>
     x.to === null
-      ? t("pages.heroDetail.statistics.minutesPlus", { de: x.from })
-      : t("pages.heroDetail.statistics.minutes", { de: x.from, a: x.to });
+      ? t("pages.heroDetail.statistics.minutesPlus", { from: x.from })
+      : t("pages.heroDetail.statistics.minutes", { from: x.from, to: x.to });
 
   const lanesCounters = countersByLane(aggregatedCounters, (s) => heroesBySlug.get(s)?.lanes ?? [], h.lanes);
   const relation = relations[slug];
@@ -187,13 +187,13 @@ export default async function CountersPage({ params }: Params) {
 
   const rankTierList = rankMain && rankMain !== "all" && RANKS_CLASSES.includes(rankMain) ? rankMain : null;
   const links = [
-    { href: `/heroes/${slug}#contres`, label: t("pages.heroCounters.sheetLink", n) },
+    { href: `/heroes/${slug}#counters`, label: t("pages.heroCounters.sheetLink", n) },
     { href: `/heroes/${slug}#builds`, label: t("pages.heroCounters.buildsLink", n) },
     ...(first
-      ? [{ href: pathPair(slug, first), label: t("pages.heroCounters.compareLink", { nom: h.name, autre: nameOf(first) }) }]
+      ? [{ href: pathPair(slug, first), label: t("pages.heroCounters.compareLink", { name: h.name, other: nameOf(first) }) }]
       : []),
     rankTierList
-      ? { href: `/tier-list/${rankTierList}`, label: t("pages.tierList.titleRank", { rang: t(`measuredRanks.${rankTierList}`) }) }
+      ? { href: `/tier-list/${rankTierList}`, label: t("pages.tierList.titleRank", { rank: t(`measuredRanks.${rankTierList}`) }) }
       : { href: "/tier-list", label: t("nav.tierList.label") },
   ];
 
@@ -218,13 +218,13 @@ export default async function CountersPage({ params }: Params) {
           name: "Mobile Legends: Bang Bang",
           publisher: { "@type": "Organization", name: "Moonton" },
         },
-        ...(best.length > 0 ? { mainEntity: { "@id": `${address}#contres` } } : {}),
+        ...(best.length > 0 ? { mainEntity: { "@id": `${address}#counters` } } : {}),
       },
       ...(best.length > 0
         ? [
             {
               "@type": "ItemList",
-              "@id": `${address}#contres`,
+              "@id": `${address}#counters`,
               name: t("pages.heroCounters.bestCounters", n),
               itemListOrder: "https://schema.org/ItemListOrderDescending",
               numberOfItems: best.length,
@@ -276,8 +276,8 @@ export default async function CountersPage({ params }: Params) {
           <div className="grid gap-8 lg:grid-cols-2">
             {/* min-w-0: without it, the grid track widens to the table's width and overflows at 390 px. */}
             {best.length > 0 && (
-              <section aria-labelledby="meilleurs" className="min-w-0">
-                <h2 id="meilleurs" className="font-heading text-2xl font-bold text-chalk-100">
+              <section aria-labelledby="best" className="min-w-0">
+                <h2 id="best" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.heroCounters.bestCounters", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">
@@ -287,8 +287,8 @@ export default async function CountersPage({ params }: Params) {
               </section>
             )}
             {victims.length > 0 && (
-              <section aria-labelledby="victimes" className="min-w-0">
-                <h2 id="victimes" className="font-heading text-2xl font-bold text-chalk-100">
+              <section aria-labelledby="victims" className="min-w-0">
+                <h2 id="victims" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.heroCounters.victims", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroCounters.victimsIntro", n)}</p>
@@ -298,13 +298,14 @@ export default async function CountersPage({ params }: Params) {
           </div>
         )}
 
-        {/* Opens the rank targeted by an anchor ("#rang-mythic"): Chromium does not do it on its own. */}
-        <OpenAnchor />
+        {/* Opens the rank targeted by an anchor ("#rank-mythic"): Chromium does not do it on its own.
+            "#rang-…" is the anchor's former name, still found in shared links. */}
+        <OpenAnchor aliases={{ "rang-": "rank-" }} />
 
         {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
-          <section aria-labelledby="par-rang">
-            <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
+          <section aria-labelledby="by-rank">
+            <h2 id="by-rank" className="font-heading text-2xl font-bold text-chalk-100">
               {t("pages.heroCounters.byRank")}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
@@ -315,7 +316,7 @@ export default async function CountersPage({ params }: Params) {
                 {ranks.map((r) => (
                   <li key={r}>
                     <a
-                      href={`#rang-${r}`}
+                      href={`#rank-${r}`}
                       className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 hover:border-gold-500/60 hover:text-gold-400"
                     >
                       {t(`measuredRanks.${r}`)}
@@ -332,7 +333,7 @@ export default async function CountersPage({ params }: Params) {
                 return (
                   <details
                     key={r}
-                    id={`rang-${r}`}
+                    id={`rank-${r}`}
                     open={r === rankMain}
                     className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
                   >
@@ -346,14 +347,14 @@ export default async function CountersPage({ params }: Params) {
                       {s && (
                         <span className="text-sm text-chalk-500">
                           {t("pages.heroDetail.tier", { p: s.tier })} ·{" "}
-                          {t("builds.win", { taux: decimal.format(s.winRate) })}
+                          {t("builds.win", { rate: decimal.format(s.winRate) })}
                         </span>
                       )}
                     </summary>
                     <div className="border-t border-night-800 p-4">
                       {measure?.winRate != null && (
                         <p className="mb-4 text-sm text-chalk-500">
-                          {t("pages.heroDetail.countersRef", { taux: decimal.format(measure.winRate) })}
+                          {t("pages.heroDetail.countersRef", { rate: decimal.format(measure.winRate) })}
                         </p>
                       )}
                       <div className={cn("grid gap-6 md:grid-cols-3", STYLE_TABLES_RANK)}>
@@ -392,8 +393,8 @@ export default async function CountersPage({ params }: Params) {
         )}
 
         {/* ── How to counter it ────────────────────────────────────── */}
-        <section aria-labelledby="contrer">
-          <h2 id="contrer" className="font-heading text-2xl font-bold text-chalk-100">
+        <section aria-labelledby="how-to-counter">
+          <h2 id="how-to-counter" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.heroCounters.howToCounter", n)}
           </h2>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
@@ -409,7 +410,7 @@ export default async function CountersPage({ params }: Params) {
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">
                 {t("pages.heroCounters.items.intro", {
                   ...n,
-                  degats: heroLabel(t, "damage", h.damageType)?.toLocaleLowerCase(locale) ?? "—",
+                  damage: heroLabel(t, "damage", h.damageType)?.toLocaleLowerCase(locale) ?? "—",
                 })}
               </p>
               {groupsItems.length > 0 ? (
@@ -456,16 +457,16 @@ export default async function CountersPage({ params }: Params) {
                 <>
                   <p className="mt-3 text-sm leading-relaxed text-chalk-300">
                     {t("pages.heroCounters.duration.sentence", {
-                      nom: h.name,
-                      faible: nameBucket(moments.weak),
-                      tauxFaible: percentage(locale, moments.weak.winRate),
-                      fort: nameBucket(moments.strong),
-                      tauxFort: percentage(locale, moments.strong.winRate),
+                      name: h.name,
+                      weak: nameBucket(moments.weak),
+                      weakRate: percentage(locale, moments.weak.winRate),
+                      strong: nameBucket(moments.strong),
+                      strongRate: percentage(locale, moments.strong.winRate),
                     })}
                   </p>
                   <p className="mt-1 text-xs text-chalk-500">
                     {t(`pages.heroDetail.statistics.profile.${moments.profile}`)} ·{" "}
-                    {t("pages.heroCounters.duration.rank", { rang: t(`measuredRanks.${rankDuration}`) })}
+                    {t("pages.heroCounters.duration.rank", { rank: t(`measuredRanks.${rankDuration}`) })}
                   </p>
                   <DurationBars buckets={buckets} moments={moments} nameBucket={nameBucket} locale={locale} />
                 </>
@@ -552,8 +553,8 @@ export default async function CountersPage({ params }: Params) {
 
         {/* ── Other counters pages, same lane ──────────────────────── */}
         {neighbours.length > 0 && laneMain && (
-          <section aria-labelledby="autres">
-            <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
+          <section aria-labelledby="others">
+            <h2 id="others" className="font-heading text-xl font-bold text-chalk-100">
               {t("pages.heroCounters.others.title", { lane: t(`lanes.${laneMain}`) })}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2 text-sm">

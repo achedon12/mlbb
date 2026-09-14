@@ -131,7 +131,7 @@ export function AccountFavourites({ lastPatch = null }: { lastPatch?: SummaryPat
             <button
               type="button"
               onClick={() => toggleFavourite(slug)}
-              aria-label={t("favourites.remove", { nom: heroesBySlug[slug] ?? slug })}
+              aria-label={t("favourites.remove", { name: heroesBySlug[slug] ?? slug })}
               className="grid size-9 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
             >
               <X size={14} aria-hidden />

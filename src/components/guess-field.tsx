@@ -85,7 +85,7 @@ export function GuessField({
         type="text"
         role="combobox"
         aria-expanded={visible && results.length > 0}
-        aria-controls={`${id}-liste`}
+        aria-controls={`${id}-list`}
         aria-autocomplete="list"
         aria-activedescendant={visible && results[current] ? `${id}-${current}` : undefined}
         aria-label={label}
@@ -111,7 +111,7 @@ export function GuessField({
         className="bevel-sm w-full border border-night-600 bg-night-950 px-3 py-2.5 text-base text-chalk-100 outline-none transition-colors placeholder:text-chalk-400 focus:border-gold-500 disabled:opacity-50 sm:text-sm"
       />
       <ul
-        id={`${id}-liste`}
+        id={`${id}-list`}
         role="listbox"
         aria-label={label}
         hidden={!visible}

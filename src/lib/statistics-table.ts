@@ -270,9 +270,9 @@ export function scaleCurve(
   let min = Math.min(...measured);
   let max = Math.max(...measured);
   if (max - min < gapMin) {
-    const milieu = (min + max) / 2;
-    min = milieu - gapMin / 2;
-    max = milieu + gapMin / 2;
+    const middle = (min + max) / 2;
+    min = middle - gapMin / 2;
+    max = middle + gapMin / 2;
   }
   // One unit of margin keeps the line thickness inside the frame.
   return buckets

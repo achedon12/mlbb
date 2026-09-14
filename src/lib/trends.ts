@@ -326,7 +326,7 @@ export function describeGap(t: T, locale: string, gap: number, days: number): st
   const v = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(Math.abs(gap));
   return t(gap > 0 ? "trends.rise" : "trends.fall", {
     v,
-    unite: t(`trends.point.${plural(gap, locale)}`),
+    unit: t(`trends.point.${plural(gap, locale)}`),
     n: days,
   });
 }

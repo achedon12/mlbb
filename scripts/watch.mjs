@@ -87,7 +87,7 @@ async function readSource(source) {
   try {
     const response = await fetch(source.url, {
       headers: {
-        "User-Agent": "MLBB-veille/1.0 (https://mlbbdex.com; contact via github.com/achedon12)",
+        "User-Agent": "MLBBDex-watch/1.0 (https://mlbbdex.com; contact via github.com/achedon12)",
         Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml",
       },
       signal: AbortSignal.timeout(15000),

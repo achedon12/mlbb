@@ -28,7 +28,7 @@ type Params = { params: Promise<{ locale: Locale }> };
 
 const LAST = 12;
 /** Thumbnails of the latest skins loaded right away: the first row. */
-const IMMEDIATES = 4;
+const IMMEDIATE_COUNT = 4;
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
@@ -40,8 +40,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: t("pages.skins.metaDescription", {
       n,
       h: heroesWithSkins.length,
-      dernier: last?.skin.name ?? "—",
-      heros: last?.hero.name ?? "—",
+      latest: last?.skin.name ?? "—",
+      hero: last?.hero.name ?? "—",
     }),
     path: "/skins",
   });
@@ -79,8 +79,8 @@ export default async function SkinsPage({ params }: Params) {
             contentUrl: absolute(path),
             name: s.name,
             caption: s.illustration
-              ? t("pages.heroSkins.altIllustration", { skin: s.name, nom: h.name })
-              : t("pages.heroSkins.altPortrait", { skin: s.name, nom: h.name }),
+              ? t("pages.heroSkins.altIllustration", { skin: s.name, name: h.name })
+              : t("pages.heroSkins.altPortrait", { skin: s.name, name: h.name }),
             creditText: "Moonton",
             copyrightNotice: "© Moonton",
             datePublished: s.release,
@@ -100,8 +100,8 @@ export default async function SkinsPage({ params }: Params) {
       </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
-        <section aria-labelledby="derniers-skins">
-          <h2 id="derniers-skins" className="font-heading text-2xl font-bold text-chalk-100">
+        <section aria-labelledby="latest-skins">
+          <h2 id="latest-skins" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.skins.latest")}
           </h2>
           <p className="mt-1 text-sm text-chalk-500">{t("pages.skins.latestIntro")}</p>
@@ -119,10 +119,10 @@ export default async function SkinsPage({ params }: Params) {
                       {image && (
                         <LightImage
                           src={image}
-                          alt={t("pages.heroSkins.altPortrait", { skin: s.name, nom: h.name })}
+                          alt={t("pages.heroSkins.altPortrait", { skin: s.name, name: h.name })}
                           width={120}
                           height={195}
-                          immediate={i < IMMEDIATES}
+                          immediate={i < IMMEDIATE_COUNT}
                           className="size-full object-cover"
                         />
                       )}
@@ -140,8 +140,8 @@ export default async function SkinsPage({ params }: Params) {
           </ul>
         </section>
 
-        <section aria-labelledby="galerie-skins">
-          <h2 id="galerie-skins" className="font-heading text-2xl font-bold text-chalk-100">
+        <section aria-labelledby="skins-gallery">
+          <h2 id="skins-gallery" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.skins.gallery")}
           </h2>
           <div className="mt-5">

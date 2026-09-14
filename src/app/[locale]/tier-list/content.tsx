@@ -58,7 +58,7 @@ function markersFilter(t: T, f: FilterTier): Record<string, string> {
  */
 export function metaTierList(locale: Locale, rank: MeasuredRank, filter: FilterTier | null = null): Metadata {
   const t = createT(locale);
-  const markers = { mois: monthYear(locale), v: patchCurrent.version, rang: t(`measuredRanks.${rank}`) };
+  const markers = { month: monthYear(locale), v: patchCurrent.version, rank: t(`measuredRanks.${rank}`) };
   const title = filter
     ? t(filter.type === "lane" ? "pages.seo.tierLane.title" : "pages.seo.tierRole.title", {
         ...markers,
@@ -85,16 +85,16 @@ function descriptionTierList(locale: Locale, rank: MeasuredRank, filter: FilterT
     if (filter) return leadFilter(t, filter, 0);
     return rank === "all"
       ? t("pages.tierList.metaDescription")
-      : t("pages.tierList.metaDescriptionRank", { rang: nameRank });
+      : t("pages.tierList.metaDescriptionRank", { rank: nameRank });
   }
   const values = {
     top: listNames(locale, ranking.slice(0, 3).map((e) => e.hero.name)),
-    premier: first.hero.name,
-    victoire: percentage(locale, first.winRate),
+    first: first.hero.name,
+    winRate: percentage(locale, first.winRate),
     n: ranking.length,
     date: longDate(locale),
     v: patchCurrent.version,
-    rang: nameRank,
+    rank: nameRank,
   };
   if (filter) {
     return t(filter.type === "lane" ? "pages.seo.tierLane.description" : "pages.seo.tierRole.description", {
@@ -133,12 +133,12 @@ export function TierList({
     ? t(filter.type === "lane" ? "pages.tierList.titleLane" : "pages.tierList.titleRole", markersFilter(t, filter))
     : rank === "all"
       ? t("pages.tierList.title")
-      : t("pages.tierList.titleRank", { rang: nameRank });
+      : t("pages.tierList.titleRank", { rank: nameRank });
   const lead = filter
     ? leadFilter(t, filter, ranking.length)
     : rank === "all"
       ? t("pages.tierList.lead")
-      : t("pages.tierList.leadRank", { rang: nameRank });
+      : t("pages.tierList.leadRank", { rank: nameRank });
   const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const rate = (v: number) => `${percent.format(v)} %`;
 
@@ -278,7 +278,7 @@ export function TierList({
               {t("pages.tierList.p3pre")}
               <span className="text-gold-400">{t("pages.tierList.asterisk")}</span>{t("pages.tierList.p3post")}
             </p>
-            <p>{t("pages.tierList.trends", { seuil: percent.format(THRESHOLD_NOTABLE) })}</p>
+            <p>{t("pages.tierList.trends", { threshold: percent.format(THRESHOLD_NOTABLE) })}</p>
           </div>
         </details>
 

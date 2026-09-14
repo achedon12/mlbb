@@ -474,8 +474,8 @@ export function rankPicks(
         const enemy = bySlug.get(e);
         // Two readings of one matchup: e loses to h (negative gap of e), h
         // loses to e (negative gap of h). Whatever is measured is averaged.
-        const enemyLoses = m ? gapFor(m.faible[e], h.slug) : null;
-        const heroLoses = m ? gapFor(m.faible[h.slug], e) : null;
+        const enemyLoses = m ? gapFor(m.weak[e], h.slug) : null;
+        const heroLoses = m ? gapFor(m.weak[h.slug], e) : null;
         const reads = [enemyLoses === null ? null : -enemyLoses, heroLoses].filter((v): v is number => v !== null);
         if (reads.length > 0) {
           const v = reads.reduce((a, b) => a + b, 0) / reads.length;
@@ -496,7 +496,7 @@ export function rankPicks(
       let duoMeasured: number | null = null;
       const partners: string[] = [];
       for (const a of allies) {
-        const gains = [m ? gapFor(m.coequipiers[h.slug], a) : null, m ? gapFor(m.coequipiers[a], h.slug) : null].filter(
+        const gains = [m ? gapFor(m.teammates[h.slug], a) : null, m ? gapFor(m.teammates[a], h.slug) : null].filter(
           (v): v is number => v !== null && v > 0,
         );
         if (gains.length > 0) {
@@ -602,8 +602,8 @@ export function matchupsBetween(blue: string[], red: string[], measures: Measure
   const out: Matchup[] = [];
   for (const b of blue) {
     for (const r of red) {
-      const blueLoses = gapFor(measures.faible[b], r);
-      const redLoses = gapFor(measures.faible[r], b);
+      const blueLoses = gapFor(measures.weak[b], r);
+      const redLoses = gapFor(measures.weak[r], b);
       const reads = [blueLoses, redLoses === null ? null : -redLoses].filter((v): v is number => v !== null);
       if (reads.length > 0) out.push({ blue: b, red: r, points: round1(reads.reduce((x, y) => x + y, 0) / reads.length) });
     }

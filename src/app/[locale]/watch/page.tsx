@@ -24,7 +24,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
   const t = createT(locale);
   const news = watch();
   const date = (iso: string) => formatShortDate(iso, LOCALE_HTML[locale]);
-  const [creditBefore, creditAfter = ""] = t("pages.watch.credit").split("{lien}");
+  const [creditBefore, creditAfter = ""] = t("pages.watch.credit").split("{link}");
 
   return (
     <>

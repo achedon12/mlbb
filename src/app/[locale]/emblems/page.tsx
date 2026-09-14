@@ -14,16 +14,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   const t = createT(locale);
   // English API names ("Seasoned Hunter") to the catalog ("emblemData.seasoned-hunter.name").
   const nameChoice = (name: string) => {
-    const key = `emblemData.${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.nom`;
+    const key = `emblemData.${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.name`;
     const translated = t(key);
     return translated === key ? name : translated;
   };
-  const { sort, talent } = choicePopular();
+  const { spell, talent } = choicePopular();
   return metaPage(locale, {
     title: t("pages.seo.emblems.title", { v: patchCurrent.version }),
     description:
-      sort && talent
-        ? t("pages.seo.emblems.description", { sort: nameChoice(sort), talent: nameChoice(talent), v: patchCurrent.version })
+      spell && talent
+        ? t("pages.seo.emblems.description", { spell: nameChoice(spell), talent: nameChoice(talent), v: patchCurrent.version })
         : t("pages.emblems.metaDescription"),
     share: t("pages.emblems.ogDescription"),
     path: "/emblems",
@@ -49,7 +49,7 @@ export default async function EmblemsPage({ params }: { params: Promise<{ locale
         <EmblemGuide
           emblems={[...emblems]}
           talents={[...talents]}
-          sorts={[...battleSpells]}
+          spells={[...battleSpells]}
           images={images}
         />
       </div>

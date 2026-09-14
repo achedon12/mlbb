@@ -26,10 +26,10 @@ export function ErrorReporter() {
       views.add(key);
       const body = JSON.stringify({
         message,
-        pile: stack?.slice(0, 2000),
-        chemin: window.location.pathname,
+        stack: stack?.slice(0, 2000),
+        path: window.location.pathname,
         version: process.env.VERSION_SITE,
-        type: "globale",
+        type: "global",
       });
       if (!navigator.sendBeacon?.("/api/log", body)) {
         fetch("/api/log", { method: "POST", body, keepalive: true }).catch(() => {});

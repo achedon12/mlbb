@@ -70,8 +70,8 @@ export default async function ServerTimePage({ params }: Params) {
     {
       title: t("pages.serverTime.updateTitle"),
       text: t("pages.serverTime.updateText", {
-        debut: serverTimeIn(locale, 18, "UTC"),
-        fin: serverTimeIn(locale, 22, "UTC"),
+        start: serverTimeIn(locale, 18, "UTC"),
+        end: serverTimeIn(locale, 22, "UTC"),
       }),
     },
   ];
@@ -81,9 +81,9 @@ export default async function ServerTimePage({ params }: Params) {
       q: t("pages.serverTime.faq1q"),
       r: t("pages.serverTime.faq1a", {
         utc,
-        ete: serverTimeIn(locale, TIME_RESET, example, 6),
-        hiver: serverTimeIn(locale, TIME_RESET, example, 0),
-        manille: serverTimeIn(locale, TIME_RESET, "Asia/Manila"),
+        summer: serverTimeIn(locale, TIME_RESET, example, 6),
+        winter: serverTimeIn(locale, TIME_RESET, example, 0),
+        manila: serverTimeIn(locale, TIME_RESET, "Asia/Manila"),
       }),
     },
     { q: t("pages.serverTime.faq2q"), r: t("pages.serverTime.faq2a") },
@@ -97,8 +97,8 @@ export default async function ServerTimePage({ params }: Params) {
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
         <ServerClock reference={instantRender()} ends={ENDS} />
 
-        <section aria-labelledby="regles-titre">
-          <h2 id="regles-titre" className="font-heading text-2xl font-bold text-chalk-100">
+        <section aria-labelledby="rules-title">
+          <h2 id="rules-title" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.serverTime.rulesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -112,8 +112,8 @@ export default async function ServerTimePage({ params }: Params) {
           </dl>
         </section>
 
-        <section aria-labelledby="faq-titre">
-          <h2 id="faq-titre" className="font-heading text-2xl font-bold text-chalk-100">
+        <section aria-labelledby="faq-title">
+          <h2 id="faq-title" className="font-heading text-2xl font-bold text-chalk-100">
             {t("pages.serverTime.faqTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -132,8 +132,8 @@ export default async function ServerTimePage({ params }: Params) {
           </p>
         </section>
 
-        <section aria-labelledby="sources-titre" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.serverTime.sourcesTitle")}</h2>
+        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-title" className="font-semibold text-chalk-300">{t("pages.serverTime.sourcesTitle")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
               <a href={TIME_SOURCES.server} rel="noopener" className="underline transition-colors hover:text-gold-400">

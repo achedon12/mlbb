@@ -92,7 +92,7 @@ describe("groupByDate", () => {
   });
 
   it("reads a year from January to December in chronological order", () => {
-    const g = groupByDate(list, "chronologique");
+    const g = groupByDate(list, "chronological");
     expect(g.map((a) => a.year)).toEqual([2024, 2025]);
     expect(g[1].month.map((m) => m.month)).toEqual([3, 11, null]);
     expect(g[1].month[0].skins.map((s) => s.id)).toEqual(["a", "e"]);

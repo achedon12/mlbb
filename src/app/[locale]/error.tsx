@@ -25,7 +25,7 @@ export default function ErrorPage({
     // Report the incident to the server log, without blocking rendering.
     const body = JSON.stringify({
       message: error.message,
-      chemin: window.location.pathname,
+      path: window.location.pathname,
       digest: error.digest,
     });
     const sent = navigator.sendBeacon?.("/api/log", body);

@@ -68,6 +68,9 @@ import { formatGap } from "@/lib/trends";
 import type { BucketDuration } from "@/lib/evolution";
 import type { Hero } from "@/lib/types";
 
+/** Tab anchors before they were named in English: shared links still open their tab. */
+const TAB_ALIASES = { analyse: "analysis", histoire: "story", competences: "skills", contres: "counters" };
+
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
 /** One page per hero, generated at build time. */
@@ -89,8 +92,8 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     // carry a freshness marker are the ones that get clicked. The epithet stays
     // on the page.
     title: tier
-      ? tm("pages.seo.hero.title", { nom: h.name, palier: tier, v })
-      : tm("pages.seo.hero.titleNoTier", { nom: h.name, v }),
+      ? tm("pages.seo.hero.title", { name: h.name, tier: tier, v })
+      : tm("pages.seo.hero.titleNoTier", { name: h.name, v }),
     description: descriptionHero(locale, h),
     path: `/heroes/${slug}`,
     type: "article",
@@ -121,8 +124,8 @@ function descriptionHero(locale: Locale, h: Hero): string {
     const names = listNames(locale, byRank[rank]!.weak.slice(0, 3).map((c) => heroesBySlug.get(c.slug)?.name ?? c.slug));
     sentences.push(
       rank === "all"
-        ? t("pages.seo.hero.countersAll", { nom: h.name, contres: names })
-        : t("pages.seo.hero.counters", { nom: h.name, contres: names, rang: t(`measuredRanks.${rank}`) }),
+        ? t("pages.seo.hero.countersAll", { name: h.name, counters: names })
+        : t("pages.seo.hero.counters", { name: h.name, counters: names, rank: t(`measuredRanks.${rank}`) }),
     );
   }
 
@@ -134,15 +137,15 @@ function descriptionHero(locale: Locale, h: Hero): string {
     sentences.push(
       build.emblem
         ? t("pages.seo.hero.buildEmblem", {
-            objets: list,
-            embleme: role === `roles.${build.emblem}` ? build.emblem : role!,
+            items: list,
+            emblem: role === `roles.${build.emblem}` ? build.emblem : role!,
           })
-        : t("pages.seo.hero.build", { objets: list }),
+        : t("pages.seo.hero.build", { items: list }),
     );
   }
 
   const rate = rateBySlug.get(h.slug);
-  if (rate) sentences.push(t("pages.seo.hero.rate", { victoire: percentage(locale, rate.win), palier: rate.tier }));
+  if (rate) sentences.push(t("pages.seo.hero.rate", { winRate: percentage(locale, rate.win), tier: rate.tier }));
 
   if (sentences.length > 0) return [...sentences, `${t("pages.freshness.updatedOn", { date: longDate(locale) })}.`].join(" ");
 
@@ -151,7 +154,7 @@ function descriptionHero(locale: Locale, h: Hero): string {
   return (
     (locale === "fr" ? h.analysis?.summary : undefined) ??
     t("pages.heroDetail.metaDescription", {
-      nom: h.title ? `${h.name}, ${h.title}` : h.name,
+      name: h.title ? `${h.name}, ${h.title}` : h.name,
       roles: h.roles.map((r) => t(`roles.${r}`)).join(" / "),
       lanes: h.lanes.map((l) => t(`lanes.${l}`)).join(", ") || "—",
       skins: h.skins.length,
@@ -261,7 +264,7 @@ export default async function HeroPage({ params }: Params) {
   const versionsRecent = Object.values(patchDetails).sort((a, b) =>
     b.version.localeCompare(a.version, undefined, { numeric: true }),
   );
-  const patchsDates = versionsRecent.flatMap((p) => (p.date ? [{ version: p.version, date: p.date }] : []));
+  const patchDates = versionsRecent.flatMap((p) => (p.date ? [{ version: p.version, date: p.date }] : []));
   const heroAdjustments = versionsRecent.flatMap((p) =>
     (detailedPatches(locale)[p.version] ?? p).adjustments
       .filter((a) => a.slug === h.slug)
@@ -452,9 +455,10 @@ export default async function HeroPage({ params }: Params) {
 
       <div className="mx-auto max-w-5xl px-4 py-10">
         <Tabs
+          aliases={TAB_ALIASES}
           tabs={[
             {
-              id: "analyse",
+              id: "analysis",
               label: t("pages.heroDetail.tab.analysis"),
               content: analysis ? (
                 <div className="space-y-12">
@@ -505,7 +509,7 @@ export default async function HeroPage({ params }: Params) {
                     {t("pages.heroDetail.analysisPending")}
                   </h2>
                   <p className="mt-3 max-w-2xl leading-relaxed text-chalk-300">
-                    {t("pages.heroDetail.analysisText", { nom: h.name })}
+                    {t("pages.heroDetail.analysisText", { name: h.name })}
                   </p>
                   <Link
                     href="/contribute"
@@ -517,12 +521,12 @@ export default async function HeroPage({ params }: Params) {
               ),
             },
             {
-              id: "histoire",
+              id: "story",
               label: t("pages.heroDetail.tab.story"),
               content: hasStory ? <HeroStory story={story} name={h.name} locale={locale} /> : null,
             },
             {
-              id: "competences",
+              id: "skills",
               label: t("pages.heroDetail.tab.skills"),
               counter:
                 Math.max(
@@ -541,7 +545,7 @@ export default async function HeroPage({ params }: Params) {
               ),
             },
             {
-              id: "contres",
+              id: "counters",
               label: t("pages.heroDetail.tab.counters"),
               content:
                 hasCounters || hasTeammates || analysis ? (
@@ -581,8 +585,8 @@ export default async function HeroPage({ params }: Params) {
                           {t("pages.heroDetail.matchupsIntro")}
                         </p>
                         <div className="mt-4 grid gap-4 md:grid-cols-2">
-                          <ListCounters title={t("pages.heroDetail.comfortable", { nom: h.name })} slugs={analysis.strongAgainst} tone="good" />
-                          <ListCounters title={t("pages.heroDetail.difficulty2", { nom: h.name })} slugs={analysis.weakAgainst} tone="bad" />
+                          <ListCounters title={t("pages.heroDetail.comfortable", { name: h.name })} slugs={analysis.strongAgainst} tone="good" />
+                          <ListCounters title={t("pages.heroDetail.difficulty2", { name: h.name })} slugs={analysis.weakAgainst} tone="bad" />
                         </div>
                       </section>
                     )}
@@ -630,7 +634,7 @@ export default async function HeroPage({ params }: Params) {
                             <span className="font-semibold text-chalk-300">{t("builds.gapTitle")} · </span>
                             {gap.missing.length === 0
                               ? t("builds.aligned")
-                              : t("builds.gapItems", { objets: gap.missing.join(", ") })}
+                              : t("builds.gapItems", { items: gap.missing.join(", ") })}
                             {gap.talents && <> {t("builds.gapTalent", { talent: gap.talents })}</>}
                           </p>
                         );
@@ -663,7 +667,7 @@ export default async function HeroPage({ params }: Params) {
                     trends={trendsOf(h.slug)}
                     duration={durationOf(h.slug)}
                     history={history}
-                    patches={patchsDates}
+                    patches={patchDates}
                     byRank={Object.fromEntries(
                       Object.entries(statsRanks).map(([r, s]) => [r, { win: s.winRate, ban: s.banRate }]),
                     )}
@@ -678,8 +682,8 @@ export default async function HeroPage({ params }: Params) {
                     </div>
                     <p className="mt-1 mb-4 text-sm text-chalk-500">
                       {heroAdjustments.length > 0
-                        ? t("pages.heroDetail.statistics.adjustmentsIntro", { nom: h.name })
-                        : t("pages.heroDetail.statistics.noAdjustment", { nom: h.name, n: versionsRecent.length })}
+                        ? t("pages.heroDetail.statistics.adjustmentsIntro", { name: h.name })
+                        : t("pages.heroDetail.statistics.noAdjustment", { name: h.name, n: versionsRecent.length })}
                     </p>
                     {heroAdjustments.length > 0 && (
                       <HeroAdjustments entries={heroAdjustments} portrait={h.images.icon ?? h.images.portrait} />
@@ -701,7 +705,7 @@ export default async function HeroPage({ params }: Params) {
               preview:
                 skinsFull.length > 0 ? (
                   <div className="text-sm leading-relaxed text-chalk-300">
-                    <p>{t("pages.heroPreview.skins", { nom: h.name, n: skinsFull.length })}</p>
+                    <p>{t("pages.heroPreview.skins", { name: h.name, n: skinsFull.length })}</p>
                     <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-chalk-500">
                       {skinsFull.map((s) => (
                         <li key={s.id}>{s.name}</li>
@@ -802,11 +806,11 @@ function PreviewStatistics({
     const [k1, end] = measures[measures.length - 1];
     sentences.push(
       t("pages.heroPreview.trend", {
-        nom: h.name,
+        name: h.name,
         n: k1 - k0 + 1,
-        debut: percent(start),
-        fin: percent(end),
-        ecart: formatGap(end - start, locale),
+        start: percent(start),
+        end: percent(end),
+        gap: formatGap(end - start, locale),
         pts: t("counters.pts"),
       }),
     );
@@ -816,17 +820,17 @@ function PreviewStatistics({
   if (buckets.length > 1) {
     const label = (x: BucketDuration) =>
       x.to === null
-        ? t("pages.heroDetail.statistics.minutesPlus", { de: x.from })
-        : t("pages.heroDetail.statistics.minutes", { de: x.from, a: x.to });
+        ? t("pages.heroDetail.statistics.minutesPlus", { from: x.from })
+        : t("pages.heroDetail.statistics.minutes", { from: x.from, to: x.to });
     const high = buckets[0];
     const low = buckets[buckets.length - 1];
     sentences.push(
       t("pages.heroPreview.duration", {
-        nom: h.name,
-        tranche: label(high),
-        victoire: percent(high.winRate),
-        trancheBas: label(low),
-        victoireBas: percent(low.winRate),
+        name: h.name,
+        window: label(high),
+        winRate: percent(high.winRate),
+        windowLow: label(low),
+        winRateLow: percent(low.winRate),
       }),
     );
   }
@@ -839,16 +843,16 @@ function PreviewStatistics({
     const top = ranks[ranks.length - 1];
     sentences.push(
       t("pages.heroPreview.ranks", {
-        nom: h.name,
-        bas: percent(statsRanks[bottom]!.winRate),
-        rangBas: t(`measuredRanks.${bottom}`),
-        haut: percent(statsRanks[top]!.winRate),
-        rangHaut: t(`measuredRanks.${top}`),
+        name: h.name,
+        low: percent(statsRanks[bottom]!.winRate),
+        rankLow: t(`measuredRanks.${bottom}`),
+        high: percent(statsRanks[top]!.winRate),
+        rankHigh: t(`measuredRanks.${top}`),
       }),
     );
   }
 
-  if (adjustments > 0) sentences.push(t("pages.heroPreview.adjustments", { nom: h.name, n: adjustments, total: patches }));
+  if (adjustments > 0) sentences.push(t("pages.heroPreview.adjustments", { name: h.name, n: adjustments, total: patches }));
   if (sentences.length === 0) return null;
 
   return (

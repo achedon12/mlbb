@@ -100,7 +100,7 @@ function NodeMobile({ node, path, onNavigate }: { node: MenuNode; path: string; 
           type="button"
           aria-expanded={open}
           aria-controls={id}
-          aria-label={t("nav.submenu", { nom: name })}
+          aria-label={t("nav.submenu", { name: name })}
           onClick={() => setOpen((o) => !o)}
           className="grid w-11 shrink-0 place-items-center text-chalk-500"
         >

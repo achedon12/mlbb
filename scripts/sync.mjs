@@ -330,13 +330,13 @@ async function urlsFiles(names, extension = "png") {
  * already small, are copied as is.
  */
 async function download(url, path, optimize = false, width = 1280) {
-  if (existsSync(path)) return "deja";
+  if (existsSync(path)) return "exists";
   try {
     const response = await fetch(url, {
       headers: { "User-Agent": UA },
       signal: AbortSignal.timeout(45000),
     });
-    if (!response.ok) return "echec";
+    if (!response.ok) return "failed";
 
     const data = Buffer.from(await response.arrayBuffer());
     await mkdir(dirname(path), { recursive: true });
@@ -353,7 +353,7 @@ async function download(url, path, optimize = false, width = 1280) {
 
     return "ok";
   } catch {
-    return "echec";
+    return "failed";
   }
 }
 
@@ -505,7 +505,7 @@ function extractFromPage(wikitext) {
   const events = [
     ...[...wikitext.matchAll(/^=+\s*(.+?)\s*=+\s*$/gm)].map((m) => ({
       position: m.index,
-      type: "titre",
+      type: "heading",
       value: m[1].trim().toLowerCase(),
     })),
     ...templatesAbility(wikitext).map(({ position, body }) => {
@@ -517,7 +517,7 @@ function extractFromPage(wikitext) {
 
       return {
         position,
-        type: "competence",
+        type: "skill",
         value: withoutTags(body.match(/\|?\s*name\s*=\s*(.+)/)?.[1] ?? "").trim() || undefined,
         description: description ? cleanDescription(description) : null,
         // The icon file name, often different from the displayed name: the
@@ -534,12 +534,12 @@ function extractFromPage(wikitext) {
   const bySection = {};
 
   for (const [i, e] of events.entries()) {
-    if (e.type !== "titre" || !EXPECTED.includes(e.value)) continue;
+    if (e.type !== "heading" || !EXPECTED.includes(e.value)) continue;
 
     // Move on to the next heading: whatever lies between the two belongs to
     // this section.
     for (const next of events.slice(i + 1)) {
-      if (next.type === "titre") break;
+      if (next.type === "heading") break;
       if (next.value) {
         bySection[e.value] = {
           name: next.value,
@@ -1008,26 +1008,26 @@ async function buildsActual(heroes) {
     if (!rep.ok) throw new Error(`Table ${path} unavailable: HTTP ${rep.status}`);
     return ((await rep.json())?.data?.records ?? []).map((r) => r?.data).filter(Boolean);
   };
-  const [talents, sorts, equipmentList] = await Promise.all([
+  const [talents, spells, equipmentList] = await Promise.all([
     table("emblems"),
     table("spells"),
     table("equipment"),
   ]);
 
   const talentById = new Map(talents.map((t) => [t.giftid, t.emblemskill]));
-  const spellById = new Map(sorts.map((s) => [s.battleskillid, s.__data]));
+  const spellById = new Map(spells.map((s) => [s.battleskillid, s.__data]));
   const itemById = new Map(equipmentList.map((e) => [e.equipid, e.equipname]));
   // Filled in as ranked builds come in: no API table provides them.
   const emblemById = new Map();
   const laneByRoute = new Map();
 
   // Official icons, for recent talents and spells the wiki lacks.
-  const icons = { talents: {}, sorts: {} };
+  const icons = { talents: {}, spells: {} };
   for (const t of talentById.values()) {
     if (t?.skillname && t.skillicon) icons.talents[t.skillname] = t.skillicon;
   }
   for (const s of spellById.values()) {
-    if (s?.skillname && s.skillicon) icons.sorts[s.skillname] = s.skillicon;
+    if (s?.skillname && s.skillicon) icons.spells[s.skillname] = s.skillicon;
   }
 
   async function buildsOfRank(h, l, lane, rank) {
@@ -1346,7 +1346,7 @@ async function patches() {
  * on release day or within a few days. It places patches on the rate
  * charts.
  */
-async function daterPatchs(detail) {
+async function datePatches(detail) {
   for (const patch of Object.values(detail)) {
     try {
       const data = await api({
@@ -1373,7 +1373,7 @@ async function daterPatchs(detail) {
  * patches are fetched: all 249 pages would amount to several megabytes of
  * content nobody reads anymore.
  */
-async function contentPatchs(list) {
+async function contentPatches(list) {
   const contents = {};
 
   for (const [i, patch] of list.slice(0, DETAILED_PATCHES).entries()) {
@@ -1562,7 +1562,7 @@ async function modesOfGame() {
   // and the displayed label sometimes differ ("Arcade" vs "Arcade Mode");
   // both are tried before giving up.
   // Housekeeping sections, of no interest to a reader: they are skipped.
-  const SECTIONS_IGNOREES = [
+  const IGNORED_SECTIONS = [
     "trivia", "gallery", "references", "navigation", "see also",
     "ranked mode subpages", "external links",
   ];
@@ -1587,7 +1587,7 @@ async function modesOfGame() {
       const intro = wt.split(/\n==/)[0];
       const description = cleanLore(intro).find((p) => p.length > 40) ?? null;
 
-      const sections = sectionsPage(wt, SECTIONS_IGNOREES);
+      const sections = sectionsPage(wt, IGNORED_SECTIONS);
       return { description, sections };
     } catch {
       return null;
@@ -1792,7 +1792,7 @@ async function main() {
   console.log("Played builds (academy)…");
   let builds = null;
   let guides = null;
-  let iconsBuilds = { talents: {}, sorts: {} };
+  let iconsBuilds = { talents: {}, spells: {} };
   try {
     ({ builds, guides, icons: iconsBuilds } = await buildsActual(heroes));
     console.log(`  ${Object.keys(builds).length} heroes with builds, ${Object.keys(guides).length} with a full guide`);
@@ -1831,13 +1831,13 @@ async function main() {
   }
 
   console.log("Patch list…");
-  const listPatchs = await patches();
-  console.log(`  ${listPatchs.length} patches`);
+  const patchList = await patches();
+  console.log(`  ${patchList.length} patches`);
 
   console.log("Recent patch content…");
-  const detailPatchs = await contentPatchs(listPatchs);
-  await daterPatchs(detailPatchs);
-  console.log(`  ${Object.keys(detailPatchs).length} detailed patches`);
+  const patchDetails = await contentPatches(patchList);
+  await datePatches(patchDetails);
+  console.log(`  ${Object.keys(patchDetails).length} detailed patches`);
 
   console.log("Rank emblems…");
   const emblemsRanks = await ranks();
@@ -2029,7 +2029,7 @@ async function main() {
   // referenced.
   for (const [type, icons, target] of [
     ["talents", iconsBuilds.talents, visualsTalents],
-    ["sorts", iconsBuilds.sorts, spellVisuals],
+    ["sorts", iconsBuilds.spells, spellVisuals],
   ]) {
     for (const [name, url] of Object.entries(icons)) {
       const key = slugify(name);
@@ -2059,8 +2059,8 @@ async function main() {
         plan.slice(i, i + 8).map((v) => download(v.url, v.path, v.optimize, v.width)),
       );
       ok += results.filter((r) => r === "ok").length;
-      already += results.filter((r) => r === "deja").length;
-      failures += results.filter((r) => r === "echec").length;
+      already += results.filter((r) => r === "exists").length;
+      failures += results.filter((r) => r === "failed").length;
       process.stdout.write(`\r    ${Math.min(i + 8, plan.length)}/${plan.length}`);
     }
     console.log(`\n  ${ok} downloaded, ${already} already present, ${failures} failed`);
@@ -2116,7 +2116,7 @@ async function main() {
     }),
     // Measurements and patches, grouped
     write("statistics", statistics),
-    write("patches", { list: listPatchs, details: detailPatchs }),
+    write("patches", { list: patchList, details: patchDetails }),
     // Synchronization metadata
     write("sync", {
       date: new Date().toISOString(),
@@ -2124,7 +2124,7 @@ async function main() {
       heroes: heroes.length,
       skins: nbSkins,
       items: items.length,
-      patches: listPatchs.length,
+      patches: patchList.length,
       rankings: stats ? Object.keys(stats.all).length : null,
       counters: counters ? Object.keys(counters).length : null,
       builds: builds ? Object.keys(builds).length : null,

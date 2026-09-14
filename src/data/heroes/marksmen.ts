@@ -1,6 +1,6 @@
 import type { HeroAnalysis } from "@/lib/types";
 
-/** Analyses des tireurs. Donnees factuelles : voir la synchronisation. */
+/** Analyses of the marksmen. Factual data: see the sync. */
 export const marksmen: HeroAnalysis[] = [
   {
     slug: "granger",

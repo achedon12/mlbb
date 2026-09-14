@@ -266,7 +266,7 @@ function alertText(a: Alert, t: T, f: NumberFormats, nameOf: (slug: string) => s
     case "lanes":
       return t("teamUI.alerts.lanes", {
         lanes: a.lanes.map((l) => t(`lanes.${l}`)).join(", "),
-        noms: a.extra.map(nameOf).join(", "),
+        names: a.extra.map(nameOf).join(", "),
       });
     case "tank":
       return t("teamUI.alerts.tank");
@@ -336,22 +336,22 @@ function TeamCard({
         })}
       </ul>
       {assignment.extra.length > 0 && (
-        <p className="mt-2 text-xs text-blood-500">{t("teamUI.noLane", { noms: assignment.extra.map(nameOf).join(", ") })}</p>
+        <p className="mt-2 text-xs text-blood-500">{t("teamUI.noLane", { names: assignment.extra.map(nameOf).join(", ") })}</p>
       )}
 
-      {damage.partPhysique !== null && (
+      {damage.physicalShare !== null && (
         <>
           <p className={cn("mt-5", label)}>{t("teamUI.damage")}</p>
           <div
             role="img"
             aria-label={t("teamUI.damageShare", {
-              physique: f.integer(damage.partPhysique * 100),
-              magique: f.integer((1 - damage.partPhysique) * 100),
+              physical: f.integer(damage.physicalShare * 100),
+              magic: f.integer((1 - damage.physicalShare) * 100),
             })}
             className="mt-2 flex h-2.5 overflow-hidden rounded-full bg-night-800"
           >
-            <span className="h-full bg-gold-500" style={{ width: `${damage.partPhysique * 100}%` }} />
-            <span className="h-full bg-azure-500" style={{ width: `${(1 - damage.partPhysique) * 100}%` }} />
+            <span className="h-full bg-gold-500" style={{ width: `${damage.physicalShare * 100}%` }} />
+            <span className="h-full bg-azure-500" style={{ width: `${(1 - damage.physicalShare) * 100}%` }} />
           </div>
           <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-chalk-300">
             {(["physical", "magic", "mixed"] as const).map(

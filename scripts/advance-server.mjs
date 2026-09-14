@@ -18,6 +18,7 @@ import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import { heroAdjustments } from "./patch-parser.mjs";
+import { removeComments } from "./tags.mjs";
 import { pause, translateBatch } from "./translation-google.mjs";
 import { cleanDescription } from "./wikitext.mjs";
 
@@ -146,9 +147,7 @@ export function infoboxSummary(wikitext) {
  * templates. The parsing then only has one grammar to know.
  */
 export function normalizeWikitext(wikitext) {
-  return String(wikitext)
-    .replace(/\r/g, "")
-    .replace(/<!--[\s\S]*?-->/g, "")
+  return removeComments(String(wikitext).replace(/\r/g, ""))
     .replace(/\{\{(hi|ii|ai|pci)\|/gi, (_, g) => `{{${g.toLowerCase()}|`)
     .replace(/\{\{Hero Icon\|\s*name\s*=\s*([^}|]+)\}\}/gi, "{{hi|$1}}")
     .replace(/\{\{(hi|ii|ai)\|\s*name\s*=\s*/g, "{{$1|")

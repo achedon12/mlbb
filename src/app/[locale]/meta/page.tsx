@@ -78,8 +78,8 @@ function descriptionReport(t: T, locale: Locale): string {
   return t("pages.seo.meta.description", {
     date: longDate(locale),
     v: version(),
-    premier: first.hero.name,
-    banni: banned.hero.name,
+    first: first.hero.name,
+    banned: banned.hero.name,
     ban: percentage(locale, banned.banRate),
   });
 }
@@ -118,28 +118,28 @@ export default async function MetaReportPage({ params }: Params) {
   const summary = [
     first &&
       t("pages.meta.summary.top", {
-        nom: first.hero.name,
-        palier: first.tier,
-        victoire: percentage(locale, first.winRate),
+        name: first.hero.name,
+        tier: first.tier,
+        winRate: percentage(locale, first.winRate),
         ban: percentage(locale, first.banRate),
       }),
     rise &&
       t("pages.meta.summary.rise", {
-        nom: name(rise.slug),
-        avant: percentage(locale, rise.variation.before),
-        actuel: percentage(locale, rise.variation.current),
-        jours: rise.variation.days,
+        name: name(rise.slug),
+        before: percentage(locale, rise.variation.before),
+        current: percentage(locale, rise.variation.current),
+        days: rise.variation.days,
       }),
     drop &&
       t("pages.meta.summary.fall", {
-        nom: name(drop.slug),
-        avant: percentage(locale, drop.variation.before),
-        actuel: percentage(locale, drop.variation.current),
-        jours: drop.variation.days,
+        name: name(drop.slug),
+        before: percentage(locale, drop.variation.before),
+        current: percentage(locale, drop.variation.current),
+        days: drop.variation.days,
       }),
     changes > 0 &&
-      t("pages.meta.summary.tiers", { montees: tiers.climbs.length, descentes: tiers.drops.length }),
-    banned[0] && t("pages.meta.summary.banned", { nom: banned[0].hero.name, ban: percentage(locale, banned[0].banRate) }),
+      t("pages.meta.summary.tiers", { risers: tiers.climbs.length, fallers: tiers.drops.length }),
+    banned[0] && t("pages.meta.summary.banned", { name: banned[0].hero.name, ban: percentage(locale, banned[0].banRate) }),
   ].filter((p): p is string => typeof p === "string");
 
   // Article dated by the measurement: it is what changes the content, every day.
@@ -186,7 +186,7 @@ export default async function MetaReportPage({ params }: Params) {
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         {/* ── Risers and fallers ─────────────────────────────────────────── */}
         <section>
-          <SectionTitle lead={t("home.trends.lead", { seuil: threshold })}>{t("home.trends.title")}</SectionTitle>
+          <SectionTitle lead={t("home.trends.lead", { threshold: threshold })}>{t("home.trends.title")}</SectionTitle>
           <div className="grid gap-8 md:grid-cols-2">
             <Moves
               title={t("home.trends.rise")}
@@ -303,7 +303,7 @@ export default async function MetaReportPage({ params }: Params) {
                             {e.hero.name}
                           </span>
                           <span className="block text-xs text-chalk-500">
-                            {t("pages.meta.lanes.row", { palier: e.tier, victoire: percentage(locale, e.winRate) })}
+                            {t("pages.meta.lanes.row", { tier: e.tier, winRate: percentage(locale, e.winRate) })}
                           </span>
                         </span>
                       </Link>
@@ -322,7 +322,7 @@ export default async function MetaReportPage({ params }: Params) {
         </section>
 
         <p className="border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">
-          {t("pages.meta.method", { date, seuil: threshold })}
+          {t("pages.meta.method", { date, threshold: threshold })}
         </p>
       </div>
     </>
@@ -444,7 +444,7 @@ function Tiers({
                   <span className="text-chalk-500">→</span>
                   <BadgeTier tier={c.after} />
                 </span>
-                <span className="sr-only">{t("pages.meta.tiers.sr", { avant: c.before, apres: c.after })}</span>
+                <span className="sr-only">{t("pages.meta.tiers.sr", { before: c.before, after: c.after })}</span>
               </HeroRow>
             </li>
           ))}

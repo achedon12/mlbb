@@ -28,7 +28,7 @@ function description(locale: Locale): string {
   return t("pages.seo.lore.description", {
     n: countStories(locale),
     regions: regionsLore.length,
-    exemples: listNames(locale, regionsLore.slice(0, 3).map((r) => heroLabel(t, "region", r.name)!)),
+    examples: listNames(locale, regionsLore.slice(0, 3).map((r) => heroLabel(t, "region", r.name)!)),
   });
 }
 
@@ -72,7 +72,7 @@ export default async function LorePage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader
         title={t("pages.lore.title")}
-        lead={t("pages.lore.lead", { n: countStories(locale), regions: regionsLore.length, liens: pairs.length })}
+        lead={t("pages.lore.lead", { n: countStories(locale), regions: regionsLore.length, links: pairs.length })}
       />
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
@@ -101,7 +101,7 @@ export default async function LorePage({ params }: Params) {
         </section>
 
         {featured.length > 0 && (
-          <section id="liens">
+          <section id="links">
             <SectionTitle lead={t("pages.lore.linksLead")}>{t("pages.lore.linksTitle")}</SectionTitle>
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {featured.map((p) => (
@@ -127,7 +127,7 @@ export default async function LorePage({ params }: Params) {
                     {f.heroes.map((s) => (
                       <li key={s}>
                         <Link
-                          href={`/heroes/${s}#histoire`}
+                          href={`/heroes/${s}#story`}
                           className="bevel-sm inline-block border border-night-700/70 bg-night-800/60 px-2 py-1 text-xs text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                         >
                           {heroNames.get(s) ?? s}
@@ -141,7 +141,7 @@ export default async function LorePage({ params }: Params) {
           </section>
         )}
 
-        <section id="histoires">
+        <section id="stories">
           <SectionTitle lead={t("pages.lore.storiesLead")}>{t("pages.lore.storiesTitle")}</SectionTitle>
           <StoryList
             total={total}

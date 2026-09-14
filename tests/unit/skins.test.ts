@@ -113,7 +113,7 @@ describe("gallery filters", () => {
 });
 
 describe("gallery titles", () => {
-  const t = createTFrom({ pages: { heroSkins: { title: "Skins de {nom}", titleElision: "Skins d'{nom}" } } });
+  const t = createTFrom({ pages: { heroSkins: { title: "Skins de {name}", titleElision: "Skins d'{name}" } } });
 
   it("elides in French before a vowel, and only there", () => {
     expect(titleGallery(t, "fr", "Aamon")).toBe("Skins d'Aamon");

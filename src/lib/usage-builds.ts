@@ -31,7 +31,7 @@ export interface UsageHero {
 class Total {
   part = 0;
   private won = 0;
-  private pese = 0;
+  private weight = 0;
   private raw: number[] = [];
 
   add(b: BuildPlayed) {
@@ -41,13 +41,13 @@ class Total {
     this.raw.push(b.winRate);
     if (part > 0) {
       this.won += b.winRate * part;
-      this.pese += part;
+      this.weight += part;
     }
   }
 
   /** Without a known share, the simple average rather than no rate. */
   get win(): number | null {
-    if (this.pese > 0) return this.won / this.pese;
+    if (this.weight > 0) return this.won / this.weight;
     return this.raw.length ? this.raw.reduce((s, v) => s + v, 0) / this.raw.length : null;
   }
 }
@@ -105,13 +105,13 @@ export function summaryByRank(usages: Partial<Record<MeasuredRank, UsageHero[]>>
   return MEASURED_RANKS.map((rank) => {
     const list = usages[rank] ?? [];
     let won = 0;
-    let pese = 0;
+    let weight = 0;
     for (const u of list) {
       if (u.win === null || u.selection <= 0) continue;
       won += u.win * u.selection;
-      pese += u.selection;
+      weight += u.selection;
     }
-    return { rank, heroes: list.length, first: list[0] ?? null, win: pese > 0 ? won / pese : null };
+    return { rank, heroes: list.length, first: list[0] ?? null, win: weight > 0 ? won / weight : null };
   });
 }
 

@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { marked } from "marked";
 import type { Article } from "./types";
 import { DEFAULT_LOCALE, type Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 
 /**
  * Article reading.
@@ -24,8 +25,10 @@ function folderOf(section: Section, locale: Locale): string {
   return path.join(ROOT, DEFAULT_LOCALE, section);
 }
 
-function readFolder(folder: string): Article[] {
+/** Reads a folder's articles; `locale` is the reader's, for the missing-title fallback. */
+export function readFolder(folder: string, locale: Locale): Article[] {
   if (!fs.existsSync(folder)) return [];
+  const t = createT(locale);
 
   return fs
     .readdirSync(folder)
@@ -40,7 +43,7 @@ function readFolder(folder: string): Article[] {
         // becomes a URL segment, encoded: a file name must never be able to
         // form an executable link.
         slug: encodeURIComponent(file.replace(/\.md$/, "").replace(/^\d{4}-\d{2}-\d{2}-/, "")),
-        title: String(data.title ?? "Sans titre"),
+        title: String(data.title ?? t("articleUI.untitled")),
         date: String(data.date ?? ""),
         summary: String(data.summary ?? ""),
         category: (data.category ?? "News") as Article["category"],
@@ -53,7 +56,7 @@ function readFolder(folder: string): Article[] {
 }
 
 export function articles(section: Section, locale: Locale = DEFAULT_LOCALE): Article[] {
-  return readFolder(folderOf(section, locale));
+  return readFolder(folderOf(section, locale), locale);
 }
 
 /** All articles combined, from newest to oldest. */

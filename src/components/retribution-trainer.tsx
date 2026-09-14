@@ -261,7 +261,7 @@ function RowTime({
   // A label near an edge aligns to it instead of overflowing.
   const placement = (p: number) => (p < 12 ? "left-0" : p > 82 ? "right-0" : "-translate-x-1/2");
   const markers = [
-    { key: "vous", ms: you, color: "text-gold-400", background: "bg-gold-400", icon: Target, top: true },
+    { key: "you", ms: you, color: "text-gold-400", background: "bg-gold-400", icon: Target, top: true },
     { key: "enemy", ms: enemy, color: "text-blood-500", background: "bg-blood-500", icon: Skull, top: false },
   ] as const;
   return (
@@ -290,7 +290,7 @@ function RowTime({
                 )}
               >
                 <Icon size={13} aria-hidden />
-                {t(key === "vous" ? "tools.retribution.rowYou" : "tools.retribution.rowEnemy", {
+                {t(key === "you" ? "tools.retribution.rowYou" : "tools.retribution.rowEnemy", {
                   ms: count.format(ms),
                 })}
               </span>
@@ -404,7 +404,7 @@ export function RetributionTrainer({ address }: { address: string }) {
       case "tooEarly":
         return {
           title: t("tools.retribution.outcomeTooEarly"),
-          detail: t("tools.retribution.detailTooEarly", { reste: count.format(r.rest ?? 0), recharge: COOLDOWN_RETRIBUTION_S }),
+          detail: t("tools.retribution.detailTooEarly", { remaining: count.format(r.rest ?? 0), recharge: COOLDOWN_RETRIBUTION_S }),
         };
       case "stolen":
         return {
@@ -571,7 +571,7 @@ export function RetributionTrainer({ address }: { address: string }) {
       t("tools.retribution.announceRound", {
         n: j.results.length + 1,
         total: ROUNDS_PER_RUN,
-        objectif: nameObjective(objective),
+        objective: nameObjective(objective),
       }),
     );
     const waiting = READY_MS[0] + (READY_MS[1] - READY_MS[0]) * j.random();
@@ -649,11 +649,11 @@ export function RetributionTrainer({ address }: { address: string }) {
   const summary = phase === "summary" ? runSummary(results) : null;
   const text = summary
     ? t("tools.retribution.shareText", {
-        objectif: nameObjective(objective),
-        difficulte: nameDifficulty(difficulty),
+        objective: nameObjective(objective),
+        difficulty: nameDifficulty(difficulty),
         points: count.format(summary.total),
-        securises: summary.secured,
-        manches: summary.rounds,
+        secured: summary.secured,
+        rounds: summary.rounds,
       })
     : "";
 
@@ -765,7 +765,7 @@ export function RetributionTrainer({ address }: { address: string }) {
                       {nameObjective(key)}
                     </span>
                     <span className="text-xs tabular-nums text-chalk-500">
-                      {t("tools.retribution.maxHp", { pv: count.format(OBJECTIVES[key].hp) })}
+                      {t("tools.retribution.maxHp", { hp: count.format(OBJECTIVES[key].hp) })}
                     </span>
                   </button>
                 );
@@ -835,7 +835,7 @@ export function RetributionTrainer({ address }: { address: string }) {
                 max={LEVEL_MAX}
                 step={1}
                 value={level}
-                aria-valuetext={t("tools.retribution.levelOption", { n: level, degats: count.format(threshold) })}
+                aria-valuetext={t("tools.retribution.levelOption", { n: level, damage: count.format(threshold) })}
                 onChange={(e) => {
                   setLevel(Number(e.target.value));
                   reset();
@@ -860,12 +860,12 @@ export function RetributionTrainer({ address }: { address: string }) {
             </div>
           </div>
           <p className="text-sm text-chalk-300">
-            {t("tools.retribution.thresholdSentence", { degats: count.format(threshold), conseille: o.levelRecommended })}
+            {t("tools.retribution.thresholdSentence", { damage: count.format(threshold), suggested: o.levelRecommended })}
           </p>
         </fieldset>
       </Card>
 
-      <section aria-labelledby={`${ids.help}-titre`} className="relative">
+      <section aria-labelledby={`${ids.help}-title`} className="relative">
         {/* The bevel is carried by the background: on the arena itself, it would clip the flying numbers. */}
         <div
           aria-hidden
@@ -969,18 +969,18 @@ export function RetributionTrainer({ address }: { address: string }) {
                 reduced={reduced}
               />
             )}
-            <h2 id={`${ids.help}-titre`} className="mt-6 font-heading text-xl font-bold text-chalk-100">
+            <h2 id={`${ids.help}-title`} className="mt-6 font-heading text-xl font-bold text-chalk-100">
               {nameObjective(objective)}
             </h2>
             <p className="text-sm text-chalk-500">
-              {t("tools.retribution.maxHp", { pv: count.format(o.hp) })} · {nameDifficulty(difficulty)}
+              {t("tools.retribution.maxHp", { hp: count.format(o.hp) })} · {nameDifficulty(difficulty)}
             </p>
           </div>
 
           <div>
             <div
               role="progressbar"
-              aria-label={t("tools.retribution.bar", { objectif: nameObjective(objective) })}
+              aria-label={t("tools.retribution.bar", { objective: nameObjective(objective) })}
               aria-valuemin={0}
               aria-valuemax={hpMax}
               aria-valuenow={hpShown}
@@ -1028,11 +1028,11 @@ export function RetributionTrainer({ address }: { address: string }) {
             <div className="mt-2 flex flex-wrap justify-between gap-2 text-sm">
               <span className="tabular-nums text-chalk-300">
                 {setting.hpFigures
-                  ? t("tools.retribution.hpLeft", { pv: count.format(hpShown), max: count.format(hpMax) })
+                  ? t("tools.retribution.hpLeft", { hp: count.format(hpShown), max: count.format(hpMax) })
                   : t("tools.retribution.hpHidden")}
               </span>
               <span className={setting.marker ? "text-gold-400" : "text-chalk-500"}>
-                {setting.marker ? t("tools.retribution.marker", { degats: count.format(threshold) }) : t("tools.retribution.noMarker")}
+                {setting.marker ? t("tools.retribution.marker", { damage: count.format(threshold) }) : t("tools.retribution.noMarker")}
               </span>
             </div>
           </div>
@@ -1284,7 +1284,7 @@ export function RetributionTrainer({ address }: { address: string }) {
         <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-3">
           <div className="bevel-sm border border-gold-500/30 bg-gold-500/5 p-3">
             <dt className="text-chalk-500">
-              {t("tools.retribution.recordSetting", { objectif: nameObjective(objective), difficulte: nameDifficulty(difficulty) })}
+              {t("tools.retribution.recordSetting", { objective: nameObjective(objective), difficulty: nameDifficulty(difficulty) })}
             </dt>
             <dd className="mt-1 font-heading text-2xl font-bold tabular-nums text-gold-400">
               {record ? count.format(record.total) : "—"}

@@ -28,11 +28,11 @@ export async function nextMatches(season: number, cursor: string): Promise<RunMa
   if (!token) return { state: "expired" };
 
   const page = await pageMatches(token, season, cursor);
-  if (page.etat === "expired") {
+  if (page.status === "expired") {
     await closeSession();
     return { state: "expired" };
   }
-  if (page.etat !== "ok") return { state: "unavailable" };
+  if (page.status !== "ok") return { state: "unavailable" };
 
-  return { state: "ok", matches: page.donnees.entries.map(showMatch), next: page.donnees.next };
+  return { state: "ok", matches: page.data.entries.map(showMatch), next: page.data.next };
 }

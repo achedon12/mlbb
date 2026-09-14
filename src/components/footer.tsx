@@ -89,7 +89,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-chalk-500">{t("footer.intro")}</p>
           <div className="mt-5 flex items-center gap-4">
             <a
-              href={site.depot}
+              href={site.repository}
               className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
               rel="noreferrer"
               target="_blank"
@@ -125,7 +125,7 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="border-t border-night-800">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {YEAR} {site.name} — {t("footer.rights", { auteur: site.author })}
+            © {YEAR} {site.name} — {t("footer.rights", { author: site.author })}
             <span className="text-chalk-600"> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>
           </p>
           <p className="text-chalk-600">{t("footer.brand")}</p>

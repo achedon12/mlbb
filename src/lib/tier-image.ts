@@ -60,7 +60,7 @@ function adjust(ctx: CanvasRenderingContext2D, text: string, font: string, width
 
 export async function exportImage(
   state: StateTier,
-  o: { title: string; pied: string; heroes: Map<string, ImageThumb> },
+  o: { title: string; footer: string; heroes: Map<string, ImageThumb> },
 ): Promise<Blob> {
   const font = await fontTitle();
   const byRow = Math.floor((WIDTH - 2 * MARGIN - LABEL - GAP) / (ICON + GAP));
@@ -131,7 +131,7 @@ export async function exportImage(
 
   ctx.fillStyle = SUBTLE;
   ctx.font = `600 20px ${font}`;
-  ctx.fillText(o.pied, MARGIN, height - FOOTER / 2);
+  ctx.fillText(o.footer, MARGIN, height - FOOTER / 2);
 
   return new Promise((resolve, reject) =>
     canvas.toBlob((blob) => (blob ? resolve(blob) : reject(new Error("toBlob"))), "image/png"),

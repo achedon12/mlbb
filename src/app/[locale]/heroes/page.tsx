@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return metaPage(locale, {
     title: t("pages.seo.heroes.title", { n: allHeroes.length, v: patchCurrent.version }),
     description: descriptionCatalog(locale),
-    share: t("pages.heroes.ogDescription", { heros: allHeroes.length, skins: countSkins }),
+    share: t("pages.heroes.ogDescription", { heroes: allHeroes.length, skins: countSkins }),
     path: "/heroes",
   });
 }
@@ -73,7 +73,7 @@ export default async function HeroPage({ params }: Params) {
       <PageHeader
         title={t("pages.heroes.title")}
         lead={t("pages.heroes.lead", {
-          heros: allHeroes.length,
+          heroes: allHeroes.length,
           skins: countSkins,
           analyses: heroAnalyses.length,
         })}

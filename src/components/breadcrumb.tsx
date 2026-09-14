@@ -161,22 +161,22 @@ function SisterPages({ name, siblings }: { name: string; siblings: { name: strin
         type="button"
         onClick={toggle}
         aria-expanded={open}
-        aria-controls={`${id}-panneau`}
-        title={t("common.siblings", { nom: name })}
+        aria-controls={`${id}-panel`}
+        title={t("common.siblings", { name: name })}
         className="flex min-w-0 items-center gap-1 font-medium text-chalk-100 transition-colors hover:text-gold-400"
       >
         <span aria-current="page" className="truncate">
           {name}
         </span>
         <ChevronsUpDown size={14} aria-hidden className="shrink-0 text-chalk-500" />
-        <span className="sr-only">{t("common.siblings", { nom: name })}</span>
+        <span className="sr-only">{t("common.siblings", { name: name })}</span>
       </button>
 
       {open &&
         createPortal(
           <div
             ref={panel}
-            id={`${id}-panneau`}
+            id={`${id}-panel`}
             style={{ top: position.top, left: position.left, width: WIDTH_PANEL }}
             className="fixed z-50 max-w-[calc(100vw-2rem)] border border-night-700 bg-night-900 shadow-xl shadow-black/40"
           >

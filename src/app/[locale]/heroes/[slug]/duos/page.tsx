@@ -47,9 +47,9 @@ const portraitOf = (slug: string) => {
 };
 /** Drops a partner the catalog does not know (partial sync). */
 const known = <E extends { slug: string }>(list: E[] = []) => list.filter((e) => heroesBySlug.has(e.slug));
-const names = (name: string) => ({ nom: name, deNom: frenchOf(name) });
+const names = (name: string) => ({ name, ofName: frenchOf(name) });
 const contextOf = (t: T, rank: MeasuredRank) =>
-  rank === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rang: t(`measuredRanks.${rank}`) });
+  rank === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rank: t(`measuredRanks.${rank}`) });
 
 /** "Marcel (+1.1 pts), Grock and Akai": the first carries its gap, the others their name. */
 function head(locale: Locale, t: T, list: Duo[]) {
@@ -66,14 +66,14 @@ function summary(locale: Locale, h: Hero) {
   const byRank = duosOf(h.slug);
   const rank = summaryRank(duosAsCounters(byRank));
   const best = known(rank ? byRank[rank]?.best : []).slice(0, 3);
-  if (!rank || best.length === 0) return { rank, sentence: t("pages.duos.noMeasure", { nom: h.name }) };
+  if (!rank || best.length === 0) return { rank, sentence: t("pages.duos.noMeasure", { name: h.name }) };
   const worst = known(byRank[rank]?.worst).slice(0, 2);
-  const variables = { contexte: contextOf(t, rank), nom: h.name, meilleurs: head(locale, t, best) };
+  const variables = { context: contextOf(t, rank), name: h.name, best: head(locale, t, best) };
   return {
     rank,
     sentence:
       worst.length > 0
-        ? t("pages.duos.overview", { ...variables, pires: head(locale, t, worst) })
+        ? t("pages.duos.overview", { ...variables, worst: head(locale, t, worst) })
         : t("pages.duos.overviewNoWorst", variables),
   };
 }
@@ -143,7 +143,7 @@ export default async function DuosPage({ params }: Params) {
     { href: `/heroes/${slug}/counters`, label: t("pages.duos.countersLink", n) },
     ...(first
       ? [
-          { href: `/compare?a=${slug}&b=${first}`, label: t("pages.duos.compareLink", { nom: h.name, autre: nameOf(first) }) },
+          { href: `/compare?a=${slug}&b=${first}`, label: t("pages.duos.compareLink", { name: h.name, other: nameOf(first) }) },
           { href: `/heroes/${first}/duos`, label: t("pages.duos.title", names(nameOf(first))) },
         ]
       : []),
@@ -230,8 +230,8 @@ export default async function DuosPage({ params }: Params) {
         {(best.length > 0 || worst.length > 0) && (
           <div className="grid gap-8 lg:grid-cols-2">
             {best.length > 0 && (
-              <section aria-labelledby="meilleurs" className="min-w-0">
-                <h2 id="meilleurs" className="font-heading text-2xl font-bold text-chalk-100">
+              <section aria-labelledby="best" className="min-w-0">
+                <h2 id="best" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.duos.best", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.bestIntro", n)}</p>
@@ -239,8 +239,8 @@ export default async function DuosPage({ params }: Params) {
               </section>
             )}
             {worst.length > 0 && (
-              <section aria-labelledby="pires" className="min-w-0">
-                <h2 id="pires" className="font-heading text-2xl font-bold text-chalk-100">
+              <section aria-labelledby="worst" className="min-w-0">
+                <h2 id="worst" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.duos.worst", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.worstIntro", n)}</p>
@@ -259,7 +259,7 @@ export default async function DuosPage({ params }: Params) {
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
               {t(withGain ? "pages.duos.phases.intro" : "pages.duos.phases.introNoGain", {
                 ...n,
-                rang: t(`measuredRanks.${rankMain}`),
+                rank: t(`measuredRanks.${rankMain}`),
               })}
             </p>
             <ul className="mt-5 grid gap-4 sm:grid-cols-3">
@@ -274,12 +274,12 @@ export default async function DuosPage({ params }: Params) {
                       <span className="font-heading text-lg font-bold">{nameOf(p.slug)}</span>
                     </Link>
                     <p className="mt-2 text-sm text-chalk-300">
-                      {t("pages.duos.phases.duoRate", { taux: percentage(locale, p.win) })}
+                      {t("pages.duos.phases.duoRate", { rate: percentage(locale, p.win) })}
                       {p.gain !== null && (
                         <>
                           {" · "}
                           <span className={cn("font-semibold tabular-nums", p.gain >= 0 ? "text-emerald-400" : "text-blood-500")}>
-                            {t("pages.duos.phases.gainAlone", { ecart: gap(p.gain), nom: h.name })}
+                            {t("pages.duos.phases.gainAlone", { gap: gap(p.gain), name: h.name })}
                           </span>
                         </>
                       )}
@@ -296,8 +296,8 @@ export default async function DuosPage({ params }: Params) {
 
         {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
-          <section aria-labelledby="par-rang">
-            <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
+          <section aria-labelledby="by-rank">
+            <h2 id="by-rank" className="font-heading text-2xl font-bold text-chalk-100">
               {t("pages.duos.byRank")}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.byRankIntro", n)}</p>
@@ -308,7 +308,7 @@ export default async function DuosPage({ params }: Params) {
                 return (
                   <details
                     key={r}
-                    id={`rang-${r}`}
+                    id={`rank-${r}`}
                     open={r === rankMain}
                     className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
                   >
@@ -321,7 +321,7 @@ export default async function DuosPage({ params }: Params) {
                       <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
                       {(d.winRate ?? s?.winRate) != null && (
                         <span className="text-sm text-chalk-500">
-                          {t("pages.duos.rateAlone", { taux: percentage(locale, d.winRate ?? s!.winRate) })}
+                          {t("pages.duos.rateAlone", { rate: percentage(locale, d.winRate ?? s!.winRate) })}
                         </span>
                       )}
                     </summary>
@@ -362,8 +362,8 @@ export default async function DuosPage({ params }: Params) {
 
         {/* ── Fallback: academy teammates ──────────────────────────── */}
         {academy.length > 0 && (
-          <section aria-labelledby="academie">
-            <h2 id="academie" className="font-heading text-2xl font-bold text-chalk-100">
+          <section aria-labelledby="academy">
+            <h2 id="academy" className="font-heading text-2xl font-bold text-chalk-100">
               {t("pages.duos.academy.title", n)}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.academy.intro", n)}</p>
@@ -384,8 +384,8 @@ export default async function DuosPage({ params }: Params) {
 
         {/* ── Other duos pages, same lane ──────────────────────────── */}
         {neighbours.length > 0 && laneMain && (
-          <section aria-labelledby="autres">
-            <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
+          <section aria-labelledby="others">
+            <h2 id="others" className="font-heading text-xl font-bold text-chalk-100">
               {t("pages.duos.others", { lane: t(`lanes.${laneMain}`) })}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2 text-sm">
@@ -454,7 +454,7 @@ function AggregatedTable({
               <td className="text-xs">
                 <Link
                   href={`/compare?a=${slug}&b=${c.slug}`}
-                  aria-label={t("pages.duos.compareLink", { nom: name, autre: nameOf(c.slug) })}
+                  aria-label={t("pages.duos.compareLink", { name: name, other: nameOf(c.slug) })}
                   className="text-gold-400 hover:text-gold-500"
                 >
                   {t("pages.duos.compare")}

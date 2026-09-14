@@ -237,11 +237,11 @@ export function duosAsCounters(byRank: DuosByRank): CountersByRank {
 export interface LinkTeam {
   rank: MeasuredRank;
   /** Hero whose rate changes. */
-  de: string;
+  from: string;
   /** Teammate who makes it change. */
   partner: string;
   advantage: number;
-  source: "duos" | "coequipiers";
+  source: "duos" | "teammates";
 }
 
 /**
@@ -258,12 +258,12 @@ export function linksTeam(
     [
       [a, b],
       [b, a],
-    ].flatMap(([de, partner]): LinkTeam[] => {
-      const d = duos[de]?.[rank];
+    ].flatMap(([hero, partner]): LinkTeam[] => {
+      const d = duos[hero]?.[rank];
       const duo = [...(d?.best ?? []), ...(d?.worst ?? [])].find((e) => e.slug === partner);
-      if (duo) return [{ rank, de, partner, advantage: duo.advantage, source: "duos" }];
-      const c = teammates[de]?.[rank]?.find((e) => e.slug === partner);
-      return c ? [{ rank, de, partner, advantage: c.advantage, source: "coequipiers" }] : [];
+      if (duo) return [{ rank, from: hero, partner, advantage: duo.advantage, source: "duos" }];
+      const c = teammates[hero]?.[rank]?.find((e) => e.slug === partner);
+      return c ? [{ rank, from: hero, partner, advantage: c.advantage, source: "teammates" }] : [];
     }),
   );
 }

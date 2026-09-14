@@ -205,7 +205,7 @@ export function buildMessage(
   if (keys.length === 1) {
     const [h] = keys;
     return {
-      titre: t(`pushNotif.title.${h.type ?? "adjust"}`, { version, nom: name(h.slug) }),
+      titre: t(`pushNotif.title.${h.type ?? "adjust"}`, { version, name: name(h.slug) }),
       corps: t("pushNotif.bodyOne"),
       url: `/${locale}/heroes/${h.slug}#stats`,
       tag,
@@ -214,7 +214,7 @@ export function buildMessage(
   }
   const rows = keys.slice(0, MAX_CITED_HEROES).map((h) =>
     t("pushNotif.row", {
-      nom: name(h.slug),
+      name: name(h.slug),
       type: h.type ? t(`patchHeroes.${h.type}`) : t("favourites.alert.changed"),
     }),
   );

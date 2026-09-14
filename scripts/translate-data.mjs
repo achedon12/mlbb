@@ -8,12 +8,12 @@
  * already translated never goes back over the network. This script only runs by
  * hand or in CI; the application translates nothing.
  *
- * `node scripts/translate-data.mjs patchs combos` only processes the named
+ * `node scripts/translate-data.mjs patches combos` only processes the named
  * datasets; with no argument, all of them.
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pause, translateBatch } from "./translation-google.mjs";
-import { translateHtml } from "./translation-html.mjs";
+import { patchesRebuild } from "./patch-translation.mjs";
 import { existsSync } from "node:fs";
 
 const LOCALES = ["en", "fr", "it", "es"];
@@ -155,42 +155,6 @@ const itemsRebuild = (d, t) =>
 const tierNotesTexts = (d) => Object.values(d);
 const tierNotesRebuild = (d, t) => Object.fromEntries(Object.entries(d).map(([s, v]) => [s, t(v)]));
 
-/**
- * Detailed patches: adjustment texts, new heroes, titles and free-form HTML
- * of the sections. Left as is: hero and skill names
- * (the game's own, as on the hero pages), epithets (they also name
- * the illustration), before/after values, anchors and links.
- */
-// The parser names the implicit attributes subsection in French.
-const nameSection = (s) => (s.category ? s.name : s.name === "Attributs" ? "Attributes" : s.name);
-const patchsRebuild = (d, t) =>
-  Object.fromEntries(
-    Object.entries(d).map(([version, p]) => [
-      version,
-      {
-        ...p,
-        toc: p.toc.map((s) => ({ ...s, title: t(s.title) })),
-        sections: p.sections.map((s) => ({ ...s, title: t(s.title), html: translateHtml(s.html, t) })),
-        newHeroes: p.newHeroes.map((n) => ({
-          ...n,
-          lore: n.lore.map(t),
-          feature: t(n.feature),
-          skills: n.skills.map((c) => ({ ...c, role: t(c.role), description: c.description.map(t) })),
-        })),
-        adjustments: p.adjustments.map((a) => ({
-          ...a,
-          intro: t(a.intro),
-          sections: a.sections.map((s) => ({
-            ...s,
-            name: s.category ? s.name : t(nameSection(s)),
-            category: t(s.category),
-            changes: s.changes.map((c) => ("text" in c ? { ...c, text: t(c.text) } : { ...c, label: t(c.label) })),
-          })),
-        })),
-      },
-    ]),
-  );
-
 /** Combos: only `description` fields (text or list of texts) are translated, wherever they are. */
 function descriptionsRebuild(d, t) {
   if (Array.isArray(d)) return d.map((x) => descriptionsRebuild(x, t));
@@ -218,8 +182,8 @@ const GAMES = {
     source: "en",
     file: "src/data/game/patches.json",
     extract: (d) => d.details,
-    texts: collect(patchsRebuild),
-    rebuild: patchsRebuild,
+    texts: collect(patchesRebuild),
+    rebuild: patchesRebuild,
   },
   combos: {
     source: "en",

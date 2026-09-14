@@ -182,7 +182,7 @@ export function PlayerSummary({
           <h3 className="text-sm font-semibold text-chalk-300">
             {seasons.length > 0
               ? t("pages.accountProfile.overSeasons", {
-                  liste: new Intl.ListFormat(LOCALE_HTML[locale], { type: "conjunction" }).format(seasons),
+                  list: new Intl.ListFormat(LOCALE_HTML[locale], { type: "conjunction" }).format(seasons),
                 })
               : t("pages.accountProfile.overAllSeasons")}
           </h3>
@@ -254,7 +254,7 @@ export function HeroTable({
                 {t("pages.accountProfile.you")}
               </th>
               <th scope="col" className="px-2 py-2 text-right font-medium">
-                {t("pages.accountProfile.rankAverage", { rang: t(`measuredRanks.${bucket}`) })}
+                {t("pages.accountProfile.rankAverage", { rank: t(`measuredRanks.${bucket}`) })}
               </th>
               <th scope="col" className="py-2 pl-2 text-right font-medium">
                 {t("pages.accountProfile.gap")}
@@ -416,7 +416,7 @@ export function HeroTips({
           empty={rows ? t("pages.accountProfile.bestEmpty") : unavailable}
           entries={best.map((l) => ({
             hero: l.hero,
-            detail: t("pages.accountProfile.bestDetail", { taux: formatPercent(l.rate, locale), n: l.matches }),
+            detail: t("pages.accountProfile.bestDetail", { rate: formatPercent(l.rate, locale), n: l.matches }),
           }))}
         />
       </CardTip>
@@ -425,15 +425,15 @@ export function HeroTips({
         tone="bad"
         icon={<ThumbsDown size={17} aria-hidden />}
         title={t("pages.accountProfile.belowAverageTitle")}
-        text={t("pages.accountProfile.belowAverageText", { rang: rank })}
+        text={t("pages.accountProfile.belowAverageText", { rank: rank })}
       >
         <ListHeroTip
           empty={rows ? t("pages.accountProfile.belowAverageEmpty") : unavailable}
           entries={belowAverage.map((l) => ({
             hero: l.hero,
             detail: t("pages.accountProfile.belowAverageDetail", {
-              taux: formatPercent(l.rate, locale),
-              moyenne: formatPercent(l.average ?? 0, locale),
+              rate: formatPercent(l.rate, locale),
+              average: formatPercent(l.average ?? 0, locale),
             }),
           }))}
         />

@@ -7,15 +7,16 @@ import { supports } from "./supports";
 import { tanks } from "./tanks";
 
 /**
- * Analyses ecrites a la main, regroupees par role.
+ * Hand-written analyses, grouped by role.
  *
- * Elles ne contiennent que ce qu'aucune extraction ne produira : le
- * commentaire, les competences redigees, les contres et les builds. Tout le
- * reste — roles, positions, sortie, difficulte, skins, visuels — vient de la
- * synchronisation du wiki et n'a pas a etre recopie ici.
+ * They only hold what no extraction will ever produce: the commentary, the
+ * written skills, counters and builds. Everything else — roles, lanes,
+ * release, difficulty, skins, visuals — comes from the wiki sync and does not
+ * belong here.
  *
- * Pour ajouter une analyse : reprendre le `slug` exact tel qu'il apparait dans
- * `src/data/game/heroes.json`, et suivre le type `AnalyseHeros`.
+ * To add an analysis: use the exact `slug` as it appears in
+ * `src/data/game/heroes.json`, and follow the `HeroAnalysis` type. Analyses
+ * are written in French only; they are not translated.
  */
 export const analyses: HeroAnalysis[] = [
   ...tanks,

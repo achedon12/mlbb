@@ -7,6 +7,7 @@ import {
   infoboxSummary,
   isAdvancePage,
   newHeroFromTitle,
+  normalizeWikitext,
   pickPages,
   readPci,
   releaseDate,
@@ -329,5 +330,17 @@ describe("versions under test", () => {
       ["2.1.90", 0, 1],
     ]);
     expect(upcomingForHero(versions, "aamon", "2.1.95")).toEqual([]);
+  });
+});
+
+describe("normalizeWikitext — comments", () => {
+  it("normalizes a usual patch excerpt exactly as before", () => {
+    const wikitext = `==II. Hero Adjustments==\r\n<!-- Fighters -->\r\n:{{Hi|name=Saber}} {{PCI|Buff|}}\r\n:{{ai|Charge|Skill 2}} {{pci|buff}} <!-- was nerf\r\nin draft -->\r\n*Mana Cost: 70-45 → 40-60 [[File:Saber.png|20px]]{{clr}}\r\n{| class="article-table"\r\n| rowspan="2" |{{hi|Ruby|Ruby}}\r\n|}\r\n`;
+    expect(normalizeWikitext(wikitext)).toBe("==II. Hero Adjustments==\n\n:{{hi|Saber}} {{pci|buff}}\n:{{ai|Charge|Skill 2}} {{pci|buff}} \n*Mana Cost: 70-45 → 40-60 \n{| class=\"article-table\"\n|{{hi|Ruby}}\n|}\n");
+  });
+
+  it("leaves no comment opener behind nested comments", () => {
+    expect(normalizeWikitext("<!<!---->-- x -->*Base HP: 1 → 2")).toBe("*Base HP: 1 → 2");
+    expect(normalizeWikitext(":{{hi|Saber}} <!-<!-- a -->- b -->")).not.toContain("<!--");
   });
 });

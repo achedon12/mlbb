@@ -205,7 +205,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
     }
   }
 
-  function aller(i: number) {
+  function goTo(i: number) {
     focus.current = true;
     setCurrent(i);
   }
@@ -239,7 +239,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
               <li key={i}>
                 <button
                   type="button"
-                  onClick={() => aller(i)}
+                  onClick={() => goTo(i)}
                   aria-current={i === current ? "step" : undefined}
                   aria-label={`${t("pages.quizUI.round", { n: i + 1, max: challenge.manches.length })} · ${t(`pages.quizUI.types.${m.type}`)}${finished ? ` · ${t(successful ? "pages.quizUI.stepSolved" : "pages.quizUI.stepMissed")}` : ""}`}
                   className={cn(
@@ -258,7 +258,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
           <li>
             <button
               type="button"
-              onClick={() => aller(challenge.manches.length)}
+              onClick={() => goTo(challenge.manches.length)}
               disabled={!allFinished}
               aria-current={current === challenge.manches.length ? "step" : undefined}
               aria-label={t("pages.quizUI.stepSummary")}
@@ -291,7 +291,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
             <div className="flex justify-end">
               <button
                 type="button"
-                onClick={() => aller(allFinished ? challenge.manches.length : roundOpen(challenge, attempts))}
+                onClick={() => goTo(allFinished ? challenge.manches.length : roundOpen(challenge, attempts))}
                 className={buttonMain}
               >
                 {allFinished ? t("pages.quizUI.seeSummary") : t("pages.quizUI.nextRound")} →

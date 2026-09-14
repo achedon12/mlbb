@@ -29,16 +29,16 @@ const heroes = (slug: string, o: Partial<TeamHero> = {}): TeamHero => ({
 });
 
 const measures = (o: Partial<MeasuresRank> = {}): MeasuresRank => ({
-  rang: "all",
+  rank: "all",
   stats: {},
-  tranches: [
+  buckets: [
     { from: 10, to: 12 },
     { from: 12, to: 14 },
     { from: 14, to: null },
   ],
-  duree: {},
-  coequipiers: {},
-  faible: {},
+  duration: {},
+  teammates: {},
+  weak: {},
   ...o,
 });
 
@@ -47,8 +47,8 @@ const balanced = [
   heroes("tank", { lanes: ["Roam"], roles: ["Tank"], notes: { offense: 3, durability: 9, abilityEffects: 8, difficulty: 4 } }),
   heroes("jungle", { lanes: ["Jungle"], roles: ["Assassin"], notes: { offense: 8, durability: 3, abilityEffects: 3, difficulty: 5 } }),
   heroes("mage", { lanes: ["Mid"], roles: ["Mage"], damage: "magic", notes: { offense: 8, durability: 2, abilityEffects: 7, difficulty: 5 } }),
-  heroes("tireur", { lanes: ["Gold"], notes: { offense: 8, durability: 2, abilityEffects: 2, difficulty: 4 } }),
-  heroes("combattant", { lanes: ["Exp"], roles: ["Fighter"], damage: "magic", notes: { offense: 6, durability: 7, abilityEffects: 5, difficulty: 5 } }),
+  heroes("marksman", { lanes: ["Gold"], notes: { offense: 8, durability: 2, abilityEffects: 2, difficulty: 4 } }),
+  heroes("fighter", { lanes: ["Exp"], roles: ["Fighter"], damage: "magic", notes: { offense: 6, durability: 7, abilityEffects: 5, difficulty: 5 } }),
 ];
 
 describe("assignLanes", () => {
@@ -81,8 +81,8 @@ describe("team profile", () => {
       heroes("e", { damage: null }),
     ]);
     expect(d).toMatchObject({ physical: 2, magic: 1, mixed: 1 });
-    expect(d.partPhysique).toBeCloseTo(0.625);
-    expect(breakdownDamage([heroes("x", { damage: null })]).partPhysique).toBeNull();
+    expect(d.physicalShare).toBeCloseTo(0.625);
+    expect(breakdownDamage([heroes("x", { damage: null })]).physicalShare).toBeNull();
   });
 
   it("averages ratings, ignoring missing ones", () => {
@@ -106,7 +106,7 @@ describe("match duration", () => {
     const curve = curveTeam(
       ["a", "b", "c", "d"],
       // c is bucketed differently, d is not measured: both are left out.
-      measures({ duree: { a: [49, 51, 54], b: [53, 51, 49], c: [50, 50] } }),
+      measures({ duration: { a: [49, 51, 54], b: [53, 51, 49], c: [50, 50] } }),
     );
     expect(curve?.win).toEqual([51, 51, 51.5]);
     expect(curve?.profile).toBe("stable");
@@ -124,7 +124,7 @@ describe("synergies and threats", () => {
     const pairs = synergiesInternal(
       [heroes("a", { synergies: ["d"] }), heroes("b"), heroes("c"), heroes("d")],
       measures({
-        coequipiers: {
+        teammates: {
           a: [["b", 1.2]],
           b: [
             ["a", 2.1],
@@ -145,7 +145,7 @@ describe("synergies and threats", () => {
     const list = threats(
       ["a", "b", "c"],
       measures({
-        faible: {
+        weak: {
           a: [
             ["x", -3],
             ["y", -2],
@@ -210,7 +210,7 @@ describe("analyzeTeam", () => {
   ];
   const rank = measures({
     stats: { o: [52, "A"], j1: [55, "S"], j2: [45, "C"], j3: [50, "B"] },
-    coequipiers: { j2: [["o", 2]] },
+    teammates: { j2: [["o", 2]] },
   });
 
   it("suggests picks for free lanes only, tie-broken by the rank's win rate", () => {
@@ -224,7 +224,7 @@ describe("analyzeTeam", () => {
   });
 
   it("ignores unknown heroes and suggests nothing for a full team", () => {
-    const analysis = analyzeTeam({ catalog: balanced, slugs: [...balanced.map((h) => h.slug), "inconnu"], measures: null });
+    const analysis = analyzeTeam({ catalog: balanced, slugs: [...balanced.map((h) => h.slug), "unknown-hero"], measures: null });
     expect(analysis.team).toHaveLength(5);
     expect(analysis.suggestions).toEqual([]);
     expect(analysis.assignment.missing).toEqual([]);

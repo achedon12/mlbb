@@ -7,7 +7,7 @@ import {
   configPush,
   saveSubscriber,
   limitByMinute,
-  majSubscriber,
+  updateSubscriber,
   deleteSubscriber,
 } from "@/lib/push-server";
 
@@ -30,19 +30,19 @@ const SLUGS = new Set(Object.keys(heroesBySlug));
 const allowed = limitByMinute(20);
 const WITHOUT_CACHE = { "Cache-Control": "no-store" };
 
-const refusal = (status: number, error: string) => NextResponse.json({ erreur: error }, { status, headers: WITHOUT_CACHE });
+const refusal = (status: number, error: string) => NextResponse.json({ error }, { status, headers: WITHOUT_CACHE });
 
 async function readRequest<K extends PushRequest["type"]>(
   request: Request,
   type: K,
 ): Promise<Extract<PushRequest, { type: K }> | NextResponse> {
-  if (!configPush()) return refusal(404, "notifications desactivees");
+  if (!configPush()) return refusal(404, "notifications disabled");
   if (!allowed(addressOf(request))) return refusal(429, "too many requests");
   // A form on another site cannot send JSON without a CORS preflight
   // request, which this route does not accept.
-  if (request.headers.get("sec-fetch-site") === "cross-site") return refusal(403, "origine refusee");
+  if (request.headers.get("sec-fetch-site") === "cross-site") return refusal(403, "origin refused");
   if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) {
-    return refusal(415, "JSON attendu");
+    return refusal(415, "JSON expected");
   }
   if (Number(request.headers.get("content-length") ?? 0) > SIZE_MAX_BODY) return refusal(413, "body too large");
   const raw = await request.text();
@@ -63,7 +63,7 @@ async function storage(action: string, task: () => Promise<NextResponse>): Promi
     return await task();
   } catch (error) {
     await logError(`notifications: ${action} failed`, error);
-    return refusal(503, "stockage indisponible");
+    return refusal(503, "storage unavailable");
   }
 }
 
@@ -72,8 +72,8 @@ export async function POST(request: Request) {
   if (pushRequest instanceof NextResponse) return pushRequest;
   return storage("subscription", async () => {
     const issue = await saveSubscriber(pushRequest.abonnement, pushRequest.langue, pushRequest.favoris);
-    if (issue === "full") return refusal(503, "trop d'abonnements");
-    return NextResponse.json({ etat: issue }, { status: issue === "created" ? 201 : 200, headers: WITHOUT_CACHE });
+    if (issue === "full") return refusal(503, "too many subscriptions");
+    return NextResponse.json({ state: issue }, { status: issue === "created" ? 201 : 200, headers: WITHOUT_CACHE });
   });
 }
 
@@ -81,7 +81,7 @@ export async function PATCH(request: Request) {
   const pushRequest = await readRequest(request, "update");
   if (pushRequest instanceof NextResponse) return pushRequest;
   return storage("update", async () => {
-    const issue = await majSubscriber(pushRequest.abonnement, pushRequest.favoris, pushRequest.langue);
+    const issue = await updateSubscriber(pushRequest.abonnement, pushRequest.favoris, pushRequest.langue);
     // 404: the browser subscribes again (subscription deleted server-side in the meantime).
     return issue === "unknown" ? refusal(404, "unknown subscription") : new NextResponse(null, { status: 204 });
   });

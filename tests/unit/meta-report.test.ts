@@ -44,8 +44,8 @@ describe("tier changes", () => {
     const withoutBan: SeriesTier = { ...series(49, 54), banRate: Array.from({ length: 8 }, () => null) };
     const result = changesOfTier(
       [
-        { slug: "rien", series: null, tierCurrent: "S" },
-        { slug: "courte", series: short, tierCurrent: "S" },
+        { slug: "no-series", series: null, tierCurrent: "S" },
+        { slug: "short-series", series: short, tierCurrent: "S" },
         { slug: "sans-ban", series: withoutBan, tierCurrent: "S" },
       ],
       rule,

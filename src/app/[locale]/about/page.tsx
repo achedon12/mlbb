@@ -24,7 +24,7 @@ export default async function AboutPage({ params }: Params) {
   return (
     <>
       <PageHeader title={t("pages.about.title")} lead={t("pages.about.lead")} />
-      <Prose locale={locale} messageKey="about" variables={{ depot: site.depot }} />
+      <Prose locale={locale} messageKey="about" variables={{ repository: site.repository }} />
     </>
   );
 }

@@ -6,6 +6,7 @@ import {
   heroCounts,
   params,
   partialDate,
+  plainText,
   prepare,
   rankStandings,
   readAliasTable,
@@ -243,5 +244,37 @@ describe("standings and tournament", () => {
     expect(t.drafts[0].teams).toEqual(["Beta", "Alpha"]);
     // Unknown hero: keeps its source name in the draft.
     expect(t.drafts[0].games[0].picks[1]).toEqual(["zzz"]);
+  });
+});
+
+describe("plainText and prepare — markup removal", () => {
+  it("reads usual infobox values exactly as before", () => {
+    for (const [value, text] of [
+      ["[[Team Liquid PH|Liquid]]<br/>{{flag|ph}} Manila<br>Philippines", "Liquid Manila Philippines"],
+      ["'''MPL''' <small>Season 14</small>&nbsp;( )", "MPL Season 14"],
+      ["[https://example.com Official site] <ref name=x>note</ref>", "Official site note"],
+      ["{{Abbr|{{nested|x}}|US$}}150,000 <span style=\"color:red\">prize</span>", "150,000 prize"],
+    ]) {
+      expect(plainText(value)).toBe(text);
+    }
+  });
+
+  it("turns a line break into a space before removing the other tags", () => {
+    expect(plainText("Jakarta<br />Indonesia<b></b>")).toBe("Jakarta Indonesia");
+  });
+
+  it("does not let a nested tag re-form", () => {
+    for (const trap of ["<scr<script>ipt>alert(1)</script>", "<<br>script>x", "<scr<b>ipt>"]) {
+      expect(plainText(trap)).not.toMatch(/<[a-z/!?]/i);
+    }
+  });
+
+  it("keeps a literal angle bracket rather than eating the text around it", () => {
+    expect(plainText("Alpha < Beta > Gamma")).toBe("Alpha < Beta > Gamma");
+  });
+
+  it("prepares a bracket exactly as before and leaves no comment opener behind", () => {
+    expect(prepare("{{Bracket|id=X\n<!-- Grand Final -->\n|R1M1={{Match}}\n<!-- note -->|a=1\n|prizepoolusd=<!--100000-->}}")).toBe("{{Bracket|id=X\n|§header=Grand Final\n|R1M1={{Match}}\n|a=1\n|prizepoolusd=}}");
+    expect(prepare("<!<!---->-- x -->|a=1")).toBe("|a=1");
   });
 });

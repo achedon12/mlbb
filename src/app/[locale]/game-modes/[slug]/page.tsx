@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!mode) return {};
   const t = createT(locale);
   return metaPage(locale, {
-    title: t("pages.modes.titleMode", { nom: mode.name }),
+    title: t("pages.modes.titleMode", { name: mode.name }),
     description: t(`modeSheet.${slug}.text`),
     path: `/game-modes/${slug}`,
     type: "article",
@@ -79,7 +79,7 @@ export default async function GameModePage({ params }: Params) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${t("pages.modes.titleMode", { nom: mode.name })} — Mobile Legends: Bang Bang`,
+    headline: `${t("pages.modes.titleMode", { name: mode.name })} — Mobile Legends: Bang Bang`,
     description: t(`modeSheet.${slug}.text`),
     inLanguage: LOCALE_HTML[locale],
     author: { "@type": "Person", name: site.author },

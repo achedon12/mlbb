@@ -65,8 +65,8 @@ export default async function RetributionPage({ params }: Params) {
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
         <RetributionTrainer address={`${site.url}/${locale}${PATH}`} />
 
-        <section aria-labelledby="regles-titre">
-          <h2 id="regles-titre" className={titleSection}>
+        <section aria-labelledby="rules-title">
+          <h2 id="rules-title" className={titleSection}>
             {t("pages.retribution.rulesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -76,22 +76,22 @@ export default async function RetributionPage({ params }: Params) {
             <p>
               {t("pages.retribution.rule3", {
                 precision: WEIGHT_ACCURACY,
-                vitesse: WEIGHT_SPEED,
-                pleine: REACTION_FULL_MS,
-                nulle: integer.format(REACTION_NONE_MS),
+                speed: WEIGHT_SPEED,
+                full: REACTION_FULL_MS,
+                zero: integer.format(REACTION_NONE_MS),
               })}
             </p>
             <p>{t("pages.retribution.rule4", { n: ROUNDS_PER_RUN })}</p>
           </div>
         </section>
 
-        <section aria-labelledby="valeurs-titre">
-          <h2 id="valeurs-titre" className={titleSection}>
+        <section aria-labelledby="values-title">
+          <h2 id="values-title" className={titleSection}>
             {t("pages.retribution.valuesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <p className="mt-4 leading-relaxed text-chalk-300">
-            {t("pages.retribution.damageIntro", { base: RETRIBUTION_BASE, parNiveau: RETRIBUTION_BY_LEVEL })}
+            {t("pages.retribution.damageIntro", { base: RETRIBUTION_BASE, perLevel: RETRIBUTION_BY_LEVEL })}
           </p>
           <ol className="mt-5 space-y-1.5">
             {levels.map((n) => {
@@ -131,7 +131,7 @@ export default async function RetributionPage({ params }: Params) {
                     <p className="flex flex-wrap items-baseline justify-between gap-x-3">
                       <span className="font-semibold text-chalk-100">{t(`tools.retribution.objective.${key}`)}</span>
                       <span className="font-heading font-bold tabular-nums text-chalk-100">
-                        {t("tools.retribution.maxHp", { pv: integer.format(o.hp) })}
+                        {t("tools.retribution.maxHp", { hp: integer.format(o.hp) })}
                       </span>
                     </p>
                     {/* Length relative to the biggest objective; one tick per health bar segment. */}
@@ -209,8 +209,8 @@ export default async function RetributionPage({ params }: Params) {
           <p className="mt-3 text-sm text-chalk-500">{t("pages.retribution.trainingValues")}</p>
         </section>
 
-        <section aria-labelledby="sources-titre" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.retribution.sourcesTitle")}</h2>
+        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+          <h2 id="sources-title" className="font-semibold text-chalk-300">{t("pages.retribution.sourcesTitle")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
               <a href={SOURCE_RETRIBUTION} rel="noopener" className="underline transition-colors hover:text-gold-400">

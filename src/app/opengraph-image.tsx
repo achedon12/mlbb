@@ -57,11 +57,11 @@ export default function Image() {
             maxWidth: "960px",
           }}
         >
-          Base de connaissances Mobile Legends: Bang Bang
+          Mobile Legends: Bang Bang knowledge base
         </div>
 
         <div style={{ marginTop: "28px", fontSize: "30px", color: "#9aa7c2", maxWidth: "900px" }}>
-          Fiches heros, builds, tier list, objets, emblemes et patch notes — en francais.
+          Hero pages, builds, tier list, items, emblems and patch notes — in English, French, Italian and Spanish.
         </div>
       </div>
     ),

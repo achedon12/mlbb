@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
         ? t("pages.seo.patch.description", {
             version,
             ...countAdjustments(patch.adjustments),
-            heros: listNames(locale, names),
+            heroes: listNames(locale, names),
           })
         : t("pages.patchNotes.officialDescription", { version: patch.version }),
       share: t("pages.patchNotes.officialShare", { version: patch.version }),

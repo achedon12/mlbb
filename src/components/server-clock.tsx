@@ -127,13 +127,13 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
         </p>
         <p className="mt-3 text-sm text-chalk-500" suppressHydrationWarning>
           {timezone
-            ? t("tools.serverTime.yourTime", { heure: f.time(now, timezone), fuseau: timezone })
-            : t("tools.serverTime.utcTime", { heure: f.time(now, "UTC") })}
+            ? t("tools.serverTime.yourTime", { time: f.time(now, timezone), timezone: timezone })
+            : t("tools.serverTime.utcTime", { time: f.time(now, "UTC") })}
         </p>
       </Card>
 
-      <section aria-labelledby="rebours-titre">
-        <h2 id="rebours-titre" className="font-heading text-2xl font-bold text-chalk-100">
+      <section aria-labelledby="countdown-title">
+        <h2 id="countdown-title" className="font-heading text-2xl font-bold text-chalk-100">
           {t("tools.serverTime.countdownTitle")}
         </h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -189,17 +189,17 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
         {timezone && (
           <p className="bevel-sm mt-4 border border-gold-500/40 bg-gold-500/10 p-4 text-sm text-chalk-200">
             {t("tools.serverTime.yourPlace", {
-              fuseau: timezone,
-              decalage: labelOffset(offsetTimezone(timezone, now)),
-              quotidienne: f.timeShort(daily, timezone),
-              hebdo: f.dayTime(weekly, timezone),
+              timezone: timezone,
+              offset: labelOffset(offsetTimezone(timezone, now)),
+              daily: f.timeShort(daily, timezone),
+              weekly: f.dayTime(weekly, timezone),
             })}
           </p>
         )}
       </section>
 
-      <section aria-labelledby="pays-titre">
-        <h2 id="pays-titre" className="font-heading text-2xl font-bold text-chalk-100">
+      <section aria-labelledby="countries-title">
+        <h2 id="countries-title" className="font-heading text-2xl font-bold text-chalk-100">
           {t("tools.serverTime.countriesTitle")}
         </h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -212,7 +212,7 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
               <div className="mt-2 relative overflow-x-auto">
                 <table className="w-full min-w-[20rem] text-left text-sm">
                   <caption className="sr-only">
-                    {t("tools.serverTime.legend", { groupe: t(`tools.serverTime.group.${l}`) })}
+                    {t("tools.serverTime.legend", { group: t(`tools.serverTime.group.${l}`) })}
                   </caption>
                   <thead className="text-xs uppercase tracking-wide text-chalk-500">
                     <tr>

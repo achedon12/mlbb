@@ -44,16 +44,16 @@ function sheet(locale: Locale, slug: string) {
   const heroes = usage("spell", slug);
   const first = heroes[0];
   const sentences = [
-    ...(effect ? [t("pages.spellDetail.effectDesc", { nom: name, effet: effect })] : []),
+    ...(effect ? [t("pages.spellDetail.effectDesc", { name: name, effect: effect })] : []),
     first
       ? first.win === null
-        ? t("pages.sheets.heroDescSimple", { heros: listNames(locale, heroes.slice(0, 3).map((h) => heroName(h.slug))) })
+        ? t("pages.sheets.heroDescSimple", { heroes: listNames(locale, heroes.slice(0, 3).map((h) => heroName(h.slug))) })
         : t("pages.sheets.heroDesc", {
-            heros: listNames(locale, heroes.slice(0, 3).map((h) => heroName(h.slug))),
-            premier: heroName(first.slug),
-            taux: percentage(locale, first.win),
+            heroes: listNames(locale, heroes.slice(0, 3).map((h) => heroName(h.slug))),
+            first: heroName(first.slug),
+            rate: percentage(locale, first.win),
           })
-      : t("pages.spellDetail.noneDesc", { nom: name }),
+      : t("pages.spellDetail.noneDesc", { name: name }),
   ];
   return {
     s,
@@ -62,7 +62,7 @@ function sheet(locale: Locale, slug: string) {
     effect,
     bestFor,
     heroes,
-    title: t("pages.spellDetail.title", { nom: name, v: patchCurrent?.version ?? "" }),
+    title: t("pages.spellDetail.title", { name: name, v: patchCurrent?.version ?? "" }),
     lead: sentences.join(" "),
     description: [...sentences, t("pages.sheets.updateDesc", { date: longDate(locale) })].join(" "),
   };
@@ -105,7 +105,7 @@ export default async function SpellPage({ params }: Params) {
     name,
     summary: fi.effect,
     image: s.image,
-    listName: t("pages.sheets.listLd", { nom: name }),
+    listName: t("pages.sheets.listLd", { name: name }),
     heroes: heroes.slice(0, 10).map((h) => ({ name: heroName(h.slug), slug: h.slug })),
   });
 

@@ -109,13 +109,13 @@ export function summarySentence(
   const context =
     o.rank === "all"
       ? t("pages.heroCounters.allRanks")
-      : t("pages.heroCounters.atRank", { rang: t(`measuredRanks.${o.rank}`) });
+      : t("pages.heroCounters.atRank", { rank: t(`measuredRanks.${o.rank}`) });
   const weak = [...o.weak].sort((a, b) => a.advantage - b.advantage).slice(0, 3);
   const strong = [...o.strong].sort((a, b) => b.advantage - a.advantage).slice(0, 2);
-  if (weak.length === 0) return t("pages.heroCounters.noMeasure", { nom: o.name });
-  const variables = { contexte: context, nom: o.name, faibles: head(locale, t, weak) };
+  if (weak.length === 0) return t("pages.heroCounters.noMeasure", { name: o.name });
+  const variables = { context, name: o.name, weakAgainst: head(locale, t, weak) };
   return strong.length > 0
-    ? t("pages.heroCounters.overview", { ...variables, forts: head(locale, t, strong) })
+    ? t("pages.heroCounters.overview", { ...variables, strongAgainst: head(locale, t, strong) })
     : t("pages.heroCounters.overviewNoStrong", variables);
 }
 

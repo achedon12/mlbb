@@ -39,7 +39,7 @@ and the review) is also online, in the site's four languages:
 1. Copy the **exact** `slug` from `src/data/game/heroes.json`.
 2. Open the role file in `src/data/heroes/` (`tanks.ts`, `fighters.ts`,
    `assassins.ts`, `mages.ts`, `marksmen.ts`, `supports.ts`).
-3. Copy the annotated template [`docs/modele-analyse.ts`](docs/modele-analyse.ts)
+3. Copy the annotated template [`docs/analysis-template.ts`](docs/analysis-template.ts)
    to the end of the list, fill it in, then remove its comments. The template
    follows the `AnalyseHeros` type from `src/lib/types.ts`: `npm run typecheck`
    checks it on every run, so it cannot go stale.

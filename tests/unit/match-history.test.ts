@@ -35,7 +35,7 @@ function service(answer: (cursor: string) => ApiResponse | undefined) {
 }
 
 let n = 0;
-const token = () => `jeton-historique-${++n}`;
+const token = () => `history-token-${++n}`;
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -43,12 +43,12 @@ describe("historyMatches", () => {
   it("chains pages up to the cap, without duplicates", async () => {
     const calls = service(() => undefined);
     const r = await historyMatches(token(), 40);
-    expect(r.etat).toBe("ok");
-    if (r.etat !== "ok") return;
+    expect(r.status).toBe("ok");
+    if (r.status !== "ok") return;
     // 65 entries, one of them repeated from one page to the next.
-    expect(r.donnees.matches).toHaveLength(64);
-    expect(new Set(r.donnees.matches.map((p) => p.id)).size).toBe(64);
-    expect(r.donnees.end).toBe(true);
+    expect(r.data.matches).toHaveLength(64);
+    expect(new Set(r.data.matches.map((p) => p.id)).size).toBe(64);
+    expect(r.data.end).toBe(true);
     // Cursors passed on intact, despite their 19 digits.
     expect(calls).toEqual(["", ...CURSORS]);
   });
@@ -56,16 +56,16 @@ describe("historyMatches", () => {
   it("stops at the requested count and reports it", async () => {
     const calls = service(() => undefined);
     const r = await historyMatches(token(), 40, 30);
-    expect(r).toMatchObject({ etat: "ok", donnees: { end: false } });
-    if (r.etat === "ok") expect(r.donnees.matches).toHaveLength(30);
+    expect(r).toMatchObject({ status: "ok", data: { end: false } });
+    if (r.status === "ok") expect(r.data.matches).toHaveLength(30);
     expect(calls).toHaveLength(2);
   });
 
   it("keeps what was read when a later page is missing", async () => {
     service((c) => (c === CURSORS[0] ? new Response("", { status: 502 }) : undefined));
     const r = await historyMatches(token(), 40);
-    expect(r).toMatchObject({ etat: "ok", donnees: { end: false } });
-    if (r.etat === "ok") expect(r.donnees.matches).toHaveLength(20);
+    expect(r).toMatchObject({ status: "ok", data: { end: false } });
+    if (r.status === "ok") expect(r.data.matches).toHaveLength(20);
   });
 
   it("does not wait for a slow page beyond the budget", async () => {
@@ -73,23 +73,23 @@ describe("historyMatches", () => {
     const start = Date.now();
     const r = await historyMatches(token(), 40, 100, 50);
     expect(Date.now() - start).toBeLessThan(2000);
-    if (r.etat === "ok") expect(r.donnees.matches).toHaveLength(20);
+    if (r.status === "ok") expect(r.data.matches).toHaveLength(20);
     else expect.unreachable();
   });
 
   it("reports an expired session and an unavailable first page", async () => {
     service(() => new Response("", { status: 401 }));
-    expect(await historyMatches(token(), 40)).toEqual({ etat: "expired" });
+    expect(await historyMatches(token(), 40)).toEqual({ status: "expired" });
     service(() => new Response('{"code":10407,"data":null}', { status: 200 }));
-    expect(await historyMatches(token(), 40)).toEqual({ etat: "unavailable" });
-    expect(await historyMatches(token(), 0)).toEqual({ etat: "unavailable" });
+    expect(await historyMatches(token(), 40)).toEqual({ status: "unavailable" });
+    expect(await historyMatches(token(), 0)).toEqual({ status: "unavailable" });
   });
 
   it("does not loop on a cursor that does not move", async () => {
     const loop = pageHistory([matchRaw(1, 84, 4, 1, 1774857999)], CURSORS[0]);
     const calls = service(() => new Response(loop, { status: 200 }));
     const r = await historyMatches(token(), 40);
-    expect(r).toMatchObject({ etat: "ok", donnees: { end: true } });
+    expect(r).toMatchObject({ status: "ok", data: { end: true } });
     expect(calls).toHaveLength(2);
   });
 });

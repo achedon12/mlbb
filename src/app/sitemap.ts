@@ -168,7 +168,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...itemsFor("en").map((o) => statistics(`/items/${o.slug}`, "weekly", 0.5)),
     ...emblemsSheets.map((e) => statistics(`/emblems/${e.slug}`, "weekly", 0.5)),
     statistics("/spells", "monthly", 0.5),
-    ...spellSheets.map((sort) => statistics(`/spells/${sort.slug}`, "weekly", 0.4)),
+    ...spellSheets.map((spell) => statistics(`/spells/${spell.slug}`, "weekly", 0.4)),
     statistics("/statistics", "daily", 0.8),
     ...RANKS_CLASSES.filter((r) => r !== "all").map((r) => statistics(`/statistics/${r}`, "daily", 0.6)),
     { path: "/skins", changeFrequency: "weekly", priority: 0.6, lastModified: synced },

@@ -2,7 +2,7 @@ import type { T } from "@/i18n/translations";
 
 /**
  * Credit "taken and translated from the wiki", in the current locale. `messageKey`: another
- * credit sentence, with the same `{lien}` in place of the wiki name.
+ * credit sentence, with the same `{link}` in place of the wiki name.
  */
 export function WikiCredit({
   t,
@@ -15,7 +15,7 @@ export function WikiCredit({
   className?: string;
   messageKey?: string;
 }) {
-  const [before, after = ""] = t(messageKey).split("{lien}");
+  const [before, after = ""] = t(messageKey).split("{link}");
   return (
     <p className={className ?? "mt-8 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"}>
       {before}

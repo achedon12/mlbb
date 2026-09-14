@@ -85,7 +85,7 @@ function hintsOf(round: Round, target: QuizHero | undefined, t: T): Hint[] {
       { key: "roles", content: listRoles(target, t) },
       {
         key: "initial",
-        content: t("pages.quizUI.initial", { lettre: target.nom[0], n: target.nom.replace(/[^\p{L}]/gu, "").length }),
+        content: t("pages.quizUI.initial", { letter: target.nom[0], n: target.nom.replace(/[^\p{L}]/gu, "").length }),
       },
     );
   } else if (round.type === "item") {
@@ -195,17 +195,17 @@ export function RoundQuiz({
       const h = catalog.heroesBySlug.get(good);
       const rate = formatRate.format(round.paires[i].find((d) => d.slug === good)?.victoire ?? 0);
       return t(last === good ? "pages.quizUI.announceDuelRight" : "pages.quizUI.announceDuelWrong", {
-        nom: h?.nom ?? good,
-        taux: rate,
+        name: h?.nom ?? good,
+        rate: rate,
       });
     }
-    if (last === round.reponse) return t("pages.quizUI.announceFound", { nom: nameResponse });
-    if (finished) return t("pages.quizUI.announceMissed", { nom: nameResponse });
+    if (last === round.reponse) return t("pages.quizUI.announceFound", { name: nameResponse });
+    if (finished) return t("pages.quizUI.announceMissed", { name: nameResponse });
     const attempt = catalog.heroesBySlug.get(last)?.nom ?? catalog.itemsBySlug.get(last)?.nom ?? last;
     const unlocked = hints[visible - 1];
     return [
-      t("pages.quizUI.announceWrong", { nom: attempt, n: attemptsMax(round) - attempts.length }),
-      unlocked ? t("pages.quizUI.announceClue", { titre: t(`pages.quizUI.clues.${unlocked.key}`) }) : "",
+      t("pages.quizUI.announceWrong", { name: attempt, n: attemptsMax(round) - attempts.length }),
+      unlocked ? t("pages.quizUI.announceClue", { title: t(`pages.quizUI.clues.${unlocked.key}`) }) : "",
     ].join(" ");
   }
 
@@ -468,7 +468,7 @@ function Statement({
         </ul>
         {round.prix !== null && (
           <p className="mt-3 text-sm font-semibold text-gold-400">
-            {t("pages.quizUI.itemPrice", { prix: formatPrice.format(round.prix) })}
+            {t("pages.quizUI.itemPrice", { price: formatPrice.format(round.prix) })}
           </p>
         )}
       </div>
@@ -506,10 +506,10 @@ function Result({
         </p>
         <p className="font-heading text-xl font-bold text-chalk-100">{target.nom}</p>
         {round.type === "skin" && (
-          <p className="text-sm text-chalk-300">{t("pages.quizUI.skinName", { nom: round.skin })}</p>
+          <p className="text-sm text-chalk-300">{t("pages.quizUI.skinName", { name: round.skin })}</p>
         )}
         {round.type === "skill" && (
-          <p className="text-sm text-chalk-300">{t("pages.quizUI.skillName", { nom: round.nom })}</p>
+          <p className="text-sm text-chalk-300">{t("pages.quizUI.skillName", { name: round.nom })}</p>
         )}
       </div>
       <Link
@@ -577,7 +577,7 @@ function Duel({
                       <span
                         className={cn("text-sm tabular-nums", winner ? "text-emerald-300" : "text-chalk-400")}
                       >
-                        {t("pages.quizUI.win", { taux: formatRate.format(d.victoire) })}
+                        {t("pages.quizUI.win", { rate: formatRate.format(d.victoire) })}
                       </span>
                     )}
                     {answered && chosen && (

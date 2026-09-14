@@ -178,7 +178,7 @@ function NodeWithSubmenu({ node, path, onNavigate }: { node: MenuNode; path: str
           type="button"
           aria-expanded={open}
           aria-controls={id}
-          aria-label={t("nav.submenu", { nom: name })}
+          aria-label={t("nav.submenu", { name: name })}
           onClick={() => (open ? setOpen(false) : openAndFocus())}
           className="grid w-8 shrink-0 place-items-center rounded-md text-chalk-500 transition-colors hover:text-gold-400"
         >

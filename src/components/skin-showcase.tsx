@@ -116,7 +116,7 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
       {/* Legend of the rarities present. */}
       <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
         {presentRarities(skins.map((s) => s.rarity)).map((r) => (
-          <li key={r.name} className="flex items-center gap-1.5 text-xs text-chalk-500">
+          <li key={r.key} className="flex items-center gap-1.5 text-xs text-chalk-500">
             <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.color }} />
             {tr("skinRarity", r.key)}
           </li>
@@ -210,7 +210,7 @@ export function SkinShowcase({ skins }: { skins: SkinFull[] }) {
                 type="button"
                 onClick={() => choose(s.id)}
                 aria-pressed={selected}
-                title={`${s.name} — ${r.name}`}
+                title={`${s.name} — ${tr("skinRarity", r.key)}`}
                 style={{
                   borderColor: r.color,
                   boxShadow: selected ? `0 0 0 2px ${r.halo}, 0 0 12px ${r.halo}` : undefined,

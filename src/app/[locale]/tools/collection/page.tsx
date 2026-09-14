@@ -18,7 +18,7 @@ const PATH = "/tools/collection";
 function description(locale: Locale): string {
   const t = createT(locale);
   const c = coveragePrice(catalogSkins());
-  return t("pages.seo.collection.description", { heros: c.heroes, skins: c.skins });
+  return t("pages.seo.collection.description", { heroes: c.heroes, skins: c.skins });
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -63,16 +63,16 @@ export default async function CollectionPage({ params }: Params) {
           <div className="space-y-4 leading-relaxed text-chalk-300">
             <p>
               {t("pages.collection.methodHeroes", {
-                heros: count.format(c.heroes),
-                diamants: count.format(c.heroDiamonds),
+                heroes: count.format(c.heroes),
+                diamonds: count.format(c.heroDiamonds),
               })}
             </p>
             <p>
               {t("pages.collection.methodSkins", {
                 skins: count.format(c.skins),
-                diamants: count.format(c.skinsDiamonds),
-                autres: count.format(c.skinsOtherCurrency),
-                sansPrix: count.format(c.skins - c.skinsDiamonds - c.skinsOtherCurrency),
+                diamonds: count.format(c.skinsDiamonds),
+                others: count.format(c.skinsOtherCurrency),
+                unpriced: count.format(c.skins - c.skinsDiamonds - c.skinsOtherCurrency),
               })}
             </p>
             <p>{t("pages.collection.methodStorage")}</p>

@@ -44,7 +44,7 @@ const BROWSER =
 const UA = "MLBBDex/1.0 (+https://mlbbdex.com)";
 
 export interface Friend {
-  nom: string;
+  name: string;
   /** Avatar path on the CDN, or null for the default avatar. */
   avatar: string | null;
 }
@@ -81,7 +81,7 @@ async function apiCall(path: string, options: RequestInit = {}) {
 export async function sendCode(
   roleId: number,
   zoneId: number,
-): Promise<{ ok: boolean; raison?: string }> {
+): Promise<{ ok: boolean; reason?: string }> {
   try {
     const response = await apiCall("/auth/send-vc", {
       method: "POST",
@@ -93,10 +93,10 @@ export async function sendCode(
 
     // errorInvalidZoneId / null role: the input matches no account.
     // Reasons are catalogue keys: the form translates them.
-    return { ok: false, raison: "loginForm.errors.unknown" };
+    return { ok: false, reason: "loginForm.errors.unknown" };
   } catch (e) {
     void logError("sending the verification code", e);
-    return { ok: false, raison: "loginForm.errors.unavailable" };
+    return { ok: false, reason: "loginForm.errors.unavailable" };
   }
 }
 
@@ -108,7 +108,7 @@ export async function connect(
   roleId: number,
   zoneId: number,
   code: number,
-): Promise<{ ok: true; jeton: string } | { ok: false; raison: string }> {
+): Promise<{ ok: true; token: string } | { ok: false; reason: string }> {
   try {
     const response = await apiCall("/auth/login", {
       method: "POST",
@@ -121,12 +121,12 @@ export async function connect(
     };
 
     if (response.ok && data.code === 0 && data.data?.jwt) {
-      return { ok: true, jeton: data.data.jwt };
+      return { ok: true, token: data.data.jwt };
     }
-    return { ok: false, raison: "loginForm.errors.wrongCode" };
+    return { ok: false, reason: "loginForm.errors.wrongCode" };
   } catch (e) {
     void logError("exchanging the code for a token", e);
-    return { ok: false, raison: "loginForm.errors.unavailable" };
+    return { ok: false, reason: "loginForm.errors.unavailable" };
   }
 }
 
@@ -139,9 +139,9 @@ export async function connect(
  * not look like a site outage.
  */
 export type Result<T> =
-  | { etat: "ok"; donnees: T }
-  | { etat: "expired" }
-  | { etat: "unavailable" };
+  | { status: "ok"; data: T }
+  | { status: "expired" }
+  | { status: "unavailable" };
 
 async function authenticated<T>(
   path: string,
@@ -151,8 +151,8 @@ async function authenticated<T>(
   try {
     const response = await apiCall(path, { headers: { Authorization: `Bearer ${token}` } });
 
-    if (response.status === 401) return { etat: "expired" };
-    if (!response.ok) return { etat: "unavailable" };
+    if (response.status === 401) return { status: "expired" };
+    if (!response.ok) return { status: "unavailable" };
 
     // Read as text: cursors and match IDs exceed number precision,
     // `readJson` keeps them as strings.
@@ -160,13 +160,13 @@ async function authenticated<T>(
     // 10407: the relayed Moonton endpoint is temporarily out of service. Any
     // other non-zero code likewise means there is nothing usable.
     if ((typeof envelope.code === "number" && envelope.code !== 0) || envelope.data == null) {
-      return { etat: "unavailable" };
+      return { status: "unavailable" };
     }
 
-    return { etat: "ok", donnees: transform(envelope.data) };
+    return { status: "ok", data: transform(envelope.data) };
   } catch (e) {
     void logError("authenticated call to the Moonton service", e);
-    return { etat: "unavailable" };
+    return { status: "unavailable" };
   }
 }
 
@@ -199,7 +199,7 @@ function remember<T>(
   MEMORY.delete(key);
   MEMORY.set(key, { end: now + seconds * 1000, value });
   void value.then((r) => {
-    if (r.etat !== "ok" && MEMORY.get(key)?.value === value) MEMORY.delete(key);
+    if (r.status !== "ok" && MEMORY.get(key)?.value === value) MEMORY.delete(key);
   });
   // Beyond the cap, the oldest entries are evicted first.
   for (const old of MEMORY.keys()) {
@@ -246,7 +246,7 @@ export function pageMatches(
   limit = 20,
 ): Promise<Result<Page<MatchSummary>>> {
   if (!seasonValid(season) || (cursor !== null && !ID.test(cursor))) {
-    return Promise.resolve({ etat: "unavailable" });
+    return Promise.resolve({ status: "unavailable" });
   }
   const request = new URLSearchParams({ sid: String(season), limit: String(limit), lang: "en" });
   if (cursor) request.set("last_cursor", cursor);
@@ -286,7 +286,7 @@ export async function historyMatches(
   max = HISTORY_MAX,
   budget = HISTORY_BUDGET_MS,
 ): Promise<Result<{ matches: MatchSummary[]; end: boolean }>> {
-  if (!seasonValid(season)) return { etat: "unavailable" };
+  if (!seasonValid(season)) return { status: "unavailable" };
   const start = Date.now();
   const views = new Set<string>();
   const matches: MatchSummary[] = [];
@@ -297,22 +297,22 @@ export async function historyMatches(
     // The first page is awaited without a limit: without it, there is nothing to show.
     const r = page === 0 ? await request : await inDelay(request, budget - (Date.now() - start));
     if (r === null) break;
-    if (r.etat !== "ok") {
-      if (r.etat === "expired" || page === 0) return r;
+    if (r.status !== "ok") {
+      if (r.status === "expired" || page === 0) return r;
       break;
     }
-    for (const p of r.donnees.entries) {
+    for (const p of r.data.entries) {
       if (views.has(p.id)) continue;
       views.add(p.id);
       matches.push(p);
     }
     // A cursor that does not change would request the same page forever.
-    if (!r.donnees.next || r.donnees.next === cursor) {
-      return { etat: "ok", donnees: { matches: matches.slice(0, max), end: matches.length <= max } };
+    if (!r.data.next || r.data.next === cursor) {
+      return { status: "ok", data: { matches: matches.slice(0, max), end: matches.length <= max } };
     }
-    cursor = r.donnees.next;
+    cursor = r.data.next;
   }
-  return { etat: "ok", donnees: { matches: matches.slice(0, max), end: false } };
+  return { status: "ok", data: { matches: matches.slice(0, max), end: false } };
 }
 
 /** Maximum hero pages followed: far more than the number of heroes in the game. */
@@ -330,7 +330,7 @@ export async function seasonHeroes(
   token: string,
   season: number,
 ): Promise<Result<{ heroes: FrequentHero[]; full: boolean }>> {
-  if (!seasonValid(season)) return { etat: "unavailable" };
+  if (!seasonValid(season)) return { status: "unavailable" };
   const seen = new Set<number>();
   const heroes: FrequentHero[] = [];
   let cursor: string | null = null;
@@ -341,27 +341,27 @@ export async function seasonHeroes(
     const path = `/heroes/frequent?${request}`;
     const r = await remember(token, path, 300, () => authenticated(path, token, readFrequentHeroes));
 
-    if (r.etat !== "ok") {
-      if (r.etat === "expired" || page === 0) return r;
-      return { etat: "ok", donnees: { heroes, full: false } };
+    if (r.status !== "ok") {
+      if (r.status === "expired" || page === 0) return r;
+      return { status: "ok", data: { heroes, full: false } };
     }
-    for (const h of r.donnees.entries) {
+    for (const h of r.data.entries) {
       if (seen.has(h.hero.hid)) continue;
       seen.add(h.hero.hid);
       heroes.push(h);
     }
     // A cursor that does not change would request the same page forever.
-    if (!r.donnees.next || r.donnees.next === cursor) {
-      return { etat: "ok", donnees: { heroes, full: true } };
+    if (!r.data.next || r.data.next === cursor) {
+      return { status: "ok", data: { heroes, full: true } };
     }
-    cursor = r.donnees.next;
+    cursor = r.data.next;
   }
-  return { etat: "ok", donnees: { heroes, full: false } };
+  return { status: "ok", data: { heroes, full: false } };
 }
 
 /** Match details: its participants, teams included. A played match never changes. */
 export function detailMatch(token: string, season: number, id: string): Promise<Result<Participant[]>> {
-  if (!seasonValid(season) || !ID.test(id)) return Promise.resolve({ etat: "unavailable" });
+  if (!seasonValid(season) || !ID.test(id)) return Promise.resolve({ status: "unavailable" });
   const path = `/matches/${id}?sid=${season}&lang=en`;
   return remember(token, path, 6 * 3600, () => authenticated(path, token, readDetailMatch));
 }
@@ -382,14 +382,14 @@ export async function detailsMatches(
   const worker = async () => {
     for (let p = file.shift(); p && !expire; p = file.shift()) {
       const r = await detailMatch(token, p.season, p.id);
-      if (r.etat === "expired") expire = true;
-      else if (r.etat === "ok" && r.donnees.length > 0) output.set(p.id, r.donnees);
+      if (r.status === "expired") expire = true;
+      else if (r.status === "ok" && r.data.length > 0) output.set(p.id, r.data);
     }
   };
   await Promise.all(Array.from({ length: Math.min(4, file.length) }, worker));
 
-  if (expire) return { etat: "expired" };
-  return output.size > 0 || matches.length === 0 ? { etat: "ok", donnees: output } : { etat: "unavailable" };
+  if (expire) return { status: "expired" };
+  return output.size > 0 || matches.length === 0 ? { status: "ok", data: output } : { status: "unavailable" };
 }
 
 /**
@@ -422,27 +422,27 @@ export async function friends(token: string): Promise<Result<Friend[]>> {
       cache: "no-store",
     });
 
-    if (response.status === 401) return { etat: "expired" };
-    if (!response.ok) return { etat: "unavailable" };
+    if (response.status === 401) return { status: "expired" };
+    if (!response.ok) return { status: "unavailable" };
 
     const envelope = (await response.json()) as {
       code?: number;
       data?: Array<{ sName?: string; sFacePath?: string }>;
     };
     if (envelope.code !== 0 || !Array.isArray(envelope.data)) {
-      return { etat: "unavailable" };
+      return { status: "unavailable" };
     }
 
     const list = envelope.data.map((a) => ({
-      nom: String(a.sName ?? ""),
+      name: String(a.sName ?? ""),
       avatar: a.sFacePath
         ? `https://akmpicture.youngjoygame.com/${a.sFacePath}`
         : null,
     }));
-    return { etat: "ok", donnees: list };
+    return { status: "ok", data: list };
   } catch (e) {
     void logError("authenticated call to the Moonton service", e);
-    return { etat: "unavailable" };
+    return { status: "unavailable" };
   }
 }
 

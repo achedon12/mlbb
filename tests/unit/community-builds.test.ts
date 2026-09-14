@@ -31,8 +31,8 @@ vi.mock("@/lib/session", () => ({ tokenCurrent: async () => session.token }));
 vi.mock("@/lib/mlbb-auth", () => ({
   profile: async (token: string) =>
     token.startsWith("player-")
-      ? { etat: "ok", donnees: { roleId: Number(token.slice(7)), zoneId: 7, name: `Player ${token.slice(7)}` } }
-      : { etat: "expired" },
+      ? { status: "ok", data: { roleId: Number(token.slice(7)), zoneId: 7, name: `Player ${token.slice(7)}` } }
+      : { status: "expired" },
 }));
 
 /**

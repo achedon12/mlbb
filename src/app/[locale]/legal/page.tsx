@@ -29,12 +29,12 @@ export default async function LegalPage({ params }: Params) {
         messageKey="legal"
         variables={{
           // Keys are the {placeholders} of the catalogue text.
-          editeur: legal.publisher,
-          editeurSite: legal.publisherSite,
+          publisher: legal.publisher,
+          publisherSite: legal.publisherSite,
           contact: legal.contact,
-          hebergeur: legal.host,
-          hebergeurSite: legal.hostSite,
-          depot: site.depot,
+          host: legal.host,
+          hostSite: legal.hostSite,
+          repository: site.repository,
         }}
       />
     </>

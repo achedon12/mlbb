@@ -53,16 +53,16 @@ function sheet(locale: Locale, slug: string) {
   const sentences = first
     ? [
         t("pages.emblemDetail.desc", {
-          nom: name,
+          name: name,
           bonus,
           n: heroes.length,
-          heros: listNames(locale, heroes.slice(0, 3).map((h) => heroName(h.slug))),
+          heroes: listNames(locale, heroes.slice(0, 3).map((h) => heroName(h.slug))),
         }),
         ...(talents[2].length
           ? [t("pages.emblemDetail.talentsDesc", { talents: listNames(locale, talents[2].slice(0, 2).map((p) => nameTalent(t, p.key))) })]
           : []),
       ]
-    : [t("pages.emblemDetail.descWithout", { nom: name, bonus, pourQui: bestFor })];
+    : [t("pages.emblemDetail.descWithout", { name: name, bonus, forWho: bestFor })];
   return {
     f,
     t,
@@ -71,7 +71,7 @@ function sheet(locale: Locale, slug: string) {
     bestFor,
     heroes,
     talents,
-    title: t("pages.emblemDetail.title", { nom: name, v: patchCurrent?.version ?? "" }),
+    title: t("pages.emblemDetail.title", { name: name, v: patchCurrent?.version ?? "" }),
     lead: sentences.join(" "),
     description: [...sentences, t("pages.sheets.updateDesc", { date: longDate(locale) })].join(" "),
   };
@@ -91,7 +91,7 @@ export default async function EmblemPage({ params }: Params) {
   const { f, t, name, heroes, talents } = fi;
 
   const spellsBySlug = new Map(spellSheets.map((s) => [s.slug, s]));
-  const sorts = partsWith("emblem", slug, "spell")
+  const spells = partsWith("emblem", slug, "spell")
     .slice(0, 4)
     .map((p) => {
       const s = spellsBySlug.get(p.key);
@@ -117,7 +117,7 @@ export default async function EmblemPage({ params }: Params) {
     name,
     summary: fi.bonus,
     image: f.image,
-    listName: t("pages.sheets.listLd", { nom: name }),
+    listName: t("pages.sheets.listLd", { name: name }),
     heroes: heroes.slice(0, 10).map((h) => ({ name: heroName(h.slug), slug: h.slug })),
   });
 
@@ -181,11 +181,11 @@ export default async function EmblemPage({ params }: Params) {
           </section>
         )}
 
-        {sorts.length > 0 && (
+        {spells.length > 0 && (
           <section>
             <SectionTitle lead={t("pages.emblemDetail.spellsIntro")}>{t("pages.emblemDetail.spellsTitle")}</SectionTitle>
             <div className="max-w-md">
-              <PartsChoice locale={locale} entries={sorts} />
+              <PartsChoice locale={locale} entries={spells} />
             </div>
           </section>
         )}

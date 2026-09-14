@@ -15,7 +15,7 @@ import { disconnect } from "@/lib/actions";
 import { formatCount, formatPercent } from "@/lib/player-format";
 import type { StatsPlayer } from "@/lib/player-api";
 import { friends, statistics } from "@/lib/mlbb-auth";
-import { nameCountry, readableRank } from "@/lib/ranks";
+import { countryName, readableRank } from "@/lib/ranks";
 import { sessionPlayer } from "@/lib/session";
 import { summaryLastPatch } from "@/lib/patch-tracking";
 
@@ -97,7 +97,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
           </div>
           <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-chalk-500">
             <span>{t("pages.account.levelX", { n: profile.level })}</span>
-            <span>{nameCountry(profile.country)}</span>
+            <span>{countryName(profile.country, locale)}</span>
             <span>ID {profile.roleId} ({profile.zoneId})</span>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
           </dd>
         </div>
         <Figure label={t("pages.account.level")} value={profile.level} />
-        <Figure label={t("pages.account.friends")} value={friendList.etat === "ok" ? friendList.donnees.length : "—"} />
+        <Figure label={t("pages.account.friends")} value={friendList.status === "ok" ? friendList.data.length : "—"} />
       </dl>
 
       {/* ── Statistics ─────────────────────────────────────────────────── */}
@@ -136,8 +136,8 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
         <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.statistics")}</h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
-        {stats.etat === "ok" ? (
-          <SummaryStatistics stats={stats.donnees} locale={locale} />
+        {stats.status === "ok" ? (
+          <SummaryStatistics stats={stats.data} locale={locale} />
         ) : (
           <Card className="mt-6 border-gold-500/25">
             <p className="text-sm leading-relaxed text-chalk-300">
@@ -163,18 +163,18 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
       </section>
 
       {/* ── Friends ────────────────────────────────────────────────────── */}
-      {friendList.etat === "ok" && friendList.donnees.length > 0 && (
+      {friendList.status === "ok" && friendList.data.length > 0 && (
         <section className="mt-12">
           <div className="flex items-baseline gap-3">
             <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.account.friends")}</h2>
-            <span className="text-sm text-chalk-500">{friendList.donnees.length}</span>
+            <span className="text-sm text-chalk-500">{friendList.data.length}</span>
           </div>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
           <ul className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {friendList.donnees.map((friend, i) => (
+            {friendList.data.map((friend, i) => (
               <li
-                key={`${friend.nom}-${i}`}
+                key={`${friend.name}-${i}`}
                 className="bevel flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5"
               >
                 <span className="bevel-sm relative size-10 shrink-0 overflow-hidden bg-night-800">
@@ -182,11 +182,11 @@ export default async function AccountPage({ params }: { params: Promise<{ locale
                     <Image src={friend.avatar} alt="" fill sizes="40px" className="object-cover" />
                   ) : (
                     <span className="grid size-full place-items-center text-xs text-chalk-500">
-                      {friend.nom.slice(0, 1).toUpperCase()}
+                      {friend.name.slice(0, 1).toUpperCase()}
                     </span>
                   )}
                 </span>
-                <span className="min-w-0 truncate text-sm text-chalk-100">{friend.nom}</span>
+                <span className="min-w-0 truncate text-sm text-chalk-100">{friend.name}</span>
               </li>
             ))}
           </ul>

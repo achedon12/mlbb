@@ -8,7 +8,7 @@ import type { Locale } from "@/i18n/config";
 export function countAdjustments(adjustments: { type: AdjustmentType | null }[]) {
   const buffs = adjustments.filter((a) => a.type === "buff").length;
   const nerfs = adjustments.filter((a) => a.type === "nerf").length;
-  return { buffs, nerfs, autres: adjustments.length - buffs - nerfs };
+  return { buffs, nerfs, others: adjustments.length - buffs - nerfs };
 }
 
 /**
@@ -77,17 +77,17 @@ export function itemsPopular(locale: Locale, count = 3): string[] {
  * Battle spell and talent most chosen in each hero's most played build, all
  * ranks. English names, as the API gives them.
  */
-export function choicePopular(): { sort: string | null; talent: string | null } {
-  const sorts = new Map<string, number>();
+export function choicePopular(): { spell: string | null; talent: string | null } {
+  const spells = new Map<string, number>();
   const talents = new Map<string, number>();
   for (const byLane of Object.values(buildsPlayed)) {
     for (const byRank of Object.values(byLane)) {
       const b = byRank.all?.[0];
       if (!b) continue;
-      if (b.spell) sorts.set(b.spell, (sorts.get(b.spell) ?? 0) + 1);
+      if (b.spell) spells.set(b.spell, (spells.get(b.spell) ?? 0) + 1);
       for (const t of b.talents) talents.set(t, (talents.get(t) ?? 0) + 1);
     }
   }
   const first = (m: Map<string, number>) => [...m].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0] ?? null;
-  return { sort: first(sorts), talent: first(talents) };
+  return { spell: first(spells), talent: first(talents) };
 }

@@ -59,7 +59,7 @@ export default async function QuizPage({ params }: Params) {
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <ul className="mt-4 list-disc space-y-2 pl-5 leading-relaxed text-chalk-300">
             <li>{t("pages.quiz.rule1")}</li>
-            <li>{t("pages.quiz.rule2", { heros: ATTEMPTS.skill, objets: ATTEMPTS.item })}</li>
+            <li>{t("pages.quiz.rule2", { heroes: ATTEMPTS.skill, items: ATTEMPTS.item })}</li>
             <li>{t("pages.quiz.rule3")}</li>
             <li>{t("pages.quiz.rule4")}</li>
           </ul>

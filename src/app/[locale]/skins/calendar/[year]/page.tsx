@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OpenAnchor } from "@/components/open-anchor";
 import { notFound } from "next/navigation";
 import { propsCardSkin } from "@/components/skin-card";
 import { WikiCredit } from "@/components/wiki-credit";
@@ -33,7 +34,7 @@ export function generateStaticParams() {
 
 function yearOf(year: string): YearSkins | null {
   const n = Number(year);
-  return groupByDate(releasedSkins().filter((s) => readRelease(s.release)?.year === n), "chronologique")[0] ?? null;
+  return groupByDate(releasedSkins().filter((s) => readRelease(s.release)?.year === n), "chronological")[0] ?? null;
 }
 
 /** Series and heroes that dominate the year, in figures. */
@@ -57,10 +58,10 @@ function description(locale: Locale, a: YearSkins): string {
   const f = factsYear(a);
   const heroes = catalogHeroes();
   return t("pages.seo.calendarYear.description", {
-    annee: a.year,
+    year: a.year,
     n: a.total,
     series: listNames(locale, f.series.slice(0, 3).map((s) => `${seriesLabel(t, s.series)} (${s.total})`)) || "—",
-    heros: f.heroes[0] ? `${heroes.get(f.heroes[0][0])?.name ?? f.heroes[0][0]} (${f.heroes[0][1]})` : "—",
+    hero: f.heroes[0] ? `${heroes.get(f.heroes[0][0])?.name ?? f.heroes[0][0]} (${f.heroes[0][1]})` : "—",
   });
 }
 
@@ -70,7 +71,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!a) return {};
   const t = createT(locale);
   return metaPage(locale, {
-    title: t("pages.seo.calendarYear.title", { annee: a.year }),
+    title: t("pages.seo.calendarYear.title", { year: a.year }),
     description: description(locale, a),
     path: `/skins/calendar/${a.year}`,
     keywords: [`MLBB skins ${a.year}`, `Mobile Legends skins ${a.year}`, "skin release date"],
@@ -91,24 +92,24 @@ export default async function SkinsYearPage({ params }: Params) {
   const i = years.indexOf(a.year);
   const [next, previous] = [years[i - 1], years[i + 1]];
   const nameMonth = (m: number) => uppercase(monthYear(locale, `${a.year}-${String(m).padStart(2, "0")}-01`), localeHtml);
-  const anchor = (m: number | null) => (m ? `m-${String(m).padStart(2, "0")}` : "m-inconnu");
+  const anchor = (m: number | null) => (m ? `m-${String(m).padStart(2, "0")}` : "m-unknown");
 
   const facts = [
     f.series.length > 0 &&
       t("pages.skinsCalendar.year.factSeries", {
-        liste: listNames(locale, f.series.slice(0, 5).map((s) => `${seriesLabel(t, s.series)} (${s.total})`)),
+        list: listNames(locale, f.series.slice(0, 5).map((s) => `${seriesLabel(t, s.series)} (${s.total})`)),
       }),
     f.heroes.length > 0 &&
       t("pages.skinsCalendar.year.factHeroes", {
-        liste: listNames(locale, f.heroes.slice(0, 3).map(([s, n]) => `${heroes.get(s)?.name ?? s} (${n})`)),
+        list: listNames(locale, f.heroes.slice(0, 3).map(([s, n]) => `${heroes.get(s)?.name ?? s} (${n})`)),
       }),
     t("pages.skinsCalendar.year.factRarities", {
-      liste: listNames(locale, f.rarities.map(([r, n]) => `${labelRarity(t, r)} (${n})`)),
+      list: listNames(locale, f.rarities.map(([r, n]) => `${labelRarity(t, r)} (${n})`)),
     }),
   ].filter((x): x is string => !!x);
 
   const structuredData = dataListSkins(locale, {
-    name: t("pages.skinsCalendar.year.title", { annee: a.year }),
+    name: t("pages.skinsCalendar.year.title", { year: a.year }),
     description: description(locale, a),
     path: `/skins/calendar/${a.year}`,
     elements: a.month.flatMap((m) =>
@@ -141,9 +142,11 @@ export default async function SkinsYearPage({ params }: Params) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      {/* The undated group's former anchor, still found in shared links. */}
+      <OpenAnchor aliases={{ "m-inconnu": "m-unknown" }} />
       <PageHeader
-        title={t("pages.skinsCalendar.year.title", { annee: a.year })}
-        lead={t("pages.skinsCalendar.year.lead", { annee: a.year, n: count.format(a.total) })}
+        title={t("pages.skinsCalendar.year.title", { year: a.year })}
+        lead={t("pages.skinsCalendar.year.lead", { year: a.year, n: count.format(a.total) })}
         crumbs={[
           { name: t("pages.skinsCalendar.crumbSkins"), href: "/skins" },
           { name: t("pages.skinsCalendar.crumb"), href: "/skins/calendar" },

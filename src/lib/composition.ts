@@ -41,22 +41,35 @@ export interface Bucket {
 }
 
 /**
+ * Version of the `MeasuresRank` shape, part of the file URL. The file is cached
+ * for an hour by the browser and kept offline by the service worker: bumping
+ * the version whenever a field is renamed keeps new code from reading an old
+ * copy.
+ */
+const MEASURES_FORMAT = 2;
+
+/** Address of the measurements file of a rank. */
+export function measuresUrl(rank: MeasuredRank): string {
+  return `/composition/${rank}.json?v=${MEASURES_FORMAT}`;
+}
+
+/**
  * Measurements of one rank for the whole roster. One static file per rank
  * (`/composition/<rank>.json`): the page embeds nothing that depends on the
  * rank, and the browser only loads the ranks viewed.
  */
 export interface MeasuresRank {
-  rang: MeasuredRank;
+  rank: MeasuredRank;
   /** Win rate and tier of each hero ranked at this rank. */
   stats: Record<string, [win: number, tier: Tier]>;
   /** Buckets shared by all heroes. */
-  tranches: Bucket[];
-  /** Win rate of each hero per bucket, in the order of `tranches`. */
-  duree: Record<string, number[]>;
+  buckets: Bucket[];
+  /** Win rate of each hero per bucket, in the order of `buckets`. */
+  duration: Record<string, number[]>;
   /** Teammates who raise each hero's win rate the most. */
-  coequipiers: Record<string, Gap[]>;
+  teammates: Record<string, Gap[]>;
   /** Opponents against whom each hero loses the most (negative gap). */
-  faible: Record<string, Gap[]>;
+  weak: Record<string, Gap[]>;
 }
 
 const average = (l: number[]) => l.reduce((a, b) => a + b, 0) / l.length;
@@ -126,14 +139,14 @@ export function countRoles(team: Pick<TeamHero, "roles">[]): Record<Role, number
 
 export interface Damage extends Record<TypeDamage, number> {
   /** Share of physical damage, a mixed hero counting as half; null when no hero has the data. */
-  partPhysique: number | null;
+  physicalShare: number | null;
 }
 
 export function breakdownDamage(team: Pick<TeamHero, "damage">[]): Damage {
   const d = { physical: 0, magic: 0, mixed: 0 };
   for (const h of team) if (h.damage) d[h.damage] += 1;
   const total = d.physical + d.magic + d.mixed;
-  return { ...d, partPhysique: total ? (d.physical + d.mixed / 2) / total : null };
+  return { ...d, physicalShare: total ? (d.physical + d.mixed / 2) / total : null };
 }
 
 export type Note = keyof HeroRatings;
@@ -179,12 +192,12 @@ export interface CurveTeam {
 
 /** Team strength by match duration: the average of its heroes' curves. */
 export function curveTeam(slugs: string[], measures: MeasuresRank): CurveTeam | null {
-  const n = measures.tranches.length;
-  const measures_ = slugs.flatMap((s) => (measures.duree[s]?.length === n ? [[s, measures.duree[s]] as const] : []));
+  const n = measures.buckets.length;
+  const measures_ = slugs.flatMap((s) => (measures.duration[s]?.length === n ? [[s, measures.duration[s]] as const] : []));
   if (n < 2 || measures_.length === 0) return null;
-  const win = measures.tranches.map((_, i) => round(average(measures_.map(([, d]) => d[i]))));
+  const win = measures.buckets.map((_, i) => round(average(measures_.map(([, d]) => d[i]))));
   return {
-    buckets: measures.tranches,
+    buckets: measures.buckets,
     win,
     profile: profileDuration(win),
     pic: win.indexOf(Math.max(...win)),
@@ -211,8 +224,8 @@ export function synergiesInternal(
   team: Pick<TeamHero, "slug" | "synergies">[],
   measures: MeasuresRank,
 ): Pair[] {
-  const gain = (de: string, partner: string) =>
-    (measures.coequipiers[de] ?? []).find(([s, p]) => s === partner && p > 0)?.[1] ?? null;
+  const gain = (hero: string, partner: string) =>
+    (measures.teammates[hero] ?? []).find(([s, p]) => s === partner && p > 0)?.[1] ?? null;
   const pairs: Pair[] = [];
   team.forEach((a, i) => {
     for (const b of team.slice(i + 1)) {
@@ -244,7 +257,7 @@ export const MIN_TARGETS = 2;
 export function threats(slugs: string[], measures: MeasuresRank, limit = 6): Threat[] {
   const byOpponent = new Map<string, Gap[]>();
   for (const s of slugs) {
-    for (const [opponent, points] of measures.faible[s] ?? []) {
+    for (const [opponent, points] of measures.weak[s] ?? []) {
       if (points >= 0 || slugs.includes(opponent)) continue;
       byOpponent.set(opponent, [...(byOpponent.get(opponent) ?? []), [s, points]]);
     }
@@ -297,9 +310,9 @@ export function alerts(team: TeamHero[], assignment: Assignment): Alert[] {
   if (!team.some((h) => h.roles.includes("Tank"))) output.push({ type: "tank" });
   const damage = breakdownDamage(team);
   const filled = damage.physical + damage.magic + damage.mixed;
-  if (filled >= MIN_ALERTS && damage.partPhysique !== null) {
-    if (damage.partPhysique >= THRESHOLDS.damage) output.push({ type: "damage", dominant: "physical" });
-    else if (damage.partPhysique <= 1 - THRESHOLDS.damage) output.push({ type: "damage", dominant: "magic" });
+  if (filled >= MIN_ALERTS && damage.physicalShare !== null) {
+    if (damage.physicalShare >= THRESHOLDS.damage) output.push({ type: "damage", dominant: "physical" });
+    else if (damage.physicalShare <= 1 - THRESHOLDS.damage) output.push({ type: "damage", dominant: "magic" });
   }
   const notes = profileNotes(team);
   if (notes.abilityEffects !== null && notes.abilityEffects < THRESHOLDS.control) {
@@ -341,7 +354,7 @@ export function suggestionsTeam({
     win: measures?.stats[h.slug]?.[0] ?? null,
     strongAgainst: [],
     weakAgainst: [],
-    synergies: [...new Set([...h.synergies, ...(measures?.coequipiers[h.slug] ?? []).map(([s]) => s)])],
+    synergies: [...new Set([...h.synergies, ...(measures?.teammates[h.slug] ?? []).map(([s]) => s)])],
   }));
   return lanes.map((lane) => ({ lane, picks: suggest({ candidates, lane, enemies: [], allies: slugs, limit }) }));
 }

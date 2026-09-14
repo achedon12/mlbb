@@ -10,6 +10,7 @@
  * Pure module: no request, so it can be tested on small excerpts. Network and
  * cache live in `esports.mjs`.
  */
+import { removeComments, removeTags } from "./tags.mjs";
 
 // ─────────────────────────────────────────────────────────────
 // Wikitext: templates and parameters
@@ -27,7 +28,7 @@ export function prepare(raw) {
     /<!--\s*([^<>]*?)\s*-->(?=\s*\|\s*R\d+M\d+\s*=)/g,
     (_, title) => `|§header=${title.replace(/[|{}=[\]]/g, " ")}`,
   );
-  return marked.replace(/<!--[\s\S]*?(?:-->|$)/g, "");
+  return removeComments(marked);
 }
 
 function blockEnd(text, start) {
@@ -136,11 +137,14 @@ export function plainText(value) {
   let t = value;
   // Nested templates: removed from the inside out.
   for (let i = 0; i < 5 && t.includes("{{"); i += 1) t = t.replace(/\{\{[^{}]*\}\}/g, "");
-  return t
-    .replace(/\[\[(?:[^|\]]*\|)?([^\]]*)\]\]/g, "$1")
-    .replace(/\[https?:\/\/\S+\s+([^\]]*)\]/g, "$1")
-    .replace(/<br\s*\/?>/gi, " ")
-    .replace(/<[^>]+>/g, "")
+  return removeTags(
+    t
+      .replace(/\[\[(?:[^|\]]*\|)?([^\]]*)\]\]/g, "$1")
+      .replace(/\[https?:\/\/\S+\s+([^\]]*)\]/g, "$1")
+      // A line break separates words: it becomes a space before the other
+      // tags go.
+      .replace(/<br\s*\/?>/gi, " "),
+  )
     .replace(/'{2,}/g, "")
     .replace(/&nbsp;/g, " ")
     .replace(/\(\s*\)/g, "")

@@ -61,7 +61,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       image: images[o.slug] ?? null,
     })),
     ...emblemsSheets.map((f) => {
-      const key = `emblemData.${f.emblem.key}.nom`;
+      const key = `emblemData.${f.emblem.key}.name`;
       const name = t(key);
       return {
         type: "emblem" as const,
@@ -76,7 +76,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
     // search lends them their hero's icon, already in the index.
     ...allHeroes.flatMap((h) =>
       (skillsLocale[h.slug] ?? []).flatMap((c) =>
-        c ? [{ type: "skill" as const, title: c.name, detail: h.name, href: `/heroes/${h.slug}#competences` }] : [],
+        c ? [{ type: "skill" as const, title: c.name, detail: h.name, href: `/heroes/${h.slug}#skills` }] : [],
       ),
     ),
     ...allHeroes.flatMap((h) =>

@@ -225,7 +225,7 @@ export function SkinExplorer({
                       </span>
                     </h3>
                     {a.month.map((m) => (
-                      <div key={m.month ?? "inconnu"} className="mt-4">
+                      <div key={m.month ?? "unknown"} className="mt-4">
                         <h4 className="text-sm font-semibold uppercase tracking-wide text-gold-400">
                           {m.month ? formatMonth.format(Date.UTC(a.year, m.month - 1, 1)) : t("pages.skinsCalendarUI.unknownMonth")}
                         </h4>

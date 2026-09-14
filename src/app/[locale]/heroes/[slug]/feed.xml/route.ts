@@ -80,7 +80,7 @@ ${date ? `      <pubDate>${new Date(date).toUTCString()}</pubDate>\n` : ""}${typ
   <channel>
     <title>${escape(`${h.name} — ${t("pages.heroDetail.statistics.adjustments")} · ${site.name}`)}</title>
     <link>${sheet}</link>
-    <description>${escape(t("pages.heroDetail.statistics.adjustmentsIntro", { nom: h.name }))}</description>
+    <description>${escape(t("pages.heroDetail.statistics.adjustmentsIntro", { name: h.name }))}</description>
     <language>${LOCALE_HTML[locale].toLowerCase()}</language>
 ${last ? `    <lastBuildDate>${new Date(last).toUTCString()}</lastBuildDate>\n` : ""}    <generator>${escape(site.name)}</generator>
     <atom:link href="${absoluteUrl(`/${locale}/heroes/${slug}/feed.xml`)}" rel="self" type="application/rss+xml" />

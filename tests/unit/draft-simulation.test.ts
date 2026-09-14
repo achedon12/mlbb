@@ -50,12 +50,12 @@ const roster: DraftHero[] = ROSTER_LANES.flatMap((lane) =>
 const known = new Set(roster.map((h) => h.slug));
 
 const emptyMeasures = (o: Partial<MeasuresRank> = {}): MeasuresRank => ({
-  rang: "mythic",
+  rank: "mythic",
   stats: {},
-  tranches: [],
-  duree: {},
-  coequipiers: {},
-  faible: {},
+  buckets: [],
+  duration: {},
+  teammates: {},
+  weak: {},
   ...o,
 });
 
@@ -247,7 +247,7 @@ describe("bot", () => {
     const turns = expandTurns(sequence("tournament", "mythic"));
     // Empty bans, then blue takes gold-0; red answers.
     const choices: Choice[] = [...Array(10).fill(null), "gold-0"];
-    const measures = emptyMeasures({ faible: { "gold-0": [["jungle-3", -3.2]] } });
+    const measures = emptyMeasures({ weak: { "gold-0": [["jungle-3", -3.2]] } });
     const [best] = rankPicks(turns, choices, turns[choices.length], ctx({ measures }));
     expect(best.slug).toBe("jungle-3");
     expect(best.reason).toEqual({ type: "counter", targets: ["gold-0"], points: 3.2 });
@@ -257,7 +257,7 @@ describe("bot", () => {
   it("prefers a measured duo with its own picks", () => {
     const turns = expandTurns(sequence("tournament", "mythic"));
     const choices: Choice[] = [...Array(10).fill(null), "gold-0", "gold-1", "roam-1"];
-    const measures = emptyMeasures({ coequipiers: { "gold-0": [["mid-4", 2.1]] } });
+    const measures = emptyMeasures({ teammates: { "gold-0": [["mid-4", 2.1]] } });
     const [best] = rankPicks(turns, choices, turns[choices.length], ctx({ measures }));
     expect(best).toMatchObject({ slug: "mid-4", reason: { type: "duo", partners: ["gold-0"], points: 2.1 } });
   });
@@ -284,8 +284,8 @@ describe("bot", () => {
 describe("summary", () => {
   const measures = emptyMeasures({
     // gold-0 (blue) loses 3 points to gold-1 (red); jungle-1 (red) loses 1 point to jungle-0 (blue).
-    faible: { "gold-0": [["gold-1", -3]], "jungle-1": [["jungle-0", -1]], "gold-1": [["gold-0", -1]] },
-    coequipiers: { "gold-0": [["jungle-0", 2]] },
+    weak: { "gold-0": [["gold-1", -3]], "jungle-1": [["jungle-0", -1]], "gold-1": [["gold-0", -1]] },
+    teammates: { "gold-0": [["jungle-0", 2]] },
   });
 
   it("reads each matchup both ways, from the blue side", () => {
@@ -298,7 +298,7 @@ describe("summary", () => {
   it("gives a bounded index in points, and the number of measurements behind it", () => {
     const a = measuredAdvantage(["gold-0", "jungle-0"], ["gold-1", "jungle-1"], measures);
     expect(a).toEqual({ counters: 0, duos: { blue: 2, red: 0 }, total: 2, blueShare: 0.6, measures: 3 });
-    const crushed = measuredAdvantage(["gold-0"], ["gold-1"], emptyMeasures({ faible: { "gold-1": [["gold-0", -40]] } }));
+    const crushed = measuredAdvantage(["gold-0"], ["gold-1"], emptyMeasures({ weak: { "gold-1": [["gold-0", -40]] } }));
     expect(crushed.blueShare).toBe(0.95);
   });
 });

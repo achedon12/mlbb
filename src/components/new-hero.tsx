@@ -146,7 +146,7 @@ export function NewHero({ hero: heroes, locale }: { hero: EnrichedNewHero; local
           href={`/heroes/${heroes.slug}`}
           className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-400 hover:text-gold-500"
         >
-          {t("newHero.seeSheet", { nom: heroes.name })}
+          {t("newHero.seeSheet", { name: heroes.name })}
           <ArrowRight size={14} aria-hidden />
         </Link>
       )}

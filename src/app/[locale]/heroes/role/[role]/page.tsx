@@ -48,7 +48,7 @@ function roleHeroes(role: Role) {
 
 const markers = (t: T, role: Role, n: number) => ({
   role: t(`roles.${role}`),
-  pluriel: t(`pages.tierList.rolePlural.${role}`),
+  plural: t(`pages.tierList.rolePlural.${role}`),
   n,
 });
 

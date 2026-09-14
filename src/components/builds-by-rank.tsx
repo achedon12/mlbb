@@ -26,7 +26,7 @@ export interface ResolvedBuild {
   items: ResolvedItem[];
   emblem: ResolvedVisual | null;
   talents: ResolvedVisual[];
-  sort: ResolvedVisual | null;
+  spell: ResolvedVisual | null;
   /** Build win rate, in %. */
   win: number | null;
   /** Share of matches it appears in, in %. */
@@ -38,7 +38,7 @@ export interface ResolvedGuide {
   items: ResolvedItem[];
   emblem: ResolvedVisual | null;
   talents: ResolvedVisual[];
-  sort: ResolvedVisual | null;
+  spell: ResolvedVisual | null;
   /** Author's highest rank reached, as a rank emblem key. */
   author: { key: string; division: string } | null;
   votes: number;
@@ -98,13 +98,13 @@ export function BuildsByRank({
               <span className="font-heading font-bold text-gold-400">{t("builds.build", { n: i + 1 })}</span>
               {b.win !== null && (
                 <span className="text-xs font-semibold tabular-nums text-emerald-400">
-                  {t("builds.win", { taux: b.win.toFixed(1) })}
+                  {t("builds.win", { rate: b.win.toFixed(1) })}
                 </span>
               )}
             </div>
             {b.selection !== null && (
               <p className="mt-0.5 text-xs tabular-nums text-chalk-500">
-                {t("builds.pick", { taux: b.selection.toFixed(1) })}
+                {t("builds.pick", { rate: b.selection.toFixed(1) })}
               </p>
             )}
 
@@ -134,7 +134,7 @@ export function BuildsByRank({
                   image={talent.image}
                 />
               ))}
-              {b.sort && <BuildPicker label={t("builds.spell")} name={b.sort.name} image={b.sort.image} href={b.sort.href} />}
+              {b.spell && <BuildPicker label={t("builds.spell")} name={b.spell.name} image={b.spell.image} href={b.spell.href} />}
             </div>
           </li>
         ))}
@@ -148,7 +148,7 @@ export function BuildsByRank({
             <p className="text-xs text-chalk-500">
               {guide.author &&
                 t("builds.guideAuthor", {
-                  rang: `${t(`rankNames.${guide.author.key}`)}${guide.author.division ? ` ${guide.author.division}` : ""}`,
+                  rank: `${t(`rankNames.${guide.author.key}`)}${guide.author.division ? ` ${guide.author.division}` : ""}`,
                 })}
               {guide.author && " · "}
               {t("builds.guideVotes", { n: guide.votes })}
@@ -177,8 +177,8 @@ export function BuildsByRank({
                   image={talent.image}
                 />
               ))}
-              {guide.sort && (
-                <BuildPicker label={t("builds.spell")} name={guide.sort.name} image={guide.sort.image} href={guide.sort.href} />
+              {guide.spell && (
+                <BuildPicker label={t("builds.spell")} name={guide.spell.name} image={guide.spell.image} href={guide.spell.href} />
               )}
             </div>
           </div>

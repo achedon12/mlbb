@@ -29,12 +29,12 @@ function textEmb(t: (k: string) => string, key: string, field: string, fallback:
 export function EmblemGuide({
   emblems,
   talents,
-  sorts,
+  spells,
   images,
 }: {
   emblems: Emblem[];
   talents: Talent[];
-  sorts: BattleSpell[];
+  spells: BattleSpell[];
   images: Record<string, string>;
 }) {
   const t = useT();
@@ -100,7 +100,7 @@ export function EmblemGuide({
               href={`/emblems/${slugEmblem(chosen)}`}
               className="mt-2 block px-2.5 text-xs font-semibold text-gold-400 underline underline-offset-4 hover:text-gold-500"
             >
-              {t("emblemsUI.seePage", { nom: textEmb(t, chosen.key, "name", chosen.name) })} →
+              {t("emblemsUI.seePage", { name: textEmb(t, chosen.key, "name", chosen.name) })} →
             </Link>
           )}
 
@@ -129,7 +129,7 @@ export function EmblemGuide({
         <Section
           title={t("emblemsUI.spells")}
           lead={t("emblemsUI.spellsDesc")}
-          entries={order(sorts)}
+          entries={order(spells)}
           images={images}
           adapted={adapted}
           link={(key) => `/spells/${key}`}

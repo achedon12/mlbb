@@ -86,10 +86,10 @@ function variables(locale: Locale, t: T, rank: MeasuredRank, rows: RowStat[]) {
   const best = firstBy(rows, "win");
   return {
     v: patchCurrent?.version ?? "",
-    rang: t(`measuredRanks.${rank}`),
+    rank: t(`measuredRanks.${rank}`),
     n: rows.length,
-    nom: best.name,
-    taux: percentage(locale, best.win),
+    name: best.name,
+    rate: percentage(locale, best.win),
     date: longDate(locale),
   };
 }
@@ -110,7 +110,7 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
   const all = rank === "all";
   const rows = rowsOfRank(rank);
   const nameRank = t(`measuredRanks.${rank}`);
-  const title = all ? t("pages.statistics.title") : t("pages.statistics.titleRank", { rang: nameRank });
+  const title = all ? t("pages.statistics.title") : t("pages.statistics.titleRank", { rank: nameRank });
   const win = firstBy(rows, "win");
   const ban = firstBy(rows, "ban");
   const pick = firstBy(rows, "pick");
@@ -127,7 +127,7 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
   const data = {
     "@context": "https://schema.org",
     "@type": "Dataset",
-    name: t("pages.statistics.ldName", { rang: nameRank }),
+    name: t("pages.statistics.ldName", { rank: nameRank }),
     description: t(all ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRank", variables(locale, t, rank, rows)),
     url: `${site.url}/${locale}${pathStatistics(rank)}`,
     inLanguage: LOCALE_HTML[locale],
@@ -159,7 +159,7 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
       <PageHeader
         title={title}
-        lead={all ? t("pages.statistics.lead") : t("pages.statistics.leadRank", { rang: nameRank })}
+        lead={all ? t("pages.statistics.lead") : t("pages.statistics.leadRank", { rank: nameRank })}
         crumbs={
           all
             ? undefined
@@ -179,31 +179,31 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
         {/* Data sentence: what search results pick up as a snippet. */}
         <p className="mb-8 max-w-3xl leading-relaxed text-chalk-300">
           {t("pages.statistics.summary", {
-            contexte: all ? t("pages.statistics.contextAll") : t("pages.statistics.contextRank", { rang: nameRank }),
-            victoire: win.name,
-            tauxVictoire: percentage(locale, win.win),
+            context: all ? t("pages.statistics.contextAll") : t("pages.statistics.contextRank", { rank: nameRank }),
+            win: win.name,
+            winRate: percentage(locale, win.win),
             ban: ban.name,
-            tauxBan: percentage(locale, ban.ban),
+            banRate: percentage(locale, ban.ban),
             pick: pick.name,
-            tauxPick: percentage(locale, pick.pick),
+            pickRate: percentage(locale, pick.pick),
           })}
         </p>
 
-        <StatisticsTable compactes={rows.map(encodeRow)} rank={rank} ranks={RANKS_CLASSES} />
+        <StatisticsTable compactRows={rows.map(encodeRow)} rank={rank} ranks={RANKS_CLASSES} />
 
         <section className="mt-12">
           <div className="grid gap-6 md:grid-cols-2">
             <Moves locale={locale} t={t} title={t("pages.statistics.rises")} list={rises} />
             <Moves locale={locale} t={t} title={t("pages.statistics.falls")} list={drops} />
           </div>
-          <p className="mt-3 text-xs text-chalk-500">{t("pages.statistics.movementsIntro", { seuil: threshold })}</p>
+          <p className="mt-3 text-xs text-chalk-500">{t("pages.statistics.movementsIntro", { threshold: threshold })}</p>
         </section>
 
         <details className="bevel mt-10 border border-night-700/70 bg-night-900/60 p-5">
           <summary className="cursor-pointer font-heading font-bold text-gold-400">{t("pages.statistics.reading.title")}</summary>
           <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-chalk-300">
             {(["win", "ban", "pick", "trend", "curve", "tier", "weak"] as const).map((c) => (
-              <li key={c}>{t(`pages.statistics.reading.${c}`, { seuil: threshold })}</li>
+              <li key={c}>{t(`pages.statistics.reading.${c}`, { threshold: threshold })}</li>
             ))}
           </ul>
         </details>
@@ -213,7 +213,7 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
             href={all ? "/tier-list" : `/tier-list/${rank}`}
             className="font-semibold text-gold-400 underline-offset-4 hover:underline"
           >
-            {all ? t("pages.tierList.title") : t("pages.tierList.titleRank", { rang: nameRank })} →
+            {all ? t("pages.tierList.title") : t("pages.tierList.titleRank", { rank: nameRank })} →
           </Link>
           <span className="text-chalk-500">
             {t("pages.statistics.api")}{" "}

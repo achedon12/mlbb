@@ -62,7 +62,7 @@ export function StoryList({ groups, total }: { groups: GroupStories[]; total: nu
             {g.heroes.map(([slug, name, tagline, icon]) => (
               <li key={slug}>
                 <Link
-                  href={`/heroes/${slug}#histoire`}
+                  href={`/heroes/${slug}#story`}
                   className="bevel-sm flex h-full items-start gap-3 border border-night-700/50 bg-night-900/40 p-3 transition-colors hover:border-gold-500/60"
                 >
                   <HeroPortrait source={icon} name={name} size="icon" decorative />

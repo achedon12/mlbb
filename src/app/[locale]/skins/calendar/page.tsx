@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OpenAnchor } from "@/components/open-anchor";
 import { propsCardSkin } from "@/components/skin-card";
 import { WikiCredit } from "@/components/wiki-credit";
 import { SkinExplorer } from "@/components/skin-explorer";
@@ -45,9 +46,9 @@ function description(locale: Locale): string {
   const heroes = catalogHeroes();
   return t("pages.seo.skinsCalendar.description", {
     n: new Intl.NumberFormat(LOCALE_HTML[locale]).format(released.length),
-    debut: years.at(-1) ?? "",
-    fin: years[0] ?? "",
-    dernier: last ? `${last.name} (${heroes.get(last.hero)?.name ?? last.hero})` : "—",
+    start: years.at(-1) ?? "",
+    end: years[0] ?? "",
+    latest: last ? `${last.name} (${heroes.get(last.hero)?.name ?? last.hero})` : "—",
     date: last?.release ? formatRelease(last.release, LOCALE_HTML[locale]) : "—",
   });
 }
@@ -93,10 +94,10 @@ export default async function SkinsCalendarPage({ params }: Params) {
   const others = catalogSkins().skins.filter((s) => !isOrigin(s) && !released.includes(s));
   const upcomingCount = others.filter((s) => s.availability === "Upcoming").length;
   const futureCount = others.filter((s) => s.availability !== "Upcoming" && readRelease(s.release)).length;
-  const accuracy = { jour: 0, mois: 0, annee: 0 };
+  const accuracy = { day: 0, month: 0, year: 0 };
   for (const s of released) {
     const d = readRelease(s.release)!;
-    accuracy[d.day ? "jour" : d.month ? "mois" : "annee"] += 1;
+    accuracy[d.day ? "day" : d.month ? "month" : "year"] += 1;
   }
 
   const formatCourt = new Intl.DateTimeFormat(localeHtml, { month: "short", timeZone: "UTC" });
@@ -114,7 +115,7 @@ export default async function SkinsCalendarPage({ params }: Params) {
     name: t("pages.skinsCalendar.title"),
     description: description(locale),
     path: PATH,
-    elements: years.map((a) => ({ name: t("pages.skinsCalendar.year.title", { annee: a }), path: `${PATH}/${a}` })),
+    elements: years.map((a) => ({ name: t("pages.skinsCalendar.year.title", { year: a }), path: `${PATH}/${a}` })),
   });
 
   return (
@@ -124,38 +125,40 @@ export default async function SkinsCalendarPage({ params }: Params) {
         title={t("pages.skinsCalendar.title")}
         lead={t("pages.skinsCalendar.lead", {
           n: count.format(released.length),
-          debut: years.at(-1) ?? "",
-          fin: years[0] ?? "",
+          start: years.at(-1) ?? "",
+          end: years[0] ?? "",
         })}
         crumbs={[{ name: t("pages.skinsCalendar.crumbSkins"), href: "/skins" }, { name: t("pages.skinsCalendar.crumb") }]}
       >
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
+      {/* Section anchors before they were named in English, still found in shared links. */}
+      <OpenAnchor aliases={{ "ce-mois": "this-month", derniers: "latest", explorateur: "explorer" }} />
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
-        <section id="ce-mois" className="scroll-mt-24">
-          <SectionTitle>{t("pages.skinsCalendar.thisMonthTitle", { mois: monthYear(locale, dateReference) })}</SectionTitle>
+        <section id="this-month" className="scroll-mt-24">
+          <SectionTitle>{t("pages.skinsCalendar.thisMonthTitle", { month: monthYear(locale, dateReference) })}</SectionTitle>
           {ceMonth.length > 0 ? (
             grid(ceMonth)
           ) : (
             <p className="max-w-2xl leading-relaxed text-chalk-300">
               {t("pages.skinsCalendar.thisMonthEmpty", {
-                mois: monthYear(locale, dateReference),
-                dernier: lastMonth ? monthYear(locale, `${lastMonth}-01`) : "—",
+                month: monthYear(locale, dateReference),
+                latest: lastMonth ? monthYear(locale, `${lastMonth}-01`) : "—",
               })}{" "}
-              <a href="#derniers" className="font-semibold text-gold-400 hover:text-gold-500">
+              <a href="#latest" className="font-semibold text-gold-400 hover:text-gold-500">
                 {t("pages.skinsCalendar.seeLatest")}
               </a>
             </p>
           )}
         </section>
 
-        <section id="derniers" className="scroll-mt-24">
+        <section id="latest" className="scroll-mt-24">
           <SectionTitle lead={t("pages.skinsCalendar.latestLead")}>{t("pages.skinsCalendar.latestTitle")}</SectionTitle>
           {grid(recent)}
         </section>
 
-        <section id="explorateur" className="scroll-mt-24">
+        <section id="explorer" className="scroll-mt-24">
           <SectionTitle lead={t("pages.skinsCalendar.exploreLead")}>{t("pages.skinsCalendar.exploreTitle")}</SectionTitle>
           <ExtendMessages messages={messagesPage(locale, ["pages.skinsCalendarUI"])}>
             <SkinExplorer
@@ -202,7 +205,7 @@ export default async function SkinsCalendarPage({ params }: Params) {
                           {Array.from({ length: 12 }, (_, i) => {
                             const n = byMonth.get(i + 1) ?? 0;
                             const label = t("pages.skinsCalendar.monthCell", {
-                              mois: formatLong.format(Date.UTC(a.year, i, 1)),
+                              month: formatLong.format(Date.UTC(a.year, i, 1)),
                               n,
                             });
                             return (
@@ -247,7 +250,7 @@ export default async function SkinsCalendarPage({ params }: Params) {
                 >
                   {/* Plain link: the explorer reads its filters from the address on load. */}
                   <a
-                    href={`?serie=${encodeURIComponent(s.series)}#explorateur`}
+                    href={`?serie=${encodeURIComponent(s.series)}#explorer`}
                     className="truncate font-semibold text-chalk-100 hover:text-gold-400"
                   >
                     {seriesLabel(t, s.series)}
@@ -255,7 +258,7 @@ export default async function SkinsCalendarPage({ params }: Params) {
                   <span className="shrink-0 text-xs tabular-nums text-chalk-500">
                     {t("pages.skinsCalendar.seriesDetail", {
                       n: nSkins(s.total),
-                      periode: start && end && start !== end ? `${start}–${end}` : String(start ?? end ?? "—"),
+                      period: start && end && start !== end ? `${start}–${end}` : String(start ?? end ?? "—"),
                     })}
                   </span>
                 </li>
@@ -269,13 +272,13 @@ export default async function SkinsCalendarPage({ params }: Params) {
           <div className="max-w-3xl space-y-3 leading-relaxed text-chalk-300">
             <p>
               {t("pages.skinsCalendar.datesPrecision", {
-                jour: count.format(accuracy.jour),
-                mois: count.format(accuracy.mois),
-                annee: count.format(accuracy.annee),
+                day: count.format(accuracy.day),
+                month: count.format(accuracy.month),
+                year: count.format(accuracy.year),
               })}
             </p>
             {upcomingCount + futureCount > 0 && (
-              <p>{t("pages.skinsCalendar.datesSkipped", { aVenir: count.format(upcomingCount), futurs: count.format(futureCount) })}</p>
+              <p>{t("pages.skinsCalendar.datesSkipped", { upcoming: count.format(upcomingCount), future: count.format(futureCount) })}</p>
             )}
             <p>{t("pages.skinsCalendar.datesOrigin")}</p>
             <p>

@@ -71,7 +71,7 @@ const GROUPS: { key: string; fields: Field[] }[] = [
 const STYLE = ["accents", "terms", "original", "values", "concrete"];
 const STEPS = ["fork", "add", "check", "open", "reread", "merge"];
 
-const TEMPLATE = "docs/modele-analyse.ts";
+const TEMPLATE = "docs/analysis-template.ts";
 
 /**
  * The repository's template, shown as is: the page cannot drift from the
@@ -177,7 +177,7 @@ export default async function ContributePage({ params }: Params) {
               <code>{template}</code>
             </pre>
           )}
-          <a href={`${site.depot}/blob/main/${TEMPLATE}`} rel="noreferrer" className={`mt-4 ${linkExternal}`}>
+          <a href={`${site.repository}/blob/main/${TEMPLATE}`} rel="noreferrer" className={`mt-4 ${linkExternal}`}>
             <FileCode size={16} aria-hidden />
             {t("pages.contribute.templateLink")}
           </a>
@@ -209,11 +209,11 @@ export default async function ContributePage({ params }: Params) {
             ))}
           </ol>
           <Card className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-gold-500/30">
-            <a href={`${site.depot}/compare`} rel="noreferrer" className={linkExternal}>
+            <a href={`${site.repository}/compare`} rel="noreferrer" className={linkExternal}>
               <GitPullRequest size={16} aria-hidden />
               {t("pages.contribute.prLink")}
             </a>
-            <a href={`${site.depot}/blob/main/CONTRIBUTING.md`} rel="noreferrer" className={linkExternal}>
+            <a href={`${site.repository}/blob/main/CONTRIBUTING.md`} rel="noreferrer" className={linkExternal}>
               <BookOpen size={16} aria-hidden />
               {t("pages.contribute.guideLink")}
             </a>

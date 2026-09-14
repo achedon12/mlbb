@@ -181,11 +181,11 @@ export function CollectionCalculator() {
     const rare = b.plusRare[0];
     return [
       t("pages.collectionUI.summaryText", {
-        heros: `${count.format(b.heroes.owned)}/${count.format(b.heroes.total)}`,
+        heroes: `${count.format(b.heroes.owned)}/${count.format(b.heroes.total)}`,
         skins: `${count.format(b.skins.owned)}/${count.format(b.skins.total)}`,
-        diamants: count.format(b.diamonds),
+        diamonds: count.format(b.diamonds),
       }),
-      rare ? t("pages.collectionUI.summaryRare", { nom: rare.name, heros: data!.names.get(rare.hero) ?? rare.hero }) : "",
+      rare ? t("pages.collectionUI.summaryRare", { name: rare.name, hero: data!.names.get(rare.hero) ?? rare.hero }) : "",
     ]
       .filter(Boolean)
       .join(" ");
@@ -212,9 +212,9 @@ export function CollectionCalculator() {
     <div className="space-y-10">
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-start">
         {/* ── Summary ───────────────────────────────────────────────── */}
-        <aside className="space-y-4 lg:sticky lg:top-24 lg:order-2" aria-labelledby="bilan-titre">
+        <aside className="space-y-4 lg:sticky lg:top-24 lg:order-2" aria-labelledby="summary-title">
           <Card className="border-gold-500/30">
-            <h2 id="bilan-titre" className="text-xs uppercase tracking-wide text-chalk-500">
+            <h2 id="summary-title" className="text-xs uppercase tracking-wide text-chalk-500">
               {t("pages.collectionUI.valueTitle")}
             </h2>
             <p aria-live="polite" className="mt-1 flex flex-wrap items-baseline gap-x-2">
@@ -252,7 +252,7 @@ export function CollectionCalculator() {
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">
                 {t("pages.collectionUI.noDiamond", {
                   skins: count.format(summary.skins.withoutDiamond),
-                  heros: count.format(summary.heroes.withoutDiamond),
+                  heroes: count.format(summary.heroes.withoutDiamond),
                 })}
               </p>
             )}
@@ -372,7 +372,7 @@ export function CollectionCalculator() {
                       type="button"
                       onClick={() => everythingForHero(h.slug)}
                       aria-label={t(full ? "pages.collectionUI.uncheckAllHeroes" : "pages.collectionUI.checkAllHeroes", {
-                        nom: h.name,
+                        name: h.name,
                       })}
                       className={classesChip(false, true)}
                     >

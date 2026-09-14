@@ -89,13 +89,13 @@ export default async function LocaleLayout({
       <body className="flex min-h-screen flex-col">
         <LocaleProvider locale={locale} messages={messagesClient(locale)}>
           <a
-            href="#contenu"
+            href="#content"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-gold-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-night-950"
           >
             {t("common.skipToContent")}
           </a>
           <Header locale={locale} />
-          <main id="contenu" className="flex-1">
+          <main id="content" className="flex-1">
             {children}
           </main>
           <Footer locale={locale} />

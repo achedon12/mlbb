@@ -38,7 +38,7 @@ export function Offline() {
       .then(() => navigator.serviceWorker.ready)
       .then((record) => {
         record.active?.postMessage({
-          type: "prechauffer",
+          type: "prewarm",
           urls: SECTIONS.map((path) => `/${locale}${path}`),
         });
       })

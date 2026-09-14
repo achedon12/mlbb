@@ -23,7 +23,7 @@ export async function log(
   message: string,
   context: Record<string, unknown> = {},
 ): Promise<void> {
-  const row = JSON.stringify({ t: new Date().toISOString(), niveau: level, message, ...context }) + "\n";
+  const row = JSON.stringify({ t: new Date().toISOString(), level, message, ...context }) + "\n";
 
   // Standard output: always, for platforms that collect logs.
   (level === "error" ? console.error : console.log)(row.trimEnd());
@@ -43,6 +43,6 @@ export function logError(
   context: Record<string, unknown> = {},
 ): Promise<void> {
   const detail =
-    cause instanceof Error ? { erreur: cause.message, pile: cause.stack } : cause != null ? { erreur: String(cause) } : {};
+    cause instanceof Error ? { error: cause.message, stack: cause.stack } : cause != null ? { error: String(cause) } : {};
   return log("error", message, { ...detail, ...context });
 }

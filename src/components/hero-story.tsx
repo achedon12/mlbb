@@ -108,7 +108,7 @@ export function HeroStory({ story, name, locale }: { story: Story; name: string;
           ) : (
             !tagline && (
               <p className="leading-relaxed text-chalk-500">
-                {t("story.noStory", { nom: name })}
+                {t("story.noStory", { name: name })}
               </p>
             )
           )}

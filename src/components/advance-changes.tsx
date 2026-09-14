@@ -187,7 +187,7 @@ function ChangeItem({ change, t }: { change: AdvanceChange; t: T }) {
   if ("text" in change) return <span className="text-chalk-300">{change.text}</span>;
   return (
     <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
-      {change.label && <span className="text-chalk-500">{t("patchHeroes.label", { libelle: change.label })}</span>}
+      {change.label && <span className="text-chalk-500">{t("patchHeroes.label", { label: change.label })}</span>}
       <span className="sr-only">{t("pages.advanceServer.before")}</span>
       <span className="text-chalk-500 line-through decoration-blood-500/50">{change.before}</span>
       <ArrowRight size={12} aria-hidden className="shrink-0 self-center text-chalk-500" />

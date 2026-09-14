@@ -226,9 +226,10 @@ Test run, sending nothing (dry run, with a preview of the messages):
 curl -X POST https://mlbbdex.com/api/push/send -H "Authorization: Bearer $PUSH_ADMIN_TOKEN"
 ```
 
-The optional JSON body accepts `version`, `envoyer: true` (actually send),
-`cible` (a subscriber id read from the dry run, to send to that subscriber
-only) and `forcer: true` (resend an already announced patch to everyone).
+The optional JSON body accepts `version`, `send: true` (actually send),
+`target` (a subscriber id read from the dry run, to send to that subscriber
+only) and `force: true` (resend an already announced patch to everyone). The
+former names `envoyer`, `cible` and `forcer` are still accepted.
 Backing up the volume:
 `docker compose cp mlbb:/app/donnees-serveur ./server-data-backup`.
 

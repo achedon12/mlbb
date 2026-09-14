@@ -33,22 +33,25 @@ function allowed(address: string): boolean {
 const text = (value: unknown, max: number) => (value == null ? undefined : String(value).slice(0, max));
 
 export async function POST(request: Request) {
-  const address = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "inconnue";
+  const address = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
   if (!allowed(address)) return new NextResponse(null, { status: 429 });
 
   try {
     const raw = await request.text();
     if (raw.length > SIZE_MAX) return new NextResponse(null, { status: 413 });
     const body = JSON.parse(raw) as Record<string, unknown>;
+    // `pile`, `chemin` and type "globale" are the former French names: a page
+    // loaded before the rename may still send them.
+    const type = text(body.type, 20);
     await log("error", "browser error", {
       source: "client",
-      type: text(body.type, 20) ?? "frontiere",
+      type: type === "globale" ? "global" : (type ?? "boundary"),
       message: text(body.message, 500) ?? "",
-      chemin: text(body.chemin, 300) ?? "",
+      path: text(body.path ?? body.chemin, 300) ?? "",
       digest: text(body.digest, 100),
-      pile: text(body.pile, 2000),
+      stack: text(body.stack ?? body.pile, 2000),
       version: text(body.version, 20),
-      navigateur: text(request.headers.get("user-agent"), 200),
+      browser: text(request.headers.get("user-agent"), 200),
     });
   } catch {
     // A malformed report must not break anything.

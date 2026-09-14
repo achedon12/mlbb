@@ -14,7 +14,7 @@ const {
   triggerManually,
   saveSubscriber,
   idSubscriber,
-  majSubscriber,
+  updateSubscriber: majSubscriber,
   notifyNewPatch,
   deleteSubscriber,
 } = await import("@/lib/push-server");
@@ -50,11 +50,11 @@ const patch = (version: string) => ({
   ],
 });
 
-/** Fake sender: "disparu" endpoints answer 410, "panne" ones 500. */
+/** Fake sender: "gone" endpoints answer 410, "broken" ones 500. */
 const fakeSender = () =>
   vi.fn<Sender>(async (a) => {
-    if (a.endpoint.includes("disparu")) throw Object.assign(new Error("Gone"), { statusCode: 410 });
-    if (a.endpoint.includes("panne")) throw Object.assign(new Error("Error"), { statusCode: 500 });
+    if (a.endpoint.includes("gone")) throw Object.assign(new Error("Gone"), { statusCode: 410 });
+    if (a.endpoint.includes("broken")) throw Object.assign(new Error("Error"), { statusCode: 500 });
   });
 
 describe("subscriptions", () => {
@@ -125,13 +125,13 @@ describe("sending on startup", () => {
 
   it("deletes gone subscriptions (404, 410), keeps transient failures", async () => {
     await notifyNewPatch(patch("2.1.88"));
-    await saveSubscriber(subscription("disparu"), "fr", ["khufra"]);
-    await saveSubscriber(subscription("panne"), "fr", ["khufra"]);
+    await saveSubscriber(subscription("gone"), "fr", ["khufra"]);
+    await saveSubscriber(subscription("broken"), "fr", ["khufra"]);
     await saveSubscriber(subscription("ok"), "fr", ["layla"]);
 
     const issue = await notifyNewPatch(patch("2.1.90"), fakeSender());
-    expect(issue).toMatchObject({ action: "sent", summary: { destinataires: 3, envoyes: 1, echecs: 1, supprimes: 1 } });
-    expect(readSubscribers().map((a) => a.endpoint.split("/").at(-1))).toEqual(["panne", "ok"]);
+    expect(issue).toMatchObject({ action: "sent", summary: { recipients: 3, sent: 1, failed: 1, removed: 1 } });
+    expect(readSubscribers().map((a) => a.endpoint.split("/").at(-1))).toEqual(["broken", "ok"]);
   });
 });
 
@@ -140,7 +140,7 @@ describe("manual trigger", () => {
     await saveSubscriber(subscription("a"), "fr", ["khufra"]);
     const sender = fakeSender();
     const issue = await triggerManually(patch("2.1.90"), { send: false, sender });
-    expect(issue).toMatchObject({ action: "simulation", dernierNotifie: null, bilan: { simulation: true, destinataires: 1 } });
+    expect(issue).toMatchObject({ action: "simulation", lastNotified: null, summary: { simulation: true, recipients: 1 } });
     expect(sender).not.toHaveBeenCalled();
     expect(readdirSync(folder)).not.toContain("push-etat.json");
   });
@@ -164,7 +164,7 @@ describe("manual trigger", () => {
     await saveSubscriber(subscription("b"), "fr", ["layla"]);
     const sender = fakeSender();
     const issue = await triggerManually(patch("2.1.90"), { send: true, target: idSubscriber(a.endpoint), sender });
-    expect(issue).toMatchObject({ action: "sent", bilan: { destinataires: 1, envoyes: 1 } });
+    expect(issue).toMatchObject({ action: "sent", summary: { recipients: 1, sent: 1 } });
     expect(sender).toHaveBeenCalledTimes(1);
     expect(state()).toBe("2.1.88");
   });

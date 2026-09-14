@@ -1,13 +1,13 @@
 /**
- * Commentaires de tier list.
+ * Tier list comments.
  *
- * Le classement lui-meme n'est plus ecrit ici : il est calcule a partir des
- * taux de victoire et de ban remontes par le jeu, et se met a jour a chaque
- * synchronisation (voir `src/lib/tier-list.ts`).
+ * The ranking itself is no longer written here: it is computed from the win
+ * and ban rates reported by the game, and updates with every sync (see
+ * `src/lib/tier-list.ts`).
  *
- * Ce qui reste ecrit a la main, c'est ce que les chiffres ne disent pas :
- * *pourquoi* un heros se retrouve la ou il est. Une entree est facultative —
- * un heros sans commentaire s'affiche avec ses seuls chiffres.
+ * What remains hand-written is what the numbers do not say: *why* a hero
+ * sits where it does. An entry is optional — a hero without a comment is
+ * shown with its numbers alone.
  */
 export const notesTierList: Record<string, string> = {
   "khufra":

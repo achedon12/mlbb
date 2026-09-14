@@ -55,7 +55,7 @@ export async function requestCode(_previous: State, data: FormData): Promise<Sta
   const result = await sendCode(roleId, zoneId);
 
   if (!result.ok) {
-    return { error: result.raison, roleId: rawRole, zoneId: rawZone };
+    return { error: result.reason, roleId: rawRole, zoneId: rawZone };
   }
 
   return { codeSent: true, roleId: String(roleId), zoneId: String(zoneId) };
@@ -82,14 +82,14 @@ export async function checkCode(_previous: State, data: FormData): Promise<State
 
   if (!result.ok) {
     return {
-      error: result.raison,
+      error: result.reason,
       codeSent: true,
       roleId: String(roleId),
       zoneId: String(zoneId),
     };
   }
 
-  await openSession(result.jeton);
+  await openSession(result.token);
   redirect("/account");
 }
 

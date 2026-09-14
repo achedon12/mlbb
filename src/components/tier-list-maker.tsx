@@ -177,7 +177,7 @@ export function TierListMaker({
     const slug = focusAfter.current;
     if (!slug) return;
     focusAfter.current = null;
-    root.current?.querySelector<HTMLButtonElement>(`[data-heros="${slug}"]`)?.focus();
+    root.current?.querySelector<HTMLButtonElement>(`[data-hero="${slug}"]`)?.focus();
   }, [state]);
 
   const places = useMemo(() => new Set(state.rows.flatMap((r) => r.heroes)), [state]);
@@ -202,12 +202,12 @@ export function TierListMaker({
     setAnnouncement(
       r
         ? t("pages.tierMakerUI.announcePlaced", {
-            nom: name(slug),
-            rangee: nameRow(r),
+            name: name(slug),
+            row: nameRow(r),
             position: r.heroes.indexOf(slug) + 1,
             n: r.heroes.length,
           })
-        : t("pages.tierMakerUI.announceBench", { nom: name(slug) }),
+        : t("pages.tierMakerUI.announceBench", { name: name(slug) }),
     );
   }
 
@@ -217,7 +217,7 @@ export function TierListMaker({
       setAnnouncement(t("pages.tierMakerUI.announceDeselect"));
     } else {
       setSelection(slug);
-      setAnnouncement(t("pages.tierMakerUI.announceSelect", { nom: name(slug) }));
+      setAnnouncement(t("pages.tierMakerUI.announceSelect", { name: name(slug) }));
     }
   }
 
@@ -230,7 +230,7 @@ export function TierListMaker({
     if (r) {
       setAnnouncement(
         t("pages.tierMakerUI.announceMoved", {
-          nom: name(selection),
+          name: name(selection),
           position: r.heroes.indexOf(selection) + 1,
           n: r.heroes.length,
         }),
@@ -257,7 +257,7 @@ export function TierListMaker({
 
   /** Arrows, Home and End: from one hero to the next within the same group. */
   function navigate(e: React.KeyboardEvent<HTMLElement>) {
-    const buttons = [...e.currentTarget.querySelectorAll<HTMLButtonElement>("[data-heros]")];
+    const buttons = [...e.currentTarget.querySelectorAll<HTMLButtonElement>("[data-hero]")];
     const i = buttons.indexOf(document.activeElement as HTMLButtonElement);
     if (i < 0) return;
     const step: Record<string, number> = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1 };
@@ -272,33 +272,33 @@ export function TierListMaker({
     setHover(null);
     const slug = e.dataTransfer.getData("text/plain");
     if (!known.has(slug)) return;
-    const before = (e.target as Element).closest("[data-heros]")?.getAttribute("data-heros");
+    const before = (e.target as Element).closest("[data-hero]")?.getAttribute("data-hero");
     set(slug, target, before && before !== slug ? before : null);
   }
 
-  function confirmer(message: string): boolean {
+  function confirm(message: string): boolean {
     return places.size === 0 || window.confirm(message);
   }
 
   function loadMeta() {
     const list = groups[rank];
-    if (!list || !confirmer(t("pages.tierMakerUI.confirmReplace"))) return;
+    if (!list || !confirm(t("pages.tierMakerUI.confirmReplace"))) return;
     const labelRank = t(`measuredRanks.${rank}`);
-    setState(prefill(heroes.map((h) => h.slug), list, t("pages.tierMakerUI.titleMeta", { rang: labelRank })));
+    setState(prefill(heroes.map((h) => h.slug), list, t("pages.tierMakerUI.titleMeta", { rank: labelRank })));
     setSelection(null);
     setEdition(null);
-    setAnnouncement(t("pages.tierMakerUI.announceMeta", { rang: labelRank }));
+    setAnnouncement(t("pages.tierMakerUI.announceMeta", { rank: labelRank }));
   }
 
   function clear() {
-    if (!confirmer(t("pages.tierMakerUI.confirmEmpty"))) return;
+    if (!confirm(t("pages.tierMakerUI.confirmEmpty"))) return;
     setState(clearRows(state));
     setSelection(null);
     setAnnouncement(t("pages.tierMakerUI.announceEmpty"));
   }
 
   function reset() {
-    if (!confirmer(t("pages.tierMakerUI.confirmReset"))) return;
+    if (!confirm(t("pages.tierMakerUI.confirmReset"))) return;
     setState(stateDefault());
     setSelection(null);
     setEdition(null);
@@ -323,7 +323,7 @@ export function TierListMaker({
   function handleDelete(r: Row) {
     setState(deleteRow(state, r.id));
     setEdition(null);
-    setAnnouncement(t("pages.tierMakerUI.announceRowRemoved", { nom: nameRow(r) }));
+    setAnnouncement(t("pages.tierMakerUI.announceRowRemoved", { name: nameRow(r) }));
   }
 
   const titleImage = state.title.trim() || t("pages.tierMakerUI.titleDefault");
@@ -335,7 +335,7 @@ export function TierListMaker({
       const date = new Intl.DateTimeFormat(LOCALE_HTML[locale], { dateStyle: "long" }).format(new Date());
       const blob = await exportImage(state, {
         title: titleImage,
-        pied: `${new URL(site.url).host} · ${date}`,
+        footer: `${new URL(site.url).host} · ${date}`,
         heroes: bySlug,
       });
       const file = `${keySearch(titleImage).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "tier-list-mlbb"}.png`;
@@ -393,7 +393,7 @@ export function TierListMaker({
     return (
       <button
         type="button"
-        data-heros={h.slug}
+        data-hero={h.slug}
         draggable
         onDragStart={(e) => {
           e.dataTransfer.setData("text/plain", h.slug);
@@ -492,7 +492,7 @@ export function TierListMaker({
         <ChoiceRank ranks={ranks} rank={rank} onChange={setRank} className="mt-3" />
         <button type="button" onClick={loadMeta} className={cn(button, "mt-3")}>
           <Wand2 size={15} aria-hidden />
-          {t("pages.tierMakerUI.prefill", { rang: t(`measuredRanks.${rank}`) })}
+          {t("pages.tierMakerUI.prefill", { rank: t(`measuredRanks.${rank}`) })}
         </button>
       </details>
 
@@ -504,7 +504,7 @@ export function TierListMaker({
                 <button
                   type="button"
                   onClick={(e) => set(selection, r.id, null, e.detail === 0)}
-                  aria-label={t("pages.tierMakerUI.placeHere", { nom: name(selection), rangee: nameRow(r) })}
+                  aria-label={t("pages.tierMakerUI.placeHere", { name: name(selection), row: nameRow(r) })}
                   className="grid w-16 shrink-0 place-items-center break-all p-1 text-center font-heading text-lg font-bold ring-inset hover:ring-2 hover:ring-white/70 sm:w-24"
                   style={{ background: r.color, color: colorText(r.color) }}
                 >
@@ -519,7 +519,7 @@ export function TierListMaker({
                 </div>
               )}
               <ul
-                aria-label={t("pages.tierMakerUI.rowContent", { nom: nameRow(r), n: r.heroes.length, i: i + 1 })}
+                aria-label={t("pages.tierMakerUI.rowContent", { name: nameRow(r), n: r.heroes.length, i: i + 1 })}
                 onKeyDown={navigate}
                 onClick={(e) => {
                   if (selection && e.target === e.currentTarget) set(selection, r.id);
@@ -548,7 +548,7 @@ export function TierListMaker({
                 type="button"
                 onClick={() => setEdition(edition === r.id ? null : r.id)}
                 aria-expanded={edition === r.id}
-                aria-label={t("pages.tierMakerUI.editRow", { nom: nameRow(r) })}
+                aria-label={t("pages.tierMakerUI.editRow", { name: nameRow(r) })}
                 className="grid w-9 shrink-0 place-items-center border-l border-night-700/70 text-chalk-500 transition-colors hover:text-gold-400"
               >
                 <Settings2 size={16} aria-hidden />
@@ -580,7 +580,7 @@ export function TierListMaker({
       </section>
 
       <section
-        aria-labelledby="reserve-titre"
+        aria-labelledby="pool-title"
         onDragOver={(e) => {
           e.preventDefault();
           if (hover !== "reserve") setHover("reserve");
@@ -595,7 +595,7 @@ export function TierListMaker({
         )}
       >
         <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 id="reserve-titre" className="font-heading text-xl font-bold text-chalk-100">
+          <h2 id="pool-title" className="font-heading text-xl font-bold text-chalk-100">
             {t("pages.tierMakerUI.bench")}
           </h2>
           <p className="text-xs text-chalk-500">
@@ -654,7 +654,7 @@ export function TierListMaker({
       {chosen && selection && (
         <div
           role="region"
-          aria-label={t("pages.tierMakerUI.actionBar", { nom: chosen.name })}
+          aria-label={t("pages.tierMakerUI.actionBar", { name: chosen.name })}
           className="fixed inset-x-0 bottom-0 z-40 border-t border-gold-500/40 bg-night-900/95 px-3 py-2.5 shadow-2xl shadow-black/60 backdrop-blur-sm"
         >
           <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2">
@@ -668,7 +668,7 @@ export function TierListMaker({
                   type="button"
                   onClick={(e) => set(selection, r.id, null, e.detail === 0)}
                   aria-current={rowChosen?.id === r.id ? "true" : undefined}
-                  aria-label={t("pages.tierMakerUI.placeHere", { nom: chosen.name, rangee: nameRow(r) })}
+                  aria-label={t("pages.tierMakerUI.placeHere", { name: chosen.name, row: nameRow(r) })}
                   className={cn(
                     "bevel-sm h-9 min-w-9 max-w-24 truncate px-2 text-sm font-bold",
                     rowChosen?.id === r.id && "ring-2 ring-white",
@@ -767,7 +767,7 @@ function PanelRow({
               type="button"
               onClick={() => onEdit({ color: c })}
               aria-pressed={row.color === c}
-              aria-label={t("pages.tierMakerUI.colourName", { couleur: c })}
+              aria-label={t("pages.tierMakerUI.colourName", { colour: c })}
               className={cn("bevel-sm size-8", row.color === c && "ring-2 ring-white")}
               style={{ background: c }}
             />
@@ -806,7 +806,7 @@ function PanelRow({
           type="button"
           onClick={onDelete}
           disabled={single}
-          aria-label={t("pages.tierMakerUI.deleteRow", { nom: row.name || "—" })}
+          aria-label={t("pages.tierMakerUI.deleteRow", { name: row.name || "—" })}
           className={cn(smallButton, "hover:border-blood-500 hover:text-blood-500")}
         >
           <Trash2 size={15} aria-hidden />

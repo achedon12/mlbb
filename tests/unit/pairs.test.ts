@@ -30,9 +30,9 @@ const rank = (strong: [string, number][], weak: [string, number][] = []) => ({
 const counters: Record<string, CountersByRank> = {
   aamon: { all: rank([["fanny", 2]], [["gusion", -3]]), mythic: rank([["fanny", 1.5]]) },
   fanny: { mythic: rank([], [["aamon", -1.1]]), epic: rank([["x-borg", 0.4]]) },
-  "x-borg": { all: rank([["aamon", 0.2], ["fantome", 5]]) },
+  "x-borg": { all: rank([["aamon", 0.2], ["ghost", 5]]) },
 };
-const exists = (s: string) => s !== "fantome";
+const exists = (s: string) => s !== "ghost";
 
 describe("pair path", () => {
   it("puts slugs in alphabetical order", () => {
@@ -155,9 +155,9 @@ describe("same team", () => {
   it("takes duos first, academy teammates as a fallback", () => {
     const teammates = { aamon: { all: [{ slug: "fanny", advantage: 0.8 }], mythic: [{ slug: "fanny", advantage: 9 }] } };
     expect(linksTeam(duos, teammates, "aamon", "fanny")).toEqual([
-      { rank: "all", de: "aamon", partner: "fanny", advantage: 0.8, source: "coequipiers" },
-      { rank: "all", de: "fanny", partner: "aamon", advantage: -6.1, source: "duos" },
-      { rank: "mythic", de: "aamon", partner: "fanny", advantage: 1.2, source: "duos" },
+      { rank: "all", from: "aamon", partner: "fanny", advantage: 0.8, source: "teammates" },
+      { rank: "all", from: "fanny", partner: "aamon", advantage: -6.1, source: "duos" },
+      { rank: "mythic", from: "aamon", partner: "fanny", advantage: 1.2, source: "duos" },
     ]);
   });
 });

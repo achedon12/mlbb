@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { nameCountry, readableRank } from "@/lib/ranks";
+import { countryName, readableRank } from "@/lib/ranks";
 
 describe("readableRank — Warrior to Epic tiers", () => {
   it("places the first rank_level in Warrior III", () => {
     const r = readableRank(1);
-    expect(r.name).toBe("Guerrier");
+    expect(r.key).toBe("warrior");
     expect(r.division).toBe("III");
     expect(r.mythic).toBe(false);
     expect(r.image).toMatch(/^\/visuels\/rangs\//);
@@ -13,7 +13,7 @@ describe("readableRank — Warrior to Epic tiers", () => {
   it("counts the stars within the division", () => {
     // Epic I covers rank_level 100 to 105: 103 = 4th star.
     const r = readableRank(103);
-    expect(r.name).toBe("Epique");
+    expect(r.key).toBe("epic");
     expect(r.division).toBe("I");
     expect(r.stars).toBe(4);
     expect(r.unitStars).toBe("star");
@@ -37,21 +37,21 @@ describe("readableRank — Mythic family", () => {
   it("counts 30 stars for rank_level 166 (real reference point) and ranks it in Honor", () => {
     const r = readableRank(166);
     expect(r.stars).toBe(30);
-    expect(r.name).toBe("Honneur mythique");
+    expect(r.key).toBe("mythic-honor");
     expect(r.mythic).toBe(true);
   });
 
   it("keeps the best rank (182) in Honor, never Glory", () => {
     const r = readableRank(182);
     expect(r.stars).toBe(46);
-    expect(r.name).toBe("Honneur mythique");
+    expect(r.key).toBe("mythic-honor");
   });
 
   it("respects the sub-tier thresholds", () => {
-    expect(readableRank(160).name).toBe("Mythique"); // 24 stars
-    expect(readableRank(161).name).toBe("Honneur mythique"); // 25
-    expect(readableRank(186).name).toBe("Gloire mythique"); // 50
-    expect(readableRank(236).name).toBe("Immortel mythique"); // 100
+    expect(readableRank(160).key).toBe("mythic"); // 24 stars
+    expect(readableRank(161).key).toBe("mythic-honor"); // 25
+    expect(readableRank(186).key).toBe("mythic-glory"); // 50
+    expect(readableRank(236).key).toBe("mythic-immortal"); // 100
   });
 
   it("never drops below zero stars when entering Mythic", () => {
@@ -61,13 +61,21 @@ describe("readableRank — Mythic family", () => {
   });
 });
 
-describe("nameCountry", () => {
-  it("translates known codes", () => {
-    expect(nameCountry("FR")).toBe("France");
-    expect(nameCountry("fr")).toBe("France");
+describe("countryName", () => {
+  it("names the country in the reader's language", () => {
+    expect(countryName("FR", "fr")).toBe("France");
+    expect(countryName("fr", "en")).toBe("France");
+    expect(countryName("DE", "en")).toBe("Germany");
+    expect(countryName("DE", "fr")).toBe("Allemagne");
+    expect(countryName("DE", "it")).toBe("Germania");
+    expect(countryName("DE", "es")).toBe("Alemania");
+    expect(countryName("US", "en")).toBe("United States");
   });
 
-  it("returns the code as is when unknown", () => {
-    expect(nameCountry("ZZ")).toBe("ZZ");
+  it("returns the code as is when empty or not a region code", () => {
+    expect(countryName("ZZ", "en")).toBe("ZZ");
+    expect(countryName("XX", "fr")).toBe("XX");
+    expect(countryName("", "en")).toBe("");
+    expect(countryName("123", "fr")).toBe("123");
   });
 });

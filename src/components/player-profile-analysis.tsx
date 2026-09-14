@@ -135,10 +135,10 @@ export function TableRoles<C extends Role | Lane>({
           <p className="mt-3 text-sm leading-relaxed text-chalk-300">
             {summary.strong && summary.weak
               ? t("pages.accountProfile.rolesSummary", {
-                  fort: name(summary.strong),
-                  tauxFort: formatPercent(summary.rows.find((l) => l.key === summary.strong)!.rate, locale),
-                  faible: name(summary.weak),
-                  tauxFaible: formatPercent(summary.rows.find((l) => l.key === summary.weak)!.rate, locale),
+                  strong: name(summary.strong),
+                  strongRate: formatPercent(summary.rows.find((l) => l.key === summary.strong)!.rate, locale),
+                  weak: name(summary.weak),
+                  weakRate: formatPercent(summary.rows.find((l) => l.key === summary.weak)!.rate, locale),
                 })
               : t("pages.accountProfile.rolesFew", { n: MATCHES_MIN_ROLE })}
           </p>
@@ -198,10 +198,10 @@ export function EvolutionPlayer({
   const summary = curve
     ? t("pages.accountProfile.curveSummary", {
         f: WINDOW_SHAPE,
-        debut: day(curve.dates[0], locale),
-        fin: day(curve.dates.at(-1)!, locale),
-        depart: formatPercent(curve.rolling[0], locale),
-        arrivee: formatPercent(curve.rolling.at(-1)!, locale),
+        start: day(curve.dates[0], locale),
+        end: day(curve.dates.at(-1)!, locale),
+        startValue: formatPercent(curve.rolling[0], locale),
+        endValue: formatPercent(curve.rolling.at(-1)!, locale),
         min: formatPercent(Math.min(...curve.rolling), locale),
         max: formatPercent(Math.max(...curve.rolling), locale),
       })
@@ -260,7 +260,7 @@ export function EvolutionPlayer({
       <p className="mt-3 text-xs text-chalk-500">
         {t(`pages.accountProfile.${keySource}.${plural(evo.matches, locale)}`, {
           n: countOf(evo.matches),
-          taux: formatPercent((evo.wins / evo.matches) * 100, locale),
+          rate: formatPercent((evo.wins / evo.matches) * 100, locale),
         })}
       </p>
     </>
@@ -332,7 +332,7 @@ export function HeroRankSheets({
     <div className="mt-10">
       <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.accountProfile.vsRankTitle")}</h3>
       <p className="mt-1 max-w-2xl text-sm leading-relaxed text-chalk-500">
-        {t("pages.accountProfile.vsRankIntro", { rang: nameRank(bucket) })}
+        {t("pages.accountProfile.vsRankIntro", { rank: nameRank(bucket) })}
       </p>
 
       {sheets.length === 0 ? (
@@ -359,8 +359,8 @@ export function HeroRankSheets({
                         <>
                           {" · "}
                           {t("pages.accountProfile.belowAverageDetail", {
-                            taux: formatPercent(row.rate, locale),
-                            moyenne: formatPercent(row.average, locale),
+                            rate: formatPercent(row.rate, locale),
+                            average: formatPercent(row.average, locale),
                           })}
                         </>
                       )}
@@ -387,16 +387,16 @@ export function HeroRankSheets({
                 {build && rankBuild && (
                   <section className="mt-4 border-t border-night-800 pt-3">
                     <h4 className="text-xs font-semibold uppercase tracking-wide text-chalk-400">
-                      {t("pages.accountProfile.buildRank", { rang: nameRank(rankBuild) })}
+                      {t("pages.accountProfile.buildRank", { rank: nameRank(rankBuild) })}
                     </h4>
                     <p className="mt-0.5 text-xs text-chalk-500">
                       {[
                         lane ? t("pages.accountProfile.positionBuild", { lane: t(`lanes.${lane}`) }) : null,
                         build.win !== null
-                          ? t("builds.win", { taux: formatCount(build.win, locale, 1) })
+                          ? t("builds.win", { rate: formatCount(build.win, locale, 1) })
                           : null,
                         build.selection !== null
-                          ? t("builds.pick", { taux: formatCount(build.selection, locale, 1) })
+                          ? t("builds.pick", { rate: formatCount(build.selection, locale, 1) })
                           : null,
                       ]
                         .filter(Boolean)
@@ -417,8 +417,8 @@ export function HeroRankSheets({
                           image={build.emblem.image}
                         />
                       )}
-                      {build.sort && (
-                        <BuildPicker label={t("builds.spell")} name={build.sort.name} image={build.sort.image} />
+                      {build.spell && (
+                        <BuildPicker label={t("builds.spell")} name={build.spell.name} image={build.spell.image} />
                       )}
                     </div>
                     {build.talents.length > 0 && (
@@ -430,7 +430,7 @@ export function HeroRankSheets({
                       </p>
                     )}
                     <LinkTab href={`/heroes/${slug}#builds`}>
-                      {t("pages.accountProfile.seeBuilds", { nom: name })}
+                      {t("pages.accountProfile.seeBuilds", { name: name })}
                     </LinkTab>
                   </section>
                 )}
@@ -439,7 +439,7 @@ export function HeroRankSheets({
                   <section className="mt-4 border-t border-night-800 pt-3">
                     <h4 className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-chalk-400">
                       <Swords size={13} aria-hidden />
-                      {t("pages.accountProfile.countersRank", { rang: nameRank(rankCounters) })}
+                      {t("pages.accountProfile.countersRank", { rank: nameRank(rankCounters) })}
                     </h4>
                     <ul className="mt-2 space-y-1">
                       {weak.map((c) => (
@@ -459,8 +459,8 @@ export function HeroRankSheets({
                         </li>
                       ))}
                     </ul>
-                    <LinkTab href={`/heroes/${slug}#contres`}>
-                      {t("pages.accountProfile.seeCounters", { nom: name })}
+                    <LinkTab href={`/heroes/${slug}#counters`}>
+                      {t("pages.accountProfile.seeCounters", { name: name })}
                     </LinkTab>
                   </section>
                 )}

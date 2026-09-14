@@ -9,13 +9,13 @@
  * (50), then Immortal (100). Each tier has its official emblem.
  */
 import ranksData from "@/data/game/ranks.json";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 
 const IMAGES = (ranksData as { images: Record<string, string> }).images;
 
 interface Tier {
   /** Lower rank_level bound, inclusive. */
   min: number;
-  name: string;
   /** Roman numeral of the division, from lowest to highest. */
   division: string;
   /** Emblem key, shared by all divisions of the same rank. */
@@ -24,31 +24,31 @@ interface Tier {
 }
 
 const TIERS: Tier[] = [
-  { min: 1, name: "Guerrier", division: "III", key: "warrior", color: "#9aa7c2" },
-  { min: 5, name: "Guerrier", division: "II", key: "warrior", color: "#9aa7c2" },
-  { min: 8, name: "Guerrier", division: "I", key: "warrior", color: "#9aa7c2" },
-  { min: 11, name: "Elite", division: "III", key: "elite", color: "#7ee0b8" },
-  { min: 16, name: "Elite", division: "II", key: "elite", color: "#7ee0b8" },
-  { min: 21, name: "Elite", division: "I", key: "elite", color: "#7ee0b8" },
-  { min: 26, name: "Maitre", division: "IV", key: "master", color: "#4da3ff" },
-  { min: 31, name: "Maitre", division: "III", key: "master", color: "#4da3ff" },
-  { min: 36, name: "Maitre", division: "II", key: "master", color: "#4da3ff" },
-  { min: 41, name: "Maitre", division: "I", key: "master", color: "#4da3ff" },
-  { min: 46, name: "Grand Maitre", division: "V", key: "grandmaster", color: "#b06bff" },
-  { min: 52, name: "Grand Maitre", division: "IV", key: "grandmaster", color: "#b06bff" },
-  { min: 58, name: "Grand Maitre", division: "III", key: "grandmaster", color: "#b06bff" },
-  { min: 64, name: "Grand Maitre", division: "II", key: "grandmaster", color: "#b06bff" },
-  { min: 70, name: "Grand Maitre", division: "I", key: "grandmaster", color: "#b06bff" },
-  { min: 76, name: "Epique", division: "V", key: "epic", color: "#f5c451" },
-  { min: 82, name: "Epique", division: "IV", key: "epic", color: "#f5c451" },
-  { min: 88, name: "Epique", division: "III", key: "epic", color: "#f5c451" },
-  { min: 94, name: "Epique", division: "II", key: "epic", color: "#f5c451" },
-  { min: 100, name: "Epique", division: "I", key: "epic", color: "#f5c451" },
-  { min: 106, name: "Legende", division: "V", key: "legend", color: "#ffb84d" },
-  { min: 112, name: "Legende", division: "IV", key: "legend", color: "#ffb84d" },
-  { min: 118, name: "Legende", division: "III", key: "legend", color: "#ffb84d" },
-  { min: 124, name: "Legende", division: "II", key: "legend", color: "#ffb84d" },
-  { min: 130, name: "Legende", division: "I", key: "legend", color: "#ffb84d" },
+  { min: 1, division: "III", key: "warrior", color: "#9aa7c2" },
+  { min: 5, division: "II", key: "warrior", color: "#9aa7c2" },
+  { min: 8, division: "I", key: "warrior", color: "#9aa7c2" },
+  { min: 11, division: "III", key: "elite", color: "#7ee0b8" },
+  { min: 16, division: "II", key: "elite", color: "#7ee0b8" },
+  { min: 21, division: "I", key: "elite", color: "#7ee0b8" },
+  { min: 26, division: "IV", key: "master", color: "#4da3ff" },
+  { min: 31, division: "III", key: "master", color: "#4da3ff" },
+  { min: 36, division: "II", key: "master", color: "#4da3ff" },
+  { min: 41, division: "I", key: "master", color: "#4da3ff" },
+  { min: 46, division: "V", key: "grandmaster", color: "#b06bff" },
+  { min: 52, division: "IV", key: "grandmaster", color: "#b06bff" },
+  { min: 58, division: "III", key: "grandmaster", color: "#b06bff" },
+  { min: 64, division: "II", key: "grandmaster", color: "#b06bff" },
+  { min: 70, division: "I", key: "grandmaster", color: "#b06bff" },
+  { min: 76, division: "V", key: "epic", color: "#f5c451" },
+  { min: 82, division: "IV", key: "epic", color: "#f5c451" },
+  { min: 88, division: "III", key: "epic", color: "#f5c451" },
+  { min: 94, division: "II", key: "epic", color: "#f5c451" },
+  { min: 100, division: "I", key: "epic", color: "#f5c451" },
+  { min: 106, division: "V", key: "legend", color: "#ffb84d" },
+  { min: 112, division: "IV", key: "legend", color: "#ffb84d" },
+  { min: 118, division: "III", key: "legend", color: "#ffb84d" },
+  { min: 124, division: "II", key: "legend", color: "#ffb84d" },
+  { min: 130, division: "I", key: "legend", color: "#ffb84d" },
 ];
 
 /** First rank_level of the Mythic family, right after Legend I. */
@@ -66,16 +66,15 @@ const MYTHIC_BASE = 136;
 
 /** Mythic sub-tiers, by stars accumulated since entering Mythic. */
 const MYTHIC = [
-  { threshold: 100, name: "Immortel mythique", key: "mythic-immortal", color: "#ff3d6b" },
-  { threshold: 50, name: "Gloire mythique", key: "mythic-glory", color: "#ff6b3d" },
-  { threshold: 25, name: "Honneur mythique", key: "mythic-honor", color: "#ff8c42" },
-  { threshold: 0, name: "Mythique", key: "mythic", color: "#ffab5e" },
+  { threshold: 100, key: "mythic-immortal", color: "#ff3d6b" },
+  { threshold: 50, key: "mythic-glory", color: "#ff6b3d" },
+  { threshold: 25, key: "mythic-honor", color: "#ff8c42" },
+  { threshold: 0, key: "mythic", color: "#ffab5e" },
 ];
 
 export interface ReadableRank {
-  /** Emblem key, language-independent, for translating the name. */
+  /** Emblem key, language-independent, for translating the name (`rankNames.*`). */
   key: string;
-  name: string;
   /** Roman numeral of the division (empty in Mythic). */
   division: string;
   color: string;
@@ -95,7 +94,6 @@ export function readableRank(rankLevel: number): ReadableRank {
     const tier = MYTHIC.find((m) => stars >= m.threshold) ?? MYTHIC.at(-1)!;
     return {
       key: tier.key,
-      name: tier.name,
       division: "",
       color: tier.color,
       image: IMAGES[tier.key],
@@ -111,7 +109,6 @@ export function readableRank(rankLevel: number): ReadableRank {
 
   return {
     key: chosen.key,
-    name: chosen.name,
     division: chosen.division,
     color: chosen.color,
     image: IMAGES[chosen.key],
@@ -121,25 +118,19 @@ export function readableRank(rankLevel: number): ReadableRank {
   };
 }
 
-/** Country name from the ISO code, when known. */
-const COUNTRY: Record<string, string> = {
-  FR: "France",
-  BE: "Belgique",
-  CH: "Suisse",
-  CA: "Canada",
-  PH: "Philippines",
-  ID: "Indonesie",
-  MY: "Malaisie",
-  SG: "Singapour",
-  US: "Etats-Unis",
-  BR: "Bresil",
-  TR: "Turquie",
-  RU: "Russie",
-  DE: "Allemagne",
-  ES: "Espagne",
-  GB: "Royaume-Uni",
-};
-
-export function nameCountry(code: string): string {
-  return COUNTRY[code.toUpperCase()] ?? code;
+/**
+ * Country name from the ISO 3166 code the game account carries
+ * (`reg_country`), in the reader's language. An empty or unknown code is
+ * returned as is rather than guessed.
+ */
+export function countryName(code: string, locale: Locale): string {
+  const region = code.trim().toUpperCase();
+  // "ZZ" is CLDR's "unknown region": showing its label would say nothing more.
+  if (!/^[A-Z]{2}$/.test(region) || region === "ZZ") return code;
+  try {
+    const name = new Intl.DisplayNames([LOCALE_HTML[locale]], { type: "region", fallback: "none" }).of(region);
+    return name ?? code;
+  } catch {
+    return code;
+  }
 }

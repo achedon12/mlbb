@@ -8,7 +8,7 @@ import { DraftSummary, useNumberFormats, type NumberFormats } from "@/components
 import { classesChip } from "@/components/chip";
 import { useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
-import { SIZE_TEAM, type MeasuresRank, type TypeDamage } from "@/lib/composition";
+import { SIZE_TEAM, measuresUrl, type MeasuresRank, type TypeDamage } from "@/lib/composition";
 import { LANES, ROLES } from "@/lib/draft";
 import {
   bansPerSide,
@@ -63,7 +63,7 @@ const requests = new Map<MeasuredRank, Promise<MeasuresRank>>();
 function loadMeasures(rank: MeasuredRank): Promise<MeasuresRank> {
   let request = requests.get(rank);
   if (!request) {
-    request = fetch(`/composition/${rank}.json`).then((r) => {
+    request = fetch(measuresUrl(rank)).then((r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json() as Promise<MeasuresRank>;
     });

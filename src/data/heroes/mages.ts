@@ -1,6 +1,6 @@
 import type { HeroAnalysis } from "@/lib/types";
 
-/** Analyses des mages. Donnees factuelles : voir la synchronisation. */
+/** Analyses of the mages. Factual data: see the sync. */
 export const mages: HeroAnalysis[] = [
   {
     slug: "kagura",

@@ -136,13 +136,13 @@ describe("notification message", () => {
   const messages = {
     pushNotif: {
       title: {
-        buff: "Patch {version} : amélioration pour {nom}",
-        nerf: "Patch {version} : affaiblissement pour {nom}",
-        adjust: "Patch {version} : ajustements pour {nom}",
+        buff: "Patch {version} : amélioration pour {name}",
+        nerf: "Patch {version} : affaiblissement pour {name}",
+        adjust: "Patch {version} : ajustements pour {name}",
       },
       titleMany: "Patch {version} : {n} de vos favoris modifiés",
       bodyOne: "Le détail est sur sa fiche, dans l'onglet Stats.",
-      row: "{nom} : {type}",
+      row: "{name} : {type}",
       other: "et {n} autre",
       others: "et {n} autres",
     },
@@ -189,8 +189,8 @@ describe("notification message", () => {
   });
 
   it("a slug without a known name stays readable", () => {
-    const m = buildMessage(t, "fr", "2.1.88", [{ slug: "nouveau", type: "buff" }], names);
-    expect(m.titre).toBe("Patch 2.1.88 : amélioration pour nouveau");
+    const m = buildMessage(t, "fr", "2.1.88", [{ slug: "newcomer", type: "buff" }], names);
+    expect(m.titre).toBe("Patch 2.1.88 : amélioration pour newcomer");
   });
 });
 

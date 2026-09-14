@@ -13,8 +13,9 @@ import { cn } from "@/lib/utils";
  *
  * Two sources meet here: the wiki provides the **official name** of each
  * skill — which is also the key of its icon — along with its original
- * description, and the written analysis provides a commentary in French when
- * someone has written one. Both lists follow the same order (passive,
+ * description, and the written analysis provides a commentary when someone has
+ * written one — in French only, whatever the page language: hand-written
+ * analyses are not translated. Both lists follow the same order (passive,
  * skill 1, skill 2, ultimate), which is what lets them be paired.
  *
  * The displayed name is the wiki's, never a translation: the game is in

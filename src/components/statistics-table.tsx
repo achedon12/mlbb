@@ -53,18 +53,18 @@ const direction = (gap: number) => (!notable(gap) ? undefined : gap > 0 ? "risin
  * otherwise the same utilities would repeat over 132 rows.
  */
 export function StatisticsTable({
-  compactes,
+  compactRows,
   rank,
   ranks,
 }: {
   /** Rows as tuples (`encodeRow`), decoded once here. */
-  compactes: CompactRow[];
+  compactRows: CompactRow[];
   rank: MeasuredRank;
   ranks: readonly MeasuredRank[];
 }) {
   const t = useT();
   const locale = useLocale();
-  const rows = useMemo(() => compactes.map(decodeRow), [compactes]);
+  const rows = useMemo(() => compactRows.map(decodeRow), [compactRows]);
   const [state, setState] = useState<StateTable>(STATE_DEFAULT);
   const rate = useMemo(() => formatterRate(locale), [locale]);
 
@@ -141,7 +141,7 @@ export function StatisticsTable({
       <div className="relative mt-3 overflow-x-auto border border-night-700/70">
         <table className="stats-table">
           <caption className="sr-only">
-            {t("pages.statisticsTable.legend", { rang: t(`measuredRanks.${rank}`) })}
+            {t("pages.statisticsTable.legend", { rank: t(`measuredRanks.${rank}`) })}
           </caption>
           <thead>
             <tr>
@@ -270,7 +270,7 @@ function Row({ row: l, first, rate }: { row: RowStat; first: boolean; rate: (v: 
             viewBox={`0 0 ${POINTS_CURVE - 1} ${HEIGHT_CURVE}`}
             preserveAspectRatio="none"
             role="img"
-            aria-label={t("pages.statisticsTable.curveAria", { debut: rate(l.start), fin: rate(l.end) })}
+            aria-label={t("pages.statisticsTable.curveAria", { start: rate(l.start), end: rate(l.end) })}
             className={direction(evolution)}
           >
             <path d={pathCurve(l.curve)} />

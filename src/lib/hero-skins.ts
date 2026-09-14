@@ -72,7 +72,7 @@ export const elide = (locale: Locale, name: string) => locale === "fr" && /^[aei
 /** Title of a hero's gallery, in the page's language. */
 export function titleGallery(t: T, locale: Locale, name: string): string {
   const e = elide(locale, name);
-  return t(e ? "pages.heroSkins.titleElision" : "pages.heroSkins.title", { nom: name });
+  return t(e ? "pages.heroSkins.titleElision" : "pages.heroSkins.title", { name: name });
 }
 
 /** Skin anchors of a gallery, in display order: catalogue, then lone artworks. */

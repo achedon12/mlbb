@@ -22,10 +22,10 @@ const t = createTFrom({
   pages: {
     heroCounters: {
       allRanks: "Tous rangs confondus",
-      atRank: "En {rang}",
-      overview: "{contexte}, {nom} souffre le plus face à {faibles}, et prend l'avantage sur {forts}.",
-      overviewNoStrong: "{contexte}, {nom} souffre le plus face à {faibles}.",
-      noMeasure: "Pas encore de counter mesuré pour {nom}.",
+      atRank: "En {rank}",
+      overview: "{context}, {name} souffre le plus face à {weakAgainst}, et prend l'avantage sur {strongAgainst}.",
+      overviewNoStrong: "{context}, {name} souffre le plus face à {weakAgainst}.",
+      noMeasure: "Pas encore de counter mesuré pour {name}.",
     },
   },
 });

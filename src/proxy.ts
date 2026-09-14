@@ -23,7 +23,7 @@ const buckets = new Map<string, { count: number; reset: number }>();
 function address(request: NextRequest): string {
   const forwarded = request.headers.get("x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0]!.trim();
-  return request.headers.get("x-real-ip") ?? "inconnu";
+  return request.headers.get("x-real-ip") ?? "unknown";
 }
 
 function rateLimitApi(request: NextRequest) {
@@ -38,7 +38,7 @@ function rateLimitApi(request: NextRequest) {
     if (bucket.count > MAX_PER_WINDOW) {
       const retryAfter = Math.max(1, Math.ceil((bucket.reset - now) / 1000));
       return NextResponse.json(
-        { erreur: "Too many requests. Try again in a moment." },
+        { error: "Too many requests. Try again in a moment." },
         { status: 429, headers: { "Retry-After": String(retryAfter) } },
       );
     }

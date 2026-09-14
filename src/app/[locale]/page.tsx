@@ -52,7 +52,7 @@ const dataHome = (locale: Locale) => ({
       name: site.name,
       url: site.url,
       logo: `${site.url}/icon.svg`,
-      sameAs: [site.depot],
+      sameAs: [site.repository],
     },
   ],
 });
@@ -135,7 +135,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chalk-300">
-            {t("home.lead", { heros: allHeroes.length, skins: countSkins })}
+            {t("home.lead", { heroes: allHeroes.length, skins: countSkins })}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -270,7 +270,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         <section className="mx-auto max-w-6xl px-4 py-16">
           <SectionTitle
             lead={t("home.trends.lead", {
-              seuil: new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE),
+              threshold: new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE),
             })}
             action={{ href: "/tier-list", label: t("home.fullTierList") }}
           >

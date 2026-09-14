@@ -246,13 +246,13 @@ export interface YearSkins {
 
 /**
  * Skins grouped by year then by month. `recent`: years and months from most
- * recent to oldest; `chronologique`: the year reads from January to
+ * recent to oldest; `chronological`: the year reads from January to
  * December. Skins dated to the year only always close their year. A
  * skin without a readable date is dropped.
  */
 export function groupByDate(
   skins: readonly SkinCatalog[],
-  order: "recent" | "chronologique" = "recent",
+  order: "recent" | "chronological" = "recent",
 ): YearSkins[] {
   const direction = order === "recent" ? -1 : 1;
   const years = new Map<number, Map<number | null, SkinCatalog[]>>();

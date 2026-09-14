@@ -13,6 +13,9 @@ import { cleanDescription } from "./wikitext.mjs";
  * adjustments — is kept as is, as cleaned HTML.
  */
 
+/** Name of the subsection opened for changes listed before any heading. */
+export const IMPLICIT_SUBSECTION = "Attributes";
+
 // Two change notations have coexisted across versions: "→" in recent notes,
 // ">>" in older tables.
 const ARROW = /&#x2192;|&rarr;|→|&gt;&gt;|>>/g;
@@ -172,7 +175,7 @@ export function heroAdjustments(wikitext) {
     // open an implicit one.
     const change = row.match(/^\*+\s*(.+)/);
     if (change) {
-      if (!subSection) addSubsection("Attributes", null, null);
+      if (!subSection) addSubsection(IMPLICIT_SUBSECTION, null, null);
       const analysis = analyzeChange(change[1]);
       const empty = "text" in analysis ? !analysis.text : !analysis.before && !analysis.after;
       if (!empty) subSection.changes.push(analysis);

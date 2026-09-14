@@ -24,9 +24,9 @@ import tierNotesFr from "@/data/game/tier-notes/fr.json";
 import tierNotesIt from "@/data/game/tier-notes/it.json";
 import tierNotesEs from "@/data/game/tier-notes/es.json";
 import generatedPatches from "@/data/game/patches.json";
-import patchsFr from "@/data/game/patches/fr.json";
-import patchsIt from "@/data/game/patches/it.json";
-import patchsEs from "@/data/game/patches/es.json";
+import patchesFr from "@/data/game/patches/fr.json";
+import patchesIt from "@/data/game/patches/it.json";
+import patchesEs from "@/data/game/patches/es.json";
 import generatedSkins from "@/data/game/skins.json";
 import generatedSync from "@/data/game/sync.json";
 import generatedStatistics from "@/data/game/statistics.json";
@@ -198,18 +198,18 @@ export const patchDetails = generatedPatches.details as unknown as Record<string
  * text rather than disappearing: it is then the same object as in
  * `patchDetails`.
  */
-const TRANSLATED_PATCHES = { fr: patchsFr, it: patchsIt, es: patchsEs } as unknown as Record<
+const TRANSLATED_PATCHES = { fr: patchesFr, it: patchesIt, es: patchesEs } as unknown as Record<
   Exclude<Locale, "en">,
   Record<string, DetailedPatch>
 >;
-const patchsByLocale = new Map<Locale, Record<string, DetailedPatch>>();
+const patchesByLocale = new Map<Locale, Record<string, DetailedPatch>>();
 export function detailedPatches(locale: Locale): Record<string, DetailedPatch> {
   if (locale === "en") return patchDetails;
-  let list = patchsByLocale.get(locale);
+  let list = patchesByLocale.get(locale);
   if (!list) {
     const translated = TRANSLATED_PATCHES[locale];
     list = Object.fromEntries(Object.entries(patchDetails).map(([v, p]) => [v, translated[v] ?? p]));
-    patchsByLocale.set(locale, list);
+    patchesByLocale.set(locale, list);
   }
   return list;
 }

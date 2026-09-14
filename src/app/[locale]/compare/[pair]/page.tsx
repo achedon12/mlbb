@@ -55,7 +55,7 @@ function resolve(pair: string): { a: Hero; b: Hero } | null {
 }
 
 const contextOf = (t: T, rank: MeasuredRank) =>
-  rank === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rang: t(`measuredRanks.${rank}`) });
+  rank === "all" ? t("pages.duos.allRanks") : t("pages.duos.atRank", { rank: t(`measuredRanks.${rank}`) });
 
 /** Duel verdict, shared by the description, the standfirst and the FAQ answer. */
 function verdict(locale: Locale, a: Hero, b: Hero) {
@@ -68,12 +68,12 @@ function verdict(locale: Locale, a: Hero, b: Hero) {
   const context = contextOf(t, ref.rank);
   const head =
     Math.abs(ref.advantage) < THRESHOLD_BALANCE
-      ? t("pages.versus.balanced", { contexte: context, a: a.name, b: b.name })
+      ? t("pages.versus.balanced", { context: context, a: a.name, b: b.name })
       : t("pages.versus.verdict", {
-          contexte: context,
-          gagnant: winner.name,
-          perdant: loser.name,
-          ecart: `${points.format(Math.abs(ref.advantage))} ${t("counters.pts")}`,
+          context: context,
+          winner: winner.name,
+          loser: loser.name,
+          gap: `${points.format(Math.abs(ref.advantage))} ${t("counters.pts")}`,
         });
   const g = ranksWon(duels);
   const run = g.total > 1 ? ` ${t("pages.versus.ranks", { a: a.name, na: g.a, b: b.name, nb: g.b, total: g.total })}` : "";
@@ -124,9 +124,9 @@ export default async function VersusPage({ params }: Params) {
     gaps.length === 0
       ? null
       : gaps.every((e) => e > 0)
-        ? t("pages.versus.duration.always", { nom: a.name })
+        ? t("pages.versus.duration.always", { name: a.name })
         : gaps.every((e) => e < 0)
-          ? t("pages.versus.duration.always", { nom: b.name })
+          ? t("pages.versus.duration.always", { name: b.name })
           : read.a && read.b
             ? t("pages.versus.duration.sentence", {
                 a: a.name,
@@ -267,8 +267,8 @@ export default async function VersusPage({ params }: Params) {
 
         {/* ── Early or late game ───────────────────────────────────── */}
         {rankDuration && sentenceDuration && (
-          <section aria-labelledby="duree">
-            <h2 id="duree" className={h2}>
+          <section aria-labelledby="duration">
+            <h2 id="duration" className={h2}>
               {t("pages.versus.duration.title")}
             </h2>
             <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{sentenceDuration}</p>
@@ -302,16 +302,16 @@ export default async function VersusPage({ params }: Params) {
               </table>
             </div>
             <p className="mt-2 text-xs leading-relaxed text-chalk-500">
-              {t("pages.versus.duration.rating", { rang: t(`measuredRanks.${rankDuration}`) })}
+              {t("pages.versus.duration.rating", { rank: t(`measuredRanks.${rankDuration}`) })}
             </p>
           </section>
         )}
 
         {/* ── Profiles ─────────────────────────────────────────────── */}
         {/* Table only, no radar: the page stays light, and the radar lives in the comparator. */}
-        <section aria-labelledby="profils">
-          <h2 id="profils" className={h2}>
-            {t("pages.versus.profiles", { rang: t(`measuredRanks.${rankRef}`) })}
+        <section aria-labelledby="profiles">
+          <h2 id="profiles" className={h2}>
+            {t("pages.versus.profiles", { rank: t(`measuredRanks.${rankRef}`) })}
           </h2>
           <div className="mt-4 max-w-xl">
             <div className="bevel relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
@@ -380,7 +380,7 @@ export default async function VersusPage({ params }: Params) {
                       {(played.build.emblem || played.build.spell) && (
                         <p className="mt-2 text-xs text-chalk-400">
                           {[played.build.emblem, played.build.spell].filter(Boolean).join(" · ")}
-                          {played.build.winRate != null && ` · ${t("builds.win", { taux: decimal.format(played.build.winRate) })}`}
+                          {played.build.winRate != null && ` · ${t("builds.win", { rate: decimal.format(played.build.winRate) })}`}
                         </p>
                       )}
                     </>
@@ -388,7 +388,7 @@ export default async function VersusPage({ params }: Params) {
                   {counter.length > 0 && (
                     <>
                       <p className="mt-4 text-xs uppercase tracking-wide text-chalk-500">
-                        {t("pages.versus.builds.against", { nom: other.name })}{" "}
+                        {t("pages.versus.builds.against", { name: other.name })}{" "}
                         <span className="normal-case tracking-normal">· {t("pages.versus.builds.rule")}</span>
                       </p>
                       <ItemList items={counter.map((o) => ({ name: o.name, slug: o.slug }))} />
@@ -402,18 +402,18 @@ export default async function VersusPage({ params }: Params) {
 
         {/* ── On the same team ─────────────────────────────────────── */}
         {team.length > 0 && (
-          <section aria-labelledby="equipe">
-            <h2 id="equipe" className={h2}>
+          <section aria-labelledby="team">
+            <h2 id="team" className={h2}>
               {t("pages.versus.team.title", { a: a.name, b: b.name })}
             </h2>
             <ul className="mt-3 space-y-1.5 text-sm text-chalk-300">
               {team.map((e) => (
-                <li key={`${e.rank}-${e.de}`}>
+                <li key={`${e.rank}-${e.from}`}>
                   {t("pages.versus.team.row", {
-                    contexte: contextOf(t, e.rank),
-                    de: nameOf(e.de),
-                    avec: nameOf(e.partner),
-                    ecart: gap(e.advantage),
+                    context: contextOf(t, e.rank),
+                    hero: nameOf(e.from),
+                    with: nameOf(e.partner),
+                    gap: gap(e.advantage),
                   })}
                 </li>
               ))}
@@ -423,8 +423,8 @@ export default async function VersusPage({ params }: Params) {
         )}
 
         {/* ── Going further ────────────────────────────────────────── */}
-        <section aria-labelledby="liens">
-          <h2 id="liens" className="font-heading text-xl font-bold text-chalk-100">
+        <section aria-labelledby="links">
+          <h2 id="links" className="font-heading text-xl font-bold text-chalk-100">
             {t("pages.versus.links.title")}
           </h2>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm">
@@ -436,17 +436,17 @@ export default async function VersusPage({ params }: Params) {
             {[a, b].flatMap((h) => [
               <li key={`${h.slug}-fiche`}>
                 <Link href={`/heroes/${h.slug}`} className={chip}>
-                  {t("pages.duos.sheetLink", { nom: h.name })}
+                  {t("pages.duos.sheetLink", { name: h.name })}
                 </Link>
               </li>,
               <li key={`${h.slug}-contres`}>
                 <Link href={`/heroes/${h.slug}/counters`} className={chip}>
-                  {t("pages.duos.countersLink", { nom: h.name })}
+                  {t("pages.duos.countersLink", { name: h.name })}
                 </Link>
               </li>,
               <li key={`${h.slug}-duos`}>
                 <Link href={`/heroes/${h.slug}/duos`} className={chip}>
-                  {t("pages.duos.title", { nom: h.name })}
+                  {t("pages.duos.title", { name: h.name })}
                 </Link>
               </li>,
             ])}
@@ -458,7 +458,7 @@ export default async function VersusPage({ params }: Params) {
             ].map(({ h, others }) =>
               others.length > 0 ? (
                 <div key={h.slug}>
-                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.links.others", { nom: h.name })}</h3>
+                  <h3 className="text-sm font-semibold text-chalk-100">{t("pages.versus.links.others", { name: h.name })}</h3>
                   <ul className="mt-2 flex flex-wrap gap-2 text-sm">
                     {others.map((e) => (
                       <li key={e.slug}>
@@ -500,8 +500,8 @@ function TableDuel({
         <tr>
           <th scope="col" className="text-left">{t("pages.versus.colRank")}</th>
           <th scope="col">{t("pages.versus.colAdvantage")}</th>
-          <th scope="col">{t("pages.versus.colAgainst", { de: a.name, face: b.name })}</th>
-          <th scope="col">{t("pages.versus.colAgainst", { de: b.name, face: a.name })}</th>
+          <th scope="col">{t("pages.versus.colAgainst", { hero: a.name, opponent: b.name })}</th>
+          <th scope="col">{t("pages.versus.colAgainst", { hero: b.name, opponent: a.name })}</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-night-800">

@@ -155,7 +155,7 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
                         {src ? (
                           <LightImage
                             src={src}
-                            alt={t("pages.skinsGallery.alt", { heros: g.name, skin: name })}
+                            alt={t("pages.skinsGallery.alt", { hero: g.name, skin: name })}
                             width={120}
                             height={195}
                           />

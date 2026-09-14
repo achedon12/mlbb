@@ -51,10 +51,10 @@ export function MeasuredCounters({
   return (
     <div>
       <p className="mb-4 text-sm leading-relaxed text-chalk-500">
-        {t("pages.heroDetail.countersIntro", { nom: name })}
+        {t("pages.heroDetail.countersIntro", { name: name })}
         {current.winRate !== null && (
           <span className="text-chalk-300">
-            {" "}{t("pages.heroDetail.countersRef", { taux: current.winRate })}
+            {" "}{t("pages.heroDetail.countersRef", { rate: current.winRate })}
           </span>
         )}
       </p>
@@ -95,7 +95,7 @@ export function TeammatesByRank({
 
   return (
     <div>
-      <p className="mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroDetail.teammatesIntro", { nom: name })}</p>
+      <p className="mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroDetail.teammatesIntro", { name: name })}</p>
       <div className="grid gap-4 md:grid-cols-2">
         <Column title={t("pages.heroDetail.teammates")} icon={<Users size={17} aria-hidden />} tone="good" entries={list} />
       </div>

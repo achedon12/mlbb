@@ -17,7 +17,7 @@ import { useT } from "@/i18n/provider";
 export function LoginForm() {
   const t = useT();
   const [state, send, inProgress] = useActionState<State, FormData>(requestCode, {});
-  const [helpBefore, helpAfter = ""] = t("loginForm.serverHelp").split("{exemple}");
+  const [helpBefore, helpAfter = ""] = t("loginForm.serverHelp").split("{example}");
 
   if (state.codeSent) {
     return <CodeForm roleId={state.roleId!} zoneId={state.zoneId!} />;

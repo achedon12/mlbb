@@ -101,7 +101,7 @@ export function RecipeItem({
             <RecipeTree names={item.recipe} catalog={catalog} t={t} locale={locale} to={to} />
             {merge !== null && (
               <p className="mt-2 text-xs text-chalk-500">
-                {t("pages.itemsList.merge", { prix: count(locale, merge) })}
+                {t("pages.itemsList.merge", { price: count(locale, merge) })}
               </p>
             )}
           </dd>

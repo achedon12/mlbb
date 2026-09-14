@@ -1,6 +1,6 @@
 import type { HeroAnalysis } from "@/lib/types";
 
-/** Analyses des tanks. Donnees factuelles : voir la synchronisation. */
+/** Analyses of the tanks. Factual data: see the sync. */
 export const tanks: HeroAnalysis[] = [
 
   {

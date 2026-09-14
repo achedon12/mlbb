@@ -39,7 +39,7 @@ function newest(g: HeroGallery): SkinFull | null {
 }
 
 function description(t: T, locale: Locale, h: Hero, g: HeroGallery): string {
-  const base = t("pages.heroSkins.metaDescription", { nom: h.name, n: g.total });
+  const base = t("pages.heroSkins.metaDescription", { name: h.name, n: g.total });
   const recent = newest(g);
   if (!recent) return base;
   return `${base} ${t("pages.heroSkins.latest", { skin: recent.name, date: formatRelease(recent.release!, locale) })}`;
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const g = heroGallery(h);
   const el = elide(locale, h.name);
   return metaPage(locale, {
-    title: t(el ? "pages.heroSkins.metaTitleElision" : "pages.heroSkins.metaTitle", { nom: h.name, n: g.total }),
+    title: t(el ? "pages.heroSkins.metaTitleElision" : "pages.heroSkins.metaTitle", { name: h.name, n: g.total }),
     description: description(t, locale, h, g),
     path: `/heroes/${slug}/skins`,
     image: `/${locale}/heroes/${slug}/opengraph-image`,
@@ -79,8 +79,8 @@ export default async function HeroSkinsPage({ params }: Params) {
   const anchors = anchorsGallery(g);
   const recent = newest(g);
   const absolute = (path: string) => new URL(path, site.url).toString();
-  const altIllustration = (skin: string) => t("pages.heroSkins.altIllustration", { skin, nom: h.name });
-  const altPortrait = (skin: string) => t("pages.heroSkins.altPortrait", { skin, nom: h.name });
+  const altIllustration = (skin: string) => t("pages.heroSkins.altIllustration", { skin, name: h.name });
+  const altPortrait = (skin: string) => t("pages.heroSkins.altPortrait", { skin, name: h.name });
   const price = (s: SkinFull) =>
     Object.entries(s.price)
       .map(([m, v]) => {
@@ -138,7 +138,7 @@ export default async function HeroSkinsPage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
       <PageHeader
         title={title}
-        lead={t("pages.heroSkins.lead", { nom: h.name, n: g.total })}
+        lead={t("pages.heroSkins.lead", { name: h.name, n: g.total })}
         crumbs={[
           { name: t("nav.heroes.label"), href: "/heroes" },
           { name: h.name, href: `/heroes/${h.slug}` },
@@ -164,15 +164,15 @@ export default async function HeroSkinsPage({ params }: Params) {
           )}
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
             {presentRarities(g.skins.map((s) => s.rarity)).map((r) => (
-              <li key={r.name} className="flex items-center gap-1.5 text-xs">
+              <li key={r.key} className="flex items-center gap-1.5 text-xs">
                 <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.color }} />
-                {tr("skinRarity", r.key ?? r.name)}
+                {tr("skinRarity", r.key)}
               </li>
             ))}
           </ul>
           <p>
             <Link href={`/heroes/${h.slug}`} className="font-semibold text-gold-400 underline-offset-4 hover:underline">
-              ← {t("pages.heroDetail.titleSheet", { nom: h.name })}
+              ← {t("pages.heroDetail.titleSheet", { name: h.name })}
             </Link>
           </p>
         </div>
@@ -199,7 +199,7 @@ export default async function HeroSkinsPage({ params }: Params) {
                     className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origin ? "text-chalk-500" : ""}`}
                     style={origin ? undefined : { color: r.color }}
                   >
-                    {tr("skinRarity", r.key ?? r.name)}
+                    {tr("skinRarity", r.key)}
                   </p>
                   <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                     {s.release && (

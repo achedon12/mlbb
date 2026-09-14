@@ -216,7 +216,7 @@ describe("comparison with site averages", () => {
     const stats = statsByRank("ling");
     expect(m.win).toBe(stats[m.bucket]!.winRate);
     expect(m.bucket).toBe(stats.mythic ? "mythic" : "all");
-    expect(averageOfRank("heros-inexistant", "mythic")).toBeNull();
+    expect(averageOfRank("missing-hero", "mythic")).toBeNull();
   });
 
   it("sorts heroes by matches and computes the gap", () => {

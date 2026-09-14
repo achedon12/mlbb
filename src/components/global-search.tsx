@@ -177,7 +177,7 @@ export function GlobalSearch() {
                 autoFocus
                 role="combobox"
                 aria-expanded
-                aria-controls={`${id}-liste`}
+                aria-controls={`${id}-list`}
                 aria-activedescendant={flat[active] ? `${id}-${active}` : undefined}
                 aria-label={t("search.placeholder")}
                 value={search}
@@ -192,7 +192,7 @@ export function GlobalSearch() {
               <kbd className="hidden rounded border border-night-600 px-1.5 text-[0.7rem] text-chalk-500 sm:inline">Esc</kbd>
             </div>
 
-            <div ref={list} id={`${id}-liste`} role="listbox" className="overflow-y-auto p-2">
+            <div ref={list} id={`${id}-list`} role="listbox" className="overflow-y-auto p-2">
               {!entries ? (
                 <p className="px-3 py-6 text-center text-sm text-chalk-500">{t("search.loading")}</p>
               ) : flat.length === 0 ? (

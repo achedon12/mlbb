@@ -17,6 +17,7 @@ import {
   MIN_ALERTS,
   NOTES,
   SIZE_TEAM,
+  measuresUrl,
   type Alert,
   type Analysis,
   type TeamHero,
@@ -35,7 +36,7 @@ import { cn } from "@/lib/utils";
  *
  * Up to five heroes, with no fixed position; all computation comes from
  * `lib/composition`. The catalogue ships with the page, the chosen rank's
- * measures separately (`/composition/<rang>.json`), once per visit. Team and
+ * measures separately (`/composition/<rank>.json`), once per visit. Team and
  * rank go through the URL (`?h=…&rang=…`), read after mount: the page stays
  * static, and a composition is shared by its link.
  */
@@ -46,7 +47,7 @@ const requests = new Map<MeasuredRank, Promise<MeasuresRank>>();
 function loadMeasures(rank: MeasuredRank): Promise<MeasuresRank> {
   let request = requests.get(rank);
   if (!request) {
-    request = fetch(`/composition/${rank}.json`).then((r) => {
+    request = fetch(measuresUrl(rank)).then((r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json() as Promise<MeasuresRank>;
     });
@@ -148,8 +149,8 @@ export function TeamAnalysis({
 
   return (
     <div className="space-y-12">
-      <section aria-labelledby="equipe-titre">
-        <h2 id="equipe-titre" className="font-heading text-2xl font-bold text-chalk-100">
+      <section aria-labelledby="team-title">
+        <h2 id="team-title" className="font-heading text-2xl font-bold text-chalk-100">
           {t("teamUI.yourTeam")}
         </h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -183,7 +184,7 @@ export function TeamAnalysis({
           )}
           {/* Remaining slots, to see at a glance what is missing; on mobile, the button is enough. */}
           {Array.from({ length: Math.max(0, SIZE_TEAM - team.length - 1) }, (_, i) => (
-            <li key={`vide-${i}`} aria-hidden className="hidden sm:block">
+            <li key={`empty-${i}`} aria-hidden className="hidden sm:block">
               <span className="bevel-sm block h-full min-h-32 border border-dashed border-night-800" />
             </li>
           ))}
@@ -284,7 +285,7 @@ function Slot({
       <button
         type="button"
         onClick={onRemove}
-        aria-label={t("draftUI.remove", { nom: h.name })}
+        aria-label={t("draftUI.remove", { name: h.name })}
         className="absolute right-1 top-1 grid size-7 place-items-center text-chalk-500 transition-colors hover:text-blood-500"
       >
         <X size={14} aria-hidden />
@@ -298,7 +299,7 @@ function textAlert(a: Alert, t: T, formats: Formats, nameOf: (slug: string) => s
     case "lanes":
       return t("teamUI.alerts.lanes", {
         lanes: a.lanes.map((l) => t(`lanes.${l}`)).join(", "),
-        noms: a.extra.map(nameOf).join(", "),
+        names: a.extra.map(nameOf).join(", "),
       });
     case "tank":
       return t("teamUI.alerts.tank");
@@ -334,7 +335,7 @@ function Results({
   const pts = t("counters.pts");
   const v = analysis.win;
   const bucket = (x: Bucket) =>
-    x.to === null ? t("teamUI.minutesPlus", { de: x.from }) : t("teamUI.minutes", { de: x.from, a: x.to });
+    x.to === null ? t("teamUI.minutesPlus", { from: x.from }) : t("teamUI.minutes", { from: x.from, to: x.to });
 
   const tiles: [string, string, number][] = [
     [t("teamUI.averageRate"), v === null ? "—" : `${formats.count(v)} %`, v === null ? 0 : v >= 50.5 ? 1 : v <= 49.5 ? -1 : 0],
@@ -345,9 +346,9 @@ function Results({
 
   return (
     <>
-      <section aria-labelledby="analyse-titre" className="space-y-10">
+      <section aria-labelledby="analysis-title" className="space-y-10">
         <div>
-          <h2 id="analyse-titre" className="font-heading text-2xl font-bold text-chalk-100">
+          <h2 id="analysis-title" className="font-heading text-2xl font-bold text-chalk-100">
             {t("teamUI.analysis")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -422,7 +423,7 @@ function Results({
             </ul>
             {assignment.extra.length > 0 && (
               <p className="mt-2 text-xs text-blood-500">
-                {t("teamUI.noLane", { noms: assignment.extra.map(nameOf).join(", ") })}
+                {t("teamUI.noLane", { names: assignment.extra.map(nameOf).join(", ") })}
               </p>
             )}
 
@@ -445,19 +446,19 @@ function Results({
           {/* ── Profile: damage and in-game ratings ──────────────────── */}
           <Card>
             <h3 className={heading3}>{t("teamUI.profile")}</h3>
-            {damage.partPhysique !== null && (
+            {damage.physicalShare !== null && (
               <>
                 <p className={cn("mt-3", heading)}>{t("teamUI.damage")}</p>
                 <div
                   role="img"
                   aria-label={t("teamUI.damageShare", {
-                    physique: formats.integer(damage.partPhysique * 100),
-                    magique: formats.integer((1 - damage.partPhysique) * 100),
+                    physical: formats.integer(damage.physicalShare * 100),
+                    magic: formats.integer((1 - damage.physicalShare) * 100),
                   })}
                   className="mt-2 flex h-2.5 overflow-hidden rounded-full bg-night-800"
                 >
-                  <span className="h-full bg-gold-500" style={{ width: `${damage.partPhysique * 100}%` }} />
-                  <span className="h-full bg-azure-500" style={{ width: `${(1 - damage.partPhysique) * 100}%` }} />
+                  <span className="h-full bg-gold-500" style={{ width: `${damage.physicalShare * 100}%` }} />
+                  <span className="h-full bg-azure-500" style={{ width: `${(1 - damage.physicalShare) * 100}%` }} />
                 </div>
                 <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-chalk-300">
                   {(["physical", "magic", "mixed"] as const).map(
@@ -506,12 +507,12 @@ function Results({
               {curve ? (
                 <>
                   <p className="mt-1 text-sm text-chalk-500">
-                    {t("teamUI.durationIntro", { rang: t(`measuredRanks.${rank}`) })}
+                    {t("teamUI.durationIntro", { rank: t(`measuredRanks.${rank}`) })}
                   </p>
                   <p className="mt-3 text-sm text-chalk-300">
                     <span className="font-semibold text-gold-400">{t(`teamUI.durationProfile.${curve.profile}`)}</span>
                     {" · "}
-                    {t("teamUI.peak", { tranche: bucket(curve.buckets[curve.pic]) })}
+                    {t("teamUI.peak", { window: bucket(curve.buckets[curve.pic]) })}
                   </p>
                   <DurationBars
                     buckets={curve.buckets.map((x, i) => ({ ...x, winRate: curve.win[i] }))}
@@ -616,8 +617,8 @@ function Results({
 
       {/* ── Picks for the open lanes ─────────────────────────────────── */}
       {analysis.suggestions.length > 0 && (
-        <section aria-labelledby="completer-titre">
-          <h2 id="completer-titre" className="font-heading text-2xl font-bold text-chalk-100">
+        <section aria-labelledby="complete-title">
+          <h2 id="complete-title" className="font-heading text-2xl font-bold text-chalk-100">
             {t("teamUI.complete")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -636,7 +637,7 @@ function Results({
                         <CardSuggestion
                           suggestion={s}
                           first={i === 0}
-                          titleTake={t("draftUI.chooseIn", { nom: s.hero.name, lane: t(`lanes.${lane}`) })}
+                          titleTake={t("draftUI.chooseIn", { name: s.hero.name, lane: t(`lanes.${lane}`) })}
                           onTake={() => onAdd(s.hero.slug)}
                           empty={t("teamUI.noReason")}
                         />

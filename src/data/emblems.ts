@@ -1,20 +1,20 @@
 import type { Role } from "@/lib/types";
 
 /**
- * Emblemes, talents et sorts de combat.
+ * Emblems, talents and battle spells.
  *
- * Le wiki n'expose aucun module de donnees pour eux : cette liste est ecrite a
- * la main. Les noms sont ceux du jeu en anglais, ce qui n'est pas un choix
- * esthetique — c'est la cle qui relie chaque entree a son visuel, resolu par
- * la synchronisation (`src/data/game/visuals.json`).
+ * The wiki exposes no data module for them: this list is written by hand.
+ * Names are the game's English ones, which is not an aesthetic choice — they
+ * are the key linking each entry to its visual, resolved by the sync
+ * (`src/data/game/visuals.json`).
  *
- * Le champ `pourQui` est de l'analyse : il dit a qui l'option s'adresse
- * reellement, ce qu'une description d'effet ne dit jamais.
+ * The `bestFor` field is analysis: it says who the option is really for,
+ * which an effect description never does.
  */
 export interface Emblem {
-  /** Cle du visuel, et nom exact dans le jeu. */
+  /** Visual key, and exact in-game name. */
   key: string;
-  /** Role auquel cet embleme correspond. */
+  /** Role this emblem fits. */
   role: Role;
   name: string;
   bonus: string;
@@ -30,22 +30,22 @@ export const emblems: Emblem[] = [
   { key: "support-emblem", role: "Support", name: "Emblème de soutien", bonus: "Réduction de recharge et vitesse de déplacement", bestFor: "Soutiens et roamers non tanks." },
 ];
 
-/** « tank-emblem » devient « tank » : l'adresse /emblems/tank ne repete pas le mot. */
+/** "tank-emblem" becomes "tank": the /emblems/tank address does not repeat the word. */
 export const slugEmblem = (e: Emblem) => e.key.replace(/-emblem$/, "");
 
 export interface Talent {
   key: string;
   name: string;
-  /** Roles pour lesquels ce talent est un choix defendable. */
+  /** Roles for which this talent is a sound choice. */
   roles: Role[];
-  /** Les talents decisifs sont ceux du dernier etage. */
+  /** Decisive talents are those of the last tier. */
   decisive: boolean;
   description: string;
   bestFor: string;
 }
 
 export const talents: Talent[] = [
-  // ── Attributs ────────────────────────────────────────────────────────────
+  // ── Attributes ───────────────────────────────────────────────────────────
   { key: "agility", name: "Agility", decisive: false, description: "Augmente la vitesse de déplacement.", bestFor: "Roamers et héros qui doivent tourner vite sur la carte.", roles: ["Support", "Tank"] },
   { key: "swift", name: "Swift", decisive: false, description: "Augmente la vitesse d'attaque.", bestFor: "Tireurs et combattants à attaques de base.", roles: ["Marksman", "Fighter"] },
   { key: "vitality", name: "Vitality", decisive: false, description: "Augmente les PV maximum.", bestFor: "Tanks et combattants.", roles: ["Tank", "Fighter"] },
@@ -57,7 +57,7 @@ export const talents: Talent[] = [
   { key: "master-assassin", name: "Master Assassin", decisive: false, description: "Augmente les dégâts contre une cible isolée.", bestFor: "Assassins qui cherchent le duel.", roles: ["Assassin"] },
   { key: "weakness-finder", name: "Weakness Finder", decisive: false, description: "Les attaques de base ralentissent la cible.", bestFor: "Combattants sans contrôle propre.", roles: ["Fighter", "Marksman"] },
 
-  // ── Talents decisifs ─────────────────────────────────────────────────────
+  // ── Decisive talents ────────────────────────────────────────────────────
   { key: "impure-rage", name: "Impure Rage", decisive: true, description: "La prochaine compétence inflige des dégâts supplémentaires et restaure de la mana.", bestFor: "Mages à compétences fréquentes.", roles: ["Mage"] },
   { key: "quantum-charge", name: "Quantum Charge", decisive: true, description: "Les dégâts de compétence accélèrent et soignent.", bestFor: "Héros qui doivent rester mobiles en combat.", roles: ["Fighter", "Mage"] },
   { key: "weapon-master", name: "Weapon Master", decisive: true, description: "Augmente tous les bonus d'attaque reçus des objets.", bestFor: "Combattants dont les dégâts viennent des compétences.", roles: ["Fighter"] },
@@ -75,7 +75,7 @@ export const talents: Talent[] = [
 export interface BattleSpell {
   key: string;
   name: string;
-  /** Roles pour lesquels ce sort est un choix defendable. */
+  /** Roles for which this spell is a sound choice. */
   roles: Role[];
   cooldown: number;
   description: string;
