@@ -78,7 +78,7 @@ export default async function GameModesPage({ params }: { params: Promise<{ loca
                 )}
                 <div
                   aria-hidden
-                  className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950/85 via-night-950/45 to-transparent"
+                  className="absolute inset-0 -z-10 bg-linear-to-r from-night-950/85 via-night-950/45 to-transparent"
                 />
 
                 <div className="flex min-h-[180px] flex-col justify-end gap-3 p-6 sm:min-h-[200px] sm:p-8">
