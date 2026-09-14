@@ -1,7 +1,7 @@
 name: Incorrect data
 description: A stat, role, price or skin that does not match the game.
 title: "[data] "
-labels: ["donnees"]
+labels: ["data"]
 body:
   - type: markdown
     attributes:
@@ -18,13 +18,13 @@ body:
     validations:
       required: true
   - type: textarea
-    id: constate
+    id: observed
     attributes:
       label: What the site shows
     validations:
       required: true
   - type: textarea
-    id: attendu
+    id: expected
     attributes:
       label: What the game shows
       description: A screenshot from the game is the best evidence.

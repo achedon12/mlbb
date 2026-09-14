@@ -1,11 +1,11 @@
-name: Conflits
+name: Merge conflicts
 
-# Etiquette « conflit » sur les pull requests qui ne s'appliquent plus
-# proprement sur leur branche cible : a rebaser avant la relecture. Reverifie
-# a chaque push sur develop ou main, qui peut en rendre d'autres conflictuelles.
+# "merge conflict" label on pull requests that no longer apply cleanly to their
+# target branch: to rebase before review. Checked again on every push to develop
+# or main, which can make others conflict.
 #
-# pull_request_target est sans risque ici : aucun code de la pull request n'est
-# recupere ni execute, une action epinglee pose ou retire l'etiquette.
+# Using pull_request_target is safe here: no code from the pull request is
+# checked out or run, a pinned action adds or removes the label.
 on:
   push:
     branches: [develop, main]
@@ -15,8 +15,8 @@ on:
 permissions: {}
 
 jobs:
-  etiqueter:
-    name: Etiqueter les conflits
+  label:
+    name: Label conflicts
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -25,8 +25,8 @@ jobs:
       - uses: eps1lon/actions-label-merge-conflict@0273be72a0bbd58fcd71d0d6c02c209b50d1e5e1 # v3.1.0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          dirtyLabel: conflit
+          dirtyLabel: merge conflict
           commentOnDirty: >
-            Cette pull request est en conflit avec sa branche cible. Rebasez-la
-            (`git fetch origin && git rebase origin/develop`) pour qu'elle
-            puisse etre relue.
+            This pull request conflicts with its target branch. Rebase it
+            (`git fetch origin && git rebase origin/develop`) so it can be
+            reviewed.

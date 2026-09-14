@@ -1,15 +1,15 @@
-name: Image Docker
+name: Docker image
 
-# main, c'est la production : tout push sur main construit l'image, puis met le
-# serveur a jour — une version publiee depuis develop comme un commit de
-# donnees de la synchronisation. On ne pousse l'image nulle part : le serveur
-# reconstruit la sienne, ce build-ci verifie seulement qu'elle se construit.
+# main is production: every push to main builds the image, then updates the
+# server — a release published from develop as well as a data commit from the
+# sync. The image is pushed nowhere: the server rebuilds its own, and this build
+# only checks that it builds.
 #
-# Sur une pull request qui touche l'image (Dockerfile, dependances, config de
-# Next), construction seule : la regression est attrapee avant la fusion.
+# On a pull request touching the image (Dockerfile, dependencies, Next config),
+# build only: the regression is caught before merging.
 #
-# Appele aussi par la synchronisation quand elle a pousse avec GITHUB_TOKEN,
-# faute de cle de deploiement : un tel push ne declenche aucun workflow.
+# Also called by the sync when it pushed with GITHUB_TOKEN, for lack of a
+# deploy key: such a push triggers no workflow.
 on:
   push:
     branches: [main]
@@ -23,11 +23,11 @@ on:
   workflow_call:
     inputs:
       ref:
-        description: Commit a construire (par defaut, celui qui declenche)
+        description: Commit to build (defaults to the triggering one)
         type: string
         default: ""
-      deployer:
-        description: Deployer sur le serveur une fois l'image construite
+      deploy:
+        description: Deploy to the server once the image is built
         type: boolean
         default: false
     secrets:
@@ -37,8 +37,8 @@ on:
         required: false
   workflow_dispatch:
     inputs:
-      deployer:
-        description: Deployer sur le serveur une fois l'image construite
+      deploy:
+        description: Deploy to the server once the image is built
         type: boolean
         default: true
 
@@ -46,8 +46,8 @@ permissions:
   contents: read
 
 jobs:
-  construire:
-    name: Construire l'image
+  build:
+    name: Build the image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -66,37 +66,37 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-  # Le serveur suit le deploiement documente : il recupere main et reconstruit
-  # son conteneur. Inactif tant que les reglages du depot ne sont pas
-  # renseignes (voir docs/wiki/Data-and-sync.md).
-  deployer:
-    name: Deployer sur le serveur
-    needs: construire
-    if: (inputs.deployer || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && vars.DEPLOY_HOST != ''
+  # The server follows the documented deployment: it pulls main and rebuilds
+  # its container. Inactive until the repository settings are filled in (see
+  # docs/wiki/Data-and-sync.md).
+  deploy:
+    name: Deploy to the server
+    needs: build
+    if: (inputs.deploy || (github.event_name == 'push' && github.ref == 'refs/heads/main')) && vars.DEPLOY_HOST != ''
     runs-on: ubuntu-latest
     timeout-minutes: 30
     concurrency:
-      group: deploiement
+      group: deploy
       cancel-in-progress: false
     steps:
-      - name: Mettre a jour le serveur et reconstruire le conteneur
+      - name: Update the server and rebuild the container
         env:
-          CLE: ${{ secrets.DEPLOY_SSH_KEY }}
-          HOTES_CONNUS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
-          HOTE: ${{ vars.DEPLOY_HOST }}
-          UTILISATEUR: ${{ vars.DEPLOY_USER }}
-          DOSSIER: ${{ vars.DEPLOY_PATH }}
-          PORT_SSH: ${{ vars.DEPLOY_PORT || '22' }}
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          SSH_HOST: ${{ vars.DEPLOY_HOST }}
+          SSH_USER: ${{ vars.DEPLOY_USER }}
+          APP_DIR: ${{ vars.DEPLOY_PATH }}
+          SSH_PORT: ${{ vars.DEPLOY_PORT || '22' }}
         run: |
           install -d -m 700 ~/.ssh
-          printf '%s\n' "$CLE" > ~/.ssh/deploiement
-          chmod 600 ~/.ssh/deploiement
-          # Sans empreinte connue, on ne se connecte pas : accepter celle que
-          # presente le serveur exposerait le deploiement a une interception.
-          if [ -z "$HOTES_CONNUS" ]; then
-            echo "::error::DEPLOY_KNOWN_HOSTS manquant (sortie de ssh-keyscan -p <port> <hote>, verifiee a la main)"
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          # Without a known fingerprint, do not connect: accepting the one the
+          # server presents would expose the deployment to interception.
+          if [ -z "$KNOWN_HOSTS" ]; then
+            echo "::error::DEPLOY_KNOWN_HOSTS missing (output of ssh-keyscan -p <port> <host>, checked by hand)"
             exit 1
           fi
-          printf '%s\n' "$HOTES_CONNUS" > ~/.ssh/known_hosts
-          ssh -i ~/.ssh/deploiement -p "$PORT_SSH" "$UTILISATEUR@$HOTE" \
-            "cd '$DOSSIER' && git pull --ff-only origin main && docker compose up -d --build"
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "cd '$APP_DIR' && git pull --ff-only origin main && docker compose up -d --build"

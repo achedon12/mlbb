@@ -10,7 +10,7 @@ body:
         the commentary: what the hero really does, their builds, their
         counters. See [CONTRIBUTING.md](https://github.com/achedon12/mlbb/blob/develop/CONTRIBUTING.md).
   - type: input
-    id: heros
+    id: hero
     attributes:
       label: Hero
       placeholder: Fanny

@@ -4,14 +4,14 @@ title: "[idea] "
 labels: ["enhancement"]
 body:
   - type: textarea
-    id: besoin
+    id: need
     attributes:
       label: The need
       description: What problem does it solve, and for whom? Describe the need before the solution.
     validations:
       required: true
   - type: textarea
-    id: proposition
+    id: proposal
     attributes:
       label: What you propose
     validations:

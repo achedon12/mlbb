@@ -1,17 +1,16 @@
-name: Aligner develop
+name: Align develop
 
-# main, c'est la production ; develop, le travail en cours. Tout ce qui arrive
-# sur main — une version publiee, un correctif urgent, les donnees de la
-# synchronisation quotidienne — est reporte aussitot sur develop, sans jamais
-# de commit de fusion :
+# main is production; develop, the work in progress. Everything that lands on
+# main — a published release, an urgent fix, the daily sync's data — is carried
+# over to develop right away, never with a merge commit:
 #
-# - develop en retard sur main : avance rapide ;
-# - develop porte des commits pas encore publies : ils sont rejoues par-dessus
-#   main (rebase), puis develop est repoussee. L'historique reste lineaire et la
-#   publication suivante sera une simple avance rapide de main.
+# - develop behind main: fast-forward;
+# - develop carries unpublished commits: they are replayed on top of main
+#   (rebase), then develop is pushed again. History stays linear and the next
+#   release is a plain fast-forward of main.
 #
-# Le push passe par la cle de deploiement SYNC_DEPLOY_KEY, autorisee a
-# contourner la protection de develop (force push apres un rebase).
+# The push goes through the SYNC_DEPLOY_KEY deploy key, allowed to bypass
+# develop's protection (force push after a rebase).
 on:
   push:
     branches: [main]
@@ -25,40 +24,40 @@ permissions:
   contents: write
 
 concurrency:
-  group: aligner-develop
+  group: align-develop
   cancel-in-progress: false
 
 jobs:
-  aligner:
-    name: Reporter main sur develop
+  align:
+    name: Carry main over to develop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        # Identifiants conserves : develop est repoussee a la fin.
+        # Credentials kept: develop is pushed at the end.
         with: # zizmor: ignore[artipacked]
           fetch-depth: 0
-          # Vide, checkout se rabat sur GITHUB_TOKEN.
+          # When empty, checkout falls back to GITHUB_TOKEN.
           ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
 
-      - name: Avancer ou rejouer develop sur main
+      - name: Fast-forward or replay develop on main
         run: |
           if ! git ls-remote --exit-code --heads origin develop > /dev/null; then
-            echo "Pas encore de branche develop : rien a aligner."
+            echo "No develop branch yet: nothing to align."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch -q origin main develop
-          avant=$(git rev-parse origin/develop)
+          before=$(git rev-parse origin/develop)
           if git merge-base --is-ancestor origin/main origin/develop; then
-            echo "develop contient deja main."
+            echo "develop already contains main."
             exit 0
           fi
           git checkout -q -B develop origin/develop
           if git merge-base --is-ancestor origin/develop origin/main; then
             git merge -q --ff-only origin/main
             git push -q origin HEAD:develop
-            echo "develop avance jusqu'a $(git rev-parse --short HEAD)."
+            echo "develop fast-forwarded to $(git rev-parse --short HEAD)."
             exit 0
           fi
           # The nightly sync commits generated data on main, with main's scripts.
@@ -72,7 +71,7 @@ jobs:
               others=$(printf '%s\n' "$conflicts" | grep -vE '^(src/data/|public/visuels/|scripts/[^/]+\.json$)' || true)
               if [ -z "$conflicts" ] || [ -n "$others" ]; then
                 git rebase --abort
-                echo "::error::Les commits de develop entrent en conflit avec main : rebasez develop sur main a la main."
+                echo "::error::develop's commits conflict with main: rebase develop onto main by hand."
                 exit 1
               fi
               for f in $conflicts; do
@@ -87,6 +86,6 @@ jobs:
               GIT_EDITOR=true git rebase --continue > /dev/null || true
             done
           fi
-          # Le bail refuse d'ecraser un push arrive sur develop pendant le rebase.
-          git push -q --force-with-lease="develop:$avant" origin HEAD:develop
-          echo "develop rejouee sur main : $(git rev-list --count origin/main..HEAD) commit(s) a publier."
+          # The lease refuses to overwrite a push that reached develop during the rebase.
+          git push -q --force-with-lease="develop:$before" origin HEAD:develop
+          echo "develop replayed on main: $(git rev-list --count origin/main..HEAD) commit(s) to publish."

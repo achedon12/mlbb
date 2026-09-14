@@ -28,7 +28,7 @@ src/
   app/            Pages (App Router): heroes, tier list, items, modes, patch notes, tools…
   components/     UI components
   i18n/           Languages, message catalogues, translation helpers
-  lib/            Data access (donnees.ts), types, utilities
+  lib/            Data access (data.ts), types, utilities
   data/
     game/          Extracted data (heroes, visuals, statistics, patches…)
     heroes/        Hand-written analyses (builds, counters, commentary)

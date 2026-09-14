@@ -1,7 +1,7 @@
-name: Qualite
+name: Quality
 
-# Sur chaque proposition de modification : on verifie que le projet compile
-# avant de relire le fond.
+# On every proposed change: check that the project builds before reviewing the
+# substance.
 on:
   push:
     branches: [main, develop]
@@ -10,13 +10,13 @@ on:
 permissions:
   contents: read
 
-# Sur une pull request, un nouveau push annule la verification du precedent.
+# On a pull request, a new push cancels the check of the previous one.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  verifier:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -39,10 +39,10 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Verifier que les donnees generees sont a jour dans le depot
+      - name: Check that the generated data is in the repository
         run: |
           if [ ! -s src/data/game/heroes.json ]; then
-            echo "src/data/game/heroes.json est absent ou vide."
-            echo "Lancer : npm run sync -- --images"
+            echo "src/data/game/heroes.json is missing or empty."
+            echo "Run: npm run sync -- --images"
             exit 1
           fi

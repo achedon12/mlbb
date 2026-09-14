@@ -1,22 +1,21 @@
-name: Securite
+name: Security
 
-# Analyse de securite : le code par CodeQL, les dependances par npm audit. En
-# plus des poussees, un passage hebdomadaire attrape les vulnerabilites
-# publiees apres coup.
+# Security analysis: the code with CodeQL, the dependencies with npm audit. On
+# top of pushes, a weekly run catches vulnerabilities published afterwards.
 on:
   push:
     branches: [main, develop]
   pull_request:
   schedule:
     - cron: "0 6 * * 1"
-  # A la main, avec une categorie : l'analyse est publiee sous ce nom de
-  # configuration. Sert a clore les alertes d'une configuration abandonnee (le
-  # workflow s'appelait securite.yml) sans effacer son historique : une analyse
-  # propre sous l'ancien nom les marque corrigees.
+  # By hand, with a category: the analysis is published under that
+  # configuration name. Used to close the alerts of an abandoned configuration
+  # (the workflow used to be securite.yml) without erasing their history: a clean
+  # analysis under the old name marks them fixed.
   workflow_dispatch:
     inputs:
-      categorie:
-        description: Categorie CodeQL (vide = celle par defaut)
+      category:
+        description: CodeQL category (empty = the default one)
         type: string
         default: ""
 
@@ -28,8 +27,10 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  # The job id is part of the CodeQL category: renaming it would orphan the
+  # existing alerts.
   codeql:
-    name: Analyse du code (CodeQL)
+    name: Code analysis (CodeQL)
     runs-on: ubuntu-latest
     permissions:
       security-events: write
@@ -40,18 +41,18 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Initialiser CodeQL
+      - name: Initialize CodeQL
         uses: github/codeql-action/init@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
         with:
           languages: javascript-typescript
 
-      - name: Analyser
+      - name: Analyze
         uses: github/codeql-action/analyze@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
         with:
-          category: ${{ inputs.categorie }}
+          category: ${{ inputs.category }}
 
-  dependances:
-    name: Audit des dependances
+  dependencies:
+    name: Dependency audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

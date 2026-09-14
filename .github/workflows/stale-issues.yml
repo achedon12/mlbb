@@ -1,9 +1,8 @@
-name: Issues inactives
+name: Stale issues
 
-# Une issue restee sans activite deux mois est etiquetee « inactif », puis
-# fermee deux semaines plus tard si rien ne bouge. Bogues, idees, donnees
-# incorrectes et appels a l'aide ne sont jamais concernes, ni les pull
-# requests.
+# An issue left without activity for two months gets the "stale" label, then is
+# closed two weeks later if nothing happens. Bugs, ideas, incorrect data and
+# help requests are never affected, nor are pull requests.
 on:
   schedule:
     - cron: "30 5 * * *"
@@ -12,8 +11,8 @@ on:
 permissions: {}
 
 jobs:
-  inactives:
-    name: Etiqueter puis fermer les issues inactives
+  stale:
+    name: Label, then close stale issues
     runs-on: ubuntu-latest
     permissions:
       actions: write
@@ -25,8 +24,8 @@ jobs:
           days-before-close: 14
           days-before-pr-stale: -1
           days-before-pr-close: -1
-          stale-issue-label: inactif
-          exempt-issue-labels: "bug,enhancement,donnees,accessibility,good first issue,help wanted"
+          stale-issue-label: stale
+          exempt-issue-labels: "bug,enhancement,data,accessibility,good first issue,help wanted"
           exempt-issue-assignees: achedon12
           stale-issue-message: >
             This issue has had no activity for two months. Without a new

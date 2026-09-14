@@ -28,7 +28,7 @@ npm run dev            # http://localhost:3001
   *rebase* or *squash*.
 - `main`: production, deployed on every push. To publish:
   `git push origin develop:main` once CI is green (fast-forward, no merge
-  commit), or the **Publier en production** (publish to production) button;
+  commit), or the **Publish to production** button;
   the sync data is pushed there every night, then carried over to `develop`.
   Pull `develop` with `git pull --rebase`.
 

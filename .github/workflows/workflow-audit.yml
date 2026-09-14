@@ -1,8 +1,8 @@
 name: Workflows
 
-# Relit les workflows eux-memes : actionlint pour la syntaxe, les expressions et
-# les scripts shell ; zizmor pour la securite (droits trop larges, declencheurs
-# dangereux, injections, actions non epinglees, identifiants conserves).
+# Reviews the workflows themselves: actionlint for syntax, expressions and shell
+# scripts; zizmor for security (overly broad permissions, dangerous triggers,
+# injections, unpinned actions, persisted credentials).
 on:
   push:
     branches: [main, develop]
@@ -24,7 +24,7 @@ jobs:
           persist-credentials: false
 
       - name: actionlint
-        run: docker run --rm -v "$PWD:/depot" -w /depot rhysd/actionlint:1.7.12 -color
+        run: docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.12 -color
 
   zizmor:
     name: zizmor

@@ -1,11 +1,11 @@
-# Affiche le bouton « Sponsor » sur la page du depot.
-# PayPal n'a pas de clef dediee : il passe par « custom ».
+# Shows the "Sponsor" button on the repository page.
+# PayPal has no dedicated key: it goes through "custom".
 github: [achedon12]
 custom:
   - "https://www.paypal.me/achedon12"
   - "https://leoderoin.fr"
-# Comptes non confirmes pour « achedon12 » : Buy Me a Coffee renvoie 404
-# (inexistant) et Ko-fi bloque toute verification derriere Cloudflare.
-# A decommenter une fois le compte cree.
+# Unconfirmed accounts for "achedon12": Buy Me a Coffee returns 404 (does not
+# exist) and Ko-fi hides any check behind Cloudflare.
+# Uncomment once the account exists.
 # ko_fi: achedon12
 # buy_me_a_coffee: achedon12

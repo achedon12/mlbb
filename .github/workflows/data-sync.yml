@@ -1,63 +1,62 @@
-name: Synchronisation des donnees
+name: Data sync
 
-# Deux rythmes. Chaque jour, les mesures qui bougent vite — tendances,
-# coequipiers, taux par duree de partie — alimentent l'historique long : l'API
-# ne remonte que trente jours, et seul un passage regulier les conserve au-dela.
-# Chaque lundi, la synchronisation complete relit en plus le catalogue du wiki
-# (heros, skins, objets, patchs, combos), traduit, et verifie que le site
-# compile.
+# Two rhythms. Every day, the fast-moving measures (trends, teammates, rates by
+# game duration) feed the long history: the API only goes back thirty days, and
+# only a regular run keeps them beyond that. Every Monday, the full sync also
+# rereads the wiki catalogue (heroes, skins, items, patches, combos), translates
+# it, and checks that the site builds.
 #
-# Les donnees sont committees directement sur main, la production, sans
-# intervention : une pull request par jour ne serait jamais relue, et deux
-# branches de donnees entreraient en conflit sur les memes fichiers.
+# The data is committed straight to main, production, with no human step: a
+# daily pull request would never be reviewed, and two data branches would
+# conflict on the same files.
 #
-# Le push se fait avec la cle de deploiement SYNC_DEPLOY_KEY, seule autorisee a
-# contourner la protection de main. Un push fait avec une cle declenche les
-# workflows : Image Docker deploie le site, Aligner develop reporte les donnees
-# sur develop. Sans cle (main non protegee), le push passe par GITHUB_TOKEN, qui
-# ne declenche rien : les deux workflows sont alors appeles explicitement.
+# The push uses the SYNC_DEPLOY_KEY deploy key, the only one allowed to bypass
+# main's protection. A push made with a key triggers workflows: Docker image
+# deploys the site, Align develop carries the data over to develop. Without a
+# key (unprotected main), the push goes through GITHUB_TOKEN, which triggers
+# nothing: both workflows are then called explicitly.
 on:
   schedule:
-    # Tous les jours sauf le lundi, 3 h 30 UTC : mesures seules.
+    # Every day except Monday, 3:30 UTC: measures only.
     - cron: "30 3 * * 0,2-6"
-    # Le lundi, meme heure : synchronisation complete.
+    # Monday, same time: full sync.
     - cron: "30 3 * * 1"
   workflow_dispatch:
     inputs:
       complete:
-        description: Synchronisation complete (catalogue du wiki compris)
+        description: Full sync (wiki catalogue included)
         type: boolean
         default: false
 
 permissions: {}
 
-# Une synchronisation a la fois : deux executions pousseraient les memes fichiers.
+# One sync at a time: two runs would push the same files.
 concurrency:
-  group: synchronisation
+  group: data-sync
   cancel-in-progress: false
 
 jobs:
-  synchroniser:
+  sync:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     timeout-minutes: 180
     outputs:
       commit: ${{ steps.commit.outputs.sha }}
-      par-cle: ${{ steps.cle.outputs.presente }}
+      with-key: ${{ steps.key.outputs.present }}
     env:
       COMPLETE: ${{ github.event.schedule == '30 3 * * 1' || inputs.complete == true }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        # Identifiants conserves : l'etape de commit pousse sur main.
+        # Credentials kept: the commit step pushes to main.
         with: # zizmor: ignore[artipacked]
           ref: main
-          # Vide, checkout se rabat sur GITHUB_TOKEN.
+          # When empty, checkout falls back to GITHUB_TOKEN.
           ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
 
-      - name: Pousser avec la cle de deploiement ?
-        id: cle
-        run: echo "presente=${{ secrets.SYNC_DEPLOY_KEY != '' }}" >> "$GITHUB_OUTPUT"
+      - name: Push with the deploy key?
+        id: key
+        run: echo "present=${{ secrets.SYNC_DEPLOY_KEY != '' }}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -66,10 +65,10 @@ jobs:
 
       - run: npm ci --no-audit --no-fund
 
-      - name: Relire les sources et telecharger les visuels
+      - name: Reread the sources and download the images
         id: complete
         if: env.COMPLETE == 'true'
-        # Wiki ou API en panne : on se rabat sur les seules mesures, plus bas.
+        # Wiki or API down: fall back to the measures alone, below.
         continue-on-error: true
         run: npm run sync -- --images
 
@@ -92,55 +91,54 @@ jobs:
 
       # This file comes from develop but runs main's code: until main has the
       # English script names, fall back to the French ones it still uses.
-      - name: Traduire les contenus repris en anglais
+      - name: Translate the imported content
         if: steps.complete.outcome == 'success'
         run: |
           npm run "$(node -p "require('./package.json').scripts.translate ? 'translate' : 'traduire'")"
 
-      - name: Prendre l'instantane de la veille
+      - name: Take the watch snapshot
         if: steps.complete.outcome == 'success'
         run: |
           npm run "$(node -p "require('./package.json').scripts.watch ? 'watch' : 'veille'")"
 
-      - name: Verifier que le site compile avec les nouvelles donnees
+      - name: Check that the site builds with the new data
         if: steps.complete.outcome == 'success'
         run: npm run build
 
-      - name: Mesures du jour (tendances, coequipiers, durees de partie)
+      - name: Daily measures (trends, teammates, game durations)
         if: env.COMPLETE != 'true' || steps.complete.outcome == 'failure'
         run: |
-          # L'API communautaire flanche parfois. Le script garde alors les
-          # mesures precedentes et l'historique deja cumule ; on retente une
-          # fois un quart d'heure plus tard. Une panne persistante ne laisse
-          # qu'un avertissement : les trente jours de l'API seront repris au
-          # passage suivant.
-          for essai in 1 2; do
+          # The community API sometimes fails. The script then keeps the
+          # previous measures and the history gathered so far; retry once a
+          # quarter of an hour later. A lasting outage only leaves a warning:
+          # the API's thirty days are picked up again at the next run.
+          for attempt in 1 2; do
             if npm run sync:evolution; then exit 0; fi
-            if [ "$essai" = 1 ]; then sleep 900; fi
+            if [ "$attempt" = 1 ]; then sleep 900; fi
           done
-          echo "::warning::API des mesures indisponible : historique inchange aujourd'hui."
+          echo "::warning::Measures API unavailable: history unchanged today."
 
-      - name: Ecarter un fichier de donnees illisible
+      - name: Discard an unreadable data file
         run: |
-          # Une execution interrompue en pleine ecriture ne doit rien casser sur main.
+          # A run interrupted in the middle of a write must not break anything on main.
           for f in $(git ls-files -m -o --exclude-standard -- src/data | grep '\.json$'); do
             if ! node -e "JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'))" "$f"; then
-              echo "::warning::$f illisible, version precedente conservee"
+              echo "::warning::$f unreadable, previous version kept"
               git checkout -- "$f" 2>/dev/null || rm -f "$f"
             fi
           done
 
-      - name: Committer les donnees sur main
+      - name: Commit the data to main
         id: commit
         run: |
-          # Donnees, visuels, traductions et leurs caches : rien d'autre (le build
-          # ne doit rien glisser dans le commit).
+          # Data, images, translations and their caches: nothing else (the build
+          # must not slip anything into the commit).
           git add -A -- src/data public/visuels content src/i18n/messages 'scripts/*.json'
-          # sync.json porte l'horodatage de l'execution : seul, il ne merite
-          # pas de commit. Both paths: main still has the French one, and an
-          # exclude that matches nothing silently excludes nothing.
+          # sync.json holds the run timestamp: on its own, it is not worth a
+          # commit. Both paths: main still has the French one, and an exclude
+          # that matches nothing silently excludes nothing.
           if git diff --cached --quiet -- . ':(exclude)src/data/game/sync.json' ':(exclude)src/data/jeu/synchro.json'; then
-            echo "Aucune donnee nouvelle."
+            echo "No new data."
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -150,7 +148,7 @@ jobs:
           else
             git commit -q -m "Record hero rate history for $(date -u +%F)"
           fi
-          # main a pu avancer pendant la synchronisation : on rejoue par-dessus.
+          # main may have moved during the sync: replay on top of it.
           for _ in 1 2 3; do
             if git pull -q --rebase origin main && git push -q origin HEAD:main; then
               echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
@@ -159,29 +157,29 @@ jobs:
             fi
             sleep 15
           done
-          echo "::error::Push sur main refuse : main est protegee et SYNC_DEPLOY_KEY manque, ou n'a pas le droit de contourner la protection."
+          echo "::error::Push to main refused: main is protected and SYNC_DEPLOY_KEY is missing, or is not allowed to bypass the protection."
           exit 1
 
-  # Sans cle, le push n'a declenche aucun workflow : on deploie et on aligne
-  # develop ici. Avec la cle, le push s'en est charge.
-  deployer:
-    needs: synchroniser
-    if: needs.synchroniser.outputs.commit != '' && needs.synchroniser.outputs.par-cle != 'true'
-    # Chemin local : le workflow du commit en cours, comme voulu.
+  # Without a key, the push triggered no workflow: deploy and align develop
+  # from here. With the key, the push took care of it.
+  deploy:
+    needs: sync
+    if: needs.sync.outputs.commit != '' && needs.sync.outputs.with-key != 'true'
+    # Local path: the workflow of the current commit, as intended.
     uses: ./.github/workflows/docker.yml # zizmor: ignore[self-repository]
     with:
-      ref: ${{ needs.synchroniser.outputs.commit }}
-      deployer: true
+      ref: ${{ needs.sync.outputs.commit }}
+      deploy: true
     secrets:
       DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
       DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
     permissions:
       contents: read
 
-  aligner:
-    needs: synchroniser
-    if: needs.synchroniser.outputs.commit != '' && needs.synchroniser.outputs.par-cle != 'true'
-    # Chemin local : le workflow du commit en cours, comme voulu.
+  align:
+    needs: sync
+    if: needs.sync.outputs.commit != '' && needs.sync.outputs.with-key != 'true'
+    # Local path: the workflow of the current commit, as intended.
     uses: ./.github/workflows/align-develop.yml # zizmor: ignore[self-repository]
     secrets:
       SYNC_DEPLOY_KEY: ${{ secrets.SYNC_DEPLOY_KEY }}

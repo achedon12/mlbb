@@ -1,25 +1,25 @@
 version: 2
 
-# Mises a jour automatiques des dependances, regroupees pour limiter le bruit :
-# une pull request par lot plutot qu'une par paquet. Elles visent develop, comme
-# toute pull request : elles partent en production avec la version suivante.
+# Automatic dependency updates, grouped to limit the noise: one pull request per
+# batch rather than one per package. They target develop, like every pull
+# request: they reach production with the next release.
 updates:
   - package-ecosystem: npm
     directory: "/"
     target-branch: develop
-    # Une version fraichement publiee attend une semaine : le temps qu'un
-    # paquet compromis soit repere et retire avant d'arriver ici.
+    # A freshly published version waits a week: time for a compromised package
+    # to be spotted and pulled before it gets here.
     cooldown:
       default-days: 7
     schedule:
       interval: weekly
       day: monday
     open-pull-requests-limit: 5
-    # Les mises a jour mineures et correctives sont regroupees, sures a passer
-    # en lot ; les versions majeures arrivent en pull requests separees, pour
-    # etre relues et testees une par une plutot qu'appliquees en aveugle.
+    # Minor and patch updates are grouped, safe to take as a batch; major
+    # versions come in separate pull requests, to be reviewed and tested one by
+    # one rather than applied blindly.
     groups:
-      dependances:
+      dependencies:
         update-types:
           - minor
           - patch
@@ -27,8 +27,8 @@ updates:
   - package-ecosystem: github-actions
     directory: "/"
     target-branch: develop
-    # Une version fraichement publiee attend une semaine : le temps qu'un
-    # paquet compromis soit repere et retire avant d'arriver ici.
+    # A freshly published version waits a week: time for a compromised package
+    # to be spotted and pulled before it gets here.
     cooldown:
       default-days: 7
     schedule:

@@ -119,7 +119,7 @@ npm run sync -- --images
   *rebase* or *squash*: never a merge commit.
 - `main`: production, deployed on every push. To publish, once CI is green on
   `develop`: `git push origin develop:main` (fast-forward only), or the
-  **Publier en production** (publish to production) button in *Actions*.
+  **Publish to production** button in *Actions*.
 
 ```bash
 git switch develop && git pull --rebase
@@ -148,11 +148,11 @@ A few automations then follow the pull request:
 
 - it fails automatically if it changes `src/data/game/` or `public/visuels/`,
   which the sync regenerates;
-- if it conflicts with its target branch, it gets the `conflit` label: rebase
-  it;
-- if changes are requested, it goes back to draft with the `à corriger` label;
-  mark it "Ready for review" again once it is fixed, and it gets the `à relire`
-  label.
+- if it conflicts with its target branch, it gets the `merge conflict` label:
+  rebase it;
+- if changes are requested, it goes back to draft with the `changes requested`
+  label; mark it "Ready for review" again once it is fixed, and it gets the
+  `ready for review` label.
 
 ## Review
 
@@ -168,9 +168,11 @@ Commit messages are in English, in the imperative: "Add the Ling analysis",
 
 ## Style
 
-The site was written in French first: the interface catalogue and the analyses
-start in French, and so do code comments. Comments explain **why**, not
-**what**. If a comment paraphrases the next line, it is better removed.
+The site was written in French first: the French interface catalogue and the
+analyses are the reference text, and they keep their accents.
 
-A note on accents: code comments are written without accents, for consistency
-with the existing code. Text shown to visitors keeps its accents.
+The code itself is written in English: identifiers, file names, comments, log
+and error messages. Text shown to visitors never lives in the code: it goes
+through the message catalogues (`src/i18n/messages/`). Comments explain
+**why**, not **what**. If a comment paraphrases the next line, it is better
+removed.

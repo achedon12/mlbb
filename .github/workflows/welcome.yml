@@ -1,10 +1,10 @@
-name: Bienvenue
+name: Welcome
 
-# Premiere pull request d'un contributeur : un mot d'accueil a l'ouverture, un
-# merci a la fusion.
+# A contributor's first pull request: a welcome note when it opens, a thank
+# you when it is merged.
 #
-# pull_request_target est sans risque ici : aucun code de la pull request n'est
-# recupere ni execute, une action epinglee commente.
+# Using pull_request_target is safe here: no code from the pull request is
+# checked out or run, a pinned action posts the comment.
 on:
   pull_request_target: # zizmor: ignore[dangerous-triggers]
     types: [opened, closed]
@@ -13,8 +13,8 @@ on:
 permissions: {}
 
 jobs:
-  accueillir:
-    name: Accueillir les nouveaux contributeurs
+  welcome:
+    name: Welcome new contributors
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write

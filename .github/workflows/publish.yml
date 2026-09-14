@@ -1,14 +1,13 @@
-name: Publier en production
+name: Publish to production
 
-# Une version passe en production par avance rapide de main jusqu'a develop :
-# pas de commit de fusion, main reprend exactement les commits testes sur
-# develop. Une pull request develop -> main ouverte pour la relecture est
-# marquee fusionnee d'elle-meme par GitHub.
+# A release goes to production by fast-forwarding main up to develop: no merge
+# commit, main takes exactly the commits tested on develop. A develop -> main
+# pull request opened for review is marked merged by GitHub on its own.
 #
-# Garde-fous : develop doit contenir main (sinon, attendre qu'Aligner develop
-# l'ait rejouee dessus), et Qualite comme Tests doivent avoir reussi sur le
-# commit publie. Le push passe par la cle de deploiement SYNC_DEPLOY_KEY, seule
-# autorisee a contourner la protection de main ; il declenche le deploiement.
+# Safeguards: develop must contain main (otherwise, wait until Align develop
+# has replayed it on top), and Quality and Tests must have passed on the
+# published commit. The push goes through the SYNC_DEPLOY_KEY deploy key, the
+# only one allowed to bypass main's protection; it triggers the deployment.
 on:
   workflow_dispatch:
 
@@ -17,21 +16,21 @@ permissions:
   actions: read
 
 concurrency:
-  group: publier
+  group: publish
   cancel-in-progress: false
 
 jobs:
-  publier:
-    name: Avancer main jusqu'a develop
+  publish:
+    name: Fast-forward main to develop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        # Identifiants conserves : l'etape suivante pousse sur main.
+        # Credentials kept: the next step pushes to main.
         with: # zizmor: ignore[artipacked]
           fetch-depth: 0
           ssh-key: ${{ secrets.SYNC_DEPLOY_KEY }}
 
-      - name: Verifier puis publier
+      - name: Check, then publish
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -39,20 +38,20 @@ jobs:
           main=$(git rev-parse origin/main)
           develop=$(git rev-parse origin/develop)
           if [ "$main" = "$develop" ]; then
-            echo "main est deja a jour."
+            echo "main is already up to date."
             exit 0
           fi
           if ! git merge-base --is-ancestor origin/main origin/develop; then
-            echo "::error::develop ne contient pas main : attendez qu'Aligner develop l'ait rejouee sur main, puis relancez."
+            echo "::error::develop does not contain main: wait until Align develop has replayed it on main, then run this again."
             exit 1
           fi
           for workflow in quality.yml tests.yml; do
-            etat=$(gh run list --workflow "$workflow" --commit "$develop" --json status,conclusion \
+            state=$(gh run list --workflow "$workflow" --commit "$develop" --json status,conclusion \
               --jq '.[0] | "\(.status) \(.conclusion)"')
-            if [ "$etat" != "completed success" ]; then
-              echo "::error::$workflow n'a pas reussi sur ${develop:0:7} (${etat:-aucune execution})."
+            if [ "$state" != "completed success" ]; then
+              echo "::error::$workflow did not pass on ${develop:0:7} (${state:-no run})."
               exit 1
             fi
           done
           git push -q origin "$develop:refs/heads/main"
-          echo "main avance de $(git rev-list --count "$main..$develop") commit(s), jusqu'a ${develop:0:7}."
+          echo "main moved forward by $(git rev-list --count "$main..$develop") commit(s), to ${develop:0:7}."

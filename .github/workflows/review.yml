@@ -1,13 +1,13 @@
-name: Revue
+name: Review
 
-# Des changements sont demandes : la pull request repasse en brouillon,
-# etiquetee « à corriger ». Remise en « prete pour relecture », elle perd cette
-# etiquette et prend « à relire ».
+# Changes requested: the pull request goes back to draft, labelled "changes
+# requested". Marked "Ready for review" again, it loses that label and gets
+# "ready for review".
 #
-# L'evenement de revue n'a qu'un jeton en lecture sur une pull request venue
-# d'un fork : pour celles-la, poser l'etiquette « à corriger » a la main fait
-# la meme chose. pull_request_target est sans risque ici : aucun code de la
-# pull request n'est recupere ni execute, seul gh modifie ses etiquettes.
+# The review event only has a read token on a pull request from a fork: for
+# those, adding the "changes requested" label by hand does the same. Using
+# pull_request_target is safe here: no code from the pull request is checked
+# out or run, gh only edits its labels.
 on:
   pull_request_review:
     types: [submitted]
@@ -17,38 +17,38 @@ on:
 permissions: {}
 
 jobs:
-  a-corriger:
-    name: Repasser en brouillon
+  changes-requested:
+    name: Back to draft
     if: >-
       (github.event_name == 'pull_request_review' && github.event.review.state == 'changes_requested') ||
-      (github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'à corriger')
+      (github.event_name == 'pull_request_target' && github.event.action == 'labeled' && github.event.label.name == 'changes requested')
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
     steps:
-      - name: Etiqueter et repasser en brouillon
+      - name: Label and move back to draft
         env:
           GH_TOKEN: ${{ github.token }}
-          NUMERO: ${{ github.event.pull_request.number }}
-          DEPOT: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
         run: |
-          gh pr edit "$NUMERO" --repo "$DEPOT" --add-label "à corriger" || true
-          gh pr edit "$NUMERO" --repo "$DEPOT" --remove-label "à relire" || true
-          # Deja en brouillon : rien a faire.
-          gh pr ready "$NUMERO" --repo "$DEPOT" --undo || true
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "changes requested" || true
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "ready for review" || true
+          # Already a draft: nothing to do.
+          gh pr ready "$PR_NUMBER" --repo "$REPO" --undo || true
 
-  a-relire:
-    name: Remettre en relecture
+  ready-for-review:
+    name: Back to review
     if: github.event_name == 'pull_request_target' && github.event.action == 'ready_for_review'
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
     steps:
-      - name: Changer d'etiquette
+      - name: Swap the labels
         env:
           GH_TOKEN: ${{ github.token }}
-          NUMERO: ${{ github.event.pull_request.number }}
-          DEPOT: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
         run: |
-          gh pr edit "$NUMERO" --repo "$DEPOT" --remove-label "à corriger" || true
-          gh pr edit "$NUMERO" --repo "$DEPOT" --add-label "à relire" || true
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --remove-label "changes requested" || true
+          gh pr edit "$PR_NUMBER" --repo "$REPO" --add-label "ready for review" || true

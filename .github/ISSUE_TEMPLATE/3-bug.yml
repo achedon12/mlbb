@@ -4,19 +4,19 @@ title: "[bug] "
 labels: ["bug"]
 body:
   - type: textarea
-    id: constate
+    id: observed
     attributes:
       label: What happens
     validations:
       required: true
   - type: textarea
-    id: attendu
+    id: expected
     attributes:
       label: What should happen
     validations:
       required: true
   - type: textarea
-    id: reproduire
+    id: steps
     attributes:
       label: How to reproduce it
       placeholder: |
@@ -26,7 +26,7 @@ body:
     validations:
       required: true
   - type: input
-    id: contexte
+    id: context
     attributes:
       label: Browser and device
       placeholder: Firefox 142 on Android
