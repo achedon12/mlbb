@@ -10,70 +10,70 @@
  * et contient des virgules en trop, des commentaires et des champs vides.
  */
 
-export function analyserTableLua(source) {
-  const texte = retirerCommentaires(source);
-  const depart = texte.indexOf("return");
-  if (depart === -1) throw new Error("Aucun `return` trouve dans le module.");
+export function analyzeTableLua(source) {
+  const text = removeComments(source);
+  const start = text.indexOf("return");
+  if (start === -1) throw new Error("Aucun `return` trouve dans le module.");
 
-  const lecteur = { texte, i: texte.indexOf("{", depart) };
-  if (lecteur.i === -1) throw new Error("Aucune table trouvee apres `return`.");
+  const reader = { text, i: text.indexOf("{", start) };
+  if (reader.i === -1) throw new Error("Aucune table trouvee apres `return`.");
 
-  return lireTable(lecteur);
+  return readTable(reader);
 }
 
 /** Retire les commentaires Lua sans toucher a ceux qui sont dans une chaine. */
-function retirerCommentaires(source) {
-  let sortie = "";
-  let dansChaine = false;
-  let delimiteur = "";
+function removeComments(source) {
+  let output = "";
+  let inString = false;
+  let delimiter = "";
 
   for (let i = 0; i < source.length; i += 1) {
     const c = source[i];
-    const precedent = source[i - 1];
+    const previous = source[i - 1];
 
-    if (dansChaine) {
-      sortie += c;
-      if (c === delimiteur && precedent !== "\\") dansChaine = false;
+    if (inString) {
+      output += c;
+      if (c === delimiter && previous !== "\\") inString = false;
       continue;
     }
 
     if (c === '"' || c === "'") {
-      dansChaine = true;
-      delimiteur = c;
-      sortie += c;
+      inString = true;
+      delimiter = c;
+      output += c;
       continue;
     }
 
     // Commentaire de bloc --[[ ... ]] ou de ligne -- ...
     if (c === "-" && source[i + 1] === "-") {
       if (source.slice(i + 2, i + 4) === "[[") {
-        const fin = source.indexOf("]]", i + 4);
-        i = fin === -1 ? source.length : fin + 1;
+        const end = source.indexOf("]]", i + 4);
+        i = end === -1 ? source.length : end + 1;
       } else {
-        const fin = source.indexOf("\n", i);
-        i = fin === -1 ? source.length : fin - 1;
+        const end = source.indexOf("\n", i);
+        i = end === -1 ? source.length : end - 1;
       }
       continue;
     }
 
-    sortie += c;
+    output += c;
   }
 
-  return sortie;
+  return output;
 }
 
-function sauterEspaces(l) {
-  while (l.i < l.texte.length && /\s/.test(l.texte[l.i])) l.i += 1;
+function skipSpaces(l) {
+  while (l.i < l.text.length && /\s/.test(l.text[l.i])) l.i += 1;
 }
 
-function lireTable(l) {
+function readTable(l) {
   l.i += 1; // passe le {
   const table = {};
-  let indice = 1;
+  let hint = 1;
 
   for (;;) {
-    sauterEspaces(l);
-    const c = l.texte[l.i];
+    skipSpaces(l);
+    const c = l.text[l.i];
 
     if (c === undefined) break;
     if (c === "}") {
@@ -85,96 +85,96 @@ function lireTable(l) {
       continue;
     }
 
-    let cle = null;
+    let key = null;
 
     if (c === "[") {
       // Cle explicite : ["nom"] ou [12]
       l.i += 1;
-      sauterEspaces(l);
-      cle = String(lireValeur(l));
-      sauterEspaces(l);
-      if (l.texte[l.i] === "]") l.i += 1;
-      sauterEspaces(l);
-      if (l.texte[l.i] === "=") l.i += 1;
+      skipSpaces(l);
+      key = String(readValue(l));
+      skipSpaces(l);
+      if (l.text[l.i] === "]") l.i += 1;
+      skipSpaces(l);
+      if (l.text[l.i] === "=") l.i += 1;
     } else if (/[A-Za-z_]/.test(c)) {
       // Cle nue : nom = valeur. Peut aussi etre une valeur (true, nil...),
       // on ne decide qu'apres avoir vu s'il y a un signe egal.
-      const debut = l.i;
-      while (l.i < l.texte.length && /[A-Za-z0-9_]/.test(l.texte[l.i])) l.i += 1;
-      const mot = l.texte.slice(debut, l.i);
-      sauterEspaces(l);
+      const start = l.i;
+      while (l.i < l.text.length && /[A-Za-z0-9_]/.test(l.text[l.i])) l.i += 1;
+      const word = l.text.slice(start, l.i);
+      skipSpaces(l);
 
-      if (l.texte[l.i] === "=" && l.texte[l.i + 1] !== "=") {
-        cle = mot;
+      if (l.text[l.i] === "=" && l.text[l.i + 1] !== "=") {
+        key = word;
         l.i += 1;
       } else {
-        l.i = debut;
+        l.i = start;
       }
     }
 
-    sauterEspaces(l);
-    const valeur = lireValeur(l);
-    if (valeur === undefined) continue;
+    skipSpaces(l);
+    const value = readValue(l);
+    if (value === undefined) continue;
 
-    if (cle === null) {
-      table[indice] = valeur;
-      indice += 1;
+    if (key === null) {
+      table[hint] = value;
+      hint += 1;
     } else {
-      table[cle] = valeur;
+      table[key] = value;
     }
   }
 
   return table;
 }
 
-function lireValeur(l) {
-  sauterEspaces(l);
-  const c = l.texte[l.i];
+function readValue(l) {
+  skipSpaces(l);
+  const c = l.text[l.i];
 
   if (c === undefined) return undefined;
-  if (c === "{") return lireTable(l);
-  if (c === '"' || c === "'") return lireChaine(l, c);
+  if (c === "{") return readTable(l);
+  if (c === '"' || c === "'") return readString(l, c);
 
-  if (l.texte.startsWith("[[", l.i)) {
+  if (l.text.startsWith("[[", l.i)) {
     // Chaine longue [[ ... ]]
-    const fin = l.texte.indexOf("]]", l.i + 2);
-    const valeur = l.texte.slice(l.i + 2, fin === -1 ? undefined : fin);
-    l.i = fin === -1 ? l.texte.length : fin + 2;
-    return valeur;
+    const end = l.text.indexOf("]]", l.i + 2);
+    const value = l.text.slice(l.i + 2, end === -1 ? undefined : end);
+    l.i = end === -1 ? l.text.length : end + 2;
+    return value;
   }
 
-  const debut = l.i;
-  while (l.i < l.texte.length && !/[,;}\]]/.test(l.texte[l.i])) l.i += 1;
-  const brut = l.texte.slice(debut, l.i).trim();
+  const start = l.i;
+  while (l.i < l.text.length && !/[,;}\]]/.test(l.text[l.i])) l.i += 1;
+  const raw = l.text.slice(start, l.i).trim();
 
-  if (brut === "true") return true;
-  if (brut === "false") return false;
-  if (brut === "nil" || brut === "") return null;
-  if (/^-?\d+(\.\d+)?$/.test(brut)) return Number(brut);
-  return brut;
+  if (raw === "true") return true;
+  if (raw === "false") return false;
+  if (raw === "nil" || raw === "") return null;
+  if (/^-?\d+(\.\d+)?$/.test(raw)) return Number(raw);
+  return raw;
 }
 
-function lireChaine(l, delimiteur) {
+function readString(l, delimiter) {
   l.i += 1;
-  let sortie = "";
+  let output = "";
 
-  while (l.i < l.texte.length) {
-    const c = l.texte[l.i];
+  while (l.i < l.text.length) {
+    const c = l.text[l.i];
 
     if (c === "\\") {
-      const suivant = l.texte[l.i + 1];
-      sortie += { n: "\n", t: "\t", r: "\r" }[suivant] ?? suivant;
+      const next = l.text[l.i + 1];
+      output += { n: "\n", t: "\t", r: "\r" }[next] ?? next;
       l.i += 2;
       continue;
     }
-    if (c === delimiteur) {
+    if (c === delimiter) {
       l.i += 1;
       break;
     }
 
-    sortie += c;
+    output += c;
     l.i += 1;
   }
 
-  return sortie;
+  return output;
 }

@@ -2,8 +2,8 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 /** Fusionne des classes Tailwind en resolvant les conflits. */
-export function cn(...entrees: ClassValue[]): string {
-  return twMerge(clsx(entrees));
+export function cn(...entries: ClassValue[]): string {
+  return twMerge(clsx(entries));
 }
 
 const FORMATS_DATE: Record<string, Intl.DateTimeFormat> = {};
@@ -16,7 +16,7 @@ function formatDate(locale: string): Intl.DateTimeFormat {
 }
 
 /** Formate une date dans la langue demandee (BCP-47), francais par defaut. */
-export function formaterDate(iso: string, locale = "fr-FR"): string {
+export function formatShortDate(iso: string, locale = "fr-FR"): string {
   const d = new Date(iso);
   return Number.isNaN(d.getTime()) ? iso : formatDate(locale).format(d);
 }
@@ -25,10 +25,10 @@ export function formaterDate(iso: string, locale = "fr-FR"): string {
  * Cle de comparaison d'un nom de skin. Legende du wiki et module de donnees ne
  * s'accordent pas toujours sur la casse ou la ponctuation : « Vessel Of
  * Deceit » et « Vessel of Deceit » designent le meme skin. Meme regle que
- * `scripts/galerie.mjs`.
+ * `scripts/gallery.mjs`.
  */
-export function normaliserNomSkin(nom: string): string {
-  return cleRecherche(nom.replace(/\(.*?\)/g, ""))
+export function normalizeNameSkin(name: string): string {
+  return keySearch(name.replace(/\(.*?\)/g, ""))
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]/g, "");
 }
@@ -37,6 +37,6 @@ export function normaliserNomSkin(nom: string): string {
  * Cle de recherche : sans casse ni accents. « Epique » trouve « Épique », et
  * « chang » trouve « Chang'e ». Toutes les recherches du site passent par la.
  */
-export function cleRecherche(texte: string): string {
-  return texte.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+export function keySearch(text: string): string {
+  return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }

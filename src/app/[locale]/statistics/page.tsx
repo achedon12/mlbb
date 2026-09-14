@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import type { Langue } from "@/i18n/config";
-import { messagesPage } from "@/i18n/traductions";
-import { metaStatistiques, Statistiques } from "./contenu";
+import { ExtendMessages } from "@/i18n/provider";
+import type { Locale } from "@/i18n/config";
+import { messagesPage } from "@/i18n/translations";
+import { metaStatistics, Statistics } from "./content";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  return metaStatistiques(locale, "all");
+  return metaStatistics(locale, "all");
 }
 
-export default async function PageStatistiques({ params }: Params) {
+export default async function StatisticsPage({ params }: Params) {
   const { locale } = await params;
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.heroesList", "pages.statisticsTable"])}>
-      <Statistiques locale={locale} rang="all" />
-    </CompleterMessages>
+    <ExtendMessages messages={messagesPage(locale, ["pages.heroesList", "pages.statisticsTable"])}>
+      <Statistics locale={locale} rank="all" />
+    </ExtendMessages>
   );
 }

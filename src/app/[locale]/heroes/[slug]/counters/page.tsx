@@ -1,42 +1,42 @@
 import type { Metadata } from "next";
-import { cheminPaire } from "@/lib/paires";
+import { pathPair } from "@/lib/pairs";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronDown, TrendingDown, TrendingUp, Users } from "lucide-react";
-import Link from "@/components/lien";
-import { LigneFraicheur } from "@/components/fraicheur";
-import { OuvrirAncre } from "@/components/ouvrir-ancre";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { Carte, EnTetePage } from "@/components/ui";
-import statistiques from "@/data/jeu/statistiques.json";
-import visuels from "@/data/jeu/visuels.json";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { libelleHeros } from "@/i18n/donnees-heros";
+import Link from "@/components/link";
+import { FreshnessLine } from "@/components/freshness";
+import { OpenAnchor } from "@/components/open-anchor";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { Card, PageHeader } from "@/components/ui";
+import statistics from "@/data/game/statistics.json";
+import visuals from "@/data/game/visuals.json";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { heroLabel } from "@/i18n/hero-data";
 import { metaPage } from "@/i18n/seo";
-import { creerT, type T } from "@/i18n/traductions";
+import { createT, type T } from "@/i18n/translations";
 import {
-  agregerContres,
-  contresParLane,
-  deNom,
-  formaterEcart,
-  momentsPartie,
-  objetsContre,
-  phraseSynthese,
-  porteVolDeVie,
-  rangDeSynthese,
-  type ContreAgrege,
-  type RaisonObjet,
-} from "@/lib/contrer";
-import { buildsJoues, coequipiers, contres, heros, herosParSlug, objets, type ContreChiffre } from "@/lib/donnees";
-import { dureeDe, type TrancheDuree } from "@/lib/evolution";
-import { dateLongue, dateMesure, patchActuel, pourcentage } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
-import { RANGS_MESURE } from "@/lib/rangs-mesure";
+  aggregateCounters,
+  countersByLane,
+  frenchOf,
+  formatGap,
+  momentsMatch,
+  itemsCounter,
+  summarySentence,
+  hasLifesteal,
+  summaryRank,
+  type AggregatedCounter,
+  type ReasonItem,
+} from "@/lib/counters";
+import { buildsPlayed, teammates, counters, allHeroes, heroesBySlug, itemsFor, type CounterFigure } from "@/lib/data";
+import { durationOf, type BucketDuration } from "@/lib/evolution";
+import { longDate, dateMeasure, patchCurrent, percentage } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
+import { MEASURED_RANKS } from "@/lib/measured-ranks";
 import { site } from "@/lib/site";
-import { classementComplet, RANGS_CLASSES, statsParRang } from "@/lib/tier-list";
-import type { Heros } from "@/lib/types";
+import { rankingFull, RANKS_CLASSES, statsByRank } from "@/lib/tier-list";
+import type { Hero } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { visuelObjet } from "@/lib/visuels-build";
+import { visualItem } from "@/lib/build-visuals";
 
 /**
  * Page « counters » d'un heros : qui prendre contre lui, rang par rang.
@@ -47,191 +47,191 @@ import { visuelObjet } from "@/lib/visuels-build";
  * ouvert ou non —, si bien que la page porte toutes les mesures sans script.
  */
 
-type Params = { params: Promise<{ locale: Langue; slug: string }> };
+type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
 interface Relation {
   strongAgainst: string[];
   weakAgainst: string[];
   synergies: string[];
 }
-const relations = statistiques.relations as unknown as Record<string, Relation>;
-const iconesObjets = (visuels as unknown as { items: Record<string, string> }).items;
+const relations = statistics.relations as unknown as Record<string, Relation>;
+const iconsItems = (visuals as unknown as { items: Record<string, string> }).items;
 
 /** Une page par heros ; un slug inconnu tombe sur la 404. */
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return heros.map((h) => ({ slug: h.slug }));
+  return allHeroes.map((h) => ({ slug: h.slug }));
 }
 
-const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
-const portraitDe = (slug: string) => {
-  const x = herosParSlug.get(slug);
+const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
+const portraitOf = (slug: string) => {
+  const x = heroesBySlug.get(slug);
   return x?.images.icon ?? x?.images.portrait ?? null;
 };
 /** Ecarte un adversaire que le catalogue ne connait pas (synchro partielle). */
-const connus = <E extends { slug: string }>(liste: E[] = []) => liste.filter((e) => herosParSlug.has(e.slug));
-const noms = (nom: string) => ({ nom, deNom: deNom(nom) });
+const known = <E extends { slug: string }>(list: E[] = []) => list.filter((e) => heroesBySlug.has(e.slug));
+const names = (name: string) => ({ nom: name, deNom: frenchOf(name) });
 
 /** Phrase de synthese, commune a la description et au chapeau de la page. */
-function synthese(locale: Langue, h: Heros) {
-  const t = creerT(locale);
-  const parRang = contres[h.slug] ?? {};
-  const rang = rangDeSynthese(parRang);
-  const mesure = rang ? parRang[rang] : undefined;
-  const avecNoms = (liste: ContreChiffre[]) => connus(liste).map((e) => ({ ...e, nom: nomDe(e.slug) }));
-  const phrase =
-    rang && mesure
-      ? phraseSynthese(locale, t, { nom: h.name, rang, faible: avecNoms(mesure.weak), fort: avecNoms(mesure.strong) })
+function summary(locale: Locale, h: Hero) {
+  const t = createT(locale);
+  const byRank = counters[h.slug] ?? {};
+  const rank = summaryRank(byRank);
+  const measure = rank ? byRank[rank] : undefined;
+  const withNames = (list: CounterFigure[]) => known(list).map((e) => ({ ...e, name: nameOf(e.slug) }));
+  const sentence =
+    rank && measure
+      ? summarySentence(locale, t, { name: h.name, rank, weak: withNames(measure.weak), strong: withNames(measure.strong) })
       : t("pages.heroCounters.noMeasure", { nom: h.name });
-  return { rang, phrase };
+  return { rank, sentence };
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const h = herosParSlug.get(slug);
+  const h = heroesBySlug.get(slug);
   if (!h) return {};
-  const t = creerT(locale);
-  const { rang, phrase } = synthese(locale, h);
+  const t = createT(locale);
+  const { rank, sentence } = summary(locale, h);
   // Patch dans le titre : les resultats qui menent sur « counter » portent
   // tous une date ou une version, et celle-ci suit les synchros. Un nom long
   // (« Yi Sun-shin ») pousserait le patch au-dela de la coupe des resultats :
   // le titre court le garde visible.
-  const variables = { ...noms(h.name), v: patchActuel?.version ?? "" };
-  const complet = t(patchActuel ? "pages.heroCounters.metaTitle" : "pages.heroCounters.metaTitleNoPatch", variables);
-  const titre = patchActuel && complet.length > TITRE_LONG ? t("pages.heroCounters.metaTitleShort", variables) : complet;
+  const variables = { ...names(h.name), v: patchCurrent?.version ?? "" };
+  const full = t(patchCurrent ? "pages.heroCounters.metaTitle" : "pages.heroCounters.metaTitleNoPatch", variables);
+  const title = patchCurrent && full.length > TITLE_LONG ? t("pages.heroCounters.metaTitleShort", variables) : full;
   return {
     ...metaPage(locale, {
-      titre,
-      description: `${phrase} ${t("pages.heroCounters.updatedOn", { date: dateLongue(locale) })}`,
-      chemin: `/heroes/${slug}/counters`,
+      title,
+      description: `${sentence} ${t("pages.heroCounters.updatedOn", { date: longDate(locale) })}`,
+      path: `/heroes/${slug}/counters`,
       type: "article",
       image: `/${locale}/heroes/${slug}/opengraph-image`,
     }),
     // Sans aucune mesure (heros tout juste sorti), la page n'a rien a dire :
     // elle reste accessible mais hors de l'index, comme une page mince.
-    ...(rang ? {} : { robots: { index: false, follow: true } }),
+    ...(rank ? {} : { robots: { index: false, follow: true } }),
   };
 }
 
 /** Au-dela, le titre complet est coupe dans les resultats avant le numero de patch. */
-const TITRE_LONG = 62;
+const TITLE_LONG = 62;
 
-export default async function PageContres({ params }: Params) {
+export default async function CountersPage({ params }: Params) {
   const { locale, slug } = await params;
-  const h = herosParSlug.get(slug);
+  const h = heroesBySlug.get(slug);
   if (!h) notFound();
 
-  const t = creerT(locale);
-  const n = noms(h.name);
-  const ecart = (v: number) => formaterEcart(locale, t, v);
+  const t = createT(locale);
+  const n = names(h.name);
+  const gap = (v: number) => formatGap(locale, t, v);
   const decimal = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
-  const parRang = contres[slug] ?? {};
-  const { rang: rangPrincipal, phrase } = synthese(locale, h);
-  const stats = statsParRang(slug);
-  const rangs = RANGS_MESURE.filter((r) => parRang[r] || coequipiers[slug]?.[r]?.length);
+  const byRank = counters[slug] ?? {};
+  const { rank: rankMain, sentence } = summary(locale, h);
+  const stats = statsByRank(slug);
+  const ranks = MEASURED_RANKS.filter((r) => byRank[r] || teammates[slug]?.[r]?.length);
   // Tranches lues pour l'agregat : `all` ne compte qu'a defaut de tranche.
-  const tranchesMesurees = RANGS_MESURE.filter((r) => r !== "all" && parRang[r]).length || (parRang.all ? 1 : 0);
-  const contresAgreges = connus(agregerContres(parRang, "weak"));
-  const victimes = connus(agregerContres(parRang, "strong")).slice(0, 8);
-  const meilleurs = contresAgreges.slice(0, 8);
-  const premier = meilleurs[0]?.slug;
+  const bucketsMeasured = MEASURED_RANKS.filter((r) => r !== "all" && byRank[r]).length || (byRank.all ? 1 : 0);
+  const aggregatedCounters = known(aggregateCounters(byRank, "weak"));
+  const victims = known(aggregateCounters(byRank, "strong")).slice(0, 8);
+  const best = aggregatedCounters.slice(0, 8);
+  const first = best[0]?.slug;
 
   // Objets par regle : fiche du heros, et vol de vie lu sur son build le plus
   // joue (bonus du catalogue anglais, ou « Lifesteal » s'ecrit toujours pareil).
-  const catalogue = new Map(objets(locale).map((o) => [o.slug, o]));
-  const bonusAnglais = new Map(objets("en").map((o) => [o.slug, o.bonus]));
-  const parLane = buildsJoues[slug] ?? {};
-  const laneReference = h.lanes.find((l) => parLane[l]) ?? Object.keys(parLane)[0];
-  const buildReference = laneReference ? parLane[laneReference]?.all?.[0] : undefined;
-  const bonusJoues = (buildReference?.items ?? []).map((o) => bonusAnglais.get(visuelObjet(o).slug ?? "") ?? null);
-  const conseils = objetsContre(
-    { typeDegats: h.damageType, roles: h.roles, specialites: h.specialties, volDeVie: porteVolDeVie(bonusJoues) },
-    (s) => catalogue.has(s),
+  const catalog = new Map(itemsFor(locale).map((o) => [o.slug, o]));
+  const englishBonus = new Map(itemsFor("en").map((o) => [o.slug, o.bonus]));
+  const byLane = buildsPlayed[slug] ?? {};
+  const laneReference = h.lanes.find((l) => byLane[l]) ?? Object.keys(byLane)[0];
+  const buildReference = laneReference ? byLane[laneReference]?.all?.[0] : undefined;
+  const bonusPlayed = (buildReference?.items ?? []).map((o) => englishBonus.get(visualItem(o).slug ?? "") ?? null);
+  const tips = itemsCounter(
+    { typeDamage: h.damageType, roles: h.roles, specialties: h.specialties, lifesteal: hasLifesteal(bonusPlayed) },
+    (s) => catalog.has(s),
   );
-  const groupesObjets = [...new Set(conseils.map((c) => c.raison))].map((raison) => ({
-    raison,
-    objets: conseils.filter((c) => c.raison === raison).map((c) => catalogue.get(c.slug)!),
+  const groupsItems = [...new Set(tips.map((c) => c.reason))].map((reason) => ({
+    reason,
+    items: tips.filter((c) => c.reason === reason).map((c) => catalog.get(c.slug)!),
   }));
 
   // Duree de partie, au rang de la synthese quand il est mesure.
-  const durees = dureeDe(slug);
-  const rangDuree = rangPrincipal && durees[rangPrincipal] ? rangPrincipal : durees.all ? "all" : null;
-  const tranches = rangDuree ? durees[rangDuree] : undefined;
-  const moments = momentsPartie(tranches);
-  const nomTranche = (x: TrancheDuree) =>
+  const durations = durationOf(slug);
+  const rankDuration = rankMain && durations[rankMain] ? rankMain : durations.all ? "all" : null;
+  const buckets = rankDuration ? durations[rankDuration] : undefined;
+  const moments = momentsMatch(buckets);
+  const nameBucket = (x: BucketDuration) =>
     x.to === null
       ? t("pages.heroDetail.statistics.minutesPlus", { de: x.from })
       : t("pages.heroDetail.statistics.minutes", { de: x.from, a: x.to });
 
-  const lanesContres = contresParLane(contresAgreges, (s) => herosParSlug.get(s)?.lanes ?? [], h.lanes);
+  const lanesCounters = countersByLane(aggregatedCounters, (s) => heroesBySlug.get(s)?.lanes ?? [], h.lanes);
   const relation = relations[slug];
   const wiki = relation
     ? ([
-        [t("pages.heroDetail.comfortable", n), relation.strongAgainst, "bon"],
-        [t("pages.heroDetail.difficulty2", n), relation.weakAgainst, "mauvais"],
-        [t("pages.heroCounters.wiki.synergies", n), relation.synergies, "bon"],
-      ] as const).map(([titre, slugs, ton]) => ({ titre, ton, slugs: slugs.filter((s) => herosParSlug.has(s)) }))
+        [t("pages.heroDetail.comfortable", n), relation.strongAgainst, "good"],
+        [t("pages.heroDetail.difficulty2", n), relation.weakAgainst, "bad"],
+        [t("pages.heroCounters.wiki.synergies", n), relation.synergies, "good"],
+      ] as const).map(([title, slugs, tone]) => ({ title, tone, slugs: slugs.filter((s) => heroesBySlug.has(s)) }))
     : [];
-  const aWiki = wiki.some((w) => w.slugs.length > 0);
+  const hasWiki = wiki.some((w) => w.slugs.length > 0);
 
   // Pages counters des heros de la meme position, les mieux classes d'abord.
-  const lanePrincipale = h.lanes[0];
-  const voisins = lanePrincipale
-    ? classementComplet
-        .filter((e) => e.hero.slug !== slug && e.hero.lanes.includes(lanePrincipale))
+  const laneMain = h.lanes[0];
+  const neighbours = laneMain
+    ? rankingFull
+        .filter((e) => e.hero.slug !== slug && e.hero.lanes.includes(laneMain))
         .slice(0, 12)
         .map((e) => e.hero)
     : [];
 
-  const rangTierList = rangPrincipal && rangPrincipal !== "all" && RANGS_CLASSES.includes(rangPrincipal) ? rangPrincipal : null;
-  const liens = [
+  const rankTierList = rankMain && rankMain !== "all" && RANKS_CLASSES.includes(rankMain) ? rankMain : null;
+  const links = [
     { href: `/heroes/${slug}#contres`, label: t("pages.heroCounters.sheetLink", n) },
     { href: `/heroes/${slug}#builds`, label: t("pages.heroCounters.buildsLink", n) },
-    ...(premier
-      ? [{ href: cheminPaire(slug, premier), label: t("pages.heroCounters.compareLink", { nom: h.name, autre: nomDe(premier) }) }]
+    ...(first
+      ? [{ href: pathPair(slug, first), label: t("pages.heroCounters.compareLink", { nom: h.name, autre: nameOf(first) }) }]
       : []),
-    rangTierList
-      ? { href: `/tier-list/${rangTierList}`, label: t("pages.tierList.titleRank", { rang: t(`measuredRanks.${rangTierList}`) }) }
+    rankTierList
+      ? { href: `/tier-list/${rankTierList}`, label: t("pages.tierList.titleRank", { rang: t(`measuredRanks.${rankTierList}`) }) }
       : { href: "/tier-list", label: t("nav.tierList.label") },
   ];
 
-  const titre = t("pages.heroCounters.title", n);
-  const adresse = `${site.url}/${locale}/heroes/${slug}/counters`;
-  const donneesStructurees = {
+  const title = t("pages.heroCounters.title", n);
+  const address = `${site.url}/${locale}/heroes/${slug}/counters`;
+  const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
-        "@id": `${adresse}#article`,
-        headline: titre,
-        description: phrase,
+        "@id": `${address}#article`,
+        headline: title,
+        description: sentence,
         inLanguage: LOCALE_HTML[locale],
-        dateModified: dateMesure,
+        dateModified: dateMeasure,
         image: `${site.url}/${locale}/heroes/${slug}/opengraph-image`,
-        author: { "@type": "Person", name: site.auteur },
-        publisher: { "@type": "Organization", name: site.nom, url: site.url },
-        mainEntityOfPage: adresse,
+        author: { "@type": "Person", name: site.author },
+        publisher: { "@type": "Organization", name: site.name, url: site.url },
+        mainEntityOfPage: address,
         about: {
           "@type": "VideoGame",
           name: "Mobile Legends: Bang Bang",
           publisher: { "@type": "Organization", name: "Moonton" },
         },
-        ...(meilleurs.length > 0 ? { mainEntity: { "@id": `${adresse}#contres` } } : {}),
+        ...(best.length > 0 ? { mainEntity: { "@id": `${address}#contres` } } : {}),
       },
-      ...(meilleurs.length > 0
+      ...(best.length > 0
         ? [
             {
               "@type": "ItemList",
-              "@id": `${adresse}#contres`,
+              "@id": `${address}#contres`,
               name: t("pages.heroCounters.bestCounters", n),
               itemListOrder: "https://schema.org/ItemListOrderDescending",
-              numberOfItems: meilleurs.length,
-              itemListElement: meilleurs.map((c, i) => ({
+              numberOfItems: best.length,
+              itemListElement: best.map((c, i) => ({
                 "@type": "ListItem",
                 position: i + 1,
-                name: nomDe(c.slug),
+                name: nameOf(c.slug),
                 url: `${site.url}/${locale}/heroes/${c.slug}`,
               })),
             },
@@ -242,22 +242,22 @@ export default async function PageContres({ params }: Params) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
-      <EnTetePage
-        titre={titre}
-        chapeau={phrase}
-        miettes={[
-          { nom: t("nav.heroes.label"), href: "/heroes" },
-          { nom: h.name, href: `/heroes/${slug}` },
+      <PageHeader
+        title={title}
+        lead={sentence}
+        crumbs={[
+          { name: t("nav.heroes.label"), href: "/heroes" },
+          { name: h.name, href: `/heroes/${slug}` },
           // Pas de `freres` ici : 133 liens de plus dans la charge RSC de chaque
           // page, quand la section « autres pages » mene deja aux voisins.
-          { nom: t("pages.heroDetail.tab.counters") },
+          { name: t("pages.heroDetail.tab.counters") },
         ]}
       >
-        <LigneFraicheur langue={locale} className="mt-4" />
+        <FreshnessLine locale={locale} className="mt-4" />
         <ul className="mt-5 flex flex-wrap gap-2 text-sm">
-          {liens.map((l) => (
+          {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
@@ -268,14 +268,14 @@ export default async function PageContres({ params }: Params) {
             </li>
           ))}
         </ul>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
         {/* ── Synthese, rangs confondus ───────────────────────────────── */}
-        {(meilleurs.length > 0 || victimes.length > 0) && (
+        {(best.length > 0 || victims.length > 0) && (
           <div className="grid gap-8 lg:grid-cols-2">
             {/* min-w-0 : sans lui, la piste de grille s'elargit a la largeur du tableau et deborde a 390 px. */}
-            {meilleurs.length > 0 && (
+            {best.length > 0 && (
               <section aria-labelledby="meilleurs" className="min-w-0">
                 <h2 id="meilleurs" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.heroCounters.bestCounters", n)}
@@ -283,26 +283,26 @@ export default async function PageContres({ params }: Params) {
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">
                   {t("pages.heroCounters.bestCountersIntro", n)}
                 </p>
-                <TableauAgrege t={t} lignes={meilleurs} ton="mauvais" total={tranchesMesurees} slug={slug} ecart={ecart} />
+                <AggregatedTable t={t} rows={best} tone="bad" total={bucketsMeasured} slug={slug} gap={gap} />
               </section>
             )}
-            {victimes.length > 0 && (
+            {victims.length > 0 && (
               <section aria-labelledby="victimes" className="min-w-0">
                 <h2 id="victimes" className="font-heading text-2xl font-bold text-chalk-100">
                   {t("pages.heroCounters.victims", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroCounters.victimsIntro", n)}</p>
-                <TableauAgrege t={t} lignes={victimes} ton="bon" total={tranchesMesurees} slug={slug} ecart={ecart} />
+                <AggregatedTable t={t} rows={victims} tone="good" total={bucketsMeasured} slug={slug} gap={gap} />
               </section>
             )}
           </div>
         )}
 
         {/* Deplie le rang vise par une ancre (« #rang-mythic ») : Chromium ne le fait pas seul. */}
-        <OuvrirAncre />
+        <OpenAnchor />
 
         {/* ── Rang par rang ───────────────────────────────────────────── */}
-        {rangs.length > 0 && (
+        {ranks.length > 0 && (
           <section aria-labelledby="par-rang">
             <h2 id="par-rang" className="font-heading text-2xl font-bold text-chalk-100">
               {t("pages.heroCounters.byRank")}
@@ -312,7 +312,7 @@ export default async function PageContres({ params }: Params) {
             </p>
             <nav aria-label={t("pages.heroCounters.ranksNav")} className="mt-4">
               <ul className="flex flex-wrap gap-2 text-sm">
-                {rangs.map((r) => (
+                {ranks.map((r) => (
                   <li key={r}>
                     <a
                       href={`#rang-${r}`}
@@ -326,14 +326,14 @@ export default async function PageContres({ params }: Params) {
             </nav>
 
             <div className="mt-5 space-y-3">
-              {rangs.map((r) => {
-                const mesure = parRang[r];
+              {ranks.map((r) => {
+                const measure = byRank[r];
                 const s = stats[r];
                 return (
                   <details
                     key={r}
                     id={`rang-${r}`}
-                    open={r === rangPrincipal}
+                    open={r === rankMain}
                     className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
                   >
                     <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 [&::-webkit-details-marker]:hidden">
@@ -351,36 +351,36 @@ export default async function PageContres({ params }: Params) {
                       )}
                     </summary>
                     <div className="border-t border-night-800 p-4">
-                      {mesure?.winRate != null && (
+                      {measure?.winRate != null && (
                         <p className="mb-4 text-sm text-chalk-500">
-                          {t("pages.heroDetail.countersRef", { taux: decimal.format(mesure.winRate) })}
+                          {t("pages.heroDetail.countersRef", { taux: decimal.format(measure.winRate) })}
                         </p>
                       )}
-                      <div className={cn("grid gap-6 md:grid-cols-3", STYLE_TABLEAUX_RANG)}>
-                        <TableauRang
+                      <div className={cn("grid gap-6 md:grid-cols-3", STYLE_TABLES_RANK)}>
+                        <TableRank
                           t={t}
-                          titre={t("counters.difficulty")}
-                          icone={<TrendingDown size={16} aria-hidden />}
-                          ton="mauvais"
-                          lignes={connus(mesure?.weak)}
-                          ecart={ecart}
+                          title={t("counters.difficulty")}
+                          icon={<TrendingDown size={16} aria-hidden />}
+                          tone="bad"
+                          rows={known(measure?.weak)}
+                          gap={gap}
                         />
-                        <TableauRang
+                        <TableRank
                           t={t}
-                          titre={t("counters.strong")}
-                          icone={<TrendingUp size={16} aria-hidden />}
-                          ton="bon"
-                          lignes={connus(mesure?.strong)}
-                          ecart={ecart}
+                          title={t("counters.strong")}
+                          icon={<TrendingUp size={16} aria-hidden />}
+                          tone="good"
+                          rows={known(measure?.strong)}
+                          gap={gap}
                         />
-                        <TableauRang
+                        <TableRank
                           t={t}
-                          titre={t("pages.heroDetail.teammates")}
-                          icone={<Users size={16} aria-hidden />}
-                          ton="bon"
-                          lignes={connus(coequipiers[slug]?.[r])}
-                          ecart={ecart}
-                          pageContres={false}
+                          title={t("pages.heroDetail.teammates")}
+                          icon={<Users size={16} aria-hidden />}
+                          tone="good"
+                          rows={known(teammates[slug]?.[r])}
+                          gap={gap}
+                          pageCounters={false}
                         />
                       </div>
                     </div>
@@ -401,7 +401,7 @@ export default async function PageContres({ params }: Params) {
           </p>
 
           <div className="mt-5 grid gap-4 lg:grid-cols-3">
-            <Carte>
+            <Card>
               <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.items.title", n)}</h3>
               <p className="bevel-sm mt-2 inline-block border border-gold-500/40 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-gold-400">
                 {t("pages.heroCounters.items.rule")}
@@ -409,23 +409,23 @@ export default async function PageContres({ params }: Params) {
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">
                 {t("pages.heroCounters.items.intro", {
                   ...n,
-                  degats: libelleHeros(t, "damage", h.damageType)?.toLocaleLowerCase(locale) ?? "—",
+                  degats: heroLabel(t, "damage", h.damageType)?.toLocaleLowerCase(locale) ?? "—",
                 })}
               </p>
-              {groupesObjets.length > 0 ? (
+              {groupsItems.length > 0 ? (
                 <div className="mt-4 space-y-4">
-                  {groupesObjets.map((g) => (
-                    <div key={g.raison}>
+                  {groupsItems.map((g) => (
+                    <div key={g.reason}>
                       <h4 className="text-xs font-semibold uppercase tracking-wide text-chalk-400">
-                        {t(`pages.heroCounters.items.reason.${g.raison satisfies RaisonObjet}`)}
+                        {t(`pages.heroCounters.items.reason.${g.reason satisfies ReasonItem}`)}
                       </h4>
                       <ul className="mt-2 space-y-2">
-                        {g.objets.map((o) => (
+                        {g.items.map((o) => (
                           <li key={o.slug}>
                             <Link href={`/items#${o.slug}`} className="group/objet flex items-center gap-2.5">
-                              {iconesObjets[o.slug] ? (
+                              {iconsItems[o.slug] ? (
                                 <Image
-                                  src={iconesObjets[o.slug]}
+                                  src={iconsItems[o.slug]}
                                   alt=""
                                   width={32}
                                   height={32}
@@ -448,38 +448,38 @@ export default async function PageContres({ params }: Params) {
               ) : (
                 <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.items.none", n)}</p>
               )}
-            </Carte>
+            </Card>
 
-            <Carte>
+            <Card>
               <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.duration.title", n)}</h3>
-              {moments && tranches && rangDuree ? (
+              {moments && buckets && rankDuration ? (
                 <>
                   <p className="mt-3 text-sm leading-relaxed text-chalk-300">
                     {t("pages.heroCounters.duration.sentence", {
                       nom: h.name,
-                      faible: nomTranche(moments.faible),
-                      tauxFaible: pourcentage(locale, moments.faible.winRate),
-                      fort: nomTranche(moments.fort),
-                      tauxFort: pourcentage(locale, moments.fort.winRate),
+                      faible: nameBucket(moments.weak),
+                      tauxFaible: percentage(locale, moments.weak.winRate),
+                      fort: nameBucket(moments.strong),
+                      tauxFort: percentage(locale, moments.strong.winRate),
                     })}
                   </p>
                   <p className="mt-1 text-xs text-chalk-500">
-                    {t(`pages.heroDetail.statistics.profile.${moments.profil}`)} ·{" "}
-                    {t("pages.heroCounters.duration.rank", { rang: t(`measuredRanks.${rangDuree}`) })}
+                    {t(`pages.heroDetail.statistics.profile.${moments.profile}`)} ·{" "}
+                    {t("pages.heroCounters.duration.rank", { rang: t(`measuredRanks.${rankDuration}`) })}
                   </p>
-                  <BarresDuree tranches={tranches} moments={moments} nomTranche={nomTranche} locale={locale} />
+                  <DurationBars buckets={buckets} moments={moments} nameBucket={nameBucket} locale={locale} />
                 </>
               ) : (
                 <p className="mt-3 text-sm text-chalk-400">{t("pages.heroCounters.duration.none", n)}</p>
               )}
-            </Carte>
+            </Card>
 
-            <Carte>
+            <Card>
               <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.lanes.title")}</h3>
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">{t("pages.heroCounters.lanes.intro", n)}</p>
-              {lanesContres.length > 0 ? (
+              {lanesCounters.length > 0 ? (
                 <dl className="mt-4 space-y-3">
-                  {lanesContres.map((g) => (
+                  {lanesCounters.map((g) => (
                     <div key={g.lane}>
                       <dt className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-chalk-400">
                         {t(`lanes.${g.lane}`)}
@@ -491,14 +491,14 @@ export default async function PageContres({ params }: Params) {
                       </dt>
                       <dd className="mt-1.5">
                         <ul className="flex flex-wrap gap-1.5 text-sm">
-                          {g.contres.map((c) => (
+                          {g.counters.map((c) => (
                             <li key={c.slug}>
                               <Link
                                 href={`/heroes/${c.slug}`}
                                 className="bevel-sm inline-flex gap-1.5 border border-night-700 px-2 py-0.5 text-chalk-300 hover:border-gold-500/60"
                               >
-                                {nomDe(c.slug)}
-                                <span className="tabular-nums text-blood-500">{ecart(c.moyenne)}</span>
+                                {nameOf(c.slug)}
+                                <span className="tabular-nums text-blood-500">{gap(c.average)}</span>
                               </Link>
                             </li>
                           ))}
@@ -510,12 +510,12 @@ export default async function PageContres({ params }: Params) {
               ) : (
                 <p className="mt-4 text-sm text-chalk-400">{t("pages.heroCounters.noMeasure", n)}</p>
               )}
-            </Carte>
+            </Card>
           </div>
         </section>
 
         {/* ── Relations du wiki ───────────────────────────────────────── */}
-        {aWiki && (
+        {hasWiki && (
           <section aria-labelledby="wiki">
             <h2 id="wiki" className="font-heading text-2xl font-bold text-chalk-100">
               {t("pages.heroCounters.wiki.title")}
@@ -525,8 +525,8 @@ export default async function PageContres({ params }: Params) {
               {wiki
                 .filter((w) => w.slugs.length > 0)
                 .map((w) => (
-                  <Carte key={w.titre}>
-                    <h3 className="text-sm font-semibold text-chalk-100">{w.titre}</h3>
+                  <Card key={w.title}>
+                    <h3 className="text-sm font-semibold text-chalk-100">{w.title}</h3>
                     <ul className="mt-3 flex flex-wrap gap-2">
                       {w.slugs.map((s) => (
                         <li key={s}>
@@ -534,36 +534,36 @@ export default async function PageContres({ params }: Params) {
                             href={`/heroes/${s}`}
                             className={cn(
                               "bevel-sm inline-block border px-2.5 py-1 text-sm transition-colors",
-                              w.ton === "bon"
+                              w.tone === "good"
                                 ? "border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10"
                                 : "border-blood-500/30 text-blood-500 hover:bg-blood-500/10",
                             )}
                           >
-                            {nomDe(s)}
+                            {nameOf(s)}
                           </Link>
                         </li>
                       ))}
                     </ul>
-                  </Carte>
+                  </Card>
                 ))}
             </div>
           </section>
         )}
 
         {/* ── Autres pages counters, meme position ────────────────────── */}
-        {voisins.length > 0 && lanePrincipale && (
+        {neighbours.length > 0 && laneMain && (
           <section aria-labelledby="autres">
             <h2 id="autres" className="font-heading text-xl font-bold text-chalk-100">
-              {t("pages.heroCounters.others.title", { lane: t(`lanes.${lanePrincipale}`) })}
+              {t("pages.heroCounters.others.title", { lane: t(`lanes.${laneMain}`) })}
             </h2>
             <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-              {voisins.map((x) => (
+              {neighbours.map((x) => (
                 <li key={x.slug}>
                   <Link
                     href={`/heroes/${x.slug}/counters`}
                     className="bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                   >
-                    {t("pages.heroCounters.title", noms(x.name))}
+                    {t("pages.heroCounters.title", names(x.name))}
                   </Link>
                 </li>
               ))}
@@ -580,20 +580,20 @@ export default async function PageContres({ params }: Params) {
  * figure, et les deux suites naturelles — le face-a-face au comparateur et sa
  * propre page counters.
  */
-function TableauAgrege({
+function AggregatedTable({
   t,
-  lignes,
-  ton,
+  rows,
+  tone,
   total,
   slug,
-  ecart,
+  gap,
 }: {
   t: T;
-  lignes: ContreAgrege[];
-  ton: "bon" | "mauvais";
+  rows: AggregatedCounter[];
+  tone: "good" | "bad";
   total: number;
   slug: string;
-  ecart: (v: number) => string;
+  gap: (v: number) => string;
 }) {
   return (
     // Le defilement vit sur un conteneur a part : `bevel` impose son propre
@@ -622,22 +622,22 @@ function TableauAgrege({
           </tr>
         </thead>
         <tbody className="divide-y divide-night-800">
-          {lignes.map((c) => (
+          {rows.map((c) => (
             <tr key={c.slug}>
               <th scope="row">
                 <Link href={`/heroes/${c.slug}`} className="flex min-w-0 items-center gap-2.5 text-chalk-100 hover:text-gold-400">
-                  <PortraitHeros source={portraitDe(c.slug)} nom={nomDe(c.slug)} taille="petite" decoratif />
-                  <span className="truncate">{nomDe(c.slug)}</span>
+                  <HeroPortrait source={portraitOf(c.slug)} name={nameOf(c.slug)} size="small" decorative />
+                  <span className="truncate">{nameOf(c.slug)}</span>
                 </Link>
               </th>
-              <td className={cn("font-semibold tabular-nums", ton === "bon" ? "text-emerald-400" : "text-blood-500")}>
-                {ecart(c.moyenne)}
+              <td className={cn("font-semibold tabular-nums", tone === "good" ? "text-emerald-400" : "text-blood-500")}>
+                {gap(c.average)}
               </td>
               <td className="tabular-nums text-chalk-400 max-sm:hidden">
-                {t("pages.heroCounters.ranksListed", { n: c.rangs, total })}
+                {t("pages.heroCounters.ranksListed", { n: c.ranks, total })}
               </td>
               <td>
-                <Link href={cheminPaire(slug, c.slug)} className="max-sm:block">
+                <Link href={pathPair(slug, c.slug)} className="max-sm:block">
                   {t("pages.heroDetail.compare")}
                 </Link>
                 <span aria-hidden className="max-sm:hidden"> · </span>
@@ -659,7 +659,7 @@ function TableauAgrege({
  * page, et pas une classe sur les cellules. La couleur du tableau donne celle
  * de l'ecart ; noms et liens reprennent la leur.
  */
-const STYLE_TABLEAUX_RANG = cn(
+const STYLE_TABLES_RANK = cn(
   "[&_table]:mt-2 [&_table]:w-full [&_table]:text-sm [&_tbody_th]:py-1 [&_tbody_th]:text-left [&_tbody_th]:font-normal",
   "[&_td]:py-1 [&_td]:pl-2 [&_td]:text-right [&_td]:whitespace-nowrap [&_td:nth-of-type(1)]:font-semibold",
   "[&_td:nth-of-type(1)]:tabular-nums [&_th_a]:text-chalk-100 [&_td:nth-of-type(2)_a]:text-xs",
@@ -672,51 +672,51 @@ const STYLE_TABLEAUX_RANG = cn(
  * soit la moitie du poids de la page. Les portraits restent sur les tableaux
  * de synthese, en tete.
  */
-function TableauRang({
+function TableRank({
   t,
-  titre,
-  icone,
-  ton,
-  lignes,
-  ecart,
-  pageContres = true,
+  title,
+  icon,
+  tone,
+  rows,
+  gap,
+  pageCounters = true,
 }: {
   t: T;
-  titre: string;
-  icone: React.ReactNode;
-  ton: "bon" | "mauvais";
-  lignes: ContreChiffre[];
-  ecart: (v: number) => string;
+  title: string;
+  icon: React.ReactNode;
+  tone: "good" | "bad";
+  rows: CounterFigure[];
+  gap: (v: number) => string;
   /** Lien vers la page counters de chaque heros ; sans objet pour des coequipiers. */
-  pageContres?: boolean;
+  pageCounters?: boolean;
 }) {
-  if (lignes.length === 0) return null;
-  const couleur = ton === "bon" ? "text-emerald-400" : "text-blood-500";
+  if (rows.length === 0) return null;
+  const color = tone === "good" ? "text-emerald-400" : "text-blood-500";
   return (
     <div>
-      <h4 className={cn("flex items-center gap-2 font-heading font-bold", couleur)}>
-        {icone}
-        {titre}
+      <h4 className={cn("flex items-center gap-2 font-heading font-bold", color)}>
+        {icon}
+        {title}
       </h4>
-      <table className={couleur}>
+      <table className={color}>
         <thead className="sr-only">
           <tr>
             <th scope="col">{t("pages.heroCounters.colHero")}</th>
             <th scope="col">{t("pages.heroCounters.colGap")}</th>
-            {pageContres && <th scope="col">{t("pages.heroCounters.colLinks")}</th>}
+            {pageCounters && <th scope="col">{t("pages.heroCounters.colLinks")}</th>}
           </tr>
         </thead>
         <tbody>
-          {lignes.map((e) => {
-            const nom = nomDe(e.slug);
+          {rows.map((e) => {
+            const name = nameOf(e.slug);
             return (
               // Nom en en-tete de ligne : le lien « Counters » y prend son contexte.
               <tr key={e.slug}>
                 <th scope="row">
-                  <Link href={`/heroes/${e.slug}`}>{nom}</Link>
+                  <Link href={`/heroes/${e.slug}`}>{name}</Link>
                 </th>
-                <td>{ecart(e.advantage)}</td>
-                {pageContres && (
+                <td>{gap(e.advantage)}</td>
+                {pageCounters && (
                   <td>
                     <Link href={`/heroes/${e.slug}/counters`}>{t("pages.heroCounters.shortLink")}</Link>
                   </td>
@@ -731,36 +731,36 @@ function TableauRang({
 }
 
 /** Taux de victoire par duree de partie, en barres : la tranche la plus faible en rouge, la plus forte en vert. */
-function BarresDuree({
-  tranches,
+function DurationBars({
+  buckets,
   moments,
-  nomTranche,
+  nameBucket,
   locale,
 }: {
-  tranches: TrancheDuree[];
-  moments: { faible: TrancheDuree; fort: TrancheDuree };
-  nomTranche: (x: TrancheDuree) => string;
-  locale: Langue;
+  buckets: BucketDuration[];
+  moments: { weak: BucketDuration; strong: BucketDuration };
+  nameBucket: (x: BucketDuration) => string;
+  locale: Locale;
 }) {
   // Echelle resserree sur l'etendue mesuree : quelques points d'ecart restent
   // visibles, ce qu'une echelle de 0 a 100 % ecraserait.
-  const bas = moments.faible.winRate - 0.5;
-  const etendue = moments.fort.winRate - bas || 1;
+  const bottom = moments.weak.winRate - 0.5;
+  const extent = moments.strong.winRate - bottom || 1;
   return (
     <ul className="mt-4 space-y-1.5 text-xs">
-      {tranches.map((x) => (
+      {buckets.map((x) => (
         <li key={x.from} className="grid grid-cols-[5.5rem_1fr_3.5rem] items-center gap-2">
-          <span className="text-chalk-400">{nomTranche(x)}</span>
+          <span className="text-chalk-400">{nameBucket(x)}</span>
           <span aria-hidden className="h-2 bg-night-800">
             <span
               className={cn(
                 "block h-full",
-                x === moments.faible ? "bg-blood-500" : x === moments.fort ? "bg-emerald-400" : "bg-azure-500",
+                x === moments.weak ? "bg-blood-500" : x === moments.strong ? "bg-emerald-400" : "bg-azure-500",
               )}
-              style={{ width: `${Math.round(15 + (85 * (x.winRate - bas)) / etendue)}%` }}
+              style={{ width: `${Math.round(15 + (85 * (x.winRate - bottom)) / extent)}%` }}
             />
           </span>
-          <span className="text-right tabular-nums text-chalk-300">{pourcentage(locale, x.winRate)}</span>
+          <span className="text-right tabular-nums text-chalk-300">{percentage(locale, x.winRate)}</span>
         </li>
       ))}
     </ul>

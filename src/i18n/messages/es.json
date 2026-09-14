@@ -293,9 +293,9 @@
         "trendIntro": "Tasas diarias medidas en partidas clasificatorias, en el rango elegido arriba de la ficha.",
         "measure": "Tasa",
         "measures": {
-          "victoire": "Victoria",
+          "win": "Victoria",
           "ban": "Ban",
-          "selection": "Selección"
+          "pick": "Selección"
         },
         "period": "Periodo",
         "days": "{n} d",
@@ -311,8 +311,8 @@
         "minutesPlus": "{de}+ min",
         "peak": "Mejor momento: {tranche}",
         "profile": {
-          "debut": "Más fuerte al inicio de la partida",
-          "fin": "Más fuerte al final de la partida",
+          "early": "Más fuerte al inicio de la partida",
+          "late": "Más fuerte al final de la partida",
           "stable": "Constante durante toda la partida"
         },
         "byRank": "Según el rango",
@@ -330,9 +330,9 @@
           "patch": "Parche {version}",
           "beforeAfter": "{avant} % antes, {apres} % después",
           "verdict": {
-            "attendu": "Efecto esperado",
-            "neutre": "Sin efecto claro",
-            "inverse": "Efecto contrario"
+            "expected": "Efecto esperado",
+            "neutral": "Sin efecto claro",
+            "opposite": "Efecto contrario"
           },
           "empty": "Todavía falta perspectiva: se necesitan al menos {n} días medidos a cada lado de un parche, y el historial de este sitio empieza el {date}.",
           "emptyNoHistory": "Todavía no hay historial para medir el efecto de los parches en {nom}."
@@ -482,9 +482,9 @@
       "byLane": "Por línea",
       "byRole": "Por rol",
       "laneSeo": {
-        "Or": "gold lane",
-        "Experience": "exp lane",
-        "Milieu": "mid lane",
+        "Gold": "gold lane",
+        "Exp": "exp lane",
+        "Mid": "mid lane",
         "Jungle": "jungla",
         "Roam": "roam"
       },
@@ -1304,19 +1304,19 @@
         "gainAlone": "{ecart} respecto a {nom} sin este dúo"
       },
       "phase": {
-        "debut": "Inicio de partida",
-        "milieu": "Mitad de partida",
-        "fin": "Final de partida"
+        "early": "Inicio de partida",
+        "mid": "Mitad de partida",
+        "late": "Final de partida"
       },
       "phaseMinutes": {
-        "debut": "10–14 min",
-        "milieu": "14–18 min",
-        "fin": "18+ min"
+        "early": "10–14 min",
+        "mid": "14–18 min",
+        "late": "18+ min"
       },
       "phaseShort": {
-        "debut": "Inicio",
-        "milieu": "Mitad",
-        "fin": "Final"
+        "early": "Inicio",
+        "mid": "Mitad",
+        "late": "Final"
       },
       "byRank": "Dúos por rango",
       "byRankIntro": "Cada tramo de rango se mide por separado. Las columnas de fase muestran la ganancia respecto a {nom} sin ese compañero, a igual duración (o la tasa del dúo cuando {nom} no tiene curva de duración en ese rango).",
@@ -1355,9 +1355,9 @@
         "rating": "Tasa de victoria de cada héroe según la duración de la partida ({rang}), en todas sus partidas y no solo en este enfrentamiento."
       },
       "phaseIn": {
-        "debut": "al inicio de la partida",
-        "milieu": "a mitad de partida",
-        "fin": "al final de la partida"
+        "early": "al inicio de la partida",
+        "mid": "a mitad de partida",
+        "late": "al final de la partida"
       },
       "profiles": "Perfiles ({rang})",
       "builds": {
@@ -1503,7 +1503,7 @@
       "rule4": "Al final, comparte tu cuadrícula: cuadrados de colores que no revelan ninguna respuesta. El entrenamiento, en cambio, encadena preguntas sin límite.",
       "challengesTitle": "Las cinco pruebas",
       "challenges": {
-        "competence": {
+        "skill": {
           "title": "Habilidad",
           "desc": "Un icono de habilidad. Cada fallo revela su nombre, después el inicio de su descripción (con el nombre del héroe oculto), el rol y la línea."
         },
@@ -1511,11 +1511,11 @@
           "title": "Skin",
           "desc": "Un primer plano de la ilustración de una skin. La imagen se aleja tras cada fallo y se suman pistas: rol, línea, año de lanzamiento y, al final, el nombre de la skin."
         },
-        "histoire": {
+        "story": {
           "title": "Historia",
           "desc": "Un fragmento de la historia oficial del héroe, con su nombre sustituido por ▢▢▢. Como ayuda llegan un segundo fragmento, la región, el rol y, por último, la inicial."
         },
-        "objet": {
+        "item": {
           "title": "Objeto",
           "desc": "Las estadísticas y el precio de un objeto. Las pistas muestran su categoría, su receta y después su pasiva; cada intento indica si el objeto buscado cuesta más o menos."
         },
@@ -1574,17 +1574,17 @@
       "question": "Pregunta {n}",
       "nextQuestion": "Siguiente pregunta",
       "types": {
-        "competence": "Habilidad",
+        "skill": "Habilidad",
         "skin": "Skin",
-        "histoire": "Historia",
-        "objet": "Objeto",
+        "story": "Historia",
+        "item": "Objeto",
         "duel": "Duelo de win rate"
       },
       "questions": {
-        "competence": "¿A qué héroe pertenece esta habilidad?",
+        "skill": "¿A qué héroe pertenece esta habilidad?",
         "skin": "¿Qué héroe se esconde tras esta skin?",
-        "histoire": "¿De qué héroe habla esta historia?",
-        "objet": "¿Qué objeto da estas estadísticas?",
+        "story": "¿De qué héroe habla esta historia?",
+        "item": "¿Qué objeto da estas estadísticas?",
         "duel": "¿Quién gana más a menudo en clasificatoria?"
       },
       "triesLeft": "Intentos restantes: {n}",
@@ -1618,21 +1618,21 @@
         "category": "Categoría"
       },
       "agreement": {
-        "oui": "coincide",
-        "partiel": "en parte",
-        "non": "no coincide"
+        "yes": "coincide",
+        "partial": "en parte",
+        "no": "no coincide"
       },
       "year": {
-        "plus": "el héroe buscado es más reciente",
-        "moins": "el héroe buscado es más antiguo",
-        "egal": "mismo año",
-        "inconnu": "año desconocido"
+        "higher": "el héroe buscado es más reciente",
+        "lower": "el héroe buscado es más antiguo",
+        "equal": "mismo año",
+        "unknown": "año desconocido"
       },
       "price": {
-        "plus": "el objeto buscado cuesta más",
-        "moins": "el objeto buscado cuesta menos",
-        "egal": "mismo precio",
-        "inconnu": "precio desconocido"
+        "higher": "el objeto buscado cuesta más",
+        "lower": "el objeto buscado cuesta menos",
+        "equal": "mismo precio",
+        "unknown": "precio desconocido"
       },
       "itemPrice": "Precio: {prix} de oro",
       "altSkill": "Icono de la habilidad que hay que adivinar",
@@ -3176,9 +3176,9 @@
     "Support": "Soporte"
   },
   "lanes": {
-    "Or": "Gold Lane",
-    "Experience": "EXP Lane",
-    "Milieu": "Mid Lane",
+    "Gold": "Gold Lane",
+    "Exp": "EXP Lane",
+    "Mid": "Mid Lane",
     "Jungle": "Jungle",
     "Roam": "Roam"
   },
@@ -3197,11 +3197,11 @@
     "noStory": "La wiki aún no ha publicado un relato para {nom}."
   },
   "skills": {
-    "Passif": "Pasiva",
-    "Competence 1": "Habilidad 1",
-    "Competence 2": "Habilidad 2",
-    "Ultime": "Definitiva",
-    "Competence": "Habilidad",
+    "Passive": "Pasiva",
+    "Skill 1": "Habilidad 1",
+    "Skill 2": "Habilidad 2",
+    "Ultimate": "Definitiva",
+    "Skill": "Habilidad",
     "notFetched": "Las habilidades de este héroe aún no se han recuperado.",
     "noDescription": "No hay descripción disponible para esta habilidad.",
     "cooldown": "Enfriamiento",
@@ -3477,14 +3477,14 @@
     "curvesOtherRank": "Sin curva en este rango para al menos un héroe: curvas mostradas para {rang}."
   },
   "patchHeroes": {
-    "amelioration": "Buff",
-    "affaiblissement": "Nerf",
-    "ajustement": "Ajuste",
+    "buff": "Buff",
+    "nerf": "Nerf",
+    "adjust": "Ajuste",
     "detailsSoon": "detalles próximamente",
     "plural": {
-      "amelioration": "Mejoras",
-      "affaiblissement": "Debilitaciones",
-      "ajustement": "Ajustes"
+      "buff": "Mejoras",
+      "nerf": "Debilitaciones",
+      "adjust": "Ajustes"
     },
     "seeSheet": "Ver la ficha de {nom}",
     "seePatch": "Leer el parche {version}",
@@ -3541,10 +3541,10 @@
     "allRoles": "Todos",
     "account": "{n} héroes",
     "reasons": {
-      "contre": "fuerte contra {detail}",
-      "subi": "en apuros contra {detail}",
-      "combine": "combina con {detail}",
-      "victoire": "{detail} % de victorias"
+      "counter": "fuerte contra {detail}",
+      "countered": "en apuros contra {detail}",
+      "synergy": "combina con {detail}",
+      "win": "{detail} % de victorias"
     }
   },
   "newHero": {
@@ -3579,22 +3579,22 @@
     "by": "por {auteur}"
   },
   "articleCategory": {
-    "Actualite": "Noticias",
+    "News": "Noticias",
     "Patch": "Parche",
-    "Esport": "Esports",
+    "Esports": "Esports",
     "Guide": "Guía"
   },
   "rankNames": {
-    "guerrier": "Guerrero",
+    "warrior": "Guerrero",
     "elite": "Élite",
-    "maitre": "Maestro",
-    "grand-maitre": "Gran Maestro",
-    "epique": "Épico",
-    "mythique": "Mítico",
-    "mythique-honneur": "Honor Mítico",
-    "mythique-gloire": "Gloria Mítica",
-    "mythique-immortel": "Inmortal Mítico",
-    "legende": "Leyenda"
+    "master": "Maestro",
+    "grandmaster": "Gran Maestro",
+    "epic": "Épico",
+    "mythic": "Mítico",
+    "mythic-honor": "Honor Mítico",
+    "mythic-glory": "Gloria Mítica",
+    "mythic-immortal": "Inmortal Mítico",
+    "legend": "Leyenda"
   },
   "rankUnit": {
     "star": "{n} estrella",
@@ -3912,14 +3912,14 @@
     "loading": "Cargando…",
     "help": "↑ ↓ para navegar, Intro para abrir, Esc para cerrar",
     "groups": {
-      "heros": "Héroes",
-      "objet": "Objetos",
+      "hero": "Héroes",
+      "item": "Objetos",
       "patch": "Notas del parche",
       "page": "Páginas",
-      "competence": "Habilidades",
+      "skill": "Habilidades",
       "skin": "Skins",
-      "embleme": "Emblemas",
-      "sort": "Hechizos de combate"
+      "emblem": "Emblemas",
+      "spell": "Hechizos de combate"
     }
   },
   "heroData": {
@@ -4009,9 +4009,9 @@
   },
   "pushNotif": {
     "title": {
-      "amelioration": "Parche {version}: mejora para {nom}",
-      "affaiblissement": "Parche {version}: debilitamiento para {nom}",
-      "ajustement": "Parche {version}: ajustes para {nom}"
+      "buff": "Parche {version}: mejora para {nom}",
+      "nerf": "Parche {version}: debilitamiento para {nom}",
+      "adjust": "Parche {version}: ajustes para {nom}"
     },
     "titleMany": "Parche {version}: cambios en {n} de tus favoritos",
     "bodyOne": "Los detalles están en su ficha, en la pestaña Estadísticas.",
@@ -4047,9 +4047,9 @@
         "physical": "Daño casi todo físico: el rival se protege con unos pocos objetos de armadura.",
         "magic": "Daño casi todo mágico: el rival se protege con unos pocos objetos de resistencia mágica."
       },
-      "controle": "Poco control (media de {v} sobre 10): cuesta inmovilizar a un objetivo o interrumpir a un rival.",
+      "control": "Poco control (media de {v} sobre 10): cuesta inmovilizar a un objetivo o interrumpir a un rival.",
       "fragile": "Equipo frágil (resistencia media de {v} sobre 10): aguanta mal una iniciación rival.",
-      "difficile": "Composición exigente (dificultad media de {v} sobre 10): requiere dominio para cumplir lo que promete."
+      "hard": "Composición exigente (dificultad media de {v} sobre 10): requiere dominio para cumplir lo que promete."
     },
     "lanesRoles": "Líneas y roles",
     "toFill": "por cubrir",
@@ -4066,13 +4066,13 @@
     "minutesPlus": "{de}+ min",
     "peak": "Mejor momento: {tranche}",
     "durationProfile": {
-      "debut": "Más fuerte al inicio de la partida",
-      "fin": "Más fuerte al final de la partida",
+      "early": "Más fuerte al inicio de la partida",
+      "late": "Más fuerte al final de la partida",
       "stable": "Constante durante toda la partida"
     },
     "profileShort": {
-      "debut": "inicio de partida",
-      "fin": "final de partida",
+      "early": "inicio de partida",
+      "late": "final de partida",
       "stable": "constante"
     },
     "synergies": "Sinergias",
@@ -4122,22 +4122,22 @@
     },
     "retribution": {
       "objective": {
-        "tortue": "Tortuga (2:00)",
-        "seigneur": "Lord (8:00)",
-        "seigneur-12": "Lord (12:00+)",
-        "buff-violet": "Buff morado (12:00+)",
-        "buff-orange": "Buff naranja (12:00+)"
+        "turtle": "Tortuga (2:00)",
+        "lord": "Lord (8:00)",
+        "lord-12": "Lord (12:00+)",
+        "purple-buff": "Buff morado (12:00+)",
+        "orange-buff": "Buff naranja (12:00+)"
       },
       "difficulty": {
-        "facile": "Fácil",
+        "easy": "Fácil",
         "normal": "Normal",
-        "difficile": "Difícil",
+        "hard": "Difícil",
         "pro": "Pro"
       },
       "difficultyHelp": {
-        "facile": "Golpes lentos y regulares, marca del umbral y PV visibles. El jungla rival tarda más de un segundo en reaccionar.",
+        "easy": "Golpes lentos y regulares, marca del umbral y PV visibles. El jungla rival tarda más de un segundo en reaccionar.",
         "normal": "Ritmo de combate real, algunas ráfagas rivales. Marca y PV todavía visibles.",
-        "difficile": "Golpes rápidos e irregulares, ráfagas frecuentes. Sin marca ni PV: lee la barra.",
+        "hard": "Golpes rápidos e irregulares, ráfagas frecuentes. Sin marca ni PV: lee la barra.",
         "pro": "El jungla rival golpea en 300–420 ms: tienes que anticipar el golpe que cruza el umbral."
       },
       "outcomeSecured": "¡Asegurado!",

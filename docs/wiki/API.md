@@ -14,12 +14,12 @@ Route, parameter and field names are in English, as in the code.
 
 | Route | Content | Parameters |
 | --- | --- | --- |
-| `GET /api/v1/heroes` | The roster: a summary of each hero (roles, lanes, ratings, skills…) | `role`: Tank, Fighter, Assassin, Mage, Marksman, Support · `lane`: Or (gold), Jungle, Milieu (mid), Experience, Roam |
+| `GET /api/v1/heroes` | The roster: a summary of each hero (roles, lanes, ratings, skills…) | `role`: Tank, Fighter, Assassin, Mage, Marksman, Support · `lane`: Gold, Jungle, Mid, Exp, Roam (the former values Or, Milieu and Experience are still accepted) |
 | `GET /api/v1/heroes/{slug}` | A hero's full page: base stats, ratings, skills, skins… | — |
 | `GET /api/v1/items` | The item catalogue: price, bonuses, passive, active, recipe | `category`: Attack, Magic, Defense, Movement (exact match, case-insensitive) |
 | `GET /api/v1/patches` | The list of patch notes, with a link to each one | — |
 | `GET /api/v1/rankings` | The computed tier list: tier, win, ban and pick rates, score | — |
-| `GET /api/sante` | Service health check (`{ "status": "ok" }`) | — |
+| `GET /api/health` | Service health check (`{ "status": "ok" }`) | — |
 
 Examples:
 

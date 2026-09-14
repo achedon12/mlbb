@@ -1,55 +1,55 @@
 import { expect, test } from "@playwright/test";
 
-test("l'accueil s'ouvre et mene au catalogue", async ({ page }) => {
+test("the home page opens and leads to the catalog", async ({ page }) => {
   await page.goto("/fr");
   await expect(page).toHaveTitle(/Mobile Legends/i);
   await page.getByRole("link", { name: /parcourir les h[ée]ros/i }).first().click();
   await expect(page).toHaveURL(/\/heroes/);
 });
 
-test("le catalogue filtre par la recherche", async ({ page }) => {
+test("the catalog filters by search", async ({ page }) => {
   await page.goto("/fr/heroes");
   await page.getByPlaceholder(/rechercher un h[ée]ros/i).fill("khufra");
-  const cartes = page.getByRole("heading", { level: 3 });
-  await expect(cartes).toHaveCount(1);
-  await expect(cartes.first()).toHaveText(/khufra/i);
+  const cards = page.getByRole("heading", { level: 3 });
+  await expect(cards).toHaveCount(1);
+  await expect(cards.first()).toHaveText(/khufra/i);
 });
 
-test("la recherche est joignable par l'URL", async ({ page }) => {
+test("search is reachable through the URL", async ({ page }) => {
   await page.goto("/fr/heroes?q=layla");
   await expect(page.getByPlaceholder(/rechercher un h[ée]ros/i)).toHaveValue("layla");
 });
 
-test("une fiche de heros affiche ses competences", async ({ page }) => {
+test("a hero page shows its skills", async ({ page }) => {
   await page.goto("/fr/heroes/khufra");
   await expect(page.getByRole("heading", { name: "Khufra", level: 1 })).toBeVisible();
   await page.getByRole("tab", { name: /comp[ée]tences/i }).click();
   await expect(page.getByText(/passif/i).first()).toBeVisible();
 });
 
-test("le comparateur compare deux heros via l'URL", async ({ page }) => {
+test("the comparator compares two heroes through the URL", async ({ page }) => {
   await page.goto("/fr/compare?a=khufra&b=fanny");
   await expect(page.getByText(/^taux de victoire$/i)).toBeVisible();
   await expect(page.getByRole("link", { name: "Khufra" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Fanny" })).toBeVisible();
 });
 
-test("les pages legales sont accessibles", async ({ page }) => {
+test("legal pages are reachable", async ({ page }) => {
   await page.goto("/fr/legal");
   await expect(page.getByRole("heading", { name: /mentions l[ée]gales/i })).toBeVisible();
   await page.goto("/fr/privacy");
   await expect(page.getByRole("heading", { name: /confidentialit[ée]/i })).toBeVisible();
 });
 
-test("le fil d'Ariane mene de la fiche au catalogue", async ({ page }) => {
+test("the breadcrumb leads from the hero page to the catalog", async ({ page }) => {
   await page.goto("/fr/heroes/khufra");
-  const fil = page.getByRole("navigation", { name: /fil d'ariane/i });
-  await expect(fil).toContainText("Accueil");
-  await fil.getByRole("link", { name: /h[ée]ros/i }).click();
+  const trail = page.getByRole("navigation", { name: /fil d'ariane/i });
+  await expect(trail).toContainText("Accueil");
+  await trail.getByRole("link", { name: /h[ée]ros/i }).click();
   await expect(page).toHaveURL(/\/heroes$/);
 });
 
-test("le site reste consultable hors ligne", async ({ page, context }) => {
+test("the site remains browsable offline", async ({ page, context }) => {
   test.skip(!process.env.CI, "le service worker n'est actif qu'en production");
   await page.goto("/fr/heroes");
   // Le service worker doit controler la page avant la suite : sinon la fiche

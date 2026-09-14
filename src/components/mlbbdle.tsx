@@ -2,12 +2,12 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Dices, Eye, Share2, SkipForward } from "lucide-react";
-import Link from "@/components/lien";
-import { buildCatalogue, ClassicGame, SkillGame, type MlbbdleCatalogue } from "@/components/mlbbdle-games";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { classesPuce, GroupeFiltres } from "@/components/puce";
+import Link from "@/components/link";
+import { buildCatalog, ClassicGame, SkillGame, type MlbbdleCatalog } from "@/components/mlbbdle-games";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { classesChip, FilterGroup } from "@/components/chip";
 import { LOCALE_HTML } from "@/i18n/config";
-import { useLangue, useT } from "@/i18n/fournisseur";
+import { useLocale, useT } from "@/i18n/provider";
 import {
   averageGuesses,
   classicGrid,
@@ -32,8 +32,8 @@ import {
   type DailyMode,
   type PracticeRecord,
 } from "@/lib/mlbbdle-storage";
-import { decalerJour, jourUtc, serieCourante, STATS_VIDES, type StatsQuiz } from "@/lib/quiz";
-import { chargerPool } from "@/lib/quiz-stockage";
+import { shiftDay, dayUtc, currentStreak, STATS_EMPTY, type StatsQuiz } from "@/lib/quiz";
+import { loadPool } from "@/lib/quiz-storage";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -57,15 +57,15 @@ const secondaryButton =
 
 export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Record<string, string> }) {
   const t = useT();
-  const language = useLangue();
-  const catalogue = useMemo(() => buildCatalogue(heroes, labels), [heroes, labels]);
+  const language = useLocale();
+  const catalog = useMemo(() => buildCatalog(heroes, labels), [heroes, labels]);
   const [mode, setMode] = useState<Mode>("classic");
   // Practice is only mounted when first opened, then stays mounted.
   const [practiceOpened, setPracticeOpened] = useState(false);
   const [day, setDay] = useState<string | null>(null);
   const [puzzle, setPuzzle] = useState<MlbbdlePuzzle | "error" | null>(null);
   const [guesses, setGuesses] = useState<DailyGuesses>({ classic: [], skill: [] });
-  const [stats, setStats] = useState<Record<DailyMode, StatsQuiz>>({ classic: STATS_VIDES, skill: STATS_VIDES });
+  const [stats, setStats] = useState<Record<DailyMode, StatsQuiz>>({ classic: STATS_EMPTY, skill: STATS_EMPTY });
   const [attempt, setAttempt] = useState(0);
   const winTitle = useRef<HTMLHeadingElement>(null);
   const shouldFocus = useRef(false);
@@ -73,7 +73,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
   // The day and the memory are read after mounting: the static page knows
   // neither the visitor's clock nor their browser.
   useEffect(() => {
-    const today = jourUtc(new Date());
+    const today = dayUtc(new Date());
     /* eslint-disable react-hooks/set-state-in-effect -- clock and storage read after mounting */
     setDay(today);
     setGuesses(readGame(today));
@@ -128,7 +128,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
   }
 
   function newDay() {
-    const today = jourUtc(new Date());
+    const today = dayUtc(new Date());
     setPuzzle(null);
     setGuesses(readGame(today));
     setDay(today);
@@ -136,7 +136,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
 
   return (
     <div>
-      <GroupeFiltres legende={t("pages.mlbbdleUI.mode")} largeurLegende="" className="mb-6">
+      <FilterGroup legend={t("pages.mlbbdleUI.mode")} widthLegend="" className="mb-6">
         {/* The site's chips are 32 px tall: same look here, but finger-sized. */}
         {(["classic", "skill", "practice"] as const).map((m) => (
           <button
@@ -144,7 +144,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
             type="button"
             aria-pressed={mode === m}
             onClick={() => chooseMode(m)}
-            className={cn(classesPuce(mode === m), "inline-flex min-h-11 items-center gap-1.5")}
+            className={cn(classesChip(mode === m), "inline-flex min-h-11 items-center gap-1.5")}
           >
             {t(`pages.mlbbdleUI.modes.${m}`)}
             {m !== "practice" && isSolved(m) && (
@@ -155,7 +155,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
             )}
           </button>
         ))}
-      </GroupeFiltres>
+      </FilterGroup>
 
       {mode !== "practice" &&
         (puzzle === null || !day ? (
@@ -176,7 +176,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
             puzzle={puzzle}
             guesses={guesses[mode]}
             stats={stats[mode]}
-            catalogue={catalogue}
+            catalog={catalog}
             onGuess={(slug) => play(mode, slug)}
             winTitleRef={winTitle}
             otherMode={DAILY_MODES.find((m) => m !== mode && !isSolved(m)) ?? null}
@@ -187,7 +187,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
 
       {practiceOpened && (
         <div hidden={mode !== "practice"}>
-          <Practice catalogue={catalogue} />
+          <Practice catalog={catalog} />
         </div>
       )}
     </div>
@@ -199,7 +199,7 @@ function DailyPuzzle({
   puzzle,
   guesses,
   stats,
-  catalogue,
+  catalog,
   onGuess,
   winTitleRef,
   otherMode,
@@ -210,7 +210,7 @@ function DailyPuzzle({
   puzzle: MlbbdlePuzzle;
   guesses: string[];
   stats: StatsQuiz;
-  catalogue: MlbbdleCatalogue;
+  catalog: MlbbdleCatalog;
   onGuess: (slug: string) => void;
   winTitleRef: React.Ref<HTMLHeadingElement>;
   otherMode: DailyMode | null;
@@ -218,12 +218,12 @@ function DailyPuzzle({
   onNewDay: () => void;
 }) {
   const t = useT();
-  const language = useLangue();
+  const language = useLocale();
   const readableDate = new Intl.DateTimeFormat(LOCALE_HTML[language], { dateStyle: "long", timeZone: "UTC" }).format(
     new Date(`${puzzle.day}T00:00:00Z`),
   );
   const answer = mode === "classic" ? puzzle.classic : puzzle.skill?.answer;
-  const target = answer ? catalogue.bySlug.get(answer) : undefined;
+  const target = answer ? catalog.bySlug.get(answer) : undefined;
   const label = t("pages.mlbbdleUI.number", { n: puzzle.number, date: readableDate });
 
   if (!target) {
@@ -238,10 +238,10 @@ function DailyPuzzle({
   return (
     <div className="space-y-5">
       {mode === "classic" ? (
-        <ClassicGame target={target} guesses={guesses} catalogue={catalogue} onGuess={onGuess} label={label} />
+        <ClassicGame target={target} guesses={guesses} catalog={catalog} onGuess={onGuess} label={label} />
       ) : (
         puzzle.skill && (
-          <SkillGame puzzle={puzzle.skill} guesses={guesses} catalogue={catalogue} onGuess={onGuess} label={label} />
+          <SkillGame puzzle={puzzle.skill} guesses={guesses} catalog={catalog} onGuess={onGuess} label={label} />
         )
       )}
       {found && (
@@ -251,7 +251,7 @@ function DailyPuzzle({
           guesses={guesses}
           target={target}
           stats={stats}
-          catalogue={catalogue}
+          catalog={catalog}
           titleRef={winTitleRef}
           otherMode={otherMode}
           onMode={onMode}
@@ -268,7 +268,7 @@ function WinPanel({
   guesses,
   target,
   stats,
-  catalogue,
+  catalog,
   titleRef,
   otherMode,
   onMode,
@@ -279,17 +279,17 @@ function WinPanel({
   guesses: string[];
   target: MlbbdleHero;
   stats: StatsQuiz;
-  catalogue: MlbbdleCatalogue;
+  catalog: MlbbdleCatalog;
   titleRef: React.Ref<HTMLHeadingElement>;
   otherMode: DailyMode | null;
   onMode: (m: Mode) => void;
   onNewDay: () => void;
 }) {
   const t = useT();
-  const language = useLangue();
+  const language = useLocale();
   const [status, setStatus] = useState<"copied" | "shared" | "error" | null>(null);
-  const streak = serieCourante(stats, puzzle.day);
-  const rows = mode === "classic" ? classicGrid(guesses, target, catalogue.bySlug) : [skillGrid(guesses, target.slug)];
+  const streak = currentStreak(stats, puzzle.day);
+  const rows = mode === "classic" ? classicGrid(guesses, target, catalog.bySlug) : [skillGrid(guesses, target.slug)];
   const title = `${t("pages.mlbbdleUI.shareTitle", {
     n: puzzle.number,
     mode: t(`pages.mlbbdleUI.modes.${mode}`),
@@ -300,7 +300,7 @@ function WinPanel({
   const highest = Math.max(1, ...distribution);
   const format = new Intl.NumberFormat(LOCALE_HTML[language], { maximumFractionDigits: 1 });
   const yesterdaySlug = puzzle.yesterday?.[mode];
-  const yesterday = yesterdaySlug ? catalogue.bySlug.get(yesterdaySlug) : undefined;
+  const yesterday = yesterdaySlug ? catalog.bySlug.get(yesterdaySlug) : undefined;
   const bucket = Math.min(guesses.length, LAST_BUCKET);
 
   // The native share sheet helps on mobile; elsewhere the clipboard is enough.
@@ -332,7 +332,7 @@ function WinPanel({
         </h3>
 
         <div className="mt-4 flex flex-wrap items-center gap-4">
-          <PortraitHeros source={target.icon} nom={target.name} taille="vignette" decoratif />
+          <HeroPortrait source={target.icon} name={target.name} size="thumb" decorative />
           <div className="min-w-0 flex-1">
             <p className="font-heading text-xl font-bold text-emerald-300">{target.name}</p>
             {mode === "skill" && puzzle.skill && (
@@ -385,7 +385,7 @@ function WinPanel({
         {yesterday && (
           <p className="mt-6 flex flex-wrap items-center gap-2 text-sm text-chalk-300">
             <span>{t("pages.mlbbdleUI.yesterday")}</span>
-            <PortraitHeros source={yesterday.icon} nom={yesterday.name} taille="petite" decoratif />
+            <HeroPortrait source={yesterday.icon} name={yesterday.name} size="small" decorative />
             <Link
               href={`/heroes/${yesterday.slug}`}
               className="inline-flex min-h-11 items-center font-semibold text-gold-400 transition-colors hover:text-gold-500"
@@ -449,7 +449,7 @@ function NextPuzzle({ day, onNewDay }: { day: string; onNewDay: () => void }) {
   const [remaining, setRemaining] = useState<number | null>(null);
 
   useEffect(() => {
-    const end = Date.parse(`${decalerJour(day, 1)}T00:00:00Z`);
+    const end = Date.parse(`${shiftDay(day, 1)}T00:00:00Z`);
     const update = () => setRemaining(end - Date.now());
     const first = setTimeout(update, 0);
     const timer = setInterval(update, 1000);
@@ -484,9 +484,9 @@ function NextPuzzle({ day, onNewDay }: { day: string; onNewDay: () => void }) {
 
 type Round = { mode: "classic"; target: string } | { mode: "skill"; puzzle: SkillPuzzle };
 
-function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
+function Practice({ catalog }: { catalog: MlbbdleCatalog }) {
   const t = useT();
-  const language = useLangue();
+  const language = useLocale();
   const [kind, setKind] = useState<DailyMode>("classic");
   const [skills, setSkills] = useState<Record<string, SkillPuzzle[]> | "error" | null>(null);
   const [round, setRound] = useState<Round | null>(null);
@@ -507,7 +507,7 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
   useEffect(() => {
     if (kind !== "skill" || skills !== null) return;
     let active = true;
-    chargerPool(language).then(
+    loadPool(language).then(
       (pool) => {
         if (!active) return;
         setSkills(
@@ -534,12 +534,12 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
 
   function draw(m: DailyMode): Round | null {
     if (m === "classic") {
-      const target = drawRandom(catalogue.heroes.map((h) => h.slug), recent.current);
+      const target = drawRandom(catalog.heroes.map((h) => h.slug), recent.current);
       return target ? { mode: m, target } : null;
     }
     if (!skills || skills === "error") return null;
     const slug = drawRandom(
-      Object.keys(skills).filter((s) => catalogue.bySlug.has(s)),
+      Object.keys(skills).filter((s) => catalog.bySlug.has(s)),
       recent.current,
     );
     const list = slug ? skills[slug] : [];
@@ -559,7 +559,7 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
   }, [current, ready, kind]);
 
   const answer = current ? (current.mode === "classic" ? current.target : current.puzzle.answer) : null;
-  const target = answer ? catalogue.bySlug.get(answer) : undefined;
+  const target = answer ? catalog.bySlug.get(answer) : undefined;
   const found = answer !== null && guesses.includes(answer);
   const finished = found || revealed;
 
@@ -591,19 +591,19 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
 
   return (
     <div className="space-y-5">
-      <GroupeFiltres legende={t("pages.mlbbdleUI.practiceType")} largeurLegende="" className="gap-1.5">
+      <FilterGroup legend={t("pages.mlbbdleUI.practiceType")} widthLegend="" className="gap-1.5">
         {DAILY_MODES.map((m) => (
           <button
             key={m}
             type="button"
             aria-pressed={kind === m}
             onClick={() => setKind(m)}
-            className={cn(classesPuce(kind === m), "min-h-11")}
+            className={cn(classesChip(kind === m), "min-h-11")}
           >
             {t(`pages.mlbbdleUI.modes.${m}`)}
           </button>
         ))}
-      </GroupeFiltres>
+      </FilterGroup>
 
       <dl className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
         <div className="flex gap-1.5">
@@ -640,7 +640,7 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
               key={number}
               target={target}
               guesses={guesses}
-              catalogue={catalogue}
+              catalog={catalog}
               onGuess={play}
               label={label}
               question={t("pages.mlbbdleUI.practiceQuestion")}
@@ -652,7 +652,7 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
               key={number}
               puzzle={current.puzzle}
               guesses={guesses}
-              catalogue={catalogue}
+              catalog={catalog}
               onGuess={play}
               label={label}
               over={revealed}
@@ -667,7 +667,7 @@ function Practice({ catalogue }: { catalogue: MlbbdleCatalogue }) {
                 found ? "border-emerald-500/60 bg-emerald-500/10" : "border-blood-500/50 bg-blood-500/10",
               )}
             >
-              <PortraitHeros source={target.icon} nom={target.name} taille="vignette" decoratif />
+              <HeroPortrait source={target.icon} name={target.name} size="thumb" decorative />
               <div className="min-w-0 flex-1">
                 <p className={cn("text-sm font-semibold", found ? "text-emerald-300" : "text-blood-500")}>
                   {found ? t("pages.mlbbdleUI.winTitle", { n: guesses.length }) : t("pages.mlbbdleUI.answerWas")}

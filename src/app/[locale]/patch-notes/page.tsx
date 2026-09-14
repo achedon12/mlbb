@@ -1,58 +1,58 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { ExternalLink, FileText } from "lucide-react";
-import { ListeArticles } from "@/components/article";
-import { EnTetePage } from "@/components/ui";
-import { patchs, patchsDetail, synchro } from "@/lib/donnees";
-import { articles } from "@/lib/contenu";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { ListArticles } from "@/components/article";
+import { PageHeader } from "@/components/ui";
+import { patches, patchDetails, sync } from "@/lib/data";
+import { articles } from "@/lib/content";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
-import { formaterDate } from "@/lib/utils";
-import { compterAjustements, dateLongue, patchActuel } from "@/lib/fraicheur";
+import { formatShortDate } from "@/lib/utils";
+import { countAdjustments, longDate, patchCurrent } from "@/lib/freshness";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   // Le dernier patch, sa date et ses ajustements ouvrent la description.
-  const version = patchActuel.date
-    ? `${patchActuel.version} (${dateLongue(locale, patchActuel.date)})`
-    : patchActuel.version;
+  const version = patchCurrent.date
+    ? `${patchCurrent.version} (${longDate(locale, patchCurrent.date)})`
+    : patchCurrent.version;
   return metaPage(locale, {
-    titre: t("pages.seo.patchNotes.title", { v: patchActuel.version }),
-    description: patchActuel.adjustments.length
+    title: t("pages.seo.patchNotes.title", { v: patchCurrent.version }),
+    description: patchCurrent.adjustments.length
       ? t("pages.seo.patchNotes.description", {
           version,
-          ...compterAjustements(patchActuel.adjustments),
-          m: Object.keys(patchsDetail).length,
-          n: patchs.length,
+          ...countAdjustments(patchCurrent.adjustments),
+          m: Object.keys(patchDetails).length,
+          n: patches.length,
         })
-      : t("pages.patchNotes.metaDescription", { n: patchs.length }),
-    partage: t("pages.patchNotes.ogDescription", { n: patchs.length }),
-    chemin: "/patch-notes",
+      : t("pages.patchNotes.metaDescription", { n: patches.length }),
+    share: t("pages.patchNotes.ogDescription", { n: patches.length }),
+    path: "/patch-notes",
   });
 }
 
-const detailles = patchsDetail as Record<string, { version: string }>;
+const detailed = patchDetails as Record<string, { version: string }>;
 
-export default async function PagePatchNotes({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function PatchNotesPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const analyses = articles("patch-notes", locale);
-  const avecDetail = patchs.filter((p) => detailles[p.version]);
-  const autres = patchs.filter((p) => !detailles[p.version]).slice(0, 60);
+  const withDetail = patches.filter((p) => detailed[p.version]);
+  const others = patches.filter((p) => !detailed[p.version]).slice(0, 60);
 
   return (
     <>
-      <EnTetePage
-        titre={t("pages.patchNotes.title")}
-        chapeau={t("pages.patchNotes.lead")}
+      <PageHeader
+        title={t("pages.patchNotes.title")}
+        lead={t("pages.patchNotes.lead")}
       >
         <p className="mt-6 text-sm text-chalk-500">
-          {t("pages.patchNotes.listed", { n: patchs.length, m: avecDetail.length })}{" "}
-          <time dateTime={synchro.date}>{formaterDate(synchro.date, LOCALE_HTML[locale])}</time>
+          {t("pages.patchNotes.listed", { n: patches.length, m: withDetail.length })}{" "}
+          <time dateTime={sync.date}>{formatShortDate(sync.date, LOCALE_HTML[locale])}</time>
         </p>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
         <section>
@@ -62,7 +62,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-            {avecDetail.map((p) => (
+            {withDetail.map((p) => (
               <li key={p.title}>
                 <Link
                   href={`/patch-notes/${p.version}`}
@@ -86,7 +86,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
               {t("pages.patchNotes.analysesIntro")}
             </p>
             <div className="mt-6">
-              <ListeArticles articles={analyses} base="/patch-notes" langue={locale} />
+              <ListArticles articles={analyses} base="/patch-notes" locale={locale} />
             </div>
           </section>
         )}
@@ -99,7 +99,7 @@ export default async function PagePatchNotes({ params }: { params: Promise<{ loc
           </p>
 
           <ul className="mt-6 grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
-            {autres.map((p) => (
+            {others.map((p) => (
               // Le titre est unique ; la version ne l'est pas toujours.
               <li key={p.title}>
                 <a

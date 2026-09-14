@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
-import { EnTetePage } from "@/components/ui";
+import { PageHeader } from "@/components/ui";
 import { Prose } from "@/components/prose";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
 import { legal } from "@/lib/site";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.privacy.title"),
+    title: t("pages.privacy.title"),
     description: t("pages.privacy.metaDescription"),
-    chemin: "/privacy",
+    path: "/privacy",
   });
 }
 
-export default async function PageConfidentialite({ params }: Params) {
+export default async function PrivacyPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return (
     <>
-      <EnTetePage titre={t("pages.privacy.title")} chapeau={t("pages.privacy.lead")} />
-      <Prose langue={locale} cle="privacy" variables={{ contact: legal.contact }} />
+      <PageHeader title={t("pages.privacy.title")} lead={t("pages.privacy.lead")} />
+      <Prose locale={locale} messageKey="privacy" variables={{ contact: legal.contact }} />
       {/*
         Notifications de patch : seule donnee conservee par le serveur, et
         seulement a la demande. Toujours decrites : la page est generee au

@@ -4,12 +4,12 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Copy, Minus, Plus } from "lucide-react";
 import { BuildStats } from "@/components/build-stats";
-import { SelecteurHeros, type HerosChoisissable } from "@/components/choix-heros";
+import { HeroSelector, type HeroPickable } from "@/components/hero-picker";
 import { ItemPicker } from "@/components/item-picker";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { ChoixRang } from "@/components/selecteur-rang";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { ChoiceRank } from "@/components/rank-picker";
 import { LOCALE_HTML } from "@/i18n/config";
-import { useLangue, useT } from "@/i18n/fournisseur";
+import { useLocale, useT } from "@/i18n/provider";
 import {
   EMPTY_BUILD,
   LEVEL_MAX,
@@ -30,7 +30,7 @@ import {
   type MeasuredCore,
   type SimulatorData,
 } from "@/lib/build-simulator";
-import { RANGS_MESURE, type RangMesure } from "@/lib/rangs-mesure";
+import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { cn } from "@/lib/utils";
 
 /**
@@ -103,15 +103,15 @@ export function BuildSimulator({
   children?: (build: BuildCode) => React.ReactNode;
 }) {
   const t = useT();
-  const langue = useLangue();
-  const locale = LOCALE_HTML[langue];
+  const siteLocale = useLocale();
+  const locale = LOCALE_HTML[siteLocale];
   const percent = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 1 });
 
   const catalog = useMemo(() => catalogFrom(data), [data]);
   const codeCatalog = useMemo(() => codeCatalogFrom(data), [data]);
   const names = useMemo(() => namesFrom(data), [data]);
-  const heroChoices = useMemo<HerosChoisissable[]>(
-    () => data.heroes.map((h) => ({ slug: h.slug, nom: h.name, lanes: h.lanes, roles: h.roles, icone: h.icon })),
+  const heroChoices = useMemo<HeroPickable[]>(
+    () => data.heroes.map((h) => ({ slug: h.slug, name: h.name, lanes: h.lanes, roles: h.roles, icon: h.icon })),
     [data],
   );
   const itemsBySlug = useMemo(() => new Map(data.items.map((o) => [o.slug, o])), [data]);
@@ -120,7 +120,7 @@ export function BuildSimulator({
   const [ignored, setIgnored] = useState<DecodedBuild["ignored"]>([]);
   const [heroPickerOpen, setHeroPickerOpen] = useState(false);
   const [slot, setSlot] = useState<number | null>(null);
-  const [rank, setRank] = useState<RangMesure>("all");
+  const [rank, setRank] = useState<MeasuredRank>("all");
   const [copied, setCopied] = useState(false);
   /** The URL has been read: before that, writing it back would erase the shared build. */
   const [ready, setReady] = useState(false);
@@ -224,7 +224,7 @@ export function BuildSimulator({
               className="flex min-h-14 items-center gap-3 border border-night-700 bg-night-900/60 px-3 py-2 text-left transition-colors hover:border-gold-500/60"
             >
               {hero ? (
-                <PortraitHeros source={hero.icon} nom={hero.name} taille="icone" decoratif />
+                <HeroPortrait source={hero.icon} name={hero.name} size="icon" decorative />
               ) : (
                 <span aria-hidden className="grid size-10 place-items-center bg-night-800 text-lg text-chalk-500">
                   ?
@@ -383,7 +383,7 @@ export function BuildSimulator({
         {hero && (
           <section aria-labelledby="sim-measured" className="space-y-3">
             <SectionTitle id="sim-measured">{t("pages.buildSimulatorUI.measuredTitle")}</SectionTitle>
-            <ChoixRang rangs={RANGS_MESURE} rang={rank} onChange={setRank} />
+            <ChoiceRank ranks={MEASURED_RANKS} rank={rank} onChange={setRank} />
             {heroCores === null ? (
               <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredLoading")}</p>
             ) : build.items.length === 0 ? (
@@ -459,16 +459,16 @@ export function BuildSimulator({
       </aside>
 
       {heroPickerOpen && (
-        <SelecteurHeros
-          heros={heroChoices}
-          exclus={NO_EXCLUSION}
+        <HeroSelector
+          heroes={heroChoices}
+          excluded={NO_EXCLUSION}
           lane={null}
-          titre={t("pages.buildSimulatorUI.chooseHero")}
-          onChoisir={(slug) => {
+          title={t("pages.buildSimulatorUI.chooseHero")}
+          onChoose={(slug) => {
             update({ hero: slug });
             setHeroPickerOpen(false);
           }}
-          onFermer={() => setHeroPickerOpen(false)}
+          onClose={() => setHeroPickerOpen(false)}
         />
       )}
       {slot !== null && (

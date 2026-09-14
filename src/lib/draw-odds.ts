@@ -74,7 +74,7 @@ export function validateEvent(e: DrawEvent): DrawField[] {
 }
 
 /** The 10-draw only matters when it costs less than ten single draws. */
-export function tenDrawPays(e: DrawEvent): boolean {
+export function tenDrawCountry(e: DrawEvent): boolean {
   return e.tenCost !== null && e.tenCost < 10 * e.cost;
 }
 
@@ -118,7 +118,7 @@ export function expectedTenDraws(e: DrawEvent): number {
  */
 export function diamondsFor(n: number, e: DrawEvent): number {
   if (n <= 0) return 0;
-  if (!tenDrawPays(e)) return n * e.cost;
+  if (!tenDrawCountry(e)) return n * e.cost;
   const ten = e.tenCost!;
   const full = Math.floor(n / 10);
   return Math.min(full * ten + (n % 10) * e.cost, Math.ceil(n / 10) * ten);
@@ -131,7 +131,7 @@ export function diamondsFor(n: number, e: DrawEvent): number {
  */
 export function drawsForBudget(budget: number, e: DrawEvent): number {
   if (budget <= 0) return 0;
-  if (!tenDrawPays(e)) return Math.floor(budget / e.cost);
+  if (!tenDrawCountry(e)) return Math.floor(budget / e.cost);
   const ten = e.tenCost!;
   return 10 * Math.floor(budget / ten) + Math.floor((budget % ten) / e.cost);
 }
@@ -194,7 +194,7 @@ export function analyze(e: DrawEvent, goal: Goal): Result {
     chance: chanceWithin(draws, e),
     expectedDraws: expected,
     expectedDiamondsSingle: expected * e.cost,
-    expectedDiamondsTen: tenDrawPays(e) ? expectedTenDraws(e) * e.tenCost! : null,
+    expectedDiamondsTen: tenDrawCountry(e) ? expectedTenDraws(e) * e.tenCost! : null,
     milestones: MILESTONES.map((target) => {
       const n = drawsForChance(target, e);
       return { target, draws: n, diamonds: diamondsFor(n, e) };

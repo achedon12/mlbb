@@ -1,37 +1,37 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { ArrowRight } from "lucide-react";
-import { EnTetePage } from "@/components/ui";
-import { CreditWiki } from "@/components/credit-wiki";
-import { modes } from "@/lib/donnees";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { PageHeader } from "@/components/ui";
+import { WikiCredit } from "@/components/wiki-credit";
+import { modes } from "@/lib/data";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
-import { ACCENT_MODE_DEFAUT, ACCENTS_MODES } from "@/lib/modes";
+import { ACCENT_MODE_DEFAULT, ACCENTS_MODES } from "@/lib/modes";
 import { site } from "@/lib/site";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.modes.title"),
+    title: t("pages.modes.title"),
     description: t("pages.modes.metaDescription"),
-    partage: t("pages.modes.ogDescription"),
-    chemin: "/game-modes",
+    share: t("pages.modes.ogDescription"),
+    path: "/game-modes",
   });
 }
 
-export default async function PageModes({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function GameModesPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const liste = modes(locale);
-  const donneesStructurees = {
+  const t = createT(locale);
+  const list = modes(locale);
+  const structuredData = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: t("pages.modes.listLd"),
-    numberOfItems: liste.length,
-    itemListElement: liste.map((m, i) => ({
+    numberOfItems: list.length,
+    itemListElement: list.map((m, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: m.name,
@@ -44,17 +44,17 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(donneesStructurees).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
       />
-      <EnTetePage
-        titre={t("pages.modes.title")}
-        chapeau={t("pages.modes.lead")}
+      <PageHeader
+        title={t("pages.modes.title")}
+        lead={t("pages.modes.lead")}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12">
         <div className="grid gap-5">
-          {liste.map((mode) => {
-            const [sombre, clair] = ACCENTS_MODES[mode.slug] ?? ACCENT_MODE_DEFAUT;
+          {list.map((mode) => {
+            const [dark, light] = ACCENTS_MODES[mode.slug] ?? ACCENT_MODE_DEFAULT;
             return (
               <Link
                 key={mode.slug}
@@ -64,7 +64,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                 <div
                   aria-hidden
                   className="absolute inset-0 -z-20"
-                  style={{ background: `linear-gradient(115deg, ${sombre} 0%, #0a0e1a 55%, #06080f 100%)` }}
+                  style={{ background: `linear-gradient(115deg, ${dark} 0%, #0a0e1a 55%, #06080f 100%)` }}
                 />
                 {mode.image && (
                   <Image
@@ -84,7 +84,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                 <div className="flex min-h-[180px] flex-col justify-end gap-3 p-6 sm:min-h-[200px] sm:p-8">
                   <p
                     className="font-heading text-[0.7rem] font-bold uppercase tracking-[0.2em]"
-                    style={{ color: clair }}
+                    style={{ color: light }}
                   >
                     {t(`modeSheet.${mode.slug}.tagline`)}
                   </p>
@@ -94,7 +94,7 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                   </p>
                   <span
                     className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold transition-transform group-hover:translate-x-0.5"
-                    style={{ color: clair }}
+                    style={{ color: light }}
                   >
                     {t("pages.modes.discover")}
                     <ArrowRight size={16} aria-hidden />
@@ -104,14 +104,14 @@ export default async function PageModes({ params }: { params: Promise<{ locale: 
                 <div
                   aria-hidden
                   className="absolute inset-x-0 bottom-0 h-0.5"
-                  style={{ background: `linear-gradient(90deg, ${clair}, transparent)` }}
+                  style={{ background: `linear-gradient(90deg, ${light}, transparent)` }}
                 />
               </Link>
             );
           })}
         </div>
 
-        <CreditWiki t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" />
+        <WikiCredit t={t} href="https://mobilelegends.fandom.com/wiki/Game_Modes" />
       </div>
     </>
   );

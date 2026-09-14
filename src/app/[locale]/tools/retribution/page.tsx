@@ -1,111 +1,111 @@
 import type { Metadata } from "next";
-import { EntraineurChatiment } from "@/components/entraineur-chatiment";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT } from "@/i18n/traductions";
+import { RetributionTrainer } from "@/components/retribution-trainer";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT } from "@/i18n/translations";
 import {
-  CHATIMENT_BASE,
-  CHATIMENT_PAR_NIVEAU,
-  CLES_OBJECTIFS,
-  DIFFICULTES_ORDRE,
-  MANCHES_PAR_SERIE,
-  NIVEAU_MAX,
-  NIVEAU_MIN,
-  OBJECTIFS,
-  POIDS_PRECISION,
-  POIDS_VITESSE,
-  REACTION_NULLE_MS,
-  REACTION_PLEINE_MS,
-  RECHARGE_CHATIMENT_S,
-  REGLAGES,
-  SOURCE_CHATIMENT,
-  degatsChatiment,
-} from "@/lib/chatiment";
-import { donneesLd } from "@/lib/html";
+  RETRIBUTION_BASE,
+  RETRIBUTION_BY_LEVEL,
+  OBJECTIVE_KEYS,
+  DIFFICULTY_ORDER,
+  ROUNDS_PER_RUN,
+  LEVEL_MAX,
+  LEVEL_MIN,
+  OBJECTIVES,
+  WEIGHT_ACCURACY,
+  WEIGHT_SPEED,
+  REACTION_NONE_MS,
+  REACTION_FULL_MS,
+  COOLDOWN_RETRIBUTION_S,
+  SETTINGS,
+  SOURCE_RETRIBUTION,
+  damageRetribution,
+} from "@/lib/retribution";
+import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
-const CHEMIN = "/tools/retribution";
+const PATH = "/tools/retribution";
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.retribution.title"),
+    title: t("pages.seo.retribution.title"),
     description: t("pages.seo.retribution.description"),
-    chemin: CHEMIN,
-    motsCles: ["retribution", "retribution test", "jungle", "Lord", "Turtle", "timing", "Mobile Legends", "MLBB"],
+    path: PATH,
+    keywords: ["retribution", "retribution test", "jungle", "Lord", "Turtle", "timing", "Mobile Legends", "MLBB"],
   });
 }
 
-const titreSection = "font-heading text-2xl font-bold text-chalk-100";
+const titleSection = "font-heading text-2xl font-bold text-chalk-100";
 
-export default async function PageChatiment({ params }: Params) {
+export default async function RetributionPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const entier = new Intl.NumberFormat(locale);
-  const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.retribution.title"),
+  const t = createT(locale);
+  const integer = new Intl.NumberFormat(locale);
+  const structuredData = dataTool(locale, {
+    name: t("pages.retribution.title"),
     description: t("pages.seo.retribution.description"),
-    chemin: CHEMIN,
-    categorie: "GameApplication",
+    path: PATH,
+    category: "GameApplication",
   });
-  const niveaux = Array.from({ length: NIVEAU_MAX - NIVEAU_MIN + 1 }, (_, i) => NIVEAU_MIN + i);
+  const levels = Array.from({ length: LEVEL_MAX - LEVEL_MIN + 1 }, (_, i) => LEVEL_MIN + i);
   // Echelles des graphiques : la plus grande valeur de chaque serie remplit la barre.
-  const degatsMax = degatsChatiment(NIVEAU_MAX);
-  const pvMaxObjectifs = Math.max(...CLES_OBJECTIFS.map((c) => OBJECTIFS[c].pv));
-  const reactionMax = Math.max(...DIFFICULTES_ORDRE.map((d) => REGLAGES[d].reactionAdverse[1]));
+  const damageMax = damageRetribution(LEVEL_MAX);
+  const hpMaxObjectives = Math.max(...OBJECTIVE_KEYS.map((c) => OBJECTIVES[c].hp));
+  const reactionMax = Math.max(...DIFFICULTY_ORDER.map((d) => SETTINGS[d].reactionEnemy[1]));
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
-      <EnTetePage titre={t("pages.retribution.title")} chapeau={t("pages.retribution.lead")} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.retribution.title")} lead={t("pages.retribution.lead")} />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
-        <EntraineurChatiment adresse={`${site.url}/${locale}${CHEMIN}`} />
+        <RetributionTrainer address={`${site.url}/${locale}${PATH}`} />
 
         <section aria-labelledby="regles-titre">
-          <h2 id="regles-titre" className={titreSection}>
+          <h2 id="regles-titre" className={titleSection}>
             {t("pages.retribution.rulesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.retribution.rule1")}</p>
-            <p>{t("pages.retribution.rule2", { recharge: RECHARGE_CHATIMENT_S })}</p>
+            <p>{t("pages.retribution.rule2", { recharge: COOLDOWN_RETRIBUTION_S })}</p>
             <p>
               {t("pages.retribution.rule3", {
-                precision: POIDS_PRECISION,
-                vitesse: POIDS_VITESSE,
-                pleine: REACTION_PLEINE_MS,
-                nulle: entier.format(REACTION_NULLE_MS),
+                precision: WEIGHT_ACCURACY,
+                vitesse: WEIGHT_SPEED,
+                pleine: REACTION_FULL_MS,
+                nulle: integer.format(REACTION_NONE_MS),
               })}
             </p>
-            <p>{t("pages.retribution.rule4", { n: MANCHES_PAR_SERIE })}</p>
+            <p>{t("pages.retribution.rule4", { n: ROUNDS_PER_RUN })}</p>
           </div>
         </section>
 
         <section aria-labelledby="valeurs-titre">
-          <h2 id="valeurs-titre" className={titreSection}>
+          <h2 id="valeurs-titre" className={titleSection}>
             {t("pages.retribution.valuesTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <p className="mt-4 leading-relaxed text-chalk-300">
-            {t("pages.retribution.damageIntro", { base: CHATIMENT_BASE, parNiveau: CHATIMENT_PAR_NIVEAU })}
+            {t("pages.retribution.damageIntro", { base: RETRIBUTION_BASE, parNiveau: RETRIBUTION_BY_LEVEL })}
           </p>
           <ol className="mt-5 space-y-1.5">
-            {niveaux.map((n) => {
-              const degats = degatsChatiment(n);
+            {levels.map((n) => {
+              const damage = damageRetribution(n);
               return (
                 <li key={n} className="grid grid-cols-[5rem_1fr_3.5rem] items-center gap-3 text-sm">
                   <span className="text-chalk-500">{t("pages.retribution.level", { n })}</span>
                   <span aria-hidden className="h-3 bg-night-800">
                     <span
                       className="block h-full bg-gradient-to-r from-gold-600 to-gold-400"
-                      style={{ width: `${(degats / degatsMax) * 100}%` }}
+                      style={{ width: `${(damage / damageMax) * 100}%` }}
                     />
                   </span>
-                  <span className="text-right font-heading font-bold tabular-nums text-chalk-100">{entier.format(degats)}</span>
+                  <span className="text-right font-heading font-bold tabular-nums text-chalk-100">{integer.format(damage)}</span>
                 </li>
               );
             })}
@@ -113,11 +113,11 @@ export default async function PageChatiment({ params }: Params) {
 
           <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.retribution.monstersTitle")}</h3>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-            {CLES_OBJECTIFS.map((cle) => {
-              const o = OBJECTIFS[cle];
-              const segment = (o.segment / o.pv) * 100;
+            {OBJECTIVE_KEYS.map((key) => {
+              const o = OBJECTIVES[key];
+              const segment = (o.segment / o.hp) * 100;
               return (
-                <li key={cle} className="bevel-sm flex items-center gap-4 border border-night-700/70 bg-night-900/60 p-3">
+                <li key={key} className="bevel-sm flex items-center gap-4 border border-night-700/70 bg-night-900/60 p-3">
                   {/* eslint-disable-next-line @next/next/no-img-element -- portrait local, deja reduit */}
                   <img
                     src={o.image}
@@ -129,9 +129,9 @@ export default async function PageChatiment({ params }: Params) {
                   />
                   <div className="min-w-0 flex-1">
                     <p className="flex flex-wrap items-baseline justify-between gap-x-3">
-                      <span className="font-semibold text-chalk-100">{t(`tools.retribution.objective.${cle}`)}</span>
+                      <span className="font-semibold text-chalk-100">{t(`tools.retribution.objective.${key}`)}</span>
                       <span className="font-heading font-bold tabular-nums text-chalk-100">
-                        {t("tools.retribution.maxHp", { pv: entier.format(o.pv) })}
+                        {t("tools.retribution.maxHp", { pv: integer.format(o.hp) })}
                       </span>
                     </p>
                     {/* Longueur relative au plus gros objectif ; un trait par segment de la barre de vie. */}
@@ -139,14 +139,14 @@ export default async function PageChatiment({ params }: Params) {
                       <div
                         className="h-full bg-gradient-to-r from-blood-500 to-[#ff7a66]"
                         style={{
-                          width: `${(o.pv / pvMaxObjectifs) * 100}%`,
+                          width: `${(o.hp / hpMaxObjectives) * 100}%`,
                           backgroundImage: `repeating-linear-gradient(to right, transparent 0 calc(${segment}% - 1px), rgba(6, 8, 15, 0.9) calc(${segment}% - 1px) ${segment}%), linear-gradient(to right, #d94848, #ff7a66)`,
                         }}
                       />
                     </div>
                     <p className="mt-1.5 flex flex-wrap justify-between gap-x-3 text-xs text-chalk-500">
                       <span>
-                        {t("pages.retribution.colSegment")} : <span className="tabular-nums">{entier.format(o.segment)}</span>
+                        {t("pages.retribution.colSegment")} : <span className="tabular-nums">{integer.format(o.segment)}</span>
                       </span>
                       <a href={o.source} rel="noopener" className="underline transition-colors hover:text-gold-400">
                         {t("pages.retribution.wiki")}
@@ -171,8 +171,8 @@ export default async function PageChatiment({ params }: Params) {
                 </tr>
               </thead>
               <tbody>
-                {DIFFICULTES_ORDRE.map((d) => {
-                  const r = REGLAGES[d];
+                {DIFFICULTY_ORDER.map((d) => {
+                  const r = SETTINGS[d];
                   return (
                     <tr key={d} className="border-b border-night-800">
                       <th scope="row" className="py-2.5 pr-4 font-medium text-chalk-100">
@@ -184,21 +184,21 @@ export default async function PageChatiment({ params }: Params) {
                             <span
                               className="absolute inset-y-0 bg-blood-500"
                               style={{
-                                left: `${(r.reactionAdverse[0] / reactionMax) * 100}%`,
-                                width: `${((r.reactionAdverse[1] - r.reactionAdverse[0]) / reactionMax) * 100}%`,
+                                left: `${(r.reactionEnemy[0] / reactionMax) * 100}%`,
+                                width: `${((r.reactionEnemy[1] - r.reactionEnemy[0]) / reactionMax) * 100}%`,
                               }}
                             />
                           </span>
                           <span className="whitespace-nowrap tabular-nums text-chalk-200">
-                            {entier.format(r.reactionAdverse[0])}–{entier.format(r.reactionAdverse[1])} ms
+                            {integer.format(r.reactionEnemy[0])}–{integer.format(r.reactionEnemy[1])} ms
                           </span>
                         </div>
                       </td>
                       <td className="py-2.5 pr-4 text-chalk-300">
-                        {r.repere ? t("pages.retribution.yes") : t("pages.retribution.no")}
+                        {r.marker ? t("pages.retribution.yes") : t("pages.retribution.no")}
                       </td>
                       <td className="py-2.5 text-chalk-300">
-                        {r.pvChiffres ? t("pages.retribution.yes") : t("pages.retribution.no")}
+                        {r.hpFigures ? t("pages.retribution.yes") : t("pages.retribution.no")}
                       </td>
                     </tr>
                   );
@@ -213,7 +213,7 @@ export default async function PageChatiment({ params }: Params) {
           <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.retribution.sourcesTitle")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
-              <a href={SOURCE_CHATIMENT} rel="noopener" className="underline transition-colors hover:text-gold-400">
+              <a href={SOURCE_RETRIBUTION} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.retribution.sourceRetribution")}
               </a>
             </li>

@@ -1,0 +1,14 @@
+{
+  "images": {
+    "warrior": "/visuels/rangs/warrior.webp",
+    "elite": "/visuels/rangs/elite.webp",
+    "master": "/visuels/rangs/master.webp",
+    "grandmaster": "/visuels/rangs/grandmaster.webp",
+    "epic": "/visuels/rangs/epic.webp",
+    "legend": "/visuels/rangs/legend.webp",
+    "mythic": "/visuels/rangs/mythic.webp",
+    "mythic-honor": "/visuels/rangs/mythic-honor.webp",
+    "mythic-glory": "/visuels/rangs/mythic-glory.webp",
+    "mythic-immortal": "/visuels/rangs/mythic-immortal.webp"
+  }
+}

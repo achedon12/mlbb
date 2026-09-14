@@ -35,7 +35,7 @@ jobs:
             - the tests must pass, and the repository owner reviews it before
             merging;
 
-            - `src/data/jeu/` and `public/visuels/` are regenerated every night:
+            - `src/data/game/` and `public/visuels/` are regenerated every night:
             don't edit them by hand.
 
 

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { profilCourant } from "@/lib/session";
+import { profileCurrent } from "@/lib/session";
 
 /**
  * Etat de session pour l'en-tete.
@@ -10,10 +10,10 @@ import { profilCourant } from "@/lib/session";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const profil = await profilCourant().catch(() => null);
+  const profile = await profileCurrent().catch(() => null);
 
   return NextResponse.json(
-    profil ? { connecte: true, pseudo: profil.name } : { connecte: false },
+    profile ? { connecte: true, pseudo: profile.name } : { connecte: false },
     { headers: { "Cache-Control": "private, no-store" } },
   );
 }

@@ -3,10 +3,10 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowDown, ArrowUp, Check, LayoutGrid, Lock, X } from "lucide-react";
-import { ChampDevinette } from "@/components/champ-devinette";
-import { SelecteurHeros, type HerosChoisissable } from "@/components/choix-heros";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { useT } from "@/i18n/fournisseur";
+import { GuessField } from "@/components/guess-field";
+import { HeroSelector, type HeroPickable } from "@/components/hero-picker";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
 import {
   COLUMNS,
@@ -28,21 +28,21 @@ import { cn } from "@/lib/utils";
  * show them and report each new guess.
  */
 
-export interface MlbbdleCatalogue {
+export interface MlbbdleCatalog {
   heroes: MlbbdleHero[];
   bySlug: Map<string, MlbbdleHero>;
   /** Label of every value, under `<column>.<key>`. */
   labels: Record<string, string>;
   /** The roster in the shape the shared answer field and hero picker expect. */
-  options: HerosChoisissable[];
+  options: HeroPickable[];
 }
 
-export function buildCatalogue(heroes: MlbbdleHero[], labels: Record<string, string>): MlbbdleCatalogue {
+export function buildCatalog(heroes: MlbbdleHero[], labels: Record<string, string>): MlbbdleCatalog {
   return {
     heroes,
     labels,
     bySlug: new Map(heroes.map((h) => [h.slug, h])),
-    options: heroes.map((h) => ({ slug: h.slug, nom: h.name, icone: h.icon, roles: h.roles, lanes: h.lanes })),
+    options: heroes.map((h) => ({ slug: h.slug, name: h.name, icon: h.icon, roles: h.roles, lanes: h.lanes })),
   };
 }
 
@@ -78,11 +78,11 @@ function verdictText(c: ComparedCell, column: Column, t: T): string {
  * roster, by keyboard or by touch.
  */
 function HeroInput({
-  catalogue,
+  catalog,
   excluded,
   onPick,
 }: {
-  catalogue: MlbbdleCatalogue;
+  catalog: MlbbdleCatalog;
   excluded: Set<string>;
   onPick: (slug: string) => void;
 }) {
@@ -91,12 +91,12 @@ function HeroInput({
   return (
     <div className="flex flex-col gap-2 sm:flex-row">
       <div className="flex-1">
-        <ChampDevinette
-          options={catalogue.options}
-          exclus={excluded}
-          libelle={t("pages.mlbbdleUI.input")}
-          aucun={t("pages.mlbbdleUI.noResult")}
-          onChoisir={onPick}
+        <GuessField
+          options={catalog.options}
+          excluded={excluded}
+          label={t("pages.mlbbdleUI.input")}
+          none={t("pages.mlbbdleUI.noResult")}
+          onChoose={onPick}
         />
       </div>
       <button
@@ -108,16 +108,16 @@ function HeroInput({
         {t("pages.mlbbdleUI.browse")}
       </button>
       {browsing && (
-        <SelecteurHeros
-          heros={catalogue.options}
-          exclus={excluded}
+        <HeroSelector
+          heroes={catalog.options}
+          excluded={excluded}
           lane={null}
-          titre={t("pages.mlbbdleUI.browse")}
-          onChoisir={(slug) => {
+          title={t("pages.mlbbdleUI.browse")}
+          onChoose={(slug) => {
             setBrowsing(false);
             onPick(slug);
           }}
-          onFermer={() => setBrowsing(false)}
+          onClose={() => setBrowsing(false)}
         />
       )}
     </div>
@@ -171,7 +171,7 @@ function Board({
 export function ClassicGame({
   target,
   guesses,
-  catalogue,
+  catalog,
   onGuess,
   label,
   question,
@@ -180,7 +180,7 @@ export function ClassicGame({
 }: {
   target: MlbbdleHero;
   guesses: string[];
-  catalogue: MlbbdleCatalogue;
+  catalog: MlbbdleCatalog;
   onGuess: (slug: string) => void;
   label: string;
   /** Board heading; practice has no "hero of the day". */
@@ -195,13 +195,13 @@ export function ClassicGame({
 
   function announcement(): string {
     const last = guesses.at(-1);
-    const h = last ? catalogue.bySlug.get(last) : undefined;
+    const h = last ? catalog.bySlug.get(last) : undefined;
     if (!h) return "";
     if (h.slug === target.slug) return t("pages.mlbbdleUI.announceFound", { name: h.name, n: guesses.length });
     const cells = compare(h, target);
     const details = COLUMNS.map(
       (col) =>
-        `${t(`pages.mlbbdleUI.columns.${col}`)} ${cellText(h, col, catalogue.labels) || t("pages.mlbbdleUI.unknown")} — ${verdictText(cells[col], col, t)}`,
+        `${t(`pages.mlbbdleUI.columns.${col}`)} ${cellText(h, col, catalog.labels) || t("pages.mlbbdleUI.unknown")} — ${verdictText(cells[col], col, t)}`,
     ).join(". ");
     return `${t("pages.mlbbdleUI.announceGuess", { name: h.name, n: guesses.length })} ${details}.`;
   }
@@ -215,11 +215,11 @@ export function ClassicGame({
     >
       {!found && !over && (
         <div className="mt-4">
-          <HeroInput catalogue={catalogue} excluded={excluded} onPick={onGuess} />
+          <HeroInput catalog={catalog} excluded={excluded} onPick={onGuess} />
           {guesses.length === 0 && <p className="mt-3 text-sm text-chalk-400">{t("pages.mlbbdleUI.classicHelp")}</p>}
         </div>
       )}
-      {guesses.length > 0 && <ClassicGrid guesses={guesses} target={target} catalogue={catalogue} />}
+      {guesses.length > 0 && <ClassicGrid guesses={guesses} target={target} catalog={catalog} />}
       <p aria-live="polite" className="sr-only">
         {announcement()}
       </p>
@@ -230,11 +230,11 @@ export function ClassicGame({
 function ClassicGrid({
   guesses,
   target,
-  catalogue,
+  catalog,
 }: {
   guesses: string[];
   target: MlbbdleHero;
-  catalogue: MlbbdleCatalogue;
+  catalog: MlbbdleCatalog;
 }) {
   const t = useT();
   // Guesses already there on mount (a resumed game) do not flip: only those
@@ -265,7 +265,7 @@ function ClassicGrid({
         </thead>
         <tbody>
           {rows.map(({ slug, i }) => {
-            const h = catalogue.bySlug.get(slug);
+            const h = catalog.bySlug.get(slug);
             if (!h) return null;
             const cells = compare(h, target);
             const winner = slug === target.slug;
@@ -280,14 +280,14 @@ function ClassicGrid({
                   )}
                 >
                   <span className="flex flex-col items-center gap-0.5">
-                    <PortraitHeros source={h.icon} nom={h.name} taille="icone" decoratif />
+                    <HeroPortrait source={h.icon} name={h.name} size="icon" decorative />
                     <span className="block max-w-[4rem] truncate text-[0.62rem] leading-tight text-chalk-100">{h.name}</span>
                   </span>
                 </th>
                 {COLUMNS.map((c, j) => {
                   const cell = cells[c];
                   const verdict = winner ? "match" : cell.verdict;
-                  const text = cellText(h, c, catalogue.labels);
+                  const text = cellText(h, c, catalog.labels);
                   const Arrow =
                     !winner && cell.direction === "newer" ? ArrowUp : !winner && cell.direction === "older" ? ArrowDown : null;
                   return (
@@ -324,7 +324,7 @@ function ClassicGrid({
 export function SkillGame({
   puzzle,
   guesses,
-  catalogue,
+  catalog,
   onGuess,
   label,
   over = false,
@@ -332,7 +332,7 @@ export function SkillGame({
 }: {
   puzzle: SkillPuzzle;
   guesses: string[];
-  catalogue: MlbbdleCatalogue;
+  catalog: MlbbdleCatalog;
   onGuess: (slug: string) => void;
   label: string;
   over?: boolean;
@@ -344,19 +344,19 @@ export function SkillGame({
   const finished = found || over;
   const misses = guesses.filter((g) => g !== puzzle.answer).length;
   const unlocked = unlockedClues(finished ? Infinity : misses);
-  const target = catalogue.bySlug.get(puzzle.answer);
+  const target = catalog.bySlug.get(puzzle.answer);
   const clues = SKILL_CLUES.filter((c) => c.key !== "description" || puzzle.excerpt);
 
   function content(key: SkillClue): React.ReactNode {
     if (key === "colour") return t("pages.mlbbdleUI.colourClue");
     if (key === "name") return puzzle.name;
     if (key === "description") return <q>{puzzle.excerpt}</q>;
-    return target ? target.roles.map((r) => catalogue.labels[`roles.${r}`] ?? r).join(", ") : "";
+    return target ? target.roles.map((r) => catalog.labels[`roles.${r}`] ?? r).join(", ") : "";
   }
 
   function announcement(): string {
     const last = guesses.at(-1);
-    const h = last ? catalogue.bySlug.get(last) : undefined;
+    const h = last ? catalog.bySlug.get(last) : undefined;
     if (!h) return "";
     if (h.slug === puzzle.answer) return t("pages.mlbbdleUI.announceFound", { name: h.name, n: guesses.length });
     const unlockedNow = SKILL_CLUES.find((c) => c.threshold === misses);
@@ -406,14 +406,14 @@ export function SkillGame({
 
       {!finished && (
         <div className="mt-5">
-          <HeroInput catalogue={catalogue} excluded={excluded} onPick={onGuess} />
+          <HeroInput catalog={catalog} excluded={excluded} onPick={onGuess} />
         </div>
       )}
 
       {guesses.length > 0 && (
         <ol className="mt-4 flex flex-wrap gap-1.5" aria-label={t("pages.mlbbdleUI.yourGuesses")}>
           {[...guesses].reverse().map((slug) => {
-            const h = catalogue.bySlug.get(slug);
+            const h = catalog.bySlug.get(slug);
             if (!h) return null;
             const right = slug === puzzle.answer;
             return (
@@ -424,7 +424,7 @@ export function SkillGame({
                   right ? BACKGROUND.match : "border-red-400/40 bg-red-800/40 text-chalk-100",
                 )}
               >
-                <PortraitHeros source={h.icon} nom={h.name} taille="petite" decoratif />
+                <HeroPortrait source={h.icon} name={h.name} size="small" decorative />
                 {h.name}
                 {right ? <Check size={14} aria-hidden /> : <X size={14} aria-hidden />}
                 <span className="sr-only"> — {t(right ? "pages.mlbbdleUI.verdicts.match" : "pages.mlbbdleUI.verdicts.miss")}</span>

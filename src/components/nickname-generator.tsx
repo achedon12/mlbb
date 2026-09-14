@@ -2,10 +2,10 @@
 
 import { Check, Copy, Shuffle } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
-import { classesPuce } from "@/components/puce";
-import { Carte } from "@/components/ui";
+import { classesChip } from "@/components/chip";
+import { Card } from "@/components/ui";
 import { LOCALE_HTML } from "@/i18n/config";
-import { useLangue, useT } from "@/i18n/fournisseur";
+import { useLocale, useT } from "@/i18n/provider";
 import {
   DECORATIONS,
   GUIDE_LENGTH,
@@ -63,7 +63,7 @@ const primaryButton =
 
 export function NicknameGenerator() {
   const t = useT();
-  const locale = useLangue();
+  const locale = useLocale();
   const number = new Intl.NumberFormat(LOCALE_HTML[locale]);
   const inputId = useId();
   const helpId = useId();
@@ -107,7 +107,7 @@ export function NicknameGenerator() {
 
   return (
     <div className="space-y-6">
-      <Carte>
+      <Card>
         <label htmlFor={inputId} className="text-xs uppercase tracking-wide text-chalk-500">
           {t("pages.nicknameUI.input")}
         </label>
@@ -144,7 +144,7 @@ export function NicknameGenerator() {
                   type="button"
                   aria-pressed={active}
                   onClick={() => setDecoration(d)}
-                  className={cn(classesPuce(active), "inline-flex min-h-11 min-w-11 items-center justify-center")}
+                  className={cn(classesChip(active), "inline-flex min-h-11 min-w-11 items-center justify-center")}
                 >
                   {d.key === "none" ? (
                     t("pages.nicknameUI.none")
@@ -163,15 +163,15 @@ export function NicknameGenerator() {
             })}
           </div>
         </fieldset>
-      </Carte>
+      </Card>
 
       {name === "" ? (
-        <Carte>
+        <Card>
           <p className="text-sm text-chalk-300">{t("pages.nicknameUI.empty")}</p>
-        </Carte>
+        </Card>
       ) : (
         <>
-          <Carte className="border-gold-500/30">
+          <Card className="border-gold-500/30">
             <p className="text-xs uppercase tracking-wide text-chalk-500">
               {t("pages.nicknameUI.selected", { style: t(`pages.nicknameUI.style.${style}`) })}
             </p>
@@ -196,7 +196,7 @@ export function NicknameGenerator() {
             <p className="mt-3 border-t border-night-800 pt-3 text-xs leading-relaxed text-chalk-500">
               {t("pages.nicknameUI.rating")}
             </p>
-          </Carte>
+          </Card>
 
           <section aria-labelledby="styles-title">
             <h2 id="styles-title" className="font-heading text-xl font-bold text-chalk-100">

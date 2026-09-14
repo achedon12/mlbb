@@ -1,9 +1,9 @@
-import type { AnalyseHeros } from "@/lib/types";
+import type { HeroAnalysis } from "@/lib/types";
 
 /**
  * Modele d'analyse de heros.
  *
- * A recopier dans le fichier du role du heros (`src/data/heros/tanks.ts`,
+ * A recopier dans le fichier du role du heros (`src/data/heroes/tanks.ts`,
  * `fighters.ts`, `assassins.ts`, `mages.ts`, `marksmen.ts` ou `supports.ts`),
  * a remplir, puis a debarrasser de ses commentaires. Il n'est importe nulle
  * part : `npm run typecheck` le verifie seulement, ce qui le garde conforme au
@@ -13,8 +13,8 @@ import type { AnalyseHeros } from "@/lib/types";
  * de competences, de talents et de sorts restent en anglais, comme en jeu.
  * Rien ne se recopie d'un autre site. Guide complet : /fr/contribute.
  */
-export const modele: AnalyseHeros = {
-  // Slug exact, tel qu'il figure dans src/data/jeu/heros.json.
+export const template: HeroAnalysis = {
+  // Slug exact, tel qu'il figure dans src/data/game/heroes.json.
   slug: "slug-du-heros",
 
   // Une phrase : ce que le heros a de singulier. Reprise en meta description.
@@ -31,7 +31,7 @@ export const modele: AnalyseHeros = {
   // celui qui s'affiche.
   skills: [
     {
-      type: "Passif",
+      type: "Passive",
       // Nom anglais, comme en jeu.
       name: "Passive Name",
       // L'effet et son usage, sans valeurs de degats : elles changent presque
@@ -39,7 +39,7 @@ export const modele: AnalyseHeros = {
       description: "Ce que le passif change à la façon de jouer le héros.",
     },
     {
-      type: "Competence 1",
+      type: "Skill 1",
       name: "First Skill Name",
       description: "Ce que la compétence permet, et quand s'en servir.",
       // Recharge par niveau, en secondes.
@@ -48,14 +48,14 @@ export const modele: AnalyseHeros = {
       cost: [60, 65, 70, 75, 80, 85],
     },
     {
-      type: "Competence 2",
+      type: "Skill 2",
       name: "Second Skill Name",
       description: "Ce que la compétence permet, et ce qui la rend dangereuse ou fragile.",
       cooldown: [12, 11, 10, 9, 8, 7],
       cost: [70, 75, 80, 85, 90, 95],
     },
     {
-      type: "Ultime",
+      type: "Ultimate",
       name: "Ultimate Name",
       description: "Ce que l'ultime change à un combat, et le bon moment pour le lancer.",
       cooldown: [40, 35, 30],

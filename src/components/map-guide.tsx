@@ -3,8 +3,8 @@
 import { useId, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
 import { Bug, Castle, Coins, Crown, Flame, HeartPulse, Mountain, Sparkles, Sprout, TowerControl, Turtle, Wind } from "lucide-react";
-import Link from "@/components/lien";
-import { useT } from "@/i18n/fournisseur";
+import Link from "@/components/link";
+import { useT } from "@/i18n/provider";
 import { LANE_PATHS, MAP_GROUPS, MAP_POINTS, TERRAIN_BLOCKS, type MapPointKey, type MapSide } from "@/lib/game-map";
 import { cn } from "@/lib/utils";
 

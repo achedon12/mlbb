@@ -2,8 +2,8 @@
 
 import { useEffect, useId, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { Pause, Play, RotateCcw, Undo2 } from "lucide-react";
-import { useT } from "@/i18n/fournisseur";
-import { OBJECTIFS } from "@/lib/chatiment";
+import { useT } from "@/i18n/provider";
+import { OBJECTIVES } from "@/lib/retribution";
 import {
   ALERTED_KEYS,
   KILLABLES,
@@ -46,10 +46,10 @@ const MATCH_KEY = "mlbb_timer_match";
 const SETTINGS_KEY = "mlbb_timer_settings";
 const STORAGE_EVENT = "mlbb-timer";
 const PORTRAITS: Record<KillableKey, string> = {
-  turtle: OBJECTIFS.tortue.image,
-  lord: OBJECTIFS.seigneur.image,
-  "purple-buff": OBJECTIFS["buff-violet"].image,
-  "orange-buff": OBJECTIFS["buff-orange"].image,
+  turtle: OBJECTIVES.turtle.image,
+  lord: OBJECTIVES.lord.image,
+  "purple-buff": OBJECTIVES["purple-buff"].image,
+  "orange-buff": OBJECTIVES["orange-buff"].image,
 };
 /** Highlight thresholds, in seconds: the same as the alerts. */
 const SOON = 30;

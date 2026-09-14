@@ -293,9 +293,9 @@
         "trendIntro": "Daily rates measured on ranked games, at the rank selected at the top of the page.",
         "measure": "Rate",
         "measures": {
-          "victoire": "Win",
+          "win": "Win",
           "ban": "Ban",
-          "selection": "Pick"
+          "pick": "Pick"
         },
         "period": "Period",
         "days": "{n} d",
@@ -311,8 +311,8 @@
         "minutesPlus": "{de}+ min",
         "peak": "Best window: {tranche}",
         "profile": {
-          "debut": "Stronger early game",
-          "fin": "Stronger late game",
+          "early": "Stronger early game",
+          "late": "Stronger late game",
           "stable": "Consistent throughout the game"
         },
         "byRank": "By rank",
@@ -330,9 +330,9 @@
           "patch": "Patch {version}",
           "beforeAfter": "{avant}% before, {apres}% after",
           "verdict": {
-            "attendu": "Worked as intended",
-            "neutre": "No clear effect",
-            "inverse": "Opposite effect"
+            "expected": "Worked as intended",
+            "neutral": "No clear effect",
+            "opposite": "Opposite effect"
           },
           "empty": "Not enough hindsight yet: it takes at least {n} measured days on each side of a patch, and this site's history starts on {date}.",
           "emptyNoHistory": "No history yet to measure how patches affected {nom}."
@@ -482,9 +482,9 @@
       "byLane": "By lane",
       "byRole": "By role",
       "laneSeo": {
-        "Or": "Gold Lane",
-        "Experience": "EXP Lane",
-        "Milieu": "Mid Lane",
+        "Gold": "Gold Lane",
+        "Exp": "EXP Lane",
+        "Mid": "Mid Lane",
         "Jungle": "Jungle",
         "Roam": "Roam"
       },
@@ -1304,19 +1304,19 @@
         "gainAlone": "{ecart} vs {nom} without this duo"
       },
       "phase": {
-        "debut": "Early game",
-        "milieu": "Mid game",
-        "fin": "Late game"
+        "early": "Early game",
+        "mid": "Mid game",
+        "late": "Late game"
       },
       "phaseMinutes": {
-        "debut": "10–14 min",
-        "milieu": "14–18 min",
-        "fin": "18+ min"
+        "early": "10–14 min",
+        "mid": "14–18 min",
+        "late": "18+ min"
       },
       "phaseShort": {
-        "debut": "Early",
-        "milieu": "Mid",
-        "fin": "Late"
+        "early": "Early",
+        "mid": "Mid",
+        "late": "Late"
       },
       "byRank": "Duos by rank",
       "byRankIntro": "Each rank bracket is measured separately. The phase columns show the gain over {nom} without this partner at the same game length (or the duo win rate when {nom} has no game-length data at that rank).",
@@ -1355,9 +1355,9 @@
         "rating": "Each hero's own win rate by game length ({rang}), over all its games, not only this matchup."
       },
       "phaseIn": {
-        "debut": "in the early game",
-        "milieu": "in the mid game",
-        "fin": "in the late game"
+        "early": "in the early game",
+        "mid": "in the mid game",
+        "late": "in the late game"
       },
       "profiles": "Profiles ({rang})",
       "builds": {
@@ -1503,7 +1503,7 @@
       "rule4": "At the end, share your grid: colored squares that give no answer away. Practice mode serves questions without limit.",
       "challengesTitle": "The five rounds",
       "challenges": {
-        "competence": {
+        "skill": {
           "title": "Skill",
           "desc": "A skill icon. Each miss reveals its name, then the start of its description (hero name hidden), the hero's role and lane."
         },
@@ -1511,11 +1511,11 @@
           "title": "Skin",
           "desc": "A close-up of a skin's artwork. The image zooms out after each miss and hints pile up: role, lane, release year, then the skin's name."
         },
-        "histoire": {
+        "story": {
           "title": "Lore",
           "desc": "An excerpt from the hero's official story, with the name replaced by ▢▢▢. A second excerpt, the region, the role and finally the initial come as backup."
         },
-        "objet": {
+        "item": {
           "title": "Item",
           "desc": "An item's stats and price. Hints give its category, its recipe and then its passive; each guess tells you whether the answer costs more or less."
         },
@@ -1574,17 +1574,17 @@
       "question": "Question {n}",
       "nextQuestion": "Next question",
       "types": {
-        "competence": "Skill",
+        "skill": "Skill",
         "skin": "Skin",
-        "histoire": "Lore",
-        "objet": "Item",
+        "story": "Lore",
+        "item": "Item",
         "duel": "Win-rate duel"
       },
       "questions": {
-        "competence": "Which hero does this skill belong to?",
+        "skill": "Which hero does this skill belong to?",
         "skin": "Which hero is behind this skin?",
-        "histoire": "Whose story is this?",
-        "objet": "Which item gives these stats?",
+        "story": "Whose story is this?",
+        "item": "Which item gives these stats?",
         "duel": "Who wins more often in ranked?"
       },
       "triesLeft": "Attempts left: {n}",
@@ -1618,21 +1618,21 @@
         "category": "Category"
       },
       "agreement": {
-        "oui": "match",
-        "partiel": "partial match",
-        "non": "no match"
+        "yes": "match",
+        "partial": "partial match",
+        "no": "no match"
       },
       "year": {
-        "plus": "the answer is newer",
-        "moins": "the answer is older",
-        "egal": "same year",
-        "inconnu": "unknown year"
+        "higher": "the answer is newer",
+        "lower": "the answer is older",
+        "equal": "same year",
+        "unknown": "unknown year"
       },
       "price": {
-        "plus": "the answer costs more",
-        "moins": "the answer costs less",
-        "egal": "same price",
-        "inconnu": "unknown price"
+        "higher": "the answer costs more",
+        "lower": "the answer costs less",
+        "equal": "same price",
+        "unknown": "unknown price"
       },
       "itemPrice": "Price: {prix} gold",
       "altSkill": "Icon of the skill to identify",
@@ -3176,9 +3176,9 @@
     "Support": "Support"
   },
   "lanes": {
-    "Or": "Gold Lane",
-    "Experience": "EXP Lane",
-    "Milieu": "Mid Lane",
+    "Gold": "Gold Lane",
+    "Exp": "EXP Lane",
+    "Mid": "Mid Lane",
     "Jungle": "Jungle",
     "Roam": "Roam"
   },
@@ -3197,11 +3197,11 @@
     "noStory": "The wiki hasn't published a story for {nom} yet."
   },
   "skills": {
-    "Passif": "Passive",
-    "Competence 1": "Skill 1",
-    "Competence 2": "Skill 2",
-    "Ultime": "Ultimate",
-    "Competence": "Skill",
+    "Passive": "Passive",
+    "Skill 1": "Skill 1",
+    "Skill 2": "Skill 2",
+    "Ultimate": "Ultimate",
+    "Skill": "Skill",
     "notFetched": "This hero's skills haven't been retrieved yet.",
     "noDescription": "No description available for this skill.",
     "cooldown": "Cooldown",
@@ -3477,14 +3477,14 @@
     "curvesOtherRank": "No curve at this rank for at least one hero: curves shown for {rang}."
   },
   "patchHeroes": {
-    "amelioration": "Buff",
-    "affaiblissement": "Nerf",
-    "ajustement": "Adjustment",
+    "buff": "Buff",
+    "nerf": "Nerf",
+    "adjust": "Adjustment",
     "detailsSoon": "details coming soon",
     "plural": {
-      "amelioration": "Buffs",
-      "affaiblissement": "Nerfs",
-      "ajustement": "Adjustments"
+      "buff": "Buffs",
+      "nerf": "Nerfs",
+      "adjust": "Adjustments"
     },
     "seeSheet": "Open the {nom} page",
     "seePatch": "Read patch {version}",
@@ -3541,10 +3541,10 @@
     "allRoles": "All",
     "account": "{n} heroes",
     "reasons": {
-      "contre": "strong against {detail}",
-      "subi": "struggles against {detail}",
-      "combine": "pairs well with {detail}",
-      "victoire": "{detail}% win rate"
+      "counter": "strong against {detail}",
+      "countered": "struggles against {detail}",
+      "synergy": "pairs well with {detail}",
+      "win": "{detail}% win rate"
     }
   },
   "newHero": {
@@ -3579,22 +3579,22 @@
     "by": "by {auteur}"
   },
   "articleCategory": {
-    "Actualite": "News",
+    "News": "News",
     "Patch": "Patch",
-    "Esport": "Esports",
+    "Esports": "Esports",
     "Guide": "Guide"
   },
   "rankNames": {
-    "guerrier": "Warrior",
+    "warrior": "Warrior",
     "elite": "Elite",
-    "maitre": "Master",
-    "grand-maitre": "Grandmaster",
-    "epique": "Epic",
-    "mythique": "Mythic",
-    "mythique-honneur": "Mythical Honor",
-    "mythique-gloire": "Mythical Glory",
-    "mythique-immortel": "Mythical Immortal",
-    "legende": "Legend"
+    "master": "Master",
+    "grandmaster": "Grandmaster",
+    "epic": "Epic",
+    "mythic": "Mythic",
+    "mythic-honor": "Mythical Honor",
+    "mythic-glory": "Mythical Glory",
+    "mythic-immortal": "Mythical Immortal",
+    "legend": "Legend"
   },
   "rankUnit": {
     "star": "{n} star",
@@ -3912,14 +3912,14 @@
     "loading": "Loading…",
     "help": "↑ ↓ to browse, Enter to open, Esc to close",
     "groups": {
-      "heros": "Heroes",
-      "objet": "Items",
+      "hero": "Heroes",
+      "item": "Items",
       "patch": "Patch notes",
       "page": "Pages",
-      "competence": "Skills",
+      "skill": "Skills",
       "skin": "Skins",
-      "embleme": "Emblems",
-      "sort": "Battle spells"
+      "emblem": "Emblems",
+      "spell": "Battle spells"
     }
   },
   "heroData": {
@@ -4009,9 +4009,9 @@
   },
   "pushNotif": {
     "title": {
-      "amelioration": "Patch {version}: {nom} buffed",
-      "affaiblissement": "Patch {version}: {nom} nerfed",
-      "ajustement": "Patch {version}: {nom} adjusted"
+      "buff": "Patch {version}: {nom} buffed",
+      "nerf": "Patch {version}: {nom} nerfed",
+      "adjust": "Patch {version}: {nom} adjusted"
     },
     "titleMany": "Patch {version}: {n} of your favorites changed",
     "bodyOne": "See the details on the hero page, in the Stats tab.",
@@ -4047,9 +4047,9 @@
         "physical": "Almost all physical damage: the enemy can blunt it with a few armor items.",
         "magic": "Almost all magic damage: the enemy can blunt it with a few magic resistance items."
       },
-      "controle": "Little crowd control (average {v} out of 10): hard to lock down a target or interrupt an enemy.",
+      "control": "Little crowd control (average {v} out of 10): hard to lock down a target or interrupt an enemy.",
       "fragile": "Fragile team (average durability {v} out of 10): it struggles to absorb an enemy engage.",
-      "difficile": "Demanding lineup (average difficulty {v} out of 10): it takes skill to deliver on its promise."
+      "hard": "Demanding lineup (average difficulty {v} out of 10): it takes skill to deliver on its promise."
     },
     "lanesRoles": "Lanes and roles",
     "toFill": "open",
@@ -4066,13 +4066,13 @@
     "minutesPlus": "{de}+ min",
     "peak": "Best window: {tranche}",
     "durationProfile": {
-      "debut": "Stronger early game",
-      "fin": "Stronger late game",
+      "early": "Stronger early game",
+      "late": "Stronger late game",
       "stable": "Consistent throughout the game"
     },
     "profileShort": {
-      "debut": "early game",
-      "fin": "late game",
+      "early": "early game",
+      "late": "late game",
       "stable": "consistent"
     },
     "synergies": "Synergies",
@@ -4122,22 +4122,22 @@
     },
     "retribution": {
       "objective": {
-        "tortue": "Turtle (2:00)",
-        "seigneur": "Lord (8:00)",
-        "seigneur-12": "Lord (12:00+)",
-        "buff-violet": "Purple buff (12:00+)",
-        "buff-orange": "Orange buff (12:00+)"
+        "turtle": "Turtle (2:00)",
+        "lord": "Lord (8:00)",
+        "lord-12": "Lord (12:00+)",
+        "purple-buff": "Purple buff (12:00+)",
+        "orange-buff": "Orange buff (12:00+)"
       },
       "difficulty": {
-        "facile": "Easy",
+        "easy": "Easy",
         "normal": "Normal",
-        "difficile": "Hard",
+        "hard": "Hard",
         "pro": "Pro"
       },
       "difficultyHelp": {
-        "facile": "Slow, steady hits, threshold marker and HP shown. The enemy jungler takes over a second to react.",
+        "easy": "Slow, steady hits, threshold marker and HP shown. The enemy jungler takes over a second to react.",
         "normal": "Real fight pace, a few enemy bursts. Marker and HP still shown.",
-        "difficile": "Fast, uneven hits, frequent bursts. No marker, no HP numbers: read the bar.",
+        "hard": "Fast, uneven hits, frequent bursts. No marker, no HP numbers: read the bar.",
         "pro": "The enemy jungler strikes within 300–420 ms: you have to anticipate the hit that crosses the threshold."
       },
       "outcomeSecured": "Secured!",

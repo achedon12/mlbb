@@ -14,10 +14,10 @@ export async function register() {
   if (process.env.NEXT_PHASE === "phase-production-build") return;
   if (!process.env.VAPID_PUBLIC_KEY || !process.env.VAPID_PRIVATE_KEY) return;
 
-  const [{ notifierAuDemarrage }, { patchsRecents }] = await Promise.all([
-    import("@/lib/push-serveur"),
-    import("@/lib/suivi-patchs"),
+  const [{ notifyOnStartup }, { recentPatches }] = await Promise.all([
+    import("@/lib/push-server"),
+    import("@/lib/patch-tracking"),
   ]);
   // Sans attendre : le serveur repond pendant l'envoi, qui ne leve jamais.
-  void notifierAuDemarrage(patchsRecents[0]);
+  void notifyOnStartup(recentPatches[0]);
 }

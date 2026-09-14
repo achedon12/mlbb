@@ -11,25 +11,31 @@ import type { Lane } from "./types";
  * taux de victoire.
  */
 
-export const LANES: Lane[] = ["Or", "Jungle", "Milieu", "Experience", "Roam"];
+export const LANES: Lane[] = ["Gold", "Jungle", "Mid", "Exp", "Roam"];
+
+/** Lane tokens used before the English ones, still present in shared addresses (`?lane=Or`). */
+export const LEGACY_LANES: Record<string, Lane> = { Or: "Gold", Experience: "Exp", Milieu: "Mid" };
+/** The lane an address parameter designates, current or former token, or null. */
+export const laneFromParam = (value: string | null): Lane | null =>
+  value === null ? null : (LANES.find((l) => l === value) ?? LEGACY_LANES[value] ?? null);
 export const ROLES: Role[] = ["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"];
 
 /** Ce dont l'outil a besoin pour chaque heros ; le reste alourdirait la page. */
-export interface HerosDraft {
+export interface DraftHero {
   slug: string;
-  nom: string;
+  name: string;
   lanes: Lane[];
   roles: Role[];
-  icone: string | null;
-  victoire: number | null;
-  fortContre: string[];
-  faibleContre: string[];
+  icon: string | null;
+  win: number | null;
+  strongAgainst: string[];
+  weakAgainst: string[];
   synergies: string[];
 }
 
-export interface Raison {
+export interface Reason {
   /** Nature de l'argument ; la phrase se compose dans la langue de la page. */
-  type: "contre" | "subi" | "combine" | "victoire";
+  type: "counter" | "countered" | "synergy" | "win";
   /** Heros en cause, ou taux de victoire. */
   detail: string;
   /** Positif quand l'argument joue en faveur du heros. */
@@ -37,9 +43,9 @@ export interface Raison {
 }
 
 export interface Suggestion {
-  heros: HerosDraft;
+  hero: DraftHero;
   score: number;
-  raisons: Raison[];
+  reasons: Reason[];
 }
 
 /**
@@ -50,85 +56,85 @@ export interface Suggestion {
  * lane. Le taux de victoire n'intervient qu'en depart d'egalite — d'ou son
  * echelle volontairement reduite.
  */
-const POIDS = {
-  contre: 3,
-  contre_par: -3,
-  synergie: 1.5,
+const WEIGHT = {
+  counter: 3,
+  counteredBy: -3,
+  synergy: 1.5,
   /** Ecart au taux d'equilibre (50 %), divise pour rester un simple arbitre. */
-  victoire: 0.4,
+  win: 0.4,
 };
 
-export function suggerer({
-  candidats,
+export function suggest({
+  candidates,
   lane,
-  ennemis,
+  enemies,
   allies,
-  limite = 3,
+  limit = 3,
 }: {
-  candidats: HerosDraft[];
+  candidates: DraftHero[];
   lane: Lane;
   /** Slugs adverses, toutes lanes confondues. */
-  ennemis: string[];
+  enemies: string[];
   /** Slugs deja choisis par l'equipe. */
   allies: string[];
-  limite?: number;
+  limit?: number;
 }): Suggestion[] {
-  const pris = new Set([...ennemis, ...allies]);
+  const taken = new Set([...enemies, ...allies]);
 
-  return candidats
-    .filter((h) => h.lanes.includes(lane) && !pris.has(h.slug))
+  return candidates
+    .filter((h) => h.lanes.includes(lane) && !taken.has(h.slug))
     .map((h) => {
-      const raisons: Raison[] = [];
+      const reasons: Reason[] = [];
       let score = 0;
 
       // Une relation de contre est declaree d'un seul cote : « A est fort
       // contre B » n'implique pas que la fiche de B mentionne A. On lit donc
       // les deux sens, sans quoi la moitie des contres resterait invisible.
-      const parEnnemi = new Map(
-        candidats.filter((c) => ennemis.includes(c.slug)).map((c) => [c.slug, c]),
+      const byEnemy = new Map(
+        candidates.filter((c) => enemies.includes(c.slug)).map((c) => [c.slug, c]),
       );
 
-      const contres = ennemis.filter(
-        (e) => h.fortContre.includes(e) || parEnnemi.get(e)?.faibleContre.includes(h.slug),
+      const counters = enemies.filter(
+        (e) => h.strongAgainst.includes(e) || byEnemy.get(e)?.weakAgainst.includes(h.slug),
       );
-      if (contres.length > 0) {
-        score += contres.length * POIDS.contre;
-        const noms = contres.map((e) => parEnnemi.get(e)?.nom ?? e).join(", ");
-        raisons.push({ type: "contre", detail: noms, favorable: true });
+      if (counters.length > 0) {
+        score += counters.length * WEIGHT.counter;
+        const names = counters.map((e) => byEnemy.get(e)?.name ?? e).join(", ");
+        reasons.push({ type: "counter", detail: names, favorable: true });
       }
 
-      const subis = ennemis.filter(
-        (e) => h.faibleContre.includes(e) || parEnnemi.get(e)?.fortContre.includes(h.slug),
+      const suffered = enemies.filter(
+        (e) => h.weakAgainst.includes(e) || byEnemy.get(e)?.strongAgainst.includes(h.slug),
       );
-      if (subis.length > 0) {
-        score += subis.length * POIDS.contre_par;
-        const noms = subis.map((e) => parEnnemi.get(e)?.nom ?? e).join(", ");
-        raisons.push({ type: "subi", detail: noms, favorable: false });
+      if (suffered.length > 0) {
+        score += suffered.length * WEIGHT.counteredBy;
+        const names = suffered.map((e) => byEnemy.get(e)?.name ?? e).join(", ");
+        reasons.push({ type: "countered", detail: names, favorable: false });
       }
 
-      const parAllie = new Map(
-        candidats.filter((c) => allies.includes(c.slug)).map((c) => [c.slug, c]),
+      const byAlly = new Map(
+        candidates.filter((c) => allies.includes(c.slug)).map((c) => [c.slug, c]),
       );
       const combine = allies.filter(
-        (a) => h.synergies.includes(a) || parAllie.get(a)?.synergies.includes(h.slug),
+        (a) => h.synergies.includes(a) || byAlly.get(a)?.synergies.includes(h.slug),
       );
       if (combine.length > 0) {
-        score += combine.length * POIDS.synergie;
-        const noms = combine.map((a) => parAllie.get(a)?.nom ?? a).join(", ");
-        raisons.push({ type: "combine", detail: noms, favorable: true });
+        score += combine.length * WEIGHT.synergy;
+        const names = combine.map((a) => byAlly.get(a)?.name ?? a).join(", ");
+        reasons.push({ type: "synergy", detail: names, favorable: true });
       }
 
-      if (h.victoire !== null) {
-        score += (h.victoire - 50) * POIDS.victoire;
-        if (h.victoire >= 53) {
-          raisons.push({ type: "victoire", detail: h.victoire.toFixed(1), favorable: true });
-        } else if (h.victoire <= 47) {
-          raisons.push({ type: "victoire", detail: h.victoire.toFixed(1), favorable: false });
+      if (h.win !== null) {
+        score += (h.win - 50) * WEIGHT.win;
+        if (h.win >= 53) {
+          reasons.push({ type: "win", detail: h.win.toFixed(1), favorable: true });
+        } else if (h.win <= 47) {
+          reasons.push({ type: "win", detail: h.win.toFixed(1), favorable: false });
         }
       }
 
-      return { heros: h, score, raisons };
+      return { hero: h, score, reasons };
     })
     .sort((a, b) => b.score - a.score)
-    .slice(0, limite);
+    .slice(0, limit);
 }

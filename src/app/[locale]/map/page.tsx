@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { MapGuide, type MapCard } from "@/components/map-guide";
-import { EnTetePage } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage, type T } from "@/i18n/traductions";
-import { OBJECTIFS } from "@/lib/chatiment";
-import { SLUGS_ROLE } from "@/lib/filtres-tier-list";
+import { PageHeader } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT, messagesPage, type T } from "@/i18n/translations";
+import { OBJECTIVES } from "@/lib/retribution";
+import { SLUGS_ROLE } from "@/lib/tier-list-filters";
 import { MAP_POINTS, type MapPointKey } from "@/lib/game-map";
-import { donneesLd } from "@/lib/html";
+import { serializeJsonLd } from "@/lib/html";
 import {
   BUFF_EFFECTS,
   BUFFS,
@@ -27,20 +27,20 @@ import {
   type CampKey,
 } from "@/lib/objectives";
 import type { Role } from "@/lib/types";
-import { formaterDate } from "@/lib/utils";
+import { formatShortDate } from "@/lib/utils";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/map";
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.map.title"),
+    title: t("pages.seo.map.title"),
     description: t("pages.seo.map.description"),
-    chemin: PATH,
-    motsCles: ["MLBB map", "Land of Dawn", "jungle camps", "Turtle", "Lord", "rotation", "Mobile Legends", "MLBB"],
+    path: PATH,
+    keywords: ["MLBB map", "Land of Dawn", "jungle camps", "Turtle", "Lord", "rotation", "Mobile Legends", "MLBB"],
   });
 }
 
@@ -48,7 +48,7 @@ const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
 const wikiPageName = (url: string) => decodeURIComponent(url.split("/wiki/")[1] ?? url).replaceAll("_", " ");
 
 /** Cards of every point of interest, built here so the browser only receives the finished text. */
-function mapCards(t: T, locale: Langue): Record<MapPointKey, MapCard> {
+function mapCards(t: T, locale: Locale): Record<MapPointKey, MapCard> {
   const number = new Intl.NumberFormat(LOCALE_HTML[locale]);
   const seconds = (n: number) => t("pages.map.seconds", { n: number.format(n) });
   const label = (key: string) => t(`pages.map.fact.${key}`);
@@ -112,7 +112,7 @@ function mapCards(t: T, locale: Langue): Record<MapPointKey, MapCard> {
           }),
         },
       ],
-      { image: OBJECTIFS.tortue.image, links: [timerLink, retributionLink] },
+      { image: OBJECTIVES.turtle.image, links: [timerLink, retributionLink] },
     ),
     lord: card(
       "lord",
@@ -138,7 +138,7 @@ function mapCards(t: T, locale: Langue): Record<MapPointKey, MapCard> {
         { label: label("reward"), value: t("pages.map.point.lord.reward", { bonus: LORD.allyBonus, cooldown: LORD.allyBonusCooldown }) },
         { label: label("location"), value: t("pages.map.point.lord.location", { from: formatTime(TURTLE.lordFrom) }) },
       ],
-      { image: OBJECTIFS.seigneur.image, links: [timerLink, retributionLink] },
+      { image: OBJECTIVES.lord.image, links: [timerLink, retributionLink] },
     ),
     "purple-buff": card(
       "purple-buff",
@@ -159,7 +159,7 @@ function mapCards(t: T, locale: Langue): Record<MapPointKey, MapCard> {
           }),
         },
       ],
-      { image: OBJECTIFS["buff-violet"].image, links: [timerLink, retributionLink] },
+      { image: OBJECTIVES["purple-buff"].image, links: [timerLink, retributionLink] },
     ),
     "orange-buff": card(
       "orange-buff",
@@ -179,7 +179,7 @@ function mapCards(t: T, locale: Langue): Record<MapPointKey, MapCard> {
           }),
         },
       ],
-      { image: OBJECTIFS["buff-orange"].image, links: [timerLink, retributionLink] },
+      { image: OBJECTIVES["orange-buff"].image, links: [timerLink, retributionLink] },
     ),
     lithowanderer: card("lithowanderer", [
       { label: label("firstSpawn"), value: formatTime(CAMPS.lithowanderer.firstSpawn) },
@@ -258,7 +258,7 @@ function mapCards(t: T, locale: Langue): Record<MapPointKey, MapCard> {
         {
           label: label("bonus"),
           value: t("pages.map.point.mid-lane.bonus", {
-            lancers: MINIONS.midLancers,
+            lancers: MINIONS.midCasts,
             infantry: MINIONS.midInfantry,
             waves: MINIONS.bonusWaves,
           }),
@@ -293,12 +293,12 @@ const ROTATION_ROLES: Record<RotationKey, Role[]> = {
 
 export default async function MapPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const structuredData = donneesOutil(locale, {
-    nom: t("pages.map.title"),
+  const t = createT(locale);
+  const structuredData = dataTool(locale, {
+    name: t("pages.map.title"),
     description: t("pages.seo.map.description"),
-    chemin: PATH,
-    categorie: "GameApplication",
+    path: PATH,
+    category: "GameApplication",
   });
 
   // Values quoted by the rotation tips, all from the sourced constants.
@@ -316,7 +316,7 @@ export default async function MapPage({ params }: Params) {
     crabGold: CAMP_REWARDS.crab.gold,
     crabDuration: CAMP_REWARDS.crab.duration,
     littleCrab: formatTime(CAMPS["little-crab"].firstSpawn),
-    lancers: MINIONS.midLancers,
+    lancers: MINIONS.midCasts,
     infantry: MINIONS.midInfantry,
   };
   const steps: Record<RotationKey, number> = { jungle: 4, roam: 4, gold: 4, exp: 3, mid: 3 };
@@ -333,9 +333,9 @@ export default async function MapPage({ params }: Params) {
   const sources = [...new Set([...MAP_POINTS.map((p) => p.source), SOURCES.jungle, SOURCES.minions, SOURCES.guide])];
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.mapUI"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
-      <EnTetePage titre={t("pages.map.title")} chapeau={t("pages.map.lead")} />
+    <ExtendMessages messages={messagesPage(locale, ["pages.mapUI"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.map.title")} lead={t("pages.map.lead")} />
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
         <section aria-labelledby="map-title">
           <h2 id="map-title" className={sectionTitle}>
@@ -389,7 +389,7 @@ export default async function MapPage({ params }: Params) {
           <h2 id="sources-title" className="font-semibold text-chalk-300">
             {t("pages.map.sourcesTitle")}
           </h2>
-          <p className="mt-2">{t("pages.map.sourcesIntro", { date: formaterDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
+          <p className="mt-2">{t("pages.map.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
           <ul className="mt-2 grid list-disc gap-x-8 gap-y-1 pl-5 sm:grid-cols-2">
             {sources.map((url) => (
               <li key={url}>
@@ -401,6 +401,6 @@ export default async function MapPage({ params }: Params) {
           </ul>
         </section>
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

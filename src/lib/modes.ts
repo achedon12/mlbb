@@ -14,4 +14,4 @@ export const ACCENTS_MODES: Record<string, [string, string]> = {
   "arcade-mode": ["#8f2f74", "#ff77c2"],
 };
 
-export const ACCENT_MODE_DEFAUT: [string, string] = ["#1c2742", "#2a3758"];
+export const ACCENT_MODE_DEFAULT: [string, string] = ["#1c2742", "#2a3758"];

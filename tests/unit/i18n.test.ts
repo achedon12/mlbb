@@ -3,7 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import fr from "@/i18n/messages/fr.json";
 import en from "@/i18n/messages/en.json";
-import itCatalogue from "@/i18n/messages/it.json";
+import itCatalog from "@/i18n/messages/it.json";
 import es from "@/i18n/messages/es.json";
 
 /**
@@ -14,13 +14,13 @@ import es from "@/i18n/messages/es.json";
  * (« pages.heroes.title ») au lecteur, une variable manquante resterait entre
  * accolades.
  */
-type Noeud = string | Noeud[] | { [cle: string]: Noeud };
-const CATALOGUES: Record<string, Noeud> = { fr, en, it: itCatalogue, es } as unknown as Record<string, Noeud>;
+type Node = string | Node[] | { [key: string]: Node };
+const CATALOGUES: Record<string, Node> = { fr, en, it: itCatalog, es } as unknown as Record<string, Node>;
 
-function aplatir(noeud: Noeud, prefixe = "", sortie = new Map<string, string>()): Map<string, string> {
-  if (typeof noeud === "string") sortie.set(prefixe, noeud);
-  else for (const [cle, valeur] of Object.entries(noeud)) aplatir(valeur, prefixe ? `${prefixe}.${cle}` : cle, sortie);
-  return sortie;
+function flatten(node: Node, prefix = "", output = new Map<string, string>()): Map<string, string> {
+  if (typeof node === "string") output.set(prefix, node);
+  else for (const [key, value] of Object.entries(node)) flatten(value, prefix ? `${prefix}.${key}` : key, output);
+  return output;
 }
 
 /**
@@ -28,20 +28,20 @@ function aplatir(noeud: Noeud, prefixe = "", sortie = new Map<string, string>())
  * remplacent : en francais, la page calcule l'elision (« d'Aamon », « de
  * Gusion ») et la passe en {deNom}, la ou les autres langues ecrivent {nom}.
  */
-const EQUIVALENTES: Record<string, string> = { "{deNom}": "{nom}" };
-const variables = (texte: string) =>
-  [...new Set((texte.match(/\{\w+\}/g) ?? []).map((v) => EQUIVALENTES[v] ?? v))].sort().join(" ");
+const EQUIVALENT: Record<string, string> = { "{deNom}": "{nom}" };
+const variables = (text: string) =>
+  [...new Set((text.match(/\{\w+\}/g) ?? []).map((v) => EQUIVALENT[v] ?? v))].sort().join(" ");
 
-function resoudre(cle: string): Noeud | undefined {
-  let courant: Noeud | undefined = CATALOGUES.fr;
-  for (const partie of cle.split(".")) {
-    if (typeof courant !== "object" || courant === null) return undefined;
-    courant = (courant as Record<string, Noeud>)[partie];
+function resolve(key: string): Node | undefined {
+  let current: Node | undefined = CATALOGUES.fr;
+  for (const match of key.split(".")) {
+    if (typeof current !== "object" || current === null) return undefined;
+    current = (current as Record<string, Node>)[match];
   }
-  return courant;
+  return current;
 }
 
-const plats = Object.fromEntries(Object.entries(CATALOGUES).map(([l, c]) => [l, aplatir(c)]));
+const flat = Object.fromEntries(Object.entries(CATALOGUES).map(([l, c]) => [l, flatten(c)]));
 
 /**
  * Cles citees dans le code. On suit `t` et toute fonction obtenue par
@@ -49,74 +49,74 @@ const plats = Object.fromEntries(Object.entries(CATALOGUES).map(([l, c]) => [l, 
  * alternative de deux litteraux, et a un gabarit dont on verifie le prefixe
  * fixe (`roles.${r}` suppose un objet `roles`).
  */
-function clesDuCode() {
-  const litterales: { fichier: string; cle: string }[] = [];
-  const prefixes: { fichier: string; prefixe: string }[] = [];
-  const fichiers = readdirSync("src", { recursive: true, encoding: "utf8" })
+function keysOfCode() {
+  const literal: { file: string; key: string }[] = [];
+  const prefixes: { file: string; prefix: string }[] = [];
+  const files = readdirSync("src", { recursive: true, encoding: "utf8" })
     .filter((f) => /\.tsx?$/.test(f))
     .map((f) => join("src", f));
-  for (const fichier of fichiers) {
-    const code = readFileSync(fichier, "utf8");
-    const noms = new Set(["t"]);
-    for (const m of code.matchAll(/(?:const|let)\s+(\w+)\s*=\s*(?:creerT|useT|creerTDepuis)\(/g)) noms.add(m[1]);
-    const appel = `(?<![\\w.$])(?:${[...noms].join("|")})\\(\\s*`;
-    const chaine = `(["'])([^"'\\\`\\s{}]+?)`;
-    for (const m of code.matchAll(new RegExp(`${appel}${chaine}\\1\\s*[,)]`, "g"))) litterales.push({ fichier, cle: m[2] });
-    for (const m of code.matchAll(new RegExp(`${appel}[^"'\`()]*?\\?\\s*${chaine}\\1\\s*:\\s*(["'])([^"'\\s]+?)\\3\\s*[,)]`, "g"))) {
-      litterales.push({ fichier, cle: m[2] }, { fichier, cle: m[4] });
+  for (const file of files) {
+    const code = readFileSync(file, "utf8");
+    const names = new Set(["t"]);
+    for (const m of code.matchAll(/(?:const|let)\s+(\w+)\s*=\s*(?:creerT|useT|creerTDepuis)\(/g)) names.add(m[1]);
+    const call = `(?<![\\w.$])(?:${[...names].join("|")})\\(\\s*`;
+    const string = `(["'])([^"'\\\`\\s{}]+?)`;
+    for (const m of code.matchAll(new RegExp(`${call}${string}\\1\\s*[,)]`, "g"))) literal.push({ file, key: m[2] });
+    for (const m of code.matchAll(new RegExp(`${call}[^"'\`()]*?\\?\\s*${string}\\1\\s*:\\s*(["'])([^"'\\s]+?)\\3\\s*[,)]`, "g"))) {
+      literal.push({ file, key: m[2] }, { file, key: m[4] });
     }
-    for (const m of code.matchAll(new RegExp(`${appel}\`([^\`$]*)(\\$\\{)?`, "g"))) {
-      if (!m[2]) litterales.push({ fichier, cle: m[1] });
-      else if (m[1].includes(".")) prefixes.push({ fichier, prefixe: m[1].slice(0, m[1].lastIndexOf(".")) });
+    for (const m of code.matchAll(new RegExp(`${call}\`([^\`$]*)(\\$\\{)?`, "g"))) {
+      if (!m[2]) literal.push({ file, key: m[1] });
+      else if (m[1].includes(".")) prefixes.push({ file, prefix: m[1].slice(0, m[1].lastIndexOf(".")) });
     }
   }
-  return { litterales, prefixes };
+  return { literal, prefixes };
 }
 
-describe("catalogues de messages", () => {
-  it("les quatre langues ont exactement les memes cles", () => {
-    const reference = [...plats.fr.keys()];
-    const ecarts = Object.fromEntries(
-      Object.entries(plats)
+describe("message catalogs", () => {
+  it("all four locales have exactly the same keys", () => {
+    const reference = [...flat.fr.keys()];
+    const gaps = Object.fromEntries(
+      Object.entries(flat)
         .filter(([l]) => l !== "fr")
-        .map(([l, cles]) => [
+        .map(([l, keys]) => [
           l,
           {
-            manquantes: reference.filter((c) => !cles.has(c)),
-            enTrop: [...cles.keys()].filter((c) => !plats.fr.has(c)),
+            missing: reference.filter((c) => !keys.has(c)),
+            extra: [...keys.keys()].filter((c) => !flat.fr.has(c)),
           },
         ]),
     );
-    const vide = { manquantes: [], enTrop: [] };
-    expect(ecarts).toEqual({ en: vide, it: vide, es: vide });
+    const empty = { missing: [], extra: [] };
+    expect(gaps).toEqual({ en: empty, it: empty, es: empty });
   });
 
-  it("chaque cle garde les memes variables {x} dans toutes les langues", () => {
+  it("each key keeps the same {x} variables in every locale", () => {
     const differences: string[] = [];
-    for (const [cle, texte] of plats.fr) {
-      for (const [langue, cles] of Object.entries(plats)) {
-        const traduit = cles.get(cle);
-        if (traduit !== undefined && variables(traduit) !== variables(texte)) {
-          differences.push(`${langue} ${cle} : [${variables(traduit)}] au lieu de [${variables(texte)}]`);
+    for (const [key, text] of flat.fr) {
+      for (const [locale, keys] of Object.entries(flat)) {
+        const translated = keys.get(key);
+        if (translated !== undefined && variables(translated) !== variables(text)) {
+          differences.push(`${locale} ${key} : [${variables(translated)}] au lieu de [${variables(text)}]`);
         }
       }
     }
     expect(differences).toEqual([]);
   });
 
-  it("toute cle citee dans le code existe", () => {
-    const { litterales, prefixes } = clesDuCode();
+  it("every key referenced in the code exists", () => {
+    const { literal, prefixes } = keysOfCode();
     // Garde-fou : un balayage qui ne trouve rien ne prouverait rien.
-    expect(litterales.length).toBeGreaterThan(200);
-    const absentes = litterales
-      .filter(({ cle }) => typeof resoudre(cle) !== "string")
-      .map(({ fichier, cle }) => `${fichier} : ${cle}`);
-    const prefixesAbsents = prefixes
-      .filter(({ prefixe }) => {
-        const noeud = resoudre(prefixe);
-        return typeof noeud !== "object" || noeud === null;
+    expect(literal.length).toBeGreaterThan(200);
+    const missing = literal
+      .filter(({ key }) => typeof resolve(key) !== "string")
+      .map(({ file, key }) => `${file} : ${key}`);
+    const prefixesMissing = prefixes
+      .filter(({ prefix }) => {
+        const node = resolve(prefix);
+        return typeof node !== "object" || node === null;
       })
-      .map(({ fichier, prefixe }) => `${fichier} : ${prefixe}.*`);
-    expect([...new Set([...absentes, ...prefixesAbsents])]).toEqual([]);
+      .map(({ file, prefix }) => `${file} : ${prefix}.*`);
+    expect([...new Set([...missing, ...prefixesMissing])]).toEqual([]);
   });
 });

@@ -1,6 +1,6 @@
-import type { Langue } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import type { MlbbdlePuzzle } from "./mlbbdle";
-import { STATS_VIDES, type StatsQuiz } from "./quiz";
+import { STATS_EMPTY, type StatsQuiz } from "./quiz";
 
 /**
  * MLBBdle memory in the browser: stats per mode, today's guesses, the
@@ -37,7 +37,7 @@ function write(key: string, value: unknown) {
 
 export function readStats(mode: DailyMode): StatsQuiz {
   const s = read<StatsQuiz>(KEYS.stats(mode));
-  return s && typeof s.joues === "number" && Array.isArray(s.distribution) ? s : STATS_VIDES;
+  return s && typeof s.joues === "number" && Array.isArray(s.distribution) ? s : STATS_EMPTY;
 }
 
 export function writeStats(mode: DailyMode, stats: StatsQuiz) {
@@ -78,8 +78,8 @@ export function writePractice(r: PracticeRecord) {
 }
 
 /** Today's puzzle: read back from the device if already received today, asked from the server otherwise. */
-export async function loadPuzzle(language: Langue, day: string): Promise<MlbbdlePuzzle> {
-  const kept = read<{ language: Langue; puzzle: MlbbdlePuzzle }>(KEYS.puzzle);
+export async function loadPuzzle(language: Locale, day: string): Promise<MlbbdlePuzzle> {
+  const kept = read<{ language: Locale; puzzle: MlbbdlePuzzle }>(KEYS.puzzle);
   if (kept?.language === language && kept.puzzle?.day === day && kept.puzzle.classic) return kept.puzzle;
   const response = await fetch(`/mlbbdle/day/${language}-${day}.json`);
   if (!response.ok) throw new Error(`HTTP ${response.status}`);

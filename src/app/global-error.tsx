@@ -1,32 +1,32 @@
 "use client";
 
 import { useEffect } from "react";
-import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, type Langue } from "@/i18n/config";
+import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, type Locale } from "@/i18n/config";
 
 /**
  * Ses trois phrases, en dur : importer le catalogue ici le remettrait dans le
  * JavaScript de chaque page, cette frontiere etant chargee d'avance.
  */
-const TEXTES: Record<Langue, { titre: string; texte: string; reessayer: string }> = {
+const TEXTS: Record<Locale, { title: string; text: string; retry: string }> = {
   "fr": {
-    "titre": "Une erreur est survenue",
-    "texte": "Le site a rencontre un probleme inattendu. Reessayez dans un instant.",
-    "reessayer": "Reessayer"
+    "title": "Une erreur est survenue",
+    "text": "Le site a rencontre un probleme inattendu. Reessayez dans un instant.",
+    "retry": "Reessayer"
   },
   "en": {
-    "titre": "An error has occurred",
-    "texte": "The site encountered an unexpected problem. Try again in a moment.",
-    "reessayer": "Try again"
+    "title": "An error has occurred",
+    "text": "The site encountered an unexpected problem. Try again in a moment.",
+    "retry": "Try again"
   },
   "it": {
-    "titre": "Si è verificato un errore",
-    "texte": "Il sito ha riscontrato un problema imprevisto. Riprova tra un attimo.",
-    "reessayer": "Riprova"
+    "title": "Si è verificato un errore",
+    "text": "Il sito ha riscontrato un problema imprevisto. Riprova tra un attimo.",
+    "retry": "Riprova"
   },
   "es": {
-    "titre": "Ha ocurrido un error",
-    "texte": "El sitio encontró un problema inesperado. Inténtalo de nuevo en un momento.",
-    "reessayer": "Intentar otra vez"
+    "title": "Ha ocurrido un error",
+    "text": "El sitio encontró un problema inesperado. Inténtalo de nuevo en un momento.",
+    "retry": "Intentar otra vez"
   }
 };
 
@@ -45,17 +45,17 @@ export default function GlobalError({
   reset: () => void;
 }) {
   // La page d'erreur remplace tout le document : la langue se lit dans l'adresse.
-  const langue =
+  const locale =
     (typeof window !== "undefined"
-      ? LANGUES.find((l) => window.location.pathname.split("/")[1] === l)
-      : undefined) ?? LANGUE_DEFAUT;
-  const texte = TEXTES[langue];
+      ? LOCALES.find((l) => window.location.pathname.split("/")[1] === l)
+      : undefined) ?? DEFAULT_LOCALE;
+  const text = TEXTS[locale];
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
-    <html lang={LOCALE_HTML[langue]}>
+    <html lang={LOCALE_HTML[locale]}>
       <body
         style={{
           margin: 0,
@@ -72,9 +72,9 @@ export default function GlobalError({
           padding: "2rem",
         }}
       >
-        <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>{texte.titre}</h1>
+        <h1 style={{ fontSize: "1.5rem", fontWeight: 700 }}>{text.title}</h1>
         <p style={{ color: "#7b88a6", maxWidth: "32rem", lineHeight: 1.6 }}>
-          {texte.texte}
+          {text.text}
         </p>
         <button
           type="button"
@@ -88,7 +88,7 @@ export default function GlobalError({
             cursor: "pointer",
           }}
         >
-          {texte.reessayer}
+          {text.retry}
         </button>
       </body>
     </html>

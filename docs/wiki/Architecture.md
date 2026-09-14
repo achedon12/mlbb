@@ -12,7 +12,7 @@
 The site's content depends on **no external URL at runtime**. Every piece of
 data and every image is copied into the repository:
 
-- factual data lives in `src/data/jeu/` (JSON);
+- factual data lives in `src/data/game/` (JSON);
 - visuals live in `public/visuels/`.
 
 The only scripts allowed are the ones that **fetch** this data (see
@@ -30,8 +30,8 @@ src/
   i18n/           Languages, message catalogues, translation helpers
   lib/            Data access (donnees.ts), types, utilities
   data/
-    jeu/          Extracted data (heroes, visuals, statistics, patches…)
-    heros/        Hand-written analyses (builds, counters, commentary)
+    game/          Extracted data (heroes, visuals, statistics, patches…)
+    heroes/        Hand-written analyses (builds, counters, commentary)
 content/          Articles in Markdown, one folder per language
 scripts/          Data fetching and translation (see the dedicated page)
 public/visuels/   Images copied locally
@@ -40,6 +40,6 @@ public/visuels/   Images copied locally
 ## Two separate data origins
 
 1. **Factual** (heroes, skins, items, patches, lore): extracted automatically
-   into `src/data/jeu/`. Never edited by hand: the next sync would overwrite it.
+   into `src/data/game/`. Never edited by hand: the next sync would overwrite it.
 2. **Editorial** (analysis, builds, annotated counters): written by hand in
-   `src/data/heros/`, layered on top of the factual data through the hero's `slug`.
+   `src/data/heroes/`, layered on top of the factual data through the hero's `slug`.

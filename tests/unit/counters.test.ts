@@ -1,22 +1,22 @@
 import { describe, expect, it } from "vitest";
-import { creerTDepuis } from "@/i18n/t";
+import { createTFrom } from "@/i18n/t";
 import {
-  agregerContres,
-  contresParLane,
-  deNom,
-  formaterEcart,
-  momentsPartie,
-  objetsContre,
-  phraseSynthese,
-  porteVolDeVie,
-  rangDeSynthese,
-  raisonsContre,
-  type ProfilMenace,
-} from "@/lib/contrer";
-import type { ContresParRang } from "@/lib/donnees";
+  aggregateCounters,
+  countersByLane,
+  frenchOf,
+  formatGap,
+  momentsMatch,
+  itemsCounter,
+  summarySentence,
+  hasLifesteal,
+  summaryRank,
+  reasonsCounter,
+  type ProfileThreat,
+} from "@/lib/counters";
+import type { CountersByRank } from "@/lib/data";
 import type { Lane } from "@/lib/types";
 
-const t = creerTDepuis({
+const t = createTFrom({
   counters: { pts: "pts" },
   measuredRanks: { mythic: "Mythique", all: "Tous rangs" },
   pages: {
@@ -30,156 +30,156 @@ const t = creerTDepuis({
   },
 });
 
-const mesure = (faible: [string, number][], fort: [string, number][] = []) => ({
-  weak: faible.map(([slug, advantage]) => ({ slug, advantage })),
-  strong: fort.map(([slug, advantage]) => ({ slug, advantage })),
+const measure = (weak: [string, number][], strong: [string, number][] = []) => ({
+  weak: weak.map(([slug, advantage]) => ({ slug, advantage })),
+  strong: strong.map(([slug, advantage]) => ({ slug, advantage })),
   winRate: 50,
 });
 
-describe("deNom", () => {
-  it("elide devant une voyelle, pas devant une consonne, un h ou un y", () => {
-    expect(deNom("Aamon")).toBe("d'Aamon");
-    expect(deNom("Esmeralda")).toBe("d'Esmeralda");
-    expect(deNom("Gusion")).toBe("de Gusion");
-    expect(deNom("Hayabusa")).toBe("de Hayabusa");
-    expect(deNom("Yve")).toBe("de Yve");
+describe("frenchOf", () => {
+  it("elides before a vowel, not before a consonant, an h or a y", () => {
+    expect(frenchOf("Aamon")).toBe("d'Aamon");
+    expect(frenchOf("Esmeralda")).toBe("d'Esmeralda");
+    expect(frenchOf("Gusion")).toBe("de Gusion");
+    expect(frenchOf("Hayabusa")).toBe("de Hayabusa");
+    expect(frenchOf("Yve")).toBe("de Yve");
   });
 });
 
-describe("agregerContres", () => {
-  const parRang: ContresParRang = {
-    all: mesure([["gloo", -9]]),
-    epic: mesure([["gloo", -2], ["atlas", -4]], [["cici", 3]]),
-    mythic: mesure([["gloo", -3], ["lolita", -5]], [["cici", 2], ["marcel", 4]]),
+describe("aggregateCounters", () => {
+  const byRank: CountersByRank = {
+    all: measure([["gloo", -9]]),
+    epic: measure([["gloo", -2], ["atlas", -4]], [["cici", 3]]),
+    mythic: measure([["gloo", -3], ["lolita", -5]], [["cici", 2], ["marcel", 4]]),
   };
 
-  it("lit les tranches une a une, sans compter `all`, et classe par regularite puis par ecart", () => {
-    expect(agregerContres(parRang, "weak")).toEqual([
-      { slug: "gloo", rangs: 2, moyenne: -2.5 },
-      { slug: "lolita", rangs: 1, moyenne: -5 },
-      { slug: "atlas", rangs: 1, moyenne: -4 },
+  it("reads buckets one by one, excluding `all`, and ranks by consistency then by gap", () => {
+    expect(aggregateCounters(byRank, "weak")).toEqual([
+      { slug: "gloo", ranks: 2, average: -2.5 },
+      { slug: "lolita", ranks: 1, average: -5 },
+      { slug: "atlas", ranks: 1, average: -4 },
     ]);
-    expect(agregerContres(parRang, "strong").map((c) => c.slug)).toEqual(["cici", "marcel"]);
+    expect(aggregateCounters(byRank, "strong").map((c) => c.slug)).toEqual(["cici", "marcel"]);
   });
 
-  it("retombe sur `all` quand aucune tranche n'est mesuree", () => {
-    expect(agregerContres({ all: mesure([["gloo", -9]]) }, "weak")).toEqual([{ slug: "gloo", rangs: 1, moyenne: -9 }]);
-    expect(agregerContres({}, "weak")).toEqual([]);
+  it("falls back to `all` when no bucket is measured", () => {
+    expect(aggregateCounters({ all: measure([["gloo", -9]]) }, "weak")).toEqual([{ slug: "gloo", ranks: 1, average: -9 }]);
+    expect(aggregateCounters({}, "weak")).toEqual([]);
   });
 
-  it("choisit Mythique pour la synthese, sinon tous rangs, sinon le premier rang mesure", () => {
-    expect(rangDeSynthese(parRang)).toBe("mythic");
-    expect(rangDeSynthese({ all: mesure([]) })).toBe("all");
-    expect(rangDeSynthese({ glory: mesure([]) })).toBe("glory");
-    expect(rangDeSynthese({})).toBeNull();
+  it("picks Mythic for the summary, else all ranks, else the first measured rank", () => {
+    expect(summaryRank(byRank)).toBe("mythic");
+    expect(summaryRank({ all: measure([]) })).toBe("all");
+    expect(summaryRank({ glory: measure([]) })).toBe("glory");
+    expect(summaryRank({})).toBeNull();
   });
 });
 
-describe("phraseSynthese", () => {
-  const faible = [
-    { nom: "Hayabusa", advantage: -3 },
-    { nom: "Gloo", advantage: -4.3 },
-    { nom: "Silvanna", advantage: -2.7 },
-    { nom: "Lolita", advantage: -2.6 },
+describe("summarySentence", () => {
+  const weak = [
+    { name: "Hayabusa", advantage: -3 },
+    { name: "Gloo", advantage: -4.3 },
+    { name: "Silvanna", advantage: -2.7 },
+    { name: "Lolita", advantage: -2.6 },
   ];
-  const fort = [
-    { nom: "Marcel", advantage: 3.2 },
-    { nom: "Cici", advantage: 3.3 },
-    { nom: "Claude", advantage: 2.8 },
+  const strong = [
+    { name: "Marcel", advantage: 3.2 },
+    { name: "Cici", advantage: 3.3 },
+    { name: "Claude", advantage: 2.8 },
   ];
 
-  it("cite trois contres et deux victimes, le premier de chaque avec son ecart", () => {
-    const phrase = phraseSynthese("fr", t, { nom: "Aamon", rang: "mythic", faible, fort });
-    expect(phrase).toMatch(
+  it("names three counters and two victims, the first of each with its gap", () => {
+    const sentence = summarySentence("fr", t, { name: "Aamon", rank: "mythic", weak, strong });
+    expect(sentence).toMatch(
       /^En Mythique, Aamon souffre le plus face à Gloo \([-−]4,3 pts\), Hayabusa et Silvanna, et prend l'avantage sur Cici \(\+3,3 pts\) et Marcel\.$/,
     );
   });
 
-  it("dit « tous rangs confondus » et se passe des victimes absentes", () => {
-    expect(phraseSynthese("fr", t, { nom: "Aamon", rang: "all", faible: faible.slice(1, 2), fort: [] })).toMatch(
+  it("says 'all ranks combined' and omits missing victims", () => {
+    expect(summarySentence("fr", t, { name: "Aamon", rank: "all", weak: weak.slice(1, 2), strong: [] })).toMatch(
       /^Tous rangs confondus, Aamon souffre le plus face à Gloo \([-−]4,3 pts\)\.$/,
     );
-    expect(phraseSynthese("fr", t, { nom: "Aamon", rang: "all", faible: [], fort })).toBe(
+    expect(summarySentence("fr", t, { name: "Aamon", rank: "all", weak: [], strong })).toBe(
       "Pas encore de counter mesuré pour Aamon.",
     );
   });
 
-  it("formate l'ecart signe dans la langue", () => {
-    expect(formaterEcart("en", t, 3.25)).toBe("+3.3 pts");
-    expect(formaterEcart("fr", t, 2)).toBe("+2,0 pts");
-    expect(formaterEcart("fr", t, 0)).toBe("0,0 pts");
+  it("formats the signed gap in the locale", () => {
+    expect(formatGap("en", t, 3.25)).toBe("+3.3 pts");
+    expect(formatGap("fr", t, 2)).toBe("+2,0 pts");
+    expect(formatGap("fr", t, 0)).toBe("0,0 pts");
   });
 });
 
-describe("objets contre un heros", () => {
-  const profil = (p: Partial<ProfilMenace>): ProfilMenace => ({
-    typeDegats: null,
+describe("items against a hero", () => {
+  const profile = (p: Partial<ProfileThreat>): ProfileThreat => ({
+    typeDamage: null,
     roles: [],
-    specialites: [],
-    volDeVie: false,
+    specialties: [],
+    lifesteal: false,
     ...p,
   });
-  const tous = () => true;
+  const all = () => true;
 
-  it("oppose des defenses magiques aux degats magiques, physiques aux degats physiques", () => {
-    expect(objetsContre(profil({ typeDegats: "Magic" }), tous).map((o) => o.slug)).toEqual([
+  it("counters magic damage with magic defense, physical damage with physical defense", () => {
+    expect(itemsCounter(profile({ typeDamage: "Magic" }), all).map((o) => o.slug)).toEqual([
       "athena-s-shield",
       "radiant-armor",
       "tough-boots",
     ]);
     // La coquille du wiki compte comme physique.
-    expect(raisonsContre(profil({ typeDegats: "Phyiscal" }))).toEqual(["physical"]);
-    expect(raisonsContre(profil({ typeDegats: "Mixed" }))).toEqual(["magic", "physical"]);
+    expect(reasonsCounter(profile({ typeDamage: "Phyiscal" }))).toEqual(["physical"]);
+    expect(reasonsCounter(profile({ typeDamage: "Mixed" }))).toEqual(["magic", "physical"]);
   });
 
-  it("ajoute les regles de role et de specialite, sans citer deux fois un objet", () => {
-    const conseils = objetsContre(
-      profil({ typeDegats: "Magic", roles: ["Marksman"], specialites: ["Regen", "Crowd Control"] }),
-      tous,
+  it("adds role and specialty rules without listing an item twice", () => {
+    const tips = itemsCounter(
+      profile({ typeDamage: "Magic", roles: ["Marksman"], specialties: ["Regen", "Crowd Control"] }),
+      all,
     );
-    expect(conseils.filter((c) => c.slug === "tough-boots")).toEqual([{ slug: "tough-boots", raison: "magic" }]);
-    expect(new Set(conseils.map((c) => c.raison))).toEqual(new Set(["magic", "attacks", "healing"]));
+    expect(tips.filter((c) => c.slug === "tough-boots")).toEqual([{ slug: "tough-boots", reason: "magic" }]);
+    expect(new Set(tips.map((c) => c.reason))).toEqual(new Set(["magic", "attacks", "healing"]));
   });
 
-  it("detecte le vol de vie dans les bonus du build joue, et ecarte les objets absents du catalogue", () => {
-    expect(porteVolDeVie(["+60 Physical Attack, +10% Lifesteal", null])).toBe(true);
-    expect(porteVolDeVie(["+75 Magic Power, +10% Spell Vamp"])).toBe(true);
-    expect(porteVolDeVie(["+60 Physical Attack", null])).toBe(false);
+  it("detects lifesteal in the played build's bonuses and drops items missing from the catalog", () => {
+    expect(hasLifesteal(["+60 Physical Attack, +10% Lifesteal", null])).toBe(true);
+    expect(hasLifesteal(["+75 Magic Power, +10% Spell Vamp"])).toBe(true);
+    expect(hasLifesteal(["+60 Physical Attack", null])).toBe(false);
     expect(
-      objetsContre(profil({ volDeVie: true }), (s) => s !== "sea-halberd").map((o) => o.slug),
+      itemsCounter(profile({ lifesteal: true }), (s) => s !== "sea-halberd").map((o) => o.slug),
     ).toEqual(["dominance-ice", "necklace-of-durance"]);
   });
 });
 
-describe("momentsPartie", () => {
-  it("trouve la tranche la plus faible et la plus forte", () => {
-    const tranches = [
+describe("momentsMatch", () => {
+  it("finds the weakest and strongest bucket", () => {
+    const buckets = [
       { from: 10, to: 12, winRate: 53 },
       { from: 12, to: 14, winRate: 50 },
       { from: 14, to: null, winRate: 48 },
     ];
-    const m = momentsPartie(tranches)!;
-    expect(m.faible.from).toBe(14);
-    expect(m.fort.from).toBe(10);
-    expect(m.profil).toBe("debut");
+    const m = momentsMatch(buckets)!;
+    expect(m.weak.from).toBe(14);
+    expect(m.strong.from).toBe(10);
+    expect(m.profile).toBe("early");
   });
 
-  it("ne dit rien d'une courbe plate ou trop courte", () => {
-    expect(momentsPartie([{ from: 10, to: null, winRate: 50 }])).toBeNull();
-    expect(momentsPartie([{ from: 10, to: 12, winRate: 50 }, { from: 12, to: null, winRate: 50 }])).toBeNull();
-    expect(momentsPartie(undefined)).toBeNull();
+  it("says nothing about a flat or too short curve", () => {
+    expect(momentsMatch([{ from: 10, to: null, winRate: 50 }])).toBeNull();
+    expect(momentsMatch([{ from: 10, to: 12, winRate: 50 }, { from: 12, to: null, winRate: 50 }])).toBeNull();
+    expect(momentsMatch(undefined)).toBeNull();
   });
 });
 
-describe("contresParLane", () => {
-  const lanes: Record<string, Lane[]> = { gloo: ["Roam", "Experience"], hayabusa: ["Jungle"], fredrinn: ["Jungle", "Roam"] };
-  const contres = ["gloo", "hayabusa", "fredrinn"].map((slug, i) => ({ slug, rangs: 3 - i, moyenne: -3 }));
+describe("countersByLane", () => {
+  const lanes: Record<string, Lane[]> = { gloo: ["Roam", "Exp"], hayabusa: ["Jungle"], fredrinn: ["Jungle", "Roam"] };
+  const counters = ["gloo", "hayabusa", "fredrinn"].map((slug, i) => ({ slug, ranks: 3 - i, average: -3 }));
 
-  it("place la position du heros d'abord et range un contre sous chacune de ses positions", () => {
-    const groupes = contresParLane(contres, (s) => lanes[s] ?? [], ["Jungle"], 1);
-    expect(groupes.map((g) => [g.lane, g.contres.map((c) => c.slug)])).toEqual([
+  it("puts the hero's position first and files a counter under each of its positions", () => {
+    const groups = countersByLane(counters, (s) => lanes[s] ?? [], ["Jungle"], 1);
+    expect(groups.map((g) => [g.lane, g.counters.map((c) => c.slug)])).toEqual([
       ["Jungle", ["hayabusa"]],
-      ["Experience", ["gloo"]],
+      ["Exp", ["gloo"]],
       ["Roam", ["gloo"]],
     ]);
   });

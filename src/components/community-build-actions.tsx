@@ -3,9 +3,9 @@
 import { useEffect, useId, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Send, ThumbsUp, Trash2 } from "lucide-react";
-import Link from "@/components/lien";
-import { useLangue, useT } from "@/i18n/fournisseur";
-import { prefixer } from "@/i18n/liens";
+import Link from "@/components/link";
+import { useLocale, useT } from "@/i18n/provider";
+import { prefix } from "@/i18n/links";
 import type { BuildCode } from "@/lib/build-code";
 import { LIMITS, NOTES_MAX, TITLE_MAX, TITLE_MIN } from "@/lib/community-builds";
 import { cn } from "@/lib/utils";
@@ -97,7 +97,7 @@ export function VoteButton({
 
 export function DeleteBuildButton({ id, hero }: { id: string; hero: string }) {
   const t = useT();
-  const langue = useLangue();
+  const locale = useLocale();
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -109,7 +109,7 @@ export function DeleteBuildButton({ id, hero }: { id: string; hero: string }) {
     try {
       const r = await fetch(`/api/builds/${id}`, { method: "DELETE" });
       if (r.status === 204) {
-        router.push(prefixer(`/builds/${hero}`, langue));
+        router.push(prefix(`/builds/${hero}`, locale));
         router.refresh();
         return;
       }

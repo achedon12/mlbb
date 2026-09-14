@@ -1,39 +1,39 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { Mlbbdle } from "@/components/mlbbdle";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import { donneesLd } from "@/lib/html";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT, messagesPage } from "@/i18n/translations";
+import { serializeJsonLd } from "@/lib/html";
 import { COLUMNS, SKILL_CLUES, WINDOW } from "@/lib/mlbbdle";
 import { mlbbdleRoster } from "@/lib/mlbbdle-data";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.mlbbdle.title"),
+    title: t("pages.seo.mlbbdle.title"),
     description: t("pages.seo.mlbbdle.description"),
-    chemin: "/mlbbdle",
-    motsCles: ["mlbbdle", "mobile legends wordle", "guess the MLBB hero", "MLBB loldle", "daily hero guessing game"],
+    path: "/mlbbdle",
+    keywords: ["mlbbdle", "mobile legends wordle", "guess the MLBB hero", "MLBB loldle", "daily hero guessing game"],
   });
 }
 
 export default async function MlbbdlePage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const { heroes, labels } = mlbbdleRoster(locale);
   // A game playable in the browser: both a web application and a game.
   const structuredData = {
-    ...donneesOutil(locale, {
-      nom: t("pages.mlbbdle.title"),
+    ...dataTool(locale, {
+      name: t("pages.mlbbdle.title"),
       description: t("pages.seo.mlbbdle.description"),
-      chemin: "/mlbbdle",
-      categorie: "GameApplication",
+      path: "/mlbbdle",
+      category: "GameApplication",
     }),
     "@type": ["WebApplication", "Game"],
     genre: "Puzzle",
@@ -44,16 +44,16 @@ export default async function MlbbdlePage({ params }: Params) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
-      <EnTetePage
-        titre={t("pages.mlbbdle.title")}
-        chapeau={t("pages.mlbbdle.lead")}
-        miettes={[{ nom: t("pages.mlbbdle.breadcrumb") }]}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader
+        title={t("pages.mlbbdle.title")}
+        lead={t("pages.mlbbdle.lead")}
+        crumbs={[{ name: t("pages.mlbbdle.breadcrumb") }]}
       />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
-        <CompleterMessages messages={messagesPage(locale, ["pages.mlbbdleUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.mlbbdleUI"])}>
           <Mlbbdle heroes={heroes} labels={labels} />
-        </CompleterMessages>
+        </ExtendMessages>
 
         <section aria-labelledby="how-to-play">
           <h2 id="how-to-play" className={h2}>

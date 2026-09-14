@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 import sharp from "sharp";
-import { herosParSlug, illustrations } from "@/lib/donnees";
+import { heroesBySlug, illustrations } from "@/lib/data";
 import { site } from "@/lib/site";
-import { tauxParSlug } from "@/lib/tier-list";
+import { rateBySlug } from "@/lib/tier-list";
 
 export const size = { width: 1200, height: 630 };
 
@@ -20,9 +20,9 @@ export function generateStaticParams() {
   return [];
 }
 export const contentType = "image/png";
-export const alt = site.titre;
+export const alt = site.title;
 
-const COULEUR_PALIER: Record<string, string> = {
+const COLOR_TIER: Record<string, string> = {
   "S+": "#f0506e",
   S: "#f5c451",
   A: "#34d399",
@@ -34,21 +34,21 @@ const COULEUR_PALIER: Record<string, string> = {
  * Image de partage d'une fiche : portrait, palier et taux de victoire. Un lien
  * partage montre le heros, plutot que la carte generique du site.
  */
-export default async function Image({ params }: { params: Promise<{ locale: Langue; slug: string }> }) {
+export default async function Image({ params }: { params: Promise<{ locale: Locale; slug: string }> }) {
   const { locale, slug } = await params;
-  const t = creerT(locale);
-  const h = herosParSlug.get(slug);
-  const taux = tauxParSlug.get(slug);
+  const t = createT(locale);
+  const h = heroesBySlug.get(slug);
+  const rate = rateBySlug.get(slug);
 
   // L'illustration du skin d'origine, a defaut le portrait, lue sur le disque
   // et embarquee : le moteur d'images ne va pas la chercher sur le site pendant
   // le build, et ne lit pas le WebP — d'ou la conversion, recadree sur la zone
   // la plus parlante de l'image.
   let portrait: string | null = null;
-  const chemin = Object.values(illustrations[slug] ?? {})[0] ?? h?.images.portrait;
-  if (chemin) {
+  const path = Object.values(illustrations[slug] ?? {})[0] ?? h?.images.portrait;
+  if (path) {
     try {
-      const png = await sharp(await readFile(join(process.cwd(), "public", chemin)))
+      const png = await sharp(await readFile(join(process.cwd(), "public", path)))
         .resize(440, 630, { fit: "cover", position: sharp.strategy.attention })
         .png()
         .toBuffer();
@@ -57,7 +57,7 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
       portrait = null;
     }
   }
-  const pourcent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return new ImageResponse(
     (
@@ -75,7 +75,7 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
           <img src={portrait} alt="" width={440} height={630} style={{ width: 440, height: 630, objectFit: "cover" }} />
         )}
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "64px", flex: 1 }}>
-          <div style={{ display: "flex", fontSize: 30, fontWeight: 800, color: "#f5c451" }}>{site.nom}</div>
+          <div style={{ display: "flex", fontSize: 30, fontWeight: 800, color: "#f5c451" }}>{site.name}</div>
           <div style={{ display: "flex", marginTop: 28, fontSize: 88, fontWeight: 800, lineHeight: 1 }}>
             {h?.name ?? slug}
           </div>
@@ -85,7 +85,7 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
               {h.roles.map((r) => t(`roles.${r}`)).join(" · ")}
             </div>
           )}
-          {taux && (
+          {rate && (
             <div style={{ display: "flex", gap: 20, marginTop: 44 }}>
               <div
                 style={{
@@ -94,11 +94,11 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
                   fontSize: 38,
                   fontWeight: 800,
                   color: "#0b0e17",
-                  background: COULEUR_PALIER[taux.palier] ?? "#9aa7c2",
+                  background: COLOR_TIER[rate.tier] ?? "#9aa7c2",
                   borderRadius: 10,
                 }}
               >
-                {t("pages.heroDetail.tier", { p: taux.palier })}
+                {t("pages.heroDetail.tier", { p: rate.tier })}
               </div>
               <div
                 style={{
@@ -110,7 +110,7 @@ export default async function Image({ params }: { params: Promise<{ locale: Lang
                   borderRadius: 10,
                 }}
               >
-                <span style={{ fontSize: 38, fontWeight: 700 }}>{`${pourcent.format(taux.victoire)} %`}</span>
+                <span style={{ fontSize: 38, fontWeight: 700 }}>{`${percent.format(rate.win)} %`}</span>
                 <span style={{ fontSize: 24, color: "#9aa7c2" }}>{t("pages.heroDetail.stat.winRate")}</span>
               </div>
             </div>

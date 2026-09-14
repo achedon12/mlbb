@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { LANGUES } from "@/i18n/config";
+import { LOCALES } from "@/i18n/config";
 import {
   averageGuesses,
   classicGrid,
@@ -22,7 +22,7 @@ import {
   type MlbbdleHero,
 } from "@/lib/mlbbdle";
 import { mlbbdleCandidates, mlbbdlePuzzle, mlbbdleRoster } from "@/lib/mlbbdle-data";
-import { decalerJour, serieCourante, STATS_VIDES } from "@/lib/quiz";
+import { shiftDay, currentStreak, STATS_EMPTY } from "@/lib/quiz";
 
 const BASE: MlbbdleHero = {
   slug: "a",
@@ -30,7 +30,7 @@ const BASE: MlbbdleHero = {
   icon: null,
   gender: "male",
   roles: ["Mage"],
-  lanes: ["Milieu"],
+  lanes: ["Mid"],
   specialties: ["burst"],
   damage: "magic",
   range: "ranged",
@@ -90,11 +90,11 @@ describe("dates and draw", () => {
 
   it("numbers days from the epoch", () => {
     expect(puzzleNumber(EPOCH)).toBe(1);
-    expect(puzzleNumber(decalerJour(EPOCH, 30))).toBe(31);
+    expect(puzzleNumber(shiftDay(EPOCH, 30))).toBe(31);
   });
 
   const candidates = mlbbdleCandidates();
-  const end = decalerJour(EPOCH, 400);
+  const end = shiftDay(EPOCH, 400);
   const secrets = drawSecrets(candidates, end);
 
   it("draws one secret a day, never repeated within the window, never the same in both modes", () => {
@@ -115,14 +115,14 @@ describe("dates and draw", () => {
 
   it("depends neither on roster order nor on a hero released later", () => {
     expect(drawSecrets([...candidates].reverse(), end)).toEqual(secrets);
-    const newcomer: Candidate = { slug: "aaa-newcomer", since: decalerJour(EPOCH, 200), hasSkill: true };
+    const newcomer: Candidate = { slug: "aaa-newcomer", since: shiftDay(EPOCH, 200), hasSkill: true };
     const withNewcomer = drawSecrets([...candidates, newcomer], end);
     expect(withNewcomer.slice(0, 200)).toEqual(secrets.slice(0, 200));
   });
 
   it("reuses a recent hero rather than going without a secret", () => {
     const few: Candidate[] = ["x", "y", "z"].map((slug) => ({ slug, since: "2016-01-01", hasSkill: true }));
-    const s = drawSecrets(few, decalerJour(EPOCH, 9));
+    const s = drawSecrets(few, shiftDay(EPOCH, 9));
     expect(s.every((d) => d.classic && d.skill && d.classic !== d.skill)).toBe(true);
   });
 
@@ -134,12 +134,12 @@ describe("dates and draw", () => {
 });
 
 describe("daily puzzle", () => {
-  const day = decalerJour(EPOCH, 12);
+  const day = shiftDay(EPOCH, 12);
 
   it("sets the same answers in every language", () => {
     const fr = mlbbdlePuzzle("fr", day)!;
     expect(fr.number).toBe(13);
-    for (const l of LANGUES) {
+    for (const l of LOCALES) {
       const p = mlbbdlePuzzle(l, day)!;
       expect(p.classic).toBe(fr.classic);
       expect(p.skill?.answer).toBe(fr.skill?.answer);
@@ -148,7 +148,7 @@ describe("daily puzzle", () => {
   });
 
   it("gives yesterday's answers, except on the first day", () => {
-    const previous = mlbbdlePuzzle("en", decalerJour(day, -1))!;
+    const previous = mlbbdlePuzzle("en", shiftDay(day, -1))!;
     expect(mlbbdlePuzzle("en", day)!.yesterday).toEqual({
       classic: previous.classic,
       skill: previous.skill?.answer ?? null,
@@ -160,8 +160,8 @@ describe("daily puzzle", () => {
     const names = new Map(mlbbdleRoster("en").heroes.map((x) => [x.slug, x.name]));
     const leaks: string[] = [];
     for (let i = 0; i < 45; i++) {
-      for (const l of LANGUES) {
-        const s = mlbbdlePuzzle(l, decalerJour(EPOCH, i))?.skill;
+      for (const l of LOCALES) {
+        const s = mlbbdlePuzzle(l, shiftDay(EPOCH, i))?.skill;
         if (!s) continue;
         const name = names.get(s.answer)!;
         for (const text of [s.name, s.excerpt ?? ""]) if (containsName(text, name)) leaks.push(`${l}/${s.answer}`);
@@ -171,7 +171,7 @@ describe("daily puzzle", () => {
   });
 
   it("labels every roster value in every language", () => {
-    for (const l of LANGUES) {
+    for (const l of LOCALES) {
       const { heroes, labels } = mlbbdleRoster(l);
       expect(heroes.length).toBeGreaterThan(100);
       const missing = heroes
@@ -224,15 +224,15 @@ describe("sharing and stats", () => {
   });
 
   it("buckets wins by guesses and keeps the streak", () => {
-    let s = recordWin(STATS_VIDES, EPOCH, 3);
+    let s = recordWin(STATS_EMPTY, EPOCH, 3);
     s = recordWin(s, EPOCH, 1);
     expect(s.joues).toBe(1);
-    s = recordWin(s, decalerJour(EPOCH, 1), 25);
+    s = recordWin(s, shiftDay(EPOCH, 1), 25);
     expect(s.distribution[3]).toBe(1);
     expect(s.distribution[LAST_BUCKET]).toBe(1);
     expect(s.serie).toBe(2);
     expect(averageGuesses(s)).toBeCloseTo(6.5);
-    expect(serieCourante(s, decalerJour(EPOCH, 3))).toBe(0);
+    expect(currentStreak(s, shiftDay(EPOCH, 3))).toBe(0);
   });
 
   it("unlocks skill clues in order", () => {

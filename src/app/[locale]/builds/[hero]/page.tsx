@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CommunityBuildCard } from "@/components/community-build-card";
-import Link from "@/components/lien";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
+import Link from "@/components/link";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
+import { createT, messagesPage } from "@/i18n/translations";
 import { buildNames, simCatalog } from "@/lib/build-catalog";
 import { sortBuilds, toPublic } from "@/lib/community-builds";
 import { readCommunity } from "@/lib/community-builds-server";
 import { listBuilds } from "@/lib/community-builds-store";
-import { herosParSlug } from "@/lib/donnees";
+import { heroesBySlug } from "@/lib/data";
 
 /**
  * Community builds of one hero, most voted first, each with its computed
@@ -21,24 +21,24 @@ import { herosParSlug } from "@/lib/donnees";
  */
 export const dynamic = "force-dynamic";
 
-type Params = { params: Promise<{ locale: Langue; hero: string }> };
+type Params = { params: Promise<{ locale: Locale; hero: string }> };
 
 /** Beyond this, the list is cut: the least voted builds stay reachable through the API. */
 const MAX_SHOWN = 50;
 
-const knownHero = (slug: string) => (simCatalog.heroes.has(slug) ? herosParSlug.get(slug) : undefined);
+const knownHero = (slug: string) => (simCatalog.heroes.has(slug) ? heroesBySlug.get(slug) : undefined);
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, hero } = await params;
   const h = knownHero(hero);
   if (!h) return {};
-  const t = creerT(locale);
+  const t = createT(locale);
   const count = ((await listBuilds().catch(() => [])) ?? []).filter((b) => b.build.hero === hero).length;
   return {
     ...metaPage(locale, {
-      titre: t("pages.seo.communityBuildsHero.title", { hero: h.name }),
+      title: t("pages.seo.communityBuildsHero.title", { hero: h.name }),
       description: t("pages.seo.communityBuildsHero.description", { hero: h.name }),
-      chemin: `/builds/${hero}`,
+      path: `/builds/${hero}`,
     }),
     ...(count === 0 ? { robots: { index: false, follow: true } } : {}),
   };
@@ -48,7 +48,7 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
   const { locale, hero } = await params;
   const h = knownHero(hero);
   if (!h) notFound();
-  const t = creerT(locale);
+  const t = createT(locale);
   const { builds: stored, viewer, now } = await readCommunity();
   const mine = stored ? sortBuilds(stored.filter((b) => b.build.hero === hero), "votes", now) : [];
   const itemNames = buildNames(locale, t).items;
@@ -56,11 +56,11 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
 
   return (
     <>
-      <EnTetePage
-        titre={t("pages.communityBuilds.heroTitle", { hero: h.name })}
-        chapeau={t("pages.communityBuilds.heroLead", { hero: h.name })}
-        miettes={[{ nom: t("pages.communityBuilds.title"), href: "/builds" }, { nom: h.name }]}
-        icone={<PortraitHeros source={h.images.icon} nom={h.name} taille="vignette" decoratif />}
+      <PageHeader
+        title={t("pages.communityBuilds.heroTitle", { hero: h.name })}
+        lead={t("pages.communityBuilds.heroLead", { hero: h.name })}
+        crumbs={[{ name: t("pages.communityBuilds.title"), href: "/builds" }, { name: h.name }]}
+        icon={<HeroPortrait source={h.images.icon} name={h.name} size="thumb" decorative />}
       >
         <Link
           href={`/tools/build?h=${hero}`}
@@ -68,8 +68,8 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
         >
           {t("pages.communityBuilds.heroCreate", { hero: h.name })}
         </Link>
-      </EnTetePage>
-      <CompleterMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
+      </PageHeader>
+      <ExtendMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
         <div className="mx-auto max-w-6xl space-y-6 px-4 py-10">
           {stored === null ? (
             <p role="alert" className="border border-blood-500/40 p-4 text-chalk-300">
@@ -103,7 +103,7 @@ export default async function HeroCommunityBuildsPage({ params }: Params) {
             </Link>
           </p>
         </div>
-      </CompleterMessages>
+      </ExtendMessages>
     </>
   );
 }

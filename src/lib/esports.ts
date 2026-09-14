@@ -1,5 +1,5 @@
-import rawData from "@/data/jeu/esports.json";
-import { classementComplet } from "./tier-list";
+import rawData from "@/data/game/esports.json";
+import { rankingFull } from "./tier-list";
 
 /**
  * Esports: World Championships (M-series), MSC and the current MPL seasons.
@@ -330,7 +330,7 @@ export function proVsRanked(now = new Date(), n = 8) {
   const { heroes, games } = combine(metaTournaments(now));
   const rows = compareProRanked(
     heroes,
-    classementComplet.map((e) => ({ slug: e.hero.slug, pickRate: e.pickRate, banRate: e.banRate, winRate: e.winRate })),
+    rankingFull.map((e) => ({ slug: e.hero.slug, pickRate: e.pickRate, banRate: e.banRate, winRate: e.winRate })),
   );
   return {
     games,

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import type { Langue } from "@/i18n/config";
-import { roleDuSlug, SLUGS_ROLE } from "@/lib/filtres-tier-list";
-import { metaTierList, TierList } from "../../contenu";
+import type { Locale } from "@/i18n/config";
+import { roleOfSlug, SLUGS_ROLE } from "@/lib/tier-list-filters";
+import { metaTierList, TierList } from "../../content";
 
-type Params = { params: Promise<{ locale: Langue; role: string }> };
+type Params = { params: Promise<{ locale: Locale; role: string }> };
 
 /** Une page par role, tous rangs confondus : « /tier-list/role/marksman ». */
 export const dynamicParams = false;
@@ -15,13 +15,13 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, role } = await params;
-  const valeur = roleDuSlug(role);
-  return valeur ? metaTierList(locale, "all", { type: "role", valeur }) : {};
+  const value = roleOfSlug(role);
+  return value ? metaTierList(locale, "all", { type: "role", value }) : {};
 }
 
-export default async function PageTierListRole({ params }: Params) {
+export default async function TierListRolePage({ params }: Params) {
   const { locale, role } = await params;
-  const valeur = roleDuSlug(role);
-  if (!valeur) notFound();
-  return <TierList locale={locale} rang="all" filtre={{ type: "role", valeur }} />;
+  const value = roleOfSlug(role);
+  if (!value) notFound();
+  return <TierList locale={locale} rank="all" filter={{ type: "role", value }} />;
 }

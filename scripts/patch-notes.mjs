@@ -10,7 +10,7 @@
 import { parse } from "node-html-parser";
 
 /** Elements sans aucun interet hors du wiki. */
-const A_SUPPRIMER = [
+const TO_DELETE = [
   ".mw-editsection",
   ".navbox",
   ".portable-infobox",
@@ -27,67 +27,67 @@ const A_SUPPRIMER = [
   ".hatnote",
 ];
 
-export function nettoyerRendu(html, origine) {
-  const racine = parse(html);
+export function cleanRender(html, origin) {
+  const root = parse(html);
 
-  for (const selecteur of A_SUPPRIMER) {
-    for (const noeud of racine.querySelectorAll(selecteur)) noeud.remove();
+  for (const picker of TO_DELETE) {
+    for (const node of root.querySelectorAll(picker)) node.remove();
   }
 
   // Les liens relatifs du wiki pointeraient dans le vide une fois recopies :
   // on les rend absolus, et on marque leur caractere externe.
-  for (const lien of racine.querySelectorAll("a")) {
-    const href = lien.getAttribute("href") ?? "";
+  for (const link of root.querySelectorAll("a")) {
+    const href = link.getAttribute("href") ?? "";
     if (href.startsWith("/wiki/")) {
-      lien.setAttribute("href", `https://mobilelegends.fandom.com${href}`);
+      link.setAttribute("href", `https://mobilelegends.fandom.com${href}`);
     } else if (href.startsWith("#") || href === "") {
       // Ancre vers une section supprimee : on garde le texte, pas le lien.
-      lien.replaceWith(lien.innerHTML);
+      link.replaceWith(link.innerHTML);
       continue;
     }
-    lien.setAttribute("rel", "noreferrer nofollow");
-    lien.setAttribute("target", "_blank");
+    link.setAttribute("rel", "noreferrer nofollow");
+    link.setAttribute("target", "_blank");
   }
 
   // Les images du wiki sont chargees en differe par un attribut maison ; sans
   // le script du wiki, elles resteraient vides. On les retire.
-  for (const image of racine.querySelectorAll("img")) image.remove();
+  for (const image of root.querySelectorAll("img")) image.remove();
 
   // Les classes du wiki n'ont aucun sens dans notre feuille de style.
-  for (const noeud of racine.querySelectorAll("[class]")) {
-    noeud.removeAttribute("class");
+  for (const node of root.querySelectorAll("[class]")) {
+    node.removeAttribute("class");
   }
-  for (const noeud of racine.querySelectorAll("[style]")) {
-    noeud.removeAttribute("style");
+  for (const node of root.querySelectorAll("[style]")) {
+    node.removeAttribute("style");
   }
   // Les identifiants du wiki servent ses propres ancres ; on les remplace par
   // les notres plus bas.
-  for (const noeud of racine.querySelectorAll("[id]")) noeud.removeAttribute("id");
+  for (const node of root.querySelectorAll("[id]")) node.removeAttribute("id");
 
   // Chaque titre recoit une ancre : sans elle, un sommaire ne peut pointer
   // nulle part, et une note de patch fait plusieurs dizaines de milliers de
   // caracteres.
-  const vus = new Set();
-  for (const titre of racine.querySelectorAll("h2, h3, h4")) {
-    const texte = titre.text.trim();
-    if (!texte) continue;
+  const seen = new Set();
+  for (const title of root.querySelectorAll("h2, h3, h4")) {
+    const text = title.text.trim();
+    if (!text) continue;
 
-    let ancre = ancrer(texte);
+    let anchor = toAnchor(text);
     // Deux sections peuvent porter le meme nom dans une meme page.
-    let suffixe = 2;
-    while (vus.has(ancre)) ancre = `${ancrer(texte)}-${suffixe++}`;
-    vus.add(ancre);
+    let suffix = 2;
+    while (seen.has(anchor)) anchor = `${toAnchor(text)}-${suffix++}`;
+    seen.add(anchor);
 
-    titre.setAttribute("id", ancre);
+    title.setAttribute("id", anchor);
   }
 
-  const contenu = racine.querySelector(".mw-parser-output") ?? racine;
-  const texte = contenu.innerHTML
+  const content = root.querySelector(".mw-parser-output") ?? root;
+  const text = content.innerHTML
     .replace(/<div[^>]*>|<\/div>/g, "")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 
-  return { html: texte, origine };
+  return { html: text, origin };
 }
 
 /**
@@ -97,29 +97,29 @@ export function nettoyerRendu(html, origine) {
  * ses sous-titres h3. Le decoupage laisse la page composer : rendre certaines
  * sections telles quelles, en remplacer d'autres par un composant riche.
  */
-export function decouperSections(html) {
-  const racine = parse(html);
+export function splitSections(html) {
+  const root = parse(html);
   const sections = [];
-  let courante = null;
+  let current = null;
 
-  for (const noeud of racine.childNodes) {
-    if (noeud.rawTagName === "h2") {
-      courante = {
-        anchor: noeud.getAttribute("id") ?? null,
-        title: noeud.text.trim(),
+  for (const node of root.childNodes) {
+    if (node.rawTagName === "h2") {
+      current = {
+        anchor: node.getAttribute("id") ?? null,
+        title: node.text.trim(),
         html: "",
       };
-      sections.push(courante);
+      sections.push(current);
       continue;
     }
 
     // Contenu avant le premier h2 : on l'ouvre dans une section sans titre.
-    if (!courante) {
-      courante = { anchor: null, title: null, html: "" };
-      sections.push(courante);
+    if (!current) {
+      current = { anchor: null, title: null, html: "" };
+      sections.push(current);
     }
 
-    courante.html += noeud.toString();
+    current.html += node.toString();
   }
 
   return sections
@@ -135,77 +135,77 @@ export function decouperSections(html) {
  * competence est un paragraphe en gras — role et nom — suivi d'une liste de
  * descriptions. On la ramene a des donnees pour un affichage soigne.
  */
-export function nouveauxHeros(sectionHtml) {
-  const racine = parse(sectionHtml);
-  const heros = [];
-  let courant = null;
+export function newHeroes(sectionHtml) {
+  const root = parse(sectionHtml);
+  const heroes = [];
+  let current = null;
 
-  for (const noeud of racine.childNodes) {
-    const tag = noeud.rawTagName;
+  for (const node of root.childNodes) {
+    const tag = node.rawTagName;
 
     if (tag === "h3") {
       // « New Hero: Fallen Scarlet - Hirara » → epithete « Fallen Scarlet »,
       // nom « Hirara ».
-      const brut = noeud.text.trim().replace(/^New Hero\s*:\s*/i, "");
-      const morceaux = brut.split(/\s[-–—]\s/);
-      const nom = (morceaux.length > 1 ? morceaux.pop() : brut).trim();
-      const epithete = morceaux.join(" - ").trim() || null;
-      courant = {
-        name: nom,
-        epithet: epithete,
-        anchor: noeud.getAttribute("id") ?? null,
+      const raw = node.text.trim().replace(/^New Hero\s*:\s*/i, "");
+      const chunks = raw.split(/\s[-–—]\s/);
+      const name = (chunks.length > 1 ? chunks.pop() : raw).trim();
+      const epithet = chunks.join(" - ").trim() || null;
+      current = {
+        name,
+        epithet,
+        anchor: node.getAttribute("id") ?? null,
         lore: [],
         feature: null,
         skills: [],
       };
-      heros.push(courant);
+      heroes.push(current);
       continue;
     }
 
-    if (!courant) continue;
+    if (!current) continue;
 
     if (tag === "p") {
-      const gras = noeud.querySelector("b");
-      const etiquette = gras ? gras.text.replace(/\s+/g, " ").trim() : "";
+      const bold = node.querySelector("b");
+      const label = bold ? bold.text.replace(/\s+/g, " ").trim() : "";
 
-      if (gras && /(Passive|Skill|Combo|Ultimate|Ult\b)/i.test(etiquette)) {
+      if (bold && /(Passive|Skill|Combo|Ultimate|Ult\b)/i.test(label)) {
         // « Passive - Twin Fans: Ukifune » → role puis nom de competence.
-        const coupe = etiquette.search(/\s[-–—]\s/);
-        const role = (coupe >= 0 ? etiquette.slice(0, coupe) : etiquette).trim();
-        const nom =
-          coupe >= 0 ? etiquette.slice(coupe).replace(/^\s[-–—]\s/, "").trim() : null;
-        courant.skills.push({ role, name: nom, description: [] });
+        const cut = label.search(/\s[-–—]\s/);
+        const role = (cut >= 0 ? label.slice(0, cut) : label).trim();
+        const name =
+          cut >= 0 ? label.slice(cut).replace(/^\s[-–—]\s/, "").trim() : null;
+        current.skills.push({ role, name, description: [] });
         continue;
       }
 
       // Paragraphe d'histoire : les lignes sont separees par des <br>, et la
       // derniere annonce souvent la « Hero feature ».
-      for (const bloc of noeud.innerHTML.split(/<br\s*\/?>/i)) {
-        const ligne = parse(bloc).text.replace(/\s+/g, " ").trim();
-        if (!ligne) continue;
-        const feature = ligne.match(/^Hero feature\s*:\s*(.+)$/i);
-        if (feature) courant.feature = feature[1].trim();
-        else courant.lore.push(ligne);
+      for (const block of node.innerHTML.split(/<br\s*\/?>/i)) {
+        const row = parse(block).text.replace(/\s+/g, " ").trim();
+        if (!row) continue;
+        const feature = row.match(/^Hero feature\s*:\s*(.+)$/i);
+        if (feature) current.feature = feature[1].trim();
+        else current.lore.push(row);
       }
       continue;
     }
 
     if (tag === "ul") {
-      const derniere = courant.skills.at(-1);
-      if (!derniere) continue;
-      for (const item of noeud.querySelectorAll("li")) {
-        const texte = item.text.replace(/\s+/g, " ").trim();
-        if (texte) derniere.description.push(texte);
+      const last = current.skills.at(-1);
+      if (!last) continue;
+      for (const item of node.querySelectorAll("li")) {
+        const text = item.text.replace(/\s+/g, " ").trim();
+        if (text) last.description.push(text);
       }
     }
   }
 
-  return heros;
+  return heroes;
 }
 
 /** Identifiant d'ancre stable, derive du titre. */
-function ancrer(texte) {
-  return texte
+function toAnchor(text) {
+  return text
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
@@ -221,7 +221,7 @@ function ancrer(texte) {
  * presentes dans le document : un sommaire qui pointe a cote serait pire que
  * pas de sommaire.
  */
-export function sommaire(html) {
+export function toc(html) {
   return parse(html)
     .querySelectorAll("h2, h3")
     .map((t) => ({

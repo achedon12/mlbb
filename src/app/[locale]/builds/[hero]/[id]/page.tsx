@@ -3,20 +3,20 @@ import Image from "next/image";
 import { notFound, permanentRedirect } from "next/navigation";
 import { BuildStats } from "@/components/build-stats";
 import { DeleteBuildButton, VoteButton } from "@/components/community-build-actions";
-import Link from "@/components/lien";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
+import Link from "@/components/link";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
+import { createT, messagesPage } from "@/i18n/translations";
 import { buildNames, emblemImage, emblemName, itemImage, simCatalog, spellImage, spellName, talentImage, talentName } from "@/lib/build-catalog";
 import { simulate } from "@/lib/build-simulator";
 import { BUILD_ID, INDEX_THRESHOLD, isIndexable, toPublic } from "@/lib/community-builds";
 import { viewerAndTime } from "@/lib/community-builds-server";
 import { getBuild } from "@/lib/community-builds-store";
-import { herosParSlug } from "@/lib/donnees";
-import { dateLongue } from "@/lib/fraicheur";
+import { heroesBySlug } from "@/lib/data";
+import { longDate } from "@/lib/freshness";
 
 /**
  * One community build: its choices, the author's notes, the full computed
@@ -26,7 +26,7 @@ import { dateLongue } from "@/lib/fraicheur";
  */
 export const dynamic = "force-dynamic";
 
-type Params = { params: Promise<{ locale: Langue; hero: string; id: string }> };
+type Params = { params: Promise<{ locale: Locale; hero: string; id: string }> };
 
 async function load(id: string) {
   if (!BUILD_ID.test(id)) return null;
@@ -37,13 +37,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, id } = await params;
   const stored = await load(id);
   if (!stored) return { robots: { index: false, follow: true } };
-  const t = creerT(locale);
-  const hero = herosParSlug.get(stored.build.hero)?.name ?? stored.build.hero;
+  const t = createT(locale);
+  const hero = heroesBySlug.get(stored.build.hero)?.name ?? stored.build.hero;
   return {
     ...metaPage(locale, {
-      titre: t("pages.seo.communityBuild.title", { title: stored.title, hero }),
+      title: t("pages.seo.communityBuild.title", { title: stored.title, hero }),
       description: t("pages.seo.communityBuild.description", { hero, name: stored.author.name, votes: stored.votes.length }),
-      chemin: `/builds/${stored.build.hero}/${stored.id}`,
+      path: `/builds/${stored.build.hero}/${stored.id}`,
     }),
     robots: isIndexable(stored.votes.length) ? { index: true, follow: true } : { index: false, follow: true },
   };
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function CommunityBuildPage({ params }: Params) {
   const { locale, hero, id } = await params;
   const stored = await load(id);
-  const t = creerT(locale);
+  const t = createT(locale);
   if (stored === null) notFound();
   if (stored === undefined) {
     return (
@@ -67,7 +67,7 @@ export default async function CommunityBuildPage({ params }: Params) {
 
   const { viewer, now } = await viewerAndTime();
   const build = toPublic(stored, viewer, now);
-  const h = herosParSlug.get(build.hero);
+  const h = heroesBySlug.get(build.hero);
   const heroName = h?.name ?? build.hero;
   const simHero = simCatalog.heroes.get(build.hero);
   const result = simulate(build.build, simCatalog);
@@ -85,21 +85,21 @@ export default async function CommunityBuildPage({ params }: Params) {
 
   return (
     <>
-      <EnTetePage
-        titre={build.title}
-        chapeau={t("pages.communityBuilds.buildLead", {
+      <PageHeader
+        title={build.title}
+        lead={t("pages.communityBuilds.buildLead", {
           hero: heroName,
           name: build.authorName,
-          date: dateLongue(locale, build.createdAt),
+          date: longDate(locale, build.createdAt),
         })}
-        miettes={[
-          { nom: t("pages.communityBuilds.title"), href: "/builds" },
-          { nom: heroName, href: `/builds/${build.hero}` },
-          { nom: build.title },
+        crumbs={[
+          { name: t("pages.communityBuilds.title"), href: "/builds" },
+          { name: heroName, href: `/builds/${build.hero}` },
+          { name: build.title },
         ]}
-        icone={h ? <PortraitHeros source={h.images.icon} nom={heroName} taille="vignette" decoratif /> : undefined}
+        icon={h ? <HeroPortrait source={h.images.icon} name={heroName} size="thumb" decorative /> : undefined}
       />
-      <CompleterMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
+      <ExtendMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
           <div className="min-w-0 space-y-8">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -183,7 +183,7 @@ export default async function CommunityBuildPage({ params }: Params) {
             )}
           </aside>
         </div>
-      </CompleterMessages>
+      </ExtendMessages>
     </>
   );
 }

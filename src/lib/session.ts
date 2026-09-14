@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { cache } from "react";
-import { expiration, profil, type Profil } from "./mlbb-auth";
+import { expiration, profile, type Profile } from "./mlbb-auth";
 
 /**
  * Session de jeu.
@@ -12,11 +12,11 @@ import { expiration, profil, type Profil } from "./mlbb-auth";
  */
 const COOKIE = "mlbb_jeu";
 
-export async function ouvrirSession(jeton: string): Promise<void> {
-  const exp = expiration(jeton);
+export async function openSession(token: string): Promise<void> {
+  const exp = expiration(token);
   const maxAge = exp ? Math.max(0, exp - Math.floor(Date.now() / 1000)) : 60 * 60 * 24 * 7;
 
-  (await cookies()).set(COOKIE, jeton, {
+  (await cookies()).set(COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
     secure: process.env.NODE_ENV === "production",
@@ -25,7 +25,7 @@ export async function ouvrirSession(jeton: string): Promise<void> {
   });
 }
 
-export async function fermerSession(): Promise<void> {
+export async function closeSession(): Promise<void> {
   (await cookies()).delete(COOKIE);
 }
 
@@ -35,23 +35,23 @@ export async function fermerSession(): Promise<void> {
  * alors en place, et l'appel de l'en-tete a `/api/session` — un gestionnaire
  * de route, lui autorise — le videra au passage.
  */
-async function fermerSiPossible(): Promise<void> {
+async function closeIfPossible(): Promise<void> {
   try {
-    await fermerSession();
+    await closeSession();
   } catch {
     // Rendu de page : cookie en lecture seule.
   }
 }
 
 /** Jeton courant, ou null. Un jeton expire est traite comme absent. */
-export async function jetonCourant(): Promise<string | null> {
-  const jeton = (await cookies()).get(COOKIE)?.value;
-  if (!jeton) return null;
+export async function tokenCurrent(): Promise<string | null> {
+  const token = (await cookies()).get(COOKIE)?.value;
+  if (!token) return null;
 
-  const exp = expiration(jeton);
+  const exp = expiration(token);
   if (exp && exp < Math.floor(Date.now() / 1000)) return null;
 
-  return jeton;
+  return token;
 }
 
 /**
@@ -62,35 +62,35 @@ export async function jetonCourant(): Promise<string | null> {
  * jeton n'est rendu qu'au code serveur qui appelle le service ; il n'a rien a
  * faire dans les proprietes d'un composant client.
  */
-export type EtatSession =
-  | { etat: "absente" }
-  | { etat: "expiree" }
-  | { etat: "indisponible"; jeton: string }
-  | { etat: "ok"; jeton: string; profil: Profil };
+export type StateSession =
+  | { state: "missing" }
+  | { state: "expired" }
+  | { state: "unavailable"; token: string }
+  | { state: "ok"; token: string; profile: Profile };
 
 /**
  * Une reponse « expire » du service — jeton revoque avant son echeance —
  * ferme la session au passage quand c'est permis : le prochain rendu la verra
  * vide, sans qu'un jeton mort traine dans le cookie.
  */
-async function lireSession(): Promise<EtatSession> {
-  const jeton = await jetonCourant();
-  if (!jeton) return { etat: "absente" };
+async function readSession(): Promise<StateSession> {
+  const token = await tokenCurrent();
+  if (!token) return { state: "missing" };
 
-  const resultat = await profil(jeton);
-  if (resultat.etat === "expire") {
-    await fermerSiPossible();
-    return { etat: "expiree" };
+  const result = await profile(token);
+  if (result.etat === "expired") {
+    await closeIfPossible();
+    return { state: "expired" };
   }
   // Source indisponible : on garde la session, mais on n'a pas le profil.
-  return resultat.etat === "ok" ? { etat: "ok", jeton, profil: resultat.donnees } : { etat: "indisponible", jeton };
+  return result.etat === "ok" ? { state: "ok", token, profile: result.donnees } : { state: "unavailable", token };
 }
 
 /** Etat de la session, lu une fois par rendu de page. */
-export const sessionJoueur = cache(lireSession);
+export const sessionPlayer = cache(readSession);
 
 /** Profil de la session courante, ou null. */
-export async function profilCourant(): Promise<Profil | null> {
-  const session = await lireSession();
-  return session.etat === "ok" ? session.profil : null;
+export async function profileCurrent(): Promise<Profile | null> {
+  const session = await readSession();
+  return session.state === "ok" ? session.profile : null;
 }

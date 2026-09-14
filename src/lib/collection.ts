@@ -1,11 +1,11 @@
 import {
-  MONNAIES_CHIFFREES,
-  estOrigine,
-  lireSortie,
-  type Catalogue,
-  type Monnaie,
-  type SkinCatalogue,
-} from "./catalogue-skins";
+  NUMERIC_CURRENCIES,
+  isOrigin,
+  readRelease,
+  type Catalog,
+  type Currency,
+  type SkinCatalog,
+} from "./skin-catalog";
 
 /**
  * Valeur d'une collection : ce que coutent, au prix de la boutique du jeu, les
@@ -20,44 +20,44 @@ import {
  * additionnes a part.
  */
 
-export interface Possession {
+export interface Ownership {
   heros: ReadonlySet<string>;
   /** Identifiants des skins, hors skins d'origine (portes par `heros`). */
   skins: ReadonlySet<string>;
 }
 
-export interface LigneBilan {
-  possedes: number;
+export interface RowSummary {
+  owned: number;
   total: number;
-  diamants: number;
+  diamonds: number;
 }
 
-export interface Bilan {
-  heros: LigneBilan & {
-    pointsBataille: number;
+export interface Summary {
+  heroes: RowSummary & {
+    battlePoints: number;
     /** Heros possedes dont le prix n'existe pas en diamants (points de bataille, fragments…). */
-    sansDiamant: number;
+    withoutDiamond: number;
   };
-  skins: LigneBilan & {
+  skins: RowSummary & {
     /** Skins possedes sans prix en diamants : evenement, tirage, StarLight, pass. */
-    sansDiamant: number;
+    withoutDiamond: number;
     /** Autres monnaies des skins possedes (noyaux magiques, gemmes…), hors diamants. */
-    autres: Partial<Record<Monnaie, number>>;
+    others: Partial<Record<Currency, number>>;
   };
   /** Heros et skins, en diamants. */
-  diamants: number;
-  parRarete: (LigneBilan & { rang: number })[];
-  parSerie: (LigneBilan & { serie: string })[];
-  plusRares: SkinCatalogue[];
+  diamonds: number;
+  byRarity: (RowSummary & { rank: number })[];
+  bySeries: (RowSummary & { series: string })[];
+  plusRare: SkinCatalog[];
 }
 
 /** Skins que l'on peut cocher : sortis ou deja en boutique, hors skins d'origine et skins annonces. */
-export const skinsCollectionnables = (c: Catalogue) => c.skins.filter((s) => !estOrigine(s) && s.dispo !== "Upcoming");
+export const skinsCollectible = (c: Catalog) => c.skins.filter((s) => !isOrigin(s) && s.availability !== "Upcoming");
 
 /** Skin d'origine de chaque heros : il porte le prix du heros. */
-export function originesParHeros(c: Catalogue): Map<string, SkinCatalogue> {
-  const m = new Map<string, SkinCatalogue>();
-  for (const s of c.skins) if (estOrigine(s) && !m.has(s.heros)) m.set(s.heros, s);
+export function originsByHero(c: Catalog): Map<string, SkinCatalog> {
+  const m = new Map<string, SkinCatalog>();
+  for (const s of c.skins) if (isOrigin(s) && !m.has(s.hero)) m.set(s.hero, s);
   return m;
 }
 
@@ -66,75 +66,75 @@ export function originesParHeros(c: Catalogue): Map<string, SkinCatalogue> {
  * moins fournie, puis le plus ancien. Le premier de la liste est la piece
  * maitresse de la collection.
  */
-export function comparerRarete(tailleSerie: ReadonlyMap<string, number>) {
-  const taille = (s: SkinCatalogue) => (s.serie ? (tailleSerie.get(s.serie) ?? Infinity) : Infinity);
-  const cleDate = (s: SkinCatalogue) => (lireSortie(s.sortie) ? s.sortie! : "9999");
-  return (a: SkinCatalogue, b: SkinCatalogue) =>
-    b.rarete - a.rarete ||
-    Number(b.dispo === "Limited") - Number(a.dispo === "Limited") ||
-    taille(a) - taille(b) ||
-    cleDate(a).localeCompare(cleDate(b)) ||
-    a.nom.localeCompare(b.nom, "en");
+export function compareRarity(runLength: ReadonlyMap<string, number>) {
+  const size = (s: SkinCatalog) => (s.series ? (runLength.get(s.series) ?? Infinity) : Infinity);
+  const keyDate = (s: SkinCatalog) => (readRelease(s.release) ? s.release! : "9999");
+  return (a: SkinCatalog, b: SkinCatalog) =>
+    b.rarity - a.rarity ||
+    Number(b.availability === "Limited") - Number(a.availability === "Limited") ||
+    size(a) - size(b) ||
+    keyDate(a).localeCompare(keyDate(b)) ||
+    a.name.localeCompare(b.name, "en");
 }
 
-export function bilanCollection(c: Catalogue, p: Possession, nombreRares = 6): Bilan {
-  const origines = originesParHeros(c);
-  const heros = { possedes: 0, total: c.heros.length, diamants: 0, pointsBataille: 0, sansDiamant: 0 };
-  for (const h of c.heros) {
+export function summaryCollection(c: Catalog, p: Ownership, rareCount = 6): Summary {
+  const origins = originsByHero(c);
+  const heroes = { owned: 0, total: c.heroes.length, diamonds: 0, battlePoints: 0, withoutDiamond: 0 };
+  for (const h of c.heroes) {
     if (!p.heros.has(h.slug)) continue;
-    heros.possedes += 1;
-    const prix = origines.get(h.slug)?.prix ?? {};
-    heros.diamants += prix.dm ?? 0;
-    heros.pointsBataille += prix.bp ?? 0;
-    if (prix.dm == null) heros.sansDiamant += 1;
+    heroes.owned += 1;
+    const price = origins.get(h.slug)?.price ?? {};
+    heroes.diamonds += price.dm ?? 0;
+    heroes.battlePoints += price.bp ?? 0;
+    if (price.dm == null) heroes.withoutDiamond += 1;
   }
 
-  const collectionnables = skinsCollectionnables(c);
-  const skins = { possedes: 0, total: collectionnables.length, diamants: 0, sansDiamant: 0, autres: {} as Bilan["skins"]["autres"] };
-  const parRarete = new Map<number, LigneBilan & { rang: number }>();
-  const parSerie = new Map<string, LigneBilan & { serie: string }>();
-  const possedes: SkinCatalogue[] = [];
+  const collectible = skinsCollectible(c);
+  const skins = { owned: 0, total: collectible.length, diamonds: 0, withoutDiamond: 0, others: {} as Summary["skins"]["others"] };
+  const byRarity = new Map<number, RowSummary & { rank: number }>();
+  const bySeries = new Map<string, RowSummary & { series: string }>();
+  const owned: SkinCatalog[] = [];
 
-  for (const s of collectionnables) {
-    const r = parRarete.get(s.rarete) ?? { rang: s.rarete, possedes: 0, total: 0, diamants: 0 };
-    parRarete.set(s.rarete, r);
-    const serie = s.serie ? (parSerie.get(s.serie) ?? { serie: s.serie, possedes: 0, total: 0, diamants: 0 }) : null;
-    if (serie) parSerie.set(s.serie!, serie);
+  for (const s of collectible) {
+    const r = byRarity.get(s.rarity) ?? { rank: s.rarity, owned: 0, total: 0, diamonds: 0 };
+    byRarity.set(s.rarity, r);
+    const series = s.series ? (bySeries.get(s.series) ?? { series: s.series, owned: 0, total: 0, diamonds: 0 }) : null;
+    if (series) bySeries.set(s.series!, series);
     r.total += 1;
-    if (serie) serie.total += 1;
+    if (series) series.total += 1;
     if (!p.skins.has(s.id)) continue;
 
-    possedes.push(s);
-    const dm = s.prix.dm ?? 0;
-    skins.possedes += 1;
-    skins.diamants += dm;
-    if (s.prix.dm == null) skins.sansDiamant += 1;
-    for (const m of MONNAIES_CHIFFREES) {
-      if (m !== "dm" && s.prix[m] != null) skins.autres[m] = (skins.autres[m] ?? 0) + s.prix[m]!;
+    owned.push(s);
+    const dm = s.price.dm ?? 0;
+    skins.owned += 1;
+    skins.diamonds += dm;
+    if (s.price.dm == null) skins.withoutDiamond += 1;
+    for (const m of NUMERIC_CURRENCIES) {
+      if (m !== "dm" && s.price[m] != null) skins.others[m] = (skins.others[m] ?? 0) + s.price[m]!;
     }
-    r.possedes += 1;
-    r.diamants += dm;
-    if (serie) {
-      serie.possedes += 1;
-      serie.diamants += dm;
+    r.owned += 1;
+    r.diamonds += dm;
+    if (series) {
+      series.owned += 1;
+      series.diamonds += dm;
     }
   }
 
-  const tailles = new Map([...parSerie].map(([nom, l]) => [nom, l.total]));
+  const sizes = new Map([...bySeries].map(([name, l]) => [name, l.total]));
   return {
-    heros,
+    heroes,
     skins,
-    diamants: heros.diamants + skins.diamants,
-    parRarete: [...parRarete.values()].sort((a, b) => b.rang - a.rang),
+    diamonds: heroes.diamonds + skins.diamonds,
+    byRarity: [...byRarity.values()].sort((a, b) => b.rank - a.rank),
     // Series entamees d'abord, par taux de completion ; puis les plus fournies.
-    parSerie: [...parSerie.values()].sort(
+    bySeries: [...bySeries.values()].sort(
       (a, b) =>
-        Number(b.possedes > 0) - Number(a.possedes > 0) ||
-        b.possedes / b.total - a.possedes / a.total ||
+        Number(b.owned > 0) - Number(a.owned > 0) ||
+        b.owned / b.total - a.owned / a.total ||
         b.total - a.total ||
-        a.serie.localeCompare(b.serie, "en"),
+        a.series.localeCompare(b.series, "en"),
     ),
-    plusRares: possedes.sort(comparerRarete(tailles)).slice(0, nombreRares),
+    plusRare: owned.sort(compareRarity(sizes)).slice(0, rareCount),
   };
 }
 
@@ -142,41 +142,41 @@ export function bilanCollection(c: Catalogue, p: Possession, nombreRares = 6): B
  * Couverture des prix du catalogue, pour dire honnetement ce que le total
  * compte : heros et skins chiffres en diamants, et les autres.
  */
-export function couverturePrix(c: Catalogue) {
-  const origines = originesParHeros(c);
-  const skins = skinsCollectionnables(c);
+export function coveragePrice(c: Catalog) {
+  const origins = originsByHero(c);
+  const skins = skinsCollectible(c);
   return {
-    heros: c.heros.length,
-    herosDiamants: c.heros.filter((h) => origines.get(h.slug)?.prix.dm != null).length,
+    heroes: c.heroes.length,
+    heroDiamonds: c.heroes.filter((h) => origins.get(h.slug)?.price.dm != null).length,
     skins: skins.length,
-    skinsDiamants: skins.filter((s) => s.prix.dm != null).length,
-    skinsAutreMonnaie: skins.filter((s) => s.prix.dm == null && Object.keys(s.prix).length > 0).length,
+    skinsDiamonds: skins.filter((s) => s.price.dm != null).length,
+    skinsOtherCurrency: skins.filter((s) => s.price.dm == null && Object.keys(s.price).length > 0).length,
   };
 }
 
 // ── Sauvegarde locale ──────────────────────────────────────────────
 
-export const CLE_COLLECTION = "mlbbdex:collection";
+export const KEY_COLLECTION = "mlbbdex:collection";
 
-export interface PossessionStockee {
+export interface StoredOwnership {
   heros: string[];
   skins: string[];
 }
 
 /** Relit la sauvegarde ; une valeur abimee ou d'un autre format donne une collection vide. */
-export function lirePossession(brut: string | null): PossessionStockee {
-  const vide = { heros: [], skins: [] };
-  if (!brut) return vide;
+export function readOwnership(raw: string | null): StoredOwnership {
+  const empty = { heros: [], skins: [] };
+  if (!raw) return empty;
   try {
-    const v = JSON.parse(brut) as unknown;
-    if (typeof v !== "object" || v === null) return vide;
-    const liste = (x: unknown) => (Array.isArray(x) ? x.filter((e): e is string => typeof e === "string") : []);
-    return { heros: liste((v as PossessionStockee).heros), skins: liste((v as PossessionStockee).skins) };
+    const v = JSON.parse(raw) as unknown;
+    if (typeof v !== "object" || v === null) return empty;
+    const list = (x: unknown) => (Array.isArray(x) ? x.filter((e): e is string => typeof e === "string") : []);
+    return { heros: list((v as StoredOwnership).heros), skins: list((v as StoredOwnership).skins) };
   } catch {
-    return vide;
+    return empty;
   }
 }
 
-export function ecrirePossession(p: Possession): string {
+export function writeOwnership(p: Ownership): string {
   return JSON.stringify({ heros: [...p.heros].sort(), skins: [...p.skins].sort() });
 }

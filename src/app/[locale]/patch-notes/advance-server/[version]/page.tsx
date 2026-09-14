@@ -10,12 +10,12 @@ import {
   TestNotice,
   VersionDate,
 } from "@/components/advance-changes";
-import { CreditWiki } from "@/components/credit-wiki";
-import { FilAriane } from "@/components/fil-ariane";
-import Link from "@/components/lien";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
+import { WikiCredit } from "@/components/wiki-credit";
+import { Breadcrumb } from "@/components/breadcrumb";
+import Link from "@/components/link";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
-import { creerT } from "@/i18n/traductions";
+import { createT } from "@/i18n/translations";
 import {
   advanceVersion,
   advanceVersionNumbers,
@@ -24,12 +24,12 @@ import {
   isUnderTest,
   type AdvanceCategory,
 } from "@/lib/advance-server";
-import { herosParSlug } from "@/lib/donnees";
-import { dateLongue, listeNoms, patchActuel } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
+import { heroesBySlug } from "@/lib/data";
+import { longDate, listNames, patchCurrent } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 
-type Params = { params: Promise<{ locale: Langue; version: string }> };
+type Params = { params: Promise<{ locale: Locale; version: string }> };
 
 const PATH = "/patch-notes/advance-server";
 const CATEGORY_ORDER: AdvanceCategory[] = ["items", "emblems", "spells", "system"];
@@ -42,26 +42,26 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, version } = await params;
   const v = advanceVersion(locale, version);
   if (!v) return {};
-  const t = creerT(locale);
+  const t = createT(locale);
   // The date, the hero counts and the first heroes named fill the description.
-  const names = [...new Set(v.heroes.map((h) => herosParSlug.get(h.slug)?.name ?? h.name))].slice(0, 4);
-  const label = v.date ? `${v.version} (${dateLongue(locale, v.date)})` : v.version;
+  const names = [...new Set(v.heroes.map((h) => heroesBySlug.get(h.slug)?.name ?? h.name))].slice(0, 4);
+  const label = v.date ? `${v.version} (${longDate(locale, v.date)})` : v.version;
   return metaPage(locale, {
-    titre: t("pages.advanceServer.seo.title", { v: v.version }),
+    title: t("pages.advanceServer.seo.title", { v: v.version }),
     description: names.length
       ? t("pages.advanceServer.seo.descriptionVersion", {
           version: label,
           buffs: v.balance.buff,
           nerfs: v.balance.nerf,
           adjust: v.balance.adjust,
-          heroes: listeNoms(locale, names),
+          heroes: listNames(locale, names),
         })
       : t("pages.advanceServer.seo.descriptionVersionNoHeroes", { version: label }),
-    partage: t("pages.advanceServer.seo.share"),
-    chemin: `${PATH}/${v.version}`,
+    share: t("pages.advanceServer.seo.share"),
+    path: `${PATH}/${v.version}`,
     type: "article",
-    publie: v.date ?? undefined,
-    motsCles: t("pages.advanceServer.seo.keywords")
+    published: v.date ?? undefined,
+    keywords: t("pages.advanceServer.seo.keywords")
       .split(",")
       .map((k) => k.trim())
       .filter(Boolean),
@@ -72,8 +72,8 @@ export default async function AdvanceServerVersionPage({ params }: Params) {
   const { locale, version } = await params;
   const v = advanceVersion(locale, version);
   if (!v) notFound();
-  const t = creerT(locale);
-  const live = patchActuel.version;
+  const t = createT(locale);
+  const live = patchCurrent.version;
   const translated = isTranslated(locale, v.version);
   const heading = t("pages.advanceServer.heading", { v: v.version });
   const n = new Set(v.heroes.map((h) => h.slug)).size;
@@ -87,23 +87,23 @@ export default async function AdvanceServerVersionPage({ params }: Params) {
     ...(v.date ? { datePublished: v.date, dateModified: v.date } : {}),
     inLanguage: translated ? LOCALE_HTML[locale] : "en",
     isBasedOn: v.url,
-    publisher: { "@type": "Organization", name: site.nom, url: site.url },
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
     mainEntityOfPage: `${site.url}/${locale}${PATH}/${v.version}`,
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
 
       <div className="mx-auto max-w-4xl px-4 py-12">
-        <FilAriane
-          miettes={[
-            { nom: t("nav.patchNotes.label"), href: "/patch-notes" },
-            { nom: t("pages.advanceServer.crumb"), href: PATH },
+        <Breadcrumb
+          crumbs={[
+            { name: t("nav.patchNotes.label"), href: "/patch-notes" },
+            { name: t("pages.advanceServer.crumb"), href: PATH },
             {
-              nom: heading,
-              freres: advanceVersions(locale).map((x) => ({
-                nom: t("pages.advanceServer.heading", { v: x.version }),
+              name: heading,
+              siblings: advanceVersions(locale).map((x) => ({
+                name: t("pages.advanceServer.heading", { v: x.version }),
                 href: `${PATH}/${x.version}`,
               })),
             },
@@ -174,7 +174,7 @@ export default async function AdvanceServerVersionPage({ params }: Params) {
                     <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
                       {t(`pages.advanceServer.kind.${h.kind}`)}
                     </span>
-                    {h.slug && herosParSlug.has(h.slug) ? (
+                    {h.slug && heroesBySlug.has(h.slug) ? (
                       <Link href={`/heroes/${h.slug}`} className="font-semibold text-chalk-100 hover:text-gold-400">
                         {h.title}
                       </Link>
@@ -209,7 +209,7 @@ export default async function AdvanceServerVersionPage({ params }: Params) {
                 <h3 className="mt-10 font-heading text-xl font-bold text-chalk-100">{t("pages.advanceServer.details")}</h3>
                 <div className="mt-4 space-y-3">
                   {v.heroes.map((h, i) => {
-                    const page = herosParSlug.get(h.slug);
+                    const page = heroesBySlug.get(h.slug);
                     return (
                       <EntryCard
                         key={`${h.slug}-${i}`}
@@ -269,10 +269,10 @@ export default async function AdvanceServerVersionPage({ params }: Params) {
             <Link href={PATH} className="text-sm font-semibold text-gold-400 hover:text-gold-500">
               ← {t("pages.advanceServer.allVersions")}
             </Link>
-            <CreditWiki
+            <WikiCredit
               t={t}
               href={v.url}
-              cle={translated ? "pages.advanceServer.creditTranslated" : "pages.advanceServer.credit"}
+              messageKey={translated ? "pages.advanceServer.creditTranslated" : "pages.advanceServer.credit"}
               className="text-xs leading-relaxed text-chalk-500"
             />
           </div>

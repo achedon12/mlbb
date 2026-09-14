@@ -1,10 +1,10 @@
 import { describe, expect, it } from "vitest";
-import type { BuildJoue, BuildsHeros } from "@/lib/donnees";
-import { partsParChoix, resumeParRang, usageParChoix } from "@/lib/usage-builds";
-import { emblemesFiches, sortsFiches, usage } from "@/lib/fiches-usage";
-import { objets } from "@/lib/donnees";
+import type { BuildPlayed, BuildsHero } from "@/lib/data";
+import { partsByChoice, summaryByRank, usageByChoice } from "@/lib/usage-builds";
+import { emblemsSheets, spellSheets, usage } from "@/lib/usage-sheets";
+import { itemsFor } from "@/lib/data";
 
-const build = (items: string[], pickRate: number | null, winRate: number | null, extra: Partial<BuildJoue> = {}): BuildJoue => ({
+const build = (items: string[], pickRate: number | null, winRate: number | null, extra: Partial<BuildPlayed> = {}): BuildPlayed => ({
   items,
   emblem: "Assassin",
   talents: ["Thrill", "Seasoned Hunter", "Killing Spree"],
@@ -14,112 +14,112 @@ const build = (items: string[], pickRate: number | null, winRate: number | null,
   ...extra,
 });
 
-const parObjet = (b: BuildJoue) => b.items;
+const byItem = (b: BuildPlayed) => b.items;
 
-const builds: Record<string, BuildsHeros> = {
+const builds: Record<string, BuildsHero> = {
   aamon: {
     Jungle: {
       all: [build(["Lame", "Bottes"], 6, 54), build(["Lame", "Baton"], 2, 58), build(["Baton"], 4, 50)],
       mythic: [build(["Lame"], 5, 60)],
     },
-    Milieu: { all: [build(["Lame"], 3, 40)] },
+    Mid: { all: [build(["Lame"], 3, 40)] },
   },
   gusion: {
     Jungle: { all: [build(["Lame", "Lame"], 10, 52)] },
   },
   miya: {
-    Or: { all: [build(["Bottes"], null, 51), build(["Bottes", "Arc"], null, 49)] },
+    Gold: { all: [build(["Bottes"], null, 51), build(["Bottes", "Arc"], null, 49)] },
   },
 };
 
-describe("usageParChoix", () => {
-  const usages = usageParChoix(builds, parObjet);
+describe("usageByChoice", () => {
+  const usages = usageByChoice(builds, byItem);
 
-  it("cumule la part des builds qui contiennent l'objet et pondere leur taux", () => {
+  it("sums the share of builds containing the item and weights their rate", () => {
     const aamon = usages.get("Lame")!.find((u) => u.slug === "aamon")!;
     expect(aamon.lane).toBe("Jungle");
     expect(aamon.selection).toBe(8);
     // (54 * 6 + 58 * 2) / 8
-    expect(aamon.victoire).toBeCloseTo(55);
+    expect(aamon.win).toBeCloseTo(55);
   });
 
-  it("garde la position ou l'objet pese le plus, une seule ligne par heros", () => {
-    const lignes = usages.get("Lame")!.filter((u) => u.slug === "aamon");
-    expect(lignes).toHaveLength(1);
-    expect(lignes[0].lane).not.toBe("Milieu");
+  it("keeps the lane where the item weighs most, one row per hero", () => {
+    const rows = usages.get("Lame")!.filter((u) => u.slug === "aamon");
+    expect(rows).toHaveLength(1);
+    expect(rows[0].lane).not.toBe("Mid");
   });
 
-  it("classe les heros du plus engage au moins engage", () => {
+  it("ranks heroes from most to least committed", () => {
     expect(usages.get("Lame")!.map((u) => u.slug)).toEqual(["gusion", "aamon"]);
   });
 
-  it("ne compte qu'une fois un objet pris deux fois dans le meme build", () => {
+  it("counts an item taken twice in the same build only once", () => {
     expect(usages.get("Lame")!.find((u) => u.slug === "gusion")!.selection).toBe(10);
   });
 
-  it("retombe sur la moyenne simple quand aucune part n'est connue", () => {
+  it("falls back on the simple average when no share is known", () => {
     const miya = usages.get("Bottes")!.find((u) => u.slug === "miya")!;
     expect(miya.selection).toBe(0);
-    expect(miya.victoire).toBeCloseTo(50);
+    expect(miya.win).toBeCloseTo(50);
   });
 
-  it("lit le rang demande", () => {
-    const mythique = usageParChoix(builds, parObjet, "mythic");
-    expect(mythique.get("Lame")).toEqual([{ slug: "aamon", lane: "Jungle", selection: 5, victoire: 60 }]);
-    expect(mythique.get("Baton")).toBeUndefined();
+  it("reads the requested rank", () => {
+    const mythic = usageByChoice(builds, byItem, "mythic");
+    expect(mythic.get("Lame")).toEqual([{ slug: "aamon", lane: "Jungle", selection: 5, win: 60 }]);
+    expect(mythic.get("Baton")).toBeUndefined();
   });
 });
 
-describe("resumeParRang", () => {
-  it("donne une ligne par rang, avec le heros en tete et un taux pondere", () => {
-    const resume = resumeParRang({
+describe("summaryByRank", () => {
+  it("gives one row per rank, with the top hero and a weighted rate", () => {
+    const summary = summaryByRank({
       all: [
-        { slug: "gusion", lane: "Jungle", selection: 10, victoire: 52 },
-        { slug: "aamon", lane: "Jungle", selection: 5, victoire: 58 },
+        { slug: "gusion", lane: "Jungle", selection: 10, win: 52 },
+        { slug: "aamon", lane: "Jungle", selection: 5, win: 58 },
       ],
     });
-    expect(resume).toHaveLength(6);
-    expect(resume[0]).toMatchObject({ rang: "all", heros: 2, premier: { slug: "gusion" } });
-    expect(resume[0].victoire).toBeCloseTo(54);
-    expect(resume[1]).toEqual({ rang: "epic", heros: 0, premier: null, victoire: null });
+    expect(summary).toHaveLength(6);
+    expect(summary[0]).toMatchObject({ rank: "all", heroes: 2, first: { slug: "gusion" } });
+    expect(summary[0].win).toBeCloseTo(54);
+    expect(summary[1]).toEqual({ rank: "epic", heroes: 0, first: null, win: null });
   });
 });
 
-describe("partsParChoix", () => {
-  it("repartit un choix parmi les builds retenus, ponderes par leur part", () => {
-    const parts = partsParChoix(
+describe("partsByChoice", () => {
+  it("spreads a choice across the kept builds, weighted by their share", () => {
+    const parts = partsByChoice(
       { a: { Jungle: { all: [build([], 3, 50, { spell: "Flicker" }), build([], 1, 50), build([], 4, 50, { emblem: "Mage" })] } } },
       (b) => b.emblem === "Assassin",
       (b) => (b.spell ? [b.spell] : []),
     );
     expect(parts).toEqual([
-      { cle: "Flicker", part: 75 },
-      { cle: "Retribution", part: 25 },
+      { key: "Flicker", part: 75 },
+      { key: "Retribution", part: 25 },
     ]);
   });
 
-  it("ne renvoie rien sans build retenu", () => {
-    expect(partsParChoix(builds, () => false, parObjet)).toEqual([]);
+  it("returns nothing without a kept build", () => {
+    expect(partsByChoice(builds, () => false, byItem)).toEqual([]);
   });
 });
 
-describe("pages d'objet, d'embleme et de sort", () => {
-  it("resout les objets des builds joues vers des objets connus", () => {
-    const slugs = new Set(objets("en").map((o) => o.slug));
-    const cites = objets("en").filter((o) => usage("objet", o.slug).length > 0);
-    expect(cites.length).toBeGreaterThan(10);
-    expect(cites.every((o) => slugs.has(o.slug))).toBe(true);
+describe("item, emblem and spell pages", () => {
+  it("resolves the items of played builds to known items", () => {
+    const slugs = new Set(itemsFor("en").map((o) => o.slug));
+    const cited = itemsFor("en").filter((o) => usage("item", o.slug).length > 0);
+    expect(cited.length).toBeGreaterThan(10);
+    expect(cited.every((o) => slugs.has(o.slug))).toBe(true);
   });
 
-  it("donne une adresse courte a chaque embleme et retrouve ses heros", () => {
-    expect(emblemesFiches.map((e) => e.slug)).toEqual(["tank", "fighter", "assassin", "mage", "marksman", "support"]);
-    expect(usage("embleme", "assassin").length).toBeGreaterThan(0);
+  it("gives each emblem a short address and finds its heroes", () => {
+    expect(emblemsSheets.map((e) => e.slug)).toEqual(["tank", "fighter", "assassin", "mage", "marksman", "support"]);
+    expect(usage("emblem", "assassin").length).toBeGreaterThan(0);
   });
 
-  it("couvre les sorts decrits et ceux que les builds citent seulement", () => {
-    const slugs = sortsFiches.map((s) => s.slug);
+  it("covers described spells and those that builds only mention", () => {
+    const slugs = spellSheets.map((s) => s.slug);
     expect(slugs).toContain("flicker");
     expect(new Set(slugs).size).toBe(slugs.length);
-    expect(usage("sort", "retribution").length).toBeGreaterThan(0);
+    expect(usage("spell", "retribution").length).toBeGreaterThan(0);
   });
 });

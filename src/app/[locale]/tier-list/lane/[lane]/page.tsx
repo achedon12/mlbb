@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import type { Langue } from "@/i18n/config";
-import { laneDuSlug, SLUGS_LANE } from "@/lib/filtres-tier-list";
-import { metaTierList, TierList } from "../../contenu";
+import type { Locale } from "@/i18n/config";
+import { laneOfSlug, SLUGS_LANE } from "@/lib/tier-list-filters";
+import { metaTierList, TierList } from "../../content";
 
-type Params = { params: Promise<{ locale: Langue; lane: string }> };
+type Params = { params: Promise<{ locale: Locale; lane: string }> };
 
 /** Une page par lane, tous rangs confondus : « /tier-list/lane/jungle ». */
 export const dynamicParams = false;
@@ -15,13 +15,13 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, lane } = await params;
-  const valeur = laneDuSlug(lane);
-  return valeur ? metaTierList(locale, "all", { type: "lane", valeur }) : {};
+  const value = laneOfSlug(lane);
+  return value ? metaTierList(locale, "all", { type: "lane", value }) : {};
 }
 
-export default async function PageTierListLane({ params }: Params) {
+export default async function TierListLanePage({ params }: Params) {
   const { locale, lane } = await params;
-  const valeur = laneDuSlug(lane);
-  if (!valeur) notFound();
-  return <TierList locale={locale} rang="all" filtre={{ type: "lane", valeur }} />;
+  const value = laneOfSlug(lane);
+  if (!value) notFound();
+  return <TierList locale={locale} rank="all" filter={{ type: "lane", value }} />;
 }

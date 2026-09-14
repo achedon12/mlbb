@@ -77,8 +77,8 @@ self.addEventListener("fetch", (event) => {
   ) {
     event.respondWith(cacheDabord(event, CACHE_IMAGES, MAX_IMAGES));
   } else if (
-    /^\/(composition|tendances|quiz|quiz\/jour)\/[^/]+\.json$/.test(url.pathname) ||
-    /^\/[a-z]{2}\/recherche\.json$/.test(url.pathname)
+    /^\/(composition|trends|quiz|quiz\/day)\/[^/]+\.json$/.test(url.pathname) ||
+    /^\/[a-z]{2}\/search\.json$/.test(url.pathname)
   ) {
     event.respondWith(reseauDabord(event, CACHE_DONNEES, MAX_DONNEES));
   }

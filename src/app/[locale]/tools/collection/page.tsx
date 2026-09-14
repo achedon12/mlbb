@@ -1,78 +1,78 @@
 import type { Metadata } from "next";
-import { CalculateurCollection } from "@/components/calculateur-collection";
-import { LigneFraicheur } from "@/components/fraicheur";
-import Link from "@/components/lien";
-import { EnTetePage, TitreSection } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import { catalogueSkins } from "@/lib/catalogue-skins-serveur";
-import { couverturePrix } from "@/lib/collection";
-import { donneesLd } from "@/lib/html";
+import { CollectionCalculator } from "@/components/collection-calculator";
+import { FreshnessLine } from "@/components/freshness";
+import Link from "@/components/link";
+import { PageHeader, SectionTitle } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT, messagesPage } from "@/i18n/translations";
+import { catalogSkins } from "@/lib/skin-catalog-server";
+import { coveragePrice } from "@/lib/collection";
+import { serializeJsonLd } from "@/lib/html";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
-const CHEMIN = "/tools/collection";
+const PATH = "/tools/collection";
 
-function description(locale: Langue): string {
-  const t = creerT(locale);
-  const c = couverturePrix(catalogueSkins());
-  return t("pages.seo.collection.description", { heros: c.heros, skins: c.skins });
+function description(locale: Locale): string {
+  const t = createT(locale);
+  const c = coveragePrice(catalogSkins());
+  return t("pages.seo.collection.description", { heros: c.heroes, skins: c.skins });
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.collection.title"),
+    title: t("pages.seo.collection.title"),
     description: description(locale),
-    chemin: CHEMIN,
-    motsCles: ["MLBB collection value", "skin value", "diamonds", "Mobile Legends skins", "calculator"],
+    path: PATH,
+    keywords: ["MLBB collection value", "skin value", "diamonds", "Mobile Legends skins", "calculator"],
   });
 }
 
-export default async function PageCollection({ params }: Params) {
+export default async function CollectionPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const nombre = new Intl.NumberFormat(LOCALE_HTML[locale]);
-  const c = couverturePrix(catalogueSkins());
-  const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.collection.title"),
+  const t = createT(locale);
+  const count = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const c = coveragePrice(catalogSkins());
+  const structuredData = dataTool(locale, {
+    name: t("pages.collection.title"),
     description: description(locale),
-    chemin: CHEMIN,
-    categorie: "UtilitiesApplication",
+    path: PATH,
+    category: "UtilitiesApplication",
   });
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.collectionUI"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
-      <EnTetePage titre={t("pages.collection.title")} chapeau={t("pages.collection.lead")}>
-        <LigneFraicheur langue={locale} className="mt-4" />
-      </EnTetePage>
+    <ExtendMessages messages={messagesPage(locale, ["pages.collectionUI"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.collection.title")} lead={t("pages.collection.lead")}>
+        <FreshnessLine locale={locale} className="mt-4" />
+      </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-12 px-4 py-12">
         <p role="note" className="bevel-sm max-w-3xl border border-gold-500/30 bg-gold-500/5 p-4 text-sm leading-relaxed text-chalk-200">
           {t("pages.collection.warning")}
         </p>
 
-        <CalculateurCollection />
+        <CollectionCalculator />
 
         <section className="max-w-3xl">
-          <TitreSection>{t("pages.collection.methodTitle")}</TitreSection>
+          <SectionTitle>{t("pages.collection.methodTitle")}</SectionTitle>
           <div className="space-y-4 leading-relaxed text-chalk-300">
             <p>
               {t("pages.collection.methodHeroes", {
-                heros: nombre.format(c.heros),
-                diamants: nombre.format(c.herosDiamants),
+                heros: count.format(c.heroes),
+                diamants: count.format(c.heroDiamonds),
               })}
             </p>
             <p>
               {t("pages.collection.methodSkins", {
-                skins: nombre.format(c.skins),
-                diamants: nombre.format(c.skinsDiamants),
-                autres: nombre.format(c.skinsAutreMonnaie),
-                sansPrix: nombre.format(c.skins - c.skinsDiamants - c.skinsAutreMonnaie),
+                skins: count.format(c.skins),
+                diamants: count.format(c.skinsDiamonds),
+                autres: count.format(c.skinsOtherCurrency),
+                sansPrix: count.format(c.skins - c.skinsDiamonds - c.skinsOtherCurrency),
               })}
             </p>
             <p>{t("pages.collection.methodStorage")}</p>
@@ -87,6 +87,6 @@ export default async function PageCollection({ params }: Params) {
           </div>
         </section>
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

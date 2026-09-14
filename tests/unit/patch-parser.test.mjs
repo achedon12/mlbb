@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ajustementsHeros, bilan } from "../../scripts/patch-parser.mjs";
+import { heroAdjustments, summary } from "../../scripts/patch-parser.mjs";
 
 const FORMAT_RECENT = `
 ==II. Hero Adjustments==
@@ -10,7 +10,7 @@ const FORMAT_RECENT = `
 == III. Battlefield Adjustments ==
 `;
 
-const FORMAT_TABLEAU = `
+const FORMAT_TABLE = `
 ==I. Hero Adjustments ==
 {| class="article-table"
 |-
@@ -26,48 +26,48 @@ const FORMAT_TABLEAU = `
 == II. Battlefield Adjustments ==
 `;
 
-describe("ajustementsHeros — format recent (listes, fleche →)", () => {
-  const heros = ajustementsHeros(FORMAT_RECENT);
+describe("heroAdjustments — recent format (lists, → arrow)", () => {
+  const heroes = heroAdjustments(FORMAT_RECENT);
 
-  it("extrait les deux heros avec leur type", () => {
-    expect(heros.map((h) => [h.name, h.type])).toEqual([
-      ["Saber", "amelioration"],
-      ["Ruby", "affaiblissement"],
+  it("extracts both heroes with their type", () => {
+    expect(heroes.map((h) => [h.name, h.type])).toEqual([
+      ["Saber", "buff"],
+      ["Ruby", "nerf"],
     ]);
   });
 
-  it("coupe le changement en avant / apres", () => {
-    const change = heros[0].sections[0].changes[0];
+  it("splits the change into before / after", () => {
+    const change = heroes[0].sections[0].changes[0];
     expect(change).toMatchObject({ label: "Mana Cost", before: "70-45", after: "40-60" });
   });
 });
 
-describe("ajustementsHeros — ancien format (tableau, separateur >>)", () => {
-  const heros = ajustementsHeros(FORMAT_TABLEAU);
+describe("heroAdjustments — old format (table, >> separator)", () => {
+  const heroes = heroAdjustments(FORMAT_TABLE);
 
-  it("lit le heros malgre le balisage de tableau", () => {
-    expect(heros).toHaveLength(1);
-    expect(heros[0]).toMatchObject({ name: "Silvanna", type: "amelioration" });
+  it("reads the hero despite the table markup", () => {
+    expect(heroes).toHaveLength(1);
+    expect(heroes[0]).toMatchObject({ name: "Silvanna", type: "buff" });
   });
 
-  it("normalise le separateur >> en avant / apres", () => {
-    const change = heros[0].sections.at(-1).changes[0];
+  it("normalizes the >> separator into before / after", () => {
+    const change = heroes[0].sections.at(-1).changes[0];
     expect(change).toMatchObject({ before: "95-145", after: "70-110" });
   });
 });
 
-describe("bilan", () => {
-  it("compte les types d'ajustement", () => {
-    expect(bilan(ajustementsHeros(FORMAT_RECENT))).toEqual({
-      amelioration: 1,
-      affaiblissement: 1,
-      ajustement: 0,
+describe("summary", () => {
+  it("counts adjustment types", () => {
+    expect(summary(heroAdjustments(FORMAT_RECENT))).toEqual({
+      buff: 1,
+      nerf: 1,
+      adjust: 0,
     });
   });
 });
 
-describe("ajustementsHeros — absence de section", () => {
-  it("rend une liste vide quand il n'y a pas d'ajustements de heros", () => {
-    expect(ajustementsHeros("== Battlefield Adjustments ==\ndu texte")).toEqual([]);
+describe("heroAdjustments — missing section", () => {
+  it("returns an empty list when there are no hero adjustments", () => {
+    expect(heroAdjustments("== Battlefield Adjustments ==\ndu texte")).toEqual([]);
   });
 });

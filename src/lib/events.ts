@@ -1,4 +1,4 @@
-import { lireSortie, type SkinCatalogue } from "./catalogue-skins";
+import { readRelease, type SkinCatalog } from "./skin-catalog";
 
 /**
  * Events calendar: what comes out each month (StarLight skin, Collector
@@ -21,15 +21,15 @@ export const OTHER_MODES: readonly OtherMode[] = ["event", "shop", "pass"];
 /** Pass, ranked season or first top-up reward ("M5 Pass", "Season 36", "S36 First Recharge"). */
 const PASS = /\b(?:pass|season|recharge)\b/i;
 
-export function obtainMode(s: Pick<SkinCatalogue, "serie" | "obtention" | "prix">): ObtainMode {
-  const series = s.serie?.toLowerCase() ?? "";
-  const obtain = s.obtention ?? "";
+export function obtainMode(s: Pick<SkinCatalog, "series" | "acquisition" | "price">): ObtainMode {
+  const series = s.series?.toLowerCase() ?? "";
+  const obtain = s.acquisition ?? "";
   // The label is sometimes missing, the "2025/05 StarLight Member" text is not.
   if (series === "starlight" || /starlight member/i.test(obtain)) return "starlight";
   if (series === "collector") return "collector";
   if (PASS.test(obtain) || /^s\d+$/.test(series)) return "pass";
   // Diamonds, battle points, tickets or fragments: a fixed price, in the shop.
-  if (s.prix.dm || s.prix.bp || s.prix.ticket || s.prix.hf) return "shop";
+  if (s.price.dm || s.price.bp || s.price.ticket || s.price.hf) return "shop";
   // The rest: magic cores (wheel), gems, myth coins, or no fixed price at all (draws, collaborations).
   return "event";
 }
@@ -50,8 +50,8 @@ export function shiftMonth(month: string, n: number): string {
 
 /** Month of a wiki date; null when it only gives the year, or nothing readable. */
 export function monthOfRelease(release: string | null | undefined): string | null {
-  const d = lireSortie(release);
-  return d?.mois ? `${d.annee}-${String(d.mois).padStart(2, "0")}` : null;
+  const d = readRelease(release);
+  return d?.month ? `${d.year}-${String(d.month).padStart(2, "0")}` : null;
 }
 
 /** Past, current, or announced by a source, as of the data date. */
@@ -64,8 +64,8 @@ export function monthStatus(month: string, reference: string): MonthStatus {
 // ── Assembly ───────────────────────────────────────────────────────
 
 /** Calendar skin; `notInCatalogue`: known from the wiki lists only, without rarity or price. */
-export interface EventSkin extends SkinCatalogue {
-  notInCatalogue?: boolean;
+export interface EventSkin extends SkinCatalog {
+  notInCatalog?: boolean;
 }
 
 /** Entry of a wiki monthly list, already resolved to its skin. */
@@ -85,9 +85,9 @@ export interface EventMonth {
   total: number;
 }
 
-const skinKey = (s: Pick<SkinCatalogue, "heros" | "id" | "nom">) => `${s.heros}|${s.id || s.nom}`;
-const byDate = (a: SkinCatalogue, b: SkinCatalogue) =>
-  (a.sortie ?? "").localeCompare(b.sortie ?? "") || a.nom.localeCompare(b.nom, "en");
+const skinKey = (s: Pick<SkinCatalog, "hero" | "id" | "name">) => `${s.hero}|${s.id || s.name}`;
+const byDate = (a: SkinCatalog, b: SkinCatalog) =>
+  (a.release ?? "").localeCompare(b.release ?? "") || a.name.localeCompare(b.name, "en");
 
 /**
  * Months with at least one skin, newest first.
@@ -98,7 +98,7 @@ const byDate = (a: SkinCatalogue, b: SkinCatalogue) =>
  * only goes into no month.
  */
 export function buildMonths(o: {
-  released: readonly SkinCatalogue[];
+  released: readonly SkinCatalog[];
   lists: readonly ListEntry[];
   noCollector: readonly string[];
 }): EventMonth[] {
@@ -121,7 +121,7 @@ export function buildMonths(o: {
     block(e.month)[e.mode].push(e.skin);
   }
   for (const s of o.released) {
-    const month = monthOfRelease(s.sortie);
+    const month = monthOfRelease(s.release);
     if (!month || listed.has(skinKey(s))) continue;
     const mode = obtainMode(s);
     const m = block(month);

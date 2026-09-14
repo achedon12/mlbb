@@ -1,39 +1,39 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { ExternalLink } from "lucide-react";
-import { EnTetePage } from "@/components/ui";
-import { mesureVeille, sources, veille } from "@/lib/veille";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { PageHeader } from "@/components/ui";
+import { measureWatch, sources, watch } from "@/lib/watch";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
-import { formaterDate } from "@/lib/utils";
+import { formatShortDate } from "@/lib/utils";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.watch.metaTitle"),
+    title: t("pages.watch.metaTitle"),
     description: t("pages.watch.metaDescription"),
-    partage: t("pages.watch.ogDescription"),
-    chemin: "/watch",
+    share: t("pages.watch.ogDescription"),
+    path: "/watch",
   });
 }
 
-export default async function PageVeille({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function WatchPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const actualites = veille();
-  const date = (iso: string) => formaterDate(iso, LOCALE_HTML[locale]);
-  const [creditAvant, creditApres = ""] = t("pages.watch.credit").split("{lien}");
+  const t = createT(locale);
+  const news = watch();
+  const date = (iso: string) => formatShortDate(iso, LOCALE_HTML[locale]);
+  const [creditBefore, creditAfter = ""] = t("pages.watch.credit").split("{lien}");
 
   return (
     <>
-      <EnTetePage
-        titre={t("pages.watch.title")}
-        chapeau={t("pages.watch.lead")}
+      <PageHeader
+        title={t("pages.watch.title")}
+        lead={t("pages.watch.lead")}
       >
         <p className="mt-6 text-sm text-chalk-500">
-          {t("pages.watch.lastCollected", { date: date(mesureVeille) })}{" "}
+          {t("pages.watch.lastCollected", { date: date(measureWatch) })}{" "}
           {sources.map((s, i) => (
             <span key={s.slug}>
               {i > 0 && ", "}
@@ -43,16 +43,16 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
             </span>
           ))}
         </p>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-4xl px-4 py-14">
-        {actualites.length === 0 ? (
+        {news.length === 0 ? (
           <p className="text-chalk-500">
             {t("pages.watch.none")}
           </p>
         ) : (
           <ul className="space-y-3">
-            {actualites.map((a) => (
+            {news.map((a) => (
               <li key={a.link}>
                 <a
                   href={a.link}
@@ -90,11 +90,11 @@ export default async function PageVeille({ params }: { params: Promise<{ locale:
         )}
 
         <p className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">
-          {creditAvant}
+          {creditBefore}
           <Link href="/patch-notes" className="text-gold-400 hover:underline">
             {t("nav.patchNotes.label")}
           </Link>
-          {creditApres}
+          {creditAfter}
         </p>
       </div>
     </>

@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "@/components/lien";
-import { LigneFraicheur } from "@/components/fraicheur";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { classesPuce } from "@/components/puce";
-import { BadgePalier, EnTetePage } from "@/components/ui";
-import { heros } from "@/lib/donnees";
+import Link from "@/components/link";
+import { FreshnessLine } from "@/components/freshness";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { classesChip } from "@/components/chip";
+import { BadgeTier, PageHeader } from "@/components/ui";
+import { allHeroes } from "@/lib/data";
 import { ROLES } from "@/lib/draft";
-import { cheminFiltre, cheminRole, roleDuSlug, SLUGS_ROLE } from "@/lib/filtres-tier-list";
-import { dateLongue, dateMesure, listeNoms, patchActuel } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
-import { classementComplet } from "@/lib/tier-list";
+import { pathFilter, pathRole, roleOfSlug, SLUGS_ROLE } from "@/lib/tier-list-filters";
+import { longDate, dateMeasure, listNames, patchCurrent } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
+import { rankingFull } from "@/lib/tier-list";
 import type { Role } from "@/lib/types";
-import type { Langue } from "@/i18n/config";
-import { creerT, type T } from "@/i18n/traductions";
-import { donneesListeHeros, metaPage } from "@/i18n/seo";
+import type { Locale } from "@/i18n/config";
+import { createT, type T } from "@/i18n/translations";
+import { heroListData, metaPage } from "@/i18n/seo";
 
-type Params = { params: Promise<{ locale: Langue; role: string }> };
+type Params = { params: Promise<{ locale: Locale; role: string }> };
 
 /**
  * Page d'un role : ses heros, du plus fort au plus faible, avec palier, taux de
@@ -34,87 +34,87 @@ export function generateStaticParams() {
  * Heros du role, principal ou secondaire, dans l'ordre de la tier list (tous
  * rangs) ; ceux que le jeu ne mesure pas encore ferment la liste, par nom.
  */
-function herosDuRole(role: Role) {
-  const classes = classementComplet.filter((e) => e.hero.roles.includes(role));
-  const mesures = new Set(classes.map((e) => e.hero.slug));
-  const autres = heros
-    .filter((h) => h.roles.includes(role) && !mesures.has(h.slug))
+function roleHeroes(role: Role) {
+  const classes = rankingFull.filter((e) => e.hero.roles.includes(role));
+  const measures = new Set(classes.map((e) => e.hero.slug));
+  const others = allHeroes
+    .filter((h) => h.roles.includes(role) && !measures.has(h.slug))
     .sort((a, b) => a.name.localeCompare(b.name));
   return [
-    ...classes.map((e) => ({ heros: e.hero, palier: e.tier, victoire: e.winRate as number | null })),
-    ...autres.map((h) => ({ heros: h, palier: null, victoire: null })),
+    ...classes.map((e) => ({ heroes: e.hero, tier: e.tier, win: e.winRate as number | null })),
+    ...others.map((h) => ({ heroes: h, tier: null, win: null })),
   ];
 }
 
-const reperes = (t: T, role: Role, n: number) => ({
+const markers = (t: T, role: Role, n: number) => ({
   role: t(`roles.${role}`),
   pluriel: t(`pages.tierList.rolePlural.${role}`),
   n,
 });
 
 /** Description en donnees : effectif, trois premiers, date du releve et patch. */
-function description(locale: Langue, role: Role): string {
-  const t = creerT(locale);
-  const liste = herosDuRole(role);
+function description(locale: Locale, role: Role): string {
+  const t = createT(locale);
+  const list = roleHeroes(role);
   return t("pages.seo.heroesRole.description", {
-    ...reperes(t, role, liste.length),
-    top: listeNoms(locale, liste.filter((e) => e.palier).slice(0, 3).map((e) => e.heros.name)),
-    date: dateLongue(locale),
-    v: patchActuel.version,
+    ...markers(t, role, list.length),
+    top: listNames(locale, list.filter((e) => e.tier).slice(0, 3).map((e) => e.heroes.name)),
+    date: longDate(locale),
+    v: patchCurrent.version,
   });
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, role: slug } = await params;
-  const role = roleDuSlug(slug);
+  const role = roleOfSlug(slug);
   if (!role) return {};
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.heroesRole.title", { ...reperes(t, role, herosDuRole(role).length), v: patchActuel.version }),
+    title: t("pages.seo.heroesRole.title", { ...markers(t, role, roleHeroes(role).length), v: patchCurrent.version }),
     description: description(locale, role),
-    chemin: cheminRole(role),
+    path: pathRole(role),
   });
 }
 
-export default async function PageRole({ params }: Params) {
+export default async function RolePage({ params }: Params) {
   const { locale, role: slug } = await params;
-  const role = roleDuSlug(slug);
+  const role = roleOfSlug(slug);
   if (!role) notFound();
-  const t = creerT(locale);
-  const liste = herosDuRole(role);
-  const r = reperes(t, role, liste.length);
-  const titre = t("pages.heroesRole.title", r);
-  const pourcent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const t = createT(locale);
+  const list = roleHeroes(role);
+  const r = markers(t, role, list.length);
+  const title = t("pages.heroesRole.title", r);
+  const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
-  const donneesStructurees = donneesListeHeros(locale, {
-    nom: titre,
+  const structuredData = heroListData(locale, {
+    name: title,
     description: description(locale, role),
-    chemin: cheminRole(role),
-    heros: liste.map((e) => ({ nom: e.heros.name, slug: e.heros.slug })),
-    modifie: dateMesure,
-    classe: true,
+    path: pathRole(role),
+    heroes: list.map((e) => ({ name: e.heroes.name, slug: e.heroes.slug })),
+    changed: dateMeasure,
+    ranked: true,
   });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <EnTetePage
-        titre={titre}
-        chapeau={t("pages.heroesRole.lead", r)}
-        miettes={[
-          { nom: t("nav.heroes.label"), href: "/heroes" },
-          { nom: r.role, freres: ROLES.map((x) => ({ nom: t(`roles.${x}`), href: cheminRole(x) })) },
+      <PageHeader
+        title={title}
+        lead={t("pages.heroesRole.lead", r)}
+        crumbs={[
+          { name: t("nav.heroes.label"), href: "/heroes" },
+          { name: r.role, siblings: ROLES.map((x) => ({ name: t(`roles.${x}`), href: pathRole(x) })) },
         ]}
       >
-        <LigneFraicheur langue={locale} avant={t("pages.heroesRole.nHeroes", r)} className="mt-6" />
-      </EnTetePage>
+        <FreshnessLine locale={locale} before={t("pages.heroesRole.nHeroes", r)} className="mt-6" />
+      </PageHeader>
 
       <div className="mx-auto max-w-5xl px-4 py-12">
         <Link
-          href={cheminFiltre({ type: "role", valeur: role })}
+          href={pathFilter({ type: "role", value: role })}
           className="bevel-sm inline-flex items-center gap-2 bg-gold-500 px-4 py-2 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
           {t("pages.heroesRole.seeTierList", r)} →
@@ -127,9 +127,9 @@ export default async function PageRole({ params }: Params) {
           {ROLES.map((x) => (
             <Link
               key={x}
-              href={cheminRole(x)}
+              href={pathRole(x)}
               aria-current={x === role ? "page" : undefined}
-              className={classesPuce(x === role)}
+              className={classesChip(x === role)}
             >
               {t(`roles.${x}`)}
             </Link>
@@ -137,26 +137,26 @@ export default async function PageRole({ params }: Params) {
         </nav>
 
         <ul className="space-y-1.5">
-          {liste.map((e) => (
-            <li key={e.heros.slug}>
-              <Link href={`/heroes/${e.heros.slug}`} className="tier-row">
-                <PortraitHeros
-                  source={e.heros.images.icon ?? e.heros.images.portrait}
-                  nom={e.heros.name}
-                  taille="icone"
-                  decoratif
+          {list.map((e) => (
+            <li key={e.heroes.slug}>
+              <Link href={`/heroes/${e.heroes.slug}`} className="tier-row">
+                <HeroPortrait
+                  source={e.heroes.images.icon ?? e.heroes.images.portrait}
+                  name={e.heroes.name}
+                  size="icon"
+                  decorative
                 />
                 <div className="tier-row-identity sm:w-auto sm:flex-1">
-                  <span className="tier-row-name">{e.heros.name}</span>
+                  <span className="tier-row-name">{e.heroes.name}</span>
                   <span className="tier-row-lanes">
-                    {e.heros.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}
+                    {e.heroes.lanes.map((l) => t(`lanes.${l}`)).join(" · ") || "—"}
                   </span>
                 </div>
-                {e.palier ? (
+                {e.tier ? (
                   <>
-                    <span className="sr-only">{t("pages.tierList.tier", { p: e.palier })}</span>
+                    <span className="sr-only">{t("pages.tierList.tier", { p: e.tier })}</span>
                     <span aria-hidden>
-                      <BadgePalier palier={e.palier} />
+                      <BadgeTier tier={e.tier} />
                     </span>
                   </>
                 ) : (
@@ -165,7 +165,7 @@ export default async function PageRole({ params }: Params) {
                 <dl className="tier-row-rates">
                   <div>
                     <dt>{t("pages.tierList.win")}</dt>
-                    <dd>{e.victoire === null ? "—" : `${pourcent.format(e.victoire)} %`}</dd>
+                    <dd>{e.win === null ? "—" : `${percent.format(e.win)} %`}</dd>
                   </div>
                 </dl>
               </Link>

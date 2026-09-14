@@ -1,66 +1,66 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
-import { BadgeRang } from "@/components/badge-rang";
-import { FilAriane } from "@/components/fil-ariane";
-import { PartiesRecentes } from "@/components/parties-recentes";
+import { RankBadge } from "@/components/rank-badge";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { RecentMatches } from "@/components/recent-matches";
 import {
-  AnalyseEnCours,
-  BilanJoueur,
-  ConseilsHeros,
-  EtatProfil,
-  ListeBourreaux,
-  NavSaisons,
-  SectionIndisponible,
-  SectionProfil,
-  TableauHeros,
-} from "@/components/profil-joueur";
-import { EvolutionJoueur, FichesHerosRang, TableauPostes } from "@/components/profil-joueur-analyse";
-import type { Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
+  AnalysisInProgress,
+  PlayerSummary,
+  HeroTips,
+  StateProfile,
+  ListNemeses,
+  NavSeasons,
+  SectionUnavailable,
+  SectionProfile,
+  HeroTable,
+} from "@/components/player-profile";
+import { EvolutionPlayer, HeroRankSheets, TableRoles } from "@/components/player-profile-analysis";
+import type { Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
-import { creerT, messagesPage, type T } from "@/i18n/traductions";
+import { createT, messagesPage, type T } from "@/i18n/translations";
 import {
-  FENETRE_FORME,
-  PARTIES_MIN_POSTE,
+  WINDOW_SHAPE,
+  MATCHES_MIN_ROLE,
   evolution,
-  fichesHerosRang,
-  statsParPosition,
-  statsParRole,
-} from "@/lib/analyse-joueur";
-import { pluriel } from "@/lib/format-joueur";
-import type { PartieResume } from "@/lib/joueur-api";
+  heroRankSheets,
+  statsByPosition,
+  statsByRole,
+} from "@/lib/player-analysis";
+import { plural } from "@/lib/player-format";
+import type { MatchSummary } from "@/lib/player-api";
 import {
-  detailsParties,
-  herosDeLaSaison,
-  historiqueParties,
-  pageParties,
-  saisons,
-  statistiques,
-  type Resultat,
+  detailsMatches,
+  seasonHeroes,
+  historyMatches,
+  pageMatches,
+  seasons,
+  statistics,
+  type Result,
 } from "@/lib/mlbb-auth";
 import {
-  PARTIES_ANALYSEES,
-  PARTIES_MIN,
-  afficherPartie,
-  bilanSaison,
-  bourreaux,
-  comparerHeros,
-  herosSousMoyenne,
-  meilleursHeros,
-  trancheDuRang,
-} from "@/lib/profil-joueur";
-import { rangLisible } from "@/lib/rangs";
-import { sessionJoueur } from "@/lib/session";
+  ANALYZED_MATCHES,
+  MATCHES_MIN,
+  showMatch,
+  summarySeason,
+  nemeses,
+  compareHeroes,
+  belowAverageHeroes,
+  bestHero,
+  bucketOfRank,
+} from "@/lib/player-profile";
+import { readableRank } from "@/lib/ranks";
+import { sessionPlayer } from "@/lib/session";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return {
     ...metaPage(locale, {
-      titre: t("pages.accountProfile.metaTitle"),
+      title: t("pages.accountProfile.metaTitle"),
       description: t("pages.accountProfile.metaDescription"),
-      chemin: "/account/profile",
+      path: "/account/profile",
     }),
     robots: { index: false, follow: false },
   };
@@ -70,248 +70,248 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 export const dynamic = "force-dynamic";
 
 /** Heros affiches dans le tableau ; le bilan, lui, les compte tous. */
-const HEROS_AFFICHES = 10;
+const SHOWN_HEROES = 10;
 
-type Historique = Promise<Resultat<{ parties: PartieResume[]; fin: boolean }>>;
+type History = Promise<Result<{ matches: MatchSummary[]; end: boolean }>>;
 
-export default async function PageProfilJoueur({
+export default async function PlayerProfilePage({
   params,
   searchParams,
 }: {
-  params: Promise<{ locale: Langue }>;
-  searchParams: Promise<{ saison?: string | string[] }>;
+  params: Promise<{ locale: Locale }>;
+  searchParams: Promise<{ season?: string | string[] }>;
 }) {
-  const [{ locale }, recherche] = await Promise.all([params, searchParams]);
-  const t = creerT(locale);
-  const session = await sessionJoueur();
-  if (session.etat === "absente") redirect(`/${locale}/login`);
+  const [{ locale }, search] = await Promise.all([params, searchParams]);
+  const t = createT(locale);
+  const session = await sessionPlayer();
+  if (session.state === "missing") redirect(`/${locale}/login`);
 
-  const cadre = (contenu: React.ReactNode) => (
-    <CompleterMessages messages={messagesPage(locale, ["pages.accountProfile"])}>
+  const frame = (content: React.ReactNode) => (
+    <ExtendMessages messages={messagesPage(locale, ["pages.accountProfile"])}>
       <div className="mx-auto max-w-4xl px-4 py-14">
-        <FilAriane
-          miettes={[{ nom: t("pages.account.metaTitle"), href: "/account" }, { nom: t("pages.accountProfile.title") }]}
+        <Breadcrumb
+          crumbs={[{ name: t("pages.account.metaTitle"), href: "/account" }, { name: t("pages.accountProfile.title") }]}
           className="mb-8"
         />
-        {contenu}
+        {content}
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 
-  if (session.etat !== "ok") return cadre(<EtatProfil type={session.etat} t={t} />);
-  const { jeton, profil } = session;
+  if (session.state !== "ok") return frame(<StateProfile type={session.state} t={t} />);
+  const { token, profile } = session;
 
   // Saisons d'abord : toutes les autres routes les exigent. `/stats` les
   // porte aussi, ce qui sert de repli quand `/season` ne repond pas.
-  const [stats, listeSaisons] = await Promise.all([statistiques(jeton), saisons(jeton)]);
-  if (stats.etat === "expire" || listeSaisons.etat === "expire") return cadre(<EtatProfil type="expiree" t={t} />);
+  const [stats, listSeasons] = await Promise.all([statistics(token), seasons(token)]);
+  if (stats.etat === "expired" || listSeasons.etat === "expired") return frame(<StateProfile type="expired" t={t} />);
 
   const sids =
-    listeSaisons.etat === "ok" && listeSaisons.donnees.length > 0
-      ? listeSaisons.donnees
+    listSeasons.etat === "ok" && listSeasons.donnees.length > 0
+      ? listSeasons.donnees
       : stats.etat === "ok"
-        ? stats.donnees.saisons
+        ? stats.donnees.seasons
         : [];
   if (sids.length === 0) {
-    const panne = listeSaisons.etat !== "ok" && stats.etat !== "ok";
-    return cadre(<EtatProfil type={panne ? "indisponible" : "vide"} t={t} />);
+    const outage = listSeasons.etat !== "ok" && stats.etat !== "ok";
+    return frame(<StateProfile type={outage ? "unavailable" : "empty"} t={t} />);
   }
 
-  const demandee = Number([recherche.saison].flat()[0]);
-  const saison = sids.includes(demandee) ? demandee : sids[0];
+  const requested = Number([search.season].flat()[0]);
+  const season = sids.includes(requested) ? requested : sids[0];
 
-  const [herosSaison, premiere] = await Promise.all([herosDeLaSaison(jeton, saison), pageParties(jeton, saison, null)]);
-  if (herosSaison.etat === "expire" || premiere.etat === "expire") return cadre(<EtatProfil type="expiree" t={t} />);
+  const [seasonHeroList, first] = await Promise.all([seasonHeroes(token, season), pageMatches(token, season, null)]);
+  if (seasonHeroList.etat === "expired" || first.etat === "expired") return frame(<StateProfile type="expired" t={t} />);
 
   // Historique lance ici, attendu plus bas sous `Suspense` : les pages
   // suivantes se lisent pendant que le reste du profil s'affiche. La premiere
   // est deja en memoire. Sans elle, inutile d'insister.
-  const historique: Historique | null = premiere.etat === "ok" ? historiqueParties(jeton, saison) : null;
+  const history: History | null = first.etat === "ok" ? historyMatches(token, season) : null;
 
-  const rang = rangLisible(profil.rangActuel);
-  const tranche = trancheDuRang(profil.rangActuel);
-  const lignes = herosSaison.etat === "ok" ? comparerHeros(herosSaison.donnees.heros, tranche) : null;
-  const parties = premiere.etat === "ok" ? premiere.donnees.entrees : null;
-  const nomTranche = t(`measuredRanks.${tranche}`);
-  const attente = (hauteur: string) => (
-    <AnalyseEnCours t={t} texte={t("pages.accountProfile.historyPending")} className={`mt-6 ${hauteur}`} />
+  const rank = readableRank(profile.rankCurrent);
+  const bucket = bucketOfRank(profile.rankCurrent);
+  const rows = seasonHeroList.etat === "ok" ? compareHeroes(seasonHeroList.donnees.heroes, bucket) : null;
+  const matches = first.etat === "ok" ? first.donnees.entries : null;
+  const nameBucket = t(`measuredRanks.${bucket}`);
+  const waiting = (height: string) => (
+    <AnalysisInProgress t={t} text={t("pages.accountProfile.historyPending")} className={`mt-6 ${height}`} />
   );
 
-  return cadre(
+  return frame(
     <>
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div className="min-w-0">
           <h1 className="font-heading text-3xl font-bold text-chalk-100">{t("pages.accountProfile.title")}</h1>
           <div aria-hidden className="gold-rule mt-3 h-0.5 w-16" />
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-chalk-500">
-            {t("pages.accountProfile.lead", { nom: profil.name })}
+            {t("pages.accountProfile.lead", { nom: profile.name })}
           </p>
         </div>
-        <BadgeRang rang={rang} taille="sm" />
+        <RankBadge rank={rank} size="sm" />
       </header>
 
-      {sids.length > 1 && <NavSaisons saisons={sids} courante={saison} t={t} />}
+      {sids.length > 1 && <NavSeasons seasons={sids} current={season} t={t} />}
 
-      <SectionProfil id="bilan" titre={t("pages.accountProfile.summaryTitle", { n: saison })}>
-        {herosSaison.etat === "ok" ? (
-          <BilanJoueur
-            bilan={bilanSaison(herosSaison.donnees.heros)}
-            complet={herosSaison.donnees.complet}
-            rang={rang}
+      <SectionProfile id="bilan" title={t("pages.accountProfile.summaryTitle", { n: season })}>
+        {seasonHeroList.etat === "ok" ? (
+          <PlayerSummary
+            summary={summarySeason(seasonHeroList.donnees.heroes)}
+            full={seasonHeroList.donnees.full}
+            rank={rank}
             stats={stats.etat === "ok" ? stats.donnees : null}
             t={t}
-            langue={locale}
+            locale={locale}
           />
         ) : (
-          <SectionIndisponible t={t} />
+          <SectionUnavailable t={t} />
         )}
-      </SectionProfil>
+      </SectionProfile>
 
-      <SectionProfil
+      <SectionProfile
         id="evolution"
-        titre={t("pages.accountProfile.trendTitle")}
-        chapeau={t("pages.accountProfile.trendIntro", { n: FENETRE_FORME })}
+        title={t("pages.accountProfile.trendTitle")}
+        lead={t("pages.accountProfile.trendIntro", { n: WINDOW_SHAPE })}
       >
-        {historique === null ? (
-          <SectionIndisponible t={t} />
+        {history === null ? (
+          <SectionUnavailable t={t} />
         ) : (
-          <Suspense fallback={attente("min-h-[20rem]")}>
-            <EvolutionDifferee historique={historique} t={t} langue={locale} />
+          <Suspense fallback={waiting("min-h-[20rem]")}>
+            <DeferredEvolution history={history} t={t} locale={locale} />
           </Suspense>
         )}
-      </SectionProfil>
+      </SectionProfile>
 
-      <SectionProfil
+      <SectionProfile
         id="postes"
-        titre={t("pages.accountProfile.rolesTitle")}
-        chapeau={t("pages.accountProfile.rolesIntro", { n: PARTIES_MIN_POSTE })}
+        title={t("pages.accountProfile.rolesTitle")}
+        lead={t("pages.accountProfile.rolesIntro", { n: MATCHES_MIN_ROLE })}
       >
         <div className="mt-6 grid gap-10 lg:grid-cols-2 lg:gap-8">
-          {herosSaison.etat === "ok" ? (
-            <TableauPostes
+          {seasonHeroList.etat === "ok" ? (
+            <TableRoles
               type="roles"
-              titre={t("pages.accountProfile.byRoleTitle")}
+              title={t("pages.accountProfile.byRoleTitle")}
               source={t("pages.accountProfile.byRoleSource")}
-              bilan={statsParRole(herosSaison.donnees.heros)}
+              summary={statsByRole(seasonHeroList.donnees.heroes)}
               t={t}
-              langue={locale}
+              locale={locale}
             />
           ) : (
-            <SectionIndisponible t={t} />
+            <SectionUnavailable t={t} />
           )}
-          {historique === null ? (
-            <SectionIndisponible t={t} />
+          {history === null ? (
+            <SectionUnavailable t={t} />
           ) : (
-            <Suspense fallback={attente("min-h-[12rem]")}>
-              <PositionsDifferees historique={historique} t={t} langue={locale} />
+            <Suspense fallback={waiting("min-h-[12rem]")}>
+              <DeferredPositions history={history} t={t} locale={locale} />
             </Suspense>
           )}
         </div>
-      </SectionProfil>
+      </SectionProfile>
 
-      <SectionProfil
+      <SectionProfile
         id="heros"
-        titre={t("pages.accountProfile.heroesTitle")}
-        chapeau={`${t("pages.accountProfile.heroesIntro", { rang: nomTranche })}${
-          tranche === "all" ? ` ${t("pages.accountProfile.belowEpicBracket")}` : ""
+        title={t("pages.accountProfile.heroesTitle")}
+        lead={`${t("pages.accountProfile.heroesIntro", { rang: nameBucket })}${
+          bucket === "all" ? ` ${t("pages.accountProfile.belowEpicBracket")}` : ""
         }`}
       >
-        {lignes === null ? (
-          <SectionIndisponible t={t} />
-        ) : lignes.length === 0 ? (
+        {rows === null ? (
+          <SectionUnavailable t={t} />
+        ) : rows.length === 0 ? (
           <p className="mt-6 text-sm text-chalk-500">{t("pages.accountProfile.heroesEmpty")}</p>
         ) : (
           <>
-            <TableauHeros lignes={lignes.slice(0, HEROS_AFFICHES)} tranche={tranche} t={t} langue={locale} />
-            <FichesHerosRang
-              fiches={fichesHerosRang(lignes, tranche, parties ?? [])}
-              tranche={tranche}
+            <HeroTable rows={rows.slice(0, SHOWN_HEROES)} bucket={bucket} t={t} locale={locale} />
+            <HeroRankSheets
+              sheets={heroRankSheets(rows, bucket, matches ?? [])}
+              bucket={bucket}
               t={t}
-              langue={locale}
+              locale={locale}
             />
           </>
         )}
-      </SectionProfil>
+      </SectionProfile>
 
-      <SectionProfil
+      <SectionProfile
         id="conseils"
-        titre={t("pages.accountProfile.adviceTitle")}
-        chapeau={t("pages.accountProfile.adviceIntro", { n: PARTIES_MIN })}
+        title={t("pages.accountProfile.adviceTitle")}
+        lead={t("pages.accountProfile.adviceIntro", { n: MATCHES_MIN })}
       >
-        <ConseilsHeros
-          lignes={lignes}
-          meilleurs={lignes ? meilleursHeros(lignes) : []}
-          sousMoyenne={lignes ? herosSousMoyenne(lignes) : []}
-          tranche={tranche}
+        <HeroTips
+          rows={rows}
+          best={rows ? bestHero(rows) : []}
+          belowAverage={rows ? belowAverageHeroes(rows) : []}
+          bucket={bucket}
           t={t}
-          langue={locale}
-          adversaires={
-            parties === null ? (
+          locale={locale}
+          opponents={
+            matches === null ? (
               <p className="text-sm text-chalk-400">{t("pages.accountProfile.sectionUnavailable")}</p>
-            ) : parties.length === 0 ? (
+            ) : matches.length === 0 ? (
               <p className="text-sm text-chalk-400">{t("pages.accountProfile.nemesesEmpty")}</p>
             ) : (
-              <Suspense fallback={<AnalyseEnCours t={t} />}>
-                <AnalyseAdversaires
-                  jeton={jeton}
-                  saison={saison}
-                  parties={parties}
-                  moi={{ roleId: profil.roleId, zoneId: profil.zoneId }}
+              <Suspense fallback={<AnalysisInProgress t={t} />}>
+                <OpponentAnalysis
+                  token={token}
+                  season={season}
+                  matches={matches}
+                  me={{ roleId: profile.roleId, zoneId: profile.zoneId }}
                   t={t}
-                  langue={locale}
+                  locale={locale}
                 />
               </Suspense>
             )
           }
         />
-      </SectionProfil>
+      </SectionProfile>
 
-      <SectionProfil id="parties" titre={t("pages.accountProfile.gamesTitle")}>
-        {premiere.etat === "ok" ? (
-          <PartiesRecentes
-            key={saison}
-            saison={saison}
-            initiales={premiere.donnees.entrees.map(afficherPartie)}
-            suivant={premiere.donnees.suivant}
+      <SectionProfile id="parties" title={t("pages.accountProfile.gamesTitle")}>
+        {first.etat === "ok" ? (
+          <RecentMatches
+            key={season}
+            season={season}
+            initials={first.donnees.entries.map(showMatch)}
+            next={first.donnees.next}
           />
         ) : (
-          <SectionIndisponible t={t} />
+          <SectionUnavailable t={t} />
         )}
-      </SectionProfil>
+      </SectionProfile>
     </>,
   );
 }
 
 /** Historique indisponible ou session expiree, dit a la place d'une section differee. */
-function HistoriqueManquant({ etat, t }: { etat: "expire" | "indisponible"; t: T }) {
-  return etat === "expire" ? (
+function HistoryMissing({ state, t }: { state: "expired" | "unavailable"; t: T }) {
+  return state === "expired" ? (
     <p className="mt-6 text-sm leading-relaxed text-chalk-400">{t("pages.accountProfile.expiredText")}</p>
   ) : (
-    <SectionIndisponible t={t} />
+    <SectionUnavailable t={t} />
   );
 }
 
 /** Evolution de la saison : attend l'historique des parties, lance par la page. */
-async function EvolutionDifferee({ historique, t, langue }: { historique: Historique; t: T; langue: Langue }) {
-  const r = await historique;
-  if (r.etat !== "ok") return <HistoriqueManquant etat={r.etat} t={t} />;
-  return <EvolutionJoueur evo={evolution(r.donnees.parties)} fin={r.donnees.fin} t={t} langue={langue} />;
+async function DeferredEvolution({ history, t, locale }: { history: History; t: T; locale: Locale }) {
+  const r = await history;
+  if (r.etat !== "ok") return <HistoryMissing state={r.etat} t={t} />;
+  return <EvolutionPlayer evo={evolution(r.donnees.matches)} end={r.donnees.end} t={t} locale={locale} />;
 }
 
 /** Positions occupees sur l'historique lu : le meme, partage avec l'evolution. */
-async function PositionsDifferees({ historique, t, langue }: { historique: Historique; t: T; langue: Langue }) {
-  const r = await historique;
-  if (r.etat !== "ok") return <HistoriqueManquant etat={r.etat} t={t} />;
-  const bilan = statsParPosition(r.donnees.parties);
-  const n = bilan.total + bilan.ecartees;
+async function DeferredPositions({ history, t, locale }: { history: History; t: T; locale: Locale }) {
+  const r = await history;
+  if (r.etat !== "ok") return <HistoryMissing state={r.etat} t={t} />;
+  const summary = statsByPosition(r.donnees.matches);
+  const n = summary.total + summary.excluded;
   return (
-    <TableauPostes
+    <TableRoles
       type="lanes"
-      titre={t("pages.accountProfile.byPositionTitle")}
-      source={t(`pages.accountProfile.byPositionSource.${pluriel(n, langue)}`, { n })}
-      bilan={bilan}
+      title={t("pages.accountProfile.byPositionTitle")}
+      source={t(`pages.accountProfile.byPositionSource.${plural(n, locale)}`, { n })}
+      summary={summary}
       t={t}
-      langue={langue}
+      locale={locale}
     />
   );
 }
@@ -321,34 +321,34 @@ async function PositionsDifferees({ historique, t, langue }: { historique: Histo
  * `Suspense` : le detail d'une douzaine de parties prend du temps, le reste
  * du profil n'a pas a l'attendre. Le jeton reste ici, cote serveur.
  */
-async function AnalyseAdversaires({
-  jeton,
-  saison,
-  parties,
-  moi,
+async function OpponentAnalysis({
+  token,
+  season,
+  matches,
+  me,
   t,
-  langue,
+  locale,
 }: {
-  jeton: string;
-  saison: number;
-  parties: PartieResume[];
-  moi: { roleId: number; zoneId: number };
+  token: string;
+  season: number;
+  matches: MatchSummary[];
+  me: { roleId: number; zoneId: number };
   t: T;
-  langue: Langue;
+  locale: Locale;
 }) {
-  const recentes = parties.slice(0, PARTIES_ANALYSEES);
-  const details = await detailsParties(
-    jeton,
-    recentes.map((p) => ({ id: p.id, saison: p.saison ?? saison })),
+  const recent = matches.slice(0, ANALYZED_MATCHES);
+  const details = await detailsMatches(
+    token,
+    recent.map((p) => ({ id: p.id, season: p.season ?? season })),
   );
   if (details.etat !== "ok") {
-    const cle = details.etat === "expire" ? "expireTexte" : "bourreauxIndispo";
-    return <p className="text-sm leading-relaxed text-chalk-400">{t(`pages.accountProfile.${cle}`)}</p>;
+    const key = details.etat === "expired" ? "expiredText" : "nemesesUnavailable";
+    return <p className="text-sm leading-relaxed text-chalk-400">{t(`pages.accountProfile.${key}`)}</p>;
   }
 
-  const analysees = recentes.flatMap((p) => {
+  const analyzed = recent.flatMap((p) => {
     const participants = details.donnees.get(p.id);
-    return participants ? [{ victoire: p.victoire, participants }] : [];
+    return participants ? [{ win: p.win, participants }] : [];
   });
-  return <ListeBourreaux analyse={bourreaux(analysees, moi)} t={t} langue={langue} />;
+  return <ListNemeses analysis={nemeses(analyzed, me)} t={t} locale={locale} />;
 }

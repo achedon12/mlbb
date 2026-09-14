@@ -90,13 +90,17 @@ jobs:
         continue-on-error: true
         run: node scripts/esports.mjs
 
+      # This file comes from develop but runs main's code: until main has the
+      # English script names, fall back to the French ones it still uses.
       - name: Traduire les contenus repris en anglais
         if: steps.complete.outcome == 'success'
-        run: npm run traduire
+        run: |
+          npm run "$(node -p "require('./package.json').scripts.translate ? 'translate' : 'traduire'")"
 
       - name: Prendre l'instantane de la veille
         if: steps.complete.outcome == 'success'
-        run: npm run veille
+        run: |
+          npm run "$(node -p "require('./package.json').scripts.watch ? 'watch' : 'veille'")"
 
       - name: Verifier que le site compile avec les nouvelles donnees
         if: steps.complete.outcome == 'success'
@@ -132,9 +136,10 @@ jobs:
           # Donnees, visuels, traductions et leurs caches : rien d'autre (le build
           # ne doit rien glisser dans le commit).
           git add -A -- src/data public/visuels content src/i18n/messages 'scripts/*.json'
-          # synchro.json porte l'horodatage de l'execution : seul, il ne merite
-          # pas de commit.
-          if git diff --cached --quiet -- . ':(exclude)src/data/jeu/synchro.json'; then
+          # sync.json porte l'horodatage de l'execution : seul, il ne merite
+          # pas de commit. Both paths: main still has the French one, and an
+          # exclude that matches nothing silently excludes nothing.
+          if git diff --cached --quiet -- . ':(exclude)src/data/game/sync.json' ':(exclude)src/data/jeu/synchro.json'; then
             echo "Aucune donnee nouvelle."
             exit 0
           fi

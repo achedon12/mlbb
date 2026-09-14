@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { metaLangues } from "@/i18n/seo";
-import Link from "@/components/lien";
+import { metaLocales } from "@/i18n/seo";
+import Link from "@/components/link";
 import { WifiOff } from "lucide-react";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 
 /**
  * Page « hors ligne ».
@@ -12,15 +12,15 @@ import { creerT } from "@/i18n/traductions";
  * place d'une page jamais consultee quand le reseau manque. Elle n'a rien a
  * faire dans un moteur de recherche.
  */
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
-  return { title: t("pages.offline.title"), alternates: metaLangues(locale, "/offline"), robots: { index: false, follow: false } };
+  const t = createT(locale);
+  return { title: t("pages.offline.title"), alternates: metaLocales(locale, "/offline"), robots: { index: false, follow: false } };
 }
 
-export default async function PageHorsLigne({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function OfflinePage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return (
     <div className="mx-auto max-w-xl px-4 py-24 text-center">
       <WifiOff size={40} aria-hidden className="mx-auto text-gold-400" />

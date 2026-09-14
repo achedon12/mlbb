@@ -1,43 +1,43 @@
 import type { Metadata } from "next";
-import { CalculateurTaux } from "@/components/calculateur-taux";
-import { EnTetePage } from "@/components/ui";
-import { donneesLd } from "@/lib/html";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
-import { donneesOutil, metaPage } from "@/i18n/seo";
+import { WinRateCalculator } from "@/components/win-rate-calculator";
+import { PageHeader } from "@/components/ui";
+import { serializeJsonLd } from "@/lib/html";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
+import { dataTool, metaPage } from "@/i18n/seo";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.winRate.title"),
+    title: t("pages.seo.winRate.title"),
     description: t("pages.seo.winRate.description"),
-    chemin: "/tools/win-rate",
-    motsCles: ["win rate", "winrate", "calculator", "Mobile Legends", "MLBB"],
+    path: "/tools/win-rate",
+    keywords: ["win rate", "winrate", "calculator", "Mobile Legends", "MLBB"],
   });
 }
 
-export default async function PageTauxVictoire({ params }: Params) {
+export default async function WinRateToolPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.winRate.title"),
+  const t = createT(locale);
+  const structuredData = dataTool(locale, {
+    name: t("pages.winRate.title"),
     description: t("pages.seo.winRate.description"),
-    chemin: "/tools/win-rate",
-    categorie: "UtilitiesApplication",
+    path: "/tools/win-rate",
+    category: "UtilitiesApplication",
   });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <EnTetePage titre={t("pages.winRate.title")} chapeau={t("pages.winRate.lead")} />
+      <PageHeader title={t("pages.winRate.title")} lead={t("pages.winRate.lead")} />
       <div className="mx-auto max-w-3xl space-y-12 px-4 py-12">
-        <CalculateurTaux />
+        <WinRateCalculator />
 
         <section>
           <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.winRate.methodTitle")}</h2>

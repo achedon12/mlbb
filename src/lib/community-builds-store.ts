@@ -6,7 +6,7 @@ import { canPublish, toggleVote, type Publication, type PublishLimit, type Store
 /**
  * Community build storage.
  *
- * Same approach as the push subscriptions (`src/lib/push-serveur.ts`): no
+ * Same approach as the push subscriptions (`src/lib/push-server.ts`): no
  * database, one JSON file in the `DONNEES_DIR` folder (the `donnees` Docker
  * volume), rewritten whole on each change - temporary file then rename, so a
  * crash never leaves half a file. Writes go one after another through a
@@ -19,7 +19,9 @@ import { canPublish, toggleVote, type Publication, type PublishLimit, type Store
 
 const MAX_FILE_BYTES = 12 * 1024 * 1024;
 
-const folder = () => process.env.DONNEES_DIR?.trim() || "donnees-serveur";
+// DONNEES_DIR is the former name of DATA_DIR, still read as a fallback: the
+// production server may still set only the old name.
+const folder = () => (process.env.DATA_DIR ?? process.env.DONNEES_DIR)?.trim() || "donnees-serveur";
 const storeFile = () => join(folder(), "community-builds.json");
 
 export class StorageError extends Error {}
@@ -117,15 +119,15 @@ export function publishBuild(
 
 export function voteBuild(
   id: string,
-  voter: string,
+  vote: string,
   now = Date.now(),
 ): Promise<VoteResult> {
   return modify<VoteResult>((builds) => {
     const current = builds.find((b) => b.id === id);
     if (!current) return { builds: null, result: { ok: false, reason: "unknown" } };
     // Voting for one's own build would only inflate it.
-    if (current.author.id === voter) return { builds: null, result: { ok: false, reason: "own" } };
-    const { build, voted } = toggleVote(current, voter, now);
+    if (current.author.id === vote) return { builds: null, result: { ok: false, reason: "own" } };
+    const { build, voted } = toggleVote(current, vote, now);
     return {
       builds: builds.map((b) => (b === current ? build : b)),
       result: { ok: true, votes: build.votes.length, voted },

@@ -1,0 +1,95 @@
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { historyMatches } from "@/lib/mlbb-auth";
+import { pageHistory, matchRaw } from "./player-samples";
+
+/**
+ * Pagination de l'historique, service simule : chaque page repond selon son
+ * curseur. Le jeton change a chaque test, la memoire des reponses etant
+ * indexee par jeton.
+ */
+const CURSORS = ["4143043017340290910", "4143043017340290911", "4143043017340290912"];
+
+/** Trois pages de vingt, puis une de cinq ; la deuxieme repete la derniere partie de la premiere. */
+const series = (start: number, n: number, hid: number, lid: number, res: 0 | 1, ts: number) =>
+  Array.from({ length: n }, (_, i) => matchRaw(start + i, hid, lid, res, ts - i));
+const PAGES: Record<string, string> = {
+  "": pageHistory(series(0, 20, 84, 4, 1, 1774857999), CURSORS[0]),
+  [CURSORS[0]]: pageHistory(series(19, 20, 20, 3, 0, 1774850000), CURSORS[1]),
+  [CURSORS[1]]: pageHistory(series(39, 20, 17, 4, 1, 1774840000), CURSORS[2]),
+  [CURSORS[2]]: pageHistory(series(59, 5, 36, 2, 0, 1774830000), null),
+};
+
+type ApiResponse = Response | Promise<Response>;
+
+function service(answer: (cursor: string) => ApiResponse | undefined) {
+  const calls: string[] = [];
+  vi.stubGlobal(
+    "fetch",
+    vi.fn((url: string) => {
+      const cursor = new URL(url).searchParams.get("last_cursor") ?? "";
+      calls.push(cursor);
+      return Promise.resolve(answer(cursor) ?? new Response(PAGES[cursor], { status: 200 }));
+    }),
+  );
+  return calls;
+}
+
+let n = 0;
+const token = () => `jeton-historique-${++n}`;
+
+afterEach(() => vi.unstubAllGlobals());
+
+describe("historyMatches", () => {
+  it("chains pages up to the cap, without duplicates", async () => {
+    const calls = service(() => undefined);
+    const r = await historyMatches(token(), 40);
+    expect(r.etat).toBe("ok");
+    if (r.etat !== "ok") return;
+    // 65 entrees, dont une repetee d'une page a l'autre.
+    expect(r.donnees.matches).toHaveLength(64);
+    expect(new Set(r.donnees.matches.map((p) => p.id)).size).toBe(64);
+    expect(r.donnees.end).toBe(true);
+    // Curseurs transmis intacts, malgre leurs 19 chiffres.
+    expect(calls).toEqual(["", ...CURSORS]);
+  });
+
+  it("stops at the requested count and reports it", async () => {
+    const calls = service(() => undefined);
+    const r = await historyMatches(token(), 40, 30);
+    expect(r).toMatchObject({ etat: "ok", donnees: { end: false } });
+    if (r.etat === "ok") expect(r.donnees.matches).toHaveLength(30);
+    expect(calls).toHaveLength(2);
+  });
+
+  it("keeps what was read when a later page is missing", async () => {
+    service((c) => (c === CURSORS[0] ? new Response("", { status: 502 }) : undefined));
+    const r = await historyMatches(token(), 40);
+    expect(r).toMatchObject({ etat: "ok", donnees: { end: false } });
+    if (r.etat === "ok") expect(r.donnees.matches).toHaveLength(20);
+  });
+
+  it("does not wait for a slow page beyond the budget", async () => {
+    service((c) => (c === CURSORS[0] ? new Promise<Response>(() => {}) : undefined));
+    const start = Date.now();
+    const r = await historyMatches(token(), 40, 100, 50);
+    expect(Date.now() - start).toBeLessThan(2000);
+    if (r.etat === "ok") expect(r.donnees.matches).toHaveLength(20);
+    else expect.unreachable();
+  });
+
+  it("reports an expired session and an unavailable first page", async () => {
+    service(() => new Response("", { status: 401 }));
+    expect(await historyMatches(token(), 40)).toEqual({ etat: "expired" });
+    service(() => new Response('{"code":10407,"data":null}', { status: 200 }));
+    expect(await historyMatches(token(), 40)).toEqual({ etat: "unavailable" });
+    expect(await historyMatches(token(), 0)).toEqual({ etat: "unavailable" });
+  });
+
+  it("does not loop on a cursor that does not move", async () => {
+    const loop = pageHistory([matchRaw(1, 84, 4, 1, 1774857999)], CURSORS[0]);
+    const calls = service(() => new Response(loop, { status: 200 }));
+    const r = await historyMatches(token(), 40);
+    expect(r).toMatchObject({ etat: "ok", donnees: { end: true } });
+    expect(calls).toHaveLength(2);
+  });
+});

@@ -26,13 +26,13 @@ import { StorageError, deleteBuild, getBuild, listBuilds, publishBuild, voteBuil
 // The journal would write to `logs/`, the session would read cookies and ask
 // the game's login service: all three are replaced for the route tests.
 const session = vi.hoisted(() => ({ token: null as string | null }));
-vi.mock("@/lib/journal", () => ({ journaliser: vi.fn(async () => {}), journaliserErreur: vi.fn(async () => {}) }));
-vi.mock("@/lib/session", () => ({ jetonCourant: async () => session.token }));
+vi.mock("@/lib/log", () => ({ log: vi.fn(async () => {}), logError: vi.fn(async () => {}) }));
+vi.mock("@/lib/session", () => ({ tokenCurrent: async () => session.token }));
 vi.mock("@/lib/mlbb-auth", () => ({
-  profil: async (token: string) =>
+  profile: async (token: string) =>
     token.startsWith("player-")
       ? { etat: "ok", donnees: { roleId: Number(token.slice(7)), zoneId: 7, name: `Player ${token.slice(7)}` } }
-      : { etat: "expire" },
+      : { etat: "expired" },
 }));
 
 /**

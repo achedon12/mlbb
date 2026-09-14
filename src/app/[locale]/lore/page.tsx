@@ -1,97 +1,97 @@
 import type { Metadata } from "next";
-import { CreditWiki } from "@/components/credit-wiki";
-import Link from "@/components/lien";
-import { ListeHistoires, type EntreeHistoire } from "@/components/liste-histoires";
-import { PaireLoreCarte } from "@/components/paire-lore";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { EnTetePage, TitreSection } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { libelleHeros } from "@/i18n/donnees-heros";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesListeHeros, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import { histoires, synchro } from "@/lib/donnees";
-import { listeNoms } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
-import { factionsLore, nomsHeros, pairesDe, pairesVedettes, regionDe, regionsLore, termesLore } from "@/lib/lore";
+import { WikiCredit } from "@/components/wiki-credit";
+import Link from "@/components/link";
+import { StoryList, type EntryStory } from "@/components/story-list";
+import { LorePairCard } from "@/components/lore-pair";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { PageHeader, SectionTitle } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { heroLabel } from "@/i18n/hero-data";
+import { ExtendMessages } from "@/i18n/provider";
+import { heroListData, metaPage } from "@/i18n/seo";
+import { createT, messagesPage } from "@/i18n/translations";
+import { stories, sync } from "@/lib/data";
+import { listNames } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
+import { factionsLore, heroNames, pairsOf, pairsFeatured, regionOf, regionsLore, termsLore } from "@/lib/lore";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 /** Heros dont le wiki publie un recit ou une fiche narrative. */
-function nombreHistoires(locale: Langue): number {
-  const h = histoires(locale);
-  return regionsLore.reduce((n, r) => n + r.heros.filter((x) => h[x.slug]?.lore.length || h[x.slug]?.profile).length, 0);
+function countStories(locale: Locale): number {
+  const h = stories(locale);
+  return regionsLore.reduce((n, r) => n + r.heroes.filter((x) => h[x.slug]?.lore.length || h[x.slug]?.profile).length, 0);
 }
 
-function description(locale: Langue): string {
-  const t = creerT(locale);
+function description(locale: Locale): string {
+  const t = createT(locale);
   return t("pages.seo.lore.description", {
-    n: nombreHistoires(locale),
+    n: countStories(locale),
     regions: regionsLore.length,
-    exemples: listeNoms(locale, regionsLore.slice(0, 3).map((r) => libelleHeros(t, "region", r.nom)!)),
+    exemples: listNames(locale, regionsLore.slice(0, 3).map((r) => heroLabel(t, "region", r.name)!)),
   });
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.lore.title"),
+    title: t("pages.seo.lore.title"),
     description: description(locale),
-    chemin: "/lore",
-    motsCles: ["MLBB lore", "Mobile Legends lore", "Land of Dawn", "Moniyan Empire", "hero story"],
+    path: "/lore",
+    keywords: ["MLBB lore", "Mobile Legends lore", "Land of Dawn", "Moniyan Empire", "hero story"],
   });
 }
 
-export default async function PageLore({ params }: Params) {
+export default async function LorePage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const h = histoires(locale);
-  const nomRegion = (nom: string) => libelleHeros(t, "region", nom)!;
-  const paires = pairesDe(locale);
-  const vedettes = pairesVedettes(paires, 8);
+  const t = createT(locale);
+  const h = stories(locale);
+  const nameRegion = (name: string) => heroLabel(t, "region", name)!;
+  const pairs = pairsOf(locale);
+  const featured = pairsFeatured(pairs, 8);
   // Les factions de deux heros restent sur les pages de region : le hub garde les plus grandes.
   const factions = factionsLore(locale, 3);
-  const total = regionsLore.reduce((n, r) => n + r.heros.length, 0);
-  const nHeros = (n: number) => t(n === 1 ? "pages.lore.nHeroes1" : "pages.lore.nHeroes", { n });
-  const regionLibelle = (slug: string) => {
-    const cle = regionDe(slug);
-    const r = regionsLore.find((x) => x.cle === cle);
-    return r ? nomRegion(r.nom) : null;
+  const total = regionsLore.reduce((n, r) => n + r.heroes.length, 0);
+  const heroCount = (n: number) => t(n === 1 ? "pages.lore.nHeroes1" : "pages.lore.nHeroes", { n });
+  const regionLabel = (slug: string) => {
+    const key = regionOf(slug);
+    const r = regionsLore.find((x) => x.key === key);
+    return r ? nameRegion(r.name) : null;
   };
 
-  const donneesStructurees = donneesListeHeros(locale, {
-    nom: t("pages.lore.listLd"),
+  const structuredData = heroListData(locale, {
+    name: t("pages.lore.listLd"),
     description: description(locale),
-    chemin: "/lore",
-    heros: regionsLore.flatMap((r) => r.heros.map((x) => ({ nom: x.name, slug: x.slug }))),
+    path: "/lore",
+    heroes: regionsLore.flatMap((r) => r.heroes.map((x) => ({ name: x.name, slug: x.slug }))),
   });
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.loreUI"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
-      <EnTetePage
-        titre={t("pages.lore.title")}
-        chapeau={t("pages.lore.lead", { n: nombreHistoires(locale), regions: regionsLore.length, liens: paires.length })}
+    <ExtendMessages messages={messagesPage(locale, ["pages.loreUI"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader
+        title={t("pages.lore.title")}
+        lead={t("pages.lore.lead", { n: countStories(locale), regions: regionsLore.length, liens: pairs.length })}
       />
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         <section id="regions">
-          <TitreSection chapeau={t("pages.lore.regionsLead")}>{t("pages.lore.regionsTitle")}</TitreSection>
+          <SectionTitle lead={t("pages.lore.regionsLead")}>{t("pages.lore.regionsTitle")}</SectionTitle>
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {regionsLore.map((r) => (
-              <li key={r.cle}>
+              <li key={r.key}>
                 <Link
-                  href={`/lore/${r.cle}`}
+                  href={`/lore/${r.key}`}
                   className="bevel group flex h-full flex-col gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
                 >
                   <span className="flex items-baseline justify-between gap-3">
-                    <span className="font-heading text-lg font-bold text-chalk-100 group-hover:text-gold-400">{nomRegion(r.nom)}</span>
-                    <span className="shrink-0 text-xs text-chalk-500">{nHeros(r.heros.length)}</span>
+                    <span className="font-heading text-lg font-bold text-chalk-100 group-hover:text-gold-400">{nameRegion(r.name)}</span>
+                    <span className="shrink-0 text-xs text-chalk-500">{heroCount(r.heroes.length)}</span>
                   </span>
                   <span className="flex flex-wrap gap-1">
-                    {r.heros.slice(0, 5).map((x) => (
-                      <PortraitHeros key={x.slug} source={x.images.icon ?? x.images.portrait} nom={x.name} taille="mini" decoratif />
+                    {r.heroes.slice(0, 5).map((x) => (
+                      <HeroPortrait key={x.slug} source={x.images.icon ?? x.images.portrait} name={x.name} size="mini" decorative />
                     ))}
                   </span>
                 </Link>
@@ -100,13 +100,13 @@ export default async function PageLore({ params }: Params) {
           </ul>
         </section>
 
-        {vedettes.length > 0 && (
+        {featured.length > 0 && (
           <section id="liens">
-            <TitreSection chapeau={t("pages.lore.linksLead")}>{t("pages.lore.linksTitle")}</TitreSection>
+            <SectionTitle lead={t("pages.lore.linksLead")}>{t("pages.lore.linksTitle")}</SectionTitle>
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              {vedettes.map((p) => (
+              {featured.map((p) => (
                 <li key={`${p.a}-${p.b}`}>
-                  <PaireLoreCarte paire={p} t={t} regions={[regionLibelle(p.a), regionLibelle(p.b)]} />
+                  <LorePairCard pair={p} t={t} regions={[regionLabel(p.a), regionLabel(p.b)]} />
                 </li>
               ))}
             </ul>
@@ -115,22 +115,22 @@ export default async function PageLore({ params }: Params) {
 
         {factions.length > 0 && (
           <section id="factions">
-            <TitreSection chapeau={t("pages.lore.factionsLead")}>{t("pages.lore.factionsTitle")}</TitreSection>
+            <SectionTitle lead={t("pages.lore.factionsLead")}>{t("pages.lore.factionsTitle")}</SectionTitle>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {factions.map((f) => (
-                <li key={f.cle} className="bevel-sm border border-night-700/60 bg-night-900/40 p-4">
+                <li key={f.key} className="bevel-sm border border-night-700/60 bg-night-900/40 p-4">
                   <p className="flex items-baseline justify-between gap-3">
-                    <span className="font-semibold text-chalk-100">{f.nom}</span>
-                    <span className="shrink-0 text-xs text-chalk-500">{nHeros(f.heros.length)}</span>
+                    <span className="font-semibold text-chalk-100">{f.name}</span>
+                    <span className="shrink-0 text-xs text-chalk-500">{heroCount(f.heroes.length)}</span>
                   </p>
                   <ul className="mt-2 flex flex-wrap gap-1.5">
-                    {f.heros.map((s) => (
+                    {f.heroes.map((s) => (
                       <li key={s}>
                         <Link
                           href={`/heroes/${s}#histoire`}
                           className="bevel-sm inline-block border border-night-700/70 bg-night-800/60 px-2 py-1 text-xs text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
                         >
-                          {nomsHeros.get(s) ?? s}
+                          {heroNames.get(s) ?? s}
                         </Link>
                       </li>
                     ))}
@@ -142,27 +142,27 @@ export default async function PageLore({ params }: Params) {
         )}
 
         <section id="histoires">
-          <TitreSection chapeau={t("pages.lore.storiesLead")}>{t("pages.lore.storiesTitle")}</TitreSection>
-          <ListeHistoires
+          <SectionTitle lead={t("pages.lore.storiesLead")}>{t("pages.lore.storiesTitle")}</SectionTitle>
+          <StoryList
             total={total}
-            groupes={regionsLore.map((r) => ({
-              cle: r.cle,
-              nom: nomRegion(r.nom),
-              heros: r.heros.map(
-                (x): EntreeHistoire => [
+            groups={regionsLore.map((r) => ({
+              key: r.key,
+              name: nameRegion(r.name),
+              heroes: r.heroes.map(
+                (x): EntryStory => [
                   x.slug,
                   x.name,
                   h[x.slug]?.tagline ?? h[x.slug]?.profile?.title ?? x.title,
                   x.images.icon ?? x.images.portrait,
-                  termesLore(x, locale, nomRegion(r.nom)),
+                  termsLore(x, locale, nameRegion(r.name)),
                 ],
               ),
             }))}
           />
         </section>
 
-        <CreditWiki t={t} href={synchro.source} cle="pages.lore.source" />
+        <WikiCredit t={t} href={sync.source} messageKey="pages.lore.source" />
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

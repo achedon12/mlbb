@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { NicknameGenerator } from "@/components/nickname-generator";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import { donneesLd } from "@/lib/html";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT, messagesPage } from "@/i18n/translations";
+import { serializeJsonLd } from "@/lib/html";
 import { GUIDE_LENGTH, SHOP_SOURCE, STYLES } from "@/lib/nicknames";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/tools/nickname";
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.nickname.title"),
+    title: t("pages.seo.nickname.title"),
     description: t("pages.seo.nickname.description", { n: STYLES.length }),
-    chemin: PATH,
-    motsCles: [
+    path: PATH,
+    keywords: [
       "mlbb stylish name",
       "ML stylish name",
       "nama ML keren",
@@ -37,19 +37,19 @@ const sourceLink = "underline transition-colors hover:text-gold-400";
 
 export default async function NicknamePage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const structuredData = donneesOutil(locale, {
-    nom: t("pages.nickname.title"),
+  const t = createT(locale);
+  const structuredData = dataTool(locale, {
+    name: t("pages.nickname.title"),
     description: t("pages.seo.nickname.description", { n: STYLES.length }),
-    chemin: PATH,
-    categorie: "UtilitiesApplication",
+    path: PATH,
+    category: "UtilitiesApplication",
   });
   const questions = ["1", "2", "3"] as const;
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.nicknameUI"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
-      <EnTetePage titre={t("pages.nickname.title")} chapeau={t("pages.nickname.lead", { n: STYLES.length })} />
+    <ExtendMessages messages={messagesPage(locale, ["pages.nicknameUI"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.nickname.title")} lead={t("pages.nickname.lead", { n: STYLES.length })} />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
         <NicknameGenerator />
 
@@ -117,6 +117,6 @@ export default async function NicknamePage({ params }: Params) {
           </ul>
         </section>
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

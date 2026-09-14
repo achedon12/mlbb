@@ -1,5 +1,5 @@
-import type { BuildJoue, BuildsHeros } from "./donnees";
-import { RANGS_MESURE, type RangMesure } from "./rangs-mesure";
+import type { BuildPlayed, BuildsHero } from "./data";
+import { MEASURED_RANKS, type MeasuredRank } from "./measured-ranks";
 
 /**
  * Usage d'un choix de build — objet, embleme, sort — lu dans les builds
@@ -15,108 +15,108 @@ import { RANGS_MESURE, type RangMesure } from "./rangs-mesure";
  */
 
 /** Cles d'un build pour le type de choix etudie (slugs d'objets, embleme, sort). */
-export type Extraire = (b: BuildJoue) => Iterable<string>;
+export type Extract = (b: BuildPlayed) => Iterable<string>;
 
-export interface UsageHeros {
+export interface UsageHero {
   slug: string;
   /** Position ou le choix pese le plus pour ce heros. */
   lane: string;
   /** Part des parties du heros, sur cette position, jouees avec un build qui contient le choix (en %). */
   selection: number;
   /** Taux de victoire de ces builds, moyenne ponderee par leur part (en %). */
-  victoire: number | null;
+  win: number | null;
 }
 
 /** Cumul de builds : part totale et taux de victoire pondere. */
-class Cumul {
+class Total {
   part = 0;
-  private gagne = 0;
+  private won = 0;
   private pese = 0;
-  private brut: number[] = [];
+  private raw: number[] = [];
 
-  ajouter(b: BuildJoue) {
+  add(b: BuildPlayed) {
     const part = b.pickRate ?? 0;
     this.part += part;
     if (b.winRate === null) return;
-    this.brut.push(b.winRate);
+    this.raw.push(b.winRate);
     if (part > 0) {
-      this.gagne += b.winRate * part;
+      this.won += b.winRate * part;
       this.pese += part;
     }
   }
 
   /** Sans part connue, la moyenne simple plutot qu'aucun taux. */
-  get victoire(): number | null {
-    if (this.pese > 0) return this.gagne / this.pese;
-    return this.brut.length ? this.brut.reduce((s, v) => s + v, 0) / this.brut.length : null;
+  get win(): number | null {
+    if (this.pese > 0) return this.won / this.pese;
+    return this.raw.length ? this.raw.reduce((s, v) => s + v, 0) / this.raw.length : null;
   }
 }
 
-const parPart = (a: UsageHeros, b: UsageHeros) =>
-  b.selection - a.selection || (b.victoire ?? 0) - (a.victoire ?? 0) || a.slug.localeCompare(b.slug);
+const byPart = (a: UsageHero, b: UsageHero) =>
+  b.selection - a.selection || (b.win ?? 0) - (a.win ?? 0) || a.slug.localeCompare(b.slug);
 
 /**
  * Pour chaque choix, les heros qui le prennent au rang demande, le plus engage
  * d'abord. Un heros n'apparait qu'une fois, sur la position ou le choix occupe
  * la plus grande part de ses parties.
  */
-export function usageParChoix(
-  builds: Record<string, BuildsHeros>,
-  extraire: Extraire,
-  rang: RangMesure = "all",
-): Map<string, UsageHeros[]> {
-  const parChoix = new Map<string, Map<string, UsageHeros>>();
-  for (const [slug, parLane] of Object.entries(builds)) {
-    for (const [lane, parRang] of Object.entries(parLane)) {
-      const cumuls = new Map<string, Cumul>();
-      for (const b of parRang[rang] ?? []) {
+export function usageByChoice(
+  builds: Record<string, BuildsHero>,
+  extract: Extract,
+  rank: MeasuredRank = "all",
+): Map<string, UsageHero[]> {
+  const byChoice = new Map<string, Map<string, UsageHero>>();
+  for (const [slug, byLane] of Object.entries(builds)) {
+    for (const [lane, byRank] of Object.entries(byLane)) {
+      const totals = new Map<string, Total>();
+      for (const b of byRank[rank] ?? []) {
         // Un objet pris deux fois dans le meme build ne compte qu'une fois.
-        for (const cle of new Set(extraire(b))) {
-          const c = cumuls.get(cle) ?? new Cumul();
-          c.ajouter(b);
-          cumuls.set(cle, c);
+        for (const key of new Set(extract(b))) {
+          const c = totals.get(key) ?? new Total();
+          c.add(b);
+          totals.set(key, c);
         }
       }
-      for (const [cle, c] of cumuls) {
-        const parHeros = parChoix.get(cle) ?? new Map<string, UsageHeros>();
-        parChoix.set(cle, parHeros);
-        const actuel = parHeros.get(slug);
-        if (!actuel || c.part > actuel.selection) {
-          parHeros.set(slug, { slug, lane, selection: c.part, victoire: c.victoire });
+      for (const [key, c] of totals) {
+        const byHero = byChoice.get(key) ?? new Map<string, UsageHero>();
+        byChoice.set(key, byHero);
+        const current = byHero.get(slug);
+        if (!current || c.part > current.selection) {
+          byHero.set(slug, { slug, lane, selection: c.part, win: c.win });
         }
       }
     }
   }
-  return new Map([...parChoix].map(([cle, parHeros]) => [cle, [...parHeros.values()].sort(parPart)]));
+  return new Map([...byChoice].map(([key, byHero]) => [key, [...byHero.values()].sort(byPart)]));
 }
 
-export interface ResumeRang {
-  rang: RangMesure;
+export interface SummaryRank {
+  rank: MeasuredRank;
   /** Nombre de heros qui prennent le choix a ce rang. */
-  heros: number;
+  heroes: number;
   /** Heros le plus engage a ce rang. */
-  premier: UsageHeros | null;
+  first: UsageHero | null;
   /** Taux de victoire moyen des builds concernes, pondere par leur part (en %). */
-  victoire: number | null;
+  win: number | null;
 }
 
 /** Une ligne par rang mesure, a partir des usages deja calcules pour chacun. */
-export function resumeParRang(usages: Partial<Record<RangMesure, UsageHeros[]>>): ResumeRang[] {
-  return RANGS_MESURE.map((rang) => {
-    const liste = usages[rang] ?? [];
-    let gagne = 0;
+export function summaryByRank(usages: Partial<Record<MeasuredRank, UsageHero[]>>): SummaryRank[] {
+  return MEASURED_RANKS.map((rank) => {
+    const list = usages[rank] ?? [];
+    let won = 0;
     let pese = 0;
-    for (const u of liste) {
-      if (u.victoire === null || u.selection <= 0) continue;
-      gagne += u.victoire * u.selection;
+    for (const u of list) {
+      if (u.win === null || u.selection <= 0) continue;
+      won += u.win * u.selection;
       pese += u.selection;
     }
-    return { rang, heros: liste.length, premier: liste[0] ?? null, victoire: pese > 0 ? gagne / pese : null };
+    return { rank, heroes: list.length, first: list[0] ?? null, win: pese > 0 ? won / pese : null };
   });
 }
 
-export interface PartChoix {
-  cle: string;
+export interface PartChoice {
+  key: string;
   /** Part des builds retenus, ponderee par leur part des parties (en %). */
   part: number;
 }
@@ -126,26 +126,26 @@ export interface PartChoix {
  * talents pris avec un embleme, les sorts pris avec lui. Chaque build pese sa
  * part des parties ; un build sans part connue pese comme le plus faible.
  */
-export function partsParChoix(
-  builds: Record<string, BuildsHeros>,
-  retenir: (b: BuildJoue) => boolean,
-  extraire: Extraire,
-  rang: RangMesure = "all",
-): PartChoix[] {
-  const poids = new Map<string, number>();
+export function partsByChoice(
+  builds: Record<string, BuildsHero>,
+  keep: (b: BuildPlayed) => boolean,
+  extract: Extract,
+  rank: MeasuredRank = "all",
+): PartChoice[] {
+  const weight = new Map<string, number>();
   let total = 0;
-  for (const parLane of Object.values(builds)) {
-    for (const parRang of Object.values(parLane)) {
-      for (const b of parRang[rang] ?? []) {
-        if (!retenir(b)) continue;
+  for (const byLane of Object.values(builds)) {
+    for (const byRank of Object.values(byLane)) {
+      for (const b of byRank[rank] ?? []) {
+        if (!keep(b)) continue;
         const p = b.pickRate && b.pickRate > 0 ? b.pickRate : 0.01;
         total += p;
-        for (const cle of new Set(extraire(b))) poids.set(cle, (poids.get(cle) ?? 0) + p);
+        for (const key of new Set(extract(b))) weight.set(key, (weight.get(key) ?? 0) + p);
       }
     }
   }
   if (total === 0) return [];
-  return [...poids]
-    .map(([cle, p]) => ({ cle, part: (p / total) * 100 }))
-    .sort((a, b) => b.part - a.part || a.cle.localeCompare(b.cle));
+  return [...weight]
+    .map(([key, p]) => ({ key, part: (p / total) * 100 }))
+    .sort((a, b) => b.part - a.part || a.key.localeCompare(b.key));
 }

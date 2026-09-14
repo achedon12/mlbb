@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "@/components/lien";
-import { useT } from "@/i18n/fournisseur";
+import Link from "@/components/link";
+import { useT } from "@/i18n/provider";
 
-export default function Introuvable() {
+export default function NotFound() {
   const t = useT();
   return (
     <div className="mx-auto max-w-2xl px-4 py-32 text-center">

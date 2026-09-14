@@ -1,9 +1,9 @@
-import { LANGUES, LOCALE_HTML, type Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
-import { heros, herosParSlug } from "@/lib/donnees";
-import { site, urlAbsolue } from "@/lib/site";
-import { ajustementsDe } from "@/lib/suivi-patchs";
-import type { AjustementHeros } from "@/lib/types";
+import { LOCALES, LOCALE_HTML, type Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
+import { allHeroes, heroesBySlug } from "@/lib/data";
+import { site, absoluteUrl } from "@/lib/site";
+import { adjustmentsOf } from "@/lib/patch-tracking";
+import type { HeroAdjustment } from "@/lib/types";
 
 /**
  * Flux RSS d'un heros : ses ajustements, patch par patch. S'y abonner, c'est
@@ -15,11 +15,11 @@ export const dynamic = "force-static";
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return LANGUES.flatMap((locale) => heros.map((h) => ({ locale, slug: h.slug })));
+  return LOCALES.flatMap((locale) => allHeroes.map((h) => ({ locale, slug: h.slug })));
 }
 
-function echapper(texte: string): string {
-  return texte
+function escape(text: string): string {
+  return text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -27,69 +27,69 @@ function echapper(texte: string): string {
 }
 
 /** Detail d'un ajustement, en HTML simple : introduction, puis section par section. */
-function detail(a: AjustementHeros): string {
-  const intro = a.intro ? `<p>${echapper(a.intro)}</p>` : "";
+function detail(a: HeroAdjustment): string {
+  const intro = a.intro ? `<p>${escape(a.intro)}</p>` : "";
   const sections = a.sections
     .map((s) => {
-      const titre = s.category ? `${s.name} (${s.category})` : s.name;
-      const lignes = s.changes
+      const title = s.category ? `${s.name} (${s.category})` : s.name;
+      const rows = s.changes
         .map((c) =>
           "text" in c
-            ? `<li>${echapper(c.text)}</li>`
-            : `<li>${c.label ? `${echapper(c.label)}: ` : ""}${echapper(c.before)} → ${echapper(c.after)}</li>`,
+            ? `<li>${escape(c.text)}</li>`
+            : `<li>${c.label ? `${escape(c.label)}: ` : ""}${escape(c.before)} → ${escape(c.after)}</li>`,
         )
         .join("");
-      return `<h4>${echapper(titre)}</h4><ul>${lignes}</ul>`;
+      return `<h4>${escape(title)}</h4><ul>${rows}</ul>`;
     })
     .join("");
   // `]]>` fermerait la section CDATA.
   return (intro + sections).replaceAll("]]>", "]]&gt;");
 }
 
-export async function GET(_requete: Request, { params }: { params: Promise<{ locale: string; slug: string }> }) {
-  const { locale: brute, slug } = await params;
-  const locale = brute as Langue;
-  const h = herosParSlug.get(slug);
+export async function GET(_request: Request, { params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale: raw, slug } = await params;
+  const locale = raw as Locale;
+  const h = heroesBySlug.get(slug);
   if (!h) return new Response("Not found", { status: 404 });
 
-  const t = creerT(locale);
-  const entrees = ajustementsDe(slug);
-  const fiche = urlAbsolue(`/${locale}/heroes/${slug}`);
-  const dates = entrees.flatMap((e) => (e.date ? [e.date] : [])).sort();
-  const dernier = dates.at(-1);
+  const t = createT(locale);
+  const entries = adjustmentsOf(slug);
+  const sheet = absoluteUrl(`/${locale}/heroes/${slug}`);
+  const dates = entries.flatMap((e) => (e.date ? [e.date] : [])).sort();
+  const last = dates.at(-1);
 
-  const items = entrees
-    .map(({ version, date, ajustement: a }) => {
+  const items = entries
+    .map(({ version, date, adjustment: a }) => {
       const type = a.type ? t(`patchHeroes.${a.type}`) : null;
-      const titre = type ? `Patch ${version} — ${type}` : `Patch ${version}`;
-      const lien = urlAbsolue(`/${locale}/patch-notes/${version}`);
+      const title = type ? `Patch ${version} — ${type}` : `Patch ${version}`;
+      const link = absoluteUrl(`/${locale}/patch-notes/${version}`);
       return `    <item>
-      <title>${echapper(titre)}</title>
-      <link>${lien}</link>
-      <guid isPermaLink="false">${echapper(`${site.nom}:${slug}:${version}`)}</guid>
-${date ? `      <pubDate>${new Date(date).toUTCString()}</pubDate>\n` : ""}${type ? `      <category>${echapper(type)}</category>\n` : ""}      <description>${echapper(a.intro || titre)}</description>
+      <title>${escape(title)}</title>
+      <link>${link}</link>
+      <guid isPermaLink="false">${escape(`${site.name}:${slug}:${version}`)}</guid>
+${date ? `      <pubDate>${new Date(date).toUTCString()}</pubDate>\n` : ""}${type ? `      <category>${escape(type)}</category>\n` : ""}      <description>${escape(a.intro || title)}</description>
       <content:encoded><![CDATA[${detail(a)}]]></content:encoded>
     </item>`;
     })
     .join("\n");
 
-  const flux = `<?xml version="1.0" encoding="UTF-8"?>
+  const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
      xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>${echapper(`${h.name} — ${t("pages.heroDetail.statistics.adjustments")} · ${site.nom}`)}</title>
-    <link>${fiche}</link>
-    <description>${echapper(t("pages.heroDetail.statistics.adjustmentsIntro", { nom: h.name }))}</description>
+    <title>${escape(`${h.name} — ${t("pages.heroDetail.statistics.adjustments")} · ${site.name}`)}</title>
+    <link>${sheet}</link>
+    <description>${escape(t("pages.heroDetail.statistics.adjustmentsIntro", { nom: h.name }))}</description>
     <language>${LOCALE_HTML[locale].toLowerCase()}</language>
-${dernier ? `    <lastBuildDate>${new Date(dernier).toUTCString()}</lastBuildDate>\n` : ""}    <generator>${echapper(site.nom)}</generator>
-    <atom:link href="${urlAbsolue(`/${locale}/heroes/${slug}/feed.xml`)}" rel="self" type="application/rss+xml" />
+${last ? `    <lastBuildDate>${new Date(last).toUTCString()}</lastBuildDate>\n` : ""}    <generator>${escape(site.name)}</generator>
+    <atom:link href="${absoluteUrl(`/${locale}/heroes/${slug}/feed.xml`)}" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>
 `;
 
-  return new Response(flux, {
+  return new Response(feed, {
     headers: {
       "Content-Type": "application/rss+xml; charset=utf-8",
       "Cache-Control": "public, max-age=3600, s-maxage=3600",

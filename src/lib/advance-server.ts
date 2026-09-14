@@ -1,9 +1,9 @@
-import advanceEn from "@/data/jeu/advance-server.json";
-import advanceFr from "@/data/jeu/advance-server/fr.json";
-import advanceIt from "@/data/jeu/advance-server/it.json";
-import advanceEs from "@/data/jeu/advance-server/es.json";
-import type { Langue } from "@/i18n/config";
-import type { TypeAjustement } from "./types";
+import advanceEn from "@/data/game/advance-server.json";
+import advanceFr from "@/data/game/advance-server/fr.json";
+import advanceIt from "@/data/game/advance-server/it.json";
+import advanceEs from "@/data/game/advance-server/es.json";
+import type { Locale } from "@/i18n/config";
+import type { AdjustmentType } from "./types";
 
 /**
  * Advance Server patch notes, produced by `node scripts/advance-server.mjs`
@@ -92,7 +92,7 @@ interface AdvanceData {
 
 const data = advanceEn as unknown as AdvanceData;
 const TRANSLATIONS = { fr: advanceFr, it: advanceIt, es: advanceEs } as unknown as Record<
-  Exclude<Langue, "en">,
+  Exclude<Locale, "en">,
   Record<string, AdvanceVersion>
 >;
 
@@ -123,10 +123,10 @@ export const advanceArchive = data.archive;
 /** Versions with content, newest first, independent of the language. */
 export const advanceVersionNumbers = sorted.map((v) => v.version);
 
-const cache = new Map<Langue, AdvanceVersion[]>();
+const cache = new Map<Locale, AdvanceVersion[]>();
 
 /** Versions with content, newest first, in the requested language. */
-export function advanceVersions(locale: Langue): AdvanceVersion[] {
+export function advanceVersions(locale: Locale): AdvanceVersion[] {
   if (locale === "en") return sorted;
   let list = cache.get(locale);
   if (!list) {
@@ -137,20 +137,20 @@ export function advanceVersions(locale: Langue): AdvanceVersion[] {
   return list;
 }
 
-export function advanceVersion(locale: Langue, version: string): AdvanceVersion | undefined {
+export function advanceVersion(locale: Locale, version: string): AdvanceVersion | undefined {
   return advanceVersions(locale).find((v) => v.version === version);
 }
 
 /** Whether the version is served in the requested language rather than in English. */
-export function isTranslated(locale: Langue, version: string): boolean {
+export function isTranslated(locale: Locale, version: string): boolean {
   return locale !== "en" && version in TRANSLATIONS[locale];
 }
 
 /** The live patch notes type of a direction, to reuse their labels and grouping. */
-export const LIVE_TYPE: Record<ChangeDirection, TypeAjustement> = {
-  buff: "amelioration",
-  nerf: "affaiblissement",
-  adjust: "ajustement",
+export const LIVE_TYPE: Record<ChangeDirection, AdjustmentType> = {
+  buff: "buff",
+  nerf: "nerf",
+  adjust: "adjust",
 };
 
 export interface UpcomingForHero {

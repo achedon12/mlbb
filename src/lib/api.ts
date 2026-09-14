@@ -10,10 +10,10 @@ import { NextResponse } from "next/server";
  * Le cache est genereux : ces donnees ne changent qu'a la synchronisation
  * hebdomadaire, et rien ne justifie de recalculer une reponse identique.
  */
-export function reponseApi(donnees: unknown, options: { total?: number } = {}) {
+export function responseApi(data: unknown, options: { total?: number } = {}) {
   return NextResponse.json(
     {
-      data: donnees,
+      data,
       ...(options.total !== undefined ? { total: options.total } : {}),
       source: {
         name: "Mobile Legends Wiki",
@@ -34,9 +34,9 @@ export function reponseApi(donnees: unknown, options: { total?: number } = {}) {
   );
 }
 
-export function introuvable(quoi: string) {
+export function notFound(what: string) {
   return NextResponse.json(
-    { error: `${quoi} not found` },
+    { error: `${what} not found` },
     { status: 404, headers: { "Access-Control-Allow-Origin": "*" } },
   );
 }

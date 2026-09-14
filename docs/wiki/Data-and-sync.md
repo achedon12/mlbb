@@ -16,23 +16,23 @@ they run on demand (or in CI), then their output is committed.
 
 | Command | What it does |
 | --- | --- |
-| `npm run sync` | Re-reads the sources and regenerates `src/data/jeu/` |
+| `npm run sync` | Re-reads the sources and regenerates `src/data/game/` |
 | `npm run sync -- --images` | Same, and also downloads the visuals locally |
 | `npm run sync:evolution` | Measurements only: trends, teammates, game lengths, history |
 | `node scripts/sync.mjs --combos` | Skill combos only (`combos.json`) |
-| `npm run traduire` | Translates the interface, content data and articles (see [Translations](Translations)) |
-| `npm run veille` | Snapshot of the Watch page feeds (`veille.json`) |
+| `npm run translate` | Translates the interface, content data and articles (see [Translations](Translations)) |
+| `npm run watch` | Snapshot of the Watch page feeds (`watch.json`) |
 
 ## What the sync produces
 
-`src/data/jeu/`: `heros.json`, `skins.json`, `objets.json`, `competences.json`,
-`patchs.json` (list and detail), `statistiques.json` (ranking, counters,
-builds, guides, teammates, relations), `histoires.json`, `modes.json`,
-`rangs.json`, `noms.json`, `evolution.json`, `combos.json`, `duos.json`,
-`visuels.json` (the visuals tables) and `synchro.json` (the run's timestamp).
-`npm run veille` writes `veille.json`, and `npm run traduire` writes the
-per-language versions (`histoires/`, `competences/`, `modes/`, `objets/`,
-`patchs/`, `combos/`, `tier-notes/`, one `<language>.json` each).
+`src/data/game/`: `heroes.json`, `skins.json`, `items.json`, `skills.json`,
+`patches.json` (list and detail), `statistics.json` (ranking, counters,
+builds, guides, teammates, relations), `stories.json`, `modes.json`,
+`ranks.json`, `names.json`, `evolution.json`, `combos.json`, `duos.json`,
+`visuals.json` (the visuals tables) and `sync.json` (the run's timestamp).
+`npm run watch` writes `watch.json`, and `npm run translate` writes the
+per-language versions (`stories/`, `skills/`, `modes/`, `items/`,
+`patches/`, `combos/`, `tier-notes/`, one `<language>.json` each).
 
 The long history (`evolution.json`, key `historique`) keeps the last 90 days
 day by day; older weeks are reduced to their average (under `semaines`), and
@@ -119,7 +119,7 @@ The names are the ones shown in the *Actions* tab.
 | Aligner develop | `align-develop.yml` | pushes to `main`, called by the sync, manual | Carries `main` over to `develop` |
 | Publier en production | `publish.yml` | manual | Fast-forwards `main` to `develop` after checking CI |
 | Workflows | `workflow-audit.yml` | changes under `.github/` | Audits the workflows themselves: actionlint (syntax, expressions, shell) and zizmor (security) |
-| Fichiers generes | `generated-files.yml` | pull requests | Fails if a pull request touches `src/data/jeu/` or `public/visuels/` |
+| Fichiers generes | `generated-files.yml` | pull requests | Fails if a pull request touches `src/data/game/` or `public/visuels/` |
 | Conflits | `merge-conflicts.yml` | pushes to `main` and `develop`, pull request updates | Labels conflicting pull requests `conflit`, with a comment asking for a rebase |
 | Revue | `review.yml` | reviews, labels, "Ready for review" | Changes requested: back to draft with `à corriger`; ready for review again: `à relire` |
 | Bienvenue | `welcome.yml` | a contributor's first pull request to `develop` | A welcome message when it is opened, a thank-you when it is merged |

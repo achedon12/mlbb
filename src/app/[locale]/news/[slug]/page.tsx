@@ -1,52 +1,52 @@
 import type { Metadata } from "next";
-import { donneesLd } from "@/lib/html";
+import { serializeJsonLd } from "@/lib/html";
 import { notFound } from "next/navigation";
-import { CorpsArticle } from "@/components/article";
-import { article, articles, enHtml } from "@/lib/contenu";
-import type { Langue } from "@/i18n/config";
-import { donneesBillet, metaPage } from "@/i18n/seo";
-import { creerT } from "@/i18n/traductions";
+import { BodyArticle } from "@/components/article";
+import { article, articles, toHtml } from "@/lib/content";
+import type { Locale } from "@/i18n/config";
+import { postData, metaPage } from "@/i18n/seo";
+import { createT } from "@/i18n/translations";
 
-type Params = { params: Promise<{ locale: Langue; slug: string }> };
+type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
 export function generateStaticParams() {
-  return articles("actualites").map((a) => ({ slug: a.slug }));
+  return articles("news").map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const a = article("actualites", slug, locale);
+  const a = article("news", slug, locale);
   if (!a) return {};
 
   return metaPage(locale, {
-    titre: a.title,
+    title: a.title,
     description: a.summary,
-    chemin: `/news/${slug}`,
+    path: `/news/${slug}`,
     type: "article",
-    motsCles: a.keywords,
-    publie: a.date,
-    auteur: a.author,
+    keywords: a.keywords,
+    published: a.date,
+    author: a.author,
   });
 }
 
-export default async function PageArticle({ params }: Params) {
+export default async function ArticlePage({ params }: Params) {
   const { locale, slug } = await params;
-  const a = article("actualites", slug, locale);
+  const a = article("news", slug, locale);
   if (!a) notFound();
 
-  const donneesStructurees = donneesBillet(a, `/news/${slug}`, locale);
+  const structuredData = postData(a, `/news/${slug}`, locale);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <CorpsArticle
-        langue={locale}
+      <BodyArticle
+        locale={locale}
         article={a}
-        html={enHtml(a.content)}
-        retour={{ href: "/news", label: creerT(locale)("pages.news.all") }}
+        html={toHtml(a.content)}
+        back={{ href: "/news", label: createT(locale)("pages.news.all") }}
       />
     </>
   );

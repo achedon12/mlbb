@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Inter, Rajdhani } from "next/font/google";
-import { EnTete } from "@/components/en-tete";
-import { HorsLigne } from "@/components/hors-ligne";
-import { MesureAudience } from "@/components/mesure-audience";
-import { PiedDePage } from "@/components/pied-de-page";
-import { RapportErreurs } from "@/components/rapport-erreurs";
-import { FournisseurLangue } from "@/i18n/fournisseur";
-import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, estLangue } from "@/i18n/config";
-import { creerT, messagesClient } from "@/i18n/traductions";
-import { metaLangues, OG_LOCALE } from "@/i18n/seo";
+import { Header } from "@/components/header";
+import { Offline } from "@/components/offline";
+import { Analytics } from "@/components/analytics";
+import { Footer } from "@/components/footer";
+import { ErrorReporter } from "@/components/error-reporter";
+import { LocaleProvider } from "@/i18n/provider";
+import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, isLocale } from "@/i18n/config";
+import { createT, messagesClient } from "@/i18n/translations";
+import { metaLocales, OG_LOCALE } from "@/i18n/seo";
 import { site } from "@/lib/site";
 
 /**
@@ -36,44 +36,44 @@ type Params = { params: Promise<{ locale: string }> };
 
 /** Une version du site par langue, generee au build. */
 export function generateStaticParams() {
-  return LANGUES.map((locale) => ({ locale }));
+  return LOCALES.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  if (!estLangue(locale)) return {};
-  const t = creerT(locale);
-  const titre = `${site.nom} — ${t("common.subtitle")}`;
+  if (!isLocale(locale)) return {};
+  const t = createT(locale);
+  const title = `${site.name} — ${t("common.subtitle")}`;
 
   return {
-    title: { default: titre, template: `%s — ${site.nom}` },
+    title: { default: title, template: `%s — ${site.name}` },
     description: t("common.homeDescription"),
     alternates: {
       // Racine de la langue : canonique et hreflang de l'accueil. Les pages
       // filles declarent leurs propres alternates via `metaLangues`.
-      ...metaLangues(locale, ""),
-      types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.nom}` }] },
+      ...metaLocales(locale, ""),
+      types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.name}` }] },
     },
     openGraph: {
       type: "website",
       locale: OG_LOCALE[locale],
-      alternateLocale: LANGUES.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
+      alternateLocale: LOCALES.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
       url: `${site.url}/${locale}`,
-      siteName: site.nom,
-      title: titre,
+      siteName: site.name,
+      title,
       description: t("common.homeDescription"),
       images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
-      title: titre,
+      title,
       description: t("common.homeDescription"),
       images: ["/opengraph-image"],
     },
   };
 }
 
-export default async function LangueLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
@@ -81,28 +81,28 @@ export default async function LangueLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  if (!estLangue(locale)) notFound();
-  const t = creerT(locale);
+  if (!isLocale(locale)) notFound();
+  const t = createT(locale);
 
   return (
-    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[LANGUE_DEFAUT]} className={`${rajdhani.variable} ${inter.variable}`}>
+    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[DEFAULT_LOCALE]} className={`${rajdhani.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <FournisseurLangue langue={locale} messages={messagesClient(locale)}>
+        <LocaleProvider locale={locale} messages={messagesClient(locale)}>
           <a
             href="#contenu"
             className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-gold-500 focus:px-4 focus:py-2 focus:font-semibold focus:text-night-950"
           >
             {t("common.skipToContent")}
           </a>
-          <EnTete langue={locale} />
+          <Header locale={locale} />
           <main id="contenu" className="flex-1">
             {children}
           </main>
-          <PiedDePage langue={locale} />
-          <MesureAudience />
-          <RapportErreurs />
-          <HorsLigne />
-        </FournisseurLangue>
+          <Footer locale={locale} />
+          <Analytics />
+          <ErrorReporter />
+          <Offline />
+        </LocaleProvider>
       </body>
     </html>
   );

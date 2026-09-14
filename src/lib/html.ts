@@ -26,7 +26,7 @@ const OPTIONS: sanitizeHtml.IOptions = {
   },
 };
 
-export function assainirHtml(html: string): string {
+export function cleanHtml(html: string): string {
   return sanitizeHtml(html, OPTIONS);
 }
 
@@ -38,6 +38,6 @@ export function assainirHtml(html: string): string {
  * caractere `<`, ce qui empeche toute sortie de la balise sans alterer la
  * validite du JSON.
  */
-export function donneesLd(donnees: unknown): string {
-  return JSON.stringify(donnees).replace(/</g, "\\u003c");
+export function serializeJsonLd(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
 }

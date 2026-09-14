@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { LANGUE_DEFAUT, estLangue, type Langue } from "@/i18n/config";
+import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/config";
 
 /**
  * Deux roles :
@@ -16,76 +16,76 @@ import { LANGUE_DEFAUT, estLangue, type Langue } from "@/i18n/config";
  */
 
 // ── Limitation de debit ────────────────────────────────────────────
-const FENETRE_MS = 60_000;
-const MAX_PAR_FENETRE = 90;
-const seaux = new Map<string, { compte: number; reset: number }>();
+const WINDOW_MS = 60_000;
+const MAX_PER_WINDOW = 90;
+const buckets = new Map<string, { count: number; reset: number }>();
 
-function adresse(requete: NextRequest): string {
-  const transmise = requete.headers.get("x-forwarded-for");
-  if (transmise) return transmise.split(",")[0]!.trim();
-  return requete.headers.get("x-real-ip") ?? "inconnu";
+function address(request: NextRequest): string {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0]!.trim();
+  return request.headers.get("x-real-ip") ?? "inconnu";
 }
 
-function limiterApi(requete: NextRequest) {
-  if (requete.nextUrl.pathname === "/api/sante") return NextResponse.next();
-  const ip = adresse(requete);
-  const maintenant = Date.now();
-  const seau = seaux.get(ip);
-  if (!seau || maintenant > seau.reset) {
-    seaux.set(ip, { compte: 1, reset: maintenant + FENETRE_MS });
+function rateLimitApi(request: NextRequest) {
+  if (request.nextUrl.pathname === "/api/health") return NextResponse.next();
+  const ip = address(request);
+  const now = Date.now();
+  const bucket = buckets.get(ip);
+  if (!bucket || now > bucket.reset) {
+    buckets.set(ip, { count: 1, reset: now + WINDOW_MS });
   } else {
-    seau.compte += 1;
-    if (seau.compte > MAX_PAR_FENETRE) {
-      const retryApres = Math.max(1, Math.ceil((seau.reset - maintenant) / 1000));
+    bucket.count += 1;
+    if (bucket.count > MAX_PER_WINDOW) {
+      const retryAfter = Math.max(1, Math.ceil((bucket.reset - now) / 1000));
       return NextResponse.json(
         { erreur: "Trop de requetes. Reessayez dans un instant." },
-        { status: 429, headers: { "Retry-After": String(retryApres) } },
+        { status: 429, headers: { "Retry-After": String(retryAfter) } },
       );
     }
   }
-  if (seaux.size > 10_000) {
-    for (const [cle, valeur] of seaux) if (maintenant > valeur.reset) seaux.delete(cle);
+  if (buckets.size > 10_000) {
+    for (const [key, value] of buckets) if (now > value.reset) buckets.delete(key);
   }
   return NextResponse.next();
 }
 
 // ── Langue ─────────────────────────────────────────────────────────
-function languePreferee(requete: NextRequest): Langue {
-  const cookie = requete.cookies.get("langue")?.value;
-  if (cookie && estLangue(cookie)) return cookie;
+function preferredLocale(request: NextRequest): Locale {
+  const cookie = request.cookies.get("langue")?.value;
+  if (cookie && isLocale(cookie)) return cookie;
 
-  const entete = requete.headers.get("accept-language");
-  if (entete) {
-    for (const partie of entete.split(",")) {
-      const code = partie.split(";")[0]!.trim().slice(0, 2).toLowerCase();
-      if (estLangue(code)) return code;
+  const header = request.headers.get("accept-language");
+  if (header) {
+    for (const match of header.split(",")) {
+      const code = match.split(";")[0]!.trim().slice(0, 2).toLowerCase();
+      if (isLocale(code)) return code;
     }
   }
-  return LANGUE_DEFAUT;
+  return DEFAULT_LOCALE;
 }
 
-export function proxy(requete: NextRequest) {
-  const { pathname } = requete.nextUrl;
+export function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith("/api/")) return limiterApi(requete);
+  if (pathname.startsWith("/api/")) return rateLimitApi(request);
 
   // Chemin deja prefixe par une langue : on laisse passer, cookie a jour.
-  const premier = pathname.split("/")[1];
-  if (estLangue(premier)) {
-    const reponse = NextResponse.next();
-    if (requete.cookies.get("langue")?.value !== premier) {
-      reponse.cookies.set("langue", premier, { path: "/", maxAge: 31_536_000, sameSite: "lax" });
+  const first = pathname.split("/")[1];
+  if (isLocale(first)) {
+    const response = NextResponse.next();
+    if (request.cookies.get("langue")?.value !== first) {
+      response.cookies.set("langue", first, { path: "/", maxAge: 31_536_000, sameSite: "lax" });
     }
-    return reponse;
+    return response;
   }
 
   // Sinon on redirige vers la langue du visiteur, en conservant le chemin.
-  const langue = languePreferee(requete);
-  const url = requete.nextUrl.clone();
-  url.pathname = `/${langue}${pathname === "/" ? "" : pathname}`;
-  const reponse = NextResponse.redirect(url);
-  reponse.cookies.set("langue", langue, { path: "/", maxAge: 31_536_000, sameSite: "lax" });
-  return reponse;
+  const locale = preferredLocale(request);
+  const url = request.nextUrl.clone();
+  url.pathname = `/${locale}${pathname === "/" ? "" : pathname}`;
+  const response = NextResponse.redirect(url);
+  response.cookies.set("langue", locale, { path: "/", maxAge: 31_536_000, sameSite: "lax" });
+  return response;
 }
 
 export const config = {

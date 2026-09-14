@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { DraftModes } from "@/components/draft-modes";
-import Link from "@/components/lien";
-import { Carte, EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { libelleHeros } from "@/i18n/donnees-heros";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
+import Link from "@/components/link";
+import { Card, PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { heroLabel } from "@/i18n/hero-data";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
 import type { T } from "@/i18n/t";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import type { TypeDegats } from "@/lib/composition";
-import { heros } from "@/lib/donnees";
+import { createT, messagesPage } from "@/i18n/translations";
+import type { TypeDamage } from "@/lib/composition";
+import { allHeroes } from "@/lib/data";
 import {
   GAME_TIMERS,
   RANKED_BANS,
@@ -19,27 +19,27 @@ import {
   type SourceKey,
   type Step,
 } from "@/lib/draft-simulation";
-import { dateLongue, patchActuel } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
+import { longDate, patchCurrent } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
 import { metaByRank, simulationHeroes } from "@/lib/simulation-catalog";
-import { RANGS_CLASSES } from "@/lib/tier-list";
+import { RANKS_CLASSES } from "@/lib/tier-list";
 import { cn } from "@/lib/utils";
 
 /** Description en donnees : heros couverts, date du releve et patch. */
-function descriptionDraft(locale: Langue): string {
-  const t = creerT(locale);
-  return t("pages.seo.draft.simulatorDescription", { n: heros.length, date: dateLongue(locale), v: patchActuel.version });
+function descriptionDraft(locale: Locale): string {
+  const t = createT(locale);
+  return t("pages.seo.draft.simulatorDescription", { n: allHeroes.length, date: longDate(locale), v: patchCurrent.version });
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.draft.simulatorTitle"),
+    title: t("pages.seo.draft.simulatorTitle"),
     description: descriptionDraft(locale),
-    partage: t("pages.draft.simulatorOg"),
-    chemin: "/draft",
-    motsCles: ["draft simulator", "ban pick", "MPL", "ranked draft", "counter pick", "Mobile Legends", "MLBB"],
+    share: t("pages.draft.simulatorOg"),
+    path: "/draft",
+    keywords: ["draft simulator", "ban pick", "MPL", "ranked draft", "counter pick", "Mobile Legends", "MLBB"],
   });
 }
 
@@ -87,18 +87,18 @@ function StepList({ steps, t }: { steps: Step[]; t: T }) {
   );
 }
 
-export default async function PageDraft({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function DraftPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.draft.toolsTitle"),
+  const t = createT(locale);
+  const structuredData = dataTool(locale, {
+    name: t("pages.draft.toolsTitle"),
     description: descriptionDraft(locale),
-    chemin: "/draft",
-    categorie: "GameApplication",
+    path: "/draft",
+    category: "GameApplication",
   });
   // The `heroData` catalog stays on the server: damage labels leave
   // already resolved, as for the team analyzer.
-  const damage = (key: TypeDegats) => libelleHeros(t, "damage", key) ?? key;
+  const damage = (key: TypeDamage) => heroLabel(t, "damage", key) ?? key;
   const heading2 = "font-heading text-2xl font-bold text-chalk-100";
   const heading3 = "font-heading text-lg font-bold text-chalk-100";
   const list = "mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-chalk-300";
@@ -107,25 +107,25 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <EnTetePage titre={t("pages.draft.toolsTitle")} chapeau={t("pages.draft.toolsLead")}>
+      <PageHeader title={t("pages.draft.toolsTitle")} lead={t("pages.draft.toolsLead")}>
         <Link
           href="/tools/team"
           className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
         >
           {t("pages.draft.teamLink")} →
         </Link>
-      </EnTetePage>
+      </PageHeader>
       <div className="mx-auto max-w-5xl px-4 py-12">
-        <CompleterMessages messages={messagesPage(locale, ["pages.draftSimulatorUI"])}>
+        <ExtendMessages messages={messagesPage(locale, ["pages.draftSimulatorUI"])}>
           <DraftModes
             heroes={simulationHeroes()}
-            ranks={RANGS_CLASSES}
+            ranks={RANKS_CLASSES}
             meta={metaByRank()}
             damageLabels={{ physical: damage("physical"), magic: damage("magic"), mixed: damage("mixed") }}
           />
-        </CompleterMessages>
+        </ExtendMessages>
 
         {/* -- Format rules ------------------------------------------- */}
         <section id="rules" aria-labelledby="rules-title" className="mt-16 space-y-6">
@@ -138,7 +138,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <Carte>
+            <Card>
               <h3 className={heading3}>{t("pages.draft.rules.rankedTitle")}</h3>
               <ul className={list}>
                 <li>
@@ -168,9 +168,9 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
               </ul>
               <StepList steps={sequence("ranked", "mythic")} t={t} />
               <p className="mt-2 text-xs text-chalk-500">{t("pages.draft.rules.rankedExample")}</p>
-            </Carte>
+            </Card>
 
-            <Carte>
+            <Card>
               <h3 className={heading3}>{t("pages.draft.rules.tournamentTitle")}</h3>
               <ul className={list}>
                 <li>
@@ -188,7 +188,7 @@ export default async function PageDraft({ params }: { params: Promise<{ locale: 
                 <li>{t("pages.draft.rules.tournamentLimit")}</li>
               </ul>
               <StepList steps={sequence("tournament", "mythic")} t={t} />
-            </Carte>
+            </Card>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">

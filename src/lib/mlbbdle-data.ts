@@ -1,7 +1,7 @@
-import type { Langue } from "@/i18n/config";
-import { cleValeur, libelleHeros, valeurWiki, type ChampHeros } from "@/i18n/donnees-heros";
-import { creerT } from "@/i18n/traductions";
-import { heros, histoires } from "./donnees";
+import type { Locale } from "@/i18n/config";
+import { keyValue, heroLabel, valueWiki, type HeroField } from "@/i18n/hero-data";
+import { createT } from "@/i18n/translations";
+import { allHeroes, stories } from "./data";
 import {
   drawSecrets,
   eligibleFrom,
@@ -14,8 +14,8 @@ import {
   type MlbbdlePuzzle,
   type SkillPuzzle,
 } from "./mlbbdle";
-import { decalerJour, hacher } from "./quiz";
-import { poolQuiz } from "./quiz-donnees";
+import { shiftDay, hash } from "./quiz";
+import { poolQuiz } from "./quiz-data";
 
 /**
  * MLBBdle data, prepared on the server: the compared roster (traits as
@@ -31,35 +31,35 @@ import { poolQuiz } from "./quiz-donnees";
  * English so the key does not depend on the translation.
  */
 function genderOf(slug: string): Gender | null {
-  const raw = histoires("en")[slug]?.profile?.gender?.trim().toLowerCase() ?? "";
+  const raw = stories("en")[slug]?.profile?.gender?.trim().toLowerCase() ?? "";
   if (/^(man|male)$/.test(raw)) return "male";
   if (/^(wom[ae]n|female)$/.test(raw)) return "female";
   if (raw.startsWith("genderless")) return "none";
   return null;
 }
 
-const keyOf = (value: string | null) => (value ? cleValeur(value) : null);
+const keyOf = (value: string | null) => (value ? keyValue(value) : null);
 
 type Roster = { heroes: MlbbdleHero[]; labels: Record<string, string> };
-const ROSTERS = new Map<Langue, Roster>();
+const ROSTERS = new Map<Locale, Roster>();
 
 /**
  * Page roster and the label of every value, under `<column>.<key>`
  * (`damage.magic`, `roles.Tank`). One dictionary rather than labels on every
  * hero keeps the page light.
  */
-export function mlbbdleRoster(locale: Langue): Roster {
+export function mlbbdleRoster(locale: Locale): Roster {
   const cached = ROSTERS.get(locale);
   if (cached) return cached;
-  const t = creerT(locale);
+  const t = createT(locale);
   const labels: Record<string, string> = {};
-  const note = (column: string, field: ChampHeros, raw: string | null) => {
+  const note = (column: string, field: HeroField, raw: string | null) => {
     const key = keyOf(raw);
-    if (raw && key) labels[`${column}.${key}`] = libelleHeros(t, field, raw) ?? raw;
+    if (raw && key) labels[`${column}.${key}`] = heroLabel(t, field, raw) ?? raw;
     return key;
   };
 
-  const heroes = heros
+  const heroes = allHeroes
     .map((h): MlbbdleHero => {
       const gender = genderOf(h.slug);
       if (gender) labels[`gender.${gender}`] = t(`pages.mlbbdleUI.genders.${gender}`);
@@ -92,9 +92,9 @@ export function mlbbdleRoster(locale: Langue): Roster {
 /** Draw candidates: language-independent, so everyone gets the same secret. */
 export function mlbbdleCandidates(): Candidate[] {
   const skills = poolQuiz("en").competences;
-  return heros.map((h) => ({
+  return allHeroes.map((h) => ({
     slug: h.slug,
-    since: eligibleFrom(h.release ? valeurWiki(h.release) : null),
+    since: eligibleFrom(h.release ? valueWiki(h.release) : null),
     hasSkill: Boolean(skills[h.slug]?.length),
   }));
 }
@@ -112,18 +112,18 @@ function secretsOf(day: string): DaySecrets | undefined {
  * Skill of the day: picked in the English pool by its icon, then read back
  * in the requested language. All four languages show the same icon.
  */
-function skillPuzzle(slug: string, day: string, locale: Langue): SkillPuzzle | null {
+function skillPuzzle(slug: string, day: string, locale: Locale): SkillPuzzle | null {
   const list = poolQuiz("en").competences[slug];
   if (!list?.length) return null;
-  const chosen = list[hacher(`mlbbdle:skill:${day}:${slug}`) % list.length];
+  const chosen = list[hash(`mlbbdle:skill:${day}:${slug}`) % list.length];
   const translated = poolQuiz(locale).competences[slug]?.find((c) => c.icone === chosen.icone) ?? chosen;
   return { answer: slug, name: translated.nom, icon: chosen.icone, excerpt: translated.extrait };
 }
 
-export function mlbbdlePuzzle(locale: Langue, day: string): MlbbdlePuzzle | null {
+export function mlbbdlePuzzle(locale: Locale, day: string): MlbbdlePuzzle | null {
   const secrets = secretsOf(day);
   if (!secrets?.classic) return null;
-  const previousDay = decalerJour(day, -1);
+  const previousDay = shiftDay(day, -1);
   const yesterday = previousDay >= EPOCH ? secretsOf(previousDay) : undefined;
   return {
     day,

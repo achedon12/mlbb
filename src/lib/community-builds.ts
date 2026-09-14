@@ -173,11 +173,11 @@ export function canPublish(builds: readonly StoredBuild[], authorId: string, now
 // -- Votes and order -------------------------------------------------------
 
 /** One vote per account and per build: a second call takes it back. */
-export function toggleVote(b: StoredBuild, voter: string, now: number): { build: StoredBuild; voted: boolean } {
-  const had = b.votes.some((v) => v.voter === voter);
+export function toggleVote(b: StoredBuild, vote: string, now: number): { build: StoredBuild; voted: boolean } {
+  const had = b.votes.some((v) => v.voter === vote);
   return had
-    ? { build: { ...b, votes: b.votes.filter((v) => v.voter !== voter) }, voted: false }
-    : { build: { ...b, votes: [...b.votes, { voter, at: now }] }, voted: true };
+    ? { build: { ...b, votes: b.votes.filter((v) => v.voter !== vote) }, voted: false }
+    : { build: { ...b, votes: [...b.votes, { voter: vote, at: now }] }, voted: true };
 }
 
 export type SortOrder = "votes" | "recent" | "week";

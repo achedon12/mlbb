@@ -1,7 +1,7 @@
-import { affecterLanes, synergiesInternes, type Ecart, type MesuresRang, type TypeDegats } from "./composition";
-import { LANES, type HerosDraft } from "./draft";
-import type { RangMesure } from "./rangs-mesure";
-import type { Lane, NotesHeros, Palier } from "./types";
+import { assignLanes, synergiesInternal, type Gap, type MeasuresRank, type TypeDamage } from "./composition";
+import { LANES, type DraftHero } from "./draft";
+import type { MeasuredRank } from "./measured-ranks";
+import type { Lane, HeroRatings, Tier } from "./types";
 
 /**
  * Draft simulation: bans then picks, in the ranked format or the tournament
@@ -114,11 +114,11 @@ const PICK_ORDER: Step[] = [
 ];
 
 /** Rank kept for a format: ranked only has a draft from Epic up. */
-export function rankForFormat(format: DraftFormat, rank: RangMesure): RangMesure {
+export function rankForFormat(format: DraftFormat, rank: MeasuredRank): MeasuredRank {
   return format === "ranked" && !isDraftRank(rank) ? "mythic" : rank;
 }
 
-export function bansPerSide(format: DraftFormat, rank: RangMesure): number {
+export function bansPerSide(format: DraftFormat, rank: MeasuredRank): number {
   if (format === "tournament") return TOURNAMENT_BANS;
   return RANKED_BANS[isDraftRank(rank) ? rank : "mythic"];
 }
@@ -133,7 +133,7 @@ export function bansPerSide(format: DraftFormat, rank: RangMesure): number {
  * Tournament: ten bans taken in turns, blue (left) first, as the notes on the
  * custom draft, the mode tournaments are played in, describe.
  */
-export function sequence(format: DraftFormat, rank: RangMesure): Step[] {
+export function sequence(format: DraftFormat, rank: MeasuredRank): Step[] {
   const n = bansPerSide(format, rank);
   const bans: Step[] =
     format === "ranked"
@@ -262,7 +262,7 @@ export function undo(turns: Turn[], choices: Choice[], isHuman: (turn: Turn) => 
 export interface Settings {
   format: DraftFormat;
   /** Rank of the measurements; in ranked it also sets the number of bans. */
-  rank: RangMesure;
+  rank: MeasuredRank;
   control: Control;
   bot: boolean;
   timer: TimerSetting;
@@ -295,7 +295,7 @@ const oneOf = <T extends string>(values: readonly T[], read: string | null, fall
 export function readSimulation(
   search: string,
   known: Set<string>,
-  ranks: readonly RangMesure[],
+  ranks: readonly MeasuredRank[],
 ): { settings: Settings; choices: Choice[] } | null {
   const p = new URLSearchParams(search);
   if (p.get("mode") !== SIMULATOR_MODE) return null;
@@ -362,23 +362,23 @@ const turnRandom = (seed: number, index: number) => seededRandom(seed ^ Math.imu
 // -- Bot ----------------------------------------------------------------
 
 /** Simulator hero: the draft record plus what the team analyzer reads. */
-export interface SimulationHero extends HerosDraft {
-  degats: TypeDegats | null;
-  notes: NotesHeros;
+export interface SimulationHero extends DraftHero {
+  damage: TypeDamage | null;
+  notes: HeroRatings;
 }
 
 /** Hero near the top of a rank's tier list: tier, ban rate and win rate (in %). */
 export interface MetaEntry {
   slug: string;
-  tier: Palier;
+  tier: Tier;
   banRate: number;
   winRate: number;
 }
 
 export interface BotContext {
-  catalog: HerosDraft[];
+  catalog: DraftHero[];
   /** Measurements of the chosen rank; null while they load. */
-  measures: MesuresRang | null;
+  measures: MeasuresRank | null;
   /** Tier list of the rank, strongest first. */
   meta: MetaEntry[];
   seed: number;
@@ -386,7 +386,7 @@ export interface BotContext {
 
 /** Why a hero is chosen; the sentence is built in the page language. */
 export type BotReason =
-  | { type: "meta"; tier: Palier; banRate: number }
+  | { type: "meta"; tier: Tier; banRate: number }
   | { type: "strength"; winRate: number }
   /** Enemy picks the hero troubles; points measured at the rank, null for a wiki relation alone. */
   | { type: "counter"; targets: string[]; points: number | null }
@@ -417,7 +417,7 @@ export interface Candidate {
 const BOT_WEIGHTS = { strength: 0.5, relation: 1, synergy: 0.5, noise: 0.3 };
 
 const round1 = (v: number) => Math.round(v * 10) / 10;
-const gapFor = (list: Ecart[] | undefined, slug: string) => list?.find(([s]) => s === slug)?.[1] ?? null;
+const gapFor = (list: Gap[] | undefined, slug: string) => list?.find(([s]) => s === slug)?.[1] ?? null;
 
 /** Suggested bans: top of the rank's tier list, else the best win rates. */
 export function rankBans(turns: Turn[], choices: Choice[], turn: Turn, ctx: BotContext, limit = 3): Candidate[] {
@@ -429,7 +429,7 @@ export function rankBans(turns: Turn[], choices: Choice[], turn: Turn, ctx: BotC
       .slice(0, limit)
       .map((e, i) => ({ slug: e.slug, score: -i, reason: { type: "meta", tier: e.tier, banRate: e.banRate }, lane: null }));
   }
-  const rate = (h: HerosDraft) => ctx.measures?.stats[h.slug]?.[0] ?? h.victoire;
+  const rate = (h: DraftHero) => ctx.measures?.stats[h.slug]?.[0] ?? h.win;
   return ctx.catalog
     .filter((h) => !excluded.has(h.slug) && rate(h) !== null)
     .sort((a, b) => rate(b)! - rate(a)!)
@@ -456,14 +456,14 @@ export function rankPicks(
   const excluded = unavailableHeroes(turns, choices, turn);
   const bySlug = new Map(ctx.catalog.map((h) => [h.slug, h]));
   const team = allies.flatMap((s) => (bySlug.has(s) ? [bySlug.get(s)!] : []));
-  const filledBefore = LANES.length - affecterLanes(team).manquantes.length;
+  const filledBefore = LANES.length - assignLanes(team).missing.length;
   const m = ctx.measures;
 
   const scored = ctx.catalog
     .filter((h) => !excluded.has(h.slug))
     .map((h) => {
-      const assignment = affecterLanes([...team, h]);
-      const fillsLane = LANES.length - assignment.manquantes.length > filledBefore;
+      const assignment = assignLanes([...team, h]);
+      const fillsLane = LANES.length - assignment.missing.length > filledBefore;
       const lane = LANES.find((l) => assignment.lanes[l] === h.slug) ?? null;
 
       let counter = 0;
@@ -484,10 +484,10 @@ export function rankPicks(
             counterMeasured = (counterMeasured ?? 0) + v;
             targets.push(e);
           } else suffered += v;
-        } else if (h.fortContre.includes(e) || enemy?.faibleContre.includes(h.slug)) {
+        } else if (h.strongAgainst.includes(e) || enemy?.weakAgainst.includes(h.slug)) {
           counter += BOT_WEIGHTS.relation;
           targets.push(e);
-        } else if (h.faibleContre.includes(e) || enemy?.fortContre.includes(h.slug)) {
+        } else if (h.weakAgainst.includes(e) || enemy?.strongAgainst.includes(h.slug)) {
           suffered -= BOT_WEIGHTS.relation;
         }
       }
@@ -509,7 +509,7 @@ export function rankPicks(
         }
       }
 
-      const winRate = m?.stats[h.slug]?.[0] ?? h.victoire;
+      const winRate = m?.stats[h.slug]?.[0] ?? h.win;
       const strength = winRate === null ? 0 : (winRate - 50) * BOT_WEIGHTS.strength;
       const score = counter + suffered + duo + strength + (noise ? noise() * BOT_WEIGHTS.noise : 0);
 
@@ -563,29 +563,29 @@ export function botMove(turns: Turn[], choices: Choice[], ctx: BotContext): BotM
  * simulator, which does not know them, draws among heroes that add a lane to
  * the team.
  */
-export function timeoutMove(turns: Turn[], choices: Choice[], catalog: HerosDraft[], seed: number): BotMove | null {
+export function timeoutMove(turns: Turn[], choices: Choice[], catalog: DraftHero[], seed: number): BotMove | null {
   const turn = turns[choices.length];
   if (!turn) return null;
   if (turn.action === "ban") return { slug: null, reason: { type: "skipped" }, lane: null };
   const excluded = unavailableHeroes(turns, choices, turn);
   const bySlug = new Map(catalog.map((h) => [h.slug, h]));
   const team = draftState(turns, choices).picks[turn.side].flatMap((s) => (bySlug.has(s) ? [bySlug.get(s)!] : []));
-  const missingBefore = affecterLanes(team).manquantes.length;
+  const missingBefore = assignLanes(team).missing.length;
   const free = catalog.filter((h) => !excluded.has(h.slug));
-  const useful = free.filter((h) => affecterLanes([...team, h]).manquantes.length < missingBefore);
+  const useful = free.filter((h) => assignLanes([...team, h]).missing.length < missingBefore);
   const pool = useful.length > 0 ? useful : free;
   if (pool.length === 0) return null;
   const h = pool[Math.floor(turnRandom(seed, turn.index)() * pool.length)];
-  const lane = LANES.find((l) => affecterLanes([...team, h]).lanes[l] === h.slug) ?? null;
+  const lane = LANES.find((l) => assignLanes([...team, h]).lanes[l] === h.slug) ?? null;
   return { slug: h.slug, reason: { type: "random" }, lane };
 }
 
 // -- Summary ------------------------------------------------------------
 
 /** Lane of each pick of a team, as the team analyzer assigns them. */
-export function pickLanes(slugs: string[], catalog: Pick<HerosDraft, "slug" | "lanes">[]): Map<string, Lane> {
+export function pickLanes(slugs: string[], catalog: Pick<DraftHero, "slug" | "lanes">[]): Map<string, Lane> {
   const bySlug = new Map(catalog.map((h) => [h.slug, h]));
-  const { lanes } = affecterLanes(slugs.flatMap((s) => (bySlug.has(s) ? [bySlug.get(s)!] : [])));
+  const { lanes } = assignLanes(slugs.flatMap((s) => (bySlug.has(s) ? [bySlug.get(s)!] : [])));
   return new Map(LANES.flatMap((l) => (lanes[l] ? [[lanes[l]!, l] as const] : [])));
 }
 
@@ -598,7 +598,7 @@ export interface Matchup {
 }
 
 /** Matchups measured at the rank between the two teams, most lopsided first. */
-export function matchupsBetween(blue: string[], red: string[], measures: MesuresRang): Matchup[] {
+export function matchupsBetween(blue: string[], red: string[], measures: MeasuresRank): Matchup[] {
   const out: Matchup[] = [];
   for (const b of blue) {
     for (const r of red) {
@@ -631,10 +631,10 @@ export interface Advantage {
  */
 export const ADVANTAGE_SCALE = 10;
 
-export function measuredAdvantage(blue: string[], red: string[], measures: MesuresRang): Advantage {
+export function measuredAdvantage(blue: string[], red: string[], measures: MeasuresRank): Advantage {
   const matchups = matchupsBetween(blue, red, measures);
   const duosOf = (slugs: string[]) =>
-    synergiesInternes(
+    synergiesInternal(
       slugs.map((slug) => ({ slug, synergies: [] })),
       measures,
     ).filter((p): p is typeof p & { points: number } => p.points !== null);

@@ -4,7 +4,7 @@
  * Taken from the wiki "Emblems" page (`SOURCE_EMBLEMS`) on 11 September 2026
  * and copied in the game's own wording ("+275 HP"): the item attribute
  * reader (`parseBonus`) reads them as they are, with no second table to
- * maintain. `src/data/emblemes.ts` describes emblems for the pages; this file
+ * maintain. `src/data/emblems.ts` describes emblems for the pages; this file
  * only carries the numbers.
  *
  * Tiers: the wiki files each talent under "standard 1", "standard 2" or

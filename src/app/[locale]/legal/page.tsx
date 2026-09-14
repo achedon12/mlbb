@@ -1,38 +1,39 @@
 import type { Metadata } from "next";
-import { EnTetePage } from "@/components/ui";
+import { PageHeader } from "@/components/ui";
 import { Prose } from "@/components/prose";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
 import { legal, site } from "@/lib/site";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.legal.title"),
+    title: t("pages.legal.title"),
     description: t("pages.legal.metaDescription"),
-    chemin: "/legal",
+    path: "/legal",
   });
 }
 
-export default async function PageMentionsLegales({ params }: Params) {
+export default async function LegalPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return (
     <>
-      <EnTetePage titre={t("pages.legal.title")} chapeau={t("pages.legal.lead")} />
+      <PageHeader title={t("pages.legal.title")} lead={t("pages.legal.lead")} />
       <Prose
-        langue={locale}
-        cle="legal"
+        locale={locale}
+        messageKey="legal"
         variables={{
-          editeur: legal.editeur,
-          editeurSite: legal.editeurSite,
+          // Keys are the {placeholders} of the catalogue text.
+          editeur: legal.publisher,
+          editeurSite: legal.publisherSite,
           contact: legal.contact,
-          hebergeur: legal.hebergeur,
-          hebergeurSite: legal.hebergeurSite,
+          hebergeur: legal.host,
+          hebergeurSite: legal.hostSite,
           depot: site.depot,
         }}
       />

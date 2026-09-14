@@ -2,8 +2,8 @@
 
 import { redirect } from "next/navigation";
 import { z } from "zod";
-import { connecter as connecterJeu, envoyerCode } from "./mlbb-auth";
-import { fermerSession, ouvrirSession } from "./session";
+import { connect as connectGame, sendCode } from "./mlbb-auth";
+import { closeSession, openSession } from "./session";
 
 /**
  * Actions de connexion.
@@ -12,94 +12,94 @@ import { fermerSession, ouvrirSession } from "./session";
  * une session. Aucune donnee n'est stockee cote site — l'identite vit dans le
  * jeton, l'authentification chez Moonton.
  */
-export interface Etat {
+export interface State {
   /** Cle du catalogue (`loginForm.errors.*`) : le formulaire l'affiche dans la langue de la page. */
-  erreur?: string;
+  error?: string;
   /** Passe a vrai une fois le code envoye : le formulaire affiche alors le champ code. */
-  codeEnvoye?: boolean;
+  codeSent?: boolean;
   roleId?: string;
   zoneId?: string;
 }
 
-const identifiants = z.object({
+const credentials = z.object({
   roleId: z.coerce.number().int().positive("loginForm.errors.playerId"),
   zoneId: z.coerce.number().int().positive("loginForm.errors.server"),
 });
 
 /** Sépare « 123456789 (6021) » colle dans le champ identifiant. */
-function separer(brut: string): { roleId: string; zoneId: string } | null {
-  const colle = brut.match(/^\s*(\d+)\s*\((\d+)\)\s*$/);
-  return colle ? { roleId: colle[1], zoneId: colle[2] } : null;
+function split(raw: string): { roleId: string; zoneId: string } | null {
+  const glued = raw.match(/^\s*(\d+)\s*\((\d+)\)\s*$/);
+  return glued ? { roleId: glued[1], zoneId: glued[2] } : null;
 }
 
-export async function demanderCode(_precedent: Etat, donnees: FormData): Promise<Etat> {
-  let brutRole = String(donnees.get("roleId") ?? "").trim();
-  let brutZone = String(donnees.get("zoneId") ?? "").trim();
+export async function requestCode(_previous: State, data: FormData): Promise<State> {
+  let rawRole = String(data.get("roleId") ?? "").trim();
+  let rawZone = String(data.get("zoneId") ?? "").trim();
 
   // Identifiant complet colle dans le premier champ : le serveur suit.
-  const colle = separer(brutRole);
-  if (colle) {
-    brutRole = colle.roleId;
-    if (!brutZone) brutZone = colle.zoneId;
+  const glued = split(rawRole);
+  if (glued) {
+    rawRole = glued.roleId;
+    if (!rawZone) rawZone = glued.zoneId;
   }
 
-  const analyse = identifiants.safeParse({ roleId: brutRole, zoneId: brutZone });
-  if (!analyse.success) {
+  const analysis = credentials.safeParse({ roleId: rawRole, zoneId: rawZone });
+  if (!analysis.success) {
     // Un nombre illisible leve l'erreur de type de zod, pas notre message : on retombe alors sur la cle generique.
-    const message = analyse.error.issues[0]?.message;
-    const erreur = message?.startsWith("loginForm.") ? message : "loginForm.errors.invalidInput";
-    return { erreur, roleId: brutRole, zoneId: brutZone };
+    const message = analysis.error.issues[0]?.message;
+    const error = message?.startsWith("loginForm.") ? message : "loginForm.errors.invalidInput";
+    return { error, roleId: rawRole, zoneId: rawZone };
   }
 
-  const { roleId, zoneId } = analyse.data;
-  const resultat = await envoyerCode(roleId, zoneId);
+  const { roleId, zoneId } = analysis.data;
+  const result = await sendCode(roleId, zoneId);
 
-  if (!resultat.ok) {
-    return { erreur: resultat.raison, roleId: brutRole, zoneId: brutZone };
+  if (!result.ok) {
+    return { error: result.raison, roleId: rawRole, zoneId: rawZone };
   }
 
-  return { codeEnvoye: true, roleId: String(roleId), zoneId: String(zoneId) };
+  return { codeSent: true, roleId: String(roleId), zoneId: String(zoneId) };
 }
 
-export async function verifierCode(_precedent: Etat, donnees: FormData): Promise<Etat> {
-  const analyse = identifiants.safeParse({
-    roleId: donnees.get("roleId"),
-    zoneId: donnees.get("zoneId"),
+export async function checkCode(_previous: State, data: FormData): Promise<State> {
+  const analysis = credentials.safeParse({
+    roleId: data.get("roleId"),
+    zoneId: data.get("zoneId"),
   });
-  const code = Number(String(donnees.get("code") ?? "").replace(/\D/g, ""));
+  const code = Number(String(data.get("code") ?? "").replace(/\D/g, ""));
 
-  if (!analyse.success || !/^\d{4}$/.test(String(code))) {
+  if (!analysis.success || !/^\d{4}$/.test(String(code))) {
     return {
-      erreur: "loginForm.errors.code",
-      codeEnvoye: true,
-      roleId: String(donnees.get("roleId") ?? ""),
-      zoneId: String(donnees.get("zoneId") ?? ""),
+      error: "loginForm.errors.code",
+      codeSent: true,
+      roleId: String(data.get("roleId") ?? ""),
+      zoneId: String(data.get("zoneId") ?? ""),
     };
   }
 
-  const { roleId, zoneId } = analyse.data;
-  const resultat = await connecterJeu(roleId, zoneId, code);
+  const { roleId, zoneId } = analysis.data;
+  const result = await connectGame(roleId, zoneId, code);
 
-  if (!resultat.ok) {
+  if (!result.ok) {
     return {
-      erreur: resultat.raison,
-      codeEnvoye: true,
+      error: result.raison,
+      codeSent: true,
       roleId: String(roleId),
       zoneId: String(zoneId),
     };
   }
 
-  await ouvrirSession(resultat.jeton);
+  await openSession(result.jeton);
   redirect("/account");
 }
 
-export async function deconnecter(): Promise<void> {
-  await fermerSession();
+export async function disconnect(): Promise<void> {
+  await closeSession();
   redirect("/");
 }
 
 /** Session expiree : on vide le cookie et on repart du formulaire de connexion. */
-export async function reconnecter(): Promise<void> {
-  await fermerSession();
+export async function reconnect(): Promise<void> {
+  await closeSession();
   redirect("/login");
 }

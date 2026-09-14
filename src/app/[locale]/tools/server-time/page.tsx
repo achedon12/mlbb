@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
-import { HorlogeServeur } from "@/components/horloge-serveur";
-import Link from "@/components/lien";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT } from "@/i18n/traductions";
-import { patchsDetail } from "@/lib/donnees";
-import { donneesLd } from "@/lib/html";
-import { DECALAGE_SERVEUR_MIN, HEURE_REMISE, SOURCES_HEURE, finsDeSaison } from "@/lib/heure-serveur";
+import { ServerClock } from "@/components/server-clock";
+import Link from "@/components/link";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT } from "@/i18n/translations";
+import { patchDetails } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/html";
+import { SERVER_OFFSET_MIN, TIME_RESET, TIME_SOURCES, endsOfSeason } from "@/lib/server-time";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
-const CHEMIN = "/tools/server-time";
+const PATH = "/tools/server-time";
 
 /** Fins de saison annoncees dans les notes de patch synchronisees ; le composant garde celle a venir. */
-const FINS = finsDeSaison(Object.values(patchsDetail));
+const ENDS = endsOfSeason(Object.values(patchDetails));
 
 /**
  * Pays de reference des exemples de la FAQ, par langue : leur heure locale de
  * remise, ete comme hiver, se calcule a partir du fuseau du serveur.
  */
-const FUSEAU_EXEMPLE: Record<Langue, string> = {
+const TIMEZONE_EXAMPLE: Record<Locale, string> = {
   fr: "Europe/Paris",
   en: "Europe/London",
   it: "Europe/Rome",
@@ -28,50 +28,50 @@ const FUSEAU_EXEMPLE: Record<Langue, string> = {
 };
 
 /** Heure « murale » du serveur convertie dans un fuseau, a une date donnee. */
-function heureServeurEn(locale: Langue, heure: number, fuseau: string, mois = 0) {
-  const instant = Date.UTC(2026, mois, 5, heure) - DECALAGE_SERVEUR_MIN * 60_000;
-  return new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: fuseau }).format(
+function serverTimeIn(locale: Locale, time: number, timezone: string, month = 0) {
+  const instant = Date.UTC(2026, month, 5, time) - SERVER_OFFSET_MIN * 60_000;
+  return new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: timezone }).format(
     instant,
   );
 }
 
-const instantRendu = () => Date.now();
+const instantRender = () => Date.now();
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.serverTime.title"),
-    description: t("pages.seo.serverTime.description", { utc: heureServeurEn(locale, HEURE_REMISE, "UTC") }),
-    chemin: CHEMIN,
-    motsCles: ["server time", "daily reset", "weekly reset", "reset time", "Starlight", "Mobile Legends", "MLBB"],
+    title: t("pages.seo.serverTime.title"),
+    description: t("pages.seo.serverTime.description", { utc: serverTimeIn(locale, TIME_RESET, "UTC") }),
+    path: PATH,
+    keywords: ["server time", "daily reset", "weekly reset", "reset time", "Starlight", "Mobile Legends", "MLBB"],
   });
 }
 
-export default async function PageHeureServeur({ params }: Params) {
+export default async function ServerTimePage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const utc = heureServeurEn(locale, HEURE_REMISE, "UTC");
-  const exemple = FUSEAU_EXEMPLE[locale];
-  const annonce = FINS.at(-1);
-  const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.serverTime.title"),
+  const t = createT(locale);
+  const utc = serverTimeIn(locale, TIME_RESET, "UTC");
+  const example = TIMEZONE_EXAMPLE[locale];
+  const announcement = ENDS.at(-1);
+  const structuredData = dataTool(locale, {
+    name: t("pages.serverTime.title"),
     description: t("pages.seo.serverTime.description", { utc }),
-    chemin: CHEMIN,
-    categorie: "UtilitiesApplication",
+    path: PATH,
+    category: "UtilitiesApplication",
   });
 
-  const regles = [
-    { titre: t("pages.serverTime.timezoneTitle"), texte: t("pages.serverTime.timezoneText") },
-    { titre: t("pages.serverTime.dailyTitle"), texte: t("pages.serverTime.dailyText", { utc }) },
-    { titre: t("pages.serverTime.weeklyTitle"), texte: t("pages.serverTime.weeklyText", { utc }) },
-    { titre: t("pages.serverTime.starlightTitle"), texte: t("pages.serverTime.starlightText", { utc }) },
-    { titre: t("pages.serverTime.seasonTitle"), texte: t("pages.serverTime.seasonText") },
+  const rules = [
+    { title: t("pages.serverTime.timezoneTitle"), text: t("pages.serverTime.timezoneText") },
+    { title: t("pages.serverTime.dailyTitle"), text: t("pages.serverTime.dailyText", { utc }) },
+    { title: t("pages.serverTime.weeklyTitle"), text: t("pages.serverTime.weeklyText", { utc }) },
+    { title: t("pages.serverTime.starlightTitle"), text: t("pages.serverTime.starlightText", { utc }) },
+    { title: t("pages.serverTime.seasonTitle"), text: t("pages.serverTime.seasonText") },
     {
-      titre: t("pages.serverTime.updateTitle"),
-      texte: t("pages.serverTime.updateText", {
-        debut: heureServeurEn(locale, 18, "UTC"),
-        fin: heureServeurEn(locale, 22, "UTC"),
+      title: t("pages.serverTime.updateTitle"),
+      text: t("pages.serverTime.updateText", {
+        debut: serverTimeIn(locale, 18, "UTC"),
+        fin: serverTimeIn(locale, 22, "UTC"),
       }),
     },
   ];
@@ -81,9 +81,9 @@ export default async function PageHeureServeur({ params }: Params) {
       q: t("pages.serverTime.faq1q"),
       r: t("pages.serverTime.faq1a", {
         utc,
-        ete: heureServeurEn(locale, HEURE_REMISE, exemple, 6),
-        hiver: heureServeurEn(locale, HEURE_REMISE, exemple, 0),
-        manille: heureServeurEn(locale, HEURE_REMISE, "Asia/Manila"),
+        ete: serverTimeIn(locale, TIME_RESET, example, 6),
+        hiver: serverTimeIn(locale, TIME_RESET, example, 0),
+        manille: serverTimeIn(locale, TIME_RESET, "Asia/Manila"),
       }),
     },
     { q: t("pages.serverTime.faq2q"), r: t("pages.serverTime.faq2a") },
@@ -92,10 +92,10 @@ export default async function PageHeureServeur({ params }: Params) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }} />
-      <EnTetePage titre={t("pages.serverTime.title")} chapeau={t("pages.serverTime.lead", { utc })} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.serverTime.title")} lead={t("pages.serverTime.lead", { utc })} />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
-        <HorlogeServeur reference={instantRendu()} fins={FINS} />
+        <ServerClock reference={instantRender()} ends={ENDS} />
 
         <section aria-labelledby="regles-titre">
           <h2 id="regles-titre" className="font-heading text-2xl font-bold text-chalk-100">
@@ -103,10 +103,10 @@ export default async function PageHeureServeur({ params }: Params) {
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <dl className="mt-5 grid gap-3 sm:grid-cols-2">
-            {regles.map((r) => (
-              <div key={r.titre} className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
-                <dt className="font-heading font-bold text-gold-400">{r.titre}</dt>
-                <dd className="mt-1 text-sm leading-relaxed text-chalk-300">{r.texte}</dd>
+            {rules.map((r) => (
+              <div key={r.title} className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
+                <dt className="font-heading font-bold text-gold-400">{r.title}</dt>
+                <dd className="mt-1 text-sm leading-relaxed text-chalk-300">{r.text}</dd>
               </div>
             ))}
           </dl>
@@ -136,19 +136,19 @@ export default async function PageHeureServeur({ params }: Params) {
           <h2 id="sources-titre" className="font-semibold text-chalk-300">{t("pages.serverTime.sourcesTitle")}</h2>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             <li>
-              <a href={SOURCES_HEURE.serveur} rel="noopener" className="underline transition-colors hover:text-gold-400">
+              <a href={TIME_SOURCES.server} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.serverTime.sourceServer")}
               </a>
             </li>
             <li>
-              <a href={SOURCES_HEURE.starlight} rel="noopener" className="underline transition-colors hover:text-gold-400">
+              <a href={TIME_SOURCES.starlight} rel="noopener" className="underline transition-colors hover:text-gold-400">
                 {t("pages.serverTime.sourceStarlight")}
               </a>
             </li>
-            {annonce && (
+            {announcement && (
               <li>
-                <a href={annonce.lien} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                  {t("pages.serverTime.sourcePatch", { v: annonce.patch, n: annonce.saison })}
+                <a href={announcement.link} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                  {t("pages.serverTime.sourcePatch", { v: announcement.patch, n: announcement.season })}
                 </a>
               </li>
             )}

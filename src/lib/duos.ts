@@ -1,5 +1,5 @@
-import duosGenere from "@/data/jeu/duos.json";
-import type { RangMesure } from "./rangs-mesure";
+import duosGenerated from "@/data/game/duos.json";
+import type { MeasuredRank } from "./measured-ranks";
 
 /**
  * Duos mesures par le jeu (`/heroes/{h}/compatibility`), par heros puis par
@@ -15,12 +15,12 @@ export interface Duo {
   advantage: number;
   /**
    * Taux de victoire du duo par tranche de duree, en %, aligne sur
-   * DEBUTS_TRANCHES_DUO (src/lib/paires.ts) ; null pour une tranche vide.
+   * DEBUTS_TRANCHES_DUO (src/lib/pairs.ts) ; null pour une tranche vide.
    */
   phases?: (number | null)[];
 }
 
-export interface DuosRang {
+export interface DuosRank {
   /** Taux de victoire du heros dans ce rang, en %. */
   winRate: number | null;
   best: Duo[];
@@ -28,13 +28,13 @@ export interface DuosRang {
 }
 
 /** Un rang absent n'a pas ete mesure pour ce heros. */
-export type DuosParRang = Partial<Record<RangMesure, DuosRang>>;
+export type DuosByRank = Partial<Record<MeasuredRank, DuosRank>>;
 
-const D = duosGenere as unknown as { days?: number; heroes?: Record<string, DuosParRang> };
+const D = duosGenerated as unknown as { days?: number; heroes?: Record<string, DuosByRank> };
 
 /** Fenetre de mesure des duos, en jours. */
-export const JOURS_DUOS = D.days ?? 30;
+export const DAYS_DUOS = D.days ?? 30;
 
-export const duos: Record<string, DuosParRang> = D.heroes ?? {};
+export const duos: Record<string, DuosByRank> = D.heroes ?? {};
 
-export const duosDe = (slug: string): DuosParRang => duos[slug] ?? {};
+export const duosOf = (slug: string): DuosByRank => duos[slug] ?? {};

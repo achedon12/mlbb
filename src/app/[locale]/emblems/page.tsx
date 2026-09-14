@@ -1,58 +1,58 @@
 import type { Metadata } from "next";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { GuideEmblemes } from "@/components/guide-emblemes";
-import { EnTetePage } from "@/components/ui";
-import { emblemes, sortsDeCombat, talents } from "@/data/emblemes";
-import visuels from "@/data/jeu/visuels.json";
-import type { Langue } from "@/i18n/config";
-import { creerT, messagesPage } from "@/i18n/traductions";
+import { ExtendMessages } from "@/i18n/provider";
+import { EmblemGuide } from "@/components/emblem-guide";
+import { PageHeader } from "@/components/ui";
+import { emblems, battleSpells, talents } from "@/data/emblems";
+import visuals from "@/data/game/visuals.json";
+import type { Locale } from "@/i18n/config";
+import { createT, messagesPage } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
-import { choixPopulaires, patchActuel } from "@/lib/fraicheur";
+import { choicePopular, patchCurrent } from "@/lib/freshness";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   // Noms anglais de l'API (« Seasoned Hunter ») vers le catalogue (« emblemData.seasoned-hunter.name »).
-  const nomChoix = (nom: string) => {
-    const cle = `emblemData.${nom.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.nom`;
-    const traduit = t(cle);
-    return traduit === cle ? nom : traduit;
+  const nameChoice = (name: string) => {
+    const key = `emblemData.${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.nom`;
+    const translated = t(key);
+    return translated === key ? name : translated;
   };
-  const { sort, talent } = choixPopulaires();
+  const { sort, talent } = choicePopular();
   return metaPage(locale, {
-    titre: t("pages.seo.emblems.title", { v: patchActuel.version }),
+    title: t("pages.seo.emblems.title", { v: patchCurrent.version }),
     description:
       sort && talent
-        ? t("pages.seo.emblems.description", { sort: nomChoix(sort), talent: nomChoix(talent), v: patchActuel.version })
+        ? t("pages.seo.emblems.description", { sort: nameChoice(sort), talent: nameChoice(talent), v: patchCurrent.version })
         : t("pages.emblems.metaDescription"),
-    partage: t("pages.emblems.ogDescription"),
-    chemin: "/emblems",
+    share: t("pages.emblems.ogDescription"),
+    path: "/emblems",
   });
 }
 
 const images: Record<string, string> = {
-  ...(visuels.emblems as Record<string, string>),
-  ...(visuels.talents as Record<string, string>),
-  ...(visuels.spells as Record<string, string>),
+  ...(visuals.emblems as Record<string, string>),
+  ...(visuals.talents as Record<string, string>),
+  ...(visuals.spells as Record<string, string>),
 };
 
-export default async function PageEmblemes({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function EmblemsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return (
-    <CompleterMessages messages={messagesPage(locale, ["emblemData"])}>
-      <EnTetePage
-        titre={t("pages.emblems.title")}
-        chapeau={t("pages.emblems.lead")}
+    <ExtendMessages messages={messagesPage(locale, ["emblemData"])}>
+      <PageHeader
+        title={t("pages.emblems.title")}
+        lead={t("pages.emblems.lead")}
       />
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <GuideEmblemes
-          emblemes={[...emblemes]}
+        <EmblemGuide
+          emblems={[...emblems]}
           talents={[...talents]}
-          sorts={[...sortsDeCombat]}
+          sorts={[...battleSpells]}
           images={images}
         />
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

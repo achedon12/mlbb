@@ -1,8 +1,8 @@
-import { herosDraft } from "./catalogue-draft";
-import { catalogueEquipe } from "./composition-donnees";
+import { draftHeroes } from "./draft-catalog";
+import { catalogTeam } from "./composition-data";
 import type { MetaEntry, SimulationHero } from "./draft-simulation";
-import type { RangMesure } from "./rangs-mesure";
-import { classementDuRang, RANGS_CLASSES } from "./tier-list";
+import type { MeasuredRank } from "./measured-ranks";
+import { rankingOfRank, RANKS_CLASSES } from "./tier-list";
 
 /**
  * Data of the draft simulator, prepared on the server. A rank's measurements
@@ -18,10 +18,10 @@ const EMPTY_NOTES = { offense: null, durability: null, abilityEffects: null, dif
  * summary.
  */
 export function simulationHeroes(): SimulationHero[] {
-  const team = new Map(catalogueEquipe().map((h) => [h.slug, h]));
-  return herosDraft().map((h) => ({
+  const team = new Map(catalogTeam().map((h) => [h.slug, h]));
+  return draftHeroes().map((h) => ({
     ...h,
-    degats: team.get(h.slug)?.degats ?? null,
+    damage: team.get(h.slug)?.damage ?? null,
     notes: team.get(h.slug)?.notes ?? EMPTY_NOTES,
   }));
 }
@@ -37,11 +37,11 @@ export const META_SIZE = 30;
  * rate and ban rate; heroes played too little, with unstable rates, are left
  * out.
  */
-export function metaByRank(): Partial<Record<RangMesure, MetaEntry[]>> {
+export function metaByRank(): Partial<Record<MeasuredRank, MetaEntry[]>> {
   return Object.fromEntries(
-    RANGS_CLASSES.map((rank) => [
+    RANKS_CLASSES.map((rank) => [
       rank,
-      classementDuRang(rank)
+      rankingOfRank(rank)
         .filter((e) => !e.lowSample)
         .slice(0, META_SIZE)
         .map((e) => ({ slug: e.hero.slug, tier: e.tier, banRate: e.banRate, winRate: e.winRate })),

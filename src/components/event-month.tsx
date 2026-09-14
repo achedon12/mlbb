@@ -1,13 +1,13 @@
-import { CarteSkin, proprietesCarteSkin, type ProprietesCarteSkin } from "@/components/carte-skin";
-import { GrilleSkins } from "@/components/grille-skins";
-import { TitreSection } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
+import { SkinCard, propsCardSkin, type PropsCardSkin } from "@/components/skin-card";
+import { SkinGrid } from "@/components/skin-grid";
+import { SectionTitle } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
-import { herosParSlug } from "@/lib/donnees";
+import { heroesBySlug } from "@/lib/data";
 import { OTHER_MODES, type EventMonth, type EventSkin, type ObtainMode } from "@/lib/events";
 import type { ListSource } from "@/lib/events-server";
-import { dateLongue, listeNoms, moisAnnee } from "@/lib/fraicheur";
-import { RARETE_ORIGINE } from "@/lib/raretes";
+import { longDate, listNames, monthYear } from "@/lib/freshness";
+import { RARITY_ORIGIN } from "@/lib/rarities";
 
 /**
  * Content of one month of the events calendar: StarLight skin, Collector
@@ -15,32 +15,32 @@ import { RARETE_ORIGINE } from "@/lib/raretes";
  * the month timeline and each month's page.
  */
 
-export const heroName = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
+export const heroName = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
 
 /** Month inside a sentence: "septembre 2025", "September 2025", "septiembre de 2025". */
-export const monthText = (locale: Langue, month: string) => moisAnnee(locale, `${month}-01`);
+export const monthText = (locale: Locale, month: string) => monthYear(locale, `${month}-01`);
 
 /** Month on its own, as a heading or a label: "Septembre 2025". */
-export function monthLabel(locale: Langue, month: string): string {
+export function monthLabel(locale: Locale, month: string): string {
   const text = monthText(locale, month);
   return text.charAt(0).toLocaleUpperCase(LOCALE_HTML[locale]) + text.slice(1);
 }
 
-export function eventCard(s: EventSkin, t: T, htmlLang: string, numbers: Intl.NumberFormat): ProprietesCarteSkin {
-  const card = proprietesCarteSkin(s, heroName(s.heros), t, htmlLang, numbers);
+export function eventCard(s: EventSkin, t: T, htmlLang: string, numbers: Intl.NumberFormat): PropsCardSkin {
+  const card = propsCardSkin(s, heroName(s.hero), t, htmlLang, numbers);
   // Without a known anchor, the hero gallery opens at the top rather than on an empty anchor.
-  if (!s.ancre) card.href = `/heroes/${s.heros}/skins`;
+  if (!s.anchor) card.href = `/heroes/${s.hero}/skins`;
   // The module does not give its rarity yet: say so, rather than showing the default skin's.
-  return s.notInCatalogue ? { ...card, couleur: RARETE_ORIGINE.couleur, rarete: t("pages.events.rarityUnknown") } : card;
+  return s.notInCatalog ? { ...card, color: RARITY_ORIGIN.color, rarity: t("pages.events.rarityUnknown") } : card;
 }
 
 /** Sentences summing up a month, for its lead and meta description. */
-export function monthSummary(t: T, locale: Langue, m: EventMonth): string[] {
+export function monthSummary(t: T, locale: Locale, m: EventMonth): string[] {
   const numbers = new Intl.NumberFormat(LOCALE_HTML[locale]);
   const names = (list: EventSkin[]) =>
-    listeNoms(
+    listNames(
       locale,
-      list.map((s) => t("pages.events.skinOf", { skin: s.nom, hero: heroName(s.heros) })),
+      list.map((s) => t("pages.events.skinOf", { skin: s.name, hero: heroName(s.hero) })),
     );
   const others = OTHER_MODES.filter((k) => m.others[k].length > 0);
   const otherCount = others.reduce((n, k) => n + m.others[k].length, 0);
@@ -52,7 +52,7 @@ export function monthSummary(t: T, locale: Langue, m: EventMonth): string[] {
     otherCount > 0 &&
       t(otherCount === 1 ? "pages.events.summary.others1" : "pages.events.summary.others", {
         n: numbers.format(otherCount),
-        detail: listeNoms(
+        detail: listNames(
           locale,
           others.map((k) => t(`pages.events.modes.${k}.summary`, { n: numbers.format(m.others[k].length) })),
         ),
@@ -72,7 +72,7 @@ export function MonthContent({
 }: {
   month: EventMonth;
   t: T;
-  locale: Langue;
+  locale: Locale;
   variant: "page" | "timeline";
 }) {
   const htmlLang = LOCALE_HTML[locale];
@@ -100,22 +100,22 @@ export function MonthContent({
             skins.length === 0 ? (
               <p className="max-w-xs text-sm leading-relaxed text-chalk-400">{empty}</p>
             ) : variant === "page" ? (
-              <GrilleSkins cartes={cards} />
+              <SkinGrid cards={cards} />
             ) : (
               <ul className="flex flex-wrap gap-2">
                 {cards.map((c) => (
                   <li key={c.href} className="w-28 sm:w-32">
-                    <CarteSkin {...c} />
+                    <SkinCard {...c} />
                   </li>
                 ))}
               </ul>
             );
           return variant === "page" ? (
             <section key={mode} id={mode} className="scroll-mt-24">
-              <TitreSection chapeau={t(`pages.events.modes.${mode}.desc`)}>
+              <SectionTitle lead={t(`pages.events.modes.${mode}.desc`)}>
                 {title}
                 {count}
-              </TitreSection>
+              </SectionTitle>
               {content}
             </section>
           ) : (
@@ -133,7 +133,7 @@ export function MonthContent({
 }
 
 /** Wiki pages cited, with their last edit: readers can judge how fresh they are. */
-export function SourceList({ sources, t, locale }: { sources: ListSource[]; t: T; locale: Langue }) {
+export function SourceList({ sources, t, locale }: { sources: ListSource[]; t: T; locale: Locale }) {
   if (sources.length === 0) return null;
   return (
     <ul className="space-y-1 text-sm">
@@ -142,7 +142,7 @@ export function SourceList({ sources, t, locale }: { sources: ListSource[]; t: T
           <a href={s.url} rel="noreferrer nofollow" target="_blank" className="font-semibold text-gold-400 hover:underline">
             {t("pages.events.sourcePage", { page: s.title })}
           </a>{" "}
-          <span className="text-chalk-500">· {t("pages.events.sourceEdited", { date: dateLongue(locale, s.modified) })}</span>
+          <span className="text-chalk-500">· {t("pages.events.sourceEdited", { date: longDate(locale, s.modified) })}</span>
         </li>
       ))}
     </ul>

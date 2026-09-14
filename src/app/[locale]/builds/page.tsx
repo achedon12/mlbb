@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { CommunityBuildCard } from "@/components/community-build-card";
-import Link from "@/components/lien";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
+import Link from "@/components/link";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
+import { createT, messagesPage } from "@/i18n/translations";
 import { buildNames } from "@/lib/build-catalog";
 import { INDEX_THRESHOLD, sortBuilds, toPublic, weekVotes } from "@/lib/community-builds";
 import { readCommunity } from "@/lib/community-builds-server";
-import { herosParSlug } from "@/lib/donnees";
+import { heroesBySlug } from "@/lib/data";
 
 /**
  * Community builds hub: the week's most voted builds, the latest ones, and
@@ -19,7 +19,7 @@ import { herosParSlug } from "@/lib/donnees";
  */
 export const dynamic = "force-dynamic";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/builds";
 const WEEK_COUNT = 6;
@@ -27,12 +27,12 @@ const LATEST_COUNT = 12;
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.communityBuilds.title"),
+    title: t("pages.seo.communityBuilds.title"),
     description: t("pages.seo.communityBuilds.description"),
-    chemin: PATH,
-    motsCles: ["builds", "community", "votes", "Mobile Legends", "MLBB"],
+    path: PATH,
+    keywords: ["builds", "community", "votes", "Mobile Legends", "MLBB"],
   });
 }
 
@@ -40,11 +40,11 @@ const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
 
 export default async function CommunityBuildsPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const { builds: stored, viewer, now } = await readCommunity();
   const itemNames = buildNames(locale, t).items;
   const heroOf = (slug: string) => {
-    const h = herosParSlug.get(slug);
+    const h = heroesBySlug.get(slug);
     return { name: h?.name ?? slug, icon: h?.images.icon ?? null };
   };
 
@@ -57,7 +57,7 @@ export default async function CommunityBuildsPage({ params }: Params) {
   const counts = new Map<string, number>();
   for (const b of stored ?? []) counts.set(b.build.hero, (counts.get(b.build.hero) ?? 0) + 1);
   const heroes = [...counts]
-    .filter(([slug]) => herosParSlug.has(slug))
+    .filter(([slug]) => heroesBySlug.has(slug))
     .sort((a, b) => b[1] - a[1] || heroOf(a[0]).name.localeCompare(heroOf(b[0]).name));
 
   const cards = (list: typeof latest) => (
@@ -79,15 +79,15 @@ export default async function CommunityBuildsPage({ params }: Params) {
 
   return (
     <>
-      <EnTetePage titre={t("pages.communityBuilds.title")} chapeau={t("pages.communityBuilds.lead")}>
+      <PageHeader title={t("pages.communityBuilds.title")} lead={t("pages.communityBuilds.lead")}>
         <Link
           href="/tools/build"
           className="bevel-sm mt-5 inline-flex min-h-11 items-center bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400"
         >
           {t("pages.communityBuilds.createCta")}
         </Link>
-      </EnTetePage>
-      <CompleterMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
+      </PageHeader>
+      <ExtendMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
         <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
           {stored === null ? (
             <p role="alert" className="border border-blood-500/40 p-4 text-chalk-300">
@@ -127,7 +127,7 @@ export default async function CommunityBuildsPage({ params }: Params) {
                           href={`/builds/${slug}`}
                           className="flex min-h-14 items-center gap-3 border border-night-800 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
                         >
-                          <PortraitHeros source={h.icon} nom={h.name} taille="icone" decoratif />
+                          <HeroPortrait source={h.icon} name={h.name} size="icon" decorative />
                           <span className="min-w-0">
                             <span className="block truncate text-sm text-chalk-100">{h.name}</span>
                             <span className="block text-xs text-chalk-500">{t("pages.communityBuilds.buildCount", { n })}</span>
@@ -152,7 +152,7 @@ export default async function CommunityBuildsPage({ params }: Params) {
             </ul>
           </section>
         </div>
-      </CompleterMessages>
+      </ExtendMessages>
     </>
   );
 }

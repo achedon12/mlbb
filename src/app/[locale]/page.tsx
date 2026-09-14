@@ -1,43 +1,43 @@
-import Link from "@/components/lien";
-import { donneesLd } from "@/lib/html";
+import Link from "@/components/link";
+import { serializeJsonLd } from "@/lib/html";
 import Image from "next/image";
 import { ArrowRight, Rss, Swords, TrendingDown, TrendingUp } from "lucide-react";
-import { AccesRoles } from "@/components/acces-roles";
-import { AccueilVedette } from "@/components/accueil-vedette";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { BadgePalier, Carte, TitreSection } from "@/components/ui";
+import { RoleAccess } from "@/components/role-access";
+import { HomeFeatured } from "@/components/home-featured";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { BadgeTier, Card, SectionTitle } from "@/components/ui";
 import {
-  heros,
-  herosAnalyses,
-  herosParSlug,
+  allHeroes,
+  heroAnalyses,
+  heroesBySlug,
   illustrations,
-  nombreSkins,
-  patchs,
-  patchsDetail,
-  synchro,
-} from "@/lib/donnees";
-import { tousLesArticles } from "@/lib/contenu";
-import { tendancesDe } from "@/lib/evolution";
-import { decrireEcart, formaterEcart, mouvementsSemaine, SEUIL_NOTABLE, type Mouvement } from "@/lib/tendances";
-import { classementComplet } from "@/lib/tier-list";
+  countSkins,
+  patches,
+  patchDetails,
+  sync,
+} from "@/lib/data";
+import { allArticles } from "@/lib/content";
+import { trendsOf } from "@/lib/evolution";
+import { describeGap, formatGap, movesWeek, THRESHOLD_NOTABLE, type Motion } from "@/lib/trends";
+import { rankingFull } from "@/lib/tier-list";
 import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
-import { cn, formaterDate } from "@/lib/utils";
-import type { Langue } from "@/i18n/config";
-import { LOCALE_HTML, estLangue } from "@/i18n/config";
+import { cn, formatShortDate } from "@/lib/utils";
+import type { Locale } from "@/i18n/config";
+import { LOCALE_HTML, isLocale } from "@/i18n/config";
 import { notFound } from "next/navigation";
-import { BASE } from "@/lib/rubriques";
-import { creerT, type T } from "@/i18n/traductions";
+import { BASE } from "@/lib/sections";
+import { createT, type T } from "@/i18n/translations";
 
 /** Donnees structurees de l'accueil, dans la langue de la page. */
-const donneesAccueil = (locale: Langue) => ({
+const dataHome = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
       "@id": `${site.url}/#site`,
       url: site.url,
-      name: site.nom,
+      name: site.name,
       description: site.description,
       inLanguage: LOCALE_HTML[locale],
       potentialAction: {
@@ -49,7 +49,7 @@ const donneesAccueil = (locale: Langue) => ({
     {
       "@type": "Organization",
       "@id": `${site.url}/#editeur`,
-      name: site.nom,
+      name: site.name,
       url: site.url,
       logo: `${site.url}/icon.svg`,
       sameAs: [site.depot],
@@ -57,7 +57,7 @@ const donneesAccueil = (locale: Langue) => ({
   ],
 });
 
-const detail = patchsDetail as unknown as Record<
+const detail = patchDetails as unknown as Record<
   string,
   { version: string; toc: { title: string }[] }
 >;
@@ -69,57 +69,57 @@ const detail = patchsDetail as unknown as Record<
  * doit rester reconnaissable d'une visite a l'autre dans la journee.
  */
 /** Outils interactifs du menu, repris en grille sur l'accueil. */
-const OUTILS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle"].includes(e.href));
+const TOOLS = BASE.filter((e) => e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle"].includes(e.href));
 
-function herosDuJour() {
-  const eligibles = heros.filter((h) => illustrations[h.slug]);
-  if (eligibles.length === 0) return null;
+function heroOfTheDay() {
+  const eligible = allHeroes.filter((h) => illustrations[h.slug]);
+  if (eligible.length === 0) return null;
 
-  const jour = Math.floor(Date.now() / 86_400_000);
-  const choisi = eligibles[jour % eligibles.length];
-  return { heros: choisi, illustration: Object.values(illustrations[choisi.slug])[0] };
+  const day = Math.floor(Date.now() / 86_400_000);
+  const chosen = eligible[day % eligible.length];
+  return { heroes: chosen, illustration: Object.values(illustrations[chosen.slug])[0] };
 }
 
-export default async function Accueil({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function Home({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
   // /inexistant.txt arrive ici avec « inexistant.txt » pour langue : la page
   // se rend en meme temps que la mise en page, et ses nombres formates dans
   // cette langue invalide la faisaient echouer en 500 avant la 404.
-  if (!estLangue(locale)) notFound();
-  const t = creerT(locale);
-  const vedette = herosDuJour();
-  const articles = tousLesArticles(locale).slice(0, 3);
-  const sommet = classementComplet.slice(0, 5);
-  const semaine = mouvementsSemaine(heros.map((h) => ({ slug: h.slug, serie: tendancesDe(h.slug).all })));
-  const dernierPatch = patchs.find((p) => detail[p.version]);
+  if (!isLocale(locale)) notFound();
+  const t = createT(locale);
+  const featured = heroOfTheDay();
+  const articles = allArticles(locale).slice(0, 3);
+  const top = rankingFull.slice(0, 5);
+  const week = movesWeek(allHeroes.map((h) => ({ slug: h.slug, series: trendsOf(h.slug).all })));
+  const lastPatch = patches.find((p) => detail[p.version]);
 
-  const classe = vedette
-    ? classementComplet.find((e) => e.hero.slug === vedette.heros.slug)
+  const rankedEntry = featured
+    ? rankingFull.find((e) => e.hero.slug === featured.heroes.slug)
     : null;
 
-  const parRole = Object.fromEntries(
+  const byRole = Object.fromEntries(
     (["Tank", "Fighter", "Assassin", "Mage", "Marksman", "Support"] as Role[]).map((r) => [
       r,
-      heros.filter((h) => h.roles.includes(r)).length,
+      allHeroes.filter((h) => h.roles.includes(r)).length,
     ]),
   ) as Record<Role, number>;
 
   // Quelques skins recents, choisis pour leur illustration : l'accueil doit
   // montrer ce que le site contient, pas seulement l'annoncer.
-  const skinsEnAvant = heros
+  const featuredSkins = allHeroes
     .filter((h) => illustrations[h.slug] && h.skins.length > 3)
     .slice(0, 6)
     .map((h) => {
-      const entrees = Object.entries(illustrations[h.slug]);
-      const [nom, image] = entrees[entrees.length - 1];
-      return { slug: h.slug, heros: h.name, skin: nom, image };
+      const entries = Object.entries(illustrations[h.slug]);
+      const [name, image] = entries[entries.length - 1];
+      return { slug: h.slug, heroes: h.name, skin: name, image };
     });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesAccueil(locale)) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(dataHome(locale)) }}
       />
 
       {/* ── Bandeau d'accroche ─────────────────────────────────────────── */}
@@ -135,7 +135,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chalk-300">
-            {t("home.lead", { heros: heros.length, skins: nombreSkins })}
+            {t("home.lead", { heros: allHeroes.length, skins: countSkins })}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -157,16 +157,16 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
 
           <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-night-800 pt-8 sm:grid-cols-4">
             {[
-              { valeur: heros.length, label: t("home.statHeroes") },
-              { valeur: nombreSkins, label: t("home.statSkins") },
-              { valeur: patchs.length, label: t("home.statPatches") },
-              { valeur: herosAnalyses.length, label: t("home.statAnalyses") },
+              { value: allHeroes.length, label: t("home.statHeroes") },
+              { value: countSkins, label: t("home.statSkins") },
+              { value: patches.length, label: t("home.statPatches") },
+              { value: heroAnalyses.length, label: t("home.statAnalyses") },
             ].map((s) => (
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
                   <span className="block font-heading text-3xl font-bold text-gold-400">
-                    {s.valeur}
+                    {s.value}
                   </span>
                   <span className="mt-1 block text-xs uppercase tracking-wide text-chalk-500">
                     {s.label}
@@ -179,22 +179,22 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       </section>
 
       {/* ── Heros du jour ──────────────────────────────────────────────── */}
-      {vedette && (
-        <AccueilVedette
-          heros={vedette.heros}
-          illustration={vedette.illustration}
-          palier={classe?.tier ?? null}
-          victoire={classe?.winRate ?? null}
-          langue={locale}
+      {featured && (
+        <HomeFeatured
+          hero={featured.heroes}
+          illustration={featured.illustration}
+          tier={rankedEntry?.tier ?? null}
+          win={rankedEntry?.winRate ?? null}
+          locale={locale}
         />
       )}
 
       {/* ── Entree par role ────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <TitreSection chapeau={t("home.startLead")}>
+        <SectionTitle lead={t("home.startLead")}>
           {t("home.startTitle")}
-        </TitreSection>
-        <AccesRoles compte={parRole} langue={locale} />
+        </SectionTitle>
+        <RoleAccess count={byRole} locale={locale} />
       </section>
 
       {/* ── Outils ─────────────────────────────────────────────────────── */}
@@ -203,20 +203,20 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
         changement.
       */}
       <section className="mx-auto max-w-6xl px-4 pb-16">
-        <TitreSection chapeau={t("home.toolsLead")}>{t("home.toolsTitle")}</TitreSection>
+        <SectionTitle lead={t("home.toolsLead")}>{t("home.toolsTitle")}</SectionTitle>
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {OUTILS.map(({ href, cle, icone: Icone }) => (
+          {TOOLS.map(({ href, key, icon: Icon }) => (
             <li key={href}>
               <Link
                 href={href}
                 className="bevel group flex h-full items-start gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
               >
-                <Icone size={20} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
+                <Icon size={20} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
                 <span className="min-w-0">
                   <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                    {t(`nav.${cle}.label`)}
+                    {t(`nav.${key}.label`)}
                   </span>
-                  <span className="mt-1 block text-sm leading-relaxed text-chalk-500">{t(`nav.${cle}.desc`)}</span>
+                  <span className="mt-1 block text-sm leading-relaxed text-chalk-500">{t(`nav.${key}.desc`)}</span>
                 </span>
               </Link>
             </li>
@@ -227,15 +227,15 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       {/* ── Sommet du classement ───────────────────────────────────────── */}
       <section className="border-y border-night-700/70 bg-night-900/30">
         <div className="mx-auto max-w-6xl px-4 py-16">
-          <TitreSection
-            chapeau={t("home.rankingLead")}
+          <SectionTitle
+            lead={t("home.rankingLead")}
             action={{ href: "/tier-list", label: t("home.fullTierList") }}
           >
             {t("home.rankingTitle")}
-          </TitreSection>
+          </SectionTitle>
 
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {sommet.map((e) => (
+            {top.map((e) => (
               <li key={e.hero.slug}>
                 <Link
                   href={`/heroes/${e.hero.slug}`}
@@ -252,7 +252,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                       />
                     )}
                   </span>
-                  <BadgePalier palier={e.tier} />
+                  <BadgeTier tier={e.tier} />
                   <span className="font-heading font-bold text-chalk-100">{e.hero.name}</span>
                   <span className="text-xs text-chalk-500">
                     {new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(e.winRate)}{" "}
@@ -266,30 +266,30 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       </section>
 
       {/* ── Tendances de la semaine ────────────────────────────────────── */}
-      {(semaine.hausses.length > 0 || semaine.baisses.length > 0) && (
+      {(week.rises.length > 0 || week.drops.length > 0) && (
         <section className="mx-auto max-w-6xl px-4 py-16">
-          <TitreSection
-            chapeau={t("home.trends.lead", {
-              seuil: new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(SEUIL_NOTABLE),
+          <SectionTitle
+            lead={t("home.trends.lead", {
+              seuil: new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE),
             })}
             action={{ href: "/tier-list", label: t("home.fullTierList") }}
           >
             {t("home.trends.title")}
-          </TitreSection>
+          </SectionTitle>
           <div className="grid gap-8 md:grid-cols-2">
-            <ListeMouvements
-              titre={t("home.trends.rise")}
-              vide={t("home.trends.noRise")}
-              mouvements={semaine.hausses}
-              hausse
+            <ListMoves
+              title={t("home.trends.rise")}
+              empty={t("home.trends.noRise")}
+              moves={week.rises}
+              rise
               locale={locale}
               t={t}
             />
-            <ListeMouvements
-              titre={t("home.trends.fall")}
-              vide={t("home.trends.noFall")}
-              mouvements={semaine.baisses}
-              hausse={false}
+            <ListMoves
+              title={t("home.trends.fall")}
+              empty={t("home.trends.noFall")}
+              moves={week.drops}
+              rise={false}
               locale={locale}
               t={t}
             />
@@ -298,17 +298,17 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       )}
 
       {/* ── Skins ──────────────────────────────────────────────────────── */}
-      {skinsEnAvant.length > 0 && (
+      {featuredSkins.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 py-16">
-          <TitreSection
-            chapeau={t("home.skinsLead", { skins: nombreSkins })}
+          <SectionTitle
+            lead={t("home.skinsLead", { skins: countSkins })}
             action={{ href: "/heroes", label: t("home.seeHeroes") }}
           >
             {t("home.skinsTitle")}
-          </TitreSection>
+          </SectionTitle>
 
           <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
-            {skinsEnAvant.map((s) => (
+            {featuredSkins.map((s) => (
               <li key={`${s.slug}-${s.skin}`}>
                 <Link
                   href={`/heroes/${s.slug}`}
@@ -316,7 +316,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                 >
                   <Image
                     src={s.image}
-                    alt={`${s.heros} — ${s.skin}`}
+                    alt={`${s.heroes} — ${s.skin}`}
                     fill
                     sizes="(min-width: 768px) 380px, 45vw"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
@@ -325,7 +325,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                     <span className="block font-heading text-sm font-bold text-chalk-100">
                       {s.skin}
                     </span>
-                    <span className="block text-xs text-chalk-500">{s.heros}</span>
+                    <span className="block text-xs text-chalk-500">{s.heroes}</span>
                   </span>
                 </Link>
               </li>
@@ -337,38 +337,38 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
       {/* ── Patch et articles ──────────────────────────────────────────── */}
       <section className="border-t border-night-700/70 bg-night-900/30">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_2fr]">
-          {dernierPatch && (
+          {lastPatch && (
             <div>
-              <TitreSection chapeau="">{t("home.lastUpdate")}</TitreSection>
-              <Carte>
+              <SectionTitle lead="">{t("home.lastUpdate")}</SectionTitle>
+              <Card>
                 <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gold-400">
                   <TrendingUp size={14} aria-hidden />
-                  Patch {dernierPatch.version}
+                  Patch {lastPatch.version}
                 </p>
                 <ul className="mt-4 space-y-1.5">
-                  {detail[dernierPatch.version].toc.slice(0, 5).map((s) => (
+                  {detail[lastPatch.version].toc.slice(0, 5).map((s) => (
                     <li key={s.title} className="text-sm leading-snug text-chalk-300">
                       {s.title}
                     </li>
                   ))}
                 </ul>
                 <Link
-                  href={`/patch-notes/${dernierPatch.version}`}
+                  href={`/patch-notes/${lastPatch.version}`}
                   className="mt-5 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                 >
                   {t("home.readNotes")} →
                 </Link>
-              </Carte>
+              </Card>
             </div>
           )}
 
           <div>
-            <TitreSection
-              chapeau=""
+            <SectionTitle
+              lead=""
               action={{ href: "/news", label: t("home.allNews") }}
             >
               {t("home.latestArticles")}
-            </TitreSection>
+            </SectionTitle>
             <ul className="space-y-3">
               {articles.map((a) => (
                 <li key={a.slug}>
@@ -381,7 +381,7 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
                         {t(`articleCategory.${a.category}`)}
                       </span>
                       <time dateTime={a.date} className="text-xs text-chalk-500">
-                        {formaterDate(a.date, LOCALE_HTML[locale])}
+                        {formatShortDate(a.date, LOCALE_HTML[locale])}
                       </time>
                     </span>
                     <span className="mt-1.5 block font-heading text-lg font-bold leading-snug text-chalk-100">
@@ -400,31 +400,31 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
 
       {/* ── Fonctionnement ─────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <TitreSection chapeau={t("home.syncLead", { date: formaterDate(synchro.date, LOCALE_HTML[locale]) })}>
+        <SectionTitle lead={t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_HTML[locale]) })}>
           {t("home.howItWorks")}
-        </TitreSection>
+        </SectionTitle>
         <div className="grid gap-4 md:grid-cols-3">
           {[
             {
-              titre: t("home.cards.dataTitle"),
-              texte:
+              title: t("home.cards.dataTitle"),
+              text:
                 t("home.cards.dataText"),
             },
             {
-              titre: t("home.cards.rankingTitle"),
-              texte:
+              title: t("home.cards.rankingTitle"),
+              text:
                 t("home.cards.rankingText"),
             },
             {
-              titre: t("home.cards.writtenTitle"),
-              texte:
+              title: t("home.cards.writtenTitle"),
+              text:
                 t("home.cards.writtenText"),
             },
           ].map((c) => (
-            <Carte key={c.titre}>
-              <h3 className="font-heading text-lg font-bold text-chalk-100">{c.titre}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-chalk-500">{c.texte}</p>
-            </Carte>
+            <Card key={c.title}>
+              <h3 className="font-heading text-lg font-bold text-chalk-100">{c.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-chalk-500">{c.text}</p>
+            </Card>
           ))}
         </div>
 
@@ -444,40 +444,40 @@ export default async function Accueil({ params }: { params: Promise<{ locale: La
  * La fleche et la couleur doublent le signe ; les lecteurs d'ecran entendent
  * l'ecart en toutes lettres.
  */
-function ListeMouvements({
-  titre,
-  vide,
-  mouvements,
-  hausse,
+function ListMoves({
+  title,
+  empty,
+  moves,
+  rise,
   locale,
   t,
 }: {
-  titre: string;
-  vide: string;
-  mouvements: Mouvement[];
-  hausse: boolean;
-  locale: Langue;
+  title: string;
+  empty: string;
+  moves: Motion[];
+  rise: boolean;
+  locale: Locale;
   t: T;
 }) {
-  const Icone = hausse ? TrendingUp : TrendingDown;
-  const pourcent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const Icon = rise ? TrendingUp : TrendingDown;
+  const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   return (
     <div>
       <h3
         className={cn(
           "mb-3 flex items-center gap-2 font-heading text-lg font-bold",
-          hausse ? "text-emerald-400" : "text-blood-500",
+          rise ? "text-emerald-400" : "text-blood-500",
         )}
       >
-        <Icone size={18} aria-hidden />
-        {titre}
+        <Icon size={18} aria-hidden />
+        {title}
       </h3>
-      {mouvements.length === 0 ? (
-        <p className="text-sm text-chalk-500">{vide}</p>
+      {moves.length === 0 ? (
+        <p className="text-sm text-chalk-500">{empty}</p>
       ) : (
         <ol className="space-y-2">
-          {mouvements.map(({ slug, variation: v }) => {
-            const h = herosParSlug.get(slug);
+          {moves.map(({ slug, variation: v }) => {
+            const h = heroesBySlug.get(slug);
             if (!h) return null;
             return (
               <li key={slug}>
@@ -485,26 +485,26 @@ function ListeMouvements({
                   href={`/heroes/${slug}`}
                   className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60"
                 >
-                  <PortraitHeros source={h.images.icon ?? h.images.portrait} nom={h.name} taille="icone" decoratif />
+                  <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
                       {h.name}
                     </span>
                     <span className="block text-xs text-chalk-500">
-                      {pourcent.format(v.actuel)} {t("home.winPercent")}
+                      {percent.format(v.current)} {t("home.winPercent")}
                     </span>
                   </span>
                   <span
                     className={cn(
                       "flex shrink-0 items-center gap-1.5 font-semibold tabular-nums",
-                      hausse ? "text-emerald-400" : "text-blood-500",
+                      rise ? "text-emerald-400" : "text-blood-500",
                     )}
                   >
-                    <Icone size={15} aria-hidden />
+                    <Icon size={15} aria-hidden />
                     <span aria-hidden>
-                      {formaterEcart(v.ecart, locale)} {t("counters.pts")}
+                      {formatGap(v.gap, locale)} {t("counters.pts")}
                     </span>
-                    <span className="sr-only">{decrireEcart(t, locale, v.ecart, v.jours)}</span>
+                    <span className="sr-only">{describeGap(t, locale, v.gap, v.days)}</span>
                   </span>
                 </Link>
               </li>

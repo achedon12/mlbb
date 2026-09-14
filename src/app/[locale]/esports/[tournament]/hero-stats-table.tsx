@@ -2,10 +2,10 @@
 
 import { useMemo, useState } from "react";
 import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
-import Link from "@/components/lien";
-import { ImageLegere } from "@/components/image-legere";
-import { useLangue, useT } from "@/i18n/fournisseur";
-import { iconeHeros } from "@/lib/tableau-statistiques";
+import Link from "@/components/link";
+import { LightImage } from "@/components/light-image";
+import { useLocale, useT } from "@/i18n/provider";
+import { heroIcon } from "@/lib/statistics-table";
 import { cn } from "@/lib/utils";
 
 export interface HeroStatRow {
@@ -36,7 +36,7 @@ const FIRST_ROWS = 8;
  */
 export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: string }) {
   const t = useT();
-  const locale = useLangue();
+  const locale = useLocale();
   const [sort, setSort] = useState<{ column: Column; descending: boolean }>({ column: "presence", descending: true });
   const percent = useMemo(
     () => new Intl.NumberFormat(locale, { style: "percent", minimumFractionDigits: 1, maximumFractionDigits: 1 }),
@@ -80,11 +80,11 @@ export function HeroStatsTable({ rows, name }: { rows: HeroStatRow[]; name: stri
                 className="sticky left-0 z-10 w-44 max-w-44 bg-night-950 px-3 py-1.5 text-left font-normal group-hover:bg-night-900"
               >
                 <Link href={`/heroes/${r.slug}`} prefetch={false} className="flex items-center gap-2.5">
-                  <ImageLegere
-                    src={iconeHeros(r.slug)}
+                  <LightImage
+                    src={heroIcon(r.slug)}
                     alt=""
-                    largeur={28}
-                    hauteur={28}
+                    width={28}
+                    height={28}
                     immediate={i < FIRST_ROWS}
                     className="bevel-sm size-7 shrink-0 bg-night-800 object-cover"
                   />

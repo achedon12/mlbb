@@ -9,14 +9,14 @@
  * L'anglais est la langue par defaut (portee la plus large, et langue d'origine
  * des donnees du jeu) ; c'est aussi la cible du `hreflang="x-default"`.
  */
-export const LANGUES = ["en", "fr", "it", "es"] as const;
+export const LOCALES = ["en", "fr", "it", "es"] as const;
 
-export type Langue = (typeof LANGUES)[number];
+export type Locale = (typeof LOCALES)[number];
 
-export const LANGUE_DEFAUT: Langue = "en";
+export const DEFAULT_LOCALE: Locale = "en";
 
 /** Etiquette affichee dans le selecteur, dans la langue elle-meme. */
-export const NOM_LANGUE: Record<Langue, string> = {
+export const LOCALE_NAME: Record<Locale, string> = {
   en: "English",
   fr: "Français",
   it: "Italiano",
@@ -24,13 +24,13 @@ export const NOM_LANGUE: Record<Langue, string> = {
 };
 
 /** Code BCP-47 pour l'attribut `lang` et les métadonnées. */
-export const LOCALE_HTML: Record<Langue, string> = {
+export const LOCALE_HTML: Record<Locale, string> = {
   en: "en",
   fr: "fr-FR",
   it: "it-IT",
   es: "es-ES",
 };
 
-export function estLangue(valeur: string): valeur is Langue {
-  return (LANGUES as readonly string[]).includes(valeur);
+export function isLocale(value: string): value is Locale {
+  return (LOCALES as readonly string[]).includes(value);
 }

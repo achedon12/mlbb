@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { LANGUES } from "@/i18n/config";
-import { encoderIndex } from "@/lib/catalogue-skins";
-import { catalogueSkins } from "@/lib/catalogue-skins-serveur";
+import { LOCALES } from "@/i18n/config";
+import { encodeIndex } from "@/lib/skin-catalog";
+import { catalogSkins } from "@/lib/skin-catalog-server";
 
 /**
  * Index compact de tous les skins (heros, rarete, serie, date, prix,
@@ -12,9 +12,9 @@ import { catalogueSkins } from "@/lib/catalogue-skins-serveur";
 export const dynamic = "force-static";
 
 export function generateStaticParams() {
-  return LANGUES.map((locale) => ({ locale }));
+  return LOCALES.map((locale) => ({ locale }));
 }
 
 export function GET() {
-  return NextResponse.json(encoderIndex(catalogueSkins()));
+  return NextResponse.json(encodeIndex(catalogSkins()));
 }

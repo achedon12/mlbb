@@ -1,5 +1,6 @@
-import { competences, heros } from "@/lib/donnees";
-import { reponseApi } from "@/lib/api";
+import { skills, allHeroes } from "@/lib/data";
+import { responseApi } from "@/lib/api";
+import { laneFromParam } from "@/lib/draft";
 import type { Lane, Role } from "@/lib/types";
 
 /**
@@ -13,12 +14,14 @@ import type { Lane, Role } from "@/lib/types";
 // renverrait la meme reponse quel que soit le filtre demande.
 export const dynamic = "force-dynamic";
 
-export function GET(requete: Request) {
-  const parametres = new URL(requete.url).searchParams;
-  const role = parametres.get("role") as Role | null;
-  const lane = parametres.get("lane") as Lane | null;
+export function GET(request: Request) {
+  const settings = new URL(request.url).searchParams;
+  const role = settings.get("role") as Role | null;
+  // Former lane tokens (`Or`, `Milieu`, `Experience`) keep working for existing callers.
+  const laneParam = settings.get("lane");
+  const lane = laneParam === null ? null : (laneFromParam(laneParam) ?? (laneParam as Lane));
 
-  const resultats = heros
+  const results = allHeroes
     .filter((h) => (role ? h.roles.includes(role) : true))
     .filter((h) => (lane ? h.lanes.includes(lane) : true))
     .map((h) => ({
@@ -31,8 +34,8 @@ export function GET(requete: Request) {
       release: h.release,
       ratings: h.ratings,
       skins: h.skins.length,
-      skills: (competences("en")[h.slug] ?? []).map((c) => c?.name ?? null),
+      skills: (skills("en")[h.slug] ?? []).map((c) => c?.name ?? null),
     }));
 
-  return reponseApi(resultats, { total: resultats.length });
+  return responseApi(results, { total: results.length });
 }

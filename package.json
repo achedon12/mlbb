@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "start": "node scripts/demarrer.mjs",
+    "start": "node scripts/start.mjs",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "sync": "node scripts/sync.mjs",
@@ -37,15 +37,15 @@
     "sync:events": "node scripts/events.mjs",
     "sync:advance-server": "node scripts/advance-server.mjs",
     "sync:esports": "node scripts/esports.mjs",
-    "traduire": "node scripts/traduire-messages.mjs && node scripts/traduire-donnees.mjs && node scripts/traduire-articles.mjs",
+    "translate": "node scripts/translate-messages.mjs && node scripts/translate-data.mjs && node scripts/translate-articles.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "veille": "node scripts/veille.mjs",
-    "traduire:messages": "node scripts/traduire-messages.mjs",
-    "traduire:donnees": "node scripts/traduire-donnees.mjs",
-    "traduire:articles": "node scripts/traduire-articles.mjs"
+    "watch": "node scripts/watch.mjs",
+    "translate:messages": "node scripts/translate-messages.mjs",
+    "translate:data": "node scripts/translate-data.mjs",
+    "translate:articles": "node scripts/translate-articles.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

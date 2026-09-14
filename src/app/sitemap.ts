@@ -1,18 +1,18 @@
 import type { MetadataRoute } from "next";
-import veille from "@/data/jeu/veille.json";
-import { contres, heros, modesSlugs, objets, patchsDetail, synchro } from "@/lib/donnees";
+import watch from "@/data/game/watch.json";
+import { counters, allHeroes, modesSlugs, itemsFor, patchDetails, sync } from "@/lib/data";
 import { duos } from "@/lib/duos";
-import { rangsParPaire } from "@/lib/paires";
-import { emblemesFiches, sortsFiches } from "@/lib/fiches-usage";
-import { anneesCalendrier } from "@/lib/catalogue-skins-serveur";
+import { ranksByPair } from "@/lib/pairs";
+import { emblemsSheets, spellSheets } from "@/lib/usage-sheets";
+import { calendarYears } from "@/lib/skin-catalog-server";
 import { regionsLore } from "@/lib/lore";
-import { herosAvecSkins } from "@/lib/skins-heros";
-import { articles } from "@/lib/contenu";
+import { heroesWithSkins } from "@/lib/hero-skins";
+import { articles } from "@/lib/content";
 import { ROLES } from "@/lib/draft";
-import { cheminFiltre, cheminRole, FILTRES_LANE, FILTRES_ROLE } from "@/lib/filtres-tier-list";
+import { pathFilter, pathRole, FILTERS_LANE, FILTERS_ROLE } from "@/lib/tier-list-filters";
 import { site } from "@/lib/site";
-import { mesureLe, RANGS_CLASSES } from "@/lib/tier-list";
-import { LANGUES } from "@/i18n/config";
+import { measure, RANKS_CLASSES } from "@/lib/tier-list";
+import { LOCALES } from "@/i18n/config";
 import { monthKeys } from "@/lib/events-server";
 import { CHECKED_ON } from "@/lib/objectives";
 import { esportsUpdatedAt, tournaments } from "@/lib/esports";
@@ -33,171 +33,171 @@ import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions
  * textes fixes (mentions, confidentialite…) n'en portent pas : une date qui
  * bougerait chaque jour sans raison apprendrait aux moteurs a l'ignorer.
  */
-type Chemin = {
-  chemin: string;
+type Path = {
+  path: string;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
   lastModified?: Date;
 };
 
 /** Date AAAA-MM-JJ ou ISO complete ; rien pour une date absente ou illisible. */
-function dateDe(iso: string | null | undefined): Date | undefined {
+function dateOf(iso: string | null | undefined): Date | undefined {
   if (!iso) return undefined;
   const date = new Date(iso.length === 10 ? `${iso}T00:00:00Z` : iso);
   return Number.isNaN(date.getTime()) ? undefined : date;
 }
 
 /** La plus recente de plusieurs dates ISO. */
-const plusRecente = (...isos: (string | null | undefined)[]) =>
-  dateDe(isos.filter((d): d is string => !!d).sort().at(-1));
+const newest = (...isos: (string | null | undefined)[]) =>
+  dateOf(isos.filter((d): d is string => !!d).sort().at(-1));
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const mesure = dateDe(mesureLe);
-  const synchronise = dateDe(synchro.date);
-  const actualites = articles("actualites");
+  const measuredDate = dateOf(measure);
+  const synced = dateOf(sync.date);
+  const news = articles("news");
   const analysesPatch = articles("patch-notes");
-  const patchs = Object.values(patchsDetail);
+  const patches = Object.values(patchDetails);
 
-  const statistiques = (chemin: string, changeFrequency: Chemin["changeFrequency"], priority: number): Chemin => ({
-    chemin,
+  const statistics = (path: string, changeFrequency: Path["changeFrequency"], priority: number): Path => ({
+    path,
     changeFrequency,
     priority,
-    lastModified: mesure,
+    lastModified: measuredDate,
   });
 
-  const chemins: Chemin[] = [
-    statistiques("", "daily", 1),
-    statistiques("/heroes", "weekly", 0.9),
-    statistiques("/tier-list", "daily", 0.9),
-    statistiques("/meta", "daily", 0.8),
-    statistiques("/compare", "weekly", 0.7),
-    statistiques("/draft", "weekly", 0.8),
-    statistiques("/tools/team", "weekly", 0.7),
-    statistiques("/items", "weekly", 0.7),
-    statistiques("/emblems", "weekly", 0.7),
-    { chemin: "/tools/win-rate", changeFrequency: "yearly", priority: 0.6 },
-    { chemin: "/tools/retribution", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
-    { chemin: "/tools/tier-list-maker", changeFrequency: "monthly", priority: 0.6, lastModified: mesure },
-    { chemin: "/quiz", changeFrequency: "daily", priority: 0.6 },
-    { chemin: "/mlbbdle", changeFrequency: "daily", priority: 0.6 },
+  const paths: Path[] = [
+    statistics("", "daily", 1),
+    statistics("/heroes", "weekly", 0.9),
+    statistics("/tier-list", "daily", 0.9),
+    statistics("/meta", "daily", 0.8),
+    statistics("/compare", "weekly", 0.7),
+    statistics("/draft", "weekly", 0.8),
+    statistics("/tools/team", "weekly", 0.7),
+    statistics("/items", "weekly", 0.7),
+    statistics("/emblems", "weekly", 0.7),
+    { path: "/tools/win-rate", changeFrequency: "yearly", priority: 0.6 },
+    { path: "/tools/retribution", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
+    { path: "/tools/tier-list-maker", changeFrequency: "monthly", priority: 0.6, lastModified: measuredDate },
+    { path: "/quiz", changeFrequency: "daily", priority: 0.6 },
+    { path: "/mlbbdle", changeFrequency: "daily", priority: 0.6 },
     // Objective timings, dated by the day they were checked on the wiki.
-    { chemin: "/tools/timer", changeFrequency: "monthly", priority: 0.6, lastModified: dateDe(CHECKED_ON) },
-    { chemin: "/map", changeFrequency: "monthly", priority: 0.6, lastModified: dateDe(CHECKED_ON) },
-    { chemin: "/tools/nickname", changeFrequency: "yearly", priority: 0.5 },
-    { chemin: "/tools/draw-calculator", changeFrequency: "yearly", priority: 0.5 },
-    { chemin: "/tools/build", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
-    { chemin: "/builds", changeFrequency: "daily", priority: 0.5 },
+    { path: "/tools/timer", changeFrequency: "monthly", priority: 0.6, lastModified: dateOf(CHECKED_ON) },
+    { path: "/map", changeFrequency: "monthly", priority: 0.6, lastModified: dateOf(CHECKED_ON) },
+    { path: "/tools/nickname", changeFrequency: "yearly", priority: 0.5 },
+    { path: "/tools/draw-calculator", changeFrequency: "yearly", priority: 0.5 },
+    { path: "/tools/build", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
+    { path: "/builds", changeFrequency: "daily", priority: 0.5 },
     // Monthly skin calendar: one page per month the data documents.
-    { chemin: "/events", changeFrequency: "weekly", priority: 0.7, lastModified: synchronise },
+    { path: "/events", changeFrequency: "weekly", priority: 0.7, lastModified: synced },
     ...monthKeys().map((month) => ({
-      chemin: `/events/${month}`,
+      path: `/events/${month}`,
       changeFrequency: "monthly" as const,
       priority: 0.5,
-      lastModified: synchronise,
+      lastModified: synced,
     })),
     // Esports hub and one page per covered tournament, dated by the last refresh.
-    { chemin: "/esports", changeFrequency: "weekly", priority: 0.6, lastModified: dateDe(esportsUpdatedAt) },
+    { path: "/esports", changeFrequency: "weekly", priority: 0.6, lastModified: dateOf(esportsUpdatedAt) },
     ...tournaments.map((t) => ({
-      chemin: `/esports/${t.slug}`,
+      path: `/esports/${t.slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.5,
-      lastModified: dateDe(esportsUpdatedAt),
+      lastModified: dateOf(esportsUpdatedAt),
     })),
     // Advance Server notes, dated by the version they describe.
     {
-      chemin: "/patch-notes/advance-server",
+      path: "/patch-notes/advance-server",
       changeFrequency: "weekly",
       priority: 0.5,
-      lastModified: dateDe(advanceVersions("en")[0]?.date ?? advanceSyncedAt),
+      lastModified: dateOf(advanceVersions("en")[0]?.date ?? advanceSyncedAt),
     },
     ...advanceVersionNumbers.map((version) => ({
-      chemin: `/patch-notes/advance-server/${version}`,
+      path: `/patch-notes/advance-server/${version}`,
       changeFrequency: "yearly" as const,
       priority: 0.3,
-      lastModified: dateDe(advanceVersion("en", version)?.date),
+      lastModified: dateOf(advanceVersion("en", version)?.date),
     })),
-    { chemin: "/tools/collection", changeFrequency: "monthly", priority: 0.5, lastModified: synchronise },
-    { chemin: "/lore", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
+    { path: "/tools/collection", changeFrequency: "monthly", priority: 0.5, lastModified: synced },
+    { path: "/lore", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
     ...regionsLore.map((r) => ({
-      chemin: `/lore/${r.cle}`,
+      path: `/lore/${r.key}`,
       changeFrequency: "monthly" as const,
       priority: 0.4,
-      lastModified: synchronise,
+      lastModified: synced,
     })),
-    { chemin: "/skins/calendar", changeFrequency: "weekly", priority: 0.6, lastModified: synchronise },
-    ...anneesCalendrier().map((annee) => ({
-      chemin: `/skins/calendar/${annee}`,
+    { path: "/skins/calendar", changeFrequency: "weekly", priority: 0.6, lastModified: synced },
+    ...calendarYears().map((year) => ({
+      path: `/skins/calendar/${year}`,
       changeFrequency: "monthly" as const,
       priority: 0.4,
-      lastModified: synchronise,
+      lastModified: synced,
     })),
-    { chemin: "/tools/server-time", changeFrequency: "weekly", priority: 0.6, lastModified: synchronise },
-    { chemin: "/ranks", changeFrequency: "weekly", priority: 0.6, lastModified: mesure },
-    { chemin: "/game-modes", changeFrequency: "monthly", priority: 0.6, lastModified: synchronise },
-    { chemin: "/news", changeFrequency: "daily", priority: 0.8, lastModified: dateDe(actualites[0]?.date) },
-    { chemin: "/watch", changeFrequency: "hourly", priority: 0.6, lastModified: dateDe(veille.measuredAt) },
+    { path: "/tools/server-time", changeFrequency: "weekly", priority: 0.6, lastModified: synced },
+    { path: "/ranks", changeFrequency: "weekly", priority: 0.6, lastModified: measuredDate },
+    { path: "/game-modes", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
+    { path: "/news", changeFrequency: "daily", priority: 0.8, lastModified: dateOf(news[0]?.date) },
+    { path: "/watch", changeFrequency: "hourly", priority: 0.6, lastModified: dateOf(watch.measuredAt) },
     {
-      chemin: "/patch-notes",
+      path: "/patch-notes",
       changeFrequency: "weekly",
       priority: 0.8,
-      lastModified: plusRecente(...patchs.map((p) => p.date), analysesPatch[0]?.date),
+      lastModified: newest(...patches.map((p) => p.date), analysesPatch[0]?.date),
     },
-    { chemin: "/api-doc", changeFrequency: "monthly", priority: 0.5, lastModified: synchronise },
-    { chemin: "/contribute", changeFrequency: "monthly", priority: 0.4, lastModified: synchronise },
-    { chemin: "/about", changeFrequency: "yearly", priority: 0.3 },
-    { chemin: "/legal", changeFrequency: "yearly", priority: 0.2 },
-    { chemin: "/privacy", changeFrequency: "yearly", priority: 0.2 },
-    ...RANGS_CLASSES.filter((r) => r !== "all").map((r) => statistiques(`/tier-list/${r}`, "daily", 0.7)),
-    ...[...FILTRES_LANE, ...FILTRES_ROLE].map((f) => statistiques(cheminFiltre(f), "daily", 0.7)),
-    ...ROLES.map((r) => statistiques(cheminRole(r), "weekly", 0.6)),
+    { path: "/api-doc", changeFrequency: "monthly", priority: 0.5, lastModified: synced },
+    { path: "/contribute", changeFrequency: "monthly", priority: 0.4, lastModified: synced },
+    { path: "/about", changeFrequency: "yearly", priority: 0.3 },
+    { path: "/legal", changeFrequency: "yearly", priority: 0.2 },
+    { path: "/privacy", changeFrequency: "yearly", priority: 0.2 },
+    ...RANKS_CLASSES.filter((r) => r !== "all").map((r) => statistics(`/tier-list/${r}`, "daily", 0.7)),
+    ...[...FILTERS_LANE, ...FILTERS_ROLE].map((f) => statistics(pathFilter(f), "daily", 0.7)),
+    ...ROLES.map((r) => statistics(pathRole(r), "weekly", 0.6)),
     ...modesSlugs.map((slug) => ({
-      chemin: `/game-modes/${slug}`,
+      path: `/game-modes/${slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.5,
-      lastModified: synchronise,
+      lastModified: synced,
     })),
-    ...heros.map((h) => statistiques(`/heroes/${h.slug}`, "weekly", 0.6)),
+    ...allHeroes.map((h) => statistics(`/heroes/${h.slug}`, "weekly", 0.6)),
     // Pages derivees des mesures : datees du releve, comme les fiches.
-    ...heros.filter((h) => contres[h.slug]).map((h) => statistiques(`/heroes/${h.slug}/counters`, "weekly", 0.6)),
-    ...heros.filter((h) => duos[h.slug]).map((h) => statistiques(`/heroes/${h.slug}/duos`, "weekly", 0.5)),
+    ...allHeroes.filter((h) => counters[h.slug]).map((h) => statistics(`/heroes/${h.slug}/counters`, "weekly", 0.6)),
+    ...allHeroes.filter((h) => duos[h.slug]).map((h) => statistics(`/heroes/${h.slug}/duos`, "weekly", 0.5)),
     // Duels : seules les paires mesurees a deux rangs au moins, les autres
     // restent accessibles mais trop minces pour etre proposees aux moteurs.
-    ...[...rangsParPaire(contres, (s) => heros.some((h) => h.slug === s))]
+    ...[...ranksByPair(counters, (s) => allHeroes.some((h) => h.slug === s))]
       .filter(([, n]) => n >= 2)
-      .map(([segment]) => statistiques(`/compare/${segment}`, "weekly", 0.4)),
-    ...objets("en").map((o) => statistiques(`/items/${o.slug}`, "weekly", 0.5)),
-    ...emblemesFiches.map((e) => statistiques(`/emblems/${e.slug}`, "weekly", 0.5)),
-    statistiques("/spells", "monthly", 0.5),
-    ...sortsFiches.map((sort) => statistiques(`/spells/${sort.slug}`, "weekly", 0.4)),
-    statistiques("/statistics", "daily", 0.8),
-    ...RANGS_CLASSES.filter((r) => r !== "all").map((r) => statistiques(`/statistics/${r}`, "daily", 0.6)),
-    { chemin: "/skins", changeFrequency: "weekly", priority: 0.6, lastModified: synchronise },
-    ...herosAvecSkins.map((h) => ({
-      chemin: `/heroes/${h.slug}/skins`,
+      .map(([segment]) => statistics(`/compare/${segment}`, "weekly", 0.4)),
+    ...itemsFor("en").map((o) => statistics(`/items/${o.slug}`, "weekly", 0.5)),
+    ...emblemsSheets.map((e) => statistics(`/emblems/${e.slug}`, "weekly", 0.5)),
+    statistics("/spells", "monthly", 0.5),
+    ...spellSheets.map((sort) => statistics(`/spells/${sort.slug}`, "weekly", 0.4)),
+    statistics("/statistics", "daily", 0.8),
+    ...RANKS_CLASSES.filter((r) => r !== "all").map((r) => statistics(`/statistics/${r}`, "daily", 0.6)),
+    { path: "/skins", changeFrequency: "weekly", priority: 0.6, lastModified: synced },
+    ...heroesWithSkins.map((h) => ({
+      path: `/heroes/${h.slug}/skins`,
       changeFrequency: "monthly" as const,
       priority: 0.5,
-      lastModified: synchronise,
+      lastModified: synced,
     })),
-    ...patchs.map((p) => ({
-      chemin: `/patch-notes/${p.version}`,
+    ...patches.map((p) => ({
+      path: `/patch-notes/${p.version}`,
       changeFrequency: "monthly" as const,
       priority: 0.6,
-      lastModified: dateDe(p.date) ?? synchronise,
+      lastModified: dateOf(p.date) ?? synced,
     })),
-    ...([["news", actualites], ["patch-notes", analysesPatch]] as const).flatMap(([route, liste]) =>
-      liste.map((a) => ({
-        chemin: `/${route}/${a.slug}`,
+    ...([["news", news], ["patch-notes", analysesPatch]] as const).flatMap(([route, list]) =>
+      list.map((a) => ({
+        path: `/${route}/${a.slug}`,
         changeFrequency: "yearly" as const,
         priority: 0.7,
-        lastModified: dateDe(a.date),
+        lastModified: dateOf(a.date),
       })),
     ),
   ];
 
   // Pour chaque chemin, une URL par langue ; les hreflang vivent dans les pages.
-  return chemins.flatMap(({ chemin, changeFrequency, priority, lastModified }) =>
-    LANGUES.map((l) => ({
-      url: `${site.url}/${l}${chemin}`,
+  return paths.flatMap(({ path, changeFrequency, priority, lastModified }) =>
+    LOCALES.map((l) => ({
+      url: `${site.url}/${l}${path}`,
       ...(lastModified ? { lastModified } : {}),
       changeFrequency,
       priority,

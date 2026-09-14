@@ -10,9 +10,9 @@ import "./globals.css";
  */
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  applicationName: site.nom,
-  authors: [{ name: site.auteur, url: `https://github.com/${site.auteur}` }],
-  creator: site.auteur,
+  applicationName: site.name,
+  authors: [{ name: site.author, url: `https://github.com/${site.author}` }],
+  creator: site.author,
   robots: {
     index: true,
     follow: true,
@@ -26,6 +26,6 @@ export const viewport: Viewport = {
   colorScheme: "dark",
 };
 
-export default function RacineLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return children;
 }

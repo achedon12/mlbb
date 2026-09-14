@@ -13,6 +13,6 @@ export default defineConfig({
   },
   test: {
     environment: "node",
-    include: ["tests/unit/**/*.test.{ts,mts,mjs}", "tests/fonctionnels/**/*.test.{ts,mts,mjs}"],
+    include: ["tests/unit/**/*.test.{ts,mts,mjs}", "tests/functional/**/*.test.{ts,mts,mjs}"],
   },
 });

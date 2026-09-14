@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { VoteButton } from "@/components/community-build-actions";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import { emblemImage, emblemName, itemImage, simCatalog, spellImage, spellName, talentImage, talentName } from "@/lib/build-catalog";
 import { simulate, type StatKey } from "@/lib/build-simulator";
 import type { PublicBuild } from "@/lib/community-builds";
-import { dateLongue } from "@/lib/fraicheur";
+import { longDate } from "@/lib/freshness";
 
 /**
  * A community build in a list: choices, a stats summary computed on the
@@ -46,7 +46,7 @@ export function CommunityBuildCard({
 }: {
   build: PublicBuild;
   t: T;
-  locale: Langue;
+  locale: Locale;
   hero: { name: string; icon: string | null };
   itemNames: Record<string, string>;
   signedIn: boolean;
@@ -63,7 +63,7 @@ export function CommunityBuildCard({
       <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
       <div className="relative space-y-3 p-4">
         <header className="flex items-start gap-3">
-          {showHero && <PortraitHeros source={hero.icon} nom={hero.name} taille="icone" decoratif />}
+          {showHero && <HeroPortrait source={hero.icon} name={hero.name} size="icon" decorative />}
           <div className="min-w-0 flex-1">
             <h3 className="font-heading text-lg font-bold leading-tight text-chalk-100">
               <Link href={`/builds/${build.hero}/${build.id}`} className="break-words transition-colors hover:text-gold-400">
@@ -72,7 +72,7 @@ export function CommunityBuildCard({
             </h3>
             <p className="mt-0.5 text-xs text-chalk-500">
               {showHero ? `${hero.name} - ` : ""}
-              {t("pages.communityBuilds.byLine", { name: build.authorName, date: dateLongue(locale, build.createdAt) })}
+              {t("pages.communityBuilds.byLine", { name: build.authorName, date: longDate(locale, build.createdAt) })}
             </p>
           </div>
         </header>

@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
-import { GalerieSkins } from "@/components/galerie-skins";
-import { ImageLegere } from "@/components/image-legere";
-import { EnTetePage } from "@/components/ui";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
+import Link from "@/components/link";
+import { SkinGallery } from "@/components/skin-gallery";
+import { LightImage } from "@/components/light-image";
+import { PageHeader } from "@/components/ui";
+import { ExtendMessages } from "@/i18n/provider";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import { synchro } from "@/lib/donnees";
-import { dateLongue } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
-import { rarete } from "@/lib/raretes";
+import { createT, messagesPage } from "@/i18n/translations";
+import { sync } from "@/lib/data";
+import { longDate } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
+import { rarity } from "@/lib/rarities";
 import { site } from "@/lib/site";
-import { formaterSortie } from "@/lib/skins";
-import { ancresGalerie, derniersSkins, galerieHeros, groupesSkins, herosAvecSkins, nombreSkinsGaleries } from "@/lib/skins-heros";
+import { formatRelease } from "@/lib/skins";
+import { anchorsGallery, lastSkins, heroGallery, groupsSkins, heroesWithSkins, gallerySkinCount } from "@/lib/hero-skins";
 
 /**
  * Catalogue de tous les skins, heros par heros.
@@ -24,59 +24,59 @@ import { ancresGalerie, derniersSkins, galerieHeros, groupesSkins, herosAvecSkin
  * Chaque skin reste indexe sur la galerie de son heros.
  */
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
-const DERNIERS = 12;
+const LAST = 12;
 /** Vignettes des derniers skins chargees d'emblee : la premiere rangee. */
 const IMMEDIATES = 4;
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
-  const n = new Intl.NumberFormat(locale).format(nombreSkinsGaleries);
-  const dernier = derniersSkins(1)[0];
+  const t = createT(locale);
+  const n = new Intl.NumberFormat(locale).format(gallerySkinCount);
+  const last = lastSkins(1)[0];
   return metaPage(locale, {
-    titre: t("pages.skins.metaTitle", { n }),
+    title: t("pages.skins.metaTitle", { n }),
     description: t("pages.skins.metaDescription", {
       n,
-      h: herosAvecSkins.length,
-      dernier: dernier?.skin.name ?? "—",
-      heros: dernier?.heros.name ?? "—",
+      h: heroesWithSkins.length,
+      dernier: last?.skin.name ?? "—",
+      heros: last?.hero.name ?? "—",
     }),
-    chemin: "/skins",
+    path: "/skins",
   });
 }
 
-export default async function PageSkins({ params }: Params) {
+export default async function SkinsPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const n = new Intl.NumberFormat(locale).format(nombreSkinsGaleries);
-  const derniers = derniersSkins(DERNIERS);
-  const tries = [...herosAvecSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
-  const chapeau = t("pages.skins.lead", { n, h: tries.length });
-  const absolue = (chemin: string) => new URL(chemin, site.url).toString();
+  const t = createT(locale);
+  const n = new Intl.NumberFormat(locale).format(gallerySkinCount);
+  const last = lastSkins(LAST);
+  const sorted = [...heroesWithSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
+  const lead = t("pages.skins.lead", { n, h: sorted.length });
+  const absolute = (path: string) => new URL(path, site.url).toString();
 
   // Les derniers skins seulement : chaque galerie de heros porte les siens,
   // et la liste des 132 galeries doublait le poids de la page.
-  const donnees = {
+  const data = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: t("pages.skins.title"),
-    description: chapeau,
+    description: lead,
     url: `${site.url}/${locale}/skins`,
     inLanguage: LOCALE_HTML[locale],
-    dateModified: synchro.date,
-    isPartOf: { "@type": "WebSite", name: site.nom, url: site.url },
+    dateModified: sync.date,
+    isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
     mainEntity: {
       "@type": "ImageGallery",
       name: t("pages.skins.latest"),
-      associatedMedia: derniers.flatMap(({ heros: h, skin: s }) => {
-        const chemin = s.illustration ?? s.portrait;
-        if (!chemin) return [];
+      associatedMedia: last.flatMap(({ hero: h, skin: s }) => {
+        const path = s.illustration ?? s.portrait;
+        if (!path) return [];
         return [
           {
             "@type": "ImageObject",
-            contentUrl: absolue(chemin),
+            contentUrl: absolute(path),
             name: s.name,
             caption: s.illustration
               ? t("pages.heroSkins.altIllustration", { skin: s.name, nom: h.name })
@@ -91,13 +91,13 @@ export default async function PageSkins({ params }: Params) {
   };
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.heroesList", "pages.skinsGallery"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
-      <EnTetePage titre={t("pages.skins.title")} chapeau={chapeau}>
+    <ExtendMessages messages={messagesPage(locale, ["pages.heroesList", "pages.skinsGallery"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
+      <PageHeader title={t("pages.skins.title")} lead={lead}>
         <p className="mt-6 text-sm text-chalk-500">
-          <time dateTime={synchro.date}>{t("pages.skins.updatedOn", { date: dateLongue(locale, synchro.date) })}</time>
+          <time dateTime={sync.date}>{t("pages.skins.updatedOn", { date: longDate(locale, sync.date) })}</time>
         </p>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
         <section aria-labelledby="derniers-skins">
@@ -106,22 +106,22 @@ export default async function PageSkins({ params }: Params) {
           </h2>
           <p className="mt-1 text-sm text-chalk-500">{t("pages.skins.latestIntro")}</p>
           <ul className="mt-5 grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-            {derniers.map(({ heros: h, skin: s }, i) => {
-              const g = galerieHeros(h);
+            {last.map(({ hero: h, skin: s }, i) => {
+              const g = heroGallery(h);
               const image = s.portrait ?? s.illustration;
               return (
                 <li key={`${h.slug}-${s.id}`}>
-                  <Link href={`/heroes/${h.slug}/skins#${ancresGalerie(g)[g.skins.indexOf(s)]}`} className="group block">
+                  <Link href={`/heroes/${h.slug}/skins#${anchorsGallery(g)[g.skins.indexOf(s)]}`} className="group block">
                     <span
                       className="bevel-sm relative block aspect-[240/390] overflow-hidden border-2 bg-night-800"
-                      style={{ borderColor: rarete(s.rarity).couleur }}
+                      style={{ borderColor: rarity(s.rarity).color }}
                     >
                       {image && (
-                        <ImageLegere
+                        <LightImage
                           src={image}
                           alt={t("pages.heroSkins.altPortrait", { skin: s.name, nom: h.name })}
-                          largeur={120}
-                          hauteur={195}
+                          width={120}
+                          height={195}
                           immediate={i < IMMEDIATES}
                           className="size-full object-cover"
                         />
@@ -131,7 +131,7 @@ export default async function PageSkins({ params }: Params) {
                       {s.name}
                     </span>
                     <span className="block truncate text-xs text-chalk-500">
-                      {h.name} · <time dateTime={s.release!}>{formaterSortie(s.release!, locale)}</time>
+                      {h.name} · <time dateTime={s.release!}>{formatRelease(s.release!, locale)}</time>
                     </span>
                   </Link>
                 </li>
@@ -145,7 +145,7 @@ export default async function PageSkins({ params }: Params) {
             {t("pages.skins.gallery")}
           </h2>
           <div className="mt-5">
-            <GalerieSkins groupes={groupesSkins()} />
+            <SkinGallery groups={groupsSkins()} />
           </div>
         </section>
 
@@ -155,17 +155,17 @@ export default async function PageSkins({ params }: Params) {
             {t("pages.skins.index")}
           </h2>
           <ul className="gallery-index mt-5">
-            {tries.map((h) => (
+            {sorted.map((h) => (
               <li key={h.slug}>
                 <Link href={`/heroes/${h.slug}/skins`} prefetch={false}>
                   {h.name}
                 </Link>{" "}
-                {galerieHeros(h).total}
+                {heroGallery(h).total}
               </li>
             ))}
           </ul>
         </nav>
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

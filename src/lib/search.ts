@@ -1,0 +1,17 @@
+/** Une entree de la recherche globale. */
+export interface EntrySearch {
+  type: "hero" | "item" | "emblem" | "spell" | "skill" | "skin" | "patch" | "page";
+  title: string;
+  /** Precision affichee sous le titre : epithete, categorie, heros, sous-titre. */
+  detail?: string;
+  /** Adresse sans langue ; le lien ajoute celle de la page. */
+  href: string;
+  image?: string | null;
+}
+
+/**
+ * Ordre des groupes de resultats. Les heros d'abord : le nom d'un heros figure
+ * aussi dans le detail de ses skins et competences, qu'il ne doit pas
+ * preceder.
+ */
+export const ORDER_TYPES: EntrySearch["type"][] = ["hero", "item", "emblem", "spell", "skill", "skin", "patch", "page"];

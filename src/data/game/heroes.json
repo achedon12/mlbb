@@ -1,0 +1,5700 @@
+[
+  {
+    "slug": "aamon",
+    "name": "Aamon",
+    "id": "1091",
+    "title": "Duke of Shards",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Magic Damage"
+    ],
+    "release": "26 October 2021",
+    "year": "2021",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 7,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2614",
+      "hp15": "4742",
+      "hp_regen1": "8.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "255",
+      "physical_def1": "19",
+      "physical_def15": "66",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "250"
+    }
+  },
+  {
+    "slug": "akai",
+    "name": "Akai",
+    "id": "091",
+    "title": "Panda Warrior",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Guard",
+      "Crowd Control"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 3,
+      "durability": 9,
+      "abilityEffects": 9,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2669",
+      "hp15": "5861",
+      "hp_regen1": "8.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "194",
+      "physical_def1": "24",
+      "physical_def15": "76",
+      "magic_def1": "15",
+      "magic_def15": "71",
+      "movement_spd": "260",
+      "basic_atk_range": "2.1"
+    }
+  },
+  {
+    "slug": "aldous",
+    "name": "Aldous",
+    "id": "641",
+    "title": "Soul Contractor",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Burst",
+      "Support"
+    ],
+    "release": "24 July 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 3,
+      "durability": 7,
+      "abilityEffects": 5,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2668",
+      "hp15": "5328",
+      "hp_regen1": "9.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "129",
+      "physical_atk15": "279",
+      "physical_def1": "21",
+      "physical_def15": "83",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.4"
+    }
+  },
+  {
+    "slug": "alice",
+    "name": "Alice",
+    "id": "041",
+    "title": "Queen of Blood",
+    "roles": [
+      "Tank",
+      "Mage"
+    ],
+    "lanes": [
+      "Exp",
+      "Jungle"
+    ],
+    "specialties": [
+      "Charge",
+      "Regen"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 5,
+      "durability": 5,
+      "abilityEffects": 7,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2452",
+      "hp15": "5000",
+      "hp_regen1": "7.2",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "114",
+      "physical_atk15": "191",
+      "physical_def1": "25",
+      "physical_def15": "80",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "3"
+    }
+  },
+  {
+    "slug": "alpha",
+    "name": "Alpha",
+    "id": "281",
+    "title": "Blade of Enmity",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle",
+      "Exp"
+    ],
+    "specialties": [
+      "Charge",
+      "Damage"
+    ],
+    "release": "January 2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Laboratory 1718",
+    "ratings": {
+      "offense": 4,
+      "durability": 6,
+      "abilityEffects": 7,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2468",
+      "hp15": "5744",
+      "hp_regen1": "7.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "121",
+      "physical_atk15": "238",
+      "physical_def1": "25",
+      "physical_def15": "86",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "alucard",
+    "name": "Alucard",
+    "id": "071",
+    "title": "Demon Hunter",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 5,
+      "durability": 5,
+      "abilityEffects": 1,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2443",
+      "hp15": "5593",
+      "hp_regen1": "7.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "123",
+      "physical_atk15": "244",
+      "physical_def1": "21",
+      "physical_def15": "86",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "angela",
+    "name": "Angela",
+    "id": "551",
+    "title": "Bunnylove",
+    "roles": [
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Guard",
+      "Support"
+    ],
+    "release": "6 February 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Laboratory 1718",
+    "ratings": {
+      "offense": 2,
+      "durability": 3,
+      "abilityEffects": 5,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2300",
+      "hp15": "4206",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "216",
+      "physical_def1": "15",
+      "physical_def15": "69",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.9"
+    }
+  },
+  {
+    "slug": "arlott",
+    "name": "Arlott",
+    "id": "1201",
+    "title": "Lone Lancer",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Charge",
+      "Burst"
+    ],
+    "release": "14 February 2023",
+    "year": "2023",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 6,
+      "durability": 6,
+      "abilityEffects": 5,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2628",
+      "hp15": "5428",
+      "hp_regen1": "8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "120",
+      "physical_atk15": "260",
+      "physical_def1": "21",
+      "physical_def15": "82",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "2"
+    }
+  },
+  {
+    "slug": "atlas",
+    "name": "Atlas",
+    "id": "931",
+    "title": "Ocean Gladiator",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Initiator"
+    ],
+    "release": "20 March 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 1,
+      "durability": 8,
+      "abilityEffects": 9,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2819",
+      "hp15": "6011",
+      "hp_regen1": "3",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "135",
+      "physical_atk15": "259",
+      "physical_def1": "21",
+      "physical_def15": "70",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "aulus",
+    "name": "Aulus",
+    "id": "1081",
+    "title": "Warrior of Ferocity",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Damage",
+      "Charge"
+    ],
+    "release": "31 August 2021",
+    "year": "2021",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 6,
+      "durability": 6,
+      "abilityEffects": 1,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2500",
+      "hp15": "5440",
+      "hp_regen1": "10.2",
+      "physical_atk1": "90",
+      "physical_atk15": "258",
+      "physical_def1": "20",
+      "physical_def15": "83",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "1.9 (Default) / 2.4 (At max Fighting Spirit stacks)"
+    }
+  },
+  {
+    "slug": "aurora",
+    "name": "Aurora",
+    "id": "361",
+    "title": "Maiden of the Glacier",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Poke"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 7,
+      "durability": 4,
+      "abilityEffects": 10,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2380",
+      "hp15": "4496",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "110",
+      "physical_atk15": "225",
+      "physical_def1": "17",
+      "physical_def15": "73",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "badang",
+    "name": "Badang",
+    "id": "771",
+    "title": "Tribal Warrior",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Roam",
+      "Exp"
+    ],
+    "specialties": [
+      "Charge",
+      "Burst"
+    ],
+    "release": "15 January 2019",
+    "year": "2019",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Vonetis Sea",
+    "ratings": {
+      "offense": 7,
+      "durability": 4,
+      "abilityEffects": 5,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2708",
+      "hp15": "5788",
+      "hp_regen1": "8",
+      "physical_atk1": "111",
+      "physical_atk15": "244",
+      "physical_def1": "23",
+      "physical_def15": "87",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "balmond",
+    "name": "Balmond",
+    "id": "021",
+    "title": "Bloody Beast",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle",
+      "Exp"
+    ],
+    "specialties": [
+      "Damage",
+      "Regen"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 3,
+      "durability": 8,
+      "abilityEffects": 2,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2558",
+      "hp15": "6212",
+      "hp_regen1": "9.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "119",
+      "physical_atk15": "237",
+      "physical_def1": "25",
+      "physical_def15": "90",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "bane",
+    "name": "Bane",
+    "id": "111",
+    "title": "Frozen King",
+    "roles": [
+      "Fighter",
+      "Mage"
+    ],
+    "lanes": [
+      "Jungle",
+      "Exp"
+    ],
+    "specialties": [
+      "Push",
+      "Burst"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Mixed",
+    "attackType": "Melee",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 6,
+      "durability": 5,
+      "abilityEffects": 4,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2381",
+      "hp15": "5811",
+      "hp_regen1": "8.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "117",
+      "physical_atk15": "269",
+      "physical_def1": "23",
+      "physical_def15": "84",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8  / 3 (Tidal Energy)"
+    }
+  },
+  {
+    "slug": "barats",
+    "name": "Barats",
+    "id": "991",
+    "title": "Dino Rider",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Damage",
+      "Crowd Control"
+    ],
+    "release": "18 September 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 3,
+      "durability": 10,
+      "abilityEffects": 9,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2350",
+      "hp15": "5765",
+      "hp_regen1": "8.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "135",
+      "physical_atk15": "207",
+      "physical_def1": "18",
+      "physical_def15": "80",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "268",
+      "basic_atk_range": "1.7"
+    }
+  },
+  {
+    "slug": "baxia",
+    "name": "Baxia",
+    "id": "871",
+    "title": "Mystic Tortoise",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Jungle",
+      "Roam"
+    ],
+    "specialties": [
+      "Support",
+      "Damage"
+    ],
+    "release": "8 October 2019",
+    "year": "2019",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 3,
+      "durability": 10,
+      "abilityEffects": 6,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2769",
+      "hp15": "5471",
+      "hp_regen1": "8.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "125",
+      "physical_atk15": "204",
+      "physical_def1": "23",
+      "physical_def15": "72",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "beatrix",
+    "name": "Beatrix",
+    "id": "1051",
+    "title": "Dawnbreak Soldier",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "19 March 2021",
+    "year": "2021",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 8,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2550",
+      "hp15": "4699",
+      "hp_regen1": "7.2",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "110",
+      "physical_atk15": "250",
+      "physical_def1": "20",
+      "physical_def15": "64",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "257"
+    }
+  },
+  {
+    "slug": "belerick",
+    "name": "Belerick",
+    "id": "701",
+    "title": "Guard of Nature",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Regen"
+    ],
+    "release": "17 August 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 4,
+      "durability": 9,
+      "abilityEffects": 10,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2569",
+      "hp15": "5719",
+      "hp_regen1": "8.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "110",
+      "physical_atk15": "208",
+      "physical_def1": "15",
+      "physical_def15": "54",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "250"
+    }
+  },
+  {
+    "slug": "benedetta",
+    "name": "Benedetta",
+    "id": "971",
+    "title": "Shadow Ranger",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "7 November 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 5,
+      "durability": 6,
+      "abilityEffects": 2,
+      "difficulty": 8
+    },
+    "stats": {
+      "hp1": "2569",
+      "hp15": "4851",
+      "hp_regen1": "6.6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "113",
+      "physical_atk15": "256",
+      "physical_def1": "18",
+      "physical_def15": "73",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "1.9"
+    }
+  },
+  {
+    "slug": "brody",
+    "name": "Brody",
+    "id": "1001",
+    "title": "The Lone Star",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Burst",
+      "Finisher"
+    ],
+    "release": "16 October 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 7,
+      "durability": 4,
+      "abilityEffects": 5,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2288",
+      "hp15": "4597",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "105",
+      "physical_atk15": "245",
+      "physical_def1": "20",
+      "physical_def15": "66",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "253"
+    }
+  },
+  {
+    "slug": "bruno",
+    "name": "Bruno",
+    "id": "121",
+    "title": "The Protector",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Burst"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 6,
+      "durability": 2,
+      "abilityEffects": 2,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2270",
+      "hp15": "4510",
+      "hp_regen1": "6.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "145",
+      "physical_atk15": "348",
+      "physical_def1": "17",
+      "physical_def15": "77",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.8"
+    }
+  },
+  {
+    "slug": "carmilla",
+    "name": "Carmilla",
+    "id": "921",
+    "title": "Shadow of Twilight",
+    "roles": [
+      "Support",
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Damage"
+    ],
+    "release": "17 January 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 2,
+      "durability": 9,
+      "abilityEffects": 8,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2528",
+      "hp15": "5706",
+      "hp_regen1": "7.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "126",
+      "physical_atk15": "255",
+      "physical_def1": "25",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "255"
+    }
+  },
+  {
+    "slug": "cecilion",
+    "name": "Cecilion",
+    "id": "911",
+    "title": "Embrace of Night",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Burst"
+    ],
+    "release": "12 February 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 10,
+      "durability": 4,
+      "abilityEffects": 5,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2456",
+      "hp15": "4451",
+      "hp_regen1": "6.8",
+      "mana1": "700",
+      "mana15": "2660",
+      "physical_atk1": "105",
+      "physical_atk15": "171",
+      "physical_def1": "18",
+      "physical_def15": "62",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "255"
+    }
+  },
+  {
+    "slug": "chang-e",
+    "name": "Chang'e",
+    "id": "611",
+    "title": "Moon Palace Immortal",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Burst"
+    ],
+    "release": "30 May 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 8,
+      "durability": 4,
+      "abilityEffects": 2,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2301",
+      "hp15": "4163",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "222",
+      "physical_def1": "16",
+      "physical_def15": "55",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "chip",
+    "name": "Chip",
+    "id": "1241",
+    "title": "Phase Technician",
+    "roles": [
+      "Support",
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Support",
+      "Crowd Control"
+    ],
+    "release": "16 March 2024",
+    "year": "2024",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Hybrid",
+    "region": "Laboratory 1718",
+    "ratings": {
+      "offense": 2,
+      "durability": 8,
+      "abilityEffects": 6,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2690",
+      "hp15": "5378",
+      "hp_regen1": "8.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "112",
+      "physical_atk15": "207",
+      "physical_def1": "20",
+      "physical_def15": "79",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "chou",
+    "name": "Chou",
+    "id": "261",
+    "title": "Kung Fu Boy",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp",
+      "Roam"
+    ],
+    "specialties": [
+      "Chase",
+      "Control"
+    ],
+    "release": "December 2016",
+    "year": "2016",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 3,
+      "durability": 5,
+      "abilityEffects": 8,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2530",
+      "hp15": "5568",
+      "hp_regen1": "7.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "121",
+      "physical_atk15": "262",
+      "physical_def1": "23",
+      "physical_def15": "87",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.4"
+    }
+  },
+  {
+    "slug": "cici",
+    "name": "Cici",
+    "id": "1231",
+    "title": "Buoyant Performer",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Damage",
+      "Regen"
+    ],
+    "release": "27 December 2023",
+    "year": "2023",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 6,
+      "durability": 5,
+      "abilityEffects": 3,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2431",
+      "hp15": "5161",
+      "hp_regen1": "6.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "129",
+      "physical_atk15": "226",
+      "physical_def1": "23",
+      "physical_def15": "79",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "3.8"
+    }
+  },
+  {
+    "slug": "claude",
+    "name": "Claude",
+    "id": "651",
+    "title": "Master Thief",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Burst",
+      "Chase"
+    ],
+    "release": "7 August 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Los Pecados",
+    "ratings": {
+      "offense": 6,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2370",
+      "hp15": "4155",
+      "hp_regen1": "8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "97",
+      "physical_atk15": "195",
+      "physical_def1": "14",
+      "physical_def15": "56",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "clint",
+    "name": "Clint",
+    "id": "131",
+    "title": "West Justice",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Burst"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 7,
+      "durability": 3,
+      "abilityEffects": 4,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2285",
+      "hp15": "4315",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "120",
+      "physical_atk15": "288",
+      "physical_def1": "20",
+      "physical_def15": "80",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.8"
+    }
+  },
+  {
+    "slug": "cyclops",
+    "name": "Cyclops",
+    "id": "331",
+    "title": "Starsoul Magician",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Control"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Nebula Chronorift",
+    "ratings": {
+      "offense": 10,
+      "durability": 3,
+      "abilityEffects": 7,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2400",
+      "hp15": "4797",
+      "hp_regen1": "7.6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "112",
+      "physical_atk15": "193",
+      "physical_def1": "18",
+      "physical_def15": "76",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "diggie",
+    "name": "Diggie",
+    "id": "481",
+    "title": "Timekeeper",
+    "roles": [
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Guard",
+      "Poke"
+    ],
+    "release": "19 November 2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 4,
+      "durability": 4,
+      "abilityEffects": 2,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2468",
+      "hp15": "4183",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "216",
+      "physical_def1": "20",
+      "physical_def15": "60",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "dori",
+    "name": "Dori",
+    "id": "1341",
+    "title": "Shepherd of Smiles",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Control"
+    ],
+    "release": "TBA",
+    "year": "2026",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 1,
+      "durability": 1,
+      "abilityEffects": 1,
+      "difficulty": 1
+    },
+    "stats": null
+  },
+  {
+    "slug": "dyrroth",
+    "name": "Dyrroth",
+    "id": "851",
+    "title": "Prince of the Abyss",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp",
+      "Jungle"
+    ],
+    "specialties": [
+      "Charge",
+      "Burst"
+    ],
+    "release": "25 June 2019",
+    "year": "2019",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 5,
+      "durability": 5,
+      "abilityEffects": 2,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2758",
+      "hp15": "5768",
+      "hp_regen1": "8.2",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "117",
+      "physical_atk15": "266",
+      "physical_def1": "22",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "265",
+      "basic_atk_range": "1.7, 2 (circle strike)"
+    }
+  },
+  {
+    "slug": "edith",
+    "name": "Edith",
+    "id": "1111",
+    "title": "Ancient Guard",
+    "roles": [
+      "Tank",
+      "Marksman"
+    ],
+    "lanes": [
+      "Exp",
+      "Roam"
+    ],
+    "specialties": [
+      "Control",
+      "Burst"
+    ],
+    "release": "24 December 2021",
+    "year": "2021",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Mixed",
+    "attackType": "Hybrid",
+    "region": "Sanctum Island",
+    "ratings": {
+      "offense": 3,
+      "durability": 7,
+      "abilityEffects": 10,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2549",
+      "hp15": "5489",
+      "hp_regen1": "9.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "110",
+      "physical_atk15": "190",
+      "physical_def1": "17",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "1.8 (Phylax) / 4.5 (Edith)"
+    }
+  },
+  {
+    "slug": "esmeralda",
+    "name": "Esmeralda",
+    "id": "811",
+    "title": "Astrologer",
+    "roles": [
+      "Tank",
+      "Mage"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Regen",
+      "Mixed Damage"
+    ],
+    "release": "3 April 2019",
+    "year": "2019",
+    "resource": "Mana",
+    "damageType": "Mixed",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 3,
+      "durability": 9,
+      "abilityEffects": 6,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2573",
+      "hp15": "5254",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "114",
+      "physical_atk15": "191",
+      "physical_def1": "21",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "45",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "estes",
+    "name": "Estes",
+    "id": "341",
+    "title": "Moon Elf King",
+    "roles": [
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Regen",
+      "Guard"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Azrya Woodlands",
+    "ratings": {
+      "offense": 1,
+      "durability": 7,
+      "abilityEffects": 2,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2221",
+      "hp15": "3950",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "120",
+      "physical_atk15": "221",
+      "physical_def1": "13",
+      "physical_def15": "65",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "eudora",
+    "name": "Eudora",
+    "id": "151",
+    "title": "Lightning Weaver",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Control",
+      "Burst"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 8,
+      "durability": 1,
+      "abilityEffects": 8,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2403",
+      "hp15": "4771",
+      "hp_regen1": "7.6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "112",
+      "physical_atk15": "193",
+      "physical_def1": "19",
+      "physical_def15": "77",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "fanny",
+    "name": "Fanny",
+    "id": "171",
+    "title": "Blade Dancer",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Finisher"
+    ],
+    "release": "30 September 2016",
+    "year": "2016",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 7,
+      "durability": 6,
+      "abilityEffects": 0,
+      "difficulty": 10
+    },
+    "stats": {
+      "hp1": "2426",
+      "hp15": "4400",
+      "hp_regen1": "6.6",
+      "physical_atk1": "126",
+      "physical_atk15": "269",
+      "physical_def1": "16",
+      "physical_def15": "68",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "265",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "faramis",
+    "name": "Faramis",
+    "id": "761",
+    "title": "Soul Binder",
+    "roles": [
+      "Support",
+      "Mage"
+    ],
+    "lanes": [
+      "Mid",
+      "Roam"
+    ],
+    "specialties": [
+      "Guard",
+      "Charge"
+    ],
+    "release": "18 May 2019",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 6,
+      "durability": 4,
+      "abilityEffects": 1,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2543",
+      "hp15": "4902",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "143",
+      "physical_atk15": "216",
+      "physical_def1": "20",
+      "physical_def15": "66",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "floryn",
+    "name": "Floryn",
+    "id": "1121",
+    "title": "The Budding Hope",
+    "roles": [
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Poke",
+      "Guard"
+    ],
+    "release": "22 September 2021",
+    "year": "2021",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 1,
+      "durability": 6,
+      "abilityEffects": 7,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2401",
+      "hp15": "4256",
+      "hp_regen1": "7.6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "119",
+      "physical_atk15": "222",
+      "physical_def1": "12",
+      "physical_def15": "68",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "franco",
+    "name": "Franco",
+    "id": "101",
+    "title": "Frozen Warrior",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Initiator",
+      "Control"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 1,
+      "durability": 8,
+      "abilityEffects": 10,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2600",
+      "hp15": "6534",
+      "hp_regen1": "9.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "116",
+      "physical_atk15": "217",
+      "physical_def1": "25",
+      "physical_def15": "93",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "fredrinn",
+    "name": "Fredrinn",
+    "id": "1171",
+    "title": "Rogue Appraiser",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Damage",
+      "Chase"
+    ],
+    "release": "12 August 2022",
+    "year": "2022",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Los Pecados",
+    "ratings": {
+      "offense": 5,
+      "durability": 8,
+      "abilityEffects": 6,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2709",
+      "hp15": "6069",
+      "hp_regen1": "6.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "126",
+      "physical_atk15": "240",
+      "physical_def1": "20",
+      "physical_def15": "76",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "freya",
+    "name": "Freya",
+    "id": "221",
+    "title": "Valkyrie",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp",
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "November 2016",
+    "year": "2016",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 5,
+      "durability": 6,
+      "abilityEffects": 5,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2550",
+      "hp15": "5560",
+      "hp_regen1": "9.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "120",
+      "physical_atk15": "242",
+      "physical_def1": "22",
+      "physical_def15": "83",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.5 / 3.5 (Valkyrie State)"
+    }
+  },
+  {
+    "slug": "gatotkaca",
+    "name": "Gatotkaca",
+    "id": "411",
+    "title": "Mighty Legend",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "lanes": [
+      "Roam",
+      "Exp"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Burst"
+    ],
+    "release": "July 2017",
+    "year": "2017",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Nebula Chronorift",
+    "ratings": {
+      "offense": 3,
+      "durability": 9,
+      "abilityEffects": 9,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2629",
+      "hp15": "5569",
+      "hp_regen1": "8.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "128",
+      "physical_atk15": "228",
+      "physical_def1": "10",
+      "physical_def15": "58",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.4"
+    }
+  },
+  {
+    "slug": "gloo",
+    "name": "Gloo",
+    "id": "1041",
+    "title": "Swamp Spirits",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam",
+      "Exp"
+    ],
+    "specialties": [
+      "Regen",
+      "Control"
+    ],
+    "release": "16 April 2021",
+    "year": "2021",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Azrya Woodlands",
+    "ratings": {
+      "offense": 3,
+      "durability": 10,
+      "abilityEffects": 10,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2819",
+      "hp15": "6179",
+      "hp_regen1": "12.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "120",
+      "physical_atk15": "210",
+      "physical_def1": "18",
+      "physical_def15": "65",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "gord",
+    "name": "Gord",
+    "id": "231",
+    "title": "Professor of the Mystics",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Burst"
+    ],
+    "release": "November 2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 7,
+      "durability": 1,
+      "abilityEffects": 8,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2478",
+      "hp15": "4928",
+      "hp_regen1": "6.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "110",
+      "physical_atk15": "196",
+      "physical_def1": "13",
+      "physical_def15": "69",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "granger",
+    "name": "Granger",
+    "id": "791",
+    "title": "Death Chanter",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Burst",
+      "Finisher"
+    ],
+    "release": "23 April 2019",
+    "year": "2019",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 7,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2260",
+      "hp15": "4220",
+      "hp_regen1": "5.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "116",
+      "physical_atk15": "326",
+      "physical_def1": "15",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "grock",
+    "name": "Grock",
+    "id": "441",
+    "title": "Fortress Titan",
+    "roles": [
+      "Tank",
+      "Fighter"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Initiator"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 4,
+      "durability": 9,
+      "abilityEffects": 8,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2819",
+      "hp15": "6179",
+      "hp_regen1": "8.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "135",
+      "physical_atk15": "250",
+      "physical_def1": "21",
+      "physical_def15": "68",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "guinevere",
+    "name": "Guinevere",
+    "id": "801",
+    "title": "Ms. Violet",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Burst",
+      "Magic Damage"
+    ],
+    "release": "21 February 2019",
+    "year": "2019",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 6,
+      "durability": 4,
+      "abilityEffects": 8,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2350",
+      "hp15": "5318",
+      "hp_regen1": "7.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "126",
+      "physical_atk15": "255",
+      "physical_def1": "18",
+      "physical_def15": "81",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "gusion",
+    "name": "Gusion",
+    "id": "561",
+    "title": "Holy Blade",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle",
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Magic Damage"
+    ],
+    "release": "2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 9,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 8
+    },
+    "stats": {
+      "hp1": "2578",
+      "hp15": "4888",
+      "hp_regen1": "7.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "119",
+      "physical_atk15": "234",
+      "physical_def1": "18",
+      "physical_def15": "67",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "hanabi",
+    "name": "Hanabi",
+    "id": "601",
+    "title": "Scarlet Flower",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "17 April 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 7,
+      "durability": 2,
+      "abilityEffects": 8,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2260",
+      "hp15": "4052",
+      "hp_regen1": "6.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "111",
+      "physical_atk15": "251",
+      "physical_def1": "17",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "245",
+      "basic_atk_range": "4.8"
+    }
+  },
+  {
+    "slug": "hanzo",
+    "name": "Hanzo",
+    "id": "691",
+    "title": "Akuma Ninja",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Burst",
+      "Poke"
+    ],
+    "release": "4 December 2018",
+    "year": "2018",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 8,
+      "durability": 7,
+      "abilityEffects": 2,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2594",
+      "hp15": "4624",
+      "hp_regen1": "7.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "108",
+      "physical_atk15": "268",
+      "physical_def1": "17",
+      "physical_def15": "73",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "harith",
+    "name": "Harith",
+    "id": "731",
+    "title": "Time Traveler",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Gold",
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "6 November 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 5,
+      "durability": 4,
+      "abilityEffects": 1,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2401",
+      "hp15": "4690",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "114",
+      "physical_atk15": "187",
+      "physical_def1": "19",
+      "physical_def15": "79",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.1"
+    }
+  },
+  {
+    "slug": "harley",
+    "name": "Harley",
+    "id": "421",
+    "title": "Mage Genius",
+    "roles": [
+      "Assassin",
+      "Mage"
+    ],
+    "lanes": [
+      "Jungle",
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Poke"
+    ],
+    "release": "29 July 2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 9,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2501",
+      "hp15": "4356",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "114",
+      "physical_atk15": "201",
+      "physical_def1": "19",
+      "physical_def15": "72",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "hayabusa",
+    "name": "Hayabusa",
+    "id": "211",
+    "title": "Crimson Shadow",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "4 November 2016",
+    "year": "2016",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 5,
+      "durability": 4,
+      "abilityEffects": 1,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2429",
+      "hp15": "4620",
+      "hp_regen1": "7.4",
+      "physical_atk1": "117",
+      "physical_atk15": "251",
+      "physical_def1": "17",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "helcurt",
+    "name": "Helcurt",
+    "id": "511",
+    "title": "Shadowbringer",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle",
+      "Roam"
+    ],
+    "specialties": [
+      "Push",
+      "Burst"
+    ],
+    "release": "24 November 2017",
+    "year": "2017",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 5,
+      "durability": 3,
+      "abilityEffects": 5,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2599",
+      "hp15": "4853",
+      "hp_regen1": "7.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "121",
+      "physical_atk15": "275",
+      "physical_def1": "17",
+      "physical_def15": "73",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "hilda",
+    "name": "Hilda",
+    "id": "351",
+    "title": "Power of Megalith",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "lanes": [
+      "Roam",
+      "Exp"
+    ],
+    "specialties": [
+      "Damage",
+      "Regen"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 4,
+      "durability": 9,
+      "abilityEffects": 4,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2680",
+      "hp15": "6250",
+      "hp_regen1": "8.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "123",
+      "physical_atk15": "218",
+      "physical_def1": "24",
+      "physical_def15": "124",
+      "magic_def1": "15",
+      "magic_def15": "71",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8 / 2.5 (Blessing of Wilderness)"
+    }
+  },
+  {
+    "slug": "hirara",
+    "name": "Hirara",
+    "id": "1331",
+    "title": "Fallen Scarlet",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Finisher"
+    ],
+    "release": "17 June 2026",
+    "year": "2026",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 8,
+      "durability": 4,
+      "abilityEffects": 4,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2440",
+      "hp15": "4750",
+      "hp_regen1": "6.6",
+      "physical_atk1": "125",
+      "physical_atk15": "266",
+      "physical_def1": "18",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "hylos",
+    "name": "Hylos",
+    "id": "491",
+    "title": "Grand Warden",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Guard",
+      "Initiator"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 2,
+      "durability": 10,
+      "abilityEffects": 8,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2709",
+      "hp15": "6940",
+      "hp_regen1": "18.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "105",
+      "physical_atk15": "198",
+      "physical_def1": "17",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "irithel",
+    "name": "Irithel",
+    "id": "431",
+    "title": "Jungle Heart",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Burst"
+    ],
+    "release": "15 August 2017",
+    "year": "2017",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Azrya Woodlands",
+    "ratings": {
+      "offense": 8,
+      "durability": 1,
+      "abilityEffects": 1,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2300",
+      "hp15": "4540",
+      "hp_regen1": "7.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "125",
+      "physical_atk15": "244",
+      "physical_def1": "17",
+      "physical_def15": "77",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "4.9"
+    }
+  },
+  {
+    "slug": "ixia",
+    "name": "Ixia",
+    "id": "1211",
+    "title": "Arclight Outlaw",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "8 July 2023",
+    "year": "2023",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 7,
+      "durability": 3,
+      "abilityEffects": 5,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2620",
+      "hp15": "4699",
+      "hp_regen1": "8.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "100",
+      "physical_atk15": "205",
+      "physical_def1": "17",
+      "physical_def15": "73",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "5"
+    }
+  },
+  {
+    "slug": "jawhead",
+    "name": "Jawhead",
+    "id": "541",
+    "title": "Steel Sweetheart",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Roam",
+      "Exp"
+    ],
+    "specialties": [
+      "Charge",
+      "Burst"
+    ],
+    "release": "January 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Laboratory 1718",
+    "ratings": {
+      "offense": 3,
+      "durability": 6,
+      "abilityEffects": 6,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2658",
+      "hp15": "5780",
+      "hp_regen1": "7.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "119",
+      "physical_atk15": "234",
+      "physical_def1": "24",
+      "physical_def15": "88",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "1.5"
+    }
+  },
+  {
+    "slug": "johnson",
+    "name": "Johnson",
+    "id": "321",
+    "title": "Wild Engine",
+    "roles": [
+      "Tank",
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Support",
+      "Crowd Control"
+    ],
+    "release": "14 March 2017",
+    "year": "2017",
+    "resource": "None",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 3,
+      "durability": 8,
+      "abilityEffects": 9,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2809",
+      "hp15": "6099",
+      "hp_regen1": "8.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "120",
+      "physical_atk15": "209",
+      "physical_def1": "27",
+      "physical_def15": "96",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "1.4"
+    }
+  },
+  {
+    "slug": "joy",
+    "name": "Joy",
+    "id": "1181",
+    "title": "Flash of Miracle",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "18 November 2022",
+    "year": "2022",
+    "resource": "None",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Azrya Woodlands",
+    "ratings": {
+      "offense": 7,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 9
+    },
+    "stats": {
+      "hp1": "2678",
+      "hp15": "5408",
+      "hp_regen1": "7.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "119",
+      "physical_atk15": "255",
+      "physical_def1": "20",
+      "physical_def15": "78",
+      "magic_def1": "15",
+      "magic_def15": "45",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "julian",
+    "name": "Julian",
+    "id": "1161",
+    "title": "Scarlet Raven",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle",
+      "Exp"
+    ],
+    "specialties": [
+      "Chase",
+      "Magic Damage"
+    ],
+    "release": "24 May 2022",
+    "year": "2022",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 6,
+      "durability": 6,
+      "abilityEffects": 7,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2878",
+      "hp15": "5664",
+      "hp_regen1": "7.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "128",
+      "physical_atk15": "257",
+      "physical_def1": "24",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "262"
+    }
+  },
+  {
+    "slug": "kadita",
+    "name": "Kadita",
+    "id": "751",
+    "title": "Ocean Goddess",
+    "roles": [
+      "Mage",
+      "Assassin"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Charge"
+    ],
+    "release": "18 December 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Vonetis Sea",
+    "ratings": {
+      "offense": 8,
+      "durability": 4,
+      "abilityEffects": 8,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2370",
+      "hp15": "4691",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "105",
+      "physical_atk15": "178",
+      "physical_def1": "18",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "kagura",
+    "name": "Kagura",
+    "id": "251",
+    "title": "Onmyouji Master",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Finisher"
+    ],
+    "release": "December 2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 9,
+      "durability": 4,
+      "abilityEffects": 5,
+      "difficulty": 9
+    },
+    "stats": {
+      "hp1": "2375",
+      "hp15": "4376",
+      "hp_regen1": "7.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "118",
+      "physical_atk15": "230",
+      "physical_def1": "17",
+      "physical_def15": "73",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "kaja",
+    "name": "Kaja",
+    "id": "621",
+    "title": "Nazar King",
+    "roles": [
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Initiator",
+      "Charge"
+    ],
+    "release": "25 April 2018",
+    "year": "2018",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Celestial Palace",
+    "ratings": {
+      "offense": 2,
+      "durability": 8,
+      "abilityEffects": 7,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2440",
+      "hp15": "5520",
+      "hp_regen1": "10.4",
+      "physical_atk1": "120",
+      "physical_atk15": "218",
+      "physical_def1": "22",
+      "physical_def15": "85",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "2.8"
+    }
+  },
+  {
+    "slug": "kalea",
+    "name": "Kalea",
+    "id": "1281",
+    "title": "Surging Wave",
+    "roles": [
+      "Support",
+      "Fighter"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Control",
+      "Regen"
+    ],
+    "release": "19 March 2025",
+    "year": "2025",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Vonetis Sea",
+    "ratings": {
+      "offense": 3,
+      "durability": 6,
+      "abilityEffects": 9,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2500",
+      "hp15": "5650",
+      "hp_regen1": "7.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "126",
+      "physical_atk15": "255",
+      "physical_def1": "18",
+      "physical_def15": "81",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.4"
+    }
+  },
+  {
+    "slug": "karina",
+    "name": "Karina",
+    "id": "081",
+    "title": "Shadow Blade",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Finisher",
+      "Magic Damage"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Azrya Woodlands",
+    "ratings": {
+      "offense": 7,
+      "durability": 5,
+      "abilityEffects": 1,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2633",
+      "hp15": "5262",
+      "hp_regen1": "7.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "121",
+      "physical_atk15": "236",
+      "physical_def1": "20",
+      "physical_def15": "83",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "karrie",
+    "name": "Karrie",
+    "id": "401",
+    "title": "Lost Star",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Alaghat",
+    "ratings": {
+      "offense": 8,
+      "durability": 3,
+      "abilityEffects": 1,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2278",
+      "hp15": "4588",
+      "hp_regen1": "8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "120",
+      "physical_atk15": "295",
+      "physical_def1": "17",
+      "physical_def15": "77",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.4"
+    }
+  },
+  {
+    "slug": "khaleed",
+    "name": "Khaleed",
+    "id": "981",
+    "title": "Desert Scimitar",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Roam",
+      "Exp"
+    ],
+    "specialties": [
+      "Damage",
+      "Regen"
+    ],
+    "release": "7 August 2020",
+    "year": "2020",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 5,
+      "durability": 8,
+      "abilityEffects": 5,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2778",
+      "hp15": "5718",
+      "hp_regen1": "7",
+      "physical_atk1": "109",
+      "physical_atk15": "266",
+      "physical_def1": "23",
+      "physical_def15": "87",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "2"
+    }
+  },
+  {
+    "slug": "khufra",
+    "name": "Khufra",
+    "id": "781",
+    "title": "Desert Tyrant",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Initiator",
+      "Crowd Control"
+    ],
+    "release": "12 March 2019",
+    "year": "2019",
+    "resource": "Mana",
+    "damageType": "Mixed",
+    "attackType": "Hybrid",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 2,
+      "durability": 9,
+      "abilityEffects": 10,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2779",
+      "hp15": "6139",
+      "hp_regen1": "9.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "117",
+      "physical_atk15": "204",
+      "physical_def1": "19",
+      "physical_def15": "119",
+      "magic_def1": "15",
+      "magic_def15": "71",
+      "movement_spd": "255",
+      "basic_atk_range": "2"
+    }
+  },
+  {
+    "slug": "kimmy",
+    "name": "Kimmy",
+    "id": "711",
+    "title": "Hoverjet Outrider",
+    "roles": [
+      "Marksman",
+      "Mage"
+    ],
+    "lanes": [
+      "Mid",
+      "Gold"
+    ],
+    "specialties": [
+      "Damage",
+      "Magic Damage"
+    ],
+    "release": "23 October 2018",
+    "year": "2018",
+    "resource": "None",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 8,
+      "durability": 3,
+      "abilityEffects": 5,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2450",
+      "hp15": "4095",
+      "hp_regen1": "8",
+      "physical_atk1": "90",
+      "physical_atk15": "216",
+      "physical_def1": "22",
+      "physical_def15": "69",
+      "magic_def1": "15",
+      "magic_def15": "45",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "lancelot",
+    "name": "Lancelot",
+    "id": "471",
+    "title": "Blade of Roses",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 5,
+      "durability": 4,
+      "abilityEffects": 1,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2549",
+      "hp15": "4607",
+      "hp_regen1": "7.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "124",
+      "physical_atk15": "289",
+      "physical_def1": "16",
+      "physical_def15": "60",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "lapu-lapu",
+    "name": "Lapu-Lapu",
+    "id": "371",
+    "title": "Courageous Blade",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Vonetis Sea",
+    "ratings": {
+      "offense": 4,
+      "durability": 8,
+      "abilityEffects": 4,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2628",
+      "hp15": "5614",
+      "hp_regen1": "7",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "119",
+      "physical_atk15": "234",
+      "physical_def1": "21",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "layla",
+    "name": "Layla",
+    "id": "181",
+    "title": "Energy Gunner",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "23 September 2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 8,
+      "durability": 1,
+      "abilityEffects": 1,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2250",
+      "hp15": "4378",
+      "hp_regen1": "5.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "133",
+      "physical_atk15": "252",
+      "physical_def1": "15",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.3"
+    }
+  },
+  {
+    "slug": "leomord",
+    "name": "Leomord",
+    "id": "671",
+    "title": "Sworn Sword",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "3 October 2018",
+    "year": "2018",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 5,
+      "durability": 7,
+      "abilityEffects": 3,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2908",
+      "hp15": "5748",
+      "hp_regen1": "7.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "148",
+      "physical_atk15": "269",
+      "physical_def1": "21",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "lesley",
+    "name": "Lesley",
+    "id": "531",
+    "title": "Deadly Sniper",
+    "roles": [
+      "Marksman",
+      "Assassin"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Burst"
+    ],
+    "release": "January 2018",
+    "year": "2018",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 7,
+      "durability": 1,
+      "abilityEffects": 2,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2280",
+      "hp15": "4240",
+      "hp_regen1": "7.2",
+      "physical_atk1": "145",
+      "physical_atk15": "243",
+      "physical_def1": "14",
+      "physical_def15": "72",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.9"
+    }
+  },
+  {
+    "slug": "ling",
+    "name": "Ling",
+    "id": "841",
+    "title": "Cyan Finch",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "24 November 2019",
+    "year": "2019",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 6,
+      "durability": 4,
+      "abilityEffects": 3,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2369",
+      "hp15": "4469",
+      "hp_regen1": "7.8",
+      "physical_atk1": "125",
+      "physical_atk15": "209",
+      "physical_def1": "18",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "lolita",
+    "name": "Lolita",
+    "id": "201",
+    "title": "Steel Elf",
+    "roles": [
+      "Support",
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Guard",
+      "Crowd Control"
+    ],
+    "release": "28 October 2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 1,
+      "durability": 10,
+      "abilityEffects": 9,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2451",
+      "hp15": "4803",
+      "hp_regen1": "9.6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "211",
+      "physical_def1": "20",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "lukas",
+    "name": "Lukas",
+    "id": "1271",
+    "title": "Beast of Light",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp",
+      "Jungle"
+    ],
+    "specialties": [
+      "Regen",
+      "Damage"
+    ],
+    "release": "21 December 2024",
+    "year": "2024",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 5,
+      "durability": 8,
+      "abilityEffects": 6,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2550",
+      "hp15": "5378",
+      "hp_regen1": "8.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "119",
+      "physical_atk15": "248",
+      "physical_def1": "21",
+      "physical_def15": "83",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8  / 2.6 (Flash Strike)"
+    }
+  },
+  {
+    "slug": "lunox",
+    "name": "Lunox",
+    "id": "681",
+    "title": "Twilight Goddess",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Damage"
+    ],
+    "release": "4 September 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 9,
+      "durability": 4,
+      "abilityEffects": 3,
+      "difficulty": 9
+    },
+    "stats": {
+      "hp1": "2880",
+      "hp15": "5655",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "202",
+      "physical_def1": "18",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "luo-yi",
+    "name": "Luo Yi",
+    "id": "961",
+    "title": "Yin-yang Geomancer",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Support",
+      "Crowd Control"
+    ],
+    "release": "16 May 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 10,
+      "durability": 2,
+      "abilityEffects": 4,
+      "difficulty": 8
+    },
+    "stats": {
+      "hp1": "2601",
+      "hp15": "5156",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "107",
+      "physical_atk15": "193",
+      "physical_def1": "20",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "45",
+      "movement_spd": "250"
+    }
+  },
+  {
+    "slug": "lylia",
+    "name": "Lylia",
+    "id": "861",
+    "title": "Little Witch",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Push",
+      "Damage"
+    ],
+    "release": "23 July 2019",
+    "year": "2019",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 10,
+      "durability": 5,
+      "abilityEffects": 2,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2501",
+      "hp15": "4384",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "113",
+      "physical_atk15": "207",
+      "physical_def1": "17",
+      "physical_def15": "61",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "marcel",
+    "name": "Marcel",
+    "id": "1321",
+    "title": "Soul Photographer",
+    "roles": [
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Support"
+    ],
+    "release": "11 March 2026",
+    "year": "2026",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 3,
+      "durability": 7,
+      "abilityEffects": 10,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2950",
+      "hp15": "5190",
+      "hp_regen1": "22.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "216",
+      "physical_def1": "30",
+      "physical_def15": "51",
+      "magic_def1": "20",
+      "magic_def15": "27",
+      "movement_spd": "260",
+      "basic_atk_range": "2"
+    }
+  },
+  {
+    "slug": "martis",
+    "name": "Martis",
+    "id": "581",
+    "title": "Ashura King",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle",
+      "Exp"
+    ],
+    "specialties": [
+      "Finisher",
+      "Charge"
+    ],
+    "release": "2018",
+    "year": "2018",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Nebula Chronorift",
+    "ratings": {
+      "offense": 3,
+      "durability": 6,
+      "abilityEffects": 5,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2738",
+      "hp15": "5594",
+      "hp_regen1": "7",
+      "physical_atk1": "128",
+      "physical_atk15": "250",
+      "physical_def1": "25",
+      "physical_def15": "90",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "masha",
+    "name": "Masha",
+    "id": "881",
+    "title": "Wild-oats Fist",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Push",
+      "Damage"
+    ],
+    "release": "17 September 2019",
+    "year": "2019",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 7,
+      "durability": 5,
+      "abilityEffects": 3,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2043",
+      "hp15": "4353",
+      "hp_regen1": "3.8",
+      "physical_atk1": "91",
+      "physical_atk15": "227",
+      "physical_def1": "15",
+      "physical_def15": "50",
+      "magic_def1": "15",
+      "magic_def15": "67",
+      "movement_spd": "250",
+      "basic_atk_range": "1.6"
+    }
+  },
+  {
+    "slug": "mathilda",
+    "name": "Mathilda",
+    "id": "1021",
+    "title": "Swift Plume",
+    "roles": [
+      "Support",
+      "Assassin"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Initiator",
+      "Guard"
+    ],
+    "release": "12 December 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Los Pecados",
+    "ratings": {
+      "offense": 2,
+      "durability": 8,
+      "abilityEffects": 4,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2530",
+      "hp15": "5344",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "120",
+      "physical_atk15": "214",
+      "physical_def1": "22",
+      "physical_def15": "80",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "252",
+      "basic_atk_range": "4.1"
+    }
+  },
+  {
+    "slug": "melissa",
+    "name": "Melissa",
+    "id": "1141",
+    "title": "Cursed Needle",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "22 February 2022",
+    "year": "2022",
+    "resource": "Mana",
+    "damageType": "Mixed",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 9,
+      "durability": 2,
+      "abilityEffects": 4,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2288",
+      "hp15": "4528",
+      "hp_regen1": "6.6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "123",
+      "physical_atk15": "221",
+      "physical_def1": "18",
+      "physical_def15": "78",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "248",
+      "basic_atk_range": "4.6"
+    }
+  },
+  {
+    "slug": "minotaur",
+    "name": "Minotaur",
+    "id": "191",
+    "title": "Son of Minos",
+    "roles": [
+      "Tank",
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Crowd Control"
+    ],
+    "release": "14 October 2016",
+    "year": "2016",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 1,
+      "durability": 10,
+      "abilityEffects": 8,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2859",
+      "hp15": "6345",
+      "hp_regen1": "8.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "123",
+      "physical_atk15": "195",
+      "physical_def1": "18",
+      "physical_def15": "73",
+      "magic_def1": "10",
+      "magic_def15": "45",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "minsitthar",
+    "name": "Minsitthar",
+    "id": "741",
+    "title": "Courageous Warrior",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp",
+      "Roam"
+    ],
+    "specialties": [
+      "Initiator",
+      "Crowd Control"
+    ],
+    "release": "20 November 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Vonetis Sea",
+    "ratings": {
+      "offense": 4,
+      "durability": 6,
+      "abilityEffects": 8,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2698",
+      "hp15": "5470",
+      "hp_regen1": "7.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "121",
+      "physical_atk15": "250",
+      "physical_def1": "23",
+      "physical_def15": "87",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "miya",
+    "name": "Miya",
+    "id": "011",
+    "title": "Moonlight Archer",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Azrya Woodlands",
+    "ratings": {
+      "offense": 7,
+      "durability": 1,
+      "abilityEffects": 4,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2225",
+      "hp15": "4367",
+      "hp_regen1": "6.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "227",
+      "physical_def1": "17",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.8"
+    }
+  },
+  {
+    "slug": "moskov",
+    "name": "Moskov",
+    "id": "311",
+    "title": "Spear of Quiescence",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Chase"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 6,
+      "durability": 2,
+      "abilityEffects": 6,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2255",
+      "hp15": "4257",
+      "hp_regen1": "6.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "125",
+      "physical_atk15": "265",
+      "physical_def1": "16",
+      "physical_def15": "76",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "nana",
+    "name": "Nana",
+    "id": "051",
+    "title": "Sweet Leonin",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Burst"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Azrya Woodlands",
+    "ratings": {
+      "offense": 6,
+      "durability": 5,
+      "abilityEffects": 10,
+      "difficulty": null
+    },
+    "stats": {
+      "hp1": "2501",
+      "hp15": "4321",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "217",
+      "physical_def1": "17",
+      "physical_def15": "59",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "250"
+    }
+  },
+  {
+    "slug": "natalia",
+    "name": "Natalia",
+    "id": "241",
+    "title": "Bright Claw",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle",
+      "Roam"
+    ],
+    "specialties": [
+      "Chase",
+      "Finisher"
+    ],
+    "release": "December 2016",
+    "year": "2016",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 6,
+      "durability": 1,
+      "abilityEffects": 6,
+      "difficulty": 9
+    },
+    "stats": {
+      "hp1": "2639",
+      "hp15": "4935",
+      "hp_regen1": "7.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "121",
+      "physical_atk15": "243",
+      "physical_def1": "18",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "2"
+    }
+  },
+  {
+    "slug": "natan",
+    "name": "Natan",
+    "id": "1071",
+    "title": "Spacetime Walker",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Burst",
+      "Magic Damage"
+    ],
+    "release": "23 July 2021",
+    "year": "2021",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 6,
+      "durability": 2,
+      "abilityEffects": 2,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2285",
+      "hp15": "4523",
+      "hp_regen1": "6.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "110",
+      "physical_atk15": "264",
+      "physical_def1": "17",
+      "physical_def15": "63",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "nolan",
+    "name": "Nolan",
+    "id": "1221",
+    "title": "Cosmic Wayfinder",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "30 September 2023",
+    "year": "2023",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 6,
+      "durability": 3,
+      "abilityEffects": 2,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2549",
+      "hp15": "4607",
+      "hp_regen1": "7.0",
+      "physical_atk1": "124",
+      "physical_atk15": "289",
+      "physical_def1": "16",
+      "physical_def15": "72",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "2"
+    }
+  },
+  {
+    "slug": "novaria",
+    "name": "Novaria",
+    "id": "1191",
+    "title": "Star Rebel",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Poke"
+    ],
+    "release": "16 May 2023",
+    "year": "2023",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 9,
+      "durability": 3,
+      "abilityEffects": 3,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2260",
+      "hp15": "4150",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "202",
+      "physical_def1": "15",
+      "physical_def15": "64",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "obsidia",
+    "name": "Obsidia",
+    "id": "1301",
+    "title": "Sovereign of Dark's End",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Damage"
+    ],
+    "release": "17 September 2025",
+    "year": "2025",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 7,
+      "durability": 2,
+      "abilityEffects": 1,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2320",
+      "hp15": "4420",
+      "hp_regen1": "6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "120",
+      "physical_atk15": "204",
+      "physical_def1": "17",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.6"
+    }
+  },
+  {
+    "slug": "odette",
+    "name": "Odette",
+    "id": "461",
+    "title": "Swan Princess",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Poke"
+    ],
+    "release": "29 September 2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 10,
+      "durability": 4,
+      "abilityEffects": 5,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2440",
+      "hp15": "4890",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "105",
+      "physical_atk15": "178",
+      "physical_def1": "18",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "paquito",
+    "name": "Paquito",
+    "id": "1031",
+    "title": "The Heavenly Fist",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "15 January 2021",
+    "year": "2021",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 5,
+      "durability": 6,
+      "abilityEffects": 4,
+      "difficulty": 9
+    },
+    "stats": {
+      "hp1": "2798",
+      "hp15": "5458",
+      "hp_regen1": "9.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "121",
+      "physical_atk15": "262",
+      "physical_def1": "22",
+      "physical_def15": "74",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "pharsa",
+    "name": "Pharsa",
+    "id": "521",
+    "title": "Wings of Vengeance",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Poke"
+    ],
+    "release": "27 December 2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 9,
+      "durability": 2,
+      "abilityEffects": 5,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2421",
+      "hp15": "4255",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "109",
+      "physical_atk15": "199",
+      "physical_def1": "17",
+      "physical_def15": "73",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "phoveus",
+    "name": "Phoveus",
+    "id": "1061",
+    "title": "Chains of Sin",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Regen",
+      "Damage"
+    ],
+    "release": "11 May 2021",
+    "year": "2021",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Mixed",
+    "attackType": "Melee",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 8,
+      "durability": 7,
+      "abilityEffects": 5,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2828",
+      "hp15": "5698",
+      "hp_regen1": "10.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "132",
+      "physical_atk15": "240",
+      "physical_def1": "25",
+      "physical_def15": "87",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "252",
+      "basic_atk_range": "1.4"
+    }
+  },
+  {
+    "slug": "popol-and-kupa",
+    "name": "Popol and Kupa",
+    "id": "941",
+    "title": "Icefield Companions",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Jungle",
+      "Gold"
+    ],
+    "specialties": [
+      "Push",
+      "Burst"
+    ],
+    "release": "21 April 2020",
+    "year": "2020",
+    "resource": "Mana",
+    "damageType": "Mixed",
+    "attackType": "Ranged",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 7,
+      "durability": 3,
+      "abilityEffects": 7,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2425",
+      "hp15": "4385",
+      "hp_regen1": "6.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "95",
+      "physical_atk15": "193",
+      "physical_def1": "17",
+      "physical_def15": "67",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "rafaela",
+    "name": "Rafaela",
+    "id": "141",
+    "title": "Wings of Holiness",
+    "roles": [
+      "Support"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Regen",
+      "Guard"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 2,
+      "durability": 6,
+      "abilityEffects": 7,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2320",
+      "hp15": "4268",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "117",
+      "physical_atk15": "218",
+      "physical_def1": "15",
+      "physical_def15": "70",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "245",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "roger",
+    "name": "Roger",
+    "id": "391",
+    "title": "Dire Wolf Hunter",
+    "roles": [
+      "Fighter",
+      "Marksman"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Finisher",
+      "Burst"
+    ],
+    "release": "25 June 2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Hybrid",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 4,
+      "durability": 6,
+      "abilityEffects": 1,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2530",
+      "hp15": "4889",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "128",
+      "physical_atk15": "317",
+      "physical_def1": "22",
+      "physical_def15": "82",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.1 (Human Form) / 1.7 (Wolf Form)"
+    }
+  },
+  {
+    "slug": "ruby",
+    "name": "Ruby",
+    "id": "291",
+    "title": "Little Red Hood",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Crowd Control",
+      "Regen"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 2,
+      "durability": 9,
+      "abilityEffects": 9,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2331",
+      "hp15": "4921",
+      "hp_regen1": "6.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "129",
+      "physical_atk15": "226",
+      "physical_def1": "18",
+      "physical_def15": "74",
+      "magic_def1": "10",
+      "magic_def15": "45",
+      "movement_spd": "260",
+      "basic_atk_range": "2"
+    }
+  },
+  {
+    "slug": "saber",
+    "name": "Saber",
+    "id": "031",
+    "title": "Wandering Sword",
+    "roles": [
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle",
+      "Roam"
+    ],
+    "specialties": [
+      "Charge",
+      "Finisher"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Laboratory 1718",
+    "ratings": {
+      "offense": 6,
+      "durability": 2,
+      "abilityEffects": 6,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2440",
+      "hp15": "4960",
+      "hp_regen1": "7",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "118",
+      "physical_atk15": "254",
+      "physical_def1": "20",
+      "physical_def15": "77",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "selena",
+    "name": "Selena",
+    "id": "631",
+    "title": "Abyssal Witch",
+    "roles": [
+      "Assassin",
+      "Mage"
+    ],
+    "lanes": [
+      "Mid",
+      "Roam"
+    ],
+    "specialties": [
+      "Initiator",
+      "Finisher"
+    ],
+    "release": "10 July 2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Hybrid",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 7,
+      "durability": 4,
+      "abilityEffects": 10,
+      "difficulty": 8
+    },
+    "stats": {
+      "hp1": "2401",
+      "hp15": "4984",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "110",
+      "physical_atk15": "204",
+      "physical_def1": "15",
+      "physical_def15": "62",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "silvanna",
+    "name": "Silvanna",
+    "id": "901",
+    "title": "Imperial Knightess",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Initiator",
+      "Magic Damage"
+    ],
+    "release": "17 December 2019",
+    "year": "2019",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 4,
+      "durability": 5,
+      "abilityEffects": 7,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2650",
+      "hp15": "5618",
+      "hp_regen1": "7.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "126",
+      "physical_atk15": "255",
+      "physical_def1": "22",
+      "physical_def15": "85",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "255",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "sora",
+    "name": "Sora",
+    "id": "1311",
+    "title": "Shifting Cloud",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Charge",
+      "Burst"
+    ],
+    "release": "18 December 2025",
+    "year": "2025",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 6,
+      "durability": 6,
+      "abilityEffects": 5,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2650",
+      "hp15": "5730",
+      "hp_regen1": "10.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "132",
+      "physical_atk15": "240",
+      "physical_def1": "25",
+      "physical_def15": "87",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "252",
+      "basic_atk_range": "1.4 (Default & Thunder) / 1.6 (Torrent)"
+    }
+  },
+  {
+    "slug": "sun",
+    "name": "Sun",
+    "id": "271",
+    "title": "Monkey King",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp",
+      "Jungle"
+    ],
+    "specialties": [
+      "Push",
+      "Damage"
+    ],
+    "release": "December 2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Phyiscal",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 5,
+      "durability": 5,
+      "abilityEffects": 1,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2500",
+      "hp15": "5020",
+      "hp_regen1": "8.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "114",
+      "physical_atk15": "191",
+      "physical_def1": "23",
+      "physical_def15": "86",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "suyou",
+    "name": "Suyou",
+    "id": "1261",
+    "title": "Mask of the Immortal",
+    "roles": [
+      "Assassin",
+      "Fighter"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Chase",
+      "Burst"
+    ],
+    "release": "21 September 2024",
+    "year": "2024",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 6,
+      "durability": 6,
+      "abilityEffects": 5,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2549",
+      "hp15": "4607",
+      "hp_regen1": "7.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "124",
+      "physical_atk15": "289",
+      "physical_def1": "16",
+      "physical_def15": "72",
+      "magic_def1": "15",
+      "magic_def15": "56",
+      "movement_spd": "225",
+      "basic_atk_range": "1.7 (Mortal Form) / 2.5 (Immortal Form)"
+    }
+  },
+  {
+    "slug": "terizla",
+    "name": "Terizla",
+    "id": "821",
+    "title": "Executioner",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Burst",
+      "Crowd Control"
+    ],
+    "release": "4 June 2019",
+    "year": "2019",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 5,
+      "durability": 9,
+      "abilityEffects": 7,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2619",
+      "hp15": "5839",
+      "hp_regen1": "10.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "129",
+      "physical_atk15": "307",
+      "physical_def1": "19",
+      "physical_def15": "122",
+      "magic_def1": "15",
+      "magic_def15": "71",
+      "movement_spd": "255",
+      "basic_atk_range": "2.0"
+    }
+  },
+  {
+    "slug": "thamuz",
+    "name": "Thamuz",
+    "id": "721",
+    "title": "Lord Lava",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "18 September 2018",
+    "year": "2018",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 4,
+      "durability": 7,
+      "abilityEffects": 2,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "2758",
+      "hp15": "5740",
+      "hp_regen1": "7.4",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "107",
+      "physical_atk15": "222",
+      "physical_def1": "17",
+      "physical_def15": "80",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "250",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "tigreal",
+    "name": "Tigreal",
+    "id": "061",
+    "title": "Warrior of Dawn",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Roam"
+    ],
+    "specialties": [
+      "Crowd Control"
+    ],
+    "release": "2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 1,
+      "durability": 8,
+      "abilityEffects": 10,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2581",
+      "hp15": "6879",
+      "hp_regen1": "8.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "112",
+      "physical_atk15": "207",
+      "physical_def1": "20",
+      "physical_def15": "95",
+      "magic_def1": "15",
+      "magic_def15": "71",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "uranus",
+    "name": "Uranus",
+    "id": "591",
+    "title": "Aesthereal Defender",
+    "roles": [
+      "Tank"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Regen"
+    ],
+    "release": "2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Melee",
+    "region": "Celestial Palace",
+    "ratings": {
+      "offense": 2,
+      "durability": 10,
+      "abilityEffects": 2,
+      "difficulty": 3
+    },
+    "stats": {
+      "hp1": "2489",
+      "hp15": "5009",
+      "hp_regen1": "6.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "217",
+      "physical_def1": "14",
+      "physical_def15": "47",
+      "magic_def1": "15",
+      "magic_def15": "24",
+      "movement_spd": "260"
+    }
+  },
+  {
+    "slug": "vale",
+    "name": "Vale",
+    "id": "661",
+    "title": "Windtalker",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Crowd Control"
+    ],
+    "release": "29 January 2019",
+    "year": "2019",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 10,
+      "durability": 2,
+      "abilityEffects": 6,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2280",
+      "hp15": "4263",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "215",
+      "physical_def1": "15",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "15",
+      "movement_spd": "250",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "valentina",
+    "name": "Valentina",
+    "id": "1101",
+    "title": "Prophetess of the Night",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Finisher"
+    ],
+    "release": "25 November 2021",
+    "year": "2021",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 4,
+      "durability": 5,
+      "abilityEffects": 4,
+      "difficulty": 8
+    },
+    "stats": {
+      "hp1": "2701",
+      "hp15": "5326",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "205",
+      "physical_def1": "21",
+      "physical_def15": "75",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "240"
+    }
+  },
+  {
+    "slug": "valir",
+    "name": "Valir",
+    "id": "571",
+    "title": "Son of Flames",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Damage",
+      "Guard"
+    ],
+    "release": "2018",
+    "year": "2018",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Agelta Drylands",
+    "ratings": {
+      "offense": 7,
+      "durability": 2,
+      "abilityEffects": 7,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2390",
+      "hp15": "4511",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "105",
+      "physical_atk15": "171",
+      "physical_def1": "20",
+      "physical_def15": "77",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "245",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "vexana",
+    "name": "Vexana",
+    "id": "381",
+    "title": "Shimmer of Hope",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Poke",
+      "Control"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "The Barren Lands",
+    "ratings": {
+      "offense": 9,
+      "durability": 2,
+      "abilityEffects": 5,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2481",
+      "hp15": "4406",
+      "hp_regen1": "7.6",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "112",
+      "physical_atk15": "193",
+      "physical_def1": "17",
+      "physical_def15": "63",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "wanwan",
+    "name": "Wanwan",
+    "id": "891",
+    "title": "Agile Tiger",
+    "roles": [
+      "Marksman"
+    ],
+    "lanes": [
+      "Gold"
+    ],
+    "specialties": [
+      "Finisher",
+      "Burst"
+    ],
+    "release": "26 November 2019",
+    "year": "2019",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Ranged",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 6,
+      "durability": 2,
+      "abilityEffects": 3,
+      "difficulty": 8
+    },
+    "stats": {
+      "hp1": "2540",
+      "hp15": "4409",
+      "hp_regen1": "5.4",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "95",
+      "physical_atk15": "242",
+      "physical_def1": "15",
+      "physical_def15": "59",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "x-borg",
+    "name": "X.Borg",
+    "id": "831",
+    "title": "Firaga Armor",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Regen",
+      "Burst"
+    ],
+    "release": "9 August 2019",
+    "year": "2019",
+    "resource": "Energy",
+    "damageType": "Physical",
+    "attackType": "Hybrid",
+    "region": "Eruditio",
+    "ratings": {
+      "offense": 3,
+      "durability": 8,
+      "abilityEffects": 1,
+      "difficulty": 6
+    },
+    "stats": {
+      "hp1": "998",
+      "hp15": "2524",
+      "hp_regen1": "7.8",
+      "physical_atk1": "117",
+      "physical_atk15": "232",
+      "physical_def1": "25",
+      "physical_def15": "90",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "260",
+      "basic_atk_range": "1.8 (Armored State) / 4.2 (Armorless State)"
+    }
+  },
+  {
+    "slug": "xavier",
+    "name": "Xavier",
+    "id": "1151",
+    "title": "Defier of Light",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Damage",
+      "Guard"
+    ],
+    "release": "[[Patch Notes/1.6.66|22 March 2022]]",
+    "year": "2022",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Moniyan Empire",
+    "ratings": {
+      "offense": 10,
+      "durability": 3,
+      "abilityEffects": 8,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2616",
+      "hp15": "4611",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "111",
+      "physical_atk15": "198",
+      "physical_def1": "15",
+      "physical_def15": "59",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "250"
+    }
+  },
+  {
+    "slug": "yi-sun-shin",
+    "name": "Yi Sun-shin",
+    "id": "301",
+    "title": "Paenlong Legend",
+    "roles": [
+      "Assassin",
+      "Marksman"
+    ],
+    "lanes": [
+      "Jungle"
+    ],
+    "specialties": [
+      "Finisher",
+      "Chase"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Hybrid",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 9,
+      "durability": 4,
+      "abilityEffects": 2,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2320",
+      "hp15": "4420",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "110",
+      "physical_atk15": "222",
+      "physical_def1": "22",
+      "physical_def15": "82",
+      "magic_def1": "15",
+      "magic_def15": "45",
+      "movement_spd": "250",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "yin",
+    "name": "Yin",
+    "id": "1131",
+    "title": "Martial Genius",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lanes": [
+      "Jungle",
+      "Exp"
+    ],
+    "specialties": [
+      "Burst",
+      "Control"
+    ],
+    "release": "18 January 2022",
+    "year": "2022",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 6,
+      "durability": 5,
+      "abilityEffects": 8,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2578",
+      "hp15": "5238",
+      "hp_regen1": "9.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "109",
+      "physical_atk15": "210",
+      "physical_def1": "21",
+      "physical_def15": "71",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "252"
+    }
+  },
+  {
+    "slug": "yu-zhong",
+    "name": "Yu Zhong",
+    "id": "951",
+    "title": "Black Dragon",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Regen",
+      "Damage"
+    ],
+    "release": "16 June 2020",
+    "year": "2020",
+    "resource": "None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 4,
+      "durability": 7,
+      "abilityEffects": 7,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2520",
+      "hp15": "5460",
+      "hp_regen1": "11.8",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "129",
+      "physical_atk15": "293",
+      "physical_def1": "21",
+      "physical_def15": "84",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "245",
+      "basic_atk_range": "1.8"
+    }
+  },
+  {
+    "slug": "yve",
+    "name": "Yve",
+    "id": "1011",
+    "title": "Astrowarden",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Burst",
+      "Poke"
+    ],
+    "release": "12 February 2021",
+    "year": "2021",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Northern Vale",
+    "ratings": {
+      "offense": 8,
+      "durability": 4,
+      "abilityEffects": 4,
+      "difficulty": 5
+    },
+    "stats": {
+      "hp1": "2530",
+      "hp15": "5066",
+      "hp_regen1": "7.2",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "115",
+      "physical_atk15": "205",
+      "physical_def1": "19",
+      "physical_def15": "66",
+      "magic_def1": "15",
+      "magic_def15": "38",
+      "movement_spd": "245"
+    }
+  },
+  {
+    "slug": "zetian",
+    "name": "Zetian",
+    "id": "1291",
+    "title": "Celestial Empress",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Damage",
+      "Crowd Control"
+    ],
+    "release": "18 June 2025",
+    "year": "2025",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 8,
+      "durability": 3,
+      "abilityEffects": 5,
+      "difficulty": 2
+    },
+    "stats": {
+      "hp1": "2550",
+      "hp15": "4440",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "0",
+      "physical_atk15": "0",
+      "physical_def1": "18",
+      "physical_def15": "72",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "5"
+    }
+  },
+  {
+    "slug": "zhask",
+    "name": "Zhask",
+    "id": "501",
+    "title": "The King of Swarms",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Kastiya",
+    "ratings": {
+      "offense": 10,
+      "durability": 1,
+      "abilityEffects": 4,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2280",
+      "hp15": "4256",
+      "hp_regen1": "6.8",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "107",
+      "physical_atk15": "208",
+      "physical_def1": "15",
+      "physical_def15": "63",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "4.5"
+    }
+  },
+  {
+    "slug": "zhuxin",
+    "name": "Zhuxin",
+    "id": "1251",
+    "title": "Beacon of Spirits",
+    "roles": [
+      "Mage"
+    ],
+    "lanes": [
+      "Mid"
+    ],
+    "specialties": [
+      "Damage",
+      "Crowd Control"
+    ],
+    "release": "29 June 2024",
+    "year": "2024",
+    "resource": "Mana",
+    "damageType": "Magic",
+    "attackType": "Ranged",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 8,
+      "durability": 4,
+      "abilityEffects": 8,
+      "difficulty": 4
+    },
+    "stats": {
+      "hp1": "2280",
+      "hp15": "4256",
+      "hp_regen1": "7.2",
+      "mana1": "1200",
+      "mana15": "1200",
+      "physical_atk1": "115",
+      "physical_atk15": "205",
+      "physical_def1": "20",
+      "physical_def15": "69",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "245",
+      "basic_atk_range": "4.7"
+    }
+  },
+  {
+    "slug": "zilong",
+    "name": "Zilong",
+    "id": "161",
+    "title": "Spear of Dragon",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Chase",
+      "Damage"
+    ],
+    "release": "9 September 2016",
+    "year": "2016",
+    "resource": "Mana",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Cadia Riverlands",
+    "ratings": {
+      "offense": 5,
+      "durability": 2,
+      "abilityEffects": 6,
+      "difficulty": 1
+    },
+    "stats": {
+      "hp1": "2511",
+      "hp15": "5549",
+      "hp_regen1": "7.0",
+      "mana1": "500",
+      "mana15": "1900",
+      "physical_atk1": "123",
+      "physical_atk15": "249",
+      "physical_def1": "25",
+      "physical_def15": "90",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "265",
+      "basic_atk_range": "1.8 / 2.5 (Dragon Flurry)"
+    }
+  }
+]

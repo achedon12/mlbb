@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "@/components/lien";
-import { useT } from "@/i18n/fournisseur";
+import Link from "@/components/link";
+import { useT } from "@/i18n/provider";
 
 /**
  * Frontiere d'erreur des pages.
@@ -12,7 +12,7 @@ import { useT } from "@/i18n/fournisseur";
  * la console du serveur ; le lecteur, lui, garde une sortie propre et le moyen
  * de reessayer.
  */
-export default function Erreur({
+export default function ErrorPage({
   error,
   reset,
 }: {
@@ -23,14 +23,14 @@ export default function Erreur({
   useEffect(() => {
     console.error(error);
     // On reporte l'incident au journal du serveur, sans bloquer l'affichage.
-    const corps = JSON.stringify({
+    const body = JSON.stringify({
       message: error.message,
       chemin: window.location.pathname,
       digest: error.digest,
     });
-    const envoye = navigator.sendBeacon?.("/api/journal", corps);
-    if (!envoye) {
-      fetch("/api/journal", { method: "POST", body: corps, keepalive: true }).catch(() => {});
+    const sent = navigator.sendBeacon?.("/api/log", body);
+    if (!sent) {
+      fetch("/api/log", { method: "POST", body, keepalive: true }).catch(() => {});
     }
   }, [error]);
 

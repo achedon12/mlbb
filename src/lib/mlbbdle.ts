@@ -1,4 +1,4 @@
-import { decalerJour, enregistrerPartie, hacher, type StatsQuiz } from "./quiz";
+import { shiftDay, saveMatch, hash, type StatsQuiz } from "./quiz";
 import type { Lane, Role } from "./types";
 
 /**
@@ -217,7 +217,7 @@ export function eligibleFrom(release: string | null): string | null {
   const month = m[2] ? MONTHS.indexOf(m[2].toLowerCase()) : 0;
   if (month < 0) return null;
   const date = new Date(Date.UTC(Number(m[3]), month, m[1] ? Number(m[1]) : 1));
-  return decalerJour(date.toISOString().slice(0, 10), NEW_HERO_DELAY);
+  return shiftDay(date.toISOString().slice(0, 10), NEW_HERO_DELAY);
 }
 
 /** Candidate with the smallest hash: a newcomer only moves the pick if it wins. */
@@ -225,7 +225,7 @@ function pick(slugs: string[], seed: string): string | null {
   let best: string | null = null;
   let lowest = Infinity;
   for (const s of slugs) {
-    const v = hacher(`mlbbdle:${seed}|${s}`);
+    const v = hash(`mlbbdle:${seed}|${s}`);
     if (v < lowest) {
       lowest = v;
       best = s;
@@ -248,7 +248,7 @@ function withoutRecent(slugs: string[], recent: Set<string | null>): string[] {
 export function drawSecrets(candidates: Candidate[], until: string, start = EPOCH): DaySecrets[] {
   const sorted = [...candidates].sort((a, b) => a.slug.localeCompare(b.slug));
   const out: DaySecrets[] = [];
-  for (let day = until < start ? until : start; day <= until; day = decalerJour(day, 1)) {
+  for (let day = until < start ? until : start; day <= until; day = shiftDay(day, 1)) {
     const eligible = sorted.filter((c) => c.since !== null && c.since <= day);
     const recent = out.slice(-WINDOW);
     const classic = pick(
@@ -314,7 +314,7 @@ export function shareText(o: { title: string; rows: string[]; url: string }): st
 
 /** Records a won day, in the bucket of its number of guesses. */
 export function recordWin(stats: StatsQuiz, day: string, guesses: number): StatsQuiz {
-  return enregistrerPartie(stats, day, Math.min(Math.max(1, guesses), LAST_BUCKET));
+  return saveMatch(stats, day, Math.min(Math.max(1, guesses), LAST_BUCKET));
 }
 
 /** Average guesses per won day; the last bucket counts as its lower bound. */

@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { ObjectiveTimer } from "@/components/objective-timer";
-import { EnTetePage } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import { donneesLd } from "@/lib/html";
+import { PageHeader } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT, messagesPage } from "@/i18n/translations";
+import { serializeJsonLd } from "@/lib/html";
 import { ALERT_THRESHOLDS, BUFFS, CAMPS, CHECKED_ON, GUIDE_EVENTS, LORD, SOURCES, TURTLE, formatTime } from "@/lib/objectives";
-import { formaterDate } from "@/lib/utils";
+import { formatShortDate } from "@/lib/utils";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/tools/timer";
 
@@ -20,12 +20,12 @@ const SEO_VALUES = { turtle: formatTime(TURTLE.firstSpawn), ...THRESHOLDS };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.timer.title"),
+    title: t("pages.seo.timer.title"),
     description: t("pages.seo.timer.description", SEO_VALUES),
-    chemin: PATH,
-    motsCles: ["MLBB timer", "Lord spawn time", "Turtle spawn time", "buff respawn", "jungle timer", "Mobile Legends", "MLBB"],
+    path: PATH,
+    keywords: ["MLBB timer", "Lord spawn time", "Turtle spawn time", "buff respawn", "jungle timer", "Mobile Legends", "MLBB"],
   });
 }
 
@@ -36,12 +36,12 @@ const wikiPageName =(url: string) => decodeURIComponent(url.split("/wiki/")[1] ?
 
 export default async function TimerPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const structuredData = donneesOutil(locale, {
-    nom: t("pages.timer.title"),
+  const t = createT(locale);
+  const structuredData = dataTool(locale, {
+    name: t("pages.timer.title"),
     description: t("pages.seo.timer.description", SEO_VALUES),
-    chemin: PATH,
-    categorie: "GameApplication",
+    path: PATH,
+    category: "GameApplication",
   });
 
   const timings = [
@@ -120,9 +120,9 @@ export default async function TimerPage({ params }: Params) {
   ];
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.timerUI"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
-      <EnTetePage titre={t("pages.timer.title")} chapeau={t("pages.timer.lead", THRESHOLDS)} />
+    <ExtendMessages messages={messagesPage(locale, ["pages.timerUI"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.timer.title")} lead={t("pages.timer.lead", THRESHOLDS)} />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
         <ObjectiveTimer />
 
@@ -174,7 +174,7 @@ export default async function TimerPage({ params }: Params) {
           <h2 id="sources-title" className="font-semibold text-chalk-300">
             {t("pages.timer.sourcesTitle")}
           </h2>
-          <p className="mt-2">{t("pages.timer.sourcesIntro", { date: formaterDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
+          <p className="mt-2">{t("pages.timer.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">
             {sources.map((url) => (
               <li key={url}>
@@ -187,6 +187,6 @@ export default async function TimerPage({ params }: Params) {
           <p className="mt-3">{t("pages.timer.sourcesNote", { lateFrom: formatTime(LORD.lateFrom) })}</p>
         </section>
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

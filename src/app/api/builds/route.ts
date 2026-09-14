@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { codeCatalog } from "@/lib/build-catalog";
 import { SORT_ORDERS, sortBuilds, toPublic, validatePublication, type SortOrder } from "@/lib/community-builds";
-import { NO_STORE, allowPublish, currentPlayer, guardMutation, refuse, viewerId } from "@/lib/community-builds-server";
+import { NO_STORE, allowPublish, currentPlayer, guardMutation, refused, viewerId } from "@/lib/community-builds-server";
 import { StorageError, listBuilds, publishBuild } from "@/lib/community-builds-store";
-import { journaliser, journaliserErreur } from "@/lib/journal";
+import { log, logError } from "@/lib/log";
 
 /**
  * Community builds.
@@ -31,12 +31,12 @@ const intParam = (value: string | null, fallback: number, min: number, max: numb
 export async function GET(request: Request) {
   const params = new URL(request.url).searchParams;
   const hero = params.get("hero");
-  if (hero !== null && !codeCatalog.heroes.has(hero)) return refuse(400, "unknown hero");
+  if (hero !== null && !codeCatalog.heroes.has(hero)) return refused(400, "unknown hero");
   const sort = (params.get("sort") ?? "votes") as SortOrder;
-  if (!SORT_ORDERS.includes(sort)) return refuse(400, "unknown sort");
+  if (!SORT_ORDERS.includes(sort)) return refused(400, "unknown sort");
   const limit = intParam(params.get("limit"), 20, 1, 50);
   const offset = intParam(params.get("offset"), 0, 0, 100_000);
-  if (limit === null || offset === null) return refuse(400, "invalid paging");
+  if (limit === null || offset === null) return refused(400, "invalid paging");
 
   try {
     const [builds, viewer] = await Promise.all([listBuilds(), viewerId()]);
@@ -48,8 +48,8 @@ export async function GET(request: Request) {
       { headers: NO_STORE },
     );
   } catch (error) {
-    await journaliserErreur("community builds: listing failed", error);
-    return refuse(503, "storage unavailable");
+    await logError("community builds: listing failed", error);
+    return refused(503, "storage unavailable");
   }
 }
 
@@ -58,24 +58,24 @@ export async function POST(request: Request) {
   if (guarded instanceof NextResponse) return guarded;
 
   const player = await currentPlayer().catch(() => ({ status: "unavailable" as const }));
-  if (player.status === "none") return refuse(401, "sign in required");
-  if (player.status !== "ok") return refuse(503, "login service unavailable");
-  if (!allowPublish(player.id)) return refuse(429, "too many requests");
+  if (player.status === "none") return refused(401, "sign in required");
+  if (player.status !== "ok") return refused(503, "login service unavailable");
+  if (!allowPublish(player.id)) return refused(429, "too many requests");
 
   const publication = validatePublication(guarded.body, codeCatalog);
-  if (!publication.ok) return refuse(400, publication.error);
+  if (!publication.ok) return refused(400, publication.error);
 
   try {
     const result = await publishBuild(publication.value, { id: player.id, name: player.name });
-    if (!result.ok) return refuse(result.reason === "full" ? 503 : 429, result.reason);
-    await journaliser("info", "community build published", {
+    if (!result.ok) return refused(result.reason === "full" ? 503 : 429, result.reason);
+    await log("info", "community build published", {
       id: result.build.id,
       hero: result.build.build.hero,
       author: player.id,
     });
     return NextResponse.json({ id: result.build.id, hero: result.build.build.hero }, { status: 201, headers: NO_STORE });
   } catch (error) {
-    await journaliserErreur("community builds: publication failed", error, { storage: error instanceof StorageError });
-    return refuse(503, "storage unavailable");
+    await logError("community builds: publication failed", error, { storage: error instanceof StorageError });
+    return refused(503, "storage unavailable");
   }
 }

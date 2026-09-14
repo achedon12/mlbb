@@ -10,22 +10,22 @@
  *     node scripts/advance-server.mjs                     data + translations
  *     node scripts/advance-server.mjs --no-translation    data only
  *
- * Writes `src/data/jeu/advance-server.json` (English, the wiki's language)
- * and `src/data/jeu/advance-server/{fr,it,es}.json`. If the wiki does not
+ * Writes `src/data/game/advance-server.json` (English, the wiki's language)
+ * and `src/data/game/advance-server/{fr,it,es}.json`. If the wiki does not
  * answer, the script fails before writing anything: the previous data stays.
  */
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
-import { ajustementsHeros } from "./patch-parser.mjs";
-import { pause, traduireLot } from "./traduction-google.mjs";
-import { nettoyerDescription } from "./wikitexte.mjs";
+import { heroAdjustments } from "./patch-parser.mjs";
+import { pause, translateBatch } from "./translation-google.mjs";
+import { cleanDescription } from "./wikitext.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com";
 const API = `${WIKI}/api.php`;
 const USER_AGENT = "MLBBDex/1.0 (+https://mlbbdex.com)";
-const OUTPUT = "src/data/jeu/advance-server.json";
-const TRANSLATIONS_DIR = "src/data/jeu/advance-server";
+const OUTPUT = "src/data/game/advance-server.json";
+const TRANSLATIONS_DIR = "src/data/game/advance-server";
 const CACHE = "scripts/advance-server-translations.json";
 const TARGET_LANGUAGES = ["fr", "it", "es"];
 
@@ -131,7 +131,7 @@ export function infoboxSummary(wikitext) {
   if (!m) return null;
   const parts = m[1]
     .split(/\n|<br\s*\/?>/i)
-    .map((l) => nettoyerDescription(l.replace(/^\s*[#*:]+\s*/, "")))
+    .map((l) => cleanDescription(l.replace(/^\s*[#*:]+\s*/, "")))
     .filter(Boolean);
   return parts.length ? parts.join(" · ") : null;
 }
@@ -260,7 +260,7 @@ function toChange(c) {
   return "text" in c ? { text: c.text } : { label: c.label, before: c.before, after: c.after };
 }
 
-const LIVE_TYPES = { amelioration: "buff", affaiblissement: "nerf", ajustement: "adjust" };
+const LIVE_TYPES = { buff: "buff", nerf: "nerf", adjust: "adjust" };
 
 /**
  * Intro and change groups of an entry, read by the live patch parser: the
@@ -269,7 +269,7 @@ const LIVE_TYPES = { amelioration: "buff", affaiblissement: "nerf", ajustement: 
  */
 export function analyzeBody(lines) {
   const { text, subtitles } = normalizeBody(lines);
-  const [entry] = ajustementsHeros(`==Hero Adjustments==\n:{{hi|_}} {{pci|adjust}}\n${text}\n`);
+  const [entry] = heroAdjustments(`==Hero Adjustments==\n:{{hi|_}} {{pci|adjust}}\n${text}\n`);
   const remaining = [...subtitles];
   const sections = (entry?.sections ?? []).map((s) => {
     const i = remaining.findIndex((r) => r.name === s.name);
@@ -295,7 +295,7 @@ export function analyzeBody(lines) {
 // ─────────────────────────────────────────────────────────────
 
 function cleanHeading(title) {
-  return nettoyerDescription(title)
+  return cleanDescription(title)
     .replace(/^[IVXLC]+\.?\s+(?=\S)/, "")
     .replace(/^\[(.*)\]$/, "$1")
     .replace(/:$/, "")
@@ -438,7 +438,7 @@ export function readEntry({ head, lines }, { heroes = false } = {}) {
   const { type, tag } = readPci(head);
   const heroLinks = [...head.matchAll(/\{\{hi\|([^{}|]+)\}\}/g)];
   const source = heroes && heroLinks.length === 1 ? heroLinks[0][1] : withoutPci(head).replace(/^[:|]+/, "");
-  const name = nettoyerDescription(source).replace(/[\s:.]+$/, "");
+  const name = cleanDescription(source).replace(/[\s:.]+$/, "");
   const { intro, sections } = analyzeBody(lines);
   return { name, type, tag, intro, sections };
 }
@@ -457,7 +457,7 @@ export function freeLines(lines) {
     const level = Math.min(marker.replace(/:/g, "").length, 2);
     const body = bare.slice(marker.length).replace(/^\|\s*/, "");
     body.split(/<br\s*\/?>/i).forEach((part, i) => {
-      const text = nettoyerDescription(withoutPci(part));
+      const text = cleanDescription(withoutPci(part));
       if (!text || /^[―—-]?\s*Mobile Legends: Bang Bang$/i.test(text)) return;
       const { type } = readPci(part);
       const [read] = analyzeBody([`* ${withoutPci(part)}`]).sections[0]?.changes ?? [];
@@ -471,7 +471,7 @@ export function freeLines(lines) {
 function paragraphs(body) {
   return String(body)
     .split(/\n|<br\s*\/?>/i)
-    .map((l) => nettoyerDescription(l.replace(/^\s*[*#:]+\s*/, "")))
+    .map((l) => cleanDescription(l.replace(/^\s*[*#:]+\s*/, "")))
     .filter(Boolean);
 }
 
@@ -657,7 +657,7 @@ async function translate(versions) {
     const missing = texts.filter((x) => !(`en|${tl}|${x}` in cache));
     const groups = batches(missing);
     for (const [i, batch] of groups.entries()) {
-      const results = await traduireLot(batch, "en", tl, { tolerant: true });
+      const results = await translateBatch(batch, "en", tl, { tolerant: true });
       batch.forEach((o, k) => (cache[`en|${tl}|${o}`] = results[k] ?? o));
       process.stdout.write(`\r  en->${tl} ${i + 1}/${groups.length} batches`);
       // A network cut in the middle of a long run does not lose everything.
@@ -760,8 +760,8 @@ async function readJson(path) {
 
 async function main() {
   const withTranslation = !process.argv.includes("--no-translation");
-  const heroes = buildIndex(await readJson("src/data/jeu/heros.json"));
-  const items = buildIndex(await readJson("src/data/jeu/objets/en.json"));
+  const heroes = buildIndex(await readJson("src/data/game/heroes.json"));
+  const items = buildIndex(await readJson("src/data/game/items/en.json"));
 
   console.log("Advance Server pages…");
   const pages = await advancePages();

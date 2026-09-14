@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import { DraftSimulator } from "@/components/draft-simulator";
-import { OutilDraft } from "@/components/outil-draft";
-import { useT } from "@/i18n/fournisseur";
-import type { TypeDegats } from "@/lib/composition";
+import { DraftTool } from "@/components/draft-tool";
+import { useT } from "@/i18n/provider";
+import type { TypeDamage } from "@/lib/composition";
 import { SIMULATOR_MODE, writeAssistant, type MetaEntry, type SimulationHero } from "@/lib/draft-simulation";
-import type { RangMesure } from "@/lib/rangs-mesure";
+import type { MeasuredRank } from "@/lib/measured-ranks";
 import { cn } from "@/lib/utils";
 
 /**
@@ -25,9 +25,9 @@ export function DraftModes({
   damageLabels,
 }: {
   heroes: SimulationHero[];
-  ranks: RangMesure[];
-  meta: Partial<Record<RangMesure, MetaEntry[]>>;
-  damageLabels: Record<TypeDegats, string>;
+  ranks: MeasuredRank[];
+  meta: Partial<Record<MeasuredRank, MetaEntry[]>>;
+  damageLabels: Record<TypeDamage, string>;
 }) {
   const t = useT();
   const [mode, setMode] = useState<Mode>("assistant");
@@ -106,7 +106,7 @@ export function DraftModes({
       </div>
 
       <div id="panel-assistant" role="tabpanel" aria-labelledby="tab-assistant" hidden={mode !== "assistant"} className="pt-8">
-        <OutilDraft heros={heroes} />
+        <DraftTool heroes={heroes} />
       </div>
       <div id="panel-simulator" role="tabpanel" aria-labelledby="tab-simulator" hidden={mode !== "simulator"} className="pt-8">
         {simulatorOpened && (

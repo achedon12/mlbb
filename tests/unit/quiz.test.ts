@@ -1,119 +1,119 @@
 import { describe, expect, it } from "vitest";
-import { LANGUES } from "@/i18n/config";
+import { LOCALES } from "@/i18n/config";
 import {
   ABANDON,
-  chercherOptions,
-  comparerHeros,
-  couper,
-  decalerJour,
-  enregistrerPartie,
-  estJourValide,
-  genererDefi,
-  genererManche,
-  ligneGrille,
-  mancheFinie,
-  masquerNom,
-  MASQUE,
-  numeroDefi,
-  ORDRE_DEFI,
-  pointsManche,
+  searchOptions,
+  compareHeroes,
+  cut,
+  shiftDay,
+  saveMatch,
+  isValidDay,
+  generateChallenge,
+  generateRound,
+  rowGrid,
+  roundFinished,
+  maskName,
+  MASK,
+  numberChallenge,
+  ORDER_CHALLENGE,
+  pointsRound,
   pointsMax,
-  reponsesDuel,
-  serieCourante,
-  STATS_VIDES,
-  textePartage,
-  type Defi,
-  type HerosQuiz,
-  type Manche,
+  responsesDuel,
+  currentStreak,
+  STATS_EMPTY,
+  textShare,
+  type Challenge,
+  type QuizHero,
+  type Round,
   type PoolQuiz,
 } from "@/lib/quiz";
-import { defiDuJour, poolQuiz } from "@/lib/quiz-donnees";
+import { challengeOfDay, poolQuiz } from "@/lib/quiz-data";
 
-const reponses = (d: Defi) => d.manches.flatMap((m) => (m.type === "duel" ? m.paires.flat().map((x) => x.slug) : [m.reponse]));
-const echapper = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-const contientNom = (texte: string, nom: string) =>
-  new RegExp(`(?<![\\p{L}\\p{N}])${echapper(nom)}(?![\\p{L}\\p{N}])`, "iu").test(texte);
+const responses = (d: Challenge) => d.manches.flatMap((m) => (m.type === "duel" ? m.paires.flat().map((x) => x.slug) : [m.reponse]));
+const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const includesName = (text: string, name: string) =>
+  new RegExp(`(?<![\\p{L}\\p{N}])${escape(name)}(?![\\p{L}\\p{N}])`, "iu").test(text);
 
-describe("defi du jour", () => {
+describe("daily challenge", () => {
   const fr = poolQuiz("fr");
-  const jour = "2026-09-11";
+  const day = "2026-09-11";
 
-  it("donne le meme defi pour la meme date", () => {
-    expect(genererDefi(fr, jour)).toEqual(genererDefi(fr, jour));
-    expect(genererDefi(poolQuiz("fr"), jour)).toEqual(defiDuJour("fr", jour));
+  it("gives the same challenge for the same date", () => {
+    expect(generateChallenge(fr, day)).toEqual(generateChallenge(fr, day));
+    expect(generateChallenge(poolQuiz("fr"), day)).toEqual(challengeOfDay("fr", day));
   });
 
-  it("pose les memes reponses dans toutes les langues", () => {
-    const attendu = reponses(defiDuJour("fr", jour));
-    for (const l of LANGUES) expect(reponses(defiDuJour(l, jour))).toEqual(attendu);
+  it("sets the same answers in every language", () => {
+    const expected = responses(challengeOfDay("fr", day));
+    for (const l of LOCALES) expect(responses(challengeOfDay(l, day))).toEqual(expected);
   });
 
-  it("change d'un jour a l'autre", () => {
-    const jours = Array.from({ length: 30 }, (_, i) => decalerJour(jour, i));
-    const series = new Set(jours.map((j) => reponses(genererDefi(fr, j)).join(",")));
+  it("changes from one day to the next", () => {
+    const days = Array.from({ length: 30 }, (_, i) => shiftDay(day, i));
+    const series = new Set(days.map((j) => responses(generateChallenge(fr, j)).join(",")));
     expect(series.size).toBe(30);
   });
 
-  it("tient une manche de chaque type, dans l'ordre, sans heros repete", () => {
+  it("holds one round of each type, in order, with no repeated hero", () => {
     for (let i = 0; i < 60; i++) {
-      const d = genererDefi(fr, decalerJour(jour, i));
-      expect(d.manches.map((m) => m.type)).toEqual(ORDRE_DEFI);
-      const heros = reponses(d).filter((s) => fr.heros.some((h) => h.slug === s));
-      expect(new Set(heros).size).toBe(heros.length);
+      const d = generateChallenge(fr, shiftDay(day, i));
+      expect(d.manches.map((m) => m.type)).toEqual(ORDER_CHALLENGE);
+      const heroes = responses(d).filter((s) => fr.heros.some((h) => h.slug === s));
+      expect(new Set(heroes).size).toBe(heroes.length);
       expect(pointsMax(d.manches)).toBe(7);
     }
   });
 
-  it("ne bouge pas quand le vivier perd un heros qui n'est pas tire", () => {
-    const d = genererDefi(fr, jour);
-    const tires = new Set(reponses(d));
-    const absent = fr.heros.find((h) => !tires.has(h.slug))!;
-    const reduit: PoolQuiz = { ...fr, heros: fr.heros.filter((h) => h.slug !== absent.slug) };
-    expect(reponses(genererDefi(reduit, jour))).toEqual(reponses(d));
+  it("does not change when the pool loses a hero that was not drawn", () => {
+    const d = generateChallenge(fr, day);
+    const drawn = new Set(responses(d));
+    const absent = fr.heros.find((h) => !drawn.has(h.slug))!;
+    const reduced: PoolQuiz = { ...fr, heros: fr.heros.filter((h) => h.slug !== absent.slug) };
+    expect(responses(generateChallenge(reduced, day))).toEqual(responses(d));
   });
 
-  it("numerote et valide les jours", () => {
-    expect(numeroDefi("2026-09-11")).toBe(1);
-    expect(numeroDefi("2026-10-25")).toBe(45);
-    expect(numeroDefi("2027-09-11")).toBe(366);
-    expect(estJourValide("2026-02-30")).toBe(false);
-    expect(estJourValide("2026-9-1")).toBe(false);
-    expect(estJourValide("2028-02-29")).toBe(true);
+  it("numbers and validates days", () => {
+    expect(numberChallenge("2026-09-11")).toBe(1);
+    expect(numberChallenge("2026-10-25")).toBe(45);
+    expect(numberChallenge("2027-09-11")).toBe(366);
+    expect(isValidDay("2026-02-30")).toBe(false);
+    expect(isValidDay("2026-9-1")).toBe(false);
+    expect(isValidDay("2028-02-29")).toBe(true);
   });
 });
 
-describe("generation des manches", () => {
-  it("masque le nom du heros dans les competences et les histoires, dans chaque langue", () => {
-    const fuites: string[] = [];
-    for (const l of LANGUES) {
+describe("round generation", () => {
+  it("hides the hero's name in skills and stories, in every language", () => {
+    const leaks: string[] = [];
+    for (const l of LOCALES) {
       const pool = poolQuiz(l);
       for (const h of pool.heros) {
-        const textes = [
+        const texts = [
           ...(pool.histoires[h.slug] ?? []),
           ...(pool.competences[h.slug] ?? []).flatMap((c) => [c.nom, c.extrait ?? ""]),
           ...(pool.skins[h.slug] ?? []).map((s) => s.nom),
         ];
-        for (const texte of textes) if (contientNom(texte, h.nom)) fuites.push(`${l}/${h.slug} : ${texte.slice(0, 80)}`);
+        for (const text of texts) if (includesName(text, h.nom)) leaks.push(`${l}/${h.slug} : ${text.slice(0, 80)}`);
       }
     }
-    expect(fuites).toEqual([]);
+    expect(leaks).toEqual([]);
   });
 
-  it("tire des manches valides a l'entrainement, quel que soit le hasard", () => {
+  it("draws valid practice rounds, whatever the randomness", () => {
     const pool = poolQuiz("en");
     const slugs = new Set(pool.heros.map((h) => h.slug));
-    const objets = new Set(pool.objets.map((o) => o.slug));
+    const items = new Set(pool.objets.map((o) => o.slug));
     for (let i = 0; i < 300; i++) {
-      const type = ORDRE_DEFI[i % ORDRE_DEFI.length];
-      const m = genererManche(pool, type, () => Math.random());
+      const type = ORDER_CHALLENGE[i % ORDER_CHALLENGE.length];
+      const m = generateRound(pool, type, () => Math.random());
       expect(m?.type).toBe(type);
       if (!m) continue;
       if (m.type === "duel") {
         const [[a, b]] = m.paires;
         expect(Math.abs(a.victoire - b.victoire)).toBeGreaterThanOrEqual(0.5);
-        expect(reponsesDuel(m)[0]).toBe(a.victoire >= b.victoire ? a.slug : b.slug);
-      } else if (m.type === "objet") {
-        expect(objets.has(m.reponse)).toBe(true);
+        expect(responsesDuel(m)[0]).toBe(a.victoire >= b.victoire ? a.slug : b.slug);
+      } else if (m.type === "item") {
+        expect(items.has(m.reponse)).toBe(true);
         expect(m.bonus).not.toBe("");
       } else {
         expect(slugs.has(m.reponse)).toBe(true);
@@ -125,36 +125,36 @@ describe("generation des manches", () => {
     }
   });
 
-  it("respecte les exclusions", () => {
+  it("honours exclusions", () => {
     const pool = poolQuiz("fr");
-    const exclus = new Set(pool.heros.slice(0, 120).map((h) => h.slug));
+    const excluded = new Set(pool.heros.slice(0, 120).map((h) => h.slug));
     for (let i = 0; i < 50; i++) {
-      const m = genererManche(pool, "histoire", () => Math.random(), { exclus: new Set(exclus) });
-      if (m && m.type === "histoire") expect(exclus.has(m.reponse)).toBe(false);
+      const m = generateRound(pool, "story", () => Math.random(), { excluded: new Set(excluded) });
+      if (m && m.type === "story") expect(excluded.has(m.reponse)).toBe(false);
     }
   });
 });
 
-describe("textes", () => {
-  it("masque nom complet, parties et elisions sans toucher aux mots courants", () => {
-    expect(masquerNom("Popol and Kupa hunt; Kupa bites.", ["Popol and Kupa"])).toBe(`${MASQUE} hunt; ${MASQUE} bites.`);
-    expect(masquerNom("l'arme d'Aamon, AAMON", ["Aamon"])).toBe(`l'arme d'${MASQUE}, ${MASQUE}`);
-    expect(masquerNom("Sun rose over the sun.", ["Yi Sun-shin"])).toBe(`${MASQUE} rose over the sun.`);
-    expect(masquerNom("X.Borg fires", ["X.Borg"])).toBe(`${MASQUE} fires`);
-    expect(masquerNom("Lunoxia", ["Lunox"])).toBe("Lunoxia");
+describe("texts", () => {
+  it("hides the full name, its parts and elisions without touching common words", () => {
+    expect(maskName("Popol and Kupa hunt; Kupa bites.", ["Popol and Kupa"])).toBe(`${MASK} hunt; ${MASK} bites.`);
+    expect(maskName("l'arme d'Aamon, AAMON", ["Aamon"])).toBe(`l'arme d'${MASK}, ${MASK}`);
+    expect(maskName("Sun rose over the sun.", ["Yi Sun-shin"])).toBe(`${MASK} rose over the sun.`);
+    expect(maskName("X.Borg fires", ["X.Borg"])).toBe(`${MASK} fires`);
+    expect(maskName("Lunoxia", ["Lunox"])).toBe("Lunoxia");
   });
 
-  it("coupe a la fin d'une phrase quand elle tombe assez loin", () => {
-    const texte = "Une premiere phrase assez longue pour compter. Une seconde qui depasse largement la limite fixee.";
-    expect(couper(texte, 60)).toBe("Une premiere phrase assez longue pour compter.");
-    expect(couper("mot ".repeat(40), 30).endsWith("…")).toBe(true);
-    expect(couper("court", 30)).toBe("court");
+  it("cuts at the end of a sentence when it falls far enough", () => {
+    const text = "Une premiere phrase assez longue pour compter. Une seconde qui depasse largement la limite fixee.";
+    expect(cut(text, 60)).toBe("Une premiere phrase assez longue pour compter.");
+    expect(cut("mot ".repeat(40), 30).endsWith("…")).toBe(true);
+    expect(cut("court", 30)).toBe("court");
   });
 });
 
-describe("reponses, grille et statistiques", () => {
-  const competence: Manche = { type: "competence", reponse: "aamon", nom: "x", icone: "/i.webp", extrait: null };
-  const duel: Manche = {
+describe("answers, grid and statistics", () => {
+  const skill: Round = { type: "skill", reponse: "aamon", nom: "x", icone: "/i.webp", extrait: null };
+  const duel: Round = {
     type: "duel",
     paires: [
       [{ slug: "a", victoire: 51 }, { slug: "b", victoire: 49 }],
@@ -162,53 +162,53 @@ describe("reponses, grille et statistiques", () => {
     ],
   };
 
-  it("termine une devinette trouvee, epuisee ou abandonnee", () => {
-    expect(mancheFinie(competence, ["zilong"])).toBe(false);
-    expect(mancheFinie(competence, ["zilong", "aamon"])).toBe(true);
-    expect(mancheFinie(competence, ["zilong", ABANDON])).toBe(true);
-    expect(mancheFinie(competence, ["a", "b", "c", "d", "e"])).toBe(true);
-    expect(pointsManche(duel, ["a", "c"])).toBe(1);
+  it("ends a guess that is found, exhausted or given up", () => {
+    expect(roundFinished(skill, ["zilong"])).toBe(false);
+    expect(roundFinished(skill, ["zilong", "aamon"])).toBe(true);
+    expect(roundFinished(skill, ["zilong", ABANDON])).toBe(true);
+    expect(roundFinished(skill, ["a", "b", "c", "d", "e"])).toBe(true);
+    expect(pointsRound(duel, ["a", "c"])).toBe(1);
   });
 
-  it("compose une grille qui ne dit rien des reponses", () => {
-    expect(ligneGrille(competence, ["zilong", "aamon"])).toBe("✨ 🟥🟩⬛⬛⬛");
-    expect(ligneGrille(competence, ["zilong", ABANDON])).toBe("✨ 🟥🟥🟥🟥🟥");
-    expect(ligneGrille(competence, ["zilong"])).toBe("✨ 🟥⬛⬛⬛⬛");
-    expect(ligneGrille(duel, ["a", "c"])).toBe("⚖️ 🟩🟥");
-    const texte = textePartage({ numero: 3, points: 5, max: 7, serie: 4, lignes: ["✨ 🟩⬛⬛⬛⬛"], url: "https://x/fr/quiz" });
-    expect(texte).toBe("MLBBDex Quiz #3 · 5/7 🔥4\n✨ 🟩⬛⬛⬛⬛\nhttps://x/fr/quiz");
-    expect(texte).not.toMatch(/aamon|zilong/i);
+  it("builds a grid that reveals nothing about the answers", () => {
+    expect(rowGrid(skill, ["zilong", "aamon"])).toBe("✨ 🟥🟩⬛⬛⬛");
+    expect(rowGrid(skill, ["zilong", ABANDON])).toBe("✨ 🟥🟥🟥🟥🟥");
+    expect(rowGrid(skill, ["zilong"])).toBe("✨ 🟥⬛⬛⬛⬛");
+    expect(rowGrid(duel, ["a", "c"])).toBe("⚖️ 🟩🟥");
+    const text = textShare({ number: 3, points: 5, max: 7, series: 4, rows: ["✨ 🟩⬛⬛⬛⬛"], url: "https://x/fr/quiz" });
+    expect(text).toBe("MLBBDex Quiz #3 · 5/7 🔥4\n✨ 🟩⬛⬛⬛⬛\nhttps://x/fr/quiz");
+    expect(text).not.toMatch(/aamon|zilong/i);
   });
 
-  it("compte la serie de jours joues et ne compte pas deux fois le meme jour", () => {
-    let s = enregistrerPartie(STATS_VIDES, "2026-09-11", 5);
-    s = enregistrerPartie(s, "2026-09-12", 7);
+  it("counts the streak of played days without counting the same day twice", () => {
+    let s = saveMatch(STATS_EMPTY, "2026-09-11", 5);
+    s = saveMatch(s, "2026-09-12", 7);
     expect(s).toMatchObject({ joues: 2, serie: 2, meilleure: 2 });
-    expect(enregistrerPartie(s, "2026-09-12", 0)).toBe(s);
-    expect(serieCourante(s, "2026-09-13")).toBe(2);
-    expect(serieCourante(s, "2026-09-14")).toBe(0);
-    s = enregistrerPartie(s, "2026-09-15", 3);
+    expect(saveMatch(s, "2026-09-12", 0)).toBe(s);
+    expect(currentStreak(s, "2026-09-13")).toBe(2);
+    expect(currentStreak(s, "2026-09-14")).toBe(0);
+    s = saveMatch(s, "2026-09-15", 3);
     expect(s).toMatchObject({ joues: 3, serie: 1, meilleure: 2 });
     expect(s.distribution).toEqual([0, 0, 0, 1, 0, 1, 0, 1]);
   });
 
-  it("compare un mauvais essai a la reponse", () => {
-    const h = (o: Partial<HerosQuiz>): HerosQuiz => ({
-      slug: "x", nom: "X", icone: null, roles: ["Mage"], lanes: ["Milieu"], annee: 2020, region: "Abyss", ...o,
+  it("compares a wrong guess with the answer", () => {
+    const h = (o: Partial<QuizHero>): QuizHero => ({
+      slug: "x", nom: "X", icone: null, roles: ["Mage"], lanes: ["Mid"], annee: 2020, region: "Abyss", ...o,
     });
-    expect(comparerHeros(h({ roles: ["Mage", "Support"], annee: 2018 }), h({}))).toEqual({
-      roles: "partiel", lanes: "oui", annee: "plus", region: "oui",
+    expect(compareHeroes(h({ roles: ["Mage", "Support"], annee: 2018 }), h({}))).toEqual({
+      roles: "partial", lanes: "yes", year: "higher", region: "yes",
     });
-    expect(comparerHeros(h({ lanes: ["Roam"], region: null }), h({ annee: 2016 }))).toMatchObject({
-      lanes: "non", annee: "moins", region: "non",
+    expect(compareHeroes(h({ lanes: ["Roam"], region: null }), h({ annee: 2016 }))).toMatchObject({
+      lanes: "no", year: "lower", region: "no",
     });
   });
 
-  it("propose d'abord les noms qui commencent par la saisie, sans accents", () => {
-    const options = ["Chang'e", "Chou", "Lunox", "Popol and Kupa", "Richou"].map((nom) => ({ slug: nom, nom }));
-    expect(chercherOptions(options, "cho", new Set()).map((o) => o.nom)).toEqual(["Chou", "Richou"]);
-    expect(chercherOptions(options, "KUPA", new Set()).map((o) => o.nom)).toEqual(["Popol and Kupa"]);
-    expect(chercherOptions(options, "chang", new Set(["Chang'e"]))).toEqual([]);
-    expect(chercherOptions(options, "  ", new Set())).toEqual([]);
+  it("suggests names starting with the input first, ignoring accents", () => {
+    const options = ["Chang'e", "Chou", "Lunox", "Popol and Kupa", "Richou"].map((name) => ({ slug: name, name }));
+    expect(searchOptions(options, "cho", new Set()).map((o) => o.name)).toEqual(["Chou", "Richou"]);
+    expect(searchOptions(options, "KUPA", new Set()).map((o) => o.name)).toEqual(["Popol and Kupa"]);
+    expect(searchOptions(options, "chang", new Set(["Chang'e"]))).toEqual([]);
+    expect(searchOptions(options, "  ", new Set())).toEqual([]);
   });
 });

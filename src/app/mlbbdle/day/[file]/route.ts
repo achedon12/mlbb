@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { estLangue, type Langue } from "@/i18n/config";
+import { isLocale, type Locale } from "@/i18n/config";
 import { EPOCH } from "@/lib/mlbbdle";
 import { mlbbdlePuzzle } from "@/lib/mlbbdle-data";
-import { decalerJour, estJourValide, jourUtc } from "@/lib/quiz";
+import { shiftDay, isValidDay, dayUtc } from "@/lib/quiz";
 
 /**
  * MLBBdle puzzle for one day and language (`/mlbbdle/day/fr-2026-09-11.json`):
@@ -19,12 +19,12 @@ export const dynamic = "force-dynamic";
 
 export async function GET(_request: Request, { params }: { params: Promise<{ file: string }> }) {
   const m = /^([a-z]{2})-(\d{4}-\d{2}-\d{2})\.json$/.exec((await params).file);
-  if (!m || !estLangue(m[1]) || !estJourValide(m[2])) return new NextResponse(null, { status: 404 });
+  if (!m || !isLocale(m[1]) || !isValidDay(m[2])) return new NextResponse(null, { status: 404 });
   const [, language, day] = m;
-  const today = jourUtc(new Date());
-  if (day < EPOCH || day > decalerJour(today, 1)) return new NextResponse(null, { status: 404 });
+  const today = dayUtc(new Date());
+  if (day < EPOCH || day > shiftDay(today, 1)) return new NextResponse(null, { status: 404 });
 
-  const puzzle = mlbbdlePuzzle(language as Langue, day);
+  const puzzle = mlbbdlePuzzle(language as Locale, day);
   if (!puzzle) return new NextResponse(null, { status: 404 });
   // A past day no longer changes; today's may follow a sync.
   const cache = day < today ? "public, max-age=86400" : "public, max-age=600";

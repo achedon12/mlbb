@@ -9,12 +9,12 @@ Two kinds of data, which must not be confused.
 
 | | Where | Who writes it |
 | --- | --- | --- |
-| **Factual data**: heroes, skins, items, patches, visuals | `src/data/jeu/`, `public/visuels/` | Nobody: `npm run sync` extracts it from the wiki and the stats API |
-| **Analysis**: commentary, written skills, counters, builds | `src/data/heros/` | You |
+| **Factual data**: heroes, skins, items, patches, visuals | `src/data/game/`, `public/visuels/` | Nobody: `npm run sync` extracts it from the wiki and the stats API |
+| **Analysis**: commentary, written skills, counters, builds | `src/data/heroes/` | You |
 | **Articles**: guides, news, patch notes | `content/fr/` | You |
-| **Tier list notes, emblems** | `src/data/tier-list.ts`, `src/data/emblemes.ts` | You |
+| **Tier list notes, emblems** | `src/data/tier-list.ts`, `src/data/emblems.ts` | You |
 
-> **Never edit `src/data/jeu/` or `public/visuels/` by hand.**
+> **Never edit `src/data/game/` or `public/visuels/` by hand.**
 > The next sync will overwrite your changes. If some game data is wrong, it
 > comes from the wiki: fixing it there solves the problem for everyone, for
 > good.
@@ -36,8 +36,8 @@ The full guide (every field explained, the annotated template, the style rules
 and the review) is also online, in the site's four languages:
 [mlbbdex.com/en/contribute](https://mlbbdex.com/en/contribute).
 
-1. Copy the **exact** `slug` from `src/data/jeu/heros.json`.
-2. Open the role file in `src/data/heros/` (`tanks.ts`, `fighters.ts`,
+1. Copy the **exact** `slug` from `src/data/game/heroes.json`.
+2. Open the role file in `src/data/heroes/` (`tanks.ts`, `fighters.ts`,
    `assassins.ts`, `mages.ts`, `marksmen.ts`, `supports.ts`).
 3. Copy the annotated template [`docs/modele-analyse.ts`](docs/modele-analyse.ts)
    to the end of the list, fill it in, then remove its comments. The template
@@ -75,19 +75,19 @@ comes from the sync.
 
 ## Writing an article
 
-A Markdown file in `content/fr/actualites/` (news) or `content/fr/patch-notes/`,
+A Markdown file in `content/fr/news/` or `content/fr/patch-notes/`,
 named `YYYY-MM-DD-title-as-slug.md`. The date is used for sorting and is dropped
-from the URL. `npm run traduire` produces the English, Italian and Spanish
+from the URL. `npm run translate` produces the English, Italian and Spanish
 versions.
 
 ```markdown
 ---
-titre: "Article title"
+title: "Article title"
 date: "2026-09-09"
-categorie: "Guide"        # Actualite | Patch | Esport | Guide
-auteur: "your-username"
-chapeau: "A one-sentence summary, reused as the meta description and in the RSS feed."
-motsCles: ["keyword", "another"]
+category: "Guide"         # News | Patch | Esports | Guide
+author: "your-username"
+summary: "A one-sentence summary, reused as the meta description and in the RSS feed."
+keywords: ["keyword", "another"]
 ---
 
 The article body, in Markdown.
@@ -146,7 +146,7 @@ with the browser tests (`npm run test:e2e`).
 
 A few automations then follow the pull request:
 
-- it fails automatically if it changes `src/data/jeu/` or `public/visuels/`,
+- it fails automatically if it changes `src/data/game/` or `public/visuels/`,
   which the sync regenerates;
 - if it conflicts with its target branch, it gets the `conflit` label: rebase
   it;

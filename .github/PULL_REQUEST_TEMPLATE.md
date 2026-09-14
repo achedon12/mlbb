@@ -18,12 +18,12 @@
 - [ ] `npm run typecheck` passes
 - [ ] `npm test` passes
 - [ ] `npm run build` passes
-- [ ] I did **not** edit `src/data/jeu/` or `public/visuels/` by hand
+- [ ] I did **not** edit `src/data/game/` or `public/visuels/` by hand
       (these files are overwritten by every sync)
 
 <!--
 If you add a hero analysis:
-- the `slug` is copied as-is from src/data/jeu/heros.json
+- the `slug` is copied as-is from src/data/game/heroes.json
 - the `contexte` field of each build explains *when* to pick it
 - tier list placements are argued
 

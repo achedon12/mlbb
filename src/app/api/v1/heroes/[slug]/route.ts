@@ -1,22 +1,22 @@
-import { competences, heros, herosParSlug, illustrations } from "@/lib/donnees";
-import { introuvable, reponseApi } from "@/lib/api";
+import { skills, allHeroes, heroesBySlug, illustrations } from "@/lib/data";
+import { notFound, responseApi } from "@/lib/api";
 
 /** Fiche complete d'un heros : competences, skins, visuels et analyse. */
 export const dynamic = "force-static";
 
 export function generateStaticParams() {
-  return heros.map((h) => ({ slug: h.slug }));
+  return allHeroes.map((h) => ({ slug: h.slug }));
 }
 
 export async function GET(
-  _requete: Request,
+  _request: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
-  const h = herosParSlug.get(slug);
-  if (!h) return introuvable("Hero");
+  const h = heroesBySlug.get(slug);
+  if (!h) return notFound("Hero");
 
-  return reponseApi({
+  return responseApi({
     slug: h.slug,
     name: h.name,
     title: h.title,
@@ -30,7 +30,7 @@ export async function GET(
     region: h.region,
     ratings: h.ratings,
     stats: h.stats,
-    skills: competences("en")[h.slug] ?? [],
+    skills: skills("en")[h.slug] ?? [],
     skins: h.skins,
     images: h.images,
     illustrations: illustrations[h.slug] ?? {},

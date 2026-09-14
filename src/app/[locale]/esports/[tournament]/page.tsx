@@ -10,13 +10,13 @@ import {
   StatusBadge,
   tournamentDates,
 } from "@/components/esports-parts";
-import { PortraitHeros } from "@/components/portrait-heros";
-import { Carte, EnTetePage, TitreSection } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
-import { creerT, messagesPage, type T } from "@/i18n/traductions";
-import { herosParSlug } from "@/lib/donnees";
+import { createT, messagesPage, type T } from "@/i18n/translations";
+import { heroesBySlug } from "@/lib/data";
 import {
   tournamentBySlug,
   tournaments,
@@ -28,12 +28,12 @@ import {
   type Standing,
   type Tournament,
 } from "@/lib/esports";
-import { donneesLd } from "@/lib/html";
+import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { HeroStatsTable, type HeroStatRow } from "./hero-stats-table";
 
-type Params = { params: Promise<{ locale: Langue; tournament: string }> };
+type Params = { params: Promise<{ locale: Locale; tournament: string }> };
 
 /**
  * One tournament: standings and bracket results as the source lists them,
@@ -43,43 +43,43 @@ export function generateStaticParams() {
   return tournaments.map((t) => ({ tournament: t.slug }));
 }
 
-const heroName = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
+const heroName = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
 
 /** "MPL ID Season 18: …", "M7 World Championship: …", "MSC 2026: …". */
-function seoTitle(t: T, tour: Tournament): string {
-  if (tour.series === "mpl") {
-    return t("pages.esports.seo.mplTitle", { league: tour.shortName.replace(/\s+S\d+$/, ""), n: tour.number });
+function seoTitle(t: T, turn: Tournament): string {
+  if (turn.series === "mpl") {
+    return t("pages.esports.seo.mplTitle", { league: turn.shortName.replace(/\s+S\d+$/, ""), n: turn.number });
   }
-  if (tour.series === "m") return t("pages.esports.seo.mTitle", { n: tour.number });
-  return t("pages.esports.seo.mscTitle", { year: tour.number });
+  if (turn.series === "m") return t("pages.esports.seo.mTitle", { n: turn.number });
+  return t("pages.esports.seo.mscTitle", { year: turn.number });
 }
 
-function seoDescription(t: T, locale: Langue, tour: Tournament): string {
-  const [picked] = [...tour.heroes].sort((a, b) => b.picks - a.picks);
-  const [banned] = [...tour.heroes].sort((a, b) => b.bans - a.bans);
-  if (tour.games > 0 && picked && banned) {
+function seoDescription(t: T, locale: Locale, turn: Tournament): string {
+  const [picked] = [...turn.heroes].sort((a, b) => b.picks - a.picks);
+  const [banned] = [...turn.heroes].sort((a, b) => b.bans - a.bans);
+  if (turn.games > 0 && picked && banned) {
     return t("pages.esports.seo.tournamentDescription", {
-      name: tour.name,
-      games: tour.games,
+      name: turn.name,
+      games: turn.games,
       picked: heroName(picked.slug),
       banned: heroName(banned.slug),
     });
   }
   return t("pages.esports.seo.upcomingDescription", {
-    name: tour.name,
-    date: tour.startDate ? formatPartialDate(locale, tour.startDate) : "",
+    name: turn.name,
+    date: turn.startDate ? formatPartialDate(locale, turn.startDate) : "",
   });
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, tournament } = await params;
-  const tour = tournamentBySlug.get(tournament);
-  if (!tour) return {};
-  const t = creerT(locale);
+  const turn = tournamentBySlug.get(tournament);
+  if (!turn) return {};
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: seoTitle(t, tour),
-    description: seoDescription(t, locale, tour),
-    chemin: `/esports/${tour.slug}`,
+    title: seoTitle(t, turn),
+    description: seoDescription(t, locale, turn),
+    path: `/esports/${turn.slug}`,
   });
 }
 
@@ -96,14 +96,14 @@ const knownZone = (z: string | null): z is string => z !== null && z in ZONE_STY
 
 export default async function TournamentPage({ params }: Params) {
   const { locale, tournament } = await params;
-  const tour = tournamentBySlug.get(tournament);
-  if (!tour) notFound();
-  const t = creerT(locale);
+  const turn = tournamentBySlug.get(tournament);
+  if (!turn) notFound();
+  const t = createT(locale);
   const now = new Date();
-  const status = tournamentStatus(tour, now);
-  const stages = tour.stages.filter((s) => s.standings.length > 0 || s.brackets.length > 0);
-  const rows: HeroStatRow[] = tour.heroes.map((h) => {
-    const r = withRates(h, tour.games);
+  const status = tournamentStatus(turn, now);
+  const stages = turn.stages.filter((s) => s.standings.length > 0 || s.brackets.length > 0);
+  const rows: HeroStatRow[] = turn.heroes.map((h) => {
+    const r = withRates(h, turn.games);
     return {
       slug: h.slug,
       name: heroName(h.slug),
@@ -120,59 +120,59 @@ export default async function TournamentPage({ params }: Params) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
-    name: tour.name,
-    description: seoDescription(t, locale, tour),
+    name: turn.name,
+    description: seoDescription(t, locale, turn),
     sport: "Mobile Legends: Bang Bang",
-    url: `${site.url}/${locale}/esports/${tour.slug}`,
+    url: `${site.url}/${locale}/esports/${turn.slug}`,
     inLanguage: LOCALE_HTML[locale],
-    ...(fullDate(tour.startDate) ? { startDate: fullDate(tour.startDate) } : {}),
-    ...(fullDate(tour.endDate) ? { endDate: fullDate(tour.endDate) } : {}),
+    ...(fullDate(turn.startDate) ? { startDate: fullDate(turn.startDate) } : {}),
+    ...(fullDate(turn.endDate) ? { endDate: fullDate(turn.endDate) } : {}),
     eventStatus: "https://schema.org/EventScheduled",
-    ...(tour.city || tour.country
+    ...(turn.city || turn.country
       ? {
           location: {
             "@type": "Place",
-            name: [tour.city, tour.country].filter(Boolean).join(", "),
+            name: [turn.city, turn.country].filter(Boolean).join(", "),
             address: {
               "@type": "PostalAddress",
-              ...(tour.city ? { addressLocality: tour.city } : {}),
-              ...(tour.country ? { addressCountry: tour.country } : {}),
+              ...(turn.city ? { addressLocality: turn.city } : {}),
+              ...(turn.country ? { addressCountry: turn.country } : {}),
             },
           },
         }
       : {}),
-    isBasedOn: tour.sources[0]?.url,
+    isBasedOn: turn.sources[0]?.url,
   };
 
-  const dates = tournamentDates(t, locale, tour);
-  const location = [tour.city, tour.country].filter(Boolean).join(", ");
-  const patch = tour.patch && tour.endPatch && tour.endPatch !== tour.patch ? `${tour.patch} – ${tour.endPatch}` : tour.patch;
+  const dates = tournamentDates(t, locale, turn);
+  const location = [turn.city, turn.country].filter(Boolean).join(", ");
+  const patch = turn.patch && turn.endPatch && turn.endPatch !== turn.patch ? `${turn.patch} – ${turn.endPatch}` : turn.patch;
   const facts: [string, React.ReactNode][] = [
     [t("pages.esports.facts.status"), <StatusBadge key="s" status={status} t={t} />],
     ...(dates ? [[t("pages.esports.facts.dates"), dates] as [string, string]] : []),
-    ...(tour.prizePool ? [[t("pages.esports.facts.prize"), formatPrize(locale, tour.prizePool)] as [string, string]] : []),
-    ...(tour.teamCount ? [[t("pages.esports.facts.teams"), String(tour.teamCount)] as [string, string]] : []),
+    ...(turn.prizePool ? [[t("pages.esports.facts.prize"), formatPrize(locale, turn.prizePool)] as [string, string]] : []),
+    ...(turn.teamCount ? [[t("pages.esports.facts.teams"), String(turn.teamCount)] as [string, string]] : []),
     ...(location ? [[t("pages.esports.facts.location"), location] as [string, string]] : []),
     ...(patch ? [[t("pages.esports.facts.patch"), patch] as [string, string]] : []),
-    ...(tour.champion ? [[t("pages.esports.facts.champion"), tour.champion] as [string, string]] : []),
-    ...(tour.games ? [[t("pages.esports.facts.games"), String(tour.games)] as [string, string]] : []),
+    ...(turn.champion ? [[t("pages.esports.facts.champion"), turn.champion] as [string, string]] : []),
+    ...(turn.games ? [[t("pages.esports.facts.games"), String(turn.games)] as [string, string]] : []),
   ];
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.esportsUI"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(jsonLd) }} />
-      <EnTetePage
-        titre={tour.name}
-        chapeau={
-          tour.games > 0
-            ? t("pages.esports.tournament.intro", { name: tour.name, games: tour.games })
-            : t("pages.esports.tournament.introUpcoming", { name: tour.name })
+    <ExtendMessages messages={messagesPage(locale, ["pages.esportsUI"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
+      <PageHeader
+        title={turn.name}
+        lead={
+          turn.games > 0
+            ? t("pages.esports.tournament.intro", { name: turn.name, games: turn.games })
+            : t("pages.esports.tournament.introUpcoming", { name: turn.name })
         }
-        miettes={[
-          { nom: t("pages.esports.title"), href: "/esports" },
+        crumbs={[
+          { name: t("pages.esports.title"), href: "/esports" },
           {
-            nom: tour.shortName,
-            freres: tournaments.map((x) => ({ nom: x.shortName, href: `/esports/${x.slug}` })),
+            name: turn.shortName,
+            siblings: tournaments.map((x) => ({ name: x.shortName, href: `/esports/${x.slug}` })),
           },
         ]}
       >
@@ -184,14 +184,14 @@ export default async function TournamentPage({ params }: Params) {
             </div>
           ))}
         </dl>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         {stages.length === 0 && <p className="text-sm text-chalk-500">{t("pages.esports.empty")}</p>}
 
         {stages.map((stage) => (
           <section key={stage.page}>
-            <TitreSection>{stageName(t, stage.key, stage.title) || tour.shortName}</TitreSection>
+            <SectionTitle>{stageName(t, stage.key, stage.title) || turn.shortName}</SectionTitle>
             <div className="space-y-8">
               {stage.standings.length > 0 && (
                 <div className="grid gap-6 lg:grid-cols-2">
@@ -227,31 +227,31 @@ export default async function TournamentPage({ params }: Params) {
 
         {rows.length > 0 && (
           <section>
-            <TitreSection chapeau={t("pages.esports.heroes.intro", { games: tour.games })}>
+            <SectionTitle lead={t("pages.esports.heroes.intro", { games: turn.games })}>
               {t("pages.esports.heroes.title")}
-            </TitreSection>
-            <HeroStatsTable rows={rows} name={tour.name} />
+            </SectionTitle>
+            <HeroStatsTable rows={rows} name={turn.name} />
           </section>
         )}
 
-        {tour.drafts.length > 0 && (
+        {turn.drafts.length > 0 && (
           <section>
-            <TitreSection chapeau={t("pages.esports.drafts.intro", { n: tour.drafts.length })}>
+            <SectionTitle lead={t("pages.esports.drafts.intro", { n: turn.drafts.length })}>
               {t("pages.esports.drafts.title")}
-            </TitreSection>
+            </SectionTitle>
             <ol className="grid gap-4 lg:grid-cols-2">
-              {tour.drafts.map((m) => (
+              {turn.drafts.map((m) => (
                 <li key={`${m.date}-${m.teams.join("-")}`}>
-                  <DraftCard match={m} tour={tour} t={t} locale={locale} />
+                  <DraftCard match={m} turn={turn} t={t} locale={locale} />
                 </li>
               ))}
             </ol>
           </section>
         )}
 
-        <SourceCredit t={t} locale={locale} sources={tour.sources} />
+        <SourceCredit t={t} locale={locale} sources={turn.sources} />
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }
 
@@ -330,7 +330,7 @@ function StandingTable({ standing, caption, t }: { standing: Standing; caption: 
   );
 }
 
-function BracketView({ bracket, t, locale }: { bracket: Bracket; t: T; locale: Langue }) {
+function BracketView({ bracket, t, locale }: { bracket: Bracket; t: T; locale: Locale }) {
   const title = labelText(t, bracket.label, bracket.title);
   return (
     <div>
@@ -358,7 +358,7 @@ function placeholderText(t: T, text: string | null): string {
   return seed ? t("pages.esports.match.seed", { n: seed[1] }) : t("pages.esports.match.tbd");
 }
 
-function MatchLine({ match: m, t, locale }: { match: BracketMatch; t: T; locale: Langue }) {
+function MatchLine({ match: m, t, locale }: { match: BracketMatch; t: T; locale: Locale }) {
   // A 0–0 before the first game would read as a result: a dash says "not played".
   const played = m.winner !== null || (m.score !== null && m.score[0] + m.score[1] > 0);
   const side = (i: 0 | 1) => {
@@ -393,10 +393,10 @@ function MatchLine({ match: m, t, locale }: { match: BracketMatch; t: T; locale:
   );
 }
 
-function DraftCard({ match: m, tour, t, locale }: { match: DraftMatch; tour: Tournament; t: T; locale: Langue }) {
-  const stage = tour.stages.find((s) => s.title === m.stage);
+function DraftCard({ match: m, turn, t, locale }: { match: DraftMatch; turn: Tournament; t: T; locale: Locale }) {
+  const stage = turn.stages.find((s) => s.title === m.stage);
   return (
-    <Carte className="h-full p-4">
+    <Card className="h-full p-4">
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <h3 className="font-heading text-lg font-bold text-chalk-100">
           {m.teams[0]}{" "}
@@ -424,7 +424,7 @@ function DraftCard({ match: m, tour, t, locale }: { match: DraftMatch; tour: Tou
           );
         })}
       </ol>
-    </Carte>
+    </Card>
   );
 }
 
@@ -468,13 +468,13 @@ function HeroStrip({ label, heroes, ban = false }: { label: string; heroes: stri
       <span className="w-9 text-[0.65rem] uppercase tracking-wide text-chalk-500">{label}</span>
       <ul className={cn("flex gap-1", ban && "opacity-60 grayscale")}>
         {heroes.map((h, i) => {
-          const hero = herosParSlug.get(h);
+          const hero = heroesBySlug.get(h);
           return (
             // flex: the portrait is a span, sized only once it is a flex item.
             <li key={`${h}-${i}`} title={hero?.name ?? h} className="flex">
 
               {hero ? (
-                <PortraitHeros source={hero.images.icon ?? hero.images.portrait} nom={hero.name} taille="micro" />
+                <HeroPortrait source={hero.images.icon ?? hero.images.portrait} name={hero.name} size="micro" />
               ) : (
                 <span className="text-xs text-chalk-300">{h}</span>
               )}

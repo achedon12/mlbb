@@ -1,88 +1,88 @@
 import type { Metadata } from "next";
-import { Carte, EnTetePage } from "@/components/ui";
-import { heros, nombreObjets, patchs, synchro } from "@/lib/donnees";
-import { classementComplet } from "@/lib/tier-list";
-import type { Langue } from "@/i18n/config";
+import { Card, PageHeader } from "@/components/ui";
+import { allHeroes, countItems, patches, sync } from "@/lib/data";
+import { rankingFull } from "@/lib/tier-list";
+import type { Locale } from "@/i18n/config";
 import { LOCALE_HTML } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.apiDoc.title"),
+    title: t("pages.apiDoc.title"),
     description: t("pages.apiDoc.metaDescription"),
-    partage: t("pages.apiDoc.ogDescription"),
-    chemin: "/api-doc",
+    share: t("pages.apiDoc.ogDescription"),
+    path: "/api-doc",
   });
 }
 
 interface Route {
-  chemin: string;
-  cle: string;
-  parametres?: { nom: string; valeurs: string; role: string }[];
-  exemple: string;
+  path: string;
+  key: string;
+  settings?: { name: string; values: string; role: string }[];
+  example: string;
 }
 
 const ROUTES: Route[] = [
   {
-    chemin: "/api/v1/heroes",
-    cle: "heroes",
-    parametres: [
-      { nom: "role", valeurs: "Tank, Fighter, Assassin, Mage, Marksman, Support", role: "roleParam" },
-      { nom: "lane", valeurs: "Or, Jungle, Milieu, Experience, Roam", role: "laneParam" },
+    path: "/api/v1/heroes",
+    key: "heroes",
+    settings: [
+      { name: "role", values: "Tank, Fighter, Assassin, Mage, Marksman, Support", role: "roleParam" },
+      { name: "lane", values: "Gold, Jungle, Mid, Exp, Roam", role: "laneParam" },
     ],
-    exemple: "/api/v1/heroes?role=Tank&lane=Roam",
+    example: "/api/v1/heroes?role=Tank&lane=Roam",
   },
   {
-    chemin: "/api/v1/heroes/{slug}",
-    cle: "heroSlug",
-    exemple: "/api/v1/heroes/khufra",
+    path: "/api/v1/heroes/{slug}",
+    key: "heroSlug",
+    example: "/api/v1/heroes/khufra",
   },
   {
-    chemin: "/api/v1/items",
-    cle: "items",
-    parametres: [
-      { nom: "category", valeurs: "Attack, Magic, Defense, Movement, Jungling, Roaming", role: "catParam" },
+    path: "/api/v1/items",
+    key: "items",
+    settings: [
+      { name: "category", values: "Attack, Magic, Defense, Movement, Jungling, Roaming", role: "catParam" },
     ],
-    exemple: "/api/v1/items?category=Defense",
+    example: "/api/v1/items?category=Defense",
   },
   {
-    chemin: "/api/v1/patches",
-    cle: "patches",
-    exemple: "/api/v1/patches",
+    path: "/api/v1/patches",
+    key: "patches",
+    example: "/api/v1/patches",
   },
   {
-    chemin: "/api/v1/rankings",
-    cle: "rankings",
-    exemple: "/api/v1/rankings",
+    path: "/api/v1/rankings",
+    key: "rankings",
+    example: "/api/v1/rankings",
   },
 ];
 
-export default async function PageApi({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function ApiPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return (
     <>
-      <EnTetePage
-        titre={t("pages.apiDoc.title")}
-        chapeau={t("pages.apiDoc.lead")}
+      <PageHeader
+        title={t("pages.apiDoc.title")}
+        lead={t("pages.apiDoc.lead")}
       >
         <dl className="mt-8 flex flex-wrap gap-x-10 gap-y-3 text-sm">
           {[
-            [t("pages.apiDoc.statHeroes"), heros.length],
-            [t("pages.apiDoc.statItems"), nombreObjets],
-            [t("pages.apiDoc.statPatches"), patchs.length],
-            [t("pages.apiDoc.statRanked"), classementComplet.length],
-          ].map(([label, valeur]) => (
+            [t("pages.apiDoc.statHeroes"), allHeroes.length],
+            [t("pages.apiDoc.statItems"), countItems],
+            [t("pages.apiDoc.statPatches"), patches.length],
+            [t("pages.apiDoc.statRanked"), rankingFull.length],
+          ].map(([label, value]) => (
             <div key={String(label)}>
               <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
-              <dd className="mt-0.5 font-heading text-xl font-bold text-gold-400">{valeur}</dd>
+              <dd className="mt-0.5 font-heading text-xl font-bold text-gold-400">{value}</dd>
             </div>
           ))}
         </dl>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-4xl space-y-12 px-4 py-12">
         <section>
@@ -91,24 +91,24 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
 
           <div className="mt-6 space-y-4">
             {ROUTES.map((r) => (
-              <Carte key={r.chemin}>
+              <Card key={r.path}>
                 <p className="flex flex-wrap items-center gap-2">
                   <span className="bevel-sm bg-night-700 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-wide text-emerald-400">
                     GET
                   </span>
-                  <code className="font-mono text-sm text-chalk-100">{r.chemin}</code>
+                  <code className="font-mono text-sm text-chalk-100">{r.path}</code>
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-chalk-300">{t(`pages.apiDoc.routes.${r.cle}.summary`)}</p>
+                <p className="mt-3 text-sm leading-relaxed text-chalk-300">{t(`pages.apiDoc.routes.${r.key}.summary`)}</p>
 
-                {r.parametres && (
+                {r.settings && (
                   <dl className="mt-4 space-y-2 border-t border-night-800 pt-3 text-sm">
-                    {r.parametres.map((p) => (
-                      <div key={p.nom} className="flex flex-wrap gap-x-3">
-                        <dt className="font-mono text-xs text-gold-400">?{p.nom}=</dt>
+                    {r.settings.map((p) => (
+                      <div key={p.name} className="flex flex-wrap gap-x-3">
+                        <dt className="font-mono text-xs text-gold-400">?{p.name}=</dt>
                         <dd className="min-w-0 flex-1">
-                          <span className="text-chalk-300">{t(`pages.apiDoc.routes.${r.cle}.${p.role}`)}</span>
+                          <span className="text-chalk-300">{t(`pages.apiDoc.routes.${r.key}.${p.role}`)}</span>
                           <span className="mt-0.5 block text-xs text-chalk-500">
-                            {p.valeurs}
+                            {p.values}
                           </span>
                         </dd>
                       </div>
@@ -117,12 +117,12 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
                 )}
 
                 <a
-                  href={r.exemple}
+                  href={r.example}
                   className="mt-4 inline-block font-mono text-xs text-azure-400 underline underline-offset-4 hover:text-gold-400"
                 >
-                  {r.exemple}
+                  {r.example}
                 </a>
-              </Carte>
+              </Card>
             ))}
           </div>
         </section>
@@ -168,7 +168,7 @@ export default async function PageApi({ params }: { params: Promise<{ locale: La
         </section>
 
         <p className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          {t("pages.apiDoc.syncNote", { date: new Date(synchro.date).toLocaleDateString(LOCALE_HTML[locale]) })}
+          {t("pages.apiDoc.syncNote", { date: new Date(sync.date).toLocaleDateString(LOCALE_HTML[locale]) })}
         </p>
       </div>
     </>

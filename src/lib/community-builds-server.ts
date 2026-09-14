@@ -1,8 +1,8 @@
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
-import { profil } from "@/lib/mlbb-auth";
-import { adresseDe, limiteurParMinute, memeSecret } from "@/lib/push-serveur";
-import { jetonCourant } from "@/lib/session";
+import { profile } from "@/lib/mlbb-auth";
+import { addressOf, limitByMinute, sameSecret } from "@/lib/push-server";
+import { tokenCurrent } from "@/lib/session";
 import { site } from "@/lib/site";
 import { MAX_BODY_BYTES, isSameOrigin, type StoredBuild } from "./community-builds";
 import { listBuilds } from "./community-builds-store";
@@ -35,15 +35,15 @@ const CONFIRMED_TTL_MS = 5 * 60_000;
 const CONFIRMED_MAX = 1_000;
 
 export async function currentPlayer(): Promise<Player> {
-  const token = await jetonCourant();
+  const token = await tokenCurrent();
   if (!token) return { status: "none" };
   const key = createHash("sha256").update(token).digest("base64url");
   const now = Date.now();
   const known = CONFIRMED.get(key);
   if (known && known.until > now) return known.player;
 
-  const result = await profil(token);
-  if (result.etat === "expire") return { status: "none" };
+  const result = await profile(token);
+  if (result.etat === "expired") return { status: "none" };
   if (result.etat !== "ok" || !result.donnees.roleId) return { status: "unavailable" };
   const player: Player = {
     status: "ok",
@@ -86,22 +86,22 @@ export function isAdmin(request: Request): boolean {
   const token = process.env.BUILDS_ADMIN_TOKEN?.trim() ?? "";
   if (token.length < 24) return false;
   const given = request.headers.get("authorization")?.match(/^Bearer\s+(\S+)$/i)?.[1] ?? "";
-  return given.length > 0 && memeSecret(given, token);
+  return given.length > 0 && sameSecret(given, token);
 }
 
 // -- Rate limits and responses ---------------------------------------------
 
 /** Mutating requests per IP address and per minute. */
-export const allowIp = limiteurParMinute(20);
+export const allowIp = limitByMinute(20);
 /** Votes per account and per minute. */
-export const allowVote = limiteurParMinute(30);
+export const allowVote = limitByMinute(30);
 /** Publications per account and per minute (the daily cap is enforced by the storage). */
-export const allowPublish = limiteurParMinute(3);
+export const allowPublish = limitByMinute(3);
 
-export const ipOf = adresseDe;
+export const ipOf = addressOf;
 
 export const NO_STORE = { "Cache-Control": "private, no-store" };
-export const refuse = (status: number, error: string) => NextResponse.json({ error }, { status, headers: NO_STORE });
+export const refused = (status: number, error: string) => NextResponse.json({ error }, { status, headers: NO_STORE });
 
 const PUBLIC_HOST = new URL(site.url).host;
 
@@ -110,16 +110,16 @@ const PUBLIC_HOST = new URL(site.url).host;
  * JSON under `MAX_BODY_BYTES`. Returns the parsed body, or the refusal.
  */
 export async function guardMutation(request: Request, withBody: boolean): Promise<{ body: unknown } | NextResponse> {
-  if (!isSameOrigin(request.headers, [PUBLIC_HOST])) return refuse(403, "origin refused");
-  if (!allowIp(ipOf(request))) return refuse(429, "too many requests");
+  if (!isSameOrigin(request.headers, [PUBLIC_HOST])) return refused(403, "origin refused");
+  if (!allowIp(ipOf(request))) return refused(429, "too many requests");
   if (!withBody) return { body: null };
-  if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return refuse(415, "JSON expected");
-  if (Number(request.headers.get("content-length") ?? 0) > MAX_BODY_BYTES) return refuse(413, "body too large");
+  if (!request.headers.get("content-type")?.toLowerCase().startsWith("application/json")) return refused(415, "JSON expected");
+  if (Number(request.headers.get("content-length") ?? 0) > MAX_BODY_BYTES) return refused(413, "body too large");
   const raw = await request.text();
-  if (Buffer.byteLength(raw) > MAX_BODY_BYTES) return refuse(413, "body too large");
+  if (Buffer.byteLength(raw) > MAX_BODY_BYTES) return refused(413, "body too large");
   try {
     return { body: JSON.parse(raw) as unknown };
   } catch {
-    return refuse(400, "invalid JSON");
+    return refused(400, "invalid JSON");
   }
 }

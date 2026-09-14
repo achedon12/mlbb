@@ -1,39 +1,39 @@
 import type { Metadata } from "next";
 import { ArrowRight, ExternalLink, FileText } from "lucide-react";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { BalanceSummary, HeroChips, StatusBadge, TestNotice, VersionDate } from "@/components/advance-changes";
-import { CreditWiki } from "@/components/credit-wiki";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
+import { WikiCredit } from "@/components/wiki-credit";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
-import { creerT } from "@/i18n/traductions";
+import { createT } from "@/i18n/translations";
 import { advanceArchive, advanceSource, advanceSyncedAt, advanceVersions, isUnderTest } from "@/lib/advance-server";
-import { dateLongue, patchActuel } from "@/lib/fraicheur";
+import { longDate, patchCurrent } from "@/lib/freshness";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/patch-notes/advance-server";
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const latest = advanceVersions(locale)[0];
   return metaPage(locale, {
-    titre: latest
+    title: latest
       ? t("pages.advanceServer.seo.title", { v: latest.version })
       : t("pages.advanceServer.seo.titleGeneric"),
     // The latest version, its date and its hero counts open the description.
     description: latest
       ? t("pages.advanceServer.seo.description", {
-          version: latest.date ? `${latest.version} (${dateLongue(locale, latest.date)})` : latest.version,
+          version: latest.date ? `${latest.version} (${longDate(locale, latest.date)})` : latest.version,
           buffs: latest.balance.buff,
           nerfs: latest.balance.nerf,
           adjust: latest.balance.adjust,
         })
       : t("pages.advanceServer.lead"),
-    partage: t("pages.advanceServer.seo.share"),
-    chemin: PATH,
-    motsCles: t("pages.advanceServer.seo.keywords")
+    share: t("pages.advanceServer.seo.share"),
+    path: PATH,
+    keywords: t("pages.advanceServer.seo.keywords")
       .split(",")
       .map((k) => k.trim())
       .filter(Boolean),
@@ -42,10 +42,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function AdvanceServerPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const versions = advanceVersions(locale);
   const latest = versions.at(0);
-  const live = patchActuel.version;
+  const live = patchCurrent.version;
   const latestUnderTest = latest ? isUnderTest(latest.version, live) : false;
   const heroCount = (n: number) =>
     t(`pages.advanceServer.heroCount.${new Intl.PluralRules(locale).select(n) === "one" ? "one" : "other"}`, { n });
@@ -53,15 +53,15 @@ export default async function AdvanceServerPage({ params }: Params) {
 
   return (
     <>
-      <EnTetePage
-        titre={t("pages.advanceServer.title")}
-        chapeau={t("pages.advanceServer.lead")}
-        miettes={[{ nom: t("nav.patchNotes.label"), href: "/patch-notes" }, { nom: t("pages.advanceServer.crumb") }]}
+      <PageHeader
+        title={t("pages.advanceServer.title")}
+        lead={t("pages.advanceServer.lead")}
+        crumbs={[{ name: t("nav.patchNotes.label"), href: "/patch-notes" }, { name: t("pages.advanceServer.crumb") }]}
       >
         <p className="mt-6 text-sm text-chalk-500">
-          {t("pages.advanceServer.syncedAt", { date: dateLongue(locale, advanceSyncedAt) })}
+          {t("pages.advanceServer.syncedAt", { date: longDate(locale, advanceSyncedAt) })}
         </p>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
         <TestNotice t={t}>
@@ -70,7 +70,7 @@ export default async function AdvanceServerPage({ params }: Params) {
               {latestUnderTest
                 ? t("pages.advanceServer.statusUnderTest", { v: latest.version, live })
                 : latest.date
-                  ? t("pages.advanceServer.statusNone", { live, v: latest.version, date: dateLongue(locale, latest.date) })
+                  ? t("pages.advanceServer.statusNone", { live, v: latest.version, date: longDate(locale, latest.date) })
                   : t("pages.advanceServer.statusNoneUndated", { live, v: latest.version })}
             </p>
           )}
@@ -179,10 +179,10 @@ export default async function AdvanceServerPage({ params }: Params) {
           </section>
         )}
 
-        <CreditWiki
+        <WikiCredit
           t={t}
           href={advanceSource}
-          cle="pages.advanceServer.credit"
+          messageKey="pages.advanceServer.credit"
           className="border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"
         />
       </div>

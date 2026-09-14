@@ -1,36 +1,36 @@
 import type { Metadata } from "next";
-import { creerT } from "@/i18n/traductions";
-import { assainirHtml, donneesLd } from "@/lib/html";
+import { createT } from "@/i18n/translations";
+import { cleanHtml, serializeJsonLd } from "@/lib/html";
 import { notFound } from "next/navigation";
-import { CorpsArticle } from "@/components/article";
-import { CreditWiki } from "@/components/credit-wiki";
-import { FilAriane } from "@/components/fil-ariane";
-import { NouveauHeros } from "@/components/nouveau-heros";
-import { PatchHeros } from "@/components/patch-heros";
-import { SommairePatch } from "@/components/sommaire-patch";
-import { herosParSlug, illustrations, patchsDetail, patchsDetailles } from "@/lib/donnees";
-import { article, articles, enHtml } from "@/lib/contenu";
-import { compterAjustements, dateLongue, listeNoms } from "@/lib/fraicheur";
+import { BodyArticle } from "@/components/article";
+import { WikiCredit } from "@/components/wiki-credit";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { NewHero } from "@/components/new-hero";
+import { HeroPatch } from "@/components/hero-patch";
+import { PatchToc } from "@/components/patch-toc";
+import { heroesBySlug, illustrations, patchDetails, detailedPatches } from "@/lib/data";
+import { article, articles, toHtml } from "@/lib/content";
+import { countAdjustments, longDate, listNames } from "@/lib/freshness";
 import { site } from "@/lib/site";
-import type { PatchDetaille } from "@/lib/types";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { donneesBillet, metaPage } from "@/i18n/seo";
-import { ChangementsHeros, nombreHerosModifies } from "./changements-heros";
+import type { DetailedPatch } from "@/lib/types";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { postData, metaPage } from "@/i18n/seo";
+import { HeroChanges, changedHeroCount } from "./hero-changes";
 
-type Params = { params: Promise<{ locale: Langue; slug: string }> };
+type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-const patchs = patchsDetail;
+const patches = patchDetails;
 
 /**
  * « MLBB Patch 2.1.88: All Hero Buffs & Nerfs (42 changes) » : le nombre de
  * heros touches, tire des notes, dit d'emblee l'ampleur du patch.
  */
-function titrePatch(locale: Langue, patch: PatchDetaille): string {
-  const t = creerT(locale);
-  const n = nombreHerosModifies(patch);
+function titlePatch(locale: Locale, patch: DetailedPatch): string {
+  const t = createT(locale);
+  const n = changedHeroCount(patch);
   if (n === 0) return t("pages.seo.patch.title", { v: patch.version });
-  const forme = new Intl.PluralRules(locale).select(n) === "one" ? "one" : "other";
-  return t(`pages.seo.patch.titleChanges.${forme}`, { v: patch.version, n });
+  const shape = new Intl.PluralRules(locale).select(n) === "one" ? "one" : "other";
+  return t(`pages.seo.patch.titleChanges.${shape}`, { v: patch.version, n });
 }
 
 /**
@@ -41,33 +41,33 @@ function titrePatch(locale: Langue, patch: PatchDetaille): string {
  */
 export function generateStaticParams() {
   return [
-    ...Object.keys(patchs).map((version) => ({ slug: version })),
+    ...Object.keys(patches).map((version) => ({ slug: version })),
     ...articles("patch-notes").map((a) => ({ slug: a.slug })),
   ];
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const patch = patchs[slug];
+  const patch = patches[slug];
 
   if (patch) {
-    const t = creerT(locale);
+    const t = createT(locale);
     // Description en donnees : date, ajustements par sens et premiers heros touches.
-    const noms = [...new Set(patch.adjustments.map((a) => herosParSlug.get(a.slug)?.name ?? a.name))].slice(0, 4);
-    const version = patch.date ? `${patch.version} (${dateLongue(locale, patch.date)})` : patch.version;
+    const names = [...new Set(patch.adjustments.map((a) => heroesBySlug.get(a.slug)?.name ?? a.name))].slice(0, 4);
+    const version = patch.date ? `${patch.version} (${longDate(locale, patch.date)})` : patch.version;
     return metaPage(locale, {
-      titre: titrePatch(locale, patch),
-      description: noms.length
+      title: titlePatch(locale, patch),
+      description: names.length
         ? t("pages.seo.patch.description", {
             version,
-            ...compterAjustements(patch.adjustments),
-            heros: listeNoms(locale, noms),
+            ...countAdjustments(patch.adjustments),
+            heros: listNames(locale, names),
           })
         : t("pages.patchNotes.officialDescription", { version: patch.version }),
-      partage: t("pages.patchNotes.officialShare", { version: patch.version }),
-      chemin: `/patch-notes/${slug}`,
+      share: t("pages.patchNotes.officialShare", { version: patch.version }),
+      path: `/patch-notes/${slug}`,
       type: "article",
-      publie: patch.date ?? undefined,
+      published: patch.date ?? undefined,
     });
   }
 
@@ -75,33 +75,33 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!a) return {};
 
   return metaPage(locale, {
-    titre: a.title,
+    title: a.title,
     description: a.summary,
-    chemin: `/patch-notes/${slug}`,
+    path: `/patch-notes/${slug}`,
     type: "article",
-    motsCles: a.keywords,
-    publie: a.date,
-    auteur: a.author,
+    keywords: a.keywords,
+    published: a.date,
+    author: a.author,
   });
 }
 
-export default async function PagePatch({ params }: Params) {
+export default async function PatchPage({ params }: Params) {
   const { locale, slug } = await params;
-  const patch = patchsDetailles(locale)[slug];
-  const t = creerT(locale);
+  const patch = detailedPatches(locale)[slug];
+  const t = createT(locale);
 
   // ── Notes officielles reprises du wiki ────────────────────────────────
   if (patch) {
     // Un patch pas encore traduit est servi dans sa langue d'origine.
-    const traduit = patch !== patchsDetail[slug];
-    const donneesStructurees = {
+    const translated = patch !== patchDetails[slug];
+    const structuredData = {
       "@context": "https://schema.org",
       "@type": "Article",
-      headline: titrePatch(locale, patch),
+      headline: titlePatch(locale, patch),
       ...(patch.date ? { datePublished: patch.date, dateModified: patch.date } : {}),
-      inLanguage: traduit ? LOCALE_HTML[locale] : "en",
+      inLanguage: translated ? LOCALE_HTML[locale] : "en",
       isBasedOn: patch.link,
-      publisher: { "@type": "Organization", name: site.nom, url: site.url },
+      publisher: { "@type": "Organization", name: site.name, url: site.url },
       mainEntityOfPage: `${site.url}/${locale}/patch-notes/${slug}`,
     };
 
@@ -109,18 +109,18 @@ export default async function PagePatch({ params }: Params) {
       <>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
         />
 
         <div className="mx-auto max-w-6xl px-4 py-12">
-          <FilAriane
-            miettes={[
-              { nom: t("nav.patchNotes.label"), href: "/patch-notes" },
+          <Breadcrumb
+            crumbs={[
+              { name: t("nav.patchNotes.label"), href: "/patch-notes" },
               {
-                nom: `Patch ${patch.version}`,
-                freres: Object.values(patchsDetail)
+                name: `Patch ${patch.version}`,
+                siblings: Object.values(patchDetails)
                   .sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }))
-                  .map((p) => ({ nom: `Patch ${p.version}`, href: `/patch-notes/${p.version}` })),
+                  .map((p) => ({ name: `Patch ${p.version}`, href: `/patch-notes/${p.version}` })),
               },
             ]}
           />
@@ -138,7 +138,7 @@ export default async function PagePatch({ params }: Params) {
                 <>
                   {" · "}
                   <time dateTime={patch.date}>
-                    {t("pages.patchNotes.publishedOn", { date: dateLongue(locale, patch.date) })}
+                    {t("pages.patchNotes.publishedOn", { date: longDate(locale, patch.date) })}
                   </time>
                 </>
               )}
@@ -146,10 +146,10 @@ export default async function PagePatch({ params }: Params) {
           </header>
 
           {patch.adjustments.length > 0 && (
-            <ChangementsHeros
+            <HeroChanges
               patch={patch}
-              langue={locale}
-              ancreDetail={patch.sections.find((s) => s.role === "ajustements")?.anchor ?? null}
+              locale={locale}
+              anchorDetail={patch.sections.find((s) => s.role === "adjustments")?.anchor ?? null}
             />
           )}
 
@@ -160,7 +160,7 @@ export default async function PagePatch({ params }: Params) {
           */}
           <div className="mt-10 gap-10 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
             <aside className="mb-10 lg:mb-0">
-              {patch.toc.length > 0 && <SommairePatch entrees={patch.toc} />}
+              {patch.toc.length > 0 && <PatchToc entries={patch.toc} />}
             </aside>
 
             <article className="min-w-0 max-w-3xl">
@@ -187,56 +187,56 @@ export default async function PagePatch({ params }: Params) {
                   )}
 
                   <div className={section.title ? "mt-5" : undefined}>
-                    {section.role === "nouveaux" ? (
+                    {section.role === "newHeroes" ? (
                       <div className="space-y-10">
                         {patch.newHeroes.map((h) => {
-                          const fiche = herosParSlug.get(h.slug);
+                          const sheet = heroesBySlug.get(h.slug);
                           const illus = illustrations[h.slug] ?? {};
                           const illustration =
                             (h.epithet ? illus[h.epithet] : undefined) ??
                             Object.values(illus)[0] ??
                             null;
                           return (
-                            <NouveauHeros
+                            <NewHero
                               key={h.slug}
-                              langue={locale}
-                              heros={{
+                              locale={locale}
+                              hero={{
                                 ...h,
-                                portrait: fiche?.images.portrait ?? null,
+                                portrait: sheet?.images.portrait ?? null,
                                 illustration,
-                                roles: fiche?.roles ?? [],
-                                fiche: Boolean(fiche),
+                                roles: sheet?.roles ?? [],
+                                sheet: Boolean(sheet),
                               }}
                             />
                           );
                         })}
                       </div>
-                    ) : section.role === "ajustements" ? (
-                      <PatchHeros
-                        ajustements={patch.adjustments.map((a) => ({
+                    ) : section.role === "adjustments" ? (
+                      <HeroPatch
+                        adjustments={patch.adjustments.map((a) => ({
                           ...a,
                           portrait:
-                            herosParSlug.get(a.slug)?.images.icon ??
-                            herosParSlug.get(a.slug)?.images.portrait ??
+                            heroesBySlug.get(a.slug)?.images.icon ??
+                            heroesBySlug.get(a.slug)?.images.portrait ??
                             null,
-                          fiche: herosParSlug.has(a.slug),
+                          sheet: heroesBySlug.has(a.slug),
                         }))}
-                        bilan={patch.balance}
+                        summary={patch.balance}
                       />
                     ) : (
                       <div
                         className="prose-mlbb"
-                        dangerouslySetInnerHTML={{ __html: assainirHtml(section.html) }}
+                        dangerouslySetInnerHTML={{ __html: cleanHtml(section.html) }}
                       />
                     )}
                   </div>
                 </section>
               ))}
 
-              <CreditWiki
+              <WikiCredit
                 t={t}
                 href={patch.link}
-                cle={traduit ? "pages.patchNotes.creditTranslated" : "pages.patchNotes.credit"}
+                messageKey={translated ? "pages.patchNotes.creditTranslated" : "pages.patchNotes.credit"}
                 className="mt-12 border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500"
               />
             </article>
@@ -250,19 +250,19 @@ export default async function PagePatch({ params }: Params) {
   const a = article("patch-notes", slug, locale);
   if (!a) notFound();
 
-  const donneesStructurees = donneesBillet(a, `/patch-notes/${slug}`, locale);
+  const structuredData = postData(a, `/patch-notes/${slug}`, locale);
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <CorpsArticle
-        langue={locale}
+      <BodyArticle
+        locale={locale}
         article={a}
-        html={enHtml(a.content)}
-        retour={{ href: "/patch-notes", label: t("pages.patchNotes.all") }}
+        html={toHtml(a.content)}
+        back={{ href: "/patch-notes", label: t("pages.patchNotes.all") }}
       />
     </>
   );

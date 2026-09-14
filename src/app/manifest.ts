@@ -4,8 +4,8 @@ import { site } from "@/lib/site";
 /** Manifeste : permet l'ajout a l'ecran d'accueil sur mobile. */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: site.titre,
-    short_name: site.nom,
+    name: site.title,
+    short_name: site.name,
     description: site.description,
     start_url: "/",
     display: "standalone",

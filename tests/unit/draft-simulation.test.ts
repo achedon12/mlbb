@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import type { MesuresRang } from "@/lib/composition";
-import type { HerosDraft } from "@/lib/draft";
+import type { MeasuresRank } from "@/lib/composition";
+import type { DraftHero } from "@/lib/draft";
 import {
   botMove,
   DEFAULT_SETTINGS,
@@ -29,27 +29,27 @@ import {
 } from "@/lib/draft-simulation";
 import type { Lane } from "@/lib/types";
 
-const hero = (slug: string, lanes: Lane[], o: Partial<HerosDraft> = {}): HerosDraft => ({
+const hero = (slug: string, lanes: Lane[], o: Partial<DraftHero> = {}): DraftHero => ({
   slug,
-  nom: slug.toUpperCase(),
+  name: slug.toUpperCase(),
   lanes,
   roles: ["Fighter"],
-  icone: null,
-  victoire: 50,
-  fortContre: [],
-  faibleContre: [],
+  icon: null,
+  win: 50,
+  strongAgainst: [],
+  weakAgainst: [],
   synergies: [],
   ...o,
 });
 
 /** Twenty-five heroes, five per lane: enough for a whole draft. */
-const ROSTER_LANES: Lane[] = ["Or", "Jungle", "Milieu", "Experience", "Roam"];
-const roster: HerosDraft[] = ROSTER_LANES.flatMap((lane) =>
+const ROSTER_LANES: Lane[] = ["Gold", "Jungle", "Mid", "Exp", "Roam"];
+const roster: DraftHero[] = ROSTER_LANES.flatMap((lane) =>
   Array.from({ length: 5 }, (_, i) => hero(`${lane.toLowerCase()}-${i}`, [lane])),
 );
 const known = new Set(roster.map((h) => h.slug));
 
-const emptyMeasures = (o: Partial<MesuresRang> = {}): MesuresRang => ({
+const emptyMeasures = (o: Partial<MeasuresRank> = {}): MeasuresRank => ({
   rang: "mythic",
   stats: {},
   tranches: [],
@@ -63,8 +63,8 @@ const outline = (turns: Turn[]) => turns.map((t) => `${t.side[0]}${t.action[0]}`
 
 /** A whole legal draft for the given table: empty bans, one hero per lane on each side. */
 function finished(turns: Turn[]): Choice[] {
-  const blue = ["or-0", "jungle-0", "milieu-0", "experience-0", "roam-0"];
-  const red = ["or-1", "jungle-1", "milieu-1", "experience-1", "roam-1"];
+  const blue = ["gold-0", "jungle-0", "mid-0", "exp-0", "roam-0"];
+  const red = ["gold-1", "jungle-1", "mid-1", "exp-1", "roam-1"];
   return turns.map((t) => (t.action === "ban" ? null : (t.side === "blue" ? blue : red)[t.number - 1]));
 }
 
@@ -117,49 +117,49 @@ describe("playing a draft", () => {
 
   it("a side may ban the hero the other side banned during simultaneous bans", () => {
     let choices: Choice[] = [];
-    for (const slug of ["or-0", "or-1", "or-2", "or-0"]) choices = play(turns, choices, slug, known)!;
-    expect(choices).toEqual(["or-0", "or-1", "or-2", "or-0"]);
+    for (const slug of ["gold-0", "gold-1", "gold-2", "gold-0"]) choices = play(turns, choices, slug, known)!;
+    expect(choices).toEqual(["gold-0", "gold-1", "gold-2", "gold-0"]);
     // But not the same hero twice on its own side.
-    expect(play(turns, choices, "or-0", known)).toBeNull();
+    expect(play(turns, choices, "gold-0", known)).toBeNull();
   });
 
   it("both sides' bans apply once the round is over", () => {
-    const choices = ["or-0", "or-1", "or-2", "jungle-0", "jungle-1", "jungle-2"];
+    const choices = ["gold-0", "gold-1", "gold-2", "jungle-0", "jungle-1", "jungle-2"];
     expect([...unavailableHeroes(turns, choices, turns[6])].sort()).toEqual([
+      "gold-0",
+      "gold-1",
+      "gold-2",
       "jungle-0",
       "jungle-1",
       "jungle-2",
-      "or-0",
-      "or-1",
-      "or-2",
     ]);
-    expect(play(turns, choices, "or-1", known)).toBeNull();
-    expect(play(turns, choices, "or-3", known)).toEqual([...choices, "or-3"]);
+    expect(play(turns, choices, "gold-1", known)).toBeNull();
+    expect(play(turns, choices, "gold-3", known)).toEqual([...choices, "gold-3"]);
   });
 
   it("only a ban may stay empty; an unknown hero is refused", () => {
-    const bans = ["or-0", null, "or-2", null, null, null];
+    const bans = ["gold-0", null, "gold-2", null, null, null];
     expect(replay(turns, bans, known)).toEqual(bans);
     expect(play(turns, bans, null, known)).toBeNull();
     expect(play(turns, bans, "unknown", known)).toBeNull();
   });
 
   it("the state sorts bans and picks by side and knows the current turn", () => {
-    const choices = ["or-0", null, "or-2", "or-3", "or-4", null, "jungle-0", "roam-0"];
+    const choices = ["gold-0", null, "gold-2", "gold-3", "gold-4", null, "jungle-0", "roam-0"];
     const state = draftState(turns, choices);
-    expect(state.bans).toEqual({ blue: ["or-0", null, "or-2"], red: ["or-3", "or-4", null] });
+    expect(state.bans).toEqual({ blue: ["gold-0", null, "gold-2"], red: ["gold-3", "gold-4", null] });
     expect(state.picks).toEqual({ blue: ["jungle-0"], red: ["roam-0"] });
     expect(state.current).toMatchObject({ side: "red", action: "pick", number: 2 });
     expect(draftState(turns, replay(turns, finished(turns), known)).current).toBeNull();
   });
 
   it("replay stops at the first illegal move", () => {
-    expect(replay(turns, ["or-0", "or-0", "or-1"], known)).toEqual(["or-0"]);
+    expect(replay(turns, ["gold-0", "gold-0", "gold-1"], known)).toEqual(["gold-0"]);
   });
 
   it("undo goes back to the player's last move, over the bot's", () => {
     const isHuman = (t: Turn) => playedBy({ bot: true, control: "blue" }, t) === "player";
-    const choices = ["or-0", "or-1", "or-2", "or-3", "or-4", null, "jungle-0", "roam-0", "roam-1"];
+    const choices = ["gold-0", "gold-1", "gold-2", "gold-3", "gold-4", null, "jungle-0", "roam-0", "roam-1"];
     expect(undo(turns, choices, isHuman)).toEqual(choices.slice(0, 6));
     expect(undo(turns, [], isHuman)).toEqual([]);
     expect(playedBy({ bot: false, control: "blue" }, turns[3])).toBe("player");
@@ -172,15 +172,15 @@ describe("shareable address", () => {
   const settings: Settings = { format: "tournament", rank: "glory", control: "red", bot: false, timer: "game", seed: 42 };
 
   it("writes then reads back the draft and its settings", () => {
-    const choices: Choice[] = ["or-0", null, "jungle-0"];
+    const choices: Choice[] = ["gold-0", null, "jungle-0"];
     const query = writeSimulation("?x=1", settings, choices);
-    expect(query).toBe("x=1&mode=simulator&format=tournament&rank=glory&side=red&bot=0&timer=game&seed=42&draft=or-0,_,jungle-0");
+    expect(query).toBe("x=1&mode=simulator&format=tournament&rank=glory&side=red&bot=0&timer=game&seed=42&draft=gold-0,_,jungle-0");
     expect(readSimulation(`?${query}`, known, ["all", "glory"])).toEqual({ settings, choices });
   });
 
   it("without ?mode=simulator the page stays on the draft assistant", () => {
     expect(readSimulation("?format=ranked", known, ["mythic"])).toBeNull();
-    expect(writeAssistant("?x=1&mode=simulator&draft=or-0&seed=3")).toBe("x=1");
+    expect(writeAssistant("?x=1&mode=simulator&draft=gold-0&seed=3")).toBe("x=1");
   });
 
   it("unknown values fall back to the default settings", () => {
@@ -195,17 +195,17 @@ describe("shareable address", () => {
 
 describe("bot", () => {
   const meta = [
-    "or-0",
+    "gold-0",
     "jungle-0",
-    "milieu-0",
+    "mid-0",
     "roam-0",
-    "experience-0",
-    "or-1",
+    "exp-0",
+    "gold-1",
     "jungle-1",
-    "milieu-1",
+    "mid-1",
     "roam-1",
-    "experience-1",
-    "or-2",
+    "exp-1",
+    "gold-2",
     "jungle-2",
   ].map((slug) => ({ slug, tier: "S" as const, banRate: 20, winRate: 52 }));
   const ctx = (o: Partial<BotContext> = {}): BotContext => ({ catalog: roster, measures: null, meta, seed: 7, ...o });
@@ -245,60 +245,60 @@ describe("bot", () => {
 
   it("picks the measured counter to an enemy pick, and gives the points", () => {
     const turns = expandTurns(sequence("tournament", "mythic"));
-    // Empty bans, then blue takes or-0; red answers.
-    const choices: Choice[] = [...Array(10).fill(null), "or-0"];
-    const measures = emptyMeasures({ faible: { "or-0": [["jungle-3", -3.2]] } });
+    // Empty bans, then blue takes gold-0; red answers.
+    const choices: Choice[] = [...Array(10).fill(null), "gold-0"];
+    const measures = emptyMeasures({ faible: { "gold-0": [["jungle-3", -3.2]] } });
     const [best] = rankPicks(turns, choices, turns[choices.length], ctx({ measures }));
     expect(best.slug).toBe("jungle-3");
-    expect(best.reason).toEqual({ type: "counter", targets: ["or-0"], points: 3.2 });
+    expect(best.reason).toEqual({ type: "counter", targets: ["gold-0"], points: 3.2 });
     expect(best.lane).toBe("Jungle");
   });
 
   it("prefers a measured duo with its own picks", () => {
     const turns = expandTurns(sequence("tournament", "mythic"));
-    const choices: Choice[] = [...Array(10).fill(null), "or-0", "or-1", "roam-1"];
-    const measures = emptyMeasures({ coequipiers: { "or-0": [["milieu-4", 2.1]] } });
+    const choices: Choice[] = [...Array(10).fill(null), "gold-0", "gold-1", "roam-1"];
+    const measures = emptyMeasures({ coequipiers: { "gold-0": [["mid-4", 2.1]] } });
     const [best] = rankPicks(turns, choices, turns[choices.length], ctx({ measures }));
-    expect(best).toMatchObject({ slug: "milieu-4", reason: { type: "duo", partners: ["or-0"], points: 2.1 } });
+    expect(best).toMatchObject({ slug: "mid-4", reason: { type: "duo", partners: ["gold-0"], points: 2.1 } });
   });
 
   it("falls back on wiki relations when nothing is measured", () => {
-    const catalog = roster.map((h) => (h.slug === "roam-2" ? { ...h, fortContre: ["or-0"] } : h));
+    const catalog = roster.map((h) => (h.slug === "roam-2" ? { ...h, strongAgainst: ["gold-0"] } : h));
     const turns = expandTurns(sequence("tournament", "mythic"));
-    const choices: Choice[] = [...Array(10).fill(null), "or-0"];
+    const choices: Choice[] = [...Array(10).fill(null), "gold-0"];
     const [best] = rankPicks(turns, choices, turns[choices.length], ctx({ catalog }));
-    expect(best).toMatchObject({ slug: "roam-2", reason: { type: "counter", targets: ["or-0"], points: null } });
+    expect(best).toMatchObject({ slug: "roam-2", reason: { type: "counter", targets: ["gold-0"], points: null } });
   });
 
   it("on timeout, a ban stays empty and a pick is drawn among open lanes", () => {
     const turns = expandTurns(sequence("tournament", "mythic"));
     expect(timeoutMove(turns, [], roster, 3)).toEqual({ slug: null, reason: { type: "skipped" }, lane: null });
-    const choices: Choice[] = [...Array(10).fill(null), "or-0", "or-1", "jungle-1"];
+    const choices: Choice[] = [...Array(10).fill(null), "gold-0", "gold-1", "jungle-1"];
     const move = timeoutMove(turns, choices, roster, 3)!;
     expect(move.reason).toEqual({ type: "random" });
-    expect(move.slug?.startsWith("or-")).toBe(false);
+    expect(move.slug?.startsWith("gold-")).toBe(false);
     expect(play(turns, choices, move.slug, known)).not.toBeNull();
   });
 });
 
 describe("summary", () => {
   const measures = emptyMeasures({
-    // or-0 (blue) loses 3 points to or-1 (red); jungle-1 (red) loses 1 point to jungle-0 (blue).
-    faible: { "or-0": [["or-1", -3]], "jungle-1": [["jungle-0", -1]], "or-1": [["or-0", -1]] },
-    coequipiers: { "or-0": [["jungle-0", 2]] },
+    // gold-0 (blue) loses 3 points to gold-1 (red); jungle-1 (red) loses 1 point to jungle-0 (blue).
+    faible: { "gold-0": [["gold-1", -3]], "jungle-1": [["jungle-0", -1]], "gold-1": [["gold-0", -1]] },
+    coequipiers: { "gold-0": [["jungle-0", 2]] },
   });
 
   it("reads each matchup both ways, from the blue side", () => {
-    expect(matchupsBetween(["or-0", "jungle-0"], ["or-1", "jungle-1"], measures)).toEqual([
-      { blue: "or-0", red: "or-1", points: -1 },
+    expect(matchupsBetween(["gold-0", "jungle-0"], ["gold-1", "jungle-1"], measures)).toEqual([
+      { blue: "gold-0", red: "gold-1", points: -1 },
       { blue: "jungle-0", red: "jungle-1", points: 1 },
     ]);
   });
 
   it("gives a bounded index in points, and the number of measurements behind it", () => {
-    const a = measuredAdvantage(["or-0", "jungle-0"], ["or-1", "jungle-1"], measures);
+    const a = measuredAdvantage(["gold-0", "jungle-0"], ["gold-1", "jungle-1"], measures);
     expect(a).toEqual({ counters: 0, duos: { blue: 2, red: 0 }, total: 2, blueShare: 0.6, measures: 3 });
-    const crushed = measuredAdvantage(["or-0"], ["or-1"], emptyMeasures({ faible: { "or-1": [["or-0", -40]] } }));
+    const crushed = measuredAdvantage(["gold-0"], ["gold-1"], emptyMeasures({ faible: { "gold-1": [["gold-0", -40]] } }));
     expect(crushed.blueShare).toBe(0.95);
   });
 });

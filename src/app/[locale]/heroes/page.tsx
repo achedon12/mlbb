@@ -1,86 +1,86 @@
 import type { Metadata } from "next";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesLd } from "@/lib/html";
-import { ListeHeros } from "@/components/liste-heros";
-import { EnTetePage } from "@/components/ui";
-import { heros, herosAnalyses, nombreSkins } from "@/lib/donnees";
-import { classementComplet, tauxParSlug } from "@/lib/tier-list";
-import { dateLongue, dateMesure, listeNoms, patchActuel } from "@/lib/fraicheur";
-import type { Langue } from "@/i18n/config";
-import { creerT, messagesPage } from "@/i18n/traductions";
-import { donneesListeHeros, metaPage } from "@/i18n/seo";
+import { ExtendMessages } from "@/i18n/provider";
+import { serializeJsonLd } from "@/lib/html";
+import { HeroList } from "@/components/hero-list";
+import { PageHeader } from "@/components/ui";
+import { allHeroes, heroAnalyses, countSkins } from "@/lib/data";
+import { rankingFull, rateBySlug } from "@/lib/tier-list";
+import { longDate, dateMeasure, listNames, patchCurrent } from "@/lib/freshness";
+import type { Locale } from "@/i18n/config";
+import { createT, messagesPage } from "@/i18n/translations";
+import { heroListData, metaPage } from "@/i18n/seo";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 /** Description en donnees : effectif, patch et date du releve, trois premiers de la tier list. */
-function descriptionCatalogue(locale: Langue): string {
-  const t = creerT(locale);
+function descriptionCatalog(locale: Locale): string {
+  const t = createT(locale);
   return t("pages.seo.heroes.description", {
-    n: heros.length,
-    v: patchActuel.version,
-    date: dateLongue(locale),
-    top: listeNoms(locale, classementComplet.slice(0, 3).map((e) => e.hero.name)),
-    skins: nombreSkins,
-    analyses: herosAnalyses.length,
+    n: allHeroes.length,
+    v: patchCurrent.version,
+    date: longDate(locale),
+    top: listNames(locale, rankingFull.slice(0, 3).map((e) => e.hero.name)),
+    skins: countSkins,
+    analyses: heroAnalyses.length,
   });
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.heroes.title", { n: heros.length, v: patchActuel.version }),
-    description: descriptionCatalogue(locale),
-    partage: t("pages.heroes.ogDescription", { heros: heros.length, skins: nombreSkins }),
-    chemin: "/heroes",
+    title: t("pages.seo.heroes.title", { n: allHeroes.length, v: patchCurrent.version }),
+    description: descriptionCatalog(locale),
+    share: t("pages.heroes.ogDescription", { heros: allHeroes.length, skins: countSkins }),
+    path: "/heroes",
   });
 }
 
-export default async function PageHeros({ params }: Params) {
+export default async function HeroPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
 
-  const donneesStructurees = donneesListeHeros(locale, {
-    nom: t("pages.heroes.listLd"),
-    description: descriptionCatalogue(locale),
-    chemin: "/heroes",
-    heros: heros.map((h) => ({ nom: h.name, slug: h.slug })),
-    modifie: dateMesure,
+  const structuredData = heroListData(locale, {
+    name: t("pages.heroes.listLd"),
+    description: descriptionCatalog(locale),
+    path: "/heroes",
+    heroes: allHeroes.map((h) => ({ name: h.name, slug: h.slug })),
+    changed: dateMeasure,
   });
 
   // On n'envoie au client que les champs affiches par les vignettes.
-  const apercus = heros.map((h) => {
-    const taux = tauxParSlug.get(h.slug);
+  const previews = allHeroes.map((h) => {
+    const rate = rateBySlug.get(h.slug);
     return {
       slug: h.slug,
-      nom: h.name,
+      name: h.name,
       roles: h.roles,
       lanes: h.lanes,
       portrait: h.images.icon ?? h.images.portrait,
       skins: h.skins.length,
-      analyse: h.analysis !== null,
-      victoire: taux?.victoire ?? null,
-      palier: taux?.palier ?? null,
+      analysis: h.analysis !== null,
+      win: rate?.win ?? null,
+      tier: rate?.tier ?? null,
     };
   });
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.heroesList"])}>
+    <ExtendMessages messages={messagesPage(locale, ["pages.heroesList"])}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <EnTetePage
-        titre={t("pages.heroes.title")}
-        chapeau={t("pages.heroes.lead", {
-          heros: heros.length,
-          skins: nombreSkins,
-          analyses: herosAnalyses.length,
+      <PageHeader
+        title={t("pages.heroes.title")}
+        lead={t("pages.heroes.lead", {
+          heros: allHeroes.length,
+          skins: countSkins,
+          analyses: heroAnalyses.length,
         })}
       />
       <div className="mx-auto max-w-6xl px-4 py-12">
-        <ListeHeros heros={apercus} />
+        <HeroList heroes={previews} />
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

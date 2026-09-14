@@ -1,30 +1,30 @@
 import type { Metadata } from "next";
 import { BuildSimulatorWithPublishing } from "@/components/build-simulator-publishing";
-import Link from "@/components/lien";
-import { EnTetePage } from "@/components/ui";
+import Link from "@/components/link";
+import { PageHeader } from "@/components/ui";
 import { SOURCE_EMBLEMS } from "@/data/emblem-attributes";
-import type { Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
+import type { Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT, messagesPage } from "@/i18n/translations";
 import { simulatorData } from "@/lib/build-catalog";
 import { SOURCES } from "@/lib/build-simulator";
-import { dateLongue } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
+import { longDate } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/tools/build";
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.buildSimulator.title"),
+    title: t("pages.seo.buildSimulator.title"),
     description: t("pages.seo.buildSimulator.description"),
-    chemin: PATH,
-    motsCles: ["build", "simulator", "calculator", "items", "emblems", "stats", "Mobile Legends", "MLBB"],
+    path: PATH,
+    keywords: ["build", "simulator", "calculator", "items", "emblems", "stats", "Mobile Legends", "MLBB"],
   });
 }
 
@@ -35,24 +35,24 @@ const wikiPage = (url: string) => decodeURIComponent(url.split("/wiki/")[1] ?? u
 
 export default async function BuildSimulatorPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const data = simulatorData(locale, t);
-  const structuredData = donneesOutil(locale, {
-    nom: t("pages.buildSimulator.title"),
+  const structuredData = dataTool(locale, {
+    name: t("pages.buildSimulator.title"),
     description: t("pages.seo.buildSimulator.description"),
-    chemin: PATH,
-    categorie: "GameApplication",
+    path: PATH,
+    category: "GameApplication",
   });
   const sources = [...Object.values(SOURCES), SOURCE_EMBLEMS];
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
-      <EnTetePage titre={t("pages.buildSimulator.title")} chapeau={t("pages.buildSimulator.lead")} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.buildSimulator.title")} lead={t("pages.buildSimulator.lead")} />
       <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
-        <CompleterMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
-          <BuildSimulatorWithPublishing data={data} pageUrl={`${site.url}/${locale}${PATH}`} measuredDate={dateLongue(locale)} />
-        </CompleterMessages>
+        <ExtendMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
+          <BuildSimulatorWithPublishing data={data} pageUrl={`${site.url}/${locale}${PATH}`} measuredDate={longDate(locale)} />
+        </ExtendMessages>
 
         <section aria-labelledby="method-title" className="max-w-3xl">
           <h2 id="method-title" className={sectionTitle}>

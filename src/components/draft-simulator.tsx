@@ -2,13 +2,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Play, RotateCcw, Settings2, SkipForward, Undo2 } from "lucide-react";
-import { ChampRecherche } from "@/components/champ-recherche";
-import { VignetteHeros } from "@/components/choix-heros";
+import { SearchField } from "@/components/search-field";
+import { HeroThumb } from "@/components/hero-picker";
 import { DraftSummary, useNumberFormats, type NumberFormats } from "@/components/draft-summary";
-import { classesPuce } from "@/components/puce";
-import { useT } from "@/i18n/fournisseur";
+import { classesChip } from "@/components/chip";
+import { useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
-import { TAILLE_EQUIPE, type MesuresRang, type TypeDegats } from "@/lib/composition";
+import { SIZE_TEAM, type MeasuresRank, type TypeDamage } from "@/lib/composition";
 import { LANES, ROLES } from "@/lib/draft";
 import {
   bansPerSide,
@@ -46,9 +46,9 @@ import {
   type SimulationHero,
   type Turn,
 } from "@/lib/draft-simulation";
-import type { RangMesure } from "@/lib/rangs-mesure";
+import type { MeasuredRank } from "@/lib/measured-ranks";
 import type { Lane, Role } from "@/lib/types";
-import { cleRecherche, cn } from "@/lib/utils";
+import { keySearch, cn } from "@/lib/utils";
 
 /**
  * Draft simulator: settings, board of both teams, roster grid, bot and
@@ -58,14 +58,14 @@ import { cleRecherche, cn } from "@/lib/utils";
  */
 
 /** Requests already made, per rank: going back to a rank reloads nothing. */
-const requests = new Map<RangMesure, Promise<MesuresRang>>();
+const requests = new Map<MeasuredRank, Promise<MeasuresRank>>();
 
-function loadMeasures(rank: RangMesure): Promise<MesuresRang> {
+function loadMeasures(rank: MeasuredRank): Promise<MeasuresRank> {
   let request = requests.get(rank);
   if (!request) {
     request = fetch(`/composition/${rank}.json`).then((r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json() as Promise<MesuresRang>;
+      return r.json() as Promise<MeasuresRank>;
     });
     // A failure is not kept: going back to the rank tries again.
     request.catch(() => requests.delete(rank));
@@ -96,9 +96,9 @@ export function DraftSimulator({
   active,
 }: {
   heroes: SimulationHero[];
-  ranks: RangMesure[];
-  meta: Partial<Record<RangMesure, MetaEntry[]>>;
-  damageLabels: Record<TypeDegats, string>;
+  ranks: MeasuredRank[];
+  meta: Partial<Record<MeasuredRank, MetaEntry[]>>;
+  damageLabels: Record<TypeDamage, string>;
   /** False while the tab is hidden: no bot, no timer, no address rewrite. */
   active: boolean;
 }) {
@@ -109,14 +109,14 @@ export function DraftSimulator({
   const [choices, setChoices] = useState<Choice[]>([]);
   /** Reason of every bot or timer move, by turn index. */
   const [reasons, setReasons] = useState<Record<number, BotMove>>({});
-  const [loaded, setLoaded] = useState<Partial<Record<RangMesure, MesuresRang | "error">>>({});
+  const [loaded, setLoaded] = useState<Partial<Record<MeasuredRank, MeasuresRank | "error">>>({});
   const [search, setSearch] = useState("");
   const [laneFilter, setLaneFilter] = useState<Lane | null>(null);
   const [role, setRole] = useState<Role | null>(null);
 
   const known = useMemo(() => new Set(heroes.map((h) => h.slug)), [heroes]);
   const bySlug = useMemo(() => new Map(heroes.map((h) => [h.slug, h])), [heroes]);
-  const nameOf = (slug: string) => bySlug.get(slug)?.nom ?? slug;
+  const nameOf = (slug: string) => bySlug.get(slug)?.name ?? slug;
   const turns = useMemo(() => expandTurns(sequence(settings.format, settings.rank)), [settings.format, settings.rank]);
   const state = draftState(turns, choices);
   const turn = started ? state.current : null;
@@ -227,12 +227,12 @@ export function DraftSimulator({
   // Cheap enough per render; the React Compiler memoizes what is worth it.
   const excluded = turn ? unavailableHeroes(turns, choices, turn) : new Set<string>();
   const results = useMemo(() => {
-    const term = cleRecherche(search.trim());
+    const term = keySearch(search.trim());
     return heroes
       .filter((h) => !laneFilter || h.lanes.includes(laneFilter))
       .filter((h) => !role || h.roles.includes(role))
-      .filter((h) => !term || cleRecherche(h.nom).includes(term))
-      .sort((a, b) => a.nom.localeCompare(b.nom, "fr"));
+      .filter((h) => !term || keySearch(h.name).includes(term))
+      .sort((a, b) => a.name.localeCompare(b.name, "fr"));
   }, [heroes, laneFilter, role, search]);
 
   const hints = !turn || !mine ? [] : turn.action === "ban" ? rankBans(turns, choices, turn, ctx) : rankPicks(turns, choices, turn, ctx);
@@ -252,7 +252,7 @@ export function DraftSimulator({
   const timer = turn && mine ? turnTimer(settings.timer, turn.action) : null;
   const sideName = (s: Side) => t(`pages.draftSimulatorUI.sides.${s}`);
   const turnText = (tr: Turn) =>
-    t(`pages.draftSimulatorUI.turnAction.${tr.action}`, { k: tr.number, n: tr.action === "ban" ? banCount : TAILLE_EQUIPE });
+    t(`pages.draftSimulatorUI.turnAction.${tr.action}`, { k: tr.number, n: tr.action === "ban" ? banCount : SIZE_TEAM });
 
   // Live region: the last move, then whose turn it is.
   const announce: string[] = [];
@@ -376,7 +376,7 @@ export function DraftSimulator({
                         aria-label={t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: nameOf(c.slug) })}
                         className="bevel-sm flex min-h-11 w-full items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 text-left transition-colors hover:border-gold-500/60"
                       >
-                        {h && <VignetteHeros heros={h} />}
+                        {h && <HeroThumb hero={h} />}
                         <span className="min-w-0 flex-1">
                           <span className="block truncate font-heading font-bold text-chalk-100">{nameOf(c.slug)}</span>
                           <span className="block text-xs leading-snug text-chalk-300">
@@ -418,7 +418,7 @@ export function DraftSimulator({
                 if (playable.length === 1) playerMove(playable[0].slug);
               }}
             >
-              <ChampRecherche dense valeur={search} onChange={setSearch} libelle={t("pages.draftSimulatorUI.search")} />
+              <SearchField dense value={search} onChange={setSearch} label={t("pages.draftSimulatorUI.search")} />
             </form>
             <ChoiceRow
               legend={t("draftUI.laneFilter")}
@@ -450,8 +450,8 @@ export function DraftSimulator({
                       onClick={() => playerMove(h.slug)}
                       aria-label={
                         taken
-                          ? t("pages.draftSimulatorUI.unavailable", { name: h.nom })
-                          : t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: h.nom })
+                          ? t("pages.draftSimulatorUI.unavailable", { name: h.name })
+                          : t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: h.name })
                       }
                       className={cn(
                         "bevel-sm flex min-h-11 w-full flex-col items-center gap-1 border border-night-700/70 p-1.5 text-center transition-colors",
@@ -460,8 +460,8 @@ export function DraftSimulator({
                         !taken && !mine && "opacity-60",
                       )}
                     >
-                      <VignetteHeros heros={h} />
-                      <span className="w-full truncate text-[0.7rem] text-chalk-100">{h.nom}</span>
+                      <HeroThumb hero={h} />
+                      <span className="w-full truncate text-[0.7rem] text-chalk-100">{h.name}</span>
                     </button>
                   </li>
                 );
@@ -530,7 +530,7 @@ function reasonText(
   t: T,
   f: NumberFormats,
   nameOf: (slug: string) => string,
-  rank: RangMesure,
+  rank: MeasuredRank,
 ): string {
   switch (r.type) {
     case "meta":
@@ -563,7 +563,7 @@ function SettingsScreen({
   onStart,
 }: {
   settings: Settings;
-  ranks: RangMesure[];
+  ranks: MeasuredRank[];
   onChange: (v: Partial<Settings>) => void;
   onStart: () => void;
 }) {
@@ -708,7 +708,7 @@ function ChoiceRow<V extends string>({
           type="button"
           aria-pressed={selected === null}
           onClick={() => onChange(null)}
-          className={cn(classesPuce(selected === null), "min-h-11")}
+          className={cn(classesChip(selected === null), "min-h-11")}
         >
           {all}
         </button>
@@ -719,7 +719,7 @@ function ChoiceRow<V extends string>({
           type="button"
           aria-pressed={selected === v}
           onClick={() => onChange(all !== undefined && selected === v ? null : v)}
-          className={cn(classesPuce(selected === v), "min-h-11")}
+          className={cn(classesChip(selected === v), "min-h-11")}
         >
           {labelOf(v)}
         </button>
@@ -779,7 +779,7 @@ function TeamColumn({
           const masked = played && hidden(tr.index);
           const h = played && c && !masked ? bySlug.get(c) : null;
           const slotState = h
-            ? h.nom
+            ? h.name
             : masked
               ? t("pages.draftSimulatorUI.hiddenBan")
               : played
@@ -802,7 +802,7 @@ function TeamColumn({
               >
                 {h ? (
                   <span className="grayscale">
-                    <VignetteHeros heros={h} petite />
+                    <HeroThumb hero={h} small />
                   </span>
                 ) : masked ? (
                   "?"
@@ -834,9 +834,9 @@ function TeamColumn({
               <span className="sr-only">{t("pages.draftSimulatorUI.pickSlot", { k: tr.number })} :</span>
               {h ? (
                 <>
-                  <VignetteHeros heros={h} petite />
+                  <HeroThumb hero={h} small />
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-xs font-semibold text-chalk-100 sm:text-sm">{h.nom}</span>
+                    <span className="block truncate text-xs font-semibold text-chalk-100 sm:text-sm">{h.name}</span>
                     {lane && <span className="block truncate text-[0.65rem] text-chalk-500 sm:text-xs">{t(`lanes.${lane}`)}</span>}
                   </span>
                 </>

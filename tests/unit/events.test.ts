@@ -1,39 +1,39 @@
 import { describe, expect, it } from "vitest";
-import type { SkinCatalogue } from "@/lib/catalogue-skins";
+import type { SkinCatalog } from "@/lib/skin-catalog";
 import { buildMonths, isMonth, monthOfRelease, monthStatus, neighbours, obtainMode, shiftMonth } from "@/lib/events";
 import { attachHeroes, level2Section, nameKey, readGallery, sortEntries } from "../../scripts/events.mjs";
 
-const skin = (o: Partial<SkinCatalogue>): SkinCatalogue => ({
+const skin = (o: Partial<SkinCatalog>): SkinCatalog => ({
   id: "1",
-  nom: "Skin",
-  heros: "miya",
-  rarete: 3,
-  serie: null,
-  sortie: "2025-05-01",
-  dispo: "Limited",
-  prix: {},
-  obtention: null,
+  name: "Skin",
+  hero: "miya",
+  rarity: 3,
+  series: null,
+  release: "2025-05-01",
+  availability: "Limited",
+  price: {},
+  acquisition: null,
   image: null,
-  ancre: "skin-skin",
+  anchor: "skin-skin",
   ...o,
 });
 
 describe("obtainMode", () => {
   it("recognises StarLight by its label or by its obtain text", () => {
-    expect(obtainMode(skin({ serie: "StarLight" }))).toBe("starlight");
-    expect(obtainMode(skin({ obtention: "2025/05 StarLight Member" }))).toBe("starlight");
+    expect(obtainMode(skin({ series: "StarLight" }))).toBe("starlight");
+    expect(obtainMode(skin({ acquisition: "2025/05 StarLight Member" }))).toBe("starlight");
   });
   it("sorts Collector, passes, shop and events", () => {
-    expect(obtainMode(skin({ serie: "Collector" }))).toBe("collector");
-    expect(obtainMode(skin({ obtention: "M5 Pass" }))).toBe("pass");
-    expect(obtainMode(skin({ obtention: "S36 First Recharge", prix: { dm: 50 } }))).toBe("pass");
-    expect(obtainMode(skin({ serie: "S37" }))).toBe("pass");
-    expect(obtainMode(skin({ prix: { dm: 899 } }))).toBe("shop");
-    expect(obtainMode(skin({ serie: "Legend", prix: { mc: 200 } }))).toBe("event");
-    expect(obtainMode(skin({ serie: "Naruto" }))).toBe("event");
+    expect(obtainMode(skin({ series: "Collector" }))).toBe("collector");
+    expect(obtainMode(skin({ acquisition: "M5 Pass" }))).toBe("pass");
+    expect(obtainMode(skin({ acquisition: "S36 First Recharge", price: { dm: 50 } }))).toBe("pass");
+    expect(obtainMode(skin({ series: "S37" }))).toBe("pass");
+    expect(obtainMode(skin({ price: { dm: 899 } }))).toBe("shop");
+    expect(obtainMode(skin({ series: "Legend", price: { mc: 200 } }))).toBe("event");
+    expect(obtainMode(skin({ series: "Naruto" }))).toBe("event");
   });
   it("does not mistake Annual StarLight for the StarLight of the month", () => {
-    expect(obtainMode(skin({ serie: "Annual StarLight" }))).toBe("event");
+    expect(obtainMode(skin({ series: "Annual StarLight" }))).toBe("event");
   });
 });
 
@@ -66,24 +66,24 @@ describe("months", () => {
 });
 
 describe("buildMonths", () => {
-  const chic = skin({ id: "106011", nom: "Chic Glamour", heros: "hanabi", serie: "StarLight", sortie: "2025-01" });
-  const gaara = skin({ id: "2", nom: "Gaara", heros: "vale", serie: "Naruto", sortie: "2025-05-02" });
-  const epic = skin({ id: "3", nom: "Epic", heros: "vale", sortie: "2025-05-10", prix: { dm: 899 } });
-  const old = skin({ id: "4", nom: "Old", sortie: "2022" });
+  const fancy = skin({ id: "106011", name: "Chic Glamour", hero: "hanabi", series: "StarLight", release: "2025-01" });
+  const gaara = skin({ id: "2", name: "Gaara", hero: "vale", series: "Naruto", release: "2025-05-02" });
+  const epic = skin({ id: "3", name: "Epic", hero: "vale", release: "2025-05-10", price: { dm: 899 } });
+  const old = skin({ id: "4", name: "Old", release: "2022" });
 
   const months = buildMonths({
-    released: [chic, gaara, epic, old],
-    lists: [{ mode: "starlight", month: "2025-09", skin: chic }],
+    released: [fancy, gaara, epic, old],
+    lists: [{ mode: "starlight", month: "2025-09", skin: fancy }],
     noCollector: ["2025-09", "2025-06"],
   });
 
   it("puts a listed skin in the list's month, not the module's", () => {
     expect(months.map((m) => m.month)).toEqual(["2025-09", "2025-05"]);
-    expect(months[0].starlight.map((s) => s.nom)).toEqual(["Chic Glamour"]);
+    expect(months[0].starlight.map((s) => s.name)).toEqual(["Chic Glamour"]);
   });
   it("groups other releases by mode and counts the total", () => {
-    expect(months[1].others.event.map((s) => s.nom)).toEqual(["Gaara"]);
-    expect(months[1].others.shop.map((s) => s.nom)).toEqual(["Epic"]);
+    expect(months[1].others.event.map((s) => s.name)).toEqual(["Gaara"]);
+    expect(months[1].others.shop.map((s) => s.name)).toEqual(["Epic"]);
     expect(months[1].total).toBe(2);
   });
   it("records a month without Collector without creating an empty month", () => {

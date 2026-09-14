@@ -1,4 +1,4 @@
-import type { Langue } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 
 /**
  * Notifications de patch, cote navigateur.
@@ -11,63 +11,63 @@ import type { Langue } from "@/i18n/config";
  * La permission n'est demandee qu'au clic sur l'interrupteur : jamais au
  * chargement d'une page.
  */
-export type EtatNotifications =
-  | "indisponible" // fonction desactivee sur le serveur : rien a afficher
-  | "non-supporte"
-  | "ios-installer" // iPhone et iPad : seulement une fois le site installe
-  | "refuse"
-  | "inactif"
-  | "actif";
+export type NotificationState =
+  | "unavailable" // fonction desactivee sur le serveur : rien a afficher
+  | "unsupported"
+  | "ios-install" // iPhone et iPad : seulement une fois le site installe
+  | "refused"
+  | "inactive"
+  | "active";
 
-const DRAPEAU = "mlbb_push";
+const FLAG = "mlbb_push";
 
-function lireDrapeau(): boolean {
+function readFlag(): boolean {
   try {
-    return localStorage.getItem(DRAPEAU) === "1";
+    return localStorage.getItem(FLAG) === "1";
   } catch {
     return false;
   }
 }
 
-function poserDrapeau(actif: boolean) {
+function setFlag(active: boolean) {
   try {
-    if (actif) localStorage.setItem(DRAPEAU, "1");
-    else localStorage.removeItem(DRAPEAU);
+    if (active) localStorage.setItem(FLAG, "1");
+    else localStorage.removeItem(FLAG);
   } catch {
     /* stockage indisponible : la synchronisation attendra la page des favoris */
   }
 }
 
-let cle: Promise<string | null> | null = null;
+let key: Promise<string | null> | null = null;
 
 /** Cle publique VAPID, demandee une fois par chargement. */
-export function clePublique(): Promise<string | null> {
-  cle ??= fetch("/api/push", { cache: "no-store" })
+export function publicKey(): Promise<string | null> {
+  key ??= fetch("/api/push", { cache: "no-store" })
     .then((r) => (r.ok ? r.json() : null))
-    .then((d: { cle?: unknown } | null) => (typeof d?.cle === "string" ? d.cle : null))
+    .then((d: { key?: unknown } | null) => (typeof d?.key === "string" ? d.key : null))
     .catch(() => {
-      cle = null; // hors ligne : on reessaiera
+      key = null; // hors ligne : on reessaiera
       return null;
     });
-  return cle;
+  return key;
 }
 
-function estIOS(): boolean {
+function isIOS(): boolean {
   return /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 }
 
-function estInstalle(): boolean {
+function isInstalled(): boolean {
   return (
     window.matchMedia("(display-mode: standalone)").matches ||
     (navigator as Navigator & { standalone?: boolean }).standalone === true
   );
 }
 
-export function supportNavigateur(): "ok" | "non-supporte" | "ios-installer" {
+export function browserSupport(): "ok" | "unsupported" | "ios-install" {
   // Safari sur iOS n'offre les notifications qu'aux sites installes sur l'ecran d'accueil.
-  if (estIOS() && !estInstalle()) return "ios-installer";
-  const complet = "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
-  return complet ? "ok" : "non-supporte";
+  if (isIOS() && !isInstalled()) return "ios-install";
+  const full = "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
+  return full ? "ok" : "unsupported";
 }
 
 /**
@@ -75,118 +75,118 @@ export function supportNavigateur(): "ok" | "non-supporte" | "ios-installer" {
  * En developpement, il n'est enregistre qu'a l'activation, sans son cache —
  * qui generait le rechargement a chaud (voir `public/sw.js`).
  */
-async function enregistrement(creer: boolean): Promise<ServiceWorkerRegistration | null> {
-  const existant = await navigator.serviceWorker.getRegistration("/");
-  if (!existant && !creer) return null;
-  if (!existant) await navigator.serviceWorker.register(process.env.NODE_ENV === "production" ? "/sw.js" : "/sw.js?cache=0");
-  return creer ? navigator.serviceWorker.ready : (existant ?? null);
+async function record(create: boolean): Promise<ServiceWorkerRegistration | null> {
+  const existing = await navigator.serviceWorker.getRegistration("/");
+  if (!existing && !create) return null;
+  if (!existing) await navigator.serviceWorker.register(process.env.NODE_ENV === "production" ? "/sw.js" : "/sw.js?cache=0");
+  return create ? navigator.serviceWorker.ready : (existing ?? null);
 }
 
-async function abonnementCourant(): Promise<PushSubscription | null> {
-  const reg = await enregistrement(false);
+async function currentSubscription(): Promise<PushSubscription | null> {
+  const reg = await record(false);
   return (await reg?.pushManager.getSubscription()) ?? null;
 }
 
 /** Etat affiche par l'interrupteur, sans rien demander a l'utilisateur. */
-export async function etatCourant(): Promise<EtatNotifications> {
-  if (!(await clePublique())) return "indisponible";
-  const support = supportNavigateur();
+export async function stateCurrent(): Promise<NotificationState> {
+  if (!(await publicKey())) return "unavailable";
+  const support = browserSupport();
   if (support !== "ok") return support;
-  if (Notification.permission === "denied") return "refuse";
-  const actif = Notification.permission === "granted" && (await abonnementCourant()) !== null;
-  if (actif) poserDrapeau(true);
-  return actif ? "actif" : "inactif";
+  if (Notification.permission === "denied") return "refused";
+  const active = Notification.permission === "granted" && (await currentSubscription()) !== null;
+  if (active) setFlag(true);
+  return active ? "active" : "inactive";
 }
 
-function octetsDe(base64url: string): Uint8Array<ArrayBuffer> {
+function bytesOf(base64url: string): Uint8Array<ArrayBuffer> {
   const base64 = (base64url + "=".repeat((4 - (base64url.length % 4)) % 4)).replace(/-/g, "+").replace(/_/g, "/");
-  const binaire = atob(base64);
-  const octets = new Uint8Array(new ArrayBuffer(binaire.length));
-  for (let i = 0; i < binaire.length; i += 1) octets[i] = binaire.charCodeAt(i);
-  return octets;
+  const binary = atob(base64);
+  const bytes = new Uint8Array(new ArrayBuffer(binary.length));
+  for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+  return bytes;
 }
 
-function memesOctets(a: ArrayBuffer | null, b: Uint8Array): boolean {
+function sameBytes(a: ArrayBuffer | null, b: Uint8Array): boolean {
   if (!a || a.byteLength !== b.length) return false;
-  const vue = new Uint8Array(a);
-  return vue.every((octet, i) => octet === b[i]);
+  const view = new Uint8Array(a);
+  return view.every((byte, i) => byte === b[i]);
 }
 
-function appeler(methode: "POST" | "PATCH" | "DELETE", corps: object): Promise<Response> {
-  return fetch("/api/push/abonnement", {
-    method: methode,
+function call(method: "POST" | "PATCH" | "DELETE", body: object): Promise<Response> {
+  return fetch("/api/push/subscription", {
+    method,
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(corps),
+    body: JSON.stringify(body),
   });
 }
 
 /** Demande la permission, abonne le navigateur et confie l'abonnement au serveur. */
-export async function activer(langue: Langue, favoris: readonly string[]): Promise<EtatNotifications> {
-  const publique = await clePublique();
-  if (!publique) return "indisponible";
+export async function enable(locale: Locale, favourites: readonly string[]): Promise<NotificationState> {
+  const vapidKey = await publicKey();
+  if (!vapidKey) return "unavailable";
   const permission = await Notification.requestPermission();
-  if (permission === "denied") return "refuse";
-  if (permission !== "granted") return "inactif";
+  if (permission === "denied") return "refused";
+  if (permission !== "granted") return "inactive";
 
-  const reg = await enregistrement(true);
+  const reg = await record(true);
   if (!reg) throw new Error("service worker indisponible");
-  const octets = octetsDe(publique);
-  let abonnement = await reg.pushManager.getSubscription();
+  const bytes = bytesOf(vapidKey);
+  let subscription = await reg.pushManager.getSubscription();
   // Cles changees sur le serveur : l'ancien abonnement ne recevrait plus rien.
-  if (abonnement && !memesOctets(abonnement.options.applicationServerKey, octets)) {
-    await abonnement.unsubscribe();
-    abonnement = null;
+  if (subscription && !sameBytes(subscription.options.applicationServerKey, bytes)) {
+    await subscription.unsubscribe();
+    subscription = null;
   }
-  abonnement ??= await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: octets });
+  subscription ??= await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: bytes });
 
-  const reponse = await appeler("POST", { abonnement: abonnement.toJSON(), langue, favoris });
-  if (!reponse.ok) {
-    await abonnement.unsubscribe().catch(() => {});
-    throw new Error(`abonnement refuse (${reponse.status})`);
+  const response = await call("POST", { abonnement: subscription.toJSON(), langue: locale, favoris: favourites });
+  if (!response.ok) {
+    await subscription.unsubscribe().catch(() => {});
+    throw new Error(`abonnement refuse (${response.status})`);
   }
-  poserDrapeau(true);
-  derniereSynchro = cleSynchro(langue, favoris);
-  return "actif";
+  setFlag(true);
+  lastSync = syncKey(locale, favourites);
+  return "active";
 }
 
 /** Desabonne le navigateur et efface l'abonnement du serveur. */
-export async function desactiver(): Promise<EtatNotifications> {
-  poserDrapeau(false);
-  const abonnement = await abonnementCourant();
-  if (abonnement) {
+export async function disable(): Promise<NotificationState> {
+  setFlag(false);
+  const subscription = await currentSubscription();
+  if (subscription) {
     // Si le serveur est injoignable, il effacera l'abonnement a son prochain envoi (410).
-    await appeler("DELETE", { abonnement: abonnement.toJSON() }).catch(() => {});
-    await abonnement.unsubscribe();
+    await call("DELETE", { abonnement: subscription.toJSON() }).catch(() => {});
+    await subscription.unsubscribe();
   }
-  derniereSynchro = "";
-  return "inactif";
+  lastSync = "";
+  return "inactive";
 }
 
-const cleSynchro = (langue: Langue, favoris: readonly string[]) => `${langue}|${favoris.join(",")}`;
-let derniereSynchro = "";
-let minuteur: ReturnType<typeof setTimeout> | undefined;
+const syncKey = (locale: Locale, favourites: readonly string[]) => `${locale}|${favourites.join(",")}`;
+let lastSync = "";
+let timer: ReturnType<typeof setTimeout> | undefined;
 
 /**
  * Repercute les favoris (et la langue) au serveur, si ce navigateur est
  * abonne. Appele a chaque changement : les appels rapproches se regroupent.
  */
-export function synchroniser(langue: Langue, favoris: readonly string[]): void {
-  if (!lireDrapeau() || cleSynchro(langue, favoris) === derniereSynchro) return;
-  clearTimeout(minuteur);
-  minuteur = setTimeout(() => {
-    synchroniserMaintenant(langue, favoris).catch(() => {
+export function sync(locale: Locale, favourites: readonly string[]): void {
+  if (!readFlag() || syncKey(locale, favourites) === lastSync) return;
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    syncNow(locale, favourites).catch(() => {
       /* nouvel essai au prochain changement ou au prochain chargement */
     });
   }, 800);
 }
 
-async function synchroniserMaintenant(langue: Langue, favoris: readonly string[]) {
-  if (supportNavigateur() !== "ok" || Notification.permission !== "granted" || !(await clePublique())) return;
-  const abonnement = await abonnementCourant();
-  if (!abonnement) return;
-  const corps = { abonnement: abonnement.toJSON(), langue, favoris };
-  let reponse = await appeler("PATCH", corps);
+async function syncNow(locale: Locale, favourites: readonly string[]) {
+  if (browserSupport() !== "ok" || Notification.permission !== "granted" || !(await publicKey())) return;
+  const subscription = await currentSubscription();
+  if (!subscription) return;
+  const body = { abonnement: subscription.toJSON(), langue: locale, favoris: favourites };
+  let response = await call("PATCH", body);
   // Abonnement efface cote serveur entre-temps : on le recree.
-  if (reponse.status === 404) reponse = await appeler("POST", corps);
-  if (reponse.ok) derniereSynchro = cleSynchro(langue, favoris);
+  if (response.status === 404) response = await call("POST", body);
+  if (response.ok) lastSync = syncKey(locale, favourites);
 }

@@ -1,8 +1,8 @@
-import statistiques from "@/data/jeu/statistiques.json";
+import statistics from "@/data/game/statistics.json";
 import { notesTierList } from "@/data/tier-list";
-import { heros } from "./donnees";
-import { RANGS_MESURE, type RangMesure } from "./rangs-mesure";
-import type { Heros, Palier } from "./types";
+import { allHeroes } from "./data";
+import { MEASURED_RANKS, type MeasuredRank } from "./measured-ranks";
+import type { Hero, Tier } from "./types";
 
 /**
  * Tier list calculee.
@@ -21,9 +21,9 @@ import type { Heros, Palier } from "./types";
  * Le taux de selection n'entre pas dans le score : il mesure la popularite,
  * pas la puissance. Il sert uniquement a signaler les mesures peu fiables.
  */
-export interface EntreeClassee {
-  hero: Heros;
-  tier: Palier;
+export interface RankedEntry {
+  hero: Hero;
+  tier: Tier;
   winRate: number;
   banRate: number;
   pickRate: number;
@@ -34,42 +34,42 @@ export interface EntreeClassee {
   comment: string | null;
 }
 
-interface Taux {
+interface Rate {
   winRate: number;
   banRate: number;
   pickRate: number;
 }
 
-interface Classement {
+interface Ranking {
   /** Date a laquelle les taux ont ete releves, distincte de la synchronisation. */
   measuredAt: string;
-  rates: Record<string, Taux>;
+  rates: Record<string, Rate>;
   /** Memes taux, rang par rang. Absent d'un fichier anterieur a ce decoupage. */
-  byRank?: Partial<Record<RangMesure, Record<string, Taux>>>;
+  byRank?: Partial<Record<MeasuredRank, Record<string, Rate>>>;
 }
 
-const CLASSEMENT = statistiques.rankings as unknown as Classement;
-const TAUX = CLASSEMENT.rates;
+const RANKING = statistics.rankings as unknown as Ranking;
+const RATE = RANKING.rates;
 
 /** Date du releve, a afficher plutot que celle de la derniere synchronisation. */
-export const mesureLe = CLASSEMENT.measuredAt;
+export const measure = RANKING.measuredAt;
 
 /** En dessous de ce taux de selection, les mesures deviennent bruitees. */
-const SEUIL_FIABILITE = 0.3;
+const THRESHOLD_RELIABILITY = 0.3;
 
 /**
  * Un ban coute un choix a l'equipe adverse : un heros banni une fois sur deux
  * pese autant qu'un heros qui gagne quelques points de plus. Le quart est le
  * rapport qui reproduit le mieux les priorites observees en file classee.
  */
-const POIDS_BAN = 0.25;
+const WEIGHT_BAN = 0.25;
 
-function score(t: Pick<Taux, "winRate" | "banRate">): number {
-  return t.winRate + t.banRate * POIDS_BAN;
+function score(t: Pick<Rate, "winRate" | "banRate">): number {
+  return t.winRate + t.banRate * WEIGHT_BAN;
 }
 
 /** Bornes de palier, en points de score. */
-const PALIERS: [Palier, number][] = [
+const TIERS: [Tier, number][] = [
   ["S+", 56],
   ["S", 53],
   ["A", 50.5],
@@ -77,87 +77,87 @@ const PALIERS: [Palier, number][] = [
   ["C", -Infinity],
 ];
 
-function palier(valeur: number): Palier {
-  return PALIERS.find(([, seuil]) => valeur >= seuil)?.[0] ?? "C";
+function tier(value: number): Tier {
+  return TIERS.find(([, threshold]) => value >= threshold)?.[0] ?? "C";
 }
 
 /** La regle de la tier list, pour des taux d'une autre date (changements de palier du rapport meta). */
-export const regleTierList = { score, palier };
+export const ruleTierList = { score, tier };
 
-function classer(taux: Record<string, Taux>): EntreeClassee[] {
-  return heros
-    .filter((h) => taux[h.slug])
+function rankEntries(rate: Record<string, Rate>): RankedEntry[] {
+  return allHeroes
+    .filter((h) => rate[h.slug])
     .map((h) => {
-      const t = taux[h.slug];
-      const valeur = score(t);
+      const t = rate[h.slug];
+      const value = score(t);
 
       return {
         hero: h,
-        tier: palier(valeur),
+        tier: tier(value),
         winRate: t.winRate,
         banRate: t.banRate,
         pickRate: t.pickRate,
-        score: Math.round(valeur * 100) / 100,
-        lowSample: t.pickRate < SEUIL_FIABILITE,
+        score: Math.round(value * 100) / 100,
+        lowSample: t.pickRate < THRESHOLD_RELIABILITY,
         comment: notesTierList[h.slug] ?? null,
       };
     })
     .sort((a, b) => b.score - a.score);
 }
 
-export const classementComplet = classer(TAUX);
+export const rankingFull = rankEntries(RATE);
 
 /** Taux et palier d'un heros dans un rang donne. */
-export interface StatsRang {
+export interface StatsRank {
   winRate: number;
   banRate: number;
-  tier: Palier;
+  tier: Tier;
 }
 
 /**
  * La regle de la tier list, appliquee a chaque tranche de rang : un heros peut
  * etre S en Mythique et seulement A tous rangs confondus.
  */
-const CLASSEMENTS_PAR_RANG = new Map(
-  RANGS_MESURE.flatMap((r) => {
-    const taux = r === "all" ? TAUX : CLASSEMENT.byRank?.[r];
-    return taux
-      ? [[r, new Map(classer(taux).map((e) => [e.hero.slug, e]))] as const]
+const RANKINGS_BY_RANK = new Map(
+  MEASURED_RANKS.flatMap((r) => {
+    const rate = r === "all" ? RATE : RANKING.byRank?.[r];
+    return rate
+      ? [[r, new Map(rankEntries(rate).map((e) => [e.hero.slug, e]))] as const]
       : [];
   }),
 );
 
-export function statsParRang(
+export function statsByRank(
   slug: string,
-): Partial<Record<RangMesure, StatsRang>> {
-  const sortie: Partial<Record<RangMesure, StatsRang>> = {};
-  for (const [rang, entrees] of CLASSEMENTS_PAR_RANG) {
-    const e = entrees.get(slug);
+): Partial<Record<MeasuredRank, StatsRank>> {
+  const output: Partial<Record<MeasuredRank, StatsRank>> = {};
+  for (const [rank, entries] of RANKINGS_BY_RANK) {
+    const e = entries.get(slug);
     if (e)
-      sortie[rang] = { winRate: e.winRate, banRate: e.banRate, tier: e.tier };
+      output[rank] = { winRate: e.winRate, banRate: e.banRate, tier: e.tier };
   }
-  return sortie;
+  return output;
 }
 
 /** Taux et palier par heros, pour enrichir le catalogue sans le recalculer. */
-export const tauxParSlug = new Map(
-  classementComplet.map((e) => [
+export const rateBySlug = new Map(
+  rankingFull.map((e) => [
     e.hero.slug,
     {
-      victoire: e.winRate,
+      win: e.winRate,
       ban: e.banRate,
-      palier: e.tier,
-      faibleEchantillon: e.lowSample,
+      tier: e.tier,
+      weakSample: e.lowSample,
     },
   ]),
 );
 
-export const ORDRE_PALIERS: Palier[] = ["S+", "S", "A", "B", "C"];
+export const ORDER_TIERS: Tier[] = ["S+", "S", "A", "B", "C"];
 
 /** Rangs qui ont leur propre classement, tous rangs confondus en tete. */
-export const RANGS_CLASSES = RANGS_MESURE.filter((r) => CLASSEMENTS_PAR_RANG.has(r));
+export const RANKS_CLASSES = MEASURED_RANKS.filter((r) => RANKINGS_BY_RANK.has(r));
 
 /** Classement d'une tranche de rang, du plus fort au plus faible. */
-export function classementDuRang(rang: RangMesure): EntreeClassee[] {
-  return [...(CLASSEMENTS_PAR_RANG.get(rang)?.values() ?? [])];
+export function rankingOfRank(rank: MeasuredRank): RankedEntry[] {
+  return [...(RANKINGS_BY_RANK.get(rank)?.values() ?? [])];
 }

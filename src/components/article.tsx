@@ -1,22 +1,22 @@
-import Link from "@/components/lien";
-import { assainirHtml } from "@/lib/html";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
-import { FilAriane } from "@/components/fil-ariane";
+import Link from "@/components/link";
+import { cleanHtml } from "@/lib/html";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
+import { Breadcrumb } from "@/components/breadcrumb";
 import type { Article } from "@/lib/types";
-import { ACTUALITE } from "@/lib/rubriques";
-import { formaterDate } from "@/lib/utils";
+import { NEWS } from "@/lib/sections";
+import { formatShortDate } from "@/lib/utils";
 
-export function ListeArticles({
+export function ListArticles({
   articles,
   base,
-  langue,
+  locale,
 }: {
   articles: Article[];
   base: string;
-  langue: Langue;
+  locale: Locale;
 }) {
-  const t = creerT(langue);
+  const t = createT(locale);
   if (articles.length === 0) {
     return <p className="text-chalk-500">{t("articleUI.none")}</p>;
   }
@@ -34,7 +34,7 @@ export function ListeArticles({
                 {t(`articleCategory.${a.category}`)}
               </span>
               <time dateTime={a.date} className="text-xs text-chalk-500">
-                {formaterDate(a.date, LOCALE_HTML[langue])}
+                {formatShortDate(a.date, LOCALE_HTML[locale])}
               </time>
             </div>
             <h2 className="mt-2 font-heading text-xl font-bold leading-snug text-chalk-100">
@@ -49,26 +49,26 @@ export function ListeArticles({
 }
 
 /** Corps d'article : en-tete, contenu rendu, et retour a la liste. */
-export function CorpsArticle({
-  langue,
+export function BodyArticle({
+  locale,
   article,
   html,
-  retour,
+  back,
 }: {
   article: Article;
   html: string;
-  retour: { href: string; label: string };
-  langue: Langue;
+  back: { href: string; label: string };
+  locale: Locale;
 }) {
-  const t = creerT(langue);
+  const t = createT(locale);
   // Nom de section pour le fil d'Ariane : celui de la navigation plutot que le
   // libelle du lien retour (« Tous les… »), qui ne nomme pas la rubrique.
-  const rubrique = ACTUALITE.find((r) => r.href === retour.href);
-  const section = rubrique ? t(`nav.${rubrique.cle}.label`) : retour.label;
+  const navEntry = NEWS.find((r) => r.href === back.href);
+  const section = navEntry ? t(`nav.${navEntry.key}.label`) : back.label;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-14">
-      <FilAriane miettes={[{ nom: section, href: retour.href }, { nom: article.title }]} />
+      <Breadcrumb crumbs={[{ name: section, href: back.href }, { name: article.title }]} />
 
       <header className="mt-6 border-b border-night-800 pb-8">
         <div className="flex flex-wrap items-center gap-3">
@@ -76,7 +76,7 @@ export function CorpsArticle({
             {t(`articleCategory.${article.category}`)}
           </span>
           <time dateTime={article.date} className="text-xs text-chalk-500">
-            {formaterDate(article.date, LOCALE_HTML[langue])}
+            {formatShortDate(article.date, LOCALE_HTML[locale])}
           </time>
           <span className="text-xs text-chalk-500">{t("articleUI.by", { auteur: article.author })}</span>
         </div>
@@ -86,7 +86,7 @@ export function CorpsArticle({
         <p className="mt-4 text-lg leading-relaxed text-chalk-300">{article.summary}</p>
       </header>
 
-      <div className="prose-mlbb mt-10" dangerouslySetInnerHTML={{ __html: assainirHtml(html) }} />
+      <div className="prose-mlbb mt-10" dangerouslySetInnerHTML={{ __html: cleanHtml(html) }} />
 
       {article.keywords.length > 0 && (
         <ul className="mt-12 flex flex-wrap gap-2 border-t border-night-800 pt-6">

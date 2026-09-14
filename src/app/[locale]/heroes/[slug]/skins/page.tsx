@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Link from "@/components/lien";
-import { EnTetePage } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
+import Link from "@/components/link";
+import { PageHeader } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
-import { creerT, type T } from "@/i18n/traductions";
-import { herosParSlug, synchro } from "@/lib/donnees";
-import { donneesLd } from "@/lib/html";
-import { rarete, raretesPresentes } from "@/lib/raretes";
+import { createT, type T } from "@/i18n/translations";
+import { heroesBySlug, sync } from "@/lib/data";
+import { serializeJsonLd } from "@/lib/html";
+import { rarity, presentRarities } from "@/lib/rarities";
 import { site } from "@/lib/site";
-import { formaterSortie, MONNAIES, type SkinComplet } from "@/lib/skins";
-import { ancresGalerie, elide, galerieHeros, herosAvecSkins, titreGalerie, type GalerieHeros } from "@/lib/skins-heros";
-import type { Heros } from "@/lib/types";
+import { formatRelease, CURRENCIES, type SkinFull } from "@/lib/skins";
+import { anchorsGallery, elide, heroGallery, heroesWithSkins, titleGallery, type HeroGallery } from "@/lib/hero-skins";
+import type { Hero } from "@/lib/types";
 
 /**
  * Galerie des skins d'un heros : chaque skin avec son illustration, son
@@ -21,152 +21,152 @@ import type { Heros } from "@/lib/types";
  * ici, tout se lit — et s'indexe — d'un coup.
  */
 
-type Params = { params: Promise<{ locale: Langue; slug: string }> };
+type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
 export const dynamicParams = false;
 
 /** Une galerie par heros qui a au moins un skin ou une illustration. */
 export function generateStaticParams() {
-  return herosAvecSkins.map((h) => ({ slug: h.slug }));
+  return heroesWithSkins.map((h) => ({ slug: h.slug }));
 }
 
 /** Date lisible par une machine : jour, mois ou annee (« 201X » n'en est pas une). */
 const DATE_ISO = /^\d{4}(-\d{2}){0,2}$/;
 
 /** Skin du catalogue le plus recent parmi ceux dont la date se lit. */
-function plusRecent(g: GalerieHeros): SkinComplet | null {
+function newest(g: HeroGallery): SkinFull | null {
   return g.skins.filter((s) => DATE_ISO.test(s.release ?? "")).sort((a, b) => b.release!.localeCompare(a.release!))[0] ?? null;
 }
 
-function description(t: T, locale: Langue, h: Heros, g: GalerieHeros): string {
+function description(t: T, locale: Locale, h: Hero, g: HeroGallery): string {
   const base = t("pages.heroSkins.metaDescription", { nom: h.name, n: g.total });
-  const recent = plusRecent(g);
+  const recent = newest(g);
   if (!recent) return base;
-  return `${base} ${t("pages.heroSkins.latest", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}`;
+  return `${base} ${t("pages.heroSkins.latest", { skin: recent.name, date: formatRelease(recent.release!, locale) })}`;
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const h = herosParSlug.get(slug);
+  const h = heroesBySlug.get(slug);
   if (!h) return {};
-  const t = creerT(locale);
-  const g = galerieHeros(h);
+  const t = createT(locale);
+  const g = heroGallery(h);
   const el = elide(locale, h.name);
   return metaPage(locale, {
-    titre: t(el ? "pages.heroSkins.metaTitleElision" : "pages.heroSkins.metaTitle", { nom: h.name, n: g.total }),
+    title: t(el ? "pages.heroSkins.metaTitleElision" : "pages.heroSkins.metaTitle", { nom: h.name, n: g.total }),
     description: description(t, locale, h, g),
-    chemin: `/heroes/${slug}/skins`,
+    path: `/heroes/${slug}/skins`,
     image: `/${locale}/heroes/${slug}/opengraph-image`,
   });
 }
 
-export default async function PageSkinsHeros({ params }: Params) {
+export default async function HeroSkinsPage({ params }: Params) {
   const { locale, slug } = await params;
-  const h = herosParSlug.get(slug);
+  const h = heroesBySlug.get(slug);
   if (!h) notFound();
-  const g = galerieHeros(h);
+  const g = heroGallery(h);
   if (g.total === 0) notFound();
 
-  const t = creerT(locale);
+  const t = createT(locale);
   // Rarete, disponibilite et etiquette inconnues du catalogue gardent leur libelle d'origine.
   const tr = (ns: string, v: string) => {
-    const cle = `${ns}.${v}`;
-    const trad = t(cle);
-    return trad === cle ? v : trad;
+    const key = `${ns}.${v}`;
+    const translated = t(key);
+    return translated === key ? v : translated;
   };
-  const nombre = new Intl.NumberFormat(locale);
-  const titre = titreGalerie(t, locale, h.name);
-  const ancres = ancresGalerie(g);
-  const recent = plusRecent(g);
-  const absolue = (chemin: string) => new URL(chemin, site.url).toString();
+  const count = new Intl.NumberFormat(locale);
+  const title = titleGallery(t, locale, h.name);
+  const anchors = anchorsGallery(g);
+  const recent = newest(g);
+  const absolute = (path: string) => new URL(path, site.url).toString();
   const altIllustration = (skin: string) => t("pages.heroSkins.altIllustration", { skin, nom: h.name });
   const altPortrait = (skin: string) => t("pages.heroSkins.altPortrait", { skin, nom: h.name });
-  const prix = (s: SkinComplet) =>
+  const price = (s: SkinFull) =>
     Object.entries(s.price)
       .map(([m, v]) => {
         // « other » porte un texte (« Twilight Pass »), pas un montant.
         if (m === "other") return v;
-        const montant = /^\d+$/.test(v) ? nombre.format(Number(v)) : v;
-        return `${montant} ${MONNAIES[m] ? t(`skinsUI.${MONNAIES[m]}`) : m}`;
+        const amount = /^\d+$/.test(v) ? count.format(Number(v)) : v;
+        return `${amount} ${CURRENCIES[m] ? t(`skinsUI.${CURRENCIES[m]}`) : m}`;
       })
       .join(" / ");
 
-  const parDispo = new Map<string, number>();
-  for (const s of g.skins) if (s.availability) parDispo.set(s.availability, (parDispo.get(s.availability) ?? 0) + 1);
+  const byAvailability = new Map<string, number>();
+  for (const s of g.skins) if (s.availability) byAvailability.set(s.availability, (byAvailability.get(s.availability) ?? 0) + 1);
 
-  const voisins = [...herosAvecSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
-  const position = voisins.findIndex((x) => x.slug === h.slug);
-  const precedent = voisins[(position - 1 + voisins.length) % voisins.length];
-  const suivant = voisins[(position + 1) % voisins.length];
+  const neighbours = [...heroesWithSkins].sort((a, b) => a.name.localeCompare(b.name, "en"));
+  const position = neighbours.findIndex((x) => x.slug === h.slug);
+  const previous = neighbours[(position - 1 + neighbours.length) % neighbours.length];
+  const next = neighbours[(position + 1) % neighbours.length];
 
-  const image = (chemin: string, nom: string, legende: string, extra: Record<string, string> = {}) => ({
+  const image = (path: string, name: string, legend: string, extra: Record<string, string> = {}) => ({
     "@type": "ImageObject",
-    contentUrl: absolue(chemin),
-    name: nom,
-    caption: legende,
+    contentUrl: absolute(path),
+    name,
+    caption: legend,
     creditText: "Moonton",
     copyrightNotice: "© Moonton",
     ...extra,
   });
-  const donnees = {
+  const data = {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
-    name: titre,
+    name: title,
     description: description(t, locale, h, g),
     url: `${site.url}/${locale}/heroes/${h.slug}/skins`,
     inLanguage: LOCALE_HTML[locale],
-    dateModified: synchro.date,
-    isPartOf: { "@type": "WebSite", name: site.nom, url: site.url },
+    dateModified: sync.date,
+    isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: { "@type": "Organization", name: "Moonton" } },
     associatedMedia: [
       ...g.skins.flatMap((s) => {
-        const chemin = s.illustration ?? s.portrait;
-        if (!chemin) return [];
+        const path = s.illustration ?? s.portrait;
+        if (!path) return [];
         return [
-          image(chemin, s.name, s.illustration ? altIllustration(s.name) : altPortrait(s.name), {
-            ...(s.illustration && s.portrait ? { thumbnailUrl: absolue(s.portrait) } : {}),
+          image(path, s.name, s.illustration ? altIllustration(s.name) : altPortrait(s.name), {
+            ...(s.illustration && s.portrait ? { thumbnailUrl: absolute(s.portrait) } : {}),
             ...(s.release && DATE_ISO.test(s.release) ? { datePublished: s.release } : {}),
           }),
         ];
       }),
-      ...g.autres.map((a) => image(a.illustration, a.nom, altIllustration(a.nom))),
+      ...g.others.map((a) => image(a.illustration, a.name, altIllustration(a.name))),
     ],
   };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(donnees) }} />
-      <EnTetePage
-        titre={titre}
-        chapeau={t("pages.heroSkins.lead", { nom: h.name, n: g.total })}
-        miettes={[
-          { nom: t("nav.heroes.label"), href: "/heroes" },
-          { nom: h.name, href: `/heroes/${h.slug}` },
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(data) }} />
+      <PageHeader
+        title={title}
+        lead={t("pages.heroSkins.lead", { nom: h.name, n: g.total })}
+        crumbs={[
+          { name: t("nav.heroes.label"), href: "/heroes" },
+          { name: h.name, href: `/heroes/${h.slug}` },
           {
-            nom: t("pages.heroDetail.tab.skins"),
-            freres: voisins.map((x) => ({ nom: x.name, href: `/heroes/${x.slug}/skins` })),
+            name: t("pages.heroDetail.tab.skins"),
+            siblings: neighbours.map((x) => ({ name: x.name, href: `/heroes/${x.slug}/skins` })),
           },
         ]}
       >
         <div className="mt-6 space-y-3 text-sm text-chalk-500">
-          {parDispo.size > 0 && (
+          {byAvailability.size > 0 && (
             <dl className="flex flex-wrap gap-x-5 gap-y-1">
-              {[...parDispo].map(([dispo, n]) => (
-                <div key={dispo} className="flex gap-1.5">
-                  <dt>{tr("skinAvailability", dispo)}</dt>
+              {[...byAvailability].map(([availability, n]) => (
+                <div key={availability} className="flex gap-1.5">
+                  <dt>{tr("skinAvailability", availability)}</dt>
                   <dd className="font-semibold tabular-nums text-chalk-100">{n}</dd>
                 </div>
               ))}
             </dl>
           )}
           {recent && (
-            <p>{t("pages.heroSkins.latest", { skin: recent.name, date: formaterSortie(recent.release!, locale) })}</p>
+            <p>{t("pages.heroSkins.latest", { skin: recent.name, date: formatRelease(recent.release!, locale) })}</p>
           )}
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
-            {raretesPresentes(g.skins.map((s) => s.rarity)).map((r) => (
-              <li key={r.nom} className="flex items-center gap-1.5 text-xs">
-                <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.couleur }} />
-                {tr("skinRarity", r.cle ?? r.nom)}
+            {presentRarities(g.skins.map((s) => s.rarity)).map((r) => (
+              <li key={r.name} className="flex items-center gap-1.5 text-xs">
+                <span aria-hidden className="size-2.5 border-2" style={{ borderColor: r.color }} />
+                {tr("skinRarity", r.key ?? r.name)}
               </li>
             ))}
           </ul>
@@ -176,64 +176,64 @@ export default async function PageSkinsHeros({ params }: Params) {
             </Link>
           </p>
         </div>
-      </EnTetePage>
+      </PageHeader>
 
       <div className="mx-auto max-w-6xl px-4 py-10">
         <ol className="grid gap-6 md:grid-cols-2">
           {g.skins.map((s, i) => {
-            const r = rarete(s.rarity);
-            const origine = !s.rarity;
-            const tarif = prix(s);
+            const r = rarity(s.rarity);
+            const origin = !s.rarity;
+            const priceText = price(s);
             return (
-              <li key={ancres[i]} id={ancres[i]} className="scroll-mt-24">
-                <CarteSkin
-                  nom={s.name}
+              <li key={anchors[i]} id={anchors[i]} className="scroll-mt-24">
+                <SkinCard
+                  name={s.name}
                   illustration={s.illustration}
                   portrait={s.portrait}
-                  couleur={r.couleur}
-                  premier={i === 0}
+                  color={r.color}
+                  first={i === 0}
                   altIllustration={altIllustration(s.name)}
                   altPortrait={altPortrait(s.name)}
                 >
                   <p
-                    className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origine ? "text-chalk-500" : ""}`}
-                    style={origine ? undefined : { color: r.couleur }}
+                    className={`mt-1 text-xs font-semibold uppercase tracking-wide ${origin ? "text-chalk-500" : ""}`}
+                    style={origin ? undefined : { color: r.color }}
                   >
-                    {tr("skinRarity", r.cle ?? r.nom)}
+                    {tr("skinRarity", r.key ?? r.name)}
                   </p>
                   <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
                     {s.release && (
-                      <Info libelle={t("skinsUI.release")}>
+                      <Info label={t("skinsUI.release")}>
                         {DATE_ISO.test(s.release) ? (
-                          <time dateTime={s.release}>{formaterSortie(s.release, locale)}</time>
+                          <time dateTime={s.release}>{formatRelease(s.release, locale)}</time>
                         ) : (
                           s.release
                         )}
                       </Info>
                     )}
                     {s.availability && (
-                      <Info libelle={t("skinsUI.availability")}>{tr("skinAvailability", s.availability)}</Info>
+                      <Info label={t("skinsUI.availability")}>{tr("skinAvailability", s.availability)}</Info>
                     )}
-                    {s.label && <Info libelle={t("skinsUI.obtained")}>{tr("skinLabel", s.label)}</Info>}
-                    {tarif && <Info libelle={t("pages.heroSkins.price")}>{tarif}</Info>}
+                    {s.label && <Info label={t("skinsUI.obtained")}>{tr("skinLabel", s.label)}</Info>}
+                    {priceText && <Info label={t("pages.heroSkins.price")}>{priceText}</Info>}
                   </dl>
-                </CarteSkin>
+                </SkinCard>
               </li>
             );
           })}
-          {g.autres.map((a, k) => (
-            <li key={ancres[g.skins.length + k]} id={ancres[g.skins.length + k]} className="scroll-mt-24">
-              <CarteSkin
-                nom={a.nom}
+          {g.others.map((a, k) => (
+            <li key={anchors[g.skins.length + k]} id={anchors[g.skins.length + k]} className="scroll-mt-24">
+              <SkinCard
+                name={a.name}
                 illustration={a.illustration}
                 portrait={null}
-                couleur={rarete(null).couleur}
-                premier={g.skins.length === 0 && k === 0}
-                altIllustration={altIllustration(a.nom)}
+                color={rarity(null).color}
+                first={g.skins.length === 0 && k === 0}
+                altIllustration={altIllustration(a.name)}
                 altPortrait=""
               >
                 <p className="mt-2 text-sm text-chalk-500">{t("pages.heroSkins.illustrationOnly")}</p>
-              </CarteSkin>
+              </SkinCard>
             </li>
           ))}
         </ol>
@@ -242,14 +242,14 @@ export default async function PageSkinsHeros({ params }: Params) {
           aria-label={t("pages.heroSkins.others")}
           className="mt-12 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-night-800 pt-6 text-sm"
         >
-          <Link href={`/heroes/${precedent.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
-            ← {titreGalerie(t, locale, precedent.name)}
+          <Link href={`/heroes/${previous.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
+            ← {titleGallery(t, locale, previous.name)}
           </Link>
           <Link href="/skins" className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.skins.title")}
           </Link>
-          <Link href={`/heroes/${suivant.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
-            {titreGalerie(t, locale, suivant.name)} →
+          <Link href={`/heroes/${next.slug}/skins`} className="text-chalk-300 hover:text-gold-400">
+            {titleGallery(t, locale, next.name)} →
           </Link>
         </nav>
       </div>
@@ -262,21 +262,21 @@ export default async function PageSkinsHeros({ params }: Params) {
  * medaillon, un filet a la couleur de la rarete. Sans illustration, le
  * portrait occupe le cadre.
  */
-function CarteSkin({
-  nom,
+function SkinCard({
+  name,
   illustration,
   portrait,
-  couleur,
-  premier,
+  color,
+  first,
   altIllustration,
   altPortrait,
   children,
 }: {
-  nom: string;
+  name: string;
   illustration: string | null;
   portrait: string | null;
-  couleur: string;
-  premier: boolean;
+  color: string;
+  first: boolean;
   altIllustration: string;
   altPortrait: string;
   children: React.ReactNode;
@@ -289,7 +289,7 @@ function CarteSkin({
             src={illustration}
             alt={altIllustration}
             fill
-            preload={premier}
+            preload={first}
             sizes="(min-width: 1152px) 552px, (min-width: 768px) 50vw, 100vw"
             className="object-cover object-top"
           />
@@ -299,34 +299,34 @@ function CarteSkin({
               src={portrait}
               alt={altPortrait}
               fill
-              preload={premier}
+              preload={first}
               sizes="(min-width: 768px) 180px, 45vw"
               className="object-contain"
             />
           )
         )}
-        <span aria-hidden className="absolute inset-y-0 left-0 w-1" style={{ background: couleur }} />
+        <span aria-hidden className="absolute inset-y-0 left-0 w-1" style={{ background: color }} />
         {illustration && portrait && (
           <span
             className="bevel-sm absolute bottom-2 right-2 overflow-hidden border-2 bg-night-900"
-            style={{ borderColor: couleur }}
+            style={{ borderColor: color }}
           >
             <Image src={portrait} alt={altPortrait} width={56} height={91} className="block h-[5.7rem] w-14 object-cover" />
           </span>
         )}
       </div>
       <div className="flex-1 p-4">
-        <h2 className="font-heading text-xl font-bold text-chalk-100">{nom}</h2>
+        <h2 className="font-heading text-xl font-bold text-chalk-100">{name}</h2>
         {children}
       </div>
     </article>
   );
 }
 
-function Info({ libelle, children }: { libelle: string; children: React.ReactNode }) {
+function Info({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wide text-chalk-500">{libelle}</dt>
+      <dt className="text-xs uppercase tracking-wide text-chalk-500">{label}</dt>
       <dd className="mt-0.5 text-chalk-100">{children}</dd>
     </div>
   );

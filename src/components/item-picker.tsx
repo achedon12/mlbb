@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Trash2, X } from "lucide-react";
-import { ChampRecherche } from "@/components/champ-recherche";
-import { GroupeFiltres, Puce } from "@/components/puce";
+import { SearchField } from "@/components/search-field";
+import { FilterGroup, Chip } from "@/components/chip";
 import { LOCALE_HTML } from "@/i18n/config";
-import { useLangue, useT } from "@/i18n/fournisseur";
+import { useLocale, useT } from "@/i18n/provider";
 import type { ItemOption } from "@/lib/build-simulator";
-import { cleRecherche } from "@/lib/utils";
+import { keySearch } from "@/lib/utils";
 
 /**
  * Item choice for one simulator slot: search by name or by attribute
@@ -37,8 +37,8 @@ export function ItemPicker({
   onClose: () => void;
 }) {
   const t = useT();
-  const langue = useLangue();
-  const gold = new Intl.NumberFormat(LOCALE_HTML[langue]);
+  const locale = useLocale();
+  const gold = new Intl.NumberFormat(LOCALE_HTML[locale]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState<string | null>(null);
 
@@ -56,12 +56,12 @@ export function ItemPicker({
   }, [onClose]);
 
   const results = useMemo(() => {
-    const term = cleRecherche(search.trim());
+    const term = keySearch(search.trim());
     return items
       .filter((o) => !category || o.category === category)
-      .filter((o) => !term || cleRecherche(`${o.name} ${o.text ?? ""}`).includes(term))
-      .sort((a, b) => a.name.localeCompare(b.name, langue));
-  }, [items, category, search, langue]);
+      .filter((o) => !term || keySearch(`${o.name} ${o.text ?? ""}`).includes(term))
+      .sort((a, b) => a.name.localeCompare(b.name, locale));
+  }, [items, category, search, locale]);
 
   return (
     <div
@@ -75,12 +75,12 @@ export function ItemPicker({
         <div aria-hidden className="bevel absolute inset-0 border border-night-700 bg-night-900" />
         <div className="relative flex min-h-0 flex-1 flex-col p-4 sm:p-5">
           <div className="flex items-center gap-2">
-            <ChampRecherche
+            <SearchField
               dense
               autoFocus
-              valeur={search}
+              value={search}
               onChange={setSearch}
-              libelle={t("pages.buildSimulatorUI.searchItem")}
+              label={t("pages.buildSimulatorUI.searchItem")}
               className="min-w-0 flex-1"
             />
             <button
@@ -93,16 +93,16 @@ export function ItemPicker({
             </button>
           </div>
 
-          <GroupeFiltres legende={t("pages.buildSimulatorUI.category")} largeurLegende="sr-only" className="mt-3 gap-1.5">
-            <Puce dense actif={category === null} onClick={() => setCategory(null)}>
+          <FilterGroup legend={t("pages.buildSimulatorUI.category")} widthLegend="sr-only" className="mt-3 gap-1.5">
+            <Chip dense active={category === null} onClick={() => setCategory(null)}>
               {t("pages.buildSimulatorUI.allCategories")}
-            </Puce>
+            </Chip>
             {categories.map((c) => (
-              <Puce dense key={c} actif={category === c} onClick={() => setCategory(category === c ? null : c)}>
+              <Chip dense key={c} active={category === c} onClick={() => setCategory(category === c ? null : c)}>
                 {t(`categories.${c}`)}
-              </Puce>
+              </Chip>
             ))}
-          </GroupeFiltres>
+          </FilterGroup>
 
           {current && (
             <button

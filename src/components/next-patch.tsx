@@ -1,11 +1,11 @@
 import { ArrowRight, FlaskConical } from "lucide-react";
-import Link from "@/components/lien";
+import Link from "@/components/link";
 import { EntryCard, VersionDate } from "@/components/advance-changes";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
 import { advanceVersions, upcomingForHero } from "@/lib/advance-server";
-import { herosParSlug } from "@/lib/donnees";
-import { patchActuel } from "@/lib/fraicheur";
+import { heroesBySlug } from "@/lib/data";
+import { patchCurrent } from "@/lib/freshness";
 
 /**
  * Changes of one hero being tested on the Advance Server, for its page.
@@ -13,11 +13,11 @@ import { patchActuel } from "@/lib/fraicheur";
  * hero: notes from an older build describe changes that have shipped, been
  * reworked or been dropped since.
  */
-export function NextPatch({ slug, locale }: { slug: string; locale: Langue }) {
-  const upcoming = upcomingForHero(advanceVersions(locale), slug, patchActuel.version);
+export function NextPatch({ slug, locale }: { slug: string; locale: Locale }) {
+  const upcoming = upcomingForHero(advanceVersions(locale), slug, patchCurrent.version);
   if (upcoming.length === 0) return null;
-  const t = creerT(locale);
-  const name = herosParSlug.get(slug)?.name ?? slug;
+  const t = createT(locale);
+  const name = heroesBySlug.get(slug)?.name ?? slug;
 
   return (
     <section aria-labelledby="next-patch" className="scroll-mt-24">

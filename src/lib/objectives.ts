@@ -10,7 +10,7 @@
  * The module reads neither the clock nor storage: the component passes the
  * current instant, and the tests replay a match second by second.
  */
-import { OBJECTIFS } from "@/lib/chatiment";
+import { OBJECTIVES } from "@/lib/retribution";
 
 export const CHECKED_ON = "2026-09-11";
 
@@ -148,7 +148,7 @@ export const MINIONS = {
   goldBonus: 45,
   expBonus: 35,
   /** Mid lane, first 10 waves: lancers and infantry. */
-  midLancers: 3,
+  midCasts: 3,
   midInfantry: 1,
 } as const;
 
@@ -156,10 +156,10 @@ export type CampKey = "turtle" | "lord" | "purple-buff" | "orange-buff" | "crab"
 
 /** HP at spawn and after 12 min: "Initial ATTR" and "ATTR after 12 MIN" columns of the infoboxes. */
 export const HP: Record<CampKey, { start: number; at12: number | null }> = {
-  turtle: { start: OBJECTIFS.tortue.pv, at12: null },
-  lord: { start: OBJECTIFS.seigneur.pv, at12: OBJECTIFS["seigneur-12"].pv },
-  "purple-buff": { start: 4090, at12: OBJECTIFS["buff-violet"].pv },
-  "orange-buff": { start: 4941, at12: OBJECTIFS["buff-orange"].pv },
+  turtle: { start: OBJECTIVES.turtle.hp, at12: null },
+  lord: { start: OBJECTIVES.lord.hp, at12: OBJECTIVES["lord-12"].hp },
+  "purple-buff": { start: 4090, at12: OBJECTIVES["purple-buff"].hp },
+  "orange-buff": { start: 4941, at12: OBJECTIVES["orange-buff"].hp },
   crab: { start: 3640, at12: 7867 },
   lithowanderer: { start: 2251, at12: 6056 },
   lizard: { start: 3019, at12: 4743 },

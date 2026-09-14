@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
 import { DrawCalculator } from "@/components/draw-calculator";
-import Link from "@/components/lien";
-import { EnTetePage } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
-import { CompleterMessages } from "@/i18n/fournisseur";
-import { donneesOutil, metaPage } from "@/i18n/seo";
-import { creerT, messagesPage } from "@/i18n/traductions";
+import Link from "@/components/link";
+import { PageHeader } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { ExtendMessages } from "@/i18n/provider";
+import { dataTool, metaPage } from "@/i18n/seo";
+import { createT, messagesPage } from "@/i18n/translations";
 import { CRYSTAL_SOURCE, OUT_OF_MODEL_SOURCES, PRESETS, chanceWithin, drawsForChance, type DrawEvent } from "@/lib/draw-odds";
-import { donneesLd } from "@/lib/html";
+import { serializeJsonLd } from "@/lib/html";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/tools/draw-calculator";
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.drawCalculator.title"),
+    title: t("pages.seo.drawCalculator.title"),
     description: t("pages.seo.drawCalculator.description"),
-    chemin: PATH,
-    motsCles: ["MLBB draw calculator", "diamonds", "event skin", "odds", "pity", "Mobile Legends", "MLBB"],
+    path: PATH,
+    keywords: ["MLBB draw calculator", "diamonds", "event skin", "odds", "pity", "Mobile Legends", "MLBB"],
   });
 }
 
@@ -33,14 +33,14 @@ const EXAMPLE_DRAWS = 100;
 
 export default async function DrawCalculatorPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const integer = new Intl.NumberFormat(LOCALE_HTML[locale]);
   const percent = new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 0 });
-  const structuredData = donneesOutil(locale, {
-    nom: t("pages.drawCalculator.title"),
+  const structuredData = dataTool(locale, {
+    name: t("pages.drawCalculator.title"),
     description: t("pages.seo.drawCalculator.description"),
-    chemin: PATH,
-    categorie: "UtilitiesApplication",
+    path: PATH,
+    category: "UtilitiesApplication",
   });
   const example = { draws: integer.format(EXAMPLE_DRAWS), p: percent.format(EXAMPLE.chance / 100) };
   // One entry per wiki page, even when two presets share it.
@@ -51,9 +51,9 @@ export default async function DrawCalculatorPage({ params }: Params) {
   ];
 
   return (
-    <CompleterMessages messages={messagesPage(locale, ["pages.drawCalculatorUI"])}>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
-      <EnTetePage titre={t("pages.drawCalculator.title")} chapeau={t("pages.drawCalculator.lead")} />
+    <ExtendMessages messages={messagesPage(locale, ["pages.drawCalculatorUI"])}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader title={t("pages.drawCalculator.title")} lead={t("pages.drawCalculator.lead")} />
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
         <DrawCalculator />
 
@@ -138,6 +138,6 @@ export default async function DrawCalculatorPage({ params }: Params) {
           </ul>
         </section>
       </div>
-    </CompleterMessages>
+    </ExtendMessages>
   );
 }

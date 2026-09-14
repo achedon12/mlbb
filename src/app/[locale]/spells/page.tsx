@@ -1,38 +1,38 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
-import { EnTetePage } from "@/components/ui";
-import type { Langue } from "@/i18n/config";
+import Link from "@/components/link";
+import { PageHeader } from "@/components/ui";
+import type { Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
-import { creerT } from "@/i18n/traductions";
-import { sortsFiches } from "@/lib/fiches-usage";
+import { createT } from "@/i18n/translations";
+import { spellSheets } from "@/lib/usage-sheets";
 
 /**
  * Index des sorts de combat : chacun mene a sa page (heros qui le prennent,
  * emblemes associes). La page manquait au menu et a la recherche « mlbb
  * battle spells ».
  */
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.spellsList.metaTitle", { n: sortsFiches.length }),
+    title: t("pages.spellsList.metaTitle", { n: spellSheets.length }),
     description: t("pages.spellsList.metaDescription"),
-    chemin: "/spells",
+    path: "/spells",
   });
 }
 
-export default async function PageSorts({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function SpellsPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return (
     <>
-      <EnTetePage
-        titre={t("pages.spellsList.title")}
-        chapeau={t("pages.spellsList.lead", { n: sortsFiches.length })}
+      <PageHeader
+        title={t("pages.spellsList.title")}
+        lead={t("pages.spellsList.lead", { n: spellSheets.length })}
       />
       <div className="mx-auto max-w-5xl px-4 py-12">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {sortsFiches.map((s) => (
+          {spellSheets.map((s) => (
             <li key={s.slug}>
               <Link
                 href={`/spells/${s.slug}`}
@@ -44,15 +44,15 @@ export default async function PageSorts({ params }: { params: Promise<{ locale: 
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={s.image} alt="" width={48} height={48} loading="lazy" className="size-full object-contain" />
                   ) : (
-                    <span className="text-sm font-semibold text-chalk-500">{s.nom.charAt(0)}</span>
+                    <span className="text-sm font-semibold text-chalk-500">{s.name.charAt(0)}</span>
                   )}
                 </span>
                 <span className="min-w-0">
                   <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                    {s.nom}
+                    {s.name}
                   </span>
-                  {s.recharge !== null && (
-                    <span className="block text-xs text-chalk-500">{t("pages.spellsList.cooldown", { s: s.recharge })}</span>
+                  {s.cooldown !== null && (
+                    <span className="block text-xs text-chalk-500">{t("pages.spellsList.cooldown", { s: s.cooldown })}</span>
                   )}
                 </span>
               </Link>

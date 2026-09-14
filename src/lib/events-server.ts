@@ -1,9 +1,9 @@
-import eventsData from "@/data/jeu/events.json";
-import { catalogueSkins, dateReference, skinsSortis } from "./catalogue-skins-serveur";
-import { herosParSlug } from "./donnees";
+import eventsData from "@/data/game/events.json";
+import { catalogSkins, dateReference, releasedSkins } from "./skin-catalog-server";
+import { heroesBySlug } from "./data";
 import { buildMonths, isMonth, monthOfRelease, type EventMonth, type EventSkin, type ListEntry } from "./events";
-import { ancresGalerie, galerieHeros } from "./skins-heros";
-import { normaliserNomSkin } from "./utils";
+import { anchorsGallery, heroGallery } from "./hero-skins";
+import { normalizeNameSkin } from "./utils";
 
 /**
  * Events calendar, server side: the wiki's monthly lists (`scripts/events.mjs`)
@@ -53,36 +53,36 @@ const SERIES: Record<WikiList, string> = { starlight: "StarLight", collector: "C
  */
 function resolve(e: RawEntry, list: WikiList): EventSkin | null {
   if (!e.hero || !e.skin) return null;
-  const hero = herosParSlug.get(e.hero);
+  const hero = heroesBySlug.get(e.hero);
   if (!hero) return null;
-  const name = normaliserNomSkin(e.skin);
-  const known = catalogueSkins().skins.find(
-    (s) => s.heros === e.hero && ((e.id && s.id === e.id) || normaliserNomSkin(s.nom) === name),
+  const name = normalizeNameSkin(e.skin);
+  const known = catalogSkins().skins.find(
+    (s) => s.hero === e.hero && ((e.id && s.id === e.id) || normalizeNameSkin(s.name) === name),
   );
   if (known) {
     return {
       ...known,
-      serie: known.serie ?? SERIES[list],
-      sortie: monthOfRelease(known.sortie) === e.month ? known.sortie : e.month,
+      series: known.series ?? SERIES[list],
+      release: monthOfRelease(known.release) === e.month ? known.release : e.month,
       // "2025/XX StarLight Member": the module did not know the month yet, the list does.
-      obtention: /\/XX\b/i.test(known.obtention ?? "") ? null : known.obtention,
+      acquisition: /\/XX\b/i.test(known.acquisition ?? "") ? null : known.acquisition,
     };
   }
-  const gallery = galerieHeros(hero);
-  const i = gallery.autres.findIndex((a) => normaliserNomSkin(a.nom) === name);
+  const gallery = heroGallery(hero);
+  const i = gallery.others.findIndex((a) => normalizeNameSkin(a.name) === name);
   return {
     id: e.id ?? "",
-    nom: e.skin,
-    heros: e.hero,
-    rarete: 0,
-    serie: SERIES[list],
-    sortie: e.month,
-    dispo: null,
-    prix: {},
-    obtention: null,
-    image: i >= 0 ? gallery.autres[i].illustration : null,
-    ancre: i >= 0 ? ancresGalerie(gallery)[gallery.skins.length + i] : "",
-    notInCatalogue: true,
+    name: e.skin,
+    hero: e.hero,
+    rarity: 0,
+    series: SERIES[list],
+    release: e.month,
+    availability: null,
+    price: {},
+    acquisition: null,
+    image: i >= 0 ? gallery.others[i].illustration : null,
+    anchor: i >= 0 ? anchorsGallery(gallery)[gallery.skins.length + i] : "",
+    notInCatalog: true,
   };
 }
 
@@ -99,7 +99,7 @@ export function eventMonths(): EventMonth[] {
     }
   }
   cache = buildMonths({
-    released: skinsSortis(),
+    released: releasedSkins(),
     lists,
     noCollector: data.collector.filter((e) => e.none).map((e) => e.month),
   });

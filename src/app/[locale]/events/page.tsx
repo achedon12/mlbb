@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { CreditWiki } from "@/components/credit-wiki";
+import { WikiCredit } from "@/components/wiki-credit";
 import { MonthContent, SourceList, heroName, monthLabel, monthText } from "@/components/event-month";
-import { LigneFraicheur } from "@/components/fraicheur";
-import Link from "@/components/lien";
-import { Carte, EnTetePage, TitreSection } from "@/components/ui";
-import { LOCALE_HTML, type Langue } from "@/i18n/config";
+import { FreshnessLine } from "@/components/freshness";
+import Link from "@/components/link";
+import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
-import { creerT } from "@/i18n/traductions";
-import { donneesListeSkins } from "@/lib/catalogue-skins-serveur";
-import { synchro } from "@/lib/donnees";
+import { createT } from "@/i18n/translations";
+import { dataListSkins } from "@/lib/skin-catalog-server";
+import { sync } from "@/lib/data";
 import { shiftMonth, type EventMonth, type MonthStatus } from "@/lib/events";
 import { eventMonths, eventSources, monthByKey, referenceDate, sourcesForMonth } from "@/lib/events-server";
-import { donneesLd } from "@/lib/html";
+import { serializeJsonLd } from "@/lib/html";
 import { cn } from "@/lib/utils";
 
-type Params = { params: Promise<{ locale: Langue }> };
+type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/events";
 /** Months detailed in the timeline; older ones stay one click away, in the index. */
@@ -22,8 +22,8 @@ const TIMELINE_MONTHS = 12;
 
 const currentMonth = referenceDate.slice(0, 7);
 
-function description(locale: Langue): string {
-  const t = creerT(locale);
+function description(locale: Locale): string {
+  const t = createT(locale);
   const all = eventMonths();
   const latest = all.find((m) => m.month <= currentMonth && m.starlight.length > 0);
   const s = latest?.starlight[0];
@@ -32,25 +32,25 @@ function description(locale: Langue): string {
     start: all.length ? monthText(locale, all.at(-1)!.month) : "—",
     end: all.length ? monthText(locale, all[0].month) : "—",
     latest: s
-      ? `${t("pages.events.skinOf", { skin: s.nom, hero: heroName(s.heros) })}, ${monthText(locale, latest!.month)}`
+      ? `${t("pages.events.skinOf", { skin: s.name, hero: heroName(s.hero) })}, ${monthText(locale, latest!.month)}`
       : "—",
   });
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.events.title"),
+    title: t("pages.seo.events.title"),
     description: description(locale),
-    chemin: PATH,
-    motsCles: ["MLBB events", "MLBB Starlight", "Starlight skin this month", "MLBB Collector skin", "Grand Collection", "Mobile Legends"],
+    path: PATH,
+    keywords: ["MLBB events", "MLBB Starlight", "Starlight skin this month", "MLBB Collector skin", "Grand Collection", "Mobile Legends"],
   });
 }
 
 export default async function EventsPage({ params }: Params) {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   const htmlLang = LOCALE_HTML[locale];
   const numbers = new Intl.NumberFormat(htmlLang);
   const all = eventMonths();
@@ -81,7 +81,7 @@ export default async function EventsPage({ params }: Params) {
     );
 
   const monthBlock = (m: EventMonth, status: MonthStatus) => (
-    <Carte className={cn(status !== "past" && "border-gold-500/60")}>
+    <Card className={cn(status !== "past" && "border-gold-500/60")}>
       <article aria-labelledby={`m-${m.month}`}>
         <header className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
           <h3 id={`m-${m.month}`} className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
@@ -99,38 +99,38 @@ export default async function EventsPage({ params }: Params) {
           </Link>
         </p>
       </article>
-    </Carte>
+    </Card>
   );
 
-  const structuredData = donneesListeSkins(locale, {
-    nom: t("pages.events.title"),
+  const structuredData = dataListSkins(locale, {
+    name: t("pages.events.title"),
     description: description(locale),
-    chemin: PATH,
+    path: PATH,
     elements: all.map((m) => ({
-      nom: t("pages.events.month.title", { month: monthText(locale, m.month) }),
-      chemin: `${PATH}/${m.month}`,
+      name: t("pages.events.month.title", { month: monthText(locale, m.month) }),
+      path: `${PATH}/${m.month}`,
     })),
   });
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: donneesLd(structuredData) }} />
-      <EnTetePage
-        titre={t("pages.events.title")}
-        chapeau={t("pages.events.lead", {
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader
+        title={t("pages.events.title")}
+        lead={t("pages.events.lead", {
           n: numbers.format(all.length),
           start: all.length ? monthText(locale, all.at(-1)!.month) : "—",
           end: all.length ? monthText(locale, all[0].month) : "—",
         })}
-        miettes={[{ nom: t("pages.events.breadcrumb") }]}
+        crumbs={[{ name: t("pages.events.breadcrumb") }]}
       >
-        <LigneFraicheur langue={locale} className="mt-4" />
-      </EnTetePage>
+        <FreshnessLine locale={locale} className="mt-4" />
+      </PageHeader>
 
       <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
         <section id="this-month" className="scroll-mt-24">
-          <TitreSection>{t("pages.events.thisMonthTitle", { month: monthText(locale, currentMonth) })}</TitreSection>
-          <Carte className="border-gold-500/60">
+          <SectionTitle>{t("pages.events.thisMonthTitle", { month: monthText(locale, currentMonth) })}</SectionTitle>
+          <Card className="border-gold-500/60">
             <div className="mb-6">{badge("current")}</div>
             {thisMonth ? (
               <MonthContent month={thisMonth} t={t} locale={locale} variant="timeline" />
@@ -176,15 +176,15 @@ export default async function EventsPage({ params }: Params) {
                 </a>
               </li>
             </ul>
-          </Carte>
+          </Card>
         </section>
 
         <section id="upcoming" className="scroll-mt-24">
-          <TitreSection>
+          <SectionTitle>
             {announced.length > 0
               ? t("pages.events.upcomingTitle")
               : t("pages.events.nextMonthTitle", { month: monthText(locale, nextMonth) })}
-          </TitreSection>
+          </SectionTitle>
           {announced.length > 0 ? (
             <ol className="space-y-6">
               {announced.map((m) => (
@@ -204,9 +204,9 @@ export default async function EventsPage({ params }: Params) {
 
         {timeline.length > 0 && (
           <section id="recent-months" className="scroll-mt-24">
-            <TitreSection chapeau={t("pages.events.recentLead", { n: timeline.length })}>
+            <SectionTitle lead={t("pages.events.recentLead", { n: timeline.length })}>
               {t("pages.events.recentTitle")}
-            </TitreSection>
+            </SectionTitle>
             <ol className="space-y-6">
               {timeline.map((m) => (
                 <li key={m.month}>{monthBlock(m, "past")}</li>
@@ -216,7 +216,7 @@ export default async function EventsPage({ params }: Params) {
         )}
 
         <section id="all-months" className="scroll-mt-24">
-          <TitreSection chapeau={t("pages.events.allMonthsLead")}>{t("pages.events.allMonthsTitle")}</TitreSection>
+          <SectionTitle lead={t("pages.events.allMonthsLead")}>{t("pages.events.allMonthsTitle")}</SectionTitle>
           <div className="space-y-5">
             {[...byYear].map(([year, months]) => (
               <div key={year} className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-4">
@@ -243,7 +243,7 @@ export default async function EventsPage({ params }: Params) {
         </section>
 
         <section id="sources" className="scroll-mt-24">
-          <TitreSection>{t("pages.events.aboutTitle")}</TitreSection>
+          <SectionTitle>{t("pages.events.aboutTitle")}</SectionTitle>
           <div className="max-w-3xl space-y-3 leading-relaxed text-chalk-300">
             <p>{t("pages.events.aboutLists")}</p>
             <SourceList sources={[eventSources.starlight, eventSources.collector]} t={t} locale={locale} />
@@ -255,7 +255,7 @@ export default async function EventsPage({ params }: Params) {
               </Link>
             </p>
           </div>
-          <CreditWiki t={t} href={synchro.source} cle="pages.events.source" />
+          <WikiCredit t={t} href={sync.source} messageKey="pages.events.source" />
         </section>
       </div>
     </>

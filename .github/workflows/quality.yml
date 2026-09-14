@@ -41,8 +41,8 @@ jobs:
 
       - name: Verifier que les donnees generees sont a jour dans le depot
         run: |
-          if [ ! -s src/data/jeu/heros.json ]; then
-            echo "src/data/jeu/heros.json est absent ou vide."
+          if [ ! -s src/data/game/heroes.json ]; then
+            echo "src/data/game/heroes.json est absent ou vide."
             echo "Lancer : npm run sync -- --images"
             exit 1
           fi

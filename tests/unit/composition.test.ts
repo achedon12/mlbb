@@ -1,34 +1,34 @@
 import { describe, expect, it } from "vitest";
 import {
-  affecterLanes,
-  alertes,
-  analyserEquipe,
-  courbeEquipe,
-  ecrireParametres,
-  lireParametres,
-  menaces,
-  profilDuree,
-  profilNotes,
-  repartitionDegats,
-  synergiesInternes,
-  type HerosEquipe,
-  type MesuresRang,
+  assignLanes,
+  alerts,
+  analyzeTeam,
+  curveTeam,
+  writeSettings,
+  readSettings,
+  threats,
+  profileDuration,
+  profileNotes,
+  breakdownDamage,
+  synergiesInternal,
+  type TeamHero,
+  type MeasuresRank,
 } from "@/lib/composition";
-import { RANGS_MESURE } from "@/lib/rangs-mesure";
+import { MEASURED_RANKS } from "@/lib/measured-ranks";
 
-const heros = (slug: string, o: Partial<HerosEquipe> = {}): HerosEquipe => ({
+const heroes = (slug: string, o: Partial<TeamHero> = {}): TeamHero => ({
   slug,
-  nom: slug.toUpperCase(),
-  lanes: ["Or"],
+  name: slug.toUpperCase(),
+  lanes: ["Gold"],
   roles: ["Marksman"],
-  icone: null,
+  icon: null,
   synergies: [],
-  degats: "physical",
+  damage: "physical",
   notes: { offense: 5, durability: 5, abilityEffects: 5, difficulty: 5 },
   ...o,
 });
 
-const mesures = (o: Partial<MesuresRang> = {}): MesuresRang => ({
+const measures = (o: Partial<MeasuresRank> = {}): MeasuresRank => ({
   rang: "all",
   stats: {},
   tranches: [
@@ -43,87 +43,87 @@ const mesures = (o: Partial<MesuresRang> = {}): MesuresRang => ({
 });
 
 /** Une composition sans faiblesse : une lane chacun, degats et notes varies. */
-const equilibree = [
-  heros("tank", { lanes: ["Roam"], roles: ["Tank"], notes: { offense: 3, durability: 9, abilityEffects: 8, difficulty: 4 } }),
-  heros("jungle", { lanes: ["Jungle"], roles: ["Assassin"], notes: { offense: 8, durability: 3, abilityEffects: 3, difficulty: 5 } }),
-  heros("mage", { lanes: ["Milieu"], roles: ["Mage"], degats: "magic", notes: { offense: 8, durability: 2, abilityEffects: 7, difficulty: 5 } }),
-  heros("tireur", { lanes: ["Or"], notes: { offense: 8, durability: 2, abilityEffects: 2, difficulty: 4 } }),
-  heros("combattant", { lanes: ["Experience"], roles: ["Fighter"], degats: "magic", notes: { offense: 6, durability: 7, abilityEffects: 5, difficulty: 5 } }),
+const balanced = [
+  heroes("tank", { lanes: ["Roam"], roles: ["Tank"], notes: { offense: 3, durability: 9, abilityEffects: 8, difficulty: 4 } }),
+  heroes("jungle", { lanes: ["Jungle"], roles: ["Assassin"], notes: { offense: 8, durability: 3, abilityEffects: 3, difficulty: 5 } }),
+  heroes("mage", { lanes: ["Mid"], roles: ["Mage"], damage: "magic", notes: { offense: 8, durability: 2, abilityEffects: 7, difficulty: 5 } }),
+  heroes("tireur", { lanes: ["Gold"], notes: { offense: 8, durability: 2, abilityEffects: 2, difficulty: 4 } }),
+  heroes("combattant", { lanes: ["Exp"], roles: ["Fighter"], damage: "magic", notes: { offense: 6, durability: 7, abilityEffects: 5, difficulty: 5 } }),
 ];
 
-describe("affecterLanes", () => {
-  it("deplace un heros polyvalent pour faire place a un autre", () => {
-    const a = affecterLanes([heros("b", { lanes: ["Or", "Jungle"] }), heros("a", { lanes: ["Or"] })]);
-    expect(a.lanes).toEqual({ Or: "a", Jungle: "b" });
-    expect(a.enTrop).toEqual([]);
-    expect(a.manquantes).toEqual(["Milieu", "Experience", "Roam"]);
+describe("assignLanes", () => {
+  it("moves a flexible hero to make room for another", () => {
+    const a = assignLanes([heroes("b", { lanes: ["Gold", "Jungle"] }), heroes("a", { lanes: ["Gold"] })]);
+    expect(a.lanes).toEqual({ Gold: "a", Jungle: "b" });
+    expect(a.extra).toEqual([]);
+    expect(a.missing).toEqual(["Mid", "Exp", "Roam"]);
   });
 
-  it("garde chacun sur sa position principale quand c'est possible", () => {
-    const a = affecterLanes([heros("c", { lanes: ["Jungle", "Roam"] }), heros("d", { lanes: ["Roam", "Jungle"] })]);
+  it("keeps everyone on their main position when possible", () => {
+    const a = assignLanes([heroes("c", { lanes: ["Jungle", "Roam"] }), heroes("d", { lanes: ["Roam", "Jungle"] })]);
     expect(a.lanes).toEqual({ Jungle: "c", Roam: "d" });
   });
 
-  it("signale le heros qui n'a plus de lane libre", () => {
-    const a = affecterLanes([heros("a"), heros("b")]);
-    expect(a.lanes).toEqual({ Or: "a" });
-    expect(a.enTrop).toEqual(["b"]);
+  it("flags the hero left without a free lane", () => {
+    const a = assignLanes([heroes("a"), heroes("b")]);
+    expect(a.lanes).toEqual({ Gold: "a" });
+    expect(a.extra).toEqual(["b"]);
   });
 });
 
-describe("profil de l'equipe", () => {
-  it("compte les degats, un heros mixte pour moitie", () => {
-    const d = repartitionDegats([
-      heros("a"),
-      heros("b"),
-      heros("c", { degats: "magic" }),
-      heros("d", { degats: "mixed" }),
-      heros("e", { degats: null }),
+describe("team profile", () => {
+  it("counts damage, a hybrid hero counting as half", () => {
+    const d = breakdownDamage([
+      heroes("a"),
+      heroes("b"),
+      heroes("c", { damage: "magic" }),
+      heroes("d", { damage: "mixed" }),
+      heroes("e", { damage: null }),
     ]);
     expect(d).toMatchObject({ physical: 2, magic: 1, mixed: 1 });
     expect(d.partPhysique).toBeCloseTo(0.625);
-    expect(repartitionDegats([heros("x", { degats: null })]).partPhysique).toBeNull();
+    expect(breakdownDamage([heroes("x", { damage: null })]).partPhysique).toBeNull();
   });
 
-  it("moyenne les notes en ignorant celles qui manquent", () => {
+  it("averages ratings, ignoring missing ones", () => {
     expect(
-      profilNotes([
-        heros("a", { notes: { offense: 6, durability: 4, abilityEffects: 3, difficulty: null } }),
-        heros("b", { notes: { offense: 8, durability: 5, abilityEffects: 4, difficulty: 6 } }),
+      profileNotes([
+        heroes("a", { notes: { offense: 6, durability: 4, abilityEffects: 3, difficulty: null } }),
+        heroes("b", { notes: { offense: 8, durability: 5, abilityEffects: 4, difficulty: 6 } }),
       ]),
     ).toEqual({ offense: 7, durability: 4.5, abilityEffects: 3.5, difficulty: 6 });
   });
 });
 
-describe("duree de partie", () => {
-  it("dit si une courbe monte, descend ou reste plate", () => {
-    expect(profilDuree([50, 50, 50, 52, 53])).toBe("fin");
-    expect(profilDuree([53, 52, 50, 50])).toBe("debut");
-    expect(profilDuree([50, 50.5, 50])).toBe("stable");
+describe("match duration", () => {
+  it("tells whether a curve rises, falls or stays flat", () => {
+    expect(profileDuration([50, 50, 50, 52, 53])).toBe("late");
+    expect(profileDuration([53, 52, 50, 50])).toBe("early");
+    expect(profileDuration([50, 50.5, 50])).toBe("stable");
   });
 
-  it("moyenne les heros mesures, tranche par tranche", () => {
-    const courbe = courbeEquipe(
+  it("averages measured heroes, bucket by bucket", () => {
+    const curve = curveTeam(
       ["a", "b", "c", "d"],
       // c est decoupe autrement, d n'est pas mesure : tous deux sont ecartes.
-      mesures({ duree: { a: [49, 51, 54], b: [53, 51, 49], c: [50, 50] } }),
+      measures({ duree: { a: [49, 51, 54], b: [53, 51, 49], c: [50, 50] } }),
     );
-    expect(courbe?.victoire).toEqual([51, 51, 51.5]);
-    expect(courbe?.profil).toBe("stable");
-    expect(courbe?.pic).toBe(2);
-    expect(courbe?.parHeros).toEqual([
-      { slug: "a", profil: "fin" },
-      { slug: "b", profil: "debut" },
+    expect(curve?.win).toEqual([51, 51, 51.5]);
+    expect(curve?.profile).toBe("stable");
+    expect(curve?.pic).toBe(2);
+    expect(curve?.byHero).toEqual([
+      { slug: "a", profile: "late" },
+      { slug: "b", profile: "early" },
     ]);
-    expect(courbeEquipe(["d"], mesures())).toBeNull();
+    expect(curveTeam(["d"], measures())).toBeNull();
   });
 });
 
-describe("synergies et menaces", () => {
-  it("lit les deux sens d'une mesure et garde les synergies connues sans chiffre", () => {
-    const paires = synergiesInternes(
-      [heros("a", { synergies: ["d"] }), heros("b"), heros("c"), heros("d")],
-      mesures({
+describe("synergies and threats", () => {
+  it("reads both directions of a measure and keeps known synergies without figures", () => {
+    const pairs = synergiesInternal(
+      [heroes("a", { synergies: ["d"] }), heroes("b"), heroes("c"), heroes("d")],
+      measures({
         coequipiers: {
           a: [["b", 1.2]],
           b: [
@@ -134,17 +134,17 @@ describe("synergies et menaces", () => {
         },
       }),
     );
-    expect(paires).toEqual([
+    expect(pairs).toEqual([
       { a: "a", b: "b", points: 2.1 },
       { a: "c", b: "d", points: 0.8 },
       { a: "a", b: "d", points: null },
     ]);
   });
 
-  it("ne retient que les adversaires qui genent plusieurs heros de l'equipe", () => {
-    const liste = menaces(
+  it("keeps only opponents that trouble several heroes of the team", () => {
+    const list = threats(
       ["a", "b", "c"],
-      mesures({
+      measures({
         faible: {
           a: [
             ["x", -3],
@@ -162,10 +162,10 @@ describe("synergies et menaces", () => {
         },
       }),
     );
-    expect(liste).toEqual([
+    expect(list).toEqual([
       {
         slug: "x",
-        cibles: [
+        targets: [
           ["a", -3],
           ["b", -1.5],
         ],
@@ -173,7 +173,7 @@ describe("synergies et menaces", () => {
       },
       {
         slug: "z",
-        cibles: [
+        targets: [
           ["b", -2],
           ["c", -1],
         ],
@@ -183,71 +183,71 @@ describe("synergies et menaces", () => {
   });
 });
 
-describe("alertes", () => {
-  it("signale lanes en double, absence de tank, degats uniformes et notes faibles", () => {
-    const equipe = ["a", "b", "c", "d", "e"].map((s) =>
-      heros(s, { notes: { offense: 8, durability: 3, abilityEffects: 2, difficulty: 7 } }),
+describe("alerts", () => {
+  it("flags duplicate lanes, missing tank, uniform damage and low ratings", () => {
+    const team = ["a", "b", "c", "d", "e"].map((s) =>
+      heroes(s, { notes: { offense: 8, durability: 3, abilityEffects: 2, difficulty: 7 } }),
     );
-    const liste = alertes(equipe, affecterLanes(equipe));
-    expect(liste.map((a) => a.type)).toEqual(["lanes", "tank", "degats", "controle", "fragile", "difficile"]);
-    expect(liste[0]).toEqual({ type: "lanes", lanes: ["Jungle", "Milieu", "Experience", "Roam"], enTrop: ["b", "c", "d", "e"] });
-    expect(liste[2]).toEqual({ type: "degats", dominant: "physical" });
+    const list = alerts(team, assignLanes(team));
+    expect(list.map((a) => a.type)).toEqual(["lanes", "tank", "damage", "control", "fragile", "hard"]);
+    expect(list[0]).toEqual({ type: "lanes", lanes: ["Jungle", "Mid", "Exp", "Roam"], extra: ["b", "c", "d", "e"] });
+    expect(list[2]).toEqual({ type: "damage", dominant: "physical" });
   });
 
-  it("ne dit rien d'une composition equilibree, ni d'une equipe trop courte pour etre jugee", () => {
-    expect(alertes(equilibree, affecterLanes(equilibree))).toEqual([]);
-    const duo = [heros("a"), heros("b", { lanes: ["Jungle"] })];
-    expect(alertes(duo, affecterLanes(duo))).toEqual([]);
+  it("says nothing about a balanced composition, nor about a team too small to judge", () => {
+    expect(alerts(balanced, assignLanes(balanced))).toEqual([]);
+    const duo = [heroes("a"), heroes("b", { lanes: ["Jungle"] })];
+    expect(alerts(duo, assignLanes(duo))).toEqual([]);
   });
 });
 
-describe("analyserEquipe", () => {
-  const catalogue = [
-    heros("o"),
-    heros("j1", { lanes: ["Jungle"] }),
-    heros("j2", { lanes: ["Jungle"] }),
-    heros("j3", { lanes: ["Jungle"], synergies: ["o"] }),
+describe("analyzeTeam", () => {
+  const catalog = [
+    heroes("o"),
+    heroes("j1", { lanes: ["Jungle"] }),
+    heroes("j2", { lanes: ["Jungle"] }),
+    heroes("j3", { lanes: ["Jungle"], synergies: ["o"] }),
   ];
-  const rang = mesures({
+  const rank = measures({
     stats: { o: [52, "A"], j1: [55, "S"], j2: [45, "C"], j3: [50, "B"] },
     coequipiers: { j2: [["o", 2]] },
   });
 
-  it("propose des picks pour les seules lanes libres, departages par le taux du rang", () => {
-    const analyse = analyserEquipe({ catalogue, slugs: ["o"], mesures: rang });
-    expect(analyse.victoire).toBe(52);
-    expect(analyse.suggestions.map((s) => s.lane)).toEqual(["Jungle", "Milieu", "Experience", "Roam"]);
-    const jungle = analyse.suggestions[0].picks;
-    expect(jungle.map((p) => p.heros.slug)).toEqual(["j1", "j3", "j2"]);
+  it("suggests picks for free lanes only, tie-broken by the rank's win rate", () => {
+    const analysis = analyzeTeam({ catalog, slugs: ["o"], measures: rank });
+    expect(analysis.win).toBe(52);
+    expect(analysis.suggestions.map((s) => s.lane)).toEqual(["Jungle", "Mid", "Exp", "Roam"]);
+    const jungle = analysis.suggestions[0].picks;
+    expect(jungle.map((p) => p.hero.slug)).toEqual(["j1", "j3", "j2"]);
     // Un coequipier mesure au rang compte comme une synergie.
-    expect(jungle[2].raisons.map((r) => r.type)).toContain("combine");
+    expect(jungle[2].reasons.map((r) => r.type)).toContain("synergy");
   });
 
-  it("ignore les heros inconnus et ne propose rien a une equipe complete", () => {
-    const analyse = analyserEquipe({ catalogue: equilibree, slugs: [...equilibree.map((h) => h.slug), "inconnu"], mesures: null });
-    expect(analyse.equipe).toHaveLength(5);
-    expect(analyse.suggestions).toEqual([]);
-    expect(analyse.affectation.manquantes).toEqual([]);
+  it("ignores unknown heroes and suggests nothing for a full team", () => {
+    const analysis = analyzeTeam({ catalog: balanced, slugs: [...balanced.map((h) => h.slug), "inconnu"], measures: null });
+    expect(analysis.team).toHaveLength(5);
+    expect(analysis.suggestions).toEqual([]);
+    expect(analysis.assignment.missing).toEqual([]);
     // Sans les mesures du rang, ce qui en depend reste vide.
-    expect(analyse.victoire).toBeNull();
-    expect(analyse.courbe).toBeNull();
-    expect(analyse.menaces).toEqual([]);
+    expect(analysis.win).toBeNull();
+    expect(analysis.curve).toBeNull();
+    expect(analysis.threats).toEqual([]);
   });
 });
 
-describe("adresse partageable", () => {
-  const connus = new Set(["a", "b", "c", "d", "e", "f"]);
+describe("shareable URL", () => {
+  const known = new Set(["a", "b", "c", "d", "e", "f"]);
 
-  it("lit l'equipe et le rang en ecartant l'inconnu, les doublons et le surplus", () => {
-    expect(lireParametres("?h=a,zz,b,a,c,d,e,f&rang=mythic", connus, RANGS_MESURE)).toEqual({
+  it("reads team and rank, dropping unknowns, duplicates and extras", () => {
+    expect(readSettings("?h=a,zz,b,a,c,d,e,f&rang=mythic", known, MEASURED_RANKS)).toEqual({
       slugs: ["a", "b", "c", "d", "e"],
-      rang: "mythic",
+      rank: "mythic",
     });
-    expect(lireParametres("?rang=inexistant", connus, RANGS_MESURE)).toEqual({ slugs: [], rang: null });
+    expect(readSettings("?rang=inexistant", known, MEASURED_RANKS)).toEqual({ slugs: [], rank: null });
   });
 
-  it("ecrit une adresse lisible et garde les autres parametres", () => {
-    expect(ecrireParametres("?utm=1&h=old&rang=epic", ["a", "b"], "mythic")).toBe("h=a,b&utm=1&rang=mythic");
-    expect(ecrireParametres("?h=a", [], "all")).toBe("");
+  it("writes a readable URL and keeps other parameters", () => {
+    expect(writeSettings("?utm=1&h=old&rang=epic", ["a", "b"], "mythic")).toBe("h=a,b&utm=1&rang=mythic");
+    expect(writeSettings("?h=a", [], "all")).toBe("");
   });
 });

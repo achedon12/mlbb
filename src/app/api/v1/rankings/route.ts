@@ -1,5 +1,5 @@
-import { classementComplet, mesureLe } from "@/lib/tier-list";
-import { reponseApi } from "@/lib/api";
+import { rankingFull, measure } from "@/lib/tier-list";
+import { responseApi } from "@/lib/api";
 
 /**
  * Classement calcule.
@@ -11,10 +11,10 @@ import { reponseApi } from "@/lib/api";
 export const dynamic = "force-static";
 
 export function GET() {
-  return reponseApi(
+  return responseApi(
     {
-      measuredAt: mesureLe,
-      heroes: classementComplet.map((e) => ({
+      measuredAt: measure,
+      heroes: rankingFull.map((e) => ({
         slug: e.hero.slug,
         name: e.hero.name,
         tier: e.tier,
@@ -25,6 +25,6 @@ export function GET() {
         lowSample: e.lowSample,
       })),
     },
-    { total: classementComplet.length },
+    { total: rankingFull.length },
   );
 }

@@ -1,8 +1,8 @@
 import { ArrowRight, FlaskConical, Minus, TrendingDown, TrendingUp } from "lucide-react";
-import Link from "@/components/lien";
-import { PortraitHeros } from "@/components/portrait-heros";
-import type { Langue } from "@/i18n/config";
-import type { T } from "@/i18n/traductions";
+import Link from "@/components/link";
+import { HeroPortrait } from "@/components/hero-portrait";
+import type { Locale } from "@/i18n/config";
+import type { T } from "@/i18n/translations";
 import {
   LIVE_TYPE,
   type AdvanceChange,
@@ -14,10 +14,10 @@ import {
   type ChangeDirection,
   type ChangeTag,
 } from "@/lib/advance-server";
-import { herosParSlug } from "@/lib/donnees";
-import { dateLongue } from "@/lib/fraicheur";
-import { grouperAjustements, SENS_AJUSTEMENT } from "@/lib/rapport-meta";
-import type { TypeAjustement } from "@/lib/types";
+import { heroesBySlug } from "@/lib/data";
+import { longDate } from "@/lib/freshness";
+import { groupAdjustments, ADJUSTMENT_DIRECTIONS } from "@/lib/meta-report";
+import type { AdjustmentType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 /**
@@ -34,7 +34,7 @@ const DIRECTION_STYLE: Record<ChangeDirection, { text: string; border: string; I
 
 const DIRECTION_OF = Object.fromEntries(
   Object.entries(LIVE_TYPE).map(([direction, live]) => [live, direction]),
-) as Record<TypeAjustement, ChangeDirection>;
+) as Record<AdjustmentType, ChangeDirection>;
 
 /** "Buff", "Nerf", "Adjustment", with the colour and icon of the live notes. */
 export function DirectionBadge({ type, t }: { type: ChangeDirection; t: T }) {
@@ -77,12 +77,12 @@ export function VersionDate({
   t,
 }: {
   version: Pick<AdvanceVersion, "date" | "dateSource">;
-  locale: Langue;
+  locale: Locale;
   t: T;
 }) {
   if (!version.date) return <>{t("pages.advanceServer.noDate")}</>;
   const key = version.dateSource === "notes" ? "pages.advanceServer.dateNotes" : "pages.advanceServer.dateWiki";
-  return <time dateTime={version.date}>{t(key, { date: dateLongue(locale, version.date) })}</time>;
+  return <time dateTime={version.date}>{t(key, { date: longDate(locale, version.date) })}</time>;
 }
 
 /** Warning shown wherever test changes appear: they may change or never ship. */
@@ -134,29 +134,29 @@ export function HeroChips({
   headingLevel?: 3 | 4;
 }) {
   const Heading = `h${headingLevel}` as const;
-  const groups = grouperAjustements(heroes.map((h) => ({ ...h, type: h.type ? LIVE_TYPE[h.type] : null })));
+  const groups = groupAdjustments(heroes.map((h) => ({ ...h, type: h.type ? LIVE_TYPE[h.type] : null })));
   return (
     <div className="space-y-5">
-      {SENS_AJUSTEMENT.map((sens) => {
-        if (groups[sens].length === 0) return null;
-        const { text, border, Icon } = DIRECTION_STYLE[DIRECTION_OF[sens]];
+      {ADJUSTMENT_DIRECTIONS.map((direction) => {
+        if (groups[direction].length === 0) return null;
+        const { text, border, Icon } = DIRECTION_STYLE[DIRECTION_OF[direction]];
         return (
-          <div key={sens}>
+          <div key={direction}>
             <Heading className={cn("flex items-center gap-2 font-heading text-base font-bold", text)}>
               <Icon size={16} aria-hidden />
-              {t(`patchHeroes.plural.${sens}`)}
-              <span className="text-sm font-medium text-chalk-500">{groups[sens].length}</span>
+              {t(`patchHeroes.plural.${direction}`)}
+              <span className="text-sm font-medium text-chalk-500">{groups[direction].length}</span>
             </Heading>
             <ul className="mt-2 flex flex-wrap gap-2">
-              {groups[sens].map((h) => {
-                const page = herosParSlug.get(h.slug);
+              {groups[direction].map((h) => {
+                const page = heroesBySlug.get(h.slug);
                 const content = (
                   <>
-                    <PortraitHeros
+                    <HeroPortrait
                       source={page?.images.icon ?? page?.images.portrait ?? null}
-                      nom={page?.name ?? h.name}
-                      taille="micro"
-                      decoratif
+                      name={page?.name ?? h.name}
+                      size="micro"
+                      decorative
                     />
                     <span className="font-medium text-chalk-100">{page?.name ?? h.name}</span>
                   </>
@@ -264,7 +264,7 @@ export function EntryCard({
       className={cn("bevel scroll-mt-24 border bg-night-900/60 p-4", style?.border ?? "border-night-700/70")}
     >
       <div className="flex items-center gap-3">
-        {portrait !== undefined && <PortraitHeros source={portrait} nom={entry.name} taille="moyenne" decoratif />}
+        {portrait !== undefined && <HeroPortrait source={portrait} name={entry.name} size="medium" decorative />}
         <div className="min-w-0 flex-1">
           <Heading className="break-words font-heading text-lg font-bold text-chalk-100">{entry.name}</Heading>
           {(entry.type || entry.tag) && (

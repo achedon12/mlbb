@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import type { Langue } from "@/i18n/config";
-import { metaTierList, TierList } from "./contenu";
+import type { Locale } from "@/i18n/config";
+import { metaTierList, TierList } from "./content";
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
   return metaTierList(locale, "all");
 }
 
-export default async function PageTierList({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function TierListPage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  return <TierList locale={locale} rang="all" />;
+  return <TierList locale={locale} rank="all" />;
 }

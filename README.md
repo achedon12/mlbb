@@ -51,16 +51,16 @@ npm run dev                    # http://localhost:3001
 | `npm run start` | Serves the production build on port 3001 |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` |
-| `npm run sync` | Re-reads the wiki and the stats API, regenerates `src/data/jeu/` |
+| `npm run sync` | Re-reads the wiki and the stats API, regenerates `src/data/game/` |
 | `npm run sync -- --images` | Same, and also downloads the visuals |
 | `npm run sync:evolution` | Measurements only: trends, teammates, win rates by game length, history |
-| `npm run traduire` | Translates the interface, the content data and the articles into the other languages |
-| `npm run veille` | Takes the snapshot of the news feeds shown on the Watch page |
+| `npm run translate` | Translates the interface, the content data and the articles into the other languages |
+| `npm run watch` | Takes the snapshot of the news feeds shown on the Watch page |
 | `npm run test` | Unit and functional tests (Vitest) |
 | `npm run test:e2e` | Browser tests (Playwright) |
 
-Visuals and data are already in the repository: `sync`, `traduire` and
-`veille` only refresh them, and only ever run locally or in CI, never while the
+Visuals and data are already in the repository: `sync`, `translate` and
+`watch` only refresh them, and only ever run locally or in CI, never while the
 site is running.
 
 ## What the site offers
@@ -150,22 +150,22 @@ src/
   app/            Routes (App Router), API, RSS feeds, sitemap, robots
   components/     UI components
   data/
-    jeu/          Extracted from the wiki and the API: never edit by hand
-    heros/        Written analyses, one file per role
+    game/          Extracted from the wiki and the API: never edit by hand
+    heroes/        Written analyses, one file per role
     tier-list.ts  Hand-written tier list notes
     emblemes.ts   Hand-written emblem data
   i18n/           Languages and interface message catalogues
   lib/            Types, data, content, ranks, sessions, actions
 content/
-  fr/             Source articles: actualites/ (news) and patch-notes/
+  fr/             Source articles: news/ and patch-notes/
   en/ it/ es/     Their translations
 public/
   visuels/        Portraits, icons, skins and other game visuals
 scripts/
   sync.mjs        Sync from the wiki and the stats API
   lua.mjs         Reads the wiki's Lua tables
-  traduire-*.mjs  Translation of the interface, data and articles
-  veille.mjs      Snapshot of the Watch page feeds
+  translate-*.mjs  Translation of the interface, data and articles
+  watch.mjs      Snapshot of the Watch page feeds
 ```
 
 Content pages are **generated at build time**. Only the account routes are
@@ -214,7 +214,7 @@ enable it:
 
 Without these keys, the feature is hidden. Subscriptions (notification service
 address, encryption keys, language, favorite slugs) are stored in
-`$DONNEES_DIR/push-abonnements.json`, rewritten atomically; the last announced
+`$DATA_DIR/push-abonnements.json`, rewritten atomically; the last announced
 patch, in `push-etat.json`. At each startup, if the latest patch in the data has
 not been announced yet, every subscriber concerned gets a notification, only
 once per patch. The very first startup with the keys only records the current
@@ -223,7 +223,7 @@ patch, without sending anything.
 Test run, sending nothing (dry run, with a preview of the messages):
 
 ```bash
-curl -X POST https://mlbbdex.com/api/push/envoi -H "Authorization: Bearer $PUSH_ADMIN_TOKEN"
+curl -X POST https://mlbbdex.com/api/push/send -H "Authorization: Bearer $PUSH_ADMIN_TOKEN"
 ```
 
 The optional JSON body accepts `version`, `envoyer: true` (actually send),

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import itemsJson from "@/data/jeu/objets.json";
-import heroesJson from "@/data/jeu/heros.json";
+import itemsJson from "@/data/game/items.json";
+import heroesJson from "@/data/game/heroes.json";
 import { EMBLEM_SETS, TALENT_FIGURES } from "@/data/emblem-attributes";
 import { EMPTY_BUILD, decodeBuild, encodeBuild, validateBuild, type BuildCode, type CodeCatalog } from "@/lib/build-code";
 import {

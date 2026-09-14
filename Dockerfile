@@ -36,7 +36,7 @@ ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
     PORT=3001 \
     HOSTNAME=0.0.0.0 \
-    DONNEES_DIR=/app/donnees-serveur
+    DATA_DIR=/app/donnees-serveur
 
 # Le dossier des donnees existe dans l'image, au nom de l'utilisateur : un
 # volume nomme monte dessus en herite la propriete a sa creation.
@@ -55,7 +55,7 @@ USER nextjs
 EXPOSE 3001
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-    CMD wget -qO- http://127.0.0.1:3001/api/sante || exit 1
+    CMD wget -qO- http://127.0.0.1:3001/api/health || exit 1
 
 STOPSIGNAL SIGTERM
 CMD ["node", "server.js"]

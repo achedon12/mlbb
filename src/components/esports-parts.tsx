@@ -1,8 +1,8 @@
 import { Fragment, type ReactNode } from "react";
-import type { Langue } from "@/i18n/config";
-import type { T } from "@/i18n/traductions";
+import type { Locale } from "@/i18n/config";
+import type { T } from "@/i18n/translations";
 import { esportsSource, type SourceLabel, type SourcePage, type Status, type Tournament } from "@/lib/esports";
-import { dateLongue, moisAnnee } from "@/lib/fraicheur";
+import { longDate, monthYear } from "@/lib/freshness";
 import { cn } from "@/lib/utils";
 
 /**
@@ -12,14 +12,14 @@ import { cn } from "@/lib/utils";
  */
 
 /** Full date, month and year, or year alone: the precision the source gives. */
-export function formatPartialDate(locale: Langue, value: string): string {
-  if (value.length >= 10) return dateLongue(locale, value.slice(0, 10));
-  if (value.length === 7) return moisAnnee(locale, `${value}-01`);
+export function formatPartialDate(locale: Locale, value: string): string {
+  if (value.length >= 10) return longDate(locale, value.slice(0, 10));
+  if (value.length === 7) return monthYear(locale, `${value}-01`);
   return value;
 }
 
-export function tournamentDates(t: T, locale: Langue, tour: Tournament): string | null {
-  const { startDate: start, endDate: end } = tour;
+export function tournamentDates(t: T, locale: Locale, turn: Tournament): string | null {
+  const { startDate: start, endDate: end } = turn;
   if (start && end && start !== end) {
     return t("pages.esports.dates.range", { start: formatPartialDate(locale, start), end: formatPartialDate(locale, end) });
   }
@@ -27,17 +27,17 @@ export function tournamentDates(t: T, locale: Langue, tour: Tournament): string 
 }
 
 /** "Sep 11, 2026": match dates, in UTC like the source's schedule. */
-export function shortDate(locale: Langue, iso: string): string {
+export function shortDate(locale: Locale, iso: string): string {
   const d = new Date(iso.length === 10 ? `${iso}T00:00:00Z` : iso);
   return new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(d);
 }
 
-export function formatPrize(locale: Langue, prize: { amount: number; currency: string }): string {
+export function formatPrize(locale: Locale, prize: { amount: number; currency: string }): string {
   return new Intl.NumberFormat(locale, { style: "currency", currency: prize.currency, maximumFractionDigits: 0 }).format(prize.amount);
 }
 
 /** Whole percentage for thresholds ("20%"), where a decimal would be noise. */
-export function wholePercent(locale: Langue, value: number): string {
+export function wholePercent(locale: Locale, value: number): string {
   return new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 0 }).format(value / 100);
 }
 
@@ -119,7 +119,7 @@ export function SourceCredit({
   className,
 }: {
   t: T;
-  locale: Langue;
+  locale: Locale;
   sources: SourcePage[];
   className?: string;
 }) {
@@ -131,7 +131,7 @@ export function SourceCredit({
         {unique.map((s) => (
           <li key={s.url}>
             <ExternalLink href={s.url}>{s.title}</ExternalLink> ·{" "}
-            {t("pages.esports.credit.revised", { date: dateLongue(locale, s.revision.slice(0, 10)) })}
+            {t("pages.esports.credit.revised", { date: longDate(locale, s.revision.slice(0, 10)) })}
           </li>
         ))}
       </ul>

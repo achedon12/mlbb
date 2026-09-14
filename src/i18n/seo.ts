@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { Article } from "@/lib/types";
 import { site } from "@/lib/site";
-import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, type Langue } from "./config";
+import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, type Locale } from "./config";
 
 /**
  * Métadonnées de langue d'une page : son canonique (dans la langue courante) et
@@ -12,17 +12,17 @@ import { LANGUES, LANGUE_DEFAUT, LOCALE_HTML, type Langue } from "./config";
  * visaient que la France et l'Espagne, alors que le public de MLBB est surtout
  * latino-americain en espagnol, et africain, belge ou canadien en francais.
  */
-export function metaLangues(locale: Langue, chemin: string) {
-  const languages: Record<string, string> = Object.fromEntries(LANGUES.map((l) => [l, `/${l}${chemin}`]));
-  languages["x-default"] = `/${LANGUE_DEFAUT}${chemin}`;
-  return { canonical: `/${locale}${chemin}`, languages };
+export function metaLocales(locale: Locale, path: string) {
+  const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [l, `/${l}${path}`]));
+  languages["x-default"] = `/${DEFAULT_LOCALE}${path}`;
+  return { canonical: `/${locale}${path}`, languages };
 }
 
 /**
  * Donnees structurees d'un billet — actualite ou analyse de patch —, dans la
  * langue de la page : `inLanguage` annoncait jusqu'ici le francais partout.
  */
-export function donneesBillet(a: Article, chemin: string, locale: Langue) {
+export function postData(a: Article, path: string, locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -33,13 +33,13 @@ export function donneesBillet(a: Article, chemin: string, locale: Langue) {
     inLanguage: LOCALE_HTML[locale],
     keywords: a.keywords.join(", "),
     author: { "@type": "Person", name: a.author, url: `https://github.com/${a.author}` },
-    publisher: { "@type": "Organization", name: site.nom, url: site.url },
-    mainEntityOfPage: `${site.url}/${locale}${chemin}`,
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
+    mainEntityOfPage: `${site.url}/${locale}${path}`,
   };
 }
 
 /** Locale Open Graph de chaque langue du site. */
-export const OG_LOCALE: Record<Langue, string> = {
+export const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
   fr: "fr_FR",
   it: "it_IT",
@@ -50,23 +50,23 @@ export const OG_LOCALE: Record<Langue, string> = {
  * Donnees structurees d'un outil (draft, comparateur, calculateur) : une
  * application web gratuite, sans compte, dans la langue de la page.
  */
-export function donneesOutil(
-  locale: Langue,
-  o: { nom: string; description: string; chemin: string; categorie: "GameApplication" | "UtilitiesApplication" },
+export function dataTool(
+  locale: Locale,
+  o: { name: string; description: string; path: string; category: "GameApplication" | "UtilitiesApplication" },
 ) {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: o.nom,
+    name: o.name,
     description: o.description,
-    url: `${site.url}/${locale}${o.chemin}`,
-    applicationCategory: o.categorie,
+    url: `${site.url}/${locale}${o.path}`,
+    applicationCategory: o.category,
     operatingSystem: "Any",
     browserRequirements: "Requires JavaScript",
     inLanguage: LOCALE_HTML[locale],
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    publisher: { "@type": "Organization", name: site.nom, url: site.url },
+    publisher: { "@type": "Organization", name: site.name, url: site.url },
     about: { "@type": "VideoGame", name: "Mobile Legends: Bang Bang", publisher: "Moonton" },
   };
 }
@@ -76,37 +76,37 @@ export function donneesOutil(
  * la page, sa date de mise a jour, et la liste ordonnee de ses heros, chacun
  * avec l'adresse de sa fiche.
  */
-export function donneesListeHeros(
-  locale: Langue,
+export function heroListData(
+  locale: Locale,
   o: {
-    nom: string;
+    name: string;
     description: string;
-    chemin: string;
-    heros: { nom: string; slug: string }[];
+    path: string;
+    heroes: { name: string; slug: string }[];
     /** Date ISO de mise a jour des donnees affichees. */
-    modifie?: string;
+    changed?: string;
     /** Vrai quand l'ordre est un classement, du plus fort au plus faible. */
-    classe?: boolean;
+    ranked?: boolean;
   },
 ) {
   return {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: o.nom,
+    name: o.name,
     description: o.description,
-    url: `${site.url}/${locale}${o.chemin}`,
+    url: `${site.url}/${locale}${o.path}`,
     inLanguage: LOCALE_HTML[locale],
-    ...(o.modifie ? { dateModified: o.modifie } : {}),
-    isPartOf: { "@type": "WebSite", name: site.nom, url: site.url },
+    ...(o.changed ? { dateModified: o.changed } : {}),
+    isPartOf: { "@type": "WebSite", name: site.name, url: site.url },
     mainEntity: {
       "@type": "ItemList",
-      name: o.nom,
-      numberOfItems: o.heros.length,
-      ...(o.classe ? { itemListOrder: "https://schema.org/ItemListOrderDescending" } : {}),
-      itemListElement: o.heros.map((h, i) => ({
+      name: o.name,
+      numberOfItems: o.heroes.length,
+      ...(o.ranked ? { itemListOrder: "https://schema.org/ItemListOrderDescending" } : {}),
+      itemListElement: o.heroes.map((h, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        name: h.nom,
+        name: h.name,
         url: `${site.url}/${locale}/heroes/${h.slug}`,
       })),
     },
@@ -114,13 +114,13 @@ export function donneesListeHeros(
 }
 
 /** Image de partage par defaut, generee par `src/app/opengraph-image.tsx`. */
-const IMAGE_PARTAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: site.titre };
+const SHARE_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: site.title };
 
 /**
  * Au-dela, le titre complete du nom du site (« … — MLBBDex ») serait coupe
  * dans les resultats : le titre de la page passe alors seul, sans la marque.
  */
-const TITRE_MAX = 60;
+const TITLE_MAX = 60;
 
 /**
  * Metadonnees d'une page : titre, description, canonique et `hreflang`, carte
@@ -129,50 +129,50 @@ const TITRE_MAX = 60;
  * image explicite, ses liens partages s'affichaient nus.
  */
 export function metaPage(
-  locale: Langue,
+  locale: Locale,
   o: {
-    titre: string;
+    title: string;
     description: string;
     /** Chemin sans langue, « /heroes/aamon ». */
-    chemin: string;
+    path: string;
     /** Description des cartes de partage, si elle differe. */
-    partage?: string;
+    share?: string;
     /** Image propre a la page ; a defaut, l'image de partage du site. */
     image?: string;
     type?: "website" | "article";
-    motsCles?: string[];
+    keywords?: string[];
     /** Date de publication d'un article. */
-    publie?: string;
-    auteur?: string;
+    published?: string;
+    author?: string;
   },
 ): Metadata {
-  const images = [o.image ? { url: o.image } : IMAGE_PARTAGE];
-  const titrePartage = `${o.titre} — ${site.nom}`;
-  const descriptionPartage = o.partage ?? o.description;
+  const images = [o.image ? { url: o.image } : SHARE_IMAGE];
+  const titleShare = `${o.title} — ${site.name}`;
+  const descriptionShare = o.share ?? o.description;
   const openGraph = {
     type: o.type ?? "website",
-    siteName: site.nom,
+    siteName: site.name,
     locale: OG_LOCALE[locale],
-    title: titrePartage,
-    description: descriptionPartage,
-    url: `/${locale}${o.chemin}`,
+    title: titleShare,
+    description: descriptionShare,
+    url: `/${locale}${o.path}`,
     images,
-    ...(o.type === "article" && o.publie
-      ? { publishedTime: o.publie, authors: o.auteur ? [o.auteur] : undefined }
+    ...(o.type === "article" && o.published
+      ? { publishedTime: o.published, authors: o.author ? [o.author] : undefined }
       : {}),
   } as Metadata["openGraph"];
   return {
     // Le gabarit de la mise en page ajoute « — MLBBDex » ; un titre deja long
     // le perd plutot que de voir tronquer sa fin (patch, mois).
-    title: titrePartage.length > TITRE_MAX ? { absolute: o.titre } : o.titre,
+    title: titleShare.length > TITLE_MAX ? { absolute: o.title } : o.title,
     description: o.description,
-    ...(o.motsCles?.length ? { keywords: o.motsCles } : {}),
-    alternates: metaLangues(locale, o.chemin),
+    ...(o.keywords?.length ? { keywords: o.keywords } : {}),
+    alternates: metaLocales(locale, o.path),
     openGraph,
     twitter: {
       card: "summary_large_image",
-      title: titrePartage,
-      description: descriptionPartage,
+      title: titleShare,
+      description: descriptionShare,
       images: images.map((i) => i.url),
     },
   };

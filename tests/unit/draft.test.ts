@@ -1,50 +1,50 @@
 import { describe, expect, it } from "vitest";
-import { suggerer, type HerosDraft } from "@/lib/draft";
+import { suggest, type DraftHero } from "@/lib/draft";
 
-const heros = (slug: string, o: Partial<HerosDraft> = {}): HerosDraft => ({
+const heroes = (slug: string, o: Partial<DraftHero> = {}): DraftHero => ({
   slug,
-  nom: slug.toUpperCase(),
-  lanes: ["Or"],
+  name: slug.toUpperCase(),
+  lanes: ["Gold"],
   roles: ["Marksman"],
-  icone: null,
-  victoire: 50,
-  fortContre: [],
-  faibleContre: [],
+  icon: null,
+  win: 50,
+  strongAgainst: [],
+  weakAgainst: [],
   synergies: [],
   ...o,
 });
 
-describe("suggerer", () => {
-  const candidats = [
-    heros("contre", { fortContre: ["ennemi"], synergies: ["allie"], victoire: 55 }),
-    heros("subit", { faibleContre: ["ennemi"], victoire: 45 }),
-    heros("neutre"),
-    heros("ennemi", { lanes: ["Jungle"] }),
-    heros("allie", { lanes: ["Roam"] }),
+describe("suggest", () => {
+  const candidates = [
+    heroes("counter", { strongAgainst: ["ennemi"], synergies: ["allie"], win: 55 }),
+    heroes("subit", { weakAgainst: ["ennemi"], win: 45 }),
+    heroes("neutre"),
+    heroes("ennemi", { lanes: ["Jungle"] }),
+    heroes("allie", { lanes: ["Roam"] }),
   ];
-  const resultat = suggerer({ candidats, lane: "Or", ennemis: ["ennemi"], allies: ["allie"] });
+  const result = suggest({ candidates, lane: "Gold", enemies: ["ennemi"], allies: ["allie"] });
 
-  it("classe d'abord le heros qui contre l'adversaire", () => {
-    expect(resultat[0].heros.slug).toBe("contre");
-    expect(resultat.at(-1)?.heros.slug).toBe("subit");
+  it("ranks the hero that counters the opponent first", () => {
+    expect(result[0].hero.slug).toBe("counter");
+    expect(result.at(-1)?.hero.slug).toBe("subit");
   });
 
-  it("donne des arguments types, traduits a l'affichage", () => {
-    expect(resultat[0].raisons).toEqual([
-      { type: "contre", detail: "ENNEMI", favorable: true },
-      { type: "combine", detail: "ALLIE", favorable: true },
-      { type: "victoire", detail: "55.0", favorable: true },
+  it("gives typed reasons, translated at display time", () => {
+    expect(result[0].reasons).toEqual([
+      { type: "counter", detail: "ENNEMI", favorable: true },
+      { type: "synergy", detail: "ALLIE", favorable: true },
+      { type: "win", detail: "55.0", favorable: true },
     ]);
-    expect(resultat.at(-1)?.raisons.map((r) => r.type)).toEqual(["subi", "victoire"]);
+    expect(result.at(-1)?.reasons.map((r) => r.type)).toEqual(["countered", "win"]);
   });
 
-  it("lit une relation declaree d'un seul cote", () => {
-    const [premier] = suggerer({
-      candidats: [heros("a"), heros("b"), heros("ennemi", { lanes: ["Jungle"], faibleContre: ["b"] })],
-      lane: "Or",
-      ennemis: ["ennemi"],
+  it("reads a relationship declared on one side only", () => {
+    const [first] = suggest({
+      candidates: [heroes("a"), heroes("b"), heroes("ennemi", { lanes: ["Jungle"], weakAgainst: ["b"] })],
+      lane: "Gold",
+      enemies: ["ennemi"],
       allies: [],
     });
-    expect(premier.heros.slug).toBe("b");
+    expect(first.hero.slug).toBe("b");
   });
 });

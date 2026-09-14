@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { configPush } from "@/lib/push-serveur";
+import { configPush } from "@/lib/push-server";
 
 /**
  * Cle publique VAPID des notifications de patch.
@@ -11,5 +11,5 @@ import { configPush } from "@/lib/push-serveur";
 export const dynamic = "force-dynamic";
 
 export function GET() {
-  return NextResponse.json({ cle: configPush()?.publique ?? null }, { headers: { "Cache-Control": "no-store" } });
+  return NextResponse.json({ cle: configPush()?.publicKey ?? null }, { headers: { "Cache-Control": "no-store" } });
 }

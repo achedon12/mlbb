@@ -1,58 +1,58 @@
 import type { Metadata } from "next";
-import Link from "@/components/lien";
-import { ComparateurHeros, type BornesRang, type HerosComparable, type TauxRang } from "@/components/comparateur-heros";
-import { EnTetePage } from "@/components/ui";
-import { contres, heros, herosParSlug } from "@/lib/donnees";
-import { classementComplet, classementDuRang, RANGS_CLASSES, statsParRang } from "@/lib/tier-list";
-import { dateLongue, patchActuel } from "@/lib/fraicheur";
-import { donneesLd } from "@/lib/html";
-import { adversairesMesures, cheminPaire, segmentPaire } from "@/lib/paires";
-import type { Langue } from "@/i18n/config";
-import { creerT } from "@/i18n/traductions";
-import { donneesOutil, metaPage } from "@/i18n/seo";
+import Link from "@/components/link";
+import { HeroComparator, type BoundsRank, type HeroComparable, type RateRank } from "@/components/hero-comparator";
+import { PageHeader } from "@/components/ui";
+import { counters, allHeroes, heroesBySlug } from "@/lib/data";
+import { rankingFull, rankingOfRank, RANKS_CLASSES, statsByRank } from "@/lib/tier-list";
+import { longDate, patchCurrent } from "@/lib/freshness";
+import { serializeJsonLd } from "@/lib/html";
+import { measuredOpponents, pathPair, segmentPair } from "@/lib/pairs";
+import type { Locale } from "@/i18n/config";
+import { createT } from "@/i18n/translations";
+import { dataTool, metaPage } from "@/i18n/seo";
 
 /** Description en donnees : heros comparables, date du releve et patch. */
-function descriptionComparateur(locale: Langue): string {
-  const t = creerT(locale);
-  return t("pages.seo.compare.descriptionThree", { n: heros.length, date: dateLongue(locale), v: patchActuel.version });
+function descriptionComparator(locale: Locale): string {
+  const t = createT(locale);
+  return t("pages.seo.compare.descriptionThree", { n: allHeroes.length, date: longDate(locale), v: patchCurrent.version });
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: Langue }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = creerT(locale);
+  const t = createT(locale);
   return metaPage(locale, {
-    titre: t("pages.seo.compare.title", { v: patchActuel.version }),
-    description: descriptionComparateur(locale),
-    partage: t("pages.compare.ogDescription"),
-    chemin: "/compare",
+    title: t("pages.seo.compare.title", { v: patchCurrent.version }),
+    description: descriptionComparator(locale),
+    share: t("pages.compare.ogDescription"),
+    path: "/compare",
   });
 }
 
-const dixieme = (v: number) => Math.round(v * 10) / 10;
+const tenth = (v: number) => Math.round(v * 10) / 10;
 
 /**
  * Catalogue du comparateur : taux par rang en triplets compacts (victoire,
  * ban, palier) — six rangs pour 133 heros passent dans la page sans l'alourdir.
  */
-const comparables: HerosComparable[] = heros.map((h) => ({
+const comparables: HeroComparable[] = allHeroes.map((h) => ({
   slug: h.slug,
-  nom: h.name,
-  icone: h.images.icon ?? h.images.portrait,
+  name: h.name,
+  icon: h.images.icon ?? h.images.portrait,
   roles: h.roles,
   lanes: h.lanes,
   notes: h.ratings,
-  taux: Object.fromEntries(
-    Object.entries(statsParRang(h.slug)).map(([r, s]) => [r, [dixieme(s.winRate), dixieme(s.banRate), s.tier] satisfies TauxRang]),
+  rate: Object.fromEntries(
+    Object.entries(statsByRank(h.slug)).map(([r, s]) => [r, [tenth(s.winRate), tenth(s.banRate), s.tier] satisfies RateRank]),
   ),
   skins: h.skins.length,
 }));
 
 /** Etendue des taux de chaque rang, sur tout le catalogue : l'echelle des axes « taux » du radar. */
-const bornes: Partial<Record<(typeof RANGS_CLASSES)[number], BornesRang>> = Object.fromEntries(
-  RANGS_CLASSES.map((r) => {
-    const entrees = classementDuRang(r);
-    const etendue = (valeurs: number[]): [number, number] => [Math.min(...valeurs), Math.max(...valeurs)];
-    return [r, { victoire: etendue(entrees.map((e) => e.winRate)), ban: etendue(entrees.map((e) => e.banRate)) }];
+const bounds: Partial<Record<(typeof RANKS_CLASSES)[number], BoundsRank>> = Object.fromEntries(
+  RANKS_CLASSES.map((r) => {
+    const entries = rankingOfRank(r);
+    const extent = (values: number[]): [number, number] => [Math.min(...values), Math.max(...values)];
+    return [r, { win: extent(entries.map((e) => e.winRate)), ban: extent(entries.map((e) => e.banRate)) }];
   }),
 );
 
@@ -61,48 +61,48 @@ const bornes: Partial<Record<(typeof RANGS_CLASSES)[number], BornesRang>> = Obje
  * classes, son duel mesure le plus tranche. Le chemin des moteurs vers les
  * pages `/compare/{a}-vs-{b}`, qu'aucun menu ne liste.
  */
-const DUELS_EN_AVANT = 12;
-function duelsEnAvant(): { a: string; b: string }[] {
-  const vus = new Set<string>();
-  const sortie: { a: string; b: string }[] = [];
-  for (const e of classementComplet) {
-    const autre = adversairesMesures(contres, e.hero.slug).find(
-      (x) => herosParSlug.has(x.slug) && !vus.has(segmentPaire(e.hero.slug, x.slug)),
+const FEATURED_DUELS = 12;
+function featuredDuels(): { a: string; b: string }[] {
+  const seen = new Set<string>();
+  const output: { a: string; b: string }[] = [];
+  for (const e of rankingFull) {
+    const other = measuredOpponents(counters, e.hero.slug).find(
+      (x) => heroesBySlug.has(x.slug) && !seen.has(segmentPair(e.hero.slug, x.slug)),
     );
-    if (!autre) continue;
-    vus.add(segmentPaire(e.hero.slug, autre.slug));
-    sortie.push({ a: e.hero.slug, b: autre.slug });
-    if (sortie.length === DUELS_EN_AVANT) break;
+    if (!other) continue;
+    seen.add(segmentPair(e.hero.slug, other.slug));
+    output.push({ a: e.hero.slug, b: other.slug });
+    if (output.length === FEATURED_DUELS) break;
   }
-  return sortie;
+  return output;
 }
 
-export default async function PageComparateur({ params }: { params: Promise<{ locale: Langue }> }) {
+export default async function ComparePage({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
-  const t = creerT(locale);
-  const nomDe = (slug: string) => herosParSlug.get(slug)?.name ?? slug;
+  const t = createT(locale);
+  const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
 
-  const donneesStructurees = donneesOutil(locale, {
-    nom: t("pages.compare.title"),
-    description: descriptionComparateur(locale),
-    chemin: "/compare",
-    categorie: "GameApplication",
+  const structuredData = dataTool(locale, {
+    name: t("pages.compare.title"),
+    description: descriptionComparator(locale),
+    path: "/compare",
+    category: "GameApplication",
   });
 
-  const lien = "bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400";
+  const link = "bevel-sm inline-block border border-night-700 px-2.5 py-1 text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400";
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: donneesLd(donneesStructurees) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <EnTetePage
-        titre={t("pages.compare.title")}
-        chapeau={t("pages.compare.leadThree")}
+      <PageHeader
+        title={t("pages.compare.title")}
+        lead={t("pages.compare.leadThree")}
       />
       <div className="mx-auto max-w-3xl px-4 py-12">
-        <ComparateurHeros heros={comparables} rangs={[...RANGS_CLASSES]} bornes={bornes} />
+        <HeroComparator heroes={comparables} ranks={[...RANKS_CLASSES]} bounds={bounds} />
 
         <section aria-labelledby="duels" className="mt-14">
           <h2 id="duels" className="font-heading text-xl font-bold text-chalk-100">
@@ -110,10 +110,10 @@ export default async function PageComparateur({ params }: { params: Promise<{ lo
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-chalk-500">{t("pages.compare.duels.intro")}</p>
           <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-            {duelsEnAvant().map(({ a, b }) => (
-              <li key={segmentPaire(a, b)}>
-                <Link href={cheminPaire(a, b)} className={lien}>
-                  {t("pages.versus.title", { a: nomDe(a), b: nomDe(b) })}
+            {featuredDuels().map(({ a, b }) => (
+              <li key={segmentPair(a, b)}>
+                <Link href={pathPair(a, b)} className={link}>
+                  {t("pages.versus.title", { a: nameOf(a), b: nameOf(b) })}
                 </Link>
               </li>
             ))}

@@ -1,34 +1,34 @@
 import { describe, expect, it } from "vitest";
-import { heros } from "@/lib/donnees";
+import { allHeroes } from "@/lib/data";
 import {
-  cleSortieHeros,
-  construireLiens,
-  decouperRelation,
+  heroReleaseKey,
+  buildLinks,
+  splitRelation,
   factionsLore,
-  herosCites,
-  liensLore,
-  motifsHeros,
-  pairesLore,
-  pairesVedettes,
-  regionParCle,
+  citedHeroes,
+  linksLore,
+  heroPatterns,
+  pairsLore,
+  pairsFeatured,
+  regionByKey,
   regionsLore,
-  resumeRegion,
+  summaryRegion,
 } from "@/lib/lore";
 
-describe("decouperRelation", () => {
-  it("separe les noms de la nature du lien", () => {
-    expect(decouperRelation("Gusion, Eren (younger brothers)")).toEqual({ noms: "Gusion, Eren", nature: "younger brothers" });
-    expect(decouperRelation("Terizla, Thamuz, (companions)")).toEqual({ noms: "Terizla, Thamuz,", nature: "companions" });
+describe("splitRelation", () => {
+  it("separates names from the nature of the relationship", () => {
+    expect(splitRelation("Gusion, Eren (younger brothers)")).toEqual({ names: "Gusion, Eren", nature: "younger brothers" });
+    expect(splitRelation("Terizla, Thamuz, (companions)")).toEqual({ names: "Terizla, Thamuz,", nature: "companions" });
   });
 
-  it("garde les parentheses interieures et accepte une ligne sans nature", () => {
-    expect(decouperRelation("Ken (Outfit 2) (rival (former))")).toEqual({ noms: "Ken (Outfit 2)", nature: "rival (former)" });
-    expect(decouperRelation("Unknown sisters")).toEqual({ noms: "Unknown sisters", nature: null });
+  it("keeps inner parentheses and accepts a line without a nature", () => {
+    expect(splitRelation("Ken (Outfit 2) (rival (former))")).toEqual({ names: "Ken (Outfit 2)", nature: "rival (former)" });
+    expect(splitRelation("Unknown sisters")).toEqual({ names: "Unknown sisters", nature: null });
   });
 });
 
-describe("herosCites", () => {
-  const motifs = motifsHeros([
+describe("citedHeroes", () => {
+  const patterns = heroPatterns([
     { slug: "sun", name: "Sun" },
     { slug: "yi-sun-shin", name: "Yi Sun-shin" },
     { slug: "yin", name: "Yin" },
@@ -36,104 +36,104 @@ describe("herosCites", () => {
     { slug: "aamon", name: "Aamon" },
   ]);
 
-  it("trouve les noms en mots entiers, sans casse, dans l'ordre de lecture", () => {
-    expect(herosCites("chang'e, Aamon", motifs)).toEqual(["chang-e", "aamon"]);
-    expect(herosCites("Yinyang", motifs)).toEqual([]);
+  it("finds names as whole words, case-insensitively, in reading order", () => {
+    expect(citedHeroes("chang'e, Aamon", patterns)).toEqual(["chang-e", "aamon"]);
+    expect(citedHeroes("Yinyang", patterns)).toEqual([]);
   });
 
-  it("ne voit pas un nom inclus dans un nom plus long, et s'ignore lui-meme", () => {
-    expect(herosCites("Yi Sun-shin", motifs)).toEqual(["yi-sun-shin"]);
-    expect(herosCites("Sun, Yi Sun-shin", motifs)).toEqual(["sun", "yi-sun-shin"]);
-    expect(herosCites("Aamon, Yin", motifs, "aamon")).toEqual(["yin"]);
+  it("does not match a name inside a longer name, and ignores itself", () => {
+    expect(citedHeroes("Yi Sun-shin", patterns)).toEqual(["yi-sun-shin"]);
+    expect(citedHeroes("Sun, Yi Sun-shin", patterns)).toEqual(["sun", "yi-sun-shin"]);
+    expect(citedHeroes("Aamon, Yin", patterns, "aamon")).toEqual(["yin"]);
   });
 });
 
-describe("liens et paires", () => {
-  const liste = [
+describe("links and pairs", () => {
+  const list = [
     { slug: "aamon", name: "Aamon" },
     { slug: "gusion", name: "Gusion" },
     { slug: "alice", name: "Alice" },
     { slug: "miya", name: "Miya" },
   ];
-  const fiche = (relations: string[]) => ({ profile: { relations, affiliations: [], species: null } });
+  const sheet = (relations: string[]) => ({ profile: { relations, affiliations: [], species: null } });
   const en = {
-    aamon: fiche(["Gusion (younger brother)"]),
-    gusion: fiche(["Aamon (older brother)"]),
-    alice: fiche(["Miya, Aamon, Gusion (enemies)"]),
-    miya: fiche([]),
+    aamon: sheet(["Gusion (younger brother)"]),
+    gusion: sheet(["Aamon (older brother)"]),
+    alice: sheet(["Miya, Aamon, Gusion (enemies)"]),
+    miya: sheet([]),
   };
   const fr = {
-    aamon: fiche(["Gusion (frère cadet)"]),
-    gusion: fiche(["Aamon (frère aîné)"]),
-    alice: fiche(["Miya, Aamon, Gusion (ennemis)"]),
-    miya: fiche([]),
+    aamon: sheet(["Gusion (frère cadet)"]),
+    gusion: sheet(["Aamon (frère aîné)"]),
+    alice: sheet(["Miya, Aamon, Gusion (ennemis)"]),
+    miya: sheet([]),
   };
-  const liens = construireLiens(liste, en, fr);
+  const links = buildLinks(list, en, fr);
 
-  it("lit la nature dans la langue de la page et compte la taille du groupe", () => {
-    expect(liens.find((l) => l.de === "aamon")).toEqual({
+  it("reads the nature in the page's language and counts the group size", () => {
+    expect(links.find((l) => l.de === "aamon")).toEqual({
       de: "aamon",
-      vers: "gusion",
+      to: "gusion",
       nature: "frère cadet",
       natureEn: "younger brother",
-      groupe: 1,
+      group: 1,
     });
-    expect(liens.filter((l) => l.de === "alice").map((l) => [l.vers, l.groupe])).toEqual([
+    expect(links.filter((l) => l.de === "alice").map((l) => [l.to, l.group])).toEqual([
       ["miya", 3],
       ["aamon", 3],
       ["gusion", 3],
     ]);
   });
 
-  it("classe un lien personnel et reciproque avant une liste d'ennemis", () => {
-    const noms = new Map(liste.map((h) => [h.slug, h.name]));
-    const paires = pairesLore(liens, noms);
-    expect([paires[0].a, paires[0].b]).toEqual(["aamon", "gusion"]);
-    expect(paires[0].deA?.nature).toBe("frère cadet");
-    expect(paires[0].deB?.nature).toBe("frère aîné");
+  it("ranks a personal, mutual link before a list of enemies", () => {
+    const names = new Map(list.map((h) => [h.slug, h.name]));
+    const pairs = pairsLore(links, names);
+    expect([pairs[0].a, pairs[0].b]).toEqual(["aamon", "gusion"]);
+    expect(pairs[0].deA?.nature).toBe("frère cadet");
+    expect(pairs[0].deB?.nature).toBe("frère aîné");
     // Chaque heros n'apparait qu'une fois dans la vitrine.
-    const vedettes = pairesVedettes(paires, 5);
-    const slugs = vedettes.flatMap((p) => [p.a, p.b]);
+    const featured = pairsFeatured(pairs, 5);
+    const slugs = featured.flatMap((p) => [p.a, p.b]);
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 });
 
-describe("cleSortieHeros", () => {
-  it("rend une date du wiki comparable", () => {
-    expect(cleSortieHeros("26 October 2021")).toBe("2021-10-26");
-    expect(cleSortieHeros("January 2017")).toBe("2017-01");
-    expect(cleSortieHeros("2016")).toBe("2016");
-    expect(cleSortieHeros("TBA")).toBeNull();
-    expect(cleSortieHeros(null)).toBeNull();
+describe("heroOutputKey", () => {
+  it("makes a wiki date comparable", () => {
+    expect(heroReleaseKey("26 October 2021")).toBe("2021-10-26");
+    expect(heroReleaseKey("January 2017")).toBe("2017-01");
+    expect(heroReleaseKey("2016")).toBe("2016");
+    expect(heroReleaseKey("TBA")).toBeNull();
+    expect(heroReleaseKey(null)).toBeNull();
   });
 });
 
-describe("donnees reelles", () => {
-  it("range chaque heros qui a une region dans une seule region", () => {
-    const ranges = regionsLore.flatMap((r) => r.heros.map((h) => h.slug));
-    expect(ranges.length).toBe(heros.filter((h) => h.region).length);
+describe("real data", () => {
+  it("places each hero with a region in exactly one region", () => {
+    const ranges = regionsLore.flatMap((r) => r.heroes.map((h) => h.slug));
+    expect(ranges.length).toBe(allHeroes.filter((h) => h.region).length);
     expect(new Set(ranges).size).toBe(ranges.length);
-    expect(new Set(regionsLore.map((r) => r.cle)).size).toBe(regionsLore.length);
+    expect(new Set(regionsLore.map((r) => r.key)).size).toBe(regionsLore.length);
   });
 
-  it("relie Aamon a Gusion, avec la nature de la fiche francaise", () => {
-    const lien = liensLore("fr").find((l) => l.de === "aamon" && l.vers === "gusion");
-    expect(lien?.natureEn).toBe("younger brothers");
-    expect(lien?.nature).toBe("frères cadets");
+  it("links Aamon to Gusion, with the nature from the French page", () => {
+    const link = linksLore("fr").find((l) => l.de === "aamon" && l.to === "gusion");
+    expect(link?.natureEn).toBe("younger brothers");
+    expect(link?.nature).toBe("frères cadets");
   });
 
-  it("reunit la maison Paxley et ecarte les affiliations hostiles", () => {
+  it("groups House Paxley and drops hostile affiliations", () => {
     const factions = factionsLore("en");
-    expect(factions.find((f) => f.nom === "Paxley House")?.heros).toEqual(["aamon", "gusion", "marcel"]);
-    expect(factions.some((f) => /hostile|enem|former/i.test(f.nom))).toBe(false);
+    expect(factions.find((f) => f.name === "Paxley House")?.heroes).toEqual(["aamon", "gusion", "marcel"]);
+    expect(factions.some((f) => /hostile|enem|former/i.test(f.name))).toBe(false);
   });
 
-  it("resume une region avec ses seuls liens internes", () => {
-    const r = regionParCle.get("moniyan-empire")!;
-    const membres = new Set(r.heros.map((h) => h.slug));
-    const resume = resumeRegion(r, "en");
-    expect(resume.internes.every((p) => membres.has(p.a) && membres.has(p.b))).toBe(true);
-    expect(resume.externes.every((p) => membres.has(p.a) !== membres.has(p.b))).toBe(true);
-    expect(resume.roles.reduce((n, x) => n + x.n, 0)).toBeGreaterThanOrEqual(r.heros.length);
+  it("summarizes a region with only its internal links", () => {
+    const r = regionByKey.get("moniyan-empire")!;
+    const members = new Set(r.heroes.map((h) => h.slug));
+    const summary = summaryRegion(r, "en");
+    expect(summary.internal.every((p) => members.has(p.a) && members.has(p.b))).toBe(true);
+    expect(summary.external.every((p) => members.has(p.a) !== members.has(p.b))).toBe(true);
+    expect(summary.roles.reduce((n, x) => n + x.n, 0)).toBeGreaterThanOrEqual(r.heroes.length);
   });
 });

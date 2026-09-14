@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LANGUES, LOCALE_HTML } from "@/i18n/config";
+import { LOCALES, LOCALE_HTML } from "@/i18n/config";
 import "./globals.css";
 
 /**
@@ -14,28 +14,28 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-const TEXTES = {
+const TEXTS = {
   fr: "Page introuvable",
   en: "Page not found",
   it: "Pagina non trovata",
   es: "Página no encontrada",
 } as const;
 
-export default function PageIntrouvableGlobale() {
+export default function GlobalNotFoundPage() {
   return (
     <html lang="en">
       <body className="flex min-h-screen flex-col items-center justify-center bg-night-950 px-4 text-center text-chalk-100">
         <p className="font-heading text-7xl font-bold text-gold-400">404</p>
-        <h1 className="mt-4 font-heading text-2xl font-bold">{TEXTES.en}</h1>
+        <h1 className="mt-4 font-heading text-2xl font-bold">{TEXTS.en}</h1>
         <ul className="mt-8 flex flex-wrap justify-center gap-3">
-          {LANGUES.map((l) => (
+          {LOCALES.map((l) => (
             <li key={l}>
               <a
                 href={`/${l}`}
                 hrefLang={LOCALE_HTML[l]}
                 className="bevel-sm inline-block border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
-                {TEXTES[l]} · {l.toUpperCase()}
+                {TEXTS[l]} · {l.toUpperCase()}
               </a>
             </li>
           ))}

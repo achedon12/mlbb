@@ -8,7 +8,7 @@
  * list pages. The "StarLight" and "Collector Skins" pages, on the other hand,
  * keep one gallery per month, reviewed by the community: "Hanabi - Chic
  * Glamour / September 2025". This script reads them and writes
- * `src/data/jeu/events.json`, which the site joins to the skin catalogue.
+ * `src/data/game/events.json`, which the site joins to the skin catalogue.
  *
  * Nothing is translated here: hero and skin names stay as in the game. The
  * "Upcoming content" page is not read: it collects leaks, without dates.
@@ -20,8 +20,8 @@ import { pathToFileURL } from "node:url";
 
 const WIKI = "https://mobilelegends.fandom.com";
 const UA = "MLBB-sync/1.0 (https://mlbbdex.com; contact via github.com/achedon12)";
-const OUTPUT = "src/data/jeu/events.json";
-const HEROES = "src/data/jeu/heros.json";
+const OUTPUT = "src/data/game/events.json";
+const HEROES = "src/data/game/heroes.json";
 
 /** Pages read, and the section holding the monthly list. */
 export const PAGES = {

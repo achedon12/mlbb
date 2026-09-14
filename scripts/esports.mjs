@@ -5,7 +5,7 @@
  *     node scripts/esports.mjs            only re-reads pages that changed
  *     node scripts/esports.mjs --force    ignores the cache
  *
- * Writes `src/data/jeu/esports.json`. Liquipedia content is licensed under
+ * Writes `src/data/game/esports.json`. Liquipedia content is licensed under
  * CC BY-SA 3.0: every page showing it credits it, with links to the source
  * pages. Teams stay plain text: no logo, no photo.
  *
@@ -31,9 +31,9 @@ import {
 const API = "https://liquipedia.net/mobilelegends/api.php";
 const WIKI = "https://liquipedia.net/mobilelegends/";
 const USER_AGENT = "MLBBDex/1.0 (+https://mlbbdex.com; contact@leoderoin.fr)";
-const OUTPUT = "src/data/jeu/esports.json";
+const OUTPUT = "src/data/game/esports.json";
 const CACHE = "scripts/esports-cache.json";
-const HEROES = "src/data/jeu/heros.json";
+const HEROES = "src/data/game/heroes.json";
 const HERO_MODULE = "Module:HeroNames";
 
 /** Bump when the analysis changes: cached pages are then read again. */

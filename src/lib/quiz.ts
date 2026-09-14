@@ -1,5 +1,5 @@
 import type { Lane, Role } from "./types";
-import { cleRecherche } from "./utils";
+import { keySearch } from "./utils";
 
 /**
  * Quiz MLBB : defi du jour et entrainement.
@@ -15,20 +15,20 @@ import { cleRecherche } from "./utils";
  * l'arrivee d'un nouveau heros ne rebat pas les defis deja joues.
  */
 
-export type TypeManche = "competence" | "skin" | "histoire" | "objet" | "duel";
-export type TypeDevinette = Exclude<TypeManche, "duel">;
+export type TypeRound = "skill" | "skin" | "story" | "item" | "duel";
+export type GuessType = Exclude<TypeRound, "duel">;
 
 /** Ordre des manches du defi du jour, repris par la grille de partage. */
-export const ORDRE_DEFI: TypeManche[] = ["competence", "skin", "histoire", "objet", "duel"];
+export const ORDER_CHALLENGE: TypeRound[] = ["skill", "skin", "story", "item", "duel"];
 
 /** Essais par manche : cinq pour un heros parmi 133, quatre pour un objet. */
-export const ESSAIS: Record<TypeDevinette, number> = { competence: 5, skin: 5, histoire: 5, objet: 4 };
+export const ATTEMPTS: Record<GuessType, number> = { skill: 5, skin: 5, story: 5, item: 4 };
 
 /** Paires du duel « plus ou moins » : trois le jour, une a l'entrainement. */
-export const PAIRES_DUEL = 3;
+export const PAIRS_DUEL = 3;
 
 /** Premier defi : le numero d'un jour se compte a partir de celui-ci. */
-export const EPOQUE = "2026-09-11";
+export const EPOCH = "2026-09-11";
 
 /** Essai qui abandonne la manche : il la termine sans compter comme erreur de plus. */
 export const ABANDON = "-";
@@ -37,11 +37,11 @@ export const ABANDON = "-";
 export const ZOOMS = [3.2, 2.4, 1.8, 1.35, 1];
 
 /** Pictogramme de chaque manche dans la grille partagee : il ne dit rien de la reponse. */
-export const EMOJI_MANCHE: Record<TypeManche, string> = {
-  competence: "✨",
+export const EMOJI_ROUND: Record<TypeRound, string> = {
+  skill: "✨",
   skin: "🎨",
-  histoire: "📜",
-  objet: "🛡️",
+  story: "📜",
+  item: "🛡️",
   duel: "⚖️",
 };
 
@@ -50,7 +50,7 @@ export const EMOJI_MANCHE: Record<TypeManche, string> = {
 // ─────────────────────────────────────────────────────────────
 
 /** Un heros tel que le quiz le compare : de quoi proposer, comparer et donner des indices. */
-export interface HerosQuiz {
+export interface QuizHero {
   slug: string;
   nom: string;
   icone: string | null;
@@ -62,7 +62,7 @@ export interface HerosQuiz {
 }
 
 /** Un objet tel que le champ de reponse le propose et le compare. */
-export interface ObjetRoster {
+export interface ItemRoster {
   slug: string;
   nom: string;
   icone: string | null;
@@ -71,14 +71,14 @@ export interface ObjetRoster {
   categorie: string;
 }
 
-export interface ObjetQuiz extends ObjetRoster {
+export interface ItemQuiz extends ItemRoster {
   bonus: string;
   recette: { nom: string; icone: string | null }[];
   /** Passif ou effet unique, nom de l'objet masque. */
   passif: string | null;
 }
 
-export interface CompetenceQuiz {
+export interface SkillQuiz {
   nom: string;
   icone: string;
   /** Debut de la description, nom du heros masque. */
@@ -100,11 +100,11 @@ export interface PoolQuiz {
   version: string;
   /** Date du releve des taux de victoire. */
   mesure: string;
-  heros: HerosQuiz[];
-  competences: Record<string, CompetenceQuiz[]>;
+  heros: QuizHero[];
+  competences: Record<string, SkillQuiz[]>;
   histoires: Record<string, string[]>;
   skins: Record<string, SkinQuiz[]>;
-  objets: ObjetQuiz[];
+  objets: ItemQuiz[];
   /** Taux de victoire tous rangs, heros assez joues seulement. */
   victoires: Record<string, number>;
 }
@@ -113,19 +113,19 @@ export interface PoolQuiz {
 // Manches
 // ─────────────────────────────────────────────────────────────
 
-export interface DuelHeros {
+export interface DuelHero {
   slug: string;
   victoire: number;
 }
-export type PaireDuel = [DuelHeros, DuelHeros];
+export type PairDuel = [DuelHero, DuelHero];
 
-export type Manche =
-  | { type: "competence"; reponse: string; nom: string; icone: string; extrait: string | null }
+export type Round =
+  | { type: "skill"; reponse: string; nom: string; icone: string; extrait: string | null }
   /** `foyer` : point de l'illustration sur lequel l'image est agrandie, en fractions. */
   | { type: "skin"; reponse: string; image: string; skin: string; foyer: [number, number] }
-  | { type: "histoire"; reponse: string; extraits: string[] }
+  | { type: "story"; reponse: string; extraits: string[] }
   | {
-      type: "objet";
+      type: "item";
       reponse: string;
       bonus: string;
       prix: number | null;
@@ -133,14 +133,14 @@ export type Manche =
       recette: { nom: string; icone: string | null }[];
       passif: string | null;
     }
-  | { type: "duel"; paires: PaireDuel[] };
+  | { type: "duel"; paires: PairDuel[] };
 
-export interface Defi {
+export interface Challenge {
   jour: string;
   numero: number;
   version: string;
   mesure: string;
-  manches: Manche[];
+  manches: Round[];
 }
 
 /**
@@ -148,92 +148,92 @@ export interface Defi {
  * Le defi du jour la tire d'un hachage (meme cle, meme nombre) ; l'entrainement
  * de `Math.random`.
  */
-export type Tirage = (cle: string) => number;
+export type Draw = (key: string) => number;
 
 /** Hachage FNV-1a sur 32 bits : court, sans dependance, identique partout. */
-export function hacher(texte: string): number {
+export function hash(text: string): number {
   let h = 0x811c9dc5;
-  for (let i = 0; i < texte.length; i++) {
-    h ^= texte.charCodeAt(i);
+  for (let i = 0; i < text.length; i++) {
+    h ^= text.charCodeAt(i);
     h = Math.imul(h, 0x01000193);
   }
   return h >>> 0;
 }
 
 /** Tirage reproductible : une graine, puis chaque cle donne toujours le meme nombre. */
-export function tirageFixe(graine: string): Tirage {
-  return (cle) => hacher(`${graine}|${cle}`) / 4294967296;
+export function fixedDraw(seed: string): Draw {
+  return (key) => hash(`${seed}|${key}`) / 4294967296;
 }
 
 /** Candidat au plus petit tirage : stable quand la liste s'allonge d'un element qui ne gagne pas. */
-function choisir<T>(candidats: T[], cle: (x: T) => string, tirage: Tirage): T | undefined {
-  let meilleur: T | undefined;
-  let valeur = Infinity;
-  for (const c of candidats) {
-    const v = tirage(cle(c));
-    if (v < valeur) {
-      valeur = v;
-      meilleur = c;
+function choose<T>(candidates: T[], key: (x: T) => string, draw: Draw): T | undefined {
+  let best: T | undefined;
+  let value = Infinity;
+  for (const c of candidates) {
+    const v = draw(key(c));
+    if (v < value) {
+      value = v;
+      best = c;
     }
   }
-  return meilleur;
+  return best;
 }
 
-const indice = (n: number, r: number) => Math.min(n - 1, Math.floor(r * n));
-const arrondi = (v: number) => Math.round(v * 100) / 100;
+const hint = (n: number, r: number) => Math.min(n - 1, Math.floor(r * n));
+const rounded = (v: number) => Math.round(v * 100) / 100;
 
 /**
  * Une manche du type demande. `exclus` evite de reprendre un heros ou un
  * objet deja tire (il est complete au passage) ; `paires` fixe la longueur du
  * duel. Rend `null` quand le vivier n'a aucun candidat.
  */
-export function genererManche(
+export function generateRound(
   pool: PoolQuiz,
-  type: TypeManche,
-  tirage: Tirage,
-  o: { exclus?: Set<string>; paires?: number; recetteSeulement?: boolean } = {},
-): Manche | null {
-  const exclus = o.exclus ?? new Set<string>();
-  const libres = pool.heros.filter((h) => !exclus.has(h.slug));
+  type: TypeRound,
+  draw: Draw,
+  o: { excluded?: Set<string>; pairs?: number; recipeOnly?: boolean } = {},
+): Round | null {
+  const excluded = o.excluded ?? new Set<string>();
+  const free = pool.heros.filter((h) => !excluded.has(h.slug));
 
-  if (type === "competence") {
-    const h = choisir(libres.filter((x) => pool.competences[x.slug]?.length), (x) => `competence:${x.slug}`, tirage);
+  if (type === "skill") {
+    const h = choose(free.filter((x) => pool.competences[x.slug]?.length), (x) => `competence:${x.slug}`, draw);
     if (!h) return null;
-    const liste = pool.competences[h.slug];
-    const c = liste[indice(liste.length, tirage(`competence:${h.slug}:laquelle`))];
-    exclus.add(h.slug);
+    const list = pool.competences[h.slug];
+    const c = list[hint(list.length, draw(`competence:${h.slug}:laquelle`))];
+    excluded.add(h.slug);
     return { type, reponse: h.slug, nom: c.nom, icone: c.icone, extrait: c.extrait };
   }
 
   if (type === "skin") {
-    const h = choisir(libres.filter((x) => pool.skins[x.slug]?.length), (x) => `skin:${x.slug}`, tirage);
+    const h = choose(free.filter((x) => pool.skins[x.slug]?.length), (x) => `skin:${x.slug}`, draw);
     if (!h) return null;
-    const liste = pool.skins[h.slug];
-    const s = liste[indice(liste.length, tirage(`skin:${h.slug}:lequel`))];
-    exclus.add(h.slug);
+    const list = pool.skins[h.slug];
+    const s = list[hint(list.length, draw(`skin:${h.slug}:lequel`))];
+    excluded.add(h.slug);
     // Le foyer reste vers le centre, la ou se tient le personnage.
-    const foyer: [number, number] = [
-      arrondi(0.3 + 0.4 * tirage(`skin:${h.slug}:x`)),
-      arrondi(0.25 + 0.35 * tirage(`skin:${h.slug}:y`)),
+    const home: [number, number] = [
+      rounded(0.3 + 0.4 * draw(`skin:${h.slug}:x`)),
+      rounded(0.25 + 0.35 * draw(`skin:${h.slug}:y`)),
     ];
-    return { type, reponse: h.slug, image: s.image, skin: s.nom, foyer };
+    return { type, reponse: h.slug, image: s.image, skin: s.nom, foyer: home };
   }
 
-  if (type === "histoire") {
-    const h = choisir(libres.filter((x) => pool.histoires[x.slug]?.length), (x) => `histoire:${x.slug}`, tirage);
+  if (type === "story") {
+    const h = choose(free.filter((x) => pool.histoires[x.slug]?.length), (x) => `histoire:${x.slug}`, draw);
     if (!h) return null;
-    const liste = pool.histoires[h.slug];
-    const i = indice(liste.length, tirage(`histoire:${h.slug}:lequel`));
-    exclus.add(h.slug);
-    const extraits = liste.length > 1 ? [liste[i], liste[(i + 1) % liste.length]] : [liste[i]];
-    return { type, reponse: h.slug, extraits };
+    const list = pool.histoires[h.slug];
+    const i = hint(list.length, draw(`histoire:${h.slug}:lequel`));
+    excluded.add(h.slug);
+    const excerpts = list.length > 1 ? [list[i], list[(i + 1) % list.length]] : [list[i]];
+    return { type, reponse: h.slug, extraits: excerpts };
   }
 
-  if (type === "objet") {
-    const candidats = pool.objets.filter((x) => !exclus.has(x.slug) && (!o.recetteSeulement || x.recette.length));
-    const obj = choisir(candidats, (x) => `objet:${x.slug}`, tirage);
+  if (type === "item") {
+    const candidates = pool.objets.filter((x) => !excluded.has(x.slug) && (!o.recipeOnly || x.recette.length));
+    const obj = choose(candidates, (x) => `objet:${x.slug}`, draw);
     if (!obj) return null;
-    exclus.add(obj.slug);
+    excluded.add(obj.slug);
     return {
       type,
       reponse: obj.slug,
@@ -247,40 +247,40 @@ export function genererManche(
 
   // Duel : deux heros aux taux assez ecartes pour qu'il y ait une reponse,
   // pas assez pour qu'elle saute aux yeux.
-  const mesures = libres.filter((h) => pool.victoires[h.slug] !== undefined);
-  const paires: PaireDuel[] = [];
-  for (let n = 0; n < (o.paires ?? 1); n++) {
-    const cle = (x: HerosQuiz) => `duel:${n}:${x.slug}`;
-    const a = choisir(mesures.filter((x) => !exclus.has(x.slug)), cle, tirage);
+  const measures = free.filter((h) => pool.victoires[h.slug] !== undefined);
+  const pairs: PairDuel[] = [];
+  for (let n = 0; n < (o.pairs ?? 1); n++) {
+    const key = (x: QuizHero) => `duel:${n}:${x.slug}`;
+    const a = choose(measures.filter((x) => !excluded.has(x.slug)), key, draw);
     if (!a) break;
     const va = pool.victoires[a.slug];
-    const b = choisir(
-      mesures.filter((x) => {
-        const ecart = Math.abs(pool.victoires[x.slug] - va);
-        return x.slug !== a.slug && !exclus.has(x.slug) && ecart >= 0.5 && ecart <= 6;
+    const b = choose(
+      measures.filter((x) => {
+        const gap = Math.abs(pool.victoires[x.slug] - va);
+        return x.slug !== a.slug && !excluded.has(x.slug) && gap >= 0.5 && gap <= 6;
       }),
       (x) => `duel:${n}:b:${x.slug}`,
-      tirage,
+      draw,
     );
     if (!b) break;
-    exclus.add(a.slug).add(b.slug);
-    paires.push([
+    excluded.add(a.slug).add(b.slug);
+    pairs.push([
       { slug: a.slug, victoire: va },
       { slug: b.slug, victoire: pool.victoires[b.slug] },
     ]);
   }
-  return paires.length ? { type: "duel", paires } : null;
+  return pairs.length ? { type: "duel", paires: pairs } : null;
 }
 
 /** Defi du jour : une manche de chaque type, dans l'ordre de la grille, sans heros repete. */
-export function genererDefi(pool: PoolQuiz, jour: string): Defi {
-  const tirage = tirageFixe(`defi:${jour}`);
-  const exclus = new Set<string>();
-  const manches = ORDRE_DEFI.flatMap((type) => {
-    const m = genererManche(pool, type, tirage, { exclus, paires: PAIRES_DUEL, recetteSeulement: true });
+export function generateChallenge(pool: PoolQuiz, day: string): Challenge {
+  const draw = fixedDraw(`defi:${day}`);
+  const excluded = new Set<string>();
+  const rounds = ORDER_CHALLENGE.flatMap((type) => {
+    const m = generateRound(pool, type, draw, { excluded, pairs: PAIRS_DUEL, recipeOnly: true });
     return m ? [m] : [];
   });
-  return { jour, numero: numeroDefi(jour), version: pool.version, mesure: pool.mesure, manches };
+  return { jour: day, numero: numberChallenge(day), version: pool.version, mesure: pool.mesure, manches: rounds };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -288,33 +288,33 @@ export function genererDefi(pool: PoolQuiz, jour: string): Defi {
 // ─────────────────────────────────────────────────────────────
 
 /** Jour UTC d'une date, « 2026-09-11 » : le defi change a minuit UTC pour tout le monde. */
-export function jourUtc(date: Date): string {
+export function dayUtc(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
 
-export function estJourValide(jour: string): boolean {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(jour)) return false;
-  const d = new Date(`${jour}T00:00:00Z`);
-  return !Number.isNaN(d.getTime()) && jourUtc(d) === jour;
+export function isValidDay(day: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return false;
+  const d = new Date(`${day}T00:00:00Z`);
+  return !Number.isNaN(d.getTime()) && dayUtc(d) === day;
 }
 
-export function decalerJour(jour: string, n: number): string {
-  const d = new Date(`${jour}T00:00:00Z`);
+export function shiftDay(day: string, n: number): string {
+  const d = new Date(`${day}T00:00:00Z`);
   d.setUTCDate(d.getUTCDate() + n);
-  return jourUtc(d);
+  return dayUtc(d);
 }
 
-export function numeroDefi(jour: string): number {
-  return Math.round((Date.parse(`${jour}T00:00:00Z`) - Date.parse(`${EPOQUE}T00:00:00Z`)) / 86_400_000) + 1;
+export function numberChallenge(day: string): number {
+  return Math.round((Date.parse(`${day}T00:00:00Z`) - Date.parse(`${EPOCH}T00:00:00Z`)) / 86_400_000) + 1;
 }
 
 // ─────────────────────────────────────────────────────────────
 // Textes
 // ─────────────────────────────────────────────────────────────
 
-export const MASQUE = "▢▢▢";
+export const MASK = "▢▢▢";
 
-const echapper = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 /**
  * Masque un nom dans un texte : le nom complet, sans casse, puis chacune de
@@ -322,28 +322,28 @@ const echapper = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
  * (« Popol and Kupa » masque « Popol » et « Kupa », pas « and » ; « Yi
  * Sun-shin » masque « Sun » sans toucher au soleil d'une phrase).
  */
-export function masquerNom(texte: string, noms: string[]): string {
-  let sortie = texte;
-  const complets = [...new Set(noms.filter(Boolean))].sort((a, b) => b.length - a.length);
-  const bord = (motif: string, drapeaux: string) =>
-    new RegExp(`(?<![\\p{L}\\p{N}])(?:${motif})(?![\\p{L}\\p{N}])`, drapeaux);
-  if (complets.length) sortie = sortie.replace(bord(complets.map(echapper).join("|"), "giu"), MASQUE);
-  const parties = [
-    ...new Set(complets.flatMap((n) => n.split(/[\s.'’-]+/).filter((p) => p.length >= 3 && /^\p{Lu}/u.test(p)))),
+export function maskName(text: string, names: string[]): string {
+  let output = text;
+  const full = [...new Set(names.filter(Boolean))].sort((a, b) => b.length - a.length);
+  const edge = (pattern: string, flags: string) =>
+    new RegExp(`(?<![\\p{L}\\p{N}])(?:${pattern})(?![\\p{L}\\p{N}])`, flags);
+  if (full.length) output = output.replace(edge(full.map(escape).join("|"), "giu"), MASK);
+  const matches = [
+    ...new Set(full.flatMap((n) => n.split(/[\s.'’-]+/).filter((p) => p.length >= 3 && /^\p{Lu}/u.test(p)))),
   ].sort((a, b) => b.length - a.length);
-  if (parties.length) sortie = sortie.replace(bord(parties.map(echapper).join("|"), "gu"), MASQUE);
-  return sortie;
+  if (matches.length) output = output.replace(edge(matches.map(escape).join("|"), "gu"), MASK);
+  return output;
 }
 
 /** Coupe un texte vers `max` caracteres, a la fin d'une phrase si possible, sinon d'un mot. */
-export function couper(texte: string, max: number): string {
-  const propre = texte.replace(/\s+/g, " ").trim();
-  if (propre.length <= max) return propre;
-  const debut = propre.slice(0, max);
-  const phrase = Math.max(debut.lastIndexOf(". "), debut.lastIndexOf("! "), debut.lastIndexOf("? "));
-  if (phrase >= max * 0.45) return debut.slice(0, phrase + 1);
-  const mot = debut.lastIndexOf(" ");
-  return `${debut.slice(0, mot > 0 ? mot : max).replace(/[,;:]$/, "")}…`;
+export function cut(text: string, max: number): string {
+  const clean = text.replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const start = clean.slice(0, max);
+  const sentence = Math.max(start.lastIndexOf(". "), start.lastIndexOf("! "), start.lastIndexOf("? "));
+  if (sentence >= max * 0.45) return start.slice(0, sentence + 1);
+  const word = start.lastIndexOf(" ");
+  return `${start.slice(0, word > 0 ? word : max).replace(/[,;:]$/, "")}…`;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -351,75 +351,75 @@ export function couper(texte: string, max: number): string {
 // ─────────────────────────────────────────────────────────────
 
 /** Vainqueur de chaque paire du duel. */
-export function reponsesDuel(manche: Extract<Manche, { type: "duel" }>): string[] {
-  return manche.paires.map(([a, b]) => (a.victoire >= b.victoire ? a.slug : b.slug));
+export function responsesDuel(round: Extract<Round, { type: "duel" }>): string[] {
+  return round.paires.map(([a, b]) => (a.victoire >= b.victoire ? a.slug : b.slug));
 }
 
-export function essaisMax(manche: Manche): number {
-  return manche.type === "duel" ? manche.paires.length : ESSAIS[manche.type];
+export function attemptsMax(round: Round): number {
+  return round.type === "duel" ? round.paires.length : ATTEMPTS[round.type];
 }
 
 /** Erreurs d'une devinette : elles debloquent les indices, une par une. */
-export function erreurs(manche: Manche, essais: string[]): number {
-  if (manche.type === "duel") return 0;
-  return essais.filter((e) => e !== ABANDON && e !== manche.reponse).length;
+export function errors(round: Round, attempts: string[]): number {
+  if (round.type === "duel") return 0;
+  return attempts.filter((e) => e !== ABANDON && e !== round.reponse).length;
 }
 
-export function mancheReussie(manche: Manche, essais: string[]): boolean {
-  if (manche.type === "duel") {
-    const bonnes = reponsesDuel(manche);
-    return essais.length === bonnes.length && essais.every((e, i) => e === bonnes[i]);
+export function roundSuccessful(round: Round, attempts: string[]): boolean {
+  if (round.type === "duel") {
+    const good = responsesDuel(round);
+    return attempts.length === good.length && attempts.every((e, i) => e === good[i]);
   }
-  return essais.includes(manche.reponse);
+  return attempts.includes(round.reponse);
 }
 
-export function mancheFinie(manche: Manche, essais: string[]): boolean {
-  if (manche.type === "duel") return essais.length >= manche.paires.length;
-  return essais.includes(manche.reponse) || essais.includes(ABANDON) || essais.length >= ESSAIS[manche.type];
+export function roundFinished(round: Round, attempts: string[]): boolean {
+  if (round.type === "duel") return attempts.length >= round.paires.length;
+  return attempts.includes(round.reponse) || attempts.includes(ABANDON) || attempts.length >= ATTEMPTS[round.type];
 }
 
 /** Points : un par devinette trouvee, un par paire du duel. */
-export function pointsManche(manche: Manche, essais: string[]): number {
-  if (manche.type === "duel") {
-    const bonnes = reponsesDuel(manche);
-    return essais.filter((e, i) => e === bonnes[i]).length;
+export function pointsRound(round: Round, attempts: string[]): number {
+  if (round.type === "duel") {
+    const good = responsesDuel(round);
+    return attempts.filter((e, i) => e === good[i]).length;
   }
-  return essais.includes(manche.reponse) ? 1 : 0;
+  return attempts.includes(round.reponse) ? 1 : 0;
 }
 
-export function pointsMax(manches: Manche[]): number {
-  return manches.reduce((n, m) => n + (m.type === "duel" ? m.paires.length : 1), 0);
+export function pointsMax(rounds: Round[]): number {
+  return rounds.reduce((n, m) => n + (m.type === "duel" ? m.paires.length : 1), 0);
 }
 
-export type Accord = "oui" | "partiel" | "non";
+export type Agreement = "yes" | "partial" | "no";
 /** Position de la reponse par rapport a l'essai : `plus` = plus recent, plus cher. */
-export type Sens = "egal" | "plus" | "moins" | "inconnu";
+export type Direction = "equal" | "higher" | "lower" | "unknown";
 
-function accord<T>(essai: T[], cible: T[]): Accord {
-  const communs = essai.filter((x) => cible.includes(x)).length;
-  if (communs === 0) return "non";
-  return communs === cible.length && essai.length === cible.length ? "oui" : "partiel";
+function agreement<T>(attempt: T[], target: T[]): Agreement {
+  const common = attempt.filter((x) => target.includes(x)).length;
+  if (common === 0) return "no";
+  return common === target.length && attempt.length === target.length ? "yes" : "partial";
 }
 
-function sens(essai: number | null, cible: number | null): Sens {
-  if (essai === null || cible === null) return "inconnu";
-  return essai === cible ? "egal" : cible > essai ? "plus" : "moins";
+function direction(attempt: number | null, target: number | null): Direction {
+  if (attempt === null || target === null) return "unknown";
+  return attempt === target ? "equal" : target > attempt ? "higher" : "lower";
 }
 
 /** Ce qu'un mauvais heros a en commun avec la reponse : un indice de plus a chaque essai. */
-export function comparerHeros(essai: HerosQuiz, cible: HerosQuiz) {
+export function compareHeroes(attempt: QuizHero, target: QuizHero) {
   return {
-    roles: accord(essai.roles, cible.roles),
-    lanes: accord(essai.lanes, cible.lanes),
-    annee: sens(essai.annee, cible.annee),
-    region: (essai.region && essai.region === cible.region ? "oui" : "non") as Accord,
+    roles: agreement(attempt.roles, target.roles),
+    lanes: agreement(attempt.lanes, target.lanes),
+    year: direction(attempt.annee, target.annee),
+    region: (attempt.region && attempt.region === target.region ? "yes" : "no") as Agreement,
   };
 }
 
-export function comparerObjets(essai: ObjetRoster, cible: ObjetRoster) {
+export function compareItems(attempt: ItemRoster, target: ItemRoster) {
   return {
-    prix: sens(essai.prix, cible.prix),
-    categorie: (essai.categorie === cible.categorie ? "oui" : "non") as Accord,
+    price: direction(attempt.prix, target.prix),
+    category: (attempt.categorie === target.categorie ? "yes" : "no") as Agreement,
   };
 }
 
@@ -427,25 +427,25 @@ export function comparerObjets(essai: ObjetRoster, cible: ObjetRoster) {
  * Propositions du champ de reponse : le debut du nom d'abord, puis le debut
  * d'un mot, puis n'importe quelle partie. Sans casse ni accents.
  */
-export function chercherOptions<T extends { slug: string; nom: string }>(
+export function searchOptions<T extends { slug: string; name: string }>(
   options: T[],
-  texte: string,
-  exclus: Set<string>,
+  text: string,
+  excluded: Set<string>,
   max = 8,
 ): T[] {
-  const terme = cleRecherche(texte.trim());
-  if (!terme) return [];
-  const rang = (nom: string) => {
-    const cle = cleRecherche(nom);
-    if (cle.startsWith(terme)) return 0;
-    if (cle.split(/[\s.'’-]+/).some((m) => m.startsWith(terme))) return 1;
-    return cle.includes(terme) ? 2 : -1;
+  const term = keySearch(text.trim());
+  if (!term) return [];
+  const rank = (name: string) => {
+    const key = keySearch(name);
+    if (key.startsWith(term)) return 0;
+    if (key.split(/[\s.'’-]+/).some((m) => m.startsWith(term))) return 1;
+    return key.includes(term) ? 2 : -1;
   };
   return options
-    .filter((o) => !exclus.has(o.slug))
-    .map((o) => ({ o, r: rang(o.nom) }))
+    .filter((o) => !excluded.has(o.slug))
+    .map((o) => ({ o, r: rank(o.name) }))
     .filter((x) => x.r >= 0)
-    .sort((a, b) => a.r - b.r || a.o.nom.localeCompare(b.o.nom))
+    .sort((a, b) => a.r - b.r || a.o.name.localeCompare(b.o.name))
     .slice(0, max)
     .map((x) => x.o);
 }
@@ -459,28 +459,28 @@ export function chercherOptions<T extends { slug: string; nom: string }>(
  * essais non joues restent noirs ; une manche abandonnee se remplit de rouge,
  * pour ne pas se lire comme une manche pas encore jouee.
  */
-export function ligneGrille(manche: Manche, essais: string[]): string {
-  if (manche.type === "duel") {
-    const bonnes = reponsesDuel(manche);
-    const carres = bonnes.map((b, i) => (essais[i] === undefined ? "⬛" : essais[i] === b ? "🟩" : "🟥"));
-    return `${EMOJI_MANCHE.duel} ${carres.join("")}`;
+export function rowGrid(round: Round, attempts: string[]): string {
+  if (round.type === "duel") {
+    const good = responsesDuel(round);
+    const squares = good.map((b, i) => (attempts[i] === undefined ? "⬛" : attempts[i] === b ? "🟩" : "🟥"));
+    return `${EMOJI_ROUND.duel} ${squares.join("")}`;
   }
-  const joues = essais.filter((e) => e !== ABANDON).map((e) => (e === manche.reponse ? "🟩" : "🟥"));
-  const reste = essais.includes(ABANDON) ? "🟥" : "⬛";
-  const vides = Array(Math.max(0, ESSAIS[manche.type] - joues.length)).fill(reste);
-  return `${EMOJI_MANCHE[manche.type]} ${[...joues, ...vides].join("")}`;
+  const played = attempts.filter((e) => e !== ABANDON).map((e) => (e === round.reponse ? "🟩" : "🟥"));
+  const rest = attempts.includes(ABANDON) ? "🟥" : "⬛";
+  const empty = Array(Math.max(0, ATTEMPTS[round.type] - played.length)).fill(rest);
+  return `${EMOJI_ROUND[round.type]} ${[...played, ...empty].join("")}`;
 }
 
-export function textePartage(o: {
-  numero: number;
+export function textShare(o: {
+  number: number;
   points: number;
   max: number;
-  serie: number;
-  lignes: string[];
+  series: number;
+  rows: string[];
   url: string;
 }): string {
-  const serie = o.serie >= 2 ? ` 🔥${o.serie}` : "";
-  return [`MLBBDex Quiz #${o.numero} · ${o.points}/${o.max}${serie}`, ...o.lignes, o.url].join("\n");
+  const series = o.series >= 2 ? ` 🔥${o.series}` : "";
+  return [`MLBBDex Quiz #${o.number} · ${o.points}/${o.max}${series}`, ...o.rows, o.url].join("\n");
 }
 
 export interface StatsQuiz {
@@ -493,19 +493,19 @@ export interface StatsQuiz {
   distribution: number[];
 }
 
-export const STATS_VIDES: StatsQuiz = { joues: 0, serie: 0, meilleure: 0, dernier: null, distribution: [] };
+export const STATS_EMPTY: StatsQuiz = { joues: 0, serie: 0, meilleure: 0, dernier: null, distribution: [] };
 
 /** Enregistre un defi termine. Un jour deja compte ne l'est pas deux fois. */
-export function enregistrerPartie(stats: StatsQuiz, jour: string, points: number): StatsQuiz {
-  if (stats.dernier === jour) return stats;
-  const serie = stats.dernier === decalerJour(jour, -1) ? stats.serie + 1 : 1;
+export function saveMatch(stats: StatsQuiz, day: string, points: number): StatsQuiz {
+  if (stats.dernier === day) return stats;
+  const series = stats.dernier === shiftDay(day, -1) ? stats.serie + 1 : 1;
   const distribution = [...stats.distribution];
   while (distribution.length <= points) distribution.push(0);
   distribution[points] += 1;
-  return { joues: stats.joues + 1, serie, meilleure: Math.max(stats.meilleure, serie), dernier: jour, distribution };
+  return { joues: stats.joues + 1, serie: series, meilleure: Math.max(stats.meilleure, series), dernier: day, distribution };
 }
 
 /** Serie a afficher : rompue si ni aujourd'hui ni hier n'ont ete joues. */
-export function serieCourante(stats: StatsQuiz, aujourdhui: string): number {
-  return stats.dernier === aujourdhui || stats.dernier === decalerJour(aujourdhui, -1) ? stats.serie : 0;
+export function currentStreak(stats: StatsQuiz, today: string): number {
+  return stats.dernier === today || stats.dernier === shiftDay(today, -1) ? stats.serie : 0;
 }

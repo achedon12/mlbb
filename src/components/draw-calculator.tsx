@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { classesPuce } from "@/components/puce";
-import { Carte } from "@/components/ui";
+import { classesChip } from "@/components/chip";
+import { Card } from "@/components/ui";
 import { LOCALE_HTML } from "@/i18n/config";
-import { useLangue, useT } from "@/i18n/fournisseur";
+import { useLocale, useT } from "@/i18n/provider";
 import {
   LIMITS,
   PRESETS,
@@ -13,7 +13,7 @@ import {
   diamondsFor,
   parseInteger,
   parsePercent,
-  tenDrawPays,
+  tenDrawCountry,
   type DrawEvent,
   type DrawField,
   type Preset,
@@ -104,7 +104,7 @@ const FIELD_MAX: Record<DrawField, number> = {
 
 export function DrawCalculator() {
   const t = useT();
-  const locale = LOCALE_HTML[useLangue()];
+  const locale = LOCALE_HTML[useLocale()];
   const integer = new Intl.NumberFormat(locale);
   const decimal = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
   const oneDecimal = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
@@ -166,7 +166,7 @@ export function DrawCalculator() {
 
   return (
     <div className="space-y-6">
-      <Carte>
+      <Card>
         <fieldset>
           <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.drawCalculatorUI.presets")}</legend>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -176,7 +176,7 @@ export function DrawCalculator() {
                 type="button"
                 aria-pressed={activePreset?.key === p.key}
                 onClick={() => setInputs((s) => ({ ...s, ...toInputs(p.event) }))}
-                className={cn(classesPuce(activePreset?.key === p.key), "min-h-11 text-left")}
+                className={cn(classesChip(activePreset?.key === p.key), "min-h-11 text-left")}
               >
                 {p.name} · {t(`pages.drawCalculatorUI.prize.${p.key}`)}
               </button>
@@ -205,7 +205,7 @@ export function DrawCalculator() {
           />
           <Field label={t("pages.drawCalculatorUI.pity")} value={inputs.pity} onChange={update("pity")} error={errorFor("pity")} />
         </div>
-        {result.state === "ok" && event.tenCost !== null && !tenDrawPays(event) && (
+        {result.state === "ok" && event.tenCost !== null && !tenDrawCountry(event) && (
           <p className="mt-3 text-xs text-chalk-500">{t("pages.drawCalculatorUI.tenIgnored")}</p>
         )}
 
@@ -221,7 +221,7 @@ export function DrawCalculator() {
                 type="button"
                 aria-pressed={mode === m}
                 onClick={() => setMode(m)}
-                className={cn(classesPuce(mode === m), "min-h-11")}
+                className={cn(classesChip(mode === m), "min-h-11")}
               >
                 {t(m === "budget" ? "pages.drawCalculatorUI.modeBudget" : "pages.drawCalculatorUI.modeDraws")}
               </button>
@@ -245,15 +245,15 @@ export function DrawCalculator() {
             )}
           </div>
         </fieldset>
-      </Carte>
+      </Card>
 
       <div aria-live="polite">
         {result.state === "invalid" ? (
-          <Carte>
+          <Card>
             <p className="text-sm leading-relaxed text-chalk-300">{t("pages.drawCalculatorUI.invalid")}</p>
-          </Carte>
+          </Card>
         ) : (
-          <Carte className="border-gold-500/30">
+          <Card className="border-gold-500/30">
             <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span className="font-heading text-5xl font-bold tabular-nums text-gold-400">{chance(result.chance)}</span>
               <span className="text-lg text-chalk-100">{t("pages.drawCalculatorUI.chanceOfPrize")}</span>
@@ -277,13 +277,13 @@ export function DrawCalculator() {
                   diamonds: integer.format(diamondsFor(event.pity, event)),
                 })}
             </p>
-          </Carte>
+          </Card>
         )}
       </div>
 
       {result.state === "ok" && (
         <>
-          <Carte>
+          <Card>
             <dl className="grid gap-x-6 gap-y-3 sm:grid-cols-2">
               <Stat label={t("pages.drawCalculatorUI.statDraws")} value={integer.format(result.draws)} />
               <Stat label={t("pages.drawCalculatorUI.statDiamonds")} value={integer.format(result.diamonds)} />
@@ -321,9 +321,9 @@ export function DrawCalculator() {
                 </tbody>
               </table>
             </div>
-          </Carte>
+          </Card>
 
-          <Carte>
+          <Card>
             <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.drawCalculatorUI.chartTitle")}</h2>
             <DrawChart
               event={event}
@@ -342,7 +342,7 @@ export function DrawCalculator() {
                 pity: t("pages.drawCalculatorUI.pityChart"),
               }}
             />
-          </Carte>
+          </Card>
         </>
       )}
 

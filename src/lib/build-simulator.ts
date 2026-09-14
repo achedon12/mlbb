@@ -1,5 +1,5 @@
 import { LEVEL_MAX, LEVEL_MIN, type BuildCode, type CodeCatalog } from "./build-code";
-import type { RangMesure } from "./rangs-mesure";
+import type { MeasuredRank } from "./measured-ranks";
 import type { Lane, Role } from "./types";
 
 /**
@@ -683,7 +683,7 @@ export function simulate(build: BuildCode, cat: SimCatalog): SimResult | null {
 /** Three core items of a build actually played, with its rates (in %). */
 export interface MeasuredCore {
   lane: string;
-  rank: RangMesure;
+  rank: MeasuredRank;
   items: string[];
   winRate: number | null;
   pickRate: number | null;
@@ -703,7 +703,7 @@ export interface CloseCore extends MeasuredCore {
 export function closeCores(
   cores: readonly MeasuredCore[],
   items: readonly string[],
-  rank: RangMesure,
+  rank: MeasuredRank,
   minimum = 2,
 ): CloseCore[] {
   const chosen = new Set(items);
