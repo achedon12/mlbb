@@ -121,7 +121,13 @@ const SHARE_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: si
  * Beyond this, the title completed with the site name ("… — MLBBDex") would be cut
  * in the results: the page title then goes alone, without the brand.
  */
-const TITLE_MAX = 60;
+export const TITLE_MAX = 60;
+
+/** A title as results and share cards show it: followed by the site name. */
+export const brandedTitle = (title: string) => `${title} — ${site.name}`;
+
+/** Beyond this, a description is cut in the results. */
+export const DESCRIPTION_MAX = 155;
 
 /**
  * A page's metadata: title, description, canonical and `hreflang`, Open
@@ -148,7 +154,7 @@ export function metaPage(
   },
 ): Metadata {
   const images = [o.image ? { url: o.image } : SHARE_IMAGE];
-  const titleShare = `${o.title} — ${site.name}`;
+  const titleShare = brandedTitle(o.title);
   const descriptionShare = o.share ?? o.description;
   const openGraph = {
     type: o.type ?? "website",

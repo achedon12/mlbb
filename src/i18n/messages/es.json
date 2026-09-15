@@ -6,13 +6,13 @@
     "back": "Volver",
     "changeLanguage": "Cambiar idioma",
     "sourceWiki": "wiki de Mobile Legends",
-    "wikiLicence": "Contenido tomado y traducido de {link}, bajo licencia CC BY-SA.",
+    "wikiLicence": "Contenido adaptado y traducido de la {link}, bajo licencia CC BY-SA.",
     "skipToContent": "Ir al contenido",
     "breadcrumb": "Ruta de navegación",
     "sections": "Secciones de la ficha",
     "close": "Cerrar",
     "homeDescription": "Base de conocimiento de Mobile Legends: Bang Bang: los 133 héroes, sus counters y builds por rango, la tier list, los objetos, emblemas y notas del parche.",
-    "siblings": "Otras páginas del mismo nivel que {name}",
+    "siblings": "Otras páginas al mismo nivel que {name}",
     "filter": "Filtrar…",
     "contents": "Índice"
   },
@@ -119,7 +119,7 @@
       "tierLists": "Tier lists",
       "game": "Juego",
       "tools": "Herramientas",
-      "news": "Noticias"
+      "news": "Novedades"
     },
     "byRole": {
       "label": "Por rol",
@@ -143,7 +143,7 @@
     },
     "allSkins": "Todas las skins",
     "allEmblems": "Todos los emblemas",
-    "submenu": "Abrir submenú {name}",
+    "submenu": "Abrir el submenú {name}",
     "events": {
       "label": "Eventos",
       "desc": "StarLight, Collector y skins de cada mes"
@@ -199,7 +199,7 @@
     "myAccount": "Mi cuenta",
     "legalNotice": "Aviso legal",
     "privacy": "Privacidad",
-    "rights": "Proyecto de fans independiente. Contenido publicado por {author}.",
+    "rights": "proyecto de fans independiente. Contenido publicado por {author}.",
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Versión {v}",
     "contribute": "Contribuir",
@@ -225,9 +225,9 @@
     },
     "heroes": {
       "title": "Héroes",
-      "lead": "Los {heroes} héroes del juego y sus máscaras {skins}, filtrables por rol y posición. Las hojas {analyses} marcadas como \"Análisis\" también contienen comentarios, compilaciones y contadores.",
-      "metaDescription": "Los héroes {heroes} de Mobile Legends: Bang Bang, filtrables por rol y posición: retratos, máscaras, estadísticas y análisis escritos {analyses}.",
-      "ogDescription": "Los héroes {heroes} de Mobile Legends: Bang Bang, con sus máscaras {skins}.",
+      "lead": "Los {heroes} héroes del juego y sus {skins} skins, filtrables por rol y línea. Las {analyses} fichas marcadas «Análisis» incluyen además un comentario, builds y counters.",
+      "metaDescription": "Los {heroes} héroes de Mobile Legends: Bang Bang, filtrables por rol y línea: retratos, skins, estadísticas y {analyses} análisis redactados.",
+      "ogDescription": "Los {heroes} héroes de Mobile Legends: Bang Bang, con sus {skins} skins.",
       "listLd": "Héroes de Mobile Legends: Bang Bang"
     },
     "heroesList": {
@@ -276,17 +276,17 @@
       "strengths": "Fortalezas",
       "weaknesses": "Debilidades",
       "analysisPending": "Análisis en redacción",
-      "analysisText": "Los datos de {name} están actualizados: provienen directamente de la wiki. Lo que falta es el comentario: lo que realmente hace el héroe, sus construcciones y sus contraataques. Esto no se puede extraer, está escrito.",
+      "analysisText": "Los datos de {name} están al día: vienen directamente de la wiki. Lo que falta es el comentario: lo que el héroe hace realmente, sus builds y sus counters. Eso no se extrae, se escribe.",
       "contribute": "Contribuir a este análisis →",
-      "countersIntro": "Basado en las tasas de victorias del juego: la diferencia de puntos indica cuánto varía la tasa {name} contra cada oponente.",
-      "countersRef": "Tasa de ganancia inicial: {rate}%.",
+      "countersIntro": "Basado en las tasas de victoria del juego: la diferencia en puntos indica cuánto varía la tasa de {name} frente a cada rival.",
+      "countersRef": "Tasa de victoria de referencia: {rate} %.",
       "matchups": "Análisis de enfrentamientos",
       "matchupsIntro": "Los duelos comentados a mano, más allá de las cifras.",
-      "comfortable": "{name} se siente cómodo contra",
-      "difficulty2": "{name} está en dificultades contra",
-      "metaDescription": "{name}: {roles} de Mobile Legends: Bang Bang, jugado en {lanes}. Contrarresta y construye por rango, habilidades, historia y {skins} aspectos.",
+      "comfortable": "{name} está cómodo contra",
+      "difficulty2": "{name} sufre contra",
+      "metaDescription": "{name}: {roles} en Mobile Legends: Bang Bang, jugado en {lanes}. Counters y builds por rango, habilidades, historia y {skins} skins.",
       "compare": "Comparar",
-      "titleSheet": "{name}: construcción, contadores y estadísticas",
+      "titleSheet": "{name}: build, counters y estadísticas",
       "ogTagline": "Builds, counters y estadísticas por rango",
       "statistics": {
         "trend": "Evolución en {n} días",
@@ -303,13 +303,13 @@
         "change": "Variación",
         "min": "Mínimo",
         "max": "Máximo",
-        "curveSummary": "Tasa de {measure}: {start}% al inicio del período, {end}% al final.",
+        "curveSummary": "Tasa de {measure}: {start} % al inicio del periodo, {end} % al final.",
         "historyShort": "La API solo publica treinta días: el historial de este sitio crece con cada actualización y marcará los parches temporada tras temporada.",
         "duration": "Según la duración de la partida",
-        "durationIntro": "Tasa de ganancia de {name} dependiendo de la duración del juego, de su posición principal.",
-        "minutes": "{from}–{to} minutos",
-        "minutesPlus": "{from} min y +",
-        "peak": "Mejor periodo: {window}",
+        "durationIntro": "Tasa de victoria de {name} según la duración de la partida, en su línea principal.",
+        "minutes": "{from}–{to} min",
+        "minutesPlus": "{from}+ min",
+        "peak": "Mejor momento: {window}",
         "profile": {
           "early": "Más fuerte al inicio de la partida",
           "late": "Más fuerte al final de la partida",
@@ -321,26 +321,26 @@
         "history": "Historial",
         "historyIntro": "Todos los rangos, desde el {date}. El historial crece con cada actualización de datos; las líneas verticales marcan los parches.",
         "adjustments": "Cambios por parche",
-        "adjustmentsIntro": "A qué ha cambiado cada parche reciente {name}.",
-        "noAdjustment": "No hay ajustes a {name} en los últimos parches {n}.",
+        "adjustmentsIntro": "Qué cambió cada parche reciente para {name}.",
+        "noAdjustment": "Sin cambios para {name} en los últimos {n} parches.",
         "noData": "Aún no hay mediciones para este héroe.",
         "impact": {
           "title": "Efecto de los parches",
-          "intro": "Tasa de victoria promedio de {name}, todos los rangos, durante los {n} días antes y después de cada parche que lo ajustó, excluyendo el día del parche.",
+          "intro": "Tasa de victoria media de {name}, todos los rangos, en los {n} días antes y después de cada parche que lo ajustó, sin contar el día del parche.",
           "patch": "Parche {version}",
-          "beforeAfter": "{before}% antes, {after}% después",
+          "beforeAfter": "{before} % antes, {after} % después",
           "verdict": {
             "expected": "Efecto esperado",
             "neutral": "Sin efecto claro",
             "opposite": "Efecto contrario"
           },
           "empty": "Todavía falta perspectiva: se necesitan al menos {n} días medidos a cada lado de un parche, y el historial de este sitio empieza el {date}.",
-          "emptyNoHistory": "Aún no hay antecedentes para medir el efecto de los parches en {name}."
+          "emptyNoHistory": "Todavía no hay historial para medir el efecto de los parches en {name}."
         },
         "feed": "Seguir por RSS"
       },
       "teammates": "Mejores compañeros",
-      "teammatesIntro": "Los aliados con los que {name} gana más, en puntos de victoria por encima de su media.",
+      "teammatesIntro": "Los aliados con los que {name} gana más, en puntos de victoria sobre su media.",
       "combos": {
         "title": "Combos",
         "intro": "Los combos recomendados por el juego, en el orden en que se lanzan las habilidades.",
@@ -374,7 +374,7 @@
       "recipe": "Receta",
       "choose": "Elige un objeto para ver sus estadísticas, su pasiva y su receta.",
       "close": "Cerrar la ficha",
-      "merge": "Costo de fusión: {price} oro",
+      "merge": "Coste de combinación: {price} de oro",
       "buildsInto": "Se usa en",
       "usedBy": "Usado por",
       "usedByHelp": "Según las builds más jugadas en clasificatoria.",
@@ -473,12 +473,12 @@
         "C": "Jugable, con un coste real frente a las alternativas."
       },
       "byRank": "Por rango",
-      "titleRank": "Lista de niveles {rank}",
-      "metaTitleRank": "MLBB tier list {rank}: los mejores héroes del momento",
-      "metaDescriptionRank": "Clasificación de héroes de Mobile Legends medida en juegos clasificados {rank}: tasas de victorias, prohibiciones y selecciones, actualizadas en cada sincronización.",
-      "leadRank": "El mismo cálculo, restringido a juegos {rank}: un héroe puede dominar en un rango y luchar en otro.",
+      "titleRank": "Tier list {rank}",
+      "metaTitleRank": "Tier list MLBB {rank}: los mejores héroes del momento",
+      "metaDescriptionRank": "Clasificación de héroes de Mobile Legends medida en partidas clasificatorias {rank}: tasas de victoria, ban y selección, actualizadas en cada sincronización.",
+      "leadRank": "El mismo cálculo, limitado a las partidas {rank}: un héroe puede dominar en un rango y sufrir en otro.",
       "conclusion": "Una tier list mide cuánto perdona un héroe los errores, no hasta dónde puede llevarte. Un héroe de tier C dominado vence a uno S+ descubierto el día anterior.",
-      "trends": "Las flechas ↑ y ↓ debajo del índice de victorias indican su evolución durante siete días en este ranking, cuando alcanza al menos {threshold} puntos.",
+      "trends": "Las flechas ↑ y ↓ bajo la tasa de victoria indican su variación en siete días en este rango, cuando alcanza al menos {threshold} puntos.",
       "byLane": "Por línea",
       "byRole": "Por rol",
       "laneSeo": {
@@ -497,11 +497,11 @@
         "Support": "soportes"
       },
       "titleLane": "Tier list de {lane}: los mejores héroes",
-      "titleRole": "Lista de niveles {role}: los mejores {plural}",
+      "titleRole": "Tier list {role}: los mejores {plural}",
       "leadLane": "Los {n} héroes que se juegan en {lane}, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
-      "leadRole": "El {n} {plural} del juego, rol principal o secundario, clasificado según la misma regla que la tier list general: tasa de victoria y ban, todos los rangos combinados.",
+      "leadRole": "Los {n} {plural} del juego, rol principal o secundario, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "filterNote": "Clasificación con todos los rangos. Las listas por rango, en cambio, reúnen todas las líneas y todos los roles.",
-      "seeRole": "Todos los {plural} y sus carriles"
+      "seeRole": "Todos los {plural} y sus líneas"
     },
     "patchNotes": {
       "title": "Notas del parche",
@@ -519,17 +519,17 @@
       "nSections": "{n} secciones",
       "all": "Todas las notas del parche",
       "archives": "Archivo",
-      "credit": "Apuntes tomados de {link}, bajo licencia CC BY-SA. El texto original es publicado por Moonton; este sitio no modifica su contenido.",
-      "creditTranslated": "Apuntes tomados de {link}, bajo licencia CC BY-SA, y traducidos automáticamente del inglés. El texto original es publicado por Moonton.",
+      "credit": "Notas tomadas de la {link}, bajo licencia CC BY-SA. El texto original lo publica Moonton; este sitio no modifica su contenido.",
+      "creditTranslated": "Notas tomadas de la {link}, bajo licencia CC BY-SA, y traducidas automáticamente del inglés. El texto original lo publica Moonton.",
       "publishedOn": "Notas publicadas el {date}",
       "changes": {
         "title": "Todos los cambios de héroes del parche {v}",
         "summary": {
           "one": "El parche {v} modifica {n} héroe.",
-          "other": "El parche {v} modifica {n} héroe."
+          "other": "El parche {v} modifica {n} héroes."
         },
         "detail": "Detalle de los cambios",
-        "impact": "Tasa de ganancia promedio: {before} antes del parche, {after} después",
+        "impact": "tasa de victoria media: {before} antes del parche, {after} después",
         "impactNote": "Tasa de victoria media en todos los rangos durante los {n} días anteriores y posteriores al parche, cuando el historial cubre ese periodo."
       }
     },
@@ -548,7 +548,7 @@
       "ogDescription": "La actualidad de Mobile Legends en la web, recopilada automáticamente.",
       "lastCollected": "Última recopilación el {date} · fuentes:",
       "none": "Ninguna fuente responde por ahora. La página se actualizará automáticamente en la próxima recopilación.",
-      "credit": "Los títulos y extractos pertenecen a sus respectivos autores y se muestran aquí para vincular a la publicación original. Moonton no publica un feed oficial: las actualizaciones del juego se incluyen y comentan en la sección {link}."
+      "credit": "Los títulos y extractos pertenecen a sus respectivos autores y se muestran aquí para remitir a la publicación original. Moonton no publica un feed oficial: las actualizaciones del juego se recogen y comentan en la sección {link}."
     },
     "about": {
       "title": "Acerca de",
@@ -594,7 +594,7 @@
       "statPatches": "Parches",
       "statRanked": "Héroes clasificados",
       "shapeTitle": "Formato de las respuestas",
-      "shapeText": "Cada respuesta envuelve el resultado en \"datos\", adjunta el número total de elementos cuando es una lista y recuerda la fuente de los datos.",
+      "shapeText": "Cada respuesta envuelve el resultado en «data», añade el número total de elementos cuando se trata de una lista e indica la fuente de los datos.",
       "termsTitle": "Condiciones",
       "c1label": "Sin clave, sin cuota.",
       "c1text": "Las respuestas son estáticas y están en caché: servirlas no cuesta nada. Úsala con sensatez y todo irá bien.",
@@ -718,24 +718,24 @@
       "metaTitle": "Perfil de jugador",
       "metaDescription": "Tu temporada en Mobile Legends: héroes más jugados frente a la media de tu rango, últimas partidas y consejos basados en tus cifras.",
       "title": "Perfil de jugador",
-      "lead": "Los juegos de {name}, comparados con las tasas de victoria medidas por el sitio: donde te comparan con jugadores de tu rango.",
+      "lead": "Las partidas de {name}, comparadas con las tasas de victoria medidas por el sitio: dónde estás frente a los jugadores de tu rango.",
       "seasonChoice": "Temporada",
       "season": "Temporada {n}",
       "summaryTitle": "Balance de la temporada {n}",
       "games": "Partidas",
       "heroesPlayed": "Héroes jugados",
       "partialSummary": "Mínimo: el servicio no devolvió todos los héroes jugados, el total real puede ser mayor.",
-      "overSeasons": "Sobre las estaciones {list}",
+      "overSeasons": "En las temporadas {list}",
       "overAllSeasons": "En todas las temporadas registradas",
       "mvp": "MVP",
       "bestStreak": "Mejor racha",
       "heroesTitle": "Héroes más jugados",
-      "heroesIntro": "Tu tasa de victoria con cada héroe de la temporada, en comparación con la de todos los jugadores ({rank}).",
+      "heroesIntro": "Tu tasa de victoria con cada héroe de la temporada, frente a la de todos los jugadores ({rank}).",
       "belowEpicBracket": "Las mediciones por rango empiezan en Épico: por debajo, la comparación se hace con todos los rangos.",
       "heroesEmpty": "Ningún héroe jugado en esta temporada.",
-      "colHero": "Héroes",
+      "colHero": "Héroe",
       "you": "Tú",
-      "rankAverage": "Promedio {rank}",
+      "rankAverage": "Media {rank}",
       "gap": "Diferencia",
       "noMeasure": "Sin medición para este héroe",
       "allRanksNote": "Media de todos los rangos, a falta de medición en tu franja.",
@@ -750,11 +750,11 @@
       "bestTitle": "Tus mejores héroes",
       "bestText": "Con los que ganas más a menudo: buenas elecciones cuando tu rol está libre.",
       "bestEmpty": "Aún no hay suficientes partidas con un mismo héroe para destacar un punto fuerte.",
-      "bestDetail": "{rate} gana en {n} juegos",
+      "bestDetail": "{rate} de victorias en {n} partidas",
       "belowAverageTitle": "Por debajo de la media de tu rango",
-      "belowAverageText": "Muy por debajo del promedio ({rank}): revise la construcción y los contadores, o déjelos a un lado por un tiempo.",
+      "belowAverageText": "Claramente por debajo de la media ({rank}): revisa la build y los counters, o déjalos de lado un tiempo.",
       "belowAverageEmpty": "Ningún héroe claramente por debajo de la media de tu rango. Bien jugado.",
-      "belowAverageDetail": "{rate} versus {average} en promedio",
+      "belowAverageDetail": "{rate} frente a una media de {average}",
       "nemesesTitle": "Héroes que más te ganan",
       "nemesesText": "Los rivales más presentes en tus derrotas recientes: buenos candidatos para banear.",
       "nemesesEmpty": "Ningún héroe rival aparece con suficiente frecuencia en tus derrotas recientes como para marcar una tendencia.",
@@ -808,15 +808,15 @@
       "recentGames": "Últimas {n} partidas",
       "rollingSeries": "En {n} partidas",
       "cumulativeSeries": "Acumulada",
-      "curveSummary": "Tasa de victorias en {f} juegos deslizantes, de {start} a {end}: {startValue} al principio, {endValue} al final, entre {min} y {max}.",
+      "curveSummary": "Tasa de victorias en {f} partidas móviles, del {start} al {end}: {startValue} al principio, {endValue} al final, entre {min} y {max}.",
       "curveShort": "Hacen falta al menos {n} partidas con resultado conocido para trazar la curva.",
       "trendSource": {
-        "one": "Calculado sobre tu último partido de la temporada ({rate} victorias).",
-        "other": "Calculado sobre tus últimos {n} partidos de la temporada ({rate} victorias)."
+        "one": "Calculado sobre tu última partida de la temporada ({rate} de victorias).",
+        "other": "Calculado sobre tus últimas {n} partidas de la temporada ({rate} de victorias)."
       },
       "trendSeason": {
-        "one": "Calculado sobre la única parte de la temporada ({rate} victorias).",
-        "other": "Calculado sobre {n} partidos de la temporada ({rate} victorias)."
+        "one": "Calculado sobre la única partida de la temporada ({rate} de victorias).",
+        "other": "Calculado sobre las {n} partidas de la temporada ({rate} de victorias)."
       },
       "rolesTitle": "Roles y líneas",
       "rolesIntro": "Tus resultados según el rol del héroe jugado y la línea ocupada. Hacen falta al menos {n} partidas para señalarlo como punto fuerte o a mejorar.",
@@ -832,7 +832,7 @@
       "colWin": "Victorias",
       "strongPoint": "Punto fuerte",
       "toImprove": "A mejorar",
-      "rolesSummary": "{strong} es lo mejor para ti ({strongRate} victorias), {weak} lo mínimo ({weakRate}).",
+      "rolesSummary": "{strong} es donde mejor te va ({strongRate} de victorias) y {weak} donde peor ({weakRate}).",
       "rolesFew": "Menos de {n} partidas en al menos dos de ellos: todavía no se ve un punto fuerte.",
       "positionsEmpty": "El servicio no indica la línea de tus partidas recientes.",
       "noRole": {
@@ -844,13 +844,13 @@
         "other": "{n} partidas sin línea conocida no se cuentan."
       },
       "vsRankTitle": "Lo que juega tu rango",
-      "vsRankIntro": "Para tus héroes más jugados: la desviación del promedio, la configuración más jugada por los jugadores {rank} y los héroes que los pusieron en mayor dificultad en este rango.",
+      "vsRankIntro": "Para tus héroes más jugados: la diferencia con la media, la build más jugada por los jugadores {rank} y los héroes que más los complican en ese rango.",
       "vsRankEmpty": "No hay datos de builds ni de counters para tus héroes más jugados.",
-      "buildRank": "Construcción más jugada · {rank}",
-      "countersRank": "Contras difíciles · {rank}",
+      "buildRank": "Build más jugada · {rank}",
+      "countersRank": "Enfrentamientos difíciles · {rank}",
       "positionBuild": "Línea: {lane}",
-      "seeBuilds": "Todas las compilaciones desde {name}",
-      "seeCounters": "Todos los contadores de {name}"
+      "seeBuilds": "Todas las builds de {name}",
+      "seeCounters": "Todos los counters de {name}"
     },
     "team": {
       "title": "Análisis de equipo",
@@ -863,19 +863,19 @@
     },
     "seo": {
       "hero": {
-        "title": "{name}: construcción, emblema y contadores (nivel {tier}, parche {v})",
-        "titleNoTier": "{name}: construcción, emblema y contadores (parche {v})",
-        "counters": "{name} se contrarresta principalmente con {counters} en {rank}.",
-        "countersAll": "{name} se contrarresta principalmente con {counters}, todos los rangos combinados.",
-        "build": "Construcción más jugada: {items}.",
-        "buildEmblem": "Construcción más jugada: {items}, emblema {emblem}.",
-        "rate": "{winRate} victorias, nivel {tier}."
+        "title": "{name}: build, emblema y counters (tier {tier}, parche {v})",
+        "titleNoTier": "{name}: build, emblema y counters (parche {v})",
+        "counters": "Los mejores counters de {name} en {rank}: {counters}.",
+        "countersAll": "Los mejores counters de {name} en todos los rangos: {counters}.",
+        "build": "Build más usada: {items}.",
+        "buildEmblem": "Build más usada: {items}, emblema {emblem}.",
+        "rate": "Tasa de victoria del {winRate}, tier {tier}."
       },
       "tierList": {
-        "title": "Lista de niveles de MLBB {month}: los mejores héroes (parche {v})",
-        "titleRank": "Lista de niveles MLBB {rank}, {month} (parche {v})",
-        "description": "{top} domina la lista de niveles de MLBB indicada en {date} (parche {v}); {first} muestra {winRate} gana. {n} héroes clasificados según sus tasas de victorias y prohibiciones, con una lista por rango.",
-        "descriptionRank": "{top} domina la lista de niveles de MLBB {rank} indicada en {date} (parche {v}); {first} muestra {winRate} gana. {n} héroes clasificados según sus tasas de victorias y prohibiciones en {rank}."
+        "title": "Tier list MLBB {month}: mejores héroes (parche {v})",
+        "titleRank": "Tier list MLBB {rank}, {month} (parche {v})",
+        "description": "{top} lideran la tier list de MLBB medida el {date} (parche {v}): {first} tiene una tasa de victoria del {winRate}. {n} héroes clasificados por tasa de victoria y de baneo, con una lista por rango.",
+        "descriptionRank": "{top} lideran la tier list de MLBB en {rank}, medida el {date} (parche {v}): {first} tiene una tasa de victoria del {winRate}. {n} héroes clasificados por tasa de victoria y de baneo en {rank}."
       },
       "heroes": {
         "title": "Los {n} héroes de MLBB: roles, líneas y tiers (parche {v})",
@@ -887,7 +887,7 @@
       },
       "emblems": {
         "title": "Emblemas MLBB: talentos y hechizos por rol (parche {v})",
-        "description": "Qué emblema, talento y hechizo de combate elegir según tu rol en Mobile Legends: Bang Bang. En las versiones clasificadas más jugadas, las opciones dominantes son {spell} y {talent} (parche {v})."
+        "description": "Qué emblema, talento y hechizo de combate elegir para cada rol en Mobile Legends: Bang Bang. En las builds más usadas en clasificatoria, los favoritos son {spell} y {talent} (parche {v})."
       },
       "draft": {
         "title": "Asistente de draft MLBB: counter picks por línea (parche {v})",
@@ -902,11 +902,11 @@
       },
       "patchNotes": {
         "title": "Notas del parche MLBB: actualización {v} y cambios de héroes",
-        "description": "Último parche de Mobile Legends: {version}. Héroes mejorados: {buffs}, debilitados: {nerfs}, ajustados: {others}. Notas completas de {m} parches recientes, {n} parches registrados en total."
+        "description": "Último parche de Mobile Legends: {version}. Héroes mejorados: {buffs}, debilitados: {nerfs}, ajustados: {others}. Notas completas de los {m} parches recientes y {n} parches en total."
       },
       "patch": {
         "title": "Parche {v} de MLBB: buffs, nerfs y cambios de héroes",
-        "description": "Parche de Mobile Legends {version}. Héroes mejorados: {buffs}, debilitados: {nerfs}, ajustados: {others}, incluido {heroes}. Notas oficiales, sección por sección.",
+        "description": "Parche {version} de Mobile Legends. Héroes mejorados: {buffs}, debilitados: {nerfs}, ajustados: {others}, entre ellos {heroes}. Notas oficiales, sección por sección.",
         "titleChanges": {
           "one": "Parche {v} de MLBB: todos los buffs y nerfs de héroes ({n} cambio)",
           "other": "Parche {v} de MLBB: todos los buffs y nerfs de héroes ({n} cambios)"
@@ -917,20 +917,20 @@
         "description": "Introduce tus partidas jugadas y tu tasa de victoria actual: descubre cuántas victorias seguidas necesitas para llegar a tu objetivo en Mobile Legends: Bang Bang, o cuántas partidas a un ritmo dado. Gratis, al instante y sin registro."
       },
       "tierLane": {
-        "title": "Mejores héroes {lane} MLBB: lista de niveles {lane} {month} (parche {v})",
-        "description": "{top} domina la lista de niveles de MLBB {lane} indicada en {date} (parche {v}); {first} muestra {winRate} gana. {n} héroes jugables en {lane}, clasificados según sus tasas de victorias y prohibiciones."
+        "title": "Mejores héroes de {lane} en MLBB: tier list {month} (parche {v})",
+        "description": "{top} lideran la tier list de {lane} de MLBB medida el {date} (parche {v}): {first} tiene una tasa de victoria del {winRate}. {n} héroes jugables en {lane}, clasificados por tasa de victoria y de baneo."
       },
       "tierRole": {
-        "title": "Mejor {plural} MLBB: lista de niveles {role}, {month} (parche {v})",
-        "description": "{top} domina la lista de niveles de MLBB de {plural} anotada en {date} (parche {v}); {first} muestra {winRate} gana. {n} {plural} clasificados según sus tasas de victorias y prohibiciones."
+        "title": "Mejores {plural} de MLBB: tier list {role}, {month} (parche {v})",
+        "description": "{top} lideran la tier list de {plural} de MLBB medida el {date} (parche {v}): {first} tiene una tasa de victoria del {winRate}. {n} {plural} clasificados por tasa de victoria y de baneo."
       },
       "heroesRole": {
-        "title": "El {n} {plural} de MLBB: niveles, winrate y carriles (parche {v})",
-        "description": "El {n} {plural} de Mobile Legends: Bang Bang, del más fuerte al más débil: nivel, tasa de victorias y carriles anotados en {date} (parche {v}). Principal: {top}."
+        "title": "Los {n} {plural} de MLBB: tiers, winrate y líneas (parche {v})",
+        "description": "Los {n} {plural} de Mobile Legends: Bang Bang, del más fuerte al más débil: tier, tasa de victoria y líneas medidos el {date} (parche {v}). A la cabeza: {top}."
       },
       "meta": {
         "title": "Informe semanal del meta de MLBB: {date} (parche {v})",
-        "description": "Metainforme MLBB de {date} (parche {v}): {first} en la parte superior de la lista de niveles, {banned} el más prohibido ({ban}). Subidas y bajadas de la semana, cambios de nivel, prohibiciones, selecciones y mejores héroes por carril."
+        "description": "Informe del meta de MLBB del {date} (parche {v}): {first} encabeza la tier list y {banned} es el héroe más baneado ({ban}). Subidas y bajadas de la semana, cambios de tier, baneos, picks y mejores héroes por línea."
       },
       "serverTime": {
         "title": "Hora del servidor MLBB y cuenta atrás del reinicio diario",
@@ -955,23 +955,23 @@
       },
       "lore": {
         "title": "Lore de MLBB: todas las historias de los héroes por región",
-        "description": "Las historias de {n} héroes de Mobile Legends: Bang Bang, ordenadas en {regions} regiones ({examples}…), con sus facciones y los enlaces que revelan sus archivos."
+        "description": "Las historias de {n} héroes de Mobile Legends: Bang Bang, agrupadas en {regions} regiones ({examples}…), con sus facciones y los vínculos que recogen sus fichas."
       },
       "loreRegion": {
         "title": "{region}: héroes y lore de MLBB",
-        "description": "{region}: {n} héroes de Mobile Legends: Bang Bang, incluido {names}. Sus historias, sus facciones y los vínculos que los unen, extraídos de sus archivos."
+        "description": "{region}: {n} héroes de Mobile Legends: Bang Bang, entre ellos {names}. Sus historias, sus facciones y los vínculos entre ellos, sacados de sus fichas."
       },
       "skinsCalendar": {
         "title": "Calendario de skins de MLBB: todas las skins por fecha de lanzamiento",
-        "description": "{n} Mobile Legends: Máscaras de Bang Bang lanzadas del {start} al {end}, mes a mes, con héroes, rareza, series (Collector, StarLight, Epic, Legend…) y precio. Último en nuestros datos: {latest} ({date})."
+        "description": "{n} skins de Mobile Legends: Bang Bang lanzadas de {start} a {end}, mes a mes, con héroe, rareza, serie (Collector, StarLight, Épico, Leyenda…) y precio. La última en nuestros datos: {latest} ({date})."
       },
       "calendarYear": {
-        "title": "Máscaras de MLBB lanzadas en {year}: la lista mes a mes",
-        "description": "Mobile Legends: máscaras de Bang Bang lanzadas en {year} ({n}), mes a mes, con rareza y precio. Serie principal: {series}. Héroe más servido: {hero}."
+        "title": "Skins de MLBB lanzadas en {year}: la lista mes a mes",
+        "description": "Skins de Mobile Legends: Bang Bang lanzadas en {year} ({n}), mes a mes, con rareza y precio. Series principales: {series}. Héroe con más skins nuevas: {hero}."
       },
       "collection": {
         "title": "Calculadora del valor de tu colección MLBB (diamantes)",
-        "description": "Consulta los héroes y máscaras que posees entre {heroes} héroes y {skins} máscaras: mira cuánto cuestan al precio de tienda de Mobile Legends: Bang Bang, en diamantes, por rareza y por serie. Gratis, sin registro, guardado en tu navegador."
+        "description": "Marca los héroes y skins que tienes entre {heroes} héroes y {skins} skins: descubre cuánto cuestan a precio de la tienda de Mobile Legends: Bang Bang, en diamantes, por rareza y por serie. Gratis, sin registro y guardado en tu navegador."
       },
       "events": {
         "title": "Eventos de MLBB: StarLight, Collector y skins de cada mes",
@@ -1023,14 +1023,14 @@
       "heroesRanked": "{n} héroes clasificados"
     },
     "heroPreview": {
-      "trend": "Durante los últimos {n} días, la tasa de victorias de {name} ha aumentado de {start} a {end}, todos los rangos combinados ({gap} {pts}).",
-      "duration": "{name} gana más en juegos de {window} ({winRate}) y menos en juegos de {windowLow} ({winRateLow}).",
-      "ranks": "Dependiendo del rango, la tasa de ganancia de {name} varía de {low} en {rankLow} a {high} en {rankHigh}.",
-      "adjustments": "Ajustes de {name}: {n} en los últimos {total} parches.",
-      "skins": "Máscaras de {name} ({n}):"
+      "trend": "En los últimos {n} días, la tasa de victoria de {name} pasó del {start} al {end} en todos los rangos ({gap} {pts}).",
+      "duration": "{name} gana más en las partidas de {window} ({winRate}) y menos en las de {windowLow} ({winRateLow}).",
+      "ranks": "Según el rango, la tasa de victoria de {name} va del {low} en {rankLow} al {high} en {rankHigh}.",
+      "adjustments": "Cambios a {name}: {n} en los últimos {total} parches.",
+      "skins": "Skins de {name} ({n}):"
     },
     "sheets": {
-      "heroes": "Héroes",
+      "heroes": "Héroe",
       "share": "Cuota de partidas",
       "help": "Cuota de las partidas clasificatorias de cada héroe (todos los rangos, en la línea donde esta elección pesa más) jugadas con una de sus tres builds más jugadas que la incluye, y tasa de victoria de esas builds.",
       "none": "Por ahora, esta elección no aparece en ninguna de las tres builds más jugadas de un héroe.",
@@ -1042,28 +1042,35 @@
       "leading": "Al frente",
       "avgWin": "Victoria media",
       "heroesTitle": "Héroes que más lo eligen",
-      "listLd": "Héroes que más toman {name}",
+      "listLd": "Héroes que más eligen {name}",
       "bestFor": "Para quién",
-      "heroDesc": "Principalmente tomado por {heroes} en juego clasificado; {first} gana {rate} de sus juegos con.",
-      "heroDescSimple": "Especialmente tomado por {heroes} en juego clasificado.",
+      "heroDesc": "Lo eligen sobre todo {heroes} en clasificatoria; {first} gana el {rate} de sus partidas con él.",
+      "heroDescSimple": "Lo eligen sobre todo {heroes} en clasificatoria.",
       "updateDesc": "Actualizado el {date}."
     },
     "itemDetail": {
-      "title": "{name} MLBB: estructura, estadísticas y mejores héroes (parche {v})",
+      "title": "{name} MLBB: estadísticas y efectos (parche {v})",
+      "titleBuild": "Build de {name} para {heroes}",
+      "descBuild": "{name} ({effect}): sobre todo en la build de {heroes} en {rank} y superior.",
+      "descBuildAlone": "{name}: sobre todo en la build de {heroes} en {rank} y superior.",
+      "descShare": "{first} lo lleva en el {share} de sus partidas.",
+      "buildersTitle": "Build de {name}: quién lo compra más en rangos altos",
+      "buildersIntro": "Cuota de las partidas de cada héroe en {ranks} jugadas con una de sus tres builds más jugadas que incluye {name}. Se descartan los héroes elegidos en menos del {min} de los picks en estos rangos: muy pocas partidas.",
+      "buildersShare": "{share} de las partidas · {lane}",
       "itemDesc": "{name} ({details}): {effect}.",
       "itemDescAlone": "{name} ({details}).",
-      "heroDesc": "Comprado principalmente por {heroes} en juego clasificado; {first} gana {rate} de sus juegos con.",
-      "heroDescSimple": "Comprado principalmente por {heroes} en juego clasificado.",
+      "heroDesc": "Lo compran sobre todo {heroes} en clasificatoria; {first} gana el {rate} de sus partidas con él.",
+      "heroDescSimple": "Lo compran sobre todo {heroes} en clasificatoria.",
       "heroesTitle": "Héroes que compran {name}",
       "effects": "Estadísticas y efectos",
       "category": "Categoría",
       "price": "Precio",
       "crafting": "Fabricación",
-      "similar": "Otros objetos en la categoría {category}"
+      "similar": "Otros objetos de la categoría {category}"
     },
     "emblemDetail": {
-      "title": "{name} MLBB: Mejores héroes y talentos (parche {v})",
-      "desc": "{name} ({bonus}): Tomado por {n} héroes en sus configuraciones clasificadas más jugadas, especialmente {heroes}.",
+      "title": "{name} MLBB: mejores héroes y talentos (parche {v})",
+      "desc": "{name} ({bonus}): lo usan {n} héroes en sus builds clasificatorias más jugadas, sobre todo {heroes}.",
       "talentsDesc": "Talentos clave más elegidos: {talents}.",
       "descWithout": "{name} ({bonus}): {forWho}",
       "bonus": "Bonificación",
@@ -1075,9 +1082,9 @@
       "others": "Otros emblemas"
     },
     "spellDetail": {
-      "title": "Hechizo {name} MLBB: mejores héroes y tasa de victorias (parche {v})",
+      "title": "Hechizo {name} MLBB: mejores héroes y tasa de victoria (parche {v})",
       "effectDesc": "{name}: {effect}",
-      "noneDesc": "{name} no se encuentra actualmente en ninguna de las configuraciones clasificatorias más jugadas.",
+      "noneDesc": "Por ahora, {name} no aparece en ninguna de las builds clasificatorias más jugadas.",
       "effect": "Efecto",
       "noDescription": "Todavía no hay descripción en los datos sincronizados.",
       "cooldown": "Enfriamiento",
@@ -1087,38 +1094,38 @@
       "others": "Otros hechizos de combate"
     },
     "heroCounters": {
-      "metaTitle": "Contadores {name}: contra quién enfrentarse {name} (parche {v})",
-      "metaTitleNoPatch": "Contadores {name}: contra quién enfrentarse {name}",
-      "metaTitleShort": "Contadores {name}: mejores opciones (parche {v})",
-      "title": "Contadores {name}",
+      "metaTitle": "Counters de {name}: a quién elegir contra {name} (parche {v})",
+      "metaTitleNoPatch": "Counters de {name}: a quién elegir contra {name}",
+      "metaTitleShort": "Counters de {name}: mejores picks (parche {v})",
+      "title": "Counters de {name}",
       "updatedOn": "Actualizado el {date}.",
       "allRanks": "En todos los rangos",
       "atRank": "En {rank}",
-      "overview": "{context}, {name} sufre más contra {weakAgainst} y toma ventaja sobre {strongAgainst}.",
-      "overviewNoStrong": "{context}, {name} es el que más sufre contra {weakAgainst}.",
-      "noMeasure": "Aún no se ha medido ningún contador para {name}.",
-      "sheetLink": "Hoja {name}",
-      "buildsLink": "Construye {name}",
-      "compareLink": "{name} frente a {other}",
+      "overview": "{context}, {name} sufre más contra {weakAgainst}, mientras que se impone a {strongAgainst}.",
+      "overviewNoStrong": "{context}, {name} sufre más contra {weakAgainst}.",
+      "noMeasure": "Todavía no hay counters medidos para {name}.",
+      "sheetLink": "Ficha de {name}",
+      "buildsLink": "Builds de {name}",
+      "compareLink": "{name} contra {other}",
       "shortLink": "Counters",
-      "bestCounters": "Los mejores contadores {name}",
-      "bestCountersIntro": "Los héroes contra los que {name} pierde más, rango por rango: un contador citado en varios rangos es un contador normal. El diferencial es el promedio, en puntos de tasa de ganancia {name}.",
-      "victims": "Los héroes que domina {name}",
-      "victimsIntro": "Evite enfrentarse a {name}: la tasa de victorias {name} aumenta al máximo contra ellos.",
-      "colHero": "Héroes",
+      "bestCounters": "Los mejores counters de {name}",
+      "bestCountersIntro": "Los héroes contra los que {name} más pierde, rango por rango: un counter presente en varios rangos es un counter constante. La diferencia es la media, en puntos de la tasa de victoria de {name}.",
+      "victims": "Los héroes que {name} domina",
+      "victimsIntro": "Mejor no elegirlos contra {name}: la tasa de victoria de {name} sube más contra ellos.",
+      "colHero": "Héroe",
       "colGap": "Diferencia",
       "colRanks": "Rangos",
       "colLinks": "Enlaces",
       "ranksListed": "{n}/{total} rangos",
       "byRank": "Counters por rango",
-      "byRankIntro": "Cada grupo de rango tiene su propia medida: un héroe puede contrarrestar {name} en un rango y pesar poco en otro.",
+      "byRankIntro": "Cada rango tiene su propia medición: un héroe puede counterear a {name} en un rango y pesar poco en otro.",
       "ranksNav": "Ir al rango",
-      "howToCounter": "Cómo contrarrestar {name}",
-      "howToCounterIntro": "Tres puntos de referencia extraídos de los datos, sin asesoramiento escrito: equipamiento adaptado al daño {name}, la duración del juego donde {name} gana menos y sus contadores en cada posición.",
+      "howToCounter": "Cómo counterear a {name}",
+      "howToCounterIntro": "Tres pautas sacadas de los datos, sin consejos redactados: el equipo adecuado al daño de {name}, la duración de partida en la que {name} gana menos y los counters de cada línea.",
       "items": {
-        "title": "Elementos en contra de {name}",
+        "title": "Objetos contra {name}",
         "rule": "Regla, no medición",
-        "intro": "Sugerencias automáticas, deducidas del tipo de daño {name} ({damage}), su rol, sus especialidades y su build más jugada. No hay tasa de ganancia medida detrás.",
+        "intro": "Sugerencias automáticas, deducidas del tipo de daño de {name} ({damage}), su rol, sus especialidades y su build más jugada. Sin tasa de victoria medida detrás.",
         "reason": {
           "magic": "Contra el daño mágico",
           "physical": "Contra el daño físico",
@@ -1126,30 +1133,30 @@
           "healing": "Contra la curación y el robo de vida",
           "control": "Contra el control de masas"
         },
-        "none": "No se aplican reglas de equipo a {name}."
+        "none": "Ninguna regla de objetos se aplica a {name}."
       },
       "duration": {
-        "title": "Cuando {name} es más bajo",
-        "sentence": "{name} gana menos en juegos de {weak} ({weakRate}) y más en juegos de {strong} ({strongRate}).",
+        "title": "Cuándo {name} es más débil",
+        "sentence": "{name} gana menos en las partidas de {weak} ({weakRate}) y más en las de {strong} ({strongRate}).",
         "rank": "Rango: {rank}",
-        "none": "Aún no hay medición por duración del juego para {name}."
+        "none": "Todavía no hay datos por duración de partida para {name}."
       },
       "lanes": {
         "title": "Counters por línea",
-        "intro": "Las fichas {name} agrupadas según la posición que juegan, la suya primero: este es el duelo directo.",
+        "intro": "Los counters de {name} agrupados por la línea que juegan, empezando por la suya: el duelo directo.",
         "direct": "Duelo directo"
       },
       "wiki": {
         "title": "Lo que dice la wiki",
         "intro": "Relaciones anotadas por la wiki de la comunidad, sin cifras medidas.",
-        "synergies": "Sinergias {name}"
+        "synergies": "Sinergias de {name}"
       },
       "others": {
         "title": "Más páginas de counters · {lane}"
       }
     },
     "heroesRole": {
-      "title": "MLBB's {n} {plural}",
+      "title": "Los {n} {plural} de MLBB",
       "lead": "Todos los héroes con el rol {role}, principal o secundario, del más fuerte al más débil según la tier list, con sus líneas. Cada fila lleva a la ficha del héroe: build, counters y estadísticas.",
       "nHeroes": "{n} héroes",
       "seeTierList": "Tier list {role}",
@@ -1160,11 +1167,11 @@
       "title": "Informe del meta de la semana: {date}",
       "lead": "Generado a partir de las tasas medidas el {date} en {n} héroes clasificados (parche {v}) y rehecho en cada sincronización diaria: subidas y bajadas de la semana, cambios de tier, baneos, picks, último parche y mejores héroes por línea.",
       "summary": {
-        "top": "{name} lidera la lista de niveles (nivel {tier}) con {winRate} victorias y {ban} prohibiciones.",
-        "rise": "Mayor aumento de la semana: {name}, de {before} a {current} en victorias en {days} días.",
-        "fall": "Mayor caída: {name}, de {before} a {current} gana en {days} días.",
-        "tiers": "Cambios de nivel en siete días: subidas: {risers}, bajadas: {fallers}.",
-        "banned": "Héroe más prohibido: {name}, con {ban} prohibiciones."
+        "top": "{name} encabeza la tier list (tier {tier}) con una tasa de victoria del {winRate} y de baneo del {ban}.",
+        "rise": "Mayor subida de la semana: {name}, del {before} al {current} de victorias en {days} días.",
+        "fall": "Mayor bajada: {name}, del {before} al {current} de victorias en {days} días.",
+        "tiers": "Cambios de tier en siete días — subidas: {risers}, bajadas: {fallers}.",
+        "banned": "Héroe más baneado: {name}, con una tasa de baneo del {ban}."
       },
       "tiers": {
         "title": "Cambios de tier",
@@ -1173,7 +1180,7 @@
         "demotions": "Bajan",
         "noPromotion": "Ningún héroe sube de tier esta semana.",
         "noDemotion": "Ningún héroe baja de tier esta semana.",
-        "sr": "del nivel {before} al nivel {after}"
+        "sr": "del tier {before} al tier {after}"
       },
       "bansPicks": {
         "title": "Baneos y picks",
@@ -1189,35 +1196,35 @@
       "lanes": {
         "title": "Mejores héroes por línea",
         "lead": "Los tres primeros de cada línea en la tier list, todos los rangos juntos.",
-        "row": "Nivel de victoria {tier} · {winRate}",
+        "row": "Tier {tier} · {winRate} de victorias",
         "see": "Tier list de {lane}"
       },
-      "method": "Método: tasas de victorias, prohibiciones y selecciones publicadas por el juego, registradas el {date}. Los altibajos comparan la tasa de victorias con la de siete días antes, en todos los rangos; se ignoran las desviaciones inferiores a {threshold} punto."
+      "method": "Método: tasas de victoria, de baneo y de selección publicadas por el juego, medidas el {date}. Las subidas y bajadas comparan la tasa de victoria con la de siete días antes, todos los rangos juntos; las diferencias de menos de {threshold} puntos se ignoran."
     },
     "statistics": {
       "title": "Estadísticas de héroes",
-      "titleRank": "Estadísticas de héroe - {rank}",
+      "titleRank": "Estadísticas de héroes — {rank}",
       "lead": "Tasa de victoria, de ban y de pick de cada héroe, según los datos del juego, con su variación en siete días y su tendencia en treinta. Ordena por cualquier columna y filtra por rol o por línea.",
-      "leadRank": "Los mismos índices, medidos sólo en los juegos {rank}: un héroe puede dominar en un rango y luchar en otro.",
+      "leadRank": "Las mismas tasas, medidas solo en partidas de {rank}: un héroe puede dominar en un rango y sufrir en otro.",
       "metaTitle": "Estadísticas de héroes MLBB: win rate, pick y ban por rango (parche {v})",
-      "metaTitleRank": "Estadísticas de MLBB en {rank}: victoria, selección y prohibición (parche {v})",
-      "metaDescription": "Tasa de victoria, prohibición y selección de héroes {n} de Mobile Legends, por rango, con la evolución en 7 días y la curva en 30 días. Mejor tasa de victorias: {name} ({rate}). Actualizado el {date}.",
-      "metaDescriptionRank": "Tasa de victoria, prohibición y selección de {n} héroes de Mobile Legends en {rank} juegos, con la evolución en 7 días y la curva en 30 días. Mejor tasa de victorias: {name} ({rate}). Actualizado el {date}.",
+      "metaTitleRank": "Estadísticas MLBB en {rank}: win rate, pick y ban (parche {v})",
+      "metaDescription": "Tasa de victoria, de ban y de pick de los {n} héroes de Mobile Legends, por rango, con la variación en 7 días y la tendencia en 30 días. Mejor tasa de victoria: {name} ({rate}). Actualizado el {date}.",
+      "metaDescriptionRank": "Tasa de victoria, de ban y de pick de los {n} héroes de Mobile Legends en partidas de {rank}, con la variación en 7 días y la tendencia en 30 días. Mejor tasa de victoria: {name} ({rate}). Actualizado el {date}.",
       "ldName": "Estadísticas de héroes de Mobile Legends: Bang Bang ({rank})",
       "measures": "{n} héroes medidos",
       "contextAll": "En todos los rangos",
-      "contextRank": "En partes {rank}",
-      "summary": "{context}, {win} tiene la mejor tasa de victorias ({winRate}), {ban} es el héroe más prohibido ({banRate}) y {pick} es el más elegido ({pickRate}).",
+      "contextRank": "En partidas de {rank}",
+      "summary": "{context}, {win} tiene la mejor tasa de victoria ({winRate}), {ban} es el héroe más baneado ({banRate}) y {pick} el más elegido ({pickRate}).",
       "rises": "Mayores subidas de la semana",
       "falls": "Mayores caídas de la semana",
-      "movementsIntro": "Evolución del índice de victorias durante siete días en este rango, que se mantiene cuando alcanza al menos {threshold} puntos.",
+      "movementsIntro": "Variación de la tasa de victoria en siete días en este rango, cuando alcanza al menos {threshold} puntos.",
       "noMovement": "Ningún cambio notable esta semana.",
       "reading": {
         "title": "Cómo leer esta tabla",
         "win": "Victoria: parte de las partidas del héroe que terminan en victoria.",
         "ban": "Ban: parte de los drafts en los que el héroe es baneado. Una tasa de ban alta señala un héroe temido, a menudo más fuerte de lo que sugiere su tasa de victoria.",
         "pick": "Pick: parte de las partidas en las que se elige al héroe. Mide la popularidad, no la fuerza.",
-        "trend": "7 días: evolución del índice de victorias en los últimos siete días, en puntos. Bajo el punto {threshold}, el espacio se fusiona con el redondeo y permanece gris.",
+        "trend": "7 días: variación de la tasa de victoria en los últimos siete días, en puntos. Por debajo de {threshold} puntos, la diferencia es ruido de redondeo y queda en gris.",
         "curve": "30 días: tasa de victoria diaria de los últimos treinta días, en la escala propia del héroe.",
         "tier": "Tier: el del héroe en la tier list del mismo rango, calculado con la tasa de victoria más un cuarto de la tasa de ban.",
         "weak": "Un asterisco marca a los héroes elegidos tan pocas veces que sus tasas no son estables."
@@ -1227,23 +1234,23 @@
       "fromTierListLink": "Tabla completa de estadísticas"
     },
     "statisticsTable": {
-      "legend": "Tasa de victorias, prohibiciones y selecciones de héroes: {rank}",
-      "heroes": "Héroes",
+      "legend": "Tasas de victoria, de ban y de pick de los héroes — {rank}",
+      "heroes": "Héroe",
       "tier": "Tier",
       "win": "Victoria",
       "gap": "7 días",
       "ban": "Ban",
       "pick": "Pick",
       "curve": "30 días",
-      "curveAria": "Tasa de ganancias de 30 días: {start} a {end}",
-      "weak": "Jugado demasiado poco para que las tasas sean fiables",
+      "curveAria": "Tasa de victoria en 30 días: de {start} a {end}",
+      "weak": "Elegido tan pocas veces que sus tasas no son fiables",
       "noMeasure": "Sin mediciones suficientes"
     },
     "skins": {
       "title": "Skins de MLBB",
       "lead": "Las {n} skins de los {h} héroes de Mobile Legends, agrupadas por héroe. Abre un héroe para ver cada ilustración con su rareza, fecha de lanzamiento y precio.",
       "metaTitle": "Skins de MLBB: las {n} skins e ilustraciones de los héroes",
-      "metaDescription": "Todas las máscaras de Mobile Legends: Bang Bang, héroe por héroe: {n} máscaras para {h} héroes, con ilustraciones, rareza, fecha de lanzamiento y precio. Último: {latest} ({hero}).",
+      "metaDescription": "Todas las skins de Mobile Legends: Bang Bang, héroe por héroe: {n} skins de {h} héroes, con ilustraciones, rareza, fecha de lanzamiento y precio. La más reciente: {latest} ({hero}).",
       "updatedOn": "Actualizado el {date}",
       "latest": "Últimas skins",
       "latestIntro": "Los lanzamientos más recientes con fecha conocida, incluidas las skins por llegar.",
@@ -1258,50 +1265,50 @@
       },
       "seeAll": "Todas las skins",
       "seeMore": "Mostrar más héroes (quedan {n})",
-      "alt": "{hero} — piel {skin}"
+      "alt": "{hero} — skin {skin}"
     },
     "heroSkins": {
-      "title": "Pieles de {name}",
-      "titleElision": "{name} Máscaras",
-      "metaTitle": "Máscaras de {name}: las máscaras e ilustraciones de {n}",
-      "metaTitleElision": "Máscaras de {name}: las máscaras e ilustraciones de {n}",
-      "metaDescription": "{name}: las máscaras {n} de Mobile Legends: Bang Bang, con ilustraciones, rareza, fecha de lanzamiento, disponibilidad y precio.",
-      "lead": "{name} cuenta {n} máscaras. Cada tarjeta muestra la obra de arte, la rareza, la fecha de lanzamiento, la disponibilidad y el precio cuando se conozca.",
+      "title": "Skins de {name}",
+      "titleElision": "Skins de {name}",
+      "metaTitle": "Skins de {name}: las {n} skins e ilustraciones",
+      "metaTitleElision": "Skins de {name}: las {n} skins e ilustraciones",
+      "metaDescription": "{name}: las {n} skins de Mobile Legends: Bang Bang, con ilustraciones, rareza, fecha de lanzamiento, disponibilidad y precio.",
+      "lead": "{name} tiene {n} skins. Cada tarjeta muestra la ilustración, la rareza, la fecha de lanzamiento, la disponibilidad y el precio cuando se conocen.",
       "latest": "Skin con fecha más reciente: {skin} ({date}).",
       "price": "Precio",
       "illustrationOnly": "Solo ilustración: la rareza, la fecha y el precio aún no están en la base de datos.",
-      "altIllustration": "Ilustración de piel {skin} — {name}",
-      "altPortrait": "{name} con piel {skin}, retrato en el juego",
+      "altIllustration": "Ilustración de la skin {skin} — {name}",
+      "altPortrait": "{name} con la skin {skin}, retrato en el juego",
       "others": "Skins de los demás héroes",
       "sheetLink": "Ver las {n} skins e ilustraciones"
     },
     "duos": {
-      "title": "Mejores duetos con {name}",
-      "metaTitle": "Mejores dúos con {name}: héroes que ganan {name} (parche {v})",
-      "metaTitleNoPatch": "Mejores dúos con {name}: los héroes que ganan {name}",
+      "title": "Mejores dúos con {name}",
+      "metaTitle": "Mejores dúos con {name}: los héroes que hacen ganar a {name} (parche {v})",
+      "metaTitleNoPatch": "Mejores dúos con {name}: los héroes que hacen ganar a {name}",
       "updatedOn": "Actualizado el {date}.",
       "allRanks": "En todos los rangos",
       "atRank": "En {rank}",
-      "overview": "{context}, {name} gana más junto con {best} y pierde más con {worst}.",
-      "overviewNoWorst": "{context}, {name} gana más junto con {best}.",
-      "noMeasure": "Ningún dúo midió {name} todavía.",
-      "sheetLink": "{name}: perfil de héroe",
-      "countersLink": "¿Quién contra {name}?",
-      "compareLink": "{name} frente a {other}",
+      "overview": "{context}, {name} gana más junto a {best} y pierde más con {worst}.",
+      "overviewNoWorst": "{context}, {name} gana más junto a {best}.",
+      "noMeasure": "Todavía no hay dúos medidos para {name}.",
+      "sheetLink": "Ficha de {name}",
+      "countersLink": "Counters de {name}",
+      "compareLink": "{name} vs {other}",
       "shortLink": "Dúos",
       "compare": "Comparar",
       "crumb": "Dúos",
       "window": "Dúos medidos en los últimos {n} días",
-      "best": "Los mejores socios para {name}",
-      "bestIntro": "Los aliados con los que {name} gana más, rango por rango: un compañero mencionado en varios rangos es un dúo seguro. La ganancia es un promedio, en puntos de tasa de ganancia.",
-      "worst": "Dúos a evitar con {name}",
-      "worstIntro": "Aliados con los que {name} pierde más: la tasa de victorias cae más cuando juegan juntos.",
+      "best": "Mejores compañeros para {name}",
+      "bestIntro": "Los aliados con los que {name} gana más, rango por rango: un compañero citado en varios rangos es un dúo fiable. La ganancia es una media, en puntos de tasa de victoria.",
+      "worst": "Dúos que evitar con {name}",
+      "worstIntro": "Los aliados con los que {name} pierde más: la tasa de victoria baja más cuando juegan juntos.",
       "phases": {
-        "title": "Dúos con {name} dependiendo de la duración del juego",
-        "intro": "El compañero que más contribuye a {name} en cada fase del juego ({rank}): tasa de victoria del dúo y ganancia en comparación con {name} sin este compañero, para la misma duración del juego.",
-        "introNoGain": "El compañero con el mejor índice de victorias del dúo con {name} en cada fase del juego ({rank}). Sin una curva de duración para {name} en este rango, no se calcula ninguna ganancia.",
+        "title": "Dúos con {name} según la duración de la partida",
+        "intro": "El compañero que más aporta a {name} en cada fase de la partida ({rank}): tasa de victoria del dúo y ganancia respecto a {name} sin este compañero, a igual duración.",
+        "introNoGain": "El compañero con la mejor tasa de victoria en dúo con {name} en cada fase de la partida ({rank}). Sin la curva de duración de {name} en este rango, no se calcula ninguna ganancia.",
         "duoRate": "Victoria del dúo: {rate}",
-        "gainAlone": "{gap} comparado con {name} sin este dúo"
+        "gainAlone": "{gap} respecto a {name} sin este dúo"
       },
       "phase": {
         "early": "Inicio de partida",
@@ -1315,18 +1322,18 @@
       },
       "phaseShort": {
         "early": "Inicio",
-        "mid": "Mid Lane",
+        "mid": "Mitad",
         "late": "Final"
       },
       "byRank": "Dúos por rango",
-      "byRankIntro": "Cada segmento de fila se mide por separado. Las columnas de fase dan la ganancia en comparación con {name} sin este compañero, para la misma duración del juego (o la tasa del dúo cuando {name} no tiene curva de duración en este rango).",
-      "rateAlone": "Victoria, todos los socios: {rate}",
+      "byRankIntro": "Cada tramo de rango se mide por separado. Las columnas de fase muestran la ganancia respecto a {name} sin ese compañero, a igual duración (o la tasa del dúo cuando {name} no tiene curva de duración en ese rango).",
+      "rateAlone": "Victoria, todos los compañeros: {rate}",
       "bestShort": "Mejores compañeros",
       "worstShort": "Dúos que evitar",
       "source": "Fuente: datos de compatibilidad de dúos publicados por el juego, últimos {n} días. Ganancia: variación de la tasa de victoria del héroe cuando el compañero está en su equipo, en puntos.",
       "academy": {
-        "title": "Compañeros medidos por {name}",
-        "intro": "Aún no hay compatibilidad de dúo para {name}: aquí están los compañeros de equipo medidos por la academia del juego, en puntos de índice de victorias."
+        "title": "Compañeros medidos para {name}",
+        "intro": "Todavía no hay datos de compatibilidad para {name}: estos son los compañeros medidos por la academia del juego, en puntos de tasa de victoria."
       },
       "others": "Más páginas de dúos · {lane}",
       "colPartner": "Compañero",
@@ -1341,18 +1348,18 @@
       "metaTitleNoPatch": "{a} vs {b}: ¿quién gana? Estadísticas del duelo por rango",
       "lead": "{a} contra {b}, medido por el juego rango por rango: quién gana tasa de victoria en el enfrentamiento, quién pesa más al inicio o al final de la partida, sus builds más jugadas y cómo rinden en el mismo equipo.",
       "noMeasure": "Todavía no hay enfrentamiento medido entre {a} y {b}.",
-      "balanced": "{context}, {a} y {b} son iguales: ninguno gana más que unas pocas décimas de punto.",
-      "verdict": "{context}, {winner} se hace cargo de {loser}: {gap} tasa de victorias en este duelo.",
+      "balanced": "{context}, {a} y {b} están igualados: ninguno gana más de unas décimas de punto.",
+      "verdict": "{context}, {winner} se impone a {loser}: {gap} de tasa de victoria en este enfrentamiento.",
       "ranks": "De {total} tramos de rango medidos, {a} va por delante en {na} y {b} en {nb}.",
       "question": "¿Quién gana, {a} o {b}?",
       "gapsNote": "Diferencia: variación de la tasa de victoria de un héroe frente al otro, en puntos (vista por {a} y luego por {b}). Un guion: el otro héroe no está entre sus seis enfrentamientos más marcados en ese rango. Ventaja: media de ambos puntos de vista.",
       "duration": {
         "title": "¿Inicio o final de partida?",
-        "always": "{name} tiene la mejor tasa de victorias en todas las duraciones del juego.",
+        "always": "{name} tiene la mejor tasa de victoria en todas las duraciones de partida.",
         "sentence": "{a} rinde mejor {phaseA}, {b} {phaseB}.",
         "equal": "{a} y {b} ganan de forma parecida, sea cual sea la duración de la partida.",
         "colPhase": "Fase",
-        "rating": "Tasa de victoria de cada héroe según la duración del juego ({rank}), en todos sus juegos y no solo en este duelo."
+        "rating": "Tasa de victoria de cada héroe según la duración de la partida ({rank}), en todas sus partidas y no solo en este enfrentamiento."
       },
       "phaseIn": {
         "early": "al inicio de la partida",
@@ -1363,22 +1370,22 @@
       "builds": {
         "title": "Builds",
         "played": "Build más jugada · {lane}",
-        "against": "Elementos en contra de {name}",
+        "against": "Objetos contra {name}",
         "rule": "por regla, sin medición"
       },
       "team": {
         "title": "{a} y {b} en el mismo equipo",
-        "row": "{context}, {hero} con {with}: {gap} tasa de victorias.",
+        "row": "{context}, {hero} con {with}: {gap} de tasa de victoria.",
         "rating": "Variación de la tasa de victoria del primer héroe cuando el segundo es su compañero, según los dúos publicados por el juego o, en su defecto, los compañeros de la academia."
       },
       "links": {
         "title": "Para ir más allá",
         "comparator": "Compararlos lado a lado",
-        "others": "Otros enfrentamientos directos: {name}"
+        "others": "Otros enfrentamientos de {name}"
       },
       "colRank": "Rango",
       "colAdvantage": "Ventaja",
-      "colAgainst": "{hero} frente a {opponent}",
+      "colAgainst": "{hero} contra {opponent}",
       "balancedShort": "Igualado"
     },
     "serverTime": {
@@ -1396,10 +1403,10 @@
       "seasonTitle": "Fin de temporada",
       "seasonText": "El juego la fecha en sus notas del parche, en hora del servidor («la S31 terminará a las 23:59:59 del 15/3»). La cuenta atrás la recoge en cuanto aparece allí.",
       "updateTitle": "Actualizaciones",
-      "updateText": "La mayoría de las veces son liberados entre las 6:00 p.m. y 22:00 h. hora del servidor, es decir, entre {start} y {end} UTC del día siguiente.",
+      "updateText": "Suelen salir entre las 18:00 y las 22:00 hora del servidor, es decir, entre las {start} y las {end} UTC del día siguiente.",
       "faqTitle": "Preguntas frecuentes",
       "faq1q": "¿A qué hora es el reinicio diario de MLBB?",
-      "faq1a": "A las {utc} UTC, que son las 00:00 hora del servidor. En Francia, esto da {summer} en verano y {winter} en invierno; en Filipinas, {manila}.",
+      "faq1a": "A las {utc} UTC, es decir, a las 00:00 hora del servidor. En España son las {summer} en verano y las {winter} en invierno; en Filipinas, las {manila}.",
       "faq2q": "¿El servidor cambia al horario de verano?",
       "faq2a": "No: se queda en UTC−8 todo el año. Si tu país cambia al horario de verano, tu hora local del reinicio se mueve una hora; la tabla de arriba lo tiene en cuenta.",
       "faq3q": "¿Cuándo termina la temporada clasificatoria?",
@@ -1416,10 +1423,10 @@
       "rulesTitle": "Cómo funciona",
       "rule1": "Elige un objetivo, una dificultad y el nivel de tu héroe. La barra de vida baja con los golpes de tu equipo; golpea (botón grande, Espacio o Intro) en cuanto los PV bajen del daño de tu Castigo.",
       "rule2": "Demasiado pronto, el Castigo no mata y tarda {recharge} s en recargarse: el objetivo está perdido. Demasiado lento, el jungla rival golpea antes, o el monstruo cae sin ti.",
-      "rule3": "Un golpe exitoso vale hasta 1000 puntos: {precision} por precisión (la porción de HP por debajo del umbral que aún está ahí cuando golpeas) y {speed} por velocidad, máxima por debajo de {full} ms y cero por encima de {zero} ms.",
+      "rule3": "Un golpe logrado vale hasta 1.000 puntos: {precision} por la precisión (la parte de los PV bajo el umbral que queda cuando golpeas) y {speed} por la velocidad, completa por debajo de {full} ms y nula a partir de {zero} ms.",
       "rule4": "Una partida tiene {n} rondas. Tu mejor total por objetivo y dificultad, y tu racha más larga de aciertos, se quedan en tu navegador. Una vez abierta la página, el entrenamiento también funciona sin conexión.",
       "valuesTitle": "Los valores utilizados",
-      "damageIntro": "Smite inflige {base} de daño verdadero, más {perLevel} por nivel de héroe, a criaturas y súbditos. Por nivel:",
+      "damageIntro": "El Castigo inflige {base} de daño verdadero, más {perLevel} por nivel del héroe, a criaturas y súbditos. Por nivel:",
       "level": "Nv. {n}",
       "monstersTitle": "PV de los objetivos",
       "colSegment": "PV por segmento de barra",
@@ -1449,7 +1456,7 @@
       "pointsBetween": "De {min} a {max} puntos",
       "starsPerDivision": "{n} estrellas por división",
       "draft": "Draft · {n} bans por equipo",
-      "tierListLink": "Lista de niveles {rank}",
+      "tierListLink": "Tier list {rank}",
       "tierListAllLink": "Tier list de todos los rangos",
       "scaleNote": "El draft se abre en Épico V; por debajo, las partidas clasificatorias se juegan a ciegas. Leyenda no tiene emblema en nuestras imágenes: lo sustituye un escudo.",
       "tableTitle": "Divisiones, estrellas y puntos",
@@ -1466,12 +1473,12 @@
       "bans": "{n} bans por equipo",
       "tableNote": "Los puntos de ascenso se acumulan partida a partida: al 100 %, la siguiente victoria da una estrella más. Los puntos de protección evitan perder una estrella en una derrota. La familia Mítico solo tiene puntos de protección.",
       "mythicTitle": "Mítico: puntos en lugar de estrellas",
-      "mythicIntro": "Después de Legend, ya no hay divisiones: las estrellas se convierten en puntos y su acumulación marca el nivel. {honor} puntos conducen a Honor Mítico, {glory} a Gloria Mítica, {immortal} a Inmortal Mítico.",
+      "mythicIntro": "Tras Leyenda ya no hay divisiones: las estrellas se convierten en puntos y su total fija el nivel. Con {honor} puntos llegas a Honor Mítico, con {glory} a Gloria Mítica y con {immortal} a Inmortal Mítico.",
       "mythicCoins": "Llegar a 15 puntos en Mítico da cada temporada monedas míticas, la moneda de las skins míticas.",
       "heroesTitle": "Los héroes que más ganan, rango por rango",
       "heroesIntro": "Las {n} mejores tasas de victoria de cada franja de rango que mide el juego, sin los héroes jugados demasiado poco para que su tasa sea fiable.",
       "win": "tasa de victorias",
-      "heroesGap": "En la cima, la clasificación cambia: en {rank}, la cima ocupa un lugar en {names}, fuera de la cima para todos los rangos combinados.",
+      "heroesGap": "En la cima la clasificación cambia: en {rank}, el top da cabida a {names}, fuera del top de todos los rangos.",
       "heroesNote": "Estas tasas son las de la tier list y siguen cada medición. El juego no publica cifras separadas por debajo de Épico.",
       "seasonTitle": "Fin de temporada y recompensas",
       "reset1": "Al terminar una temporada, cada jugador empieza la nueva con un rango fijado según el que había alcanzado, y recibe las recompensas de ese rango.",
@@ -1498,7 +1505,7 @@
       "lead": "Cinco pruebas al día, las mismas para todos: una habilidad, un detalle de skin, un fragmento de historia, un objeto y un duelo de tasas de victoria. Todo sale de nuestra base de datos, en tu idioma.",
       "rulesTitle": "Cómo jugar",
       "rule1": "El reto cambia cada día a medianoche UTC. Es el mismo para todos, sea cual sea el idioma.",
-      "rule2": "Tienes {heroes} intentos para encontrar un héroe y {items} para un objeto. Cada error desbloquea una pista y compara tu respuesta con la correcta: función, carril, año de lanzamiento, región o precio.",
+      "rule2": "Tienes {heroes} intentos para encontrar un héroe y {items} para un objeto. Cada fallo desbloquea una pista y compara tu respuesta con la correcta: rol, línea, año de lanzamiento, región o precio.",
       "rule3": "Tu racha, tu récord y la distribución de tus puntuaciones se quedan en tu navegador. Una vez visitada la página, el quiz también funciona sin conexión.",
       "rule4": "Al final, comparte tu cuadrícula: cuadrados de colores que no revelan ninguna respuesta. El entrenamiento, en cambio, encadena preguntas sin límite.",
       "challengesTitle": "Las cinco pruebas",
@@ -1604,11 +1611,11 @@
         "recipe": "Receta",
         "passive": "Pasiva"
       },
-      "initial": "“{letter}”, {n} letras",
+      "initial": "«{letter}», {n} letras",
       "heroField": "Nombre de un héroe…",
       "itemField": "Nombre de un objeto…",
       "noResult": "Sin resultados.",
-      "browse": "Explorar los héroes",
+      "browse": "Ver héroes",
       "skip": "Pasar",
       "yourTries": "Tus intentos",
       "comparison": {
@@ -1634,19 +1641,19 @@
         "equal": "mismo precio",
         "unknown": "precio desconocido"
       },
-      "itemPrice": "Precio: {price} oro",
+      "itemPrice": "Precio: {price} de oro",
       "altSkill": "Icono de la habilidad que hay que adivinar",
       "altSkin": "Detalle ampliado de la ilustración de una skin",
       "altSkinFull": "Ilustración completa de la skin",
-      "announceFound": "¡Bien hecho, fue {name}!",
-      "announceMissed": "Fallido: la respuesta fue {name}.",
+      "announceFound": "¡Bien hecho, era {name}!",
+      "announceMissed": "Fallaste: la respuesta era {name}.",
       "announceWrong": "{name}: no. Intentos restantes: {n}.",
-      "announceClue": "Nuevo índice: {title}.",
-      "announceDuelRight": "Correcto: {name} gana el {rate}% de sus juegos.",
-      "announceDuelWrong": "No: {name} gana más, con {rate}% de victorias.",
+      "announceClue": "Nueva pista: {title}.",
+      "announceDuelRight": "Correcto: {name} gana el {rate} % de sus partidas.",
+      "announceDuelWrong": "No: {name} gana más, con un {rate} % de victorias.",
       "found": "¡Resuelto! Intentos: {n}/{max}",
       "missed": "¡Fallaste! La respuesta era:",
-      "skinName": "Piel: {name}",
+      "skinName": "Skin: {name}",
       "skillName": "Habilidad: {name}",
       "seeSheet": "Ver la ficha",
       "seeItem": "Ver el objeto",
@@ -1673,7 +1680,7 @@
     "tierMakerUI": {
       "titleList": "Título de la lista",
       "titleDefault": "Mi tier list de MLBB",
-      "titleMeta": "Lista de niveles MLBB - {rank}",
+      "titleMeta": "Tier list de MLBB — {rank}",
       "export": "Descargar imagen",
       "exporting": "Creando la imagen…",
       "exportDone": "Imagen descargada.",
@@ -1690,18 +1697,18 @@
       "confirmReplace": "¿Reemplazar tu lista por nuestra tier list?",
       "prefillTitle": "Partir de nuestra tier list",
       "prefillIntro": "Elige un rango: los héroes se colocan de S+ a C según las tasas de victoria y de baneo medidas en ese rango. Después, ajústalo a tu gusto.",
-      "prefill": "Cargar lista de niveles {rank}",
+      "prefill": "Cargar la tier list {rank}",
       "rows": "Filas de la tier list",
       "rowContent": "Fila {i}, {name}: {n} héroes",
-      "placeHere": "Coloque {name} en {row}",
-      "editRow": "Configuración de fila {name}",
+      "placeHere": "Colocar a {name} en {row}",
+      "editRow": "Ajustes de la fila {name}",
       "rowName": "Nombre",
       "colour": "Color",
       "colourName": "Color {colour}",
       "customColour": "Otro color",
       "moveUp": "Subir la fila",
       "moveDown": "Bajar la fila",
-      "deleteRow": "Eliminar fila {name}",
+      "deleteRow": "Eliminar la fila {name}",
       "close": "Cerrar",
       "addRow": "Añadir una fila",
       "newRow": "Nueva",
@@ -1709,7 +1716,7 @@
       "benchCount": "{n} de {total} héroes por colocar",
       "benchEmpty": "Todos los héroes están colocados.",
       "help": "Toca un héroe y luego una fila, o arrástralo. Teclado: Intro para seleccionar, 1–9 para colocar, 0 para devolverlo aquí, flechas para moverte.",
-      "actionBar": "Lugar {name}",
+      "actionBar": "Colocar a {name}",
       "placeIn": "Colocar en:",
       "moveBack": "Mover un puesto a la izquierda",
       "moveForward": "Mover un puesto a la derecha",
@@ -1720,20 +1727,20 @@
       "backToMyList": "Volver a mi lista",
       "announceSelect": "{name} seleccionado: elige una fila.",
       "announceDeselect": "Selección cancelada.",
-      "announcePlaced": "{name} colocado en {row}, posición {position} en {n}.",
-      "announceBench": "{name} volver a poner en reserva.",
-      "announceMoved": "{name} en la posición {position} en {n}.",
-      "announceMeta": "Lista de niveles {rank} cargada.",
+      "announcePlaced": "{name} colocado en {row}, posición {position} de {n}.",
+      "announceBench": "{name} devuelto a la reserva.",
+      "announceMoved": "{name} en la posición {position} de {n}.",
+      "announceMeta": "Tier list {rank} cargada.",
       "announceEmpty": "Todos los héroes han vuelto a la reserva.",
       "announceReset": "Lista reiniciada.",
       "announceRestored": "Tu lista ha vuelto.",
       "announceRowAdded": "Fila añadida al final de la lista.",
-      "announceRowRemoved": "Fila {name} eliminada; sus héroes están en reserva."
+      "announceRowRemoved": "Fila {name} eliminada; sus héroes están en la reserva."
     },
     "lore": {
       "title": "Lore: las historias de los héroes por región",
       "crumb": "Lore",
-      "lead": "Las historias de {n} héroes, organizadas en {regions} regiones, con las facciones que las unen y {links} vínculos entre héroes anotados en sus archivos. Cada historia se puede leer completa en la hoja del héroe.",
+      "lead": "Las historias de {n} héroes en {regions} regiones, con las facciones que los reúnen y {links} vínculos entre héroes recogidos en sus fichas. Cada relato completo está en la ficha del héroe.",
       "listLd": "Historias de los héroes de Mobile Legends: Bang Bang por región",
       "nHeroes": "{n} héroes",
       "nHeroes1": "1 héroe",
@@ -1750,17 +1757,17 @@
       "age": "Edad: {age}",
       "readStory": "Leer su historia",
       "backToHub": "Todas las regiones",
-      "source": "Historias, archivos y enlaces tomados y traducidos de {link}, bajo licencia CC BY-SA. Las regiones provienen de los datos de cada héroe.",
+      "source": "Historias, fichas y vínculos adaptados y traducidos de la {link}, bajo licencia CC BY-SA. Las regiones proceden de los datos de cada héroe.",
       "region": {
         "lead": "{region} a través de las fichas de sus héroes: quiénes son, sus facciones y los vínculos entre ellos.",
         "inBriefTitle": "En resumen",
         "factRoles": "Héroes de esta región: {n}. Roles más representados: {roles}.",
-        "factArrivals": "Primero en ingresar al juego: {first} ({firstDate}); más reciente: {latest} ({lastDate}).",
+        "factArrivals": "El primero en llegar al juego: {first} ({firstDate}); el más reciente: {latest} ({lastDate}).",
         "factArrival": "Llegada al juego: {name} ({date}).",
         "factFactions": "Facciones compartidas por varios de sus héroes: {list}.",
-        "factSpecies": "Especies más comunes: {list}.",
-        "factLinks": "Vínculos anotados en las cartas: {internal} entre héroes de la región, {external} con héroes de otras regiones.",
-        "factNeighbours": "Regiones a las que está más vinculado: {list}.",
+        "factSpecies": "Especies más frecuentes: {list}.",
+        "factLinks": "Vínculos recogidos en las fichas: {internal} entre héroes de la región y {external} con héroes de otras regiones.",
+        "factNeighbours": "Regiones con las que tiene más vínculos: {list}.",
         "heroesTitle": "Los héroes de la región",
         "heroesLead": "Retrato, frase inicial e identidad sacados de la ficha de cada héroe. El relato completo está en su ficha.",
         "linksTitle": "Los vínculos en la región",
@@ -1786,9 +1793,9 @@
       "title": "Calendario de skins",
       "crumb": "Calendario",
       "crumbSkins": "Skins",
-      "lead": "Todas las máscaras de Mobile Legends por mes de lanzamiento, de {start} a {end}: {n} máscaras con su héroe, rareza, serie y precio. Filtra por héroe, rol, serie, rareza o año.",
-      "thisMonthTitle": "Lanzado en {month}",
-      "thisMonthEmpty": "Aún no hay máscaras con fecha {month} en nuestros datos. El mes más reciente enumerado en la wiki de la comunidad es {latest}.",
+      "lead": "Todas las skins de Mobile Legends por mes de lanzamiento, de {start} a {end}: {n} skins con su héroe, rareza, serie y precio. Filtra por héroe, rol, serie, rareza o año.",
+      "thisMonthTitle": "Lanzadas en {month}",
+      "thisMonthEmpty": "Todavía no hay ninguna skin fechada en {month} en nuestros datos. El mes más reciente que recoge la wiki de la comunidad es {latest}.",
       "seeLatest": "Ver las últimas skins",
       "latestTitle": "Últimas skins",
       "latestLead": "Las doce skins más recientes con mes de lanzamiento conocido.",
@@ -1798,23 +1805,23 @@
       "colYear": "Año",
       "colTotal": "Total",
       "unknownMonth": "Mes sin precisar",
-      "monthCell": "{month} — máscaras: {n}",
+      "monthCell": "{month} — skins: {n}",
       "nSkins": "{n} skins",
       "nSkins1": "1 skin",
       "seriesTitle": "Series y eventos",
       "seriesLead": "Las etiquetas que la wiki da a las skins (Collector, StarLight, Épico, Leyenda, colaboraciones…), por número de skins. Elige una para filtrar el calendario.",
       "seriesDetail": "{n} · {period}",
       "datesTitle": "Sobre las fechas",
-      "datesPrecision": "Las fechas provienen de la wiki de la comunidad: {day} las máscaras están fechadas al día, {month} al mes y {year} al año únicamente; estos últimos cierran su año.",
-      "datesSkipped": "No mostrados: {upcoming} skins que anuncia la wiki sin fecha confirmada, y {future} con fecha posterior a nuestros datos, a la espera de confirmación. No hay rumores ni filtraciones aquí.",
+      "datesPrecision": "Las fechas vienen de la wiki de la comunidad: {day} skins están fechadas al día, {month} al mes y {year} solo al año; estas últimas cierran su año.",
+      "datesSkipped": "No se muestran: {upcoming} skins que la wiki anuncia sin fecha confirmada y {future} fechadas después de nuestros datos, pendientes de confirmación. Aquí no hay rumores ni filtraciones.",
       "datesOrigin": "Las skins originales, incluidas con su héroe, no se cuentan: marcan el lanzamiento de un héroe, no de una skin.",
       "collectionLink": "¿Cuánto vale tu colección en diamantes?",
-      "source": "Fechas de lanzamiento, rarezas y precios desde {link} (módulo de máscaras), bajo licencia CC BY-SA.",
+      "source": "Fechas de lanzamiento, rarezas y precios de la {link} (módulo de skins), bajo licencia CC BY-SA.",
       "year": {
-        "title": "Máscaras lanzadas en {year}",
-        "lead": "Todas las máscaras de Mobile Legends lanzadas en {year}, mes a mes, con su héroe, rareza, serie y precio. Total: {n}.",
-        "factSeries": "Serie principal: {list}.",
-        "factHeroes": "Héroes más servidos: {list}.",
+        "title": "Skins lanzadas en {year}",
+        "lead": "Todas las skins de Mobile Legends lanzadas en {year}, mes a mes, con su héroe, rareza, serie y precio. Total: {n}.",
+        "factSeries": "Series principales: {list}.",
+        "factHeroes": "Héroes con más skins nuevas: {list}.",
         "factRarities": "Por rareza: {list}.",
         "navYears": "Otros años",
         "navMonths": "Meses"
@@ -1822,8 +1829,8 @@
     },
     "skinsCalendarUI": {
       "search": "Buscar una skin o un héroe",
-      "heroes": "Héroes",
-      "series": "Racha",
+      "heroes": "Héroe",
+      "series": "Serie",
       "year": "Año",
       "role": "Rol",
       "rarity": "Rareza",
@@ -1844,8 +1851,8 @@
       "lead": "Marca los héroes y skins que tienes: descubre cuánto suman a precio de la tienda del juego, en diamantes, con tus piezas más raras y tu avance en cada serie.",
       "warning": "Solo el valor en diamantes del juego: lo que cuestan estos objetos en la tienda de Mobile Legends, no lo que vale una cuenta. Comprar, vender o intercambiar cuentas va contra los términos de servicio de Moonton, y esta herramienta no da ningún valor de mercado ni de reventa.",
       "methodTitle": "Cómo se calcula el valor",
-      "methodHeroes": "El precio de un héroe es el de su aspecto original, que viene con él. De los {heroes} héroes de nuestros datos, {diamonds} tienen un precio en diamantes; los demás sólo se compran con puntos de batalla o se obtienen de otro modo, y los puntos de batalla se cuentan por separado.",
-      "methodSkins": "De las {skins} skins que puedes consultar, {diamonds} tienen precio en diamantes, {others} precio en otra moneda (núcleos mágicos, gemas, etc.) y {unpriced} no tienen precio en la tienda: StarLight, eventos, sorteos y pases. Estos cuentan para su avance, no para el total de diamantes, en lugar de estimarse al azar.",
+      "methodHeroes": "El precio de un héroe es el de su skin original, que viene con él. De los {heroes} héroes de nuestros datos, {diamonds} tienen precio en diamantes; los demás solo se compran con puntos de batalla o se obtienen de otra forma, y los puntos de batalla se cuentan aparte.",
+      "methodSkins": "De las {skins} skins que puedes marcar, {diamonds} tienen precio en diamantes, {others} un precio en otra moneda (núcleos mágicos, gemas…) y {unpriced} ningún precio en tienda: StarLight, eventos, sorteos y pases. Estas cuentan para tu progreso, pero no para el total en diamantes, en lugar de estimarse al azar.",
       "methodStorage": "Tu selección se queda en este navegador (almacenamiento local): no se envía nada a nuestros servidores y no hace falta ninguna cuenta. Los precios son los de la tienda del juego que recoge la wiki de la comunidad; no se tienen en cuenta descuentos ni packs.",
       "calendarLink": "Calendario de skins",
       "skinsLink": "Todas las skins"
@@ -1859,11 +1866,11 @@
       "inDiamonds": "{n} diamantes",
       "bpDetail": "precio de tus héroes en puntos de batalla",
       "otherDetail": "skins vendidas en esta moneda",
-      "noDiamond": "Del total de diamantes (sin premio de diamantes): máscaras {skins}, héroes {heroes}.",
+      "noDiamond": "Fuera del total en diamantes (sin precio en diamantes): skins {skins}, héroes {heroes}.",
       "empty": "Marca en la lista los héroes y skins que tienes: el total se actualiza al momento y queda guardado en este navegador.",
       "summaryTitle": "Mi colección de MLBB",
-      "summaryText": "Mi colección MLBB: {heroes} héroes y {skins} máscaras, o {diamonds} diamantes al precio de la tienda del juego.",
-      "summaryRare": "Moneda más rara: {name} ({hero}).",
+      "summaryText": "Mi colección de MLBB: {heroes} héroes y {skins} skins, que suman {diamonds} diamantes a precio de la tienda del juego.",
+      "summaryRare": "Pieza más rara: {name} ({hero}).",
       "share": "Compartir el resumen",
       "share_copied": "Resumen copiado al portapapeles.",
       "share_shared": "Resumen compartido.",
@@ -1875,7 +1882,7 @@
       "view_all": "Todo",
       "view_owned": "Obtenidos",
       "view_missing": "Faltantes",
-      "series": "Racha",
+      "series": "Serie",
       "allSeries": "Todas las series",
       "allHeroes": "Marcar todos los héroes",
       "noHero": "Desmarcar todos los héroes",
@@ -1886,8 +1893,8 @@
       "heroSkins": "{n}/{total} skins",
       "checkAll": "Marcar todo",
       "uncheckAll": "Desmarcar todo",
-      "checkAllHeroes": "Marque {name} y todas sus máscaras",
-      "uncheckAllHeroes": "Desmarque {name} y todas sus máscaras",
+      "checkAllHeroes": "Marcar a {name} y todas sus skins",
+      "uncheckAllHeroes": "Desmarcar a {name} y todas sus skins",
       "seeSkins": "Skins",
       "noPrice": "Sin precio en tienda",
       "none": "Ningún héroe ni skin coincide con estos filtros.",
@@ -1975,7 +1982,7 @@
       "aboutCatalogue": "Los demás lanzamientos vienen del módulo de skins de la wiki, con su rareza y su precio, agrupados según cómo se consiguen. Un skin fechado solo por año no entra en ningún mes; los skins básicos, que llegan con el lanzamiento de un héroe, no se cuentan.",
       "aboutLeaks": "Ni filtraciones ni códigos de canje: un mes próximo solo aparece cuando una lista de la wiki lo anuncia, con el enlace a la fuente.",
       "calendarLink": "Calendario de todos los skins, año por año",
-      "source": "Listas, fechas, rarezas y precios de StarLight y Collector tomados de {link}, bajo licencia CC BY-SA.",
+      "source": "Listas StarLight y Collector, fechas, rarezas y precios tomados de la {link}, con licencia CC BY-SA.",
       "month": {
         "title": "Starlight y eventos de MLBB {month}: skins, fechas y precios",
         "announced": "Mes anunciado: estos skins figuran en una lista de la wiki de la comunidad antes de su lanzamiento en el juego. Fechas y precios aún por confirmar.",
@@ -2014,7 +2021,7 @@
       "random": "Al azar",
       "help": "Las letras de la A a la Z y los números cambian de estilo; tildes, espacios y símbolos se quedan igual. Los caracteres invisibles se eliminan.",
       "decorations": "Decoración",
-      "none": "Ninguno",
+      "none": "Ninguna",
       "decoration": {
         "javanese": "Ornamentos javaneses",
         "whiteBrackets": "Corchetes de esquina blancos",
@@ -2144,7 +2151,7 @@
       "title": "MLBBdle",
       "breadcrumb": "MLBBdle",
       "lead": "El Wordle de los héroes de Mobile Legends: adivina el héroe del día con pistas de colores (rol, línea, región, año de lanzamiento…) y luego reconócelo por un solo icono de habilidad. Un nuevo reto cada día, intentos ilimitados.",
-      "rulesTitle": "Cómo jugar",
+      "rulesTitle": "Cómo se juega",
       "rule1": "Cada día a medianoche UTC llega un nuevo héroe secreto, el mismo para todos sea cual sea el idioma. Te esperan dos retos: el modo clásico y el modo habilidad.",
       "rule2": "Escribe el nombre de un héroe o explora el roster: cada intento añade una fila de casillas que compara tu héroe con el secreto, rasgo por rasgo. Los intentos son ilimitados; su número se muestra y cuenta en tus estadísticas.",
       "rule3": "Un héroe no vuelve antes de {days} días en el mismo modo, y un héroe nuevo solo entra en el sorteo dos semanas después de su lanzamiento.",
@@ -2197,7 +2204,7 @@
       "number": "MLBBdle n.º {n} · {date}",
       "input": "Nombre de un héroe…",
       "noResult": "Ningún héroe coincide.",
-      "browse": "Explorar los héroes",
+      "browse": "Ver héroes",
       "guesses": "Intentos: {n}",
       "classicQuestion": "¿Quién es el héroe del día?",
       "classicHelp": "Propón cualquier héroe para empezar: las casillas de colores muestran lo que comparte con el héroe secreto.",
@@ -2205,7 +2212,7 @@
       "announceGuess": "Intento {n}: {name}.",
       "announceWrong": "Intento {n}: {name}, no es el héroe correcto.",
       "announceClue": "Nueva pista desbloqueada: {clue}.",
-      "heroColumn": "Héroes",
+      "heroColumn": "Héroe",
       "columns": {
         "gender": "Género",
         "roles": "Rol",
@@ -2224,9 +2231,9 @@
         "none": "Sin género"
       },
       "verdicts": {
-        "match": "coincide",
+        "match": "igual",
         "partial": "en parte",
-        "miss": "no coincide",
+        "miss": "distinto",
         "unknown": "desconocido"
       },
       "direction": {
@@ -2246,7 +2253,7 @@
       },
       "colourClue": "el icono ya se muestra en color",
       "lockedClue": "{clue} — fallos antes de desbloquearla: {n}",
-      "skillAlt": "Icono de la habilidad que hay que adivinar",
+      "skillAlt": "Icono de la habilidad por adivinar",
       "skillAltGrey": "Icono de la habilidad por adivinar, en blanco y negro",
       "yourGuesses": "Tus intentos",
       "winTitle": "¡Encontrado! Intentos: {n}",
@@ -2279,7 +2286,7 @@
       "answerWas": "La respuesta era",
       "reveal": "Revelar la respuesta",
       "newHero": "Nuevo héroe",
-      "skip": "Pasar",
+      "skip": "Saltar",
       "practiceQuestion": "¿Qué héroe es?"
     },
     "advanceServer": {
@@ -2309,8 +2316,8 @@
         "other": "{n} héroes modificados"
       },
       "noHeroChanges": "No hay cambios de héroes en esta versión.",
-      "credit": "Apuntes tomados de {link}, bajo licencia CC BY-SA. El texto original es publicado por Moonton; este sitio no modifica su contenido.",
-      "creditTranslated": "Apuntes tomados de {link}, bajo licencia CC BY-SA, y traducidos automáticamente del inglés. El texto original es publicado por Moonton.",
+      "credit": "Notas tomadas de la {link}, bajo licencia CC BY-SA. El texto original lo publica Moonton; este sitio no modifica su contenido.",
+      "creditTranslated": "Notas tomadas de la {link}, bajo licencia CC BY-SA, y traducidas automáticamente del inglés. El texto original lo publica Moonton.",
       "eyebrow": "Notas del servidor Advance",
       "heading": "Servidor Advance {v}",
       "sourceLink": "Página de origen en la wiki",
@@ -2318,7 +2325,7 @@
       "designers": "Palabras de los diseñadores",
       "newHeroes": "Héroes nuevos y renovados",
       "kind": {
-        "new": "Nuevo héroe",
+        "new": "Héroe nuevo",
         "revamp": "Renovación"
       },
       "heroChanges": "Cambios de héroes",
@@ -2330,7 +2337,7 @@
       "categories": {
         "items": "Objetos",
         "emblems": "Emblemas y talentos",
-        "spells": "Hechizos de combate",
+        "spells": "Hechizos de batalla",
         "system": "Campo de batalla y sistema"
       },
       "tags": {
@@ -2413,7 +2420,7 @@
         "proNote": "Elegidos o baneados en al menos el {min} de las partidas pro, y mejor situados allí que en clasificatorias.",
         "ranked": "Favoritos de clasificatorias que los pros dejan de lado",
         "rankedNote": "En el top {n} por presencia en clasificatorias, peor situados en el pro.",
-        "hero": "Héroes",
+        "hero": "Héroe",
         "proColumn": "Presencia pro",
         "rankedColumn": "Presencia en clasificatorias",
         "gapColumn": "Diferencia",
@@ -2522,13 +2529,13 @@
     },
     "esportsUI": {
       "caption": "Estadísticas de héroes, {name}",
-      "hero": "Héroes",
+      "hero": "Héroe",
       "picks": "Picks",
       "bans": "Bans",
       "presence": "Presencia",
       "wins": "Victorias",
       "losses": "Derrotas",
-      "winRate": "Tasa de victoria",
+      "winRate": "% de victorias",
       "noPick": "Sin picks"
     },
     "draftSimulatorUI": {
@@ -2597,7 +2604,7 @@
       "inProgress": "en curso",
       "toPick": "por elegir",
       "undo": "Deshacer",
-      "restart": "Empezar de nuevo",
+      "restart": "Reiniciar",
       "changeSettings": "Ajustes",
       "skipBan": "Dejar este ban vacío",
       "seconds": "{n} s",
@@ -2866,7 +2873,7 @@
         "title": "Rotaciones por rol",
         "intro": "Los primeros minutos de cada rol, en unas pocas pautas. Los horarios vienen de la wiki; lo demás son consejos.",
         "jungle": {
-          "title": "Jungle",
+          "title": "Jungla",
           "step1": "Empieza por el buff más cercano a la EXP Lane (naranja en {orange}, morado en {purple}): la ronda te deja en nivel 4 cerca de la Gold Lane, listo para emboscar.",
           "step2": "Sigue con el otro buff y los campamentos pequeños de ese lado; el Lithowanderer ({litho}, cerca de la Mid Lane) ayuda a llegar al nivel 4.",
           "step3": "Llega a la Tortuga para el minuto {turtle} con el Castigo listo. Los buffs vuelven {buff} s después de morir: anótalos en el temporizador.",
@@ -2916,7 +2923,7 @@
         "theirs": "lado rival"
       },
       "legend": {
-        "ours": "Tu equipo",
+        "ours": "Tu lado",
         "theirs": "Lado rival",
         "shared": "Común",
         "river": "Río"
@@ -2924,7 +2931,7 @@
       "short": {
         "exp-lane": "EXP",
         "mid-lane": "Mid",
-        "gold-lane": "Gold Lane"
+        "gold-lane": "Gold"
       },
       "source": "Fuente:"
     },
@@ -3025,7 +3032,7 @@
       "resourceIgnored": "El maná y la regeneración de maná de los objetos se ignoran: este héroe no usa maná.",
       "linkDamaged": "Una parte del enlace no se reconoció y se ha omitido: {parts}.",
       "params": {
-        "hero": "héroes",
+        "hero": "héroe",
         "level": "nivel",
         "items": "objetos",
         "emblem": "emblema",
@@ -3066,7 +3073,7 @@
       "shareTitle": "Compartir esta build",
       "shareUrl": "Enlace de la build",
       "copied": "Enlace copiado",
-      "copyLink": "Copiar el enlace",
+      "copyLink": "Copiar enlace",
       "pickItem": "Elegir el objeto del hueco {n}"
     },
     "communityBuildsUI": {
@@ -3194,7 +3201,7 @@
     "affiliations": "Afiliaciones",
     "relations": "Relaciones",
     "powers": "Poderes",
-    "noStory": "La wiki aún no publica una historia para {name}."
+    "noStory": "La wiki aún no ha publicado un relato para {name}."
   },
   "skills": {
     "Passive": "Pasiva",
@@ -3216,7 +3223,7 @@
   "home": {
     "title1": "Todo el juego, explicado",
     "titleAccent": "en francés",
-    "lead": "{heroes} héroes y sus {skins} máscaras, una lista de niveles calculada en función de las tasas de juego, borrador de ayuda, elementos, emblemas y notas de parche. Los datos se sincronizan solos; El análisis está escrito a mano.",
+    "lead": "{heroes} héroes y sus {skins} skins, una tier list calculada con las tasas del juego, un asistente de draft, los objetos, los emblemas y las notas del parche. Los datos se sincronizan solos; el análisis se escribe a mano.",
     "browse": "Explorar los héroes",
     "draftHelp": "Asistente de draft",
     "statHeroes": "héroes",
@@ -3248,7 +3255,7 @@
     "latestArticles": "Últimos artículos",
     "trends": {
       "title": "Tendencias de la semana",
-      "lead": "Evolución del índice de victorias durante siete días, todas las clasificaciones combinadas. Las desviaciones inferiores a {threshold} puntos, demasiado cercanas al redondeo, no se conservan.",
+      "lead": "Variación de la tasa de victoria en siete días, todos los rangos. Las diferencias de menos de {threshold} puntos, demasiado cercanas al redondeo, no se tienen en cuenta.",
       "rise": "En alza",
       "fall": "En baja",
       "noRise": "Ningún héroe sube claramente esta semana.",
@@ -3330,7 +3337,7 @@
           "p": "El código y el contenido son públicos. Las fichas de héroes están en archivos TypeScript tipados y los artículos en archivos Markdown: puedes añadir una ficha o corregir un error sin conocer el resto del proyecto."
         },
         {
-          "p": "[El repositorio está aquí.]({repository}) Las correcciones de equilibrio, los archivos faltantes y las revisiones son especialmente bienvenidas."
+          "p": "[El repositorio está aquí.]({repository}) Las correcciones de equilibrio, las fichas que faltan y las revisiones son especialmente bienvenidas."
         },
         {
           "h": "Marcas"
@@ -3346,7 +3353,7 @@
           "h": "Editor"
         },
         {
-          "p": "Este sitio es publicado a título personal por [{publisher}]({publisherSite}), como parte de un proyecto de fans independiente, sin fines de lucro y sin estructura comercial. Esto no es un negocio."
+          "p": "Este sitio lo edita a título personal [{publisher}]({publisherSite}), en el marco de un proyecto de fans independiente, sin ánimo de lucro y sin estructura comercial. No se trata de una empresa."
         },
         {
           "p": "Contacto: [{contact}](mailto:{contact})"
@@ -3355,7 +3362,7 @@
           "h": "Alojamiento"
         },
         {
-          "p": "El sitio está alojado en [{host}]({hostSite})."
+          "p": "El sitio está alojado por [{host}]({hostSite})."
         },
         {
           "h": "Propiedad intelectual"
@@ -3367,7 +3374,7 @@
           "p": "Las imágenes mostradas (retratos, iconos, emblemas, ilustraciones) proceden de la wiki de la comunidad y siguen siendo propiedad de Moonton. Se incluyen con fines ilustrativos e informativos. Se retirarán a petición del titular de los derechos."
         },
         {
-          "p": "Los datos reales provienen de [Mobile Legends wiki](https://mobilelegends.fandom.com) (licencia CC BY-SA) y una API comunitaria. El código y los textos escritos para este sitio se publican bajo la licencia MIT; consulte el [repositorio público]({repository})."
+          "p": "Los datos factuales proceden de la [wiki de Mobile Legends](https://mobilelegends.fandom.com) (licencia CC BY-SA) y de una API comunitaria. El código y los textos redactados para este sitio se publican bajo licencia MIT — consulta el [repositorio público]({repository})."
         },
         {
           "h": "Responsabilidad"
@@ -3460,21 +3467,21 @@
     "loading": "Cargando las curvas…",
     "curvesError": "No se pudieron cargar las curvas.",
     "noCurve": "Todavía no hay datos diarios para estos dos héroes.",
-    "noCurveAtRank": "Aún no hay mediciones diarias de {name} en este rango.",
-    "curvesSummary": "Tasa de ganancia diaria en {n} días, {rank}: {details}.",
-    "heroSummary": "{name} de {start}% a {end}%",
+    "noCurveAtRank": "Todavía no hay datos diarios de {name} en este rango.",
+    "curvesSummary": "Tasa de victoria diaria en {n} días, {rank}: {details}.",
+    "heroSummary": "{name} de {start} % a {end} %",
     "third": "Tercer héroe",
     "add": "Añadir un tercer héroe",
-    "remove": "Eliminar {name} de la comparación",
+    "remove": "Quitar a {name} de la comparación",
     "profile": "Perfil · {rank}",
     "radarSummary": "Radar de las cuatro valoraciones del juego y de las tasas de victoria y de baneo en este rango. Los valores exactos están en la tabla de abajo.",
     "radarScale": "Valoraciones sobre 10, del propio juego. Las tasas de victoria y de baneo se escalan del héroe más bajo al más alto de este rango.",
     "tier": "Tier",
-    "table": "Comparación de {names} ({rank})",
+    "table": "Comparación entre {names} ({rank})",
     "criterion": "Criterio",
     "best": "mejor",
     "noHeroCurve": "Todavía no hay datos diarios para estos héroes.",
-    "curvesOtherRank": "No hay curva en este rango para al menos un héroe: se muestran curvas para {rank}."
+    "curvesOtherRank": "Sin curva en este rango para al menos un héroe: curvas mostradas para {rank}."
   },
   "patchHeroes": {
     "buff": "Buff",
@@ -3530,7 +3537,7 @@
     "noCounter": "ningún counter conocido en esta composición",
     "noHero": "No hay héroes disponibles.",
     "pick": "Elegir",
-    "chooseIn": "Elija {name} a {lane}",
+    "chooseIn": "Elegir a {name} en {lane}",
     "remove": "Quitar {name}",
     "chooseLane": "Elegir un héroe para {lane}",
     "lanePlaceholder": "Héroes de {lane} — o busca por nombre",
@@ -3550,7 +3557,7 @@
   "newHero": {
     "highlight": "Particularidad — ",
     "title": "Nuevo héroe",
-    "seeSheet": "Ver el perfil completo de {name}"
+    "seeSheet": "Ver la ficha completa de {name}"
   },
   "loginForm": {
     "sendingCode": "Enviando el código…",
@@ -3561,7 +3568,7 @@
     "playerId": "ID de jugador",
     "playerIdExample": "123456789 o 123456789 (6021)",
     "server": "Servidor",
-    "serverHelp": "En el juego, perfil → {example}. Puedes pegar todo en el primer campo.",
+    "serverHelp": "En el juego, perfil → {example}. Puedes pegarlo todo en el primer campo.",
     "codeSent": "Se acaba de enviar un código de cuatro dígitos a tu buzón de MLBB. Es válido durante cinco minutos.",
     "code": "Código de verificación",
     "errors": {
@@ -3577,7 +3584,7 @@
   "articleUI": {
     "none": "Aún no hay publicaciones.",
     "by": "por {author}",
-    "untitled": "Intitulado"
+    "untitled": "Sin título"
   },
   "articleCategory": {
     "News": "Noticias",
@@ -3886,7 +3893,7 @@
     "position": "Línea",
     "build": "Build {n}",
     "win": "{rate} % de victorias",
-    "pick": "{rate} % de juegos",
+    "pick": "{rate} % de las partidas",
     "items": "Objetos clave",
     "emblem": "Emblema",
     "talents": "Talentos",
@@ -3896,10 +3903,10 @@
     "writtenIntro": "Escritas a mano, con el contexto de juego.",
     "guide": "Build completa de un jugador",
     "guideIntro": "El equipamiento completo, seis objetos, propuesto por un jugador de este rango — o, en su defecto, de uno superior: la guía mejor valorada en la academia del juego. Es una opinión, no una medición — no tiene tasa de victoria.",
-    "guideAuthor": "Mejor rango de autor: {rank}",
+    "guideAuthor": "Rango máximo del autor: {rank}",
     "guideVotes": "{n} voto(s)",
     "gapTitle": "Frente a la build más jugada",
-    "gapItems": "Aquí faltan objetos clave: {items}.",
+    "gapItems": "objetos clave ausentes aquí: {items}.",
     "gapTalent": "Talentos más jugados: {talent}.",
     "aligned": "mismos objetos clave."
   },
@@ -3979,8 +3986,8 @@
     }
   },
   "trends": {
-    "rise": "hasta {v} {unit} en {n} días",
-    "fall": "abajo {v} {unit} en {n} días",
+    "rise": "sube {v} {unit} en {n} días",
+    "fall": "baja {v} {unit} en {n} días",
     "point": {
       "one": "punto",
       "other": "puntos"
@@ -3993,20 +4000,20 @@
     "commonTargets": "Objetivos habituales",
     "invalid": "Indica un número entero de partidas (al menos una) y tasas entre 0 y 100 %.",
     "winsInARow": "victorias seguidas",
-    "winsSentence": "Sin pérdidas, {n} victorias seguidas aumentan tu tasa de {current} a {objective}, para {total} juegos en total.",
+    "winsSentence": "Sin ninguna derrota, {n} victorias seguidas llevan tu tasa de {current} a {objective}, con {total} partidas en total.",
     "impossibleTitle": "Objetivo inalcanzable",
     "impossible": "Una tasa del 100 % supone no haber perdido nunca: tras una derrota, ninguna racha de victorias permite volver del todo.",
-    "impossibleAdvice": "Para {objective}, {n} victorias seguidas son suficientes.",
+    "impossibleAdvice": "Para un {objective}, bastan {n} victorias seguidas.",
     "lossesAffordable": "derrotas que puedes permitirte",
-    "reachedSentence": "Objetivo ya conseguido: puedes perder {n} juegos seguidos si te quedas en {objective} o más.",
-    "limitSentence": "Objetivo conseguido, sin margen: la próxima derrota le situará por debajo del {objective}.",
+    "reachedSentence": "Objetivo ya alcanzado: puedes perder {n} partidas seguidas y mantenerte en {objective} o más.",
+    "limitSentence": "Objetivo alcanzado, sin margen: tu próxima derrota te dejará por debajo de {objective}.",
     "zeroSentence": "Ninguna racha de derrotas puede bajar una tasa por debajo del 0 %.",
     "base": "Base del cálculo: {v} victorias de {n} partidas. El juego redondea la tasa que muestra; el número de victorias, en cambio, es entero.",
     "paceTitle": "¿Y sin una racha perfecta?",
     "paceIntro": "Con el tiempo, tu tasa se acerca a la que mantienes partida tras partida. Indica una para saber cuántas partidas harán falta.",
     "pace": "Tasa mantenida",
-    "paceGames": "Aproximadamente {n} juegos por {pace} victorias para alcanzar el objetivo.",
-    "paceTooLow": "Con {pace} victorias, tu tasa nunca excederá {objective}: debes ganar con más frecuencia que el objetivo."
+    "paceGames": "Unas {n} partidas con una tasa del {pace} para alcanzar el objetivo.",
+    "paceTooLow": "Con una tasa del {pace}, nunca superarás el {objective}: tienes que ganar más a menudo que el objetivo."
   },
   "pushNotif": {
     "title": {
@@ -4042,7 +4049,7 @@
       "none": "Nada que señalar: cada línea está cubierta, y al equipo no le falta ni primera línea, ni control, ni resistencia.",
       "nonePartial": "Nada que señalar por ahora.",
       "tooFew": "El equilibrio del equipo se valora a partir de {n} héroes.",
-      "lanes": "Dos héroes compiten por el mismo carril y ninguno aguanta: {lanes} (sin carril libre: {names}).",
+      "lanes": "Dos héroes se disputan la misma línea, y nadie cubre: {lanes} (sin línea libre: {names}).",
       "tank": "Sin tanque: nadie para aguantar en primera línea ni para iniciar los combates.",
       "damage": {
         "physical": "Daño casi todo físico: el rival se protege con unos pocos objetos de armadura.",
@@ -4054,18 +4061,18 @@
     },
     "lanesRoles": "Líneas y roles",
     "toFill": "por cubrir",
-    "noLane": "Sin carril libre: {names}",
+    "noLane": "Sin línea libre: {names}",
     "roles": "Roles",
     "profile": "Perfil del equipo",
     "damage": "Daño",
-    "damageShare": "{physical}% de daño físico, {magic}% de daño mágico",
+    "damageShare": "{physical} % de daño físico, {magic} % de daño mágico",
     "ratings": "Puntuaciones del juego, media sobre 10",
     "duration": "Fuerza según la duración de la partida",
-    "durationIntro": "Tasa de victoria promedio de los héroes del equipo según la duración del juego ({rank}).",
+    "durationIntro": "Tasa de victoria media de los héroes del equipo según la duración de la partida ({rank}).",
     "noDuration": "Aún no hay datos por duración de partida para estos héroes en este rango.",
-    "minutes": "{from}–{to} minutos",
-    "minutesPlus": "{from} min y +",
-    "peak": "Mejor periodo: {window}",
+    "minutes": "{from}–{to} min",
+    "minutesPlus": "{from}+ min",
+    "peak": "Mejor momento: {window}",
     "durationProfile": {
       "early": "Más fuerte al inicio de la partida",
       "late": "Más fuerte al final de la partida",
@@ -4091,7 +4098,7 @@
   "tools": {
     "serverTime": {
       "serverTime": "Hora del servidor",
-      "yourTime": "En casa: {time} ({timezone})",
+      "yourTime": "En tu zona: {time} ({timezone})",
       "utcTime": "Hora universal: {time} UTC",
       "countdownTitle": "Próximos reinicios",
       "deadline": {
@@ -4105,7 +4112,7 @@
       "seasonEnd": "Temporada {n}: termina el {date} ({zone}), según el parche {v}.",
       "seasonEndUnknown": "Aún no anunciada",
       "seasonEndUnknownDetail": "El juego anuncia el fin de temporada en sus notas del parche. La cuenta atrás aparecerá en cuanto se publique una fecha.",
-      "yourPlace": "En tu zona ({timezone}, {offset}), el descuento diario baja a {daily} y el descuento semanal baja a {weekly}.",
+      "yourPlace": "En tu zona horaria ({timezone}, {offset}), el reinicio diario llega a las {daily} y el semanal el {weekly}.",
       "countriesTitle": "Hora del reinicio por país",
       "countriesIntro": "Hora local del próximo reinicio en los países donde más se juega en cada idioma del sitio. La tabla sigue el horario de verano y se actualiza en directo.",
       "group": {
@@ -4115,7 +4122,7 @@
         "es": "Países hispanohablantes",
         "id": "Países de habla indonesia"
       },
-      "legend": "Hora de descuento local: {group}",
+      "legend": "Horas locales de los reinicios: {group}",
       "colCountry": "País",
       "colDaily": "Diario",
       "colWeekly": "Semanal",
@@ -4147,7 +4154,7 @@
       "outcomeStolen": "Robado por el enemigo",
       "outcomeMissed": "Demasiado tarde",
       "detailSecured": "Precisión {precision} · reacción {reaction} ms · +{points} puntos",
-      "detailTooEarly": "Quedaban {remaining} HP después de tu Castigo, y se recarga en {recharge} s: el objetivo se pierde.",
+      "detailTooEarly": "Quedaban {remaining} PV tras tu Castigo, y tarda {recharge} s en recargarse: el objetivo está perdido.",
       "detailStolen": "El jungla rival golpeó {reaction} ms después de que los PV bajaran del umbral.",
       "detailMissed": "El monstruo cayó con los golpes del equipo sin tu Castigo.",
       "mapTitle": "Prueba de Castigo",
@@ -4158,8 +4165,8 @@
       "averageAccuracy": "Precisión media",
       "newRecord": "¡Nuevo récord!",
       "announceSummary": "Partida terminada: {points} puntos.",
-      "announceRound": "Canal {n} en {total}: {objective}. Prepararse.",
-      "shareText": "Prueba de castigo de MLBB: {objective}, {difficulty}: {points} puntos, {secured}/{rounds} seguro. A usted:",
+      "announceRound": "Ronda {n} de {total}: {objective}. Prepárate.",
+      "shareText": "Prueba de Castigo MLBB — {objective}, {difficulty}: {points} puntos, {secured}/{rounds} asegurados. Te toca:",
       "start": "Empezar",
       "ready": "Prepárate…",
       "smite": "¡Castigo!",
@@ -4169,14 +4176,14 @@
       "objectiveLabel": "Objetivo",
       "difficultyLabel": "Dificultad",
       "levelLabel": "Nivel del héroe",
-      "levelOption": "Nivel {n} — {damage} daño",
-      "thresholdSentence": "Tu Castigo inflige {damage} daño real: golpea cuando el HP cae por debajo. Nivel recomendado para este objetivo: {suggested}.",
-      "maxHp": "{hp}PS",
+      "levelOption": "Nivel {n} — {damage} de daño",
+      "thresholdSentence": "Tu Castigo inflige {damage} de daño verdadero: golpea cuando los PV bajen de ahí. Nivel recomendado para este objetivo: {suggested}.",
+      "maxHp": "{hp} PV",
       "round": "Ronda",
       "score": "Puntuación",
       "run": "Racha",
       "bar": "Barra de vida — {objective}",
-      "hpLeft": "{hp} / {max} VP",
+      "hpLeft": "{hp} / {max} PV",
       "hpHidden": "PV ocultos: lee la barra",
       "marker": "Marca dorada: {damage} PV",
       "noMarker": "Sin marca",
@@ -4190,7 +4197,7 @@
       "copied": "Resultado copiado, con el enlace.",
       "shareError": "No se puede compartir en este dispositivo.",
       "recordsTitle": "Tus récords",
-      "recordSetting": "Mejor parte ({objective}, {difficulty})",
+      "recordSetting": "Mejor partida ({objective}, {difficulty})",
       "currentRun": "Racha actual",
       "bestRun": "Mejor racha",
       "localRecords": "Récords y rachas se quedan en este dispositivo: no se envía nada.",

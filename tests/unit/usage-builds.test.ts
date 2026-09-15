@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { BuildPlayed, BuildsHero } from "@/lib/data";
-import { partsByChoice, summaryByRank, usageByChoice } from "@/lib/usage-builds";
-import { emblemsSheets, spellSheets, usage } from "@/lib/usage-sheets";
+import { buildersByChoice, partsByChoice, summaryByRank, usageByChoice, type BuilderRule } from "@/lib/usage-builds";
+import { BUILDER_RULE, emblemsSheets, spellSheets, topBuilders, usage } from "@/lib/usage-sheets";
 import { itemsFor } from "@/lib/data";
 
 const build = (items: string[], pickRate: number | null, winRate: number | null, extra: Partial<BuildPlayed> = {}): BuildPlayed => ({
@@ -70,6 +70,68 @@ describe("usageByChoice", () => {
   });
 });
 
+describe("buildersByChoice", () => {
+  const rule: BuilderRule = { ranks: ["mythic", "glory"], minPickRate: 0.2, minSelection: 5 };
+  const fixture: Record<string, BuildsHero> = {
+    ling: {
+      Jungle: {
+        // Ignored: not one of the rule's ranks.
+        all: [build(["Belt"], 90, 50)],
+        mythic: [build(["Belt", "Axe"], 20, 55), build(["Axe"], 10, 50)],
+        glory: [build(["Belt"], 30, 60)],
+      },
+      Exp: { mythic: [build(["Belt"], 40, 40)] },
+    },
+    chou: {
+      Exp: { mythic: [build(["Belt", "Belt"], 12, 50)], glory: [build(["Belt"], 12, 50)] },
+    },
+    // Played too little at these ranks: a tiny sample, left out.
+    rare: {
+      Roam: { mythic: [build(["Belt"], 80, 70)], glory: [build(["Belt"], 80, 70)] },
+    },
+    // Only one rank measured: its share is averaged with a 0.
+    paquito: {
+      Exp: { mythic: [build(["Belt"], 8, 52)] },
+    },
+  };
+  const pickRates = {
+    mythic: { ling: { pickRate: 1 }, chou: { pickRate: 0.5 }, rare: { pickRate: 0.1 }, paquito: { pickRate: 0.4 } },
+    glory: { ling: { pickRate: 1.2 }, chou: { pickRate: 0.3 }, rare: { pickRate: 0.2 }, paquito: { pickRate: 0.4 } },
+  };
+  const builders = buildersByChoice(fixture, pickRates, byItem, rule);
+
+  it("averages a hero's share over the rule's ranks, in its best lane", () => {
+    // Jungle: (20 + 30) / 2 = 25; Exp: 40 / 2 = 20.
+    expect(builders.get("Belt")![0]).toMatchObject({ slug: "ling", lane: "Jungle", selection: 25 });
+    // (55 * 20 + 60 * 30) / 50
+    expect(builders.get("Belt")![0].win).toBeCloseTo(58);
+  });
+
+  it("ranks heroes from most to least committed and counts a doubled item once", () => {
+    expect(builders.get("Belt")!.map((u) => u.slug)).toEqual(["ling", "chou"]);
+    expect(builders.get("Belt")![1].selection).toBe(12);
+  });
+
+  it("leaves out heroes below the pick rate threshold", () => {
+    expect(builders.get("Belt")!.some((u) => u.slug === "rare")).toBe(false);
+  });
+
+  it("leaves out a choice that weighs too little for the hero", () => {
+    // Paquito: 8 / 2 = 4, under 5.
+    expect(builders.get("Belt")!.some((u) => u.slug === "paquito")).toBe(false);
+    // Axe for Ling: (20 + 10) / 2 = 15, kept.
+    expect(builders.get("Axe")).toEqual([{ slug: "ling", lane: "Jungle", selection: 15, win: expect.any(Number) }]);
+  });
+
+  it("gives nothing for a choice no build contains", () => {
+    expect(builders.get("Boots")).toBeUndefined();
+  });
+
+  it("counts a hero missing from the pick rates as not played", () => {
+    expect(buildersByChoice(fixture, {}, byItem, rule).size).toBe(0);
+  });
+});
+
 describe("summaryByRank", () => {
   it("gives one row per rank, with the top hero and a weighted rate", () => {
     const summary = summaryByRank({
@@ -109,6 +171,13 @@ describe("item, emblem and spell pages", () => {
     const cited = itemsFor("en").filter((o) => usage("item", o.slug).length > 0);
     expect(cited.length).toBeGreaterThan(10);
     expect(cited.every((o) => slugs.has(o.slug))).toBe(true);
+  });
+
+  it("names the heroes who build an item at high ranks, and none for an unused item", () => {
+    const belt = topBuilders("item", "thunder-belt");
+    expect(belt.length).toBeGreaterThan(0);
+    expect(belt.every((u) => u.selection >= BUILDER_RULE.minSelection)).toBe(true);
+    expect(topBuilders("item", "dagger")).toEqual([]);
   });
 
   it("gives each emblem a short address and finds its heroes", () => {

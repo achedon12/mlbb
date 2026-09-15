@@ -2,14 +2,16 @@ import { emblems, slugEmblem, battleSpells, type Emblem } from "@/data/emblems";
 import visuals from "@/data/game/visuals.json";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
-import { buildsPlayed, type BuildPlayed } from "./data";
+import { buildsPlayed, pickRatesByRank, type BuildPlayed } from "./data";
 import { dateMeasure } from "./freshness";
 import { MEASURED_RANKS, type MeasuredRank } from "./measured-ranks";
 import { site } from "./site";
 import {
+  buildersByChoice,
   partsByChoice,
   summaryByRank,
   usageByChoice,
+  type BuilderRule,
   type Extract,
   type PartChoice,
   type SummaryRank,
@@ -89,6 +91,35 @@ export function usage(type: TypeChoice, key: string, rank: MeasuredRank = "all")
   if (!byChoice) {
     byChoice = usageByChoice(buildsPlayed, EXTRACT[type], rank);
     usages.set(k, byChoice);
+  }
+  return byChoice.get(key) ?? [];
+}
+
+/**
+ * Rule naming the heroes who build a choice the most, for the item page title,
+ * description and its "top builders" list.
+ *
+ * - High ranks only (Mythic, Mythic Honor, Mythic Glory), averaged: that is
+ *   what "best build" searches expect, and three ranks smooth one noisy table.
+ * - A hero must average at least 0.15% of picks there (all heroes sum to
+ *   100%, so about 1.5% of games): it leaves out the fourteen or so least played
+ *   heroes, whose three most played builds rest on few games. It is lower than
+ *   the tier list's reliability bar (0.3%) because a build share of 10 to 50%
+ *   needs fewer games to settle than a win rate gap of a few points, and
+ *   often-banned heroes (Marcel) have a low pick rate for other reasons.
+ * - The choice must weigh at least 5% of the hero's games in that lane: under
+ *   it, the item only appears in a marginal third build.
+ */
+export const BUILDER_RULE: BuilderRule = { ranks: ["mythic", "honor", "glory"], minPickRate: 0.15, minSelection: 5 };
+
+const builders = new Map<TypeChoice, Map<string, UsageHero[]>>();
+
+/** Heroes who build this choice the most at high ranks (`BUILDER_RULE`), the most committed first. */
+export function topBuilders(type: TypeChoice, key: string): UsageHero[] {
+  let byChoice = builders.get(type);
+  if (!byChoice) {
+    byChoice = buildersByChoice(buildsPlayed, pickRatesByRank, EXTRACT[type], BUILDER_RULE);
+    builders.set(type, byChoice);
   }
   return byChoice.get(key) ?? [];
 }

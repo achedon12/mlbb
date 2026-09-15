@@ -17,8 +17,9 @@ import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { heroesBySlug, itemsFor } from "@/lib/data";
-import { dataSheet, summaryRanks, usage } from "@/lib/usage-sheets";
-import { longDate, listNames, patchCurrent, percentage } from "@/lib/freshness";
+import { BUILDER_RULE, dataSheet, summaryRanks, topBuilders, usage } from "@/lib/usage-sheets";
+import { metaItem } from "@/lib/item-meta";
+import { listNames, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { cn } from "@/lib/utils";
 
@@ -40,14 +41,15 @@ const heroName = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
 const withoutPoint = (text: string) => text.replace(/[.\s]+$/, "");
 
 /**
- * What the page and its metadata say about an item. Title and description
- * are made from data: name, price, effect, heroes that take it, patch.
+ * What the page and its metadata say about an item. The lead is made from
+ * data: name, price, effect, heroes that take it across all ranks.
  */
 function sheet(locale: Locale, slug: string) {
   const o = itemsFor(locale).find((x) => x.slug === slug);
   if (!o) return null;
   const t = createT(locale);
   const heroes = usage("item", slug);
+  const builders = topBuilders("item", slug);
   const price = o.price === null ? null : `${o.price.toLocaleString(LOCALE_HTML[locale])} ${t("pages.itemsList.gold")}`;
   const details = [t(`categories.${o.category}`), price].filter(Boolean).join(", ");
   const effect = o.bonus ?? o.summary;
@@ -73,9 +75,9 @@ function sheet(locale: Locale, slug: string) {
     o,
     t,
     heroes,
-    title: t("pages.itemDetail.title", { name: o.name, v: patchCurrent?.version ?? "" }),
+    builders,
     lead: sentences.join(" "),
-    description: [...sentences, t("pages.sheets.updateDesc", { date: longDate(locale) })].join(" "),
+    ...metaItem(locale, { item: o, details, effect, lead: sentences.join(" "), builders }),
   };
 }
 
@@ -97,7 +99,7 @@ export default async function ItemPage({ params }: Params) {
   const { locale, slug } = await params;
   const f = sheet(locale, slug);
   if (!f) notFound();
-  const { o, t, heroes } = f;
+  const { o, t, heroes, builders } = f;
 
   const previews: PreviewItem[] = itemsFor(locale).map((x) => ({ ...x, image: images[x.slug] ?? null }));
   const item = previews.find((x) => x.slug === slug)!;
@@ -175,6 +177,37 @@ export default async function ItemPage({ params }: Params) {
             </Card>
           )}
         </section>
+
+        {builders.length > 0 && (
+          <section>
+            <SectionTitle
+              lead={t("pages.itemDetail.buildersIntro", {
+                name: o.name,
+                ranks: listNames(locale, BUILDER_RULE.ranks.map((r) => t(`measuredRanks.${r}`))),
+                min: new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 2 }).format(
+                  BUILDER_RULE.minPickRate / 100,
+                ),
+              })}
+            >
+              {t("pages.itemDetail.buildersTitle", { name: o.name })}
+            </SectionTitle>
+            <ListLinks
+              ordered
+              links={builders.slice(0, 6).map((h) => {
+                const hero = heroesBySlug.get(h.slug);
+                return {
+                  href: `/heroes/${h.slug}#builds`,
+                  name: heroName(h.slug),
+                  image: hero?.images.icon ?? hero?.images.portrait ?? null,
+                  detail: t("pages.itemDetail.buildersShare", {
+                    share: percentage(locale, h.selection),
+                    lane: t(`lanes.${h.lane}`),
+                  }),
+                };
+              })}
+            />
+          </section>
+        )}
 
         <section>
           <SectionTitle lead={t("pages.sheets.help")}>{heroTitle}</SectionTitle>

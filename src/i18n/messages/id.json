@@ -1049,7 +1049,14 @@
       "updateDesc": "Diperbarui pada {date}."
     },
     "itemDetail": {
-      "title": "{name} MLBB: build, statistik, dan hero terbaik (patch {v})",
+      "title": "{name} MLBB: statistik dan efek (patch {v})",
+      "titleBuild": "Build {name} untuk {heroes}",
+      "descBuild": "{name} ({effect}): paling sering ada di build {heroes} di {rank} ke atas.",
+      "descBuildAlone": "{name}: paling sering ada di build {heroes} di {rank} ke atas.",
+      "descShare": "{first} memakainya di {share} pertandingannya.",
+      "buildersTitle": "Build {name}: hero yang paling sering membelinya di rank tinggi",
+      "buildersIntro": "Porsi pertandingan setiap hero di {ranks} yang dimainkan dengan salah satu dari tiga build paling sering dimainkan yang memuat {name}. Hero yang dipilih di bawah {min} dari seluruh pick di rank ini tidak dihitung: pertandingannya terlalu sedikit.",
+      "buildersShare": "{share} pertandingan · {lane}",
       "itemDesc": "{name} ({details}): {effect}.",
       "itemDescAlone": "{name} ({details}).",
       "heroDesc": "Kebanyakan dibeli oleh {heroes} dalam permainan peringkat; {first} memenangkan {rate} permainannya dengan.",

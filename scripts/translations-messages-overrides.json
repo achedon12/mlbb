@@ -1,4 +1,376 @@
 {
+  "en": {
+    "nav.spells.label": {
+      "fr": "Sorts de combat",
+      "text": "Battle spells"
+    },
+    "pages.accountProfile.colHero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.accountProfile.colWin": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.accountProfile.outcome.win": {
+      "fr": "Victoire",
+      "text": "Victory"
+    },
+    "pages.advanceServer.categories.spells": {
+      "fr": "Sorts de combat",
+      "text": "Battle spells"
+    },
+    "pages.advanceServer.tags.rework": {
+      "fr": "Refonte",
+      "text": "Rework"
+    },
+    "pages.buildSimulatorUI.chooseHero": {
+      "fr": "Choisir un héros",
+      "text": "Choose a hero"
+    },
+    "pages.buildSimulatorUI.groups.offense": {
+      "fr": "Attaque",
+      "text": "Offense"
+    },
+    "pages.buildSimulatorUI.params.hero": {
+      "fr": "héros",
+      "text": "hero"
+    },
+    "pages.collectionUI.series": {
+      "fr": "Série",
+      "text": "Series"
+    },
+    "pages.communityBuildsUI.signIn": {
+      "fr": "Se connecter",
+      "text": "Sign in"
+    },
+    "pages.draftSimulatorUI.restart": {
+      "fr": "Recommencer",
+      "text": "Restart"
+    },
+    "pages.draftSimulatorUI.search": {
+      "fr": "Rechercher un héros",
+      "text": "Search a hero"
+    },
+    "pages.draftSimulatorUI.seconds": {
+      "fr": "{n} s",
+      "text": "{n} s"
+    },
+    "pages.draftSimulatorUI.timers.30": {
+      "fr": "{n} s",
+      "text": "{n} s"
+    },
+    "pages.drawCalculator.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "FAQ"
+    },
+    "pages.duos.phaseShort.mid": {
+      "fr": "Milieu",
+      "text": "Mid"
+    },
+    "pages.esports.standings.games": {
+      "fr": "Parties",
+      "text": "Games"
+    },
+    "pages.esports.versus.hero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.esportsUI.hero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.heroCounters.colHero": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.itemDetail.buildersIntro": {
+      "fr": "Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.",
+      "text": "Share of each hero's games in {ranks} played with one of their three most played builds that includes {name}. Heroes picked in less than {min} of picks at these ranks are left out: too few games."
+    },
+    "pages.itemDetail.buildersShare": {
+      "fr": "{share} des parties · {lane}",
+      "text": "{share} of games · {lane}"
+    },
+    "pages.itemDetail.buildersTitle": {
+      "fr": "Build {name} : qui l'achète le plus à haut rang",
+      "text": "{name} build: who builds it most at high ranks"
+    },
+    "pages.itemDetail.descBuild": {
+      "fr": "{name} ({effect}) : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name} ({effect}): built most by {heroes} in {rank} and above."
+    },
+    "pages.itemDetail.descBuildAlone": {
+      "fr": "{name} : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name}: built most by {heroes} in {rank} and above."
+    },
+    "pages.itemDetail.descShare": {
+      "fr": "{first} le prend dans {share} de ses parties.",
+      "text": "{first} runs it in {share} of games."
+    },
+    "pages.itemDetail.title": {
+      "fr": "{name} MLBB : stats et effets (patch {v})",
+      "text": "{name} MLBB: Stats & Effects (Patch {v})"
+    },
+    "pages.itemDetail.titleBuild": {
+      "fr": "{name} : build pour {heroes}",
+      "text": "{name} build for {heroes}"
+    },
+    "pages.map.rotations.mid.title": {
+      "fr": "Milieu",
+      "text": "Mid lane"
+    },
+    "pages.map.seconds": {
+      "fr": "{n} s",
+      "text": "{n} s"
+    },
+    "pages.mapUI.legend.shared": {
+      "fr": "Commun",
+      "text": "Shared"
+    },
+    "pages.mapUI.short.gold-lane": {
+      "fr": "Or",
+      "text": "Gold"
+    },
+    "pages.mlbbdleUI.copyError": {
+      "fr": "Copie impossible : sélectionnez la grille à la main.",
+      "text": "Couldn't copy: select the grid manually."
+    },
+    "pages.mlbbdleUI.heroColumn": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.mlbbdleUI.practiseMore": {
+      "fr": "Continuer à l'entraînement",
+      "text": "Keep practising"
+    },
+    "pages.mlbbdleUI.skillAlt": {
+      "fr": "Icône de la compétence à identifier",
+      "text": "Skill icon to identify"
+    },
+    "pages.nickname.faqTitle": {
+      "fr": "Questions fréquentes",
+      "text": "FAQ"
+    },
+    "pages.patchNotes.changes.summary.other": {
+      "fr": "Le patch {v} modifie {n} héros.",
+      "text": "Patch {v} changes {n} heroes."
+    },
+    "pages.quizUI.noResult": {
+      "fr": "Aucun résultat.",
+      "text": "No match."
+    },
+    "pages.quizUI.record": {
+      "fr": "Record",
+      "text": "Best"
+    },
+    "pages.ranks.colDraft": {
+      "fr": "Draft",
+      "text": "Draft pick"
+    },
+    "pages.sheets.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.skinsCalendarUI.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.skinsCalendarUI.series": {
+      "fr": "Série",
+      "text": "Series"
+    },
+    "pages.spellsList.title": {
+      "fr": "Sorts de combat",
+      "text": "Battle spells"
+    },
+    "pages.statisticsTable.ban": {
+      "fr": "Ban",
+      "text": "Ban rate"
+    },
+    "pages.statisticsTable.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.statisticsTable.pick": {
+      "fr": "Pick",
+      "text": "Pick rate"
+    },
+    "pages.statisticsTable.weak": {
+      "fr": "Trop peu joué pour que les taux soient fiables",
+      "text": "Picked too rarely for the rates to be reliable"
+    },
+    "pages.statisticsTable.win": {
+      "fr": "Victoire",
+      "text": "Win rate"
+    },
+    "pages.timerUI.newMatch": {
+      "fr": "Nouvelle partie",
+      "text": "New match"
+    },
+    "search.groups.spell": {
+      "fr": "Sorts de combat",
+      "text": "Battle spells"
+    },
+    "tools.retribution.bestRun": {
+      "fr": "Meilleure série",
+      "text": "Best streak"
+    }
+  },
+  "es": {
+    "nav.groups.news": {
+      "fr": "Actualités",
+      "text": "Novedades"
+    },
+    "pages.accountProfile.colHero": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.advanceServer.categories.spells": {
+      "fr": "Sorts de combat",
+      "text": "Hechizos de batalla"
+    },
+    "pages.advanceServer.kind.new": {
+      "fr": "Nouveau héros",
+      "text": "Héroe nuevo"
+    },
+    "pages.buildSimulatorUI.copyLink": {
+      "fr": "Copier le lien",
+      "text": "Copiar enlace"
+    },
+    "pages.buildSimulatorUI.params.hero": {
+      "fr": "héros",
+      "text": "héroe"
+    },
+    "pages.collectionUI.series": {
+      "fr": "Série",
+      "text": "Serie"
+    },
+    "pages.draftSimulatorUI.restart": {
+      "fr": "Recommencer",
+      "text": "Reiniciar"
+    },
+    "pages.duos.phaseShort.mid": {
+      "fr": "Milieu",
+      "text": "Mitad"
+    },
+    "pages.esports.versus.hero": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.esportsUI.hero": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.esportsUI.winRate": {
+      "fr": "Taux de victoire",
+      "text": "% de victorias"
+    },
+    "pages.heroCounters.colHero": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.itemDetail.buildersIntro": {
+      "fr": "Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.",
+      "text": "Cuota de las partidas de cada héroe en {ranks} jugadas con una de sus tres builds más jugadas que incluye {name}. Se descartan los héroes elegidos en menos del {min} de los picks en estos rangos: muy pocas partidas."
+    },
+    "pages.itemDetail.buildersShare": {
+      "fr": "{share} des parties · {lane}",
+      "text": "{share} de las partidas · {lane}"
+    },
+    "pages.itemDetail.buildersTitle": {
+      "fr": "Build {name} : qui l'achète le plus à haut rang",
+      "text": "Build de {name}: quién lo compra más en rangos altos"
+    },
+    "pages.itemDetail.descBuild": {
+      "fr": "{name} ({effect}) : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name} ({effect}): sobre todo en la build de {heroes} en {rank} y superior."
+    },
+    "pages.itemDetail.descBuildAlone": {
+      "fr": "{name} : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name}: sobre todo en la build de {heroes} en {rank} y superior."
+    },
+    "pages.itemDetail.descShare": {
+      "fr": "{first} le prend dans {share} de ses parties.",
+      "text": "{first} lo lleva en el {share} de sus partidas."
+    },
+    "pages.itemDetail.titleBuild": {
+      "fr": "{name} : build pour {heroes}",
+      "text": "Build de {name} para {heroes}"
+    },
+    "pages.map.rotations.jungle.title": {
+      "fr": "Jungle",
+      "text": "Jungla"
+    },
+    "pages.mapUI.legend.ours": {
+      "fr": "Votre camp",
+      "text": "Tu lado"
+    },
+    "pages.mapUI.short.gold-lane": {
+      "fr": "Or",
+      "text": "Gold"
+    },
+    "pages.mlbbdle.rulesTitle": {
+      "fr": "Comment jouer",
+      "text": "Cómo se juega"
+    },
+    "pages.mlbbdleUI.browse": {
+      "fr": "Parcourir les héros",
+      "text": "Ver héroes"
+    },
+    "pages.mlbbdleUI.heroColumn": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.mlbbdleUI.skillAlt": {
+      "fr": "Icône de la compétence à identifier",
+      "text": "Icono de la habilidad por adivinar"
+    },
+    "pages.mlbbdleUI.skip": {
+      "fr": "Passer",
+      "text": "Saltar"
+    },
+    "pages.mlbbdleUI.verdicts.match": {
+      "fr": "identique",
+      "text": "igual"
+    },
+    "pages.mlbbdleUI.verdicts.miss": {
+      "fr": "différent",
+      "text": "distinto"
+    },
+    "pages.nicknameUI.none": {
+      "fr": "Aucune",
+      "text": "Ninguna"
+    },
+    "pages.patchNotes.changes.summary.other": {
+      "fr": "Le patch {v} modifie {n} héros.",
+      "text": "El parche {v} modifica {n} héroes."
+    },
+    "pages.quizUI.browse": {
+      "fr": "Parcourir les héros",
+      "text": "Ver héroes"
+    },
+    "pages.sheets.heroes": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.skinsCalendarUI.heroes": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.skinsCalendarUI.series": {
+      "fr": "Série",
+      "text": "Serie"
+    },
+    "pages.statisticsTable.heroes": {
+      "fr": "Héros",
+      "text": "Héroe"
+    },
+    "pages.statisticsTable.weak": {
+      "fr": "Trop peu joué pour que les taux soient fiables",
+      "text": "Elegido tan pocas veces que sus tasas no son fiables"
+    }
+  },
   "id": {
     "account.myAccount": {
       "fr": "Mon compte",
@@ -1116,13 +1488,41 @@
       "fr": "A → Z",
       "text": "A → Z"
     },
+    "pages.itemDetail.buildersIntro": {
+      "fr": "Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.",
+      "text": "Porsi pertandingan setiap hero di {ranks} yang dimainkan dengan salah satu dari tiga build paling sering dimainkan yang memuat {name}. Hero yang dipilih di bawah {min} dari seluruh pick di rank ini tidak dihitung: pertandingannya terlalu sedikit."
+    },
+    "pages.itemDetail.buildersShare": {
+      "fr": "{share} des parties · {lane}",
+      "text": "{share} pertandingan · {lane}"
+    },
+    "pages.itemDetail.buildersTitle": {
+      "fr": "Build {name} : qui l'achète le plus à haut rang",
+      "text": "Build {name}: hero yang paling sering membelinya di rank tinggi"
+    },
     "pages.itemDetail.crafting": {
       "fr": "Fabrication",
       "text": "Resep"
     },
+    "pages.itemDetail.descBuild": {
+      "fr": "{name} ({effect}) : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name} ({effect}): paling sering ada di build {heroes} di {rank} ke atas."
+    },
+    "pages.itemDetail.descBuildAlone": {
+      "fr": "{name} : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name}: paling sering ada di build {heroes} di {rank} ke atas."
+    },
+    "pages.itemDetail.descShare": {
+      "fr": "{first} le prend dans {share} de ses parties.",
+      "text": "{first} memakainya di {share} pertandingannya."
+    },
     "pages.itemDetail.heroesTitle": {
       "fr": "Héros qui achètent {name}",
       "text": "Hero yang membeli {name}"
+    },
+    "pages.itemDetail.titleBuild": {
+      "fr": "{name} : build pour {heroes}",
+      "text": "Build {name} untuk {heroes}"
     },
     "pages.itemsList.buildsInto": {
       "fr": "Sert à fabriquer",
@@ -2055,6 +2455,220 @@
     "tools.serverTime.yourTime": {
       "fr": "Chez vous : {time} ({timezone})",
       "text": "Waktu Anda: {time} ({timezone})"
+    }
+  },
+  "it": {
+    "footer.contribute": {
+      "fr": "Contribuer",
+      "text": "Contribuisci"
+    },
+    "nav.groups.news": {
+      "fr": "Actualités",
+      "text": "Novità"
+    },
+    "pages.accountProfile.colHero": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.accountProfile.outcome.win": {
+      "fr": "Victoire",
+      "text": "Vittoria"
+    },
+    "pages.advanceServer.categories.spells": {
+      "fr": "Sorts de combat",
+      "text": "Incantesimi di battaglia"
+    },
+    "pages.buildSimulatorUI.copyLink": {
+      "fr": "Copier le lien",
+      "text": "Copia link"
+    },
+    "pages.buildSimulatorUI.params.hero": {
+      "fr": "héros",
+      "text": "eroe"
+    },
+    "pages.buildSimulatorUI.stats.hp": {
+      "fr": "PV",
+      "text": "PS"
+    },
+    "pages.collection.calendarLink": {
+      "fr": "Calendrier des skins",
+      "text": "Calendario delle skin"
+    },
+    "pages.collectionUI.series": {
+      "fr": "Série",
+      "text": "Serie"
+    },
+    "pages.communityBuilds.spell": {
+      "fr": "Sort",
+      "text": "Incantesimo"
+    },
+    "pages.drawCalculator.calendarLink": {
+      "fr": "Calendrier des skins",
+      "text": "Calendario delle skin"
+    },
+    "pages.duos.phaseShort.mid": {
+      "fr": "Milieu",
+      "text": "Metà"
+    },
+    "pages.esports.versus.hero": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.esportsUI.hero": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.esportsUI.winRate": {
+      "fr": "Taux de victoire",
+      "text": "% vittorie"
+    },
+    "pages.heroCounters.colHero": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.heroCounters.updatedOn": {
+      "fr": "Mis à jour le {date}.",
+      "text": "Aggiornato: {date}."
+    },
+    "pages.itemDetail.buildersIntro": {
+      "fr": "Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.",
+      "text": "Quota delle partite di ogni eroe in {ranks} giocate con una delle sue tre build più giocate che contiene {name}. Gli eroi scelti in meno del {min} dei pick a questi ranghi sono esclusi: troppe poche partite."
+    },
+    "pages.itemDetail.buildersShare": {
+      "fr": "{share} des parties · {lane}",
+      "text": "{share} delle partite · {lane}"
+    },
+    "pages.itemDetail.buildersTitle": {
+      "fr": "Build {name} : qui l'achète le plus à haut rang",
+      "text": "Build {name}: chi lo acquista di più ai ranghi alti"
+    },
+    "pages.itemDetail.descBuild": {
+      "fr": "{name} ({effect}) : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name} ({effect}): soprattutto nella build di {heroes} in {rank} e oltre."
+    },
+    "pages.itemDetail.descBuildAlone": {
+      "fr": "{name} : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "text": "{name}: soprattutto nella build di {heroes} in {rank} e oltre."
+    },
+    "pages.itemDetail.descShare": {
+      "fr": "{first} le prend dans {share} de ses parties.",
+      "text": "{first} lo usa nel {share} delle sue partite."
+    },
+    "pages.itemDetail.titleBuild": {
+      "fr": "{name} : build pour {heroes}",
+      "text": "Build {name} per {heroes}"
+    },
+    "pages.map.rotations.jungle.title": {
+      "fr": "Jungle",
+      "text": "Giungla"
+    },
+    "pages.mapUI.legend.ours": {
+      "fr": "Votre camp",
+      "text": "Il tuo lato"
+    },
+    "pages.mapUI.short.gold-lane": {
+      "fr": "Or",
+      "text": "Gold"
+    },
+    "pages.mlbbdleUI.columns.damage": {
+      "fr": "Dégâts",
+      "text": "Danni"
+    },
+    "pages.mlbbdleUI.heroColumn": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.mlbbdleUI.skip": {
+      "fr": "Passer",
+      "text": "Salta"
+    },
+    "pages.mlbbdleUI.stats.streak": {
+      "fr": "Série",
+      "text": "Serie"
+    },
+    "pages.mlbbdleUI.verdicts.match": {
+      "fr": "identique",
+      "text": "identico"
+    },
+    "pages.patchNotes.changes.summary.other": {
+      "fr": "Le patch {v} modifie {n} héros.",
+      "text": "La patch {v} modifica {n} eroi."
+    },
+    "pages.quizUI.clues.passive": {
+      "fr": "Passif",
+      "text": "Passivo"
+    },
+    "pages.quizUI.practiceStreak": {
+      "fr": "Série",
+      "text": "Serie"
+    },
+    "pages.quizUI.stats.series": {
+      "fr": "Série",
+      "text": "Serie"
+    },
+    "pages.ranks.colBattlePoints": {
+      "fr": "Points de bataille",
+      "text": "Punti battaglia"
+    },
+    "pages.sheets.heroes": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.skinsCalendar.title": {
+      "fr": "Calendrier des skins",
+      "text": "Calendario delle skin"
+    },
+    "pages.skinsCalendarUI.heroes": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.skinsCalendarUI.series": {
+      "fr": "Série",
+      "text": "Serie"
+    },
+    "pages.statistics.contextAll": {
+      "fr": "Tous rangs confondus",
+      "text": "Considerando tutti i ranghi"
+    },
+    "pages.statisticsTable.ban": {
+      "fr": "Ban",
+      "text": "Ban rate"
+    },
+    "pages.statisticsTable.heroes": {
+      "fr": "Héros",
+      "text": "Eroe"
+    },
+    "pages.statisticsTable.pick": {
+      "fr": "Pick",
+      "text": "Pick rate"
+    },
+    "pages.statisticsTable.weak": {
+      "fr": "Trop peu joué pour que les taux soient fiables",
+      "text": "Scelto troppo di rado perché le percentuali siano affidabili"
+    },
+    "pages.statisticsTable.win": {
+      "fr": "Victoire",
+      "text": "Win rate"
+    },
+    "pages.tierList.win": {
+      "fr": "Victoire",
+      "text": "Vittoria"
+    },
+    "patchHeroes.seeSheet": {
+      "fr": "Voir la fiche de {name}",
+      "text": "Vedi la scheda di {name}"
+    },
+    "teamUI.damage": {
+      "fr": "Dégâts",
+      "text": "Danni"
+    },
+    "tools.retribution.bestRun": {
+      "fr": "Meilleure série",
+      "text": "Striscia migliore"
+    },
+    "tools.retribution.currentRun": {
+      "fr": "Série en cours",
+      "text": "Striscia attuale"
     }
   }
 }

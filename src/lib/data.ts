@@ -41,6 +41,7 @@ import generatedVisuals from "@/data/game/visuals.json";
 import { analyses } from "@/data/heroes";
 import type { Locale } from "@/i18n/config";
 import type { MeasuredRank } from "./measured-ranks";
+import type { PickRates } from "./usage-builds";
 import type {
   WikiSkill,
   Hero,
@@ -168,6 +169,14 @@ export interface BuildPlayed {
 export type BuildsHero = Record<string, Partial<Record<MeasuredRank, BuildPlayed[]>>>;
 export const buildsPlayed =
   (generatedStatistics as unknown as { builds?: Record<string, BuildsHero> }).builds ?? {};
+
+/**
+ * Each hero's share of picks per measured rank (in %, all heroes of a rank
+ * sum to about 100): how much a hero is played, hence how solid its build
+ * shares are.
+ */
+export const pickRatesByRank: PickRates =
+  (generatedStatistics as unknown as { rankings?: { byRank?: PickRates } }).rankings?.byRank ?? {};
 
 /**
  * Full build proposed by a player on the academy: the best-rated guide among

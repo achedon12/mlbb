@@ -90,6 +90,70 @@ export function usageByChoice(
   return new Map([...byChoice].map(([key, byHero]) => [key, [...byHero.values()].sort(byPart)]));
 }
 
+/** How the heroes named for a choice (item page title, top builders) are picked. */
+export interface BuilderRule {
+  /** Ranks averaged together: a hero missing from one counts 0 there. */
+  ranks: readonly MeasuredRank[];
+  /** Minimum average share of picks at these ranks (in %): below it, the sample is too small. */
+  minPickRate: number;
+  /** Minimum average share of the hero's games with the choice (in %): below it, the choice is incidental. */
+  minSelection: number;
+}
+
+/** Share of picks per rank and per hero (in %), as `rankings.byRank` publishes it. */
+export type PickRates = Partial<Record<MeasuredRank, Record<string, { pickRate: number } | undefined>>>;
+
+/**
+ * For each choice, the heroes that build it the most across several ranks,
+ * the most committed first.
+ *
+ * A hero's selection is the share of its games, in one lane, played with a
+ * build containing the choice, averaged over `rule.ranks` (a rank without
+ * builds counts as 0). One row per hero, in the lane where that average is
+ * highest. Heroes picked too rarely at these ranks (`minPickRate`) and
+ * choices marginal for a hero (`minSelection`) are left out.
+ */
+export function buildersByChoice(
+  builds: Record<string, BuildsHero>,
+  pickRates: PickRates,
+  extract: Extract,
+  rule: BuilderRule,
+): Map<string, UsageHero[]> {
+  const byChoice = new Map<string, UsageHero[]>();
+  const count = rule.ranks.length;
+  if (count === 0) return byChoice;
+  for (const [slug, byLane] of Object.entries(builds)) {
+    const pick = rule.ranks.reduce((s, r) => s + (pickRates[r]?.[slug]?.pickRate ?? 0), 0) / count;
+    if (pick < rule.minPickRate) continue;
+    const best = new Map<string, UsageHero>();
+    for (const [lane, byRank] of Object.entries(byLane)) {
+      const totals = new Map<string, Total>();
+      for (const rank of rule.ranks) {
+        for (const b of byRank[rank] ?? []) {
+          for (const key of new Set(extract(b))) {
+            const c = totals.get(key) ?? new Total();
+            c.add(b);
+            totals.set(key, c);
+          }
+        }
+      }
+      for (const [key, c] of totals) {
+        const selection = c.part / count;
+        const current = best.get(key);
+        if (!current || selection > current.selection) best.set(key, { slug, lane, selection, win: c.win });
+      }
+    }
+    for (const [key, u] of best) {
+      if (u.selection < rule.minSelection) continue;
+      const list = byChoice.get(key) ?? [];
+      list.push(u);
+      byChoice.set(key, list);
+    }
+  }
+  for (const list of byChoice.values()) list.sort(byPart);
+  return byChoice;
+}
+
 export interface SummaryRank {
   rank: MeasuredRank;
   /** Number of heroes taking the choice at this rank. */

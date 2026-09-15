@@ -1049,7 +1049,14 @@
       "updateDesc": "Mis à jour le {date}."
     },
     "itemDetail": {
-      "title": "{name} MLBB : build, stats et meilleurs héros (patch {v})",
+      "title": "{name} MLBB : stats et effets (patch {v})",
+      "titleBuild": "{name} : build pour {heroes}",
+      "descBuild": "{name} ({effect}) : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "descBuildAlone": "{name} : surtout dans le build de {heroes} en {rank} et au-delà.",
+      "descShare": "{first} le prend dans {share} de ses parties.",
+      "buildersTitle": "Build {name} : qui l'achète le plus à haut rang",
+      "buildersIntro": "Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.",
+      "buildersShare": "{share} des parties · {lane}",
       "itemDesc": "{name} ({details}) : {effect}.",
       "itemDescAlone": "{name} ({details}).",
       "heroDesc": "Surtout acheté par {heroes} en partie classée ; {first} gagne {rate} de ses parties avec.",

@@ -185,10 +185,20 @@ export function PartsChoice({ entries, locale }: { entries: EntryPart[]; locale:
   );
 }
 
-/** Grid of links to neighbouring pages (items of the same category, other emblems, other spells). */
-export function ListLinks({ links }: { links: { href: string; name: string; image: string | null; detail?: string }[] }) {
+/**
+ * Grid of links to neighbouring pages (items of the same category, other emblems, other spells),
+ * or, `ordered`, to a ranking (heroes who build an item the most).
+ */
+export function ListLinks({
+  links,
+  ordered = false,
+}: {
+  links: { href: string; name: string; image: string | null; detail?: string }[];
+  ordered?: boolean;
+}) {
+  const List = ordered ? "ol" : "ul";
   return (
-    <ul className="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-2">
+    <List className="grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-2">
       {links.map((l) => (
         <li key={l.href}>
           <Link
@@ -203,6 +213,6 @@ export function ListLinks({ links }: { links: { href: string; name: string; imag
           </Link>
         </li>
       ))}
-    </ul>
+    </List>
   );
 }
