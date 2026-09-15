@@ -100,3 +100,32 @@ jobs:
           printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
           ssh -i ~/.ssh/deploy_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
             "cd '$APP_DIR' && git pull --ff-only origin main && docker compose up -d --build"
+
+      # A green deploy must mean a working site, not only a container that
+      # started: check what production serves once it answers again.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+
+      - name: Wait for the site to answer
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://mlbbdex.com' }}
+        run: |
+          deadline=$((SECONDS + 300))
+          until [ "$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 "$SITE_URL/api/health")" = "200" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::$SITE_URL/api/health did not answer 200 within 5 minutes of the deployment"
+              exit 1
+            fi
+            sleep 10
+          done
+
+      - name: Smoke check of production
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://mlbbdex.com' }}
+        run: node scripts/smoke-check.mjs "$SITE_URL"

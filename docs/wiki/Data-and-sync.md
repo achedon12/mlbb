@@ -113,9 +113,9 @@ The names are the ones shown in the *Actions* tab.
 | Workflow | File | Runs on | What it does |
 | --- | --- | --- | --- |
 | Quality | `quality.yml` | pushes to `main` and `develop`, pull requests | Lint, type check, build, and checks that the generated data is present |
-| Tests | `tests.yml` | pushes to `main` and `develop`, pull requests | Unit and functional tests (Vitest), browser tests (Playwright, Chromium) on a production build |
+| Tests | `tests.yml` | pushes to `main` and `develop`, pull requests | Unit and functional tests (Vitest), browser tests (Playwright, Chromium) and the content smoke check on a production build |
 | Security | `security.yml` | pushes to `main` and `develop`, pull requests, every Monday | Code analysis with CodeQL, dependency audit with `npm audit` |
-| Docker image | `docker.yml` | pushes to `main`, pull requests touching the image | Builds the image; on `main`, deploys over SSH |
+| Docker image | `docker.yml` | pushes to `main`, pull requests touching the image | Builds the image; on `main`, deploys over SSH, waits for `/api/health`, then runs the content smoke check against production |
 | Data sync | `data-sync.yml` | every night, manual | Nightly sync, see above |
 | Align develop | `align-develop.yml` | pushes to `main`, called by the sync, manual | Carries `main` over to `develop` |
 | Publish to production | `publish.yml` | manual | Fast-forwards `main` to `develop` after checking CI |
@@ -125,3 +125,32 @@ The names are the ones shown in the *Actions* tab.
 | Review | `review.yml` | reviews, labels, "Ready for review" | Changes requested: back to draft with `changes requested`; ready for review again: `ready for review` |
 | Welcome | `welcome.yml` | a contributor's first pull request to `develop` | A welcome message when it is opened, a thank-you when it is merged |
 | Stale issues | `stale-issues.yml` | every day, manual | Labels issues `stale` after two months without activity and closes them two weeks later; issues labelled bug, enhancement, data, accessibility, good first issue or help wanted, and pull requests, are never affected |
+
+### Content smoke check
+
+A status code says nothing about what a page shows: a title reading
+"Best {plural} in MLBB", an empty legal page, an untranslated emblem name or an
+API answering `{connecte}` instead of `{connected}` all answer 200.
+`scripts/smoke-check.mjs` fetches a representative set of pages in every
+language (the table lives in `scripts/smoke-check-rules.mjs` and is resolved
+against the sitemap) and the endpoints the client reads, then fails with the
+list of every problem: status, an empty title or one containing `{`, a
+`{placeholder}` in the visible text or the meta description, too few words in
+the main content, `<html lang>`, expected translations, JSON shapes, the
+sitemap size, and a 404 for a missing page.
+
+It runs in *Tests* against the production build (the browser spec
+`tests/e2e/content.spec.ts` reuses the same table in Chromium and also fails on
+console errors), and in *Docker image* right after every deployment, against
+`vars.SITE_URL` (default `https://mlbbdex.com`): a red deployment means
+production serves broken content. To run it by hand:
+
+```bash
+node scripts/smoke-check.mjs https://mlbbdex.com
+# or against a local production build
+npm run build && PORT=3009 npm start
+node scripts/smoke-check.mjs http://127.0.0.1:3009
+```
+
+When a route moves, update the table: a path missing from the sitemap fails
+the check instead of being skipped.

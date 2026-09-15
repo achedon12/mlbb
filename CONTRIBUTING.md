@@ -142,7 +142,19 @@ npm run build
 ```
 
 All of them must pass: the automated checks will run them again anyway, along
-with the browser tests (`npm run test:e2e`).
+with the browser tests (`npm run test:e2e`) and the content smoke check.
+
+If you changed pages, messages or API responses, also run the smoke check
+against your build: it reads the pages and the JSON the client relies on, and
+lists every raw `{placeholder}`, empty page, missing translation or wrong key.
+
+```bash
+PORT=3009 npm start                                  # after npm run build
+node scripts/smoke-check.mjs http://127.0.0.1:3009   # in another terminal
+```
+
+A new page or a moved route belongs in the table of
+`scripts/smoke-check-rules.mjs`.
 
 A few automations then follow the pull request:
 
