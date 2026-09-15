@@ -104,6 +104,18 @@
         "105511": "/visuels/heros/angela/skins/105511-strings-of-fate.png"
       }
     },
+    "argus": {
+      "portrait": "/visuels/heros/argus/portrait.png",
+      "icon": "/visuels/heros/argus/icone.png",
+      "skins": {
+        "451": "/visuels/heros/argus/skins/451-dark-angel.png",
+        "452": "/visuels/heros/argus/skins/452-light-of-dawn.png",
+        "453": "/visuels/heros/argus/skins/453-dark-draconic.png",
+        "454": "/visuels/heros/argus/skins/454-catastrophe.png",
+        "456": "/visuels/heros/argus/skins/456-darth-vader.png",
+        "457": "/visuels/heros/argus/skins/457-winged-nightmare.png"
+      }
+    },
     "arlott": {
       "portrait": "/visuels/heros/arlott/portrait.png",
       "icon": "/visuels/heros/arlott/icone.png",
@@ -1878,6 +1890,16 @@
       "Strings of Fate": "/visuels/heros/angela/illustrations/strings-of-fate.webp",
       "Wind-up Courier": "/visuels/heros/angela/illustrations/wind-up-courier.webp"
     },
+    "argus": {
+      "Dark Angel": "/visuels/heros/argus/illustrations/dark-angel.webp",
+      "Light of Dawn": "/visuels/heros/argus/illustrations/light-of-dawn.webp",
+      "Dark Draconic": "/visuels/heros/argus/illustrations/dark-draconic.webp",
+      "Catastrophe": "/visuels/heros/argus/illustrations/catastrophe.webp",
+      "Blade of Rakshasha": "/visuels/heros/argus/illustrations/blade-of-rakshasha.webp",
+      "Darth Vader": "/visuels/heros/argus/illustrations/darth-vader.webp",
+      "Winged Nightmare": "/visuels/heros/argus/illustrations/winged-nightmare.webp",
+      "Raiden Maru": "/visuels/heros/argus/illustrations/raiden-maru.webp"
+    },
     "arlott": {
       "Lone Lancer": "/visuels/heros/arlott/illustrations/lone-lancer.webp",
       "Wandering Spear": "/visuels/heros/arlott/illustrations/wandering-spear.webp",
@@ -1916,10 +1938,11 @@
       "Ironfists": "/visuels/heros/badang/illustrations/ironfists.webp",
       "Susanoo": "/visuels/heros/badang/illustrations/susanoo.webp",
       "Leo": "/visuels/heros/badang/illustrations/leo.webp",
+      "Steel Arms": "/visuels/heros/badang/illustrations/steel-arms.webp",
       "Fist of Zen": "/visuels/heros/badang/illustrations/fist-of-zen.webp",
       "Pegasus Seiya": "/visuels/heros/badang/illustrations/pegasus-seiya.webp",
       "Sagittarius Seiya": "/visuels/heros/badang/illustrations/sagittarius-seiya.webp",
-      "Steel Arms": "/visuels/heros/badang/illustrations/steel-arms.webp"
+      "Quantum Commando": "/visuels/heros/badang/illustrations/quantum-commando.webp"
     },
     "balmond": {
       "Bloody Beast": "/visuels/heros/balmond/illustrations/bloody-beast.webp",
@@ -2098,6 +2121,7 @@
       "Operator CL": "/visuels/heros/clint/illustrations/operator-cl.webp",
       "Crimson Blast": "/visuels/heros/clint/illustrations/crimson-blast.webp",
       "Captain of the Reefs": "/visuels/heros/clint/illustrations/captain-of-the-reefs.webp",
+      "Scarlet Musketeer": "/visuels/heros/clint/illustrations/scarlet-musketeer.webp",
       "Dragon's Maw": "/visuels/heros/clint/illustrations/dragon-s-maw.webp",
       "Vessel of Ruin": "/visuels/heros/clint/illustrations/vessel-of-ruin.webp"
     },
@@ -3222,6 +3246,12 @@
       "Love Waves": "/visuels/competences/love-waves.webp",
       "Puppet-on-a-String": "/visuels/competences/puppet-on-a-string.webp",
       "Heartguard": "/visuels/competences/heartguard.webp"
+    },
+    "argus": {
+      "Warmonger": "/visuels/competences/warmonger.webp",
+      "Demonic Grip": "/visuels/competences/demonic-grip.webp",
+      "Meteoric Sword": "/visuels/competences/meteoric-sword.webp",
+      "Eternal Evil": "/visuels/competences/eternal-evil.webp"
     },
     "arlott": {
       "Demon Gaze": "/visuels/competences/demon-gaze.webp",

@@ -4,7 +4,7 @@ date: "2026-09-05"
 category: "Guide"
 author: "achedon12"
 summary: "Estes, Yu Zhong, Uranus, Esmeralda: a good part of the games lost in ranked queue are played on an object that no one takes."
-keywords: ["reduction de soins", "guide", "objets", "estes", "yu zhong"]
+keywords: ["réduction de soins", "guide", "objets", "estes", "yu zhong"]
 ---
 
 This is the most frequent reproach after a defeat: “their Estes took care of

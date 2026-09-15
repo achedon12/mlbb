@@ -4,7 +4,7 @@ date: "2026-09-01"
 category: "Guide"
 author: "achedon12"
 summary: "El carril de experiencia se gana con la oleada de minions y la torreta, no con el duelo. Lo que cambia todo en la forma en que lo juegas."
-keywords: ["lane experience", "guide", "macro", "farm", "split push"]
+keywords: ["lane expérience", "guide", "macro", "farm", "split push"]
 ---
 
 El carril de la experiencia produce más malos hábitos que cualquier otro.

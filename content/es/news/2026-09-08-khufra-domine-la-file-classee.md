@@ -4,7 +4,7 @@ date: "2026-09-08"
 category: "News"
 author: "achedon12"
 summary: "Un solo héroe se encuentra con toda una categoría del plantel. Una mirada retrospectiva a por qué Khufra está presente en casi todos los juegos de alto ranking."
-keywords: ["khufra", "tier list", "file classee", "tank", "meta"]
+keywords: ["khufra", "tier list", "file classée", "tank", "meta"]
 ---
 
 Hay héroes fuertes y hay héroes que responden a un problema que

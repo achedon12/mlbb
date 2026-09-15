@@ -4,7 +4,7 @@ date: "2026-09-05"
 category: "Guide"
 author: "achedon12"
 summary: "Estes, Yu Zhong, Uranus, Esmeralda: buena parte de las partidas perdidas en la cola clasificatoria se juegan sobre un objeto que nadie toma."
-keywords: ["reduction de soins", "guide", "objets", "estes", "yu zhong"]
+keywords: ["réduction de soins", "guide", "objets", "estes", "yu zhong"]
 ---
 
 Éste es el reproche más frecuente tras una derrota: “sus Estes se encargaron de

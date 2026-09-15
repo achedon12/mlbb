@@ -125,6 +125,24 @@
       "description": "Angela begins channeling [for 2 seconds], applying a that lasts 6 seconds to the target allied hero regardless of distance. After the channeling is complete, she attaches herself to the allied hero for 12 seconds, during which she can cast skills at zero Mana cost. Angela can cast this skill again to cancel the channeling or detach herself from the allied hero. The attaching state will end early if the allied hero is killed."
     }
   ],
+  "argus": [
+    {
+      "name": "Warmonger",
+      "description": "When Argus' blade reaches 100 Malice Energy|rage[amount unknown]. He will launch a Demonic Slash with his next Basic Attack, dealing and recovering. This attack ignores 30% of the target's Physical Defense Argus' Demonic Blade gains 5 Malice Energy per second, and each of his Basic Attacks grants 25 Malice Energy. (critical strikes grant an additional 25 energy) The Energy cap is 200. Each Demonic Slash consumes 100 Energy."
+    },
+    {
+      "name": "Demonic Grip",
+      "description": "Argus streches out a demonic hand in the target direction, dealing to the first enemy hero or creep hit, stunning them for 0.7 seconds and pulling him and the target towards the other, then the target is slowed by 40% for 2s. If no enemy is hit, Argus pulls himself toward the hand's destination instead. Use Again: Argus dashes and strikes in the target direction, dealing to enemies along the path."
+    },
+    {
+      "name": "Meteoric Sword",
+      "description": "After a short delay, Argus thrusts his Demonic Blade in the target direction, dealing to enemies hit. The charge time decreases as Attack Speed increases. Argus Fighter If an enemy hero is hit, he immediately gains 100 Malice Energy and becomes enhanced for 3s. While enhanced, he gains 30-55% Attack Speed, and Demonic Slash restores 50 Malice Energy. Meteoric Sword counts as a Basic Attack, can trigger Attack Effects, and can Crit."
+    },
+    {
+      "name": "Eternal Evil",
+      "description": "Argus draws his Meteoric Sword and removes all debuffs (excluding Suppression) on himself, dealing and gaining Death Immunity for 4s. When the state ends, he converts all damage dealt to heroes during this duration into HP. Passive: If Argus takes fatal damage while Eternal Evil is not on cooldown, Eternal Evil triggers automatically but only grants Death Immunity for 3s."
+    }
+  ],
   "arlott": [
     {
       "name": "Demon Gaze",

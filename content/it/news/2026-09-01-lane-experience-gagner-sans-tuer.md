@@ -4,7 +4,7 @@ date: "2026-09-01"
 category: "Guide"
 author: "achedon12"
 summary: "La corsia esperienza si ottiene dall'ondata di servitori e dalla torretta, non dal duello. Il che cambia tutto nel modo in cui lo giochi."
-keywords: ["lane experience", "guide", "macro", "farm", "split push"]
+keywords: ["lane expérience", "guide", "macro", "farm", "split push"]
 ---
 
 Il percorso dell’esperienza produce più cattive abitudini di qualunque altro

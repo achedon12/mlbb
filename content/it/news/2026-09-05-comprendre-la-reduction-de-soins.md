@@ -4,7 +4,7 @@ date: "2026-09-05"
 category: "Guide"
 author: "achedon12"
 summary: "Estes, Yu Zhong, Uranus, Esmeralda: buona parte delle partite perse in coda classificata si giocano su un oggetto che nessuno prende."
-keywords: ["reduction de soins", "guide", "objets", "estes", "yu zhong"]
+keywords: ["réduction de soins", "guide", "objets", "estes", "yu zhong"]
 ---
 
 Questo è il rimprovero più frequente dopo una sconfitta: “ci hanno pensato i loro Este

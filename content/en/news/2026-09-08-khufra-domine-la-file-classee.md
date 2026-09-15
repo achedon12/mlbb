@@ -4,7 +4,7 @@ date: "2026-09-08"
 category: "News"
 author: "achedon12"
 summary: "A single hero meets an entire category of the roster. A look back at why Khufra is present in almost every high ranked game."
-keywords: ["khufra", "tier list", "file classee", "tank", "meta"]
+keywords: ["khufra", "tier list", "file classée", "tank", "meta"]
 ---
 
 There are strong heroes, and there are heroes who respond to a problem that

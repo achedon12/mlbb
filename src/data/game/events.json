@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11",
+  "updated": "2026-09-15",
   "sources": {
     "starlight": {
       "title": "StarLight",
@@ -97,7 +97,7 @@
       "heroName": "Argus",
       "skin": "Dark Draconic",
       "id": "453",
-      "hero": null
+      "hero": "argus"
     },
     {
       "month": "2017-12",

@@ -4,7 +4,7 @@ date: "2026-09-08"
 category: "News"
 author: "achedon12"
 summary: "Un singolo eroe soddisfa un'intera categoria del roster. Uno sguardo al motivo per cui Khufra è presente in quasi tutte le partite di alto livello."
-keywords: ["khufra", "tier list", "file classee", "tank", "meta"]
+keywords: ["khufra", "tier list", "file classée", "tank", "meta"]
 ---
 
 Ci sono eroi forti e ci sono eroi che rispondono a questo problema

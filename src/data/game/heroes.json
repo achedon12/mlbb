@@ -303,6 +303,49 @@
     }
   },
   {
+    "slug": "argus",
+    "name": "Argus",
+    "id": "451",
+    "title": "Dark Angel",
+    "roles": [
+      "Fighter"
+    ],
+    "lanes": [
+      "Exp"
+    ],
+    "specialties": [
+      "Charge",
+      "Burst"
+    ],
+    "release": "2017",
+    "year": "2017",
+    "resource": "Resource#Rage/Indicator|None",
+    "damageType": "Physical",
+    "attackType": "Melee",
+    "region": "Abyss",
+    "ratings": {
+      "offense": 6,
+      "durability": 8,
+      "abilityEffects": 6,
+      "difficulty": 7
+    },
+    "stats": {
+      "hp1": "2600",
+      "hp15": "5372",
+      "hp_regen1": "8.0",
+      "mana1": "0",
+      "mana15": "0",
+      "physical_atk1": "120",
+      "physical_atk15": "232",
+      "physical_def1": "21",
+      "physical_def15": "78",
+      "magic_def1": "15",
+      "magic_def15": "50",
+      "movement_spd": "240",
+      "basic_atk_range": "1.9"
+    }
+  },
+  {
     "slug": "arlott",
     "name": "Arlott",
     "id": "1201",
