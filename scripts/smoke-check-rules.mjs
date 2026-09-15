@@ -24,8 +24,8 @@ export const MIN_WORDS = 40;
 /**
  * Pages to check, as paths without the locale prefix (`""` is the home page).
  *
- * Static paths come from `src/app/sitemap.ts`, and the runner checks they are
- * still listed in the sitemap, so a moved route fails loudly instead of being
+ * Static paths come from `src/lib/sitemap.ts`, and the runner checks they are
+ * still listed in the sitemap (the union of the child sitemaps), so a moved route fails loudly instead of being
  * silently skipped. Entries with `discover` have no fixed path: the runner
  * picks one from the sitemap (compare pairs and patch versions change).
  *
@@ -311,12 +311,10 @@ export const ENDPOINTS = [
     },
   },
   {
+    // A sitemap index; the runner then fetches each child it lists.
     path: "/sitemap.xml",
     type: "text",
-    check: (text) => {
-      const count = sitemapPaths(text).length;
-      return count > 1000 ? [] : [`only ${count} URLs, expected more than 1000`];
-    },
+    check: (text) => checkSitemapIndex(text),
   },
   {
     path: "/llms.txt",
@@ -325,6 +323,146 @@ export const ENDPOINTS = [
     check: (text) => (countWords(text) >= 50 ? [] : ["almost empty"]),
   },
 ];
+
+/**
+ * Child sitemaps `/sitemap.xml` must list, as `/sitemaps/<name>.xml`: same
+ * names and order as `SITEMAPS` in `src/lib/sitemap.ts`
+ * (tests/unit/smoke-check.test.mjs checks they match).
+ */
+export const SITEMAP_CHILDREN = [
+  "pages",
+  "tier-lists",
+  "heroes",
+  "hero-counters",
+  "hero-duos",
+  "hero-skins",
+  "compare",
+  "items",
+  "emblems-spells",
+  "events",
+  "patch-notes",
+  "news",
+];
+
+/** Below this many URLs across every child sitemap, the sitemap is considered broken. */
+export const MIN_SITEMAP_URLS = 1000;
+
+const SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9";
+
+/**
+ * Well-formedness problems of an XML document, for the flat documents a
+ * sitemap is: balanced and properly nested tags, no stray `<` or unescaped `&`
+ * in text, a single root. Not a full parser (no DTD, CDATA or comments, which
+ * sitemaps do not use).
+ */
+export function xmlProblems(xml) {
+  const text = String(xml);
+  const stack = [];
+  let roots = 0;
+  let last = 0;
+  const strayText = (chunk) => /<|&(?!(amp|lt|gt|quot|apos|#\d+|#x[0-9a-f]+);)/i.test(chunk);
+  for (const match of text.matchAll(/<(\?[^>]*\?|\/?[A-Za-z_][\w:.-]*(?:\s[^>]*)?\/?)>/g)) {
+    if (strayText(text.slice(last, match.index))) return ["malformed XML: stray markup or unescaped & in text"];
+    last = match.index + match[0].length;
+    const tag = match[1];
+    if (tag.startsWith("?")) {
+      if (match.index !== 0 || !tag.startsWith("?xml")) return ["malformed XML: misplaced declaration"];
+      continue;
+    }
+    const name = tag.match(/^\/?([\w:.-]+)/)[1];
+    if (tag.startsWith("/")) {
+      const open = stack.pop();
+      if (open !== name) return [`malformed XML: </${name}> closes <${open ?? "nothing"}>`];
+    } else if (!tag.endsWith("/")) {
+      if (stack.length === 0) roots++;
+      stack.push(name);
+    }
+  }
+  if (strayText(text.slice(last)) || text.slice(last).trim()) return ["malformed XML: text after the root element"];
+  if (stack.length) return [`malformed XML: <${stack.at(-1)}> never closed`];
+  if (roots !== 1) return [`malformed XML: ${roots} root elements, expected 1`];
+  return [];
+}
+
+/**
+ * Structure problems of a sitemap document: well-formed, rooted at `root`
+ * (`urlset` or `sitemapindex`) in the sitemaps.org namespace, every entry
+ * (`url` or `sitemap`) holding exactly one absolute http(s) `<loc>`.
+ */
+export function sitemapStructureProblems(xml, root) {
+  const text = String(xml);
+  const problems = xmlProblems(text);
+  if (problems.length) return problems;
+  const opening = text.match(new RegExp(`<${root}(\\s[^>]*)?>`));
+  if (!opening) return [`root element is not <${root}>`];
+  if (!new RegExp(`\\sxmlns="${SITEMAP_NAMESPACE.replace(/[./]/g, "\\$&")}"`).test(opening[1] ?? "")) {
+    return [`<${root}> lacks the ${SITEMAP_NAMESPACE} namespace`];
+  }
+  const entry = root === "urlset" ? "url" : "sitemap";
+  const entries = [...text.matchAll(new RegExp(`<${entry}>([\\s\\S]*?)</${entry}>`, "g"))];
+  if (entries.length === 0) return [`no <${entry}> entry`];
+  for (const [, body] of entries) {
+    const locs = [...body.matchAll(/<loc>\s*([^<\s]*)\s*<\/loc>/g)].map((m) => decodeEntities(m[1]));
+    if (locs.length !== 1) return [`a <${entry}> holds ${locs.length} <loc>, expected 1`];
+    if (!/^https?:\/\/[^/\s]+\//.test(locs[0] + "/")) return [`relative or invalid <loc>: ${locs[0]}`];
+  }
+  return [];
+}
+
+/** Child sitemap addresses listed by a sitemap index. */
+export function sitemapIndexLocs(xml) {
+  return [...String(xml).matchAll(/<sitemap>[\s\S]*?<loc>\s*([^<\s]+)\s*<\/loc>[\s\S]*?<\/sitemap>/g)].map((m) =>
+    decodeEntities(m[1]),
+  );
+}
+
+/** Problems of `/sitemap.xml`: a valid index listing every child of `children`, and nothing else. */
+export function checkSitemapIndex(xml, children = SITEMAP_CHILDREN) {
+  const problems = sitemapStructureProblems(xml, "sitemapindex");
+  if (problems.length) return problems;
+  const listed = sitemapIndexLocs(xml).map((loc) => {
+    try {
+      return new URL(loc).pathname;
+    } catch {
+      return loc;
+    }
+  });
+  const expected = children.map((name) => `/sitemaps/${name}.xml`);
+  const missing = expected.filter((path) => !listed.includes(path));
+  const unexpected = listed.filter((path) => !expected.includes(path));
+  const duplicated = [...new Set(listed.filter((path, i) => listed.indexOf(path) !== i))];
+  return [
+    ...(missing.length ? [`child sitemap(s) not listed: ${missing.join(", ")}`] : []),
+    ...(unexpected.length ? [`unexpected child sitemap(s): ${unexpected.join(", ")}`] : []),
+    ...(duplicated.length ? [`child sitemap(s) listed twice: ${duplicated.join(", ")}`] : []),
+  ];
+}
+
+/** Problems of a child sitemap: a valid `<urlset>` with at least one URL. */
+export function checkSitemapChild(xml) {
+  return sitemapStructureProblems(xml, "urlset");
+}
+
+/**
+ * Problems of the child sitemaps taken together (`{ name: paths }`): enough
+ * URLs overall, and no URL listed by two children (or twice by one).
+ */
+export function checkSitemapUnion(pathsByChild) {
+  const all = Object.values(pathsByChild).flat();
+  const problems = all.length > MIN_SITEMAP_URLS ? [] : [`only ${all.length} URLs, expected more than ${MIN_SITEMAP_URLS}`];
+  const seen = new Map();
+  const duplicates = [];
+  for (const [child, paths] of Object.entries(pathsByChild)) {
+    for (const path of paths) {
+      if (seen.has(path)) duplicates.push(`${path} (${seen.get(path)}, ${child})`);
+      else seen.set(path, child);
+    }
+  }
+  if (duplicates.length) {
+    problems.push(`${duplicates.length} URL(s) listed more than once: ${duplicates.slice(0, 5).join("; ")}${duplicates.length > 5 ? "…" : ""}`);
+  }
+  return problems;
+}
 
 /** Paths listed in a sitemap, whatever host it was generated for. */
 export function sitemapPaths(xml) {

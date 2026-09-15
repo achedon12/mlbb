@@ -18,12 +18,15 @@
  */
 import {
   ENDPOINTS,
+  checkSitemapChild,
+  checkSitemapUnion,
   LOCALES,
   MISSING_PAGE,
   PAGES,
   findPlaceholders,
   inspectPage,
   resolvePages,
+  sitemapIndexLocs,
   sitemapPaths,
 } from "./smoke-check-rules.mjs";
 
@@ -46,7 +49,7 @@ async function get(url) {
         lastError = new Error(`status ${response.status}`);
         continue;
       }
-      return { status: response.status, body, finalUrl: response.url };
+      return { status: response.status, body, finalUrl: response.url, contentType: response.headers.get("content-type") ?? "" };
     } catch (error) {
       lastError = error;
     }
@@ -128,8 +131,36 @@ async function main() {
     }
   });
 
+  // Child sitemaps listed by the index, fetched from this server whatever host
+  // their addresses name; their URLs together make the sitemap.
+  /** @type {Record<string, string[]>} */
+  const pathsByChild = {};
+  const children = sitemapIndexLocs(sitemap).map((loc) => {
+    try {
+      return new URL(loc).pathname;
+    } catch {
+      return loc;
+    }
+  });
+  await pool(children, CONCURRENCY, async (path) => {
+    try {
+      const { status, body, contentType } = await get(origin + path);
+      const problems = status === 200 ? [] : [`status ${status}, expected 200`];
+      if (status === 200) {
+        if (!/^(application|text)\/xml\b/.test(contentType)) problems.push(`content type "${contentType}", expected XML`);
+        problems.push(...checkSitemapChild(body));
+        pathsByChild[path] = sitemapPaths(body);
+      }
+      record(path, problems);
+    } catch (error) {
+      record(path, [describeError(error)]);
+    }
+  });
+  if (children.length) record("sitemap URLs (all children)", checkSitemapUnion(pathsByChild));
+  const sitemapUrls = children.flatMap((path) => pathsByChild[path] ?? []);
+
   // Page table, resolved against the sitemap the server itself publishes.
-  const { pages, problems: tableProblems } = resolvePages(sitemapPaths(sitemap), PAGES);
+  const { pages, problems: tableProblems } = resolvePages(sitemapUrls, PAGES);
   if (tableProblems.length) record("page table vs sitemap", tableProblems);
 
   const targets = pages.flatMap((page) =>

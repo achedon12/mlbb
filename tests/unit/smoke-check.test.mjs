@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 import {
   ENDPOINTS,
+  SITEMAP_CHILDREN,
+  checkSitemapChild,
+  checkSitemapIndex,
+  checkSitemapUnion,
   MIN_WORDS,
   PAGES,
   containsPhrase,
@@ -11,8 +16,10 @@ import {
   findPlaceholders,
   inspectPage,
   resolvePages,
+  sitemapIndexLocs,
   sitemapPaths,
   visibleText,
+  xmlProblems,
 } from "../../scripts/smoke-check-rules.mjs";
 
 const words = (n, word = "lorem") => Array.from({ length: n }, () => word).join(" ");
@@ -176,10 +183,67 @@ describe("endpoints", () => {
     ]);
     expect(endpoint("/api/v1/heroes").check({ data: heroes.slice(0, 3) })).toEqual(["only 3 heroes"]);
 
-    const sitemap = (n) => `<urlset>${"<url><loc>https://mlbbdex.com/en</loc></url>".repeat(n)}</urlset>`;
-    expect(endpoint("/sitemap.xml").check(sitemap(1001))).toEqual([]);
-    expect(endpoint("/sitemap.xml").check(sitemap(10))).toEqual(["only 10 URLs, expected more than 1000"]);
+    expect(endpoint("/sitemap.xml").check(sitemapIndex(SITEMAP_CHILDREN))).toEqual([]);
+    expect(endpoint("/sitemap.xml").check(urlset(["/en"]))).toEqual(["root element is not <sitemapindex>"]);
     expect(endpoint("/llms.txt").placeholders).toBe(false);
+  });
+});
+
+const NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9";
+const urlset = (paths) =>
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="${NAMESPACE}">\n${paths.map((p) => `<url>\n<loc>https://mlbbdex.com${p}</loc>\n<lastmod>2026-09-11T08:19:47.144Z</lastmod>\n</url>\n`).join("")}</urlset>\n`;
+const sitemapIndex = (names) =>
+  `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="${NAMESPACE}">\n${names.map((n) => `<sitemap>\n<loc>https://mlbbdex.com/sitemaps/${n}.xml</loc>\n</sitemap>\n`).join("")}</sitemapindex>\n`;
+
+describe("sitemaps", () => {
+  it("names the same children as src/lib/sitemap.ts, in the same order", () => {
+    const source = readFileSync("src/lib/sitemap.ts", "utf8");
+    const declared = [...source.slice(source.indexOf("export const SITEMAPS")).matchAll(/\{ name: "([a-z-]+)"/g)].map((m) => m[1]);
+    expect(declared).toEqual(SITEMAP_CHILDREN);
+  });
+
+  it("checks well-formedness", () => {
+    expect(xmlProblems(urlset(["/en"]))).toEqual([]);
+    expect(xmlProblems("<a><b></a></b>")).toEqual(["malformed XML: </a> closes <b>"]);
+    expect(xmlProblems("<a><b></b>")).toEqual(["malformed XML: <a> never closed"]);
+    expect(xmlProblems("<a>Tom & Jerry</a>")).toEqual(["malformed XML: stray markup or unescaped & in text"]);
+    expect(xmlProblems("<a></a><b></b>")).toEqual(["malformed XML: 2 root elements, expected 1"]);
+  });
+
+  it("accepts an index listing every child, and reports missing, unexpected or repeated ones", () => {
+    expect(checkSitemapIndex(sitemapIndex(["pages", "compare"]), ["pages", "compare"])).toEqual([]);
+    expect(checkSitemapIndex(sitemapIndex(["pages", "pages", "other"]), ["pages", "compare"])).toEqual([
+      "child sitemap(s) not listed: /sitemaps/compare.xml",
+      "unexpected child sitemap(s): /sitemaps/other.xml",
+      "child sitemap(s) listed twice: /sitemaps/pages.xml",
+    ]);
+    expect(checkSitemapIndex(sitemapIndex([]), ["pages"])).toEqual(["no <sitemap> entry"]);
+    expect(checkSitemapIndex(sitemapIndex(["pages"]).replace(` xmlns="${NAMESPACE}"`, ""), ["pages"])).toEqual([
+      `<sitemapindex> lacks the ${NAMESPACE} namespace`,
+    ]);
+    expect(sitemapIndexLocs(sitemapIndex(["pages", "compare"]))).toEqual([
+      "https://mlbbdex.com/sitemaps/pages.xml",
+      "https://mlbbdex.com/sitemaps/compare.xml",
+    ]);
+  });
+
+  it("checks each child sitemap", () => {
+    expect(checkSitemapChild(urlset(["/en", "/fr/heroes"]))).toEqual([]);
+    expect(checkSitemapChild(urlset([]))).toEqual(["no <url> entry"]);
+    expect(checkSitemapChild(sitemapIndex(["pages"]))).toEqual(["root element is not <urlset>"]);
+    expect(checkSitemapChild(urlset(["/en"]).replace("https://mlbbdex.com/en", "/en"))).toEqual(["relative or invalid <loc>: /en"]);
+    expect(checkSitemapChild(urlset(["/en"]).replace("</url>", "<loc>https://mlbbdex.com/fr</loc></url>"))).toEqual([
+      "a <url> holds 2 <loc>, expected 1",
+    ]);
+  });
+
+  it("counts URLs across children and reports duplicates", () => {
+    const many = (prefix, n) => Array.from({ length: n }, (_, i) => `${prefix}/${i}`);
+    expect(checkSitemapUnion({ "/sitemaps/a.xml": many("/en/a", 600), "/sitemaps/b.xml": many("/en/b", 401) })).toEqual([]);
+    expect(checkSitemapUnion({ "/sitemaps/a.xml": many("/en/a", 10) })).toEqual(["only 10 URLs, expected more than 1000"]);
+    expect(checkSitemapUnion({ "/sitemaps/a.xml": [...many("/en/a", 1001)], "/sitemaps/b.xml": ["/en/a/3"] })).toEqual([
+      "1 URL(s) listed more than once: /en/a/3 (/sitemaps/a.xml, /sitemaps/b.xml)",
+    ]);
   });
 });
 

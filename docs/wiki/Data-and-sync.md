@@ -137,7 +137,28 @@ against the sitemap) and the endpoints the client reads, then fails with the
 list of every problem: status, an empty title or one containing `{`, a
 `{placeholder}` in the visible text or the meta description, too few words in
 the main content, `<html lang>`, expected translations, JSON shapes, the
-sitemap size, and a 404 for a missing page.
+sitemap, and a 404 for a missing page.
+
+The sitemap check follows the index: `/sitemap.xml` must be a valid
+`<sitemapindex>` listing exactly the child sitemaps named in
+`SITEMAP_CHILDREN` (the same list as `SITEMAPS` in `src/lib/sitemap.ts`), each
+child must answer 200 with XML, be a valid `<urlset>` with absolute URLs, and
+the children together must hold more than 1000 URLs with none listed twice.
+The page table is resolved against that union.
+
+### Sitemap
+
+`/sitemap.xml`, the address submitted to Search Console and named in
+`robots.txt`, is a sitemap index. It lists one child sitemap per page type,
+`/sitemaps/<name>.xml`: `pages` (home, hubs, tools, fixed texts, lore, game
+modes, esports, skin calendars), `tier-lists`, `heroes`, `hero-counters`,
+`hero-duos`, `hero-skins`, `compare`, `items`, `emblems-spells`, `events`,
+`patch-notes` and `news`. Search Console then reports submitted and indexed
+pages for each type separately. The entries are built in `src/lib/sitemap.ts`
+and distributed by path pattern; a new route lands in `pages` unless a pattern
+claims it. Adding a child means adding it to `SITEMAPS` and to
+`SITEMAP_CHILDREN` in `scripts/smoke-check-rules.mjs` (a unit test checks the
+two lists match). Image pages have their own `/sitemap-images.xml`.
 
 It runs in *Tests* against the production build (the browser spec
 `tests/e2e/content.spec.ts` reuses the same table in Chromium and also fails on
