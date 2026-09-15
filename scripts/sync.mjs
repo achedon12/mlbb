@@ -36,6 +36,7 @@ import {
   mergeHistory,
   serializeDuos,
   dailyStreak,
+  keepUnservedHeroes,
 } from "./measures.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com/api.php";
@@ -1998,13 +1999,19 @@ async function main() {
   // previous value is kept rather than erased. The ranking also keeps its
   // date, since it does not refresh at the same pace as the rest.
   const statsExisting = await readJson(`${OUTPUT}/statistics.json`);
+  // Per hero as well: a partial answer only replaces the heroes it served.
+  const perHero = (name, next) => {
+    const { merged, kept } = keepUnservedHeroes(statsExisting[name], next ?? {});
+    if (next && kept.length) console.warn(`  ${name}: ${kept.length} heroes not served this run, previous values kept`);
+    return merged;
+  };
   const statistics = {
     rankings: stats
       ? { measuredAt: new Date().toISOString(), rates: stats.all, byRank: stats }
       : (statsExisting.rankings ?? { measuredAt: null, rates: {} }),
-    counters: counters ?? statsExisting.counters ?? {},
-    builds: builds ?? statsExisting.builds ?? {},
-    guides: guides ?? statsExisting.guides ?? {},
+    counters: perHero("counters", counters),
+    builds: perHero("builds", builds),
+    guides: perHero("guides", guides),
     // Per hero: one the API did not serve keeps its teammates.
     teammates: { ...(statsExisting.teammates ?? {}), ...(complementary?.teammates ?? {}) },
     relations: links ?? statsExisting.relations ?? {},

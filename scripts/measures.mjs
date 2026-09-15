@@ -124,6 +124,28 @@ export function mergeHistory(existing, trends, days = DAILY_DAYS) {
 }
 
 /**
+ * Per-hero measures of this run, completed with the previous run's heroes it
+ * did not serve. The academy API sometimes answers for only part of the
+ * roster (rate limits, upstream errors): writing that answer as is erased the
+ * builds and guides of every hero it skipped. A hero served this run always
+ * takes the new values; heroes keep the previous order, new ones come last.
+ * Returns the merged table and the slugs kept from the previous run.
+ */
+export function keepUnservedHeroes(previous = {}, next = {}) {
+  const slugs = new Set([...Object.keys(previous), ...Object.keys(next)]);
+  const merged = {};
+  const kept = [];
+  for (const slug of slugs) {
+    if (slug in next) merged[slug] = next[slug];
+    else {
+      merged[slug] = previous[slug];
+      kept.push(slug);
+    }
+  }
+  return { merged, kept };
+}
+
+/**
  * rank_level thresholds of guide authors, on the scale of
  * src/lib/ranks.ts: Epic from 76, Legend from 106, then the
  * mythic stars from 136 — Honor at 25 stars, Glory at 50. The

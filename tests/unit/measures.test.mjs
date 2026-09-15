@@ -9,7 +9,28 @@ import {
   numberDay,
   pointsOf,
   dailyStreak,
+  keepUnservedHeroes,
 } from "../../scripts/measures.mjs";
+
+describe("keepUnservedHeroes", () => {
+  it("keeps the previous measures of heroes a partial answer skipped", () => {
+    const previous = { aamon: { Jungle: 1 }, ling: { Jungle: 2 }, tigreal: { Roam: 3 } };
+    const { merged, kept } = keepUnservedHeroes(previous, { ling: { Jungle: 9 } });
+    expect(merged).toEqual({ aamon: { Jungle: 1 }, ling: { Jungle: 9 }, tigreal: { Roam: 3 } });
+    expect(kept).toEqual(["aamon", "tigreal"]);
+  });
+
+  it("keeps the previous hero order and appends new heroes", () => {
+    const { merged } = keepUnservedHeroes({ b: 1, a: 2 }, { c: 3, a: 4 });
+    expect(Object.keys(merged)).toEqual(["b", "a", "c"]);
+    expect(merged).toEqual({ b: 1, a: 4, c: 3 });
+  });
+
+  it("keeps everything when the source failed and starts empty without a previous file", () => {
+    expect(keepUnservedHeroes({ a: 1 }, {})).toEqual({ merged: { a: 1 }, kept: ["a"] });
+    expect(keepUnservedHeroes(undefined, { a: 1 })).toEqual({ merged: { a: 1 }, kept: [] });
+  });
+});
 
 const point = (date, winRate) => ({ date, winRate, banRate: winRate / 10, pickRate: winRate / 100 });
 /** `n` consecutive days from `start`, the rate rising by 0.1 point per day. */

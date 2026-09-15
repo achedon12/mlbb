@@ -86,8 +86,20 @@ describe("announced season ends", () => {
     expect(nextEndSeason(ends, t("2026-09-11T00:00:00Z"))).toBeNull();
   });
 
-  it("finds the season 31 announcement in the synced notes", () => {
-    const ends = endsOfSeason(Object.values(patchDetails));
-    expect(ends.some((f) => f.season === 31)).toBe(true);
+  // The synced notes only keep the latest patches in detail, so an announcement
+  // leaves the data once its patch is old enough: the real wording is frozen
+  // here (patch 1.8.66, "Ranked" section) instead of being read from the data.
+  it("finds a season end in the wording of a real patch note", () => {
+    const html =
+      '<h3 id="ranked"><span></span><span>[Ranked]</span></h3>\n<ol><li>S31 will end at 23:59:59 on 3/15 (Server Time).</li></ol>';
+    const ends = endsOfSeason([patch("2024-03-05", html)]);
+    expect(ends.map((f) => f.season)).toEqual([31]);
+  });
+
+  it("reads the synced notes without failing", () => {
+    for (const end of endsOfSeason(Object.values(patchDetails))) {
+      expect(Number.isInteger(end.season)).toBe(true);
+      expect(Number.isFinite(end.end)).toBe(true);
+    }
   });
 });
