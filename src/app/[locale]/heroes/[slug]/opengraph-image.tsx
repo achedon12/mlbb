@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { Locale } from "@/i18n/config";
+import { notFound } from "next/navigation";
+import { isLocale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import sharp from "sharp";
 import { heroesBySlug, illustrations } from "@/lib/data";
@@ -34,10 +35,13 @@ const COLOR_TIER: Record<string, string> = {
  * Share image of a hero page: portrait, tier and win rate. A shared
  * link shows the hero, rather than the site's generic card.
  */
-export default async function Image({ params }: { params: Promise<{ locale: Locale; slug: string }> }) {
+export default async function Image({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale, slug } = await params;
-  const t = createT(locale);
   const h = heroesBySlug.get(slug);
+  // Rendered on demand and outside the proxy (its address is excluded from
+  // it): an unknown hero or language must not become a cached card.
+  if (!h || !isLocale(locale)) notFound();
+  const t = createT(locale);
   const rate = rateBySlug.get(slug);
 
   // The original skin's illustration, or else the portrait, read from disk

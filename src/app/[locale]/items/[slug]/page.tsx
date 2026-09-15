@@ -24,10 +24,14 @@ import { cn } from "@/lib/utils";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** One page per item, generated at build time; any other address is a 404. */
-export const dynamicParams = false;
+/**
+ * One page per item, rendered on its first request then cached until the next
+ * deploy: a hundred items in every language are a long tail not worth the
+ * build time. Any other address is still a 404 (`sheet` finds no item).
+ */
+export const dynamicParams = true;
 export function generateStaticParams() {
-  return itemsFor("en").map((o) => ({ slug: o.slug }));
+  return [];
 }
 
 const images = visuals.items as Record<string, string>;

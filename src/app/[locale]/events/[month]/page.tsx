@@ -17,11 +17,20 @@ import { serializeJsonLd } from "@/lib/html";
 
 type Params = { params: Promise<{ locale: Locale; month: string }> };
 
-export const dynamicParams = false;
+/**
+ * Only months with at least one skin get a page. The build renders the months
+ * people look for — the last past month, the current one and the announced
+ * ones —; the archive, ten years of months in every language, is rendered on
+ * its first request then cached until the next deploy. A month without a page
+ * still falls on the 404 (`monthByKey`).
+ */
+export const dynamicParams = true;
 
-/** Only months with at least one skin get a page. */
 export function generateStaticParams() {
-  return monthKeys().map((month) => ({ month }));
+  const keys = [...monthKeys()].sort();
+  const firstRecent = keys.findIndex((month) => monthStatus(month, referenceDate) !== "past");
+  const start = firstRecent === -1 ? keys.length - 1 : Math.max(0, firstRecent - 1);
+  return keys.slice(start).map((month) => ({ month }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

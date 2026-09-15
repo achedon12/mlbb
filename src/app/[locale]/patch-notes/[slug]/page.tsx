@@ -10,7 +10,7 @@ import { HeroPatch } from "@/components/hero-patch";
 import { PatchToc } from "@/components/patch-toc";
 import { heroesBySlug, illustrations, patchDetails, detailedPatches } from "@/lib/data";
 import { article, articles, toHtml } from "@/lib/content";
-import { countAdjustments, longDate, listNames } from "@/lib/freshness";
+import { countAdjustments, longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { site } from "@/lib/site";
 import type { DetailedPatch } from "@/lib/types";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -38,17 +38,29 @@ function titlePatch(locale: Locale, patch: DetailedPatch): string {
  * designated by their version number, and the written analyses, designated
  * by their slug. The two cannot collide — a version
  * number is never an article slug.
+ *
+ * The build renders the current patch and the analyses (read from `content/`);
+ * older patches are rendered on their first request then cached until the
+ * next deploy. An unknown slug still falls on the 404.
  */
+export const dynamicParams = true;
+
 export function generateStaticParams() {
   return [
-    ...Object.keys(patches).map((version) => ({ slug: version })),
+    ...Object.keys(patches)
+      .filter((version) => patches[version] === patchCurrent)
+      .map((version) => ({ slug: version })),
     ...articles("patch-notes").map((a) => ({ slug: a.slug })),
   ];
 }
 
+/** The patch a slug designates; own keys only, so "constructor" is not a patch. */
+const patchOf = (list: Record<string, DetailedPatch>, slug: string): DetailedPatch | undefined =>
+  Object.hasOwn(list, slug) ? list[slug] : undefined;
+
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale, slug } = await params;
-  const patch = patches[slug];
+  const patch = patchOf(patches, slug);
 
   if (patch) {
     const t = createT(locale);
@@ -87,7 +99,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function PatchPage({ params }: Params) {
   const { locale, slug } = await params;
-  const patch = detailedPatches(locale)[slug];
+  const patch = patchOf(detailedPatches(locale), slug);
   const t = createT(locale);
 
   // ── Official notes taken from the wiki ────────────────────────────────

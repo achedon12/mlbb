@@ -34,8 +34,15 @@ type Params = { params: Promise<{ locale: Locale; version: string }> };
 const PATH = "/patch-notes/advance-server";
 const CATEGORY_ORDER: AdvanceCategory[] = ["items", "emblems", "spells", "system"];
 
+/**
+ * The build renders the newest version, the one under test; the older ones are
+ * rendered on their first request then cached until the next deploy. An
+ * unknown version still falls on the 404 (`advanceVersion`).
+ */
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return advanceVersionNumbers.map((version) => ({ version }));
+  return advanceVersionNumbers.slice(0, 1).map((version) => ({ version }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {

@@ -27,7 +27,7 @@ import {
   type AggregatedCounter,
   type ReasonItem,
 } from "@/lib/counters";
-import { buildsPlayed, teammates, counters, allHeroes, heroesBySlug, itemsFor, type CounterFigure } from "@/lib/data";
+import { buildsPlayed, teammates, counters, heroesBySlug, itemsFor, type CounterFigure } from "@/lib/data";
 import { durationOf, type BucketDuration } from "@/lib/evolution";
 import { longDate, dateMeasure, patchCurrent, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
@@ -57,11 +57,17 @@ interface Relation {
 const relations = statistics.relations as unknown as Record<string, Relation>;
 const iconsItems = (visuals as unknown as { items: Record<string, string> }).items;
 
-/** One page per hero; an unknown slug falls on the 404. */
-export const dynamicParams = false;
+/**
+ * One page per hero, rendered on its first request rather than at build time:
+ * three sub-pages per hero in every language would weigh more than a gigabyte
+ * of build output. The page is then served from the cache until the next
+ * deploy (data only changes through one); an unknown slug still falls on the
+ * 404 (`notFound` below).
+ */
+export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return allHeroes.map((h) => ({ slug: h.slug }));
+  return [];
 }
 
 const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;

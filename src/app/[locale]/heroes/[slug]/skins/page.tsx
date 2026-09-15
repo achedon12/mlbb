@@ -23,11 +23,15 @@ import type { Hero } from "@/lib/types";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-export const dynamicParams = false;
+/**
+ * One gallery per hero that has at least one skin or illustration, rendered on
+ * its first request then cached until the next deploy, like the counters page.
+ * An unknown slug, or a hero without any skin, still falls on the 404.
+ */
+export const dynamicParams = true;
 
-/** One gallery per hero that has at least one skin or illustration. */
 export function generateStaticParams() {
-  return heroesWithSkins.map((h) => ({ slug: h.slug }));
+  return [];
 }
 
 /** Machine-readable date: day, month or year ("201X" is not one). */

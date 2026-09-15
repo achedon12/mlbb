@@ -33,11 +33,14 @@ import { cn } from "@/lib/utils";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
 
-/** One page per hero; an unknown slug falls on the 404. */
-export const dynamicParams = false;
+/**
+ * One page per hero, rendered on its first request then cached until the next
+ * deploy, like the counters page; an unknown slug still falls on the 404.
+ */
+export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return allHeroes.map((h) => ({ slug: h.slug }));
+  return [];
 }
 
 const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;

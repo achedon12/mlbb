@@ -10,6 +10,10 @@ import { catalogSkins } from "@/lib/skin-catalog-server";
  * one embeds the thousand skins in its page.
  */
 export const dynamic = "force-static";
+// One file per language, all generated at build time: any other language is
+// a 404, not an index built on demand for a made-up locale (the dotted address
+// bypasses the proxy, which would otherwise reject it).
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));

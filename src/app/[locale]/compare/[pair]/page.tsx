@@ -35,10 +35,11 @@ type Params = { params: Promise<{ locale: Locale; pair: string }> };
 
 // Nearly 3,000 pairs in four languages: generating them at build time would add
 // gigabytes for pages visited one at a time. Each one is rendered on its
-// first request, then served from the cache for a day; an unmeasured pair
-// or one in reverse order still falls on the 404 (`resolve`).
+// first request, then served from the cache until the next deploy (the data
+// only changes through one, so a timed revalidation would re-render identical
+// pages); an unmeasured pair or one in reverse order still falls on the 404
+// (`resolve`).
 export const dynamicParams = true;
-export const revalidate = 86400;
 
 export function generateStaticParams() {
   return [];

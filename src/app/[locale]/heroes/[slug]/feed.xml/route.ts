@@ -1,6 +1,6 @@
-import { LOCALES, LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_HTML, isLocale, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
-import { allHeroes, heroesBySlug } from "@/lib/data";
+import { heroesBySlug } from "@/lib/data";
 import { site, absoluteUrl } from "@/lib/site";
 import { adjustmentsOf } from "@/lib/patch-tracking";
 import type { HeroAdjustment } from "@/lib/types";
@@ -10,12 +10,17 @@ import type { HeroAdjustment } from "@/lib/types";
  * being told when your hero changes, without watching the patch notes.
  * One static file per hero and per language; only the labels change
  * from one language to another, the change details coming from the wiki.
+ *
+ * Each feed is generated on its first request then cached until the next
+ * deploy, rather than one file per hero and per language at build time. The
+ * address carries a dot, so the proxy does not check the language: the
+ * handler does, like the hero.
  */
 export const dynamic = "force-static";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return LOCALES.flatMap((locale) => allHeroes.map((h) => ({ locale, slug: h.slug })));
+  return [];
 }
 
 function escape(text: string): string {
@@ -48,9 +53,9 @@ function detail(a: HeroAdjustment): string {
 
 export async function GET(_request: Request, { params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale: raw, slug } = await params;
-  const locale = raw as Locale;
   const h = heroesBySlug.get(slug);
-  if (!h) return new Response("Not found", { status: 404 });
+  if (!h || !isLocale(raw)) return new Response("Not found", { status: 404 });
+  const locale: Locale = raw;
 
   const t = createT(locale);
   const entries = adjustmentsOf(slug);
