@@ -1,0 +1,1007 @@
+[
+  {
+    "name": "Classic",
+    "slug": "classic",
+    "description": "Mode Classic merupakan mode permainan pertama dan tertua di Mobile Legends. Semua mode permainan lainnya menggunakan aturan Klasik sebagai dasarnya. Mode ini menawarkan pengalaman 5v5 dan Mobile Legends tanpa takut kehilangan peringkat, namun tingkat kemenanganmu akan terpengaruh, baik dari sisi hero maupun secara keseluruhan.​​​​ Mode klasik cocok untuk pemula yang perlu membiasakan diri dengan permainan Mobile Legends. Anda dapat dengan bebas memilih hero apa pun yang Anda miliki, serta hero mingguan gratis dan kartu uji coba apa pun yang Anda miliki. Namun, Anda tidak boleh memiliki lebih dari satu hero di tim Anda. Anda juga dapat memilih hero yang Anda suka, karena tidak ada larangan hero seperti mode Peringkat.",
+    "sections": [
+      {
+        "title": "Tujuan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Seperti semua game MOBA, tujuan utamanya adalah menghancurkan markas musuh. Ini mengharuskan Anda untuk mempertahankan menara dan markas Anda serta menghancurkan menara dan markas mereka. Setiap turret di lane tertentu harus dihancurkan secara berurutan agar minion Anda dapat mencapai base. Ada cara menghancurkan turret dengan menggunakan minion/creep untuk menerima damage dari peluru turret. Setelah menghancurkan turret, kamu akan dapat merusak/menghancurkan markas musuh. Menghancurkan turret terakhir dalam suatu lane akan memberikan minion super yang memberikan damage tinggi pada hero dan membersihkan lane lebih cepat. Terkadang pemain terpaksa melakukan kill terhadap hero musuh alih-alih berfokus pada minion dan turret musuh. Lebih banyak pembunuhan mungkin membuat mereka mendapatkan MVP dan farming, tetapi menghancurkan turret, mengakses markas musuh, dan menghancurkannya adalah tujuan utama."
+          }
+        ]
+      },
+      {
+        "title": "Fitur",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Celestial Palace/Western Expanse — Bidang yang terinspirasi oleh peta versi Defense of the Ancients: Allstars (disingkat DOTA), dengan beberapa fitur dan mekanisme yang diubah. Permainan ini terdiri dari lima hero dari masing-masing tim, yang kemudian ditempatkan di sebuah arena dengan tujuan menghancurkan penghambat dasar semua orang, sehingga menghasilkan kemenangan. Biasanya waktu yang dibutuhkan untuk menyelesaikan sebagian besar permainan adalah sekitar 10-15 menit, namun beberapa permainan dapat bertahan lebih dari 30 menit."
+          },
+          {
+            "type": "li",
+            "text": "Medan perang dibagi menjadi tiga lane untuk berjuang menuju markas musuh."
+          },
+          {
+            "type": "li",
+            "text": "Hutan yang dihuni monster hutan memberikan buff penyembuhan, buff peran, dan buff emas saat dikalahkan. Ada juga Boss Monster yang memberikan emas untuk seluruh tim Anda atau Lord yang bertarung bersama Anda."
+          },
+          {
+            "type": "li",
+            "text": "Gold Lane juga dapat diambil oleh Tank yang bergerak agar tim dapat dengan cepat mendapatkan item untuk mendukung tim."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/classic.webp"
+  },
+  {
+    "name": "Ranked",
+    "slug": "ranked",
+    "description": "Peringkat adalah mode permainan antrian yang kompetitif. Pemain mendapat atau kehilangan bintang jika menang atau kalah dalam mode ini. Warrior, Elite, Master, Grandmaster, Epic, Legend dan Mythic (Mythical Honor, Mythical Glory dan Mythical Immortal) merupakan ketujuh jajaran Mobile Legends: Bang Bang.",
+    "sections": [
+      {
+        "title": "Aturan koneksi",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pemain dapat memilih tiga hero untuk ditampilkan di lobi dan fase draft. Hero-hero ini wajib dimainkan minimal satu kali berturut-turut."
+          },
+          {
+            "type": "p",
+            "text": "Pemain dapat bermain solo atau membentuk tim yang terdiri dari dua, tiga, atau lima pemain untuk mengantri. Pemain dapat mengundang pemain lain dengan peringkat lebih tinggi atau lebih rendah dari mereka ke lobi. Sebuah tim yang terdiri dari empat orang tidak diperbolehkan."
+          },
+          {
+            "type": "p",
+            "text": "Ketika sebuah tim dengan pemain dengan peringkat berbeda mengantri, itu disebut Flex Rank, dan mereka hanya akan mengantri pertandingan orang dengan peringkat tertinggi."
+          },
+          {
+            "type": "p",
+            "text": "Contoh:"
+          },
+          {
+            "type": "li",
+            "text": "Pemain Mythic bekerja sama dengan pemain Epic, keduanya akan mengikuti rancangan aturan pemain Mythic."
+          },
+          {
+            "type": "li",
+            "text": "Pemain Mythic Glory bekerja sama dengan pemain Grandmaster dan pemain Legend, semuanya akan mengikuti aturan draft pemain Mythic, meskipun Draft Pick biasanya tidak tersedia untuk pemain di bawah peringkat Epic."
+          },
+          {
+            "type": "p",
+            "text": "Namun, pemain dalam antrean solo mungkin menemukan dirinya dijodohkan dengan sekutu yang berperingkat lebih tinggi atau lebih rendah, hal ini dapat dipicu oleh hal berikut:"
+          },
+          {
+            "type": "li",
+            "text": "Sekutu bermain sebagai tim saat Anda bermain solo. Di antara sekutu tim tersebut setidaknya ada satu pemain dengan peringkat yang sama dengan Anda."
+          },
+          {
+            "type": "li",
+            "text": "Contoh: Seorang pemain Epic bekerja sama dengan pemain Legend dan Anda, seorang pemain Epic, dapat bertemu dengan mereka."
+          },
+          {
+            "type": "li",
+            "text": "Semua pemain bermain solo, tetapi tim musuh memiliki seseorang dengan peringkat yang mirip dengan Anda."
+          },
+          {
+            "type": "li",
+            "text": "Contoh: Rank kamu Legend, tapi 4 rekan satu tim kamu Mythic. Jadi setidaknya salah satu musuhnya adalah Legend."
+          },
+          {
+            "type": "li",
+            "text": "Jika fenomena ini terjadi, kemungkinan hanya ada satu anggota tim saja yang berada di rank berbeda."
+          },
+          {
+            "type": "li",
+            "text": "Contoh: Tim kamu mempunyai 4 pemain di rank Legend dan 1 pemain di rank Mythic, artinya tim musuh boleh mempunyai 1-4 pemain di rank Mythic, namun harus ada yang di rank Epic."
+          },
+          {
+            "type": "li",
+            "text": "Berkat mekanisme Flex Rank ini, bahkan pemain solo dari Legend I dapat antri dengan sekutu dari Epic V, karena mereka hanya berbeda peringkat, tetapi jaraknya sangat berbeda, sehingga mengarah ke sistem gelap yang dianggap luas."
+          },
+          {
+            "type": "p",
+            "text": "Opsi perjodohan cepat akan ditawarkan jika antrian terlalu panjang, opsi ini akan mencocokkan Anda bahkan dengan pemain yang Anda blokir sebelumnya."
+          },
+          {
+            "type": "p",
+            "text": "Jika pemain yang Anda blokir bekerja sama dengan seseorang yang tidak Anda blokir, Anda masih dapat mengantri bersama mereka selama pertandingan."
+          }
+        ]
+      },
+      {
+        "title": "Pilihan draft",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Saat pemain mencapai Epic V atau lebih tinggi (Grandmaster V atau lebih tinggi di Advanced Server), Draft Pick akan tersedia untuk pertandingan berikutnya. Berbeda dengan Blind Pick, Draft Pick memungkinkan kedua tim untuk melihat hero mereka selama pemilihan, dan mengizinkan hingga 10 hero yang dilarang (3/4/5 ban di Epic/Legend/Mythic) untuk setiap tim untuk tujuan penyeimbangan. Hero yang sudah dipilih atau dilarang tidak dapat dipilih selama pertandingan berlangsung."
+          }
+        ]
+      },
+      {
+        "title": "Sistem peringkat",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ada tujuh rank di Mobile Legends: Bang Bang. Mereka adalah: Prajurit, Elit, Master, Grandmaster, Epik, Legendaris, dan Mitos."
+          },
+          {
+            "type": "p",
+            "text": "Setiap peringkat memiliki divisi yang ditulis dalam angka Romawi dan sejumlah bintang tertentu yang diperlukan untuk dipromosikan ke divisi atau peringkat berikutnya. Jika seorang pemain melebihi jumlah maksimum bintang di divisinya saat ini atau turun di bawah nol bintang, mereka dapat pindah ke divisi berikutnya atau kembali ke divisi sebelumnya. Menyelesaikan semua divisi dari peringkatnya saat ini atau diturunkan dari semua divisi akan mengakibatkan promosi ke peringkat berikutnya atau penurunan ke peringkat sebelumnya."
+          },
+          {
+            "type": "p",
+            "text": "Di Mythic, bintang telah diganti dengan poin untuk maju ke divisi berikutnya."
+          }
+        ]
+      },
+      {
+        "title": "Poin Peningkatan Bintang dan Perlindungan Bintang",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ada banyak metode untuk meningkatkan atau mencegah hilangnya bintang, yang mengarah pada ketinggian bintang dan titik perlindungan."
+          },
+          {
+            "type": "p",
+            "text": "Star Raising memungkinkan pemain mendapatkan bintang tambahan ketika pemain mencapai 100% Star Raising Points pada kemenangan berikutnya. 100/200/300/500/700/1000 poin diperlukan di Warrior / Elite / Master / Grandmaster / Epic / Legend. Poin bonus peningkatan bintang tidak dapat diakumulasikan di peringkat Mythic."
+          },
+          {
+            "type": "p",
+            "text": "Star Protection memungkinkan pemain menghindari kehilangan bintang dalam pertandingan dengan mencapai 100% poin Star Protection atau menggunakan kartu Star Protection. 100/200/300/500/700/1000/1500 poin diperlukan di Warrior / Elite / Master / Grandmaster / Epic / Legend / Mythic."
+          },
+          {
+            "type": "p",
+            "text": "Kartu Perlindungan Bintang biasanya diperoleh melalui acara dalam game atau melalui Hadiah Cahaya Bintang. Biasanya hanya bertahan 7 hari setelah diperoleh atau diklaim di halaman acara."
+          },
+          {
+            "type": "p",
+            "text": "Kartu perlindungan peringkat adalah kartu yang mencegah Anda dari penurunan pangkat setelah Anda mencapai peringkat sebelumnya. Seringkali diperoleh setelah mencapai peringkat yang lebih tinggi: dari Epic ke Legend, dari Legend ke Mythic."
+          },
+          {
+            "type": "p",
+            "text": "Hanya Poin Perlindungan Bintang yang tersedia di Mythic, karena Poin Perolehan Bintang dinonaktifkan."
+          }
+        ]
+      },
+      {
+        "title": "Kartu Perlindungan Pangkat",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Kartu perlindungan peringkat hanya dapat diperoleh dari hadiah promosi peringkat. Berbeda dengan poin/kartu perlindungan bintang, kartu ini hanya aktif pada kekalahan yang mengakibatkan pemain diturunkan (misalnya, kekalahan mengakibatkan hilangnya bintang dari bintang Legend V 0 menjadi bintang Epic I 4, turun dari peringkat Legend ke peringkat Epic)."
+          }
+        ]
+      },
+      {
+        "title": "Reset peringkat",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Setelah musim berakhir, semua pemain akan memulai musim baru dengan peringkat baru berdasarkan peringkat musim sebelumnya. Mereka juga menerima imbalan jika mencapai peringkat tertentu."
+          },
+          {
+            "type": "p",
+            "text": "Reset peringkat hanya diterapkan ketika pemain login pertama kali di musim baru, tetapi peringkat lamanya tidak disimpan di papan peringkat."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/ranked.webp"
+  },
+  {
+    "name": "Brawl",
+    "slug": "brawl",
+    "description": "Brawl adalah mode permainan di mana Anda tidak dapat dengan bebas memilih hero Anda. Sebaliknya, setiap pemain akan memiliki dua hero acak untuk dipilih. Pertarungan dalam mode ini hanya berlangsung di satu lane dengan dua menara yang masing-masing mempertahankan markas di kedua tim. Pertandingan tawuran umumnya berakhir dalam waktu yang jauh lebih singkat dibandingkan Mode Klasik dan Mode Peringkat. Jenis pertandingan ini lebih disukai untuk meningkatkan skor kredit yang hilang atau menyelesaikan tugas.",
+    "sections": [
+      {
+        "title": "Fitur utama",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Setiap pemain memiliki pilihan antara 2 hero acak."
+          },
+          {
+            "type": "li",
+            "text": "Pemain hanya dapat membeli item setelah mereka mati atau sebelum meninggalkan area altar setiap kali mereka respawn."
+          },
+          {
+            "type": "li",
+            "text": "Altar tidak lagi menyembuhkan atau meregenerasi mana. Semua efek penyembuhan berkurang setengahnya. Basis tidak lagi restock."
+          },
+          {
+            "type": "li",
+            "text": "Setiap hero dapat memiliki tambahan buff atau handicap."
+          }
+        ]
+      },
+      {
+        "title": "Keberangkatan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pemain dapat mengobrol selama tahap seleksi."
+          },
+          {
+            "type": "p",
+            "text": "Semua pemain mulai dari level 4 dan menerima 2.500 emas awal untuk membeli item. Begitu mereka meninggalkan markas, mereka harus mati agar bisa membeli item lagi."
+          }
+        ]
+      },
+      {
+        "title": "Mesin terbang Penyembuhan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Hero yang jarang mati dalam pertempuran akan menjatuhkan mesin terbang penyembuhan. (Menyembuhkan Max HP dan Mana.)"
+          }
+        ]
+      },
+      {
+        "title": "Menara",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Turret di Brawl berperilaku sama seperti di game klasik. Namun menaranya lebih lemah dan tidak memiliki perisai emas."
+          },
+          {
+            "type": "p",
+            "text": "Menara kedua di setiap sisi melepaskan gelombang yang membunuh semua minion ketika dihancurkan."
+          }
+        ]
+      },
+      {
+        "title": "minion",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Gold dan exp yang diperoleh dari minion lebih tinggi dibandingkan mode klasik."
+          },
+          {
+            "type": "p",
+            "text": "Setelah 12 menit, Super Minion dikerahkan untuk menghindari permainan panjang."
+          }
+        ]
+      },
+      {
+        "title": "Kepiting",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ada dua kepiting di sisi berlawanan jalan yang muncul pada 0:30 dan muncul kembali 30 detik setelah mati. Membunuh Kepiting Beku akan memulihkan sejumlah kecil kesehatan, memberikan emas dan perisai kecil. Sekutu terdekat yang membantu kepiting juga menerima emas. Kepiting ini dapat digunakan sebagai batu loncatan bagi hero seperti Lancelot, Joy, atau Natalia, berinteraksi dengan hero tertentu seperti Vexana, Benedetta, atau Yi Sun-shin, atau mengecek apakah musuh berada di semak terdekat, atau bunuh diri untuk membeli item saat healthnya terlalu rendah."
+          }
+        ]
+      },
+      {
+        "title": "Rune penyembuhan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ada dua rune penyembuhan di sisi berlawanan jalan yang muncul pada 0:30 dan muncul kembali 35 detik setelah dikumpulkan. Pengatur waktu dan efek suara terlihat dan terdengar oleh semua orang. Rune terus menyembuhkan picker selama penundaan 5 detik, lalu memulihkan sejumlah kesehatan dan hingga 40% mana ke semua hero sekutu dalam jangkauan. Jika orang yang memulihkan meninggal selama penundaan, penyembuhannya dibatalkan."
+          }
+        ]
+      },
+      {
+        "title": "Barel",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ada barel di setiap sisi yang muncul pada 0:20 dan setiap 30 detik setelah diambil. Pilih laras ini dan tembak musuh untuk mengejutkan mereka!"
+          },
+          {
+            "type": "p",
+            "text": "Laras tersebut membuat penggunanya tidak dapat ditargetkan dalam waktu singkat, menimbulkan damage nyata, dan memiliki cooldown 15 detik, sehingga mustahil untuk mengeluarkan dua barel sekaligus. Saat seseorang mengambil tong, terdengar suara yang dapat didengar oleh semua orang di peta."
+          },
+          {
+            "type": "p",
+            "text": "Barrel juga dinonaktifkan oleh efek root."
+          },
+          {
+            "type": "p",
+            "text": "Diggie yang sudah mati atau hero yang tidak dapat ditarget dapat mengumpulkan laras tersebut."
+          }
+        ]
+      },
+      {
+        "title": "Penjaruman",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Berbeda dengan mode Klasik atau Peringkat, tidak ada batasan peringkat di Brawl. Ini berarti Anda dapat mengantri pertandingan di mana satu sisi adalah antrian solo yang beranggotakan 5 orang sementara yang lain adalah tim yang terdiri dari 5 orang, atau satu sisi adalah Mythic Immortal yang beranggotakan 5 orang sementara yang lain adalah seseorang yang baru saja mengunduh game tersebut."
+          },
+          {
+            "type": "p",
+            "text": "Menjadi AFK, menghindari perkelahian tim atau pelecehan verbal sepenuhnya dapat dihukum melalui pelaporan."
+          }
+        ]
+      },
+      {
+        "title": "Tip dan trik",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Komposisi tim yang direkomendasikan"
+          },
+          {
+            "type": "p",
+            "text": "Ada banyak hero yang bisa dipilih dengan gaya bermain yang berbeda-beda. Mengetahui skill, kekuatan, dan kelemahan para hero serta posisi optimal mereka sangatlah penting. Prioritaskan Assassin, Mage, atau Fighter karena mereka memberikan damage yang besar dan mengontrol crowd. Hindari Marksman karena mereka bergantung pada item dan rapuh pada awalnya, kecuali mereka memiliki kemampuan membersihkan minion dan efek area yang baik seperti Beatrix atau Granger. Hindari tim yang memiliki terlalu banyak Mage, terlalu banyak Sniper, atau terlalu banyak Tank."
+          },
+          {
+            "type": "li",
+            "text": "Battle Spell yang Direkomendasikan"
+          },
+          {
+            "type": "li",
+            "text": "Flameshot memiliki cooldown yang sangat rendah dan dapat digunakan untuk memeriksa semak, mengamankan pembunuhan, atau meniadakan kemampuan."
+          },
+          {
+            "type": "li",
+            "text": "Setidaknya satu pemain harus membawa yang berikut ini:"
+          },
+          {
+            "type": "li",
+            "text": "Lakukan revitalisasi agar tim mereka dapat bertahan setelah pertarungan karena altar tidak lagi dapat menyembuhkan, terutama ketika tim Anda berada dalam posisi yang buruk dan tidak dapat mengamankan rune penyembuhan; Dan"
+          },
+          {
+            "type": "li",
+            "text": "Purify jika hero kamu memiliki damage yang bagus namun rentan terhadap crowd control (CC)."
+          },
+          {
+            "type": "li",
+            "text": "Namun, Sprint sangat tidak disarankan."
+          },
+          {
+            "type": "li",
+            "text": "Nikmati keramaiannya"
+          },
+          {
+            "type": "p",
+            "text": "Kartu unik Brawl dapat memberikan buff secara besar-besaran pada hero seperti Luo Yi, Odette, Lancelot, Xavier, Fanny, sedangkan hero yang terlalu mengandalkan serangan dasar seperti Freya atau Thamuz menjadi tidak berguna."
+          },
+          {
+            "type": "p",
+            "text": "Demikian pula, Anda harus menghindari berdekatan satu sama lain saat musuhnya adalah Atlas atau Tigreal."
+          },
+          {
+            "type": "li",
+            "text": "Belilah barang yang benar"
+          },
+          {
+            "type": "p",
+            "text": "Daripada membeli barang yang layak, membeli komponen yang lebih kecil mungkin memberikan keuntungan yang lebih baik. Anda juga dapat menunggu beberapa detik dan mengirim pesan ke sekutu Anda bahwa emas Anda hampir cukup untuk membeli item.j"
+          },
+          {
+            "type": "p",
+            "text": "Daripada menyerbu tim beranggotakan 5 orang dengan Sky Piercer penuh, item pengurang penyembuhan bisa sangat melawan tim musuh."
+          },
+          {
+            "type": "li",
+            "text": "Tersembunyi di semak-semak"
+          },
+          {
+            "type": "p",
+            "text": "Manfaatkan semak-semak untuk menyergap musuh, terutama cocok untuk hero seperti Helcurt, Hilda, Natalia, Luo Yi. Hati-hati jika musuh mempunyai hero seperti itu."
+          },
+          {
+            "type": "li",
+            "text": "Putar ulang pemilihan hero"
+          },
+          {
+            "type": "p",
+            "text": "Pada awalnya, pemain akan memiliki pilihan antara 2 hero. Jika tidak ada hero yang benar-benar cocok untuk Anda, Anda melempar dadu untuk mendapatkan hero baru dan mengirimkan hero Anda yang dibuang ke cadangan untuk diambil hero lainnya. Terkadang hanya satu hero yang dibuang sudah cukup untuk ditukar semua orang. Anda dapat mengobrol dan bertanya kepada pemain lain atau menggunakan obrolan cepat dan emote. Ingatlah bahwa jika hero dibuang dua kali dan menghilang dari pilihan semua orang, dia mungkin muncul kembali jika Anda menggunakan dadu lain, yang akan membuang dadu Anda. Hingga 10 hero dapat muncul di lokasi yang ditinggalkan."
+          },
+          {
+            "type": "p",
+            "text": "Beberapa hero memang sulit untuk kamu mainkan, namun bukan berarti menyulitkan sekutumu, tukarlah mereka dan hindari mengumpulkan dua hero yang bagus sementara sekutumu tidak memilikinya."
+          },
+          {
+            "type": "li",
+            "text": "Daftarkan musuh"
+          },
+          {
+            "type": "p",
+            "text": "Karena hanya ada satu lane, lebih mudah menebak pergerakan lawan dan menempatkan hero Anda pada posisi terbaik untuk bertahan atau menyerang."
+          },
+          {
+            "type": "p",
+            "text": "Jika tim musuh memiliki Xavier, Novaria, kemungkinan besar Anda akan terkena damage atau terungkap dengan membeli item dari altar atau mencapai medan perang."
+          },
+          {
+            "type": "p",
+            "text": "Anda dapat memeriksa item musuh untuk melihat apakah mereka telah meninggalkan altarnya atau belum."
+          },
+          {
+            "type": "li",
+            "text": "Gunakan benda-benda alami"
+          },
+          {
+            "type": "p",
+            "text": "Anda dapat menyimpan barel untuk melarikan diri setelah menyelam, menyelam di menara, atau menggunakannya untuk memperpendek jarak dengan Flicker. Barel pertama kali muncul pada 20 detik, sedangkan rune penyembuhan pertama bertahan selama 30 detik. Yang terbaik adalah mengamankan semak di sebelah kanan dan mesin terbang di dekatnya, sehingga tim Anda setidaknya dapat mematikan opsi penyembuhan setelah musuh bertarung. Gunakan laras untuk menghentikan musuh ketika mereka mencoba mengamankan rune penyembuhan."
+          }
+        ]
+      },
+      {
+        "title": "Battle Spell",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Semua hero menerima Flicker secara default bersama dengan Battle Spell lain yang dipilih."
+          },
+          {
+            "type": "p",
+            "text": "Semua Battle Spell dimulai pada 50% dari cooldown normalnya."
+          }
+        ]
+      },
+      {
+        "title": "Spesifikasi Hero",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Karena beberapa hero akan menjadi terlalu kuat atau terlalu dirugikan dalam Brawl, buff atau handicap tertentu ditambahkan ke hero tertentu sebagai berikut:"
+          },
+          {
+            "type": "p",
+            "text": "Versi terbaru: v350.1 {|class=\"article-table\" !Hero!!Perubahan status!!Perubahan individu"
+          },
+          {
+            "type": "p",
+            "text": "Keuntungan pasif: 10/4"
+          },
+          {
+            "type": "p",
+            "text": "Ada empat pintu untuk Chip, masing-masing sisi memiliki satu di dekat pangkalan, sementara dua lainnya berada di kedua sisi semak-semak yang berlawanan."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/brawl.webp"
+  },
+  {
+    "name": "Vs. AI",
+    "slug": "vs-ai",
+    "description": "Mode \"Vs A.I\" di Mobile Legends: Bang Bang diperkenalkan menjelang akhir tahun 2017, tak lama setelah game tersebut dirilis secara global. Awalnya hanya menampilkan tingkat kesulitan mudah dan normal, mode ini mengalami peningkatan yang signifikan, termasuk mode sulit yang ditambahkan selama Project Next pada tahun 2020 dan AI yang dimodernisasi dan menantang. metode pelatihan diterbitkan sekitar November 2023.",
+    "sections": [
+      {
+        "title": "Mekanis",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ada tiga mode permainan yang bisa kamu pilih di mode ini: Classic, Brawl, dan Draft Pick."
+          }
+        ]
+      },
+      {
+        "title": "Tingkat kesulitan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ada juga tiga tingkat kesulitan: AI: Sederhana, AI: Normal, dan AI: Keras."
+          },
+          {
+            "type": "li",
+            "text": "AI:Easy memiliki AI yang sangat sederhana, ideal untuk melatih hero yang baru saja Anda buka atau belum Anda kenal."
+          },
+          {
+            "type": "li",
+            "text": "AI: Normal memiliki lawan AI yang sedikit lebih maju yang terkadang dapat menimbulkan ancaman saat bertani, gunakan skill mereka dengan hati-hati. Tingkat kesulitan ini sedikit lebih kompleks daripada AI: sederhana dan merupakan pilihan yang jauh lebih baik untuk melatih hero dalam pertarungan nyaris nyata."
+          },
+          {
+            "type": "li",
+            "text": "AI:Hard memiliki lawan AI tingkat lanjut yang tahu kapan harus menggunakan Battle Spellnya dan mengatur waktu skillnya dengan tepat untuk membunuh lawannya. Mereka juga menyerang turret dengan benar, tidak seperti biasanya dan simple dimana mereka mati dengan sengaja, mereka juga tahu cara makro dan melacak timnya, dan benar-benar tahu cara melarikan diri, disarankan untuk menggunakan hero utama."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/vs-ai.webp"
+  },
+  {
+    "name": "Custom",
+    "slug": "custom",
+    "description": "Game khusus sangat mirip dengan Vs. AI. Bedanya, pemain diadu dengan orang lain atau AI. Pemain dapat mengundang teman untuk bergabung dalam permainan atau menambahkan AI dengan tombol yang ada. Pemain juga bisa menambahkan AI ke tim lawan atau tim kalian, kalian juga bisa bermain sendiri dengan AI.",
+    "sections": [
+      {
+        "title": "Catatan",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Mode kustom tidak akan memengaruhi peringkat, penguasaan hero, atau penempatan Anda. Anda juga tidak akan mendapatkan BP atau EXP apa pun."
+          },
+          {
+            "type": "li",
+            "text": "Jika kalian mempunyai kartu trial dengan hero yang belum kalian miliki Draft Picknya, masih ada bug yang membuat kalian bisa menggunakan kartu trial tersebut dengan hero yang masih belum kalian miliki, maka trial card tersebut tidak akan terkonsumsi/dipakai."
+          },
+          {
+            "type": "li",
+            "text": "Kebanyakan pemain biasanya menggunakan kustomisasi untuk berkompetisi dalam 1v1 atau mengatur pertandingan khusus antara 2 tim (turnamen)."
+          }
+        ]
+      },
+      {
+        "title": "Sejarah",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Sumber: https://youtu.be/3mFb0EQrMXE?t=113"
+          },
+          {
+            "type": "p",
+            "text": "Kategori:Kategori Khusus:Mode Permainan"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/custom.webp"
+  },
+  {
+    "name": "Arcade Mode",
+    "slug": "arcade-mode",
+    "description": "Mode arcade adalah mode permainan tambahan di Mobile Legends: Bang Bang yang dapat dimainkan sewaktu-waktu selama acara khusus, hari libur, atau acara-acara tertentu. Mode ini menampilkan berbagai subgame berbasis strategi, tercantum di bawah.",
+    "sections": [
+      {
+        "title": "Aniaya",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Arkade 5v5 yang intens, cepat, dan mengasyikkan!"
+          },
+          {
+            "type": "p",
+            "text": "Dulu, game ini sebenarnya belum mempunyai nama resmi. Mode permainan ini pertama kali dirilis dan hanya Karnaval Musim Panas yang hadir dan berisi barang habis pakai untuk meningkatkan skill para hero, dengan peta yang dimodifikasi sesuai dengan Musim Panas. Selama Halloween, mode ini kembali dengan fitur yang sama seperti Karnaval Musim Panas, skill yang dimodifikasi, permen bonus, dan peta bertema Halloween. Kemudian Natal tiba dan modenya memiliki fitur yang sama; Namun, meskipun petanya diubah untuk merayakan Natal, permen tersebut tetap disimpan sebagai barang habis pakai. Dan kemudian Paskah tiba. Terakhir, mode Mayhem diperkenalkan: kali ini mode permainan tidak memiliki bahan habis pakai, tetapi memiliki skill yang dimodifikasi dan perubahan peta."
+          },
+          {
+            "type": "p",
+            "text": "Hanya ada 50 hero yang tersedia di mode ini."
+          }
+        ]
+      },
+      {
+        "title": "Cermin",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Duel hero yang sama namun menggunakan taktik yang berbeda!"
+          },
+          {
+            "type": "p",
+            "text": "Mode Mirror menggunakan map yang sama dengan mode Bruno Cup Mayhem (sebenarnya layout map, Lord dan minion memiliki tema yang sama), namun pada tahap seleksi, di setiap tim, pemain akan memilih satu dari enam hero yang dipilih secara acak. Siapa pun yang mendapat suara terbanyak akan menjadi hero yang dipilih untuk seluruh timnya. Mirip dengan mode Mayhem, pemain akan memulai dari hero level 4 dan menerima 900 emas. Seperti dalam semua mode permainan, tujuannya adalah menghancurkan markas musuh."
+          }
+        ]
+      },
+      {
+        "title": "Kelangsungan hidup",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Akankah kamu menjadi orang yang bertahan hingga akhir?"
+          },
+          {
+            "type": "p",
+            "text": "Survival mirip dengan game Battle Royale lainnya, namun dengan beberapa penyesuaian agar sesuai dengan Mobile Legends. Survival hanya bekerja dengan tim yang terdiri dari 3 pemain dalam pertarungan 99 pemain (33 tim) dan petanya tidak akan menjadi Istana Surgawi atau Hamparan Barat, seperti dalam mode permainan lainnya, melainkan akan diatur pada satu peta, Labirin Minos, yang merupakan peta yang sangat besar untuk menampung 99 pemain. Survival hanya menawarkan 15 hero yang dapat dipilih, membaginya menjadi tiga kelompok yang terdiri dari 5 orang: Fisik, Sihir, dan Pertahanan. Looting di mode game ini berbeda dengan Battle Royales: kamu harus membunuh Creep/Monster Hutan untuk membuat mereka menjatuhkan item, dan ada 4 Creep baru di mode game ini, masing-masing dengan peluang berbeda untuk menjatuhkan item untuk ketiga kategori tersebut. Untuk mempelajari lebih lanjut tentang mode permainan ini, klik teks yang disorot di atas."
+          },
+          {
+            "type": "p",
+            "text": "Masuki Eruditio dan berusahalah menjadi yang terakhir bertahan."
+          },
+          {
+            "type": "p",
+            "text": "Belakangan ini, sebuah kompetisi paling menarik, yang popularitasnya semakin meningkat dari hari ke hari, telah membuat Eruditio terguncang. Dikenal sebagai “Survival: Nexus,” acara ini menarik peserta dari seluruh Eruditio. Terminal yang nyaman memungkinkan peserta untuk mengontrol avatar virtual Beatrix hanya dengan menggunakan gelombang otak mereka, membenamkan diri dalam dunia virtual. Di sini mereka dapat berpartisipasi dalam kompetisi taktis di mana pemain terakhir yang bertahan menerima hadiah besar. Raih kesempatan Anda selagi bisa, para petualang, dan bergabunglah dengan Survival: Nexus!"
+          }
+        ]
+      },
+      {
+        "title": "Pertempuran sampai mati",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mainkan hero yang berbeda dalam satu pertandingan!"
+          },
+          {
+            "type": "p",
+            "text": "Ini adalah jenis permainan lain di Mobile Legends, seleksi sangat mirip dengan bertahan hidup di mana pemain harus memilih hero dari hero yang dipilih secara acak, baik dia memilikinya atau tidak. Secara gameplay, ketika hero mati, pemain harus memilih hero lain. Jika dua pemain telah memilih hero yang sama, mereka harus memilih yang lain. Ada dua cara untuk meraih kemenangan: menghancurkan markas musuh atau meraih 30 kemenangan di depan musuh. Pada tahun 2019, dirilis berkoordinasi dengan Festival Musim Semi. Oleh karena itu, medan perang menjadi penting."
+          }
+        ]
+      },
+      {
+        "title": "Kegilaan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Dalam mode ini, berbagai item makanan dapat ditemukan di mode tersebut. Dengan mengumpulkan item makanan yang berbeda, pemain bisa mendapatkan buff berbeda yang meningkatkan kemampuan hero mereka. Beberapa pencapaian eksklusif untuk mode Frenzy dan hanya bisa didapatkan dengan memainkan mode ini."
+          },
+          {
+            "type": "p",
+            "text": "Item makanan dapat ditemukan di tempat beberapa creep terbunuh, di mana beberapa minion khusus terbunuh, di mana hero musuh terbunuh, dan di titik perbekalan di dalam rumah dan markas musuh."
+          },
+          {
+            "type": "p",
+            "text": "Daftar produk makanan"
+          }
+        ]
+      },
+      {
+        "title": "Berkembang",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ini dirilis pada 20 April 2019."
+          },
+          {
+            "type": "p",
+            "text": "Dalam mode permainan ini, 15 pemain dijatuhkan ke dalam peta di mana mereka harus naik level dan berevolusi dengan mengumpulkan permata yang dijatuhkan monster atau muncul secara acak di peta, dengan tujuan menjadi pemain terakhir yang bertahan. Membunuh pemain musuh tidak akan melenyapkan mereka, melainkan mereka akan terkena penalti waktu respawn dan kehilangan pengalaman; namun, setelah pemain pertama mencapai level 15 dan menjadi \"Iblis\", semua kematian bersifat permanen."
+          },
+          {
+            "type": "p",
+            "text": "Monster juga akan menjatuhkan permata berwarna yang meningkatkan statistik secara permanen: permata merah meningkatkan serangan fisik, permata biru meningkatkan serangan sihir, dan permata hijau meningkatkan HP. Monster yang berbeda menjatuhkan permata yang berbeda. Beberapa monster dengan level yang lebih tinggi juga akan menjatuhkan Battle Spell untuk digunakan; Hanya satu yang bisa dipakai dalam satu waktu, karena sudah diberikan setelah mencapai level 6."
+          },
+          {
+            "type": "p",
+            "text": "Tidak ada layar pemilihan juara, semua pemain memulai dari “Sel” level 1 dan dapat maju dengan mencapai tingkat pengalaman tertentu."
+          },
+          {
+            "type": "p",
+            "text": "Tingkat 1: Sel"
+          },
+          {
+            "type": "p",
+            "text": "Mereka tidak dapat menyerang dan memiliki kesehatan yang rendah, tetapi karena semua orang memulai dalam kondisi ini, hal ini tidak menjadi masalah. Mereka juga monster tercepat."
+          },
+          {
+            "type": "p",
+            "text": "Monster tidak akan muncul pada saat ini di dalam game."
+          },
+          {
+            "type": "p",
+            "text": "Tingkat 3: Minion"
+          },
+          {
+            "type": "p",
+            "text": "Setelah mencapai level 3, pemain dapat memilih untuk berevolusi menjadi Basic Minion, Ranged Minion, atau Ballista Minion."
+          },
+          {
+            "type": "p",
+            "text": "Selain memiliki serangan dan kecepatan yang berbeda, pilihan ini juga mempengaruhi semua evolusi selanjutnya yang tersedia."
+          },
+          {
+            "type": "p",
+            "text": "Setelah 1 menit, monster mulai muncul. Pada titik ini, hanya gelatin biru dan merah yang akan muncul, tetapi tidak akan menyerang pemain."
+          },
+          {
+            "type": "p",
+            "text": "Level 6: Monster Kecil"
+          },
+          {
+            "type": "p",
+            "text": "Pemain akan berevolusi menjadi monster yang berbeda tergantung pada minion yang mereka pilih. Monster kecil masing-masing akan memiliki skill."
+          },
+          {
+            "type": "p",
+            "text": "Kursus Fisik: Jika pemain memilih Basic Minion, dia akan berevolusi menjadi Giant Mouth atau Crammer."
+          },
+          {
+            "type": "p",
+            "text": ":1. Skill Giant Mouth akan memberikan damage pada musuh sebesar persentase dari max HP target."
+          },
+          {
+            "type": "p",
+            "text": ":2. Skill Crammer akan meningkatkan lifestealnya secara signifikan untuk sementara waktu."
+          },
+          {
+            "type": "p",
+            "text": "Perjalanan ajaib: Jika pemain memilih Ranged Minion, dia akan berevolusi menjadi Goblin atau Crimson Lizard."
+          },
+          {
+            "type": "p",
+            "text": ":1. Skill yang dimiliki Goblin akan melemparkan bola energi yang sangat merusak ke satu arah."
+          },
+          {
+            "type": "p",
+            "text": ":2. Skill Crimson Lizard akan menciptakan zona energi yang terus menerus memberikan damage kepada musuh di dalamnya."
+          },
+          {
+            "type": "p",
+            "text": "Route Tank: Jika pemain memilih Ballista Minion, ia akan berevolusi menjadi Spinner atau Death."
+          },
+          {
+            "type": "p",
+            "text": ":1. Skill yang dimiliki Spinner akan secara instan meregenerasi sejumlah HP tertentu."
+          },
+          {
+            "type": "p",
+            "text": ":2. Skill Death akan terus memberikan damage kepada musuh disekitarnya."
+          },
+          {
+            "type": "p",
+            "text": "Saat mencapai level 6, pemain juga dapat memilih salah satu dari dua Battle Spell acak untuk digunakan selama sisa pertandingan. Battle spell yang bisa digunakan adalah Flicker, Sprint, Execute, Inspire, dan Aegis."
+          },
+          {
+            "type": "p",
+            "text": "Level 9: Monster Besar Monster besar akan memiliki dua skill, banyak di antaranya terinspirasi oleh skill hero yang ada atau serangan yang dilakukan monster tersebut dalam mode permainan lain."
+          },
+          {
+            "type": "p",
+            "text": "Jika pemain memilih lane Fisik, dia akan berevolusi menjadi Gargoyle atau Cleaver."
+          },
+          {
+            "type": "p",
+            "text": ": 1. Gargoyle skill 1 akan meningkatkan kecepatan geraknya untuk sementara, skill 2 akan meningkatkan serangannya."
+          },
+          {
+            "type": "p",
+            "text": ":2. Skill 1 Cleaver adalah Flicker yang mirip dengan Flicker, Skill 2 miliknya adalah serangan gelombang tertunda khasnya dari mode permainan lainnya."
+          },
+          {
+            "type": "p",
+            "text": "Jika pemain telah memilih lane Sihir, dia akan berevolusi menjadi Pionir atau Pemburu Patung."
+          },
+          {
+            "type": "p",
+            "text": ":1. Skill 1 Pioneer meluncurkan sebuah orb yang akan memblokir musuh mirip dengan Cyclops Ultimate, skill 2 miliknya adalah perangkap racun yang menjadi ciri khas mode permainan lainnya, namun dalam garis lurus."
+          },
+          {
+            "type": "p",
+            "text": ":2. Patungd Chaser skill 1 mirip dengan skill pertama Gusion (mereka akan melempar belati ke satu arah, dan jika mengenai musuh, skill tersebut dapat digunakan kembali untuk mengejar mereka); skill 2 nya akan menyerang musuh di depannya dan memberikan damage yang tinggi."
+          },
+          {
+            "type": "p",
+            "text": "Jika pemain memilih evolusi Tank, dia akan berevolusi menjadi Patung Shocker atau Core Guard."
+          },
+          {
+            "type": "p",
+            "text": ": 1. Skill 1 Patung Shocker akan meningkatkan serangan dasar berikutnya, yang akan membuat musuh terkena stun; skill 2 nya akan memberikan mereka sebuah perisai yang akan meledak setelah jangka waktu tertentu atau ketika dihancurkan, mirip dengan skill kedua Uranus."
+          },
+          {
+            "type": "p",
+            "text": ":2. Skill 1 Core Guard akan memberikan taunt kepada musuh didekatnya, memaksa mereka untuk menyerang, skill 2 akan memantulkan damage yang diterima selama waktu tertentu. (Skill keduanya mirip dengan skill kedua Gatotkaca.)"
+          },
+          {
+            "type": "p",
+            "text": "Setelah mencapai level 9, pemain juga dapat memilih salah satu dari dua buff pasif yang bertahan sepanjang sisa pertandingan, bergantung pada lanenya:"
+          },
+          {
+            "type": "p",
+            "text": "Buff Fisik: 30% Damage Serangan atau 40% Kecepatan Serangan"
+          },
+          {
+            "type": "p",
+            "text": "Buff Ajaib: 40% Pengurangan CD atau 40% Spell Vamp"
+          },
+          {
+            "type": "p",
+            "text": "Tank Buff: 2% kesehatan diubah menjadi damage atau memulihkan 300 HP setiap 5 detik"
+          },
+          {
+            "type": "p",
+            "text": "Setelah setidaknya satu pemain mencapai level 9, monster kecil juga akan mulai muncul sebagai monster; mereka akan menyerang pemain jika terprovokasi dan menjatuhkan lebih banyak permata."
+          },
+          {
+            "type": "p",
+            "text": "Seekor “Turtle hitam” juga mungkin muncul. Itu bisa menjatuhkan permata besar dalam jumlah besar. Lokasinya akan terlihat di peta masing-masing pemain."
+          },
+          {
+            "type": "p",
+            "text": "Tingkat 12: Hero (Perlu info lebih lanjut: Hero yang tersedia dapat berubah secara spesifik berdasarkan rute Tingkat 6 dan Tingkat 9. Lebih banyak hero yang tersedia daripada yang tercantum.)"
+          },
+          {
+            "type": "p",
+            "text": "Jika pemain memilih lane fisik, maka hero Marksman atau Assassin akan tersedia."
+          },
+          {
+            "type": "p",
+            "text": ": Marksman: Karrie, Lesley, Bruno, Claude."
+          },
+          {
+            "type": "p",
+            "text": ": Assassin: Lancelot, Sabre, Freya."
+          },
+          {
+            "type": "p",
+            "text": "Jika pemain memilih lane ajaib, hero Mage atau Support akan tersedia."
+          },
+          {
+            "type": "p",
+            "text": ": Mage: Odette, Gord, Alice, Esmeralda, Harley."
+          },
+          {
+            "type": "p",
+            "text": ": Dukungan: Angela, Estes, Nana."
+          },
+          {
+            "type": "p",
+            "text": "Jika pemain memilih evolusi Tank, hero Fighter atau Tank akan tersedia."
+          },
+          {
+            "type": "p",
+            "text": ": Fighter: Kaja, Lapu Lapu, Alucard."
+          },
+          {
+            "type": "p",
+            "text": ": Waduk: Hylos, Uranus, Akai, Jhonson."
+          },
+          {
+            "type": "p",
+            "text": "Saat pemain pertama mencapai level 13, monster besar akan mulai bermunculan. Mereka dapat menjatuhkan permata yang lebih besar yang nilainya lebih dari permata normal, dan bahkan Battle Spell untuk digunakan. Permata pengalaman besar juga akan mulai muncul."
+          },
+          {
+            "type": "p",
+            "text": "Tingkat 15: Iblis"
+          },
+          {
+            "type": "p",
+            "text": "Pemain pertama yang mencapai level 15 akan menjadi Iblis. Mereka akan menjadi lebih besar dan statistik mereka akan meningkat, tetapi mereka akan bergerak lebih lambat dan posisi mereka akan terlihat di peta semua pemain lain. Mereka juga akan memiliki kemampuan untuk berubah menjadi Lord untuk sementara waktu, memperoleh skill baru yang kuat yang menyerupai serangan Lord dari mode permainan lainnya."
+          },
+          {
+            "type": "p",
+            "text": ": Skill 1 dan Skill 2, \"Lord Strikes\": Menghantam tanah dengan keras, menimbulkan damage nyata pada musuh di sekitarnya dan meninggalkan celah di bawah posisi mereka saat ini; setelah beberapa saat, retakan tersebut akan meledak, menimbulkan damage dan menjatuhkan musuh."
+          },
+          {
+            "type": "p",
+            "text": ": Skill 3, \"Spinning Strikes\": Setelah mengisi daya dalam waktu singkat, Lord akan memutar palunya, menimbulkan true damage ke musuh di sekitar dalam area yang luas."
+          },
+          {
+            "type": "p",
+            "text": "Pemain lain yang mencapai level 15 tidak akan menjadi Iblis: satu-satunya cara untuk mengklaim gelar dan buff adalah dengan membunuh Iblis saat ini."
+          },
+          {
+            "type": "p",
+            "text": "Pada tahap akhir ini, zona aman akan mulai mengecil secara perlahan, membentuk lingkaran yang berpusat pada \"Iblis\" saat ini dan memaksa pemain lain untuk mendekat ke arah mereka. area tersebut akan bergerak bersama Iblis, berusaha menjaga mereka tetap berada di tengahnya. Sekarang membunuh seorang pemain akan menghilangkan mereka dari pertandingan."
+          }
+        ]
+      },
+      {
+        "title": "Merusak",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pertarungan berebut gaya fiksi ilmiah."
+          },
+          {
+            "type": "p",
+            "text": "Keretakan misterius di alam semesta paralel secara bertahap melebar. Sebuah pesawat Zlatan akan menabrak Land of Dawn, yang akan menjadi bencana sekaligus tantangan! Prajurit, Ravage sekarang terbuka. Tunjukkan keberanian dan kekuatanmu untuk menyelamatkan Zlatan dan mempertahankan Land of Dawn."
+          },
+          {
+            "type": "p",
+            "text": "Ravage adalah mode di mana setiap tim terdiri dari 5 peran berbeda dan bertarung untuk Aquamarine. Setiap pemain dapat memilih 5 hero dengan role berbeda sebelum mengikuti pertandingan Ravage. Setelah konfrontasi, setiap pemain secara acak menggunakan salah satu dari 5 hero yang mereka pilih sebelumnya."
+          },
+          {
+            "type": "p",
+            "text": "Dalam mode ini, S.A.B.E.R. dan V.E.N.O.M. sedang berkelahi. Saat mereka bertarung, aquamarine mulai berjatuhan di sekitar mereka. Tim pertama yang mengumpulkan Aquamarine dalam jumlah tertentu akan memenangkan pertandingan. Tereliminasi menyebabkan pemain kehilangan semua aquamarine yang tersebar di tanah. Jika pemain memiliki lebih dari 10 aquamarine, lokasinya akan terlihat di mini-map."
+          },
+          {
+            "type": "p",
+            "text": "Di tengah peta mode Ravage terdapat satu-satunya titik regenerasi HP. Setelah tereliminasi, pemain dengan cepat muncul kembali di Pusat Kontrol dan dapat bergabung kembali dalam pertempuran dengan sangat cepat. Menghilangkan musuh dan mengumpulkan aquamarine mereka adalah tujuan dari mode ini."
+          },
+          {
+            "type": "p",
+            "text": "Tim pertama yang mengumpulkan 15 Aquamarine akan memenangkan pertandingan ini. Tidak ada laning, tidak ada menara yang merusak, membunuh dan membinasakan adalah tujuan dari mode ini! Ayo bersenang-senang, Anda akan menjadi pemenangnya!"
+          },
+          {
+            "type": "p",
+            "text": "Pada tanggal 7 hingga 13 Agustus 2020, mode Ravage kembali hadir dengan mode 3V3 baru. Hanya 3 dari 5 peran yang akan digunakan dan semua pemain akan memulai dengan 30.000 dan level hero 15 (maks)."
+          }
+        ]
+      },
+      {
+        "title": "Perkelahian dan cermin",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pertandingan tawuran seru antar hero cermin!"
+          },
+          {
+            "type": "p",
+            "text": "Pemilihan Hero: Dalam mode ini, pemain memilih hero yang ingin mereka gunakan dari sekumpulan hero secara acak. Hero dengan vote terbanyak akan menjadi hero yang digunakan seluruh tim."
+          },
+          {
+            "type": "p",
+            "text": "Penyesuaian Hero: Dalam mode ini, hero yang berbeda menerima peningkatan atribut yang berbeda untuk menciptakan lebih banyak keseimbangan antara hero dengan peran berbeda, sehingga meningkatkan pengalaman bermain game secara keseluruhan."
+          }
+        ]
+      },
+      {
+        "title": "Catur TD",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pertandingan Battle Royale Menara Pertahanan"
+          },
+          {
+            "type": "p",
+            "text": "Harper, yang sedang bertualang ke Abyss selatan, secara tidak sengaja memasuki Abyss. Dia menemukan bahwa setan yang dipimpin oleh nama =Dyrroth sedang berkumpul di Abyss. Sebentar lagi mereka akan melintasi Gunung Lantis dan menghancurkan Kekaisaran Moniyan. Namun, makhluk apa pun yang menghalanginya akan menderita akibat bencana tersebut."
+          },
+          {
+            "type": "p",
+            "text": "CHESS-TD adalah mode Arkade yang penuh kesenangan dan strategi! Dalam mode ini, 6 akan tersebar di 6 map dan akan saling berhadapan serta merayap. Pemain dapat membeli hero dari toko, membeli daftar mereka sendiri, menjarah emas, dan meningkatkan pasukan mereka untuk meraih kemenangan."
+          },
+          {
+            "type": "p",
+            "text": "Petanya acak untuk setiap pertandingan. Pemain dapat membeli Hero dari toko dan menempatkannya di batu yang lebih tinggi dari permukaan tanah (slot). Hero yang dikerahkan akan secara otomatis menyerang musuh di sekitar dan mengeluarkan skillnya setelah mereka mendapatkan mana yang cukup."
+          },
+          {
+            "type": "p",
+            "text": "Definisi babak: Babak berisi 4 fase: fase persiapan, fase persiapan, fase pertempuran, dan fase resolusi. Fase persiapan melibatkan pemain yang membeli, mengerahkan, memanggil kembali atau menjual hero dan meningkatkan kemampuannya. Selama fase pertempuran, salah satu hero pemain lain akan menyerang peta Anda. Jika penyerbu ini mencapai tujuannya sebelum dieliminasi, Anda akan mengalami damage relatif."
+          },
+          {
+            "type": "p",
+            "text": "Definisi Emas dan Kemampuan: Di akhir setiap putaran, pemain akan menerima sejumlah emas dan bunga tertentu (untuk setiap 10 koin emas yang dimiliki, dapatkan 1 koin emas tambahan). Selain itu, kemenangan beruntun atau kekalahan beruntun juga akan memberikan bonus emas tambahan. Kapasitas menentukan berapa banyak hero yang dapat Anda gunakan. Maksimalnya adalah 9. Di akhir setiap putaran, Anda akan mendapatkan 1 Kemampuan Exp. Selain itu, Anda dapat memilih untuk membeli 4 Kemampuan Exp. dengan 4 medali emas. Peluang untuk mendapatkan hero elit meningkat seiring dengan tingkat kemampuannya, pada saat yang sama, peluang untuk mendapatkan hero umum menurun seiring dengan itu."
+          },
+          {
+            "type": "p",
+            "text": "Level Hero dan Bintang: Ada 4 level hero, yang menunjukkan kelangkaan dan harganya. Secara umum, hero level tinggi seharusnya lebih kuat. Jika ada 3 hero yang sama di medan perang, mereka akan menjadi hero yang levelnya lebih tinggi. Tiga hero bintang 1 akan menjadi satu hero bintang 2. Tiga hero bintang 2 akan menjadi satu hero bintang 3."
+          },
+          {
+            "type": "p",
+            "text": "Sinergi: Setiap hero memiliki 2 atribut: faksi dan peran. Efek sinergi akan aktif jika terdapat cukup banyak hero dengan atribut yang sama di medan pertempuran (atribut dari hero yang sama hanya akan dihitung satu kali). Penting untuk mempertimbangkan sinergi."
+          }
+        ]
+      },
+      {
+        "title": "Catur Ajaib",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Kompetisi catur otomatis cepat antara 8 pemain."
+          },
+          {
+            "type": "p",
+            "text": "Magic Chess adalah mode permainan strategi 8 pemain yang kompleks, di mana pemain akan bersaing satu sama lain dan melawan monster acak di papan catur ajaib. Tujuan dari permainan ini adalah untuk membeli dan meningkatkan hero Anda dan Komandan Kecil, menyesuaikan penyelarasan Anda untuk memicu dan melawan sinergi yang lebih banyak dan lebih kuat. Kemenangan adalah milik orang yang bertahan sampai akhir!"
+          }
+        ]
+      },
+      {
+        "title": "Perkelahian Bayangan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pertarungan di jembatan kehancuran."
+          },
+          {
+            "type": "p",
+            "text": "Di Shadow Brawl, pemain memilih untuk memilih hero dari beberapa hero yang muncul secara acak. Semua pemain dalam tim akan menggunakan hero yang sama untuk bermain. Pemain dilengkapi dengan name=Blade of Silence yang menandai posisi saat ini dan menghubungkan rantai ke sana. Rantai tersebut secara otomatis akan mengembalikan hero Anda ke posisi yang ditandai setelah 4 detik. CD ini berdurasi 20 detik."
+          }
+        ]
+      },
+      {
+        "title": "Arena",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pertarungan kartu 1v1 otomatis."
+          },
+          {
+            "type": "p",
+            "text": "Jenis permainan baru telah menggemparkan Moniyan. Komandan Kecil dan benda ajaib mereka kini dapat ditemukan di setiap rumah di negeri ini. Bola kristal mendeteksi segala jenis kehidupan di Land of Dawn dan menyalurkan energinya; yang berubah menjadi kartu koleksi. Ada kartu Monster dan kartu Hero. Monster mudah didapat dan dikendalikan, sedangkan hero membutuhkan harga lebih tinggi dan energi lebih tinggi. Dek dibangun dan pertempuran dilakukan dengan yang lain; orang berusaha untuk mengalahkan komandan musuh kecil dan meraih kemenangan."
+          },
+          {
+            "type": "p",
+            "text": "Dalam mode \"Arena\", Anda akan menghadapi pemain lain dalam pertarungan 1v1. Tujuanmu sederhana: singkirkan Komandan Kecil lawan sebelum dia menjatuhkan Komandan Kecilmu. Untuk melakukan ini, Anda perlu menggunakan kartu untuk memanggil Hero dan Monster dan merapal spell untuk melawan pasukan lawan. Pertempuran akan berlanjut sampai Komandan Kecil di satu sisi tersingkir. “Shard”, sumber daya untuk memanggil monster dan menggunakan spell, dihasilkan setiap 3 detik. Dan dengan menghabiskan 5 “Pecahan”, sumber daya yang digunakan untuk memanggil Hero, “Essence”, akan dihasilkan."
+          },
+          {
+            "type": "p",
+            "text": "Setelah memasuki \"Arena\", Anda akan menerima serangkaian tutorial untuk membantu Anda memulai. Setelah melalui tutorial lengkap, Anda akan dihadiahi 9 kartu dasar. Saat bermain, Anda bisa mendapatkan kartu dari Peti Pertempuran dan Orb Pemanggilan. Kartu duplikat yang diperoleh akan digunakan untuk meningkatkan kartu terkait agar lebih kuat. Selain itu, lebih banyak kartu akan dibuka seiring kemajuan peringkat Anda. Semua kartu akan terbuka ketika legenda tercapai. Ada dua tingkat kelangkaan kartu Hero: Jarang dan Epik. Ada dua peta, Uncommon dan Epic. Ada juga dua tingkat kelangkaan untuk kartu Monster/Spell: Umum dan Jarang."
+          },
+          {
+            "type": "p",
+            "text": "Anda bisa mendapatkan Poin Piala, Poin Pertempuran, dan Peti Pertempuran setelah setiap pertandingan. Lebih banyak kartu dapat dibuka dengan lebih banyak poin piala. Anda bisa mendapatkan poin pertempuran atau kartu yang sudah terbuka dari peti pertempuran."
+          }
+        ]
+      },
+      {
+        "title": "Boummandre",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Kompetisi menarik bernama Boommander kini sedang menjadi tren di Laladona, dan banyak Komandan Kecil yang menjadi penggemarnya. Aturannya sederhana: kumpulkan Fluffy yang tumbuh di oasis dekat Pohon Asal dan lemparkan bola peledak ini ke yang lain. Bisakah kamu menghindari serangan dan meledakkan lawanmu? Bergabunglah dengan Boommander dan coba sekarang! Dalam mode Boommander, Anda bermain sebagai komandan kecil dan meluncurkan Fluffy untuk bersaing di peta yang disusun kembali dengan ubin adegan berbeda."
+          },
+          {
+            "type": "p",
+            "text": "Kategori:Mode Permainan"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/arcade-mode.webp"
+  }
+]

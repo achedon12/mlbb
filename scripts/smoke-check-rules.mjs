@@ -9,7 +9,9 @@
  * file system, so it can be unit tested.
  */
 
-export const LOCALES = ["en", "fr", "it", "es"];
+// Same list as LOCALES in src/i18n/config.ts: this module stays pure (no file
+// reading), and tests/unit/translation-scripts.test.mjs checks they match.
+export const LOCALES = ["en", "fr", "it", "es", "id"];
 const ALL = LOCALES;
 const EN_FR = ["en", "fr"];
 
@@ -54,11 +56,14 @@ export const PAGES = [
       fr: ["Exquis", "Exceptionnel"],
       it: ["Squisita", "Eccezionale"],
       es: ["Exquisita", "Excepcional"],
+      // Indonesian keeps the game's English rarity names.
+      id: ["Exquisite", "Exceptional"],
     },
     excludes: {
       en: ["Exquis", "Exceptionnel"],
       it: ["Exquis", "Exceptionnel"],
       es: ["Exquis", "Exceptionnel"],
+      id: ["Exquis", "Exceptionnel"],
     },
   },
   { path: "/tier-list", locales: ALL, browser: true },
@@ -83,8 +88,10 @@ export const PAGES = [
       fr: ["Emblème de combattant"],
       it: ["Emblema Combattente"],
       es: ["Emblema de luchador"],
+      // Indonesian keeps the game's English emblem names.
+      id: ["Fighter Emblem"],
     },
-    excludes: { fr: ["Fighter Emblem"], it: ["Fighter Emblem"], es: ["Fighter Emblem"] },
+    excludes: { fr: ["Fighter Emblem"], it: ["Fighter Emblem"], es: ["Fighter Emblem"], id: ["Emblème de combattant"] },
   },
   { path: "/spells", locales: EN_FR },
   { path: "/spells/flicker", locales: EN_FR },

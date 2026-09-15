@@ -44,6 +44,7 @@ export const OG_LOCALE: Record<Locale, string> = {
   fr: "fr_FR",
   it: "it_IT",
   es: "es_ES",
+  id: "id_ID",
 };
 
 /**

@@ -3,20 +3,22 @@
  *
  * Each dataset has a source language (French for what is
  * extracted from the wiki then translated, English for raw items and patches);
- * the three other languages are derived from it. Everything is cached
+ * the other site languages are derived from it. Everything is cached
  * (`scripts/translations-data.json`, key source+target+text): a sentence
  * already translated never goes back over the network. This script only runs by
  * hand or in CI; the application translates nothing.
  *
  * `node scripts/translate-data.mjs patches combos` only processes the named
- * datasets; with no argument, all of them.
+ * datasets; with no argument, all of them. `--locale id` narrows the run to the
+ * named target languages (default: every site language but the source).
  */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { pause, translateBatch } from "./translation-google.mjs";
 import { patchesRebuild } from "./patch-translation.mjs";
 import { existsSync } from "node:fs";
+import { argsWithoutLocale, targetLocales } from "./locales.mjs";
+import { applyGlossary } from "./translation-glossary.mjs";
 
-const LOCALES = ["en", "fr", "it", "es"];
 const CACHE = "scripts/translations-data.json";
 
 const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
@@ -50,7 +52,11 @@ async function prepare(texts, sl, tl) {
   const groups = batches(missing);
   for (const [i, batch] of groups.entries()) {
     const outputs = await translateBatch(batch, sl, tl);
-    batch.forEach((o, k) => (cache[`${sl}|${tl}|${o}`] = outputs[k] ?? o));
+    // An empty answer is not cached: the text stays in the source language
+    // until a later run gets a real translation.
+    batch.forEach((o, k) => {
+      if (outputs[k]?.trim()) cache[`${sl}|${tl}|${o}`] = outputs[k];
+    });
     process.stdout.write(`\r    ${sl}->${tl} ${i + 1}/${groups.length} batches`);
     // A long run (the patches) does not lose everything on a network drop.
     if (i % 50 === 49) await save();
@@ -60,6 +66,12 @@ async function prepare(texts, sl, tl) {
 }
 
 const tr = (sl, tl) => (t) => (t ? (cache[`${sl}|${tl}|${String(t).trim()}`] ?? t) : t);
+
+/** Same, with the target language's game vocabulary (`translation-glossary.mjs`) applied. */
+const trGame = (sl, tl) => {
+  const t = tr(sl, tl);
+  return (x) => (x ? applyGlossary(t(x), tl, "data") : x);
+};
 
 /** Texts to translate for a dataset: those its rebuild asks for, in order. */
 const collect = (rebuild) => (d) => {
@@ -173,7 +185,8 @@ function descriptionsRebuild(d, t) {
  * `optional`: the dataset is skipped as long as its source does not exist.
  */
 const GAMES = {
-  stories: { source: "fr", texts: storiesTexts, rebuild: storiesRebuild },
+  // `narrative`: prose where game words are ordinary words, no glossary.
+  stories: { source: "fr", narrative: true, texts: storiesTexts, rebuild: storiesRebuild },
   skills: { source: "fr", texts: skillsTexts, rebuild: skillsRebuild },
   modes: { source: "fr", texts: modesTexts, rebuild: modesRebuild },
   items: { source: "en", texts: itemsTexts, rebuild: itemsRebuild },
@@ -194,7 +207,7 @@ const GAMES = {
   },
 };
 
-const requests = process.argv.slice(2);
+const requests = argsWithoutLocale();
 for (const name of requests) if (!(name in GAMES)) throw new Error(`Unknown dataset: ${name}`);
 
 for (const [name, cfg] of Object.entries(GAMES)) {
@@ -212,7 +225,7 @@ for (const [name, cfg] of Object.entries(GAMES)) {
   const all = cfg.texts(source);
   console.log(`${name} (${cfg.source}): ${new Set(all.map((x) => String(x).trim())).size} unique texts`);
   await mkdir(`src/data/game/${name}`, { recursive: true });
-  for (const tl of LOCALES.filter((l) => l !== cfg.source)) {
+  for (const tl of targetLocales(cfg.source)) {
     await prepare(all, cfg.source, tl);
     const t = tr(cfg.source, tl);
     // Second pass: an HTML block whose translation lost its tags
@@ -223,7 +236,7 @@ for (const [name, cfg] of Object.entries(GAMES)) {
       return t(x);
     });
     await prepare(missing, cfg.source, tl);
-    const tree = cfg.rebuild(source, t);
+    const tree = cfg.rebuild(source, cfg.narrative ? t : trGame(cfg.source, tl));
     await writeFile(`src/data/game/${name}/${tl}.json`, JSON.stringify(tree, null, 2) + "\n");
     await save();
     console.log(`  ${name}/${tl}.json`);

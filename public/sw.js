@@ -20,7 +20,8 @@ const CACHE_STATIC = `statique-${VERSION}`;
 const CACHE_IMAGES = `images-${VERSION}`;
 const CACHE_DATA = `donnees-${VERSION}`;
 const CACHES = [CACHE_PAGES, CACHE_STATIC, CACHE_IMAGES, CACHE_DATA];
-const LOCALES = ["fr", "en", "it", "es"];
+// Same list as LOCALES in src/i18n/config.ts (a service worker cannot import it).
+const LOCALES = ["fr", "en", "it", "es", "id"];
 const MAX_PAGES = 250;
 const MAX_IMAGES = 800;
 const MAX_DATA = 300;
@@ -30,7 +31,7 @@ const MAX_DATA = 300;
  * worker cannot load the message catalogs: this small table is the only
  * visitor text it carries.
  */
-const OFFLINE_TEXT = { fr: "Hors ligne", en: "Offline", it: "Offline", es: "Sin conexión" };
+const OFFLINE_TEXT = { fr: "Hors ligne", en: "Offline", it: "Offline", es: "Sin conexión", id: "Offline" };
 
 /**
  * In development, the service worker is only registered to try out

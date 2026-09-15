@@ -25,6 +25,7 @@ const TIMEZONE_EXAMPLE: Record<Locale, string> = {
   en: "Europe/London",
   it: "Europe/Rome",
   es: "Europe/Madrid",
+  id: "Asia/Jakarta",
 };
 
 /** The server's "wall clock" time converted into a time zone, at a given date. */

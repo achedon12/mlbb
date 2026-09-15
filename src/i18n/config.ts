@@ -1,15 +1,19 @@
 /**
  * Language configuration.
  *
- * The site is served by language prefix (`/en`, `/fr`, `/it`, `/es`), which
+ * The site is served by language prefix (`/en`, `/fr`, `/it`, `/es`, `/id`), which
  * gives a distinct URL per language — the most readable form for
  * engines, which then index each version separately and link them through
  * `hreflang`.
  *
  * English is the default language (widest reach, and original language
  * of the game data); it is also the target of `hreflang="x-default"`.
+ *
+ * Every language-dependent part of the site derives from this list: routes,
+ * `hreflang`, sitemap, language picker, and the translate scripts (which read
+ * this array from the file). Adding a language: see docs/wiki/Translations.md.
  */
-export const LOCALES = ["en", "fr", "it", "es"] as const;
+export const LOCALES = ["en", "fr", "it", "es", "id"] as const;
 
 export type Locale = (typeof LOCALES)[number];
 
@@ -21,6 +25,7 @@ export const LOCALE_NAME: Record<Locale, string> = {
   fr: "Français",
   it: "Italiano",
   es: "Español",
+  id: "Bahasa Indonesia",
 };
 
 /** BCP-47 code for the `lang` attribute and metadata. */
@@ -29,6 +34,7 @@ export const LOCALE_HTML: Record<Locale, string> = {
   fr: "fr-FR",
   it: "it-IT",
   es: "es-ES",
+  id: "id-ID",
 };
 
 export function isLocale(value: string): value is Locale {

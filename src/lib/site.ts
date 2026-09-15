@@ -8,7 +8,7 @@ export const site = {
   // default language.
   title: "MLBBDex — Mobile Legends: Bang Bang knowledge base",
   description:
-    "Hero pages, builds and counters by rank, tier lists, items, emblems, patch notes and news for Mobile Legends: Bang Bang, in English, French, Italian and Spanish.",
+    "Hero pages, builds and counters by rank, tier lists, items, emblems, patch notes and news for Mobile Legends: Bang Bang, in English, French, Italian, Spanish and Indonesian.",
   // `||` and not `??`: in the Docker image, an `ARG` that is not provided becomes an
   // empty string (not `undefined`). Without this fallback, `new URL("")` would fail
   // at build time — that is what broke the image build in CI.

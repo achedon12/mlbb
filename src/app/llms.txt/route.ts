@@ -2,6 +2,7 @@ import { counters, allHeroes } from "@/lib/data";
 import { ranksByPair } from "@/lib/pairs";
 import { site } from "@/lib/site";
 import { measure } from "@/lib/tier-list";
+import { LOCALES } from "@/i18n/config";
 
 /**
  * /llms.txt: site overview for language models, in the recommended
@@ -13,6 +14,13 @@ export const dynamic = "force-static";
 
 const link = (path: string) => `${site.url}/en${path}`;
 
+/** "English, French, Italian, Spanish and Indonesian", from the locale list. */
+const languageNames = new Intl.ListFormat("en", { type: "conjunction" }).format(
+  LOCALES.map((l) => new Intl.DisplayNames(["en"], { type: "language" }).of(l) ?? l),
+);
+const prefixes = new Intl.ListFormat("en", { type: "conjunction" }).format(LOCALES.map((l) => `/${l}`));
+const count = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"][LOCALES.length] ?? String(LOCALES.length);
+
 export function GET() {
   const date = measure ? measure.slice(0, 10) : null;
   // Sample duel taken from those in the sitemap (measured at two ranks at least):
@@ -20,9 +28,9 @@ export function GET() {
   const duel = [...ranksByPair(counters, (s) => allHeroes.some((h) => h.slug === s))].find(([, n]) => n >= 2)?.[0];
   const text = `# ${site.name}
 
-> Mobile Legends: Bang Bang knowledge base: all ${allHeroes.length} heroes with builds, counters, teammates and win, pick and ban rates measured by rank, tier lists by rank, lane and role, items, emblems, battle spells, skins, lore and patch notes. Available in English, French, Italian and Spanish.
+> Mobile Legends: Bang Bang knowledge base: all ${allHeroes.length} heroes with builds, counters, teammates and win, pick and ban rates measured by rank, tier lists by rank, lane and role, items, emblems, battle spells, skins, lore and patch notes. Available in ${languageNames}.
 
-Statistics come from ranked games aggregated by the community API arena.rone.dev${date ? ` (last measurement: ${date})` : ""}; hero, item and patch data from the Mobile Legends community wiki. Pages are refreshed by a daily data sync. Each page exists in four languages under /en, /fr, /it and /es.
+Statistics come from ranked games aggregated by the community API arena.rone.dev${date ? ` (last measurement: ${date})` : ""}; hero, item and patch data from the Mobile Legends community wiki. Pages are refreshed by a daily data sync. Each page exists in ${count} languages under ${prefixes}.
 
 ## Heroes
 

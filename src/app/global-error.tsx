@@ -27,6 +27,11 @@ const TEXTS: Record<Locale, { title: string; text: string; retry: string }> = {
     "title": "Ha ocurrido un error",
     "text": "El sitio encontró un problema inesperado. Inténtalo de nuevo en un momento.",
     "retry": "Intentar otra vez"
+  },
+  "id": {
+    "title": "Terjadi kesalahan",
+    "text": "Situs mengalami masalah yang tidak terduga. Coba lagi sebentar lagi.",
+    "retry": "Coba lagi"
   }
 };
 

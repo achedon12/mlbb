@@ -1,0 +1,2060 @@
+{
+  "id": {
+    "account.myAccount": {
+      "fr": "Mon compte",
+      "text": "Akun saya"
+    },
+    "account.signIn": {
+      "fr": "Connexion",
+      "text": "Masuk"
+    },
+    "articleCategory.Esports": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "articleCategory.Guide": {
+      "fr": "Guide",
+      "text": "Panduan"
+    },
+    "articleCategory.Patch": {
+      "fr": "Patch",
+      "text": "Patch"
+    },
+    "builds.build": {
+      "fr": "Build {n}",
+      "text": "Build {n}"
+    },
+    "builds.guide": {
+      "fr": "Build complet d'un joueur",
+      "text": "Build lengkap dari pemain"
+    },
+    "builds.pick": {
+      "fr": "{rate} % des parties",
+      "text": "{rate}% pertandingan"
+    },
+    "builds.position": {
+      "fr": "Position",
+      "text": "Lane"
+    },
+    "builds.spell": {
+      "fr": "Sort",
+      "text": "Spell"
+    },
+    "builds.talent": {
+      "fr": "Talent",
+      "text": "Talent"
+    },
+    "builds.talents": {
+      "fr": "Talents",
+      "text": "Talent"
+    },
+    "builds.win": {
+      "fr": "{rate} % de victoire",
+      "text": "Win rate {rate}%"
+    },
+    "builds.writtenIntro": {
+      "fr": "Écrits à la main, avec le contexte de jeu.",
+      "text": "Ditulis manual, dengan konteks permainan."
+    },
+    "categories.Attack": {
+      "fr": "Attaque",
+      "text": "Attack"
+    },
+    "categories.Attack & Magic": {
+      "fr": "Attaque et magie",
+      "text": "Attack & Magic"
+    },
+    "categories.Attack, Magic & Defense": {
+      "fr": "Attaque, magie et défense",
+      "text": "Attack, Magic & Defense"
+    },
+    "categories.Defense": {
+      "fr": "Défense",
+      "text": "Defense"
+    },
+    "categories.Jungling": {
+      "fr": "Jungle",
+      "text": "Jungle"
+    },
+    "categories.Magic": {
+      "fr": "Magie",
+      "text": "Magic"
+    },
+    "categories.Movement": {
+      "fr": "Mouvement",
+      "text": "Movement"
+    },
+    "categories.Roaming": {
+      "fr": "Roam",
+      "text": "Roam"
+    },
+    "common.brand": {
+      "fr": "MLBBDex",
+      "text": "MLBBDex"
+    },
+    "common.breadcrumb": {
+      "fr": "Fil d'Ariane",
+      "text": "Breadcrumb"
+    },
+    "common.close": {
+      "fr": "Fermer",
+      "text": "Tutup"
+    },
+    "common.contents": {
+      "fr": "Sommaire",
+      "text": "Daftar isi"
+    },
+    "common.filter": {
+      "fr": "Filtrer…",
+      "text": "Filter…"
+    },
+    "common.home": {
+      "fr": "Accueil",
+      "text": "Beranda"
+    },
+    "common.sections": {
+      "fr": "Sections de la fiche",
+      "text": "Bagian halaman"
+    },
+    "common.skipToContent": {
+      "fr": "Aller au contenu",
+      "text": "Langsung ke konten"
+    },
+    "common.sourceWiki": {
+      "fr": "wiki Mobile Legends",
+      "text": "wiki Mobile Legends"
+    },
+    "counters.difficulty": {
+      "fr": "En difficulté contre",
+      "text": "Lemah melawan"
+    },
+    "emblemData.aegis.name": {
+      "fr": "Aegis",
+      "text": "Aegis"
+    },
+    "emblemData.agility.name": {
+      "fr": "Agility",
+      "text": "Agility"
+    },
+    "emblemData.arrival.name": {
+      "fr": "Arrival",
+      "text": "Arrival"
+    },
+    "emblemData.assassin-emblem.name": {
+      "fr": "Emblème d'assassin",
+      "text": "Assassin Emblem"
+    },
+    "emblemData.bargain-hunter.name": {
+      "fr": "Bargain Hunter",
+      "text": "Bargain Hunter"
+    },
+    "emblemData.brave-smite.name": {
+      "fr": "Brave Smite",
+      "text": "Brave Smite"
+    },
+    "emblemData.concussive-blast.name": {
+      "fr": "Concussive Blast",
+      "text": "Concussive Blast"
+    },
+    "emblemData.execute.name": {
+      "fr": "Execute",
+      "text": "Execute"
+    },
+    "emblemData.fatal.name": {
+      "fr": "Fatal",
+      "text": "Fatal"
+    },
+    "emblemData.festival-of-blood.name": {
+      "fr": "Festival of Blood",
+      "text": "Festival of Blood"
+    },
+    "emblemData.fighter-emblem.name": {
+      "fr": "Emblème de combattant",
+      "text": "Fighter Emblem"
+    },
+    "emblemData.firmness.name": {
+      "fr": "Firmness",
+      "text": "Firmness"
+    },
+    "emblemData.flicker.name": {
+      "fr": "Flicker",
+      "text": "Flicker"
+    },
+    "emblemData.focusing-mark.name": {
+      "fr": "Focusing Mark",
+      "text": "Focusing Mark"
+    },
+    "emblemData.impure-rage.name": {
+      "fr": "Impure Rage",
+      "text": "Impure Rage"
+    },
+    "emblemData.inspire.name": {
+      "fr": "Inspire",
+      "text": "Inspire"
+    },
+    "emblemData.killing-spree.name": {
+      "fr": "Killing Spree",
+      "text": "Killing Spree"
+    },
+    "emblemData.lethal-ignition.name": {
+      "fr": "Lethal Ignition",
+      "text": "Lethal Ignition"
+    },
+    "emblemData.mage-emblem.name": {
+      "fr": "Emblème de mage",
+      "text": "Mage Emblem"
+    },
+    "emblemData.marksman-emblem.name": {
+      "fr": "Emblème de tireur",
+      "text": "Marksman Emblem"
+    },
+    "emblemData.master-assassin.name": {
+      "fr": "Master Assassin",
+      "text": "Master Assassin"
+    },
+    "emblemData.petrify.name": {
+      "fr": "Petrify",
+      "text": "Petrify"
+    },
+    "emblemData.pull-yourself-together.name": {
+      "fr": "Pull Yourself Together",
+      "text": "Pull Yourself Together"
+    },
+    "emblemData.purify.name": {
+      "fr": "Purify",
+      "text": "Purify"
+    },
+    "emblemData.quantum-charge.name": {
+      "fr": "Quantum Charge",
+      "text": "Quantum Charge"
+    },
+    "emblemData.retribution.name": {
+      "fr": "Retribution",
+      "text": "Retribution"
+    },
+    "emblemData.revitalize.name": {
+      "fr": "Revitalize",
+      "text": "Revitalize"
+    },
+    "emblemData.seasoned-hunter.name": {
+      "fr": "Seasoned Hunter",
+      "text": "Seasoned Hunter"
+    },
+    "emblemData.sprint.name": {
+      "fr": "Sprint",
+      "text": "Sprint"
+    },
+    "emblemData.support-emblem.name": {
+      "fr": "Emblème de soutien",
+      "text": "Support Emblem"
+    },
+    "emblemData.swift.name": {
+      "fr": "Swift",
+      "text": "Swift"
+    },
+    "emblemData.tank-emblem.name": {
+      "fr": "Emblème de tank",
+      "text": "Tank Emblem"
+    },
+    "emblemData.tenacity.name": {
+      "fr": "Tenacity",
+      "text": "Tenacity"
+    },
+    "emblemData.thrill.name": {
+      "fr": "Thrill",
+      "text": "Thrill"
+    },
+    "emblemData.vengeance.name": {
+      "fr": "Vengeance",
+      "text": "Vengeance"
+    },
+    "emblemData.vitality.name": {
+      "fr": "Vitality",
+      "text": "Vitality"
+    },
+    "emblemData.weakness-finder.name": {
+      "fr": "Weakness Finder",
+      "text": "Weakness Finder"
+    },
+    "emblemData.weapon-master.name": {
+      "fr": "Weapon Master",
+      "text": "Weapon Master"
+    },
+    "emblemData.wilderness-blessing.name": {
+      "fr": "Wilderness Blessing",
+      "text": "Wilderness Blessing"
+    },
+    "error.home": {
+      "fr": "Retour à l'accueil",
+      "text": "Kembali ke beranda"
+    },
+    "footer.brand": {
+      "fr": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
+      "text": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd."
+    },
+    "footer.contribute": {
+      "fr": "Contribuer",
+      "text": "Berkontribusi"
+    },
+    "footer.intro": {
+      "fr": "Héros, builds et contres par rang, tier list calculée sur les taux de victoire en classé, objets, emblèmes et patch notes de Mobile Legends: Bang Bang, en français, anglais, italien, espagnol et indonésien. Projet indépendant, ouvert aux contributions.",
+      "text": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi."
+    },
+    "footer.legalNotice": {
+      "fr": "Mentions légales",
+      "text": "Pemberitahuan hukum"
+    },
+    "footer.myAccount": {
+      "fr": "Mon compte",
+      "text": "Akun saya"
+    },
+    "footer.privacy": {
+      "fr": "Confidentialité",
+      "text": "Privasi"
+    },
+    "heroCard.analysis": {
+      "fr": "Analyse",
+      "text": "Analisis"
+    },
+    "heroCard.tierTitle": {
+      "fr": "Palier {p} de la tier list",
+      "text": "Tier {p} di tier list"
+    },
+    "heroData.damage.magic": {
+      "fr": "Magiques",
+      "text": "Magic"
+    },
+    "heroData.damage.mixed": {
+      "fr": "Mixtes",
+      "text": "Campuran"
+    },
+    "heroData.damage.physical": {
+      "fr": "Physiques",
+      "text": "Physical"
+    },
+    "home.draftHelp": {
+      "fr": "Aide au draft",
+      "text": "Asisten draft"
+    },
+    "home.rankingTitle": {
+      "fr": "En tête du patch",
+      "text": "Teratas di patch ini"
+    },
+    "home.startLead": {
+      "fr": "Vous jouez un rôle, pas un catalogue. Entrez par là.",
+      "text": "Anda memainkan role, bukan katalog. Mulai dari situ."
+    },
+    "home.startTitle": {
+      "fr": "Par où commencer",
+      "text": "Mulai dari mana"
+    },
+    "home.title1": {
+      "fr": "Tout le jeu, expliqué",
+      "text": "Seluruh game, dijelaskan"
+    },
+    "home.toolsLead": {
+      "fr": "Préparer une partie, tester un choix, s'entraîner.",
+      "text": "Siapkan pertandingan, uji pick, berlatih."
+    },
+    "home.winPercent": {
+      "fr": "% de victoires",
+      "text": "% win rate"
+    },
+    "lanes.Exp": {
+      "fr": "Expérience",
+      "text": "EXP Lane"
+    },
+    "lanes.Gold": {
+      "fr": "Or",
+      "text": "Gold Lane"
+    },
+    "lanes.Jungle": {
+      "fr": "Jungle",
+      "text": "Jungle"
+    },
+    "lanes.Mid": {
+      "fr": "Milieu",
+      "text": "Mid Lane"
+    },
+    "lanes.Roam": {
+      "fr": "Roam",
+      "text": "Roam"
+    },
+    "measuredRanks.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "measuredRanks.glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "measuredRanks.honor": {
+      "fr": "Honneur mythique",
+      "text": "Mythical Honor"
+    },
+    "measuredRanks.label": {
+      "fr": "Rang",
+      "text": "Rank"
+    },
+    "measuredRanks.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "measuredRanks.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "nav.advanceServer.desc": {
+      "fr": "Changements en test avant le serveur officiel",
+      "text": "Perubahan yang diuji sebelum server resmi"
+    },
+    "nav.buildSimulator.desc": {
+      "fr": "Les stats d'un héros équipé",
+      "text": "Statistik hero dengan item terpasang"
+    },
+    "nav.buildSimulator.label": {
+      "fr": "Simulateur de build",
+      "text": "Simulator build"
+    },
+    "nav.byLane.label": {
+      "fr": "Par lane",
+      "text": "Per lane"
+    },
+    "nav.byRank.desc": {
+      "fr": "Le classement mesuré dans chaque tranche de rang.",
+      "text": "Ranking yang diukur di setiap rank."
+    },
+    "nav.byRank.label": {
+      "fr": "Par rang",
+      "text": "Per rank"
+    },
+    "nav.byRole.desc": {
+      "fr": "Les héros de chaque rôle, avec leur palier.",
+      "text": "Hero setiap role, dengan tier-nya."
+    },
+    "nav.byRole.label": {
+      "fr": "Par rôle",
+      "text": "Per role"
+    },
+    "nav.byRoleTier.desc": {
+      "fr": "La tier list de chaque rôle.",
+      "text": "Tier list untuk setiap role."
+    },
+    "nav.byRoleTier.label": {
+      "fr": "Par rôle",
+      "text": "Per role"
+    },
+    "nav.collection.desc": {
+      "fr": "Vos héros et skins en diamants",
+      "text": "Hero dan skin Anda dalam diamond"
+    },
+    "nav.communityBuilds.desc": {
+      "fr": "Partagés et votés par les joueurs",
+      "text": "Dibagikan dan divote oleh pemain"
+    },
+    "nav.communityBuilds.label": {
+      "fr": "Builds de la communauté",
+      "text": "Build komunitas"
+    },
+    "nav.draft.desc": {
+      "fr": "Simulateur de picks et bans",
+      "text": "Simulator pick dan ban"
+    },
+    "nav.drawCalculator.desc": {
+      "fr": "Diamants et chances d'un skin d'événement",
+      "text": "Diamond dan peluang skin event"
+    },
+    "nav.drawCalculator.label": {
+      "fr": "Calculateur de tirages",
+      "text": "Kalkulator draw"
+    },
+    "nav.emblems.desc": {
+      "fr": "Talents et configurations",
+      "text": "Talent dan konfigurasi"
+    },
+    "nav.emblems.label": {
+      "fr": "Emblèmes",
+      "text": "Emblem"
+    },
+    "nav.esports.desc": {
+      "fr": "MPL, MSC, Mondiaux et picks des pros",
+      "text": "MPL, MSC, M-Series, dan pick pro"
+    },
+    "nav.esports.label": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "nav.events.label": {
+      "fr": "Événements",
+      "text": "Event"
+    },
+    "nav.gameModes.desc": {
+      "fr": "Classique, Classé, Baston…",
+      "text": "Classic, Ranked, Brawl…"
+    },
+    "nav.heroes.desc": {
+      "fr": "Fiches, builds et analyses",
+      "text": "Profil, build, dan analisis"
+    },
+    "nav.items.desc": {
+      "fr": "Équipement et statistiques",
+      "text": "Equipment dan statistik"
+    },
+    "nav.lore.desc": {
+      "fr": "Les histoires des héros par région",
+      "text": "Kisah hero per wilayah"
+    },
+    "nav.lore.label": {
+      "fr": "Lore",
+      "text": "Lore"
+    },
+    "nav.mapGuide.desc": {
+      "fr": "Camps, objectifs et rotations",
+      "text": "Camp, objektif, dan rotasi"
+    },
+    "nav.news.desc": {
+      "fr": "Le fil du jeu",
+      "text": "Kabar terbaru game"
+    },
+    "nav.nickname.label": {
+      "fr": "Pseudo stylé",
+      "text": "Nickname keren"
+    },
+    "nav.objectiveTimer.desc": {
+      "fr": "Tortue, Seigneur et buffs en partie",
+      "text": "Turtle, Lord, dan buff dalam pertandingan"
+    },
+    "nav.objectiveTimer.label": {
+      "fr": "Chrono des objectifs",
+      "text": "Timer objektif"
+    },
+    "nav.patchNotes.desc": {
+      "fr": "Notes de version détaillées",
+      "text": "Catatan rilis lengkap"
+    },
+    "nav.quiz.desc": {
+      "fr": "Devinez le héros, chaque jour",
+      "text": "Tebak hero, setiap hari"
+    },
+    "nav.ranks.desc": {
+      "fr": "Étoiles, divisions et récompenses",
+      "text": "Bintang, divisi, dan hadiah"
+    },
+    "nav.ranks.label": {
+      "fr": "Rangs",
+      "text": "Rank"
+    },
+    "nav.retribution.desc": {
+      "fr": "Entraînez votre timing",
+      "text": "Latih timing Anda"
+    },
+    "nav.retribution.label": {
+      "fr": "Test de Châtiment",
+      "text": "Tes Retribution"
+    },
+    "nav.serverTime.desc": {
+      "fr": "Remises et compte à rebours",
+      "text": "Reset dan hitung mundur"
+    },
+    "nav.skins.label": {
+      "fr": "Skins",
+      "text": "Skin"
+    },
+    "nav.statistics.desc": {
+      "fr": "Victoire, ban et pick par rang",
+      "text": "Win rate, ban, dan pick per rank"
+    },
+    "nav.tierList.desc": {
+      "fr": "Le meilleur du patch",
+      "text": "Yang terkuat di patch ini"
+    },
+    "nav.tierListMaker.desc": {
+      "fr": "Votre classement, à partager",
+      "text": "Ranking versi Anda, untuk dibagikan"
+    },
+    "nav.watch.label": {
+      "fr": "Veille",
+      "text": "Rangkuman"
+    },
+    "nav.winRate.desc": {
+      "fr": "Les victoires qu'il vous manque",
+      "text": "Kemenangan yang masih Anda butuhkan"
+    },
+    "pages.account.level": {
+      "fr": "Niveau",
+      "text": "Level"
+    },
+    "pages.account.levelX": {
+      "fr": "Niveau {n}",
+      "text": "Level {n}"
+    },
+    "pages.account.metaTitle": {
+      "fr": "Mon compte",
+      "text": "Akun saya"
+    },
+    "pages.account.signedOut": {
+      "fr": "Déconnexion",
+      "text": "Keluar"
+    },
+    "pages.accountProfile.adviceTitle": {
+      "fr": "Conseils",
+      "text": "Tips"
+    },
+    "pages.accountProfile.bestStreak": {
+      "fr": "Meilleure série",
+      "text": "Win streak terbaik"
+    },
+    "pages.accountProfile.byPositionTitle": {
+      "fr": "Par position",
+      "text": "Per lane"
+    },
+    "pages.accountProfile.colShare": {
+      "fr": "Part",
+      "text": "Porsi"
+    },
+    "pages.accountProfile.colWin": {
+      "fr": "Victoires",
+      "text": "Win rate"
+    },
+    "pages.accountProfile.countersRank": {
+      "fr": "Contres difficiles · {rank}",
+      "text": "Matchup sulit · {rank}"
+    },
+    "pages.accountProfile.curveShort": {
+      "fr": "Il faut au moins {n} parties dont l'issue est connue pour tracer la courbe.",
+      "text": "Dibutuhkan setidaknya {n} pertandingan dengan hasil yang diketahui untuk menampilkan kurva."
+    },
+    "pages.accountProfile.games": {
+      "fr": "Parties",
+      "text": "Pertandingan"
+    },
+    "pages.accountProfile.gamesShown.one": {
+      "fr": "{n} partie affichée",
+      "text": "{n} pertandingan ditampilkan"
+    },
+    "pages.accountProfile.gamesShown.other": {
+      "fr": "{n} parties affichées",
+      "text": "{n} pertandingan ditampilkan"
+    },
+    "pages.accountProfile.gamesTitle": {
+      "fr": "Dernières parties",
+      "text": "Pertandingan terakhir"
+    },
+    "pages.accountProfile.gap": {
+      "fr": "Écart",
+      "text": "Selisih"
+    },
+    "pages.accountProfile.metaTitle": {
+      "fr": "Profil de joueur",
+      "text": "Profil pemain"
+    },
+    "pages.accountProfile.nGames.one": {
+      "fr": "{n} partie",
+      "text": "{n} pertandingan"
+    },
+    "pages.accountProfile.nGames.other": {
+      "fr": "{n} parties",
+      "text": "{n} pertandingan"
+    },
+    "pages.accountProfile.nemesesSource.one": {
+      "fr": "Relevé sur votre dernière partie.",
+      "text": "Berdasarkan pertandingan terakhir Anda."
+    },
+    "pages.accountProfile.outcome.loss": {
+      "fr": "Défaite",
+      "text": "Kalah"
+    },
+    "pages.accountProfile.outcome.unknown": {
+      "fr": "Issue inconnue",
+      "text": "Hasil tidak diketahui"
+    },
+    "pages.accountProfile.outcome.win": {
+      "fr": "Victoire",
+      "text": "Menang"
+    },
+    "pages.accountProfile.positionBuild": {
+      "fr": "Position : {lane}",
+      "text": "Lane: {lane}"
+    },
+    "pages.accountProfile.recentGames": {
+      "fr": "{n} dernières parties",
+      "text": "{n} pertandingan terakhir"
+    },
+    "pages.accountProfile.rolesTitle": {
+      "fr": "Rôles et positions",
+      "text": "Role dan lane"
+    },
+    "pages.accountProfile.season": {
+      "fr": "Saison {n}",
+      "text": "Season {n}"
+    },
+    "pages.accountProfile.seasonChoice": {
+      "fr": "Saison",
+      "text": "Season"
+    },
+    "pages.accountProfile.seeBuilds": {
+      "fr": "Tous les builds de {name}",
+      "text": "Semua build {name}"
+    },
+    "pages.accountProfile.seeMore": {
+      "fr": "Parties plus anciennes",
+      "text": "Pertandingan sebelumnya"
+    },
+    "pages.accountProfile.signInAgain": {
+      "fr": "Se reconnecter",
+      "text": "Masuk lagi"
+    },
+    "pages.accountProfile.summaryTitle": {
+      "fr": "Bilan de la saison {n}",
+      "text": "Ringkasan season {n}"
+    },
+    "pages.accountProfile.toImprove": {
+      "fr": "À travailler",
+      "text": "Perlu ditingkatkan"
+    },
+    "pages.accountProfile.you": {
+      "fr": "Vous",
+      "text": "Anda"
+    },
+    "pages.advanceServer.seo.title": {
+      "fr": "Patch notes serveur Advance MLBB {v} : buffs, nerfs et changements",
+      "text": "Patch notes Advanced Server MLBB {v}: buff, nerf, dan perubahan"
+    },
+    "pages.advanceServer.seo.titleGeneric": {
+      "fr": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
+      "text": "Patch notes Advanced Server MLBB: buff, nerf, dan perubahan"
+    },
+    "pages.communityBuilds.heroTitle": {
+      "fr": "Builds de la communauté : {hero}",
+      "text": "Build komunitas {hero}"
+    },
+    "pages.compare.duels.title": {
+      "fr": "Duels face à face",
+      "text": "Matchup head-to-head"
+    },
+    "pages.compare.title": {
+      "fr": "Comparateur",
+      "text": "Bandingkan"
+    },
+    "pages.draft.rules.actions.ban": {
+      "fr": "ban",
+      "text": "ban"
+    },
+    "pages.draft.rules.actions.pick": {
+      "fr": "pick",
+      "text": "pick"
+    },
+    "pages.draft.rules.rankedTitle": {
+      "fr": "Partie classée (Draft Pick)",
+      "text": "Ranked (Draft Pick)"
+    },
+    "pages.draft.title": {
+      "fr": "Aide au draft",
+      "text": "Asisten draft"
+    },
+    "pages.duos.allRanks": {
+      "fr": "Tous rangs confondus",
+      "text": "Semua rank"
+    },
+    "pages.duos.atRank": {
+      "fr": "En {rank}",
+      "text": "Di {rank}"
+    },
+    "pages.duos.byRank": {
+      "fr": "Duos par rang",
+      "text": "Duo per rank"
+    },
+    "pages.duos.colGain": {
+      "fr": "Gain",
+      "text": "Kenaikan"
+    },
+    "pages.duos.colPartner": {
+      "fr": "Partenaire",
+      "text": "Partner"
+    },
+    "pages.duos.colRanks": {
+      "fr": "Rangs",
+      "text": "Rank"
+    },
+    "pages.duos.compare": {
+      "fr": "Comparer",
+      "text": "Bandingkan"
+    },
+    "pages.duos.countersLink": {
+      "fr": "Qui contre {name} ?",
+      "text": "Counter {name}"
+    },
+    "pages.duos.crumb": {
+      "fr": "Duos",
+      "text": "Duo"
+    },
+    "pages.duos.metaTitle": {
+      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name} (patch {v})",
+      "text": "Duo Terbaik {name}: Hero yang Menang Bersama {name} (Patch {v})"
+    },
+    "pages.duos.metaTitleNoPatch": {
+      "fr": "Meilleurs duos avec {name} : les héros qui font gagner {name}",
+      "text": "Duo Terbaik {name}: Hero yang Menang Bersama {name}"
+    },
+    "pages.duos.phase.early": {
+      "fr": "Début de partie",
+      "text": "Early game"
+    },
+    "pages.duos.phase.late": {
+      "fr": "Fin de partie",
+      "text": "Late game"
+    },
+    "pages.duos.phase.mid": {
+      "fr": "Milieu de partie",
+      "text": "Mid game"
+    },
+    "pages.duos.phaseMinutes.late": {
+      "fr": "18 min et +",
+      "text": "18+ menit"
+    },
+    "pages.duos.phaseShort.early": {
+      "fr": "Début",
+      "text": "Early"
+    },
+    "pages.duos.phaseShort.late": {
+      "fr": "Fin",
+      "text": "Late"
+    },
+    "pages.duos.phaseShort.mid": {
+      "fr": "Milieu",
+      "text": "Mid"
+    },
+    "pages.duos.phases.duoRate": {
+      "fr": "Victoire du duo : {rate}",
+      "text": "Win rate duo: {rate}"
+    },
+    "pages.duos.ranksListed": {
+      "fr": "{n}/{total} rangs",
+      "text": "{n}/{total} rank"
+    },
+    "pages.duos.sheetLink": {
+      "fr": "{name} : fiche du héros",
+      "text": "Halaman hero {name}"
+    },
+    "pages.duos.shortLink": {
+      "fr": "Duos",
+      "text": "Duo"
+    },
+    "pages.duos.title": {
+      "fr": "Meilleurs duos avec {name}",
+      "text": "Duo terbaik untuk {name}"
+    },
+    "pages.emblemDetail.tier": {
+      "fr": "Palier {n}",
+      "text": "Tier {n}"
+    },
+    "pages.emblems.title": {
+      "fr": "Emblèmes et talents",
+      "text": "Emblem dan talent"
+    },
+    "pages.esports.title": {
+      "fr": "Esport MLBB",
+      "text": "Esports MLBB"
+    },
+    "pages.freshness.heroesRanked": {
+      "fr": "{n} héros classés",
+      "text": "{n} hero diperingkat"
+    },
+    "pages.heroCounters.allRanks": {
+      "fr": "Tous rangs confondus",
+      "text": "Semua rank"
+    },
+    "pages.heroCounters.atRank": {
+      "fr": "En {rank}",
+      "text": "Di {rank}"
+    },
+    "pages.heroCounters.buildsLink": {
+      "fr": "Builds {ofName}",
+      "text": "Build {name}"
+    },
+    "pages.heroCounters.byRank": {
+      "fr": "Counters rang par rang",
+      "text": "Counter per rank"
+    },
+    "pages.heroCounters.colGap": {
+      "fr": "Écart",
+      "text": "Selisih"
+    },
+    "pages.heroCounters.colRanks": {
+      "fr": "Rangs",
+      "text": "Rank"
+    },
+    "pages.heroCounters.compareLink": {
+      "fr": "{name} face à {other}",
+      "text": "{name} vs {other}"
+    },
+    "pages.heroCounters.duration.title": {
+      "fr": "Quand {name} est le plus faible",
+      "text": "Saat {name} paling lemah"
+    },
+    "pages.heroCounters.items.reason.control": {
+      "fr": "Contre les contrôles",
+      "text": "Melawan crowd control"
+    },
+    "pages.heroCounters.items.rule": {
+      "fr": "Règle, pas mesure",
+      "text": "Berdasarkan aturan, bukan pengukuran"
+    },
+    "pages.heroCounters.lanes.direct": {
+      "fr": "Duel direct",
+      "text": "Matchup langsung"
+    },
+    "pages.heroCounters.lanes.title": {
+      "fr": "Counters par position",
+      "text": "Counter per lane"
+    },
+    "pages.heroCounters.metaTitle": {
+      "fr": "Counters {ofName} : qui prendre contre {name} (patch {v})",
+      "text": "Counter {name}: Pick Terbaik Melawan {name} (Patch {v})"
+    },
+    "pages.heroCounters.metaTitleNoPatch": {
+      "fr": "Counters {ofName} : qui prendre contre {name}",
+      "text": "Counter {name}: Pick Terbaik Melawan {name}"
+    },
+    "pages.heroCounters.metaTitleShort": {
+      "fr": "Counters {ofName} : meilleurs choix (patch {v})",
+      "text": "Counter {name}: Pick Terbaik (Patch {v})"
+    },
+    "pages.heroCounters.others.title": {
+      "fr": "Autres pages counters · {lane}",
+      "text": "Halaman counter lainnya · {lane}"
+    },
+    "pages.heroCounters.ranksListed": {
+      "fr": "{n}/{total} rangs",
+      "text": "{n}/{total} rank"
+    },
+    "pages.heroCounters.ranksNav": {
+      "fr": "Aller au rang",
+      "text": "Lompat ke rank"
+    },
+    "pages.heroCounters.sheetLink": {
+      "fr": "Fiche {ofName}",
+      "text": "Halaman hero {name}"
+    },
+    "pages.heroCounters.victims": {
+      "fr": "Les héros que {name} domine",
+      "text": "Hero yang di-counter {name}"
+    },
+    "pages.heroDetail.combos.basicAttack": {
+      "fr": "Attaque de base",
+      "text": "Basic attack"
+    },
+    "pages.heroDetail.combos.title": {
+      "fr": "Combos",
+      "text": "Combo"
+    },
+    "pages.heroDetail.combos.types.laning": {
+      "fr": "Phase de lane",
+      "text": "Laning"
+    },
+    "pages.heroDetail.combos.types.teamfight": {
+      "fr": "Combat d'équipe",
+      "text": "Teamfight"
+    },
+    "pages.heroDetail.comfortable": {
+      "fr": "{name} est à l'aise contre",
+      "text": "{name} kuat melawan"
+    },
+    "pages.heroDetail.compare": {
+      "fr": "Comparer",
+      "text": "Bandingkan"
+    },
+    "pages.heroDetail.difficulty2": {
+      "fr": "{name} est en difficulté contre",
+      "text": "{name} kesulitan melawan"
+    },
+    "pages.heroDetail.duosShort": {
+      "fr": "Duos",
+      "text": "Duo"
+    },
+    "pages.heroDetail.matchups": {
+      "fr": "Lecture des matchups",
+      "text": "Analisis matchup"
+    },
+    "pages.heroDetail.metaDescription": {
+      "fr": "{name} : {roles} de Mobile Legends: Bang Bang, joué en {lanes}. Contres et builds par rang, compétences, histoire et {skins} skins.",
+      "text": "{name}: {roles} di Mobile Legends: Bang Bang, dimainkan di {lanes}. Counter dan build per rank, skill, lore, dan {skins} skin."
+    },
+    "pages.heroDetail.pageDuos": {
+      "fr": "Tous les duos mesurés",
+      "text": "Semua duo yang diukur"
+    },
+    "pages.heroDetail.ratings.durability": {
+      "fr": "Résistance",
+      "text": "Ketahanan"
+    },
+    "pages.heroDetail.ratings.offense": {
+      "fr": "Offensive",
+      "text": "Serangan"
+    },
+    "pages.heroDetail.stat.position": {
+      "fr": "Position",
+      "text": "Lane"
+    },
+    "pages.heroDetail.stat.range": {
+      "fr": "Portée",
+      "text": "Jangkauan"
+    },
+    "pages.heroDetail.stat.release": {
+      "fr": "Sortie",
+      "text": "Rilis"
+    },
+    "pages.heroDetail.stat.skins": {
+      "fr": "Skins",
+      "text": "Skin"
+    },
+    "pages.heroDetail.statistics.byRank": {
+      "fr": "Selon le rang",
+      "text": "Per rank"
+    },
+    "pages.heroDetail.statistics.change": {
+      "fr": "Variation",
+      "text": "Perubahan"
+    },
+    "pages.heroDetail.statistics.days": {
+      "fr": "{n} j",
+      "text": "{n} h"
+    },
+    "pages.heroDetail.statistics.duration": {
+      "fr": "Selon la durée de partie",
+      "text": "Per durasi pertandingan"
+    },
+    "pages.heroDetail.statistics.history": {
+      "fr": "Historique",
+      "text": "Riwayat"
+    },
+    "pages.heroDetail.statistics.impact.verdict.neutral": {
+      "fr": "Sans effet net",
+      "text": "Tidak ada efek yang jelas"
+    },
+    "pages.heroDetail.statistics.max": {
+      "fr": "Plus haut",
+      "text": "Tertinggi"
+    },
+    "pages.heroDetail.statistics.measure": {
+      "fr": "Taux",
+      "text": "Rate"
+    },
+    "pages.heroDetail.statistics.measures.ban": {
+      "fr": "Ban",
+      "text": "Ban"
+    },
+    "pages.heroDetail.statistics.measures.pick": {
+      "fr": "Sélection",
+      "text": "Pick"
+    },
+    "pages.heroDetail.statistics.measures.win": {
+      "fr": "Victoire",
+      "text": "Win"
+    },
+    "pages.heroDetail.statistics.min": {
+      "fr": "Plus bas",
+      "text": "Terendah"
+    },
+    "pages.heroDetail.statistics.noData": {
+      "fr": "Pas encore de mesure pour ce héros.",
+      "text": "Belum ada data untuk hero ini."
+    },
+    "pages.heroDetail.statistics.profile.stable": {
+      "fr": "Régulier tout au long de la partie",
+      "text": "Stabil sepanjang pertandingan"
+    },
+    "pages.heroDetail.statistics.trend": {
+      "fr": "Évolution sur {n} jours",
+      "text": "{n} hari terakhir"
+    },
+    "pages.heroDetail.tab.analysis": {
+      "fr": "Analyse",
+      "text": "Analisis"
+    },
+    "pages.heroDetail.tab.builds": {
+      "fr": "Builds",
+      "text": "Build"
+    },
+    "pages.heroDetail.tab.counters": {
+      "fr": "Contres",
+      "text": "Counter"
+    },
+    "pages.heroDetail.tab.skins": {
+      "fr": "Skins",
+      "text": "Skin"
+    },
+    "pages.heroDetail.tab.story": {
+      "fr": "Histoire",
+      "text": "Lore"
+    },
+    "pages.heroDetail.tier": {
+      "fr": "Palier {p}",
+      "text": "Tier {p}"
+    },
+    "pages.heroSkins.metaTitle": {
+      "fr": "Skins de {name} : les {n} skins et illustrations",
+      "text": "Skin {name}: Semua {n} Skin & Artwork"
+    },
+    "pages.heroSkins.metaTitleElision": {
+      "fr": "Skins d'{name} : les {n} skins et illustrations",
+      "text": "Skin {name}: Semua {n} Skin & Artwork"
+    },
+    "pages.heroesList.countOf": {
+      "fr": "sur {total}",
+      "text": "dari {total}"
+    },
+    "pages.heroesList.position": {
+      "fr": "Position",
+      "text": "Lane"
+    },
+    "pages.heroesList.sort": {
+      "fr": "Trier",
+      "text": "Urutkan"
+    },
+    "pages.heroesList.sortName": {
+      "fr": "A → Z",
+      "text": "A → Z"
+    },
+    "pages.itemDetail.crafting": {
+      "fr": "Fabrication",
+      "text": "Resep"
+    },
+    "pages.itemDetail.heroesTitle": {
+      "fr": "Héros qui achètent {name}",
+      "text": "Hero yang membeli {name}"
+    },
+    "pages.itemsList.buildsInto": {
+      "fr": "Sert à fabriquer",
+      "text": "Bahan untuk"
+    },
+    "pages.itemsList.close": {
+      "fr": "Fermer la fiche",
+      "text": "Tutup detail"
+    },
+    "pages.itemsList.fullPage": {
+      "fr": "Page complète de l'objet",
+      "text": "Halaman item lengkap"
+    },
+    "pages.itemsList.gold": {
+      "fr": "or",
+      "text": "gold"
+    },
+    "pages.itemsList.merge": {
+      "fr": "Coût de fusion : {price} or",
+      "text": "Biaya gabung: {price} gold"
+    },
+    "pages.itemsList.price": {
+      "fr": "Prix :",
+      "text": "Harga:"
+    },
+    "pages.login.metaTitle": {
+      "fr": "Connexion",
+      "text": "Masuk"
+    },
+    "pages.login.title": {
+      "fr": "Connexion",
+      "text": "Masuk"
+    },
+    "pages.mapUI.group.buff": {
+      "fr": "Buffs",
+      "text": "Buff"
+    },
+    "pages.meta.bansPicks.banned": {
+      "fr": "Les plus bannis",
+      "text": "Paling sering di-ban"
+    },
+    "pages.meta.bansPicks.played": {
+      "fr": "Les plus joués",
+      "text": "Paling sering di-pick"
+    },
+    "pages.meta.bansPicks.title": {
+      "fr": "Bans et picks",
+      "text": "Ban dan pick"
+    },
+    "pages.meta.tiers.demotions": {
+      "fr": "Descentes",
+      "text": "Turun"
+    },
+    "pages.meta.tiers.promotions": {
+      "fr": "Montées",
+      "text": "Naik"
+    },
+    "pages.meta.tiers.title": {
+      "fr": "Changements de palier",
+      "text": "Perubahan tier"
+    },
+    "pages.modes.discover": {
+      "fr": "Découvrir le mode",
+      "text": "Jelajahi mode ini"
+    },
+    "pages.modes.titleMode": {
+      "fr": "Mode {name}",
+      "text": "Mode {name}"
+    },
+    "pages.notFound.home": {
+      "fr": "Retour à l'accueil",
+      "text": "Kembali ke beranda"
+    },
+    "pages.offline.home": {
+      "fr": "Revenir à l'accueil",
+      "text": "Kembali ke beranda"
+    },
+    "pages.privacy.title": {
+      "fr": "Confidentialité",
+      "text": "Privasi"
+    },
+    "pages.quiz.challenges.duel.title": {
+      "fr": "Duel de taux",
+      "text": "Duel win rate"
+    },
+    "pages.quiz.challenges.item.title": {
+      "fr": "Objet",
+      "text": "Item"
+    },
+    "pages.quiz.challenges.skill.title": {
+      "fr": "Compétence",
+      "text": "Skill"
+    },
+    "pages.quiz.challenges.story.title": {
+      "fr": "Histoire",
+      "text": "Lore"
+    },
+    "pages.quiz.challengesTitle": {
+      "fr": "Les cinq épreuves",
+      "text": "Lima ronde"
+    },
+    "pages.ranks.bans": {
+      "fr": "{n} bans par équipe",
+      "text": "{n} ban per tim"
+    },
+    "pages.ranks.colBattlePoints": {
+      "fr": "Points de bataille",
+      "text": "Battle Point"
+    },
+    "pages.ranks.colDraft": {
+      "fr": "Draft",
+      "text": "Draft pick"
+    },
+    "pages.ranks.colRank": {
+      "fr": "Rang",
+      "text": "Rank"
+    },
+    "pages.ranks.emote": {
+      "fr": "Emote Mythique (100 jours)",
+      "text": "Emote Mythic (100 hari)"
+    },
+    "pages.ranks.mythicFamily": {
+      "fr": "Mythique (4 paliers)",
+      "text": "Mythic (4 tier)"
+    },
+    "pages.ranks.noDraft": {
+      "fr": "Non (choix à l'aveugle)",
+      "text": "Tidak (blind pick)"
+    },
+    "pages.ranks.pointsInstead": {
+      "fr": "Points au lieu d'étoiles",
+      "text": "Poin, bukan bintang"
+    },
+    "pages.ranks.position": {
+      "fr": "Palier {n} sur {total}",
+      "text": "Tier {n} dari {total}"
+    },
+    "pages.retribution.monstersTitle": {
+      "fr": "PV des objectifs",
+      "text": "HP objektif"
+    },
+    "pages.retribution.no": {
+      "fr": "Non",
+      "text": "Tidak"
+    },
+    "pages.retribution.title": {
+      "fr": "Test de Châtiment",
+      "text": "Tes Retribution"
+    },
+    "pages.seo.calendarYear.title": {
+      "fr": "Skins MLBB sortis en {year} : la liste mois par mois",
+      "text": "Skin MLBB Rilis {year}: Daftar Lengkap per Bulan"
+    },
+    "pages.seo.collection.title": {
+      "fr": "Calculateur de valeur de collection MLBB (diamants)",
+      "text": "Kalkulator Nilai Koleksi MLBB (Diamond)"
+    },
+    "pages.seo.communityBuild.title": {
+      "fr": "{title} · build pour {hero}",
+      "text": "{title} · build {hero}"
+    },
+    "pages.seo.communityBuilds.title": {
+      "fr": "Builds de la communauté MLBB : votés par les joueurs",
+      "text": "Build komunitas MLBB: divote oleh pemain"
+    },
+    "pages.seo.communityBuildsHero.title": {
+      "fr": "{hero} : builds de la communauté MLBB",
+      "text": "{hero}: build komunitas MLBB"
+    },
+    "pages.seo.compare.title": {
+      "fr": "Comparateur de héros MLBB : winrate et stats (patch {v})",
+      "text": "Perbandingan Hero MLBB: Win Rate, Tier & Statistik (Patch {v})"
+    },
+    "pages.seo.draft.title": {
+      "fr": "Aide au draft MLBB : counter picks par lane (patch {v})",
+      "text": "Asisten Draft MLBB: Counter Pick per Lane (Patch {v})"
+    },
+    "pages.seo.drawCalculator.title": {
+      "fr": "Calculateur de tirages MLBB : diamants et chances",
+      "text": "Kalkulator Draw MLBB: Diamond dan Peluang"
+    },
+    "pages.seo.emblems.title": {
+      "fr": "Emblèmes MLBB : talents et sorts par rôle (patch {v})",
+      "text": "Emblem, Talent & Battle Spell MLBB per Role (Patch {v})"
+    },
+    "pages.seo.events.title": {
+      "fr": "Événements MLBB : StarLight, Collector et skins de chaque mois",
+      "text": "Event MLBB: StarLight, Collector & Skin Setiap Bulan"
+    },
+    "pages.seo.hero.title": {
+      "fr": "{name} : build, emblème et counters (palier {tier}, patch {v})",
+      "text": "Build, Emblem & Counter {name} (Tier {tier}, Patch {v})"
+    },
+    "pages.seo.hero.titleNoTier": {
+      "fr": "{name} : build, emblème et counters (patch {v})",
+      "text": "Build, Emblem & Counter {name} (Patch {v})"
+    },
+    "pages.seo.heroes.title": {
+      "fr": "Les {n} héros MLBB : rôles, lanes et paliers (patch {v})",
+      "text": "Semua {n} Hero MLBB: Role, Lane & Tier (Patch {v})"
+    },
+    "pages.seo.heroesRole.title": {
+      "fr": "Les {n} {plural} de MLBB : paliers, winrate et lanes (patch {v})",
+      "text": "Semua {n} {plural} MLBB: Tier, Win Rate & Lane (Patch {v})"
+    },
+    "pages.seo.items.title": {
+      "fr": "Les {n} objets MLBB : stats, recettes et prix (patch {v})",
+      "text": "Semua {n} Item MLBB: Statistik, Resep & Harga (Patch {v})"
+    },
+    "pages.seo.lore.title": {
+      "fr": "Lore MLBB : toutes les histoires des héros par région",
+      "text": "Lore MLBB: Semua Kisah Hero per Wilayah"
+    },
+    "pages.seo.loreRegion.title": {
+      "fr": "{region} : héros et lore de MLBB",
+      "text": "{region}: hero dan lore MLBB"
+    },
+    "pages.seo.map.title": {
+      "fr": "Carte de Mobile Legends : camps de la jungle, Tortue, Seigneur et rotations",
+      "text": "Panduan map Mobile Legends: camp jungle, Turtle, Lord, dan rotasi"
+    },
+    "pages.seo.meta.title": {
+      "fr": "Rapport méta MLBB du {date} (patch {v})",
+      "text": "Laporan Meta Mingguan MLBB: {date} (Patch {v})"
+    },
+    "pages.seo.mlbbdle.title": {
+      "fr": "MLBBdle : le jeu quotidien pour deviner le héros Mobile Legends",
+      "text": "MLBBdle: game tebak hero Mobile Legends harian"
+    },
+    "pages.seo.nickname.title": {
+      "fr": "Pseudo stylé MLBB : générateur de noms Unicode",
+      "text": "Generator Nickname Keren MLBB: Nama Unicode"
+    },
+    "pages.seo.patch.title": {
+      "fr": "Patch {v} MLBB : buffs, nerfs et ajustements des héros",
+      "text": "Patch Notes MLBB {v}: Buff, Nerf & Perubahan Hero"
+    },
+    "pages.seo.patch.titleChanges.one": {
+      "fr": "Patch {v} MLBB : tous les buffs et nerfs ({n} héros modifié)",
+      "text": "Patch MLBB {v}: Semua Buff & Nerf Hero ({n} perubahan)"
+    },
+    "pages.seo.patch.titleChanges.other": {
+      "fr": "Patch {v} MLBB : tous les buffs et nerfs ({n} héros modifiés)",
+      "text": "Patch MLBB {v}: Semua Buff & Nerf Hero ({n} perubahan)"
+    },
+    "pages.seo.patchNotes.title": {
+      "fr": "Patch notes MLBB : mise à jour {v} et ajustements des héros",
+      "text": "Patch Notes MLBB: Update Terbaru {v} & Perubahan Hero"
+    },
+    "pages.seo.quiz.title": {
+      "fr": "Quiz MLBB : devinez le héros du jour",
+      "text": "Kuis MLBB: Tebak Hero Setiap Hari"
+    },
+    "pages.seo.ranks.title": {
+      "fr": "Rangs MLBB : tous les rangs, étoiles et récompenses",
+      "text": "Sistem Rank MLBB: Semua Rank, Bintang & Hadiah"
+    },
+    "pages.seo.retribution.title": {
+      "fr": "Test de Châtiment MLBB : entraînez votre timing",
+      "text": "Tes Retribution MLBB: Latih Timing Anda"
+    },
+    "pages.seo.serverTime.title": {
+      "fr": "Heure serveur MLBB : reset quotidien et compte à rebours",
+      "text": "Waktu Server MLBB & Hitung Mundur Reset Harian"
+    },
+    "pages.seo.skinsCalendar.title": {
+      "fr": "Calendrier des skins MLBB : tous les skins par date de sortie",
+      "text": "Kalender Skin MLBB: Semua Skin per Tanggal Rilis"
+    },
+    "pages.seo.tierLane.title": {
+      "fr": "Meilleurs héros {lane} MLBB : tier list {lane} {month} (patch {v})",
+      "text": "Hero {lane} Terbaik di MLBB — Tier List {lane} {month} (Patch {v})"
+    },
+    "pages.seo.tierList.title": {
+      "fr": "Tier list MLBB {month} : les meilleurs héros (patch {v})",
+      "text": "Tier List MLBB {month}: Hero Terkuat per Rank (Patch {v})"
+    },
+    "pages.seo.tierList.titleRank": {
+      "fr": "Tier list MLBB {rank}, {month} (patch {v})",
+      "text": "Tier List MLBB {rank} {month} (Patch {v})"
+    },
+    "pages.seo.tierMaker.title": {
+      "fr": "Créateur de tier list MLBB : créez et partagez la vôtre",
+      "text": "Tier List Maker MLBB: Buat & Bagikan Tier List Anda"
+    },
+    "pages.seo.tierRole.title": {
+      "fr": "Meilleurs {plural} MLBB : tier list {role}, {month} (patch {v})",
+      "text": "{plural} Terbaik di MLBB — Tier List {role} {month} (Patch {v})"
+    },
+    "pages.seo.timer.title": {
+      "fr": "Chrono d'objectifs MLBB : apparition du Seigneur et de la Tortue",
+      "text": "Timer objektif MLBB: waktu muncul Lord dan Turtle"
+    },
+    "pages.seo.winRate.title": {
+      "fr": "Calculateur de winrate MLBB : victoires pour votre objectif",
+      "text": "Kalkulator Win Rate MLBB: Berapa Kemenangan untuk Target Anda"
+    },
+    "pages.serverTime.dailyTitle": {
+      "fr": "Remise quotidienne",
+      "text": "Reset harian"
+    },
+    "pages.serverTime.faq1q": {
+      "fr": "À quelle heure a lieu la remise quotidienne de MLBB ?",
+      "text": "Jam berapa reset harian MLBB?"
+    },
+    "pages.serverTime.ranksLink": {
+      "fr": "Comprendre le système de rangs",
+      "text": "Pahami sistem rank"
+    },
+    "pages.serverTime.rulesTitle": {
+      "fr": "Les horaires à connaître",
+      "text": "Jam yang perlu diketahui"
+    },
+    "pages.serverTime.seasonTitle": {
+      "fr": "Fin de saison",
+      "text": "Akhir season"
+    },
+    "pages.serverTime.starlightTitle": {
+      "fr": "Starlight",
+      "text": "Starlight"
+    },
+    "pages.serverTime.weeklyTitle": {
+      "fr": "Remise hebdomadaire",
+      "text": "Reset mingguan"
+    },
+    "pages.sheets.avgWin": {
+      "fr": "Victoire moyenne",
+      "text": "Win rate rata-rata"
+    },
+    "pages.sheets.heroesTitle": {
+      "fr": "Héros qui le prennent le plus",
+      "text": "Hero yang paling sering memilihnya"
+    },
+    "pages.sheets.leading": {
+      "fr": "En tête",
+      "text": "Hero teratas"
+    },
+    "pages.sheets.listLd": {
+      "fr": "Héros qui prennent le plus {name}",
+      "text": "Hero yang paling sering memilih {name}"
+    },
+    "pages.sheets.share": {
+      "fr": "Part des parties",
+      "text": "Porsi pertandingan"
+    },
+    "pages.skins.gallery": {
+      "fr": "Skins par héros",
+      "text": "Skin per hero"
+    },
+    "pages.skinsCalendar.crumbSkins": {
+      "fr": "Skins",
+      "text": "Skin"
+    },
+    "pages.spellDetail.effect": {
+      "fr": "Effet",
+      "text": "Efek"
+    },
+    "pages.statistics.contextAll": {
+      "fr": "Tous rangs confondus",
+      "text": "Semua rank"
+    },
+    "pages.statistics.contextRank": {
+      "fr": "En parties {rank}",
+      "text": "Di pertandingan {rank}"
+    },
+    "pages.statistics.metaTitle": {
+      "fr": "Statistiques MLBB : victoire, pick et ban des héros par rang (patch {v})",
+      "text": "Statistik Hero MLBB: Win Rate, Pick Rate & Ban Rate per Rank (Patch {v})"
+    },
+    "pages.statistics.metaTitleRank": {
+      "fr": "Statistiques MLBB en {rank} : victoire, pick et ban (patch {v})",
+      "text": "Statistik Hero MLBB {rank}: Win Rate, Pick Rate & Ban Rate (Patch {v})"
+    },
+    "pages.statistics.titleRank": {
+      "fr": "Statistiques des héros — {rank}",
+      "text": "Statistik hero {rank}"
+    },
+    "pages.statisticsTable.ban": {
+      "fr": "Ban",
+      "text": "Ban rate"
+    },
+    "pages.statisticsTable.noMeasure": {
+      "fr": "Pas assez de mesures",
+      "text": "Data belum cukup"
+    },
+    "pages.statisticsTable.pick": {
+      "fr": "Pick",
+      "text": "Pick rate"
+    },
+    "pages.statisticsTable.tier": {
+      "fr": "Palier",
+      "text": "Tier"
+    },
+    "pages.statisticsTable.win": {
+      "fr": "Victoire",
+      "text": "Win rate"
+    },
+    "pages.team.metaTitle": {
+      "fr": "Analyseur de composition d'équipe MLBB",
+      "text": "Analisis komposisi tim MLBB"
+    },
+    "pages.tierList.laneSeo.Jungle": {
+      "fr": "jungle",
+      "text": "Jungle"
+    },
+    "pages.tierList.laneSeo.Roam": {
+      "fr": "roam",
+      "text": "Roam"
+    },
+    "pages.tierList.metaTitleRank": {
+      "fr": "Tier list MLBB {rank} : les meilleurs héros du moment",
+      "text": "Tier List MLBB {rank}: hero terkuat saat ini"
+    },
+    "pages.tierList.rolePlural.Assassin": {
+      "fr": "assassins",
+      "text": "Assassin"
+    },
+    "pages.tierList.rolePlural.Fighter": {
+      "fr": "combattants",
+      "text": "Fighter"
+    },
+    "pages.tierList.rolePlural.Mage": {
+      "fr": "mages",
+      "text": "Mage"
+    },
+    "pages.tierList.rolePlural.Marksman": {
+      "fr": "tireurs",
+      "text": "Marksman"
+    },
+    "pages.tierList.rolePlural.Support": {
+      "fr": "supports",
+      "text": "Support"
+    },
+    "pages.tierList.rolePlural.Tank": {
+      "fr": "tanks",
+      "text": "Tank"
+    },
+    "pages.tierList.tier": {
+      "fr": "Palier {p}",
+      "text": "Tier {p}"
+    },
+    "pages.tierList.titleRole": {
+      "fr": "Tier list {role} : les meilleurs {plural}",
+      "text": "Tier list {role}: {plural} terbaik"
+    },
+    "pages.tierMaker.crumb": {
+      "fr": "Créateur",
+      "text": "Maker"
+    },
+    "pages.tierMakerUI.actionBar": {
+      "fr": "Placer {name}",
+      "text": "Tempatkan {name}"
+    },
+    "pages.tierMakerUI.announceReset": {
+      "fr": "Liste remise à zéro.",
+      "text": "Daftar direset."
+    },
+    "pages.tierMakerUI.bench": {
+      "fr": "Réserve",
+      "text": "Pool hero"
+    },
+    "pages.tierMakerUI.empty": {
+      "fr": "Tout remettre en réserve",
+      "text": "Kosongkan semua tier"
+    },
+    "pages.tierMakerUI.exportDone": {
+      "fr": "Image téléchargée.",
+      "text": "Gambar diunduh."
+    },
+    "pages.tierMakerUI.linkShared": {
+      "fr": "Lien partagé.",
+      "text": "Tautan dibagikan."
+    },
+    "pages.tierMakerUI.moveDown": {
+      "fr": "Descendre la rangée",
+      "text": "Pindahkan baris ke bawah"
+    },
+    "pages.tierMakerUI.moveUp": {
+      "fr": "Monter la rangée",
+      "text": "Pindahkan baris ke atas"
+    },
+    "pages.tierMakerUI.toBench": {
+      "fr": "En réserve",
+      "text": "Ke pool"
+    },
+    "pages.timer.retributionLink": {
+      "fr": "S'entraîner au Châtiment",
+      "text": "Latihan Retribution"
+    },
+    "pages.versus.balancedShort": {
+      "fr": "Égalité",
+      "text": "Imbang"
+    },
+    "pages.versus.builds.title": {
+      "fr": "Builds",
+      "text": "Build"
+    },
+    "pages.versus.colAgainst": {
+      "fr": "{hero} face à {opponent}",
+      "text": "{hero} vs {opponent}"
+    },
+    "pages.versus.colRank": {
+      "fr": "Rang",
+      "text": "Rank"
+    },
+    "pages.versus.links.others": {
+      "fr": "Autres face-à-face : {name}",
+      "text": "Matchup {name} lainnya"
+    },
+    "pages.versus.metaTitle": {
+      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang (patch {v})",
+      "text": "{a} vs {b}: Siapa yang Menang? Statistik Matchup per Rank (Patch {v})"
+    },
+    "pages.versus.metaTitleNoPatch": {
+      "fr": "{a} vs {b} : qui gagne ? Stats du duel par rang",
+      "text": "{a} vs {b}: Siapa yang Menang? Statistik Matchup per Rank"
+    },
+    "pages.watch.metaTitle": {
+      "fr": "Veille — l'actualité MLBB du web",
+      "text": "Rangkuman — berita MLBB dari seluruh web"
+    },
+    "pages.watch.title": {
+      "fr": "Veille",
+      "text": "Rangkuman"
+    },
+    "patchHeroes.plural.adjust": {
+      "fr": "Ajustements",
+      "text": "Penyesuaian"
+    },
+    "patchHeroes.plural.buff": {
+      "fr": "Améliorations",
+      "text": "Buff"
+    },
+    "patchHeroes.plural.nerf": {
+      "fr": "Affaiblissements",
+      "text": "Nerf"
+    },
+    "prose.about.blocks.17.p": {
+      "fr": "Mobile Legends: Bang Bang, son univers, ses héros et leurs noms sont des marques déposées de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
+      "text": "Mobile Legends: Bang Bang, dunianya, para hero-nya, dan nama-nama mereka adalah merek dagang terdaftar milik Shanghai Moonton Technology Co., Ltd. Situs ini adalah proyek penggemar independen, tanpa afiliasi, persetujuan, maupun sponsor dari Moonton."
+    },
+    "prose.legal.blocks.0.h": {
+      "fr": "Éditeur",
+      "text": "Penerbit"
+    },
+    "prose.legal.blocks.1.p": {
+      "fr": "Ce site est édité à titre personnel par [{publisher}]({publisherSite}), dans le cadre d'un projet de fan indépendant, sans but lucratif et sans structure commerciale. Il ne s'agit pas d'une entreprise.",
+      "text": "Situs ini diterbitkan secara pribadi oleh [{publisher}]({publisherSite}), sebagai proyek penggemar independen, nirlaba, dan tanpa struktur komersial. Situs ini bukan sebuah perusahaan."
+    },
+    "prose.legal.blocks.10.p": {
+      "fr": "Les informations sont fournies à titre indicatif, sans garantie d'exactitude ni d'exhaustivité : le jeu évolue, et certaines données peuvent être en retard sur une mise à jour. Les liens vers des sites tiers n'engagent que leurs auteurs.",
+      "text": "Informasi disediakan hanya sebagai gambaran, tanpa jaminan keakuratan atau kelengkapan: game terus berubah, dan sebagian data dapat tertinggal dari suatu pembaruan. Tautan ke situs pihak ketiga sepenuhnya menjadi tanggung jawab penulisnya."
+    },
+    "prose.legal.blocks.3.h": {
+      "fr": "Hébergeur",
+      "text": "Penyedia hosting"
+    },
+    "prose.legal.blocks.6.p": {
+      "fr": "Mobile Legends: Bang Bang, son univers, ses héros, leurs noms et leurs représentations graphiques sont des marques et des œuvres de Shanghai Moonton Technology Co., Ltd. Ce site est un projet de fan indépendant, sans affiliation, ni approbation, ni parrainage de Moonton.",
+      "text": "Mobile Legends: Bang Bang, dunianya, para hero-nya, nama-nama mereka, dan representasi grafis mereka adalah merek dagang dan karya milik Shanghai Moonton Technology Co., Ltd. Situs ini adalah proyek penggemar independen, tanpa afiliasi, persetujuan, maupun sponsor dari Moonton."
+    },
+    "prose.legal.blocks.7.p": {
+      "fr": "Les visuels affichés (portraits, icônes, emblèmes, illustrations) proviennent du wiki communautaire et restent la propriété de Moonton. Ils sont inclus à des fins d'illustration et d'information. Sur demande de l'ayant droit, ils seront retirés.",
+      "text": "Visual yang ditampilkan (potret, ikon, emblem, ilustrasi) berasal dari wiki komunitas dan tetap menjadi milik Moonton. Visual tersebut disertakan untuk tujuan ilustrasi dan informasi, dan akan dihapus atas permintaan pemegang hak."
+    },
+    "prose.privacy.blocks.0.p": {
+      "fr": "Ce site est conçu pour fonctionner sans conserver de données personnelles sur un serveur : il n'a pas de base de données de comptes. Cette page décrit le peu qui est traité, et où.",
+      "text": "Situs ini dirancang untuk berfungsi tanpa menyimpan data pribadi di server: situs ini tidak memiliki database akun. Halaman ini menjelaskan sedikit data yang diproses, dan di mana."
+    },
+    "prose.privacy.blocks.1.h": {
+      "fr": "Cookies",
+      "text": "Cookie"
+    },
+    "prose.privacy.blocks.10.p": {
+      "fr": "Les images (portraits, icônes, emblèmes) sont servies par les hébergeurs de Moonton et du wiki communautaire. Charger une page adresse donc des requêtes à ces services, qui peuvent voir votre adresse IP, comme pour toute ressource distante.",
+      "text": "Gambar (potret, ikon, emblem) disajikan oleh host Moonton dan wiki komunitas. Karena itu, memuat halaman akan mengirim permintaan ke layanan tersebut, yang dapat melihat alamat IP Anda, seperti halnya sumber daya jarak jauh lainnya."
+    },
+    "prose.privacy.blocks.11.h": {
+      "fr": "Mesure d'audience",
+      "text": "Pengukuran pengunjung"
+    },
+    "prose.privacy.blocks.12.p": {
+      "fr": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire.",
+      "text": "Jika pengukuran pengunjung diaktifkan, pengukuran itu menggunakan alat tanpa cookie dan tanpa data pribadi, yang tidak melacak pengunjung dari satu situs ke situs lain. Dalam hal ini, banner persetujuan tidak diperlukan."
+    },
+    "prose.privacy.blocks.14.p": {
+      "fr": "Le site ne constituant aucun fichier de données personnelles, il n'y a rien à consulter, rectifier ou supprimer côté serveur. Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour toute question, écrivez à [{contact}](mailto:{contact}).",
+      "text": "Karena situs ini tidak membuat berkas data pribadi apa pun, tidak ada yang perlu diakses, diperbaiki, atau dihapus di sisi server. Anda tetap mengendalikan apa yang ada di browser Anda (favorit, sesi) dengan logout atau menghapus data situs. Untuk pertanyaan apa pun, tulis ke [{contact}](mailto:{contact})."
+    },
+    "prose.privacy.blocks.2.p": {
+      "fr": "Un seul cookie peut être déposé, et uniquement si vous connectez votre compte de jeu :",
+      "text": "Hanya satu cookie yang dapat dipasang, dan hanya jika Anda menghubungkan akun game Anda:"
+    },
+    "prose.privacy.blocks.3.ul.0": {
+      "fr": "`mlbb_jeu` — cookie de session strictement nécessaire à la connexion. Il contient le jeton temporaire remis par le service de Moonton, ne quitte jamais le serveur (`httpOnly`), et expire de lui-même. Sans connexion, aucun cookie n'est déposé.",
+      "text": "`mlbb_jeu` — cookie sesi yang mutlak diperlukan untuk login. Cookie ini berisi token sementara yang diberikan oleh layanan Moonton, tidak pernah meninggalkan server (`httpOnly`), dan kedaluwarsa dengan sendirinya. Tanpa login, tidak ada cookie yang dipasang."
+    },
+    "prose.privacy.blocks.4.p": {
+      "fr": "Ce cookie étant strictement nécessaire au service que vous demandez (rester connecté), il ne requiert pas de consentement préalable. Aucun cookie publicitaire ni de suivi n'est utilisé.",
+      "text": "Karena cookie ini mutlak diperlukan untuk layanan yang Anda minta (tetap login), cookie ini tidak memerlukan persetujuan sebelumnya. Tidak ada cookie iklan maupun pelacakan yang digunakan."
+    },
+    "prose.privacy.blocks.6.p": {
+      "fr": "Vos héros favoris sont enregistrés dans le stockage local de votre navigateur (`localStorage`), sur votre appareil uniquement. Ils ne sont envoyés à aucun serveur et ne quittent pas ce navigateur. Vider les données du site les efface.",
+      "text": "Hero favorit Anda disimpan di penyimpanan lokal browser (`localStorage`), hanya di perangkat Anda. Data ini tidak dikirim ke server mana pun dan tidak pernah keluar dari browser ini. Menghapus data situs akan menghapusnya."
+    },
+    "prose.privacy.blocks.7.h": {
+      "fr": "Connexion au compte de jeu",
+      "text": "Login akun game"
+    },
+    "prose.privacy.blocks.8.p": {
+      "fr": "La connexion utilise le flux officiel de Moonton : vous fournissez votre identifiant et serveur de jeu, un code de vérification vous est envoyé en jeu, et le site reçoit en retour un jeton temporaire. Ces échanges transitent par une API communautaire (`arena.rone.dev`) et le service d'authentification de Moonton. Le site n'enregistre rien de ces informations : le jeton vit dans le cookie de session, côté navigateur, et disparaît à la déconnexion ou à l'expiration. Aucun mot de passe ne vous est jamais demandé.",
+      "text": "Login menggunakan alur resmi Moonton: Anda memberikan ID dan server game Anda, kode verifikasi dikirim kepada Anda di dalam game, dan situs menerima token sementara sebagai balasannya. Pertukaran ini melewati API komunitas (`arena.rone.dev`) dan layanan autentikasi Moonton. Situs ini tidak menyimpan informasi tersebut: token berada di cookie sesi, di sisi browser, dan hilang saat Anda logout atau saat kedaluwarsa. Anda tidak pernah dimintai kata sandi."
+    },
+    "rankNames.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "rankNames.epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "rankNames.grandmaster": {
+      "fr": "Grand Maître",
+      "text": "Grandmaster"
+    },
+    "rankNames.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "rankNames.master": {
+      "fr": "Maître",
+      "text": "Master"
+    },
+    "rankNames.mythic": {
+      "fr": "Mythique",
+      "text": "Mythic"
+    },
+    "rankNames.mythic-glory": {
+      "fr": "Gloire mythique",
+      "text": "Mythical Glory"
+    },
+    "rankNames.mythic-honor": {
+      "fr": "Honneur mythique",
+      "text": "Mythical Honor"
+    },
+    "rankNames.mythic-immortal": {
+      "fr": "Immortel mythique",
+      "text": "Mythical Immortal"
+    },
+    "rankNames.warrior": {
+      "fr": "Guerrier",
+      "text": "Warrior"
+    },
+    "roles.Assassin": {
+      "fr": "Assassin",
+      "text": "Assassin"
+    },
+    "roles.Fighter": {
+      "fr": "Combattant",
+      "text": "Fighter"
+    },
+    "roles.Mage": {
+      "fr": "Mage",
+      "text": "Mage"
+    },
+    "roles.Marksman": {
+      "fr": "Tireur",
+      "text": "Marksman"
+    },
+    "roles.Support": {
+      "fr": "Support",
+      "text": "Support"
+    },
+    "roles.Tank": {
+      "fr": "Tank",
+      "text": "Tank"
+    },
+    "search.open": {
+      "fr": "Rechercher",
+      "text": "Cari"
+    },
+    "skills.Passive": {
+      "fr": "Passif",
+      "text": "Passive"
+    },
+    "skills.Skill": {
+      "fr": "Compétence",
+      "text": "Skill"
+    },
+    "skills.Ultimate": {
+      "fr": "Ultime",
+      "text": "Ultimate"
+    },
+    "skinAvailability.Available": {
+      "fr": "Disponible",
+      "text": "Tersedia"
+    },
+    "skinAvailability.Limited": {
+      "fr": "Limité",
+      "text": "Terbatas"
+    },
+    "skinAvailability.Upcoming": {
+      "fr": "À venir",
+      "text": "Segera hadir"
+    },
+    "skinLabel.Atomic": {
+      "fr": "Atomic",
+      "text": "Atomic"
+    },
+    "skinLabel.Collector": {
+      "fr": "Collector",
+      "text": "Collector"
+    },
+    "skinLabel.Elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "skinLabel.Epic": {
+      "fr": "Épique",
+      "text": "Epic"
+    },
+    "skinLabel.Legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "skinLabel.Limited": {
+      "fr": "Limité",
+      "text": "Limited"
+    },
+    "skinLabel.Luckybox": {
+      "fr": "Coffre chance",
+      "text": "Lucky Box"
+    },
+    "skinLabel.Seasons": {
+      "fr": "Saisons",
+      "text": "Season"
+    },
+    "skinLabel.Special": {
+      "fr": "Spécial",
+      "text": "Special"
+    },
+    "skinLabel.StarLight": {
+      "fr": "StarLight",
+      "text": "StarLight"
+    },
+    "skinLabel.Valentine": {
+      "fr": "Saint-Valentin",
+      "text": "Valentine"
+    },
+    "skinRarity.Common": {
+      "fr": "Commun",
+      "text": "Common"
+    },
+    "skinRarity.Deluxe": {
+      "fr": "Deluxe",
+      "text": "Deluxe"
+    },
+    "skinRarity.Exceptional": {
+      "fr": "Exceptionnel",
+      "text": "Exceptional"
+    },
+    "skinRarity.Exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisite"
+    },
+    "skinRarity.Grand": {
+      "fr": "Grandiose",
+      "text": "Grand"
+    },
+    "skinRarity.Supreme": {
+      "fr": "Suprême",
+      "text": "Supreme"
+    },
+    "skinRarity.origin": {
+      "fr": "Origine",
+      "text": "Asal"
+    },
+    "tools.retribution.announceRound": {
+      "fr": "Manche {n} sur {total} : {objective}. Préparez-vous.",
+      "text": "Ronde {n} dari {total}: {objective}. Bersiap."
+    },
+    "tools.retribution.bar": {
+      "fr": "Barre de vie — {objective}",
+      "text": "Bar HP — {objective}"
+    },
+    "tools.retribution.detailMissed": {
+      "fr": "Le monstre est tombé sous les coups sans votre Châtiment.",
+      "text": "Monster mati oleh serangan tim Anda sebelum Retribution Anda."
+    },
+    "tools.retribution.detailTooEarly": {
+      "fr": "Il restait {remaining} PV après votre Châtiment, et il se recharge en {recharge} s : l'objectif est perdu.",
+      "text": "Masih tersisa {remaining} HP setelah Retribution Anda, dan cooldown-nya {recharge} detik: objektif hilang."
+    },
+    "tools.retribution.levelLabel": {
+      "fr": "Niveau du héros",
+      "text": "Level hero"
+    },
+    "tools.retribution.levelOption": {
+      "fr": "Niveau {n} — {damage} dégâts",
+      "text": "Level {n} — {damage} damage"
+    },
+    "tools.retribution.levelShort": {
+      "fr": "niveau {n}",
+      "text": "level {n}"
+    },
+    "tools.retribution.mapTitle": {
+      "fr": "Test de Châtiment",
+      "text": "Tes Retribution"
+    },
+    "tools.retribution.marker": {
+      "fr": "Repère doré : {damage} PV",
+      "text": "Penanda emas: {damage} HP"
+    },
+    "tools.retribution.newRun": {
+      "fr": "Nouvelle partie",
+      "text": "Main lagi"
+    },
+    "tools.retribution.objective.lord": {
+      "fr": "Seigneur (8:00)",
+      "text": "Lord (8:00)"
+    },
+    "tools.retribution.objective.lord-12": {
+      "fr": "Seigneur (12:00+)",
+      "text": "Lord (12:00+)"
+    },
+    "tools.retribution.objective.orange-buff": {
+      "fr": "Buff orange (12:00+)",
+      "text": "Buff oranye (12:00+)"
+    },
+    "tools.retribution.objective.purple-buff": {
+      "fr": "Buff violet (12:00+)",
+      "text": "Buff ungu (12:00+)"
+    },
+    "tools.retribution.objectiveLabel": {
+      "fr": "Objectif",
+      "text": "Objektif"
+    },
+    "tools.retribution.outcomeSecured": {
+      "fr": "Sécurisé !",
+      "text": "Aman!"
+    },
+    "tools.retribution.round": {
+      "fr": "Manche",
+      "text": "Ronde"
+    },
+    "tools.retribution.shareText": {
+      "fr": "Test de Châtiment MLBB — {objective}, {difficulty} : {points} points, {secured}/{rounds} sécurisés. À vous :",
+      "text": "Tes Retribution MLBB — {objective}, {difficulty}: {points} poin, {secured}/{rounds} aman. Giliran Anda:"
+    },
+    "tools.retribution.smite": {
+      "fr": "Châtiment !",
+      "text": "Retribution!"
+    },
+    "tools.retribution.start": {
+      "fr": "Commencer",
+      "text": "Mulai"
+    },
+    "tools.retribution.thresholdSentence": {
+      "fr": "Votre Châtiment inflige {damage} dégâts bruts : frappez quand les PV passent en dessous. Niveau conseillé pour cet objectif : {suggested}.",
+      "text": "Retribution Anda memberikan {damage} true damage: serang saat HP turun di bawah angka itu. Level yang disarankan untuk objektif ini: {suggested}."
+    },
+    "tools.serverTime.colDaily": {
+      "fr": "Quotidienne",
+      "text": "Harian"
+    },
+    "tools.serverTime.countdownTitle": {
+      "fr": "Prochaines remises à zéro",
+      "text": "Reset berikutnya"
+    },
+    "tools.serverTime.countriesTitle": {
+      "fr": "Heure de la remise, pays par pays",
+      "text": "Waktu reset per negara"
+    },
+    "tools.serverTime.deadline.daily": {
+      "fr": "Remise quotidienne",
+      "text": "Reset harian"
+    },
+    "tools.serverTime.deadline.season": {
+      "fr": "Fin de la saison classée",
+      "text": "Akhir season ranked"
+    },
+    "tools.serverTime.deadline.starlight": {
+      "fr": "Nouveau Starlight",
+      "text": "Starlight baru"
+    },
+    "tools.serverTime.deadline.weekly": {
+      "fr": "Remise hebdomadaire",
+      "text": "Reset mingguan"
+    },
+    "tools.serverTime.group.en": {
+      "fr": "Pays anglophones",
+      "text": "Negara berbahasa Inggris"
+    },
+    "tools.serverTime.group.es": {
+      "fr": "Pays hispanophones",
+      "text": "Negara berbahasa Spanyol"
+    },
+    "tools.serverTime.group.fr": {
+      "fr": "Pays francophones",
+      "text": "Negara berbahasa Prancis"
+    },
+    "tools.serverTime.group.id": {
+      "fr": "Pays de langue indonésienne",
+      "text": "Negara berbahasa Indonesia"
+    },
+    "tools.serverTime.group.it": {
+      "fr": "Pays italophones",
+      "text": "Negara berbahasa Italia"
+    },
+    "tools.serverTime.legend": {
+      "fr": "Heure locale des remises : {group}",
+      "text": "Waktu reset lokal: {group}"
+    },
+    "tools.serverTime.on": {
+      "fr": "Le {date} ({zone})",
+      "text": "Pada {date} ({zone})"
+    },
+    "tools.serverTime.seasonEnd": {
+      "fr": "Saison {n} : fin le {date} ({zone}), annoncée dans le patch {v}.",
+      "text": "Season {n} berakhir pada {date} ({zone}), sesuai pengumuman di patch {v}."
+    },
+    "tools.serverTime.you": {
+      "fr": "vous",
+      "text": "Anda"
+    },
+    "tools.serverTime.yourPlace": {
+      "fr": "Dans votre fuseau ({timezone}, {offset}), la remise quotidienne tombe à {daily} et la remise hebdomadaire le {weekly}.",
+      "text": "Di zona waktu Anda ({timezone}, {offset}), reset harian terjadi pukul {daily} dan reset mingguan pada {weekly}."
+    },
+    "tools.serverTime.yourTime": {
+      "fr": "Chez vous : {time} ({timezone})",
+      "text": "Waktu Anda: {time} ({timezone})"
+    }
+  }
+}

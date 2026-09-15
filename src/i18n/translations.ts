@@ -4,8 +4,9 @@ import en from "./messages/en.json";
 import fr from "./messages/fr.json";
 import it from "./messages/it.json";
 import es from "./messages/es.json";
+import id from "./messages/id.json";
 
-const MESSAGES: Record<Locale, Tree> = { en, fr, it, es } as unknown as Record<Locale, Tree>;
+const MESSAGES: Record<Locale, Tree> = { en, fr, it, es, id } as unknown as Record<Locale, Tree>;
 
 /**
  * Builds a language's translation function. A missing key falls back on

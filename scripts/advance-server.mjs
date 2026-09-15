@@ -9,9 +9,12 @@
  *
  *     node scripts/advance-server.mjs                     data + translations
  *     node scripts/advance-server.mjs --no-translation    data only
+ *     node scripts/advance-server.mjs --translation-only  translations of the saved data, no wiki call
+ *
+ * `--locale id` narrows the translations to the named languages.
  *
  * Writes `src/data/game/advance-server.json` (English, the wiki's language)
- * and `src/data/game/advance-server/{fr,it,es}.json`. If the wiki does not
+ * and `src/data/game/advance-server/<locale>.json` for every other site language. If the wiki does not
  * answer, the script fails before writing anything: the previous data stays.
  */
 import { existsSync } from "node:fs";
@@ -21,6 +24,8 @@ import { heroAdjustments } from "./patch-parser.mjs";
 import { removeComments } from "./tags.mjs";
 import { pause, translateBatch } from "./translation-google.mjs";
 import { cleanDescription } from "./wikitext.mjs";
+import { targetLocales } from "./locales.mjs";
+import { applyGlossary } from "./translation-glossary.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com";
 const API = `${WIKI}/api.php`;
@@ -28,7 +33,6 @@ const USER_AGENT = "MLBBDex/1.0 (+https://mlbbdex.com)";
 const OUTPUT = "src/data/game/advance-server.json";
 const TRANSLATIONS_DIR = "src/data/game/advance-server";
 const CACHE = "scripts/advance-server-translations.json";
-const TARGET_LANGUAGES = ["fr", "it", "es"];
 
 /**
  * Versions whose content is kept. Older ones stay listed with a link to the
@@ -652,12 +656,15 @@ async function translate(versions) {
   const texts = [...new Set(versions.flatMap(versionTexts).map((x) => String(x).trim()).filter(Boolean))];
   await mkdir(TRANSLATIONS_DIR, { recursive: true });
 
-  for (const tl of TARGET_LANGUAGES) {
+  for (const tl of targetLocales("en")) {
     const missing = texts.filter((x) => !(`en|${tl}|${x}` in cache));
     const groups = batches(missing);
     for (const [i, batch] of groups.entries()) {
       const results = await translateBatch(batch, "en", tl, { tolerant: true });
-      batch.forEach((o, k) => (cache[`en|${tl}|${o}`] = results[k] ?? o));
+      // An empty answer is not cached: a later run tries the text again.
+      batch.forEach((o, k) => {
+        if (results[k]?.trim()) cache[`en|${tl}|${o}`] = results[k];
+      });
       process.stdout.write(`\r  en->${tl} ${i + 1}/${groups.length} batches`);
       // A network cut in the middle of a long run does not lose everything.
       if (i % 50 === 49) await save();
@@ -666,7 +673,8 @@ async function translate(versions) {
     if (groups.length) process.stdout.write("\n");
     await save();
 
-    const t = (x) => cache[`en|${tl}|${String(x).trim()}`] ?? x;
+    // Game vocabulary applied on output; the cache keeps the raw translation.
+    const t = (x) => applyGlossary(cache[`en|${tl}|${String(x).trim()}`] ?? x, tl, "data");
     const translated = Object.fromEntries(versions.map((v) => [v.version, translateVersion(v, t)]));
     await writeFile(`${TRANSLATIONS_DIR}/${tl}.json`, JSON.stringify(translated, null, 2) + "\n");
     console.log(`  ${TRANSLATIONS_DIR}/${tl}.json`);
@@ -759,6 +767,12 @@ async function readJson(path) {
 
 async function main() {
   const withTranslation = !process.argv.includes("--no-translation");
+  if (process.argv.includes("--translation-only")) {
+    const saved = await readJson(OUTPUT);
+    console.log(`Translations of ${OUTPUT} (${saved.versions.length} detailed versions)…`);
+    await translate(saved.versions);
+    return;
+  }
   const heroes = buildIndex(await readJson("src/data/game/heroes.json"));
   const items = buildIndex(await readJson("src/data/game/items/en.json"));
 

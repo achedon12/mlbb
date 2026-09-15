@@ -1,5 +1,5 @@
 /**
- * Translates the Markdown articles from French to en/it/es.
+ * Translates the Markdown articles from French to the other site languages.
  *
  * Source: `content/fr/<section>/*.md`. Outputs: `content/<locale>/…`. The
  * title and summary of the YAML front matter are translated, and the body paragraph by
@@ -9,8 +9,11 @@
 import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
 import { pause, translateBatch } from "./translation-google.mjs";
 import { existsSync } from "node:fs";
+import { targetLocales } from "./locales.mjs";
+import { applyGlossary } from "./translation-glossary.mjs";
 
-const TARGETS = ["en", "it", "es"];
+// Every site language but French; `--locale id` narrows the run to the named ones.
+const TARGETS = targetLocales("fr");
 const CACHE = "scripts/translations-data.json";
 const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
 
@@ -23,7 +26,9 @@ async function translate(text, tl) {
     cache[key] = output ?? t.trim();
     await pause(150);
   }
-  return t.replace(t.trim(), cache[key]);
+  // Game vocabulary applied on output; the cache keeps the raw translation.
+  const output = applyGlossary(cache[key], tl, "data");
+  return t.replace(t.trim(), () => output);
 }
 
 /** Translates a body line, preserving its leading Markdown marker. */

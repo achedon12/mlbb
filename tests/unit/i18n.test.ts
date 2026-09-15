@@ -2,21 +2,21 @@ import { describe, expect, it } from "vitest";
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import ts from "typescript";
-import fr from "@/i18n/messages/fr.json";
-import en from "@/i18n/messages/en.json";
-import itCatalog from "@/i18n/messages/it.json";
-import es from "@/i18n/messages/es.json";
+import { LOCALES } from "@/i18n/config";
 
 /**
  * Message catalog consistency.
  *
- * The four locales carry the same keys and the same variables, and every key
+ * All locales carry the same keys and the same variables, and every key
  * referenced in the code exists: a missing key would be shown as is
  * ("pages.heroes.title") to the reader, a missing variable would stay between
  * braces.
  */
 type Node = string | Node[] | { [key: string]: Node };
-const CATALOGUES: Record<string, Node> = { fr, en, it: itCatalog, es } as unknown as Record<string, Node>;
+/** One catalogue per site language, read from the locale list: a new language is checked with no change here. */
+const CATALOGUES: Record<string, Node> = Object.fromEntries(
+  LOCALES.map((l) => [l, JSON.parse(readFileSync(join(process.cwd(), "src/i18n/messages", `${l}.json`), "utf8")) as Node]),
+);
 
 function flatten(node: Node, prefix = "", output = new Map<string, string>()): Map<string, string> {
   if (typeof node === "string") output.set(prefix, node);
@@ -100,7 +100,7 @@ function keysOfCode() {
 }
 
 describe("message catalogs", () => {
-  it("all four locales have exactly the same keys", () => {
+  it("every locale has exactly the same keys as the French source", () => {
     const reference = [...flat.fr.keys()];
     const gaps = Object.fromEntries(
       Object.entries(flat)
@@ -114,7 +114,8 @@ describe("message catalogs", () => {
         ]),
     );
     const empty = { missing: [], extra: [] };
-    expect(gaps).toEqual({ en: empty, it: empty, es: empty });
+    expect(Object.keys(gaps).sort()).toEqual(LOCALES.filter((l) => l !== "fr").sort());
+    expect(gaps).toEqual(Object.fromEntries(Object.keys(gaps).map((l) => [l, empty])));
   });
 
   it("each key keeps the same {x} variables in every locale", () => {

@@ -5,6 +5,7 @@
  * is. All deadlines are computed in UTC milliseconds, from a
  * single timezone constant.
  */
+import type { Locale } from "@/i18n/config";
 
 const MINUTE = 60_000;
 const DAY = 86_400_000;
@@ -178,7 +179,7 @@ export interface CountryTimezone {
   city?: string;
 }
 
-export const COUNTRY_BY_LOCALE: Record<"fr" | "en" | "it" | "es", CountryTimezone[]> = {
+export const COUNTRY_BY_LOCALE: Record<Locale, CountryTimezone[]> = {
   fr: [
     { country: "FR", timezone: "Europe/Paris" },
     { country: "BE", timezone: "Europe/Brussels" },
@@ -226,5 +227,11 @@ export const COUNTRY_BY_LOCALE: Record<"fr" | "en" | "it" | "es", CountryTimezon
     { country: "SG", timezone: "Asia/Singapore" },
     { country: "NG", timezone: "Africa/Lagos" },
     { country: "ZA", timezone: "Africa/Johannesburg" },
+  ],
+  // Indonesia spans three time zones.
+  id: [
+    { country: "ID", timezone: "Asia/Jakarta", city: "Jakarta" },
+    { country: "ID", timezone: "Asia/Makassar", city: "Makassar" },
+    { country: "ID", timezone: "Asia/Jayapura", city: "Jayapura" },
   ],
 };

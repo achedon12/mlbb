@@ -2,31 +2,38 @@ import combosEn from "@/data/game/combos.json";
 import combosFr from "@/data/game/combos/fr.json";
 import combosIt from "@/data/game/combos/it.json";
 import combosEs from "@/data/game/combos/es.json";
+import combosId from "@/data/game/combos/id.json";
 import skillsEn from "@/data/game/skills/en.json";
 import skillsFr from "@/data/game/skills/fr.json";
 import skillsIt from "@/data/game/skills/it.json";
 import skillsEs from "@/data/game/skills/es.json";
+import skillsId from "@/data/game/skills/id.json";
 import modesEn from "@/data/game/modes/en.json";
 import modesFr from "@/data/game/modes/fr.json";
 import modesIt from "@/data/game/modes/it.json";
 import modesEs from "@/data/game/modes/es.json";
+import modesId from "@/data/game/modes/id.json";
 import storiesEn from "@/data/game/stories/en.json";
 import storiesFr from "@/data/game/stories/fr.json";
 import storiesIt from "@/data/game/stories/it.json";
 import storiesEs from "@/data/game/stories/es.json";
+import storiesId from "@/data/game/stories/id.json";
 import generatedHeroes from "@/data/game/heroes.json";
 import itemsEn from "@/data/game/items/en.json";
 import itemsFr from "@/data/game/items/fr.json";
 import itemsIt from "@/data/game/items/it.json";
 import itemsEs from "@/data/game/items/es.json";
+import itemsId from "@/data/game/items/id.json";
 import tierNotesEn from "@/data/game/tier-notes/en.json";
 import tierNotesFr from "@/data/game/tier-notes/fr.json";
 import tierNotesIt from "@/data/game/tier-notes/it.json";
 import tierNotesEs from "@/data/game/tier-notes/es.json";
+import tierNotesId from "@/data/game/tier-notes/id.json";
 import generatedPatches from "@/data/game/patches.json";
 import patchesFr from "@/data/game/patches/fr.json";
 import patchesIt from "@/data/game/patches/it.json";
 import patchesEs from "@/data/game/patches/es.json";
+import patchesId from "@/data/game/patches/id.json";
 import generatedSkins from "@/data/game/skins.json";
 import generatedSync from "@/data/game/sync.json";
 import generatedStatistics from "@/data/game/statistics.json";
@@ -75,7 +82,8 @@ export const heroesBySlug = new Map(allHeroes.map((h) => [h.slug, h]));
  * A hero's skills, in the requested language. Each language has its own
  * static file, generated upstream: nothing is translated at runtime.
  */
-const SKILLS = { en: skillsEn, fr: skillsFr, it: skillsIt, es: skillsEs };
+// `satisfies`: a language added to LOCALES without its file fails the type check.
+const SKILLS = { en: skillsEn, fr: skillsFr, it: skillsIt, es: skillsEs, id: skillsId } satisfies Record<Locale, unknown>;
 export function skills(locale: Locale): Record<string, (WikiSkill | null)[]> {
   return SKILLS[locale] as unknown as Record<string, (WikiSkill | null)[]>;
 }
@@ -99,7 +107,7 @@ export interface ComboHero {
  * Descriptions arrive in English: each language reads this file until its
  * translation exists, which will only need to replace its entry here.
  */
-const COMBOS = { en: combosEn, fr: combosFr, it: combosIt, es: combosEs };
+const COMBOS = { en: combosEn, fr: combosFr, it: combosIt, es: combosEs, id: combosId } satisfies Record<Locale, unknown>;
 export function combos(locale: Locale): Record<string, ComboHero[]> {
   return COMBOS[locale] as unknown as Record<string, ComboHero[]>;
 }
@@ -198,7 +206,12 @@ export const patchDetails = generatedPatches.details as unknown as Record<string
  * text rather than disappearing: it is then the same object as in
  * `patchDetails`.
  */
-const TRANSLATED_PATCHES = { fr: patchesFr, it: patchesIt, es: patchesEs } as unknown as Record<
+const TRANSLATED_PATCHES = {
+  fr: patchesFr,
+  it: patchesIt,
+  es: patchesEs,
+  id: patchesId,
+} satisfies Record<Exclude<Locale, "en">, unknown> as unknown as Record<
   Exclude<Locale, "en">,
   Record<string, DetailedPatch>
 >;
@@ -215,7 +228,7 @@ export function detailedPatches(locale: Locale): Record<string, DetailedPatch> {
 }
 
 /** Game modes, in the requested language. */
-const MODES = { en: modesEn, fr: modesFr, it: modesIt, es: modesEs };
+const MODES = { en: modesEn, fr: modesFr, it: modesIt, es: modesEs, id: modesId } satisfies Record<Locale, unknown>;
 export function modes(locale: Locale): GameMode[] {
   return MODES[locale] as unknown as GameMode[];
 }
@@ -226,7 +239,7 @@ export function modeBySlug(locale: Locale, slug: string): GameMode | undefined {
 export const modesSlugs = (modesFr as unknown as GameMode[]).map((m) => m.slug);
 
 /** A hero's story per language: hook, lore, narrative profile, trivia. */
-const STORIES = { en: storiesEn, fr: storiesFr, it: storiesIt, es: storiesEs };
+const STORIES = { en: storiesEn, fr: storiesFr, it: storiesIt, es: storiesEs, id: storiesId } satisfies Record<Locale, unknown>;
 export function stories(locale: Locale): Record<string, HeroStory> {
   return STORIES[locale] as unknown as Record<string, HeroStory>;
 }
@@ -237,7 +250,7 @@ export const illustrations = generatedVisuals.illustrations as unknown as Record
   Record<string, string>
 >;
 
-const ITEMS = { en: itemsEn, fr: itemsFr, it: itemsIt, es: itemsEs };
+const ITEMS = { en: itemsEn, fr: itemsFr, it: itemsIt, es: itemsEs, id: itemsId } satisfies Record<Locale, unknown>;
 export function itemsFor(locale: Locale): GeneratedItem[] {
   return ITEMS[locale] as unknown as GeneratedItem[];
 }
@@ -245,7 +258,13 @@ export function itemsFor(locale: Locale): GeneratedItem[] {
 export const countItems = (itemsEn as unknown as GeneratedItem[]).length;
 
 /** Editorial notes of the tier list, per language. */
-const TIER_NOTES = { en: tierNotesEn, fr: tierNotesFr, it: tierNotesIt, es: tierNotesEs };
+const TIER_NOTES = {
+  en: tierNotesEn,
+  fr: tierNotesFr,
+  it: tierNotesIt,
+  es: tierNotesEs,
+  id: tierNotesId,
+} satisfies Record<Locale, unknown>;
 export function tierNotes(locale: Locale): Record<string, string> {
   return TIER_NOTES[locale] as Record<string, string>;
 }

@@ -2,6 +2,7 @@ import advanceEn from "@/data/game/advance-server.json";
 import advanceFr from "@/data/game/advance-server/fr.json";
 import advanceIt from "@/data/game/advance-server/it.json";
 import advanceEs from "@/data/game/advance-server/es.json";
+import advanceId from "@/data/game/advance-server/id.json";
 import type { Locale } from "@/i18n/config";
 import type { AdjustmentType } from "./types";
 
@@ -91,7 +92,10 @@ interface AdvanceData {
 }
 
 const data = advanceEn as unknown as AdvanceData;
-const TRANSLATIONS = { fr: advanceFr, it: advanceIt, es: advanceEs } as unknown as Record<
+const TRANSLATIONS = { fr: advanceFr, it: advanceIt, es: advanceEs, id: advanceId } satisfies Record<
+  Exclude<Locale, "en">,
+  unknown
+> as unknown as Record<
   Exclude<Locale, "en">,
   Record<string, AdvanceVersion>
 >;

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LOCALES, LOCALE_HTML } from "@/i18n/config";
+import { LOCALES, LOCALE_HTML, type Locale } from "@/i18n/config";
 import "./globals.css";
 
 /**
@@ -14,12 +14,14 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-const TEXTS = {
+/** One entry per language: a language added to LOCALES without its text fails the type check. */
+const TEXTS: Record<Locale, string> = {
   fr: "Page introuvable",
   en: "Page not found",
   it: "Pagina non trovata",
   es: "Página no encontrada",
-} as const;
+  id: "Halaman tidak ditemukan",
+};
 
 export default function GlobalNotFoundPage() {
   return (

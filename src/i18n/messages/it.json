@@ -203,7 +203,7 @@
     "brand": "Mobile Legends: Bang Bang™ Shanghai Moonton Technology Co., Ltd.",
     "version": "Versione {v}",
     "contribute": "Contribuisci",
-    "intro": "Eroi, build e counter per rango, una tier list calcolata sui tassi di vittoria delle partite classificate, oggetti, emblemi e patch notes di Mobile Legends: Bang Bang, in italiano, inglese, francese e spagnolo. Progetto indipendente, aperto ai contributi.",
+    "intro": "Eroi, build e counter per rango, una tier list calcolata sui tassi di vittoria delle partite classificate, oggetti, emblemi e patch notes di Mobile Legends: Bang Bang, in italiano, inglese, francese, spagnolo e indonesiano. Progetto indipendente, aperto ai contributi.",
     "sources": "Dati di gioco dal wiki di Mobile Legends (CC BY-SA). Tassi di vittoria, ban e selezione, counter e build più giocate provengono dalle statistiche delle partite classificate del gioco, tramite l'API della community arena.rone.dev."
   },
   "language": {
@@ -4112,7 +4112,8 @@
         "fr": "Paesi francofoni",
         "en": "Paesi anglofoni",
         "it": "Paesi italofoni",
-        "es": "Paesi ispanofoni"
+        "es": "Paesi ispanofoni",
+        "id": "Paesi di lingua indonesiana"
       },
       "legend": "Orari locali dei reset: {group}",
       "colCountry": "Paese",

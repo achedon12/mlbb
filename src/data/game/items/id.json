@@ -1,0 +1,1592 @@
+[
+  {
+    "slug": "antique-cuirass",
+    "name": "Antique Cuirass",
+    "summary": "Pengurangan Serangan Fisik",
+    "category": "Defense",
+    "price": 2170,
+    "bonus": "+920 HP, +40 Pertahanan Fisik, +4 Regen HP",
+    "unique": null,
+    "passive": "Deter: Saat terkena skill, mengurangi Physical Damage penyerang sebesar 6% selama 2 detik (efek ini ditumpuk hingga 3 kali).",
+    "active": null,
+    "recipe": [
+      "Dreadnaught Armor",
+      "Ares Belt"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "arcane-boots",
+    "name": "Arcane Boots",
+    "summary": "Penetrasi Ajaib",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Kecepatan Gerakan, +15 Kekuatan Sihir, +10 Penetrasi Sihir",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Mystery Codex"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "ares-belt",
+    "name": "Ares Belt",
+    "summary": null,
+    "category": "Defense",
+    "price": 700,
+    "bonus": "+600 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "athena-s-shield",
+    "name": "Athena's Shield",
+    "summary": "Menahan Damage Sihir Meledak",
+    "category": "Defense",
+    "price": 2150,
+    "bonus": "+900 HP, +48 Pertahanan Sihir, +2 Regen HP",
+    "unique": null,
+    "passive": "Shield: Saat menerima Magic Damage dari skill atau Basic Attack hero musuh, mengurangi Magic Damage yang diterima sebesar 25% selama 3 detik (termasuk damage yang memicu efeknya) s. Mendapatkan kembali efek ini 5 detik setelah meninggalkan pertempuran.",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "azure-blade",
+    "name": "Azure Blade",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "+5 Regen Mana, +5% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Penilaian: Setelah mengeluarkan skill, Basic Attack berikutnya dalam 3 detik akan menghasilkan 50 True Damage tambahan (cooldown 1,5 detik).",
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "berserker-s-fury",
+    "name": "Berserker's Fury",
+    "summary": "Peluang & Damage Kritik",
+    "category": "Attack",
+    "price": 2390,
+    "bonus": "+60 Serangan Fisik, +25% Peluang Kritik",
+    "unique": "+30% Damage Kritik",
+    "passive": "Doom: Saat Serangan Dasar Crit, mereka memberikan True Damage tambahan sebesar 12% dari damage sebelum dikurangi.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Javelin",
+      "Javelin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "black-ice-shield",
+    "name": "Black Ice Shield",
+    "summary": null,
+    "category": "Defense",
+    "price": 780,
+    "bonus": "+20 Pertahanan Fisik, +20 Pertahanan Sihir",
+    "unique": null,
+    "passive": "Fortress Shield: Untuk setiap hero musuh dalam 3,55 unit, Pertahanan Hibrid ditingkatkan sebesar 4, hingga 20.",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "blade-armor",
+    "name": "Blade Armor",
+    "summary": "Refleksi Damage",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+80 Pertahanan Fisik",
+    "unique": "+20% Pengurangan Damage Kritik",
+    "passive": "Bladed Armor: Ketika terkena Basic Attack, memberikan Physical Damage setara dengan 30 (+2% Total Physical Defense)% dari damage yang masuk (dihitung sebelum Damage Reduction) kepada penyerang dan menyebabkan efek slow kepada mereka sebesar 15% selama 1 detik.",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "blade-of-despair",
+    "name": "Blade of Despair",
+    "summary": "Serangan Fisik Tertinggi",
+    "category": "Attack",
+    "price": 3010,
+    "bonus": "+160 Serangan Fisik, +5% Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Despair: Memberikan damage kepada musuh non-Minion dengan HP di bawah 50% akan meningkatkan Physical Attack sebesar 25% selama 2 detik (berlaku sebelum damage diberikan).",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Legion Sword"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "blade-of-the-heptaseas",
+    "name": "Blade of the Heptaseas",
+    "summary": "Terbaik untuk Assassin",
+    "category": "Attack",
+    "price": 1950,
+    "bonus": "+70 Serangan Fisik, +250 HP",
+    "unique": "+15 Penetrasi Fisik",
+    "passive": "Ambush: Jika tidak ada damage yang diterima atau diberikan dalam waktu 5 detik (tidak termasuk Minion atau Creep), Basic Attack berikutnya akan memberikan tambahan 160(+40% Total Physical Attack) Physical Damage dan menyebabkan efek slow ke target sebesar 40% selama 1,5 detik.",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "blood-wings",
+    "name": "Blood Wings",
+    "summary": "Perisai Peningkatan Kecepatan",
+    "category": "Magic",
+    "price": 2100,
+    "bonus": "+90 Kekuatan Sihir",
+    "unique": null,
+    "passive": "Guard: Mendapatkan 800(+100% Magic Power) Shield yang akan beregenerasi 20 detik setelah terkena damage. Perisai ini juga memberikan 30 Kecepatan Pergerakan selama masih ada dan 150 Kecepatan Pergerakan selama 1 detik setelah rusak.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "bloodlust-axe",
+    "name": "Bloodlust Axe",
+    "summary": "Spell Vampir",
+    "category": "Attack",
+    "price": 1970,
+    "bonus": "+70 Serangan Fisik, +10% Pengurangan Cooldown",
+    "unique": "+20% Spell Vamp",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Iron Hunting Bow",
+      "Dagger",
+      "Iron Hunting Bow"
+    ],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "book-of-sages",
+    "name": "Book of Sages",
+    "summary": null,
+    "category": "Magic",
+    "price": 450,
+    "bonus": "+8 Kekuatan Sihir, +5% Pengurangan Cooldown",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "boots",
+    "name": "Boots",
+    "summary": null,
+    "category": "Movement",
+    "price": 250,
+    "bonus": "+20 Kecepatan Gerakan",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "brute-force-breastplate",
+    "name": "Brute Force Breastplate",
+    "summary": "Serangan, Percepatan, Pengurangan CC",
+    "category": "Defense",
+    "price": 2070,
+    "bonus": "+800 HP, +20 Pertahanan Fisik, +10% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Brute Force: Setiap detik setelah memberikan damage, memperoleh 8 tambahan Adaptive Attack dan 2% tambahan Movement Speed ​​selama 4 detik, hingga 6 tumpukan. Dapatkan 25% tambahan Pengurangan Durasi Kontrol pada tumpukan penuh.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "bud-of-hope",
+    "name": "Bud of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+250 HP",
+    "unique": null,
+    "passive": "Bud of Hope: Diberikan oleh Floryn dan Dew. Peralatan tersebut akan menunjukkan kekuatan aslinya setelah Dew berevolusi.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "calamity-reaper",
+    "name": "Calamity Reaper",
+    "summary": "Serangan Dasar yang Ditingkatkan",
+    "category": "Magic",
+    "price": 1950,
+    "bonus": "+70 Kekuatan Sihir, +100 Mana, +6 Regen Mana, +10% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Calamity: Dalam 3 detik setelah menggunakan skill, Basic Attack berikutnya yang digunakan pengguna akan memberikan True Damage tambahan sebesar 120% Magic Power dengan cooldown 1,5 detik. Lalu memperoleh 10% Kecepatan Pergerakan sebentar.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Azure Blade"
+    ],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "chastise-pauldron",
+    "name": "Chastise Pauldron",
+    "summary": "Mengurangi Kecepatan Serangan Musuh",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+900 HP, +40 Pertahanan Fisik",
+    "unique": null,
+    "passive": "Chastise: Menerima damage akan mengurangi batas Attack Speed ​​dan Attack Speed ​​penyerang menjadi 75% dari normal selama 2 detik.@ Redemption: Saat damage yang masuk mengurangi HP di bawah 30%, memulihkan 20% Max HP selama 2 detik berikutnya. Efek ini memiliki cooldown selama 60 detik.",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Ares Belt"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "clock-of-destiny",
+    "name": "Clock of Destiny",
+    "summary": "Untuk Tank Ajaib",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "+45 Kekuatan Sihir, +400 HP, +400 Mana, +10% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Destiny: Mendapat 4,5(+0,5*Hero Level) Hybrid Defense selama 5 detik ketika memberikan Magic Damage pada hero musuh, ditumpuk hingga 6 kali (dapat memperoleh 1 stack setiap 0,4 detik).@ Hadiah: Ketika HP turun di bawah 50%, memulihkan 15% HP selama 3 detik berikutnya. Saat Mana turun di bawah 50%, memulihkan 15% Mana selama 3 detik berikutnya. Cooldown: 60 detik.",
+    "active": null,
+    "recipe": [
+      "Elegant Gem",
+      "Book of Sages",
+      "Book of Sages"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "concentrated-energy",
+    "name": "Concentrated Energy",
+    "summary": "Peningkatan Damage Berkelanjutan",
+    "category": "Magic",
+    "price": 2020,
+    "bonus": "+75 Kekuatan Sihir, +400 HP",
+    "unique": "+20% Gaya Hidup Hibrid",
+    "passive": "Recharge: Meningkatkan Magic Power sebanyak 5 setelah memberikan Magic Damage (efek ini dapat di-stack hingga 6 kali dan hanya dapat memperoleh 1 stack setiap 0,4 detik). Saat mencapai tumpukan penuh, meningkatkan Magic Damage sebesar 12% selama 5 detik.",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Magic Wand",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "corrosion-scythe",
+    "name": "Corrosion Scythe",
+    "summary": "Lambat Satu Pukulan",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "+30 Serangan Fisik, +30% Kecepatan Serangan, +5% Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Korosif: Serangan Dasar menghasilkan 80 Damage Fisik ekstra dan memperlambat target sebesar 8% (dibelah dua untuk Serangan Dasar jarak jauh) selama 1,5 detik. Ditumpuk hingga 5 kali.@ Impulse: Serangan Dasar memberikan 6% Kecepatan Serangan ekstra selama 3 detik, dibatasi hingga 5 tumpukan.",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Regular Spear"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "cursed-helmet",
+    "name": "Cursed Helmet",
+    "summary": "Kemampuan Bertahan & Pembersihan Lane",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+1200 HP, +20 Pertahanan Sihir",
+    "unique": null,
+    "passive": "Burning Soul: Menimbulkan (1,2% Total HP) Magic Damage kepada musuh terdekat per detik. Damage ini meningkat sebesar 125(+15*Level Hero)% terhadap creep dan minion.@ Curse: Memberikan damage dengan Burning Soul akan mengurangi Hybrid Defense target sebesar 3 selama 3 detik. Menumpuk hingga 3 kali.",
+    "active": null,
+    "recipe": [
+      "Molten Essence",
+      "Ares Belt",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "dagger",
+    "name": "Dagger",
+    "summary": null,
+    "category": "Attack",
+    "price": 250,
+    "bonus": "+15 Serangan Fisik",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "demon-hunter-sword",
+    "name": "Demon Hunter Sword",
+    "summary": "Assassin Tank",
+    "category": "Attack",
+    "price": 2180,
+    "bonus": "+35 Serangan Fisik, +20% Kecepatan Serangan",
+    "unique": null,
+    "passive": "Engulf: Serangan Dasar memberikan 8% dari HP target saat ini sebagai Damage Fisik tambahan (dibatasi hingga 60 terhadap minion).@ Devour: Setiap Serangan Dasar memulihkan 10(+4*Level Hero) HP. Efek ini dikurangi setengahnya terhadap minion.",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet",
+      "Knife"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "demon-shoes",
+    "name": "Demon Shoes",
+    "summary": "Regen Mana Cepat",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Kecepatan Gerakan, +10 Regen Mana",
+    "unique": null,
+    "passive": "Mistisisme: Melakukan kill atau assist pada Minion musuh akan memulihkan 4% Mana. (Bantuan terjadi ketika Minion mati dalam waktu 2 detik setelah menerima damage dari hero.)",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "divine-glaive",
+    "name": "Divine Glaive",
+    "summary": "Penetrasi Ajaib",
+    "category": "Magic",
+    "price": 1970,
+    "bonus": "+65 Kekuatan Sihir",
+    "unique": "+40% Penetrasi Ajaib",
+    "passive": "Pemecah Spell: Saat menyerang musuh, memperoleh 0,1% Penetrasi Sihir tambahan untuk setiap poin Pertahanan Sihir musuh, dibatasi hingga 20%.",
+    "active": null,
+    "recipe": [
+      "Magic Wand"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "dominance-ice",
+    "name": "Dominance Ice",
+    "summary": "Pengurangan Penyembuhan",
+    "category": "Defense",
+    "price": 2010,
+    "bonus": "+40 Pertahanan Fisik, +40 Pertahanan Sihir, +5% Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Fortress Shield: Untuk setiap hero musuh dalam 5 unit, Hybrid Defense ditingkatkan sebesar 8, hingga 40.@ Lifebane: Mengurangi efek Shield dan HP Regen musuh terdekat dalam 5 unit menjadi 60% dari normal selama 1 detik.",
+    "active": null,
+    "recipe": [
+      "Black Ice Shield",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "dreadnaught-armor",
+    "name": "Dreadnaught Armor",
+    "summary": null,
+    "category": "Defense",
+    "price": 730,
+    "bonus": "+30 Pertahanan Fisik",
+    "unique": null,
+    "passive": "Deter: Saat terkena skill, mengurangi Physical Damage penyerang sebesar 4% selama 2 detik (efek ini ditumpuk hingga 3 kali).",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "elegant-gem",
+    "name": "Elegant Gem",
+    "summary": null,
+    "category": "Magic",
+    "price": 700,
+    "bonus": "+300 HP, +380 Mana",
+    "unique": null,
+    "passive": "Hadiah: Saat HP turun di bawah 50%, memulihkan 15% HP selama 3 detik berikutnya. Saat Mana turun di bawah 50%, memulihkan 15% Mana selama 3 detik berikutnya. Cooldown: 60 detik.",
+    "active": null,
+    "recipe": [
+      "Power Crystal",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "enchanted-talisman",
+    "name": "Enchanted Talisman",
+    "summary": "Regen Mana & Pengurangan CD",
+    "category": "Magic",
+    "price": 2070,
+    "bonus": "+70 Kekuatan Sihir, +300 HP, +15% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Mana Spring: Meregenerasi 15% Max Mana setiap 10 detik.@ Magic Mastery: Max Cooldown Reduction meningkat sebesar 5%.",
+    "active": null,
+    "recipe": [
+      "Tome of Evil",
+      "Magic Necklace",
+      "Magic Wand"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "endless-battle",
+    "name": "Endless Battle",
+    "summary": "Serangan Dasar yang Ditingkatkan",
+    "category": "Attack",
+    "price": 2330,
+    "bonus": "+60 Serangan Fisik, +250 HP, +10% Pengurangan Cooldown, +5% Kecepatan Gerakan, +5 Regen Mana",
+    "unique": null,
+    "passive": "Divine Justice: Setelah mengeluarkan skill, Basic Attack berikutnya dalam 3 detik akan memberikan (60% Total Physical Attack) True Damage ekstra dan memulihkan 80 (+40% Total Physical Attack) HP (cooldown 1,5 detik).",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Iron Hunting Bow",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "exotic-veil",
+    "name": "Exotic Veil",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "+30 Kekuatan Sihir, +5% Kecepatan Gerakan",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "expert-gloves",
+    "name": "Expert Gloves",
+    "summary": null,
+    "category": "Attack & Magic",
+    "price": 500,
+    "bonus": "+30 Serangan Adaptif,",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "feather-of-heaven",
+    "name": "Feather of Heaven",
+    "summary": "Serangan Dasar Ajaib",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "+60 Kekuatan Sihir, +20% Kecepatan Serangan, +10% Lifesteal, +5% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Penderitaan: Setiap Serangan Dasar memberikan tambahan 50 (+30% Total Kekuatan Sihir) Damage Ajaib.@ Impuls: Serangan Dasar memberikan 6% Kecepatan Serangan tambahan selama 3 detik, dibatasi hingga 5 tumpukan.",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Book of Sages"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "flask-of-the-oasis",
+    "name": "Flask of the Oasis",
+    "summary": "Lindungi Rekan Tim",
+    "category": "Magic",
+    "price": 1850,
+    "bonus": "+60 Kekuatan Sihir, +300 HP, +10% Pengurangan Cooldown",
+    "unique": "+12% Efek Penyembuhan",
+    "passive": "Berkah: Saat mengeluarkan skill penyembuhan atau perisai, jika HP target di bawah 35%, atau turun di bawah 35% dalam waktu 3 detik, mereka akan mendapatkan perisai (100*Level Hero) yang bertahan selama 3 detik. Saat efek ini terpicu, cooldown skill penggunanya juga berkurang sebanyak 2 detik. (Efek ini hanya dapat terpicu sekali setiap 60 detik pada target yang sama, dan tidak akan terpicu pada skill penyembuhan dan perisai saja.)",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "fleeting-time",
+    "name": "Fleeting Time",
+    "summary": "Pengurangan CD Terbaik",
+    "category": "Attack, Magic & Defense",
+    "price": 2050,
+    "bonus": "+30 Serangan Adaptif, +600 HP, +15% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Timestream: Pembunuhan atau bantuan Hero mengurangi cooldown Ultimate saat ini sebesar 30%.",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "flower-of-hope",
+    "name": "Flower of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+5% Serangan Adaptif",
+    "unique": null,
+    "passive": "Flower of Hope: Setiap 6 detik, skill atau Basic Attack berikutnya akan memberikan tambahan 60(+30% Total Physical Attack)(+30% Total Magic Power) Magic Damage.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Sekutu Floryn"
+  },
+  {
+    "slug": "fury-hammer",
+    "name": "Fury Hammer",
+    "summary": null,
+    "category": "Attack",
+    "price": 830,
+    "bonus": "+35 Serangan Fisik",
+    "unique": "+12 Penetrasi Fisik",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "genius-wand",
+    "name": "Genius Wand",
+    "summary": "Pengurangan Pertahanan Sihir",
+    "category": "Magic",
+    "price": 2000,
+    "bonus": "+75 Kekuatan Sihir, +5% Kecepatan Gerakan",
+    "unique": "+10 Penetrasi Ajaib",
+    "passive": "Sihir: Memberikan Damage Sihir pada hero musuh akan mengurangi Pertahanan Sihirnya sebesar 2,5+(0,5*Level Hero) selama 2 detik. Menumpuk hingga 3 kali.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Magic Wand"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "glowing-wand",
+    "name": "Glowing Wand",
+    "summary": "Pengurangan Penyembuhan",
+    "category": "Magic",
+    "price": 2150,
+    "bonus": "+60 Kekuatan Sihir, +300 HP, +5% Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Scorch: Memberikan Magic Damage yang membakar target selama 3 detik, juga memberikan tambahan Magic Damage setara dengan 1% dari Max HP target per detik.@ Lifebane: Memberikan damage ke target akan mengurangi efek Shield dan HP Regen pada mereka menjadi 60% dari normal selama 3 detik.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystery Codex",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "golden-staff",
+    "name": "Golden Staff",
+    "summary": "Meningkatkan Efek Serangan",
+    "category": "Attack",
+    "price": 2000,
+    "bonus": "+55 Serangan Fisik, +15% Kecepatan Serangan",
+    "unique": null,
+    "passive": "Swift: Setiap 1% tambahan Crit Chance yang diperoleh diubah menjadi 1% tambahan Attack Speed.@ Endless Strike: Setelah setiap 2 Basic Attack non-Crit, Attack Speed ​​dari Basic Attack berikutnya meningkat sebesar 80% (dan batas Attack Speed ​​ditingkatkan menjadi 500%) dan memicu Efek Serangan tambahan 2 kali.",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "great-dragon-spear",
+    "name": "Great Dragon Spear",
+    "summary": "Pengurangan & Kritik CD",
+    "category": "Attack",
+    "price": 2140,
+    "bonus": "+70 Serangan Fisik, +10% Pengurangan Cooldown, +20% Peluang Kritik",
+    "unique": null,
+    "passive": "Supreme Warrior: Setelah mengeluarkan Ultimate, meningkatkan Movement Speed ​​sebesar 30% selama 7,5 detik. Efek ini memiliki cooldown selama 15 detik.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Iron Hunting Bow",
+      "Javelin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "guardian-helmet",
+    "name": "Guardian Helmet",
+    "summary": "Regen HP Konstan",
+    "category": "Defense",
+    "price": 2500,
+    "bonus": "+1800 HP, +20 Pemulihan HP",
+    "unique": null,
+    "passive": "Pemulihan: Setelah 5 detik keluar dari pertempuran, memulihkan (2,5% Total HP) HP per detik.@ Pembela: Setelah menerima lebih dari 500 damage dalam satu kejadian, memulihkan 30 (+0,3% Total HP)% HP dari kelebihan damage melebihi jumlah tersebut.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Ares Belt"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "haas-claws",
+    "name": "Haas' Claws",
+    "summary": "gaya hidup",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "+40 Serangan Fisik, +15% Kecepatan Serangan, +20% Peluang Kritik",
+    "unique": "+20% Gaya Hidup",
+    "passive": "Frenzy: Serangan kritis memberikan 20% Kecepatan Serangan ekstra selama 2 detik.",
+    "active": null,
+    "recipe": [
+      "Vampire Mallet",
+      "Rogue Meteor",
+      "Dagger"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "healing-necklace",
+    "name": "Healing Necklace",
+    "summary": null,
+    "category": "Defense",
+    "price": 140,
+    "bonus": "+4 Pemulihan HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "hero-s-ring",
+    "name": "Hero's Ring",
+    "summary": null,
+    "category": "Defense",
+    "price": 450,
+    "bonus": "+150 HP, +5% Pengurangan Cooldown",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "holy-crystal",
+    "name": "Holy Crystal",
+    "summary": "Kekuatan Sihir Maks",
+    "category": "Magic",
+    "price": 3000,
+    "bonus": "+165 Kekuatan Sihir",
+    "unique": null,
+    "passive": "Misteri: Mendapatkan 21%-35% Kekuatan Sihir ekstra (berskala sesuai level).",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "hunter-strike",
+    "name": "Hunter Strike",
+    "summary": "Percepatan Singkat",
+    "category": "Attack",
+    "price": 2010,
+    "bonus": "+80 Serangan Fisik, +10% Pengurangan Cooldown",
+    "unique": "+15 Penetrasi Fisik",
+    "passive": "Retribution: Memberikan damage pada hero atau creep musuh yang sama sebanyak 5 kali berturut-turut akan memberikan 50% Movement Speed ​​ekstra yang berkurang selama 3 detik (cooldown 8 detik).",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Iron Hunting Bow",
+      "Dagger"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "ice-queen-wand",
+    "name": "Ice Queen Wand",
+    "summary": "Lambat pada Skill Hit",
+    "category": "Magic",
+    "price": 2040,
+    "bonus": "+60 Kekuatan Sihir, +10% Spell Vamp, +300 HP, +7% Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Ice Bound: Ketika suatu skill memberikan damage pada hero musuh, ia juga akan menyebabkan efek slow kepada mereka sebesar 10% selama 2 detik (ditumpuk hingga 3 kali). Efek ini memiliki cooldown 0,4 detik.",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Exotic Veil",
+      "Mystery Codex"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "immortality",
+    "name": "Immortality",
+    "summary": "Kebangkitan Diri",
+    "category": "Defense",
+    "price": 2120,
+    "bonus": "+850 HP, +15 Pertahanan Fisik",
+    "unique": null,
+    "passive": "Abadi: Bangkit 2,5 detik setelah mati dan mendapat 16% HP Maks dan perisai yang dapat menyerap 150(+70*Level Hero）damage. Perisai bertahan 3 detik. Efek ini memiliki cooldown 210 detik.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Vitality Crystal",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "iron-hunting-bow",
+    "name": "Iron Hunting Bow",
+    "summary": null,
+    "category": "Attack",
+    "price": 450,
+    "bonus": "+10 Serangan Fisik, +5% Pengurangan Cooldown",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "javelin",
+    "name": "Javelin",
+    "summary": null,
+    "category": "Attack",
+    "price": 320,
+    "bonus": "+8% Peluang Kritik",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "knife",
+    "name": "Knife",
+    "summary": null,
+    "category": "Attack",
+    "price": 280,
+    "bonus": "+10% Kecepatan Serangan",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "lantern-of-hope",
+    "name": "Lantern of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+20 Kekuatan Sihir, +4% Kecepatan Gerakan, +2% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Lantern of Hope: Atribut peralatan berskala sesuai level hero.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Floryn"
+  },
+  {
+    "slug": "leather-jerkin",
+    "name": "Leather Jerkin",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 Pertahanan Fisik",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "legion-sword",
+    "name": "Legion Sword",
+    "summary": null,
+    "category": "Attack",
+    "price": 910,
+    "bonus": "+60 Serangan Fisik",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "lightning-truncheon",
+    "name": "Lightning Truncheon",
+    "summary": "Damage Percikan",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "+75 Kekuatan Sihir, +400 Mana, +10% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Resonate: Setiap 6 detik, skill berikutnya bergema dan memberikan 255(+85% Magic Power) Magic Damage tambahan kepada semua musuh dalam jangkauan.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "magic-blade",
+    "name": "Magic Blade",
+    "summary": null,
+    "category": "Attack",
+    "price": 1050,
+    "bonus": "+35 Serangan Fisik, +10% Gaya Hidup",
+    "unique": null,
+    "passive": "Lifeline: Saat menerima damage yang mengurangi HP di bawah 30%, memperoleh perisai (+60*Level Hero) (meningkat seiring level) dan 50% Kecepatan Pergerakan yang berkurang dengan cepat selama 3 detik. Efek ini memiliki cooldown selama 60 detik.",
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vampire Mallet"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "magic-necklace",
+    "name": "Magic Necklace",
+    "summary": null,
+    "category": "Magic",
+    "price": 120,
+    "bonus": "+2 Regenerasi Mana",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "magic-potion",
+    "name": "Magic Potion",
+    "summary": null,
+    "category": "Magic",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Tingkatkan Kekuatan: Otomatis digunakan setelah pembelian, meningkatkan Kekuatan Sihir sebesar 30 dan Pengurangan Cooldown sebesar 10% selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "magic-resist-cloak",
+    "name": "Magic Resist Cloak",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 Pertahanan Sihir",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "magic-shoes",
+    "name": "Magic Shoes",
+    "summary": "Pengurangan CD",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Kecepatan Gerakan, +10% Pengurangan Cooldown, +150 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Hero's Ring"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "magic-wand",
+    "name": "Magic Wand",
+    "summary": null,
+    "category": "Magic",
+    "price": 820,
+    "bonus": "+45 Kekuatan Sihir",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "malefic-gun",
+    "name": "Malefic Gun",
+    "summary": "Peningkatan Jangkauan Serangan",
+    "category": "Attack",
+    "price": 2120,
+    "bonus": "+40 Serangan Fisik, +20% Kecepatan Serangan",
+    "unique": null,
+    "passive": "Armor Buster: Meningkatkan Penetrasi Fisik sebesar 30%.@ Malefic Energy: Meningkatkan jangkauan Serangan Dasar sebesar 12%. Saat mengenai target, memperoleh 10% Kecepatan Gerakan selama 0,5 detik.",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "malefic-roar",
+    "name": "Malefic Roar",
+    "summary": "Penetrasi Fisik Tinggi",
+    "category": "Attack",
+    "price": 2060,
+    "bonus": "+60 Serangan Fisik",
+    "unique": null,
+    "passive": "Armor Buster: Meningkatkan Penetrasi Fisik sebesar 30%.@ Breaker: Saat menyerang musuh, memperoleh 0,1% Penetrasi Fisik ekstra untuk setiap poin Pertahanan Fisik musuh, dibatasi hingga 30%.",
+    "active": null,
+    "recipe": [
+      "Legion Sword"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "molten-essence",
+    "name": "Molten Essence",
+    "summary": null,
+    "category": "Defense",
+    "price": 800,
+    "bonus": "+540 HP",
+    "unique": null,
+    "passive": "Burning Soul: Menimbulkan (0,6% Total HP) Magic Damage kepada musuh terdekat per detik. Damage ini meningkat sebesar 125(+15*Level Hero)% terhadap creep dan minion.",
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "mystery-codex",
+    "name": "Mystery Codex",
+    "summary": null,
+    "category": "Magic",
+    "price": 300,
+    "bonus": "+15 Kekuatan Sihir",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "mystic-container",
+    "name": "Mystic Container",
+    "summary": null,
+    "category": "Magic",
+    "price": 500,
+    "bonus": "+15 Kekuatan Sihir, +8% Spell Vamp",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "necklace-of-durance",
+    "name": "Necklace of Durance",
+    "summary": "Pengurangan Penyembuhan",
+    "category": "Magic",
+    "price": 2010,
+    "bonus": "+60 Kekuatan Sihir, +300 HP, +380 Mana, +5% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Hadiah: Memulihkan 20% HP dan Mana dalam waktu 2 detik setelah naik level.@ Lifebane: Setelah memberikan damage pada target, mengurangi Perisai dan Regen HP target sebesar 50% selama 3 detik.",
+    "active": null,
+    "recipe": [
+      "Book of Sages",
+      "Elegant Gem",
+      "Mystery Codex"
+    ],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "ogre-tomahawk",
+    "name": "Ogre Tomahawk",
+    "summary": null,
+    "category": "Attack",
+    "price": 650,
+    "bonus": "+25 Serangan Fisik, +230 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "oracle",
+    "name": "Oracle",
+    "summary": "Regen yang Ditingkatkan",
+    "category": "Defense",
+    "price": 1860,
+    "bonus": "+850 HP, +20 Pertahanan Fisik, +20 Pertahanan Sihir, +10% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Bless: Menerima efek Shield dan Regen HP meningkat sebesar 25%.",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "power-crystal",
+    "name": "Power Crystal",
+    "summary": null,
+    "category": "Magic",
+    "price": 220,
+    "bonus": "+280 Mana",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "power-potion",
+    "name": "Power Potion",
+    "summary": null,
+    "category": "Attack",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Meningkatkan Kekuatan: Otomatis digunakan setelah pembelian, memberikan 30 Serangan Fisik dan 15% Lifesteal selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "queen-s-wings",
+    "name": "Queen's Wings",
+    "summary": "Pembalasan HP Rendah",
+    "category": "Defense",
+    "price": 2250,
+    "bonus": "+750 HP, +30 Serangan Adaptif, +10% Pengurangan Cooldown, +10% Spell Vamp",
+    "unique": null,
+    "passive": "Demonize: Saat HP turun di bawah 40%, memperoleh 30% Damage Reduction selama 3 detik dan mengurangi cooldown skill sebanyak 2 detik. Efek ini memiliki cooldown selama 60 detik.@ Defiance: Setiap 1% HP yang hilang, damage meningkat sebesar 0,25%, hingga 15%.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "radiant-armor",
+    "name": "Radiant Armor",
+    "summary": "Pengurangan Damage Ajaib",
+    "category": "Defense",
+    "price": 1880,
+    "bonus": "+950 HP, +40 Pertahanan Sihir, +12 Regen HP",
+    "unique": null,
+    "passive": "Holy Blessing: Menerima Magic Damage memberikan 5(+1*Level Hero) Magic Defense selama 5 detik, hingga 6 tumpukan (hanya dapat memperoleh 1 tumpukan setiap 0,4 detik).",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Magic Resist Cloak",
+      "Healing Necklace"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "rapid-boots",
+    "name": "Rapid Boots",
+    "summary": "Kecepatan Gerakan",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+55 Kecepatan Gerakan, +35% Pengurangan Lambat, +12 Regen HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Healing Necklace",
+      "Healing Necklace"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "regular-spear",
+    "name": "Regular Spear",
+    "summary": null,
+    "category": "Attack",
+    "price": 600,
+    "bonus": "+20 Serangan Fisik, +10% Kecepatan Serangan",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Dagger"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "rock-potion",
+    "name": "Rock Potion",
+    "summary": null,
+    "category": "Defense",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Meningkatkan Kekuatan: Saat dibeli, memberikan 500 Max HP dan 5% Pengurangan Damage selama 120 detik. Hanya dapat memberikan satu efek ramuan dalam satu waktu.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "rogue-meteor",
+    "name": "Rogue Meteor",
+    "summary": null,
+    "category": "Attack",
+    "price": 900,
+    "bonus": "+15% Kecepatan Serangan, +10% Peluang Kritik",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Javelin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "rose-gold-meteor",
+    "name": "Rose Gold Meteor",
+    "summary": "Perisai HP Rendah",
+    "category": "Attack",
+    "price": 2030,
+    "bonus": "+30 Serangan Fisik, +20% Kecepatan Serangan, +10% Lifesteal",
+    "unique": null,
+    "passive": "Skala Naga: Setiap 4 Serangan Fisik tambahan meningkatkan Pertahanan Hibrid sebesar 1, hingga 50 (efek berkurang setengahnya jika Peran Utama bukan Fighter).@ Lifeline: Saat menerima damage yang mengurangi HP di bawah 30%, memperoleh perisai (120*Level Hero) (meningkat seiring level) dan 50% Kecepatan Pergerakan yang berkurang dengan cepat selama 3 detik. Efek ini memiliki cooldown selama 60 detik.",
+    "active": null,
+    "recipe": [
+      "Magic Blade",
+      "Knife"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "scarlet-phantom",
+    "name": "Scarlet Phantom",
+    "summary": "Kritik & Kecepatan Serangan",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "+30 Serangan Fisik, +20% Kecepatan Serangan, +25% Peluang Kritik",
+    "unique": null,
+    "passive": "Frenzy: Serangan kritis memberikan 30% tambahan Kecepatan Serangan dan 5% Peluang Kritik tambahan selama 2 detik.",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Javelin"
+    ],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "sea-halberd",
+    "name": "Sea Halberd",
+    "summary": "Pengurangan Penyembuhan",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "+80 Serangan Fisik, +20% Kecepatan Serangan",
+    "unique": null,
+    "passive": "Lifebane: Memberikan damage pada target akan mengurangi efek Shield dan HP Regen pada mereka menjadi 60% dari normal selama 3 detik.@ Punish: Meningkatkan damage sebesar 8% terhadap hero musuh dengan ekstra HP lebih tinggi.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Regular Spear"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "shadow-twinblades",
+    "name": "Shadow Twinblades",
+    "summary": "Terbaik untuk Assassin",
+    "category": "Magic",
+    "price": 1960,
+    "bonus": "+75 Kekuatan Sihir, +15% Magic Lifesteal, +5% Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Pembunuhan: Jika tidak ada damage yang diterima atau diberikan dalam 5 detik, Basic Attack berikutnya akan memberikan tambahan Magic Damage sebesar 200 ditambah 50% Magic Power, dan memberikan 60% efek slow kepada target selama 1,5 detik.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystic Container"
+    ],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "shimmering-lantern",
+    "name": "Shimmering Lantern",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+20 Kekuatan Sihir, +5% Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Floryn bisa berbagi kekuatan Dew's Lantern dengan hero sekutu. Lentera tersebut belum cukup kuat dan dapat berevolusi setelah menyerap cukup energi dalam pertempuran.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "silence-robe",
+    "name": "Silence Robe",
+    "summary": null,
+    "category": "Defense",
+    "price": 1020,
+    "bonus": "+540 HP, +23 Pertahanan Sihir",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "sky-piercer",
+    "name": "Sky Piercer",
+    "summary": "Terbaik untuk Finisher",
+    "category": "Attack & Magic",
+    "price": 1500,
+    "bonus": "+60 Serangan Adaptif, +15 Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Lethality: Setelah memberikan damage pada hero musuh, mengeksekusi hero tersebut jika HP mereka kurang dari 4%. Mendapatkan 10 tumpukan Lethality untuk setiap pembunuhan dan kehilangan 30% tumpukan saat ini untuk setiap kematian. Setiap tumpukan Lethality meningkatkan ambang HP dari efek eksekusi sebesar 0,1%, ditumpuk sebanyak 80 kali.",
+    "active": null,
+    "recipe": [
+      "Expert Gloves",
+      "Expert Gloves"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "starlium-scythe",
+    "name": "Starlium Scythe",
+    "summary": "Serangan Dasar yang Ditingkatkan",
+    "category": "Magic",
+    "price": 2120,
+    "bonus": "+75 Kekuatan Sihir, +10% Pengurangan Cooldown, +8% Lifesteal Hibrida, +6 Regen Mana",
+    "unique": null,
+    "passive": "Krisis: Setelah mengeluarkan skill, Basic Attack berikutnya dalam waktu 3 detik akan memberikan 90(+60% Total Magic Power) True Damage ekstra dan mengurangi Movement Speed ​​target sebesar 15% selama 1,5 detik (cooldown 1,5 detik).",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Book of Sages",
+      "Magic Wand"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "steel-legplates",
+    "name": "Steel Legplates",
+    "summary": null,
+    "category": "Defense",
+    "price": 630,
+    "bonus": "+35 Pertahanan Fisik",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Leather Jerkin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "swift-boots",
+    "name": "Swift Boots",
+    "summary": "Kecepatan Serangan",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Kecepatan Gerakan, +15% Kecepatan Serangan",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Knife"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "swift-crossbow",
+    "name": "Swift Crossbow",
+    "summary": null,
+    "category": "Attack",
+    "price": 1000,
+    "bonus": "+20% Kecepatan Serangan",
+    "unique": null,
+    "passive": "Crossbow: Setiap Serangan Dasar memberikan 40 Damage Adaptif ekstra.@ Impuls: Serangan Dasar memberikan 3% Kecepatan Serangan ekstra selama 3 detik, dibatasi hingga 5 tumpukan.",
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "thunder-belt",
+    "name": "Thunder Belt",
+    "summary": "Damage untuk Tank",
+    "category": "Defense",
+    "price": 1820,
+    "bonus": "+600 HP, +15 Pertahanan Fisik, +15 Pertahanan Sihir, +20 Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Halilintar: Setiap 4 detik, Serangan Dasar berikutnya memberikan 50(+100% Pertahanan Fisik Ekstra)(+100% Pertahanan Sihir Ekstra) Damage Sejati ekstra pada target dan musuh di sekitarnya, dan menyebabkan efek slow kepada mereka sebesar 99%. Hybrid Defense secara permanen meningkat sebesar 1 setiap kali serangan mengenai hero musuh. (Efek ini dikurangi menjadi 50% untuk Marksmen, Mage, dan Assassin)",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "tome-of-evil",
+    "name": "Tome of Evil",
+    "summary": null,
+    "category": "Magic",
+    "price": 950,
+    "bonus": "+30 Kekuatan Sihir, +2 Regen Mana, +10% Pengurangan Cooldown",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Book of Sages"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "tough-boots",
+    "name": "Tough Boots",
+    "summary": "Pengurangan Durasi CC",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Kecepatan Gerakan, +18 Pertahanan Sihir",
+    "unique": null,
+    "passive": "Fortitude: CC dan Durasi Lambat berkurang 25%.",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "twilight-armor",
+    "name": "Twilight Armor",
+    "summary": "Resistensi Damage Tinggi",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+1200 HP, +15 Pertahanan Fisik",
+    "unique": null,
+    "passive": "Twilight: Saat menerima lebih dari 500 damage dalam satu kejadian, kelebihan damage melebihi jumlah tersebut akan berkurang sebesar 20 (+0,2% Total HP).@ Redemption: Saat damage yang masuk mengurangi HP di bawah 30%, pulihkan 20% Max HP selama 4 detik berikutnya. Efek ini memiliki cooldown selama 60 detik.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Leather Jerkin"
+    ],
+    "bestFor": "DIHAPUS"
+  },
+  {
+    "slug": "vampire-mallet",
+    "name": "Vampire Mallet",
+    "summary": null,
+    "category": "Attack",
+    "price": 400,
+    "bonus": "+8 Serangan Fisik, +8% Gaya Hidup",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "vitality-crystal",
+    "name": "Vitality Crystal",
+    "summary": null,
+    "category": "Defense",
+    "price": 300,
+    "bonus": "+230 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "war-axe",
+    "name": "War Axe",
+    "summary": "Peningkatan Damage Berkelanjutan",
+    "category": "Attack",
+    "price": 2100,
+    "bonus": "+35 Serangan Fisik, +400 HP, +10% Pengurangan Cooldown, +8% Hybrid Lifesteal",
+    "unique": null,
+    "passive": "Fighting Spirit: Serangan memberikan 12 Serangan Fisik tambahan per detik selama 4 detik, hingga 6 tumpukan. Menimbulkan 10% True Damage ekstra berdasarkan damage yang diberikan (tidak ada pengurangan damage yang dihitung) pada tumpukan penuh. (Marksman, Mage, dan Dukungan hanya menerima 50% dari efek tumpukan ini.)",
+    "active": null,
+    "recipe": [
+      "Ogre Tomahawk",
+      "Iron Hunting Bow",
+      "Hero's Ring"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "warrior-boots",
+    "name": "Warrior Boots",
+    "summary": "Pertahanan Fisik yang Dapat Ditumpuk",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Kecepatan Gerakan, +18 Pertahanan Fisik",
+    "unique": null,
+    "passive": "Valor: Mendapat 4 Pertahanan Fisik ekstra selama 3 detik saat menerima Damage Fisik, hingga 20.",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "wind-of-nature",
+    "name": "Wind of Nature",
+    "summary": "Imunitas Damage Fisik",
+    "category": "Attack",
+    "price": 1910,
+    "bonus": "+30 Serangan Fisik, +20% Kecepatan Serangan, +10% Lifesteal",
+    "unique": null,
+    "passive": null,
+    "active": "Wind Chant: Kebal terhadap semua Physical Damage selama 2 detik (durasi dikurangi setengahnya jika Peran Utama bukan Marksman; cooldown 90 detik).",
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "windtalker",
+    "name": "Windtalker",
+    "summary": "Damage Percikan",
+    "category": "Attack",
+    "price": 1880,
+    "bonus": "+35% Kecepatan Serangan, +20% Peluang Kritik, +20 Kecepatan Gerakan",
+    "unique": null,
+    "passive": "Typhoon: Setiap 5–2 detik (dikurangi 0,2 detik untuk setiap Basic Attack), Basic Attack berikutnya akan mengenai hingga 3 unit musuh dengan menimbulkan 150–362 Magic Damage. (Serangan ini dapat memberikan Crit dan damage meningkat hingga 200% terhadap Minion.)",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Knife"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "winter-crown",
+    "name": "Winter Crown",
+    "summary": "Tak Terkalahkan Sementara",
+    "category": "Attack & Magic",
+    "price": 1910,
+    "bonus": "+45 Serangan Adaptif, +400 HP, +5% Pengurangan Cooldown",
+    "unique": null,
+    "passive": null,
+    "active": "Beku: Menjadi beku, tidak dapat ditargetkan, dan kebal terhadap damage selama 2 detik (cooldown 100 detik). Tidak dapat menggerakkan atau mengeluarkan skill saat dibekukan, tetapi skill yang telah digunakan tidak akan terganggu.",
+    "recipe": [
+      "Expert Gloves",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Semua hero"
+  },
+  {
+    "slug": "wishing-lantern",
+    "name": "Wishing Lantern",
+    "summary": "Counter HP Tinggi",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "+75 Kekuatan Sihir, +400 Mana, +10% Pengurangan Cooldown",
+    "unique": null,
+    "passive": "Butterfly Goddess: Untuk setiap 900 Magic Damage yang diberikan kepada hero musuh (dihitung sebelum Pengurangan Damage), Butterfly Goddess dipanggil untuk menyerang hero musuh, memberikan Magic Damage sebesar 8% dari HP mereka saat ini.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "Semua hero"
+  }
+]
