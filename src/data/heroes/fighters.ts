@@ -216,4 +216,206 @@ export const fighters: HeroAnalysis[] = [
       },
     ],
   },
+  {
+    slug: "dyrroth",
+    summary:
+      "Combattant de rage qui retire l'armure physique de sa cible avant de la frapper, joué en lane d'expérience comme en jungle.",
+    analysis:
+      "Dyrroth accumule de la rage en combattant ; à mi-jauge, ses deux premières compétences passent en version renforcée, avec plus de portée ou plus de dégâts. Toutes les deux attaques de base, il frappe en cercle autour de lui et se soigne, et chaque héros touché raccourcit ses recharges. La compétence 2 le lance sur une cible puis, relancée, lui retire une grande partie de son armure physique pendant quelques secondes : c'est l'ouverture qui rend le reste de ses dégâts efficaces. L'ultime part après un court délai, ne peut pas être interrompu et ralentit tout ce qu'il traverse.\n\n" +
+      "Il vit sur ses échanges de début de partie : son taux de victoire mesuré est au plus haut dans les parties courtes et passe sous la moyenne après la dix-huitième minute. Ses chiffres varient aussi selon le rang, plus bas en Mythic qu'en Mythic Glory. Les mesures le placent en difficulté face à Masha, Benedetta et Thamuz.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Wrath of the Abyss",
+        description:
+          "À partir de la moitié de sa jauge de rage, ses compétences 1 et 2 sont renforcées. Toutes les deux attaques de base, il frappe en cercle et récupère des PV, et chaque héros touché réduit les recharges de ses deux premières compétences.",
+      },
+      {
+        type: "Skill 1",
+        name: "Burst Strike",
+        description:
+          "Frappe en ligne qui ralentit les ennemis touchés. Renforcée, elle porte plus loin, frappe plus fort et ralentit davantage : un bon moyen d'empêcher une cible de sortir de portée.",
+      },
+      {
+        type: "Skill 2",
+        name: "Spectre Step",
+        description:
+          "Une ruée qui s'arrête sur le premier ennemi hors sbires, puis une seconde frappe verrouillée qui réduit fortement l'armure physique de la cible. Renforcée, la réduction est plus forte et la cible est très fortement ralentie un instant.",
+      },
+      {
+        type: "Ultimate",
+        name: "Abysm Strike",
+        description:
+          "Après un court délai, un coup dévastateur part droit devant, impossible à interrompre, et ralentit les ennemis sur son passage. Le délai se voit : il se lance de préférence sur une cible déjà ralentie.",
+      },
+    ],
+    strengths: [
+      "Réduction d'armure physique intégrée à la compétence 2",
+      "Soin régulier en combat grâce à son passif",
+      "Recharges raccourcies à chaque héros touché",
+      "Deux positions possibles : lane d'expérience ou jungle",
+    ],
+    weaknesses: [
+      "Taux de victoire mesuré en baisse dans les parties longues",
+      "Compétences renforcées seulement à partir de la mi-jauge de rage",
+      "Un ultime lancé après un délai, que la cible peut anticiper",
+      "En difficulté face à Masha, Benedetta et Thamuz selon les mesures",
+    ],
+    strongAgainst: ["uranus", "esmeralda", "alice", "aldous", "natalia"],
+    weakAgainst: ["masha", "benedetta", "thamuz"],
+    builds: [
+      {
+        name: "Lane d'expérience",
+        context:
+          "Le build le plus joué en lane d'expérience tous rangs confondus : War Axe et Queen's Wings pour le vol de vie et la survie, Rose Gold Meteor pour le bouclier quand ses PV tombent bas. Les choix restent très dispersés à cette position, et en Mythic Glory c'est une version à pénétration (Blade of the Heptaseas, Hunter Strike, Rose Gold Meteor) qui passe devant.",
+        items: ["War Axe", "Rose Gold Meteor", "Queen's Wings"],
+        emblem: "Emblème d'assassin",
+        talent: "Lethal Ignition",
+        spell: "Petrify",
+      },
+      {
+        name: "Jungle",
+        context:
+          "Le build le plus joué en jungle : Brute Force Breastplate ajoute des PV, de l'attaque et une réduction de la durée des contrôles quand il enchaîne les dégâts, War Axe et Rose Gold Meteor gardent le vol de vie.",
+        items: ["War Axe", "Brute Force Breastplate", "Rose Gold Meteor"],
+        emblem: "Emblème d'assassin",
+        talent: "Killing Spree",
+        spell: "Retribution",
+      },
+    ],
+  },
+  {
+    slug: "sun",
+    summary:
+      "Combattant qui se multiplie : ses doubles frappent avec lui, le soignent et rongent l'armure des cibles.",
+    analysis:
+      "Sun combat en invoquant des doubles. Ses deux premières compétences lancent son bâton, qui laisse un double temporaire ; la seconde le cache en plus pendant qu'il se déplace avec le bâton. L'ultime invoque un double plus durable, plus proche de ses propres statistiques. Chaque coup porté par Sun ou ses doubles réduit un peu l'armure physique de la cible, et chaque coup d'un double le soigne : plus il y a de doubles sur une cible, plus elle fond vite et plus il tient.\n\n" +
+      "Son profil mesuré est celui d'un héros de fin de partie : taux de victoire sous la moyenne dans les parties de moins de quatorze minutes, puis nettement au-dessus au-delà de la seizième. Il est aussi très souvent banni, surtout au rang Mythic. Le double de l'ultime subit des dégâts accrus, et les mesures placent Sun en difficulté face à Aldous, Natan, Alucard, Joy et Ruby.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Simian God",
+        description:
+          "Chaque coup de Sun ou d'un double réduit l'armure physique de la cible, en se cumulant. Chaque fois qu'un double inflige des dégâts, Sun récupère des PV. Ses attaques et celles de ses doubles frappent aussi plus fort les monstres.",
+      },
+      {
+        type: "Skill 1",
+        name: "Endless Variety",
+        description:
+          "Lance le bâton en ligne ; à l'impact ou en bout de course, il se change en double qui reprend une partie de ses statistiques. Partage sa recharge et ses niveaux avec la compétence 2.",
+      },
+      {
+        type: "Skill 2",
+        name: "Swift Exchange",
+        description:
+          "Lance le bâton en laissant un double à sa place, pendant que Sun se dissimule et voyage avec le bâton. Il peut ainsi changer de position sans être vu, en laissant le double derrière lui.",
+      },
+      {
+        type: "Ultimate",
+        name: "Clone Techniques",
+        description:
+          "Invoque un double plus durable qui reprend l'essentiel de ses statistiques et de ses effets d'attaque. Ce double subit en revanche des dégâts accrus.",
+      },
+    ],
+    strengths: [
+      "Réduction d'armure cumulée par lui et ses doubles",
+      "Soin à chaque coup d'un double",
+      "Taux de victoire mesuré en forte hausse dans les parties longues",
+      "La compétence 2 le dissimule pendant son déplacement",
+    ],
+    weaknesses: [
+      "Faible dans les parties courtes selon les mesures",
+      "Le double de l'ultime subit des dégâts accrus",
+      "En difficulté face à Aldous, Natan et Alucard selon les mesures",
+    ],
+    strongAgainst: ["masha", "cici", "jawhead", "karrie", "diggie", "lesley"],
+    weakAgainst: ["aldous", "natan", "alucard", "joy", "ruby"],
+    builds: [
+      {
+        name: "Lane d'expérience",
+        context:
+          "Le build le plus joué en lane d'expérience : vitesse d'attaque et critique, dont ses doubles profitent en reprenant une partie de ses effets d'attaque, et Great Dragon Spear pour la vitesse après l'ultime. Il est le plus souvent associé à l'emblème de soutien et au sort Petrify.",
+        items: ["Windtalker", "Corrosion Scythe", "Great Dragon Spear"],
+        emblem: "Emblème de soutien",
+        talent: "Temporal Reign",
+        spell: "Petrify",
+      },
+      {
+        name: "Jungle",
+        context:
+          "Les trois mêmes objets en jungle, Corrosion Scythe en premier, avec l'emblème de tireur et Retribution : c'est la version la plus jouée à cette position.",
+        items: ["Corrosion Scythe", "Windtalker", "Great Dragon Spear"],
+        emblem: "Emblème de tireur",
+        talent: "Quantum Charge",
+        spell: "Retribution",
+      },
+    ],
+  },
+  {
+    slug: "guinevere",
+    summary:
+      "Combattante à dégâts magiques qui projette ses cibles en l'air, puis les y maintient sous son ultime.",
+    analysis:
+      "Guinevere est construite autour de la projection. Sa compétence 2 la fait bondir sur une zone en envoyant les ennemis en l'air, puis peut se relancer pour une courte téléportation qui laisse une illusion derrière elle. Elle inflige des dégâts supplémentaires aux cibles en l'air, et ses coups marquent les ennemis : une cible à trois marques est projetée par son ultime, qui relance en l'air à chaque coup les ennemis qui y sont déjà, pendant que Guinevere reste insensible aux contrôles.\n\n" +
+      "Tout dépend donc de la compétence 2 : si le bond rate et que les marques manquent, l'ultime perd l'essentiel de son contrôle. Ses chiffres mesurés sont proches de la moyenne, un peu meilleurs dans les parties courtes, et son taux de bannissement a reculé sur les trente derniers jours. Les mesures la placent en difficulté face à Masha, Wanwan, Khufra, Diggie et Fanny.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Super Magic",
+        description:
+          "Ses attaques de base infligent des dégâts magiques et chargent une jauge ; pleine, elle rend la prochaine attaque de base guidée. Ses coups marquent les ennemis, et elle frappe plus fort les cibles en l'air.",
+      },
+      {
+        type: "Skill 1",
+        name: "Energy Wave",
+        description:
+          "Un orbe qui blesse et ralentit le premier ennemi touché. Chaque touche réduit toutes ses recharges : c'est la compétence à lancer le plus souvent pour préparer les marques.",
+      },
+      {
+        type: "Skill 2",
+        name: "Spatial Migration",
+        description:
+          "Bond sur une zone qui étourdit brièvement puis projette en l'air les héros et monstres touchés. Relancée dans les secondes qui suivent, elle la téléporte en la rendant invisible un instant et laisse une illusion qui explose si on la frappe.",
+      },
+      {
+        type: "Ultimate",
+        name: "Violet Requiem",
+        description:
+          "Crée un champ de force qui frappe les ennemis proches à répétition. Les cibles déjà en l'air, ou marquées trois fois, y sont relancées plusieurs fois. Elle est insensible aux contrôles pendant la durée.",
+      },
+    ],
+    strengths: [
+      "Contrôle de zone répété sous l'ultime",
+      "Insensible aux contrôles pendant l'ultime",
+      "Une relance de la compétence 2 pour se repositionner",
+      "Recharges réduites quand la compétence 1 touche",
+    ],
+    weaknesses: [
+      "Un ultime qui dépend d'une projection ou de marques posées avant",
+      "Taux de victoire mesuré proche de la moyenne, sans pic marqué",
+      "En difficulté face à Masha, Wanwan et Khufra selon les mesures",
+    ],
+    strongAgainst: ["julian", "karrie", "esmeralda", "thamuz"],
+    weakAgainst: ["masha", "wanwan", "khufra", "diggie", "fanny"],
+    builds: [
+      {
+        name: "Vol de vie magique",
+        context:
+          "Le build le plus joué : Concentrated Energy apporte puissance magique et vol de vie hybride, Queen's Wings de la survie et de la recharge quand ses PV baissent, Divine Glaive la pénétration magique.",
+        items: ["Concentrated Energy", "Queen's Wings", "Divine Glaive"],
+        emblem: "Emblème de mage",
+        talent: "Temporal Reign",
+        spell: "Flicker",
+      },
+      {
+        name: "Dégâts après compétence",
+        context:
+          "Starlium Scythe à la place de Queen's Wings, pour des dégâts supplémentaires sur l'attaque qui suit chaque compétence : moins jouée, avec un taux de victoire mesuré comparable.",
+        items: ["Concentrated Energy", "Starlium Scythe", "Divine Glaive"],
+        emblem: "Emblème de mage",
+        talent: "Impure Rage",
+        spell: "Flicker",
+      },
+    ],
+  },
 ];

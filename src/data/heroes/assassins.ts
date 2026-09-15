@@ -206,4 +206,139 @@ export const assassins: HeroAnalysis[] = [
       },
     ],
   },
+  {
+    slug: "yi-sun-shin",
+    summary:
+      "Jungleur hybride qui passe de l'arc au glaive selon la distance, et dont l'ultime révèle toute la carte.",
+    analysis:
+      "Yi Sun-shin change d'arme tout seul : il tire à l'arc de loin et frappe au glaive au contact, et chaque changement renforce ses deux attaques suivantes. Sa compétence 1 le propulse vers l'avant en le rendant brièvement insensible aux contrôles, et sa recharge diminue à chaque changement d'arme réussi. L'ultime lui donne d'abord la vision de toute la carte et une accélération, puis, relancé, envoie un navire qui étourdit le centre de la zone avant un tir de barrage qui ralentit : c'est autant un outil d'information qu'un engagement à distance.\n\n" +
+      "Son rendement mesuré se concentre en début de partie : son taux de victoire est nettement plus élevé dans les parties terminées avant la douzième minute, puis revient autour de la moyenne. Il vit donc de l'avance prise en jungle plutôt que de la fin de partie, et sa seule protection contre les contrôles ne dure qu'un instant. Les mesures le placent en difficulté face à Karina, Uranus, Aamon, Johnson et Hayabusa, du rang Mythic au rang Mythic Glory.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Heavenly Vow",
+        description:
+          "Il attaque à l'arc ou au glaive selon la distance de sa cible. Après chaque changement d'arme, ses deux attaques suivantes gagnent en cadence et en dégâts critiques, avec un court gain de vitesse.",
+      },
+      {
+        type: "Skill 1",
+        name: "Traceless",
+        description:
+          "Ruée vers l'avant au glaive, qui le rend insensible aux contrôles un court instant. Chaque changement d'arme déclenché raccourcit sa recharge : c'est sa principale mobilité en combat.",
+      },
+      {
+        type: "Skill 2",
+        name: "Blood Floods",
+        description:
+          "Appui court : un coup de glaive rapide. Appui long : une flèche dont les dégâts augmentent avec le temps de charge. Dans les deux cas, elle déclenche immédiatement le bonus de changement d'arme.",
+      },
+      {
+        type: "Ultimate",
+        name: "Mountain Shocker",
+        description:
+          "Révèle toute la carte quelques secondes et l'accélère. Relancée, elle envoie un navire percuter une zone en étourdissant le centre, puis plusieurs salves de canon qui ralentissent sur une zone plus large.",
+      },
+    ],
+    strengths: [
+      "Vision de toute la carte au lancement de l'ultime",
+      "Insensible aux contrôles pendant la ruée de la compétence 1",
+      "Dégâts à distance comme au contact, sans changer de build",
+      "Taux de victoire mesuré élevé dans les parties courtes",
+    ],
+    weaknesses: [
+      "Taux de victoire mesuré qui revient à la moyenne passé les premières minutes",
+      "Une protection contre les contrôles qui ne dure qu'un instant",
+      "En difficulté face à Karina, Uranus et Aamon selon les mesures",
+    ],
+    strongAgainst: ["khufra", "benedetta", "thamuz", "melissa"],
+    weakAgainst: ["karina", "uranus", "aamon", "johnson", "hayabusa"],
+    builds: [
+      {
+        name: "Jungle standard",
+        context:
+          "Le build le plus joué, à tous les rangs : Hunter Strike et War Axe, puis Endless Battle, qui renforce l'attaque de base suivant chaque compétence et le soigne au passage.",
+        items: ["Hunter Strike", "War Axe", "Endless Battle"],
+        emblem: "Emblème d'assassin",
+        talent: "Killing Spree",
+        spell: "Retribution",
+      },
+      {
+        name: "Exécution",
+        context:
+          "Sky Piercer à la place de War Axe : moins joué, avec un meilleur taux de victoire mesuré. Son seuil d'exécution grandit avec les éliminations et diminue à chaque mort, ce qui convient à un jungleur qui prend son avance tôt.",
+        items: ["Hunter Strike", "Sky Piercer", "Endless Battle"],
+        emblem: "Emblème d'assassin",
+        talent: "Killing Spree",
+        spell: "Retribution",
+      },
+    ],
+  },
+  {
+    slug: "selena",
+    summary:
+      "Héroïne à deux formes : pièges et flèche d'étourdissement à distance, puis assassinat au contact après l'ultime.",
+    analysis:
+      "Selena se joue en deux temps. Sous sa forme elfique, elle pose des démons qui guettent un emplacement et s'accrochent aux ennemis de passage, et elle tire une flèche dont l'étourdissement s'allonge avec la distance parcourue ; ses compétences laissent des marques sur les cibles. L'ultime la fait passer en forme abyssale, où ses compétences deviennent une attaque bondissante avec bouclier et une charge, qui consomment ces marques pour des dégâts supplémentaires ; elle peut ensuite revenir en forme elfique.\n\n" +
+      "Cette polyvalence a un coût : tout son engagement repose sur la flèche, qui doit partir de loin pour étourdir longtemps. Son taux de victoire mesuré reste sous la moyenne à tous les rangs, avec un point bas dans les parties de moins de douze minutes. Elle est jouée en lane du milieu comme en roam, avec des objets différents selon la position. Les mesures la placent en difficulté face à Gloo, Popol and Kupa, Chip et Lolita.",
+    skills: [
+      {
+        type: "Passive",
+        name: "Symbiosis",
+        description:
+          "Elle passe librement d'une forme à l'autre. En forme elfique, ses compétences posent des marques cumulables ; en forme abyssale, ses dégâts consomment ces marques pour frapper plus fort. Le jeu consiste à marquer de loin, puis à conclure de près.",
+      },
+      {
+        type: "Skill 1",
+        name: "Abyssal Trap",
+        description:
+          "Place un démon qui attend à un endroit, s'attache au premier ennemi qui approche, le ralentit puis explose sur lui et ses voisins. Plusieurs pièges peuvent coexister, et chaque piège supplémentaire renforce l'explosion.",
+      },
+      {
+        type: "Skill 2",
+        name: "Abyssal Arrow",
+        description:
+          "Tire une flèche qui étourdit le premier héros touché, d'autant plus longtemps qu'elle a voyagé loin. En traversant un piège, elle l'emporte avec elle et applique son effet à la cible. Son vrai outil d'engagement.",
+      },
+      {
+        type: "Ultimate",
+        name: "Primal Darkness",
+        description:
+          "La fait passer en forme abyssale avec un bref gain de vitesse et remet à zéro la recharge de ses compétences de cette forme. Ses attaques de base infligent alors des dégâts magiques supplémentaires.",
+      },
+    ],
+    strengths: [
+      "Étourdissement long quand la flèche part de loin",
+      "Pièges posés à l'avance, plusieurs à la fois",
+      "Deux formes : contrôle à distance, puis dégâts au contact",
+      "Jouable en lane du milieu comme en roam",
+    ],
+    weaknesses: [
+      "Tout son engagement dépend d'une flèche à viser de loin",
+      "Taux de victoire mesuré sous la moyenne à tous les rangs",
+      "Plus faible dans les parties très courtes selon les mesures",
+      "En difficulté face à Gloo, Popol and Kupa et Chip",
+    ],
+    strongAgainst: ["benedetta", "beatrix", "x-borg", "ixia", "yve"],
+    weakAgainst: ["gloo", "popol-and-kupa", "chip", "lolita"],
+    builds: [
+      {
+        name: "Lane du milieu",
+        context:
+          "Le build le plus joué au milieu : Starlium Scythe ajoute des dégâts à l'attaque de base qui suit une compétence, ce qui sert sa forme abyssale, Lightning Truncheon un écho de dégâts et Divine Glaive la pénétration magique.",
+        items: ["Starlium Scythe", "Lightning Truncheon", "Divine Glaive"],
+        emblem: "Emblème de mage",
+        talent: "Lethal Ignition",
+        spell: "Flicker",
+      },
+      {
+        name: "Roam",
+        context:
+          "Le build le plus joué en roam : Enchanted Talisman mise sur la recharge et la mana plutôt que sur les dégâts bruts, pour relancer pièges et flèches plus souvent avec le revenu plus faible de cette position.",
+        items: ["Enchanted Talisman", "Glowing Wand", "Lightning Truncheon"],
+        emblem: "Emblème de mage",
+        talent: "Lethal Ignition",
+        spell: "Flicker",
+      },
+    ],
+  },
 ];
