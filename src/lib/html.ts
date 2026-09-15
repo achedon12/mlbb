@@ -30,14 +30,6 @@ export function cleanHtml(html: string): string {
   return sanitizeHtml(html, OPTIONS);
 }
 
-/**
- * Serialises data for a `<script type="application/ld+json">`.
- *
- * `JSON.stringify` alone does not protect: a value containing `</script>`
- * would close the tag and allow injection. The `<` character is therefore
- * escaped, which prevents any escape from the tag without affecting the
- * validity of the JSON.
- */
-export function serializeJsonLd(data: unknown): string {
-  return JSON.stringify(data).replace(/</g, "\\u003c");
-}
+// Server pages keep importing it from here; client components import
+// `./json-ld` directly, which does not pull sanitize-html.
+export { serializeJsonLd } from "./json-ld";

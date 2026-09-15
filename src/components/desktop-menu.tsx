@@ -186,33 +186,36 @@ function NodeWithSubmenu({ node, path, onNavigate }: { node: MenuNode; path: str
         </button>
       </div>
 
-      {open && (
-        <div id={id} className="absolute left-full top-0 z-50 pl-2">
-          <ul
-            ref={list}
-            className="bevel min-w-52 border border-night-700/80 bg-night-900/98 p-1.5 shadow-2xl shadow-night-950/60 backdrop-blur"
-          >
-            {node.children!.map((e) => {
-              const childActive = e.href ? path.endsWith(e.href) : false;
-              return (
-                <li key={e.href}>
-                  <Link
-                    href={e.href!}
-                    onClick={onNavigate}
-                    aria-current={childActive ? "page" : undefined}
-                    className={cn(
-                      "block rounded-md px-3 py-2 text-sm transition-colors",
-                      childActive ? "bg-night-800 text-gold-400" : "text-chalk-200 hover:bg-night-800/70 hover:text-gold-400",
-                    )}
-                  >
-                    {labelNode(t, e)}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+      {/*
+        Rendered hidden rather than on opening: the sub-page links stay in the
+        server HTML, the only copy of them since the mobile menu renders its
+        content on opening.
+      */}
+      <div id={id} hidden={!open} className="absolute left-full top-0 z-50 pl-2">
+        <ul
+          ref={list}
+          className="bevel min-w-52 border border-night-700/80 bg-night-900/98 p-1.5 shadow-2xl shadow-night-950/60 backdrop-blur"
+        >
+          {node.children!.map((e) => {
+            const childActive = e.href ? path.endsWith(e.href) : false;
+            return (
+              <li key={e.href}>
+                <Link
+                  href={e.href!}
+                  onClick={onNavigate}
+                  aria-current={childActive ? "page" : undefined}
+                  className={cn(
+                    "block rounded-md px-3 py-2 text-sm transition-colors",
+                    childActive ? "bg-night-800 text-gold-400" : "text-chalk-200 hover:bg-night-800/70 hover:text-gold-400",
+                  )}
+                >
+                  {labelNode(t, e)}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

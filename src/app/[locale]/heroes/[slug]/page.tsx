@@ -18,10 +18,9 @@ import { BuildItem } from "@/components/build-item";
 import { BuildsByRank } from "@/components/builds-by-rank";
 import { BuildPicker } from "@/components/build-picker";
 import { resolveBuild, resolveGuide, visualEmblem, visualItem, spellVisual, visualTalent } from "@/lib/build-visuals";
-import { HeroStatistics } from "@/components/hero-statistics";
 import { heroGallery } from "@/lib/hero-skins";
 import { duos } from "@/lib/duos";
-import { HeroAdjustments } from "@/components/hero-patch";
+import { HeroAdjustmentsDeferred, HeroStatisticsDeferred } from "@/components/hero-statistics-deferred";
 import { NextPatch } from "@/components/next-patch";
 import { HeroProStats } from "@/components/hero-pro-stats";
 import { durationOf, historyOf, trendsOf } from "@/lib/evolution";
@@ -662,7 +661,7 @@ export default async function HeroPage({ params }: Params) {
               ),
               content: (
                 <div className="space-y-12">
-                  <HeroStatistics
+                  <HeroStatisticsDeferred
                     name={h.name}
                     trends={trendsOf(h.slug)}
                     duration={durationOf(h.slug)}
@@ -686,7 +685,7 @@ export default async function HeroPage({ params }: Params) {
                         : t("pages.heroDetail.statistics.noAdjustment", { name: h.name, n: versionsRecent.length })}
                     </p>
                     {heroAdjustments.length > 0 && (
-                      <HeroAdjustments entries={heroAdjustments} portrait={h.images.icon ?? h.images.portrait} />
+                      <HeroAdjustmentsDeferred entries={heroAdjustments} portrait={h.images.icon ?? h.images.portrait} />
                     )}
                     {/* Changes being tested on the Advance Server; renders nothing otherwise. */}
                     <NextPatch slug={h.slug} locale={locale} />

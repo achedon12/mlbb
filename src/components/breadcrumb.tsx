@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import Link from "@/components/link";
 import { ChevronRight, ChevronsUpDown, House } from "lucide-react";
 import { useLocale, useT } from "@/i18n/provider";
-import { serializeJsonLd } from "@/lib/html";
+import { serializeJsonLd } from "@/lib/json-ld";
 import { site } from "@/lib/site";
 import { keySearch, cn } from "@/lib/utils";
 

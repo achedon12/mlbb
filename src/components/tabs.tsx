@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { Suspense, useEffect, useId, useRef, useState } from "react";
 import { useT } from "@/i18n/provider";
 import { resolveAnchor, type AnchorAliases } from "@/lib/anchors";
 import { cn } from "@/lib/utils";
@@ -151,7 +151,18 @@ export function Tabs({ tabs, aliases = {} }: { tabs: Tab[]; aliases?: AnchorAlia
           tabIndex={0}
           className="pt-8 outline-none"
         >
-          {!o.deferred || openTabs.has(o.id) ? o.content : (o.preview ?? null)}
+          {/* The first tab is open from the server render on, like the non-deferred ones. */}
+          {!o.deferred || o.id === tabs[0]?.id ? (
+            o.content
+          ) : openTabs.has(o.id) ? (
+            // Only ever rendered in the browser, once opened: in the server
+            // render, a Suspense boundary would move the panel's HTML out of
+            // place. Content loading lazily keeps the preview on screen until
+            // it arrives.
+            <Suspense fallback={o.preview ?? null}>{o.content}</Suspense>
+          ) : (
+            (o.preview ?? null)
+          )}
         </div>
       ))}
     </div>

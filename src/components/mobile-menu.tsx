@@ -131,6 +131,11 @@ function NodeMobile({ node, path, onNavigate }: { node: MenuNode; path: string; 
 export function MobileMenu() {
   const t = useT();
   const [open, setOpen] = useState(false);
+  // The sections are only rendered once the menu has been opened: rendered
+  // hidden on every page, they were over 550 elements (a third of the home
+  // page's DOM) to hydrate for nothing. Their links stay in the server HTML
+  // through the desktop menu.
+  const [rendered, setRendered] = useState(false);
   const path = usePathname();
   // The current page's family opens by itself.
   const [section, setSection] = useState<string | null>(null);
@@ -145,7 +150,10 @@ export function MobileMenu() {
     <div className="lg:hidden">
       <button
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={() => {
+          setRendered(true);
+          setOpen((o) => !o);
+        }}
         aria-expanded={open}
         aria-controls="menu-mobile"
         aria-label={open ? t("nav.close") : t("nav.open")}
@@ -167,16 +175,17 @@ export function MobileMenu() {
         hidden={!open}
         className="absolute inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-night-700 bg-night-950 px-3 pb-4 shadow-2xl shadow-night-950/60"
       >
-        {GROUPS.map((g) => (
-          <Section
-            key={g.key}
-            group={g}
-            path={path}
-            isOpen={isOpen === g.key}
-            onToggle={() => setSection(isOpen === g.key ? "" : g.key)}
-            onNavigate={close}
-          />
-        ))}
+        {rendered &&
+          GROUPS.map((g) => (
+            <Section
+              key={g.key}
+              group={g}
+              path={path}
+              isOpen={isOpen === g.key}
+              onToggle={() => setSection(isOpen === g.key ? "" : g.key)}
+              onNavigate={close}
+            />
+          ))}
       </nav>
     </div>
   );
