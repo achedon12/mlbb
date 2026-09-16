@@ -122,6 +122,22 @@ export const PAGES = [
 /** A path that exists in no route: must answer 404. */
 export const MISSING_PAGE = "/en/smoke-check-missing-page";
 
+/**
+ * Addresses whose status is the point of the check. Pagination lives in the
+ * path, so a page that does not exist must be a 404 and not a server error:
+ * a build once answered `NoFallbackError` on one of these. The old `.png`
+ * name of a visual must still reach its `.webp` file.
+ */
+export const EDGE_PATHS = [
+  { path: "/fr/heroes/page/2", status: 200 },
+  { path: "/fr/heroes/page/1", status: 404, why: "page one is the bare path" },
+  { path: "/fr/heroes/page/999", status: 404, why: "past the last page" },
+  { path: "/fr/heroes/page/abc", status: 404, why: "not a number" },
+  { path: "/fr/statistics/mythic/page/2", status: 200 },
+  { path: "/fr/statistics/mythic/page/99", status: 404, why: "past the last page" },
+  { path: "/visuels/heros/khufra/icone.png", status: 200, type: "image/webp", why: "renamed visual, redirected" },
+];
+
 const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
 
 /** Decodes the common named entities and every numeric one, in a single pass. */

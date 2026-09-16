@@ -86,8 +86,9 @@ test.describe("on mobile", () => {
 
 test("the draft offers the full roster, filters and suggests", async ({ page }) => {
   await page.goto("/fr/draft");
+  // Step 1 of the assistant: the lanes of the team you are facing.
   const enemy = page.locator("section").filter({
-    has: page.getByRole("heading", { name: /[ée]quipe adverse/i }),
+    has: page.getByRole("heading", { name: /qui affrontez-vous|[ée]quipe adverse/i }),
   });
   await enemy.getByRole("button", { name: /choisir un h[ée]ros/i }).first().click();
 
@@ -112,7 +113,9 @@ test("the draft offers the full roster, filters and suggests", async ({ page }) 
   // Picking an opponent brings up suggestions.
   await picker.getByRole("button", { name: "Khufra" }).click();
   await expect(picker).toBeHidden();
-  await expect(enemy.getByText("Khufra")).toBeVisible();
+  // The suggestions now sit under their lane and name the opponent too
+  // ("+ fort contre Khufra"): the filled field is the first match.
+  await expect(enemy.getByText("Khufra").first()).toBeVisible();
   await expect(page.getByRole("button", { name: /^prendre$/i }).first()).toBeVisible();
 });
 

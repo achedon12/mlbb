@@ -22,6 +22,7 @@ import {
   checkSitemapUnion,
   LOCALES,
   MISSING_PAGE,
+  EDGE_PATHS,
   PAGES,
   findPlaceholders,
   inspectPage,
@@ -180,6 +181,19 @@ async function main() {
     record(`${MISSING_PAGE} (missing page)`, status === 404 ? [] : [`status ${status}, expected 404`]);
   } catch (error) {
     record(`${MISSING_PAGE} (missing page)`, [describeError(error)]);
+  }
+
+  for (const { path, status: expected, type, why } of EDGE_PATHS) {
+    const label = `${path} (${why ?? `expects ${expected}`})`;
+    try {
+      const { status, contentType } = await get(origin + path);
+      const problems = [];
+      if (status !== expected) problems.push(`status ${status}, expected ${expected}`);
+      if (type && !contentType.includes(type)) problems.push(`content type "${contentType}", expected ${type}`);
+      record(label, problems);
+    } catch (error) {
+      record(label, [describeError(error)]);
+    }
   }
 
   const seconds = ((Date.now() - started) / 1000).toFixed(1);
