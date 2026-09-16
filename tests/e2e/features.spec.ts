@@ -49,6 +49,20 @@ test.describe("hero page", () => {
     await expect(tab).toHaveAttribute("aria-selected", "true");
     await expect(page.getByRole("heading", { name: /ajustements par patch/i })).toBeVisible();
   });
+
+  test("the Stats tab shows real rates for each rank", async ({ page }) => {
+    await page.goto("/fr/heroes/khufra");
+    await page.getByRole("tab", { name: /^stats$/i }).click();
+    const byRank = page
+      .locator("section")
+      .filter({ has: page.getByRole("heading", { name: /selon le rang/i }) })
+      .first();
+    await expect(byRank.getByRole("listitem").first()).toContainText(/\d+,\d %/);
+    // The tab is rendered in the browser, so its content never reaches the
+    // smoke check: every rank showed "NaN %" for two days, the rates being
+    // passed under the wrong names.
+    await expect(page.getByRole("tabpanel")).not.toContainText(/NaN/);
+  });
 });
 
 test.describe("on mobile", () => {

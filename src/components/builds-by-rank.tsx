@@ -59,8 +59,8 @@ export function BuildsByRank({
   byLane,
   guides,
 }: {
-  byLane: Record<string, Partial<Record<MeasuredRank, ResolvedBuild[]>>>;
-  guides: Record<string, Partial<Record<MeasuredRank, ResolvedGuide>>>;
+  byLane: Partial<Record<string, Partial<Record<MeasuredRank, ResolvedBuild[]>>>>;
+  guides: Partial<Record<string, Partial<Record<MeasuredRank, ResolvedGuide>>>>;
 }) {
   const t = useT();
   const rank = useRank();
