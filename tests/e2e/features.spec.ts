@@ -56,11 +56,13 @@ test.describe("on mobile", () => {
 
   test("an item opens in a drawer that closes again", async ({ page }) => {
     await page.goto("/fr/items");
-    await page.getByRole("button", { name: /^war axe/i }).click();
+    // The catalogue is paginated: this one is on the first page, and it is
+    // built often enough to carry the "used by" list asserted below.
+    await page.getByRole("button", { name: /^blade of despair/i }).click();
 
-    const drawer = page.getByRole("dialog", { name: /war axe/i });
+    const drawer = page.getByRole("dialog", { name: /blade of despair/i });
     await expect(drawer).toBeVisible();
-    await expect(drawer.getByRole("heading", { name: /war axe/i })).toBeVisible();
+    await expect(drawer.getByRole("heading", { name: /blade of despair/i })).toBeVisible();
     // Item found in played builds: the sheet lists the heroes who take it.
     await expect(drawer.getByText(/utilis[ée] par/i)).toBeVisible();
     await expect(drawer.getByRole("link").first()).toHaveAttribute("href", /\/heroes\//);
