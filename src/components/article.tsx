@@ -67,10 +67,10 @@ export function BodyArticle({
   const section = navEntry ? t(`nav.${navEntry.key}.label`) : back.label;
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-14">
+    <article className="mx-auto max-w-3xl px-4 pb-8 pt-5 sm:py-14">
       <Breadcrumb crumbs={[{ name: section, href: back.href }, { name: article.title }]} />
 
-      <header className="mt-6 border-b border-night-800 pb-8">
+      <header className="mt-4 border-b border-night-800 pb-5 sm:mt-6 sm:pb-8">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
             {t(`articleCategory.${article.category}`)}
@@ -80,16 +80,16 @@ export function BodyArticle({
           </time>
           <span className="text-xs text-chalk-500">{t("articleUI.by", { author: article.author })}</span>
         </div>
-        <h1 className="mt-4 font-heading text-3xl font-bold leading-tight text-chalk-100 sm:text-4xl">
+        <h1 className="mt-3 font-heading text-2xl font-bold leading-tight text-chalk-100 sm:mt-4 sm:text-4xl">
           {article.title}
         </h1>
-        <p className="mt-4 text-lg leading-relaxed text-chalk-300">{article.summary}</p>
+        <p className="mt-2 leading-snug text-chalk-300 sm:mt-4 sm:text-lg sm:leading-relaxed">{article.summary}</p>
       </header>
 
-      <div className="prose-mlbb mt-10" dangerouslySetInnerHTML={{ __html: cleanHtml(html) }} />
+      <div className="prose-mlbb mt-5 sm:mt-10" dangerouslySetInnerHTML={{ __html: cleanHtml(html) }} />
 
       {article.keywords.length > 0 && (
-        <ul className="mt-12 flex flex-wrap gap-2 border-t border-night-800 pt-6">
+        <ul className="mt-6 flex flex-wrap gap-2 border-t border-night-800 pt-4 sm:mt-12 sm:pt-6">
           {article.keywords.map((m) => (
             <li
               key={m}

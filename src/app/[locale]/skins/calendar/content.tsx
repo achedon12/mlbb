@@ -7,6 +7,7 @@ import { SkinGrid } from "@/components/skin-grid";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
+import { Foldable } from "@/components/foldable";
 import { PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -149,7 +150,7 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
 
       {/* Section anchors before they were named in English, still found in shared links. */}
       <OpenAnchor aliases={{ "ce-mois": "this-month", derniers: "latest", explorateur: "explorer" }} />
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-16">
         <section id="this-month" className="scroll-mt-24">
           <SectionTitle>{t("pages.skinsCalendar.thisMonthTitle", { month: monthYear(locale, dateReference) })}</SectionTitle>
           {ceMonth.length > 0 ? (
@@ -181,8 +182,15 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
               years={years}
               reference={dateReference}
             >
-              <div className="relative overflow-x-auto">
-                <table className="w-full min-w-[30rem] border-separate border-spacing-1 text-center text-xs">
+              {/*
+                Fourteen columns of counts: the grid used to sit in a
+                horizontal scroller a phone had to drag. Cells reserve no
+                width of their own and the spacing tightens below `sm`, so
+                the heat map fits 390 px — it stays a grid, where a card per
+                year would lose the very thing it shows.
+              */}
+              <div className="relative">
+                <table className="w-full border-separate border-spacing-[2px] text-center text-[0.65rem] sm:min-w-[30rem] sm:border-spacing-1 sm:text-xs">
                   <caption className="mb-2 text-left text-sm text-chalk-500">{t("pages.skinsCalendar.tableLegend")}</caption>
                   <thead>
                     <tr className="text-chalk-500">
@@ -229,12 +237,12 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
                                     href={`${PATH}/${a.year}#m-${String(i + 1).padStart(2, "0")}`}
                                     aria-label={label}
                                     title={label}
-                                    className={cn("block min-w-6 py-1.5 tabular-nums hover:outline hover:outline-gold-400", tint(n, maxMonth))}
+                                    className={cn("block py-1.5 tabular-nums hover:outline hover:outline-gold-400 sm:min-w-6", tint(n, maxMonth))}
                                   >
                                     {n}
                                   </Link>
                                 ) : (
-                                  <span className={cn("block min-w-6 py-1.5", tint(0, maxMonth))} aria-label={label} />
+                                  <span className={cn("block py-1.5 sm:min-w-6", tint(0, maxMonth))} aria-label={label} />
                                 )}
                               </td>
                             );
@@ -283,7 +291,8 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
         </section>
 
         <section id="dates" className="scroll-mt-24">
-          <SectionTitle>{t("pages.skinsCalendar.datesTitle")}</SectionTitle>
+          {/* How reliable the dates are: the check behind the calendar, folded. */}
+          <Foldable label={t("pages.skinsCalendar.datesTitle")}>
           <div className="max-w-3xl space-y-3 leading-relaxed text-chalk-300">
             <p>
               {t("pages.skinsCalendar.datesPrecision", {
@@ -302,7 +311,8 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
               </Link>
             </p>
           </div>
-          <WikiCredit t={t} href={sync.source} messageKey="pages.skinsCalendar.source" />
+          <WikiCredit t={t} href={sync.source} messageKey="pages.skinsCalendar.source" className="mt-4" />
+          </Foldable>
         </section>
       </div>
     </>

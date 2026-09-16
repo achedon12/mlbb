@@ -42,17 +42,17 @@ export function HomeFeatured({
         <div className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-night-950 to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
-        <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
+      <div className="relative mx-auto max-w-6xl px-4 py-6 sm:py-24">
+        <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-gold-400 sm:text-sm">
           {t("featured.heroOfTheDay")}
         </p>
 
-        <h2 className="mt-3 font-heading text-5xl font-bold leading-none text-chalk-100 sm:text-6xl">
+        <h2 className="mt-2 font-heading text-4xl font-bold leading-none text-chalk-100 sm:mt-3 sm:text-6xl">
           {heroes.name}
         </h2>
-        {heroes.title && <p className="mt-2 text-xl text-gold-400">{heroes.title}</p>}
+        {heroes.title && <p className="mt-1.5 text-lg text-gold-400 sm:mt-2 sm:text-xl">{heroes.title}</p>}
 
-        <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+        <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm sm:mt-6 sm:gap-x-8 sm:gap-y-3">
           {[
             [t("featured.role"), heroes.roles.map((r) => t(`roles.${r}`)).join(", ")],
             [t("featured.position"), heroes.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
@@ -71,7 +71,7 @@ export function HomeFeatured({
 
         <Link
           href={`/heroes/${heroes.slug}`}
-          className="bevel-sm mt-8 inline-flex items-center gap-2 bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
+          className="bevel-sm mt-5 inline-flex items-center gap-2 bg-gold-500 px-5 py-2.5 font-semibold text-night-950 transition-colors hover:bg-gold-400 sm:mt-8 sm:px-6 sm:py-3"
         >
           {t("featured.seeSheet")}
           <ArrowRight size={18} aria-hidden />

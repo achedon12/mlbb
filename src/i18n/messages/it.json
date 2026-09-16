@@ -514,7 +514,8 @@
       "leadLane": "I {n} eroi che si giocano in {lane}, classificati con la stessa regola della tier list generale: tassi di vittoria e di ban, tutti i ranghi insieme.",
       "leadRole": "I {n} {plural} del gioco, ruolo principale o secondario, classificati con la stessa regola della tier list generale: tassi di vittoria e di ban, tutti i ranghi insieme.",
       "filterNote": "Classifica su tutti i ranghi. Le liste per rango riuniscono invece tutte le lane e tutti i ruoli.",
-      "seeRole": "Scheda del ruolo: {plural} e lane"
+      "seeRole": "Scheda del ruolo: {plural} e lane",
+      "openTier": "Mostra i {n} eroi del livello {p}"
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -544,7 +545,10 @@
         "detail": "Dettaglio delle modifiche",
         "impact": "tasso di vittoria medio: {before} prima della patch, {after} dopo",
         "impactNote": "Tasso di vittoria medio su tutti i ranghi nei {n} giorni prima e dopo la patch, quando lo storico copre quel periodo."
-      }
+      },
+      "openNewHeroes": "Mostra panoramica dei nuovi eroi ({n})",
+      "openAdjustments": "Mostra il dettaglio dei {n} aggiustamenti",
+      "openArchives": "Mostra {n} patch archiviate"
     },
     "login": {
       "title": "Accedi",
@@ -1162,7 +1166,8 @@
       "wiki": {
         "title": "Cosa dice la wiki",
         "intro": "Relazioni indicate dalla wiki della community, senza dati misurati.",
-        "synergies": "Sinergie di {name}"
+        "synergies": "Sinergie di {name}",
+        "open": "Mostra le relazioni annotate dal wiki"
       },
       "others": {
         "title": "Altre pagine counter · {lane}"
@@ -1510,7 +1515,9 @@
       "sourceRanked": "Wiki Fandom, pagina «Ranked»: stelle, punti Mythic, draft, punti di avanzamento e di protezione",
       "sourceRewards": "Wiki Fandom, pagina «Season Rank Rewards»: ricompense di fine stagione",
       "sourceTable": "Tabella ufficiale dei ranghi (divisioni e intervalli), tramite l'API di statistiche arena.rone.dev",
-      "sourceMeasures": "Percentuali di vittoria per rango: rilevazione del {date}, la stessa della tier list"
+      "sourceMeasures": "Percentuali di vittoria per rango: rilevazione del {date}, la stessa della tier list",
+      "openTable": "Mostra la tabella delle divisioni, delle stelle e dei punti",
+      "openRanks": "Mostra {n} altri gradi"
     },
     "quiz": {
       "title": "Quiz MLBB del giorno",
@@ -1688,7 +1695,8 @@
       "methodTitle": "La nostra tier list come punto di partenza",
       "method": "Il precompilamento usa la nostra tier list calcolata: ogni eroe è classificato da S+ a C in base al tasso di vittoria e al tasso di ban nel rango scelto, secondo le partite classificate raccolte a ogni sincronizzazione. La riga D resta libera per i tuoi giudizi.",
       "tierListLink": "Vedi la tier list e il metodo",
-      "quizLink": "Metti alla prova le tue conoscenze nel quiz"
+      "quizLink": "Metti alla prova le tue conoscenze nel quiz",
+      "howToOpen": "Mostra tutti e quattro i passaggi"
     },
     "tierMakerUI": {
       "titleList": "Titolo della lista",
@@ -2439,7 +2447,8 @@
         "gapColumn": "Scarto",
         "cell": "{value} · n. {rank}",
         "gap": "{n} posizioni",
-        "none": "Non ci sono ancora abbastanza partite pro per un confronto."
+        "none": "Non ci sono ancora abbastanza partite pro per un confronto.",
+        "open": "Mostra {n} eroi a confronto"
       },
       "method": "Presenza = (pick + ban) ÷ partite con draft registrato. Presenza nelle classificate = tasso di scelta × 10 + tasso di ban, perché il tasso di scelta del gioco è una quota dei dieci pick di ogni partita. Le classifiche sono ricalcolate dai risultati delle partite elencati su Liquipedia.",
       "credit": {
@@ -2708,7 +2717,8 @@
       "retributionLink": "Allenati con Retribution",
       "sourcesTitle": "Fonti",
       "sourcesIntro": "Pagine della wiki di Mobile Legends (Fandom), consultate il {date}:",
-      "sourcesNote": "Quando due valori della wiki non concordano (ritorno del Lord dopo il minuto {lateFrom}, arrivo del Granchio), il timer mostra la finestra tra i due invece di sceglierne uno."
+      "sourcesNote": "Quando due valori della wiki non concordano (ritorno del Lord dopo il minuto {lateFrom}, arrivo del Granchio), il timer mostra la finestra tra i due invece di sceglierne uno.",
+      "usageOpen": "Mostra le istruzioni per l'uso"
     },
     "timerUI": {
       "clockTitle": "Tempo di gioco",
@@ -3284,7 +3294,8 @@
       "rise": "In crescita",
       "fall": "In calo",
       "noRise": "Nessun eroe è in netta crescita questa settimana.",
-      "noFall": "Nessun eroe è in netto calo questa settimana."
+      "noFall": "Nessun eroe è in netto calo questa settimana.",
+      "open": "Mostra i {n} eroi in movimento"
     },
     "readNotes": "Leggi le note",
     "toolsTitle": "Strumenti",
@@ -4164,7 +4175,8 @@
       "colDaily": "Giornaliero",
       "colWeekly": "Settimanale",
       "colNow": "Ora attuale",
-      "you": "tu"
+      "you": "tu",
+      "countriesOpen": "Mostra l'orario del reset paese per paese"
     },
     "retribution": {
       "objective": {

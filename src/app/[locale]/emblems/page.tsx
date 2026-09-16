@@ -45,7 +45,7 @@ export default async function EmblemsPage({ params }: { params: Promise<{ locale
         title={t("pages.emblems.title")}
         lead={t("pages.emblems.lead")}
       />
-      <div className="mx-auto max-w-6xl px-4 py-12">
+      <div className="mx-auto max-w-6xl px-4 pb-10 pt-5 sm:py-12">
         <EmblemGuide
           emblems={[...emblems]}
           talents={[...talents]}

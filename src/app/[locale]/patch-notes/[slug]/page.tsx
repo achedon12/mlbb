@@ -4,7 +4,8 @@ import { cleanHtml, serializeJsonLd } from "@/lib/html";
 import { notFound } from "next/navigation";
 import { BodyArticle } from "@/components/article";
 import { WikiCredit } from "@/components/wiki-credit";
-import { Breadcrumb } from "@/components/breadcrumb";
+import { Foldable } from "@/components/foldable";
+import { PageHeader } from "@/components/ui";
 import { NewHero } from "@/components/new-hero";
 import { HeroPatch } from "@/components/hero-patch";
 import { PatchToc } from "@/components/patch-toc";
@@ -12,9 +13,10 @@ import { heroesBySlug, illustrations, patchDetails, detailedPatches } from "@/li
 import { article, articles, toHtml } from "@/lib/content";
 import { countAdjustments, longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { site } from "@/lib/site";
-import type { DetailedPatch } from "@/lib/types";
+import type { DetailedPatch, PatchSection } from "@/lib/types";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { postData, metaPage } from "@/i18n/seo";
+import { cn } from "@/lib/utils";
 import { HeroChanges, changedHeroCount } from "./hero-changes";
 
 type Params = { params: Promise<{ locale: Locale; slug: string }> };
@@ -124,39 +126,30 @@ export default async function PatchPage({ params }: Params) {
           dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
         />
 
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <Breadcrumb
-            crumbs={[
-              { name: t("nav.patchNotes.label"), href: "/patch-notes" },
-              {
-                name: `Patch ${patch.version}`,
-                siblings: Object.values(patchDetails)
-                  .sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }))
-                  .map((p) => ({ name: `Patch ${p.version}`, href: `/patch-notes/${p.version}` })),
-              },
-            ]}
-          />
+        <PageHeader
+          title={`Patch ${patch.version}`}
+          lead={t("pages.patchNotes.officialDescription", { version: patch.version })}
+          crumbs={[
+            { name: t("nav.patchNotes.label"), href: "/patch-notes" },
+            {
+              name: `Patch ${patch.version}`,
+              siblings: Object.values(patchDetails)
+                .sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }))
+                .map((p) => ({ name: `Patch ${p.version}`, href: `/patch-notes/${p.version}` })),
+            },
+          ]}
+          meta={[
+            t("pages.patchNotes.official"),
+            t("pages.patchNotes.nSections", { n: patch.toc.length }),
+            patch.date ? (
+              <time key="date" dateTime={patch.date}>
+                {t("pages.patchNotes.publishedOn", { date: longDate(locale, patch.date) })}
+              </time>
+            ) : null,
+          ]}
+        />
 
-          <header className="mt-6 border-b border-night-800 pb-8">
-            <p className="text-xs font-semibold uppercase tracking-wide text-gold-400">
-              {t("pages.patchNotes.official")}
-            </p>
-            <h1 className="mt-2 font-heading text-4xl font-bold text-chalk-100">
-              Patch {patch.version}
-            </h1>
-            <p className="mt-3 text-sm text-chalk-500">
-              {t("pages.patchNotes.nSections", { n: patch.toc.length })}
-              {patch.date && (
-                <>
-                  {" · "}
-                  <time dateTime={patch.date}>
-                    {t("pages.patchNotes.publishedOn", { date: longDate(locale, patch.date) })}
-                  </time>
-                </>
-              )}
-            </p>
-          </header>
-
+        <div className="mx-auto max-w-6xl px-4 pb-12 pt-6">
           {patch.adjustments.length > 0 && (
             <HeroChanges
               patch={patch}
@@ -170,7 +163,7 @@ export default async function PatchPage({ params }: Params) {
             patch note is browsed by section, it is almost never read
             in full.
           */}
-          <div className="mt-10 gap-10 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
+          <div className="mt-8 gap-10 sm:mt-10 lg:grid lg:grid-cols-[16rem_minmax(0,1fr)]">
             <aside className="mb-10 lg:mb-0">
               {patch.toc.length > 0 && <PatchToc entries={patch.toc} />}
             </aside>
@@ -198,7 +191,15 @@ export default async function PatchPage({ params }: Params) {
                     </>
                   )}
 
-                  <div className={section.title ? "mt-5" : undefined}>
+                  <FoldSection
+                    role={section.role}
+                    label={
+                      section.role === "newHeroes"
+                        ? t("pages.patchNotes.openNewHeroes", { n: patch.newHeroes.length })
+                        : t("pages.patchNotes.openAdjustments", { n: patch.adjustments.length })
+                    }
+                    className={section.title ? "mt-5" : undefined}
+                  >
                     {section.role === "newHeroes" ? (
                       <div className="space-y-10">
                         {patch.newHeroes.map((h) => {
@@ -241,7 +242,7 @@ export default async function PatchPage({ params }: Params) {
                         dangerouslySetInnerHTML={{ __html: cleanHtml(section.html) }}
                       />
                     )}
-                  </div>
+                  </FoldSection>
                 </section>
               ))}
 
@@ -277,5 +278,38 @@ export default async function PatchPage({ params }: Params) {
         back={{ href: "/patch-notes", label: t("pages.patchNotes.all") }}
       />
     </>
+  );
+}
+
+/**
+ * Body of one section of the notes, folded when it is a long one.
+ *
+ * A patch note is read by section, never end to end: the showcase of a new
+ * hero and the hero-by-hero adjustment list alone ran for six screens on a
+ * phone, below a summary that already said what the patch does. Those two
+ * keep their heading and their anchor — the table of contents still lands on
+ * them — and put their body in a closed `Foldable`, whose content stays in
+ * the document. Prose sections are short: they are shown as they are.
+ */
+function FoldSection({
+  role,
+  label,
+  className,
+  children,
+}: {
+  role: PatchSection["role"];
+  label: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  if (role !== "newHeroes" && role !== "adjustments") {
+    return <div className={className}>{children}</div>;
+  }
+  return (
+    // The body keeps the full width of the column: the fold adds a summary
+    // line, not a frame around a component that already has one.
+    <Foldable label={label} className={cn(className, "[&>div]:px-0 [&>div]:pb-0 [&>div]:text-base")}>
+      {children}
+    </Foldable>
   );
 }

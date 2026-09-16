@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "@/components/link";
 import type { Crumb } from "@/components/breadcrumb";
 import { freshnessFacts } from "@/components/freshness";
+import { Foldable } from "@/components/foldable";
 import { BadgeTier, PageHeader } from "@/components/ui";
 import { trendsOf } from "@/lib/evolution";
 import {
@@ -18,11 +19,12 @@ import { serializeJsonLd } from "@/lib/html";
 import { rankingOfRank, ORDER_TIERS, RANKS_CLASSES, type RankedEntry } from "@/lib/tier-list";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { describeGap, isNotable, THRESHOLD_NOTABLE, variationWeek } from "@/lib/trends";
+import type { Tier } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
 import { heroListData, metaPage } from "@/i18n/seo";
 import { tierNotes as tierNotesOf } from "@/lib/data";
-import { imageRank, imageRole } from "@/lib/emblems";
+import { imageLane, imageRank, imageRole } from "@/lib/emblems";
 import { TierLines, type RowTier } from "./tier-lines";
 import { TierRows, type TierRow } from "./tier-rows";
 
@@ -35,6 +37,38 @@ import { TierRows, type TierRow } from "./tier-rows";
  */
 const rankPath = (rank: MeasuredRank) => (rank === "all" ? "/tier-list" : `/tier-list/${rank}`);
 const pagePath = (rank: MeasuredRank, filter: FilterTier | null) => (filter ? pathFilter(filter) : rankPath(rank));
+
+/**
+ * Heroes shown unfolded on arrival.
+ *
+ * A tier list answers one question — who is strong right now — and its
+ * answer is at the top. Paginating it would have cut the ranking at an
+ * arbitrary hero and sent B tier to a second address nobody asks for; the
+ * ladder is kept whole instead, and the top of it is unfolded: the tiers open
+ * one after another while they fit in this budget — about four screens of a
+ * phone — and the rest waits one tap away, in the document all the same.
+ *
+ * Two tiers at most — the top of a ranking is what is read — and a hero
+ * budget on top of that, because the tiers are not the same size everywhere:
+ * seventeen heroes in S+ and twelve in S on the combined ranking, nineteen
+ * and eighteen in the mythic slice, where the second one no longer fits.
+ */
+const BUDGET_OPEN = 32;
+const TIERS_OPEN = 2;
+
+/** The tiers a ranking opens: the first one, then a second if it still fits. */
+function tiersOpen(counts: Map<Tier, number>): Set<Tier> {
+  const open = new Set<Tier>();
+  let shown = 0;
+  for (const tier of ORDER_TIERS) {
+    const n = counts.get(tier) ?? 0;
+    if (n === 0) continue;
+    if (open.size > 0 && (open.size >= TIERS_OPEN || shown + n > BUDGET_OPEN)) break;
+    open.add(tier);
+    shown += n;
+  }
+  return open;
+}
 
 /** The page's ranking: the rank's, restricted to the lane or the role. */
 const rankingOf = (rank: MeasuredRank, filter: FilterTier | null) => filterRanking(rankingOfRank(rank), filter);
@@ -180,6 +214,11 @@ export function TierList({
     tooFew: t("pages.tierList.tooFew"),
   };
 
+  // Heroes grouped by tier, once: the list is walked five times otherwise.
+  const byTier = new Map<Tier, RankedEntry[]>();
+  for (const e of ranking) byTier.set(e.tier, [...(byTier.get(e.tier) ?? []), e]);
+  const open = tiersOpen(new Map([...byTier].map(([tier, list]) => [tier, list.length])));
+
   // The page's whole ranking, in order, with the measurement date.
   const structuredData = heroListData(locale, {
     name: title,
@@ -225,7 +264,12 @@ export function TierList({
     },
     {
       label: t("pages.tierList.byLane"),
-      links: FILTERS_LANE.map((f) => ({ href: pathFilter(f), name: nameFilter(t, f), active: sameFilter(f) })),
+      links: FILTERS_LANE.map((f) => ({
+        href: pathFilter(f),
+        name: nameFilter(t, f),
+        active: sameFilter(f),
+        ...(imageLane(f.value) ? { emblem: imageLane(f.value)! } : {}),
+      })),
     },
     {
       label: t("pages.tierList.byRole"),
@@ -292,10 +336,11 @@ export function TierList({
           </p>
         )}
 
-        <div className="space-y-10">
+        <div className="space-y-8">
           {ORDER_TIERS.map((tier) => {
-            const entries = ranking.filter((e) => e.tier === tier);
+            const entries = byTier.get(tier) ?? [];
             if (entries.length === 0) return null;
+            const lines = <TierLines rows={entries.map(row)} labels={labels} />;
 
             return (
               <section key={tier}>
@@ -310,7 +355,18 @@ export function TierList({
                   </div>
                 </div>
 
-                <TierLines rows={entries.map(row)} labels={labels} />
+                {open.has(tier) ? (
+                  lines
+                ) : (
+                  // The rows stay in the document, closed: a crawler and the
+                  // page's search still read all of them.
+                  <Foldable
+                    label={t("pages.tierList.openTier", { n: entries.length, p: tier })}
+                    className="mt-4 border-0 bg-transparent [&>summary]:px-0 [&>div]:border-0 [&>div]:px-0 [&>div]:pb-0 [&>div]:pt-0"
+                  >
+                    {lines}
+                  </Foldable>
+                )}
               </section>
             );
           })}

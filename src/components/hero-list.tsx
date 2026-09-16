@@ -8,7 +8,7 @@ import { useT } from "@/i18n/provider";
 import { SearchField } from "@/components/search-field";
 import { FilterGroup, Chip } from "@/components/chip";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
-import { imageRole } from "@/lib/emblems";
+import { imageLane, imageRole } from "@/lib/emblems";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
 import { keySearch } from "@/lib/utils";
 import { laneFromParam } from "@/lib/draft";
@@ -137,7 +137,9 @@ export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview
                 onRemove={() => filter(setRole)(null)}
               />
             )}
-            {lane && <ChipActive key="lane" label={t(`lanes.${lane}`)} onRemove={() => filter(setLane)(null)} />}
+            {lane && (
+              <ChipActive key="lane" label={t(`lanes.${lane}`)} emblem={imageLane(lane)} onRemove={() => filter(setLane)(null)} />
+            )}
           </>
         }
         count={
@@ -161,6 +163,7 @@ export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview
           active={lane}
           onChange={filter(setLane)}
           label={(l) => t(`lanes.${l}`)}
+          emblem={imageLane}
         />
 
         <FilterGroup legend={t("pages.heroesList.sort")}>
@@ -201,7 +204,7 @@ function Filters<T extends string>({
   active: T | null;
   onChange: (v: T | null) => void;
   label: (v: T) => string;
-  /** Emblem of each value, for the roles; the lanes have none. */
+  /** Emblem of each value: the role emblem, the lane icon. */
   emblem?: (v: T) => string | undefined;
 }) {
   return (

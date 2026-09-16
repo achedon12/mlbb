@@ -48,7 +48,7 @@ export function HeroChanges({
   const rate = (v: number) => percent.format(v / 100);
 
   return (
-    <section aria-labelledby="hero-changes" className="mt-10">
+    <section aria-labelledby="hero-changes" className="mt-6 sm:mt-10">
       <h2 id="hero-changes" className="scroll-mt-24 font-heading text-2xl font-bold text-chalk-100">
         {t("pages.patchNotes.changes.title", { v: patch.version })}
       </h2>

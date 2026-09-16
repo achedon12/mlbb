@@ -8,6 +8,9 @@ import { FreshnessLine } from "@/components/freshness";
 import { OpenAnchor } from "@/components/open-anchor";
 import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
+import { Foldable } from "@/components/foldable";
+import { LightImage } from "@/components/light-image";
+import { imageLane } from "@/lib/emblems";
 import { Card, PageHeader } from "@/components/ui";
 import statistics from "@/data/game/statistics.json";
 import visuals from "@/data/game/visuals.json";
@@ -262,8 +265,8 @@ export default async function CountersPage({ params }: Params) {
           { name: t("pages.heroDetail.tab.counters") },
         ]}
       >
-        <FreshnessLine locale={locale} className="mt-4" />
-        <ul className="mt-5 flex flex-wrap gap-2 text-sm">
+        <FreshnessLine locale={locale} className="mt-2.5" />
+        <ul className="mt-3 flex flex-wrap gap-2 text-sm">
           {links.map((l) => (
             <li key={l.href}>
               <Link
@@ -277,17 +280,17 @@ export default async function CountersPage({ params }: Params) {
         </ul>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="mx-auto max-w-6xl space-y-6 px-4 pb-8 pt-5 sm:space-y-14">
         {/* ── Summary, all ranks combined ───────────────────────────── */}
         {(best.length > 0 || victims.length > 0) && (
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             {/* min-w-0: without it, the grid track widens to the table's width and overflows at 390 px. */}
             {best.length > 0 && (
               <section aria-labelledby="best" className="min-w-0">
-                <h2 id="best" className="font-heading text-2xl font-bold text-chalk-100">
+                <h2 id="best" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
                   {t("pages.heroCounters.bestCounters", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">
+                <p className="mb-3 mt-1.5 text-sm leading-snug text-chalk-500 sm:leading-relaxed">
                   {t("pages.heroCounters.bestCountersIntro", n)}
                 </p>
                 <AggregatedTable t={t} rows={best} tone="bad" total={bucketsMeasured} slug={slug} gap={gap} />
@@ -295,10 +298,10 @@ export default async function CountersPage({ params }: Params) {
             )}
             {victims.length > 0 && (
               <section aria-labelledby="victims" className="min-w-0">
-                <h2 id="victims" className="font-heading text-2xl font-bold text-chalk-100">
+                <h2 id="victims" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
                   {t("pages.heroCounters.victims", n)}
                 </h2>
-                <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.heroCounters.victimsIntro", n)}</p>
+                <p className="mb-3 mt-1.5 text-sm leading-snug text-chalk-500 sm:leading-relaxed">{t("pages.heroCounters.victimsIntro", n)}</p>
                 <AggregatedTable t={t} rows={victims} tone="good" total={bucketsMeasured} slug={slug} gap={gap} />
               </section>
             )}
@@ -312,13 +315,13 @@ export default async function CountersPage({ params }: Params) {
         {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
           <section aria-labelledby="by-rank">
-            <h2 id="by-rank" className="font-heading text-2xl font-bold text-chalk-100">
+            <h2 id="by-rank" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
               {t("pages.heroCounters.byRank")}
             </h2>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
+            <p className="mt-1.5 max-w-3xl text-sm leading-snug text-chalk-500 sm:leading-relaxed">
               {t("pages.heroDetail.countersIntro", n)} {t("pages.heroCounters.byRankIntro", n)}
             </p>
-            <nav aria-label={t("pages.heroCounters.ranksNav")} className="mt-4">
+            <nav aria-label={t("pages.heroCounters.ranksNav")} className="mt-3">
               <ul className="flex flex-wrap gap-2 text-sm">
                 {ranks.map((r) => (
                   <li key={r}>
@@ -333,7 +336,7 @@ export default async function CountersPage({ params }: Params) {
               </ul>
             </nav>
 
-            <div className="mt-5 space-y-3">
+            <div className="mt-4 space-y-2">
               {ranks.map((r) => {
                 const measure = byRank[r];
                 const s = stats[r];
@@ -341,10 +344,9 @@ export default async function CountersPage({ params }: Params) {
                   <details
                     key={r}
                     id={`rank-${r}`}
-                    open={r === rankMain}
                     className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
                   >
-                    <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 [&::-webkit-details-marker]:hidden">
+                    <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-3 sm:p-4 [&::-webkit-details-marker]:hidden">
                       <ChevronDown
                         size={16}
                         aria-hidden
@@ -401,15 +403,15 @@ export default async function CountersPage({ params }: Params) {
 
         {/* ── How to counter it ────────────────────────────────────── */}
         <section aria-labelledby="how-to-counter">
-          <h2 id="how-to-counter" className="font-heading text-2xl font-bold text-chalk-100">
+          <h2 id="how-to-counter" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
             {t("pages.heroCounters.howToCounter", n)}
           </h2>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
+          <p className="mt-1.5 max-w-3xl text-sm leading-snug text-chalk-500 sm:leading-relaxed">
             {t("pages.heroCounters.howToCounterIntro", n)}
           </p>
 
-          <div className="mt-5 grid gap-4 lg:grid-cols-3">
-            <Card>
+          <div className="mt-4 grid gap-3 lg:grid-cols-3 lg:gap-4">
+            <Card className="p-4">
               <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.items.title", n)}</h3>
               <p className="bevel-sm mt-2 inline-block border border-gold-500/40 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-gold-400">
                 {t("pages.heroCounters.items.rule")}
@@ -421,13 +423,13 @@ export default async function CountersPage({ params }: Params) {
                 })}
               </p>
               {groupsItems.length > 0 ? (
-                <div className="mt-4 space-y-4">
+                <div className="mt-3 space-y-3">
                   {groupsItems.map((g) => (
                     <div key={g.reason}>
                       <h4 className="text-xs font-semibold uppercase tracking-wide text-chalk-400">
                         {t(`pages.heroCounters.items.reason.${g.reason satisfies ReasonItem}`)}
                       </h4>
-                      <ul className="mt-2 space-y-2">
+                      <ul className="mt-2 space-y-1.5">
                         {g.items.map((o) => (
                           <li key={o.slug}>
                             <Link href={`/items#${o.slug}`} className="group/objet flex items-center gap-2.5">
@@ -458,7 +460,7 @@ export default async function CountersPage({ params }: Params) {
               )}
             </Card>
 
-            <Card>
+            <Card className="p-4">
               <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.duration.title", n)}</h3>
               {moments && buckets && rankDuration ? (
                 <>
@@ -482,14 +484,24 @@ export default async function CountersPage({ params }: Params) {
               )}
             </Card>
 
-            <Card>
+            <Card className="p-4">
               <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroCounters.lanes.title")}</h3>
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">{t("pages.heroCounters.lanes.intro", n)}</p>
               {lanesCounters.length > 0 ? (
-                <dl className="mt-4 space-y-3">
+                <dl className="mt-3 space-y-2">
                   {lanesCounters.map((g) => (
                     <div key={g.lane}>
-                      <dt className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-chalk-400">
+                      <dt className="flex flex-wrap items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-chalk-400">
+                        {/* The lane is named beside it: the icon is decorative. */}
+                        {imageLane(g.lane) && (
+                          <LightImage
+                            src={imageLane(g.lane)!}
+                            alt=""
+                            width={18}
+                            height={18}
+                            className="shrink-0 object-contain"
+                          />
+                        )}
                         {t(`lanes.${g.lane}`)}
                         {h.lanes.includes(g.lane) && (
                           <span className="bevel-sm border border-blood-500/40 px-1.5 py-px text-[0.65rem] text-blood-500">
@@ -525,11 +537,13 @@ export default async function CountersPage({ params }: Params) {
         {/* ── Wiki relations ───────────────────────────────────────── */}
         {hasWiki && (
           <section aria-labelledby="wiki">
-            <h2 id="wiki" className="font-heading text-2xl font-bold text-chalk-100">
+            <h2 id="wiki" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
               {t("pages.heroCounters.wiki.title")}
             </h2>
-            <p className="mt-2 text-sm text-chalk-500">{t("pages.heroCounters.wiki.intro")}</p>
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
+            <p className="mt-1.5 text-sm text-chalk-500">{t("pages.heroCounters.wiki.intro")}</p>
+            {/* Hand-written relations, next to measured ones: the check, not the answer. */}
+            <Foldable label={t("pages.heroCounters.wiki.open")} className="mt-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {wiki
                 .filter((w) => w.slugs.length > 0)
                 .map((w) => (
@@ -555,6 +569,7 @@ export default async function CountersPage({ params }: Params) {
                   </Card>
                 ))}
             </div>
+            </Foldable>
           </section>
         )}
 
@@ -564,7 +579,7 @@ export default async function CountersPage({ params }: Params) {
             <h2 id="others" className="font-heading text-xl font-bold text-chalk-100">
               {t("pages.heroCounters.others.title", { lane: t(`lanes.${laneMain}`) })}
             </h2>
-            <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+            <ul className="mt-3 flex flex-wrap gap-2 text-sm">
               {neighbours.map((x) => (
                 <li key={x.slug}>
                   <Link

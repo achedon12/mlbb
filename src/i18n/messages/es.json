@@ -514,7 +514,8 @@
       "leadLane": "Los {n} héroes que se juegan en {lane}, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "leadRole": "Los {n} {plural} del juego, rol principal o secundario, clasificados con la misma regla que la tier list general: tasas de victoria y de baneo, todos los rangos juntos.",
       "filterNote": "Clasificación con todos los rangos. Las listas por rango, en cambio, reúnen todas las líneas y todos los roles.",
-      "seeRole": "Todos los {plural} y sus líneas"
+      "seeRole": "Todos los {plural} y sus líneas",
+      "openTier": "Mostrar los {n} héroes del nivel {p}"
     },
     "patchNotes": {
       "title": "Notas del parche",
@@ -544,7 +545,10 @@
         "detail": "Detalle de los cambios",
         "impact": "tasa de victoria media: {before} antes del parche, {after} después",
         "impactNote": "Tasa de victoria media en todos los rangos durante los {n} días anteriores y posteriores al parche, cuando el historial cubre ese periodo."
-      }
+      },
+      "openNewHeroes": "Mostrar descripción general de nuevos héroes ({n})",
+      "openAdjustments": "Mostrar el detalle de los {n} ajustes",
+      "openArchives": "Mostrar {n} parches archivados"
     },
     "login": {
       "title": "Iniciar sesión",
@@ -1162,7 +1166,8 @@
       "wiki": {
         "title": "Lo que dice la wiki",
         "intro": "Relaciones anotadas por la wiki de la comunidad, sin cifras medidas.",
-        "synergies": "Sinergias de {name}"
+        "synergies": "Sinergias de {name}",
+        "open": "Mostrar relaciones señaladas por la wiki"
       },
       "others": {
         "title": "Más páginas de counters · {lane}"
@@ -1510,7 +1515,9 @@
       "sourceRanked": "Wiki Fandom, página «Ranked»: estrellas, puntos míticos, draft, puntos de ascenso y de protección",
       "sourceRewards": "Wiki Fandom, página «Season Rank Rewards»: recompensas de fin de temporada",
       "sourceTable": "Tabla oficial de rangos (divisiones y tramos), mediante la API de estadísticas arena.rone.dev",
-      "sourceMeasures": "Tasas de victoria por rango: medición del {date}, la misma que la de la tier list"
+      "sourceMeasures": "Tasas de victoria por rango: medición del {date}, la misma que la de la tier list",
+      "openTable": "Mostrar la tabla de divisiones, estrellas y puntos",
+      "openRanks": "Mostrar {n} otros rangos"
     },
     "quiz": {
       "title": "Quiz MLBB del día",
@@ -1688,7 +1695,8 @@
       "methodTitle": "Nuestra tier list como punto de partida",
       "method": "El relleno automático usa nuestra tier list calculada: cada héroe se clasifica de S+ a C según su tasa de victoria y su tasa de baneo en el rango elegido, a partir de las partidas clasificatorias recogidas en cada sincronización. La fila D queda libre para tus propios veredictos.",
       "tierListLink": "Ver la tier list y su método",
-      "quizLink": "Pon a prueba tus conocimientos en el quiz"
+      "quizLink": "Pon a prueba tus conocimientos en el quiz",
+      "howToOpen": "Mostrar los cuatro pasos"
     },
     "tierMakerUI": {
       "titleList": "Título de la lista",
@@ -2439,7 +2447,8 @@
         "gapColumn": "Diferencia",
         "cell": "{value} · n.º {rank}",
         "gap": "{n} puestos",
-        "none": "Aún no hay suficientes partidas pro para comparar."
+        "none": "Aún no hay suficientes partidas pro para comparar.",
+        "open": "Mostrar {n} héroes comparados"
       },
       "method": "Presencia = (picks + bans) ÷ partidas con draft registrado. Presencia en clasificatorias = porcentaje de selección × 10 + porcentaje de ban, ya que el porcentaje de selección del juego es una parte de los diez picks de cada partida. Las clasificaciones se recalculan a partir de los resultados listados en Liquipedia.",
       "credit": {
@@ -2708,7 +2717,8 @@
       "retributionLink": "Entrena el Castigo",
       "sourcesTitle": "Fuentes",
       "sourcesIntro": "Páginas de la wiki de Mobile Legends (Fandom), consultadas el {date}:",
-      "sourcesNote": "Cuando dos valores de la wiki no coinciden (regreso del Lord después del minuto {lateFrom}, llegada del Cangrejo), el temporizador muestra la ventana entre ambos en lugar de elegir uno."
+      "sourcesNote": "Cuando dos valores de la wiki no coinciden (regreso del Lord después del minuto {lateFrom}, llegada del Cangrejo), el temporizador muestra la ventana entre ambos en lugar de elegir uno.",
+      "usageOpen": "Mostrar instrucciones de uso"
     },
     "timerUI": {
       "clockTitle": "Tiempo de juego",
@@ -3284,7 +3294,8 @@
       "rise": "En alza",
       "fall": "En baja",
       "noRise": "Ningún héroe sube claramente esta semana.",
-      "noFall": "Ningún héroe baja claramente esta semana."
+      "noFall": "Ningún héroe baja claramente esta semana.",
+      "open": "Mostrar los {n} héroes que más se mueven"
     },
     "readNotes": "Leer las notas",
     "toolsTitle": "Herramientas",
@@ -4164,7 +4175,8 @@
       "colDaily": "Diario",
       "colWeekly": "Semanal",
       "colNow": "Hora actual",
-      "you": "tú"
+      "you": "tú",
+      "countriesOpen": "Mostrar la hora del reinicio país por país"
     },
     "retribution": {
       "objective": {

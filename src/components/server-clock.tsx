@@ -5,6 +5,7 @@ import type { LucideIcon } from "lucide-react";
 import { CalendarClock, Clock, Sparkles, Trophy } from "lucide-react";
 import { Card } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { Foldable } from "@/components/foldable";
 import { useLocale, useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 import {
@@ -114,7 +115,7 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
   const locales = [siteLocale, ...ORDER_LOCALES.filter((l) => l !== siteLocale)];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       <Card className="text-center">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-chalk-500">
           {t("tools.serverTime.serverTime")}
@@ -199,13 +200,19 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
       </section>
 
       <section aria-labelledby="countries-title">
-        <h2 id="countries-title" className="font-heading text-2xl font-bold text-chalk-100">
+        <h2 id="countries-title" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
           {t("tools.serverTime.countriesTitle")}
         </h2>
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-        <p className="mt-3 max-w-2xl text-sm text-chalk-400">{t("tools.serverTime.countriesIntro")}</p>
+        <p className="mt-2 max-w-2xl text-sm text-chalk-400">{t("tools.serverTime.countriesIntro")}</p>
 
-        <div className="mt-6 space-y-8">
+        {/*
+          The countdown above already gives the reader their own reset time:
+          forty countries in five tables are the reference behind it, kept in
+          the document and folded.
+        */}
+        <Foldable label={t("tools.serverTime.countriesOpen")} className="mt-4">
+        <div className="space-y-8">
           {locales.map((l) => (
             <div key={l}>
               <h3 className="font-heading text-lg font-bold text-gold-400">{t(`tools.serverTime.group.${l}`)}</h3>
@@ -259,6 +266,7 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
             </div>
           ))}
         </div>
+        </Foldable>
       </section>
     </div>
   );

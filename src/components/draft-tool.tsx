@@ -3,6 +3,8 @@
 import { useMemo, useState } from "react";
 import { ChevronDown, RotateCcw, X } from "lucide-react";
 import { CardSuggestion, HeroSelector, HeroThumb } from "@/components/hero-picker";
+import { LightImage } from "@/components/light-image";
+import { imageLane } from "@/lib/emblems";
 import { LANES, splitSuggestions, suggest, type DraftHero, type SplitSuggestions } from "@/lib/draft";
 import { useT } from "@/i18n/provider";
 import type { Lane } from "@/lib/types";
@@ -210,7 +212,10 @@ function LaneField({
   const t = useT();
   return (
     <div className="flex items-center gap-2">
-      <span className="w-20 shrink-0 text-xs uppercase tracking-wide text-chalk-500 sm:w-24">{t(`lanes.${lane}`)}</span>
+      <span className="flex w-20 shrink-0 items-center gap-1.5 text-xs uppercase tracking-wide text-chalk-500 sm:w-24">
+        <LightImage src={imageLane(lane) ?? ""} alt="" width={16} height={16} className="size-4 shrink-0" />
+        {t(`lanes.${lane}`)}
+      </span>
       {hero ? (
         <span
           className={cn(

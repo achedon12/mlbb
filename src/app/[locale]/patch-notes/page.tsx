@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "@/components/link";
 import { ExternalLink, FileText } from "lucide-react";
 import { ListArticles } from "@/components/article";
+import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
 import { patches, patchDetails, sync } from "@/lib/data";
 import { articles } from "@/lib/content";
@@ -54,9 +55,9 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
         </p>
       </PageHeader>
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
+      <div className="mx-auto max-w-4xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
         <section>
-          <h2 className="font-heading text-2xl font-bold text-chalk-100">
+          <h2 className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
             {t("pages.patchNotes.recent")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -80,7 +81,7 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
 
         {analyses.length > 0 && (
           <section>
-            <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.patchNotes.analyses")}</h2>
+            <h2 className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">{t("pages.patchNotes.analyses")}</h2>
             <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
             <p className="mt-3 text-sm text-chalk-500">
               {t("pages.patchNotes.analysesIntro")}
@@ -92,13 +93,19 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
         )}
 
         <section>
-          <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.patchNotes.archives")}</h2>
+          <h2 className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">{t("pages.patchNotes.archives")}</h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <p className="mt-3 text-sm text-chalk-500">
             {t("pages.patchNotes.older")}
           </p>
 
-          <ul className="mt-6 grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
+          {/*
+            A hundred and fifty version numbers linking to the wiki is three
+            screens of a phone at the end of the page: they stay in the
+            document, behind the sentence that says what they are.
+          */}
+          <Foldable label={t("pages.patchNotes.openArchives", { n: others.length })} className="mt-4">
+          <ul className="grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
             {others.map((p) => (
               // The title is unique; the version is not always.
               <li key={p.title}>
@@ -116,6 +123,7 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
               </li>
             ))}
           </ul>
+          </Foldable>
         </section>
       </div>
     </>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { TierListMaker, type TierHero } from "@/components/tier-list-maker";
 import Link from "@/components/link";
+import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -70,7 +71,7 @@ export default async function TierListMakerPage({ params }: Params) {
         lead={t("pages.tierMaker.lead")}
         crumbs={[{ name: t("nav.tierList.label"), href: "/tier-list" }, { name: t("pages.tierMaker.crumb") }]}
       />
-      <div className="mx-auto max-w-5xl space-y-14 px-4 py-10">
+      <div className="mx-auto max-w-5xl space-y-8 px-4 pb-10 pt-5 sm:space-y-14">
         <ExtendMessages messages={messagesPage(locale, ["pages.tierMakerUI"])}>
           <TierListMaker heroes={roster} groups={groups} ranks={RANKS_CLASSES} />
         </ExtendMessages>
@@ -78,12 +79,15 @@ export default async function TierListMakerPage({ params }: Params) {
         <section className="max-w-3xl">
           <h2 className={heading2}>{t("pages.tierMaker.howToTitle")}</h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <ol className="mt-4 list-decimal space-y-2 pl-5 leading-relaxed text-chalk-300">
+          {/* Four steps read once: below the board, they wait behind their title. */}
+          <Foldable label={t("pages.tierMaker.howToOpen")} className="mt-3">
+          <ol className="list-decimal space-y-2 pl-5 leading-relaxed text-chalk-300">
             <li>{t("pages.tierMaker.step1")}</li>
             <li>{t("pages.tierMaker.step2")}</li>
             <li>{t("pages.tierMaker.step3")}</li>
             <li>{t("pages.tierMaker.step4")}</li>
           </ol>
+          </Foldable>
         </section>
 
         <section className="max-w-3xl">

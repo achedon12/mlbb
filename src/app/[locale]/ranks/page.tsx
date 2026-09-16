@@ -6,6 +6,7 @@ import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { classesChip } from "@/components/chip";
+import { CardsTable } from "@/components/cards-table";
 import { Card, PageHeader } from "@/components/ui";
 import { Foldable } from "@/components/foldable";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -106,11 +107,11 @@ function Emblem({ tier, size = 56 }: { tier: TierScale; size?: number }) {
 function BlockTitle({ id, children, intro }: { id: string; children: React.ReactNode; intro?: string }) {
   return (
     <>
-      <h2 id={`${id}-title`} className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">
+      <h2 id={`${id}-title`} className="font-heading text-xl font-bold text-chalk-100 sm:text-3xl">
         {children}
       </h2>
-      <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-      {intro && <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{intro}</p>}
+      <div aria-hidden className="gold-rule mt-1.5 h-0.5 w-16" />
+      {intro && <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-300 sm:text-base">{intro}</p>}
     </>
   );
 }
@@ -142,14 +143,64 @@ export default async function RanksPage({ params }: Params) {
     },
   };
 
+  /** The five heroes that win the most in a rank slice, as one card. */
+  const cardRank = (r: MeasuredRank) => {
+    const list = best(r);
+    if (!list.length) return null;
+    const tier = SCALE.find((p) => p.measure === r);
+    return (
+      <Card key={r} className="flex flex-col p-4">
+        <div className="flex items-center gap-3">
+          {tier ? (
+            <Emblem tier={tier} size={36} />
+          ) : (
+            <span aria-hidden className="grid size-9 place-items-center text-gold-400">
+              <Swords size={24} />
+            </span>
+          )}
+          <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
+        </div>
+        <ol className="mt-2.5 flex-1 space-y-1.5">
+          {list.map((e, i) => (
+            <li key={e.hero.slug}>
+              <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-3">
+                <span className="w-4 text-right text-xs tabular-nums text-chalk-500">{i + 1}</span>
+                <HeroPortrait
+                  source={e.hero.images.icon ?? e.hero.images.portrait}
+                  name={e.hero.name}
+                  size="small"
+                  decorative
+                />
+                <span className="min-w-0 flex-1 truncate font-medium text-chalk-200 transition-colors group-hover:text-gold-400">
+                  {e.hero.name}
+                </span>
+                <span className="text-sm tabular-nums text-chalk-300">
+                  <span className="sr-only">{t("pages.ranks.win")} </span>
+                  {percentage(locale, e.winRate)}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+        <Link
+          href={pathTierList(r)}
+          className="mt-3 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
+        >
+          {r === "all" ? t("pages.ranks.tierListAllLink") : t("pages.ranks.tierListLink", { rank: t(`measuredRanks.${r}`) })}{" "}
+          →
+        </Link>
+      </Card>
+    );
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       {/* Section anchors before they were named in English, still found in shared links. */}
       <OpenAnchor aliases={{ echelle: "scale", tableau: "table", heros: "heroes", saison: "season" }} />
       <PageHeader title={title} lead={t("pages.ranks.lead")}>
-        <FreshnessLine locale={locale} className="mt-6" />
-        <nav aria-label={t("pages.ranks.contents")} className="mt-6 flex flex-wrap gap-2">
+        <FreshnessLine locale={locale} className="mt-3" />
+        <nav aria-label={t("pages.ranks.contents")} className="mt-3 flex flex-wrap gap-2">
           {SECTIONS.map(([id, key]) => (
             <a key={id} href={`#${id}`} className={classesChip(false, true)}>
               {t(`pages.ranks.${key}`)}
@@ -158,40 +209,40 @@ export default async function RanksPage({ params }: Params) {
         </nav>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-14">
         <section id="scale" aria-labelledby="scale-title" className="scroll-mt-20">
           <BlockTitle id="scale" intro={t("pages.ranks.scaleIntro", { n: SCALE.length })}>
             {t("pages.ranks.scaleTitle")}
           </BlockTitle>
-          <ol className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ol className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {SCALE.map((p, i) => {
               const { color } = tierAppearance(p);
               const bans = RULES_FAMILY[p.family].bans;
               return (
                 <li key={p.key}>
-                  <Card className="flex h-full gap-4">
-                    <Emblem tier={p} />
+                  <Card className="flex h-full gap-3 p-3">
+                    <Emblem tier={p} size={44} />
                     <div className="min-w-0 flex-1">
-                      <p className="text-xs text-chalk-500">
-                        {t("pages.ranks.position", { n: i + 1, total: SCALE.length })}
-                      </p>
-                      <h3 className="font-heading text-xl font-bold" style={{ color }}>
+                      <h3 className="font-heading text-lg font-bold leading-tight" style={{ color }}>
                         {nameTier(t, p.key)}
+                        <span className="ml-2 align-middle text-xs font-medium text-chalk-500">
+                          {t("pages.ranks.position", { n: i + 1, total: SCALE.length })}
+                        </span>
                       </h3>
-                      <p className="mt-1 text-sm text-chalk-300">
+                      <p className="mt-0.5 text-sm text-chalk-300">
                         {p.points === null
                           ? t("pages.ranks.divisions", { n: p.divisions.length, list: p.divisions.join(" → ") })
                           : p.points.max === null
                             ? t("pages.ranks.pointsPlus", { min: p.points.min })
                             : t("pages.ranks.pointsBetween", { min: p.points.min, max: p.points.max })}
                       </p>
-                      {p.starsMax !== null && (
-                        <p className="mt-0.5 flex items-center gap-1 text-sm text-chalk-400">
-                          <Star size={12} aria-hidden className="fill-current text-gold-400" />
-                          {t("pages.ranks.starsPerDivision", { n: p.starsMax })}
-                        </p>
-                      )}
-                      <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
+                      <p className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                        {p.starsMax !== null && (
+                          <span className="flex items-center gap-1 text-chalk-400">
+                            <Star size={12} aria-hidden className="fill-current text-gold-400" />
+                            {t("pages.ranks.starsPerDivision", { n: p.starsMax })}
+                          </span>
+                        )}
                         {bans !== null && (
                           <span className="bevel-sm bg-azure-500/15 px-2 py-0.5 text-azure-400">
                             {t("pages.ranks.draft", { n: bans })}
@@ -205,64 +256,85 @@ export default async function RanksPage({ params }: Params) {
                             {t("pages.ranks.tierListLink", { rank: t(`measuredRanks.${p.measure}`) })} →
                           </Link>
                         )}
-                      </div>
+                      </p>
                     </div>
                   </Card>
                 </li>
               );
             })}
           </ol>
-          <p className="mt-4 max-w-3xl text-sm text-chalk-500">{t("pages.ranks.scaleNote")}</p>
+          <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.ranks.scaleNote")}</p>
         </section>
 
         <section id="table" aria-labelledby="table-title" className="scroll-mt-20">
           <BlockTitle id="table" intro={t("pages.ranks.tableIntro")}>
             {t("pages.ranks.tableTitle")}
           </BlockTitle>
-          <div className="mt-6 relative overflow-x-auto">
-            <table className="w-full min-w-[40rem] text-left text-sm">
-              <thead className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
-                <tr>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colRank")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colDivisions")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colStars")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colDraft")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colPromotion")}</th>
-                  <th scope="col" className="py-2 font-medium">{t("pages.ranks.colProtection")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {FAMILIES.map((f) => {
-                  const p = tierOfFamily(f);
-                  const r = RULES_FAMILY[f];
-                  return (
-                    <tr key={f} className="border-b border-night-800">
-                      <th scope="row" className="py-2.5 pr-4">
-                        <span className="flex items-center gap-2">
-                          <Emblem tier={p} size={28} />
-                          <span className="font-semibold" style={{ color: tierAppearance(p).color }}>
-                            {f === "mythic" ? t("pages.ranks.mythicFamily") : nameTier(t, p.key)}
-                          </span>
+          {/*
+            Six columns need 40 rem: the table used to sit in a horizontal
+            scroller a phone had to drag. `CardsTable` turns each rank into a
+            card below `sm`, and the whole reference table waits behind a
+            summary line — the rules are checked, not read through.
+          */}
+          <Foldable label={t("pages.ranks.openTable")} className="mt-5">
+            <CardsTable
+              t={t}
+              caption={t("pages.ranks.tableTitle")}
+              rows={FAMILIES}
+              rowKey={(f) => f}
+              columns={[
+                {
+                  key: "rank",
+                  label: t("pages.ranks.colRank"),
+                  head: true,
+                  cell: (f) => {
+                    const p = tierOfFamily(f);
+                    return (
+                      <span className="flex items-center gap-2">
+                        <Emblem tier={p} size={28} />
+                        <span className="font-semibold" style={{ color: tierAppearance(p).color }}>
+                          {f === "mythic" ? t("pages.ranks.mythicFamily") : nameTier(t, p.key)}
                         </span>
-                      </th>
-                      <td className="py-2.5 pr-4 text-chalk-200">{p.divisions.length ? p.divisions.join(" · ") : "—"}</td>
-                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">
-                        {p.starsMax ?? t("pages.ranks.pointsInstead")}
-                      </td>
-                      <td className="py-2.5 pr-4 text-chalk-200">
-                        {r.bans === null ? t("pages.ranks.noDraft") : t("pages.ranks.bans", { n: r.bans })}
-                      </td>
-                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">
-                        {r.climbPoints === null ? "—" : integer.format(r.climbPoints)}
-                      </td>
-                      <td className="py-2.5 tabular-nums text-chalk-200">{integer.format(r.pointsProtection)}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.ranks.tableNote")}</p>
+                      </span>
+                    );
+                  },
+                },
+                {
+                  key: "divisions",
+                  label: t("pages.ranks.colDivisions"),
+                  cell: (f) => {
+                    const p = tierOfFamily(f);
+                    return p.divisions.length ? p.divisions.join(" · ") : "—";
+                  },
+                },
+                {
+                  key: "stars",
+                  label: t("pages.ranks.colStars"),
+                  cell: (f) => tierOfFamily(f).starsMax ?? t("pages.ranks.pointsInstead"),
+                },
+                {
+                  key: "draft",
+                  label: t("pages.ranks.colDraft"),
+                  cell: (f) =>
+                    RULES_FAMILY[f].bans === null
+                      ? t("pages.ranks.noDraft")
+                      : t("pages.ranks.bans", { n: RULES_FAMILY[f].bans! }),
+                },
+                {
+                  key: "promotion",
+                  label: t("pages.ranks.colPromotion"),
+                  cell: (f) =>
+                    RULES_FAMILY[f].climbPoints === null ? "—" : integer.format(RULES_FAMILY[f].climbPoints!),
+                },
+                {
+                  key: "protection",
+                  label: t("pages.ranks.colProtection"),
+                  cell: (f) => integer.format(RULES_FAMILY[f].pointsProtection),
+                },
+              ]}
+            />
+            <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.ranks.tableNote")}</p>
+          </Foldable>
         </section>
 
         <section id="mythic" aria-labelledby="mythic-title" className="scroll-mt-20">
@@ -276,12 +348,12 @@ export default async function RanksPage({ params }: Params) {
           >
             {t("pages.ranks.mythicTitle")}
           </BlockTitle>
-          <ol className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
+          <ol className="mt-5 grid grid-cols-2 gap-2 lg:grid-cols-4">
             {SCALE.filter((p) => p.points).map((p) => (
               <li key={p.key}>
-                <Card className="flex h-full flex-col items-center text-center">
-                  <Emblem tier={p} size={64} />
-                  <h3 className="mt-2 font-heading text-lg font-bold" style={{ color: tierAppearance(p).color }}>
+                <Card className="flex h-full flex-col items-center p-3 text-center">
+                  <Emblem tier={p} size={44} />
+                  <h3 className="mt-1.5 font-heading text-base font-bold leading-tight" style={{ color: tierAppearance(p).color }}>
                     {nameTier(t, p.key)}
                   </h3>
                   <p className="text-sm tabular-nums text-chalk-300">
@@ -293,67 +365,28 @@ export default async function RanksPage({ params }: Params) {
               </li>
             ))}
           </ol>
-          <p className="mt-4 max-w-3xl text-sm text-chalk-400">{t("pages.ranks.mythicCoins")}</p>
+          <p className="mt-3 max-w-3xl text-sm text-chalk-400">{t("pages.ranks.mythicCoins")}</p>
         </section>
 
         <section id="heroes" aria-labelledby="heroes-title" className="scroll-mt-20">
           <BlockTitle id="heroes" intro={t("pages.ranks.heroesIntro", { n: TOP })}>
             {t("pages.ranks.heroesTitle")}
           </BlockTitle>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {RANKS_CLASSES.map((r) => {
-              const list = best(r);
-              if (!list.length) return null;
-              const tier = SCALE.find((p) => p.measure === r);
-              return (
-                <Card key={r} className="flex flex-col">
-                  <div className="flex items-center gap-3">
-                    {tier ? (
-                      <Emblem tier={tier} size={36} />
-                    ) : (
-                      <span aria-hidden className="grid size-9 place-items-center text-gold-400">
-                        <Swords size={24} />
-                      </span>
-                    )}
-                    <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
-                  </div>
-                  <ol className="mt-3 flex-1 space-y-1.5">
-                    {list.map((e, i) => (
-                      <li key={e.hero.slug}>
-                        <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-3">
-                          <span className="w-4 text-right text-xs tabular-nums text-chalk-500">{i + 1}</span>
-                          <HeroPortrait
-                            source={e.hero.images.icon ?? e.hero.images.portrait}
-                            name={e.hero.name}
-                            size="small"
-                            decorative
-                          />
-                          <span className="min-w-0 flex-1 truncate font-medium text-chalk-200 transition-colors group-hover:text-gold-400">
-                            {e.hero.name}
-                          </span>
-                          <span className="text-sm tabular-nums text-chalk-300">
-                            <span className="sr-only">{t("pages.ranks.win")} </span>
-                            {percentage(locale, e.winRate)}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ol>
-                  <Link
-                    href={pathTierList(r)}
-                    className="mt-4 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
-                  >
-                    {r === "all"
-                      ? t("pages.ranks.tierListAllLink")
-                      : t("pages.ranks.tierListLink", { rank: t(`measuredRanks.${r}`) })}{" "}
-                    →
-                  </Link>
-                </Card>
-              );
-            })}
+          {/*
+            Six lists of five heroes is three screens of a phone for one
+            reading: the combined ranking answers the question, the rank by
+            rank breakdown is the follow-up. It stays in the document, folded.
+          */}
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {RANKS_CLASSES.slice(0, 1).map((r) => cardRank(r))}
           </div>
+          <Foldable label={t("pages.ranks.openRanks", { n: RANKS_CLASSES.length - 1 })} className="mt-3">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {RANKS_CLASSES.slice(1).map((r) => cardRank(r))}
+            </div>
+          </Foldable>
           {atTop.length > 0 && (
-            <p className="mt-4 max-w-3xl leading-relaxed text-chalk-300">
+            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-chalk-300 sm:text-base">
               {t("pages.ranks.heroesGap", { names: listNames(locale, atTop), rank: t("measuredRanks.glory") })}
             </p>
           )}
@@ -362,7 +395,7 @@ export default async function RanksPage({ params }: Params) {
 
         <section id="season" aria-labelledby="season-title" className="scroll-mt-20">
           <BlockTitle id="season">{t("pages.ranks.seasonTitle")}</BlockTitle>
-          <div className="mt-4 max-w-3xl space-y-3 leading-relaxed text-chalk-300">
+          <div className="mt-3 max-w-3xl space-y-2.5 text-sm leading-relaxed text-chalk-300 sm:text-base">
             <p>{t("pages.ranks.reset1")}</p>
             <p>{t("pages.ranks.reset2")}</p>
             <p>{t("pages.ranks.journey")}</p>
@@ -373,44 +406,49 @@ export default async function RanksPage({ params }: Params) {
             </p>
           </div>
 
-          <h3 className="mt-8 font-heading text-xl font-bold text-chalk-100">{t("pages.ranks.rewardsTitle")}</h3>
-          <div className="mt-3 relative overflow-x-auto">
-            <table className="w-full min-w-[32rem] text-left text-sm">
-              <thead className="border-b border-night-700 text-xs uppercase tracking-wide text-chalk-500">
-                <tr>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colFinalRank")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colBattlePoints")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colTickets")}</th>
-                  <th scope="col" className="py-2 pr-4 font-medium">{t("pages.ranks.colFragments")}</th>
-                  <th scope="col" className="py-2 font-medium">{t("pages.ranks.colOthers")}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {REWARDS_SEASON.map((r) => {
-                  const p = tierOfFamily(r.family);
-                  return (
-                    <tr key={r.family} className="border-b border-night-800">
-                      <th scope="row" className="py-2.5 pr-4">
-                        <span className="flex items-center gap-2">
-                          <Emblem tier={p} size={28} />
-                          <span className="font-semibold" style={{ color: tierAppearance(p).color }}>
-                            {r.family === "mythic" ? t("pages.ranks.mythicFamily") : nameTier(t, p.key)}
-                          </span>
+          <Foldable label={t("pages.ranks.rewardsTitle")} className="mt-6">
+            <CardsTable
+              t={t}
+              caption={t("pages.ranks.rewardsTitle")}
+              rows={REWARDS_SEASON}
+              rowKey={(r) => r.family}
+              columns={[
+                {
+                  key: "rank",
+                  label: t("pages.ranks.colFinalRank"),
+                  head: true,
+                  cell: (r) => {
+                    const p = tierOfFamily(r.family);
+                    return (
+                      <span className="flex items-center gap-2">
+                        <Emblem tier={p} size={28} />
+                        <span className="font-semibold" style={{ color: tierAppearance(p).color }}>
+                          {r.family === "mythic" ? t("pages.ranks.mythicFamily") : nameTier(t, p.key)}
                         </span>
-                      </th>
-                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">{integer.format(r.battlePoints)}</td>
-                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">{integer.format(r.tickets)}</td>
-                      <td className="py-2.5 pr-4 tabular-nums text-chalk-200">
-                        {r.fragments === null ? "—" : integer.format(r.fragments)}
-                      </td>
-                      <td className="py-2.5 text-chalk-200">{r.emblem ? t("pages.ranks.emote") : "—"}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.ranks.rewardsNote")}</p>
+                      </span>
+                    );
+                  },
+                },
+                {
+                  key: "battlePoints",
+                  label: t("pages.ranks.colBattlePoints"),
+                  cell: (r) => integer.format(r.battlePoints),
+                },
+                { key: "tickets", label: t("pages.ranks.colTickets"), cell: (r) => integer.format(r.tickets) },
+                {
+                  key: "fragments",
+                  label: t("pages.ranks.colFragments"),
+                  cell: (r) => (r.fragments === null ? "—" : integer.format(r.fragments)),
+                },
+                {
+                  key: "others",
+                  label: t("pages.ranks.colOthers"),
+                  cell: (r) => (r.emblem ? t("pages.ranks.emote") : "—"),
+                },
+              ]}
+            />
+            <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.ranks.rewardsNote")}</p>
+          </Foldable>
         </section>
 
         <Foldable label={t("common.method")}>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
@@ -7,6 +8,7 @@ import { BadgeTier, PageHeader, SectionTitle } from "@/components/ui";
 import { allHeroes, heroesBySlug } from "@/lib/data";
 import { LANES } from "@/lib/draft";
 import { trendsOf } from "@/lib/evolution";
+import { imageLane } from "@/lib/emblems";
 import { pathFilter } from "@/lib/tier-list-filters";
 import { longDate, dateMeasure, patchCurrent, percentage } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
@@ -168,9 +170,9 @@ export default async function MetaReportPage({ params }: Params) {
         title={t("pages.meta.title", { date })}
         lead={t("pages.meta.lead", { date, n: rankingFull.length, v: version() })}
       >
-        <FreshnessLine locale={locale} className="mt-6" />
+        <FreshnessLine locale={locale} className="mt-3" />
         {summary.length > 0 && (
-          <ul className="mt-6 max-w-2xl space-y-1.5 text-sm leading-relaxed text-chalk-300">
+          <ul className="mt-3 max-w-2xl space-y-1 text-sm leading-snug text-chalk-300 sm:space-y-1.5 sm:leading-relaxed">
             {summary.map((sentence) => (
               <li key={sentence} className="flex gap-2">
                 <span aria-hidden className="text-gold-400">
@@ -183,11 +185,11 @@ export default async function MetaReportPage({ params }: Params) {
         )}
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-16">
         {/* ── Risers and fallers ─────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("home.trends.lead", { threshold: threshold })}>{t("home.trends.title")}</SectionTitle>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
             <Moves
               title={t("home.trends.rise")}
               empty={t("home.trends.noRise")}
@@ -210,7 +212,7 @@ export default async function MetaReportPage({ params }: Params) {
         {/* ── Tier changes ───────────────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("pages.meta.tiers.lead")}>{t("pages.meta.tiers.title")}</SectionTitle>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
             <Tiers
               title={t("pages.meta.tiers.promotions")}
               empty={t("pages.meta.tiers.noPromotion")}
@@ -233,7 +235,7 @@ export default async function MetaReportPage({ params }: Params) {
           <SectionTitle lead={t("pages.meta.bansPicks.lead", { date })}>
             {t("pages.meta.bansPicks.title")}
           </SectionTitle>
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
             <Ranking
               title={t("pages.meta.bansPicks.banned")}
               entries={banned}
@@ -284,11 +286,17 @@ export default async function MetaReportPage({ params }: Params) {
         {/* ── Best heroes per lane ───────────────────────────────────────── */}
         <section>
           <SectionTitle lead={t("pages.meta.lanes.lead")}>{t("pages.meta.lanes.title")}</SectionTitle>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5">
             {byLane.map(({ lane, entries }) => (
-              <div key={lane} className="bevel flex flex-col border border-night-700/70 bg-night-900/60 p-4">
-                <h3 className="font-heading text-lg font-bold text-gold-400">{t(`lanes.${lane}`)}</h3>
-                <ol className="mt-3 flex-1 space-y-2.5">
+              <div key={lane} className="bevel flex flex-col border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
+                <h3 className="flex items-center gap-1.5 font-heading font-bold text-gold-400 sm:text-lg">
+                  {/* The lane is named beside it: the icon is decorative. */}
+                  {imageLane(lane) && (
+                    <Image src={imageLane(lane)!} alt="" width={22} height={22} className="size-5 shrink-0 object-contain" />
+                  )}
+                  {t(`lanes.${lane}`)}
+                </h3>
+                <ol className="mt-2 flex-1 space-y-1.5 sm:mt-3 sm:space-y-2.5">
                   {entries.map((e) => (
                     <li key={e.hero.slug}>
                       <Link href={`/heroes/${e.hero.slug}`} className="group flex items-center gap-2.5">
@@ -299,10 +307,10 @@ export default async function MetaReportPage({ params }: Params) {
                           decorative
                         />
                         <span className="min-w-0 flex-1">
-                          <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+                          <span className="block truncate font-heading text-sm font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-base">
                             {e.hero.name}
                           </span>
-                          <span className="block text-xs text-chalk-500">
+                          <span className="block text-xs leading-tight text-chalk-500">
                             {t("pages.meta.lanes.row", { tier: e.tier, winRate: percentage(locale, e.winRate) })}
                           </span>
                         </span>
@@ -312,7 +320,7 @@ export default async function MetaReportPage({ params }: Params) {
                 </ol>
                 <Link
                   href={pathFilter({ type: "lane", value: lane })}
-                  className="mt-4 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
+                  className="mt-3 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
                 >
                   {t("pages.meta.lanes.see", { lane: t(`pages.tierList.laneSeo.${lane}`) })} →
                 </Link>
@@ -321,7 +329,7 @@ export default async function MetaReportPage({ params }: Params) {
           </div>
         </section>
 
-        <p className="border-t border-night-800 pt-6 text-xs leading-relaxed text-chalk-500">
+        <p className="border-t border-night-800 pt-5 text-xs leading-relaxed text-chalk-500">
           {t("pages.meta.method", { date, threshold: threshold })}
         </p>
       </div>
@@ -336,7 +344,7 @@ function HeroRow({ slug, detail, children }: { slug: string; detail?: string; ch
   return (
     <Link
       href={`/heroes/${slug}`}
-      className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60"
+      className="bevel-sm group flex items-center gap-2.5 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
     >
       <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
       <span className="min-w-0 flex-1">
@@ -372,7 +380,7 @@ function Moves({
     <div>
       <h3
         className={cn(
-          "mb-3 flex items-center gap-2 font-heading text-lg font-bold",
+          "mb-2 flex items-center gap-2 font-heading text-lg font-bold",
           rise ? "text-emerald-400" : "text-blood-500",
         )}
       >
@@ -382,7 +390,7 @@ function Moves({
       {moves.length === 0 ? (
         <p className="text-sm text-chalk-500">{empty}</p>
       ) : (
-        <ol className="space-y-2">
+        <ol className="space-y-1.5">
           {moves.map(({ slug, variation: v }) => (
             <li key={slug}>
               <HeroRow
@@ -425,7 +433,7 @@ function Tiers({
     <div>
       <h3
         className={cn(
-          "mb-3 flex items-center gap-2 font-heading text-lg font-bold",
+          "mb-2 flex items-center gap-2 font-heading text-lg font-bold",
           rise ? "text-emerald-400" : "text-blood-500",
         )}
       >
@@ -435,7 +443,7 @@ function Tiers({
       {changes.length === 0 ? (
         <p className="text-sm text-chalk-500">{empty}</p>
       ) : (
-        <ol className="space-y-2">
+        <ol className="space-y-1.5">
           {changes.map((c) => (
             <li key={c.slug}>
               <HeroRow slug={c.slug}>
@@ -466,8 +474,8 @@ function Ranking({
 }) {
   return (
     <div>
-      <h3 className="mb-3 font-heading text-lg font-bold text-chalk-100">{title}</h3>
-      <ol className="space-y-2">
+      <h3 className="mb-2 font-heading text-lg font-bold text-chalk-100">{title}</h3>
+      <ol className="space-y-1.5">
         {entries.map((e) => (
           <li key={e.hero.slug}>
             <HeroRow slug={e.hero.slug}>

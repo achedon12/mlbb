@@ -96,13 +96,13 @@ export default async function ServerTimePage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.serverTime.title")} lead={t("pages.serverTime.lead", { utc })} />
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
+      <div className="mx-auto max-w-4xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
         <ServerClock reference={instantRender()} ends={ENDS} />
 
         <Foldable label={t("common.method")}>
           <div className="space-y-10">
             <section aria-labelledby="rules-title">
-              <h2 id="rules-title" className="font-heading text-2xl font-bold text-chalk-100">
+              <h2 id="rules-title" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
                 {t("pages.serverTime.rulesTitle")}
               </h2>
               <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
@@ -117,7 +117,7 @@ export default async function ServerTimePage({ params }: Params) {
             </section>
 
             <section aria-labelledby="faq-title">
-              <h2 id="faq-title" className="font-heading text-2xl font-bold text-chalk-100">
+              <h2 id="faq-title" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
                 {t("pages.serverTime.faqTitle")}
               </h2>
               <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />

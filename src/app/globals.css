@@ -90,21 +90,30 @@ h1, h2, h3, h4 {
  *
  * Handwritten rather than using the typography plugin: the site has only one
  * article template, and it avoids one more dependency.
+ *
+ * A phone screen is narrow, so a paragraph takes twice the lines it takes on
+ * a laptop and the air between them counts double: the leading and the gaps
+ * tighten a notch below `sm`, which is a screen off a long article, and go
+ * back to their full value as soon as there is room.
  */
 .prose-mlbb {
-  line-height: 1.75;
+  line-height: 1.6;
   color: var(--color-chalk-300);
 }
-.prose-mlbb > * + * { margin-top: 1.15rem; }
+.prose-mlbb > * + * { margin-top: 0.9rem; }
+@media (width >= 40rem) {
+  .prose-mlbb { line-height: 1.75; }
+  .prose-mlbb > * + * { margin-top: 1.15rem; }
+}
 .prose-mlbb h2 {
-  margin-top: 2.75rem;
-  font-size: 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--color-chalk-100);
 }
 .prose-mlbb h3 {
-  margin-top: 2rem;
-  font-size: 1.15rem;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-chalk-100);
 }

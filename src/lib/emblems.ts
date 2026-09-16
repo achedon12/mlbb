@@ -1,6 +1,7 @@
 import ranksData from "@/data/game/ranks.json";
 import type { MeasuredRank } from "@/lib/measured-ranks";
-import type { Role } from "@/lib/types";
+import { laneFromParam } from "@/lib/draft";
+import type { Lane, Role } from "@/lib/types";
 
 /**
  * Emblems of the ranks and of the roles, for the filters.
@@ -47,4 +48,21 @@ export const IMAGE_ROLE: Record<Role, string> = {
 /** Emblem of a role, whatever the shape of the value that carries it. */
 export function imageRole(role: string): string | undefined {
   return IMAGE_ROLE[role as Role];
+}
+
+/**
+ * Lane icon, the one the game draws on its map. The sync writes the files
+ * under the site's own lane tokens, so the address follows the value.
+ */
+export const IMAGE_LANE: Record<Lane, string> = {
+  Gold: "/visuels/lanes/gold.webp",
+  Jungle: "/visuels/lanes/jungle.webp",
+  Mid: "/visuels/lanes/mid.webp",
+  Exp: "/visuels/lanes/exp.webp",
+  Roam: "/visuels/lanes/roam.webp",
+};
+
+/** Icon of a lane, including the addresses that still carry its old name. */
+export function imageLane(lane: string): string | undefined {
+  return IMAGE_LANE[(laneFromParam(lane) ?? lane) as Lane];
 }

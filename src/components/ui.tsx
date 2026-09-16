@@ -5,7 +5,14 @@ import { PageLead } from "@/components/page-lead";
 import type { Tier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
-/** Section title, with the gold rule borrowed from the game's interface. */
+/**
+ * Section title, with the gold rule borrowed from the game's interface.
+ *
+ * Compact on a phone, like `PageHeader`: nine of these stacked on the home
+ * page cost a screen and a half of headings alone. The lead keeps its three
+ * lines from `sm` up and is clamped to two below, where it is a caption and
+ * not the section itself.
+ */
 export function SectionTitle({
   children,
   lead,
@@ -16,11 +23,11 @@ export function SectionTitle({
   action?: { href: string; label: string };
 }) {
   return (
-    <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+    <div className="mb-4 flex flex-wrap items-end justify-between gap-x-4 gap-y-2 sm:mb-8">
       <div>
-        <h2 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl">{children}</h2>
-        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-        {lead && <p className="mt-3 max-w-2xl text-sm text-chalk-500">{lead}</p>}
+        <h2 className="font-heading text-xl font-bold text-chalk-100 sm:text-3xl">{children}</h2>
+        <div aria-hidden className="gold-rule mt-1.5 h-0.5 w-16 sm:mt-2" />
+        {lead && <p className="mt-1.5 line-clamp-2 max-w-2xl text-sm text-chalk-500 sm:mt-3 sm:line-clamp-none">{lead}</p>}
       </div>
       {action && (
         <Link

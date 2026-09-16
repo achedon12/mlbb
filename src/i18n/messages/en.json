@@ -514,7 +514,8 @@
       "leadLane": "The {n} heroes who play {lane}, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "leadRole": "All {n} {plural} in the game, main or secondary role, ranked by the same rule as the main tier list: win and ban rates, all ranks combined.",
       "filterNote": "Ranking across all ranks. The by-rank lists, for their part, cover every lane and every role.",
-      "seeRole": "All {plural} and their lanes"
+      "seeRole": "All {plural} and their lanes",
+      "openTier": "Show the {n} heroes in tier {p}"
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -544,7 +545,10 @@
         "detail": "Full change details",
         "impact": "average win rate: {before} before the patch, {after} after",
         "impactNote": "Average win rate across all ranks over the {n} days before and after the patch, when the history covers that period."
-      }
+      },
+      "openNewHeroes": "Show overview of new heroes ({n})",
+      "openAdjustments": "Show details of {n} adjustments",
+      "openArchives": "Show {n} archived patches"
     },
     "login": {
       "title": "Log in",
@@ -1162,7 +1166,8 @@
       "wiki": {
         "title": "What the wiki says",
         "intro": "Relationships noted by the community wiki, with no measured figures.",
-        "synergies": "{name} synergies"
+        "synergies": "{name} synergies",
+        "open": "Show relationships noted by the wiki"
       },
       "others": {
         "title": "More counters pages · {lane}"
@@ -1510,7 +1515,9 @@
       "sourceRanked": "Fandom wiki, “Ranked” page: stars, Mythic points, draft pick, star-raising and protection points",
       "sourceRewards": "Fandom wiki, “Season Rank Rewards” page: end-of-season rewards",
       "sourceTable": "Official rank table (divisions and ranges), via the arena.rone.dev stats API",
-      "sourceMeasures": "Win rates by rank: measured on {date}, same as the tier list"
+      "sourceMeasures": "Win rates by rank: measured on {date}, same as the tier list",
+      "openTable": "Show the table of divisions, stars and points",
+      "openRanks": "Show {n} other ranks"
     },
     "quiz": {
       "title": "MLBB daily quiz",
@@ -1688,7 +1695,8 @@
       "methodTitle": "Our tier list as a starting point",
       "method": "Pre-filling uses our computed tier list: each hero is ranked from S+ to C by win rate and ban rate in the chosen rank, based on the ranked games collected at each data sync. Row D is left free for your own verdicts.",
       "tierListLink": "See the tier list and its method",
-      "quizLink": "Test your knowledge in the quiz"
+      "quizLink": "Test your knowledge in the quiz",
+      "howToOpen": "Show all four steps"
     },
     "tierMakerUI": {
       "titleList": "List title",
@@ -2439,7 +2447,8 @@
         "gapColumn": "Gap",
         "cell": "{value} · #{rank}",
         "gap": "{n} places",
-        "none": "Not enough pro games to compare yet."
+        "none": "Not enough pro games to compare yet.",
+        "open": "Show {n} heroes compared"
       },
       "method": "Presence = (picks + bans) ÷ games with a recorded draft. Ranked presence = pick rate × 10 + ban rate, since the game's pick rate is a share of the ten picks of each game. Standings are recomputed from the match results listed on Liquipedia.",
       "credit": {
@@ -2708,7 +2717,8 @@
       "retributionLink": "Practise Retribution",
       "sourcesTitle": "Sources",
       "sourcesIntro": "Mobile Legends wiki pages (Fandom), checked on {date}:",
-      "sourcesNote": "When two wiki values disagree (Lord respawn after {lateFrom}, Crab arrival), the timer shows the window between them instead of picking one."
+      "sourcesNote": "When two wiki values disagree (Lord respawn after {lateFrom}, Crab arrival), the timer shows the window between them instead of picking one.",
+      "usageOpen": "Show instructions for use"
     },
     "timerUI": {
       "clockTitle": "Game time",
@@ -3284,7 +3294,8 @@
       "rise": "Rising",
       "fall": "Falling",
       "noRise": "No hero is clearly rising this week.",
-      "noFall": "No hero is clearly falling this week."
+      "noFall": "No hero is clearly falling this week.",
+      "open": "Show the {n} heroes on the move"
     },
     "readNotes": "Read the notes",
     "toolsTitle": "Tools",
@@ -4164,7 +4175,8 @@
       "colDaily": "Daily",
       "colWeekly": "Weekly",
       "colNow": "Time now",
-      "you": "you"
+      "you": "you",
+      "countriesOpen": "Show the reset time country by country"
     },
     "retribution": {
       "objective": {

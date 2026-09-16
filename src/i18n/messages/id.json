@@ -514,7 +514,8 @@
       "leadLane": "Hero {n} yang dimainkan di {lane}, diklasifikasikan menurut aturan yang sama dengan tier list umum: win rate dan ban, semua peringkat digabungkan.",
       "leadRole": "{n} {plural} permainan, peran utama atau sekunder, diklasifikasikan menurut aturan yang sama dengan tier list umum: win rate dan ban, semua peringkat digabungkan.",
       "filterNote": "Memberi peringkat pada semua peringkat digabungkan. Daftar berdasarkan peringkat menyatukan semua lane dan semua peran.",
-      "seeRole": "Semua {plural} dan lanenya"
+      "seeRole": "Semua {plural} dan lanenya",
+      "openTier": "Tampilkan {n} hero tier {p}"
     },
     "patchNotes": {
       "title": "Patch notes",
@@ -544,7 +545,10 @@
         "detail": "Detail perubahan",
         "impact": "win rate rata-rata: {before} sebelum patch, {after} setelahnya",
         "impactNote": "Win rate rata-rata, gabungan semua peringkat, selama {n} hari sebelum dan sesudah patch, ketika sejarah mencakup periode ini."
-      }
+      },
+      "openNewHeroes": "Tampilkan ikhtisar hero baru ({n})",
+      "openAdjustments": "Tampilkan detail {n} penyesuaian",
+      "openArchives": "Tampilkan {n} patch yang diarsipkan"
     },
     "login": {
       "title": "Masuk",
@@ -1162,7 +1166,8 @@
       "wiki": {
         "title": "Apa yang dikatakan wiki",
         "intro": "Hubungan dicatat oleh wiki komunitas, tanpa pengukuran numerik.",
-        "synergies": "Sinergi {name}"
+        "synergies": "Sinergi {name}",
+        "open": "Tunjukkan hubungan yang dicatat oleh wiki"
       },
       "others": {
         "title": "Halaman counter lainnya · {lane}"
@@ -1510,7 +1515,9 @@
       "sourceRanked": "Wiki Fandom, halaman “Peringkat”: bintang, titik mitos, rancangan, titik naik dan perlindungan",
       "sourceRewards": "Wiki Fandom, halaman “Hadiah Peringkat Musim”: hadiah akhir musim",
       "sourceTable": "Tabel peringkat resmi (divisi dan rentang), melalui API statistik arena.rone.dev",
-      "sourceMeasures": "Win rate berdasarkan peringkat: dinaikkan dari {date}, sama dengan tier list"
+      "sourceMeasures": "Win rate berdasarkan peringkat: dinaikkan dari {date}, sama dengan tier list",
+      "openTable": "Tampilkan tabel divisi, bintang, dan poin",
+      "openRanks": "Tampilkan {n} peringkat lainnya"
     },
     "quiz": {
       "title": "Kuis MLBB hari ini",
@@ -1688,7 +1695,8 @@
       "methodTitle": "Tier list kami sebagai titik awal",
       "method": "Pengisian awal menggunakan tier list kami yang telah dihitung: setiap hero diklasifikasikan dari S+ hingga C berdasarkan win rate dan ban rate mereka di peringkat yang dipilih, berdasarkan permainan peringkat yang dicatat pada setiap sinkronisasi. Baris D tetap bebas untuk keputusan Anda sendiri.",
       "tierListLink": "Lihat tier list dan caranya",
-      "quizLink": "Uji pengetahuan Anda dengan kuis"
+      "quizLink": "Uji pengetahuan Anda dengan kuis",
+      "howToOpen": "Tunjukkan keempat langkah tersebut"
     },
     "tierMakerUI": {
       "titleList": "Judul daftar",
@@ -2439,7 +2447,8 @@
         "gapColumn": "Celah",
         "cell": "{value} · tidak. {rank}",
         "gap": "{n} tempat",
-        "none": "Belum cukup game profesional untuk dibandingkan."
+        "none": "Belum cukup game profesional untuk dibandingkan.",
+        "open": "Tampilkan {n} hero dibandingkan"
       },
       "method": "Kehadiran = (pilihan + ban) permainan yang draftnya dimasukkan. Kehadiran di peringkat = pick rate × 10 + ban rate, pick rate permainan menjadi bagian dari sepuluh pilihan setiap permainan. Peringkat dihitung ulang dari hasil pertandingan yang terdaftar di Liquipedia.",
       "credit": {
@@ -2708,7 +2717,8 @@
       "retributionLink": "Latihan Retribution",
       "sourcesTitle": "Sumber",
       "sourcesIntro": "Halaman wiki Mobile Legends (Fandom), diakses di {date}:",
-      "sourcesNote": "Ketika dua nilai wiki saling bertentangan (kembalinya Lord setelah {lateFrom}, kedatangan Kepiting), pengatur waktu menampilkan jendela di antara keduanya daripada memilih salah satu."
+      "sourcesNote": "Ketika dua nilai wiki saling bertentangan (kembalinya Lord setelah {lateFrom}, kedatangan Kepiting), pengatur waktu menampilkan jendela di antara keduanya daripada memilih salah satu.",
+      "usageOpen": "Tampilkan instruksi penggunaan"
     },
     "timerUI": {
       "clockTitle": "Waktu bermain",
@@ -3284,7 +3294,8 @@
       "rise": "Kenaikan",
       "fall": "Menurun",
       "noRise": "Tidak ada hero yang mengalami kemajuan signifikan minggu ini.",
-      "noFall": "Tidak ada hero yang mengambil langkah mundur minggu ini."
+      "noFall": "Tidak ada hero yang mengambil langkah mundur minggu ini.",
+      "open": "Tampilkan {n} hero yang sedang bergerak"
     },
     "readNotes": "Baca catatannya",
     "toolsTitle": "Peralatan",
@@ -4164,7 +4175,8 @@
       "colDaily": "Harian",
       "colWeekly": "Mingguan",
       "colNow": "Waktu saat ini",
-      "you": "Anda"
+      "you": "Anda",
+      "countriesOpen": "Tampilkan waktu reset per negara"
     },
     "retribution": {
       "objective": {

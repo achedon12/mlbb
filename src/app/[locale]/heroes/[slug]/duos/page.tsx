@@ -229,13 +229,13 @@ export default async function DuosPage({ params }: Params) {
         </ul>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="mx-auto max-w-6xl space-y-6 px-4 pb-8 pt-5 sm:space-y-14">
         {/* ── Summary, all ranks combined ───────────────────────────── */}
         {(best.length > 0 || worst.length > 0) && (
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             {best.length > 0 && (
               <section aria-labelledby="best" className="min-w-0">
-                <h2 id="best" className="font-heading text-2xl font-bold text-chalk-100">
+                <h2 id="best" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
                   {t("pages.duos.best", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.bestIntro", n)}</p>
@@ -244,7 +244,7 @@ export default async function DuosPage({ params }: Params) {
             )}
             {worst.length > 0 && (
               <section aria-labelledby="worst" className="min-w-0">
-                <h2 id="worst" className="font-heading text-2xl font-bold text-chalk-100">
+                <h2 id="worst" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
                   {t("pages.duos.worst", n)}
                 </h2>
                 <p className="mt-2 mb-4 text-sm leading-relaxed text-chalk-500">{t("pages.duos.worstIntro", n)}</p>
@@ -257,7 +257,7 @@ export default async function DuosPage({ params }: Params) {
         {/* ── By game length ───────────────────────────────────────── */}
         {rankMain && byPhase.length > 0 && (
           <section aria-labelledby="phases">
-            <h2 id="phases" className="font-heading text-2xl font-bold text-chalk-100">
+            <h2 id="phases" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
               {t("pages.duos.phases.title", n)}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">
@@ -301,11 +301,11 @@ export default async function DuosPage({ params }: Params) {
         {/* ── Rank by rank ─────────────────────────────────────────── */}
         {ranks.length > 0 && (
           <section aria-labelledby="by-rank">
-            <h2 id="by-rank" className="font-heading text-2xl font-bold text-chalk-100">
+            <h2 id="by-rank" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
               {t("pages.duos.byRank")}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.byRankIntro", n)}</p>
-            <div className="mt-5 space-y-3">
+            <div className="mt-4 space-y-2">
               {ranks.map((r) => {
                 const d = byRank[r]!;
                 const s = stats[r];
@@ -313,7 +313,6 @@ export default async function DuosPage({ params }: Params) {
                   <details
                     key={r}
                     id={`rank-${r}`}
-                    open={r === rankMain}
                     className="bevel group scroll-mt-24 border border-night-700/70 bg-night-900/60"
                   >
                     <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 p-4 [&::-webkit-details-marker]:hidden">
@@ -367,7 +366,7 @@ export default async function DuosPage({ params }: Params) {
         {/* ── Fallback: academy teammates ──────────────────────────── */}
         {academy.length > 0 && (
           <section aria-labelledby="academy">
-            <h2 id="academy" className="font-heading text-2xl font-bold text-chalk-100">
+            <h2 id="academy" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
               {t("pages.duos.academy.title", n)}
             </h2>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.academy.intro", n)}</p>

@@ -111,7 +111,7 @@ export function EmblemGuide({
       </aside>
 
       {/* ── Content ──────────────────────────────────────────────────── */}
-      <div className="min-w-0 space-y-12">
+      <div className="min-w-0 space-y-8 sm:space-y-12">
         <Section
           title={t("emblemsUI.talents")}
           lead={t("emblemsUI.talentsDesc")}
@@ -174,14 +174,14 @@ function Section({
       <p className="mt-1 text-sm text-chalk-500">{lead}</p>
 
       {/* Rows rather than cards: two entries compare side by side. */}
-      <ul className="mt-4 divide-y divide-night-800 border-y border-night-800">
+      <ul className="mt-3 divide-y divide-night-800 border-y border-night-800">
         {entries.map((e) => {
           const kept = adapted(e.roles);
           return (
             <li
               key={e.key}
               className={cn(
-                "flex gap-4 py-3 transition-opacity",
+                "flex gap-3 py-2.5 transition-opacity sm:gap-4",
                 kept ? "" : "opacity-40",
               )}
             >
@@ -209,7 +209,7 @@ function Section({
                     {textEmb(t, e.key, "description", e.description)}
                   </p>
                 )}
-                <p className="mt-1 text-xs leading-relaxed text-chalk-500">{textEmb(t, e.key, "bestFor", e.bestFor)}</p>
+                <p className="mt-0.5 text-xs leading-snug text-chalk-500">{textEmb(t, e.key, "bestFor", e.bestFor)}</p>
               </div>
 
               <ul className="hidden shrink-0 flex-wrap content-start gap-1 sm:flex sm:w-40">

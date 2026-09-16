@@ -16,6 +16,8 @@ import { HeroPortrait } from "@/components/hero-portrait";
 import { Chip } from "@/components/chip";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { Drawer } from "@/components/drawer";
+import { Pager } from "@/components/pager";
+import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
 import { LOCALE_HTML } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { keySearch, cn } from "@/lib/utils";
@@ -27,6 +29,11 @@ import { keySearch, cn } from "@/lib/utils";
  * items, and comparing means seeing them together. The full detail opens
  * in a side panel, which avoids repeating ten lines of statistics
  * on every thumbnail. Each item also has its own page, rendered on the server.
+ *
+ * A hundred and thirteen thumbnails is five screens of a phone: only the
+ * slice the address names is shown (`/items/page/3`, prerendered by the
+ * server), three to a row below `sm`, and a change of filter goes back to the
+ * first page — the third page of eight results holds nothing.
  */
 export type { PreviewItem };
 
@@ -72,17 +79,21 @@ export function ItemList({
   categories,
   usedBy,
   heroThumbs,
+  page: pageServer = 1,
 }: {
   items: PreviewItem[];
   categories: string[];
   /** Heroes who pick each item (by item slug), most played first. */
   usedBy: Record<string, string[]>;
   heroThumbs: Record<string, HeroThumb>;
+  /** Page the address names; the list starts there. */
+  page?: number;
 }) {
   const [search, setSearch] = useState("");
   const t = useT();
   const locale = useLocale();
   const [category, setCategory] = useState<string | null>(null);
+  const [page, setPage] = useState(pageServer);
 
   const slugsKnown = useMemo(() => new Set(items.map((o) => o.slug)), [items]);
 
@@ -117,7 +128,7 @@ export function ItemList({
       document.getElementById(active)?.scrollIntoView({ block: "center" });
     });
     return () => cancelAnimationFrame(image);
-  }, [active]);
+  }, [active, page]);
 
   const results = useMemo(() => {
     const term = keySearch(search.trim());
@@ -134,6 +145,20 @@ export function ItemList({
     });
   }, [items, search, category, active]);
 
+  // An item named by the address is on the page that holds it, whatever page
+  // the reader was on: a link like `/items#thunder-belt` must land on it.
+  const rank = active ? results.findIndex((o) => o.slug === active) : -1;
+  const wanted = rank >= 0 ? Math.floor(rank / SIZE_CARDS) + 1 : page;
+  const view = paging(results.length, wanted, SIZE_CARDS);
+  const slice = slicePage(results, view.page, SIZE_CARDS);
+
+  // Paging in place writes the address the pager's link already held, so the
+  // page being read is the page that gets shared.
+  useEffect(() => {
+    const path = pageHref(pathWithoutPage(window.location.pathname), null, view.page);
+    window.history.replaceState(null, "", path + window.location.hash);
+  }, [view.page]);
+
   const item = items.find((o) => o.slug === active) ?? null;
 
   // Recipes name their components: we find them by name, and read
@@ -146,8 +171,28 @@ export function ItemList({
   return (
     <div>
       <FilterBar
-        search={<SearchField value={search} onChange={setSearch} label={t("pages.itemsList.search")} dense />}
-        active={category && <ChipActive label={t(`categories.${category}`)} onRemove={() => setCategory(null)} />}
+        search={
+          <SearchField
+            value={search}
+            onChange={(v) => {
+              setSearch(v);
+              setPage(1);
+            }}
+            label={t("pages.itemsList.search")}
+            dense
+          />
+        }
+        active={
+          category && (
+            <ChipActive
+              label={t(`categories.${category}`)}
+              onRemove={() => {
+                setCategory(null);
+                setPage(1);
+              }}
+            />
+          )
+        }
         count={
           <span aria-live="polite">
             {t("pages.itemsList.account", { n: results.length })}
@@ -157,7 +202,14 @@ export function ItemList({
       >
         <div className="flex flex-wrap gap-2">
           {categories.map((c) => (
-            <Chip key={c} active={category === c} onClick={() => setCategory(category === c ? null : c)}>
+            <Chip
+              key={c}
+              active={category === c}
+              onClick={() => {
+                setCategory(category === c ? null : c);
+                setPage(1);
+              }}
+            >
               {t(`categories.${c}`)}
             </Chip>
           ))}
@@ -165,8 +217,9 @@ export function ItemList({
       </FilterBar>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_21rem]">
-        <ul className="grid grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))] gap-2">
-          {results.map((o) => {
+        <div className="min-w-0">
+        <ul className="grid grid-cols-3 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))]">
+          {slice.map((o) => {
             const selected = o.slug === item?.slug;
             return (
               <li key={o.slug} className="offscreen">
@@ -207,6 +260,8 @@ export function ItemList({
             );
           })}
         </ul>
+        <Pager paging={view} href={(n) => pageHref("/items", null, n)} onNavigate={setPage} t={t} />
+        </div>
 
         <aside className="hidden h-fit lg:sticky lg:top-24 lg:block">
           {item ? (

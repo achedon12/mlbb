@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import { ObjectiveTimer } from "@/components/objective-timer";
+import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   });
 }
 
-const sectionTitle = "font-heading text-2xl font-bold text-chalk-100";
+const sectionTitle = "font-heading text-xl font-bold text-chalk-100 sm:text-2xl";
 
 /** Link text of a source: the wiki page's own title, read from its address. */
 const wikiPageName =(url: string) => decodeURIComponent(url.split("/wiki/")[1] ?? url).replaceAll("_", " ");
@@ -123,7 +124,7 @@ export default async function TimerPage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.timerUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.timer.title")} lead={t("pages.timer.lead", THRESHOLDS)} />
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
+      <div className="mx-auto max-w-4xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
         <ObjectiveTimer />
 
         <section aria-labelledby="timings-title">
@@ -150,13 +151,16 @@ export default async function TimerPage({ params }: Params) {
             {t("pages.timer.usageTitle")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.timer.usage1", { start: t("pages.timerUI.start"), apply: t("pages.timerUI.apply") })}</p>
-            <p>{t("pages.timer.usage2")}</p>
-            <p>{t("pages.timer.usage3", THRESHOLDS)}</p>
-            <p>{t("pages.timer.usage4")}</p>
-          </div>
-          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          {/* Read once, at most: the four paragraphs wait behind their title. */}
+          <Foldable label={t("pages.timer.usageOpen")} className="mt-3">
+            <div className="space-y-3 leading-relaxed text-chalk-300">
+              <p>{t("pages.timer.usage1", { start: t("pages.timerUI.start"), apply: t("pages.timerUI.apply") })}</p>
+              <p>{t("pages.timer.usage2")}</p>
+              <p>{t("pages.timer.usage3", THRESHOLDS)}</p>
+              <p>{t("pages.timer.usage4")}</p>
+            </div>
+          </Foldable>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <li>
               <Link href="/map" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
                 {t("pages.timer.mapLink")} →
@@ -170,22 +174,24 @@ export default async function TimerPage({ params }: Params) {
           </ul>
         </section>
 
-        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-title" className="font-semibold text-chalk-300">
-            {t("pages.timer.sourcesTitle")}
-          </h2>
-          <p className="mt-2">{t("pages.timer.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            {sources.map((url) => (
-              <li key={url}>
-                <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                  {wikiPageName(url)}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-3">{t("pages.timer.sourcesNote", { lateFrom: formatTime(LORD.lateFrom) })}</p>
-        </section>
+        <Foldable label={t("pages.timer.sourcesTitle")}>
+          <section aria-labelledby="sources-title" className="text-sm text-chalk-500">
+            <h2 id="sources-title" className="sr-only">
+              {t("pages.timer.sourcesTitle")}
+            </h2>
+            <p>{t("pages.timer.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              {sources.map((url) => (
+                <li key={url}>
+                  <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                    {wikiPageName(url)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-3">{t("pages.timer.sourcesNote", { lateFrom: formatTime(LORD.lateFrom) })}</p>
+          </section>
+        </Foldable>
       </div>
     </ExtendMessages>
   );

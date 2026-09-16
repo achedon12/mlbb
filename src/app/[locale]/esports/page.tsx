@@ -10,6 +10,7 @@ import {
 } from "@/components/esports-parts";
 import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
+import { Foldable } from "@/components/foldable";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
@@ -92,10 +93,10 @@ export default async function EsportsPage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
       <PageHeader title={t("pages.esports.title")} lead={t("pages.esports.intro")} />
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-16">
         <section>
           <SectionTitle lead={t("pages.esports.tournaments.intro")}>{t("pages.esports.tournaments.title")}</SectionTitle>
-          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
             {list.map((x) => (
               <li key={x.slug}>
                 <TournamentCard turn={x} t={t} locale={locale} now={now} />
@@ -121,7 +122,7 @@ export default async function EsportsPage({ params }: Params) {
           {meta.games === 0 ? (
             <p className="text-sm text-chalk-500">{t("pages.esports.meta.none")}</p>
           ) : (
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-5 md:grid-cols-3 md:gap-8">
               <HeroList
                 title={t("pages.esports.meta.picked")}
                 heroes={meta.picked}
@@ -149,7 +150,13 @@ export default async function EsportsPage({ params }: Params) {
           <SectionTitle lead={t("pages.esports.versus.intro", { total: versus.total })}>
             {t("pages.esports.versus.title")}
           </SectionTitle>
-          <div className="grid gap-8 lg:grid-cols-2">
+          {/*
+            The comparison is the page's follow-up question, not its subject:
+            twenty rows of two tables stay in the document, folded under the
+            sentence that says what they show.
+          */}
+          <Foldable label={t("pages.esports.versus.open", { n: versus.proFavorites.length + versus.rankedFavorites.length })}>
+          <div className="grid gap-5 lg:grid-cols-2 lg:gap-8">
             <VersusTable
               title={t("pages.esports.versus.pro")}
               note={t("pages.esports.versus.proNote", { min: wholePercent(locale, NOTABLE_PRO_PRESENCE) })}
@@ -165,12 +172,18 @@ export default async function EsportsPage({ params }: Params) {
               locale={locale}
             />
           </div>
+          </Foldable>
         </section>
 
-        <div>
+        {/*
+          Reading key and the list of wiki pages the figures come from: a
+          reader must be able to check them, but they are not what the page is
+          about. They close it, folded.
+        */}
+        <Foldable label={t("common.method")}>
           <p className="max-w-3xl text-xs leading-relaxed text-chalk-500">{t("pages.esports.method")}</p>
-          <SourceCredit t={t} locale={locale} sources={list.flatMap((x) => x.sources)} className="mt-6" />
-        </div>
+          <SourceCredit t={t} locale={locale} sources={list.flatMap((x) => x.sources)} className="mt-4" />
+        </Foldable>
       </div>
     </>
   );
@@ -180,17 +193,17 @@ function TournamentCard({ turn, t, locale, now }: { turn: Tournament; t: T; loca
   const dates = tournamentDates(t, locale, turn);
   return (
     <Link href={`/esports/${turn.slug}`} className="group block h-full">
-      <Card className="flex h-full flex-col gap-3 group-hover:border-gold-500/60">
+      <Card className="flex h-full flex-col gap-2 p-3 group-hover:border-gold-500/60 sm:gap-3 sm:p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <p className="text-xs uppercase tracking-wide text-chalk-500">{turn.shortName}</p>
-            <h3 className="font-heading text-lg font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+            <h3 className="font-heading font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-lg">
               {turn.name}
             </h3>
           </div>
           <StatusBadge status={tournamentStatus(turn, now)} t={t} />
         </div>
-        <ul className="space-y-1 text-sm text-chalk-300">
+        <ul className="space-y-0.5 text-sm leading-snug text-chalk-300 sm:space-y-1">
           {dates && <li>{dates}</li>}
           {turn.prizePool && <li>{t("pages.esports.card.prize", { amount: formatPrize(locale, turn.prizePool) })}</li>}
           {turn.teamCount && <li>{t("pages.esports.card.teams", { n: turn.teamCount })}</li>}
@@ -230,7 +243,7 @@ function HeroList({
     <div>
       <h3 className="font-heading text-lg font-bold text-chalk-100">{title}</h3>
       {note && <p className="mt-1 text-xs text-chalk-500">{note}</p>}
-      <ol className="mt-3 space-y-2">
+      <ol className="mt-2 space-y-1.5">
         {heroes.map((h) => {
           const hero = heroesBySlug.get(h.slug);
           if (!hero) return null;
@@ -238,14 +251,14 @@ function HeroList({
             <li key={h.slug}>
               <Link
                 href={`/heroes/${h.slug}`}
-                className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
+                className="bevel-sm group flex items-center gap-2.5 border border-night-700/70 bg-night-900/60 p-1.5 transition-colors hover:border-gold-500/60"
               >
                 <HeroPortrait source={hero.images.icon ?? hero.images.portrait} name={hero.name} size="small" decorative />
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+                  <span className="block truncate font-heading font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400">
                     {hero.name}
                   </span>
-                  <span className="block text-xs text-chalk-500">{detail(h)}</span>
+                  <span className="block text-xs leading-tight text-chalk-500">{detail(h)}</span>
                 </span>
                 <span className="shrink-0 font-semibold tabular-nums text-gold-400">{value(h)}</span>
               </Link>

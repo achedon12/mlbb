@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "@/components/link";
+import { IMAGE_ROLE } from "@/lib/emblems";
 import { pathRole } from "@/lib/tier-list-filters";
 import type { Role } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -9,7 +11,9 @@ import { cn } from "@/lib/utils";
  * Entry into the catalogue by role.
  *
  * A visitor rarely arrives looking for "the hero list": they play a role.
- * These six doors cover almost every arrival intent.
+ * These six doors cover almost every arrival intent. Each carries the role's
+ * own emblem, the sign a player recognises before reading the word, and lies
+ * down into a row on a phone so the six fit in a third of a screen.
  */
 const COLORS: Record<Role, string> = {
   Tank: "from-azure-500/20 border-azure-500/40 text-azure-400",
@@ -23,18 +27,22 @@ const COLORS: Record<Role, string> = {
 export function RoleAccess({ count, locale }: { count: Record<Role, number>; locale: Locale }) {
   const t = createT(locale);
   return (
-    <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6">
       {(Object.keys(COLORS) as Role[]).map((role) => (
         <li key={role}>
           <Link
             href={pathRole(role)}
             className={cn(
-              "bevel flex h-full flex-col justify-between border bg-linear-to-b to-transparent p-4 transition-transform hover:-translate-y-0.5",
+              "bevel flex h-full items-center gap-2.5 border bg-linear-to-b to-transparent p-2.5 transition-transform hover:-translate-y-0.5 sm:flex-col sm:items-start sm:justify-between sm:gap-0 sm:p-4",
               COLORS[role],
             )}
           >
-            <span className="font-heading text-lg font-bold">{t(`roles.${role}`)}</span>
-            <span className="mt-3 text-xs text-chalk-500">{t("access.account", { n: count[role] })}</span>
+            {/* The name follows: the emblem is decorative. */}
+            <Image src={IMAGE_ROLE[role]} alt="" width={32} height={32} className="size-8 shrink-0 object-contain" />
+            <span className="min-w-0">
+              <span className="block truncate font-heading font-bold sm:text-lg">{t(`roles.${role}`)}</span>
+              <span className="block text-xs text-chalk-500 sm:mt-2">{t("access.account", { n: count[role] })}</span>
+            </span>
           </Link>
         </li>
       ))}

@@ -32,6 +32,10 @@
       "fr": "en {language}",
       "text": "in {language}"
     },
+    "home.trends.open": {
+      "fr": "Afficher les {n} héros qui bougent",
+      "text": "Show the {n} heroes on the move"
+    },
     "nav.spells.label": {
       "fr": "Sorts de combat",
       "text": "Battle spells"
@@ -220,6 +224,10 @@
       "fr": "Draft",
       "text": "Draft pick"
     },
+    "pages.ranks.openTable": {
+      "fr": "Afficher le tableau des divisions, étoiles et points",
+      "text": "Show the table of divisions, stars and points"
+    },
     "pages.sheets.heroes": {
       "fr": "Héros",
       "text": "Hero"
@@ -256,6 +264,10 @@
       "fr": "Victoire",
       "text": "Win rate"
     },
+    "pages.tierList.openTier": {
+      "fr": "Afficher les {n} héros du palier {p}",
+      "text": "Show the {n} heroes in tier {p}"
+    },
     "pages.timerUI.newMatch": {
       "fr": "Nouvelle partie",
       "text": "New match"
@@ -267,6 +279,10 @@
     "tools.retribution.bestRun": {
       "fr": "Meilleure série",
       "text": "Best streak"
+    },
+    "tools.serverTime.countriesOpen": {
+      "fr": "Afficher l'heure de la remise pays par pays",
+      "text": "Show the reset time country by country"
     }
   },
   "es": {
@@ -293,6 +309,10 @@
     "home.titleAccent": {
       "fr": "en {language}",
       "text": "en {language}"
+    },
+    "home.trends.open": {
+      "fr": "Afficher les {n} héros qui bougent",
+      "text": "Mostrar los {n} héroes que más se mueven"
     },
     "nav.groups.news": {
       "fr": "Actualités",
@@ -446,9 +466,17 @@
       "fr": "Le patch {v} modifie {n} héros.",
       "text": "El parche {v} modifica {n} héroes."
     },
+    "pages.patchNotes.openAdjustments": {
+      "fr": "Afficher le détail des {n} ajustements",
+      "text": "Mostrar el detalle de los {n} ajustes"
+    },
     "pages.quizUI.browse": {
       "fr": "Parcourir les héros",
       "text": "Ver héroes"
+    },
+    "pages.ranks.openTable": {
+      "fr": "Afficher le tableau des divisions, étoiles et points",
+      "text": "Mostrar la tabla de divisiones, estrellas y puntos"
     },
     "pages.sheets.heroes": {
       "fr": "Héros",
@@ -469,6 +497,14 @@
     "pages.statisticsTable.weak": {
       "fr": "Trop peu joué pour que les taux soient fiables",
       "text": "Elegido tan pocas veces que sus tasas no son fiables"
+    },
+    "pages.tierList.openTier": {
+      "fr": "Afficher les {n} héros du palier {p}",
+      "text": "Mostrar los {n} héroes del nivel {p}"
+    },
+    "tools.serverTime.countriesOpen": {
+      "fr": "Afficher l'heure de la remise pays par pays",
+      "text": "Mostrar la hora del reinicio país por país"
     }
   },
   "id": {
@@ -847,6 +883,10 @@
     "home.toolsLead": {
       "fr": "Préparer une partie, tester un choix, s'entraîner.",
       "text": "Siapkan pertandingan, uji pick, berlatih."
+    },
+    "home.trends.open": {
+      "fr": "Afficher les {n} héros qui bougent",
+      "text": "Tampilkan {n} hero yang sedang bergerak"
     },
     "home.winPercent": {
       "fr": "% de victoires",
@@ -1744,6 +1784,10 @@
       "fr": "Revenir à l'accueil",
       "text": "Kembali ke beranda"
     },
+    "pages.patchNotes.openAdjustments": {
+      "fr": "Afficher le détail des {n} ajustements",
+      "text": "Tampilkan detail {n} penyesuaian"
+    },
     "pages.privacy.title": {
       "fr": "Confidentialité",
       "text": "Privasi"
@@ -1795,6 +1839,10 @@
     "pages.ranks.noDraft": {
       "fr": "Non (choix à l'aveugle)",
       "text": "Tidak (blind pick)"
+    },
+    "pages.ranks.openTable": {
+      "fr": "Afficher le tableau des divisions, étoiles et points",
+      "text": "Tampilkan tabel divisi, bintang, dan poin"
     },
     "pages.ranks.pointsInstead": {
       "fr": "Points au lieu d'étoiles",
@@ -2079,6 +2127,10 @@
     "pages.tierList.metaTitleRank": {
       "fr": "Tier list MLBB {rank} : les meilleurs héros du moment",
       "text": "Tier List MLBB {rank}: hero terkuat saat ini"
+    },
+    "pages.tierList.openTier": {
+      "fr": "Afficher les {n} héros du palier {p}",
+      "text": "Tampilkan {n} hero tier {p}"
     },
     "pages.tierList.rolePlural.Assassin": {
       "fr": "assassins",
@@ -2536,6 +2588,10 @@
       "fr": "Prochaines remises à zéro",
       "text": "Reset berikutnya"
     },
+    "tools.serverTime.countriesOpen": {
+      "fr": "Afficher l'heure de la remise pays par pays",
+      "text": "Tampilkan waktu reset per negara"
+    },
     "tools.serverTime.countriesTitle": {
       "fr": "Heure de la remise, pays par pays",
       "text": "Waktu reset per negara"
@@ -2633,6 +2689,10 @@
     "home.titleAccent": {
       "fr": "en {language}",
       "text": "in {language}"
+    },
+    "home.trends.open": {
+      "fr": "Afficher les {n} héros qui bougent",
+      "text": "Mostra i {n} eroi in movimento"
     },
     "nav.groups.news": {
       "fr": "Actualités",
@@ -2790,6 +2850,10 @@
       "fr": "Le patch {v} modifie {n} héros.",
       "text": "La patch {v} modifica {n} eroi."
     },
+    "pages.patchNotes.openAdjustments": {
+      "fr": "Afficher le détail des {n} ajustements",
+      "text": "Mostra il dettaglio dei {n} aggiustamenti"
+    },
     "pages.quizUI.clues.passive": {
       "fr": "Passif",
       "text": "Passivo"
@@ -2846,6 +2910,10 @@
       "fr": "Victoire",
       "text": "Win rate"
     },
+    "pages.tierList.openTier": {
+      "fr": "Afficher les {n} héros du palier {p}",
+      "text": "Mostra i {n} eroi del livello {p}"
+    },
     "pages.tierList.win": {
       "fr": "Victoire",
       "text": "Vittoria"
@@ -2865,6 +2933,10 @@
     "tools.retribution.currentRun": {
       "fr": "Série en cours",
       "text": "Striscia attuale"
+    },
+    "tools.serverTime.countriesOpen": {
+      "fr": "Afficher l'heure de la remise pays par pays",
+      "text": "Mostra l'orario del reset paese per paese"
     }
   }
 }

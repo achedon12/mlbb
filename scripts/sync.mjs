@@ -375,6 +375,13 @@ const EMBLEMS = [
   "Mage Emblem", "Marksman Emblem", "Support Emblem",
 ];
 
+// Lane icons, under the names the wiki gives them. The site's lane tokens
+// (Gold, Exp, Mid, Jungle, Roam) name the files, so `imageLane` finds them
+// without a table: see `src/lib/emblems.ts`.
+const LANE_FILES = {
+  Gold: "Gold Lane", Exp: "EXP Lane", Mid: "Mid Lane", Jungle: "Jungling", Roam: "Roaming",
+};
+
 const TALENTS = [
   "Agility", "Swift", "Vitality", "Fatal", "Firmness", "Thrill", "Inspire",
   "Tenacity", "Seasoned Hunter", "Master Assassin", "Weakness Finder",
@@ -1950,18 +1957,27 @@ async function main() {
   );
 
   console.log("Resolving items, emblems, talents and spells…");
-  const [urlsItems, urlsEmblems, urlsTalents, spellUrls] = await Promise.all([
+  const [urlsItems, urlsEmblems, urlsTalents, spellUrls, urlsLanes] = await Promise.all([
     urlsFiles(items.map((o) => o.name)),
     urlsFiles(EMBLEMS),
     urlsFiles(TALENTS),
     urlsFiles(SPELLS),
+    urlsFiles(Object.values(LANE_FILES)),
   ]);
+
+  // The lane icons keep the site's token as their file name, not the wiki's.
+  const urlsLanesByLane = Object.fromEntries(
+    Object.entries(LANE_FILES)
+      .map(([lane, file]) => [lane, urlsLanes[file]])
+      .filter(([, url]) => url),
+  );
 
   const batches = [
     planFiles(urlsItems, "objets"),
     planFiles(urlsEmblems, "emblemes"),
     planFiles(urlsTalents, "talents"),
     planFiles(spellUrls, "sorts"),
+    planFiles(urlsLanesByLane, "lanes"),
   ];
   plan.push(...batches.flatMap((l) => l.plan));
 

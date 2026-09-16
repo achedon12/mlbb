@@ -32,7 +32,7 @@ import {
   type CompactRow,
   type RowStat,
 } from "@/lib/statistics-table";
-import { imageRank, imageRole } from "@/lib/emblems";
+import { imageLane, imageRank, imageRole } from "@/lib/emblems";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_ROWS_CARDS } from "@/lib/pager";
 import { describeGap, formatGap, THRESHOLD_NOTABLE } from "@/lib/trends";
 import { cn } from "@/lib/utils";
@@ -178,7 +178,9 @@ export function StatisticsTable({
                 onRemove={() => maj({ role: null })}
               />
             )}
-            {state.lane && <ChipActive key="lane" label={t(`lanes.${state.lane}`)} onRemove={() => maj({ lane: null })} />}
+            {state.lane && (
+              <ChipActive key="lane" label={t(`lanes.${state.lane}`)} emblem={imageLane(state.lane)} onRemove={() => maj({ lane: null })} />
+            )}
           </>
         }
         count={
@@ -216,6 +218,7 @@ export function StatisticsTable({
           active={state.lane}
           onChange={(lane) => maj({ lane })}
           label={(l) => t(`lanes.${l}`)}
+          emblem={imageLane}
         />
       </FilterBar>
 

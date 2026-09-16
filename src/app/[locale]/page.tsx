@@ -5,6 +5,7 @@ import { ArrowRight, Rss, Swords, TrendingDown, TrendingUp } from "lucide-react"
 import { RoleAccess } from "@/components/role-access";
 import { HomeFeatured } from "@/components/home-featured";
 import { HeroPortrait } from "@/components/hero-portrait";
+import { Foldable } from "@/components/foldable";
 import { BadgeTier, Card, SectionTitle } from "@/components/ui";
 import {
   allHeroes,
@@ -124,38 +125,38 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 
       {/* ── Hero banner ────────────────────────────────────────────────── */}
       <section className="border-b border-night-700/70">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-          <p className="font-heading text-sm font-semibold uppercase tracking-[0.2em] text-gold-400">
+        <div className="mx-auto max-w-6xl px-4 py-5 sm:py-16">
+          <p className="font-heading text-xs font-semibold uppercase tracking-[0.2em] text-gold-400 sm:text-sm">
             Mobile Legends: Bang Bang
           </p>
-          <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold leading-tight text-chalk-100 sm:text-6xl">
+          <h1 className="mt-2 max-w-3xl font-heading text-3xl font-bold leading-tight text-chalk-100 sm:mt-4 sm:text-6xl">
             {t("home.title1")}{" "}
             <span className="bg-linear-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
               {t("home.titleAccent", { language: languageName(locale) })}
             </span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chalk-300">
+          <p className="mt-3 max-w-2xl leading-relaxed text-chalk-300 sm:mt-6 sm:text-lg">
             {t("home.lead", { heroes: allHeroes.length, skins: countSkins })}
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-3 sm:mt-8">
             <Link
               href="/heroes"
-              className="bevel-sm flex items-center gap-2 bg-gold-500 px-6 py-3 font-semibold text-night-950 transition-colors hover:bg-gold-400"
+              className="bevel-sm flex items-center gap-2 bg-gold-500 px-5 py-2.5 font-semibold text-night-950 transition-colors hover:bg-gold-400 sm:px-6 sm:py-3"
             >
               {t("home.browse")}
               <ArrowRight size={18} aria-hidden />
             </Link>
             <Link
               href="/draft"
-              className="bevel-sm flex items-center gap-2 border border-night-600 px-6 py-3 font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400"
+              className="bevel-sm flex items-center gap-2 border border-night-600 px-5 py-2.5 font-semibold text-chalk-100 transition-colors hover:border-gold-500/60 hover:text-gold-400 sm:px-6 sm:py-3"
             >
               <Swords size={17} aria-hidden />
               {t("home.draftHelp")}
             </Link>
           </div>
 
-          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-night-800 pt-8 sm:grid-cols-4">
+          <dl className="mt-4 grid max-w-3xl grid-cols-4 gap-2 border-t border-night-800 pt-4 sm:mt-12 sm:gap-6 sm:pt-8">
             {[
               { value: allHeroes.length, label: t("home.statHeroes") },
               { value: countSkins, label: t("home.statSkins") },
@@ -165,10 +166,10 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
               <div key={s.label}>
                 <dt className="sr-only">{s.label}</dt>
                 <dd>
-                  <span className="block font-heading text-3xl font-bold text-gold-400">
+                  <span className="block font-heading text-xl font-bold leading-tight text-gold-400 sm:text-3xl">
                     {s.value}
                   </span>
-                  <span className="mt-1 block text-xs uppercase tracking-wide text-chalk-500">
+                  <span className="mt-0.5 block text-[0.65rem] uppercase tracking-wide text-chalk-500 sm:mt-1 sm:text-xs">
                     {s.label}
                   </span>
                 </dd>
@@ -190,7 +191,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       )}
 
       {/* ── Browse by role ─────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
+      <section className="mx-auto max-w-6xl px-4 py-5 sm:py-16">
         <SectionTitle lead={t("home.startLead")}>
           {t("home.startTitle")}
         </SectionTitle>
@@ -202,21 +203,24 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         Taken from the menu: a tool added to the sections appears here with no other
         change.
       */}
-      <section className="mx-auto max-w-6xl px-4 pb-16">
+      <section className="mx-auto max-w-6xl px-4 pb-5 sm:pb-16">
         <SectionTitle lead={t("home.toolsLead")}>{t("home.toolsTitle")}</SectionTitle>
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Two columns on a phone: twelve doors read as a keypad, not as a list. */}
+        <ul className="grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-3">
           {TOOLS.map(({ href, key, icon: Icon }) => (
             <li key={href}>
               <Link
                 href={href}
-                className="bevel group flex h-full items-start gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
+                className="bevel group flex h-full items-start gap-2 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60 sm:gap-3 sm:p-4"
               >
-                <Icon size={20} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
+                <Icon size={18} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
                 <span className="min-w-0">
-                  <span className="block font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+                  <span className="block font-heading text-sm font-bold leading-tight text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-base sm:leading-normal">
                     {t(`nav.${key}.label`)}
                   </span>
-                  <span className="mt-1 block text-sm leading-relaxed text-chalk-500">{t(`nav.${key}.desc`)}</span>
+                  <span className="mt-0.5 line-clamp-2 block text-xs leading-tight text-chalk-500 sm:mt-1 sm:line-clamp-none sm:leading-relaxed sm:text-sm sm:leading-relaxed">
+                    {t(`nav.${key}.desc`)}
+                  </span>
                 </span>
               </Link>
             </li>
@@ -226,7 +230,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 
       {/* ── Top of the ranking ─────────────────────────────────────────── */}
       <section className="border-y border-night-700/70 bg-night-900/30">
-        <div className="mx-auto max-w-6xl px-4 py-16">
+        <div className="mx-auto max-w-6xl px-4 py-5 sm:py-16">
           <SectionTitle
             lead={t("home.rankingLead")}
             action={{ href: "/tier-list", label: t("home.fullTierList") }}
@@ -234,14 +238,19 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
             {t("home.rankingTitle")}
           </SectionTitle>
 
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {/*
+            Five stacked cards cost a screen and a half on a phone for five
+            names: below `sm` the card lies down into a row — portrait, tier,
+            name, rate — and stands back up from `sm`.
+          */}
+          <ul className="grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-5">
             {top.map((e) => (
               <li key={e.hero.slug}>
                 <Link
                   href={`/heroes/${e.hero.slug}`}
-                  className="bevel flex h-full flex-col items-center gap-2 border border-night-700/70 bg-night-900/60 p-4 text-center transition-colors hover:border-gold-500/60"
+                  className="bevel flex h-full items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60 sm:flex-col sm:justify-center sm:gap-2 sm:p-4 sm:text-center"
                 >
-                  <span className="bevel-sm relative size-16 overflow-hidden bg-night-800">
+                  <span className="bevel-sm relative size-11 shrink-0 overflow-hidden bg-night-800 sm:size-16">
                     {e.hero.images.portrait && (
                       <Image
                         src={e.hero.images.portrait}
@@ -253,8 +262,8 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
                     )}
                   </span>
                   <BadgeTier tier={e.tier} />
-                  <span className="font-heading font-bold text-chalk-100">{e.hero.name}</span>
-                  <span className="text-xs text-chalk-500">
+                  <span className="min-w-0 flex-1 truncate font-heading font-bold text-chalk-100">{e.hero.name}</span>
+                  <span className="shrink-0 text-xs text-chalk-500">
                     {new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(e.winRate)}{" "}
                     {t("home.winPercent")}
                   </span>
@@ -267,7 +276,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 
       {/* ── Trends of the week ─────────────────────────────────────────── */}
       {(week.rises.length > 0 || week.drops.length > 0) && (
-        <section className="mx-auto max-w-6xl px-4 py-16">
+        <section className="mx-auto max-w-6xl px-4 py-5 sm:py-16">
           <SectionTitle
             lead={t("home.trends.lead", {
               threshold: new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE),
@@ -276,30 +285,37 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
           >
             {t("home.trends.title")}
           </SectionTitle>
-          <div className="grid gap-8 md:grid-cols-2">
-            <ListMoves
-              title={t("home.trends.rise")}
-              empty={t("home.trends.noRise")}
-              moves={week.rises}
-              rise
-              locale={locale}
-              t={t}
-            />
-            <ListMoves
-              title={t("home.trends.fall")}
-              empty={t("home.trends.noFall")}
-              moves={week.drops}
-              rise={false}
-              locale={locale}
-              t={t}
-            />
-          </div>
+          {/*
+            The head of the ranking, just above, already answers "who is
+            strong": the week's movements are the follow-up question. They
+            stay in the document, one line away.
+          */}
+          <Foldable label={t("home.trends.open", { n: week.rises.length + week.drops.length })}>
+            <div className="grid gap-5 md:grid-cols-2 md:gap-8">
+              <ListMoves
+                title={t("home.trends.rise")}
+                empty={t("home.trends.noRise")}
+                moves={week.rises}
+                rise
+                locale={locale}
+                t={t}
+              />
+              <ListMoves
+                title={t("home.trends.fall")}
+                empty={t("home.trends.noFall")}
+                moves={week.drops}
+                rise={false}
+                locale={locale}
+                t={t}
+              />
+            </div>
+          </Foldable>
         </section>
       )}
 
       {/* ── Skins ──────────────────────────────────────────────────────── */}
       {featuredSkins.length > 0 && (
-        <section className="mx-auto max-w-6xl px-4 py-16">
+        <section className="mx-auto max-w-6xl px-4 py-5 sm:py-16">
           <SectionTitle
             lead={t("home.skinsLead", { skins: countSkins })}
             action={{ href: "/heroes", label: t("home.seeHeroes") }}
@@ -307,7 +323,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
             {t("home.skinsTitle")}
           </SectionTitle>
 
-          <ul className="grid grid-cols-2 gap-3 md:grid-cols-3">
+          <ul className="grid grid-cols-3 gap-2 md:grid-cols-3 md:gap-3">
             {featuredSkins.map((s) => (
               <li key={`${s.slug}-${s.skin}`}>
                 <Link
@@ -321,11 +337,11 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
                     sizes="(min-width: 768px) 380px, 45vw"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
-                  <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-night-950 to-transparent p-3">
-                    <span className="block font-heading text-sm font-bold text-chalk-100">
+                  <span className="absolute inset-x-0 bottom-0 bg-linear-to-t from-night-950 to-transparent p-2 sm:p-3">
+                    <span className="block truncate font-heading text-xs font-bold text-chalk-100 sm:text-sm">
                       {s.skin}
                     </span>
-                    <span className="block text-xs text-chalk-500">{s.heroes}</span>
+                    <span className="block truncate text-[0.65rem] text-chalk-500 sm:text-xs">{s.heroes}</span>
                   </span>
                 </Link>
               </li>
@@ -336,16 +352,16 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
 
       {/* ── Patch and articles ─────────────────────────────────────────── */}
       <section className="border-t border-night-700/70 bg-night-900/30">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 lg:grid-cols-[1fr_2fr]">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-5 sm:py-16 lg:grid-cols-[1fr_2fr]">
           {lastPatch && (
             <div>
               <SectionTitle lead="">{t("home.lastUpdate")}</SectionTitle>
-              <Card>
+              <Card className="p-4">
                 <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-gold-400">
                   <TrendingUp size={14} aria-hidden />
                   Patch {lastPatch.version}
                 </p>
-                <ul className="mt-4 space-y-1.5">
+                <ul className="mt-3 space-y-1">
                   {detail[lastPatch.version].toc.slice(0, 5).map((s) => (
                     <li key={s.title} className="text-sm leading-snug text-chalk-300">
                       {s.title}
@@ -354,7 +370,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
                 </ul>
                 <Link
                   href={`/patch-notes/${lastPatch.version}`}
-                  className="mt-5 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
+                  className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500"
                 >
                   {t("home.readNotes")} →
                 </Link>
@@ -369,12 +385,12 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
             >
               {t("home.latestArticles")}
             </SectionTitle>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {articles.map((a) => (
                 <li key={a.slug}>
                   <Link
                     href={`/${a.category === "Patch" ? "patch-notes" : "news"}/${a.slug}`}
-                    className="bevel block border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
+                    className="bevel block border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60 sm:p-4"
                   >
                     <span className="flex flex-wrap items-center gap-3">
                       <span className="text-xs font-semibold uppercase tracking-wide text-gold-400">
@@ -384,10 +400,10 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
                         {formatShortDate(a.date, LOCALE_HTML[locale])}
                       </time>
                     </span>
-                    <span className="mt-1.5 block font-heading text-lg font-bold leading-snug text-chalk-100">
+                    <span className="mt-1 line-clamp-2 block font-heading font-bold leading-snug text-chalk-100 sm:line-clamp-none sm:text-lg">
                       {a.title}
                     </span>
-                    <span className="mt-1.5 block text-sm leading-relaxed text-chalk-500">
+                    <span className="mt-1 line-clamp-2 block text-sm leading-snug text-chalk-500 sm:line-clamp-none">
                       {a.summary}
                     </span>
                   </Link>
@@ -398,37 +414,32 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         </div>
       </section>
 
-      {/* ── How it works ───────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <SectionTitle lead={t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_HTML[locale]) })}>
-          {t("home.howItWorks")}
-        </SectionTitle>
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            {
-              title: t("home.cards.dataTitle"),
-              text:
-                t("home.cards.dataText"),
-            },
-            {
-              title: t("home.cards.rankingTitle"),
-              text:
-                t("home.cards.rankingText"),
-            },
-            {
-              title: t("home.cards.writtenTitle"),
-              text:
-                t("home.cards.writtenText"),
-            },
-          ].map((c) => (
-            <Card key={c.title}>
-              <h3 className="font-heading text-lg font-bold text-chalk-100">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-chalk-500">{c.text}</p>
-            </Card>
-          ))}
-        </div>
+      {/*
+        ── How it works ──────────────────────────────────────────────────
+        The last section explains the site rather than showing it: it closes
+        the page instead of lengthening it, its three cards folded under a
+        summary line. The text stays in the document.
+      */}
+      <section className="mx-auto max-w-6xl px-4 py-5 sm:py-16">
+        <Foldable label={t("home.howItWorks")}>
+          <p className="text-sm text-chalk-500">
+            {t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_HTML[locale]) })}
+          </p>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {[
+              { title: t("home.cards.dataTitle"), text: t("home.cards.dataText") },
+              { title: t("home.cards.rankingTitle"), text: t("home.cards.rankingText") },
+              { title: t("home.cards.writtenTitle"), text: t("home.cards.writtenText") },
+            ].map((c) => (
+              <Card key={c.title}>
+                <h3 className="font-heading text-lg font-bold text-chalk-100">{c.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-chalk-500">{c.text}</p>
+              </Card>
+            ))}
+          </div>
+        </Foldable>
 
-        <p className="mt-8 flex items-center gap-2 text-sm text-chalk-500">
+        <p className="mt-5 flex items-center gap-2 text-sm text-chalk-500">
           <Rss size={15} aria-hidden className="text-gold-400" />
           <Link href="/feed.xml" className="hover:text-gold-400">
             {t("home.followRss")}
@@ -465,7 +476,7 @@ function ListMoves({
     <div>
       <h3
         className={cn(
-          "mb-3 flex items-center gap-2 font-heading text-lg font-bold",
+          "mb-2 flex items-center gap-2 font-heading text-lg font-bold",
           rise ? "text-emerald-400" : "text-blood-500",
         )}
       >
@@ -475,7 +486,7 @@ function ListMoves({
       {moves.length === 0 ? (
         <p className="text-sm text-chalk-500">{empty}</p>
       ) : (
-        <ol className="space-y-2">
+        <ol className="space-y-1.5">
           {moves.map(({ slug, variation: v }) => {
             const h = heroesBySlug.get(slug);
             if (!h) return null;
@@ -483,7 +494,7 @@ function ListMoves({
               <li key={slug}>
                 <Link
                   href={`/heroes/${slug}`}
-                  className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2.5 transition-colors hover:border-gold-500/60"
+                  className="bevel-sm group flex items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 transition-colors hover:border-gold-500/60"
                 >
                   <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="icon" decorative />
                   <span className="min-w-0 flex-1">
