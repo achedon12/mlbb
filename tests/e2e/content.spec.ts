@@ -1,5 +1,5 @@
 import { expect, test, type ConsoleMessage } from "@playwright/test";
-import { PAGES, PLACEHOLDER } from "../../scripts/smoke-check-rules.mjs";
+import { PAGES, PLACEHOLDER, BROKEN_VALUE } from "../../scripts/smoke-check-rules.mjs";
 
 /**
  * Content checks in a real browser, on the pages of the smoke check table
@@ -54,6 +54,11 @@ for (const { path, allowed } of targets) {
     const text = await page.evaluate(() => document.body.innerText);
     const placeholders = [...new Set(text.match(PLACEHOLDER) ?? [])].filter((p) => !allowed.includes(p));
     expect.soft(placeholders, "placeholders in the visible text").toEqual([]);
+
+    // Once hydrated, a value the server did not compute shows up as "NaN" or
+    // "[object Object]": the smoke check reads the server HTML and misses it.
+    const broken = [...new Set(text.match(BROKEN_VALUE) ?? [])];
+    expect.soft(broken, "broken values in the visible text").toEqual([]);
 
     expect(errors, "console and page errors during load").toEqual([]);
   });

@@ -59,7 +59,7 @@ import { site, absoluteUrl } from "@/lib/site";
 import type { Locale } from "@/i18n/config";
 import { createT, messagesPage } from "@/i18n/translations";
 import { releaseDate, heroLabel } from "@/i18n/hero-data";
-import { normalizeNameSkin } from "@/lib/utils";
+import { normalizeNameSkin, mapValues } from "@/lib/utils";
 import { metaPage } from "@/i18n/seo";
 import { FreshnessLine } from "@/components/freshness";
 import { longDate, dateMeasure, listNames, patchCurrent, percentage } from "@/lib/freshness";
@@ -200,47 +200,30 @@ export default async function HeroPage({ params }: Params) {
   // opponents' names and portraits are therefore resolved here, for each rank.
   const resolve = (list: CounterFigure[]) =>
     list.map((e) => ({ ...e, name: nameOf(e.slug), portrait: portraitOf(e.slug) }));
-  const countersShown = Object.fromEntries(
-    Object.entries(counters[h.slug] ?? {}).map(([rank, c]) => [
-      rank,
-      { strong: resolve(c.strong), weak: resolve(c.weak), winRate: c.winRate },
-    ]),
-  );
+  const countersShown = mapValues(counters[h.slug] ?? {}, (c) => ({
+    strong: resolve(c.strong),
+    weak: resolve(c.weak),
+    winRate: c.winRate,
+  }));
   const hasCounters = Object.keys(countersShown).length > 0;
 
   // Header rates, rank by rank: the rank chosen on the hero page switches
   // them together with the counters.
   const statsRanks = statsByRank(h.slug);
   const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  const valuesByRank = (format: (s: StatsRank) => string) =>
-    Object.fromEntries(Object.entries(statsRanks).map(([r, s]) => [r, format(s)]));
+  const valuesByRank = (format: (s: StatsRank) => string) => mapValues(statsRanks, format);
   const ranksAvailable = MEASURED_RANKS.filter((r) => statsRanks[r] || countersShown[r]);
 
   // Played builds, resolved here for the same reason: visuals and catalog
   // stay on the server.
-  const buildsShown = Object.fromEntries(
-    Object.entries(buildsPlayed[h.slug] ?? {}).map(([lane, byRank]) => [
-      lane,
-      Object.fromEntries(
-        Object.entries(byRank).map(([rank, list]) => [rank, (list ?? []).map(resolveBuild)]),
-      ),
-    ]),
+  const buildsShown = mapValues(buildsPlayed[h.slug] ?? {}, (byRank) =>
+    mapValues(byRank, (list) => (list ?? []).map(resolveBuild)),
   );
-  const guidesShown = Object.fromEntries(
-    Object.entries(guidesPlayers[h.slug] ?? {}).map(([lane, byRank]) => [
-      lane,
-      Object.fromEntries(
-        Object.entries(byRank).flatMap(([rank, g]) => (g ? [[rank, resolveGuide(g)]] : [])),
-      ),
-    ]),
-  );
+  const guidesShown = mapValues(guidesPlayers[h.slug] ?? {}, (byRank) => mapValues(byRank, resolveGuide));
   const hasBuilds = Object.keys(buildsShown).length > 0 || Object.keys(guidesShown).length > 0;
 
-  const teammatesShown = Object.fromEntries(
-    Object.entries(teammates[h.slug] ?? {}).map(([rank, list]) => [
-      rank,
-      (list ?? []).map((c) => ({ ...c, name: nameOf(c.slug), portrait: portraitOf(c.slug) })),
-    ]),
+  const teammatesShown = mapValues(teammates[h.slug] ?? {}, (list) =>
+    (list ?? []).map((c) => ({ ...c, name: nameOf(c.slug), portrait: portraitOf(c.slug) })),
   );
   const hasTeammates = Object.keys(teammatesShown).length > 0;
 
@@ -667,9 +650,7 @@ export default async function HeroPage({ params }: Params) {
                     duration={durationOf(h.slug)}
                     history={history}
                     patches={patchDates}
-                    byRank={Object.fromEntries(
-                      Object.entries(statsRanks).map(([r, s]) => [r, { win: s.winRate, ban: s.banRate }]),
-                    )}
+                    byRank={statsRanks}
                     adjustments={heroAdjustments.map((a) => ({ version: a.version, type: a.adjustment.type }))}
                   />
                   <section>

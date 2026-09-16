@@ -6,6 +6,25 @@ export function cn(...entries: ClassValue[]): string {
   return twMerge(clsx(entries));
 }
 
+/**
+ * Rebuilds a per-key record by transforming each value, keeping the keys.
+ *
+ * Preferred over `Object.fromEntries(Object.entries(x).map(([k, v]) => [k, f(v)]))`:
+ * that expression is typed `any` (the callback returns an array, not a tuple),
+ * so a value built with the wrong shape reaches a typed prop without a single
+ * error — the per-rank rates of the hero page were rendered as `NaN %` that
+ * way. Here the result keeps the source keys, and the shape is checked where
+ * it is consumed.
+ */
+export function mapValues<K extends PropertyKey, V, W>(
+  source: Partial<Record<K, V>>,
+  transform: (value: V, key: K) => W,
+): Partial<Record<K, W>> {
+  const output: Partial<Record<K, W>> = {};
+  for (const [key, value] of Object.entries(source) as [K, V][]) output[key] = transform(value, key);
+  return output;
+}
+
 const FORMATS_DATE: Record<string, Intl.DateTimeFormat> = {};
 function formatDate(locale: string): Intl.DateTimeFormat {
   return (FORMATS_DATE[locale] ??= new Intl.DateTimeFormat(locale, {

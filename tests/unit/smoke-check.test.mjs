@@ -101,6 +101,20 @@ describe("inspectPage", () => {
     expect(problems).toEqual(["placeholder in meta description: {count}", "placeholder in visible text: {pluriel}"]);
   });
 
+  it("reports a value only a broken computation prints", () => {
+    const problems = inspectPage({
+      html: html({ main: `${words(60)} Mythique NaN % ban NaN %` }),
+      status: 200,
+      locale: "en",
+      page: page("/heroes/khufra"),
+    });
+    expect(problems).toEqual(["broken value in visible text: NaN"]);
+    // A word containing the pattern is not one.
+    expect(
+      inspectPage({ html: html({ main: `${words(60)} Nanami NaNoGenMo` }), status: 200, locale: "en", page: page("/heroes") }),
+    ).toEqual([]);
+  });
+
   it("allows the placeholders a page documents on purpose", () => {
     const source = html({ main: `${words(60)} GET /api/v1/heroes/{slug}` });
     expect(inspectPage({ html: source, status: 200, locale: "en", page: page("/api-doc") })).toEqual([]);

@@ -18,6 +18,14 @@ const EN_FR = ["en", "fr"];
 /** Placeholder left by a message that was not interpolated: `{plural}`, `{count}`. */
 export const PLACEHOLDER = /\{[A-Za-z_][A-Za-z0-9_]*\}/g;
 
+/**
+ * Values that only a broken computation leaves on a page: a rate rendered from
+ * a missing field (`NaN %`), an object printed as text, an unparsed date. The
+ * hero pages showed `NaN %` in every rank bracket for two days, with a green
+ * build, green tests and a green smoke check — hence this scan.
+ */
+export const BROKEN_VALUE = /\[object Object\]|\bNaN\b|\bInvalid Date\b/g;
+
 /** Below this many words in the main content, a page is considered empty. */
 export const MIN_WORDS = 40;
 
@@ -246,8 +254,12 @@ export function inspectPage({ html, status, locale, page, expectedStatus = 200 }
   else if (lang.split("-")[0].toLowerCase() !== locale) problems.push(`<html lang="${lang}">, expected ${locale}`);
 
   // The whole document minus its head: header, navigation and footer count too.
-  const placeholders = findPlaceholders(visibleText(html.replace(/<head\b[\s\S]*?<\/head\s*>/i, " ")), allowed);
+  const body = visibleText(html.replace(/<head\b[\s\S]*?<\/head\s*>/i, " "));
+  const placeholders = findPlaceholders(body, allowed);
   if (placeholders.length) problems.push(`placeholder in visible text: ${placeholders.join(", ")}`);
+
+  const broken = [...new Set(body.match(BROKEN_VALUE) ?? [])];
+  if (broken.length) problems.push(`broken value in visible text: ${broken.join(", ")}`);
 
   const main = visibleText(mainHtml(html));
   const words = countWords(main);
