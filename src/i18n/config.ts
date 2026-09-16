@@ -37,6 +37,16 @@ export const LOCALE_HTML: Record<Locale, string> = {
   id: "id-ID",
 };
 
+/**
+ * Name of a language, in that language ("français", "English", "Indonesia"),
+ * for sentences that name the language the reader is reading. The selector
+ * label above is capitalized and sometimes fuller ("Bahasa Indonesia"), which
+ * does not fit inside a sentence.
+ */
+export function languageName(locale: Locale): string {
+  return new Intl.DisplayNames([LOCALE_HTML[locale]], { type: "language", fallback: "none" }).of(locale) ?? LOCALE_NAME[locale];
+}
+
 export function isLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value);
 }

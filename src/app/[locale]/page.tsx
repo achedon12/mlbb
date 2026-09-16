@@ -24,7 +24,7 @@ import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
 import { cn, formatShortDate } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
-import { LOCALE_HTML, isLocale } from "@/i18n/config";
+import { LOCALE_HTML, isLocale, languageName } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { BASE } from "@/lib/sections";
 import { createT, type T } from "@/i18n/translations";
@@ -131,7 +131,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
           <h1 className="mt-4 max-w-3xl font-heading text-4xl font-bold leading-tight text-chalk-100 sm:text-6xl">
             {t("home.title1")}{" "}
             <span className="bg-linear-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent">
-              {t("home.titleAccent")}
+              {t("home.titleAccent", { language: languageName(locale) })}
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-chalk-300">

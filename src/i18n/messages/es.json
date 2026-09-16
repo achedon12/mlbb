@@ -3222,7 +3222,7 @@
   },
   "home": {
     "title1": "Todo el juego, explicado",
-    "titleAccent": "en francés",
+    "titleAccent": "en {language}",
     "lead": "{heroes} héroes y sus {skins} skins, una tier list calculada con las tasas del juego, un asistente de draft, los objetos, los emblemas y las notas del parche. Los datos se sincronizan solos; el análisis se escribe a mano.",
     "browse": "Explorar los héroes",
     "draftHelp": "Asistente de draft",

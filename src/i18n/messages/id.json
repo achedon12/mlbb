@@ -3222,7 +3222,7 @@
   },
   "home": {
     "title1": "Seluruh game, dijelaskan",
-    "titleAccent": "dalam bahasa Perancis",
+    "titleAccent": "dalam bahasa {language}",
     "lead": "{heroes} hero dan {skins} skinnya, tier list yang dihitung berdasarkan kecepatan permainan, rancangan bantuan, item, emblem, dan patch notes. Data disinkronkan sendiri; analisisnya ditulis dengan tangan.",
     "browse": "Telusuri Hero",
     "draftHelp": "Asisten draft",

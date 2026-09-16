@@ -215,6 +215,10 @@
     "tools.retribution.bestRun": {
       "fr": "Meilleure série",
       "text": "Best streak"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "in {language}"
     }
   },
   "es": {
@@ -369,6 +373,10 @@
     "pages.statisticsTable.weak": {
       "fr": "Trop peu joué pour que les taux soient fiables",
       "text": "Elegido tan pocas veces que sus tasas no son fiables"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "en {language}"
     }
   },
   "id": {
@@ -2455,6 +2463,10 @@
     "tools.serverTime.yourTime": {
       "fr": "Chez vous : {time} ({timezone})",
       "text": "Waktu Anda: {time} ({timezone})"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "dalam bahasa {language}"
     }
   },
   "it": {
@@ -2669,6 +2681,10 @@
     "tools.retribution.currentRun": {
       "fr": "Série en cours",
       "text": "Striscia attuale"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "in {language}"
     }
   }
 }

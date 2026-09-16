@@ -3222,7 +3222,7 @@
   },
   "home": {
     "title1": "The whole game, explained",
-    "titleAccent": "in French",
+    "titleAccent": "in {language}",
     "lead": "{heroes} heroes and their {skins} skins, a tier list calculated from in-game rates, a draft assistant, items, emblems and patch notes. The data syncs itself; the analysis is written by hand.",
     "browse": "Browse heroes",
     "draftHelp": "Draft assistant",
