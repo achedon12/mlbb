@@ -12843,5 +12843,9 @@
   "es|Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.": "Participación de los juegos de cada héroe en {ranks} jugados con una de sus tres configuraciones más jugadas que contiene {name}. Los héroes elegidos en menos de {min} de las selecciones en estos rangos se descartan por falta de juegos.",
   "id|{name} ({effect}) : surtout dans le build de {heroes} en {rank} et au-delà.": "{name} ({effect}): terutama dalam build dari {heroes} hingga {rank} dan seterusnya.",
   "id|{name} : surtout dans le build de {heroes} en {rank} et au-delà.": "{name}: terutama dalam build dari {heroes} hingga {rank} dan seterusnya.",
-  "id|Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.": "Bagikan game masing-masing pahlawan di {ranks} yang dimainkan dengan salah satu dari tiga build yang paling sering dimainkan yang berisi {name}. Pahlawan yang dipilih dalam waktu kurang dari {min} dari pilihan di peringkat ini akan dibuang, karena kurangnya permainan."
+  "id|Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.": "Bagikan game masing-masing pahlawan di {ranks} yang dimainkan dengan salah satu dari tiga build yang paling sering dimainkan yang berisi {name}. Pahlawan yang dipilih dalam waktu kurang dari {min} dari pilihan di peringkat ini akan dibuang, karena kurangnya permainan.",
+  "en|en {language}": "in {language}",
+  "it|en {language}": "tra {language}",
+  "es|en {language}": "en {language}",
+  "id|en {language}": "di {language}"
 }
