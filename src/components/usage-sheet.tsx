@@ -1,10 +1,13 @@
 import { Fragment } from "react";
+import { CardsTable } from "@/components/cards-table";
 import { ItemIcon } from "@/components/item-sheet";
+import { LightImage } from "@/components/light-image";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import type { Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import { heroesBySlug } from "@/lib/data";
+import { imageRank } from "@/lib/emblems";
 import { percentage } from "@/lib/freshness";
 import type { SummaryRank, UsageHero } from "@/lib/usage-builds";
 
@@ -21,11 +24,6 @@ const portraitOf = (slug: string) => {
 /** The link opens the builds tab of the hero page directly. */
 const linkBuilds = (slug: string) => `/heroes/${slug}#builds`;
 const rate = (locale: Locale, v: number | null) => (v === null ? "—" : percentage(locale, v));
-
-/** Cell spacing, set once on the table rather than on every cell. */
-const TABLE =
-  "w-full text-sm [&_td]:py-2 [&_td]:pr-3 [&_td:last-child]:pr-0 [&_th]:py-2 [&_th]:pr-3 [&_th:last-child]:pr-0 [&_th]:font-medium";
-const HEADER = "border-b border-night-700 text-left text-xs uppercase tracking-wide text-chalk-500";
 
 /**
  * Heroes who take the choice: position, share of matches and win rate.
@@ -47,41 +45,46 @@ export function TableUsage({
   const rest = rows.slice(limit);
   return (
     <>
-      <div className="relative overflow-x-auto">
-        {/* Cell classes set once on the table: each row stays light. */}
-        <table className={TABLE}>
-          <caption className="sr-only">{legend}</caption>
-          <thead>
-            <tr className={HEADER}>
-              <th scope="col">{t("pages.sheets.heroes")}</th>
-              <th scope="col" className="hidden sm:table-cell">{t("builds.position")}</th>
-              <th scope="col" className="text-right">{t("pages.sheets.share")}</th>
-              <th scope="col" className="text-right">{t("pages.heroDetail.stat.winRate")}</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-night-800 tabular-nums text-chalk-100">
-            {rows.slice(0, limit).map((l) => (
-              <tr key={l.slug}>
-                <td>
-                  <Link href={linkBuilds(l.slug)} className="group flex items-center gap-2.5">
-                    <HeroPortrait source={portraitOf(l.slug)} name={nameOf(l.slug)} size="small" decorative />
-                    <span className="min-w-0">
-                      <span className="block truncate font-medium text-chalk-100 group-hover:text-gold-400">
-                        {nameOf(l.slug)}
-                      </span>
-                      {/* On mobile, the position goes under the name rather than in its own column. */}
-                      <span className="block text-xs text-chalk-500 sm:hidden">{t(`lanes.${l.lane}`)}</span>
-                    </span>
-                  </Link>
-                </td>
-                <td className="hidden text-chalk-300 sm:table-cell">{t(`lanes.${l.lane}`)}</td>
-                <td className="text-right">{rate(locale, l.selection)}</td>
-                <td className="text-right">{rate(locale, l.win)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {/* Four columns needed more than a 390 px screen and were put in a
+          sideways scroller. The position, already repeated under the name on
+          a phone, is dropped there; the rest fits as a table. */}
+      <CardsTable
+        t={t}
+        cards={false}
+        caption={legend}
+        className="[&_tbody]:text-chalk-100"
+        rows={rows.slice(0, limit)}
+        rowKey={(l) => l.slug}
+        columns={[
+          {
+            key: "hero",
+            label: t("pages.sheets.heroes"),
+            head: true,
+            className: "max-sm:w-1/2",
+            cell: (l) => (
+              <Link href={linkBuilds(l.slug)} className="group flex items-center gap-2.5">
+                <HeroPortrait source={portraitOf(l.slug)} name={nameOf(l.slug)} size="small" decorative />
+                <span className="min-w-0">
+                  <span className="block truncate font-medium text-chalk-100 group-hover:text-gold-400">
+                    {nameOf(l.slug)}
+                  </span>
+                  {/* On mobile, the position goes under the name rather than in its own column. */}
+                  <span className="block text-xs text-chalk-500 sm:hidden">{t(`lanes.${l.lane}`)}</span>
+                </span>
+              </Link>
+            ),
+          },
+          {
+            key: "lane",
+            label: t("builds.position"),
+            wideOnly: true,
+            className: "text-left text-chalk-300",
+            cell: (l) => t(`lanes.${l.lane}`),
+          },
+          { key: "share", label: t("pages.sheets.share"), cell: (l) => rate(locale, l.selection) },
+          { key: "win", label: t("pages.heroDetail.stat.winRate"), cell: (l) => rate(locale, l.win) },
+        ]}
+      />
       {rest.length > 0 && (
         <p className="mt-4 text-sm leading-relaxed text-chalk-500">
           {t("pages.sheets.also")}{" "}
@@ -112,39 +115,48 @@ export function TableRanks({
   locale: Locale;
 }) {
   return (
-    <div className="relative overflow-x-auto">
-      <table className={TABLE}>
-        <caption className="sr-only">{legend}</caption>
-        <thead>
-          <tr className={HEADER}>
-            <th scope="col">{t("measuredRanks.label")}</th>
-            <th scope="col" className="text-right">{t("pages.sheets.heroCount")}</th>
-            <th scope="col">{t("pages.sheets.leading")}</th>
-            <th scope="col" className="text-right">{t("pages.sheets.avgWin")}</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-night-800 tabular-nums text-chalk-100">
-          {summary.map((r) => (
-            <tr key={r.rank}>
-              <th scope="row" className="text-left text-chalk-300">
+    // Each rank with its own emblem: the band is recognised before its name
+    // is read. Decorative — the cell names it right after.
+    <CardsTable
+      t={t}
+      cards={false}
+      caption={legend}
+      className="[&_tbody]:text-chalk-100"
+      rows={summary}
+      rowKey={(r) => r.rank}
+      columns={[
+        {
+          key: "rank",
+          label: t("measuredRanks.label"),
+          head: true,
+          className: "text-chalk-300",
+          cell: (r) => {
+            const emblem = imageRank(r.rank);
+            return (
+              <span className="flex items-center gap-1.5">
+                {emblem && <LightImage src={emblem} alt="" width={18} height={18} className="shrink-0 object-contain" />}
                 {t(`measuredRanks.${r.rank}`)}
-              </th>
-              <td className="text-right">{r.heroes}</td>
-              <td>
-                {r.first ? (
-                  <Link href={linkBuilds(r.first.slug)} className="text-chalk-100 hover:text-gold-400">
-                    {nameOf(r.first.slug)}
-                  </Link>
-                ) : (
-                  <span className="text-chalk-500">—</span>
-                )}
-              </td>
-              <td className="text-right">{rate(locale, r.win)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+              </span>
+            );
+          },
+        },
+        { key: "heroes", label: t("pages.sheets.heroCount"), cell: (r) => r.heroes },
+        {
+          key: "leading",
+          label: t("pages.sheets.leading"),
+          className: "text-left",
+          cell: (r) =>
+            r.first ? (
+              <Link href={linkBuilds(r.first.slug)} className="text-chalk-100 hover:text-gold-400">
+                {nameOf(r.first.slug)}
+              </Link>
+            ) : (
+              <span className="text-chalk-500">—</span>
+            ),
+        },
+        { key: "avgWin", label: t("pages.sheets.avgWin"), cell: (r) => rate(locale, r.win) },
+      ]}
+    />
   );
 }
 

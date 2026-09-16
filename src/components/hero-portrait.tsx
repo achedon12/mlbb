@@ -11,14 +11,6 @@ import { cn } from "@/lib/utils";
  * Every hero thumbnail on the site goes through here, from the smallest
  * (dropdown list) to the hero page.
  */
-/**
- * Hero icons: 4 to 10 KB webp files, already downsized during sync. At small
- * sizes the optimiser gains nothing, and its srcset added 200 bytes of HTML to
- * every thumbnail in a list: they are served as is.
- */
-const ICON_LOCALE = /^\/visuels\/heros\/[^/]+\/icone\.[a-z]+$/;
-const SIZE_MAX_ICON = 56;
-
 const DIMENSIONS = {
   micro: { sizeClass: "size-6", px: 24, text: "text-[0.55rem]" },
   mini: { sizeClass: "size-7", px: 28, text: "text-[0.6rem]" },
@@ -66,6 +58,12 @@ export function HeroPortrait({
         Fixed size: with width and height known, the browser only has two
         versions to pick from (1x, 2x) instead of fifteen — tens of KB less
         HTML on lists. Only the fluid skin keeps `sizes`.
+
+        Those two versions go through the optimiser. A stored icon is 128x128
+        and weighs 8 to 10 KB; the same icon re-encoded to AVIF at its real
+        display size is 0.8 to 2 KB, so a list of a hundred heroes drops from
+        roughly 1 MB to 100 KB. The two extra srcset entries cost about 200
+        bytes of HTML per thumbnail, which the first image already pays back.
       */}
       {dimensions.px === null ? (
         <Image
@@ -82,7 +80,6 @@ export function HeroPortrait({
           alt={decorative ? "" : (alt ?? name)}
           width={dimensions.px}
           height={"height" in dimensions ? dimensions.height : dimensions.px}
-          unoptimized={dimensions.px <= SIZE_MAX_ICON && ICON_LOCALE.test(source)}
           priority={priority}
           className="size-full object-cover"
         />

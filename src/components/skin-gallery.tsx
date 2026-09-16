@@ -2,17 +2,26 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "@/components/link";
+import { Pager } from "@/components/pager";
 import { SearchField } from "@/components/search-field";
 import { LightImage } from "@/components/light-image";
 import { ChoiceUnique } from "@/components/chip";
+import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { useLocale, useT } from "@/i18n/provider";
 import { RARITY_ORIGIN, RARITIES } from "@/lib/rarities";
 import { uniqueAnchors, filterGroups, imageOfThumb, type GroupSkins } from "@/lib/skins";
+import { imageRole } from "@/lib/emblems";
+import { pageHref, paging, pathWithoutPage, slicePage } from "@/lib/pager";
 import { ROLES } from "@/lib/statistics-table";
 import type { Role } from "@/lib/types";
 
-/** Heroes shown per batch: the first one rendered on the server, the rest on demand. */
-const BY_BUCKET = 12;
+/**
+ * Hero galleries per page. A hero has seven skins on average, four per row on
+ * a phone: a gallery runs about two thirds of a screen, so four of them keep
+ * the section under three — the reader after one hero in particular goes
+ * through the index at the foot of the page rather than through here.
+ */
+const BY_PAGE = 4;
 
 /** Outline colour per rarity rank; 0 stands for the default skin or an unknown rarity. */
 const COLORS = [
@@ -27,16 +36,17 @@ const COLORS = [
  *
  * Thumbnails arrive as compact tuples (`SkinThumb`): a thousand skins reach
  * the browser for a few tens of KB. Filter by role, search on the hero or
- * skin name, and display in batches of heroes: the page renders only about a
- * hundred thumbnails up front, all lazy-loaded. Thumbnails are styled by
- * `.skin-thumb` (globals.css).
+ * skin name, and read it one page of heroes at a time: the "show twelve more"
+ * button grew the page without end and left no way back, where
+ * `/skins/page/n` is an address the server prerenders and a crawler follows.
+ * Thumbnails are styled by `.skin-thumb` (globals.css).
  */
-export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
+export function SkinGallery({ groups, page: pageServer = 1 }: { groups: GroupSkins[]; page?: number }) {
   const t = useT();
   const locale = useLocale();
   const [search, setSearch] = useState("");
   const [role, setRole] = useState<Role | null>(null);
-  const [buckets, setBuckets] = useState(1);
+  const [page, setPage] = useState(pageServer);
 
   // Same rule as the hero catalogue: the server render starts unfiltered,
   // the URL (?q=, ?role=) is only read after mount, then follows every change.
@@ -63,9 +73,9 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
       if (value) params.set(key, value);
       else params.delete(key);
     }
-    const suffix = params.toString();
-    window.history.replaceState(null, "", suffix ? `?${suffix}` : window.location.pathname);
-  }, [search, role]);
+    // The page is a path segment, the filters a query.
+    window.history.replaceState(null, "", pageHref(pathWithoutPage(window.location.pathname), params, page));
+  }, [search, role, page]);
 
   // Anchors computed on the full gallery: a filter must not shift them.
   const anchors = useMemo(
@@ -83,44 +93,65 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
   );
 
   const results = useMemo(() => filterGroups(groups, { role, search }), [groups, role, search]);
-  const visible = results.slice(0, buckets * BY_BUCKET);
-  const rest = results.length - visible.length;
+  const view = paging(results.length, page, BY_PAGE);
+  const visible = slicePage(results, view.page, BY_PAGE);
   const total = results.reduce((n, g) => n + g.skins.length, 0);
+  const request = new URLSearchParams([
+    ...(search.trim() ? [["q", search.trim()] as [string, string]] : []),
+    ...(role ? [["role", role] as [string, string]] : []),
+  ]);
   const count = new Intl.NumberFormat(locale);
   const plural = new Intl.PluralRules(locale);
 
   return (
     <div>
-      <div className="flex flex-col gap-4">
-        <SearchField
-          value={search}
-          onChange={(v) => {
-            setSearch(v);
-            setBuckets(1);
-          }}
-          label={t("pages.heroesList.search")}
-          className="max-w-md"
-        />
+      <FilterBar
+        search={
+          <SearchField
+            value={search}
+            onChange={(v) => {
+              setSearch(v);
+              setPage(1);
+            }}
+            label={t("pages.heroesList.search")}
+            dense
+          />
+        }
+        active={
+          role && (
+            <ChipActive
+              label={t(`roles.${role}`)}
+              emblem={imageRole(role)}
+              onRemove={() => {
+                setRole(null);
+                setPage(1);
+              }}
+            />
+          )
+        }
+        count={
+          <span aria-live="polite">
+            {t("pages.skinsGallery.account", { h: results.length, n: count.format(total) })}
+          </span>
+        }
+      >
         <ChoiceUnique
           legend={t("pages.heroesList.role")}
           values={ROLES}
           active={role}
           onChange={(r) => {
             setRole(r);
-            setBuckets(1);
+            setPage(1);
           }}
           label={(r) => t(`roles.${r}`)}
+          emblem={imageRole}
         />
-      </div>
-
-      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
-        {t("pages.skinsGallery.account", { h: results.length, n: count.format(total) })}
-      </p>
+      </FilterBar>
 
       {results.length === 0 ? (
         <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
       ) : (
-        <div className="mt-6 space-y-10">
+        <div className="space-y-10">
           {visible.map((g) => (
             <section key={g.slug} aria-labelledby={`skins-${g.slug}`}>
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-night-800 pb-2">
@@ -140,7 +171,9 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
                   {t("pages.skinsGallery.seeAll")} →
                 </Link>
               </div>
-              <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-8">
+              {/* Four thumbnails per row on a phone rather than three: the
+                  same gallery in two thirds of the height. */}
+              <ul className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-8">
                 {g.skins.map((thumb, k) => {
                   const [name, , rarity] = thumb;
                   const src = imageOfThumb(g.slug, thumb);
@@ -174,15 +207,7 @@ export function SkinGallery({ groups }: { groups: GroupSkins[] }) {
         </div>
       )}
 
-      {rest > 0 && (
-        <button
-          type="button"
-          onClick={() => setBuckets((n) => n + 1)}
-          className="bevel-sm mt-10 w-full border border-night-700 px-4 py-3 text-sm font-semibold text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400"
-        >
-          {t("pages.skinsGallery.seeMore", { n: rest })}
-        </button>
-      )}
+      <Pager paging={view} href={(n) => pageHref("/skins", request, n)} onNavigate={setPage} t={t} />
     </div>
   );
 }

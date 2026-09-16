@@ -193,7 +193,7 @@ function ItemKey({ item }: { item: ResolvedItem }) {
     <>
       <span className="relative mx-auto block size-11">
         {item.image ? (
-          <Image src={item.image} alt="" fill unoptimized className="object-contain" />
+          <Image src={item.image} alt="" width={44} height={44} className="size-full object-contain" />
         ) : (
           <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">
             {item.name.charAt(0)}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Article } from "@/lib/types";
+import { pageHref } from "@/lib/pager";
 import { site } from "@/lib/site";
 import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, type Locale } from "./config";
 
@@ -182,5 +183,25 @@ export function metaPage(
       description: descriptionShare,
       images: images.map((i) => i.url),
     },
+  };
+}
+
+/**
+ * Metadata of a page of a paginated list, past the first one.
+ *
+ * The first page keeps the bare address and the canonical it always had.
+ * The others say what they are: their own canonical — never the first page's,
+ * which would claim two different slices are the same document — and
+ * `noindex, follow`, because every item they hold already has its own address
+ * in the sitemap. Crawlers still walk the `rel="prev"`/`rel="next"` chain and
+ * reach each one; they simply have no reason to list "page 4 of the
+ * catalogue" as a result.
+ */
+export function metaPaged(meta: Metadata, locale: Locale, path: string, page: number): Metadata {
+  if (page <= 1) return meta;
+  return {
+    ...meta,
+    alternates: metaLocales(locale, pageHref(path, null, page)),
+    robots: { index: false, follow: true },
   };
 }

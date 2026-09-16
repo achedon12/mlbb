@@ -269,42 +269,116 @@ h1, h2, h3, h4 {
 }
 
 /*
- * Statistics table and skin thumbnails, same rule as the tier
- * list: cells and thumbnails have no class, the table and the
- * link carry theirs. 132 rows or a hundred thumbnails no longer repeat
- * their utilities in the HTML and in the page data.
+ * Tables that turn into cards (`CardsTable`), and the statistics table built
+ * on top of them. Same rule as the tier list: cells have no class, the table
+ * carries its own. 133 rows no longer repeat their utilities in the HTML and
+ * in the page data.
+ *
+ * A wide table on a 390 px screen used to be put in a horizontal scroller:
+ * the reader dragged sideways to see a win rate. Below `sm` the rows become
+ * cards — the row heading on its own line, each figure labelled by its
+ * column, through `data-label` — and the column headings, which are the sort
+ * buttons, become a wrapping row of chips above them. One markup, one server
+ * render, no data written twice.
  */
 @layer components {
-  .stats-table {
-    @apply w-full min-w-[42rem] border-collapse text-sm tabular-nums;
+  .cards-table {
+    @apply w-full border-collapse text-sm tabular-nums;
   }
-  .stats-table :is(th, td) {
-    @apply px-3 py-1.5 text-right;
+  .cards-table :is(th, td) {
+    @apply px-1.5 py-1.5 text-right sm:px-3;
   }
-  .stats-table thead {
+  .cards-table thead {
     @apply bg-night-900 text-xs text-chalk-500;
   }
-  .stats-table thead th {
+  .cards-table thead th {
     @apply py-2 font-medium uppercase tracking-wide;
   }
-  .stats-table tbody tr {
+  .cards-table tbody tr {
     @apply border-t border-night-800;
   }
-  /* Hero column, pinned to the left during horizontal scrolling. */
-  .stats-table :is(th, td):first-child {
-    @apply sticky left-0 z-10 bg-night-950 text-left;
+  .cards-table :is(th, td):first-child {
+    @apply text-left;
   }
-  .stats-table thead th:first-child,
-  .stats-table tbody tr:hover > * {
+  .cards-table tbody tr:hover > * {
     @apply bg-night-900;
   }
-  .stats-table tbody th {
-    @apply w-44 max-w-44 font-normal;
+  .cards-table tbody th {
+    @apply font-normal;
   }
+  .cards-table-empty td {
+    @apply py-10 text-center text-chalk-500;
+  }
+
+  /*
+   * Below `sm`, `.cards-table-cards` turns the rows into cards. A table of
+   * four short columns fits a 390 px screen as it is and keeps its rows —
+   * cards would cost height for nothing; a table of seven does not, and this
+   * is where it pays off.
+   */
+  @media (width < 40rem) {
+    .cards-table-cards,
+    .cards-table-cards > thead,
+    .cards-table-cards > tbody,
+    .cards-table-cards > thead > tr,
+    .cards-table-cards > tbody > tr,
+    .cards-table-cards > tbody > tr > :is(th, td) {
+      @apply block;
+    }
+    /* The column headings keep being the sort buttons; they line up as chips. */
+    .cards-table-cards > thead {
+      @apply bg-transparent;
+    }
+    .cards-table-cards > thead > tr {
+      @apply flex flex-wrap items-center gap-1.5 border-b border-night-800 pb-2;
+    }
+    .cards-table-cards > thead > tr > th {
+      @apply bevel-sm border border-night-700 px-2 py-1 text-left;
+    }
+    /* A card: the row heading on its own line, then the figures packed on
+       the lines below, each behind the name of its column. They wrap as
+       needed, so three short times take one line where five rates take two —
+       a fixed grid would have given every table the height of the widest. */
+    .cards-table-cards > tbody > tr {
+      @apply bevel-sm mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 border border-night-700/70 bg-night-900/60 px-2.5 py-2;
+    }
+    .cards-table-cards > tbody > tr:hover > * {
+      @apply bg-transparent;
+    }
+    /* The row heading takes a line of its own only when the figures cannot
+       fit beside it: a hero and three rates read on two lines, a hero and
+       five rates on three. */
+    .cards-table-cards > tbody > tr > th {
+      @apply min-w-0 max-w-full shrink p-0 text-left;
+      flex: 0 1 auto;
+    }
+    .cards-table-cards > tbody > tr > td {
+      @apply flex items-baseline gap-1 p-0 text-right;
+    }
+    .cards-table-cards > tbody > tr > td::before {
+      content: attr(data-label);
+      @apply text-[0.65rem] uppercase tracking-wide text-chalk-500;
+    }
+    /* Decoration the figures of the row already say, or a column too many
+       for the width: dropped on a phone, in both variants. */
+    .cards-table .cards-table-wide {
+      @apply hidden;
+    }
+    .cards-table-cards > tbody > tr.cards-table-empty {
+      @apply block border-0 bg-transparent p-0;
+    }
+    .cards-table-cards > tbody > tr.cards-table-empty > td {
+      @apply block;
+    }
+    .cards-table-cards > tbody > tr.cards-table-empty > td::before {
+      content: none;
+    }
+  }
+
   .stats-table tbody th > a {
     @apply flex items-center gap-2.5;
   }
-  .stats-table tbody th img {
+  .stats-table tbody th > a > img {
     @apply bevel-sm size-7 shrink-0 bg-night-800 object-cover;
   }
   .stats-table tbody th b {
@@ -314,21 +388,31 @@ h1, h2, h3, h4 {
     @apply text-gold-400;
   }
   .stats-table tbody th small {
-    @apply block truncate text-[0.65rem] uppercase tracking-wide text-chalk-500;
+    @apply flex items-center gap-1 text-[0.65rem] uppercase tracking-wide text-chalk-500;
   }
-  .stats-table :is(th, td):nth-child(2) {
-    @apply text-center;
+  /* Emblem of the main role, before the roles it names. */
+  .stats-table tbody th small img {
+    @apply size-3.5 shrink-0 object-contain;
   }
-  .stats-table td:nth-child(3) {
+  .stats-table tbody th small > span {
+    @apply truncate;
+  }
+  .stats-table tbody th {
+    @apply sm:w-44 sm:max-w-44;
+  }
+  .stats-table :is(th, td)[data-column="tier"] {
+    @apply sm:text-center;
+  }
+  .stats-table td[data-column="win"] {
     @apply font-semibold text-gold-400;
   }
-  .stats-table td:nth-child(4) {
+  .stats-table td[data-column="trend"] {
     @apply text-xs font-semibold text-chalk-500;
   }
-  .stats-table td:is(:nth-child(5), :nth-child(6)) {
+  .stats-table td:is([data-column="ban"], [data-column="pick"]) {
     @apply text-chalk-300;
   }
-  .stats-table td:nth-child(7) {
+  .stats-table td[data-column="curve"] {
     @apply text-azure-500;
   }
   .stats-table svg {
@@ -341,14 +425,14 @@ h1, h2, h3, h4 {
   .stats-table svg path {
     vector-effect: non-scaling-stroke;
   }
-  .stats-table :is(td, svg).rising {
+  .stats-table :is(td, span, svg).rising {
     @apply text-emerald-400;
   }
-  .stats-table :is(td, svg).falling {
+  .stats-table :is(td, span, svg).falling {
     @apply text-blood-500;
   }
   .stats-tier {
-    @apply bevel-sm mx-auto grid size-7 place-items-center font-heading text-xs font-bold;
+    @apply bevel-sm grid size-7 place-items-center font-heading text-xs font-bold sm:mx-auto;
   }
   .skin-thumb {
     @apply bevel-sm block overflow-hidden border-2;

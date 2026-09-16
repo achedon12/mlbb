@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "@/components/link";
+import { LightImage } from "@/components/light-image";
 import { usualIcon } from "@/lib/tier-list-filters";
 import { cn } from "@/lib/utils";
 
@@ -47,11 +48,11 @@ export function TierLines({ rows, labels }: { rows: RowTier[]; labels: LabelsTie
           <li key={l.slug}>
             <Link href={`/heroes/${l.slug}`} className="tier-row">
               {icon ? (
-                // Icon already shrunk at sync time (webp of 4 to 10 KB),
-                // served as is: next/image added its attributes to
-                // each row for no gain. The name follows, hence the empty alt.
-                // eslint-disable-next-line @next/next/no-img-element -- file already shrunk, served as is (see above)
-                <img src={icon} alt="" width={40} height={40} loading="lazy" className="tier-row-icon" />
+                // A stored icon is 128x128 and weighs 4 to 10 KB; at 40 pixels
+                // the optimiser sends 2 KB of AVIF. `LightImage` keeps the row
+                // as light as the raw `<img>` it replaces — one address, no
+                // srcset. The name follows, hence the empty alt.
+                <LightImage src={icon} alt="" width={40} height={40} className="tier-row-icon" />
               ) : (
                 <span aria-hidden className="tier-row-icon grid place-items-center font-heading text-sm font-bold text-chalk-500">
                   {initials(l.name)}

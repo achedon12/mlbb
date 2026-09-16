@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { DraftModes } from "@/components/draft-modes";
+import { Foldable } from "@/components/foldable";
 import Link from "@/components/link";
+import { OpenAnchor } from "@/components/open-anchor";
 import { Card, PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { heroLabel } from "@/i18n/hero-data";
@@ -109,15 +111,21 @@ export default async function DraftPage({ params }: { params: Promise<{ locale: 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <PageHeader title={t("pages.draft.toolsTitle")} lead={t("pages.draft.toolsLead")}>
-        <Link
-          href="/tools/team"
-          className="mt-5 inline-block text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500"
-        >
-          {t("pages.draft.teamLink")} →
-        </Link>
-      </PageHeader>
-      <div className="mx-auto max-w-5xl px-4 py-12">
+      <PageHeader
+        title={t("pages.draft.toolsTitle")}
+        lead={t("pages.draft.toolsLead")}
+        meta={[t("draftUI.account", { n: allHeroes.length }), t("pages.freshness.patch", { v: patchCurrent.version })]}
+        actions={
+          <Link
+            href="/tools/team"
+            className="bevel-sm inline-flex min-h-11 items-center border border-night-700 px-3 py-2 text-sm font-semibold text-gold-400 transition-colors hover:border-gold-500/60 hover:text-gold-500"
+          >
+            {t("pages.draft.teamLink")} →
+          </Link>
+        }
+      />
+      <OpenAnchor />
+      <div className="mx-auto max-w-5xl px-4 py-6">
         <ExtendMessages messages={messagesPage(locale, ["pages.draftSimulatorUI"])}>
           <DraftModes
             heroes={simulationHeroes()}
@@ -127,101 +135,108 @@ export default async function DraftPage({ params }: { params: Promise<{ locale: 
           />
         </ExtendMessages>
 
-        {/* -- Format rules ------------------------------------------- */}
-        <section id="rules" aria-labelledby="rules-title" className="mt-16 space-y-6">
-          <div>
-            <h2 id="rules-title" className={heading2}>
-              {t("pages.draft.rules.title")}
-            </h2>
-            <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-            <p className="mt-4 max-w-3xl leading-relaxed text-chalk-300">{t("pages.draft.rules.intro")}</p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            <Card>
-              <h3 className={heading3}>{t("pages.draft.rules.rankedTitle")}</h3>
-              <ul className={list}>
-                <li>
-                  {t("pages.draft.rules.rankedAccess")}
-                  <SourceRefs keys={["ranked"]} t={t} />
-                </li>
-                <li>
-                  {t("pages.draft.rules.rankedBans", {
-                    epic: RANKED_BANS.epic,
-                    legend: RANKED_BANS.legend,
-                    mythic: RANKED_BANS.mythic,
-                  })}
-                  <SourceRefs keys={["ranked", "patch1866"]} t={t} />
-                </li>
-                <li>
-                  {t("pages.draft.rules.rankedSimultaneous")}
-                  <SourceRefs keys={["patch1866", "draftPick"]} t={t} />
-                </li>
-                <li>
-                  {t("pages.draft.rules.picks")}
-                  <SourceRefs keys={["draftPick"]} t={t} />
-                </li>
-                <li>
-                  {t("pages.draft.rules.timers", { ban: GAME_TIMERS.ban, pick: GAME_TIMERS.pick })}
-                  <SourceRefs keys={["timers", "draftPick"]} t={t} />
-                </li>
-              </ul>
-              <StepList steps={sequence("ranked", "mythic")} t={t} />
-              <p className="mt-2 text-xs text-chalk-500">{t("pages.draft.rules.rankedExample")}</p>
-            </Card>
-
-            <Card>
-              <h3 className={heading3}>{t("pages.draft.rules.tournamentTitle")}</h3>
-              <ul className={list}>
-                <li>
-                  {t("pages.draft.rules.tournamentBans", { n: TOURNAMENT_BANS, total: 2 * TOURNAMENT_BANS })}
-                  <SourceRefs keys={["draftPick", "draftGenerator"]} t={t} />
-                </li>
-                <li>
-                  {t("pages.draft.rules.tournamentOrder")}
-                  <SourceRefs keys={["firstBan", "alternatingBans"]} t={t} />
-                </li>
-                <li>
-                  {t("pages.draft.rules.picks")}
-                  <SourceRefs keys={["draftPick"]} t={t} />
-                </li>
-                <li>{t("pages.draft.rules.tournamentLimit")}</li>
-              </ul>
-              <StepList steps={sequence("tournament", "mythic")} t={t} />
-            </Card>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-2">
+        {/* -- Format rules, sources and reading key, folded away ------- */}
+        <Foldable id="rules" label={t("pages.draft.methodTitle")} className="mt-12">
+          <div className="space-y-6">
             <div>
-              <h3 className={heading3}>{t("pages.draft.rules.botTitle")}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.draft.rules.bot")}</p>
+              <h2 id="rules-title" className={heading2}>
+                {t("pages.draft.rules.title")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <p className="mt-4 max-w-3xl leading-relaxed text-chalk-300">{t("pages.draft.rules.intro")}</p>
             </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              <Card>
+                <h3 className={heading3}>{t("pages.draft.rules.rankedTitle")}</h3>
+                <ul className={list}>
+                  <li>
+                    {t("pages.draft.rules.rankedAccess")}
+                    <SourceRefs keys={["ranked"]} t={t} />
+                  </li>
+                  <li>
+                    {t("pages.draft.rules.rankedBans", {
+                      epic: RANKED_BANS.epic,
+                      legend: RANKED_BANS.legend,
+                      mythic: RANKED_BANS.mythic,
+                    })}
+                    <SourceRefs keys={["ranked", "patch1866"]} t={t} />
+                  </li>
+                  <li>
+                    {t("pages.draft.rules.rankedSimultaneous")}
+                    <SourceRefs keys={["patch1866", "draftPick"]} t={t} />
+                  </li>
+                  <li>
+                    {t("pages.draft.rules.picks")}
+                    <SourceRefs keys={["draftPick"]} t={t} />
+                  </li>
+                  <li>
+                    {t("pages.draft.rules.timers", { ban: GAME_TIMERS.ban, pick: GAME_TIMERS.pick })}
+                    <SourceRefs keys={["timers", "draftPick"]} t={t} />
+                  </li>
+                </ul>
+                <StepList steps={sequence("ranked", "mythic")} t={t} />
+                <p className="mt-2 text-xs text-chalk-500">{t("pages.draft.rules.rankedExample")}</p>
+              </Card>
+
+              <Card>
+                <h3 className={heading3}>{t("pages.draft.rules.tournamentTitle")}</h3>
+                <ul className={list}>
+                  <li>
+                    {t("pages.draft.rules.tournamentBans", { n: TOURNAMENT_BANS, total: 2 * TOURNAMENT_BANS })}
+                    <SourceRefs keys={["draftPick", "draftGenerator"]} t={t} />
+                  </li>
+                  <li>
+                    {t("pages.draft.rules.tournamentOrder")}
+                    <SourceRefs keys={["firstBan", "alternatingBans"]} t={t} />
+                  </li>
+                  <li>
+                    {t("pages.draft.rules.picks")}
+                    <SourceRefs keys={["draftPick"]} t={t} />
+                  </li>
+                  <li>{t("pages.draft.rules.tournamentLimit")}</li>
+                </ul>
+                <StepList steps={sequence("tournament", "mythic")} t={t} />
+              </Card>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div>
+                <h3 className={heading3}>{t("pages.draft.rules.botTitle")}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.draft.rules.bot")}</p>
+              </div>
+              <div>
+                <h3 className={heading3}>{t("pages.draft.rules.advantageTitle")}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.draft.rules.advantage")}</p>
+              </div>
+            </div>
+
             <div>
-              <h3 className={heading3}>{t("pages.draft.rules.advantageTitle")}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("pages.draft.rules.advantage")}</p>
+              <h3 className={heading3}>{t("draftUI.whatToPick")}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-chalk-300">{t("draftUI.intro")}</p>
             </div>
-          </div>
 
-          <div>
-            <h3 className={heading3}>{t("pages.draft.rules.sources")}</h3>
-            <ol className="mt-3 space-y-1.5 text-sm">
-              {SOURCE_KEYS.map((key, i) => (
-                <li key={key} id={`source-${key}`} className="flex gap-2 text-chalk-300">
-                  <span className="shrink-0 tabular-nums text-chalk-500">[{i + 1}]</span>
-                  <a
-                    href={SOURCES[key].url}
-                    rel="noopener noreferrer"
-                    className="break-words text-gold-400 underline-offset-2 hover:text-gold-500 hover:underline"
-                  >
-                    {SOURCES[key].site} · {SOURCES[key].page}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+            <div>
+              <h3 className={heading3}>{t("pages.draft.rules.sources")}</h3>
+              <ol className="mt-3 space-y-1.5 text-sm">
+                {SOURCE_KEYS.map((key, i) => (
+                  <li key={key} id={`source-${key}`} className="flex gap-2 text-chalk-300">
+                    <span className="shrink-0 tabular-nums text-chalk-500">[{i + 1}]</span>
+                    <a
+                      href={SOURCES[key].url}
+                      rel="noopener noreferrer"
+                      className="break-words text-gold-400 underline-offset-2 hover:text-gold-500 hover:underline"
+                    >
+                      {SOURCES[key].site} · {SOURCES[key].page}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
 
-        <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">{t("pages.draft.rating")}</p>
+            <p className="border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">{t("pages.draft.rating")}</p>
+          </div>
+        </Foldable>
       </div>
     </>
   );

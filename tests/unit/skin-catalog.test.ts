@@ -35,7 +35,7 @@ const skin = (p: Partial<SkinCatalog> & { id: string }): SkinCatalog => ({
 });
 
 const HEROES: CatalogHero[] = [
-  { slug: "aamon", name: "Aamon", roles: ["Assassin"], icon: "/visuels/heros/aamon/icone.png" },
+  { slug: "aamon", name: "Aamon", roles: ["Assassin"], icon: "/visuels/heros/aamon/icone.webp" },
   { slug: "chang-e", name: "Chang'e", roles: ["Mage"], icon: null },
 ];
 const bySlug = new Map(HEROES.map((h) => [h.slug, h]));
@@ -150,7 +150,7 @@ describe("compact index", () => {
         series: "Epic",
         release: "2023-01",
         availability: "Limited",
-        image: "/visuels/heros/aamon/skins/11-night-s-edge.png",
+        image: "/visuels/heros/aamon/skins/11-night-s-edge.webp",
         anchor: "skin-night-s-edge",
       }),
       skin({ id: "12", name: "Night S Edge", acquisition: "Event", anchor: "skin-night-s-edge-2" }),
@@ -165,8 +165,8 @@ describe("compact index", () => {
   it("shortens paths under the hero folder and shares series", () => {
     const index = encodeIndex(catalog);
     expect(index.series).toEqual(["Epic"]);
-    expect(index.skins[1][9]).toBe("skins/11-night-s-edge.png");
-    expect(index.heros[0][3]).toBe("icone.png");
+    expect(index.skins[1][9]).toBe("skins/11-night-s-edge.webp");
+    expect(index.heros[0][3]).toBe("icone.webp");
   });
 
   it("suffixes two anchors that collide", () => {

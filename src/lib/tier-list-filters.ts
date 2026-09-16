@@ -51,7 +51,7 @@ export const FILTERS_ROLE: FilterTier[] = ROLES.map((value) => ({ type: "role", 
  * rows only send the icon when it is elsewhere:
  * no need to repeat the same path 132 times in the page.
  */
-export const usualIcon = (slug: string) => `/visuels/heros/${slug}/icone.png`;
+export const usualIcon = (slug: string) => `/visuels/heros/${slug}/icone.webp`;
 
 /** True when the hero plays the lane, or holds the role (main or secondary). */
 export function matches(h: { lanes: Lane[]; roles: Role[] }, f: FilterTier | null): boolean {

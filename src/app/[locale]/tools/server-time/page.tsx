@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ServerClock } from "@/components/server-clock";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
+import { Foldable } from "@/components/foldable";
 import type { Locale } from "@/i18n/config";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -98,63 +99,67 @@ export default async function ServerTimePage({ params }: Params) {
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-12">
         <ServerClock reference={instantRender()} ends={ENDS} />
 
-        <section aria-labelledby="rules-title">
-          <h2 id="rules-title" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.serverTime.rulesTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <dl className="mt-5 grid gap-3 sm:grid-cols-2">
-            {rules.map((r) => (
-              <div key={r.title} className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
-                <dt className="font-heading font-bold text-gold-400">{r.title}</dt>
-                <dd className="mt-1 text-sm leading-relaxed text-chalk-300">{r.text}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        <Foldable label={t("common.method")}>
+          <div className="space-y-10">
+            <section aria-labelledby="rules-title">
+              <h2 id="rules-title" className="font-heading text-2xl font-bold text-chalk-100">
+                {t("pages.serverTime.rulesTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <dl className="mt-5 grid gap-3 sm:grid-cols-2">
+                {rules.map((r) => (
+                  <div key={r.title} className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
+                    <dt className="font-heading font-bold text-gold-400">{r.title}</dt>
+                    <dd className="mt-1 text-sm leading-relaxed text-chalk-300">{r.text}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
 
-        <section aria-labelledby="faq-title">
-          <h2 id="faq-title" className="font-heading text-2xl font-bold text-chalk-100">
-            {t("pages.serverTime.faqTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-5 space-y-6">
-            {faq.map((e) => (
-              <div key={e.q}>
-                <h3 className="font-heading text-lg font-bold text-chalk-100">{e.q}</h3>
-                <p className="mt-1 leading-relaxed text-chalk-300">{e.r}</p>
+            <section aria-labelledby="faq-title">
+              <h2 id="faq-title" className="font-heading text-2xl font-bold text-chalk-100">
+                {t("pages.serverTime.faqTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <div className="mt-5 space-y-6">
+                {faq.map((e) => (
+                  <div key={e.q}>
+                    <h3 className="font-heading text-lg font-bold text-chalk-100">{e.q}</h3>
+                    <p className="mt-1 leading-relaxed text-chalk-300">{e.r}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+              <p className="mt-6 text-sm">
+                <Link href="/ranks" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
+                  {t("pages.serverTime.ranksLink")} →
+                </Link>
+              </p>
+            </section>
+
+            <section aria-labelledby="sources-title" className="text-sm text-chalk-500">
+              <h2 id="sources-title" className="font-semibold text-chalk-300">{t("pages.serverTime.sourcesTitle")}</h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                <li>
+                  <a href={TIME_SOURCES.server} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                    {t("pages.serverTime.sourceServer")}
+                  </a>
+                </li>
+                <li>
+                  <a href={TIME_SOURCES.starlight} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                    {t("pages.serverTime.sourceStarlight")}
+                  </a>
+                </li>
+                {announcement && (
+                  <li>
+                    <a href={announcement.link} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                      {t("pages.serverTime.sourcePatch", { v: announcement.patch, n: announcement.season })}
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </section>
           </div>
-          <p className="mt-6 text-sm">
-            <Link href="/ranks" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.serverTime.ranksLink")} →
-            </Link>
-          </p>
-        </section>
-
-        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-title" className="font-semibold text-chalk-300">{t("pages.serverTime.sourcesTitle")}</h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            <li>
-              <a href={TIME_SOURCES.server} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.serverTime.sourceServer")}
-              </a>
-            </li>
-            <li>
-              <a href={TIME_SOURCES.starlight} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.serverTime.sourceStarlight")}
-              </a>
-            </li>
-            {announcement && (
-              <li>
-                <a href={announcement.link} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                  {t("pages.serverTime.sourcePatch", { v: announcement.patch, n: announcement.season })}
-                </a>
-              </li>
-            )}
-          </ul>
-        </section>
+        </Foldable>
       </div>
     </>
   );

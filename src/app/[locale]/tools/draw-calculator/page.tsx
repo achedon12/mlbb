@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DrawCalculator } from "@/components/draw-calculator";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
+import { Foldable } from "@/components/foldable";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -57,63 +58,6 @@ export default async function DrawCalculatorPage({ params }: Params) {
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
         <DrawCalculator />
 
-        <section aria-labelledby="method-title">
-          <h2 id="method-title" className={sectionTitle}>
-            {t("pages.drawCalculator.methodTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.drawCalculator.method1")}</p>
-            <p>{t("pages.drawCalculator.method2")}</p>
-            <p>{t("pages.drawCalculator.method3")}</p>
-            <p>{t("pages.drawCalculator.method4")}</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="limits-title">
-          <h2 id="limits-title" className={sectionTitle}>
-            {t("pages.drawCalculator.limitsTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.drawCalculator.limit1")}</p>
-            <p>{t("pages.drawCalculator.limit2")}</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="find-title">
-          <h2 id="find-title" className={sectionTitle}>
-            {t("pages.drawCalculator.findTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.drawCalculator.find1")}</p>
-        </section>
-
-        <section aria-labelledby="faq-title">
-          <h2 id="faq-title" className={sectionTitle}>
-            {t("pages.drawCalculator.faqTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <dl className="mt-4 space-y-5">
-            <div>
-              <dt className="font-semibold text-chalk-100">{t("pages.drawCalculator.q1", example)}</dt>
-              <dd className="mt-1 leading-relaxed text-chalk-300">
-                {t("pages.drawCalculator.a1", {
-                  ...example,
-                  chance: percent.format(chanceWithin(EXAMPLE_DRAWS, EXAMPLE)),
-                  n: integer.format(drawsForChance(0.99, EXAMPLE)),
-                })}
-              </dd>
-            </div>
-            {(["2", "3"] as const).map((q) => (
-              <div key={q}>
-                <dt className="font-semibold text-chalk-100">{t(`pages.drawCalculator.q${q}`)}</dt>
-                <dd className="mt-1 leading-relaxed text-chalk-300">{t(`pages.drawCalculator.a${q}`)}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-
         <p className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="/tools/collection" className="font-semibold text-gold-400 hover:text-gold-500">
             {t("pages.drawCalculator.collectionLink")} →
@@ -123,20 +67,81 @@ export default async function DrawCalculatorPage({ params }: Params) {
           </Link>
         </p>
 
-        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-title" className="font-semibold text-chalk-300">
-            {t("pages.drawCalculator.sourcesTitle")}
-          </h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            {sources.map(([url, name]) => (
-              <li key={url}>
-                <a href={url} rel="noopener" className={sourceLink}>
-                  {t("pages.drawCalculator.sourceWiki", { page: name })}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <Foldable label={t("common.method")}>
+          <div className="space-y-10">
+            <section aria-labelledby="method-title">
+              <h2 id="method-title" className={sectionTitle}>
+                {t("pages.drawCalculator.methodTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
+                <p>{t("pages.drawCalculator.method1")}</p>
+                <p>{t("pages.drawCalculator.method2")}</p>
+                <p>{t("pages.drawCalculator.method3")}</p>
+                <p>{t("pages.drawCalculator.method4")}</p>
+              </div>
+            </section>
+
+            <section aria-labelledby="limits-title">
+              <h2 id="limits-title" className={sectionTitle}>
+                {t("pages.drawCalculator.limitsTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
+                <p>{t("pages.drawCalculator.limit1")}</p>
+                <p>{t("pages.drawCalculator.limit2")}</p>
+              </div>
+            </section>
+
+            <section aria-labelledby="find-title">
+              <h2 id="find-title" className={sectionTitle}>
+                {t("pages.drawCalculator.findTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <p className="mt-4 leading-relaxed text-chalk-300">{t("pages.drawCalculator.find1")}</p>
+            </section>
+
+            <section aria-labelledby="faq-title">
+              <h2 id="faq-title" className={sectionTitle}>
+                {t("pages.drawCalculator.faqTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <dl className="mt-4 space-y-5">
+                <div>
+                  <dt className="font-semibold text-chalk-100">{t("pages.drawCalculator.q1", example)}</dt>
+                  <dd className="mt-1 leading-relaxed text-chalk-300">
+                    {t("pages.drawCalculator.a1", {
+                      ...example,
+                      chance: percent.format(chanceWithin(EXAMPLE_DRAWS, EXAMPLE)),
+                      n: integer.format(drawsForChance(0.99, EXAMPLE)),
+                    })}
+                  </dd>
+                </div>
+                {(["2", "3"] as const).map((q) => (
+                  <div key={q}>
+                    <dt className="font-semibold text-chalk-100">{t(`pages.drawCalculator.q${q}`)}</dt>
+                    <dd className="mt-1 leading-relaxed text-chalk-300">{t(`pages.drawCalculator.a${q}`)}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+
+            <section aria-labelledby="sources-title" className="text-sm text-chalk-500">
+              <h2 id="sources-title" className="font-semibold text-chalk-300">
+                {t("pages.drawCalculator.sourcesTitle")}
+              </h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {sources.map(([url, name]) => (
+                  <li key={url}>
+                    <a href={url} rel="noopener" className={sourceLink}>
+                      {t("pages.drawCalculator.sourceWiki", { page: name })}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </Foldable>
       </div>
     </ExtendMessages>
   );

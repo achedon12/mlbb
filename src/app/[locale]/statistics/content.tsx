@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
-import { FreshnessLine } from "@/components/freshness";
+import { freshnessFacts } from "@/components/freshness";
+import { Foldable } from "@/components/foldable";
 import { StatisticsTable } from "@/components/statistics-table";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
-import { metaPage } from "@/i18n/seo";
+import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
 import { trendsOf } from "@/lib/evolution";
@@ -12,6 +13,7 @@ import { longDate, dateMeasure, patchCurrent, percentage } from "@/lib/freshness
 import { serializeJsonLd } from "@/lib/html";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { site } from "@/lib/site";
+import { pageCount, SIZE_ROWS_CARDS } from "@/lib/pager";
 import { pathStatistics, encodeRow, scaleCurve, type RowStat } from "@/lib/statistics-table";
 import {
   shiftDate,
@@ -94,18 +96,36 @@ function variables(locale: Locale, t: T, rank: MeasuredRank, rows: RowStat[]) {
   };
 }
 
-export function metaStatistics(locale: Locale, rank: MeasuredRank): Metadata {
+/** One page per measured rank; "all ranks" stays the main address. */
+export const RANKS_MEASURED = RANKS_CLASSES.filter((r) => r !== "all");
+export const isRank = (r: string): r is MeasuredRank => (RANKS_MEASURED as string[]).includes(r);
+
+/** How many pages a rank's table holds, for the routes to prerender them. */
+export function pagesStatistics(rank: MeasuredRank): number {
+  return pageCount(rowsOfRank(rank).length, SIZE_ROWS_CARDS);
+}
+
+/** Rows of a rank, for a route that has to count its pages. */
+export const rowsStatistics = rowsOfRank;
+
+export function metaStatistics(locale: Locale, rank: MeasuredRank, page = 1): Metadata {
   const t = createT(locale);
   const all = rank === "all";
   const v = variables(locale, t, rank, rowsOfRank(rank));
-  return metaPage(locale, {
-    title: t(all ? "pages.statistics.metaTitle" : "pages.statistics.metaTitleRank", v),
-    description: t(all ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRank", v),
-    path: pathStatistics(rank),
-  });
+  const path = pathStatistics(rank);
+  return metaPaged(
+    metaPage(locale, {
+      title: t(all ? "pages.statistics.metaTitle" : "pages.statistics.metaTitleRank", v),
+      description: t(all ? "pages.statistics.metaDescription" : "pages.statistics.metaDescriptionRank", v),
+      path,
+    }),
+    locale,
+    path,
+    page,
+  );
 }
 
-export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRank }) {
+export function Statistics({ locale, rank, page = 1 }: { locale: Locale; rank: MeasuredRank; page?: number }) {
   const t = createT(locale);
   const all = rank === "all";
   const rows = rowsOfRank(rank);
@@ -171,13 +191,12 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
                 },
               ]
         }
-      >
-        <FreshnessLine locale={locale} before={t("pages.statistics.measures", { n: rows.length })} className="mt-6" />
-      </PageHeader>
+        meta={freshnessFacts(locale, t("pages.statistics.measures", { n: rows.length }))}
+      />
 
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <div className="mx-auto max-w-6xl px-4 pb-10 pt-4">
         {/* Data sentence: what search results pick up as a snippet. */}
-        <p className="mb-8 max-w-3xl leading-relaxed text-chalk-300">
+        <p className="mb-4 max-w-3xl text-sm leading-relaxed text-chalk-300">
           {t("pages.statistics.summary", {
             context: all ? t("pages.statistics.contextAll") : t("pages.statistics.contextRank", { rank: nameRank }),
             win: win.name,
@@ -189,7 +208,7 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
           })}
         </p>
 
-        <StatisticsTable compactRows={rows.map(encodeRow)} rank={rank} ranks={RANKS_CLASSES} />
+        <StatisticsTable compactRows={rows.map(encodeRow)} rank={rank} ranks={RANKS_CLASSES} page={page} />
 
         <section className="mt-12">
           <div className="grid gap-6 md:grid-cols-2">
@@ -199,14 +218,13 @@ export function Statistics({ locale, rank }: { locale: Locale; rank: MeasuredRan
           <p className="mt-3 text-xs text-chalk-500">{t("pages.statistics.movementsIntro", { threshold: threshold })}</p>
         </section>
 
-        <details className="bevel mt-10 border border-night-700/70 bg-night-900/60 p-5">
-          <summary className="cursor-pointer font-heading font-bold text-gold-400">{t("pages.statistics.reading.title")}</summary>
-          <ul className="mt-4 space-y-2.5 text-sm leading-relaxed text-chalk-300">
+        <Foldable label={t("pages.statistics.reading.title")} className="mt-10">
+          <ul className="space-y-2.5">
             {(["win", "ban", "pick", "trend", "curve", "tier", "weak"] as const).map((c) => (
               <li key={c}>{t(`pages.statistics.reading.${c}`, { threshold: threshold })}</li>
             ))}
           </ul>
-        </details>
+        </Foldable>
 
         <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <Link

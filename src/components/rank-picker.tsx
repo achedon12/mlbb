@@ -4,6 +4,7 @@ import { createContext, useContext, useState } from "react";
 import { useT } from "@/i18n/provider";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { FilterGroup, Chip } from "@/components/chip";
+import { imageRank } from "@/lib/emblems";
 
 /**
  * Reference rank of a hero page.
@@ -61,7 +62,7 @@ export function ChoiceRank({
   return (
     <FilterGroup legend={t("measuredRanks.label")} widthLegend="" className={className}>
       {ranks.map((r) => (
-        <Chip key={r} active={r === rank} onClick={() => onChange(r)}>
+        <Chip key={r} active={r === rank} emblem={imageRank(r) ?? undefined} onClick={() => onChange(r)}>
           {t(`measuredRanks.${r}`)}
         </Chip>
       ))}

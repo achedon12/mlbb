@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { SkinCard, propsCardSkin } from "@/components/skin-card";
 import { SearchField } from "@/components/search-field";
 import { FilterGroup, Chip, classesChip } from "@/components/chip";
+import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { LOCALE_HTML } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
@@ -20,6 +21,7 @@ import {
   truncateGroups,
   type Catalog,
 } from "@/lib/skin-catalog";
+import { imageRole } from "@/lib/emblems";
 import type { Role } from "@/lib/types";
 
 /** Skins shown per step: a thousand thumbnails at once would help no one. */
@@ -143,73 +145,99 @@ export function SkinExplorer({
     <div>
       {/* The first interaction with the filters is enough to request the index. */}
       <div
-        className="space-y-4"
         onFocusCapture={() => void loadCatalog(locale).catch(() => undefined)}
         onPointerEnter={() => void loadCatalog(locale).catch(() => undefined)}
       >
-        <SearchField
-          value={f.search}
-          onChange={(search) => maj({ search })}
-          label={t("pages.skinsCalendarUI.search")}
-          className="max-w-md"
-        />
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          <Choice
-            label={t("pages.skinsCalendarUI.heroes")}
-            value={f.hero ?? ""}
-            onChange={(v) => maj({ hero: v || null })}
-            all={t("pages.skinsCalendarUI.allHeroes")}
-            options={heroes.map(([slug, name]) => [slug, name])}
-          />
-          <Choice
-            label={t("pages.skinsCalendarUI.series")}
-            value={f.series ?? ""}
-            onChange={(v) => maj({ series: v || null })}
-            all={t("pages.skinsCalendarUI.all")}
-            options={series.map((s) => [s, seriesLabel(t, s)])}
-          />
-          <Choice
-            label={t("pages.skinsCalendarUI.year")}
-            value={f.year === null ? "" : String(f.year)}
-            onChange={(v) => maj({ year: v ? Number(v) : null })}
-            all={t("pages.skinsCalendarUI.all")}
-            options={years.map((a) => [String(a), String(a)])}
-          />
-        </div>
-        <FilterGroup legend={t("pages.skinsCalendarUI.role")}>
-          {ROLES_INDEX.map((r) => (
-            <Chip key={r} dense active={f.role === r} onClick={() => maj({ role: f.role === r ? null : r })}>
-              {t(`roles.${r}`)}
-            </Chip>
-          ))}
-        </FilterGroup>
-        <FilterGroup legend={t("pages.skinsCalendarUI.rarity")}>
-          {RANKS_RARITY.map((rank) => (
-            <Chip key={rank} dense active={f.rarity === rank} onClick={() => maj({ rarity: f.rarity === rank ? null : rank })}>
-              <span aria-hidden className="mr-1.5 inline-block size-2 border-2" style={{ borderColor: rarityOfRank(rank).color }} />
-              {labelRarity(t, rank)}
-            </Chip>
-          ))}
-        </FilterGroup>
-        {active && (
-          <button type="button" onClick={() => maj(EMPTY)} className={classesChip(false, true)}>
-            {t("pages.skinsCalendarUI.clear")}
-          </button>
-        )}
+        <FilterBar
+          search={
+            <SearchField
+              value={f.search}
+              onChange={(search) => maj({ search })}
+              label={t("pages.skinsCalendarUI.search")}
+              dense
+            />
+          }
+          active={
+            <>
+              {f.hero && (
+                <ChipActive
+                  key="hero"
+                  label={heroes.find(([s]) => s === f.hero)?.[1] ?? f.hero}
+                  onRemove={() => maj({ hero: null })}
+                />
+              )}
+              {f.role && (
+                <ChipActive key="role" label={t(`roles.${f.role}`)} emblem={imageRole(f.role)} onRemove={() => maj({ role: null })} />
+              )}
+              {f.series && <ChipActive key="series" label={seriesLabel(t, f.series)} onRemove={() => maj({ series: null })} />}
+              {f.rarity !== null && (
+                <ChipActive key="rarity" label={labelRarity(t, f.rarity)} onRemove={() => maj({ rarity: null })} />
+              )}
+              {f.year !== null && <ChipActive key="year" label={String(f.year)} onRemove={() => maj({ year: null })} />}
+            </>
+          }
+          clear={active ? { label: t("pages.skinsCalendarUI.clear"), onClick: () => maj(EMPTY) } : undefined}
+          count={
+            <span aria-live="polite">
+              {active &&
+                (error
+                  ? t("pages.skinsCalendarUI.error")
+                  : !results
+                    ? t("pages.skinsCalendarUI.loading")
+                    : t(results.total === 1 ? "pages.skinsCalendarUI.result" : "pages.skinsCalendarUI.results", {
+                        n: count.format(results.total),
+                      }))}
+            </span>
+          }
+        >
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <Choice
+              label={t("pages.skinsCalendarUI.heroes")}
+              value={f.hero ?? ""}
+              onChange={(v) => maj({ hero: v || null })}
+              all={t("pages.skinsCalendarUI.allHeroes")}
+              options={heroes.map(([slug, name]) => [slug, name])}
+            />
+            <Choice
+              label={t("pages.skinsCalendarUI.series")}
+              value={f.series ?? ""}
+              onChange={(v) => maj({ series: v || null })}
+              all={t("pages.skinsCalendarUI.all")}
+              options={series.map((s) => [s, seriesLabel(t, s)])}
+            />
+            <Choice
+              label={t("pages.skinsCalendarUI.year")}
+              value={f.year === null ? "" : String(f.year)}
+              onChange={(v) => maj({ year: v ? Number(v) : null })}
+              all={t("pages.skinsCalendarUI.all")}
+              options={years.map((a) => [String(a), String(a)])}
+            />
+          </div>
+          <FilterGroup legend={t("pages.skinsCalendarUI.role")}>
+            {ROLES_INDEX.map((r) => (
+              <Chip
+                key={r}
+                dense
+                emblem={imageRole(r)}
+                active={f.role === r}
+                onClick={() => maj({ role: f.role === r ? null : r })}
+              >
+                {t(`roles.${r}`)}
+              </Chip>
+            ))}
+          </FilterGroup>
+          <FilterGroup legend={t("pages.skinsCalendarUI.rarity")}>
+            {RANKS_RARITY.map((rank) => (
+              <Chip key={rank} dense active={f.rarity === rank} onClick={() => maj({ rarity: f.rarity === rank ? null : rank })}>
+                <span aria-hidden className="mr-1.5 inline-block size-2 border-2" style={{ borderColor: rarityOfRank(rank).color }} />
+                {labelRarity(t, rank)}
+              </Chip>
+            ))}
+          </FilterGroup>
+        </FilterBar>
       </div>
 
-      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
-        {active &&
-          (error
-            ? t("pages.skinsCalendarUI.error")
-            : !results
-              ? t("pages.skinsCalendarUI.loading")
-              : t(results.total === 1 ? "pages.skinsCalendarUI.result" : "pages.skinsCalendarUI.results", {
-                  n: count.format(results.total),
-                }))}
-      </p>
-
-      <div className="mt-6">
+      <div>
         {!active
           ? children
           : results && (

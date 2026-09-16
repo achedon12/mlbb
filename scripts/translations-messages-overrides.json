@@ -1,5 +1,37 @@
 {
   "en": {
+    "common.pager.label": {
+      "fr": "Pagination",
+      "text": "Pagination"
+    },
+    "draftUI.answersLabel": {
+      "fr": "Suggestions pour la lane {lane}",
+      "text": "Suggestions for the {lane} lane"
+    },
+    "draftUI.filledBy": {
+      "fr": "Pourvue par {name}",
+      "text": "Taken by {name}"
+    },
+    "draftUI.noSuggestion": {
+      "fr": "Aucune réponse marquante face à cette composition.",
+      "text": "No clear answer against this lineup."
+    },
+    "draftUI.showLess": {
+      "fr": "Voir moins",
+      "text": "Show less"
+    },
+    "draftUI.showMore": {
+      "fr": "Voir {n} de plus",
+      "text": "Show {n} more"
+    },
+    "draftUI.whatToPickLane": {
+      "fr": "Que prendre en {lane}",
+      "text": "What to pick in {lane}"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "in {language}"
+    },
     "nav.spells.label": {
       "fr": "Sorts de combat",
       "text": "Battle spells"
@@ -35,6 +67,18 @@
     "pages.buildSimulatorUI.params.hero": {
       "fr": "héros",
       "text": "hero"
+    },
+    "pages.buildSimulatorUI.stepLabel": {
+      "fr": "Étape {n} sur {total}",
+      "text": "Step {n} of {total}"
+    },
+    "pages.buildSimulatorUI.summaryItems": {
+      "fr": "{n}/{total} objets",
+      "text": "{n}/{total} items"
+    },
+    "pages.buildSimulatorUI.summaryLabel": {
+      "fr": "Statistiques du build",
+      "text": "Build statistics"
     },
     "pages.collectionUI.series": {
       "fr": "Série",
@@ -148,6 +192,14 @@
       "fr": "Icône de la compétence à identifier",
       "text": "Skill icon to identify"
     },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Meta analyses, in-depth guides and patch breakdowns for Mobile Legends: Bang Bang, in {language}. Available as an RSS feed."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Meta analyses and in-depth guides, in {language}."
+    },
     "pages.nickname.faqTitle": {
       "fr": "Questions fréquentes",
       "text": "FAQ"
@@ -215,21 +267,33 @@
     "tools.retribution.bestRun": {
       "fr": "Meilleure série",
       "text": "Best streak"
-    },
-    "home.titleAccent": {
-      "fr": "en {language}",
-      "text": "in {language}"
-    },
-    "pages.news.metaDescription": {
-      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
-      "text": "Meta analyses, in-depth guides and patch breakdowns for Mobile Legends: Bang Bang, in {language}. Available as an RSS feed."
-    },
-    "pages.news.ogDescription": {
-      "fr": "Analyses du meta et guides de fond, en {language}.",
-      "text": "Meta analyses and in-depth guides, in {language}."
     }
   },
   "es": {
+    "common.pager.label": {
+      "fr": "Pagination",
+      "text": "Paginación"
+    },
+    "common.pager.previous": {
+      "fr": "Page précédente",
+      "text": "Página anterior"
+    },
+    "draftUI.filledBy": {
+      "fr": "Pourvue par {name}",
+      "text": "Ocupada por {name}"
+    },
+    "draftUI.noSuggestion": {
+      "fr": "Aucune réponse marquante face à cette composition.",
+      "text": "Ninguna respuesta clara frente a esta composición."
+    },
+    "draftUI.whatToPickLane": {
+      "fr": "Que prendre en {lane}",
+      "text": "Qué elegir en {lane}"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "en {language}"
+    },
     "nav.groups.news": {
       "fr": "Actualités",
       "text": "Novedades"
@@ -254,9 +318,25 @@
       "fr": "héros",
       "text": "héroe"
     },
+    "pages.buildSimulatorUI.stepLabel": {
+      "fr": "Étape {n} sur {total}",
+      "text": "Paso {n} de {total}"
+    },
+    "pages.buildSimulatorUI.stepsLabel": {
+      "fr": "Étapes du build",
+      "text": "Pasos del build"
+    },
+    "pages.buildSimulatorUI.summaryLabel": {
+      "fr": "Statistiques du build",
+      "text": "Estadísticas del build"
+    },
     "pages.collectionUI.series": {
       "fr": "Série",
       "text": "Serie"
+    },
+    "pages.draftSimulatorUI.boardLabel": {
+      "fr": "Plateau du draft",
+      "text": "Tablero del draft"
     },
     "pages.draftSimulatorUI.restart": {
       "fr": "Recommencer",
@@ -350,6 +430,14 @@
       "fr": "différent",
       "text": "distinto"
     },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Análisis del meta, guías de fondo y lecturas de parches de Mobile Legends: Bang Bang, en {language}. Disponible como feed RSS."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Análisis del meta y guías de fondo, en {language}."
+    },
     "pages.nicknameUI.none": {
       "fr": "Aucune",
       "text": "Ninguna"
@@ -381,18 +469,6 @@
     "pages.statisticsTable.weak": {
       "fr": "Trop peu joué pour que les taux soient fiables",
       "text": "Elegido tan pocas veces que sus tasas no son fiables"
-    },
-    "home.titleAccent": {
-      "fr": "en {language}",
-      "text": "en {language}"
-    },
-    "pages.news.metaDescription": {
-      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
-      "text": "Análisis del meta, guías de fondo y lecturas de parches de Mobile Legends: Bang Bang, en {language}. Disponible como feed RSS."
-    },
-    "pages.news.ogDescription": {
-      "fr": "Analyses du meta et guides de fond, en {language}.",
-      "text": "Análisis del meta y guías de fondo, en {language}."
     }
   },
   "id": {
@@ -508,6 +584,10 @@
       "fr": "Accueil",
       "text": "Beranda"
     },
+    "common.pager.label": {
+      "fr": "Pagination",
+      "text": "Penomoran halaman"
+    },
     "common.sections": {
       "fr": "Sections de la fiche",
       "text": "Bagian halaman"
@@ -523,6 +603,18 @@
     "counters.difficulty": {
       "fr": "En difficulté contre",
       "text": "Lemah melawan"
+    },
+    "draftUI.filledBy": {
+      "fr": "Pourvue par {name}",
+      "text": "Diambil oleh {name}"
+    },
+    "draftUI.stepYoursTitle": {
+      "fr": "Votre équipe",
+      "text": "Tim Anda"
+    },
+    "draftUI.whatToPickLane": {
+      "fr": "Que prendre en {lane}",
+      "text": "Apa yang harus diambil di {lane}"
     },
     "emblemData.aegis.name": {
       "fr": "Aegis",
@@ -747,6 +839,10 @@
     "home.title1": {
       "fr": "Tout le jeu, expliqué",
       "text": "Seluruh game, dijelaskan"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "dalam bahasa {language}"
     },
     "home.toolsLead": {
       "fr": "Préparer une partie, tester un choix, s'entraîner.",
@@ -1044,6 +1140,10 @@
       "fr": "Profil de joueur",
       "text": "Profil pemain"
     },
+    "pages.accountProfile.nemesesSource.one": {
+      "fr": "Relevé sur votre dernière partie.",
+      "text": "Berdasarkan pertandingan terakhir Anda."
+    },
     "pages.accountProfile.nGames.one": {
       "fr": "{n} partie",
       "text": "{n} pertandingan"
@@ -1051,10 +1151,6 @@
     "pages.accountProfile.nGames.other": {
       "fr": "{n} parties",
       "text": "{n} pertandingan"
-    },
-    "pages.accountProfile.nemesesSource.one": {
-      "fr": "Relevé sur votre dernière partie.",
-      "text": "Berdasarkan pertandingan terakhir Anda."
     },
     "pages.accountProfile.outcome.loss": {
       "fr": "Défaite",
@@ -1120,6 +1216,18 @@
       "fr": "Patch notes serveur Advance MLBB : buffs, nerfs et changements",
       "text": "Patch notes Advanced Server MLBB: buff, nerf, dan perubahan"
     },
+    "pages.buildSimulatorUI.stepLabel": {
+      "fr": "Étape {n} sur {total}",
+      "text": "Langkah {n} dari {total}"
+    },
+    "pages.buildSimulatorUI.stepsLabel": {
+      "fr": "Étapes du build",
+      "text": "Langkah-langkah build"
+    },
+    "pages.buildSimulatorUI.summaryLabel": {
+      "fr": "Statistiques du build",
+      "text": "Statistik build"
+    },
     "pages.communityBuilds.heroTitle": {
       "fr": "Builds de la communauté : {hero}",
       "text": "Build komunitas {hero}"
@@ -1147,6 +1255,10 @@
     "pages.draft.title": {
       "fr": "Aide au draft",
       "text": "Asisten draft"
+    },
+    "pages.draftSimulatorUI.boardLabel": {
+      "fr": "Plateau du draft",
+      "text": "Papan draft"
     },
     "pages.duos.allRanks": {
       "fr": "Tous rangs confondus",
@@ -1208,6 +1320,10 @@
       "fr": "18 min et +",
       "text": "18+ menit"
     },
+    "pages.duos.phases.duoRate": {
+      "fr": "Victoire du duo : {rate}",
+      "text": "Win rate duo: {rate}"
+    },
     "pages.duos.phaseShort.early": {
       "fr": "Début",
       "text": "Early"
@@ -1219,10 +1335,6 @@
     "pages.duos.phaseShort.mid": {
       "fr": "Milieu",
       "text": "Mid"
-    },
-    "pages.duos.phases.duoRate": {
-      "fr": "Victoire du duo : {rate}",
-      "text": "Win rate duo: {rate}"
     },
     "pages.duos.ranksListed": {
       "fr": "{n}/{total} rangs",
@@ -1488,14 +1600,6 @@
       "fr": "Palier {p}",
       "text": "Tier {p}"
     },
-    "pages.heroSkins.metaTitle": {
-      "fr": "Skins de {name} : les {n} skins et illustrations",
-      "text": "Skin {name}: Semua {n} Skin & Artwork"
-    },
-    "pages.heroSkins.metaTitleElision": {
-      "fr": "Skins d'{name} : les {n} skins et illustrations",
-      "text": "Skin {name}: Semua {n} Skin & Artwork"
-    },
     "pages.heroesList.countOf": {
       "fr": "sur {total}",
       "text": "dari {total}"
@@ -1511,6 +1615,14 @@
     "pages.heroesList.sortName": {
       "fr": "A → Z",
       "text": "A → Z"
+    },
+    "pages.heroSkins.metaTitle": {
+      "fr": "Skins de {name} : les {n} skins et illustrations",
+      "text": "Skin {name}: Semua {n} Skin & Artwork"
+    },
+    "pages.heroSkins.metaTitleElision": {
+      "fr": "Skins d'{name} : les {n} skins et illustrations",
+      "text": "Skin {name}: Semua {n} Skin & Artwork"
     },
     "pages.itemDetail.buildersIntro": {
       "fr": "Part des parties de chaque héros en {ranks} jouées avec l'un de ses trois builds les plus joués qui contient {name}. Les héros choisis dans moins de {min} des sélections à ces rangs sont écartés, faute de parties.",
@@ -1615,6 +1727,14 @@
     "pages.modes.titleMode": {
       "fr": "Mode {name}",
       "text": "Mode {name}"
+    },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Analisis meta, panduan latar belakang, dan pembacaan patch Mobile Legends: Bang Bang, dalam bahasa {language}. Tersedia dalam umpan RSS."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Analisis meta dan panduan latar belakang, dalam bahasa {language}."
     },
     "pages.notFound.home": {
       "fr": "Retour à l'accueil",
@@ -2316,13 +2436,13 @@
       "fr": "Grandiose",
       "text": "Grand"
     },
-    "skinRarity.Supreme": {
-      "fr": "Suprême",
-      "text": "Supreme"
-    },
     "skinRarity.origin": {
       "fr": "Origine",
       "text": "Asal"
+    },
+    "skinRarity.Supreme": {
+      "fr": "Suprême",
+      "text": "Supreme"
     },
     "tools.retribution.announceRound": {
       "fr": "Manche {n} sur {total} : {objective}. Préparez-vous.",
@@ -2479,24 +2599,40 @@
     "tools.serverTime.yourTime": {
       "fr": "Chez vous : {time} ({timezone})",
       "text": "Waktu Anda: {time} ({timezone})"
-    },
-    "home.titleAccent": {
-      "fr": "en {language}",
-      "text": "dalam bahasa {language}"
-    },
-    "pages.news.metaDescription": {
-      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
-      "text": "Analisis meta, panduan latar belakang, dan pembacaan patch Mobile Legends: Bang Bang, dalam bahasa {language}. Tersedia dalam umpan RSS."
-    },
-    "pages.news.ogDescription": {
-      "fr": "Analyses du meta et guides de fond, en {language}.",
-      "text": "Analisis meta dan panduan latar belakang, dalam bahasa {language}."
     }
   },
   "it": {
+    "common.pager.label": {
+      "fr": "Pagination",
+      "text": "Impaginazione"
+    },
+    "common.pager.status": {
+      "fr": "Page {page} sur {pages} · {first} à {last} sur {total}",
+      "text": "Pagina {page} di {pages} · da {first} a {last} di {total}"
+    },
+    "draftUI.filledBy": {
+      "fr": "Pourvue par {name}",
+      "text": "Occupata da {name}"
+    },
+    "draftUI.noSuggestion": {
+      "fr": "Aucune réponse marquante face à cette composition.",
+      "text": "Nessuna risposta netta contro questa formazione."
+    },
+    "draftUI.showMore": {
+      "fr": "Voir {n} de plus",
+      "text": "Vedi altri {n}"
+    },
+    "draftUI.whatToPickLane": {
+      "fr": "Que prendre en {lane}",
+      "text": "Cosa prendere in {lane}"
+    },
     "footer.contribute": {
       "fr": "Contribuer",
       "text": "Contribuisci"
+    },
+    "home.titleAccent": {
+      "fr": "en {language}",
+      "text": "in {language}"
     },
     "nav.groups.news": {
       "fr": "Actualités",
@@ -2526,6 +2662,18 @@
       "fr": "PV",
       "text": "PS"
     },
+    "pages.buildSimulatorUI.stepLabel": {
+      "fr": "Étape {n} sur {total}",
+      "text": "Passaggio {n} di {total}"
+    },
+    "pages.buildSimulatorUI.stepsLabel": {
+      "fr": "Étapes du build",
+      "text": "Fasi del build"
+    },
+    "pages.buildSimulatorUI.summaryLabel": {
+      "fr": "Statistiques du build",
+      "text": "Statistiche del build"
+    },
     "pages.collection.calendarLink": {
       "fr": "Calendrier des skins",
       "text": "Calendario delle skin"
@@ -2537,6 +2685,10 @@
     "pages.communityBuilds.spell": {
       "fr": "Sort",
       "text": "Incantesimo"
+    },
+    "pages.draftSimulatorUI.boardLabel": {
+      "fr": "Plateau du draft",
+      "text": "Tabellone del draft"
     },
     "pages.drawCalculator.calendarLink": {
       "fr": "Calendrier des skins",
@@ -2626,6 +2778,14 @@
       "fr": "identique",
       "text": "identico"
     },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Analisi del meta, guide approfondite e letture delle patch di Mobile Legends: Bang Bang, in {language}. Disponibile come feed RSS."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Analisi del meta e guide approfondite, in {language}."
+    },
     "pages.patchNotes.changes.summary.other": {
       "fr": "Le patch {v} modifie {n} héros.",
       "text": "La patch {v} modifica {n} eroi."
@@ -2705,18 +2865,6 @@
     "tools.retribution.currentRun": {
       "fr": "Série en cours",
       "text": "Striscia attuale"
-    },
-    "home.titleAccent": {
-      "fr": "en {language}",
-      "text": "in {language}"
-    },
-    "pages.news.metaDescription": {
-      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
-      "text": "Analisi del meta, guide approfondite e letture delle patch di Mobile Legends: Bang Bang, in {language}. Disponibile come feed RSS."
-    },
-    "pages.news.ogDescription": {
-      "fr": "Analyses du meta et guides de fond, en {language}.",
-      "text": "Analisi del meta e guide approfondite, in {language}."
     }
   }
 }

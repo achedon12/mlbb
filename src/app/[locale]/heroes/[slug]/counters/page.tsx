@@ -6,6 +6,7 @@ import { ChevronDown, TrendingDown, TrendingUp, Users } from "lucide-react";
 import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
 import { OpenAnchor } from "@/components/open-anchor";
+import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { Card, PageHeader } from "@/components/ui";
 import statistics from "@/data/game/statistics.json";
@@ -603,60 +604,61 @@ function AggregatedTable({
   gap: (v: number) => string;
 }) {
   return (
-    // Scrolling lives on a separate container: `bevel` sets its own
-    // `overflow`, and the table then overflowed the page at 390 px. On
-    // mobile, the ranks column hides and the links stack: the
-    // row fits without scrolling.
+    // The name is its row's header: "Compare" and "Counters" take their
+    // context from it, without an aria-label repeated on each link. The
+    // ranks column says nothing a phone has room for and is dropped there;
+    // the rest fits as a table, without the sideways scroller it had.
     <div className="bevel border border-night-700/70 bg-night-900/60 p-3">
-      <div className="relative overflow-x-auto">
-      {/*
-        The name is its row's header: "Compare" and "Counters" take
-        their context from it, without an aria-label repeated on each link.
-      */}
-      <table
-        className={cn(
-          "w-full text-sm [&_tbody_th]:py-1.5 [&_tbody_th]:text-left [&_tbody_th]:font-normal [&_td]:py-1.5 [&_td]:pl-3",
-          "[&_td]:whitespace-nowrap [&_td]:text-right [&_td:last-child]:text-xs [&_td:last-child_a]:text-gold-400",
-          "[&_td:last-child_a:hover]:text-gold-500",
-        )}
-      >
-        <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
-          <tr>
-            <th scope="col" className="text-left">{t("pages.heroCounters.colHero")}</th>
-            <th scope="col">{t("pages.heroCounters.colGap")}</th>
-            <th scope="col" className="max-sm:hidden">{t("pages.heroCounters.colRanks")}</th>
-            <th scope="col"><span className="sr-only">{t("pages.heroCounters.colLinks")}</span></th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-night-800">
-          {rows.map((c) => (
-            <tr key={c.slug}>
-              <th scope="row">
-                <Link href={`/heroes/${c.slug}`} className="flex min-w-0 items-center gap-2.5 text-chalk-100 hover:text-gold-400">
-                  <HeroPortrait source={portraitOf(c.slug)} name={nameOf(c.slug)} size="small" decorative />
-                  <span className="truncate">{nameOf(c.slug)}</span>
-                </Link>
-              </th>
-              <td className={cn("font-semibold tabular-nums", tone === "good" ? "text-emerald-400" : "text-blood-500")}>
+      <CardsTable
+        t={t}
+        cards={false}
+        caption={t("pages.heroCounters.colHero")}
+        rows={rows}
+        rowKey={(c) => c.slug}
+        columns={[
+          {
+            key: "hero",
+            label: t("pages.heroCounters.colHero"),
+            head: true,
+            className: "max-sm:w-[42%]",
+            cell: (c) => (
+              <Link href={`/heroes/${c.slug}`} className="flex min-w-0 items-center gap-2.5 text-chalk-100 hover:text-gold-400">
+                <HeroPortrait source={portraitOf(c.slug)} name={nameOf(c.slug)} size="small" decorative />
+                <span className="truncate">{nameOf(c.slug)}</span>
+              </Link>
+            ),
+          },
+          {
+            key: "gap",
+            label: t("pages.heroCounters.colGap"),
+            cell: (c) => (
+              <span className={cn("font-semibold", tone === "good" ? "text-emerald-400" : "text-blood-500")}>
                 {gap(c.average)}
-              </td>
-              <td className="tabular-nums text-chalk-400 max-sm:hidden">
-                {t("pages.heroCounters.ranksListed", { n: c.ranks, total })}
-              </td>
-              <td>
-                <Link href={pathPair(slug, c.slug)} className="max-sm:block">
-                  {t("pages.heroDetail.compare")}
-                </Link>
-                <span aria-hidden className="max-sm:hidden"> · </span>
-                <Link href={`/heroes/${c.slug}/counters`} className="max-sm:block">
-                  {t("pages.heroCounters.shortLink")}
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
+              </span>
+            ),
+          },
+          {
+            key: "ranks",
+            label: t("pages.heroCounters.colRanks"),
+            wideOnly: true,
+            className: "text-chalk-400",
+            cell: (c) => t("pages.heroCounters.ranksListed", { n: c.ranks, total }),
+          },
+          {
+            key: "links",
+            label: t("pages.heroCounters.colLinks"),
+            // Two links side by side do not fit a 390 px screen: they stack.
+            className: "text-xs [&_a]:text-gold-400 [&_a:hover]:text-gold-500",
+            cell: (c) => (
+              <span className="flex flex-col items-end leading-tight sm:block sm:leading-normal">
+                <Link href={pathPair(slug, c.slug)}>{t("pages.heroDetail.compare")}</Link>
+                <span aria-hidden className="max-sm:hidden">{" · "}</span>
+                <Link href={`/heroes/${c.slug}/counters`}>{t("pages.heroCounters.shortLink")}</Link>
+              </span>
+            ),
+          },
+        ]}
+      />
     </div>
   );
 }

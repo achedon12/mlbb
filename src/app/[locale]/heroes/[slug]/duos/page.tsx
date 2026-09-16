@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ChevronDown, ThumbsDown, Users } from "lucide-react";
 import Link from "@/components/link";
 import { FreshnessLine } from "@/components/freshness";
+import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { Card, PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -291,7 +292,7 @@ export default async function DuosPage({ params }: Params) {
                 </li>
               ))}
             </ul>
-            <div className="bevel mt-4 relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
+            <div className="bevel mt-4 border border-night-700/70 bg-night-900/60 p-3">
               <TablePhases t={t} locale={locale} duos={mainDuos} buckets={bucketsAlone} gap={gap} />
             </div>
           </section>
@@ -334,7 +335,7 @@ export default async function DuosPage({ params }: Params) {
                           <Users size={16} aria-hidden />
                           {t("pages.duos.bestShort")}
                         </h4>
-                        <div className="relative overflow-x-auto">
+                        <div>
                           <TablePhases
                             t={t}
                             locale={locale}
@@ -346,7 +347,7 @@ export default async function DuosPage({ params }: Params) {
                         </div>
                       </div>
                       {known(d.worst).length > 0 && (
-                        <div className="min-w-0 relative overflow-x-auto">
+                        <div className="min-w-0">
                           <h4 className="flex items-center gap-2 font-heading font-bold text-blood-500">
                             <ThumbsDown size={16} aria-hidden />
                             {t("pages.duos.worstShort")}
@@ -372,7 +373,7 @@ export default async function DuosPage({ params }: Params) {
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-chalk-500">{t("pages.duos.academy.intro", n)}</p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {academy.map((r) => (
-                <Card key={r} className="min-w-0 relative overflow-x-auto p-4">
+                <Card key={r} className="min-w-0 p-4">
                   <h3 className="font-heading font-bold text-chalk-100">{t(`measuredRanks.${r}`)}</h3>
                   <ListGaps t={t} rows={known(teammates[slug]?.[r])} gap={gap} />
                 </Card>
@@ -431,30 +432,51 @@ function AggregatedTable({
 }) {
   const name = nameOf(slug);
   return (
-    <div className="bevel relative overflow-x-auto border border-night-700/70 bg-night-900/60 p-3">
-      <table className="w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-3 [&_td+td]:whitespace-nowrap [&_td+td]:text-right">
-        <thead className="text-xs uppercase tracking-wide text-chalk-500 [&_th]:pb-2 [&_th]:font-medium [&_th+th]:pl-3 [&_th+th]:text-right">
-          <tr>
-            <th scope="col" className="text-left">{t("pages.duos.colPartner")}</th>
-            <th scope="col">{t("pages.duos.colGain")}</th>
-            <th scope="col">{t("pages.duos.colRanks")}</th>
-            <th scope="col"><span className="sr-only">{t("pages.duos.colLinks")}</span></th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-night-800">
-          {rows.map((c) => (
-            <tr key={c.slug}>
-              <td>
-                <Link href={`/heroes/${c.slug}`} className="flex min-w-0 items-center gap-2.5 text-chalk-100 hover:text-gold-400">
-                  <HeroPortrait source={portraitOf(c.slug)} name={nameOf(c.slug)} size="small" decorative />
-                  <span className="truncate">{nameOf(c.slug)}</span>
-                </Link>
-              </td>
-              <td className={cn("font-semibold tabular-nums", tone === "good" ? "text-emerald-400" : "text-blood-500")}>
+    // The four columns were put in a sideways scroller and overflowed a
+    // 390 px screen; they fit as a table once the cells stop reserving a
+    // minimum width, and a partner still reads on one line.
+    <div className="bevel border border-night-700/70 bg-night-900/60 p-3">
+      <CardsTable
+        t={t}
+        cards={false}
+        caption={t("pages.duos.colPartner")}
+        rows={rows}
+        rowKey={(c) => c.slug}
+        columns={[
+          {
+            key: "partner",
+            label: t("pages.duos.colPartner"),
+            head: true,
+            className: "max-sm:w-[38%]",
+            cell: (c) => (
+              <Link href={`/heroes/${c.slug}`} className="flex min-w-0 items-center gap-2.5 text-chalk-100 hover:text-gold-400">
+                <HeroPortrait source={portraitOf(c.slug)} name={nameOf(c.slug)} size="small" decorative />
+                <span className="truncate">{nameOf(c.slug)}</span>
+              </Link>
+            ),
+          },
+          {
+            key: "gain",
+            label: t("pages.duos.colGain"),
+            cell: (c) => (
+              <span className={cn("font-semibold", tone === "good" ? "text-emerald-400" : "text-blood-500")}>
                 {gap(c.average)}
-              </td>
-              <td className="tabular-nums text-chalk-400">{t("pages.duos.ranksListed", { n: c.ranks, total })}</td>
-              <td className="text-xs">
+              </span>
+            ),
+          },
+          {
+            key: "ranks",
+            label: t("pages.duos.colRanks"),
+            className: "text-chalk-400",
+            cell: (c) => t("pages.duos.ranksListed", { n: c.ranks, total }),
+          },
+          {
+            key: "links",
+            label: t("pages.duos.colLinks"),
+            className: "text-xs",
+            cell: (c) => (
+              // Two links side by side do not fit a 390 px screen: they stack.
+              <span className="flex flex-col items-end leading-tight sm:block sm:leading-normal">
                 <Link
                   href={`/compare?a=${slug}&b=${c.slug}`}
                   aria-label={t("pages.duos.compareLink", { name: name, other: nameOf(c.slug) })}
@@ -462,7 +484,7 @@ function AggregatedTable({
                 >
                   {t("pages.duos.compare")}
                 </Link>
-                {" · "}
+                <span aria-hidden className="max-sm:hidden">{" · "}</span>
                 <Link
                   href={`/heroes/${c.slug}/duos`}
                   aria-label={t("pages.duos.title", names(nameOf(c.slug)))}
@@ -470,11 +492,11 @@ function AggregatedTable({
                 >
                   {t("pages.duos.shortLink")}
                 </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              </span>
+            ),
+          },
+        ]}
+      />
     </div>
   );
 }
@@ -510,14 +532,17 @@ function TablePhases({
   };
   return (
     <table
+      /* No sideways scroller: the phase columns are three characters wide,
+         so the table fits a 390 px screen once the partner column is the
+         only flexible one. */
       className={cn(
-        "mt-2 w-full text-sm [&_td]:py-1.5 [&_td+td]:pl-2 [&_td+td]:text-right [&_td+td]:whitespace-nowrap [&_td+td]:tabular-nums",
-        "[&_th]:pb-1.5 [&_th]:text-xs [&_th]:font-medium [&_th]:uppercase [&_th]:tracking-wide [&_th]:text-chalk-500 [&_th+th]:pl-2 [&_th+th]:text-right",
+        "mt-2 w-full table-fixed text-xs sm:text-sm [&_td]:py-1.5 [&_td+td]:pl-1 [&_td+td]:text-right [&_td+td]:tabular-nums sm:[&_td+td]:whitespace-nowrap sm:[&_td+td]:pl-2",
+        "[&_th]:pb-1.5 [&_th]:text-xs [&_th]:font-medium [&_th]:uppercase [&_th]:tracking-wide [&_th]:text-chalk-500 [&_th+th]:pl-1 [&_th+th]:text-right sm:[&_th+th]:pl-2",
       )}
     >
       <thead>
         <tr>
-          <th scope="col" className="text-left">{t("pages.duos.colPartner")}</th>
+          <th scope="col" className="w-[30%] text-left sm:w-auto">{t("pages.duos.colPartner")}</th>
           {compact && <th scope="col">{t("pages.duos.colGain")}</th>}
           {PHASES.map((p) => (
             <th scope="col" key={p}>

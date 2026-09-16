@@ -14,6 +14,7 @@ import {
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { Chip } from "@/components/chip";
+import { ChipActive, FilterBar } from "@/components/filter-bar";
 import { Drawer } from "@/components/drawer";
 import { LOCALE_HTML } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
@@ -144,14 +145,16 @@ export function ItemList({
 
   return (
     <div>
-      <div className="flex flex-col gap-4">
-        <SearchField
-          value={search}
-          onChange={setSearch}
-          label={t("pages.itemsList.search")}
-          className="max-w-md"
-        />
-
+      <FilterBar
+        search={<SearchField value={search} onChange={setSearch} label={t("pages.itemsList.search")} dense />}
+        active={category && <ChipActive label={t(`categories.${category}`)} onRemove={() => setCategory(null)} />}
+        count={
+          <span aria-live="polite">
+            {t("pages.itemsList.account", { n: results.length })}
+            {results.length !== items.length && ` ${t("pages.itemsList.countOf", { total: items.length })}`}
+          </span>
+        }
+      >
         <div className="flex flex-wrap gap-2">
           {categories.map((c) => (
             <Chip key={c} active={category === c} onClick={() => setCategory(category === c ? null : c)}>
@@ -159,14 +162,9 @@ export function ItemList({
             </Chip>
           ))}
         </div>
-      </div>
+      </FilterBar>
 
-      <p aria-live="polite" className="mt-6 text-sm text-chalk-500">
-        {t("pages.itemsList.account", { n: results.length })}
-        {results.length !== items.length && ` ${t("pages.itemsList.countOf", { total: items.length })}`}
-      </p>
-
-      <div className="mt-4 grid gap-6 lg:grid-cols-[1fr_21rem]">
+      <div className="grid gap-6 lg:grid-cols-[1fr_21rem]">
         <ul className="grid grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))] gap-2">
           {results.map((o) => {
             const selected = o.slug === item?.slug;

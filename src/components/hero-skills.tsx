@@ -98,9 +98,9 @@ export function HeroSkills({
                   <Image
                     src={c.icon}
                     alt=""
-                    fill
-                    unoptimized
-                    className="object-contain"
+                    width={44}
+                    height={44}
+                    className="size-full object-contain"
                   />
                 ) : (
                   <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">
@@ -149,7 +149,7 @@ function DetailSkill({ sheet, withoutFrame = false }: { sheet: Sheet; withoutFra
       <div className="flex items-center gap-3 pr-10 lg:pr-0">
         {sheet.icon && (
           <span className="relative size-10 shrink-0 overflow-hidden">
-            <Image src={sheet.icon} alt="" fill unoptimized className="object-contain" />
+            <Image src={sheet.icon} alt="" width={40} height={40} className="size-full object-contain" />
           </span>
         )}
         <div className="min-w-0">

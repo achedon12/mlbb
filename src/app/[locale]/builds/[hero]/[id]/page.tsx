@@ -77,7 +77,7 @@ export default async function CommunityBuildPage({ params }: Params) {
   const choice = (src: string | null, label: string, round = false) => (
     <span className="flex min-w-0 items-center gap-2">
       <span className={`relative size-9 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : ""}`}>
-        {src && <Image src={src} alt="" fill unoptimized className="object-contain" />}
+        {src && <Image src={src} alt="" width={36} height={36} className="size-full object-contain" />}
       </span>
       <span className="min-w-0 text-sm text-chalk-200">{label}</span>
     </span>

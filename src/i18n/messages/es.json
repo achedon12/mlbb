@@ -14,7 +14,19 @@
     "homeDescription": "Base de conocimiento de Mobile Legends: Bang Bang: los 133 héroes, sus counters y builds por rango, la tier list, los objetos, emblemas y notas del parche.",
     "siblings": "Otras páginas al mismo nivel que {name}",
     "filter": "Filtrar…",
-    "contents": "Índice"
+    "contents": "Índice",
+    "readMore": "Más información",
+    "method": "Método y fuentes",
+    "pager": {
+      "label": "Paginación",
+      "previous": "Página anterior",
+      "next": "Página siguiente",
+      "page": "Página {n}",
+      "status": "Página {page} de {pages} · {first} a {last} de {total}"
+    },
+    "table": {
+      "sortBy": "Ordenar por {column}"
+    }
   },
   "nav": {
     "database": "Base de datos",
@@ -427,7 +439,8 @@
         "advantage": "El balance suma las diferencias de victoria medidas en clasificatoria entre los héroes de ambos equipos, más las ganancias de los dúos de cada uno. Es una estimación basada solo en esas mediciones, no una probabilidad de victoria.",
         "sources": "Fuentes",
         "sourceRef": "Fuente: {site}, {page}"
-      }
+      },
+      "methodTitle": "Método y fuentes"
     },
     "compare": {
       "title": "Comparador",
@@ -2668,7 +2681,10 @@
         "address": "Dirección del draft",
         "newDraft": "Nuevo draft",
         "lanes": "Líneas"
-      }
+      },
+      "boardLabel": "Tablero del draft",
+      "explainToggle": "Opciones explicadas ({n})",
+      "methodTitle": "Método y fuentes"
     },
     "timer": {
       "title": "Temporizador de objetivos",
@@ -2951,7 +2967,8 @@
       "sourcesTitle": "Fuentes",
       "sourceWiki": "Wiki de Mobile Legends: {page}",
       "sourceItems": "Atributos y pasivas de los objetos: fichas de la wiki de Mobile Legends, sincronizadas con el sitio.",
-      "sourceMeasured": "Builds medidas: academia del juego, mediante la API comunitaria arena.rone.dev."
+      "sourceMeasured": "Builds medidas: academia del juego, mediante la API comunitaria arena.rone.dev.",
+      "methodAndSources": "Método y fuentes"
     },
     "buildSimulatorUI": {
       "searchItem": "Buscar un objeto o un atributo",
@@ -3074,7 +3091,15 @@
       "shareUrl": "Enlace de la build",
       "copied": "Enlace copiado",
       "copyLink": "Copiar enlace",
-      "pickItem": "Elegir el objeto del hueco {n}"
+      "pickItem": "Elegir el objeto del hueco {n}",
+      "stepsLabel": "Pasos del build",
+      "stepLabel": "Paso {n} de {total}",
+      "previous": "Paso anterior",
+      "next": "Siguiente paso",
+      "summaryLabel": "Estadísticas del build",
+      "summaryEmpty": "Elige un héroe: sus estadísticas se muestran aquí en cada etapa.",
+      "summaryItems": "{n}/{total} objetos",
+      "summaryDetail": "Ver detalles"
     },
     "communityBuildsUI": {
       "votes": "{n} voto(s)",
@@ -3552,7 +3577,19 @@
       "countered": "en apuros contra {detail}",
       "synergy": "combina con {detail}",
       "win": "{detail} % de victorias"
-    }
+    },
+    "stepLabel": "Paso {n}",
+    "stepEnemyTitle": "¿A quién te enfrentas?",
+    "stepYoursTitle": "Tu equipo",
+    "optional": "opcional",
+    "whatToPickLane": "Qué elegir en {lane}",
+    "answersLabel": "Sugerencias para el carril {lane}",
+    "showMore": "Ver {n} más",
+    "showLess": "Ver menos",
+    "noSuggestion": "Ninguna respuesta clara frente a esta composición.",
+    "filledBy": "Ocupada por {name}",
+    "waitingEnemy": "Elige un héroe contrario: las respuestas se muestran inmediatamente debajo de su carril.",
+    "methodTitle": "Método y fuentes"
   },
   "newHero": {
     "highlight": "Particularidad — ",

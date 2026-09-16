@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "@/components/link";
 import { NicknameGenerator } from "@/components/nickname-generator";
 import { PageHeader } from "@/components/ui";
+import { Foldable } from "@/components/foldable";
 import type { Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -53,45 +54,6 @@ export default async function NicknamePage({ params }: Params) {
       <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
         <NicknameGenerator />
 
-        <section aria-labelledby="how-title">
-          <h2 id="how-title" className={sectionTitle}>
-            {t("pages.nickname.howTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.nickname.how1")}</p>
-            <p>{t("pages.nickname.how2")}</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="rules-title">
-          <h2 id="rules-title" className={sectionTitle}>
-            {t("pages.nickname.rulesTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.nickname.rule1")}</p>
-            <p>{t("pages.nickname.rule2", { min: GUIDE_LENGTH.min, max: GUIDE_LENGTH.max })}</p>
-            <p>{t("pages.nickname.rule3")}</p>
-            <p>{t("pages.nickname.rule4")}</p>
-          </div>
-        </section>
-
-        <section aria-labelledby="faq-title">
-          <h2 id="faq-title" className={sectionTitle}>
-            {t("pages.nickname.faqTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <dl className="mt-4 space-y-5">
-            {questions.map((q) => (
-              <div key={q}>
-                <dt className="font-semibold text-chalk-100">{t(`pages.nickname.q${q}`)}</dt>
-                <dd className="mt-1 leading-relaxed text-chalk-300">{t(`pages.nickname.a${q}`)}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-
         <p className="leading-relaxed text-chalk-300">
           {t("pages.nickname.drawLink")}{" "}
           <Link href="/tools/draw-calculator" className="font-semibold text-gold-400 hover:text-gold-500">
@@ -99,23 +61,66 @@ export default async function NicknamePage({ params }: Params) {
           </Link>
         </p>
 
-        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-title" className="font-semibold text-chalk-300">
-            {t("pages.nickname.sourcesTitle")}
-          </h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            <li>
-              <a href={SHOP_SOURCE} rel="noopener" className={sourceLink}>
-                {t("pages.nickname.sourceShop")}
-              </a>
-            </li>
-            <li>
-              <a href={GUIDE_LENGTH.source} rel="noopener" className={sourceLink}>
-                {t("pages.nickname.sourceGuide")}
-              </a>
-            </li>
-          </ul>
-        </section>
+        <Foldable label={t("common.method")}>
+          <div className="space-y-10">
+            <section aria-labelledby="how-title">
+              <h2 id="how-title" className={sectionTitle}>
+                {t("pages.nickname.howTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
+                <p>{t("pages.nickname.how1")}</p>
+                <p>{t("pages.nickname.how2")}</p>
+              </div>
+            </section>
+
+            <section aria-labelledby="rules-title">
+              <h2 id="rules-title" className={sectionTitle}>
+                {t("pages.nickname.rulesTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
+                <p>{t("pages.nickname.rule1")}</p>
+                <p>{t("pages.nickname.rule2", { min: GUIDE_LENGTH.min, max: GUIDE_LENGTH.max })}</p>
+                <p>{t("pages.nickname.rule3")}</p>
+                <p>{t("pages.nickname.rule4")}</p>
+              </div>
+            </section>
+
+            <section aria-labelledby="faq-title">
+              <h2 id="faq-title" className={sectionTitle}>
+                {t("pages.nickname.faqTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <dl className="mt-4 space-y-5">
+                {questions.map((q) => (
+                  <div key={q}>
+                    <dt className="font-semibold text-chalk-100">{t(`pages.nickname.q${q}`)}</dt>
+                    <dd className="mt-1 leading-relaxed text-chalk-300">{t(`pages.nickname.a${q}`)}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+
+            <section aria-labelledby="sources-title" className="text-sm text-chalk-500">
+              <h2 id="sources-title" className="font-semibold text-chalk-300">
+                {t("pages.nickname.sourcesTitle")}
+              </h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                <li>
+                  <a href={SHOP_SOURCE} rel="noopener" className={sourceLink}>
+                    {t("pages.nickname.sourceShop")}
+                  </a>
+                </li>
+                <li>
+                  <a href={GUIDE_LENGTH.source} rel="noopener" className={sourceLink}>
+                    {t("pages.nickname.sourceGuide")}
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </Foldable>
       </div>
     </ExtendMessages>
   );

@@ -6,6 +6,7 @@ import { CalendarClock, Clock, Sparkles, Trophy } from "lucide-react";
 import { Card } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
+import { cn } from "@/lib/utils";
 import {
   SERVER_TIMEZONE,
   COUNTRY_BY_LOCALE,
@@ -18,7 +19,6 @@ import {
   nextStarlight,
   type EndSeason,
 } from "@/lib/server-time";
-import { cn } from "@/lib/utils";
 
 /**
  * Server clock, reset countdowns and local reset time in the main countries of
@@ -209,16 +209,20 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
           {locales.map((l) => (
             <div key={l}>
               <h3 className="font-heading text-lg font-bold text-gold-400">{t(`tools.serverTime.group.${l}`)}</h3>
-              <div className="mt-2 relative overflow-x-auto">
-                <table className="w-full min-w-[20rem] text-left text-sm">
+              {/* Four columns of times over 40 countries: the table fits a
+                  390 px screen once the cells stop reserving a minimum width
+                  and the times may wrap. It stays a table — one row per
+                  country reads in two lines, where a card would take four. */}
+              <div className="mt-2">
+                <table className="w-full table-fixed text-left text-sm">
                   <caption className="sr-only">
                     {t("tools.serverTime.legend", { group: t(`tools.serverTime.group.${l}`) })}
                   </caption>
                   <thead className="text-xs uppercase tracking-wide text-chalk-500">
                     <tr>
-                      <th scope="col" className="py-2 pr-3 font-medium">{t("tools.serverTime.colCountry")}</th>
-                      <th scope="col" className="py-2 pr-3 font-medium">{t("tools.serverTime.colDaily")}</th>
-                      <th scope="col" className="py-2 pr-3 font-medium">{t("tools.serverTime.colWeekly")}</th>
+                      <th scope="col" className="w-[38%] py-2 pr-2 font-medium">{t("tools.serverTime.colCountry")}</th>
+                      <th scope="col" className="py-2 pr-2 font-medium">{t("tools.serverTime.colDaily")}</th>
+                      <th scope="col" className="py-2 pr-2 font-medium">{t("tools.serverTime.colWeekly")}</th>
                       <th scope="col" className="py-2 font-medium">{t("tools.serverTime.colNow")}</th>
                     </tr>
                   </thead>
@@ -227,7 +231,7 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
                       const you = p.timezone === timezone;
                       return (
                         <tr key={`${p.country}-${p.timezone}`} className={cn("border-t border-night-800", you && "bg-gold-500/10")}>
-                          <th scope="row" className="py-2 pr-3 font-medium text-chalk-100">
+                          <th scope="row" className="py-2 pr-2 font-medium text-chalk-100">
                             <span suppressHydrationWarning>
                               {f.country(p.country)}
                               {p.city && ` (${p.city})`}
@@ -237,10 +241,10 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
                               {you && ` · ${t("tools.serverTime.you")}`}
                             </span>
                           </th>
-                          <td className="py-2 pr-3 tabular-nums text-chalk-200" suppressHydrationWarning>
+                          <td className="py-2 pr-2 tabular-nums text-chalk-200" suppressHydrationWarning>
                             {f.timeShort(daily, p.timezone)}
                           </td>
-                          <td className="py-2 pr-3 text-chalk-200" suppressHydrationWarning>
+                          <td className="py-2 pr-2 text-chalk-200" suppressHydrationWarning>
                             {f.dayTime(weekly, p.timezone)}
                           </td>
                           <td className="py-2 tabular-nums text-chalk-400" suppressHydrationWarning>

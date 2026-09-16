@@ -85,7 +85,7 @@ export interface GroupSkins {
 /** Folder of a hero's visuals. */
 export const heroFolder = (slug: string) => `/visuels/heros/${slug}/`;
 
-/** Image path, shortened when it is under the hero folder (`skins/1091-duke-of-shards.png`). */
+/** Image path, shortened when it is under the hero folder (`skins/1091-duke-of-shards.webp`). */
 export function shortenImage(slug: string, path: string | null): string | null {
   if (!path) return null;
   const folder = heroFolder(slug);
@@ -98,9 +98,9 @@ export function imageThumb(slug: string, image: string | null): string | null {
   return image.startsWith("/") ? image : `${heroFolder(slug)}${image}`;
 }
 
-/** Shop portrait, as the sync stores it: `skins/1091-duke-of-shards.png`. */
+/** Shop portrait, as the sync stores it: `skins/1091-duke-of-shards.webp`. */
 export const portraitSkin = (slug: string, id: string, name: string) =>
-  `${heroFolder(slug)}skins/${id}-${fileSkin(name)}.png`;
+  `${heroFolder(slug)}skins/${id}-${fileSkin(name)}.webp`;
 /** Illustration, as the sync stores it: `illustrations/duke-of-shards.webp`. */
 export const illustrationSkin = (slug: string, name: string) => `${heroFolder(slug)}illustrations/${fileSkin(name)}.webp`;
 

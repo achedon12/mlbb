@@ -14,7 +14,19 @@
     "homeDescription": "Base de connaissances Mobile Legends: Bang Bang : les 133 héros, leurs contres et builds par rang, la tier list, les objets, emblèmes et patch notes.",
     "siblings": "Autres pages au même niveau que {name}",
     "filter": "Filtrer…",
-    "contents": "Sommaire"
+    "contents": "Sommaire",
+    "readMore": "En savoir plus",
+    "method": "Méthode et sources",
+    "pager": {
+      "label": "Pagination",
+      "previous": "Page précédente",
+      "next": "Page suivante",
+      "page": "Page {n}",
+      "status": "Page {page} sur {pages} · {first} à {last} sur {total}"
+    },
+    "table": {
+      "sortBy": "Trier par {column}"
+    }
   },
   "nav": {
     "database": "Base de données",
@@ -427,7 +439,8 @@
         "advantage": "Le bilan additionne les écarts de victoire mesurés en partie classée entre les héros des deux équipes, et les gains des duos de chacune. C'est une estimation tirée de ces seules mesures, pas une probabilité de victoire.",
         "sources": "Sources",
         "sourceRef": "Source : {site}, {page}"
-      }
+      },
+      "methodTitle": "Méthode et sources"
     },
     "compare": {
       "title": "Comparateur",
@@ -2668,7 +2681,10 @@
         "address": "Adresse du draft",
         "newDraft": "Nouveau draft",
         "lanes": "Lanes"
-      }
+      },
+      "boardLabel": "Plateau du draft",
+      "explainToggle": "Choix expliqués ({n})",
+      "methodTitle": "Méthode et sources"
     },
     "timer": {
       "title": "Chrono des objectifs",
@@ -2951,7 +2967,8 @@
       "sourcesTitle": "Sources",
       "sourceWiki": "Wiki Mobile Legends : {page}",
       "sourceItems": "Attributs et passifs des objets : fiches du wiki Mobile Legends, synchronisées avec le site.",
-      "sourceMeasured": "Builds mesurés : académie du jeu, via l'API communautaire arena.rone.dev."
+      "sourceMeasured": "Builds mesurés : académie du jeu, via l'API communautaire arena.rone.dev.",
+      "methodAndSources": "Méthode et sources"
     },
     "buildSimulatorUI": {
       "searchItem": "Chercher un objet ou un attribut",
@@ -3074,7 +3091,15 @@
       "shareUrl": "Lien du build",
       "copied": "Lien copié",
       "copyLink": "Copier le lien",
-      "pickItem": "Choisir l'objet de l'emplacement {n}"
+      "pickItem": "Choisir l'objet de l'emplacement {n}",
+      "stepsLabel": "Étapes du build",
+      "stepLabel": "Étape {n} sur {total}",
+      "previous": "Étape précédente",
+      "next": "Étape suivante",
+      "summaryLabel": "Statistiques du build",
+      "summaryEmpty": "Choisissez un héros : ses statistiques s'affichent ici à chaque étape.",
+      "summaryItems": "{n}/{total} objets",
+      "summaryDetail": "Voir le détail"
     },
     "communityBuildsUI": {
       "votes": "{n} vote(s)",
@@ -3552,7 +3577,19 @@
       "countered": "en difficulté contre {detail}",
       "synergy": "se combine avec {detail}",
       "win": "{detail} % de victoires"
-    }
+    },
+    "stepLabel": "Étape {n}",
+    "stepEnemyTitle": "Qui affrontez-vous ?",
+    "stepYoursTitle": "Votre équipe",
+    "optional": "facultatif",
+    "whatToPickLane": "Que prendre en {lane}",
+    "answersLabel": "Suggestions pour la lane {lane}",
+    "showMore": "Voir {n} de plus",
+    "showLess": "Voir moins",
+    "noSuggestion": "Aucune réponse marquante face à cette composition.",
+    "filledBy": "Pourvue par {name}",
+    "waitingEnemy": "Choisissez un héros adverse : les réponses s'affichent aussitôt sous sa lane.",
+    "methodTitle": "Méthode et sources"
   },
   "newHero": {
     "highlight": "Particularité — ",

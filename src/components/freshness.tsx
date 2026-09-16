@@ -9,6 +9,22 @@ import { cn } from "@/lib/utils";
  * figures are; search engines read a visible date, echoed by the
  * `dateModified` of the structured data.
  */
+/**
+ * The same facts as `FreshnessLine`, split into the small chips a page header
+ * takes as `meta`: on a phone they wrap instead of stretching the header with
+ * a third line of prose.
+ */
+export function freshnessFacts(locale: Locale, before?: string): React.ReactNode[] {
+  const t = createT(locale);
+  return [
+    before,
+    <time key="date" dateTime={dateMeasure}>
+      {t("pages.freshness.updatedOn", { date: longDate(locale) })}
+    </time>,
+    patchCurrent ? t("pages.freshness.patch", { v: patchCurrent.version }) : null,
+  ];
+}
+
 export function FreshnessLine({
   locale,
   before,

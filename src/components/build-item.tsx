@@ -24,9 +24,9 @@ export function BuildItem({ name, rank }: { name: string; rank: number }) {
           <Image
             src={image}
             alt=""
-            fill
-            unoptimized
-            className="object-contain"
+            width={44}
+            height={44}
+            className="size-full object-contain"
           />
         ) : (
           <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">

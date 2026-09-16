@@ -6,6 +6,7 @@ import { SearchField } from "@/components/search-field";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { FilterGroup, Chip } from "@/components/chip";
+import { imageRole } from "@/lib/emblems";
 import { useT } from "@/i18n/provider";
 import { LANES, ROLES, type Suggestion } from "@/lib/draft";
 import type { Lane, Role } from "@/lib/types";
@@ -133,7 +134,7 @@ export function HeroSelector({
               {t("draftUI.allRoles")}
             </Chip>
             {ROLES.map((r) => (
-              <Chip dense key={r} active={role === r} onClick={() => setRole(role === r ? null : r)}>
+              <Chip dense key={r} active={role === r} emblem={imageRole(r)} onClick={() => setRole(role === r ? null : r)}>
                 {t(`roles.${r}`)}
               </Chip>
             ))}

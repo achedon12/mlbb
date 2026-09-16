@@ -24,7 +24,7 @@ function Icon({ src, label, round = false }: { src: string | null; label: string
   return (
     <span title={label} className={`relative block size-9 shrink-0 overflow-hidden bg-night-800 ${round ? "rounded-full" : ""}`}>
       {src ? (
-        <Image src={src} alt={label} fill unoptimized className="object-contain" />
+        <Image src={src} alt={label} width={36} height={36} className="size-full object-contain" />
       ) : (
         <span className="grid size-full place-items-center text-xs text-chalk-500">
           {label.charAt(0)}

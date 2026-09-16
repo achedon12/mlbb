@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { BookOpen, FileCode, GitPullRequest } from "lucide-react";
+import { Foldable } from "@/components/foldable";
 import { Card, PageHeader } from "@/components/ui";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
@@ -138,50 +139,54 @@ export default async function ContributePage({ params }: Params) {
           </div>
         </Section>
 
-        <Section title={t("pages.contribute.fieldsTitle")}>
-          <p className="mb-5 leading-relaxed text-chalk-300">{withCode(t("pages.contribute.fieldsIntro"))}</p>
-          <div className="space-y-5">
-            {GROUPS.map((g) => (
-              <Card key={g.key}>
-                <h3 className="font-heading text-lg font-bold text-gold-400">{t(`pages.contribute.group.${g.key}`)}</h3>
-                <dl className="mt-3 divide-y divide-night-800">
-                  {g.fields.map((c) => (
-                    <div key={c.key} className="grid gap-1 py-3 sm:grid-cols-[13rem_1fr] sm:gap-5">
-                      <dt className="min-w-0">
-                        <code className="font-mono text-sm text-chalk-100">{c.name}</code>
-                        <span className="mt-0.5 block break-words font-mono text-xs text-chalk-500">
-                          {c.type}
-                          {c.optional && ` · ${t("pages.contribute.optional")}`}
-                        </span>
-                      </dt>
-                      <dd className="text-sm leading-relaxed text-chalk-300">
-                        {withCode(t(`pages.contribute.fields.${c.key}`))}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </Card>
-            ))}
-          </div>
-        </Section>
+        <Foldable label={t("pages.contribute.fieldsTitle")}>
+          <div className="space-y-10">
+            <div>
+              <p className="mb-5 leading-relaxed text-chalk-300">{withCode(t("pages.contribute.fieldsIntro"))}</p>
+              <div className="space-y-5">
+                {GROUPS.map((g) => (
+                  <Card key={g.key}>
+                    <h3 className="font-heading text-lg font-bold text-gold-400">{t(`pages.contribute.group.${g.key}`)}</h3>
+                    <dl className="mt-3 divide-y divide-night-800">
+                      {g.fields.map((c) => (
+                        <div key={c.key} className="grid gap-1 py-3 sm:grid-cols-[13rem_1fr] sm:gap-5">
+                          <dt className="min-w-0">
+                            <code className="font-mono text-sm text-chalk-100">{c.name}</code>
+                            <span className="mt-0.5 block break-words font-mono text-xs text-chalk-500">
+                              {c.type}
+                              {c.optional && ` · ${t("pages.contribute.optional")}`}
+                            </span>
+                          </dt>
+                          <dd className="text-sm leading-relaxed text-chalk-300">
+                            {withCode(t(`pages.contribute.fields.${c.key}`))}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </Card>
+                ))}
+              </div>
+            </div>
 
-        <Section title={t("pages.contribute.templateTitle")}>
-          <p className="leading-relaxed text-chalk-300">{withCode(t("pages.contribute.templateIntro"))}</p>
-          {template && (
-            <pre
-              tabIndex={0}
-              role="region"
-              aria-label={t("pages.contribute.templateTitle")}
-              className="bevel mt-4 max-h-[36rem] overflow-auto border border-night-700/70 bg-night-950 p-4 text-xs leading-relaxed text-chalk-300 outline-none focus-visible:border-gold-500"
-            >
-              <code>{template}</code>
-            </pre>
-          )}
-          <a href={`${site.repository}/blob/main/${TEMPLATE}`} rel="noreferrer" className={`mt-4 ${linkExternal}`}>
-            <FileCode size={16} aria-hidden />
-            {t("pages.contribute.templateLink")}
-          </a>
-        </Section>
+          <Section title={t("pages.contribute.templateTitle")}>
+            <p className="leading-relaxed text-chalk-300">{withCode(t("pages.contribute.templateIntro"))}</p>
+            {template && (
+              <pre
+                tabIndex={0}
+                role="region"
+                aria-label={t("pages.contribute.templateTitle")}
+                className="bevel mt-4 max-h-[36rem] overflow-auto border border-night-700/70 bg-night-950 p-4 text-xs leading-relaxed text-chalk-300 outline-none focus-visible:border-gold-500"
+              >
+                <code>{template}</code>
+              </pre>
+            )}
+            <a href={`${site.repository}/blob/main/${TEMPLATE}`} rel="noreferrer" className={`mt-4 ${linkExternal}`}>
+              <FileCode size={16} aria-hidden />
+              {t("pages.contribute.templateLink")}
+            </a>
+          </Section>
+          </div>
+        </Foldable>
 
         <Section title={t("pages.contribute.styleTitle")}>
           <ul className="space-y-3">

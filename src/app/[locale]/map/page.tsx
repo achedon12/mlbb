@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "@/components/link";
 import { MapGuide, type MapCard } from "@/components/map-guide";
 import { PageHeader } from "@/components/ui";
+import { Foldable } from "@/components/foldable";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
@@ -348,58 +349,62 @@ export default async function MapPage({ params }: Params) {
           </div>
         </section>
 
-        <section aria-labelledby="rotations-title">
-          <h2 id="rotations-title" className={sectionTitle}>
-            {t("pages.map.rotations.title")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{t("pages.map.rotations.intro")}</p>
-          <ul className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {rotations.map((r) => (
-              <li key={r.key} className="relative">
-                <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
-                <div className="relative flex h-full flex-col p-5">
-                  <h3 className="font-heading text-xl font-bold text-gold-400">{r.title}</h3>
-                  <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-chalk-300 marker:text-chalk-500">
-                    {r.steps.map((s) => (
-                      <li key={s}>{s}</li>
-                    ))}
-                  </ol>
-                  <ul className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-4 text-sm">
-                    {r.links.map((l) => (
-                      <li key={l.href}>
-                        <Link href={l.href} className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-                          {l.label} →
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-sm">
-            <Link href="/tools/timer" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
-              {t("pages.map.timerCta")} →
-            </Link>
-          </p>
-        </section>
+        <Foldable label={t("common.method")}>
+          <div className="space-y-10">
+            <section aria-labelledby="rotations-title">
+              <h2 id="rotations-title" className={sectionTitle}>
+                {t("pages.map.rotations.title")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <p className="mt-3 max-w-3xl leading-relaxed text-chalk-300">{t("pages.map.rotations.intro")}</p>
+              <ul className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {rotations.map((r) => (
+                  <li key={r.key} className="relative">
+                    <div aria-hidden className="bevel absolute inset-0 border border-night-700/70 bg-night-900/60" />
+                    <div className="relative flex h-full flex-col p-5">
+                      <h3 className="font-heading text-xl font-bold text-gold-400">{r.title}</h3>
+                      <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-chalk-300 marker:text-chalk-500">
+                        {r.steps.map((s) => (
+                          <li key={s}>{s}</li>
+                        ))}
+                      </ol>
+                      <ul className="mt-auto flex flex-wrap gap-x-4 gap-y-1 pt-4 text-sm">
+                        {r.links.map((l) => (
+                          <li key={l.href}>
+                            <Link href={l.href} className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
+                              {l.label} →
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm">
+                <Link href="/tools/timer" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
+                  {t("pages.map.timerCta")} →
+                </Link>
+              </p>
+            </section>
 
-        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-title" className="font-semibold text-chalk-300">
-            {t("pages.map.sourcesTitle")}
-          </h2>
-          <p className="mt-2">{t("pages.map.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
-          <ul className="mt-2 grid list-disc gap-x-8 gap-y-1 pl-5 sm:grid-cols-2">
-            {sources.map((url) => (
-              <li key={url}>
-                <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                  {wikiPageName(url)}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+            <section aria-labelledby="sources-title" className="text-sm text-chalk-500">
+              <h2 id="sources-title" className="font-semibold text-chalk-300">
+                {t("pages.map.sourcesTitle")}
+              </h2>
+              <p className="mt-2">{t("pages.map.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
+              <ul className="mt-2 grid list-disc gap-x-8 gap-y-1 pl-5 sm:grid-cols-2">
+                {sources.map((url) => (
+                  <li key={url}>
+                    <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                      {wikiPageName(url)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </Foldable>
       </div>
     </ExtendMessages>
   );

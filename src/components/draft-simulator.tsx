@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Play, RotateCcw, Settings2, SkipForward, Undo2 } from "lucide-react";
+import { ListOrdered, Play, RotateCcw, Settings2, SkipForward, Undo2 } from "lucide-react";
 import { SearchField } from "@/components/search-field";
+import { Drawer } from "@/components/drawer";
 import { HeroThumb } from "@/components/hero-picker";
 import { DraftSummary, useNumberFormats, type NumberFormats } from "@/components/draft-summary";
-import { classesChip } from "@/components/chip";
+import { ChipEmblem, classesChip } from "@/components/chip";
 import { useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
 import { SIZE_TEAM, measuresUrl, type MeasuresRank, type TypeDamage } from "@/lib/composition";
+import { imageRank, imageRole } from "@/lib/emblems";
 import { LANES, ROLES } from "@/lib/draft";
 import {
   bansPerSide,
@@ -55,6 +57,11 @@ import { keySearch, cn } from "@/lib/utils";
  * timer, then the summary. Every rule comes from `lib/draft-simulation`; this
  * component only shows it and plays it. The rank's measurements come
  * separately (`/composition/<rank>.json`), as for the team analyzer.
+ *
+ * While a draft runs the board stays pinned under the site header, in its
+ * compact form: a timer you cannot see running is a timer you lose. The roster
+ * scrolls under it, the hints sit in the grid's own header, and the explained
+ * choices take a side panel on a wide screen and a drawer on a narrow one.
  */
 
 /** Requests already made, per rank: going back to a rank reloads nothing. */
@@ -83,6 +90,8 @@ const label = "text-xs uppercase tracking-wide text-chalk-500";
 const heading3 = "font-heading text-lg font-bold text-chalk-100";
 const button =
   "bevel-sm inline-flex min-h-11 items-center gap-2 border border-night-700 px-3 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 disabled:pointer-events-none disabled:opacity-40";
+/** Same button, label hidden below `sm`: the pinned board must stay one row high on a phone. */
+const buttonIcon = `${button} max-sm:min-w-11 max-sm:justify-center max-sm:px-0`;
 const sideColor: Record<Side, { text: string; border: string; fill: string }> = {
   blue: { text: "text-azure-500", border: "border-azure-500", fill: "bg-azure-500" },
   red: { text: "text-blood-500", border: "border-blood-500", fill: "bg-blood-500" },
@@ -113,6 +122,8 @@ export function DraftSimulator({
   const [search, setSearch] = useState("");
   const [laneFilter, setLaneFilter] = useState<Lane | null>(null);
   const [role, setRole] = useState<Role | null>(null);
+  /** Explained choices, opened as a drawer below `lg`; a side panel above. */
+  const [logOpen, setLogOpen] = useState(false);
 
   const known = useMemo(() => new Set(heroes.map((h) => h.slug)), [heroes]);
   const bySlug = useMemo(() => new Map(heroes.map((h) => [h.slug, h])), [heroes]);
@@ -288,111 +299,119 @@ export function DraftSimulator({
     .map(([i, move]) => ({ i: Number(i), move }))
     .filter(({ i }) => i < choices.length && !hidden(i))
     .sort((a, b) => b.i - a.i);
+  const hasLog = settings.bot || log.length > 0;
+
+  // Built once, shown twice: the side panel on a wide screen, the drawer on a
+  // narrow one. Neither copy carries an id, so nothing is duplicated.
+  const logList =
+    log.length > 0 ? (
+      <ol className="mt-3 space-y-1.5">
+        {log.map(({ i, move }) => {
+          const tr = turns[i];
+          return (
+            <li key={i} className="flex gap-2 text-sm leading-snug text-chalk-300">
+              <span aria-hidden className={cn("mt-1.5 size-2 shrink-0 rounded-full", sideColor[tr.side].fill)} />
+              <span>
+                {t(move.lane ? "pages.draftSimulatorUI.log.lineLane" : "pages.draftSimulatorUI.log.line", {
+                  side: sideName(tr.side),
+                  action: t(`pages.draftSimulatorUI.actions.${tr.action}`),
+                  name: move.slug ? nameOf(move.slug) : t("pages.draftSimulatorUI.emptyBan"),
+                  lane: move.lane ? t(`lanes.${move.lane}`) : "",
+                  reason: reasonText(move.reason, move.lane, t, formats, nameOf, settings.rank),
+                })}
+              </span>
+            </li>
+          );
+        })}
+      </ol>
+    ) : (
+      <p className="mt-3 text-sm text-chalk-500">{t("pages.draftSimulatorUI.log.empty")}</p>
+    );
+
+  const logIntro = <p className="mt-1 text-sm text-chalk-500">{t("pages.draftSimulatorUI.log.intro")}</p>;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <p aria-live="polite" className="sr-only">
         {announce.join(" ")}
       </p>
 
-      {/* -- Current turn and controls ---------------------------------- */}
-      <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
-        <div className="min-w-0 flex-1 basis-56">
-          <p className={label}>
-            {t(`pages.draftSimulatorUI.formats.${settings.format}`)} · {t(`measuredRanks.${settings.rank}`)}
-          </p>
-          <p className="font-heading text-xl font-bold text-chalk-100">
-            {turn ? (
-              <>
-                <span className={sideColor[turn.side].text}>{sideName(turn.side)}</span> · {turnText(turn)}
-                <span className="ml-2 align-middle text-sm font-medium text-chalk-500">
-                  ({t(mine ? "pages.draftSimulatorUI.yourTurn" : "pages.draftSimulatorUI.botTurn")})
-                </span>
-              </>
-            ) : (
-              t("pages.draftSimulatorUI.finished")
-            )}
-          </p>
-        </div>
-        {turn && timer !== null && active && (
-          <Countdown key={`${turn.index}:${choices.join(",")}`} seconds={timer} onEnd={expire} />
+      {/* -- Board: pinned under the site header while the draft runs --- */}
+      <section
+        aria-label={t("pages.draftSimulatorUI.boardLabel")}
+        className={cn(
+          "border-b border-night-700/70 pb-3 pt-2",
+          // No negative margin: it would make every ancestor wider than the
+          // viewport, which reads as a horizontal overflow.
+          turn && "sticky top-16 z-30 bg-night-950/95 backdrop-blur",
         )}
-        <div className="flex flex-wrap gap-2">
-          <button type="button" className={button} disabled={previous.length === choices.length} onClick={() => setChoices(previous)}>
-            <Undo2 size={15} aria-hidden />
-            {t("pages.draftSimulatorUI.undo")}
-          </button>
-          <button type="button" className={button} onClick={start}>
-            <RotateCcw size={15} aria-hidden />
-            {t("pages.draftSimulatorUI.restart")}
-          </button>
-          <button type="button" className={button} onClick={backToSettings}>
-            <Settings2 size={15} aria-hidden />
-            {t("pages.draftSimulatorUI.changeSettings")}
-          </button>
+      >
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <div className="min-w-0 flex-1 basis-44">
+            <p className={label}>
+              {t(`pages.draftSimulatorUI.formats.${settings.format}`)} · {t(`measuredRanks.${settings.rank}`)}
+            </p>
+            <p className="font-heading text-base font-bold text-chalk-100 sm:text-xl">
+              {turn ? (
+                <>
+                  <span className={sideColor[turn.side].text}>{sideName(turn.side)}</span> · {turnText(turn)}
+                  <span className="ml-2 align-middle text-xs font-medium text-chalk-500 sm:text-sm">
+                    ({t(mine ? "pages.draftSimulatorUI.yourTurn" : "pages.draftSimulatorUI.botTurn")})
+                  </span>
+                </>
+              ) : (
+                t("pages.draftSimulatorUI.finished")
+              )}
+            </p>
+          </div>
+          {turn && timer !== null && active && (
+            <Countdown key={`${turn.index}:${choices.join(",")}`} seconds={timer} onEnd={expire} />
+          )}
+          <div className="flex flex-wrap gap-1.5">
+            <button
+              type="button"
+              className={buttonIcon}
+              disabled={previous.length === choices.length}
+              onClick={() => setChoices(previous)}
+            >
+              <Undo2 size={15} aria-hidden />
+              <span className="max-sm:sr-only">{t("pages.draftSimulatorUI.undo")}</span>
+            </button>
+            <button type="button" className={buttonIcon} onClick={start}>
+              <RotateCcw size={15} aria-hidden />
+              <span className="max-sm:sr-only">{t("pages.draftSimulatorUI.restart")}</span>
+            </button>
+            <button type="button" className={buttonIcon} onClick={backToSettings}>
+              <Settings2 size={15} aria-hidden />
+              <span className="max-sm:sr-only">{t("pages.draftSimulatorUI.changeSettings")}</span>
+            </button>
+          </div>
         </div>
-      </div>
 
-      {turn?.simultaneous && <p className="-mt-4 text-sm text-chalk-500">{t("pages.draftSimulatorUI.simultaneous")}</p>}
+        {turn?.simultaneous && <p className="mt-1.5 text-xs text-chalk-500">{t("pages.draftSimulatorUI.simultaneous")}</p>}
 
-      {/* -- Both teams ------------------------------------------------- */}
-      <div className="grid grid-cols-2 gap-2 sm:gap-4">
-        {SIDES.map((side) => (
-          <TeamColumn
-            key={side}
-            side={side}
-            turns={turns}
-            choices={choices}
-            turn={turn}
-            bySlug={bySlug}
-            lanes={pickLanes(state.picks[side], heroes)}
-            isPlayer={isHuman(turns.find((tr) => tr.side === side)!)}
-            hidden={hidden}
-          />
-        ))}
-      </div>
+        <div className="mt-2 grid grid-cols-2 gap-2 sm:gap-3">
+          {SIDES.map((side) => (
+            <TeamColumn
+              key={side}
+              side={side}
+              turns={turns}
+              choices={choices}
+              turn={turn}
+              bySlug={bySlug}
+              lanes={pickLanes(state.picks[side], heroes)}
+              isPlayer={isHuman(turns.find((tr) => tr.side === side)!)}
+              hidden={hidden}
+              compact={turn !== null}
+            />
+          ))}
+        </div>
+      </section>
 
       {turn ? (
-        <>
-          {/* -- Hints for the player ----------------------------------- */}
-          {mine && hints.length > 0 && (
-            <section aria-labelledby="hints-title">
-              <h3 id="hints-title" className={heading3}>
-                {t(isBan ? "pages.draftSimulatorUI.hints.ban" : "pages.draftSimulatorUI.hints.pick")}
-              </h3>
-              <p className="mt-1 text-sm text-chalk-500">
-                {t(isBan ? "pages.draftSimulatorUI.hints.banIntro" : "pages.draftSimulatorUI.hints.pickIntro", {
-                  rank: t(`measuredRanks.${settings.rank}`),
-                })}
-              </p>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-3">
-                {hints.map((c) => {
-                  const h = bySlug.get(c.slug);
-                  return (
-                    <li key={c.slug}>
-                      <button
-                        type="button"
-                        onClick={() => playerMove(c.slug)}
-                        aria-label={t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: nameOf(c.slug) })}
-                        className="bevel-sm flex min-h-11 w-full items-center gap-3 border border-night-700/70 bg-night-900/60 p-2 text-left transition-colors hover:border-gold-500/60"
-                      >
-                        {h && <HeroThumb hero={h} />}
-                        <span className="min-w-0 flex-1">
-                          <span className="block truncate font-heading font-bold text-chalk-100">{nameOf(c.slug)}</span>
-                          <span className="block text-xs leading-snug text-chalk-300">
-                            {reasonText(c.reason, c.lane, t, formats, nameOf, settings.rank)}
-                          </span>
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          )}
-
-          {/* -- Roster ------------------------------------------------- */}
-          <section aria-labelledby="grid-title" className="space-y-3">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,19rem)]">
+          {/* -- Roster, with the turn's hints in its own header -------- */}
+          <section aria-labelledby="grid-title" className="min-w-0 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <h3 id="grid-title" className={heading3}>
                 {t("pages.draftSimulatorUI.heroGrid")}
@@ -409,6 +428,43 @@ export function DraftSimulator({
                 </p>
               )}
             </div>
+
+            {mine && hints.length > 0 && (
+              <div className="bevel-sm border border-gold-500/25 bg-night-900/50 p-2">
+                <p className="text-xs leading-snug text-chalk-500">
+                  <span className="font-heading font-bold uppercase tracking-wider text-gold-400">
+                    {t(isBan ? "pages.draftSimulatorUI.hints.ban" : "pages.draftSimulatorUI.hints.pick")}
+                  </span>{" "}
+                  {t(isBan ? "pages.draftSimulatorUI.hints.banIntro" : "pages.draftSimulatorUI.hints.pickIntro", {
+                    rank: t(`measuredRanks.${settings.rank}`),
+                  })}
+                </p>
+                <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-3">
+                  {hints.map((c) => {
+                    const h = bySlug.get(c.slug);
+                    return (
+                      <li key={c.slug}>
+                        <button
+                          type="button"
+                          onClick={() => playerMove(c.slug)}
+                          aria-label={t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: nameOf(c.slug) })}
+                          className="bevel-sm flex min-h-11 w-full items-center gap-2 border border-night-700/70 bg-night-900/60 p-1.5 text-left transition-colors hover:border-gold-500/60"
+                        >
+                          {h && <HeroThumb hero={h} small />}
+                          <span className="min-w-0 flex-1">
+                            <span className="block truncate font-heading text-sm font-bold text-chalk-100">{nameOf(c.slug)}</span>
+                            <span className="block text-[0.7rem] leading-snug text-chalk-300">
+                              {reasonText(c.reason, c.lane, t, formats, nameOf, settings.rank)}
+                            </span>
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
             <form
               role="search"
               onSubmit={(e) => {
@@ -434,12 +490,13 @@ export function DraftSimulator({
               values={ROLES}
               selected={role}
               labelOf={(r) => t(`roles.${r}`)}
+              emblemOf={imageRole}
               onChange={setRole}
             />
             <p aria-live="polite" className="text-xs text-chalk-500">
               {t("draftUI.account", { n: results.length })}
             </p>
-            <ul className="grid max-h-[60vh] grid-cols-4 gap-1.5 overflow-y-auto pr-1 sm:grid-cols-6 md:grid-cols-8">
+            <ul className="grid max-h-[55vh] grid-cols-4 gap-1.5 overflow-y-auto pr-1 sm:grid-cols-6 lg:grid-cols-7">
               {results.map((h) => {
                 const taken = excluded.has(h.slug);
                 return (
@@ -470,54 +527,60 @@ export function DraftSimulator({
                 <li className="col-span-full py-6 text-center text-sm text-chalk-500">{t("draftUI.noHero")}</li>
               )}
             </ul>
+
+            {hasLog && (
+              <button type="button" className={cn(button, "lg:hidden")} onClick={() => setLogOpen(true)}>
+                <ListOrdered size={15} aria-hidden />
+                {t("pages.draftSimulatorUI.explainToggle", { n: log.length })}
+              </button>
+            )}
           </section>
-        </>
+
+          {/* -- Choices explained, side panel from lg ------------------ */}
+          {hasLog && (
+            <aside aria-labelledby="log-title" className="hidden min-w-0 lg:block">
+              <h3 id="log-title" className={heading3}>
+                {t("pages.draftSimulatorUI.log.title")}
+              </h3>
+              {logIntro}
+              {logList}
+            </aside>
+          )}
+        </div>
       ) : (
-        <DraftSummary
-          blue={state.picks.blue}
-          red={state.picks.red}
-          heroes={heroes}
-          measures={measures}
-          failed={measuresState === "error"}
-          rank={settings.rank}
-          damageLabels={damageLabels}
-          query={writeSimulation("", settings, choices)}
-          onReplay={start}
-          onSettings={backToSettings}
-        />
+        <>
+          <DraftSummary
+            blue={state.picks.blue}
+            red={state.picks.red}
+            heroes={heroes}
+            measures={measures}
+            failed={measuresState === "error"}
+            rank={settings.rank}
+            damageLabels={damageLabels}
+            query={writeSimulation("", settings, choices)}
+            onReplay={start}
+            onSettings={backToSettings}
+          />
+          {hasLog && (
+            <section aria-labelledby="log-done-title">
+              <h3 id="log-done-title" className={heading3}>
+                {t("pages.draftSimulatorUI.log.title")}
+              </h3>
+              {logIntro}
+              {logList}
+            </section>
+          )}
+        </>
       )}
 
-      {/* -- Choices explained ------------------------------------------ */}
-      {(settings.bot || log.length > 0) && (
-        <section aria-labelledby="log-title">
-          <h3 id="log-title" className={heading3}>
-            {t("pages.draftSimulatorUI.log.title")}
-          </h3>
-          <p className="mt-1 text-sm text-chalk-500">{t("pages.draftSimulatorUI.log.intro")}</p>
-          {log.length > 0 ? (
-            <ol className="mt-3 space-y-1.5">
-              {log.map(({ i, move }) => {
-                const tr = turns[i];
-                return (
-                  <li key={i} className="flex gap-2 text-sm leading-snug text-chalk-300">
-                    <span aria-hidden className={cn("mt-1.5 size-2 shrink-0 rounded-full", sideColor[tr.side].fill)} />
-                    <span>
-                      {t(move.lane ? "pages.draftSimulatorUI.log.lineLane" : "pages.draftSimulatorUI.log.line", {
-                        side: sideName(tr.side),
-                        action: t(`pages.draftSimulatorUI.actions.${tr.action}`),
-                        name: move.slug ? nameOf(move.slug) : t("pages.draftSimulatorUI.emptyBan"),
-                        lane: move.lane ? t(`lanes.${move.lane}`) : "",
-                        reason: reasonText(move.reason, move.lane, t, formats, nameOf, settings.rank),
-                      })}
-                    </span>
-                  </li>
-                );
-              })}
-            </ol>
-          ) : (
-            <p className="mt-3 text-sm text-chalk-500">{t("pages.draftSimulatorUI.log.empty")}</p>
-          )}
-        </section>
+      {logOpen && (
+        <Drawer title={t("pages.draftSimulatorUI.log.title")} onClose={() => setLogOpen(false)}>
+          <div className="px-4 pb-8 pt-9">
+            <p className={cn(heading3, "pr-8")}>{t("pages.draftSimulatorUI.log.title")}</p>
+            {logIntro}
+            {logList}
+          </div>
+        </Drawer>
       )}
     </div>
   );
@@ -610,6 +673,7 @@ function SettingsScreen({
           values={formatRanks}
           selected={settings.rank}
           labelOf={(r) => t(`measuredRanks.${r}`)}
+          emblemOf={imageRank}
           onChange={(r) => r && onChange({ rank: r })}
         />
         {settings.format === "ranked" && (
@@ -688,6 +752,7 @@ function ChoiceRow<V extends string>({
   values,
   selected,
   labelOf,
+  emblemOf,
   onChange,
 }: {
   legend: string;
@@ -695,6 +760,11 @@ function ChoiceRow<V extends string>({
   values: readonly V[];
   selected: V | null;
   labelOf: (v: V) => string;
+  /**
+   * Emblem of a value, when the game gives it one (a rank, a role): it is
+   * recognised before its name is read, and costs no extra height.
+   */
+  emblemOf?: (v: V) => string | null | undefined;
   onChange: (v: V | null) => void;
 }) {
   return (
@@ -713,17 +783,21 @@ function ChoiceRow<V extends string>({
           {all}
         </button>
       )}
-      {values.map((v) => (
-        <button
-          key={v}
-          type="button"
-          aria-pressed={selected === v}
-          onClick={() => onChange(all !== undefined && selected === v ? null : v)}
-          className={cn(classesChip(selected === v), "min-h-11")}
-        >
-          {labelOf(v)}
-        </button>
-      ))}
+      {values.map((v) => {
+        const emblem = emblemOf?.(v);
+        return (
+          <button
+            key={v}
+            type="button"
+            aria-pressed={selected === v}
+            onClick={() => onChange(all !== undefined && selected === v ? null : v)}
+            className={cn(classesChip(selected === v), "min-h-11", emblem && "inline-flex items-center gap-1.5")}
+          >
+            {emblem && <ChipEmblem src={emblem} />}
+            {labelOf(v)}
+          </button>
+        );
+      })}
     </fieldset>
   );
 }
@@ -739,6 +813,7 @@ function TeamColumn({
   lanes,
   isPlayer,
   hidden,
+  compact = false,
 }: {
   side: Side;
   turns: Turn[];
@@ -749,6 +824,12 @@ function TeamColumn({
   /** True when the player holds this side. */
   isPlayer: boolean;
   hidden: (i: number) => boolean;
+  /**
+   * Picks on a single row of thumbnails instead of named rows: the board then
+   * fits under the header without eating the roster's room. Every name stays
+   * readable, as a tooltip and for screen readers.
+   */
+  compact?: boolean;
 }) {
   const t = useT();
   const color = sideColor[side];
@@ -760,7 +841,11 @@ function TeamColumn({
   return (
     <section
       aria-labelledby={`side-${side}`}
-      className={cn("bevel-sm min-w-0 border bg-night-900/60 p-2 transition-colors sm:p-3", onTurn ? color.border : "border-night-700/70")}
+      className={cn(
+        "bevel-sm min-w-0 border bg-night-900/60 transition-colors",
+        compact ? "p-1.5 sm:p-2" : "p-2 sm:p-3",
+        onTurn ? color.border : "border-night-700/70",
+      )}
     >
       <h3
         id={`side-${side}`}
@@ -771,84 +856,121 @@ function TeamColumn({
         <span className="text-xs font-medium text-chalk-500">{t(isPlayer ? "pages.draftSimulatorUI.you" : "pages.draftSimulatorUI.bot")}</span>
       </h3>
 
-      <p className={cn("mt-2", label)}>{t("pages.draftSimulatorUI.bans")}</p>
-      <ul className="mt-1 flex flex-wrap gap-1">
-        {bans.map((tr) => {
-          const played = tr.index < choices.length;
-          const c = choices[tr.index];
-          const masked = played && hidden(tr.index);
-          const h = played && c && !masked ? bySlug.get(c) : null;
-          const slotState = h
-            ? h.name
-            : masked
-              ? t("pages.draftSimulatorUI.hiddenBan")
-              : played
-                ? t("pages.draftSimulatorUI.emptyBan")
-                : turn?.index === tr.index
-                  ? t("pages.draftSimulatorUI.inProgress")
-                  : t("pages.draftSimulatorUI.upcoming");
-          return (
-            <li key={tr.index} title={slotState}>
-              <span className="sr-only">
-                {t("pages.draftSimulatorUI.banSlot", { k: tr.number })} : {slotState}
-              </span>
-              <span
-                aria-hidden
+      <div className={compact ? "mt-1" : undefined}>
+        {/* Compact: the bans are already told apart by their grey, smaller
+            slots, so their heading only needs to reach screen readers. */}
+        <p className={cn(compact ? "sr-only" : cn("mt-2", label))}>{t("pages.draftSimulatorUI.bans")}</p>
+        <ul className={cn("flex flex-wrap gap-1", compact ? "" : "mt-1")}>
+          {bans.map((tr) => {
+            const played = tr.index < choices.length;
+            const c = choices[tr.index];
+            const masked = played && hidden(tr.index);
+            const h = played && c && !masked ? bySlug.get(c) : null;
+            const slotState = h
+              ? h.name
+              : masked
+                ? t("pages.draftSimulatorUI.hiddenBan")
+                : played
+                  ? t("pages.draftSimulatorUI.emptyBan")
+                  : turn?.index === tr.index
+                    ? t("pages.draftSimulatorUI.inProgress")
+                    : t("pages.draftSimulatorUI.upcoming");
+            return (
+              <li key={tr.index} title={slotState}>
+                <span className="sr-only">
+                  {t("pages.draftSimulatorUI.banSlot", { k: tr.number })} : {slotState}
+                </span>
+                <span
+                  aria-hidden
+                  className={cn(
+                    "bevel-sm grid place-items-center overflow-hidden border text-xs text-chalk-500",
+                    compact ? "size-7" : "size-8",
+                    // A banned hero is shown grey, as in the game. The filter
+                    // sits on the slot itself: wrapped around the portrait, it
+                    // put a filtered layer between two bevel clip-paths, and
+                    // Chromium then painted nothing at all — the bans looked
+                    // like empty slots.
+                    h ? "border-transparent grayscale" : "border-dashed border-night-600",
+                    turn?.index === tr.index && current,
+                  )}
+                >
+                  {h ? <HeroThumb hero={h} small /> : masked ? "?" : played ? "—" : null}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
+      <p className={cn(compact ? "sr-only" : "mt-2", compact ? "" : label)}>{t("pages.draftSimulatorUI.picks")}</p>
+      {compact ? (
+        <ol className="mt-1.5 flex flex-wrap gap-1">
+          {picks.map((tr) => {
+            const c = choices[tr.index];
+            const h = c ? bySlug.get(c) : null;
+            const lane = c ? lanes.get(c) : undefined;
+            const inProgress = turn?.index === tr.index;
+            const slotState = h
+              ? lane
+                ? `${h.name} (${t(`lanes.${lane}`)})`
+                : h.name
+              : inProgress
+                ? t("pages.draftSimulatorUI.inProgress")
+                : t("pages.draftSimulatorUI.toPick");
+            return (
+              <li key={tr.index} title={slotState}>
+                <span className="sr-only">
+                  {t("pages.draftSimulatorUI.pickSlot", { k: tr.number })} : {slotState}
+                </span>
+                <span
+                  aria-hidden
+                  className={cn(
+                    "bevel-sm grid size-9 place-items-center overflow-hidden border text-xs text-chalk-500 sm:size-10",
+                    h ? "border-night-700/70" : "border-dashed border-night-700",
+                    inProgress && current,
+                  )}
+                >
+                  {h ? <HeroThumb hero={h} small /> : null}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      ) : (
+        <ol className="mt-1 space-y-1">
+          {picks.map((tr) => {
+            const c = choices[tr.index];
+            const h = c ? bySlug.get(c) : null;
+            const lane = c ? lanes.get(c) : undefined;
+            const inProgress = turn?.index === tr.index;
+            return (
+              <li
+                key={tr.index}
                 className={cn(
-                  "bevel-sm grid size-8 place-items-center overflow-hidden border text-xs text-chalk-500",
-                  h ? "border-transparent" : "border-dashed border-night-600",
-                  turn?.index === tr.index && current,
+                  "bevel-sm flex min-h-11 items-center gap-2 border px-1.5 py-1",
+                  h ? "border-night-700/70" : "border-dashed border-night-700",
+                  inProgress && current,
                 )}
               >
+                <span className="sr-only">{t("pages.draftSimulatorUI.pickSlot", { k: tr.number })} :</span>
                 {h ? (
-                  <span className="grayscale">
+                  <>
                     <HeroThumb hero={h} small />
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-xs font-semibold text-chalk-100 sm:text-sm">{h.name}</span>
+                      {lane && <span className="block truncate text-[0.65rem] text-chalk-500 sm:text-xs">{t(`lanes.${lane}`)}</span>}
+                    </span>
+                  </>
+                ) : (
+                  <span className="truncate text-xs text-chalk-500">
+                    {inProgress ? t("pages.draftSimulatorUI.inProgress") : t("pages.draftSimulatorUI.toPick")}
                   </span>
-                ) : masked ? (
-                  "?"
-                ) : played ? (
-                  "—"
-                ) : null}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
-
-      <p className={cn("mt-3", label)}>{t("pages.draftSimulatorUI.picks")}</p>
-      <ol className="mt-1 space-y-1">
-        {picks.map((tr) => {
-          const c = choices[tr.index];
-          const h = c ? bySlug.get(c) : null;
-          const lane = c ? lanes.get(c) : undefined;
-          const inProgress = turn?.index === tr.index;
-          return (
-            <li
-              key={tr.index}
-              className={cn(
-                "bevel-sm flex min-h-11 items-center gap-2 border px-1.5 py-1",
-                h ? "border-night-700/70" : "border-dashed border-night-700",
-                inProgress && current,
-              )}
-            >
-              <span className="sr-only">{t("pages.draftSimulatorUI.pickSlot", { k: tr.number })} :</span>
-              {h ? (
-                <>
-                  <HeroThumb hero={h} small />
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate text-xs font-semibold text-chalk-100 sm:text-sm">{h.name}</span>
-                    {lane && <span className="block truncate text-[0.65rem] text-chalk-500 sm:text-xs">{t(`lanes.${lane}`)}</span>}
-                  </span>
-                </>
-              ) : (
-                <span className="truncate text-xs text-chalk-500">
-                  {inProgress ? t("pages.draftSimulatorUI.inProgress") : t("pages.draftSimulatorUI.toPick")}
-                </span>
-              )}
-            </li>
-          );
-        })}
-      </ol>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      )}
     </section>
   );
 }

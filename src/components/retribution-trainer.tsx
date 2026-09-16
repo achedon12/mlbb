@@ -89,7 +89,7 @@ const INTENSITIES: Record<Difficulty, { n: number; color: string }> = {
   hard: { n: 3, color: "#fb923c" },
   pro: { n: 4, color: "#d94848" },
 };
-const ICON_RETRIBUTION = "/visuels/sorts/retribution.png";
+const ICON_RETRIBUTION = "/visuels/sorts/retribution.webp";
 /** Delay between a round's announcement and the first hit, in ms: impossible to anticipate. */
 const READY_MS: [number, number] = [700, 1300];
 /** After a verdict, presses are ignored for a moment: one press too many does not restart the round. */

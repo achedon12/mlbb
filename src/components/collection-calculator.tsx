@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronDown, Share2 } from "lucide-react";
+import { Pager } from "@/components/pager";
 import { SkinCard, propsCardSkin } from "@/components/skin-card";
 import { SearchField } from "@/components/search-field";
 import { ChoiceUnique, FilterGroup, Chip, classesChip } from "@/components/chip";
@@ -30,6 +31,7 @@ import {
   type Summary,
 } from "@/lib/collection";
 import type { Role } from "@/lib/types";
+import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
 import { keySearch, cn } from "@/lib/utils";
 
 type View = "all" | "owned" | "missing";
@@ -52,7 +54,7 @@ const toggle = (set: ReadonlySet<string>, key: string) => {
  * page. The collection is kept in the browser (`localStorage`): nothing is
  * sent to a server.
  */
-export function CollectionCalculator() {
+export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }) {
   const t = useT();
   const locale = useLocale();
   const [catalog, setCatalog] = useState<Catalog | null>(null);
@@ -65,6 +67,7 @@ export function CollectionCalculator() {
   const [view, setView] = useState<View>("all");
   const [openHeroes, setOpen] = useState<ReadonlySet<string>>(new Set());
   const [allSeries, setAllSeries] = useState(false);
+  const [page, setPage] = useState(pageServer);
   const [share, setShare] = useState<"" | "copied" | "shared" | "failed">("");
 
   const count = useMemo(() => new Intl.NumberFormat(LOCALE_HTML[locale]), [locale]);
@@ -106,6 +109,16 @@ export function CollectionCalculator() {
     }
   }, [catalog, heroes, skins]);
 
+  // Paging in place still writes the address the pager's link held, so a
+  // reload or a shared link comes back to the page being read.
+  useEffect(() => {
+    window.history.replaceState(
+      null,
+      "",
+      pageHref(pathWithoutPage(window.location.pathname), window.location.search, page),
+    );
+  }, [page]);
+
   const data = useMemo(() => {
     if (!catalog) return null;
     const collectible = skinsCollectible(catalog);
@@ -139,6 +152,18 @@ export function CollectionCalculator() {
       return [{ h, sk, expanded: (!!term && !nameFound) || !!series }];
     });
   }, [data, search, role, series, view, heroes, skins]);
+
+  /* A hundred and thirty-four rows of checkboxes ran eighteen screens on a
+     phone. They are read one page at a time — the links are real addresses,
+     `/tools/collection/page/3`, so a middle click opens one — and any change
+     of filter starts again at the first: the fourth page of eleven results
+     holds nothing. */
+  const view_ = paging(list.length, page, SIZE_CARDS);
+  const shown = slicePage(list, view_.page, SIZE_CARDS);
+  const filter = <T,>(set: (v: T) => void) => (v: T) => {
+    set(v);
+    setPage(1);
+  };
 
   if (error) {
     return (
@@ -282,17 +307,17 @@ export function CollectionCalculator() {
           <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.collectionUI.selectionTitle")}</h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <div className="mt-5 space-y-4">
-            <SearchField value={search} onChange={setSearch} label={t("pages.collectionUI.search")} />
+            <SearchField value={search} onChange={filter(setSearch)} label={t("pages.collectionUI.search")} />
             <ChoiceUnique
               legend={t("pages.collectionUI.role")}
               values={ROLES_INDEX}
               active={role}
-              onChange={setRole}
+              onChange={filter(setRole)}
               label={(r) => t(`roles.${r}`)}
             />
             <FilterGroup legend={t("pages.collectionUI.show")}>
               {VIEWS.map((v) => (
-                <Chip key={v} dense active={view === v} onClick={() => setView(v)}>
+                <Chip key={v} dense active={view === v} onClick={() => filter(setView)(v)}>
                   {t(`pages.collectionUI.view_${v}`)}
                 </Chip>
               ))}
@@ -301,7 +326,7 @@ export function CollectionCalculator() {
               <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.collectionUI.series")}</span>
               <select
                 value={series ?? ""}
-                onChange={(e) => setSeries(e.target.value || null)}
+                onChange={(e) => filter(setSeries)(e.target.value || null)}
                 className="bevel-sm mt-1.5 w-full border border-night-700 bg-night-900 px-3 py-2 text-sm text-chalk-100 outline-none focus:border-gold-500"
               >
                 <option value="">{t("pages.collectionUI.allSeries")}</option>
@@ -344,7 +369,7 @@ export function CollectionCalculator() {
           </p>
 
           <ul className="mt-3 divide-y divide-night-800 border-y border-night-800">
-            {list.map(({ h, sk, expanded }) => {
+            {shown.map(({ h, sk, expanded }) => {
               const all = data.byHero.get(h.slug) ?? [];
               const owned = all.filter((s) => skins.has(s.id)).length;
               const full = heroes.has(h.slug) && owned === all.length;
@@ -443,6 +468,12 @@ export function CollectionCalculator() {
             })}
           </ul>
           {list.length === 0 && <p className="mt-6 text-sm text-chalk-500">{t("pages.collectionUI.none")}</p>}
+          <Pager
+            paging={view_}
+            href={(n) => pageHref("/tools/collection", null, n)}
+            onNavigate={setPage}
+            t={t}
+          />
         </div>
       </div>
 

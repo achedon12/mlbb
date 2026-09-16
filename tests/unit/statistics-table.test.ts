@@ -157,7 +157,7 @@ describe("state in the URL", () => {
   it("gives the address of each rank and the icon of each hero", () => {
     expect(pathStatistics("all")).toBe("/statistics");
     expect(pathStatistics("mythic")).toBe("/statistics/mythic");
-    expect(heroIcon("aamon")).toBe("/visuels/heros/aamon/icone.png");
+    expect(heroIcon("aamon")).toBe("/visuels/heros/aamon/icone.webp");
   });
 });
 

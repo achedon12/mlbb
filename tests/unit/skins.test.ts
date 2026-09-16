@@ -51,7 +51,7 @@ describe("release dates", () => {
 
 describe("thumbnail images", () => {
   it("encodes a portrait by the skin id, and finds it back", () => {
-    const path = "/visuels/heros/angela/skins/552-dove-love.png";
+    const path = "/visuels/heros/angela/skins/552-dove-love.webp";
     expect(encodeImage("angela", "Dove & Love", "552", path)).toBe("552");
     expect(imageOfThumb("angela", ["Dove & Love", "552", 0])).toBe(path);
   });
@@ -70,10 +70,10 @@ describe("thumbnail images", () => {
   });
 
   it("shortens a path under the hero folder, and restores it", () => {
-    const path = "/visuels/heros/aamon/skins/1091-duke-of-shards.png";
-    expect(shortenImage("aamon", path)).toBe("skins/1091-duke-of-shards.png");
+    const path = "/visuels/heros/aamon/skins/1091-duke-of-shards.webp";
+    expect(shortenImage("aamon", path)).toBe("skins/1091-duke-of-shards.webp");
     expect(imageThumb("aamon", shortenImage("aamon", path))).toBe(path);
-    expect(shortenImage("aamon", "/visuels/autre.png")).toBe("/visuels/autre.png");
+    expect(shortenImage("aamon", "/visuels/autre.webp")).toBe("/visuels/autre.webp");
     expect(imageThumb("aamon", null)).toBeNull();
   });
 });

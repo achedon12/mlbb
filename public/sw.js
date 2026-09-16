@@ -14,7 +14,12 @@
  * - Notifications: the server sends an encrypted message (title, text,
  *   path); it is shown, and a click opens the path on the site.
  */
-const VERSION = "v1";
+// v2: game visuals moved from `.png` to `.webp`. A page cached under v1 still
+// names the old addresses, and the optimiser refuses one (`/_next/image` reads
+// its `url` parameter, which no redirect can rewrite). Renaming the caches
+// drops that stale HTML — and the images that went with it — on the next
+// visit, at the cost of one reload.
+const VERSION = "v2";
 const CACHE_PAGES = `pages-${VERSION}`;
 const CACHE_STATIC = `statique-${VERSION}`;
 const CACHE_IMAGES = `images-${VERSION}`;

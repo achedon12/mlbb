@@ -119,6 +119,12 @@ const nextConfig: NextConfig = {
       { source: "/confidentialite", destination: "/privacy", permanent: true },
       { source: "/compte", destination: "/account", permanent: true },
       { source: "/connexion", destination: "/login", permanent: true },
+      // Game visuals used to be stored under a `.png` name even though the
+      // wiki serves WebP bytes: the extension lied and the files were sent
+      // with the wrong `Content-Type`. They are now named `.webp`. The old
+      // addresses are public — the image sitemap handed them to Google Images,
+      // and service workers keep them — so they redirect for good.
+      { source: "/visuels/:path(.*)\\.png", destination: "/visuels/:path.webp", permanent: true },
     ];
   },
 
@@ -132,6 +138,18 @@ const nextConfig: NextConfig = {
           { key: "Cache-Control", value: "no-cache, no-store, must-revalidate" },
           { key: "Content-Type", value: "application/javascript; charset=utf-8" },
         ],
+      },
+      // Game visuals served as they are (image sitemap, offline cache, the
+      // canvas of the retribution trainer) used to come with `max-age=0`, the
+      // default for `public/`: every visit revalidated every file. A given
+      // path is written once and never rewritten — the sync only downloads a
+      // visual that is missing, and a renamed skin produces a new file name —
+      // so a month of browser cache costs nothing and saves a round trip per
+      // image. Everything the pages display goes through `/_next/image`, which
+      // keeps its own `minimumCacheTTL`.
+      {
+        source: "/visuels/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
       },
       {
         source: "/:chemin*",

@@ -131,7 +131,7 @@ export function ItemPicker({
                     className="flex min-h-14 w-full items-center gap-2.5 border border-night-700 bg-night-850 p-2 text-left transition-colors hover:border-gold-500/60 aria-[current]:border-gold-500"
                   >
                     <span className="relative size-10 shrink-0 bg-night-800">
-                      {o.image && <Image src={o.image} alt="" fill unoptimized className="object-contain" />}
+                      {o.image && <Image src={o.image} alt="" width={40} height={40} className="size-full object-contain" />}
                     </span>
                     <span className="min-w-0">
                       <span className="block text-sm leading-tight text-chalk-100">{o.name}</span>

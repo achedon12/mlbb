@@ -70,11 +70,34 @@ function requiredSections(entry: string): Map<string, string> {
   return needs;
 }
 
-/** Sections added by a page: literals passed to `messagesPage(…, [...])`. */
-const provided = (f: string) =>
+const sectionsOf = (f: string) =>
   [...read(f).matchAll(/messagesPage\([^,]+,\s*\[([^\]]*)\]/g)].flatMap((m) =>
     [...m[1].matchAll(/["']([^"']+)["']/g)].map((x) => x[1]),
   );
+
+/**
+ * Sections added by a page: the literals passed to `messagesPage(…, [...])`,
+ * in the page itself or in the server modules it renders — a list paged by
+ * path has two routes, `/heroes` and `/heroes/page/n`, rendering one shared
+ * `content.tsx`, and that is where the sections are declared, once.
+ *
+ * Server modules under `src/app` only: a component of `src/components` must
+ * never be the one quietly providing a section, which is what this test is
+ * for.
+ */
+function provided(entry: string): string[] {
+  const found: string[] = [];
+  const seen = new Set<string>();
+  const stack = [entry];
+  while (stack.length) {
+    const f = stack.pop()!;
+    if (seen.has(f) || isClient(f) || !f.startsWith(join(SRC, "app"))) continue;
+    seen.add(f);
+    found.push(...sectionsOf(f));
+    stack.push(...imports(f));
+  }
+  return found;
+}
 
 const pages = files(join(SRC, "app")).filter((f) => /\/(page|layout|not-found|error|global-error)\.tsx$/.test(f));
 

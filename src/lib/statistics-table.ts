@@ -17,7 +17,7 @@ export const LANES: Lane[] = ["Gold", "Exp", "Mid", "Jungle", "Roam"];
 export const pathStatistics = (rank: MeasuredRank) => (rank === "all" ? "/statistics" : `/statistics/${rank}`);
 
 /** Hero icon, stored by the sync under a fixed name: no need to send it row by row. */
-export const heroIcon = (slug: string) => `/visuels/heros/${slug}/icone.png`;
+export const heroIcon = (slug: string) => `/visuels/heros/${slug}/icone.webp`;
 
 /**
  * A table row, as it is sent to the browser. There are 132 of them: nothing

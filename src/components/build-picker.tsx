@@ -22,7 +22,7 @@ export function BuildPicker({
     <>
       <span className="relative size-9 shrink-0 overflow-hidden rounded-full border border-night-700 bg-night-800">
         {image ? (
-          <Image src={image} alt="" fill unoptimized className="object-contain" />
+          <Image src={image} alt="" width={36} height={36} className="size-full object-contain" />
         ) : (
           <span className="grid size-full place-items-center text-xs font-semibold text-chalk-500">
             {name.charAt(0)}

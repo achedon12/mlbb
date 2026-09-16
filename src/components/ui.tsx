@@ -1,5 +1,7 @@
 import { Breadcrumb, type Crumb } from "@/components/breadcrumb";
+import { Foldable } from "@/components/foldable";
 import Link from "@/components/link";
+import { PageLead } from "@/components/page-lead";
 import type { Tier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -74,12 +76,30 @@ export function Card({
   );
 }
 
-/** Page header banner, shared by all sections. */
+/**
+ * Page header banner, shared by all sections.
+ *
+ * Compact on purpose: it used to take the whole first screen of a phone —
+ * breadcrumb, oversized title, rule, four lines of lead — and push the first
+ * hero card, the first tier row or the first field of a tool out of sight.
+ * Padding is tighter, the breadcrumb is one small line, and the lead is
+ * handled by `PageLead`: first sentence visible, clamped to two lines on a
+ * phone, the rest folded under it without a line of JavaScript.
+ *
+ * Three optional slots keep pages from rebuilding the same thing: `meta`, a
+ * row of small facts ("133 heroes", "patch 2.1.90"); `actions`, the links or
+ * buttons of the page, aligned with the title; and `details`, an explanation
+ * folded into a closed `Foldable` — where a method note belongs, rather than
+ * between the filters and the content.
+ */
 export function PageHeader({
   title,
   lead,
   crumbs,
   icon,
+  meta,
+  actions,
+  details,
   children,
 }: {
   title: string;
@@ -88,23 +108,50 @@ export function PageHeader({
   crumbs?: Crumb[];
   /** Visual placed before the title (item, emblem or spell icon). */
   icon?: React.ReactNode;
+  /** Short facts shown as chips under the title; empty entries are dropped. */
+  meta?: React.ReactNode[];
+  /** Links or buttons of the page, on the title's line from `sm` up. */
+  actions?: React.ReactNode;
+  /** Method note, reading key or sources, folded closed under the lead. */
+  details?: { label: string; content: React.ReactNode };
   children?: React.ReactNode;
 }) {
-  const h1 = <h1 className="font-heading text-3xl font-bold text-chalk-100 sm:text-4xl">{title}</h1>;
+  const h1 = <h1 className="font-heading text-2xl font-bold text-chalk-100 sm:text-3xl lg:text-4xl">{title}</h1>;
+  const facts = meta?.filter(Boolean) ?? [];
   return (
     <div className="border-b border-night-700/70 bg-night-900/30">
-      <div className="mx-auto max-w-6xl px-4 pb-14 pt-8">
-        <Breadcrumb crumbs={crumbs ?? [{ name: title }]} className="mb-6" />
-        {icon ? (
-          <div className="flex items-center gap-4">
-            {icon}
-            <div className="min-w-0">{h1}</div>
-          </div>
-        ) : (
-          h1
+      <div className="mx-auto max-w-6xl px-4 pb-5 pt-3 sm:pb-8 sm:pt-5">
+        <Breadcrumb
+          crumbs={crumbs ?? [{ name: title }]}
+          className="mb-2.5 [&_ol]:flex-nowrap [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs sm:mb-3"
+        />
+        <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          {icon ? (
+            <div className="flex min-w-0 items-center gap-3">
+              {icon}
+              <div className="min-w-0">{h1}</div>
+            </div>
+          ) : (
+            h1
+          )}
+          {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
+        </div>
+        <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+        <PageLead lead={lead} />
+        {facts.length > 0 && (
+          <ul className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs text-chalk-500">
+            {facts.map((fact, i) => (
+              <li key={i} className="bevel-sm border border-night-700/70 bg-night-950/50 px-2 py-1">
+                {fact}
+              </li>
+            ))}
+          </ul>
         )}
-        <div aria-hidden className="gold-rule mt-3 h-0.5 w-20" />
-        <p className="mt-4 max-w-2xl leading-relaxed text-chalk-300">{lead}</p>
+        {details && (
+          <Foldable label={details.label} className="mt-4 max-w-2xl">
+            {details.content}
+          </Foldable>
+        )}
         {children}
       </div>
     </div>

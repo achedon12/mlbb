@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Check, Copy, Minus, Plus } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Copy, Minus, Plus } from "lucide-react";
 import { BuildStats } from "@/components/build-stats";
 import { HeroSelector, type HeroPickable } from "@/components/hero-picker";
 import { ItemPicker } from "@/components/item-picker";
 import { HeroPortrait } from "@/components/hero-portrait";
+import { LightImage } from "@/components/light-image";
 import { ChoiceRank } from "@/components/rank-picker";
 import { LOCALE_HTML } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
@@ -27,9 +28,13 @@ import {
   codeCatalogFrom,
   namesFrom,
   simulate,
+  PERCENT_STATS,
   type MeasuredCore,
+  type SimResult,
   type SimulatorData,
+  type StatKey,
 } from "@/lib/build-simulator";
+import { BUILD_STEPS, isFirstStep, isLastStep, stepBy, type BuildStep } from "@/lib/build-steps";
 import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { cn } from "@/lib/utils";
 
@@ -37,11 +42,25 @@ import { cn } from "@/lib/utils";
  * Build simulator: hero, level, six items, emblem and talents, battle spell,
  * and the resulting stats, computed in the browser on every change.
  *
+ * It is walked as four steps - hero, items, emblem and talents, battle spell -
+ * so a phone shows one question at a time instead of every chip list at once.
+ * A summary bar pinned under the site header carries the computed stats
+ * through every step; on a wide screen the full panel sits to the right of the
+ * builder as well.
+ *
  * The build lives in the URL (`src/lib/build-code.ts`): the address bar is
  * rewritten in place on each change, so copying it - or the share button -
  * hands over the exact build. The page itself is static; the build is read
- * from the URL once mounted.
+ * from the URL once mounted. Stepping through changes nothing in that address:
+ * the step is a view, not part of the build.
  */
+
+/**
+ * Stats shown in the pinned bar: what a build is judged on at a glance.
+ * The offensive one follows the build's adaptive side, so a mage is not
+ * summarised by its physical attack.
+ */
+const SUMMARY_STATS: StatKey[] = ["hp", "physicalDefense", "magicDefense", "cooldownReduction"];
 
 const NO_EXCLUSION = new Set<string>();
 
@@ -68,7 +87,7 @@ function ChoiceChip({
     >
       <span className="relative size-7 shrink-0 overflow-hidden rounded-full border border-night-700 bg-night-800">
         {image ? (
-          <Image src={image} alt="" fill unoptimized className="object-contain" />
+          <Image src={image} alt="" width={28} height={28} className="size-full object-contain" />
         ) : (
           <span aria-hidden className="grid size-full place-items-center text-[0.65rem] font-semibold text-chalk-500">
             {label.charAt(0)}
@@ -122,6 +141,8 @@ export function BuildSimulator({
   const [slot, setSlot] = useState<number | null>(null);
   const [rank, setRank] = useState<MeasuredRank>("all");
   const [copied, setCopied] = useState(false);
+  /** Current step. A view only: it is not part of the build, nor of its address. */
+  const [step, setStep] = useState<BuildStep>(BUILD_STEPS[0]);
   /** The URL has been read: before that, writing it back would erase the shared build. */
   const [ready, setReady] = useState(false);
   const decoded = useRef(false);
@@ -203,260 +224,352 @@ export function BuildSimulator({
   }
 
   const tierTalents = Array.from({ length: TIERS }, (_, tier) => data.talents.filter((tl) => tl.tier === tier));
+  const stepIndex = BUILD_STEPS.indexOf(step);
+
+  /**
+   * What the build is made of, as pictures: the six slots in order, then the
+   * emblem and the battle spell. An empty slot keeps its place, so the row
+   * never jumps as items are chosen.
+   */
+  const pieces: Piece[] = [
+    ...Array.from({ length: MAX_ITEMS }, (_, i) => {
+      const item = build.items[i] ? itemsBySlug.get(build.items[i]) : undefined;
+      return { name: item?.name ?? null, image: item?.image ?? null };
+    }),
+    { name: data.emblems.find((e) => e.key === build.emblem)?.name ?? null, image: data.emblems.find((e) => e.key === build.emblem)?.image ?? null, apart: true },
+    { name: data.spells.find((sp) => sp.key === build.spell)?.name ?? null, image: data.spells.find((sp) => sp.key === build.spell)?.image ?? null },
+  ];
+  const stepTitle = (s: BuildStep) => t(`pages.buildSimulatorUI.${s}Title`);
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
-      <div className="min-w-0 space-y-9">
-        {ignored.length > 0 && (
-          <p role="status" className="border border-gold-500/40 bg-gold-500/5 p-3 text-sm text-chalk-200">
-            {t("pages.buildSimulatorUI.linkDamaged", {
-              parts: ignored.map((p) => t(`pages.buildSimulatorUI.params.${p}`)).join(", "),
-            })}
-          </p>
-        )}
+    <div className="space-y-6">
+      {ignored.length > 0 && (
+        <p role="status" className="border border-gold-500/40 bg-gold-500/5 p-3 text-sm text-chalk-200">
+          {t("pages.buildSimulatorUI.linkDamaged", {
+            parts: ignored.map((p) => t(`pages.buildSimulatorUI.params.${p}`)).join(", "),
+          })}
+        </p>
+      )}
 
-        <section aria-labelledby="sim-hero" className="space-y-4">
-          <SectionTitle id="sim-hero">{t("pages.buildSimulatorUI.heroTitle")}</SectionTitle>
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              type="button"
-              onClick={() => setHeroPickerOpen(true)}
-              className="flex min-h-14 items-center gap-3 border border-night-700 bg-night-900/60 px-3 py-2 text-left transition-colors hover:border-gold-500/60"
-            >
-              {hero ? (
-                <HeroPortrait source={hero.icon} name={hero.name} size="icon" decorative />
-              ) : (
-                <span aria-hidden className="grid size-10 place-items-center bg-night-800 text-lg text-chalk-500">
-                  ?
-                </span>
-              )}
-              <span>
-                <span className="block font-semibold text-chalk-100">{hero ? hero.name : t("pages.buildSimulatorUI.chooseHero")}</span>
-                {hero && <span className="block text-xs text-chalk-500">{t("pages.buildSimulatorUI.changeHero")}</span>}
-              </span>
-            </button>
+      {/* -- Result, pinned under the site header through every step ---- */}
+      <SummaryBar
+        result={result}
+        heroName={hero?.name ?? null}
+        heroIcon={hero?.icon ?? null}
+        level={build.level}
+        pieces={pieces}
+        locale={locale}
+      />
 
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setLevel(build.level - 1)}
-                disabled={build.level <= LEVEL_MIN}
-                aria-label={t("pages.buildSimulatorUI.levelDown")}
-                className="grid size-11 place-items-center border border-night-700 text-chalk-300 transition-colors hover:border-gold-500/60 disabled:opacity-40"
-              >
-                <Minus size={16} aria-hidden />
-              </button>
-              <label className="flex flex-col items-center text-xs text-chalk-500">
-                <span>{t("pages.buildSimulatorUI.level", { level: build.level })}</span>
-                <input
-                  type="range"
-                  min={LEVEL_MIN}
-                  max={LEVEL_MAX}
-                  step={1}
-                  value={build.level}
-                  onChange={(e) => setLevel(Number(e.target.value))}
-                  className="mt-1 h-6 w-32 accent-[var(--color-gold-500)] sm:w-40"
-                />
-              </label>
-              <button
-                type="button"
-                onClick={() => setLevel(build.level + 1)}
-                disabled={build.level >= LEVEL_MAX}
-                aria-label={t("pages.buildSimulatorUI.levelUp")}
-                className="grid size-11 place-items-center border border-night-700 text-chalk-300 transition-colors hover:border-gold-500/60 disabled:opacity-40"
-              >
-                <Plus size={16} aria-hidden />
-              </button>
-            </div>
-          </div>
-        </section>
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+        <div className="min-w-0 space-y-6">
+          <nav aria-label={t("pages.buildSimulatorUI.stepsLabel")}>
+            <ol className="flex flex-wrap gap-1.5">
+              {BUILD_STEPS.map((s, i) => {
+                const done = i < stepIndex;
+                return (
+                  <li key={s}>
+                    <button
+                      type="button"
+                      aria-current={s === step ? "step" : undefined}
+                      onClick={() => setStep(s)}
+                      className={cn(
+                        "flex min-h-11 items-center gap-2 border px-2.5 py-1.5 text-sm transition-colors",
+                        s === step
+                          ? "border-gold-500 bg-gold-500/10 text-chalk-100"
+                          : "border-night-700 text-chalk-300 hover:border-gold-500/60 hover:text-chalk-100",
+                      )}
+                    >
+                      <span
+                        aria-hidden
+                        className={cn(
+                          "grid size-6 shrink-0 place-items-center font-heading text-xs font-bold",
+                          s === step ? "bg-gold-500 text-night-950" : done ? "bg-night-700 text-chalk-100" : "bg-night-800 text-chalk-500",
+                        )}
+                      >
+                        {i + 1}
+                      </span>
+                      <span className="leading-tight">{stepTitle(s)}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
 
-        <section aria-labelledby="sim-items" className="space-y-4">
-          <SectionTitle id="sim-items">{t("pages.buildSimulatorUI.itemsTitle")}</SectionTitle>
-          <ol className="grid grid-cols-3 gap-2 sm:grid-cols-6">
-            {Array.from({ length: MAX_ITEMS }, (_, i) => {
-              const item = build.items[i] ? itemsBySlug.get(build.items[i]) : undefined;
-              const next = i === build.items.length;
-              return (
-                <li key={i}>
+          <section aria-labelledby="sim-step" className="space-y-4">
+            <SectionTitle id="sim-step">
+              <span className="sr-only">{t("pages.buildSimulatorUI.stepLabel", { n: stepIndex + 1, total: BUILD_STEPS.length })} : </span>
+              {stepTitle(step)}
+            </SectionTitle>
+
+            {step === "hero" && (
+              <div className="flex flex-wrap items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => setHeroPickerOpen(true)}
+                  className="flex min-h-14 items-center gap-3 border border-night-700 bg-night-900/60 px-3 py-2 text-left transition-colors hover:border-gold-500/60"
+                >
+                  {hero ? (
+                    <HeroPortrait source={hero.icon} name={hero.name} size="icon" decorative />
+                  ) : (
+                    <span aria-hidden className="grid size-10 place-items-center bg-night-800 text-lg text-chalk-500">
+                      ?
+                    </span>
+                  )}
+                  <span>
+                    <span className="block font-semibold text-chalk-100">{hero ? hero.name : t("pages.buildSimulatorUI.chooseHero")}</span>
+                    {hero && <span className="block text-xs text-chalk-500">{t("pages.buildSimulatorUI.changeHero")}</span>}
+                  </span>
+                </button>
+
+                <div className="flex items-center gap-2">
                   <button
                     type="button"
-                    onClick={() => setSlot(i < build.items.length ? i : build.items.length)}
-                    disabled={!item && !next}
-                    aria-label={
-                      item
-                        ? t("pages.buildSimulatorUI.slotFilled", { n: i + 1, item: item.name })
-                        : t("pages.buildSimulatorUI.slotEmpty", { n: i + 1 })
-                    }
-                    className={cn(
-                      "flex h-full min-h-24 w-full flex-col items-center justify-center gap-1.5 border p-2 text-center transition-colors",
-                      item
-                        ? "border-night-700 bg-night-850 hover:border-gold-500/60"
-                        : next
-                          ? "border-dashed border-gold-500/50 text-gold-400 hover:border-gold-500"
-                          : "border-dashed border-night-800 text-chalk-600",
-                    )}
+                    onClick={() => setLevel(build.level - 1)}
+                    disabled={build.level <= LEVEL_MIN}
+                    aria-label={t("pages.buildSimulatorUI.levelDown")}
+                    className="grid size-11 place-items-center border border-night-700 text-chalk-300 transition-colors hover:border-gold-500/60 disabled:opacity-40"
                   >
-                    {item ? (
-                      <>
-                        <span className="relative size-11">
-                          {item.image && <Image src={item.image} alt="" fill unoptimized className="object-contain" />}
-                        </span>
-                        <span className="line-clamp-2 text-[0.7rem] leading-tight text-chalk-200">{item.name}</span>
-                      </>
-                    ) : (
-                      <Plus size={20} aria-hidden />
-                    )}
+                    <Minus size={16} aria-hidden />
                   </button>
-                </li>
-              );
-            })}
-          </ol>
-        </section>
+                  <label className="flex flex-col items-center text-xs text-chalk-500">
+                    <span>{t("pages.buildSimulatorUI.level", { level: build.level })}</span>
+                    <input
+                      type="range"
+                      min={LEVEL_MIN}
+                      max={LEVEL_MAX}
+                      step={1}
+                      value={build.level}
+                      onChange={(e) => setLevel(Number(e.target.value))}
+                      className="mt-1 h-6 w-32 accent-[var(--color-gold-500)] sm:w-40"
+                    />
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setLevel(build.level + 1)}
+                    disabled={build.level >= LEVEL_MAX}
+                    aria-label={t("pages.buildSimulatorUI.levelUp")}
+                    className="grid size-11 place-items-center border border-night-700 text-chalk-300 transition-colors hover:border-gold-500/60 disabled:opacity-40"
+                  >
+                    <Plus size={16} aria-hidden />
+                  </button>
+                </div>
+              </div>
+            )}
 
-        <section aria-labelledby="sim-emblem" className="space-y-4">
-          <SectionTitle id="sim-emblem">{t("pages.buildSimulatorUI.emblemTitle")}</SectionTitle>
-          <fieldset>
-            <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.buildSimulatorUI.emblemSet")}</legend>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {data.emblems.map((e) => (
-                <ChoiceChip
-                  key={e.key}
-                  active={build.emblem === e.key}
-                  onClick={() => update({ emblem: build.emblem === e.key ? null : e.key })}
-                  image={e.image}
-                  label={e.name}
-                />
-              ))}
-            </div>
-          </fieldset>
-          {tierTalents.map((list, tier) => (
-            <fieldset key={tier}>
-              <legend className="text-xs uppercase tracking-wide text-chalk-500">{t(`pages.buildSimulatorUI.tiers.t${tier + 1}`)}</legend>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {list.map((tl) => (
-                  <ChoiceChip
-                    key={tl.key}
-                    active={build.talents[tier] === tl.key}
-                    onClick={() => setTalent(tier, build.talents[tier] === tl.key ? null : tl.key)}
-                    image={tl.image}
-                    label={tl.name}
-                  />
+            {step === "items" && (
+              <ol className="grid grid-cols-3 gap-2 sm:grid-cols-6">
+                {Array.from({ length: MAX_ITEMS }, (_, i) => {
+                  const item = build.items[i] ? itemsBySlug.get(build.items[i]) : undefined;
+                  const next = i === build.items.length;
+                  return (
+                    <li key={i}>
+                      <button
+                        type="button"
+                        onClick={() => setSlot(i < build.items.length ? i : build.items.length)}
+                        disabled={!item && !next}
+                        aria-label={
+                          item
+                            ? t("pages.buildSimulatorUI.slotFilled", { n: i + 1, item: item.name })
+                            : t("pages.buildSimulatorUI.slotEmpty", { n: i + 1 })
+                        }
+                        className={cn(
+                          "flex h-full min-h-24 w-full flex-col items-center justify-center gap-1.5 border p-2 text-center transition-colors",
+                          item
+                            ? "border-night-700 bg-night-850 hover:border-gold-500/60"
+                            : next
+                              ? "border-dashed border-gold-500/50 text-gold-400 hover:border-gold-500"
+                              : "border-dashed border-night-800 text-chalk-600",
+                        )}
+                      >
+                        {item ? (
+                          <>
+                            <span className="relative size-11">
+                              {item.image && <Image src={item.image} alt="" width={44} height={44} className="size-full object-contain" />}
+                            </span>
+                            <span className="line-clamp-2 text-[0.7rem] leading-tight text-chalk-200">{item.name}</span>
+                          </>
+                        ) : (
+                          <Plus size={20} aria-hidden />
+                        )}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ol>
+            )}
+
+            {step === "emblem" && (
+              <div className="space-y-4">
+                <fieldset>
+                  <legend className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.buildSimulatorUI.emblemSet")}</legend>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {data.emblems.map((e) => (
+                      <ChoiceChip
+                        key={e.key}
+                        active={build.emblem === e.key}
+                        onClick={() => update({ emblem: build.emblem === e.key ? null : e.key })}
+                        image={e.image}
+                        label={e.name}
+                      />
+                    ))}
+                  </div>
+                </fieldset>
+                {tierTalents.map((list, tier) => (
+                  <fieldset key={tier}>
+                    <legend className="text-xs uppercase tracking-wide text-chalk-500">{t(`pages.buildSimulatorUI.tiers.t${tier + 1}`)}</legend>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {list.map((tl) => (
+                        <ChoiceChip
+                          key={tl.key}
+                          active={build.talents[tier] === tl.key}
+                          onClick={() => setTalent(tier, build.talents[tier] === tl.key ? null : tl.key)}
+                          image={tl.image}
+                          label={tl.name}
+                        />
+                      ))}
+                    </div>
+                  </fieldset>
                 ))}
               </div>
-            </fieldset>
-          ))}
-        </section>
-
-        <section aria-labelledby="sim-spell" className="space-y-4">
-          <SectionTitle id="sim-spell">{t("pages.buildSimulatorUI.spellTitle")}</SectionTitle>
-          <div className="flex flex-wrap gap-2">
-            {data.spells.map((s) => (
-              <ChoiceChip
-                key={s.key}
-                active={build.spell === s.key}
-                onClick={() => update({ spell: build.spell === s.key ? null : s.key })}
-                image={s.image}
-                label={s.name}
-              />
-            ))}
-          </div>
-          <p className="text-xs text-chalk-500">{t("pages.buildSimulatorUI.spellNote")}</p>
-        </section>
-      </div>
-
-      <aside aria-labelledby="sim-result" className="min-w-0 space-y-8 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:pr-1">
-        <section className="space-y-4">
-          <SectionTitle id="sim-result">{t("pages.buildSimulatorUI.resultTitle")}</SectionTitle>
-          {result && hero ? (
-            <>
-              <p className="text-sm text-chalk-400">
-                {t("pages.buildSimulatorUI.resultFor", { hero: hero.name, level: result.level })}
-              </p>
-              <BuildStats result={result} names={names} resource={hero.sim.resource} />
-            </>
-          ) : (
-            <p className="border border-dashed border-night-700 p-4 text-sm text-chalk-400">{t("pages.buildSimulatorUI.pickHeroFirst")}</p>
-          )}
-        </section>
-
-        {hero && (
-          <section aria-labelledby="sim-measured" className="space-y-3">
-            <SectionTitle id="sim-measured">{t("pages.buildSimulatorUI.measuredTitle")}</SectionTitle>
-            <ChoiceRank ranks={MEASURED_RANKS} rank={rank} onChange={setRank} />
-            {heroCores === null ? (
-              <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredLoading")}</p>
-            ) : build.items.length === 0 ? (
-              <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredNeedItems")}</p>
-            ) : close.length === 0 ? (
-              <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredNone")}</p>
-            ) : (
-              <ul className="space-y-2">
-                {close.map((c, i) => (
-                  <li key={`${c.lane}-${i}`} className="border border-night-800 bg-night-900/60 p-3">
-                    <p className="text-sm font-semibold text-chalk-100">
-                      {c.complete
-                        ? t("pages.buildSimulatorUI.measuredSame")
-                        : t("pages.buildSimulatorUI.measuredClose", { n: c.common, total: new Set(c.items).size })}
-                    </p>
-                    <ul className="mt-2 flex gap-1.5" aria-label={t("pages.buildSimulatorUI.measuredCoreItems")}>
-                      {c.items.map((slug, j) => {
-                        const it = itemsBySlug.get(slug);
-                        return (
-                          <li key={`${slug}-${j}`} title={it?.name ?? slug} className="relative size-9 bg-night-800">
-                            {it?.image && <Image src={it.image} alt={it.name} fill unoptimized className="object-contain" />}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                    <p className="mt-2 text-sm text-chalk-300">
-                      {t("pages.buildSimulatorUI.measuredRates", {
-                        win: c.winRate === null ? "—" : percent.format(c.winRate / 100),
-                        pick: c.pickRate === null ? "—" : percent.format(c.pickRate / 100),
-                      })}
-                    </p>
-                    <p className="mt-0.5 text-xs text-chalk-500">
-                      {t("pages.buildSimulatorUI.measuredWhere", {
-                        lane: t(`lanes.${c.lane}`),
-                        rank: t(`measuredRanks.${c.rank}`),
-                        date: measuredDate,
-                      })}
-                    </p>
-                  </li>
-                ))}
-              </ul>
             )}
-            <p className="text-xs leading-relaxed text-chalk-500">{t("pages.buildSimulatorUI.measuredSource")}</p>
-          </section>
-        )}
 
-        <section aria-labelledby="sim-share" className="space-y-3">
-          <SectionTitle id="sim-share">{t("pages.buildSimulatorUI.shareTitle")}</SectionTitle>
-          <div className="flex flex-wrap items-center gap-2">
-            <input
-              readOnly
-              value={shareUrl}
-              aria-label={t("pages.buildSimulatorUI.shareUrl")}
-              onFocus={(e) => e.currentTarget.select()}
-              className="bevel-sm h-11 min-w-0 flex-1 border border-night-700 bg-night-900 px-3 text-xs text-chalk-300 outline-none focus:border-gold-500"
-            />
+            {step === "spell" && (
+              <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {data.spells.map((sp) => (
+                    <ChoiceChip
+                      key={sp.key}
+                      active={build.spell === sp.key}
+                      onClick={() => update({ spell: build.spell === sp.key ? null : sp.key })}
+                      image={sp.image}
+                      label={sp.name}
+                    />
+                  ))}
+                </div>
+                <p className="text-xs text-chalk-500">{t("pages.buildSimulatorUI.spellNote")}</p>
+              </div>
+            )}
+          </section>
+
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <button
               type="button"
-              onClick={copyLink}
-              disabled={!build.hero}
-              className="bevel-sm flex h-11 items-center gap-2 bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-50"
+              disabled={isFirstStep(step)}
+              onClick={() => setStep(stepBy(step, -1))}
+              className={stepButton}
             >
-              {copied ? <Check size={16} aria-hidden /> : <Copy size={16} aria-hidden />}
-              {copied ? t("pages.buildSimulatorUI.copied") : t("pages.buildSimulatorUI.copyLink")}
+              <ArrowLeft size={15} aria-hidden />
+              {t("pages.buildSimulatorUI.previous")}
+            </button>
+            <button
+              type="button"
+              disabled={isLastStep(step)}
+              onClick={() => setStep(stepBy(step, 1))}
+              className={stepButton}
+            >
+              {t("pages.buildSimulatorUI.next")}
+              <ArrowRight size={15} aria-hidden />
             </button>
           </div>
-          <p aria-live="polite" className="sr-only">
-            {copied ? t("pages.buildSimulatorUI.copied") : ""}
-          </p>
-        </section>
+        </div>
 
-        {children?.(build)}
-      </aside>
+        <aside aria-labelledby="sim-result" className="min-w-0 space-y-8 lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:pr-1">
+          <section className="space-y-4">
+            <SectionTitle id="sim-result">{t("pages.buildSimulatorUI.resultTitle")}</SectionTitle>
+            {result && hero ? (
+              <>
+                <p className="text-sm text-chalk-400">
+                  {t("pages.buildSimulatorUI.resultFor", { hero: hero.name, level: result.level })}
+                </p>
+                <BuildStats result={result} names={names} resource={hero.sim.resource} />
+              </>
+            ) : (
+              <p className="border border-dashed border-night-700 p-4 text-sm text-chalk-400">{t("pages.buildSimulatorUI.pickHeroFirst")}</p>
+            )}
+          </section>
+
+          {hero && (
+            <section aria-labelledby="sim-measured" className="space-y-3">
+              <SectionTitle id="sim-measured">{t("pages.buildSimulatorUI.measuredTitle")}</SectionTitle>
+              <ChoiceRank ranks={MEASURED_RANKS} rank={rank} onChange={setRank} />
+              {heroCores === null ? (
+                <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredLoading")}</p>
+              ) : build.items.length === 0 ? (
+                <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredNeedItems")}</p>
+              ) : close.length === 0 ? (
+                <p className="text-sm text-chalk-500">{t("pages.buildSimulatorUI.measuredNone")}</p>
+              ) : (
+                <ul className="space-y-2">
+                  {close.map((c, i) => (
+                    <li key={`${c.lane}-${i}`} className="border border-night-800 bg-night-900/60 p-3">
+                      <p className="text-sm font-semibold text-chalk-100">
+                        {c.complete
+                          ? t("pages.buildSimulatorUI.measuredSame")
+                          : t("pages.buildSimulatorUI.measuredClose", { n: c.common, total: new Set(c.items).size })}
+                      </p>
+                      <ul className="mt-2 flex flex-wrap gap-1.5" aria-label={t("pages.buildSimulatorUI.measuredCoreItems")}>
+                        {c.items.map((slug, j) => {
+                          const it = itemsBySlug.get(slug);
+                          return (
+                            <li key={`${slug}-${j}`} title={it?.name ?? slug} className="relative size-9 bg-night-800">
+                              {it?.image && <Image src={it.image} alt={it.name} width={36} height={36} className="size-full object-contain" />}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                      <p className="mt-2 text-sm text-chalk-300">
+                        {t("pages.buildSimulatorUI.measuredRates", {
+                          win: c.winRate === null ? "—" : percent.format(c.winRate / 100),
+                          pick: c.pickRate === null ? "—" : percent.format(c.pickRate / 100),
+                        })}
+                      </p>
+                      <p className="mt-0.5 text-xs text-chalk-500">
+                        {t("pages.buildSimulatorUI.measuredWhere", {
+                          lane: t(`lanes.${c.lane}`),
+                          rank: t(`measuredRanks.${c.rank}`),
+                          date: measuredDate,
+                        })}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p className="text-xs leading-relaxed text-chalk-500">{t("pages.buildSimulatorUI.measuredSource")}</p>
+            </section>
+          )}
+
+          <section aria-labelledby="sim-share" className="space-y-3">
+            <SectionTitle id="sim-share">{t("pages.buildSimulatorUI.shareTitle")}</SectionTitle>
+            <div className="flex flex-wrap items-center gap-2">
+              <input
+                readOnly
+                value={shareUrl}
+                aria-label={t("pages.buildSimulatorUI.shareUrl")}
+                onFocus={(e) => e.currentTarget.select()}
+                // Full width on a phone, so the address is readable without scrolling
+                // the field; it shares its row with the copy button from `sm` up.
+                className="bevel-sm h-11 w-full min-w-0 border border-night-700 bg-night-900 px-3 text-xs text-chalk-300 outline-none focus:border-gold-500 sm:w-auto sm:flex-1"
+              />
+              <button
+                type="button"
+                onClick={copyLink}
+                disabled={!build.hero}
+                className="bevel-sm flex h-11 items-center gap-2 bg-gold-500 px-4 text-sm font-semibold text-night-950 transition-colors hover:bg-gold-400 disabled:opacity-50"
+              >
+                {copied ? <Check size={16} aria-hidden /> : <Copy size={16} aria-hidden />}
+                {copied ? t("pages.buildSimulatorUI.copied") : t("pages.buildSimulatorUI.copyLink")}
+              </button>
+            </div>
+            <p aria-live="polite" className="sr-only">
+              {copied ? t("pages.buildSimulatorUI.copied") : ""}
+            </p>
+          </section>
+
+          {children?.(build)}
+        </aside>
+      </div>
 
       {heroPickerOpen && (
         <HeroSelector
@@ -467,6 +580,8 @@ export function BuildSimulator({
           onChoose={(slug) => {
             update({ hero: slug });
             setHeroPickerOpen(false);
+            // The hero settled, the items are the next question.
+            setStep("items");
           }}
           onClose={() => setHeroPickerOpen(false)}
         />
@@ -481,6 +596,102 @@ export function BuildSimulator({
           onRemove={removeItem}
           onClose={() => setSlot(null)}
         />
+      )}
+    </div>
+  );
+}
+
+const stepButton =
+  "bevel-sm inline-flex min-h-11 items-center gap-2 border border-night-700 px-4 py-2 text-sm text-chalk-300 transition-colors hover:border-gold-500/60 hover:text-gold-400 disabled:pointer-events-none disabled:opacity-40";
+
+/**
+ * The computed build, in one pinned row: who, at what level, with how many
+ * items, and the handful of figures a build is judged on. It is the answer the
+ * tool exists for, so it never leaves the screen while the build is edited.
+ */
+/** One piece of the build in the pinned bar: an item slot, the emblem, the spell. */
+interface Piece {
+  /** Name, for the tooltip and for screen readers; null for an empty slot. */
+  name: string | null;
+  image: string | null;
+  /** Set apart from the item slots by a thin rule (the emblem opens that group). */
+  apart?: boolean;
+}
+
+function SummaryBar({
+  result,
+  heroName,
+  heroIcon,
+  level,
+  pieces,
+  locale,
+}: {
+  result: SimResult | null;
+  heroName: string | null;
+  heroIcon: string | null;
+  level: number;
+  pieces: Piece[];
+  /** BCP 47 tag, for the figures. */
+  locale: string;
+}) {
+  const t = useT();
+  const whole = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
+  const decimal = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
+  const percent = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 1 });
+  const format = (key: StatKey, v: number | null) =>
+    v === null ? "—" : PERCENT_STATS.has(key) ? percent.format(v / 100) : Math.abs(v) < 20 ? decimal.format(v) : whole.format(v);
+
+  // The offensive figure follows the build: a mage is not judged on its
+  // physical attack.
+  const offense: StatKey =
+    result && (result.stats.magicPower.value ?? 0) > (result.stats.physicalAttack.value ?? 0) ? "magicPower" : "physicalAttack";
+  const shown: StatKey[] = [offense, ...SUMMARY_STATS];
+
+  return (
+    <div
+      aria-labelledby="sim-summary"
+      className="sticky top-16 z-30 border-b border-night-700/70 bg-night-950/95 pb-2 pt-2 backdrop-blur"
+    >
+      <p id="sim-summary" className="sr-only">
+        {t("pages.buildSimulatorUI.summaryLabel")}
+      </p>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        {heroName && <HeroPortrait source={heroIcon} name={heroName} size="mini" decorative />}
+        <span className="font-heading text-sm font-bold text-chalk-100">
+          {heroName ?? t("pages.buildSimulatorUI.chooseHero")}
+        </span>
+        <span className="text-xs text-chalk-500">{t("pages.buildSimulatorUI.level", { level })}</span>
+        <ul
+          aria-label={t("pages.buildSimulatorUI.summaryItems", { n: pieces.filter((p, i) => i < MAX_ITEMS && p.name).length, total: MAX_ITEMS })}
+          className="flex flex-wrap items-center gap-1"
+        >
+          {pieces.map((piece, i) => (
+            <li
+              key={i}
+              title={piece.name ?? undefined}
+              className={cn(
+                "grid size-6 shrink-0 place-items-center border bg-night-900",
+                piece.name ? "border-night-700" : "border-dashed border-night-800",
+                piece.apart && "ml-2",
+              )}
+            >
+              {piece.image ? <LightImage src={piece.image} alt="" width={22} height={22} className="object-contain" /> : null}
+              {piece.name && <span className="sr-only">{piece.name}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+      {result && heroName ? (
+        <dl className="mt-1.5 grid grid-cols-3 gap-x-2 gap-y-1 sm:grid-cols-5">
+          {shown.map((key) => (
+            <div key={key} className="min-w-0">
+              <dt className="line-clamp-2 text-[0.6rem] uppercase leading-tight tracking-wide text-chalk-500">{t(`pages.buildSimulatorUI.stats.${key}`)}</dt>
+              <dd className="font-heading text-sm font-bold tabular-nums text-chalk-100">{format(key, result.stats[key].value)}</dd>
+            </div>
+          ))}
+        </dl>
+      ) : (
+        <p className="mt-1 text-xs text-chalk-500">{t("pages.buildSimulatorUI.summaryEmpty")}</p>
       )}
     </div>
   );

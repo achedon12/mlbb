@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BuildSimulatorWithPublishing } from "@/components/build-simulator-publishing";
+import { Foldable } from "@/components/foldable";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { SOURCE_EMBLEMS } from "@/data/emblem-attributes";
@@ -49,24 +50,10 @@ export default async function BuildSimulatorPage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.buildSimulator.title")} lead={t("pages.buildSimulator.lead")} />
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+      <div className="mx-auto max-w-6xl space-y-10 px-4 py-6">
         <ExtendMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
           <BuildSimulatorWithPublishing data={data} pageUrl={`${site.url}/${locale}${PATH}`} measuredDate={longDate(locale)} />
         </ExtendMessages>
-
-        <section aria-labelledby="method-title" className="max-w-3xl">
-          <h2 id="method-title" className={sectionTitle}>
-            {t("pages.buildSimulator.methodTitle")}
-          </h2>
-          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
-          <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
-            <p>{t("pages.buildSimulator.method1")}</p>
-            <p>{t("pages.buildSimulator.method2")}</p>
-            <p>{t("pages.buildSimulator.method3")}</p>
-            <p>{t("pages.buildSimulator.method4")}</p>
-            <p>{t("pages.buildSimulator.method5")}</p>
-          </div>
-        </section>
 
         <section aria-labelledby="community-title" className="max-w-3xl">
           <h2 id="community-title" className={sectionTitle}>
@@ -79,22 +66,41 @@ export default async function BuildSimulatorPage({ params }: Params) {
           </Link>
         </section>
 
-        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-title" className="font-semibold text-chalk-300">
-            {t("pages.buildSimulator.sourcesTitle")}
-          </h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            {sources.map((url) => (
-              <li key={url}>
-                <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                  {t("pages.buildSimulator.sourceWiki", { page: wikiPage(url) })}
-                </a>
-              </li>
-            ))}
-            <li>{t("pages.buildSimulator.sourceItems")}</li>
-            <li>{t("pages.buildSimulator.sourceMeasured")}</li>
-          </ul>
-        </section>
+        {/* -- How the figures are obtained, and where they come from --- */}
+        <Foldable label={t("pages.buildSimulator.methodAndSources")}>
+          <div className="max-w-3xl space-y-6">
+            <section aria-labelledby="method-title">
+              <h2 id="method-title" className={sectionTitle}>
+                {t("pages.buildSimulator.methodTitle")}
+              </h2>
+              <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+              <div className="mt-4 space-y-3 leading-relaxed text-chalk-300">
+                <p>{t("pages.buildSimulator.method1")}</p>
+                <p>{t("pages.buildSimulator.method2")}</p>
+                <p>{t("pages.buildSimulator.method3")}</p>
+                <p>{t("pages.buildSimulator.method4")}</p>
+                <p>{t("pages.buildSimulator.method5")}</p>
+              </div>
+            </section>
+
+            <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
+              <h2 id="sources-title" className="font-semibold text-chalk-300">
+                {t("pages.buildSimulator.sourcesTitle")}
+              </h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                {sources.map((url) => (
+                  <li key={url}>
+                    <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                      {t("pages.buildSimulator.sourceWiki", { page: wikiPage(url) })}
+                    </a>
+                  </li>
+                ))}
+                <li>{t("pages.buildSimulator.sourceItems")}</li>
+                <li>{t("pages.buildSimulator.sourceMeasured")}</li>
+              </ul>
+            </section>
+          </div>
+        </Foldable>
       </div>
     </>
   );

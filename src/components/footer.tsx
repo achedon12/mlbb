@@ -19,7 +19,7 @@ function Column({
   return (
     <div>
       <p className="font-heading text-xs font-semibold uppercase tracking-wider text-gold-400">{title}</p>
-      <ul className="mt-4 space-y-2.5">
+      <ul className="mt-2.5 space-y-1.5">
         {links.map((link) => (
           <li key={link.href}>
             <Link href={link.href} className="text-sm text-chalk-500 transition-colors hover:text-chalk-100">
@@ -74,8 +74,8 @@ export function Footer({ locale }: { locale: Locale }) {
   const t = createT(locale);
 
   return (
-    <footer className="mt-24 border-t border-night-700/70 bg-night-900/40">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+    <footer className="mt-16 border-t border-night-700/70 bg-night-900/40">
+      <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-7 px-4 py-8 sm:py-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
           <Link href={`/${locale}`} className="group flex items-center gap-2.5">
             <span
@@ -86,8 +86,10 @@ export function Footer({ locale }: { locale: Locale }) {
             </span>
             <span className="font-heading text-lg font-bold tracking-wide text-chalk-100">{site.name}</span>
           </Link>
-          <p className="mt-4 max-w-xs text-sm leading-relaxed text-chalk-500">{t("footer.intro")}</p>
-          <div className="mt-5 flex items-center gap-4">
+          <p className="mt-3 line-clamp-3 max-w-xs text-sm leading-relaxed text-chalk-500 sm:line-clamp-none">
+            {t("footer.intro")}
+          </p>
+          <div className="mt-4 flex items-center gap-4">
             <a
               href={site.repository}
               className="flex items-center gap-2 text-sm text-chalk-300 transition-colors hover:text-gold-400"
@@ -107,6 +109,8 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
 
+        {/* Two by two on a phone: stacked, the eighteen links alone were a screen and a half. */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-7 md:contents">
         <nav aria-label={t("footer.theGame")}>
           <Column title={t("footer.theGame")} links={GAME} prefix="nav" t={t} />
         </nav>
@@ -116,14 +120,15 @@ export function Footer({ locale }: { locale: Locale }) {
         <nav aria-label={t("footer.theSite")}>
           <Column title={t("footer.theSite")} links={SITE} prefix="footer" t={t} />
         </nav>
+        </div>
       </div>
 
       <div className="border-t border-night-800/80">
-        <p className="mx-auto max-w-6xl px-4 py-4 text-xs text-chalk-600">{t("footer.sources")}</p>
+        <p className="mx-auto max-w-6xl px-4 py-3 text-xs text-chalk-600">{t("footer.sources")}</p>
       </div>
 
       <div className="border-t border-night-800">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {YEAR} {site.name} — {t("footer.rights", { author: site.author })}
             <span className="text-chalk-600"> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>

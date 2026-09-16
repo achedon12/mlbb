@@ -14,7 +14,19 @@
     "homeDescription": "Basis pengetahuan Mobile Legends: Bang Bang: 133 hero, counter dan build mereka berdasarkan peringkat, tier list, item, emblem, dan patch notes.",
     "siblings": "Halaman lain pada level yang sama dengan {name}",
     "filter": "Filter…",
-    "contents": "Daftar isi"
+    "contents": "Daftar isi",
+    "readMore": "Pelajari lebih lanjut",
+    "method": "Metode dan sumber",
+    "pager": {
+      "label": "Penomoran halaman",
+      "previous": "Halaman sebelumnya",
+      "next": "Halaman selanjutnya",
+      "page": "Halaman {n}",
+      "status": "Halaman {page} dari {pages} · {first} hingga {last} dari {total}"
+    },
+    "table": {
+      "sortBy": "Urutkan berdasarkan {column}"
+    }
   },
   "nav": {
     "database": "Basis data",
@@ -427,7 +439,8 @@
         "advantage": "Hasilnya menjumlahkan perbedaan kemenangan yang diukur dalam permainan peringkat antara hero kedua tim, dan kemenangan duo masing-masing. Ini adalah perkiraan yang diambil dari pengukuran ini saja, bukan probabilitas kemenangan.",
         "sources": "Sumber",
         "sourceRef": "Sumber: {site}, {page}"
-      }
+      },
+      "methodTitle": "Metode dan sumber"
     },
     "compare": {
       "title": "Bandingkan",
@@ -2668,7 +2681,10 @@
         "address": "Draft alamat",
         "newDraft": "Draft baru",
         "lanes": "lane"
-      }
+      },
+      "boardLabel": "Papan draft",
+      "explainToggle": "Pilihan dijelaskan ({n})",
+      "methodTitle": "Metode dan sumber"
     },
     "timer": {
       "title": "Garis waktu tujuan",
@@ -2951,7 +2967,8 @@
       "sourcesTitle": "Sumber",
       "sourceWiki": "Wiki Legenda Seluler: {page}",
       "sourceItems": "Atribut item dan pasif: File wiki Mobile Legends, tersinkronisasi dengan situs.",
-      "sourceMeasured": "Build terukur: akademi game, melalui API komunitas arena.rone.dev."
+      "sourceMeasured": "Build terukur: akademi game, melalui API komunitas arena.rone.dev.",
+      "methodAndSources": "Metode dan sumber"
     },
     "buildSimulatorUI": {
       "searchItem": "Cari item atau atribut",
@@ -3074,7 +3091,15 @@
       "shareUrl": "Bangun tautan",
       "copied": "Tautan disalin",
       "copyLink": "Salin tautan",
-      "pickItem": "Pilih item dari lokasi {n}"
+      "pickItem": "Pilih item dari lokasi {n}",
+      "stepsLabel": "Langkah-langkah build",
+      "stepLabel": "Langkah {n} dari {total}",
+      "previous": "Langkah sebelumnya",
+      "next": "Langkah selanjutnya",
+      "summaryLabel": "Statistik build",
+      "summaryEmpty": "Pilih hero: statistik mereka ditampilkan di sini di setiap tahap.",
+      "summaryItems": "{n}/{total} item",
+      "summaryDetail": "Lihat detailnya"
     },
     "communityBuildsUI": {
       "votes": "{n} suara",
@@ -3552,7 +3577,19 @@
       "countered": "dalam kesulitan melawan {detail}",
       "synergy": "digabungkan dengan {detail}",
       "win": "{detail} menang%"
-    }
+    },
+    "stepLabel": "Langkah {n}",
+    "stepEnemyTitle": "Siapa yang kamu hadapi?",
+    "stepYoursTitle": "Tim Anda",
+    "optional": "opsional",
+    "whatToPickLane": "Apa yang harus diambil di {lane}",
+    "answersLabel": "Saran untuk lane {lane}",
+    "showMore": "Lihat {n} selengkapnya",
+    "showLess": "Lihat lebih sedikit",
+    "noSuggestion": "Tak ada tanggapan signifikan terhadap komposisi ini.",
+    "filledBy": "Diambil oleh {name}",
+    "waitingEnemy": "Pilih hero lawan: jawabannya langsung ditampilkan di bawah lanenya.",
+    "methodTitle": "Metode dan sumber"
   },
   "newHero": {
     "highlight": "Kekhasan —",

@@ -7,6 +7,7 @@ import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { classesChip } from "@/components/chip";
 import { Card, PageHeader } from "@/components/ui";
+import { Foldable } from "@/components/foldable";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
@@ -412,27 +413,31 @@ export default async function RanksPage({ params }: Params) {
           <p className="mt-3 max-w-3xl text-sm text-chalk-500">{t("pages.ranks.rewardsNote")}</p>
         </section>
 
-        <section aria-labelledby="sources-title" className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          <h2 id="sources-title" className="font-semibold text-chalk-300">{t("pages.ranks.sourcesTitle")}</h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5">
-            <li>
-              <a href={SOURCES_RANKS.ranked} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.ranks.sourceRanked")}
-              </a>
-            </li>
-            <li>
-              <a href={SOURCES_RANKS.rewards} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.ranks.sourceRewards")}
-              </a>
-            </li>
-            <li>
-              <a href={SOURCES_RANKS.table} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                {t("pages.ranks.sourceTable")}
-              </a>
-            </li>
-            <li>{t("pages.ranks.sourceMeasures", { date: longDate(locale) })}</li>
-          </ul>
-        </section>
+        <Foldable label={t("common.method")}>
+          <div className="space-y-10">
+            <section aria-labelledby="sources-title" className="text-sm text-chalk-500">
+              <h2 id="sources-title" className="font-semibold text-chalk-300">{t("pages.ranks.sourcesTitle")}</h2>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                <li>
+                  <a href={SOURCES_RANKS.ranked} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                    {t("pages.ranks.sourceRanked")}
+                  </a>
+                </li>
+                <li>
+                  <a href={SOURCES_RANKS.rewards} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                    {t("pages.ranks.sourceRewards")}
+                  </a>
+                </li>
+                <li>
+                  <a href={SOURCES_RANKS.table} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                    {t("pages.ranks.sourceTable")}
+                  </a>
+                </li>
+                <li>{t("pages.ranks.sourceMeasures", { date: longDate(locale) })}</li>
+              </ul>
+            </section>
+          </div>
+        </Foldable>
       </div>
     </>
   );

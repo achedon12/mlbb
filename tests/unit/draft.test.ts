@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { suggest, type DraftHero } from "@/lib/draft";
+import { splitSuggestions, suggest, type DraftHero, type Suggestion } from "@/lib/draft";
 
 const heroes = (slug: string, o: Partial<DraftHero> = {}): DraftHero => ({
   slug,
@@ -46,5 +46,42 @@ describe("suggest", () => {
       allies: [],
     });
     expect(first.hero.slug).toBe("b");
+  });
+});
+
+describe("splitSuggestions", () => {
+  const argued = (slug: string): Suggestion => ({
+    hero: heroes(slug),
+    score: 3,
+    reasons: [{ type: "counter", detail: "OPPONENT", favorable: true }],
+  });
+  const silent = (slug: string): Suggestion => ({ hero: heroes(slug), score: 0, reasons: [] });
+
+  it("shows the argued suggestions and keeps the rest one click away", () => {
+    const { head, tail } = splitSuggestions([argued("a"), argued("b"), argued("c"), argued("d")]);
+    expect(head.map((s) => s.hero.slug)).toEqual(["a", "b", "c"]);
+    expect(tail.map((s) => s.hero.slug)).toEqual(["d"]);
+  });
+
+  it("never pads the head with a suggestion the line-up says nothing about", () => {
+    const { head, tail } = splitSuggestions([argued("a"), silent("b"), silent("c"), silent("d")]);
+    expect(head.map((s) => s.hero.slug)).toEqual(["a"]);
+    expect(tail.map((s) => s.hero.slug)).toEqual(["b", "c", "d"]);
+  });
+
+  it("demotes the silent ones behind the argued ones that did not fit", () => {
+    const { head, tail } = splitSuggestions([argued("a"), silent("b"), argued("c"), argued("d"), argued("e")]);
+    expect(head.map((s) => s.hero.slug)).toEqual(["a", "c", "d"]);
+    expect(tail.map((s) => s.hero.slug)).toEqual(["e", "b"]);
+  });
+
+  it("takes the size of the head as an argument", () => {
+    expect(splitSuggestions([argued("a"), argued("b")], 1).head).toHaveLength(1);
+    expect(splitSuggestions([], 3)).toEqual({ head: [], tail: [] });
+  });
+
+  it("marks a suggestion as argued as soon as it has one reason", () => {
+    expect(argued("a").reasons.every((r) => r.type)).toBe(true);
+    expect(splitSuggestions([silent("a")]).head).toEqual([]);
   });
 });

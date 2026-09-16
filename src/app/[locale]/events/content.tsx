@@ -1,0 +1,299 @@
+import type { Metadata } from "next";
+import { WikiCredit } from "@/components/wiki-credit";
+import { MonthContent, SourceList, heroName, monthLabel, monthText } from "@/components/event-month";
+import { FreshnessLine } from "@/components/freshness";
+import Link from "@/components/link";
+import { Foldable } from "@/components/foldable";
+import { Pager } from "@/components/pager";
+import { Card, PageHeader, SectionTitle } from "@/components/ui";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { metaPage, metaPaged } from "@/i18n/seo";
+import { createT } from "@/i18n/translations";
+import { dataListSkins } from "@/lib/skin-catalog-server";
+import { sync } from "@/lib/data";
+import { shiftMonth, type EventMonth, type MonthStatus } from "@/lib/events";
+import { eventMonths, eventSources, monthByKey, referenceDate, sourcesForMonth } from "@/lib/events-server";
+import { serializeJsonLd } from "@/lib/html";
+import { pageCount, pageHref, paging, slicePage } from "@/lib/pager";
+import { cn } from "@/lib/utils";
+
+const PATH = "/events";
+/** Months detailed in the timeline; older ones stay one click away, in the index. */
+const TIMELINE_MONTHS = 12;
+/**
+ * Months per page of the timeline. A detailed month is one full screen of a
+ * phone — its StarLight skin, its Collector skins and every other release —
+ * so twelve of them ran thirteen screens on their own. Two keep the section
+ * around two, the other ten one link away.
+ */
+const BY_PAGE = 2;
+
+export const PATH_EVENTS = PATH;
+export const BY_PAGE_EVENTS = BY_PAGE;
+
+const currentMonth = referenceDate.slice(0, 7);
+
+function description(locale: Locale): string {
+  const t = createT(locale);
+  const all = eventMonths();
+  const latest = all.find((m) => m.month <= currentMonth && m.starlight.length > 0);
+  const s = latest?.starlight[0];
+  return t("pages.seo.events.description", {
+    n: all.length,
+    start: all.length ? monthText(locale, all.at(-1)!.month) : "—",
+    end: all.length ? monthText(locale, all[0].month) : "—",
+    latest: s
+      ? `${t("pages.events.skinOf", { skin: s.name, hero: heroName(s.hero) })}, ${monthText(locale, latest!.month)}`
+      : "—",
+  });
+}
+
+/** Months of the timeline, the ones the pages are cut out of. */
+export const monthsTimeline = () => eventMonths().filter((m) => m.month < currentMonth).slice(0, TIMELINE_MONTHS);
+
+/** How many pages the timeline holds, for the routes to prerender them. */
+export const pagesEvents = () => pageCount(monthsTimeline().length, BY_PAGE);
+
+export function metaEvents(locale: Locale, page = 1): Metadata {
+  const t = createT(locale);
+  return metaPaged(
+    metaPage(locale, {
+      title: t("pages.seo.events.title"),
+      description: description(locale),
+      path: PATH,
+      keywords: ["MLBB events", "MLBB Starlight", "Starlight skin this month", "MLBB Collector skin", "Grand Collection", "Mobile Legends"],
+    }),
+    locale,
+    PATH,
+    page,
+  );
+}
+
+export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) {
+  const t = createT(locale);
+  const htmlLang = LOCALE_HTML[locale];
+  const numbers = new Intl.NumberFormat(htmlLang);
+  const all = eventMonths();
+  const nextMonth = shiftMonth(currentMonth, 1);
+  const thisMonth = monthByKey(currentMonth);
+  const announced = all.filter((m) => m.month > currentMonth).reverse();
+  const past = all.filter((m) => m.month < currentMonth);
+  const recent = past.slice(0, TIMELINE_MONTHS);
+  const view = paging(recent.length, page, BY_PAGE);
+  const timeline = slicePage(recent, view.page, BY_PAGE);
+  const latest = past[0];
+  const link = "font-semibold text-gold-400 transition-colors hover:text-gold-500";
+  const externalLink = "font-semibold text-gold-400 hover:underline";
+  const skinCount = (n: number) =>
+    t(n === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", { n: numbers.format(n) });
+
+  const byYear = new Map<string, EventMonth[]>();
+  for (const m of all) byYear.set(m.month.slice(0, 4), [...(byYear.get(m.month.slice(0, 4)) ?? []), m]);
+  const monthFormat = new Intl.DateTimeFormat(htmlLang, { month: "long", timeZone: "UTC" });
+  const monthOnly = (month: string) => {
+    const text = monthFormat.format(new Date(`${month}-01T00:00:00Z`));
+    return text.charAt(0).toLocaleUpperCase(htmlLang) + text.slice(1);
+  };
+
+  const badge = (status: MonthStatus) =>
+    status !== "past" && (
+      <span className="bevel-sm inline-block bg-gold-500 px-2 py-0.5 text-xs font-semibold text-night-950">
+        {t(`pages.events.status.${status}`)}
+      </span>
+    );
+
+  const monthBlock = (m: EventMonth, status: MonthStatus) => (
+    <Card className={cn(status !== "past" && "border-gold-500/60")}>
+      <article aria-labelledby={`m-${m.month}`}>
+        <header className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+          <h3 id={`m-${m.month}`} className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+            <Link href={`${PATH}/${m.month}`} className="transition-colors hover:text-gold-400">
+              {monthLabel(locale, m.month)}
+            </Link>
+          </h3>
+          {badge(status)}
+          <span className="text-sm text-chalk-500">{skinCount(m.total)}</span>
+        </header>
+        <MonthContent month={m} t={t} locale={locale} variant="timeline" />
+        <p className="mt-6 text-sm">
+          <Link href={`${PATH}/${m.month}`} className={link}>
+            {t("pages.events.monthDetails", { month: monthText(locale, m.month) })} →
+          </Link>
+        </p>
+      </article>
+    </Card>
+  );
+
+  const structuredData = dataListSkins(locale, {
+    name: t("pages.events.title"),
+    description: description(locale),
+    path: PATH,
+    elements: all.map((m) => ({
+      name: t("pages.events.month.title", { month: monthText(locale, m.month) }),
+      path: `${PATH}/${m.month}`,
+    })),
+  });
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      <PageHeader
+        title={t("pages.events.title")}
+        lead={t("pages.events.lead", {
+          n: numbers.format(all.length),
+          start: all.length ? monthText(locale, all.at(-1)!.month) : "—",
+          end: all.length ? monthText(locale, all[0].month) : "—",
+        })}
+        crumbs={[{ name: t("pages.events.breadcrumb") }]}
+      >
+        <FreshnessLine locale={locale} className="mt-4" />
+      </PageHeader>
+
+      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+        <section id="this-month" className="scroll-mt-24">
+          <SectionTitle>{t("pages.events.thisMonthTitle", { month: monthText(locale, currentMonth) })}</SectionTitle>
+          <Card className="border-gold-500/60">
+            <div className="mb-6">{badge("current")}</div>
+            {thisMonth ? (
+              <MonthContent month={thisMonth} t={t} locale={locale} variant="timeline" />
+            ) : (
+              <p className="max-w-2xl leading-relaxed text-chalk-300">
+                {t("pages.events.thisMonthEmpty", {
+                  month: monthText(locale, currentMonth),
+                  latest: latest ? monthText(locale, latest.month) : "—",
+                })}{" "}
+                {latest && (
+                  <Link href={`${PATH}/${latest.month}`} className={link}>
+                    {t("pages.events.seeMonth", { month: monthText(locale, latest.month) })} →
+                  </Link>
+                )}
+              </p>
+            )}
+            <h3 className="mt-8 font-heading text-lg font-semibold text-chalk-100">{t("pages.events.everyMonthTitle")}</h3>
+            <ul className="mt-3 list-disc space-y-3 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
+              <li>
+                {t("pages.events.ruleStarlight")}{" "}
+                <a
+                  href={eventSources.starlight.url}
+                  rel="noreferrer nofollow"
+                  target="_blank"
+                  className={cn(externalLink, "text-sm")}
+                >
+                  {t("pages.events.sourcePage", { page: eventSources.starlight.title })}
+                </a>{" "}
+                ·{" "}
+                <Link href="/tools/server-time" className={cn(link, "text-sm")}>
+                  {t("pages.events.serverTimeLink")} →
+                </Link>
+              </li>
+              <li>
+                {t("pages.events.ruleCollector")}{" "}
+                <a
+                  href={eventSources.collector.url}
+                  rel="noreferrer nofollow"
+                  target="_blank"
+                  className={cn(externalLink, "text-sm")}
+                >
+                  {t("pages.events.sourcePage", { page: eventSources.collector.title })}
+                </a>
+              </li>
+            </ul>
+          </Card>
+        </section>
+
+        <section id="upcoming" className="scroll-mt-24">
+          <SectionTitle>
+            {announced.length > 0
+              ? t("pages.events.upcomingTitle")
+              : t("pages.events.nextMonthTitle", { month: monthText(locale, nextMonth) })}
+          </SectionTitle>
+          {announced.length > 0 ? (
+            <ol className="space-y-6">
+              {announced.map((m) => (
+                <li key={m.month} className="space-y-3">
+                  {monthBlock(m, "announced")}
+                  <p className="max-w-3xl text-sm text-chalk-400">{t("pages.events.month.announced")}</p>
+                  <SourceList sources={sourcesForMonth(m.month)} t={t} locale={locale} />
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="max-w-2xl leading-relaxed text-chalk-300">
+              {t("pages.events.nextMonthUnknown", { month: monthText(locale, nextMonth) })}
+            </p>
+          )}
+        </section>
+
+        {timeline.length > 0 && (
+          <section id="recent-months" className="scroll-mt-24">
+            <SectionTitle lead={t("pages.events.recentLead", { n: recent.length })}>
+              {t("pages.events.recentTitle")}
+            </SectionTitle>
+            <ol className="space-y-6">
+              {timeline.map((m) => (
+                <li key={m.month}>{monthBlock(m, "past")}</li>
+              ))}
+            </ol>
+            {/* Real addresses: the older months open without a line of
+                JavaScript, and each one keeps its own page in the index below. */}
+            <Pager paging={view} href={(n) => pageHref(PATH, null, n)} t={t} className="justify-start" />
+          </section>
+        )}
+
+        {/* Every month ever measured, as links. Two and a half screens of
+            chips at the foot of the page: folded, they stay in the document —
+            a closed `<details>` keeps its content, crawlers included — and
+            one tap away. */}
+        <section id="all-months" className="scroll-mt-24">
+          <h2 className="sr-only">{t("pages.events.allMonthsTitle")}</h2>
+          <Foldable label={t("pages.events.allMonthsTitle")}>
+            <p className="mb-4 text-sm text-chalk-500">{t("pages.events.allMonthsLead")}</p>
+            <div className="space-y-5">
+              {[...byYear].map(([year, months]) => (
+                <div key={year} className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-4">
+                  <h3 className="w-14 shrink-0 font-heading text-lg font-bold text-chalk-100">{year}</h3>
+                  <ul className="flex flex-wrap gap-2">
+                    {[...months].reverse().map((m) => (
+                      <li key={m.month}>
+                        <Link
+                          href={`${PATH}/${m.month}`}
+                          title={t("pages.skinsCalendar.monthCell", { month: monthText(locale, m.month), n: m.total })}
+                          className={cn(
+                            "bevel-sm inline-block border px-2.5 py-1 text-xs transition-colors hover:border-gold-500/60 hover:text-gold-400",
+                            m.month === currentMonth ? "border-gold-500/60 text-gold-400" : "border-night-700 text-chalk-300",
+                          )}
+                        >
+                          {monthOnly(m.month)} <span className="text-chalk-500">· {m.total}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </Foldable>
+        </section>
+
+        {/* Method and sources, where a method note belongs: available to
+            whoever wants to challenge a date, out of the way of the rest. */}
+        <section id="sources" className="scroll-mt-24">
+          <h2 className="sr-only">{t("pages.events.aboutTitle")}</h2>
+          <Foldable label={t("pages.events.aboutTitle")}>
+            <div className="max-w-3xl space-y-3 leading-relaxed text-chalk-300">
+              <p>{t("pages.events.aboutLists")}</p>
+              <SourceList sources={[eventSources.starlight, eventSources.collector]} t={t} locale={locale} />
+              <p>{t("pages.events.aboutCatalogue")}</p>
+              <p>{t("pages.events.aboutLeaks")}</p>
+              <p>
+                <Link href="/skins/calendar" className={link}>
+                  {t("pages.events.calendarLink")} →
+                </Link>
+              </p>
+            </div>
+            <WikiCredit t={t} href={sync.source} messageKey="pages.events.source" />
+          </Foldable>
+        </section>
+      </div>
+    </>
+  );
+}

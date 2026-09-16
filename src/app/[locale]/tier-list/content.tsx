@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "@/components/link";
 import type { Crumb } from "@/components/breadcrumb";
-import { FreshnessLine } from "@/components/freshness";
+import { freshnessFacts } from "@/components/freshness";
 import { BadgeTier, PageHeader } from "@/components/ui";
 import { trendsOf } from "@/lib/evolution";
 import {
@@ -22,6 +22,7 @@ import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
 import { heroListData, metaPage } from "@/i18n/seo";
 import { tierNotes as tierNotesOf } from "@/lib/data";
+import { imageRank, imageRole } from "@/lib/emblems";
 import { TierLines, type RowTier } from "./tier-lines";
 import { TierRows, type TierRow } from "./tier-rows";
 
@@ -215,7 +216,12 @@ export function TierList({
   const tierRows: TierRow[] = [
     {
       label: t("pages.tierList.byRank"),
-      links: RANKS_CLASSES.map((r) => ({ href: rankPath(r), name: t(`measuredRanks.${r}`), active: !filter && r === rank })),
+      links: RANKS_CLASSES.map((r) => ({
+        href: rankPath(r),
+        name: t(`measuredRanks.${r}`),
+        active: !filter && r === rank,
+        ...(imageRank(r) ? { emblem: imageRank(r)! } : {}),
+      })),
     },
     {
       label: t("pages.tierList.byLane"),
@@ -223,7 +229,12 @@ export function TierList({
     },
     {
       label: t("pages.tierList.byRole"),
-      links: FILTERS_ROLE.map((f) => ({ href: pathFilter(f), name: nameFilter(t, f), active: sameFilter(f) })),
+      links: FILTERS_ROLE.map((f) => ({
+        href: pathFilter(f),
+        name: nameFilter(t, f),
+        active: sameFilter(f),
+        ...(imageRole(f.value) ? { emblem: imageRole(f.value)! } : {}),
+      })),
     },
   ];
 
@@ -233,54 +244,53 @@ export function TierList({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
-      <PageHeader title={title} lead={lead} crumbs={crumbs}>
-        <FreshnessLine
-          locale={locale}
-          before={t("pages.freshness.heroesRanked", { n: ranking.length })}
-          className="mt-6"
-        />
-      </PageHeader>
-
-      <div className="mx-auto max-w-5xl px-4 py-12">
-        <div className="mb-8 space-y-3">
-          <TierRows rows={tierRows} />
-          {filter && (
-            <p className="text-sm leading-relaxed text-chalk-500">
-              {t("pages.tierList.filterNote")}
-              {filter.type === "role" && (
-                <>
-                  {" "}
-                  <Link href={pathRole(filter.value)} className="font-semibold text-gold-400 hover:text-gold-500">
-                    {t("pages.tierList.seeRole", markersFilter(t, filter))} →
-                  </Link>
-                </>
-              )}
-            </p>
-          )}
-        </div>
-
-        {/* The reader must be able to challenge the ranking: we show the rule. */}
-        <p className="mb-6 text-sm">
-          <Link href={rank === "all" ? "/statistics" : `/statistics/${rank}`} className="font-semibold text-gold-400 hover:text-gold-500">
+      <PageHeader
+        title={title}
+        lead={lead}
+        crumbs={crumbs}
+        meta={freshnessFacts(locale, t("pages.freshness.heroesRanked", { n: ranking.length }))}
+        actions={
+          <Link
+            href={rank === "all" ? "/statistics" : `/statistics/${rank}`}
+            className="text-sm font-semibold text-gold-400 hover:text-gold-500"
+          >
             {t("pages.statistics.fromTierListLink")} →
           </Link>
-        </p>
-        <details className="bevel mb-10 border border-night-700/70 bg-night-900/60 p-5">
-          <summary className="cursor-pointer font-heading font-bold text-gold-400">
-            {t("pages.tierList.howCalculated")}
-          </summary>
-          <div className="mt-4 space-y-3 text-sm leading-relaxed text-chalk-300">
-            <p>
-              {t("pages.tierList.scorePre")}<strong className="text-chalk-100">{t("pages.tierList.scoreBold")}</strong>.
-            </p>
-            <p>{t("pages.tierList.p2")}</p>
-            <p>
-              {t("pages.tierList.p3pre")}
-              <span className="text-gold-400">{t("pages.tierList.asterisk")}</span>{t("pages.tierList.p3post")}
-            </p>
-            <p>{t("pages.tierList.trends", { threshold: percent.format(THRESHOLD_NOTABLE) })}</p>
-          </div>
-        </details>
+        }
+        details={{
+          // The reader must be able to challenge the ranking: we show the rule.
+          label: t("pages.tierList.howCalculated"),
+          content: (
+            <div className="space-y-3">
+              <p>
+                {t("pages.tierList.scorePre")}<strong className="text-chalk-100">{t("pages.tierList.scoreBold")}</strong>.
+              </p>
+              <p>{t("pages.tierList.p2")}</p>
+              <p>
+                {t("pages.tierList.p3pre")}
+                <span className="text-gold-400">{t("pages.tierList.asterisk")}</span>{t("pages.tierList.p3post")}
+              </p>
+              <p>{t("pages.tierList.trends", { threshold: percent.format(THRESHOLD_NOTABLE) })}</p>
+            </div>
+          ),
+        }}
+      />
+
+      <div className="mx-auto max-w-5xl px-4 pb-12 pt-4">
+        <TierRows rows={tierRows} home="/tier-list" />
+        {filter && (
+          <p className="mb-6 text-sm leading-relaxed text-chalk-500">
+            {t("pages.tierList.filterNote")}
+            {filter.type === "role" && (
+              <>
+                {" "}
+                <Link href={pathRole(filter.value)} className="font-semibold text-gold-400 hover:text-gold-500">
+                  {t("pages.tierList.seeRole", markersFilter(t, filter))} →
+                </Link>
+              </>
+            )}
+          </p>
+        )}
 
         <div className="space-y-10">
           {ORDER_TIERS.map((tier) => {

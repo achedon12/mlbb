@@ -207,6 +207,10 @@ async function urlsImages(credentials, variant) {
  * Hero visuals follow a numeric convention; items, emblems, talents and
  * spells are named after their English label. This function covers the
  * second case.
+ *
+ * `extension` is the extension of the **wiki's** page title, not of the local
+ * file: the wiki catalogues almost everything under `File:....png`, whatever
+ * the bytes it actually serves. `download` decides what to write on disk.
  */
 async function urlsFiles(names, extension = "png") {
   const found = {};
@@ -242,14 +246,26 @@ async function urlsFiles(names, extension = "png") {
   return found;
 }
 
+/** True when the buffer already holds a WebP image (RIFF container). */
+function isWebp(data) {
+  return data.length > 12 && data.toString("ascii", 0, 4) === "RIFF" && data.toString("ascii", 8, 12) === "WEBP";
+}
+
 /**
  * Downloads a visual unless it is already present.
  *
  * The wiki's full-size illustrations weigh up to 3 MB each, across 745 files:
  * as is, they add more than 200 MB to the repository and to every clone. They
  * are scaled down to a useful web width and converted to WebP, which cuts the
- * size by six with no visible difference on screen. Portraits and icons,
- * already small, are copied as is.
+ * size by six with no visible difference on screen.
+ *
+ * Portraits and icons are already small and already WebP: the wiki names its
+ * files `.png` but serves WebP bytes for most of them. Everything is stored
+ * under a `.webp` name, so the file's name matches what is inside it and the
+ * site sends the right `Content-Type`. The bytes are written untouched when
+ * they are already WebP — re-encoding a lossy image only loses quality — and
+ * converted otherwise, which is the case for the few icons that come from the
+ * game's API rather than the wiki.
  */
 async function download(url, path, optimize = false, width = 1280) {
   if (existsSync(path)) return "exists";
@@ -269,6 +285,12 @@ async function download(url, path, optimize = false, width = 1280) {
         .resize({ width, withoutEnlargement: true })
         .webp({ quality: 82 })
         .toFile(path);
+    } else if (path.endsWith(".webp") && !isWebp(data)) {
+      // 92 is generous for a 100x100 icon with an alpha channel: a quarter of
+      // the weight of the source PNG, and no visible difference at any size
+      // the site displays it.
+      const sharp = (await import("sharp")).default;
+      await sharp(data).webp({ quality: 92, alphaQuality: 100, effort: 6 }).toFile(path);
     } else {
       await writeFile(path, data);
     }
@@ -285,9 +307,9 @@ async function download(url, path, optimize = false, width = 1280) {
  * The site must not depend on any external URL: every image is copied
  * locally, under a readable path rather than the wiki's numeric identifier.
  *
- *     public/visuels/heros/khufra/portrait.png
- *     public/visuels/heros/khufra/icone.png
- *     public/visuels/heros/khufra/skins/782-desert-owl.png
+ *     public/visuels/heros/khufra/portrait.webp
+ *     public/visuels/heros/khufra/icone.webp
+ *     public/visuels/heros/khufra/skins/782-desert-owl.webp
  */
 function planVisuals(heroes, skins, portraits, icons) {
   const plan = [];
@@ -298,18 +320,18 @@ function planVisuals(heroes, skins, portraits, icons) {
     const entry = { portrait: null, icon: null, skins: {} };
 
     if (portraits[h.id]) {
-      entry.portrait = `/${folder}/portrait.png`;
-      plan.push({ url: portraits[h.id], path: `public/${folder}/portrait.png` });
+      entry.portrait = `/${folder}/portrait.webp`;
+      plan.push({ url: portraits[h.id], path: `public/${folder}/portrait.webp` });
     }
     if (icons[h.id]) {
-      entry.icon = `/${folder}/icone.png`;
-      plan.push({ url: icons[h.id], path: `public/${folder}/icone.png` });
+      entry.icon = `/${folder}/icone.webp`;
+      plan.push({ url: icons[h.id], path: `public/${folder}/icone.webp` });
     }
 
     for (const skin of skins[h.slug] ?? []) {
       const url = portraits[skin.id];
       if (!url) continue;
-      const file = `${skin.id}-${slugify(skin.name)}.png`;
+      const file = `${skin.id}-${slugify(skin.name)}.webp`;
       entry.skins[skin.id] = `/${folder}/skins/${file}`;
       plan.push({ url, path: `public/${folder}/skins/${file}` });
     }
@@ -323,17 +345,17 @@ function planVisuals(heroes, skins, portraits, icons) {
 /**
  * Arranges visuals that do not belong to a hero.
  *
- *     public/visuels/objets/blade-of-despair.png
- *     public/visuels/emblemes/tank.png
- *     public/visuels/talents/impure-rage.png
- *     public/visuels/sorts/flicker.png
+ *     public/visuels/objets/blade-of-despair.webp
+ *     public/visuels/emblemes/tank.webp
+ *     public/visuels/talents/impure-rage.webp
+ *     public/visuels/sorts/flicker.webp
  */
 function planFiles(urls, folder) {
   const plan = [];
   const paths = {};
 
   for (const [name, url] of Object.entries(urls)) {
-    const file = `${slugify(name)}.png`;
+    const file = `${slugify(name)}.webp`;
     paths[slugify(name)] = `/visuels/${folder}/${file}`;
     plan.push({ url, path: `public/visuels/${folder}/${file}` });
   }
@@ -1957,7 +1979,7 @@ async function main() {
     for (const [name, url] of Object.entries(icons)) {
       const key = slugify(name);
       if (target[key]) continue;
-      const path = `/visuels/${type}/${key}.png`;
+      const path = `/visuels/${type}/${key}.webp`;
       plan.push({ url, path: `public${path}` });
       if (WITH_IMAGES || existsSync(`public${path}`)) target[key] = path;
     }

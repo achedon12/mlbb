@@ -8,6 +8,7 @@ import {
   tournamentDates,
   wholePercent,
 } from "@/components/esports-parts";
+import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -277,58 +278,63 @@ function VersusTable({
       {rows.length === 0 ? (
         <p className="text-sm text-chalk-500">{t("pages.esports.versus.none")}</p>
       ) : (
-        <div className="relative overflow-x-auto border border-night-700/70">
-          <table className="w-full min-w-[26rem] border-collapse text-sm tabular-nums">
-            <caption className="sr-only">{title}</caption>
-            <thead className="bg-night-900 text-xs uppercase tracking-wide text-chalk-500">
-              <tr>
-                <th scope="col" className="px-3 py-2 text-left font-medium">
-                  {t("pages.esports.versus.hero")}
-                </th>
-                <th scope="col" className="px-3 py-2 text-right font-medium">
-                  {t("pages.esports.versus.proColumn")}
-                </th>
-                <th scope="col" className="px-3 py-2 text-right font-medium">
-                  {t("pages.esports.versus.rankedColumn")}
-                </th>
-                <th scope="col" className="px-3 py-2 text-right font-medium">
-                  {t("pages.esports.versus.gapColumn")}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r) => {
-                const hero = heroesBySlug.get(r.slug);
-                if (!hero) return null;
-                return (
-                  <tr key={r.slug} className="border-t border-night-800">
-                    <th scope="row" className="px-3 py-1.5 text-left font-normal">
-                      <Link href={`/heroes/${r.slug}`} className="group flex items-center gap-2">
-                        <HeroPortrait
-                          source={hero.images.icon ?? hero.images.portrait}
-                          name={hero.name}
-                          size="mini"
-                          decorative
-                        />
-                        <span className="truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
-                          {hero.name}
-                        </span>
-                      </Link>
-                    </th>
-                    <td className="px-3 py-1.5 text-right text-chalk-100">
-                      {t("pages.esports.versus.cell", { value: percentage(locale, r.proPresence), rank: r.proRank })}
-                    </td>
-                    <td className="px-3 py-1.5 text-right text-chalk-300">
-                      {t("pages.esports.versus.cell", { value: percentage(locale, r.rankedPresence), rank: r.rankedRank })}
-                    </td>
-                    <td className={cn("px-3 py-1.5 text-right font-semibold", r.gap > 0 ? "text-emerald-400" : "text-blood-500")}>
-                      {t("pages.esports.versus.gap", { n: r.gap > 0 ? `+${r.gap}` : r.gap })}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+        // Four columns of rates needed 26 rem and were put in a sideways
+        // scroller: they fit a 390 px screen once the cells stop reserving a
+        // minimum width. Still a table — a card would cost a line per hero.
+        <div className="sm:border sm:border-night-700/70">
+          <CardsTable
+            t={t}
+            cards={false}
+            caption={title}
+            rows={rows.filter((r) => heroesBySlug.has(r.slug))}
+            rowKey={(r) => r.slug}
+            columns={[
+              {
+                key: "hero",
+                label: t("pages.esports.versus.hero"),
+                head: true,
+                className: "max-sm:w-[38%]",
+                cell: (r) => {
+                  const hero = heroesBySlug.get(r.slug)!;
+                  return (
+                    <Link href={`/heroes/${r.slug}`} className="group flex items-center gap-2">
+                      <HeroPortrait
+                        source={hero.images.icon ?? hero.images.portrait}
+                        name={hero.name}
+                        size="mini"
+                        decorative
+                      />
+                      <span className="truncate font-heading font-bold text-chalk-100 transition-colors group-hover:text-gold-400">
+                        {hero.name}
+                      </span>
+                    </Link>
+                  );
+                },
+              },
+              {
+                key: "pro",
+                label: t("pages.esports.versus.proColumn"),
+                className: "text-chalk-100",
+                cell: (r) => t("pages.esports.versus.cell", { value: percentage(locale, r.proPresence), rank: r.proRank }),
+              },
+              {
+                key: "ranked",
+                label: t("pages.esports.versus.rankedColumn"),
+                className: "text-chalk-300",
+                cell: (r) =>
+                  t("pages.esports.versus.cell", { value: percentage(locale, r.rankedPresence), rank: r.rankedRank }),
+              },
+              {
+                key: "gap",
+                label: t("pages.esports.versus.gapColumn"),
+                cell: (r) => (
+                  <span className={cn("font-semibold", r.gap > 0 ? "text-emerald-400" : "text-blood-500")}>
+                    {t("pages.esports.versus.gap", { n: r.gap > 0 ? `+${r.gap}` : r.gap })}
+                  </span>
+                ),
+              },
+            ]}
+          />
         </div>
       )}
     </div>

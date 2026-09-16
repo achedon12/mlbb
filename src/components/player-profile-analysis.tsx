@@ -276,7 +276,7 @@ function ItemIconData({ item }: { item: ResolvedItem }) {
     <>
       <span className="relative mx-auto block size-9">
         {item.image ? (
-          <Image src={item.image} alt="" fill unoptimized className="object-contain" />
+          <Image src={item.image} alt="" width={36} height={36} className="size-full object-contain" />
         ) : (
           <span className="grid size-full place-items-center bg-night-800 text-xs text-chalk-500">{item.name.charAt(0)}</span>
         )}

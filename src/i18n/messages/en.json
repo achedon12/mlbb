@@ -14,7 +14,19 @@
     "homeDescription": "Mobile Legends: Bang Bang knowledge base: all 133 heroes, their counters and builds by rank, the tier list, items, emblems and patch notes.",
     "siblings": "Other pages at the same level as {name}",
     "filter": "Filter…",
-    "contents": "Contents"
+    "contents": "Contents",
+    "readMore": "Learn more",
+    "method": "Method and sources",
+    "pager": {
+      "label": "Pagination",
+      "previous": "Previous page",
+      "next": "Next page",
+      "page": "Page {n}",
+      "status": "Page {page} of {pages} · {first} to {last} of {total}"
+    },
+    "table": {
+      "sortBy": "Sort by {column}"
+    }
   },
   "nav": {
     "database": "Database",
@@ -427,7 +439,8 @@
         "advantage": "The summary adds up the win-rate gaps measured in ranked games between the heroes of both teams, plus each team's duo gains. It is an estimate built from those measurements only, not a win probability.",
         "sources": "Sources",
         "sourceRef": "Source: {site}, {page}"
-      }
+      },
+      "methodTitle": "Method and sources"
     },
     "compare": {
       "title": "Compare",
@@ -2668,7 +2681,10 @@
         "address": "Draft address",
         "newDraft": "New draft",
         "lanes": "Lanes"
-      }
+      },
+      "boardLabel": "Draft board",
+      "explainToggle": "Choices explained ({n})",
+      "methodTitle": "Method and sources"
     },
     "timer": {
       "title": "Objective timer",
@@ -2951,7 +2967,8 @@
       "sourcesTitle": "Sources",
       "sourceWiki": "Mobile Legends wiki: {page}",
       "sourceItems": "Item attributes and passives: Mobile Legends wiki item pages, synced with the site.",
-      "sourceMeasured": "Measured builds: the game's academy, through the community API arena.rone.dev."
+      "sourceMeasured": "Measured builds: the game's academy, through the community API arena.rone.dev.",
+      "methodAndSources": "Method and sources"
     },
     "buildSimulatorUI": {
       "searchItem": "Search an item or an attribute",
@@ -3074,7 +3091,15 @@
       "shareUrl": "Build link",
       "copied": "Link copied",
       "copyLink": "Copy link",
-      "pickItem": "Choose the item for slot {n}"
+      "pickItem": "Choose the item for slot {n}",
+      "stepsLabel": "Build steps",
+      "stepLabel": "Step {n} of {total}",
+      "previous": "Previous step",
+      "next": "Next step",
+      "summaryLabel": "Build statistics",
+      "summaryEmpty": "Choose a hero: their stats are displayed here at each stage.",
+      "summaryItems": "{n}/{total} items",
+      "summaryDetail": "See details"
     },
     "communityBuildsUI": {
       "votes": "{n} vote(s)",
@@ -3552,7 +3577,19 @@
       "countered": "struggles against {detail}",
       "synergy": "pairs well with {detail}",
       "win": "{detail}% win rate"
-    }
+    },
+    "stepLabel": "Step {n}",
+    "stepEnemyTitle": "Who are you facing?",
+    "stepYoursTitle": "Your team",
+    "optional": "optional",
+    "whatToPickLane": "What to pick in {lane}",
+    "answersLabel": "Suggestions for the {lane} lane",
+    "showMore": "Show {n} more",
+    "showLess": "Show less",
+    "noSuggestion": "No clear answer against this lineup.",
+    "filledBy": "Taken by {name}",
+    "waitingEnemy": "Choose an opposing hero: the answers are immediately displayed under his lane.",
+    "methodTitle": "Method and sources"
   },
   "newHero": {
     "highlight": "Special trait — ",

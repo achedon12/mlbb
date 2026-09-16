@@ -136,3 +136,30 @@ export function suggest({
     .sort((a, b) => b.score - a.score)
     .slice(0, limit);
 }
+
+/**
+ * True when the opposing line-up argues for the hero: a counter, a duel it
+ * loses, a synergy or a win rate far enough from the break-even point. A
+ * suggestion without a single argument only has a bare "no known counter in
+ * this line-up" to show, which teaches nothing.
+ */
+export const argued = (s: Suggestion): boolean => s.reasons.length > 0;
+
+export interface SplitSuggestions {
+  /** Shown straight away: the best argued ones, at most `top`. */
+  head: Suggestion[];
+  /** Behind "show more": the remaining argued ones, then the silent ones. */
+  tail: Suggestion[];
+}
+
+/**
+ * Splits a lane's suggestions into what is worth showing at once and what
+ * stays one click away. Silent suggestions are never part of the head, even
+ * when there are fewer than `top` argued ones: a short, useful list beats a
+ * padded one.
+ */
+export function splitSuggestions(list: Suggestion[], top = 3): SplitSuggestions {
+  const strong = list.filter(argued);
+  const silent = list.filter((s) => !argued(s));
+  return { head: strong.slice(0, top), tail: [...strong.slice(top), ...silent] };
+}
