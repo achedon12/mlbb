@@ -20,7 +20,11 @@ import {
  */
 type Params = { params: Promise<{ locale: Locale; rank: string; page: string }> };
 
-export const dynamicParams = false;
+// Rendered on demand past the prerendered pages: with the parameters frozen,
+// an unknown page took Next's internal no-fallback path, which answers 404 but
+// logs `NoFallbackError` on every hit. The page checks the rank and the page
+// number itself and calls `notFound()`, which is the same 404, quietly.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return RANKS_MEASURED.flatMap((rank) =>
