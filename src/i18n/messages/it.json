@@ -444,8 +444,8 @@
       "title": "Notizie e guide",
       "lead": "Articoli di approfondimento anziché notizie brevi: cosa cambia nel meta, perché, e come sfruttarlo in partita.",
       "metaTitle": "Notizie e guide",
-      "metaDescription": "Analisi del meta, guide approfondite e letture delle patch di Mobile Legends: Bang Bang, in francese. Disponibile come feed RSS.",
-      "ogDescription": "Analisi del meta e guide approfondite, in francese.",
+      "metaDescription": "Analisi del meta, guide approfondite e letture delle patch di Mobile Legends: Bang Bang, in {language}. Disponibile come feed RSS.",
+      "ogDescription": "Analisi del meta e guide approfondite, in {language}.",
       "all": "Tutte le notizie"
     },
     "tierList": {

@@ -444,8 +444,8 @@
       "title": "News and guides",
       "lead": "In-depth articles rather than quick news: what's changing in the meta, why, and what to do about it in your games.",
       "metaTitle": "News and guides",
-      "metaDescription": "Meta analyses, in-depth guides and patch breakdowns for Mobile Legends: Bang Bang, in French. Available as an RSS feed.",
-      "ogDescription": "Meta analyses and in-depth guides, in French.",
+      "metaDescription": "Meta analyses, in-depth guides and patch breakdowns for Mobile Legends: Bang Bang, in {language}. Available as an RSS feed.",
+      "ogDescription": "Meta analyses and in-depth guides, in {language}.",
       "all": "All news"
     },
     "tierList": {

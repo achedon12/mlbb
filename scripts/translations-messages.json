@@ -12847,5 +12847,13 @@
   "en|en {language}": "in {language}",
   "it|en {language}": "tra {language}",
   "es|en {language}": "en {language}",
-  "id|en {language}": "di {language}"
+  "id|en {language}": "di {language}",
+  "en|Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.": "Meta analyses, background guides and patch readings of Mobile Legends: Bang Bang, in {language}. Available in RSS feed.",
+  "en|Analyses du meta et guides de fond, en {language}.": "Meta analyzes and background guides, in {language}.",
+  "it|Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.": "Meta-analisi, guide di base e letture delle patch di Mobile Legends: Bang Bang, in {language}. Disponibile nel feed RSS.",
+  "it|Analyses du meta et guides de fond, en {language}.": "Meta analisi e guide di base, in {language}.",
+  "es|Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.": "Metaanálisis, guías de antecedentes y lecturas de parches de Mobile Legends: Bang Bang, en {language}. Disponible en fuente RSS.",
+  "es|Analyses du meta et guides de fond, en {language}.": "Metaanálisis y guías de antecedentes, en {language}.",
+  "id|Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.": "Analisis meta, panduan latar belakang, dan pembacaan patch Mobile Legends: Bang Bang, di {language}. Tersedia dalam umpan RSS.",
+  "id|Analyses du meta et guides de fond, en {language}.": "Analisis meta dan panduan latar belakang, di {language}."
 }

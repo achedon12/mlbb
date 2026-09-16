@@ -444,8 +444,8 @@
       "title": "Berita dan panduan",
       "lead": "Artikel mendalam daripada cerita pendek: apa yang berubah dalam meta, mengapa, dan apa yang harus dilakukan.",
       "metaTitle": "Berita dan panduan",
-      "metaDescription": "Analisis meta, panduan latar belakang, dan pembacaan patch Mobile Legends: Bang Bang, dalam bahasa Prancis. Tersedia dalam umpan RSS.",
-      "ogDescription": "Analisis meta dan panduan latar belakang, dalam bahasa Prancis.",
+      "metaDescription": "Analisis meta, panduan latar belakang, dan pembacaan patch Mobile Legends: Bang Bang, dalam bahasa {language}. Tersedia dalam umpan RSS.",
+      "ogDescription": "Analisis meta dan panduan latar belakang, dalam bahasa {language}.",
       "all": "Semua berita"
     },
     "tierList": {

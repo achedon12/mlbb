@@ -444,8 +444,8 @@
       "title": "Noticias y guías",
       "lead": "Artículos de fondo en lugar de noticias breves: qué cambia en el meta, por qué, y qué hacer con ello en tus partidas.",
       "metaTitle": "Noticias y guías",
-      "metaDescription": "Análisis del meta, guías de fondo y lecturas de parches de Mobile Legends: Bang Bang, en francés. Disponible como feed RSS.",
-      "ogDescription": "Análisis del meta y guías de fondo, en francés.",
+      "metaDescription": "Análisis del meta, guías de fondo y lecturas de parches de Mobile Legends: Bang Bang, en {language}. Disponible como feed RSS.",
+      "ogDescription": "Análisis del meta y guías de fondo, en {language}.",
       "all": "Todas las noticias"
     },
     "tierList": {

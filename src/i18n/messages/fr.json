@@ -444,8 +444,8 @@
       "title": "Actualités et guides",
       "lead": "Des articles de fond plutôt que des brèves : ce qui change dans le meta, pourquoi, et ce qu'il faut en faire en partie.",
       "metaTitle": "Actualités et guides",
-      "metaDescription": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en français. Disponible en flux RSS.",
-      "ogDescription": "Analyses du meta et guides de fond, en français.",
+      "metaDescription": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "ogDescription": "Analyses du meta et guides de fond, en {language}.",
       "all": "Toutes les actualités"
     },
     "tierList": {

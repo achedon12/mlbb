@@ -219,6 +219,14 @@
     "home.titleAccent": {
       "fr": "en {language}",
       "text": "in {language}"
+    },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Meta analyses, in-depth guides and patch breakdowns for Mobile Legends: Bang Bang, in {language}. Available as an RSS feed."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Meta analyses and in-depth guides, in {language}."
     }
   },
   "es": {
@@ -377,6 +385,14 @@
     "home.titleAccent": {
       "fr": "en {language}",
       "text": "en {language}"
+    },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Análisis del meta, guías de fondo y lecturas de parches de Mobile Legends: Bang Bang, en {language}. Disponible como feed RSS."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Análisis del meta y guías de fondo, en {language}."
     }
   },
   "id": {
@@ -2467,6 +2483,14 @@
     "home.titleAccent": {
       "fr": "en {language}",
       "text": "dalam bahasa {language}"
+    },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Analisis meta, panduan latar belakang, dan pembacaan patch Mobile Legends: Bang Bang, dalam bahasa {language}. Tersedia dalam umpan RSS."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Analisis meta dan panduan latar belakang, dalam bahasa {language}."
     }
   },
   "it": {
@@ -2685,6 +2709,14 @@
     "home.titleAccent": {
       "fr": "en {language}",
       "text": "in {language}"
+    },
+    "pages.news.metaDescription": {
+      "fr": "Analyses du meta, guides de fond et lectures de patch de Mobile Legends: Bang Bang, en {language}. Disponible en flux RSS.",
+      "text": "Analisi del meta, guide approfondite e letture delle patch di Mobile Legends: Bang Bang, in {language}. Disponibile come feed RSS."
+    },
+    "pages.news.ogDescription": {
+      "fr": "Analyses du meta et guides de fond, en {language}.",
+      "text": "Analisi del meta e guide approfondite, in {language}."
     }
   }
 }
