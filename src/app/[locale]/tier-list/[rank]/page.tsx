@@ -11,7 +11,11 @@ type Params = { params: Promise<{ locale: Locale; rank: string }> };
 const RANKS = RANKS_CLASSES.filter((r) => r !== "all");
 const isRank = (r: string): r is MeasuredRank => (RANKS as string[]).includes(r);
 
-export const dynamicParams = false;
+// Rendered on demand outside the prerendered values: frozen parameters send an
+// unknown one down Next's internal no-fallback path, which answers 404 but logs
+// `NoFallbackError` every time a crawler tries an address that does not exist.
+// The page checks the value itself and calls `notFound()`: the same 404, quietly.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return RANKS.map((rank) => ({ rank }));

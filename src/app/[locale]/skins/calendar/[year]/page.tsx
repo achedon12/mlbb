@@ -26,7 +26,11 @@ import { serializeJsonLd } from "@/lib/html";
 
 type Params = { params: Promise<{ locale: Locale; year: string }> };
 
-export const dynamicParams = false;
+// Rendered on demand outside the prerendered values: frozen parameters send an
+// unknown one down Next's internal no-fallback path, which answers 404 but logs
+// `NoFallbackError` every time a crawler tries an address that does not exist.
+// The page checks the value itself and calls `notFound()`: the same 404, quietly.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return calendarYears().map((a) => ({ year: String(a) }));
