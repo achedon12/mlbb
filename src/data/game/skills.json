@@ -328,11 +328,11 @@
     },
     {
       "name": "Mechanical Genius",
-      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Bennett Basic Attack - Area Bombing: Bombards an area, dealing (+230% Total Physical Attack) - (+300% Total Physical Attack) Physical Damage to all enemies in range and slowing them by 40% for 0.5s ( 75% damage against creeps). Beatrix cannot Crit. She converts every 1% Crit Chance into 2 Physical Attack. She gains Spell Vamp equal to 100% of her Lifesteal."
+      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Bennett Basic Attack - Area Bombing: Bombards an area, dealing (+230% Total Physical Attack) - (+300% Total Physical Attack) Physical Damage to all enemies in range and slowing them by 40% for 0.5s (75% damage against creeps). Beatrix cannot Crit. She converts every 1% Crit Chance into 2 . She gains Spell Vamp equal to 100% of her Lifesteal."
     },
     {
       "name": "Masterful Gunner",
-      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her Physical Attack by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
+      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
     },
     {
       "name": "Tactical Reposition",
@@ -348,11 +348,11 @@
     },
     {
       "name": "Mechanical Genius",
-      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Wesker Basic Attack - Proximity Advantage: Fires 5 shots at the target, each dealing (+178% Total Physical Attack) - (+220% Total Physical Attack) Physical Damage ( 75% damage against creeps) and inheriting a portion of Attack Effects. Damage dealt to targets hit multiple times decays to 25%. Beatrix cannot Crit. She converts every 1% Crit Chance into 2 Physical Attack. She gains Spell Vamp equal to 100% of her Lifesteal."
+      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Wesker Basic Attack - Proximity Advantage: Fires 5 shots at the target, each dealing (+178% Total Physical Attack) - (+220% Total Physical Attack) Physical Damage (75% damage against creeps) and inheriting a portion of Attack Effects. Damage dealt to targets hit multiple times decays to 25%. Beatrix cannot Crit. She converts every 1% Crit Chance into 2 . She gains Spell Vamp equal to 100% of her Lifesteal."
     },
     {
       "name": "Masterful Gunner",
-      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her Physical Attack by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
+      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
     },
     {
       "name": "Tactical Reposition",
@@ -368,11 +368,11 @@
     },
     {
       "name": "Mechanical Genius",
-      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Nibiru Basic Attack - Rapid Fire: Fires a volley of 4 shots at the target, each dealing (+51% Total Physical Attack) - (+65% Total Physical Attack) Physical Damage (75% damage against creeps) and inheriting a portion of Attack Effects. Beatrix cannot Crit. She converts every 1% Crit Chance into 2 Physical Attack. She gains Spell Vamp equal to 100% of her Lifesteal."
+      "description": "Beatrix's talent for mechanics allowed her to produce 4 weapons of truly awe-inspiring firepower. Nibiru Basic Attack - Rapid Fire: Fires a volley of 4 shots at the target, each dealing (+51% Total Physical Attack) - (+65% Total Physical Attack) Physical Damage (75% damage against creeps) and inheriting a portion of Attack Effects. Beatrix cannot Crit. She converts every 1% Crit Chance into 2 . She gains Spell Vamp equal to 100% of her Lifesteal."
     },
     {
       "name": "Masterful Gunner",
-      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her Physical Attack by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
+      "description": "Passive: Beatrix can carry 2 weapons at once, increasing her by 5. Active: Beatrix takes 0.5s to swap her primary weapon with the secondary weapon, gaining a new Basic Attack and Ultimate."
     },
     {
       "name": "Tactical Reposition",
@@ -448,15 +448,15 @@
     },
     {
       "name": "Volley Shot",
-      "description": "Bruno kicks a Powerball on his next Basic Attack, dealing to the target, slowing them by 30%, and speeding up 30% for 0.5 seconds. The Powerball then bounces back toward Bruno and lands on the ground. He or allied heroes can retrieve the Powerball for another attack and reduce the cooldown of Flying Tackle by 1 second."
+      "description": "Bruno kicks a Powerball on his next Basic Attack, dealing to the target, slowing them by 30%, and speeding up 30% for 0.5 seconds. The Powerball then bounces back toward Bruno and lands on the ground. He or allied heroes can retrieve the Powerball for another attack and reduce the cooldown of Slide by 1 second."
     },
     {
-      "name": "Flying Tackle",
-      "description": "Bruno makes a slide tackle in the target direction dealing to enemies in his path and stunning them for 0.5 seconds. If the Powerball is bouncing back, Bruno also draws the Powerball toward him."
+      "name": "Slide",
+      "description": "Bruno slides forward, briefly stunning enemies along the way, and gaining a Powerball at the end of the dash."
     },
     {
       "name": "Worldie",
-      "description": "Bruno kicks his Energy Ball at the target enemy hero, and knocking them back. The Energy Ball then bounces between nearby enemies up to 10 times, each time dealing. Each hit also reduces the enemy's Physical Defense by 4%–8% for 8 seconds (up to 3 stacks)."
+      "description": "Bruno kicks an Energy Ball at a target hero,. It knocks them back to the edge of Bruno's attack range, stuns them for 0.5 seconds, and slows them by 80% for 2 seconds. The Energy Ball then bounces among enemy units (up to 10 times), prioritizing enemy heroes. Each bounce deals."
     }
   ],
   "carmilla": [
@@ -702,7 +702,7 @@
     },
     {
       "name": "Overload",
-      "description": "After each skill cast, Edith and Phylax become Overloaded for 3s, during which all Basic Attacks will trigger chain lightning, dealing extra Magic Damage equal to (+20% Total Magic Power) plus 3(+0.2*Hero Level)% of the target's Max HP to up to 4 enemies. Chain lightning damage against Minions is increased to 150%."
+      "description": "After each skill cast, Edith and Phylax become Overloaded for 3s, during which all Basic Attacks will trigger chain lightning, dealing (+20% Total Magic Power) (+ 3 (+0.2*Hero Level)% target's ) extra Magic Damage to up to 4 enemies. Chain lightning damage against minions is increased to 150%."
     },
     {
       "name": "Divine Retribution",
@@ -714,7 +714,7 @@
     },
     {
       "name": "Primal Wrath",
-      "description": "Passive: When inside Phylax, Edith accumulates Wrath based on damage taken (calculated before damage reduction). Active: Edith ejects herself forward from Phylax, knocking back nearby enemies and taking flight for up to 8s. During this time, she gains new skills and can perform ranged Basic Attacks, each dealing 35 (+75% Total Physical Attack) (+25% Total Magic Power) Magic Damage. She also gains 350 (+5% Total HP)-350 (+20% Total HP) extra shield, 50% - 150% extra Attack Speed, and 5% - 20% Hybrid Lifesteal based on accumulated Wrath, and converts each point of Extra Physical Defense and Extra Magic Defense into 3.5 Magic Power."
+      "description": "Passive: When inside Phylax, Edith accumulates Wrath by dealing skill damage to enemies and taking damage (calculated before damage reduction). Active: Edith ejects herself forward from Phylax, knocking back nearby enemies and taking flight for up to 8s (gaining 30 Movement Speed). During this time, she gains new skills and can perform ranged Basic Attacks, each dealing 35 (+75% Total Physical Attack) (+25% Total Magic Power) Magic Damage. She also gains 350 (+5% Max HP) - 350 (+20% Max HP) extra shield, 50% - 150% extra Attack Speed, and 5% - 20% Hybrid Lifesteal based on accumulated Wrath, and converts each point of Extra and Extra into 3.5 ."
     }
   ],
   "esmeralda": [
@@ -858,7 +858,7 @@
     },
     {
       "name": "Energy Eruption",
-      "description": "Fredrinn deals 210 (+100% Extra Physical Attack) Physical Damage to nearby enemies and taunts them for 1s. Hitting a non-minion enemy grants Fredrinn 25 Physical & Magic Defense for 3s and reduces the cooldowns of Piercing Strike and Brave Assault by 75%. This skill costs 1 Combo Point."
+      "description": "Fredrinn deals 210 (+100% Extra Physical Attack) Physical Damage to nearby enemies and taunts them for 1s. Hitting a non-minion enemy grants Fredrinn 25 for 3s and reduces the cooldowns of Piercing Strike and Brave Assault by 75%. This skill costs 1 Combo Point."
     },
     {
       "name": "Appraiser's Wrath",
@@ -1050,7 +1050,7 @@
     },
     {
       "name": "Forbidden Ninjutsu: Soul Snatch",
-      "description": "Hanekage dashes to an enemy hero, dealing 300 (+60% Extra Physical Attack) Physical Damage to the target after a brief delay. Each stack of Dark Ninjutsu on the target increases this damage by 20%. When the target has max stacks of Dark Ninjutsu, he deals extra damage equal to 15 (+2% Extra Physical Attack)% of the target's Max HP (ignoring 30% of the target's Physical Defense) and recovers 20% Max HP for Hanzo. This skill can be cast on the Turtle or the Lord (deals up to 1000 damage)."
+      "description": "Hanekage dashes to an enemy hero, dealing 300 (+60% Extra Physical Attack) Physical Damage after a brief delay. Each stack of Dark Ninjutsu on the target increases this damage by 20%. At max Dark Ninjutsu stacks, he deals 12 (+3% Extra Physical Attack)% target's extra damage (ignores 30% of target's ) and recovers 150 (+80% Total Physical Attack) HP. This skill can be cast on the Turtle or Lord (deals up to 1000 damage)."
     },
     {
       "name": "Forbidden Ninjutsu: Black Mist",
@@ -1166,7 +1166,7 @@
     },
     {
       "name": "Twin Fans: Ukifune",
-      "description": "Hirara has only two skills, representing her two weapons: Meisen-e and Kaerazu. Drag one skill onto the other to cast a combo skill. Hirara has 2 Crimson / Death Energy. Casting a combo skill consumes 1 Crimson / Death Energy. Energy recovery time is the same as the cooldown of Meisen-e. Consuming Energy interrupts the recovery process. Hirara only deals 30(+4*Hero Level)% damage to minions."
+      "description": "Hirara has only two skills, representing her two weapons: Meisen-e and Kaerazu. Drag one skill onto the other to cast a combo skill. Hirara has 2 Crimson / Death Energy. Casting a combo skill consumes 1 Crimson / Death Energy. Energy recovery time is the same as the cooldown of Meisen-e. Consuming Energy interrupts the recovery process. Hirara only deals 30 (+4*Hero Level)% damage to minions."
     },
     {
       "name": "Falling Maple",
@@ -1598,7 +1598,7 @@
     },
     {
       "name": "Phantom Steed",
-      "description": "Leomord summons Barbiel to rush to him, knocking back and dealing 100 (+40% Total Physical Attack) Physical Damage to all enemies in its path. If Barbiel comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2s. Mounted State: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains 70 Movement Speed and 30 Physical & Magic Defense. This lasts 10s."
+      "description": "Leomord summons Barbiel to rush to him, knocking back and dealing 100 (+40% Total Physical Attack) Physical Damage to all enemies in its path. If Barbiel comes in contact with Leomord, they will enter the Mounted State, gaining 50% Movement Speed that decays over 2s. Mounted State: Leomord gains a brand-new set of skills, and his Basic Attack can be used while moving and hits a circular area to deal AOE damage. Leomord also gains 70 Movement Speed and 30 . This lasts 10s."
     }
   ],
   "lesley": [
@@ -1674,15 +1674,15 @@
     },
     {
       "name": "Hero's Resolve",
-      "description": "Lukas gains 0.5 Resolve per second and 2 Resolve when dealing damage to heroes. Upon reaching 100 Resolve, he can use Unleash the Beast to transform into Sacred Beast. Sacred Beast: Greatly increases combat attributes. He continuously consumes Resolve and ends when Resolve is depleted."
+      "description": "Lukas gains 0.5 Resolve per second and 3.5 Resolve when dealing damage to heroes. Upon reaching 100 Resolve, he can use Unleash the Beast to transform into Sacred Beast. Sacred Beast: Greatly increases combat attributes. He continuously consumes Resolve and ends when Resolve is depleted."
     },
     {
       "name": "Flash Combo",
-      "description": "Passive: Basic Attacks grant Vigor (up to 2 stacks), each stack lasting 4s. Vigor enhances Flash Combo. Lukas consumes all Vigor to unleash a tail swing, dealing 220 (+120% Total Physical Attack) Physical Damage and recovering 5% of his Max HP when hitting a hero. 1 Stack: Lukas briefly stuns the target and pounces, dealing 100 (+45% Total Physical Attack) Physical Damage 3 times and knocking the enemy back. 2 Stacks: Lukas briefly stuns the target and leaps, dealing 50 (+20% Total Physical Attack) Physical Damage 2 times. Afterward, he summons sacred lightning, dealing 100 (+45% Total Physical Attack) Physical Damage 3 times while gaining Control Immunity for the duration."
+      "description": "Passive: Basic Attacks grant Vigor (up to 2 stacks), each stack lasting 4s. Vigor enhances Flash Combo. Lukas consumes all Vigor to unleash a tail swing, dealing 280 (+120% Total Physical Attack) Physical Damage and recovering 6% of his when hitting a hero. 1 Stack: Lukas briefly stuns the target and pounces, dealing 80 (+45% Total Physical Attack) Physical Damage 3 times and knocking the enemy back. 2 Stacks: Lukas briefly stuns the target and leaps, dealing 50 (+20% Total Physical Attack) Physical Damage 2 times. Afterward, he summons sacred lightning, dealing 80 (+45% Total Physical Attack) Physical Damage 3 times while gaining Control Immunity for the duration."
     },
     {
       "name": "Flash Step",
-      "description": "Lukas dashes in the target direction and turns his next Basic Attack within 4s into Lightning Clash. Lightning Clash: Lukas charges toward the enemy, knocking them back and dealing 60 (+125% Total Physical Attack) Physical Damage. He then gains 20% Movement Speed and Attack Speed, and summons sacred lightning with Basic Attacks to deal 50 (+25% Total Physical Attack) extra Physical Damage, lasting for 4s."
+      "description": "Lukas dashes in the target direction, empowering his next Basic Attack within 4s into Lightning Clash. Lightning Clash: Lukas charges toward the enemy, knocking them back and dealing 60 (+125% Total Physical Attack) Physical Damage. He then gains 20% Movement Speed and Attack Speed for 4s. During this time, his next Basic Attack gains increased Attack Range and triggers a sacred lightning that deals 110 (+50% Total Physical Attack) extra Physical Damage."
     },
     {
       "name": "Shockwave Blast",
@@ -1720,7 +1720,7 @@
     },
     {
       "name": "Chaos Assault",
-      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+2.5% target's Max HP) Magic Damage (+1.5% target's Max HP against creeps). While enhanced by Power of Chaos, this skill has a brief cooldown, and its cast interval is unaffected by Cooldown Reduction."
+      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+ 2.5% target's ) Magic Damage (+ 1.5% against creeps). While enhanced by Power of Chaos, this skill has a brief cooldown, and its cast interval is unaffected by Cooldown Reduction."
     },
     {
       "name": "Cosmic Fission",
@@ -1740,7 +1740,7 @@
     },
     {
       "name": "Chaos Assault",
-      "description": "Lunox unleashes Chaos Energy at an enemy, dealing 250 (+120% Total Magic Power) (+2.5% target's Max HP) Magic Damage. Deals 1.5% of Max HP as extra damage to creeps. This skill shares cooldown with Starlight Pulse. Using it grants Power of Chaos and ends the Power of Order state."
+      "description": "Lunox unleashes Chaos Energy at a target enemy, dealing 250 (+120% Total Magic Power) (+ 2.5% target's ) Magic Damage (+ 1.5% against creeps). This skill shares its cooldown with Starlight Pulse. Using it grants Power of Chaos and ends the Power of Order state."
     },
     {
       "name": "Cosmic Fission",
@@ -1825,20 +1825,20 @@
   ],
   "masha": [
     {
-      "name": "Ancient Strength",
-      "description": "Blessed by the Bear King, Masha has 3 HP bars and won't die until all of them are depleted. She can ignore an instance of damage each time she loses an HP bar. When Masha only has two HP bars left, skills will only require 50% of their original HP Cost to cast. When Masha only has one HP bar left, she doesn't need to spend HP to cast skills."
+      "name": "Primal Pact",
+      "description": "Bear's Blessing: Masha has 3 HP Bars, each inheriting 50% of her Equipment HP bonuses. When an HP bar is depleted, she removes control effects and blocks damage once. She gains Feral by dealing damage to enemy heroes or creeps. Feral converts into HP after leaving combat. Power of Wildness: After Masha's skills deal damage to an enemy hero, she leaves Wound in a random direction. Her Basic Attacks can break the Wound and cause her to enter the Feral state. Feral: Masha gains% Resilience, Attack Speed, and Movement Speed. Her next 3 Basic Attacks become fan-shaped claw strikes, dealing% of target Max HP extra to enemies in the area (extra damage does not apply to Turrets) and recovering%. It lasts 3 seconds. Breaking a Wound again during the Feral state will refresh its duration. Up to 6 claw strikes can be stored."
     },
     {
-      "name": "Wild Power",
-      "description": "Passive:|e Masha gains Power of the Wild which causes her Basic Attack|Basic Attacks to deal extra Physical Damage equal to% of the target's (up to 60 against Creeps and doesn't take effect on Turrets or Base). Active:|e Masha spends 24% HP to increase her Movement Speed by 60% for 1.5 seconds. She also increases the extra Physical Damage from Power of the Wild by% of the target's and gains 50% extra Attack Speed for her next two Basic Attack|Basic Attacks."
+      "name": "Feral Swipe",
+      "description": "Masha releases energy foward, dealing to enemies in its path. If an enemy hero is hit, they are slowed by 50% for 1 second."
     },
     {
-      "name": "Howl Shock",
-      "description": "Masha spends 24% HP to roar at enemies, dealing and reducing their Attack Speed by 50% for 2 seconds."
+      "name": "Claw Strike",
+      "description": "Masha dashes in the target direction, dealing. Whenever an HP bar is depleted, the cooldown of Claw Strike resets."
     },
     {
-      "name": "Thunderclap",
-      "description": "Masha spends 34% HP to lunge at an enemy hero (immune to control effects during the lunge), dealing, slowing them by 25% for 2 seconds, and knocking back nearby enemies. The cooldown of this skill will be reset each time Masha loses an HP bar."
+      "name": "Savage Maul",
+      "description": "Masha charges toward an enemy hero, dealing and stunning them for 1 second while knocking back nearby enemies."
     },
     {
       "name": "Life Recovery",
@@ -2156,11 +2156,11 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 extra Max HP, fully restoring its HP, while enhancing its other skills."
+      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 , fully recovering its HP, while enhancing its other skills."
     },
     {
       "name": "We Are Friends",
-      "description": "Kupa recovers 10% Max HP per second after not taking damage for 5s. When Kupa is killed, Popol can Pray for 3s to bring Kupa back to the battlefield. Cooldown: 30s. Every 3 consecutive attacks from Kupa will enhance Popol's next Basic Attack to deal (+220% Total Physical Attack) Physical Damage. Kupa has 2500 (+1200% Total Physical Attack) Max HP and inherits 100% of Popol's other attributes and passive equipment effects (excluding Jungling and Roaming equipment effects). Kupa deals an additional 120% damage against Creeps."
+      "description": "Kupa recovers 10% per second after not taking damage for 5s. When Kupa is killed, Popol can Pray for 3s to bring Kupa back to the battlefield. Cooldown: 30s. Every 3 consecutive attacks from Kupa will enhance Popol's next Basic Attack to deal (+220% Total Physical Attack) Physical Damage. Kupa has 2500 (+1200% Total Physical Attack) and inherits 100% of Popol's other attributes and passive equipment effects (excluding Jungling and Roaming equipment effects). Kupa deals an additional 120% damage against creeps."
     },
     {
       "name": "Bite 'em, Kupa!",
@@ -2176,7 +2176,7 @@
     },
     {
       "name": "We Are Angry!",
-      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 extra Max HP, fully restoring its HP, while enhancing its other skills."
+      "description": "Popol and Kupa enter the Enraged state for 12s, gaining 15% extra Movement Speed and increasing their Attack Speed to 1.3 times. Kupa turns into Alpha Wolf Form, gaining 1500 , fully recovering its HP, while enhancing its other skills."
     }
   ],
   "rafaela": [
@@ -2216,7 +2216,7 @@
     },
     {
       "name": "Full Moon Curse",
-      "description": "Roger can freely switch between human and wolf forms. In human form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's current HP. In wolf form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's lost HP. This effect can only deal up to 60 additional damage against Creeps."
+      "description": "Roger can freely switch between human and wolf forms. In human form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's current . In wolf form, Roger's Basic Attack and skills deal additional damage equal to 4% of the target's lost . This effect can only deal up to 60 additional damage against creeps."
     },
     {
       "name": "Lycan Pounce",
@@ -2298,7 +2298,7 @@
     },
     {
       "name": "Blessing of the Moon Goddess",
-      "description": "Passive: Gains 5 Magic Power. Active: Selena enters Elven Form, gaining 20% Movement Speed for 0.8s and immediately resetting the cooldowns of Abyssal Trap and Abyssal Arrow."
+      "description": "Passive: Selena gains 5 . Active: Selena enters Elven Form and gains 20% Movement Speed for 0.8s. This also immediately resets the cooldown of Abyssal Trap and Abyssal Arrow."
     }
   ],
   "silvanna": [
@@ -2338,15 +2338,15 @@
     },
     {
       "name": "Mystic Surge",
-      "description": "Sora can ascend to Thunder or Torrent by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of Cloudstep. Upon reaching 5 stacks, he unlocks his True Art. Thunder: Adopts an assassin style, converting 30% Max HP into Physical Attack (Equal to 10% of Max HP). Torrent: Adopts a tank style, converting 30% Physical Attack into Max HP (Gains 10 HP for every 1 Attack)."
+      "description": "Sora can ascend to Thunder or Torrent by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of Cloudstep. Upon reaching 5 stacks, he unlocks his True Art. Thunder: Adopts an assassin style, converting 30% into (Equal to 10% of ). Torrent: Adopts a tank style, converting 30% into (Gains 10 HP for every 1 Attack)."
     },
     {
       "name": "Sundering Strike - Thunderflash",
-      "description": "Sora strikes four times, dealing 140 (+50% Total Physical Attack) Physical Damage, then lunges forward, dealing 240 (+5% Total HP) Physical Damage. He can move freely during this skill."
+      "description": "Sora strikes four times, dealing 140 (+50% Total Physical Attack) Physical Damage, then lunges forward, dealing 240 (+5% Max HP) Physical Damage. He can move freely during this skill."
     },
     {
       "name": "Windstride - Thunder Rush",
-      "description": "Sora leaps forward, dealing 120 (+45% Total Physical Attack) Physical Damage. Upon hitting a hero or reaching the max distance, he summons a thunderstorm, dealing 120 (+6% Total HP) Physical Damage and slowing enemies by 50% for 0.5s. This skill can be cast again within 4s if it hits an enemy."
+      "description": "Sora leaps forward, dealing 120 (+45% Total Physical Attack) Physical Damage. Upon hitting a hero or reaching the max distance, he summons a thunderstorm, dealing 120 (+6% Max HP) Physical Damage and slowing enemies by 50% for 0.5s. This skill can be cast again within 4s if it hits an enemy."
     },
     {
       "name": "Heaven's Wrath",
@@ -2354,19 +2354,19 @@
     },
     {
       "name": "Mystic Surge",
-      "description": "Sora can ascend to Thunder or Torrent by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of Cloudstep. Upon reaching 5 stacks, he unlocks his True Art. Thunder: Adopts an assassin style, converting 30% Max HP into Physical Attack (Equal to 10% of Max HP). Torrent: Adopts a tank style, converting 30% Physical Attack into Max HP (Gains 10 HP for every 1 Attack)."
+      "description": "Sora can ascend to Thunder or Torrent by using his Ultimate. After ascending, dealing damage to heroes or summoned units grants 1 stack of Cloudstep. Upon reaching 5 stacks, he unlocks his True Art. Thunder: Adopts an assassin style, converting 30% into (Equal to 10% of ). Torrent: Adopts a tank style, converting 30% into (Gains 10 HP for every 1 Attack)."
     },
     {
       "name": "Sundering Strike - Overwhelm",
-      "description": "Sora strikes twice, dealing 140 (+50% Total Physical Attack) Physical Damage and slowing enemies for 40%. He then lunges forward, dealing 240 (+5% Total HP) Physical Damage, stunning enemies for 0.5s."
+      "description": "Sora strikes twice, dealing 140 (+50% Total Physical Attack) Physical Damage and slowing enemies for 40%. He then lunges forward, dealing 240 (+5% Max HP) Physical Damage, stunning enemies for 0.5s."
     },
     {
       "name": "Windstride - Skyfall",
-      "description": "Sora leaps forward, dealing 140 (+55% Total Physical Attack) Physical Damage, knocking enemies airborne, and knocking them back to the landing point. He then smashes the ground, knocking enemies airborne again for 0.5s, dealing 140 (+8% Total HP) Physical Damage, and slowing them by 50% for 1s. Hits reduce cooldown by 2s."
+      "description": "Sora leaps forward, dealing 140 (+55% Total Physical Attack) Physical Damage, knocking enemies airborne, and knocking them back to the landing point. He then smashes the ground, knocking enemies airborne again for 0.5s, dealing 140 (+8% Max HP) Physical Damage, and slowing them by 50% for 1s. Hits reduce cooldown by 2s."
     },
     {
       "name": "Stormbind",
-      "description": "Sora leaps into the air and strikes the target area 5 time(s), dealing 100 (+6% Total HP) Physical Damage and briefly stunning enemies with each hit. Sora can move freely and ignore terrain during this skill."
+      "description": "Sora leaps into the air and strikes the target area 5 time(s), dealing 100 (+6% Max HP) Physical Damage and briefly stunning enemies with each hit. Sora can move freely and ignore terrain during this skill."
     }
   ],
   "sun": [
@@ -2388,7 +2388,7 @@
     },
     {
       "name": "Clone Techniques",
-      "description": "Sun summons a Doppelganger that lasts 8s and inherits 70% of his attributes and a portion of his Attack Effects. The Doppelganger takes increased damage."
+      "description": "Sun summons a Doppelganger that inherits his attributes, deals 80% damage, and takes 120% damage for 8s."
     }
   ],
   "suyou": [
@@ -2656,7 +2656,7 @@
     },
     {
       "name": "My Turn",
-      "description": "After a short delay, Yin locks onto an enemy hero (cannot lock onto pets or clones) and pulls them into a domain for up to 8s and turns into Lieh. When in the domain, the two cannot be affected by other heroes' skills. Lieh has stronger skills and 50 extra Physical & Magic Defense that last 8s. The domain will end early if either of the two is killed. If Lieh successfully kills the enemy, he'll recover 20% of his Max HP, leave the domain with the cooldowns of Frenzy Strike and Instant Blast reset, and continue to fight as Lieh for 8s. If Yin fails to pull his target into the domain, the skill will enter a 3s cooldown."
+      "description": "After a short delay, Yin locks onto an enemy hero (cannot lock onto pets or clones) and pulls them into a domain for up to 8s and turns into Lieh. When in the domain, the two cannot be affected by other heroes' skills. Lieh has stronger skills and 50 extra and that last 8s. The domain will end early if either of the two is killed. If Lieh successfully kills the enemy, he'll recover 20% of his Max HP, leave the domain with the cooldowns of Frenzy Strike and Instant Blast reset, and continue to fight as Lieh for 8s. If Yin fails to pull his target into the domain, the skill will enter a 3s cooldown."
     }
   ],
   "yu-zhong": [
@@ -2678,7 +2678,7 @@
     },
     {
       "name": "Black Dragon Form",
-      "description": "After channeling for 0.6s, Yu Zhong transforms into his Black Dragon Form. For up to 7s, he cannot use any skills but can move freely and will knock back enemy heroes in his path while dealing 180 (+80% Total Physical Attack) Physical Damage. He also gains 1000 (+200% Extra Physical Attack) Max HP, becomes immune to control effects, and ignores obstacles in this form. Upon exiting the Black Dragon Form, Yu Zhong enters Dragonoid Form, gaining increased range on all of his skills for 10s."
+      "description": "After channeling for 0.6s, Yu Zhong transforms into his Black Dragon Form. For up to 7s, he cannot use other skills but can move freely and will knock back enemy heroes in his path while dealing 180 (+80% Total Physical Attack) Physical Damage. He also gains 1000 (+200% Extra Physical Attack) , becomes immune to control effects, and ignores obstacles in this form. Upon exiting the Black Dragon Form, Yu Zhong enters Dragonoid Form, gaining increased range on all of his skills for 10s."
     }
   ],
   "yve": [

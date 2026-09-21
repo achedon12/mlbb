@@ -1204,7 +1204,6 @@
       "icon": "/visuels/heros/masha/icone.webp",
       "skins": {
         "881": "/visuels/heros/masha/skins/881-wild-oats-fist.webp",
-        "882": "/visuels/heros/masha/skins/882-winter-guard.webp",
         "883": "/visuels/heros/masha/skins/883-combat-maiden.webp",
         "884": "/visuels/heros/masha/skins/884-dragon-armor.webp",
         "885": "/visuels/heros/masha/skins/885-spirited-gauntlet.webp",
@@ -2063,7 +2062,8 @@
       "Moon Artist": "/visuels/heros/chang-e/illustrations/moon-artist.webp",
       "New Moon": "/visuels/heros/chang-e/illustrations/new-moon.webp",
       "Tech Tensai": "/visuels/heros/chang-e/illustrations/tech-tensai.webp",
-      "Moonglow Troupe": "/visuels/heros/chang-e/illustrations/moonglow-troupe.webp"
+      "Moonglow Troupe": "/visuels/heros/chang-e/illustrations/moonglow-troupe.webp",
+      "Golden Osmanthus": "/visuels/heros/chang-e/illustrations/golden-osmanthus.webp"
     },
     "chip": {
       "Phase Technician": "/visuels/heros/chip/illustrations/phase-technician.webp",
@@ -2407,7 +2407,8 @@
       "Shura": "/visuels/heros/hayabusa/illustrations/shura.webp",
       "Techie Ninja": "/visuels/heros/hayabusa/illustrations/techie-ninja.webp",
       "Exorcist Hayabusa": "/visuels/heros/hayabusa/illustrations/exorcist-hayabusa.webp",
-      "Kakashi Hatake": "/visuels/heros/hayabusa/illustrations/kakashi-hatake.webp"
+      "Kakashi Hatake": "/visuels/heros/hayabusa/illustrations/kakashi-hatake.webp",
+      "Kitsune's Shadow": "/visuels/heros/hayabusa/illustrations/kitsune-s-shadow.webp"
     },
     "helcurt": {
       "Shadowbringer": "/visuels/heros/helcurt/illustrations/shadowbringer.webp",
@@ -2863,7 +2864,8 @@
     "obsidia": {
       "Sovereign of Dark's End": "/visuels/heros/obsidia/illustrations/sovereign-of-dark-s-end.webp",
       "Undying Remnants": "/visuels/heros/obsidia/illustrations/undying-remnants.webp",
-      "Magitech Wraith": "/visuels/heros/obsidia/illustrations/magitech-wraith.webp"
+      "Magitech Wraith": "/visuels/heros/obsidia/illustrations/magitech-wraith.webp",
+      "Imperatrix Arashi": "/visuels/heros/obsidia/illustrations/imperatrix-arashi.webp"
     },
     "odette": {
       "Swan Princess": "/visuels/heros/odette/illustrations/swan-princess.webp",
@@ -2980,7 +2982,8 @@
       "Gothic Curse": "/visuels/heros/selena/illustrations/gothic-curse.webp",
       "S.T.U.N. Selena": "/visuels/heros/selena/illustrations/s-t-u-n-selena.webp",
       "Lady Vengeance": "/visuels/heros/selena/illustrations/lady-vengeance.webp",
-      "Curse of Cinder": "/visuels/heros/selena/illustrations/curse-of-cinder.webp"
+      "Curse of Cinder": "/visuels/heros/selena/illustrations/curse-of-cinder.webp",
+      "Silverbolt Raiko": "/visuels/heros/selena/illustrations/silverbolt-raiko.webp"
     },
     "silvanna": {
       "Imperial Knightess": "/visuels/heros/silvanna/illustrations/imperial-knightess.webp",
@@ -3007,7 +3010,8 @@
       "Celestial Outlaw": "/visuels/heros/sun/illustrations/celestial-outlaw.webp",
       "Spring Blessings": "/visuels/heros/sun/illustrations/spring-blessings.webp",
       "Wicked Flames": "/visuels/heros/sun/illustrations/wicked-flames.webp",
-      "Queller of Chaos": "/visuels/heros/sun/illustrations/queller-of-chaos.webp"
+      "Queller of Chaos": "/visuels/heros/sun/illustrations/queller-of-chaos.webp",
+      "Celestial Rebel": "/visuels/heros/sun/illustrations/celestial-rebel.webp"
     },
     "suyou": {
       "Mask of the Immortal": "/visuels/heros/suyou/illustrations/mask-of-the-immortal.webp",
@@ -3338,7 +3342,7 @@
     "bruno": {
       "Mecha Legs": "/visuels/competences/mecha-legs.webp",
       "Volley Shot": "/visuels/competences/volley-shot.webp",
-      "Flying Tackle": "/visuels/competences/flying-tackle.webp",
+      "Slide": "/visuels/competences/slide.webp",
       "Worldie": "/visuels/competences/worldie.webp"
     },
     "carmilla": {
@@ -3754,10 +3758,10 @@
       "Decimation": "/visuels/competences/decimation.webp"
     },
     "masha": {
-      "Ancient Strength": "/visuels/competences/ancient-strength.webp",
-      "Wild Power": "/visuels/competences/wild-power.webp",
-      "Howl Shock": "/visuels/competences/howl-shock.webp",
-      "Thunderclap": "/visuels/competences/thunderclap.webp",
+      "Primal Pact": "/visuels/competences/primal-pact.webp",
+      "Feral Swipe": "/visuels/competences/feral-swipe.webp",
+      "Claw Strike": "/visuels/competences/claw-strike.webp",
+      "Savage Maul": "/visuels/competences/savage-maul.webp",
       "Life Recovery": "/visuels/competences/life-recovery.webp"
     },
     "mathilda": {
