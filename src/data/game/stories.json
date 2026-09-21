@@ -637,7 +637,7 @@
     ]
   },
   "badang": {
-    "tagline": "Island hero who gained supernatural power after defeating the water monster.",
+    "tagline": "The guardian of Solari Isle who wields the immense power of a sea beast.",
     "lore": [
       "Long ago there was a small village, surrounded on all sides by water, which was resting in the southern regions of the Land of Dawn. The villagers were very hardworking, fishing day and night for a living. Among them was a strong man, a mighty warrior, named Badang. It was said that Badang could lift a kart full of firewood, with just one arm. He has a great sense of justice and a heart full of courage.",
       "Badang was known for fighting beasts who seemed a threat to his village. Enthusiastic and brave, he tirelessly helped everyone solve their difficulties in life.",
@@ -976,7 +976,7 @@
       "title": null,
       "species": "Anthropomorphic plant",
       "gender": "Homme",
-      "age": "1000+",
+      "age": "thousands of years old",
       "origin": "The Oasis, Agelta Drylands",
       "birthday": "13 mai",
       "affiliations": [
@@ -1059,7 +1059,7 @@
     ]
   },
   "brody": {
-    "tagline": "Mysterious man whose right hand was corroded and who lost his memory.",
+    "tagline": "A ranger of the frontier with a right arm seeped in darkness, he channels pain into arrows to strike down invaders; he is the \"Lone Star\" that pierces the nights of the Barren Lands.",
     "lore": [
       "No one knew where Brody came from.",
       "When he first arrived at this village, he was covered in blood and his right hand seemed to be corroded by the abyss. You could tell from his gloomy face he was lost. The kind villagers didn't dare let him into the village, so they put some water and food next to him instead.",
@@ -1126,7 +1126,7 @@
     ]
   },
   "bruno": {
-    "tagline": "The captain of the Eruditio Rangers that protects the city with his amazing football skills.",
+    "tagline": "The captain of the Eruditio Rangers who returned to the \"pitch\" thanks to advanced prosthetics.",
     "lore": [
       "Bruno's duties as the captain of the Eruditio Rangers kept him very busy, but what little spare time he did have was spent playing football with the children at the market. He was always cheerful and enthusiastic, and would bring gifts and treats for the children. He was a superstar in their eyes, and they loved hearing him tell stories about his past, and how he became so good at football.",
       "Bruno always started his stories with a quote from a children's song.",
@@ -1184,7 +1184,7 @@
     },
     "trivia": [
       "The name Bruno has Germanic origins and comes from the Old High German word \"brun\", which means \"brown\". It was traditionally used to describe someone with brown hair, brown eyes, or a strong, protective nature. The name Bruno is also common among famous football (soccer) players, which ties into his football-inspired skills.",
-      "The only sports-themed hero in the game currently, while other heroes use magic or weapons, Bruno fights with pure skill and a football. His skill volley shot is a real life skill. His skill flying tackle is also real.",
+      "The only sports-themed hero in the game currently, while other heroes use magic or weapons, Bruno fights with pure skill and a football. His skill volley shot is a real life skill. His skill slide is also real.",
       "He's the first and only hero to have abilities based on a sport (football). He's also the only hero who never uses his hands in attacking.",
       "His ultimate skill name Worldie is also based on real life football club.",
       "He is one of the heroes who doesn't have a basic skin.",
@@ -1554,7 +1554,7 @@
     ]
   },
   "clint": {
-    "tagline": "A sharpshooter full of righteousness and justice.",
+    "tagline": "A fearless gunslinger and sheriff, carving his own justice into the sands with grit and unwavering resolve.",
     "lore": [
       "On the desolate frontier of Moniyan, the border with Agelta, there was an ordinary town. The residents here lived a peaceful and stable life away from the hustle and bustle of human society. They worked during the day, and at night they go to the tavern in the town for few drinks to relax.",
       "Such an orderly and stable life was all due to Clint, the Sheriff of the town. Clint was a famous fast gunner, with unmatched good marksmanship, and was known for his fastest speed of drawing gun. The dutiful Clint always took maintaining the security of the town as his duty. He loved his job and duty, and believed in the fairness and justice of the law. He hated evil as his enemy, and had been protecting the town from all kinds of robbers and bandits for many years. Therefore, he was loved by the residents of the town.",
@@ -1601,11 +1601,11 @@
       "Ultimate was reused for name = Claude's name = Blazing Duet.",
       "Clint has the most redesigns out of all of the heroes in-game currently, having 6 redesigns.",
       "Clint's name is presumably referenced from Clint Eastwood, who is known for starring and directing Western-style films and television series.",
-      "Despite having a double-barreled shotgun by design, it behaves as a rifle that deals in a straight line, instead of a spread shot like a typical shotgun.",
+      "Despite having a double-barreled shotgun by design, it behaves as a rifle that deals in a straight line, instead of a spread shot like a typical shotgun. In his seventh remodel in 2026, his double-barreled shotgun was changed to a lever-action rifle.",
       "Before his revamp, his name=Blind Smoke is the first and only skill in the game that can blind enemies, which would reduce the enemies' name=Basic Attack hit rate. After he was revamped, this mechanic was removed from the game completely.",
       "His name=Grenade Bombardment is one of the few skills in the game that can stack up uses.",
       "Clint's Valentine skin refers to the American hard rock band Guns N' Roses and Slash specifically.",
-      "Clint is one of the heroes who doesn't have a basic skin. In the Chinese version of the game, he had an exclusive basic skin named randomly as \"Rose Gunslinger\" or \"Rose Gun Hero\".",
+      "Clint is one of the heroes who doesn't have a basic skin. In the Chinese version of the game, he had an exclusive basic skin named randomly as \"Rose Gunslinger\" or \"Rose Gun Hero\". Currently, it was named as \"Scarlet Musketeer\"",
       "He's the first hero to have 2 type=Starlight: \"Rock and Roll\" and \"Operator CL\".",
       "His Special \"Badminton Champion\" bares resemblance to Alucard's pre-revamp basic skin \"Lone Hero\" in 2016-2018.",
       "He shares the same Japanese voice actor with Roger, Tsuyuzaki Wataru."
@@ -2738,7 +2738,9 @@
       "The demonic power invaded Hanzo's very being, but his pride refused to be consumed. Feeding on his rage and obsession, he finally tamed the Ame no Habakiri.",
       "\"Naive pretender, you will witness my reign from within this blade.\"",
       "And with that, Hanzo swung the blade at his former comrade Kurēn. \"Gaining influence\"... that's merely the cowardly compromise of the weak. Without the courage to make the first cut, there would never be change.",
-      "After devouring Kurēn, Hanzo left the forbidden grounds. He knew his path as a ninja of the Shadow Sect ninja was forever severed. But what of it? This Akuma shall carve out the rot from within the Scarlet Shadow once and for all."
+      "After devouring Kurēn, Hanzo left the forbidden grounds. He knew his path as a ninja of the Shadow Sect ninja was forever severed. But what of it? This Akuma shall carve out the rot from within the Scarlet Shadow once and for all.",
+      "Fun Fact",
+      "Did you know? Ame no Habakiri is indeed the strongest weapon among the 7 Scarlet Treasures, but the weapon was once sealed by Seimei (the Great Dragon’s disciple), who has now transformed into Seimei’s Umbrella. As we know, that umbrella is currently wielded by Kagura. Seimei also sealed Hanakage together with the ancestors of the Akakage."
     ],
     "profile": {
       "fullName": null,
@@ -3478,7 +3480,7 @@
     ]
   },
   "kadita": {
-    "tagline": "Beautiful and powerful mermaid queen.",
+    "tagline": "The Ocean Goddess who wields the Trident of the Seas to cleanse the seas.",
     "lore": [
       "The Queen of the Southern Seas, Kadita, was once the princess of a small island nation. Admired by everyone, Kadita was considered by all to be genuine, intelligent, and kind-hearted. However, fate oftentimes finds its way to hit people with strife. Kadita was no different. As the heir apparent to the king, a member within the royal family grew jealous of Kadita and conspired to ruin her — An unknown mage wielding the power of black magic viciously attacked the princess. Kadita came under a powerful spell that robbed her of all her beauty, giving her a strange skin disease in the process.",
       "The people of the kingdom tried everything they could think of to help their beloved princess, but no one could break the spell. Overtime, people's love for Kadita faded, causing her to lose power and confidence. Out of tremendous despair, Kadita threw herself into the stormy Southern Seas. However, Kadita was rescued by the ocean demons. Using the trident of the seas, the ocean demons were able to break Kadita's powerful spell, but due to her skin disease her skin was never able to return to its original complexion. On that day, Kadita become the legendary Queen of the Southern Seas.",
@@ -5427,7 +5429,7 @@
     ]
   },
   "paquito": {
-    "tagline": "The hero who uses his two fists to protect hope and love.",
+    "tagline": "A mortal hero who fights demons with nothing but his fists—and the iron will to protect his tribe.",
     "lore": [
       "The Abyss grew in power, thrusting the Land of Dawn once more into the thick mists of eternal war. It was a true calamity that spread suffering throughout the Land of Dawn. Especially the Moniyan Empire's southern frontier. The creeping threat and corruption of the Abyss plunged this place into ruins and it stands now as a barren wilderness.",
       "The Empire had long since ceased even trying to reclaim these lands, and the numbers of those fleeing to the Moniyan heartlands for a new life grew by the day. Those unwilling to leave their homeland remained behind and strived to make ends meet, yet they failed to unite and provide a resistance to the advancing Abyss. Instead, they embraced brute force and violence in their toils to stake their claim to the land's dwindling resources. Conflict ruled over all.",
