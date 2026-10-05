@@ -5,8 +5,8 @@
       "description": "Utilisez ses compétences et ses attaques de base améliorées pour une très grande efficacité dans la jungle.",
       "skills": [
         {
-          "name": "Slayer Shards",
-          "icon": "/visuels/competences/slayer-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_db82969869000375f7e6f1ab7ae895b3.png"
         },
         {
           "name": null,
@@ -14,8 +14,8 @@
           "basicAttack": true
         },
         {
-          "name": "Soul Shards",
-          "icon": "/visuels/competences/soul-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_51b68183615922a3891919cd0a0d5536.png"
         },
         {
           "name": null,
@@ -29,8 +29,8 @@
       "description": "Utilisez la 2e compétence pour camoufler et flanquer l'ennemi. Infligez des dégâts avec sa première compétence, ses attaques de base et son ultime pour éliminer les héros de l'arrière-plan.",
       "skills": [
         {
-          "name": "Slayer Shards",
-          "icon": "/visuels/competences/slayer-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_db82969869000375f7e6f1ab7ae895b3.png"
         },
         {
           "name": null,
@@ -38,8 +38,8 @@
           "basicAttack": true
         },
         {
-          "name": "Soul Shards",
-          "icon": "/visuels/competences/soul-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_51b68183615922a3891919cd0a0d5536.png"
         },
         {
           "name": null,
@@ -47,8 +47,8 @@
           "basicAttack": true
         },
         {
-          "name": "Endless Shards",
-          "icon": "/visuels/competences/endless-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe1e567c14d3bd648184285b7d9d427.png"
         }
       ]
     }

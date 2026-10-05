@@ -142,10 +142,10 @@
     {
       "id": "100115",
       "name": "Arrow of Springs",
-      "release": "2025-05-01",
+      "release": "2026-02-020",
       "availability": "Limited",
       "rarity": "Grand",
-      "label": "Seasons",
+      "label": "SEASONS",
       "price": {}
     }
   ],
@@ -245,6 +245,17 @@
       "rarity": "Exceptional",
       "label": "Special",
       "price": {}
+    },
+    {
+      "id": "100210",
+      "name": "Ironhide Berserker",
+      "release": "2026-12-18",
+      "availability": "Limited",
+      "rarity": "Common",
+      "label": "S39",
+      "price": {
+        "other": "Season 31"
+      }
     }
   ],
   "saber": [
@@ -528,6 +539,17 @@
       "rarity": "Grand",
       "label": "Mistbenders",
       "price": {}
+    },
+    {
+      "id": "100512",
+      "name": "Stardust Dreamer",
+      "release": "2026-09-04",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Epic 10th",
+      "price": {
+        "other": "Limited-time Event"
+      }
     }
   ],
   "tigreal": [
@@ -586,6 +608,15 @@
       "price": {
         "dm": "1089"
       }
+    },
+    {
+      "id": "066",
+      "name": "Steel Guardian",
+      "release": "2025-11-14",
+      "availability": "Limited",
+      "rarity": "Common",
+      "label": null,
+      "price": {}
     },
     {
       "id": "067",
@@ -831,6 +862,15 @@
       "price": {
         "other": "S17 First Recharge"
       }
+    },
+    {
+      "id": "100811",
+      "name": "Keyforged Champion",
+      "release": "2025-11-19",
+      "availability": "Limited",
+      "rarity": "Common",
+      "label": "MCGG",
+      "price": {}
     }
   ],
   "akai": [
@@ -965,6 +1005,15 @@
       "price": {
         "dm": "749"
       }
+    },
+    {
+      "id": "101011",
+      "name": "Captain of the Lost",
+      "release": "2026-02-19",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Special",
+      "price": {}
     },
     {
       "id": "102",
@@ -1118,6 +1167,17 @@
       "price": {
         "dm": "899"
       }
+    },
+    {
+      "id": "117",
+      "name": "Lord of Scalding Seas",
+      "release": "2025-11-01",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "StarLight",
+      "price": {
+        "other": "2025/11 StarLight Member"
+      }
     }
   ],
   "bruno": [
@@ -1239,6 +1299,17 @@
       "label": "Epic",
       "price": {
         "dm": "899"
+      }
+    },
+    {
+      "id": "101311",
+      "name": "Scarlet Musketeer",
+      "release": "2026-09-16",
+      "availability": "Available",
+      "rarity": "Common",
+      "label": null,
+      "price": {
+        "dm": "269"
       }
     },
     {
@@ -1443,6 +1514,15 @@
   ],
   "eudora": [
     {
+      "id": "101510",
+      "name": "Midnight's Allure",
+      "release": "2026-02-11",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Covenant",
+      "price": {}
+    },
+    {
       "id": "151",
       "name": "Lightning Weaver",
       "release": "2016",
@@ -1550,6 +1630,17 @@
       "rarity": "Deluxe",
       "label": "Lunar Festival",
       "price": {}
+    },
+    {
+      "id": "101613",
+      "name": "Ascendant of Flame",
+      "release": "2026-10-16",
+      "availability": "Available",
+      "rarity": "Deluxe",
+      "label": "Create",
+      "price": {
+        "dm": "899"
+      }
     },
     {
       "id": "161",
@@ -1674,6 +1765,15 @@
       }
     },
     {
+      "id": "101714",
+      "name": "P.ACE Fanny",
+      "release": "2025-10-09",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "P.ACE",
+      "price": {}
+    },
+    {
       "id": "171",
       "name": "Blade Dancer",
       "release": "2016",
@@ -1789,6 +1889,24 @@
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
+      "price": {}
+    },
+    {
+      "id": "101812",
+      "name": "The Beacon",
+      "release": "2025-11-05",
+      "availability": "Limited",
+      "rarity": "Supreme",
+      "label": "Legend Nexus Sea",
+      "price": {}
+    },
+    {
+      "id": "101813",
+      "name": "Prismatic Rhythm",
+      "release": "2026-10-09",
+      "availability": "Limited",
+      "rarity": "Exquisite",
+      "label": "Collector 10th",
       "price": {}
     },
     {
@@ -1955,6 +2073,17 @@
       "rarity": "Exceptional",
       "label": "Special",
       "price": {}
+    },
+    {
+      "id": "197",
+      "name": "Nether Overseer",
+      "release": "2026-09-08",
+      "availability": "Available",
+      "rarity": "Deluxe",
+      "label": "Epic",
+      "price": {
+        "dm": "899"
+      }
     }
   ],
   "lolita": [
@@ -2044,6 +2173,15 @@
       "rarity": "Exceptional",
       "label": "Special",
       "price": {}
+    },
+    {
+      "id": "209",
+      "name": "Angelic Fan",
+      "release": "2025-10-17",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "9th Anniversary",
+      "price": {}
     }
   ],
   "hayabusa": [
@@ -2064,6 +2202,17 @@
       "rarity": "Grand",
       "label": "Naruto",
       "price": {}
+    },
+    {
+      "id": "102112",
+      "name": "Kitsune's Shadow",
+      "release": "2026-10-01",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "StarLight",
+      "price": {
+        "other": "2026/10 StarLight Reward"
+      }
     },
     {
       "id": "211",
@@ -2448,11 +2597,13 @@
     {
       "id": "249",
       "name": "Soul Huntress",
-      "release": "202X",
-      "availability": "Upcoming",
+      "release": "2025-08-17",
+      "availability": "Available",
       "rarity": "Deluxe",
       "label": "Epic",
-      "price": {}
+      "price": {
+        "dm": "899"
+      }
     }
   ],
   "kagura": [
@@ -2465,6 +2616,17 @@
       "label": "Epic",
       "price": {
         "dm": "899"
+      }
+    },
+    {
+      "id": "102511",
+      "name": "Lady Parasol",
+      "release": "2025-09-17",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Special",
+      "price": {
+        "other": "S37 First Recharge"
       }
     },
     {
@@ -2597,6 +2759,17 @@
       }
     },
     {
+      "id": "102614",
+      "name": "Starforger's Glory",
+      "release": "2026-09-18",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Special 10th",
+      "price": {
+        "other": "Limited-time Event"
+      }
+    },
+    {
       "id": "261",
       "name": "Kung Fu Boy",
       "release": "2016",
@@ -2692,6 +2865,15 @@
     }
   ],
   "sun": [
+    {
+      "id": "102710",
+      "name": "Celestial Rebel",
+      "release": "2026-10-01",
+      "availability": "Limited",
+      "rarity": "Exquisite",
+      "label": "Collector",
+      "price": {}
+    },
     {
       "id": "271",
       "name": "Monkey King",
@@ -3069,6 +3251,17 @@
       "price": {
         "other": "Season 31"
       }
+    },
+    {
+      "id": "309",
+      "name": "Wavebreaker",
+      "release": "2025-12-18",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Special",
+      "price": {
+        "other": "S39 First Recharge"
+      }
     }
   ],
   "moskov": [
@@ -3288,6 +3481,15 @@
     }
   ],
   "cyclops": [
+    {
+      "id": "103310",
+      "name": "SpongeBob",
+      "release": "2025-12-19",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "SpongeBob",
+      "price": {}
+    },
     {
       "id": "331",
       "name": "Starsoul Magician",
@@ -3702,6 +3904,17 @@
   ],
   "vexana": [
     {
+      "id": "103810",
+      "name": "Eternal Vow",
+      "release": "2026-02-06",
+      "availability": "Available",
+      "rarity": "Deluxe",
+      "label": "Epic",
+      "price": {
+        "dm": "899"
+      }
+    },
+    {
       "id": "381",
       "name": "Shimmer of Hope",
       "release": "2017-05-31",
@@ -3775,9 +3988,9 @@
     },
     {
       "id": "388",
-      "name": "Daybreak Halo",
-      "release": "2025",
-      "availability": "Upcoming",
+      "name": "Twilight Star",
+      "release": "2025-10-03",
+      "availability": "Limited",
       "rarity": "Grand",
       "label": "The Aspirants",
       "price": {}
@@ -4081,6 +4294,17 @@
     }
   ],
   "harley": [
+    {
+      "id": "104210",
+      "name": "Dreaming Koi",
+      "release": "2026-01-01",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "StarLight",
+      "price": {
+        "other": "2026/01 StarLight Member"
+      }
+    },
     {
       "id": "421",
       "name": "Mage Genius",
@@ -4421,9 +4645,27 @@
       "price": {
         "other": "Season 27"
       }
+    },
+    {
+      "id": "459",
+      "name": "Raiden Maru",
+      "release": "2026-09-01",
+      "availability": "Limited",
+      "rarity": "Exquisite",
+      "label": "Collector Titans",
+      "price": {}
     }
   ],
   "odette": [
+    {
+      "id": "104610",
+      "name": "Song of Devotion",
+      "release": "2026-02-01",
+      "availability": "Limited",
+      "rarity": "Exquisite",
+      "label": "Valentine 2026",
+      "price": {}
+    },
     {
       "id": "461",
       "name": "Swan Princess",
@@ -4549,6 +4791,15 @@
       "availability": "Limited",
       "rarity": "Grand",
       "label": "Kishin Densetsu",
+      "price": {}
+    },
+    {
+      "id": "104713",
+      "name": "Blade of Devotion",
+      "release": "2026-02-01",
+      "availability": "Limited",
+      "rarity": "Exquisite",
+      "label": "Valentine 2026",
       "price": {}
     },
     {
@@ -4777,6 +5028,17 @@
       "label": "Elite",
       "price": {
         "other": "S34 First Recharge"
+      }
+    },
+    {
+      "id": "498",
+      "name": "Lord of the Tundra",
+      "release": "2025-12-18",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Mythic 2025",
+      "price": {
+        "mythcoin": "40"
       }
     }
   ],
@@ -5729,6 +5991,15 @@
       "price": {
         "other": "2024/11 StarLight Member"
       }
+    },
+    {
+      "id": "589",
+      "name": "Warlord King",
+      "release": "2025-12-03",
+      "availability": "Limited",
+      "rarity": "Common",
+      "label": "Elite",
+      "price": {}
     }
   ],
   "uranus": [
@@ -5823,12 +6094,30 @@
       "id": "106011",
       "name": "Chic Glamour",
       "release": "2025-01",
-      "availability": "Upcoming",
+      "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
       "price": {
-        "other": "2025/XX StarLight Member"
+        "other": "2025/09 StarLight Member"
       }
+    },
+    {
+      "id": "106012",
+      "name": "Neonscape Icon",
+      "release": "2026-02-17",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Golden Month 2026",
+      "price": {}
+    },
+    {
+      "id": "106013",
+      "name": "Twin Crescent",
+      "release": "2026-02-17",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Golden Month",
+      "price": {}
     },
     {
       "id": "601",
@@ -5944,6 +6233,17 @@
       "label": "Special",
       "price": {
         "other": "S37 First Recharge"
+      }
+    },
+    {
+      "id": "106112",
+      "name": "Golden Osmanthus",
+      "release": "2026-09-25",
+      "availability": "Limited",
+      "rarity": "Common",
+      "label": "Elite",
+      "price": {
+        "other": "Limited-time Event"
       }
     },
     {
@@ -6128,6 +6428,15 @@
       "price": {}
     },
     {
+      "id": "106312",
+      "name": "Silverbolt Raiko",
+      "release": "2026-10-09",
+      "availability": "Limited",
+      "rarity": "Grand",
+      "label": "The Aspirants",
+      "price": {}
+    },
+    {
       "id": "631",
       "name": "Abyssal Witch",
       "release": "2018-07-24",
@@ -6221,6 +6530,15 @@
     }
   ],
   "aldous": [
+    {
+      "id": "106410",
+      "name": "Fathom Terror",
+      "release": "2025-08-15",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Special",
+      "price": {}
+    },
     {
       "id": "641",
       "name": "Contractor",
@@ -6439,6 +6757,17 @@
   ],
   "vale": [
     {
+      "id": "106610",
+      "name": "Windborne Waltz",
+      "release": "2026-09-16",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Special",
+      "price": {
+        "other": "S42 First Recharge"
+      }
+    },
+    {
       "id": "661",
       "name": "Windtalker",
       "release": "2019-01-29",
@@ -6534,6 +6863,15 @@
     }
   ],
   "leomord": [
+    {
+      "id": "106710",
+      "name": "Auspicious Blaze",
+      "release": "2026-02-13",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Lunar Festival",
+      "price": {}
+    },
     {
       "id": "671",
       "name": "Sworn Sword",
@@ -6639,6 +6977,17 @@
       "label": "Elite",
       "price": {
         "other": "S33 First Recharge"
+      }
+    },
+    {
+      "id": "106811",
+      "name": "Quantum Polarity",
+      "release": "2025-09-26",
+      "availability": "Available",
+      "rarity": "Exceptional",
+      "label": "MPL",
+      "price": {
+        "dm": "749"
       }
     },
     {
@@ -6794,6 +7143,17 @@
       "rarity": "Exquisite",
       "label": "Collector",
       "price": {}
+    },
+    {
+      "id": "696",
+      "name": "Fangs of Slaughter",
+      "release": "2026-09-01",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "StarLight",
+      "price": {
+        "other": "2026/09 StarLight Reward"
+      }
     }
   ],
   "belerick": [
@@ -6860,6 +7220,17 @@
       "label": "Epic",
       "price": {
         "dm": "899"
+      }
+    },
+    {
+      "id": "707",
+      "name": "Smouldering Fortress",
+      "release": "2026-07-01",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "StarLight",
+      "price": {
+        "other": "2026/07 StarLight Reward"
       }
     }
   ],
@@ -7028,6 +7399,15 @@
       "price": {
         "other": "2023/06 StarLight Member"
       }
+    },
+    {
+      "id": "727",
+      "name": "The Annihilator",
+      "release": "2025-11-05",
+      "availability": "Limited",
+      "rarity": "Grand",
+      "label": "Nexus Sea",
+      "price": {}
     }
   ],
   "harith": [
@@ -7380,6 +7760,15 @@
       }
     },
     {
+      "id": "775",
+      "name": "Steel Arms",
+      "release": "2025-12-12",
+      "availability": "Limited",
+      "rarity": "Exceptional",
+      "label": "Special",
+      "price": {}
+    },
+    {
       "id": "776",
       "name": "Fist of Zen",
       "release": "2021-04-03",
@@ -7406,6 +7795,17 @@
       "label": "Saint Seiya",
       "price": {
         "other": "Obtained via the [[MLBB × Saint Seiya]] event"
+      }
+    },
+    {
+      "id": "779",
+      "name": "Quantum Commando",
+      "release": "2026-09-06",
+      "availability": "Available",
+      "rarity": "Exceptional",
+      "label": "MPL",
+      "price": {
+        "dm": "749"
       }
     }
   ],
@@ -7487,8 +7887,8 @@
     {
       "id": "788",
       "name": "Cursed Scroll",
-      "release": "202XX",
-      "availability": "Upcoming",
+      "release": "2025-09-17",
+      "availability": "Limited",
       "rarity": "Deluxe",
       "label": "Epic",
       "price": {}
@@ -7624,9 +8024,9 @@
     },
     {
       "id": "108012",
-      "name": "Twilight Star",
-      "release": "2025",
-      "availability": "Upcoming",
+      "name": "Daybreak Halo",
+      "release": "2025-10-03",
+      "availability": "Limited",
       "rarity": "Grand",
       "label": "The Aspirants",
       "price": {}
@@ -8223,6 +8623,15 @@
       "price": {
         "other": "2024/05 StarLight Member"
       }
+    },
+    {
+      "id": "869",
+      "name": "Phantasmal Revelry",
+      "release": "2026-03-03",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Covenant",
+      "price": {}
     }
   ],
   "baxia": [
@@ -8766,6 +9175,15 @@
       "rarity": "Exquisite",
       "label": "Collector",
       "price": {}
+    },
+    {
+      "id": "937",
+      "name": "Sunken Curse",
+      "release": "2026-02-09",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Epic",
+      "price": {}
     }
   ],
   "popol-and-kupa": [
@@ -8840,6 +9258,17 @@
       "rarity": "Exceptional",
       "label": "AS 2025",
       "price": {}
+    },
+    {
+      "id": "948",
+      "name": "Flamehide Thane",
+      "release": "2026-09-16",
+      "availability": "Limited",
+      "rarity": "Common",
+      "label": "S42",
+      "price": {
+        "other": "Season 42"
+      }
     }
   ],
   "yu-zhong": [
@@ -8997,6 +9426,17 @@
       "id": "968",
       "name": "Starborne Matron",
       "release": "2025-07-14",
+      "availability": "Available",
+      "rarity": "Deluxe",
+      "label": "Create",
+      "price": {
+        "dm": "899"
+      }
+    },
+    {
+      "id": "969",
+      "name": "Starborne Matron",
+      "release": "2025-12-26",
       "availability": "Available",
       "rarity": "Deluxe",
       "label": "Create",
@@ -9336,12 +9776,12 @@
     {
       "id": "1014",
       "name": "Flame Lotus",
-      "release": "2025-01",
-      "availability": "Upcoming",
+      "release": "2025-10-01",
+      "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
       "price": {
-        "other": "2025/XX StarLight Member"
+        "other": "2025/10 StarLight Member"
       }
     }
   ],
@@ -9387,6 +9827,17 @@
       "label": "MPL",
       "price": {
         "dm": "749"
+      }
+    },
+    {
+      "id": "1025",
+      "name": "Arcane Verdict",
+      "release": "2026-09-19",
+      "availability": "Available",
+      "rarity": "Exceptional",
+      "label": "Special",
+      "price": {
+        "other": "Avaliable via the Bang Bang Card"
       }
     },
     {
@@ -9527,9 +9978,27 @@
       "price": {
         "dm": "749"
       }
+    },
+    {
+      "id": "1044",
+      "name": "Patrick",
+      "release": "2025-12-21",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "SpongeBob",
+      "price": {}
     }
   ],
   "beatrix": [
+    {
+      "id": "1010510",
+      "name": "Sky Force Maverick",
+      "release": "2025-09-20",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Finals MVP",
+      "price": {}
+    },
     {
       "id": "1051",
       "name": "Dawnbreak Soldier",
@@ -9719,6 +10188,15 @@
       "rarity": "Deluxe",
       "label": "MSC 2025",
       "price": {}
+    },
+    {
+      "id": "1078",
+      "name": "Sanguine Steward",
+      "release": "2026-02-24",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Covenant",
+      "price": {}
     }
   ],
   "aulus": [
@@ -9831,6 +10309,15 @@
       "rarity": "Grand",
       "label": "Soul Vessels",
       "price": {}
+    },
+    {
+      "id": "1097",
+      "name": "Soul Reaver",
+      "release": "2025-10-06",
+      "availability": "Limited",
+      "rarity": "Exquisite",
+      "label": "Collector",
+      "price": {}
     }
   ],
   "valentina": [
@@ -9896,6 +10383,17 @@
       "rarity": "Deluxe",
       "label": "MSC 2024",
       "price": {}
+    },
+    {
+      "id": "1107",
+      "name": "Grand Gala",
+      "release": "2025-09-17",
+      "availability": "Limited",
+      "rarity": "Common",
+      "label": "S37",
+      "price": {
+        "other": "Season 42"
+      }
     }
   ],
   "edith": [
@@ -10025,6 +10523,15 @@
       "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
+      "price": {}
+    },
+    {
+      "id": "1127",
+      "name": "Herald of Autumn",
+      "release": "2026-02-20",
+      "availability": "Limited",
+      "rarity": "Grand",
+      "label": "SEASONS",
       "price": {}
     }
   ],
@@ -10328,12 +10835,12 @@
     {
       "id": "1176",
       "name": "Royal Marshal",
-      "release": "2025-01",
-      "availability": "Upcoming",
+      "release": "2025-11-01",
+      "availability": "Limited",
       "rarity": "Exceptional",
       "label": "StarLight",
       "price": {
-        "other": "2025/XX StarLight Member"
+        "other": "2025/11 StarLight Member"
       }
     }
   ],
@@ -10382,6 +10889,15 @@
       "price": {
         "other": "2025/04 StarLight Member"
       }
+    },
+    {
+      "id": "1186",
+      "name": "ONIC PH",
+      "release": "2025-09-20",
+      "availability": "Limited",
+      "rarity": "Deluxe",
+      "label": "Champion",
+      "price": {}
     }
   ],
   "novaria": [
@@ -10422,8 +10938,8 @@
     {
       "id": "1194",
       "name": "Dragonsworn",
-      "release": "2025",
-      "availability": "Upcoming",
+      "release": "2025-09-03",
+      "availability": "Limited",
       "rarity": "Exquisite",
       "label": "Collector",
       "price": {}
@@ -10598,6 +11114,17 @@
       "price": {
         "other": "2025/03 StarLight Member"
       }
+    },
+    {
+      "id": "1255",
+      "name": "P.ACE Cici",
+      "release": "2025-10-16",
+      "availability": "Available",
+      "rarity": "Deluxe",
+      "label": "P.ACE",
+      "price": {
+        "dm": "1089"
+      }
     }
   ],
   "chip": [
@@ -10669,6 +11196,17 @@
       "label": "StarLight",
       "price": {
         "other": "2025/01 StarLight Member"
+      }
+    },
+    {
+      "id": "1255",
+      "name": "P.ACE Zhuxin",
+      "release": "2025-10-09",
+      "availability": "Available",
+      "rarity": "Deluxe",
+      "label": "P.ACE",
+      "price": {
+        "dm": "1089"
       }
     }
   ],
@@ -10803,7 +11341,7 @@
     {
       "id": "1301",
       "name": "Sovereign of Dark's End",
-      "release": "2025-09",
+      "release": "2025-09-17",
       "availability": "Available",
       "rarity": null,
       "label": null,
@@ -10815,13 +11353,22 @@
     {
       "id": "1302",
       "name": "Undying Remnants",
-      "release": "2025-09",
+      "release": "2025-09-17",
       "availability": "Available",
       "rarity": "Common",
       "label": null,
       "price": {
         "dm": "269"
       }
+    },
+    {
+      "id": "1303",
+      "name": "Imperatrix Arashi",
+      "release": "2026-10-09",
+      "availability": "Limited",
+      "rarity": "Grand",
+      "label": "The Aspirants",
+      "price": {}
     }
   ],
   "sora": [

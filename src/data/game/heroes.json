@@ -440,7 +440,8 @@
       "Fighter"
     ],
     "lanes": [
-      "Jungle"
+      "Jungle",
+      "Exp"
     ],
     "specialties": [
       "Damage",
@@ -2280,8 +2281,7 @@
       "Mage"
     ],
     "lanes": [
-      "Gold",
-      "Jungle"
+      "Gold"
     ],
     "specialties": [
       "Chase",
