@@ -5,8 +5,8 @@
       "description": "Usa le sue abilità e gli attacchi base potenziati per un'efficienza molto elevata nella giungla.",
       "skills": [
         {
-          "name": "Slayer Shards",
-          "icon": "/visuels/competences/slayer-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_db82969869000375f7e6f1ab7ae895b3.png"
         },
         {
           "name": null,
@@ -14,8 +14,8 @@
           "basicAttack": true
         },
         {
-          "name": "Soul Shards",
-          "icon": "/visuels/competences/soul-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_51b68183615922a3891919cd0a0d5536.png"
         },
         {
           "name": null,
@@ -29,8 +29,8 @@
       "description": "Usa la seconda abilità per mimetizzarti e fiancheggiare il nemico. Infliggi danni con la sua prima abilità e gli attacchi base e Ultimate per eliminare gli eroi delle retrovie.",
       "skills": [
         {
-          "name": "Slayer Shards",
-          "icon": "/visuels/competences/slayer-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_db82969869000375f7e6f1ab7ae895b3.png"
         },
         {
           "name": null,
@@ -38,8 +38,8 @@
           "basicAttack": true
         },
         {
-          "name": "Soul Shards",
-          "icon": "/visuels/competences/soul-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_51b68183615922a3891919cd0a0d5536.png"
         },
         {
           "name": null,
@@ -47,8 +47,8 @@
           "basicAttack": true
         },
         {
-          "name": "Endless Shards",
-          "icon": "/visuels/competences/endless-shards.webp"
+          "name": null,
+          "icon": "https://akmweb.youngjoygame.com/web/svnres/img/test/homepage_2_2_16_1232_1/100_2fe1e567c14d3bd648184285b7d9d427.png"
         }
       ]
     }

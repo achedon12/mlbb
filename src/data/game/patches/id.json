@@ -1,4 +1,1281 @@
 {
+  "2.2.16": {
+    "version": "2.2.16",
+    "title": "Patch Notes 2.2.16",
+    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.16",
+    "toc": [
+      {
+        "level": 2,
+        "title": "Dari Para Desainer",
+        "anchor": "from-the-designers"
+      },
+      {
+        "level": 2,
+        "title": "I. Hero yang Dirubah",
+        "anchor": "i-revamped-hero"
+      },
+      {
+        "level": 3,
+        "title": "1. Hero Hari Jadi ke-10 yang Dirombak: Masha, si Tinju Oat Liar",
+        "anchor": "1-10th-anniversary-revamped-hero-masha-the-wild-oats-fist"
+      },
+      {
+        "level": 3,
+        "title": "2. Hero yang Dirombak Ulang Tahun ke 10: Bruno, Sang Pelindung",
+        "anchor": "2-10th-anniversary-revamped-hero-bruno-the-protector"
+      },
+      {
+        "level": 2,
+        "title": "II. Penyesuaian Hero",
+        "anchor": "ii-hero-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "AKU AKU AKU. Penyesuaian Medan Perang",
+        "anchor": "iii-battlefield-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A. Ekonomi Dalam Pertandingan",
+        "anchor": "a-in-match-economy"
+      },
+      {
+        "level": 3,
+        "title": "B. Medan Perang Kehormatan Mitos",
+        "anchor": "b-mythical-honor-battlefield"
+      },
+      {
+        "level": 3,
+        "title": "C. Pembaruan Perubahan Peta",
+        "anchor": "c-map-changes-update"
+      },
+      {
+        "level": 3,
+        "title": "D. Interaksi Turret yang Disesuaikan untuk Peningkatan Serangan Dasar",
+        "anchor": "d-adjusted-turret-interactions-for-enhanced-basic-attacks"
+      },
+      {
+        "level": 3,
+        "title": "E. Pembaruan Pengaturan Kontrol",
+        "anchor": "e-control-settings-update"
+      },
+      {
+        "level": 3,
+        "title": "F. Optimasi Penargetan Serangan Dasar",
+        "anchor": "f-basic-attack-targeting-optimizations"
+      },
+      {
+        "level": 3,
+        "title": "G. Optimasi Kontrol Gerakan",
+        "anchor": "g-movement-control-optimizations"
+      },
+      {
+        "level": 3,
+        "title": "Pembaruan Peta Pulau H. Sanctum",
+        "anchor": "h-sanctum-island-map-updates"
+      },
+      {
+        "level": 3,
+        "title": "I. Deskripsi Skill Hero yang Disederhanakan",
+        "anchor": "i-simplified-hero-skill-descriptions"
+      },
+      {
+        "level": 3,
+        "title": "J.Lainnya",
+        "anchor": "j-other"
+      },
+      {
+        "level": 2,
+        "title": "IV. Penyesuaian Sistem",
+        "anchor": "iv-system-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A. Pengaturan Kustom Baru",
+        "anchor": "a-new-custom-setups"
+      },
+      {
+        "level": 3,
+        "title": "B. Prestasi Karir",
+        "anchor": "b-career-achievements"
+      },
+      {
+        "level": 3,
+        "title": "C. Koleksi - Label Skin MLabel",
+        "anchor": "c-collection-the-mlabel-skin-label"
+      },
+      {
+        "level": 3,
+        "title": "D. Kondisi Buka Kunci Mode yang Disesuaikan",
+        "anchor": "d-adjusted-mode-unlock-condition"
+      },
+      {
+        "level": 3,
+        "title": "E. Kamp Pelatihan Multi Pemain",
+        "anchor": "e-multiplayer-training-camp"
+      },
+      {
+        "level": 3,
+        "title": "F. Penyelesaian Musim Mode Peringkat",
+        "anchor": "f-ranked-mode-season-settlement"
+      },
+      {
+        "level": 3,
+        "title": "G.Rumah Lelang",
+        "anchor": "g-auction-house"
+      },
+      {
+        "level": 3,
+        "title": "H. Optimasi Surat",
+        "anchor": "h-mail-optimizations"
+      },
+      {
+        "level": 3,
+        "title": "I. Perubahan Fitur Kartu Nama",
+        "anchor": "i-namecard-feature-revamp"
+      },
+      {
+        "level": 3,
+        "title": "J.Sangat Suka",
+        "anchor": "j-super-like"
+      },
+      {
+        "level": 3,
+        "title": "K. Sorotan Fitur Notifikasi",
+        "anchor": "k-highlights-notification-feature"
+      },
+      {
+        "level": 3,
+        "title": "L. Suka Dalam Pertandingan",
+        "anchor": "l-in-match-likes"
+      },
+      {
+        "level": 3,
+        "title": "M. Antarmuka Pencapaian Pertempuran",
+        "anchor": "m-battle-achievement-interface"
+      },
+      {
+        "level": 3,
+        "title": "N. Layar Hasil Pertandingan 10 Pemain",
+        "anchor": "n-10-player-match-result-screen"
+      },
+      {
+        "level": 3,
+        "title": "O. Poin Perlindungan dan Poin Peningkatan Bintang",
+        "anchor": "o-protection-points-and-star-raising-points"
+      },
+      {
+        "level": 3,
+        "title": "P. Prestasi Musim",
+        "anchor": "p-season-achievements"
+      },
+      {
+        "level": 3,
+        "title": "Q. Pengumuman Penyesuaian Sistem",
+        "anchor": "q-announcement-system-adjustments"
+      },
+      {
+        "level": 2,
+        "title": "V. Mode Permainan/Penyesuaian Mode",
+        "anchor": "v-game-modes-mode-adjustments"
+      },
+      {
+        "level": 3,
+        "title": "A.Tawuran",
+        "anchor": "a-brawl"
+      },
+      {
+        "level": 2,
+        "title": "VI. Lainnya",
+        "anchor": "vi-other"
+      },
+      {
+        "level": 2,
+        "title": "VII. Perbaikan Bug",
+        "anchor": "vii-bug-fixes"
+      },
+      {
+        "level": 2,
+        "title": "Perubahan yang tidak terdokumentasi",
+        "anchor": "undocumented-changes"
+      },
+      {
+        "level": 2,
+        "title": "Referensi",
+        "anchor": "references"
+      }
+    ],
+    "sections": [
+      {
+        "anchor": null,
+        "title": null,
+        "html": "<dl><dd><i>Halaman ini berisi catatan patch yang dirilis di Server Resmi.</i></dd></dl>\n\n<p><br>\nUpdate untuk <i><a href=\"https://mobilelegends.fandom.com/wiki/Mobile_Legends:_Bang_Bang\" title=\"Mobile Legends: Bang Bang\" rel=\"noreferrer nofollow\" target=\"_blank\">Mobile Legends: Bang Bang</a></i> telah dirilis di Server Asli pada bulan September tahun 2026. Ini termasuk hero yang direvamp <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Masha\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Masha\" title=\"Masha\" rel=\"noreferrer nofollow\" target=\"_blank\">Masha</a></span></span> dan <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span>, bersama dengan penyesuaian, perubahan medan perang, dan acara dalam game.\n</p><p>Pembaruan dirilis pada 16 September 2026, 00:00 <a href=\"https://mobilelegends.fandom.com/wiki/Server_time\" title=\"Server time\" rel=\"noreferrer nofollow\" target=\"_blank\">waktu server</a>.\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "from-the-designers",
+        "title": "Dari Para Desainer",
+        "html": "<p>Pada patch kali ini, kami telah meningkatkan beberapa hero Jungler dan Exp Lane yang performanya buruk untuk membantunya tampil lebih baik.\n</p><p>Untuk merayakan ulang tahun MLBB yang ke-10, patch ini juga menghadirkan perombakan seni menyeluruh untuk beberapa hero ikonik dari berbagai wilayah, termasuk <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Masha\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Masha\" title=\"Masha\" rel=\"noreferrer nofollow\" target=\"_blank\">Masha</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Paquito\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Paquito\" title=\"Paquito\" rel=\"noreferrer nofollow\" target=\"_blank\">Paquito</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kadita\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kadita\" title=\"Kadita\" rel=\"noreferrer nofollow\" target=\"_blank\">Kadita</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Clint\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Clint\" title=\"Clint\" rel=\"noreferrer nofollow\" target=\"_blank\">Clint</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Luo Yi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Luo_Yi\" title=\"Luo Yi\" rel=\"noreferrer nofollow\" target=\"_blank\">Luo Yi</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Brody\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Brody\" title=\"Brody\" rel=\"noreferrer nofollow\" target=\"_blank\">Brody</a></span></span>, dan <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Badang\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Badang\" title=\"Badang\" rel=\"noreferrer nofollow\" target=\"_blank\">Badang</a></span></span>. Kami juga telah memperbarui dan mengoptimalkan mekanisme skill untuk <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Masha\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Masha\" title=\"Masha\" rel=\"noreferrer nofollow\" target=\"_blank\">Masha</a></span></span> dan <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Bruno\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Bruno\" title=\"Bruno\" rel=\"noreferrer nofollow\" target=\"_blank\">Bruno</a></span></span>.\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "i-revamped-hero",
+        "title": "I. Hero yang Dirubah",
+        "html": "<h3 id=\"1-10th-anniversary-revamped-hero-masha-the-wild-oats-fist\"><span></span><span>1. Hero yang Dirubah Hari Jadi ke-10: Masha, Tinju Oat Liar</span></h3>\n<p><b>Fitur Hero:</b> Berserker yang memasuki kondisi Feral dengan mematahkan luka musuh. Gameplay inti Masha telah dirubah. Kami ingin dia berkembang sebagai Berserker berketerampilan tinggi yang mampu bertarung secara berkelanjutan, dibandingkan sebagai Assassin yang hanya bisa melakukan split-push atau burst damage.\n</p><p><b>Pasif - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Primal Pact\"></span></span></span> <span><span>Pakta Primal</span></span></span></b>\nMasha memiliki 3 bar HP dan hanya akan mati jika bar terakhir sudah habis. Masha mendapatkan Feral ketika memberikan damage kepada hero atau creep. Feral berubah menjadi HP saat keluar dari pertempuran. Masha meninggalkan Luka pada musuh ketika memberikan damage skill kepada mereka. Menyerang lagi dengan Basic Attack dari arah Luka akan mematahkannya, membuat Masha berada dalam kondisi Feral. Saat dalam kondisi Feral, 3 Serangan Dasar berikutnya menjadi serangan cakar jarak jauh, dan dia memperoleh Ketahanan, Kecepatan Serangan, dan Kecepatan Gerakan yang sangat besar.\n</p><p><b>Skill 1 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Feral Swipe\"></span></span></span> <span><span>Gesek Liar</span></span></span></b>\nMasha melepaskan energinya ke depan, memberikan Physical Damage kepada musuh yang dilewatinya dan menyebabkan efek Slow kepada hero musuh.\n</p><p><b>Skill 2 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Claw Strike\"></span></span></span> <span><span>Serangan Cakar</span></span></span></b>\nMasha berlari ke arah target, melepaskan serangan cakar jarak jauh setelah mencapai jangkauan maksimal atau bertabrakan dengan unit musuh non-minion. Cooldown skill ini direset setiap kali dia kehilangan nyawa.\n</p><p><b>Ultimate - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Savage Maul\"></span></span></span> <span><span>Maul Liar</span></span></span></b>\nMasha menyerang ke arah hero target, menimbulkan Damage Fisik dan membuat mereka stun, sambil memberikan efek knock back pada musuh di dekatnya.\n</p>\n<h3 id=\"2-10th-anniversary-revamped-hero-bruno-the-protector\"><span></span><span>2. Hero yang Dirubah Ulang Tahun ke 10: Bruno, Sang Pelindung</span></h3>\n<p><b>Fitur Hero:</b> Marksman yang memberikan damage besar pada musuh dengan terus menerus menendang bola listrik.\n</p><p>Kami telah melakukan beberapa optimasi pada Bruno. Sambil mempertahankan identitas intinya, kami telah meningkatkan kontrolnya dan melakukan penyesuaian pada perlengkapannya. Perubahan tersebut membuatnya menjadi striker yang lebih lincah dan tangguh.\n</p><p><b>Skill 1 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Volley Shot\"></span></span></span> <span><span>Tembakan Voli</span></span></span> <span>SESUAIKAN ~</span></b>\nKami yakin Tembakan Voli yang asli terlalu membebani pemain. Dalam lingkungan saat ini, pemain mungkin gagal mengambil Powerball bahkan setelah merencanakan pergerakan dan posisinya dengan benar. Oleh karena itu, kami telah mengoptimalkannya.\n</p><p><b>[Optimasi Kontrol]</b>\n</p>\n<ul><li>A. Jarak pendaratan Powerball kini disesuaikan dengan Kecepatan Gerakan Bruno.</li>\n<li>B. Peningkatan Kecepatan Gerakan kini diberikan saat menendang Powerball, bukan saat menimbulkan damage.</li>\n<li>C. Peningkatan Kecepatan Gerakan sekarang berkurang seiring waktu.</li>\n<li>D. Posisi pendaratan Powerball tidak lagi melintasi tembok.</li>\n<li>e. Powerball sekarang dapat digunakan meskipun terkena efek kontrol (kecuali Silence).</li>\n<li>F. Powerball sekarang tetap berada di tanah selama 3 detik, naik dari 2 detik. Beberapa Powerball sekarang dapat diambil secara terpisah.</li>\n<li>G. Memperbaiki masalah di mana Bruno terkadang kehilangan Powerball saat melakukan kombo dua Powerball-nya.</li>\n<li>H. Sekarang mengeluarkan skill tidak lagi mengganggu Basic Attack.</li></ul>\n<p><b>[Penyesuaian Status]</b>\n</p>\n<ul><li>Damage Dasar: 100-225 → 75-150</li>\n<li>Biaya Mana: 60-85 → 50-75</li></ul>\n<p><b>Skill 2 - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Slide\"></span></span></span> <span><span>Slide</span></span></span> <span>BUFF ↑</span></b>\nKami yakin efek skill asli mungkin membawa pemain ke posisi yang relatif berbahaya. Oleh karena itu, kami telah mendesain ulang skillnya untuk lebih fokus membantu pemain dalam mengejar atau melarikan diri.\n</p><p><b>[Optimasi Kontrol]</b>\n</p>\n<ul><li>A. Menyesuaikan arah default efek dasbor ke arah joystick.</li>\n<li>B. Sekarang, ketika Powerball Bruno mulai memantul kembali setelah memberikan damage saat dia meluncur dengan Flying Tackle, powerball tersebut akan cenderung mendarat di dekat tujuan larinya, bukan di posisi awalnya.</li></ul>\n<p><b>[Optimasi Mekanik]</b>\nMenghapus efek kemunduran Powerball. Bruno sekarang mendapatkan Powerball saat slide-nya berakhir.\n</p><p><b>[Penyesuaian Status]</b>\n</p>\n<ul><li>Menghapus efek damage.</li>\n<li>Durasi Pingsan: 0,5 dtk → 0,1 dtk</li>\n<li>Cooldown: 7 d di semua level → 9-7 d</li>\n<li>Biaya Mana: 60 → 90</li></ul>\n<p><b>Ultimate - <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Worldie\"></span></span></span> <span><span>Worldie</span></span></span> <span>BUFF ↑</span></b>\nKami yakin skill aslinya memiliki terlalu banyak efek, sehingga sulit untuk dipahami dan digunakan dengan benar. Oleh karena itu, kami telah mendesain ulang skill untuk fokus memulai pertarungan tim dari jarak jauh dan mendapatkan tumpukan Pasif dengan cepat.\n</p><p><b>[Optimasi Mekanik]</b>\n</p>\n<ul><li>A. Sekarang menerapkan efek setrum singkat dan efek lambat yang membusuk secara besar-besaran pada target pertama yang terkena, dan tidak lagi mengurangi Pertahanan Fisik.</li>\n<li>B. Mengoptimalkan efek knockback pada target pertama yang terkena. Target sekarang akan terlempar kembali ke jangkauan serangan maksimum Bruno. Durasi Knockback &amp; Stun: 0,1 dtk → 0,5 dtk</li>\n<li>C. Energy Ball kini memprioritaskan hero musuh saat memantul antar unit musuh.</li></ul>\n<p><b>[Penyesuaian Status]</b>\n</p>\n<ul><li>Rentang Pemeran: 5,6 → 6</li>\n<li>Damage Pukulan Pertama (Base Damage): 250-450 (+83% Total Serangan Fisik) → 200-400 (+80% Total Serangan Fisik)</li>\n<li>Damage Pantulan (Damage Ekstra): 150-270 (+50% Total Serangan Fisik) → 100-200 (+40% Total Serangan Fisik)</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "ii-hero-adjustments",
+        "title": "II. Penyesuaian Hero",
+        "html": "",
+        "role": "adjustments"
+      },
+      {
+        "anchor": "iii-battlefield-adjustments",
+        "title": "AKU AKU AKU. Penyesuaian Medan Perang",
+        "html": "<h3 id=\"a-in-match-economy\"><span>A. Ekonomi Dalam Pertandingan</span></h3>\n<p>Kami mendapati bahwa pertandingan pada patch saat ini berlangsung terlalu cepat, sehingga menyulitkan tim yang tertinggal untuk bangkit kembali. Untuk mengatasi hal ini, kami telah menyesuaikan pendapatan emas di medan perang dan mekanisme comeback untuk tim yang kurang beruntung.\n</p><p><b>[Merayap] <span>NERF ↓</span></b>\n</p>\n<ul><li>Mengurangi Emas Dasar Kadal Bertanduk, Kumbang Api, dan Golem Lava sebesar 13%</li></ul>\n<p><b>[Bounty Tim] <span>SESUAIKAN ~</span></b>\n</p>\n<ul><li>Defisit Emas yang Diperlukan untuk Mendapatkan Bonus Emas dari Pembunuhan Hero Musuh: 2.000 → 1.500</li></ul>\n<p><b>[Minion] <span>NERF ↓</span></b>\n</p>\n<ul><li>Sedikit mengurangi pertumbuhan hadiah Emas minion seiring berjalannya waktu.</li></ul>\n<h3 id=\"b-mythical-honor-battlefield\"><span>B. Medan Perang Kehormatan Mistis</span></h3>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Edith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Edith\" title=\"Edith\" rel=\"noreferrer nofollow\" target=\"_blank\">Edith</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>Mengembalikan nilai skill agar sesuai dengan nilai di luar Mythical Honor Battlefield.</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Tigreal\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Tigreal\" title=\"Tigreal\" rel=\"noreferrer nofollow\" target=\"_blank\">Tigreal</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<dl><dd><span data-param><span data-width=\"20\"><span typeof=\"mw:Error mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Special:Upload?wpDestFile=Skill_2.png\" title=\"File:Skill 2.png\" rel=\"noreferrer nofollow\" target=\"_blank\"><span data-width=\"20\">Skill 2</span></a></span></span> <span><span>Skill 2</span></span></span> <span>BUFF&#160;↑</span></dd></dl>\n<ul><li>Waktu Istirahat: 16-13dtk → 13-10dtk</li></ul>\n<h3 id=\"c-map-changes-update\"><span>C. Pembaruan Perubahan Peta</span></h3>\n<p>Perubahan Peta Tahunan 2026 secara resmi dimulai pada tanggal 28 September (Waktu Server). Pembaruan ini memperkenalkan [Revealing Wisps], [Healing Turtle], dan [Golden Turret], bersama dengan [Flying Cloud], yang kini menampilkan efek visual seni yang ditingkatkan. Setelah ini ditayangkan, Anda dapat melihat detail lengkapnya di tab Ikhtisar Battlefield dalam game. Berikut gambaran singkatnya:\n</p><p><b>[Mengungkap Gumpalan]</b>\nVision Wisps yang Dapat Dipilih tersedia di seluruh peta. Setelah mengambilnya, gumpalan itu berputar di sekitar hero selama beberapa detik. Jika ada hero musuh yang tersembunyi dalam jarak yang jauh, wisp akan berpindah ke lokasinya dan mengungkapkannya selama beberapa detik.\n</p><p><b>[Penyembuhan Turtle]</b>\nMengalahkan Turtle tidak lagi memberikan perisai. Sebaliknya, Turtle sekutu akan muncul di lane terkuat musuh untuk membantu mendorongnya. Hero sekutu yang berada di dekat Turtle sekutu akan memulihkan HP dengan cepat dan mendapatkan pendamping Turtle untuk membantu mendorong turret.\n</p><p><b>[Menara Emas]</b>\nMeningkatkan secara signifikan Emas yang dibagikan ke seluruh tim ketika Turret mana pun dihancurkan. HP Turret Dalam dan Turret Dasar juga ditingkatkan.\n</p>\n<h3 id=\"d-adjusted-turret-interactions-for-enhanced-basic-attacks\"><span>D. Interaksi Turret yang Disesuaikan untuk Peningkatan Serangan Dasar</span></h3>\n<p><b>[Serangan Dasar Hero yang Ditingkatkan]</b>\n</p>\n<ul><li>1. Serangan Dasar yang Ditingkatkan dari semua hero yang dipicu oleh skill mereka sekarang dapat mengenai Turret dan menerapkan efek Regen HP mereka.</li>\n<li>2. Pengecualian apa pun akan dicatat dengan jelas dalam deskripsi skill terkait.</li>\n<li>3. Peningkatan Serangan Dasar dari <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Sun\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Sun\" title=\"Sun\" rel=\"noreferrer nofollow\" target=\"_blank\">Sun</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Argus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Argus\" title=\"Argus\" rel=\"noreferrer nofollow\" target=\"_blank\">Argus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gusion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gusion\" title=\"Gusion\" rel=\"noreferrer nofollow\" target=\"_blank\">Gusion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Thamuz\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Thamuz\" title=\"Thamuz\" rel=\"noreferrer nofollow\" target=\"_blank\">Thamuz</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Dyrroth\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Dyrroth\" title=\"Dyrroth\" rel=\"noreferrer nofollow\" target=\"_blank\">Dyrroth</a></span></span>, dan <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Masha\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Masha\" title=\"Masha\" rel=\"noreferrer nofollow\" target=\"_blank\">Masha</a></span></span> sekarang dapat memicu efek HP Regen ketika menyerang Turret.</li></ul>\n<p><b>[Serangan Dasar yang Ditingkatkan Lainnya]</b>\n</p>\n<ul><li>1. Efek Enhanced Basic Attack dari Emblem, Battle Spell, dan Equipment tidak dapat terpicu saat menyerang Turret.</li></ul>\n<p><b>[Muatan Kuantum]</b>\n</p>\n<ul><li>1. Tidak dapat terpicu saat menyerang Turret.</li>\n<li>2. Saat menggunakan Inspire untuk menyerang Turret, peningkatan Kecepatan Serangan dan efek mengabaikan pertahanan tetap berlaku, namun efek Regen HP tidak akan terpicu.</li></ul>\n<h3 id=\"e-control-settings-update\"><span>E. Pembaruan Pengaturan Kontrol</span></h3>\n<p>Kami sekarang memperhitungkan Penetrasi penyerang serta Pertahanan dan HP target untuk memprioritaskan penguncian pada target yang paling mudah dibunuh, bukan hanya target dengan HP terendah.\n</p><p>Hasilnya, dalam opsi Prioritas Penargetan, \"HP Terendah\" telah dioptimalkan menjadi \"HP Efektif Terendah\".\n</p><p>Catatan Khusus: Karena sebagian besar <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karina\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karina\" title=\"Karina\" rel=\"noreferrer nofollow\" target=\"_blank\">Karina</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lesley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lesley\" title=\"Lesley\" rel=\"noreferrer nofollow\" target=\"_blank\">Lesley</a></span></span>, dan <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Thamuz\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Thamuz\" title=\"Thamuz\" rel=\"noreferrer nofollow\" target=\"_blank\">Thamuz</a></span></span> damagenya adalah True Damage, mereka akan terus menggunakan \"Terendah Aturan penargetan HP\" meskipun \"HP Efektif Terendah\" dipilih.\n</p><p>Opsi asli \"Target Terdekat\" dan \"Persen HP Terendah\" tetap tidak berubah. Hero yang menggunakan opsi ini tidak akan terpengaruh.\n</p>\n<h3 id=\"f-basic-attack-targeting-optimizations\"><span>F. Optimasi Penargetan Serangan Dasar</span></h3>\n<p>Kami telah mengoptimalkan mekanisme penargetan untuk mengejar Serangan Dasar, mengurangi kasus di mana hero jarak jauh berulang kali berpindah target antara minion dan hero musuh ketika mengejar musuh di luar jangkauan Serangan Dasar mereka.\n</p><p>Setelah Basic Attack mengenai hero, mengetuk tombol Basic Attack berulang kali dalam waktu singkat kini akan memprioritaskan mengejar dan menyerang kembali target yang sama, kecuali hero musuh dengan prioritas lebih tinggi berada dalam jangkauan Basic Attack.\n</p>\n<h3 id=\"g-movement-control-optimizations\"><span>G. Optimasi Kontrol Gerakan</span></h3>\n<p>Menambahkan indikator pendaratan untuk semua skill lari melewati rintangan.\n</p>\n<h3 id=\"h-sanctum-island-map-updates\"><span>H. Pembaruan Peta Pulau Sanctum</span></h3>\n<p>Kami telah sepenuhnya merombak aset seni untuk suasana, tuan, dan markas Pulau Sanctum. Peta baru kini menawarkan visual yang lebih baik sekaligus menjaga kinerja hampir setara dengan aslinya. Pembaruan ini akan segera berlaku, jadi pastikan semua sumber daya telah diunduh sebelum memasuki game untuk mendapatkan pengalaman yang lengkap.\n</p>\n<h3 id=\"i-simplified-hero-skill-descriptions\"><span>I. Deskripsi Skill Hero yang Disederhanakan</span></h3>\n<p>Untuk mengurangi panjang deskripsi skill hero dan meningkatkan keterbacaan, kami telah mengganti beberapa atribut yang umum digunakan (Serangan, Pertahanan, dan Maks HP) dengan ikon sederhana dan intuitif.\n</p>\n<h3 id=\"j-other\"><span>J. Lainnya</span></h3>\n<ul><li>1. Optimasi deskripsi Skill 1 <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Minsitthar\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Minsitthar\" title=\"Minsitthar\" rel=\"noreferrer nofollow\" target=\"_blank\">Minsitthar</a></span></span>.</li>\n<li>2. Memperbaiki masalah ketika Skill 2 <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nana\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nana\" title=\"Nana\" rel=\"noreferrer nofollow\" target=\"_blank\">Nana</a></span></span> terkadang menghasilkan damage yang tidak normal.</li>\n<li>3. Memperbaiki masalah durasi kontrol di <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Gloo\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Gloo\" title=\"Gloo\" rel=\"noreferrer nofollow\" target=\"_blank\">Gloo</a></span></span> deskripsi Skill 1 yang salah.</li>\n<li>4. Menyesuaikan ketinggian kamera setelah <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Layla\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Layla\" title=\"Layla\" rel=\"noreferrer nofollow\" target=\"_blank\">Layla</a></span></span> meningkatkan Ultimate-nya, meningkatkan visibilitas di bagian bawah layar.</li>\n<li>5. Memperbaiki masalah ketika, dalam situasi tertentu, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lieh\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lieh\" title=\"Lieh\" rel=\"noreferrer nofollow\" target=\"_blank\">Lieh</a></span></span> bonus Hybrid Defense tidak terpicu setelah membunuh musuh di dalam miliknya domain.</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "iv-system-adjustments",
+        "title": "IV. Penyesuaian Sistem",
+        "html": "<h3 id=\"a-new-custom-setups\"><span>A. Pengaturan Kustom Baru</span></h3>\n<p>Untuk mengakomodasi preferensi pemain dengan lebih baik, kami telah menambahkan tata letak khusus untuk tombol sedang dan besar di UI Khusus.\n</p>\n<h3 id=\"b-career-achievements\"><span>B. Prestasi Karir</span></h3>\n<p>Menambahkan fitur [Klaim Semua], memungkinkan Anda mengklaim beberapa hadiah pencapaian sekaligus.\n</p>\n<h3 id=\"c-collection-the-mlabel-skin-label\"><span>C. Koleksi - Label Skin MLabel</span></h3>\n<ul><li>1. Label skin terbaru TheMLabel resmi diluncurkan.</li>\n<li>2. Seri Aspirants secara resmi ditambahkan ke TheMLabel.</li>\n<li>3. Selesaikan pencapaian koleksi lengkap untuk membuka berbagai hak istimewa dan menunjukkan status kolektor Anda.</li>\n<li>4. Anda juga dapat beralih ke ikhtisar item penyesuaian seri untuk merencanakan koleksi Anda.</li>\n<li>5. Menambahkan fitur label story, memungkinkan Anda mempelajari pengetahuan di balik seri skin.</li></ul>\n<h3 id=\"d-adjusted-mode-unlock-condition\"><span>D. Kondisi Buka Kunci Mode yang Disesuaikan</span></h3>\n<p>Kami telah menyesuaikan kondisi buka kunci untuk tiga mode berikut:\n</p>\n<ul><li>1. [VS A.I. &amp; Kustom]: Kondisi buka kunci telah disesuaikan untuk mencapai peringkat Elite.</li>\n<li>2. [Magic Chess]: Kondisi buka kunci telah disesuaikan hingga mencapai Lv.12.</li>\n<li>3. [1 VS 1]: Kondisi buka kunci telah disesuaikan hingga mencapai Lv.25.</li></ul>\n<h3 id=\"e-multiplayer-training-camp\"><span>E. Kamp Pelatihan Multi Pemain</span></h3>\n<p>Menambahkan fitur Kamp Pelatihan Multi Pemain. Akses melalui [Mode] - [VS A.I. &amp; Kustom] - [Kamp Pelatihan Multi Pemain].\n</p>\n<h3 id=\"f-ranked-mode-season-settlement\"><span>F. Penyelesaian Musim Mode Peringkat</span></h3>\n<ul><li>1. S41 akan berakhir pada 21:59:59 tanggal 15 September (Waktu Server).</li>\n<li>2. S42 akan dimulai dari 00:00:00 pada tanggal 16 September (Waktu Server). Selesaikan pertandingan Peringkat untuk mengklaim hadiah, termasuk Skin Musiman S42: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Popol and Kupa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Popol_and_Kupa\" title=\"Popol and Kupa\" rel=\"noreferrer nofollow\" target=\"_blank\">Popol dan Kupa</a></span></span> \"Flamehide Thane\" dan Perbatasan Avatar S42 \"Dekade Bintang\".</li></ul>\n<p>Kami harap Anda menikmati permainan ini dan mendoakan yang terbaik dalam pertandingan peringkat Anda!\n</p>\n<h3 id=\"g-auction-house\"><span>G. Rumah Lelang</span></h3>\n<ul><li>1. Menambahkan status tampilan untuk barang bertanda \"Terjual Habis Sementara\" di Rumah Lelang.</li>\n<li>2. Menambahkan fitur Pengingat Penjualan. Tambahkan item ke daftar pengingat Anda, dan Anda akan diberi tahu segera setelah item tersebut tersedia lagi, asalkan Anda sedang online dan tidak sedang bertanding.</li>\n<li>3. Menyesuaikan prioritas barang milik di Rumah Lelang dan memperbarui aturan pembelian dan penggunaan terkait.</li>\n<li>4. Mengoptimalkan penyegaran daftar Rumah Lelang setelah pembelian.</li></ul>\n<h3 id=\"h-mail-optimizations\"><span>H. Pengoptimalan Email</span></h3>\n<ul><li>1. Mengoptimalkan notifikasi titik merah untuk email yang belum dibaca. Titik merah sekarang hanya akan muncul bila Anda memiliki surat penting yang belum dibaca atau surat dengan lampiran yang belum dibaca.</li>\n<li>2. Mengoptimalkan tampilan notifikasi sistem penting, laporan medan perang, dan surat umpan balik laporan.</li>\n<li>3. Mengoptimalkan visual untuk email dengan lampiran.</li></ul>\n<h3 id=\"i-namecard-feature-revamp\"><span>I. Perubahan Fitur Kartu Nama</span></h3>\n<p>Fitur Kartu Nama telah diperbarui, memberi Anda lebih banyak cara untuk mengekspresikan diri. Lihatlah untuk melihat apa yang baru!\n</p><p>Ketuk avatar pemain mana pun untuk melihat Kartu Nama mereka dan menjelajahi fitur-fitur barunya.\n</p>\n<ul><li>1. <b>Tampilan Model / Potret:</b> Kartu Nama baru memungkinkan Anda menampilkan model atau potret 3D. Model 3D menampilkan animasi pintu masuk yang menampilkan hero Anda dengan segala kemegahannya. Jadikan Kartu Nama Anda benar-benar milik Anda!</li>\n<li>2. <b> Kustomisasi Kartu ID: </b> Lengkapi beberapa kartu ID, seperti Mythic Medal, Collector, Achievement Hall, Season Info, Live Legend, dan kartu info yang dipersonalisasi. Atur dengan bebas untuk memamerkan sisi terbaik Anda!</li>\n<li>3. <b>Sorotan Kartu Nama:</b> Momen dalam game yang mengesankan—seperti mendapatkan Legendary atau Savage, membuka skin, dan memenangkan turnamen—secara otomatis ditambahkan ke Sorotan Anda. Pemain lain dapat memberi Suka atau Super Suka pada setiap Sorotan, dan masing-masing memiliki jumlah sukanya sendiri. Pamerkan momen terbaik Anda!</li>\n<li>4. <b>Tampilan Kartu Nama Album:</b> Modul Album sekarang mendukung tampilan Kartu Nama. Konten baru ditandai secara otomatis, sehingga momen terbaik Anda dapat langsung dilihat oleh pemain lain!</li></ul>\n<h3 id=\"j-super-like\"><span>J. Sangat Suka</span></h3>\n<p>Untuk meningkatkan pengalaman Suka, kami telah melakukan peningkatan menyeluruh pada fitur Suka:\n</p>\n<ul><li>1. <b>Super Suka: </b> Tunjukkan apresiasi ekstra kepada teman Anda dengan efek yang lebih bersinar daripada suka standar!</li>\n<li>2. <b>Catatan Suka:</b> Menambahkan halaman baru ke Profil Anda tempat Anda dapat melihat semua catatan suka di satu tempat. Anda juga dapat membalas menyukai seseorang dengan satu ketukan.</li>\n<li>3. <b>Toko Suka:</b> Mendapatkan Super Suka memungkinkan Anda mengumpulkan mata uang untuk menukarkan skin dan spanduk eksklusif di Toko Super Suka!</li></ul>\n<h3 id=\"k-highlights-notification-feature\"><span>K. Fitur Pemberitahuan Sorotan</span></h3>\n<ul><li>1. Menambahkan area Notifikasi Sorotan baru, bersama dengan Notifikasi Sorotan eksklusif yang menampilkan sorotan unik Anda.</li>\n<li>2. Kami juga menambahkan beberapa Notifikasi Sorotan baru untuk menggantikan beberapa Notifikasi yang sudah ada, bersama dengan Notifikasi Sorotan eksklusif hero baru. Lihat mereka di pertandingan Anda berikutnya!</li></ul>\n<h3 id=\"l-in-match-likes\"><span>L. Suka Dalam Pertandingan</span></h3>\n<ul><li>1. Kami telah meningkatkan pengalaman suka dalam pertandingan: tombol suka sekarang menunjukkan pemain mana yang Anda sukai, dengan efek pemberitahuan yang ditingkatkan seiring bertambahnya jumlah suka.</li>\n<li>2. Saat Anda memicu Notifikasi Sorotan tertentu dengan sekutu, Anda dapat saling menyukai untuk mengaktifkan serangkaian notifikasi kerja tim baru.</li></ul>\n<h3 id=\"m-battle-achievement-interface\"><span>M. Antarmuka Pencapaian Pertempuran</span></h3>\n<ul><li>1. Menambahkan layar hasil pertandingan baru yang menampilkan kehormatan tim Anda. Saat ini hanya ditampilkan di Peringkat, Klasik, dan MLBB Rising Open.</li>\n<li>2. Kami telah menambahkan Medali Tertinggi baru untuk memberikan penghargaan kepada pemain yang memiliki performa luar biasa dalam pertandingan.</li>\n<li>3. Mendapatkan MVP juga akan memberikan Medali MVP Tertinggi yang sesuai. Untuk menyeimbangkan hal ini, kami juga telah menyesuaikan persyaratan untuk mendapatkan medali lainnya.</li>\n<li>4. Kami juga meningkatkan umpan balik suka di layar hasil pertandingan, sehingga lebih cepat menyukai kembali pemain yang menyukai Anda.</li></ul>\n<h3 id=\"n-10-player-match-result-screen\"><span>N. Layar Hasil Pertandingan 10 Pemain</span></h3>\n<ul><li>1. Kami sekarang menampilkan Notifikasi Sorotan yang dipicu oleh pemain selama pertandingan, dengan setiap ikon yang ditampilkan dihitung terhadap skor pertandingan.</li>\n<li>2. Jika terdapat terlalu banyak ikon, ikon tersebut akan dikelompokkan dalam satu ikon yang menunjukkan jumlah totalnya. Ketuk untuk melihat semua pemicu dari pertandingan.</li></ul>\n<h3 id=\"o-protection-points-and-star-raising-points\"><span>O. Poin Perlindungan dan Poin Peningkatan Bintang</span></h3>\n<p>Kami telah menambahkan hadiah Poin Perlindungan eksklusif dan Poin Peningkatan Bintang untuk Medali Tertinggi. Untuk menyeimbangkan perubahan ini, kami telah menyesuaikan Poin Peningkatan Bintang dan Poin Perlindungan untuk medali lainnya.\n</p>\n<h3 id=\"p-season-achievements\"><span>P. Pencapaian Musim</span></h3>\n<p>Kami telah menambahkan hadiah Pencapaian Musim. Anda sekarang dapat melengkapinya dari layar Lencana Kehormatan, atau membagikan level Pencapaian Musim Anda di lobi dan layar lainnya. Mulai musim depan, Anda dapat meneruskan hadiah Pencapaian Musim dari musim sebelumnya, termasuk Pelat Gaya, Kartu Nama, dan Lencana Kehormatan, hingga akhir musim saat ini. Kami telah menambahkan tugas Pencapaian Musim baru dan menyesuaikan persyaratan penyelesaian untuk level dan tugas tertentu, sehingga lebih mudah untuk maju.\n</p>\n<h3 id=\"q-announcement-system-adjustments\"><span>Q. Penyesuaian Sistem Pengumuman</span></h3>\n<p><b>[Penyesuaian Tab dan Konten]</b>\nTab \"Pengumuman\" akan dihapus. Pengumuman penting, termasuk patch notes, acara bulanan, dan penyesuaian saldo, kini akan dipindahkan ke tab \"Berita\".\n</p><p><b>[Pembaruan Pemberitahuan Pengumuman]</b>\nPengumuman tidak lagi menggunakan lencana titik merah, termasuk yang dibawa ke ikon menu lainnya.\nPengumuman yang memerlukan perhatian khusus akan ditandai dengan ikon api.\n</p><p><b>[Baca Pembaruan Penyortiran Pengumuman]</b>\nSetelah dibaca, pengumuman akan otomatis berpindah ke bagian bawah tab \"Berita\", membuat pengumuman yang belum dibaca lebih mudah ditemukan.\n</p><p><b>[Pembaruan Tampilan Pengumuman Keamanan]</b>\nPengumuman keamanan dan konten terkait akan dihapus sementara. Kami berencana untuk menyediakannya melalui sistem lain di patch mendatang.\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "v-game-modes-mode-adjustments",
+        "title": "V. Mode Permainan/Penyesuaian Mode",
+        "html": "<h3 id=\"a-brawl\"><span>A. Perkelahian</span></h3>\n<p>Berdasarkan kemenangan dan pick rate hero Brawl baru-baru ini, kami telah melakukan penyesuaian keseimbangan.\n</p><p><b>[Penyesuaian Saldo Hero]</b>\n</p><p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Dyrroth\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Dyrroth\" title=\"Dyrroth\" rel=\"noreferrer nofollow\" target=\"_blank\">Dyrroth</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG +14% → +8%, DMG Diterima -10% → -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Barats\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Barats\" title=\"Barats\" rel=\"noreferrer nofollow\" target=\"_blank\">Barats</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima +2% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Sora\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Sora\" title=\"Sora\" rel=\"noreferrer nofollow\" target=\"_blank\">Sora</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima +6% → +12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima +18% → +20%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Martis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Martis\" title=\"Martis\" rel=\"noreferrer nofollow\" target=\"_blank\">Martis</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Baru) DMG Diterima +6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Guinevere\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Guinevere\" title=\"Guinevere\" rel=\"noreferrer nofollow\" target=\"_blank\">Guinevere</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima -20% → -14%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Beatrix\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Beatrix\" title=\"Beatrix\" rel=\"noreferrer nofollow\" target=\"_blank\">Beatrix</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Baru) DMG -6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aldous\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aldous\" title=\"Aldous\" rel=\"noreferrer nofollow\" target=\"_blank\">Aldous</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima -16% → -12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Minotaur\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Minotaur\" title=\"Minotaur\" rel=\"noreferrer nofollow\" target=\"_blank\">Minotaur</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima +4% → +8%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Miya\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Miya\" title=\"Miya\" rel=\"noreferrer nofollow\" target=\"_blank\">Miya</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Baru) DMG Diterima +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Marcel\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Marcel\" title=\"Marcel\" rel=\"noreferrer nofollow\" target=\"_blank\">Marcel</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Baru) DMG Diterima +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Edith\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Edith\" title=\"Edith\" rel=\"noreferrer nofollow\" target=\"_blank\">Edith</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima +2% → +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Irithel\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Irithel\" title=\"Irithel\" rel=\"noreferrer nofollow\" target=\"_blank\">Irithel</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Baru) DMG Diterima +4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Esmeralda\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Esmeralda\" title=\"Esmeralda\" rel=\"noreferrer nofollow\" target=\"_blank\">Esmeralda</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Baru) DMG -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Grock\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Grock\" title=\"Grock\" rel=\"noreferrer nofollow\" target=\"_blank\">Grock</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>DMG Diterima -20% → -16%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span> <span>NERF&#160;↓</span>\n</p>\n<ul><li>(Baru) DMG -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Chip\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Chip\" title=\"Chip\" rel=\"noreferrer nofollow\" target=\"_blank\">Chip</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>Damage +4% → +6%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Granger\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Granger\" title=\"Granger\" rel=\"noreferrer nofollow\" target=\"_blank\">Granger</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG -4% → -2%, DMG Diterima -8% → -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"X.Borg\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/X.Borg\" title=\"X.Borg\" rel=\"noreferrer nofollow\" target=\"_blank\">X.Borg</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(Baru) DMG Diambil -4%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Pharsa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Pharsa\" title=\"Pharsa\" rel=\"noreferrer nofollow\" target=\"_blank\">Pharsa</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>Damage -6% → -2%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kaja\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kaja\" title=\"Kaja\" rel=\"noreferrer nofollow\" target=\"_blank\">Kaja</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG +10% → +12%, DMG Diterima -10% → -12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Joy\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Joy\" title=\"Joy\" rel=\"noreferrer nofollow\" target=\"_blank\">Joy</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG +8% &gt;&gt; +10%, DMG Diterima -8% → -12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Nolan\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Nolan\" title=\"Nolan\" rel=\"noreferrer nofollow\" target=\"_blank\">Nolan</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG Diterima -16% → -20%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Harley\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Harley\" title=\"Harley\" rel=\"noreferrer nofollow\" target=\"_blank\">Harley</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG Diterima -6% → -14%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Uranus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Uranus\" title=\"Uranus\" rel=\"noreferrer nofollow\" target=\"_blank\">Uranus</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG Diterima +20% → +10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Kalea\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Kalea\" title=\"Kalea\" rel=\"noreferrer nofollow\" target=\"_blank\">Kalea</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG +14% → +18%, DMG Diterima -8% → -12%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hirara\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hirara\" title=\"Hirara\" rel=\"noreferrer nofollow\" target=\"_blank\">Hirara</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG Diterima -6% → -14%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Valentina\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Valentina\" title=\"Valentina\" rel=\"noreferrer nofollow\" target=\"_blank\">Valentina</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>(Baru) DMG Diambil -10%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Zhuxin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Zhuxin\" title=\"Zhuxin\" rel=\"noreferrer nofollow\" target=\"_blank\">Zhuxin</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>DMG +10% → +16%, DMG Diterima -12% → -16%</li></ul>\n<p><span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Franco\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Franco\" title=\"Franco\" rel=\"noreferrer nofollow\" target=\"_blank\">Franco</a></span></span> <span>BUFF&#160;↑</span>\n</p>\n<ul><li>Cooldown skill sangat berkurang.</li></ul>",
+        "role": null
+      },
+      {
+        "anchor": "vi-other",
+        "title": "VI. Lainnya",
+        "html": "<p>-\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "vii-bug-fixes",
+        "title": "VII. Perbaikan Bug",
+        "html": "<ul><li>Memperbaiki masalah yang menyebabkan perilaku kamera tidak normal pada musuh yang terkena serangan saat <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Yin\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Yin\" title=\"Yin\" rel=\"noreferrer nofollow\" target=\"_blank\">Yin</a></span></span> menggunakan atau menyusun ulang Ultimate-nya.</li></ul>\n―Legenda Seluler: Bang Bang",
+        "role": null
+      },
+      {
+        "anchor": "undocumented-changes",
+        "title": "Perubahan yang tidak terdokumentasi",
+        "html": "<p>-\n</p>",
+        "role": null
+      },
+      {
+        "anchor": "references",
+        "title": "Referensi",
+        "html": "",
+        "role": null
+      }
+    ],
+    "newHeroes": [],
+    "adjustments": [
+      {
+        "name": "Aulus",
+        "type": "buff",
+        "intro": "",
+        "sections": [],
+        "slug": "aulus"
+      },
+      {
+        "name": "Aulus",
+        "type": "buff",
+        "intro": "Aulus membutuhkan waktu terlalu lama untuk naik level, kesulitan menghabisi musuh, dan kurang memiliki kemampuan bertahan dalam pertarungan yang berkepanjangan. Kami mengatasi masalah ini dengan mempercepat peningkatannya, memadatkan damagenya menjadi jangka waktu yang lebih pendek, dan meningkatkan Regen HP-nya.",
+        "sections": [
+          {
+            "name": "Atribut",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Kecepatan Serangan Dasar",
+                "before": "0.88",
+                "after": "1"
+              },
+              {
+                "label": "Pertumbuhan Serangan Fisik",
+                "before": "10.5",
+                "after": "8"
+              },
+              {
+                "label": "Pertumbuhan Kecepatan Serangan",
+                "before": "2.5%",
+                "after": "2%"
+              }
+            ]
+          },
+          {
+            "name": "Fighting Spirit",
+            "category": "Pasif",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Setelah menimbulkan damage skill pada suatu unit, Aulus memperoleh 2 d Serangan Dasar yang Ditingkatkan (hingga 4 d)."
+              },
+              {
+                "text": "Serangan Dasar yang Ditingkatkan: Aulus menghantamkan kapaknya ke tanah, menimbulkan damage pada target dalam satu garis dan memulihkan HP miliknya, sambil memberikan efek lambat kepada mereka. Selama kondisi ini, Jangkauan Serangan dan Kecepatan Serangannya ditingkatkan."
+              },
+              {
+                "text": "Peningkatan HP Regen Basic Attack (Per Hit): 30(+15% Total Serangan Fisik)"
+              }
+            ]
+          },
+          {
+            "name": "The Power of Axe",
+            "category": "Skill 2",
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek yang Dihapus: Pemain pertama memberikan Hybrid Lifesteal setelah mencapai target."
+              },
+              {
+                "text": "Efek Baru: Target stun yang dilemparkan pertama tercapai selama 0,3 detik."
+              },
+              {
+                "text": "Pemeran kedua sekarang dapat digunakan meskipun pemeran pertama tidak mengenai target."
+              },
+              {
+                "label": "Pendinginan",
+                "before": "7s at all levels",
+                "after": "10-8s"
+              }
+            ]
+          },
+          {
+            "name": "Cleaving Axe",
+            "category": "Terakhir",
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Dasar (4 Serangan Pertama)",
+                "before": "150-270",
+                "after": "110-270"
+              },
+              {
+                "label": "Damage Dasar (Tebasan Terakhir)",
+                "before": "450-810",
+                "after": "330-810"
+              }
+            ]
+          }
+        ],
+        "slug": "aulus"
+      },
+      {
+        "name": "Argus",
+        "type": "buff",
+        "intro": "Berdasarkan masukan Anda, kami memutuskan untuk melakukan penyesuaian keseimbangan dan peningkatan gameplay lagi pada Argus. Argus kini dapat memicu Demonic Slash lebih sering dan memberikan efek stun kepada musuh dengan Skill 2. Peningkatan damage Ultimate membantunya melakukan serangan balik atau mengamankan kill.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Efek Baru: Argus memperoleh 30% Peluang Kritik awal."
+              },
+              {
+                "text": "Penyesuaian Efek: Kritik Argus kini memicu Tebasan Iblis tambahan alih-alih menimbulkan damage ekstra, namun masih dapat memicu efek serangan kritis lainnya, termasuk dari Berserker's Fury dan Windtalker."
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Setelah menyerang, dia menusukkan Pedang Meteoriknya, menimbulkan damage dan efek stun pada target. Memukul hero musuh akan memberikan bonus Kecepatan Serangan tambahan."
+              },
+              {
+                "text": "Efek yang Dihapus: Pedang Meteorik tidak lagi Kritikus. Damagenya sekarang berskala dengan Crit Chance dan Crit Damage."
+              },
+              {
+                "text": "Efek Baru: Damage sekarang mendapat keuntungan dari 40% Crit Chance dan Crit Damage."
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Jika Ultimate tidak dalam cooldown dan Argus menerima damage fatal, maka Ultimate secara otomatis memicu kekebalan kematian selama 4 detik, namun tidak memberikan damage. Damage dari Ultimate-nya akan meningkat seiring dengan menurunnya HP Argus, hingga 50%, dan mencapai maksimum ketika HP-nya turun di bawah 30%."
+              },
+              {
+                "label": "Damage Dasar",
+                "before": "150 - 300",
+                "after": "300-600"
+              },
+              {
+                "label": "Bonus Damage",
+                "before": "50% Total Physical Attack",
+                "after": "180% Extra Physical Attack"
+              },
+              {
+                "label": "Pendinginan",
+                "before": "42 - 35s",
+                "after": "45s"
+              }
+            ]
+          },
+          {
+            "name": "Atribut",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Kecepatan Gerakan Dasar",
+                "before": "240",
+                "after": "260"
+              }
+            ]
+          }
+        ],
+        "slug": "argus"
+      },
+      {
+        "name": "Aldous",
+        "type": "buff",
+        "intro": "Hero Exp Lane harus menjadi kekuatan utama dalam pertempuran kecil di awal permainan. Ketergantungan Aldous pada tumpukan Skill 1 untuk memberikan damage memaksanya untuk melakukan farming secara pasif di early game, membuatnya tidak sinkron dengan kecepatan tim. Untuk meningkatkan kemampuan bertarung di awal game dan pendapatannya sekaligus menjaga gaya bermain intinya tetap utuh, kami telah melakukan penyesuaian berikut.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Mendapatkan perisai pada Basic Attack ke-3, Cooldown",
+                "before": "5s",
+                "after": "Gains a shield on the next Basic Attack every 8s"
+              },
+              {
+                "label": "Perisai Dasar",
+                "before": "500",
+                "after": "350"
+              },
+              {
+                "text": "Efek Baru: Saat mendapat perisai, Aldous memperoleh 60% Kecepatan Pergerakan ekstra selama 1 d."
+              }
+            ]
+          },
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Mendapat 20% Movement Speed ​​saat bergerak ke arah hero musuh saat skill aktif."
+              },
+              {
+                "text": "Efek Baru: Mendapat 5 tumpukan Soul Steal jika serangan mengenai hero musuh."
+              },
+              {
+                "label": "Tumpukan Pencuri Jiwa yang Diperoleh dari Pengepungan Minion / Pembunuhan Unit Non-hero Lainnya",
+                "before": "10/4",
+                "after": "12/5"
+              },
+              {
+                "label": "Tumpukan Pencurian Jiwa yang Diperoleh saat Membunuh Hero Musuh",
+                "before": "10",
+                "after": "12"
+              },
+              {
+                "label": "Tumpukan Pencuri Jiwa yang Diperoleh dari Pembunuhan Minion Pengepungan oleh Sekutu Terdekat",
+                "before": "5",
+                "after": "6"
+              },
+              {
+                "label": "Tutup Tumpukan Pencuri Jiwa",
+                "before": "650",
+                "after": "1000"
+              },
+              {
+                "label": "Bonus Damage per Tumpukan Pencurian Jiwa",
+                "before": "5",
+                "after": "3"
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Menghapus peningkatan Kecepatan Gerakan."
+              },
+              {
+                "label": "Damage Dasar",
+                "before": "100-200",
+                "after": "200-300"
+              },
+              {
+                "label": "Damage Maks",
+                "before": "200-400",
+                "after": "400-600"
+              }
+            ]
+          }
+        ],
+        "slug": "aldous"
+      },
+      {
+        "name": "Lukas",
+        "type": "buff",
+        "intro": "Lukas sedikit lemah di Exp Lane tetapi terlalu kuat sebagai seorang Jungler. Untuk membuatnya lebih kuat di Exp Lane sambil mempertahankan gaya bermain Junglernya, kami telah melakukan beberapa penyesuaian padanya.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Tekad yang Diperoleh dari Menyerang Musuh",
+                "before": "2",
+                "after": "3.5"
+              }
+            ]
+          },
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Menambahkan hitbox berbentuk kipas di depan Skill 1 ketika digunakan dalam bentuk manusia dengan 0 tumpukan."
+              },
+              {
+                "label": "Hancurkan Damage Dasar",
+                "before": "220 - 520",
+                "after": "280-580"
+              },
+              {
+                "label": "Damage Putaran",
+                "before": "100 - 200",
+                "after": "80-180"
+              },
+              {
+                "label": "Regenerasi HP",
+                "before": "5% of Max HP",
+                "after": "6% of Max HP"
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Damage petir setelah Flash Strike sekarang hanya terpicu satu kali."
+              },
+              {
+                "label": "Damage Petir Suci",
+                "before": "50-100 (+ 25% Physical Attack)",
+                "after": "110-310 (+50% Physical Attack)"
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Regen Tekad Ultimate",
+                "before": "1-2",
+                "after": "0.5-2"
+              }
+            ]
+          }
+        ],
+        "slug": "lukas"
+      },
+      {
+        "name": "Odette",
+        "type": "adjust",
+        "intro": "Untuk membuat Odette terasa lebih seperti penari yang anggun, dia kini dapat bergerak bebas dengan kecepatan yang sedikit berkurang sambil mengeluarkan Ultimate-nya.",
+        "sections": [
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Penyesuaian: Pemeran kedua telah dihapus. Odette kini dapat bergerak bebas dengan kecepatan yang sedikit lebih lambat saat menggunakan Ultimate-nya."
+              },
+              {
+                "text": "Efek yang Dihapus: Meningkatkan kecepatan pantulan dan frekuensi gelombang suara Pasif selama Ultimate."
+              }
+            ]
+          }
+        ],
+        "slug": "odette"
+      },
+      {
+        "name": "Classic Zilong",
+        "type": "nerf",
+        "intro": "Kami menyadari bahwa Zilong Klasik agak terlalu kuat, bahkan terbukti sulit untuk ditangani dalam mode Klasik. Hasilnya, kami telah mengurangi damagenya dan seberapa sering dia memperoleh Kekebalan Kontrol. Begitulah. Bahkan setelah penyesuaian ini, Zilong Klasik masih dapat memilih hero musuh di tengah kekacauan pertempuran.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Serangan Dasar yang Ditingkatkan",
+                "before": "450 (+150% Total Physical Attack)",
+                "after": "360 (+120% Total Physical Attack)"
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "35-27s",
+                "after": "43-35s"
+              }
+            ]
+          }
+        ],
+        "slug": "classic-zilong"
+      },
+      {
+        "name": "Classic Akai",
+        "type": "buff",
+        "intro": "Kami telah sedikit meningkatkan damage Akai Klasik dan menyesuaikan frekuensi knockback Ultimate-nya agar sesuai dengan Akai saat ini.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Ekstra Damage Serangan Dasar Berdasarkan Maks HP",
+                "before": "2%",
+                "after": "3%"
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Perisai",
+                "before": "2% Max HP",
+                "after": "3% Max HP"
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Meningkatkan frekuensi knockback Ultimate."
+              }
+            ]
+          }
+        ],
+        "slug": "classic-akai"
+      },
+      {
+        "name": "Sun",
+        "type": "adjust",
+        "intro": "Kami memperhatikan bahwa roaming Sun menghabiskan terlalu banyak sumber daya dari rekan satu timnya, sehingga berdampak negatif pada pengalaman mereka. Oleh karena itu, kami telah melakukan penyesuaian yang ditargetkan untuk mengendalikan build roamingnya sambil meminimalkan dampak terhadap performanya di lane lain.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Untuk mengimbangi perubahan pada cooldown dan atribut Doppelganger, kami telah menyesuaikan beberapa nilai Pasif Sun agar efektivitas keseluruhannya tidak berubah."
+              },
+              {
+                "label": "Regenerasi HP",
+                "before": "25% of Doppelganger's Physical Attack",
+                "after": "15% of Doppelganger's Physical Attack"
+              },
+              {
+                "label": "Damage Ekstra pada Creep",
+                "before": "50",
+                "after": "65"
+              }
+            ]
+          },
+          {
+            "name": "Skill 1 & 2",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Doppelganger mewarisi semua atribut Sun, tetapi damage yang ditimbulkannya berkurang dan menerima damage ekstra."
+              },
+              {
+                "text": "Damage yang Ditangani oleh Doppelganger: 60%"
+              },
+              {
+                "text": "Damage yang Diterima oleh Doppelganger: 150%"
+              },
+              {
+                "text": "Skill tersebut tidak akan memasuki cooldown selama Doppelganger hadir. Untuk keseimbangan, kami telah mengurangi cooldown dasar skill."
+              },
+              {
+                "label": "Pendinginan",
+                "before": "10-8s",
+                "after": "6.5-5s"
+              },
+              {
+                "label": "Damage Dasar",
+                "before": "200-400",
+                "after": "280-480"
+              },
+              {
+                "label": "Optimasi Pengalaman",
+                "before": "Enemy Gold Reward for Killing a Doppelganger: 26 (+1.5 x Game Time in minutes)",
+                "after": "10 (+1.0 x Game Time in minutes)"
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Efek Lambat",
+                "before": "20%",
+                "after": "25%"
+              },
+              {
+                "label": "Damage Dasar",
+                "before": "270-320",
+                "after": "270-300"
+              },
+              {
+                "label": "Pendinginan",
+                "before": "6s",
+                "after": "5s"
+              }
+            ]
+          },
+          {
+            "name": "Skill 4",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Doppelganger mewarisi semua atribut Sun, tetapi damage yang ditimbulkannya berkurang dan menerima damage ekstra."
+              },
+              {
+                "text": "Damage yang Ditangani oleh Doppelganger: 80% -100%"
+              },
+              {
+                "text": "Damage yang Diterima oleh Doppelganger: 120%"
+              },
+              {
+                "text": "Skill tersebut tidak akan memasuki cooldown selama Doppelganger hadir. Untuk keseimbangan, kami telah mengurangi cooldown dasar skill."
+              },
+              {
+                "label": "Pendinginan",
+                "before": "36-28s",
+                "after": "32-22s"
+              }
+            ]
+          }
+        ],
+        "slug": "sun"
+      },
+      {
+        "name": "Marcel",
+        "type": "adjust",
+        "intro": "Meningkatkan sinergi skill Marcel dengan hero lain, membuatnya dapat bekerja lebih baik dengan hero yang lebih luas. Sebagai penyesuaian keseimbangan, kami sedikit mengurangi damage di awal game dan frekuensi penggunaan skillnya. Marcel sekarang dapat menginterupsi skill yang memerlukan pemilihan lokasi target sebelum memberikan damage (misalnya Ultimate Eudora dan Skill 2 Vexana).",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Dasar",
+                "before": "350-700",
+                "after": "300-650"
+              },
+              {
+                "label": "Pendinginan",
+                "before": "12.5-10s",
+                "after": "15-12s"
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "12.5-10s",
+                "after": "15-12s"
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Skill yang ditargetkan pada lokasi sekarang dapat dibekukan pada \"Jam Emas\"."
+              },
+              {
+                "label": "Pendinginan",
+                "before": "74-62s",
+                "after": "90-66s"
+              }
+            ]
+          }
+        ],
+        "slug": "marcel"
+      },
+      {
+        "name": "Kalea",
+        "type": "buff",
+        "intro": "Damage dan kemampuan bertahan Kalea sebagai Fighter-Support sama-sama gagal di patch ini, menjadikannya salah satu support terlemah saat ini. Untuk mengatasi hal ini, kami memutuskan untuk memberinya buff yang komprehensif sehingga dia benar-benar dapat tampil sebagai Fighter-Support.",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Dasar",
+                "before": "200-350",
+                "after": "200-450"
+              },
+              {
+                "label": "Pendinginan",
+                "before": "4s",
+                "after": "3.5s"
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "label": "Bonus Damage",
+                "before": "80% Physical Attack",
+                "after": "8% Max HP"
+              }
+            ]
+          },
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Basic Attack ketiga dari Pasif akan tetap terpicu sementara Kalea terkena efek kontrol."
+              },
+              {
+                "label": "Regenerasi HP",
+                "before": "40 (+10% Max HP) (+ 60% Total Magic Power)",
+                "after": "12% Max HP (+ 80% Total Magic Power)"
+              }
+            ]
+          }
+        ],
+        "slug": "kalea"
+      },
+      {
+        "name": "Kadita",
+        "type": "adjust",
+        "intro": "Meningkatkan Movement Speed ​​Kadita ketika melakukan roaming ke sidelane pada early hingga mid game.",
+        "sections": [
+          {
+            "name": "Atribut",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Kecepatan Gerakan",
+                "before": "250",
+                "after": "240"
+              }
+            ]
+          },
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Mendapat 10% Kecepatan Gerakan saat berada di Sungai."
+              }
+            ]
+          }
+        ],
+        "slug": "kadita"
+      },
+      {
+        "name": "Hylos",
+        "type": "adjust",
+        "intro": "Efek pasif Hylos sebelumnya kurang memuaskan, jadi kami telah menyesuaikannya agar atribut pertumbuhannya lebih konsisten.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "adjust",
+            "changes": [
+              {
+                "text": "Efek yang Dihapus: Hylos memperoleh 1,5 Max HP tambahan untuk setiap 1 Max Mana tambahan yang diperoleh dari perlengkapan atau emblem."
+              },
+              {
+                "text": "Efek Baru: Hylos memperoleh 1 Maks Mana ekstra untuk setiap 2,5 HP Ekstra yang diperoleh."
+              }
+            ]
+          }
+        ],
+        "slug": "hylos"
+      },
+      {
+        "name": "Cici",
+        "type": "buff",
+        "intro": "Sedikit meningkatkan damage hero di awal hingga pertengahan game terhadap unit dengan HP tinggi, kecepatan membunuh EXP Crab di awal game, dan keberlanjutan dalam pertarungan tim.",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Berdasarkan HP Target",
+                "before": "3%-4.5%",
+                "after": "3.5%-5%"
+              },
+              {
+                "label": "Damage Maks Terhadap Creep",
+                "before": "75-350",
+                "after": "100-350"
+              }
+            ]
+          },
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Spell Vamp Per Tumpukan Kegembiraan",
+                "before": "0.75%",
+                "after": "1.25%"
+              }
+            ]
+          }
+        ],
+        "slug": "cici"
+      },
+      {
+        "name": "Melissa",
+        "type": "nerf",
+        "intro": "Skill 1 Melissa memberikan Kecepatan Serangan yang terlalu tinggi dalam waktu yang terlalu lama, sedangkan Muddle yang dipanggil dengan Skill 2 menghasilkan damage Serangan Dasar yang berlebihan. Kami telah mengurangi bonus dan durasi Kecepatan Serangan Skill 1, serta rasio transfer damage Muddles dan persentase Efek Serangan yang diwarisi.",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Bonus Kecepatan Serangan",
+                "before": "50%-75%",
+                "after": "30%-55%"
+              },
+              {
+                "label": "Lamanya",
+                "before": "3s",
+                "after": "2.5s"
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Transfer Damage Muddles",
+                "before": "60%",
+                "after": "52%"
+              },
+              {
+                "label": "Rasio Warisan Efek Serangan",
+                "before": "80%",
+                "after": "52% (now matches the Basic Attack damage transfer ratio)"
+              }
+            ]
+          }
+        ],
+        "slug": "melissa"
+      },
+      {
+        "name": "Miya",
+        "type": "nerf",
+        "intro": "Damage teamfight dan kecepatan farming Miya di patch saat ini melebihi ekspektasi. Kami telah memperbaiki masalah di mana Split Arrow milik Moonlight Shadow menghasilkan damage abnormal dan salah memicu Efek Serangan, dan sedikit mengurangi damage Miya pada satu target.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Bayangan Cahaya Bulan",
+                "before": "30 (+ 25% Total Physical Attack)",
+                "after": "25 (+20% Total Physical Attack)"
+              }
+            ]
+          },
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Memperbaiki masalah di mana Split Arrow (Moonlight Shadow) milik Miya memberikan damage yang salah dan Efek Serangan yang salah dipicu."
+              }
+            ]
+          }
+        ],
+        "slug": "miya"
+      },
+      {
+        "name": "Hanabi",
+        "type": "nerf",
+        "intro": "Hanabi memberikan damage berlebihan pada satu target melalui pantulan Petal Blade berturut-turut dalam pertarungan tim skala kecil. Untuk mempertahankan poke target tunggalnya selama fase laning, kami belum mengubah damage pantulan dasar miliknya. Sebagai gantinya, kami menambahkan efek pantulan: ketika Serangan Dasar atau pantulan skill berulang kali mengenai target yang sama, pantulan berikutnya akan menghasilkan lebih sedikit damage, sehingga membatasi output berkelanjutannya terhadap satu target dalam waktu singkat.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "text": "Efek Baru: Ketika Basic Attack atau pantulan skill Hanabi mengenai target yang sama berulang kali, pantulan berikutnya akan mengurangi damage sebesar 30%."
+              }
+            ]
+          }
+        ],
+        "slug": "hanabi"
+      },
+      {
+        "name": "Yi Sun-shin",
+        "type": "nerf",
+        "intro": "Mobilitas Yi Sun-shin secara keseluruhan terlalu tinggi, jadi kami meningkatkan cooldown Skill 1 untuk membatasi frekuensi larinya.",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "12-7s",
+                "after": "12-9s"
+              }
+            ]
+          }
+        ],
+        "slug": "yi-sun-shin"
+      },
+      {
+        "name": "Alpha",
+        "type": "buff",
+        "intro": "Laning Alpha di awal game relatif lemah, jadi kami menyesuaikan Pasifnya dengan Total Physical Attack, sehingga meningkatkan performanya di awal hingga pertengahan game. Kami juga telah mengoptimalkan mekanisme Regen Skill 2 dengan meningkatkan pemulihan HP dasar per pukulan dan mengurangi tambahan HP yang dipulihkan per pukulan, sehingga meningkatkan ketahanannya ketika mengenai satu target.",
+        "sections": [
+          {
+            "name": "Pasif",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Damage Laser",
+                "before": "80 (+ 80% Extra Physical Attack) (+8 x Hero Level)",
+                "after": "60 (+50% Total Physical Attack) (+8 x Hero Level)"
+              }
+            ]
+          },
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Penyesuaian Efek",
+                "before": "Recover HP for each enemy hit",
+                "after": "Recover HP when hitting an enemy (healing decays by 40% for subsequent enemies hit)."
+              },
+              {
+                "label": "Regenerasi HP per Pukulan",
+                "before": "40-200 (+ 30% Extra Physical Attack)",
+                "after": "80-330 (+40% Extra Physical Attack)"
+              }
+            ]
+          }
+        ],
+        "slug": "alpha"
+      },
+      {
+        "name": "Kagura",
+        "type": "buff",
+        "intro": "Meningkatkan rasa mengendalikan Payung Seimei saat Kagura mengubah posisinya dalam pertempuran.",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Kecepatan Gerakan Payung Seimei kini meningkat berdasarkan jarak yang ditempuh per gerakan."
+              }
+            ]
+          }
+        ],
+        "slug": "kagura"
+      },
+      {
+        "name": "Edith",
+        "type": "buff",
+        "intro": "Sedikit meningkatkan inisiatif dan fleksibilitas Edith.",
+        "sections": [
+          {
+            "name": "Skill 2",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Edith sekarang dapat menembus dinding ketika mengeluarkan dirinya dari Phylax."
+              }
+            ]
+          },
+          {
+            "name": "Terakhir",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "text": "Efek Baru: Saat berada di dalam Phylax, Edith dapat memperoleh Wrath dengan memberikan damage skill kepada target."
+              },
+              {
+                "text": "Efek Baru: Mendapatkan Kecepatan Gerakan ekstra saat terbang."
+              },
+              {
+                "text": "Efek Baru: Edith sekarang dapat menembus dinding ketika mengeluarkan dirinya dari Phylax."
+              },
+              {
+                "text": "Efek yang Dihapus: Knockback tidak lagi memberikan damage pada musuh di sekitar."
+              }
+            ]
+          }
+        ],
+        "slug": "edith"
+      },
+      {
+        "name": "Karina",
+        "type": "buff",
+        "intro": "Kami bertujuan untuk meningkatkan frekuensi penggunaan Skill 1 Karina dan meningkatkan efektivitas Enhanced Basic Attack-nya.",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "7s at all levels",
+                "after": "6s at all levels"
+              },
+              {
+                "label": "Peningkatan Damage Serangan Dasar",
+                "before": "150-225 (+ 55% Total Magic Power)",
+                "after": "160-310 (+60% Total Magic Power)"
+              }
+            ]
+          }
+        ],
+        "slug": "karina"
+      },
+      {
+        "name": "Paquito",
+        "type": "nerf",
+        "intro": "Untuk mencegah Paquito melakukan snowballing terlalu cepat dan membuat musuh keluar lane, kami sedikit mengurangi damage burstnya di awal hingga pertengahan game.",
+        "sections": [
+          {
+            "name": "Peningkatan Skill 2",
+            "category": null,
+            "type": "nerf",
+            "changes": [
+              {
+                "label": "Damage Dasar",
+                "before": "350-750",
+                "after": "300-800"
+              },
+              {
+                "label": "Bonus Damage",
+                "before": "230% Total Physical Attack",
+                "after": "210% Total Physical Attack"
+              }
+            ]
+          }
+        ],
+        "slug": "paquito"
+      },
+      {
+        "name": "Kaja",
+        "type": "buff",
+        "intro": "Sedikit meningkatkan Regen HP Kaja.",
+        "sections": [
+          {
+            "name": "Skill 1",
+            "category": null,
+            "type": "buff",
+            "changes": [
+              {
+                "label": "Pendinginan",
+                "before": "7s",
+                "after": "5.5s"
+              },
+              {
+                "text": "Kaja kini mendapatkan tambahan HP Regen setara dengan 45% dari Total Magic Power miliknya."
+              }
+            ]
+          }
+        ],
+        "slug": "kaja"
+      }
+    ],
+    "balance": {
+      "buff": 13,
+      "nerf": 6,
+      "adjust": 5
+    },
+    "date": "2026-10-03"
+  },
   "2.1.90": {
     "version": "2.1.90",
     "title": "Patch Notes 2.1.90",
@@ -9425,321 +10702,5 @@
       "adjust": 2
     },
     "date": "2024-05-29"
-  },
-  "1.8.84": {
-    "version": "1.8.84",
-    "title": "Patch Notes 1.8.84 (Advanced Server)",
-    "link": "https://mobilelegends.fandom.com/wiki/Patch_Notes_1.8.84_(Advanced_Server)",
-    "toc": [
-      {
-        "level": 2,
-        "title": "I. Penyesuaian Hero",
-        "anchor": "i-hero-adjustments"
-      },
-      {
-        "level": 2,
-        "title": "II. Penyesuaian Medan Perang & Sistem",
-        "anchor": "ii-battlefield-system-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "Penyesuaian Peralatan",
-        "anchor": "equipment-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "Penyesuaian Medan Perang",
-        "anchor": "battlefield-adjustments"
-      },
-      {
-        "level": 3,
-        "title": "Perbaikan Bug",
-        "anchor": "bug-fixes"
-      },
-      {
-        "level": 2,
-        "title": "AKU AKU AKU. Acara",
-        "anchor": "iii-events"
-      },
-      {
-        "level": 3,
-        "title": "Hero Gratis",
-        "anchor": "free-heroes"
-      }
-    ],
-    "sections": [
-      {
-        "anchor": null,
-        "title": null,
-        "html": "<p><br>\n</p>",
-        "role": null
-      },
-      {
-        "anchor": "i-hero-adjustments",
-        "title": "I. Penyesuaian Hero",
-        "html": "",
-        "role": "adjustments"
-      },
-      {
-        "anchor": "ii-battlefield-system-adjustments",
-        "title": "II. Penyesuaian Medan Perang & Sistem",
-        "html": "<h3 id=\"equipment-adjustments\"><span>Penyesuaian Peralatan</span></h3>\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\">\n\n<tbody><tr>\n<th scope=\"col\">Peralatan\n</th>\n<th scope=\"col\">Mengubah\n</th></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Malefic_Gun\" title=\"Malefic Gun\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Malefic_Gun\" title=\"Malefic Gun\" rel=\"noreferrer nofollow\" target=\"_blank\">Senjata Jahat</a> <span>DIBUAT ULANG ⟳</span>\n</td>\n<td>Penyesuaian Eksperimental: Di Layla's Workshop, kami memperhatikan bahwa skill aktif Malefic Gun mungkin sulit bagi beberapa pemain untuk menguasai waktu penggunaan. Pemain akan sering bingung apakah akan memilih Malefic Gun atau <span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Wind_of_Nature\" title=\"Wind of Nature\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Wind_of_Nature\" title=\"Wind of Nature\" rel=\"noreferrer nofollow\" target=\"_blank\">Wind of Nature</a>. <br> Kami telah mengubahnya menjadi Pasif di patch ini. Untuk mengimbangi penurunan batas atas dengan meningkatkan jangkauan, kami menambahkan pemicu sederhana pada Pasif \"baru\" ini untuk memastikannya cukup kuat dan menyenangkan untuk dimainkan.\n<p><b>Harga</b> <span>NERF ↓</span>\n</p>\n<ul><li>1850 &gt;&gt; 1940</li></ul>\n<p><b>Atribut</b> <span>SESUAIKAN ~</span>\n</p>\n<ul><li>+50 Serangan Fisik &gt;&gt; 45 Serangan Fisik</li>\n<li>+20% Kecepatan Serangan &gt;&gt; +25% Kecepatan Serangan</li>\n<li>+15% Peluang Kritik &gt;&gt; +15% Gaya Hidup</li></ul>\n<p><b>Pasif Unik - Energi Jahat</b> <span>DIBUAT ULANG ⟳</span>\n</p>\n<ul><li>Mendaratkan skill akan meningkatkan jangkauan Basic Attack sebesar 15% selama 3 detik (cooldown 6 detik).</li></ul>\n<p><b>Pasif Unik - Semangat</b>\n</p>\n<ul><li>Serangan Dasar memberikan 15% Kecepatan Gerakan selama 1 d.</li></ul>\n</td></tr>\n<tr>\n<td><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Wishing_Lantern\" title=\"Wishing Lantern\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Wishing_Lantern\" title=\"Wishing Lantern\" rel=\"noreferrer nofollow\" target=\"_blank\">Lentera Harapan</a> <span>SESUAIKAN ~</span>\n</td>\n<td><b>Pasif Unik - Seeker</b> <span>ADJUST ~</span>\n<ul><li>Pemicu Pasif: 500 Damage Ajaib diberikan &gt;&gt; 800 Damage Ajaib diberikan</li>\n<li>Magic Damage: 6% dari HP target saat ini &gt;&gt; 10% dari HP target saat ini</li></ul>\n</td></tr></tbody></table>\n<h3 id=\"battlefield-adjustments\"><span>Penyesuaian Medan Perang</span></h3>\n<h4 id=\"neutral-lord\"><span><span typeof=\"mw:File\"><a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\"></a></span> <a href=\"https://mobilelegends.fandom.com/wiki/Lord\" title=\"Lord\" rel=\"noreferrer nofollow\" target=\"_blank\">Tuan Netral</a></span></h4>\n<p>Beberapa Jungler masih lebih suka menghabiskan waktunya melawan Lord. Sekarang semakin lama kamu melawan Lord. semakin tinggi “harga” yang harus Anda bayar.\n</p>\n<dl><dd>Efek Baru: Saat Lord aggro, meningkatkan Penetrasi Fisik sebesar 10% per detik hingga 10 kali. (Mengembalikan efek Regen Reduction dari patch terakhir.)</dd></dl>\n<h4 id=\"current-of-the-turtle\"><span>Arus Turtle</span></h4>\n<p>Masalah dengan Current adalah ketika pemain ingin menginjaknya untuk membantu rekan satu timnya, bonus Movement Speed ​​akan berakhir. Oleh karena itu, kami memutuskan untuk memperpanjang durasi Current.\n</p>\n<dl><dd>Durasi Arus: 10s &gt;&gt; 15s</dd></dl>\n<h4 id=\"spawn-point\"><span>Titik Pemijahan</span></h4>\n<p>Mengoptimalkan kecepatan Regen HP Spawn Point. Kecepatan Regen menjadi dua kali lipat, namun jumlah HP yang dipulihkan setiap kali berkurang setengahnya (total waktu Regen tidak berubah).\n</p>\n<h3 id=\"bug-fixes\"><span>Perbaikan Bug</span></h3>\n<ol><li>Mengoptimalkan ikon dan visual skill dari beberapa peralatan baru.</li>\n<li>Mengoptimalkan tampilan Border Avatar Stage Fighters dari event kolaborasi KOF.</li></ol>",
-        "role": null
-      },
-      {
-        "anchor": "iii-events",
-        "title": "AKU AKU AKU. Acara",
-        "html": "<h3 id=\"free-heroes\"><span>Hero Gratis</span></h3>\n<p>Waktu Server 17/05/2024 05:00:00 hingga 24/05/2024 05:01:00 (Ketuk tombol Pengaturan di sudut kanan atas halaman utama untuk memeriksa.)\n</p>\n<dl><dd>8 Hero Gratis: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Granger\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Granger\" title=\"Granger\" rel=\"noreferrer nofollow\" target=\"_blank\">Granger</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hayabusa\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hayabusa\" title=\"Hayabusa\" rel=\"noreferrer nofollow\" target=\"_blank\">Hayabusa</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Selena\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Selena\" title=\"Selena\" rel=\"noreferrer nofollow\" target=\"_blank\">Selena</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Cecilion\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Cecilion\" title=\"Cecilion\" rel=\"noreferrer nofollow\" target=\"_blank\">Cecilion</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Hanabi\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Hanabi\" title=\"Hanabi\" rel=\"noreferrer nofollow\" target=\"_blank\">Hanabi</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Thamuz\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Thamuz\" title=\"Thamuz\" rel=\"noreferrer nofollow\" target=\"_blank\">Thamuz</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Argus\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Argus\" title=\"Argus\" rel=\"noreferrer nofollow\" target=\"_blank\">Argus</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Lolita\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Lolita\" title=\"Lolita\" rel=\"noreferrer nofollow\" target=\"_blank\">Lolita</a></span></span></dd></dl>\n<p>6 Hero Anggota Ekstra StarLight: <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Fredrinn\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Fredrinn\" title=\"Fredrinn\" rel=\"noreferrer nofollow\" target=\"_blank\">Fredrinn</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Grock\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Grock\" title=\"Grock\" rel=\"noreferrer nofollow\" target=\"_blank\">Grock</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Moskov\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Moskov\" title=\"Moskov\" rel=\"noreferrer nofollow\" target=\"_blank\">Moskov</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Karrie\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Karrie\" title=\"Karrie\" rel=\"noreferrer nofollow\" target=\"_blank\">Karrie</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Martis\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Martis\" title=\"Martis\" rel=\"noreferrer nofollow\" target=\"_blank\">Martis</a></span></span>, <span data-param><span data-width=\"20\"><span typeof=\"mw:File\"><span title=\"Aldous\"></span></span></span> <span><a href=\"https://mobilelegends.fandom.com/wiki/Aldous\" title=\"Aldous\" rel=\"noreferrer nofollow\" target=\"_blank\">Aldous</a></span></span>\n</p>",
-        "role": null
-      }
-    ],
-    "newHeroes": [],
-    "adjustments": [
-      {
-        "name": "Yi Sun-shin",
-        "type": "buff",
-        "intro": "Meskipun Yi Sun-shin memiliki pertumbuhan yang baik, namun di pertengahan hingga akhir permainan, damagenya bergantung pada Basic Attack yang ditingkatkan dari Pasif, yang menyebabkan kurangnya lingkungan yang aman dalam menangani damage. Untuk menang, pemain harus mendapatkan Emas dengan cepat untuk mendapatkan keuntungan ekonomi saat bermain sebagai Yi Sun-shin. Dalam hal ini, sebagian besar pemain Yi Sun-shin menghabiskan banyak waktu untuk \"bertani Emas\" yang berulang-ulang sepanjang pertandingan. Penyesuaian Eksperimental: Kami berharap dapat mengatasi masalah ini dengan mengurangi damage dari Basic Attack Yi Sun-shin yang ditingkatkan dari Pasif di pertengahan hingga akhir game, sekaligus memberinya kemampuan damage yang lebih tinggi di awal game.",
-        "sections": [
-          {
-            "name": "Heavenly Vow",
-            "category": "Pasif",
-            "type": "adjust",
-            "changes": [
-              {
-                "label": "Damage Serangan Dasar Pertama yang Ditingkatkan",
-                "before": "70%-100% Crit Damage (scales with Ult level)",
-                "after": "80% Crit Damage at all levels"
-              },
-              {
-                "label": "Peningkatan Damage Serangan Dasar Kedua",
-                "before": "55%-70% Crit Damage (scales with Ult level)",
-                "after": "60% Crit Damage at all levels"
-              }
-            ]
-          },
-          {
-            "name": "Traceless",
-            "category": "Skill 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "CD",
-                "before": "12-7s",
-                "after": "12-9.5s"
-              }
-            ]
-          },
-          {
-            "name": "Blood Floods",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Damage Tebasan & Panah",
-                "before": "240-340 +80 AD",
-                "after": "300-425 +100 AD"
-              }
-            ]
-          }
-        ],
-        "slug": "yi-sun-shin"
-      },
-      {
-        "name": "Aulus",
-        "type": "nerf",
-        "intro": "Setelah penyesuaian minggu lalu, kekuatan Aulus melebihi ekspektasi kami. Oleh karena itu, kami melakukan penyesuaian lebih lanjut padanya. Kami akan terus memantau performa Aulus dan memastikan kekuatannya tetap pada level wajar.",
-        "sections": [
-          {
-            "name": "Fighting Spirit",
-            "category": "Pasif",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Kecepatan Serangan Setiap Tumpukan",
-                "before": "12%-18%",
-                "after": "9%-15%"
-              }
-            ]
-          },
-          {
-            "name": "Aulus, Charge!",
-            "category": "Skill 1",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Pengurangan Damage",
-                "before": "50% at all levels",
-                "after": "30%-50%"
-              }
-            ]
-          },
-          {
-            "name": "Undying Fury",
-            "category": "Terakhir",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Damage Fisik Serangan Dasar Meningkat dari Blade Craft pada Stack Penuh",
-                "before": "80",
-                "after": "50"
-              }
-            ]
-          }
-        ],
-        "slug": "aulus"
-      },
-      {
-        "name": "X.Borg",
-        "type": "buff",
-        "intro": "Kami menyadari bahwa nerf pada Spell Vamp Ratio berdampak signifikan pada X.Borg, sehingga kami memutuskan untuk kembali ke nerf sebelumnya dan terus memantau performanya.",
-        "sections": [
-          {
-            "name": "Fire Missiles",
-            "category": "Skill 1",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Rasio Spell Vamp",
-                "before": "50%",
-                "after": "100%"
-              }
-            ]
-          },
-          {
-            "name": "Last Insanity",
-            "category": "Terakhir",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Rasio Spell Vamp",
-                "before": "50%",
-                "after": "100%"
-              }
-            ]
-          }
-        ],
-        "slug": "x-borg"
-      },
-      {
-        "name": "Atlas",
-        "type": "buff",
-        "intro": "Saat ini, kekuatan permainan awal Atas relatif lemah, dan dia sangat bergantung pada mobilitas yang diberikan oleh Skill 2. Kami berharap dia bisa lebih sering dipilih di pertandingan peringkat tinggi, jadi kami telah memperkuat kekuatan permainan awalnya.",
-        "sections": [
-          {
-            "name": "Frigid Breath",
-            "category": "Pasif",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Peningkatan Pertahanan Fisik & Sihir Selama Nafas Dingin",
-                "before": "11-25",
-                "after": "16-30"
-              }
-            ]
-          },
-          {
-            "name": "Perfect Match",
-            "category": "Skill 2",
-            "type": "buff",
-            "changes": [
-              {
-                "label": "Pendinginan",
-                "before": "15-10s",
-                "after": "12-10s"
-              }
-            ]
-          }
-        ],
-        "slug": "atlas"
-      },
-      {
-        "name": "Wanwan",
-        "type": "buff",
-        "intro": "Karena mekanisme unik \"bergerak setelah setiap serangan\" dari Wan Wan, damage yang diterimanya lebih lemah dibandingkan kebanyakan Marksman. Kami telah meningkatkan Kecepatan Serangannya untuk mengimbangi hal ini. Penggemar atribut",
-        "sections": [
-          {
-            "name": "Atribut",
-            "category": null,
-            "type": null,
-            "changes": [
-              {
-                "label": "Kecepatan Serangan Dasar",
-                "before": "0.98",
-                "after": "1.13"
-              },
-              {
-                "label": "Pertumbuhan Kecepatan Serangan",
-                "before": "1%",
-                "after": "2%"
-              }
-            ]
-          }
-        ],
-        "slug": "wanwan"
-      },
-      {
-        "name": "Xavier",
-        "type": "nerf",
-        "intro": "Mengembalikan beberapa penyesuaian sebelumnya.",
-        "sections": [
-          {
-            "name": "Transcendence",
-            "category": "Pasif",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Skill Cooldown dikurangi untuk Ultimate sebanyak Tahap III",
-                "before": "32s",
-                "after": "36s"
-              }
-            ]
-          },
-          {
-            "name": "Dawning Light",
-            "category": "Terakhir",
-            "type": "nerf",
-            "changes": [
-              {
-                "label": "Pendinginan",
-                "before": "52-48s",
-                "after": "60-52s"
-              },
-              {
-                "label": "Damage",
-                "before": "600-1200 +200 MP",
-                "after": "600-1100 +180 MP"
-              }
-            ]
-          }
-        ],
-        "slug": "xavier"
-      },
-      {
-        "name": "Beatrix",
-        "type": "buff",
-        "intro": "Sedikit meningkatkan damagenya di late game. Penggemar atribut",
-        "sections": [
-          {
-            "name": "Atribut",
-            "category": null,
-            "type": null,
-            "changes": [
-              {
-                "label": "Pertumbuhan Serangan Fisik",
-                "before": "9.5",
-                "after": "11"
-              }
-            ]
-          }
-        ],
-        "slug": "beatrix"
-      }
-    ],
-    "balance": {
-      "buff": 5,
-      "nerf": 2,
-      "adjust": 0
-    },
-    "date": "2024-05-28"
   }
 }

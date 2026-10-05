@@ -8,7 +8,8 @@
         "1092": "/visuels/heros/aamon/skins/1092-night-s-edge.webp",
         "1093": "/visuels/heros/aamon/skins/1093-noble-crest.webp",
         "1094": "/visuels/heros/aamon/skins/1094-cyber-assassin.webp",
-        "1095": "/visuels/heros/aamon/skins/1095-vessel-of-deceit.webp"
+        "1095": "/visuels/heros/aamon/skins/1095-vessel-of-deceit.webp",
+        "1097": "/visuels/heros/aamon/skins/1097-soul-reaver.webp"
       }
     },
     "akai": {
@@ -39,7 +40,8 @@
         "646": "/visuels/heros/aldous/skins/646-blazing-force.webp",
         "647": "/visuels/heros/aldous/skins/647-realm-watcher.webp",
         "648": "/visuels/heros/aldous/skins/648-starscream.webp",
-        "649": "/visuels/heros/aldous/skins/649-mistbender-aldous.webp"
+        "649": "/visuels/heros/aldous/skins/649-mistbender-aldous.webp",
+        "106410": "/visuels/heros/aldous/skins/106410-fathom-terror.webp"
       }
     },
     "alice": {
@@ -113,7 +115,8 @@
         "453": "/visuels/heros/argus/skins/453-dark-draconic.webp",
         "454": "/visuels/heros/argus/skins/454-catastrophe.webp",
         "456": "/visuels/heros/argus/skins/456-darth-vader.webp",
-        "457": "/visuels/heros/argus/skins/457-winged-nightmare.webp"
+        "457": "/visuels/heros/argus/skins/457-winged-nightmare.webp",
+        "459": "/visuels/heros/argus/skins/459-raiden-maru.webp"
       }
     },
     "arlott": {
@@ -135,7 +138,8 @@
         "933": "/visuels/heros/atlas/skins/933-fuel-turbine.webp",
         "934": "/visuels/heros/atlas/skins/934-space-mech.webp",
         "935": "/visuels/heros/atlas/skins/935-rune-of-sentinel.webp",
-        "936": "/visuels/heros/atlas/skins/936-mecha-infernus.webp"
+        "936": "/visuels/heros/atlas/skins/936-mecha-infernus.webp",
+        "937": "/visuels/heros/atlas/skins/937-sunken-curse.webp"
       }
     },
     "aulus": {
@@ -170,15 +174,18 @@
         "772": "/visuels/heros/badang/skins/772-ironfists.webp",
         "773": "/visuels/heros/badang/skins/773-susanoo.webp",
         "774": "/visuels/heros/badang/skins/774-leo.webp",
+        "775": "/visuels/heros/badang/skins/775-steel-arms.webp",
         "776": "/visuels/heros/badang/skins/776-fist-of-zen.webp",
         "777": "/visuels/heros/badang/skins/777-pegasus-seiya.webp",
-        "778": "/visuels/heros/badang/skins/778-sagittarius-seiya.webp"
+        "778": "/visuels/heros/badang/skins/778-sagittarius-seiya.webp",
+        "779": "/visuels/heros/badang/skins/779-quantum-commando.webp"
       }
     },
     "balmond": {
       "portrait": "/visuels/heros/balmond/portrait.webp",
       "icon": "/visuels/heros/balmond/icone.webp",
       "skins": {
+        "100210": "/visuels/heros/balmond/skins/100210-ironhide-berserker.webp",
         "021": "/visuels/heros/balmond/skins/021-bloody-beast.webp",
         "022": "/visuels/heros/balmond/skins/022-power-source.webp",
         "023": "/visuels/heros/balmond/skins/023-ghoul-s-fury.webp",
@@ -199,7 +206,8 @@
         "113": "/visuels/heros/bane/skins/113-deep-sea-monster.webp",
         "114": "/visuels/heros/bane/skins/114-warlord.webp",
         "115": "/visuels/heros/bane/skins/115-underworld-outlaw.webp",
-        "116": "/visuels/heros/bane/skins/116-soul-defiler.webp"
+        "116": "/visuels/heros/bane/skins/116-soul-defiler.webp",
+        "117": "/visuels/heros/bane/skins/117-lord-of-scalding-seas.webp"
       }
     },
     "barats": {
@@ -236,7 +244,8 @@
         "1054": "/visuels/heros/beatrix/skins/1054-space-agent.webp",
         "1055": "/visuels/heros/beatrix/skins/1055-light-chaser.webp",
         "1056": "/visuels/heros/beatrix/skins/1056-stellar-briliance.webp",
-        "1057": "/visuels/heros/beatrix/skins/1057-vibrant-fiesta.webp"
+        "1057": "/visuels/heros/beatrix/skins/1057-vibrant-fiesta.webp",
+        "1010510": "/visuels/heros/beatrix/skins/1010510-sky-force-maverick.webp"
       }
     },
     "belerick": {
@@ -248,7 +257,8 @@
         "703": "/visuels/heros/belerick/skins/703-torch-guardian.webp",
         "704": "/visuels/heros/belerick/skins/704-the-deep-one.webp",
         "705": "/visuels/heros/belerick/skins/705-emerald-guardian.webp",
-        "706": "/visuels/heros/belerick/skins/706-arbiter-of-stars.webp"
+        "706": "/visuels/heros/belerick/skins/706-arbiter-of-stars.webp",
+        "707": "/visuels/heros/belerick/skins/707-smouldering-fortress.webp"
       }
     },
     "benedetta": {
@@ -333,7 +343,8 @@
         "618": "/visuels/heros/chang-e/skins/618-moon-artist.webp",
         "619": "/visuels/heros/chang-e/skins/619-new-moon.webp",
         "106110": "/visuels/heros/chang-e/skins/106110-tech-tensai.webp",
-        "106111": "/visuels/heros/chang-e/skins/106111-moonglow-troupe.webp"
+        "106111": "/visuels/heros/chang-e/skins/106111-moonglow-troupe.webp",
+        "106112": "/visuels/heros/chang-e/skins/106112-golden-osmanthus.webp"
       }
     },
     "chip": {
@@ -360,7 +371,8 @@
         "269": "/visuels/heros/chou/skins/269-s-t-u-n-chou.webp",
         "102610": "/visuels/heros/chou/skins/102610-dragon-shiryu.webp",
         "102611": "/visuels/heros/chou/skins/102611-libra-shiryu.webp",
-        "102612": "/visuels/heros/chou/skins/102612-echo.webp"
+        "102612": "/visuels/heros/chou/skins/102612-echo.webp",
+        "102614": "/visuels/heros/chou/skins/102614-starforger-s-glory.webp"
       }
     },
     "cici": {
@@ -369,7 +381,8 @@
       "skins": {
         "1231": "/visuels/heros/cici/skins/1231-buoyant-performer.webp",
         "1232": "/visuels/heros/cici/skins/1232-whimsical-carnival.webp",
-        "1233": "/visuels/heros/cici/skins/1233-circus-reverie.webp"
+        "1233": "/visuels/heros/cici/skins/1233-circus-reverie.webp",
+        "1255": "/visuels/heros/cici/skins/1255-p-ace-cici.webp"
       }
     },
     "claude": {
@@ -404,6 +417,7 @@
         "138": "/visuels/heros/clint/skins/138-operator-cl.webp",
         "139": "/visuels/heros/clint/skins/139-crimson-blast.webp",
         "101310": "/visuels/heros/clint/skins/101310-captain-of-the-reefs.webp",
+        "101311": "/visuels/heros/clint/skins/101311-scarlet-musketeer.webp",
         "101312": "/visuels/heros/clint/skins/101312-dragon-s-maw.webp"
       }
     },
@@ -419,7 +433,8 @@
         "336": "/visuels/heros/cyclops/skins/336-zombie-bambino.webp",
         "337": "/visuels/heros/cyclops/skins/337-master-yoda.webp",
         "338": "/visuels/heros/cyclops/skins/338-straw-doll.webp",
-        "339": "/visuels/heros/cyclops/skins/339-yokai-warlock.webp"
+        "339": "/visuels/heros/cyclops/skins/339-yokai-warlock.webp",
+        "103310": "/visuels/heros/cyclops/skins/103310-spongebob.webp"
       }
     },
     "diggie": {
@@ -505,7 +520,8 @@
         "155": "/visuels/heros/eudora/skins/155-vivo-selfie-goddess.webp",
         "156": "/visuels/heros/eudora/skins/156-countess-scarlet.webp",
         "157": "/visuels/heros/eudora/skins/157-cosmic-voyage.webp",
-        "158": "/visuels/heros/eudora/skins/158-atomic-pop-eudora.webp"
+        "158": "/visuels/heros/eudora/skins/158-atomic-pop-eudora.webp",
+        "101510": "/visuels/heros/eudora/skins/101510-midnight-s-allure.webp"
       }
     },
     "fanny": {
@@ -523,7 +539,8 @@
         "179": "/visuels/heros/fanny/skins/179-imperial-warrior.webp",
         "101710": "/visuels/heros/fanny/skins/101710-blade-of-kibou.webp",
         "101711": "/visuels/heros/fanny/skins/101711-heart-afloat.webp",
-        "101712": "/visuels/heros/fanny/skins/101712-mikasa.webp"
+        "101712": "/visuels/heros/fanny/skins/101712-mikasa.webp",
+        "101714": "/visuels/heros/fanny/skins/101714-p-ace-fanny.webp"
       }
     },
     "faramis": {
@@ -547,7 +564,8 @@
         "1123": "/visuels/heros/floryn/skins/1123-fluffy-dream.webp",
         "1124": "/visuels/heros/floryn/skins/1124-paw-power.webp",
         "1125": "/visuels/heros/floryn/skins/1125-yatai-waitress.webp",
-        "1126": "/visuels/heros/floryn/skins/1126-melody-of-light.webp"
+        "1126": "/visuels/heros/floryn/skins/1126-melody-of-light.webp",
+        "1127": "/visuels/heros/floryn/skins/1127-herald-of-autumn.webp"
       }
     },
     "franco": {
@@ -563,7 +581,8 @@
         "107": "/visuels/heros/franco/skins/107-blazing-axe.webp",
         "108": "/visuels/heros/franco/skins/108-bone-crusher.webp",
         "109": "/visuels/heros/franco/skins/109-king-of-hell.webp",
-        "101010": "/visuels/heros/franco/skins/101010-quantum-vanguard.webp"
+        "101010": "/visuels/heros/franco/skins/101010-quantum-vanguard.webp",
+        "101011": "/visuels/heros/franco/skins/101011-captain-of-the-lost.webp"
       }
     },
     "fredrinn": {
@@ -613,7 +632,8 @@
       "skins": {
         "1041": "/visuels/heros/gloo/skins/1041-swamp-spirits.webp",
         "1042": "/visuels/heros/gloo/skins/1042-verdant-enchanter.webp",
-        "1043": "/visuels/heros/gloo/skins/1043-jellyman.webp"
+        "1043": "/visuels/heros/gloo/skins/1043-jellyman.webp",
+        "1044": "/visuels/heros/gloo/skins/1044-patrick.webp"
       }
     },
     "gord": {
@@ -675,7 +695,7 @@
         "808": "/visuels/heros/guinevere/skins/808-summer-breeze.webp",
         "809": "/visuels/heros/guinevere/skins/809-psion-of-tomorrow.webp",
         "108010": "/visuels/heros/guinevere/skins/108010-elegant-butterfly.webp",
-        "108012": "/visuels/heros/guinevere/skins/108012-twilight-star.webp"
+        "108012": "/visuels/heros/guinevere/skins/108012-daybreak-halo.webp"
       }
     },
     "gusion": {
@@ -710,7 +730,9 @@
         "608": "/visuels/heros/hanabi/skins/608-riverland-phoenix.webp",
         "609": "/visuels/heros/hanabi/skins/609-moonlit-ninja.webp",
         "106010": "/visuels/heros/hanabi/skins/106010-vessel-of-rage.webp",
-        "106011": "/visuels/heros/hanabi/skins/106011-chic-glamour.webp"
+        "106011": "/visuels/heros/hanabi/skins/106011-chic-glamour.webp",
+        "106012": "/visuels/heros/hanabi/skins/106012-neonscape-icon.webp",
+        "106013": "/visuels/heros/hanabi/skins/106013-twin-crescent.webp"
       }
     },
     "hanzo": {
@@ -721,7 +743,8 @@
         "692": "/visuels/heros/hanzo/skins/692-the-pale-phantom.webp",
         "693": "/visuels/heros/hanzo/skins/693-undead-king.webp",
         "694": "/visuels/heros/hanzo/skins/694-insidious-tutor.webp",
-        "695": "/visuels/heros/hanzo/skins/695-soulfire-netherlord.webp"
+        "695": "/visuels/heros/hanzo/skins/695-soulfire-netherlord.webp",
+        "696": "/visuels/heros/hanzo/skins/696-fangs-of-slaughter.webp"
       }
     },
     "harith": {
@@ -751,7 +774,8 @@
         "426": "/visuels/heros/harley/skins/426-v-e-n-o-m-octopus.webp",
         "427": "/visuels/heros/harley/skins/427-dream-caster.webp",
         "428": "/visuels/heros/harley/skins/428-pulsar-prodigy.webp",
-        "429": "/visuels/heros/harley/skins/429-star-magician.webp"
+        "429": "/visuels/heros/harley/skins/429-star-magician.webp",
+        "104210": "/visuels/heros/harley/skins/104210-dreaming-koi.webp"
       }
     },
     "hayabusa": {
@@ -768,7 +792,8 @@
         "218": "/visuels/heros/hayabusa/skins/218-shura.webp",
         "219": "/visuels/heros/hayabusa/skins/219-techie-ninja.webp",
         "102110": "/visuels/heros/hayabusa/skins/102110-exorcist-hayabusa.webp",
-        "102111": "/visuels/heros/hayabusa/skins/102111-kakashi-hatake.webp"
+        "102111": "/visuels/heros/hayabusa/skins/102111-kakashi-hatake.webp",
+        "102112": "/visuels/heros/hayabusa/skins/102112-kitsune-s-shadow.webp"
       }
     },
     "helcurt": {
@@ -814,7 +839,8 @@
         "493": "/visuels/heros/hylos/skins/493-phantom-seer.webp",
         "494": "/visuels/heros/hylos/skins/494-jungle-watcher.webp",
         "495": "/visuels/heros/hylos/skins/495-iron-steed.webp",
-        "496": "/visuels/heros/hylos/skins/496-bloodhoof-marauder.webp"
+        "496": "/visuels/heros/hylos/skins/496-bloodhoof-marauder.webp",
+        "498": "/visuels/heros/hylos/skins/498-lord-of-the-tundra.webp"
       }
     },
     "irithel": {
@@ -917,7 +943,8 @@
         "257": "/visuels/heros/kagura/skins/257-water-lily.webp",
         "258": "/visuels/heros/kagura/skins/258-exorcist-kagura.webp",
         "259": "/visuels/heros/kagura/skins/259-beyond-the-clouds-kagura.webp",
-        "102510": "/visuels/heros/kagura/skins/102510-jade-blossom.webp"
+        "102510": "/visuels/heros/kagura/skins/102510-jade-blossom.webp",
+        "102511": "/visuels/heros/kagura/skins/102511-lady-parasol.webp"
       }
     },
     "kaja": {
@@ -946,6 +973,7 @@
       "portrait": "/visuels/heros/karina/portrait.webp",
       "icon": "/visuels/heros/karina/icone.webp",
       "skins": {
+        "100811": "/visuels/heros/karina/skins/100811-keyforged-champion.webp",
         "081": "/visuels/heros/karina/skins/081-shadow-blade.webp",
         "082": "/visuels/heros/karina/skins/082-phantom-blade.webp",
         "083": "/visuels/heros/karina/skins/083-christmas-carnival.webp",
@@ -1029,7 +1057,8 @@
         "479": "/visuels/heros/lancelot/skins/479-bren-esports.webp",
         "104710": "/visuels/heros/lancelot/skins/104710-empyrean-flame.webp",
         "104711": "/visuels/heros/lancelot/skins/104711-marques-of-blades.webp",
-        "104712": "/visuels/heros/lancelot/skins/104712-guardian-of-the-shrine.webp"
+        "104712": "/visuels/heros/lancelot/skins/104712-guardian-of-the-shrine.webp",
+        "104713": "/visuels/heros/lancelot/skins/104713-blade-of-devotion.webp"
       }
     },
     "lapu-lapu": {
@@ -1059,7 +1088,8 @@
         "188": "/visuels/heros/layla/skins/188-blazing-gun.webp",
         "189": "/visuels/heros/layla/skins/189-miss-hikari.webp",
         "101810": "/visuels/heros/layla/skins/101810-twilight-waltz.webp",
-        "101811": "/visuels/heros/layla/skins/101811-paranormal-operative.webp"
+        "101811": "/visuels/heros/layla/skins/101811-paranormal-operative.webp",
+        "101813": "/visuels/heros/layla/skins/101813-prismatic-rhythm.webp"
       }
     },
     "leomord": {
@@ -1074,7 +1104,8 @@
         "676": "/visuels/heros/leomord/skins/676-jack-o-lantern.webp",
         "677": "/visuels/heros/leomord/skins/677-shadow-knight.webp",
         "678": "/visuels/heros/leomord/skins/678-diavel-v4-rider.webp",
-        "679": "/visuels/heros/leomord/skins/679-nightmare-count.webp"
+        "679": "/visuels/heros/leomord/skins/679-nightmare-count.webp",
+        "106710": "/visuels/heros/leomord/skins/106710-auspicious-blaze.webp"
       }
     },
     "lesley": {
@@ -1122,7 +1153,8 @@
         "205": "/visuels/heros/lolita/skins/205-special-op.webp",
         "206": "/visuels/heros/lolita/skins/206-genki-slam.webp",
         "207": "/visuels/heros/lolita/skins/207-starwatcher.webp",
-        "208": "/visuels/heros/lolita/skins/208-astro-mallet.webp"
+        "208": "/visuels/heros/lolita/skins/208-astro-mallet.webp",
+        "209": "/visuels/heros/lolita/skins/209-angelic-fan.webp"
       }
     },
     "lukas": {
@@ -1147,7 +1179,8 @@
         "687": "/visuels/heros/lunox/skins/687-eyes-of-eternity.webp",
         "688": "/visuels/heros/lunox/skins/688-dawn-revelation.webp",
         "689": "/visuels/heros/lunox/skins/689-divine-goddess.webp",
-        "106810": "/visuels/heros/lunox/skins/106810-nature-s-harmony.webp"
+        "106810": "/visuels/heros/lunox/skins/106810-nature-s-harmony.webp",
+        "106811": "/visuels/heros/lunox/skins/106811-quantum-polarity.webp"
       }
     },
     "luo-yi": {
@@ -1161,7 +1194,8 @@
         "965": "/visuels/heros/luo-yi/skins/965-siren-priestess.webp",
         "966": "/visuels/heros/luo-yi/skins/966-elysium-guardian.webp",
         "967": "/visuels/heros/luo-yi/skins/967-oracle-of-sol.webp",
-        "968": "/visuels/heros/luo-yi/skins/968-starborne-matron.webp"
+        "968": "/visuels/heros/luo-yi/skins/968-starborne-matron.webp",
+        "969": "/visuels/heros/luo-yi/skins/969-starborne-matron.webp"
       }
     },
     "lylia": {
@@ -1174,7 +1208,8 @@
         "864": "/visuels/heros/lylia/skins/864-future-star.webp",
         "865": "/visuels/heros/lylia/skins/865-haunted-doll.webp",
         "866": "/visuels/heros/lylia/skins/866-neobeast-lylia.webp",
-        "867": "/visuels/heros/lylia/skins/867-magitech-arsenal.webp"
+        "867": "/visuels/heros/lylia/skins/867-magitech-arsenal.webp",
+        "869": "/visuels/heros/lylia/skins/869-phantasmal-revelry.webp"
       }
     },
     "marcel": {
@@ -1196,7 +1231,8 @@
         "585": "/visuels/heros/martis/skins/585-capricorn.webp",
         "586": "/visuels/heros/martis/skins/586-deathrock.webp",
         "587": "/visuels/heros/martis/skins/587-levi.webp",
-        "588": "/visuels/heros/martis/skins/588-darkwater-terror.webp"
+        "588": "/visuels/heros/martis/skins/588-darkwater-terror.webp",
+        "589": "/visuels/heros/martis/skins/589-warlord-king.webp"
       }
     },
     "masha": {
@@ -1219,6 +1255,7 @@
         "1022": "/visuels/heros/mathilda/skins/1022-unrestrained-delight.webp",
         "1023": "/visuels/heros/mathilda/skins/1023-floral-crown.webp",
         "1024": "/visuels/heros/mathilda/skins/1024-dream-groove.webp",
+        "1025": "/visuels/heros/mathilda/skins/1025-arcane-verdict.webp",
         "1026": "/visuels/heros/mathilda/skins/1026-dreambound-pixie.webp"
       }
     },
@@ -1243,7 +1280,8 @@
         "193": "/visuels/heros/minotaur/skins/193-orbiter.webp",
         "194": "/visuels/heros/minotaur/skins/194-sacred-hammer.webp",
         "195": "/visuels/heros/minotaur/skins/195-taurus.webp",
-        "196": "/visuels/heros/minotaur/skins/196-dreadnought.webp"
+        "196": "/visuels/heros/minotaur/skins/196-dreadnought.webp",
+        "197": "/visuels/heros/minotaur/skins/197-nether-overseer.webp"
       }
     },
     "minsitthar": {
@@ -1336,7 +1374,8 @@
         "1074": "/visuels/heros/natan/skins/1074-captain-chrono.webp",
         "1075": "/visuels/heros/natan/skins/1075-tidal-lord.webp",
         "1076": "/visuels/heros/natan/skins/1076-temporal-vortex.webp",
-        "1077": "/visuels/heros/natan/skins/1077-archon-of-knowledge.webp"
+        "1077": "/visuels/heros/natan/skins/1077-archon-of-knowledge.webp",
+        "1078": "/visuels/heros/natan/skins/1078-sanguine-steward.webp"
       }
     },
     "nolan": {
@@ -1364,7 +1403,8 @@
       "icon": "/visuels/heros/obsidia/icone.webp",
       "skins": {
         "1301": "/visuels/heros/obsidia/skins/1301-sovereign-of-dark-s-end.webp",
-        "1302": "/visuels/heros/obsidia/skins/1302-undying-remnants.webp"
+        "1302": "/visuels/heros/obsidia/skins/1302-undying-remnants.webp",
+        "1303": "/visuels/heros/obsidia/skins/1303-imperatrix-arashi.webp"
       }
     },
     "odette": {
@@ -1379,7 +1419,8 @@
         "466": "/visuels/heros/odette/skins/466-virgo.webp",
         "467": "/visuels/heros/odette/skins/467-auspicious-charm.webp",
         "468": "/visuels/heros/odette/skins/468-sage-of-the-currents.webp",
-        "469": "/visuels/heros/odette/skins/469-wisdom-of-the-stars.webp"
+        "469": "/visuels/heros/odette/skins/469-wisdom-of-the-stars.webp",
+        "104610": "/visuels/heros/odette/skins/104610-song-of-devotion.webp"
       }
     },
     "paquito": {
@@ -1511,7 +1552,8 @@
         "637": "/visuels/heros/selena/skins/637-gothic-curse.webp",
         "638": "/visuels/heros/selena/skins/638-s-t-u-n-selena.webp",
         "639": "/visuels/heros/selena/skins/639-lady-vengeance.webp",
-        "106311": "/visuels/heros/selena/skins/106311-curse-of-cinder.webp"
+        "106311": "/visuels/heros/selena/skins/106311-curse-of-cinder.webp",
+        "106312": "/visuels/heros/selena/skins/106312-silverbolt-raiko.webp"
       }
     },
     "silvanna": {
@@ -1549,7 +1591,8 @@
         "275": "/visuels/heros/sun/skins/275-simian-curse.webp",
         "276": "/visuels/heros/sun/skins/276-celestial-outlaw.webp",
         "277": "/visuels/heros/sun/skins/277-spring-blessings.webp",
-        "278": "/visuels/heros/sun/skins/278-wicked-flames.webp"
+        "278": "/visuels/heros/sun/skins/278-wicked-flames.webp",
+        "102710": "/visuels/heros/sun/skins/102710-celestial-rebel.webp"
       }
     },
     "suyou": {
@@ -1583,7 +1626,8 @@
         "723": "/visuels/heros/thamuz/skins/723-liquid-fire.webp",
         "724": "/visuels/heros/thamuz/skins/724-abyssal-reaper.webp",
         "725": "/visuels/heros/thamuz/skins/725-general-kai.webp",
-        "726": "/visuels/heros/thamuz/skins/726-sanctified-flame.webp"
+        "726": "/visuels/heros/thamuz/skins/726-sanctified-flame.webp",
+        "727": "/visuels/heros/thamuz/skins/727-the-annihilator.webp"
       }
     },
     "tigreal": {
@@ -1595,6 +1639,7 @@
         "063": "/visuels/heros/tigreal/skins/063-fallen-guard.webp",
         "064": "/visuels/heros/tigreal/skins/064-wyrmslayer.webp",
         "065": "/visuels/heros/tigreal/skins/065-lightborn-defender.webp",
+        "066": "/visuels/heros/tigreal/skins/066-steel-guardian.webp",
         "067": "/visuels/heros/tigreal/skins/067-gold-baron.webp",
         "068": "/visuels/heros/tigreal/skins/068-galactic-marshal.webp",
         "069": "/visuels/heros/tigreal/skins/069-pasha-of-justice.webp"
@@ -1625,7 +1670,8 @@
         "666": "/visuels/heros/vale/skins/666-supernal-tempest.webp",
         "667": "/visuels/heros/vale/skins/667-keeper-of-the-winds.webp",
         "668": "/visuels/heros/vale/skins/668-concerto-of-light.webp",
-        "669": "/visuels/heros/vale/skins/669-gaara.webp"
+        "669": "/visuels/heros/vale/skins/669-gaara.webp",
+        "106610": "/visuels/heros/vale/skins/106610-windborne-waltz.webp"
       }
     },
     "valentina": {
@@ -1637,7 +1683,8 @@
         "1103": "/visuels/heros/valentina/skins/1103-archmagister.webp",
         "1104": "/visuels/heros/valentina/skins/1104-cyber-agent.webp",
         "1105": "/visuels/heros/valentina/skins/1105-celestial-judicator.webp",
-        "1106": "/visuels/heros/valentina/skins/1106-dark-nexus.webp"
+        "1106": "/visuels/heros/valentina/skins/1106-dark-nexus.webp",
+        "1107": "/visuels/heros/valentina/skins/1107-grand-gala.webp"
       }
     },
     "valir": {
@@ -1668,7 +1715,8 @@
         "385": "/visuels/heros/vexana/skins/385-circus-magician.webp",
         "386": "/visuels/heros/vexana/skins/386-the-sun-empress.webp",
         "387": "/visuels/heros/vexana/skins/387-twisted-fairytale.webp",
-        "388": "/visuels/heros/vexana/skins/388-daybreak-halo.webp"
+        "388": "/visuels/heros/vexana/skins/388-twilight-star.webp",
+        "103810": "/visuels/heros/vexana/skins/103810-eternal-vow.webp"
       }
     },
     "wanwan": {
@@ -1721,7 +1769,8 @@
         "305": "/visuels/heros/yi-sun-shin/skins/305-astral-wanderer.webp",
         "306": "/visuels/heros/yi-sun-shin/skins/306-azure-sentry.webp",
         "307": "/visuels/heros/yi-sun-shin/skins/307-fleet-warden.webp",
-        "308": "/visuels/heros/yi-sun-shin/skins/308-surging-torrent.webp"
+        "308": "/visuels/heros/yi-sun-shin/skins/308-surging-torrent.webp",
+        "309": "/visuels/heros/yi-sun-shin/skins/309-wavebreaker.webp"
       }
     },
     "yin": {
@@ -1785,7 +1834,8 @@
       "skins": {
         "1251": "/visuels/heros/zhuxin/skins/1251-beacon-of-spirits.webp",
         "1252": "/visuels/heros/zhuxin/skins/1252-ethereal-serenity.webp",
-        "1253": "/visuels/heros/zhuxin/skins/1253-emberwisp-mystic.webp"
+        "1253": "/visuels/heros/zhuxin/skins/1253-emberwisp-mystic.webp",
+        "1255": "/visuels/heros/zhuxin/skins/1255-p-ace-zhuxin.webp"
       }
     },
     "zilong": {
@@ -1803,7 +1853,8 @@
         "169": "/visuels/heros/zilong/skins/169-summer-waves.webp",
         "101610": "/visuels/heros/zilong/skins/101610-empyrean-paladin.webp",
         "101611": "/visuels/heros/zilong/skins/101611-storm-rider.webp",
-        "101612": "/visuels/heros/zilong/skins/101612-dragon-of-prosperity.webp"
+        "101612": "/visuels/heros/zilong/skins/101612-dragon-of-prosperity.webp",
+        "101613": "/visuels/heros/zilong/skins/101613-ascendant-of-flame.webp"
       }
     }
   },
@@ -2443,7 +2494,7 @@
     },
     "irithel": {
       "Jungle Heart": "/visuels/heros/irithel/illustrations/jungle-heart.webp",
-      "Silver Cylone": "/visuels/heros/irithel/illustrations/silver-cylone.webp",
+      "Silver Cyclone": "/visuels/heros/irithel/illustrations/silver-cyclone.webp",
       "Hellfire": "/visuels/heros/irithel/illustrations/hellfire.webp",
       "Nightarrow": "/visuels/heros/irithel/illustrations/nightarrow.webp",
       "Sagittarius": "/visuels/heros/irithel/illustrations/sagittarius.webp",
