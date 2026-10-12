@@ -290,7 +290,7 @@
   "baxia": [
     {
       "name": "Baxia Mark",
-      "description": "Baxia activates the Baxia Mark permanently, reducing the final damage received by 15 (+1 Hero Level). At the same time Baxia's will reduce the enemy hero's Shield and HP Regen by 50% for 4 seconds when hit by his skills."
+      "description": "Baxia activates the Baxia Mark permanently, reducing the final damage received by 15 (+1 Hero Level). At the same time Baxia's will reduce the enemy hero's Shield and HP Regen by 40% for 4 seconds when hit by his skills."
     },
     {
       "name": "Baxia-Shield Unity",
@@ -298,11 +298,11 @@
     },
     {
       "name": "Shield of Spirit",
-      "description": "Baxia throws his shield forward that will disappear upon hitting an enemy hero or creeps, dealing to the target and minions on the path. Meanwhile, marks them for 5 seconds and slows them down by 50% for 1 second. The shield disappears upon hitting the first enemy hero or creep. Baxia can cast this skill again [for 5 seconds]. If an enemy hero or creep us hit by the skill, the cooldown will be reduced by 15%."
+      "description": "Baxia throws his shield forward that will disappear upon hitting an enemy hero or creeps, dealing to enemies along the way, marking them for 5s, and slowing them down by 50% for 1s. The shield disappears upon hitting the first enemy hero or creep. Baxia can cast the skill again in a short while. If an enemy hero or creep us hit by the skill, the skill's cooldown will be reduced to 15%."
     },
     {
       "name": "Tortoise's Puissance",
-      "description": "Baxia holds his shield to the front and begins sprinting frantically, gaining 30% extra Movement Speed for 10 seconds while leaving a lava path behind. Enemies on the path will take and be slowed by 15% for 0.5 seconds every 0.5 seconds. For the duration, the Damage Reduction effect from Baxia Mark is increased to 240% (85)."
+      "description": "Baxia holds his shield to the front and begins sprinting frantically, gaining 30% extra Movement Speed for 10 seconds while leaving a lava path behind. Enemies on the path will take and be slowed by 15% for 0.5s every 0.5s. For the duration, the Damage Reduction effect from Baxia Mark is increased to (85)."
     }
   ],
   "beatrix": [
@@ -728,7 +728,7 @@
     },
     {
       "name": "Stardust Dance",
-      "description": "Esmeralda waves Stardust and Frostmoon, dealing and to nearby enemies. Each time she deals damage to a hero, the cooldown of Frostmoon Shield is reduced by 1.5 seconds (damaging non-hero units grants a 0.5 seconds reduction) and the enemy's Movement Speed is reduced by 10% for 1.5 second."
+      "description": "Esmeralda waves Stardust and Frostmoon, dealing and to nearby enemies. Each time she deals damage to a hero, the cooldown of Frostmoon Shield is reduced by 1.5 seconds (damaging non-hero units grants a 0.5 seconds reduction) and the enemy's Movement Speed is reduced by 20% for 1.5 second."
     },
     {
       "name": "Falling Starmoon",
@@ -1758,7 +1758,7 @@
     },
     {
       "name": "Dispersion",
-      "description": "Luo Yi casts the energy of Yin/Yang|e in the target direction, dealing to the first enemy hit ad those behind in a cone. Enemy heroes hit are marked with Sigil of Yin/Yang|mark. Luo Yi stores up to 4 Dispersion charges and gains 1 charge every 8 seconds. She also gains 1 charge each time Yin-Yang Reaction|e is triggered. The state of this skill changes on each cast."
+      "description": "Luo Yi casts the energy of Yin/Yang|e in the target direction, dealing to the first enemy hit and those behind in a cone. Enemy heroes hit are marked with Sigil of Yin/Yang|mark. Luo Yi stores up to 4 Dispersion charges and gains 1 charge every 8 seconds. She also gains 1 charge each time Yin-Yang Reaction|e is triggered. The state of this skill changes on each cast."
     },
     {
       "name": "Rotation",
@@ -2134,7 +2134,7 @@
     },
     {
       "name": "Infernal Pursuit",
-      "description": "Sinner|e: Demonic Force, Astaros Eye, and Dark Wave can apply Sinner's Mark to the enemy hero hit. Judgement|e: Phoveus leaps into the air and smashes down with his monolith at the enemy hero with Sinner's Mark, dealing plus extra Physical Damage equal to 5% of the target's Max HP to enemies in the area while Phoveus recovers 50 plus 6% of his Lost HP. The HP recovered is reduced by 80% when hitting multiple enemies."
+      "description": "Passive|e: Demonic Force, Astaros Eye, and Dark Wave can apply Sinner's Mark to the enemy hero hit. Active|e: Phoveus leaps into the air and smashes down with his monolith at the enemy hero with Sinner's Mark, dealing plus extra Physical Damage equal to 5% of the target's Max HP to enemies in the area while Phoveus recovers 50 plus 6% of his Lost HP. The HP recovered is reduced by 80% when hitting multiple enemies."
     }
   ],
   "popol-and-kupa": [

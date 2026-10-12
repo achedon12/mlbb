@@ -2029,7 +2029,7 @@
       "Mystic Tortoise": "/visuels/heros/baxia/illustrations/mystic-tortoise.webp",
       "Wild Totem": "/visuels/heros/baxia/illustrations/wild-totem.webp",
       "Badass Roller": "/visuels/heros/baxia/illustrations/badass-roller.webp",
-      "Ba-tender": "/visuels/heros/baxia/illustrations/ba-tender.webp",
+      "Ba-rista": "/visuels/heros/baxia/illustrations/ba-rista.webp",
       "Black Tortoise": "/visuels/heros/baxia/illustrations/black-tortoise.webp",
       "Dauntless Shield": "/visuels/heros/baxia/illustrations/dauntless-shield.webp",
       "Aegis of Honor": "/visuels/heros/baxia/illustrations/aegis-of-honor.webp"
@@ -2083,7 +2083,8 @@
       "Firebolt": "/visuels/heros/bruno/illustrations/firebolt.webp",
       "Street Hype": "/visuels/heros/bruno/illustrations/street-hype.webp",
       "Halo Striker": "/visuels/heros/bruno/illustrations/halo-striker.webp",
-      "Neymar Jr": "/visuels/heros/bruno/illustrations/neymar-jr.webp"
+      "Neymar Jr": "/visuels/heros/bruno/illustrations/neymar-jr.webp",
+      "The Purifier": "/visuels/heros/bruno/illustrations/the-purifier.webp"
     },
     "carmilla": {
       "Shadow of Twilight": "/visuels/heros/carmilla/illustrations/shadow-of-twilight.webp",
@@ -3257,7 +3258,8 @@
       "Summer Waves": "/visuels/heros/zilong/illustrations/summer-waves.webp",
       "Empyrean Paladin": "/visuels/heros/zilong/illustrations/empyrean-paladin.webp",
       "Storm Rider": "/visuels/heros/zilong/illustrations/storm-rider.webp",
-      "Dragon of Prosperity": "/visuels/heros/zilong/illustrations/dragon-of-prosperity.webp"
+      "Dragon of Prosperity": "/visuels/heros/zilong/illustrations/dragon-of-prosperity.webp",
+      "Ascendant of Flame": "/visuels/heros/zilong/illustrations/ascendant-of-flame.webp"
     }
   },
   "skills": {
@@ -4237,11 +4239,7 @@
     "vitality": "/visuels/talents/vitality.webp",
     "weakness-finder": "/visuels/talents/weakness-finder.webp",
     "lethal-ignition": "/visuels/talents/lethal-ignition.webp",
-    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp",
-    "weapons-master": "/visuels/talents/weapons-master.webp",
-    "rupture": "/visuels/talents/rupture.webp",
-    "temporal-reign": "/visuels/talents/temporal-reign.webp",
-    "war-cry": "/visuels/talents/war-cry.webp"
+    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp"
   },
   "spells": {
     "retribution": "/visuels/sorts/retribution.webp",
@@ -4254,7 +4252,6 @@
     "arrival": "/visuels/sorts/arrival.webp",
     "sprint": "/visuels/sorts/sprint.webp",
     "vengeance": "/visuels/sorts/vengeance.webp",
-    "revitalize": "/visuels/sorts/revitalize.webp",
-    "flameshot": "/visuels/sorts/flameshot.webp"
+    "revitalize": "/visuels/sorts/revitalize.webp"
   }
 }
