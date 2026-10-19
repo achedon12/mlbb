@@ -200,11 +200,11 @@
   "aurora": [
     {
       "name": "Pride of Ice",
-      "description": "Upon taking fatal damage, Aurora freezes herself for 1.5 seconds, becoming invincible during this time and greadually recovering 30% Max HP. This effect has a 150 seconds cooldown. Aurora's freeze effects can also affect Turrets."
+      "description": "Upon taking fatal damage, Aurora freezes herself for 1.5 seconds, becoming invincible during this time and gradually recovering 30% Max HP. This effect has a 150 seconds cooldown. Aurora's freeze effects can also affect Turrets."
     },
     {
       "name": "Hailstone Blast",
-      "description": "Aurora summons an icy meteorite to strike at the taraget location, dealing and slowing targets hit by 40% for 1 second. Afterward, 5 hailstones fall, each dealing."
+      "description": "Aurora summons an icy meteorite to strike at the target location, dealing and slowing targets hit by 40% for 1 second. Afterward, 5 hailstones fall, each dealing."
     },
     {
       "name": "Frosty Breeze",
@@ -886,7 +886,7 @@
   "gatotkaca": [
     {
       "name": "Steel Bones",
-      "description": "Gatotkaca gains [1] Physical Defense equal to 2% of his lost HP (up to 100). For every 300 damage he takes (calculated before damage reduction), he gains 5 Rage (up to 100). Upon reaching over 25 Rage, Gatotkaca's next Basic Attack becomes enhanced, consuming all Rage to deal extra Magic Damage and recover. The extra damage scales with his Rage, level, and Magic Power."
+      "description": "Gatotkaca gains [1] Physical Defense equal to 2% of his lost HP (up to 100). He gains 5 Rage (up to 100)For every 300 damage he takes (calculated before reduction). Upon reaching over 25 Rage, Gatotkaca's next Basic Attack becomes enhanced, consuming all Rage to deal (8.2-11* Consumed Rage) Magic Damage and recover (8 * Consumed Rage) HP."
     },
     {
       "name": "Blast Iron Fist",
@@ -976,7 +976,7 @@
   "guinevere": [
     {
       "name": "Super Magic",
-      "description": "Guinevere deals 25% extra damage to airborne enemies. Guinevere deals with her Basic Attacks and accumulates Super Magic each time she deals damage. When she's fully charged, her next Basic Attack becomes guided, dealing on hit and restoring. Enemies hit by Guinevere's enhanced Basic Attack, Energy Wave, or Spatial Migration are marked for 5 seconds. Those with 3 marks will be knocked airborne when hit by her Violet Requiem."
+      "description": "Guinevere deals 25% extra damage to airborne enemies and deals with her Basic Attacks. Guinevere builds up Super Magic each time she deals damage and when she's fully charged, her next Basic Attack becomes guided, dealing on hit and restoring. Enemies hit by Guinevere's enhanced Basic Attack, Energy Wave, or Spatial Migration are marked for 5 seconds. Those with 3 marks will be knocked airborne when hit by her Violet Requiem."
     },
     {
       "name": "Energy Wave",
@@ -2086,7 +2086,7 @@
     },
     {
       "name": "Heavy Left Punch",
-      "description": "Paquito throws a punch in the target direction, dealing to enemies hit. He gains for 2.5 seconds if an enenmy hero is hit. Champ Stance:|e The damage is increased to, while the shield value is increased to 120%|shield. The regular and enhanced shields can stack."
+      "description": "Paquito throws a punch in the target direction, dealing to enemies hit. He gains for 2.5 seconds if an enemy hero is hit. Champ Stance:|e The damage is increased to, while the shield value is increased to 120%|shield. The regular and enhanced shields can stack."
     },
     {
       "name": "Jab",
