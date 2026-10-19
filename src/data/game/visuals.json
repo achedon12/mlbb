@@ -1240,6 +1240,7 @@
       "icon": "/visuels/heros/masha/icone.webp",
       "skins": {
         "881": "/visuels/heros/masha/skins/881-wild-oats-fist.webp",
+        "882": "/visuels/heros/masha/skins/882-winter-guard.webp",
         "883": "/visuels/heros/masha/skins/883-combat-maiden.webp",
         "884": "/visuels/heros/masha/skins/884-dragon-armor.webp",
         "885": "/visuels/heros/masha/skins/885-spirited-gauntlet.webp",
@@ -2446,7 +2447,8 @@
       "Dream Caster": "/visuels/heros/harley/illustrations/dream-caster.webp",
       "Pulsar Prodigy": "/visuels/heros/harley/illustrations/pulsar-prodigy.webp",
       "Star Magician": "/visuels/heros/harley/illustrations/star-magician.webp",
-      "Dreaming Koi": "/visuels/heros/harley/illustrations/dreaming-koi.webp"
+      "Dreaming Koi": "/visuels/heros/harley/illustrations/dreaming-koi.webp",
+      "Morning Bloom": "/visuels/heros/harley/illustrations/morning-bloom.webp"
     },
     "hayabusa": {
       "Crimson Shadow": "/visuels/heros/hayabusa/illustrations/crimson-shadow.webp",
@@ -2586,7 +2588,8 @@
     "kalea": {
       "Surging Wave": "/visuels/heros/kalea/illustrations/surging-wave.webp",
       "Shimmering Waves": "/visuels/heros/kalea/illustrations/shimmering-waves.webp",
-      "Sakura Haruno": "/visuels/heros/kalea/illustrations/sakura-haruno.webp"
+      "Sakura Haruno": "/visuels/heros/kalea/illustrations/sakura-haruno.webp",
+      "Tideborn Sailor": "/visuels/heros/kalea/illustrations/tideborn-sailor.webp"
     },
     "karina": {
       "Shadow Blade": "/visuels/heros/karina/illustrations/shadow-blade.webp",
@@ -4239,7 +4242,11 @@
     "vitality": "/visuels/talents/vitality.webp",
     "weakness-finder": "/visuels/talents/weakness-finder.webp",
     "lethal-ignition": "/visuels/talents/lethal-ignition.webp",
-    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp"
+    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp",
+    "weapons-master": "/visuels/talents/weapons-master.webp",
+    "rupture": "/visuels/talents/rupture.webp",
+    "temporal-reign": "/visuels/talents/temporal-reign.webp",
+    "war-cry": "/visuels/talents/war-cry.webp"
   },
   "spells": {
     "retribution": "/visuels/sorts/retribution.webp",
@@ -4252,6 +4259,7 @@
     "arrival": "/visuels/sorts/arrival.webp",
     "sprint": "/visuels/sorts/sprint.webp",
     "vengeance": "/visuels/sorts/vengeance.webp",
-    "revitalize": "/visuels/sorts/revitalize.webp"
+    "revitalize": "/visuels/sorts/revitalize.webp",
+    "flameshot": "/visuels/sorts/flameshot.webp"
   }
 }
