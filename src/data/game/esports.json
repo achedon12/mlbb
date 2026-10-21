@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-21T12:30:30Z",
+ "updatedAt": "2026-10-21T13:36:17Z",
  "source": {
   "name": "Liquipedia",
   "url": "https://liquipedia.net/mobilelegends/",
@@ -8424,7 +8424,7 @@
     {
      "title": "MPL/Philippines/Season 18",
      "url": "https://liquipedia.net/mobilelegends/MPL/Philippines/Season_18",
-     "revision": "2026-10-21T09:53:14Z"
+     "revision": "2026-10-21T13:05:54Z"
     },
     {
      "title": "MPL/Philippines/Season 18/Regular Season",
@@ -8434,7 +8434,7 @@
     {
      "title": "MPL/Philippines/Season 18/Playoffs",
      "url": "https://liquipedia.net/mobilelegends/MPL/Philippines/Season_18/Playoffs",
-     "revision": "2026-10-21T12:30:30Z"
+     "revision": "2026-10-21T13:36:17Z"
     }
    ],
    "stages": [
@@ -8599,7 +8599,7 @@
            ],
            "score": [
             1,
-            0
+            1
            ],
            "winner": null,
            "date": "2026-10-21T12:00:00Z"
@@ -8756,7 +8756,7 @@
      ]
     }
    ],
-   "games": 140,
+   "games": 141,
    "matches": 57,
    "lastMatch": "2026-10-21T07:00:00Z",
    "nextMatch": "2026-10-21T12:00:00Z",
@@ -8765,14 +8765,14 @@
     {
      "slug": "freya",
      "picks": 21,
-     "bans": 119,
+     "bans": 120,
      "wins": 16,
      "losses": 5
     },
     {
      "slug": "atlas",
      "picks": 24,
-     "bans": 114,
+     "bans": 115,
      "wins": 15,
      "losses": 9
     },
@@ -8785,10 +8785,10 @@
     },
     {
      "slug": "paquito",
-     "picks": 63,
+     "picks": 64,
      "bans": 58,
      "wins": 37,
-     "losses": 26
+     "losses": 27
     },
     {
      "slug": "fanny",
@@ -8800,30 +8800,37 @@
     {
      "slug": "uranus",
      "picks": 35,
-     "bans": 62,
+     "bans": 63,
      "wins": 18,
      "losses": 17
     },
     {
      "slug": "marcel",
-     "picks": 32,
+     "picks": 33,
      "bans": 63,
      "wins": 17,
-     "losses": 15
+     "losses": 16
     },
     {
      "slug": "barats",
-     "picks": 40,
+     "picks": 41,
      "bans": 54,
-     "wins": 21,
+     "wins": 22,
      "losses": 19
     },
     {
      "slug": "selena",
      "picks": 35,
-     "bans": 59,
+     "bans": 60,
      "wins": 17,
      "losses": 18
+    },
+    {
+     "slug": "carmilla",
+     "picks": 46,
+     "bans": 43,
+     "wins": 22,
+     "losses": 24
     },
     {
      "slug": "belerick",
@@ -8833,16 +8840,9 @@
      "losses": 30
     },
     {
-     "slug": "carmilla",
-     "picks": 46,
-     "bans": 42,
-     "wins": 22,
-     "losses": 24
-    },
-    {
      "slug": "eudora",
      "picks": 60,
-     "bans": 24,
+     "bans": 25,
      "wins": 31,
      "losses": 29
     },
@@ -8877,7 +8877,7 @@
     {
      "slug": "rafaela",
      "picks": 25,
-     "bans": 36,
+     "bans": 37,
      "wins": 17,
      "losses": 8
     },
@@ -8889,18 +8889,18 @@
      "losses": 13
     },
     {
+     "slug": "esmeralda",
+     "picks": 22,
+     "bans": 37,
+     "wins": 7,
+     "losses": 15
+    },
+    {
      "slug": "zhuxin",
      "picks": 30,
      "bans": 28,
      "wins": 18,
      "losses": 12
-    },
-    {
-     "slug": "esmeralda",
-     "picks": 22,
-     "bans": 36,
-     "wins": 7,
-     "losses": 15
     },
     {
      "slug": "gatotkaca",
@@ -8911,10 +8911,17 @@
     },
     {
      "slug": "aulus",
-     "picks": 31,
+     "picks": 32,
      "bans": 24,
-     "wins": 16,
+     "wins": 17,
      "losses": 15
+    },
+    {
+     "slug": "masha",
+     "picks": 8,
+     "bans": 48,
+     "wins": 6,
+     "losses": 2
     },
     {
      "slug": "gloo",
@@ -8924,17 +8931,10 @@
      "losses": 7
     },
     {
-     "slug": "masha",
-     "picks": 8,
-     "bans": 47,
-     "wins": 6,
-     "losses": 2
-    },
-    {
      "slug": "obsidia",
-     "picks": 32,
+     "picks": 33,
      "bans": 16,
-     "wins": 17,
+     "wins": 18,
      "losses": 15
     },
     {
@@ -8960,17 +8960,17 @@
     },
     {
      "slug": "alice",
-     "picks": 19,
+     "picks": 20,
      "bans": 19,
      "wins": 9,
-     "losses": 10
+     "losses": 11
     },
     {
      "slug": "lylia",
-     "picks": 11,
+     "picks": 12,
      "bans": 25,
      "wins": 6,
-     "losses": 5
+     "losses": 6
     },
     {
      "slug": "novaria",
@@ -8987,17 +8987,17 @@
      "losses": 13
     },
     {
+     "slug": "miya",
+     "picks": 21,
+     "bans": 8,
+     "wins": 8,
+     "losses": 13
+    },
+    {
      "slug": "suyou",
      "picks": 23,
      "bans": 5,
      "wins": 11,
-     "losses": 12
-    },
-    {
-     "slug": "miya",
-     "picks": 20,
-     "bans": 8,
-     "wins": 8,
      "losses": 12
     },
     {
@@ -9023,10 +9023,17 @@
     },
     {
      "slug": "kalea",
-     "picks": 13,
+     "picks": 14,
      "bans": 8,
-     "wins": 3,
+     "wins": 4,
      "losses": 10
+    },
+    {
+     "slug": "kimmy",
+     "picks": 17,
+     "bans": 4,
+     "wins": 8,
+     "losses": 9
     },
     {
      "slug": "badang",
@@ -9034,13 +9041,6 @@
      "bans": 11,
      "wins": 3,
      "losses": 7
-    },
-    {
-     "slug": "kimmy",
-     "picks": 16,
-     "bans": 4,
-     "wins": 7,
-     "losses": 9
     },
     {
      "slug": "cici",
@@ -9211,6 +9211,13 @@
      "losses": 1
     },
     {
+     "slug": "zetian",
+     "picks": 2,
+     "bans": 1,
+     "wins": 0,
+     "losses": 2
+    },
+    {
      "slug": "harith",
      "picks": 2,
      "bans": 0,
@@ -9223,13 +9230,6 @@
      "bans": 0,
      "wins": 2,
      "losses": 0
-    },
-    {
-     "slug": "zetian",
-     "picks": 2,
-     "bans": 0,
-     "wins": 0,
-     "losses": 2
     },
     {
      "slug": "estes",
@@ -9354,13 +9354,13 @@
      ],
      "score": [
       1,
-      0
+      1
      ],
      "winner": null,
      "games": [
       {
        "winner": 1,
-       "duration": "24:23",
+       "duration": "24:24",
        "team1Side": "blue",
        "picks": [
         [
@@ -9392,6 +9392,43 @@
          "nolan",
          "alice",
          "dyrroth"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "13:49",
+       "team1Side": "red",
+       "picks": [
+        [
+         "alice",
+         "paquito",
+         "lylia",
+         "miya",
+         "marcel"
+        ],
+        [
+         "barats",
+         "aulus",
+         "kimmy",
+         "obsidia",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "carmilla",
+         "freya",
+         "eudora",
+         "selena"
+        ],
+        [
+         "rafaela",
+         "atlas",
+         "esmeralda",
+         "uranus",
+         "zetian"
         ]
        ]
       }
