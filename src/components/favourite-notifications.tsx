@@ -4,6 +4,7 @@ import { useCallback, useEffect, useId, useState } from "react";
 import { Bell, BellRing } from "lucide-react";
 import Link from "@/components/link";
 import { useLocale, useT } from "@/i18n/provider";
+import { trackEvent } from "@/lib/analytics";
 import { enable, disable, stateCurrent, sync, type NotificationState } from "@/lib/push-client";
 import { cn } from "@/lib/utils";
 
@@ -53,7 +54,9 @@ function useNotifications(favourites: readonly string[]) {
     setBusy(true);
     setError(false);
     try {
-      setState(state === "active" ? await disable() : await enable(locale, favourites));
+      const next = state === "active" ? await disable() : await enable(locale, favourites);
+      setState(next);
+      trackEvent("Notifications", next === "active" ? "Enable" : "Disable", undefined, favourites.length);
     } catch {
       setError(true);
     } finally {

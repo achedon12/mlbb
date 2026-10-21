@@ -49,6 +49,7 @@ import { LANES, ROLES } from "@/lib/draft";
 import { exportImage } from "@/lib/tier-image";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { site } from "@/lib/site";
+import { trackShare } from "@/lib/analytics";
 import type { Lane, Role } from "@/lib/types";
 import { keySearch, cn } from "@/lib/utils";
 
@@ -344,6 +345,7 @@ export function TierListMaker({
         try {
           await navigator.share({ files: [piece], title: titleImage });
           setStatus(t("pages.tierMakerUI.exportShare"));
+          trackShare("Tier list image", "native");
           return;
         } catch (e) {
           if ((e as DOMException).name === "AbortError") {
@@ -361,6 +363,7 @@ export function TierListMaker({
       link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 10_000);
       setStatus(t("pages.tierMakerUI.exportDone"));
+      trackShare("Tier list image", "image");
     } catch {
       setStatus(t("pages.tierMakerUI.exportError"));
     }
@@ -372,6 +375,7 @@ export function TierListMaker({
       try {
         await navigator.share({ url, title: titleImage });
         setStatus(t("pages.tierMakerUI.linkShared"));
+        trackShare("Tier list link", "native");
         return;
       } catch (e) {
         if ((e as DOMException).name === "AbortError") return;
@@ -380,6 +384,7 @@ export function TierListMaker({
     try {
       await navigator.clipboard.writeText(url);
       setStatus(t("pages.tierMakerUI.linkCopied"));
+      trackShare("Tier list link", "clipboard");
     } catch {
       setStatus(t("pages.tierMakerUI.linkError"));
     }

@@ -8,6 +8,7 @@ import Link from "@/components/link";
 import type { Locale } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { prefix } from "@/i18n/links";
+import { trackSiteSearch } from "@/lib/analytics";
 import { ORDER_TYPES, type EntrySearch } from "@/lib/search";
 import { keySearch, cn } from "@/lib/utils";
 
@@ -43,13 +44,17 @@ export function GlobalSearch() {
   const [active, setActive] = useState(0);
   const [entries, setEntries] = useState<EntrySearch[] | null>(null);
   const list = useRef<HTMLDivElement>(null);
+  // The search under way, for the keyboard shortcuts that close the dialog.
+  const abandon = useRef<() => void>(() => {});
 
   useEffect(() => {
     const shortcut = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
+        abandon.current();
         setOpen((o) => !o);
       } else if (e.key === "Escape") {
+        abandon.current();
         setOpen(false);
       }
     };
@@ -107,7 +112,20 @@ export function GlobalSearch() {
     list.current?.querySelector(`[data-index="${active}"]`)?.scrollIntoView({ block: "nearest" });
   }, [active]);
 
-  const close = () => {
+  /**
+   * The search reaches the audience measurement when the dialog closes, once:
+   * filed under the type of the result chosen, or under no category when the
+   * visitor gave up — a term with no result shows what the index lacks.
+   */
+  const record = (chosen?: EntrySearch) => trackSiteSearch(search, chosen?.type ?? false, flat.length);
+  useEffect(() => {
+    abandon.current = () => {
+      if (open) trackSiteSearch(search, false, flat.length);
+    };
+  }, [open, search, flat]);
+
+  const close = (chosen?: EntrySearch) => {
+    record(chosen);
     setOpen(false);
     setSearch("");
     setActive(0);
@@ -140,7 +158,7 @@ export function GlobalSearch() {
     } else if (e.key === "Enter" && flat[active]) {
       e.preventDefault();
       const target = flat[active];
-      close();
+      close(target);
       if (!anchorLocale(target.href)) router.push(prefix(target.href, locale));
     }
   };
@@ -162,7 +180,7 @@ export function GlobalSearch() {
       {open && (
         <div
           className="fixed inset-0 z-50 flex items-start justify-center bg-night-950/80 p-4 pt-[10vh] backdrop-blur-sm"
-          onClick={close}
+          onClick={() => close()}
         >
           <div
             role="dialog"
@@ -216,7 +234,7 @@ export function GlobalSearch() {
                           href={e.href}
                           onClick={(click) => {
                             if (anchorLocale(e.href)) click.preventDefault();
-                            close();
+                            close(e);
                           }}
                           onMouseEnter={() => setActive(i)}
                           className={cn(

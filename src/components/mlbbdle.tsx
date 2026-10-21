@@ -34,6 +34,7 @@ import {
 } from "@/lib/mlbbdle-storage";
 import { shiftDay, dayUtc, currentStreak, STATS_EMPTY, type StatsQuiz } from "@/lib/quiz";
 import { loadPool } from "@/lib/quiz-storage";
+import { trackEvent, trackShare } from "@/lib/analytics";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -123,6 +124,7 @@ export function Mlbbdle({ heroes, labels }: { heroes: MlbbdleHero[]; labels: Rec
       const updated = recordWin(readStats(m), day, next[m].length);
       writeStats(m, updated);
       setStats((s) => ({ ...s, [m]: updated }));
+      trackEvent("MLBBdle", "Solve", m, next[m].length);
       shouldFocus.current = true;
     }
   }
@@ -310,6 +312,7 @@ function WinPanel({
       try {
         await navigator.share({ text });
         setStatus("shared");
+        trackShare("MLBBdle", "native");
         return;
       } catch (e) {
         if ((e as DOMException).name === "AbortError") return;
@@ -318,6 +321,7 @@ function WinPanel({
     try {
       await navigator.clipboard.writeText(text);
       setStatus("copied");
+      trackShare("MLBBdle", "clipboard");
     } catch {
       setStatus("error");
     }
