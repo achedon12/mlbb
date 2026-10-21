@@ -382,7 +382,7 @@
         "1231": "/visuels/heros/cici/skins/1231-buoyant-performer.webp",
         "1232": "/visuels/heros/cici/skins/1232-whimsical-carnival.webp",
         "1233": "/visuels/heros/cici/skins/1233-circus-reverie.webp",
-        "1255": "/visuels/heros/cici/skins/1255-p-ace-cici.webp"
+        "1234": "/visuels/heros/cici/skins/1234-p-ace-cici.webp"
       }
     },
     "claude": {
@@ -4243,7 +4243,11 @@
     "vitality": "/visuels/talents/vitality.webp",
     "weakness-finder": "/visuels/talents/weakness-finder.webp",
     "lethal-ignition": "/visuels/talents/lethal-ignition.webp",
-    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp"
+    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp",
+    "weapons-master": "/visuels/talents/weapons-master.webp",
+    "rupture": "/visuels/talents/rupture.webp",
+    "temporal-reign": "/visuels/talents/temporal-reign.webp",
+    "war-cry": "/visuels/talents/war-cry.webp"
   },
   "spells": {
     "retribution": "/visuels/sorts/retribution.webp",
@@ -4256,6 +4260,7 @@
     "arrival": "/visuels/sorts/arrival.webp",
     "sprint": "/visuels/sorts/sprint.webp",
     "vengeance": "/visuels/sorts/vengeance.webp",
-    "revitalize": "/visuels/sorts/revitalize.webp"
+    "revitalize": "/visuels/sorts/revitalize.webp",
+    "flameshot": "/visuels/sorts/flameshot.webp"
   }
 }
