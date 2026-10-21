@@ -1089,6 +1089,7 @@
         "189": "/visuels/heros/layla/skins/189-miss-hikari.webp",
         "101810": "/visuels/heros/layla/skins/101810-twilight-waltz.webp",
         "101811": "/visuels/heros/layla/skins/101811-paranormal-operative.webp",
+        "101812": "/visuels/heros/layla/skins/101812-the-beacon.webp",
         "101813": "/visuels/heros/layla/skins/101813-prismatic-rhythm.webp"
       }
     },
@@ -4242,11 +4243,7 @@
     "vitality": "/visuels/talents/vitality.webp",
     "weakness-finder": "/visuels/talents/weakness-finder.webp",
     "lethal-ignition": "/visuels/talents/lethal-ignition.webp",
-    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp",
-    "weapons-master": "/visuels/talents/weapons-master.webp",
-    "rupture": "/visuels/talents/rupture.webp",
-    "temporal-reign": "/visuels/talents/temporal-reign.webp",
-    "war-cry": "/visuels/talents/war-cry.webp"
+    "wilderness-blessing": "/visuels/talents/wilderness-blessing.webp"
   },
   "spells": {
     "retribution": "/visuels/sorts/retribution.webp",
@@ -4259,7 +4256,6 @@
     "arrival": "/visuels/sorts/arrival.webp",
     "sprint": "/visuels/sorts/sprint.webp",
     "vengeance": "/visuels/sorts/vengeance.webp",
-    "revitalize": "/visuels/sorts/revitalize.webp",
-    "flameshot": "/visuels/sorts/flameshot.webp"
+    "revitalize": "/visuels/sorts/revitalize.webp"
   }
 }

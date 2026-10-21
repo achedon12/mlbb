@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-19T02:34:45Z",
+ "updatedAt": "2026-10-21T12:30:30Z",
  "source": {
   "name": "Liquipedia",
   "url": "https://liquipedia.net/mobilelegends/",
@@ -23,15 +23,15 @@
     "currency": "USD"
    },
    "teamCount": 23,
-   "city": "Bangkok",
-   "country": "Thailand",
+   "city": "Istanbul",
+   "country": "tr",
    "patch": null,
    "endPatch": null,
    "sources": [
     {
      "title": "M8 World Championship",
      "url": "https://liquipedia.net/mobilelegends/M8_World_Championship",
-     "revision": "2026-10-18T17:20:29Z"
+     "revision": "2026-10-21T09:07:31Z"
     }
    ],
    "stages": [],
@@ -6280,7 +6280,7 @@
     {
      "title": "MPL/Indonesia/Season 18",
      "url": "https://liquipedia.net/mobilelegends/MPL/Indonesia/Season_18",
-     "revision": "2026-10-18T14:47:05Z"
+     "revision": "2026-10-20T05:26:18Z"
     },
     {
      "title": "MPL/Indonesia/Season 18/Regular Season",
@@ -8424,7 +8424,7 @@
     {
      "title": "MPL/Philippines/Season 18",
      "url": "https://liquipedia.net/mobilelegends/MPL/Philippines/Season_18",
-     "revision": "2026-10-19T02:34:45Z"
+     "revision": "2026-10-21T09:53:14Z"
     },
     {
      "title": "MPL/Philippines/Season 18/Regular Season",
@@ -8434,7 +8434,7 @@
     {
      "title": "MPL/Philippines/Season 18/Playoffs",
      "url": "https://liquipedia.net/mobilelegends/MPL/Philippines/Season_18/Playoffs",
-     "revision": "2026-10-18T00:55:08Z"
+     "revision": "2026-10-21T12:30:30Z"
     }
    ],
    "stages": [
@@ -8568,11 +8568,8 @@
        "label": null,
        "rounds": [
         {
-         "title": "Upper Bracket Quarterfinals",
-         "label": {
-          "kind": "quarterfinal",
-          "side": "upper"
-         },
+         "title": "Play-ins",
+         "label": null,
          "number": 1,
          "matches": [
           {
@@ -8585,10 +8582,10 @@
             null
            ],
            "score": [
-            0,
-            0
+            3,
+            2
            ],
-           "winner": null,
+           "winner": 1,
            "date": "2026-10-21T07:00:00Z"
           },
           {
@@ -8601,11 +8598,11 @@
             null
            ],
            "score": [
-            0,
+            1,
             0
            ],
            "winner": null,
-           "date": "2026-10-21T11:00:00Z"
+           "date": "2026-10-21T12:00:00Z"
           }
          ]
         },
@@ -8620,7 +8617,7 @@
           {
            "teams": [
             "Team Falcons PH",
-            null
+            "ONIC Philippines"
            ],
            "placeholders": [
             null,
@@ -8759,81 +8756,88 @@
      ]
     }
    ],
-   "games": 134,
-   "matches": 56,
-   "lastMatch": "2026-09-06T09:00:00Z",
-   "nextMatch": "2026-10-21T07:00:00Z",
+   "games": 140,
+   "matches": 57,
+   "lastMatch": "2026-10-21T07:00:00Z",
+   "nextMatch": "2026-10-21T12:00:00Z",
    "champion": null,
    "heroes": [
     {
      "slug": "freya",
-     "picks": 17,
-     "bans": 117,
-     "wins": 12,
+     "picks": 21,
+     "bans": 119,
+     "wins": 16,
      "losses": 5
     },
     {
-     "slug": "hirara",
-     "picks": 101,
-     "bans": 32,
-     "wins": 42,
-     "losses": 59
-    },
-    {
      "slug": "atlas",
-     "picks": 22,
-     "bans": 110,
-     "wins": 13,
+     "picks": 24,
+     "bans": 114,
+     "wins": 15,
      "losses": 9
     },
     {
+     "slug": "hirara",
+     "picks": 103,
+     "bans": 33,
+     "wins": 44,
+     "losses": 59
+    },
+    {
      "slug": "paquito",
-     "picks": 61,
+     "picks": 63,
      "bans": 58,
-     "wins": 36,
-     "losses": 25
+     "wins": 37,
+     "losses": 26
     },
     {
      "slug": "fanny",
      "picks": 13,
-     "bans": 88,
+     "bans": 89,
      "wins": 7,
      "losses": 6
     },
     {
      "slug": "uranus",
-     "picks": 34,
-     "bans": 60,
+     "picks": 35,
+     "bans": 62,
      "wins": 18,
-     "losses": 16
+     "losses": 17
+    },
+    {
+     "slug": "marcel",
+     "picks": 32,
+     "bans": 63,
+     "wins": 17,
+     "losses": 15
+    },
+    {
+     "slug": "barats",
+     "picks": 40,
+     "bans": 54,
+     "wins": 21,
+     "losses": 19
     },
     {
      "slug": "selena",
      "picks": 35,
-     "bans": 58,
+     "bans": 59,
      "wins": 17,
      "losses": 18
     },
     {
-     "slug": "barats",
-     "picks": 39,
-     "bans": 52,
-     "wins": 20,
-     "losses": 19
-    },
-    {
-     "slug": "marcel",
-     "picks": 31,
-     "bans": 58,
-     "wins": 16,
-     "losses": 15
-    },
-    {
      "slug": "belerick",
-     "picks": 62,
+     "picks": 63,
      "bans": 25,
-     "wins": 32,
+     "wins": 33,
      "losses": 30
+    },
+    {
+     "slug": "carmilla",
+     "picks": 46,
+     "bans": 42,
+     "wins": 22,
+     "losses": 24
     },
     {
      "slug": "eudora",
@@ -8843,11 +8847,11 @@
      "losses": 29
     },
     {
-     "slug": "carmilla",
-     "picks": 45,
-     "bans": 37,
-     "wins": 22,
-     "losses": 23
+     "slug": "nolan",
+     "picks": 48,
+     "bans": 28,
+     "wins": 31,
+     "losses": 17
     },
     {
      "slug": "melissa",
@@ -8864,23 +8868,16 @@
      "losses": 27
     },
     {
-     "slug": "nolan",
-     "picks": 45,
-     "bans": 26,
-     "wins": 30,
-     "losses": 15
-    },
-    {
      "slug": "valentina",
-     "picks": 40,
-     "bans": 24,
+     "picks": 41,
+     "bans": 28,
      "wins": 19,
-     "losses": 21
+     "losses": 22
     },
     {
      "slug": "rafaela",
      "picks": 25,
-     "bans": 35,
+     "bans": 36,
      "wins": 17,
      "losses": 8
     },
@@ -8892,11 +8889,32 @@
      "losses": 13
     },
     {
+     "slug": "zhuxin",
+     "picks": 30,
+     "bans": 28,
+     "wins": 18,
+     "losses": 12
+    },
+    {
+     "slug": "esmeralda",
+     "picks": 22,
+     "bans": 36,
+     "wins": 7,
+     "losses": 15
+    },
+    {
      "slug": "gatotkaca",
-     "picks": 47,
+     "picks": 48,
      "bans": 9,
-     "wins": 19,
+     "wins": 20,
      "losses": 28
+    },
+    {
+     "slug": "aulus",
+     "picks": 31,
+     "bans": 24,
+     "wins": 16,
+     "losses": 15
     },
     {
      "slug": "gloo",
@@ -8906,32 +8924,18 @@
      "losses": 7
     },
     {
-     "slug": "zhuxin",
-     "picks": 27,
-     "bans": 25,
-     "wins": 16,
-     "losses": 11
-    },
-    {
-     "slug": "esmeralda",
-     "picks": 21,
-     "bans": 31,
-     "wins": 7,
-     "losses": 14
-    },
-    {
-     "slug": "aulus",
-     "picks": 28,
-     "bans": 22,
-     "wins": 14,
-     "losses": 14
-    },
-    {
      "slug": "masha",
-     "picks": 6,
-     "bans": 43,
-     "wins": 5,
-     "losses": 1
+     "picks": 8,
+     "bans": 47,
+     "wins": 6,
+     "losses": 2
+    },
+    {
+     "slug": "obsidia",
+     "picks": 32,
+     "bans": 16,
+     "wins": 17,
+     "losses": 15
     },
     {
      "slug": "brody",
@@ -8941,18 +8945,11 @@
      "losses": 21
     },
     {
-     "slug": "obsidia",
-     "picks": 29,
-     "bans": 14,
-     "wins": 16,
-     "losses": 13
-    },
-    {
      "slug": "claude",
-     "picks": 33,
+     "picks": 36,
      "bans": 7,
-     "wins": 21,
-     "losses": 12
+     "wins": 23,
+     "losses": 13
     },
     {
      "slug": "clint",
@@ -8963,10 +8960,17 @@
     },
     {
      "slug": "alice",
-     "picks": 18,
-     "bans": 15,
-     "wins": 8,
+     "picks": 19,
+     "bans": 19,
+     "wins": 9,
      "losses": 10
+    },
+    {
+     "slug": "lylia",
+     "picks": 11,
+     "bans": 25,
+     "wins": 6,
+     "losses": 5
     },
     {
      "slug": "novaria",
@@ -8976,13 +8980,6 @@
      "losses": 11
     },
     {
-     "slug": "lylia",
-     "picks": 8,
-     "bans": 24,
-     "wins": 3,
-     "losses": 5
-    },
-    {
      "slug": "moskov",
      "picks": 20,
      "bans": 10,
@@ -8990,39 +8987,67 @@
      "losses": 13
     },
     {
+     "slug": "suyou",
+     "picks": 23,
+     "bans": 5,
+     "wins": 11,
+     "losses": 12
+    },
+    {
      "slug": "miya",
-     "picks": 19,
+     "picks": 20,
      "bans": 8,
-     "wins": 7,
+     "wins": 8,
      "losses": 12
     },
     {
      "slug": "hylos",
-     "picks": 22,
+     "picks": 23,
      "bans": 4,
-     "wins": 11,
+     "wins": 12,
      "losses": 11
     },
     {
-     "slug": "suyou",
-     "picks": 21,
-     "bans": 5,
-     "wins": 11,
-     "losses": 10
+     "slug": "harley",
+     "picks": 11,
+     "bans": 14,
+     "wins": 4,
+     "losses": 7
     },
     {
      "slug": "ruby",
-     "picks": 11,
+     "picks": 12,
      "bans": 11,
      "wins": 7,
-     "losses": 4
+     "losses": 5
     },
     {
-     "slug": "harley",
+     "slug": "kalea",
+     "picks": 13,
+     "bans": 8,
+     "wins": 3,
+     "losses": 10
+    },
+    {
+     "slug": "badang",
      "picks": 10,
-     "bans": 12,
-     "wins": 4,
-     "losses": 6
+     "bans": 11,
+     "wins": 3,
+     "losses": 7
+    },
+    {
+     "slug": "kimmy",
+     "picks": 16,
+     "bans": 4,
+     "wins": 7,
+     "losses": 9
+    },
+    {
+     "slug": "cici",
+     "picks": 13,
+     "bans": 7,
+     "wins": 5,
+     "losses": 8
     },
     {
      "slug": "angela",
@@ -9032,18 +9057,11 @@
      "losses": 6
     },
     {
-     "slug": "badang",
-     "picks": 10,
-     "bans": 10,
-     "wins": 3,
-     "losses": 7
-    },
-    {
-     "slug": "kimmy",
-     "picks": 13,
-     "bans": 4,
-     "wins": 6,
-     "losses": 7
+     "slug": "lukas",
+     "picks": 9,
+     "bans": 9,
+     "wins": 4,
+     "losses": 5
     },
     {
      "slug": "kaja",
@@ -9060,31 +9078,17 @@
      "losses": 5
     },
     {
-     "slug": "cici",
-     "picks": 11,
-     "bans": 5,
-     "wins": 4,
-     "losses": 7
-    },
-    {
-     "slug": "lukas",
-     "picks": 8,
-     "bans": 7,
-     "wins": 4,
-     "losses": 4
-    },
-    {
-     "slug": "kalea",
-     "picks": 7,
-     "bans": 8,
-     "wins": 3,
-     "losses": 4
-    },
-    {
      "slug": "chou",
      "picks": 10,
      "bans": 3,
      "wins": 4,
+     "losses": 6
+    },
+    {
+     "slug": "phoveus",
+     "picks": 9,
+     "bans": 3,
+     "wins": 3,
      "losses": 6
     },
     {
@@ -9109,11 +9113,11 @@
      "losses": 1
     },
     {
-     "slug": "phoveus",
-     "picks": 8,
-     "bans": 3,
+     "slug": "dyrroth",
+     "picks": 5,
+     "bans": 6,
      "wins": 3,
-     "losses": 5
+     "losses": 2
     },
     {
      "slug": "bruno",
@@ -9121,13 +9125,6 @@
      "bans": 2,
      "wins": 2,
      "losses": 5
-    },
-    {
-     "slug": "dyrroth",
-     "picks": 5,
-     "bans": 4,
-     "wins": 3,
-     "losses": 2
     },
     {
      "slug": "sora",
@@ -9144,11 +9141,25 @@
      "losses": 1
     },
     {
+     "slug": "yve",
+     "picks": 4,
+     "bans": 3,
+     "wins": 3,
+     "losses": 1
+    },
+    {
      "slug": "karrie",
      "picks": 6,
      "bans": 0,
      "wins": 3,
      "losses": 3
+    },
+    {
+     "slug": "pharsa",
+     "picks": 6,
+     "bans": 0,
+     "wins": 4,
+     "losses": 2
     },
     {
      "slug": "beatrix",
@@ -9163,20 +9174,6 @@
      "bans": 2,
      "wins": 1,
      "losses": 3
-    },
-    {
-     "slug": "yve",
-     "picks": 3,
-     "bans": 3,
-     "wins": 3,
-     "losses": 0
-    },
-    {
-     "slug": "pharsa",
-     "picks": 5,
-     "bans": 0,
-     "wins": 4,
-     "losses": 1
     },
     {
      "slug": "khufra",
@@ -9348,6 +9345,258 @@
     }
    ],
    "drafts": [
+    {
+     "date": "2026-10-21T12:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "Aurora Gaming PH",
+      "Omega Esports"
+     ],
+     "score": [
+      1,
+      0
+     ],
+     "winner": null,
+     "games": [
+      {
+       "winner": 1,
+       "duration": "24:23",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "barats",
+         "hirara",
+         "zhuxin",
+         "freya",
+         "gatotkaca"
+        ],
+        [
+         "carmilla",
+         "harley",
+         "yve",
+         "paquito",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "atlas",
+         "marcel",
+         "cici",
+         "uranus"
+        ],
+        [
+         "rafaela",
+         "masha",
+         "nolan",
+         "alice",
+         "dyrroth"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "date": "2026-10-21T07:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "ONIC Philippines",
+      "TNC Pro Team"
+     ],
+     "score": [
+      3,
+      2
+     ],
+     "winner": 1,
+     "games": [
+      {
+       "winner": 2,
+       "duration": "16:48",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "kalea",
+         "nolan",
+         "pharsa",
+         "cici",
+         "masha"
+        ],
+        [
+         "freya",
+         "aulus",
+         "kimmy",
+         "obsidia",
+         "hylos"
+        ]
+       ],
+       "bans": [
+        [
+         "zhuxin",
+         "esmeralda",
+         "atlas",
+         "marcel",
+         "badang"
+        ],
+        [
+         "carmilla",
+         "lukas",
+         "valentina",
+         "selena",
+         "lylia"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "16:05",
+       "team1Side": "red",
+       "picks": [
+        [
+         "alice",
+         "aulus",
+         "zhuxin",
+         "claude",
+         "marcel"
+        ],
+        [
+         "uranus",
+         "suyou",
+         "kimmy",
+         "obsidia",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "atlas",
+         "valentina",
+         "nolan",
+         "harley"
+        ],
+        [
+         "carmilla",
+         "esmeralda",
+         "freya",
+         "barats",
+         "lukas"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "14:08",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "freya",
+         "nolan",
+         "lylia",
+         "claude",
+         "atlas"
+        ],
+        [
+         "phoveus",
+         "suyou",
+         "valentina",
+         "obsidia",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "zhuxin",
+         "aulus",
+         "esmeralda",
+         "fanny",
+         "harley"
+        ],
+        [
+         "carmilla",
+         "masha",
+         "marcel",
+         "alice",
+         "barats"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "17:00",
+       "team1Side": "red",
+       "picks": [
+        [
+         "lukas",
+         "nolan",
+         "zhuxin",
+         "claude",
+         "kalea"
+        ],
+        [
+         "freya",
+         "paquito",
+         "lylia",
+         "miya",
+         "atlas"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "aulus",
+         "marcel",
+         "obsidia",
+         "hirara"
+        ],
+        [
+         "carmilla",
+         "esmeralda",
+         "valentina",
+         "cici",
+         "alice"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "20:52",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "belerick",
+         "hirara",
+         "lylia",
+         "cici",
+         "masha"
+        ],
+        [
+         "esmeralda",
+         "aulus",
+         "kimmy",
+         "ruby",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "zhuxin",
+         "atlas",
+         "valentina",
+         "obsidia",
+         "uranus"
+        ],
+        [
+         "carmilla",
+         "freya",
+         "marcel",
+         "alice",
+         "dyrroth"
+        ]
+       ]
+      }
+     ]
+    },
     {
      "date": "2026-09-06T09:00:00Z",
      "stage": "Regular Season",
@@ -10207,184 +10456,6 @@
        ]
       }
      ]
-    },
-    {
-     "date": "2026-08-22T11:30:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "Team Falcons PH",
-      "TNC Pro Team"
-     ],
-     "score": [
-      2,
-      0
-     ],
-     "winner": 1,
-     "games": [
-      {
-       "winner": 1,
-       "duration": "10:32",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "belerick",
-         "nolan",
-         "vexana",
-         "paquito",
-         "rafaela"
-        ],
-        [
-         "alice",
-         "hirara",
-         "angela",
-         "claude",
-         "gloo"
-        ]
-       ],
-       "bans": [
-        [
-         "atlas",
-         "melissa",
-         "barats",
-         "eudora",
-         "novaria"
-        ],
-        [
-         "freya",
-         "marcel",
-         "fanny",
-         "moskov",
-         "lylia"
-        ]
-       ]
-      },
-      {
-       "winner": 1,
-       "duration": "19:57",
-       "team1Side": "red",
-       "picks": [
-        [
-         "lapu-lapu",
-         "paquito",
-         "rafaela",
-         "moskov",
-         "belerick"
-        ],
-        [
-         "barats",
-         "hirara",
-         "lylia",
-         "brody",
-         "badang"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "melissa",
-         "uranus",
-         "mathilda",
-         "valentina"
-        ],
-        [
-         "marcel",
-         "atlas",
-         "fanny",
-         "nolan",
-         "hanabi"
-        ]
-       ]
-      }
-     ]
-    },
-    {
-     "date": "2026-08-22T09:00:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "Omega Esports",
-      "Team Liquid PH"
-     ],
-     "score": [
-      0,
-      2
-     ],
-     "winner": 2,
-     "games": [
-      {
-       "winner": 2,
-       "duration": "11:08",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "dyrroth",
-         "ling",
-         "eudora",
-         "brody",
-         "atlas"
-        ],
-        [
-         "uranus",
-         "harley",
-         "novaria",
-         "clint",
-         "mathilda"
-        ]
-       ],
-       "bans": [
-        [
-         "marcel",
-         "melissa",
-         "hirara",
-         "claude",
-         "hanzo"
-        ],
-        [
-         "freya",
-         "paquito",
-         "fanny",
-         "nolan",
-         "hayabusa"
-        ]
-       ]
-      },
-      {
-       "winner": 2,
-       "duration": "18:58",
-       "team1Side": "red",
-       "picks": [
-        [
-         "barats",
-         "hirara",
-         "valentina",
-         "clint",
-         "angela"
-        ],
-        [
-         "belerick",
-         "paquito",
-         "novaria",
-         "claude",
-         "rafaela"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "marcel",
-         "uranus",
-         "esmeralda",
-         "phoveus"
-        ],
-        [
-         "fanny",
-         "melissa",
-         "atlas",
-         "mathilda",
-         "kaja"
-        ]
-       ]
-      }
-     ]
     }
    ]
   },
@@ -10409,7 +10480,7 @@
     {
      "title": "MPL/Malaysia/Season 18",
      "url": "https://liquipedia.net/mobilelegends/MPL/Malaysia/Season_18",
-     "revision": "2026-10-17T13:58:34Z"
+     "revision": "2026-10-20T13:39:55Z"
     },
     {
      "title": "MPL/Malaysia/Season 18/Regular Season",
