@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { extractIllustrations, normalizeNameSkin } from "../../scripts/gallery.mjs";
+import { distinctSkinIds, extractIllustrations, normalizeNameSkin } from "../../scripts/gallery.mjs";
 
 describe("extractIllustrations", () => {
   it("reads galleries from the 'Splash art' section and its subsections", () => {
@@ -43,5 +43,33 @@ describe("normalizeNameSkin", () => {
   it("matches regardless of case, accents, punctuation and qualifiers", () => {
     expect(normalizeNameSkin("Vessel Of Deceit")).toBe(normalizeNameSkin("Vessel of Deceit"));
     expect(normalizeNameSkin("Épée & Bouclier (Starlight)")).toBe("epeeandbouclier");
+  });
+});
+
+describe("distinctSkinIds", () => {
+  it("gives a skin copied with another hero's id its wiki key", () => {
+    const { ids, rewritten } = distinctSkinIds([
+      { hero: "cici", key: "1234", id: "1255" },
+      { hero: "zhuxin", key: "1255", id: "1255" },
+    ]);
+    expect(ids).toEqual(["1234", "1255"]);
+    expect(rewritten.map((e) => e.hero)).toEqual(["cici"]);
+  });
+
+  it("leaves colour variants of one hero sharing their base id", () => {
+    const { ids } = distinctSkinIds([
+      { hero: "alucard", key: "012", id: "012" },
+      { hero: "alucard", key: "012-color01", id: "012" },
+    ]);
+    expect(ids).toEqual(["012", "012"]);
+  });
+
+  it("never takes a key another skin already uses as its id", () => {
+    const { ids } = distinctSkinIds([
+      { hero: "a", key: "2", id: "1" },
+      { hero: "b", key: "1", id: "1" },
+      { hero: "c", key: "2", id: "2" },
+    ]);
+    expect(ids).toEqual(["1", "1", "2"]);
   });
 });

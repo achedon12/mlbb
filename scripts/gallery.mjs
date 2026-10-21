@@ -60,3 +60,29 @@ export function normalizeNameSkin(name) {
     .replace(/&/g, "and")
     .replace(/[^a-z0-9]/g, "");
 }
+
+/**
+ * One id per skin across heroes. The wiki module keys each skin by its id,
+ * but a copied entry can keep its model's `id` field: in October 2026, P.ACE
+ * Cici (key 1234) still said 1255, P.ACE Zhuxin's id, and the collection
+ * calculator, which stores owned skins by id, ticked both. On such a clash
+ * between two heroes, the entry whose key differs from its `id` takes its key
+ * — the one the wiki itself files it under. Colour variants share their base
+ * skin's id within one hero, on purpose: they are left alone.
+ *
+ * `entries` holds { hero, key, id }; returns the ids to use, in order, and
+ * the entries rewritten.
+ */
+export function distinctSkinIds(entries) {
+  const heroesById = new Map();
+  for (const e of entries) heroesById.set(e.id, (heroesById.get(e.id) ?? new Set()).add(e.hero));
+  const ids = new Set(entries.map((e) => e.id));
+  const rewritten = [];
+  const result = entries.map((e) => {
+    if (heroesById.get(e.id).size < 2 || e.key === e.id || ids.has(e.key)) return e.id;
+    rewritten.push(e);
+    ids.add(e.key);
+    return e.key;
+  });
+  return { ids: result, rewritten };
+}
