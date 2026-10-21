@@ -26,7 +26,7 @@ import {
   cleanLore,
 } from "./wikitext.mjs";
 import { heroAdjustments, summary } from "./patch-parser.mjs";
-import { extractIllustrations, normalizeNameSkin } from "./gallery.mjs";
+import { distinctSkinIds, extractIllustrations, normalizeNameSkin } from "./gallery.mjs";
 import {
   rounded,
   chooseGuide,
@@ -36,6 +36,7 @@ import {
   mergeHistory,
   serializeDuos,
   dailyStreak,
+  keepMissingRanks,
   keepUnservedHeroes,
 } from "./measures.mjs";
 
@@ -108,11 +109,21 @@ async function moduleLua(title) {
 function normalizeSkins(raw) {
   const byHero = {};
 
+  // Each skin's id, once told apart from another hero's (see distinctSkinIds).
+  const listed = Object.entries(raw).flatMap(([heroName, entry]) =>
+    Object.entries(entry?.skins ?? {})
+      .filter(([, s]) => !empty(s.id) && !empty(s.name))
+      .map(([key, s]) => ({ hero: slugify(heroName), key, id: String(s.id), skin: s })),
+  );
+  const { ids, rewritten } = distinctSkinIds(listed);
+  for (const e of rewritten) console.warn(`  skin ${e.skin.name}: id ${e.id} taken by another hero, wiki key ${e.key} used`);
+  const idOf = new Map(listed.map((e, i) => [e.skin, ids[i]]));
+
   for (const [heroName, entry] of Object.entries(raw)) {
     const skins = Object.values(entry?.skins ?? {})
       .filter((s) => !empty(s.id) && !empty(s.name))
       .map((s) => ({
-        id: String(s.id),
+        id: idOf.get(s),
         name: String(s.name),
         release: clean(s.release)?.replace(/-XX/g, "") ?? null,
         availability: clean(s.availability),
@@ -1159,8 +1170,8 @@ async function ranking(heroes) {
   const results = await Promise.allSettled(MEASURED_RANKS.map(rateOfRank));
 
   // Without the all-ranks measurement, the tier list has no basis: fail, and
-  // the caller keeps the previous ranking. Any other missing rank is simply
-  // omitted.
+  // the caller keeps the previous ranking. Any other missing rank keeps its
+  // previous measurement when the file is written.
   if (results[0].status === "rejected") throw results[0].reason;
   const { orphans } = results[0].value;
   if (orphans.length) console.log(`  unmatched: ${orphans.join(", ")}`);
@@ -2043,9 +2054,12 @@ async function main() {
     if (next && kept.length) console.warn(`  ${name}: ${kept.length} heroes not served this run, previous values kept`);
     return merged;
   };
+  const ranksBefore = statsExisting.rankings?.byRank ?? {};
+  const ranksKept = stats ? Object.keys(ranksBefore).filter((r) => !(r in stats)) : [];
+  if (ranksKept.length) console.warn(`  ranking: ${ranksKept.join(", ")} not served this run, previous values kept`);
   const statistics = {
     rankings: stats
-      ? { measuredAt: new Date().toISOString(), rates: stats.all, byRank: stats }
+      ? { measuredAt: new Date().toISOString(), rates: stats.all, byRank: keepMissingRanks(ranksBefore, stats) }
       : (statsExisting.rankings ?? { measuredAt: null, rates: {} }),
     counters: perHero("counters", counters),
     builds: perHero("builds", builds),
