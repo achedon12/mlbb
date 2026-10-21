@@ -247,6 +247,21 @@ const ORDER_COMBOS = ["laning", "teamfight"];
 const typeCombo = (title) => ORDER_COMBOS.find((t) => normalizeName(title).startsWith(t)) ?? null;
 
 /**
+ * The address behind an image proxy. The API started serving its icons
+ * through wsrv.nl (`https://wsrv.nl/?url=<original>`), a host `next/image`
+ * does not allow: every combo icon came back as an error. The original, on
+ * Moonton's CDN, is allowed.
+ */
+export function withoutProxy(address) {
+  try {
+    const u = new URL(address);
+    return u.hostname === "wsrv.nl" && u.searchParams.get("url") ? u.searchParams.get("url") : address;
+  } catch {
+    return address;
+  }
+}
+
+/**
  * A hero's combos, from the API records (`skill-combos`).
  *
  * Each skill arrives there as a game identifier. The hero's API sheet
@@ -264,7 +279,7 @@ export function heroCombos(records, skills, skillsSite, icons) {
 
   const toSkill = (raw) => {
     const id = raw?.data?.skillid;
-    const remote = raw?.data?.skillicon ? String(raw.data.skillicon) : null;
+    const remote = raw?.data?.skillicon ? withoutProxy(String(raw.data.skillicon)) : null;
     const skill = byId.get(id);
     if (!skill) return id % 100 === 0 ? { name: null, icon: remote, basicAttack: true } : { name: null, icon: remote };
     const key = normalizeName(skill.name);

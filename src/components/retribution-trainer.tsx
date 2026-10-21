@@ -50,6 +50,7 @@ import {
   type Records,
   type Result,
 } from "@/lib/retribution";
+import { trackShare } from "@/lib/analytics";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -666,6 +667,7 @@ export function RetributionTrainer({ address }: { address: string }) {
     try {
       await navigator.clipboard.writeText(`${text} ${address}`);
       report("copied");
+      trackShare("Retribution", "clipboard");
     } catch {
       report("error");
     }
@@ -683,8 +685,10 @@ export function RetributionTrainer({ address }: { address: string }) {
             : null;
       if (file && navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], title: t("tools.retribution.mapTitle"), text: `${text} ${address}` });
+        trackShare("Retribution", "native");
       } else if (typeof navigator.share === "function") {
         await navigator.share({ title: t("tools.retribution.mapTitle"), text, url: address });
+        trackShare("Retribution", "native");
       } else {
         await copy();
       }
@@ -1252,6 +1256,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               <a
                 href={preview}
                 download="mlbbdex-retribution.png"
+                onClick={() => trackShare("Retribution", "image")}
                 className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Download size={16} aria-hidden />
@@ -1262,6 +1267,7 @@ export function RetributionTrainer({ address }: { address: string }) {
               <a
                 href={video.url}
                 download={`mlbbdex-retribution.${video.extension}`}
+                onClick={() => trackShare("Retribution video", "image")}
                 className="bevel-sm inline-flex items-center gap-2 border border-night-600 px-4 py-2 text-sm font-semibold text-chalk-200 transition-colors hover:border-gold-500/60 hover:text-gold-400"
               >
                 <Film size={16} aria-hidden />

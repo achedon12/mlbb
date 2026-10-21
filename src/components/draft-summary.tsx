@@ -20,6 +20,7 @@ import {
 import { LANES } from "@/lib/draft";
 import { matchupsBetween, measuredAdvantage, type Side, type SimulationHero } from "@/lib/draft-simulation";
 import type { MeasuredRank } from "@/lib/measured-ranks";
+import { trackShare } from "@/lib/analytics";
 import { formatGap } from "@/lib/trends";
 import { cn } from "@/lib/utils";
 
@@ -102,6 +103,7 @@ export function DraftSummary({
     try {
       await navigator.clipboard.writeText(address);
       setCopied("ok");
+      trackShare("Draft", "clipboard");
     } catch {
       setCopied("error");
     }

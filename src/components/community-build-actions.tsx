@@ -6,6 +6,7 @@ import { Send, ThumbsUp, Trash2 } from "lucide-react";
 import Link from "@/components/link";
 import { useLocale, useT } from "@/i18n/provider";
 import { prefix } from "@/i18n/links";
+import { trackEvent } from "@/lib/analytics";
 import type { BuildCode } from "@/lib/build-code";
 import { LIMITS, NOTES_MAX, TITLE_MAX, TITLE_MIN } from "@/lib/community-builds";
 import { cn } from "@/lib/utils";
@@ -55,7 +56,9 @@ export function VoteButton({
     try {
       const r = await fetch(`/api/builds/${id}/vote`, { method: "POST" });
       if (r.ok) {
-        setState((await r.json()) as { votes: number; voted: boolean });
+        const next = (await r.json()) as { votes: number; voted: boolean };
+        setState(next);
+        trackEvent("Community builds", next.voted ? "Vote" : "Unvote");
       } else if (r.status === 401) {
         setError(t("pages.communityBuildsUI.errors.signIn"));
       } else if (r.status === 429) {
@@ -196,6 +199,7 @@ export function PublishBuild({ build }: { build: BuildCode }) {
       if (r.status === 201) {
         const d = (await r.json()) as { id: string; hero: string };
         setStatus({ type: "done", id: d.id, hero: d.hero });
+        trackEvent("Community builds", "Publish", d.hero);
         setTitle("");
         setNotes("");
         return;

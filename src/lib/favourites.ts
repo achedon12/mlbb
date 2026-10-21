@@ -1,3 +1,5 @@
+import { trackEvent } from "@/lib/analytics";
+
 /**
  * Favourites.
  *
@@ -35,6 +37,7 @@ export function toggleFavourite(slug: string): boolean {
     /* storage unavailable: the favourite does not persist, without breaking the page */
   }
 
+  trackEvent("Favourites", present ? "Remove" : "Add", slug);
   return !present;
 }
 
