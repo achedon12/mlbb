@@ -31,6 +31,7 @@ import {
   type Summary,
 } from "@/lib/collection";
 import type { Role } from "@/lib/types";
+import { trackShare } from "@/lib/analytics";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
 import { keySearch, cn } from "@/lib/utils";
 
@@ -223,10 +224,12 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
       if (typeof navigator.share === "function") {
         await navigator.share({ title: t("pages.collectionUI.summaryTitle"), text, url });
         setShare("shared");
+        trackShare("Collection", "native");
         return;
       }
       await navigator.clipboard.writeText(`${text}\n${url}`);
       setShare("copied");
+      trackShare("Collection", "clipboard");
     } catch (e) {
       // Closing the share sheet is not a failure.
       if ((e as Error).name !== "AbortError") setShare("failed");

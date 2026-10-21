@@ -6,7 +6,8 @@ import { useT } from "@/i18n/provider";
 export default function NotFound() {
   const t = useT();
   return (
-    <div className="mx-auto max-w-2xl px-4 py-32 text-center">
+    // `data-not-found`: the audience measurement files this view as a 404.
+    <div data-not-found className="mx-auto max-w-2xl px-4 py-32 text-center">
       <p className="font-heading text-6xl font-bold text-gold-400">404</p>
       <h1 className="mt-4 font-heading text-2xl font-bold text-chalk-100">{t("pages.notFound.title")}</h1>
       <p className="mt-4 leading-relaxed text-chalk-500">{t("pages.notFound.text")}</p>

@@ -28,6 +28,7 @@ import {
 import { LANES, ROLES } from "@/lib/draft";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { formatGap } from "@/lib/trends";
+import { trackShare } from "@/lib/analytics";
 import type { Lane, Tier } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -137,6 +138,7 @@ export function TeamAnalysis({
     try {
       await navigator.clipboard.writeText(window.location.href);
       setCopy("ok");
+      trackShare("Team", "clipboard");
     } catch {
       setCopy("error");
     }

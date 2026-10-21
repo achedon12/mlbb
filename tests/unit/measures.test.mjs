@@ -3,6 +3,7 @@ import { spreadHistory } from "@/lib/evolution";
 import {
   chooseGuide,
   heroCombos,
+  withoutProxy,
   compactHistory,
   dateOfDay,
   mergeHistory,
@@ -188,6 +189,18 @@ describe("heroCombos", () => {
     expect(combo.skills[0]).toEqual({ name: "Soul Shards", icon: "https://cdn/2010910.png" });
   });
 
+  it("unwraps an icon served through the wsrv.nl proxy", () => {
+    const proxied = {
+      data: {
+        title: "LANING COMBOS",
+        desc: "Go.",
+        skill_id: [{ data: { skillid: 10920, skillicon: "https://wsrv.nl/?url=https%3A%2F%2Fcdn%2F10920.png" } }],
+      },
+    };
+    const [combo] = heroCombos([proxied], sheet, site, icons);
+    expect(combo.skills[0].icon).toBe("https://cdn/10920.png");
+  });
+
   it("puts the laning phase before team fights and drops empty combos", () => {
     const combos = heroCombos(
       [record("TEAMFIGHT COMBOS", "B.", [10910]), record("LANING COMBOS", "A.", [10920]), record("X", "", [10910])],
@@ -217,5 +230,12 @@ describe("chooseGuide", () => {
 
   it("breaks vote ties by views", () => {
     expect(chooseGuide([guide(100, 5, 10), guide(100, 5, 99)], "all")).toEqual(guide(100, 5, 99));
+  });
+});
+
+describe("withoutProxy", () => {
+  it("keeps an address that is not proxied, or not an address", () => {
+    expect(withoutProxy("https://akmweb.youngjoygame.com/a.png")).toBe("https://akmweb.youngjoygame.com/a.png");
+    expect(withoutProxy("/visuels/a.webp")).toBe("/visuels/a.webp");
   });
 });

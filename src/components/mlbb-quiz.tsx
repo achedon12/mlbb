@@ -41,6 +41,7 @@ import {
   readStats,
   type RecordPractice,
 } from "@/lib/quiz-storage";
+import { trackEvent, trackShare } from "@/lib/analytics";
 import { site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -202,6 +203,7 @@ function ChallengeOfDay({ catalog, onPractice }: { catalog: CatalogQuiz; onPract
       const nextStats = saveMatch(readStats(), day, points);
       setStats(nextStats);
       writeStats(nextStats);
+      trackEvent("Quiz", "Finish", "daily", points);
     }
   }
 
@@ -352,6 +354,7 @@ function Summary({
       try {
         await navigator.share({ text });
         setStatus("shared");
+        trackShare("Quiz", "native");
         return;
       } catch (e) {
         if ((e as DOMException).name === "AbortError") return;
@@ -360,6 +363,7 @@ function Summary({
     try {
       await navigator.clipboard.writeText(text);
       setStatus("copied");
+      trackShare("Quiz", "clipboard");
     } catch {
       setStatus("error");
     }

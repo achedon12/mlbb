@@ -5,6 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { Check, ChevronDown, Globe } from "lucide-react";
 import { LOCALES, LOCALE_NAME, isLocale, type Locale } from "@/i18n/config";
 import { useT } from "@/i18n/provider";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 /**
@@ -46,6 +47,7 @@ export function LocalePicker({ locale }: { locale: Locale }) {
     // Navigating to the prefixed path is enough: the proxy then sets the
     // locale cookie, which keeps the choice for unprefixed links.
     setOpen(false);
+    if (target !== locale) trackEvent("Language", "Switch", `${locale} → ${target}`);
     router.push(pathTo(target));
   }
 

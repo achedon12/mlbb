@@ -19,6 +19,7 @@ import {
   type Decoration,
   type Style,
 } from "@/lib/nicknames";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 /**
@@ -86,6 +87,7 @@ export function NicknameGenerator() {
     if (!text) return;
     setStyle(s);
     const ok = await copyText(text);
+    if (ok) trackEvent("Nickname", "Copy", s);
     setToast(
       ok
         ? { text: t("pages.nicknameUI.copied", { nickname: text }), failed: false }

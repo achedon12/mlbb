@@ -35,6 +35,7 @@ import {
   type StatKey,
 } from "@/lib/build-simulator";
 import { BUILD_STEPS, isFirstStep, isLastStep, stepBy, type BuildStep } from "@/lib/build-steps";
+import { trackShare } from "@/lib/analytics";
 import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { cn } from "@/lib/utils";
 
@@ -216,6 +217,7 @@ export function BuildSimulator({
     try {
       await navigator.clipboard.writeText(shareUrl);
       setCopied(true);
+      trackShare("Build", "clipboard");
       window.setTimeout(() => setCopied(false), 2500);
     } catch {
       // Clipboard refused (permissions, insecure context): the field below stays selectable.
