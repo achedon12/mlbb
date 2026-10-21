@@ -131,6 +131,16 @@ export function mergeHistory(existing, trends, days = DAILY_DAYS) {
  * takes the new values; heroes keep the previous order, new ones come last.
  * Returns the merged table and the slugs kept from the previous run.
  */
+/**
+ * The ranking by rank, with the ranks this run did not get. One rank failing
+ * at the API used to drop it from the file: on 2026-10-19 only « all » came
+ * back, and every rank page of the tier list and the statistics answered 404
+ * until the next sync. A missing rank now keeps its previous measurement.
+ */
+export function keepMissingRanks(previous = {}, next = {}) {
+  return { ...previous, ...next };
+}
+
 export function keepUnservedHeroes(previous = {}, next = {}) {
   const slugs = new Set([...Object.keys(previous), ...Object.keys(next)]);
   const merged = {};

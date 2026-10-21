@@ -3,6 +3,7 @@ import { spreadHistory } from "@/lib/evolution";
 import {
   chooseGuide,
   heroCombos,
+  keepMissingRanks,
   withoutProxy,
   compactHistory,
   dateOfDay,
@@ -237,5 +238,12 @@ describe("withoutProxy", () => {
   it("keeps an address that is not proxied, or not an address", () => {
     expect(withoutProxy("https://akmweb.youngjoygame.com/a.png")).toBe("https://akmweb.youngjoygame.com/a.png");
     expect(withoutProxy("/visuels/a.webp")).toBe("/visuels/a.webp");
+  });
+});
+
+describe("keepMissingRanks", () => {
+  it("keeps the ranks a run did not get, and refreshes the others", () => {
+    const before = { all: { a: 1 }, mythic: { a: 2 }, glory: { a: 3 } };
+    expect(keepMissingRanks(before, { all: { a: 9 } })).toEqual({ all: { a: 9 }, mythic: { a: 2 }, glory: { a: 3 } });
   });
 });
