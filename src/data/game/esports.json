@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-21T13:36:17Z",
+ "updatedAt": "2026-10-26T08:58:33Z",
  "source": {
   "name": "Liquipedia",
   "url": "https://liquipedia.net/mobilelegends/",
@@ -31,7 +31,7 @@
     {
      "title": "M8 World Championship",
      "url": "https://liquipedia.net/mobilelegends/M8_World_Championship",
-     "revision": "2026-10-21T09:07:31Z"
+     "revision": "2026-10-25T16:37:51Z"
     }
    ],
    "stages": [],
@@ -6280,17 +6280,17 @@
     {
      "title": "MPL/Indonesia/Season 18",
      "url": "https://liquipedia.net/mobilelegends/MPL/Indonesia/Season_18",
-     "revision": "2026-10-20T05:26:18Z"
+     "revision": "2026-10-23T07:04:46Z"
     },
     {
      "title": "MPL/Indonesia/Season 18/Regular Season",
      "url": "https://liquipedia.net/mobilelegends/MPL/Indonesia/Season_18/Regular_Season",
-     "revision": "2026-10-18T15:01:54Z"
+     "revision": "2026-10-24T01:59:28Z"
     },
     {
      "title": "MPL/Indonesia/Season 18/Playoffs",
      "url": "https://liquipedia.net/mobilelegends/MPL/Indonesia/Season_18/Playoffs",
-     "revision": "2026-10-18T14:15:04Z"
+     "revision": "2026-10-26T08:58:33Z"
     }
    ],
    "stages": [
@@ -6298,133 +6298,1305 @@
      "title": "Regular Season",
      "key": "regularSeason",
      "page": "MPL/Indonesia/Season 18/Regular Season",
-     "standings": [
+     "standings": [],
+     "brackets": [
       {
-       "title": "Regular Season",
-       "label": null,
-       "kind": "league",
-       "rows": [
+       "title": "Week 1",
+       "label": {
+        "kind": "week",
+        "n": 1
+       },
+       "rounds": [
         {
-         "rank": 1,
-         "team": "Team Liquid ID",
-         "series": [
-          12,
-          4
-         ],
-         "games": [
-          26,
-          11
-         ],
-         "zone": "up"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "EVOS",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-14T08:00:00Z"
+          },
+          {
+           "teams": [
+            "Natus Vincere",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-14T11:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Liquid ID",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-15T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-15T10:00:00Z"
+          },
+          {
+           "teams": [
+            "EVOS",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-15T13:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Liquid ID",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-16T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-16T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-16T13:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 2",
+       "label": {
+        "kind": "week",
+        "n": 2
+       },
+       "rounds": [
         {
-         "rank": 2,
-         "team": "Natus Vincere",
-         "series": [
-          12,
-          4
-         ],
-         "games": [
-          25,
-          12
-         ],
-         "zone": "up"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Team Liquid ID",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-21T08:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-21T11:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Liquid ID",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-22T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Natus Vincere",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-22T10:00:00Z"
+          },
+          {
+           "teams": [
+            "ONIC",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-22T13:00:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-23T07:00:00Z"
+          },
+          {
+           "teams": [
+            "ONIC",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-23T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Geek Fam ID",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-23T13:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 3",
+       "label": {
+        "kind": "week",
+        "n": 3
+       },
+       "rounds": [
         {
-         "rank": 3,
-         "team": "Alter Ego",
-         "series": [
-          10,
-          6
-         ],
-         "games": [
-          23,
-          13
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-28T08:00:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-28T11:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Liquid ID",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-29T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-29T10:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-29T13:00:00Z"
+          },
+          {
+           "teams": [
+            "Natus Vincere",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-30T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Geek Fam ID",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-30T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Liquid ID",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-30T13:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 4",
+       "label": {
+        "kind": "week",
+        "n": 4
+       },
+       "rounds": [
         {
-         "rank": 4,
-         "team": "Bigetron by Vitality",
-         "series": [
-          10,
-          6
-         ],
-         "games": [
-          21,
-          18
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Natus Vincere",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-04T08:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Liquid ID",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-04T11:00:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-05T07:00:00Z"
+          },
+          {
+           "teams": [
+            "EVOS",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-05T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-05T13:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-06T07:00:00Z"
+          },
+          {
+           "teams": [
+            "ONIC",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-06T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-06T13:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 5",
+       "label": {
+        "kind": "week",
+        "n": 5
+       },
+       "rounds": [
         {
-         "rank": 5,
-         "team": "EVOS",
-         "series": [
-          8,
-          8
-         ],
-         "games": [
-          19,
-          21
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Geek Fam ID",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-11T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Liquid ID",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-12T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-12T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Natus Vincere",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-12T13:00:00Z"
+          },
+          {
+           "teams": [
+            "Geek Fam ID",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-13T07:00:00Z"
+          },
+          {
+           "teams": [
+            "ONIC",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-13T10:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 6",
+       "label": {
+        "kind": "week",
+        "n": 6
+       },
+       "rounds": [
         {
-         "rank": 6,
-         "team": "ONIC",
-         "series": [
-          7,
-          9
-         ],
-         "games": [
-          19,
-          21
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "ONIC",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-18T07:15:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-18T10:15:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-18T13:15:00Z"
+          },
+          {
+           "teams": [
+            "Geek Fam ID",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-19T07:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-19T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-19T13:00:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-20T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-20T10:00:00Z"
+          },
+          {
+           "teams": [
+            "EVOS",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-20T13:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 7",
+       "label": {
+        "kind": "week",
+        "n": 7
+       },
+       "rounds": [
         {
-         "rank": 7,
-         "team": "Dewa United Esports",
-         "series": [
-          5,
-          11
-         ],
-         "games": [
-          14,
-          25
-         ],
-         "zone": "down"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Geek Fam ID",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-02T08:00:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-02T11:00:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-03T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-03T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Geek Fam ID",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-03T13:00:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-04T07:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-04T10:00:00Z"
+          },
+          {
+           "teams": [
+            "ONIC",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-04T13:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 8",
+       "label": {
+        "kind": "week",
+        "n": 8
+       },
+       "rounds": [
         {
-         "rank": 8,
-         "team": "RRQ Hoshi",
-         "series": [
-          4,
-          12
-         ],
-         "games": [
-          14,
-          27
-         ],
-         "zone": "down"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "EVOS",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-08T07:15:00Z"
+          },
+          {
+           "teams": [
+            "Alter Ego",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-10-08T10:15:00Z"
+          },
+          {
+           "teams": [
+            "Natus Vincere",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-10-08T13:15:00Z"
+          },
+          {
+           "teams": [
+            "EVOS",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-09T07:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-09T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "Natus Vincere"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-09T13:00:00Z"
+          },
+          {
+           "teams": [
+            "EVOS",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-11T07:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "ONIC"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-11T10:00:00Z"
+          },
+          {
+           "teams": [
+            "Dewa United Esports",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-11T13:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 9",
+       "label": {
+        "kind": "week",
+        "n": 9
+       },
+       "rounds": [
         {
-         "rank": 8,
-         "team": "Geek Fam ID",
-         "series": [
-          4,
-          12
-         ],
-         "games": [
-          13,
-          26
-         ],
-         "zone": "down"
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Natus Vincere",
+            "RRQ Hoshi"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-16T08:00:00Z"
+          },
+          {
+           "teams": [
+            "Geek Fam ID",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-16T11:00:00Z"
+          },
+          {
+           "teams": [
+            "ONIC",
+            "Dewa United Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-17T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron by Vitality",
+            "EVOS"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-17T10:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Hoshi",
+            "Geek Fam ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-17T13:00:00Z"
+          },
+          {
+           "teams": [
+            "EVOS",
+            "Alter Ego"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-18T07:00:00Z"
+          },
+          {
+           "teams": [
+            "Natus Vincere",
+            "Bigetron by Vitality"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-18T10:00:00Z"
+          },
+          {
+           "teams": [
+            "ONIC",
+            "Team Liquid ID"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-18T13:00:00Z"
+          }
+         ]
         }
        ]
       }
-     ],
-     "brackets": []
+     ]
     },
     {
      "title": "Playoffs",
@@ -6493,7 +7665,7 @@
            ],
            "placeholders": [
             null,
-            null
+            "Round 1A Winner"
            ],
            "score": [
             0,
@@ -6509,7 +7681,7 @@
            ],
            "placeholders": [
             null,
-            null
+            "Round 1B Winner"
            ],
            "score": [
             0,
@@ -8424,7 +9596,7 @@
     {
      "title": "MPL/Philippines/Season 18",
      "url": "https://liquipedia.net/mobilelegends/MPL/Philippines/Season_18",
-     "revision": "2026-10-21T13:05:54Z"
+     "revision": "2026-10-25T13:00:39Z"
     },
     {
      "title": "MPL/Philippines/Season 18/Regular Season",
@@ -8434,7 +9606,7 @@
     {
      "title": "MPL/Philippines/Season 18/Playoffs",
      "url": "https://liquipedia.net/mobilelegends/MPL/Philippines/Season_18/Playoffs",
-     "revision": "2026-10-21T13:36:17Z"
+     "revision": "2026-10-26T05:40:09Z"
     }
    ],
    "stages": [
@@ -8598,10 +9770,10 @@
             null
            ],
            "score": [
-            1,
-            1
+            3,
+            2
            ],
-           "winner": null,
+           "winner": 1,
            "date": "2026-10-21T12:00:00Z"
           }
          ]
@@ -8624,26 +9796,26 @@
             null
            ],
            "score": [
-            0,
+            3,
             0
            ],
-           "winner": null,
+           "winner": 1,
            "date": "2026-10-22T07:00:00Z"
           },
           {
            "teams": [
             "Team Liquid PH",
-            null
+            "Aurora Gaming PH"
            ],
            "placeholders": [
             null,
             null
            ],
            "score": [
-            0,
-            0
+            1,
+            3
            ],
-           "winner": null,
+           "winner": 2,
            "date": "2026-10-22T11:00:00Z"
           }
          ]
@@ -8658,19 +9830,19 @@
          "matches": [
           {
            "teams": [
-            null,
-            null
+            "Team Liquid PH",
+            "ONIC Philippines"
            ],
            "placeholders": [
             null,
             null
            ],
            "score": [
-            0,
+            3,
             0
            ],
-           "winner": null,
-           "date": "2026-10-23T07:00:00Z"
+           "winner": 1,
+           "date": "2026-10-23T12:00:00Z"
           }
          ]
         },
@@ -8684,19 +9856,19 @@
          "matches": [
           {
            "teams": [
-            null,
-            null
+            "Team Falcons PH",
+            "Aurora Gaming PH"
            ],
            "placeholders": [
             null,
             null
            ],
            "score": [
-            0,
-            0
+            3,
+            2
            ],
-           "winner": null,
-           "date": "2026-10-23T11:00:00Z"
+           "winner": 1,
+           "date": "2026-10-23T07:00:00Z"
           }
          ]
         },
@@ -8710,18 +9882,18 @@
          "matches": [
           {
            "teams": [
-            null,
-            null
+            "Team Liquid PH",
+            "Aurora Gaming PH"
            ],
            "placeholders": [
             null,
             null
            ],
            "score": [
-            0,
-            0
+            3,
+            4
            ],
-           "winner": null,
+           "winner": 2,
            "date": "2026-10-24T09:00:00Z"
           }
          ]
@@ -8735,18 +9907,18 @@
          "matches": [
           {
            "teams": [
-            null,
-            null
+            "Team Falcons PH",
+            "Aurora Gaming PH"
            ],
            "placeholders": [
             null,
             null
            ],
            "score": [
-            0,
-            0
+            2,
+            4
            ],
-           "winner": null,
+           "winner": 2,
            "date": "2026-10-25T09:00:00Z"
           }
          ]
@@ -8756,102 +9928,144 @@
      ]
     }
    ],
-   "games": 141,
-   "matches": 57,
-   "lastMatch": "2026-10-21T07:00:00Z",
-   "nextMatch": "2026-10-21T12:00:00Z",
-   "champion": null,
+   "games": 172,
+   "matches": 64,
+   "lastMatch": "2026-10-25T09:00:00Z",
+   "nextMatch": null,
+   "champion": "Aurora Gaming PH",
    "heroes": [
     {
      "slug": "freya",
-     "picks": 21,
-     "bans": 120,
-     "wins": 16,
-     "losses": 5
-    },
-    {
-     "slug": "atlas",
      "picks": 24,
-     "bans": 115,
-     "wins": 15,
-     "losses": 9
-    },
-    {
-     "slug": "hirara",
-     "picks": 103,
-     "bans": 33,
-     "wins": 44,
-     "losses": 59
-    },
-    {
-     "slug": "paquito",
-     "picks": 64,
-     "bans": 58,
-     "wins": 37,
-     "losses": 27
-    },
-    {
-     "slug": "fanny",
-     "picks": 13,
-     "bans": 89,
-     "wins": 7,
+     "bans": 148,
+     "wins": 18,
      "losses": 6
     },
     {
-     "slug": "uranus",
+     "slug": "atlas",
      "picks": 35,
-     "bans": 63,
-     "wins": 18,
-     "losses": 17
-    },
-    {
-     "slug": "marcel",
-     "picks": 33,
-     "bans": 63,
-     "wins": 17,
-     "losses": 16
-    },
-    {
-     "slug": "barats",
-     "picks": 41,
-     "bans": 54,
+     "bans": 133,
      "wins": 22,
-     "losses": 19
+     "losses": 13
     },
     {
-     "slug": "selena",
-     "picks": 35,
-     "bans": 60,
-     "wins": 17,
-     "losses": 18
+     "slug": "hirara",
+     "picks": 127,
+     "bans": 39,
+     "wins": 57,
+     "losses": 70
     },
     {
-     "slug": "carmilla",
-     "picks": 46,
-     "bans": 43,
-     "wins": 22,
-     "losses": 24
-    },
-    {
-     "slug": "belerick",
-     "picks": 63,
-     "bans": 25,
-     "wins": 33,
-     "losses": 30
-    },
-    {
-     "slug": "eudora",
-     "picks": 60,
-     "bans": 25,
-     "wins": 31,
+     "slug": "paquito",
+     "picks": 71,
+     "bans": 81,
+     "wins": 42,
      "losses": 29
     },
     {
-     "slug": "nolan",
-     "picks": 48,
-     "bans": 28,
+     "slug": "marcel",
+     "picks": 47,
+     "bans": 75,
+     "wins": 26,
+     "losses": 21
+    },
+    {
+     "slug": "barats",
+     "picks": 54,
+     "bans": 61,
      "wins": 31,
+     "losses": 23
+    },
+    {
+     "slug": "uranus",
+     "picks": 42,
+     "bans": 72,
+     "wins": 21,
+     "losses": 21
+    },
+    {
+     "slug": "fanny",
+     "picks": 15,
+     "bans": 96,
+     "wins": 7,
+     "losses": 8
+    },
+    {
+     "slug": "nolan",
+     "picks": 63,
+     "bans": 36,
+     "wins": 36,
+     "losses": 27
+    },
+    {
+     "slug": "selena",
+     "picks": 36,
+     "bans": 63,
+     "wins": 17,
+     "losses": 19
+    },
+    {
+     "slug": "eudora",
+     "picks": 64,
+     "bans": 30,
+     "wins": 32,
+     "losses": 32
+    },
+    {
+     "slug": "carmilla",
+     "picks": 49,
+     "bans": 45,
+     "wins": 22,
+     "losses": 27
+    },
+    {
+     "slug": "belerick",
+     "picks": 68,
+     "bans": 25,
+     "wins": 36,
+     "losses": 32
+    },
+    {
+     "slug": "masha",
+     "picks": 13,
+     "bans": 74,
+     "wins": 9,
+     "losses": 4
+    },
+    {
+     "slug": "esmeralda",
+     "picks": 28,
+     "bans": 57,
+     "wins": 11,
      "losses": 17
+    },
+    {
+     "slug": "valentina",
+     "picks": 46,
+     "bans": 34,
+     "wins": 21,
+     "losses": 25
+    },
+    {
+     "slug": "aulus",
+     "picks": 48,
+     "bans": 30,
+     "wins": 26,
+     "losses": 22
+    },
+    {
+     "slug": "zhuxin",
+     "picks": 44,
+     "bans": 34,
+     "wins": 25,
+     "losses": 19
+    },
+    {
+     "slug": "minotaur",
+     "picks": 56,
+     "bans": 20,
+     "wins": 26,
+     "losses": 30
     },
     {
      "slug": "melissa",
@@ -8861,116 +10075,109 @@
      "losses": 13
     },
     {
-     "slug": "minotaur",
-     "picks": 51,
-     "bans": 20,
-     "wins": 24,
-     "losses": 27
-    },
-    {
-     "slug": "valentina",
-     "picks": 41,
-     "bans": 28,
-     "wins": 19,
-     "losses": 22
-    },
-    {
      "slug": "rafaela",
-     "picks": 25,
-     "bans": 37,
-     "wins": 17,
-     "losses": 8
-    },
-    {
-     "slug": "mathilda",
-     "picks": 24,
-     "bans": 35,
-     "wins": 11,
-     "losses": 13
-    },
-    {
-     "slug": "esmeralda",
-     "picks": 22,
-     "bans": 37,
-     "wins": 7,
-     "losses": 15
-    },
-    {
-     "slug": "zhuxin",
-     "picks": 30,
-     "bans": 28,
-     "wins": 18,
-     "losses": 12
+     "picks": 29,
+     "bans": 44,
+     "wins": 19,
+     "losses": 10
     },
     {
      "slug": "gatotkaca",
-     "picks": 48,
-     "bans": 9,
-     "wins": 20,
-     "losses": 28
+     "picks": 54,
+     "bans": 12,
+     "wins": 22,
+     "losses": 32
     },
     {
-     "slug": "aulus",
-     "picks": 32,
-     "bans": 24,
-     "wins": 17,
-     "losses": 15
-    },
-    {
-     "slug": "masha",
-     "picks": 8,
-     "bans": 48,
-     "wins": 6,
-     "losses": 2
-    },
-    {
-     "slug": "gloo",
-     "picks": 20,
-     "bans": 35,
-     "wins": 13,
-     "losses": 7
+     "slug": "mathilda",
+     "picks": 26,
+     "bans": 38,
+     "wins": 12,
+     "losses": 14
     },
     {
      "slug": "obsidia",
-     "picks": 33,
-     "bans": 16,
-     "wins": 18,
-     "losses": 15
+     "picks": 37,
+     "bans": 25,
+     "wins": 19,
+     "losses": 18
+    },
+    {
+     "slug": "gloo",
+     "picks": 22,
+     "bans": 36,
+     "wins": 13,
+     "losses": 9
+    },
+    {
+     "slug": "lylia",
+     "picks": 19,
+     "bans": 35,
+     "wins": 8,
+     "losses": 11
+    },
+    {
+     "slug": "claude",
+     "picks": 43,
+     "bans": 8,
+     "wins": 26,
+     "losses": 17
+    },
+    {
+     "slug": "kalea",
+     "picks": 29,
+     "bans": 21,
+     "wins": 11,
+     "losses": 18
     },
     {
      "slug": "brody",
      "picks": 28,
-     "bans": 19,
+     "bans": 21,
      "wins": 7,
      "losses": 21
     },
     {
-     "slug": "claude",
-     "picks": 36,
-     "bans": 7,
-     "wins": 23,
-     "losses": 13
+     "slug": "alice",
+     "picks": 25,
+     "bans": 24,
+     "wins": 10,
+     "losses": 15
+    },
+    {
+     "slug": "cici",
+     "picks": 32,
+     "bans": 15,
+     "wins": 13,
+     "losses": 19
+    },
+    {
+     "slug": "kimmy",
+     "picks": 27,
+     "bans": 19,
+     "wins": 13,
+     "losses": 14
     },
     {
      "slug": "clint",
-     "picks": 30,
-     "bans": 10,
-     "wins": 21,
+     "picks": 32,
+     "bans": 11,
+     "wins": 23,
      "losses": 9
     },
     {
-     "slug": "alice",
-     "picks": 20,
-     "bans": 19,
-     "wins": 9,
-     "losses": 11
+     "slug": "hylos",
+     "picks": 31,
+     "bans": 6,
+     "wins": 15,
+     "losses": 16
     },
     {
-     "slug": "lylia",
-     "picks": 12,
-     "bans": 25,
-     "wins": 6,
-     "losses": 6
+     "slug": "suyou",
+     "picks": 30,
+     "bans": 5,
+     "wins": 17,
+     "losses": 13
     },
     {
      "slug": "novaria",
@@ -8980,6 +10187,13 @@
      "losses": 11
     },
     {
+     "slug": "miya",
+     "picks": 22,
+     "bans": 8,
+     "wins": 8,
+     "losses": 14
+    },
+    {
      "slug": "moskov",
      "picks": 20,
      "bans": 10,
@@ -8987,32 +10201,18 @@
      "losses": 13
     },
     {
-     "slug": "miya",
-     "picks": 21,
-     "bans": 8,
-     "wins": 8,
-     "losses": 13
-    },
-    {
-     "slug": "suyou",
-     "picks": 23,
-     "bans": 5,
-     "wins": 11,
-     "losses": 12
-    },
-    {
-     "slug": "hylos",
-     "picks": 23,
-     "bans": 4,
-     "wins": 12,
-     "losses": 11
-    },
-    {
      "slug": "harley",
-     "picks": 11,
-     "bans": 14,
+     "picks": 13,
+     "bans": 17,
      "wins": 4,
-     "losses": 7
+     "losses": 9
+    },
+    {
+     "slug": "chou",
+     "picks": 15,
+     "bans": 9,
+     "wins": 6,
+     "losses": 9
     },
     {
      "slug": "ruby",
@@ -9022,32 +10222,18 @@
      "losses": 5
     },
     {
-     "slug": "kalea",
-     "picks": 14,
-     "bans": 8,
-     "wins": 4,
-     "losses": 10
-    },
-    {
-     "slug": "kimmy",
-     "picks": 17,
-     "bans": 4,
-     "wins": 8,
-     "losses": 9
-    },
-    {
      "slug": "badang",
      "picks": 10,
-     "bans": 11,
+     "bans": 12,
      "wins": 3,
      "losses": 7
     },
     {
-     "slug": "cici",
-     "picks": 13,
-     "bans": 7,
+     "slug": "lukas",
+     "picks": 11,
+     "bans": 10,
      "wins": 5,
-     "losses": 8
+     "losses": 6
     },
     {
      "slug": "angela",
@@ -9055,13 +10241,6 @@
      "bans": 10,
      "wins": 4,
      "losses": 6
-    },
-    {
-     "slug": "lukas",
-     "picks": 9,
-     "bans": 9,
-     "wins": 4,
-     "losses": 5
     },
     {
      "slug": "kaja",
@@ -9078,31 +10257,66 @@
      "losses": 5
     },
     {
-     "slug": "chou",
+     "slug": "zetian",
      "picks": 10,
-     "bans": 3,
+     "bans": 5,
      "wins": 4,
      "losses": 6
     },
     {
+     "slug": "dyrroth",
+     "picks": 6,
+     "bans": 9,
+     "wins": 3,
+     "losses": 3
+    },
+    {
+     "slug": "yve",
+     "picks": 10,
+     "bans": 4,
+     "wins": 7,
+     "losses": 3
+    },
+    {
+     "slug": "harith",
+     "picks": 7,
+     "bans": 7,
+     "wins": 4,
+     "losses": 3
+    },
+    {
      "slug": "phoveus",
-     "picks": 9,
+     "picks": 10,
      "bans": 3,
      "wins": 3,
-     "losses": 6
+     "losses": 7
+    },
+    {
+     "slug": "cecilion",
+     "picks": 8,
+     "bans": 5,
+     "wins": 1,
+     "losses": 7
+    },
+    {
+     "slug": "bruno",
+     "picks": 10,
+     "bans": 2,
+     "wins": 3,
+     "losses": 7
+    },
+    {
+     "slug": "pharsa",
+     "picks": 10,
+     "bans": 2,
+     "wins": 8,
+     "losses": 2
     },
     {
      "slug": "yi-sun-shin",
      "picks": 9,
      "bans": 3,
      "wins": 3,
-     "losses": 6
-    },
-    {
-     "slug": "cecilion",
-     "picks": 7,
-     "bans": 5,
-     "wins": 1,
      "losses": 6
     },
     {
@@ -9113,25 +10327,18 @@
      "losses": 1
     },
     {
-     "slug": "dyrroth",
+     "slug": "sora",
+     "picks": 7,
+     "bans": 4,
+     "wins": 3,
+     "losses": 4
+    },
+    {
+     "slug": "arlott",
      "picks": 5,
-     "bans": 6,
+     "bans": 5,
      "wins": 3,
      "losses": 2
-    },
-    {
-     "slug": "bruno",
-     "picks": 7,
-     "bans": 2,
-     "wins": 2,
-     "losses": 5
-    },
-    {
-     "slug": "sora",
-     "picks": 5,
-     "bans": 4,
-     "wins": 2,
-     "losses": 3
     },
     {
      "slug": "hilda",
@@ -9141,25 +10348,11 @@
      "losses": 1
     },
     {
-     "slug": "yve",
-     "picks": 4,
-     "bans": 3,
-     "wins": 3,
-     "losses": 1
-    },
-    {
      "slug": "karrie",
      "picks": 6,
      "bans": 0,
      "wins": 3,
      "losses": 3
-    },
-    {
-     "slug": "pharsa",
-     "picks": 6,
-     "bans": 0,
-     "wins": 4,
-     "losses": 2
     },
     {
      "slug": "beatrix",
@@ -9176,6 +10369,13 @@
      "losses": 3
     },
     {
+     "slug": "aurora",
+     "picks": 3,
+     "bans": 3,
+     "wins": 2,
+     "losses": 1
+    },
+    {
      "slug": "khufra",
      "picks": 4,
      "bans": 1,
@@ -9183,17 +10383,38 @@
      "losses": 1
     },
     {
-     "slug": "arlott",
+     "slug": "estes",
+     "picks": 3,
+     "bans": 2,
+     "wins": 3,
+     "losses": 0
+    },
+    {
+     "slug": "yu-zhong",
      "picks": 3,
      "bans": 2,
      "wins": 2,
      "losses": 1
     },
     {
-     "slug": "aurora",
+     "slug": "saber",
      "picks": 2,
      "bans": 3,
      "wins": 1,
+     "losses": 1
+    },
+    {
+     "slug": "khaleed",
+     "picks": 3,
+     "bans": 1,
+     "wins": 1,
+     "losses": 2
+    },
+    {
+     "slug": "lapu-lapu",
+     "picks": 3,
+     "bans": 0,
+     "wins": 2,
      "losses": 1
     },
     {
@@ -9202,41 +10423,6 @@
      "bans": 0,
      "wins": 1,
      "losses": 2
-    },
-    {
-     "slug": "khaleed",
-     "picks": 2,
-     "bans": 1,
-     "wins": 1,
-     "losses": 1
-    },
-    {
-     "slug": "zetian",
-     "picks": 2,
-     "bans": 1,
-     "wins": 0,
-     "losses": 2
-    },
-    {
-     "slug": "harith",
-     "picks": 2,
-     "bans": 0,
-     "wins": 0,
-     "losses": 2
-    },
-    {
-     "slug": "lapu-lapu",
-     "picks": 2,
-     "bans": 0,
-     "wins": 2,
-     "losses": 0
-    },
-    {
-     "slug": "estes",
-     "picks": 1,
-     "bans": 1,
-     "wins": 1,
-     "losses": 0
     },
     {
      "slug": "fredrinn",
@@ -9316,7 +10502,7 @@
      "losses": 0
     },
     {
-     "slug": "saber",
+     "slug": "thamuz",
      "picks": 1,
      "bans": 0,
      "wins": 0,
@@ -9330,14 +10516,14 @@
      "losses": 1
     },
     {
-     "slug": "yu-zhong",
-     "picks": 1,
-     "bans": 0,
+     "slug": "terizla",
+     "picks": 0,
+     "bans": 1,
      "wins": 0,
-     "losses": 1
+     "losses": 0
     },
     {
-     "slug": "terizla",
+     "slug": "x-borg",
      "picks": 0,
      "bans": 1,
      "wins": 0,
@@ -9346,6 +10532,1132 @@
    ],
    "drafts": [
     {
+     "date": "2026-10-25T09:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "Team Falcons PH",
+      "Aurora Gaming PH"
+     ],
+     "score": [
+      2,
+      4
+     ],
+     "winner": 2,
+     "games": [
+      {
+       "winner": 2,
+       "duration": "14:24",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "alice",
+         "hirara",
+         "eudora",
+         "cici",
+         "marcel"
+        ],
+        [
+         "arlott",
+         "suyou",
+         "zhuxin",
+         "chou",
+         "atlas"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "kalea",
+         "kimmy",
+         "yu-zhong",
+         "obsidia"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "barats",
+         "hylos"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "13:24",
+       "team1Side": "red",
+       "picks": [
+        [
+         "esmeralda",
+         "saber",
+         "zhuxin",
+         "claude",
+         "kalea"
+        ],
+        [
+         "atlas",
+         "nolan",
+         "zetian",
+         "kimmy",
+         "belerick"
+        ]
+       ],
+       "bans": [
+        [
+         "freya",
+         "masha",
+         "hirara",
+         "dyrroth",
+         "barats"
+        ],
+        [
+         "paquito",
+         "chou",
+         "marcel",
+         "cici",
+         "harith"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "20:41",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "hylos",
+         "hirara",
+         "pharsa",
+         "cici",
+         "marcel"
+        ],
+        [
+         "barats",
+         "suyou",
+         "zhuxin",
+         "chou",
+         "atlas"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "kalea",
+         "nolan",
+         "harith",
+         "kimmy"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "lylia",
+         "zetian"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "10:23",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "cici",
+         "hirara",
+         "rafaela",
+         "claude",
+         "kalea"
+        ],
+        [
+         "barats",
+         "suyou",
+         "estes",
+         "kimmy",
+         "masha"
+        ]
+       ],
+       "bans": [
+        [
+         "freya",
+         "zhuxin",
+         "nolan",
+         "lylia",
+         "zetian"
+        ],
+        [
+         "paquito",
+         "esmeralda",
+         "atlas",
+         "chou",
+         "carmilla"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "12:42",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "hylos",
+         "aulus",
+         "zhuxin",
+         "paquito",
+         "mathilda"
+        ],
+        [
+         "atlas",
+         "hirara",
+         "yve",
+         "chou",
+         "estes"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "kimmy",
+         "barats",
+         "yu-zhong",
+         "cici"
+        ],
+        [
+         "masha",
+         "freya",
+         "marcel",
+         "kalea",
+         "saber"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "11:41",
+       "team1Side": "red",
+       "picks": [
+        [
+         "kalea",
+         "hirara",
+         "kimmy",
+         "miya",
+         "marcel"
+        ],
+        [
+         "barats",
+         "suyou",
+         "zhuxin",
+         "clint",
+         "atlas"
+        ]
+       ],
+       "bans": [
+        [
+         "freya",
+         "masha",
+         "estes",
+         "arlott",
+         "mathilda"
+        ],
+        [
+         "esmeralda",
+         "paquito",
+         "chou",
+         "cici",
+         "harith"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "date": "2026-10-24T09:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "Team Liquid PH",
+      "Aurora Gaming PH"
+     ],
+     "score": [
+      3,
+      4
+     ],
+     "winner": 2,
+     "games": [
+      {
+       "winner": 1,
+       "duration": "19:34",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "atlas",
+         "aulus",
+         "pharsa",
+         "harith",
+         "marcel"
+        ],
+        [
+         "gatotkaca",
+         "nolan",
+         "zetian",
+         "cici",
+         "belerick"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "hirara",
+         "kimmy",
+         "valentina",
+         "uranus"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "eudora",
+         "lylia"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "10:38",
+       "team1Side": "red",
+       "picks": [
+        [
+         "sora",
+         "hirara",
+         "zhuxin",
+         "aulus",
+         "gatotkaca"
+        ],
+        [
+         "yu-zhong",
+         "suyou",
+         "yve",
+         "freya",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "kimmy",
+         "nolan",
+         "barats",
+         "uranus"
+        ],
+        [
+         "paquito",
+         "atlas",
+         "esmeralda",
+         "cici",
+         "marcel"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "15:07",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "barats",
+         "aulus",
+         "valentina",
+         "freya",
+         "marcel"
+        ],
+        [
+         "cici",
+         "nolan",
+         "lylia",
+         "thamuz",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "hirara",
+         "esmeralda",
+         "kimmy",
+         "zhuxin",
+         "uranus"
+        ],
+        [
+         "masha",
+         "paquito",
+         "atlas",
+         "zetian",
+         "harith"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "20:45",
+       "team1Side": "red",
+       "picks": [
+        [
+         "lukas",
+         "aulus",
+         "lylia",
+         "obsidia",
+         "marcel"
+        ],
+        [
+         "barats",
+         "hirara",
+         "zhuxin",
+         "cici",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "kimmy",
+         "freya",
+         "valentina",
+         "yve"
+        ],
+        [
+         "paquito",
+         "atlas",
+         "esmeralda",
+         "harith",
+         "uranus"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "15:45",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "uranus",
+         "harley",
+         "valentina",
+         "cici",
+         "atlas"
+        ],
+        [
+         "barats",
+         "nolan",
+         "zetian",
+         "claude",
+         "marcel"
+        ]
+       ],
+       "bans": [
+        [
+         "kalea",
+         "hirara",
+         "kimmy",
+         "obsidia",
+         "harith"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "eudora",
+         "pharsa"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "16:52",
+       "team1Side": "red",
+       "picks": [
+        [
+         "aulus",
+         "nolan",
+         "zhuxin",
+         "harith",
+         "belerick"
+        ],
+        [
+         "barats",
+         "hirara",
+         "kimmy",
+         "cici",
+         "hylos"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "kalea",
+         "freya",
+         "marcel",
+         "gatotkaca"
+        ],
+        [
+         "paquito",
+         "atlas",
+         "esmeralda",
+         "uranus",
+         "carmilla"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "13:50",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "uranus",
+         "nolan",
+         "lylia",
+         "claude",
+         "minotaur"
+        ],
+        [
+         "yu-zhong",
+         "suyou",
+         "kimmy",
+         "harith",
+         "atlas"
+        ]
+       ],
+       "bans": [
+        [
+         "valentina",
+         "esmeralda",
+         "kalea",
+         "hirara",
+         "aulus"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "marcel",
+         "cici"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "date": "2026-10-23T12:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "Team Liquid PH",
+      "ONIC Philippines"
+     ],
+     "score": [
+      3,
+      0
+     ],
+     "winner": 1,
+     "games": [
+      {
+       "winner": 1,
+       "duration": "15:15",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "lukas",
+         "nolan",
+         "lylia",
+         "aulus",
+         "atlas"
+        ],
+        [
+         "uranus",
+         "hirara",
+         "selena",
+         "bruno",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "fanny",
+         "esmeralda",
+         "cici",
+         "obsidia",
+         "claude"
+        ],
+        [
+         "masha",
+         "freya",
+         "paquito",
+         "marcel",
+         "alice"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "11:35",
+       "team1Side": "red",
+       "picks": [
+        [
+         "sora",
+         "hirara",
+         "valentina",
+         "aulus",
+         "marcel"
+        ],
+        [
+         "hylos",
+         "nolan",
+         "lylia",
+         "cici",
+         "gloo"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "freya",
+         "kalea",
+         "barats",
+         "alice"
+        ],
+        [
+         "esmeralda",
+         "paquito",
+         "atlas",
+         "lukas",
+         "arlott"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "13:17",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "aulus",
+         "suyou",
+         "zhuxin",
+         "harith",
+         "masha"
+        ],
+        [
+         "phoveus",
+         "hirara",
+         "kimmy",
+         "cici",
+         "hylos"
+        ]
+       ],
+       "bans": [
+        [
+         "fanny",
+         "esmeralda",
+         "kalea",
+         "rafaela",
+         "marcel"
+        ],
+        [
+         "paquito",
+         "freya",
+         "atlas",
+         "nolan",
+         "harley"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "date": "2026-10-23T07:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "Team Falcons PH",
+      "Aurora Gaming PH"
+     ],
+     "score": [
+      3,
+      2
+     ],
+     "winner": 1,
+     "games": [
+      {
+       "winner": 2,
+       "duration": "19:47",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "carmilla",
+         "hirara",
+         "eudora",
+         "cici",
+         "rafaela"
+        ],
+        [
+         "barats",
+         "aulus",
+         "zetian",
+         "kimmy",
+         "marcel"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "nolan",
+         "kalea",
+         "saber",
+         "fanny"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "chou",
+         "mathilda"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "13:32",
+       "team1Side": "red",
+       "picks": [
+        [
+         "cici",
+         "aulus",
+         "rafaela",
+         "esmeralda",
+         "kalea"
+        ],
+        [
+         "barats",
+         "hirara",
+         "zetian",
+         "claude",
+         "masha"
+        ]
+       ],
+       "bans": [
+        [
+         "freya",
+         "nolan",
+         "kimmy",
+         "x-borg",
+         "harith"
+        ],
+        [
+         "paquito",
+         "chou",
+         "atlas",
+         "alice",
+         "uranus"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "15:05",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "dyrroth",
+         "nolan",
+         "lylia",
+         "chou",
+         "kalea"
+        ],
+        [
+         "uranus",
+         "hirara",
+         "yve",
+         "cici",
+         "gatotkaca"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "kimmy",
+         "atlas",
+         "zhuxin",
+         "zetian"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "eudora",
+         "rafaela"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "26:42",
+       "team1Side": "red",
+       "picks": [
+        [
+         "atlas",
+         "nolan",
+         "lylia",
+         "cici",
+         "marcel"
+        ],
+        [
+         "barats",
+         "hirara",
+         "eudora",
+         "esmeralda",
+         "gatotkaca"
+        ]
+       ],
+       "bans": [
+        [
+         "freya",
+         "kimmy",
+         "masha",
+         "mathilda",
+         "rafaela"
+        ],
+        [
+         "paquito",
+         "kalea",
+         "chou",
+         "dyrroth",
+         "selena"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "11:52",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "hylos",
+         "hirara",
+         "pharsa",
+         "cici",
+         "kalea"
+        ],
+        [
+         "uranus",
+         "aulus",
+         "zhuxin",
+         "claude",
+         "marcel"
+        ]
+       ],
+       "bans": [
+        [
+         "esmeralda",
+         "kimmy",
+         "nolan",
+         "obsidia",
+         "clint"
+        ],
+        [
+         "masha",
+         "paquito",
+         "freya",
+         "eudora",
+         "rafaela"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "date": "2026-10-22T11:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "Team Liquid PH",
+      "Aurora Gaming PH"
+     ],
+     "score": [
+      1,
+      3
+     ],
+     "winner": 2,
+     "games": [
+      {
+       "winner": 1,
+       "duration": "19:49",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "aulus",
+         "nolan",
+         "aurora",
+         "paquito",
+         "minotaur"
+        ],
+        [
+         "alice",
+         "hirara",
+         "zhuxin",
+         "harith",
+         "khaleed"
+        ]
+       ],
+       "bans": [
+        [
+         "marcel",
+         "valentina",
+         "obsidia",
+         "gloo",
+         "brody"
+        ],
+        [
+         "masha",
+         "atlas",
+         "freya",
+         "lylia",
+         "eudora"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "20:55",
+       "team1Side": "red",
+       "picks": [
+        [
+         "alice",
+         "nolan",
+         "zetian",
+         "aulus",
+         "kalea"
+        ],
+        [
+         "barats",
+         "hirara",
+         "kimmy",
+         "esmeralda",
+         "masha"
+        ]
+       ],
+       "bans": [
+        [
+         "marcel",
+         "freya",
+         "zhuxin",
+         "obsidia",
+         "fanny"
+        ],
+        [
+         "paquito",
+         "atlas",
+         "cici",
+         "uranus",
+         "lylia"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "13:30",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "alice",
+         "nolan",
+         "zhuxin",
+         "freya",
+         "minotaur"
+        ],
+        [
+         "cici",
+         "hirara",
+         "kimmy",
+         "esmeralda",
+         "belerick"
+        ]
+       ],
+       "bans": [
+        [
+         "marcel",
+         "valentina",
+         "obsidia",
+         "gatotkaca",
+         "barats"
+        ],
+        [
+         "masha",
+         "atlas",
+         "paquito",
+         "arlott",
+         "kalea"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "21:10",
+       "team1Side": "red",
+       "picks": [
+        [
+         "arlott",
+         "harley",
+         "valentina",
+         "aulus",
+         "minotaur"
+        ],
+        [
+         "uranus",
+         "hirara",
+         "eudora",
+         "clint",
+         "marcel"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "kimmy",
+         "freya",
+         "obsidia",
+         "cici"
+        ],
+        [
+         "paquito",
+         "atlas",
+         "esmeralda",
+         "lylia",
+         "pharsa"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "date": "2026-10-22T07:00:00Z",
+     "stage": "Playoffs",
+     "teams": [
+      "Team Falcons PH",
+      "ONIC Philippines"
+     ],
+     "score": [
+      3,
+      0
+     ],
+     "winner": 1,
+     "games": [
+      {
+       "winner": 1,
+       "duration": "19:51",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "hylos",
+         "hirara",
+         "zhuxin",
+         "paquito",
+         "mathilda"
+        ],
+        [
+         "atlas",
+         "nolan",
+         "yve",
+         "cici",
+         "marcel"
+        ]
+       ],
+       "bans": [
+        [
+         "fanny",
+         "esmeralda",
+         "kalea",
+         "lylia",
+         "selena"
+        ],
+        [
+         "masha",
+         "freya",
+         "aulus",
+         "harley",
+         "saber"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "14:26",
+       "team1Side": "red",
+       "picks": [
+        [
+         "barats",
+         "hirara",
+         "rafaela",
+         "paquito",
+         "kalea"
+        ],
+        [
+         "lapu-lapu",
+         "fanny",
+         "valentina",
+         "cici",
+         "masha"
+        ]
+       ],
+       "bans": [
+        [
+         "freya",
+         "atlas",
+         "lylia",
+         "harley",
+         "alice"
+        ],
+        [
+         "zhuxin",
+         "nolan",
+         "aulus",
+         "hylos",
+         "kimmy"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "18:04",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "cici",
+         "alice",
+         "pharsa",
+         "paquito",
+         "kalea"
+        ],
+        [
+         "gatotkaca",
+         "aulus",
+         "cecilion",
+         "chou",
+         "carmilla"
+        ]
+       ],
+       "bans": [
+        [
+         "atlas",
+         "lylia",
+         "zhuxin",
+         "obsidia",
+         "esmeralda"
+        ],
+        [
+         "masha",
+         "freya",
+         "marcel",
+         "valentina",
+         "kimmy"
+        ]
+       ]
+      }
+     ]
+    },
+    {
      "date": "2026-10-21T12:00:00Z",
      "stage": "Playoffs",
      "teams": [
@@ -9353,10 +11665,10 @@
       "Omega Esports"
      ],
      "score": [
-      1,
-      1
+      3,
+      2
      ],
-     "winner": null,
+     "winner": 1,
      "games": [
       {
        "winner": 1,
@@ -9429,6 +11741,117 @@
          "esmeralda",
          "uranus",
          "zetian"
+        ]
+       ]
+      },
+      {
+       "winner": 2,
+       "duration": "20:20",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "esmeralda",
+         "nolan",
+         "zhuxin",
+         "obsidia",
+         "gloo"
+        ],
+        [
+         "uranus",
+         "paquito",
+         "yve",
+         "bruno",
+         "marcel"
+        ]
+       ],
+       "bans": [
+        [
+         "kalea",
+         "aulus",
+         "freya",
+         "brody",
+         "hirara"
+        ],
+        [
+         "masha",
+         "rafaela",
+         "atlas",
+         "fanny",
+         "dyrroth"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "18:55",
+       "team1Side": "red",
+       "picks": [
+        [
+         "minotaur",
+         "hirara",
+         "zetian",
+         "obsidia",
+         "gatotkaca"
+        ],
+        [
+         "carmilla",
+         "paquito",
+         "kimmy",
+         "bruno",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "masha",
+         "freya",
+         "aulus",
+         "lylia",
+         "uranus"
+        ],
+        [
+         "rafaela",
+         "atlas",
+         "fanny",
+         "alice",
+         "barats"
+        ]
+       ]
+      },
+      {
+       "winner": 1,
+       "duration": "22:26",
+       "team1Side": "blue",
+       "picks": [
+        [
+         "barats",
+         "hirara",
+         "zetian",
+         "claude",
+         "belerick"
+        ],
+        [
+         "hylos",
+         "fanny",
+         "yve",
+         "obsidia",
+         "kalea"
+        ]
+       ],
+       "bans": [
+        [
+         "aulus",
+         "marcel",
+         "freya",
+         "uranus",
+         "selena"
+        ],
+        [
+         "rafaela",
+         "atlas",
+         "masha",
+         "badang",
+         "gatotkaca"
         ]
        ]
       }
@@ -9848,651 +12271,6 @@
        ]
       }
      ]
-    },
-    {
-     "date": "2026-09-05T09:00:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "TNC Pro Team",
-      "Team Liquid PH"
-     ],
-     "score": [
-      0,
-      2
-     ],
-     "winner": 2,
-     "games": [
-      {
-       "winner": 2,
-       "duration": "16:07",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "belerick",
-         "hirara",
-         "novaria",
-         "claude",
-         "badang"
-        ],
-        [
-         "carmilla",
-         "suyou",
-         "eudora",
-         "clint",
-         "atlas"
-        ]
-       ],
-       "bans": [
-        [
-         "marcel",
-         "selena",
-         "paquito",
-         "mathilda",
-         "minotaur"
-        ],
-        [
-         "freya",
-         "uranus",
-         "melissa",
-         "valentina",
-         "lylia"
-        ]
-       ]
-      },
-      {
-       "winner": 2,
-       "duration": "22:11",
-       "team1Side": "red",
-       "picks": [
-        [
-         "atlas",
-         "hirara",
-         "eudora",
-         "claude",
-         "gatotkaca"
-        ],
-        [
-         "belerick",
-         "nolan",
-         "valentina",
-         "melissa",
-         "minotaur"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "marcel",
-         "paquito",
-         "harley",
-         "suyou"
-        ],
-        [
-         "uranus",
-         "fanny",
-         "selena",
-         "kaja",
-         "mathilda"
-        ]
-       ]
-      }
-     ]
-    },
-    {
-     "date": "2026-09-04T11:30:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "TNC Pro Team",
-      "ONIC Philippines"
-     ],
-     "score": [
-      1,
-      2
-     ],
-     "winner": 2,
-     "games": [
-      {
-       "winner": 1,
-       "duration": "17:37",
-       "team1Side": "red",
-       "picks": [
-        [
-         "barats",
-         "suyou",
-         "valentina",
-         "claude",
-         "badang"
-        ],
-        [
-         "hylos",
-         "hirara",
-         "selena",
-         "clint",
-         "chou"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "melissa",
-         "marcel",
-         "moskov",
-         "obsidia"
-        ],
-        [
-         "atlas",
-         "paquito",
-         "uranus",
-         "fanny",
-         "gloo"
-        ]
-       ]
-      },
-      {
-       "winner": 2,
-       "duration": "13:20",
-       "team1Side": "red",
-       "picks": [
-        [
-         "barats",
-         "yi-sun-shin",
-         "zhuxin",
-         "claude",
-         "lolita"
-        ],
-        [
-         "hylos",
-         "hirara",
-         "selena",
-         "hanabi",
-         "mathilda"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "melissa",
-         "marcel",
-         "moskov",
-         "obsidia"
-        ],
-        [
-         "atlas",
-         "paquito",
-         "uranus",
-         "fanny",
-         "gloo"
-        ]
-       ]
-      },
-      {
-       "winner": 2,
-       "duration": "11:11",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "uranus",
-         "paquito",
-         "xavier",
-         "brody",
-         "marcel"
-        ],
-        [
-         "sora",
-         "hirara",
-         "novaria",
-         "melissa",
-         "gatotkaca"
-        ]
-       ],
-       "bans": [
-        [
-         "fanny",
-         "selena",
-         "mathilda",
-         "gloo",
-         "hylos"
-        ],
-        [
-         "freya",
-         "atlas",
-         "belerick",
-         "lylia",
-         "valentina"
-        ]
-       ]
-      }
-     ]
-    },
-    {
-     "date": "2026-09-04T09:00:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "Twisted Minds PH",
-      "Aurora Gaming PH"
-     ],
-     "score": [
-      0,
-      2
-     ],
-     "winner": 2,
-     "games": [
-      {
-       "winner": 2,
-       "duration": "16:49",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "alice",
-         "hirara",
-         "novaria",
-         "yi-sun-shin",
-         "belerick"
-        ],
-        [
-         "uranus",
-         "paquito",
-         "eudora",
-         "clint",
-         "marcel"
-        ]
-       ],
-       "bans": [
-        [
-         "fanny",
-         "rafaela",
-         "atlas",
-         "mathilda",
-         "kaja"
-        ],
-        [
-         "freya",
-         "melissa",
-         "selena",
-         "hanabi",
-         "esmeralda"
-        ]
-       ]
-      },
-      {
-       "winner": 2,
-       "duration": "09:39",
-       "team1Side": "red",
-       "picks": [
-        [
-         "phoveus",
-         "hirara",
-         "eudora",
-         "moskov",
-         "mathilda"
-        ],
-        [
-         "belerick",
-         "paquito",
-         "pharsa",
-         "clint",
-         "rafaela"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "fanny",
-         "melissa",
-         "barats",
-         "brody"
-        ],
-        [
-         "selena",
-         "uranus",
-         "atlas",
-         "hanabi",
-         "esmeralda"
-        ]
-       ]
-      }
-     ]
-    },
-    {
-     "date": "2026-08-29T11:30:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "Team Liquid PH",
-      "Aurora Gaming PH"
-     ],
-     "score": [
-      2,
-      0
-     ],
-     "winner": 1,
-     "games": [
-      {
-       "winner": 1,
-       "duration": "22:38",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "ruby",
-         "paquito",
-         "eudora",
-         "clint",
-         "marcel"
-        ],
-        [
-         "uranus",
-         "hirara",
-         "zhuxin",
-         "brody",
-         "minotaur"
-        ]
-       ],
-       "bans": [
-        [
-         "fanny",
-         "rafaela",
-         "melissa",
-         "lylia",
-         "novaria"
-        ],
-        [
-         "freya",
-         "selena",
-         "atlas",
-         "belerick",
-         "kaja"
-        ]
-       ]
-      },
-      {
-       "winner": 1,
-       "duration": "21:06",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "atlas",
-         "suyou",
-         "eudora",
-         "clint",
-         "marcel"
-        ],
-        [
-         "esmeralda",
-         "hirara",
-         "kimmy",
-         "moskov",
-         "mathilda"
-        ]
-       ],
-       "bans": [
-        [
-         "rafaela",
-         "melissa",
-         "uranus",
-         "valentina",
-         "lylia"
-        ],
-        [
-         "freya",
-         "selena",
-         "paquito",
-         "nolan",
-         "hayabusa"
-        ]
-       ]
-      }
-     ]
-    },
-    {
-     "date": "2026-08-29T09:00:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "Omega Esports",
-      "Team Falcons PH"
-     ],
-     "score": [
-      2,
-      1
-     ],
-     "winner": 1,
-     "games": [
-      {
-       "winner": 1,
-       "duration": "22:07",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "ruby",
-         "fanny",
-         "selena",
-         "melissa",
-         "gloo"
-        ],
-        [
-         "uranus",
-         "hirara",
-         "novaria",
-         "brody",
-         "marcel"
-        ]
-       ],
-       "bans": [
-        [
-         "belerick",
-         "barats",
-         "rafaela",
-         "badang",
-         "kalea"
-        ],
-        [
-         "freya",
-         "atlas",
-         "paquito",
-         "gatotkaca",
-         "mathilda"
-        ]
-       ]
-      },
-      {
-       "winner": 2,
-       "duration": "10:56",
-       "team1Side": "red",
-       "picks": [
-        [
-         "paquito",
-         "fredrinn",
-         "selena",
-         "claude",
-         "minotaur"
-        ],
-        [
-         "carmilla",
-         "hirara",
-         "mathilda",
-         "brody",
-         "belerick"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "rafaela",
-         "melissa",
-         "barats",
-         "phoveus"
-        ],
-        [
-         "atlas",
-         "fanny",
-         "novaria",
-         "ruby",
-         "arlott"
-        ]
-       ]
-      },
-      {
-       "winner": 1,
-       "duration": "14:14",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "phoveus",
-         "hirara",
-         "vexana",
-         "paquito",
-         "angela"
-        ],
-        [
-         "carmilla",
-         "fanny",
-         "mathilda",
-         "brody",
-         "hylos"
-        ]
-       ],
-       "bans": [
-        [
-         "belerick",
-         "rafaela",
-         "barats",
-         "novaria",
-         "gatotkaca"
-        ],
-        [
-         "freya",
-         "atlas",
-         "melissa",
-         "ruby",
-         "badang"
-        ]
-       ]
-      }
-     ]
-    },
-    {
-     "date": "2026-08-23T11:30:00Z",
-     "stage": "Regular Season",
-     "teams": [
-      "TNC Pro Team",
-      "Aurora Gaming PH"
-     ],
-     "score": [
-      2,
-      1
-     ],
-     "winner": 1,
-     "games": [
-      {
-       "winner": 1,
-       "duration": "21:58",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "edith",
-         "paquito",
-         "rafaela",
-         "claude",
-         "belerick"
-        ],
-        [
-         "uranus",
-         "hirara",
-         "cecilion",
-         "brody",
-         "kaja"
-        ]
-       ],
-       "bans": [
-        [
-         "atlas",
-         "marcel",
-         "melissa",
-         "vexana",
-         "aurora"
-        ],
-        [
-         "freya",
-         "selena",
-         "fanny",
-         "barats",
-         "esmeralda"
-        ]
-       ]
-      },
-      {
-       "winner": 2,
-       "duration": "12:05",
-       "team1Side": "red",
-       "picks": [
-        [
-         "arlott",
-         "hirara",
-         "lylia",
-         "brody",
-         "marcel"
-        ],
-        [
-         "esmeralda",
-         "suyou",
-         "zhuxin",
-         "melissa",
-         "mathilda"
-        ]
-       ],
-       "bans": [
-        [
-         "freya",
-         "atlas",
-         "fanny",
-         "harley",
-         "nolan"
-        ],
-        [
-         "selena",
-         "barats",
-         "paquito",
-         "uranus",
-         "ruby"
-        ]
-       ]
-      },
-      {
-       "winner": 1,
-       "duration": "18:42",
-       "team1Side": "blue",
-       "picks": [
-        [
-         "belerick",
-         "hirara",
-         "angela",
-         "melissa",
-         "gloo"
-        ],
-        [
-         "barats",
-         "harley",
-         "vexana",
-         "granger",
-         "rafaela"
-        ]
-       ],
-       "bans": [
-        [
-         "atlas",
-         "uranus",
-         "fanny",
-         "claude",
-         "moskov"
-        ],
-        [
-         "freya",
-         "paquito",
-         "selena",
-         "mathilda",
-         "lylia"
-        ]
-       ]
-      }
-     ]
     }
    ]
   },
@@ -10517,12 +12295,12 @@
     {
      "title": "MPL/Malaysia/Season 18",
      "url": "https://liquipedia.net/mobilelegends/MPL/Malaysia/Season_18",
-     "revision": "2026-10-20T13:39:55Z"
+     "revision": "2026-10-24T00:27:40Z"
     },
     {
      "title": "MPL/Malaysia/Season 18/Regular Season",
      "url": "https://liquipedia.net/mobilelegends/MPL/Malaysia/Season_18/Regular_Season",
-     "revision": "2026-10-18T11:26:15Z"
+     "revision": "2026-10-22T12:15:56Z"
     },
     {
      "title": "MPL/Malaysia/Season 18/Playoffs",
@@ -10535,120 +12313,1033 @@
      "title": "Regular Season",
      "key": "regularSeason",
      "page": "MPL/Malaysia/Season 18/Regular Season",
-     "standings": [
+     "standings": [],
+     "brackets": [
       {
-       "title": "Regular Season",
-       "label": null,
-       "kind": "league",
-       "rows": [
+       "title": "Week 1",
+       "label": {
+        "kind": "week",
+        "n": 1
+       },
+       "rounds": [
         {
-         "rank": 1,
-         "team": "Selangor Red Giants",
-         "series": [
-          11,
-          3
-         ],
-         "games": [
-          24,
-          8
-         ],
-         "zone": "up"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "AC Esports",
+            "Bigetron MY by VIT"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-14T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Vamos",
+            "Team Flash"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-14T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Flash",
+            "Bigetron MY by VIT"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-15T06:30:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Tora",
+            "Team Rey"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-15T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Selangor Red Giants",
+            "Invictus Gaming"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-15T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Invictus Gaming",
+            "RRQ Tora"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-16T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Team Rey",
+            "Selangor Red Giants"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-16T09:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 2",
+       "label": {
+        "kind": "week",
+        "n": 2
+       },
+       "rounds": [
         {
-         "rank": 2,
-         "team": "Team Rey",
-         "series": [
-          10,
-          4
-         ],
-         "games": [
-          22,
-          11
-         ],
-         "zone": "up"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Invictus Gaming",
+            "Team Vamos"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-21T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron MY by VIT",
+            "Selangor Red Giants"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-21T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Rey",
+            "Team Vamos"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-22T06:30:00Z"
+          },
+          {
+           "teams": [
+            "AC Esports",
+            "Invictus Gaming"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-22T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron MY by VIT",
+            "RRQ Tora"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-22T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Rey",
+            "AC Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-23T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Team Flash",
+            "Selangor Red Giants"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-23T09:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 3",
+       "label": {
+        "kind": "week",
+        "n": 3
+       },
+       "rounds": [
         {
-         "rank": 3,
-         "team": "Team Vamos",
-         "series": [
-          10,
-          4
-         ],
-         "games": [
-          22,
-          14
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Bigetron MY by VIT",
+            "Team Rey"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-28T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Vamos",
+            "RRQ Tora"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-08-28T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Flash",
+            "Team Rey"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-29T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron MY by VIT",
+            "Team Vamos"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-29T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Selangor Red Giants",
+            "AC Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-08-29T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Invictus Gaming",
+            "Team Flash"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-30T06:30:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Tora",
+            "AC Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-08-30T09:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 4",
+       "label": {
+        "kind": "week",
+        "n": 4
+       },
+       "rounds": [
         {
-         "rank": 4,
-         "team": "Invictus Gaming",
-         "series": [
-          7,
-          7
-         ],
-         "games": [
-          17,
-          17
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "AC Esports",
+            "Team Flash"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-04T09:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Tora",
+            "Selangor Red Giants"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-04T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Flash",
+            "RRQ Tora"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-05T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Team Rey",
+            "Invictus Gaming"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-05T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Selangor Red Giants",
+            "Team Vamos"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-05T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Invictus Gaming",
+            "Bigetron MY by VIT"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-06T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Team Vamos",
+            "AC Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-06T09:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 5",
+       "label": {
+        "kind": "week",
+        "n": 5
+       },
+       "rounds": [
         {
-         "rank": 5,
-         "team": "Bigetron MY by VIT",
-         "series": [
-          6,
-          8
-         ],
-         "games": [
-          17,
-          19
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Invictus Gaming",
+            "Team Rey"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-11T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Selangor Red Giants",
+            "Bigetron MY by VIT"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-11T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Flash",
+            "AC Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-12T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Team Vamos",
+            "Team Rey"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-12T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Selangor Red Giants",
+            "RRQ Tora"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-12T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron MY by VIT",
+            "AC Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-13T06:30:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Tora",
+            "Team Flash"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-13T09:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 6",
+       "label": {
+        "kind": "week",
+        "n": 6
+       },
+       "rounds": [
         {
-         "rank": 6,
-         "team": "Team Flash",
-         "series": [
-          5,
-          9
-         ],
-         "games": [
-          13,
-          19
-         ],
-         "zone": "stayup"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Team Rey",
+            "Team Flash"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-18T09:00:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Tora",
+            "Team Vamos"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-18T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Vamos",
+            "Bigetron MY by VIT"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-09-19T06:30:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Tora",
+            "Invictus Gaming"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-19T09:00:00Z"
+          },
+          {
+           "teams": [
+            "AC Esports",
+            "Selangor Red Giants"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-19T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron MY by VIT",
+            "Invictus Gaming"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-09-20T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Selangor Red Giants",
+            "Team Rey"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-09-20T09:00:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 7",
+       "label": {
+        "kind": "week",
+        "n": 7
+       },
+       "rounds": [
         {
-         "rank": 7,
-         "team": "AC Esports",
-         "series": [
-          4,
-          10
-         ],
-         "games": [
-          10,
-          24
-         ],
-         "zone": "down"
-        },
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Team Rey",
+            "Bigetron MY by VIT"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-10-08T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Selangor Red Giants",
+            "Team Flash"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-10-08T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Vamos",
+            "Invictus Gaming"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-09T09:00:00Z"
+          },
+          {
+           "teams": [
+            "AC Esports",
+            "RRQ Tora"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-09T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Team Flash",
+            "Team Vamos"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-11T06:30:00Z"
+          },
+          {
+           "teams": [
+            "Invictus Gaming",
+            "AC Esports"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-11T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Rey",
+            "RRQ Tora"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-10-11T12:15:00Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Week 8",
+       "label": {
+        "kind": "week",
+        "n": 8
+       },
+       "rounds": [
         {
-         "rank": 8,
-         "team": "RRQ Tora",
-         "series": [
-          3,
-          11
-         ],
-         "games": [
-          11,
-          24
-         ],
-         "zone": "down"
+         "title": null,
+         "label": null,
+         "number": null,
+         "matches": [
+          {
+           "teams": [
+            "Team Flash",
+            "Invictus Gaming"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-16T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Team Vamos",
+            "Selangor Red Giants"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            0
+           ],
+           "winner": 1,
+           "date": "2026-10-16T12:15:00Z"
+          },
+          {
+           "teams": [
+            "Bigetron MY by VIT",
+            "Team Flash"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            1,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-17T06:30:00Z"
+          },
+          {
+           "teams": [
+            "AC Esports",
+            "Team Rey"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-17T09:00:00Z"
+          },
+          {
+           "teams": [
+            "Invictus Gaming",
+            "Selangor Red Giants"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-17T12:15:00Z"
+          },
+          {
+           "teams": [
+            "AC Esports",
+            "Team Vamos"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            2,
+            1
+           ],
+           "winner": 1,
+           "date": "2026-10-18T06:30:00Z"
+          },
+          {
+           "teams": [
+            "RRQ Tora",
+            "Bigetron MY by VIT"
+           ],
+           "placeholders": [
+            null,
+            null
+           ],
+           "score": [
+            0,
+            2
+           ],
+           "winner": 2,
+           "date": "2026-10-18T09:00:00Z"
+          }
+         ]
         }
        ]
       }
-     ],
-     "brackets": []
+     ]
     },
     {
      "title": "Playoffs",
