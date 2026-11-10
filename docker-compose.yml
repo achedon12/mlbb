@@ -16,6 +16,10 @@ services:
     ports:
       - "127.0.0.1:${PORT:-3003}:3001"
     read_only: true
+    # Hard ceiling, well above the ~600 MB the server uses with its heap capped
+    # (see NODE_OPTIONS in the Dockerfile): a regression shows up as a restart
+    # instead of eating the host's memory.
+    mem_limit: 1g
     volumes:
       - ./logs:/app/logs
       # Patch notification subscriptions and last announced patch: a named

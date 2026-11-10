@@ -38,6 +38,13 @@ ENV NODE_ENV=production \
     HOSTNAME=0.0.0.0 \
     DATA_DIR=/app/donnees-serveur
 
+# V8 sizes its heap from the host's RAM (4 GB on a 16 GB server) and only
+# collects garbage seriously near that limit: the site sat at 5 GB in
+# production for a working set of a few hundred MB. Measured locally, 4,500
+# requests (2,500 compare pages rendered on demand) run fine with a 256 MB
+# heap; 384 MB leaves headroom.
+ENV NODE_OPTIONS=--max-old-space-size=384
+
 # The data folder exists in the image, owned by the user: a named volume
 # mounted on it inherits that ownership when it is created.
 RUN apk add --no-cache wget \
