@@ -3590,6 +3590,9 @@
           "p": "Jika pengukuran pengunjung diaktifkan, pengukuran itu menggunakan alat tanpa cookie dan tanpa data pribadi, yang tidak melacak pengunjung dari satu situs ke situs lain. Dalam hal ini, banner persetujuan tidak diperlukan."
         },
         {
+          "p": "Panggilan ke API publik (`/api/v1`), yang dilakukan oleh skrip atau situs lain, dihitung dengan cara yang sama, oleh server dan tanpa cookie: alamat yang diminta, kode respons, halaman asli dan perangkat lunak yang dinyatakan oleh panggilan tersebut, serta alamat IP, dianonimkan oleh alat pengukuran. Tidak ada pengenal yang ditetapkan, dan panggilan yang dikirim dengan header `DNT: 1` atau `Sec-GPC: 1` tidak dihitung."
+        },
+        {
           "h": "Hak Anda"
         },
         {
