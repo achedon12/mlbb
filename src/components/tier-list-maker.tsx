@@ -658,6 +658,7 @@ export function TierListMaker({
 
       {chosen && selection && (
         <div
+          data-bottom-ui
           role="region"
           aria-label={t("pages.tierMakerUI.actionBar", { name: chosen.name })}
           className="fixed inset-x-0 bottom-0 z-40 border-t border-gold-500/40 bg-night-900/95 px-3 py-2.5 shadow-2xl shadow-black/60 backdrop-blur-sm"

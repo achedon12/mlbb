@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Inter, Rajdhani } from "next/font/google";
 import { Header } from "@/components/header";
 import { Offline } from "@/components/offline";
+import { DiscordPopup } from "@/components/discord-popup";
 import { Analytics } from "@/components/analytics";
 import { Footer } from "@/components/footer";
 import { ErrorReporter } from "@/components/error-reporter";
@@ -102,6 +103,7 @@ export default async function LocaleLayout({
           <Analytics />
           <ErrorReporter />
           <Offline />
+          <DiscordPopup />
         </LocaleProvider>
       </body>
     </html>

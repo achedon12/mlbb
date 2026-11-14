@@ -254,6 +254,7 @@ export function NicknameGenerator() {
       >
         {toast && (
           <p
+            data-bottom-ui
             className={cn(
               "max-w-full break-all border bg-night-900 px-4 py-2.5 text-sm font-medium text-chalk-100 shadow-lg shadow-black/40",
               toast.failed ? "border-blood-500/60" : "border-gold-500/60",

@@ -4303,6 +4303,13 @@
   "offline": {
     "banner": "Offline — halaman yang dilihat sebelumnya tetap tersedia."
   },
+  "discordPopup": {
+    "label": "Undangan Discord MLBBDex",
+    "title": "Gabung Discord MLBBDex",
+    "text": "Info patch, MLBBdle harian, dan cari teman mabar.",
+    "join": "Gabung",
+    "close": "Tutup undangan"
+  },
   "search": {
     "open": "Cari",
     "placeholder": "Hero, item, patch…",
