@@ -76,9 +76,19 @@ describe("bot request signing", () => {
     expect(guard.accept("x", 1_000 + 2 * MAX_SKEW_S + 1)).toBe(true);
   });
 
+  it("lets a forgotten signature through again", () => {
+    const guard = new ReplayGuard();
+    expect(guard.accept("y", 1_000)).toBe(true);
+    guard.forget("y");
+    expect(guard.accept("y", 1_000)).toBe(true);
+  });
+
   it("refuses everything without a secret, and requests without headers", () => {
     expect(check(request(), { secret: "" })).toEqual({ ok: false, reason: "no-secret" });
     expect(check(request(), { secret: null })).toEqual({ ok: false, reason: "no-secret" });
+    // A secret too short to resist guessing is no secret, even with a valid signature.
+    const short = "k".repeat(31);
+    expect(check(request({ secret: short }), { secret: short })).toEqual({ ok: false, reason: "no-secret" });
     expect(check({ timestamp: null, signature: null })).toEqual({ ok: false, reason: "missing" });
     expect(check({ timestamp: "abc", signature: "zz" })).toEqual({ ok: false, reason: "signature" });
   });
