@@ -118,6 +118,7 @@ export const PAGES = [
   { path: "/tools/timer", locales: EN_FR },
   { path: "/tools/tier-list-maker", locales: EN_FR },
   { path: "/map", locales: EN_FR },
+  { path: "/tools/strategy-planner", locales: EN_FR },
   { path: "/esports", locales: EN_FR },
   { discover: "esports-players", path: "/esports/<tournament>/players", locales: EN_FR },
   { discover: "esports-player", path: "/esports/players/<slug>", locales: EN_FR },

@@ -1703,6 +1703,434 @@
     "pages.esportsPlayersUI.heroLine": {
       "fr": "{hero} : {games} parties, {wins} victoires",
       "text": "{hero}: {games} games, {wins} wins"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "The picks that raise your estimated chances the most ({rank}): counters, duos, strength at the rank, the lane to fill."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Estimated win chances"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Estimate"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Estimate breakdown"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Estimate: blue {blue}%, red {red}%, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "low confidence"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "medium confidence"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "good confidence"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "No pick yet: 50-50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Neither team stands out."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} ahead, by {pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "even"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Hero strength"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counters"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Synergies"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Lanes and tank"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Damage types"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Nothing to report."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Average win rate: blue {blue}%, red {red}%"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Most one-sided duel: {winner} over {loser} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "No known duel between the two teams."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "No known duo."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} without a free lane"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: no tank"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: almost only physical damage"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: almost only magic damage"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "An estimate, not a prediction: it combines the win rates, duels and duos measured in ranked matches ({rank}), with the wiki's relations where nothing is measured, then penalises a doubled lane, a missing tank and single-type damage. It stays between 25 and 75%: a draft alone does not decide a match."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "brings the missing tank"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "balances the damage ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "The estimated win chances"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "During the draft, a bar estimates each team's chances from five factors, counted in win-rate points: the heroes' strength at the rank, the duels between the two teams and each team's duos (measured in ranked matches, otherwise taken from the wiki), a doubled lane or a missing tank, and single-type damage. The first three count for half, as they overlap. Their sum goes through a logistic curve: two equal teams sit at 50%, and the result stays between 25 and 75%. The suggested picks are the ones that raise this estimate the most. It is a guide, not a prediction."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Play a full draft in ranked or MPL format: bans then picks against a bot built on the measured counters and duos of {n} heroes (data from {date}, patch {v}). Live estimated win chances, the best next pick and a link to share."
+    },
+    "pages.seo.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB : tableau tactique sur la carte",
+      "text": "MLBB strategy planner: a tactical board on the map"
+    },
+    "pages.seo.strategyPlanner.description": {
+      "fr": "Tableau tactique gratuit sur la carte de Mobile Legends: Bang Bang : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, dessinez flèches et rotations, ajoutez des notes, puis partagez le plan par lien ou en image PNG. Sans inscription, au doigt comme à la souris.",
+      "text": "A free tactical board on the Mobile Legends: Bang Bang map: place both teams' heroes, the Turtle, the Lord and the buffs, draw arrows and rotations, add notes, then share the plan as a link or a PNG image. No sign-up, by finger or mouse."
+    },
+    "pages.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB",
+      "text": "MLBB strategy planner"
+    },
+    "pages.strategyPlanner.crumb": {
+      "fr": "Planificateur",
+      "text": "Planner"
+    },
+    "pages.strategyPlanner.lead": {
+      "fr": "Préparez une rotation, un gank ou un combat d'objectif sur la carte : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, tracez flèches et chemins, ajoutez des notes. Le plan se partage par lien et s'exporte en image.",
+      "text": "Prepare a rotation, a gank or an objective fight on the map: place both teams' heroes, the Turtle, the Lord and the buffs, draw arrows and paths, add notes. The plan is shared as a link and exported as an image."
+    },
+    "pages.strategyPlanner.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "How to use it"
+    },
+    "pages.strategyPlanner.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Show the four steps"
+    },
+    "pages.strategyPlanner.step1": {
+      "fr": "Choisissez une équipe, bleue ou rouge, puis touchez un héros dans la liste : il apparaît devant sa base. Les objectifs se posent de la même façon.",
+      "text": "Pick a team, blue or red, then tap a hero in the list: it appears in front of its base. Objectives are placed the same way."
+    },
+    "pages.strategyPlanner.step2": {
+      "fr": "Avec l'outil Déplacer, faites glisser un héros, un objectif, une flèche ou un tracé. Au clavier, Tab passe d'un élément à l'autre, les flèches le déplacent (Maj pour aller plus vite) et Suppr l'enlève.",
+      "text": "With the Move tool, drag a hero, an objective, an arrow or a line. With the keyboard, Tab goes from one element to the next, the arrow keys move it (Shift to go faster) and Delete removes it."
+    },
+    "pages.strategyPlanner.step3": {
+      "fr": "Les outils Crayon et Flèche dessinent sur la carte, dans la couleur choisie ; l'outil Texte pose l'étiquette saisie là où vous touchez. Ctrl+Z annule, Ctrl+Maj+Z rétablit.",
+      "text": "The Pen and Arrow tools draw on the map in the chosen colour; the Text tool puts the label you typed where you tap. Ctrl+Z undoes, Ctrl+Shift+Z redoes."
+    },
+    "pages.strategyPlanner.step4": {
+      "fr": "Terminé ? Copiez le lien, il contient tout le plan sans compte ni serveur, ou téléchargez l'image PNG.",
+      "text": "Done? Copy the link, which holds the whole plan with no account or server, or download the PNG image."
+    },
+    "pages.strategyPlanner.mapNote": {
+      "fr": "La carte est notre schéma de la Terre de l'Aube, le même que sur le guide de la carte : votre base en bas à gauche, la rivière en diagonale, la Tortue près de la lane EXP et le Seigneur de l'autre côté. Les distances ne sont pas à l'échelle.",
+      "text": "The map is our diagram of the Land of Dawn, the same as on the map guide: your base in the bottom left, the river across the diagonal, the Turtle near the EXP lane and the Lord on the other side. Distances are not to scale."
+    },
+    "pages.strategyPlanner.mapLink": {
+      "fr": "Le guide de la carte : camps, horaires et rotations",
+      "text": "The map guide: camps, timings and rotations"
+    },
+    "pages.strategyPlanner.timerLink": {
+      "fr": "Chrono des objectifs",
+      "text": "Objective timer"
+    },
+    "pages.strategyPlanner.draftLink": {
+      "fr": "Simulateur de draft",
+      "text": "Draft simulator"
+    },
+    "pages.map.plannerLink": {
+      "fr": "Tracer une rotation sur cette carte avec le planificateur de stratégie",
+      "text": "Draw a rotation on this map with the strategy planner"
+    },
+    "pages.strategyPlannerUI.toolsLabel": {
+      "fr": "Outils de dessin",
+      "text": "Drawing tools"
+    },
+    "pages.strategyPlannerUI.tools.move": {
+      "fr": "Déplacer",
+      "text": "Move"
+    },
+    "pages.strategyPlannerUI.tools.pen": {
+      "fr": "Crayon",
+      "text": "Pen"
+    },
+    "pages.strategyPlannerUI.tools.arrow": {
+      "fr": "Flèche",
+      "text": "Arrow"
+    },
+    "pages.strategyPlannerUI.tools.text": {
+      "fr": "Texte",
+      "text": "Text"
+    },
+    "pages.strategyPlannerUI.colorLabel": {
+      "fr": "Couleur",
+      "text": "Colour"
+    },
+    "pages.strategyPlannerUI.colors.gold": {
+      "fr": "Or",
+      "text": "Gold"
+    },
+    "pages.strategyPlannerUI.colors.white": {
+      "fr": "Blanc",
+      "text": "White"
+    },
+    "pages.strategyPlannerUI.colors.blue": {
+      "fr": "Bleu",
+      "text": "Blue"
+    },
+    "pages.strategyPlannerUI.colors.red": {
+      "fr": "Rouge",
+      "text": "Red"
+    },
+    "pages.strategyPlannerUI.colors.green": {
+      "fr": "Vert",
+      "text": "Green"
+    },
+    "pages.strategyPlannerUI.colors.purple": {
+      "fr": "Violet",
+      "text": "Purple"
+    },
+    "pages.strategyPlannerUI.labelField": {
+      "fr": "Texte de l'étiquette",
+      "text": "Label text"
+    },
+    "pages.strategyPlannerUI.labelCentre": {
+      "fr": "Placer au centre",
+      "text": "Place in the centre"
+    },
+    "pages.strategyPlannerUI.labelHelp": {
+      "fr": "Touchez la carte pour poser l'étiquette à cet endroit.",
+      "text": "Tap the map to put the label there."
+    },
+    "pages.strategyPlannerUI.labelFirst": {
+      "fr": "Saisissez d'abord le texte de l'étiquette.",
+      "text": "Type the label text first."
+    },
+    "pages.strategyPlannerUI.boardLabel": {
+      "fr": "Carte du plan",
+      "text": "Plan map"
+    },
+    "pages.strategyPlannerUI.help": {
+      "fr": "Déplacer : glissez un élément, ou sélectionnez-le au clavier (Tab) et utilisez les flèches. Crayon, Flèche et Texte dessinent directement sur la carte.",
+      "text": "Move: drag an element, or select it with the keyboard (Tab) and use the arrow keys. Pen, Arrow and Text draw straight on the map."
+    },
+    "pages.strategyPlannerUI.undo": {
+      "fr": "Annuler",
+      "text": "Undo"
+    },
+    "pages.strategyPlannerUI.redo": {
+      "fr": "Rétablir",
+      "text": "Redo"
+    },
+    "pages.strategyPlannerUI.delete": {
+      "fr": "Supprimer la sélection",
+      "text": "Delete selection"
+    },
+    "pages.strategyPlannerUI.clear": {
+      "fr": "Tout effacer",
+      "text": "Clear all"
+    },
+    "pages.strategyPlannerUI.export": {
+      "fr": "Image PNG",
+      "text": "PNG image"
+    },
+    "pages.strategyPlannerUI.share": {
+      "fr": "Copier le lien",
+      "text": "Copy the link"
+    },
+    "pages.strategyPlannerUI.paletteLabel": {
+      "fr": "Héros et objectifs",
+      "text": "Heroes and objectives"
+    },
+    "pages.strategyPlannerUI.heroes": {
+      "fr": "Héros",
+      "text": "Heroes"
+    },
+    "pages.strategyPlannerUI.teamLabel": {
+      "fr": "Équipe des héros ajoutés",
+      "text": "Team of the heroes you add"
+    },
+    "pages.strategyPlannerUI.teams.blue": {
+      "fr": "Équipe bleue",
+      "text": "Blue team"
+    },
+    "pages.strategyPlannerUI.teams.red": {
+      "fr": "Équipe rouge",
+      "text": "Red team"
+    },
+    "pages.strategyPlannerUI.search": {
+      "fr": "Chercher un héros",
+      "text": "Search a hero"
+    },
+    "pages.strategyPlannerUI.noHero": {
+      "fr": "Aucun héros ne correspond.",
+      "text": "No hero matches."
+    },
+    "pages.strategyPlannerUI.addHero": {
+      "fr": "Ajouter {name} ({team})",
+      "text": "Add {name} ({team})"
+    },
+    "pages.strategyPlannerUI.selectHero": {
+      "fr": "Sélectionner {name} ({team}), déjà sur la carte",
+      "text": "Select {name} ({team}), already on the map"
+    },
+    "pages.strategyPlannerUI.objectives": {
+      "fr": "Objectifs",
+      "text": "Objectives"
+    },
+    "pages.strategyPlannerUI.addMarker": {
+      "fr": "Placer : {name}",
+      "text": "Place: {name}"
+    },
+    "pages.strategyPlannerUI.count": {
+      "fr": "{n} éléments sur {max}",
+      "text": "{n} of {max} elements"
+    },
+    "pages.strategyPlannerUI.element.hero": {
+      "fr": "{name} ({team})",
+      "text": "{name} ({team})"
+    },
+    "pages.strategyPlannerUI.element.text": {
+      "fr": "Étiquette « {text} »",
+      "text": "Label “{text}”"
+    },
+    "pages.strategyPlannerUI.element.arrow": {
+      "fr": "Flèche, couleur {color}",
+      "text": "Arrow, {color}"
+    },
+    "pages.strategyPlannerUI.element.line": {
+      "fr": "Tracé, couleur {color}",
+      "text": "Line, {color}"
+    },
+    "pages.strategyPlannerUI.placed": {
+      "fr": "Ajouté sur la carte : {name}.",
+      "text": "Added to the map: {name}."
+    },
+    "pages.strategyPlannerUI.removed": {
+      "fr": "Supprimé : {name}.",
+      "text": "Removed: {name}."
+    },
+    "pages.strategyPlannerUI.cleared": {
+      "fr": "Carte effacée. Annuler la rétablit.",
+      "text": "Map cleared. Undo brings it back."
+    },
+    "pages.strategyPlannerUI.undone": {
+      "fr": "Action annulée.",
+      "text": "Action undone."
+    },
+    "pages.strategyPlannerUI.redone": {
+      "fr": "Action rétablie.",
+      "text": "Action redone."
+    },
+    "pages.strategyPlannerUI.full": {
+      "fr": "Limite de {n} éléments atteinte.",
+      "text": "Limit of {n} elements reached."
+    },
+    "pages.strategyPlannerUI.sharedLoaded": {
+      "fr": "Plan partagé chargé.",
+      "text": "Shared plan loaded."
+    },
+    "pages.strategyPlannerUI.sharedInvalid": {
+      "fr": "Ce lien ne contient pas de plan lisible.",
+      "text": "This link holds no readable plan."
+    },
+    "pages.strategyPlannerUI.exporting": {
+      "fr": "Création de l'image…",
+      "text": "Creating the image…"
+    },
+    "pages.strategyPlannerUI.exportDone": {
+      "fr": "Image téléchargée.",
+      "text": "Image downloaded."
+    },
+    "pages.strategyPlannerUI.exportShared": {
+      "fr": "Image partagée.",
+      "text": "Image shared."
+    },
+    "pages.strategyPlannerUI.exportError": {
+      "fr": "L'image n'a pas pu être créée.",
+      "text": "The image could not be created."
+    },
+    "pages.strategyPlannerUI.imageTitle": {
+      "fr": "Plan de stratégie MLBB",
+      "text": "MLBB strategy plan"
+    },
+    "pages.strategyPlannerUI.linkCopied": {
+      "fr": "Lien copié : il contient tout le plan.",
+      "text": "Link copied: it holds the whole plan."
+    },
+    "pages.strategyPlannerUI.linkShared": {
+      "fr": "Lien partagé.",
+      "text": "Link shared."
+    },
+    "pages.strategyPlannerUI.linkError": {
+      "fr": "Copie impossible : copiez l'adresse de la page.",
+      "text": "Copy failed: copy the page address instead."
     }
   },
   "es": {
@@ -3229,6 +3657,434 @@
     "pages.esportsPlayersUI.heroLine": {
       "fr": "{hero} : {games} parties, {wins} victoires",
       "text": "{hero}: {games} partidas, {wins} victorias"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "Los picks que más suben vuestras opciones estimadas ({rank}): counters, dúos, fuerza en el rango, la línea por cubrir."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Opciones de victoria estimadas"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Estimación"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Detalle de la estimación"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Estimación: azul {blue} %, rojo {red} %, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "fiabilidad baja"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "fiabilidad media"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "buena fiabilidad"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "Todavía ningún pick: 50-50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Ningún equipo se distancia."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} por delante, ventaja de {pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "igualado"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Fuerza de los héroes"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counters"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Sinergias"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Líneas y tanque"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Tipos de daño"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Nada que señalar."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Tasa de victoria media: azul {blue} %, rojo {red} %"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Duelo más claro: {winner} sobre {loser} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "Ningún duelo conocido entre los dos equipos."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "Ningún dúo conocido."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} sin línea libre"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: sin tanque"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: daño casi todo físico"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: daño casi todo mágico"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "Una estimación, no una predicción: combina las tasas de victoria, los duelos y los dúos medidos en clasificatoria ({rank}), con las relaciones de la wiki donde no hay medida, y penaliza una línea repetida, la falta de tanque y el daño de un solo tipo. Se queda entre el 25 y el 75 %: un draft no decide una partida por sí solo."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "aporta el tanque que falta"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "equilibra el daño ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "Las opciones de victoria estimadas"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "Durante el draft, una barra estima las opciones de cada equipo a partir de cinco factores, contados en puntos de tasa de victoria: la fuerza de los héroes en el rango, los duelos entre los dos equipos y los dúos de cada uno (medidos en clasificatoria, si no tomados de la wiki), una línea repetida o la falta de tanque, y el daño de un solo tipo. Los tres primeros cuentan la mitad, porque se solapan. Su suma pasa por una curva logística: dos equipos iguales están al 50 %, y el resultado se queda entre el 25 y el 75 %. Los picks sugeridos son los que más suben esta estimación. Es una referencia, no una predicción."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Juega un draft completo en formato clasificatoria o MPL: bans y luego picks contra un bot basado en los counters y dúos medidos de {n} héroes (datos del {date}, parche {v}). Opciones de victoria estimadas en directo, mejor pick sugerido y enlace para compartir."
+    },
+    "pages.seo.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB : tableau tactique sur la carte",
+      "text": "Planificador de estrategia MLBB: pizarra táctica sobre el mapa"
+    },
+    "pages.seo.strategyPlanner.description": {
+      "fr": "Tableau tactique gratuit sur la carte de Mobile Legends: Bang Bang : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, dessinez flèches et rotations, ajoutez des notes, puis partagez le plan par lien ou en image PNG. Sans inscription, au doigt comme à la souris.",
+      "text": "Una pizarra táctica gratuita sobre el mapa de Mobile Legends: Bang Bang: coloca a los héroes de los dos equipos, la Tortuga, el Señor y los buffs, dibuja flechas y rotaciones, añade notas y comparte el plan con un enlace o una imagen PNG. Sin registro, con el dedo o con el ratón."
+    },
+    "pages.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB",
+      "text": "Planificador de estrategia MLBB"
+    },
+    "pages.strategyPlanner.crumb": {
+      "fr": "Planificateur",
+      "text": "Planificador"
+    },
+    "pages.strategyPlanner.lead": {
+      "fr": "Préparez une rotation, un gank ou un combat d'objectif sur la carte : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, tracez flèches et chemins, ajoutez des notes. Le plan se partage par lien et s'exporte en image.",
+      "text": "Prepara una rotación, un gank o una pelea por un objetivo sobre el mapa: coloca a los héroes de los dos equipos, la Tortuga, el Señor y los buffs, traza flechas y caminos, añade notas. El plan se comparte con un enlace y se exporta como imagen."
+    },
+    "pages.strategyPlanner.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "Instrucciones"
+    },
+    "pages.strategyPlanner.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Mostrar los cuatro pasos"
+    },
+    "pages.strategyPlanner.step1": {
+      "fr": "Choisissez une équipe, bleue ou rouge, puis touchez un héros dans la liste : il apparaît devant sa base. Les objectifs se posent de la même façon.",
+      "text": "Elige un equipo, azul o rojo, y toca un héroe de la lista: aparece delante de su base. Los objetivos se colocan igual."
+    },
+    "pages.strategyPlanner.step2": {
+      "fr": "Avec l'outil Déplacer, faites glisser un héros, un objectif, une flèche ou un tracé. Au clavier, Tab passe d'un élément à l'autre, les flèches le déplacent (Maj pour aller plus vite) et Suppr l'enlève.",
+      "text": "Con la herramienta Mover, arrastra un héroe, un objetivo, una flecha o un trazo. Con el teclado, Tab pasa de un elemento a otro, las flechas lo mueven (Mayús para ir más rápido) y Supr lo elimina."
+    },
+    "pages.strategyPlanner.step3": {
+      "fr": "Les outils Crayon et Flèche dessinent sur la carte, dans la couleur choisie ; l'outil Texte pose l'étiquette saisie là où vous touchez. Ctrl+Z annule, Ctrl+Maj+Z rétablit.",
+      "text": "Las herramientas Lápiz y Flecha dibujan sobre el mapa en el color elegido; la herramienta Texto pone la etiqueta escrita donde toques. Ctrl+Z deshace, Ctrl+Mayús+Z rehace."
+    },
+    "pages.strategyPlanner.step4": {
+      "fr": "Terminé ? Copiez le lien, il contient tout le plan sans compte ni serveur, ou téléchargez l'image PNG.",
+      "text": "¿Listo? Copia el enlace, que contiene todo el plan sin cuenta ni servidor, o descarga la imagen PNG."
+    },
+    "pages.strategyPlanner.mapNote": {
+      "fr": "La carte est notre schéma de la Terre de l'Aube, le même que sur le guide de la carte : votre base en bas à gauche, la rivière en diagonale, la Tortue près de la lane EXP et le Seigneur de l'autre côté. Les distances ne sont pas à l'échelle.",
+      "text": "El mapa es nuestro esquema de la Tierra del Amanecer, el mismo que en la guía del mapa: tu base abajo a la izquierda, el río en diagonal, la Tortuga cerca de la línea EXP y el Señor al otro lado. Las distancias no están a escala."
+    },
+    "pages.strategyPlanner.mapLink": {
+      "fr": "Le guide de la carte : camps, horaires et rotations",
+      "text": "La guía del mapa: campamentos, tiempos y rotaciones"
+    },
+    "pages.strategyPlanner.timerLink": {
+      "fr": "Chrono des objectifs",
+      "text": "Cronómetro de objetivos"
+    },
+    "pages.strategyPlanner.draftLink": {
+      "fr": "Simulateur de draft",
+      "text": "Simulador de draft"
+    },
+    "pages.map.plannerLink": {
+      "fr": "Tracer une rotation sur cette carte avec le planificateur de stratégie",
+      "text": "Traza una rotación en este mapa con el planificador de estrategia"
+    },
+    "pages.strategyPlannerUI.toolsLabel": {
+      "fr": "Outils de dessin",
+      "text": "Herramientas de dibujo"
+    },
+    "pages.strategyPlannerUI.tools.move": {
+      "fr": "Déplacer",
+      "text": "Mover"
+    },
+    "pages.strategyPlannerUI.tools.pen": {
+      "fr": "Crayon",
+      "text": "Lápiz"
+    },
+    "pages.strategyPlannerUI.tools.arrow": {
+      "fr": "Flèche",
+      "text": "Flecha"
+    },
+    "pages.strategyPlannerUI.tools.text": {
+      "fr": "Texte",
+      "text": "Texto"
+    },
+    "pages.strategyPlannerUI.colorLabel": {
+      "fr": "Couleur",
+      "text": "Color"
+    },
+    "pages.strategyPlannerUI.colors.gold": {
+      "fr": "Or",
+      "text": "Oro"
+    },
+    "pages.strategyPlannerUI.colors.white": {
+      "fr": "Blanc",
+      "text": "Blanco"
+    },
+    "pages.strategyPlannerUI.colors.blue": {
+      "fr": "Bleu",
+      "text": "Azul"
+    },
+    "pages.strategyPlannerUI.colors.red": {
+      "fr": "Rouge",
+      "text": "Rojo"
+    },
+    "pages.strategyPlannerUI.colors.green": {
+      "fr": "Vert",
+      "text": "Verde"
+    },
+    "pages.strategyPlannerUI.colors.purple": {
+      "fr": "Violet",
+      "text": "Morado"
+    },
+    "pages.strategyPlannerUI.labelField": {
+      "fr": "Texte de l'étiquette",
+      "text": "Texto de la etiqueta"
+    },
+    "pages.strategyPlannerUI.labelCentre": {
+      "fr": "Placer au centre",
+      "text": "Colocar en el centro"
+    },
+    "pages.strategyPlannerUI.labelHelp": {
+      "fr": "Touchez la carte pour poser l'étiquette à cet endroit.",
+      "text": "Toca el mapa para poner la etiqueta en ese punto."
+    },
+    "pages.strategyPlannerUI.labelFirst": {
+      "fr": "Saisissez d'abord le texte de l'étiquette.",
+      "text": "Escribe primero el texto de la etiqueta."
+    },
+    "pages.strategyPlannerUI.boardLabel": {
+      "fr": "Carte du plan",
+      "text": "Mapa del plan"
+    },
+    "pages.strategyPlannerUI.help": {
+      "fr": "Déplacer : glissez un élément, ou sélectionnez-le au clavier (Tab) et utilisez les flèches. Crayon, Flèche et Texte dessinent directement sur la carte.",
+      "text": "Mover: arrastra un elemento, o selecciónalo con el teclado (Tab) y usa las flechas. Lápiz, Flecha y Texto dibujan directamente sobre el mapa."
+    },
+    "pages.strategyPlannerUI.undo": {
+      "fr": "Annuler",
+      "text": "Deshacer"
+    },
+    "pages.strategyPlannerUI.redo": {
+      "fr": "Rétablir",
+      "text": "Rehacer"
+    },
+    "pages.strategyPlannerUI.delete": {
+      "fr": "Supprimer la sélection",
+      "text": "Eliminar la selección"
+    },
+    "pages.strategyPlannerUI.clear": {
+      "fr": "Tout effacer",
+      "text": "Borrar todo"
+    },
+    "pages.strategyPlannerUI.export": {
+      "fr": "Image PNG",
+      "text": "Imagen PNG"
+    },
+    "pages.strategyPlannerUI.share": {
+      "fr": "Copier le lien",
+      "text": "Copiar el enlace"
+    },
+    "pages.strategyPlannerUI.paletteLabel": {
+      "fr": "Héros et objectifs",
+      "text": "Héroes y objetivos"
+    },
+    "pages.strategyPlannerUI.heroes": {
+      "fr": "Héros",
+      "text": "Héroes"
+    },
+    "pages.strategyPlannerUI.teamLabel": {
+      "fr": "Équipe des héros ajoutés",
+      "text": "Equipo de los héroes que añades"
+    },
+    "pages.strategyPlannerUI.teams.blue": {
+      "fr": "Équipe bleue",
+      "text": "Equipo azul"
+    },
+    "pages.strategyPlannerUI.teams.red": {
+      "fr": "Équipe rouge",
+      "text": "Equipo rojo"
+    },
+    "pages.strategyPlannerUI.search": {
+      "fr": "Chercher un héros",
+      "text": "Buscar un héroe"
+    },
+    "pages.strategyPlannerUI.noHero": {
+      "fr": "Aucun héros ne correspond.",
+      "text": "Ningún héroe coincide."
+    },
+    "pages.strategyPlannerUI.addHero": {
+      "fr": "Ajouter {name} ({team})",
+      "text": "Añadir a {name} ({team})"
+    },
+    "pages.strategyPlannerUI.selectHero": {
+      "fr": "Sélectionner {name} ({team}), déjà sur la carte",
+      "text": "Seleccionar a {name} ({team}), ya en el mapa"
+    },
+    "pages.strategyPlannerUI.objectives": {
+      "fr": "Objectifs",
+      "text": "Objetivos"
+    },
+    "pages.strategyPlannerUI.addMarker": {
+      "fr": "Placer : {name}",
+      "text": "Colocar: {name}"
+    },
+    "pages.strategyPlannerUI.count": {
+      "fr": "{n} éléments sur {max}",
+      "text": "{n} de {max} elementos"
+    },
+    "pages.strategyPlannerUI.element.hero": {
+      "fr": "{name} ({team})",
+      "text": "{name} ({team})"
+    },
+    "pages.strategyPlannerUI.element.text": {
+      "fr": "Étiquette « {text} »",
+      "text": "Etiqueta «{text}»"
+    },
+    "pages.strategyPlannerUI.element.arrow": {
+      "fr": "Flèche, couleur {color}",
+      "text": "Flecha, color {color}"
+    },
+    "pages.strategyPlannerUI.element.line": {
+      "fr": "Tracé, couleur {color}",
+      "text": "Trazo, color {color}"
+    },
+    "pages.strategyPlannerUI.placed": {
+      "fr": "Ajouté sur la carte : {name}.",
+      "text": "Añadido al mapa: {name}."
+    },
+    "pages.strategyPlannerUI.removed": {
+      "fr": "Supprimé : {name}.",
+      "text": "Eliminado: {name}."
+    },
+    "pages.strategyPlannerUI.cleared": {
+      "fr": "Carte effacée. Annuler la rétablit.",
+      "text": "Mapa borrado. Deshacer lo recupera."
+    },
+    "pages.strategyPlannerUI.undone": {
+      "fr": "Action annulée.",
+      "text": "Acción deshecha."
+    },
+    "pages.strategyPlannerUI.redone": {
+      "fr": "Action rétablie.",
+      "text": "Acción rehecha."
+    },
+    "pages.strategyPlannerUI.full": {
+      "fr": "Limite de {n} éléments atteinte.",
+      "text": "Límite de {n} elementos alcanzado."
+    },
+    "pages.strategyPlannerUI.sharedLoaded": {
+      "fr": "Plan partagé chargé.",
+      "text": "Plan compartido cargado."
+    },
+    "pages.strategyPlannerUI.sharedInvalid": {
+      "fr": "Ce lien ne contient pas de plan lisible.",
+      "text": "Este enlace no contiene un plan legible."
+    },
+    "pages.strategyPlannerUI.exporting": {
+      "fr": "Création de l'image…",
+      "text": "Creando la imagen…"
+    },
+    "pages.strategyPlannerUI.exportDone": {
+      "fr": "Image téléchargée.",
+      "text": "Imagen descargada."
+    },
+    "pages.strategyPlannerUI.exportShared": {
+      "fr": "Image partagée.",
+      "text": "Imagen compartida."
+    },
+    "pages.strategyPlannerUI.exportError": {
+      "fr": "L'image n'a pas pu être créée.",
+      "text": "No se pudo crear la imagen."
+    },
+    "pages.strategyPlannerUI.imageTitle": {
+      "fr": "Plan de stratégie MLBB",
+      "text": "Plan de estrategia MLBB"
+    },
+    "pages.strategyPlannerUI.linkCopied": {
+      "fr": "Lien copié : il contient tout le plan.",
+      "text": "Enlace copiado: contiene todo el plan."
+    },
+    "pages.strategyPlannerUI.linkShared": {
+      "fr": "Lien partagé.",
+      "text": "Enlace compartido."
+    },
+    "pages.strategyPlannerUI.linkError": {
+      "fr": "Copie impossible : copiez l'adresse de la page.",
+      "text": "No se pudo copiar: copia la dirección de la página."
     }
   },
   "id": {
@@ -6811,6 +7667,434 @@
     "pages.esportsPlayersUI.heroLine": {
       "fr": "{hero} : {games} parties, {wins} victoires",
       "text": "{hero}: {games} game, {wins} menang"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "Pick yang paling menaikkan peluang menang perkiraan tim Anda ({rank}): counter, duo, kekuatan di rank ini, lane yang perlu diisi."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Perkiraan peluang menang"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Perkiraan"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Rincian perkiraan"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Perkiraan: biru {blue}%, merah {red}%, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "keyakinan rendah"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "keyakinan sedang"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "keyakinan baik"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "Belum ada pick: 50-50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Tidak ada tim yang unggul."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} unggul {pts} poin"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} poin"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "seimbang"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Kekuatan hero"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counter"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Sinergi"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Lane dan tank"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Jenis damage"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Tidak ada catatan."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Rata-rata win rate: biru {blue}%, merah {red}%"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Duel paling timpang: {winner} atas {loser} ({pts} poin)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "Tidak ada duel yang diketahui antara kedua tim."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} poin)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "Tidak ada duo yang diketahui."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} tanpa lane kosong"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: tanpa tank"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: hampir semua damage fisik"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: hampir semua damage magic"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "Sebuah perkiraan, bukan prediksi: menggabungkan win rate, duel, dan duo yang terukur di ranked ({rank}), dengan relasi dari wiki jika tidak ada pengukuran, lalu memberi penalti untuk lane ganda, tanpa tank, dan damage satu jenis. Nilainya tetap di antara 25 dan 75%: draft saja tidak menentukan hasil pertandingan."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} poin"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "mengisi tank yang kurang"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "menyeimbangkan damage ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "Perkiraan peluang menang"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "Selama draft, sebuah bar memperkirakan peluang tiap tim dari lima faktor, dihitung dalam poin win rate: kekuatan hero di rank tersebut, duel antara kedua tim dan duo di tiap tim (terukur di ranked, jika tidak diambil dari wiki), lane ganda atau tanpa tank, dan damage satu jenis. Tiga faktor pertama dihitung setengah, karena saling tumpang tindih. Jumlahnya melewati kurva logistik: dua tim yang setara berada di 50%, dan hasilnya tetap di antara 25 dan 75%. Pick yang disarankan adalah yang paling menaikkan perkiraan ini. Ini panduan, bukan prediksi."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Mainkan draft lengkap dalam format ranked atau MPL: ban lalu pick melawan bot yang berbasis counter dan duo terukur dari {n} hero (data {date}, patch {v}). Perkiraan peluang menang secara langsung, saran pick terbaik, dan tautan untuk dibagikan."
+    },
+    "pages.seo.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB : tableau tactique sur la carte",
+      "text": "Perencana strategi MLBB: papan taktik di atas peta"
+    },
+    "pages.seo.strategyPlanner.description": {
+      "fr": "Tableau tactique gratuit sur la carte de Mobile Legends: Bang Bang : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, dessinez flèches et rotations, ajoutez des notes, puis partagez le plan par lien ou en image PNG. Sans inscription, au doigt comme à la souris.",
+      "text": "Papan taktik gratis di atas peta Mobile Legends: Bang Bang: letakkan hero kedua tim, Turtle, Lord, dan buff, gambar panah dan rotasi, tambahkan catatan, lalu bagikan rencananya lewat tautan atau gambar PNG. Tanpa daftar, dengan jari maupun mouse."
+    },
+    "pages.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB",
+      "text": "Perencana strategi MLBB"
+    },
+    "pages.strategyPlanner.crumb": {
+      "fr": "Planificateur",
+      "text": "Perencana"
+    },
+    "pages.strategyPlanner.lead": {
+      "fr": "Préparez une rotation, un gank ou un combat d'objectif sur la carte : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, tracez flèches et chemins, ajoutez des notes. Le plan se partage par lien et s'exporte en image.",
+      "text": "Siapkan rotasi, gank, atau perebutan objektif di peta: letakkan hero kedua tim, Turtle, Lord, dan buff, gambar panah dan jalur, tambahkan catatan. Rencana dibagikan lewat tautan dan diekspor sebagai gambar."
+    },
+    "pages.strategyPlanner.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "Cara memakai"
+    },
+    "pages.strategyPlanner.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Tampilkan empat langkah"
+    },
+    "pages.strategyPlanner.step1": {
+      "fr": "Choisissez une équipe, bleue ou rouge, puis touchez un héros dans la liste : il apparaît devant sa base. Les objectifs se posent de la même façon.",
+      "text": "Pilih tim, biru atau merah, lalu sentuh hero di daftar: hero muncul di depan base-nya. Objektif diletakkan dengan cara yang sama."
+    },
+    "pages.strategyPlanner.step2": {
+      "fr": "Avec l'outil Déplacer, faites glisser un héros, un objectif, une flèche ou un tracé. Au clavier, Tab passe d'un élément à l'autre, les flèches le déplacent (Maj pour aller plus vite) et Suppr l'enlève.",
+      "text": "Dengan alat Pindahkan, seret hero, objektif, panah, atau garis. Dengan keyboard, Tab berpindah antarelemen, tombol panah menggesernya (Shift untuk lebih cepat), dan Delete menghapusnya."
+    },
+    "pages.strategyPlanner.step3": {
+      "fr": "Les outils Crayon et Flèche dessinent sur la carte, dans la couleur choisie ; l'outil Texte pose l'étiquette saisie là où vous touchez. Ctrl+Z annule, Ctrl+Maj+Z rétablit.",
+      "text": "Alat Pensil dan Panah menggambar di peta dengan warna pilihan; alat Teks menaruh label yang Anda ketik di tempat yang Anda sentuh. Ctrl+Z membatalkan, Ctrl+Shift+Z mengulang."
+    },
+    "pages.strategyPlanner.step4": {
+      "fr": "Terminé ? Copiez le lien, il contient tout le plan sans compte ni serveur, ou téléchargez l'image PNG.",
+      "text": "Selesai? Salin tautannya, yang memuat seluruh rencana tanpa akun atau server, atau unduh gambar PNG-nya."
+    },
+    "pages.strategyPlanner.mapNote": {
+      "fr": "La carte est notre schéma de la Terre de l'Aube, le même que sur le guide de la carte : votre base en bas à gauche, la rivière en diagonale, la Tortue près de la lane EXP et le Seigneur de l'autre côté. Les distances ne sont pas à l'échelle.",
+      "text": "Peta ini adalah skema Land of Dawn buatan kami, sama seperti di panduan peta: base Anda di kiri bawah, sungai melintang diagonal, Turtle di dekat EXP lane, dan Lord di sisi lainnya. Jaraknya tidak sesuai skala."
+    },
+    "pages.strategyPlanner.mapLink": {
+      "fr": "Le guide de la carte : camps, horaires et rotations",
+      "text": "Panduan peta: camp, waktu muncul, dan rotasi"
+    },
+    "pages.strategyPlanner.timerLink": {
+      "fr": "Chrono des objectifs",
+      "text": "Timer objektif"
+    },
+    "pages.strategyPlanner.draftLink": {
+      "fr": "Simulateur de draft",
+      "text": "Simulator draft"
+    },
+    "pages.map.plannerLink": {
+      "fr": "Tracer une rotation sur cette carte avec le planificateur de stratégie",
+      "text": "Gambar rotasi di peta ini dengan perencana strategi"
+    },
+    "pages.strategyPlannerUI.toolsLabel": {
+      "fr": "Outils de dessin",
+      "text": "Alat gambar"
+    },
+    "pages.strategyPlannerUI.tools.move": {
+      "fr": "Déplacer",
+      "text": "Pindahkan"
+    },
+    "pages.strategyPlannerUI.tools.pen": {
+      "fr": "Crayon",
+      "text": "Pensil"
+    },
+    "pages.strategyPlannerUI.tools.arrow": {
+      "fr": "Flèche",
+      "text": "Panah"
+    },
+    "pages.strategyPlannerUI.tools.text": {
+      "fr": "Texte",
+      "text": "Teks"
+    },
+    "pages.strategyPlannerUI.colorLabel": {
+      "fr": "Couleur",
+      "text": "Warna"
+    },
+    "pages.strategyPlannerUI.colors.gold": {
+      "fr": "Or",
+      "text": "Emas"
+    },
+    "pages.strategyPlannerUI.colors.white": {
+      "fr": "Blanc",
+      "text": "Putih"
+    },
+    "pages.strategyPlannerUI.colors.blue": {
+      "fr": "Bleu",
+      "text": "Biru"
+    },
+    "pages.strategyPlannerUI.colors.red": {
+      "fr": "Rouge",
+      "text": "Merah"
+    },
+    "pages.strategyPlannerUI.colors.green": {
+      "fr": "Vert",
+      "text": "Hijau"
+    },
+    "pages.strategyPlannerUI.colors.purple": {
+      "fr": "Violet",
+      "text": "Ungu"
+    },
+    "pages.strategyPlannerUI.labelField": {
+      "fr": "Texte de l'étiquette",
+      "text": "Teks label"
+    },
+    "pages.strategyPlannerUI.labelCentre": {
+      "fr": "Placer au centre",
+      "text": "Taruh di tengah"
+    },
+    "pages.strategyPlannerUI.labelHelp": {
+      "fr": "Touchez la carte pour poser l'étiquette à cet endroit.",
+      "text": "Sentuh peta untuk menaruh label di titik itu."
+    },
+    "pages.strategyPlannerUI.labelFirst": {
+      "fr": "Saisissez d'abord le texte de l'étiquette.",
+      "text": "Ketik teks labelnya terlebih dahulu."
+    },
+    "pages.strategyPlannerUI.boardLabel": {
+      "fr": "Carte du plan",
+      "text": "Peta rencana"
+    },
+    "pages.strategyPlannerUI.help": {
+      "fr": "Déplacer : glissez un élément, ou sélectionnez-le au clavier (Tab) et utilisez les flèches. Crayon, Flèche et Texte dessinent directement sur la carte.",
+      "text": "Pindahkan: seret elemen, atau pilih dengan keyboard (Tab) lalu gunakan tombol panah. Pensil, Panah, dan Teks menggambar langsung di peta."
+    },
+    "pages.strategyPlannerUI.undo": {
+      "fr": "Annuler",
+      "text": "Batalkan"
+    },
+    "pages.strategyPlannerUI.redo": {
+      "fr": "Rétablir",
+      "text": "Ulangi"
+    },
+    "pages.strategyPlannerUI.delete": {
+      "fr": "Supprimer la sélection",
+      "text": "Hapus pilihan"
+    },
+    "pages.strategyPlannerUI.clear": {
+      "fr": "Tout effacer",
+      "text": "Hapus semua"
+    },
+    "pages.strategyPlannerUI.export": {
+      "fr": "Image PNG",
+      "text": "Gambar PNG"
+    },
+    "pages.strategyPlannerUI.share": {
+      "fr": "Copier le lien",
+      "text": "Salin tautan"
+    },
+    "pages.strategyPlannerUI.paletteLabel": {
+      "fr": "Héros et objectifs",
+      "text": "Hero dan objektif"
+    },
+    "pages.strategyPlannerUI.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.strategyPlannerUI.teamLabel": {
+      "fr": "Équipe des héros ajoutés",
+      "text": "Tim untuk hero yang ditambahkan"
+    },
+    "pages.strategyPlannerUI.teams.blue": {
+      "fr": "Équipe bleue",
+      "text": "Tim Biru"
+    },
+    "pages.strategyPlannerUI.teams.red": {
+      "fr": "Équipe rouge",
+      "text": "Tim Merah"
+    },
+    "pages.strategyPlannerUI.search": {
+      "fr": "Chercher un héros",
+      "text": "Cari hero"
+    },
+    "pages.strategyPlannerUI.noHero": {
+      "fr": "Aucun héros ne correspond.",
+      "text": "Tidak ada hero yang cocok."
+    },
+    "pages.strategyPlannerUI.addHero": {
+      "fr": "Ajouter {name} ({team})",
+      "text": "Tambahkan {name} ({team})"
+    },
+    "pages.strategyPlannerUI.selectHero": {
+      "fr": "Sélectionner {name} ({team}), déjà sur la carte",
+      "text": "Pilih {name} ({team}), sudah ada di peta"
+    },
+    "pages.strategyPlannerUI.objectives": {
+      "fr": "Objectifs",
+      "text": "Objektif"
+    },
+    "pages.strategyPlannerUI.addMarker": {
+      "fr": "Placer : {name}",
+      "text": "Letakkan: {name}"
+    },
+    "pages.strategyPlannerUI.count": {
+      "fr": "{n} éléments sur {max}",
+      "text": "{n} dari {max} elemen"
+    },
+    "pages.strategyPlannerUI.element.hero": {
+      "fr": "{name} ({team})",
+      "text": "{name} ({team})"
+    },
+    "pages.strategyPlannerUI.element.text": {
+      "fr": "Étiquette « {text} »",
+      "text": "Label “{text}”"
+    },
+    "pages.strategyPlannerUI.element.arrow": {
+      "fr": "Flèche, couleur {color}",
+      "text": "Panah, warna {color}"
+    },
+    "pages.strategyPlannerUI.element.line": {
+      "fr": "Tracé, couleur {color}",
+      "text": "Garis, warna {color}"
+    },
+    "pages.strategyPlannerUI.placed": {
+      "fr": "Ajouté sur la carte : {name}.",
+      "text": "Ditambahkan ke peta: {name}."
+    },
+    "pages.strategyPlannerUI.removed": {
+      "fr": "Supprimé : {name}.",
+      "text": "Dihapus: {name}."
+    },
+    "pages.strategyPlannerUI.cleared": {
+      "fr": "Carte effacée. Annuler la rétablit.",
+      "text": "Peta dihapus. Batalkan untuk mengembalikannya."
+    },
+    "pages.strategyPlannerUI.undone": {
+      "fr": "Action annulée.",
+      "text": "Tindakan dibatalkan."
+    },
+    "pages.strategyPlannerUI.redone": {
+      "fr": "Action rétablie.",
+      "text": "Tindakan diulang."
+    },
+    "pages.strategyPlannerUI.full": {
+      "fr": "Limite de {n} éléments atteinte.",
+      "text": "Batas {n} elemen tercapai."
+    },
+    "pages.strategyPlannerUI.sharedLoaded": {
+      "fr": "Plan partagé chargé.",
+      "text": "Rencana yang dibagikan dimuat."
+    },
+    "pages.strategyPlannerUI.sharedInvalid": {
+      "fr": "Ce lien ne contient pas de plan lisible.",
+      "text": "Tautan ini tidak berisi rencana yang bisa dibaca."
+    },
+    "pages.strategyPlannerUI.exporting": {
+      "fr": "Création de l'image…",
+      "text": "Membuat gambar…"
+    },
+    "pages.strategyPlannerUI.exportDone": {
+      "fr": "Image téléchargée.",
+      "text": "Gambar diunduh."
+    },
+    "pages.strategyPlannerUI.exportShared": {
+      "fr": "Image partagée.",
+      "text": "Gambar dibagikan."
+    },
+    "pages.strategyPlannerUI.exportError": {
+      "fr": "L'image n'a pas pu être créée.",
+      "text": "Gambar tidak dapat dibuat."
+    },
+    "pages.strategyPlannerUI.imageTitle": {
+      "fr": "Plan de stratégie MLBB",
+      "text": "Rencana strategi MLBB"
+    },
+    "pages.strategyPlannerUI.linkCopied": {
+      "fr": "Lien copié : il contient tout le plan.",
+      "text": "Tautan disalin: berisi seluruh rencana."
+    },
+    "pages.strategyPlannerUI.linkShared": {
+      "fr": "Lien partagé.",
+      "text": "Tautan dibagikan."
+    },
+    "pages.strategyPlannerUI.linkError": {
+      "fr": "Copie impossible : copiez l'adresse de la page.",
+      "text": "Gagal menyalin: salin alamat halaman ini."
     }
   },
   "it": {
@@ -8389,6 +9673,434 @@
     "pages.esportsPlayersUI.top": {
       "fr": "Plus joués",
       "text": "Più giocati"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "I pick che alzano di più le vostre probabilità stimate ({rank}): counter, coppie, forza al rango, la lane da coprire."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Probabilità di vittoria stimate"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Stima"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Dettaglio della stima"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Stima: blu {blue}%, rosso {red}%, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "affidabilità bassa"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "affidabilità media"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "buona affidabilità"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "Ancora nessun pick: 50 e 50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Nessuna squadra si distingue."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} avanti di {pts} pt"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} pt"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "in equilibrio"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Forza degli eroi"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counter"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Sinergie"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Lane e tank"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Tipi di danno"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Niente da segnalare."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Percentuale di vittoria media: blu {blue}%, rosso {red}%"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Duello più netto: {winner} su {loser} ({pts} pt)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "Nessun duello noto tra le due squadre."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} pt)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "Nessuna coppia nota."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} senza lane libera"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: nessun tank"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: danni quasi tutti fisici"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: danni quasi tutti magici"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "Una stima, non una previsione: combina percentuali di vittoria, duelli e coppie misurati nelle partite classificate ({rank}), con le relazioni del wiki dove manca una misura, poi penalizza una lane doppia, l'assenza di tank e i danni di un solo tipo. Resta tra il 25 e il 75%: un draft da solo non decide una partita."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} pt"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "porta il tank che manca"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "bilancia i danni ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "Le probabilità di vittoria stimate"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "Durante il draft, una barra stima le probabilità di ogni squadra a partire da cinque fattori, contati in punti di percentuale di vittoria: la forza degli eroi al rango, i duelli tra le due squadre e le coppie di ciascuna (misurati nelle partite classificate, altrimenti presi dal wiki), una lane doppia o l'assenza di tank, e i danni di un solo tipo. I primi tre contano per metà, perché si sovrappongono. La loro somma passa per una curva logistica: due squadre uguali sono al 50%, e il risultato resta tra il 25 e il 75%. I pick suggeriti sono quelli che alzano di più questa stima. È un riferimento, non una previsione."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Gioca un draft completo in formato classificato o MPL: ban e poi pick contro un bot basato sui counter e sulle coppie misurati di {n} eroi (dati del {date}, patch {v}). Probabilità di vittoria stimate in diretta, miglior pick suggerito e link da condividere."
+    },
+    "pages.seo.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB : tableau tactique sur la carte",
+      "text": "Pianificatore di strategia MLBB: lavagna tattica sulla mappa"
+    },
+    "pages.seo.strategyPlanner.description": {
+      "fr": "Tableau tactique gratuit sur la carte de Mobile Legends: Bang Bang : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, dessinez flèches et rotations, ajoutez des notes, puis partagez le plan par lien ou en image PNG. Sans inscription, au doigt comme à la souris.",
+      "text": "Una lavagna tattica gratuita sulla mappa di Mobile Legends: Bang Bang: posiziona gli eroi delle due squadre, la Tartaruga, il Signore e i buff, disegna frecce e rotazioni, aggiungi note, poi condividi il piano con un link o un'immagine PNG. Senza registrazione, col dito o col mouse."
+    },
+    "pages.strategyPlanner.title": {
+      "fr": "Planificateur de stratégie MLBB",
+      "text": "Pianificatore di strategia MLBB"
+    },
+    "pages.strategyPlanner.crumb": {
+      "fr": "Planificateur",
+      "text": "Pianificatore"
+    },
+    "pages.strategyPlanner.lead": {
+      "fr": "Préparez une rotation, un gank ou un combat d'objectif sur la carte : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, tracez flèches et chemins, ajoutez des notes. Le plan se partage par lien et s'exporte en image.",
+      "text": "Prepara una rotazione, un gank o uno scontro per un obiettivo sulla mappa: posiziona gli eroi delle due squadre, la Tartaruga, il Signore e i buff, traccia frecce e percorsi, aggiungi note. Il piano si condivide con un link e si esporta in immagine."
+    },
+    "pages.strategyPlanner.howToTitle": {
+      "fr": "Mode d'emploi",
+      "text": "Istruzioni"
+    },
+    "pages.strategyPlanner.howToOpen": {
+      "fr": "Afficher les quatre étapes",
+      "text": "Mostra i quattro passaggi"
+    },
+    "pages.strategyPlanner.step1": {
+      "fr": "Choisissez une équipe, bleue ou rouge, puis touchez un héros dans la liste : il apparaît devant sa base. Les objectifs se posent de la même façon.",
+      "text": "Scegli una squadra, blu o rossa, poi tocca un eroe nell'elenco: appare davanti alla sua base. Gli obiettivi si posizionano allo stesso modo."
+    },
+    "pages.strategyPlanner.step2": {
+      "fr": "Avec l'outil Déplacer, faites glisser un héros, un objectif, une flèche ou un tracé. Au clavier, Tab passe d'un élément à l'autre, les flèches le déplacent (Maj pour aller plus vite) et Suppr l'enlève.",
+      "text": "Con lo strumento Sposta, trascina un eroe, un obiettivo, una freccia o un tracciato. Da tastiera, Tab passa da un elemento all'altro, le frecce lo spostano (Maiusc per andare più veloce) e Canc lo rimuove."
+    },
+    "pages.strategyPlanner.step3": {
+      "fr": "Les outils Crayon et Flèche dessinent sur la carte, dans la couleur choisie ; l'outil Texte pose l'étiquette saisie là où vous touchez. Ctrl+Z annule, Ctrl+Maj+Z rétablit.",
+      "text": "Gli strumenti Matita e Freccia disegnano sulla mappa nel colore scelto; lo strumento Testo mette l'etichetta digitata dove tocchi. Ctrl+Z annulla, Ctrl+Maiusc+Z ripristina."
+    },
+    "pages.strategyPlanner.step4": {
+      "fr": "Terminé ? Copiez le lien, il contient tout le plan sans compte ni serveur, ou téléchargez l'image PNG.",
+      "text": "Finito? Copia il link, che contiene tutto il piano senza account né server, oppure scarica l'immagine PNG."
+    },
+    "pages.strategyPlanner.mapNote": {
+      "fr": "La carte est notre schéma de la Terre de l'Aube, le même que sur le guide de la carte : votre base en bas à gauche, la rivière en diagonale, la Tortue près de la lane EXP et le Seigneur de l'autre côté. Les distances ne sont pas à l'échelle.",
+      "text": "La mappa è il nostro schema della Terra dell'Alba, lo stesso della guida alla mappa: la tua base in basso a sinistra, il fiume in diagonale, la Tartaruga vicino alla lane EXP e il Signore dall'altra parte. Le distanze non sono in scala."
+    },
+    "pages.strategyPlanner.mapLink": {
+      "fr": "Le guide de la carte : camps, horaires et rotations",
+      "text": "La guida alla mappa: campi, orari e rotazioni"
+    },
+    "pages.strategyPlanner.timerLink": {
+      "fr": "Chrono des objectifs",
+      "text": "Timer degli obiettivi"
+    },
+    "pages.strategyPlanner.draftLink": {
+      "fr": "Simulateur de draft",
+      "text": "Simulatore di draft"
+    },
+    "pages.map.plannerLink": {
+      "fr": "Tracer une rotation sur cette carte avec le planificateur de stratégie",
+      "text": "Disegna una rotazione su questa mappa con il pianificatore di strategia"
+    },
+    "pages.strategyPlannerUI.toolsLabel": {
+      "fr": "Outils de dessin",
+      "text": "Strumenti di disegno"
+    },
+    "pages.strategyPlannerUI.tools.move": {
+      "fr": "Déplacer",
+      "text": "Sposta"
+    },
+    "pages.strategyPlannerUI.tools.pen": {
+      "fr": "Crayon",
+      "text": "Matita"
+    },
+    "pages.strategyPlannerUI.tools.arrow": {
+      "fr": "Flèche",
+      "text": "Freccia"
+    },
+    "pages.strategyPlannerUI.tools.text": {
+      "fr": "Texte",
+      "text": "Testo"
+    },
+    "pages.strategyPlannerUI.colorLabel": {
+      "fr": "Couleur",
+      "text": "Colore"
+    },
+    "pages.strategyPlannerUI.colors.gold": {
+      "fr": "Or",
+      "text": "Oro"
+    },
+    "pages.strategyPlannerUI.colors.white": {
+      "fr": "Blanc",
+      "text": "Bianco"
+    },
+    "pages.strategyPlannerUI.colors.blue": {
+      "fr": "Bleu",
+      "text": "Blu"
+    },
+    "pages.strategyPlannerUI.colors.red": {
+      "fr": "Rouge",
+      "text": "Rosso"
+    },
+    "pages.strategyPlannerUI.colors.green": {
+      "fr": "Vert",
+      "text": "Verde"
+    },
+    "pages.strategyPlannerUI.colors.purple": {
+      "fr": "Violet",
+      "text": "Viola"
+    },
+    "pages.strategyPlannerUI.labelField": {
+      "fr": "Texte de l'étiquette",
+      "text": "Testo dell'etichetta"
+    },
+    "pages.strategyPlannerUI.labelCentre": {
+      "fr": "Placer au centre",
+      "text": "Metti al centro"
+    },
+    "pages.strategyPlannerUI.labelHelp": {
+      "fr": "Touchez la carte pour poser l'étiquette à cet endroit.",
+      "text": "Tocca la mappa per mettere l'etichetta in quel punto."
+    },
+    "pages.strategyPlannerUI.labelFirst": {
+      "fr": "Saisissez d'abord le texte de l'étiquette.",
+      "text": "Scrivi prima il testo dell'etichetta."
+    },
+    "pages.strategyPlannerUI.boardLabel": {
+      "fr": "Carte du plan",
+      "text": "Mappa del piano"
+    },
+    "pages.strategyPlannerUI.help": {
+      "fr": "Déplacer : glissez un élément, ou sélectionnez-le au clavier (Tab) et utilisez les flèches. Crayon, Flèche et Texte dessinent directement sur la carte.",
+      "text": "Sposta: trascina un elemento, oppure selezionalo da tastiera (Tab) e usa le frecce. Matita, Freccia e Testo disegnano direttamente sulla mappa."
+    },
+    "pages.strategyPlannerUI.undo": {
+      "fr": "Annuler",
+      "text": "Annulla"
+    },
+    "pages.strategyPlannerUI.redo": {
+      "fr": "Rétablir",
+      "text": "Ripristina"
+    },
+    "pages.strategyPlannerUI.delete": {
+      "fr": "Supprimer la sélection",
+      "text": "Elimina la selezione"
+    },
+    "pages.strategyPlannerUI.clear": {
+      "fr": "Tout effacer",
+      "text": "Cancella tutto"
+    },
+    "pages.strategyPlannerUI.export": {
+      "fr": "Image PNG",
+      "text": "Immagine PNG"
+    },
+    "pages.strategyPlannerUI.share": {
+      "fr": "Copier le lien",
+      "text": "Copia il link"
+    },
+    "pages.strategyPlannerUI.paletteLabel": {
+      "fr": "Héros et objectifs",
+      "text": "Eroi e obiettivi"
+    },
+    "pages.strategyPlannerUI.heroes": {
+      "fr": "Héros",
+      "text": "Eroi"
+    },
+    "pages.strategyPlannerUI.teamLabel": {
+      "fr": "Équipe des héros ajoutés",
+      "text": "Squadra degli eroi aggiunti"
+    },
+    "pages.strategyPlannerUI.teams.blue": {
+      "fr": "Équipe bleue",
+      "text": "Squadra blu"
+    },
+    "pages.strategyPlannerUI.teams.red": {
+      "fr": "Équipe rouge",
+      "text": "Squadra rossa"
+    },
+    "pages.strategyPlannerUI.search": {
+      "fr": "Chercher un héros",
+      "text": "Cerca un eroe"
+    },
+    "pages.strategyPlannerUI.noHero": {
+      "fr": "Aucun héros ne correspond.",
+      "text": "Nessun eroe corrisponde."
+    },
+    "pages.strategyPlannerUI.addHero": {
+      "fr": "Ajouter {name} ({team})",
+      "text": "Aggiungi {name} ({team})"
+    },
+    "pages.strategyPlannerUI.selectHero": {
+      "fr": "Sélectionner {name} ({team}), déjà sur la carte",
+      "text": "Seleziona {name} ({team}), già sulla mappa"
+    },
+    "pages.strategyPlannerUI.objectives": {
+      "fr": "Objectifs",
+      "text": "Obiettivi"
+    },
+    "pages.strategyPlannerUI.addMarker": {
+      "fr": "Placer : {name}",
+      "text": "Posiziona: {name}"
+    },
+    "pages.strategyPlannerUI.count": {
+      "fr": "{n} éléments sur {max}",
+      "text": "{n} elementi su {max}"
+    },
+    "pages.strategyPlannerUI.element.hero": {
+      "fr": "{name} ({team})",
+      "text": "{name} ({team})"
+    },
+    "pages.strategyPlannerUI.element.text": {
+      "fr": "Étiquette « {text} »",
+      "text": "Etichetta «{text}»"
+    },
+    "pages.strategyPlannerUI.element.arrow": {
+      "fr": "Flèche, couleur {color}",
+      "text": "Freccia, colore {color}"
+    },
+    "pages.strategyPlannerUI.element.line": {
+      "fr": "Tracé, couleur {color}",
+      "text": "Tracciato, colore {color}"
+    },
+    "pages.strategyPlannerUI.placed": {
+      "fr": "Ajouté sur la carte : {name}.",
+      "text": "Aggiunto alla mappa: {name}."
+    },
+    "pages.strategyPlannerUI.removed": {
+      "fr": "Supprimé : {name}.",
+      "text": "Eliminato: {name}."
+    },
+    "pages.strategyPlannerUI.cleared": {
+      "fr": "Carte effacée. Annuler la rétablit.",
+      "text": "Mappa cancellata. Annulla la ripristina."
+    },
+    "pages.strategyPlannerUI.undone": {
+      "fr": "Action annulée.",
+      "text": "Azione annullata."
+    },
+    "pages.strategyPlannerUI.redone": {
+      "fr": "Action rétablie.",
+      "text": "Azione ripristinata."
+    },
+    "pages.strategyPlannerUI.full": {
+      "fr": "Limite de {n} éléments atteinte.",
+      "text": "Limite di {n} elementi raggiunto."
+    },
+    "pages.strategyPlannerUI.sharedLoaded": {
+      "fr": "Plan partagé chargé.",
+      "text": "Piano condiviso caricato."
+    },
+    "pages.strategyPlannerUI.sharedInvalid": {
+      "fr": "Ce lien ne contient pas de plan lisible.",
+      "text": "Questo link non contiene un piano leggibile."
+    },
+    "pages.strategyPlannerUI.exporting": {
+      "fr": "Création de l'image…",
+      "text": "Creazione dell'immagine…"
+    },
+    "pages.strategyPlannerUI.exportDone": {
+      "fr": "Image téléchargée.",
+      "text": "Immagine scaricata."
+    },
+    "pages.strategyPlannerUI.exportShared": {
+      "fr": "Image partagée.",
+      "text": "Immagine condivisa."
+    },
+    "pages.strategyPlannerUI.exportError": {
+      "fr": "L'image n'a pas pu être créée.",
+      "text": "Non è stato possibile creare l'immagine."
+    },
+    "pages.strategyPlannerUI.imageTitle": {
+      "fr": "Plan de stratégie MLBB",
+      "text": "Piano di strategia MLBB"
+    },
+    "pages.strategyPlannerUI.linkCopied": {
+      "fr": "Lien copié : il contient tout le plan.",
+      "text": "Link copiato: contiene tutto il piano."
+    },
+    "pages.strategyPlannerUI.linkShared": {
+      "fr": "Lien partagé.",
+      "text": "Link condiviso."
+    },
+    "pages.strategyPlannerUI.linkError": {
+      "fr": "Copie impossible : copiez l'adresse de la page.",
+      "text": "Copia non riuscita: copia l'indirizzo della pagina."
     }
   }
 }

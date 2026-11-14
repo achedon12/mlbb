@@ -6,6 +6,7 @@ import { SearchField } from "@/components/search-field";
 import { Drawer } from "@/components/drawer";
 import { HeroThumb } from "@/components/hero-picker";
 import { DraftSummary, useNumberFormats, type NumberFormats } from "@/components/draft-summary";
+import { EstimateBar, EstimateDetails, pickReasonText } from "@/components/draft-estimate";
 import { ChipEmblem, classesChip } from "@/components/chip";
 import { useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
@@ -28,7 +29,6 @@ import {
   playedBy,
   rankBans,
   rankForFormat,
-  rankPicks,
   readSimulation,
   sequence,
   SIDES,
@@ -51,6 +51,7 @@ import {
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import type { Lane, Role } from "@/lib/types";
 import { keySearch, cn } from "@/lib/utils";
+import { estimate, estimateContext, suggestPicks } from "@/lib/win-estimate";
 
 /**
  * Draft simulator: settings, board of both teams, roster grid, bot and
@@ -124,6 +125,8 @@ export function DraftSimulator({
   const [role, setRole] = useState<Role | null>(null);
   /** Explained choices, opened as a drawer below `lg`; a side panel above. */
   const [logOpen, setLogOpen] = useState(false);
+  /** Factors of the live estimate, folded under the board until asked for. */
+  const [estimateOpen, setEstimateOpen] = useState(false);
 
   const known = useMemo(() => new Set(heroes.map((h) => h.slug)), [heroes]);
   const bySlug = useMemo(() => new Map(heroes.map((h) => [h.slug, h])), [heroes]);
@@ -141,6 +144,7 @@ export function DraftSimulator({
     () => ({ catalog: heroes, measures, meta: meta[settings.rank] ?? [], seed: settings.seed }),
     [heroes, measures, meta, settings.rank, settings.seed],
   );
+  const estimateCtx = useMemo(() => estimateContext(heroes, measures), [heroes, measures]);
 
   // First mount: the address gives the settings and, when there is one, the
   // draft to resume. Afterwards every change is written back to it.
@@ -246,7 +250,14 @@ export function DraftSimulator({
       .sort((a, b) => a.name.localeCompare(b.name, "fr"));
   }, [heroes, laneFilter, role, search]);
 
-  const hints = !turn || !mine ? [] : turn.action === "ban" ? rankBans(turns, choices, turn, ctx) : rankPicks(turns, choices, turn, ctx);
+  const banHints = turn && mine && turn.action === "ban" ? rankBans(turns, choices, turn, ctx) : [];
+  // Picks are suggested by the same model as the estimate: the hint is the
+  // pick that raises the side's chances the most, for the reasons shown.
+  const pickHints =
+    turn && mine && turn.action === "pick"
+      ? suggestPicks(estimateCtx, { side: turn.side, picks: state.picks, excluded })
+      : [];
+  const live = estimate(estimateCtx, state.picks.blue, state.picks.red);
 
   if (!started) {
     return (
@@ -406,7 +417,26 @@ export function DraftSimulator({
             />
           ))}
         </div>
+        {turn && (
+          <div className="mt-1.5">
+            <EstimateBar
+              estimate={live}
+              detailsId="estimate-details"
+              open={estimateOpen}
+              onToggle={() => setEstimateOpen((o) => !o)}
+            />
+          </div>
+        )}
       </section>
+
+      {turn && estimateOpen && (
+        <section aria-labelledby="estimate-title" className="bevel-sm border border-night-700/70 bg-night-900/50 p-3 sm:p-4">
+          <h3 id="estimate-title" className={heading3}>
+            {t("pages.draftSimulatorUI.estimate.title")}
+          </h3>
+          <EstimateDetails id="estimate-details" estimate={live} nameOf={nameOf} f={formats} rank={settings.rank} className="mt-2" />
+        </section>
+      )}
 
       {turn ? (
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,19rem)]">
@@ -429,18 +459,29 @@ export function DraftSimulator({
               )}
             </div>
 
-            {mine && hints.length > 0 && (
+            {mine && (banHints.length > 0 || pickHints.length > 0) && (
               <div className="bevel-sm border border-gold-500/25 bg-night-900/50 p-2">
                 <p className="text-xs leading-snug text-chalk-500">
                   <span className="font-heading font-bold uppercase tracking-wider text-gold-400">
                     {t(isBan ? "pages.draftSimulatorUI.hints.ban" : "pages.draftSimulatorUI.hints.pick")}
                   </span>{" "}
-                  {t(isBan ? "pages.draftSimulatorUI.hints.banIntro" : "pages.draftSimulatorUI.hints.pickIntro", {
+                  {t(isBan ? "pages.draftSimulatorUI.hints.banIntro" : "pages.draftSimulatorUI.hints.pickEstimateIntro", {
                     rank: t(`measuredRanks.${settings.rank}`),
                   })}
                 </p>
                 <ul className="mt-1.5 grid gap-1.5 sm:grid-cols-3">
-                  {hints.map((c) => {
+                  {(isBan
+                    ? banHints.map((c) => ({
+                        slug: c.slug,
+                        text: reasonText(c.reason, c.lane, t, formats, nameOf, settings.rank),
+                        delta: null,
+                      }))
+                    : pickHints.map((c) => ({
+                        slug: c.slug,
+                        text: c.reasons.map((r) => pickReasonText(r, t, formats, nameOf, damageLabels)).join(" · "),
+                        delta: Math.round(c.delta * 1000) / 10,
+                      }))
+                  ).map((c) => {
                     const h = bySlug.get(c.slug);
                     return (
                       <li key={c.slug}>
@@ -448,13 +489,26 @@ export function DraftSimulator({
                           type="button"
                           onClick={() => playerMove(c.slug)}
                           aria-label={t(isBan ? "pages.draftSimulatorUI.banHero" : "pages.draftSimulatorUI.pickHero", { name: nameOf(c.slug) })}
+                          aria-describedby={`hint-${c.slug}`}
                           className="bevel-sm flex min-h-11 w-full items-center gap-2 border border-night-700/70 bg-night-900/60 p-1.5 text-left transition-colors hover:border-gold-500/60"
                         >
                           {h && <HeroThumb hero={h} small />}
                           <span className="min-w-0 flex-1">
-                            <span className="block truncate font-heading text-sm font-bold text-chalk-100">{nameOf(c.slug)}</span>
-                            <span className="block text-[0.7rem] leading-snug text-chalk-300">
-                              {reasonText(c.reason, c.lane, t, formats, nameOf, settings.rank)}
+                            <span className="flex items-baseline justify-between gap-2">
+                              <span className="truncate font-heading text-sm font-bold text-chalk-100">{nameOf(c.slug)}</span>
+                              {c.delta !== null && c.delta !== 0 && (
+                                <span
+                                  className={cn(
+                                    "shrink-0 text-[0.7rem] font-semibold tabular-nums",
+                                    c.delta > 0 ? "text-emerald-400" : "text-blood-500",
+                                  )}
+                                >
+                                  {t("pages.draftSimulatorUI.estimate.delta", { pts: formats.signed(c.delta) })}
+                                </span>
+                              )}
+                            </span>
+                            <span id={`hint-${c.slug}`} className="block text-[0.7rem] leading-snug text-chalk-300">
+                              {c.text}
                             </span>
                           </span>
                         </button>
@@ -557,6 +611,7 @@ export function DraftSimulator({
             failed={measuresState === "error"}
             rank={settings.rank}
             damageLabels={damageLabels}
+            estimate={live}
             query={writeSimulation("", settings, choices)}
             onReplay={start}
             onSettings={backToSettings}

@@ -451,8 +451,8 @@
         },
         "botTitle": "Le bot",
         "bot": "Le bot bannit dans le haut du classement du rang choisi, qui combine taux de victoire et taux de ban. Pour ses picks, il ne retient que les héros qui ajoutent une lane à son équipe et les classe sur nos mesures du rang : contres face à vos picks, duos avec les siens, taux de victoire. Chaque choix est expliqué en une ligne.",
-        "advantageTitle": "L'indice d'avantage",
-        "advantage": "Le bilan additionne les écarts de victoire mesurés en partie classée entre les héros des deux équipes, et les gains des duos de chacune. C'est une estimation tirée de ces seules mesures, pas une probabilité de victoire.",
+        "advantageTitle": "Les chances de victoire estimées",
+        "advantage": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
         "sources": "Sources",
         "sourceRef": "Source : {site}, {page}"
       },
@@ -992,7 +992,7 @@
         "title": "Aide au draft MLBB : counter picks par lane (patch {v})",
         "description": "Saisissez les choix adverses : l'outil propose des counter picks pour chaque lane parmi {n} héros, appuyés sur les contres, synergies et taux de victoire relevés le {date} (patch {v}). Gratuit, sans inscription.",
         "simulatorTitle": "Simulateur de draft MLBB : ban-pick classé et MPL avec counters",
-        "simulatorDescription": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Bilan des deux équipes et lien à partager."
+        "simulatorDescription": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager."
       },
       "compare": {
         "title": "Comparateur de héros MLBB : winrate et stats (patch {v})",
@@ -1122,6 +1122,10 @@
       "damageCalculator": {
         "title": "Calculateur de dégâts MLBB : défense et pénétration",
         "description": "Calculez les dégâts d'une attaque de base ou d'un coup dans Mobile Legends après défense et pénétration : coups pour tuer et PV effectifs, héros et objets ou stats saisies."
+      },
+      "strategyPlanner": {
+        "title": "Planificateur de stratégie MLBB : tableau tactique sur la carte",
+        "description": "Tableau tactique gratuit sur la carte de Mobile Legends: Bang Bang : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, dessinez flèches et rotations, ajoutez des notes, puis partagez le plan par lien ou en image PNG. Sans inscription, au doigt comme à la souris."
       }
     },
     "freshness": {
@@ -2815,7 +2819,7 @@
         "ban": "Pistes pour ce ban",
         "pick": "Pistes pour ce pick",
         "banIntro": "Le haut du classement ({rank}).",
-        "pickIntro": "Classées sur nos mesures ({rank}) : contres face à leurs picks, duos avec les vôtres, lane à combler."
+        "pickEstimateIntro": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler."
       },
       "reasons": {
         "meta": "{tier} ({rank}), {ban} % de bans",
@@ -2846,13 +2850,6 @@
       "summary": {
         "title": "Bilan du draft",
         "intro": "Les deux équipes passées à l'analyse d'équipe, avec les mesures du classement ({rank}).",
-        "advantage": "Avantage mesuré",
-        "advantageNote": "Estimation tirée des écarts de victoire mesurés en partie classée ({rank}) : duels entre les deux équipes et duos de chacune. Ce n'est pas une probabilité de victoire.",
-        "index": "{side} devant : indice de {pts} pts",
-        "even": "Indice nul : aucune équipe ne se détache sur les mesures.",
-        "detail": "Duels {counters} pts · duos bleus {blue} pts · duos rouges {red} pts",
-        "noMeasures": "Aucune mesure ({rank}) ne relie ces dix héros : pas d'estimation possible.",
-        "bar": "Indice d'avantage : {text}",
         "duos": "Duos mesurés",
         "noDuo": "Aucun duo mesuré au rang.",
         "matchups": "Duels entre les équipes",
@@ -2868,7 +2865,50 @@
       },
       "boardLabel": "Plateau du draft",
       "explainToggle": "Choix expliqués ({n})",
-      "methodTitle": "Méthode et sources"
+      "methodTitle": "Méthode et sources",
+      "estimate": {
+        "title": "Chances de victoire estimées",
+        "short": "Estimation",
+        "toggle": "Détail de l'estimation",
+        "bar": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+        "confidence": {
+          "low": "fiabilité faible",
+          "medium": "fiabilité moyenne",
+          "high": "bonne fiabilité"
+        },
+        "empty": "Aucun pick pour l'instant : 50-50.",
+        "even": "Aucune équipe ne se détache.",
+        "edge": "{side} devant, avantage de {pts} pts",
+        "favours": "{side} +{pts} pts",
+        "neutral": "équilibré",
+        "factors": {
+          "strength": "Force des héros",
+          "counters": "Contres",
+          "synergy": "Synergies",
+          "composition": "Lanes et tank",
+          "damage": "Types de dégâts"
+        },
+        "facts": {
+          "none": "Rien à signaler.",
+          "strength": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+          "duel": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+          "noDuel": "Aucun duel connu entre les deux équipes.",
+          "duo": "{side} : {a} + {b} ({pts} pts)",
+          "noDuo": "Aucun duo connu.",
+          "lanes": "{side} : {names} sans lane libre",
+          "tank": "{side} : pas de tank",
+          "damage": {
+            "physical": "{side} : dégâts presque tous physiques",
+            "magic": "{side} : dégâts presque tous magiques"
+          }
+        },
+        "note": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+        "delta": "{pts} pts",
+        "reasons": {
+          "tank": "apporte le tank qui manque",
+          "damage": "équilibre les dégâts ({type})"
+        }
+      }
     },
     "timer": {
       "title": "Chrono des objectifs",
@@ -3106,7 +3146,8 @@
           "step2": "Les {waves} premières vagues du milieu comptent {lancers} lanciers et {infantry} fantassin : nettoyez vite, puis tournez vers les côtés.",
           "step3": "Soyez niveau 4 pour la Tortue à {turtle}, et surveillez l'invasion de votre jungle pendant la première minute."
         }
-      }
+      },
+      "plannerLink": "Tracer une rotation sur cette carte avec le planificateur de stratégie"
     },
     "mapUI": {
       "mapLabel": "Carte schématique de la Terre de l'Aube",
@@ -3900,6 +3941,87 @@
       "winsLong": "Victoires",
       "lossesLong": "Défaites",
       "heroLine": "{hero} : {games} parties, {wins} victoires"
+    },
+    "strategyPlanner": {
+      "title": "Planificateur de stratégie MLBB",
+      "crumb": "Planificateur",
+      "lead": "Préparez une rotation, un gank ou un combat d'objectif sur la carte : placez les héros des deux équipes, la Tortue, le Seigneur et les buffs, tracez flèches et chemins, ajoutez des notes. Le plan se partage par lien et s'exporte en image.",
+      "howToTitle": "Mode d'emploi",
+      "howToOpen": "Afficher les quatre étapes",
+      "step1": "Choisissez une équipe, bleue ou rouge, puis touchez un héros dans la liste : il apparaît devant sa base. Les objectifs se posent de la même façon.",
+      "step2": "Avec l'outil Déplacer, faites glisser un héros, un objectif, une flèche ou un tracé. Au clavier, Tab passe d'un élément à l'autre, les flèches le déplacent (Maj pour aller plus vite) et Suppr l'enlève.",
+      "step3": "Les outils Crayon et Flèche dessinent sur la carte, dans la couleur choisie ; l'outil Texte pose l'étiquette saisie là où vous touchez. Ctrl+Z annule, Ctrl+Maj+Z rétablit.",
+      "step4": "Terminé ? Copiez le lien, il contient tout le plan sans compte ni serveur, ou téléchargez l'image PNG.",
+      "mapNote": "La carte est notre schéma de la Terre de l'Aube, le même que sur le guide de la carte : votre base en bas à gauche, la rivière en diagonale, la Tortue près de la lane EXP et le Seigneur de l'autre côté. Les distances ne sont pas à l'échelle.",
+      "mapLink": "Le guide de la carte : camps, horaires et rotations",
+      "timerLink": "Chrono des objectifs",
+      "draftLink": "Simulateur de draft"
+    },
+    "strategyPlannerUI": {
+      "toolsLabel": "Outils de dessin",
+      "tools": {
+        "move": "Déplacer",
+        "pen": "Crayon",
+        "arrow": "Flèche",
+        "text": "Texte"
+      },
+      "colorLabel": "Couleur",
+      "colors": {
+        "gold": "Or",
+        "white": "Blanc",
+        "blue": "Bleu",
+        "red": "Rouge",
+        "green": "Vert",
+        "purple": "Violet"
+      },
+      "labelField": "Texte de l'étiquette",
+      "labelCentre": "Placer au centre",
+      "labelHelp": "Touchez la carte pour poser l'étiquette à cet endroit.",
+      "labelFirst": "Saisissez d'abord le texte de l'étiquette.",
+      "boardLabel": "Carte du plan",
+      "help": "Déplacer : glissez un élément, ou sélectionnez-le au clavier (Tab) et utilisez les flèches. Crayon, Flèche et Texte dessinent directement sur la carte.",
+      "undo": "Annuler",
+      "redo": "Rétablir",
+      "delete": "Supprimer la sélection",
+      "clear": "Tout effacer",
+      "export": "Image PNG",
+      "share": "Copier le lien",
+      "paletteLabel": "Héros et objectifs",
+      "heroes": "Héros",
+      "teamLabel": "Équipe des héros ajoutés",
+      "teams": {
+        "blue": "Équipe bleue",
+        "red": "Équipe rouge"
+      },
+      "search": "Chercher un héros",
+      "noHero": "Aucun héros ne correspond.",
+      "addHero": "Ajouter {name} ({team})",
+      "selectHero": "Sélectionner {name} ({team}), déjà sur la carte",
+      "objectives": "Objectifs",
+      "addMarker": "Placer : {name}",
+      "count": "{n} éléments sur {max}",
+      "element": {
+        "hero": "{name} ({team})",
+        "text": "Étiquette « {text} »",
+        "arrow": "Flèche, couleur {color}",
+        "line": "Tracé, couleur {color}"
+      },
+      "placed": "Ajouté sur la carte : {name}.",
+      "removed": "Supprimé : {name}.",
+      "cleared": "Carte effacée. Annuler la rétablit.",
+      "undone": "Action annulée.",
+      "redone": "Action rétablie.",
+      "full": "Limite de {n} éléments atteinte.",
+      "sharedLoaded": "Plan partagé chargé.",
+      "sharedInvalid": "Ce lien ne contient pas de plan lisible.",
+      "exporting": "Création de l'image…",
+      "exportDone": "Image téléchargée.",
+      "exportShared": "Image partagée.",
+      "exportError": "L'image n'a pas pu être créée.",
+      "imageTitle": "Plan de stratégie MLBB",
+      "linkCopied": "Lien copié : il contient tout le plan.",
+      "linkShared": "Lien partagé.",
+      "linkError": "Copie impossible : copiez l'adresse de la page."
     }
   },
   "modeSheet": {
