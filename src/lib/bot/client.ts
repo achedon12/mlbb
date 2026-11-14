@@ -46,7 +46,14 @@ async function call<S extends z.ZodType>(
     throw new BotUnavailable(`bot answered ${response.status}`);
   }
   const parsed = schema.safeParse(await response.json().catch(() => null));
-  if (!parsed.success) throw new BotUnavailable(`unexpected answer from the bot: ${path.split("?")[0]}`);
+  if (!parsed.success) {
+    // Logged: a shape the two sides disagree on is a bug, not an outage.
+    void log("warning", "discord bot: unexpected answer", {
+      path: path.split("?")[0],
+      issues: parsed.error.issues.slice(0, 5).map((i) => `${i.path.join(".")}: ${i.message}`),
+    });
+    throw new BotUnavailable(`unexpected answer from the bot: ${path.split("?")[0]}`);
+  }
   return parsed.data;
 }
 
@@ -77,13 +84,49 @@ export type GuildLists = { channels: BotChannel[]; roles: BotRole[]; manageRoles
 /** Roles an announcement may mention: managed ones (bots, boosts) are left out. */
 export const mentionableRoles = (roles: BotRole[]) => roles.filter((r) => r.refusal !== "managed");
 
+/**
+ * discord.js's gateway `Status`, in its enum order: the shards send the
+ * number (`client.ws.status`, 0 = Ready). A label sent as text is kept.
+ */
+export const SHARD_STATUSES = [
+  "ready",
+  "connecting",
+  "reconnecting",
+  "idle",
+  "nearly",
+  "disconnected",
+  "waitingForGuilds",
+  "identifying",
+  "resuming",
+] as const;
+const shardStatus = z.union([
+  z.number().int().transform((n): string => SHARD_STATUSES[n] ?? "unknown"),
+  z.string().max(32),
+]);
+const megabytes = z.number().min(0).max(1_000_000);
+const seconds = z.number().min(0);
+
 const stats = z.object({
   shards: z
-    .array(z.object({ id: z.number().int(), status: z.string().max(32), ping: z.number(), guilds: z.number().int() }))
+    .array(
+      z.object({
+        id: z.number().int(),
+        status: shardStatus,
+        // -1 until the shard's first heartbeat: no ping known yet.
+        ping: z.number().transform((p) => (p < 0 ? null : p)),
+        guilds: z.number().int(),
+        memoryMb: megabytes.optional(),
+        uptimeSec: seconds.optional(),
+      }),
+    )
     .max(1_000),
   guildCount: z.number().int(),
-  uptimeSec: z.number(),
-  memoryMb: z.number(),
+  uptimeSec: seconds,
+  memoryMb: megabytes,
+  // From newer bots only.
+  version: z.string().max(32).optional(),
+  node: z.string().max(32).optional(),
+  totalShards: z.number().int().optional(),
 });
 export type BotStats = z.infer<typeof stats>;
 

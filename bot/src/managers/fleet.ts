@@ -66,7 +66,21 @@ export class Fleet {
     );
   }
 
-  async stats(): Promise<ShardStats[]> {
-    return (await this.manager.broadcastEval((client) => client.mlbbdex?.stats() ?? null)).filter(Boolean) as ShardStats[];
+  /**
+   * Shard by shard, not one `broadcastEval`: that rejects as a whole when a
+   * single shard is dead or respawning, and the admin panel then saw no bot
+   * at all. Each answer is settled on its own, bounded in time.
+   */
+  async stats(timeoutMs = 3_000): Promise<{ shardIds: number[]; answers: PromiseSettledResult<ShardStats | null>[] }> {
+    const shards = [...this.manager.shards.values()];
+    const answers = await Promise.allSettled(
+      shards.map((shard) =>
+        Promise.race([
+          shard.eval((client) => client.mlbbdex?.stats() ?? null) as Promise<ShardStats | null>,
+          new Promise<never>((_, reject) => setTimeout(() => reject(new Error("shard stats timed out")), timeoutMs).unref()),
+        ]),
+      ),
+    );
+    return { shardIds: shards.map((s) => s.id), answers };
   }
 }

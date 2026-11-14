@@ -126,7 +126,7 @@ export default async function AdminPage({ params, searchParams }: Params) {
                   <li key={s.id} className="bevel-sm flex justify-between gap-3 border border-night-700/70 bg-night-900/60 px-3 py-2">
                     <span className="text-chalk-100">{t("pages.botAdmin.shard", { id: s.id })}</span>
                     <span className="tabular-nums text-chalk-300">
-                      {s.status} · {number.format(s.guilds)} · {t("pages.botAdmin.ping")} {number.format(Math.round(s.ping))} ms
+                      {s.status} · {number.format(s.guilds)} · {t("pages.botAdmin.ping")} {s.ping === null ? "–" : `${number.format(Math.round(s.ping))} ms`}
                     </span>
                   </li>
                 ))}
