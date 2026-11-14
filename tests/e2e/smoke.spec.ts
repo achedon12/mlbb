@@ -7,6 +7,25 @@ test("the home page opens and leads to the catalog", async ({ page }) => {
   await expect(page).toHaveURL(/\/heroes/);
 });
 
+test("the home page search leads to the filtered catalog", async ({ page }) => {
+  await page.goto("/fr");
+  const form = page.getByRole("search");
+  await form.getByRole("searchbox", { name: /rechercher un h[ée]ros/i }).fill("khufra");
+  await form.getByRole("button", { name: /chercher/i }).click();
+  await expect(page).toHaveURL(/\/fr\/heroes\?q=khufra$/);
+  await expect(page.getByPlaceholder(/rechercher un h[ée]ros/i)).toHaveValue("khufra");
+});
+
+test("the home page button opens the global search", async ({ page }) => {
+  await page.goto("/fr");
+  const dialog = page.getByRole("dialog", { name: /rechercher/i });
+  // The button only answers once the page is hydrated.
+  await expect(async () => {
+    await page.getByRole("button", { name: /chercher aussi un objet/i }).click();
+    await expect(dialog).toBeVisible({ timeout: 1_000 });
+  }).toPass();
+});
+
 test("the catalog filters by search", async ({ page }) => {
   await page.goto("/fr/heroes");
   await page.getByPlaceholder(/rechercher un h[ée]ros/i).fill("khufra");

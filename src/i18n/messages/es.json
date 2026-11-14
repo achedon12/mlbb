@@ -3689,38 +3689,87 @@
     "pts": "pts"
   },
   "home": {
-    "title1": "Todo el juego, explicado",
-    "titleAccent": "en {language}",
-    "lead": "{heroes} héroes y sus {skins} skins, una tier list calculada con las tasas del juego, un asistente de draft, los objetos, los emblemas y las notas del parche. Los datos se sincronizan solos; el análisis se escribe a mano.",
+    "title": "Mobile Legends: tier list, builds y counters del parche {version}",
+    "lead": "Los {heroes} héroes, sus builds y sus counters medidos en partidas clasificatorias, una tier list recalculada en cada sincronización y herramientas para preparar cada draft.",
+    "search": {
+      "label": "Buscar un héroe",
+      "placeholder": "Ling, Khufra, Layla…",
+      "submit": "Buscar",
+      "all": "Buscar también un objeto, un aspecto o una habilidad"
+    },
     "browse": "Explorar los héroes",
-    "draftHelp": "Asistente de draft",
-    "statHeroes": "héroes",
-    "statSkins": "skins",
-    "statPatches": "parches",
-    "statAnalyses": "análisis redactados",
+    "tierListCta": "Ver la tier list",
+    "winRate": "{value} de victorias",
+    "rail": {
+      "title": "Ahora mismo en el juego",
+      "patch": "Parche actual",
+      "patchSince": "Parche actual desde el {date}",
+      "rates": "Tasas medidas el",
+      "esportsLive": "Torneo en curso",
+      "esportsNext": "Próximo torneo, el {date}",
+      "starlight": "StarLight de {month}",
+      "serverTime": "Hora del servidor",
+      "reset": "reinicio en"
+    },
+    "meta": {
+      "title": "El meta del parche {version}",
+      "lead": "{n} héroes clasificados según las tasas de victoria y de baneo del {date}, todos los rangos juntos.",
+      "splitLabel": "Reparto de los {n} héroes clasificados por tier: abrir la tier list",
+      "tierCount": "tier {tier}: {n} héroes",
+      "topTier": "Tier S+: {n} héroes",
+      "win": "Mejor tasa de victoria",
+      "ban": "Los más baneados",
+      "pick": "Los más jugados",
+      "week": "En siete días",
+      "weekEmpty": "Ningún héroe se ha movido claramente esta semana."
+    },
+    "patch": {
+      "title": "Lo que cambió el parche {version}",
+      "lead": "{n} héroes modificados el {date}, con la variación medida desde entonces en su tasa de victoria.",
+      "leadUndated": "{n} héroes modificados, ordenados según el sentido del cambio.",
+      "newHero": "Nuevo héroe: {name}",
+      "more": "Y {n} más en las notas",
+      "impact": "tasa de victoria {gap} puntos tras el parche",
+      "impactNote": "Diferencia en puntos entre la tasa de victoria media de los {n} días anteriores al parche y la de los {n} días posteriores, todos los rangos juntos. En gris, una diferencia demasiado pequeña para contar.",
+      "metaReport": "Informe del meta del parche",
+      "testing": "En prueba en el Servidor Advance: {version}"
+    },
+    "live": {
+      "title": "Este mes en el juego",
+      "lead": "Los aspectos del mes, los anunciados y los torneos en curso.",
+      "skinsOf": "Aspectos de {month}",
+      "allEvents": "Todos los eventos",
+      "starlight": "Aspecto StarLight",
+      "collector": "Aspecto Collector",
+      "skinAlt": "{skin}, aspecto de {hero}",
+      "announced": "Anunciado para {month}",
+      "announcedCount": "{n} aspectos anunciados",
+      "esports": "Esports",
+      "allEsports": "Todos los torneos",
+      "proPicked": "Los más elegidos en pro",
+      "proBanned": "Los más baneados en pro",
+      "proNote": "Sobre las últimas {games} partidas profesionales registradas."
+    },
+    "toolsTitle": "Herramientas",
+    "toolsLead": "Preparar un draft, probar una build, entrenar.",
+    "daily": {
+      "title": "Los juegos del día",
+      "lead": "Una partida nueva cada día, la misma para todos los jugadores.",
+      "play": "Jugar"
+    },
     "startTitle": "Por dónde empezar",
     "startLead": "Juegas un rol, no un catálogo. Empieza por aquí.",
-    "rankingTitle": "En cabeza del parche",
-    "rankingLead": "Calculado a partir de las tasas de victoria y de baneo reportadas por el juego, no de una opinión.",
-    "fullTierList": "Tier list completa",
-    "skinsTitle": "Galerías de skins",
-    "skinsLead": "Las {skins} skins del juego, con su ilustración a tamaño completo, su rareza y su precio.",
-    "seeHeroes": "Ver los héroes",
-    "lastUpdate": "Última actualización",
-    "allNews": "Todas las noticias",
-    "syncLead": "Última sincronización el {date}.",
-    "cards": {
-      "dataTitle": "Los datos se actualizan solos",
-      "dataText": "Héroes, skins, objetos, parches e imágenes se extraen de la wiki cada semana. Un nuevo héroe aparece aquí sin que nadie tenga que introducirlo.",
-      "rankingTitle": "La clasificación no opina",
-      "rankingText": "La tier list se calcula con las tasas de victoria y de baneo reportadas por el juego. La regla de cálculo se muestra en la página.",
-      "writtenTitle": "Lo que se escribe queda escrito",
-      "writtenText": "Los análisis, builds y guías se escriben a mano. Ninguna extracción dirá por qué un héroe es fuerte; ahí es donde cuentan las contribuciones."
-    },
-    "howItWorks": "Cómo funciona este sitio",
-    "followRss": "Seguir las publicaciones por RSS",
-    "winPercent": "% de victorias",
     "latestArticles": "Últimos artículos",
+    "allNews": "Todas las noticias",
+    "followRss": "Seguir las publicaciones por RSS",
+    "community": {
+      "title": "La comunidad",
+      "buildsText": "Las builds publicadas por los jugadores, ordenadas por sus votos.",
+      "contributeText": "Escribir el análisis de un héroe, corregir un dato, proponer una idea."
+    },
+    "fullTierList": "Tier list completa",
+    "readNotes": "Leer las notas",
+    "winPercent": "% de victorias",
     "trends": {
       "title": "Tendencias de la semana",
       "lead": "Variación de la tasa de victoria en siete días, todos los rangos. Las diferencias de menos de {threshold} puntos, demasiado cercanas al redondeo, no se tienen en cuenta.",
@@ -3730,19 +3779,20 @@
       "noFall": "Ningún héroe baja claramente esta semana.",
       "open": "Mostrar los {n} héroes que más se mueven"
     },
-    "readNotes": "Leer las notas",
-    "toolsTitle": "Herramientas",
-    "toolsLead": "Preparar una partida, probar una elección, entrenar."
+    "howItWorks": "Cómo funciona este sitio",
+    "syncLead": "Última sincronización el {date}.",
+    "cards": {
+      "dataTitle": "Los datos se actualizan solos",
+      "dataText": "Héroes, skins, objetos, parches e imágenes se extraen de la wiki cada semana. Un nuevo héroe aparece aquí sin que nadie tenga que introducirlo.",
+      "rankingTitle": "La clasificación no opina",
+      "rankingText": "La tier list se calcula con las tasas de victoria y de baneo reportadas por el juego. La regla de cálculo se muestra en la página.",
+      "writtenTitle": "Lo que se escribe queda escrito",
+      "writtenText": "Los análisis, builds y guías se escriben a mano. Ninguna extracción dirá por qué un héroe es fuerte; ahí es donde cuentan las contribuciones."
+    }
   },
   "featured": {
     "heroOfTheDay": "Héroe del día",
-    "role": "Rol",
-    "position": "Línea",
-    "tierList": "Tier list",
-    "wins": "Victorias",
-    "skins": "Skins",
-    "seeSheet": "Ver su ficha",
-    "tier": "Tier {p}"
+    "seeSheet": "Ver su ficha"
   },
   "access": {
     "account": "{n} héroes"

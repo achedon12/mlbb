@@ -747,6 +747,238 @@
     "pages.botDashboard.lead": {
       "fr": "Réglez le bot pour chacun de vos serveurs : langue, annonces, jeux du jour, messages de bienvenue et rôles automatiques.",
       "text": "Set the bot up for each of your servers: language, announcements, daily games, welcome messages and auto-roles."
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** has left the server."
+    },
+    "home.title": {
+      "fr": "Mobile Legends : tier list, builds et contres du patch {version}",
+      "text": "Mobile Legends: tier list, builds and counters for patch {version}"
+    },
+    "home.lead": {
+      "fr": "Les {heroes} héros, leurs builds et leurs contres mesurés en partie classée, une tier list recalculée à chaque synchronisation et des outils pour préparer chaque draft.",
+      "text": "All {heroes} heroes, their builds and counters measured in ranked games, a tier list recomputed at every sync and tools to prepare every draft."
+    },
+    "home.search.label": {
+      "fr": "Rechercher un héros",
+      "text": "Search for a hero"
+    },
+    "home.search.submit": {
+      "fr": "Chercher",
+      "text": "Search"
+    },
+    "home.search.all": {
+      "fr": "Chercher aussi un objet, un skin ou une compétence",
+      "text": "Also search for an item, a skin or a skill"
+    },
+    "home.tierListCta": {
+      "fr": "Voir la tier list",
+      "text": "See the tier list"
+    },
+    "home.winRate": {
+      "fr": "{value} de victoires",
+      "text": "{value} win rate"
+    },
+    "home.rail.title": {
+      "fr": "En ce moment dans le jeu",
+      "text": "Right now in the game"
+    },
+    "home.rail.patch": {
+      "fr": "Patch en ligne",
+      "text": "Live patch"
+    },
+    "home.rail.patchSince": {
+      "fr": "Patch en ligne depuis le {date}",
+      "text": "Live patch since {date}"
+    },
+    "home.rail.rates": {
+      "fr": "Taux mesurés le",
+      "text": "Rates measured on"
+    },
+    "home.rail.esportsLive": {
+      "fr": "Tournoi en cours",
+      "text": "Tournament under way"
+    },
+    "home.rail.esportsNext": {
+      "fr": "Prochain tournoi, le {date}",
+      "text": "Next tournament, {date}"
+    },
+    "home.rail.starlight": {
+      "fr": "StarLight de {month}",
+      "text": "StarLight for {month}"
+    },
+    "home.rail.serverTime": {
+      "fr": "Heure serveur",
+      "text": "Server time"
+    },
+    "home.rail.reset": {
+      "fr": "reset dans",
+      "text": "reset in"
+    },
+    "home.meta.title": {
+      "fr": "La méta du patch {version}",
+      "text": "The meta of patch {version}"
+    },
+    "home.meta.lead": {
+      "fr": "{n} héros classés sur les taux de victoire et de ban du {date}, tous rangs confondus.",
+      "text": "{n} heroes ranked on the win and ban rates of {date}, all ranks combined."
+    },
+    "home.meta.splitLabel": {
+      "fr": "Répartition des {n} héros classés par palier : ouvrir la tier list",
+      "text": "How the {n} ranked heroes split across tiers: open the tier list"
+    },
+    "home.meta.tierCount": {
+      "fr": "palier {tier} : {n} héros",
+      "text": "tier {tier}: {n} heroes"
+    },
+    "home.meta.topTier": {
+      "fr": "Palier S+ : {n} héros",
+      "text": "Tier S+: {n} heroes"
+    },
+    "home.meta.win": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Highest win rate"
+    },
+    "home.meta.ban": {
+      "fr": "Les plus bannis",
+      "text": "Most banned"
+    },
+    "home.meta.pick": {
+      "fr": "Les plus joués",
+      "text": "Most played"
+    },
+    "home.meta.week": {
+      "fr": "Sur sept jours",
+      "text": "Over seven days"
+    },
+    "home.meta.weekEmpty": {
+      "fr": "Aucun héros ne bouge nettement cette semaine.",
+      "text": "No hero moved clearly this week."
+    },
+    "home.patch.title": {
+      "fr": "Ce que le patch {version} a changé",
+      "text": "What patch {version} changed"
+    },
+    "home.patch.lead": {
+      "fr": "{n} héros modifiés le {date}, avec l'écart mesuré de leur taux de victoire depuis.",
+      "text": "{n} heroes changed on {date}, with the measured shift in their win rate since."
+    },
+    "home.patch.leadUndated": {
+      "fr": "{n} héros modifiés, rangés par sens du changement.",
+      "text": "{n} heroes changed, sorted by the direction of the change."
+    },
+    "home.patch.newHero": {
+      "fr": "Nouveau héros : {name}",
+      "text": "New hero: {name}"
+    },
+    "home.patch.more": {
+      "fr": "Et {n} de plus dans les notes",
+      "text": "And {n} more in the notes"
+    },
+    "home.patch.impact": {
+      "fr": "taux de victoire {gap} point après le patch",
+      "text": "win rate {gap} points after the patch"
+    },
+    "home.patch.impactNote": {
+      "fr": "Écart en points entre le taux de victoire moyen des {n} jours qui précèdent le patch et celui des {n} jours qui suivent, tous rangs confondus. En gris, un écart trop faible pour compter.",
+      "text": "Gap in points between the average win rate over the {n} days before the patch and over the {n} days after it, all ranks combined. In grey, a gap too small to count."
+    },
+    "home.patch.metaReport": {
+      "fr": "Rapport méta du patch",
+      "text": "Patch meta report"
+    },
+    "home.patch.testing": {
+      "fr": "En test sur le serveur Advance : {version}",
+      "text": "In testing on the Advance Server: {version}"
+    },
+    "home.live.title": {
+      "fr": "Ce mois-ci dans le jeu",
+      "text": "This month in the game"
+    },
+    "home.live.lead": {
+      "fr": "Les skins du mois, ceux qui sont annoncés, et les tournois en cours.",
+      "text": "The month's skins, the announced ones, and the tournaments under way."
+    },
+    "home.live.skinsOf": {
+      "fr": "Skins de {month}",
+      "text": "{month} skins"
+    },
+    "home.live.allEvents": {
+      "fr": "Tous les événements",
+      "text": "All events"
+    },
+    "home.live.starlight": {
+      "fr": "Skin StarLight",
+      "text": "StarLight skin"
+    },
+    "home.live.collector": {
+      "fr": "Skin Collector",
+      "text": "Collector skin"
+    },
+    "home.live.skinAlt": {
+      "fr": "{skin}, skin de {hero}",
+      "text": "{skin}, a {hero} skin"
+    },
+    "home.live.announced": {
+      "fr": "Annoncé pour {month}",
+      "text": "Announced for {month}"
+    },
+    "home.live.announcedCount": {
+      "fr": "{n} skins annoncés",
+      "text": "{n} skins announced"
+    },
+    "home.live.esports": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "home.live.allEsports": {
+      "fr": "Tous les tournois",
+      "text": "All tournaments"
+    },
+    "home.live.proPicked": {
+      "fr": "Les plus pris en pro",
+      "text": "Most picked in pro play"
+    },
+    "home.live.proBanned": {
+      "fr": "Les plus bannis en pro",
+      "text": "Most banned in pro play"
+    },
+    "home.live.proNote": {
+      "fr": "Sur les {games} dernières parties professionnelles relevées.",
+      "text": "Over the last {games} recorded pro games."
+    },
+    "home.toolsLead": {
+      "fr": "Préparer une draft, tester un build, s'entraîner.",
+      "text": "Prepare a draft, test a build, practise."
+    },
+    "home.daily.title": {
+      "fr": "Les jeux du jour",
+      "text": "Daily games"
+    },
+    "home.daily.lead": {
+      "fr": "Une nouvelle partie chaque jour, la même pour tous les joueurs.",
+      "text": "A new round every day, the same for every player."
+    },
+    "home.daily.play": {
+      "fr": "Jouer",
+      "text": "Play"
+    },
+    "home.community.title": {
+      "fr": "La communauté",
+      "text": "Community"
+    },
+    "home.community.buildsText": {
+      "fr": "Les builds publiés par les joueurs, classés par leurs votes.",
+      "text": "Builds shared by players, ranked by their votes."
+    },
+    "home.community.contributeText": {
+      "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
+      "text": "Write a hero analysis, fix a data point, suggest an idea."
     }
   },
   "es": {
@@ -1537,6 +1769,238 @@
     "pages.botDashboard.addBotLead": {
       "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
       "text": "¿Falta un servidor que gestionas? Invita a MLBBDex y vuelve aquí."
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "¡Te damos la bienvenida a **{server}**, {user}! Ya somos {count}: elige tus roles en Canales y roles."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** ha salido del servidor."
+    },
+    "home.title": {
+      "fr": "Mobile Legends : tier list, builds et contres du patch {version}",
+      "text": "Mobile Legends: tier list, builds y counters del parche {version}"
+    },
+    "home.lead": {
+      "fr": "Les {heroes} héros, leurs builds et leurs contres mesurés en partie classée, une tier list recalculée à chaque synchronisation et des outils pour préparer chaque draft.",
+      "text": "Los {heroes} héroes, sus builds y sus counters medidos en partidas clasificatorias, una tier list recalculada en cada sincronización y herramientas para preparar cada draft."
+    },
+    "home.search.label": {
+      "fr": "Rechercher un héros",
+      "text": "Buscar un héroe"
+    },
+    "home.search.submit": {
+      "fr": "Chercher",
+      "text": "Buscar"
+    },
+    "home.search.all": {
+      "fr": "Chercher aussi un objet, un skin ou une compétence",
+      "text": "Buscar también un objeto, un aspecto o una habilidad"
+    },
+    "home.tierListCta": {
+      "fr": "Voir la tier list",
+      "text": "Ver la tier list"
+    },
+    "home.winRate": {
+      "fr": "{value} de victoires",
+      "text": "{value} de victorias"
+    },
+    "home.rail.title": {
+      "fr": "En ce moment dans le jeu",
+      "text": "Ahora mismo en el juego"
+    },
+    "home.rail.patch": {
+      "fr": "Patch en ligne",
+      "text": "Parche actual"
+    },
+    "home.rail.patchSince": {
+      "fr": "Patch en ligne depuis le {date}",
+      "text": "Parche actual desde el {date}"
+    },
+    "home.rail.rates": {
+      "fr": "Taux mesurés le",
+      "text": "Tasas medidas el"
+    },
+    "home.rail.esportsLive": {
+      "fr": "Tournoi en cours",
+      "text": "Torneo en curso"
+    },
+    "home.rail.esportsNext": {
+      "fr": "Prochain tournoi, le {date}",
+      "text": "Próximo torneo, el {date}"
+    },
+    "home.rail.starlight": {
+      "fr": "StarLight de {month}",
+      "text": "StarLight de {month}"
+    },
+    "home.rail.serverTime": {
+      "fr": "Heure serveur",
+      "text": "Hora del servidor"
+    },
+    "home.rail.reset": {
+      "fr": "reset dans",
+      "text": "reinicio en"
+    },
+    "home.meta.title": {
+      "fr": "La méta du patch {version}",
+      "text": "El meta del parche {version}"
+    },
+    "home.meta.lead": {
+      "fr": "{n} héros classés sur les taux de victoire et de ban du {date}, tous rangs confondus.",
+      "text": "{n} héroes clasificados según las tasas de victoria y de baneo del {date}, todos los rangos juntos."
+    },
+    "home.meta.splitLabel": {
+      "fr": "Répartition des {n} héros classés par palier : ouvrir la tier list",
+      "text": "Reparto de los {n} héroes clasificados por tier: abrir la tier list"
+    },
+    "home.meta.tierCount": {
+      "fr": "palier {tier} : {n} héros",
+      "text": "tier {tier}: {n} héroes"
+    },
+    "home.meta.topTier": {
+      "fr": "Palier S+ : {n} héros",
+      "text": "Tier S+: {n} héroes"
+    },
+    "home.meta.win": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Mejor tasa de victoria"
+    },
+    "home.meta.ban": {
+      "fr": "Les plus bannis",
+      "text": "Los más baneados"
+    },
+    "home.meta.pick": {
+      "fr": "Les plus joués",
+      "text": "Los más jugados"
+    },
+    "home.meta.week": {
+      "fr": "Sur sept jours",
+      "text": "En siete días"
+    },
+    "home.meta.weekEmpty": {
+      "fr": "Aucun héros ne bouge nettement cette semaine.",
+      "text": "Ningún héroe se ha movido claramente esta semana."
+    },
+    "home.patch.title": {
+      "fr": "Ce que le patch {version} a changé",
+      "text": "Lo que cambió el parche {version}"
+    },
+    "home.patch.lead": {
+      "fr": "{n} héros modifiés le {date}, avec l'écart mesuré de leur taux de victoire depuis.",
+      "text": "{n} héroes modificados el {date}, con la variación medida desde entonces en su tasa de victoria."
+    },
+    "home.patch.leadUndated": {
+      "fr": "{n} héros modifiés, rangés par sens du changement.",
+      "text": "{n} héroes modificados, ordenados según el sentido del cambio."
+    },
+    "home.patch.newHero": {
+      "fr": "Nouveau héros : {name}",
+      "text": "Nuevo héroe: {name}"
+    },
+    "home.patch.more": {
+      "fr": "Et {n} de plus dans les notes",
+      "text": "Y {n} más en las notas"
+    },
+    "home.patch.impact": {
+      "fr": "taux de victoire {gap} point après le patch",
+      "text": "tasa de victoria {gap} puntos tras el parche"
+    },
+    "home.patch.impactNote": {
+      "fr": "Écart en points entre le taux de victoire moyen des {n} jours qui précèdent le patch et celui des {n} jours qui suivent, tous rangs confondus. En gris, un écart trop faible pour compter.",
+      "text": "Diferencia en puntos entre la tasa de victoria media de los {n} días anteriores al parche y la de los {n} días posteriores, todos los rangos juntos. En gris, una diferencia demasiado pequeña para contar."
+    },
+    "home.patch.metaReport": {
+      "fr": "Rapport méta du patch",
+      "text": "Informe del meta del parche"
+    },
+    "home.patch.testing": {
+      "fr": "En test sur le serveur Advance : {version}",
+      "text": "En prueba en el Servidor Advance: {version}"
+    },
+    "home.live.title": {
+      "fr": "Ce mois-ci dans le jeu",
+      "text": "Este mes en el juego"
+    },
+    "home.live.lead": {
+      "fr": "Les skins du mois, ceux qui sont annoncés, et les tournois en cours.",
+      "text": "Los aspectos del mes, los anunciados y los torneos en curso."
+    },
+    "home.live.skinsOf": {
+      "fr": "Skins de {month}",
+      "text": "Aspectos de {month}"
+    },
+    "home.live.allEvents": {
+      "fr": "Tous les événements",
+      "text": "Todos los eventos"
+    },
+    "home.live.starlight": {
+      "fr": "Skin StarLight",
+      "text": "Aspecto StarLight"
+    },
+    "home.live.collector": {
+      "fr": "Skin Collector",
+      "text": "Aspecto Collector"
+    },
+    "home.live.skinAlt": {
+      "fr": "{skin}, skin de {hero}",
+      "text": "{skin}, aspecto de {hero}"
+    },
+    "home.live.announced": {
+      "fr": "Annoncé pour {month}",
+      "text": "Anunciado para {month}"
+    },
+    "home.live.announcedCount": {
+      "fr": "{n} skins annoncés",
+      "text": "{n} aspectos anunciados"
+    },
+    "home.live.esports": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "home.live.allEsports": {
+      "fr": "Tous les tournois",
+      "text": "Todos los torneos"
+    },
+    "home.live.proPicked": {
+      "fr": "Les plus pris en pro",
+      "text": "Los más elegidos en pro"
+    },
+    "home.live.proBanned": {
+      "fr": "Les plus bannis en pro",
+      "text": "Los más baneados en pro"
+    },
+    "home.live.proNote": {
+      "fr": "Sur les {games} dernières parties professionnelles relevées.",
+      "text": "Sobre las últimas {games} partidas profesionales registradas."
+    },
+    "home.toolsLead": {
+      "fr": "Préparer une draft, tester un build, s'entraîner.",
+      "text": "Preparar un draft, probar una build, entrenar."
+    },
+    "home.daily.title": {
+      "fr": "Les jeux du jour",
+      "text": "Los juegos del día"
+    },
+    "home.daily.lead": {
+      "fr": "Une nouvelle partie chaque jour, la même pour tous les joueurs.",
+      "text": "Una partida nueva cada día, la misma para todos los jugadores."
+    },
+    "home.daily.play": {
+      "fr": "Jouer",
+      "text": "Jugar"
+    },
+    "home.community.title": {
+      "fr": "La communauté",
+      "text": "La comunidad"
+    },
+    "home.community.buildsText": {
+      "fr": "Les builds publiés par les joueurs, classés par leurs votes.",
+      "text": "Las builds publicadas por los jugadores, ordenadas por sus votos."
+    },
+    "home.community.contributeText": {
+      "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
+      "text": "Escribir el análisis de un héroe, corregir un dato, proponer una idea."
     }
   },
   "id": {
@@ -1913,8 +2377,8 @@
       "text": "dalam bahasa {language}"
     },
     "home.toolsLead": {
-      "fr": "Préparer une partie, tester un choix, s'entraîner.",
-      "text": "Siapkan pertandingan, uji pick, berlatih."
+      "fr": "Préparer une draft, tester un build, s'entraîner.",
+      "text": "Siapkan draft, uji build, berlatih."
     },
     "home.trends.open": {
       "fr": "Afficher les {n} héros qui bougent",
@@ -4303,6 +4767,234 @@
     "pages.botDashboard.manage": {
       "fr": "Configurer",
       "text": "Atur"
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** telah keluar dari server."
+    },
+    "home.title": {
+      "fr": "Mobile Legends : tier list, builds et contres du patch {version}",
+      "text": "Mobile Legends: tier list, build, dan counter patch {version}"
+    },
+    "home.lead": {
+      "fr": "Les {heroes} héros, leurs builds et leurs contres mesurés en partie classée, une tier list recalculée à chaque synchronisation et des outils pour préparer chaque draft.",
+      "text": "Semua {heroes} hero, build dan counter mereka yang diukur dari pertandingan ranked, tier list yang dihitung ulang setiap sinkronisasi, dan alat untuk menyiapkan setiap draft."
+    },
+    "home.search.label": {
+      "fr": "Rechercher un héros",
+      "text": "Cari hero"
+    },
+    "home.search.submit": {
+      "fr": "Chercher",
+      "text": "Cari"
+    },
+    "home.search.all": {
+      "fr": "Chercher aussi un objet, un skin ou une compétence",
+      "text": "Cari juga item, skin, atau skill"
+    },
+    "home.tierListCta": {
+      "fr": "Voir la tier list",
+      "text": "Lihat tier list"
+    },
+    "home.winRate": {
+      "fr": "{value} de victoires",
+      "text": "Win rate {value}"
+    },
+    "home.rail.title": {
+      "fr": "En ce moment dans le jeu",
+      "text": "Saat ini di dalam game"
+    },
+    "home.rail.patch": {
+      "fr": "Patch en ligne",
+      "text": "Patch aktif"
+    },
+    "home.rail.patchSince": {
+      "fr": "Patch en ligne depuis le {date}",
+      "text": "Patch aktif sejak {date}"
+    },
+    "home.rail.rates": {
+      "fr": "Taux mesurés le",
+      "text": "Rate diukur pada"
+    },
+    "home.rail.esportsLive": {
+      "fr": "Tournoi en cours",
+      "text": "Turnamen berlangsung"
+    },
+    "home.rail.esportsNext": {
+      "fr": "Prochain tournoi, le {date}",
+      "text": "Turnamen berikutnya, {date}"
+    },
+    "home.rail.starlight": {
+      "fr": "StarLight de {month}",
+      "text": "StarLight {month}"
+    },
+    "home.rail.serverTime": {
+      "fr": "Heure serveur",
+      "text": "Waktu server"
+    },
+    "home.rail.reset": {
+      "fr": "reset dans",
+      "text": "reset dalam"
+    },
+    "home.meta.title": {
+      "fr": "La méta du patch {version}",
+      "text": "Meta patch {version}"
+    },
+    "home.meta.lead": {
+      "fr": "{n} héros classés sur les taux de victoire et de ban du {date}, tous rangs confondus.",
+      "text": "{n} hero diperingkat berdasarkan win rate dan ban rate per {date}, semua rank digabung."
+    },
+    "home.meta.splitLabel": {
+      "fr": "Répartition des {n} héros classés par palier : ouvrir la tier list",
+      "text": "Sebaran {n} hero yang diperingkat per tier: buka tier list"
+    },
+    "home.meta.tierCount": {
+      "fr": "palier {tier} : {n} héros",
+      "text": "tier {tier}: {n} hero"
+    },
+    "home.meta.topTier": {
+      "fr": "Palier S+ : {n} héros",
+      "text": "Tier S+: {n} hero"
+    },
+    "home.meta.win": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Win rate tertinggi"
+    },
+    "home.meta.ban": {
+      "fr": "Les plus bannis",
+      "text": "Paling sering di-ban"
+    },
+    "home.meta.pick": {
+      "fr": "Les plus joués",
+      "text": "Paling sering dimainkan"
+    },
+    "home.meta.week": {
+      "fr": "Sur sept jours",
+      "text": "Dalam tujuh hari"
+    },
+    "home.meta.weekEmpty": {
+      "fr": "Aucun héros ne bouge nettement cette semaine.",
+      "text": "Tidak ada hero yang bergerak jelas minggu ini."
+    },
+    "home.patch.title": {
+      "fr": "Ce que le patch {version} a changé",
+      "text": "Yang diubah patch {version}"
+    },
+    "home.patch.lead": {
+      "fr": "{n} héros modifiés le {date}, avec l'écart mesuré de leur taux de victoire depuis.",
+      "text": "{n} hero diubah pada {date}, dengan selisih win rate yang terukur sejak itu."
+    },
+    "home.patch.leadUndated": {
+      "fr": "{n} héros modifiés, rangés par sens du changement.",
+      "text": "{n} hero diubah, diurutkan menurut arah perubahannya."
+    },
+    "home.patch.newHero": {
+      "fr": "Nouveau héros : {name}",
+      "text": "Hero baru: {name}"
+    },
+    "home.patch.more": {
+      "fr": "Et {n} de plus dans les notes",
+      "text": "Dan {n} lagi di catatan patch"
+    },
+    "home.patch.impact": {
+      "fr": "taux de victoire {gap} point après le patch",
+      "text": "win rate {gap} poin setelah patch"
+    },
+    "home.patch.impactNote": {
+      "fr": "Écart en points entre le taux de victoire moyen des {n} jours qui précèdent le patch et celui des {n} jours qui suivent, tous rangs confondus. En gris, un écart trop faible pour compter.",
+      "text": "Selisih poin antara win rate rata-rata {n} hari sebelum patch dan {n} hari sesudahnya, semua rank digabung. Abu-abu: selisih terlalu kecil untuk dihitung."
+    },
+    "home.patch.metaReport": {
+      "fr": "Rapport méta du patch",
+      "text": "Laporan meta patch"
+    },
+    "home.patch.testing": {
+      "fr": "En test sur le serveur Advance : {version}",
+      "text": "Sedang diuji di Advance Server: {version}"
+    },
+    "home.live.title": {
+      "fr": "Ce mois-ci dans le jeu",
+      "text": "Bulan ini di dalam game"
+    },
+    "home.live.lead": {
+      "fr": "Les skins du mois, ceux qui sont annoncés, et les tournois en cours.",
+      "text": "Skin bulan ini, skin yang sudah diumumkan, dan turnamen yang sedang berlangsung."
+    },
+    "home.live.skinsOf": {
+      "fr": "Skins de {month}",
+      "text": "Skin {month}"
+    },
+    "home.live.allEvents": {
+      "fr": "Tous les événements",
+      "text": "Semua event"
+    },
+    "home.live.starlight": {
+      "fr": "Skin StarLight",
+      "text": "Skin StarLight"
+    },
+    "home.live.collector": {
+      "fr": "Skin Collector",
+      "text": "Skin Collector"
+    },
+    "home.live.skinAlt": {
+      "fr": "{skin}, skin de {hero}",
+      "text": "{skin}, skin {hero}"
+    },
+    "home.live.announced": {
+      "fr": "Annoncé pour {month}",
+      "text": "Diumumkan untuk {month}"
+    },
+    "home.live.announcedCount": {
+      "fr": "{n} skins annoncés",
+      "text": "{n} skin diumumkan"
+    },
+    "home.live.esports": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "home.live.allEsports": {
+      "fr": "Tous les tournois",
+      "text": "Semua turnamen"
+    },
+    "home.live.proPicked": {
+      "fr": "Les plus pris en pro",
+      "text": "Paling sering di-pick pro"
+    },
+    "home.live.proBanned": {
+      "fr": "Les plus bannis en pro",
+      "text": "Paling sering di-ban pro"
+    },
+    "home.live.proNote": {
+      "fr": "Sur les {games} dernières parties professionnelles relevées.",
+      "text": "Dari {games} pertandingan pro terakhir yang tercatat."
+    },
+    "home.daily.title": {
+      "fr": "Les jeux du jour",
+      "text": "Game harian"
+    },
+    "home.daily.lead": {
+      "fr": "Une nouvelle partie chaque jour, la même pour tous les joueurs.",
+      "text": "Ronde baru setiap hari, sama untuk semua pemain."
+    },
+    "home.daily.play": {
+      "fr": "Jouer",
+      "text": "Main"
+    },
+    "home.community.title": {
+      "fr": "La communauté",
+      "text": "Komunitas"
+    },
+    "home.community.buildsText": {
+      "fr": "Les builds publiés par les joueurs, classés par leurs votes.",
+      "text": "Build yang dibagikan pemain, diurutkan menurut vote."
+    },
+    "home.community.contributeText": {
+      "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
+      "text": "Tulis analisis hero, perbaiki data, usulkan ide."
     }
   },
   "it": {
@@ -5141,6 +5833,238 @@
     "pages.botDashboard.addBotLead": {
       "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
       "text": "Manca un server che gestisci? Invita MLBBDex, poi torna qui."
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "Benvenuto su **{server}**, {user}! Ora siamo in {count}: scegli i tuoi ruoli in Canali e ruoli."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** ha lasciato il server."
+    },
+    "home.title": {
+      "fr": "Mobile Legends : tier list, builds et contres du patch {version}",
+      "text": "Mobile Legends: tier list, build e counter della patch {version}"
+    },
+    "home.lead": {
+      "fr": "Les {heroes} héros, leurs builds et leurs contres mesurés en partie classée, une tier list recalculée à chaque synchronisation et des outils pour préparer chaque draft.",
+      "text": "Tutti i {heroes} eroi, le loro build e i loro counter misurati nelle partite classificate, una tier list ricalcolata a ogni sincronizzazione e strumenti per preparare ogni draft."
+    },
+    "home.search.label": {
+      "fr": "Rechercher un héros",
+      "text": "Cerca un eroe"
+    },
+    "home.search.submit": {
+      "fr": "Chercher",
+      "text": "Cerca"
+    },
+    "home.search.all": {
+      "fr": "Chercher aussi un objet, un skin ou une compétence",
+      "text": "Cerca anche un oggetto, una skin o un'abilità"
+    },
+    "home.tierListCta": {
+      "fr": "Voir la tier list",
+      "text": "Vedi la tier list"
+    },
+    "home.winRate": {
+      "fr": "{value} de victoires",
+      "text": "{value} di vittorie"
+    },
+    "home.rail.title": {
+      "fr": "En ce moment dans le jeu",
+      "text": "In questo momento nel gioco"
+    },
+    "home.rail.patch": {
+      "fr": "Patch en ligne",
+      "text": "Patch attuale"
+    },
+    "home.rail.patchSince": {
+      "fr": "Patch en ligne depuis le {date}",
+      "text": "Patch attuale dal {date}"
+    },
+    "home.rail.rates": {
+      "fr": "Taux mesurés le",
+      "text": "Tassi misurati il"
+    },
+    "home.rail.esportsLive": {
+      "fr": "Tournoi en cours",
+      "text": "Torneo in corso"
+    },
+    "home.rail.esportsNext": {
+      "fr": "Prochain tournoi, le {date}",
+      "text": "Prossimo torneo, il {date}"
+    },
+    "home.rail.starlight": {
+      "fr": "StarLight de {month}",
+      "text": "StarLight di {month}"
+    },
+    "home.rail.serverTime": {
+      "fr": "Heure serveur",
+      "text": "Orario server"
+    },
+    "home.rail.reset": {
+      "fr": "reset dans",
+      "text": "reset tra"
+    },
+    "home.meta.title": {
+      "fr": "La méta du patch {version}",
+      "text": "Il meta della patch {version}"
+    },
+    "home.meta.lead": {
+      "fr": "{n} héros classés sur les taux de victoire et de ban du {date}, tous rangs confondus.",
+      "text": "{n} eroi classificati sui tassi di vittoria e di ban del {date}, tutti i rank insieme."
+    },
+    "home.meta.splitLabel": {
+      "fr": "Répartition des {n} héros classés par palier : ouvrir la tier list",
+      "text": "Ripartizione dei {n} eroi classificati per tier: apri la tier list"
+    },
+    "home.meta.tierCount": {
+      "fr": "palier {tier} : {n} héros",
+      "text": "tier {tier}: {n} eroi"
+    },
+    "home.meta.topTier": {
+      "fr": "Palier S+ : {n} héros",
+      "text": "Tier S+: {n} eroi"
+    },
+    "home.meta.win": {
+      "fr": "Meilleur taux de victoire",
+      "text": "Miglior tasso di vittoria"
+    },
+    "home.meta.ban": {
+      "fr": "Les plus bannis",
+      "text": "I più bannati"
+    },
+    "home.meta.pick": {
+      "fr": "Les plus joués",
+      "text": "I più giocati"
+    },
+    "home.meta.week": {
+      "fr": "Sur sept jours",
+      "text": "Negli ultimi sette giorni"
+    },
+    "home.meta.weekEmpty": {
+      "fr": "Aucun héros ne bouge nettement cette semaine.",
+      "text": "Nessun eroe si è mosso in modo netto questa settimana."
+    },
+    "home.patch.title": {
+      "fr": "Ce que le patch {version} a changé",
+      "text": "Cosa ha cambiato la patch {version}"
+    },
+    "home.patch.lead": {
+      "fr": "{n} héros modifiés le {date}, avec l'écart mesuré de leur taux de victoire depuis.",
+      "text": "{n} eroi modificati il {date}, con lo scarto misurato da allora sul loro tasso di vittoria."
+    },
+    "home.patch.leadUndated": {
+      "fr": "{n} héros modifiés, rangés par sens du changement.",
+      "text": "{n} eroi modificati, ordinati per direzione della modifica."
+    },
+    "home.patch.newHero": {
+      "fr": "Nouveau héros : {name}",
+      "text": "Nuovo eroe: {name}"
+    },
+    "home.patch.more": {
+      "fr": "Et {n} de plus dans les notes",
+      "text": "E altri {n} nelle note"
+    },
+    "home.patch.impact": {
+      "fr": "taux de victoire {gap} point après le patch",
+      "text": "tasso di vittoria {gap} punti dopo la patch"
+    },
+    "home.patch.impactNote": {
+      "fr": "Écart en points entre le taux de victoire moyen des {n} jours qui précèdent le patch et celui des {n} jours qui suivent, tous rangs confondus. En gris, un écart trop faible pour compter.",
+      "text": "Scarto in punti tra il tasso di vittoria medio dei {n} giorni prima della patch e quello dei {n} giorni dopo, tutti i rank insieme. In grigio, uno scarto troppo piccolo per contare."
+    },
+    "home.patch.metaReport": {
+      "fr": "Rapport méta du patch",
+      "text": "Report meta della patch"
+    },
+    "home.patch.testing": {
+      "fr": "En test sur le serveur Advance : {version}",
+      "text": "In test sull'Advance Server: {version}"
+    },
+    "home.live.title": {
+      "fr": "Ce mois-ci dans le jeu",
+      "text": "Questo mese nel gioco"
+    },
+    "home.live.lead": {
+      "fr": "Les skins du mois, ceux qui sont annoncés, et les tournois en cours.",
+      "text": "Le skin del mese, quelle annunciate e i tornei in corso."
+    },
+    "home.live.skinsOf": {
+      "fr": "Skins de {month}",
+      "text": "Skin di {month}"
+    },
+    "home.live.allEvents": {
+      "fr": "Tous les événements",
+      "text": "Tutti gli eventi"
+    },
+    "home.live.starlight": {
+      "fr": "Skin StarLight",
+      "text": "Skin StarLight"
+    },
+    "home.live.collector": {
+      "fr": "Skin Collector",
+      "text": "Skin Collector"
+    },
+    "home.live.skinAlt": {
+      "fr": "{skin}, skin de {hero}",
+      "text": "{skin}, skin di {hero}"
+    },
+    "home.live.announced": {
+      "fr": "Annoncé pour {month}",
+      "text": "Annunciata per {month}"
+    },
+    "home.live.announcedCount": {
+      "fr": "{n} skins annoncés",
+      "text": "{n} skin annunciate"
+    },
+    "home.live.esports": {
+      "fr": "Esport",
+      "text": "Esport"
+    },
+    "home.live.allEsports": {
+      "fr": "Tous les tournois",
+      "text": "Tutti i tornei"
+    },
+    "home.live.proPicked": {
+      "fr": "Les plus pris en pro",
+      "text": "I più scelti dai pro"
+    },
+    "home.live.proBanned": {
+      "fr": "Les plus bannis en pro",
+      "text": "I più bannati dai pro"
+    },
+    "home.live.proNote": {
+      "fr": "Sur les {games} dernières parties professionnelles relevées.",
+      "text": "Sulle ultime {games} partite professionistiche registrate."
+    },
+    "home.toolsLead": {
+      "fr": "Préparer une draft, tester un build, s'entraîner.",
+      "text": "Preparare un draft, provare una build, allenarsi."
+    },
+    "home.daily.title": {
+      "fr": "Les jeux du jour",
+      "text": "I giochi del giorno"
+    },
+    "home.daily.lead": {
+      "fr": "Une nouvelle partie chaque jour, la même pour tous les joueurs.",
+      "text": "Una nuova partita ogni giorno, la stessa per tutti i giocatori."
+    },
+    "home.daily.play": {
+      "fr": "Jouer",
+      "text": "Gioca"
+    },
+    "home.community.title": {
+      "fr": "La communauté",
+      "text": "La community"
+    },
+    "home.community.buildsText": {
+      "fr": "Les builds publiés par les joueurs, classés par leurs votes.",
+      "text": "Le build pubblicate dai giocatori, ordinate per voti."
+    },
+    "home.community.contributeText": {
+      "fr": "Rédiger l'analyse d'un héros, corriger une donnée, proposer une idée.",
+      "text": "Scrivere l'analisi di un eroe, correggere un dato, proporre un'idea."
     }
   }
 }
