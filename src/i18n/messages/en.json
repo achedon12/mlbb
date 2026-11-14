@@ -199,6 +199,10 @@
     "communityBuilds": {
       "label": "Community builds",
       "desc": "Shared and voted by players"
+    },
+    "damageCalculator": {
+      "label": "Damage calculator",
+      "desc": "A hit's damage after defense"
     }
   },
   "account": {
@@ -1079,6 +1083,10 @@
       "communityBuild": {
         "title": "{title} · {hero} build",
         "description": "A {hero} build shared by {name} on MLBBDex, with its computed stats: {votes} vote(s) so far."
+      },
+      "damageCalculator": {
+        "title": "MLBB damage calculator: defense and penetration",
+        "description": "Work out the damage of a basic attack or a hit in Mobile Legends after defense and penetration: hits to kill and effective HP, from heroes and items or typed stats."
       }
     },
     "freshness": {
@@ -3228,6 +3236,71 @@
       "backToHero": "All {hero} builds",
       "statsTitle": "Computed stats",
       "statsMissing": "Stats unavailable for this hero."
+    },
+    "damageCalculator": {
+      "title": "Damage calculator",
+      "lead": "An attacker, a defender, a hit: what gets through the defense, how many hits it takes to kill and the effective HP. Pick heroes and their items, or type the stats you read in a match.",
+      "methodTitle": "How it works",
+      "method1": "The remaining defense follows the game's order: percentage penetration first, then flat penetration, that is defense × (1 − penetration %) − flat penetration. The result can drop below 0, down to −60 and no further: flat penetration then adds damage. Only the penetration of the hit's type, physical or magic, counts.",
+      "method2": "Damage taken is raw damage × 120 ÷ (120 + remaining defense): 120 defense lets half the damage through, −60 doubles it. True damage ignores defense and penetration. Hits to kill round HP ÷ damage up to the next whole number; effective HP, HP × (120 + remaining defense) ÷ 120, is the raw damage needed to kill.",
+      "method3": "A basic attack deals physical damage equal to the total physical attack; a critical strike deals the crit damage, 200% by default, and the average weighs both by the crit chance. Heroes whose passive changes their basic attack are not modelled. A hero's stats come from the build simulator: levels between 1 and 15 interpolated, emblem without talents, conditional item passives not counted.",
+      "method4": "Skills are not calculated: our skill data gives ranges across skill levels without saying which level matches which value, and barely one in ten carries a scaling. For a skill, read its raw damage in the game and enter it as “Raw damage”. Base attack speed is missing too: no damage per second.",
+      "sourcesTitle": "Sources",
+      "sourceWiki": "Mobile Legends wiki: {page}"
+    },
+    "damageCalculatorUI": {
+      "attackerTitle": "Attacker",
+      "defenderTitle": "Defender",
+      "source": "Where the stats come from",
+      "modeHero": "Hero and items",
+      "modeManual": "Typed stats",
+      "chooseHero": {
+        "attacker": "Choose the attacker",
+        "defender": "Choose the defender"
+      },
+      "changeHero": "Change hero",
+      "level": "Level {level}",
+      "levelDown": "Previous level",
+      "levelUp": "Next level",
+      "items": "Items",
+      "slotEmpty": "Slot {n}: empty",
+      "slotFilled": "Slot {n}: {item}",
+      "pickItem": "Item for slot {n}",
+      "emblem": "Emblem",
+      "noEmblem": "None",
+      "interpolated": "Level {level}: base stats interpolated between levels 1 and 15.",
+      "manualNote": {
+        "attacker": "The stats from the in-match attributes screen, talents and buffs included. Percentages from 0 to 100; crit damage is 200% by default.",
+        "defender": "HP and defenses from the attributes screen, buffs included."
+      },
+      "hitTitle": "The hit",
+      "hitKind": "Hit",
+      "basicAttack": "Basic attack",
+      "rawHit": "Raw damage",
+      "basicNote": "Physical damage equal to the attacker's total physical attack, and its critical strike if it has crit chance.",
+      "rawAmount": "Damage before defense",
+      "damageType": "Type",
+      "kinds": {
+        "physical": "Physical",
+        "magic": "Magic",
+        "true": "True"
+      },
+      "resultTitle": "Result",
+      "missingAttacker": "Choose an attacker, or type their stats: every field needs a valid number.",
+      "missingDefender": "Choose a defender, or type their stats: every field needs a valid number.",
+      "invalidRaw": "Enter a positive raw damage.",
+      "normalHit": "Normal hit",
+      "critHit": "Critical strike",
+      "damagePerHit": "damage per hit",
+      "hitsToKill": "hits to kill",
+      "rawDamage": "Raw damage",
+      "defenseAfter": "Defense after penetration",
+      "defenseFromTo": "{from} → {to}",
+      "ignored": "ignored",
+      "share": "Share of damage that gets through",
+      "effectiveHp": "Effective HP against this hit",
+      "defenderHp": "Defender's HP",
+      "average": "On average, with {chance} crit chance: {damage} damage per basic attack."
     }
   },
   "modeSheet": {

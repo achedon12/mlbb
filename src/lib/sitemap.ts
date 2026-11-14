@@ -94,6 +94,7 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     { path: "/tools/nickname", changeFrequency: "yearly", priority: 0.5 },
     { path: "/tools/draw-calculator", changeFrequency: "yearly", priority: 0.5 },
     { path: "/tools/build", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
+    { path: "/tools/damage-calculator", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
     { path: "/builds", changeFrequency: "daily", priority: 0.5 },
     // Monthly skin calendar: one page per month the data documents.
     { path: "/events", changeFrequency: "weekly", priority: 0.7, lastModified: synced },
