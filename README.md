@@ -22,7 +22,7 @@
 </p>
 
 A knowledge base for **Mobile Legends: Bang Bang**, in English, French, Italian,
-Spanish and Indonesian: the full roster, verified hero pages, tier lists, statistics,
+Spanish, Indonesian, Filipino, Thai, Brazilian Portuguese and Russian: the full roster, verified hero pages, tier lists, statistics,
 items, emblems, battle spells, skins, lore, guides, patch notes and a set of
 tools.
 
@@ -95,8 +95,8 @@ site is running.
   list. No password, no stored state.
 - **Public API**: read-only JSON routes, without a key. See
   [API](docs/wiki/API.md).
-- **Five languages, installable**: English (default), French, Italian,
-  Spanish and Indonesian; the site can be installed as a PWA and has an offline page.
+- **Nine languages, installable**: English (default), French, Italian,
+  Spanish, Indonesian, Filipino, Thai, Brazilian Portuguese and Russian; the site can be installed as a PWA and has an offline page.
 - **Visuals**: portraits, icons and skins are served by the site itself. No
   content image depends on a third-party domain.
 

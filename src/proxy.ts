@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextFetchEvent, NextRequest } from "next/server";
-import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/config";
+import { DEFAULT_LOCALE, isLocale, localeFromHeader, type Locale } from "@/i18n/config";
 import { trackApiCall } from "@/lib/api-tracking";
 import { clientAddress } from "@/lib/client-address";
 
@@ -78,14 +78,7 @@ function preferredLocale(request: NextRequest): Locale {
   const cookie = request.cookies.get("langue")?.value;
   if (cookie && isLocale(cookie)) return cookie;
 
-  const header = request.headers.get("accept-language");
-  if (header) {
-    for (const match of header.split(",")) {
-      const code = match.split(";")[0]!.trim().slice(0, 2).toLowerCase();
-      if (isLocale(code)) return code;
-    }
-  }
-  return DEFAULT_LOCALE;
+  return localeFromHeader(request.headers.get("accept-language")) ?? DEFAULT_LOCALE;
 }
 
 export function proxy(request: NextRequest, event: NextFetchEvent) {

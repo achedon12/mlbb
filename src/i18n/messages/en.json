@@ -5615,6 +5615,10 @@
         "it": "Italian-speaking countries",
         "es": "Spanish-speaking countries",
         "id": "Indonesian-speaking countries",
+        "fil": "Filipino-speaking countries",
+        "th": "Thai-speaking countries",
+        "pt": "Portuguese-speaking countries",
+        "ru": "Russian-speaking countries",
         "world": "MLBB's main countries"
       },
       "legend": "Local reset times: {group}",

@@ -8,7 +8,7 @@ import { PostShell } from "@/components/community/post-shell";
 import Link from "@/components/link";
 import { Pager } from "@/components/pager";
 import { PageHeader } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -135,7 +135,7 @@ export default async function ThreadPage({ params, searchParams }: Params) {
     <p className="flex flex-wrap items-center gap-x-2 text-xs text-chalk-500">
       <span className="font-semibold text-chalk-300">{name}</span>
       <span aria-hidden>·</span>
-      <time dateTime={isoDate(created)} title={created.toLocaleString(LOCALE_HTML[locale], { timeZone: "UTC" })}>
+      <time dateTime={isoDate(created)} title={created.toLocaleString(LOCALE_INTL[locale], { timeZone: "UTC" })}>
         {ago(locale, created, now)}
       </time>
       {edited && (

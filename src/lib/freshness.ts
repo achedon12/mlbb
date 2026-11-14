@@ -2,7 +2,7 @@ import { buildsPlayed, itemsFor, patchDetails } from "./data";
 import { measure } from "./tier-list";
 import { visualItem } from "./build-visuals";
 import type { AdjustmentType } from "./types";
-import type { Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 
 /** A patch's hero adjustments, by direction: buffed, nerfed, other. */
 export function countAdjustments(adjustments: { type: AdjustmentType | null }[]) {
@@ -32,12 +32,12 @@ const date = (iso: string) => new Date(iso.length === 10 ? `${iso}T00:00:00Z` : 
 
 /** "septembre 2026", "September 2026", "septiembre de 2026". */
 export function monthYear(locale: Locale, iso = dateMeasure): string {
-  return new Intl.DateTimeFormat(locale, { month: "long", year: "numeric", timeZone: "UTC" }).format(date(iso));
+  return new Intl.DateTimeFormat(LOCALE_INTL[locale], { month: "long", year: "numeric", timeZone: "UTC" }).format(date(iso));
 }
 
 /** "11 septembre 2026", "September 11, 2026". */
 export function longDate(locale: Locale, iso = dateMeasure): string {
-  return new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(date(iso));
+  return new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long", timeZone: "UTC" }).format(date(iso));
 }
 
 /** Percentage with one decimal, in the language's format: "52,4 %", "52.4%". */

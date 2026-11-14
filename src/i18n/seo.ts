@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Article } from "@/lib/types";
 import { pageHref } from "@/lib/pager";
 import { site } from "@/lib/site";
-import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, type Locale } from "./config";
+import { LOCALES, DEFAULT_LOCALE, LOCALE_HREFLANG, LOCALE_HTML, type Locale } from "./config";
 
 /**
  * A page's language metadata: its canonical (in the current language) and
@@ -12,9 +12,10 @@ import { LOCALES, DEFAULT_LOCALE, LOCALE_HTML, type Locale } from "./config";
  * Language codes alone (`fr`, `es`), without region: `fr-FR` or `es-ES` only
  * targeted France and Spain, whereas MLBB's audience is mostly
  * Latin American in Spanish, and African, Belgian or Canadian in French.
+ * Brazilian Portuguese alone carries its region (`LOCALE_HREFLANG`).
  */
 export function metaLocales(locale: Locale, path: string) {
-  const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [l, `/${l}${path}`]));
+  const languages: Record<string, string> = Object.fromEntries(LOCALES.map((l) => [LOCALE_HREFLANG[l], `/${l}${path}`]));
   languages["x-default"] = `/${DEFAULT_LOCALE}${path}`;
   return { canonical: `/${locale}${path}`, languages };
 }
@@ -100,6 +101,10 @@ export const OG_LOCALE: Record<Locale, string> = {
   it: "it_IT",
   es: "es_ES",
   id: "id_ID",
+  fil: "fil_PH",
+  th: "th_TH",
+  pt: "pt_BR",
+  ru: "ru_RU",
 };
 
 /**

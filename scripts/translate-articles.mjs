@@ -10,7 +10,7 @@ import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
 import { pause, translateBatch } from "./translation-google.mjs";
 import { existsSync } from "node:fs";
 import { targetLocales } from "./locales.mjs";
-import { applyGlossary } from "./translation-glossary.mjs";
+import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
 
 // Every site language but French; `--locale id` narrows the run to the named ones.
 const TARGETS = targetLocales("fr");
@@ -50,6 +50,16 @@ function restore(text, parts) {
   return seen.size === parts.length && !left && parts.every((p) => output.includes(p)) ? output : null;
 }
 
+/**
+ * The service may also close a link after its address, `[label](/x)]`: one
+ * bracket too many, shown as is. Applied on output, cached lines included.
+ */
+function dropStrayBrackets(text) {
+  const opened = (text.match(/\[/g) ?? []).length;
+  const closed = (text.match(/\]/g) ?? []).length;
+  return closed > opened ? text.replace(/(\]\([^)\s]+\))\]+/g, "$1") : text;
+}
+
 async function translate(text, tl) {
   const t = String(text);
   if (!t.trim()) return t;
@@ -69,9 +79,29 @@ async function translate(text, tl) {
     cache[key] = output ?? t.trim();
     await pause(150);
   }
-  // Game vocabulary applied on output; the cache keeps the raw translation.
-  const output = applyGlossary(cache[key], tl, "data");
+  // Hero names and game vocabulary applied on output; the cache keeps the raw translation.
+  const output = applyGlossary(restoreNames(dropStrayBrackets(cache[key]), t, await heroNameRules(tl)), tl, "data");
   return t.replace(t.trim(), () => output);
+}
+
+/**
+ * Hero names as the service writes them alone, from the cache the data
+ * translation filled (`translate-data.mjs`), translated here when missing.
+ */
+const HERO_NAMES = JSON.parse(await readFile("src/data/game/heroes.json", "utf8")).map((h) => h.name);
+const heroNames = new Map();
+async function heroNameRules(tl) {
+  if (!heroNames.has(tl)) {
+    const missing = HERO_NAMES.filter((n) => !(`en|${tl}|${n}` in cache));
+    for (let i = 0; i < missing.length; i += 10) {
+      const batch = missing.slice(i, i + 10);
+      const out = await translateBatch(batch, "en", tl, { tolerant: true });
+      batch.forEach((n, k) => (cache[`en|${tl}|${n}`] = out[k] ?? n));
+      await pause(150);
+    }
+    heroNames.set(tl, nameRules(new Map(HERO_NAMES.map((n) => [n, cache[`en|${tl}|${n}`]])), tl));
+  }
+  return heroNames.get(tl);
 }
 
 /** Translates a body line, preserving its leading Markdown marker. */

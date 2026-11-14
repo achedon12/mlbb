@@ -9,7 +9,7 @@
  * (50), then Immortal (100). Each tier has its official emblem.
  */
 import ranksData from "@/data/game/ranks.json";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 
 const IMAGES = (ranksData as { images: Record<string, string> }).images;
 
@@ -128,7 +128,7 @@ export function countryName(code: string, locale: Locale): string {
   // "ZZ" is CLDR's "unknown region": showing its label would say nothing more.
   if (!/^[A-Z]{2}$/.test(region) || region === "ZZ") return code;
   try {
-    const name = new Intl.DisplayNames([LOCALE_HTML[locale]], { type: "region", fallback: "none" }).of(region);
+    const name = new Intl.DisplayNames([LOCALE_INTL[locale]], { type: "region", fallback: "none" }).of(region);
     return name ?? code;
   } catch {
     return code;

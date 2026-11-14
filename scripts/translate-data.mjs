@@ -17,7 +17,7 @@ import { pause, translateBatch } from "./translation-google.mjs";
 import { patchesRebuild } from "./patch-translation.mjs";
 import { existsSync } from "node:fs";
 import { argsWithoutLocale, targetLocales } from "./locales.mjs";
-import { applyGlossary } from "./translation-glossary.mjs";
+import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
 
 const CACHE = "scripts/translations-data.json";
 
@@ -67,9 +67,29 @@ async function prepare(texts, sl, tl) {
 
 const tr = (sl, tl) => (t) => (t ? (cache[`${sl}|${tl}|${String(t).trim()}`] ?? t) : t);
 
-/** Same, with the target language's game vocabulary (`translation-glossary.mjs`) applied. */
-const trGame = (sl, tl) => {
+/**
+ * Hero names as the service writes them in each language, to put the game's
+ * own back (`restoreNames`). Translated once, cached like the rest.
+ */
+const HERO_NAMES = JSON.parse(await readFile("src/data/game/heroes.json", "utf8")).map((h) => h.name);
+const heroNames = new Map();
+async function heroNameRules(tl) {
+  if (!heroNames.has(tl)) {
+    await prepare(HERO_NAMES, "en", tl);
+    heroNames.set(tl, nameRules(new Map(HERO_NAMES.map((n) => [n, cache[`en|${tl}|${n}`]])), tl));
+  }
+  return heroNames.get(tl);
+}
+
+/** Same, with the hero names restored. Hero stories stop there: a narrative. */
+const trNames = (sl, tl, names) => {
   const t = tr(sl, tl);
+  return (x) => (x ? restoreNames(t(x), x, names) : x);
+};
+
+/** Same, with the target language's game vocabulary (`translation-glossary.mjs`) applied. */
+const trGame = (sl, tl, names) => {
+  const t = trNames(sl, tl, names);
   return (x) => (x ? applyGlossary(t(x), tl, "data") : x);
 };
 
@@ -236,7 +256,8 @@ for (const [name, cfg] of Object.entries(GAMES)) {
       return t(x);
     });
     await prepare(missing, cfg.source, tl);
-    const tree = cfg.rebuild(source, cfg.narrative ? t : trGame(cfg.source, tl));
+    const names = await heroNameRules(tl);
+    const tree = cfg.rebuild(source, cfg.narrative ? trNames(cfg.source, tl, names) : trGame(cfg.source, tl, names));
     await writeFile(`src/data/game/${name}/${tl}.json`, JSON.stringify(tree, null, 2) + "\n");
     await save();
     console.log(`  ${name}/${tl}.json`);

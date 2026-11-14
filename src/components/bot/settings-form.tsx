@@ -17,14 +17,16 @@ import {
   type SectionState,
 } from "@/components/bot/dashboard-ui";
 import { GreetingsFieldset, type GreetingSample } from "@/components/bot/greetings-fieldset";
-import { LOCALES, LOCALE_NAME, type Locale } from "@/i18n/config";
+import { LOCALE_NAME } from "@/i18n/config";
 import { useT } from "@/i18n/provider";
 import {
   ANNOUNCEMENT_TYPES,
   AUTO_ROLES_NOT_GRANTABLE,
+  BOT_LOCALES,
   GREETING_KINDS,
   type AnnouncementType,
   type AutoRoleFailure,
+  type BotLocale,
   type GreetingKind,
 } from "@/lib/bot/kinds";
 import type { GuildSettingsView, SettingsInput } from "@/lib/bot/settings";
@@ -92,7 +94,7 @@ function TestButton({
 }: {
   guildId: string;
   channelId: string | null;
-  locale: Locale;
+  locale: BotLocale;
   greeting?: { kind: GreetingKind; message: string | null };
   notify: Notify;
   /** What is tested, for screen readers ("Send a test: Patch notes"). */
@@ -286,9 +288,9 @@ export function SettingsForm({
               id={`${ids}-locale`}
               label={t("pages.botUI.language")}
               value={value.locale}
-              onChange={(locale) => setValue((v) => ({ ...v, locale: locale as Locale }))}
+              onChange={(locale) => setValue((v) => ({ ...v, locale: locale as BotLocale }))}
             >
-              {LOCALES.map((l) => (
+              {BOT_LOCALES.map((l) => (
                 <option key={l} value={l}>
                   {LOCALE_NAME[l]}
                 </option>

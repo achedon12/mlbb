@@ -5,7 +5,7 @@ import Link from "@/components/link";
 import { PageHeader, SectionTitle } from "@/components/ui";
 import assumptionsData from "@/data/editorial/account-value.json";
 import { emblems } from "@/data/emblems";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT, messagesPage, type T } from "@/i18n/translations";
@@ -39,14 +39,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 const date = (locale: Locale, iso: string) =>
-  new Intl.DateTimeFormat(LOCALE_HTML[locale], { dateStyle: "long", timeZone: "UTC" }).format(Date.parse(`${iso}T00:00:00Z`));
+  new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long", timeZone: "UTC" }).format(Date.parse(`${iso}T00:00:00Z`));
 
 export default async function AccountValuePage({ params }: Params) {
   const { locale } = await params;
   const t = createT(locale);
-  const count = new Intl.NumberFormat(LOCALE_HTML[locale]);
-  const decimal = new Intl.NumberFormat(LOCALE_HTML[locale], { maximumFractionDigits: 4 });
-  const percent = new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 0 });
+  const count = new Intl.NumberFormat(LOCALE_INTL[locale]);
+  const decimal = new Intl.NumberFormat(LOCALE_INTL[locale], { maximumFractionDigits: 4 });
+  const percent = new Intl.NumberFormat(LOCALE_INTL[locale], { style: "percent", maximumFractionDigits: 0 });
   const r = ASSUMPTIONS.resale;
   const structuredData = dataTool(locale, {
     name: t("pages.accountValue.title"),

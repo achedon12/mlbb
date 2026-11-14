@@ -220,6 +220,12 @@ describe("guide rendering", () => {
     // Link addresses and block markers are not read.
     expect(readingMinutes("[Ling](/heroes/ling) <!-- guide:heroes -->")).toBe(1);
     for (const g of french) expect(readingMinutes(g.content), g.slug).toBeGreaterThanOrEqual(3);
+    // Thai has no spaces between words: its guides read as long as the French ones.
+    const thai = guides("th");
+    for (const g of french) {
+      const t = thai.find((x) => x.slug === g.slug)!;
+      expect(readingMinutes(t.content), g.slug).toBeGreaterThanOrEqual(readingMinutes(g.content) - 2);
+    }
   });
 });
 

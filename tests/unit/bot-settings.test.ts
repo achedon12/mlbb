@@ -64,6 +64,8 @@ describe("bot settings", () => {
       (v) => (v.dailyHourUtc = -1),
       (v) => (v.dailyHourUtc = 1.5),
       (v) => ((v as { locale: string }).locale = "de"),
+      // A site language the bot does not speak.
+      (v) => ((v as { locale: string }).locale = "ru"),
       (v) => (v.extra = true),
       (v) => ((v.announcements.events as Record<string, unknown>).mention = "everyone"),
       (v) => (v.welcome.channelId = "#general"),
@@ -268,7 +270,10 @@ describe("bot settings", () => {
     expect(siteLocaleOf("es-ES")).toBe("es");
     expect(siteLocaleOf("fr")).toBe("fr");
     expect(siteLocaleOf("id")).toBe("id");
+    // The site speaks Portuguese, Thai and Russian; the bot does not, yet.
     expect(siteLocaleOf("pt-BR")).toBe("en");
+    expect(siteLocaleOf("th")).toBe("en");
+    expect(siteLocaleOf("ru")).toBe("en");
     expect(siteLocaleOf("en-US")).toBe("en");
   });
 });

@@ -45,7 +45,7 @@ export type DiscordPopupContext = {
  * would repeat them. `/bot` with or without the locale, and its sub-pages.
  */
 export function isExcludedPath(pathname: string): boolean {
-  return /^(?:\/[a-z]{2})?\/bot(?:\/|$)/.test(pathname);
+  return /^(?:\/[a-z]{2,3})?\/bot(?:\/|$)/.test(pathname);
 }
 
 /** Whether the card may show now. */

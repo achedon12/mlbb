@@ -8,7 +8,7 @@ import { SkinCard, propsCardSkin } from "@/components/skin-card";
 import { SearchField } from "@/components/search-field";
 import { ChoiceUnique, FilterGroup, Chip, classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   LABEL_CURRENCY,
@@ -71,9 +71,9 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
   const [page, setPage] = useState(pageServer);
   const [share, setShare] = useState<"" | "copied" | "shared" | "failed">("");
 
-  const count = useMemo(() => new Intl.NumberFormat(LOCALE_HTML[locale]), [locale]);
+  const count = useMemo(() => new Intl.NumberFormat(LOCALE_INTL[locale]), [locale]);
   const percent = useMemo(
-    () => new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 0 }),
+    () => new Intl.NumberFormat(LOCALE_INTL[locale], { style: "percent", maximumFractionDigits: 0 }),
     [locale],
   );
 
@@ -519,7 +519,7 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                   {summary.plusRare.map((s) => (
                     <li key={s.id}>
                       <SkinCard
-                        {...propsCardSkin(s, data.names.get(s.hero) ?? s.hero, t, LOCALE_HTML[locale], count)}
+                        {...propsCardSkin(s, data.names.get(s.hero) ?? s.hero, t, LOCALE_INTL[locale], count)}
                       />
                     </li>
                   ))}

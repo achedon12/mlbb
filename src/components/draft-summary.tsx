@@ -5,7 +5,7 @@ import { AlertTriangle, Check, Link2, RotateCcw, Settings2 } from "lucide-react"
 import { HeroThumb } from "@/components/hero-picker";
 import Link from "@/components/link";
 import { Card, Gauge } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
 import {
@@ -45,7 +45,7 @@ export interface NumberFormats {
 export function useNumberFormats(): NumberFormats {
   const language = useLocale();
   return useMemo(() => {
-    const locale = LOCALE_HTML[language];
+    const locale = LOCALE_INTL[language];
     const decimal = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
     const integer = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
     return { decimal: (v) => decimal.format(v), integer: (v) => integer.format(v), signed: (v) => formatGap(v, locale) };

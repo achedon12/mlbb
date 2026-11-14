@@ -5615,6 +5615,10 @@
         "it": "Paesi italofoni",
         "es": "Paesi ispanofoni",
         "id": "Paesi di lingua indonesiana",
+        "fil": "Paesi di lingua filippina",
+        "th": "Paesi di lingua tailandese",
+        "pt": "Paesi di lingua portoghese",
+        "ru": "Paesi di lingua russa",
         "world": "Principali paesi di MLBB"
       },
       "legend": "Orari locali dei reset: {group}",

@@ -21,6 +21,10 @@ const TEXTS: Record<Locale, string> = {
   it: "Pagina non trovata",
   es: "Página no encontrada",
   id: "Halaman tidak ditemukan",
+  fil: "Hindi nahanap ang page",
+  th: "ไม่พบหน้านี้",
+  pt: "Página não encontrada",
+  ru: "Страница не найдена",
 };
 
 export default function GlobalNotFoundPage() {

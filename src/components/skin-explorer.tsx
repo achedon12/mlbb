@@ -5,7 +5,7 @@ import { SkinCard, propsCardSkin } from "@/components/skin-card";
 import { SearchField } from "@/components/search-field";
 import { FilterGroup, Chip, classesChip } from "@/components/chip";
 import { ChipActive, FilterBar } from "@/components/filter-bar";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   RANKS_RARITY,
@@ -71,7 +71,7 @@ export function SkinExplorer({
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [error, setError] = useState(false);
   const active = !!(f.search.trim() || f.hero || f.role || f.series || f.rarity !== null || f.year !== null);
-  const count = useMemo(() => new Intl.NumberFormat(LOCALE_HTML[locale]), [locale]);
+  const count = useMemo(() => new Intl.NumberFormat(LOCALE_INTL[locale]), [locale]);
 
   const maj = (partial: Partial<Filters>) => {
     setF((before) => ({ ...before, ...partial }));
@@ -139,7 +139,7 @@ export function SkinExplorer({
     return { bySlug, total: list.length, groups: groupByDate(list, "recent") };
   }, [catalog, active, f, reference]);
 
-  const formatMonth = new Intl.DateTimeFormat(LOCALE_HTML[locale], { month: "long", year: "numeric", timeZone: "UTC" });
+  const formatMonth = new Intl.DateTimeFormat(LOCALE_INTL[locale], { month: "long", year: "numeric", timeZone: "UTC" });
 
   return (
     <div>
@@ -178,7 +178,7 @@ export function SkinExplorer({
                                         s,
                                         results.bySlug.get(s.hero)?.name ?? s.hero,
                                         t,
-                                        LOCALE_HTML[locale],
+                                        LOCALE_INTL[locale],
                                         count,
                                       )}
                                     />

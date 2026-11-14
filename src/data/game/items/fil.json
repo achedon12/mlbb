@@ -1,0 +1,1592 @@
+[
+  {
+    "slug": "antique-cuirass",
+    "name": "Antique Cuirass",
+    "summary": "Pagbabawas ng Pisikal na Pag-atake",
+    "category": "Defense",
+    "price": 2170,
+    "bonus": "+920 HP, +40 Pisikal na Depensa, +4 HP Regen",
+    "unique": null,
+    "passive": "Deter: Kapag natamaan ng isang skill, binabawasan ang Physical Damage ng attacker ng 6% sa loob ng 2 segundo (stacks ang effect na ito nang hanggang 3 beses).",
+    "active": null,
+    "recipe": [
+      "Dreadnaught Armor",
+      "Ares Belt"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "arcane-boots",
+    "name": "Arcane Boots",
+    "summary": "Magic Penetration",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Movement speed, +15 Magic Power, +10 Magic Penetration",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Mystery Codex"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "ares-belt",
+    "name": "Ares Belt",
+    "summary": null,
+    "category": "Defense",
+    "price": 700,
+    "bonus": "+600 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "athena-s-shield",
+    "name": "Athena's Shield",
+    "summary": "Labanan ang Burst Magic Damage",
+    "category": "Defense",
+    "price": 2150,
+    "bonus": "+900 HP, +48 Magic Defense, +2 HP Regen",
+    "unique": null,
+    "passive": "Shield: Sa pagkuha ng Magic Damage mula sa mga kakayahan ng hero ng kaaway o Basic Attacks, binabawasan ang Magic Damage na nakuha ng 25% sa loob ng 3 segundo (kabilang ang damage na nag-trigger ng epekto). Nabawi ang epektong ito 5 segundo pagkatapos umalis sa labanan.",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "azure-blade",
+    "name": "Azure Blade",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "+5 Mana Regen, +5% Cooldown Reduction",
+    "unique": null,
+    "passive": "Paghusga: Pagkatapos mag-cast ng skill, ang susunod na Basic Attack sa loob ng 3 segundo ay magkakaroon ng 50 dagdag na True Damage (1.5 segundong cooldown).",
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "berserker-s-fury",
+    "name": "Berserker's Fury",
+    "summary": "Crit Chance at Damage",
+    "category": "Attack",
+    "price": 2390,
+    "bonus": "+60 Pisikal na Pag-atake, +25% Crit Chance",
+    "unique": "+30% Crit Damage",
+    "passive": "Doom: Kapag Basic Attacks Crit, humaharap sila ng dagdag na True Damage na katumbas ng 12% ng damage bago mabawasan.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Javelin",
+      "Javelin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "black-ice-shield",
+    "name": "Black Ice Shield",
+    "summary": null,
+    "category": "Defense",
+    "price": 780,
+    "bonus": "+20 Physical Defense, +20 Magic Defense",
+    "unique": null,
+    "passive": "Fortress Shield: Para sa bawat hero ng kaaway sa loob ng 3.55 na unit, ang Hybrid Defense ay tataas ng 4, hanggang 20.",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "blade-armor",
+    "name": "Blade Armor",
+    "summary": "Pagninilay sa Damage",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+80 Pisikal na Depensa",
+    "unique": "+20% Pagbawas ng Damage sa Crit",
+    "passive": "Bladed Armor: Kapag tinamaan ng Basic Attack, magbibigay ng Physical Damage na katumbas ng 30 (+2% Total Physical Defense)% ng papasok na damage (kinakalkula bago ang Damage Reduction) sa attacker at pinapabagal ang mga ito ng 15% sa loob ng 1 segundo.",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "blade-of-despair",
+    "name": "Blade of Despair",
+    "summary": "Pinakamataas na Pisikal na Pag-atake",
+    "category": "Attack",
+    "price": 3010,
+    "bonus": "+160 Pisikal na Pag-atake, +5% Movement speed",
+    "unique": null,
+    "passive": "Kawalan ng pag-asa: Ang pagharap ng damage sa mga kaaway na hindi Minion na mas mababa sa 50% HP ay nagpapataas ng Pisikal na Pag-atake ng 25% sa loob ng 2 segundo (magkakabisa bago mahawakan ang damage).",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Legion Sword"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "blade-of-the-heptaseas",
+    "name": "Blade of the Heptaseas",
+    "summary": "Pinakamahusay para sa mga Assassin",
+    "category": "Attack",
+    "price": 1950,
+    "bonus": "+70 Pisikal na Pag-atake, +250 HP",
+    "unique": "+15 Pisikal na Pagpasok",
+    "passive": "Ambush: Kung walang pinsalang natamo o naasikaso sa loob ng 5 segundo (hindi kasama sa Minions o Creeps), ang susunod na Basic Attack ay magdudulot ng karagdagang 160 (+40% Total Physical Attack) Physical Damage at magpapabagal sa target ng 40% sa loob ng 1.5 segundo.",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "blood-wings",
+    "name": "Blood Wings",
+    "summary": "Speed ​​Boost Shield",
+    "category": "Magic",
+    "price": 2100,
+    "bonus": "+90 Magic Power",
+    "unique": null,
+    "passive": "Guard: Nagkakaroon ng 800 (+100% Magic Power) Shield na bubuo muli 20 segundo pagkatapos masira. Nagbibigay din ang Shield ng 30 Movement Speed ​​habang tumatagal at 150 Movement Speed ​​sa loob ng 1 segundo pagkatapos nitong masira.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "bloodlust-axe",
+    "name": "Bloodlust Axe",
+    "summary": "Spell Vamp",
+    "category": "Attack",
+    "price": 1970,
+    "bonus": "+70 Pisikal na Pag-atake, +10% Pagbawas ng Cooldown",
+    "unique": "+20% Spell Vamp",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Iron Hunting Bow",
+      "Dagger",
+      "Iron Hunting Bow"
+    ],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "book-of-sages",
+    "name": "Book of Sages",
+    "summary": null,
+    "category": "Magic",
+    "price": 450,
+    "bonus": "+8 Magic Power, +5% Cooldown Reduction",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "boots",
+    "name": "Boots",
+    "summary": null,
+    "category": "Movement",
+    "price": 250,
+    "bonus": "+20 Movement speed",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "brute-force-breastplate",
+    "name": "Brute Force Breastplate",
+    "summary": "Pag-atake, Pabilisin, Pagbawas ng CC",
+    "category": "Defense",
+    "price": 2070,
+    "bonus": "+800 HP, +20 Physical Defense, +10% Cooldown Reduction",
+    "unique": null,
+    "passive": "Brute Force: Bawat segundo pagkatapos makatanggap ng damage, makakuha ng 8 dagdag na Adaptive Attack at 2% na dagdag na Movement speed sa loob ng 4 na segundo, hanggang 6 na stack. Makakuha ng 25% dagdag na Control Duration Reduction sa buong stack.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "bud-of-hope",
+    "name": "Bud of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+250 HP",
+    "unique": null,
+    "passive": "Bud of Hope: Ipinagkaloob nina Floryn at Dew. Ipapakita ng kagamitan ang tunay na kapangyarihan nito sa sandaling mag-evolve si Dew.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "calamity-reaper",
+    "name": "Calamity Reaper",
+    "summary": "Pinahusay na Basic Attack",
+    "category": "Magic",
+    "price": 1950,
+    "bonus": "+70 Magic Power, +100 Mana, +6 Mana Regen, +10% Cooldown Reduction",
+    "unique": null,
+    "passive": "Calamity: Sa loob ng 3 segundo pagkatapos gamitin ang skill, ang mga casters na susunod na Basic Attack ay magbibigay ng karagdagang True Damage ng hanggang 120% ng Magic Power na may cooldown na 1.5 segundo. Pagkatapos ay magkakaroon ng panandaliang 10% Movement speed.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Azure Blade"
+    ],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "chastise-pauldron",
+    "name": "Chastise Pauldron",
+    "summary": "Bawasan ang Attack speed ng Kaaway",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+900 HP, +40 Pisikal na Depensa",
+    "unique": null,
+    "passive": "Chastise: Ang pagkuha ng damage ay magbabawas sa Attack Speed ​​at Attack Speed ​​cap ng attacker sa 75% ng normal sa loob ng 2 segundo.@ Redemption: Kapag ang papasok na damage ay bumaba sa HP nang mas mababa sa 30%, i-recover ang 20% ​​Max HP sa susunod na 2 segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Ares Belt"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "clock-of-destiny",
+    "name": "Clock of Destiny",
+    "summary": "Para sa Magic Tanks",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "+45 Magic Power, +400 HP, +400 Mana, +10% Cooldown Reduction",
+    "unique": null,
+    "passive": "Destiny: Nakakakuha ng 4.5(+0.5*Hero Level) Hybrid Defense sa loob ng 5 segundo kapag nakipag-ugnay sa Magic Damage sa mga hero ng kalaban, na stacking hanggang 6 na beses (maaaring makakuha ng 1 stack bawat 0.4 segundo).@ Regalo: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
+    "active": null,
+    "recipe": [
+      "Elegant Gem",
+      "Book of Sages",
+      "Book of Sages"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "concentrated-energy",
+    "name": "Concentrated Energy",
+    "summary": "Patuloy na Damage Boost",
+    "category": "Magic",
+    "price": 2020,
+    "bonus": "+75 Magic Power, +400 HP",
+    "unique": "+20% Hybrid Lifesteal",
+    "passive": "Mag-recharge: Tumataas ng 5 ang Magic Power pagkatapos mahawakan ang Magic Damage (nag-stack ang effect na ito nang hanggang 6 na beses at makakakuha lang ng 1 stack bawat 0.4 segundo). Kapag naabot ang buong stack, pinapataas ng 12% ang Magic Damage sa loob ng 5 segundo.",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Magic Wand",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "corrosion-scythe",
+    "name": "Corrosion Scythe",
+    "summary": "Mabagal na One-Hit",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "+30 Pisikal na Pag-atake, +30% Attack speed, +5% Movement speed",
+    "unique": null,
+    "passive": "Corrosive: Ang Basic Attacks ay nakakakuha ng 80 dagdag na Physical Damage at nagpapabagal sa target ng 8% (halved para sa ranged Basic Attacks) sa loob ng 1.5 segundo. Mga stack hanggang 5 beses.@ Impulse: Nagbibigay ang Basic Attacks ng 6% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Regular Spear"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "cursed-helmet",
+    "name": "Cursed Helmet",
+    "summary": "Survivability at Lane Clearing",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+1200 HP, +20 Magic Defense",
+    "unique": null,
+    "passive": "Burning Soul: Mga Deal (1.2% Total HP) Magic Damage sa mga kalapit na kaaway sa bawat segundo. Ang pinsalang ito ay tumaas ng 125(+15*Hero Level)% laban sa mga gumagapang at minions.@ Curse: Ang pagharap sa damage sa Burning Soul ay magbabawas sa Hybrid Defense ng target ng 3 sa loob ng 3 segundo. Mga stack hanggang 3 beses.",
+    "active": null,
+    "recipe": [
+      "Molten Essence",
+      "Ares Belt",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "dagger",
+    "name": "Dagger",
+    "summary": null,
+    "category": "Attack",
+    "price": 250,
+    "bonus": "+15 Pisikal na Pag-atake",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "demon-hunter-sword",
+    "name": "Demon Hunter Sword",
+    "summary": "Tagapatay ng Tank",
+    "category": "Attack",
+    "price": 2180,
+    "bonus": "+35 Pisikal na Pag-atake, +20% Attack speed",
+    "unique": null,
+    "passive": "Engulf: Ang Basic Attack ay nagbibigay ng 8% ng kasalukuyang HP ng target bilang dagdag na Pisikal na Damage (nalimitahan sa 60 laban sa mga minions).@ Devour: Bawat Basic Attack ay nakakabawi ng 10(+4*Hero Level) HP. Ang epekto na ito ay hinahati laban sa mga minions.",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet",
+      "Knife"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "demon-shoes",
+    "name": "Demon Shoes",
+    "summary": "Mabilis Mana Regen",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Movement speed, +10 Mana Regen",
+    "unique": null,
+    "passive": "Mistisismo: Ang pagkuha ng isang pumatay o tumulong sa isang kaaway na Minion ay magbabalik ng 4% Mana. (Ang isang tulong ay nangyayari kapag ang isang Minion ay namatay sa loob ng 2 segundo pagkatapos makakuha ng damage mula sa hero.)",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "divine-glaive",
+    "name": "Divine Glaive",
+    "summary": "Magic Penetration",
+    "category": "Magic",
+    "price": 1970,
+    "bonus": "+65 Magic Power",
+    "unique": "+40% Magic Penetration",
+    "passive": "Spellbreaker: Kapag umaatake sa isang kalaban, nakakakuha ng 0.1% dagdag na Magic Penetration para sa bawat punto ng Magic Defense ng kalaban, na nililimitahan sa 20%.",
+    "active": null,
+    "recipe": [
+      "Magic Wand"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "dominance-ice",
+    "name": "Dominance Ice",
+    "summary": "Pagbawas ng Pagpapagaling",
+    "category": "Defense",
+    "price": 2010,
+    "bonus": "+40 Physical Defense, +40 Magic Defense, +5% Movement Speed",
+    "unique": null,
+    "passive": "Fortress Shield: Para sa bawat hero ng kaaway sa loob ng 5 unit, ang Hybrid Defense ay tataas ng 8, hanggang 40.@ Lifebane: Binabawasan ang Shield at HP Regen effect ng mga kalapit na kaaway sa loob ng 5 unit hanggang 60% ng normal sa loob ng 1 segundo.",
+    "active": null,
+    "recipe": [
+      "Black Ice Shield",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "dreadnaught-armor",
+    "name": "Dreadnaught Armor",
+    "summary": null,
+    "category": "Defense",
+    "price": 730,
+    "bonus": "+30 Pisikal na Depensa",
+    "unique": null,
+    "passive": "Deter: Kapag natamaan ng isang skill, binabawasan ang Physical Damage ng attacker ng 4% sa loob ng 2 segundo (stacks ang effect na ito nang hanggang 3 beses).",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "elegant-gem",
+    "name": "Elegant Gem",
+    "summary": null,
+    "category": "Magic",
+    "price": 700,
+    "bonus": "+300 HP, +380 Mana",
+    "unique": null,
+    "passive": "Regalo: Kapag bumaba ang HP sa 50%, mababawi ang 15% ng HP sa susunod na 3 segundo. Kapag bumaba ang Mana sa 50%, ire-restore ang 15% ng Mana sa susunod na 3 segundo. Cooldown: 60 segundo.",
+    "active": null,
+    "recipe": [
+      "Power Crystal",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "enchanted-talisman",
+    "name": "Enchanted Talisman",
+    "summary": "Mana Regen at CD Reduction",
+    "category": "Magic",
+    "price": 2070,
+    "bonus": "+70 Magic Power, +300 HP, +15% Cooldown Reduction",
+    "unique": null,
+    "passive": "Mana Spring: Gumagawa muli ng 15% ng Max Mana bawat 10 segundo.@ Magic Mastery: Ang Max Cooldown Reduction ay tumaas ng 5%.",
+    "active": null,
+    "recipe": [
+      "Tome of Evil",
+      "Magic Necklace",
+      "Magic Wand"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "endless-battle",
+    "name": "Endless Battle",
+    "summary": "Pinahusay na Basic Attack",
+    "category": "Attack",
+    "price": 2330,
+    "bonus": "+60 Pisikal na Pag-atake, +250 HP, +10% Cooldown Reduction, +5% Movement Speed, +5 Mana Regen",
+    "unique": null,
+    "passive": "Divine Justice: Pagkatapos mag-cast ng skill, ang susunod na Basic Attack sa loob ng 3 segundo ay magbibigay (60% Total Physical Attack) ng dagdag na True Damage at makakabawi ng 80 (+40% ng Total Physical Attack) HP (1.5 seconds cooldown).",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Iron Hunting Bow",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "exotic-veil",
+    "name": "Exotic Veil",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "+30 Magic Power, +5% Movement speed",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "expert-gloves",
+    "name": "Expert Gloves",
+    "summary": null,
+    "category": "Attack & Magic",
+    "price": 500,
+    "bonus": "+30 Adaptive Attack,",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "feather-of-heaven",
+    "name": "Feather of Heaven",
+    "summary": "Mga Basic Attack ng Magic",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "+60 Magic Power, +20% Attack Speed, +10% Lifesteal, +5% Cooldown Reduction",
+    "unique": null,
+    "passive": "Affliction: Bawat Basic Attack ay nagdudulot ng dagdag na 50 (+30% Total Magic Power) Magic Damage.@ Impulse: Basic Attacks ay nagbibigay ng 6% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Book of Sages"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "flask-of-the-oasis",
+    "name": "Flask of the Oasis",
+    "summary": "Protektahan ang mga Teammate",
+    "category": "Magic",
+    "price": 1850,
+    "bonus": "+60 Magic Power, +300 HP, +10% Cooldown Reduction",
+    "unique": "+12% Epekto ng Pagpapagaling",
+    "passive": "Pagpapala: Kapag nag-cast ng healing o shield skill, kung ang HP ng target ay mas mababa sa 35%, o bumaba sa ibaba ng 35% sa loob ng 3 segundo, makakakuha sila ng (100*Hero Level) shield na tatagal ng 3 segundo. Kapag nag-trigger ang epektong ito, binabawasan din nito ang cooldown ng mga skill ng caster ng 2 segundo. (Maaari lamang mag-trigger ang epektong ito nang isang beses bawat 60 segundo sa parehong target, at hindi magti-trigger sa self-only healing at shield skills.)",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "fleeting-time",
+    "name": "Fleeting Time",
+    "summary": "Ultimate CD Reduction",
+    "category": "Attack, Magic & Defense",
+    "price": 2050,
+    "bonus": "+30 Adaptive Attack, +600 HP, +15% Cooldown Reduction",
+    "unique": null,
+    "passive": "Timestream: Ang Hero ay pumapatay o tumulong na bawasan ang kasalukuyang cooldown ng Ultimate ng 30%.",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "flower-of-hope",
+    "name": "Flower of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+5% Adaptive Attack",
+    "unique": null,
+    "passive": "Flower of Hope: Bawat 6 na segundo, ang susunod na skill o Basic Attack ay magbibigay ng karagdagang 60 (+30% Total Physical Attack) (+30% Total Magic Power) Magic Damage.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Mga kakampi ni Floryn"
+  },
+  {
+    "slug": "fury-hammer",
+    "name": "Fury Hammer",
+    "summary": null,
+    "category": "Attack",
+    "price": 830,
+    "bonus": "+35 Pisikal na Pag-atake",
+    "unique": "+12 Pisikal na Pagpasok",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "genius-wand",
+    "name": "Genius Wand",
+    "summary": "Magic Defense Reduction",
+    "category": "Magic",
+    "price": 2000,
+    "bonus": "+75 Magic Power, +5% Movement speed",
+    "unique": "+10 Magic Penetration",
+    "passive": "Magic: Ang pagharap sa Magic Damage sa mga hero ng kalaban ay magbabawas ng kanilang Magic Defense ng 2.5+(0.5*Hero Level) sa loob ng 2 segundo. Mga stack hanggang 3 beses.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Magic Wand"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "glowing-wand",
+    "name": "Glowing Wand",
+    "summary": "Pagbawas ng Pagpapagaling",
+    "category": "Magic",
+    "price": 2150,
+    "bonus": "+60 Magic Power, +300 HP, +5% Movement speed",
+    "unique": null,
+    "passive": "Ang Scorch: Ang Dealing Magic Damage ay nasusunog ang mga target sa loob ng 3 segundo, na nagdudulot din ng dagdag na Magic Damage na katumbas ng 1% ng Max HP ng target sa bawat segundo.@ Lifebane: Ang pagharap ng damage sa target ay magbabawas sa Shield at HP Regen effect sa kanila sa 60% ng normal sa loob ng 3 segundo.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystery Codex",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "golden-staff",
+    "name": "Golden Staff",
+    "summary": "Pahusayin ang Mga Epekto ng Pag-atake",
+    "category": "Attack",
+    "price": 2000,
+    "bonus": "+55 Pisikal na Pag-atake, +15% Attack speed",
+    "unique": null,
+    "passive": "Swift: Bawat 1% na dagdag na Crit Chance na natamo ay na-convert sa 1% na dagdag na Attack speed.@ Walang katapusang Strike: Pagkatapos ng bawat 2 non-Crit Basic na Pag-atake, ang Attack speed ng susunod na Basic Attack ay tataas ng 80% (at ang Attack Speed ​​cap ay tataas sa 500%) at magti-trigger ng Attack Effects ng karagdagang 2 beses.",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "great-dragon-spear",
+    "name": "Great Dragon Spear",
+    "summary": "CD Reduction at Crit",
+    "category": "Attack",
+    "price": 2140,
+    "bonus": "+70 Pisikal na Pag-atake, +10% Cooldown Reduction, +20% Crit Chance",
+    "unique": null,
+    "passive": "Supreme Warrior: Pagkatapos mag-cast ng Ultimate, taasan ang Movement speed ng 30% sa loob ng 7.5 segundo. Ang epektong ito ay may 15 segundong cooldown.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Iron Hunting Bow",
+      "Javelin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "guardian-helmet",
+    "name": "Guardian Helmet",
+    "summary": "Patuloy na HP Regen",
+    "category": "Defense",
+    "price": 2500,
+    "bonus": "+1800 HP, +20 HP Regen",
+    "unique": null,
+    "passive": "Pagbawi: Pagkatapos ng 5 segundo sa labas ng labanan, i-recover ang (2.5% Kabuuang HP) HP bawat segundo.@ Defender: Sa pagkuha ng higit sa 500 damage sa isang pagkakataon, bawiin ang 30 (+0.3% Kabuuang HP)% HP mula sa labis na damage na lampas sa halagang iyon.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Ares Belt"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "haas-claws",
+    "name": "Haas' Claws",
+    "summary": "Lifesteal",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "+40 Pisikal na Pag-atake, +15% Attack speed, +20% Crit Chance",
+    "unique": "+20% Lifesteal",
+    "passive": "Frenzy: Ang mga kritikal na strike ay nagbibigay ng 20% ​​dagdag na Attack speed sa loob ng 2 segundo.",
+    "active": null,
+    "recipe": [
+      "Vampire Mallet",
+      "Rogue Meteor",
+      "Dagger"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "healing-necklace",
+    "name": "Healing Necklace",
+    "summary": null,
+    "category": "Defense",
+    "price": 140,
+    "bonus": "+4 HP Regen",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "hero-s-ring",
+    "name": "Hero's Ring",
+    "summary": null,
+    "category": "Defense",
+    "price": 450,
+    "bonus": "+150 HP, +5% Cooldown Reduction",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "holy-crystal",
+    "name": "Holy Crystal",
+    "summary": "Max Magic Power",
+    "category": "Magic",
+    "price": 3000,
+    "bonus": "+165 Magic Power",
+    "unique": null,
+    "passive": "Misteryo: Nakakakuha ng 21%-35% dagdag na Magic Power (mga kaliskis na may antas).",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "hunter-strike",
+    "name": "Hunter Strike",
+    "summary": "Maikling Bilis-Up",
+    "category": "Attack",
+    "price": 2010,
+    "bonus": "+80 Pisikal na Pag-atake, +10% Pagbawas ng Cooldown",
+    "unique": "+15 Pisikal na Pagpasok",
+    "passive": "Pagganti: Ang pagharap ng damage sa parehong hero ng kaaway o pag-creep nang 5 beses na sunud-sunod ay nagbibigay ng 50% dagdag na Movement speed na nabubulok sa loob ng 3 segundo (8 segundong cooldown).",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Iron Hunting Bow",
+      "Dagger"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "ice-queen-wand",
+    "name": "Ice Queen Wand",
+    "summary": "Mabagal sa Skill Hit",
+    "category": "Magic",
+    "price": 2040,
+    "bonus": "+60 Magic Power, +10% Spell Vamp, +300 HP, +7% Movement speed",
+    "unique": null,
+    "passive": "Ice Bound: Kapag napinsala ng isang skill ang isang hero ng kalaban, babagal din sila nito ng 10% sa loob ng 2 segundo (mga stack hanggang 3 beses). Ang epektong ito ay may 0.4 segundong cooldown.",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Exotic Veil",
+      "Mystery Codex"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "immortality",
+    "name": "Immortality",
+    "summary": "Sariling Pagkabuhay",
+    "category": "Defense",
+    "price": 2120,
+    "bonus": "+850 HP, +15 Pisikal na Depensa",
+    "unique": null,
+    "passive": "Immortal: Buhayin muli ng 2.5 segundo pagkatapos ng kamatayan at makakakuha ng 16% Max HP at isang shield na maaaring sumipsip ng 150(+70*Hero Level）damage. Shield ay tumatagal ng 3 segundo. Ang effect na ito ay may 210 segundong cooldown.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Vitality Crystal",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "iron-hunting-bow",
+    "name": "Iron Hunting Bow",
+    "summary": null,
+    "category": "Attack",
+    "price": 450,
+    "bonus": "+10 Pisikal na Pag-atake, +5% Pagbawas ng Cooldown",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "javelin",
+    "name": "Javelin",
+    "summary": null,
+    "category": "Attack",
+    "price": 320,
+    "bonus": "+8% Crit Chance",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "knife",
+    "name": "Knife",
+    "summary": null,
+    "category": "Attack",
+    "price": 280,
+    "bonus": "+10% Attack speed",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "lantern-of-hope",
+    "name": "Lantern of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+20 Magic Power, +4% Movement Speed, +2% Cooldown Reduction",
+    "unique": null,
+    "passive": "Lantern of Hope: Ang sukat ng mga katangian ng kagamitan na may antas ng hero.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Floryn"
+  },
+  {
+    "slug": "leather-jerkin",
+    "name": "Leather Jerkin",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 Pisikal na Depensa",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "legion-sword",
+    "name": "Legion Sword",
+    "summary": null,
+    "category": "Attack",
+    "price": 910,
+    "bonus": "+60 Pisikal na Pag-atake",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "lightning-truncheon",
+    "name": "Lightning Truncheon",
+    "summary": "Damage ng Splash",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "+75 Magic Power, +400 Mana, +10% Cooldown Reduction",
+    "unique": null,
+    "passive": "Resonate: Bawat 6 na segundo, ang susunod na skill ay nag-e-echo, na nagbibigay ng 255 (+85% Magic Power) na dagdag na Magic Damage sa lahat ng kaaway na nasa hanay.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "magic-blade",
+    "name": "Magic Blade",
+    "summary": null,
+    "category": "Attack",
+    "price": 1050,
+    "bonus": "+35 Pisikal na Pag-atake, +10% Lifesteal",
+    "unique": null,
+    "passive": "Lifeline: Kapag nakakakuha ng damage na nagpapababa ng HP nang mas mababa sa 30%, nakakakuha ng (+60*Hero Level) shield (tataas nang may level) at 50% Movement Speed ​​na mabilis na nabubulok sa loob ng 3 segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vampire Mallet"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "magic-necklace",
+    "name": "Magic Necklace",
+    "summary": null,
+    "category": "Magic",
+    "price": 120,
+    "bonus": "+2 Mana Regen",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "magic-potion",
+    "name": "Magic Potion",
+    "summary": null,
+    "category": "Magic",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Taasan ang Power: Awtomatikong ginagamit pagkatapos bumili, pinapataas ng 30 ang Magic Power at 10% ang Cooldown Reduction sa loob ng 120s. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "magic-resist-cloak",
+    "name": "Magic Resist Cloak",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 Magic Defense",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "magic-shoes",
+    "name": "Magic Shoes",
+    "summary": "Pagbawas ng CD",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Movement speed, +10% Pagbawas ng Cooldown, +150 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Hero's Ring"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "magic-wand",
+    "name": "Magic Wand",
+    "summary": null,
+    "category": "Magic",
+    "price": 820,
+    "bonus": "+45 Magic Power",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "malefic-gun",
+    "name": "Malefic Gun",
+    "summary": "Pagtaas ng Saklaw ng Pag-atake",
+    "category": "Attack",
+    "price": 2120,
+    "bonus": "+40 Pisikal na Pag-atake, +20% Attack speed",
+    "unique": null,
+    "passive": "Armor Buster: Taasan ang Physical Penetration ng 30%.@ Malefic Energy: Pinapataas ng 12% ang Basic Attack range. Kapag naabot ang isang target, nakakakuha ng 10% Movement speed sa loob ng 0.5 segundo.",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "malefic-roar",
+    "name": "Malefic Roar",
+    "summary": "Mataas na Pisikal na Pagpasok",
+    "category": "Attack",
+    "price": 2060,
+    "bonus": "+60 Pisikal na Pag-atake",
+    "unique": null,
+    "passive": "Armor Buster: Taasan ang Physical Penetration ng 30%.@ Breaker: Kapag umaatake sa isang kalaban, nakakakuha ng 0.1% na dagdag na Physical Penetration para sa bawat punto ng Physical Defense ng kalaban, na may limitasyon sa 30%.",
+    "active": null,
+    "recipe": [
+      "Legion Sword"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "molten-essence",
+    "name": "Molten Essence",
+    "summary": null,
+    "category": "Defense",
+    "price": 800,
+    "bonus": "+540 HP",
+    "unique": null,
+    "passive": "Burning Soul: Deal (0.6% Total HP) Magic Damage sa mga kalapit na kaaway sa bawat segundo. Ang pinsalang ito ay tumaas ng 125(+15*Hero Level)% laban sa mga creep at minions.",
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "mystery-codex",
+    "name": "Mystery Codex",
+    "summary": null,
+    "category": "Magic",
+    "price": 300,
+    "bonus": "+15 Magic Power",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "mystic-container",
+    "name": "Mystic Container",
+    "summary": null,
+    "category": "Magic",
+    "price": 500,
+    "bonus": "+15 Magic Power, +8% Spell Vamp",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "necklace-of-durance",
+    "name": "Necklace of Durance",
+    "summary": "Pagbawas ng Pagpapagaling",
+    "category": "Magic",
+    "price": 2010,
+    "bonus": "+60 Magic Power, +300 HP, +380 Mana, +5% Cooldown Reduction",
+    "unique": null,
+    "passive": "Regalo: Regens 20% HP at Mana sa loob ng 2 segundo ng pag-level up.@ Lifebane: Sa pagharap ng damage sa target, binabawasan ang Shield at HP Regen ng target ng 50% sa loob ng 3 segundo.",
+    "active": null,
+    "recipe": [
+      "Book of Sages",
+      "Elegant Gem",
+      "Mystery Codex"
+    ],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "ogre-tomahawk",
+    "name": "Ogre Tomahawk",
+    "summary": null,
+    "category": "Attack",
+    "price": 650,
+    "bonus": "+25 Pisikal na Pag-atake, +230 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "oracle",
+    "name": "Oracle",
+    "summary": "Pinahusay na Regen",
+    "category": "Defense",
+    "price": 1860,
+    "bonus": "+850 HP, +20 Physical Defense, +20 Magic Defense, +10% Cooldown Reduction",
+    "unique": null,
+    "passive": "Bless: Ang natanggap na Shield at HP Regen effects ay tumaas ng 25%.",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "power-crystal",
+    "name": "Power Crystal",
+    "summary": null,
+    "category": "Magic",
+    "price": 220,
+    "bonus": "+280 Mana",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "power-potion",
+    "name": "Power Potion",
+    "summary": null,
+    "category": "Attack",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Dagdagan ang Power: Awtomatikong ginagamit pagkatapos bumili, na nagbibigay ng 30 Pisikal na Pag-atake at 15% ng Lifesteal sa loob ng 120s. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "queen-s-wings",
+    "name": "Queen's Wings",
+    "summary": "Mababang-HP na Paghihiganti",
+    "category": "Defense",
+    "price": 2250,
+    "bonus": "+750 HP, +30 Adaptive Attack, +10% Cooldown Reduction, +10% Spell Vamp",
+    "unique": null,
+    "passive": "Magdemonyo: Kapag bumaba ang HP sa 40%, magkakaroon ng 30% Damage Reduction sa loob ng 3 segundo at binabawasan ang mga cooldown ng skill ng 2 segundo. Ang epektong ito ay may 60 segundong cooldown.@ Defiance: Para sa bawat 1% na pagkawala ng HP, ang damage ay tataas ng 0.25%, hanggang 15%.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "radiant-armor",
+    "name": "Radiant Armor",
+    "summary": "Magic Damage Reduction",
+    "category": "Defense",
+    "price": 1880,
+    "bonus": "+950 HP, +40 Magic Defense, +12 HP Regen",
+    "unique": null,
+    "passive": "Holy Blessing: Ang pagkuha ng Magic Damage ay nagbibigay ng 5(+1*Hero Level) Magic Defense sa loob ng 5 segundo, hanggang 6 na stack (maaari lamang makakuha ng 1 stack (mga) bawat 0.4 segundo).",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Magic Resist Cloak",
+      "Healing Necklace"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "rapid-boots",
+    "name": "Rapid Boots",
+    "summary": "Movement speed",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+55 Movement speed, +35% Mabagal na Pagbawas, +12 HP Regen",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Healing Necklace",
+      "Healing Necklace"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "regular-spear",
+    "name": "Regular Spear",
+    "summary": null,
+    "category": "Attack",
+    "price": 600,
+    "bonus": "+20 Pisikal na Pag-atake, +10% Attack speed",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Dagger"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "rock-potion",
+    "name": "Rock Potion",
+    "summary": null,
+    "category": "Defense",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Dagdagan ang Power: Sa pagbili, nagbibigay ng 500 Max HP at 5% Damage Reduction sa loob ng 120 segundo. Maaari lamang magkaroon ng isang potion effect sa isang pagkakataon.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "rogue-meteor",
+    "name": "Rogue Meteor",
+    "summary": null,
+    "category": "Attack",
+    "price": 900,
+    "bonus": "+15% Attack speed, +10% Crit Chance",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Javelin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "rose-gold-meteor",
+    "name": "Rose Gold Meteor",
+    "summary": "Mababang-HP Shield",
+    "category": "Attack",
+    "price": 2030,
+    "bonus": "+30 Pisikal na Pag-atake, +20% Attack speed, +10% Lifesteal",
+    "unique": null,
+    "passive": "Dragon Scale: Bawat 4 na dagdag na Physical Attack ay nagdaragdag ng Hybrid Defense ng 1, hanggang 50 (hinahati ang epekto kung hindi Fighter ang Pangunahing Tungkulin).@ Lifeline: Kapag kumukuha ng damage na nagpapababa ng HP sa ibaba 30%, nakakakuha ng (120*Hero Level) na shield (tumataas nang may level) at 50% Movement Speed ​​na mabilis na nabubulok sa loob ng 3 segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "active": null,
+    "recipe": [
+      "Magic Blade",
+      "Knife"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "scarlet-phantom",
+    "name": "Scarlet Phantom",
+    "summary": "Bilis ng Crit at Pag-atake",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "+30 Pisikal na Pag-atake, +20% Attack speed, +25% Crit Chance",
+    "unique": null,
+    "passive": "Frenzy: Ang mga kritikal na strike ay nagbibigay ng 30% dagdag na Attack speed at 5% na dagdag na Crit Chance sa loob ng 2 segundo.",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Javelin"
+    ],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "sea-halberd",
+    "name": "Sea Halberd",
+    "summary": "Pagbawas ng Pagpapagaling",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "+80 Pisikal na Pag-atake, +20% Attack speed",
+    "unique": null,
+    "passive": "Lifebane: Ang pagharap ng damage sa isang target ay magbabawas sa Shield at HP Regen effects sa kanila sa 60% ng normal sa loob ng 3 segundo.@ Punish: Dagdagan ang damage ng 8% laban sa mga hero ng kaaway na may mas mataas na dagdag na HP.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Regular Spear"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "shadow-twinblades",
+    "name": "Shadow Twinblades",
+    "summary": "Pinakamahusay para sa mga Assassin",
+    "category": "Magic",
+    "price": 1960,
+    "bonus": "+75 Magic Power, +15% Magic Lifesteal, +5% Movement Speed",
+    "unique": null,
+    "passive": "Assassination: Kung walang pinsalang natamo o natanggap sa loob ng 5 segundo, ang susunod na Basic Attack ay magdudulot ng dagdag na Magic Damage na katumbas ng 200 plus 50% Magic Power, at magbibigay ng 60% slow effects sa target sa loob ng 1.5 segundo.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystic Container"
+    ],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "shimmering-lantern",
+    "name": "Shimmering Lantern",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+20 Magic Power, +5% Movement speed",
+    "unique": null,
+    "passive": "Maaaring ibahagi ni Floryn ang kapangyarihan ng Dew's Lantern sa isang kaalyadong hero. Ang Lantern ay hindi pa sapat at maaaring mag-evolve kapag ito ay sumisipsip ng sapat na enerhiya sa labanan.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "silence-robe",
+    "name": "Silence Robe",
+    "summary": null,
+    "category": "Defense",
+    "price": 1020,
+    "bonus": "+540 HP, +23 Magic Defense",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "sky-piercer",
+    "name": "Sky Piercer",
+    "summary": "Pinakamahusay para sa mga Nagtatapos",
+    "category": "Attack & Magic",
+    "price": 1500,
+    "bonus": "+60 Adaptive Attack, +15 Movement Speed",
+    "unique": null,
+    "passive": "Lethality: Pagkatapos masira ang isang hero ng kaaway, i-execute ang hero kung ang kanilang HP ay mas mababa sa 4%. Nakakakuha ng 10 stack (s) ng Lethality para sa bawat pagpatay at nawawala ang 30% kasalukuyang stack (mga) para sa bawat pagkamatay. Ang bawat stack ng Lethality ay nagdaragdag sa threshold ng HP ng execute effect ng 0.1%, na nagsasalansan ng 80 beses.",
+    "active": null,
+    "recipe": [
+      "Expert Gloves",
+      "Expert Gloves"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "starlium-scythe",
+    "name": "Starlium Scythe",
+    "summary": "Pinahusay na Basic Attack",
+    "category": "Magic",
+    "price": 2120,
+    "bonus": "+75 Magic Power, +10% Cooldown Reduction, +8% Hybrid Lifesteal, +6 Mana Regen",
+    "unique": null,
+    "passive": "Krisis: Pagkatapos mag-cast ng skill, ang susunod na Basic Attack sa loob ng 3 segundo ay magbibigay ng 90 (+60% Total Magic Power) na dagdag na True Damage at binabawasan ang Movement Speed ​​ng target ng 15% sa loob ng 1.5 segundo (1.5 segundong cooldown).",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Book of Sages",
+      "Magic Wand"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "steel-legplates",
+    "name": "Steel Legplates",
+    "summary": null,
+    "category": "Defense",
+    "price": 630,
+    "bonus": "+35 Pisikal na Depensa",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Leather Jerkin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "swift-boots",
+    "name": "Swift Boots",
+    "summary": "Attack speed",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Movement speed, +15% Attack speed",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Knife"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "swift-crossbow",
+    "name": "Swift Crossbow",
+    "summary": null,
+    "category": "Attack",
+    "price": 1000,
+    "bonus": "+20% Attack speed",
+    "unique": null,
+    "passive": "Crossbow: Bawat Basic Attack ay nagdudulot ng 40 dagdag na Adaptive Damage.@ Impulse: Ang Basic Attacks ay nagbibigay ng 3% na dagdag na Attack speed sa loob ng 3 segundo, na nilimitahan sa 5 stack.",
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "thunder-belt",
+    "name": "Thunder Belt",
+    "summary": "Damage para sa mga Tank",
+    "category": "Defense",
+    "price": 1820,
+    "bonus": "+600 HP, +15 Physical Defense, +15 Magic Defense, +20 Movement Speed",
+    "unique": null,
+    "passive": "Thunderbolt: Bawat 4 na segundo, ang susunod na Basic Attack ay nakikitungo ng 50 (+100% Extra Physical Defense) (+100% Extra Magic Defense) dagdag na True Damage sa target at mga kaaway sa paligid nila, at panandaliang nagpapabagal sa kanila ng 99%. Ang Hybrid Defense ay permanenteng tumataas ng 1 sa tuwing tatamaan ng pag-atake ang isang hero ng kaaway. (Ang epektong ito ay binabawasan sa 50% para sa Marksmen, Mages, at Assassins)",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "tome-of-evil",
+    "name": "Tome of Evil",
+    "summary": null,
+    "category": "Magic",
+    "price": 950,
+    "bonus": "+30 Magic Power, +2 Mana Regen, +10% Cooldown Reduction",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Book of Sages"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "tough-boots",
+    "name": "Tough Boots",
+    "summary": "Pagbawas ng Tagal ng CC",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Movement speed, +18 Magic Defense",
+    "unique": null,
+    "passive": "Fortitude: Ang CC at Slow Duration ay nabawasan ng 25%.",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "twilight-armor",
+    "name": "Twilight Armor",
+    "summary": "Mataas na Panlaban sa Damage",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+1200 HP, +15 Pisikal na Depensa",
+    "unique": null,
+    "passive": "Twilight: Sa pagkuha ng higit sa 500 damage sa isang pagkakataon, ang labis na damage na lampas sa halagang iyon ay mababawasan ng 20 (+0.2% Kabuuang HP)%.@ Pagkuha: Kapag ang papasok na damage ay bumaba sa HP nang mas mababa sa 30%, mabawi ang 20% ​​Max HP sa susunod na 4 na segundo. Ang epektong ito ay may 60 segundong cooldown.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Inalis"
+  },
+  {
+    "slug": "vampire-mallet",
+    "name": "Vampire Mallet",
+    "summary": null,
+    "category": "Attack",
+    "price": 400,
+    "bonus": "+8 Pisikal na Pag-atake, +8% Lifesteal",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "vitality-crystal",
+    "name": "Vitality Crystal",
+    "summary": null,
+    "category": "Defense",
+    "price": 300,
+    "bonus": "+230 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "war-axe",
+    "name": "War Axe",
+    "summary": "Patuloy na Damage Boost",
+    "category": "Attack",
+    "price": 2100,
+    "bonus": "+35 Pisikal na Pag-atake, +400 HP, +10% Cooldown Reduction, +8% Hybrid Lifesteal",
+    "unique": null,
+    "passive": "Fighting Spirit: Nagbibigay ang Mga Pag-atake ng 12 dagdag na Pisikal na Pag-atake bawat segundo sa loob ng 4 na segundo, hanggang 6 na stack. Nagbibigay ng 10% dagdag na True Damage batay sa pinsalang natanggap (walang binawas sa damage) sa buong stack. (Marksmen, Mages, at Supports ay tumatanggap lamang ng 50% ng mga stacked effect na ito.)",
+    "active": null,
+    "recipe": [
+      "Ogre Tomahawk",
+      "Iron Hunting Bow",
+      "Hero's Ring"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "warrior-boots",
+    "name": "Warrior Boots",
+    "summary": "Stackable Pisikal na Depensa",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Movement speed, +18 Pisikal na Depensa",
+    "unique": null,
+    "passive": "Valor: Nakakakuha ng 4 na dagdag na Physical Defense sa loob ng 3 segundo kapag kumukuha ng Physical Damage, hanggang 20.",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "wind-of-nature",
+    "name": "Wind of Nature",
+    "summary": "Kaligtasan sa Pisikal na Damage",
+    "category": "Attack",
+    "price": 1910,
+    "bonus": "+30 Pisikal na Pag-atake, +20% Attack speed, +10% Lifesteal",
+    "unique": null,
+    "passive": null,
+    "active": "Wind Chant: Maging immune sa lahat ng Physical Damage sa loob ng 2 segundo (hinahati ang tagal kung ang Pangunahing Tungkulin ay hindi Marksman; 90 segundong cooldown).",
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "windtalker",
+    "name": "Windtalker",
+    "summary": "Damage ng Splash",
+    "category": "Attack",
+    "price": 1880,
+    "bonus": "+35% Attack speed, +20% Tsansang Pag-atake, +20 Movement speed",
+    "unique": null,
+    "passive": "Bagyo: Bawat 5–2 segundo (binawasan ng 0.2 segundo para sa bawat Basic Attack), ang susunod na Basic Attack ay tatama ng hanggang 3 unit ng kaaway para sa 150–362 Magic Damage. (Ang pag-atakeng ito ay maaaring mag-Crit at ang damage ay tataas sa 200% laban sa Minions.)",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Knife"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "winter-crown",
+    "name": "Winter Crown",
+    "summary": "Pansamantalang Invincibility",
+    "category": "Attack & Magic",
+    "price": 1910,
+    "bonus": "+45 Adaptive Attack, +400 HP, +5% Cooldown Reduction",
+    "unique": null,
+    "passive": null,
+    "active": "Frozen: Nagiging frozen, hindi ma-target, at immune sa damage sa loob ng 2 segundo (100 segundong cooldown). Hindi maaaring ilipat o i-cast ang mga skill habang naka-freeze, ngunit ang mga kasanayang nai-cast na ay hindi maaantala.",
+    "recipe": [
+      "Expert Gloves",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  },
+  {
+    "slug": "wishing-lantern",
+    "name": "Wishing Lantern",
+    "summary": "Counter High HP",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "+75 Magic Power, +400 Mana, +10% Cooldown Reduction",
+    "unique": null,
+    "passive": "Butterfly Goddess: Para sa bawat 900 Magic Damage na ibibigay sa isang kaaway na hero (kinakalkula bago ang Damage Reduction), isang Butterfly Goddess ang ipapatawag para atakihin ang kalaban na hero, na magbibigay ng Magic Damage na katumbas ng 8% ng kanilang Kasalukuyang HP.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "Lahat ng mga hero"
+  }
+]

@@ -3,8 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { LOCALES } from "@/i18n/config";
 import { sectionOf } from "@/lib/sections";
 import { cn } from "@/lib/utils";
+
+const LOCALE_PREFIX = new RegExp(`^/(?:${LOCALES.join("|")})(?=/|$)`);
 
 /**
  * Header navigation: six section buttons, each opening its panel.
@@ -45,7 +48,7 @@ export function SiteNav({
 }) {
   const path = usePathname();
   // Path without its locale prefix: /fr/tier-list → /tier-list.
-  const bare = path.replace(/^\/[a-z]{2}(?=\/|$)/, "") || "/";
+  const bare = path.replace(LOCALE_PREFIX, "") || "/";
   const current = sectionOf(bare);
   const [open, setOpen] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);

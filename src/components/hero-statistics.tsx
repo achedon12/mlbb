@@ -1,5 +1,7 @@
 "use client";
 
+import { LOCALE_INTL } from "@/i18n/config";
+
 import { useState } from "react";
 import { DurationBars } from "@/components/duration-bars";
 import { RateCurve, type PointCurve, type Marker } from "@/components/rate-curve";
@@ -192,7 +194,7 @@ export function HeroStatistics({
           <h3 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.statistics.history")}</h3>
           <p className="mt-1 text-sm text-chalk-500">
             {t("pages.heroDetail.statistics.historyIntro", {
-              date: new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(
+              date: new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long", timeZone: "UTC" }).format(
                 new Date(`${history.start}T00:00:00Z`),
               ),
             })}
@@ -256,7 +258,7 @@ function EffectPatches({
           {history
             ? t("pages.heroDetail.statistics.impact.empty", {
                 n: MEASURES_MIN_IMPACT,
-                date: new Intl.DateTimeFormat(locale, { dateStyle: "long", timeZone: "UTC" }).format(
+                date: new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long", timeZone: "UTC" }).format(
                   new Date(`${history.start}T00:00:00Z`),
                 ),
               })

@@ -3,7 +3,7 @@ import { Card, PageHeader } from "@/components/ui";
 import { allHeroes, countItems, patches, sync } from "@/lib/data";
 import { rankingFull } from "@/lib/tier-list";
 import type { Locale } from "@/i18n/config";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
 
@@ -209,7 +209,7 @@ export default async function ApiPage({ params }: { params: Promise<{ locale: Lo
         </section>
 
         <p className="border-t border-night-800 pt-6 text-sm text-chalk-500">
-          {t("pages.apiDoc.syncNote", { date: new Date(sync.date).toLocaleDateString(LOCALE_HTML[locale]) })}
+          {t("pages.apiDoc.syncNote", { date: new Date(sync.date).toLocaleDateString(LOCALE_INTL[locale]) })}
         </p>
       </div>
     </>

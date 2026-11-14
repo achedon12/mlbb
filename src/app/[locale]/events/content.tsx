@@ -6,7 +6,7 @@ import Link from "@/components/link";
 import { Foldable } from "@/components/foldable";
 import { Pager } from "@/components/pager";
 import { Card, PageHeader, SectionTitle } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { dataListSkins } from "@/lib/skin-catalog-server";
@@ -71,7 +71,7 @@ export function metaEvents(locale: Locale, page = 1): Metadata {
 
 export function Events({ locale, page = 1 }: { locale: Locale; page?: number }) {
   const t = createT(locale);
-  const htmlLang = LOCALE_HTML[locale];
+  const htmlLang = LOCALE_INTL[locale];
   const numbers = new Intl.NumberFormat(htmlLang);
   const all = eventMonths();
   const nextMonth = shiftMonth(currentMonth, 1);

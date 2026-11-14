@@ -5,7 +5,7 @@ import { GuideLink } from "@/components/guide";
 import { guide } from "@/lib/guides";
 import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -187,7 +187,7 @@ export default async function TimerPage({ params }: Params) {
             <h2 id="sources-title" className="sr-only">
               {t("pages.timer.sourcesTitle")}
             </h2>
-            <p>{t("pages.timer.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_HTML[locale]) })}</p>
+            <p>{t("pages.timer.sourcesIntro", { date: formatShortDate(CHECKED_ON, LOCALE_INTL[locale]) })}</p>
             <ul className="mt-2 list-disc space-y-1 pl-5">
               {sources.map((url) => (
                 <li key={url}>

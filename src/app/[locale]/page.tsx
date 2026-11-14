@@ -13,7 +13,7 @@ import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
 import { cn, formatShortDate } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
-import { LOCALE_HTML, isLocale } from "@/i18n/config";
+import { LOCALE_HTML, isLocale, LOCALE_INTL } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { createT } from "@/i18n/translations";
 
@@ -116,7 +116,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       <section className="page-wrap pb-10 sm:pb-16">
         <Foldable label={t("home.howItWorks")}>
           <p className="text-sm text-chalk-500">
-            {t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_HTML[locale]) })}
+            {t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_INTL[locale]) })}
           </p>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
             {[
