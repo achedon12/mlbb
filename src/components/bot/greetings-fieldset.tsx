@@ -2,6 +2,8 @@
 
 import { Fragment, useId, type ReactNode } from "react";
 import { useT } from "@/i18n/provider";
+import type { Locale } from "@/i18n/config";
+import { GREETING_DEFAULTS } from "@/lib/bot/greeting-defaults";
 import { GREETING_KINDS, GREETING_MAX_LENGTH, GREETING_PLACEHOLDERS, type GreetingKind } from "@/lib/bot/kinds";
 import { cn } from "@/lib/utils";
 
@@ -12,8 +14,8 @@ import { cn } from "@/lib/utils";
  *
  * The preview fills the placeholders the way the bot does
  * (`bot/src/embeds/greetings.ts`), with the signed-in user as the member.
- * The default text shown here is the page's language; the bot posts its
- * own in the server's language.
+ * The default text and the member count follow the server's language, as
+ * chosen in the form: what is shown is what the bot will post.
  */
 
 export type GreetingValue = { channelId: string | null; message: string | null };
@@ -27,7 +29,7 @@ const FIELD = "bevel-sm w-full border border-night-700 bg-night-900 px-3 py-2 te
 const NAMES = GREETING_PLACEHOLDERS.map((p) => p.slice(1, -1));
 
 /** The text as the bot would write it, `{user}` as a mention pill, `**bold**` in bold. */
-function Preview({ kind, text, sample, locale }: { kind: GreetingKind; text: string; sample: GreetingSample; locale: string }) {
+function Preview({ kind, text, sample, locale }: { kind: GreetingKind; text: string; sample: GreetingSample; locale: Locale }) {
   const values: Record<string, ReactNode> = {
     user: kind === "welcome" ? <span className="rounded bg-azure-500/25 px-1 text-azure-400">@{sample.user}</span> : sample.user,
     username: sample.user,
@@ -70,17 +72,16 @@ function GreetingCard({
   failing: boolean;
   channels: Channel[];
   sample: GreetingSample;
-  locale: string;
+  locale: Locale;
   onChange: (value: GreetingValue) => void;
   test: ReactNode;
 }) {
   const t = useT();
   const ids = useId();
   const on = value.channelId !== null;
-  const fallback =
-    kind === "welcome"
-      ? t("pages.botUI.welcomeDefault", { user: "{user}", server: "{server}", count: "{count}" })
-      : t("pages.botUI.goodbyeDefault", { username: "{username}" });
+  // The text the bot posts without one of the owner's: in the server's
+  // language (the form's select), not the page's.
+  const fallback = GREETING_DEFAULTS[locale][kind];
   const text = value.message?.trim() ? value.message : fallback;
   const length = value.message?.length ?? 0;
 
@@ -180,7 +181,7 @@ export function GreetingsFieldset({
   failing: ReadonlySet<GreetingKind>;
   channels: Channel[];
   sample: GreetingSample;
-  locale: string;
+  locale: Locale;
   onChange: (kind: GreetingKind, value: GreetingValue) => void;
   testButton: (kind: GreetingKind) => ReactNode;
 }) {

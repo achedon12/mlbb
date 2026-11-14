@@ -356,14 +356,6 @@
       "fr": "Aperçu",
       "text": "Preview"
     },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** has left the server."
-    },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
       "text": "For each server: its id, name, icon, member count, language, settings (channels, roles, daily games hour, welcome and goodbye message texts) and the list of announcements already posted."
@@ -997,14 +989,6 @@
     "pages.botUI.preview": {
       "fr": "Aperçu",
       "text": "Vista previa"
-    },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "¡Te damos la bienvenida a **{server}**, {user}! Ya somos {count}: elige tus roles en Canales y roles."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** ha salido del servidor."
     },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
@@ -3712,14 +3696,6 @@
       "fr": "Aperçu",
       "text": "Pratinjau"
     },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** telah keluar dari server."
-    },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
       "text": "Untuk setiap server: id, nama, ikon, jumlah anggota, bahasa, pengaturan (saluran, peran, jam game harian, teks pesan sambutan dan perpisahan) dan daftar pengumuman yang sudah diposting."
@@ -4525,14 +4501,6 @@
     "pages.botUI.preview": {
       "fr": "Aperçu",
       "text": "Anteprima"
-    },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "Benvenuto su **{server}**, {user}! Ora siamo in {count}: scegli i tuoi ruoli in Canali e ruoli."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** ha lasciato il server."
     },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",

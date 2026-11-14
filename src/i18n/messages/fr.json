@@ -3529,8 +3529,6 @@
         "count": "le nombre de membres"
       },
       "preview": "Aperçu",
-      "welcomeDefault": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "goodbyeDefault": "**{username}** a quitté le serveur.",
       "autoRolesTitle": "Rôles automatiques",
       "autoRolesLead": "Des rôles donnés automatiquement à chaque personne qui rejoint le serveur, et d'autres aux bots ajoutés. Si votre serveur demande d'accepter ses règles, le membre reçoit ses rôles une fois qu'il les a acceptées.",
       "autoRolesToggle": "Donner des rôles aux membres qui arrivent",

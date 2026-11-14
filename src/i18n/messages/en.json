@@ -3529,8 +3529,6 @@
         "count": "the member count"
       },
       "preview": "Preview",
-      "welcomeDefault": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles.",
-      "goodbyeDefault": "**{username}** has left the server.",
       "autoRolesTitle": "Auto-roles",
       "autoRolesLead": "Roles given automatically to everyone who joins the server, and others to the bots added to it. If your server asks members to accept its rules, they get their roles once they have.",
       "autoRolesToggle": "Give roles to members who join",

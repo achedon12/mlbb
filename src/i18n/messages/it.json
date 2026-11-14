@@ -3529,8 +3529,6 @@
         "count": "il numero di membri"
       },
       "preview": "Anteprima",
-      "welcomeDefault": "Benvenuto su **{server}**, {user}! Ora siamo in {count}: scegli i tuoi ruoli in Canali e ruoli.",
-      "goodbyeDefault": "**{username}** ha lasciato il server.",
       "autoRolesTitle": "Ruoli automatici",
       "autoRolesLead": "Ruoli assegnati automaticamente a ogni persona che si unisce al server e altri ai bot aggiunti. Se il tuo server chiede di accettare le sue regole, il membro riceve i suoi ruoli una volta accettati.",
       "autoRolesToggle": "Assegna ruoli ai membri che entrano",
