@@ -656,6 +656,16 @@
         },
         "rankings": {
           "summary": "Classement calculé : taux de victoire, de ban et de sélection, palier et date du relevé."
+        },
+        "heroCounters": {
+          "summary": "Contres mesurés d'un héros, par rang : les héros qu'il bat et ceux qui le battent, en points d'écart de taux de victoire, avec son taux de victoire de référence."
+        },
+        "heroBuilds": {
+          "summary": "Builds réellement joués avec un héros, par position puis par rang : trois objets clés, l'emblème, ses talents et le sort, avec leurs taux."
+        },
+        "patchVersion": {
+          "summary": "Un patch en détail : notes, nouveaux héros et ajustements de chaque héros, avec le nombre de buffs et de nerfs.",
+          "localeParam": "Langue des textes (anglais par défaut)"
         }
       },
       "endpoints": "Points d'entrée"
