@@ -52,7 +52,9 @@ import {
   patchDetails,
   detailedPatches,
   visualsSkills,
+  analysisFor,
 } from "@/lib/data";
+import { emblems } from "@/data/emblems";
 import { rankingFull, statsByRank, rateBySlug, type StatsRank } from "@/lib/tier-list";
 import { MEASURED_RANKS, type MeasuredRank } from "@/lib/measured-ranks";
 import { pathRole } from "@/lib/tier-list-filters";
@@ -149,10 +151,10 @@ function descriptionHero(locale: Locale, h: Hero): string {
 
   if (sentences.length > 0) return [...sentences, `${t("pages.freshness.updatedOn", { date: longDate(locale) })}.`].join(" ");
 
-  // The written summary only exists in French: the other languages take the
-  // generated description, in their own language.
+  // Without measurements, the written summary, in the page's language; a hero
+  // without an analysis takes the generated description.
   return (
-    (locale === "fr" ? h.analysis?.summary : undefined) ??
+    analysisFor(h.analysis, locale)?.summary ??
     t("pages.heroDetail.metaDescription", {
       name: h.title ? `${h.name}, ${h.title}` : h.name,
       roles: h.roles.map((r) => t(`roles.${r}`)).join(" / "),
@@ -169,7 +171,7 @@ export default async function HeroPage({ params }: Params) {
 
   const rankedEntry = rankingFull.find((e) => e.hero.slug === slug);
   const t = createT(locale);
-  const analysis = h.analysis;
+  const analysis = analysisFor(h.analysis, locale);
   const skillsWiki = skills(locale)[h.slug] ?? [];
   const iconsSkills = visualsSkills[h.slug] ?? {};
   const illustrationsHero = illustrations[h.slug] ?? {};
@@ -196,6 +198,12 @@ export default async function HeroPage({ params }: Params) {
   const portraitOf = (slug: string) =>
     heroesBySlug.get(slug)?.images.icon ?? heroesBySlug.get(slug)?.images.portrait ?? null;
   const nameOf = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
+  // Written builds name the emblem in French ("Emblème de mage"): shown, like
+  // the played builds, as its role in the page's language.
+  const nameEmblem = (name: string) => {
+    const e = emblems.find((x) => x.name === name || x.role === name);
+    return e ? t(`roles.${e.role}`) : name;
+  };
 
   // The rank selector runs in the browser, which does not have the catalog:
   // opponents' names and portraits are therefore resolved here, for each rank.
@@ -548,6 +556,9 @@ export default async function HeroPage({ params }: Params) {
                         <p key={i}>{p}</p>
                       ))}
                     </div>
+                    {locale !== "fr" && (
+                      <p className="mt-4 text-xs text-chalk-500">{t("pages.heroDetail.analysisTranslated")}</p>
+                    )}
                   </section>
 
                   <section className="grid gap-4 md:grid-cols-2">
@@ -706,7 +717,7 @@ export default async function HeroPage({ params }: Params) {
                         ))}
                       </ol>
                       <div className="mt-5 grid gap-3 border-t border-night-800 pt-4 sm:grid-cols-3">
-                        <BuildPicker label={t("builds.emblem")} name={b.emblem} image={visualEmblem(b.emblem).image} href={visualEmblem(b.emblem).href} />
+                        <BuildPicker label={t("builds.emblem")} name={nameEmblem(b.emblem)} image={visualEmblem(b.emblem).image} href={visualEmblem(b.emblem).href} />
                         <BuildPicker label={t("builds.talent")} name={b.talent} image={visualTalent(b.talent).image} />
                         <BuildPicker label={t("builds.spell")} name={b.spell} image={spellVisual(b.spell).image} href={spellVisual(b.spell).href} />
                       </div>

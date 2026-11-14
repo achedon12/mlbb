@@ -373,6 +373,7 @@
       "weaknesses": "Debilidades",
       "analysisPending": "Análisis en redacción",
       "analysisText": "Los datos de {name} están al día: vienen directamente de la wiki. Lo que falta es el comentario: lo que el héroe hace realmente, sus builds y sus counters. Eso no se extrae, se escribe.",
+      "analysisTranslated": "Análisis escrito en francés y traducido automáticamente.",
       "contribute": "Contribuir a este análisis →",
       "countersIntro": "Basado en las tasas de victoria del juego: la diferencia en puntos indica cuánto varía la tasa de {name} frente a cada rival.",
       "countersRef": "Tasa de victoria de referencia: {rate} %.",

@@ -33169,5 +33169,13 @@
   "ru|L'outil de collection garde les héros et les skins que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :": "Инструмент сбора сохраняет героев и скины, которые вы проверяете, в вашем браузере (локальное хранилище). Если вы подключены к своей игровой учетной записи, сервер сайта также хранит в своей базе данных:",
   "ru|la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.": "тот же отпечаток учетной записи, что и сообщество (никогда не ваш игровой идентификатор), список проверенных героев и скинов, а также дату последней регистрации; больше ничего и никому ничего не показывают.",
   "ru|Elle sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.": "Он используется только для поиска вашей коллекции на других ваших устройствах. Фильтр «те, с кем я играю» считывает ваших героев сезона из сервиса входа в систему в момент его активации, ничего не сохраняя.",
-  "ru|Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.": "Чтобы очистить копию своей учетной записи, удалите свою коллекцию в инструменте, войдя в систему; Чтобы удалить саму строку, напишите на {contact}."
+  "ru|Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.": "Чтобы очистить копию своей учетной записи, удалите свою коллекцию в инструменте, войдя в систему; Чтобы удалить саму строку, напишите на {contact}.",
+  "en|Analyse rédigée en français, traduite automatiquement.": "Analysis written in French, automatically translated.",
+  "it|Analyse rédigée en français, traduite automatiquement.": "Analisi scritta in francese, tradotta automaticamente.",
+  "es|Analyse rédigée en français, traduite automatiquement.": "Análisis escrito en francés, traducido automáticamente.",
+  "id|Analyse rédigée en français, traduite automatiquement.": "Analisis ditulis dalam bahasa Perancis, diterjemahkan secara otomatis.",
+  "fil|Analyse rédigée en français, traduite automatiquement.": "Pagsusuri na nakasulat sa French, awtomatikong isinalin.",
+  "th|Analyse rédigée en français, traduite automatiquement.": "การวิเคราะห์เขียนเป็นภาษาฝรั่งเศส แปลอัตโนมัติ",
+  "pt|Analyse rédigée en français, traduite automatiquement.": "Análise escrita em francês, traduzida automaticamente.",
+  "ru|Analyse rédigée en français, traduite automatiquement.": "Анализ написан на французском языке с автоматическим переводом."
 }

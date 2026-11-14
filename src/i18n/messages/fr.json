@@ -373,6 +373,7 @@
       "weaknesses": "Faiblesses",
       "analysisPending": "Analyse en cours de rédaction",
       "analysisText": "Les données de {name} sont à jour — elles viennent directement du wiki. Ce qui manque, c'est le commentaire : ce que le héros fait vraiment, ses builds et ses contres. Cela ne s'extrait pas, cela s'écrit.",
+      "analysisTranslated": "Analyse rédigée en français, traduite automatiquement.",
       "contribute": "Contribuer à cette analyse →",
       "countersIntro": "Établi sur les taux de victoire du jeu : l'écart en points indique de combien le taux de {name} varie face à chaque adversaire.",
       "countersRef": "Taux de victoire de référence : {rate} %.",

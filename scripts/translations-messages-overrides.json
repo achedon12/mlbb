@@ -4071,6 +4071,10 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "To empty your account's copy, clear your collection in the tool while signed in; to delete the record itself, write to {contact}."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Analysis written in French and machine-translated."
     }
   },
   "es": {
@@ -7997,6 +8001,10 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "Para vaciar la copia de tu cuenta, borra tu colección en la herramienta con la sesión iniciada; para eliminar el registro en sí, escribe a {contact}."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Análisis escrito en francés y traducido automáticamente."
     }
   },
   "id": {
@@ -13963,6 +13971,10 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "Untuk mengosongkan salinan di akun Anda, hapus koleksi di alat saat masuk; untuk menghapus datanya sepenuhnya, tulis ke {contact}."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis."
     }
   },
   "it": {
@@ -17917,6 +17929,10 @@
     "prose.collection.deletion": {
       "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
       "text": "Per svuotare la copia del tuo account, cancella la collezione nello strumento con l'accesso effettuato; per eliminare il record stesso, scrivi a {contact}."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Analisi scritta in francese e tradotta automaticamente."
     }
   },
   "fil": {
@@ -32467,6 +32483,10 @@
     "pages.collectionUI.seriesUncheck": {
       "fr": "Décocher les {n} skins {series}",
       "text": "Alisin ang tsek sa {n} skin ng {series}"
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Isinulat ang analysis sa French at isinalin nang awtomatiko."
     }
   },
   "th": {
@@ -46005,6 +46025,10 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "ไม่ว่าจะแพ้ติดต่อกันกี่เกม Win Rate ก็ไม่ต่ำกว่า 0%"
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "บทวิเคราะห์เขียนเป็นภาษาฝรั่งเศสและแปลด้วยเครื่อง"
     }
   },
   "pt": {
@@ -57443,6 +57467,10 @@
     "pages.collectionUI.played_empty": {
       "fr": "Aucun héros joué cette saison.",
       "text": "Nenhum herói jogado nesta temporada."
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Análise escrita em francês e traduzida automaticamente."
     }
   },
   "ru": {
@@ -70245,6 +70273,10 @@
     "pages.collectionUI.seriesUncheck": {
       "fr": "Décocher les {n} skins {series}",
       "text": "Снять отметку с {n} скинов {series}"
+    },
+    "pages.heroDetail.analysisTranslated": {
+      "fr": "Analyse rédigée en français, traduite automatiquement.",
+      "text": "Разбор написан на французском и переведён автоматически."
     }
   }
 }

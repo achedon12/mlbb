@@ -373,6 +373,7 @@
       "weaknesses": "Kelemahan",
       "analysisPending": "Analisis sedang ditulis",
       "analysisText": "Data untuk {name} adalah yang terbaru — berasal langsung dari wiki. Yang kurang adalah komentarnya: apa yang sebenarnya dilakukan sang hero, build-nya, dan counter-nya. Ini tidak dapat diekstraksi, ada tertulis.",
+      "analysisTranslated": "Analisis ditulis dalam bahasa Prancis dan diterjemahkan secara otomatis.",
       "contribute": "Berkontribusi pada analisis ini →",
       "countersIntro": "Berdasarkan win rate permainan: penyebaran poin menunjukkan seberapa besar perbedaan tingkat {name} terhadap setiap lawan.",
       "countersRef": "Win rate dasar: {rate}%.",

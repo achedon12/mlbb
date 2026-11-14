@@ -373,6 +373,7 @@
       "weaknesses": "Punti deboli",
       "analysisPending": "Analisi in fase di stesura",
       "analysisText": "I dati di {name} sono aggiornati: provengono direttamente dal wiki. Quello che manca è il commento: cosa fa davvero l'eroe, le sue build e i suoi counter. Questo non si estrae, si scrive.",
+      "analysisTranslated": "Analisi scritta in francese e tradotta automaticamente.",
       "contribute": "Contribuisci a questa analisi →",
       "countersIntro": "Basato sulle percentuali di vittoria del gioco: lo scarto in punti indica di quanto varia la percentuale di {name} contro ogni avversario.",
       "countersRef": "Percentuale di vittoria di riferimento: {rate}%.",

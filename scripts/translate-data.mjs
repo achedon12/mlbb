@@ -12,7 +12,7 @@
  * datasets; with no argument, all of them. `--locale id` narrows the run to the
  * named target languages (default: every site language but the source).
  */
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { pause, translateBatch } from "./translation-google.mjs";
 import { patchesRebuild } from "./patch-translation.mjs";
 import { existsSync } from "node:fs";
@@ -187,6 +187,105 @@ const itemsRebuild = (d, t) =>
 const tierNotesTexts = (d) => Object.values(d);
 const tierNotesRebuild = (d, t) => Object.fromEntries(Object.entries(d).map(([s, v]) => [s, t(v)]));
 
+/**
+ * Hand-written hero analyses (`src/data/heroes/`), written in French.
+ *
+ * Only the prose is translated; slugs, items, spells, cooldowns and the
+ * order of the skills stay with the source, which the application merges back
+ * (`analysisFor` in `src/lib/data.ts`). The output is keyed by slug.
+ */
+/** A data file written in TypeScript: it only imports types, so once transpiled it is plain data. */
+async function importTs(file) {
+  const { default: ts } = await import("typescript");
+  const js = ts.transpileModule(await readFile(file, "utf8"), {
+    compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+  }).outputText;
+  return import(`data:text/javascript;base64,${Buffer.from(js).toString("base64")}`);
+}
+
+async function loadAnalyses() {
+  const dir = "src/data/heroes";
+  const out = [];
+  for (const file of (await readdir(dir)).filter((f) => f.endsWith(".ts") && f !== "index.ts").sort()) {
+    for (const list of Object.values(await importTs(`${dir}/${file}`))) if (Array.isArray(list)) out.push(...list);
+  }
+  return out;
+}
+
+/**
+ * Item, talent and battle spell names, which the analyses write in English
+ * (the style rule): sent behind markers so the service leaves them alone,
+ * instead of turning "sans Flicker" into "without flickering".
+ */
+const PRIVATE = String.fromCharCode(0xe000);
+const { talents, battleSpells } = await importTs("src/data/emblems.ts");
+const GAME_TERMS = [
+  ...new Set([
+    ...JSON.parse(await readFile("src/data/game/items/en.json", "utf8")).map((o) => o.name),
+    ...talents.map((x) => x.name),
+    ...battleSpells.map((x) => x.name),
+  ]),
+]
+  .filter((n) => n.length > 3)
+  .sort((a, b) => b.length - a.length);
+const TERMS_RE = new RegExp(
+  `(?<![\\p{L}])(?:${GAME_TERMS.map((n) => n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}])`,
+  "gu",
+);
+function shieldTerms(text) {
+  const terms = [];
+  const shielded = text.replace(TERMS_RE, (m) => `${PRIVATE}${terms.push(m) - 1}${PRIVATE}`);
+  return { shielded, terms };
+}
+/** Terms back in place; a marker the service dropped takes its term with it, so the text is kept only if all came back. */
+function unshieldTerms(output, terms, fallback) {
+  const found = new Set();
+  const text = output.replace(new RegExp(`${PRIVATE}\\s*(\\d+)\\s*${PRIVATE}`, "g"), (_, n) => {
+    found.add(Number(n));
+    return terms[Number(n)] ?? "";
+  });
+  return found.size === terms.length ? text : fallback;
+}
+/**
+ * French MOBA jargon the service reads as everyday French, reworded before
+ * it is sent: "un tank d'engagement" came back as a betrothal tank in
+ * Russian, Thai and Indonesian, "la file classée" as a classified line. Only
+ * the nouns: the verb "engager" also means "to involve" in the analyses.
+ */
+const JARGON = [
+  [/\b(Tank|Roam) d'engagement\b/g, "$1 initiateur"],
+  [/\b([dl])'engagement\b/g, "$1'initiation"],
+  [/\bL'engagement\b/g, "L'initiation"],
+  [/\bun engagement\b/g, "une initiation"],
+  [/\bEngagement\b/g, "Initiation"],
+  [/\bengagements?\b/g, (m) => (m.endsWith("s") ? "initiations" : "initiation")],
+  [/\bfiles? classées?\b/g, (m) => (m.startsWith("files") ? "parties classées" : "partie classée")],
+];
+const clarifyJargon = (text) => JARGON.reduce((s, [pattern, by]) => s.replace(pattern, by), text);
+
+const analysesRebuild = (d, tr) => {
+  const t = (x) => {
+    const { shielded, terms } = shieldTerms(clarifyJargon(x));
+    // A text whose markers did not survive stays in French (the application
+    // falls back to the source), rather than lose an item name.
+    return unshieldTerms(tr(shielded), terms, x);
+  };
+  return Object.fromEntries(
+    d.map((a) => [
+      a.slug,
+      {
+        summary: t(a.summary),
+        // Paragraph by paragraph: the blank line between them survives.
+        analysis: a.analysis.split("\n\n").map(t).join("\n\n"),
+        skills: a.skills.map((c) => t(c.description)),
+        strengths: a.strengths.map(t),
+        weaknesses: a.weaknesses.map(t),
+        builds: a.builds.map((b) => ({ name: t(b.name), context: t(b.context) })),
+      },
+    ]),
+  );
+};
+
 /** Combos: only `description` fields (text or list of texts) are translated, wherever they are. */
 function descriptionsRebuild(d, t) {
   if (Array.isArray(d)) return d.map((x) => descriptionsRebuild(x, t));
@@ -211,6 +310,7 @@ const GAMES = {
   modes: { source: "fr", texts: modesTexts, rebuild: modesRebuild },
   items: { source: "en", texts: itemsTexts, rebuild: itemsRebuild },
   "tier-notes": { source: "fr", texts: tierNotesTexts, rebuild: tierNotesRebuild },
+  analyses: { source: "fr", load: loadAnalyses, texts: collect(analysesRebuild), rebuild: analysesRebuild },
   patches: {
     source: "en",
     file: "src/data/game/patches.json",
@@ -233,14 +333,14 @@ for (const name of requests) if (!(name in GAMES)) throw new Error(`Unknown data
 for (const [name, cfg] of Object.entries(GAMES)) {
   if (requests.length && !requests.includes(name)) continue;
   const file = cfg.file ?? `src/data/game/${name}/${cfg.source}.json`;
-  if (!existsSync(file)) {
+  if (!cfg.load && !existsSync(file)) {
     if (cfg.optional) {
       console.log(`${name}: ${file} missing, nothing to translate`);
       continue;
     }
     throw new Error(`Missing source: ${file}`);
   }
-  const raw = JSON.parse(await readFile(file, "utf8"));
+  const raw = cfg.load ? await cfg.load() : JSON.parse(await readFile(file, "utf8"));
   const source = cfg.extract ? cfg.extract(raw) : raw;
   const all = cfg.texts(source);
   console.log(`${name} (${cfg.source}): ${new Set(all.map((x) => String(x).trim())).size} unique texts`);

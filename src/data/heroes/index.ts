@@ -16,7 +16,8 @@ import { tanks } from "./tanks";
  *
  * To add an analysis: use the exact `slug` as it appears in
  * `src/data/game/heroes.json`, and follow the `HeroAnalysis` type. Analyses
- * are written in French only; they are not translated.
+ * are written in French only: `npm run translate` derives the other languages
+ * (`src/data/game/analyses/`), which the pages read through `analysisFor`.
  */
 export const analyses: HeroAnalysis[] = [
   ...tanks,

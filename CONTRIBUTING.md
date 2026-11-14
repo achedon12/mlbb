@@ -51,7 +51,9 @@ comes from the sync.
 ### Style rules
 
 - **Analyses are written in French**, with their accents: this is text shown to
-  visitors, not code.
+  visitors, not code. The other languages are machine-translated from it by
+  `npm run translate` (every night, or by hand), into `src/data/game/analyses/`;
+  until then, a new analysis shows in French everywhere.
 - **Game terms stay in English**: items, skills, talents and spells keep the
   name players see in a match ("Winter Crown", "Flicker").
 - **Nothing copied**: not from the wiki, a guide or a video. An analysis taken

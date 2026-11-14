@@ -282,6 +282,17 @@ test.describe("mobile menu", () => {
   });
 });
 
+test.describe("hero analysis", () => {
+  test("is shown in the page's language, with a translation note", async ({ page }) => {
+    await page.goto("/en/heroes/tigreal");
+    const panel = page.getByRole("tabpanel");
+    await expect(panel.getByText(/machine-translated/i)).toBeVisible();
+    await expect(panel).not.toContainText("Tigreal fait une chose");
+    await page.goto("/fr/heroes/tigreal");
+    await expect(page.getByRole("tabpanel")).toContainText("Tigreal fait une chose");
+  });
+});
+
 test("a hero page's share image is a PNG", async ({ request }) => {
   const response = await request.get("/fr/heroes/khufra/opengraph-image");
   expect(response.status()).toBe(200);

@@ -373,6 +373,7 @@
       "weaknesses": "Mga kahinaan",
       "analysisPending": "Isinusulat pa ang analysis",
       "analysisText": "Updated ang data para kay {name} — direkta itong galing sa wiki. Ang kulang ay ang komentaryo: kung ano talaga ang ginagawa ng hero, ang kanyang mga build at mga counter. Hindi ito basta makukuha; kailangan itong isulat.",
+      "analysisTranslated": "Isinulat ang analysis sa French at isinalin nang awtomatiko.",
       "contribute": "Mag-ambag sa analysis na ito →",
       "countersIntro": "Batay sa in-game win rate: ipinapakita ng pagitan sa points kung gaano gumagalaw ang win rate ni {name} laban sa bawat kalaban.",
       "countersRef": "Baseline na win rate: {rate}%.",

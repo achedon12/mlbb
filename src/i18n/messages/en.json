@@ -373,6 +373,7 @@
       "weaknesses": "Weaknesses",
       "analysisPending": "Analysis in progress",
       "analysisText": "The data for {name} is up to date — it comes straight from the wiki. What's missing is the commentary: what the hero actually does, their builds and their counters. That can't be extracted; it has to be written.",
+      "analysisTranslated": "Analysis written in French and machine-translated.",
       "contribute": "Contribute to this analysis →",
       "countersIntro": "Based on in-game win rates: the gap in points shows how much {name}'s win rate shifts against each opponent.",
       "countersRef": "Baseline win rate: {rate}%.",
