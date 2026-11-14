@@ -69,7 +69,7 @@ async function ownsChannel(guildId: string, channelId: string): Promise<boolean>
 
 const delivery = site ? new DeliveryService({ site, poster, siteUrl: config.SITE_URL, ownsChannel }) : null;
 const daily = site
-  ? new DailyPoster({ site, poster, guildIds: () => fleet.guildIds(), siteUrl: config.SITE_URL, botId: clientId, ownsChannel })
+  ? new DailyPoster({ site, poster, siteUrl: config.SITE_URL, botId: clientId, ownsChannel })
   : null;
 const listing = new ListingPoster(clientId, { topgg: config.TOPGG_TOKEN, dbl: config.DBL_TOKEN, dbotsgg: config.DBOTSGG_TOKEN }, async () => ({
   guilds: (await fleet.guilds()).length,

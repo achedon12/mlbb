@@ -10,18 +10,19 @@ import { classifyError, type Poster } from "./poster.js";
 /**
  * The daily MLBBdle and quiz posts, at each server's chosen UTC hour.
  *
- * Checked every minute; the work runs once per hour. Before posting, the
- * bot looks at its own recent messages in the channel for today's Play
- * button: a restart in the middle of the hour never posts twice.
+ * Checked every minute; the work runs once per hour, on the servers the
+ * site lists for that hour (`GET /api/bot/daily/guilds?hour=`), not on
+ * every server's settings. Before posting, the bot looks at its own recent
+ * messages in the channel for today's Play button: a restart in the middle
+ * of the hour never posts twice.
  */
 
 const CHECK_INTERVAL_MS = 60 * 1000;
-const SETTINGS_CONCURRENCY = 4;
+const POST_CONCURRENCY = 4;
 
 export interface DailyPosterDeps {
-  site: Pick<SiteClient, "settings" | "daily">;
+  site: Pick<SiteClient, "dailyGuilds" | "daily">;
   poster: Poster;
-  guildIds: () => Promise<string[]>;
   siteUrl: string;
   botId: string;
   /** See `DeliveryDeps.ownsChannel`. */
@@ -66,7 +67,7 @@ export class DailyPoster {
 
   async run(hour: number, day: string): Promise<number> {
     for (const key of this.posted) if (!key.startsWith(day)) this.posted.delete(key);
-    const guildIds = await this.deps.guildIds();
+    const guilds = await this.deps.site.dailyGuilds(hour);
     let count = 0;
     let number: { mlbbdle: number; quiz: number } | null = null;
     const numbers = async () => {
@@ -78,9 +79,7 @@ export class DailyPoster {
     };
 
     await runLimited(
-      guildIds.map((guildId) => async () => {
-        const settings = await this.deps.site.settings(guildId).catch(() => null);
-        if (!settings || settings.dailyHourUtc !== hour) return;
+      guilds.map(({ guildId, ...settings }) => async () => {
         const locale = isLocale(settings.locale) ? settings.locale : "en";
         for (const [game, channelId] of [
           ["mlbbdle", settings.dailyMlbbdleChannelId],
@@ -91,7 +90,7 @@ export class DailyPoster {
           if (await this.postOnce(game, day, channelId, locale, numbers)) count++;
         }
       }),
-      SETTINGS_CONCURRENCY,
+      POST_CONCURRENCY,
     );
     if (count) log.info("daily posts sent", { count, hour });
     return count;
