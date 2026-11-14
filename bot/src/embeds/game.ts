@@ -87,7 +87,8 @@ export function heroEmbed(view: View, hero: HeroDetail, ranking: RankingEntry | 
     if (build.emblem) embed.addFields({ name: view.t("ui.hero.emblem"), value: build.emblem, inline: true });
     if (build.spell) embed.addFields({ name: view.t("ui.hero.spell"), value: build.spell, inline: true });
   }
-  const skills = hero.skills.flatMap((s) => (s ? [s.name] : []));
+  // Once each: the wiki lists a skill twice when it has two forms (Sun's clones).
+  const skills = [...new Set(hero.skills.flatMap((s) => (s ? [s.name] : [])))];
   if (skills.length) embed.addFields({ name: view.t("ui.hero.skills"), value: listOr(view, skills, " · ") });
   return embed;
 }
@@ -260,7 +261,8 @@ export function patchEmbed(view: View, patch: Patch, detail: PatchDetail | null,
     const mark = (type: string | null) => (type === "buff" ? "▲" : type === "nerf" ? "▼" : "◆");
     embed.addFields({
       name: view.t("ui.patch.heroes"),
-      value: listMore(view, changed.map((h) => `${mark(h.type)} ${h.name}`), " · ", PATCH_HEROES_SHOWN),
+      // A no-break space: an arrow never ends a line away from its hero.
+      value: listMore(view, changed.map((h) => `${mark(h.type)}\u00a0${h.name}`), " · ", PATCH_HEROES_SHOWN),
     });
   }
   return embed;

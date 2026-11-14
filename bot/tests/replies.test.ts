@@ -70,6 +70,11 @@ describe("hero sheet visuals", () => {
     ]);
   });
 
+  it("names a skill with two forms once", () => {
+    const sun = { ...layla, skills: [{ name: "Clone Techniques" }, { name: "Clone Techniques" }, { name: "Simian God" }] };
+    expect(heroEmbed(en, sun, null, null).toJSON().fields?.at(-1)?.value).toBe("Clone Techniques · Simian God");
+  });
+
   it("build, counter and skins replies carry the hero's icon too", () => {
     expect(buildEmbed(en, layla, [], null).toJSON().thumbnail?.url).toContain("/icone.webp");
     expect(counterEmbed(en, layla, { strong: [], weak: [] }).toJSON().thumbnail?.url).toContain("/icone.webp");
@@ -137,7 +142,7 @@ describe("lists in fields", () => {
     const adjustments = Array.from({ length: 34 }, (_, i) => ({ name: `H${i}`, slug: `h${i}`, type: i % 2 ? "nerf" : "buff" }));
     const json = patchEmbed(en, { version: "2.1.90", title: "Patch 2.1.90", link: "" }, { version: "2.1.90", title: "Patch 2.1.90", balance: { buff: 17, nerf: 17, adjust: 0 }, adjustments }, true).toJSON();
     const heroes = json.fields?.find((f) => f.name === "Heroes changed")?.value ?? "";
-    expect(heroes.startsWith("▲ H0 · ▼ H1")).toBe(true);
+    expect(heroes.startsWith("▲\u00a0H0 · ▼\u00a0H1")).toBe(true);
     expect(heroes.endsWith("+4 more")).toBe(true);
     expect(json.fields?.[0]?.value).toBe("▲ 17");
   });
@@ -145,7 +150,7 @@ describe("lists in fields", () => {
   it("patch replies list a hero once, even with several sections in the notes", () => {
     const twice = [{ name: "Aulus", slug: "aulus", type: "buff" }, { name: "Aulus", slug: "aulus", type: "buff" }, { name: "Chou", slug: "chou", type: "nerf" }];
     const json = patchEmbed(en, { version: "2.2.16", title: "Patch Notes 2.2.16", link: "" }, { version: "2.2.16", title: "Patch Notes 2.2.16", adjustments: twice }, false).toJSON();
-    expect(json.fields?.[0]?.value).toBe("▲ Aulus · ▼ Chou");
+    expect(json.fields?.[0]?.value).toBe("▲\u00a0Aulus · ▼\u00a0Chou");
   });
 });
 
