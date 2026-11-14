@@ -356,14 +356,6 @@
       "fr": "Aperçu",
       "text": "Preview"
     },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** has left the server."
-    },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
       "text": "For each server: its id, name, icon, member count, language, settings (channels, roles, daily games hour, welcome and goodbye message texts) and the list of announcements already posted."
@@ -583,6 +575,178 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "The Mobile Legends Discord bot: builds, counters, tier list and MLBBdle in your servers"
+    },
+    "pages.botUI.autoRolesTitle": {
+      "fr": "Rôles automatiques",
+      "text": "Auto-roles"
+    },
+    "pages.botUI.autoRolesLead": {
+      "fr": "Des rôles donnés automatiquement à chaque personne qui rejoint le serveur, et d'autres aux bots ajoutés. Si votre serveur demande d'accepter ses règles, le membre reçoit ses rôles une fois qu'il les a acceptées.",
+      "text": "Roles given automatically to everyone who joins the server, and others to the bots added to it. If your server asks members to accept its rules, they get their roles once they have."
+    },
+    "pages.botUI.autoRolesToggle": {
+      "fr": "Donner des rôles aux membres qui arrivent",
+      "text": "Give roles to members who join"
+    },
+    "pages.botUI.autoRolesTargets.humans": {
+      "fr": "Rôles des membres",
+      "text": "Roles for members"
+    },
+    "pages.botUI.autoRolesTargets.bots": {
+      "fr": "Rôles des bots",
+      "text": "Roles for bots"
+    },
+    "pages.botUI.autoRolesNone": {
+      "fr": "Aucun",
+      "text": "None"
+    },
+    "pages.botUI.autoRolesHelp": {
+      "fr": "3 rôles au plus pour chacun. Un rôle avec une permission de modération ou d'administration n'est jamais donné.",
+      "text": "Up to 3 roles each. A role with a moderation or administration permission is never given."
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex does not have the Manage Roles permission: give MLBBDex the Manage Roles permission and drag its role above the roles to give (Server Settings > Roles), then reload this page."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Some roles are above MLBBDex's role and cannot be given: drag its role above the roles to give (Server Settings > Roles), then reload this page."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "The bot could not give these roles at the last join: check its Manage Roles permission and where its role sits, then save."
+    },
+    "pages.botUI.autoRoleRefusals.managed": {
+      "fr": "géré par une intégration",
+      "text": "managed by an integration"
+    },
+    "pages.botUI.autoRoleRefusals.above_bot": {
+      "fr": "au-dessus du bot",
+      "text": "above the bot"
+    },
+    "pages.botUI.autoRoleRefusals.dangerous": {
+      "fr": "permissions de modération",
+      "text": "moderation permissions"
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved."
+    },
+    "pages.botTerms.p7": {
+      "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
+      "text": "Auto-roles are chosen by the server's managers; the bot refuses to give a role placed above its own, managed by an integration or carrying a moderation or administration permission."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "The member who chose these roles left the server or can no longer give them themselves: a manager with the Manage Roles permission, whose role is above these, must save again."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "You cannot give one of these roles yourself (Manage Roles permission, role above yours): the bot will not give it for you."
+    },
+    "pages.botUI.autoRoleRefusals.not_member": {
+      "fr": "vous n'êtes pas membre",
+      "text": "you are not a member"
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "you need Manage Roles"
+    },
+    "pages.botUI.autoRoleRefusals.above_user": {
+      "fr": "au-dessus de votre rôle",
+      "text": "above your role"
+    },
+    "pages.botUI.languageTitle": {
+      "fr": "Langue",
+      "text": "Language"
+    },
+    "pages.botUI.languageLead": {
+      "fr": "La langue dans laquelle le bot répond et publie sur ce serveur, messages de bienvenue compris.",
+      "text": "The language the bot replies and posts in on this server, welcome messages included."
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "Today's MLBBdle and quiz, posted once a day with a Play button."
+    },
+    "pages.botUI.statusOn": {
+      "fr": "Activé",
+      "text": "On"
+    },
+    "pages.botUI.statusOff": {
+      "fr": "Désactivé",
+      "text": "Off"
+    },
+    "pages.botUI.statusAttention": {
+      "fr": "À corriger",
+      "text": "Needs fixing"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} of {total} on"
+    },
+    "pages.botUI.sectionsNav": {
+      "fr": "Parties des réglages",
+      "text": "Settings sections"
+    },
+    "pages.botUI.unsaved": {
+      "fr": "Modifications non enregistrées",
+      "text": "Unsaved changes"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "All changes saved"
+    },
+    "pages.botUI.discard": {
+      "fr": "Annuler les modifications",
+      "text": "Discard changes"
+    },
+    "pages.botUI.dismiss": {
+      "fr": "Fermer",
+      "text": "Dismiss"
+    },
+    "pages.botUI.announcementType": {
+      "fr": "Annonce",
+      "text": "Announcement"
+    },
+    "pages.botUI.testing": {
+      "fr": "Envoi…",
+      "text": "Sending…"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "The bot cannot post in any channel of this server: give it the View Channel, Send Messages and Embed Links permissions in at least one channel, then reload this page."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "No role can be chosen yet: every role is above the bot's or yours, managed by an integration, or carries moderation permissions."
+    },
+    "pages.botDashboard.loginTitle": {
+      "fr": "Connectez-vous pour régler le bot",
+      "text": "Log in to set up the bot"
+    },
+    "pages.botDashboard.addBotLead": {
+      "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "text": "A server you manage is missing? Invite MLBBDex to it, then come back here."
+    },
+    "pages.botDashboard.botPresent": {
+      "fr": "MLBBDex est sur ce serveur",
+      "text": "MLBBDex is in this server"
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "No Manage Roles permission"
+    },
+    "pages.botDashboard.deliveriesLead": {
+      "fr": "Les dernières annonces publiées sur ce serveur, et celles qui ont échoué.",
+      "text": "The latest announcements posted on this server, and those that failed."
+    },
+    "pages.botDashboard.manage": {
+      "fr": "Configurer",
+      "text": "Configure"
+    },
+    "pages.botDashboard.lead": {
+      "fr": "Réglez le bot pour chacun de vos serveurs : langue, annonces, jeux du jour, messages de bienvenue et rôles automatiques.",
+      "text": "Set the bot up for each of your servers: language, announcements, daily games, welcome messages and auto-roles."
     }
   },
   "es": {
@@ -917,14 +1081,6 @@
     "pages.botUI.preview": {
       "fr": "Aperçu",
       "text": "Vista previa"
-    },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "¡Te damos la bienvenida a **{server}**, {user}! Ya somos {count}: elige tus roles en Canales y roles."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** ha salido del servidor."
     },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
@@ -1297,6 +1453,90 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "El bot de Discord de Mobile Legends: builds, counters, tier list y MLBBdle en tus servidores"
+    },
+    "pages.botUI.autoRolesTargets.humans": {
+      "fr": "Rôles des membres",
+      "text": "Roles para los miembros"
+    },
+    "pages.botUI.autoRolesTargets.bots": {
+      "fr": "Rôles des bots",
+      "text": "Roles para los bots"
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex no tiene el permiso Gestionar roles: dale a MLBBDex el permiso Gestionar roles y arrastra su rol por encima de los roles que se darán (Ajustes del servidor > Roles), y luego vuelve a cargar esta página."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Algunos roles están por encima del de MLBBDex y no se pueden dar: arrastra su rol por encima de los roles que se darán (Ajustes del servidor > Roles), y luego vuelve a cargar esta página."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "El bot no pudo dar estos roles en la última llegada: revisa su permiso Gestionar roles y la posición de su rol, y luego guarda."
+    },
+    "pages.botUI.autoRoleRefusals.above_bot": {
+      "fr": "au-dessus du bot",
+      "text": "por encima del bot"
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Roles automáticos: si el servidor eligió algunos, el bot da esos roles a quien llega, con el permiso Gestionar roles que le conceden los administradores del servidor; un miembro que aún debe aceptar las reglas del servidor solo se recuerda (su ID, en memoria, 24 horas como máximo) hasta que las acepta, y no se guarda nada."
+    },
+    "pages.botTerms.p7": {
+      "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
+      "text": "Los roles automáticos los eligen los gestores del servidor; el bot se niega a dar un rol situado por encima del suyo, gestionado por una integración o con un permiso de moderación o de administración."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "El miembro que eligió estos roles dejó el servidor o ya no puede darlos él mismo: un gestor con el permiso Gestionar roles, y un rol por encima de estos, debe guardar de nuevo."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "No puedes dar tú mismo uno de estos roles (permiso Gestionar roles, rol por encima del tuyo): el bot no lo dará en tu lugar."
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "necesitas Gestionar roles"
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "El MLBBdle y el quiz del día, publicados una vez al día con un botón Jugar."
+    },
+    "pages.botUI.statusAttention": {
+      "fr": "À corriger",
+      "text": "Requiere atención"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} de {total} activados"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "Todo guardado"
+    },
+    "pages.botUI.discard": {
+      "fr": "Annuler les modifications",
+      "text": "Descartar cambios"
+    },
+    "pages.botUI.testing": {
+      "fr": "Envoi…",
+      "text": "Enviando…"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "El bot no puede publicar en ningún canal de este servidor: dale los permisos Ver canal, Enviar mensajes e Insertar enlaces en al menos un canal, y luego vuelve a cargar esta página."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "Todavía no se puede elegir ningún rol: cada rol está por encima del del bot o del tuyo, lo gestiona una integración o tiene permisos de moderación."
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "Sin el permiso Gestionar roles"
+    },
+    "pages.botDashboard.addBotLead": {
+      "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "text": "¿Falta un servidor que gestionas? Invita a MLBBDex y vuelve aquí."
     }
   },
   "id": {
@@ -3588,14 +3828,6 @@
       "fr": "Aperçu",
       "text": "Pratinjau"
     },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** telah keluar dari server."
-    },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
       "text": "Untuk setiap server: id, nama, ikon, jumlah anggota, bahasa, pengaturan (saluran, peran, jam game harian, teks pesan sambutan dan perpisahan) dan daftar pengumuman yang sudah diposting."
@@ -3967,6 +4199,110 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "Bot Discord Mobile Legends: build, counter, tier list, dan MLBBdle di server kamu"
+    },
+    "pages.botUI.autoRolesTargets.humans": {
+      "fr": "Rôles des membres",
+      "text": "Peran untuk anggota"
+    },
+    "pages.botUI.autoRolesTargets.bots": {
+      "fr": "Rôles des bots",
+      "text": "Peran untuk bot"
+    },
+    "pages.botUI.autoRolesHelp": {
+      "fr": "3 rôles au plus pour chacun. Un rôle avec une permission de modération ou d'administration n'est jamais donné.",
+      "text": "Maksimal 3 peran untuk masing-masing. Peran dengan izin moderasi atau administrasi tidak pernah diberikan."
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex tidak memiliki izin Kelola Peran: berikan izin Kelola Peran kepada MLBBDex dan seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Beberapa peran berada di atas peran MLBBDex dan tidak dapat diberikan: seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "Bot tidak dapat memberikan peran ini saat anggota terakhir bergabung: periksa izin Kelola Peran dan posisi perannya, lalu simpan."
+    },
+    "pages.botUI.autoRoleRefusals.managed": {
+      "fr": "géré par une intégration",
+      "text": "dikelola oleh integrasi"
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "Anggota yang memilih peran ini telah keluar dari server atau tidak bisa lagi memberikannya sendiri: pengelola dengan izin Kelola Peran, yang perannya di atas peran-peran ini, harus menyimpan lagi."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "Anda tidak bisa memberikan salah satu peran ini sendiri (izin Kelola Peran, peran di atas peran Anda): bot tidak akan memberikannya untuk Anda."
+    },
+    "pages.botUI.autoRoleRefusals.not_member": {
+      "fr": "vous n'êtes pas membre",
+      "text": "Anda bukan anggota"
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "Anda perlu Kelola Peran"
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "MLBBdle dan kuis hari ini, diposting sekali sehari dengan tombol Main."
+    },
+    "pages.botUI.statusOn": {
+      "fr": "Activé",
+      "text": "Aktif"
+    },
+    "pages.botUI.statusOff": {
+      "fr": "Désactivé",
+      "text": "Nonaktif"
+    },
+    "pages.botUI.statusAttention": {
+      "fr": "À corriger",
+      "text": "Perlu diperbaiki"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} dari {total} aktif"
+    },
+    "pages.botUI.sectionsNav": {
+      "fr": "Parties des réglages",
+      "text": "Bagian pengaturan"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "Semua perubahan tersimpan"
+    },
+    "pages.botUI.discard": {
+      "fr": "Annuler les modifications",
+      "text": "Batalkan perubahan"
+    },
+    "pages.botUI.dismiss": {
+      "fr": "Fermer",
+      "text": "Tutup"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "Bot tidak dapat memposting di saluran mana pun di server ini: berikan izin Lihat Saluran, Kirim Pesan, dan Sematkan Tautan di setidaknya satu saluran, lalu muat ulang halaman ini."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "Belum ada peran yang dapat dipilih: setiap peran berada di atas peran bot atau peran Anda, dikelola oleh integrasi, atau memiliki izin moderasi."
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "Tanpa izin Kelola Peran"
+    },
+    "pages.botDashboard.deliveriesLead": {
+      "fr": "Les dernières annonces publiées sur ce serveur, et celles qui ont échoué.",
+      "text": "Pengumuman terbaru yang diposting di server ini, dan yang gagal."
+    },
+    "pages.botDashboard.manage": {
+      "fr": "Configurer",
+      "text": "Atur"
     }
   },
   "it": {
@@ -4354,14 +4690,6 @@
       "fr": "Aperçu",
       "text": "Anteprima"
     },
-    "pages.botUI.welcomeDefault": {
-      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "text": "Benvenuto su **{server}**, {user}! Ora siamo in {count}: scegli i tuoi ruoli in Canali e ruoli."
-    },
-    "pages.botUI.goodbyeDefault": {
-      "fr": "**{username}** a quitté le serveur.",
-      "text": "**{username}** ha lasciato il server."
-    },
     "pages.botPrivacy.storedServer": {
       "fr": "Pour chaque serveur : son identifiant, son nom, son icône, son nombre de membres, sa langue, ses réglages (salons, rôles, heure des jeux du jour, textes des messages de bienvenue et de départ) et la liste des annonces déjà publiées.",
       "text": "Per ogni server: il suo id, nome, icona, numero di membri, lingua, impostazioni (canali, ruoli, ora dei giochi del giorno, testi dei messaggi di benvenuto e di addio) e l'elenco degli annunci già pubblicati."
@@ -4733,6 +5061,86 @@
     "nav.bot.desc": {
       "fr": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs",
       "text": "Il bot Discord di Mobile Legends: build, counter, tier list e MLBBdle nei tuoi server"
+    },
+    "pages.botUI.autoRolesToggle": {
+      "fr": "Donner des rôles aux membres qui arrivent",
+      "text": "Assegna ruoli ai membri che entrano"
+    },
+    "pages.botUI.autoRolesNoPermission": {
+      "fr": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "MLBBDex non ha il permesso Gestire i ruoli: concedi a MLBBDex il permesso Gestire i ruoli e trascina il suo ruolo sopra i ruoli da assegnare (Impostazioni server > Ruoli), poi ricarica questa pagina."
+    },
+    "pages.botUI.autoRolesAbove": {
+      "fr": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "text": "Alcuni ruoli sono sopra quello di MLBBDex e non possono essere assegnati: trascina il suo ruolo sopra i ruoli da assegnare (Impostazioni server > Ruoli), poi ricarica questa pagina."
+    },
+    "pages.botUI.autoRolesFailing": {
+      "fr": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "text": "Il bot non è riuscito ad assegnare questi ruoli all'ultimo ingresso: controlla il suo permesso Gestire i ruoli e la posizione del suo ruolo, poi salva."
+    },
+    "pages.botPrivacy.autoRoles": {
+      "fr": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré.",
+      "text": "Ruoli automatici: se il server ne ha scelti, il bot assegna questi ruoli a chi entra, con il permesso Gestire i ruoli che gli concedono gli amministratori del server; un membro che deve ancora accettare le regole del server viene solo ricordato (il suo ID, in memoria, per 24 ore al massimo) finché non le accetta, e nulla viene registrato."
+    },
+    "pages.botTerms.p7": {
+      "fr": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration.",
+      "text": "I ruoli automatici sono scelti dai gestori del server; il bot rifiuta di assegnare un ruolo posto sopra il proprio, gestito da un'integrazione o con un permesso di moderazione o di amministrazione."
+    },
+    "pages.botUI.autoRolesFailingGranter": {
+      "fr": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "text": "Il membro che ha scelto questi ruoli ha lasciato il server o non può più assegnarli lui stesso: un gestore con il permesso Gestire i ruoli, e un ruolo sopra questi, deve salvare di nuovo."
+    },
+    "pages.botUI.autoRolesNotGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "Non puoi assegnare tu stesso uno di questi ruoli (permesso Gestire i ruoli, ruolo sopra il tuo): il bot non lo assegnerà al posto tuo."
+    },
+    "pages.botUI.autoRoleRefusals.no_manage_roles": {
+      "fr": "il vous faut Gérer les rôles",
+      "text": "ti serve Gestire i ruoli"
+    },
+    "pages.botUI.autoRoleRefusals.above_user": {
+      "fr": "au-dessus de votre rôle",
+      "text": "sopra il tuo ruolo"
+    },
+    "pages.botUI.dailyLead": {
+      "fr": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "text": "L'MLBBdle e il quiz del giorno, pubblicati una volta al giorno con un pulsante Gioca."
+    },
+    "pages.botUI.statusOn": {
+      "fr": "Activé",
+      "text": "Attivo"
+    },
+    "pages.botUI.statusOff": {
+      "fr": "Désactivé",
+      "text": "Disattivato"
+    },
+    "pages.botUI.statusCount": {
+      "fr": "{on} sur {total} activés",
+      "text": "{on} su {total} attivi"
+    },
+    "pages.botUI.sectionsNav": {
+      "fr": "Parties des réglages",
+      "text": "Sezioni delle impostazioni"
+    },
+    "pages.botUI.allSaved": {
+      "fr": "Tout est enregistré",
+      "text": "Tutto salvato"
+    },
+    "pages.botUI.noChannels": {
+      "fr": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "text": "Il bot non può pubblicare in nessun canale di questo server: dagli i permessi Visualizza canale, Invia messaggi e Incorpora link in almeno un canale, poi ricarica questa pagina."
+    },
+    "pages.botUI.autoRolesNoneSelectable": {
+      "fr": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "text": "Nessun ruolo può essere scelto per ora: ogni ruolo è sopra quello del bot o il tuo, gestito da un'integrazione o con permessi di moderazione."
+    },
+    "pages.botDashboard.noManageRoles": {
+      "fr": "Sans la permission Gérer les rôles",
+      "text": "Senza il permesso Gestire i ruoli"
+    },
+    "pages.botDashboard.addBotLead": {
+      "fr": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "text": "Manca un server che gestisci? Invita MLBBDex, poi torna qui."
     }
   }
 }

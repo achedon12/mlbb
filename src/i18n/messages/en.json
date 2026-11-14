@@ -3436,7 +3436,8 @@
       "retention": "When the bot leaves a server, its data is deleted 30 days later, along with its players' results (if the bot comes back within that time, the settings are still there). Command statistics are deleted after 90 days.",
       "rightsTitle": "Your rights",
       "rights": "To see or delete the data tied to your Discord id or your server, write to [{contact}](mailto:{contact}). Removing the bot from the server starts the automatic deletion.",
-      "sitePrivacy": "Site privacy"
+      "sitePrivacy": "Site privacy",
+      "autoRoles": "Auto-roles: if the server chose some, the bot gives those roles to whoever joins, with the Manage Roles permission the server's admins grant it; a member who still has to accept the server's rules is only remembered (their id, in memory, for 24 hours at most) until they do, and nothing is saved."
     },
     "botTerms": {
       "title": "Discord bot terms of use",
@@ -3447,11 +3448,12 @@
       "p3": "Do not misuse the bot: no abusive automation of commands, no attempt to reach the settings of a server you do not manage. The service may be limited or removed from a server that abuses it.",
       "p4": "The service may change, be interrupted or stop at any time. Discord's rules (Terms of Service and Community Guidelines) apply to its use.",
       "p5": "The data stored is described on the bot's privacy page. Any question: [{contact}](mailto:{contact}).",
-      "p6": "Welcome and goodbye messages are written by the server's managers, who are responsible for their content; the bot neutralises mass and role mentions in them. Members joining and leaving are only used to post these messages."
+      "p6": "Welcome and goodbye messages are written by the server's managers, who are responsible for their content; the bot neutralises mass and role mentions in them. Members joining and leaving are only used to post these messages.",
+      "p7": "Auto-roles are chosen by the server's managers; the bot refuses to give a role placed above its own, managed by an integration or carrying a moderation or administration permission."
     },
     "botDashboard": {
       "title": "Bot dashboard",
-      "lead": "Set the bot up for each of your servers: language, announcements and daily games.",
+      "lead": "Set the bot up for each of your servers: language, announcements, daily games, welcome messages and auto-roles.",
       "login": "Log in with Discord",
       "loginLead": "Log in with Discord to see the servers you manage. Only your id is read: no access to your messages or your servers.",
       "loginFailed": "The login did not go through. Try again.",
@@ -3461,7 +3463,7 @@
       "serversLead": "Servers where you have the Manage Server permission and the bot is present.",
       "noServers": "No server to set up yet: add the bot to a server you manage.",
       "addBot": "Add the bot to a server",
-      "manage": "Settings",
+      "manage": "Configure",
       "unreachable": "The bot is not answering right now. Try again in a few minutes.",
       "back": "All your servers",
       "notAllowed": "This server is not among those you manage.",
@@ -3474,7 +3476,12 @@
         "forbidden": "Permission denied"
       },
       "members": "{count} members",
-      "admin": "Admin panel"
+      "admin": "Admin panel",
+      "loginTitle": "Log in to set up the bot",
+      "addBotLead": "A server you manage is missing? Invite MLBBDex to it, then come back here.",
+      "botPresent": "MLBBDex is in this server",
+      "noManageRoles": "No Manage Roles permission",
+      "deliveriesLead": "The latest announcements posted on this server, and those that failed."
     },
     "botUI": {
       "language": "Bot language on this server",
@@ -3527,8 +3534,44 @@
         "count": "the member count"
       },
       "preview": "Preview",
-      "welcomeDefault": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles.",
-      "goodbyeDefault": "**{username}** has left the server."
+      "autoRolesTitle": "Auto-roles",
+      "autoRolesLead": "Roles given automatically to everyone who joins the server, and others to the bots added to it. If your server asks members to accept its rules, they get their roles once they have.",
+      "autoRolesToggle": "Give roles to members who join",
+      "autoRolesTargets": {
+        "humans": "Roles for members",
+        "bots": "Roles for bots"
+      },
+      "autoRolesNone": "None",
+      "autoRolesHelp": "Up to 3 roles each. A role with a moderation or administration permission is never given.",
+      "autoRolesNoPermission": "MLBBDex does not have the Manage Roles permission: give MLBBDex the Manage Roles permission and drag its role above the roles to give (Server Settings > Roles), then reload this page.",
+      "autoRolesAbove": "Some roles are above MLBBDex's role and cannot be given: drag its role above the roles to give (Server Settings > Roles), then reload this page.",
+      "autoRolesFailing": "The bot could not give these roles at the last join: check its Manage Roles permission and where its role sits, then save.",
+      "autoRoleRefusals": {
+        "managed": "managed by an integration",
+        "above_bot": "above the bot",
+        "dangerous": "moderation permissions",
+        "not_member": "you are not a member",
+        "no_manage_roles": "you need Manage Roles",
+        "above_user": "above your role"
+      },
+      "autoRolesFailingGranter": "The member who chose these roles left the server or can no longer give them themselves: a manager with the Manage Roles permission, whose role is above these, must save again.",
+      "autoRolesNotGrantable": "You cannot give one of these roles yourself (Manage Roles permission, role above yours): the bot will not give it for you.",
+      "languageTitle": "Language",
+      "languageLead": "The language the bot replies and posts in on this server, welcome messages included.",
+      "dailyLead": "Today's MLBBdle and quiz, posted once a day with a Play button.",
+      "statusOn": "On",
+      "statusOff": "Off",
+      "statusAttention": "Needs fixing",
+      "statusCount": "{on} of {total} on",
+      "sectionsNav": "Settings sections",
+      "unsaved": "Unsaved changes",
+      "allSaved": "All changes saved",
+      "discard": "Discard changes",
+      "dismiss": "Dismiss",
+      "announcementType": "Announcement",
+      "testing": "Sending…",
+      "noChannels": "The bot cannot post in any channel of this server: give it the View Channel, Send Messages and Embed Links permissions in at least one channel, then reload this page.",
+      "autoRolesNoneSelectable": "No role can be chosen yet: every role is above the bot's or yours, managed by an integration, or carries moderation permissions."
     },
     "botAdmin": {
       "title": "Bot administration",

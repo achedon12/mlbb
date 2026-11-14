@@ -2,7 +2,10 @@
 
 import { Fragment, useId, type ReactNode } from "react";
 import { useT } from "@/i18n/provider";
+import type { Locale } from "@/i18n/config";
+import { GREETING_DEFAULTS } from "@/lib/bot/greeting-defaults";
 import { GREETING_KINDS, GREETING_MAX_LENGTH, GREETING_PLACEHOLDERS, type GreetingKind } from "@/lib/bot/kinds";
+import { FIELD, HELP, LABEL, Notice, StatusBadge, Toggle } from "@/components/bot/dashboard-ui";
 import { cn } from "@/lib/utils";
 
 /**
@@ -12,8 +15,8 @@ import { cn } from "@/lib/utils";
  *
  * The preview fills the placeholders the way the bot does
  * (`bot/src/embeds/greetings.ts`), with the signed-in user as the member.
- * The default text shown here is the page's language; the bot posts its
- * own in the server's language.
+ * The default text and the member count follow the server's language, as
+ * chosen in the form: what is shown is what the bot will post.
  */
 
 export type GreetingValue = { channelId: string | null; message: string | null };
@@ -21,13 +24,12 @@ export type GreetingSample = { user: string; avatarUrl: string | null; server: s
 
 type Channel = { id: string; name: string };
 
-const FIELD = "bevel-sm w-full border border-night-700 bg-night-900 px-3 py-2 text-sm text-chalk-100 outline-none transition-colors focus:border-gold-500";
 
 /** Placeholder names as the help lists them, `{user}` → `user`. */
 const NAMES = GREETING_PLACEHOLDERS.map((p) => p.slice(1, -1));
 
 /** The text as the bot would write it, `{user}` as a mention pill, `**bold**` in bold. */
-function Preview({ kind, text, sample, locale }: { kind: GreetingKind; text: string; sample: GreetingSample; locale: string }) {
+function Preview({ kind, text, sample, locale }: { kind: GreetingKind; text: string; sample: GreetingSample; locale: Locale }) {
   const values: Record<string, ReactNode> = {
     user: kind === "welcome" ? <span className="rounded bg-azure-500/25 px-1 text-azure-400">@{sample.user}</span> : sample.user,
     username: sample.user,
@@ -45,7 +47,7 @@ function Preview({ kind, text, sample, locale }: { kind: GreetingKind; text: str
     return <Fragment key={i}>{part}</Fragment>;
   });
   return (
-    <div className="flex gap-3 border-l-4 border-gold-500 bg-night-950/70 p-3 text-sm text-chalk-100">
+    <div className="flex gap-3 border-l-4 border-gold-500 bg-night-950 p-3 text-base leading-relaxed text-chalk-100">
       <p className="min-w-0 flex-1 whitespace-pre-wrap break-words">{nodes}</p>
       {kind === "welcome" && sample.avatarUrl ? (
         // eslint-disable-next-line @next/next/no-img-element -- Discord CDN avatar, already sized by the CDN
@@ -70,103 +72,108 @@ function GreetingCard({
   failing: boolean;
   channels: Channel[];
   sample: GreetingSample;
-  locale: string;
+  locale: Locale;
   onChange: (value: GreetingValue) => void;
   test: ReactNode;
 }) {
   const t = useT();
   const ids = useId();
   const on = value.channelId !== null;
-  const fallback =
-    kind === "welcome"
-      ? t("pages.botUI.welcomeDefault", { user: "{user}", server: "{server}", count: "{count}" })
-      : t("pages.botUI.goodbyeDefault", { username: "{username}" });
+  // The text the bot posts without one of the owner's: in the server's
+  // language (the form's select), not the page's.
+  const fallback = GREETING_DEFAULTS[locale][kind];
   const text = value.message?.trim() ? value.message : fallback;
   const length = value.message?.length ?? 0;
 
   return (
-    <div className="bevel-sm border border-night-700/70 bg-night-900/60 p-4">
-      <p className="font-heading font-bold text-gold-400">{t(`pages.botUI.greetingKinds.${kind}`)}</p>
-      {failing && on && (
-        <p role="alert" className="mt-1 text-sm text-blood-400">
-          {t("pages.botUI.failing")}
-        </p>
-      )}
-      <label className="mt-3 flex items-center gap-2 text-sm text-chalk-100">
-        <input
-          type="checkbox"
+    <div className={cn("bevel-sm border bg-night-850/60 p-4", failing && on ? "border-blood-400/70" : "border-night-700")}>
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+        <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`pages.botUI.greetingKinds.${kind}`)}</h3>
+        <StatusBadge state={on ? { kind: "on", text: t("pages.botUI.statusOn") } : { kind: "off", text: t("pages.botUI.statusOff") }} />
+      </div>
+      <div className="mt-2">
+        <Toggle
           checked={on}
           disabled={!on && !channels.length}
-          onChange={(e) => onChange({ ...value, channelId: e.target.checked ? (channels[0]?.id ?? null) : null })}
-          className="size-4 accent-gold-500"
-        />
-        {t(`pages.botUI.greetingToggles.${kind}`)}
-      </label>
+          onChange={(checked) => onChange({ ...value, channelId: checked ? (channels[0]?.id ?? null) : null })}
+        >
+          {t(`pages.botUI.greetingToggles.${kind}`)}
+        </Toggle>
+      </div>
+      {failing && on ? (
+        <div className="mt-3">
+          <Notice tone="error">{t("pages.botUI.failing")}</Notice>
+        </div>
+      ) : null}
 
       {on && (
-        <div className="mt-3 space-y-3">
-          <div className="max-w-sm">
-            <label htmlFor={`${ids}-channel`} className="text-xs font-semibold text-chalk-300">
-              {t("pages.botUI.channel")}
-            </label>
-            <select
-              id={`${ids}-channel`}
-              value={value.channelId ?? ""}
-              onChange={(e) => onChange({ ...value, channelId: e.target.value || null })}
-              className={cn(FIELD, "mt-1")}
-            >
-              {channels.map((c) => (
-                <option key={c.id} value={c.id}>
-                  #{c.name}
-                </option>
-              ))}
-            </select>
-          </div>
+        <div className="mt-4 grid gap-5 lg:grid-cols-2">
+          <div className="space-y-4">
+            <div>
+              <label htmlFor={`${ids}-channel`} className={LABEL}>
+                {t("pages.botUI.channel")}
+              </label>
+              <select
+                id={`${ids}-channel`}
+                value={value.channelId ?? ""}
+                onChange={(e) => onChange({ ...value, channelId: e.target.value || null })}
+                className={cn(FIELD, "mt-1.5")}
+              >
+                {channels.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    #{c.name}
+                  </option>
+                ))}
+              </select>
+            </div>
 
-          <div>
-            <label htmlFor={`${ids}-message`} className="text-xs font-semibold text-chalk-300">
-              {t("pages.botUI.customMessage")}
-            </label>
-            <textarea
-              id={`${ids}-message`}
-              value={value.message ?? ""}
-              maxLength={GREETING_MAX_LENGTH}
-              rows={3}
-              placeholder={fallback}
-              aria-describedby={`${ids}-help`}
-              onChange={(e) => onChange({ ...value, message: e.target.value || null })}
-              className={cn(FIELD, "mt-1 resize-y")}
-            />
-            <div id={`${ids}-help`} className="mt-1 flex flex-wrap items-start justify-between gap-x-4 gap-y-1 text-xs text-chalk-500">
-              <div>
-                <p>{t("pages.botUI.customHelp")}</p>
-                <ul className="mt-1 space-y-0.5">
-                  {NAMES.map((name) => (
-                    <li key={name}>
-                      <code className="text-chalk-300">{`{${name}}`}</code> {t(`pages.botUI.placeholders.${name}`)}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <span className="tabular-nums">
+            <div>
+              <label htmlFor={`${ids}-message`} className={LABEL}>
+                {t("pages.botUI.customMessage")}
+              </label>
+              <textarea
+                id={`${ids}-message`}
+                name={`${kind}-message`}
+                autoComplete="off"
+                value={value.message ?? ""}
+                maxLength={GREETING_MAX_LENGTH}
+                rows={4}
+                placeholder={fallback}
+                aria-describedby={`${ids}-help ${ids}-count`}
+                onChange={(e) => onChange({ ...value, message: e.target.value || null })}
+                className={cn(FIELD, "mt-1.5 resize-y leading-relaxed")}
+              />
+              <p id={`${ids}-count`} className="mt-1 text-right text-sm tabular-nums text-chalk-400">
                 {length}/{GREETING_MAX_LENGTH}
-              </span>
+              </p>
+              <div id={`${ids}-help`} className={HELP}>
+                <p>{t("pages.botUI.customHelp")}</p>
+                <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
+                  {NAMES.map((name) => (
+                    <Fragment key={name}>
+                      <dt>
+                        <code translate="no" className="bevel-sm bg-night-800 px-1.5 py-0.5 text-chalk-100">{`{${name}}`}</code>
+                      </dt>
+                      <dd>{t(`pages.botUI.placeholders.${name}`)}</dd>
+                    </Fragment>
+                  ))}
+                </dl>
+              </div>
             </div>
           </div>
 
-          <div>
-            <p className="text-xs font-semibold text-chalk-300">{t("pages.botUI.preview")}</p>
-            <div className="mt-1">
-              <Preview kind={kind} text={text} sample={sample} locale={locale} />
-            </div>
+          <div className="space-y-3">
+            <p className={LABEL}>{t("pages.botUI.preview")}</p>
+            <Preview kind={kind} text={text} sample={sample} locale={locale} />
+            {test}
           </div>
-          {test}
         </div>
       )}
     </div>
   );
 }
 
+/** The welcome and goodbye cards, inside their section of the form. */
 export function GreetingsFieldset({
   value,
   failing,
@@ -180,30 +187,27 @@ export function GreetingsFieldset({
   failing: ReadonlySet<GreetingKind>;
   channels: Channel[];
   sample: GreetingSample;
-  locale: string;
+  locale: Locale;
   onChange: (kind: GreetingKind, value: GreetingValue) => void;
   testButton: (kind: GreetingKind) => ReactNode;
 }) {
   const t = useT();
   return (
-    <fieldset>
-      <legend className="font-heading text-lg font-bold text-chalk-100">{t("pages.botUI.greetingsTitle")}</legend>
-      <p className="mt-1 text-sm text-chalk-500">{t("pages.botUI.greetingsLead")}</p>
-      <div className="mt-4 grid gap-3">
-        {GREETING_KINDS.map((kind) => (
-          <GreetingCard
-            key={kind}
-            kind={kind}
-            value={value[kind]}
-            failing={failing.has(kind)}
-            channels={channels}
-            sample={sample}
-            locale={locale}
-            onChange={(v) => onChange(kind, v)}
-            test={testButton(kind)}
-          />
-        ))}
-      </div>
-    </fieldset>
+    <div className="grid gap-4">
+      {!channels.length ? <Notice tone="warning">{t("pages.botUI.noChannels")}</Notice> : null}
+      {GREETING_KINDS.map((kind) => (
+        <GreetingCard
+          key={kind}
+          kind={kind}
+          value={value[kind]}
+          failing={failing.has(kind)}
+          channels={channels}
+          sample={sample}
+          locale={locale}
+          onChange={(v) => onChange(kind, v)}
+          test={testButton(kind)}
+        />
+      ))}
+    </div>
   );
 }

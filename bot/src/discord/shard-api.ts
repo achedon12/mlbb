@@ -1,5 +1,15 @@
 import { ChannelType, PermissionFlagsBits, RESTJSONErrorCodes, type Client, type Guild } from "discord.js";
 import { fromDiscordLocale } from "../i18n/index.js";
+import {
+  granterFacts,
+  granterRefusal,
+  NOT_A_MEMBER,
+  roleFacts,
+  roleRefusal,
+  type GranterFacts,
+  type GranterRefusal,
+  type RoleRefusal,
+} from "./auto-roles.js";
 import type { GuildSummary } from "../site/internal-api.js";
 
 /**
@@ -15,6 +25,21 @@ export interface ChannelChoice {
   type: "text" | "announcement";
 }
 
+/** A role for the dashboard: `assignable` as an auto-role, or why not. */
+export interface RoleChoice {
+  id: string;
+  name: string;
+  assignable: boolean;
+  refusal: RoleRefusal | null;
+}
+
+/** The pickers' lists, and whether the bot holds Manage Roles (auto-roles need it). */
+export interface GuildLists {
+  channels: ChannelChoice[];
+  roles: RoleChoice[];
+  manageRoles: boolean;
+}
+
 export interface ShardStats {
   id: number;
   status: number;
@@ -26,8 +51,16 @@ export interface ShardApi {
   guildSummaries(): GuildSummary[];
   manageableGuilds(userId: string): Promise<{ id: string; name: string; icon: string | null }[]>;
   isManageable(guildId: string, userId: string): Promise<boolean>;
-  channels(guildId: string): Promise<{ channels: ChannelChoice[]; roles: { id: string; name: string }[] } | null>;
+  channels(guildId: string): Promise<GuildLists | null>;
+  /** Which roles this person may hand out through the bot; null: server not here. */
+  grantable(guildId: string, userId: string): Promise<Grantable | null>;
   stats(): ShardStats;
+}
+
+/** Per role (every one but @everyone), may this person give it? */
+export interface Grantable {
+  member: boolean;
+  roles: { id: string; refusal: GranterRefusal | null }[];
 }
 
 declare module "discord.js" {
@@ -61,6 +94,20 @@ async function canManage(guild: Guild, userId: string): Promise<boolean> {
     return member.permissions.has(PermissionFlagsBits.ManageGuild);
   } catch (error) {
     if ((error as { code?: number }).code === RESTJSONErrorCodes.UnknownMember) return false;
+    throw error;
+  }
+}
+
+/**
+ * The facts deciding which roles this person may give (see
+ * `granterRefusal`), from the member fetched live by id, not cached.
+ */
+export async function fetchGranter(guild: Guild, userId: string): Promise<GranterFacts> {
+  try {
+    const member = await guild.members.fetch({ user: userId, cache: false, force: true });
+    return granterFacts(guild, member);
+  } catch (error) {
+    if ((error as { code?: number }).code === RESTJSONErrorCodes.UnknownMember) return NOT_A_MEMBER;
     throw error;
   }
 }
@@ -103,13 +150,30 @@ export function createShardApi(client: Client): ShardApi {
         .filter((c) => c.permissionsFor(me)?.has(needed) ?? false)
         .sort((a, b) => ("position" in a && "position" in b ? a.position - b.position : 0))
         .map((c) => ({ id: c.id, name: c.name, type: c.type === ChannelType.GuildAnnouncement ? ("announcement" as const) : ("text" as const) }));
-      // Managed roles (bots, boosts) cannot be pinged usefully; @everyone is never offered.
+      // @everyone is never offered. Managed roles (bots, boosts) are listed
+      // for the auto-role picker, refused there; the site never offers them
+      // as a mention. `assignable` follows the very rules applied before
+      // every assignment (discord/auto-roles.ts).
       const roles = guild.roles.cache
-        .filter((r) => r.id !== guild.id && !r.managed)
+        .filter((r) => r.id !== guild.id)
         .sort((a, b) => b.position - a.position)
-        .map((r) => ({ id: r.id, name: r.name }))
+        .map((r) => {
+          const refusal = roleRefusal(roleFacts(r, me));
+          return { id: r.id, name: r.name, assignable: refusal === null, refusal };
+        })
         .slice(0, 250);
-      return { channels: channels.slice(0, 500), roles };
+      return { channels: channels.slice(0, 500), roles, manageRoles: me.permissions.has(PermissionFlagsBits.ManageRoles) };
+    },
+
+    async grantable(guildId, userId) {
+      const guild = client.guilds.cache.get(guildId);
+      if (!guild?.available) return null;
+      const granter = await fetchGranter(guild, userId);
+      const roles = guild.roles.cache
+        .filter((r) => r.id !== guild.id)
+        .map((r) => ({ id: r.id, refusal: granterRefusal(granter, r.id) }))
+        .slice(0, 250);
+      return { member: granter.member, roles };
     },
 
     stats: () => ({

@@ -93,17 +93,21 @@ Everything is free: no plans, no paywall, no payment code.
 - Bot invite permissions, least privilege: View Channels, Send Messages,
   Send Messages in Threads, Embed Links, Attach Files, Read Message History,
   Use External Emojis, Add Reactions. Scopes `bot applications.commands`.
-  No Administrator.
+  No Administrator. **Not Manage Roles either**: the auto-roles need it,
+  and a server's admin who turns them on grants it (and drags the bot's
+  role above the roles to give); the dashboard says so when it is missing.
 - Intents: `Guilds`, plus one privileged intent, `GuildMembers`, for a
   single purpose: the `guildMemberAdd` / `guildMemberRemove` events behind
-  the welcome and goodbye messages. The bot never lists or fetches members
+  the welcome and goodbye messages and the auto-roles (plus
+  `guildMemberUpdate`, for a member passing membership screening). The
+  bot never lists or fetches members
   with it and stores nothing about them; the member cache stays empty.
   Never `MessageContent`, never presences. It needs **Server Members
   Intent** switched on in the developer portal (Bot > Privileged Gateway
   Intents; Discord's review once the bot is past 100 servers). Each shard
   reads the application's flags before connecting: without the switch it
   connects with `Guilds` alone and logs a warning, and only those two
-  messages are off. A 4014 close (intent refused anyway) makes the shard
+  messages and the auto-roles are off. A 4014 close (intent refused anyway) makes the shard
   log the same warning and exit; its respawn connects without it.
 - No personal data beyond Discord ids/names needed for features; documented
   on `/bot/privacy`; `/bot` data deleted when the bot leaves a server
@@ -121,7 +125,11 @@ Everything is free: no plans, no paywall, no payment code.
   welcome and goodbye messages, `welcomeChannelId` / `goodbyeChannelId`
   (nullable = off, the default), `welcomeMessage` / `goodbyeMessage`
   (nullable = the default text, at most 500 characters) and
-  `welcomeFailing` / `goodbyeFailing`.
+  `welcomeFailing` / `goodbyeFailing`; for the auto-roles, `autoRoleIds`
+  (people) and `botAutoRoleIds` (bots), each 0 to 3 role ids (empty = off,
+  the default), one `autoRoleFailing` with its `autoRoleFailReason`
+  (`bot` or `granter`), and `autoRolesConfiguredBy`, the Discord id of the
+  manager who chose them.
 - `Announcement`: id, type, key (e.g. patch version, skin id), payload
   (JSON), createdAt. Unique (type, key).
 - `Delivery`: announcementId + guildId (composite PK), status, messageId,
@@ -139,10 +147,16 @@ Everything is free: no plans, no paywall, no payment code.
   Full sync on bot ready marks absent guilds as left.
 - `POST /api/bot/guilds/:id/join`, `POST /api/bot/guilds/:id/leave`.
 - `GET  /api/bot/guilds/:id/settings` → settings (defaults if none),
-  `welcome` and `goodbye` included as `{channelId, message, failing}`.
+  `welcome` and `goodbye` included as `{channelId, message, failing}`,
+  `autoRoles` as `{roleIds, botRoleIds, failing, failReason, configuredBy}`.
 - `POST /api/bot/guilds/:id/greeting-failure` — `{kind: "welcome"|"goodbye"}`:
   the bot could not post that message (channel gone, permission lost); it
   is marked failing, and the bot skips it until the settings are saved.
+- `POST /api/bot/guilds/:id/auto-role-failure` — `{reason: "bot"|"granter"}`:
+  the bot could not give the auto-roles (`bot`: Manage Roles lost, a role
+  gone, moved above it or given a dangerous permission; `granter`: the
+  manager who chose them left or can no longer give them); same rule,
+  until the settings are saved.
 - `GET  /api/bot/announcements/pending` → announcements with the guilds and
   channels still to deliver (the site creates announcements from its own
   data: new patch in `patches.json`, new skins in `skins.json`, events,
@@ -171,7 +185,14 @@ Everything is free: no plans, no paywall, no payment code.
   ManageGuild and the bot is present (id, name, icon).
 - `GET  /internal/guilds/:id/manageable?user=<id>` → `{ manageable: boolean }`.
 - `GET  /internal/guilds/:id/channels` → text/announcement channels the bot
-  can post in, and roles (for the dashboard pickers).
+  can post in, and roles (for the dashboard pickers): every role but
+  @everyone, each with `assignable` and `refusal` (`managed`, `above_bot`,
+  `dangerous`, or null), and `manageRoles` (does the bot hold it). Managed
+  roles are never offered as a mention.
+- `GET  /internal/guilds/:id/can-assign?user=<id>` → `{member, roles:
+  [{id, refusal}]}`: which roles that user may have the bot give, the
+  member fetched live (`refusal`: `not_member`, `no_manage_roles`,
+  `above_user`, or null).
 - `POST /internal/announcements/flush` → deliver pending now (called by the
   site after it creates announcements).
 - `POST /internal/test-post` `{guildId, channelId, locale}` → posts a test
@@ -266,6 +287,55 @@ gold embed (the newcomer's avatar as thumbnail on a welcome).
   gone or no longer lets the bot post is skipped, logged at warn and
   reported to `POST /api/bot/guilds/:id/greeting-failure`.
 
+## Auto-roles
+
+Given by the shard that receives the member event, in one
+`member.roles.add([...], "MLBBDex auto-role")` call: `autoRoleIds` to a
+person who joins, `botAutoRoleIds` to a bot that is added (never the other
+list). Off until a role is chosen.
+
+- Never escalate: before every assignment the bot checks, against its
+  cache, that it holds Manage Roles and that each role is below its highest
+  role, not managed (integration, bot, booster), not @everyone, and has
+  none of Administrator, Manage Server, Manage Roles, Manage Channels, Ban
+  Members, Kick Members, Moderate Members, Manage Webhooks, Mention
+  Everyone. The dashboard lists only those as choices (the others shown
+  disabled with the reason), and the save asks the bot for the same list on
+  that request and refuses any other id: another server's role, a typed
+  id, a dangerous one.
+- No confused deputy: Manage Server opens the dashboard, it does not let
+  anyone hand out roles. Whoever sets the lists must be able to give every
+  role themselves (owner, or Manage Roles and the role strictly below
+  their highest role), asked live to the bot (`can-assign`) on the save;
+  otherwise the save is refused ("auto-roles not grantable") and the
+  pickers already show those roles disabled with the reason. The saver
+  becomes `autoRolesConfiguredBy`. Lists left unchanged are not checked
+  again, so another manager can still save other settings; when they are
+  failing, a saver who can give them takes them over and clears the flag,
+  one who cannot leaves them failing. Before every assignment the bot
+  checks that this manager is still a member who could give them (member
+  lookup cached 5 minutes per server and manager); if not, nothing is
+  given and the auto-roles are marked failing with the reason `granter`,
+  which the dashboard explains.
+- Membership screening: Discord refuses a role to a member still
+  `pending` (rules not accepted yet). Such a member is remembered in
+  memory (server and member id, 24 hours at most, 10,000 per shard) and
+  given the roles when Discord reports `pending` false. That arrives as
+  `guildMemberUpdate`, or as `guildMemberAvailable` when the member is out
+  of the (one-entry) member cache, so the bot cannot compare old and new
+  itself; a later update of a member it does not remember gives nothing,
+  so a role an admin removed is not given back. A restart forgets those
+  members: they get no auto-roles. Bots skip screening and get theirs at
+  once.
+- Raids: one queue per shard, 2 assignments at a time (@discordjs/rest
+  waits out the rate limits), capped at 2,000 members waiting; past that a
+  member is skipped and logged. There is nothing to coalesce, unlike the
+  greetings: each member needs their own call.
+- Failures: a refused check or Discord's Missing Permissions marks the
+  auto-roles failing (`POST /api/bot/guilds/:id/auto-role-failure`, warn
+  log); the bot skips them until the settings are saved. A member who left
+  already, an outage or a 5xx is only logged.
+
 ## Site pages
 
 - `/[locale]/bot` — landing: what it does, live server count, command list
@@ -276,8 +346,9 @@ gold embed (the newcomer's avatar as thumbnail on a welcome).
   manageable servers (and "add the bot" for the others), per-server form:
   language, announcement channels + role per type, daily games channel and
   hour, welcome and goodbye messages (on/off, channel, optional text with
-  the placeholders and a live preview), "send a test" buttons, delivery
-  health.
+  the placeholders and a live preview), auto-roles (on/off, up to 3 roles
+  for members and 3 for bots, a warning when the bot lacks Manage Roles or
+  a role is above its own), "send a test" buttons, delivery health.
 - `/[locale]/bot/admin` — super admins: servers (count, joins/leaves per
   day, biggest servers, locales), commands (top commands, error rate,
   p95 duration, per day 24h/7d/30d), announcements (delivered/failed),
@@ -342,10 +413,12 @@ deployment without the bot.
   (every command has every locale, every i18n key in every file),
   embed builders, signing, delivery retry/backoff, listing poster, and the
   welcome and goodbye messages (placeholders, sanitising, allowed
-  mentions, raid coalescing with fake timers, failing channels, intents).
+  mentions, raid coalescing with fake timers, failing channels, intents),
+  and the auto-roles (dangerous permissions, hierarchy and managed roles,
+  people and bots apart, pending members, the raid queue, failures).
 - Site, against a real Postgres (`tests/functional/bot-database.test.ts`,
   skipped without `TEST_DATABASE_URL`): bulk guild sync and deliveries,
   pending targets, daily servers by hour, leaderboard and admin aggregates,
-  the welcome and goodbye settings (migration defaults, signed read,
-  failing flag).
+  the welcome and goodbye settings and the auto-roles (migration
+  defaults, signed read, failing flag).
 - Both: `npm run typecheck`, `npm run lint`, `npm test`, build.

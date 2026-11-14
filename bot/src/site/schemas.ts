@@ -45,6 +45,37 @@ const greetingSetting = z
   .catch({ channelId: null, message: null, failing: false });
 export type GreetingSetting = z.infer<typeof greetingSetting>;
 
+/** The site's cap on each auto-role list; the bot never gives more than this. */
+export const MAX_AUTO_ROLES = 3;
+
+/** Snowflakes only, each once, at most 3: anything else in the list is dropped. */
+const roleList = z
+  .array(z.unknown())
+  .transform((ids) => [...new Set(ids.filter((id): id is string => typeof id === "string" && SNOWFLAKE.test(id)))].slice(0, MAX_AUTO_ROLES))
+  .catch([]);
+
+/**
+ * Roles given to newcomers: `roleIds` to people, `botRoleIds` to bots.
+ * Unreadable, they are off: a role nobody chose must never be given.
+ */
+const autoRoleSetting = z
+  .object({
+    roleIds: roleList,
+    botRoleIds: roleList.default([]),
+    failing: z.boolean().catch(false),
+    // Who chose them: the bot gives only what that person could give.
+    configuredBy: snowflake.nullable().catch(null).default(null),
+  })
+  .catch({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null });
+export type AutoRoleSetting = z.infer<typeof autoRoleSetting>;
+/**
+ * Why auto-roles stopped: `bot`, the bot may not give them (Manage Roles
+ * lost, a role moved or made dangerous); `granter`, the manager who chose
+ * them left or could no longer give them.
+ */
+export const AUTO_ROLE_FAILURES = ["bot", "granter"] as const;
+export type AutoRoleFailure = (typeof AUTO_ROLE_FAILURES)[number];
+
 export const guildSettings = unwrap(
   z.preprocess(
     // Settings may list the announcement types at the top level or under
@@ -66,6 +97,7 @@ export const guildSettings = unwrap(
       // Absent from an older site: off.
       welcome: greetingSetting.default({ channelId: null, message: null, failing: false }),
       goodbye: greetingSetting.default({ channelId: null, message: null, failing: false }),
+      autoRoles: autoRoleSetting.default({ roleIds: [], botRoleIds: [], failing: false, configuredBy: null }),
     }),
   ),
 );
@@ -81,6 +113,7 @@ export const DEFAULT_SETTINGS: GuildSettings = {
   dailyHourUtc: 12,
   welcome: { channelId: null, message: null, failing: false },
   goodbye: { channelId: null, message: null, failing: false },
+  autoRoles: { roleIds: [], botRoleIds: [], failing: false, configuredBy: null },
 };
 
 export const announcementTarget = z.object({

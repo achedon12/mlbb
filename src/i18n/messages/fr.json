@@ -3436,7 +3436,8 @@
       "retention": "Quand le bot quitte un serveur, ses données sont supprimées 30 jours plus tard, avec les résultats de ses joueurs (un retour du bot dans ce délai retrouve les réglages). Les statistiques de commandes sont supprimées après 90 jours.",
       "rightsTitle": "Vos droits",
       "rights": "Pour consulter ou faire supprimer les données liées à votre identifiant Discord ou à votre serveur, écrivez à [{contact}](mailto:{contact}). Retirer le bot du serveur lance la suppression automatique.",
-      "sitePrivacy": "Confidentialité du site"
+      "sitePrivacy": "Confidentialité du site",
+      "autoRoles": "Rôles automatiques : si le serveur en a choisi, le bot donne ces rôles à qui arrive, avec la permission Gérer les rôles que les administrateurs du serveur lui accordent ; un membre qui doit encore accepter les règles du serveur n'est retenu (son identifiant, en mémoire, au plus 24 heures) que le temps de les accepter, et rien n'est enregistré."
     },
     "botTerms": {
       "title": "Conditions d'utilisation du bot Discord",
@@ -3447,11 +3448,12 @@
       "p3": "Ne détournez pas le bot : pas d'automatisation abusive des commandes, pas de tentative d'accès aux réglages d'un serveur que vous ne gérez pas. Le service peut être limité ou retiré d'un serveur qui en abuse.",
       "p4": "Le service peut évoluer, être interrompu ou arrêté à tout moment. Les règles de Discord (conditions d'utilisation et règles de la communauté) s'appliquent à son usage.",
       "p5": "Les données conservées sont décrites sur la page de confidentialité du bot. Pour toute question : [{contact}](mailto:{contact}).",
-      "p6": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages."
+      "p6": "Les messages de bienvenue et de départ sont rédigés par les gestionnaires du serveur, qui répondent de leur contenu ; le bot y neutralise les mentions de masse et de rôles. Les arrivées et départs de membres ne servent qu'à publier ces messages.",
+      "p7": "Les rôles automatiques sont choisis par les gestionnaires du serveur ; le bot refuse de donner un rôle placé au-dessus du sien, géré par une intégration ou portant une permission de modération ou d'administration."
     },
     "botDashboard": {
       "title": "Tableau de bord du bot",
-      "lead": "Réglez le bot pour chacun de vos serveurs : langue, annonces et jeux du jour.",
+      "lead": "Réglez le bot pour chacun de vos serveurs : langue, annonces, jeux du jour, messages de bienvenue et rôles automatiques.",
       "login": "Se connecter avec Discord",
       "loginLead": "Connectez-vous avec Discord pour voir les serveurs que vous gérez. Seul votre identifiant est lu : aucun accès à vos messages ni à vos serveurs.",
       "loginFailed": "La connexion n'a pas abouti. Réessayez.",
@@ -3461,7 +3463,7 @@
       "serversLead": "Les serveurs où vous avez la permission Gérer le serveur et où le bot est présent.",
       "noServers": "Aucun serveur à régler pour l'instant : ajoutez le bot à un serveur que vous gérez.",
       "addBot": "Ajouter le bot à un serveur",
-      "manage": "Régler",
+      "manage": "Configurer",
       "unreachable": "Le bot ne répond pas pour le moment. Réessayez dans quelques minutes.",
       "back": "Tous vos serveurs",
       "notAllowed": "Ce serveur n'est pas dans la liste de ceux que vous gérez.",
@@ -3474,7 +3476,12 @@
         "forbidden": "Permission refusée"
       },
       "members": "{count} membres",
-      "admin": "Panneau d'administration"
+      "admin": "Panneau d'administration",
+      "loginTitle": "Connectez-vous pour régler le bot",
+      "addBotLead": "Un serveur que vous gérez n'apparaît pas ? Invitez-y MLBBDex, puis revenez ici.",
+      "botPresent": "MLBBDex est sur ce serveur",
+      "noManageRoles": "Sans la permission Gérer les rôles",
+      "deliveriesLead": "Les dernières annonces publiées sur ce serveur, et celles qui ont échoué."
     },
     "botUI": {
       "language": "Langue du bot sur ce serveur",
@@ -3527,8 +3534,44 @@
         "count": "le nombre de membres"
       },
       "preview": "Aperçu",
-      "welcomeDefault": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
-      "goodbyeDefault": "**{username}** a quitté le serveur."
+      "autoRolesTitle": "Rôles automatiques",
+      "autoRolesLead": "Des rôles donnés automatiquement à chaque personne qui rejoint le serveur, et d'autres aux bots ajoutés. Si votre serveur demande d'accepter ses règles, le membre reçoit ses rôles une fois qu'il les a acceptées.",
+      "autoRolesToggle": "Donner des rôles aux membres qui arrivent",
+      "autoRolesTargets": {
+        "humans": "Rôles des membres",
+        "bots": "Rôles des bots"
+      },
+      "autoRolesNone": "Aucun",
+      "autoRolesHelp": "3 rôles au plus pour chacun. Un rôle avec une permission de modération ou d'administration n'est jamais donné.",
+      "autoRolesNoPermission": "MLBBDex n'a pas la permission Gérer les rôles : donnez à MLBBDex la permission Gérer les rôles et glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "autoRolesAbove": "Certains rôles sont au-dessus de celui de MLBBDex et ne peuvent pas être donnés : glissez son rôle au-dessus des rôles à donner (Paramètres du serveur > Rôles), puis rechargez cette page.",
+      "autoRolesFailing": "Le bot n'a pas pu donner ces rôles à la dernière arrivée : vérifiez sa permission Gérer les rôles et la place de son rôle, puis enregistrez.",
+      "autoRoleRefusals": {
+        "managed": "géré par une intégration",
+        "above_bot": "au-dessus du bot",
+        "dangerous": "permissions de modération",
+        "not_member": "vous n'êtes pas membre",
+        "no_manage_roles": "il vous faut Gérer les rôles",
+        "above_user": "au-dessus de votre rôle"
+      },
+      "autoRolesFailingGranter": "Le membre qui a choisi ces rôles a quitté le serveur ou ne peut plus les donner lui-même : un gestionnaire qui a la permission Gérer les rôles, avec un rôle au-dessus de ceux-ci, doit enregistrer à nouveau.",
+      "autoRolesNotGrantable": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "languageTitle": "Langue",
+      "languageLead": "La langue dans laquelle le bot répond et publie sur ce serveur, messages de bienvenue compris.",
+      "dailyLead": "Le MLBBdle et le quiz du jour, publiés une fois par jour avec un bouton Jouer.",
+      "statusOn": "Activé",
+      "statusOff": "Désactivé",
+      "statusAttention": "À corriger",
+      "statusCount": "{on} sur {total} activés",
+      "sectionsNav": "Parties des réglages",
+      "unsaved": "Modifications non enregistrées",
+      "allSaved": "Tout est enregistré",
+      "discard": "Annuler les modifications",
+      "dismiss": "Fermer",
+      "announcementType": "Annonce",
+      "testing": "Envoi…",
+      "noChannels": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
+      "autoRolesNoneSelectable": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération."
     },
     "botAdmin": {
       "title": "Administration du bot",

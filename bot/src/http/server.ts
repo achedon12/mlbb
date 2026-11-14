@@ -38,6 +38,8 @@ export interface InternalApi {
   manageableGuilds(userId: string): Promise<{ id: string; name: string; icon: string | null }[]>;
   isManageable(guildId: string, userId: string): Promise<boolean>;
   channels(guildId: string): Promise<{ channels: unknown[]; roles: unknown[] } | null>;
+  /** Which roles this user may hand out (auto-roles), the member fetched live. */
+  grantable(guildId: string, userId: string): Promise<{ member: boolean; roles: unknown[] } | null>;
   flush(): Promise<unknown>;
   /** Without `greeting`, the announcement test post. */
   testPost(guildId: string, channelId: string, locale: Locale, greeting?: GreetingTest): Promise<{ ok: boolean; error?: string }>;
@@ -183,6 +185,10 @@ export function createInternalServer({ secret: given, api, now = Date.now }: Ser
       if (third === "manageable") return send(res, 200, { manageable: await api.isManageable(second, userParam(url)) });
       if (third === "channels") {
         const result = await api.channels(second);
+        return result ? send(res, 200, result) : send(res, 404, { error: "unknown_guild" });
+      }
+      if (third === "can-assign") {
+        const result = await api.grantable(second, userParam(url));
         return result ? send(res, 200, result) : send(res, 404, { error: "unknown_guild" });
       }
     }
