@@ -173,7 +173,7 @@ describe("apiHit", () => {
   });
 
   it("leaves out an address the proxy could not determine", () => {
-    const { actions } = requests(apiHit(call("/api/v1/items", {}, { ip: "unknown" }), { ...CONFIG, token: "t" }));
+    const { actions } = requests(apiHit(call("/api/v1/items", {}, { ip: null }), { ...CONFIG, token: "t" }));
     expect(actions[0]!.has("cip")).toBe(false);
     expect(actions[0]!.has("urlref")).toBe(false);
   });
@@ -255,6 +255,20 @@ describe("proxy", () => {
     expect(response.headers.get("x-middleware-next")).toBe("1");
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(e.pending).toHaveLength(1);
+  });
+
+  it("sends Matomo the address nginx saw, never a forged left-most entry", async () => {
+    configure("tok");
+    const fetch = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+    vi.stubGlobal("fetch", fetch);
+    const send = async (forwarded: string) => {
+      const e = event();
+      proxy(new NextRequest("http://127.0.0.1:3001/api/v1/items", { headers: { "x-forwarded-for": forwarded } }), e);
+      await Promise.all(e.pending);
+      return requests({ body: (fetch.mock.calls.at(-1)! as [string, RequestInit])[1].body as string }).actions[0]!;
+    };
+    expect((await send("1.2.3.4, 198.51.100.4")).get("cip")).toBe("198.51.100.4");
+    expect((await send("1.2.3.4, garbage")).has("cip")).toBe(false);
   });
 
   it("does not track the health probe nor the other API routes", () => {

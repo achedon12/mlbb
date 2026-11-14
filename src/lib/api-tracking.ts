@@ -41,8 +41,8 @@ export type ApiCall = {
   url: URL;
   method: string;
   headers: Headers;
-  /** The caller's address, as the rate limiting sees it; `unknown` when there is none. */
-  ip: string;
+  /** The caller's address from `clientAddress`; `null` when it cannot be trusted. */
+  ip: string | null;
   /** Only when the proxy answered itself (429); otherwise derived from the route. */
   status?: number;
 };
@@ -151,7 +151,7 @@ export function apiHit(
     // address and clock: every caller then looks like one visitor.
     ...(config.token
       ? {
-          cip: call.ip !== "unknown" ? call.ip : undefined,
+          cip: call.ip ?? undefined,
           cdt: String(Math.floor(now / 1000)),
         }
       : {}),

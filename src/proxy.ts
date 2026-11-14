@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextFetchEvent, NextRequest } from "next/server";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/config";
 import { trackApiCall } from "@/lib/api-tracking";
+import { clientAddress } from "@/lib/client-address";
 
 /**
  * Two roles:
@@ -33,7 +34,8 @@ function address(request: NextRequest): string {
 }
 
 /** Never awaited: `waitUntil` lets the hit finish after the response has left. */
-function countApiCall(request: NextRequest, event: NextFetchEvent, ip: string, status?: number) {
+function countApiCall(request: NextRequest, event: NextFetchEvent, status?: number) {
+  const ip = clientAddress(request.headers);
   event.waitUntil(
     trackApiCall({ url: request.nextUrl, method: request.method, headers: request.headers, ip, status }),
   );
@@ -51,7 +53,7 @@ function rateLimitApi(request: NextRequest, event: NextFetchEvent) {
     if (bucket.count > MAX_PER_WINDOW) {
       // Only the first refusal of a window is counted: a client hammering
       // the API would otherwise turn the rate limit into a flood of hits.
-      if (bucket.count === MAX_PER_WINDOW + 1) countApiCall(request, event, ip, 429);
+      if (bucket.count === MAX_PER_WINDOW + 1) countApiCall(request, event, 429);
       const retryAfter = Math.max(1, Math.ceil((bucket.reset - now) / 1000));
       return NextResponse.json(
         { error: "Too many requests. Try again in a moment." },
@@ -62,7 +64,7 @@ function rateLimitApi(request: NextRequest, event: NextFetchEvent) {
   if (buckets.size > 10_000) {
     for (const [key, value] of buckets) if (now > value.reset) buckets.delete(key);
   }
-  countApiCall(request, event, ip);
+  countApiCall(request, event);
   return NextResponse.next();
 }
 
