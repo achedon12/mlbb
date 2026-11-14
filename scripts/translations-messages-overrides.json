@@ -2525,8 +2525,8 @@
       "text": "My MLBB account's estimated value"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "A collection is saved in this browser by the collection tool."
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "A collection is saved by the collection tool, in this browser or on your account."
     },
     "pages.accountValueUI.import": {
       "fr": "Reprendre ma collection",
@@ -3859,6 +3859,218 @@
     "tools.serverTime.group.fil": {
       "fr": "Pays de langue philippine",
       "text": "Filipino-speaking countries"
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Progress"
+    },
+    "pages.collectionUI.pool": {
+      "fr": "Héros",
+      "text": "Heroes"
+    },
+    "pages.collectionUI.pool_all": {
+      "fr": "Tous",
+      "text": "All"
+    },
+    "pages.collectionUI.pool_played": {
+      "fr": "Ceux que je joue",
+      "text": "The ones I play"
+    },
+    "pages.collectionUI.played_loading": {
+      "fr": "Lecture de vos héros de la saison…",
+      "text": "Reading your heroes this season…"
+    },
+    "pages.collectionUI.played_failed": {
+      "fr": "Vos héros joués ne sont pas lisibles pour l'instant : réessayez plus tard.",
+      "text": "Your played heroes cannot be read right now: try again later."
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "No hero played this season."
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Tick the {n} {series} skins"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Untick the {n} {series} skins"
+    },
+    "pages.collectionUI.clearYes": {
+      "fr": "Oui, tout décocher",
+      "text": "Yes, untick everything"
+    },
+    "pages.collectionUI.cancel": {
+      "fr": "Annuler",
+      "text": "Cancel"
+    },
+    "pages.collectionUI.dismiss": {
+      "fr": "Fermer ce message",
+      "text": "Dismiss this message"
+    },
+    "pages.collectionUI.sync_checking": {
+      "fr": "Lecture de votre compte…",
+      "text": "Checking your account…"
+    },
+    "pages.collectionUI.sync_browser": {
+      "fr": "Enregistrée dans ce navigateur.",
+      "text": "Saved in this browser."
+    },
+    "pages.collectionUI.sync_signedOut": {
+      "fr": "Enregistrée dans ce navigateur seulement : connectez-vous pour la retrouver sur vos autres appareils.",
+      "text": "Saved in this browser only: sign in to find it on your other devices."
+    },
+    "pages.collectionUI.syncSignIn": {
+      "fr": "Se connecter",
+      "text": "Sign in"
+    },
+    "pages.collectionUI.sync_saving": {
+      "fr": "Enregistrement sur votre compte…",
+      "text": "Saving to your account…"
+    },
+    "pages.collectionUI.sync_saved": {
+      "fr": "Enregistrée sur votre compte.",
+      "text": "Saved to your account."
+    },
+    "pages.collectionUI.sync_offline": {
+      "fr": "Hors ligne : enregistrée dans ce navigateur, envoyée à votre compte au retour de la connexion.",
+      "text": "Offline: saved in this browser, sent to your account once you are back online."
+    },
+    "pages.collectionUI.sync_retrying": {
+      "fr": "Votre compte ne répond pas : la collection reste enregistrée dans ce navigateur, nouvel essai en cours.",
+      "text": "Your account is not answering: the collection stays saved in this browser, trying again."
+    },
+    "pages.collectionUI.sync_failed": {
+      "fr": "Votre compte a refusé l'enregistrement : la collection reste dans ce navigateur.",
+      "text": "Your account refused the save: the collection stays in this browser."
+    },
+    "pages.collectionUI.notice_elsewhere": {
+      "fr": "Collection mise à jour depuis un autre appareil.",
+      "text": "Collection updated on another device."
+    },
+    "pages.collectionUI.notice_merged": {
+      "fr": "La collection de ce navigateur a été fusionnée avec celle de votre compte.",
+      "text": "This browser's collection was merged with your account's."
+    },
+    "pages.collectionUI.backupTitle": {
+      "fr": "Sauvegarde",
+      "text": "Backup"
+    },
+    "pages.collectionUI.backupLead": {
+      "fr": "Un fichier JSON avec vos héros et vos skins, à garder ou à importer dans un autre navigateur.",
+      "text": "A JSON file with your heroes and skins, to keep or to import into another browser."
+    },
+    "pages.collectionUI.export": {
+      "fr": "Exporter",
+      "text": "Export"
+    },
+    "pages.collectionUI.import": {
+      "fr": "Importer un fichier",
+      "text": "Import a file"
+    },
+    "pages.collectionUI.importFound": {
+      "fr": "Dans ce fichier : héros {heroes}, skins {skins}.",
+      "text": "In this file: heroes {heroes}, skins {skins}."
+    },
+    "pages.collectionUI.importIgnored": {
+      "fr": "{n} entrées inconnues ignorées.",
+      "text": "{n} unknown entries ignored."
+    },
+    "pages.collectionUI.importMerge": {
+      "fr": "Ajouter à ma collection",
+      "text": "Add to my collection"
+    },
+    "pages.collectionUI.importReplace": {
+      "fr": "Remplacer ma collection",
+      "text": "Replace my collection"
+    },
+    "pages.collectionUI.import_merged": {
+      "fr": "Le fichier a été ajouté à votre collection.",
+      "text": "The file was added to your collection."
+    },
+    "pages.collectionUI.import_replaced": {
+      "fr": "Votre collection a été remplacée par le fichier.",
+      "text": "Your collection was replaced by the file."
+    },
+    "pages.collectionUI.import_size": {
+      "fr": "Ce fichier est trop gros pour être une sauvegarde de collection.",
+      "text": "This file is too large to be a collection backup."
+    },
+    "pages.collectionUI.import_json": {
+      "fr": "Ce fichier n'est pas du JSON lisible.",
+      "text": "This file is not readable JSON."
+    },
+    "pages.collectionUI.import_format": {
+      "fr": "Ce fichier n'est pas une sauvegarde de collection MLBBDex.",
+      "text": "This file is not an MLBBDex collection backup."
+    },
+    "pages.collectionUI.import_version": {
+      "fr": "Cette sauvegarde vient d'une version plus récente de l'outil : rechargez la page et réessayez.",
+      "text": "This backup comes from a newer version of the tool: reload the page and try again."
+    },
+    "pages.collectionUI.import_empty": {
+      "fr": "Aucun héros ni skin reconnu dans ce fichier.",
+      "text": "No known hero or skin in this file."
+    },
+    "pages.collectionUI.import_read": {
+      "fr": "Impossible de lire ce fichier.",
+      "text": "This file could not be read."
+    },
+    "pages.collectionUI.shortcutsTitle": {
+      "fr": "Raccourcis clavier",
+      "text": "Keyboard shortcuts"
+    },
+    "pages.collectionUI.shortcut_search": {
+      "fr": "Aller à la recherche",
+      "text": "Go to the search"
+    },
+    "pages.collectionUI.shortcut_views": {
+      "fr": "Tout, possédés, manquants",
+      "text": "All, owned, missing"
+    },
+    "pages.collectionUI.shortcut_played": {
+      "fr": "Ceux que je joue (connecté)",
+      "text": "The ones I play (signed in)"
+    },
+    "pages.collectionUI.shortcut_pages": {
+      "fr": "Page suivante, page précédente",
+      "text": "Next page, previous page"
+    },
+    "pages.collectionUI.shortcut_help": {
+      "fr": "Afficher ou masquer cette aide",
+      "text": "Show or hide this help"
+    },
+    "pages.collectionUI.shortcutsHint": {
+      "fr": "Sans effet pendant la saisie dans un champ.",
+      "text": "Inactive while typing in a field."
+    },
+    "pages.collectionUI.empty": {
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Tick the heroes and skins you own in the list: the total updates as you go and stays saved in this browser, and on your account when you are signed in."
+    },
+    "pages.collection.methodStorage": {
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "Your selection stays in this browser (local storage), with no account needed. Signed in with your game account, it is also saved to your account, so you find it on another device; a backup file takes it wherever you like. Prices are the in-game shop prices listed by the community wiki; discounts and bundles are not counted."
+    },
+    "prose.collection.title": {
+      "fr": "Collection de skins",
+      "text": "Skin collection"
+    },
+    "prose.collection.intro": {
+      "fr": "L'outil de collection garde les héros et les skins que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :",
+      "text": "The collection tool keeps the heroes and skins you tick in your browser (local storage). If you are signed in with your game account, the site's server also keeps, in its database:"
+    },
+    "prose.collection.data": {
+      "fr": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
+      "text": "the same account fingerprint as the community (never your game ID), the list of ticked heroes and skins, and the date of the last save; nothing else, and nothing is shown to anyone."
+    },
+    "prose.collection.usage": {
+      "fr": "Elle sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
+      "text": "It is only used to find your collection on your other devices. The \"the ones I play\" filter reads your heroes of the season from the login service when you turn it on, and keeps nothing."
+    },
+    "prose.collection.deletion": {
+      "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
+      "text": "To empty your account's copy, clear your collection in the tool while signed in; to delete the record itself, write to {contact}."
     }
   },
   "es": {
@@ -6207,8 +6419,8 @@
       "text": "Valor estimado de mi cuenta de MLBB"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "Hay una colección guardada en este navegador por la herramienta de colección."
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "Hay una colección guardada por la herramienta de colección, en este navegador o en tu cuenta."
     },
     "pages.accountValueUI.import": {
       "fr": "Reprendre ma collection",
@@ -7573,6 +7785,218 @@
     "tools.serverTime.group.ru": {
       "fr": "Pays russophones",
       "text": "Países de habla rusa"
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Progreso"
+    },
+    "pages.collectionUI.pool": {
+      "fr": "Héros",
+      "text": "Héroes"
+    },
+    "pages.collectionUI.pool_all": {
+      "fr": "Tous",
+      "text": "Todos"
+    },
+    "pages.collectionUI.pool_played": {
+      "fr": "Ceux que je joue",
+      "text": "Los que juego"
+    },
+    "pages.collectionUI.played_loading": {
+      "fr": "Lecture de vos héros de la saison…",
+      "text": "Leyendo tus héroes de la temporada…"
+    },
+    "pages.collectionUI.played_failed": {
+      "fr": "Vos héros joués ne sont pas lisibles pour l'instant : réessayez plus tard.",
+      "text": "No se pueden leer tus héroes jugados ahora mismo: inténtalo más tarde."
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "Ningún héroe jugado esta temporada."
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Marcar las {n} skins {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Desmarcar las {n} skins {series}"
+    },
+    "pages.collectionUI.clearYes": {
+      "fr": "Oui, tout décocher",
+      "text": "Sí, desmarcar todo"
+    },
+    "pages.collectionUI.cancel": {
+      "fr": "Annuler",
+      "text": "Cancelar"
+    },
+    "pages.collectionUI.dismiss": {
+      "fr": "Fermer ce message",
+      "text": "Cerrar este mensaje"
+    },
+    "pages.collectionUI.sync_checking": {
+      "fr": "Lecture de votre compte…",
+      "text": "Consultando tu cuenta…"
+    },
+    "pages.collectionUI.sync_browser": {
+      "fr": "Enregistrée dans ce navigateur.",
+      "text": "Guardada en este navegador."
+    },
+    "pages.collectionUI.sync_signedOut": {
+      "fr": "Enregistrée dans ce navigateur seulement : connectez-vous pour la retrouver sur vos autres appareils.",
+      "text": "Guardada solo en este navegador: inicia sesión para tenerla en tus otros dispositivos."
+    },
+    "pages.collectionUI.syncSignIn": {
+      "fr": "Se connecter",
+      "text": "Iniciar sesión"
+    },
+    "pages.collectionUI.sync_saving": {
+      "fr": "Enregistrement sur votre compte…",
+      "text": "Guardando en tu cuenta…"
+    },
+    "pages.collectionUI.sync_saved": {
+      "fr": "Enregistrée sur votre compte.",
+      "text": "Guardada en tu cuenta."
+    },
+    "pages.collectionUI.sync_offline": {
+      "fr": "Hors ligne : enregistrée dans ce navigateur, envoyée à votre compte au retour de la connexion.",
+      "text": "Sin conexión: guardada en este navegador, se enviará a tu cuenta al recuperar la conexión."
+    },
+    "pages.collectionUI.sync_retrying": {
+      "fr": "Votre compte ne répond pas : la collection reste enregistrée dans ce navigateur, nouvel essai en cours.",
+      "text": "Tu cuenta no responde: la colección sigue guardada en este navegador, reintentando."
+    },
+    "pages.collectionUI.sync_failed": {
+      "fr": "Votre compte a refusé l'enregistrement : la collection reste dans ce navigateur.",
+      "text": "Tu cuenta rechazó el guardado: la colección sigue en este navegador."
+    },
+    "pages.collectionUI.notice_elsewhere": {
+      "fr": "Collection mise à jour depuis un autre appareil.",
+      "text": "Colección actualizada desde otro dispositivo."
+    },
+    "pages.collectionUI.notice_merged": {
+      "fr": "La collection de ce navigateur a été fusionnée avec celle de votre compte.",
+      "text": "La colección de este navegador se ha combinado con la de tu cuenta."
+    },
+    "pages.collectionUI.backupTitle": {
+      "fr": "Sauvegarde",
+      "text": "Copia de seguridad"
+    },
+    "pages.collectionUI.backupLead": {
+      "fr": "Un fichier JSON avec vos héros et vos skins, à garder ou à importer dans un autre navigateur.",
+      "text": "Un archivo JSON con tus héroes y skins, para guardarlo o importarlo en otro navegador."
+    },
+    "pages.collectionUI.export": {
+      "fr": "Exporter",
+      "text": "Exportar"
+    },
+    "pages.collectionUI.import": {
+      "fr": "Importer un fichier",
+      "text": "Importar un archivo"
+    },
+    "pages.collectionUI.importFound": {
+      "fr": "Dans ce fichier : héros {heroes}, skins {skins}.",
+      "text": "En este archivo: héroes {heroes}, skins {skins}."
+    },
+    "pages.collectionUI.importIgnored": {
+      "fr": "{n} entrées inconnues ignorées.",
+      "text": "{n} entradas desconocidas ignoradas."
+    },
+    "pages.collectionUI.importMerge": {
+      "fr": "Ajouter à ma collection",
+      "text": "Añadir a mi colección"
+    },
+    "pages.collectionUI.importReplace": {
+      "fr": "Remplacer ma collection",
+      "text": "Reemplazar mi colección"
+    },
+    "pages.collectionUI.import_merged": {
+      "fr": "Le fichier a été ajouté à votre collection.",
+      "text": "El archivo se ha añadido a tu colección."
+    },
+    "pages.collectionUI.import_replaced": {
+      "fr": "Votre collection a été remplacée par le fichier.",
+      "text": "Tu colección se ha reemplazado por el archivo."
+    },
+    "pages.collectionUI.import_size": {
+      "fr": "Ce fichier est trop gros pour être une sauvegarde de collection.",
+      "text": "Este archivo es demasiado grande para ser una copia de la colección."
+    },
+    "pages.collectionUI.import_json": {
+      "fr": "Ce fichier n'est pas du JSON lisible.",
+      "text": "Este archivo no es un JSON legible."
+    },
+    "pages.collectionUI.import_format": {
+      "fr": "Ce fichier n'est pas une sauvegarde de collection MLBBDex.",
+      "text": "Este archivo no es una copia de la colección de MLBBDex."
+    },
+    "pages.collectionUI.import_version": {
+      "fr": "Cette sauvegarde vient d'une version plus récente de l'outil : rechargez la page et réessayez.",
+      "text": "Esta copia viene de una versión más reciente de la herramienta: recarga la página y vuelve a intentarlo."
+    },
+    "pages.collectionUI.import_empty": {
+      "fr": "Aucun héros ni skin reconnu dans ce fichier.",
+      "text": "Ningún héroe ni skin reconocido en este archivo."
+    },
+    "pages.collectionUI.import_read": {
+      "fr": "Impossible de lire ce fichier.",
+      "text": "No se ha podido leer este archivo."
+    },
+    "pages.collectionUI.shortcutsTitle": {
+      "fr": "Raccourcis clavier",
+      "text": "Atajos de teclado"
+    },
+    "pages.collectionUI.shortcut_search": {
+      "fr": "Aller à la recherche",
+      "text": "Ir a la búsqueda"
+    },
+    "pages.collectionUI.shortcut_views": {
+      "fr": "Tout, possédés, manquants",
+      "text": "Todo, poseídos, faltantes"
+    },
+    "pages.collectionUI.shortcut_played": {
+      "fr": "Ceux que je joue (connecté)",
+      "text": "Los que juego (con sesión iniciada)"
+    },
+    "pages.collectionUI.shortcut_pages": {
+      "fr": "Page suivante, page précédente",
+      "text": "Página siguiente, página anterior"
+    },
+    "pages.collectionUI.shortcut_help": {
+      "fr": "Afficher ou masquer cette aide",
+      "text": "Mostrar u ocultar esta ayuda"
+    },
+    "pages.collectionUI.shortcutsHint": {
+      "fr": "Sans effet pendant la saisie dans un champ.",
+      "text": "Inactivos mientras escribes en un campo."
+    },
+    "pages.collectionUI.empty": {
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Marca en la lista los héroes y las skins que tienes: el total se actualiza sobre la marcha y queda guardado en este navegador, y en tu cuenta si has iniciado sesión."
+    },
+    "pages.collection.methodStorage": {
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "Tu selección se queda en este navegador (almacenamiento local), sin necesidad de cuenta. Con la sesión iniciada en tu cuenta del juego, también se guarda en tu cuenta para encontrarla en otro dispositivo; un archivo de copia la lleva adonde quieras. Los precios son los de la tienda del juego recogidos por la wiki de la comunidad; no se tienen en cuenta descuentos ni packs."
+    },
+    "prose.collection.title": {
+      "fr": "Collection de skins",
+      "text": "Colección de skins"
+    },
+    "prose.collection.intro": {
+      "fr": "L'outil de collection garde les héros et les skins que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :",
+      "text": "La herramienta de colección guarda los héroes y las skins que marcas en tu navegador (almacenamiento local). Si has iniciado sesión con tu cuenta del juego, el servidor del sitio también conserva, en su base de datos:"
+    },
+    "prose.collection.data": {
+      "fr": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
+      "text": "la misma huella de cuenta que la comunidad (nunca tu ID del juego), la lista de héroes y skins marcados y la fecha del último guardado; nada más, y no se muestra a nadie."
+    },
+    "prose.collection.usage": {
+      "fr": "Elle sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
+      "text": "Solo sirve para encontrar tu colección en tus otros dispositivos. El filtro «los que juego» lee tus héroes de la temporada en el servicio de inicio de sesión cuando lo activas, sin guardar nada."
+    },
+    "prose.collection.deletion": {
+      "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
+      "text": "Para vaciar la copia de tu cuenta, borra tu colección en la herramienta con la sesión iniciada; para eliminar el registro en sí, escribe a {contact}."
     }
   },
   "id": {
@@ -11973,8 +12397,8 @@
       "text": "Estimasi nilai akun MLBB saya"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "Ada koleksi yang tersimpan di browser ini dari alat koleksi."
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "Ada koleksi yang disimpan oleh alat koleksi, di browser ini atau di akun Anda."
     },
     "pages.accountValueUI.import": {
       "fr": "Reprendre ma collection",
@@ -13327,6 +13751,218 @@
     "tools.serverTime.group.ru": {
       "fr": "Pays russophones",
       "text": "Negara berbahasa Rusia"
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Progres"
+    },
+    "pages.collectionUI.pool": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "pages.collectionUI.pool_all": {
+      "fr": "Tous",
+      "text": "Semua"
+    },
+    "pages.collectionUI.pool_played": {
+      "fr": "Ceux que je joue",
+      "text": "Yang saya mainkan"
+    },
+    "pages.collectionUI.played_loading": {
+      "fr": "Lecture de vos héros de la saison…",
+      "text": "Membaca hero musim ini…"
+    },
+    "pages.collectionUI.played_failed": {
+      "fr": "Vos héros joués ne sont pas lisibles pour l'instant : réessayez plus tard.",
+      "text": "Hero yang Anda mainkan belum bisa dibaca: coba lagi nanti."
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "Belum ada hero yang dimainkan musim ini."
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Centang {n} skin {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Hapus centang {n} skin {series}"
+    },
+    "pages.collectionUI.clearYes": {
+      "fr": "Oui, tout décocher",
+      "text": "Ya, hapus semua centang"
+    },
+    "pages.collectionUI.cancel": {
+      "fr": "Annuler",
+      "text": "Batal"
+    },
+    "pages.collectionUI.dismiss": {
+      "fr": "Fermer ce message",
+      "text": "Tutup pesan ini"
+    },
+    "pages.collectionUI.sync_checking": {
+      "fr": "Lecture de votre compte…",
+      "text": "Memeriksa akun Anda…"
+    },
+    "pages.collectionUI.sync_browser": {
+      "fr": "Enregistrée dans ce navigateur.",
+      "text": "Tersimpan di browser ini."
+    },
+    "pages.collectionUI.sync_signedOut": {
+      "fr": "Enregistrée dans ce navigateur seulement : connectez-vous pour la retrouver sur vos autres appareils.",
+      "text": "Hanya tersimpan di browser ini: masuk untuk membukanya di perangkat lain."
+    },
+    "pages.collectionUI.syncSignIn": {
+      "fr": "Se connecter",
+      "text": "Masuk"
+    },
+    "pages.collectionUI.sync_saving": {
+      "fr": "Enregistrement sur votre compte…",
+      "text": "Menyimpan ke akun Anda…"
+    },
+    "pages.collectionUI.sync_saved": {
+      "fr": "Enregistrée sur votre compte.",
+      "text": "Tersimpan di akun Anda."
+    },
+    "pages.collectionUI.sync_offline": {
+      "fr": "Hors ligne : enregistrée dans ce navigateur, envoyée à votre compte au retour de la connexion.",
+      "text": "Offline: tersimpan di browser ini, dikirim ke akun Anda saat kembali online."
+    },
+    "pages.collectionUI.sync_retrying": {
+      "fr": "Votre compte ne répond pas : la collection reste enregistrée dans ce navigateur, nouvel essai en cours.",
+      "text": "Akun Anda tidak merespons: koleksi tetap tersimpan di browser ini, mencoba lagi."
+    },
+    "pages.collectionUI.sync_failed": {
+      "fr": "Votre compte a refusé l'enregistrement : la collection reste dans ce navigateur.",
+      "text": "Akun Anda menolak penyimpanan: koleksi tetap di browser ini."
+    },
+    "pages.collectionUI.notice_elsewhere": {
+      "fr": "Collection mise à jour depuis un autre appareil.",
+      "text": "Koleksi diperbarui dari perangkat lain."
+    },
+    "pages.collectionUI.notice_merged": {
+      "fr": "La collection de ce navigateur a été fusionnée avec celle de votre compte.",
+      "text": "Koleksi di browser ini telah digabungkan dengan koleksi akun Anda."
+    },
+    "pages.collectionUI.backupTitle": {
+      "fr": "Sauvegarde",
+      "text": "Cadangan"
+    },
+    "pages.collectionUI.backupLead": {
+      "fr": "Un fichier JSON avec vos héros et vos skins, à garder ou à importer dans un autre navigateur.",
+      "text": "File JSON berisi hero dan skin Anda, untuk disimpan atau diimpor ke browser lain."
+    },
+    "pages.collectionUI.export": {
+      "fr": "Exporter",
+      "text": "Ekspor"
+    },
+    "pages.collectionUI.import": {
+      "fr": "Importer un fichier",
+      "text": "Impor file"
+    },
+    "pages.collectionUI.importFound": {
+      "fr": "Dans ce fichier : héros {heroes}, skins {skins}.",
+      "text": "Dalam file ini: hero {heroes}, skin {skins}."
+    },
+    "pages.collectionUI.importIgnored": {
+      "fr": "{n} entrées inconnues ignorées.",
+      "text": "{n} entri tak dikenal diabaikan."
+    },
+    "pages.collectionUI.importMerge": {
+      "fr": "Ajouter à ma collection",
+      "text": "Tambahkan ke koleksi saya"
+    },
+    "pages.collectionUI.importReplace": {
+      "fr": "Remplacer ma collection",
+      "text": "Ganti koleksi saya"
+    },
+    "pages.collectionUI.import_merged": {
+      "fr": "Le fichier a été ajouté à votre collection.",
+      "text": "File telah ditambahkan ke koleksi Anda."
+    },
+    "pages.collectionUI.import_replaced": {
+      "fr": "Votre collection a été remplacée par le fichier.",
+      "text": "Koleksi Anda telah diganti dengan file tersebut."
+    },
+    "pages.collectionUI.import_size": {
+      "fr": "Ce fichier est trop gros pour être une sauvegarde de collection.",
+      "text": "File ini terlalu besar untuk menjadi cadangan koleksi."
+    },
+    "pages.collectionUI.import_json": {
+      "fr": "Ce fichier n'est pas du JSON lisible.",
+      "text": "File ini bukan JSON yang dapat dibaca."
+    },
+    "pages.collectionUI.import_format": {
+      "fr": "Ce fichier n'est pas une sauvegarde de collection MLBBDex.",
+      "text": "File ini bukan cadangan koleksi MLBBDex."
+    },
+    "pages.collectionUI.import_version": {
+      "fr": "Cette sauvegarde vient d'une version plus récente de l'outil : rechargez la page et réessayez.",
+      "text": "Cadangan ini berasal dari versi alat yang lebih baru: muat ulang halaman dan coba lagi."
+    },
+    "pages.collectionUI.import_empty": {
+      "fr": "Aucun héros ni skin reconnu dans ce fichier.",
+      "text": "Tidak ada hero atau skin yang dikenali dalam file ini."
+    },
+    "pages.collectionUI.import_read": {
+      "fr": "Impossible de lire ce fichier.",
+      "text": "File ini tidak dapat dibaca."
+    },
+    "pages.collectionUI.shortcutsTitle": {
+      "fr": "Raccourcis clavier",
+      "text": "Pintasan keyboard"
+    },
+    "pages.collectionUI.shortcut_search": {
+      "fr": "Aller à la recherche",
+      "text": "Ke kolom pencarian"
+    },
+    "pages.collectionUI.shortcut_views": {
+      "fr": "Tout, possédés, manquants",
+      "text": "Semua, dimiliki, belum dimiliki"
+    },
+    "pages.collectionUI.shortcut_played": {
+      "fr": "Ceux que je joue (connecté)",
+      "text": "Yang saya mainkan (saat masuk)"
+    },
+    "pages.collectionUI.shortcut_pages": {
+      "fr": "Page suivante, page précédente",
+      "text": "Halaman berikutnya, halaman sebelumnya"
+    },
+    "pages.collectionUI.shortcut_help": {
+      "fr": "Afficher ou masquer cette aide",
+      "text": "Tampilkan atau sembunyikan bantuan ini"
+    },
+    "pages.collectionUI.shortcutsHint": {
+      "fr": "Sans effet pendant la saisie dans un champ.",
+      "text": "Tidak aktif saat mengetik di kolom."
+    },
+    "pages.collectionUI.empty": {
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Centang hero dan skin yang Anda miliki di daftar: total diperbarui seketika dan tetap tersimpan di browser ini, juga di akun Anda saat masuk."
+    },
+    "pages.collection.methodStorage": {
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "Pilihan Anda tetap di browser ini (penyimpanan lokal), tanpa perlu akun. Saat masuk dengan akun game, pilihan juga disimpan di akun Anda agar bisa dibuka di perangkat lain; file cadangan bisa membawanya ke mana saja. Harga adalah harga toko dalam game yang dicatat wiki komunitas; diskon dan paket tidak dihitung."
+    },
+    "prose.collection.title": {
+      "fr": "Collection de skins",
+      "text": "Koleksi skin"
+    },
+    "prose.collection.intro": {
+      "fr": "L'outil de collection garde les héros et les skins que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :",
+      "text": "Alat koleksi menyimpan hero dan skin yang Anda centang di browser Anda (penyimpanan lokal). Jika Anda masuk dengan akun game, server situs juga menyimpan di basis datanya:"
+    },
+    "prose.collection.data": {
+      "fr": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
+      "text": "sidik akun yang sama dengan komunitas (tidak pernah ID game Anda), daftar hero dan skin yang dicentang, serta tanggal penyimpanan terakhir; tidak ada yang lain, dan tidak ditampilkan kepada siapa pun."
+    },
+    "prose.collection.usage": {
+      "fr": "Elle sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
+      "text": "Data ini hanya dipakai agar koleksi Anda bisa dibuka di perangkat lain. Filter \"yang saya mainkan\" membaca hero musim ini dari layanan login saat Anda mengaktifkannya, tanpa menyimpan apa pun."
+    },
+    "prose.collection.deletion": {
+      "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
+      "text": "Untuk mengosongkan salinan di akun Anda, hapus koleksi di alat saat masuk; untuk menghapus datanya sepenuhnya, tulis ke {contact}."
     }
   },
   "it": {
@@ -15727,8 +16363,8 @@
       "text": "Valore stimato del mio account MLBB"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "Una collezione è salvata in questo browser dallo strumento collezione."
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "Una collezione è salvata dallo strumento collezione, in questo browser o sul tuo account."
     },
     "pages.accountValueUI.import": {
       "fr": "Reprendre ma collection",
@@ -17069,6 +17705,218 @@
     "articleUI.latest": {
       "fr": "À lire aussi",
       "text": "Da leggere anche"
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Avanzamento"
+    },
+    "pages.collectionUI.pool": {
+      "fr": "Héros",
+      "text": "Eroi"
+    },
+    "pages.collectionUI.pool_all": {
+      "fr": "Tous",
+      "text": "Tutti"
+    },
+    "pages.collectionUI.pool_played": {
+      "fr": "Ceux que je joue",
+      "text": "Quelli che gioco"
+    },
+    "pages.collectionUI.played_loading": {
+      "fr": "Lecture de vos héros de la saison…",
+      "text": "Lettura dei tuoi eroi della stagione…"
+    },
+    "pages.collectionUI.played_failed": {
+      "fr": "Vos héros joués ne sont pas lisibles pour l'instant : réessayez plus tard.",
+      "text": "I tuoi eroi giocati non sono leggibili al momento: riprova più tardi."
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "Nessun eroe giocato in questa stagione."
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Spunta le {n} skin {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Togli la spunta alle {n} skin {series}"
+    },
+    "pages.collectionUI.clearYes": {
+      "fr": "Oui, tout décocher",
+      "text": "Sì, togli tutto"
+    },
+    "pages.collectionUI.cancel": {
+      "fr": "Annuler",
+      "text": "Annulla"
+    },
+    "pages.collectionUI.dismiss": {
+      "fr": "Fermer ce message",
+      "text": "Chiudi questo messaggio"
+    },
+    "pages.collectionUI.sync_checking": {
+      "fr": "Lecture de votre compte…",
+      "text": "Lettura del tuo account…"
+    },
+    "pages.collectionUI.sync_browser": {
+      "fr": "Enregistrée dans ce navigateur.",
+      "text": "Salvata in questo browser."
+    },
+    "pages.collectionUI.sync_signedOut": {
+      "fr": "Enregistrée dans ce navigateur seulement : connectez-vous pour la retrouver sur vos autres appareils.",
+      "text": "Salvata solo in questo browser: accedi per ritrovarla sugli altri dispositivi."
+    },
+    "pages.collectionUI.syncSignIn": {
+      "fr": "Se connecter",
+      "text": "Accedi"
+    },
+    "pages.collectionUI.sync_saving": {
+      "fr": "Enregistrement sur votre compte…",
+      "text": "Salvataggio sul tuo account…"
+    },
+    "pages.collectionUI.sync_saved": {
+      "fr": "Enregistrée sur votre compte.",
+      "text": "Salvata sul tuo account."
+    },
+    "pages.collectionUI.sync_offline": {
+      "fr": "Hors ligne : enregistrée dans ce navigateur, envoyée à votre compte au retour de la connexion.",
+      "text": "Offline: salvata in questo browser, inviata al tuo account appena torni online."
+    },
+    "pages.collectionUI.sync_retrying": {
+      "fr": "Votre compte ne répond pas : la collection reste enregistrée dans ce navigateur, nouvel essai en cours.",
+      "text": "Il tuo account non risponde: la collezione resta salvata in questo browser, nuovo tentativo in corso."
+    },
+    "pages.collectionUI.sync_failed": {
+      "fr": "Votre compte a refusé l'enregistrement : la collection reste dans ce navigateur.",
+      "text": "Il tuo account ha rifiutato il salvataggio: la collezione resta in questo browser."
+    },
+    "pages.collectionUI.notice_elsewhere": {
+      "fr": "Collection mise à jour depuis un autre appareil.",
+      "text": "Collezione aggiornata da un altro dispositivo."
+    },
+    "pages.collectionUI.notice_merged": {
+      "fr": "La collection de ce navigateur a été fusionnée avec celle de votre compte.",
+      "text": "La collezione di questo browser è stata unita a quella del tuo account."
+    },
+    "pages.collectionUI.backupTitle": {
+      "fr": "Sauvegarde",
+      "text": "Backup"
+    },
+    "pages.collectionUI.backupLead": {
+      "fr": "Un fichier JSON avec vos héros et vos skins, à garder ou à importer dans un autre navigateur.",
+      "text": "Un file JSON con i tuoi eroi e le tue skin, da conservare o da importare in un altro browser."
+    },
+    "pages.collectionUI.export": {
+      "fr": "Exporter",
+      "text": "Esporta"
+    },
+    "pages.collectionUI.import": {
+      "fr": "Importer un fichier",
+      "text": "Importa un file"
+    },
+    "pages.collectionUI.importFound": {
+      "fr": "Dans ce fichier : héros {heroes}, skins {skins}.",
+      "text": "In questo file: eroi {heroes}, skin {skins}."
+    },
+    "pages.collectionUI.importIgnored": {
+      "fr": "{n} entrées inconnues ignorées.",
+      "text": "{n} voci sconosciute ignorate."
+    },
+    "pages.collectionUI.importMerge": {
+      "fr": "Ajouter à ma collection",
+      "text": "Aggiungi alla mia collezione"
+    },
+    "pages.collectionUI.importReplace": {
+      "fr": "Remplacer ma collection",
+      "text": "Sostituisci la mia collezione"
+    },
+    "pages.collectionUI.import_merged": {
+      "fr": "Le fichier a été ajouté à votre collection.",
+      "text": "Il file è stato aggiunto alla tua collezione."
+    },
+    "pages.collectionUI.import_replaced": {
+      "fr": "Votre collection a été remplacée par le fichier.",
+      "text": "La tua collezione è stata sostituita dal file."
+    },
+    "pages.collectionUI.import_size": {
+      "fr": "Ce fichier est trop gros pour être une sauvegarde de collection.",
+      "text": "Questo file è troppo grande per essere un backup della collezione."
+    },
+    "pages.collectionUI.import_json": {
+      "fr": "Ce fichier n'est pas du JSON lisible.",
+      "text": "Questo file non è un JSON leggibile."
+    },
+    "pages.collectionUI.import_format": {
+      "fr": "Ce fichier n'est pas une sauvegarde de collection MLBBDex.",
+      "text": "Questo file non è un backup della collezione MLBBDex."
+    },
+    "pages.collectionUI.import_version": {
+      "fr": "Cette sauvegarde vient d'une version plus récente de l'outil : rechargez la page et réessayez.",
+      "text": "Questo backup proviene da una versione più recente dello strumento: ricarica la pagina e riprova."
+    },
+    "pages.collectionUI.import_empty": {
+      "fr": "Aucun héros ni skin reconnu dans ce fichier.",
+      "text": "Nessun eroe o skin riconosciuto in questo file."
+    },
+    "pages.collectionUI.import_read": {
+      "fr": "Impossible de lire ce fichier.",
+      "text": "Impossibile leggere questo file."
+    },
+    "pages.collectionUI.shortcutsTitle": {
+      "fr": "Raccourcis clavier",
+      "text": "Scorciatoie da tastiera"
+    },
+    "pages.collectionUI.shortcut_search": {
+      "fr": "Aller à la recherche",
+      "text": "Vai alla ricerca"
+    },
+    "pages.collectionUI.shortcut_views": {
+      "fr": "Tout, possédés, manquants",
+      "text": "Tutto, posseduti, mancanti"
+    },
+    "pages.collectionUI.shortcut_played": {
+      "fr": "Ceux que je joue (connecté)",
+      "text": "Quelli che gioco (con accesso)"
+    },
+    "pages.collectionUI.shortcut_pages": {
+      "fr": "Page suivante, page précédente",
+      "text": "Pagina successiva, pagina precedente"
+    },
+    "pages.collectionUI.shortcut_help": {
+      "fr": "Afficher ou masquer cette aide",
+      "text": "Mostra o nascondi questo aiuto"
+    },
+    "pages.collectionUI.shortcutsHint": {
+      "fr": "Sans effet pendant la saisie dans un champ.",
+      "text": "Inattive mentre scrivi in un campo."
+    },
+    "pages.collectionUI.empty": {
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Spunta nell'elenco gli eroi e le skin che possiedi: il totale si aggiorna man mano e resta salvato in questo browser, e sul tuo account se hai effettuato l'accesso."
+    },
+    "pages.collection.methodStorage": {
+      "fr": "Votre sélection reste dans ce navigateur (stockage local), sans compte. Connecté avec votre compte de jeu, elle est aussi enregistrée sur votre compte, pour la retrouver sur un autre appareil ; un fichier de sauvegarde l'emporte où vous voulez. Les prix sont ceux de la boutique du jeu recensés par le wiki communautaire ; les remises et les packs ne sont pas pris en compte.",
+      "text": "La tua selezione resta in questo browser (archiviazione locale), senza account. Con l'accesso al tuo account di gioco viene salvata anche sul tuo account, per ritrovarla su un altro dispositivo; un file di backup la porta dove vuoi. I prezzi sono quelli del negozio del gioco raccolti dalla wiki della community; sconti e pacchetti non sono considerati."
+    },
+    "prose.collection.title": {
+      "fr": "Collection de skins",
+      "text": "Collezione di skin"
+    },
+    "prose.collection.intro": {
+      "fr": "L'outil de collection garde les héros et les skins que vous cochez dans votre navigateur (stockage local). Si vous êtes connecté avec votre compte de jeu, le serveur du site conserve aussi, dans sa base de données :",
+      "text": "Lo strumento collezione conserva gli eroi e le skin che spunti nel tuo browser (archiviazione locale). Se hai effettuato l'accesso con il tuo account di gioco, il server del sito conserva anche, nel suo database:"
+    },
+    "prose.collection.data": {
+      "fr": "la même empreinte de compte que la communauté (jamais votre ID de jeu), la liste des héros et des skins cochés, et la date du dernier enregistrement ; rien d'autre, et rien n'est montré à personne.",
+      "text": "la stessa impronta dell'account usata dalla community (mai il tuo ID di gioco), l'elenco degli eroi e delle skin spuntati e la data dell'ultimo salvataggio; nient'altro, e nulla viene mostrato a nessuno."
+    },
+    "prose.collection.usage": {
+      "fr": "Elle sert seulement à retrouver votre collection sur vos autres appareils. Le filtre « ceux que je joue » lit vos héros de la saison auprès du service de connexion au moment où vous l'activez, sans rien conserver.",
+      "text": "Serve solo a ritrovare la tua collezione sugli altri dispositivi. Il filtro «quelli che gioco» legge i tuoi eroi della stagione dal servizio di accesso quando lo attivi, senza conservare nulla."
+    },
+    "prose.collection.deletion": {
+      "fr": "Pour vider la copie de votre compte, effacez votre collection dans l'outil en étant connecté ; pour supprimer la ligne elle-même, écrivez à {contact}.",
+      "text": "Per svuotare la copia del tuo account, cancella la collezione nello strumento con l'accesso effettuato; per eliminare il record stesso, scrivi a {contact}."
     }
   },
   "fil": {
@@ -31607,6 +32455,18 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "Walang losing streak na makakapagbaba ng win rate sa ilalim ng 0%."
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Progreso"
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Lagyan ng tsek ang {n} skin ng {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Alisin ang tsek sa {n} skin ng {series}"
     }
   },
   "th": {
@@ -56567,6 +57427,22 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "Nenhuma sequência de derrotas pode levar uma taxa abaixo de 0%."
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Progresso"
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Marcar as {n} skins {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Desmarcar as {n} skins {series}"
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "Nenhum herói jogado nesta temporada."
     }
   },
   "ru": {
@@ -60723,8 +61599,8 @@
       "text": "Снять отметки со всех героев и скинов?"
     },
     "pages.collectionUI.empty": {
-      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur.",
-      "text": "Отметьте в списке героев и скины, которые у вас есть: сумма обновляется по ходу и сохраняется в этом браузере."
+      "fr": "Cochez dans la liste les héros et les skins que vous possédez : le total se met à jour au fur et à mesure et reste enregistré dans ce navigateur, et sur votre compte si vous êtes connecté.",
+      "text": "Отметьте в списке героев и скины, которые у вас есть: итог обновляется сразу и сохраняется в этом браузере, а если вы вошли — и в вашем аккаунте."
     },
     "pages.collectionUI.error": {
       "fr": "Impossible de charger la liste des skins. Vérifiez votre connexion et rechargez la page.",
@@ -69349,6 +70225,26 @@
     "winRateTool.zeroSentence": {
       "fr": "Aucune série de défaites ne peut faire passer un taux sous 0 %.",
       "text": "Никакая серия поражений не опустит процент побед ниже 0%."
+    },
+    "pages.collectionUI.progressTitle": {
+      "fr": "Avancement",
+      "text": "Прогресс"
+    },
+    "pages.collectionUI.played_failed": {
+      "fr": "Vos héros joués ne sont pas lisibles pour l'instant : réessayez plus tard.",
+      "text": "Не удалось загрузить ваших сыгранных героев: попробуйте позже."
+    },
+    "pages.collectionUI.played_empty": {
+      "fr": "Aucun héros joué cette saison.",
+      "text": "В этом сезоне вы ещё не играли ни на одном герое."
+    },
+    "pages.collectionUI.seriesCheck": {
+      "fr": "Cocher les {n} skins {series}",
+      "text": "Отметить {n} скинов {series}"
+    },
+    "pages.collectionUI.seriesUncheck": {
+      "fr": "Décocher les {n} skins {series}",
+      "text": "Снять отметку с {n} скинов {series}"
     }
   }
 }

@@ -369,3 +369,18 @@ model TeammateCard {
 
   @@index([expiresAt])
 }
+
+// ── Skin collection, kept on the game account (src/lib/collection-account.ts) ──
+
+/// The heroes and skins a signed-in player ticked in the collection tool, so
+/// the list follows them across devices; the browser keeps its own copy and
+/// works without it. `accountId` is the community's hash, never the in-game
+/// id. The lists hold catalogue ids only (hero slugs, wiki skin ids), capped
+/// in size. `updatedAt` is the version the next write must be based on.
+model SkinCollection {
+  accountId String   @id @db.VarChar(24)
+  heroes    String[] @default([]) @db.VarChar(40)
+  skins     String[] @default([]) @db.VarChar(16)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}

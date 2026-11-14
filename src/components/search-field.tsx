@@ -1,3 +1,4 @@
+import type { Ref } from "react";
 import { Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +14,8 @@ export function SearchField({
   dense = false,
   autoFocus,
   className,
+  inputRef,
+  keyShortcuts,
 }: {
   value: string;
   onChange: (value: string) => void;
@@ -21,6 +24,9 @@ export function SearchField({
   dense?: boolean;
   autoFocus?: boolean;
   className?: string;
+  inputRef?: Ref<HTMLInputElement>;
+  /** `aria-keyshortcuts` of the field, when a page binds a key to it. */
+  keyShortcuts?: string;
 }) {
   return (
     <div className={cn("relative", className)}>
@@ -30,7 +36,9 @@ export function SearchField({
         className="pointer-events-none absolute left-3 top-1/2 z-10 -translate-y-1/2 text-chalk-500"
       />
       <input
+        ref={inputRef}
         type="search"
+        aria-keyshortcuts={keyShortcuts}
         autoFocus={autoFocus}
         value={value}
         onChange={(e) => onChange(e.target.value)}

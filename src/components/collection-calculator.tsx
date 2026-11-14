@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, Share2 } from "lucide-react";
 import { Pager } from "@/components/pager";
 import { SkinCard, propsCardSkin } from "@/components/skin-card";
 import { SearchField } from "@/components/search-field";
 import { ChoiceUnique, FilterGroup, Chip, classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
+import { BackupPanel, ShortcutsHelp, SyncLine, shortcutOf } from "@/components/collection-tools";
 import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
@@ -22,14 +23,9 @@ import {
   type Catalog,
   type SkinCatalog,
 } from "@/lib/skin-catalog";
-import {
-  KEY_COLLECTION,
-  summaryCollection,
-  writeOwnership,
-  readOwnership,
-  skinsCollectible,
-  type Summary,
-} from "@/lib/collection";
+import { summaryCollection, skinsCollectible, type Ownership, type StoredOwnership, type Summary } from "@/lib/collection";
+import { unionOwnership } from "@/lib/collection-sync";
+import { useCollectionSync } from "@/lib/collection-sync-client";
 import type { Role } from "@/lib/types";
 import { trackShare } from "@/lib/analytics";
 import { pageHref, paging, pathWithoutPage, slicePage, SIZE_CARDS } from "@/lib/pager";
@@ -37,8 +33,22 @@ import { keySearch, cn } from "@/lib/utils";
 
 type View = "all" | "owned" | "missing";
 const VIEWS: View[] = ["all", "owned", "missing"];
+type Pool = "all" | "played";
+type Played = { state: "idle" | "loading" | "failed" } | { state: "ok"; heroes: string[] };
 /** Series shown first; the others expand. */
 const VISIBLE_SERIES = 10;
+
+const EMPTY: ReadonlySet<string> = new Set();
+
+/** Every id of `ids` added, or every one removed. */
+const setAll = (set: ReadonlySet<string>, ids: readonly string[], on: boolean) => {
+  const next = new Set(set);
+  for (const id of ids) {
+    if (on) next.add(id);
+    else next.delete(id);
+  }
+  return next;
+};
 
 const toggle = (set: ReadonlySet<string>, key: string) => {
   const next = new Set(set);
@@ -52,24 +62,34 @@ const toggle = (set: ReadonlySet<string>, key: string) => {
  * what they are worth at the in-game shop price, in diamonds.
  *
  * The skin index is requested when the tool loads, never bundled into the
- * page. The collection is kept in the browser (`localStorage`): nothing is
- * sent to a server.
+ * page. The collection is kept in the browser (`localStorage`); signed in
+ * with a game account, it is also saved to the account
+ * (`useCollectionSync`), so it follows the player to another device.
  */
 export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }) {
   const t = useT();
   const locale = useLocale();
   const [catalog, setCatalog] = useState<Catalog | null>(null);
   const [error, setError] = useState(false);
-  const [heroes, setHero] = useState<ReadonlySet<string>>(new Set());
-  const [skins, setSkins] = useState<ReadonlySet<string>>(new Set());
+  const { owned, update, status, signedIn, notice, dismissNotice } = useCollectionSync(catalog);
+  const heroes = owned?.heros ?? EMPTY;
+  const skins = owned?.skins ?? EMPTY;
   const [search, setSearch] = useState("");
   const [role, setRole] = useState<Role | null>(null);
   const [series, setSeries] = useState<string | null>(null);
   const [view, setView] = useState<View>("all");
+  const [pool, setPool] = useState<Pool>("all");
+  const [played, setPlayed] = useState<Played>({ state: "idle" });
   const [openHeroes, setOpen] = useState<ReadonlySet<string>>(new Set());
   const [allSeries, setAllSeries] = useState(false);
   const [page, setPage] = useState(pageServer);
   const [share, setShare] = useState<"" | "copied" | "shared" | "failed">("");
+  const [confirmClear, setConfirmClear] = useState(false);
+  const [help, setHelp] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  const setHero = (fn: (before: ReadonlySet<string>) => ReadonlySet<string>) => update((o) => ({ ...o, heros: fn(o.heros) }));
+  const setSkins = (fn: (before: ReadonlySet<string>) => ReadonlySet<string>) => update((o) => ({ ...o, skins: fn(o.skins) }));
 
   const count = useMemo(() => new Intl.NumberFormat(LOCALE_INTL[locale]), [locale]);
   const percent = useMemo(
@@ -77,38 +97,16 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
     [locale],
   );
 
-  // Index and saved data arrive together: the collection only shows once both are read.
   useEffect(() => {
     let cancelled = false;
     loadCatalog(locale).then(
-      (c) => {
-        if (cancelled) return;
-        let raw: string | null = null;
-        try {
-          raw = localStorage.getItem(KEY_COLLECTION);
-        } catch {
-          // Storage refused (strict private browsing): the collection lasts for the visit.
-        }
-        const p = readOwnership(raw);
-        setHero(new Set(p.heros));
-        setSkins(new Set(p.skins));
-        setCatalog(c);
-      },
+      (c) => !cancelled && setCatalog(c),
       () => !cancelled && setError(true),
     );
     return () => {
       cancelled = true;
     };
   }, [locale]);
-
-  useEffect(() => {
-    if (!catalog) return;
-    try {
-      localStorage.setItem(KEY_COLLECTION, writeOwnership({ heros: heroes, skins }));
-    } catch {
-      // Same: no saving possible, the calculation stays correct.
-    }
-  }, [catalog, heroes, skins]);
 
   // Paging in place still writes the address the pager's link held, so a
   // reload or a shared link comes back to the page being read.
@@ -130,15 +128,27 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
       names: new Map(catalog.heroes.map((h) => [h.slug, h.name])),
       sortedHeroes: [...catalog.heroes].sort((a, b) => a.name.localeCompare(b.name, "en")),
       series: seriesStats(collectible).map((s) => s.series),
+      heroSlugs: new Set(catalog.heroes.map((h) => h.slug)),
+      skinIds: new Set(collectible.map((s) => s.id)),
     };
   }, [catalog]);
 
   const summary = useMemo(() => (catalog ? summaryCollection(catalog, { heros: heroes, skins }) : null), [catalog, heroes, skins]);
 
+  const playedOrder = useMemo(
+    () => (played.state === "ok" ? new Map(played.heroes.map((slug, i) => [slug, i])) : null),
+    [played],
+  );
+
   const list = useMemo(() => {
     if (!data) return [];
     const term = keySearch(search.trim());
-    return data.sortedHeroes.flatMap((h) => {
+    // "Heroes I play": the season's most played first, the way the player thinks of their pool.
+    const pooled =
+      pool === "played" && playedOrder
+        ? data.sortedHeroes.filter((h) => playedOrder.has(h.slug)).sort((a, b) => playedOrder.get(a.slug)! - playedOrder.get(b.slug)!)
+        : data.sortedHeroes;
+    return pooled.flatMap((h) => {
       if (role && !h.roles.includes(role)) return [];
       const nameFound = !term || keySearch(h.name).includes(term);
       let sk = data.byHero.get(h.slug) ?? [];
@@ -152,7 +162,7 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
       // A search by skin name or a series expands the matching heroes automatically.
       return [{ h, sk, expanded: (!!term && !nameFound) || !!series }];
     });
-  }, [data, search, role, series, view, heroes, skins]);
+  }, [data, search, role, series, view, pool, playedOrder, heroes, skins]);
 
   /* A hundred and thirty-four rows of checkboxes ran eighteen screens on a
      phone. They are read one page at a time — the links are real addresses,
@@ -166,6 +176,43 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
     setPage(1);
   };
 
+  function choosePool(p: Pool) {
+    filter(setPool)(p);
+    if (p !== "played" || played.state === "ok" || played.state === "loading") return;
+    setPlayed({ state: "loading" });
+    fetch("/api/collection/played", { cache: "no-store", credentials: "same-origin" })
+      .then((r) => (r.ok ? (r.json() as Promise<{ heroes?: unknown }>) : Promise.reject(new Error(String(r.status)))))
+      .then((body) => {
+        const list = Array.isArray(body.heroes) ? body.heroes.filter((h): h is string => typeof h === "string") : [];
+        setPlayed({ state: "ok", heroes: list });
+      })
+      .catch(() => setPlayed({ state: "failed" }));
+  }
+
+  // Keyboard shortcuts, listed in the help under the filters. Never while typing in a field.
+  const pages = view_.pages;
+  const shortcuts = useRef<(key: string) => boolean>(() => false);
+  useEffect(() => {
+    shortcuts.current = (key) => {
+      if (key === "/") searchRef.current?.focus();
+      else if (key === "?") setHelp((v) => !v);
+      else if (key === "1" || key === "2" || key === "3") filter(setView)(VIEWS[Number(key) - 1]);
+      else if (key === "h" && signedIn) choosePool(pool === "played" ? "all" : "played");
+      else if (key === "n") setPage((p) => Math.min(pages, p + 1));
+      else if (key === "p") setPage((p) => Math.max(1, p - 1));
+      else return false;
+      return true;
+    };
+  });
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const key = shortcutOf(e);
+      if (key && shortcuts.current(key)) e.preventDefault();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   if (error) {
     return (
       <Card>
@@ -173,7 +220,7 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
       </Card>
     );
   }
-  if (!catalog || !data || !summary) {
+  if (!catalog || !data || !summary || !owned) {
     return (
       <Card aria-busy>
         <p className="text-sm text-chalk-500">{t("pages.collectionUI.loading")}</p>
@@ -184,19 +231,16 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
   function everythingForHero(slug: string) {
     const ids = (data!.byHero.get(slug) ?? []).map((s) => s.id);
     const full = heroes.has(slug) && ids.every((id) => skins.has(id));
-    setHero((before) => {
-      const n = new Set(before);
-      if (full) n.delete(slug);
-      else n.add(slug);
-      return n;
-    });
-    setSkins((before) => {
-      const n = new Set(before);
-      for (const id of ids) {
-        if (full) n.delete(id);
-        else n.add(id);
-      }
-      return n;
+    update((o) => ({ heros: setAll(o.heros, [slug], !full), skins: setAll(o.skins, ids, !full) }));
+  }
+
+  const seriesSkins = series ? skinsCollectible(catalog).filter((s) => s.series === series) : [];
+  const seriesFull = seriesSkins.length > 0 && seriesSkins.every((s) => skins.has(s.id));
+
+  function importBackup(file: StoredOwnership, mode: "merge" | "replace") {
+    update((o): Ownership => {
+      const next = mode === "replace" ? file : unionOwnership({ heros: [...o.heros], skins: [...o.skins] }, file);
+      return { heros: new Set(next.heros), skins: new Set(next.skins) };
     });
   }
 
@@ -276,6 +320,11 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                 />
               ))}
             </dl>
+            <div className="mt-4 space-y-2.5 border-t border-night-800 pt-4">
+              <h3 className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.collectionUI.progressTitle")}</h3>
+              <Progress label={t("pages.collectionUI.heroes")} owned={summary.heroes.owned} total={summary.heroes.total} percent={percent} />
+              <Progress label={t("pages.collectionUI.skins")} owned={summary.skins.owned} total={summary.skins.total} percent={percent} />
+            </div>
             {(summary.skins.withoutDiamond > 0 || summary.heroes.withoutDiamond > 0) && (
               <p className="mt-3 text-xs leading-relaxed text-chalk-500">
                 {t("pages.collectionUI.noDiamond", {
@@ -302,6 +351,9 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                 </p>
               </div>
             )}
+            <div className="mt-4 border-t border-night-800 pt-4">
+              <SyncLine status={status} notice={notice} onDismiss={dismissNotice} />
+            </div>
           </Card>
         </aside>
 
@@ -310,7 +362,13 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
           <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.collectionUI.selectionTitle")}</h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
           <div className="mt-5 space-y-4">
-            <SearchField value={search} onChange={filter(setSearch)} label={t("pages.collectionUI.search")} />
+            <SearchField
+              value={search}
+              onChange={filter(setSearch)}
+              label={t("pages.collectionUI.search")}
+              inputRef={searchRef}
+              keyShortcuts="/"
+            />
             <ChoiceUnique
               legend={t("pages.collectionUI.role")}
               values={ROLES_INDEX}
@@ -325,6 +383,24 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                 </Chip>
               ))}
             </FilterGroup>
+            {signedIn && (
+              <FilterGroup legend={t("pages.collectionUI.pool")}>
+                <Chip dense active={pool === "all"} onClick={() => choosePool("all")}>
+                  {t("pages.collectionUI.pool_all")}
+                </Chip>
+                <Chip dense active={pool === "played"} onClick={() => choosePool("played")}>
+                  {t("pages.collectionUI.pool_played")}
+                </Chip>
+                {pool === "played" && played.state !== "ok" && (
+                  <span aria-live="polite" className="text-xs text-chalk-500">
+                    {t(`pages.collectionUI.played_${played.state === "failed" ? "failed" : "loading"}`)}
+                  </span>
+                )}
+                {pool === "played" && played.state === "ok" && played.heroes.length === 0 && (
+                  <span className="text-xs text-chalk-500">{t("pages.collectionUI.played_empty")}</span>
+                )}
+              </FilterGroup>
+            )}
             <label className="block max-w-xs">
               <span className="text-xs uppercase tracking-wide text-chalk-500">{t("pages.collectionUI.series")}</span>
               <select
@@ -343,26 +419,50 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
             <div className="flex flex-wrap gap-2">
               <button
                 type="button"
-                onClick={() => setHero(everyHero ? new Set() : new Set(data.sortedHeroes.map((h) => h.slug)))}
+                onClick={() => setHero(() => (everyHero ? new Set() : new Set(data.sortedHeroes.map((h) => h.slug))))}
                 className={classesChip(false, true)}
               >
                 {t(everyHero ? "pages.collectionUI.noHero" : "pages.collectionUI.allHeroes")}
               </button>
-              {!empty && (
+              {series && seriesSkins.length > 0 && (
                 <button
                   type="button"
-                  onClick={() => {
-                    if (window.confirm(t("pages.collectionUI.confirmClear"))) {
-                      setHero(new Set());
-                      setSkins(new Set());
-                    }
-                  }}
+                  onClick={() => setSkins((before) => setAll(before, seriesSkins.map((s) => s.id), !seriesFull))}
                   className={classesChip(false, true)}
                 >
+                  {t(seriesFull ? "pages.collectionUI.seriesUncheck" : "pages.collectionUI.seriesCheck", {
+                    n: count.format(seriesSkins.length),
+                    series: seriesLabel(t, series),
+                  })}
+                </button>
+              )}
+              {!empty && !confirmClear && (
+                <button type="button" onClick={() => setConfirmClear(true)} className={classesChip(false, true)}>
                   {t("pages.collectionUI.clear")}
                 </button>
               )}
             </div>
+            {confirmClear && !empty && (
+              <div role="group" aria-labelledby="clear-question" className="bevel-sm flex flex-wrap items-center gap-x-3 gap-y-2 border border-gold-500/30 bg-gold-500/5 px-3 py-2 text-sm">
+                <span id="clear-question" className="text-chalk-200">
+                  {t("pages.collectionUI.confirmClear")}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    update(() => ({ heros: new Set(), skins: new Set() }));
+                    setConfirmClear(false);
+                  }}
+                  className={classesChip(true, true)}
+                >
+                  {t("pages.collectionUI.clearYes")}
+                </button>
+                <button type="button" onClick={() => setConfirmClear(false)} className="text-xs font-semibold text-chalk-400 hover:text-chalk-100">
+                  {t("pages.collectionUI.cancel")}
+                </button>
+              </div>
+            )}
+            <ShortcutsHelp open={help} onToggle={setHelp} />
           </div>
 
           <p aria-live="polite" className="mt-5 text-sm text-chalk-500">
@@ -393,7 +493,12 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
                       ) : null}
                       <span className="truncate font-semibold text-chalk-100">{h.name}</span>
                     </label>
-                    <span className="text-xs tabular-nums text-chalk-500">
+                    <span className="inline-flex items-center gap-2 text-xs tabular-nums text-chalk-500">
+                      {all.length > 0 && (
+                        <span aria-hidden className="h-1 w-12 bg-night-700">
+                          <span className="block h-full bg-gold-400" style={{ width: `${(owned / all.length) * 100}%` }} />
+                        </span>
+                      )}
                       {t("pages.collectionUI.heroSkins", { n: count.format(owned), total: count.format(all.length) })}
                     </span>
                     <button
@@ -477,6 +582,14 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
             onNavigate={setPage}
             t={t}
           />
+          <div className="mt-8 max-w-xl border-t border-night-800 pt-6">
+            <BackupPanel
+              collection={{ heros: [...heroes].sort(), skins: [...skins].sort() }}
+              knownHeroes={data.heroSlugs}
+              knownSkins={data.skinIds}
+              onImport={importBackup}
+            />
+          </div>
         </div>
       </div>
 
@@ -561,6 +674,28 @@ export function CollectionCalculator({ page: pageServer = 1 }: { page?: number }
           </section>
         </div>
       )}
+    </div>
+  );
+}
+
+function Progress({ label, owned, total, percent }: { label: string; owned: number; total: number; percent: Intl.NumberFormat }) {
+  const share = total ? owned / total : 0;
+  return (
+    <div>
+      <div className="flex items-baseline justify-between gap-3 text-sm">
+        <span className="text-chalk-400">{label}</span>
+        <span className="tabular-nums text-chalk-100">{percent.format(share)}</span>
+      </div>
+      <div
+        role="progressbar"
+        aria-label={label}
+        aria-valuemin={0}
+        aria-valuemax={total}
+        aria-valuenow={owned}
+        className="mt-1 h-1.5 bg-night-700"
+      >
+        <div className="h-full bg-gold-400" style={{ width: `${share * 100}%` }} />
+      </div>
     </div>
   );
 }

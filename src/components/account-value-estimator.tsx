@@ -27,6 +27,7 @@ import {
   type Tier,
 } from "@/lib/account-value";
 import { KEY_COLLECTION, readOwnership } from "@/lib/collection";
+import { readSyncedCollection } from "@/lib/collection-sync-client";
 import { loadCatalog } from "@/lib/skin-catalog";
 import { trackEvent, trackShare } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -124,6 +125,15 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
     setSaved(owned.skins.length > 0 || owned.heros.length > 0);
     setReady(true);
     /* eslint-enable react-hooks/set-state-in-effect */
+    // Signed in, the collection may live on the account only (ticked on another device).
+    let cancelled = false;
+    readSyncedCollection().then(
+      (o) => !cancelled && (o.skins.length > 0 || o.heros.length > 0) && setSaved(true),
+      () => {},
+    );
+    return () => {
+      cancelled = true;
+    };
   }, [model]);
 
   useEffect(() => {
@@ -156,14 +166,8 @@ export function AccountValueEstimator({ model, assumptions }: { model: Model; as
   async function importCollection() {
     setImporting("busy");
     try {
-      const catalog = await loadCatalog(locale);
-      let raw: string | null = null;
-      try {
-        raw = localStorage.getItem(KEY_COLLECTION);
-      } catch {
-        // Read above already; a refusal now leaves an empty save.
-      }
-      const counts = countsFromCollection(readOwnership(raw), catalog);
+      const [catalog, owned] = await Promise.all([loadCatalog(locale), readSyncedCollection()]);
+      const counts = countsFromCollection(owned, catalog);
       set({ skins: counts.skins, heroes: counts.heroes });
       setImporting("done");
       trackEvent("Account value", "Import", undefined, Object.values(counts.skins).reduce((a, b) => a + (b ?? 0), 0));
