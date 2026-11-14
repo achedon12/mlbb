@@ -90,7 +90,7 @@ self.addEventListener("fetch", (event) => {
   ) {
     event.respondWith(cacheFirst(event, CACHE_IMAGES, MAX_IMAGES));
   } else if (
-    /^\/(composition|trends|quiz|quiz\/day)\/[^/]+\.json$/.test(url.pathname) ||
+    /^\/(composition|matchups|trends|quiz|quiz\/day)\/[^/]+\.json$/.test(url.pathname) ||
     /^\/[a-z]{2}\/search\.json$/.test(url.pathname)
   ) {
     event.respondWith(networkFirst(event, CACHE_DATA, MAX_DATA));

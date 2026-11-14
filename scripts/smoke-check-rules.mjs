@@ -111,6 +111,7 @@ export const PAGES = [
   { path: "/news", locales: EN_FR },
   { path: "/tools/retribution", locales: EN_FR },
   { path: "/tools/team", locales: EN_FR, browser: true },
+  { path: "/tools/matchups", locales: EN_FR, browser: true },
   { path: "/draft", locales: ALL, browser: true },
   { path: "/tools/build", locales: EN_FR },
   { path: "/tools/timer", locales: EN_FR },

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import {
   formatPartialDate,
   formatPrize,
@@ -18,6 +18,7 @@ import { metaPage } from "@/i18n/seo";
 import { createT, messagesPage, type T } from "@/i18n/translations";
 import { heroesBySlug } from "@/lib/data";
 import {
+  pastEditionRedirect,
   tournamentBySlug,
   tournaments,
   tournamentStatus,
@@ -97,7 +98,12 @@ const knownZone = (z: string | null): z is string => z !== null && z in ZONE_STY
 export default async function TournamentPage({ params }: Params) {
   const { locale, tournament } = await params;
   const turn = tournamentBySlug.get(tournament);
-  if (!turn) notFound();
+  if (!turn) {
+    // An older edition, not covered: the index lists those that are.
+    const target = pastEditionRedirect(locale, tournament);
+    if (target) permanentRedirect(target);
+    notFound();
+  }
   const t = createT(locale);
   const now = new Date();
   const status = tournamentStatus(turn, now);

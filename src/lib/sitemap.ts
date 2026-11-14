@@ -80,6 +80,7 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     statistics("/compare", "weekly", 0.7),
     statistics("/draft", "weekly", 0.8),
     statistics("/tools/team", "weekly", 0.7),
+    statistics("/tools/matchups", "weekly", 0.7),
     statistics("/items", "weekly", 0.7),
     statistics("/emblems", "weekly", 0.7),
     { path: "/tools/win-rate", changeFrequency: "yearly", priority: 0.6 },

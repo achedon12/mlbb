@@ -125,6 +125,10 @@
       "label": "Collection value",
       "desc": "Your heroes and skins in diamonds"
     },
+    "matchups": {
+      "label": "Matchup matrix",
+      "desc": "Your heroes against theirs, duel by duel"
+    },
     "main": "Main navigation",
     "groups": {
       "heroes": "Heroes",
@@ -663,6 +667,45 @@
       "method1": "With n matches and w wins, reaching a win rate t takes x straight wins such that (w + x) ÷ (n + x) ≥ t, i.e. x = (t × n − w) ÷ (1 − t), rounded up. The number of wins comes from the win rate shown in game, rounded to two decimals: a match is either won or lost, so it is a whole number.",
       "method2": "At a pace r above the target, it takes about (t × n − w) ÷ (r − t) matches. If the target is already reached, the calculator shows your margin: how many losses in a row you can take and stay above it."
     },
+    "matchups": {
+      "title": "Matchup matrix",
+      "lead": "Your heroes in rows, theirs in columns: each cell gives the win-rate gap measured between the two, at the chosen rank. A blank cell is not an even duel: it is one the game does not publish.",
+      "compareLink": "Compare two heroes in detail",
+      "draftLink": "Plan a full draft",
+      "methodTitle": "Where the figures come from",
+      "method1": "For each hero and each rank, the game publishes the six opponents against whom its win rate rises the most, and the six against whom it drops the most, with the gap in points from its usual rate. A cell shows that gap from the row hero's side: +3.0 means they win three points more than usual against that hero.",
+      "method2": "A duel is measured as soon as either hero names the other; when both do, it is the same figure with the opposite sign. Every other duel stays blank: its gap is probably smaller, but it is not published, and the matrix does not guess it. The list under the grid reads measured duels only.",
+      "method3": "At each rank, between {min} and {max} of the {total} possible duels are measured, {share} at most: expect blank cells.",
+      "measuredOn": "Measured on {date}, patch {v}."
+    },
+    "matchupsUI": {
+      "rows": "Your heroes",
+      "rowsDesc": "{n} of {max}, in rows.",
+      "columns": "Opponents",
+      "columnsDesc": "{n} of {max}, in columns.",
+      "add": "Add a hero",
+      "chooseRow": "Choose one of your heroes",
+      "chooseColumn": "Choose an opponent",
+      "example": "Show an example",
+      "swap": "Swap sides",
+      "copy": "Copy link",
+      "linkCopied": "Link copied.",
+      "copyFailed": "Couldn't copy: copy the page address instead.",
+      "intro": "Add at least one hero on each side to show the matrix. The page address keeps your picks and the rank: just share it.",
+      "loading": "Loading the rank's duels…",
+      "error": "This rank's duels could not be loaded. Try again by switching ranks.",
+      "matrixTitle": "Duels · {rank}",
+      "measured": "Measured duels: {n} of {total}.",
+      "caption": "Win-rate gap of your heroes (rows) against the opponents (columns), {rank}",
+      "cell": "{hero} against {opponent}: {gap}",
+      "cellEmpty": "{hero} against {opponent}: not measured",
+      "legend": "Legend",
+      "legendUp": "The row hero wins more often",
+      "legendDown": "The row hero loses more often",
+      "legendEmpty": "Duel not measured",
+      "listTitle": "From the most one-sided duel to the closest",
+      "duel": "{hero} vs {opponent}"
+    },
     "contribute": {
       "metaTitle": "Contribute: write a hero analysis",
       "title": "Write a hero analysis",
@@ -932,6 +975,10 @@
       "winRate": {
         "title": "MLBB Win Rate Calculator: Wins Needed for Your Target",
         "description": "Enter your matches played and current win rate: see how many straight wins you need to reach your target in Mobile Legends: Bang Bang, or how many matches at a given pace. Free, instant, no sign-up."
+      },
+      "matchups": {
+        "title": "MLBB Matchup Matrix: Measured Win-Rate Gaps by Rank",
+        "description": "Pick up to five heroes on each side and read, for every duel, the win-rate gap the game measured, rank by rank. {n} heroes, no made-up values: unmeasured duels stay blank."
       },
       "tierLane": {
         "title": "Best {lane} Heroes in MLBB — {lane} Tier List {month} (Patch {v})",
