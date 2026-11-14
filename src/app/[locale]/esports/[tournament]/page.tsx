@@ -200,7 +200,7 @@ export default async function TournamentPage({ params }: Params) {
         {hasPlayerStats(turn.slug) && <TournamentNav t={t} turn={turn} active="overview" />}
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="page-wrap space-y-16 py-12">
         {stages.length === 0 && <p className="text-sm text-chalk-500">{t("pages.esports.empty")}</p>}
 
         {stages.map((stage) => (

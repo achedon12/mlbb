@@ -97,6 +97,7 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     // Objective timings, dated by the day they were checked on the wiki.
     { path: "/tools/timer", changeFrequency: "monthly", priority: 0.6, lastModified: dateOf(CHECKED_ON) },
     { path: "/map", changeFrequency: "monthly", priority: 0.6, lastModified: dateOf(CHECKED_ON) },
+    { path: "/tools", changeFrequency: "monthly", priority: 0.7 },
     { path: "/tools/strategy-planner", changeFrequency: "yearly", priority: 0.5 },
     { path: "/tools/nickname", changeFrequency: "yearly", priority: 0.5 },
     { path: "/tools/draw-calculator", changeFrequency: "yearly", priority: 0.5 },

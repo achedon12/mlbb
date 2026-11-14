@@ -159,7 +159,7 @@ export default async function BotPage({ params }: Params) {
         </div>
       </PageHeader>
 
-      <div className="mx-auto max-w-5xl space-y-12 px-4 py-10 sm:space-y-16">
+      <div className="page-wrap space-y-12 py-10 sm:space-y-16">
         <section aria-labelledby="features">
           <h2 id="features" className={h2}>
             {t("pages.bot.showcaseTitle")}

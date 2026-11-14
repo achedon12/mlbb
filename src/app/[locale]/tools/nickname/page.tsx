@@ -9,6 +9,7 @@ import { dataTool, metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { serializeJsonLd } from "@/lib/html";
 import { GUIDE_LENGTH, SHOP_SOURCE, STYLES } from "@/lib/nicknames";
+import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -51,8 +52,10 @@ export default async function NicknamePage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.nicknameUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.nickname.title")} lead={t("pages.nickname.lead", { n: STYLES.length })} />
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
-        <NicknameGenerator />
+      <ToolLayout
+        className="py-10"
+        aside={
+          <>
 
         <p className="leading-relaxed text-chalk-300">
           {t("pages.nickname.drawLink")}{" "}
@@ -121,7 +124,11 @@ export default async function NicknamePage({ params }: Params) {
             </section>
           </div>
         </Foldable>
-      </div>
+          </>
+        }
+      >
+        <NicknameGenerator />
+      </ToolLayout>
     </ExtendMessages>
   );
 }

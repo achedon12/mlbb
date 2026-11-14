@@ -150,7 +150,7 @@ export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: num
 
       {/* Section anchors before they were named in English, still found in shared links. */}
       <OpenAnchor aliases={{ "ce-mois": "this-month", derniers: "latest", explorateur: "explorer" }} />
-      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-16">
+      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-16">
         <section id="this-month" className="scroll-mt-24">
           <SectionTitle>{t("pages.skinsCalendar.thisMonthTitle", { month: monthYear(locale, dateReference) })}</SectionTitle>
           {ceMonth.length > 0 ? (

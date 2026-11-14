@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Link from "@/components/link";
+import { HeroSubLayout } from "@/components/hero-side-card";
 import { PageHeader } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
@@ -182,7 +183,7 @@ export default async function HeroSkinsPage({ params }: Params) {
         </div>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl px-4 py-10">
+      <HeroSubLayout slug={slug} locale={locale} current={`/heroes/${slug}/skins`} className="py-10">
         <ol className="grid gap-6 md:grid-cols-2">
           {g.skins.map((s, i) => {
             const r = rarity(s.rarity);
@@ -256,7 +257,7 @@ export default async function HeroSkinsPage({ params }: Params) {
             {titleGallery(t, locale, next.name)} →
           </Link>
         </nav>
-      </div>
+      </HeroSubLayout>
     </>
   );
 }

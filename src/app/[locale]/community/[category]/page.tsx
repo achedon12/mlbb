@@ -91,7 +91,7 @@ export default async function CategoryPage({ params, searchParams }: Params) {
         </div>
       </PageHeader>
       <ExtendMessages messages={messagesPage(locale, ["pages.communityUI"])}>
-        <div className="mx-auto max-w-6xl space-y-6 px-4 py-8 *:max-w-4xl">
+        <div className="page-wrap space-y-6 py-8 *:max-w-4xl">
           {!data ? (
             <Unavailable t={t} />
           ) : (

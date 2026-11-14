@@ -322,8 +322,8 @@ export function TierList({
         }}
       />
 
-      <div className="mx-auto max-w-5xl px-4 pb-12 pt-4">
-        <TierRows rows={tierRows} home="/tier-list" />
+      <div className="page-wrap pb-12 pt-4">
+        <TierRows rows={tierRows} home="/tier-list">
         {filter && (
           <p className="mb-6 text-sm leading-relaxed text-chalk-500">
             {t("pages.tierList.filterNote")}
@@ -383,6 +383,7 @@ export function TierList({
         <p className="mt-14 border-t border-night-800 pt-6 text-sm leading-relaxed text-chalk-500">
           {t("pages.tierList.conclusion")}
         </p>
+        </TierRows>
       </div>
     </>
   );

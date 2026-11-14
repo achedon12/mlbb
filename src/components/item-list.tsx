@@ -171,6 +171,65 @@ export function ItemList({
   return (
     <div>
       <FilterBar
+        content={
+            <div className="grid gap-6 lg:grid-cols-[1fr_21rem]">
+              <div className="min-w-0">
+              <ul className="grid grid-cols-3 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))]">
+                {slice.map((o) => {
+                  const selected = o.slug === item?.slug;
+                  return (
+                    <li key={o.slug} className="offscreen">
+                      <button
+                        type="button"
+                        id={o.slug}
+                        onClick={() => select(selected ? null : o.slug)}
+                        aria-pressed={selected}
+                        className={cn(
+                          "bevel-sm flex h-full w-full flex-col items-center gap-1.5 border p-2 text-center transition-colors",
+                          selected
+                            ? "border-gold-500 bg-gold-500/10"
+                            : "border-night-700/70 bg-night-900/60 hover:border-gold-500/50",
+                        )}
+                      >
+                        <span className="relative size-11 shrink-0">
+                          {o.image ? (
+                            <Image src={o.image} alt="" width={44} height={44} className="size-full object-contain" />
+                          ) : (
+                            <span className="grid size-full place-items-center bg-night-800 text-[0.6rem] text-chalk-500">
+                              —
+                            </span>
+                          )}
+                        </span>
+                        <span className="text-xs font-medium leading-tight text-chalk-100">
+                          {o.name}
+                        </span>
+                        {o.price !== null && (
+                          // The unit is spelled out: a bare number under
+                          // an item icon reads as a level or a quantity,
+                          // not as a price.
+                          <span className="text-xs tabular-nums text-gold-400">
+                            {o.price.toLocaleString(LOCALE_HTML[locale])} {t("pages.itemsList.gold")}
+                          </span>
+                        )}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+              <Pager paging={view} href={(n) => pageHref("/items", null, n)} onNavigate={setPage} t={t} />
+              </div>
+
+              <aside className="hidden h-fit lg:sticky lg:top-24 lg:block xl:top-20">
+                {item ? (
+                  <ItemSheet item={item} catalog={catalog} />
+                ) : (
+                  <p className="bevel border border-dashed border-night-700 p-5 text-sm leading-relaxed text-chalk-500">
+                    {t("pages.itemsList.choose")}
+                  </p>
+                )}
+              </aside>
+            </div>
+        }
         search={
           <SearchField
             value={search}
@@ -215,64 +274,6 @@ export function ItemList({
           ))}
         </div>
       </FilterBar>
-
-      <div className="grid gap-6 lg:grid-cols-[1fr_21rem]">
-        <div className="min-w-0">
-        <ul className="grid grid-cols-3 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))]">
-          {slice.map((o) => {
-            const selected = o.slug === item?.slug;
-            return (
-              <li key={o.slug} className="offscreen">
-                <button
-                  type="button"
-                  id={o.slug}
-                  onClick={() => select(selected ? null : o.slug)}
-                  aria-pressed={selected}
-                  className={cn(
-                    "bevel-sm flex h-full w-full flex-col items-center gap-1.5 border p-2 text-center transition-colors",
-                    selected
-                      ? "border-gold-500 bg-gold-500/10"
-                      : "border-night-700/70 bg-night-900/60 hover:border-gold-500/50",
-                  )}
-                >
-                  <span className="relative size-11 shrink-0">
-                    {o.image ? (
-                      <Image src={o.image} alt="" width={44} height={44} className="size-full object-contain" />
-                    ) : (
-                      <span className="grid size-full place-items-center bg-night-800 text-[0.6rem] text-chalk-500">
-                        —
-                      </span>
-                    )}
-                  </span>
-                  <span className="text-xs font-medium leading-tight text-chalk-100">
-                    {o.name}
-                  </span>
-                  {o.price !== null && (
-                    // The unit is spelled out: a bare number under
-                    // an item icon reads as a level or a quantity,
-                    // not as a price.
-                    <span className="text-xs tabular-nums text-gold-400">
-                      {o.price.toLocaleString(LOCALE_HTML[locale])} {t("pages.itemsList.gold")}
-                    </span>
-                  )}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        <Pager paging={view} href={(n) => pageHref("/items", null, n)} onNavigate={setPage} t={t} />
-        </div>
-
-        <aside className="hidden h-fit lg:sticky lg:top-24 lg:block">
-          {item ? (
-            <ItemSheet item={item} catalog={catalog} />
-          ) : (
-            <p className="bevel border border-dashed border-night-700 p-5 text-sm leading-relaxed text-chalk-500">
-              {t("pages.itemsList.choose")}
-            </p>
-          )}
-        </aside>
-      </div>
 
       {/*
         On mobile, the card slides up as a drawer from the bottom: no need to

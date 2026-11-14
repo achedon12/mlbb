@@ -160,7 +160,7 @@ export default async function SkinsYearPage({ params }: Params) {
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-12 px-4 py-12">
+      <div className="page-wrap space-y-12 py-12">
         <section>
           <ul className="max-w-3xl list-disc space-y-2 pl-5 leading-relaxed text-chalk-300 marker:text-gold-400">
             {facts.map((x) => (

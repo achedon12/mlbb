@@ -100,7 +100,7 @@ export default async function CommunityBuildPage({ params }: Params) {
         icon={h ? <HeroPortrait source={h.images.icon} name={heroName} size="thumb" decorative /> : undefined}
       />
       <ExtendMessages messages={messagesPage(locale, ["pages.buildSimulatorUI", "pages.communityBuildsUI"])}>
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+        <div className="page-wrap grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
           <div className="min-w-0 space-y-8">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <VoteButton id={build.id} votes={build.votes} voted={build.voted} own={build.own} signedIn={viewer !== null} />

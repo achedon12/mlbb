@@ -137,7 +137,7 @@ export function FilterGroup({
   return (
     <fieldset className={cn("flex flex-wrap items-center gap-2", className)}>
       <legend className="sr-only">{legend}</legend>
-      <span aria-hidden className={cn("mr-1 shrink-0 text-xs uppercase tracking-wide text-chalk-500", widthLegend)}>
+      <span aria-hidden className={cn("filter-legend mr-1 shrink-0 text-xs uppercase tracking-wide text-chalk-500", widthLegend)}>
         {legend}
       </span>
       {children}

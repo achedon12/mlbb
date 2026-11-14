@@ -121,6 +121,8 @@ export const PAGES = [
     includes: { en: ["Retribution"], fr: ["Retribution"], it: ["Retribution"], es: ["Retribution"], id: ["Retribution"] },
   },
   { path: "/guides/drafting-basics", locales: EN_FR, minWords: 400 },
+  // Tools hub: every tool, by use, in every language (the header links it).
+  { path: "/tools", locales: ALL },
   { path: "/tools/retribution", locales: EN_FR },
   { path: "/tools/team", locales: EN_FR, browser: true },
   { path: "/tools/matchups", locales: EN_FR, browser: true },

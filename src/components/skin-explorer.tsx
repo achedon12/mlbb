@@ -149,6 +149,55 @@ export function SkinExplorer({
         onPointerEnter={() => void loadCatalog(locale).catch(() => undefined)}
       >
         <FilterBar
+          content={
+            <div>
+              {!active
+                ? children
+                : results && (
+                    <div className="space-y-10">
+                      {truncateGroups(results.groups, limit).map((a) => (
+                        <section key={a.year}>
+                          <h3 className="font-heading text-2xl font-bold text-chalk-100">
+                            {a.year}{" "}
+                            <span className="text-sm font-normal text-chalk-500">
+                              {t(a.total === 1 ? "pages.skinsCalendarUI.nSkins1" : "pages.skinsCalendarUI.nSkins", {
+                                n: count.format(a.total),
+                              })}
+                            </span>
+                          </h3>
+                          {a.month.map((m) => (
+                            <div key={m.month ?? "unknown"} className="mt-4">
+                              <h4 className="text-sm font-semibold uppercase tracking-wide text-gold-400">
+                                {m.month ? formatMonth.format(Date.UTC(a.year, m.month - 1, 1)) : t("pages.skinsCalendarUI.unknownMonth")}
+                              </h4>
+                              <ul className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(min(30%,7.5rem),1fr))] gap-2">
+                                {m.skins.map((s) => (
+                                  <li key={s.id}>
+                                    <SkinCard
+                                      {...propsCardSkin(
+                                        s,
+                                        results.bySlug.get(s.hero)?.name ?? s.hero,
+                                        t,
+                                        LOCALE_HTML[locale],
+                                        count,
+                                      )}
+                                    />
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </section>
+                      ))}
+                      {results.total > limit && (
+                        <button type="button" onClick={() => setLimit((l) => l + STEP)} className={classesChip(false)}>
+                          {t("pages.skinsCalendarUI.more", { n: count.format(Math.min(STEP, results.total - limit)) })}
+                        </button>
+                      )}
+                    </div>
+                  )}
+            </div>
+          }
           search={
             <SearchField
               value={f.search}
@@ -190,7 +239,7 @@ export function SkinExplorer({
             </span>
           }
         >
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 xl:grid-cols-1">
             <Choice
               label={t("pages.skinsCalendarUI.heroes")}
               value={f.hero ?? ""}
@@ -235,54 +284,6 @@ export function SkinExplorer({
             ))}
           </FilterGroup>
         </FilterBar>
-      </div>
-
-      <div>
-        {!active
-          ? children
-          : results && (
-              <div className="space-y-10">
-                {truncateGroups(results.groups, limit).map((a) => (
-                  <section key={a.year}>
-                    <h3 className="font-heading text-2xl font-bold text-chalk-100">
-                      {a.year}{" "}
-                      <span className="text-sm font-normal text-chalk-500">
-                        {t(a.total === 1 ? "pages.skinsCalendarUI.nSkins1" : "pages.skinsCalendarUI.nSkins", {
-                          n: count.format(a.total),
-                        })}
-                      </span>
-                    </h3>
-                    {a.month.map((m) => (
-                      <div key={m.month ?? "unknown"} className="mt-4">
-                        <h4 className="text-sm font-semibold uppercase tracking-wide text-gold-400">
-                          {m.month ? formatMonth.format(Date.UTC(a.year, m.month - 1, 1)) : t("pages.skinsCalendarUI.unknownMonth")}
-                        </h4>
-                        <ul className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-                          {m.skins.map((s) => (
-                            <li key={s.id}>
-                              <SkinCard
-                                {...propsCardSkin(
-                                  s,
-                                  results.bySlug.get(s.hero)?.name ?? s.hero,
-                                  t,
-                                  LOCALE_HTML[locale],
-                                  count,
-                                )}
-                              />
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </section>
-                ))}
-                {results.total > limit && (
-                  <button type="button" onClick={() => setLimit((l) => l + STEP)} className={classesChip(false)}>
-                    {t("pages.skinsCalendarUI.more", { n: count.format(Math.min(STEP, results.total - limit)) })}
-                  </button>
-                )}
-              </div>
-            )}
       </div>
     </div>
   );

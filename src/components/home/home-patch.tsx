@@ -29,7 +29,7 @@ const STYLE: Record<AdjustmentDirection, { color: string; icon: typeof TrendingU
  * week after the patch, when the history covers both. The patch notes say
  * what was announced; this says what came of it.
  */
-export function HomePatch({ locale }: { locale: Locale }) {
+export function HomePatch({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   const patch = detailedPatches(locale)[patchCurrent.version] ?? patchCurrent;
   const groups = groupAdjustments(patch.adjustments);
@@ -39,8 +39,8 @@ export function HomePatch({ locale }: { locale: Locale }) {
   const hasImpacts = Object.keys(impacts).length > 0;
 
   return (
-    <section aria-labelledby="home-patch" className="border-y border-night-700/70 bg-night-900/30">
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:py-16">
+    <section aria-labelledby="home-patch" className={className}>
+      <div>
         <SectionTitle
           id="home-patch"
           lead={

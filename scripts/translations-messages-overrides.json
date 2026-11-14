@@ -2628,10 +2628,6 @@
       "fr": "Invité, sans liaison",
       "text": "Guest, unbound"
     },
-    "footer.community": {
-      "fr": "Communauté",
-      "text": "Community"
-    },
     "pages.community.title": {
       "fr": "Communauté",
       "text": "Community"
@@ -3615,6 +3611,250 @@
     "pages.guides.kitLead": {
       "fr": "Ce que les joueurs de {lane} construisent le plus : les builds les plus joués de chaque héros du poste, pondérés par sa popularité, d'après la mesure du {date}.",
       "text": "What {lane} players build the most: the most played builds of every hero in the role, weighted by how popular the hero is, as measured on {date}."
+    },
+    "nav.groups.heroes": {
+      "fr": "Héros",
+      "text": "Heroes"
+    },
+    "nav.groups.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "nav.groups.guides": {
+      "fr": "Guides",
+      "text": "Guides"
+    },
+    "nav.groups.tools": {
+      "fr": "Outils",
+      "text": "Tools"
+    },
+    "nav.groups.news": {
+      "fr": "Actus et esport",
+      "text": "News & esports"
+    },
+    "nav.groups.community": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "nav.hubs.heroes": {
+      "fr": "Voir tous les héros",
+      "text": "See all heroes"
+    },
+    "nav.hubs.meta": {
+      "fr": "Ouvrir la tier list",
+      "text": "Open the tier list"
+    },
+    "nav.hubs.guides": {
+      "fr": "Voir tous les guides",
+      "text": "See all guides"
+    },
+    "nav.hubs.tools": {
+      "fr": "Voir tous les outils",
+      "text": "See all tools"
+    },
+    "nav.hubs.news": {
+      "fr": "Voir toutes les actualités",
+      "text": "See all news"
+    },
+    "nav.hubs.community": {
+      "fr": "Aller au forum",
+      "text": "Go to the forum"
+    },
+    "nav.sectionLead.heroes": {
+      "fr": "Fiches, rôles, skins et histoires de chaque héros.",
+      "text": "Profiles, roles, skins and stories of every hero."
+    },
+    "nav.sectionLead.meta": {
+      "fr": "Qui gagne au patch actuel, mesuré sur les parties classées.",
+      "text": "Who wins on the current patch, measured on ranked games."
+    },
+    "nav.sectionLead.guides": {
+      "fr": "Apprendre le jeu : guides, carte, modes, objets et emblèmes.",
+      "text": "Learn the game: guides, map, modes, items and emblems."
+    },
+    "nav.sectionLead.tools": {
+      "fr": "Préparer une draft, tester un build, suivre son compte.",
+      "text": "Prepare a draft, test a build, keep track of your account."
+    },
+    "nav.sectionLead.news": {
+      "fr": "Patchs, événements, serveur Advance et compétitions pros.",
+      "text": "Patches, events, the Advance Server and pro competitions."
+    },
+    "nav.sectionLead.community": {
+      "fr": "Forum, coéquipiers et builds partagés par les joueurs.",
+      "text": "Forum, teammates and builds shared by players."
+    },
+    "nav.columns.browse": {
+      "fr": "Parcourir",
+      "text": "Browse"
+    },
+    "nav.columns.skins": {
+      "fr": "Skins et événements",
+      "text": "Skins and events"
+    },
+    "nav.columns.rankings": {
+      "fr": "Classements",
+      "text": "Rankings"
+    },
+    "nav.columns.filters": {
+      "fr": "Tier list filtrée",
+      "text": "Filtered tier list"
+    },
+    "nav.columns.picks": {
+      "fr": "Contres et builds",
+      "text": "Counters and builds"
+    },
+    "nav.columns.learn": {
+      "fr": "Apprendre",
+      "text": "Learn"
+    },
+    "nav.columns.database": {
+      "fr": "Base de données",
+      "text": "Database"
+    },
+    "nav.columns.toolsDraft": {
+      "fr": "Draft et équipe",
+      "text": "Draft and team"
+    },
+    "nav.columns.toolsBuilds": {
+      "fr": "Builds et dégâts",
+      "text": "Builds and damage"
+    },
+    "nav.columns.toolsAccount": {
+      "fr": "Compte et diamants",
+      "text": "Account and diamonds"
+    },
+    "nav.columns.toolsMatch": {
+      "fr": "En partie",
+      "text": "In a match"
+    },
+    "nav.columns.toolsGames": {
+      "fr": "Jeux du jour",
+      "text": "Daily games"
+    },
+    "nav.columns.news": {
+      "fr": "Actualités",
+      "text": "News"
+    },
+    "nav.columns.esports": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "nav.columns.community": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "nav.freeRotation.label": {
+      "fr": "Héros gratuits",
+      "text": "Free heroes"
+    },
+    "nav.freeRotation.desc": {
+      "fr": "La rotation de la semaine",
+      "text": "This week's rotation"
+    },
+    "nav.strategyPlanner.label": {
+      "fr": "Planificateur de stratégie",
+      "text": "Strategy planner"
+    },
+    "nav.strategyPlanner.desc": {
+      "fr": "Rotations et combats tracés sur la carte",
+      "text": "Rotations and fights drawn on the map"
+    },
+    "nav.accountValue.label": {
+      "fr": "Valeur d'un compte",
+      "text": "Account value"
+    },
+    "nav.accountValue.desc": {
+      "fr": "Le coût estimé d'une collection",
+      "text": "The estimated cost of a collection"
+    },
+    "nav.teammates.label": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Find teammates"
+    },
+    "nav.teammates.desc": {
+      "fr": "Annonces par rang, rôle et serveur",
+      "text": "Posts by rank, role and server"
+    },
+    "nav.community.label": {
+      "fr": "Forum",
+      "text": "Forum"
+    },
+    "nav.community.desc": {
+      "fr": "Questions, aide et discussions",
+      "text": "Questions, help and discussions"
+    },
+    "nav.contribute.label": {
+      "fr": "Contribuer",
+      "text": "Contribute"
+    },
+    "nav.contribute.desc": {
+      "fr": "Écrire l'analyse d'un héros",
+      "text": "Write a hero's analysis"
+    },
+    "nav.tools.label": {
+      "fr": "Tous les outils",
+      "text": "All tools"
+    },
+    "nav.tools.desc": {
+      "fr": "Les outils du site, par usage",
+      "text": "The site's tools, by use"
+    },
+    "nav.emblemsByRole.label": {
+      "fr": "Emblèmes par rôle",
+      "text": "Emblems by role"
+    },
+    "footer.columns.heroes": {
+      "fr": "Héros",
+      "text": "Heroes"
+    },
+    "footer.columns.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "footer.columns.guides": {
+      "fr": "Guides",
+      "text": "Guides"
+    },
+    "footer.columns.tools": {
+      "fr": "Outils",
+      "text": "Tools"
+    },
+    "footer.columns.news": {
+      "fr": "Actus et esport",
+      "text": "News & esports"
+    },
+    "footer.columns.site": {
+      "fr": "Le site",
+      "text": "The site"
+    },
+    "pages.toolsHub.title": {
+      "fr": "Outils Mobile Legends",
+      "text": "Mobile Legends tools"
+    },
+    "pages.toolsHub.lead": {
+      "fr": "Tous les outils du site, rangés par usage : préparer une draft, tester un build, estimer un compte, s'entraîner ou jouer au jeu du jour.",
+      "text": "Every tool on the site, sorted by use: prepare a draft, test a build, estimate an account, practise or play the daily game."
+    },
+    "pages.toolsHub.metaTitle": {
+      "fr": "Outils MLBB : draft, builds, dégâts et compte",
+      "text": "MLBB tools: draft, builds, damage and account"
+    },
+    "pages.toolsHub.metaDescription": {
+      "fr": "Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.",
+      "text": "Draft simulator, team analysis, build simulator, damage calculator, account value, objective timer and daily games for Mobile Legends: Bang Bang."
+    },
+    "pages.toolsHub.nTools": {
+      "fr": "{n} outils",
+      "text": "{n} tools"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Heroes in this article"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Read next"
     }
   },
   "es": {
@@ -3671,8 +3911,8 @@
       "text": "El daño de un golpe tras la defensa"
     },
     "nav.groups.news": {
-      "fr": "Actualités",
-      "text": "Novedades"
+      "fr": "Actus et esport",
+      "text": "Noticias y esports"
     },
     "pages.accountProfile.colHero": {
       "fr": "Héros",
@@ -6066,10 +6306,6 @@
       "fr": "Invité, sans liaison",
       "text": "Invitado, sin vincular"
     },
-    "footer.community": {
-      "fr": "Communauté",
-      "text": "Comunidad"
-    },
     "pages.community.title": {
       "fr": "Communauté",
       "text": "Comunidad"
@@ -7085,6 +7321,246 @@
     "pages.guides.ldName": {
       "fr": "Guides Mobile Legends: Bang Bang",
       "text": "Guías de Mobile Legends: Bang Bang"
+    },
+    "nav.groups.heroes": {
+      "fr": "Héros",
+      "text": "Héroes"
+    },
+    "nav.groups.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "nav.groups.guides": {
+      "fr": "Guides",
+      "text": "Guías"
+    },
+    "nav.groups.tools": {
+      "fr": "Outils",
+      "text": "Herramientas"
+    },
+    "nav.groups.community": {
+      "fr": "Communauté",
+      "text": "Comunidad"
+    },
+    "nav.hubs.heroes": {
+      "fr": "Voir tous les héros",
+      "text": "Ver todos los héroes"
+    },
+    "nav.hubs.meta": {
+      "fr": "Ouvrir la tier list",
+      "text": "Abrir la tier list"
+    },
+    "nav.hubs.guides": {
+      "fr": "Voir tous les guides",
+      "text": "Ver todas las guías"
+    },
+    "nav.hubs.tools": {
+      "fr": "Voir tous les outils",
+      "text": "Ver todas las herramientas"
+    },
+    "nav.hubs.news": {
+      "fr": "Voir toutes les actualités",
+      "text": "Ver todas las noticias"
+    },
+    "nav.hubs.community": {
+      "fr": "Aller au forum",
+      "text": "Ir al foro"
+    },
+    "nav.sectionLead.heroes": {
+      "fr": "Fiches, rôles, skins et histoires de chaque héros.",
+      "text": "Fichas, roles, skins e historias de cada héroe."
+    },
+    "nav.sectionLead.meta": {
+      "fr": "Qui gagne au patch actuel, mesuré sur les parties classées.",
+      "text": "Quién gana en el parche actual, medido en partidas clasificatorias."
+    },
+    "nav.sectionLead.guides": {
+      "fr": "Apprendre le jeu : guides, carte, modes, objets et emblèmes.",
+      "text": "Aprende el juego: guías, mapa, modos, objetos y emblemas."
+    },
+    "nav.sectionLead.tools": {
+      "fr": "Préparer une draft, tester un build, suivre son compte.",
+      "text": "Prepara un draft, prueba una build, sigue tu cuenta."
+    },
+    "nav.sectionLead.news": {
+      "fr": "Patchs, événements, serveur Advance et compétitions pros.",
+      "text": "Parches, eventos, el Advance Server y las competiciones pro."
+    },
+    "nav.sectionLead.community": {
+      "fr": "Forum, coéquipiers et builds partagés par les joueurs.",
+      "text": "Foro, compañeros de equipo y builds compartidas por los jugadores."
+    },
+    "nav.columns.browse": {
+      "fr": "Parcourir",
+      "text": "Explorar"
+    },
+    "nav.columns.skins": {
+      "fr": "Skins et événements",
+      "text": "Skins y eventos"
+    },
+    "nav.columns.rankings": {
+      "fr": "Classements",
+      "text": "Clasificaciones"
+    },
+    "nav.columns.filters": {
+      "fr": "Tier list filtrée",
+      "text": "Tier list filtrada"
+    },
+    "nav.columns.picks": {
+      "fr": "Contres et builds",
+      "text": "Counters y builds"
+    },
+    "nav.columns.learn": {
+      "fr": "Apprendre",
+      "text": "Aprender"
+    },
+    "nav.columns.database": {
+      "fr": "Base de données",
+      "text": "Base de datos"
+    },
+    "nav.columns.toolsDraft": {
+      "fr": "Draft et équipe",
+      "text": "Draft y equipo"
+    },
+    "nav.columns.toolsBuilds": {
+      "fr": "Builds et dégâts",
+      "text": "Builds y daño"
+    },
+    "nav.columns.toolsAccount": {
+      "fr": "Compte et diamants",
+      "text": "Cuenta y diamantes"
+    },
+    "nav.columns.toolsMatch": {
+      "fr": "En partie",
+      "text": "En partida"
+    },
+    "nav.columns.toolsGames": {
+      "fr": "Jeux du jour",
+      "text": "Juegos del día"
+    },
+    "nav.columns.news": {
+      "fr": "Actualités",
+      "text": "Noticias"
+    },
+    "nav.columns.esports": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "nav.columns.community": {
+      "fr": "Communauté",
+      "text": "Comunidad"
+    },
+    "nav.freeRotation.label": {
+      "fr": "Héros gratuits",
+      "text": "Héroes gratis"
+    },
+    "nav.freeRotation.desc": {
+      "fr": "La rotation de la semaine",
+      "text": "La rotación de la semana"
+    },
+    "nav.strategyPlanner.label": {
+      "fr": "Planificateur de stratégie",
+      "text": "Planificador de estrategia"
+    },
+    "nav.strategyPlanner.desc": {
+      "fr": "Rotations et combats tracés sur la carte",
+      "text": "Rotaciones y peleas trazadas en el mapa"
+    },
+    "nav.accountValue.label": {
+      "fr": "Valeur d'un compte",
+      "text": "Valor de una cuenta"
+    },
+    "nav.accountValue.desc": {
+      "fr": "Le coût estimé d'une collection",
+      "text": "El coste estimado de una colección"
+    },
+    "nav.teammates.label": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Buscar compañeros"
+    },
+    "nav.teammates.desc": {
+      "fr": "Annonces par rang, rôle et serveur",
+      "text": "Anuncios por rango, rol y servidor"
+    },
+    "nav.community.label": {
+      "fr": "Forum",
+      "text": "Foro"
+    },
+    "nav.community.desc": {
+      "fr": "Questions, aide et discussions",
+      "text": "Preguntas, ayuda y debates"
+    },
+    "nav.contribute.label": {
+      "fr": "Contribuer",
+      "text": "Contribuir"
+    },
+    "nav.contribute.desc": {
+      "fr": "Écrire l'analyse d'un héros",
+      "text": "Escribe el análisis de un héroe"
+    },
+    "nav.tools.label": {
+      "fr": "Tous les outils",
+      "text": "Todas las herramientas"
+    },
+    "nav.tools.desc": {
+      "fr": "Les outils du site, par usage",
+      "text": "Las herramientas del sitio, por uso"
+    },
+    "nav.emblemsByRole.label": {
+      "fr": "Emblèmes par rôle",
+      "text": "Emblemas por rol"
+    },
+    "footer.columns.heroes": {
+      "fr": "Héros",
+      "text": "Héroes"
+    },
+    "footer.columns.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "footer.columns.guides": {
+      "fr": "Guides",
+      "text": "Guías"
+    },
+    "footer.columns.tools": {
+      "fr": "Outils",
+      "text": "Herramientas"
+    },
+    "footer.columns.news": {
+      "fr": "Actus et esport",
+      "text": "Noticias y esports"
+    },
+    "footer.columns.site": {
+      "fr": "Le site",
+      "text": "El sitio"
+    },
+    "pages.toolsHub.title": {
+      "fr": "Outils Mobile Legends",
+      "text": "Herramientas de Mobile Legends"
+    },
+    "pages.toolsHub.lead": {
+      "fr": "Tous les outils du site, rangés par usage : préparer une draft, tester un build, estimer un compte, s'entraîner ou jouer au jeu du jour.",
+      "text": "Todas las herramientas del sitio, ordenadas por uso: preparar un draft, probar una build, estimar una cuenta, entrenar o jugar al juego del día."
+    },
+    "pages.toolsHub.metaTitle": {
+      "fr": "Outils MLBB : draft, builds, dégâts et compte",
+      "text": "Herramientas MLBB: draft, builds, daño y cuenta"
+    },
+    "pages.toolsHub.metaDescription": {
+      "fr": "Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.",
+      "text": "Simulador de draft, análisis de equipo, simulador de builds, calculadora de daño, valor de cuenta, cronómetro de objetivos y juegos del día para Mobile Legends: Bang Bang."
+    },
+    "pages.toolsHub.nTools": {
+      "fr": "{n} outils",
+      "text": "{n} herramientas"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Héroes del artículo"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Para leer también"
     }
   },
   "id": {
@@ -11588,10 +12064,6 @@
       "fr": "Invité, sans liaison",
       "text": "Tamu, tanpa binding"
     },
-    "footer.community": {
-      "fr": "Communauté",
-      "text": "Komunitas"
-    },
     "pages.community.title": {
       "fr": "Communauté",
       "text": "Komunitas"
@@ -12583,6 +13055,250 @@
     "pages.guides.ldName": {
       "fr": "Guides Mobile Legends: Bang Bang",
       "text": "Panduan Mobile Legends: Bang Bang"
+    },
+    "nav.groups.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "nav.groups.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "nav.groups.guides": {
+      "fr": "Guides",
+      "text": "Panduan"
+    },
+    "nav.groups.tools": {
+      "fr": "Outils",
+      "text": "Alat"
+    },
+    "nav.groups.news": {
+      "fr": "Actus et esport",
+      "text": "Berita & esports"
+    },
+    "nav.groups.community": {
+      "fr": "Communauté",
+      "text": "Komunitas"
+    },
+    "nav.hubs.heroes": {
+      "fr": "Voir tous les héros",
+      "text": "Lihat semua hero"
+    },
+    "nav.hubs.meta": {
+      "fr": "Ouvrir la tier list",
+      "text": "Buka tier list"
+    },
+    "nav.hubs.guides": {
+      "fr": "Voir tous les guides",
+      "text": "Lihat semua panduan"
+    },
+    "nav.hubs.tools": {
+      "fr": "Voir tous les outils",
+      "text": "Lihat semua alat"
+    },
+    "nav.hubs.news": {
+      "fr": "Voir toutes les actualités",
+      "text": "Lihat semua berita"
+    },
+    "nav.hubs.community": {
+      "fr": "Aller au forum",
+      "text": "Buka forum"
+    },
+    "nav.sectionLead.heroes": {
+      "fr": "Fiches, rôles, skins et histoires de chaque héros.",
+      "text": "Profil, role, skin, dan kisah setiap hero."
+    },
+    "nav.sectionLead.meta": {
+      "fr": "Qui gagne au patch actuel, mesuré sur les parties classées.",
+      "text": "Siapa yang menang di patch ini, diukur dari pertandingan ranked."
+    },
+    "nav.sectionLead.guides": {
+      "fr": "Apprendre le jeu : guides, carte, modes, objets et emblèmes.",
+      "text": "Pelajari permainannya: panduan, peta, mode, item, dan emblem."
+    },
+    "nav.sectionLead.tools": {
+      "fr": "Préparer une draft, tester un build, suivre son compte.",
+      "text": "Siapkan draft, uji build, pantau akunmu."
+    },
+    "nav.sectionLead.news": {
+      "fr": "Patchs, événements, serveur Advance et compétitions pros.",
+      "text": "Patch, event, Advance Server, dan kompetisi pro."
+    },
+    "nav.sectionLead.community": {
+      "fr": "Forum, coéquipiers et builds partagés par les joueurs.",
+      "text": "Forum, rekan setim, dan build yang dibagikan pemain."
+    },
+    "nav.columns.browse": {
+      "fr": "Parcourir",
+      "text": "Jelajahi"
+    },
+    "nav.columns.skins": {
+      "fr": "Skins et événements",
+      "text": "Skin dan event"
+    },
+    "nav.columns.rankings": {
+      "fr": "Classements",
+      "text": "Peringkat"
+    },
+    "nav.columns.filters": {
+      "fr": "Tier list filtrée",
+      "text": "Tier list per filter"
+    },
+    "nav.columns.picks": {
+      "fr": "Contres et builds",
+      "text": "Counter dan build"
+    },
+    "nav.columns.learn": {
+      "fr": "Apprendre",
+      "text": "Belajar"
+    },
+    "nav.columns.database": {
+      "fr": "Base de données",
+      "text": "Database"
+    },
+    "nav.columns.toolsDraft": {
+      "fr": "Draft et équipe",
+      "text": "Draft dan tim"
+    },
+    "nav.columns.toolsBuilds": {
+      "fr": "Builds et dégâts",
+      "text": "Build dan damage"
+    },
+    "nav.columns.toolsAccount": {
+      "fr": "Compte et diamants",
+      "text": "Akun dan diamond"
+    },
+    "nav.columns.toolsMatch": {
+      "fr": "En partie",
+      "text": "Dalam pertandingan"
+    },
+    "nav.columns.toolsGames": {
+      "fr": "Jeux du jour",
+      "text": "Game harian"
+    },
+    "nav.columns.news": {
+      "fr": "Actualités",
+      "text": "Berita"
+    },
+    "nav.columns.esports": {
+      "fr": "Esport",
+      "text": "Esports"
+    },
+    "nav.columns.community": {
+      "fr": "Communauté",
+      "text": "Komunitas"
+    },
+    "nav.freeRotation.label": {
+      "fr": "Héros gratuits",
+      "text": "Hero gratis"
+    },
+    "nav.freeRotation.desc": {
+      "fr": "La rotation de la semaine",
+      "text": "Rotasi minggu ini"
+    },
+    "nav.strategyPlanner.label": {
+      "fr": "Planificateur de stratégie",
+      "text": "Perencana strategi"
+    },
+    "nav.strategyPlanner.desc": {
+      "fr": "Rotations et combats tracés sur la carte",
+      "text": "Rotasi dan pertarungan digambar di peta"
+    },
+    "nav.accountValue.label": {
+      "fr": "Valeur d'un compte",
+      "text": "Nilai akun"
+    },
+    "nav.accountValue.desc": {
+      "fr": "Le coût estimé d'une collection",
+      "text": "Perkiraan biaya sebuah koleksi"
+    },
+    "nav.teammates.label": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Cari rekan setim"
+    },
+    "nav.teammates.desc": {
+      "fr": "Annonces par rang, rôle et serveur",
+      "text": "Iklan per rank, role, dan server"
+    },
+    "nav.community.label": {
+      "fr": "Forum",
+      "text": "Forum"
+    },
+    "nav.community.desc": {
+      "fr": "Questions, aide et discussions",
+      "text": "Pertanyaan, bantuan, dan diskusi"
+    },
+    "nav.contribute.label": {
+      "fr": "Contribuer",
+      "text": "Berkontribusi"
+    },
+    "nav.contribute.desc": {
+      "fr": "Écrire l'analyse d'un héros",
+      "text": "Tulis analisis seorang hero"
+    },
+    "nav.tools.label": {
+      "fr": "Tous les outils",
+      "text": "Semua alat"
+    },
+    "nav.tools.desc": {
+      "fr": "Les outils du site, par usage",
+      "text": "Alat-alat situs, menurut kegunaan"
+    },
+    "nav.emblemsByRole.label": {
+      "fr": "Emblèmes par rôle",
+      "text": "Emblem per role"
+    },
+    "footer.columns.heroes": {
+      "fr": "Héros",
+      "text": "Hero"
+    },
+    "footer.columns.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "footer.columns.guides": {
+      "fr": "Guides",
+      "text": "Panduan"
+    },
+    "footer.columns.tools": {
+      "fr": "Outils",
+      "text": "Alat"
+    },
+    "footer.columns.news": {
+      "fr": "Actus et esport",
+      "text": "Berita & esports"
+    },
+    "footer.columns.site": {
+      "fr": "Le site",
+      "text": "Situs"
+    },
+    "pages.toolsHub.title": {
+      "fr": "Outils Mobile Legends",
+      "text": "Alat Mobile Legends"
+    },
+    "pages.toolsHub.lead": {
+      "fr": "Tous les outils du site, rangés par usage : préparer une draft, tester un build, estimer un compte, s'entraîner ou jouer au jeu du jour.",
+      "text": "Semua alat di situs ini, diurutkan menurut kegunaan: menyiapkan draft, menguji build, memperkirakan nilai akun, berlatih, atau memainkan game harian."
+    },
+    "pages.toolsHub.metaTitle": {
+      "fr": "Outils MLBB : draft, builds, dégâts et compte",
+      "text": "Alat MLBB: draft, build, damage, dan akun"
+    },
+    "pages.toolsHub.metaDescription": {
+      "fr": "Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.",
+      "text": "Simulator draft, analisis tim, simulator build, kalkulator damage, nilai akun, timer objektif, dan game harian untuk Mobile Legends: Bang Bang."
+    },
+    "pages.toolsHub.nTools": {
+      "fr": "{n} outils",
+      "text": "{n} alat"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Hero dalam artikel ini"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Baca juga"
     }
   },
   "it": {
@@ -12643,8 +13359,8 @@
       "text": "Mostra i {n} eroi in movimento"
     },
     "nav.groups.news": {
-      "fr": "Actualités",
-      "text": "Novità"
+      "fr": "Actus et esport",
+      "text": "Notizie ed esport"
     },
     "pages.accountProfile.colHero": {
       "fr": "Héros",
@@ -15086,10 +15802,6 @@
       "fr": "Invité, sans liaison",
       "text": "Ospite, non collegato"
     },
-    "footer.community": {
-      "fr": "Communauté",
-      "text": "Community"
-    },
     "pages.community.title": {
       "fr": "Communauté",
       "text": "Community"
@@ -16089,6 +16801,246 @@
     "pages.guides.ldName": {
       "fr": "Guides Mobile Legends: Bang Bang",
       "text": "Guide di Mobile Legends: Bang Bang"
+    },
+    "nav.groups.heroes": {
+      "fr": "Héros",
+      "text": "Eroi"
+    },
+    "nav.groups.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "nav.groups.guides": {
+      "fr": "Guides",
+      "text": "Guide"
+    },
+    "nav.groups.tools": {
+      "fr": "Outils",
+      "text": "Strumenti"
+    },
+    "nav.groups.community": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "nav.hubs.heroes": {
+      "fr": "Voir tous les héros",
+      "text": "Vedi tutti gli eroi"
+    },
+    "nav.hubs.meta": {
+      "fr": "Ouvrir la tier list",
+      "text": "Apri la tier list"
+    },
+    "nav.hubs.guides": {
+      "fr": "Voir tous les guides",
+      "text": "Vedi tutte le guide"
+    },
+    "nav.hubs.tools": {
+      "fr": "Voir tous les outils",
+      "text": "Vedi tutti gli strumenti"
+    },
+    "nav.hubs.news": {
+      "fr": "Voir toutes les actualités",
+      "text": "Vedi tutte le notizie"
+    },
+    "nav.hubs.community": {
+      "fr": "Aller au forum",
+      "text": "Vai al forum"
+    },
+    "nav.sectionLead.heroes": {
+      "fr": "Fiches, rôles, skins et histoires de chaque héros.",
+      "text": "Schede, ruoli, skin e storie di ogni eroe."
+    },
+    "nav.sectionLead.meta": {
+      "fr": "Qui gagne au patch actuel, mesuré sur les parties classées.",
+      "text": "Chi vince nella patch attuale, misurato sulle partite classificate."
+    },
+    "nav.sectionLead.guides": {
+      "fr": "Apprendre le jeu : guides, carte, modes, objets et emblèmes.",
+      "text": "Impara il gioco: guide, mappa, modalità, oggetti ed emblemi."
+    },
+    "nav.sectionLead.tools": {
+      "fr": "Préparer une draft, tester un build, suivre son compte.",
+      "text": "Prepara un draft, prova una build, tieni d'occhio il tuo account."
+    },
+    "nav.sectionLead.news": {
+      "fr": "Patchs, événements, serveur Advance et compétitions pros.",
+      "text": "Patch, eventi, Advance Server e competizioni pro."
+    },
+    "nav.sectionLead.community": {
+      "fr": "Forum, coéquipiers et builds partagés par les joueurs.",
+      "text": "Forum, compagni di squadra e build condivise dai giocatori."
+    },
+    "nav.columns.browse": {
+      "fr": "Parcourir",
+      "text": "Sfoglia"
+    },
+    "nav.columns.skins": {
+      "fr": "Skins et événements",
+      "text": "Skin ed eventi"
+    },
+    "nav.columns.rankings": {
+      "fr": "Classements",
+      "text": "Classifiche"
+    },
+    "nav.columns.filters": {
+      "fr": "Tier list filtrée",
+      "text": "Tier list filtrata"
+    },
+    "nav.columns.picks": {
+      "fr": "Contres et builds",
+      "text": "Counter e build"
+    },
+    "nav.columns.learn": {
+      "fr": "Apprendre",
+      "text": "Impara"
+    },
+    "nav.columns.database": {
+      "fr": "Base de données",
+      "text": "Database"
+    },
+    "nav.columns.toolsDraft": {
+      "fr": "Draft et équipe",
+      "text": "Draft e squadra"
+    },
+    "nav.columns.toolsBuilds": {
+      "fr": "Builds et dégâts",
+      "text": "Build e danni"
+    },
+    "nav.columns.toolsAccount": {
+      "fr": "Compte et diamants",
+      "text": "Account e diamanti"
+    },
+    "nav.columns.toolsMatch": {
+      "fr": "En partie",
+      "text": "In partita"
+    },
+    "nav.columns.toolsGames": {
+      "fr": "Jeux du jour",
+      "text": "Giochi del giorno"
+    },
+    "nav.columns.news": {
+      "fr": "Actualités",
+      "text": "Notizie"
+    },
+    "nav.columns.esports": {
+      "fr": "Esport",
+      "text": "Esport"
+    },
+    "nav.columns.community": {
+      "fr": "Communauté",
+      "text": "Community"
+    },
+    "nav.freeRotation.label": {
+      "fr": "Héros gratuits",
+      "text": "Eroi gratuiti"
+    },
+    "nav.freeRotation.desc": {
+      "fr": "La rotation de la semaine",
+      "text": "La rotazione della settimana"
+    },
+    "nav.strategyPlanner.label": {
+      "fr": "Planificateur de stratégie",
+      "text": "Pianificatore di strategia"
+    },
+    "nav.strategyPlanner.desc": {
+      "fr": "Rotations et combats tracés sur la carte",
+      "text": "Rotazioni e scontri tracciati sulla mappa"
+    },
+    "nav.accountValue.label": {
+      "fr": "Valeur d'un compte",
+      "text": "Valore di un account"
+    },
+    "nav.accountValue.desc": {
+      "fr": "Le coût estimé d'une collection",
+      "text": "Il costo stimato di una collezione"
+    },
+    "nav.teammates.label": {
+      "fr": "Trouver des coéquipiers",
+      "text": "Trova compagni di squadra"
+    },
+    "nav.teammates.desc": {
+      "fr": "Annonces par rang, rôle et serveur",
+      "text": "Annunci per rango, ruolo e server"
+    },
+    "nav.community.label": {
+      "fr": "Forum",
+      "text": "Forum"
+    },
+    "nav.community.desc": {
+      "fr": "Questions, aide et discussions",
+      "text": "Domande, aiuto e discussioni"
+    },
+    "nav.contribute.label": {
+      "fr": "Contribuer",
+      "text": "Contribuisci"
+    },
+    "nav.contribute.desc": {
+      "fr": "Écrire l'analyse d'un héros",
+      "text": "Scrivi l'analisi di un eroe"
+    },
+    "nav.tools.label": {
+      "fr": "Tous les outils",
+      "text": "Tutti gli strumenti"
+    },
+    "nav.tools.desc": {
+      "fr": "Les outils du site, par usage",
+      "text": "Gli strumenti del sito, per uso"
+    },
+    "nav.emblemsByRole.label": {
+      "fr": "Emblèmes par rôle",
+      "text": "Emblemi per ruolo"
+    },
+    "footer.columns.heroes": {
+      "fr": "Héros",
+      "text": "Eroi"
+    },
+    "footer.columns.meta": {
+      "fr": "Méta",
+      "text": "Meta"
+    },
+    "footer.columns.guides": {
+      "fr": "Guides",
+      "text": "Guide"
+    },
+    "footer.columns.tools": {
+      "fr": "Outils",
+      "text": "Strumenti"
+    },
+    "footer.columns.news": {
+      "fr": "Actus et esport",
+      "text": "Notizie ed esport"
+    },
+    "footer.columns.site": {
+      "fr": "Le site",
+      "text": "Il sito"
+    },
+    "pages.toolsHub.title": {
+      "fr": "Outils Mobile Legends",
+      "text": "Strumenti per Mobile Legends"
+    },
+    "pages.toolsHub.lead": {
+      "fr": "Tous les outils du site, rangés par usage : préparer une draft, tester un build, estimer un compte, s'entraîner ou jouer au jeu du jour.",
+      "text": "Tutti gli strumenti del sito, ordinati per uso: preparare un draft, provare una build, stimare un account, allenarsi o giocare al gioco del giorno."
+    },
+    "pages.toolsHub.metaTitle": {
+      "fr": "Outils MLBB : draft, builds, dégâts et compte",
+      "text": "Strumenti MLBB: draft, build, danni e account"
+    },
+    "pages.toolsHub.metaDescription": {
+      "fr": "Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.",
+      "text": "Simulatore di draft, analisi della squadra, simulatore di build, calcolatore di danni, valore dell'account, timer degli obiettivi e giochi del giorno per Mobile Legends: Bang Bang."
+    },
+    "pages.toolsHub.nTools": {
+      "fr": "{n} outils",
+      "text": "{n} strumenti"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Eroi dell'articolo"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Da leggere anche"
     }
   }
 }

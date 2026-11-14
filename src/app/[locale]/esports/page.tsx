@@ -93,7 +93,7 @@ export default async function EsportsPage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
       <PageHeader title={t("pages.esports.title")} lead={t("pages.esports.intro")} />
 
-      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-16">
+      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-16">
         <section>
           <SectionTitle lead={t("pages.esports.tournaments.intro")}>{t("pages.esports.tournaments.title")}</SectionTitle>
           <ul className="grid gap-2 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">

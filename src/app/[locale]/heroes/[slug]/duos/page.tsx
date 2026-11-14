@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ChevronDown, ThumbsDown, Users } from "lucide-react";
 import Link from "@/components/link";
+import { HeroSubLayout } from "@/components/hero-side-card";
 import { FreshnessLine } from "@/components/freshness";
 import { CardsTable } from "@/components/cards-table";
 import { HeroPortrait } from "@/components/hero-portrait";
@@ -229,7 +230,7 @@ export default async function DuosPage({ params }: Params) {
         </ul>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-6 px-4 pb-8 pt-5 sm:space-y-14">
+      <HeroSubLayout slug={slug} locale={locale} current={`/heroes/${slug}/duos`} className="space-y-6 pb-8 pt-5 sm:space-y-14">
         {/* ── Summary, all ranks combined ───────────────────────────── */}
         {(best.length > 0 || worst.length > 0) && (
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
@@ -405,7 +406,7 @@ export default async function DuosPage({ params }: Params) {
             </ul>
           </section>
         )}
-      </div>
+      </HeroSubLayout>
     </>
   );
 }

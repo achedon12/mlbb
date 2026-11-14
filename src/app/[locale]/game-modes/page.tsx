@@ -51,7 +51,7 @@ export default async function GameModesPage({ params }: { params: Promise<{ loca
         lead={t("pages.modes.lead")}
       />
 
-      <div className="mx-auto max-w-5xl px-4 py-12">
+      <div className="page-wrap py-12">
         <div className="grid gap-5">
           {list.map((mode) => {
             const [dark, light] = ACCENTS_MODES[mode.slug] ?? ACCENT_MODE_DEFAULT;

@@ -95,7 +95,7 @@ export async function CommunityBuilds({ locale, page = 1 }: { locale: Locale; pa
         </Link>
       </PageHeader>
       <ExtendMessages messages={messagesPage(locale, ["pages.communityBuildsUI"])}>
-        <div className="mx-auto max-w-6xl space-y-14 px-4 py-10">
+        <div className="page-wrap space-y-14 py-10">
           {stored === null ? (
             <p role="alert" className="border border-blood-500/40 p-4 text-chalk-300">
               {t("pages.communityBuilds.unavailable")}

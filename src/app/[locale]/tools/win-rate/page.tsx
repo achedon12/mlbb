@@ -5,6 +5,7 @@ import { serializeJsonLd } from "@/lib/html";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { dataTool, metaPage } from "@/i18n/seo";
+import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -36,8 +37,10 @@ export default async function WinRateToolPage({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
       <PageHeader title={t("pages.winRate.title")} lead={t("pages.winRate.lead")} />
-      <div className="mx-auto max-w-3xl space-y-12 px-4 py-12">
-        <WinRateCalculator />
+      <ToolLayout
+        className="py-12"
+        aside={
+          <>
 
         <section>
           <h2 className="font-heading text-2xl font-bold text-chalk-100">{t("pages.winRate.methodTitle")}</h2>
@@ -47,7 +50,11 @@ export default async function WinRateToolPage({ params }: Params) {
             <p>{t("pages.winRate.method2")}</p>
           </div>
         </section>
-      </div>
+          </>
+        }
+      >
+        <WinRateCalculator />
+      </ToolLayout>
     </>
   );
 }

@@ -86,6 +86,21 @@ h1, h2, h3, h4 {
   clip-path: polygon(0 0, calc(100% - 0.45rem) 0, 100% 0.45rem, 100% 100%, 0.45rem 100%, 0 calc(100% - 0.45rem));
 }
 
+/*
+ * Page container, the one width of the whole site.
+ *
+ * Wide (100rem, 1600px) with gutters that grow with the screen: from 1rem on
+ * a phone to 3rem on a large monitor. What must not stretch inside it (a
+ * paragraph, a form, a card) caps its own width; the container itself only
+ * keeps the page off the edges of a very wide screen.
+ */
+@utility page-wrap {
+  width: 100%;
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 0.4rem + 2.4vw, 3rem);
+}
+
 /* Golden rule used to underline section headings. */
 @utility gold-rule {
   background: linear-gradient(90deg, var(--color-gold-500), transparent);
@@ -430,7 +445,7 @@ h1, h2, h3, h4 {
     @apply truncate;
   }
   .stats-table tbody th {
-    @apply sm:w-44 sm:max-w-44;
+    @apply sm:w-44 sm:max-w-44 2xl:w-64 2xl:max-w-64;
   }
   .stats-table :is(th, td)[data-column="tier"] {
     @apply sm:text-center;

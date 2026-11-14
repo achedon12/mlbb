@@ -144,7 +144,7 @@ export default async function GuildPage({ params }: Params) {
           lists.manageRoles ? null : t("pages.botDashboard.noManageRoles"),
         ]}
       />
-      <div className="mx-auto max-w-6xl space-y-10 px-4 py-8 sm:py-10">
+      <div className="page-wrap space-y-10 py-8 sm:py-10">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Link href="/bot/dashboard" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-gold-400 transition-colors hover:text-gold-500">
             <ArrowLeft aria-hidden className="size-4" />
