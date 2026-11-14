@@ -63,3 +63,14 @@ export async function guardDashboard<S extends z.ZodType>(request: Request, sche
   if (!parsed.success) return refused(400, "invalid request");
   return { config, user, body: parsed.data };
 }
+
+/**
+ * Origin the site's own redirects point to: the public address in
+ * production (the container sees itself as http://0.0.0.0:3001), the
+ * address in use in development. Never a value from the query string.
+ */
+export function siteOrigin(request: Request): string {
+  return process.env.NODE_ENV === "production" ? new URL(site.url).origin : new URL(request.url).origin;
+}
+
+export const redirectUri = (request: Request) => `${siteOrigin(request)}/api/discord/callback`;
