@@ -7,7 +7,7 @@ import { CardSuggestion, HeroSelector, HeroThumb } from "@/components/hero-picke
 import Link from "@/components/link";
 import { ChoiceRank } from "@/components/rank-picker";
 import { Card, Gauge } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
 import {
@@ -123,7 +123,7 @@ export function TeamAnalysis({
   const analysis = useMemo(() => analyzeTeam({ catalog: heroes, slugs, measures }), [heroes, slugs, measures]);
 
   const formats = useMemo<Formats>(() => {
-    const locale = LOCALE_HTML[siteLocale];
+    const locale = LOCALE_INTL[siteLocale];
     const decimal = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
     const integer = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
     return { count: (v) => decimal.format(v), integer: (v) => integer.format(v), gap: (v) => formatGap(v, locale) };

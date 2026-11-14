@@ -6,7 +6,7 @@ import Link from "@/components/link";
 import { buildCatalog, ClassicGame, SkillGame, type MlbbdleCatalog } from "@/components/mlbbdle-games";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { classesChip, FilterGroup } from "@/components/chip";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   averageGuesses,
@@ -221,7 +221,7 @@ function DailyPuzzle({
 }) {
   const t = useT();
   const language = useLocale();
-  const readableDate = new Intl.DateTimeFormat(LOCALE_HTML[language], { dateStyle: "long", timeZone: "UTC" }).format(
+  const readableDate = new Intl.DateTimeFormat(LOCALE_INTL[language], { dateStyle: "long", timeZone: "UTC" }).format(
     new Date(`${puzzle.day}T00:00:00Z`),
   );
   const answer = mode === "classic" ? puzzle.classic : puzzle.skill?.answer;
@@ -300,7 +300,7 @@ function WinPanel({
   const text = shareText({ title, rows, url: `${site.url}/${language}/mlbbdle` });
   const distribution = Array.from({ length: LAST_BUCKET }, (_, i) => stats.distribution[i + 1] ?? 0);
   const highest = Math.max(1, ...distribution);
-  const format = new Intl.NumberFormat(LOCALE_HTML[language], { maximumFractionDigits: 1 });
+  const format = new Intl.NumberFormat(LOCALE_INTL[language], { maximumFractionDigits: 1 });
   const yesterdaySlug = puzzle.yesterday?.[mode];
   const yesterday = yesterdaySlug ? catalog.bySlug.get(yesterdaySlug) : undefined;
   const bucket = Math.min(guesses.length, LAST_BUCKET);
@@ -590,7 +590,7 @@ function Practice({ catalog }: { catalog: MlbbdleCatalog }) {
     setNumber((n) => n + 1);
   }
 
-  const format = new Intl.NumberFormat(LOCALE_HTML[language], { maximumFractionDigits: 1 });
+  const format = new Intl.NumberFormat(LOCALE_INTL[language], { maximumFractionDigits: 1 });
   const label = t("pages.mlbbdleUI.practiceNumber", { n: number });
 
   return (

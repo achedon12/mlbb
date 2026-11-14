@@ -9,7 +9,7 @@ import Link from "@/components/link";
 import { Pager } from "@/components/pager";
 import { Foldable } from "@/components/foldable";
 import { PageHeader, SectionTitle } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { metaPage, metaPaged } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -54,11 +54,11 @@ function description(locale: Locale): string {
   const last = newest(released, 1)[0];
   const heroes = catalogHeroes();
   return t("pages.seo.skinsCalendar.description", {
-    n: new Intl.NumberFormat(LOCALE_HTML[locale]).format(released.length),
+    n: new Intl.NumberFormat(LOCALE_INTL[locale]).format(released.length),
     start: years.at(-1) ?? "",
     end: years[0] ?? "",
     latest: last ? `${last.name} (${heroes.get(last.hero)?.name ?? last.hero})` : "—",
-    date: last?.release ? formatRelease(last.release, LOCALE_HTML[locale]) : "—",
+    date: last?.release ? formatRelease(last.release, LOCALE_INTL[locale]) : "—",
   });
 }
 
@@ -89,7 +89,7 @@ function tint(n: number, max: number): string {
 
 export function SkinsCalendar({ locale, page = 1 }: { locale: Locale; page?: number }) {
   const t = createT(locale);
-  const localeHtml = LOCALE_HTML[locale];
+  const localeHtml = LOCALE_INTL[locale];
   const count = new Intl.NumberFormat(localeHtml);
   const heroes = catalogHeroes();
   const released = releasedSkins();

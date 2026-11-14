@@ -1,4 +1,4 @@
-import { LOCALE_HTML, type Locale } from "./config";
+import { LOCALE_INTL, type Locale } from "./config";
 import type { T } from "./t";
 
 /**
@@ -59,7 +59,7 @@ export function releaseDate(value: string | null, locale: Locale, t: T): string 
   const month = m ? MONTH.indexOf(m[2].toLowerCase()) : -1;
   if (!m || month < 0) return raw;
   const date = new Date(Date.UTC(Number(m[3]), month, m[1] ? Number(m[1]) : 1));
-  return new Intl.DateTimeFormat(LOCALE_HTML[locale], {
+  return new Intl.DateTimeFormat(LOCALE_INTL[locale], {
     day: m[1] ? "numeric" : undefined,
     month: "long",
     year: "numeric",

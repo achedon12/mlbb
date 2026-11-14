@@ -3,7 +3,7 @@ import { DrawCalculator } from "@/components/draw-calculator";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { Foldable } from "@/components/foldable";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
@@ -36,8 +36,8 @@ const EXAMPLE_DRAWS = 100;
 export default async function DrawCalculatorPage({ params }: Params) {
   const { locale } = await params;
   const t = createT(locale);
-  const integer = new Intl.NumberFormat(LOCALE_HTML[locale]);
-  const percent = new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 0 });
+  const integer = new Intl.NumberFormat(LOCALE_INTL[locale]);
+  const percent = new Intl.NumberFormat(LOCALE_INTL[locale], { style: "percent", maximumFractionDigits: 0 });
   const structuredData = dataTool(locale, {
     name: t("pages.drawCalculator.title"),
     description: t("pages.seo.drawCalculator.description"),

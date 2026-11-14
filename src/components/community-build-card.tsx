@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "@/components/link";
 import { VoteButton } from "@/components/community-build-actions";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import { emblemImage, emblemName, itemImage, simCatalog, spellImage, spellName, talentImage, talentName } from "@/lib/build-catalog";
 import { simulate, type StatKey } from "@/lib/build-simulator";
@@ -53,8 +53,8 @@ export function CommunityBuildCard({
   showHero?: boolean;
 }) {
   const result = simulate(build.build, simCatalog);
-  const whole = new Intl.NumberFormat(LOCALE_HTML[locale], { maximumFractionDigits: 0 });
-  const percent = new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 1 });
+  const whole = new Intl.NumberFormat(LOCALE_INTL[locale], { maximumFractionDigits: 0 });
+  const percent = new Intl.NumberFormat(LOCALE_INTL[locale], { style: "percent", maximumFractionDigits: 1 });
   const b = build.build;
   const talents = b.talents.filter((k): k is string => k !== null);
 

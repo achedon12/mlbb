@@ -9,6 +9,7 @@ import {
   MIN_WORDS,
   PAGES,
   containsPhrase,
+  countWords,
   decodeEntities,
   extractDescription,
   extractLang,
@@ -64,6 +65,16 @@ describe("helpers", () => {
     expect(containsPhrase("Origin Common Exquisite", "Exquis")).toBe(false);
     expect(containsPhrase("Origine Commun Exquis Exceptionnel", "Exquis")).toBe(true);
     expect(containsPhrase("Emblème de combattant (Dégâts)", "Emblème de combattant")).toBe(true);
+    // Thai has no spaces: a term written against Thai letters still counts.
+    expect(containsPhrase("ผู้เล่นป่าใช้Retributionเพื่อเก็บบัฟ", "Retribution")).toBe(true);
+    expect(containsPhrase("Лесник берёт Retribution.", "Retribution")).toBe(true);
+    expect(containsPhrase("NoRetribution", "Retribution")).toBe(false);
+  });
+
+  it("counts Thai words, which no space separates", () => {
+    expect(countWords("Hero pages, builds and counters")).toBe(5);
+    // "the jungler should take Retribution": eight words, two spaces.
+    expect(countWords("ผู้เล่นป่าควรใช้ Retribution เพื่อเก็บมอนสเตอร์")).toBeGreaterThanOrEqual(6);
   });
 
   it("lists sitemap paths whatever the host", () => {

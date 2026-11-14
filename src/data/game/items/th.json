@@ -1,0 +1,1592 @@
+[
+  {
+    "slug": "antique-cuirass",
+    "name": "Antique Cuirass",
+    "summary": "ลดการโจมตีทางกายภาพ",
+    "category": "Defense",
+    "price": 2170,
+    "bonus": "+920 HP, +40 พลังป้องกันกายภาพ, +4 อัตราฟื้นฟู HP",
+    "unique": null,
+    "passive": "Deter: เมื่อถูกโจมตีด้วยสกิล จะลดความเสียหายกายภาพของผู้โจมตีลง 6% เป็นเวลา 2 วินาที (เอฟเฟกต์นี้สามารถซ้อนทับได้สูงสุด 3 ครั้ง)",
+    "active": null,
+    "recipe": [
+      "Dreadnaught Armor",
+      "Ares Belt"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "arcane-boots",
+    "name": "Arcane Boots",
+    "summary": "การเจาะเวทย์มนตร์",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 ความเร็วในการเคลื่อนที่, +15 พลังเวทย์, +10 เจาะเวทย์",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Mystery Codex"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "ares-belt",
+    "name": "Ares Belt",
+    "summary": null,
+    "category": "Defense",
+    "price": 700,
+    "bonus": "+600 แรงม้า",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "athena-s-shield",
+    "name": "Athena's Shield",
+    "summary": "ต้านทานความเสียหายเวทย์มนตร์ระเบิด",
+    "category": "Defense",
+    "price": 2150,
+    "bonus": "+900 HP, +48 พลังป้องกันเวทย์มนตร์, +2 อัตราฟื้นฟู HP",
+    "unique": null,
+    "passive": "โล่: เมื่อได้รับความเสียหายทางเวทมนตร์จากสกิลฮีโร่ของศัตรูหรือการโจมตีพื้นฐาน จะลดความเสียหายทางเวทมนตร์ที่ได้รับลง 25% เป็นเวลา 3 วินาที (รวมถึงความเสียหายที่ทำให้เกิดเอฟเฟกต์ด้วย) ได้รับเอฟเฟกต์นี้อีกครั้ง 5 วินาทีหลังจากออกจากการต่อสู้",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "azure-blade",
+    "name": "Azure Blade",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "+5 อัตราฟื้นฟูมานา +5% ลดคูลดาวน์",
+    "unique": null,
+    "passive": "การตัดสิน: หลังจากร่ายสกิล การโจมตีปกติครั้งถัดไปภายใน 3 วินาทีจะสร้างความเสียหายจริงเพิ่มเติม 50 หน่วย (คูลดาวน์ 1.5 วินาที)",
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "berserker-s-fury",
+    "name": "Berserker's Fury",
+    "summary": "โอกาสคริติคอลและความเสียหาย",
+    "category": "Attack",
+    "price": 2390,
+    "bonus": "โจมตีกายภาพ +60, โอกาสคริติคอล +25%",
+    "unique": "ความเสียหายคริติคอล +30%",
+    "passive": "Doom: เมื่อโจมตีพื้นฐานคริติคอล พวกเขาจะสร้างความเสียหายจริงเพิ่มเติมเท่ากับ 12% ของความเสียหายก่อนที่จะลดลง",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Javelin",
+      "Javelin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "black-ice-shield",
+    "name": "Black Ice Shield",
+    "summary": null,
+    "category": "Defense",
+    "price": 780,
+    "bonus": "+20 พลังป้องกันกายภาพ, +20 พลังป้องกันเวทย์มนตร์",
+    "unique": null,
+    "passive": "โล่ป้อมปราการ: สำหรับฮีโร่ศัตรูแต่ละตัวภายในระยะ 3.55 ยูนิต การป้องกันแบบไฮบริดจะเพิ่มขึ้น 4 สูงสุด 20",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "blade-armor",
+    "name": "Blade Armor",
+    "summary": "การสะท้อนความเสียหาย",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+80 พลังป้องกันกายภาพ",
+    "unique": "ลดความเสียหายคริติคอล +20%",
+    "passive": "เกราะมีด: เมื่อถูกโจมตีด้วยการโจมตีพื้นฐาน จะสร้างความเสียหายกายภาพเท่ากับ 30 (+2% การป้องกันกายภาพทั้งหมด)% ของความเสียหายที่ได้รับ (คำนวณก่อนการลดความเสียหาย) ให้กับผู้โจมตี และทำให้ช้าลง 15% เป็นเวลา 1 วินาที",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "blade-of-despair",
+    "name": "Blade of Despair",
+    "summary": "การโจมตีทางกายภาพสูงสุด",
+    "category": "Attack",
+    "price": 3010,
+    "bonus": "โจมตีกายภาพ +160, ความเร็วในการเคลื่อนที่ +5%",
+    "unique": null,
+    "passive": "ความสิ้นหวัง: การสร้างความเสียหายให้กับศัตรูที่ไม่ใช่มิเนียนที่มี HP ต่ำกว่า 50% จะทำให้การโจมตีทางกายภาพเพิ่มขึ้น 25% เป็นเวลา 2 วินาที (จะมีผลก่อนที่จะสร้างความเสียหาย)",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Legion Sword"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "blade-of-the-heptaseas",
+    "name": "Blade of the Heptaseas",
+    "summary": "ดีที่สุดสำหรับ Assassin",
+    "category": "Attack",
+    "price": 1950,
+    "bonus": "พลังโจมตีกายภาพ +70, +250 HP",
+    "unique": "+15 การเจาะร่างกาย",
+    "passive": "การซุ่มโจมตี: หากไม่ได้รับความเสียหายหรือทำความเสียหายภายใน 5 วินาที (ไม่รวมจากมิเนียนหรือครีป) การโจมตีปกติครั้งถัดไปจะสร้างความเสียหายกายภาพเพิ่มเติม 160 (+40% ของการโจมตีกายภาพทั้งหมด) และทำให้เป้าหมายเคลื่อนที่ช้าลง 40% เป็นเวลา 1.5 วินาที",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "blood-wings",
+    "name": "Blood Wings",
+    "summary": "โล่เพิ่มความเร็ว",
+    "category": "Magic",
+    "price": 2100,
+    "bonus": "+90 พลังเวทย์มนตร์",
+    "unique": null,
+    "passive": "Guard: ได้รับโล่ 800 (+100% พลังเวทย์) ซึ่งจะฟื้นฟู 20 วินาทีหลังจากได้รับความเสียหาย โล่ยังได้รับความเร็วในการเคลื่อนที่ 30 หน่วยในขณะที่ยังคงอยู่ และเพิ่มความเร็วในการเคลื่อนที่ 150 หน่วยเป็นเวลา 1 วินาทีหลังจากที่ถูกทำลาย",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "bloodlust-axe",
+    "name": "Bloodlust Axe",
+    "summary": "คาถาแวมไพร์",
+    "category": "Attack",
+    "price": 1970,
+    "bonus": "โจมตีกายภาพ +70 ลดคูลดาวน์ +10%",
+    "unique": "+20% เวทย์แวมไพร์",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Iron Hunting Bow",
+      "Dagger",
+      "Iron Hunting Bow"
+    ],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "book-of-sages",
+    "name": "Book of Sages",
+    "summary": null,
+    "category": "Magic",
+    "price": 450,
+    "bonus": "พลังเวทย์ +8 ลดคูลดาวน์ +5%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "boots",
+    "name": "Boots",
+    "summary": null,
+    "category": "Movement",
+    "price": 250,
+    "bonus": "ความเร็วในการเคลื่อนที่ +20",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "brute-force-breastplate",
+    "name": "Brute Force Breastplate",
+    "summary": "โจมตี, เร่งความเร็ว, ลด CC",
+    "category": "Defense",
+    "price": 2070,
+    "bonus": "+800 HP, +20 พลังป้องกันกายภาพ, +10% ลดคูลดาวน์",
+    "unique": null,
+    "passive": "Brute Force: แต่ละวินาทีหลังจากสร้างความเสียหาย ได้รับการโจมตีแบบปรับตัวเพิ่มเติม 8 ครั้ง และความเร็วการเคลื่อนที่เพิ่มเติม 2% เป็นเวลา 4 วินาที สูงสุด 6 สแต็ค รับการลดระยะเวลาการควบคุมพิเศษ 25% เมื่อสแต็คเต็ม",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Leather Jerkin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "bud-of-hope",
+    "name": "Bud of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+250 แรงม้า",
+    "unique": null,
+    "passive": "ดอกตูมแห่งความหวัง: ได้รับจาก Floryn และดิว อุปกรณ์จะเปิดเผยพลังที่แท้จริงเมื่อดิววิวัฒนาการ",
+    "active": null,
+    "recipe": [],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "calamity-reaper",
+    "name": "Calamity Reaper",
+    "summary": "การโจมตีพื้นฐานที่ได้รับการปรับปรุง",
+    "category": "Magic",
+    "price": 1950,
+    "bonus": "พลังเวทย์ +70, มานา +100, อัตราฟื้นฟูมานา +6, ลดคูลดาวน์ +10%",
+    "unique": null,
+    "passive": "ภัยพิบัติ: ภายใน 3 วินาทีหลังจากใช้สกิล การโจมตีพื้นฐานครั้งต่อไปของผู้ร่ายจะสร้างความเสียหายจริงเพิ่มเติมได้มากถึง 120% ของพลังเวทย์ โดยมีคูลดาวน์ 1.5 วินาที จากนั้นจะได้รับความเร็วเคลื่อนที่เพิ่มขึ้น 10% ชั่วครู่หนึ่ง",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Azure Blade"
+    ],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "chastise-pauldron",
+    "name": "Chastise Pauldron",
+    "summary": "ลดความเร็วการโจมตีของศัตรู",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+900 HP, +40 พลังป้องกันกายภาพ",
+    "unique": null,
+    "passive": "Chastise: การได้รับความเสียหายจะลดความเร็วโจมตีและความเร็วโจมตีสูงสุดของผู้โจมตีลงเหลือ 75% จากปกติเป็นเวลา 2 วินาที@ การไถ่ถอน: เมื่อความเสียหายที่ได้รับลด HP ต่ำกว่า 30% จะฟื้นฟู HP สูงสุด 20% ใน 2 วินาทีถัดไป เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Ares Belt"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "clock-of-destiny",
+    "name": "Clock of Destiny",
+    "summary": "สำหรับ Tank เวทย์มนตร์",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "+45 พลังเวทย์, +400 HP, +400 มานา, +10% ลดคูลดาวน์",
+    "unique": null,
+    "passive": "โชคชะตา: ได้รับการป้องกันแบบไฮบริด 4.5(+0.5*เลเวลฮีโร่) เป็นเวลา 5 วินาที เมื่อสร้างความเสียหายทางเวทย์มนตร์ให้กับฮีโร่ศัตรู ซ้อนได้สูงสุด 6 ครั้ง (สามารถรับ 1 สแต็คทุกๆ 0.4 วินาที)@ ของขวัญ: เมื่อ HP ลดลงต่ำกว่า 50% จะฟื้นฟู 15% ของ HP ใน 3 วินาทีถัดไป เมื่อมานาลดลงต่ำกว่า 50% จะฟื้นฟูมานา 15% ใน 3 วินาทีถัดไป คูลดาวน์: 60 วินาที",
+    "active": null,
+    "recipe": [
+      "Elegant Gem",
+      "Book of Sages",
+      "Book of Sages"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "concentrated-energy",
+    "name": "Concentrated Energy",
+    "summary": "เพิ่มความเสียหายอย่างต่อเนื่อง",
+    "category": "Magic",
+    "price": 2020,
+    "bonus": "+75 พลังเวทย์ +400 HP",
+    "unique": "+20% ดูดพลังชีวิตแบบผสม",
+    "passive": "เติมเงิน: เพิ่มพลังเวทย์ 5 หลังจากสร้างความเสียหายทางเวทย์มนตร์ (เอฟเฟกต์นี้สามารถสะสมได้สูงสุด 6 ครั้ง และสามารถรับได้ 1 สแต็คทุกๆ 0.4 วินาที) เมื่อสะสมเต็ม เพิ่มความเสียหายเวทย์ 12% เป็นเวลา 5 วินาที",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Magic Wand",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "corrosion-scythe",
+    "name": "Corrosion Scythe",
+    "summary": "โจมตีช้าหนึ่งครั้ง",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "พลังโจมตีกายภาพ +30, ความเร็วในการโจมตี +30%, ความเร็วในการเคลื่อนที่ +5%",
+    "unique": null,
+    "passive": "กัดกร่อน: การโจมตีพื้นฐานจะได้รับความเสียหายกายภาพเพิ่มเติม 80 และทำให้เป้าหมายช้าลง 8% (ลดลงครึ่งหนึ่งสำหรับการโจมตีพื้นฐานระยะไกล) เป็นเวลา 1.5 วินาที ซ้อนได้สูงสุด 5 ครั้ง@ แรงกระตุ้น: การโจมตีพื้นฐานจะได้รับความเร็วการโจมตีเพิ่มเติม 6% เป็นเวลา 3 วินาที ต่อยอดที่ 5 สแต็ค",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Regular Spear"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "cursed-helmet",
+    "name": "Cursed Helmet",
+    "summary": "ความอยู่รอดและการเคลียร์เลน",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+1200 HP, +20 พลังป้องกันเวทย์มนตร์",
+    "unique": null,
+    "passive": "Burning Soul: สร้างความเสียหายเวทย์ (1.2% HP ทั้งหมด) ให้กับศัตรูที่อยู่ใกล้เคียงต่อวินาที ความเสียหายนี้เพิ่มขึ้น 125(+15*ระดับฮีโร่)% ต่อครีปและมิเนียน @ คำสาป: การสร้างความเสียหายด้วย Burning Soul จะลดการป้องกันแบบไฮบริดของเป้าหมายลง 3 เป็นเวลา 3 วินาที ซ้อนได้ถึง 3 ครั้ง",
+    "active": null,
+    "recipe": [
+      "Molten Essence",
+      "Ares Belt",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "dagger",
+    "name": "Dagger",
+    "summary": null,
+    "category": "Attack",
+    "price": 250,
+    "bonus": "พลังโจมตีกายภาพ +15",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "demon-hunter-sword",
+    "name": "Demon Hunter Sword",
+    "summary": "Assassin Tank",
+    "category": "Attack",
+    "price": 2180,
+    "bonus": "พลังโจมตีกายภาพ +35 ความเร็วการโจมตี +20%",
+    "unique": null,
+    "passive": "Engulf: การโจมตีพื้นฐานจะสร้างความเสียหายกายภาพเพิ่มเติม 8% ของ HP ปัจจุบันของเป้าหมาย (ต่อยอดที่ 60 ต่อมินเนี่ยน)@ Devour: การโจมตีปกติแต่ละครั้งจะฟื้นฟู HP 10(+4*ระดับฮีโร่) เอฟเฟกต์นี้จะลดลงครึ่งหนึ่งเมื่อโจมตีมินเนี่ยน",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet",
+      "Knife"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "demon-shoes",
+    "name": "Demon Shoes",
+    "summary": "ฟื้นฟูมานาอย่างรวดเร็ว",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "ความเร็วในการเคลื่อนที่ +40, อัตราฟื้นฟูมานา +10",
+    "unique": null,
+    "passive": "เวทย์มนต์: การสังหารหรือช่วยเหลือมินเนี่ยนศัตรูจะฟื้นฟูมานา 4% (การช่วยเหลือจะเกิดขึ้นเมื่อมิเนียนตายภายใน 2 วินาทีหลังจากได้รับความเสียหายจากฮีโร่)",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "divine-glaive",
+    "name": "Divine Glaive",
+    "summary": "การเจาะเวทย์มนตร์",
+    "category": "Magic",
+    "price": 1970,
+    "bonus": "+65 พลังเวทย์มนตร์",
+    "unique": "+40% เจาะเกราะเวทย์",
+    "passive": "ตัวทำลายเวทย์: เมื่อโจมตีศัตรู ได้รับการเจาะเกราะเวทย์เพิ่มเติม 0.1% สำหรับแต่ละแต้มของการป้องกันเวทย์มนตร์ของศัตรู โดยต่อยอดไว้ที่ 20%",
+    "active": null,
+    "recipe": [
+      "Magic Wand"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "dominance-ice",
+    "name": "Dominance Ice",
+    "summary": "การลดการรักษา",
+    "category": "Defense",
+    "price": 2010,
+    "bonus": "+40 พลังป้องกันกายภาพ, +40 พลังป้องกันเวทย์มนตร์, +5% ความเร็วในการเคลื่อนที่",
+    "unique": null,
+    "passive": "Fortress Shield: สำหรับฮีโร่ศัตรูแต่ละตัวภายใน 5 ยูนิต Hybrid Defense จะเพิ่มขึ้น 8 สูงสุด 40@ Lifebane: ลดเอฟเฟกต์ Shield และ HP Regen ของศัตรูที่อยู่ใกล้เคียงภายใน 5 ยูนิตเป็น 60% จากปกติเป็นเวลา 1 วินาที",
+    "active": null,
+    "recipe": [
+      "Black Ice Shield",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "dreadnaught-armor",
+    "name": "Dreadnaught Armor",
+    "summary": null,
+    "category": "Defense",
+    "price": 730,
+    "bonus": "+30 พลังป้องกันกายภาพ",
+    "unique": null,
+    "passive": "Deter: เมื่อถูกโจมตีด้วยสกิล จะลดความเสียหายกายภาพของผู้โจมตีลง 4% เป็นเวลา 2 วินาที (เอฟเฟกต์นี้จะซ้อนทับได้สูงสุด 3 ครั้ง)",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "elegant-gem",
+    "name": "Elegant Gem",
+    "summary": null,
+    "category": "Magic",
+    "price": 700,
+    "bonus": "+300 HP, +380 มานา",
+    "unique": null,
+    "passive": "ของขวัญ: เมื่อ HP ลดลงต่ำกว่า 50% จะฟื้นฟู HP 15% ใน 3 วินาทีถัดไป เมื่อมานาลดลงต่ำกว่า 50% จะฟื้นฟูมานา 15% ใน 3 วินาทีถัดไป คูลดาวน์: 60 วินาที",
+    "active": null,
+    "recipe": [
+      "Power Crystal",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "enchanted-talisman",
+    "name": "Enchanted Talisman",
+    "summary": "อัตราฟื้นฟูมานาและการลดซีดี",
+    "category": "Magic",
+    "price": 2070,
+    "bonus": "พลังเวทย์ +70, +300 HP, ลดคูลดาวน์ +15%",
+    "unique": null,
+    "passive": "Mana Spring: ฟื้นฟูมานาสูงสุด 15% ทุกๆ 10 วินาที @ Magic Mastery: ลดคูลดาวน์สูงสุดเพิ่มขึ้น 5%",
+    "active": null,
+    "recipe": [
+      "Tome of Evil",
+      "Magic Necklace",
+      "Magic Wand"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "endless-battle",
+    "name": "Endless Battle",
+    "summary": "การโจมตีพื้นฐานที่ได้รับการปรับปรุง",
+    "category": "Attack",
+    "price": 2330,
+    "bonus": "พลังโจมตีกายภาพ +60, HP +250, ลดคูลดาวน์ +10%, ความเร็วเคลื่อนที่ +5%, อัตราฟื้นฟูมานา +5",
+    "unique": null,
+    "passive": "ความยุติธรรมอันศักดิ์สิทธิ์: หลังจากร่ายสกิล การโจมตีปกติครั้งถัดไปภายใน 3 วินาทีจะสร้างความเสียหายจริงเพิ่มเติม (60% ของการโจมตีกายภาพทั้งหมด) และฟื้นฟู HP 80 (+40% ของการโจมตีกายภาพทั้งหมด) (คูลดาวน์ 1.5 วินาที)",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Iron Hunting Bow",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "exotic-veil",
+    "name": "Exotic Veil",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "พลังเวทย์ +30, ความเร็วในการเคลื่อนที่ +5%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "expert-gloves",
+    "name": "Expert Gloves",
+    "summary": null,
+    "category": "Attack & Magic",
+    "price": 500,
+    "bonus": "+30 การโจมตีแบบปรับตัว",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "feather-of-heaven",
+    "name": "Feather of Heaven",
+    "summary": "การโจมตีพื้นฐานเวทย์มนตร์",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "พลังเวทย์ +60 ความเร็วโจมตี +20% ดูดเลือด +10% ลดคูลดาวน์ +5%",
+    "unique": null,
+    "passive": "ความทุกข์: การโจมตีพื้นฐานแต่ละครั้งจะสร้างความเสียหายเวทย์เพิ่มเติม 50 (+30% ของพลังเวทย์ทั้งหมด) @ แรงกระตุ้น: การโจมตีพื้นฐานจะได้รับความเร็วการโจมตีเพิ่มเติม 6% เป็นเวลา 3 วินาที โดยต่อยอดที่ 5 สแต็ค",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Book of Sages"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "flask-of-the-oasis",
+    "name": "Flask of the Oasis",
+    "summary": "ปกป้องเพื่อนร่วมทีม",
+    "category": "Magic",
+    "price": 1850,
+    "bonus": "พลังเวทย์ +60, +300 HP, ลดคูลดาวน์ +10%",
+    "unique": "ผลการรักษา +12%",
+    "passive": "คำอวยพร: เมื่อร่ายสกิลการรักษาหรือโล่ หาก HP ของเป้าหมายต่ำกว่า 35% หรือลดลงต่ำกว่า 35% ภายใน 3 วินาที พวกเขาจะได้รับโล่ (100*ระดับฮีโร่) ที่มีอายุ 3 วินาที เมื่อเอฟเฟกต์นี้ทำงาน จะลดคูลดาวน์สกิลของผู้ร่ายลง 2 วินาที (เอฟเฟกต์นี้สามารถเกิดขึ้นได้ทุกๆ 60 วินาทีบนเป้าหมายเดียวกัน และจะไม่ทำงานเมื่อใช้สกิลการรักษาและโล่ป้องกันตัวเองเท่านั้น)",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "fleeting-time",
+    "name": "Fleeting Time",
+    "summary": "สุดยอดการลดซีดี",
+    "category": "Attack, Magic & Defense",
+    "price": 2050,
+    "bonus": "+30 การโจมตีแบบปรับตัว, +600 HP, +15% ลดคูลดาวน์",
+    "unique": null,
+    "passive": "สตรีมเวลา: การสังหารหรือช่วยเหลือฮีโร่จะลดคูลดาวน์ปัจจุบันของอัลติเมทลง 30%",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "flower-of-hope",
+    "name": "Flower of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+5% การโจมตีแบบปรับตัว",
+    "unique": null,
+    "passive": "ดอกไม้แห่งความหวัง: ทุกๆ 6 วินาที สกิลถัดไปหรือการโจมตีพื้นฐานจะสร้างความเสียหายเวทย์เพิ่มเติม 60 (+30% การโจมตีทางกายภาพทั้งหมด) (+30% พลังเวทย์ทั้งหมด)",
+    "active": null,
+    "recipe": [],
+    "bestFor": "พันธมิตรของ Floryn"
+  },
+  {
+    "slug": "fury-hammer",
+    "name": "Fury Hammer",
+    "summary": null,
+    "category": "Attack",
+    "price": 830,
+    "bonus": "พลังโจมตีกายภาพ +35",
+    "unique": "+12 การเจาะร่างกาย",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "genius-wand",
+    "name": "Genius Wand",
+    "summary": "ลดพลังป้องกันเวทย์มนตร์",
+    "category": "Magic",
+    "price": 2000,
+    "bonus": "พลังเวทย์ +75, ความเร็วในการเคลื่อนที่ +5%",
+    "unique": "+10 การเจาะเวทย์",
+    "passive": "เวทมนตร์: การสร้างความเสียหายทางเวทย์มนตร์ให้กับฮีโร่ศัตรูจะลดการป้องกันเวทย์มนตร์ลง 2.5+(0.5*ระดับฮีโร่) เป็นเวลา 2 วินาที ซ้อนได้ถึง 3 ครั้ง",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Magic Wand"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "glowing-wand",
+    "name": "Glowing Wand",
+    "summary": "การลดการรักษา",
+    "category": "Magic",
+    "price": 2150,
+    "bonus": "+60 พลังเวทย์ +300 HP +5% ความเร็วในการเคลื่อนที่",
+    "unique": null,
+    "passive": "Scorch: การสร้างความเสียหายทางเวทย์มนตร์จะเผาเป้าหมายเป็นเวลา 3 วินาที และยังสร้างความเสียหายทางเวทย์เพิ่มเติมเท่ากับ 1% ของ HP สูงสุดของเป้าหมายต่อวินาที @ Lifebane: การสร้างความเสียหายให้กับเป้าหมายจะลดเอฟเฟกต์ของ Shield และ HP Regen ที่มีต่อพวกเขาเหลือ 60% จากปกติเป็นเวลา 3 วินาที",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystery Codex",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "golden-staff",
+    "name": "Golden Staff",
+    "summary": "ปรับปรุงเอฟเฟกต์การโจมตี",
+    "category": "Attack",
+    "price": 2000,
+    "bonus": "พลังโจมตีกายภาพ +55, ความเร็วในการโจมตี +15%",
+    "unique": null,
+    "passive": "Swift: ทุก ๆ โอกาสคริติคอลเพิ่มเติม 1% ที่ได้รับจะถูกแปลงเป็นความเร็วโจมตีพิเศษ 1% @ Endless Strike: หลังจากทุก ๆ การโจมตีพื้นฐานที่ไม่ใช่คริติคอล 2 ครั้ง ความเร็วโจมตีของการโจมตีพื้นฐานครั้งถัดไปจะเพิ่มขึ้น 80% (และขีดจำกัดความเร็วโจมตีสูงสุดเพิ่มขึ้นเป็น 500%) และทริกเกอร์เอฟเฟกต์การโจมตีเพิ่มเติม 2 ครั้ง",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "great-dragon-spear",
+    "name": "Great Dragon Spear",
+    "summary": "การลดซีดีและคริติคอล",
+    "category": "Attack",
+    "price": 2140,
+    "bonus": "โจมตีกายภาพ +70 ลดคูลดาวน์ +10% โอกาสคริติคอล +20%",
+    "unique": null,
+    "passive": "Supreme Warrior: หลังจากร่ายท่าไม้ตายแล้ว เพิ่มความเร็วในการเคลื่อนที่ 30% เป็นเวลา 7.5 วินาที เอฟเฟกต์นี้มีคูลดาวน์ 15 วินาที",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Iron Hunting Bow",
+      "Javelin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "guardian-helmet",
+    "name": "Guardian Helmet",
+    "summary": "อัตราฟื้นฟู HP คงที่",
+    "category": "Defense",
+    "price": 2500,
+    "bonus": "+1800 HP, +20 อัตราฟื้นฟู HP",
+    "unique": null,
+    "passive": "การฟื้นฟู: หลังจากออกจากการต่อสู้ 5 วินาที ฟื้นฟู (2.5% HP ทั้งหมด) HP ต่อวินาที@ Defender: เมื่อได้รับความเสียหายมากกว่า 500 ดาเมจในครั้งเดียว ฟื้นฟู 30 (+0.3% HP ทั้งหมด)% HP จากความเสียหายส่วนเกินที่เกินกว่าจำนวนนั้น",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Ares Belt"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "haas-claws",
+    "name": "Haas' Claws",
+    "summary": "ดูดเลือด",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "พลังโจมตีกายภาพ +40, ความเร็วโจมตี +15%, โอกาสคริติคอล +20%",
+    "unique": "+20% ดูดพลังชีวิต",
+    "passive": "ความคลั่งไคล้: การโจมตีคริติคอลจะเพิ่มความเร็วในการโจมตี 20% เป็นเวลา 2 วินาที",
+    "active": null,
+    "recipe": [
+      "Vampire Mallet",
+      "Rogue Meteor",
+      "Dagger"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "healing-necklace",
+    "name": "Healing Necklace",
+    "summary": null,
+    "category": "Defense",
+    "price": 140,
+    "bonus": "อัตราฟื้นฟู HP +4",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "hero-s-ring",
+    "name": "Hero's Ring",
+    "summary": null,
+    "category": "Defense",
+    "price": 450,
+    "bonus": "+150 HP, +5% ลดคูลดาวน์",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "holy-crystal",
+    "name": "Holy Crystal",
+    "summary": "พลังเวทย์สูงสุด",
+    "category": "Magic",
+    "price": 3000,
+    "bonus": "+165 พลังเวทย์มนตร์",
+    "unique": null,
+    "passive": "ลึกลับ: ได้รับพลังเวทย์พิเศษ 21%-35% (สเกลตามระดับ)",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "hunter-strike",
+    "name": "Hunter Strike",
+    "summary": "การเร่งความเร็วแบบสั้นๆ",
+    "category": "Attack",
+    "price": 2010,
+    "bonus": "โจมตีกายภาพ +80 ลดคูลดาวน์ +10%",
+    "unique": "+15 การเจาะร่างกาย",
+    "passive": "กรรม: การสร้างความเสียหายให้กับฮีโร่ศัตรูคนเดิมหรือครีป 5 ครั้งติดต่อกัน จะได้รับความเร็วเคลื่อนที่เพิ่มขึ้น 50% ซึ่งจะค่อยๆ ลดลงภายใน 3 วินาที (คูลดาวน์ 8 วินาที)",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Iron Hunting Bow",
+      "Dagger"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "ice-queen-wand",
+    "name": "Ice Queen Wand",
+    "summary": "ชะลอการโจมตีด้วยสกิล",
+    "category": "Magic",
+    "price": 2040,
+    "bonus": "พลังเวทย์ +60, เวทย์แวมไพร์ +10%, +300 HP, +7% ความเร็วในการเคลื่อนที่",
+    "unique": null,
+    "passive": "Ice Bound: เมื่อสกิลสร้างความเสียหายให้กับฮีโร่ศัตรู มันจะสโลว์พวกเขา 10% เป็นเวลา 2 วินาที (ซ้อนทับได้สูงสุด 3 ครั้ง) เอฟเฟกต์นี้มีคูลดาวน์ 0.4 วินาที",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Exotic Veil",
+      "Mystery Codex"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "immortality",
+    "name": "Immortality",
+    "summary": "การฟื้นคืนชีพด้วยตนเอง",
+    "category": "Defense",
+    "price": 2120,
+    "bonus": "+850 HP, +15 พลังป้องกันกายภาพ",
+    "unique": null,
+    "passive": "อมตะ: ฟื้นคืนชีพ 2.5 วินาทีหลังจากตาย และได้รับ 16% HP สูงสุด และโล่ที่สามารถดูดซับความเสียหาย 150(+70*ระดับฮีโร่) โล่คงอยู่ 3 วินาที เอฟเฟกต์นี้มีคูลดาวน์ 210 วินาที",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Vitality Crystal",
+      "Leather Jerkin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "iron-hunting-bow",
+    "name": "Iron Hunting Bow",
+    "summary": null,
+    "category": "Attack",
+    "price": 450,
+    "bonus": "โจมตีกายภาพ +10 ลดคูลดาวน์ +5%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "javelin",
+    "name": "Javelin",
+    "summary": null,
+    "category": "Attack",
+    "price": 320,
+    "bonus": "โอกาสคริติคอล +8%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "knife",
+    "name": "Knife",
+    "summary": null,
+    "category": "Attack",
+    "price": 280,
+    "bonus": "ความเร็วในการโจมตี +10%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "lantern-of-hope",
+    "name": "Lantern of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "พลังเวทย์ +20, ความเร็วในการเคลื่อนที่ +4%, ลดคูลดาวน์ +2%",
+    "unique": null,
+    "passive": "ตะเกียงแห่งความหวัง: ระดับคุณสมบัติของอุปกรณ์ตามระดับฮีโร่",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Floryn"
+  },
+  {
+    "slug": "leather-jerkin",
+    "name": "Leather Jerkin",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 พลังป้องกันกายภาพ",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "legion-sword",
+    "name": "Legion Sword",
+    "summary": null,
+    "category": "Attack",
+    "price": 910,
+    "bonus": "พลังโจมตีกายภาพ +60",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "lightning-truncheon",
+    "name": "Lightning Truncheon",
+    "summary": "ความเสียหายจากน้ำกระเซ็น",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "พลังเวทย์ +75, มานา +400, ลดคูลดาวน์ +10%",
+    "unique": null,
+    "passive": "เสียงสะท้อน: ทุกๆ 6 วินาที สกิลถัดไปจะสะท้อน สร้างความเสียหายเวทย์เพิ่มเติม 255 (+85%) ให้กับศัตรูทั้งหมดที่อยู่ในระยะ",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "magic-blade",
+    "name": "Magic Blade",
+    "summary": null,
+    "category": "Attack",
+    "price": 1050,
+    "bonus": "โจมตีกายภาพ +35, ดูดพลังชีวิต +10%",
+    "unique": null,
+    "passive": "Lifeline: เมื่อได้รับความเสียหายที่ลด HP ต่ำกว่า 30% จะได้รับโล่ (+60*เลเวลฮีโร่) (เพิ่มขึ้นตามเลเวล) และความเร็วในการเคลื่อนที่ 50% ซึ่งจะค่อยๆ ลดลงอย่างรวดเร็วในระยะเวลา 3 วินาที เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที",
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vampire Mallet"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "magic-necklace",
+    "name": "Magic Necklace",
+    "summary": null,
+    "category": "Magic",
+    "price": 120,
+    "bonus": "+2 อัตราฟื้นฟูมานา",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "magic-potion",
+    "name": "Magic Potion",
+    "summary": null,
+    "category": "Magic",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "เพิ่มพลัง: ใช้งานโดยอัตโนมัติหลังจากซื้อ เพิ่มพลังเวทย์ 30 และลดคูลดาวน์ 10% เป็นเวลา 120 วินาที สามารถมีเอฟเฟกต์ยาได้ครั้งละหนึ่งผลเท่านั้น",
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "magic-resist-cloak",
+    "name": "Magic Resist Cloak",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 พลังป้องกันเวทย์มนตร์",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "magic-shoes",
+    "name": "Magic Shoes",
+    "summary": "การลดขนาดซีดี",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 ความเร็วในการเคลื่อนที่, +10% ลดคูลดาวน์, +150 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Hero's Ring"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "magic-wand",
+    "name": "Magic Wand",
+    "summary": null,
+    "category": "Magic",
+    "price": 820,
+    "bonus": "+45 พลังเวทย์มนตร์",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "malefic-gun",
+    "name": "Malefic Gun",
+    "summary": "เพิ่มระยะการโจมตี",
+    "category": "Attack",
+    "price": 2120,
+    "bonus": "พลังโจมตีกายภาพ +40, ความเร็วในการโจมตี +20%",
+    "unique": null,
+    "passive": "Armor Buster: เพิ่มการเจาะทางกายภาพ 30%.@ Malefic Energy: เพิ่มระยะการโจมตีพื้นฐาน 12% เมื่อโจมตีเป้าหมาย จะได้รับความเร็วในการเคลื่อนที่ 10% เป็นเวลา 0.5 วินาที",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "malefic-roar",
+    "name": "Malefic Roar",
+    "summary": "การรุกทางกายภาพสูง",
+    "category": "Attack",
+    "price": 2060,
+    "bonus": "พลังโจมตีกายภาพ +60",
+    "unique": null,
+    "passive": "เกราะบัสเตอร์: เพิ่มการเจาะกายภาพ 30%@ เบรกเกอร์: เมื่อโจมตีศัตรู ได้รับการเจาะทางกายภาพเพิ่มเติม 0.1% สำหรับแต่ละแต้มของการป้องกันทางกายภาพของศัตรู ต่อยอดที่ 30%",
+    "active": null,
+    "recipe": [
+      "Legion Sword"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "molten-essence",
+    "name": "Molten Essence",
+    "summary": null,
+    "category": "Defense",
+    "price": 800,
+    "bonus": "+540 แรงม้า",
+    "unique": null,
+    "passive": "Burning Soul: สร้างความเสียหายเวทย์ (0.6% HP ทั้งหมด) ให้กับศัตรูที่อยู่ใกล้เคียงต่อวินาที ความเสียหายนี้เพิ่มขึ้น 125(+15*ระดับฮีโร่)% ต่อครีปและมินเนี่ยน",
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "mystery-codex",
+    "name": "Mystery Codex",
+    "summary": null,
+    "category": "Magic",
+    "price": 300,
+    "bonus": "+15 พลังเวทย์มนตร์",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "mystic-container",
+    "name": "Mystic Container",
+    "summary": null,
+    "category": "Magic",
+    "price": 500,
+    "bonus": "พลังเวทย์ +15, เวทย์แวมไพร์ +8%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "necklace-of-durance",
+    "name": "Necklace of Durance",
+    "summary": "การลดการรักษา",
+    "category": "Magic",
+    "price": 2010,
+    "bonus": "+60 พลังเวทย์, +300 HP, +380 มานา, +5% ลดคูลดาวน์",
+    "unique": null,
+    "passive": "ของขวัญ: ฟื้นฟู HP และมานา 20% ภายใน 2 วินาทีหลังจากเลเวลอัพ@ Lifebane: เมื่อสร้างความเสียหายให้กับเป้าหมาย จะลดอัตราฟื้นฟูโล่และ HP ของเป้าหมายลง 50% เป็นเวลา 3 วินาที",
+    "active": null,
+    "recipe": [
+      "Book of Sages",
+      "Elegant Gem",
+      "Mystery Codex"
+    ],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "ogre-tomahawk",
+    "name": "Ogre Tomahawk",
+    "summary": null,
+    "category": "Attack",
+    "price": 650,
+    "bonus": "พลังโจมตีกายภาพ +25, +230 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "oracle",
+    "name": "Oracle",
+    "summary": "รีเจนที่ได้รับการปรับปรุง",
+    "category": "Defense",
+    "price": 1860,
+    "bonus": "+850 HP, +20 พลังป้องกันกายภาพ, +20 พลังป้องกันเวทย์มนตร์, ลดคูลดาวน์ +10%",
+    "unique": null,
+    "passive": "อวยพร: เอฟเฟกต์โล่ที่ได้รับและการฟื้นฟู HP เพิ่มขึ้น 25%",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "power-crystal",
+    "name": "Power Crystal",
+    "summary": null,
+    "category": "Magic",
+    "price": 220,
+    "bonus": "+280 มานา",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "power-potion",
+    "name": "Power Potion",
+    "summary": null,
+    "category": "Attack",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "เพิ่มพลัง: ใช้โดยอัตโนมัติหลังจากซื้อ ให้การโจมตีกายภาพ 30 หน่วย และดูดเลือด 15% เป็นเวลา 120 วินาที สามารถมีเอฟเฟกต์ยาได้ครั้งละหนึ่งผลเท่านั้น",
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "queen-s-wings",
+    "name": "Queen's Wings",
+    "summary": "การตอบโต้ด้วย HP ต่ำ",
+    "category": "Defense",
+    "price": 2250,
+    "bonus": "+750 HP, +30 การโจมตีแบบปรับตัว, +10% ลดคูลดาวน์, +10% Spell Vamp",
+    "unique": null,
+    "passive": "Demonize: เมื่อ HP ลดลงต่ำกว่า 40% ได้รับการลดความเสียหาย 30% เป็นเวลา 3 วินาที และลดคูลดาวน์สกิลลง 2 วินาที เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที@ Defiance: ทุกๆ 1% HP ที่สูญเสียไป ความเสียหายจะเพิ่มขึ้น 0.25% สูงสุด 15%",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "radiant-armor",
+    "name": "Radiant Armor",
+    "summary": "การลดความเสียหายเวทย์มนตร์",
+    "category": "Defense",
+    "price": 1880,
+    "bonus": "+950 HP, +40 พลังป้องกันเวทย์มนตร์, +12 อัตราฟื้นฟู HP",
+    "unique": null,
+    "passive": "Holy Blessing: การได้รับความเสียหายทางเวทย์มนตร์จะทำให้ได้รับพลังป้องกันเวทย์มนตร์ 5(+1*เลเวลฮีโร่) เป็นเวลา 5 วินาที สูงสุด 6 สแต็ค (สามารถรับได้ 1 สแต็คทุกๆ 0.4 วินาที)",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Magic Resist Cloak",
+      "Healing Necklace"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "rapid-boots",
+    "name": "Rapid Boots",
+    "summary": "ความเร็วในการเคลื่อนที่",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+55 ความเร็วในการเคลื่อนที่, +35% ลดช้าลง, +12 HP Regen",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Healing Necklace",
+      "Healing Necklace"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "regular-spear",
+    "name": "Regular Spear",
+    "summary": null,
+    "category": "Attack",
+    "price": 600,
+    "bonus": "พลังโจมตีกายภาพ +20 ความเร็วการโจมตี +10%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Dagger"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "rock-potion",
+    "name": "Rock Potion",
+    "summary": null,
+    "category": "Defense",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "เพิ่มพลัง: เมื่อซื้อ จะได้รับ Max HP 500 และลดความเสียหาย 5% เป็นเวลา 120 วินาที สามารถมีเอฟเฟกต์ยาได้ครั้งละหนึ่งผลเท่านั้น",
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "rogue-meteor",
+    "name": "Rogue Meteor",
+    "summary": null,
+    "category": "Attack",
+    "price": 900,
+    "bonus": "ความเร็วโจมตี +15% โอกาสคริติคอล +10%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Javelin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "rose-gold-meteor",
+    "name": "Rose Gold Meteor",
+    "summary": "โล่ HP ต่ำ",
+    "category": "Attack",
+    "price": 2030,
+    "bonus": "พลังโจมตีกายภาพ +30, ความเร็วโจมตี +20%, ดูดพลังชีวิต +10%",
+    "unique": null,
+    "passive": "Dragon Scale: ทุก ๆ การโจมตีทางกายภาพเพิ่มเติม 4 ครั้งจะเพิ่มการป้องกันไฮบริด 1 สูงสุด 50 (เอฟเฟกต์จะลดลงครึ่งหนึ่งหากบทบาทหลักไม่ใช่ Fighter)@ Lifeline: เมื่อได้รับความเสียหายที่ลด HP ต่ำกว่า 30% จะได้รับโล่ (120*ระดับฮีโร่) (เพิ่มขึ้นตามเลเวล) และความเร็วในการเคลื่อนที่ 50% ซึ่งจะสลายตัวอย่างรวดเร็วในระยะเวลา 3 วินาที เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที",
+    "active": null,
+    "recipe": [
+      "Magic Blade",
+      "Knife"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "scarlet-phantom",
+    "name": "Scarlet Phantom",
+    "summary": "คริติคอลและความเร็วในการโจมตี",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "พลังโจมตีกายภาพ +30 ความเร็วโจมตี +20% โอกาสคริติคอล +25%",
+    "unique": null,
+    "passive": "ความคลั่งไคล้: การโจมตีแบบคริติคอลให้ความเร็วโจมตีพิเศษ 30% และโอกาสคริติคอลพิเศษ 5% เป็นเวลา 2 วินาที",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Javelin"
+    ],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "sea-halberd",
+    "name": "Sea Halberd",
+    "summary": "การลดการรักษา",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "พลังโจมตีกายภาพ +80 ความเร็วการโจมตี +20%",
+    "unique": null,
+    "passive": "Lifebane: การสร้างความเสียหายให้กับเป้าหมายจะลดเอฟเฟกต์ของ Shield และ HP Regen ลงเหลือ 60% จากปกติเป็นเวลา 3 วินาที@ Punish: เพิ่มความเสียหาย 8% ต่อฮีโร่ศัตรูด้วย HP พิเศษที่สูงกว่า",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Regular Spear"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "shadow-twinblades",
+    "name": "Shadow Twinblades",
+    "summary": "ดีที่สุดสำหรับ Assassin",
+    "category": "Magic",
+    "price": 1960,
+    "bonus": "พลังเวทย์ +75, ดูดพลังเวทย์ +15%, ความเร็วในการเคลื่อนที่ +5%",
+    "unique": null,
+    "passive": "การลอบสังหาร: หากไม่ได้รับความเสียหายหรือทำภายใน 5 วินาที การโจมตีปกติครั้งถัดไปจะสร้างความเสียหายทางเวทย์เพิ่มเติมเท่ากับ 200 บวกด้วยพลังเวทย์ 50% และสร้างเอฟเฟกต์สโลว์ 60% ต่อเป้าหมายเป็นเวลา 1.5 วินาที",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystic Container"
+    ],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "shimmering-lantern",
+    "name": "Shimmering Lantern",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "พลังเวทย์ +20, ความเร็วในการเคลื่อนที่ +5%",
+    "unique": null,
+    "passive": "Floryn สามารถแบ่งปันพลังของ Dew's Lantern ให้กับฮีโร่ฝ่ายเดียวกันได้ ตะเกียงยังไม่แข็งแกร่งพอและสามารถพัฒนาได้เมื่อดูดซับพลังงานเพียงพอในการต่อสู้",
+    "active": null,
+    "recipe": [],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "silence-robe",
+    "name": "Silence Robe",
+    "summary": null,
+    "category": "Defense",
+    "price": 1020,
+    "bonus": "+540 HP, +23 พลังป้องกันเวทย์มนตร์",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "sky-piercer",
+    "name": "Sky Piercer",
+    "summary": "ดีที่สุดสำหรับผู้เข้าเส้นชัย",
+    "category": "Attack & Magic",
+    "price": 1500,
+    "bonus": "+60 การโจมตีแบบปรับตัว, +15 ความเร็วในการเคลื่อนที่",
+    "unique": null,
+    "passive": "Lethality: หลังจากสร้างความเสียหายให้กับฮีโร่ศัตรูแล้ว ประหารชีวิตฮีโร่หาก HP ของพวกเขาต่ำกว่า 4% ได้รับแต้มโจมตีจุดตาย 10 แต้มสำหรับการสังหารแต่ละครั้ง และสูญเสียแต้มแต้มปัจจุบัน 30% สำหรับการตายแต่ละครั้ง แต่ละสแต็คของ Lethality จะเพิ่มเกณฑ์ HP ของเอฟเฟกต์การประหารชีวิต 0.1% ซ้อนกันได้ 80 ครั้ง",
+    "active": null,
+    "recipe": [
+      "Expert Gloves",
+      "Expert Gloves"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "starlium-scythe",
+    "name": "Starlium Scythe",
+    "summary": "การโจมตีพื้นฐานที่ได้รับการปรับปรุง",
+    "category": "Magic",
+    "price": 2120,
+    "bonus": "พลังเวทย์ +75, ลดคูลดาวน์ +10%, ดูดเลือดไฮบริด +8%, อัตราฟื้นฟูมานา +6",
+    "unique": null,
+    "passive": "วิกฤต: หลังจากร่ายสกิล การโจมตีปกติครั้งถัดไปภายใน 3 วินาทีจะสร้างความเสียหายจริงเพิ่มเติม 90 (+60% พลังเวทย์ทั้งหมด) และลดความเร็วในการเคลื่อนที่ของเป้าหมายลง 15% เป็นเวลา 1.5 วินาที (คูลดาวน์ 1.5 วินาที)",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Book of Sages",
+      "Magic Wand"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "steel-legplates",
+    "name": "Steel Legplates",
+    "summary": null,
+    "category": "Defense",
+    "price": 630,
+    "bonus": "+35 พลังป้องกันกายภาพ",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Leather Jerkin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "swift-boots",
+    "name": "Swift Boots",
+    "summary": "ความเร็วในการโจมตี",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "ความเร็วในการเคลื่อนที่ +40, ความเร็วในการโจมตี +15%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Knife"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "swift-crossbow",
+    "name": "Swift Crossbow",
+    "summary": null,
+    "category": "Attack",
+    "price": 1000,
+    "bonus": "ความเร็วในการโจมตี +20%",
+    "unique": null,
+    "passive": "หน้าไม้: การโจมตีพื้นฐานแต่ละครั้งจะสร้างความเสียหายแบบปรับได้เพิ่มเติม 40 ความเสียหาย@แรงกระตุ้น: การโจมตีพื้นฐานจะได้รับความเร็วการโจมตีเพิ่มเติม 3% เป็นเวลา 3 วินาที โดยต่อยอดที่ 5 สแต็ค",
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "thunder-belt",
+    "name": "Thunder Belt",
+    "summary": "ความเสียหายสำหรับ Tank",
+    "category": "Defense",
+    "price": 1820,
+    "bonus": "+600 HP, +15 พลังป้องกันกายภาพ, +15 พลังป้องกันเวทย์มนตร์, +20 ความเร็วในการเคลื่อนที่",
+    "unique": null,
+    "passive": "สายฟ้า: ทุกๆ 4 วินาที การโจมตีปกติครั้งถัดไปจะสร้างความเสียหายจริงเพิ่มเติม 50 (+100% พลังป้องกันกายภาพ) (+100% พลังป้องกันเวทย์มนตร์พิเศษ) ให้กับเป้าหมายและศัตรูรอบ ๆ พวกเขา และทำให้พวกมันช้าลง 99% ชั่วครู่หนึ่ง Hybrid Defense เพิ่มขึ้นอย่างถาวร 1 ทุกครั้งที่โจมตีโดนฮีโร่ศัตรู (เอฟเฟกต์นี้ลดลงเหลือ 50% สำหรับ Marksmen, Mages และ Assassins)",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "tome-of-evil",
+    "name": "Tome of Evil",
+    "summary": null,
+    "category": "Magic",
+    "price": 950,
+    "bonus": "พลังเวทย์ +30, อัตราฟื้นฟูมานา +2, ลดคูลดาวน์ +10%",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Book of Sages"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "tough-boots",
+    "name": "Tough Boots",
+    "summary": "การลดระยะเวลา CC",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 ความเร็วในการเคลื่อนที่ +18 พลังป้องกันเวทย์มนตร์",
+    "unique": null,
+    "passive": "ความแข็งแกร่ง: CC และระยะเวลาการสโลว์ลดลง 25%",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "twilight-armor",
+    "name": "Twilight Armor",
+    "summary": "ต้านทานความเสียหายสูง",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+1200 HP, +15 พลังป้องกันกายภาพ",
+    "unique": null,
+    "passive": "พลบค่ำ: เมื่อได้รับความเสียหายมากกว่า 500 ความเสียหายในครั้งเดียว ความเสียหายส่วนเกินที่เกินจำนวนนั้นจะลดลง 20 (+0.2% HP ทั้งหมด)%@ การไถ่ถอน: เมื่อความเสียหายที่เข้ามาลด HP ต่ำกว่า 30% จะฟื้นฟู HP สูงสุด 20% ใน 4 วินาทีถัดไป เอฟเฟกต์นี้มีคูลดาวน์ 60 วินาที",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Leather Jerkin"
+    ],
+    "bestFor": "ลบออก"
+  },
+  {
+    "slug": "vampire-mallet",
+    "name": "Vampire Mallet",
+    "summary": null,
+    "category": "Attack",
+    "price": 400,
+    "bonus": "+8 การโจมตีทางกายภาพ +8% ดูดพลังชีวิต",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "vitality-crystal",
+    "name": "Vitality Crystal",
+    "summary": null,
+    "category": "Defense",
+    "price": 300,
+    "bonus": "+230 แรงม้า",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "war-axe",
+    "name": "War Axe",
+    "summary": "เพิ่มความเสียหายอย่างต่อเนื่อง",
+    "category": "Attack",
+    "price": 2100,
+    "bonus": "โจมตีกายภาพ +35, +400 HP, ลดคูลดาวน์ +10%, ดูดพลังชีวิตแบบไฮบริด +8%",
+    "unique": null,
+    "passive": "จิตวิญญาณแห่งการต่อสู้: การโจมตีจะทำให้ได้รับการโจมตีทางกายภาพเพิ่มเติม 12 ครั้งต่อวินาทีเป็นเวลา 4 วินาที สูงสุด 6 สแต็ค สร้างความเสียหายจริงเพิ่มเติม 10% ตามความเสียหายที่ทำได้ (ไม่นับการลดความเสียหาย) ที่สแต็คเต็ม (นักแม่นปืน Mage และตัวสนับสนุนจะได้รับเอฟเฟกต์แบบเรียงซ้อนเหล่านี้เพียง 50% เท่านั้น)",
+    "active": null,
+    "recipe": [
+      "Ogre Tomahawk",
+      "Iron Hunting Bow",
+      "Hero's Ring"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "warrior-boots",
+    "name": "Warrior Boots",
+    "summary": "การป้องกันทางกายภาพแบบวางซ้อนกันได้",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "ความเร็วในการเคลื่อนที่ +40, พลังป้องกันกายภาพ +18",
+    "unique": null,
+    "passive": "Valor: ได้รับพลังป้องกันกายภาพเพิ่มเติม 4 หน่วยเป็นเวลา 3 วินาทีเมื่อได้รับความเสียหายกายภาพ สูงสุด 20 หน่วย",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Leather Jerkin"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "wind-of-nature",
+    "name": "Wind of Nature",
+    "summary": "ภูมิคุ้มกันความเสียหายทางกายภาพ",
+    "category": "Attack",
+    "price": 1910,
+    "bonus": "พลังโจมตีกายภาพ +30, ความเร็วโจมตี +20%, ดูดพลังชีวิต +10%",
+    "unique": null,
+    "passive": null,
+    "active": "Wind Chant: ต้านทานความเสียหายกายภาพทั้งหมดเป็นเวลา 2 วินาที (ระยะเวลาลดลงครึ่งหนึ่งหากบทบาทหลักไม่ใช่ Marksman; คูลดาวน์ 90 วินาที)",
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "windtalker",
+    "name": "Windtalker",
+    "summary": "ความเสียหายจากน้ำกระเซ็น",
+    "category": "Attack",
+    "price": 1880,
+    "bonus": "ความเร็วโจมตี +35%, โอกาสคริติคอล +20%, ความเร็วการเคลื่อนที่ +20",
+    "unique": null,
+    "passive": "พายุไต้ฝุ่น: ทุกๆ 5–2 วินาที (ลดลง 0.2 วินาทีสำหรับการโจมตีพื้นฐานแต่ละครั้ง) การโจมตีปกติครั้งถัดไปจะโจมตีศัตรูได้มากถึง 3 หน่วยด้วยความเสียหายทางเวทมนตร์ 150–362 หน่วย (การโจมตีนี้สามารถคริติคอลและความเสียหายเพิ่มขึ้นเป็น 200% ต่อมิเนียน)",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Knife"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "winter-crown",
+    "name": "Winter Crown",
+    "summary": "การคงกระพันชั่วคราว",
+    "category": "Attack & Magic",
+    "price": 1910,
+    "bonus": "+45 การโจมตีแบบปรับตัว, +400 HP, +5% ลดคูลดาวน์",
+    "unique": null,
+    "passive": null,
+    "active": "Frozen: กลายเป็นน้ำแข็ง ไม่สามารถตกเป็นเป้าหมายได้ และต้านทานความเสียหายเป็นเวลา 2 วินาที (คูลดาวน์ 100 วินาที) ไม่สามารถเคลื่อนที่หรือร่ายสกิลได้ในขณะที่ถูกแช่แข็ง แต่สกิลที่ร่ายไปแล้วจะไม่ถูกขัดจังหวะ",
+    "recipe": [
+      "Expert Gloves",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  },
+  {
+    "slug": "wishing-lantern",
+    "name": "Wishing Lantern",
+    "summary": "ตอบโต้ HP สูง",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "พลังเวทย์ +75, มานา +400, ลดคูลดาวน์ +10%",
+    "unique": null,
+    "passive": "Butterfly Goddess: สำหรับทุก ๆ 900 Magic Damage ที่ทำกับฮีโร่ศัตรู (คำนวณก่อนการลดความเสียหาย) Butterfly Goddess จะถูกอัญเชิญมาโจมตีฮีโร่ศัตรู สร้างความเสียหายเวทย์เท่ากับ 8% ของ HP ปัจจุบันของพวกมัน",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "ฮีโร่ทุกคน"
+  }
+]

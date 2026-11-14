@@ -4,7 +4,7 @@ import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/translations";
 import { reconnect } from "@/lib/actions";
 import { formatGap, formatCount, formatPercent, plural } from "@/lib/player-format";
@@ -182,7 +182,7 @@ export function PlayerSummary({
           <h3 className="text-sm font-semibold text-chalk-300">
             {seasons.length > 0
               ? t("pages.accountProfile.overSeasons", {
-                  list: new Intl.ListFormat(LOCALE_HTML[locale], { type: "conjunction" }).format(seasons),
+                  list: new Intl.ListFormat(LOCALE_INTL[locale], { type: "conjunction" }).format(seasons),
                 })
               : t("pages.accountProfile.overAllSeasons")}
           </h3>
@@ -311,7 +311,7 @@ export function HeroTable({
       </div>
       {fallback && <p className="mt-3 text-xs text-chalk-500">* {t("pages.accountProfile.allRanksNote")}</p>}
       <p className="mt-2 text-xs text-chalk-500">
-        {t("pages.accountProfile.sourceAverage", { date: formatShortDate(measure, LOCALE_HTML[locale]) })}
+        {t("pages.accountProfile.sourceAverage", { date: formatShortDate(measure, LOCALE_INTL[locale]) })}
       </p>
     </>
   );

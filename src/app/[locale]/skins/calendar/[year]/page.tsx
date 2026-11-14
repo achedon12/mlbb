@@ -7,7 +7,7 @@ import { SkinGrid } from "@/components/skin-grid";
 import { FreshnessLine } from "@/components/freshness";
 import Link from "@/components/link";
 import { PageHeader, SectionTitle } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import {
@@ -88,7 +88,7 @@ export default async function SkinsYearPage({ params }: Params) {
   if (!a) notFound();
 
   const t = createT(locale);
-  const localeHtml = LOCALE_HTML[locale];
+  const localeHtml = LOCALE_INTL[locale];
   const count = new Intl.NumberFormat(localeHtml);
   const heroes = catalogHeroes();
   const years = calendarYears();

@@ -6,7 +6,7 @@ import { RoleMenusSection } from "@/components/bot/role-menus-section";
 import { SettingsForm } from "@/components/bot/settings-form";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
-import type { Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { createT, messagesPage } from "@/i18n/translations";
 import { canManage, grantableRoles, guildChannels, guildEmojis, mentionableRoles, refusalFor, type BotEmoji } from "@/lib/bot/client";
@@ -126,7 +126,7 @@ export default async function GuildPage({ params }: Params) {
           text: t("pages.botUI.statusCount", { on: menus.filter((m) => roleMenuStatus(m) !== "draft").length, total: menus.length }),
         };
   const roleChoices = lists.roles.map((r) => ({ ...r, granterRefusal: refusalFor(granted.refusals, r.id) }));
-  const dateTime = new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" });
+  const dateTime = new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "medium", timeStyle: "short", timeZone: "UTC" });
 
   return (
     <>

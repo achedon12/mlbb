@@ -3,7 +3,7 @@ import Link from "@/components/link";
 import { cn } from "@/lib/utils";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import { SectionTitle } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { botPublished, communityInvite } from "@/lib/bot/public";
 import { allArticles } from "@/lib/content";
@@ -40,7 +40,7 @@ export function HomeCommunity({ locale, className }: { locale: Locale; className
                 <span className="flex flex-wrap items-center gap-3 text-xs">
                   <span className="font-semibold text-gold-400">{t(`articleCategory.${a.category}`)}</span>
                   <time dateTime={a.date} className="text-chalk-500">
-                    {formatShortDate(a.date, LOCALE_HTML[locale])}
+                    {formatShortDate(a.date, LOCALE_INTL[locale])}
                   </time>
                 </span>
                 <span className="mt-1 line-clamp-2 block font-heading font-bold leading-snug text-chalk-100 transition-colors group-hover:text-gold-400 sm:text-lg">

@@ -8,7 +8,7 @@ import { HeroSelector, type HeroPickable } from "@/components/hero-picker";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { ItemPicker } from "@/components/item-picker";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { EMPTY_BUILD, LEVEL_MAX, LEVEL_MIN, MAX_ITEMS } from "@/lib/build-code";
 import { simulate, type SimCatalog } from "@/lib/build-simulator";
@@ -139,7 +139,7 @@ type Picker = { role: Role; slot: number | null } | null;
 
 export function DamageCalculator({ data }: { data: DamageCalculatorData }) {
   const t = useT();
-  const locale = LOCALE_HTML[useLocale()];
+  const locale = LOCALE_INTL[useLocale()];
   const catalog = useMemo(() => damageCatalogFrom(data), [data]);
   const heroChoices = useMemo<HeroPickable[]>(
     () => data.heroes.map((h) => ({ slug: h.slug, name: h.name, lanes: h.lanes, roles: h.roles, icon: h.icon })),

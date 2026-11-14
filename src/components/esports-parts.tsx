@@ -1,6 +1,6 @@
 import { Fragment, type ReactNode } from "react";
 import Link from "@/components/link";
-import type { Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/translations";
 import { esportsSource, type SourceLabel, type SourcePage, type Status, type Tournament } from "@/lib/esports";
 import { longDate, monthYear } from "@/lib/freshness";
@@ -30,7 +30,7 @@ export function tournamentDates(t: T, locale: Locale, turn: Tournament): string 
 /** "Sep 11, 2026": match dates, in UTC like the source's schedule. */
 export function shortDate(locale: Locale, iso: string): string {
   const d = new Date(iso.length === 10 ? `${iso}T00:00:00Z` : iso);
-  return new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(d);
+  return new Intl.DateTimeFormat(LOCALE_INTL[locale], { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(d);
 }
 
 export function formatPrize(locale: Locale, prize: { amount: number; currency: string }): string {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { FilterGroup, Chip } from "@/components/chip";
 import { Card } from "@/components/ui";
@@ -57,7 +57,7 @@ function Field({
 export function WinRateCalculator() {
   const t = useT();
   const locale = useLocale();
-  const count = new Intl.NumberFormat(LOCALE_HTML[locale], { maximumFractionDigits: 2 });
+  const count = new Intl.NumberFormat(LOCALE_INTL[locale], { maximumFractionDigits: 2 });
   // Sample values, written with the locale's decimal separator.
   const [matches, setMatches] = useState("250");
   const [rate, setRate] = useState(() => count.format(48.5));
@@ -72,7 +72,7 @@ export function WinRateCalculator() {
   };
   const result = compute(situation);
   // « 55 % » in French, « 55% » in English: the space follows the locale.
-  const percentage = new Intl.NumberFormat(LOCALE_HTML[locale], { style: "percent", maximumFractionDigits: 2 });
+  const percentage = new Intl.NumberFormat(LOCALE_INTL[locale], { style: "percent", maximumFractionDigits: 2 });
   const percent = (p: number) => percentage.format(p / 100);
   const outOfRange = (p: number | null, integer = false) =>
     p !== null && (integer ? !Number.isInteger(p) || p < 1 : p < 0 || p > 100);

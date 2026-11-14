@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { Chip } from "@/components/chip";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import { HEIGHT_CARD, WIDTH_CARD, drawCard, recordCard, type CardData } from "@/lib/retribution-card";
 import {
@@ -306,7 +306,7 @@ function RowTime({
 export function RetributionTrainer({ address }: { address: string }) {
   const t = useT();
   const siteLocale = useLocale();
-  const locale = LOCALE_HTML[siteLocale];
+  const locale = LOCALE_INTL[siteLocale];
   const count = useMemo(() => new Intl.NumberFormat(locale), [locale]);
   const percent = useMemo(() => new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 0 }), [locale]);
   const reduced = useSyncExternalStore(subscribeToMotion, motionReduced, () => false);

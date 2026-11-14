@@ -20,7 +20,7 @@ import { SearchField } from "@/components/search-field";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { FilterGroup, Chip } from "@/components/chip";
 import { ChoiceRank } from "@/components/rank-picker";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   addRow,
@@ -333,7 +333,7 @@ export function TierListMaker({
   async function download() {
     setStatus(t("pages.tierMakerUI.exporting"));
     try {
-      const date = new Intl.DateTimeFormat(LOCALE_HTML[locale], { dateStyle: "long" }).format(new Date());
+      const date = new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long" }).format(new Date());
       const blob = await exportImage(state, {
         title: titleImage,
         footer: `${new URL(site.url).host} · ${date}`,

@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import Link from "@/components/link";
 import { HeroSubLayout } from "@/components/hero-side-card";
 import { PageHeader } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_HTML, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { metaPage } from "@/i18n/seo";
 import { createT, type T } from "@/i18n/translations";
 import { heroesBySlug, sync } from "@/lib/data";
@@ -47,7 +47,7 @@ function description(t: T, locale: Locale, h: Hero, g: HeroGallery): string {
   const base = t("pages.heroSkins.metaDescription", { name: h.name, n: g.total });
   const recent = newest(g);
   if (!recent) return base;
-  return `${base} ${t("pages.heroSkins.latest", { skin: recent.name, date: formatRelease(recent.release!, locale) })}`;
+  return `${base} ${t("pages.heroSkins.latest", { skin: recent.name, date: formatRelease(recent.release!, LOCALE_INTL[locale]) })}`;
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -165,7 +165,7 @@ export default async function HeroSkinsPage({ params }: Params) {
             </dl>
           )}
           {recent && (
-            <p>{t("pages.heroSkins.latest", { skin: recent.name, date: formatRelease(recent.release!, locale) })}</p>
+            <p>{t("pages.heroSkins.latest", { skin: recent.name, date: formatRelease(recent.release!, LOCALE_INTL[locale]) })}</p>
           )}
           <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
             {presentRarities(g.skins.map((s) => s.rarity)).map((r) => (
@@ -210,7 +210,7 @@ export default async function HeroSkinsPage({ params }: Params) {
                     {s.release && (
                       <Info label={t("skinsUI.release")}>
                         {DATE_ISO.test(s.release) ? (
-                          <time dateTime={s.release}>{formatRelease(s.release, locale)}</time>
+                          <time dateTime={s.release}>{formatRelease(s.release, LOCALE_INTL[locale])}</time>
                         ) : (
                           s.release
                         )}

@@ -7,7 +7,7 @@ import { GuessField, type GuessOption } from "@/components/guess-field";
 import { HeroSelector, type HeroPickable } from "@/components/hero-picker";
 import Link from "@/components/link";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import type { T } from "@/i18n/t";
 import {
@@ -168,10 +168,10 @@ export function RoundQuiz({
   const [roster, setRoster] = useState(false);
   const finished = roundFinished(round, attempts);
   const formatRate = useMemo(
-    () => new Intl.NumberFormat(LOCALE_HTML[locale], { minimumFractionDigits: 1, maximumFractionDigits: 2 }),
+    () => new Intl.NumberFormat(LOCALE_INTL[locale], { minimumFractionDigits: 1, maximumFractionDigits: 2 }),
     [locale],
   );
-  const formatPrice = useMemo(() => new Intl.NumberFormat(LOCALE_HTML[locale]), [locale]);
+  const formatPrice = useMemo(() => new Intl.NumberFormat(LOCALE_INTL[locale]), [locale]);
 
   const isItem = round.type === "item";
   const response = round.type === "duel" ? null : round.reponse;
@@ -349,7 +349,7 @@ export function RoundQuiz({
       {round.type === "duel" && (
         <p className="mt-4 text-xs text-chalk-500">
           {t("pages.quizUI.duelSource", {
-            date: new Intl.DateTimeFormat(LOCALE_HTML[locale], { dateStyle: "long", timeZone: "UTC" }).format(
+            date: new Intl.DateTimeFormat(LOCALE_INTL[locale], { dateStyle: "long", timeZone: "UTC" }).format(
               new Date(measure),
             ),
           })}

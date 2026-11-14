@@ -1,0 +1,1007 @@
+[
+  {
+    "name": "Classic",
+    "slug": "classic",
+    "description": "Ang Classic Mode ay ang una at pinakamatandang mode ng laro sa Mobile Legends. Ginagamit ng lahat ng iba pang mode ng laro ang mga klasikong panuntunan bilang batayan. Ang mode na ito ay nag-aalok ng 5v5 at Mobile Legends na karanasan nang walang takot na mawala ang iyong ranggo, ngunit ang iyong win rate ay maaapektuhan, kapwa sa panig ng hero at sa pangkalahatan. Ang classic mode ay angkop para sa mga baguhan na kailangang maging pamilyar sa mga laro ng Mobile Legends. Maaari mong malayang pumili ng anumang hero na pagmamay-ari mo, pati na rin ang mga libreng lingguhang hero at anumang trial card na pagmamay-ari mo. Gayunpaman, hindi ka maaaring magkaroon ng higit sa isang hero sa iyong koponan. Maaari mo ring piliin ang hero na gusto mo, dahil walang hero ban hindi tulad ng ranked mode.",
+    "sections": [
+      {
+        "title": "Layunin",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Tulad ng lahat ng laro ng MOBA, ang pangunahing layunin ay sirain ang base ng kaaway. Ito ay nangangailangan sa iyo upang ipagtanggol ang iyong mga turrets at base at sirain ang kanila. Ang bawat turret sa isang partikular na lane ay dapat sirain sa pagkakasunud-sunod para maabot ng iyong mga minions ang base. May mga paraan upang sirain ang mga turret sa pamamagitan ng paggamit ng mga minions/creeps upang kunin ang damage mula sa mga bala ng turret. Pagkatapos sirain ang mga turrets, magagawa mong sirain/sirain ang base ng kaaway. Ang pagsira sa huling turret sa isang lane ay magbibigay ng mga super minions na nagdudulot ng mataas na damage sa mga hero at mas mabilis na mag-clear ng mga lane. Minsan ang mga manlalaro ay napipilitang mag-rack up ng mga pagpatay laban sa mga hero ng kaaway sa halip na tumuon sa mga minion at turret ng kaaway. Mas maraming pagpatay ang maaaring makakuha sa kanila ng MVP at pagsasaka, ngunit ang pagsira sa mga turret, pag-access sa base ng kaaway at pagsira dito ang pangunahing layunin."
+          }
+        ]
+      },
+      {
+        "title": "Mga tampok",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Celestial Palace/Western Expanse — Isang field na inspirasyon ng Defense of the Ancients: Allstars (DOTA for short) na bersyon ng mapa, na may ilang feature at mechanics na binago. Ang laro ay binubuo ng limang hero mula sa bawat koponan, na pagkatapos ay inilagay sa isang arena na may layuning sirain ang base inhibitor ng lahat, na nagreresulta sa isang tagumpay. Ang karaniwang oras na kinakailangan upang makumpleto ang karamihan sa mga laro ay humigit-kumulang 10-15 minuto, ngunit ang ilang mga laro ay maaaring tumagal ng higit sa 30 minuto."
+          },
+          {
+            "type": "li",
+            "text": "Ang larangan ng digmaan ay nahahati sa tatlong linya upang labanan ang iyong daan patungo sa base ng kaaway."
+          },
+          {
+            "type": "li",
+            "text": "Ang isang jungle populated na may jungle monsters ay nagbibigay ng healing buff, role buff, at gold buff kapag natalo. Mayroon ding mga Boss Monster na nagbibigay ng ginto para sa iyong buong koponan o ang Lord na lumalaban sa tabi mo."
+          },
+          {
+            "type": "li",
+            "text": "Ang Golden Path ay maaari ding tahakin ng mga Tanks na gumagalaw para sa koponan upang mabilis na makakuha ng mga item upang suportahan ang koponan."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/classic.webp"
+  },
+  {
+    "name": "Ranked",
+    "slug": "ranked",
+    "description": "Ang ranggo ay isang mapagkumpitensyang queue game mode. Ang mga manlalaro ay kumikita o nawalan ng mga bituin kung sila ay manalo o matalo sa mode na ito. Ang Warrior, Elite, Master, Grandmaster, Epic, Legend at Mythic (Mythical Honor, Mythical Glory at Mythical Immortal) ay ang pitong rank ng Mobile Legends: Bang Bang.",
+    "sections": [
+      {
+        "title": "Mga panuntunan sa koneksyon",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Maaaring pumili ang mga manlalaro ng tatlong hero na itatampok sa kanilang lobby at draft phase. Ang mga bayaning ito ay dapat na laruin nang hindi bababa sa isang beses sa isang hilera."
+          },
+          {
+            "type": "p",
+            "text": "Ang mga manlalaro ay maaaring maglaro ng solo o bumuo ng isang koponan ng dalawa, tatlo, o limang manlalaro upang pumila. Ang mga manlalaro ay maaaring mag-imbita ng iba pang mga manlalaro na mas mataas o mas mababa ang ranggo kaysa sa kanila sa lobby. Ang isang pangkat ng apat na tao ay hindi pinahihintulutan."
+          },
+          {
+            "type": "p",
+            "text": "Kapag pumila ang isang team na may iba't ibang rank, tinatawag itong Flex Rank, at ipipila lang nila ang mga laban ng pinakamataas na ranggo na tao."
+          },
+          {
+            "type": "p",
+            "text": "Mga halimbawa:"
+          },
+          {
+            "type": "li",
+            "text": "Ang isang Mythic player ay nakikipagtulungan sa isang Epic player, pareho silang susunod sa draft rule ng Mythic player."
+          },
+          {
+            "type": "li",
+            "text": "Ang isang Mythic Glory player ay nakikipagtulungan sa isang Grandmaster player at isang Legend player, na lahat ay susunod sa Mythic player draft rule, bagama't ang Draft Pick ay hindi karaniwang available sa mga manlalarong mababa sa Epic rank."
+          },
+          {
+            "type": "p",
+            "text": "Gayunpaman, ang isang manlalaro sa solong pila ay maaaring makita ang kanilang sarili na nakikipag-matchmaking sa mas mataas o mas mababang ranggo na mga kaalyado, maaari itong ma-trigger ng mga sumusunod:"
+          },
+          {
+            "type": "li",
+            "text": "Ang mga kaalyado ay naglalaro bilang isang koponan habang ikaw ay nag-iisa. Kabilang sa mga kaalyado ng nasabing koponan ay hindi bababa sa isang manlalaro na may katulad na ranggo sa iyo."
+          },
+          {
+            "type": "li",
+            "text": "Halimbawa: Ang isang Epic na manlalaro ay nakikipagtulungan sa isang Legend player at ikaw, isang Epic na manlalaro, ay makakatagpo sa kanila."
+          },
+          {
+            "type": "li",
+            "text": "Ang lahat ng mga manlalaro ay naglalaro ng solo, ngunit ang koponan ng kaaway ay may isang taong may katulad na ranggo sa iyo."
+          },
+          {
+            "type": "li",
+            "text": "Halimbawa: Ang iyong ranggo ay Alamat, ngunit 4 sa iyong mga kasamahan ay Mythic. Kaya kahit isa sa mga kaaway ay Alamat."
+          },
+          {
+            "type": "li",
+            "text": "Kapag nangyari ang phenomenon na ito, posibleng isang miyembro lang ng team ang nasa ibang ranggo."
+          },
+          {
+            "type": "li",
+            "text": "Halimbawa: Ang iyong koponan ay may 4 na manlalaro sa ranggo ng Legend at 1 manlalaro sa ranggo ng Mythic, nangangahulugan ito na ang koponan ng kalaban ay maaaring magkaroon ng 1-4 na manlalaro sa ranggo ng Mythic, ngunit dapat mayroong isang tao sa ranggo ng Epic."
+          },
+          {
+            "type": "li",
+            "text": "Salamat sa mekaniko ng Flex Rank na ito, kahit isang solo player mula sa Legend ay maaari akong pumila sa isang kaalyado mula sa Epic V, dahil magkaiba lang sila ng ranggo, ngunit ang agwat ay ibang-iba, na humahantong sa malawak na pinaghihinalaang madilim na sistema."
+          },
+          {
+            "type": "p",
+            "text": "Ang isang mabilis na pagpipilian sa matchmaking ay iaalok kung ang pila ay masyadong mahaba, ang pagpipiliang ito ay tutugma sa iyo kahit na sa mga manlalaro na iyong na-block dati."
+          },
+          {
+            "type": "p",
+            "text": "Kung ang player na na-block mo ay nakipagtulungan sa isang taong hindi mo na-block, maaari ka pa ring pumila sa kanila sa panahon ng laban."
+          }
+        ]
+      },
+      {
+        "title": "Mga draft na pinili",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Kapag naabot ng isang manlalaro ang Epic V o mas mataas (Grandmaster V o mas mataas sa Advanced Server), magiging available ang Draft Pick para sa mga laban sa hinaharap. Hindi tulad ng Blind Pick, ang Draft Pick ay nagbibigay-daan sa parehong mga koponan na makita ang kanilang mga hero sa panahon ng kanilang pagpili, at nagbibigay-daan sa hanggang sa 10 pinagbawalan na mga hero (3/4/5 na pagbabawal sa Epic/Legend/Mythic) para sa bawat koponan para sa mga layunin ng pagbabalanse. Ang mga hero na napili o na-ban ay hindi mapipili sa tagal ng laban."
+          }
+        ]
+      },
+      {
+        "title": "Sistema ng pagraranggo",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mayroong pitong rank sa Mobile Legends: Bang Bang. Ang mga ito ay: Warrior, Elite, Master, Grandmaster, Epic, Legendary at Mythical."
+          },
+          {
+            "type": "p",
+            "text": "Ang bawat ranggo ay may mga dibisyong nakasulat sa Roman numeral at isang tiyak na bilang ng mga bituin na kinakailangan upang ma-promote sa susunod na dibisyon o ranggo. Kung ang isang manlalaro ay lumampas sa maximum na bilang ng mga bituin sa kanilang kasalukuyang dibisyon o bumaba sa ibaba ng zero na mga bituin, maaari silang lumipat sa susunod na dibisyon o bumalik sa nakaraang dibisyon. Ang pagkumpleto ng lahat ng mga dibisyon mula sa kanilang kasalukuyang ranggo o pagka-demote mula sa lahat ng mga dibisyon ay magreresulta sa pag-promote sa susunod na ranggo o demotion sa nakaraang ranggo."
+          },
+          {
+            "type": "p",
+            "text": "Sa Mythic, ang mga bituin ay pinalitan ng mga puntos upang umabante sa susunod na dibisyon."
+          }
+        ]
+      },
+      {
+        "title": "Star Raising at Star Protection Points",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mayroong maraming mga paraan upang mapataas o maiwasan ang pagkawala ng bituin, na humahantong sa pagtataas ng bituin at mga punto ng proteksyon."
+          },
+          {
+            "type": "p",
+            "text": "Binibigyang-daan ng Star Raising ang mga manlalaro na makakuha ng karagdagang star kapag naabot ng isang manlalaro ang 100% Star Raising Points sa kanilang susunod na tagumpay. Kinakailangan ang 100/200/300/500/700/1000 puntos sa Warrior / Elite / Master / Grandmaster / Epic / Legend. Ang mga puntos ng bonus sa pagtaas ng bituin ay hindi maaaring maipon sa mga ranggo ng Mythic."
+          },
+          {
+            "type": "p",
+            "text": "Nagbibigay-daan ang Star Protection sa mga manlalaro na maiwasang mawalan ng star sa isang laban sa pamamagitan ng pag-abot sa 100% Star Protection point o paggamit ng Star Protection card. Kinakailangan ang 100/200/300/500/700/1000/1500 puntos sa Warrior / Elite / Master / Grandmaster / Epic / Legend / Mythic."
+          },
+          {
+            "type": "p",
+            "text": "Karaniwang nakukuha ang mga Star Protection Card sa pamamagitan ng mga in-game na kaganapan o sa pamamagitan ng Starlight Rewards. Karaniwang tumatagal lamang ang mga ito ng 7 araw kapag nakuha o na-claim sa mga page ng event."
+          },
+          {
+            "type": "p",
+            "text": "Ang card ng proteksyon sa ranggo ay ang card na pumipigil sa iyong mag-demote kapag naabot mo ang nakaraang ranggo. Madalas itong nakukuha pagkatapos maabot ang mas mataas na ranggo: mula sa Epiko hanggang Alamat, mula Alamat hanggang Mythic."
+          },
+          {
+            "type": "p",
+            "text": "Mga Star Protection Point lang ang available sa Mythic, dahil hindi pinagana ang Star Obtaining Points."
+          }
+        ]
+      },
+      {
+        "title": "Ranggo ng Proteksyon Card",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Makukuha lang ang mga card ng proteksyon sa ranggo mula sa mga reward sa pag-promote ng ranggo. Hindi tulad ng mga star protection point/card, nag-a-activate lang ang mga ito sa mga pagkatalo na magreresulta sa pagka-demote ng isang player (halimbawa, isang pagkatalo na nagreresulta sa pagkawala ng mga bituin mula sa Legend V 0 na mga bituin hanggang sa Epic I 4 na mga bituin, pag-demote mula sa ranggo ng Legend tungo sa ranggo ng Epic)."
+          }
+        ]
+      },
+      {
+        "title": "Pag-reset ng ranggo",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Kapag natapos na ang season, sisimulan ng lahat ng manlalaro ang kanilang bagong season sa kanilang bagong ranggo batay sa kanilang ranking mula sa nakaraang season. Tumatanggap din sila ng gantimpala para sa pag-abot sa isang tiyak na ranggo."
+          },
+          {
+            "type": "p",
+            "text": "Ang pag-reset ng ranggo ay inilalapat lamang kapag ang manlalaro ay nag-log in sa unang pagkakataon sa bagong season, ngunit ang kanilang lumang ranggo ay hindi nai-save sa leaderboard."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/ranked.webp"
+  },
+  {
+    "name": "Brawl",
+    "slug": "brawl",
+    "description": "Ang Brawl ay isang mode ng laro kung saan hindi mo malayang mapipili ang iyong mga hero. Sa halip, ang bawat manlalaro ay magkakaroon ng dalawang random na hero na mapagpipilian. Ang mga laban sa mode na ito ay nagaganap lamang sa isang lane na may dalawang turret na nagtatanggol sa base sa magkabilang koponan ayon sa pagkakabanggit. Ang mga laban sa gulo ay karaniwang nagtatapos sa mas maikling oras kaysa sa Classic Mode at Ranking Mode. Ang ganitong uri ng tugma ay mas gusto para sa pagtaas ng mga nawawalang marka ng kredito o pagkumpleto ng mga gawain.",
+    "sections": [
+      {
+        "title": "Pangunahing tampok",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Ang bawat manlalaro ay may pagpipilian sa pagitan ng 2 random na hero."
+          },
+          {
+            "type": "li",
+            "text": "Ang mga manlalaro ay maaari lamang bumili ng mga item kapag sila ay namatay o bago umalis sa lugar ng altar sa tuwing sila ay respawn."
+          },
+          {
+            "type": "li",
+            "text": "Ang altar ay hindi na nagpapagaling o nagpapabagong mana. Ang lahat ng nakapagpapagaling na epekto ay hinahati. Hindi na nagre-restock ang base."
+          },
+          {
+            "type": "li",
+            "text": "Ang bawat hero ay maaaring magkaroon ng karagdagang buff o kapansanan."
+          }
+        ]
+      },
+      {
+        "title": "Pag-alis",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Maaaring makipag-chat ang mga manlalaro sa yugto ng pagpili."
+          },
+          {
+            "type": "p",
+            "text": "Magsisimula ang lahat ng manlalaro sa level 4 at makakatanggap ng 2,500 panimulang ginto para makabili ng mga item. Sa sandaling umalis sila sa base, dapat silang mamatay upang makabili muli ng mga item."
+          }
+        ]
+      },
+      {
+        "title": "Glyph ng Pagpapagaling",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ang mga hero na bihirang mamatay sa labanan ay magbabawas ng healing glyph. (Ginagaling ang parehong Max HP at Mana.)"
+          }
+        ]
+      },
+      {
+        "title": "Mga turret",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ang mga turret sa Brawl ay kumikilos tulad ng sa mga klasikong laro. Gayunpaman ang mga turret ay mas mahina at walang gintong kalasag."
+          },
+          {
+            "type": "p",
+            "text": "Ang pangalawang turret sa bawat panig ay naglalabas ng alon na pumapatay sa lahat ng mga minions kapag nawasak."
+          }
+        ]
+      },
+      {
+        "title": "Minions",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ang ginto at karanasang nakuha mula sa mga minions ay mas mataas kaysa sa classic mode."
+          },
+          {
+            "type": "p",
+            "text": "Pagkatapos ng 12 minuto, ang Super Minions ay idine-deploy upang maiwasan ang mahabang laro."
+          }
+        ]
+      },
+      {
+        "title": "alimango",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mayroong dalawang alimango sa magkabilang gilid ng daanan na sumibol sa 0:30 at muling sumibol 30 segundo pagkatapos mamatay. Ang pagpatay sa isang Frozen Crab ay muling bumubuo ng maliit na halaga ng kalusugan, nagbibigay ng ginto at isang maliit na kalasag. Nakatanggap din ng ginto ang mga kalapit na kaalyado na tumutulong sa alimango. Ang alimango na ito ay maaaring gamitin bilang pambuwelo para sa mga hero tulad nina Lancelot, Joy o Natalia, makipag-ugnayan sa ilang partikular na hero tulad ng Vexana, Benedetta o Yi Sun-shin, o tingnan kung ang kalaban ay nasa pinakamalapit na bush o magpakamatay para bumili ng mga item kapag ang kanilang kalusugan ay masyadong mahina."
+          }
+        ]
+      },
+      {
+        "title": "Mga rune ng pagpapagaling",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mayroong dalawang healing rune sa magkabilang panig ng landas na lumilitaw sa 0:30 at muling lilitaw 35 segundo pagkatapos makolekta. Ang timer at sound effect ay nakikita at naririnig ng lahat. Ang rune ay patuloy na nagpapagaling sa picker para sa 5 segundong pagkaantala, pagkatapos ay muling buuin ang ilang kalusugan at hanggang 40% mana sa lahat ng kaalyadong hero sa loob ng saklaw. Kung ang nagpapagaling ay namatay sa panahon ng pagkaantala, ang pagpapagaling ay kanselahin."
+          }
+        ]
+      },
+      {
+        "title": "Barrel",
+        "elements": [
+          {
+            "type": "p",
+            "text": "May bariles sa bawat panig na lumilitaw sa 0:20 at bawat 30 segundo pagkatapos kunin. Piliin ang bariles na ito at barilin ang mga kaaway para sorpresahin sila!"
+          },
+          {
+            "type": "p",
+            "text": "Ang barrel ay ginagawang hindi ma-target ang user sa ilang sandali, nakikitungo sa tunay na damage, at may 15 segundong cooldown, na ginagawang imposibleng maglabas ng dalawang bariles nang sabay-sabay. Kapag may nakapulot ng bariles, may nagagawang tunog, na maririnig ng lahat sa mapa."
+          },
+          {
+            "type": "p",
+            "text": "Ang Barrel ay hindi rin pinagana sa pamamagitan ng rooted effect."
+          },
+          {
+            "type": "p",
+            "text": "Maaaring kolektahin ng isang patay na si Diggie o isang hindi ma-target na hero ang bariles."
+          }
+        ]
+      },
+      {
+        "title": "Paggawa ng posporo",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Hindi tulad ng mga Classic o Ranggo na mode, walang mga paghihigpit sa ranggo sa Brawl. Nangangahulugan ito na maaari kang mag-queue ng mga laban kung saan ang isang gilid ay isang 5-man solo queue habang ang isa ay isang team ng 5, o ang isang side ay isang 5-man Mythic Immortal habang ang isa ay isang taong nag-download lang ng laro."
+          },
+          {
+            "type": "p",
+            "text": "Ang pagiging AFK, ang pag-iwas sa mga away ng koponan o pandiwang pang-aabuso ay ganap na mapaparusahan sa pamamagitan ng pag-uulat."
+          }
+        ]
+      },
+      {
+        "title": "Mga tip at trick",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Inirerekomenda ang komposisyon ng koponan"
+          },
+          {
+            "type": "p",
+            "text": "Maraming mga hero na mapagpipilian na may iba't ibang istilo ng paglalaro. Ang pag-alam sa mga kakayahan, kalakasan, at kahinaan ng mga hero pati na rin ang kanilang pinakamainam na pagpoposisyon ay mahalaga. Unahin ang mga Assassin, Mage, o Fighter dahil marami silang napinsala at nagbibigay ng crowd control. Iwasan ang Marksman dahil umaasa sila sa item at marupok sa una, maliban kung mayroon silang mahusay na pag-clear ng minion at area of ​​effect na mga kakayahan tulad ng Beatrix o Granger. Iwasan ang mga team na may napakaraming Mage, masyadong maraming Sniper, o masyadong maraming Tank."
+          },
+          {
+            "type": "li",
+            "text": "Inirerekomendang Battle Spells"
+          },
+          {
+            "type": "li",
+            "text": "Ang Flameshot ay may napakababang cooldown at maaaring gamitin upang suriin ang bush, secure na pagpatay, o i-negate ang mga kakayahan."
+          },
+          {
+            "type": "li",
+            "text": "Hindi bababa sa isang manlalaro ang dapat magdala ng sumusunod:"
+          },
+          {
+            "type": "li",
+            "text": "Buhayin upang mapanatili ang kanilang koponan pagkatapos ng laban dahil ang altar ay hindi na gumagaling, lalo na kapag ang iyong koponan ay nasa isang masamang posisyon at hindi ma-secure ang mga healing rune; At"
+          },
+          {
+            "type": "li",
+            "text": "Purify, kung maganda ang damage ng hero mo pero vulnerable sa crowd control (CC)."
+          },
+          {
+            "type": "li",
+            "text": "Gayunpaman, ang Sprint ay hindi lubos na inirerekomenda."
+          },
+          {
+            "type": "li",
+            "text": "Enjoy ang crowd"
+          },
+          {
+            "type": "p",
+            "text": "Ang kakaibang card ng Brawl ay maaaring napakalaking buff sa mga hero gaya nina Luo Yi, Odette, Lancelot, Xavier, Fanny habang ang mga hero na masyadong umaasa sa mga basic attack tulad ni Freya o Thamuz ay nagiging inutil."
+          },
+          {
+            "type": "p",
+            "text": "Gayundin, kakailanganin mong iwasan ang manatiling malapit sa isa't isa kapag ang mga kalaban ay Atlas o Tigreal."
+          },
+          {
+            "type": "li",
+            "text": "Bumili ng mga tamang bagay"
+          },
+          {
+            "type": "p",
+            "text": "Sa halip na bumili ng isang disenteng item, ang pagbili ng mas maliliit na bahagi ay maaaring magbigay ng mas mahusay na kalamangan. Maaari ka ring maghintay ng ilang segundo at magpadala ng mensahe sa iyong mga kapanalig na halos sapat na ang ginto para makabili ng mga item.j"
+          },
+          {
+            "type": "p",
+            "text": "Sa halip na magmadali sa isang 5-man team na may buong Sky Piercer, ang isang healing-reducing item ay lubos na makakalaban sa team ng kaaway."
+          },
+          {
+            "type": "li",
+            "text": "Nakatago sa bush"
+          },
+          {
+            "type": "p",
+            "text": "Samantalahin ang mga palumpong para tambangan ang mga kaaway, lalo na angkop para sa mga hero tulad nina Helcurt, Hilda, Natalia, Luo Yi. Mag-ingat kung ang mga kaaway ay may ganitong mga hero."
+          },
+          {
+            "type": "li",
+            "text": "I-replay ang pagpili ng hero"
+          },
+          {
+            "type": "p",
+            "text": "Sa simula, ang mga manlalaro ay magkakaroon ng pagpipilian sa pagitan ng 2 hero. Kung walang tunay na hero na nababagay sa iyo, gumulong ka ng isang mamatay upang makakuha ng bagong hero at ipadala ang iyong itinapon na hero sa reserba para sa iba. Minsan, sapat na ang isang itinapon na hero para makapagpalit ang lahat. Maaari kang makipag-chat at magtanong sa iba pang mga manlalaro o gumamit ng mabilis na mga chat at emote. Tandaan na kung ang hero ay itatapon ng dalawang beses at mawala sa pagpili ng lahat, maaari siyang muling lumitaw kung gagamit ka ng isa pang die, na magsasayang ng iyong dice. Hanggang 10 hero ang maaaring lumabas sa inabandunang lokasyon."
+          },
+          {
+            "type": "p",
+            "text": "Ang ilang mga hero ay mahirap para sa iyo na laruin, ngunit hindi ibig sabihin na mahirap para sa iyong mga kaalyado, palitan sila at iwasang makaipon ng dalawang mahusay na hero habang ang iyong mga kaalyado ay wala."
+          },
+          {
+            "type": "li",
+            "text": "Ilista ang kalaban"
+          },
+          {
+            "type": "p",
+            "text": "Dahil iisa lang ang lane, mas madaling hulaan ang mga galaw ng iyong mga kalaban at ilagay ang iyong hero sa pinakamagandang posisyon para dumepensa o umatake."
+          },
+          {
+            "type": "p",
+            "text": "Kapag ang koponan ng kaaway ay may Xavier, Novaria, asahan na ikaw ay masira o mabubunyag sa pamamagitan ng pagbili ng mga item mula sa altar o pag-abot sa larangan ng digmaan."
+          },
+          {
+            "type": "p",
+            "text": "Maaari mong suriin ang mga item ng mga kaaway upang makita kung umalis sila sa kanilang altar o hindi."
+          },
+          {
+            "type": "li",
+            "text": "Gumamit ng mga natural na bagay"
+          },
+          {
+            "type": "p",
+            "text": "Maaari kang mag-save ng bariles para makatakas pagkatapos ng dive, turret dive, o gamitin ito para paikliin ang distansya gamit ang Flicker. Ang mga bariles ay unang lumilitaw sa 20 segundo, habang ang unang healing rune ay tumatagal ng 30 segundo. Pinakamainam na i-secure ang bush sa kanan at ang glyph sa malapit, para ma-off man lang ng iyong team ang isang healing option pagkatapos lumaban ang mga kaaway. Gamitin ang bariles para pigilan ang mga kaaway kapag sinubukan nilang i-secure ang healing rune."
+          }
+        ]
+      },
+      {
+        "title": "Battle Spells",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ang lahat ng mga hero ay tumatanggap ng Flicker bilang default kasama ng isa pang napiling Battle Spell."
+          },
+          {
+            "type": "p",
+            "text": "Magsisimula ang lahat ng Battle Spell sa 50% ng kanilang normal na cooldown."
+          }
+        ]
+      },
+      {
+        "title": "Mga Detalye ng Hero",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Dahil ang ilang mga hero ay magiging masyadong makapangyarihan o masyadong mahirap sa Brawl, ang ilang mga buff o mga kapansanan ay idinaragdag sa ilang mga hero gaya ng sumusunod:"
+          },
+          {
+            "type": "p",
+            "text": "Pinakabagong bersyon: v350.1 {|class=\"article-table\" !Mga Hero!!Mga pagbabago sa istatistika!!Mga indibidwal na pagbabago"
+          },
+          {
+            "type": "p",
+            "text": "Passive gain: 10/4"
+          },
+          {
+            "type": "p",
+            "text": "May apat na pinto para sa Chip, ang bawat panig ay may isa malapit sa base, habang ang dalawa pa ay nasa magkabilang gilid ng kabaligtaran na mga palumpong."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/brawl.webp"
+  },
+  {
+    "name": "Vs. AI",
+    "slug": "vs-ai",
+    "description": "Ang \"Vs A.I\" mode sa Mobile Legends: Bang Bang ay ipinakilala sa pagtatapos ng 2017, ilang sandali matapos ang global release ng laro. Orihinal na nagtatampok lamang ng madali at normal na mga paghihirap, ang mode ay sumailalim sa makabuluhang pag-upgrade, kabilang ang isang hard mode na idinagdag sa Project Next noong 2020 at isang modernized at mapaghamong AI. mga pamamaraan ng pagsasanay na inilathala noong Nobyembre 2023.",
+    "sections": [
+      {
+        "title": "Mekanikal",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mayroong tatlong mga mode ng laro na maaari mong piliin sa mode na ito: Classic, Brawl, at Draft Pick."
+          }
+        ]
+      },
+      {
+        "title": "Mga antas ng kahirapan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mayroon ding tatlong antas ng kahirapan: AI: Simple, AI: Normal, at AI: Hard."
+          },
+          {
+            "type": "li",
+            "text": "AI: Ang Easy ay may napakasimpleng AI, perpekto para sa pagsasanay ng isang hero na kaka-unlock mo pa lang o hindi mo pa alam."
+          },
+          {
+            "type": "li",
+            "text": "AI: Ang Normal ay may bahagyang mas advanced na mga kalaban ng AI na minsan ay maaaring magdulot ng banta kapag nagsasaka, gamitin nang mabuti ang kanilang mga skill. Ang kahirapan na ito ay medyo mas kumplikado kaysa sa AI: simple at isang mas mahusay na opsyon para sa pagsasanay ng isang hero sa malapit-tunay na labanan."
+          },
+          {
+            "type": "li",
+            "text": "Ang AI:Hard ay may katamtamang advanced na mga kalaban sa AI na alam kung kailan gagamitin ang kanilang mga Battle Spell at tamang oras ang kanilang mga skill upang patayin ang kanilang kalaban. Tama rin ang pag-atake nila sa mga turrets, hindi tulad ng normal at simple kung saan kusa silang mamatay, alam din nila kung paano mag-macro at subaybayan ang kanilang koponan, at talagang alam kung paano makatakas, inirerekomenda na gamitin ang pangunahing hero."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/vs-ai.webp"
+  },
+  {
+    "name": "Custom",
+    "slug": "custom",
+    "description": "Ang mga custom na laro ay halos kapareho sa Vs. AI. Ang pagkakaiba ay ang mga manlalaro ay nakikipaglaban sa ibang tao o AI. Maaaring mag-imbita ang mga manlalaro ng mga kaibigan na sumali sa laro o magdagdag ng AI gamit ang mga umiiral nang button. Ang mga manlalaro ay maaari ding magdagdag ng AI sa kalabang koponan o sa iyong koponan, maaari ka ring maglaro nang mag-isa kasama ang isang AI.",
+    "sections": [
+      {
+        "title": "Tandaan",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Hindi makakaapekto ang custom mode sa iyong ranggo, hero mastery, o placement. Hindi ka rin makakakuha ng anumang BP o EXP."
+          },
+          {
+            "type": "li",
+            "text": "Kung mayroon kang mga trial card na may mga hero na wala ka pang Draft Pick, mayroon pa ring bug na nagbibigay-daan sa iyong gamitin ang trial card na iyon sa hero na wala ka pa, ang trial card ay hindi mauubos/gamitin."
+          },
+          {
+            "type": "li",
+            "text": "Karamihan sa mga manlalaro ay karaniwang gumagamit ng customization upang makipagkumpetensya sa 1v1 o mag-ayos ng mga custom na laban sa pagitan ng 2 koponan (mga paligsahan)."
+          }
+        ]
+      },
+      {
+        "title": "Kasaysayan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Pinagmulan: https://youtu.be/3mFb0EQrMXE?t=113"
+          },
+          {
+            "type": "p",
+            "text": "Kategorya:Pasadyang Kategorya:Game Mode"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/custom.webp"
+  },
+  {
+    "name": "Arcade Mode",
+    "slug": "arcade-mode",
+    "description": "Ang mga arcade mode ay isang karagdagang mode ng laro sa Mobile Legends: Bang Bang na maaaring laruin paminsan-minsan sa mga espesyal na kaganapan, pista opisyal, o okasyon. Nagtatampok ang mode ng iba't ibang mga subgame na nakabatay sa diskarte, na nakalista sa ibaba.",
+    "sections": [
+      {
+        "title": "Labanan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Matindi, mabilis at kapana-panabik na 5v5 arcade!"
+          },
+          {
+            "type": "p",
+            "text": "Dati, wala talagang opisyal na pangalan ang larong ito. Ang mode ng laro na ito ay unang inilabas at ito ay ang Summer Carnival lamang ang dumating at naglalaman ng mga consumable upang mapabuti ang mga skill ng mga hero, na may binagong mapa na tumutugma sa Tag-init. Sa panahon ng Halloween, bumalik ang mode na ito na may parehong mga feature gaya ng Summer Carnival, mga binagong skill, bonus na candies, at ang Halloween-themed na mapa. Pagkatapos ay dumating ang Pasko at ang mode ay may parehong mga tampok; Gayunpaman, kahit na ang mapa ay binago upang magkasya sa Pasko, ang mga kendi ay itinago bilang mga consumable. At pagkatapos ay dumating ang Pasko ng Pagkabuhay. Sa wakas, ipinakilala ang Mayhem mode: sa pagkakataong ito ang mode ng laro ay walang mga consumable, ngunit mayroon itong mga binagong skill at pagbabago sa mapa."
+          },
+          {
+            "type": "p",
+            "text": "Mayroon lamang 50 mga hero na magagamit sa mode na ito."
+          }
+        ]
+      },
+      {
+        "title": "Salamin",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Duels ng parehong hero ngunit gumagamit ng iba't ibang mga taktika!"
+          },
+          {
+            "type": "p",
+            "text": "Gumagamit ang mirror mode ng parehong mapa bilang Bruno Cup Mayhem mode (sa katunayan, ang layout ng mapa, Lord at mga minions ay may parehong tema), gayunpaman, sa yugto ng pagpili, sa bawat koponan, ang mga manlalaro ay boboto para sa isa mula sa anim na random na piniling hero. Kung sino ang makakakuha ng pinakamaraming boto ang siyang mapipiling hero para sa kanilang buong koponan. Katulad ng Mayhem mode, magsisimula ang mga manlalaro sa hero level 4 at makakatanggap ng 900 gold. Tulad ng sa lahat ng mga mode ng laro, ang layunin ay sirain ang base ng kaaway."
+          }
+        ]
+      },
+      {
+        "title": "Kaligtasan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ikaw ba ang magtatagal hanggang sa huli?"
+          },
+          {
+            "type": "p",
+            "text": "Ang kaligtasan ng buhay ay katulad ng anumang iba pang laro ng Battle Royale, ngunit may ilang mga pag-tweak upang magkasya sa Mobile Legends. Gumagana lang ang Survival sa mga koponan ng 3 manlalaro sa labanan ng 99 player (33 team) at ang mapa ay hindi ang Heavenly Palace o ang Western Expanse, tulad ng sa iba pang mga mode ng laro, sa halip ay itatakda ito sa iisang mapa, ang Minos' Labyrinth, na isang napakalaking mapa upang tumanggap ng 99 na manlalaro. Nag-aalok lang ang Survival ng 15 mapipiling hero, na hinahati sila sa tatlong grupo ng 5: Physical, Magic at Defense. Ang pagnakawan sa game mode na ito ay iba sa Battle Royales: kailangan mong patayin ang Creeps/Jungle Monsters para maalis sila ng mga item, at mayroong 4 na bagong Creeps sa game mode na ito, bawat isa ay may iba't ibang pagkakataong mag-drop ng mga item para sa tatlong kategorya. Upang matuto nang higit pa tungkol sa mode na ito ng laro, mag-click sa naka-highlight na teksto sa itaas."
+          },
+          {
+            "type": "p",
+            "text": "Ipasok ang Eruditio at sikaping maging huling nakatayo."
+          },
+          {
+            "type": "p",
+            "text": "Sa mga nagdaang panahon, isang pinakakaakit-akit na kumpetisyon, na ang katanyagan ay lumalaki araw-araw, ang bumalot sa Eruditio. Kilala bilang \"Survival: Nexus,\" umaakit ito ng mga kalahok mula sa buong Eruditio. Ang mga maginhawang terminal ay nagbibigay-daan sa mga kalahok na kontrolin ang mga virtual na avatar ni Beatrix gamit lamang ang kanilang mga brain wave, na inilulubog ang kanilang mga sarili sa isang virtual na kaharian. Dito maaari silang lumahok sa isang taktikal na kumpetisyon kung saan ang huling manlalaro na nakatayo ay tumatanggap ng malaking gantimpala. Sulitin ang iyong pagkakataon habang kaya mo, mga adventurer, at sumali sa Survival: Nexus!"
+          }
+        ]
+      },
+      {
+        "title": "Labanan hanggang kamatayan",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Maglaro ng iba't ibang hero sa isang laban!"
+          },
+          {
+            "type": "p",
+            "text": "Ito ay isa pang uri ng laro sa Mobile Legends, ang pagpili ay halos kapareho ng kaligtasan kung saan ang manlalaro ay kailangang pumili ng isang hero mula sa mga random na napiling mga hero kung pagmamay-ari niya ito o hindi. Sa gameplay, kapag namatay ang hero, dapat pumili ng ibang hero ang manlalaro. Kung pinili ng dalawang manlalaro ang parehong hero, dapat silang pumili ng isa pa. Mayroong dalawang paraan upang makamit ang tagumpay: alinman sa sirain ang base ng kaaway o makamit ang 30 tagumpay bago ang kaaway. Sa 2019, ito ay inilabas sa koordinasyon ng Spring Festival. Ang larangan ng digmaan samakatuwid ay tumataas sa okasyon."
+          }
+        ]
+      },
+      {
+        "title": "Siklab ng galit",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Sa mode na ito, makikita ang iba't ibang mga pagkain sa mode. Sa pamamagitan ng pagkolekta ng iba't ibang mga pagkain, ang mga manlalaro ay makakakuha ng iba't ibang buff na nagpapahusay sa kanilang mga kakayahan sa hero. Ang ilang mga tagumpay ay eksklusibo sa Frenzy mode at maaari lamang makuha sa pamamagitan ng paglalaro ng mode na ito."
+          },
+          {
+            "type": "p",
+            "text": "Matatagpuan ang mga pagkain kung saan pinapatay ang ilan sa mga gumagapang, kung saan pinapatay ang ilan sa mga espesyal na minions, kung saan pinapatay ang mga hero ng kaaway, at sa mga supply point sa loob ng bahay at base ng kaaway."
+          },
+          {
+            "type": "p",
+            "text": "Listahan ng mga produktong pagkain"
+          }
+        ]
+      },
+      {
+        "title": "Evolve",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ito ay inilabas noong Abril 20, 2019."
+          },
+          {
+            "type": "p",
+            "text": "Sa mode na ito ng laro, 15 manlalaro ang ibinaba sa isang mapa kung saan dapat silang mag-level up at mag-evolve sa pamamagitan ng pagkolekta ng mga hiyas na ibinaba ng mga halimaw o random na paglitaw sa mapa, na may layuning maging huling manlalaro na nakatayo. Ang pagpatay sa isang kaaway na manlalaro ay hindi mag-aalis sa kanila, sa halip ay magdurusa sila ng respawn time penalty at mawawalan ng karanasan; gayunpaman, kapag ang unang manlalaro ay umabot sa level 15 at naging \"Devil\", lahat ng pagkamatay ay permanente."
+          },
+          {
+            "type": "p",
+            "text": "Ang mga halimaw ay maghuhulog din ng mga kulay na hiyas na permanenteng nagpapataas ng mga istatistika: ang mga pulang hiyas ay nagpapataas ng pisikal na pag-atake, ang mga asul na hiyas ay nagpapataas ng magic attack, at ang mga berdeng hiyas ay nagpapataas ng HP. Iba't ibang halimaw ang naghulog ng iba't ibang hiyas. Ang ilang mas mataas na antas ng monsters ay mag-drop din ng mga Battle Spells upang magbigay ng kasangkapan; Isa lamang ang maaaring gamitan sa isang pagkakataon, dahil ang isa ay naibigay na sa pag-abot sa antas 6."
+          },
+          {
+            "type": "p",
+            "text": "Walang pinipiling screen ng champion, lahat ng manlalaro ay nagsisimula bilang level 1 na \"Mga Cell\" at maaaring umunlad sa pamamagitan ng pag-abot sa ilang partikular na antas ng karanasan."
+          },
+          {
+            "type": "p",
+            "text": "Level 1: Mga Cell"
+          },
+          {
+            "type": "p",
+            "text": "Hindi sila maaaring umatake at may mababang kalusugan, ngunit dahil nagsimula ang lahat sa ganitong estado, hindi ito problema. Sila rin ang pinakamabilis na halimaw."
+          },
+          {
+            "type": "p",
+            "text": "Ang mga halimaw ay hindi lilitaw sa puntong ito ng laro."
+          },
+          {
+            "type": "p",
+            "text": "Level 3: Minions"
+          },
+          {
+            "type": "p",
+            "text": "Kapag naabot na ang level 3, maaaring piliin ng mga manlalaro na mag-evolve sa Basic Minion, Ranged Minion, o Ballista Minion."
+          },
+          {
+            "type": "p",
+            "text": "Bilang karagdagan sa pagkakaroon ng ibang pag-atake at bilis, ang pagpipiliang ito ay nakakaapekto rin sa lahat ng kasunod na magagamit na mga ebolusyon."
+          },
+          {
+            "type": "p",
+            "text": "Pagkatapos ng 1 minuto, magsisimulang lumitaw ang mga halimaw. Sa puntong ito, ang mga asul at pulang gelatin lamang ang lalabas, ngunit hindi sila aatake sa mga manlalaro."
+          },
+          {
+            "type": "p",
+            "text": "Level 6: Mga Minor na Halimaw"
+          },
+          {
+            "type": "p",
+            "text": "Ang mga manlalaro ay magbabago sa iba't ibang halimaw depende sa kung aling minion ang kanilang pipiliin. Ang mga menor de edad na halimaw ay magkakaroon ng kakayahan bawat isa."
+          },
+          {
+            "type": "p",
+            "text": "Pisikal na kurso: Kung pinili ng manlalaro ang Basic Minion, siya ay mag-evolve sa Giant Mouth o Crammer."
+          },
+          {
+            "type": "p",
+            "text": ": 1. Ang kakayahan ng Giant Mouth ay magdudulot ng damage sa isang kaaway na katumbas ng porsyento ng maximum na HP ng target."
+          },
+          {
+            "type": "p",
+            "text": ":2. Ang skill ni Crammer ay makabuluhang tataas ang kanyang lifesteal nang ilang sandali."
+          },
+          {
+            "type": "p",
+            "text": "Magical journey: Kung pinili ng player ang Ranged Minion, siya ay magiging Goblin o Crimson Lizard."
+          },
+          {
+            "type": "p",
+            "text": ":1. Ang skill ng Goblin ay magtapon ng isang napaka-daming bola ng enerhiya sa isang direksyon."
+          },
+          {
+            "type": "p",
+            "text": ":2. Ang skill ng Crimson Lizard ay lilikha ng isang zone ng enerhiya na patuloy na nakikitungo sa damage sa mga kaaway sa loob."
+          },
+          {
+            "type": "p",
+            "text": "Tank ng Ruta: Kung pinili ng manlalaro ang Ballista Minion, ito ay magiging Spinner o Death."
+          },
+          {
+            "type": "p",
+            "text": ":1. Ang kakayahan ng Spinner ay agad na bubuo ng isang tiyak na halaga ng HP."
+          },
+          {
+            "type": "p",
+            "text": ":2. Ang skill sa kamatayan ay patuloy na magbibigay ng damage sa mga nakapaligid na kaaway."
+          },
+          {
+            "type": "p",
+            "text": "Kapag umabot sa level 6, ang mga manlalaro ay maaari ding pumili ng isa sa dalawang random na Battle Spell upang i-equip para sa natitirang bahagi ng laban. Ang mga posibleng Battle Spell ay Flicker, Sprint, Execute, Inspire, at Aegis."
+          },
+          {
+            "type": "p",
+            "text": "Level 9: Mga Pangunahing Halimaw Ang mga malalaking halimaw ay magkakaroon ng dalawang skill, na marami sa mga ito ay hango sa mga skill ng mga umiiral na hero o pag-atake na ginagawa ng mga halimaw na ito sa ibang mga mode ng laro."
+          },
+          {
+            "type": "p",
+            "text": "Kung pinili ng manlalaro ang Pisikal na landas, siya ay mag-evolve sa isang Gargoyle o Cleaver."
+          },
+          {
+            "type": "p",
+            "text": ": 1. Si Gargoyle skill 1 ay tataas ang movement speed niya saglit, ang skill 2 ay tataas ang kanyang atake."
+          },
+          {
+            "type": "p",
+            "text": ":2. Ang skill 1 ni Cleaver ay isang flicker na katulad ng Flicker, ang kanyang skill 2 ay ang kanyang signature delayed wave attack mula sa ibang mga mode ng laro."
+          },
+          {
+            "type": "p",
+            "text": "Kung pinili ng manlalaro ang Magic path, siya ay magiging Pioneer o Statued Chaser."
+          },
+          {
+            "type": "p",
+            "text": ":1. Ang skill 1 ng Pioneer ay naglulunsad ng orb na hahadlang sa mga kaaway na katulad ng Cyclops Ultimate, ang skill 2 ay ang kanyang poison trap na katangian ng iba pang mga mode ng laro, ngunit sa isang tuwid na linya."
+          },
+          {
+            "type": "p",
+            "text": ":2. Ang statued Chaser skill 1 ay katulad ng unang skill ni Gusion (maghahagis sila ng dagger sa isang direksyon, at kung tumama ito sa isang kaaway, magagamit muli ang skill para habulin sila); Ang skill 2 ay aatake sa mga kaaway sa harap nito, na magbibigay ng mataas na damage."
+          },
+          {
+            "type": "p",
+            "text": "Kung pinili ng player ang Tank evolution, siya ay magiging Statued Shocker o Core Guard."
+          },
+          {
+            "type": "p",
+            "text": ": 1. Ang skill 1 ng Statued Shocker ay magpapahusay sa kanyang susunod na basic attack, na magpapatigil sa mga kaaway; ang skill 2 ay magbibigay sa kanila ng isang kalasag na sasabog pagkatapos ng isang tiyak na tagal ng panahon o kapag nawasak, katulad ng pangalawang skill ni Uranus."
+          },
+          {
+            "type": "p",
+            "text": ":2. Ang skill 1 ng Core Guard ay tutuyain ang mga kalapit na kaaway, na pinipilit silang umatake, ang skill 2 ay magpapakita ng pinsalang natanggap para sa isang tiyak na oras. (Ang parehong mga skill ay kahawig ng pangalawang skill ni Gatotkaca.)"
+          },
+          {
+            "type": "p",
+            "text": "Sa pag-abot sa antas 9, ang mga manlalaro ay maaari ding pumili ng isa sa dalawang passive buff na tatagal sa natitirang bahagi ng laban, depende sa kanilang landas:"
+          },
+          {
+            "type": "p",
+            "text": "Mga Pisikal na Buff: 30% Attack Damage o 40% Attack Speed"
+          },
+          {
+            "type": "p",
+            "text": "Mga Magic Buff: 40% CD reduction o 40% Spell Vamp"
+          },
+          {
+            "type": "p",
+            "text": "Mga Tank Buff: 2% ng kalusugan ang na-convert sa damage o bumabawi ng 300 HP bawat 5 segundo"
+          },
+          {
+            "type": "p",
+            "text": "Kapag naabot na ng kahit isang manlalaro ang level 9, magsisimula ring lumitaw ang mga menor de edad na halimaw bilang mga halimaw; aatake sila sa mga manlalaro kung magalit at mag-drop ng higit pang mga hiyas."
+          },
+          {
+            "type": "p",
+            "text": "Ang isang \"itim na Turtle\" ay maaari ding lumitaw. Maaari itong maghulog ng malalaking dami ng malalaking hiyas. Ang lokasyon nito ay makikita sa mapa ng bawat manlalaro."
+          },
+          {
+            "type": "p",
+            "text": "Tier 12: Hero (Kailangan ng higit pang impormasyon: Maaaring partikular na magbago ang mga available na hero batay sa mga ruta ng Tier 6 at Tier 9. Maaaring mas maraming hero ang available kaysa sa nakalista.)"
+          },
+          {
+            "type": "p",
+            "text": "Kung pinili ng manlalaro ang pisikal na landas, magiging available ang mga hero ng Marksman o Assassin."
+          },
+          {
+            "type": "p",
+            "text": ": Sniper: Karrie, Lesley, Bruno, Claude."
+          },
+          {
+            "type": "p",
+            "text": ": Assassins: Lancelot, Saber, Freya."
+          },
+          {
+            "type": "p",
+            "text": "Kung pinili ng player ang magic path, magiging available ang Mage o Support heroes."
+          },
+          {
+            "type": "p",
+            "text": ": Mage: Odette, Gord, Alice, Esmeralda, Harley."
+          },
+          {
+            "type": "p",
+            "text": ": Suporta: Angela, Estes, Nana."
+          },
+          {
+            "type": "p",
+            "text": "Kung pinili ng player ang Tank evolution, magiging available ang Fighter o Tank heroes."
+          },
+          {
+            "type": "p",
+            "text": ": Fighter: Kaja, Lapu Lapu, Alucard."
+          },
+          {
+            "type": "p",
+            "text": ": Reservoir: Hylos, Uranus, Akai, Jhonson."
+          },
+          {
+            "type": "p",
+            "text": "Kapag ang unang manlalaro ay umabot sa antas 13, ang mga pangunahing halimaw ay magsisimulang lumitaw. Maaari silang mag-drop ng mas malalaking hiyas na nagkakahalaga ng higit pa kaysa sa mga normal na hiyas, at maging ang mga equipable na Battle Spell. Magsisimula ring lumitaw ang malalaking karanasang hiyas."
+          },
+          {
+            "type": "p",
+            "text": "Level 15: Ang Diyablo"
+          },
+          {
+            "type": "p",
+            "text": "Ang unang manlalaro na umabot sa level 15 ay magiging Devil. Sila ay lalago at ang kanilang mga istatistika ay tataas, ngunit sila ay mas mabagal at ang kanilang posisyon ay ipapakita sa lahat ng iba pang mga mapa ng mga manlalaro. Magkakaroon din sila ng kakayahang mag-transform sa isang Lord sa loob ng ilang panahon, na magkaroon ng makapangyarihang mga bagong skill na katulad ng pag-atake ng Lord mula sa iba pang mga mode ng laro."
+          },
+          {
+            "type": "p",
+            "text": ": Skill 1 at Skill 2, \"Lord Strikes\": Hinahampas ng malakas ang lupa, na humaharap sa tunay na damage sa nakapaligid na mga kaaway at nag-iiwan ng crack sa ilalim ng kanilang kasalukuyang posisyon; pagkaraan ng ilang sandali, ang crack ay sasabog, na humaharap sa damage at magpapabagsak sa mga kaaway."
+          },
+          {
+            "type": "p",
+            "text": ": Skill 3, \"Spinning Strikes\": Pagkatapos mag-charge ng maikling panahon, paiikutin ng Lord ang kanyang martilyo, na magbibigay ng totoong damage sa mga nakapaligid na kaaway sa isang malawak na lugar."
+          },
+          {
+            "type": "p",
+            "text": "Ang sinumang manlalaro na umabot sa level 15 ay hindi magiging Devil: ang tanging paraan para makuha ang titulo at mga buff ay ang patayin ang kasalukuyang Devil."
+          },
+          {
+            "type": "p",
+            "text": "Sa huling yugtong ito, ang safe zone ay magsisimulang dahan-dahang lumiit, na bumubuo ng isang bilog na nakasentro sa kasalukuyang \"Devil\" at pinipilit ang ibang mga manlalaro na lumapit sa kanila. ang lugar ay lilipat kasama ng Diyablo, sinusubukang panatilihin sila sa gitna nito. Ngayon ang pagpatay sa isang manlalaro ay mag-aalis sa kanila sa laban."
+          }
+        ]
+      },
+      {
+        "title": "Mapahamak",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Sci-fi style scrambling battle."
+          },
+          {
+            "type": "p",
+            "text": "Ang mahiwagang lamat sa parallel universe ay unti-unting lumalawak. Ang isang Zlatan airship ay malapit nang bumagsak sa Land of Dawn, na magiging isang sakuna at isang hamon! Warriors, bukas na ang Ravage. Ipakita ang iyong tapang at lakas upang iligtas si Zlatan at ipagtanggol ang Land of Dawn."
+          },
+          {
+            "type": "p",
+            "text": "Ang Ravage ay isang mode kung saan ang bawat koponan ay binubuo ng 5 magkakaibang tungkulin at mga laban para sa Aquamarines. Ang bawat manlalaro ay maaaring pumili ng 5 hero na may iba't ibang tungkulin bago lumahok sa isang Ravage match. Pagkatapos ng paghaharap, random na ginagamit ng bawat manlalaro ang isa sa 5 hero na pinili nila dati."
+          },
+          {
+            "type": "p",
+            "text": "Sa mode na ito, S.A.B.E.R. at V.E.N.O.M. nag-aaway. Habang lumalaban sila, nagsimulang mahulog ang mga aquamarine sa kanilang paligid. Ang unang koponan na mangolekta ng isang tiyak na halaga ng Aquamarine ay mananalo sa laban. Ang pagiging inalis ay nagiging sanhi ng pagkawala ng player ng lahat ng aquamarine, na nakakalat sa lupa. Kung ang isang manlalaro ay may higit sa 10 aquamarine, ang kanilang lokasyon ay malalantad sa mini-map."
+          },
+          {
+            "type": "p",
+            "text": "Sa gitna ng Ravage mode map ay ang tanging HP regeneration point. Kapag naalis na, mabilis na respawn ang mga manlalaro sa Control Center at makakasali muli sa labanan nang napakabilis. Ang pag-alis ng mga kaaway at pagkolekta ng kanilang mga aquamarine ay ang layunin ng mode na ito."
+          },
+          {
+            "type": "p",
+            "text": "Ang unang koponan na makaipon ng 15 Aquamarines ang mananalo sa laban na ito. Walang laning, walang mapanirang turrets, pagpatay at pananalasa ang layunin ng mode na ito! Halina't magsaya, ikaw ang mananalo!"
+          },
+          {
+            "type": "p",
+            "text": "Mula Agosto 7 hanggang 13, 2020, bumalik ang Ravage mode na may bagong 3V3 mode. 3 sa 5 role lang ang gagamitin at lahat ng manlalaro ay magsisimula sa 30,000 at hero level na 15 (max)."
+          }
+        ]
+      },
+      {
+        "title": "Away at salamin",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Nakatutuwang awayan sa pagitan ng mga naka-mirror na hero!"
+          },
+          {
+            "type": "p",
+            "text": "Hero Selection: Sa mode na ito, iboboto ng mga manlalaro ang hero na gusto nilang gamitin mula sa random na set ng mga hero. Ang hero na may pinakamaraming boto ang magiging hero na gagamitin ng buong koponan."
+          },
+          {
+            "type": "p",
+            "text": "Pagsasaayos ng Hero: Sa mode na ito, ang iba't ibang mga hero ay tumatanggap ng iba't ibang mga pag-upgrade ng katangian upang lumikha ng higit na balanse sa pagitan ng mga hero ng iba't ibang tungkulin, na nagpapahusay sa pangkalahatang karanasan sa paglalaro."
+          }
+        ]
+      },
+      {
+        "title": "TD Chess",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Tower Defense Battle Royale Match"
+          },
+          {
+            "type": "p",
+            "text": "Si Harper, na nakikipagsapalaran sa southern Abyss, ay hindi sinasadyang pumasok sa Abyss. Natuklasan niya na ang mga demonyo na pinamumunuan ng pangalang =Dyrroth ay nagtitipon sa Kalaliman. Sa lalong madaling panahon tatawid sila sa Lantis Mountain at sisirain ang Moniyan Empire. Gayunpaman, ang anumang nilalang na humahadlang ay magdurusa sa sakuna."
+          },
+          {
+            "type": "p",
+            "text": "Ang CHESS-TD ay isang Arcade mode na puno ng saya at diskarte! Sa mode na ito, ikakalat ang 6 sa 6 na mapa at maghaharap ang isa't isa pati na rin ang mga kilabot. Ang mga manlalaro ay maaaring bumili ng mga hero mula sa tindahan, bumili ng sarili nilang roster, magnakaw ng ginto, at i-upgrade ang kanilang mga tropa upang makamit ang tagumpay."
+          },
+          {
+            "type": "p",
+            "text": "Ang mapa ay random para sa bawat laban. Ang mga manlalaro ay maaaring bumili ng mga Hero mula sa tindahan at i-deploy ang mga ito sa mga batong mas mataas kaysa sa lupa (mga puwang). Awtomatikong sasalakayin ng mga na-deploy na hero ang mga kalapit na kaaway at ihahagis ang kanilang kakayahan kapag nakakuha sila ng sapat na mana."
+          },
+          {
+            "type": "p",
+            "text": "Kahulugan ng round: Ang isang round ay naglalaman ng 4 na yugto: ang yugto ng paghahanda, ang yugto ng paghahanda, ang yugto ng labanan at ang yugto ng paglutas. Ang yugto ng paghahanda ay kinabibilangan ng mga manlalaro na bumili, mag-deploy, magrecall o magbenta ng mga hero at pagpapabuti ng kanilang kakayahan. Sa yugto ng labanan, sasalakayin ng isa sa mga hero ng iba pang mga manlalaro ang iyong mapa. Kung maabot ng mga mananakop na ito ang kanilang destinasyon bago maalis, makakaranas ka ng relatibong damage."
+          },
+          {
+            "type": "p",
+            "text": "Kahulugan ng Ginto at Kakayahan: Sa pagtatapos ng bawat round, ang mga manlalaro ay makakatanggap ng tiyak na halaga ng ginto at interes (sa bawat 10 gintong barya na pagmamay-ari, makakakuha ng 1 dagdag na gintong barya). Bukod pa rito, ang pagkakaroon ng winning streak o losing streak ay magbibigay din ng karagdagang gold bonus. Kapasidad ang magpapasya kung gaano karaming mga hero ang maaari mong i-deploy. Ang maximum ay 9. Sa dulo ng bawat round, makakakuha ka ng 1 Ability Exp. Bukod pa rito, maaari mong piliing bumili ng 4 na Exp Abilities. na may 4 na gintong medalya. Ang pagkakataon na makakuha ng mga piling hero ay tumataas sa antas ng kakayahan, sa parehong oras, ang pagkakataon na makakuha ng mga karaniwang hero ay bumababa kasama nito."
+          },
+          {
+            "type": "p",
+            "text": "Antas ng Hero at Bituin: Mayroong 4 na antas para sa mga hero, na nagpapahiwatig ng kanilang pambihira at gastos. Sa pangkalahatan, ang mga matataas na antas na hero ay dapat na mas makapangyarihan. Kung mayroong 3 parehong hero sa larangan ng digmaan, sila ay magiging isang mas mataas na antas ng hero. Tatlong 1-star na hero ang magiging isang 2-star na hero. Tatlong 2-star na hero ang magiging isang 3-star na hero."
+          },
+          {
+            "type": "p",
+            "text": "Synergy: Ang bawat hero ay may 2 katangian: pangkatin at tungkulin. Ang synergy effect ay isaaktibo kung mayroong sapat na mga hero na may parehong mga katangian sa larangan ng digmaan (ang mga katangian ng parehong mga hero ay bibilangin nang isang beses lamang). Mahalagang isaalang-alang ang synergy."
+          }
+        ]
+      },
+      {
+        "title": "Magic Chess",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Mabilis na awtomatikong kumpetisyon ng chess sa pagitan ng 8 manlalaro."
+          },
+          {
+            "type": "p",
+            "text": "Ang Magic Chess ay isang kumplikadong 8-player na diskarte sa laro mode, kung saan ang mga manlalaro ay makikipagkumpitensya sa isa't isa at laban sa mga random na halimaw sa magic chessboard. Ang layunin ng larong ito ay bilhin at i-upgrade ang iyong mga hero at ang Little Commander, na i-customize ang iyong alignment para ma-trigger at malabanan ang mas marami at mas malakas na synergy. Ang tagumpay ay pag-aari ng isa na humawak hanggang sa huli!"
+          }
+        ]
+      },
+      {
+        "title": "Shadow Brawl",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ang labanan sa tulay ng pagkawasak."
+          },
+          {
+            "type": "p",
+            "text": "Sa Shadow Brawl, bumoto ang mga manlalaro upang pumili ng hero mula sa ilang random na lumalabas na mga hero. Ang lahat ng mga manlalaro sa koponan ay gagamit ng parehong hero upang maglaro. Ang mga manlalaro ay nilagyan ng pangalan=Blade of Silence na nagmamarka sa kasalukuyang posisyon at nag-uugnay sa isang chain dito. Awtomatikong ibabalik ng chain ang iyong hero sa minarkahang posisyon pagkatapos ng 4 na segundo. Ang CD ay 20 segundo ang haba."
+          }
+        ]
+      },
+      {
+        "title": "Arena",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Awtomatikong 1v1 card battle."
+          },
+          {
+            "type": "p",
+            "text": "Isang bagong uri ng laro ang bumagyo sa Moniyan. Ang Little Commanders at ang kanilang mga mahiwagang bagay ay makikita na sa bawat bahay sa lupain. Nakikita ng mga bolang kristal ang lahat ng uri ng buhay sa Land of Dawn at idinadaan ang kanilang enerhiya; na nagiging collectible card. May mga Monster card at Hero card. Ang mga halimaw ay madaling kumita at kontrolin, habang ang mga hero ay nangangailangan ng mas mataas na presyo at mas advanced na enerhiya. Ang mga deck ay itinayo at ang mga labanan ay nakipaglaban sa iba; ang mga tao ay nagsisikap na talunin ang maliit na kumander ng kaaway at makamit ang tagumpay."
+          },
+          {
+            "type": "p",
+            "text": "Sa \"Arena\" mode, haharapin mo ang isa pang manlalaro sa isang 1v1 na labanan. Ang iyong layunin ay simple: alisin ang Little Commander ng iyong kalaban bago niya ibagsak ang sa iyo. Para magawa ito, kakailanganin mong gumamit ng mga card para ipatawag ang mga Hero at Halimaw at mag-spell para labanan ang mga tropa ng iyong kalaban. Magpapatuloy ang labanan hanggang sa maalis ang Munting Kumander sa isang panig. Ang \"Shard\", ang mapagkukunan para sa pagpapatawag ng mga halimaw at paggamit ng mga spell, ay nabuo bawat 3 segundo. At sa pamamagitan ng paggastos ng 5 \"Shards\", ang mapagkukunang ginamit upang ipatawag ang mga Hero, \"Essence\", ay mabubuo."
+          },
+          {
+            "type": "p",
+            "text": "Pagkatapos makapasok sa \"Arena\", makakatanggap ka ng isang serye ng mga tutorial upang matulungan kang makapagsimula. Pagkatapos na dumaan sa buong tutorial, ikaw ay gagantimpalaan ng 9 na pangunahing card. Habang naglalaro ka, makakakuha ka ng mga card mula sa Battle Chests at Summon Orbs. Ang mga duplicate na card na nakuha ay gagamitin upang pahusayin ang mga kaukulang card upang bigyan ito ng higit na lakas. Bukod pa rito, mas maraming card ang maa-unlock habang umuunlad ka sa iyong ranking. Maa-unlock ang lahat ng card kapag naabot na ang legend. Mayroong dalawang rarity level para sa Hero card: Uncommon at Epic. May dalawang mapa, Uncommon at Epic. Mayroon ding dalawang rarity level para sa Monster/Spell card: Common at Uncommon."
+          },
+          {
+            "type": "p",
+            "text": "Maaari kang makakuha ng Mga Cup Point, Battle Point at Battle Chest pagkatapos ng bawat laban. Higit pang mga card ang maaaring i-unlock na may higit pang mga cup point. Maaari kang makakuha ng mga battle point o naka-unlock na mga card mula sa mga battle chest."
+          }
+        ]
+      },
+      {
+        "title": "Boummandre",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Trending na ngayon sa Laladona ang isang kaakit-akit na kompetisyon na tinatawag na Boommander, at maraming Little Commander ang naging tagahanga nito. Simple lang ang mga panuntunan: kolektahin ang Fluffy na tumutubo sa oasis malapit sa Origin Tree at ihagis ang mga paputok na bolang ito sa iba. Maaari mo bang umiwas sa mga pag-atake at sabog ang iyong kalaban? Sumali sa Boommander at subukan ito ngayon! Sa Boommander mode, naglalaro ka bilang maliliit na commander at naglulunsad ng Fluffy upang makipagkumpitensya sa mga mapa na muling nabuo gamit ang iba't ibang mga tile ng eksena."
+          },
+          {
+            "type": "p",
+            "text": "Kategorya:Game Mode"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/arcade-mode.webp"
+  }
+]

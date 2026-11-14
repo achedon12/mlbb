@@ -4,7 +4,7 @@ import { useMemo, useSyncExternalStore } from "react";
 import type { LucideIcon } from "lucide-react";
 import { CalendarClock, Clock, Sparkles, Trophy } from "lucide-react";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { Foldable } from "@/components/foldable";
 import { useLocale, useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
@@ -61,7 +61,7 @@ const readTimezone = () => Intl.DateTimeFormat().resolvedOptions().timeZone || n
 /** Intl formatters, created once per language, shape and time zone. */
 function useFormats(siteLocale: Locale) {
   return useMemo(() => {
-    const locale = LOCALE_HTML[siteLocale];
+    const locale = LOCALE_INTL[siteLocale];
     const cache = new Map<string, Intl.DateTimeFormat>();
     const format = (shape: string, options: Intl.DateTimeFormatOptions) => (ms: number, timezone: string) => {
       const key = `${shape}|${timezone}`;

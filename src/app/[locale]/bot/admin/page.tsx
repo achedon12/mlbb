@@ -19,7 +19,7 @@ import { GuildIcon, LoginPanel, UserBar } from "@/components/bot/dashboard-parts
 import { FlushButton } from "@/components/bot/settings-form";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
-import { LOCALE_NAME, isLocale, type Locale } from "@/i18n/config";
+import { LOCALE_NAME, isLocale, LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { createT, messagesPage, type T } from "@/i18n/translations";
 import { botStats, type BotStats } from "@/lib/bot/client";
@@ -279,13 +279,13 @@ function Dashboard({ t, stats, locale }: { t: T; stats: AdminStats; locale: Loca
     }
   };
   const hourly = stats.bucket === "hour";
-  const short = new Intl.DateTimeFormat(locale, hourly ? { hour: "2-digit", minute: "2-digit", timeZone: "UTC" } : { day: "numeric", month: "short", timeZone: "UTC" });
-  const long = new Intl.DateTimeFormat(locale, hourly ? { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "UTC" } : { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
+  const short = new Intl.DateTimeFormat(LOCALE_INTL[locale], hourly ? { hour: "2-digit", minute: "2-digit", timeZone: "UTC" } : { day: "numeric", month: "short", timeZone: "UTC" });
+  const long = new Intl.DateTimeFormat(LOCALE_INTL[locale], hourly ? { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "UTC" } : { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
   const dateOf = (key: string) => new Date(hourly ? `${key}:00:00Z` : `${key}T00:00:00Z`);
   const shortLabels = stats.keys.map((k) => short.format(dateOf(k)));
   const longLabels = stats.keys.map((k) => long.format(dateOf(k)) + (hourly ? " UTC" : ""));
-  const dayShort = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", timeZone: "UTC" });
-  const dayLong = new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
+  const dayShort = new Intl.DateTimeFormat(LOCALE_INTL[locale], { day: "numeric", month: "short", timeZone: "UTC" });
+  const dayLong = new Intl.DateTimeFormat(LOCALE_INTL[locale], { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
   const dailyDates = stats.daily.perDay.map((d) => new Date(`${d.day}T00:00:00Z`));
 
   const k = stats.kpis;
@@ -319,7 +319,7 @@ function Dashboard({ t, stats, locale }: { t: T; stats: AdminStats; locale: Loca
     { id: "forbidden", label: t("pages.botAdmin.forbidden"), color: STATUS.warning },
     { id: "failed", label: t("pages.botAdmin.failed"), color: STATUS.bad },
   ];
-  const when = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "UTC" });
+  const when = new Intl.DateTimeFormat(LOCALE_INTL[locale], { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: "UTC" });
 
   return (
     <>
@@ -611,7 +611,7 @@ export default async function AdminPage({ params, searchParams }: Params) {
     readStatus().catch(() => null),
     recentLogRows().catch((): LogRow[] => []),
   ]);
-  const clock = new Intl.DateTimeFormat(locale, { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }).format(now);
+  const clock = new Intl.DateTimeFormat(LOCALE_INTL[locale], { hour: "2-digit", minute: "2-digit", timeZone: "UTC" }).format(now);
 
   return (
     <>

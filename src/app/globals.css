@@ -59,6 +59,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/*
+ * Rajdhani has no Cyrillic or Thai letters, and Inter no Thai: without these,
+ * Russian and Thai headings fell back on Arial or whatever the system had.
+ * The script's own font comes first, so a heading keeps one face for its
+ * Latin words (hero names) as well.
+ */
+:root:lang(ru) {
+  --font-heading: var(--heading-font-cyrillic), var(--heading-font), "Segoe UI", system-ui, sans-serif;
+}
+
+:root:lang(th) {
+  --font-heading: var(--heading-font-thai), var(--heading-font), "Segoe UI", system-ui, sans-serif;
+  /* Inter for Latin, Noto Sans Thai for the Thai script. */
+  --font-body: var(--body-font), var(--body-font-thai), system-ui, -apple-system, sans-serif;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   letter-spacing: 0.01em;

@@ -34,7 +34,7 @@ you start working.
 ## Writing a hero analysis
 
 The full guide (every field explained, the annotated template, the style rules
-and the review) is also online, in the site's four languages:
+and the review) is also online, in the site's languages:
 [mlbbdex.com/en/contribute](https://mlbbdex.com/en/contribute).
 
 1. Copy the **exact** `slug` from `src/data/game/heroes.json`.
@@ -78,8 +78,7 @@ comes from the sync.
 
 A Markdown file in `content/fr/news/` or `content/fr/patch-notes/`,
 named `YYYY-MM-DD-title-as-slug.md`. The date is used for sorting and is dropped
-from the URL. `npm run translate` produces the English, Italian and Spanish
-versions.
+from the URL. `npm run translate` produces the other languages.
 
 ```markdown
 ---

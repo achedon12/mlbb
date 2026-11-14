@@ -1,7 +1,7 @@
 # MLBBDex wiki
 
 **MLBBDex** is a knowledge base for *Mobile Legends: Bang Bang*, in English,
-French, Italian, Spanish and Indonesian: full roster, verified hero pages, reasoned tier
+French, Italian, Spanish, Indonesian, Filipino, Thai, Brazilian Portuguese and Russian: full roster, verified hero pages, reasoned tier
 list, items, emblems, hero lore, game modes and patch notes.
 
 Live: <https://mlbbdex.com> · Code: <https://github.com/achedon12/mlbb>
@@ -14,7 +14,7 @@ Live: <https://mlbbdex.com> · Code: <https://github.com/achedon12/mlbb>
 - **[Architecture](Architecture)**: the tech stack and how the code is organized.
 - **[Data and sync](Data-and-sync)**: where the data comes from, how it is refreshed, branches, CI and deployment.
 - **[API](API)**: the public JSON routes, their format and their limits.
-- **[Translations](Translations)**: how content reaches the site's five languages.
+- **[Translations](Translations)**: how content reaches the site's nine languages.
 - **[Contributing](Contributing)**: write an analysis, fix a data point, open a pull request.
 - **[FAQ](FAQ)**: recurring questions.
 
@@ -24,7 +24,7 @@ Live: <https://mlbbdex.com> · Code: <https://github.com/achedon12/mlbb>
 | --- | --- |
 | Framework | Next.js 16 (App Router) · React 19 |
 | Styling | Tailwind CSS v4 |
-| Languages | English (default), French, Italian, Spanish, Indonesian |
+| Languages | English (default), French, Italian, Spanish, Indonesian, Filipino, Thai, Brazilian Portuguese, Russian |
 | Data | extracted from the Fandom wiki + community API, **committed** to the repository |
 | Deployment | self-contained Docker image (`output: standalone`) |
 | Analytics | Matomo, cookieless |

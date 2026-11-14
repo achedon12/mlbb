@@ -5,7 +5,7 @@ import { ModerationActions, UnbanButton } from "@/components/community/moderatio
 import { ago, Unavailable } from "@/components/community/parts";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
-import type { Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { ExtendMessages } from "@/i18n/provider";
 import { createT, messagesPage } from "@/i18n/translations";
 import { botConfig, isSuperAdmin } from "@/lib/bot/config";
@@ -142,7 +142,7 @@ export default async function ModerationPage({ params, searchParams }: Params) {
                           <span className="font-semibold text-chalk-100">{m.name}</span>
                           {" · "}
                           {m.banUntil
-                            ? t("pages.community.moderation.until", { date: m.banUntil.toLocaleDateString(locale) })
+                            ? t("pages.community.moderation.until", { date: m.banUntil.toLocaleDateString(LOCALE_INTL[locale]) })
                             : t("pages.community.moderation.forever")}
                           {m.banReason && <span className="break-words"> · {m.banReason}</span>}
                         </span>

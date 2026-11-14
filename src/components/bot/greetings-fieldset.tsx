@@ -2,9 +2,9 @@
 
 import { Fragment, useId, type ReactNode } from "react";
 import { useT } from "@/i18n/provider";
-import type { Locale } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { GREETING_DEFAULTS } from "@/lib/bot/greeting-defaults";
-import { GREETING_KINDS, GREETING_MAX_LENGTH, GREETING_PLACEHOLDERS, type GreetingKind } from "@/lib/bot/kinds";
+import { GREETING_KINDS, GREETING_MAX_LENGTH, GREETING_PLACEHOLDERS, type BotLocale, type GreetingKind } from "@/lib/bot/kinds";
 import { FIELD, HELP, LABEL, Notice, StatusBadge, Toggle } from "@/components/bot/dashboard-ui";
 import { cn } from "@/lib/utils";
 
@@ -29,12 +29,12 @@ type Channel = { id: string; name: string };
 const NAMES = GREETING_PLACEHOLDERS.map((p) => p.slice(1, -1));
 
 /** The text as the bot would write it, `{user}` as a mention pill, `**bold**` in bold. */
-function Preview({ kind, text, sample, locale }: { kind: GreetingKind; text: string; sample: GreetingSample; locale: Locale }) {
+function Preview({ kind, text, sample, locale }: { kind: GreetingKind; text: string; sample: GreetingSample; locale: BotLocale }) {
   const values: Record<string, ReactNode> = {
     user: kind === "welcome" ? <span className="rounded bg-azure-500/25 px-1 text-azure-400">@{sample.user}</span> : sample.user,
     username: sample.user,
     server: sample.server,
-    count: new Intl.NumberFormat(locale).format(sample.count),
+    count: new Intl.NumberFormat(LOCALE_INTL[locale]).format(sample.count),
   };
   const nodes = text.split(/(\*\*[^*]+\*\*|\{\w+\})/g).map((part, i) => {
     const name = /^\{(\w+)\}$/.exec(part)?.[1];
@@ -72,7 +72,7 @@ function GreetingCard({
   failing: boolean;
   channels: Channel[];
   sample: GreetingSample;
-  locale: Locale;
+  locale: BotLocale;
   onChange: (value: GreetingValue) => void;
   test: ReactNode;
 }) {
@@ -187,7 +187,7 @@ export function GreetingsFieldset({
   failing: ReadonlySet<GreetingKind>;
   channels: Channel[];
   sample: GreetingSample;
-  locale: Locale;
+  locale: BotLocale;
   onChange: (kind: GreetingKind, value: GreetingValue) => void;
   testButton: (kind: GreetingKind) => ReactNode;
 }) {

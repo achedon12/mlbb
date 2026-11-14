@@ -4,7 +4,7 @@ import { BotUnavailable, testPost } from "@/lib/bot/client";
 import { answer, authorizeGuild, guardDashboard, refused } from "@/lib/bot/dashboard-guard";
 import { logError } from "@/lib/log";
 import { GREETING_KINDS, greetingText, snowflake } from "@/lib/bot/settings";
-import { LOCALES } from "@/i18n/config";
+import { BOT_LOCALES } from "@/lib/bot/kinds";
 import { limitByMinute } from "@/lib/push-server";
 
 /**
@@ -18,7 +18,7 @@ import { limitByMinute } from "@/lib/push-server";
  */
 export const dynamic = "force-dynamic";
 
-const target = { channelId: snowflake, locale: z.enum(LOCALES) };
+const target = { channelId: snowflake, locale: z.enum(BOT_LOCALES) };
 const body = z.union([
   z.object(target).strict(),
   z.object({ ...target, kind: z.enum(GREETING_KINDS), message: greetingText }).strict(),

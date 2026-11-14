@@ -25,7 +25,7 @@ import { removeComments } from "./tags.mjs";
 import { pause, translateBatch } from "./translation-google.mjs";
 import { cleanDescription } from "./wikitext.mjs";
 import { targetLocales } from "./locales.mjs";
-import { applyGlossary } from "./translation-glossary.mjs";
+import { applyGlossary, nameRules, restoreNames } from "./translation-glossary.mjs";
 
 const WIKI = "https://mobilelegends.fandom.com";
 const API = `${WIKI}/api.php`;
@@ -653,7 +653,9 @@ function batches(texts) {
 async function translate(versions) {
   const cache = existsSync(CACHE) ? JSON.parse(await readFile(CACHE, "utf8")) : {};
   const save = () => writeFile(CACHE, JSON.stringify(cache, null, 0) + "\n");
-  const texts = [...new Set(versions.flatMap(versionTexts).map((x) => String(x).trim()).filter(Boolean))];
+  // Hero names alone too: how the service writes them, to put the game's back.
+  const heroes = JSON.parse(await readFile("src/data/game/heroes.json", "utf8")).map((h) => h.name);
+  const texts = [...new Set([...versions.flatMap(versionTexts), ...heroes].map((x) => String(x).trim()).filter(Boolean))];
   await mkdir(TRANSLATIONS_DIR, { recursive: true });
 
   for (const tl of targetLocales("en")) {
@@ -673,8 +675,9 @@ async function translate(versions) {
     if (groups.length) process.stdout.write("\n");
     await save();
 
-    // Game vocabulary applied on output; the cache keeps the raw translation.
-    const t = (x) => applyGlossary(cache[`en|${tl}|${String(x).trim()}`] ?? x, tl, "data");
+    // Hero names and game vocabulary applied on output; the cache keeps the raw translation.
+    const names = nameRules(new Map(heroes.map((n) => [n, cache[`en|${tl}|${n}`]])), tl);
+    const t = (x) => applyGlossary(restoreNames(cache[`en|${tl}|${String(x).trim()}`] ?? x, x, names), tl, "data");
     const translated = Object.fromEntries(versions.map((v) => [v.version, translateVersion(v, t)]));
     await writeFile(`${TRANSLATIONS_DIR}/${tl}.json`, JSON.stringify(translated, null, 2) + "\n");
     console.log(`  ${TRANSLATIONS_DIR}/${tl}.json`);

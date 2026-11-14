@@ -1,7 +1,7 @@
 import { SkinCard, propsCardSkin, type PropsCardSkin } from "@/components/skin-card";
 import { SkinGrid } from "@/components/skin-grid";
 import { SectionTitle } from "@/components/ui";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import type { T } from "@/i18n/t";
 import { heroesBySlug } from "@/lib/data";
 import { OTHER_MODES, type EventMonth, type EventSkin, type ObtainMode } from "@/lib/events";
@@ -23,7 +23,7 @@ export const monthText = (locale: Locale, month: string) => monthYear(locale, `$
 /** Month on its own, as a heading or a label: "Septembre 2025". */
 export function monthLabel(locale: Locale, month: string): string {
   const text = monthText(locale, month);
-  return text.charAt(0).toLocaleUpperCase(LOCALE_HTML[locale]) + text.slice(1);
+  return text.charAt(0).toLocaleUpperCase(LOCALE_INTL[locale]) + text.slice(1);
 }
 
 export function eventCard(s: EventSkin, t: T, htmlLang: string, numbers: Intl.NumberFormat): PropsCardSkin {
@@ -36,7 +36,7 @@ export function eventCard(s: EventSkin, t: T, htmlLang: string, numbers: Intl.Nu
 
 /** Sentences summing up a month, for its lead and meta description. */
 export function monthSummary(t: T, locale: Locale, m: EventMonth): string[] {
-  const numbers = new Intl.NumberFormat(LOCALE_HTML[locale]);
+  const numbers = new Intl.NumberFormat(LOCALE_INTL[locale]);
   const names = (list: EventSkin[]) =>
     listNames(
       locale,
@@ -75,7 +75,7 @@ export function MonthContent({
   locale: Locale;
   variant: "page" | "timeline";
 }) {
-  const htmlLang = LOCALE_HTML[locale];
+  const htmlLang = LOCALE_INTL[locale];
   const numbers = new Intl.NumberFormat(htmlLang);
   const skinCount = (n: number) =>
     t(n === 1 ? "pages.skinsCalendar.nSkins1" : "pages.skinsCalendar.nSkins", { n: numbers.format(n) });

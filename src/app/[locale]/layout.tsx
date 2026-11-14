@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Inter, Rajdhani } from "next/font/google";
+import { Chakra_Petch, Inter, Noto_Sans_Thai, Play, Rajdhani } from "next/font/google";
 import { Header } from "@/components/header";
 import { Offline } from "@/components/offline";
 import { DiscordPopup } from "@/components/discord-popup";
@@ -31,6 +31,33 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--body-font",
   display: "optional",
+});
+
+/*
+ * Rajdhani has neither Cyrillic nor Thai, and Inter no Thai: the Russian and
+ * Thai pages take these fonts (`globals.css`, `:lang()`). Never preloaded:
+ * the other languages do not load them, and their files are fetched only for
+ * the characters they cover.
+ */
+const play = Play({
+  subsets: ["cyrillic"],
+  weight: ["400", "700"],
+  variable: "--heading-font-cyrillic",
+  display: "swap",
+  preload: false,
+});
+const chakraPetch = Chakra_Petch({
+  subsets: ["thai"],
+  weight: ["500", "600", "700"],
+  variable: "--heading-font-thai",
+  display: "swap",
+  preload: false,
+});
+const notoSansThai = Noto_Sans_Thai({
+  subsets: ["thai"],
+  variable: "--body-font-thai",
+  display: "swap",
+  preload: false,
 });
 
 type Params = { params: Promise<{ locale: string }> };
@@ -86,7 +113,7 @@ export default async function LocaleLayout({
   const t = createT(locale);
 
   return (
-    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[DEFAULT_LOCALE]} className={`${rajdhani.variable} ${inter.variable}`}>
+    <html lang={LOCALE_HTML[locale] ?? LOCALE_HTML[DEFAULT_LOCALE]} className={`${rajdhani.variable} ${inter.variable} ${play.variable} ${chakraPetch.variable} ${notoSansThai.variable}`}>
       <body className="flex min-h-screen flex-col">
         <LocaleProvider locale={locale} messages={messagesClient(locale)}>
           <a

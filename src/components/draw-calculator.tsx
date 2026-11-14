@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { classesChip } from "@/components/chip";
 import { Card } from "@/components/ui";
-import { LOCALE_HTML } from "@/i18n/config";
+import { LOCALE_INTL } from "@/i18n/config";
 import { useLocale, useT } from "@/i18n/provider";
 import {
   LIMITS,
@@ -104,7 +104,7 @@ const FIELD_MAX: Record<DrawField, number> = {
 
 export function DrawCalculator() {
   const t = useT();
-  const locale = LOCALE_HTML[useLocale()];
+  const locale = LOCALE_INTL[useLocale()];
   const integer = new Intl.NumberFormat(locale);
   const decimal = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
   const oneDecimal = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });

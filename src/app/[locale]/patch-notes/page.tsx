@@ -6,7 +6,7 @@ import { Foldable } from "@/components/foldable";
 import { PageHeader } from "@/components/ui";
 import { patches, patchDetails, sync } from "@/lib/data";
 import { articles } from "@/lib/content";
-import { LOCALE_HTML, type Locale } from "@/i18n/config";
+import { LOCALE_INTL, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
 import { formatShortDate } from "@/lib/utils";
@@ -51,7 +51,7 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
       >
         <p className="mt-6 text-sm text-chalk-500">
           {t("pages.patchNotes.listed", { n: patches.length, m: withDetail.length })}{" "}
-          <time dateTime={sync.date}>{formatShortDate(sync.date, LOCALE_HTML[locale])}</time>
+          <time dateTime={sync.date}>{formatShortDate(sync.date, LOCALE_INTL[locale])}</time>
         </p>
       </PageHeader>
 
