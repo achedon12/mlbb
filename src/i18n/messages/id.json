@@ -31,8 +31,6 @@
     "discordServer": "Server Perselisihan Komunitas MLBBdex"
   },
   "nav": {
-    "database": "Basis data",
-    "newsSection": "Berita",
     "heroes": {
       "label": "Hero",
       "desc": "Profil, build, dan analisis"
@@ -134,10 +132,11 @@
     "main": "Navigasi utama",
     "groups": {
       "heroes": "Hero",
-      "tierLists": "Tier list",
-      "game": "Permainan",
-      "tools": "Peralatan",
-      "news": "Berita"
+      "meta": "Meta",
+      "guides": "Panduan",
+      "tools": "Alat",
+      "news": "Berita & esports",
+      "community": "Komunitas"
     },
     "byRole": {
       "label": "Per role",
@@ -159,9 +158,6 @@
       "label": "Battle Spell",
       "desc": "Spell, cooldownnya, dan hero yang menggunakannya."
     },
-    "allSkins": "Semua skin",
-    "allEmblems": "Semua emblem",
-    "submenu": "Buka submenu {name}",
     "events": {
       "label": "Event",
       "desc": "StarLight, Collector dan skin setiap bulannya"
@@ -213,6 +209,70 @@
     "guides": {
       "label": "Panduan",
       "desc": "Strategi, makro dan peran dijelaskan"
+    },
+    "hubs": {
+      "heroes": "Lihat semua hero",
+      "meta": "Buka tier list",
+      "guides": "Lihat semua panduan",
+      "tools": "Lihat semua alat",
+      "news": "Lihat semua berita",
+      "community": "Buka forum"
+    },
+    "sectionLead": {
+      "heroes": "Profil, role, skin, dan kisah setiap hero.",
+      "meta": "Siapa yang menang di patch ini, diukur dari pertandingan ranked.",
+      "guides": "Pelajari permainannya: panduan, peta, mode, item, dan emblem.",
+      "tools": "Siapkan draft, uji build, pantau akunmu.",
+      "news": "Patch, event, Advance Server, dan kompetisi pro.",
+      "community": "Forum, rekan setim, dan build yang dibagikan pemain."
+    },
+    "columns": {
+      "browse": "Jelajahi",
+      "skins": "Skin dan event",
+      "rankings": "Peringkat",
+      "filters": "Tier list per filter",
+      "picks": "Counter dan build",
+      "learn": "Belajar",
+      "database": "Database",
+      "toolsDraft": "Draft dan tim",
+      "toolsBuilds": "Build dan damage",
+      "toolsAccount": "Akun dan diamond",
+      "toolsMatch": "Dalam pertandingan",
+      "toolsGames": "Game harian",
+      "news": "Berita",
+      "esports": "Esports",
+      "community": "Komunitas"
+    },
+    "freeRotation": {
+      "label": "Hero gratis",
+      "desc": "Rotasi minggu ini"
+    },
+    "strategyPlanner": {
+      "label": "Perencana strategi",
+      "desc": "Rotasi dan pertarungan digambar di peta"
+    },
+    "accountValue": {
+      "label": "Nilai akun",
+      "desc": "Perkiraan biaya sebuah koleksi"
+    },
+    "teammates": {
+      "label": "Cari rekan setim",
+      "desc": "Iklan per rank, role, dan server"
+    },
+    "community": {
+      "label": "Forum",
+      "desc": "Pertanyaan, bantuan, dan diskusi"
+    },
+    "contribute": {
+      "label": "Berkontribusi",
+      "desc": "Tulis analisis seorang hero"
+    },
+    "tools": {
+      "label": "Semua alat",
+      "desc": "Alat-alat situs, menurut kegunaan"
+    },
+    "emblemsByRole": {
+      "label": "Emblem per role"
     }
   },
   "account": {
@@ -221,9 +281,6 @@
   },
   "footer": {
     "sourceCode": "Kode sumber",
-    "theGame": "Permainan",
-    "news": "Berita",
-    "theSite": "Situs",
     "about": "Tentang",
     "publicApi": "API Publik",
     "myAccount": "Akun saya",
@@ -236,8 +293,14 @@
     "intro": "Hero, build, dan counter Mobile Legends: Bang Bang berdasarkan rank, tier list yang dihitung dari win rate ranked, item, emblem, dan patch notes, dalam bahasa Inggris, Prancis, Italia, Spanyol, dan Indonesia. Proyek independen yang terbuka untuk kontribusi.",
     "sources": "Data permainan dari wiki Mobile Legends (CC BY-SA). Win rate, ban dan pengambilan, counter, dan build yang paling banyak dimainkan berasal dari statistik pertandingan peringkat game, melalui API komunitas arena.rone.dev.",
     "discord": "Bergabunglah dengan Perselisihan",
-    "bot": "Bot perselisihan",
-    "community": "Komunitas"
+    "columns": {
+      "heroes": "Hero",
+      "meta": "Meta",
+      "guides": "Panduan",
+      "tools": "Alat",
+      "news": "Berita & esports",
+      "site": "Situs"
+    }
   },
   "language": {
     "choose": "Bahasa",
@@ -4466,6 +4529,13 @@
         "talents": "Talent"
       },
       "ldName": "Panduan Mobile Legends: Bang Bang"
+    },
+    "toolsHub": {
+      "title": "Alat Mobile Legends",
+      "lead": "Semua alat di situs ini, diurutkan menurut kegunaan: menyiapkan draft, menguji build, memperkirakan nilai akun, berlatih, atau memainkan game harian.",
+      "metaTitle": "Alat MLBB: draft, build, damage, dan akun",
+      "metaDescription": "Simulator draft, analisis tim, simulator build, kalkulator damage, nilai akun, timer objektif, dan game harian untuk Mobile Legends: Bang Bang.",
+      "nTools": "{n} alat"
     }
   },
   "modeSheet": {
