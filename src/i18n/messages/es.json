@@ -3590,6 +3590,9 @@
           "p": "Si se activa una medición de audiencia, se hace con una herramienta sin cookies y sin datos personales, que no sigue a los visitantes de un sitio a otro. En ese caso no hace falta ningún banner de consentimiento."
         },
         {
+          "p": "Las llamadas a la API pública (`/api/v1`), realizadas por scripts u otros sitios, se cuentan de la misma manera, por el servidor y sin cookies: la dirección solicitada, el código de respuesta, la página original y el software declarado por la llamada, así como la dirección IP, anonimizada por la herramienta de medición. No se asigna ningún identificador y una llamada enviada con el encabezado `DNT: 1` o `Sec-GPC: 1` no se cuenta."
+        },
+        {
           "h": "Tus derechos"
         },
         {

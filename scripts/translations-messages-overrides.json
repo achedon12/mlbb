@@ -2344,7 +2344,7 @@
       "fr": "Si une mesure d'audience est activée, elle l'est avec un outil sans cookie et sans donnée personnelle, qui ne suit pas les visiteurs d'un site à l'autre. Aucun bandeau de consentement n'est alors nécessaire.",
       "text": "Jika pengukuran pengunjung diaktifkan, pengukuran itu menggunakan alat tanpa cookie dan tanpa data pribadi, yang tidak melacak pengunjung dari satu situs ke situs lain. Dalam hal ini, banner persetujuan tidak diperlukan."
     },
-    "prose.privacy.blocks.14.p": {
+    "prose.privacy.blocks.15.p": {
       "fr": "Le site ne constituant aucun fichier de données personnelles, il n'y a rien à consulter, rectifier ou supprimer côté serveur. Vous gardez la main sur ce qui vit dans votre navigateur (favoris, session) en vous déconnectant ou en effaçant les données du site. Pour toute question, écrivez à [{contact}](mailto:{contact}).",
       "text": "Karena situs ini tidak membuat berkas data pribadi apa pun, tidak ada yang perlu diakses, diperbaiki, atau dihapus di sisi server. Anda tetap mengendalikan apa yang ada di browser Anda (favorit, sesi) dengan logout atau menghapus data situs. Untuk pertanyaan apa pun, tulis ke [{contact}](mailto:{contact})."
     },

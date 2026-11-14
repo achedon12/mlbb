@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import type { NextFetchEvent, NextRequest } from "next/server";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/config";
+import { trackApiCall } from "@/lib/api-tracking";
+import { clientAddress } from "@/lib/client-address";
 
 /**
  * Two roles:
@@ -13,6 +15,11 @@ import { DEFAULT_LOCALE, isLocale, type Locale } from "@/i18n/config";
  *
  * 2. **API rate limiting** — a fixed window per IP address smooths out
  *    abuse, without external state.
+ *
+ * 3. **API measurement** — every call to the public API is reported to
+ *    Matomo (`lib/api-tracking.ts`). Here rather than in the route handlers:
+ *    the static routes are served from the cache without their handler
+ *    running, while the proxy sees every request.
  */
 
 // ── Rate limiting ──────────────────────────────────────────────────
@@ -20,15 +27,20 @@ const WINDOW_MS = 60_000;
 const MAX_PER_WINDOW = 90;
 const buckets = new Map<string, { count: number; reset: number }>();
 
-function address(request: NextRequest): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0]!.trim();
-  return request.headers.get("x-real-ip") ?? "unknown";
+/** Never awaited: `waitUntil` lets the hit finish after the response has left. */
+function countApiCall(request: NextRequest, event: NextFetchEvent, status?: number) {
+  const ip = clientAddress(request.headers);
+  event.waitUntil(
+    trackApiCall({ url: request.nextUrl, method: request.method, headers: request.headers, ip, status }),
+  );
 }
 
-function rateLimitApi(request: NextRequest) {
+function rateLimitApi(request: NextRequest, event: NextFetchEvent) {
   if (request.nextUrl.pathname === "/api/health") return NextResponse.next();
-  const ip = address(request);
+  // The address nginx saw: a caller rotating a forged left-most entry
+  // would otherwise get a fresh window on every request. Requests without
+  // a trustworthy address share one window, which errs on the strict side.
+  const ip = clientAddress(request.headers) ?? "unknown";
   const now = Date.now();
   const bucket = buckets.get(ip);
   if (!bucket || now > bucket.reset) {
@@ -36,6 +48,9 @@ function rateLimitApi(request: NextRequest) {
   } else {
     bucket.count += 1;
     if (bucket.count > MAX_PER_WINDOW) {
+      // Only the first refusal of a window is counted: a client hammering
+      // the API would otherwise turn the rate limit into a flood of hits.
+      if (bucket.count === MAX_PER_WINDOW + 1) countApiCall(request, event, 429);
       const retryAfter = Math.max(1, Math.ceil((bucket.reset - now) / 1000));
       return NextResponse.json(
         { error: "Too many requests. Try again in a moment." },
@@ -46,6 +61,7 @@ function rateLimitApi(request: NextRequest) {
   if (buckets.size > 10_000) {
     for (const [key, value] of buckets) if (now > value.reset) buckets.delete(key);
   }
+  countApiCall(request, event);
   return NextResponse.next();
 }
 
@@ -64,10 +80,10 @@ function preferredLocale(request: NextRequest): Locale {
   return DEFAULT_LOCALE;
 }
 
-export function proxy(request: NextRequest) {
+export function proxy(request: NextRequest, event: NextFetchEvent) {
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith("/api/")) return rateLimitApi(request);
+  if (pathname.startsWith("/api/")) return rateLimitApi(request, event);
 
   // Path already prefixed with a language: let it through, cookie up to date.
   const first = pathname.split("/")[1];
