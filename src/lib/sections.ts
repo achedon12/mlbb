@@ -1,5 +1,6 @@
 import {
   BookOpen,
+  Bot,
   Calculator,
   CalendarDays,
   ChartColumn,
@@ -41,6 +42,7 @@ import {
 import { LANES, ROLES } from "./draft";
 import { pathRole, SLUGS_LANE, SLUGS_ROLE } from "./tier-list-filters";
 import { MEASURED_RANKS } from "./measured-ranks";
+import { botPublished } from "./bot/public";
 
 /**
  * Site sections.
@@ -167,6 +169,8 @@ export const GROUPS: Group[] = [
       { href: "/tools/build", key: "buildSimulator", icon: Hammer },
       { href: "/tools/damage-calculator", key: "damageCalculator", icon: Crosshair },
       { href: "/builds", key: "communityBuilds", icon: Library },
+      // Only when the bot is deployed: its page is not built otherwise.
+      ...(botPublished() ? [{ href: "/bot", key: "bot", icon: Bot }] : []),
     ],
   },
   {

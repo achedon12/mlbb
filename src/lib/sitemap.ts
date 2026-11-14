@@ -16,6 +16,7 @@ import { LOCALES } from "@/i18n/config";
 import { monthKeys } from "@/lib/events-server";
 import { CHECKED_ON } from "@/lib/objectives";
 import { esportsUpdatedAt, tournaments } from "@/lib/esports";
+import { botPublished } from "@/lib/bot/public";
 import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions } from "@/lib/advance-server";
 
 /**
@@ -156,6 +157,14 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     { path: "/about", changeFrequency: "yearly", priority: 0.3 },
     { path: "/legal", changeFrequency: "yearly", priority: 0.2 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.2 },
+    // The Discord bot's pages exist only when it is deployed.
+    ...(botPublished()
+      ? [
+          { path: "/bot", changeFrequency: "monthly" as const, priority: 0.6 },
+          { path: "/bot/privacy", changeFrequency: "yearly" as const, priority: 0.2 },
+          { path: "/bot/terms", changeFrequency: "yearly" as const, priority: 0.2 },
+        ]
+      : []),
     ...RANKS_CLASSES.filter((r) => r !== "all").map((r) => statistics(`/tier-list/${r}`, "daily", 0.7)),
     ...[...FILTERS_LANE, ...FILTERS_ROLE].map((f) => statistics(pathFilter(f), "daily", 0.7)),
     ...ROLES.map((r) => statistics(pathRole(r), "weekly", 0.6)),

@@ -25,6 +25,9 @@ function contentSecurityPolicy(): string {
   } catch {
     // Malformed URL: the tracker would not load either.
   }
+  // Discord server icons and user avatars on the bot's dashboard, only
+  // when the bot is deployed (its application id is known at build time).
+  const discord = /^\d{17,20}$/.test(process.env.NEXT_PUBLIC_DISCORD_CLIENT_ID?.trim() ?? "") ? "https://cdn.discordapp.com" : "";
   const directives: Record<string, string[]> = {
     "default-src": ["'self'"],
     // React's development build evaluates code for its call stacks.
@@ -33,8 +36,8 @@ function contentSecurityPolicy(): string {
     // Next injects.
     "style-src": ["'self'", "'unsafe-inline'"],
     // data: placeholders and inline SVG, blob: exported cards (tier list,
-    // retribution), remote hosts matching `images.remotePatterns`, and the
-    // Matomo image fallback.
+    // retribution), remote hosts matching `images.remotePatterns`, Discord's
+    // CDN for the bot dashboard, and the Matomo image fallback.
     "img-src": [
       "'self'",
       "data:",
@@ -42,6 +45,7 @@ function contentSecurityPolicy(): string {
       "https://static.wikia.nocookie.net",
       "https://akmpicture.youngjoygame.com",
       "https://akmweb.youngjoygame.com",
+      discord,
       matomo,
     ],
     "font-src": ["'self'", "data:"],

@@ -1,5 +1,6 @@
 import { counters, allHeroes } from "@/lib/data";
 import { ranksByPair } from "@/lib/pairs";
+import { botPublished } from "@/lib/bot/public";
 import { site } from "@/lib/site";
 import { measure } from "@/lib/tier-list";
 import { LOCALES } from "@/i18n/config";
@@ -64,7 +65,11 @@ Statistics come from ranked games aggregated by the community API arena.rone.dev
 ## API
 
 - [Public API documentation](${link("/api-doc")}): read-only JSON endpoints for heroes, rankings and counters.
+${botPublished() ? `
+## Discord bot
 
+- [MLBBDex Discord bot](${link("/bot")}): free bot with hero sheets, builds, counters, tier lists, patch notes, announcements and the daily MLBBdle and quiz in Discord servers, in the five site languages. [Privacy](${link("/bot/privacy")}), [terms](${link("/bot/terms")}).
+` : ""}
 ## Optional
 
 - [About](${link("/about")}): sources, methodology and what the site does not contain.
