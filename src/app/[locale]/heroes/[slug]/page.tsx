@@ -292,8 +292,15 @@ export default async function HeroPage({ params }: Params) {
       */}
       <ShowcaseProvider skins={skinsFull} portraitDefault={h.images.portrait}>
       <RankProvider ranks={ranksAvailable}>
+      {/*
+        Two columns from `xl` up: the hero card on the left, sticky, with the
+        splash art behind it — identity, ratings, facts, rank and the most
+        played build — and the tabs on the rest of the width. Below, the card
+        is the page's header band and the tabs follow it.
+      */}
+      <div className="xl:page-wrap xl:grid xl:grid-cols-[24rem_minmax(0,1fr)] xl:items-start xl:gap-10 xl:pt-6 2xl:grid-cols-[26rem_minmax(0,1fr)]">
       {/* ── Header ─────────────────────────────────────────────────────── */}
-      <div className="relative border-b border-night-700/70 bg-night-900/30">
+      <div className="relative border-b border-night-700/70 bg-night-900/30 xl:bevel xl:sticky xl:top-20 xl:max-h-[calc(100dvh-6rem)] xl:overflow-y-auto xl:overscroll-contain xl:border xl:[scrollbar-width:thin]">
         {background && (
           <div aria-hidden className="absolute inset-0 overflow-hidden">
             <Image
@@ -301,7 +308,7 @@ export default async function HeroPage({ params }: Params) {
               alt=""
               fill
               priority
-              sizes="100vw"
+              sizes="(min-width: 80rem) 26rem, 100vw"
               // Background darkened by an overlay: a reduced quality does not show,
               // and it is the heaviest element to load on mobile.
               quality={50}
@@ -326,7 +333,7 @@ export default async function HeroPage({ params }: Params) {
           </div>
         )}
 
-        <div className="relative mx-auto max-w-5xl px-4 py-10">
+        <div className="page-wrap relative py-10 xl:w-auto xl:max-w-none xl:px-4 xl:py-4">
           {/*
             The breadcrumb floats over the illustration with its own background. The
             role crumb leads to the role page; the hero crumb opens the others.
@@ -344,11 +351,11 @@ export default async function HeroPage({ params }: Params) {
             ]}
           />
 
-          <div className="bevel mt-6 flex flex-wrap items-start gap-6 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm">
+          <div className="bevel mt-6 flex flex-wrap items-start gap-6 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:mt-4 xl:gap-4 xl:p-4">
             <ShowcasePortrait name={h.name} portraitDefault={h.images.portrait} />
 
-            <div className="min-w-0 flex-1 basis-64">
-              <h1 className="font-heading text-4xl font-bold text-chalk-100">{h.name}</h1>
+            <div className="min-w-0 flex-1 basis-64 xl:basis-40">
+              <h1 className="font-heading text-4xl font-bold text-chalk-100 xl:text-3xl">{h.name}</h1>
               {h.title && <p className="mt-1 text-lg text-gold-400">{h.title}</p>}
 
               <div className="mt-4 flex flex-wrap gap-1.5">
@@ -407,8 +414,8 @@ export default async function HeroPage({ params }: Params) {
             the illustration being darkened: the contrast then no longer depends
             on the artwork's brightness, which changes with each hero.
           */}
-          <div className="bevel mt-8 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm">
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6">
+          <div className="bevel mt-8 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:mt-4 xl:p-4">
+          <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-2 xl:gap-x-4 xl:gap-y-2">
             {[
               [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
               [t("pages.heroDetail.stat.release"), releaseDate(h.release, locale, t)],
@@ -432,10 +439,41 @@ export default async function HeroPage({ params }: Params) {
           {/* Rank for the whole hero page: rates, counters and builds follow it. */}
           <RankPicker className="mt-5 border-t border-night-800 pt-4" />
           </div>
+
+          {/* The most played build, at a glance beside the tabs; the Builds tab has them all. */}
+          {reference && reference.items.length > 0 && (
+            <div className="bevel mt-4 hidden border border-night-700/50 bg-night-950/75 p-4 backdrop-blur-sm xl:block">
+              <div className="flex items-baseline justify-between gap-3">
+                <h2 className="font-heading text-base font-bold text-chalk-100">{t("builds.played")}</h2>
+                {reference.winRate !== null && (
+                  <span className="text-xs tabular-nums text-gold-400">
+                    {t("builds.win", { rate: percent.format(reference.winRate) })}
+                  </span>
+                )}
+              </div>
+              <ol className="mt-3 grid grid-cols-6 gap-1.5">
+                {reference.items.slice(0, 6).map((o, i) => {
+                  const item = visualItem(o);
+                  return (
+                    <li key={`${o}-${i}`} title={o} className="bevel-sm relative aspect-square bg-night-800">
+                      {item.image ? (
+                        <Image src={item.image} alt={o} width={44} height={44} className="size-full object-contain" />
+                      ) : (
+                        <span className="grid size-full place-items-center text-xs text-chalk-500">{i + 1}</span>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+              <a href="#builds" className="mt-3 inline-block text-xs font-semibold text-gold-400 hover:text-gold-500">
+                {t("pages.heroDetail.tab.builds")} →
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl px-4 py-10">
+      <div className="page-wrap py-10 xl:w-auto xl:max-w-none xl:px-0 xl:py-0">
         <Tabs
           aliases={TAB_ALIASES}
           tabs={[
@@ -718,6 +756,7 @@ export default async function HeroPage({ params }: Params) {
             },
           ]}
         />
+      </div>
       </div>
       </RankProvider>
       </ShowcaseProvider>

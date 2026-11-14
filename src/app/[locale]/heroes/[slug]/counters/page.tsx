@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronDown, TrendingDown, TrendingUp, Users } from "lucide-react";
 import Link from "@/components/link";
+import { HeroSubLayout } from "@/components/hero-side-card";
 import { FreshnessLine } from "@/components/freshness";
 import { OpenAnchor } from "@/components/open-anchor";
 import { CardsTable } from "@/components/cards-table";
@@ -280,7 +281,7 @@ export default async function CountersPage({ params }: Params) {
         </ul>
       </PageHeader>
 
-      <div className="page-wrap space-y-6 pb-8 pt-5 sm:space-y-14">
+      <HeroSubLayout slug={slug} locale={locale} current={`/heroes/${slug}/counters`} className="space-y-6 pb-8 pt-5 sm:space-y-14">
         {/* ── Summary, all ranks combined ───────────────────────────── */}
         {(best.length > 0 || victims.length > 0) && (
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
@@ -593,7 +594,7 @@ export default async function CountersPage({ params }: Params) {
             </ul>
           </section>
         )}
-      </div>
+      </HeroSubLayout>
     </>
   );
 }
