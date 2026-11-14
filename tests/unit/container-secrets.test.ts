@@ -1,0 +1,32 @@
+import { readFileSync } from "node:fs";
+import { describe, expect, it } from "vitest";
+
+/**
+ * What the images and containers may hold of the secrets. Read from the
+ * files as they are committed: a change to the build context or to the
+ * compose file that lets a secret through fails here first.
+ */
+
+/** Root-level names the build context excludes, with `.dockerignore`'s last-match-wins rule. */
+function ignored(file: string, name: string): boolean {
+  let out = false;
+  for (const raw of readFileSync(file, "utf8").split("\n")) {
+    const line = raw.trim();
+    if (!line || line.startsWith("#")) continue;
+    const negated = line.startsWith("!");
+    const pattern = new RegExp(`^${(negated ? line.slice(1) : line).replace(/[.+^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^/]*").replace(/\?/g, "[^/]")}$`);
+    if (pattern.test(name)) out = !negated;
+  }
+  return out;
+}
+
+describe("build context", () => {
+  // `next build` loads .env.production and copies it into .next/standalone,
+  // that is into the final image: every env file must stay out of the context.
+  it.each([".dockerignore", "bot/.dockerignore"])("%s keeps every env file out, the template aside", (file) => {
+    for (const name of [".env", ".env.production", ".env.local", ".env.production.local", ".env.development"]) {
+      expect(ignored(file, name), name).toBe(true);
+    }
+    expect(ignored(file, ".env.example")).toBe(false);
+  });
+});
