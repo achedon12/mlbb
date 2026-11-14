@@ -3469,7 +3469,28 @@
       "flush": "Publier les annonces en attente",
       "flushing": "Publication des annonces…",
       "flushed": "Annonces vérifiées : {count} nouvelle(s), publication demandée au bot.",
-      "flushFailed": "Le bot n'a pas répondu."
+      "flushFailed": "Le bot n'a pas répondu.",
+      "greetingsTitle": "Bienvenue et départs",
+      "greetingsLead": "Un message dans le salon de votre choix quand un membre arrive ou part, dans la langue du serveur. Seul le nouveau venu est mentionné ; si plus de 5 personnes arrivent en 10 secondes, le bot publie un seul message pour toutes.",
+      "greetingKinds": {
+        "welcome": "Message de bienvenue",
+        "goodbye": "Message de départ"
+      },
+      "greetingToggles": {
+        "welcome": "Publier un message quand un membre arrive",
+        "goodbye": "Publier un message quand un membre part"
+      },
+      "customMessage": "Message personnalisé (facultatif)",
+      "customHelp": "Laissez vide pour le message par défaut, dans la langue du serveur. 500 caractères au plus ; les mentions de rôles, @everyone et @here sont neutralisées.",
+      "placeholders": {
+        "user": "mentionne le nouveau membre (son simple nom dans un message de départ)",
+        "username": "son nom d'utilisateur",
+        "server": "le nom du serveur",
+        "count": "le nombre de membres"
+      },
+      "preview": "Aperçu",
+      "welcomeDefault": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "goodbyeDefault": "**{username}** a quitté le serveur."
     },
     "botAdmin": {
       "title": "Administration du bot",
