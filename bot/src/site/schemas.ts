@@ -87,7 +87,9 @@ export const pendingAnnouncements = unwrap(
 
 // ─── Announcement payloads, per type ───────────────────────────────────
 
-const path = z.string().regex(/^\/[A-Za-z0-9/_.\-~%]*$/).max(300);
+// A site path, optionally with a page anchor: skin announcements point to
+// "/heroes/<hero>/skins#<anchor>", and refusing the "#" dropped every one.
+const path = z.string().regex(/^\/[A-Za-z0-9/_.\-~%]*(?:#[A-Za-z0-9_-]{1,100})?$/).max(300);
 const text = (max: number) => z.string().min(1).max(max);
 const count = z.number().int().min(0).catch(0);
 

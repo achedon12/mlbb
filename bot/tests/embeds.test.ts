@@ -227,3 +227,18 @@ describe("text a member typed, shown back by the bot", () => {
     expect(mlbbdleSolvedPublic(en, lure, "classic", 65, 3, [])).not.toMatch(rendersAsLink);
   });
 });
+
+describe("skins announcement", () => {
+  it("keeps the gallery anchor of the skin, after the tracking parameters", () => {
+    const msg = announcementMessage(
+      "skins",
+      { hero: "layla", heroName: "Layla", name: "Lumière", url: "/heroes/layla/skins#skin-lumiere" },
+      "en",
+      null,
+      SITE,
+    );
+    expect(msg).not.toBeNull();
+    expect(msg!.embeds?.[0]?.url).toMatch(/\/en\/heroes\/layla\/skins\?utm_source=discord.*#skin-lumiere$/);
+  });
+});
+
