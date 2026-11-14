@@ -329,6 +329,17 @@ describe.skipIf(!url)("community database paths", async () => {
     expect(await store.moderate({ action: "dismiss", kind: "card", id }, moderator)).toBe("ok");
     expect(await store.saveCard(card, author(30))).toEqual({ ok: false, reason: "hidden" });
 
+    // Dismissing reports on an older card never lifts a moderator's hide of a newer one.
+    await store.saveCard(card, author(40));
+    const first = (await store.ownCard(account(40)))!.id;
+    for (const n of [41, 42, 43]) await store.reportTarget({ kind: "card", id: first, reason: "spam" }, author(n));
+    expect(await store.moderate({ action: "dismiss", kind: "card", id: first }, moderator)).toBe("ok");
+    expect(await store.moderate({ action: "hide", kind: "card", id: first }, moderator)).toBe("ok");
+    await store.deleteCard(account(40));
+    for (const n of [44, 45, 46]) await store.reportTarget({ kind: "card", id: first, reason: "spam" }, author(n)).catch(() => null);
+    await store.moderate({ action: "dismiss", kind: "card", id: first }, moderator);
+    expect(await store.saveCard(card, author(40))).toEqual({ ok: false, reason: "hidden" });
+
     // Shown again by a moderator: the account may list a card again.
     expect(await store.moderate({ action: "unhide", kind: "card", id }, moderator)).toBe("ok");
     expect(await store.saveCard(card, author(30))).toMatchObject({ ok: true });

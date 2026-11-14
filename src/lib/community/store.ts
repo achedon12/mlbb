@@ -584,10 +584,21 @@ export function moderate(
         // the card's account-level hide with it (a moderator's hide is a
         // "hide" action, not reversed by dismissing later reports).
         if (kind && id) {
+          // A moderator's own hide of this target stands.
           const autoHidden = !(await tx.moderationLog.findFirst({ where: { kind, targetId: id, action: "hide" }, select: { id: true } }));
           if (autoHidden) {
             if (!gone) await setHidden(tx, kind, id, null);
-            if (kind === "card" && accountId) await tx.communityMember.updateMany({ where: { accountId }, data: { cardHiddenAt: null } });
+            // The account-level hide is lifted only when no moderator's hide
+            // of any card of this account is still standing (its last
+            // hide/unhide decision is not a hide).
+            if (kind === "card" && accountId) {
+              const last = await tx.moderationLog.findFirst({
+                where: { kind: "card", accountId, action: { in: ["hide", "unhide"] } },
+                orderBy: { createdAt: "desc" },
+                select: { action: true },
+              });
+              if (last?.action !== "hide") await tx.communityMember.updateMany({ where: { accountId }, data: { cardHiddenAt: null } });
+            }
           }
         }
         break;
