@@ -117,7 +117,7 @@ describe("internal API gate", () => {
 });
 
 describe("dashboard settings write", () => {
-  const form = (o: { channel?: string | null } = {}) => ({
+  const form = (o: { channel?: string | null; welcome?: string | null } = {}) => ({
     locale: "fr",
     announcements: Object.fromEntries(
       ["patches", "skins", "events", "advanceServer", "esports"].map((t) => [t, { channelId: t === "patches" ? (o.channel ?? null) : null, roleId: null }]),
@@ -125,6 +125,8 @@ describe("dashboard settings write", () => {
     dailyMlbbdleChannelId: null,
     dailyQuizChannelId: null,
     dailyHourUtc: 12,
+    welcome: { channelId: o.welcome ?? null, message: "Hi {user}" },
+    goodbye: { channelId: null, message: null },
   });
   const put = (guild: string, body: unknown, headers: Record<string, string> = {}) =>
     PUT(
@@ -157,6 +159,7 @@ describe("dashboard settings write", () => {
 
   it("refuses a channel of another server", async () => {
     expect((await put(GUILD, form({ channel: FOREIGN_CHANNEL }))).status).toBe(400);
+    expect((await put(GUILD, form({ welcome: FOREIGN_CHANNEL }))).status).toBe(400);
     expect(store.writes).toHaveLength(0);
   });
 

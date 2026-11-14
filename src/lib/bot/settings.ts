@@ -7,9 +7,17 @@ import { LOCALES, type Locale } from "@/i18n/config";
  * database: the validation is tested on its own.
  */
 
-import { ANNOUNCEMENT_TYPES, type AnnouncementType } from "./kinds";
+import { ANNOUNCEMENT_TYPES, GREETING_KINDS, GREETING_MAX_LENGTH, type AnnouncementType, type GreetingKind } from "./kinds";
 
-export { ANNOUNCEMENT_TYPES, DAILY_GAMES, type AnnouncementType, type DailyGame } from "./kinds";
+export {
+  ANNOUNCEMENT_TYPES,
+  DAILY_GAMES,
+  GREETING_KINDS,
+  GREETING_MAX_LENGTH,
+  type AnnouncementType,
+  type DailyGame,
+  type GreetingKind,
+} from "./kinds";
 
 export const DEFAULT_DAILY_HOUR = 12;
 
@@ -23,6 +31,13 @@ export interface AnnouncementSetting {
   failing: boolean;
 }
 
+/** Welcome or goodbye message: no channel, no message; no text, the default one. */
+export interface GreetingSetting {
+  channelId: string | null;
+  message: string | null;
+  failing: boolean;
+}
+
 /** What `GET /api/bot/guilds/:id/settings` answers. */
 export type GuildSettingsView = {
   guildId: string;
@@ -30,7 +45,8 @@ export type GuildSettingsView = {
   dailyMlbbdleChannelId: string | null;
   dailyQuizChannelId: string | null;
   dailyHourUtc: number;
-} & Record<AnnouncementType, AnnouncementSetting>;
+} & Record<AnnouncementType, AnnouncementSetting> &
+  Record<GreetingKind, GreetingSetting>;
 
 /** Database row, as Prisma returns it (only the fields read here). */
 export type SettingsRow = {
@@ -39,6 +55,8 @@ export type SettingsRow = {
   dailyHourUtc: number;
 } & { [K in `${AnnouncementType}ChannelId` | `${AnnouncementType}RoleId`]: string | null } & {
   [K in `${AnnouncementType}Failing`]: boolean;
+} & { [K in `${GreetingKind}ChannelId` | `${GreetingKind}Message`]: string | null } & {
+  [K in `${GreetingKind}Failing`]: boolean;
 };
 
 export const asLocale = (value: string | null | undefined): Locale =>
@@ -56,15 +74,41 @@ export function settingsView(guildId: string, locale: string, row: SettingsRow |
       },
     ]),
   ) as Record<AnnouncementType, AnnouncementSetting>;
+  const greetings = Object.fromEntries(
+    GREETING_KINDS.map((kind) => [
+      kind,
+      {
+        channelId: row?.[`${kind}ChannelId`] ?? null,
+        message: row?.[`${kind}Message`] ?? null,
+        failing: row?.[`${kind}Failing`] ?? false,
+      },
+    ]),
+  ) as Record<GreetingKind, GreetingSetting>;
   return {
     guildId,
     locale: asLocale(locale),
     ...announcements,
+    ...greetings,
     dailyMlbbdleChannelId: row?.dailyMlbbdleChannelId ?? null,
     dailyQuizChannelId: row?.dailyQuizChannelId ?? null,
     dailyHourUtc: row?.dailyHourUtc ?? DEFAULT_DAILY_HOUR,
   };
 }
+
+/**
+ * An owner's welcome or goodbye text. Line endings are normalised and the
+ * ends trimmed; a blank text means "the default message". It is stored as
+ * typed: the bot neutralises mentions and caps it again when it posts, so
+ * nothing written here can ping anyone.
+ */
+export const greetingText = z
+  .string()
+  .max(GREETING_MAX_LENGTH)
+  .refine((text) => !/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(text), "control characters")
+  .transform((text) => text.replace(/\r\n?/g, "\n").trim() || null)
+  .nullable();
+
+const greetingInput = z.object({ channelId: optionalId, message: greetingText }).strict();
 
 /** What the dashboard sends when saving. */
 export const settingsInput = z
@@ -78,6 +122,8 @@ export const settingsInput = z
     dailyMlbbdleChannelId: optionalId,
     dailyQuizChannelId: optionalId,
     dailyHourUtc: z.number().int().min(0).max(23),
+    welcome: greetingInput,
+    goodbye: greetingInput,
   })
   .strict();
 export type SettingsInput = z.infer<typeof settingsInput>;
@@ -104,6 +150,10 @@ export function checkAgainstGuild(
     const id = value[field];
     if (id && !channels.has(id)) return { ok: false, field };
   }
+  for (const kind of GREETING_KINDS) {
+    const id = value[kind].channelId;
+    if (id && !channels.has(id)) return { ok: false, field: `${kind}.channelId` };
+  }
   return { ok: true, value };
 }
 
@@ -118,6 +168,13 @@ export function settingsRow(input: SettingsInput): SettingsRow {
     row[`${type}ChannelId`] = input.announcements[type].channelId;
     row[`${type}RoleId`] = input.announcements[type].roleId;
     row[`${type}Failing`] = false;
+  }
+  for (const kind of GREETING_KINDS) {
+    row[`${kind}ChannelId`] = input[kind].channelId;
+    // The text is kept when the message is turned off: switching it back on
+    // finds the owner's text again.
+    row[`${kind}Message`] = input[kind].message;
+    row[`${kind}Failing`] = false;
   }
   return row;
 }
