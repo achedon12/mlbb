@@ -3469,7 +3469,28 @@
       "flush": "Post pending announcements",
       "flushing": "Posting…",
       "flushed": "Announcements checked: {count} new, the bot was asked to post.",
-      "flushFailed": "The bot did not answer."
+      "flushFailed": "The bot did not answer.",
+      "greetingsTitle": "Welcome & goodbye",
+      "greetingsLead": "A message in the channel of your choice when a member joins or leaves, in the server's language. Only the newcomer is mentioned; when more than 5 people join within 10 seconds, the bot posts a single message for all of them.",
+      "greetingKinds": {
+        "welcome": "Welcome message",
+        "goodbye": "Goodbye message"
+      },
+      "greetingToggles": {
+        "welcome": "Post a message when a member joins",
+        "goodbye": "Post a message when a member leaves"
+      },
+      "customMessage": "Custom message (optional)",
+      "customHelp": "Leave it empty for the default message, in the server's language. 500 characters at most; role mentions, @everyone and @here are neutralised.",
+      "placeholders": {
+        "user": "mentions the new member (their plain name in a goodbye)",
+        "username": "their username",
+        "server": "the server's name",
+        "count": "the member count"
+      },
+      "preview": "Preview",
+      "welcomeDefault": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles.",
+      "goodbyeDefault": "**{username}** has left the server."
     },
     "botAdmin": {
       "title": "Bot administration",

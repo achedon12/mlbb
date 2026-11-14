@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { log } from "@/lib/log";
 import type { BotConfig } from "./config";
+import type { GreetingKind } from "./kinds";
 import { signedHeaders } from "./signature";
 
 /**
@@ -98,11 +99,25 @@ export const guildChannels = (config: BotConfig, guild: string) =>
     z.object({ channels: z.array(channel).max(500), roles: z.array(role).max(250) }),
   );
 
-export const testPost = (config: BotConfig, guildId: string, channelId: string, locale: string) =>
+/**
+ * A welcome or goodbye test: the text being edited (saved or not), shown
+ * with the dashboard user as the member and the server as the site knows it.
+ */
+export interface GreetingTest {
+  kind: GreetingKind;
+  message: string | null;
+  member: { id: string; username: string; avatar: string | null };
+  guildName: string;
+  memberCount: number;
+}
+
+/** "Send a test": the announcement sample, or a greeting when one is given. */
+export const testPost = (config: BotConfig, guildId: string, channelId: string, locale: string, greeting?: GreetingTest) =>
   call(config, "POST", "/internal/test-post", z.object({ ok: z.boolean(), error: z.string().max(300).optional() }), {
     guildId,
     channelId,
     locale,
+    ...greeting,
   });
 
 export const flushAnnouncements = (config: BotConfig) => call(config, "POST", "/internal/announcements/flush", z.unknown(), {});

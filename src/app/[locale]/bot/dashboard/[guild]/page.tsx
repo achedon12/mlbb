@@ -10,7 +10,7 @@ import { createT, messagesPage } from "@/i18n/translations";
 import { canManage, guildChannels } from "@/lib/bot/client";
 import { botConfig } from "@/lib/bot/config";
 import { dashboardPageAllowed } from "@/lib/bot/dashboard-guard";
-import { botClientId, isSnowflake } from "@/lib/bot/public";
+import { botClientId, discordImage, isSnowflake } from "@/lib/bot/public";
 import { currentDiscordUser } from "@/lib/bot/session";
 import { settingsView } from "@/lib/bot/settings";
 import { deliveryHealth } from "@/lib/bot/stats";
@@ -110,6 +110,7 @@ export default async function GuildPage({ params }: Params) {
               initial={view}
               channels={lists.channels.map(({ id, name }) => ({ id, name }))}
               roles={lists.roles.map(({ id, name }) => ({ id, name }))}
+              sample={{ user: user.name, avatarUrl: discordImage("avatars", user.id, user.avatar, 128), server: guild.name, count: guild.memberCount }}
             />
           </ExtendMessages>
         </section>

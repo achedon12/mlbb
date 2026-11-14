@@ -2,8 +2,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 /**
  * The gates in front of the bot routes, exercised as requests: the internal
- * API's signature gate, and the dashboard's settings write (origin, session,
- * live permission check, ids checked against the server in the path).
+ * API's signature gate, and the dashboard's settings write and test post
+ * (origin, session, live permission check, ids checked against the server
+ * in the path).
  */
 
 const SECRET = "a".repeat(64);
@@ -29,6 +30,7 @@ const client = vi.hoisted(() => ({
     channels: guild === "111111111111111111" ? [{ id: "333333333333333333", name: "news", type: "text" }] : [],
     roles: [],
   })),
+  testPost: vi.fn(async () => ({ ok: true })),
 }));
 vi.mock("@/lib/bot/client", async (original) => ({ ...(await original<object>()), ...client }));
 
@@ -37,7 +39,10 @@ vi.mock("next/headers", () => ({ cookies: async () => ({ get: () => (jar.session
 
 const store = vi.hoisted(() => ({
   writes: [] as unknown[],
-  guild: { findUnique: vi.fn(async () => ({ id: "111111111111111111", leftAt: null })), update: vi.fn((a: unknown) => a) },
+  guild: {
+    findUnique: vi.fn(async () => ({ id: "111111111111111111", name: "Land of Dawn", memberCount: 42, leftAt: null })),
+    update: vi.fn((a: unknown) => a),
+  },
   guildSettings: { upsert: vi.fn((a: unknown) => a) },
 }));
 vi.mock("@/lib/db", () => ({
@@ -57,6 +62,7 @@ const { readBotConfig } = await import("@/lib/bot/config");
 const { signedHeaders } = await import("@/lib/bot/signature");
 const { sealSession } = await import("@/lib/bot/session");
 const { PUT } = await import("@/app/api/discord/guilds/[id]/settings/route");
+const testRoute = await import("@/app/api/discord/guilds/[id]/test/route");
 const { z } = await import("zod");
 
 const config = readBotConfig(process.env);
@@ -198,5 +204,50 @@ describe("dashboard page views", () => {
       if (dashboardReadAllowed(`6${String(i).padStart(17, "0")}`, "192.0.2.9")) allowed += 1;
     }
     expect(allowed).toBe(DASHBOARD_READS_PER_ADDRESS);
+  });
+});
+
+describe("dashboard greeting test", () => {
+  const AVATAR = "0123456789abcdef0123456789abcdef";
+  const post = (guild: string, body: unknown, headers: Record<string, string> = {}) =>
+    testRoute.POST(
+      new Request(`${BASE}/api/discord/guilds/${guild}/test`, {
+        method: "POST",
+        headers: { origin: "https://mlbbdex.com", "content-type": "application/json", "x-forwarded-for": "198.51.100.2", ...headers },
+        body: JSON.stringify(body),
+      }),
+      { params: Promise.resolve({ id: guild }) },
+    );
+
+  beforeEach(() => {
+    jar.session = sealSession(config, { id: USER, name: "Leo", avatar: AVATAR });
+    client.testPost.mockClear();
+    client.canManage.mockClear();
+  });
+
+  it("posts the text being edited, with the signed-in user and the server's own name", async () => {
+    const response = await post(GUILD, { channelId: CHANNEL, locale: "es", kind: "welcome", message: "  Hola {user}  " });
+    expect(response.status).toBe(200);
+    expect(client.testPost).toHaveBeenCalledWith(expect.anything(), GUILD, CHANNEL, "es", {
+      kind: "welcome",
+      message: "Hola {user}",
+      member: { id: USER, username: "Leo", avatar: AVATAR },
+      guildName: "Land of Dawn",
+      memberCount: 42,
+    });
+    // Without a kind, the announcement test as before.
+    expect((await post(GUILD, { channelId: CHANNEL, locale: "fr" })).status).toBe(200);
+    expect(client.testPost).toHaveBeenLastCalledWith(expect.anything(), GUILD, CHANNEL, "fr", undefined);
+  });
+
+  it("checks the user, the channel and the body like any other write", async () => {
+    const ok = { channelId: CHANNEL, locale: "en", kind: "goodbye", message: null };
+    expect((await post(OTHER_GUILD, ok)).status).toBe(403);
+    expect((await post(GUILD, { ...ok, channelId: FOREIGN_CHANNEL })).status).toBe(400);
+    expect((await post(GUILD, { ...ok, kind: "raid" })).status).toBe(400);
+    expect((await post(GUILD, { ...ok, message: "x".repeat(501) })).status).toBe(400);
+    expect((await post(GUILD, { ...ok, guildName: "@everyone" })).status).toBe(400);
+    expect((await post(GUILD, ok, { origin: "https://evil.example" })).status).toBe(403);
+    expect(client.testPost).not.toHaveBeenCalled();
   });
 });

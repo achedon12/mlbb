@@ -3469,7 +3469,28 @@
       "flush": "Publikasikan pengumuman yang tertunda",
       "flushing": "Publikasi pengumuman…",
       "flushed": "Pengumuman terverifikasi: {count} baru, publikasi diminta dari bot.",
-      "flushFailed": "Bot tidak merespons."
+      "flushFailed": "Bot tidak merespons.",
+      "greetingsTitle": "Sambutan & perpisahan",
+      "greetingsLead": "Pesan di saluran pilihanmu saat anggota bergabung atau keluar, dalam bahasa server. Hanya pendatang baru yang di-mention; jika lebih dari 5 orang bergabung dalam 10 detik, bot mengirim satu pesan untuk semuanya.",
+      "greetingKinds": {
+        "welcome": "Pesan sambutan",
+        "goodbye": "Pesan perpisahan"
+      },
+      "greetingToggles": {
+        "welcome": "Kirim pesan saat anggota bergabung",
+        "goodbye": "Kirim pesan saat anggota keluar"
+      },
+      "customMessage": "Pesan khusus (opsional)",
+      "customHelp": "Biarkan kosong untuk pesan bawaan, dalam bahasa server. Maksimal 500 karakter; mention peran, @everyone, dan @here dinetralkan.",
+      "placeholders": {
+        "user": "me-mention anggota baru (hanya namanya di pesan perpisahan)",
+        "username": "nama penggunanya",
+        "server": "nama server",
+        "count": "jumlah anggota"
+      },
+      "preview": "Pratinjau",
+      "welcomeDefault": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran.",
+      "goodbyeDefault": "**{username}** telah keluar dari server."
     },
     "botAdmin": {
       "title": "Administrasi bot",
