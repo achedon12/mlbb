@@ -17,15 +17,18 @@ export function SectionTitle({
   children,
   lead,
   action,
+  id,
 }: {
   children: React.ReactNode;
   lead?: string;
   action?: { href: string; label: string };
+  /** Id of the heading, for a section's `aria-labelledby`. */
+  id?: string;
 }) {
   return (
     <div className="mb-4 flex flex-wrap items-end justify-between gap-x-4 gap-y-2 sm:mb-8">
       <div>
-        <h2 className="font-heading text-xl font-bold text-chalk-100 sm:text-3xl">{children}</h2>
+        <h2 id={id} className="font-heading text-xl font-bold text-chalk-100 sm:text-3xl">{children}</h2>
         <div aria-hidden className="gold-rule mt-1.5 h-0.5 w-16 sm:mt-2" />
         {lead && <p className="mt-1.5 line-clamp-2 max-w-2xl text-sm text-chalk-500 sm:mt-3 sm:line-clamp-none">{lead}</p>}
       </div>
