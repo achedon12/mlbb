@@ -30,3 +30,30 @@ describe("build context", () => {
     expect(ignored(file, ".env.example")).toBe(false);
   });
 });
+
+/** The lines of one service in docker-compose.yml, up to the next top-level service. */
+function service(name: string): string {
+  const lines = readFileSync("docker-compose.yml", "utf8").split("\n");
+  const start = lines.indexOf(`  ${name}:`);
+  expect(start, `service ${name}`).toBeGreaterThanOrEqual(0);
+  const end = lines.findIndex((l, i) => i > start && /^ {2}\S/.test(l));
+  return lines.slice(start, end === -1 ? undefined : end).join("\n");
+}
+
+describe("compose", () => {
+  // The site reads the whole .env (env_file), which also holds the bot's
+  // token for the bot service's interpolation: the site, the process that
+  // faces the internet, must get those values blanked.
+  it("hands the site no bot-only secret", () => {
+    const site = service("mlbb");
+    expect(site).toMatch(/env_file:/);
+    for (const name of ["DISCORD_TOKEN", "TOPGG_TOKEN", "DBL_TOKEN", "DBOTSGG_TOKEN", "POSTGRES_PASSWORD"]) {
+      expect(site, name).toMatch(new RegExp(`^\\s+${name}: ""$`, "m"));
+    }
+  });
+
+  it("publishes neither the bot's internal port nor the database", () => {
+    expect(service("bot")).not.toMatch(/^\s+ports:/m);
+    expect(service("postgres")).not.toMatch(/^\s+ports:/m);
+  });
+});

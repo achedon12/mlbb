@@ -13,6 +13,16 @@ services:
     image: mlbb:latest
     env_file:
       - .env
+    # The same .env also holds the bot's own secrets, read by the `bot`
+    # service below through interpolation. `environment` wins over
+    # `env_file`: the site, the process facing the internet, gets them empty,
+    # so a leak of its environment never hands over the bot token.
+    environment:
+      DISCORD_TOKEN: ""
+      TOPGG_TOKEN: ""
+      DBL_TOKEN: ""
+      DBOTSGG_TOKEN: ""
+      POSTGRES_PASSWORD: ""
     container_name: mlbb
     restart: unless-stopped
     ports:
