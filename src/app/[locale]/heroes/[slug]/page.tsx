@@ -33,7 +33,8 @@ import {
   SkinShowcase,
   type SkinFull,
 } from "@/components/skin-showcase";
-import { Card, Gauge } from "@/components/ui";
+import { BadgeTier, Card, Gauge } from "@/components/ui";
+import { HeroPortrait } from "@/components/hero-portrait";
 import { RoleBadge } from "@/components/role-badge";
 import {
   buildsPlayed,
@@ -253,6 +254,76 @@ export default async function HeroPage({ params }: Params) {
       .map((a) => ({ version: p.version, adjustment: a })),
   );
 
+  // Under the analysis, from `lg` up: the most played build and the clearest
+  // counters, all ranks, so that a short analysis does not leave the column
+  // empty. The Builds and Counters tabs have them all, rank by rank.
+  const countersAll = countersShown.all ?? Object.values(countersShown)[0];
+  const summary =
+    (reference && reference.items.length > 0) || countersAll ? (
+      <section aria-label={t("builds.played")} className="hidden gap-4 lg:grid lg:grid-cols-2">
+        {reference && reference.items.length > 0 && (
+          <Card>
+            <div className="flex items-baseline justify-between gap-3">
+              <h2 className="font-heading text-lg font-bold text-chalk-100">{t("builds.played")}</h2>
+              {reference.winRate !== null && (
+                <span className="text-xs tabular-nums text-gold-400">
+                  {t("builds.win", { rate: percent.format(reference.winRate) })}
+                </span>
+              )}
+            </div>
+            <ol className="mt-4 grid grid-cols-6 gap-2">
+              {reference.items.slice(0, 6).map((o, i) => {
+                const item = visualItem(o);
+                return (
+                  <li key={`${o}-${i}`} title={o} className="bevel-sm aspect-square bg-night-800">
+                    {item.image ? (
+                      <Image src={item.image} alt={o} width={44} height={44} className="size-full object-contain" />
+                    ) : (
+                      <span className="grid size-full place-items-center text-xs text-chalk-500">{i + 1}</span>
+                    )}
+                  </li>
+                );
+              })}
+            </ol>
+            <a href="#builds" className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500">
+              {t("pages.heroDetail.tab.builds")} →
+            </a>
+          </Card>
+        )}
+        {countersAll && (
+          <Card>
+            <h2 className="font-heading text-lg font-bold text-chalk-100">{t("pages.heroDetail.tab.counters")}</h2>
+            <div className="mt-3 grid grid-cols-2 gap-4 text-sm">
+              {[
+                { title: t("counters.strong"), list: countersAll.strong, tone: "text-emerald-400" },
+                { title: t("counters.difficulty"), list: countersAll.weak, tone: "text-blood-400" },
+              ].map(({ title, list, tone }) => (
+                <div key={title} className="min-w-0">
+                  <h3 className="text-xs text-chalk-500">{title}</h3>
+                  <ul className="mt-2 space-y-1.5">
+                    {list.slice(0, 3).map((c) => (
+                      <li key={c.slug}>
+                        <Link href={`/heroes/${c.slug}`} className="group flex items-center gap-2">
+                          <HeroPortrait source={c.portrait} name={c.name} size="small" decorative />
+                          <span className="min-w-0 flex-1 truncate text-chalk-200 group-hover:text-gold-400">{c.name}</span>
+                          <span className={`shrink-0 text-xs tabular-nums ${tone}`}>
+                            {formatGap(c.advantage, locale)} {t("counters.pts")}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <a href="#counters" className="mt-4 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500">
+              {t("pages.heroDetail.tab.counters")} →
+            </a>
+          </Card>
+        )}
+      </section>
+    ) : null;
+
   const history = historyOf(h.slug);
   const structuredData = {
     "@context": "https://schema.org",
@@ -293,22 +364,24 @@ export default async function HeroPage({ params }: Params) {
       <ShowcaseProvider skins={skinsFull} portraitDefault={h.images.portrait}>
       <RankProvider ranks={ranksAvailable}>
       {/*
-        Two columns from `xl` up: the hero card on the left, sticky, with the
-        splash art behind it — identity, ratings, facts, rank and the most
-        played build — and the tabs on the rest of the width. Below, the card
-        is the page's header band and the tabs follow it.
+        Two columns from `xl` up. The header band below opens (`contents`)
+        and its blocks become cells of one grid: the identity card on the
+        left, sticky and short enough for any screen (portrait, name, roles,
+        tier and rates, ratings, favourite and compare), the facts and the
+        rank picker above the tabs on the right, in the page's flow. Below
+        `xl`, the band and the tabs are what they were.
       */}
-      <div className="xl:page-wrap xl:grid xl:grid-cols-[24rem_minmax(0,1fr)] xl:items-start xl:gap-10 xl:pt-6 2xl:grid-cols-[26rem_minmax(0,1fr)]">
+      <div className="xl:page-wrap xl:grid xl:grid-cols-[22rem_minmax(0,1fr)] xl:items-start xl:gap-x-10 xl:gap-y-5 xl:pt-5 2xl:grid-cols-[24rem_minmax(0,1fr)]">
       {/* ── Header ─────────────────────────────────────────────────────── */}
-      <div className="relative border-b border-night-700/70 bg-night-900/30 xl:bevel xl:sticky xl:top-20 xl:max-h-[calc(100dvh-6rem)] xl:overflow-y-auto xl:overscroll-contain xl:border xl:[scrollbar-width:thin]">
+      <div className="relative border-b border-night-700/70 bg-night-900/30 xl:contents">
         {background && (
-          <div aria-hidden className="absolute inset-0 overflow-hidden">
+          <div aria-hidden className="absolute inset-0 overflow-hidden xl:hidden">
             <Image
               src={background}
               alt=""
               fill
               priority
-              sizes="(min-width: 80rem) 26rem, 100vw"
+              sizes="100vw"
               // Background darkened by an overlay: a reduced quality does not show,
               // and it is the heaviest element to load on mobile.
               quality={50}
@@ -333,11 +406,12 @@ export default async function HeroPage({ params }: Params) {
           </div>
         )}
 
-        <div className="page-wrap relative py-10 xl:w-auto xl:max-w-none xl:px-4 xl:py-4">
+        <div className="page-wrap relative py-10 xl:contents">
           {/*
             The breadcrumb floats over the illustration with its own background. The
             role crumb leads to the role page; the hero crumb opens the others.
           */}
+          <div className="xl:col-span-2">
           <Breadcrumb
             crumbs={[
               { name: t("nav.heroes.label"), href: "/heroes" },
@@ -350,8 +424,9 @@ export default async function HeroPage({ params }: Params) {
               },
             ]}
           />
+          </div>
 
-          <div className="bevel mt-6 flex flex-wrap items-start gap-6 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:mt-4 xl:gap-4 xl:p-4">
+          <div className="bevel mt-6 flex flex-wrap items-start gap-6 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:sticky xl:top-20 xl:col-start-1 xl:row-span-2 xl:row-start-2 xl:mt-0 xl:gap-4 xl:self-start xl:bg-night-900/70 xl:p-4">
             <ShowcasePortrait name={h.name} portraitDefault={h.images.portrait} />
 
             <div className="min-w-0 flex-1 basis-64 xl:basis-40">
@@ -372,9 +447,24 @@ export default async function HeroPage({ params }: Params) {
                 ))}
               </div>
 
-              <FreshnessLine locale={locale} className="mt-4" />
+              <FreshnessLine locale={locale} className="mt-4 xl:hidden" />
 
-              <div className="mt-5 flex flex-wrap items-center gap-3">
+              {/* All ranks, on the card that stays in view; the facts follow the chosen rank. */}
+              {rankedEntry && (
+                <div className="mt-3 hidden items-center gap-3 text-sm xl:flex">
+                  <BadgeTier tier={rankedEntry.tier} />
+                  <span>
+                    <span className="block text-xs text-chalk-500">{t("pages.heroDetail.stat.winRate")}</span>
+                    <span className="font-semibold tabular-nums text-chalk-100">{percent.format(rankedEntry.winRate)} %</span>
+                  </span>
+                  <span>
+                    <span className="block text-xs text-chalk-500">{t("pages.heroDetail.stat.banRate")}</span>
+                    <span className="font-semibold tabular-nums text-chalk-100">{percent.format(rankedEntry.banRate)} %</span>
+                  </span>
+                </div>
+              )}
+
+              <div className="mt-5 flex flex-wrap items-center gap-3 xl:mt-4 xl:gap-2">
                 <FavouriteButton hero={h.slug} />
                 <Link
                   href={`/compare?a=${h.slug}`}
@@ -387,7 +477,7 @@ export default async function HeroPage({ params }: Params) {
             </div>
 
             {/* In-game ratings, as gauges rather than bare figures. */}
-            <dl className="grid min-w-0 flex-1 basis-56 gap-2.5">
+            <dl className="grid min-w-0 flex-1 basis-56 gap-2.5 xl:gap-2">
               {[
                 [t("pages.heroDetail.ratings.offense"), h.ratings.offense],
                 [t("pages.heroDetail.ratings.durability"), h.ratings.durability],
@@ -414,8 +504,8 @@ export default async function HeroPage({ params }: Params) {
             the illustration being darkened: the contrast then no longer depends
             on the artwork's brightness, which changes with each hero.
           */}
-          <div className="bevel mt-8 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:mt-4 xl:p-4">
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-2 xl:gap-x-4 xl:gap-y-2">
+          <div className="bevel mt-8 border border-night-700/50 bg-night-950/75 p-5 backdrop-blur-sm xl:col-start-2 xl:row-start-2 xl:mt-0 xl:bg-night-900/60">
+          <dl className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-5 xl:gap-y-3">
             {[
               [t("pages.heroDetail.stat.position"), h.lanes.map((l) => t(`lanes.${l}`)).join(", ")],
               [t("pages.heroDetail.stat.release"), releaseDate(h.release, locale, t)],
@@ -440,40 +530,10 @@ export default async function HeroPage({ params }: Params) {
           <RankPicker className="mt-5 border-t border-night-800 pt-4" />
           </div>
 
-          {/* The most played build, at a glance beside the tabs; the Builds tab has them all. */}
-          {reference && reference.items.length > 0 && (
-            <div className="bevel mt-4 hidden border border-night-700/50 bg-night-950/75 p-4 backdrop-blur-sm xl:block">
-              <div className="flex items-baseline justify-between gap-3">
-                <h2 className="font-heading text-base font-bold text-chalk-100">{t("builds.played")}</h2>
-                {reference.winRate !== null && (
-                  <span className="text-xs tabular-nums text-gold-400">
-                    {t("builds.win", { rate: percent.format(reference.winRate) })}
-                  </span>
-                )}
-              </div>
-              <ol className="mt-3 grid grid-cols-6 gap-1.5">
-                {reference.items.slice(0, 6).map((o, i) => {
-                  const item = visualItem(o);
-                  return (
-                    <li key={`${o}-${i}`} title={o} className="bevel-sm relative aspect-square bg-night-800">
-                      {item.image ? (
-                        <Image src={item.image} alt={o} width={44} height={44} className="size-full object-contain" />
-                      ) : (
-                        <span className="grid size-full place-items-center text-xs text-chalk-500">{i + 1}</span>
-                      )}
-                    </li>
-                  );
-                })}
-              </ol>
-              <a href="#builds" className="mt-3 inline-block text-xs font-semibold text-gold-400 hover:text-gold-500">
-                {t("pages.heroDetail.tab.builds")} →
-              </a>
-            </div>
-          )}
         </div>
       </div>
 
-      <div className="page-wrap py-10 xl:w-auto xl:max-w-none xl:px-0 xl:py-0">
+      <div className="page-wrap py-10 xl:col-start-2 xl:row-start-3 xl:w-auto xl:max-w-none xl:px-0 xl:pb-10 xl:pt-0">
         <Tabs
           aliases={TAB_ALIASES}
           tabs={[
@@ -521,8 +581,10 @@ export default async function HeroPage({ params }: Params) {
                     </Card>
                   </section>
 
+                  {summary}
                 </div>
               ) : (
+                <div className="space-y-12">
                 <Card className="border-gold-500/30">
                   <h2 className="flex items-center gap-2 font-heading text-xl font-bold text-gold-400">
                     <ShieldAlert size={20} aria-hidden />
@@ -538,6 +600,8 @@ export default async function HeroPage({ params }: Params) {
                     {t("pages.heroDetail.contribute")}
                   </Link>
                 </Card>
+                {summary}
+                </div>
               ),
             },
             {
