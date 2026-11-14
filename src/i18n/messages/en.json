@@ -451,8 +451,8 @@
         },
         "botTitle": "The bot",
         "bot": "The bot bans from the top of the ranking at the chosen rank, which combines win rate and ban rate. For its picks it only keeps heroes that add a lane to its team, ranked on our data at that rank: counters to your picks, duos with its own, win rate. Every choice is explained in one line.",
-        "advantageTitle": "The advantage index",
-        "advantage": "The summary adds up the win-rate gaps measured in ranked games between the heroes of both teams, plus each team's duo gains. It is an estimate built from those measurements only, not a win probability.",
+        "advantageTitle": "The estimated win chances",
+        "advantage": "During the draft, a bar estimates each team's chances from five factors, counted in win-rate points: the heroes' strength at the rank, the duels between the two teams and each team's duos (measured in ranked matches, otherwise taken from the wiki), a doubled lane or a missing tank, and single-type damage. The first three count for half, as they overlap. Their sum goes through a logistic curve: two equal teams sit at 50%, and the result stays between 25 and 75%. The suggested picks are the ones that raise this estimate the most. It is a guide, not a prediction.",
         "sources": "Sources",
         "sourceRef": "Source: {site}, {page}"
       },
@@ -992,7 +992,7 @@
         "title": "MLBB Draft Assistant: Counter Picks by Lane (Patch {v})",
         "description": "Enter the enemy picks and get counter picks for each lane among {n} heroes, backed by counters, synergies and win rates measured on {date} (patch {v}). Free, no sign-up.",
         "simulatorTitle": "MLBB draft simulator: ranked and MPL ban-pick with counters",
-        "simulatorDescription": "Play a full ranked or MPL draft: bans then picks against a bot backed by the measured counters and duos of {n} heroes (data from {date}, patch {v}). Summary of both teams and a shareable link."
+        "simulatorDescription": "Play a full draft in ranked or MPL format: bans then picks against a bot built on the measured counters and duos of {n} heroes (data from {date}, patch {v}). Live estimated win chances, the best next pick and a link to share."
       },
       "compare": {
         "title": "MLBB Hero Comparison: Win Rate, Tier & Stats (Patch {v})",
@@ -2815,7 +2815,7 @@
         "ban": "Ideas for this ban",
         "pick": "Ideas for this pick",
         "banIntro": "Top of the ranking ({rank}).",
-        "pickIntro": "Ranked on our data ({rank}): counters to their picks, duos with yours, lane to fill."
+        "pickEstimateIntro": "The picks that raise your estimated chances the most ({rank}): counters, duos, strength at the rank, the lane to fill."
       },
       "reasons": {
         "meta": "{tier} ({rank}), {ban}% ban rate",
@@ -2846,13 +2846,6 @@
       "summary": {
         "title": "Draft summary",
         "intro": "Both teams run through the team analyzer, with the ranking data ({rank}).",
-        "advantage": "Measured advantage",
-        "advantageNote": "An estimate built from win-rate gaps measured in ranked games ({rank}): matchups between the two teams and duos within each. It is not a win probability.",
-        "index": "{side} ahead: index of {pts} pts",
-        "even": "Index at zero: neither team stands out in the data.",
-        "detail": "Matchups {counters} pts · blue duos {blue} pts · red duos {red} pts",
-        "noMeasures": "No measurement ({rank}) links these ten heroes: no estimate possible.",
-        "bar": "Advantage index: {text}",
         "duos": "Measured duos",
         "noDuo": "No measured duo at this rank.",
         "matchups": "Matchups between the teams",
@@ -2868,7 +2861,50 @@
       },
       "boardLabel": "Draft board",
       "explainToggle": "Choices explained ({n})",
-      "methodTitle": "Method and sources"
+      "methodTitle": "Method and sources",
+      "estimate": {
+        "title": "Estimated win chances",
+        "short": "Estimate",
+        "toggle": "Estimate breakdown",
+        "bar": "Estimate: blue {blue}%, red {red}%, {confidence}",
+        "confidence": {
+          "low": "low confidence",
+          "medium": "medium confidence",
+          "high": "good confidence"
+        },
+        "empty": "No pick yet: 50-50.",
+        "even": "Neither team stands out.",
+        "edge": "{side} ahead, by {pts} pts",
+        "favours": "{side} +{pts} pts",
+        "neutral": "even",
+        "factors": {
+          "strength": "Hero strength",
+          "counters": "Counters",
+          "synergy": "Synergies",
+          "composition": "Lanes and tank",
+          "damage": "Damage types"
+        },
+        "facts": {
+          "none": "Nothing to report.",
+          "strength": "Average win rate: blue {blue}%, red {red}%",
+          "duel": "Most one-sided duel: {winner} over {loser} ({pts} pts)",
+          "noDuel": "No known duel between the two teams.",
+          "duo": "{side}: {a} + {b} ({pts} pts)",
+          "noDuo": "No known duo.",
+          "lanes": "{side}: {names} without a free lane",
+          "tank": "{side}: no tank",
+          "damage": {
+            "physical": "{side}: almost only physical damage",
+            "magic": "{side}: almost only magic damage"
+          }
+        },
+        "note": "An estimate, not a prediction: it combines the win rates, duels and duos measured in ranked matches ({rank}), with the wiki's relations where nothing is measured, then penalises a doubled lane, a missing tank and single-type damage. It stays between 25 and 75%: a draft alone does not decide a match.",
+        "delta": "{pts} pts",
+        "reasons": {
+          "tank": "brings the missing tank",
+          "damage": "balances the damage ({type})"
+        }
+      }
     },
     "timer": {
       "title": "Objective timer",

@@ -7,7 +7,6 @@ import {
   draftState,
   expandTurns,
   matchupsBetween,
-  measuredAdvantage,
   play,
   playedBy,
   rankForFormat,
@@ -293,12 +292,5 @@ describe("summary", () => {
       { blue: "gold-0", red: "gold-1", points: -1 },
       { blue: "jungle-0", red: "jungle-1", points: 1 },
     ]);
-  });
-
-  it("gives a bounded index in points, and the number of measurements behind it", () => {
-    const a = measuredAdvantage(["gold-0", "jungle-0"], ["gold-1", "jungle-1"], measures);
-    expect(a).toEqual({ counters: 0, duos: { blue: 2, red: 0 }, total: 2, blueShare: 0.6, measures: 3 });
-    const crushed = measuredAdvantage(["gold-0"], ["gold-1"], emptyMeasures({ weak: { "gold-1": [["gold-0", -40]] } }));
-    expect(crushed.blueShare).toBe(0.95);
   });
 });

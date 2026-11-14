@@ -451,8 +451,8 @@
         },
         "botTitle": "Il bot",
         "bot": "Il bot banna i primi della classifica del rango scelto, che combina tasso di vittoria e tasso di ban. Per i pick tiene solo gli eroi che aggiungono una lane alla sua squadra e li ordina sui nostri dati del rango: counter ai tuoi pick, duo con i suoi, tasso di vittoria. Ogni scelta è spiegata in una riga.",
-        "advantageTitle": "L'indice di vantaggio",
-        "advantage": "Il bilancio somma gli scarti di vittoria misurati in classificata tra gli eroi delle due squadre e i guadagni dei duo di ciascuna. È una stima ricavata solo da queste misure, non una probabilità di vittoria.",
+        "advantageTitle": "Le probabilità di vittoria stimate",
+        "advantage": "Durante il draft, una barra stima le probabilità di ogni squadra a partire da cinque fattori, contati in punti di percentuale di vittoria: la forza degli eroi al rango, i duelli tra le due squadre e le coppie di ciascuna (misurati nelle partite classificate, altrimenti presi dal wiki), una lane doppia o l'assenza di tank, e i danni di un solo tipo. I primi tre contano per metà, perché si sovrappongono. La loro somma passa per una curva logistica: due squadre uguali sono al 50%, e il risultato resta tra il 25 e il 75%. I pick suggeriti sono quelli che alzano di più questa stima. È un riferimento, non una previsione.",
         "sources": "Fonti",
         "sourceRef": "Fonte: {site}, {page}"
       },
@@ -992,7 +992,7 @@
         "title": "Assistente draft MLBB: counter pick per lane (patch {v})",
         "description": "Inserisci i pick avversari e ottieni counter pick per ogni lane tra {n} eroi, basati su counter, sinergie e tassi di vittoria (rilevazione: {date}, patch {v}). Gratis, senza registrazione.",
         "simulatorTitle": "Simulatore di draft MLBB: ban-pick classificata e MPL con counter",
-        "simulatorDescription": "Gioca un draft completo in classificata o MPL: ban e poi pick contro un bot basato su counter e duo misurati di {n} eroi (rilevazione: {date}, patch {v}). Bilancio delle due squadre e link da condividere."
+        "simulatorDescription": "Gioca un draft completo in formato classificato o MPL: ban e poi pick contro un bot basato sui counter e sulle coppie misurati di {n} eroi (dati del {date}, patch {v}). Probabilità di vittoria stimate in diretta, miglior pick suggerito e link da condividere."
       },
       "compare": {
         "title": "Confronto eroi MLBB: win rate, tier e statistiche (patch {v})",
@@ -2815,7 +2815,7 @@
         "ban": "Idee per questo ban",
         "pick": "Idee per questo pick",
         "banIntro": "I primi della classifica ({rank}).",
-        "pickIntro": "Ordinati sui nostri dati ({rank}): counter ai loro pick, duo con i tuoi, lane da coprire."
+        "pickEstimateIntro": "I pick che alzano di più le vostre probabilità stimate ({rank}): counter, coppie, forza al rango, la lane da coprire."
       },
       "reasons": {
         "meta": "{tier} ({rank}), {ban}% di ban",
@@ -2846,13 +2846,6 @@
       "summary": {
         "title": "Bilancio del draft",
         "intro": "Le due squadre passate all'analisi squadra, con i dati della classifica ({rank}).",
-        "advantage": "Vantaggio misurato",
-        "advantageNote": "Stima ricavata dagli scarti di vittoria misurati in classificata ({rank}): scontri tra le due squadre e duo di ciascuna. Non è una probabilità di vittoria.",
-        "index": "{side} avanti: indice di {pts} pt",
-        "even": "Indice nullo: nessuna squadra si distingue nei dati.",
-        "detail": "Scontri {counters} pt · duo blu {blue} pt · duo rossi {red} pt",
-        "noMeasures": "Nessuna misura ({rank}) lega questi dieci eroi: stima impossibile.",
-        "bar": "Indice di vantaggio: {text}",
         "duos": "Duo misurati",
         "noDuo": "Nessun duo misurato al rango.",
         "matchups": "Scontri tra le squadre",
@@ -2868,7 +2861,50 @@
       },
       "boardLabel": "Tabellone del draft",
       "explainToggle": "Scelte spiegate ({n})",
-      "methodTitle": "Metodo e fonti"
+      "methodTitle": "Metodo e fonti",
+      "estimate": {
+        "title": "Probabilità di vittoria stimate",
+        "short": "Stima",
+        "toggle": "Dettaglio della stima",
+        "bar": "Stima: blu {blue}%, rosso {red}%, {confidence}",
+        "confidence": {
+          "low": "affidabilità bassa",
+          "medium": "affidabilità media",
+          "high": "buona affidabilità"
+        },
+        "empty": "Ancora nessun pick: 50 e 50.",
+        "even": "Nessuna squadra si distingue.",
+        "edge": "{side} avanti di {pts} pt",
+        "favours": "{side} +{pts} pt",
+        "neutral": "in equilibrio",
+        "factors": {
+          "strength": "Forza degli eroi",
+          "counters": "Counter",
+          "synergy": "Sinergie",
+          "composition": "Lane e tank",
+          "damage": "Tipi di danno"
+        },
+        "facts": {
+          "none": "Niente da segnalare.",
+          "strength": "Percentuale di vittoria media: blu {blue}%, rosso {red}%",
+          "duel": "Duello più netto: {winner} su {loser} ({pts} pt)",
+          "noDuel": "Nessun duello noto tra le due squadre.",
+          "duo": "{side}: {a} + {b} ({pts} pt)",
+          "noDuo": "Nessuna coppia nota.",
+          "lanes": "{side}: {names} senza lane libera",
+          "tank": "{side}: nessun tank",
+          "damage": {
+            "physical": "{side}: danni quasi tutti fisici",
+            "magic": "{side}: danni quasi tutti magici"
+          }
+        },
+        "note": "Una stima, non una previsione: combina percentuali di vittoria, duelli e coppie misurati nelle partite classificate ({rank}), con le relazioni del wiki dove manca una misura, poi penalizza una lane doppia, l'assenza di tank e i danni di un solo tipo. Resta tra il 25 e il 75%: un draft da solo non decide una partita.",
+        "delta": "{pts} pt",
+        "reasons": {
+          "tank": "porta il tank che manca",
+          "damage": "bilancia i danni ({type})"
+        }
+      }
     },
     "timer": {
       "title": "Timer degli obiettivi",

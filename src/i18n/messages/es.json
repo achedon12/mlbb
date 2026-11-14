@@ -451,8 +451,8 @@
         },
         "botTitle": "El bot",
         "bot": "El bot banea lo más alto de la clasificación del rango elegido, que combina tasa de victoria y tasa de ban. Para sus picks solo conserva los héroes que añaden una línea a su equipo y los ordena según nuestros datos del rango: counters a tus picks, dúos con los suyos, tasa de victoria. Cada elección se explica en una línea.",
-        "advantageTitle": "El índice de ventaja",
-        "advantage": "El balance suma las diferencias de victoria medidas en clasificatoria entre los héroes de ambos equipos, más las ganancias de los dúos de cada uno. Es una estimación basada solo en esas mediciones, no una probabilidad de victoria.",
+        "advantageTitle": "Las opciones de victoria estimadas",
+        "advantage": "Durante el draft, una barra estima las opciones de cada equipo a partir de cinco factores, contados en puntos de tasa de victoria: la fuerza de los héroes en el rango, los duelos entre los dos equipos y los dúos de cada uno (medidos en clasificatoria, si no tomados de la wiki), una línea repetida o la falta de tanque, y el daño de un solo tipo. Los tres primeros cuentan la mitad, porque se solapan. Su suma pasa por una curva logística: dos equipos iguales están al 50 %, y el resultado se queda entre el 25 y el 75 %. Los picks sugeridos son los que más suben esta estimación. Es una referencia, no una predicción.",
         "sources": "Fuentes",
         "sourceRef": "Fuente: {site}, {page}"
       },
@@ -992,7 +992,7 @@
         "title": "Asistente de draft MLBB: counter picks por línea (parche {v})",
         "description": "Introduce los picks rivales y obtén counter picks para cada línea entre {n} héroes, según counters, sinergias y tasas de victoria medidas el {date} (parche {v}). Gratis, sin registro.",
         "simulatorTitle": "Simulador de draft MLBB: ban-pick clasificatoria y MPL con counters",
-        "simulatorDescription": "Juega un draft completo en clasificatoria o MPL: bans y luego picks contra un bot basado en los counters y dúos medidos de {n} héroes (datos del {date}, parche {v}). Balance de ambos equipos y enlace para compartir."
+        "simulatorDescription": "Juega un draft completo en formato clasificatoria o MPL: bans y luego picks contra un bot basado en los counters y dúos medidos de {n} héroes (datos del {date}, parche {v}). Opciones de victoria estimadas en directo, mejor pick sugerido y enlace para compartir."
       },
       "compare": {
         "title": "Comparador de héroes MLBB: win rate, tier y stats (parche {v})",
@@ -2815,7 +2815,7 @@
         "ban": "Ideas para este ban",
         "pick": "Ideas para este pick",
         "banIntro": "Lo más alto de la clasificación ({rank}).",
-        "pickIntro": "Ordenadas según nuestros datos ({rank}): counters a sus picks, dúos con los tuyos, línea por cubrir."
+        "pickEstimateIntro": "Los picks que más suben vuestras opciones estimadas ({rank}): counters, dúos, fuerza en el rango, la línea por cubrir."
       },
       "reasons": {
         "meta": "{tier} ({rank}), {ban} % de bans",
@@ -2846,13 +2846,6 @@
       "summary": {
         "title": "Balance del draft",
         "intro": "Los dos equipos pasados por el analizador de equipos, con los datos de la clasificación ({rank}).",
-        "advantage": "Ventaja medida",
-        "advantageNote": "Estimación basada en las diferencias de victoria medidas en clasificatoria ({rank}): enfrentamientos entre los dos equipos y dúos de cada uno. No es una probabilidad de victoria.",
-        "index": "{side} por delante: índice de {pts} pts",
-        "even": "Índice nulo: ningún equipo destaca en los datos.",
-        "detail": "Enfrentamientos {counters} pts · dúos azules {blue} pts · dúos rojos {red} pts",
-        "noMeasures": "Ninguna medición ({rank}) relaciona a estos diez héroes: no hay estimación posible.",
-        "bar": "Índice de ventaja: {text}",
         "duos": "Dúos medidos",
         "noDuo": "Ningún dúo medido en el rango.",
         "matchups": "Enfrentamientos entre los equipos",
@@ -2868,7 +2861,50 @@
       },
       "boardLabel": "Tablero del draft",
       "explainToggle": "Opciones explicadas ({n})",
-      "methodTitle": "Método y fuentes"
+      "methodTitle": "Método y fuentes",
+      "estimate": {
+        "title": "Opciones de victoria estimadas",
+        "short": "Estimación",
+        "toggle": "Detalle de la estimación",
+        "bar": "Estimación: azul {blue} %, rojo {red} %, {confidence}",
+        "confidence": {
+          "low": "fiabilidad baja",
+          "medium": "fiabilidad media",
+          "high": "buena fiabilidad"
+        },
+        "empty": "Todavía ningún pick: 50-50.",
+        "even": "Ningún equipo se distancia.",
+        "edge": "{side} por delante, ventaja de {pts} pts",
+        "favours": "{side} +{pts} pts",
+        "neutral": "igualado",
+        "factors": {
+          "strength": "Fuerza de los héroes",
+          "counters": "Counters",
+          "synergy": "Sinergias",
+          "composition": "Líneas y tanque",
+          "damage": "Tipos de daño"
+        },
+        "facts": {
+          "none": "Nada que señalar.",
+          "strength": "Tasa de victoria media: azul {blue} %, rojo {red} %",
+          "duel": "Duelo más claro: {winner} sobre {loser} ({pts} pts)",
+          "noDuel": "Ningún duelo conocido entre los dos equipos.",
+          "duo": "{side}: {a} + {b} ({pts} pts)",
+          "noDuo": "Ningún dúo conocido.",
+          "lanes": "{side}: {names} sin línea libre",
+          "tank": "{side}: sin tanque",
+          "damage": {
+            "physical": "{side}: daño casi todo físico",
+            "magic": "{side}: daño casi todo mágico"
+          }
+        },
+        "note": "Una estimación, no una predicción: combina las tasas de victoria, los duelos y los dúos medidos en clasificatoria ({rank}), con las relaciones de la wiki donde no hay medida, y penaliza una línea repetida, la falta de tanque y el daño de un solo tipo. Se queda entre el 25 y el 75 %: un draft no decide una partida por sí solo.",
+        "delta": "{pts} pts",
+        "reasons": {
+          "tank": "aporta el tanque que falta",
+          "damage": "equilibra el daño ({type})"
+        }
+      }
     },
     "timer": {
       "title": "Temporizador de objetivos",

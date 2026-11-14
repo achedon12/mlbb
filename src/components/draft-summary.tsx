@@ -18,17 +18,19 @@ import {
   type TypeDamage,
 } from "@/lib/composition";
 import { LANES } from "@/lib/draft";
-import { matchupsBetween, measuredAdvantage, type Side, type SimulationHero } from "@/lib/draft-simulation";
+import { EstimateBar, EstimateDetails } from "@/components/draft-estimate";
+import { matchupsBetween, type Side, type SimulationHero } from "@/lib/draft-simulation";
 import type { MeasuredRank } from "@/lib/measured-ranks";
 import { trackShare } from "@/lib/analytics";
 import { formatGap } from "@/lib/trends";
 import { cn } from "@/lib/utils";
+import type { Estimate } from "@/lib/win-estimate";
 
 /**
  * Summary of a finished draft: each team run through the team analyzer
  * (lanes, damage, crowd control, measured duos), the measured matchups
- * between them, and an advantage index built from those measurements only,
- * shown as an estimate and never as a win probability.
+ * between them, and the estimated win probability with the factors behind it
+ * (`lib/win-estimate`), the same one the board shows during the draft.
  */
 
 /** Numbers in the page language. */
@@ -63,6 +65,7 @@ export function DraftSummary({
   failed,
   rank,
   damageLabels,
+  estimate,
   query,
   onReplay,
   onSettings,
@@ -75,6 +78,7 @@ export function DraftSummary({
   failed: boolean;
   rank: MeasuredRank;
   damageLabels: Record<TypeDamage, string>;
+  estimate: Estimate;
   /** Parameters of the draft address, without the "?". */
   query: string;
   onReplay: () => void;
@@ -93,7 +97,6 @@ export function DraftSummary({
     }),
     [heroes, blue, red, measures],
   );
-  const advantage = measures ? measuredAdvantage(blue, red, measures) : null;
   const matchups = measures ? matchupsBetween(blue, red, measures).slice(0, 8) : [];
   const rankName = t(`measuredRanks.${rank}`);
   // Shown after a draft played in the browser: the address exists.
@@ -110,16 +113,6 @@ export function DraftSummary({
     setTimeout(() => setCopied(null), 3000);
   }
 
-  const index =
-    advantage === null || advantage.measures === 0
-      ? null
-      : advantage.total === 0
-        ? t("pages.draftSimulatorUI.summary.even")
-        : t("pages.draftSimulatorUI.summary.index", {
-            side: t(`pages.draftSimulatorUI.sides.${advantage.total > 0 ? "blue" : "red"}`),
-            pts: f.decimal(Math.abs(advantage.total)),
-          });
-
   return (
     <section aria-labelledby="summary-title" className="space-y-8">
       <div>
@@ -130,45 +123,22 @@ export function DraftSummary({
         <p className="mt-3 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.intro", { rank: rankName })}</p>
       </div>
 
-      {/* -- Measured advantage ----------------------------------------- */}
+      {/* -- Estimated win probability ------------------------------ */}
       <Card>
-        <h3 className={heading3}>{t("pages.draftSimulatorUI.summary.advantage")}</h3>
-        {!measures ? (
-          <p role="status" className="mt-2 text-sm text-chalk-500">
+        <h3 className={heading3}>{t("pages.draftSimulatorUI.estimate.title")}</h3>
+        <div className="mt-3">
+          <EstimateBar estimate={estimate} />
+        </div>
+        <div aria-hidden className="mt-1 flex justify-between text-xs font-semibold">
+          <span className="text-azure-500">{t("pages.draftSimulatorUI.sides.blue")}</span>
+          <span className="text-blood-500">{t("pages.draftSimulatorUI.sides.red")}</span>
+        </div>
+        {!measures && (
+          <p role="status" className="mt-2 text-xs text-chalk-500">
             {failed ? t("teamUI.error") : t("teamUI.loading")}
           </p>
-        ) : advantage && index ? (
-          <>
-            <p className="mt-2 font-semibold text-chalk-100">{index}</p>
-            <div className="relative mt-3">
-              <div
-                role="img"
-                aria-label={t("pages.draftSimulatorUI.summary.bar", { text: index })}
-                className="flex h-3 overflow-hidden rounded-full bg-night-800"
-              >
-                <span className="h-full bg-azure-500" style={{ width: `${advantage.blueShare * 100}%` }} />
-                <span className="h-full bg-blood-500" style={{ width: `${(1 - advantage.blueShare) * 100}%` }} />
-              </div>
-              <span aria-hidden className="absolute -top-1 left-1/2 h-5 w-0.5 -translate-x-1/2 bg-chalk-100/70" />
-            </div>
-            <div aria-hidden className="mt-1 flex justify-between text-xs font-semibold">
-              <span className="text-azure-500">{t("pages.draftSimulatorUI.sides.blue")}</span>
-              <span className="text-blood-500">{t("pages.draftSimulatorUI.sides.red")}</span>
-            </div>
-            <p className="mt-3 text-xs text-chalk-300">
-              {t("pages.draftSimulatorUI.summary.detail", {
-                counters: f.signed(advantage.counters),
-                blue: f.signed(advantage.duos.blue),
-                red: f.signed(advantage.duos.red),
-              })}
-            </p>
-            <p className="mt-2 text-xs leading-relaxed text-chalk-500">
-              {t("pages.draftSimulatorUI.summary.advantageNote", { rank: rankName })}
-            </p>
-          </>
-        ) : (
-          <p className="mt-2 text-sm text-chalk-500">{t("pages.draftSimulatorUI.summary.noMeasures", { rank: rankName })}</p>
         )}
+        <EstimateDetails estimate={estimate} nameOf={nameOf} f={f} rank={rank} className="mt-4" />
       </Card>
 
       {/* -- Both teams ------------------------------------------------- */}

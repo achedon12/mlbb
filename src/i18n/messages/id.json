@@ -451,8 +451,8 @@
         },
         "botTitle": "Botnya",
         "bot": "Bot melarang di peringkat teratas dari peringkat yang dipilih, yang menggabungkan win rate dan ban rate. Untuk pilihannya, dia hanya mempertahankan hero yang menambahkan lane ke timnya dan memberi peringkat pada mereka berdasarkan pengukuran peringkat kami: melawan pilihan Anda, berduet dengan miliknya sendiri, dan win rate. Setiap pilihan dijelaskan dalam satu baris.",
-        "advantageTitle": "Indeks keuntungan",
-        "advantage": "Hasilnya menjumlahkan perbedaan kemenangan yang diukur dalam permainan peringkat antara hero kedua tim, dan kemenangan duo masing-masing. Ini adalah perkiraan yang diambil dari pengukuran ini saja, bukan probabilitas kemenangan.",
+        "advantageTitle": "Perkiraan peluang menang",
+        "advantage": "Selama draft, sebuah bar memperkirakan peluang tiap tim dari lima faktor, dihitung dalam poin win rate: kekuatan hero di rank tersebut, duel antara kedua tim dan duo di tiap tim (terukur di ranked, jika tidak diambil dari wiki), lane ganda atau tanpa tank, dan damage satu jenis. Tiga faktor pertama dihitung setengah, karena saling tumpang tindih. Jumlahnya melewati kurva logistik: dua tim yang setara berada di 50%, dan hasilnya tetap di antara 25 dan 75%. Pick yang disarankan adalah yang paling menaikkan perkiraan ini. Ini panduan, bukan prediksi.",
         "sources": "Sumber",
         "sourceRef": "Sumber: {site}, {page}"
       },
@@ -992,7 +992,7 @@
         "title": "Asisten Draft MLBB: Counter Pick per Lane (Patch {v})",
         "description": "Masukkan pilihan lawan: alat ini menawarkan pilihan balasan untuk setiap lane di antara {n} hero, berdasarkan counter, sinergi, dan win rate yang tercatat di {date} (patch {v}). Gratis, tanpa registrasi.",
         "simulatorTitle": "Simulator draft MLBB: ban-pick peringkat dan MPL dengan counter",
-        "simulatorDescription": "Mainkan draft lengkap dalam format peringkat atau MPL: ban lalu pilih bot berdasarkan counter terukur dan duo hero {n} (catatan {date}, patch {v}). Hasil kedua tim dan tautan untuk dibagikan."
+        "simulatorDescription": "Mainkan draft lengkap dalam format ranked atau MPL: ban lalu pick melawan bot yang berbasis counter dan duo terukur dari {n} hero (data {date}, patch {v}). Perkiraan peluang menang secara langsung, saran pick terbaik, dan tautan untuk dibagikan."
       },
       "compare": {
         "title": "Perbandingan Hero MLBB: Win Rate, Tier & Statistik (Patch {v})",
@@ -2815,7 +2815,7 @@
         "ban": "Lagu untuk ban ini",
         "pick": "Lagu untuk pilihan ini",
         "banIntro": "Peringkat teratas ({rank}).",
-        "pickIntro": "Peringkat berdasarkan pengukuran kami ({rank}): melawan pilihan mereka, berduet dengan pilihan Anda, lane yang harus diisi."
+        "pickEstimateIntro": "Pick yang paling menaikkan peluang menang perkiraan tim Anda ({rank}): counter, duo, kekuatan di rank ini, lane yang perlu diisi."
       },
       "reasons": {
         "meta": "{tier} ({rank}), {ban} % ban",
@@ -2846,13 +2846,6 @@
       "summary": {
         "title": "Tinjauan draft",
         "intro": "Kedua tim beralih ke analisis tim, dengan metrik peringkat ({rank}).",
-        "advantage": "Manfaat terukur",
-        "advantageNote": "Perkiraan diambil dari perbedaan kemenangan yang diukur dalam permainan peringkat ({rank}): duel antara kedua tim dan duo dari masing-masing tim. Ini bukanlah kemungkinan kemenangan.",
-        "index": "{side} di depan: indeks {pts} poin",
-        "even": "Indeks nol: tidak ada tim yang menonjol dalam pengukuran tersebut.",
-        "detail": "Duel {counters} poin · duo biru {blue} poin · duo merah {red} poin",
-        "noMeasures": "Tidak ada pengukuran ({rank}) yang menghubungkan sepuluh hero ini: tidak ada perkiraan yang mungkin.",
-        "bar": "Indeks keuntungan: {text}",
         "duos": "Duet terukur",
         "noDuo": "Tidak ada duo yang diukur berdasarkan peringkat.",
         "matchups": "Duel antar tim",
@@ -2868,7 +2861,50 @@
       },
       "boardLabel": "Papan draft",
       "explainToggle": "Pilihan dijelaskan ({n})",
-      "methodTitle": "Metode dan sumber"
+      "methodTitle": "Metode dan sumber",
+      "estimate": {
+        "title": "Perkiraan peluang menang",
+        "short": "Perkiraan",
+        "toggle": "Rincian perkiraan",
+        "bar": "Perkiraan: biru {blue}%, merah {red}%, {confidence}",
+        "confidence": {
+          "low": "keyakinan rendah",
+          "medium": "keyakinan sedang",
+          "high": "keyakinan baik"
+        },
+        "empty": "Belum ada pick: 50-50.",
+        "even": "Tidak ada tim yang unggul.",
+        "edge": "{side} unggul {pts} poin",
+        "favours": "{side} +{pts} poin",
+        "neutral": "seimbang",
+        "factors": {
+          "strength": "Kekuatan hero",
+          "counters": "Counter",
+          "synergy": "Sinergi",
+          "composition": "Lane dan tank",
+          "damage": "Jenis damage"
+        },
+        "facts": {
+          "none": "Tidak ada catatan.",
+          "strength": "Rata-rata win rate: biru {blue}%, merah {red}%",
+          "duel": "Duel paling timpang: {winner} atas {loser} ({pts} poin)",
+          "noDuel": "Tidak ada duel yang diketahui antara kedua tim.",
+          "duo": "{side}: {a} + {b} ({pts} poin)",
+          "noDuo": "Tidak ada duo yang diketahui.",
+          "lanes": "{side}: {names} tanpa lane kosong",
+          "tank": "{side}: tanpa tank",
+          "damage": {
+            "physical": "{side}: hampir semua damage fisik",
+            "magic": "{side}: hampir semua damage magic"
+          }
+        },
+        "note": "Sebuah perkiraan, bukan prediksi: menggabungkan win rate, duel, dan duo yang terukur di ranked ({rank}), dengan relasi dari wiki jika tidak ada pengukuran, lalu memberi penalti untuk lane ganda, tanpa tank, dan damage satu jenis. Nilainya tetap di antara 25 dan 75%: draft saja tidak menentukan hasil pertandingan.",
+        "delta": "{pts} poin",
+        "reasons": {
+          "tank": "mengisi tank yang kurang",
+          "damage": "menyeimbangkan damage ({type})"
+        }
+      }
     },
     "timer": {
       "title": "Garis waktu tujuan",

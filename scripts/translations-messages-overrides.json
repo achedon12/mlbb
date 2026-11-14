@@ -1703,6 +1703,146 @@
     "pages.esportsPlayersUI.heroLine": {
       "fr": "{hero} : {games} parties, {wins} victoires",
       "text": "{hero}: {games} games, {wins} wins"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "The picks that raise your estimated chances the most ({rank}): counters, duos, strength at the rank, the lane to fill."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Estimated win chances"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Estimate"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Estimate breakdown"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Estimate: blue {blue}%, red {red}%, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "low confidence"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "medium confidence"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "good confidence"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "No pick yet: 50-50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Neither team stands out."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} ahead, by {pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "even"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Hero strength"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counters"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Synergies"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Lanes and tank"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Damage types"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Nothing to report."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Average win rate: blue {blue}%, red {red}%"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Most one-sided duel: {winner} over {loser} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "No known duel between the two teams."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "No known duo."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} without a free lane"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: no tank"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: almost only physical damage"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: almost only magic damage"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "An estimate, not a prediction: it combines the win rates, duels and duos measured in ranked matches ({rank}), with the wiki's relations where nothing is measured, then penalises a doubled lane, a missing tank and single-type damage. It stays between 25 and 75%: a draft alone does not decide a match."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "brings the missing tank"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "balances the damage ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "The estimated win chances"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "During the draft, a bar estimates each team's chances from five factors, counted in win-rate points: the heroes' strength at the rank, the duels between the two teams and each team's duos (measured in ranked matches, otherwise taken from the wiki), a doubled lane or a missing tank, and single-type damage. The first three count for half, as they overlap. Their sum goes through a logistic curve: two equal teams sit at 50%, and the result stays between 25 and 75%. The suggested picks are the ones that raise this estimate the most. It is a guide, not a prediction."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Play a full draft in ranked or MPL format: bans then picks against a bot built on the measured counters and duos of {n} heroes (data from {date}, patch {v}). Live estimated win chances, the best next pick and a link to share."
     }
   },
   "es": {
@@ -3229,6 +3369,146 @@
     "pages.esportsPlayersUI.heroLine": {
       "fr": "{hero} : {games} parties, {wins} victoires",
       "text": "{hero}: {games} partidas, {wins} victorias"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "Los picks que más suben vuestras opciones estimadas ({rank}): counters, dúos, fuerza en el rango, la línea por cubrir."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Opciones de victoria estimadas"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Estimación"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Detalle de la estimación"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Estimación: azul {blue} %, rojo {red} %, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "fiabilidad baja"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "fiabilidad media"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "buena fiabilidad"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "Todavía ningún pick: 50-50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Ningún equipo se distancia."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} por delante, ventaja de {pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "igualado"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Fuerza de los héroes"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counters"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Sinergias"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Líneas y tanque"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Tipos de daño"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Nada que señalar."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Tasa de victoria media: azul {blue} %, rojo {red} %"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Duelo más claro: {winner} sobre {loser} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "Ningún duelo conocido entre los dos equipos."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} pts)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "Ningún dúo conocido."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} sin línea libre"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: sin tanque"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: daño casi todo físico"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: daño casi todo mágico"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "Una estimación, no una predicción: combina las tasas de victoria, los duelos y los dúos medidos en clasificatoria ({rank}), con las relaciones de la wiki donde no hay medida, y penaliza una línea repetida, la falta de tanque y el daño de un solo tipo. Se queda entre el 25 y el 75 %: un draft no decide una partida por sí solo."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} pts"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "aporta el tanque que falta"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "equilibra el daño ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "Las opciones de victoria estimadas"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "Durante el draft, una barra estima las opciones de cada equipo a partir de cinco factores, contados en puntos de tasa de victoria: la fuerza de los héroes en el rango, los duelos entre los dos equipos y los dúos de cada uno (medidos en clasificatoria, si no tomados de la wiki), una línea repetida o la falta de tanque, y el daño de un solo tipo. Los tres primeros cuentan la mitad, porque se solapan. Su suma pasa por una curva logística: dos equipos iguales están al 50 %, y el resultado se queda entre el 25 y el 75 %. Los picks sugeridos son los que más suben esta estimación. Es una referencia, no una predicción."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Juega un draft completo en formato clasificatoria o MPL: bans y luego picks contra un bot basado en los counters y dúos medidos de {n} héroes (datos del {date}, parche {v}). Opciones de victoria estimadas en directo, mejor pick sugerido y enlace para compartir."
     }
   },
   "id": {
@@ -6811,6 +7091,146 @@
     "pages.esportsPlayersUI.heroLine": {
       "fr": "{hero} : {games} parties, {wins} victoires",
       "text": "{hero}: {games} game, {wins} menang"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "Pick yang paling menaikkan peluang menang perkiraan tim Anda ({rank}): counter, duo, kekuatan di rank ini, lane yang perlu diisi."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Perkiraan peluang menang"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Perkiraan"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Rincian perkiraan"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Perkiraan: biru {blue}%, merah {red}%, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "keyakinan rendah"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "keyakinan sedang"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "keyakinan baik"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "Belum ada pick: 50-50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Tidak ada tim yang unggul."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} unggul {pts} poin"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} poin"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "seimbang"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Kekuatan hero"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counter"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Sinergi"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Lane dan tank"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Jenis damage"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Tidak ada catatan."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Rata-rata win rate: biru {blue}%, merah {red}%"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Duel paling timpang: {winner} atas {loser} ({pts} poin)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "Tidak ada duel yang diketahui antara kedua tim."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} poin)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "Tidak ada duo yang diketahui."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} tanpa lane kosong"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: tanpa tank"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: hampir semua damage fisik"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: hampir semua damage magic"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "Sebuah perkiraan, bukan prediksi: menggabungkan win rate, duel, dan duo yang terukur di ranked ({rank}), dengan relasi dari wiki jika tidak ada pengukuran, lalu memberi penalti untuk lane ganda, tanpa tank, dan damage satu jenis. Nilainya tetap di antara 25 dan 75%: draft saja tidak menentukan hasil pertandingan."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} poin"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "mengisi tank yang kurang"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "menyeimbangkan damage ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "Perkiraan peluang menang"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "Selama draft, sebuah bar memperkirakan peluang tiap tim dari lima faktor, dihitung dalam poin win rate: kekuatan hero di rank tersebut, duel antara kedua tim dan duo di tiap tim (terukur di ranked, jika tidak diambil dari wiki), lane ganda atau tanpa tank, dan damage satu jenis. Tiga faktor pertama dihitung setengah, karena saling tumpang tindih. Jumlahnya melewati kurva logistik: dua tim yang setara berada di 50%, dan hasilnya tetap di antara 25 dan 75%. Pick yang disarankan adalah yang paling menaikkan perkiraan ini. Ini panduan, bukan prediksi."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Mainkan draft lengkap dalam format ranked atau MPL: ban lalu pick melawan bot yang berbasis counter dan duo terukur dari {n} hero (data {date}, patch {v}). Perkiraan peluang menang secara langsung, saran pick terbaik, dan tautan untuk dibagikan."
     }
   },
   "it": {
@@ -8389,6 +8809,146 @@
     "pages.esportsPlayersUI.top": {
       "fr": "Plus joués",
       "text": "Più giocati"
+    },
+    "pages.draftSimulatorUI.hints.pickEstimateIntro": {
+      "fr": "Les picks qui font le plus monter vos chances estimées ({rank}) : contres, duos, force au rang, lane à combler.",
+      "text": "I pick che alzano di più le vostre probabilità stimate ({rank}): counter, coppie, forza al rango, la lane da coprire."
+    },
+    "pages.draftSimulatorUI.estimate.title": {
+      "fr": "Chances de victoire estimées",
+      "text": "Probabilità di vittoria stimate"
+    },
+    "pages.draftSimulatorUI.estimate.short": {
+      "fr": "Estimation",
+      "text": "Stima"
+    },
+    "pages.draftSimulatorUI.estimate.toggle": {
+      "fr": "Détail de l'estimation",
+      "text": "Dettaglio della stima"
+    },
+    "pages.draftSimulatorUI.estimate.bar": {
+      "fr": "Estimation : bleu {blue} %, rouge {red} %, {confidence}",
+      "text": "Stima: blu {blue}%, rosso {red}%, {confidence}"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.low": {
+      "fr": "fiabilité faible",
+      "text": "affidabilità bassa"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.medium": {
+      "fr": "fiabilité moyenne",
+      "text": "affidabilità media"
+    },
+    "pages.draftSimulatorUI.estimate.confidence.high": {
+      "fr": "bonne fiabilité",
+      "text": "buona affidabilità"
+    },
+    "pages.draftSimulatorUI.estimate.empty": {
+      "fr": "Aucun pick pour l'instant : 50-50.",
+      "text": "Ancora nessun pick: 50 e 50."
+    },
+    "pages.draftSimulatorUI.estimate.even": {
+      "fr": "Aucune équipe ne se détache.",
+      "text": "Nessuna squadra si distingue."
+    },
+    "pages.draftSimulatorUI.estimate.edge": {
+      "fr": "{side} devant, avantage de {pts} pts",
+      "text": "{side} avanti di {pts} pt"
+    },
+    "pages.draftSimulatorUI.estimate.favours": {
+      "fr": "{side} +{pts} pts",
+      "text": "{side} +{pts} pt"
+    },
+    "pages.draftSimulatorUI.estimate.neutral": {
+      "fr": "équilibré",
+      "text": "in equilibrio"
+    },
+    "pages.draftSimulatorUI.estimate.factors.strength": {
+      "fr": "Force des héros",
+      "text": "Forza degli eroi"
+    },
+    "pages.draftSimulatorUI.estimate.factors.counters": {
+      "fr": "Contres",
+      "text": "Counter"
+    },
+    "pages.draftSimulatorUI.estimate.factors.synergy": {
+      "fr": "Synergies",
+      "text": "Sinergie"
+    },
+    "pages.draftSimulatorUI.estimate.factors.composition": {
+      "fr": "Lanes et tank",
+      "text": "Lane e tank"
+    },
+    "pages.draftSimulatorUI.estimate.factors.damage": {
+      "fr": "Types de dégâts",
+      "text": "Tipi di danno"
+    },
+    "pages.draftSimulatorUI.estimate.facts.none": {
+      "fr": "Rien à signaler.",
+      "text": "Niente da segnalare."
+    },
+    "pages.draftSimulatorUI.estimate.facts.strength": {
+      "fr": "Taux de victoire moyen : bleu {blue} %, rouge {red} %",
+      "text": "Percentuale di vittoria media: blu {blue}%, rosso {red}%"
+    },
+    "pages.draftSimulatorUI.estimate.facts.duel": {
+      "fr": "Duel le plus net : {winner} sur {loser} ({pts} pts)",
+      "text": "Duello più netto: {winner} su {loser} ({pts} pt)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuel": {
+      "fr": "Aucun duel connu entre les deux équipes.",
+      "text": "Nessun duello noto tra le due squadre."
+    },
+    "pages.draftSimulatorUI.estimate.facts.duo": {
+      "fr": "{side} : {a} + {b} ({pts} pts)",
+      "text": "{side}: {a} + {b} ({pts} pt)"
+    },
+    "pages.draftSimulatorUI.estimate.facts.noDuo": {
+      "fr": "Aucun duo connu.",
+      "text": "Nessuna coppia nota."
+    },
+    "pages.draftSimulatorUI.estimate.facts.lanes": {
+      "fr": "{side} : {names} sans lane libre",
+      "text": "{side}: {names} senza lane libera"
+    },
+    "pages.draftSimulatorUI.estimate.facts.tank": {
+      "fr": "{side} : pas de tank",
+      "text": "{side}: nessun tank"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.physical": {
+      "fr": "{side} : dégâts presque tous physiques",
+      "text": "{side}: danni quasi tutti fisici"
+    },
+    "pages.draftSimulatorUI.estimate.facts.damage.magic": {
+      "fr": "{side} : dégâts presque tous magiques",
+      "text": "{side}: danni quasi tutti magici"
+    },
+    "pages.draftSimulatorUI.estimate.note": {
+      "fr": "Une estimation, pas une prédiction : elle combine les taux de victoire, duels et duos mesurés en partie classée ({rank}), avec les relations du wiki là où rien n'est mesuré, puis pénalise une lane en double, l'absence de tank et des dégâts d'un seul type. Elle reste entre 25 et 75 % : un draft ne décide pas seul d'une partie.",
+      "text": "Una stima, non una previsione: combina percentuali di vittoria, duelli e coppie misurati nelle partite classificate ({rank}), con le relazioni del wiki dove manca una misura, poi penalizza una lane doppia, l'assenza di tank e i danni di un solo tipo. Resta tra il 25 e il 75%: un draft da solo non decide una partita."
+    },
+    "pages.draftSimulatorUI.estimate.delta": {
+      "fr": "{pts} pts",
+      "text": "{pts} pt"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.tank": {
+      "fr": "apporte le tank qui manque",
+      "text": "porta il tank che manca"
+    },
+    "pages.draftSimulatorUI.estimate.reasons.damage": {
+      "fr": "équilibre les dégâts ({type})",
+      "text": "bilancia i danni ({type})"
+    },
+    "pages.draft.rules.advantageTitle": {
+      "fr": "Les chances de victoire estimées",
+      "text": "Le probabilità di vittoria stimate"
+    },
+    "pages.draft.rules.advantage": {
+      "fr": "Pendant le draft, une barre estime les chances de chaque équipe à partir de cinq facteurs, comptés en points de taux de victoire : la force des héros au rang, les duels entre les deux équipes et les duos de chacune (mesurés en partie classée, sinon relevés par le wiki), une lane en double ou l'absence de tank, et des dégâts d'un seul type. Les trois premiers comptent pour moitié, car ils se recoupent. Leur somme passe par une courbe logistique : deux équipes égales sont à 50 %, et le résultat reste entre 25 et 75 %. Les picks suggérés sont ceux qui font le plus monter cette estimation. C'est un repère, pas une prédiction.",
+      "text": "Durante il draft, una barra stima le probabilità di ogni squadra a partire da cinque fattori, contati in punti di percentuale di vittoria: la forza degli eroi al rango, i duelli tra le due squadre e le coppie di ciascuna (misurati nelle partite classificate, altrimenti presi dal wiki), una lane doppia o l'assenza di tank, e i danni di un solo tipo. I primi tre contano per metà, perché si sovrappongono. La loro somma passa per una curva logistica: due squadre uguali sono al 50%, e il risultato resta tra il 25 e il 75%. I pick suggeriti sono quelli che alzano di più questa stima. È un riferimento, non una previsione."
+    },
+    "pages.seo.draft.simulatorDescription": {
+      "fr": "Jouez un draft complet au format classé ou MPL : bans puis picks face à un bot appuyé sur les contres et duos mesurés de {n} héros (relevé du {date}, patch {v}). Chances de victoire estimées en direct, meilleur pick suggéré et lien à partager.",
+      "text": "Gioca un draft completo in formato classificato o MPL: ban e poi pick contro un bot basato sui counter e sulle coppie misurati di {n} eroi (dati del {date}, patch {v}). Probabilità di vittoria stimate in diretta, miglior pick suggerito e link da condividere."
     }
   }
 }
