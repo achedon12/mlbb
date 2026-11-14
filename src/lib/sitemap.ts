@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import watch from "@/data/game/watch.json";
+import accountValue from "@/data/editorial/account-value.json";
+import { freeRotationData } from "@/lib/free-rotation-server";
 import { counters, allHeroes, modesSlugs, itemsFor, patchDetails, sync } from "@/lib/data";
 import { duos } from "@/lib/duos";
 import { ranksByPair } from "@/lib/pairs";
@@ -152,6 +154,21 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
       lastModified: dateOf(advanceVersion("en", version)?.date),
     })),
     { path: "/tools/collection", changeFrequency: "monthly", priority: 0.5, lastModified: synced },
+    // Tier costs come from the synced shop prices; the rest of the
+    // assumptions is dated by its own editorial check.
+    {
+      path: "/tools/account-value",
+      changeFrequency: "monthly",
+      priority: 0.5,
+      lastModified: newest(sync.date.slice(0, 10), accountValue.checked),
+    },
+    // Weekly editorial list: dated by its last edit, when it has one.
+    {
+      path: "/heroes/free-rotation",
+      changeFrequency: "weekly",
+      priority: 0.5,
+      lastModified: dateOf(freeRotationData.updated ?? freeRotationData.weekStart),
+    },
     { path: "/lore", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
     ...regionsLore.map((r) => ({
       path: `/lore/${r.key}`,

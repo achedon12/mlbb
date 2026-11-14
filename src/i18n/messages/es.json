@@ -1126,6 +1126,15 @@
       "strategyPlanner": {
         "title": "Planificador de estrategia MLBB: pizarra táctica sobre el mapa",
         "description": "Una pizarra táctica gratuita sobre el mapa de Mobile Legends: Bang Bang: coloca a los héroes de los dos equipos, la Tortuga, el Señor y los buffs, dibuja flechas y rotaciones, añade notas y comparte el plan con un enlace o una imagen PNG. Sin registro, con el dedo o con el ratón."
+      },
+      "freeRotation": {
+        "title": "Héroes gratis de la semana en MLBB",
+        "description": "Los {n} héroes gratis de Mobile Legends de la semana del {date}: {heroes}… Roles y enlaces a sus builds y counters.",
+        "descriptionEmpty": "La rotación de héroes gratis de Mobile Legends: cómo funciona, dónde verla en el juego y la lista de la semana en cuanto se registra."
+      },
+      "accountValue": {
+        "title": "Estimador del valor de una cuenta de MLBB",
+        "description": "¿Cuánto costó tu colección de Mobile Legends? Cuenta tus skins por categoría ({skins} skins cubiertas) y obtén un orden de magnitud en diamantes, USD, EUR, PHP, IDR y MYR, con el método a la vista."
       }
     },
     "freshness": {
@@ -1311,7 +1320,17 @@
         "row": "Tier {tier} · {winRate} de victorias",
         "see": "Tier list de {lane}"
       },
-      "method": "Método: tasas de victoria, de baneo y de selección publicadas por el juego, medidas el {date}. Las subidas y bajadas comparan la tasa de victoria con la de siete días antes, todos los rangos juntos; las diferencias de menos de {threshold} puntos se ignoran."
+      "method": "Método: tasas de victoria, de baneo y de selección publicadas por el juego, medidas el {date}. Las subidas y bajadas comparan la tasa de victoria con la de siete días antes, todos los rangos juntos; las diferencias de menos de {threshold} puntos se ignoran.",
+      "movers": {
+        "title": "Baneos y selecciones: quién se mueve",
+        "lead": "Evolución de las tasas de baneo y de selección en siete días, todos los rangos juntos. Las diferencias de menos de {threshold} puntos no se tienen en cuenta.",
+        "banRate": "Tasa de baneo",
+        "pickRate": "Tasa de selección",
+        "unit": {
+          "banRate": "% de baneos",
+          "pickRate": "% de selecciones"
+        }
+      }
     },
     "statistics": {
       "title": "Estadísticas de héroes",
@@ -1527,7 +1546,20 @@
       "sourcesTitle": "Fuentes",
       "sourceServer": "Wiki Fandom, página «Server time»: zona horaria del servidor, reinicios diario y semanal, horarios de las actualizaciones",
       "sourceStarlight": "Wiki Fandom, página «StarLight»: nuevo Starlight el día 1 de cada mes a las 00:00 hora del servidor",
-      "sourcePatch": "Notas del parche {v}: fin de la temporada {n} fechada en hora del servidor"
+      "sourcePatch": "Notas del parche {v}: fechas de temporada en hora del servidor",
+      "seasonsTitle": "Calendario de temporadas clasificatorias",
+      "seasonsCurrent": "La temporada {n} está en curso.",
+      "seasonsBetween": "No hay ninguna temporada clasificatoria en curso.",
+      "seasonsNext": "La temporada {n} empezará el {date}.",
+      "seasonsNextUnknown": "La fecha de la próxima temporada aún no se ha anunciado.",
+      "seasonsCaption": "Inicio y final de las últimas temporadas clasificatorias, en hora del servidor",
+      "colSeason": "Temporada",
+      "colStart": "Inicio",
+      "colEnd": "Final",
+      "season": "Temporada {n}",
+      "live": "en curso",
+      "notAnnounced": "Aún no anunciada",
+      "seasonsNote": "Fechas en hora del servidor (UTC−8), tomadas de las notas del parche y comprobadas el {date}. Una temporada dura unos tres meses, pero ninguna fecha es estimada: un final no anunciado queda vacío."
     },
     "retribution": {
       "title": "Prueba de Castigo",
@@ -1970,7 +2002,8 @@
       "methodSkins": "De las {skins} skins que puedes marcar, {diamonds} tienen precio en diamantes, {others} un precio en otra moneda (núcleos mágicos, gemas…) y {unpriced} ningún precio en tienda: StarLight, eventos, sorteos y pases. Estas cuentan para tu progreso, pero no para el total en diamantes, en lugar de estimarse al azar.",
       "methodStorage": "Tu selección se queda en este navegador (almacenamiento local): no se envía nada a nuestros servidores y no hace falta ninguna cuenta. Los precios son los de la tienda del juego que recoge la wiki de la comunidad; no se tienen en cuenta descuentos ni packs.",
       "calendarLink": "Calendario de skins",
-      "skinsLink": "Todas las skins"
+      "skinsLink": "Todas las skins",
+      "accountValueLink": "Estimar el valor de una cuenta"
     },
     "collectionUI": {
       "loading": "Cargando héroes y skins…",
@@ -4022,6 +4055,100 @@
       "linkCopied": "Enlace copiado: contiene todo el plan.",
       "linkShared": "Enlace compartido.",
       "linkError": "No se pudo copiar: copia la dirección de la página."
+    },
+    "freeRotation": {
+      "title": "Héroes gratis de la semana",
+      "lead": "Cada semana, Mobile Legends presta una selección de héroes a todos los jugadores. La lista se copia a mano del juego y se oculta sola cuando deja de estar al día.",
+      "teaser": "Héroes gratis esta semana: {n}",
+      "week": "Semana del {date}",
+      "updated": "Actualizada el {date}",
+      "listTitle": "La rotación de la semana",
+      "listLead": "{n} héroes jugables sin tenerlos hasta el próximo reinicio semanal.",
+      "source": "Fuente de la lista",
+      "unavailableTitle": "La rotación de esta semana aún no está disponible",
+      "empty": "Todavía no se ha registrado ninguna lista. Preferimos no mostrar nada antes que adivinar.",
+      "stale": "La última lista registrada es de la semana del {date}: pasados {days} días deja de mostrarse, para que una rotación antigua no pase por la de esta semana.",
+      "inGame": "En el juego, los héroes gratis de la semana aparecen señalados en la lista de héroes y en la pantalla de selección.",
+      "howTitle": "Cómo funciona la rotación",
+      "how1": "La selección cambia cada semana, en el reinicio semanal del lunes a las 00:00 hora del servidor. Los héroes prestados se juegan como los tuyos en los modos no clasificatorios: una ocasión para probar un rol o un héroe antes de desbloquearlo.",
+      "how2": "Las partidas clasificatorias exigen tener el héroe. Antes de comprar uno, su ficha muestra sus builds, sus counters y su tasa de victoria en el parche actual.",
+      "heroesLink": "Todos los héroes",
+      "tierListLink": "La tier list del parche",
+      "resetLink": "Hora del reinicio semanal"
+    },
+    "accountValue": {
+      "title": "Valor estimado de una cuenta",
+      "lead": "Lo que costó una colección de skins, en diamantes y en dinero, y el rango orientativo de una cuenta comparable. Un orden de magnitud, nunca un precio: el método se detalla bajo la herramienta.",
+      "warning": "Comprar, vender o intercambiar una cuenta incumple los términos de servicio de Moonton: la cuenta puede ser baneada o recuperada por su antiguo dueño, y las estafas son frecuentes. Esta estimación mide lo que costó una colección, no fija un precio. No se envía nada a ningún servidor.",
+      "methodTitle": "El método, cifra a cifra",
+      "methodCost": "Cada skin cuenta por el coste típico de su categoría. Para las skins de la tienda, es el precio mediano en diamantes de las skins de la categoría, tomado de los datos del juego. Las skins de sorteos o pases no tienen precio: toman un coste medio estimado y redondeado, que varía mucho de un evento y de un jugador a otro.",
+      "tableCaption": "Coste contado por skin, por categoría",
+      "colTier": "Categoría",
+      "colSkins": "Skins",
+      "colCost": "Diamantes por skin",
+      "colBasis": "Origen del coste",
+      "basisShop": "Precio mediano en la tienda ({n} precios registrados)",
+      "basisDraw": "Estimación del coste de un sorteo o un pase",
+      "methodMoney": "Los diamantes se convierten a dólares al precio de una recarga habitual, sin bono de primera recarga: {usd} USD por diamante, es decir {per100} USD por cada cien. Los diamantes que quedan en la cuenta se suman al total.",
+      "methodResale": "El rango de reventa parte del {low} al {high} de ese coste: una cuenta rara vez cambia de manos por lo que se gastó en ella. Después se multiplica por cuatro factores:",
+      "factorRank": "el rango más alto alcanzado, de ×{low} (Guerrero) a ×{high} (Inmortal mítico);",
+      "factorHeroes": "la proporción de héroes que tienes, de ×{low} (ninguno) a ×{high} (todos);",
+      "factorEmblems": "los emblemas al nivel máximo, +{per} cada uno, de {n};",
+      "factorBinding": "la vinculación de la cuenta: una cuenta Moonton se puede transferir, una vinculada solo a una red social cuenta ×{social} y una cuenta de invitado, sin vincular, no se puede transferir.",
+      "methodLimits": "Los importes se redondean a dos cifras significativas. No se cuentan: los propios héroes, comprados casi siempre con puntos de batalla, las skins limitadas a un servidor, los cosméticos (efectos, emotes, marcos) ni el historial de partidas. Un mercado real depende también de la demanda del momento, que aquí nada mide.",
+      "ratesTitle": "Tipos de cambio",
+      "ratesLead": "Tipos fijos, tomados el {date} y redondeados: sirven para dar un orden de magnitud en tu moneda, no una conversión exacta.",
+      "ratesSource": "Fuente de los tipos",
+      "checked": "hipótesis comprobadas el {date}",
+      "methodPrivacy": "El cálculo se hace en tu navegador. Los números que escribes se guardan en la dirección de la página para poder compartir el resultado: ningún nombre, ningún ID de cuenta, nada se guarda en un servidor.",
+      "collectionLink": "Marca tu colección skin a skin"
+    },
+    "accountValueUI": {
+      "costTitle": "Coste estimado de la colección",
+      "resaleTitle": "Rango orientativo de una cuenta comparable",
+      "range": "de {low} a {high}",
+      "resaleUnbound": "Una cuenta de invitado, sin vincular, no puede cambiar de manos: sin rango.",
+      "resaleEmpty": "Indica tus skins o tus diamantes para ver un rango.",
+      "currency": "Moneda",
+      "indicative": "Orden de magnitud redondeado, nunca un precio. Tipos de cambio fijos del {date}. El método se detalla más abajo.",
+      "share": "Compartir el resultado",
+      "reset": "Borrar todo",
+      "share_copied": "Enlace copiado.",
+      "share_shared": "Resultado compartido.",
+      "share_failed": "No se pudo compartir.",
+      "shareText": "Mi colección de MLBB costó unos {cost}; una cuenta comparable: de {low} a {high} (estimación orientativa).",
+      "shareTextCost": "Mi colección de MLBB costó unos {cost} (estimación orientativa).",
+      "resultTitle": "Valor estimado de mi cuenta de MLBB",
+      "importLead": "Hay una colección guardada en este navegador por la herramienta de colección.",
+      "import": "Usar mi colección",
+      "import_done": "Skins y héroes tomados de tu colección.",
+      "import_failed": "No se pudo cargar el catálogo de skins. Inténtalo de nuevo.",
+      "skinsTitle": "Tus skins, por categoría",
+      "tier": {
+        "basic": "Básicas",
+        "elite": "Élite",
+        "special": "Especiales",
+        "epic": "Épicas",
+        "starlight": "StarLight",
+        "other": "Eventos y de temporada",
+        "collector": "Collector",
+        "grand": "Colaboraciones y premium",
+        "legend": "Legendarias"
+      },
+      "costShop": "≈ {n} diamantes cada una (tienda)",
+      "costDraw": "≈ {n} diamantes cada una (sorteo estimado)",
+      "accountTitle": "Tu cuenta",
+      "rank": "Rango más alto alcanzado",
+      "heroes": "Héroes que tienes",
+      "emblems": "Emblemas al nivel máximo",
+      "diamonds": "Diamantes en la cuenta",
+      "diamondsHint": "El saldo actual, no lo que se gastó.",
+      "binding": "Vinculación",
+      "bindingValue": {
+        "moonton": "Cuenta Moonton",
+        "social": "Solo red social",
+        "none": "Invitado, sin vincular"
+      }
     }
   },
   "modeSheet": {
@@ -4129,7 +4256,18 @@
       "ban": "Los más baneados",
       "pick": "Los más jugados",
       "week": "En siete días",
-      "weekEmpty": "Ningún héroe se ha movido claramente esta semana."
+      "weekEmpty": "Ningún héroe se ha movido claramente esta semana.",
+      "moverRate": {
+        "winRate": "Victoria",
+        "banRate": "Ban",
+        "pickRate": "Pick"
+      },
+      "moverRateFull": {
+        "winRate": "Tasa de victoria",
+        "banRate": "Tasa de baneo",
+        "pickRate": "Tasa de selección"
+      },
+      "moversAll": "Todos los movimientos de la semana"
     },
     "patch": {
       "title": "Lo que cambió el parche {version}",
@@ -5067,18 +5205,19 @@
       },
       "on": "El {date} ({zone})",
       "localTime": "hora local",
-      "seasonEnd": "Temporada {n}: termina el {date} ({zone}), según el parche {v}.",
-      "seasonEndUnknown": "Aún no anunciada",
+      "seasonEnd": "Termina el {date} ({zone}).",
+      "seasonEndUnknown": "Final aún no anunciado",
       "seasonEndUnknownDetail": "El juego anuncia el fin de temporada en sus notas del parche. La cuenta atrás aparecerá en cuanto se publique una fecha.",
       "yourPlace": "En tu zona horaria ({timezone}, {offset}), el reinicio diario llega a las {daily} y el semanal el {weekly}.",
       "countriesTitle": "Hora del reinicio por país",
-      "countriesIntro": "Hora local del próximo reinicio en los países donde más se juega en cada idioma del sitio. La tabla sigue el horario de verano y se actualiza en directo.",
+      "countriesIntro": "Hora local del próximo reinicio en los países donde más se juega a Mobile Legends. La tabla sigue el horario de verano y se actualiza en directo.",
       "group": {
         "fr": "Países francófonos",
         "en": "Países anglófonos",
         "it": "Países italófonos",
         "es": "Países hispanohablantes",
-        "id": "Países de habla indonesia"
+        "id": "Países de habla indonesia",
+        "world": "Principales países de MLBB"
       },
       "legend": "Horas locales de los reinicios: {group}",
       "colCountry": "País",
@@ -5086,7 +5225,10 @@
       "colWeekly": "Semanal",
       "colNow": "Hora actual",
       "you": "tú",
-      "countriesOpen": "Mostrar la hora del reinicio país por país"
+      "countriesOpen": "Mostrar más países, por idioma del sitio",
+      "seasonCurrent": "Temporada {n} en curso",
+      "seasonStart": "La temporada {n} empieza el {date} ({zone}).",
+      "seasonSince": "Empezó el {date}. La cuenta atrás aparecerá en cuanto el juego indique el final de temporada en sus notas del parche."
     },
     "retribution": {
       "objective": {

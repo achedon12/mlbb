@@ -9,9 +9,9 @@ import {
 
 /**
  * Value of a collection: what the heroes and skins a player has ticked cost,
- * at the in-game shop price. Nothing else: no resale value, no account
- * appraisal — account selling is forbidden by Moonton's terms. Data-free
- * module, importable by a client component.
+ * at the in-game shop price. Nothing else: the rough account estimate, with
+ * its resale range and its warning about Moonton's terms, is a separate tool
+ * (`account-value.ts`). Data-free module, importable by a client component.
  *
  * A hero's price is that of their original skin, which comes with them.
  * Many are bought with diamonds or battle points: the diamond total only

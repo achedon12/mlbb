@@ -9,7 +9,7 @@ import { trendsOf } from "@/lib/evolution";
 import { longDate, patchCurrent, percentage } from "@/lib/freshness";
 import { firstNBy } from "@/lib/meta-report";
 import { measure, ORDER_TIERS, rankingFull, type RankedEntry } from "@/lib/tier-list";
-import { describeGap, formatGap, movesWeek } from "@/lib/trends";
+import { describeGap, formatGap, moversWeek, type MoversMeasure } from "@/lib/trends";
 import { cn } from "@/lib/utils";
 
 /** Rows per list: five names read at a glance, the full table is one click away. */
@@ -19,7 +19,8 @@ const PHONE_ROWS = 3;
 /**
  * The meta in one screen: how the ranked heroes split across tiers, who
  * sits at the top, and the three lists a player asks for first — highest
- * win rate, most banned, most played — plus the week's biggest moves.
+ * win rate, most banned, most played — plus the week's biggest moves on
+ * each of those three rates.
  * Everything comes from the synced rates; nothing here is an opinion.
  */
 export function HomeMeta({ locale }: { locale: Locale }) {
@@ -29,9 +30,10 @@ export function HomeMeta({ locale }: { locale: Locale }) {
   );
   const top = rankingFull.filter((e) => e.tier === "S+");
   const reliable = rankingFull.filter((e) => !e.lowSample);
-  const week = movesWeek(
+  // One rise and one drop per rate: six rows, the size of the other lists.
+  const movers = moversWeek(
     allHeroes.map((h) => ({ slug: h.slug, series: trendsOf(h.slug).all })),
-    3,
+    1,
   );
 
   const lists: { title: string; entries: RankedEntry[]; value: (e: RankedEntry) => number; href: string }[] = [
@@ -105,7 +107,7 @@ export function HomeMeta({ locale }: { locale: Locale }) {
         {lists.map((l) => (
           <RateList key={l.title} title={l.title} entries={l.entries} value={l.value} locale={locale} />
         ))}
-        <WeekList rises={week.rises} drops={week.drops} locale={locale} t={t} />
+        <WeekList movers={movers} locale={locale} t={t} />
       </div>
     </section>
   );
@@ -149,39 +151,40 @@ function RateList({
   );
 }
 
-/** The week's three biggest rises and drops; the arrow and the colour double the sign. */
-function WeekList({
-  rises,
-  drops,
-  locale,
-  t,
-}: {
-  rises: ReturnType<typeof movesWeek>["rises"];
-  drops: ReturnType<typeof movesWeek>["drops"];
-  locale: Locale;
-  t: T;
-}) {
-  const rows = [
-    ...rises.map((m) => ({ ...m, rise: true })),
-    ...drops.map((m) => ({ ...m, rise: false })),
-  ];
+/**
+ * The week's meta movers: the biggest rise and drop of the win, ban and pick
+ * rates. The arrow and the colour double the sign; the rate is named on each
+ * row, since a ban rate moves by points where a win rate moves by tenths.
+ */
+function WeekList({ movers, locale, t }: { movers: MoversMeasure[]; locale: Locale; t: T }) {
+  const rows = movers.flatMap(({ measure, rises, drops }) => [
+    ...rises.map((m) => ({ ...m, measure, rise: true })),
+    ...drops.map((m) => ({ ...m, measure, rise: false })),
+  ]);
   return (
-    <div className="bevel border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
+    <div className="bevel flex flex-col border border-night-700/70 bg-night-900/60 p-3 sm:p-4">
       <h3 className="font-heading text-base font-bold text-chalk-100">{t("home.meta.week")}</h3>
       {rows.length === 0 ? (
         <p className="mt-2 text-sm text-chalk-500">{t("home.meta.weekEmpty")}</p>
       ) : (
         <ul className="mt-2 space-y-1">
-          {rows.map(({ slug, variation: v, rise }) => {
+          {rows.map(({ slug, measure, variation: v, rise }) => {
             const h = heroesBySlug.get(slug);
             if (!h) return null;
             const Icon = rise ? TrendingUp : TrendingDown;
             return (
-              <li key={slug}>
+              <li key={`${measure}-${slug}`}>
                 <Link href={`/heroes/${slug}`} className="group flex items-center gap-2.5 py-0.5">
                   <HeroPortrait source={h.images.icon ?? h.images.portrait} name={h.name} size="small" decorative />
-                  <span className="min-w-0 flex-1 truncate text-sm font-semibold text-chalk-200 transition-colors group-hover:text-gold-400">
-                    {h.name}
+                  {/* The rate sits under the name: beside it, it left the
+                      name four letters in a quarter-width column. */}
+                  <span className="min-w-0 flex-1 leading-tight">
+                    <span className="block truncate text-sm font-semibold text-chalk-200 transition-colors group-hover:text-gold-400">
+                      {h.name}
+                    </span>
+                    <span aria-hidden className="block text-[0.65rem] uppercase tracking-wide text-chalk-500">
+                      {t(`home.meta.moverRate.${measure}`)}
+                    </span>
                   </span>
                   <span
                     className={cn(
@@ -191,7 +194,9 @@ function WeekList({
                   >
                     <Icon size={14} aria-hidden />
                     <span aria-hidden>{formatGap(v.gap, locale)} {t("counters.pts")}</span>
-                    <span className="sr-only">{describeGap(t, locale, v.gap, v.days)}</span>
+                    <span className="sr-only">
+                      {t(`home.meta.moverRateFull.${measure}`)} {describeGap(t, locale, v.gap, v.days)}
+                    </span>
                   </span>
                 </Link>
               </li>
@@ -199,6 +204,12 @@ function WeekList({
           })}
         </ul>
       )}
+      <Link
+        href="/meta#movers"
+        className="mt-auto pt-2 text-xs font-semibold text-gold-400 transition-colors hover:text-gold-500"
+      >
+        {t("home.meta.moversAll")} →
+      </Link>
     </div>
   );
 }

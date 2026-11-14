@@ -3,19 +3,37 @@ import { ServerClock } from "@/components/server-clock";
 import Link from "@/components/link";
 import { PageHeader } from "@/components/ui";
 import { Foldable } from "@/components/foldable";
-import type { Locale } from "@/i18n/config";
+import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { dataTool, metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
 import { patchDetails } from "@/lib/data";
 import { serializeJsonLd } from "@/lib/html";
-import { SERVER_OFFSET_MIN, TIME_RESET, TIME_SOURCES, endsOfSeason } from "@/lib/server-time";
+import { cn } from "@/lib/utils";
+import {
+  SERVER_OFFSET_MIN,
+  SERVER_TIMEZONE,
+  TIME_RESET,
+  TIME_SOURCES,
+  currentSeason,
+  nextSeason,
+  seasonAnnouncements,
+  seasonCalendar,
+  seasonsEditorial,
+} from "@/lib/server-time";
+import seasonsData from "@/data/editorial/seasons.json";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
 const PATH = "/tools/server-time";
 
-/** Season ends announced in the synced patch notes; the component keeps the upcoming one. */
-const ENDS = endsOfSeason(Object.values(patchDetails));
+/**
+ * Ranked seasons: the editorial calendar, completed by the announcements of
+ * the synced patch notes for the seasons after it. The patch pages' own dates
+ * are unreliable, so they never date a season by themselves.
+ */
+const SEASONS = seasonCalendar(seasonsEditorial(seasonsData.seasons), seasonAnnouncements(Object.values(patchDetails)));
+/** Seasons in the schedule table: the last few are enough to read the rhythm. */
+const SCHEDULE_ROWS = 4;
 
 /**
  * Reference country of the FAQ examples, per language: their local reset
@@ -55,7 +73,12 @@ export default async function ServerTimePage({ params }: Params) {
   const t = createT(locale);
   const utc = serverTimeIn(locale, TIME_RESET, "UTC");
   const example = TIMEZONE_EXAMPLE[locale];
-  const announcement = ENDS.at(-1);
+  const now = instantRender();
+  const current = currentSeason(SEASONS, now);
+  const upcoming = nextSeason(SEASONS, now);
+  const schedule = SEASONS.slice(-SCHEDULE_ROWS).reverse();
+  const day = new Intl.DateTimeFormat(LOCALE_HTML[locale], { day: "numeric", month: "long", year: "numeric", timeZone: SERVER_TIMEZONE });
+  const sources = [...new Set(SEASONS.slice(-SCHEDULE_ROWS).map((s) => s.source).filter((s): s is string => !!s))];
   const structuredData = dataTool(locale, {
     name: t("pages.serverTime.title"),
     description: t("pages.seo.serverTime.description", { utc }),
@@ -97,7 +120,52 @@ export default async function ServerTimePage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.serverTime.title")} lead={t("pages.serverTime.lead", { utc })} />
       <div className="mx-auto max-w-4xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
-        <ServerClock reference={instantRender()} ends={ENDS} />
+        <ServerClock reference={now} seasons={SEASONS} />
+
+        <section aria-labelledby="seasons-title">
+          <h2 id="seasons-title" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
+            {t("pages.serverTime.seasonsTitle")}
+          </h2>
+          <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
+          <p className="mt-2 max-w-2xl text-sm text-chalk-400">
+            {current
+              ? t("pages.serverTime.seasonsCurrent", { n: current.season })
+              : t("pages.serverTime.seasonsBetween")}{" "}
+            {upcoming?.start
+              ? t("pages.serverTime.seasonsNext", { n: upcoming.season, date: day.format(upcoming.start) })
+              : t("pages.serverTime.seasonsNextUnknown")}
+          </p>
+          <table className="mt-4 w-full table-fixed text-left text-sm">
+            <caption className="sr-only">{t("pages.serverTime.seasonsCaption")}</caption>
+            <thead className="text-xs uppercase tracking-wide text-chalk-500">
+              <tr>
+                <th scope="col" className="w-[30%] py-2 pr-2 font-medium">{t("pages.serverTime.colSeason")}</th>
+                <th scope="col" className="py-2 pr-2 font-medium">{t("pages.serverTime.colStart")}</th>
+                <th scope="col" className="py-2 font-medium">{t("pages.serverTime.colEnd")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {schedule.map((s) => {
+                const live = s.season === current?.season;
+                return (
+                  <tr key={s.season} className={cn("border-t border-night-800", live && "bg-gold-500/10")}>
+                    <th scope="row" className="py-2 pr-2 font-heading font-bold text-chalk-100">
+                      {t("pages.serverTime.season", { n: s.season })}
+                      {live && (
+                        <span className="block text-xs font-normal font-sans text-gold-400">{t("pages.serverTime.live")}</span>
+                      )}
+                    </th>
+                    <td className="py-2 pr-2 text-chalk-200">{s.start ? day.format(s.start) : t("pages.serverTime.notAnnounced")}</td>
+                    <td className={cn("py-2", s.end ? "text-chalk-200" : "text-chalk-500")}>
+                      {s.end ? day.format(s.end) : t("pages.serverTime.notAnnounced")}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+          <p className="mt-3 text-xs text-chalk-500">{t("pages.serverTime.seasonsNote", { date: day.format(Date.parse(`${seasonsData.checked}T12:00:00Z`)) })}</p>
+        </section>
 
         <Foldable label={t("common.method")}>
           <div className="space-y-10">
@@ -149,13 +217,13 @@ export default async function ServerTimePage({ params }: Params) {
                     {t("pages.serverTime.sourceStarlight")}
                   </a>
                 </li>
-                {announcement && (
-                  <li>
-                    <a href={announcement.link} rel="noopener" className="underline transition-colors hover:text-gold-400">
-                      {t("pages.serverTime.sourcePatch", { v: announcement.patch, n: announcement.season })}
+                {sources.map((link) => (
+                  <li key={link}>
+                    <a href={link} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                      {t("pages.serverTime.sourcePatch", { v: decodeURIComponent(link.split("_").at(-1) ?? link) })}
                     </a>
                   </li>
-                )}
+                ))}
               </ul>
             </section>
           </div>

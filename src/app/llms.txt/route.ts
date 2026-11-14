@@ -36,6 +36,7 @@ Statistics come from ranked games aggregated by the community API arena.rone.dev
 ## Heroes
 
 - [All heroes](${link("/heroes")}): roles, lanes, tiers and win rates.
+- [Free hero rotation](${link("/heroes/free-rotation")}): the heroes free to play this week, copied by hand from the game and hidden once out of date.
 - [Hero page](${link("/heroes/aamon")}): builds and emblems by rank, skills, counters, teammates, 30-day trends, win rate by game length and patch history. Same pattern for every hero: /en/heroes/{slug}.
 - [Counters](${link("/heroes/aamon/counters")}): who beats a hero, by rank, and how to counter it. Pattern: /en/heroes/{slug}/counters.
 - [Best duos](${link("/heroes/aamon/duos")}): teammates that raise a hero's win rate. Pattern: /en/heroes/{slug}/duos.
@@ -46,7 +47,7 @@ Statistics come from ranked games aggregated by the community API arena.rone.dev
 
 - [Tier list](${link("/tier-list")}): all ranks; per rank at /en/tier-list/{epic|legend|mythic|honor|glory}.
 - [By lane](${link("/tier-list/lane/jungle")}) and [by role](${link("/tier-list/role/marksman")}).
-- [Weekly meta report](${link("/meta")}): risers, fallers, bans and picks.
+- [Weekly meta report](${link("/meta")}): win, ban and pick rate movers over seven days, tier changes, most banned and most played heroes.
 
 ## Game data
 
@@ -59,8 +60,9 @@ Statistics come from ranked games aggregated by the community API arena.rone.dev
 ## Tools
 
 - [Draft assistant](${link("/draft")}), [hero comparison](${link("/compare")}), [matchup matrix](${link("/tools/matchups")}) and [team analyzer](${link("/tools/team")}).
-- [Win-rate calculator](${link("/tools/win-rate")}), [server time](${link("/tools/server-time")}), [tier list maker](${link("/tools/tier-list-maker")}) and [strategy planner](${link("/tools/strategy-planner")}).
+- [Win-rate calculator](${link("/tools/win-rate")}), [server time, reset times by country and ranked season schedule](${link("/tools/server-time")}), [tier list maker](${link("/tools/tier-list-maker")}) and [strategy planner](${link("/tools/strategy-planner")}).
 - [Build simulator](${link("/tools/build")}) and [damage calculator](${link("/tools/damage-calculator")}): stats of an equipped hero, and what a hit deals after defense and penetration.
+- [Collection value](${link("/tools/collection")}) and [account value estimator](${link("/tools/account-value")}): what a collection cost at shop prices, and an indicative, clearly approximate account estimate in USD, EUR, PHP, IDR and MYR.
 
 ## API
 

@@ -13,6 +13,7 @@ Two kinds of data, which must not be confused.
 | **Analysis**: commentary, written skills, counters, builds | `src/data/heroes/` | You |
 | **Articles**: guides, news, patch notes | `content/fr/` | You |
 | **Tier list notes, emblems** | `src/data/tier-list.ts`, `src/data/emblems.ts` | You |
+| **Free hero rotation, season dates, account value assumptions** | `src/data/editorial/` ([how to update](docs/editorial-data.md)) | You |
 
 > **Never edit `src/data/game/` or `public/visuels/` by hand.**
 > The next sync will overwrite your changes. If some game data is wrong, it

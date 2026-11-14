@@ -11,6 +11,7 @@ import {
   impactsOfPatch,
   daysBetween,
   movesWeek,
+  moversWeek,
   plural,
   pointsOf,
   variationWeek,
@@ -139,6 +140,40 @@ describe("movesWeek", () => {
     ];
     expect(movesWeek(entries, 3).rises.map((m) => m.slug)).toEqual(["bob", "ana", "zed"]);
     expect(movesWeek([...entries].reverse(), 3).rises.map((m) => m.slug)).toEqual(["bob", "ana", "zed"]);
+  });
+});
+
+describe("moversWeek", () => {
+  /** A full series whose three rates each end on their own gap. */
+  const rates = (win: number, ban: number, pick: number): WinStreak => {
+    const end = (gap: number) => {
+      const v = constant(10 - gap);
+      v[29] = 10;
+      return v;
+    };
+    return { start: "2026-08-11", winRate: end(win), banRate: end(ban), pickRate: end(pick) };
+  };
+
+  it("ranks each rate apart, in the order asked", () => {
+    const entries = [
+      { slug: "a", series: rates(0.5, -4, 0) },
+      { slug: "b", series: rates(-0.6, 2, 1.5) },
+    ];
+    const movers = moversWeek(entries, 1);
+    expect(movers.map((m) => m.measure)).toEqual(["winRate", "banRate", "pickRate"]);
+    expect(movers[0]).toMatchObject({ rises: [{ slug: "a" }], drops: [{ slug: "b" }] });
+    expect(movers[1]).toMatchObject({ rises: [{ slug: "b" }], drops: [{ slug: "a" }] });
+    expect(movers[2].rises.map((m) => m.slug)).toEqual(["b"]);
+    expect(movers[2].drops).toEqual([]);
+    expect(moversWeek(entries, 3, ["pickRate"]).map((m) => m.measure)).toEqual(["pickRate"]);
+  });
+
+  it("reads the ban rate of a series, not its win rate", () => {
+    const s = rates(0, 3, 0);
+    expect(variationWeek(s, "banRate")).toMatchObject({ gap: 3, current: 10 });
+    expect(variationWeek(s)).toMatchObject({ gap: 0 });
+    // A series without the rate has no trend on it.
+    expect(variationWeek(series(constant(50)), "pickRate")).toBeNull();
   });
 });
 
