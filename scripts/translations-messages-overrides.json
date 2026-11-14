@@ -3847,6 +3847,14 @@
     "pages.toolsHub.nTools": {
       "fr": "{n} outils",
       "text": "{n} tools"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Heroes in this article"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Read next"
     }
   },
   "es": {
@@ -7545,6 +7553,14 @@
     "pages.toolsHub.nTools": {
       "fr": "{n} outils",
       "text": "{n} herramientas"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Héroes del artículo"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Para leer también"
     }
   },
   "id": {
@@ -13275,6 +13291,14 @@
     "pages.toolsHub.nTools": {
       "fr": "{n} outils",
       "text": "{n} alat"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Hero dalam artikel ini"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Baca juga"
     }
   },
   "it": {
@@ -17009,6 +17033,14 @@
     "pages.toolsHub.nTools": {
       "fr": "{n} outils",
       "text": "{n} strumenti"
+    },
+    "articleUI.heroes": {
+      "fr": "Héros de l'article",
+      "text": "Eroi dell'articolo"
+    },
+    "articleUI.latest": {
+      "fr": "À lire aussi",
+      "text": "Da leggere anche"
     }
   }
 }

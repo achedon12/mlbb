@@ -10,7 +10,7 @@ import { NewHero } from "@/components/new-hero";
 import { HeroPatch } from "@/components/hero-patch";
 import { PatchToc } from "@/components/patch-toc";
 import { heroesBySlug, illustrations, patchDetails, detailedPatches } from "@/lib/data";
-import { article, articles, toHtml } from "@/lib/content";
+import { article, articleBody, articles } from "@/lib/content";
 import { countAdjustments, longDate, listNames, patchCurrent } from "@/lib/freshness";
 import { site } from "@/lib/site";
 import type { DetailedPatch, PatchSection } from "@/lib/types";
@@ -149,7 +149,7 @@ export default async function PatchPage({ params }: Params) {
           ]}
         />
 
-        <div className="mx-auto max-w-6xl px-4 pb-12 pt-6">
+        <div className="page-wrap pb-12 pt-6">
           {patch.adjustments.length > 0 && (
             <HeroChanges
               patch={patch}
@@ -274,7 +274,8 @@ export default async function PatchPage({ params }: Params) {
       <BodyArticle
         locale={locale}
         article={a}
-        html={toHtml(a.content)}
+        {...articleBody(a.content)}
+        others={articles("patch-notes", locale)}
         back={{ href: "/patch-notes", label: t("pages.patchNotes.all") }}
       />
     </>

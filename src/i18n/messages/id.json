@@ -5069,7 +5069,9 @@
   "articleUI": {
     "none": "Belum ada publikasi.",
     "by": "oleh {author}",
-    "untitled": "Tanpa judul"
+    "untitled": "Tanpa judul",
+    "heroes": "Hero dalam artikel ini",
+    "latest": "Baca juga"
   },
   "articleCategory": {
     "News": "Berita",

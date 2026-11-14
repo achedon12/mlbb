@@ -5069,7 +5069,9 @@
   "articleUI": {
     "none": "No posts yet.",
     "by": "by {author}",
-    "untitled": "Untitled"
+    "untitled": "Untitled",
+    "heroes": "Heroes in this article",
+    "latest": "Read next"
   },
   "articleCategory": {
     "News": "News",

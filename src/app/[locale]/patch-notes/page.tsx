@@ -55,14 +55,14 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
         </p>
       </PageHeader>
 
-      <div className="mx-auto max-w-4xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
+      <div className="page-wrap space-y-8 pb-10 pt-6 sm:space-y-14">
         <section>
           <h2 className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
             {t("pages.patchNotes.recent")}
           </h2>
           <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
 
-          <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+          <ul className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(min(100%,12rem),1fr))] gap-2">
             {withDetail.map((p) => (
               <li key={p.title}>
                 <Link
@@ -105,7 +105,7 @@ export default async function PatchNotesPage({ params }: { params: Promise<{ loc
             document, behind the sentence that says what they are.
           */}
           <Foldable label={t("pages.patchNotes.openArchives", { n: others.length })} className="mt-4">
-          <ul className="grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4">
+          <ul className="grid gap-1.5 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
             {others.map((p) => (
               // The title is unique; the version is not always.
               <li key={p.title}>

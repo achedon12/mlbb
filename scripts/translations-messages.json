@@ -17267,5 +17267,13 @@
   "id|Tous les outils du site, rangés par usage : préparer une draft, tester un build, estimer un compte, s'entraîner ou jouer au jeu du jour.": "Semua alat situs, diatur berdasarkan penggunaan: menyiapkan draf, menguji bangunan, memperkirakan akun, melatih atau memainkan permainan hari ini.",
   "id|Outils MLBB : draft, builds, dégâts et compte": "Alat MLBB: draft, build, damage, dan count",
   "id|Simulateur de draft, analyse d'équipe, simulateur de build, calculateur de dégâts, valeur de compte, chrono des objectifs et jeux du jour pour Mobile Legends: Bang Bang.": "Simulator draf, analisis tim, simulator pembuatan, kalkulator kerusakan, nilai akun, pengatur waktu objektif, dan permainan hari ini untuk Mobile Legends: Bang Bang.",
-  "id|{n} outils": "{n} alat"
+  "id|{n} outils": "{n} alat",
+  "en|Héros de l'article": "Hero of the article",
+  "en|À lire aussi": "Also read",
+  "it|Héros de l'article": "Eroe dell'articolo",
+  "it|À lire aussi": "Leggi anche",
+  "es|Héros de l'article": "Héroe del artículo",
+  "es|À lire aussi": "Lea también",
+  "id|Héros de l'article": "Pahlawan artikel",
+  "id|À lire aussi": "Baca juga"
 }

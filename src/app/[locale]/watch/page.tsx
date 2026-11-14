@@ -45,20 +45,20 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
         </p>
       </PageHeader>
 
-      <div className="mx-auto max-w-4xl px-4 pb-10 pt-6 sm:py-14">
+      <div className="page-wrap pb-10 pt-6 sm:py-14">
         {news.length === 0 ? (
           <p className="text-chalk-500">
             {t("pages.watch.none")}
           </p>
         ) : (
-          <ul className="space-y-2 sm:space-y-3">
+          <ul className="grid gap-2 sm:gap-3 lg:grid-cols-2 2xl:grid-cols-3">
             {news.map((a) => (
               <li key={a.link}>
                 <a
                   href={a.link}
                   rel="noreferrer nofollow"
                   target="_blank"
-                  className="bevel group flex gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60 sm:gap-4 sm:p-5"
+                  className="bevel group flex h-full gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60 sm:gap-4 sm:p-5"
                 >
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -96,7 +96,7 @@ export default async function WatchPage({ params }: { params: Promise<{ locale: 
           </ul>
         )}
 
-        <p className="mt-8 border-t border-night-800 pt-5 text-xs leading-relaxed text-chalk-500">
+        <p className="mt-8 max-w-3xl border-t border-night-800 pt-5 text-xs leading-relaxed text-chalk-500">
           {creditBefore}
           <Link href="/patch-notes" className="text-gold-400 hover:underline">
             {t("nav.patchNotes.label")}

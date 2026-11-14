@@ -5069,7 +5069,9 @@
   "articleUI": {
     "none": "Aún no hay publicaciones.",
     "by": "por {author}",
-    "untitled": "Sin título"
+    "untitled": "Sin título",
+    "heroes": "Héroes del artículo",
+    "latest": "Para leer también"
   },
   "articleCategory": {
     "News": "Noticias",

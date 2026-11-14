@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { GuideBody, GuideCard, GuideTools } from "@/components/guide";
-import { PageHeader, SectionTitle } from "@/components/ui";
+import Link from "@/components/link";
+import { AsideBlock } from "@/components/reading-layout";
+import { PageHeader } from "@/components/ui";
 import { longDate } from "@/lib/freshness";
 import { guide, guideHeadings, guides, guideSlugs, readingMinutes, renderGuide, type Guide } from "@/lib/guides";
 import { serializeJsonLd } from "@/lib/html";
@@ -75,25 +77,31 @@ export default async function GuidePage({ params }: Params) {
         ]}
       />
 
-      <GuideBody guide={g} parts={renderGuide(g.content)} headings={headings} locale={locale} />
-
-      <div className="mx-auto max-w-6xl space-y-12 px-4 pb-4 pt-12 sm:space-y-14 sm:pt-16">
-        <GuideTools tools={g.tools} locale={locale} />
-        {related.length > 0 && (
-          <section aria-labelledby="guide-related">
-            <SectionTitle id="guide-related" action={{ href: "/guides", label: t("pages.guides.all") }}>
-              {t("pages.guides.related")}
-            </SectionTitle>
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {related.map((r) => (
-                <li key={r.slug}>
-                  <GuideCard guide={r} minutes={readingMinutes(r.content)} locale={locale} />
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-      </div>
+      <GuideBody
+        guide={g}
+        parts={renderGuide(g.content)}
+        headings={headings}
+        locale={locale}
+        aside={
+          <>
+            {related.length > 0 && (
+              <AsideBlock id="guide-related" title={t("pages.guides.related")}>
+                <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+                  {related.map((r) => (
+                    <li key={r.slug}>
+                      <GuideCard guide={r} minutes={readingMinutes(r.content)} locale={locale} />
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/guides" className="mt-3 inline-block text-sm font-semibold text-gold-400 hover:text-gold-500">
+                  {t("pages.guides.all")} →
+                </Link>
+              </AsideBlock>
+            )}
+            <GuideTools tools={g.tools} locale={locale} />
+          </>
+        }
+      />
     </>
   );
 }

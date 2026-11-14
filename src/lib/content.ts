@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import type { Article } from "./types";
+import { guideHeadings, renderGuide, type GuideHeading } from "./guides";
 import { DEFAULT_LOCALE, type Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 
@@ -71,4 +72,18 @@ export function article(section: Section, slug: string, locale: Locale = DEFAULT
 /** Renders an article's Markdown to HTML. */
 export function toHtml(markdown: string): string {
   return marked.parse(markdown, { async: false });
+}
+
+/**
+ * An article's body with anchored second-level headings, and its table of
+ * contents: the same rendering as a guide's, so a news article gets the
+ * reading layout's table of contents too.
+ */
+export function articleBody(markdown: string): { html: string; headings: GuideHeading[] } {
+  return {
+    html: renderGuide(markdown)
+      .map((p) => (p.type === "html" ? p.html : ""))
+      .join(""),
+    headings: guideHeadings(markdown),
+  };
 }
