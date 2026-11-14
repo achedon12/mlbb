@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, Trophy } from "lucide-react";
 import Link from "@/components/link";
+import { FreeRotationTeaser } from "@/components/free-rotation-teaser";
 import { HeroPortrait } from "@/components/hero-portrait";
 import { heroName, monthLabel, monthText } from "@/components/event-month";
 import { StatusBadge, tournamentDates } from "@/components/esports-parts";
@@ -32,7 +33,8 @@ const skinHref = (s: EventSkin) => (s.anchor ? `/heroes/${s.hero}/skins#${s.anch
  * What is happening in the game right now, side by side: the month's skins
  * (StarLight, Collector and the other releases, then what is announced
  * next) and the esports scene (live and upcoming tournaments, the latest
- * champions, the heroes the pros pick and ban).
+ * champions, the heroes the pros pick and ban). The week's free heroes sit
+ * above them, on one line, and only while the list is current.
  */
 export function HomeLive({ locale }: { locale: Locale }) {
   const t = createT(locale);
@@ -41,6 +43,7 @@ export function HomeLive({ locale }: { locale: Locale }) {
       <SectionTitle id="home-live" lead={t("home.live.lead")}>
         {t("home.live.title")}
       </SectionTitle>
+      <FreeRotationTeaser locale={locale} className="mb-6 max-w-md" />
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
         <MonthBlock locale={locale} t={t} />
         <EsportsBlock locale={locale} t={t} />

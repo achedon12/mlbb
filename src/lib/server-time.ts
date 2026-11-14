@@ -118,52 +118,140 @@ export function labelOffset(minutes: number): string {
   return `UTC${minutes > 0 ? "+" : "−"}${Math.floor(absolute / 60)}${rest ? `:${String(rest).padStart(2, "0")}` : ""}`;
 }
 
-/** End of a ranked season, as announced by the patch notes. */
-export interface EndSeason {
+// ── Ranked seasons ──────────────────────────────────────────────────
+
+/**
+ * A ranked season. Instants are UTC milliseconds; a bound that has not been
+ * announced is null, never estimated.
+ */
+export interface Season {
   season: number;
-  /** UTC instant, in milliseconds. */
-  end: number;
-  /** Version of the patch that announces it. */
-  patch: string;
+  start: number | null;
+  end: number | null;
+  /** Where the dates come from: a patch note. */
+  source: string | null;
+}
+
+/** A season as written in `src/data/editorial/seasons.json`: server wall-clock dates. */
+export interface SeasonEditorial {
+  season: number;
+  start: string | null;
+  end: string | null;
+  source?: string | null;
+}
+
+/** "2026-09-16T00:00:00", server wall clock, to a UTC instant; null when unreadable. */
+export function readServerDate(text: string | null | undefined): number | null {
+  const m = text?.match(/^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2})(?::(\d{2}))?)?$/);
+  if (!m) return null;
+  const [, y, mo, d, h = "0", mi = "0", s = "0"] = m;
+  return instantServer(Number(y), Number(mo) - 1, Number(d), Number(h), Number(mi), Number(s));
+}
+
+export function seasonsEditorial(list: readonly SeasonEditorial[]): Season[] {
+  return list
+    .map((s) => ({ season: s.season, start: readServerDate(s.start), end: readServerDate(s.end), source: s.source ?? null }))
+    .sort((a, b) => a.season - b.season);
+}
+
+/** A season bound read in a patch note: month and day, never the year. */
+export interface SeasonAnnouncement {
+  season: number;
+  kind: "start" | "end";
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
   link: string;
 }
 
-/**
- * "S31 will end at 23:59:59 on 3/15 (Server Time).": the only form in
- * which the game dates a season end. Month and day, without year.
- */
-const PATTERN_END = /\bS(\d+) will end at (\d{1,2}):(\d{2}):(\d{2}) on (\d{1,2})\/(\d{1,2}) \(Server Time\)/gi;
+const MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
 /**
- * Season ends announced in the synced patch notes, from oldest
- * to most recent. The year is missing: it is the patch's, or the
- * next one when the date falls more than a month before its publication (December
- * patch, end in January).
+ * "S41 will end at 21:59:59 on September 15 (Server Time)." and "S42 will
+ * start from 00:00:00 on 9/16 (Server Time).": the two forms in which the
+ * game dates a season, month and day without a year.
  */
-export function endsOfSeason(
-  patches: { version: string; link: string; date?: string | null; sections: { html: string }[] }[],
-): EndSeason[] {
-  const ends = new Map<number, EndSeason>();
+const PATTERN_SEASON =
+  /\bS(\d+) will (end at|start from) (\d{1,2}):(\d{2}):(\d{2}) on (?:(\d{1,2})\/(\d{1,2})|([A-Za-z]+) (\d{1,2})) \(Server Time\)/gi;
+
+export function seasonAnnouncements(patches: { link: string; sections: { html: string }[] }[]): SeasonAnnouncement[] {
+  const output: SeasonAnnouncement[] = [];
   for (const p of patches) {
-    if (!p.date) continue;
-    const published = Date.parse(`${p.date}T00:00:00Z`);
-    if (Number.isNaN(published)) continue;
-    const year = new Date(published).getUTCFullYear();
     for (const section of p.sections) {
-      for (const m of section.html.matchAll(PATTERN_END)) {
-        const [, season, h, mi, s, month, day] = m.map(Number);
-        let end = instantServer(year, month - 1, day, h, mi, s);
-        if (end < published - 31 * DAY) end = instantServer(year + 1, month - 1, day, h, mi, s);
-        if (!ends.has(season) || ends.get(season)!.end < end) ends.set(season, { season, end, patch: p.version, link: p.link });
+      for (const m of section.html.matchAll(PATTERN_SEASON)) {
+        const month = m[6] ? Number(m[6]) : MONTHS.indexOf(m[8].toLowerCase()) + 1;
+        const day = Number(m[7] ?? m[9]);
+        if (month < 1 || month > 12 || day < 1 || day > 31) continue;
+        output.push({
+          season: Number(m[1]),
+          kind: m[2].toLowerCase().startsWith("end") ? "end" : "start",
+          month,
+          day,
+          hour: Number(m[3]),
+          minute: Number(m[4]),
+          second: Number(m[5]),
+          link: p.link,
+        });
       }
     }
   }
-  return [...ends.values()].sort((a, b) => a.end - b.end);
+  return output;
 }
 
-/** Next upcoming season end, or null when none is announced. */
-export function nextEndSeason(ends: EndSeason[], now: number): EndSeason | null {
-  return ends.find((f) => f.end > now) ?? null;
+/** A season lasts about three months: an announced bound further than this from its reference is someone else's. */
+const SEASON_SPAN = 200 * DAY;
+
+/**
+ * Season calendar: the editorial dates, completed by the patch-note
+ * announcements of the seasons that follow them.
+ *
+ * The wiki dates its patch pages unreliably (an old note can carry this
+ * year's date), so the year of an announcement is not taken from its patch:
+ * it is the first one that puts the date after the bound it follows — the
+ * season's start for an end, the previous season's end for a start — within
+ * one season's span. An announcement for a season the editorial file already
+ * dates, or with nothing to anchor it, is left out.
+ */
+export function seasonCalendar(editorial: readonly Season[], announcements: readonly SeasonAnnouncement[]): Season[] {
+  const seasons = new Map(editorial.map((s) => [s.season, { ...s }]));
+  const last = Math.max(0, ...editorial.map((s) => s.season));
+  const ordered = [...announcements]
+    .filter((a) => a.season >= last)
+    .sort((a, b) => a.season - b.season || (a.kind === b.kind ? 0 : a.kind === "start" ? -1 : 1));
+
+  for (const a of ordered) {
+    const entry = seasons.get(a.season) ?? { season: a.season, start: null, end: null, source: null };
+    if (entry[a.kind] !== null) continue;
+    const previous = seasons.get(a.season - 1);
+    const reference = a.kind === "end" ? (entry.start ?? previous?.end ?? null) : (previous?.end ?? previous?.start ?? null);
+    if (reference === null) continue;
+    const year = wallServer(reference).getUTCFullYear();
+    const instant = [year, year + 1]
+      .map((y) => instantServer(y, a.month - 1, a.day, a.hour, a.minute, a.second))
+      .find((i) => i > reference - DAY && i < reference + SEASON_SPAN);
+    if (instant === undefined) continue;
+    entry[a.kind] = instant;
+    entry.source ??= a.link;
+    seasons.set(a.season, entry);
+  }
+  return [...seasons.values()].sort((a, b) => a.season - b.season);
+}
+
+/**
+ * The season under way: the latest one started and not yet over. Between the
+ * end of a season and the start of the next, none.
+ */
+export function currentSeason(calendar: readonly Season[], now: number): Season | null {
+  const started = calendar.filter((s) => s.start !== null && s.start <= now);
+  const latest = started.at(-1);
+  return latest && (latest.end === null || latest.end > now) ? latest : null;
+}
+
+/** The first season whose start is announced and still to come. */
+export function nextSeason(calendar: readonly Season[], now: number): Season | null {
+  return calendar.find((s) => s.start !== null && s.start > now) ?? null;
 }
 
 /**
@@ -178,6 +266,30 @@ export interface CountryTimezone {
   timezone: string;
   city?: string;
 }
+
+/**
+ * The game's main markets, whatever the site language: Southeast Asia first,
+ * where most players are, then the other large communities. One row per
+ * zone; the United States gets its two coasts.
+ */
+export const COUNTRIES_WORLD: CountryTimezone[] = [
+  { country: "PH", timezone: "Asia/Manila" },
+  { country: "ID", timezone: "Asia/Jakarta", city: "Jakarta" },
+  { country: "MY", timezone: "Asia/Kuala_Lumpur" },
+  { country: "SG", timezone: "Asia/Singapore" },
+  { country: "TH", timezone: "Asia/Bangkok" },
+  { country: "VN", timezone: "Asia/Ho_Chi_Minh" },
+  { country: "MM", timezone: "Asia/Yangon" },
+  { country: "KH", timezone: "Asia/Phnom_Penh" },
+  { country: "IN", timezone: "Asia/Kolkata" },
+  { country: "JP", timezone: "Asia/Tokyo" },
+  { country: "RU", timezone: "Europe/Moscow", city: "Moscow" },
+  { country: "TR", timezone: "Europe/Istanbul" },
+  { country: "FR", timezone: "Europe/Paris" },
+  { country: "BR", timezone: "America/Sao_Paulo", city: "São Paulo" },
+  { country: "US", timezone: "America/New_York", city: "New York" },
+  { country: "US", timezone: "America/Los_Angeles", city: "Los Angeles" },
+];
 
 export const COUNTRY_BY_LOCALE: Record<Locale, CountryTimezone[]> = {
   fr: [

@@ -1,16 +1,22 @@
 import { describe, expect, it } from "vitest";
 import {
+  COUNTRIES_WORLD,
+  currentSeason,
   offsetTimezone,
   split,
-  endsOfSeason,
   labelOffset,
   wallServer,
-  nextEndSeason,
   nextResetWeekly,
   nextResetDaily,
+  nextSeason,
   nextStarlight,
+  readServerDate,
+  seasonAnnouncements,
+  seasonCalendar,
+  seasonsEditorial,
 } from "@/lib/server-time";
 import { patchDetails } from "@/lib/data";
+import seasonsData from "@/data/editorial/seasons.json";
 
 const iso = (ms: number) => new Date(ms).toISOString();
 const t = (s: string) => Date.parse(s);
@@ -64,42 +70,121 @@ describe("durations and time zones", () => {
     expect(labelOffset(0)).toBe("UTC");
   });
 });
+describe("ranked seasons", () => {
+  const patch = (html: string, link = "https://exemple") => ({ link, sections: [{ html }] });
+  const editorial = seasonsEditorial(seasonsData.seasons);
 
-describe("announced season ends", () => {
-  const patch = (date: string, html: string) => ({ version: "x", link: "https://exemple", date, sections: [{ html }] });
-
-  it("reads the server time of a season end and converts it to UTC", () => {
-    const ends = endsOfSeason([patch("2024-03-05", "<li>S31 will end at 23:59:59 on 3/15 (Server Time).</li>")]);
-    expect(ends).toHaveLength(1);
-    expect(ends[0].season).toBe(31);
-    expect(iso(ends[0].end)).toBe("2024-03-16T07:59:59.000Z");
+  it("reads a server wall-clock date as UTC-8", () => {
+    expect(iso(readServerDate("2026-09-16T00:00:00")!)).toBe("2026-09-16T08:00:00.000Z");
+    expect(iso(readServerDate("2026-09-15T21:59:59")!)).toBe("2026-09-16T05:59:59.000Z");
+    expect(iso(readServerDate("2026-09-16")!)).toBe("2026-09-16T08:00:00.000Z");
+    expect(readServerDate(null)).toBeNull();
+    expect(readServerDate("16/09/2026")).toBeNull();
   });
 
-  it("moves to the next year for an end announced in December for January", () => {
-    const ends = endsOfSeason([patch("2025-12-20", "S40 will end at 23:59:59 on 1/5 (Server Time).")]);
-    expect(iso(ends[0].end)).toBe("2026-01-06T07:59:59.000Z");
+  // The real wordings, frozen here (patches 2.2.16 and 1.8.66): the synced
+  // notes only keep the latest patches in detail.
+  it("reads both wordings of a season bound in a patch note", () => {
+    const a = seasonAnnouncements([
+      patch(
+        "<li>S41 will end at 21:59:59 on September 15 (Server Time).</li><li>S42 will start from 00:00:00 on September 16 (Server Time).</li>",
+      ),
+      patch('<h3 id="ranked">[Ranked]</h3>\n<ol><li>S31 will end at 23:59:59 on 3/15 (Server Time).</li></ol>'),
+    ]);
+    expect(a.map((x) => [x.season, x.kind, x.month, x.day, x.hour])).toEqual([
+      [41, "end", 9, 15, 21],
+      [42, "start", 9, 16, 0],
+      [31, "end", 3, 15, 23],
+    ]);
   });
 
-  it("keeps only upcoming ends", () => {
-    const ends = endsOfSeason([patch("2024-03-05", "S31 will end at 23:59:59 on 3/15 (Server Time).")]);
-    expect(nextEndSeason(ends, t("2024-03-10T00:00:00Z"))?.season).toBe(31);
-    expect(nextEndSeason(ends, t("2026-09-11T00:00:00Z"))).toBeNull();
+  it("anchors an announcement's year on the season it follows, never on the patch date", () => {
+    const base = [{ season: 42, start: readServerDate("2026-09-16T00:00:00"), end: null, source: "https://s42" }];
+    const calendar = seasonCalendar(
+      base,
+      seasonAnnouncements([
+        patch("S42 will end at 21:59:59 on 12/15 (Server Time). S43 will start from 00:00:00 on 12/16 (Server Time)."),
+      ]),
+    );
+    expect(calendar.map((s) => [s.season, s.start && iso(s.start), s.end && iso(s.end)])).toEqual([
+      [42, "2026-09-16T08:00:00.000Z", "2026-12-16T05:59:59.000Z"],
+      [43, "2026-12-16T08:00:00.000Z", null],
+    ]);
+    // A season end in January follows a start in the autumn: next year.
+    const january = seasonCalendar(base, seasonAnnouncements([patch("S42 will end at 21:59:59 on 1/5 (Server Time).")]));
+    expect(iso(january[0].end!)).toBe("2027-01-06T05:59:59.000Z");
   });
 
-  // The synced notes only keep the latest patches in detail, so an announcement
-  // leaves the data once its patch is old enough: the real wording is frozen
-  // here (patch 1.8.66, "Ranked" section) instead of being read from the data.
-  it("finds a season end in the wording of a real patch note", () => {
-    const html =
-      '<h3 id="ranked"><span></span><span>[Ranked]</span></h3>\n<ol><li>S31 will end at 23:59:59 on 3/15 (Server Time).</li></ol>';
-    const ends = endsOfSeason([patch("2024-03-05", html)]);
-    expect(ends.map((f) => f.season)).toEqual([31]);
+  it("keeps the editorial dates and ignores old announcements", () => {
+    const calendar = seasonCalendar(
+      editorial,
+      seasonAnnouncements([
+        // An old note the wiki dates this year: it must not reopen season 38 or 34.
+        patch("S34 will end at 21:59:59 on 12/21 (Server Time). S38 will end at 21:59:59 on 12/17 (Server Time)."),
+        patch("S41 will end at 21:59:59 on 9/1 (Server Time)."),
+      ]),
+    );
+    expect(calendar.map((s) => s.season)).toEqual(editorial.map((s) => s.season));
+    expect(calendar.find((s) => s.season === 41)?.end).toBe(readServerDate("2026-09-15T21:59:59"));
+  });
+
+  it("finds the season under way and the next one", () => {
+    const calendar = seasonCalendar(
+      [
+        { season: 41, start: readServerDate("2026-06-17T00:00:00"), end: readServerDate("2026-09-15T21:59:59"), source: null },
+        { season: 42, start: readServerDate("2026-09-16T00:00:00"), end: null, source: null },
+      ],
+      [],
+    );
+    expect(currentSeason(calendar, t("2026-11-14T00:00:00Z"))?.season).toBe(42);
+    expect(currentSeason(calendar, t("2026-07-01T00:00:00Z"))?.season).toBe(41);
+    // Between the end of 41 (05:59:59 UTC) and the start of 42 (08:00 UTC).
+    expect(currentSeason(calendar, t("2026-09-16T07:00:00Z"))).toBeNull();
+    expect(nextSeason(calendar, t("2026-09-16T07:00:00Z"))?.season).toBe(42);
+    expect(nextSeason(calendar, t("2026-11-14T00:00:00Z"))).toBeNull();
+  });
+
+  it("keeps a valid editorial file: increasing seasons, dated sources, ends after starts", () => {
+    expect(seasonsData.checked).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    const seasons = seasonsData.seasons;
+    seasons.forEach((s, i) => {
+      if (i > 0) expect(s.season).toBe(seasons[i - 1].season + 1);
+      expect(readServerDate(s.start)).not.toBeNull();
+      if (s.end !== null) expect(readServerDate(s.end)!).toBeGreaterThan(readServerDate(s.start)!);
+      expect(s.source).toMatch(/^https:\/\//);
+    });
   });
 
   it("reads the synced notes without failing", () => {
-    for (const end of endsOfSeason(Object.values(patchDetails))) {
-      expect(Number.isInteger(end.season)).toBe(true);
-      expect(Number.isFinite(end.end)).toBe(true);
+    for (const s of seasonCalendar(editorial, seasonAnnouncements(Object.values(patchDetails)))) {
+      expect(Number.isInteger(s.season)).toBe(true);
+      if (s.start !== null) expect(Number.isFinite(s.start)).toBe(true);
+      if (s.end !== null) expect(Number.isFinite(s.end)).toBe(true);
     }
+  });
+});
+
+describe("world reset table", () => {
+  it("lists every main market once, with a valid time zone", () => {
+    const keys = COUNTRIES_WORLD.map((c) => `${c.country}-${c.timezone}`);
+    expect(new Set(keys).size).toBe(keys.length);
+    for (const country of ["PH", "ID", "MY", "SG", "TH", "VN", "MM", "KH", "BR", "FR", "RU", "TR", "IN", "JP"]) {
+      expect(COUNTRIES_WORLD.some((c) => c.country === country)).toBe(true);
+    }
+    expect(COUNTRIES_WORLD.filter((c) => c.country === "US")).toHaveLength(2);
+    for (const c of COUNTRIES_WORLD) expect(() => offsetTimezone(c.timezone, Date.now())).not.toThrow();
+  });
+
+  it("computes the local reset from Intl, daylight saving time included", () => {
+    // Daily reset at 08:00 UTC: 16:00 in Manila all year, 09:00 or 10:00 in Paris.
+    const winter = nextResetDaily(t("2026-01-10T00:00:00Z"));
+    const summer = nextResetDaily(t("2026-07-10T00:00:00Z"));
+    const hour = (ms: number, zone: string) =>
+      new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", hourCycle: "h23", timeZone: zone }).format(ms);
+    expect(hour(winter, "Asia/Manila")).toBe("16:00");
+    expect(hour(summer, "Asia/Manila")).toBe("16:00");
+    expect(hour(winter, "Europe/Paris")).toBe("09:00");
+    expect(hour(summer, "Europe/Paris")).toBe("10:00");
+    expect(hour(summer, "America/Los_Angeles")).toBe("01:00");
   });
 });

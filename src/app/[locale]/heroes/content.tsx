@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ExtendMessages } from "@/i18n/provider";
 import { serializeJsonLd } from "@/lib/html";
+import { FreeRotationTeaser } from "@/components/free-rotation-teaser";
 import { HeroList } from "@/components/hero-list";
 import { PageHeader } from "@/components/ui";
 import { allHeroes, heroAnalyses, countSkins } from "@/lib/data";
@@ -92,7 +93,9 @@ export function Heroes({ locale, page = 1 }: { locale: Locale; page?: number }) 
           skins: countSkins,
           analyses: heroAnalyses.length,
         })}
-      />
+      >
+        <FreeRotationTeaser locale={locale} className="mt-4 max-w-md" />
+      </PageHeader>
       <div className="mx-auto max-w-6xl px-4 pb-12 pt-4">
         <HeroList heroes={previews} page={page} />
       </div>

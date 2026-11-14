@@ -1,0 +1,30 @@
+{
+  "$comment": "Ranked season schedule, written by hand: see docs/editorial-data.md. Dates are SERVER time (UTC-8), written the way the patch notes write them, as YYYY-MM-DDTHH:MM:SS. When a patch note announces a season end or start, add it here with that patch note as source; leave end null until it is announced, never estimate it. For seasons after the last one listed here, the page also reads the announcements of the synced patch notes.",
+  "checked": "2026-11-14",
+  "seasons": [
+    {
+      "season": 39,
+      "start": "2025-12-18T00:00:00",
+      "end": "2026-03-10T21:59:59",
+      "source": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.61"
+    },
+    {
+      "season": 40,
+      "start": "2026-03-11T00:00:00",
+      "end": "2026-06-16T21:59:59",
+      "source": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.1.88"
+    },
+    {
+      "season": 41,
+      "start": "2026-06-17T00:00:00",
+      "end": "2026-09-15T21:59:59",
+      "source": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.16"
+    },
+    {
+      "season": 42,
+      "start": "2026-09-16T00:00:00",
+      "end": null,
+      "source": "https://mobilelegends.fandom.com/wiki/Patch_Notes_2.2.16"
+    }
+  ]
+}

@@ -12,7 +12,12 @@ import type { AdjustmentType } from "./types";
  */
 
 /** Daily win rate series, aligned on its start date; a missing day is null. */
-export type WinStreak = Pick<SeriesRate, "start" | "winRate" | "measuredSince">;
+export type WinStreak = Pick<SeriesRate, "start" | "winRate" | "measuredSince"> &
+  Partial<Pick<SeriesRate, "banRate" | "pickRate">>;
+
+/** The three rates a daily series carries, and so the three a week can move. */
+export type RateMeasure = "winRate" | "banRate" | "pickRate";
+export const RATE_MEASURES: readonly RateMeasure[] = ["winRate", "banRate", "pickRate"];
 
 const DAY_MS = 86_400_000;
 const time = (date: string) => Date.parse(`${date}T00:00:00Z`);
@@ -71,13 +76,13 @@ export interface Variation {
 }
 
 /**
- * Win rate change over a week: last measurement against the one from
- * D-7. Missing days are ignored; without a recent measurement, without a reference
- * at D-7 (within two days) or with too few measurements in between, no
- * trend rather than a made-up trend.
+ * Change of a rate over a week (the win rate unless told otherwise): last
+ * measurement against the one from D-7. Missing days are ignored; without a
+ * recent measurement, without a reference at D-7 (within two days) or with too
+ * few measurements in between, no trend rather than a made-up trend.
  */
-export function variationWeek(series: WinStreak | null | undefined): Variation | null {
-  const values = series?.winRate ?? [];
+export function variationWeek(series: WinStreak | null | undefined, rate: RateMeasure = "winRate"): Variation | null {
+  const values = series?.[rate] ?? [];
   const end = values.length - 1;
 
   let last = -1;
@@ -132,9 +137,10 @@ export interface Motion {
 export function movesWeek(
   entries: { slug: string; series?: WinStreak | null }[],
   count = 5,
+  measure: RateMeasure = "winRate",
 ): { rises: Motion[]; drops: Motion[] } {
   const notables = entries.flatMap(({ slug, series }) => {
-    const variation = variationWeek(series);
+    const variation = variationWeek(series, measure);
     return isNotable(variation) ? [{ slug, variation }] : [];
   });
   const rises = notables
@@ -329,4 +335,25 @@ export function describeGap(t: T, locale: string, gap: number, days: number): st
     unit: t(`trends.point.${plural(gap, locale)}`),
     n: days,
   });
+}
+
+// ── Meta movers ─────────────────────────────────────────────────────
+
+export interface MoversMeasure {
+  measure: RateMeasure;
+  rises: Motion[];
+  drops: Motion[];
+}
+
+/**
+ * The week's biggest moves on each of the three rates, measure by measure:
+ * a ban rate swings by points where a win rate moves by tenths, so the three
+ * are ranked apart rather than mixed in one list.
+ */
+export function moversWeek(
+  entries: { slug: string; series?: WinStreak | null }[],
+  count = 3,
+  measures: readonly RateMeasure[] = RATE_MEASURES,
+): MoversMeasure[] {
+  return measures.map((measure) => ({ measure, ...movesWeek(entries, count, measure) }));
 }

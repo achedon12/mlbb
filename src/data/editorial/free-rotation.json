@@ -1,0 +1,7 @@
+{
+  "$comment": "Free hero rotation of the week, written by hand every Monday: see docs/editorial-data.md. weekStart is the Monday the rotation starts on (YYYY-MM-DD, server time); heroes are exact slugs from src/data/game/heroes.json. Copy the list from the game or an official Moonton post only, never from memory: leave heroes empty rather than guess. The page and its teasers hide the list by themselves once weekStart is more than 10 days old.",
+  "weekStart": null,
+  "updated": null,
+  "source": null,
+  "heroes": []
+}

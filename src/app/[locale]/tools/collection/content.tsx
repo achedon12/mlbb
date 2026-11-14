@@ -89,6 +89,9 @@ export function Collection({ locale, page = 1 }: { locale: Locale; page?: number
               <Link href="/skins" className="font-semibold text-gold-400 hover:text-gold-500">
                 {t("pages.collection.skinsLink")} →
               </Link>
+              <Link href="/tools/account-value" className="font-semibold text-gold-400 hover:text-gold-500">
+                {t("pages.collection.accountValueLink")} →
+              </Link>
             </p>
           </div>
         </section>

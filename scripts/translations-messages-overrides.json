@@ -301,8 +301,8 @@
       "text": "Best streak"
     },
     "tools.serverTime.countriesOpen": {
-      "fr": "Afficher l'heure de la remise pays par pays",
-      "text": "Show the reset time country by country"
+      "fr": "Afficher d'autres pays, par langue du site",
+      "text": "Show more countries, by site language"
     },
     "pages.botUI.greetingsTitle": {
       "fr": "Bienvenue et départs",
@@ -2131,6 +2131,502 @@
     "pages.strategyPlannerUI.linkError": {
       "fr": "Copie impossible : copiez l'adresse de la page.",
       "text": "Copy failed: copy the page address instead."
+    },
+    "home.meta.moverRate.winRate": {
+      "fr": "Victoire",
+      "text": "Win"
+    },
+    "home.meta.moverRate.banRate": {
+      "fr": "Ban",
+      "text": "Ban"
+    },
+    "home.meta.moverRate.pickRate": {
+      "fr": "Pick",
+      "text": "Pick"
+    },
+    "home.meta.moverRateFull.winRate": {
+      "fr": "Taux de victoire",
+      "text": "Win rate"
+    },
+    "home.meta.moverRateFull.banRate": {
+      "fr": "Taux de ban",
+      "text": "Ban rate"
+    },
+    "home.meta.moverRateFull.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Pick rate"
+    },
+    "home.meta.moversAll": {
+      "fr": "Tous les mouvements de la semaine",
+      "text": "All of the week's moves"
+    },
+    "pages.meta.movers.title": {
+      "fr": "Bans et picks : ce qui bouge",
+      "text": "Bans and picks: who is moving"
+    },
+    "pages.meta.movers.lead": {
+      "fr": "Évolution des taux de ban et de pick sur sept jours, tous rangs confondus. Les écarts de moins de {threshold} point ne sont pas retenus.",
+      "text": "Seven-day change of the ban and pick rates, all ranks combined. Gaps under {threshold} points are left out."
+    },
+    "pages.meta.movers.banRate": {
+      "fr": "Taux de ban",
+      "text": "Ban rate"
+    },
+    "pages.meta.movers.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Pick rate"
+    },
+    "pages.meta.movers.unit.banRate": {
+      "fr": "% de bans",
+      "text": "% banned"
+    },
+    "pages.meta.movers.unit.pickRate": {
+      "fr": "% de picks",
+      "text": "% picked"
+    },
+    "tools.serverTime.seasonCurrent": {
+      "fr": "Saison {n} en cours",
+      "text": "Season {n} under way"
+    },
+    "tools.serverTime.seasonEnd": {
+      "fr": "Fin le {date} ({zone}).",
+      "text": "Ends on {date} ({zone})."
+    },
+    "tools.serverTime.seasonStart": {
+      "fr": "La saison {n} commence le {date} ({zone}).",
+      "text": "Season {n} starts on {date} ({zone})."
+    },
+    "tools.serverTime.seasonSince": {
+      "fr": "Commencée le {date}. Le compte à rebours s'affichera dès que le jeu datera la fin de saison dans ses notes de patch.",
+      "text": "Started on {date}. The countdown will show as soon as the game dates the season end in its patch notes."
+    },
+    "tools.serverTime.seasonEndUnknown": {
+      "fr": "Fin pas encore annoncée",
+      "text": "End not announced yet"
+    },
+    "tools.serverTime.group.world": {
+      "fr": "Principaux pays de MLBB",
+      "text": "MLBB's main countries"
+    },
+    "tools.serverTime.countriesIntro": {
+      "fr": "Heure locale de la prochaine remise dans les pays où l'on joue le plus à Mobile Legends. Le tableau suit l'heure d'été et se met à jour en direct.",
+      "text": "Local time of the next reset in the countries where Mobile Legends is played the most. The table follows daylight saving time and updates live."
+    },
+    "pages.serverTime.seasonsTitle": {
+      "fr": "Calendrier des saisons classées",
+      "text": "Ranked season schedule"
+    },
+    "pages.serverTime.seasonsCurrent": {
+      "fr": "La saison {n} est en cours.",
+      "text": "Season {n} is under way."
+    },
+    "pages.serverTime.seasonsBetween": {
+      "fr": "Aucune saison classée n'est en cours.",
+      "text": "No ranked season is under way."
+    },
+    "pages.serverTime.seasonsNext": {
+      "fr": "La saison {n} commencera le {date}.",
+      "text": "Season {n} will start on {date}."
+    },
+    "pages.serverTime.seasonsNextUnknown": {
+      "fr": "La date de la saison suivante n'est pas encore annoncée.",
+      "text": "The next season's date is not announced yet."
+    },
+    "pages.serverTime.seasonsCaption": {
+      "fr": "Début et fin des dernières saisons classées, à l'heure du serveur",
+      "text": "Start and end of the latest ranked seasons, in server time"
+    },
+    "pages.serverTime.colSeason": {
+      "fr": "Saison",
+      "text": "Season"
+    },
+    "pages.serverTime.colStart": {
+      "fr": "Début",
+      "text": "Start"
+    },
+    "pages.serverTime.colEnd": {
+      "fr": "Fin",
+      "text": "End"
+    },
+    "pages.serverTime.season": {
+      "fr": "Saison {n}",
+      "text": "Season {n}"
+    },
+    "pages.serverTime.live": {
+      "fr": "en cours",
+      "text": "under way"
+    },
+    "pages.serverTime.notAnnounced": {
+      "fr": "Pas encore annoncée",
+      "text": "Not announced yet"
+    },
+    "pages.serverTime.seasonsNote": {
+      "fr": "Dates à l'heure du serveur (UTC−8), relevées dans les notes de patch et vérifiées le {date}. Une saison dure environ trois mois, mais aucune date n'est estimée : une fin non annoncée reste vide.",
+      "text": "Dates in server time (UTC−8), read in the patch notes and checked on {date}. A season lasts about three months, but no date is estimated: an end that is not announced stays blank."
+    },
+    "pages.serverTime.sourcePatch": {
+      "fr": "Notes du patch {v} : dates de saison à l'heure du serveur",
+      "text": "Patch {v} notes: season dates in server time"
+    },
+    "pages.seo.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine MLBB",
+      "text": "MLBB free heroes of the week"
+    },
+    "pages.seo.freeRotation.description": {
+      "fr": "Les {n} héros gratuits de Mobile Legends pour la semaine du {date} : {heroes}… Rôles, liens vers leurs builds et leurs contres.",
+      "text": "The {n} free Mobile Legends heroes for the week of {date}: {heroes}… Roles, and links to their builds and counters."
+    },
+    "pages.seo.freeRotation.descriptionEmpty": {
+      "fr": "La rotation des héros gratuits de Mobile Legends : comment elle fonctionne, où la trouver dans le jeu, et la liste de la semaine dès qu'elle est relevée.",
+      "text": "The Mobile Legends free hero rotation: how it works, where to find it in the game, and this week's list as soon as it is recorded."
+    },
+    "pages.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine",
+      "text": "Free heroes of the week"
+    },
+    "pages.freeRotation.lead": {
+      "fr": "Chaque semaine, Mobile Legends prête une sélection de héros à tous les joueurs. La liste est relevée à la main dans le jeu, et disparaît d'elle-même quand elle n'est plus à jour.",
+      "text": "Every week, Mobile Legends lends a selection of heroes to every player. The list is copied by hand from the game, and hides itself once it is out of date."
+    },
+    "pages.freeRotation.teaser": {
+      "fr": "Héros gratuits cette semaine : {n}",
+      "text": "Free heroes this week: {n}"
+    },
+    "pages.freeRotation.week": {
+      "fr": "Semaine du {date}",
+      "text": "Week of {date}"
+    },
+    "pages.freeRotation.updated": {
+      "fr": "Mise à jour le {date}",
+      "text": "Updated on {date}"
+    },
+    "pages.freeRotation.listTitle": {
+      "fr": "La rotation de la semaine",
+      "text": "This week's rotation"
+    },
+    "pages.freeRotation.listLead": {
+      "fr": "{n} héros jouables sans les posséder jusqu'à la prochaine remise hebdomadaire.",
+      "text": "{n} heroes playable without owning them until the next weekly reset."
+    },
+    "pages.freeRotation.source": {
+      "fr": "Source de la liste",
+      "text": "Source of the list"
+    },
+    "pages.freeRotation.unavailableTitle": {
+      "fr": "La rotation de cette semaine n'est pas encore disponible",
+      "text": "This week's rotation is not available yet"
+    },
+    "pages.freeRotation.empty": {
+      "fr": "Aucune liste n'a encore été relevée. Nous préférons ne rien afficher plutôt que de deviner.",
+      "text": "No list has been recorded yet. We would rather show nothing than guess."
+    },
+    "pages.freeRotation.stale": {
+      "fr": "La dernière liste relevée date de la semaine du {date} : passé {days} jours, elle n'est plus affichée, pour ne pas faire passer une ancienne rotation pour celle de cette semaine.",
+      "text": "The last recorded list is from the week of {date}: past {days} days it is no longer shown, so that an old rotation does not pass for this week's."
+    },
+    "pages.freeRotation.inGame": {
+      "fr": "Dans le jeu, les héros gratuits de la semaine sont signalés dans la liste des héros et sur l'écran de sélection.",
+      "text": "In the game, the week's free heroes are marked in the hero list and on the selection screen."
+    },
+    "pages.freeRotation.howTitle": {
+      "fr": "Comment fonctionne la rotation",
+      "text": "How the rotation works"
+    },
+    "pages.freeRotation.how1": {
+      "fr": "La sélection change chaque semaine, à la remise hebdomadaire du lundi à 00:00 heure serveur. Les héros prêtés se jouent comme les vôtres dans les modes non classés : c'est l'occasion d'essayer un rôle ou un héros avant de le débloquer.",
+      "text": "The selection changes every week, at the weekly reset on Monday at 00:00 server time. Lent heroes play like your own in the unranked modes: a chance to try a role or a hero before unlocking it."
+    },
+    "pages.freeRotation.how2": {
+      "fr": "Les parties classées demandent de posséder le héros. Avant d'en acheter un, sa fiche donne ses builds, ses contres et son taux de victoire au patch actuel.",
+      "text": "Ranked games require owning the hero. Before buying one, its page gives its builds, counters and win rate at the current patch."
+    },
+    "pages.freeRotation.heroesLink": {
+      "fr": "Tous les héros",
+      "text": "All heroes"
+    },
+    "pages.freeRotation.tierListLink": {
+      "fr": "La tier list du patch",
+      "text": "The patch tier list"
+    },
+    "pages.freeRotation.resetLink": {
+      "fr": "Heure de la remise hebdomadaire",
+      "text": "Weekly reset time"
+    },
+    "pages.seo.accountValue.title": {
+      "fr": "Estimation de la valeur d'un compte MLBB",
+      "text": "MLBB account value estimator"
+    },
+    "pages.seo.accountValue.description": {
+      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "How much did your Mobile Legends collection cost? Count your skins by tier ({skins} skins covered) and get an order of magnitude in diamonds, USD, EUR, PHP, IDR and MYR, with the method shown."
+    },
+    "pages.accountValue.title": {
+      "fr": "Valeur estimée d'un compte",
+      "text": "Account value estimator"
+    },
+    "pages.accountValue.lead": {
+      "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
+      "text": "What a skin collection cost, in diamonds and in money, and the indicative range of a comparable account. An order of magnitude, never a price: the method is detailed below the tool."
+    },
+    "pages.accountValue.warning": {
+      "fr": "Acheter, vendre ou échanger un compte enfreint les conditions d'utilisation de Moonton : le compte peut être banni ou récupéré par son ancien propriétaire, et les arnaques sont fréquentes. Cette estimation sert à mesurer ce qu'une collection a coûté, pas à fixer un prix. Rien n'est envoyé à un serveur.",
+      "text": "Buying, selling or trading an account breaks Moonton's terms of service: the account can be banned or taken back by its former owner, and scams are common. This estimate measures what a collection cost; it does not set a price. Nothing is sent to a server."
+    },
+    "pages.accountValue.methodTitle": {
+      "fr": "La méthode, chiffre par chiffre",
+      "text": "The method, figure by figure"
+    },
+    "pages.accountValue.methodCost": {
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
+      "text": "Each skin counts for the typical cost of its tier. For shop skins, that is the median diamond price of the tier's skins, read in the game data. Skins obtained through draws or passes have no price: they take an estimated, rounded average cost, which varies a lot from one event and one player to the next."
+    },
+    "pages.accountValue.tableCaption": {
+      "fr": "Coût compté par skin, par catégorie",
+      "text": "Cost counted per skin, by tier"
+    },
+    "pages.accountValue.colTier": {
+      "fr": "Catégorie",
+      "text": "Tier"
+    },
+    "pages.accountValue.colSkins": {
+      "fr": "Skins",
+      "text": "Skins"
+    },
+    "pages.accountValue.colCost": {
+      "fr": "Diamants par skin",
+      "text": "Diamonds per skin"
+    },
+    "pages.accountValue.colBasis": {
+      "fr": "Origine du coût",
+      "text": "Where the cost comes from"
+    },
+    "pages.accountValue.basisShop": {
+      "fr": "Prix médian en boutique ({n} prix relevés)",
+      "text": "Median shop price ({n} prices read)"
+    },
+    "pages.accountValue.basisDraw": {
+      "fr": "Estimation du coût d'un tirage ou d'un passe",
+      "text": "Estimated draw or pass cost"
+    },
+    "pages.accountValue.methodMoney": {
+      "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
+      "text": "Diamonds are converted to dollars at the price of a usual top-up, without first top-up bonus: {usd} USD per diamond, or {per100} USD per hundred. Diamonds still on the account are added to the total."
+    },
+    "pages.accountValue.methodResale": {
+      "fr": "La fourchette de revente part de {low} à {high} de ce coût : un compte se cède rarement au prix de ce qui y a été dépensé. Elle est ensuite multipliée par quatre facteurs :",
+      "text": "The resale range starts at {low} to {high} of that cost: an account rarely changes hands for what was spent on it. It is then multiplied by four factors:"
+    },
+    "pages.accountValue.factorRank": {
+      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "text": "the highest rank reached, from ×{low} (Warrior) to ×{high} (Mythical Immortal);"
+    },
+    "pages.accountValue.factorHeroes": {
+      "fr": "la part des héros possédés, de ×{low} (aucun) à ×{high} (tous) ;",
+      "text": "the share of heroes owned, from ×{low} (none) to ×{high} (all);"
+    },
+    "pages.accountValue.factorEmblems": {
+      "fr": "les emblèmes au niveau maximum, +{per} chacun, sur {n} ;",
+      "text": "emblems at the maximum level, +{per} each, out of {n};"
+    },
+    "pages.accountValue.factorBinding": {
+      "fr": "la liaison du compte : un compte Moonton se transfère, un compte lié seulement à un réseau social compte ×{social}, un compte invité, sans liaison, ne se transfère pas du tout.",
+      "text": "the account binding: a Moonton account can be transferred, one bound only to a social network counts ×{social}, and a guest account, with no binding, cannot be transferred at all."
+    },
+    "pages.accountValue.methodLimits": {
+      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "text": "Amounts are rounded to two significant figures. Not counted: the heroes themselves, mostly bought with battle points, server-limited skins, cosmetics (effects, emotes, frames) and match history. A real market also depends on the demand of the moment, which nothing here measures."
+    },
+    "pages.accountValue.ratesTitle": {
+      "fr": "Taux de change",
+      "text": "Exchange rates"
+    },
+    "pages.accountValue.ratesLead": {
+      "fr": "Taux fixes, relevés le {date} et arrondis : ils servent à donner un ordre de grandeur dans votre monnaie, pas à faire une conversion exacte.",
+      "text": "Fixed rates, read on {date} and rounded: they give an order of magnitude in your currency, not an exact conversion."
+    },
+    "pages.accountValue.ratesSource": {
+      "fr": "Source des taux",
+      "text": "Source of the rates"
+    },
+    "pages.accountValue.checked": {
+      "fr": "hypothèses vérifiées le {date}",
+      "text": "assumptions checked on {date}"
+    },
+    "pages.accountValue.methodPrivacy": {
+      "fr": "Le calcul se fait dans votre navigateur. Les nombres saisis sont écrits dans l'adresse de la page pour pouvoir partager le résultat : aucun nom, aucun identifiant de compte, rien n'est enregistré sur un serveur.",
+      "text": "The calculation runs in your browser. The numbers you type are written into the page address so the result can be shared: no name, no account ID, nothing is stored on a server."
+    },
+    "pages.accountValue.collectionLink": {
+      "fr": "Cocher sa collection skin par skin",
+      "text": "Tick your collection skin by skin"
+    },
+    "pages.collection.accountValueLink": {
+      "fr": "Estimer la valeur d'un compte",
+      "text": "Estimate an account's value"
+    },
+    "pages.accountValueUI.costTitle": {
+      "fr": "Coût estimé de la collection",
+      "text": "Estimated cost of the collection"
+    },
+    "pages.accountValueUI.resaleTitle": {
+      "fr": "Fourchette indicative d'un compte comparable",
+      "text": "Indicative range for a comparable account"
+    },
+    "pages.accountValueUI.range": {
+      "fr": "{low} à {high}",
+      "text": "{low} to {high}"
+    },
+    "pages.accountValueUI.resaleUnbound": {
+      "fr": "Un compte invité, sans liaison, ne peut pas changer de main : pas de fourchette.",
+      "text": "A guest account, with no binding, cannot change hands: no range."
+    },
+    "pages.accountValueUI.resaleEmpty": {
+      "fr": "Indiquez vos skins ou vos diamants pour voir une fourchette.",
+      "text": "Enter your skins or diamonds to see a range."
+    },
+    "pages.accountValueUI.currency": {
+      "fr": "Monnaie",
+      "text": "Currency"
+    },
+    "pages.accountValueUI.indicative": {
+      "fr": "Ordre de grandeur arrondi, jamais un prix. Taux de change fixes du {date}. La méthode est détaillée plus bas.",
+      "text": "Rounded order of magnitude, never a price. Fixed exchange rates of {date}. The method is detailed below."
+    },
+    "pages.accountValueUI.share": {
+      "fr": "Partager le résultat",
+      "text": "Share the result"
+    },
+    "pages.accountValueUI.reset": {
+      "fr": "Tout effacer",
+      "text": "Clear all"
+    },
+    "pages.accountValueUI.share_copied": {
+      "fr": "Lien copié.",
+      "text": "Link copied."
+    },
+    "pages.accountValueUI.share_shared": {
+      "fr": "Résultat partagé.",
+      "text": "Result shared."
+    },
+    "pages.accountValueUI.share_failed": {
+      "fr": "Le partage a échoué.",
+      "text": "Sharing failed."
+    },
+    "pages.accountValueUI.shareText": {
+      "fr": "Ma collection MLBB a coûté environ {cost} ; un compte comparable : {low} à {high} (estimation indicative).",
+      "text": "My MLBB collection cost about {cost}; a comparable account: {low} to {high} (indicative estimate)."
+    },
+    "pages.accountValueUI.shareTextCost": {
+      "fr": "Ma collection MLBB a coûté environ {cost} (estimation indicative).",
+      "text": "My MLBB collection cost about {cost} (indicative estimate)."
+    },
+    "pages.accountValueUI.resultTitle": {
+      "fr": "Valeur estimée de mon compte MLBB",
+      "text": "My MLBB account's estimated value"
+    },
+    "pages.accountValueUI.importLead": {
+      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
+      "text": "A collection is saved in this browser by the collection tool."
+    },
+    "pages.accountValueUI.import": {
+      "fr": "Reprendre ma collection",
+      "text": "Use my collection"
+    },
+    "pages.accountValueUI.import_done": {
+      "fr": "Skins et héros repris de votre collection.",
+      "text": "Skins and heroes taken from your collection."
+    },
+    "pages.accountValueUI.import_failed": {
+      "fr": "Impossible de charger le catalogue des skins. Réessayez.",
+      "text": "The skin catalogue could not be loaded. Try again."
+    },
+    "pages.accountValueUI.skinsTitle": {
+      "fr": "Vos skins, par catégorie",
+      "text": "Your skins, by tier"
+    },
+    "pages.accountValueUI.tier.basic": {
+      "fr": "Basiques",
+      "text": "Basic"
+    },
+    "pages.accountValueUI.tier.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.accountValueUI.tier.special": {
+      "fr": "Spéciaux",
+      "text": "Special"
+    },
+    "pages.accountValueUI.tier.epic": {
+      "fr": "Épiques",
+      "text": "Epic"
+    },
+    "pages.accountValueUI.tier.starlight": {
+      "fr": "StarLight",
+      "text": "StarLight"
+    },
+    "pages.accountValueUI.tier.other": {
+      "fr": "Événements et saisonniers",
+      "text": "Events and seasonal"
+    },
+    "pages.accountValueUI.tier.collector": {
+      "fr": "Collector",
+      "text": "Collector"
+    },
+    "pages.accountValueUI.tier.grand": {
+      "fr": "Collaborations et premium",
+      "text": "Collabs and premium"
+    },
+    "pages.accountValueUI.tier.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.accountValueUI.costShop": {
+      "fr": "≈ {n} diamants l'un (boutique)",
+      "text": "≈ {n} diamonds each (shop)"
+    },
+    "pages.accountValueUI.costDraw": {
+      "fr": "≈ {n} diamants l'un (tirage estimé)",
+      "text": "≈ {n} diamonds each (estimated draw)"
+    },
+    "pages.accountValueUI.accountTitle": {
+      "fr": "Votre compte",
+      "text": "Your account"
+    },
+    "pages.accountValueUI.rank": {
+      "fr": "Rang le plus haut atteint",
+      "text": "Highest rank reached"
+    },
+    "pages.accountValueUI.heroes": {
+      "fr": "Héros possédés",
+      "text": "Heroes owned"
+    },
+    "pages.accountValueUI.emblems": {
+      "fr": "Emblèmes au niveau max",
+      "text": "Emblems at max level"
+    },
+    "pages.accountValueUI.diamonds": {
+      "fr": "Diamants sur le compte",
+      "text": "Diamonds on the account"
+    },
+    "pages.accountValueUI.diamondsHint": {
+      "fr": "Le solde actuel, pas ce qui a été dépensé.",
+      "text": "The current balance, not what was spent."
+    },
+    "pages.accountValueUI.binding": {
+      "fr": "Liaison",
+      "text": "Binding"
+    },
+    "pages.accountValueUI.bindingValue.moonton": {
+      "fr": "Compte Moonton",
+      "text": "Moonton account"
+    },
+    "pages.accountValueUI.bindingValue.social": {
+      "fr": "Réseau social seul",
+      "text": "Social network only"
+    },
+    "pages.accountValueUI.bindingValue.none": {
+      "fr": "Invité, sans liaison",
+      "text": "Guest, unbound"
     }
   },
   "es": {
@@ -2411,8 +2907,8 @@
       "text": "Mostrar los {n} héroes del nivel {p}"
     },
     "tools.serverTime.countriesOpen": {
-      "fr": "Afficher l'heure de la remise pays par pays",
-      "text": "Mostrar la hora del reinicio país por país"
+      "fr": "Afficher d'autres pays, par langue du site",
+      "text": "Mostrar más países, por idioma del sitio"
     },
     "pages.botUI.greetingsTitle": {
       "fr": "Bienvenue et départs",
@@ -4085,6 +4581,502 @@
     "pages.strategyPlannerUI.linkError": {
       "fr": "Copie impossible : copiez l'adresse de la page.",
       "text": "No se pudo copiar: copia la dirección de la página."
+    },
+    "home.meta.moverRate.winRate": {
+      "fr": "Victoire",
+      "text": "Victoria"
+    },
+    "home.meta.moverRate.banRate": {
+      "fr": "Ban",
+      "text": "Ban"
+    },
+    "home.meta.moverRate.pickRate": {
+      "fr": "Pick",
+      "text": "Pick"
+    },
+    "home.meta.moverRateFull.winRate": {
+      "fr": "Taux de victoire",
+      "text": "Tasa de victoria"
+    },
+    "home.meta.moverRateFull.banRate": {
+      "fr": "Taux de ban",
+      "text": "Tasa de baneo"
+    },
+    "home.meta.moverRateFull.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Tasa de selección"
+    },
+    "home.meta.moversAll": {
+      "fr": "Tous les mouvements de la semaine",
+      "text": "Todos los movimientos de la semana"
+    },
+    "pages.meta.movers.title": {
+      "fr": "Bans et picks : ce qui bouge",
+      "text": "Baneos y selecciones: quién se mueve"
+    },
+    "pages.meta.movers.lead": {
+      "fr": "Évolution des taux de ban et de pick sur sept jours, tous rangs confondus. Les écarts de moins de {threshold} point ne sont pas retenus.",
+      "text": "Evolución de las tasas de baneo y de selección en siete días, todos los rangos juntos. Las diferencias de menos de {threshold} puntos no se tienen en cuenta."
+    },
+    "pages.meta.movers.banRate": {
+      "fr": "Taux de ban",
+      "text": "Tasa de baneo"
+    },
+    "pages.meta.movers.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Tasa de selección"
+    },
+    "pages.meta.movers.unit.banRate": {
+      "fr": "% de bans",
+      "text": "% de baneos"
+    },
+    "pages.meta.movers.unit.pickRate": {
+      "fr": "% de picks",
+      "text": "% de selecciones"
+    },
+    "tools.serverTime.seasonCurrent": {
+      "fr": "Saison {n} en cours",
+      "text": "Temporada {n} en curso"
+    },
+    "tools.serverTime.seasonEnd": {
+      "fr": "Fin le {date} ({zone}).",
+      "text": "Termina el {date} ({zone})."
+    },
+    "tools.serverTime.seasonStart": {
+      "fr": "La saison {n} commence le {date} ({zone}).",
+      "text": "La temporada {n} empieza el {date} ({zone})."
+    },
+    "tools.serverTime.seasonSince": {
+      "fr": "Commencée le {date}. Le compte à rebours s'affichera dès que le jeu datera la fin de saison dans ses notes de patch.",
+      "text": "Empezó el {date}. La cuenta atrás aparecerá en cuanto el juego indique el final de temporada en sus notas del parche."
+    },
+    "tools.serverTime.seasonEndUnknown": {
+      "fr": "Fin pas encore annoncée",
+      "text": "Final aún no anunciado"
+    },
+    "tools.serverTime.group.world": {
+      "fr": "Principaux pays de MLBB",
+      "text": "Principales países de MLBB"
+    },
+    "tools.serverTime.countriesIntro": {
+      "fr": "Heure locale de la prochaine remise dans les pays où l'on joue le plus à Mobile Legends. Le tableau suit l'heure d'été et se met à jour en direct.",
+      "text": "Hora local del próximo reinicio en los países donde más se juega a Mobile Legends. La tabla sigue el horario de verano y se actualiza en directo."
+    },
+    "pages.serverTime.seasonsTitle": {
+      "fr": "Calendrier des saisons classées",
+      "text": "Calendario de temporadas clasificatorias"
+    },
+    "pages.serverTime.seasonsCurrent": {
+      "fr": "La saison {n} est en cours.",
+      "text": "La temporada {n} está en curso."
+    },
+    "pages.serverTime.seasonsBetween": {
+      "fr": "Aucune saison classée n'est en cours.",
+      "text": "No hay ninguna temporada clasificatoria en curso."
+    },
+    "pages.serverTime.seasonsNext": {
+      "fr": "La saison {n} commencera le {date}.",
+      "text": "La temporada {n} empezará el {date}."
+    },
+    "pages.serverTime.seasonsNextUnknown": {
+      "fr": "La date de la saison suivante n'est pas encore annoncée.",
+      "text": "La fecha de la próxima temporada aún no se ha anunciado."
+    },
+    "pages.serverTime.seasonsCaption": {
+      "fr": "Début et fin des dernières saisons classées, à l'heure du serveur",
+      "text": "Inicio y final de las últimas temporadas clasificatorias, en hora del servidor"
+    },
+    "pages.serverTime.colSeason": {
+      "fr": "Saison",
+      "text": "Temporada"
+    },
+    "pages.serverTime.colStart": {
+      "fr": "Début",
+      "text": "Inicio"
+    },
+    "pages.serverTime.colEnd": {
+      "fr": "Fin",
+      "text": "Final"
+    },
+    "pages.serverTime.season": {
+      "fr": "Saison {n}",
+      "text": "Temporada {n}"
+    },
+    "pages.serverTime.live": {
+      "fr": "en cours",
+      "text": "en curso"
+    },
+    "pages.serverTime.notAnnounced": {
+      "fr": "Pas encore annoncée",
+      "text": "Aún no anunciada"
+    },
+    "pages.serverTime.seasonsNote": {
+      "fr": "Dates à l'heure du serveur (UTC−8), relevées dans les notes de patch et vérifiées le {date}. Une saison dure environ trois mois, mais aucune date n'est estimée : une fin non annoncée reste vide.",
+      "text": "Fechas en hora del servidor (UTC−8), tomadas de las notas del parche y comprobadas el {date}. Una temporada dura unos tres meses, pero ninguna fecha es estimada: un final no anunciado queda vacío."
+    },
+    "pages.serverTime.sourcePatch": {
+      "fr": "Notes du patch {v} : dates de saison à l'heure du serveur",
+      "text": "Notas del parche {v}: fechas de temporada en hora del servidor"
+    },
+    "pages.seo.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine MLBB",
+      "text": "Héroes gratis de la semana en MLBB"
+    },
+    "pages.seo.freeRotation.description": {
+      "fr": "Les {n} héros gratuits de Mobile Legends pour la semaine du {date} : {heroes}… Rôles, liens vers leurs builds et leurs contres.",
+      "text": "Los {n} héroes gratis de Mobile Legends de la semana del {date}: {heroes}… Roles y enlaces a sus builds y counters."
+    },
+    "pages.seo.freeRotation.descriptionEmpty": {
+      "fr": "La rotation des héros gratuits de Mobile Legends : comment elle fonctionne, où la trouver dans le jeu, et la liste de la semaine dès qu'elle est relevée.",
+      "text": "La rotación de héroes gratis de Mobile Legends: cómo funciona, dónde verla en el juego y la lista de la semana en cuanto se registra."
+    },
+    "pages.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine",
+      "text": "Héroes gratis de la semana"
+    },
+    "pages.freeRotation.lead": {
+      "fr": "Chaque semaine, Mobile Legends prête une sélection de héros à tous les joueurs. La liste est relevée à la main dans le jeu, et disparaît d'elle-même quand elle n'est plus à jour.",
+      "text": "Cada semana, Mobile Legends presta una selección de héroes a todos los jugadores. La lista se copia a mano del juego y se oculta sola cuando deja de estar al día."
+    },
+    "pages.freeRotation.teaser": {
+      "fr": "Héros gratuits cette semaine : {n}",
+      "text": "Héroes gratis esta semana: {n}"
+    },
+    "pages.freeRotation.week": {
+      "fr": "Semaine du {date}",
+      "text": "Semana del {date}"
+    },
+    "pages.freeRotation.updated": {
+      "fr": "Mise à jour le {date}",
+      "text": "Actualizada el {date}"
+    },
+    "pages.freeRotation.listTitle": {
+      "fr": "La rotation de la semaine",
+      "text": "La rotación de la semana"
+    },
+    "pages.freeRotation.listLead": {
+      "fr": "{n} héros jouables sans les posséder jusqu'à la prochaine remise hebdomadaire.",
+      "text": "{n} héroes jugables sin tenerlos hasta el próximo reinicio semanal."
+    },
+    "pages.freeRotation.source": {
+      "fr": "Source de la liste",
+      "text": "Fuente de la lista"
+    },
+    "pages.freeRotation.unavailableTitle": {
+      "fr": "La rotation de cette semaine n'est pas encore disponible",
+      "text": "La rotación de esta semana aún no está disponible"
+    },
+    "pages.freeRotation.empty": {
+      "fr": "Aucune liste n'a encore été relevée. Nous préférons ne rien afficher plutôt que de deviner.",
+      "text": "Todavía no se ha registrado ninguna lista. Preferimos no mostrar nada antes que adivinar."
+    },
+    "pages.freeRotation.stale": {
+      "fr": "La dernière liste relevée date de la semaine du {date} : passé {days} jours, elle n'est plus affichée, pour ne pas faire passer une ancienne rotation pour celle de cette semaine.",
+      "text": "La última lista registrada es de la semana del {date}: pasados {days} días deja de mostrarse, para que una rotación antigua no pase por la de esta semana."
+    },
+    "pages.freeRotation.inGame": {
+      "fr": "Dans le jeu, les héros gratuits de la semaine sont signalés dans la liste des héros et sur l'écran de sélection.",
+      "text": "En el juego, los héroes gratis de la semana aparecen señalados en la lista de héroes y en la pantalla de selección."
+    },
+    "pages.freeRotation.howTitle": {
+      "fr": "Comment fonctionne la rotation",
+      "text": "Cómo funciona la rotación"
+    },
+    "pages.freeRotation.how1": {
+      "fr": "La sélection change chaque semaine, à la remise hebdomadaire du lundi à 00:00 heure serveur. Les héros prêtés se jouent comme les vôtres dans les modes non classés : c'est l'occasion d'essayer un rôle ou un héros avant de le débloquer.",
+      "text": "La selección cambia cada semana, en el reinicio semanal del lunes a las 00:00 hora del servidor. Los héroes prestados se juegan como los tuyos en los modos no clasificatorios: una ocasión para probar un rol o un héroe antes de desbloquearlo."
+    },
+    "pages.freeRotation.how2": {
+      "fr": "Les parties classées demandent de posséder le héros. Avant d'en acheter un, sa fiche donne ses builds, ses contres et son taux de victoire au patch actuel.",
+      "text": "Las partidas clasificatorias exigen tener el héroe. Antes de comprar uno, su ficha muestra sus builds, sus counters y su tasa de victoria en el parche actual."
+    },
+    "pages.freeRotation.heroesLink": {
+      "fr": "Tous les héros",
+      "text": "Todos los héroes"
+    },
+    "pages.freeRotation.tierListLink": {
+      "fr": "La tier list du patch",
+      "text": "La tier list del parche"
+    },
+    "pages.freeRotation.resetLink": {
+      "fr": "Heure de la remise hebdomadaire",
+      "text": "Hora del reinicio semanal"
+    },
+    "pages.seo.accountValue.title": {
+      "fr": "Estimation de la valeur d'un compte MLBB",
+      "text": "Estimador del valor de una cuenta de MLBB"
+    },
+    "pages.seo.accountValue.description": {
+      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "¿Cuánto costó tu colección de Mobile Legends? Cuenta tus skins por categoría ({skins} skins cubiertas) y obtén un orden de magnitud en diamantes, USD, EUR, PHP, IDR y MYR, con el método a la vista."
+    },
+    "pages.accountValue.title": {
+      "fr": "Valeur estimée d'un compte",
+      "text": "Valor estimado de una cuenta"
+    },
+    "pages.accountValue.lead": {
+      "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
+      "text": "Lo que costó una colección de skins, en diamantes y en dinero, y el rango orientativo de una cuenta comparable. Un orden de magnitud, nunca un precio: el método se detalla bajo la herramienta."
+    },
+    "pages.accountValue.warning": {
+      "fr": "Acheter, vendre ou échanger un compte enfreint les conditions d'utilisation de Moonton : le compte peut être banni ou récupéré par son ancien propriétaire, et les arnaques sont fréquentes. Cette estimation sert à mesurer ce qu'une collection a coûté, pas à fixer un prix. Rien n'est envoyé à un serveur.",
+      "text": "Comprar, vender o intercambiar una cuenta incumple los términos de servicio de Moonton: la cuenta puede ser baneada o recuperada por su antiguo dueño, y las estafas son frecuentes. Esta estimación mide lo que costó una colección, no fija un precio. No se envía nada a ningún servidor."
+    },
+    "pages.accountValue.methodTitle": {
+      "fr": "La méthode, chiffre par chiffre",
+      "text": "El método, cifra a cifra"
+    },
+    "pages.accountValue.methodCost": {
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
+      "text": "Cada skin cuenta por el coste típico de su categoría. Para las skins de la tienda, es el precio mediano en diamantes de las skins de la categoría, tomado de los datos del juego. Las skins de sorteos o pases no tienen precio: toman un coste medio estimado y redondeado, que varía mucho de un evento y de un jugador a otro."
+    },
+    "pages.accountValue.tableCaption": {
+      "fr": "Coût compté par skin, par catégorie",
+      "text": "Coste contado por skin, por categoría"
+    },
+    "pages.accountValue.colTier": {
+      "fr": "Catégorie",
+      "text": "Categoría"
+    },
+    "pages.accountValue.colSkins": {
+      "fr": "Skins",
+      "text": "Skins"
+    },
+    "pages.accountValue.colCost": {
+      "fr": "Diamants par skin",
+      "text": "Diamantes por skin"
+    },
+    "pages.accountValue.colBasis": {
+      "fr": "Origine du coût",
+      "text": "Origen del coste"
+    },
+    "pages.accountValue.basisShop": {
+      "fr": "Prix médian en boutique ({n} prix relevés)",
+      "text": "Precio mediano en la tienda ({n} precios registrados)"
+    },
+    "pages.accountValue.basisDraw": {
+      "fr": "Estimation du coût d'un tirage ou d'un passe",
+      "text": "Estimación del coste de un sorteo o un pase"
+    },
+    "pages.accountValue.methodMoney": {
+      "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
+      "text": "Los diamantes se convierten a dólares al precio de una recarga habitual, sin bono de primera recarga: {usd} USD por diamante, es decir {per100} USD por cada cien. Los diamantes que quedan en la cuenta se suman al total."
+    },
+    "pages.accountValue.methodResale": {
+      "fr": "La fourchette de revente part de {low} à {high} de ce coût : un compte se cède rarement au prix de ce qui y a été dépensé. Elle est ensuite multipliée par quatre facteurs :",
+      "text": "El rango de reventa parte del {low} al {high} de ese coste: una cuenta rara vez cambia de manos por lo que se gastó en ella. Después se multiplica por cuatro factores:"
+    },
+    "pages.accountValue.factorRank": {
+      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "text": "el rango más alto alcanzado, de ×{low} (Guerrero) a ×{high} (Inmortal mítico);"
+    },
+    "pages.accountValue.factorHeroes": {
+      "fr": "la part des héros possédés, de ×{low} (aucun) à ×{high} (tous) ;",
+      "text": "la proporción de héroes que tienes, de ×{low} (ninguno) a ×{high} (todos);"
+    },
+    "pages.accountValue.factorEmblems": {
+      "fr": "les emblèmes au niveau maximum, +{per} chacun, sur {n} ;",
+      "text": "los emblemas al nivel máximo, +{per} cada uno, de {n};"
+    },
+    "pages.accountValue.factorBinding": {
+      "fr": "la liaison du compte : un compte Moonton se transfère, un compte lié seulement à un réseau social compte ×{social}, un compte invité, sans liaison, ne se transfère pas du tout.",
+      "text": "la vinculación de la cuenta: una cuenta Moonton se puede transferir, una vinculada solo a una red social cuenta ×{social} y una cuenta de invitado, sin vincular, no se puede transferir."
+    },
+    "pages.accountValue.methodLimits": {
+      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "text": "Los importes se redondean a dos cifras significativas. No se cuentan: los propios héroes, comprados casi siempre con puntos de batalla, las skins limitadas a un servidor, los cosméticos (efectos, emotes, marcos) ni el historial de partidas. Un mercado real depende también de la demanda del momento, que aquí nada mide."
+    },
+    "pages.accountValue.ratesTitle": {
+      "fr": "Taux de change",
+      "text": "Tipos de cambio"
+    },
+    "pages.accountValue.ratesLead": {
+      "fr": "Taux fixes, relevés le {date} et arrondis : ils servent à donner un ordre de grandeur dans votre monnaie, pas à faire une conversion exacte.",
+      "text": "Tipos fijos, tomados el {date} y redondeados: sirven para dar un orden de magnitud en tu moneda, no una conversión exacta."
+    },
+    "pages.accountValue.ratesSource": {
+      "fr": "Source des taux",
+      "text": "Fuente de los tipos"
+    },
+    "pages.accountValue.checked": {
+      "fr": "hypothèses vérifiées le {date}",
+      "text": "hipótesis comprobadas el {date}"
+    },
+    "pages.accountValue.methodPrivacy": {
+      "fr": "Le calcul se fait dans votre navigateur. Les nombres saisis sont écrits dans l'adresse de la page pour pouvoir partager le résultat : aucun nom, aucun identifiant de compte, rien n'est enregistré sur un serveur.",
+      "text": "El cálculo se hace en tu navegador. Los números que escribes se guardan en la dirección de la página para poder compartir el resultado: ningún nombre, ningún ID de cuenta, nada se guarda en un servidor."
+    },
+    "pages.accountValue.collectionLink": {
+      "fr": "Cocher sa collection skin par skin",
+      "text": "Marca tu colección skin a skin"
+    },
+    "pages.collection.accountValueLink": {
+      "fr": "Estimer la valeur d'un compte",
+      "text": "Estimar el valor de una cuenta"
+    },
+    "pages.accountValueUI.costTitle": {
+      "fr": "Coût estimé de la collection",
+      "text": "Coste estimado de la colección"
+    },
+    "pages.accountValueUI.resaleTitle": {
+      "fr": "Fourchette indicative d'un compte comparable",
+      "text": "Rango orientativo de una cuenta comparable"
+    },
+    "pages.accountValueUI.range": {
+      "fr": "{low} à {high}",
+      "text": "de {low} a {high}"
+    },
+    "pages.accountValueUI.resaleUnbound": {
+      "fr": "Un compte invité, sans liaison, ne peut pas changer de main : pas de fourchette.",
+      "text": "Una cuenta de invitado, sin vincular, no puede cambiar de manos: sin rango."
+    },
+    "pages.accountValueUI.resaleEmpty": {
+      "fr": "Indiquez vos skins ou vos diamants pour voir une fourchette.",
+      "text": "Indica tus skins o tus diamantes para ver un rango."
+    },
+    "pages.accountValueUI.currency": {
+      "fr": "Monnaie",
+      "text": "Moneda"
+    },
+    "pages.accountValueUI.indicative": {
+      "fr": "Ordre de grandeur arrondi, jamais un prix. Taux de change fixes du {date}. La méthode est détaillée plus bas.",
+      "text": "Orden de magnitud redondeado, nunca un precio. Tipos de cambio fijos del {date}. El método se detalla más abajo."
+    },
+    "pages.accountValueUI.share": {
+      "fr": "Partager le résultat",
+      "text": "Compartir el resultado"
+    },
+    "pages.accountValueUI.reset": {
+      "fr": "Tout effacer",
+      "text": "Borrar todo"
+    },
+    "pages.accountValueUI.share_copied": {
+      "fr": "Lien copié.",
+      "text": "Enlace copiado."
+    },
+    "pages.accountValueUI.share_shared": {
+      "fr": "Résultat partagé.",
+      "text": "Resultado compartido."
+    },
+    "pages.accountValueUI.share_failed": {
+      "fr": "Le partage a échoué.",
+      "text": "No se pudo compartir."
+    },
+    "pages.accountValueUI.shareText": {
+      "fr": "Ma collection MLBB a coûté environ {cost} ; un compte comparable : {low} à {high} (estimation indicative).",
+      "text": "Mi colección de MLBB costó unos {cost}; una cuenta comparable: de {low} a {high} (estimación orientativa)."
+    },
+    "pages.accountValueUI.shareTextCost": {
+      "fr": "Ma collection MLBB a coûté environ {cost} (estimation indicative).",
+      "text": "Mi colección de MLBB costó unos {cost} (estimación orientativa)."
+    },
+    "pages.accountValueUI.resultTitle": {
+      "fr": "Valeur estimée de mon compte MLBB",
+      "text": "Valor estimado de mi cuenta de MLBB"
+    },
+    "pages.accountValueUI.importLead": {
+      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
+      "text": "Hay una colección guardada en este navegador por la herramienta de colección."
+    },
+    "pages.accountValueUI.import": {
+      "fr": "Reprendre ma collection",
+      "text": "Usar mi colección"
+    },
+    "pages.accountValueUI.import_done": {
+      "fr": "Skins et héros repris de votre collection.",
+      "text": "Skins y héroes tomados de tu colección."
+    },
+    "pages.accountValueUI.import_failed": {
+      "fr": "Impossible de charger le catalogue des skins. Réessayez.",
+      "text": "No se pudo cargar el catálogo de skins. Inténtalo de nuevo."
+    },
+    "pages.accountValueUI.skinsTitle": {
+      "fr": "Vos skins, par catégorie",
+      "text": "Tus skins, por categoría"
+    },
+    "pages.accountValueUI.tier.basic": {
+      "fr": "Basiques",
+      "text": "Básicas"
+    },
+    "pages.accountValueUI.tier.elite": {
+      "fr": "Élite",
+      "text": "Élite"
+    },
+    "pages.accountValueUI.tier.special": {
+      "fr": "Spéciaux",
+      "text": "Especiales"
+    },
+    "pages.accountValueUI.tier.epic": {
+      "fr": "Épiques",
+      "text": "Épicas"
+    },
+    "pages.accountValueUI.tier.starlight": {
+      "fr": "StarLight",
+      "text": "StarLight"
+    },
+    "pages.accountValueUI.tier.other": {
+      "fr": "Événements et saisonniers",
+      "text": "Eventos y de temporada"
+    },
+    "pages.accountValueUI.tier.collector": {
+      "fr": "Collector",
+      "text": "Collector"
+    },
+    "pages.accountValueUI.tier.grand": {
+      "fr": "Collaborations et premium",
+      "text": "Colaboraciones y premium"
+    },
+    "pages.accountValueUI.tier.legend": {
+      "fr": "Légende",
+      "text": "Legendarias"
+    },
+    "pages.accountValueUI.costShop": {
+      "fr": "≈ {n} diamants l'un (boutique)",
+      "text": "≈ {n} diamantes cada una (tienda)"
+    },
+    "pages.accountValueUI.costDraw": {
+      "fr": "≈ {n} diamants l'un (tirage estimé)",
+      "text": "≈ {n} diamantes cada una (sorteo estimado)"
+    },
+    "pages.accountValueUI.accountTitle": {
+      "fr": "Votre compte",
+      "text": "Tu cuenta"
+    },
+    "pages.accountValueUI.rank": {
+      "fr": "Rang le plus haut atteint",
+      "text": "Rango más alto alcanzado"
+    },
+    "pages.accountValueUI.heroes": {
+      "fr": "Héros possédés",
+      "text": "Héroes que tienes"
+    },
+    "pages.accountValueUI.emblems": {
+      "fr": "Emblèmes au niveau max",
+      "text": "Emblemas al nivel máximo"
+    },
+    "pages.accountValueUI.diamonds": {
+      "fr": "Diamants sur le compte",
+      "text": "Diamantes en la cuenta"
+    },
+    "pages.accountValueUI.diamondsHint": {
+      "fr": "Le solde actuel, pas ce qui a été dépensé.",
+      "text": "El saldo actual, no lo que se gastó."
+    },
+    "pages.accountValueUI.binding": {
+      "fr": "Liaison",
+      "text": "Vinculación"
+    },
+    "pages.accountValueUI.bindingValue.moonton": {
+      "fr": "Compte Moonton",
+      "text": "Cuenta Moonton"
+    },
+    "pages.accountValueUI.bindingValue.social": {
+      "fr": "Réseau social seul",
+      "text": "Solo red social"
+    },
+    "pages.accountValueUI.bindingValue.none": {
+      "fr": "Invité, sans liaison",
+      "text": "Invitado, sin vincular"
     }
   },
   "id": {
@@ -6169,8 +7161,8 @@
       "text": "Reset berikutnya"
     },
     "tools.serverTime.countriesOpen": {
-      "fr": "Afficher l'heure de la remise pays par pays",
-      "text": "Tampilkan waktu reset per negara"
+      "fr": "Afficher d'autres pays, par langue du site",
+      "text": "Tampilkan negara lain, menurut bahasa situs"
     },
     "tools.serverTime.countriesTitle": {
       "fr": "Heure de la remise, pays par pays",
@@ -6221,8 +7213,8 @@
       "text": "Pada {date} ({zone})"
     },
     "tools.serverTime.seasonEnd": {
-      "fr": "Saison {n} : fin le {date} ({zone}), annoncée dans le patch {v}.",
-      "text": "Season {n} berakhir pada {date} ({zone}), sesuai pengumuman di patch {v}."
+      "fr": "Fin le {date} ({zone}).",
+      "text": "Berakhir pada {date} ({zone})."
     },
     "tools.serverTime.you": {
       "fr": "vous",
@@ -8095,6 +9087,498 @@
     "pages.strategyPlannerUI.linkError": {
       "fr": "Copie impossible : copiez l'adresse de la page.",
       "text": "Gagal menyalin: salin alamat halaman ini."
+    },
+    "home.meta.moverRate.winRate": {
+      "fr": "Victoire",
+      "text": "Win"
+    },
+    "home.meta.moverRate.banRate": {
+      "fr": "Ban",
+      "text": "Ban"
+    },
+    "home.meta.moverRate.pickRate": {
+      "fr": "Pick",
+      "text": "Pick"
+    },
+    "home.meta.moverRateFull.winRate": {
+      "fr": "Taux de victoire",
+      "text": "Win rate"
+    },
+    "home.meta.moverRateFull.banRate": {
+      "fr": "Taux de ban",
+      "text": "Ban rate"
+    },
+    "home.meta.moverRateFull.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Pick rate"
+    },
+    "home.meta.moversAll": {
+      "fr": "Tous les mouvements de la semaine",
+      "text": "Semua perubahan minggu ini"
+    },
+    "pages.meta.movers.title": {
+      "fr": "Bans et picks : ce qui bouge",
+      "text": "Ban dan pick: siapa yang bergerak"
+    },
+    "pages.meta.movers.lead": {
+      "fr": "Évolution des taux de ban et de pick sur sept jours, tous rangs confondus. Les écarts de moins de {threshold} point ne sont pas retenus.",
+      "text": "Perubahan ban rate dan pick rate selama tujuh hari, semua rank digabung. Selisih di bawah {threshold} poin tidak dihitung."
+    },
+    "pages.meta.movers.banRate": {
+      "fr": "Taux de ban",
+      "text": "Ban rate"
+    },
+    "pages.meta.movers.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Pick rate"
+    },
+    "pages.meta.movers.unit.banRate": {
+      "fr": "% de bans",
+      "text": "% ban"
+    },
+    "pages.meta.movers.unit.pickRate": {
+      "fr": "% de picks",
+      "text": "% pick"
+    },
+    "tools.serverTime.seasonCurrent": {
+      "fr": "Saison {n} en cours",
+      "text": "Season {n} sedang berjalan"
+    },
+    "tools.serverTime.seasonStart": {
+      "fr": "La saison {n} commence le {date} ({zone}).",
+      "text": "Season {n} dimulai pada {date} ({zone})."
+    },
+    "tools.serverTime.seasonSince": {
+      "fr": "Commencée le {date}. Le compte à rebours s'affichera dès que le jeu datera la fin de saison dans ses notes de patch.",
+      "text": "Dimulai pada {date}. Hitung mundur akan muncul begitu game mencantumkan tanggal akhir season di patch notes."
+    },
+    "tools.serverTime.seasonEndUnknown": {
+      "fr": "Fin pas encore annoncée",
+      "text": "Akhir season belum diumumkan"
+    },
+    "tools.serverTime.group.world": {
+      "fr": "Principaux pays de MLBB",
+      "text": "Negara utama MLBB"
+    },
+    "tools.serverTime.countriesIntro": {
+      "fr": "Heure locale de la prochaine remise dans les pays où l'on joue le plus à Mobile Legends. Le tableau suit l'heure d'été et se met à jour en direct.",
+      "text": "Waktu lokal reset berikutnya di negara-negara dengan pemain Mobile Legends terbanyak. Tabel mengikuti waktu musim panas dan diperbarui langsung."
+    },
+    "pages.serverTime.seasonsTitle": {
+      "fr": "Calendrier des saisons classées",
+      "text": "Jadwal season ranked"
+    },
+    "pages.serverTime.seasonsCurrent": {
+      "fr": "La saison {n} est en cours.",
+      "text": "Season {n} sedang berjalan."
+    },
+    "pages.serverTime.seasonsBetween": {
+      "fr": "Aucune saison classée n'est en cours.",
+      "text": "Tidak ada season ranked yang sedang berjalan."
+    },
+    "pages.serverTime.seasonsNext": {
+      "fr": "La saison {n} commencera le {date}.",
+      "text": "Season {n} akan dimulai pada {date}."
+    },
+    "pages.serverTime.seasonsNextUnknown": {
+      "fr": "La date de la saison suivante n'est pas encore annoncée.",
+      "text": "Tanggal season berikutnya belum diumumkan."
+    },
+    "pages.serverTime.seasonsCaption": {
+      "fr": "Début et fin des dernières saisons classées, à l'heure du serveur",
+      "text": "Awal dan akhir season ranked terbaru, dalam waktu server"
+    },
+    "pages.serverTime.colSeason": {
+      "fr": "Saison",
+      "text": "Season"
+    },
+    "pages.serverTime.colStart": {
+      "fr": "Début",
+      "text": "Mulai"
+    },
+    "pages.serverTime.colEnd": {
+      "fr": "Fin",
+      "text": "Berakhir"
+    },
+    "pages.serverTime.season": {
+      "fr": "Saison {n}",
+      "text": "Season {n}"
+    },
+    "pages.serverTime.live": {
+      "fr": "en cours",
+      "text": "sedang berjalan"
+    },
+    "pages.serverTime.notAnnounced": {
+      "fr": "Pas encore annoncée",
+      "text": "Belum diumumkan"
+    },
+    "pages.serverTime.seasonsNote": {
+      "fr": "Dates à l'heure du serveur (UTC−8), relevées dans les notes de patch et vérifiées le {date}. Une saison dure environ trois mois, mais aucune date n'est estimée : une fin non annoncée reste vide.",
+      "text": "Tanggal dalam waktu server (UTC−8), diambil dari patch notes dan dicek pada {date}. Satu season berlangsung sekitar tiga bulan, tetapi tidak ada tanggal yang diperkirakan: akhir yang belum diumumkan dibiarkan kosong."
+    },
+    "pages.serverTime.sourcePatch": {
+      "fr": "Notes du patch {v} : dates de saison à l'heure du serveur",
+      "text": "Patch notes {v}: tanggal season dalam waktu server"
+    },
+    "pages.seo.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine MLBB",
+      "text": "Hero gratis minggu ini MLBB"
+    },
+    "pages.seo.freeRotation.description": {
+      "fr": "Les {n} héros gratuits de Mobile Legends pour la semaine du {date} : {heroes}… Rôles, liens vers leurs builds et leurs contres.",
+      "text": "{n} hero gratis Mobile Legends untuk minggu {date}: {heroes}… Role, serta tautan ke build dan counter mereka."
+    },
+    "pages.seo.freeRotation.descriptionEmpty": {
+      "fr": "La rotation des héros gratuits de Mobile Legends : comment elle fonctionne, où la trouver dans le jeu, et la liste de la semaine dès qu'elle est relevée.",
+      "text": "Rotasi hero gratis Mobile Legends: cara kerjanya, tempat melihatnya di game, dan daftar minggu ini begitu dicatat."
+    },
+    "pages.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine",
+      "text": "Hero gratis minggu ini"
+    },
+    "pages.freeRotation.lead": {
+      "fr": "Chaque semaine, Mobile Legends prête une sélection de héros à tous les joueurs. La liste est relevée à la main dans le jeu, et disparaît d'elle-même quand elle n'est plus à jour.",
+      "text": "Setiap minggu, Mobile Legends meminjamkan beberapa hero kepada semua pemain. Daftarnya disalin manual dari game, dan tersembunyi sendiri saat sudah tidak terbaru."
+    },
+    "pages.freeRotation.teaser": {
+      "fr": "Héros gratuits cette semaine : {n}",
+      "text": "Hero gratis minggu ini: {n}"
+    },
+    "pages.freeRotation.week": {
+      "fr": "Semaine du {date}",
+      "text": "Minggu {date}"
+    },
+    "pages.freeRotation.updated": {
+      "fr": "Mise à jour le {date}",
+      "text": "Diperbarui {date}"
+    },
+    "pages.freeRotation.listTitle": {
+      "fr": "La rotation de la semaine",
+      "text": "Rotasi minggu ini"
+    },
+    "pages.freeRotation.listLead": {
+      "fr": "{n} héros jouables sans les posséder jusqu'à la prochaine remise hebdomadaire.",
+      "text": "{n} hero bisa dimainkan tanpa dimiliki sampai reset mingguan berikutnya."
+    },
+    "pages.freeRotation.source": {
+      "fr": "Source de la liste",
+      "text": "Sumber daftar"
+    },
+    "pages.freeRotation.unavailableTitle": {
+      "fr": "La rotation de cette semaine n'est pas encore disponible",
+      "text": "Rotasi minggu ini belum tersedia"
+    },
+    "pages.freeRotation.empty": {
+      "fr": "Aucune liste n'a encore été relevée. Nous préférons ne rien afficher plutôt que de deviner.",
+      "text": "Belum ada daftar yang dicatat. Kami lebih memilih tidak menampilkan apa pun daripada menebak."
+    },
+    "pages.freeRotation.stale": {
+      "fr": "La dernière liste relevée date de la semaine du {date} : passé {days} jours, elle n'est plus affichée, pour ne pas faire passer une ancienne rotation pour celle de cette semaine.",
+      "text": "Daftar terakhir yang dicatat berasal dari minggu {date}: setelah {days} hari daftar itu tidak ditampilkan lagi, agar rotasi lama tidak dianggap rotasi minggu ini."
+    },
+    "pages.freeRotation.inGame": {
+      "fr": "Dans le jeu, les héros gratuits de la semaine sont signalés dans la liste des héros et sur l'écran de sélection.",
+      "text": "Di dalam game, hero gratis minggu ini ditandai di daftar hero dan di layar pemilihan."
+    },
+    "pages.freeRotation.howTitle": {
+      "fr": "Comment fonctionne la rotation",
+      "text": "Cara kerja rotasi"
+    },
+    "pages.freeRotation.how1": {
+      "fr": "La sélection change chaque semaine, à la remise hebdomadaire du lundi à 00:00 heure serveur. Les héros prêtés se jouent comme les vôtres dans les modes non classés : c'est l'occasion d'essayer un rôle ou un héros avant de le débloquer.",
+      "text": "Pilihan hero berganti setiap minggu, saat reset mingguan hari Senin pukul 00:00 waktu server. Hero pinjaman dimainkan seperti milik sendiri di mode non-ranked: kesempatan mencoba role atau hero sebelum membukanya."
+    },
+    "pages.freeRotation.how2": {
+      "fr": "Les parties classées demandent de posséder le héros. Avant d'en acheter un, sa fiche donne ses builds, ses contres et son taux de victoire au patch actuel.",
+      "text": "Pertandingan ranked mengharuskan kamu memiliki hero tersebut. Sebelum membelinya, halaman hero menampilkan build, counter, dan win rate di patch saat ini."
+    },
+    "pages.freeRotation.heroesLink": {
+      "fr": "Tous les héros",
+      "text": "Semua hero"
+    },
+    "pages.freeRotation.tierListLink": {
+      "fr": "La tier list du patch",
+      "text": "Tier list patch ini"
+    },
+    "pages.freeRotation.resetLink": {
+      "fr": "Heure de la remise hebdomadaire",
+      "text": "Waktu reset mingguan"
+    },
+    "pages.seo.accountValue.title": {
+      "fr": "Estimation de la valeur d'un compte MLBB",
+      "text": "Estimasi nilai akun MLBB"
+    },
+    "pages.seo.accountValue.description": {
+      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "Berapa biaya koleksi Mobile Legends kamu? Hitung skin per kategori ({skins} skin tercakup) dan dapatkan perkiraan kasar dalam diamond, USD, EUR, PHP, IDR, dan MYR, dengan metode yang ditampilkan."
+    },
+    "pages.accountValue.title": {
+      "fr": "Valeur estimée d'un compte",
+      "text": "Estimasi nilai akun"
+    },
+    "pages.accountValue.lead": {
+      "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
+      "text": "Berapa biaya sebuah koleksi skin, dalam diamond dan uang, serta kisaran indikatif akun yang sebanding. Perkiraan kasar, bukan harga: metodenya dijelaskan di bawah alat."
+    },
+    "pages.accountValue.warning": {
+      "fr": "Acheter, vendre ou échanger un compte enfreint les conditions d'utilisation de Moonton : le compte peut être banni ou récupéré par son ancien propriétaire, et les arnaques sont fréquentes. Cette estimation sert à mesurer ce qu'une collection a coûté, pas à fixer un prix. Rien n'est envoyé à un serveur.",
+      "text": "Membeli, menjual, atau menukar akun melanggar ketentuan layanan Moonton: akun bisa diblokir atau diambil kembali oleh pemilik lamanya, dan penipuan sering terjadi. Estimasi ini mengukur biaya sebuah koleksi, bukan menentukan harga. Tidak ada yang dikirim ke server."
+    },
+    "pages.accountValue.methodTitle": {
+      "fr": "La méthode, chiffre par chiffre",
+      "text": "Metodenya, angka demi angka"
+    },
+    "pages.accountValue.methodCost": {
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
+      "text": "Setiap skin dihitung dengan biaya tipikal kategorinya. Untuk skin toko, itu adalah harga median dalam diamond dari skin di kategori tersebut, diambil dari data game. Skin dari draw atau pass tidak punya harga: skin itu memakai biaya rata-rata yang diperkirakan dan dibulatkan, yang sangat berbeda antar event dan antar pemain."
+    },
+    "pages.accountValue.tableCaption": {
+      "fr": "Coût compté par skin, par catégorie",
+      "text": "Biaya yang dihitung per skin, per kategori"
+    },
+    "pages.accountValue.colTier": {
+      "fr": "Catégorie",
+      "text": "Kategori"
+    },
+    "pages.accountValue.colSkins": {
+      "fr": "Skins",
+      "text": "Skin"
+    },
+    "pages.accountValue.colCost": {
+      "fr": "Diamants par skin",
+      "text": "Diamond per skin"
+    },
+    "pages.accountValue.colBasis": {
+      "fr": "Origine du coût",
+      "text": "Asal biaya"
+    },
+    "pages.accountValue.basisShop": {
+      "fr": "Prix médian en boutique ({n} prix relevés)",
+      "text": "Harga median toko ({n} harga tercatat)"
+    },
+    "pages.accountValue.basisDraw": {
+      "fr": "Estimation du coût d'un tirage ou d'un passe",
+      "text": "Perkiraan biaya draw atau pass"
+    },
+    "pages.accountValue.methodMoney": {
+      "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
+      "text": "Diamond dikonversi ke dolar dengan harga top-up biasa, tanpa bonus top-up pertama: {usd} USD per diamond, atau {per100} USD per seratus. Diamond yang masih ada di akun ditambahkan ke total."
+    },
+    "pages.accountValue.methodResale": {
+      "fr": "La fourchette de revente part de {low} à {high} de ce coût : un compte se cède rarement au prix de ce qui y a été dépensé. Elle est ensuite multipliée par quatre facteurs :",
+      "text": "Kisaran jual kembali dimulai dari {low} sampai {high} dari biaya tersebut: akun jarang berpindah tangan seharga uang yang dihabiskan. Lalu dikalikan dengan empat faktor:"
+    },
+    "pages.accountValue.factorRank": {
+      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "text": "rank tertinggi yang dicapai, dari ×{low} (Warrior) sampai ×{high} (Mythical Immortal);"
+    },
+    "pages.accountValue.factorHeroes": {
+      "fr": "la part des héros possédés, de ×{low} (aucun) à ×{high} (tous) ;",
+      "text": "porsi hero yang dimiliki, dari ×{low} (tidak ada) sampai ×{high} (semua);"
+    },
+    "pages.accountValue.factorEmblems": {
+      "fr": "les emblèmes au niveau maximum, +{per} chacun, sur {n} ;",
+      "text": "emblem di level maksimum, +{per} masing-masing, dari {n};"
+    },
+    "pages.accountValue.factorBinding": {
+      "fr": "la liaison du compte : un compte Moonton se transfère, un compte lié seulement à un réseau social compte ×{social}, un compte invité, sans liaison, ne se transfère pas du tout.",
+      "text": "binding akun: akun Moonton bisa dipindahkan, akun yang hanya terhubung ke media sosial dihitung ×{social}, dan akun tamu tanpa binding sama sekali tidak bisa dipindahkan."
+    },
+    "pages.accountValue.methodLimits": {
+      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "text": "Jumlah dibulatkan ke dua angka penting. Tidak dihitung: hero itu sendiri, yang umumnya dibeli dengan battle point, skin terbatas satu server, kosmetik (efek, emote, frame), dan riwayat pertandingan. Pasar sesungguhnya juga tergantung permintaan saat itu, yang tidak diukur di sini."
+    },
+    "pages.accountValue.ratesTitle": {
+      "fr": "Taux de change",
+      "text": "Kurs mata uang"
+    },
+    "pages.accountValue.ratesLead": {
+      "fr": "Taux fixes, relevés le {date} et arrondis : ils servent à donner un ordre de grandeur dans votre monnaie, pas à faire une conversion exacte.",
+      "text": "Kurs tetap, dicatat pada {date} dan dibulatkan: untuk memberi gambaran kasar dalam mata uangmu, bukan konversi yang tepat."
+    },
+    "pages.accountValue.ratesSource": {
+      "fr": "Source des taux",
+      "text": "Sumber kurs"
+    },
+    "pages.accountValue.checked": {
+      "fr": "hypothèses vérifiées le {date}",
+      "text": "asumsi dicek pada {date}"
+    },
+    "pages.accountValue.methodPrivacy": {
+      "fr": "Le calcul se fait dans votre navigateur. Les nombres saisis sont écrits dans l'adresse de la page pour pouvoir partager le résultat : aucun nom, aucun identifiant de compte, rien n'est enregistré sur un serveur.",
+      "text": "Perhitungan dilakukan di browser kamu. Angka yang kamu isi ditulis di alamat halaman agar hasilnya bisa dibagikan: tanpa nama, tanpa ID akun, tidak ada yang disimpan di server."
+    },
+    "pages.accountValue.collectionLink": {
+      "fr": "Cocher sa collection skin par skin",
+      "text": "Centang koleksimu skin demi skin"
+    },
+    "pages.collection.accountValueLink": {
+      "fr": "Estimer la valeur d'un compte",
+      "text": "Estimasi nilai akun"
+    },
+    "pages.accountValueUI.costTitle": {
+      "fr": "Coût estimé de la collection",
+      "text": "Perkiraan biaya koleksi"
+    },
+    "pages.accountValueUI.resaleTitle": {
+      "fr": "Fourchette indicative d'un compte comparable",
+      "text": "Kisaran indikatif akun yang sebanding"
+    },
+    "pages.accountValueUI.range": {
+      "fr": "{low} à {high}",
+      "text": "{low} sampai {high}"
+    },
+    "pages.accountValueUI.resaleUnbound": {
+      "fr": "Un compte invité, sans liaison, ne peut pas changer de main : pas de fourchette.",
+      "text": "Akun tamu tanpa binding tidak bisa berpindah tangan: tidak ada kisaran."
+    },
+    "pages.accountValueUI.resaleEmpty": {
+      "fr": "Indiquez vos skins ou vos diamants pour voir une fourchette.",
+      "text": "Isi skin atau diamond kamu untuk melihat kisaran."
+    },
+    "pages.accountValueUI.currency": {
+      "fr": "Monnaie",
+      "text": "Mata uang"
+    },
+    "pages.accountValueUI.indicative": {
+      "fr": "Ordre de grandeur arrondi, jamais un prix. Taux de change fixes du {date}. La méthode est détaillée plus bas.",
+      "text": "Perkiraan kasar yang dibulatkan, bukan harga. Kurs tetap per {date}. Metodenya dijelaskan di bawah."
+    },
+    "pages.accountValueUI.share": {
+      "fr": "Partager le résultat",
+      "text": "Bagikan hasil"
+    },
+    "pages.accountValueUI.reset": {
+      "fr": "Tout effacer",
+      "text": "Hapus semua"
+    },
+    "pages.accountValueUI.share_copied": {
+      "fr": "Lien copié.",
+      "text": "Tautan disalin."
+    },
+    "pages.accountValueUI.share_shared": {
+      "fr": "Résultat partagé.",
+      "text": "Hasil dibagikan."
+    },
+    "pages.accountValueUI.share_failed": {
+      "fr": "Le partage a échoué.",
+      "text": "Gagal membagikan."
+    },
+    "pages.accountValueUI.shareText": {
+      "fr": "Ma collection MLBB a coûté environ {cost} ; un compte comparable : {low} à {high} (estimation indicative).",
+      "text": "Koleksi MLBB saya menghabiskan sekitar {cost}; akun yang sebanding: {low} sampai {high} (estimasi indikatif)."
+    },
+    "pages.accountValueUI.shareTextCost": {
+      "fr": "Ma collection MLBB a coûté environ {cost} (estimation indicative).",
+      "text": "Koleksi MLBB saya menghabiskan sekitar {cost} (estimasi indikatif)."
+    },
+    "pages.accountValueUI.resultTitle": {
+      "fr": "Valeur estimée de mon compte MLBB",
+      "text": "Estimasi nilai akun MLBB saya"
+    },
+    "pages.accountValueUI.importLead": {
+      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
+      "text": "Ada koleksi yang tersimpan di browser ini dari alat koleksi."
+    },
+    "pages.accountValueUI.import": {
+      "fr": "Reprendre ma collection",
+      "text": "Pakai koleksi saya"
+    },
+    "pages.accountValueUI.import_done": {
+      "fr": "Skins et héros repris de votre collection.",
+      "text": "Skin dan hero diambil dari koleksimu."
+    },
+    "pages.accountValueUI.import_failed": {
+      "fr": "Impossible de charger le catalogue des skins. Réessayez.",
+      "text": "Katalog skin gagal dimuat. Coba lagi."
+    },
+    "pages.accountValueUI.skinsTitle": {
+      "fr": "Vos skins, par catégorie",
+      "text": "Skin kamu, per kategori"
+    },
+    "pages.accountValueUI.tier.basic": {
+      "fr": "Basiques",
+      "text": "Basic"
+    },
+    "pages.accountValueUI.tier.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.accountValueUI.tier.special": {
+      "fr": "Spéciaux",
+      "text": "Special"
+    },
+    "pages.accountValueUI.tier.epic": {
+      "fr": "Épiques",
+      "text": "Epic"
+    },
+    "pages.accountValueUI.tier.starlight": {
+      "fr": "StarLight",
+      "text": "StarLight"
+    },
+    "pages.accountValueUI.tier.other": {
+      "fr": "Événements et saisonniers",
+      "text": "Event dan musiman"
+    },
+    "pages.accountValueUI.tier.collector": {
+      "fr": "Collector",
+      "text": "Collector"
+    },
+    "pages.accountValueUI.tier.grand": {
+      "fr": "Collaborations et premium",
+      "text": "Kolaborasi dan premium"
+    },
+    "pages.accountValueUI.tier.legend": {
+      "fr": "Légende",
+      "text": "Legend"
+    },
+    "pages.accountValueUI.costShop": {
+      "fr": "≈ {n} diamants l'un (boutique)",
+      "text": "≈ {n} diamond per skin (toko)"
+    },
+    "pages.accountValueUI.costDraw": {
+      "fr": "≈ {n} diamants l'un (tirage estimé)",
+      "text": "≈ {n} diamond per skin (perkiraan draw)"
+    },
+    "pages.accountValueUI.accountTitle": {
+      "fr": "Votre compte",
+      "text": "Akun kamu"
+    },
+    "pages.accountValueUI.rank": {
+      "fr": "Rang le plus haut atteint",
+      "text": "Rank tertinggi yang dicapai"
+    },
+    "pages.accountValueUI.heroes": {
+      "fr": "Héros possédés",
+      "text": "Hero yang dimiliki"
+    },
+    "pages.accountValueUI.emblems": {
+      "fr": "Emblèmes au niveau max",
+      "text": "Emblem level maksimum"
+    },
+    "pages.accountValueUI.diamonds": {
+      "fr": "Diamants sur le compte",
+      "text": "Diamond di akun"
+    },
+    "pages.accountValueUI.diamondsHint": {
+      "fr": "Le solde actuel, pas ce qui a été dépensé.",
+      "text": "Saldo saat ini, bukan yang sudah dibelanjakan."
+    },
+    "pages.accountValueUI.binding": {
+      "fr": "Liaison",
+      "text": "Binding"
+    },
+    "pages.accountValueUI.bindingValue.moonton": {
+      "fr": "Compte Moonton",
+      "text": "Akun Moonton"
+    },
+    "pages.accountValueUI.bindingValue.social": {
+      "fr": "Réseau social seul",
+      "text": "Hanya media sosial"
+    },
+    "pages.accountValueUI.bindingValue.none": {
+      "fr": "Invité, sans liaison",
+      "text": "Tamu, tanpa binding"
     }
   },
   "it": {
@@ -8427,8 +9911,8 @@
       "text": "Striscia attuale"
     },
     "tools.serverTime.countriesOpen": {
-      "fr": "Afficher l'heure de la remise pays par pays",
-      "text": "Mostra l'orario del reset paese per paese"
+      "fr": "Afficher d'autres pays, par langue du site",
+      "text": "Mostra altri paesi, per lingua del sito"
     },
     "pages.botUI.greetingsTitle": {
       "fr": "Bienvenue et départs",
@@ -10101,6 +11585,502 @@
     "pages.strategyPlannerUI.linkError": {
       "fr": "Copie impossible : copiez l'adresse de la page.",
       "text": "Copia non riuscita: copia l'indirizzo della pagina."
+    },
+    "home.meta.moverRate.winRate": {
+      "fr": "Victoire",
+      "text": "Vittoria"
+    },
+    "home.meta.moverRate.banRate": {
+      "fr": "Ban",
+      "text": "Ban"
+    },
+    "home.meta.moverRate.pickRate": {
+      "fr": "Pick",
+      "text": "Pick"
+    },
+    "home.meta.moverRateFull.winRate": {
+      "fr": "Taux de victoire",
+      "text": "Tasso di vittoria"
+    },
+    "home.meta.moverRateFull.banRate": {
+      "fr": "Taux de ban",
+      "text": "Tasso di ban"
+    },
+    "home.meta.moverRateFull.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Tasso di pick"
+    },
+    "home.meta.moversAll": {
+      "fr": "Tous les mouvements de la semaine",
+      "text": "Tutti i movimenti della settimana"
+    },
+    "pages.meta.movers.title": {
+      "fr": "Bans et picks : ce qui bouge",
+      "text": "Ban e pick: chi si muove"
+    },
+    "pages.meta.movers.lead": {
+      "fr": "Évolution des taux de ban et de pick sur sept jours, tous rangs confondus. Les écarts de moins de {threshold} point ne sont pas retenus.",
+      "text": "Variazione dei tassi di ban e di pick in sette giorni, tutti i ranghi insieme. Le differenze sotto {threshold} punti non sono considerate."
+    },
+    "pages.meta.movers.banRate": {
+      "fr": "Taux de ban",
+      "text": "Tasso di ban"
+    },
+    "pages.meta.movers.pickRate": {
+      "fr": "Taux de pick",
+      "text": "Tasso di pick"
+    },
+    "pages.meta.movers.unit.banRate": {
+      "fr": "% de bans",
+      "text": "% di ban"
+    },
+    "pages.meta.movers.unit.pickRate": {
+      "fr": "% de picks",
+      "text": "% di pick"
+    },
+    "tools.serverTime.seasonCurrent": {
+      "fr": "Saison {n} en cours",
+      "text": "Stagione {n} in corso"
+    },
+    "tools.serverTime.seasonEnd": {
+      "fr": "Fin le {date} ({zone}).",
+      "text": "Termina il {date} ({zone})."
+    },
+    "tools.serverTime.seasonStart": {
+      "fr": "La saison {n} commence le {date} ({zone}).",
+      "text": "La stagione {n} inizia il {date} ({zone})."
+    },
+    "tools.serverTime.seasonSince": {
+      "fr": "Commencée le {date}. Le compte à rebours s'affichera dès que le jeu datera la fin de saison dans ses notes de patch.",
+      "text": "Iniziata il {date}. Il conto alla rovescia apparirà appena il gioco indicherà la fine della stagione nelle note della patch."
+    },
+    "tools.serverTime.seasonEndUnknown": {
+      "fr": "Fin pas encore annoncée",
+      "text": "Fine non ancora annunciata"
+    },
+    "tools.serverTime.group.world": {
+      "fr": "Principaux pays de MLBB",
+      "text": "Principali paesi di MLBB"
+    },
+    "tools.serverTime.countriesIntro": {
+      "fr": "Heure locale de la prochaine remise dans les pays où l'on joue le plus à Mobile Legends. Le tableau suit l'heure d'été et se met à jour en direct.",
+      "text": "Ora locale del prossimo reset nei paesi dove si gioca di più a Mobile Legends. La tabella segue l'ora legale e si aggiorna in tempo reale."
+    },
+    "pages.serverTime.seasonsTitle": {
+      "fr": "Calendrier des saisons classées",
+      "text": "Calendario delle stagioni classificate"
+    },
+    "pages.serverTime.seasonsCurrent": {
+      "fr": "La saison {n} est en cours.",
+      "text": "La stagione {n} è in corso."
+    },
+    "pages.serverTime.seasonsBetween": {
+      "fr": "Aucune saison classée n'est en cours.",
+      "text": "Nessuna stagione classificata è in corso."
+    },
+    "pages.serverTime.seasonsNext": {
+      "fr": "La saison {n} commencera le {date}.",
+      "text": "La stagione {n} inizierà il {date}."
+    },
+    "pages.serverTime.seasonsNextUnknown": {
+      "fr": "La date de la saison suivante n'est pas encore annoncée.",
+      "text": "La data della prossima stagione non è ancora stata annunciata."
+    },
+    "pages.serverTime.seasonsCaption": {
+      "fr": "Début et fin des dernières saisons classées, à l'heure du serveur",
+      "text": "Inizio e fine delle ultime stagioni classificate, in ora del server"
+    },
+    "pages.serverTime.colSeason": {
+      "fr": "Saison",
+      "text": "Stagione"
+    },
+    "pages.serverTime.colStart": {
+      "fr": "Début",
+      "text": "Inizio"
+    },
+    "pages.serverTime.colEnd": {
+      "fr": "Fin",
+      "text": "Fine"
+    },
+    "pages.serverTime.season": {
+      "fr": "Saison {n}",
+      "text": "Stagione {n}"
+    },
+    "pages.serverTime.live": {
+      "fr": "en cours",
+      "text": "in corso"
+    },
+    "pages.serverTime.notAnnounced": {
+      "fr": "Pas encore annoncée",
+      "text": "Non ancora annunciata"
+    },
+    "pages.serverTime.seasonsNote": {
+      "fr": "Dates à l'heure du serveur (UTC−8), relevées dans les notes de patch et vérifiées le {date}. Une saison dure environ trois mois, mais aucune date n'est estimée : une fin non annoncée reste vide.",
+      "text": "Date in ora del server (UTC−8), lette nelle note delle patch e verificate il {date}. Una stagione dura circa tre mesi, ma nessuna data viene stimata: una fine non annunciata resta vuota."
+    },
+    "pages.serverTime.sourcePatch": {
+      "fr": "Notes du patch {v} : dates de saison à l'heure du serveur",
+      "text": "Note della patch {v}: date della stagione in ora del server"
+    },
+    "pages.seo.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine MLBB",
+      "text": "Eroi gratuiti della settimana MLBB"
+    },
+    "pages.seo.freeRotation.description": {
+      "fr": "Les {n} héros gratuits de Mobile Legends pour la semaine du {date} : {heroes}… Rôles, liens vers leurs builds et leurs contres.",
+      "text": "I {n} eroi gratuiti di Mobile Legends per la settimana del {date}: {heroes}… Ruoli e link a build e counter."
+    },
+    "pages.seo.freeRotation.descriptionEmpty": {
+      "fr": "La rotation des héros gratuits de Mobile Legends : comment elle fonctionne, où la trouver dans le jeu, et la liste de la semaine dès qu'elle est relevée.",
+      "text": "La rotazione degli eroi gratuiti di Mobile Legends: come funziona, dove trovarla nel gioco e la lista della settimana appena viene registrata."
+    },
+    "pages.freeRotation.title": {
+      "fr": "Héros gratuits de la semaine",
+      "text": "Eroi gratuiti della settimana"
+    },
+    "pages.freeRotation.lead": {
+      "fr": "Chaque semaine, Mobile Legends prête une sélection de héros à tous les joueurs. La liste est relevée à la main dans le jeu, et disparaît d'elle-même quand elle n'est plus à jour.",
+      "text": "Ogni settimana Mobile Legends presta una selezione di eroi a tutti i giocatori. La lista è copiata a mano dal gioco e si nasconde da sola quando non è più aggiornata."
+    },
+    "pages.freeRotation.teaser": {
+      "fr": "Héros gratuits cette semaine : {n}",
+      "text": "Eroi gratuiti questa settimana: {n}"
+    },
+    "pages.freeRotation.week": {
+      "fr": "Semaine du {date}",
+      "text": "Settimana del {date}"
+    },
+    "pages.freeRotation.updated": {
+      "fr": "Mise à jour le {date}",
+      "text": "Aggiornata il {date}"
+    },
+    "pages.freeRotation.listTitle": {
+      "fr": "La rotation de la semaine",
+      "text": "La rotazione della settimana"
+    },
+    "pages.freeRotation.listLead": {
+      "fr": "{n} héros jouables sans les posséder jusqu'à la prochaine remise hebdomadaire.",
+      "text": "{n} eroi giocabili senza possederli fino al prossimo reset settimanale."
+    },
+    "pages.freeRotation.source": {
+      "fr": "Source de la liste",
+      "text": "Fonte della lista"
+    },
+    "pages.freeRotation.unavailableTitle": {
+      "fr": "La rotation de cette semaine n'est pas encore disponible",
+      "text": "La rotazione di questa settimana non è ancora disponibile"
+    },
+    "pages.freeRotation.empty": {
+      "fr": "Aucune liste n'a encore été relevée. Nous préférons ne rien afficher plutôt que de deviner.",
+      "text": "Nessuna lista è stata ancora registrata. Preferiamo non mostrare nulla piuttosto che tirare a indovinare."
+    },
+    "pages.freeRotation.stale": {
+      "fr": "La dernière liste relevée date de la semaine du {date} : passé {days} jours, elle n'est plus affichée, pour ne pas faire passer une ancienne rotation pour celle de cette semaine.",
+      "text": "L'ultima lista registrata risale alla settimana del {date}: dopo {days} giorni non viene più mostrata, per non far passare una vecchia rotazione per quella di questa settimana."
+    },
+    "pages.freeRotation.inGame": {
+      "fr": "Dans le jeu, les héros gratuits de la semaine sont signalés dans la liste des héros et sur l'écran de sélection.",
+      "text": "Nel gioco, gli eroi gratuiti della settimana sono segnalati nella lista degli eroi e nella schermata di selezione."
+    },
+    "pages.freeRotation.howTitle": {
+      "fr": "Comment fonctionne la rotation",
+      "text": "Come funziona la rotazione"
+    },
+    "pages.freeRotation.how1": {
+      "fr": "La sélection change chaque semaine, à la remise hebdomadaire du lundi à 00:00 heure serveur. Les héros prêtés se jouent comme les vôtres dans les modes non classés : c'est l'occasion d'essayer un rôle ou un héros avant de le débloquer.",
+      "text": "La selezione cambia ogni settimana, al reset settimanale del lunedì alle 00:00 ora del server. Gli eroi prestati si giocano come i propri nelle modalità non classificate: l'occasione per provare un ruolo o un eroe prima di sbloccarlo."
+    },
+    "pages.freeRotation.how2": {
+      "fr": "Les parties classées demandent de posséder le héros. Avant d'en acheter un, sa fiche donne ses builds, ses contres et son taux de victoire au patch actuel.",
+      "text": "Le partite classificate richiedono di possedere l'eroe. Prima di comprarne uno, la sua scheda mostra build, counter e tasso di vittoria alla patch attuale."
+    },
+    "pages.freeRotation.heroesLink": {
+      "fr": "Tous les héros",
+      "text": "Tutti gli eroi"
+    },
+    "pages.freeRotation.tierListLink": {
+      "fr": "La tier list du patch",
+      "text": "La tier list della patch"
+    },
+    "pages.freeRotation.resetLink": {
+      "fr": "Heure de la remise hebdomadaire",
+      "text": "Ora del reset settimanale"
+    },
+    "pages.seo.accountValue.title": {
+      "fr": "Estimation de la valeur d'un compte MLBB",
+      "text": "Stima del valore di un account MLBB"
+    },
+    "pages.seo.accountValue.description": {
+      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "Quanto è costata la tua collezione di Mobile Legends? Conta le tue skin per categoria ({skins} skin coperte) e ottieni un ordine di grandezza in diamanti, USD, EUR, PHP, IDR e MYR, con il metodo in chiaro."
+    },
+    "pages.accountValue.title": {
+      "fr": "Valeur estimée d'un compte",
+      "text": "Stima del valore di un account"
+    },
+    "pages.accountValue.lead": {
+      "fr": "Ce qu'a coûté une collection de skins, en diamants et en argent, et la fourchette indicative d'un compte comparable. Un ordre de grandeur, jamais un prix : la méthode est détaillée sous l'outil.",
+      "text": "Quanto è costata una collezione di skin, in diamanti e in denaro, e la forbice indicativa di un account simile. Un ordine di grandezza, mai un prezzo: il metodo è spiegato sotto lo strumento."
+    },
+    "pages.accountValue.warning": {
+      "fr": "Acheter, vendre ou échanger un compte enfreint les conditions d'utilisation de Moonton : le compte peut être banni ou récupéré par son ancien propriétaire, et les arnaques sont fréquentes. Cette estimation sert à mesurer ce qu'une collection a coûté, pas à fixer un prix. Rien n'est envoyé à un serveur.",
+      "text": "Comprare, vendere o scambiare un account viola i termini di servizio di Moonton: l'account può essere bannato o ripreso dal vecchio proprietario, e le truffe sono frequenti. Questa stima misura quanto è costata una collezione, non fissa un prezzo. Nulla viene inviato a un server."
+    },
+    "pages.accountValue.methodTitle": {
+      "fr": "La méthode, chiffre par chiffre",
+      "text": "Il metodo, cifra per cifra"
+    },
+    "pages.accountValue.methodCost": {
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
+      "text": "Ogni skin conta per il costo tipico della sua categoria. Per le skin del negozio è il prezzo mediano in diamanti delle skin della categoria, letto nei dati del gioco. Le skin ottenute con estrazioni o pass non hanno un prezzo: prendono un costo medio stimato e arrotondato, che varia molto da un evento e da un giocatore all'altro."
+    },
+    "pages.accountValue.tableCaption": {
+      "fr": "Coût compté par skin, par catégorie",
+      "text": "Costo conteggiato per skin, per categoria"
+    },
+    "pages.accountValue.colTier": {
+      "fr": "Catégorie",
+      "text": "Categoria"
+    },
+    "pages.accountValue.colSkins": {
+      "fr": "Skins",
+      "text": "Skin"
+    },
+    "pages.accountValue.colCost": {
+      "fr": "Diamants par skin",
+      "text": "Diamanti per skin"
+    },
+    "pages.accountValue.colBasis": {
+      "fr": "Origine du coût",
+      "text": "Origine del costo"
+    },
+    "pages.accountValue.basisShop": {
+      "fr": "Prix médian en boutique ({n} prix relevés)",
+      "text": "Prezzo mediano nel negozio ({n} prezzi rilevati)"
+    },
+    "pages.accountValue.basisDraw": {
+      "fr": "Estimation du coût d'un tirage ou d'un passe",
+      "text": "Stima del costo di un'estrazione o di un pass"
+    },
+    "pages.accountValue.methodMoney": {
+      "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
+      "text": "I diamanti sono convertiti in dollari al prezzo di una ricarica normale, senza bonus della prima ricarica: {usd} USD per diamante, cioè {per100} USD ogni cento. I diamanti ancora sull'account si aggiungono al totale."
+    },
+    "pages.accountValue.methodResale": {
+      "fr": "La fourchette de revente part de {low} à {high} de ce coût : un compte se cède rarement au prix de ce qui y a été dépensé. Elle est ensuite multipliée par quatre facteurs :",
+      "text": "La forbice di rivendita parte dal {low} al {high} di questo costo: un account raramente passa di mano al prezzo di quanto vi è stato speso. Poi viene moltiplicata per quattro fattori:"
+    },
+    "pages.accountValue.factorRank": {
+      "fr": "le rang le plus haut atteint, de ×{low} (Guerrier) à ×{high} (Immortel mythique) ;",
+      "text": "il rango più alto raggiunto, da ×{low} (Guerriero) a ×{high} (Immortale mitico);"
+    },
+    "pages.accountValue.factorHeroes": {
+      "fr": "la part des héros possédés, de ×{low} (aucun) à ×{high} (tous) ;",
+      "text": "la quota di eroi posseduti, da ×{low} (nessuno) a ×{high} (tutti);"
+    },
+    "pages.accountValue.factorEmblems": {
+      "fr": "les emblèmes au niveau maximum, +{per} chacun, sur {n} ;",
+      "text": "gli emblemi al livello massimo, +{per} ciascuno, su {n};"
+    },
+    "pages.accountValue.factorBinding": {
+      "fr": "la liaison du compte : un compte Moonton se transfère, un compte lié seulement à un réseau social compte ×{social}, un compte invité, sans liaison, ne se transfère pas du tout.",
+      "text": "il collegamento dell'account: un account Moonton si può trasferire, uno collegato solo a un social conta ×{social}, un account ospite, senza collegamento, non si trasferisce affatto."
+    },
+    "pages.accountValue.methodLimits": {
+      "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
+      "text": "Gli importi sono arrotondati a due cifre significative. Non sono contati: gli eroi stessi, comprati di solito con i punti battaglia, le skin limitate a un server, i cosmetici (effetti, emote, cornici) né lo storico delle partite. Un vero mercato dipende anche dalla domanda del momento, che qui nulla misura."
+    },
+    "pages.accountValue.ratesTitle": {
+      "fr": "Taux de change",
+      "text": "Tassi di cambio"
+    },
+    "pages.accountValue.ratesLead": {
+      "fr": "Taux fixes, relevés le {date} et arrondis : ils servent à donner un ordre de grandeur dans votre monnaie, pas à faire une conversion exacte.",
+      "text": "Tassi fissi, rilevati il {date} e arrotondati: servono a dare un ordine di grandezza nella tua valuta, non una conversione esatta."
+    },
+    "pages.accountValue.ratesSource": {
+      "fr": "Source des taux",
+      "text": "Fonte dei tassi"
+    },
+    "pages.accountValue.checked": {
+      "fr": "hypothèses vérifiées le {date}",
+      "text": "ipotesi verificate il {date}"
+    },
+    "pages.accountValue.methodPrivacy": {
+      "fr": "Le calcul se fait dans votre navigateur. Les nombres saisis sont écrits dans l'adresse de la page pour pouvoir partager le résultat : aucun nom, aucun identifiant de compte, rien n'est enregistré sur un serveur.",
+      "text": "Il calcolo avviene nel tuo browser. I numeri inseriti vengono scritti nell'indirizzo della pagina per poter condividere il risultato: nessun nome, nessun ID account, nulla viene salvato su un server."
+    },
+    "pages.accountValue.collectionLink": {
+      "fr": "Cocher sa collection skin par skin",
+      "text": "Spunta la tua collezione skin per skin"
+    },
+    "pages.collection.accountValueLink": {
+      "fr": "Estimer la valeur d'un compte",
+      "text": "Stima il valore di un account"
+    },
+    "pages.accountValueUI.costTitle": {
+      "fr": "Coût estimé de la collection",
+      "text": "Costo stimato della collezione"
+    },
+    "pages.accountValueUI.resaleTitle": {
+      "fr": "Fourchette indicative d'un compte comparable",
+      "text": "Forbice indicativa di un account simile"
+    },
+    "pages.accountValueUI.range": {
+      "fr": "{low} à {high}",
+      "text": "da {low} a {high}"
+    },
+    "pages.accountValueUI.resaleUnbound": {
+      "fr": "Un compte invité, sans liaison, ne peut pas changer de main : pas de fourchette.",
+      "text": "Un account ospite, senza collegamento, non può passare di mano: nessuna forbice."
+    },
+    "pages.accountValueUI.resaleEmpty": {
+      "fr": "Indiquez vos skins ou vos diamants pour voir une fourchette.",
+      "text": "Inserisci le tue skin o i tuoi diamanti per vedere una forbice."
+    },
+    "pages.accountValueUI.currency": {
+      "fr": "Monnaie",
+      "text": "Valuta"
+    },
+    "pages.accountValueUI.indicative": {
+      "fr": "Ordre de grandeur arrondi, jamais un prix. Taux de change fixes du {date}. La méthode est détaillée plus bas.",
+      "text": "Ordine di grandezza arrotondato, mai un prezzo. Tassi di cambio fissi del {date}. Il metodo è spiegato più in basso."
+    },
+    "pages.accountValueUI.share": {
+      "fr": "Partager le résultat",
+      "text": "Condividi il risultato"
+    },
+    "pages.accountValueUI.reset": {
+      "fr": "Tout effacer",
+      "text": "Cancella tutto"
+    },
+    "pages.accountValueUI.share_copied": {
+      "fr": "Lien copié.",
+      "text": "Link copiato."
+    },
+    "pages.accountValueUI.share_shared": {
+      "fr": "Résultat partagé.",
+      "text": "Risultato condiviso."
+    },
+    "pages.accountValueUI.share_failed": {
+      "fr": "Le partage a échoué.",
+      "text": "Condivisione non riuscita."
+    },
+    "pages.accountValueUI.shareText": {
+      "fr": "Ma collection MLBB a coûté environ {cost} ; un compte comparable : {low} à {high} (estimation indicative).",
+      "text": "La mia collezione MLBB è costata circa {cost}; un account simile: da {low} a {high} (stima indicativa)."
+    },
+    "pages.accountValueUI.shareTextCost": {
+      "fr": "Ma collection MLBB a coûté environ {cost} (estimation indicative).",
+      "text": "La mia collezione MLBB è costata circa {cost} (stima indicativa)."
+    },
+    "pages.accountValueUI.resultTitle": {
+      "fr": "Valeur estimée de mon compte MLBB",
+      "text": "Valore stimato del mio account MLBB"
+    },
+    "pages.accountValueUI.importLead": {
+      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
+      "text": "Una collezione è salvata in questo browser dallo strumento collezione."
+    },
+    "pages.accountValueUI.import": {
+      "fr": "Reprendre ma collection",
+      "text": "Usa la mia collezione"
+    },
+    "pages.accountValueUI.import_done": {
+      "fr": "Skins et héros repris de votre collection.",
+      "text": "Skin ed eroi presi dalla tua collezione."
+    },
+    "pages.accountValueUI.import_failed": {
+      "fr": "Impossible de charger le catalogue des skins. Réessayez.",
+      "text": "Impossibile caricare il catalogo delle skin. Riprova."
+    },
+    "pages.accountValueUI.skinsTitle": {
+      "fr": "Vos skins, par catégorie",
+      "text": "Le tue skin, per categoria"
+    },
+    "pages.accountValueUI.tier.basic": {
+      "fr": "Basiques",
+      "text": "Base"
+    },
+    "pages.accountValueUI.tier.elite": {
+      "fr": "Élite",
+      "text": "Elite"
+    },
+    "pages.accountValueUI.tier.special": {
+      "fr": "Spéciaux",
+      "text": "Speciali"
+    },
+    "pages.accountValueUI.tier.epic": {
+      "fr": "Épiques",
+      "text": "Epiche"
+    },
+    "pages.accountValueUI.tier.starlight": {
+      "fr": "StarLight",
+      "text": "StarLight"
+    },
+    "pages.accountValueUI.tier.other": {
+      "fr": "Événements et saisonniers",
+      "text": "Eventi e stagionali"
+    },
+    "pages.accountValueUI.tier.collector": {
+      "fr": "Collector",
+      "text": "Collector"
+    },
+    "pages.accountValueUI.tier.grand": {
+      "fr": "Collaborations et premium",
+      "text": "Collaborazioni e premium"
+    },
+    "pages.accountValueUI.tier.legend": {
+      "fr": "Légende",
+      "text": "Leggendarie"
+    },
+    "pages.accountValueUI.costShop": {
+      "fr": "≈ {n} diamants l'un (boutique)",
+      "text": "≈ {n} diamanti l'una (negozio)"
+    },
+    "pages.accountValueUI.costDraw": {
+      "fr": "≈ {n} diamants l'un (tirage estimé)",
+      "text": "≈ {n} diamanti l'una (estrazione stimata)"
+    },
+    "pages.accountValueUI.accountTitle": {
+      "fr": "Votre compte",
+      "text": "Il tuo account"
+    },
+    "pages.accountValueUI.rank": {
+      "fr": "Rang le plus haut atteint",
+      "text": "Rango più alto raggiunto"
+    },
+    "pages.accountValueUI.heroes": {
+      "fr": "Héros possédés",
+      "text": "Eroi posseduti"
+    },
+    "pages.accountValueUI.emblems": {
+      "fr": "Emblèmes au niveau max",
+      "text": "Emblemi al livello massimo"
+    },
+    "pages.accountValueUI.diamonds": {
+      "fr": "Diamants sur le compte",
+      "text": "Diamanti sull'account"
+    },
+    "pages.accountValueUI.diamondsHint": {
+      "fr": "Le solde actuel, pas ce qui a été dépensé.",
+      "text": "Il saldo attuale, non quanto è stato speso."
+    },
+    "pages.accountValueUI.binding": {
+      "fr": "Liaison",
+      "text": "Collegamento"
+    },
+    "pages.accountValueUI.bindingValue.moonton": {
+      "fr": "Compte Moonton",
+      "text": "Account Moonton"
+    },
+    "pages.accountValueUI.bindingValue.social": {
+      "fr": "Réseau social seul",
+      "text": "Solo social"
+    },
+    "pages.accountValueUI.bindingValue.none": {
+      "fr": "Invité, sans liaison",
+      "text": "Ospite, non collegato"
     }
   }
 }
