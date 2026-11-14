@@ -319,6 +319,16 @@ describe.skipIf(!url)("community database paths", async () => {
     expect(await store.memberAllowed(author(31))).toBe(false);
     expect(await store.moderate({ action: "lock", kind: "card", id: other }, moderator)).toBe("invalid");
 
+    // Reports judged unfounded lift the hide they caused, not a moderator's.
+    await store.saveCard(card, author(35));
+    const reported = (await store.ownCard(account(35)))!.id;
+    for (const n of [36, 37, 38]) await store.reportTarget({ kind: "card", id: reported, reason: "spam" }, author(n));
+    expect(await store.saveCard(card, author(35))).toEqual({ ok: false, reason: "hidden" });
+    expect(await store.moderate({ action: "dismiss", kind: "card", id: reported }, moderator)).toBe("ok");
+    expect(await store.saveCard(card, author(35))).toMatchObject({ ok: true });
+    expect(await store.moderate({ action: "dismiss", kind: "card", id }, moderator)).toBe("ok");
+    expect(await store.saveCard(card, author(30))).toEqual({ ok: false, reason: "hidden" });
+
     // Shown again by a moderator: the account may list a card again.
     expect(await store.moderate({ action: "unhide", kind: "card", id }, moderator)).toBe("ok");
     expect(await store.saveCard(card, author(30))).toMatchObject({ ok: true });

@@ -580,6 +580,16 @@ export function moderate(
         }
         break;
       case "dismiss":
+        // Reports judged unfounded: an automatic hide they caused is lifted,
+        // the card's account-level hide with it (a moderator's hide is a
+        // "hide" action, not reversed by dismissing later reports).
+        if (kind && id) {
+          const autoHidden = !(await tx.moderationLog.findFirst({ where: { kind, targetId: id, action: "hide" }, select: { id: true } }));
+          if (autoHidden) {
+            if (!gone) await setHidden(tx, kind, id, null);
+            if (kind === "card" && accountId) await tx.communityMember.updateMany({ where: { accountId }, data: { cardHiddenAt: null } });
+          }
+        }
         break;
     }
     if (kind && id) {
