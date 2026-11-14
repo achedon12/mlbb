@@ -64,6 +64,23 @@ describe("security headers", () => {
     expect(policy.get("connect-src")).toEqual(["'self'"]);
   });
 
+  it("lets only the OCR worker compile WebAssembly, after the site rule", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.resetModules();
+    const { default: config } = await import("../../next.config");
+    const rules = await config.headers!();
+    const site = rules.findIndex((r) => r.source === "/:chemin*");
+    const ocr = rules.findIndex((r) => r.source === "/ocr/:path*");
+    // Next applies the last matching rule for a key: the OCR one must come after.
+    expect(ocr).toBeGreaterThan(site);
+    const policy = directives(rules[ocr].headers.find((h) => h.key === "Content-Security-Policy")!.value);
+    expect(policy.get("script-src")).toContain("'wasm-unsafe-eval'");
+    expect(policy.get("script-src")).not.toContain("'unsafe-eval'");
+    expect(policy.get("connect-src")).toEqual(["'self'"]);
+    const page = directives((await siteHeaders({ NODE_ENV: "production" })).get("Content-Security-Policy") ?? "");
+    expect(page.get("script-src")).not.toContain("'wasm-unsafe-eval'");
+  });
+
   it("allows Discord's CDN for images only when the bot is deployed", async () => {
     const without = directives(
       (await siteHeaders({ NODE_ENV: "production", NEXT_PUBLIC_DISCORD_CLIENT_ID: "" })).get("Content-Security-Policy") ?? "",

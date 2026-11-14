@@ -1,14 +1,25 @@
 {
-  "$comment": "Assumptions of the account value estimator (/tools/account-value), written by hand: see docs/editorial-data.md. Every figure here is indicative and shown as such on the page. Shop skins are costed from the synced shop prices; only the tiers obtained through draws or passes, which have no shop price, take a cost from drawCost. Exchange rates are units of each currency for one US dollar, read on ratesDate.",
+  "$comment": "Assumptions of the account value estimator (/tools/account-value), written by hand: see docs/editorial-data.md. Every figure here is indicative and shown as such on the page. Skins are counted by the game's Showcase tiers. Deluxe, Exceptional and Common are costed from the synced shop prices; only the draw tiers (Legend, Grand, Exquisite), which have no shop price, take a cost from drawCost, and the colour variants (painted, shining) a flat one from flatCost. Exchange rates are units of each currency for one US dollar, read on ratesDate.",
   "checked": "2026-11-14",
   "usdPerDiamond": 0.0194,
   "usdPerDiamondNote": "257 diamonds for 4.99 USD, the usual top-up pack without first-purchase bonus.",
   "drawCost": {
-    "starlight": 300,
-    "collector": 3500,
-    "grand": 3000,
-    "legend": 6000
+    "legend": 5000,
+    "grand": 3500,
+    "exquisite": 3500
   },
+  "drawCostNote": "Medians of the published ranges, rounded. Legend: 200 Magic Cores on the Magic Wheel, about 4,000 to 6,000 diamonds from zero with the 5x draw. Exquisite: about 3,000 to 4,000 diamonds for one Collector skin of the Exquisite Collection draw (2,500 to 3,500 in 2026 guides). Grand: no published median; the collab and premium draws are counted like an Exquisite draw. Discounts, Crystals of Aurora and luck move every one of them a lot.",
+  "drawCostSources": [
+    "https://afkgaming.com/mobileesports/guide/mlbb-magic-wheel-rework-how-to-get-guaranteed-legendary-skin",
+    "https://www.lapakgaming.com/blog/en-sg/magic-wheel-calculator/",
+    "https://esports.gg/news/mobile-legends-bang-bang/mlbb-argus-raiden-maru-collector-titans-exquisite-collection-skin-draw-guide/",
+    "https://gamingonphone.com/guides/mobile-legends-bang-bang-2026-collector-skins-complete-list-and-how-to-get-them"
+  ],
+  "flatCost": {
+    "painted": 50,
+    "glow": 0
+  },
+  "flatCostNote": "A painted skin is a colour variant handed out with StarLight and events, never sold on its own: a token 50 diamonds. A shining skin counts for nothing, as in the Showcase total.",
   "resale": {
     "low": 0.1,
     "high": 0.3,
