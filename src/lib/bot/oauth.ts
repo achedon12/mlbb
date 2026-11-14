@@ -1,5 +1,6 @@
-import { createHash, randomBytes } from "node:crypto";
+import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
 import { z } from "zod";
+import { isLocale } from "@/i18n/config";
 
 /**
  * Discord OAuth2 for the dashboard login: authorization code flow with PKCE
@@ -50,6 +51,36 @@ export const callbackQuery = z.object({
   code: z.string().min(10).max(200).regex(/^[A-Za-z0-9_-]+$/),
   state: z.string().refine(isState),
 });
+
+const digest = (v: string) => createHash("sha256").update(v).digest();
+
+/**
+ * The callback's verdict: the code to trade and the verifier to trade it
+ * with, or null. Null without a pending exchange (no cookie, expired, or
+ * already used: the callback clears it whatever happens), when Discord sent
+ * an error, when the parameters are malformed, or when the state differs
+ * from the sealed one (compared in constant time).
+ */
+export function acceptCallback(
+  pending: { state: string; verifier: string } | null,
+  query: URLSearchParams,
+): { code: string; verifier: string } | null {
+  if (!pending || query.has("error") || !isVerifier(pending.verifier)) return null;
+  const parsed = callbackQuery.safeParse({ code: query.get("code") ?? undefined, state: query.get("state") ?? undefined });
+  if (!parsed.success || !isState(pending.state)) return null;
+  if (!timingSafeEqual(digest(parsed.data.state), digest(pending.state))) return null;
+  return { code: parsed.data.code, verifier: pending.verifier };
+}
+
+/**
+ * Where a login lands: one of two fixed pages of the site, in one of its
+ * languages, as a path. Nothing from the query string reaches it, so there
+ * is no open redirect to build.
+ */
+export function loginTarget(locale: string | undefined, next: string | undefined): string {
+  const lang = locale && isLocale(locale) ? locale : "en";
+  return `/${lang}/bot/${next === "admin" ? "admin" : "dashboard"}`;
+}
 
 export const discordUser = z.object({
   id: z.string().regex(/^\d{17,20}$/),

@@ -2,10 +2,10 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { botConfig } from "@/lib/bot/config";
 import { redirectUri, refused, siteOrigin } from "@/lib/bot/dashboard-guard";
-import { callbackQuery, identify } from "@/lib/bot/oauth";
+import { acceptCallback, identify, loginTarget } from "@/lib/bot/oauth";
 import { cookieOptions, OAUTH_COOKIE, OAUTH_PATH, openOAuth, sealSession, SESSION_COOKIE, SESSION_TTL_S } from "@/lib/bot/session";
 import { logError } from "@/lib/log";
-import { addressOf, limitByMinute, sameSecret } from "@/lib/push-server";
+import { addressOf, limitByMinute } from "@/lib/push-server";
 
 /**
  * Discord sends the user back here. The state must match the sealed one
@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   const jar = await cookies();
   const pending = openOAuth(config, jar.get(OAUTH_COOKIE)?.value);
   const back = (failed: boolean) => {
-    const target = new URL(`/${pending?.locale ?? "en"}/bot/${pending?.next ?? "dashboard"}`, siteOrigin(request));
+    const target = new URL(loginTarget(pending?.locale, pending?.next), siteOrigin(request));
     if (failed) target.searchParams.set("login", "failed");
     const response = NextResponse.redirect(target, 303);
     response.headers.set("Cache-Control", "private, no-store");
@@ -38,19 +38,20 @@ export async function GET(request: Request) {
     return response;
   };
 
-  const query = Object.fromEntries(new URL(request.url).searchParams);
-  const parsed = callbackQuery.safeParse(query);
-  if (!pending || !parsed.success || !sameSecret(parsed.data.state, pending.state)) return back(true);
+  const accepted = acceptCallback(pending, new URL(request.url).searchParams);
+  if (!accepted) return back(true);
 
   try {
     const user = await identify({
       clientId: config.clientId,
       clientSecret: config.clientSecret,
       redirectUri: redirectUri(request),
-      code: parsed.data.code,
-      verifier: pending.verifier,
+      code: accepted.code,
+      verifier: accepted.verifier,
     });
     if (!user) return back(true);
+    // A new sealed value at every login (fresh IV, fresh expiry): whatever
+    // session cookie the browser held before is replaced, never extended.
     const response = back(false);
     response.cookies.set(
       SESSION_COOKIE,

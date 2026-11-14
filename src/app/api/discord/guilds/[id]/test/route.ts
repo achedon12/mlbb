@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { BotUnavailable, canManage, guildChannels, testPost } from "@/lib/bot/client";
-import { answer, guardDashboard, refused } from "@/lib/bot/dashboard-guard";
-import { isSnowflake } from "@/lib/bot/public";
+import { BotUnavailable, testPost } from "@/lib/bot/client";
+import { answer, authorizeGuild, guardDashboard, refused } from "@/lib/bot/dashboard-guard";
+import { logError } from "@/lib/log";
 import { snowflake } from "@/lib/bot/settings";
 import { LOCALES } from "@/i18n/config";
 import { limitByMinute } from "@/lib/push-server";
@@ -20,16 +20,16 @@ export async function POST(request: Request, { params }: { params: Promise<{ id:
   const gate = await guardDashboard(request, body);
   if (gate instanceof Response) return gate;
   const { id } = await params;
-  if (!isSnowflake(id)) return refused(400, "invalid server id");
   if (!perUser(gate.user.id)) return refused(429, "too many requests");
   try {
-    if (!(await canManage(gate.config, id, gate.user.id))) return refused(403, "not allowed");
-    const { channels } = await guildChannels(gate.config, id);
-    if (!channels.some((c) => c.id === gate.body.channelId)) return refused(400, "unknown channel");
+    const lists = await authorizeGuild(gate.config, id, gate.user.id);
+    if (lists instanceof Response) return lists;
+    if (!lists.channels.some((c) => c.id === gate.body.channelId)) return refused(400, "unknown channel");
     const result = await testPost(gate.config, id, gate.body.channelId, gate.body.locale);
     return answer({ ok: result.ok });
   } catch (error) {
     if (error instanceof BotUnavailable) return refused(503, "bot unavailable");
-    throw error;
+    await logError("discord dashboard: test post failed", error, { guild: id });
+    return refused(503, "unavailable");
   }
 }
