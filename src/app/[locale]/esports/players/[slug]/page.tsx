@@ -130,7 +130,7 @@ export default async function PlayerPage({ params }: Params) {
         </dl>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-12">
+      <div className="page-wrap space-y-14 py-12">
         {heroes.length > 0 && (
           <section>
             <SectionTitle lead={t("pages.esports.pro.player.heroesIntro", { n: heroes.length })}>

@@ -82,7 +82,7 @@ export async function Items({ locale, page = 1 }: { locale: Locale; page?: numbe
   return (
     <ExtendMessages messages={messagesPage(locale, ["pages.itemsList"])}>
       <PageHeader title={t("pages.items.title")} lead={t("pages.items.lead", { n: countItems })} />
-      <div className="mx-auto max-w-6xl px-4 pb-12 pt-4">
+      <div className="page-wrap pb-12 pt-4">
         <ItemList
           items={previews}
           categories={categoriesItems}

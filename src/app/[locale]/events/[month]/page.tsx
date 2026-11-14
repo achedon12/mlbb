@@ -102,7 +102,7 @@ export default async function EventMonthPage({ params }: Params) {
         <FreshnessLine locale={locale} className="mt-4" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-14 px-4 py-12">
+      <div className="page-wrap space-y-14 py-12">
         {status === "announced" && (
           <div className="max-w-3xl space-y-2 text-chalk-300">
             <p>{t("pages.events.month.announced")}</p>

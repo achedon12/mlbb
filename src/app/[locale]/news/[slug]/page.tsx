@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { serializeJsonLd } from "@/lib/html";
 import { notFound } from "next/navigation";
 import { BodyArticle } from "@/components/article";
-import { article, articles, toHtml } from "@/lib/content";
+import { article, articleBody, articles } from "@/lib/content";
 import type { Locale } from "@/i18n/config";
 import { postData, metaPage } from "@/i18n/seo";
 import { createT } from "@/i18n/translations";
@@ -45,7 +45,8 @@ export default async function ArticlePage({ params }: Params) {
       <BodyArticle
         locale={locale}
         article={a}
-        html={toHtml(a.content)}
+        {...articleBody(a.content)}
+        others={articles("news", locale)}
         back={{ href: "/news", label: createT(locale)("pages.news.all") }}
       />
     </>

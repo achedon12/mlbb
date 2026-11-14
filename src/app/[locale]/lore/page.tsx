@@ -75,7 +75,7 @@ export default async function LorePage({ params }: Params) {
         lead={t("pages.lore.lead", { n: countStories(locale), regions: regionsLore.length, links: pairs.length })}
       />
 
-      <div className="mx-auto max-w-6xl space-y-16 px-4 py-12">
+      <div className="page-wrap space-y-16 py-12">
         <section id="regions">
           <SectionTitle lead={t("pages.lore.regionsLead")}>{t("pages.lore.regionsTitle")}</SectionTitle>
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">

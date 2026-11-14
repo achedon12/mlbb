@@ -130,7 +130,7 @@ export function PageHeader({
   const facts = meta?.filter(Boolean) ?? [];
   return (
     <div className="border-b border-night-700/70 bg-night-900/30">
-      <div className="mx-auto max-w-6xl px-4 pb-5 pt-3 sm:pb-8 sm:pt-5">
+      <div className="page-wrap pb-5 pt-3 sm:pb-8 sm:pt-5">
         <Breadcrumb
           crumbs={crumbs ?? [{ name: title }]}
           className="mb-2.5 [&_ol]:flex-nowrap [&_ol]:px-2 [&_ol]:py-1 [&_ol]:text-xs sm:mb-3"

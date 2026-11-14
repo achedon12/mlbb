@@ -9,6 +9,7 @@ import { dataTool, metaPage } from "@/i18n/seo";
 import { createT, messagesPage } from "@/i18n/translations";
 import { CRYSTAL_SOURCE, OUT_OF_MODEL_SOURCES, PRESETS, chanceWithin, drawsForChance, type DrawEvent } from "@/lib/draw-odds";
 import { serializeJsonLd } from "@/lib/html";
+import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -55,8 +56,10 @@ export default async function DrawCalculatorPage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.drawCalculatorUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.drawCalculator.title")} lead={t("pages.drawCalculator.lead")} />
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
-        <DrawCalculator />
+      <ToolLayout
+        className="py-10"
+        aside={
+          <>
 
         <p className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="/tools/collection" className="font-semibold text-gold-400 hover:text-gold-500">
@@ -142,7 +145,11 @@ export default async function DrawCalculatorPage({ params }: Params) {
             </section>
           </div>
         </Foldable>
-      </div>
+          </>
+        }
+      >
+        <DrawCalculator />
+      </ToolLayout>
     </ExtendMessages>
   );
 }

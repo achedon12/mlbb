@@ -616,7 +616,7 @@ export default async function AdminPage({ params, searchParams }: Params) {
   return (
     <>
       <PageHeader title={t("pages.botAdmin.title")} lead={t("pages.botAdmin.lead")} crumbs={crumbs} />
-      <div className="mx-auto max-w-6xl space-y-12 px-4 py-8 sm:py-10">
+      <div className="page-wrap space-y-12 py-8 sm:py-10">
         <UserBar t={t} locale={locale} user={user} />
 
         <div className="flex flex-wrap items-center justify-between gap-4">

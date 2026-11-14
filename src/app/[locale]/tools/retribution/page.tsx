@@ -25,6 +25,7 @@ import {
 } from "@/lib/retribution";
 import { serializeJsonLd } from "@/lib/html";
 import { site } from "@/lib/site";
+import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -63,8 +64,10 @@ export default async function RetributionPage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.retribution.title")} lead={t("pages.retribution.lead")} />
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
-        <RetributionTrainer address={`${site.url}/${locale}${PATH}`} />
+      <ToolLayout
+        className="py-10"
+        aside={
+          <>
 
         <Foldable label={t("common.method")}>
           <div className="space-y-10">
@@ -225,7 +228,11 @@ export default async function RetributionPage({ params }: Params) {
             </section>
           </div>
         </Foldable>
-      </div>
+          </>
+        }
+      >
+        <RetributionTrainer address={`${site.url}/${locale}${PATH}`} />
+      </ToolLayout>
     </>
   );
 }

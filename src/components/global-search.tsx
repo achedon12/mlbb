@@ -182,8 +182,8 @@ export function GlobalSearch() {
         className="bevel-sm flex items-center gap-2 border border-night-700 px-2 py-1.5 text-sm sm:px-2.5 text-chalk-400 transition-colors hover:border-gold-500/60 hover:text-gold-400"
       >
         <Search size={16} aria-hidden />
-        <span className="hidden xl:inline">{t("search.open")}</span>
-        <kbd className="hidden rounded border border-night-600 px-1 text-[0.7rem] text-chalk-500 xl:inline">Ctrl K</kbd>
+        <span className="hidden 2xl:inline">{t("search.open")}</span>
+        <kbd className="hidden rounded border border-night-600 px-1 text-[0.7rem] text-chalk-500 2xl:inline">Ctrl K</kbd>
       </button>
 
       {open && (

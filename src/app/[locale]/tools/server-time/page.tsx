@@ -21,6 +21,7 @@ import {
   seasonsEditorial,
 } from "@/lib/server-time";
 import seasonsData from "@/data/editorial/seasons.json";
+import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -119,8 +120,10 @@ export default async function ServerTimePage({ params }: Params) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.serverTime.title")} lead={t("pages.serverTime.lead", { utc })} />
-      <div className="mx-auto max-w-4xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
-        <ServerClock reference={now} seasons={SEASONS} />
+      <ToolLayout
+        className="pb-10 pt-6"
+        aside={
+          <>
 
         <section aria-labelledby="seasons-title">
           <h2 id="seasons-title" className="font-heading text-xl font-bold text-chalk-100 sm:text-2xl">
@@ -228,7 +231,11 @@ export default async function ServerTimePage({ params }: Params) {
             </section>
           </div>
         </Foldable>
-      </div>
+          </>
+        }
+      >
+        <ServerClock reference={now} seasons={SEASONS} />
+      </ToolLayout>
     </>
   );
 }

@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "@/components/link";
-import { Foldable } from "@/components/foldable";
 import { HeroPortrait } from "@/components/hero-portrait";
-import { PatchToc } from "@/components/patch-toc";
-import { BadgeTier, SectionTitle } from "@/components/ui";
+import { AsideBlock, ReadingLayout } from "@/components/reading-layout";
+import { BadgeTier } from "@/components/ui";
 import { emblems } from "@/data/emblems";
 import { buildsPlayed, itemsFor } from "@/lib/data";
 import { keyChoice, spellVisual, visualEmblem, visualItem, visualTalent } from "@/lib/build-visuals";
@@ -83,70 +82,45 @@ export function GuideLink({ guide: g, locale, className }: { guide: Guide | unde
   );
 }
 
-/** Table of contents as a plain list, for the folded version on narrow screens. */
-function TocList({ headings }: { headings: GuideHeading[] }) {
-  return (
-    <ol className="space-y-1.5">
-      {headings.map((h) => (
-        <li key={h.anchor}>
-          <a href={`#${h.anchor}`} className="text-chalk-300 transition-colors hover:text-gold-400">
-            {h.title}
-          </a>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
 /**
- * Reading layout: the table of contents beside the text from `lg` up, sticky
- * and following the reading; folded above the text below. The text column is
- * held to about seventy characters, the width a long text stays readable at.
+ * Reading layout of a guide (`ReadingLayout`): the table of contents on the
+ * left, the text held to about seventy characters, and the `aside` — related
+ * guides and the tools the guide leads to — on the right on a wide screen.
  */
 export function GuideBody({
   guide,
   parts,
   headings,
+  aside,
   locale,
 }: {
   guide: Guide;
   parts: GuidePart[];
   headings: GuideHeading[];
+  aside?: React.ReactNode;
   locale: Locale;
 }) {
   const t = createT(locale);
   return (
-    <div className="mx-auto max-w-6xl px-4 pt-5 sm:pt-10 lg:grid lg:grid-cols-[14rem_minmax(0,70ch)] lg:justify-center lg:gap-12">
-      {headings.length > 1 && (
-        <>
-          <Foldable label={t("common.contents")} className="mb-6 lg:hidden">
-            <TocList headings={headings} />
-          </Foldable>
-          <aside className="hidden lg:block">
-            <PatchToc entries={headings} />
-          </aside>
-        </>
+    <ReadingLayout toc={headings} tocLabel={t("common.contents")} aside={aside} className="pt-5 sm:pt-10">
+      {parts.map((part, i) =>
+        part.type === "html" ? (
+          <div
+            key={i}
+            className="prose-mlbb"
+            dangerouslySetInnerHTML={{ __html: cleanGuideHtml(part.html, locale) }}
+          />
+        ) : guide.lane ? (
+          <div key={i} className="my-6">
+            {part.block === "heroes" ? (
+              <LaneHeroes lane={guide.lane} locale={locale} />
+            ) : (
+              <LaneKitBlock lane={guide.lane} locale={locale} />
+            )}
+          </div>
+        ) : null,
       )}
-      <article className="min-w-0 max-w-[70ch]">
-        {parts.map((part, i) =>
-          part.type === "html" ? (
-            <div
-              key={i}
-              className="prose-mlbb"
-              dangerouslySetInnerHTML={{ __html: cleanGuideHtml(part.html, locale) }}
-            />
-          ) : guide.lane ? (
-            <div key={i} className="my-6">
-              {part.block === "heroes" ? (
-                <LaneHeroes lane={guide.lane} locale={locale} />
-              ) : (
-                <LaneKitBlock lane={guide.lane} locale={locale} />
-              )}
-            </div>
-          ) : null,
-        )}
-      </article>
-    </div>
+    </ReadingLayout>
   );
 }
 
@@ -156,29 +130,27 @@ export function GuideTools({ tools, locale }: { tools: string[]; locale: Locale 
   const entries = tools.flatMap((href) => BASE.filter((e) => e.href === href));
   if (entries.length === 0) return null;
   return (
-    <section aria-labelledby="guide-tools">
-      <SectionTitle id="guide-tools" lead={t("pages.guides.toolsLead")}>
-        {t("pages.guides.tools")}
-      </SectionTitle>
-      <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    <AsideBlock id="guide-tools" title={t("pages.guides.tools")}>
+      <p className="-mt-1 mb-3 text-sm text-chalk-500">{t("pages.guides.toolsLead")}</p>
+      <ul className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
         {entries.map(({ href, key, icon: Icon }) => (
           <li key={href}>
             <Link
               href={href}
-              className="bevel-sm group flex h-full items-start gap-3 border border-night-700/70 bg-night-900/60 p-4 transition-colors hover:border-gold-500/60"
+              className="bevel-sm group flex h-full items-start gap-3 border border-night-700/70 bg-night-900/60 p-3 transition-colors hover:border-gold-500/60"
             >
-              <Icon size={20} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
+              <Icon size={18} aria-hidden className="mt-0.5 shrink-0 text-gold-400" />
               <span className="min-w-0">
-                <span className="block font-semibold text-chalk-100 transition-colors group-hover:text-gold-400">
+                <span className="block text-sm font-semibold text-chalk-100 transition-colors group-hover:text-gold-400">
                   {t(`nav.${key}.label`)}
                 </span>
-                <span className="mt-0.5 block text-sm text-chalk-500">{t(`nav.${key}.desc`)}</span>
+                <span className="mt-0.5 block text-xs text-chalk-500">{t(`nav.${key}.desc`)}</span>
               </span>
             </Link>
           </li>
         ))}
       </ul>
-    </section>
+    </AsideBlock>
   );
 }
 

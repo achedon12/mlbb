@@ -106,6 +106,70 @@ export function SkinGallery({ groups, page: pageServer = 1 }: { groups: GroupSki
   return (
     <div>
       <FilterBar
+        content={
+          <>
+            {results.length === 0 ? (
+              <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
+            ) : (
+              <div className="space-y-10">
+                {visible.map((g) => (
+                  <section key={g.slug} aria-labelledby={`skins-${g.slug}`}>
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-night-800 pb-2">
+                      <h3 id={`skins-${g.slug}`} className="font-heading text-xl font-bold text-chalk-100">
+                        {g.name}
+                        <span className="ml-2 text-sm font-medium text-chalk-500">
+                          {t(`pages.skinsGallery.count.${plural.select(g.skins.length) === "one" ? "one" : "other"}`, {
+                            n: g.skins.length,
+                          })}
+                        </span>
+                      </h3>
+                      <Link
+                        href={`/heroes/${g.slug}/skins`}
+                        prefetch={false}
+                        className="text-sm font-semibold text-gold-400 hover:text-gold-500"
+                      >
+                        {t("pages.skinsGallery.seeAll")} →
+                      </Link>
+                    </div>
+                    {/* Four thumbnails per row on a phone rather than three: the
+                        same gallery in two thirds of the height. */}
+                    <ul className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))]">
+                      {g.skins.map((thumb, k) => {
+                        const [name, , rarity] = thumb;
+                        const src = imageOfThumb(g.slug, thumb);
+                        return (
+                          <li key={`${name}-${k}`}>
+                            <Link
+                              href={`/heroes/${g.slug}/skins#${anchors.get(g.slug)?.get(name) ?? ""}`}
+                              prefetch={false}
+                              className="skin-thumb"
+                              style={{ borderColor: COLORS[rarity] ?? COLORS[0] }}
+                            >
+                              {src ? (
+                                <LightImage
+                                  src={src}
+                                  alt={t("pages.skinsGallery.alt", { hero: g.name, skin: name })}
+                                  width={120}
+                                  height={195}
+                                />
+                              ) : (
+                                <i aria-hidden />
+                              )}
+                              {/* Visible name, already given by the alt text: hidden from screen readers when the image is there. */}
+                              <span aria-hidden={src ? true : undefined}>{name}</span>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </section>
+                ))}
+              </div>
+            )}
+
+            <Pager paging={view} href={(n) => pageHref("/skins", request, n)} onNavigate={setPage} t={t} />
+          </>
+        }
         search={
           <SearchField
             value={search}
@@ -147,67 +211,6 @@ export function SkinGallery({ groups, page: pageServer = 1 }: { groups: GroupSki
           emblem={imageRole}
         />
       </FilterBar>
-
-      {results.length === 0 ? (
-        <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
-      ) : (
-        <div className="space-y-10">
-          {visible.map((g) => (
-            <section key={g.slug} aria-labelledby={`skins-${g.slug}`}>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-night-800 pb-2">
-                <h3 id={`skins-${g.slug}`} className="font-heading text-xl font-bold text-chalk-100">
-                  {g.name}
-                  <span className="ml-2 text-sm font-medium text-chalk-500">
-                    {t(`pages.skinsGallery.count.${plural.select(g.skins.length) === "one" ? "one" : "other"}`, {
-                      n: g.skins.length,
-                    })}
-                  </span>
-                </h3>
-                <Link
-                  href={`/heroes/${g.slug}/skins`}
-                  prefetch={false}
-                  className="text-sm font-semibold text-gold-400 hover:text-gold-500"
-                >
-                  {t("pages.skinsGallery.seeAll")} →
-                </Link>
-              </div>
-              {/* Four thumbnails per row on a phone rather than three: the
-                  same gallery in two thirds of the height. */}
-              <ul className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-8">
-                {g.skins.map((thumb, k) => {
-                  const [name, , rarity] = thumb;
-                  const src = imageOfThumb(g.slug, thumb);
-                  return (
-                    <li key={`${name}-${k}`}>
-                      <Link
-                        href={`/heroes/${g.slug}/skins#${anchors.get(g.slug)?.get(name) ?? ""}`}
-                        prefetch={false}
-                        className="skin-thumb"
-                        style={{ borderColor: COLORS[rarity] ?? COLORS[0] }}
-                      >
-                        {src ? (
-                          <LightImage
-                            src={src}
-                            alt={t("pages.skinsGallery.alt", { hero: g.name, skin: name })}
-                            width={120}
-                            height={195}
-                          />
-                        ) : (
-                          <i aria-hidden />
-                        )}
-                        {/* Visible name, already given by the alt text: hidden from screen readers when the image is there. */}
-                        <span aria-hidden={src ? true : undefined}>{name}</span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
-          ))}
-        </div>
-      )}
-
-      <Pager paging={view} href={(n) => pageHref("/skins", request, n)} onNavigate={setPage} t={t} />
     </div>
   );
 }

@@ -131,7 +131,7 @@ export default async function DraftPage({ params }: { params: Promise<{ locale: 
         }
       />
       <OpenAnchor />
-      <div className="mx-auto max-w-5xl px-4 py-6">
+      <div className="page-wrap py-6">
         <ExtendMessages messages={messagesPage(locale, ["pages.draftSimulatorUI"])}>
           <DraftModes
             heroes={simulationHeroes()}

@@ -96,7 +96,7 @@ export function Heroes({ locale, page = 1 }: { locale: Locale; page?: number }) 
       >
         <FreeRotationTeaser locale={locale} className="mt-4 max-w-md" />
       </PageHeader>
-      <div className="mx-auto max-w-6xl px-4 pb-12 pt-4">
+      <div className="page-wrap pb-12 pt-4">
         <HeroList heroes={previews} page={page} />
       </div>
     </ExtendMessages>

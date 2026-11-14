@@ -175,7 +175,7 @@ export default async function ThreadPage({ params, searchParams }: Params) {
         ]}
       />
       <ExtendMessages messages={messagesPage(locale, ["pages.communityUI"])}>
-        <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 *:max-w-3xl">
+        <div className="page-wrap space-y-8 py-8 *:max-w-3xl">
           {moderator && (
             <section aria-label={t("pages.community.moderationBar")} className="bevel space-y-2 border border-gold-500/40 bg-gold-500/5 p-4">
               <p className="flex items-center gap-2 text-sm font-semibold text-gold-400">

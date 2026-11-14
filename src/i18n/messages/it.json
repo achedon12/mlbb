@@ -31,8 +31,6 @@
     "discordServer": "Server Discord della comunità MLBBDex"
   },
   "nav": {
-    "database": "Database",
-    "newsSection": "Notizie",
     "heroes": {
       "label": "Eroi",
       "desc": "Schede, build e analisi"
@@ -134,10 +132,11 @@
     "main": "Navigazione principale",
     "groups": {
       "heroes": "Eroi",
-      "tierLists": "Tier list",
-      "game": "Gioco",
+      "meta": "Meta",
+      "guides": "Guide",
       "tools": "Strumenti",
-      "news": "Novità"
+      "news": "Notizie ed esport",
+      "community": "Community"
     },
     "byRole": {
       "label": "Per ruolo",
@@ -159,9 +158,6 @@
       "label": "Battle Spell",
       "desc": "Le spell, la loro ricarica e gli eroi che le scelgono."
     },
-    "allSkins": "Tutte le skin",
-    "allEmblems": "Tutti gli emblemi",
-    "submenu": "Apri il sottomenu {name}",
     "events": {
       "label": "Eventi",
       "desc": "StarLight, Collector e skin di ogni mese"
@@ -213,6 +209,70 @@
     "guides": {
       "label": "Guide",
       "desc": "Strategia, macro e ruoli spiegati"
+    },
+    "hubs": {
+      "heroes": "Vedi tutti gli eroi",
+      "meta": "Apri la tier list",
+      "guides": "Vedi tutte le guide",
+      "tools": "Vedi tutti gli strumenti",
+      "news": "Vedi tutte le notizie",
+      "community": "Vai al forum"
+    },
+    "sectionLead": {
+      "heroes": "Schede, ruoli, skin e storie di ogni eroe.",
+      "meta": "Chi vince nella patch attuale, misurato sulle partite classificate.",
+      "guides": "Impara il gioco: guide, mappa, modalità, oggetti ed emblemi.",
+      "tools": "Prepara un draft, prova una build, tieni d'occhio il tuo account.",
+      "news": "Patch, eventi, Advance Server e competizioni pro.",
+      "community": "Forum, compagni di squadra e build condivise dai giocatori."
+    },
+    "columns": {
+      "browse": "Sfoglia",
+      "skins": "Skin ed eventi",
+      "rankings": "Classifiche",
+      "filters": "Tier list filtrata",
+      "picks": "Counter e build",
+      "learn": "Impara",
+      "database": "Database",
+      "toolsDraft": "Draft e squadra",
+      "toolsBuilds": "Build e danni",
+      "toolsAccount": "Account e diamanti",
+      "toolsMatch": "In partita",
+      "toolsGames": "Giochi del giorno",
+      "news": "Notizie",
+      "esports": "Esport",
+      "community": "Community"
+    },
+    "freeRotation": {
+      "label": "Eroi gratuiti",
+      "desc": "La rotazione della settimana"
+    },
+    "strategyPlanner": {
+      "label": "Pianificatore di strategia",
+      "desc": "Rotazioni e scontri tracciati sulla mappa"
+    },
+    "accountValue": {
+      "label": "Valore di un account",
+      "desc": "Il costo stimato di una collezione"
+    },
+    "teammates": {
+      "label": "Trova compagni di squadra",
+      "desc": "Annunci per rango, ruolo e server"
+    },
+    "community": {
+      "label": "Forum",
+      "desc": "Domande, aiuto e discussioni"
+    },
+    "contribute": {
+      "label": "Contribuisci",
+      "desc": "Scrivi l'analisi di un eroe"
+    },
+    "tools": {
+      "label": "Tutti gli strumenti",
+      "desc": "Gli strumenti del sito, per uso"
+    },
+    "emblemsByRole": {
+      "label": "Emblemi per ruolo"
     }
   },
   "account": {
@@ -221,9 +281,6 @@
   },
   "footer": {
     "sourceCode": "Codice sorgente",
-    "theGame": "Il gioco",
-    "news": "Notizie",
-    "theSite": "Il sito",
     "about": "Informazioni",
     "publicApi": "API pubblica",
     "myAccount": "Il mio account",
@@ -236,8 +293,14 @@
     "intro": "Eroi, build e counter per rango, una tier list calcolata sui tassi di vittoria delle partite classificate, oggetti, emblemi e patch notes di Mobile Legends: Bang Bang, in italiano, inglese, francese, spagnolo e indonesiano. Progetto indipendente, aperto ai contributi.",
     "sources": "Dati di gioco dal wiki di Mobile Legends (CC BY-SA). Tassi di vittoria, ban e selezione, counter e build più giocate provengono dalle statistiche delle partite classificate del gioco, tramite l'API della community arena.rone.dev.",
     "discord": "Unisciti alla Discordia",
-    "bot": "Bot della discordia",
-    "community": "Community"
+    "columns": {
+      "heroes": "Eroi",
+      "meta": "Meta",
+      "guides": "Guide",
+      "tools": "Strumenti",
+      "news": "Notizie ed esport",
+      "site": "Il sito"
+    }
   },
   "language": {
     "choose": "Lingua",
@@ -4466,6 +4529,13 @@
         "talents": "Talenti"
       },
       "ldName": "Guide di Mobile Legends: Bang Bang"
+    },
+    "toolsHub": {
+      "title": "Strumenti per Mobile Legends",
+      "lead": "Tutti gli strumenti del sito, ordinati per uso: preparare un draft, provare una build, stimare un account, allenarsi o giocare al gioco del giorno.",
+      "metaTitle": "Strumenti MLBB: draft, build, danni e account",
+      "metaDescription": "Simulatore di draft, analisi della squadra, simulatore di build, calcolatore di danni, valore dell'account, timer degli obiettivi e giochi del giorno per Mobile Legends: Bang Bang.",
+      "nTools": "{n} strumenti"
     }
   },
   "modeSheet": {
@@ -4999,7 +5069,9 @@
   "articleUI": {
     "none": "Ancora nessuna pubblicazione.",
     "by": "di {author}",
-    "untitled": "Senza titolo"
+    "untitled": "Senza titolo",
+    "heroes": "Eroi dell'articolo",
+    "latest": "Da leggere anche"
   },
   "articleCategory": {
     "News": "Notizie",

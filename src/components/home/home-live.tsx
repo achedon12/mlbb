@@ -36,10 +36,10 @@ const skinHref = (s: EventSkin) => (s.anchor ? `/heroes/${s.hero}/skins#${s.anch
  * champions, the heroes the pros pick and ban). The week's free heroes sit
  * above them, on one line, and only while the list is current.
  */
-export function HomeLive({ locale }: { locale: Locale }) {
+export function HomeLive({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   return (
-    <section aria-labelledby="home-live" className="mx-auto max-w-6xl px-4 py-8 sm:py-16">
+    <section aria-labelledby="home-live" className={className}>
       <SectionTitle id="home-live" lead={t("home.live.lead")}>
         {t("home.live.title")}
       </SectionTitle>

@@ -27,13 +27,21 @@ export default async function PrivacyPage({ params }: Params) {
   return (
     <>
       <PageHeader title={t("pages.privacy.title")} lead={t("pages.privacy.lead")} />
-      <Prose locale={locale} messageKey="privacy" variables={{ contact: legal.contact }} />
-      {/*
-        Patch notifications: the only data kept by the server, and
-        only on request. Always described: the page is generated at
-        build time, which does not know whether the VAPID keys will be set.
-      */}
-      <section aria-labelledby="notifications-push" className="prose-mlbb mx-auto -mt-14 max-w-3xl px-4 pb-14">
+      <Prose
+        locale={locale}
+        messageKey="privacy"
+        variables={{ contact: legal.contact }}
+        extraToc={[
+          { title: t("prose.push.title"), anchor: "notifications-push" },
+          { title: t("prose.community.title"), anchor: "community" },
+          ...(botPublished() ? [{ title: t("prose.bot.title"), anchor: "discord-bot" }] : []),
+        ]}
+      >
+        {/*
+          Patch notifications: the only data kept by the server, and
+          only on request. Always described: the page is generated at
+          build time, which does not know whether the VAPID keys will be set.
+        */}
         <h2 id="notifications-push">{t("prose.push.title")}</h2>
         <p>{t("prose.push.intro")}</p>
         <ul>
@@ -69,7 +77,7 @@ export default async function PrivacyPage({ params }: Params) {
             </p>
           </>
         )}
-      </section>
+      </Prose>
     </>
   );
 }

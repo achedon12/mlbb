@@ -65,7 +65,7 @@ export default async function DashboardPage({ params, searchParams }: Params) {
         lead={t("pages.botDashboard.lead")}
         crumbs={[{ name: t("pages.bot.breadcrumb"), href: "/bot" }, { name: t("pages.bot.dashboard") }]}
       />
-      <div className="mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-10">
+      <div className="page-wrap space-y-8 py-8 sm:py-10">
         {!user ? (
           <LoginPanel t={t} locale={locale} next="dashboard" failed={(await searchParams).login === "failed"} />
         ) : (

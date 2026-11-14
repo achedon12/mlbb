@@ -114,7 +114,7 @@ export default async function RolePage({ params }: Params) {
         <FreshnessLine locale={locale} before={t("pages.heroesRole.nHeroes", r)} className="mt-6" />
       </PageHeader>
 
-      <div className="mx-auto max-w-5xl px-4 py-12">
+      <div className="page-wrap py-12">
         <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
           <Link
             href={pathFilter({ type: "role", value: role })}

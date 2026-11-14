@@ -39,7 +39,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: L
           </Link>
         }
       />
-      <div className="mx-auto max-w-3xl px-4 py-14">
+      <div className="page-wrap py-10 sm:py-14">
         <ListArticles articles={list} base="/news" locale={locale} />
       </div>
     </>

@@ -209,7 +209,7 @@ export default async function RanksPage({ params }: Params) {
         </nav>
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-8 px-4 pb-10 pt-5 sm:space-y-14">
+      <div className="page-wrap space-y-8 pb-10 pt-5 sm:space-y-14">
         <section id="scale" aria-labelledby="scale-title" className="scroll-mt-20">
           <BlockTitle id="scale" intro={t("pages.ranks.scaleIntro", { n: SCALE.length })}>
             {t("pages.ranks.scaleTitle")}

@@ -41,7 +41,7 @@ export default async function TeamPage({ params }: Params) {
           {t("pages.team.draftLink")} →
         </Link>
       </PageHeader>
-      <div className="mx-auto max-w-5xl px-4 py-12">
+      <div className="page-wrap py-12">
         <TeamAnalysis
           heroes={catalogTeam()}
           ranks={RANKS_CLASSES}

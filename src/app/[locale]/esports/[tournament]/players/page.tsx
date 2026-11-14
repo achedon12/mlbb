@@ -86,7 +86,7 @@ export default async function TournamentPlayersPage({ params }: Params) {
         <TournamentNav t={t} turn={turn} active="players" />
       </PageHeader>
 
-      <div className="mx-auto max-w-6xl space-y-10 px-4 py-10">
+      <div className="page-wrap space-y-10 py-10">
         <PlayersTable rows={rows} name={turn.name} />
         <SourceCredit t={t} locale={locale} sources={turn.sources} />
       </div>

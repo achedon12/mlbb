@@ -124,6 +124,22 @@ export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview
   return (
     <div>
       <FilterBar
+        content={
+          <>
+            {/* Grid heading for screen readers: the cards carry h3s. */}
+            <h2 className="sr-only">{t("pages.heroesList.list")}</h2>
+            {slice.length > 0 ? (
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,16rem),1fr))] gap-3">
+                {slice.map((h) => (
+                  <HeroCard key={h.slug} hero={h} />
+                ))}
+              </div>
+            ) : (
+              <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
+            )}
+            <Pager paging={view} href={(n) => pageHref("/heroes", request, n)} onNavigate={setPage} t={t} />
+          </>
+        }
         search={
           <SearchField value={search} onChange={filter(setSearch)} label={t("pages.heroesList.search")} dense />
         }
@@ -174,19 +190,6 @@ export function HeroList({ heroes, page: pageServer = 1 }: { heroes: HeroPreview
           ))}
         </FilterGroup>
       </FilterBar>
-
-      {/* Grid heading for screen readers: the cards carry h3s. */}
-      <h2 className="sr-only">{t("pages.heroesList.list")}</h2>
-      {slice.length > 0 ? (
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {slice.map((h) => (
-            <HeroCard key={h.slug} hero={h} />
-          ))}
-        </div>
-      ) : (
-        <p className="mt-10 text-chalk-500">{t("pages.heroesList.none")}</p>
-      )}
-      <Pager paging={view} href={(n) => pageHref("/heroes", request, n)} onNavigate={setPage} t={t} />
     </div>
   );
 }

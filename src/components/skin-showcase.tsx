@@ -82,7 +82,7 @@ export function ShowcasePortrait({
   const source = active.portrait ?? portraitDefault;
 
   return (
-    <span className="bevel-sm relative h-40 w-28 shrink-0 overflow-hidden bg-night-800">
+    <span className="bevel-sm relative h-40 w-28 shrink-0 overflow-hidden bg-night-800 xl:h-32 xl:w-24">
       {source ? (
         <Image
           src={source}

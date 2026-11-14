@@ -30,7 +30,7 @@ export default async function SpellsPage({ params }: { params: Promise<{ locale:
         title={t("pages.spellsList.title")}
         lead={t("pages.spellsList.lead", { n: spellSheets.length })}
       />
-      <div className="mx-auto max-w-5xl px-4 py-12">
+      <div className="page-wrap py-12">
         <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {spellSheets.map((s) => (
             <li key={s.slug}>

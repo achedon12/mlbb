@@ -207,6 +207,55 @@ test.describe("global search", () => {
   });
 });
 
+test.describe("header navigation", () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  test("a section opens its panel, which leads to its hub, and Escape closes it", async ({ page }) => {
+    await page.goto("/fr/heroes");
+    const nav = page.getByRole("navigation", { name: /navigation principale/i });
+    const tools = nav.getByRole("button", { name: /^outils$/i });
+    // The toggle answers once hydrated: retried until it does.
+    await expect(async () => {
+      await tools.click();
+      await expect(tools).toHaveAttribute("aria-expanded", "true", { timeout: 1_000 });
+    }).toPass();
+    const hub = nav.getByRole("link", { name: /voir tous les outils/i });
+    await expect(hub).toBeVisible();
+    await expect(nav.getByRole("link", { name: /planificateur de strat[ée]gie/i })).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(tools).toHaveAttribute("aria-expanded", "false");
+    await expect(tools).toBeFocused();
+    await expect(hub).toBeHidden();
+  });
+
+  test("the tools hub lists every tool by use", async ({ page }) => {
+    await page.goto("/fr/tools");
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+    const main = page.locator("main");
+    for (const name of [/^draft /i, /simulateur de build/i, /valeur d'un compte/i, /chrono des objectifs/i]) {
+      await expect(main.getByRole("link", { name }).first()).toBeVisible();
+    }
+  });
+});
+
+test.describe("mobile menu", () => {
+  test.use({ viewport: PHONE });
+
+  test("the burger opens the sections, the current one expanded", async ({ page }) => {
+    await page.goto("/fr/tier-list");
+    const burger = page.getByRole("button", { name: /ouvrir le menu/i });
+    await expect(async () => {
+      await burger.click();
+      await expect(page.getByRole("button", { name: /fermer le menu/i })).toBeVisible({ timeout: 1_000 });
+    }).toPass();
+    const nav = page.getByRole("navigation", { name: /navigation principale/i });
+    await expect(nav.getByRole("button", { name: /^m[ée]ta$/i })).toHaveAttribute("aria-expanded", "true");
+    await expect(nav.getByRole("link", { name: /ouvrir la tier list/i })).toBeVisible();
+    const width = await page.evaluate(() => document.documentElement.scrollWidth);
+    expect(width).toBeLessThanOrEqual(PHONE.width);
+  });
+});
+
 test("a hero page's share image is a PNG", async ({ request }) => {
   const response = await request.get("/fr/heroes/khufra/opengraph-image");
   expect(response.status()).toBe(200);

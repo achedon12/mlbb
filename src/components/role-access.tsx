@@ -27,7 +27,7 @@ const COLORS: Record<Role, string> = {
 export function RoleAccess({ count, locale }: { count: Record<Role, number>; locale: Locale }) {
   const t = createT(locale);
   return (
-    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6">
+    <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6 2xl:grid-cols-3">
       {(Object.keys(COLORS) as Role[]).map((role) => (
         <li key={role}>
           <Link

@@ -2,35 +2,26 @@ import Link from "@/components/link";
 import { Rss } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
-import { botPublished, communityInvite } from "@/lib/bot/public";
+import { communityInvite } from "@/lib/bot/public";
+import { FOOTER, type Chip } from "@/lib/sections";
 import { site } from "@/lib/site";
 import { DiscordMark } from "./bot/discord-mark";
 
-/** Footer link column. `prefix` picks the key family. */
-function Column({
-  title,
-  links,
-  prefix,
-  t,
-}: {
-  title: string;
-  links: readonly { href: string; key: string }[];
-  prefix: "nav" | "footer";
-  t: T;
-}) {
+/** Footer link column: one per header section, plus the site's own pages. */
+function Column({ title, links, t }: { title: string; links: readonly Chip[]; t: T }) {
   return (
-    <div>
-      <p className="font-heading text-xs font-semibold uppercase tracking-wider text-gold-400">{title}</p>
+    <nav aria-label={title}>
+      <p className="font-heading text-sm font-semibold text-gold-400">{title}</p>
       <ul className="mt-2.5 space-y-1.5">
         {links.map((link) => (
           <li key={link.href}>
             <Link href={link.href} className="text-sm text-chalk-500 transition-colors hover:text-chalk-100">
-              {prefix === "nav" ? t(`nav.${link.key}.label`) : t(`footer.${link.key}`)}
+              {t(link.label)}
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }
 
@@ -45,44 +36,13 @@ function GithubMark() {
   );
 }
 
-const GAME = [
-  { href: "/heroes", key: "heroes" },
-  { href: "/tier-list", key: "tierList" },
-  { href: "/compare", key: "compare" },
-  { href: "/draft", key: "draft" },
-  { href: "/tools/team", key: "team" },
-  { href: "/tools/win-rate", key: "winRate" },
-  { href: "/game-modes", key: "gameModes" },
-  { href: "/items", key: "items" },
-  { href: "/emblems", key: "emblems" },
-];
-
-const NEWS = [
-  { href: "/news", key: "news" },
-  { href: "/guides", key: "guides" },
-  { href: "/watch", key: "watch" },
-  { href: "/patch-notes", key: "patchNotes" },
-];
-
-// The bot's page only exists when the bot is deployed (application id set at build time).
-const SITE = [
-  { href: "/community", key: "community" },
-  ...(botPublished() ? [{ href: "/bot", key: "bot" }] : []),
-  { href: "/api-doc", key: "publicApi" },
-  { href: "/about", key: "about" },
-  { href: "/contribute", key: "contribute" },
-  { href: "/account", key: "myAccount" },
-  { href: "/legal", key: "legalNotice" },
-  { href: "/privacy", key: "privacy" },
-];
-
 export function Footer({ locale }: { locale: Locale }) {
   const t = createT(locale);
   const discord = communityInvite();
 
   return (
     <footer className="mt-16 border-t border-night-700/70 bg-night-900/40">
-      <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-7 px-4 py-8 sm:py-10 md:grid-cols-[1.6fr_1fr_1fr_1fr]">
+      <div className="page-wrap grid gap-x-12 gap-y-8 py-8 sm:py-12 xl:grid-cols-[minmax(16rem,22rem)_minmax(0,1fr)]">
         <div>
           <Link href={`/${locale}`} className="group flex items-center gap-2.5">
             <span
@@ -126,26 +86,20 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        {/* Two by two on a phone: stacked, the eighteen links alone were a screen and a half. */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-7 md:contents">
-        <nav aria-label={t("footer.theGame")}>
-          <Column title={t("footer.theGame")} links={GAME} prefix="nav" t={t} />
-        </nav>
-        <nav aria-label={t("footer.news")}>
-          <Column title={t("footer.news")} links={NEWS} prefix="nav" t={t} />
-        </nav>
-        <nav aria-label={t("footer.theSite")}>
-          <Column title={t("footer.theSite")} links={SITE} prefix="footer" t={t} />
-        </nav>
+        {/* Two by two on a phone, three on a tablet, all six in a row from `xl`. */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-3 xl:grid-cols-6">
+          {FOOTER.map((c) => (
+            <Column key={c.key} title={t(`footer.columns.${c.key}`)} links={c.links} t={t} />
+          ))}
         </div>
       </div>
 
       <div className="border-t border-night-800/80">
-        <p className="mx-auto max-w-6xl px-4 py-3 text-xs text-chalk-600">{t("footer.sources")}</p>
+        <p className="page-wrap py-3 text-xs text-chalk-600">{t("footer.sources")}</p>
       </div>
 
       <div className="border-t border-night-800">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="page-wrap flex flex-col gap-2 py-4 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {YEAR} {site.name} — {t("footer.rights", { author: site.author })}
             <span className="text-chalk-600"> · {t("footer.version", { v: process.env.VERSION_SITE ?? "" })}</span>

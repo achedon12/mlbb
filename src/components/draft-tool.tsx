@@ -78,7 +78,7 @@ export function DraftTool({ heroes }: { heroes: DraftHero[] }) {
   const empty = listEnemies.length === 0 && listAllies.length === 0;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 xl:grid xl:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] xl:items-start xl:gap-x-12 xl:gap-y-8 xl:space-y-0">
       {/* ── Step 1: the opposing line-up, each lane with its answers ───── */}
       <StepSection n={1} title={t("draftUI.stepEnemyTitle")} help={t("draftUI.waitingEnemy")}>
         <ul className="space-y-3">
@@ -113,7 +113,7 @@ export function DraftTool({ heroes }: { heroes: DraftHero[] }) {
 
       {/* ── Step 2: your own picks, an optional refinement ─────────────── */}
       <StepSection n={2} title={t("draftUI.stepYoursTitle")} help={t("draftUI.yoursDesc")} optional={t("draftUI.optional")}>
-        <ul className="grid gap-2 sm:grid-cols-2">
+        <ul className="grid gap-2 sm:grid-cols-2 xl:grid-cols-1">
           {LANES.map((lane) => (
             <li key={lane}>
               <LaneField

@@ -110,12 +110,16 @@ export async function GET(_request: Request, { params }: { params: Promise<{ loc
       detail: t(`pages.guides.kind.${g.kind}`),
       href: `/guides/${g.slug}`,
     })),
-    ...[...BASE, ...NEWS].map((e) => ({
-      type: "page" as const,
-      title: t(`nav.${e.key}.label`),
-      detail: t(`nav.${e.key}.desc`),
-      href: e.href,
-    })),
+    { type: "page" as const, title: t("pages.toolsHub.title"), detail: t("nav.tools.desc"), href: "/tools" },
+    // The menu's pages, but the two given their own entry above and below.
+    ...[...BASE, ...NEWS]
+      .filter((e) => e.href !== "/guides" && e.href !== "/contribute")
+      .map((e) => ({
+        type: "page" as const,
+        title: t(`nav.${e.key}.label`),
+        detail: t(`nav.${e.key}.desc`),
+        href: e.href,
+      })),
     { type: "page" as const, title: t("pages.contribute.title"), detail: t("pages.contribute.summary"), href: "/contribute" },
   ];
 

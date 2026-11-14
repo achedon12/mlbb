@@ -194,7 +194,7 @@ export function Statistics({ locale, rank, page = 1 }: { locale: Locale; rank: M
         meta={freshnessFacts(locale, t("pages.statistics.measures", { n: rows.length }))}
       />
 
-      <div className="mx-auto max-w-6xl px-4 pb-10 pt-4">
+      <div className="page-wrap pb-10 pt-4">
         {/* Data sentence: what search results pick up as a snippet. */}
         <p className="mb-4 max-w-3xl text-sm leading-relaxed text-chalk-300">
           {t("pages.statistics.summary", {
