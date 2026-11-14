@@ -293,6 +293,13 @@ gold embed (the newcomer's avatar as thumbnail on a welcome).
 - `bot/` posts its server count (and shard count) every 30 minutes to
   top.gg (`TOPGG_TOKEN`), discordbotlist.com (`DBL_TOKEN`) and
   discord.bots.gg (`DBOTSGG_TOKEN`); each is optional — no token, no post.
+- The command list goes to discordbotlist.com (`POST
+  /api/v1/bots/<id>/commands`, `Authorization: Bot <DBL_TOKEN>`, the very
+  array registered with Discord), which shows it on the bot's page: after
+  each global `npm run deploy-commands` (skipped with an info line without
+  `DBL_TOKEN` or with `DEV_GUILD_ID`; a refusal never fails the Discord
+  registration), and once at every start of the manager, with a 10 s
+  timeout. The token is never logged.
 - Vote webhooks (top.gg, DBL) at `/api/bot/votes/<list>` verified with their
   secret (`TOPGG_WEBHOOK_SECRET`, `DBL_WEBHOOK_SECRET`), as each list
   documents it: top.gg v1 signs `${t}.${rawBody}` (HMAC-SHA256, header

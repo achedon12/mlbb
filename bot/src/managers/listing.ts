@@ -83,6 +83,42 @@ export async function postListings(
   return ok;
 }
 
+/**
+ * discordbotlist.com shows a bot's commands only once they were sent to it:
+ * the very body registered with Discord, as a JSON array. Its documentation
+ * asks for `Bot <token>` on this route (the stats route takes the bare
+ * token); a token already written with the prefix is sent as it is.
+ */
+export function dblAuthorization(token: string): string {
+  return /^Bot /i.test(token) ? token : `Bot ${token}`;
+}
+
+/** Sends the command list to discordbotlist.com; true when it accepted it. Never throws. */
+export async function postCommandsToDbl(
+  botId: string,
+  token: string,
+  commands: unknown[],
+  fetchImpl: FetchLike = fetch,
+  timeoutMs = 10_000,
+): Promise<boolean> {
+  try {
+    const response = await fetchImpl(`https://discordbotlist.com/api/v1/bots/${botId}/commands`, {
+      method: "POST",
+      headers: { Authorization: dblAuthorization(token), "Content-Type": "application/json" },
+      body: JSON.stringify(commands),
+      signal: AbortSignal.timeout(timeoutMs),
+    });
+    if (response.ok) {
+      log.info("command list posted to discordbotlist.com", { count: commands.length });
+      return true;
+    }
+    log.warn("discordbotlist.com refused the command list", { status: response.status });
+  } catch (error) {
+    log.warn("discordbotlist.com unreachable for the command list", { error });
+  }
+  return false;
+}
+
 export class ListingPoster {
   private timer: NodeJS.Timeout | null = null;
 
