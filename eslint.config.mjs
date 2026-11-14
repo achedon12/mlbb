@@ -17,6 +17,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Generated database client (prisma generate).
     "src/generated/**",
+    // The Discord bot is its own package, with its own lint config.
+    "bot/**",
   ]),
 ]);
 
