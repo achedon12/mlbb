@@ -12,6 +12,7 @@ import { createT, messagesPage } from "@/i18n/translations";
 import { serializeJsonLd } from "@/lib/html";
 import { ALERT_THRESHOLDS, BUFFS, CAMPS, CHECKED_ON, GUIDE_EVENTS, LORD, SOURCES, TURTLE, formatTime } from "@/lib/objectives";
 import { formatShortDate } from "@/lib/utils";
+import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -126,8 +127,10 @@ export default async function TimerPage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.timerUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.timer.title")} lead={t("pages.timer.lead", THRESHOLDS)} />
-      <div className="mx-auto max-w-4xl space-y-8 px-4 pb-10 pt-6 sm:space-y-14">
-        <ObjectiveTimer />
+      <ToolLayout
+        className="pb-10 pt-6"
+        aside={
+          <>
 
         <section aria-labelledby="timings-title">
           <h2 id="timings-title" className={sectionTitle}>
@@ -197,7 +200,11 @@ export default async function TimerPage({ params }: Params) {
             <p className="mt-3">{t("pages.timer.sourcesNote", { lateFrom: formatTime(LORD.lateFrom) })}</p>
           </section>
         </Foldable>
-      </div>
+          </>
+        }
+      >
+        <ObjectiveTimer />
+      </ToolLayout>
     </ExtendMessages>
   );
 }

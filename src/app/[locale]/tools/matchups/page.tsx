@@ -13,6 +13,7 @@ import { longDate, patchCurrent } from "@/lib/freshness";
 import { serializeJsonLd } from "@/lib/html";
 import { coverage, gapOf, measuredGaps, SIZE_SIDE } from "@/lib/matchups";
 import { rankingFull, RANKS_CLASSES } from "@/lib/tier-list";
+import { ToolLayout } from "@/components/tool-layout";
 
 type Params = { params: Promise<{ locale: Locale }> };
 
@@ -90,8 +91,10 @@ export default async function MatchupsPage({ params }: Params) {
     <ExtendMessages messages={messagesPage(locale, ["pages.matchupsUI"])}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       <PageHeader title={t("pages.matchups.title")} lead={t("pages.matchups.lead")} />
-      <div className="mx-auto max-w-4xl space-y-14 px-4 py-10">
-        <MatchupMatrix heroes={roster} ranks={[...RANKS_CLASSES]} example={exampleLineups()} />
+      <ToolLayout
+        className="py-10"
+        aside={
+          <>
 
         <p className="flex flex-wrap gap-x-6 gap-y-2">
           <Link href="/compare" className={link}>
@@ -126,7 +129,11 @@ export default async function MatchupsPage({ params }: Params) {
             </p>
           </div>
         </section>
-      </div>
+          </>
+        }
+      >
+        <MatchupMatrix heroes={roster} ranks={[...RANKS_CLASSES]} example={exampleLineups()} />
+      </ToolLayout>
     </ExtendMessages>
   );
 }

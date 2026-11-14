@@ -101,7 +101,7 @@ export default async function ComparePage({ params }: { params: Promise<{ locale
         title={t("pages.compare.title")}
         lead={t("pages.compare.leadThree")}
       />
-      <div className="mx-auto max-w-3xl px-4 py-12">
+      <div className="page-wrap py-12">
         <HeroComparator heroes={comparables} ranks={[...RANKS_CLASSES]} bounds={bounds} />
 
         <section aria-labelledby="duels" className="mt-14">

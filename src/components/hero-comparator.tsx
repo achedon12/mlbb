@@ -189,9 +189,12 @@ export function HeroComparator({
             </FilterGroup>
           )}
 
-          <Profile heroes={chosen} rank={rank} bounds={bounds[rank] ?? null} />
-          <ComparisonTable heroes={chosen} rank={rank} />
-          <ComparedCurves heroes={chosen} rank={rank} />
+          {/* Radar and table side by side on a wide screen, the curves across under them. */}
+          <div className="xl:grid xl:grid-cols-2 xl:items-start xl:gap-x-10 xl:[&>:last-child]:col-span-2">
+            <Profile heroes={chosen} rank={rank} bounds={bounds[rank] ?? null} />
+            <ComparisonTable heroes={chosen} rank={rank} />
+            <ComparedCurves heroes={chosen} rank={rank} />
+          </div>
         </div>
       )}
     </div>
