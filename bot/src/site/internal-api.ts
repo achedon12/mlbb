@@ -16,6 +16,7 @@ import {
   type Daily,
   type DailyGuild,
   type Game,
+  type GreetingKind,
   type GuildSettings,
   type Leaderboard,
   type Period,
@@ -144,6 +145,18 @@ export class SiteClient {
         throw error;
       }
     });
+  }
+
+  /**
+   * The bot could not post this server's welcome or goodbye message: the
+   * site marks it failing until the owner saves again. The cached copy is
+   * flagged at once, so the next member event does not try again while the
+   * cache is still fresh.
+   */
+  markGreetingFailing(guildId: string, kind: GreetingKind): Promise<unknown> {
+    const cached = this.settingsCache.get(guildId);
+    if (cached) this.settingsCache.set(guildId, { ...cached, [kind]: { ...cached[kind], failing: true } });
+    return this.request("POST", `/api/bot/guilds/${guildId}/greeting-failure`, anyBody, { kind });
   }
 
   /** Locale setting of a server, or null; never throws (replies must not depend on it). */

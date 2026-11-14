@@ -441,6 +441,14 @@
       "esportsWinner": "Pemenang: {winner}",
       "testTitle": "Pesan uji MLBBDex",
       "testBody": "Pengumuman akan diposting di channel ini."
+    },
+    "greetings": {
+      "welcome": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran.",
+      "goodbye": "**{username}** telah keluar dari server.",
+      "welcomeRaid": "Selamat datang, {count} anggota baru! Pilih peran kalian di Saluran & Peran.",
+      "goodbyeRaid": "{count} anggota telah keluar dari server.",
+      "testWelcome": "Tes: pesan sambutan",
+      "testGoodbye": "Tes: pesan perpisahan"
     }
   },
   "labels": {

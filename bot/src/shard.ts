@@ -1,6 +1,7 @@
-import { Client, Events, GatewayIntentBits, Options } from "discord.js";
+import { ChannelType, Client, Events, Options, Partials, PermissionFlagsBits, type GuildMember, type PartialGuildMember } from "discord.js";
 import { COMMANDS, COMPONENTS, commandMap } from "./commands/index.js";
 import { loadConfig, requireDiscord } from "./config.js";
+import { DISALLOWED_INTENTS, gatewayIntents, MEMBER_INTENT_WARNING, memberEventsAvailable } from "./discord/intents.js";
 import { handleInteraction } from "./discord/interactions.js";
 import { createShardApi, guildSummary } from "./discord/shard-api.js";
 import type { Services } from "./discord/types.js";
@@ -9,17 +10,21 @@ import type { QuizProgress } from "./games/quiz.js";
 import { DayStore } from "./games/state.js";
 import { log } from "./log.js";
 import { CommandLogger } from "./managers/command-logger.js";
+import { Greeter, type MemberEvent } from "./managers/greeter.js";
+import { restPoster } from "./managers/poster.js";
 import { GameData } from "./site/game-data.js";
 import { SiteClient } from "./site/internal-api.js";
 
 /**
  * One shard: a gateway connection serving part of the servers, started by
  * the ShardingManager (`index.ts`). It answers interactions and reports
- * joins and leaves; the posting loops run in the manager, over REST.
+ * joins and leaves, and posts the welcome and goodbye messages (member
+ * events reach the shard only); the other posting loops run in the
+ * manager, over REST.
  */
 
 const config = loadConfig();
-const { clientId } = requireDiscord(config);
+const { token, clientId } = requireDiscord(config);
 const site = config.BOT_API_SECRET ? new SiteClient(config.SITE_INTERNAL_URL, config.BOT_API_SECRET) : null;
 
 const services: Services = {
@@ -32,11 +37,20 @@ const services: Services = {
   quiz: new DayStore<QuizProgress>(),
 };
 
+// GuildMembers only for the join and leave events of the welcome and
+// goodbye messages, and only when the developer portal grants it: without
+// it the bot runs as before, those two messages off.
+const memberEvents = site ? await memberEventsAvailable(token) : false;
+
 const client = new Client({
-  // Guilds only: no privileged intent, no message content, no member list.
-  intents: [GatewayIntentBits.Guilds],
+  // No message content, no presences; see discord/intents.ts.
+  intents: gatewayIntents(memberEvents),
+  // A member who leaves is not in the (empty) member cache: the partial
+  // carries the user Discord sends with the event, which is all a goodbye needs.
+  partials: memberEvents ? [Partials.GuildMember] : [],
   // The bot reads no messages and lists no members: those caches stay empty,
-  // except its own member, needed to compute its channel permissions.
+  // except its own member, needed to compute its channel permissions. A
+  // member event passes through and is evicted by the next one.
   makeCache: Options.cacheWithLimits({
     ...Options.DefaultMakeCacheSettings,
     MessageManager: 0,
@@ -56,6 +70,41 @@ const client = new Client({
   allowedMentions: { parse: [] },
 });
 client.mlbbdex = createShardApi(client);
+
+/** Can the bot post embeds in this channel of this server, by its own cache? */
+function canPost(guildId: string, channelId: string): boolean {
+  const guild = client.guilds.cache.get(guildId);
+  const channel = guild?.channels.cache.get(channelId);
+  if (!guild || !channel || (channel.type !== ChannelType.GuildText && channel.type !== ChannelType.GuildAnnouncement)) return false;
+  // Without its own member in the cache (it always is, in practice) the
+  // bot cannot tell: Discord's answer to the post decides instead.
+  const me = guild.members.me;
+  if (!me) return true;
+  const needed = PermissionFlagsBits.ViewChannel | PermissionFlagsBits.SendMessages | PermissionFlagsBits.EmbedLinks;
+  return channel.permissionsFor(me)?.has(needed) ?? false;
+}
+
+const greeter =
+  site && memberEvents
+    ? new Greeter({
+        settings: (guildId) => site.settings(guildId),
+        poster: restPoster(client.rest),
+        canPost,
+        markFailing: (guildId, kind) => site.markGreetingFailing(guildId, kind),
+        siteUrl: config.SITE_URL,
+      })
+    : null;
+
+/** What a greeting reads of a member; nothing of it is stored. */
+function memberEvent(member: GuildMember | PartialGuildMember): MemberEvent {
+  return {
+    guildId: member.guild.id,
+    guildName: member.guild.name,
+    guildLocale: member.guild.preferredLocale,
+    memberCount: member.guild.memberCount,
+    member: { id: member.id, username: member.user.username, avatarUrl: member.user.displayAvatarURL({ size: 128 }) },
+  };
+}
 
 const commands = commandMap();
 log.info("commands loaded", { count: COMMANDS.length });
@@ -90,11 +139,28 @@ client.on(Events.GuildDelete, (guild) => {
   site?.leaveGuild(guild.id).catch((error: unknown) => log.warn("leave not recorded", { error }));
 });
 
+// Bots added by the owner are not greeted.
+client.on(Events.GuildMemberAdd, (member) => {
+  if (greeter && !member.user.bot) void greeter.handle("welcome", memberEvent(member));
+});
+client.on(Events.GuildMemberRemove, (member) => {
+  if (greeter && !member.user?.bot) void greeter.handle("goodbye", memberEvent(member));
+});
+
+client.on(Events.ShardDisconnect, (event) => {
+  // Only reachable when the portal check could not run: say why, and let the
+  // manager respawn this shard, whose check will then see the intent is off.
+  if (event.code !== DISALLOWED_INTENTS) return;
+  log.error(MEMBER_INTENT_WARNING);
+  process.exit(1);
+});
+
 client.on(Events.Error, (error) => log.error("client error", { error }));
 client.on(Events.Warn, (message) => log.warn("client warning", { message }));
 
 async function shutdown(signal: string): Promise<void> {
   log.info("shard stopping", { signal });
+  greeter?.stop();
   await services.logger.stop().catch(() => undefined);
   await client.destroy();
   process.exit(0);

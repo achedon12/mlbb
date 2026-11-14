@@ -441,6 +441,14 @@
       "esportsWinner": "Vainqueur : {winner}",
       "testTitle": "Message de test MLBBDex",
       "testBody": "Les annonces seront publiées dans ce salon."
+    },
+    "greetings": {
+      "welcome": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "goodbye": "**{username}** a quitté le serveur.",
+      "welcomeRaid": "Bienvenue aux {count} nouveaux membres ! Choisissez vos rôles dans Salons et rôles.",
+      "goodbyeRaid": "{count} membres ont quitté le serveur.",
+      "testWelcome": "Test : message de bienvenue",
+      "testGoodbye": "Test : message de départ"
     }
   },
   "labels": {
