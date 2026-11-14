@@ -20,6 +20,7 @@ import { CHECKED_ON } from "@/lib/objectives";
 import { esportsUpdatedAt, tournaments } from "@/lib/esports";
 import { hasPlayerStats, hasTeamPage, playedSlugs, proTeams } from "@/lib/esports-players";
 import { botPublished } from "@/lib/bot/public";
+import { CATEGORIES } from "@/lib/community/constants";
 import { advanceSyncedAt, advanceVersion, advanceVersionNumbers, advanceVersions } from "@/lib/advance-server";
 
 /**
@@ -101,6 +102,11 @@ export function sitemapEntries(): MetadataRoute.Sitemap {
     { path: "/tools/build", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
     { path: "/tools/damage-calculator", changeFrequency: "monthly", priority: 0.6, lastModified: synced },
     { path: "/builds", changeFrequency: "daily", priority: 0.5 },
+    // Community: the forum's hub and categories, the teammate finder. The
+    // threads themselves are reached from the category pages.
+    { path: "/community", changeFrequency: "daily", priority: 0.5 },
+    ...CATEGORIES.map((c) => ({ path: `/community/${c}`, changeFrequency: "daily" as const, priority: 0.4 })),
+    { path: "/community/teammates", changeFrequency: "daily", priority: 0.4 },
     // Monthly skin calendar: one page per month the data documents.
     { path: "/events", changeFrequency: "weekly", priority: 0.7, lastModified: synced },
     ...monthKeys().map((month) => ({
