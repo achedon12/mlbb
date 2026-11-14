@@ -9,7 +9,7 @@ services:
         NEXT_PUBLIC_MATOMO_URL: ${NEXT_PUBLIC_MATOMO_URL:-}
         NEXT_PUBLIC_MATOMO_SITE_ID: ${NEXT_PUBLIC_MATOMO_SITE_ID:-}
         NEXT_PUBLIC_DISCORD_CLIENT_ID: ${NEXT_PUBLIC_DISCORD_CLIENT_ID:-}
-        NEXT_PUBLIC_DISCORD_INVITE_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-}
+        NEXT_PUBLIC_DISCORD_INVITE_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-https://discord.gg/mw5RzvkkU3}
     image: mlbb:latest
     env_file:
       - .env
@@ -114,7 +114,7 @@ services:
       TOPGG_TOKEN: ${TOPGG_TOKEN:-}
       DBL_TOKEN: ${DBL_TOKEN:-}
       DBOTSGG_TOKEN: ${DBOTSGG_TOKEN:-}
-      SUPPORT_SERVER_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-}
+      SUPPORT_SERVER_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-https://discord.gg/mw5RzvkkU3}
     networks:
       - default
       - internal
