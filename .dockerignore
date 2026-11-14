@@ -21,3 +21,5 @@ donnees-serveur
 # The Discord bot has its own image (bot/Dockerfile)
 bot
 backups
+# Tests are not shipped, and some import the bot package, absent above
+tests
