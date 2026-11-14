@@ -347,6 +347,11 @@ export default async function MapPage({ params }: Params) {
           <div className="mt-6">
             <MapGuide cards={mapCards(t, locale)} />
           </div>
+          <p className="mt-4 text-sm">
+            <Link href="/tools/strategy-planner" className="font-semibold text-gold-400 transition-colors hover:text-gold-500">
+              {t("pages.map.plannerLink")} →
+            </Link>
+          </p>
         </section>
 
         <Foldable label={t("common.method")}>

@@ -59,7 +59,7 @@ Statistics come from ranked games aggregated by the community API arena.rone.dev
 ## Tools
 
 - [Draft assistant](${link("/draft")}), [hero comparison](${link("/compare")}), [matchup matrix](${link("/tools/matchups")}) and [team analyzer](${link("/tools/team")}).
-- [Win-rate calculator](${link("/tools/win-rate")}), [server time](${link("/tools/server-time")}) and [tier list maker](${link("/tools/tier-list-maker")}).
+- [Win-rate calculator](${link("/tools/win-rate")}), [server time](${link("/tools/server-time")}), [tier list maker](${link("/tools/tier-list-maker")}) and [strategy planner](${link("/tools/strategy-planner")}).
 - [Build simulator](${link("/tools/build")}) and [damage calculator](${link("/tools/damage-calculator")}): stats of an equipped hero, and what a hit deals after defense and penetration.
 
 ## API

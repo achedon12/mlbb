@@ -1,4 +1,4 @@
-import { assignLanes, synergiesInternal, type Gap, type MeasuresRank, type TypeDamage } from "./composition";
+import { assignLanes, type Gap, type MeasuresRank, type TypeDamage } from "./composition";
 import { LANES, type DraftHero } from "./draft";
 import type { MeasuredRank } from "./measured-ranks";
 import type { Lane, HeroRatings, Tier } from "./types";
@@ -609,47 +609,4 @@ export function matchupsBetween(blue: string[], red: string[], measures: Measure
     }
   }
   return out.sort((x, y) => Math.abs(y.points) - Math.abs(x.points));
-}
-
-export interface Advantage {
-  /** Sum of measured matchups, from the blue side's point of view. */
-  counters: number;
-  /** Sum of the measured duo gains inside each team. */
-  duos: Record<Side, number>;
-  /** Counters plus the duo gap: an index in points, not a probability. */
-  total: number;
-  /** Share of the bar given to blue, between 0.05 and 0.95. */
-  blueShare: number;
-  /** Number of measurements behind the index: without any, the bar has nothing to say. */
-  measures: number;
-}
-
-/**
- * A cumulative index of 10 points pushes the bar almost to the end. Adding
- * win-rate gaps does not make a win probability: the bar stops at 5 and 95%
- * so it never shows a certainty.
- */
-export const ADVANTAGE_SCALE = 10;
-
-export function measuredAdvantage(blue: string[], red: string[], measures: MeasuresRank): Advantage {
-  const matchups = matchupsBetween(blue, red, measures);
-  const duosOf = (slugs: string[]) =>
-    synergiesInternal(
-      slugs.map((slug) => ({ slug, synergies: [] })),
-      measures,
-    ).filter((p): p is typeof p & { points: number } => p.points !== null);
-  const bluePairs = duosOf(blue);
-  const redPairs = duosOf(red);
-  const sum = (l: number[]) => round1(l.reduce((a, b) => a + b, 0));
-  const counters = sum(matchups.map((d) => d.points));
-  const duos = { blue: sum(bluePairs.map((p) => p.points)), red: sum(redPairs.map((p) => p.points)) };
-  const total = round1(counters + duos.blue - duos.red);
-  const blueShare = 0.5 + Math.max(-0.45, Math.min(0.45, total / (2 * ADVANTAGE_SCALE)));
-  return {
-    counters,
-    duos,
-    total,
-    blueShare: Math.round(blueShare * 1000) / 1000,
-    measures: matchups.length + bluePairs.length + redPairs.length,
-  };
 }
