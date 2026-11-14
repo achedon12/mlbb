@@ -33,9 +33,10 @@ src/games/        MLBBdle comparison, quiz rounds, nicknames, server time
   REST from the manager, so it does not matter which shard holds a server.
 - **Least privilege**: the `Guilds` intent, plus the privileged
   `GuildMembers` for one thing only, the join and leave events of the
-  welcome and goodbye messages (no member list fetched, nothing about
-  members stored; never message content), and the invite asks for 8
-  permissions, no Administrator (see [LISTING.md](LISTING.md)).
+  welcome and goodbye messages and the auto-roles (no member list
+  fetched, nothing about members stored; never message content), and the
+  invite asks for 8 permissions, no Administrator, no Manage Roles (a
+  server using auto-roles grants it; see [LISTING.md](LISTING.md)).
 - **Replies within 3 s**: every command is deferred first; autocomplete has
   a 2.5 s deadline. The lists most commands read (heroes, rankings,
   patches, items) are loaded when a shard starts and every 10 minutes, so
@@ -72,10 +73,10 @@ Without `DISCORD_TOKEN` the bot stops at once with a message saying what to
 set. Without `BOT_API_SECRET` it still answers the game-data commands, with
 settings, announcements, daily games and the internal API turned off.
 
-For the welcome and goodbye messages, switch on **Server Members Intent**
-in the developer portal (Bot > Privileged Gateway Intents). Without it the
-bot logs a warning at start, connects with `Guilds` only and runs as usual,
-those two messages off.
+For the welcome and goodbye messages and the auto-roles, switch on
+**Server Members Intent** in the developer portal (Bot > Privileged Gateway
+Intents). Without it the bot logs a warning at start, connects with
+`Guilds` only and runs as usual, those features off.
 
 `npm run deploy-commands` registers the commands globally (up to an hour to
 reach every client). With `DEV_GUILD_ID` set, it registers them on that one

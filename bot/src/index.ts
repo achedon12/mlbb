@@ -96,6 +96,7 @@ const api: InternalApi = {
   manageableGuilds: (userId) => fleet.manageable(userId),
   isManageable: (guildId, userId) => fleet.isManageable(guildId, userId),
   channels: (guildId) => fleet.channels(guildId),
+  grantable: (guildId, userId) => fleet.grantable(guildId, userId),
   flush: () => delivery?.flush() ?? Promise.resolve(null),
   async testPost(guildId, channelId, locale, greeting) {
     channelCache.delete(guildId);

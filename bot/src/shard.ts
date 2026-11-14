@@ -3,13 +3,16 @@ import { COMMANDS, COMPONENTS, commandMap } from "./commands/index.js";
 import { loadConfig, requireDiscord } from "./config.js";
 import { DISALLOWED_INTENTS, gatewayIntents, MEMBER_INTENT_WARNING, memberEventsAvailable } from "./discord/intents.js";
 import { handleInteraction } from "./discord/interactions.js";
-import { createShardApi, guildSummary } from "./discord/shard-api.js";
+import { createShardApi, fetchGranter, guildSummary } from "./discord/shard-api.js";
 import type { Services } from "./discord/types.js";
 import type { MlbbdleProgress } from "./commands/mlbbdle.js";
 import type { QuizProgress } from "./games/quiz.js";
 import { DayStore } from "./games/state.js";
 import { log } from "./log.js";
 import { CommandLogger } from "./managers/command-logger.js";
+import { TtlCache } from "./cache.js";
+import { checkGuildRoles, granterAllows, type GranterFacts } from "./discord/auto-roles.js";
+import { AutoRoler, type JoinedMember } from "./managers/auto-roler.js";
 import { Greeter, type MemberEvent } from "./managers/greeter.js";
 import { restPoster } from "./managers/poster.js";
 import { GameData, WARM_INTERVAL_MS } from "./site/game-data.js";
@@ -20,9 +23,9 @@ import { SiteClient } from "./site/internal-api.js";
 /**
  * One shard: a gateway connection serving part of the servers, started by
  * the ShardingManager (`index.ts`). It answers interactions and reports
- * joins and leaves, and posts the welcome and goodbye messages (member
- * events reach the shard only); the other posting loops run in the
- * manager, over REST.
+ * joins and leaves, posts the welcome and goodbye messages and gives the
+ * auto-roles (member events reach the shard only); the other posting loops
+ * run in the manager, over REST.
  */
 
 const config = loadConfig();
@@ -99,6 +102,45 @@ const greeter =
       })
     : null;
 
+/**
+ * The manager who chose a server's auto-roles, as Discord last reported
+ * them (one live member lookup per server every few minutes, not one per
+ * newcomer during a raid). Their roles are compared with the role cache's
+ * current positions on every use.
+ */
+const granters = new TtlCache<GranterFacts>(5 * 60 * 1000, 500);
+
+const autoRoler =
+  site && memberEvents
+    ? new AutoRoler({
+        settings: (guildId) => site.settings(guildId),
+        check: (guildId, roleIds) => checkGuildRoles(client.guilds.cache.get(guildId), roleIds),
+        granter: async (guildId, userId, roleIds) => {
+          const guild = client.guilds.cache.get(guildId);
+          if (!guild) return "unknown";
+          try {
+            const facts = await granters.getOrLoad(`${guildId}:${userId}`, () => fetchGranter(guild, userId));
+            return granterAllows(facts, roleIds) ? "ok" : "refused";
+          } catch (error) {
+            log.warn("auto-role granter lookup failed", { guild: guildId, error });
+            return "unknown";
+          }
+        },
+        markFailing: (guildId, reason) => site.markAutoRoleFailing(guildId, reason),
+      })
+    : null;
+
+/** What auto-roles read of a member: its ids, bot or not, screening, and the call. */
+function joinedMember(member: GuildMember): JoinedMember {
+  return {
+    guildId: member.guild.id,
+    id: member.id,
+    bot: member.user.bot,
+    pending: member.pending ?? false,
+    addRoles: (roleIds, reason) => member.roles.add(roleIds, reason),
+  };
+}
+
 /** What a greeting reads of a member; nothing of it is stored. */
 function memberEvent(member: GuildMember | PartialGuildMember): MemberEvent {
   return {
@@ -154,9 +196,17 @@ client.on(Events.GuildDelete, (guild) => {
   site?.leaveGuild(guild.id).catch((error: unknown) => log.warn("leave not recorded", { error }));
 });
 
-// Bots added by the owner are not greeted.
+// Bots added by the owner are not greeted; they get the bots' auto-roles.
 client.on(Events.GuildMemberAdd, (member) => {
   if (greeter && !member.user.bot) void greeter.handle("welcome", memberEvent(member));
+  if (autoRoler) void autoRoler.joined(joinedMember(member));
+});
+// A member passing the membership screening: Discord updates `pending`.
+// Out of the member cache (nearly always), the update arrives as
+// guildMemberAvailable instead of guildMemberUpdate.
+client.on(Events.GuildMemberUpdate, (_old, member) => autoRoler?.screened(joinedMember(member)));
+client.on(Events.GuildMemberAvailable, (member) => {
+  if (!member.partial) autoRoler?.screened(joinedMember(member));
 });
 client.on(Events.GuildMemberRemove, (member) => {
   if (greeter && !member.user?.bot) void greeter.handle("goodbye", memberEvent(member));
@@ -181,6 +231,7 @@ async function shutdown(signal: string): Promise<void> {
   log.info("shard stopping", { signal });
   greeter?.stop();
   presence.stop();
+  autoRoler?.stop();
   await services.logger.stop().catch(() => undefined);
   await client.destroy();
   process.exit(0);

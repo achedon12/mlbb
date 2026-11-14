@@ -3436,7 +3436,8 @@
       "retention": "Ketika bot meninggalkan server, datanya akan dihapus 30 hari kemudian, bersama dengan hasil pemainnya (kembalinya bot dalam periode ini akan memulihkan pengaturan). Statistik pesanan dihapus setelah 90 hari.",
       "rightsTitle": "Hak Anda",
       "rights": "Untuk melihat atau menghapus data yang terkait dengan ID atau server Discord Anda, tulis ke [{contact}](mailto:{contact}). Menghapus bot dari server memulai penghapusan otomatis.",
-      "sitePrivacy": "Privasi Situs"
+      "sitePrivacy": "Privasi Situs",
+      "autoRoles": "Peran otomatis: jika server memilihnya, bot memberikan peran tersebut kepada siapa pun yang bergabung, dengan izin Kelola Peran yang diberikan admin server; anggota yang masih harus menerima aturan server hanya diingat (ID-nya, di memori, paling lama 24 jam) sampai ia menerimanya, dan tidak ada yang disimpan."
     },
     "botTerms": {
       "title": "Ketentuan Layanan Bot Perselisihan",
@@ -3447,11 +3448,12 @@
       "p3": "Jangan membajak bot: tidak ada otomatisasi perintah yang menyalahgunakan, tidak ada upaya untuk mengakses pengaturan server yang tidak Anda kelola. Layanan mungkin dibatasi atau dihapus dari server yang menyalahgunakannya.",
       "p4": "Layanan dapat berubah, terganggu, atau dihentikan kapan saja. Aturan Discord (ketentuan penggunaan dan aturan komunitas) berlaku untuk penggunaannya.",
       "p5": "Data yang disimpan dijelaskan di halaman privasi bot. Untuk pertanyaan apa pun: [{contact}](mailto:{contact}).",
-      "p6": "Pesan sambutan dan perpisahan ditulis oleh pengelola server, yang bertanggung jawab atas isinya; bot menetralkan mention massal dan mention peran di dalamnya. Anggota yang bergabung dan keluar hanya dipakai untuk memposting pesan-pesan ini."
+      "p6": "Pesan sambutan dan perpisahan ditulis oleh pengelola server, yang bertanggung jawab atas isinya; bot menetralkan mention massal dan mention peran di dalamnya. Anggota yang bergabung dan keluar hanya dipakai untuk memposting pesan-pesan ini.",
+      "p7": "Peran otomatis dipilih oleh manajer server; bot menolak untuk memberikan peran yang ditempatkan di atas perannya sendiri, dikelola oleh integrasi atau membawa izin moderasi atau administrasi."
     },
     "botDashboard": {
       "title": "Dasbor Bot",
-      "lead": "Atur bot untuk setiap server Anda: bahasa, pengumuman, dan permainan hari ini.",
+      "lead": "Atur bot untuk setiap server Anda: bahasa, pengumuman, permainan hari ini, pesan selamat datang, dan peran otomatis.",
       "login": "Terhubung dengan Perselisihan",
       "loginLead": "Masuk dengan Discord untuk melihat server yang Anda kelola. Hanya pengenal Anda yang dibaca: tidak ada akses ke pesan atau server Anda.",
       "loginFailed": "Sambungan tidak berhasil. Coba lagi.",
@@ -3461,7 +3463,7 @@
       "serversLead": "Server tempat Anda memiliki izin Kelola Server dan tempat bot berada.",
       "noServers": "Belum ada server yang perlu disetel: tambahkan bot ke server yang Anda kelola.",
       "addBot": "Tambahkan bot ke server",
-      "manage": "Mengatur",
+      "manage": "Atur",
       "unreachable": "Bot tidak merespons saat ini. Coba lagi dalam beberapa menit.",
       "back": "Semua server Anda",
       "notAllowed": "Server ini tidak ada dalam daftar server yang Anda kelola.",
@@ -3474,7 +3476,12 @@
         "forbidden": "Izin ditolak"
       },
       "members": "{count} anggota",
-      "admin": "Panel Admin"
+      "admin": "Panel Admin",
+      "loginTitle": "Masuk untuk menyiapkan bot",
+      "addBotLead": "Server yang Anda kelola tidak muncul? Undang MLBBDex ke sana, lalu kembali lagi ke sini.",
+      "botPresent": "MLBBDex ada di server ini",
+      "noManageRoles": "Tanpa izin Kelola Peran",
+      "deliveriesLead": "Pengumuman terbaru yang diposting di server ini, dan yang gagal."
     },
     "botUI": {
       "language": "Bahasa bot di server ini",
@@ -3527,8 +3534,44 @@
         "count": "jumlah anggota"
       },
       "preview": "Pratinjau",
-      "welcomeDefault": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran.",
-      "goodbyeDefault": "**{username}** telah keluar dari server."
+      "autoRolesTitle": "Peran otomatis",
+      "autoRolesLead": "Peran secara otomatis diberikan kepada setiap orang yang bergabung dengan server, dan peran lainnya kepada bot yang ditambahkan. Jika server Anda meminta untuk menerima aturannya, anggota akan menerima peran mereka setelah mereka menerimanya.",
+      "autoRolesToggle": "Berikan peran kepada anggota yang datang",
+      "autoRolesTargets": {
+        "humans": "Peran untuk anggota",
+        "bots": "Peran untuk bot"
+      },
+      "autoRolesNone": "Tidak ada",
+      "autoRolesHelp": "Maksimal 3 peran untuk masing-masing. Peran dengan izin moderasi atau administrasi tidak pernah diberikan.",
+      "autoRolesNoPermission": "MLBBDex tidak memiliki izin Kelola Peran: berikan izin Kelola Peran kepada MLBBDex dan seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini.",
+      "autoRolesAbove": "Beberapa peran berada di atas peran MLBBDex dan tidak dapat diberikan: seret perannya ke atas peran yang akan diberikan (Pengaturan Server > Peran), lalu muat ulang halaman ini.",
+      "autoRolesFailing": "Bot tidak dapat memberikan peran ini saat anggota terakhir bergabung: periksa izin Kelola Peran dan posisi perannya, lalu simpan.",
+      "autoRoleRefusals": {
+        "managed": "dikelola oleh integrasi",
+        "above_bot": "di atas bot",
+        "dangerous": "izin moderasi",
+        "not_member": "Anda bukan anggota",
+        "no_manage_roles": "Anda perlu Kelola Peran",
+        "above_user": "di atas peran Anda"
+      },
+      "autoRolesFailingGranter": "Anggota yang memilih peran ini telah keluar dari server atau tidak bisa lagi memberikannya sendiri: pengelola dengan izin Kelola Peran, yang perannya di atas peran-peran ini, harus menyimpan lagi.",
+      "autoRolesNotGrantable": "Anda tidak bisa memberikan salah satu peran ini sendiri (izin Kelola Peran, peran di atas peran Anda): bot tidak akan memberikannya untuk Anda.",
+      "languageTitle": "Bahasa",
+      "languageLead": "Bahasa yang digunakan bot untuk merespons dan memposting ke server ini, termasuk pesan selamat datang.",
+      "dailyLead": "MLBBdle dan kuis hari ini, diposting sekali sehari dengan tombol Main.",
+      "statusOn": "Aktif",
+      "statusOff": "Nonaktif",
+      "statusAttention": "Perlu diperbaiki",
+      "statusCount": "{on} dari {total} aktif",
+      "sectionsNav": "Bagian pengaturan",
+      "unsaved": "Perubahan yang belum disimpan",
+      "allSaved": "Semua perubahan tersimpan",
+      "discard": "Batalkan perubahan",
+      "dismiss": "Tutup",
+      "announcementType": "Pengumuman",
+      "testing": "Mengirim…",
+      "noChannels": "Bot tidak dapat memposting di saluran mana pun di server ini: berikan izin Lihat Saluran, Kirim Pesan, dan Sematkan Tautan di setidaknya satu saluran, lalu muat ulang halaman ini.",
+      "autoRolesNoneSelectable": "Belum ada peran yang dapat dipilih: setiap peran berada di atas peran bot atau peran Anda, dikelola oleh integrasi, atau memiliki izin moderasi."
     },
     "botAdmin": {
       "title": "Administrasi bot",
