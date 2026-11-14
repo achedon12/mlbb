@@ -24,7 +24,7 @@ export const compare: Command = {
     const b = await heroOrReply(interaction, ctx, interaction.options.getString(optionName("compare", "second"), true));
     if (!b) return;
     if (a.slug === b.slug) {
-      await interaction.editReply({ embeds: [baseEmbed(ctx, COLORS.night).setDescription(ctx.t("ui.compare.same"))] });
+      await interaction.editReply({ embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.compare.same"))] });
       return;
     }
     const [ra, rb] = await Promise.all([rankingOf(ctx, a.slug), rankingOf(ctx, b.slug)]);

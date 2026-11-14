@@ -38,7 +38,7 @@ export async function startQuiz(interaction: ChatInputCommandInteraction | Butto
   const game = await load(ctx);
   if (!game) {
     await interaction.editReply({
-      embeds: [baseEmbed(ctx, COLORS.night).setDescription(ctx.t("ui.quiz.unavailable"))],
+      embeds: [baseEmbed(ctx, COLORS.slate).setDescription(ctx.t("ui.quiz.unavailable"))],
       components: [openRow(ctx, "/quiz")],
     });
     return;

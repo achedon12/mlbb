@@ -1,6 +1,6 @@
 import { slash } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, COLORS } from "../embeds/common.js";
+import { baseEmbed, FAMILY_COLORS } from "../embeds/common.js";
 import { nextResetDaily, nextResetWeekly, nextStarlight, wallServer } from "../games/server-time.js";
 
 /** Discord timestamps: each reader sees them in their own timezone and language. */
@@ -13,7 +13,7 @@ export const servertime: Command = {
     const now = Date.now();
     const wall = wallServer(now);
     const hhmm = `${String(wall.getUTCHours()).padStart(2, "0")}:${String(wall.getUTCMinutes()).padStart(2, "0")}`;
-    const embed = baseEmbed(ctx, COLORS.azure)
+    const embed = baseEmbed(ctx, FAMILY_COLORS.tools)
       .setTitle(ctx.t("ui.servertime.title"))
       .setURL(ctx.link("/tools/server-time"))
       .addFields(

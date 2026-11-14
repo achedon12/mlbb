@@ -1,9 +1,9 @@
 import { choiceOption, optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { openRow } from "../embeds/common.js";
+import { replyRow } from "../embeds/common.js";
 import { counterEmbed } from "../embeds/game.js";
 import { RANKS } from "../site/game-data.js";
-import { countersOf, heroChoices, heroOrReply, parseRank } from "./shared.js";
+import { countersOf, heroChoices, heroOrReply, inviteFor, parseRank } from "./shared.js";
 
 export const counter: Command = {
   key: "counter",
@@ -17,6 +17,6 @@ export const counter: Command = {
     const found = await heroOrReply(interaction, ctx, interaction.options.getString(optionName("counter", "hero"), true));
     if (!found) return;
     const counters = await countersOf(ctx, found, parseRank(interaction.options.getString(optionName("counter", "rank"))));
-    await interaction.editReply({ embeds: [counterEmbed(ctx, found, counters)], components: [openRow(ctx, `/heroes/${found.slug}/counters`)] });
+    await interaction.editReply({ embeds: [counterEmbed(ctx, found, counters)], components: [replyRow(ctx, `/heroes/${found.slug}/counters`, inviteFor(ctx, interaction.guildId))] });
   },
 };

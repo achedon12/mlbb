@@ -34,6 +34,8 @@ const schema = z.object({
   DBL_TOKEN: optional,
   DBOTSGG_TOKEN: optional,
   SUPPORT_SERVER_URL: optional.pipe(z.url({ protocol: /^https$/ }).optional()),
+  /** The community server: replies there do not offer "Add to your server". */
+  SUPPORT_GUILD_ID: optional.refine((v) => v === undefined || SNOWFLAKE.test(v), "must be a server id (a snowflake)"),
   DEV_GUILD_ID: optional.refine((v) => v === undefined || SNOWFLAKE.test(v), "must be a server id (a snowflake)"),
 });
 

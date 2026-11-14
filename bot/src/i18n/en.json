@@ -2,7 +2,7 @@
   "commands": {
     "hero": {
       "name": "hero",
-      "description": "A hero's sheet: role, lanes, tier, rates and best build",
+      "description": "Mobile Legends hero info: role, lane, tier, win rate, best build, emblem and skills",
       "options": {
         "name": {
           "name": "name",
@@ -12,7 +12,7 @@
     },
     "build": {
       "name": "build",
-      "description": "The builds players actually win with on a hero",
+      "description": "Best MLBB build for a hero: the items, emblem and spell players win with, by rank",
       "options": {
         "hero": {
           "name": "hero",
@@ -26,7 +26,7 @@
     },
     "counter": {
       "name": "counter",
-      "description": "Who beats a hero, and who they beat, from measured win rates",
+      "description": "MLBB counter picks: who beats a hero and who it beats, from real ranked games",
       "options": {
         "hero": {
           "name": "hero",
@@ -40,7 +40,7 @@
     },
     "tierlist": {
       "name": "tierlist",
-      "description": "The current tier list, computed from win and ban rates",
+      "description": "Mobile Legends tier list (current meta) by rank, lane or role, from win and ban rates",
       "options": {
         "rank": {
           "name": "rank",
@@ -58,7 +58,7 @@
     },
     "compare": {
       "name": "compare",
-      "description": "Two heroes head to head",
+      "description": "Compare two MLBB heroes: tier, win, pick and ban rates side by side",
       "options": {
         "first": {
           "name": "first",
@@ -72,7 +72,7 @@
     },
     "item": {
       "name": "item",
-      "description": "An item: price, stats, passive and recipe",
+      "description": "MLBB item details: price, stats, passive, active and recipe",
       "options": {
         "name": {
           "name": "name",
@@ -82,7 +82,7 @@
     },
     "emblem": {
       "name": "emblem",
-      "description": "An emblem and the roles it fits",
+      "description": "MLBB emblem details and the roles it fits",
       "options": {
         "name": {
           "name": "name",
@@ -92,7 +92,7 @@
     },
     "spell": {
       "name": "spell",
-      "description": "A battle spell and its cooldown",
+      "description": "MLBB battle spell: effect, cooldown and the roles that take it",
       "options": {
         "name": {
           "name": "name",
@@ -102,7 +102,7 @@
     },
     "patch": {
       "name": "patch",
-      "description": "Summary of the latest patch, or of a given version",
+      "description": "Latest Mobile Legends patch notes, or any version: buffs, nerfs and changed heroes",
       "options": {
         "version": {
           "name": "version",
@@ -112,7 +112,7 @@
     },
     "skins": {
       "name": "skins",
-      "description": "The newest skins, or every skin of a hero",
+      "description": "Newest Mobile Legends skins, or every skin of a hero",
       "options": {
         "hero": {
           "name": "hero",
@@ -122,11 +122,11 @@
     },
     "events": {
       "name": "events",
-      "description": "Current and upcoming in-game events"
+      "description": "Current and upcoming Mobile Legends events"
     },
     "nickname": {
       "name": "nickname",
-      "description": "Write your in-game name in a stylish font",
+      "description": "MLBB nickname generator: your in-game name in 21 stylish fonts",
       "options": {
         "text": {
           "name": "text",
@@ -140,7 +140,7 @@
     },
     "mlbbdle": {
       "name": "mlbbdle",
-      "description": "Guess today's hero, the same puzzle as on mlbbdex.com",
+      "description": "Play MLBBdle: guess today's Mobile Legends hero, classic or skill mode",
       "options": {
         "guess": {
           "name": "guess",
@@ -154,11 +154,11 @@
     },
     "quiz": {
       "name": "quiz",
-      "description": "Today's MLBB quiz: five rounds, one answer each"
+      "description": "Daily Mobile Legends quiz: five rounds on heroes, skins and items"
     },
     "leaderboard": {
       "name": "leaderboard",
-      "description": "This server's rankings for the daily games",
+      "description": "This server's MLBBdle and quiz leaderboard: today, this week or all time",
       "options": {
         "game": {
           "name": "game",
@@ -172,23 +172,23 @@
     },
     "servertime": {
       "name": "servertime",
-      "description": "Game server time and the next resets"
+      "description": "MLBB server time and countdowns to the daily and weekly resets"
     },
     "setup": {
       "name": "setup",
-      "description": "Open this server's settings on mlbbdex.com"
+      "description": "Set up MLBBDex here: language, patch and skin alerts, daily games, welcome messages"
     },
     "help": {
       "name": "help",
-      "description": "Every MLBBDex command"
+      "description": "Every MLBBDex command by category, with examples"
     },
     "invite": {
       "name": "invite",
-      "description": "Add MLBBDex to another server"
+      "description": "Add MLBBDex, the Mobile Legends bot, to your Discord server"
     },
     "about": {
       "name": "about",
-      "description": "About MLBBDex: website, support server, privacy"
+      "description": "About MLBBDex: version, servers, uptime, website, support server and voting"
     }
   },
   "choices": {
@@ -257,16 +257,20 @@
     "common": {
       "open": "Open on MLBBDex",
       "error": "Something went wrong. Try again in a moment.",
-      "siteDown": "MLBBDex is not answering right now. Try again in a minute.",
-      "notFound": "Nothing found for “{query}”. Pick a suggestion from the list.",
+      "siteDown": "MLBBDex is not answering right now. Try again in a minute: it is usually back by then.",
+      "notFound": "Nothing found for “{query}”.",
       "guildOnly": "This command only works in a server.",
       "noPermission": "You need the Manage Server permission for this.",
       "unavailable": "This is not available in Discord yet: it is on MLBBDex.",
       "measuredAt": "Measured on {date}",
       "allRanksFallback": "Per-rank figures are not available here yet: all ranks shown.",
-      "source": "Data: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
+      "source": "mlbbdex.com · Data: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
       "none": "None",
-      "expired": "This button has expired. Run the command again."
+      "expired": "This button has expired. Run the command again.",
+      "didYouMean": "Did you mean {names}?",
+      "pickSuggestion": "Pick a name from the suggestions that appear as you type.",
+      "addToServer": "Add to your server",
+      "more": "+{n} more"
     },
     "hero": {
       "role": "Role",
@@ -296,12 +300,16 @@
       "title": "{hero}: counters",
       "weak": "Struggles against",
       "strong": "Strong against",
-      "none": "No measured counters for this hero yet."
+      "none": "No measured counters for this hero yet.",
+      "measured": "Win-rate edge in measured ranked games, in points.",
+      "written": "Picked by the MLBBDex team."
     },
     "tierlist": {
       "title": "Tier list",
       "filtered": "Tier list: {filter}",
-      "empty": "No hero matches these filters."
+      "empty": "No hero matches these filters.",
+      "tier": "{tier} · {n}",
+      "lead": "From win, pick and ban rates. The top three tiers."
     },
     "compare": {
       "title": "{a} vs {b}",
@@ -331,7 +339,9 @@
       "nerfs": "Nerfs",
       "adjustments": "Adjustments",
       "heroes": "Heroes changed",
-      "unknown": "No patch {version} on record."
+      "unknown": "No patch {version} on record.",
+      "released": "Released {date}",
+      "recent": "Recent patches: {versions}"
     },
     "skins": {
       "title": "{hero}: skins",
@@ -413,11 +423,25 @@
     },
     "help": {
       "title": "MLBBDex commands",
-      "footer": "Free, in five languages. Data from mlbbdex.com."
+      "intro": "Mobile Legends: Bang Bang in your server: hero sheets, builds and counters measured on ranked games, the tier list, patch notes and daily games. Free, in five languages.",
+      "categories": {
+        "heroes": "Heroes & builds",
+        "meta": "Meta",
+        "news": "Patch & news",
+        "games": "Games",
+        "tools": "Tools",
+        "setup": "Server setup"
+      },
+      "startTitle": "Start here",
+      "start": "Type {example}: names autocomplete as you type.",
+      "pick": "Each command with an example. Type / to see them in Discord.",
+      "menu": "Pick a category",
+      "overview": "Overview"
     },
     "invite": {
       "body": "Add MLBBDex to a server you manage. It only asks for the permissions it uses: no administrator, no message reading.",
-      "button": "Add to Discord"
+      "button": "Add to Discord",
+      "title": "Add MLBBDex to your server"
     },
     "about": {
       "title": "About MLBBDex",
@@ -426,7 +450,10 @@
       "site": "Website",
       "support": "Support server",
       "vote": "Vote",
-      "privacy": "Privacy"
+      "privacy": "Privacy",
+      "version": "Version",
+      "uptime": "Online since",
+      "languages": "Languages"
     },
     "announce": {
       "patchTitle": "New patch: {version}",

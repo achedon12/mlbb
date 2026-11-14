@@ -125,6 +125,8 @@ services:
       DBL_TOKEN: ${DBL_TOKEN:-}
       DBOTSGG_TOKEN: ${DBOTSGG_TOKEN:-}
       SUPPORT_SERVER_URL: ${NEXT_PUBLIC_DISCORD_INVITE_URL:-https://discord.gg/mw5RzvkkU3}
+      # "MLBBDex • Mobile Legends", the server that invite opens.
+      SUPPORT_GUILD_ID: ${SUPPORT_GUILD_ID:-1571086017287561237}
     networks:
       - default
       - internal

@@ -2,7 +2,7 @@
   "commands": {
     "hero": {
       "name": "hero",
-      "description": "Profil hero: role, lane, tier, rate, dan build terbaik",
+      "description": "Info hero Mobile Legends: role, lane, tier, win rate, build terbaik, emblem, dan skill",
       "options": {
         "name": {
           "name": "nama",
@@ -12,7 +12,7 @@
     },
     "build": {
       "name": "build",
-      "description": "Build yang benar-benar dipakai pemain untuk menang dengan hero ini",
+      "description": "Build MLBB terbaik untuk hero: item, emblem, dan spell yang dipakai pemain untuk menang",
       "options": {
         "hero": {
           "name": "hero",
@@ -26,7 +26,7 @@
     },
     "counter": {
       "name": "counter",
-      "description": "Siapa yang mengalahkan hero ini, dan siapa yang dikalahkannya, dari win rate terukur",
+      "description": "Counter MLBB: siapa yang mengalahkan hero ini dan siapa yang dikalahkannya, dari ranked",
       "options": {
         "hero": {
           "name": "hero",
@@ -40,7 +40,7 @@
     },
     "tierlist": {
       "name": "tierlist",
-      "description": "Tier list terkini, dihitung dari win rate dan ban rate",
+      "description": "Tier list Mobile Legends (meta terkini) per rank, lane, atau role, dari win dan ban rate",
       "options": {
         "rank": {
           "name": "rank",
@@ -58,7 +58,7 @@
     },
     "compare": {
       "name": "bandingkan",
-      "description": "Dua hero berhadapan",
+      "description": "Bandingkan dua hero MLBB: tier, win rate, pick rate, dan ban rate berdampingan",
       "options": {
         "first": {
           "name": "pertama",
@@ -72,7 +72,7 @@
     },
     "item": {
       "name": "item",
-      "description": "Sebuah item: harga, statistik, pasif, dan resep",
+      "description": "Detail item MLBB: harga, statistik, pasif, aktif, dan resep",
       "options": {
         "name": {
           "name": "nama",
@@ -82,7 +82,7 @@
     },
     "emblem": {
       "name": "emblem",
-      "description": "Sebuah emblem dan role yang cocok",
+      "description": "Detail emblem MLBB dan role yang cocok",
       "options": {
         "name": {
           "name": "nama",
@@ -92,7 +92,7 @@
     },
     "spell": {
       "name": "spell",
-      "description": "Sebuah battle spell dan cooldown-nya",
+      "description": "Battle spell MLBB: efek, cooldown, dan role yang memakainya",
       "options": {
         "name": {
           "name": "nama",
@@ -102,7 +102,7 @@
     },
     "patch": {
       "name": "patch",
-      "description": "Ringkasan patch terbaru, atau versi tertentu",
+      "description": "Patch note Mobile Legends terbaru, atau versi tertentu: buff, nerf, dan hero yang diubah",
       "options": {
         "version": {
           "name": "versi",
@@ -112,7 +112,7 @@
     },
     "skins": {
       "name": "skin",
-      "description": "Skin terbaru, atau semua skin seorang hero",
+      "description": "Skin Mobile Legends terbaru, atau semua skin seorang hero",
       "options": {
         "hero": {
           "name": "hero",
@@ -122,11 +122,11 @@
     },
     "events": {
       "name": "event",
-      "description": "Event dalam game yang sedang dan akan berlangsung"
+      "description": "Event Mobile Legends yang sedang dan akan berlangsung"
     },
     "nickname": {
       "name": "nickname",
-      "description": "Tulis nama dalam game kamu dengan font keren",
+      "description": "Generator nickname MLBB: nama dalam game kamu dalam 21 font keren",
       "options": {
         "text": {
           "name": "teks",
@@ -140,7 +140,7 @@
     },
     "mlbbdle": {
       "name": "mlbbdle",
-      "description": "Tebak hero hari ini, teka-teki yang sama dengan di mlbbdex.com",
+      "description": "Main MLBBdle: tebak hero Mobile Legends hari ini, mode klasik atau skill",
       "options": {
         "guess": {
           "name": "tebakan",
@@ -154,11 +154,11 @@
     },
     "quiz": {
       "name": "kuis",
-      "description": "Kuis MLBB hari ini: lima ronde, satu jawaban per ronde"
+      "description": "Kuis harian Mobile Legends: lima ronde tentang hero, skin, dan item"
     },
     "leaderboard": {
       "name": "peringkat",
-      "description": "Peringkat server ini untuk permainan harian",
+      "description": "Peringkat MLBBdle dan kuis server ini: hari ini, minggu ini, atau sepanjang masa",
       "options": {
         "game": {
           "name": "permainan",
@@ -172,23 +172,23 @@
     },
     "servertime": {
       "name": "waktu-server",
-      "description": "Waktu server game dan reset berikutnya"
+      "description": "Waktu server MLBB dan hitung mundur ke reset harian dan mingguan"
     },
     "setup": {
       "name": "pengaturan",
-      "description": "Buka pengaturan server ini di mlbbdex.com"
+      "description": "Atur MLBBDex di sini: bahasa, info patch dan skin, game harian, pesan sambutan"
     },
     "help": {
       "name": "bantuan",
-      "description": "Semua perintah MLBBDex"
+      "description": "Semua perintah MLBBDex per kategori, dengan contoh"
     },
     "invite": {
       "name": "undang",
-      "description": "Tambahkan MLBBDex ke server lain"
+      "description": "Tambahkan MLBBDex, bot Mobile Legends, ke server Discord kamu"
     },
     "about": {
       "name": "tentang",
-      "description": "Tentang MLBBDex: situs, server bantuan, privasi"
+      "description": "Tentang MLBBDex: versi, server, uptime, situs, server bantuan, dan vote"
     }
   },
   "choices": {
@@ -257,16 +257,20 @@
     "common": {
       "open": "Buka di MLBBDex",
       "error": "Terjadi kesalahan. Coba lagi sebentar lagi.",
-      "siteDown": "MLBBDex sedang tidak merespons. Coba lagi dalam semenit.",
-      "notFound": "Tidak ada hasil untuk “{query}”. Pilih saran dari daftar.",
+      "siteDown": "MLBBDex sedang tidak merespons. Coba lagi dalam semenit: biasanya sudah kembali saat itu.",
+      "notFound": "Tidak ada hasil untuk “{query}”.",
       "guildOnly": "Perintah ini hanya berfungsi di server.",
       "noPermission": "Kamu memerlukan izin Kelola Server.",
       "unavailable": "Ini belum tersedia di Discord: ada di MLBBDex.",
       "measuredAt": "Diukur pada {date}",
       "allRanksFallback": "Angka per rank belum tersedia di sini: semua rank ditampilkan.",
-      "source": "Data: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
+      "source": "mlbbdex.com · Data: MLBBDex, Mobile Legends Wiki (CC BY-SA)",
       "none": "Tidak ada",
-      "expired": "Tombol ini sudah kedaluwarsa. Jalankan perintahnya lagi."
+      "expired": "Tombol ini sudah kedaluwarsa. Jalankan perintahnya lagi.",
+      "didYouMean": "Maksud kamu {names}?",
+      "pickSuggestion": "Pilih nama dari saran yang muncul saat kamu mengetik.",
+      "addToServer": "Tambahkan ke server kamu",
+      "more": "+{n} lainnya"
     },
     "hero": {
       "role": "Role",
@@ -296,12 +300,16 @@
       "title": "{hero}: counter",
       "weak": "Kesulitan melawan",
       "strong": "Kuat melawan",
-      "none": "Belum ada counter terukur untuk hero ini."
+      "none": "Belum ada counter terukur untuk hero ini.",
+      "measured": "Keunggulan win rate dalam poin, diukur dari pertandingan ranked.",
+      "written": "Dipilih oleh tim MLBBDex."
     },
     "tierlist": {
       "title": "Tier list",
       "filtered": "Tier list: {filter}",
-      "empty": "Tidak ada hero yang cocok dengan filter ini."
+      "empty": "Tidak ada hero yang cocok dengan filter ini.",
+      "tier": "{tier} · {n}",
+      "lead": "Dari win rate, pick rate, dan ban rate. Tiga tier teratas."
     },
     "compare": {
       "title": "{a} vs {b}",
@@ -331,7 +339,9 @@
       "nerfs": "Nerf",
       "adjustments": "Penyesuaian",
       "heroes": "Hero yang diubah",
-      "unknown": "Tidak ada catatan patch {version}."
+      "unknown": "Tidak ada catatan patch {version}.",
+      "released": "Rilis {date}",
+      "recent": "Patch terbaru: {versions}"
     },
     "skins": {
       "title": "{hero}: skin",
@@ -413,11 +423,25 @@
     },
     "help": {
       "title": "Perintah MLBBDex",
-      "footer": "Gratis, dalam lima bahasa. Data dari mlbbdex.com."
+      "intro": "Mobile Legends: Bang Bang di server kamu: profil hero, build dan counter yang diukur dari pertandingan ranked, tier list, patch note, dan game harian. Gratis, dalam lima bahasa.",
+      "categories": {
+        "heroes": "Hero & build",
+        "meta": "Meta",
+        "news": "Patch & berita",
+        "games": "Game",
+        "tools": "Alat",
+        "setup": "Pengaturan server"
+      },
+      "startTitle": "Mulai di sini",
+      "start": "Ketik {example}: nama hero terisi otomatis saat kamu mengetik.",
+      "pick": "Setiap perintah dengan contoh. Ketik / untuk melihatnya di Discord.",
+      "menu": "Pilih kategori",
+      "overview": "Ringkasan"
     },
     "invite": {
       "body": "Tambahkan MLBBDex ke server yang kamu kelola. Bot hanya meminta izin yang dipakainya: tanpa administrator, tanpa membaca pesan.",
-      "button": "Tambahkan ke Discord"
+      "button": "Tambahkan ke Discord",
+      "title": "Tambahkan MLBBDex ke server kamu"
     },
     "about": {
       "title": "Tentang MLBBDex",
@@ -426,7 +450,10 @@
       "site": "Situs",
       "support": "Server bantuan",
       "vote": "Vote",
-      "privacy": "Privasi"
+      "privacy": "Privasi",
+      "version": "Versi",
+      "uptime": "Online sejak",
+      "languages": "Bahasa"
     },
     "announce": {
       "patchTitle": "Patch baru: {version}",
