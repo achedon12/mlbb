@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { isSuperAdmin, parseAdminIds, readBotConfig } from "@/lib/bot/config";
 import { BOT_PERMISSIONS, communityInvite, discordImage, inviteUrl, PERMISSIONS_BITFIELD } from "@/lib/bot/public";
-import { daysBetween, fillDays, percentile } from "@/lib/bot/stats";
+import { daysBetween, fillDays, isWindow, percentile } from "@/lib/bot/stats";
 
 const ENV = {
   DATABASE_URL: "postgresql://mlbbdex:x@postgres:5432/mlbbdex",
@@ -90,6 +90,11 @@ describe("invite link and public values", () => {
 });
 
 describe("admin figures", () => {
+  it("reads only the three windows from the query, not what every object inherits", () => {
+    expect(["24h", "7d", "30d"].every(isWindow)).toBe(true);
+    for (const w of [undefined, "", "1y", "constructor", "toString", "__proto__", "hasOwnProperty"]) expect(isWindow(w)).toBe(false);
+  });
+
   it("computes a nearest-rank percentile", () => {
     expect(percentile([], 95)).toBe(0);
     expect(percentile([5], 95)).toBe(5);
