@@ -9,6 +9,7 @@ import { ExtendMessages } from "@/i18n/provider";
 import { createT, messagesPage } from "@/i18n/translations";
 import { canManage, guildChannels } from "@/lib/bot/client";
 import { botConfig } from "@/lib/bot/config";
+import { dashboardPageAllowed } from "@/lib/bot/dashboard-guard";
 import { botClientId, isSnowflake } from "@/lib/bot/public";
 import { currentDiscordUser } from "@/lib/bot/session";
 import { settingsView } from "@/lib/bot/settings";
@@ -69,6 +70,8 @@ export default async function GuildPage({ params }: Params) {
 
   let allowed: boolean;
   let lists: Awaited<ReturnType<typeof guildChannels>>;
+  // Throttled per account and address (see `dashboardReadAllowed`).
+  if (!(await dashboardPageAllowed(user.id))) return message(t("pages.botDashboard.unreachable"));
   try {
     allowed = await canManage(config, id, user.id);
     if (!allowed) return message(t("pages.botDashboard.notAllowed"));

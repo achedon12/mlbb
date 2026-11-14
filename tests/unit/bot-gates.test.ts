@@ -178,3 +178,22 @@ describe("dashboard settings write", () => {
     expect((await put(GUILD, { ...form(), guildId: OTHER_GUILD })).status).toBe(400);
   });
 });
+
+describe("dashboard page views", () => {
+  // Each view asks the bot, and listing a user's servers costs the bot one
+  // Discord member lookup per server it is in: one signed-in account
+  // refreshing in a loop must not be able to keep the bot busy for everyone.
+  it("are capped per account and per address", async () => {
+    const { dashboardReadAllowed, DASHBOARD_READS_PER_USER, DASHBOARD_READS_PER_ADDRESS } = await import("@/lib/bot/dashboard-guard");
+    for (let i = 0; i < DASHBOARD_READS_PER_USER; i += 1) expect(dashboardReadAllowed(USER, "203.0.113.7")).toBe(true);
+    expect(dashboardReadAllowed(USER, "203.0.113.7")).toBe(false);
+    // Another account is not held back by the first one's views...
+    expect(dashboardReadAllowed("555555555555555555", "198.51.100.1")).toBe(true);
+    // ...but many accounts from one address share its ceiling.
+    let allowed = 0;
+    for (let i = 0; i < 2 * DASHBOARD_READS_PER_ADDRESS; i += 1) {
+      if (dashboardReadAllowed(`6${String(i).padStart(17, "0")}`, "192.0.2.9")) allowed += 1;
+    }
+    expect(allowed).toBe(DASHBOARD_READS_PER_ADDRESS);
+  });
+});
