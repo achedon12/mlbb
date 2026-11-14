@@ -5615,6 +5615,10 @@
         "it": "Pays italophones",
         "es": "Pays hispanophones",
         "id": "Pays de langue indonésienne",
+        "fil": "Pays de langue philippine",
+        "th": "Pays de langue thaïe",
+        "pt": "Pays lusophones",
+        "ru": "Pays russophones",
         "world": "Principaux pays de MLBB"
       },
       "legend": "Heure locale des remises : {group}",

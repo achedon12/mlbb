@@ -1,0 +1,1592 @@
+[
+  {
+    "slug": "antique-cuirass",
+    "name": "Antique Cuirass",
+    "summary": "Снижение физической атаки",
+    "category": "Defense",
+    "price": 2170,
+    "bonus": "+920 HP, +40 Физическая защита, +4 Регенерация HP.",
+    "unique": null,
+    "passive": "Сдерживание: при попадании навыка уменьшает физический урон атакующего на 6% на 2 секунды (эффект суммируется до 3 раз).",
+    "active": null,
+    "recipe": [
+      "Dreadnaught Armor",
+      "Ares Belt"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "arcane-boots",
+    "name": "Arcane Boots",
+    "summary": "Магическое проникновение",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Скорость передвижения, +15 Магическая сила, +10 Магическое проникновение.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Mystery Codex"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "ares-belt",
+    "name": "Ares Belt",
+    "summary": null,
+    "category": "Defense",
+    "price": 700,
+    "bonus": "+600 ОЗ",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "athena-s-shield",
+    "name": "Athena's Shield",
+    "summary": "Сопротивление взрывному магическому урону",
+    "category": "Defense",
+    "price": 2150,
+    "bonus": "+900 HP, +48 магической защиты, +2 регенерации HP.",
+    "unique": null,
+    "passive": "Щит: при получении магического урона от навыков вражеского героя или базовых атак уменьшает получаемый магический урон на 25% на 3 секунды (включая урон, вызывающий срабатывание эффекта). Восстанавливает этот эффект через 5 секунд после выхода из боя.",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "azure-blade",
+    "name": "Azure Blade",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "+5 регенерации маны, +5% сокращения времени восстановления",
+    "unique": null,
+    "passive": "Решение: после применения навыка следующая базовая атака в течение 3 секунд наносит 50 дополнительного чистого урона (время восстановления 1,5 секунды).",
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "berserker-s-fury",
+    "name": "Berserker's Fury",
+    "summary": "Шанс критического удара и урон",
+    "category": "Attack",
+    "price": 2390,
+    "bonus": "+60 физическая атака, +25% шанс критического удара",
+    "unique": "+30% критического урона",
+    "passive": "Гибель: когда базовые атаки являются критическими, они наносят дополнительный чистый урон, равный 12% от урона до уменьшения.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Javelin",
+      "Javelin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "black-ice-shield",
+    "name": "Black Ice Shield",
+    "summary": null,
+    "category": "Defense",
+    "price": 780,
+    "bonus": "+20 Физическая защита, +20 Магическая защита",
+    "unique": null,
+    "passive": "Крепостной щит: за каждого вражеского героя в радиусе 3,55 единиц гибридная защита увеличивается на 4, вплоть до 20.",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "blade-armor",
+    "name": "Blade Armor",
+    "summary": "Отражение урона",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+80 Физическая защита",
+    "unique": "+20% снижение критического урона",
+    "passive": "Лезвийная броня: при ударе базовой атакой наносит атакующему физический урон, равный 30 (+2% общей физической защиты)% от входящего урона (рассчитывается до уменьшения урона) и замедляет его на 15% на 1 секунду.",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "blade-of-despair",
+    "name": "Blade of Despair",
+    "summary": "Высшая физическая атака",
+    "category": "Attack",
+    "price": 3010,
+    "bonus": "+160 Физическая атака, +5% Скорость передвижения.",
+    "unique": null,
+    "passive": "Отчаяние: нанесение урона врагам, не являющимся миньонами, с запасом здоровья ниже 50% увеличивает физическую атаку на 25% на 2 секунды (вступает в силу до нанесения урона).",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Legion Sword"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "blade-of-the-heptaseas",
+    "name": "Blade of the Heptaseas",
+    "summary": "Лучшее для убийц",
+    "category": "Attack",
+    "price": 1950,
+    "bonus": "+70 Физическая атака, +250 HP",
+    "unique": "+15 Физическое пробивание",
+    "passive": "Засада: если в течение 5 секунд не было получено и не нанесено никакого урона (за исключением миньонов и крипов), следующая базовая атака нанесет дополнительно 160 (+40% общей физической атаки) физического урона и замедлит цель на 40% на 1,5 секунды.",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "blood-wings",
+    "name": "Blood Wings",
+    "summary": "Щит повышения скорости",
+    "category": "Magic",
+    "price": 2100,
+    "bonus": "+90 Магическая Сила",
+    "unique": null,
+    "passive": "Защита: получает щит 800 (+100% магической силы), который восстанавливается через 20 секунд после повреждения. Щит также увеличивает скорость передвижения на 30, пока он существует, и на 150 на 1 секунду после разрушения.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "bloodlust-axe",
+    "name": "Bloodlust Axe",
+    "summary": "Заклинание Вампа",
+    "category": "Attack",
+    "price": 1970,
+    "bonus": "+70 к физической атаке, +10% к сокращению времени восстановления.",
+    "unique": "+20% Вампир заклинаний",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Iron Hunting Bow",
+      "Dagger",
+      "Iron Hunting Bow"
+    ],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "book-of-sages",
+    "name": "Book of Sages",
+    "summary": null,
+    "category": "Magic",
+    "price": 450,
+    "bonus": "+8 к магической силе, +5% к сокращению времени восстановления.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "boots",
+    "name": "Boots",
+    "summary": null,
+    "category": "Movement",
+    "price": 250,
+    "bonus": "+20 Скорость передвижения",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "brute-force-breastplate",
+    "name": "Brute Force Breastplate",
+    "summary": "Атака, ускорение, уменьшение контроля",
+    "category": "Defense",
+    "price": 2070,
+    "bonus": "+800 HP, +20 Физическая защита, +10% сокращение времени восстановления.",
+    "unique": null,
+    "passive": "Грубая сила: каждую секунду после нанесения урона вы получаете 8 дополнительных адаптивных атак и 2% дополнительной скорости передвижения на 4 секунды, до 6 стаков. Получите дополнительное сокращение длительности контроля на 25% при полных стеках.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "bud-of-hope",
+    "name": "Bud of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+250 ОЗ",
+    "unique": null,
+    "passive": "Бутон надежды: предоставлен Floryn и Дью. Оборудование раскроет свою истинную силу, как только Роса эволюционирует.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "calamity-reaper",
+    "name": "Calamity Reaper",
+    "summary": "Улучшенные базовые атаки",
+    "category": "Magic",
+    "price": 1950,
+    "bonus": "+70 магической силы, +100 маны, +6 регенерации маны, +10% сокращения времени восстановления.",
+    "unique": null,
+    "passive": "Бедствие: через 3 секунды после использования умения следующая базовая атака заклинателя наносит дополнительный чистый урон в размере 120% от магической силы с временем восстановления 1,5 секунды. Затем ненадолго увеличивает скорость передвижения на 10%.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Azure Blade"
+    ],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "chastise-pauldron",
+    "name": "Chastise Pauldron",
+    "summary": "Уменьшите скорость атаки врага",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+900 HP, +40 Физическая защита",
+    "unique": null,
+    "passive": "Наказание: получение урона снизит скорость атаки и ограничение скорости атаки атакующего до 75% от нормального на 2 секунды. @ Искупление: когда входящий урон снижает HP ниже 30%, восстанавливайте 20% максимального HP в течение следующих 2 секунд. Время восстановления этого эффекта составляет 60 секунд.",
+    "active": null,
+    "recipe": [
+      "Steel Legplates",
+      "Ares Belt"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "clock-of-destiny",
+    "name": "Clock of Destiny",
+    "summary": "Для волшебных танков",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "+45 магической силы, +400 HP, +400 маны, +10% сокращение времени восстановления.",
+    "unique": null,
+    "passive": "Судьба: получает 4,5 (+0,5*уровень героя) гибридной защиты на 5 секунд при нанесении магического урона вражеским героям, суммируется до 6 раз (может накапливаться 1 стек каждые 0,4 секунды). @ Подарок: когда HP падает ниже 50%, восстанавливает 15% HP в течение следующих 3 секунд. Когда уровень маны падает ниже 50%, восстанавливает 15% маны в течение следующих 3 секунд. Время восстановления: 60 секунд.",
+    "active": null,
+    "recipe": [
+      "Elegant Gem",
+      "Book of Sages",
+      "Book of Sages"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "concentrated-energy",
+    "name": "Concentrated Energy",
+    "summary": "Постоянное увеличение урона",
+    "category": "Magic",
+    "price": 2020,
+    "bonus": "+75 Магической Силы, +400 HP.",
+    "unique": "+20% гибридного вампиризма",
+    "passive": "Перезарядка: увеличивает магическую силу на 5 после нанесения магического урона (этот эффект суммируется до 6 раз и может накапливаться только 1 стек каждые 0,4 секунды). При заполнении стаков увеличивает магический урон на 12% на 5 секунд.",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Magic Wand",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "corrosion-scythe",
+    "name": "Corrosion Scythe",
+    "summary": "Медленное с одного удара",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "+30 Физическая атака, +30% Скорость атаки, +5% Скорость передвижения.",
+    "unique": null,
+    "passive": "Коррозия: базовые атаки наносят 80 дополнительного физического урона и замедляют цель на 8% (уменьшено вдвое для базовых атак дальнего боя) на 1,5 секунды. Суммируется до 5 раз. @ Импульс: базовые атаки повышают скорость атаки на 6% на 3 секунды, но не более 5 стаков.",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Regular Spear"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "cursed-helmet",
+    "name": "Cursed Helmet",
+    "summary": "Выживаемость и расчистка дорожек",
+    "category": "Defense",
+    "price": 1910,
+    "bonus": "+1200 HP, +20 магической защиты.",
+    "unique": null,
+    "passive": "Пылающая душа: наносит (1,2% общего запаса здоровья) магического урона ближайшим врагам в секунду. Этот урон увеличивается на 125 (+15*уровень героя)% против крипов и миньонов. @ Проклятие: нанесение урона с помощью Burning Soul снизит гибридную защиту цели на 3 на 3 секунды. Суммируется до 3 раз.",
+    "active": null,
+    "recipe": [
+      "Molten Essence",
+      "Ares Belt",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "dagger",
+    "name": "Dagger",
+    "summary": null,
+    "category": "Attack",
+    "price": 250,
+    "bonus": "+15 Физическая атака",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "demon-hunter-sword",
+    "name": "Demon Hunter Sword",
+    "summary": "Танк-убийца",
+    "category": "Attack",
+    "price": 2180,
+    "bonus": "+35 Физическая атака, +20% Скорость атаки",
+    "unique": null,
+    "passive": "Поглощение: базовые атаки наносят 8% от текущего здоровья цели в виде дополнительного физического урона (не более 60 против миньонов). @ Поглощение: каждая базовая атака восстанавливает 10 (+4*уровень героя) HP. Этот эффект уменьшается вдвое против миньонов.",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet",
+      "Knife"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "demon-shoes",
+    "name": "Demon Shoes",
+    "summary": "Быстрая регенерация маны",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 скорости передвижения, +10 регенерации маны",
+    "unique": null,
+    "passive": "Мистика: убийство или помощь вражескому миньону восстановит 4% маны. (Ассист происходит, когда Миньон умирает в течение 2 секунд после получения урона от героя.)",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Necklace",
+      "Magic Necklace"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "divine-glaive",
+    "name": "Divine Glaive",
+    "summary": "Магическое проникновение",
+    "category": "Magic",
+    "price": 1970,
+    "bonus": "+65 Магической Силы",
+    "unique": "+40% пробивание магии",
+    "passive": "Разрушитель заклинаний: при атаке врага получает 0,1% дополнительного магического проникновения за каждое очко магической защиты противника, максимум 20%.",
+    "active": null,
+    "recipe": [
+      "Magic Wand"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "dominance-ice",
+    "name": "Dominance Ice",
+    "summary": "Снижение исцеления",
+    "category": "Defense",
+    "price": 2010,
+    "bonus": "+40 Физическая защита, +40 Магическая защита, +5% Скорость передвижения.",
+    "unique": null,
+    "passive": "Крепостной щит: за каждого вражеского героя в радиусе 5 единиц гибридная защита увеличивается на 8, вплоть до 40. @ Lifebane: снижает эффекты регенерации щита и здоровья ближайших врагов в радиусе 5 единиц до 60% от нормального на 1 секунду.",
+    "active": null,
+    "recipe": [
+      "Black Ice Shield",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "dreadnaught-armor",
+    "name": "Dreadnaught Armor",
+    "summary": null,
+    "category": "Defense",
+    "price": 730,
+    "bonus": "+30 Физическая защита",
+    "unique": null,
+    "passive": "Сдерживание: при попадании навыка снижает физический урон атакующего на 4% на 2 секунды (эффект суммируется до 3 раз).",
+    "active": null,
+    "recipe": [
+      "Leather Jerkin",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "elegant-gem",
+    "name": "Elegant Gem",
+    "summary": null,
+    "category": "Magic",
+    "price": 700,
+    "bonus": "+300 HP, +380 Мана",
+    "unique": null,
+    "passive": "Подарок: когда HP падает ниже 50%, восстанавливает 15% HP в течение следующих 3 секунд. Когда уровень маны падает ниже 50%, восстанавливает 15% маны в течение следующих 3 секунд. Время восстановления: 60 секунд.",
+    "active": null,
+    "recipe": [
+      "Power Crystal",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "enchanted-talisman",
+    "name": "Enchanted Talisman",
+    "summary": "Регенерация маны и уменьшение перезарядки",
+    "category": "Magic",
+    "price": 2070,
+    "bonus": "+70 магической силы, +300 HP, +15% сокращение времени восстановления.",
+    "unique": null,
+    "passive": "Источник маны: восстанавливает 15% от максимального запаса маны каждые 10 секунд. @ Мастерство магии: максимальное сокращение времени восстановления увеличивается на 5%.",
+    "active": null,
+    "recipe": [
+      "Tome of Evil",
+      "Magic Necklace",
+      "Magic Wand"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "endless-battle",
+    "name": "Endless Battle",
+    "summary": "Улучшенные базовые атаки",
+    "category": "Attack",
+    "price": 2330,
+    "bonus": "+60 физическая атака, +250 HP, +10% сокращение времени восстановления, +5% скорость передвижения, +5 регенерация маны.",
+    "unique": null,
+    "passive": "Божественное правосудие: после применения умения следующая базовая атака в течение 3 секунд наносит (60% общей физической атаки) дополнительный чистый урон и восстанавливает 80 (+40% общей физической атаки) HP (перезарядка 1,5 секунды).",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Iron Hunting Bow",
+      "Ogre Tomahawk"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "exotic-veil",
+    "name": "Exotic Veil",
+    "summary": null,
+    "category": "Magic",
+    "price": 600,
+    "bonus": "+30 магической силы, +5% скорости передвижения.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "expert-gloves",
+    "name": "Expert Gloves",
+    "summary": null,
+    "category": "Attack & Magic",
+    "price": 500,
+    "bonus": "+30 Адаптивная атака,",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "feather-of-heaven",
+    "name": "Feather of Heaven",
+    "summary": "Магические базовые атаки",
+    "category": "Magic",
+    "price": 2030,
+    "bonus": "+60 магической силы, +20% скорости атаки, +10% вампиризма, +5% сокращения времени восстановления.",
+    "unique": null,
+    "passive": "Колдовство: каждая базовая атака наносит дополнительно 50 (+30% общей магической силы) магического урона. @ Импульс: базовые атаки повышают скорость атаки на 6% на 3 секунды, но не более 5 стаков.",
+    "active": null,
+    "recipe": [
+      "Swift Crossbow",
+      "Book of Sages"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "flask-of-the-oasis",
+    "name": "Flask of the Oasis",
+    "summary": "Защитите товарищей по команде",
+    "category": "Magic",
+    "price": 1850,
+    "bonus": "+60 магической силы, +300 HP, +10% сокращение времени восстановления.",
+    "unique": "+12% Исцеляющий эффект",
+    "passive": "Благословение: при использовании навыка исцеления или щита, если HP цели ниже 35% или падает ниже 35% в течение 3 секунд, она получит щит (100*Уровень героя), который длится 3 секунды. При срабатывании этого эффекта время восстановления навыков заклинателя также сокращается на 2 секунды. (Этот эффект может срабатывать только один раз каждые 60 секунд на одной и той же цели и не срабатывает только при самоисцелении и навыках защиты.)",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "fleeting-time",
+    "name": "Fleeting Time",
+    "summary": "Окончательное сокращение компакт-дисков",
+    "category": "Attack, Magic & Defense",
+    "price": 2050,
+    "bonus": "+30 Адаптивная атака, +600 HP, +15% сокращение времени восстановления.",
+    "unique": null,
+    "passive": "Временной поток: убийства или помощь героев сокращают текущее время восстановления Ultimate на 30%.",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "flower-of-hope",
+    "name": "Flower of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+5% Адаптивная атака",
+    "unique": null,
+    "passive": "Цветок надежды: каждые 6 секунд следующее умение или базовая атака наносит дополнительно 60 (+30% общей физической атаки) (+30% общей магической силы) магического урона.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Союзники Floryn"
+  },
+  {
+    "slug": "fury-hammer",
+    "name": "Fury Hammer",
+    "summary": null,
+    "category": "Attack",
+    "price": 830,
+    "bonus": "+35 Физическая атака",
+    "unique": "+12 Физическое пробивание",
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "genius-wand",
+    "name": "Genius Wand",
+    "summary": "Снижение магической защиты",
+    "category": "Magic",
+    "price": 2000,
+    "bonus": "+75 магической силы, +5% скорости передвижения.",
+    "unique": "+10 Магическое проникновение",
+    "passive": "Магия: нанесение магического урона вражеским героям снизит их магическую защиту на 2,5+(0,5*уровень героя) на 2 секунды. Суммируется до 3 раз.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Magic Wand"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "glowing-wand",
+    "name": "Glowing Wand",
+    "summary": "Снижение исцеления",
+    "category": "Magic",
+    "price": 2150,
+    "bonus": "+60 магической силы, +300 HP, +5% скорости передвижения.",
+    "unique": null,
+    "passive": "Ожог: нанесение магического урона сжигает цели на 3 секунды, а также наносит дополнительный магический урон, равный 1% от максимального здоровья цели в секунду. @ Погибельница жизни: нанесение урона цели снизит эффекты щита и регенерации HP на ней до 60% от нормального на 3 секунды.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystery Codex",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "golden-staff",
+    "name": "Golden Staff",
+    "summary": "Усиление эффектов атаки",
+    "category": "Attack",
+    "price": 2000,
+    "bonus": "+55 к физической атаке, +15% к скорости атаки.",
+    "unique": null,
+    "passive": "Стремительность: каждый 1% дополнительного шанса критического удара конвертируется в 1% дополнительной скорости атаки. @ Бесконечный удар: после каждых 2 некритических базовых атак скорость атаки следующей базовой атаки увеличивается на 80% (а предел скорости атаки увеличивается до 500%) и активирует эффекты атаки еще 2 раза.",
+    "active": null,
+    "recipe": [
+      "Regular Spear",
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "great-dragon-spear",
+    "name": "Great Dragon Spear",
+    "summary": "Снижение перезарядки и крит.",
+    "category": "Attack",
+    "price": 2140,
+    "bonus": "+70 физической атаки, +10% сокращения времени восстановления, +20% шанса критического удара.",
+    "unique": null,
+    "passive": "Верховный воин: после применения ультимейта скорость передвижения увеличивается на 30% на 7,5 секунды. Время восстановления этого эффекта составляет 15 секунд.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Iron Hunting Bow",
+      "Javelin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "guardian-helmet",
+    "name": "Guardian Helmet",
+    "summary": "Постоянная регенерация HP",
+    "category": "Defense",
+    "price": 2500,
+    "bonus": "+1800 HP, +20 регенерации HP",
+    "unique": null,
+    "passive": "Восстановление: после 5 секунд вне боя восстанавливайте (2,5% общего HP) HP в секунду. Защитник: при получении более 500 единиц урона за один раз восстанавливайте 30 (+0,3% общего HP)% HP от избыточного урона, превышающего эту сумму.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Ares Belt"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "haas-claws",
+    "name": "Haas' Claws",
+    "summary": "Вампиризм",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "+40 к физической атаке, +15% к скорости атаки, +20% к шансу критического удара.",
+    "unique": "+20% вампиризма",
+    "passive": "Безумие: критические удары повышают скорость атаки на 20% на 2 секунды.",
+    "active": null,
+    "recipe": [
+      "Vampire Mallet",
+      "Rogue Meteor",
+      "Dagger"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "healing-necklace",
+    "name": "Healing Necklace",
+    "summary": null,
+    "category": "Defense",
+    "price": 140,
+    "bonus": "+4 регенерации здоровья",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "hero-s-ring",
+    "name": "Hero's Ring",
+    "summary": null,
+    "category": "Defense",
+    "price": 450,
+    "bonus": "+150 HP, +5% сокращение времени восстановления",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "holy-crystal",
+    "name": "Holy Crystal",
+    "summary": "Максимальная магическая сила",
+    "category": "Magic",
+    "price": 3000,
+    "bonus": "+165 Магической Силы",
+    "unique": null,
+    "passive": "Тайна: дает 21–35% дополнительной магической силы (зависит от уровня).",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Magic Wand",
+      "Magic Wand"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "hunter-strike",
+    "name": "Hunter Strike",
+    "summary": "Кратковременное ускорение",
+    "category": "Attack",
+    "price": 2010,
+    "bonus": "+80 к физической атаке, +10% к сокращению времени восстановления.",
+    "unique": "+15 Физическое пробивание",
+    "passive": "Retribution: нанесение урона одному и тому же вражескому герою или крипу 5 раз подряд увеличивает скорость передвижения на 50%, которая снижается в течение 3 секунд (время восстановления 8 секунд).",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Iron Hunting Bow",
+      "Dagger"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "ice-queen-wand",
+    "name": "Ice Queen Wand",
+    "summary": "Замедление при ударе навыком",
+    "category": "Magic",
+    "price": 2040,
+    "bonus": "+60 магической силы, +10% вампиризма от заклинаний, +300 HP, +7% скорости передвижения.",
+    "unique": null,
+    "passive": "Ice Bound: Когда умение наносит урон вражескому герою, оно также замедляет его на 10% на 2 секунды (суммируется до 3 раз). Время восстановления этого эффекта составляет 0,4 секунды.",
+    "active": null,
+    "recipe": [
+      "Mystic Container",
+      "Exotic Veil",
+      "Mystery Codex"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "immortality",
+    "name": "Immortality",
+    "summary": "Самовоскрешение",
+    "category": "Defense",
+    "price": 2120,
+    "bonus": "+850 HP, +15 Физическая защита",
+    "unique": null,
+    "passive": "Бессмертный: воскрешается через 2,5 секунды после смерти и получает 16% от максимального запаса здоровья и щит, который может поглотить 150 (+70*уровень героя) урона. Щит длится 3 секунды. Время восстановления этого эффекта — 210 секунд.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Vitality Crystal",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "iron-hunting-bow",
+    "name": "Iron Hunting Bow",
+    "summary": null,
+    "category": "Attack",
+    "price": 450,
+    "bonus": "+10 Физическая атака, +5% сокращение времени восстановления",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "javelin",
+    "name": "Javelin",
+    "summary": null,
+    "category": "Attack",
+    "price": 320,
+    "bonus": "+8% шанс критического удара",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "knife",
+    "name": "Knife",
+    "summary": null,
+    "category": "Attack",
+    "price": 280,
+    "bonus": "+10% Скорость атаки",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "lantern-of-hope",
+    "name": "Lantern of Hope",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+20 магической силы, +4% скорости движения, +2% сокращения времени восстановления.",
+    "unique": null,
+    "passive": "Фонарь надежды: характеристики снаряжения зависят от уровня героя.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Floryn"
+  },
+  {
+    "slug": "leather-jerkin",
+    "name": "Leather Jerkin",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 Физическая защита",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "legion-sword",
+    "name": "Legion Sword",
+    "summary": null,
+    "category": "Attack",
+    "price": 910,
+    "bonus": "+60 Физическая атака",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Dagger"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "lightning-truncheon",
+    "name": "Lightning Truncheon",
+    "summary": "Разрывной урон",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "+75 магической силы, +400 маны, +10% сокращения времени восстановления.",
+    "unique": null,
+    "passive": "Резонатор: каждые 6 секунд звучит следующий навык, нанося 255 (+85% магической силы) дополнительного магического урона всем врагам в радиусе действия.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "magic-blade",
+    "name": "Magic Blade",
+    "summary": null,
+    "category": "Attack",
+    "price": 1050,
+    "bonus": "+35 Физическая атака, +10% вампиризма",
+    "unique": null,
+    "passive": "Линия жизни: при получении урона, снижающего здоровье ниже 30%, получает щит (+60*уровень героя) (увеличивается с уровнем) и 50% скорости движения, которая быстро снижается в течение 3 секунд. Время восстановления этого эффекта составляет 60 секунд.",
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vampire Mallet"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "magic-necklace",
+    "name": "Magic Necklace",
+    "summary": null,
+    "category": "Magic",
+    "price": 120,
+    "bonus": "+2 регенерации маны",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "magic-potion",
+    "name": "Magic Potion",
+    "summary": null,
+    "category": "Magic",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Увеличение мощности: автоматически используется после покупки, увеличивает магическую силу на 30 и сокращает время восстановления на 10% на 120 секунд. Одновременно может иметь только один эффект зелья.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "magic-resist-cloak",
+    "name": "Magic Resist Cloak",
+    "summary": null,
+    "category": "Defense",
+    "price": 220,
+    "bonus": "+14 Магическая защита",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "magic-shoes",
+    "name": "Magic Shoes",
+    "summary": "Сокращение компакт-дисков",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 скорости движения, +10% сокращения перезарядки, +150 HP.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Hero's Ring"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "magic-wand",
+    "name": "Magic Wand",
+    "summary": null,
+    "category": "Magic",
+    "price": 820,
+    "bonus": "+45 Магической Силы",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "malefic-gun",
+    "name": "Malefic Gun",
+    "summary": "Увеличение дальности атаки",
+    "category": "Attack",
+    "price": 2120,
+    "bonus": "+40 Физическая атака, +20% Скорость атаки",
+    "unique": null,
+    "passive": "Armor Buster: увеличивает физическую пробиваемость на 30%. @ Malefic Energy: увеличивает дальность базовой атаки на 12%. При попадании в цель скорость передвижения увеличивается на 10% на 0,5 секунды.",
+    "active": null,
+    "recipe": [
+      "Fury Hammer",
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "malefic-roar",
+    "name": "Malefic Roar",
+    "summary": "Высокое физическое проникновение",
+    "category": "Attack",
+    "price": 2060,
+    "bonus": "+60 Физическая атака",
+    "unique": null,
+    "passive": "Armor Buster: увеличивает физическую пробиваемость на 30%. @ Breaker: при атаке врага получает 0,1% дополнительной физической пробиваемости за каждое очко физической защиты противника, ограниченное значением 30%.",
+    "active": null,
+    "recipe": [
+      "Legion Sword"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "molten-essence",
+    "name": "Molten Essence",
+    "summary": null,
+    "category": "Defense",
+    "price": 800,
+    "bonus": "+540 ОЗ",
+    "unique": null,
+    "passive": "Пылающая душа: наносит (0,6% общего запаса здоровья) магического урона ближайшим врагам в секунду. Этот урон увеличивается на 125 (+15*уровень героя)% против крипов и миньонов.",
+    "active": null,
+    "recipe": [
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "mystery-codex",
+    "name": "Mystery Codex",
+    "summary": null,
+    "category": "Magic",
+    "price": 300,
+    "bonus": "+15 Магической Силы",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "mystic-container",
+    "name": "Mystic Container",
+    "summary": null,
+    "category": "Magic",
+    "price": 500,
+    "bonus": "+15 магической силы, +8% вампиризма заклинаний.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Mystery Codex"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "necklace-of-durance",
+    "name": "Necklace of Durance",
+    "summary": "Снижение исцеления",
+    "category": "Magic",
+    "price": 2010,
+    "bonus": "+60 магической силы, +300 здоровья, +380 маны, +5% сокращения времени восстановления.",
+    "unique": null,
+    "passive": "Подарок: восстанавливает 20% HP и маны в течение 2 секунд после повышения уровня. @ Lifebane: при нанесении урона цели снижает регенерацию щита и HP цели на 50% на 3 секунды.",
+    "active": null,
+    "recipe": [
+      "Book of Sages",
+      "Elegant Gem",
+      "Mystery Codex"
+    ],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "ogre-tomahawk",
+    "name": "Ogre Tomahawk",
+    "summary": null,
+    "category": "Attack",
+    "price": 650,
+    "bonus": "+25 Физическая атака, +230 HP",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Dagger",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "oracle",
+    "name": "Oracle",
+    "summary": "Улучшенная регенерация",
+    "category": "Defense",
+    "price": 1860,
+    "bonus": "+850 HP, +20 Физическая защита, +20 Магическая защита, +10% сокращение времени восстановления.",
+    "unique": null,
+    "passive": "Благословение: получаемые эффекты щита и регенерации HP увеличиваются на 25%.",
+    "active": null,
+    "recipe": [
+      "Hero's Ring",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "power-crystal",
+    "name": "Power Crystal",
+    "summary": null,
+    "category": "Magic",
+    "price": 220,
+    "bonus": "+280 маны",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "power-potion",
+    "name": "Power Potion",
+    "summary": null,
+    "category": "Attack",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Увеличение силы: автоматически используется после покупки, дает 30 физической атаки и 15% вампиризма на 120 секунд. Одновременно может иметь только один эффект зелья.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "queen-s-wings",
+    "name": "Queen's Wings",
+    "summary": "Retribution с низким уровнем здоровья",
+    "category": "Defense",
+    "price": 2250,
+    "bonus": "+750 HP, +30 адаптивной атаки, +10% сокращения времени восстановления, +10% вампиризма от заклинаний.",
+    "unique": null,
+    "passive": "Демонизация: когда HP падает ниже 40%, снижается урон на 30% на 3 секунды и сокращается время восстановления навыков на 2 секунды. Время восстановления этого эффекта составляет 60 секунд. @ Неповиновение: за каждый потерянный 1% здоровья урон увеличивается на 0,25%, вплоть до 15%.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Hero's Ring",
+      "Expert Gloves"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "radiant-armor",
+    "name": "Radiant Armor",
+    "summary": "Уменьшение магического урона",
+    "category": "Defense",
+    "price": 1880,
+    "bonus": "+950 HP, +40 магической защиты, +12 регенерации HP.",
+    "unique": null,
+    "passive": "Святое благословение: получение магического урона дает 5 (+1*уровень героя) магической защиты на 5 секунд, до 6 стаков (можно получать только 1 стак каждые 0,4 секунды).",
+    "active": null,
+    "recipe": [
+      "Silence Robe",
+      "Magic Resist Cloak",
+      "Healing Necklace"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "rapid-boots",
+    "name": "Rapid Boots",
+    "summary": "Скорость движения",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+55 скорости передвижения, +35% замедления, +12 регенерации здоровья.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Healing Necklace",
+      "Healing Necklace"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "regular-spear",
+    "name": "Regular Spear",
+    "summary": null,
+    "category": "Attack",
+    "price": 600,
+    "bonus": "+20 Физическая атака, +10% Скорость атаки",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Dagger"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "rock-potion",
+    "name": "Rock Potion",
+    "summary": null,
+    "category": "Defense",
+    "price": 1500,
+    "bonus": null,
+    "unique": null,
+    "passive": "Увеличение мощности: при покупке дает 500 максимального здоровья и 5% снижение урона на 120 секунд. Одновременно может иметь только один эффект зелья.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "rogue-meteor",
+    "name": "Rogue Meteor",
+    "summary": null,
+    "category": "Attack",
+    "price": 900,
+    "bonus": "+15% скорости атаки, +10% шанса критического удара.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Javelin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "rose-gold-meteor",
+    "name": "Rose Gold Meteor",
+    "summary": "Щит с низким уровнем здоровья",
+    "category": "Attack",
+    "price": 2030,
+    "bonus": "+30 к физической атаке, +20% к скорости атаки, +10% к вампиризму.",
+    "unique": null,
+    "passive": "Чешуя Дракона: каждые 4 дополнительные физические атаки увеличивают гибридную защиту на 1, вплоть до 50 (эффект уменьшается вдвое, если основная роль не Боец). @ Линия жизни: при получении урона, который снижает HP ниже 30%, получает щит (120*Уровень героя) (увеличивается с уровнем) и 50% скорости движения, которая быстро снижается в течение 3 секунд. Время восстановления этого эффекта составляет 60 секунд.",
+    "active": null,
+    "recipe": [
+      "Magic Blade",
+      "Knife"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "scarlet-phantom",
+    "name": "Scarlet Phantom",
+    "summary": "Крит и скорость атаки",
+    "category": "Attack",
+    "price": 2020,
+    "bonus": "+30 Физическая атака, +20% Скорость атаки, +25% Шанс критического удара.",
+    "unique": null,
+    "passive": "Безумие: критические удары повышают скорость атаки на 30% и шанс критического удара на 5% на 2 секунды.",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Javelin"
+    ],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "sea-halberd",
+    "name": "Sea Halberd",
+    "summary": "Снижение исцеления",
+    "category": "Attack",
+    "price": 2050,
+    "bonus": "+80 Физическая атака, +20% Скорость атаки",
+    "unique": null,
+    "passive": "Lifebane: нанесение урона цели уменьшит эффекты щита и регенерации HP на ней до 60% от нормального на 3 секунды. @ Наказание: увеличьте урон на 8% против вражеских героев с более высоким дополнительным HP.",
+    "active": null,
+    "recipe": [
+      "Legion Sword",
+      "Regular Spear"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "shadow-twinblades",
+    "name": "Shadow Twinblades",
+    "summary": "Лучшее для убийц",
+    "category": "Magic",
+    "price": 1960,
+    "bonus": "+75 магической силы, +15% магического вампиризма, +5% скорости передвижения.",
+    "unique": null,
+    "passive": "Убийство: если в течение 5 секунд не будет получено или не нанесено никакого урона, следующая базовая атака нанесет дополнительный магический урон, равный 200 плюс 50% магической силы, и наложит на цель эффекты замедления на 60% на 1,5 секунды.",
+    "active": null,
+    "recipe": [
+      "Exotic Veil",
+      "Mystic Container"
+    ],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "shimmering-lantern",
+    "name": "Shimmering Lantern",
+    "summary": null,
+    "category": "Magic",
+    "price": null,
+    "bonus": "+20 магической силы, +5% скорости передвижения.",
+    "unique": null,
+    "passive": "Floryn может поделиться силой Фонаря Росы с союзным героем. Фонарь еще недостаточно силен и может развиваться, как только поглотит достаточно энергии в бою.",
+    "active": null,
+    "recipe": [],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "silence-robe",
+    "name": "Silence Robe",
+    "summary": null,
+    "category": "Defense",
+    "price": 1020,
+    "bonus": "+540 HP, +23 Магическая защита.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Vitality Crystal",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "sky-piercer",
+    "name": "Sky Piercer",
+    "summary": "Лучшее для финишеров",
+    "category": "Attack & Magic",
+    "price": 1500,
+    "bonus": "+60 Адаптивная атака, +15 Скорость передвижения.",
+    "unique": null,
+    "passive": "Смертоносность: после нанесения урона вражескому герою казнит героя, если его HP ниже 4%. Получает 10 стаков летальности за каждое убийство и теряет 30% текущих стаков за каждую смерть. Каждый стак Летальности увеличивает порог HP эффекта казни на 0,1%, суммируясь 80 раз.",
+    "active": null,
+    "recipe": [
+      "Expert Gloves",
+      "Expert Gloves"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "starlium-scythe",
+    "name": "Starlium Scythe",
+    "summary": "Улучшенные базовые атаки",
+    "category": "Magic",
+    "price": 2120,
+    "bonus": "+75 магической силы, +10% сокращения перезарядки, +8% гибридного вампиризма, +6 регенерации маны.",
+    "unique": null,
+    "passive": "Кризис: после применения умения следующая базовая атака в течение 3 секунд наносит 90 (+60% общей магической силы) дополнительного чистого урона и снижает скорость передвижения цели на 15% на 1,5 секунды (время восстановления 1,5 секунды).",
+    "active": null,
+    "recipe": [
+      "Azure Blade",
+      "Book of Sages",
+      "Magic Wand"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "steel-legplates",
+    "name": "Steel Legplates",
+    "summary": null,
+    "category": "Defense",
+    "price": 630,
+    "bonus": "+35 Физическая защита",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Leather Jerkin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "swift-boots",
+    "name": "Swift Boots",
+    "summary": "Скорость атаки",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 к скорости передвижения, +15% к скорости атаки.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Knife"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "swift-crossbow",
+    "name": "Swift Crossbow",
+    "summary": null,
+    "category": "Attack",
+    "price": 1000,
+    "bonus": "+20% Скорость атаки",
+    "unique": null,
+    "passive": "Арбалет: каждая базовая атака наносит 40 дополнительного адаптивного урона. @ Импульс: базовые атаки повышают скорость атаки на 3% на 3 секунды, но не более 5 стаков.",
+    "active": null,
+    "recipe": [
+      "Knife",
+      "Knife"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "thunder-belt",
+    "name": "Thunder Belt",
+    "summary": "Урон по танкам",
+    "category": "Defense",
+    "price": 1820,
+    "bonus": "+600 HP, +15 Физическая защита, +15 Магическая защита, +20 Скорость передвижения.",
+    "unique": null,
+    "passive": "Удар молнии: каждые 4 секунды следующая базовая атака наносит 50 (+100% дополнительной физической защиты) (+100% дополнительной магической защиты) дополнительного чистого урона цели и врагам вокруг них, а также ненадолго замедляет их на 99%. Гибридная защита постоянно увеличивается на 1 каждый раз, когда атака поражает вражеского героя. (Этот эффект снижен до 50% для стрелков, магов и убийц)",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Leather Jerkin",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "tome-of-evil",
+    "name": "Tome of Evil",
+    "summary": null,
+    "category": "Magic",
+    "price": 950,
+    "bonus": "+30 магической силы, +2 регенерации маны, +10% сокращения времени восстановления.",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [
+      "Magic Necklace",
+      "Book of Sages"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "tough-boots",
+    "name": "Tough Boots",
+    "summary": "Сокращение продолжительности CC",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 скорости движения, +18 магической защиты.",
+    "unique": null,
+    "passive": "Стойкость: длительность контроля и замедления уменьшена на 25%.",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Magic Resist Cloak"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "twilight-armor",
+    "name": "Twilight Armor",
+    "summary": "Высокая устойчивость к урону",
+    "category": "Defense",
+    "price": 2100,
+    "bonus": "+1200 HP, +15 Физическая защита",
+    "unique": null,
+    "passive": "Сумерки: При получении более 500 единиц урона за один раз избыточный урон, превышающий эту сумму, уменьшается на 20 (+0,2% общего запаса здоровья). @ Искупление: Когда входящий урон снижает запас здоровья ниже 30%, восстанавливайте 20% максимального запаса здоровья в течение следующих 4 секунд. Время восстановления этого эффекта составляет 60 секунд.",
+    "active": null,
+    "recipe": [
+      "Ares Belt",
+      "Ares Belt",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Удаленный"
+  },
+  {
+    "slug": "vampire-mallet",
+    "name": "Vampire Mallet",
+    "summary": null,
+    "category": "Attack",
+    "price": 400,
+    "bonus": "+8 Физическая атака, +8% вампиризма",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "vitality-crystal",
+    "name": "Vitality Crystal",
+    "summary": null,
+    "category": "Defense",
+    "price": 300,
+    "bonus": "+230 ОЗ",
+    "unique": null,
+    "passive": null,
+    "active": null,
+    "recipe": [],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "war-axe",
+    "name": "War Axe",
+    "summary": "Постоянное увеличение урона",
+    "category": "Attack",
+    "price": 2100,
+    "bonus": "+35 физической атаки, +400 HP, +10% сокращения перезарядки, +8% гибридного вампиризма.",
+    "unique": null,
+    "passive": "Боевой дух: атаки дают 12 дополнительных физических атак в секунду в течение 4 секунд, до 6 стаков. Наносит 10 % дополнительного чистого урона в зависимости от нанесенного урона (снижение урона не учитывается) при полных зарядах. (Стрелки, маги и поддержка получают только 50% этих суммируемых эффектов.)",
+    "active": null,
+    "recipe": [
+      "Ogre Tomahawk",
+      "Iron Hunting Bow",
+      "Hero's Ring"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "warrior-boots",
+    "name": "Warrior Boots",
+    "summary": "Штабелируемая физическая защита",
+    "category": "Movement",
+    "price": 720,
+    "bonus": "+40 Скорость передвижения, +18 Физическая защита.",
+    "unique": null,
+    "passive": "Доблесть: получает 4 дополнительных физических защиты на 3 секунды при получении физического урона, вплоть до 20.",
+    "active": null,
+    "recipe": [
+      "Boots",
+      "Leather Jerkin"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "wind-of-nature",
+    "name": "Wind of Nature",
+    "summary": "Иммунитет к физическому урону",
+    "category": "Attack",
+    "price": 1910,
+    "bonus": "+30 к физической атаке, +20% к скорости атаки, +10% к вампиризму.",
+    "unique": null,
+    "passive": null,
+    "active": "Напев ветра: становится невосприимчивым ко всему физическому урону на 2 секунды (длительность уменьшается вдвое, если основная роль не является стрелком; время восстановления 90 секунд).",
+    "recipe": [
+      "Regular Spear",
+      "Vampire Mallet"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "windtalker",
+    "name": "Windtalker",
+    "summary": "Разрывной урон",
+    "category": "Attack",
+    "price": 1880,
+    "bonus": "+35% скорости атаки, +20% шанса критического удара, +20 скорости передвижения.",
+    "unique": null,
+    "passive": "Тайфун: Каждые 5–2 секунды (снижается на 0,2 секунды за каждую базовую атаку) следующая базовая атака поражает до 3 вражеских отрядов, нанося 150–362 магического урона. (Эта атака может быть критической, а урон против миньонов увеличивается до 200%.)",
+    "active": null,
+    "recipe": [
+      "Rogue Meteor",
+      "Knife"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "winter-crown",
+    "name": "Winter Crown",
+    "summary": "Временная непобедимость",
+    "category": "Attack & Magic",
+    "price": 1910,
+    "bonus": "+45 Адаптивная атака, +400 HP, +5% сокращение времени восстановления",
+    "unique": null,
+    "passive": null,
+    "active": "Заморозка: становится замороженной, недоступной для выбора цели и невосприимчивой к урону на 2 секунды (время восстановления 100 секунд). Невозможно переместить или применить навыки, пока они заморожены, но уже примененные навыки не будут прерваны.",
+    "recipe": [
+      "Expert Gloves",
+      "Hero's Ring",
+      "Vitality Crystal"
+    ],
+    "bestFor": "Все герои"
+  },
+  {
+    "slug": "wishing-lantern",
+    "name": "Wishing Lantern",
+    "summary": "Противодействие высокому HP",
+    "category": "Magic",
+    "price": 2250,
+    "bonus": "+75 магической силы, +400 маны, +10% сокращения времени восстановления.",
+    "unique": null,
+    "passive": "Богиня-бабочка: за каждые 900 магического урона, нанесенные вражескому герою (рассчитывается до уменьшения урона), вызывается богиня-бабочка, которая атакует вражеского героя, нанося магический урон, равный 8% от его текущего здоровья.",
+    "active": null,
+    "recipe": [
+      "Magic Wand",
+      "Book of Sages",
+      "Power Crystal"
+    ],
+    "bestFor": "Все герои"
+  }
+]

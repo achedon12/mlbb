@@ -1,0 +1,1007 @@
+[
+  {
+    "name": "Classic",
+    "slug": "classic",
+    "description": "O Modo Clássico é o primeiro e mais antigo modo de jogo do Mobile Legends. Todos os outros modos de jogo usam as regras Clássicas como base. Este modo oferece a experiência 5v5 e Mobile Legends sem medo de perder sua classificação, mas sua taxa de vitória será afetada, tanto do lado do herói quanto no geral.​​​​ O modo clássico é adequado para iniciantes que precisam se familiarizar com os jogos Mobile Legends. Você pode escolher livremente qualquer herói que possua, bem como heróis semanais gratuitos e quaisquer cartas de teste que possua. Porém, você não pode ter mais de um herói em sua equipe. Você também pode escolher o herói de sua preferência, já que não há ban de herói, diferentemente do modo Ranqueado.",
+    "sections": [
+      {
+        "title": "Objetivo",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Como todos os jogos MOBA, o objetivo principal é destruir a base inimiga. Isso exige que você defenda suas torres e base e destrua as delas. Cada torre em uma lane específica deve ser destruída em sequência para que seus minions cheguem à base. Existem maneiras de destruir torres usando minions/creeps para receber dano das balas da torre. Depois de destruir as torres, você poderá danificar/destruir a base inimiga. Destruir a última torre em uma lane concederá superlacaios que causam alto dano aos heróis e limpam as lanes mais rapidamente. Às vezes, os jogadores são forçados a matar heróis inimigos em vez de se concentrar em tropas e torres inimigas. Mais mortes podem resultar em MVP e agricultura, mas destruir as torres, acessar a base inimiga e destruí-la é o objetivo principal."
+          }
+        ]
+      },
+      {
+        "title": "Características",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Celestial Palace/Western Expanse — Um campo inspirado na versão Defense of the Ancients: Allstars (DOTA, abreviadamente) do mapa, com vários recursos e mecânicas alteradas. O jogo é composto por cinco heróis de cada equipe, que são então colocados em uma arena com o objetivo de destruir o inibidor de base de todos, resultando na vitória. O tempo normal necessário para completar a maioria dos jogos é de cerca de 10 a 15 minutos, mas alguns jogos podem durar mais de 30 minutos."
+          },
+          {
+            "type": "li",
+            "text": "O campo de batalha é dividido em três lanes para abrir caminho até a base inimiga."
+          },
+          {
+            "type": "li",
+            "text": "Uma jungle povoada por monstros da jungle concede buffs de cura, buffs de função e buffs de ouro quando derrotado. Existem também Boss Monsters que fornecem ouro para toda a sua equipe ou para o Lord lutando ao seu lado."
+          },
+          {
+            "type": "li",
+            "text": "O Caminho Dourado também pode ser percorrido por Tanques em movimento para que a equipe obtenha rapidamente itens para apoiá-la."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/classic.webp"
+  },
+  {
+    "name": "Ranked",
+    "slug": "ranked",
+    "description": "Ranqueado é um modo de jogo de fila competitivo. Os jogadores ganham ou perdem estrelas se ganharem ou perderem neste modo. Guerreiro, Elite, Mestre, Grande Mestre, Épico, Lenda e Mítico (Honra Mítica, Glória Mítica e Imortal Mítico) são as sete categorias de Mobile Legends: Bang Bang.",
+    "sections": [
+      {
+        "title": "Regras de conexão",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Os jogadores podem escolher três heróis para participar do lobby e da fase de draft. Esses heróis devem ser jogados pelo menos uma vez consecutiva."
+          },
+          {
+            "type": "p",
+            "text": "Os jogadores podem jogar sozinhos ou formar uma equipe de dois, três ou cinco jogadores para entrar na fila. Os jogadores podem convidar outros jogadores de classificação superior ou inferior para o lobby. Não é permitida uma equipe de quatro pessoas."
+          },
+          {
+            "type": "p",
+            "text": "Quando um time com jogadores de classificações diferentes entra na fila, isso é chamado de Flex Rank, e eles só entrarão na fila das partidas da pessoa com melhor classificação."
+          },
+          {
+            "type": "p",
+            "text": "Exemplos:"
+          },
+          {
+            "type": "li",
+            "text": "Um jogador Mítico se junta a um jogador Épico, ambos seguirão as regras de draft do jogador Mítico."
+          },
+          {
+            "type": "li",
+            "text": "Um jogador de Mythic Glory se junta a um jogador Grandmaster e um jogador Legend, todos os quais seguirão a regra de draft de jogador Mythic, embora Draft Pick normalmente não esteja disponível para jogadores abaixo da classificação Epic."
+          },
+          {
+            "type": "p",
+            "text": "No entanto, um jogador na fila solo pode encontrar-se em matchmaking com aliados de classificação superior ou inferior, o que pode ser desencadeado pelo seguinte:"
+          },
+          {
+            "type": "li",
+            "text": "Os aliados jogam em equipe enquanto você está sozinho. Entre os aliados desse time está pelo menos um jogador de classificação semelhante ao seu."
+          },
+          {
+            "type": "li",
+            "text": "Exemplo: Um jogador Épico se junta a um jogador Lendário e você, um jogador Épico, pode enfrentá-los."
+          },
+          {
+            "type": "li",
+            "text": "Todos os jogadores estão jogando sozinhos, mas o time inimigo tem alguém com uma classificação semelhante à sua."
+          },
+          {
+            "type": "li",
+            "text": "Exemplo: sua classificação é Lendária, mas 4 de seus companheiros de equipe são Míticos. Então pelo menos um dos inimigos é Legend."
+          },
+          {
+            "type": "li",
+            "text": "Quando esse fenômeno ocorre, é possível que apenas um membro da equipe esteja em uma classificação diferente."
+          },
+          {
+            "type": "li",
+            "text": "Exemplo: Seu time tem 4 jogadores no nível Lendário e 1 jogador no nível Mítico, isso significa que o time inimigo pode ter de 1 a 4 jogadores no nível Mítico, mas deve haver alguém no nível Épico."
+          },
+          {
+            "type": "li",
+            "text": "Graças a esta mecânica Flex Rank, mesmo um jogador solo do Legend I pode entrar na fila com um aliado do Epic V, já que eles são apenas uma classificação diferente, mas a diferença é muito diferente, levando ao sistema sombrio amplamente percebido."
+          },
+          {
+            "type": "p",
+            "text": "Uma opção de matchmaking rápido será oferecida se a fila estiver demorando muito, esta opção irá combinar você mesmo com jogadores que você bloqueou anteriormente."
+          },
+          {
+            "type": "p",
+            "text": "Se o jogador que você bloqueou se juntar a alguém que você não bloqueou, você ainda poderá entrar na fila com ele durante a partida."
+          }
+        ]
+      },
+      {
+        "title": "Escolhas de rascunho",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Quando um jogador atinge o Epic V ou superior (Grandmaster V ou superior no Advance Server), o Draft Pick fica disponível para partidas futuras. Ao contrário do Blind Pick, o Draft Pick permite que ambas as equipes vejam seus heróis durante a seleção e permite até 10 heróis banidos (3/4/5 bans em Epic/Legend/Mythic) para cada equipe para fins de equilíbrio. Heróis já selecionados ou banidos não poderão ser escolhidos durante a partida."
+          }
+        ]
+      },
+      {
+        "title": "Sistema de classificação",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Existem sete classificações em Mobile Legends: Bang Bang. São eles: Guerreiro, Elite, Mestre, Grande Mestre, Épico, Lendário e Mítico."
+          },
+          {
+            "type": "p",
+            "text": "Cada classificação possui divisões escritas em algarismos romanos e um certo número de estrelas necessárias para ser promovido à próxima divisão ou classificação. Se um jogador exceder o número máximo de estrelas na sua divisão atual ou ficar abaixo de zero estrelas, ele poderá passar para a próxima divisão ou retornar à divisão anterior. Completar todas as divisões da classificação atual ou ser rebaixado de todas as divisões resultará na promoção para a próxima classificação ou no rebaixamento para a classificação anterior."
+          },
+          {
+            "type": "p",
+            "text": "No Mythic, as estrelas foram substituídas por pontos para avançar para a próxima divisão."
+          }
+        ]
+      },
+      {
+        "title": "Pontos de ascensão e proteção de estrelas",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Existem muitos métodos para aumentar ou prevenir a perda de estrelas, levando à elevação de estrelas e pontos de proteção."
+          },
+          {
+            "type": "p",
+            "text": "Star Raising permite que os jogadores ganhem uma estrela adicional quando um jogador atinge 100% de Star Raising Points em sua próxima vitória. 100/200/300/500/700/1000 pontos necessários em Warrior / Elite / Master / Grandmaster / Epic / Legend. Os pontos de bônus de aumento de estrelas não podem ser acumulados nas classificações Míticas."
+          },
+          {
+            "type": "p",
+            "text": "Star Protection permite que os jogadores evitem perder uma estrela em uma partida alcançando 100% dos pontos Star Protection ou usando cartas Star Protection. 100/200/300/500/700/1000/1500 pontos necessários em Warrior / Elite / Master / Grandmaster / Epic / Legend / Mythic."
+          },
+          {
+            "type": "p",
+            "text": "Os Star Protection Cards geralmente são obtidos por meio de eventos no jogo ou por meio do Starlight Rewards. Geralmente duram apenas 7 dias depois de obtidos ou reivindicados nas páginas do evento."
+          },
+          {
+            "type": "p",
+            "text": "A carta de proteção de classificação é a carta que impede você de ser rebaixado ao atingir a classificação anterior. Muitas vezes é adquirido após atingir uma classificação mais elevada: de Épico a Lenda, de Lenda a Mítico."
+          },
+          {
+            "type": "p",
+            "text": "Apenas pontos de proteção de estrelas estão disponíveis no Mythic, pois os pontos de obtenção de estrelas estão desativados."
+          }
+        ]
+      },
+      {
+        "title": "Cartão de proteção de classificação",
+        "elements": [
+          {
+            "type": "p",
+            "text": "As cartas de proteção de classificação só podem ser obtidas em recompensas de promoção de classificação. Ao contrário dos pontos/cartas de proteção de estrelas, eles só são ativados em derrotas que resultarão no rebaixamento de um jogador (por exemplo, uma derrota que resulta na perda de estrelas de Legend V 0 estrelas para Epic I 4 estrelas, rebaixando de Legend rank para Epic rank)."
+          }
+        ]
+      },
+      {
+        "title": "Redefinição de classificação",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Assim que a temporada terminar, todos os jogadores começarão a nova temporada com sua nova classificação com base na classificação da temporada anterior. Eles também recebem a recompensa por atingir uma determinada classificação."
+          },
+          {
+            "type": "p",
+            "text": "A redefinição da classificação só é aplicada quando o jogador faz login pela primeira vez na nova temporada, mas a classificação antiga não é salva na tabela de classificação."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/ranked.webp"
+  },
+  {
+    "name": "Brawl",
+    "slug": "brawl",
+    "description": "Brawl é um modo de jogo no qual você não pode escolher livremente seus heróis. Em vez disso, cada jogador terá dois heróis aleatórios para escolher. As batalhas neste modo acontecem apenas em uma única lane com duas torres defendendo a base em ambas as equipes, respectivamente. As partidas Brawl geralmente terminam em um tempo muito mais curto do que o Modo Clássico e o Modo Ranqueado. Este tipo de correspondência é preferido para aumentar a pontuação de crédito perdida ou completar tarefas.",
+    "sections": [
+      {
+        "title": "Principais características",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Cada jogador pode escolher entre 2 heróis aleatórios."
+          },
+          {
+            "type": "li",
+            "text": "Os jogadores só podem comprar itens depois de morrerem ou antes de deixarem a área do altar sempre que reaparecerem."
+          },
+          {
+            "type": "li",
+            "text": "O altar não cura mais nem regenera mana. Todos os efeitos de cura são reduzidos pela metade. A base não está mais sendo reabastecida."
+          },
+          {
+            "type": "li",
+            "text": "Cada herói pode ter um buff ou handicap adicional."
+          }
+        ]
+      },
+      {
+        "title": "Partida",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Os jogadores podem conversar durante a fase de seleção."
+          },
+          {
+            "type": "p",
+            "text": "Todos os jogadores começam no nível 4 e recebem 2.500 ouro inicial para comprar itens. Assim que saírem da base, eles deverão morrer para poder comprar itens novamente."
+          }
+        ]
+      },
+      {
+        "title": "Glifo de Cura",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Heróis que raramente morrem em combate derrubarão um glifo de cura. (Cura Max HP e Mana.)"
+          }
+        ]
+      },
+      {
+        "title": "Torretas",
+        "elements": [
+          {
+            "type": "p",
+            "text": "As torres no Brawl se comportam da mesma forma que nos jogos clássicos. Porém as torres são mais fracas e não possuem escudo dourado."
+          },
+          {
+            "type": "p",
+            "text": "A segunda torre de cada lado libera uma onda que mata todos os minions quando destruída."
+          }
+        ]
+      },
+      {
+        "title": "Minions",
+        "elements": [
+          {
+            "type": "p",
+            "text": "O ouro e a experiência obtidos com os minions são maiores do que no modo clássico."
+          },
+          {
+            "type": "p",
+            "text": "Após 12 minutos, os Super Minions são mobilizados para evitar jogos longos."
+          }
+        ]
+      },
+      {
+        "title": "Caranguejo",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Existem dois caranguejos em lados opostos do caminho que aparecem às 0:30 e reaparecem 30 segundos após morrerem. Matar um Caranguejo Congelado regenera pequenas quantidades de saúde, dá ouro e um pequeno escudo. Aliados próximos que ajudam com o caranguejo também recebem ouro. Este caranguejo pode ser usado como trampolim para heróis como Lancelot, Joy ou Natalia, interagir com certos heróis como Vexana, Benedetta ou Yi Sun-shin, ou verificar se o inimigo está no mato mais próximo ou matar-se para comprar itens quando a saúde deles estiver muito baixa."
+          }
+        ]
+      },
+      {
+        "title": "Runas de cura",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Existem duas runas de cura em lados opostos do caminho que aparecem às 0:30 e reaparecem 35 segundos após serem coletadas. O cronômetro e o efeito sonoro são visíveis e audíveis para todos. A runa cura continuamente o selecionador durante o atraso de 5 segundos, depois regenera um pouco de saúde e até 40% de mana para todos os heróis aliados dentro do alcance. Se o recuperador morrer durante o atraso, a cura será cancelada."
+          }
+        ]
+      },
+      {
+        "title": "Barril",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Há um barril de cada lado que aparece às 0:20 e a cada 30 segundos após ser recolhido. Escolha este barril e atire nos inimigos para surpreendê-los!"
+          },
+          {
+            "type": "p",
+            "text": "O barril torna o usuário inalvejável em breve, causa dano real e tem um recarga de 15 segundos, tornando impossível retirar dois barris de uma vez. Quando alguém pega um barril, um som é emitido, audível para todos no mapa."
+          },
+          {
+            "type": "p",
+            "text": "O Barrel também é desabilitado pelo efeito enraizado."
+          },
+          {
+            "type": "p",
+            "text": "Um Diggie morto ou um herói inalvejável pode coletar o barril."
+          }
+        ]
+      },
+      {
+        "title": "Organização de partidas",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Ao contrário dos modos Clássico ou Classificado, não há restrições de classificação no Brawl. Isso significa que você pode enfileirar partidas em que um lado é uma fila solo de 5 jogadores, enquanto o outro é uma equipe de 5, ou um lado é um Mythic Immortal de 5 jogadores, enquanto o outro é alguém que acabou de baixar o jogo."
+          },
+          {
+            "type": "p",
+            "text": "Ficar AFK, evitar brigas de equipe ou abuso verbal é totalmente punível por meio de denúncia."
+          }
+        ]
+      },
+      {
+        "title": "Dicas e truques",
+        "elements": [
+          {
+            "type": "li",
+            "text": "Composição de equipe recomendada"
+          },
+          {
+            "type": "p",
+            "text": "Existem muitos heróis para escolher com diferentes estilos de jogo. Conhecer as habilidades, pontos fortes e fracos dos heróis, bem como seu posicionamento ideal, é essencial. Priorize Assassinos, Magos ou Lutadores, pois eles causam muitos danos e controlam multidões. Evite o Marksman, pois eles são dependentes de itens e frágeis no início, a menos que tenham uma boa limpeza de minions e habilidades de área de efeito, como Beatrix ou Granger. Evite equipes com muitos Magos, muitos Snipers ou muitos Tanques."
+          },
+          {
+            "type": "li",
+            "text": "Feitiços de Batalha Recomendados"
+          },
+          {
+            "type": "li",
+            "text": "Flameshot tem um cooldown muito baixo e pode ser usado para verificar o mato, garantir mortes ou negar habilidades."
+          },
+          {
+            "type": "li",
+            "text": "Pelo menos um jogador deve trazer o seguinte:"
+          },
+          {
+            "type": "li",
+            "text": "Revitalize para que seu time possa se sustentar após a luta, pois o altar não cura mais, especialmente quando seu time está em uma posição ruim e não consegue garantir runas de cura; E"
+          },
+          {
+            "type": "li",
+            "text": "Purifique, se o seu herói tiver um bom dano, mas for vulnerável ao controle de multidão (CC)."
+          },
+          {
+            "type": "li",
+            "text": "No entanto, o Sprint não é altamente recomendado."
+          },
+          {
+            "type": "li",
+            "text": "Aproveite a multidão"
+          },
+          {
+            "type": "p",
+            "text": "A carta exclusiva de Brawl pode fortalecer massivamente heróis como Luo Yi, Odette, Lancelot, Xavier, Fanny, enquanto heróis que dependem muito de ataques básicos como Freya ou Thamuz se tornam inúteis."
+          },
+          {
+            "type": "p",
+            "text": "Da mesma forma, você precisará evitar ficar próximos um do outro quando os inimigos forem Atlas ou Tigreal."
+          },
+          {
+            "type": "li",
+            "text": "Compre as coisas certas"
+          },
+          {
+            "type": "p",
+            "text": "Em vez de comprar um item decente, comprar componentes menores pode oferecer uma vantagem melhor. Você também pode esperar alguns segundos e enviar uma mensagem aos seus aliados informando que você tem ouro quase suficiente para comprar itens.j"
+          },
+          {
+            "type": "p",
+            "text": "Em vez de atacar uma equipe de 5 homens com Sky Piercer completo, um item que reduz a cura pode contrariar fortemente a equipe inimiga."
+          },
+          {
+            "type": "li",
+            "text": "Escondido no mato"
+          },
+          {
+            "type": "p",
+            "text": "Aproveite os arbustos para emboscar inimigos, especialmente adequados para heróis como Helcurt, Hilda, Natalia, Luo Yi. Tenha cuidado se os inimigos tiverem esses heróis."
+          },
+          {
+            "type": "li",
+            "text": "Seleção de herói de repetição"
+          },
+          {
+            "type": "p",
+            "text": "No início, os jogadores poderão escolher entre 2 heróis. Se nenhum herói realmente combina com você, você joga um dado para obter um novo herói e envia seu herói descartado para a reserva dos outros. Às vezes, apenas um herói descartado é suficiente para todos trocarem. Você pode conversar e perguntar a outros jogadores ou usar bate-papos e emotes rápidos. Tenha em mente que se o herói for descartado duas vezes e desaparecer da seleção de todos, ele poderá reaparecer se você usar outro dado, o que desperdiçaria seus dados. Até 10 heróis podem aparecer no local abandonado."
+          },
+          {
+            "type": "p",
+            "text": "Alguns heróis são difíceis de jogar, mas isso não significa que seja difícil para seus aliados, troque-os e evite acumular dois bons heróis enquanto seus aliados não têm nenhum."
+          },
+          {
+            "type": "li",
+            "text": "Aliste o inimigo"
+          },
+          {
+            "type": "p",
+            "text": "Como existe apenas uma lane, é mais fácil adivinhar os movimentos dos seus oponentes e colocar o seu herói na melhor posição para defender ou atacar."
+          },
+          {
+            "type": "p",
+            "text": "Quando o time inimigo tiver Xavier, Novaria, espere que você seja danificado ou revelado ao comprar itens do altar ou chegar ao campo de batalha."
+          },
+          {
+            "type": "p",
+            "text": "Você pode verificar os itens dos inimigos para ver se eles deixaram o altar ou não."
+          },
+          {
+            "type": "li",
+            "text": "Utilize objetos naturais"
+          },
+          {
+            "type": "p",
+            "text": "Você pode guardar um barril para escapar após um mergulho, um mergulho na torre ou usá-lo para encurtar a distância com o Flicker. Os barris aparecem pela primeira vez aos 20 segundos, enquanto as primeiras runas de cura duram 30 segundos. É melhor proteger o arbusto à direita e o glifo próximo, para que sua equipe possa pelo menos desligar uma opção de cura após os inimigos lutarem. Use o barril para parar os inimigos quando eles tentarem proteger a runa de cura."
+          }
+        ]
+      },
+      {
+        "title": "Feitiços de Batalha",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Todos os heróis recebem Flicker por padrão junto com outro Feitiço de Batalha escolhido."
+          },
+          {
+            "type": "p",
+            "text": "Todos os Feitiços de Batalha começam com 50% do recarga normal."
+          }
+        ]
+      },
+      {
+        "title": "Especificações do herói",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Como alguns heróis serão muito poderosos ou muito desfavorecidos no Brawl, certos buffs ou desvantagens são adicionados a certos heróis da seguinte forma:"
+          },
+          {
+            "type": "p",
+            "text": "Versão mais recente: v350.1 {|class=\"article-table\" !Heroes!!Mudanças de estatísticas!!Mudanças individuais"
+          },
+          {
+            "type": "p",
+            "text": "Ganho passivo: 10/4"
+          },
+          {
+            "type": "p",
+            "text": "São quatro portas para o Chip, cada lado tem uma próxima à base, enquanto as outras duas ficam de cada lado dos arbustos opostos."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/brawl.webp"
+  },
+  {
+    "name": "Vs. AI",
+    "slug": "vs-ai",
+    "description": "O modo \"Vs A.I\" em Mobile Legends: Bang Bang foi introduzido no final de 2017, logo após o lançamento global do jogo. Apresentando originalmente apenas dificuldades fáceis e normais, o modo passou por atualizações significativas, incluindo um modo difícil adicionado durante o Project Next em 2020 e uma IA modernizada e desafiadora. métodos de treinamento publicados por volta de novembro de 2023.",
+    "sections": [
+      {
+        "title": "Mecânico",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Existem três modos de jogo que você pode escolher neste modo: Clássico, Brawl e Draft Pick."
+          }
+        ]
+      },
+      {
+        "title": "Níveis de dificuldade",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Existem também três níveis de dificuldade: AI: Simples, AI: Normal e AI: Hard."
+          },
+          {
+            "type": "li",
+            "text": "AI:Easy possui uma IA muito simples, ideal para praticar um herói que você acabou de desbloquear ou ainda não conhece."
+          },
+          {
+            "type": "li",
+            "text": "IA: Normal tem oponentes de IA um pouco mais avançados que às vezes podem representar uma ameaça durante a agricultura, use suas habilidades com cuidado. Esta dificuldade é um pouco mais complexa que a IA: simples e uma opção muito melhor para treinar um herói em combate quase real."
+          },
+          {
+            "type": "li",
+            "text": "AI:Hard tem oponentes de IA moderadamente avançados que sabem quando usar seus Feitiços de Batalha e cronometrar suas habilidades corretamente para matar seu oponente. Eles também atacam as torres corretamente, diferente do normal e simples onde morrem de propósito, eles também sabem fazer macro e rastrear seu time, e de fato sabem como escapar, é recomendado usar o herói principal."
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/vs-ai.webp"
+  },
+  {
+    "name": "Custom",
+    "slug": "custom",
+    "description": "Os jogos personalizados são muito semelhantes aos vs. IA. A diferença é que os jogadores enfrentam outras pessoas ou IA. Os jogadores podem convidar amigos para entrar no jogo ou adicionar IA com botões existentes. Os jogadores também podem adicionar uma IA ao time adversário ou ao seu time, você também pode jogar sozinho com uma IA.",
+    "sections": [
+      {
+        "title": "Observação",
+        "elements": [
+          {
+            "type": "li",
+            "text": "O modo personalizado não afetará sua classificação, domínio do herói ou posicionamento. Você também não ganhará nenhum BP ou EXP."
+          },
+          {
+            "type": "li",
+            "text": "Se você tiver cartas de teste com heróis que ainda não possui Draft Pick, ainda existe um bug que permite usar aquela carta de teste com o herói que você ainda não tem, a carta de teste não será consumida/utilizada."
+          },
+          {
+            "type": "li",
+            "text": "A maioria dos jogadores costuma usar a personalização para competir em 1v1 ou organizar partidas personalizadas entre 2 equipes (torneios)."
+          }
+        ]
+      },
+      {
+        "title": "História",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Fonte: https://youtu.be/3mFb0EQrMXE?t=113"
+          },
+          {
+            "type": "p",
+            "text": "Categoria:Categoria personalizada:Modo de jogo"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/custom.webp"
+  },
+  {
+    "name": "Arcade Mode",
+    "slug": "arcade-mode",
+    "description": "Arcade Modes é um modo de jogo adicional em Mobile Legends: Bang Bang que pode ser jogado de vez em quando durante eventos especiais, feriados ou ocasiões. O modo apresenta vários subjogos baseados em estratégia, listados abaixo.",
+    "sections": [
+      {
+        "title": "Caos",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Arcade 5v5 intenso, rápido e emocionante!"
+          },
+          {
+            "type": "p",
+            "text": "No passado, este jogo não tinha um nome oficial. Este modo de jogo foi lançado pela primeira vez e foi simplesmente o Carnaval de Verão que chegou e continha consumíveis para melhorar as habilidades dos heróis, com um mapa modificado correspondente ao Verão. Durante o Halloween, este modo retornou com os mesmos recursos do Carnaval de Verão, habilidades modificadas, doces bônus e o mapa com tema de Halloween. Aí chegou o Natal e o modo tinha as mesmas funcionalidades; Porém, embora o mapa tenha sido alterado para se adequar ao Natal, os doces foram mantidos como consumíveis. E então chegou a Páscoa. Por fim, foi introduzido o modo Mayhem: dessa vez o modo de jogo não tinha consumíveis, mas contava com habilidades modificadas e mudanças de mapa."
+          },
+          {
+            "type": "p",
+            "text": "Existem apenas 50 heróis disponíveis neste modo."
+          }
+        ]
+      },
+      {
+        "title": "Espelho",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Duelos do mesmo herói, mas usando táticas diferentes!"
+          },
+          {
+            "type": "p",
+            "text": "O modo Mirror usa o mesmo mapa do modo Bruno Cup Mayhem (na verdade, o layout do mapa, Lord e Minions têm o mesmo tema), porém, durante a fase de seleção, em cada equipe, os jogadores votarão em um dos seis heróis escolhidos aleatoriamente. Quem obtiver mais votos será o herói escolhido por toda a equipe. Semelhante ao modo Mayhem, os jogadores começarão no nível 4 do herói e receberão 900 ouro. Como em todos os modos de jogo, o objetivo é destruir a base inimiga."
+          }
+        ]
+      },
+      {
+        "title": "Sobrevivência",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Você será aquele que durará até o fim?"
+          },
+          {
+            "type": "p",
+            "text": "Survival é semelhante a qualquer outro jogo Battle Royale, mas com alguns ajustes para se adequar ao Mobile Legends. Survival só funciona com equipes de 3 jogadores em uma batalha de 99 jogadores (33 equipes) e o mapa não será o Palácio Celestial ou a Expansão Ocidental, como em outros modos de jogo, em vez disso será definido em um único mapa, o Labirinto de Minos, que é um mapa muito grande para acomodar 99 jogadores. Survival oferece apenas 15 heróis selecionáveis, dividindo-os em três grupos de 5: Físico, Mágico e Defesa. Saquear neste modo de jogo é diferente de Battle Royales: você tem que matar Creeps/Monstros da Jungle para fazê-los dropar itens, e há 4 novos Creeps neste modo de jogo, cada um com chances diferentes de dropar itens para as três categorias. Para saber mais sobre este modo de jogo, clique no texto destacado acima."
+          },
+          {
+            "type": "p",
+            "text": "Entre na Eruditio e se esforce para ser o último sobrevivente."
+          },
+          {
+            "type": "p",
+            "text": "Nos últimos tempos, uma competição fascinante, cuja popularidade cresce dia a dia, tomou conta da Eruditio. Conhecido como “Survival: Nexus”, atrai participantes de toda a Eruditio. Terminais convenientes permitem que os participantes controlem os avatares virtuais de Beatrix usando apenas suas ondas cerebrais, mergulhando em um mundo virtual. Aqui eles podem participar de uma competição tática na qual o último jogador sobrevivente recebe uma grande recompensa. Aproveitem a chance enquanto podem, aventureiros, e juntem-se ao Survival: Nexus!"
+          }
+        ]
+      },
+      {
+        "title": "Batalha até a morte",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Jogue diferentes heróis em uma partida!"
+          },
+          {
+            "type": "p",
+            "text": "Este é outro tipo de jogo em Mobile Legends, a seleção é muito semelhante à sobrevivência em que o jogador tem que escolher um herói entre os heróis selecionados aleatoriamente, seja ele o dono ou não. No jogo, quando o herói morre, o jogador deve escolher outro herói. Se dois jogadores escolherem o mesmo herói, eles deverão escolher outro. Existem duas maneiras de alcançar a vitória: destruir a base inimiga ou conseguir 30 vitórias antes do inimigo. Em 2019, é lançado em coordenação com o Festival da Primavera. O campo de batalha, portanto, está à altura da ocasião."
+          }
+        ]
+      },
+      {
+        "title": "Frenesi",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Neste modo, vários alimentos podem ser encontrados no modo. Ao coletar diferentes itens alimentares, os jogadores podem obter diferentes buffs que melhoram as habilidades de seus heróis. Algumas conquistas são exclusivas do modo Frenzy e só podem ser obtidas jogando este modo."
+          },
+          {
+            "type": "p",
+            "text": "Alimentos podem ser encontrados onde alguns dos arrepios são mortos, onde alguns dos minions especiais são mortos, onde os heróis inimigos são mortos e em pontos de abastecimento dentro da casa e da base inimiga."
+          },
+          {
+            "type": "p",
+            "text": "Lista de produtos alimentares"
+          }
+        ]
+      },
+      {
+        "title": "Evoluir",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Foi lançado em 20 de abril de 2019."
+          },
+          {
+            "type": "p",
+            "text": "Neste modo de jogo, 15 jogadores são colocados em um mapa onde devem subir de nível e evoluir coletando joias deixadas por monstros ou aparecendo aleatoriamente no mapa, com o objetivo de ser o último jogador sobrevivente. Matar um jogador inimigo não o eliminará, mas sofrerá uma penalidade no tempo de reaparecimento e perderá experiência; entretanto, quando o primeiro jogador atinge o nível 15 e se torna o \"Diabo\", todas as mortes são permanentes."
+          },
+          {
+            "type": "p",
+            "text": "Os monstros também derrubarão gemas coloridas que aumentam permanentemente as estatísticas: as gemas vermelhas aumentam o ataque físico, as gemas azuis aumentam o ataque mágico e as gemas verdes aumentam o HP. Monstros diferentes soltam joias diferentes. Alguns monstros de nível superior também lançarão Feitiços de Batalha para equipar; Apenas um pode ser equipado por vez, pois um já é concedido ao atingir o nível 6."
+          },
+          {
+            "type": "p",
+            "text": "Não há tela de seleção de campeões, todos os jogadores começam como “Células” de nível 1 e podem progredir alcançando determinados níveis de experiência."
+          },
+          {
+            "type": "p",
+            "text": "Nível 1: Células"
+          },
+          {
+            "type": "p",
+            "text": "Eles não podem atacar e têm saúde baixa, mas como todos começaram neste estado, isso não é um problema. Eles também são os monstros mais rápidos."
+          },
+          {
+            "type": "p",
+            "text": "Monstros não aparecerão neste ponto do jogo."
+          },
+          {
+            "type": "p",
+            "text": "Nível 3: Minions"
+          },
+          {
+            "type": "p",
+            "text": "Ao atingir o nível 3, os jogadores podem escolher evoluir para Basic Minion, Ranged Minion ou Ballista Minion."
+          },
+          {
+            "type": "p",
+            "text": "Além de ter ataque e velocidade diferentes, esta escolha também afeta todas as evoluções subsequentes disponíveis."
+          },
+          {
+            "type": "p",
+            "text": "Após 1 minuto, monstros começam a aparecer. Neste ponto, apenas gelatinas azuis e vermelhas aparecerão, mas não atacarão os jogadores."
+          },
+          {
+            "type": "p",
+            "text": "Nível 6: Monstros Menores"
+          },
+          {
+            "type": "p",
+            "text": "Os jogadores evoluirão para monstros diferentes dependendo do minion que escolherem. Cada monstro menor terá uma habilidade."
+          },
+          {
+            "type": "p",
+            "text": "Curso físico: Se o jogador escolher Basic Minion, ele evoluirá para Giant Mouth ou Crammer."
+          },
+          {
+            "type": "p",
+            "text": ": 1. A habilidade de Giant Mouth causará dano a um inimigo igual a uma porcentagem do HP máximo do alvo."
+          },
+          {
+            "type": "p",
+            "text": ":2. A habilidade de Crammer aumentará significativamente seu roubo de vida por um tempo."
+          },
+          {
+            "type": "p",
+            "text": "Jornada mágica: Se o jogador escolher Ranged Minion, ele evoluirá para um Goblin ou Crimson Lizard."
+          },
+          {
+            "type": "p",
+            "text": ":1. A habilidade do Goblin lançará uma bola de energia muito prejudicial em uma direção."
+          },
+          {
+            "type": "p",
+            "text": ":2. A habilidade do Crimson Lizard criará uma zona de energia que causa dano contínuo aos inimigos internos."
+          },
+          {
+            "type": "p",
+            "text": "Route Tank: Se o jogador escolher Ballista Minion, ele evoluirá para Spinner ou Death."
+          },
+          {
+            "type": "p",
+            "text": ":1. A habilidade do Spinner irá regenerar instantaneamente uma certa quantidade de HP."
+          },
+          {
+            "type": "p",
+            "text": ":2. A habilidade de morte causará dano contínuo aos inimigos próximos."
+          },
+          {
+            "type": "p",
+            "text": "Ao atingir o nível 6, os jogadores também podem escolher um dos dois Feitiços de Batalha aleatórios para equipar até o final da partida. Os possíveis Feitiços de Batalha são Flicker, Sprint, Execute, Inspire e Aegis."
+          },
+          {
+            "type": "p",
+            "text": "Nível 9: Monstros Principais Os monstros principais terão duas habilidades, muitas das quais são inspiradas nas habilidades dos heróis existentes ou nos ataques que esses monstros realizam em outros modos de jogo."
+          },
+          {
+            "type": "p",
+            "text": "Se o jogador escolher o caminho Físico, ele evoluirá para Gárgula ou Cutelo."
+          },
+          {
+            "type": "p",
+            "text": ": 1. A habilidade 1 do Gárgula aumentará sua velocidade de movimento por um tempo, a habilidade 2 aumentará seu ataque."
+          },
+          {
+            "type": "p",
+            "text": ":2. A habilidade 1 de Cleaver é um flicker semelhante a Flicker, sua habilidade 2 é seu ataque de onda retardada característico de outros modos de jogo."
+          },
+          {
+            "type": "p",
+            "text": "Caso o jogador tenha escolhido o caminho Mágico, ele evoluirá para um Pioneiro ou um Jungler Estátuado."
+          },
+          {
+            "type": "p",
+            "text": ":1. A habilidade 1 do Pioneer lança um orbe que irá bloquear inimigos semelhante ao Cyclops Ultimate, a habilidade 2 é sua armadilha venenosa característica de outros modos de jogo, mas em linha reta."
+          },
+          {
+            "type": "p",
+            "text": ":2. A habilidade 1 do Statued Chaser é semelhante à primeira habilidade de Gusion (eles lançarão uma adaga em uma direção e, se atingir um inimigo, a habilidade pode ser usada novamente para persegui-los); a habilidade 2 atacará os inimigos à sua frente, causando alto dano."
+          },
+          {
+            "type": "p",
+            "text": "Caso o jogador opte pela evolução Tank, ele evoluirá para Statued Shocker ou Core Guard."
+          },
+          {
+            "type": "p",
+            "text": ": 1. A habilidade 1 do Statued Shocker irá aprimorar seu próximo ataque básico, que irá atordoar os inimigos; a habilidade 2 fornecerá a eles um escudo que explodirá após um certo período de tempo ou quando destruído, semelhante à segunda habilidade de Urano."
+          },
+          {
+            "type": "p",
+            "text": ":2. A habilidade 1 do Core Guard irá provocar os inimigos próximos, forçando-os a atacar, a habilidade 2 refletirá o dano recebido por um certo tempo. (Ambas as habilidades se assemelham à segunda habilidade de Gatotkaca.)"
+          },
+          {
+            "type": "p",
+            "text": "Ao atingir o nível 9, os jogadores também podem escolher um dos dois buffs passivos que duram o resto da partida, dependendo do seu caminho:"
+          },
+          {
+            "type": "p",
+            "text": "Bônus Físicos: 30% de Dano de Ataque ou 40% de Velocidade de Ataque"
+          },
+          {
+            "type": "p",
+            "text": "Magic Buffs: 40% de redução de CD ou 40% de Spell Vamp"
+          },
+          {
+            "type": "p",
+            "text": "Tank Buffs: 2% da saúde convertida em dano ou recupera 300 HP a cada 5 segundos"
+          },
+          {
+            "type": "p",
+            "text": "Assim que pelo menos um jogador atingir o nível 9, monstros menores também começarão a aparecer como monstros; eles atacarão os jogadores se forem provocados e deixarão cair mais joias."
+          },
+          {
+            "type": "p",
+            "text": "Uma “tartaruga preta” também pode aparecer. Ele pode derrubar grandes quantidades de joias grandes. Sua localização ficará visível no mapa de cada jogador."
+          },
+          {
+            "type": "p",
+            "text": "Nível 12: Herói (Precisa de mais informações: os heróis disponíveis podem mudar especificamente com base nas rotas de Nível 6 e Nível 9. Mais heróis podem estar disponíveis do que os listados.)"
+          },
+          {
+            "type": "p",
+            "text": "Se o jogador escolher o caminho físico, heróis Marksman ou Assassin estarão disponíveis."
+          },
+          {
+            "type": "p",
+            "text": ": Atirador: Karrie, Lesley, Bruno, Claude."
+          },
+          {
+            "type": "p",
+            "text": ": Assassinos: Lancelot, Saber, Freya."
+          },
+          {
+            "type": "p",
+            "text": "Se o jogador escolher o caminho mágico, heróis Magos ou de Suporte estarão disponíveis."
+          },
+          {
+            "type": "p",
+            "text": ": Mago: Odette, Gord, Alice, Esmeralda, Harley."
+          },
+          {
+            "type": "p",
+            "text": ": Suporte: Angela, Estes, Nana."
+          },
+          {
+            "type": "p",
+            "text": "Se o jogador escolher a evolução Tank, heróis Fighter ou Tank estarão disponíveis."
+          },
+          {
+            "type": "p",
+            "text": ": Lutadores: Kaja, Lapu Lapu, Alucard."
+          },
+          {
+            "type": "p",
+            "text": ": Reservatório: Hylos, Urano, Akai, Jhonson."
+          },
+          {
+            "type": "p",
+            "text": "Quando o primeiro jogador atingir o nível 13, monstros importantes começarão a aparecer. Eles podem derrubar gemas maiores que valem mais que gemas normais e até mesmo Feitiços de Batalha equipáveis. Grandes joias de experiência também começarão a aparecer."
+          },
+          {
+            "type": "p",
+            "text": "Nível 15: O Diabo"
+          },
+          {
+            "type": "p",
+            "text": "O primeiro jogador a atingir o nível 15 se tornará o Diabo. Eles ficarão maiores e suas estatísticas aumentarão, mas se moverão mais lentamente e sua posição será revelada nos mapas de todos os outros jogadores. Eles também terão a capacidade de se transformar em Lordes por um tempo, ganhando novas habilidades poderosas que lembram o ataque do Lorde de outros modos de jogo."
+          },
+          {
+            "type": "p",
+            "text": ": Habilidade 1 e Habilidade 2, \"Lord Strikes\": Bate forte no chão, causando dano real aos inimigos próximos e deixando uma rachadura abaixo de sua posição atual; depois de um tempo, a rachadura explodirá, causando dano e derrubando inimigos."
+          },
+          {
+            "type": "p",
+            "text": ": Habilidade 3, \"Golpes Giratórios\": Depois de carregar por um curto período de tempo, o Lord girará seu martelo, causando dano real aos inimigos próximos em uma ampla área."
+          },
+          {
+            "type": "p",
+            "text": "Qualquer outro jogador que alcance o nível 15 não se tornará o Diabo: a única maneira de reivindicar o título e os buffs é matando o Diabo atual."
+          },
+          {
+            "type": "p",
+            "text": "Nesta fase final, a zona segura começará a diminuir lentamente, formando um círculo centrado no “Diabo” atual e forçando os outros jogadores a se aproximarem deles. a área se moverá com o Diabo, tentando mantê-los no centro. Agora matar um jogador irá eliminá-lo da partida."
+          }
+        ]
+      },
+      {
+        "title": "Devastação",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Batalha embaralhada no estilo ficção científica."
+          },
+          {
+            "type": "p",
+            "text": "A misteriosa fenda no universo paralelo está aumentando gradualmente. Um dirigível Zlatan está prestes a colidir com a Terra do Amanhecer, o que seria um desastre e um desafio! Guerreiros, Ravage já está aberto. Mostre sua coragem e força para salvar Zlatan e defender a Terra do Amanhecer."
+          },
+          {
+            "type": "p",
+            "text": "Ravage é um modo em que cada equipe consiste em 5 funções diferentes e luta pelas Aquamarines. Cada jogador pode escolher 5 heróis com funções diferentes antes de participar de uma partida Ravage. Após o confronto, cada jogador utiliza aleatoriamente um dos 5 heróis que escolheu anteriormente."
+          },
+          {
+            "type": "p",
+            "text": "Neste modo, S.A.B.E.R. e V.E.N.O.M. estão lutando. Enquanto lutam, águas-marinhas começam a cair ao seu redor. A primeira equipe a coletar uma certa quantidade de Água Marinha vencerá a partida. Ser eliminado faz com que o jogador perca todas as águas-marinhas, que se espalham pelo chão. Se um jogador tiver mais de 10 águas-marinhas, sua localização será exposta no minimapa."
+          },
+          {
+            "type": "p",
+            "text": "No centro do mapa do modo Ravage está o único ponto de regeneração de HP. Uma vez eliminados, os jogadores reaparecem rapidamente no Centro de Controle e podem voltar à batalha muito rapidamente. Eliminar inimigos e coletar suas águas-marinhas é o objetivo deste modo."
+          },
+          {
+            "type": "p",
+            "text": "A primeira equipe a acumular 15 Águas Marinhas vencerá esta partida. Sem rotas, sem torres destrutivas, matar e devastar é o objetivo deste modo! Venha se divertir, você será o vencedor!"
+          },
+          {
+            "type": "p",
+            "text": "De 7 a 13 de agosto de 2020, o modo Ravage retornou com um novo modo 3V3. Apenas 3 das 5 funções serão usadas e todos os jogadores começarão com 30.000 e um nível de herói de 15 (máximo)."
+          }
+        ]
+      },
+      {
+        "title": "Briga e espelho",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Emocionante luta entre heróis espelhados!"
+          },
+          {
+            "type": "p",
+            "text": "Seleção de Herói: Neste modo, os jogadores votam no herói que desejam usar em um conjunto aleatório de heróis. O herói com mais votos se tornará o herói utilizado por toda a equipe."
+          },
+          {
+            "type": "p",
+            "text": "Ajuste de Herói: Neste modo, diferentes heróis recebem diferentes atualizações de atributos para criar mais equilíbrio entre heróis de diferentes funções, melhorando a experiência geral de jogo."
+          }
+        ]
+      },
+      {
+        "title": "Xadrez TD",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Partida Battle Royale de Defesa de Torre"
+          },
+          {
+            "type": "p",
+            "text": "Harper, que estava se aventurando no sul do Abismo, inadvertidamente entra no Abismo. Ele descobre que demônios liderados pelo nome =Dyrroth estão se reunindo no Abismo. Em breve, eles cruzarão a Montanha Lantis e destruirão o Império Moniyan. No entanto, qualquer criatura que ficar no caminho sofrerá com a catástrofe."
+          },
+          {
+            "type": "p",
+            "text": "CHESS-TD é um modo Arcade cheio de diversão e estratégia! Neste modo, 6 estarão espalhados por 6 mapas e ficarão frente a frente, assim como arrepios. Os jogadores podem comprar heróis na loja, adquirir sua própria lista, saquear ouro e atualizar suas tropas para alcançar a vitória."
+          },
+          {
+            "type": "p",
+            "text": "O mapa é aleatório para cada partida. Os jogadores podem comprar heróis na loja e colocá-los em pedras mais altas que o solo (slots). Os heróis implantados atacarão automaticamente os inimigos próximos e lançarão suas habilidades assim que ganharem mana suficiente."
+          },
+          {
+            "type": "p",
+            "text": "Definição da rodada: Uma rodada contém 4 fases: a fase de preparação, a fase de preparação, a fase de combate e a fase de resolução. A fase de preparação consiste na compra, implantação, retirada ou venda de heróis pelos jogadores e na melhoria de suas habilidades. Durante a fase de combate, um dos heróis dos outros jogadores invadirá o seu mapa. Se esses invasores chegarem ao seu destino antes de serem eliminados, você sofrerá danos relativos."
+          },
+          {
+            "type": "p",
+            "text": "Definição de Ouro e Habilidade: No final de cada rodada, os jogadores receberão uma certa quantia de ouro e juros (para cada 10 moedas de ouro possuídas, ganhe 1 moeda de ouro extra). Além disso, obter sequências de vitórias ou derrotas também concederá bônus de ouro adicionais. A capacidade decide quantos heróis você pode mobilizar. O máximo é 9. Ao final de cada rodada, você receberá 1 Exp de Habilidade. Além disso, você pode optar por comprar 4 habilidades de Exp. com 4 medalhas de ouro. A chance de obter heróis de elite aumenta com o nível de habilidade, ao mesmo tempo, a chance de obter heróis comuns diminui com ele."
+          },
+          {
+            "type": "p",
+            "text": "Nível de Herói e Estrela: Existem 4 níveis para heróis, que indicam sua raridade e custo. De modo geral, heróis de alto nível deveriam ser mais poderosos. Se houver 3 heróis iguais no campo de batalha, eles se tornarão heróis de nível superior. Três heróis de 1 estrela se tornarão um herói de 2 estrelas. Três heróis de 2 estrelas se tornarão um herói de 3 estrelas."
+          },
+          {
+            "type": "p",
+            "text": "Sinergia: Cada herói possui 2 atributos: facção e função. O efeito de sinergia será ativado se houver heróis suficientes com os mesmos atributos no campo de batalha (os atributos dos mesmos heróis serão contados apenas uma vez). É importante levar em conta a sinergia."
+          }
+        ]
+      },
+      {
+        "title": "Xadrez Mágico",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Competição rápida de xadrez automática entre 8 jogadores."
+          },
+          {
+            "type": "p",
+            "text": "Magic Chess é um modo de jogo de estratégia complexo para 8 jogadores, no qual os jogadores competirão entre si e contra monstros aleatórios no tabuleiro de xadrez mágico. O objetivo deste jogo é comprar e atualizar seus heróis e o Pequeno Comandante, personalizando seu alinhamento para desencadear e combater sinergias mais fortes. A vitória pertence àquele que resiste até o fim!"
+          }
+        ]
+      },
+      {
+        "title": "Briga de Sombras",
+        "elements": [
+          {
+            "type": "p",
+            "text": "A luta na ponte da destruição."
+          },
+          {
+            "type": "p",
+            "text": "Em Shadow Brawl, os jogadores votam para selecionar um herói entre vários heróis que aparecem aleatoriamente. Todos os jogadores do time usarão o mesmo herói para jogar. Os jogadores estão equipados com name=Blade of Silence que marca a posição atual e conecta uma corrente a ela. A corrente retornará automaticamente seu herói à posição marcada após 4 segundos. O CD tem 20 segundos de duração."
+          }
+        ]
+      },
+      {
+        "title": "Arena",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Batalha automática de cartas 1v1."
+          },
+          {
+            "type": "p",
+            "text": "Um novo tipo de jogo conquistou Moniyan. Os Pequenos Comandantes e seus itens mágicos agora podem ser encontrados em todas as casas do país. As bolas de cristal detectam todos os tipos de vida na Terra do Amanhecer e canalizam sua energia; que se transforma em cartões colecionáveis. Existem cartas de Monstro e cartas de Herói. Monstros são fáceis de ganhar e controlar, enquanto heróis exigem um preço mais alto e energia mais avançada. Os baralhos são construídos e as batalhas são travadas com outros; as pessoas se esforçam para derrotar o pequeno comandante inimigo e alcançar a vitória."
+          },
+          {
+            "type": "p",
+            "text": "No modo “Arena”, você enfrentará outro jogador em uma batalha 1v1. Seu objetivo é simples: eliminar o Pequeno Comandante do seu oponente antes que ele derrube o seu. Para fazer isso, você precisará usar cartas para invocar Heróis e Monstros e lançar feitiços para lutar contra as tropas do seu oponente. A batalha continuará até que o Pequeno Comandante de um lado seja eliminado. “Shard”, recurso para invocar monstros e usar feitiços, é gerado a cada 3 segundos. E ao gastar 5 “Fragmentos”, será gerado o recurso utilizado para invocar Heróis, “Essência”."
+          },
+          {
+            "type": "p",
+            "text": "Após entrar na “Arena”, você receberá uma série de tutoriais para ajudá-lo a começar. Depois de passar pelo tutorial completo, você será recompensado com 9 cartas básicas. Conforme você joga, você pode obter cartas em Baús de Batalha e Orbes de Invocação. As cartas duplicadas obtidas serão utilizadas para melhorar as cartas correspondentes para lhe dar mais força. Além disso, mais cartas serão desbloqueadas conforme você avança na sua classificação. Todas as cartas serão desbloqueadas quando a lenda for alcançada. Existem dois níveis de raridade para cartas de Herói: Incomum e Épico. Existem dois mapas, Incomum e Épico. Existem também dois níveis de raridade para cartas de Monstro/Magia: Comum e Incomum."
+          },
+          {
+            "type": "p",
+            "text": "Você pode ganhar Cup Points, Battle Points e Battle Chests após cada partida. Mais cartas podem ser desbloqueadas com mais pontos de copa. Você pode obter pontos de batalha ou cartas já desbloqueadas em baús de batalha."
+          }
+        ]
+      },
+      {
+        "title": "Boummandré",
+        "elements": [
+          {
+            "type": "p",
+            "text": "Uma competição fascinante chamada Boommander agora é tendência em Laladona, e muitos Pequenos Comandantes se tornaram seus fãs. As regras são simples: colete Fluffy que cresce no oásis próximo à Árvore de Origem e jogue essas bolas explosivas nos outros. Você consegue se esquivar de ataques e explodir seu oponente? Junte-se ao Boommander e experimente agora! No modo Boommander, você joga como pequenos comandantes e lança Fluffy para competir em mapas reconstituídos com diferentes peças de cena."
+          },
+          {
+            "type": "p",
+            "text": "Categoria:Modo de Jogo"
+          }
+        ]
+      }
+    ],
+    "image": "/visuels/modes/arcade-mode.webp"
+  }
+]
