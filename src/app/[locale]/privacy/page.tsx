@@ -4,6 +4,9 @@ import { Prose } from "@/components/prose";
 import type { Locale } from "@/i18n/config";
 import { createT } from "@/i18n/translations";
 import { metaPage } from "@/i18n/seo";
+import Link from "@/components/link";
+import { inlineProse } from "@/components/prose";
+import { botPublished } from "@/lib/bot/public";
 import { legal } from "@/lib/site";
 
 type Params = { params: Promise<{ locale: Locale }> };
@@ -40,6 +43,21 @@ export default async function PrivacyPage({ params }: Params) {
         </ul>
         <p>{t("prose.push.usage")}</p>
         <p>{t("prose.push.unsubscribe")}</p>
+        {/* Discord bot: described when it is deployed (its id is known at build time). */}
+        {botPublished() && (
+          <>
+            <h2 id="discord-bot">{t("prose.bot.title")}</h2>
+            <p>{t("prose.bot.intro")}</p>
+            <ul>
+              <li>{inlineProse(t("prose.bot.cookie"))}</li>
+              <li>{t("prose.bot.servers")}</li>
+              <li>{t("prose.bot.results")}</li>
+            </ul>
+            <p>
+              <Link href="/bot/privacy">{t("prose.bot.details")}</Link>
+            </p>
+          </>
+        )}
       </section>
     </>
   );

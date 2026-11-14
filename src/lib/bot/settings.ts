@@ -7,11 +7,9 @@ import { LOCALES, type Locale } from "@/i18n/config";
  * database: the validation is tested on its own.
  */
 
-export const ANNOUNCEMENT_TYPES = ["patches", "skins", "events", "advanceServer", "esports"] as const;
-export type AnnouncementType = (typeof ANNOUNCEMENT_TYPES)[number];
+import { ANNOUNCEMENT_TYPES, type AnnouncementType } from "./kinds";
 
-export const DAILY_GAMES = ["mlbbdle-classic", "mlbbdle-skill", "quiz"] as const;
-export type DailyGame = (typeof DAILY_GAMES)[number];
+export { ANNOUNCEMENT_TYPES, DAILY_GAMES, type AnnouncementType, type DailyGame } from "./kinds";
 
 export const DEFAULT_DAILY_HOUR = 12;
 
