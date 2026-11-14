@@ -23,7 +23,7 @@ const PHONE_ROWS = 3;
  * each of those three rates.
  * Everything comes from the synced rates; nothing here is an opinion.
  */
-export function HomeMeta({ locale }: { locale: Locale }) {
+export function HomeMeta({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   const counts = ORDER_TIERS.map((tier) => ({ tier, n: rankingFull.filter((e) => e.tier === tier).length })).filter(
     (c) => c.n > 0,
@@ -43,7 +43,7 @@ export function HomeMeta({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <section aria-labelledby="home-meta" className="mx-auto max-w-6xl px-4 py-8 sm:py-16">
+    <section aria-labelledby="home-meta" className={className}>
       <SectionTitle
         id="home-meta"
         lead={t("home.meta.lead", { date: longDate(locale, measure), n: rankingFull.length })}

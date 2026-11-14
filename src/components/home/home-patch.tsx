@@ -29,7 +29,7 @@ const STYLE: Record<AdjustmentDirection, { color: string; icon: typeof TrendingU
  * week after the patch, when the history covers both. The patch notes say
  * what was announced; this says what came of it.
  */
-export function HomePatch({ locale }: { locale: Locale }) {
+export function HomePatch({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   const patch = detailedPatches(locale)[patchCurrent.version] ?? patchCurrent;
   const groups = groupAdjustments(patch.adjustments);
@@ -39,8 +39,8 @@ export function HomePatch({ locale }: { locale: Locale }) {
   const hasImpacts = Object.keys(impacts).length > 0;
 
   return (
-    <section aria-labelledby="home-patch" className="border-y border-night-700/70 bg-night-900/30">
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:py-16">
+    <section aria-labelledby="home-patch" className={className}>
+      <div>
         <SectionTitle
           id="home-patch"
           lead={
@@ -73,7 +73,7 @@ export function HomePatch({ locale }: { locale: Locale }) {
           </ul>
         )}
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3 2xl:grid-cols-1">
           {ADJUSTMENT_DIRECTIONS.map((direction) => {
             const list = groups[direction];
             if (list.length === 0) return null;
@@ -134,7 +134,7 @@ export function HomePatch({ locale }: { locale: Locale }) {
           })}
         </div>
 
-        <div className="mt-4 flex flex-col gap-2 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+        <div className="mt-4 flex flex-col gap-2 text-xs leading-relaxed text-chalk-500 sm:flex-row sm:items-start sm:justify-between sm:gap-6 2xl:flex-col 2xl:gap-2">
           {hasImpacts && <p className="max-w-2xl">{t("home.patch.impactNote", { n: DAYS_IMPACT })}</p>}
           <p className="flex shrink-0 flex-wrap gap-x-4 gap-y-1 text-sm">
             <Link href="/meta" className="font-semibold text-gold-400 hover:text-gold-500">

@@ -11,11 +11,14 @@ import { Card, SectionTitle } from "@/components/ui";
 import { allHeroes, sync } from "@/lib/data";
 import { site } from "@/lib/site";
 import type { Role } from "@/lib/types";
-import { formatShortDate } from "@/lib/utils";
+import { cn, formatShortDate } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
 import { LOCALE_HTML, isLocale } from "@/i18n/config";
 import { notFound } from "next/navigation";
 import { createT } from "@/i18n/translations";
+
+/** Frame of a home block: one surface per tile, the blocks' own cards inside it. */
+const TILE = "bevel min-w-0 border border-night-700/60 bg-night-900/35 p-4 sm:p-6";
 
 /** Home page structured data, in the page's language. */
 const dataHome = (locale: Locale) => ({
@@ -77,20 +80,25 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
       />
 
       <HomeHero locale={locale} />
-      <HomeMeta locale={locale} />
-      <HomePatch locale={locale} />
-      <HomeLive locale={locale} />
-      <HomeTools locale={locale} />
 
-      <section aria-labelledby="home-roles" className="mx-auto max-w-6xl px-4 py-8 sm:py-16">
-        <SectionTitle id="home-roles" lead={t("home.startLead")}>
-          {t("home.startTitle")}
-        </SectionTitle>
-        <RoleAccess count={byRole} locale={locale} />
-      </section>
-
-      <div className="border-t border-night-700/70 bg-night-900/30">
-        <HomeCommunity locale={locale} />
+      {/*
+        The blocks as tiles of one grid: stacked on a phone and a tablet, side
+        by side on a wide screen, where the meta takes two thirds of the first
+        row and the patch the rest, the month's events and the tools the
+        second, the roles and the articles the third.
+      */}
+      <div className="page-wrap grid gap-4 py-6 sm:gap-5 sm:py-10 2xl:grid-cols-12">
+        <HomeMeta locale={locale} className={cn(TILE, "2xl:col-span-8")} />
+        <HomePatch locale={locale} className={cn(TILE, "2xl:col-span-4")} />
+        <HomeLive locale={locale} className={cn(TILE, "2xl:col-span-8")} />
+        <HomeTools locale={locale} className={cn(TILE, "2xl:col-span-4")} />
+        <section aria-labelledby="home-roles" className={cn(TILE, "2xl:col-span-5")}>
+          <SectionTitle id="home-roles" lead={t("home.startLead")}>
+            {t("home.startTitle")}
+          </SectionTitle>
+          <RoleAccess count={byRole} locale={locale} />
+        </section>
+        <HomeCommunity locale={locale} className={cn(TILE, "2xl:col-span-7")} />
       </div>
 
       {/*
@@ -98,7 +106,7 @@ export default async function Home({ params }: { params: Promise<{ locale: Local
         the page instead of lengthening it, its three cards folded under a
         summary line. The text stays in the document.
       */}
-      <section className="mx-auto max-w-6xl px-4 pb-10 sm:pb-16">
+      <section className="page-wrap pb-10 sm:pb-16">
         <Foldable label={t("home.howItWorks")}>
           <p className="text-sm text-chalk-500">
             {t("home.syncLead", { date: formatShortDate(sync.date, LOCALE_HTML[locale]) })}

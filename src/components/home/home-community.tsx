@@ -1,5 +1,6 @@
 import { Bot, HandHeart, Library, Rss } from "lucide-react";
 import Link from "@/components/link";
+import { cn } from "@/lib/utils";
 import { DiscordMark } from "@/components/bot/discord-mark";
 import { SectionTitle } from "@/components/ui";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
@@ -13,7 +14,7 @@ import { formatShortDate } from "@/lib/utils";
  * invite is set, the bot when it is deployed, the community builds and the
  * contribution guide. Each block only appears when its page exists.
  */
-export function HomeCommunity({ locale }: { locale: Locale }) {
+export function HomeCommunity({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   const articles = allArticles(locale).slice(0, 3);
   const invite = communityInvite();
@@ -26,7 +27,7 @@ export function HomeCommunity({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <section className="mx-auto grid max-w-6xl gap-8 px-4 py-8 sm:py-16 lg:grid-cols-[3fr_2fr] lg:gap-10">
+    <section className={cn("grid gap-8 lg:grid-cols-[3fr_2fr] lg:gap-10", className)}>
       <div>
         <SectionTitle action={{ href: "/news", label: t("home.allNews") }}>{t("home.latestArticles")}</SectionTitle>
         <ul className="space-y-2">

@@ -92,7 +92,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
         </div>
       )}
 
-      <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 pb-6 pt-6 sm:pb-10 sm:pt-14 lg:min-h-[32rem] lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end lg:gap-10 lg:pt-20">
+      <div className="page-wrap relative grid grid-cols-1 gap-6 pb-6 pt-6 sm:pb-10 sm:pt-14 lg:min-h-[32rem] lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end lg:gap-10 lg:pt-20">
         <div className="min-w-0 max-w-2xl">
           <h1
             id="home-title"
@@ -188,7 +188,7 @@ export function HomeHero({ locale }: { locale: Locale }) {
       {/* The day's state of the game: every fact links to the page it comes from. */}
       <div className="relative border-t border-night-700/70 bg-night-950/85">
         <h2 className="sr-only">{t("home.rail.title")}</h2>
-        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-4 sm:grid-cols-3 lg:grid-cols-5">
+        <ul className="page-wrap grid grid-cols-2 gap-px sm:grid-cols-3 lg:grid-cols-5">
           {rail.map((r) => (
             <li key={r.href}>
               <Link href={r.href} className="group flex h-full flex-col py-3 pr-3 transition-colors">

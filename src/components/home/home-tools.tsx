@@ -21,7 +21,7 @@ const TOOLS = BASE.filter(
   (e) => (e.href.startsWith("/tools/") || ["/draft", "/compare", "/quiz", "/mlbbdle"].includes(e.href)) && !ELSEWHERE.includes(e.href),
 );
 
-export function HomeTools({ locale }: { locale: Locale }) {
+export function HomeTools({ locale, className }: { locale: Locale; className?: string }) {
   const t = createT(locale);
   const pick = (hrefs: string[]) => hrefs.flatMap((h) => TOOLS.filter((e) => e.href === h));
   const main = pick(MAIN);
@@ -29,13 +29,13 @@ export function HomeTools({ locale }: { locale: Locale }) {
   const rest = TOOLS.filter((e) => !MAIN.includes(e.href) && !DAILY.includes(e.href));
 
   return (
-    <section aria-labelledby="home-tools" className="border-y border-night-700/70 bg-night-900/30">
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:py-16">
+    <section aria-labelledby="home-tools" className={className}>
+      <div>
         <SectionTitle id="home-tools" lead={t("home.toolsLead")}>
           {t("home.toolsTitle")}
         </SectionTitle>
 
-        <div className="grid gap-3 lg:grid-cols-[2fr_1fr] lg:gap-4">
+        <div className="grid gap-3 lg:grid-cols-[2fr_1fr] lg:gap-4 2xl:grid-cols-1">
           <ul className="grid grid-cols-2 gap-2 sm:gap-3">
             {main.map((e) => (
               <li key={e.href}>
@@ -75,7 +75,7 @@ export function HomeTools({ locale }: { locale: Locale }) {
         </div>
 
         {rest.length > 0 && (
-          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 lg:grid-cols-4">
+          <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-2">
             {rest.map(({ href, key, icon: Icon }) => (
               <li key={href}>
                 <Link href={href} className="group flex items-center gap-2 py-1.5 text-sm text-chalk-300">
@@ -97,7 +97,7 @@ function ToolCard({ entry: { href, icon: Icon }, label, desc }: { entry: Entry; 
   return (
     <Link
       href={href}
-      className="bevel group flex h-full flex-col items-start gap-2 border border-night-700/70 bg-night-900/60 p-3 sm:flex-row sm:gap-3 transition-[border-color,translate] hover:-translate-y-0.5 hover:border-gold-500/60 sm:p-4"
+      className="bevel group flex h-full flex-col items-start gap-2 border border-night-700/70 bg-night-900/60 p-3 sm:flex-row sm:gap-3 2xl:flex-col transition-[border-color,translate] hover:-translate-y-0.5 hover:border-gold-500/60 sm:p-4"
     >
       <span className="bevel-sm grid size-10 shrink-0 place-items-center bg-gold-500/15 text-gold-400">
         <Icon size={20} aria-hidden />
