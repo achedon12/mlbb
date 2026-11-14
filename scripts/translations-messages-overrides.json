@@ -2357,8 +2357,8 @@
       "text": "MLBB account value estimator"
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "How much did your Mobile Legends collection cost? Count your skins by tier ({skins} skins covered) and get an order of magnitude in diamonds, USD, EUR, PHP, IDR and MYR, with the method shown."
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "How much did your Mobile Legends collection cost? Copy your skins by Showcase tier ({skins} skins in the catalogue), check your collection points and get an order of magnitude in diamonds, USD, EUR, PHP, IDR and MYR, with the method shown."
     },
     "pages.accountValue.title": {
       "fr": "Valeur estimée d'un compte",
@@ -2377,20 +2377,20 @@
       "text": "The method, figure by figure"
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "Each skin counts for the typical cost of its tier. For shop skins, that is the median diamond price of the tier's skins, read in the game data. Skins obtained through draws or passes have no price: they take an estimated, rounded average cost, which varies a lot from one event and one player to the next."
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "Each skin counts for the typical cost of its tier. Deluxe, Exceptional and Common skins are sold in the shop: their cost is the median diamond price of the tier's skins, read in the game data. Supreme, Grand and Exquisite skins come from draws: they take the rounded median of the costs published by player guides, which varies a lot from one event and one player to the next. A painted skin counts for a token value, a shining skin for nothing."
     },
     "pages.accountValue.tableCaption": {
-      "fr": "Coût compté par skin, par catégorie",
-      "text": "Cost counted per skin, by tier"
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "Points and cost counted per skin, by tier"
     },
     "pages.accountValue.colTier": {
       "fr": "Catégorie",
       "text": "Tier"
     },
     "pages.accountValue.colSkins": {
-      "fr": "Skins",
-      "text": "Skins"
+      "fr": "Skins au catalogue",
+      "text": "Skins in the catalogue"
     },
     "pages.accountValue.colCost": {
       "fr": "Diamants par skin",
@@ -2405,8 +2405,8 @@
       "text": "Median shop price ({n} prices read)"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "Estimated draw or pass cost"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "Estimated median of a draw"
     },
     "pages.accountValue.methodMoney": {
       "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
@@ -2533,52 +2533,24 @@
       "text": "Use my collection"
     },
     "pages.accountValueUI.import_done": {
-      "fr": "Skins et héros repris de votre collection.",
-      "text": "Skins and heroes taken from your collection."
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "Skins and heroes taken from your collection: {n} skins sorted by tier."
     },
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "The skin catalogue could not be loaded. Try again."
     },
     "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, par catégorie",
-      "text": "Your skins, by tier"
-    },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Basic"
-    },
-    "pages.accountValueUI.tier.elite": {
-      "fr": "Élite",
-      "text": "Elite"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Special"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Epic"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
-    },
-    "pages.accountValueUI.tier.other": {
-      "fr": "Événements et saisonniers",
-      "text": "Events and seasonal"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "Your skins, as in the Showcase"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "Collabs and premium"
+      "fr": "Grandiose",
+      "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Legend"
+      "text": "Supreme"
     },
     "pages.accountValueUI.costShop": {
       "fr": "≈ {n} diamants l'un (boutique)",
@@ -4087,6 +4059,90 @@
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
       "text": "{description} The “{name}” threads of the MLBBDex Mobile Legends forum, open to every player."
+    },
+    "pages.accountValueUI.import_unmapped": {
+      "fr": "Skins sans catégorie connue, laissés de côté : {n}.",
+      "text": "Skins with no known tier, left out: {n}."
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "Painted and shining skins are not in the catalogue: add them by hand."
+    },
+    "pages.accountValueUI.whereTitle": {
+      "fr": "Où trouver ces nombres",
+      "text": "Where to find these numbers"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "Profile > Showcase > Collection"
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "text": "Open the skin collection points overview: each tier shows \"owned/total\" and its points. Copy the first number of each row."
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisite"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Exceptional"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Common"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "Painted skins"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "Shining skins"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} points each"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} diamonds each (token value)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "Skin collection points"
+    },
+    "pages.accountValueUI.pointsCheck": {
+      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "text": "Compare it with the total in your Showcase: if it matches, your numbers are right."
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "The tiers are the ones of the game's Showcase, with the collection points the game gives each skin. The points total is a check: it should land on the total the game shows."
+    },
+    "pages.accountValue.colPoints": {
+      "fr": "Points",
+      "text": "Points"
+    },
+    "pages.accountValue.basisFlat": {
+      "fr": "Valeur symbolique",
+      "text": "Token value"
+    },
+    "pages.accountValue.notListed": {
+      "fr": "non listés",
+      "text": "not listed"
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "The catalogue follows the wiki and sometimes counts a few skins fewer than the game, until new ones are added: the fields therefore have no maximum."
+    },
+    "pages.accountValue.drawSources": {
+      "fr": "Sources des coûts de tirage :",
+      "text": "Draw cost sources:"
     }
   },
   "es": {
@@ -6267,8 +6323,8 @@
       "text": "Estimador del valor de una cuenta de MLBB"
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "¿Cuánto costó tu colección de Mobile Legends? Cuenta tus skins por categoría ({skins} skins cubiertas) y obtén un orden de magnitud en diamantes, USD, EUR, PHP, IDR y MYR, con el método a la vista."
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "¿Cuánto costó tu colección de Mobile Legends? Copia tus skins por categoría del Escaparate ({skins} skins en el catálogo), comprueba tus puntos de colección y obtén un orden de magnitud en diamantes, USD, EUR, PHP, IDR y MYR, con el método a la vista."
     },
     "pages.accountValue.title": {
       "fr": "Valeur estimée d'un compte",
@@ -6287,20 +6343,20 @@
       "text": "El método, cifra a cifra"
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "Cada skin cuenta por el coste típico de su categoría. Para las skins de la tienda, es el precio mediano en diamantes de las skins de la categoría, tomado de los datos del juego. Las skins de sorteos o pases no tienen precio: toman un coste medio estimado y redondeado, que varía mucho de un evento y de un jugador a otro."
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "Cada skin cuenta por el coste típico de su categoría. Las skins Deluxe, Excepcionales y Comunes se venden en la tienda: su coste es el precio mediano en diamantes de las skins de la categoría, tomado de los datos del juego. Las skins Supremas, Grandiosas y Exquisitas se obtienen en sorteos: toman la mediana, redondeada, de los costes publicados por guías de jugadores, que varía mucho de un evento y de un jugador a otro. Una skin pintada cuenta por un valor simbólico, una skin brillante por nada."
     },
     "pages.accountValue.tableCaption": {
-      "fr": "Coût compté par skin, par catégorie",
-      "text": "Coste contado por skin, por categoría"
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "Puntos y coste contados por skin, por categoría"
     },
     "pages.accountValue.colTier": {
       "fr": "Catégorie",
       "text": "Categoría"
     },
     "pages.accountValue.colSkins": {
-      "fr": "Skins",
-      "text": "Skins"
+      "fr": "Skins au catalogue",
+      "text": "Skins en el catálogo"
     },
     "pages.accountValue.colCost": {
       "fr": "Diamants par skin",
@@ -6315,8 +6371,8 @@
       "text": "Precio mediano en la tienda ({n} precios registrados)"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "Estimación del coste de un sorteo o un pase"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "Mediana estimada de un sorteo"
     },
     "pages.accountValue.methodMoney": {
       "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
@@ -6443,52 +6499,24 @@
       "text": "Usar mi colección"
     },
     "pages.accountValueUI.import_done": {
-      "fr": "Skins et héros repris de votre collection.",
-      "text": "Skins y héroes tomados de tu colección."
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "Skins y héroes tomados de tu colección: {n} skins clasificadas por categoría."
     },
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "No se pudo cargar el catálogo de skins. Inténtalo de nuevo."
     },
     "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, par catégorie",
-      "text": "Tus skins, por categoría"
-    },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Básicas"
-    },
-    "pages.accountValueUI.tier.elite": {
-      "fr": "Élite",
-      "text": "Élite"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Especiales"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Épicas"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
-    },
-    "pages.accountValueUI.tier.other": {
-      "fr": "Événements et saisonniers",
-      "text": "Eventos y de temporada"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "Tus skins, como en el Escaparate"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "Colaboraciones y premium"
+      "fr": "Grandiose",
+      "text": "Grandiosa"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Legendarias"
+      "text": "Suprema"
     },
     "pages.accountValueUI.costShop": {
       "fr": "≈ {n} diamants l'un (boutique)",
@@ -8029,6 +8057,90 @@
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
       "text": "{description} Los hilos «{name}» del foro de Mobile Legends de MLBBDex, abiertos a todos los jugadores."
+    },
+    "pages.accountValueUI.import_unmapped": {
+      "fr": "Skins sans catégorie connue, laissés de côté : {n}.",
+      "text": "Skins sin categoría conocida, que se dejan fuera: {n}."
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "Las skins pintadas y brillantes no están en el catálogo: añádelas a mano."
+    },
+    "pages.accountValueUI.whereTitle": {
+      "fr": "Où trouver ces nombres",
+      "text": "Dónde encontrar estos números"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "Perfil > Escaparate > Colección"
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "text": "Abre el resumen de puntos de colección de skins: cada categoría muestra \"obtenidas/total\" y sus puntos. Copia el primer número de cada fila."
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisita"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Excepcional"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Común"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "Skins pintadas"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "Skins brillantes"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} puntos cada una"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} diamantes cada una (valor simbólico)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "Puntos de colección de skins"
+    },
+    "pages.accountValueUI.pointsCheck": {
+      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "text": "Compáralo con el total de tu Escaparate: si coincide, tus números son correctos."
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "Las categorías son las del Escaparate del juego, con los puntos de colección que el juego da a cada skin. La suma de los puntos sirve de comprobación: debe coincidir con el total que muestra el juego."
+    },
+    "pages.accountValue.colPoints": {
+      "fr": "Points",
+      "text": "Puntos"
+    },
+    "pages.accountValue.basisFlat": {
+      "fr": "Valeur symbolique",
+      "text": "Valor simbólico"
+    },
+    "pages.accountValue.notListed": {
+      "fr": "non listés",
+      "text": "no listadas"
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "El catálogo sigue la wiki y a veces cuenta algunas skins menos que el juego, hasta que se añaden las novedades: por eso los campos no tienen máximo."
+    },
+    "pages.accountValue.drawSources": {
+      "fr": "Sources des coûts de tirage :",
+      "text": "Fuentes de los costes de sorteo:"
     }
   },
   "id": {
@@ -12261,8 +12373,8 @@
       "text": "Estimasi nilai akun MLBB"
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "Berapa biaya koleksi Mobile Legends kamu? Hitung skin per kategori ({skins} skin tercakup) dan dapatkan perkiraan kasar dalam diamond, USD, EUR, PHP, IDR, dan MYR, dengan metode yang ditampilkan."
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "Berapa biaya koleksi Mobile Legends-mu? Salin skin-mu per kategori Showcase ({skins} skin di katalog), cek poin koleksimu, dan dapatkan perkiraan dalam diamond, USD, EUR, PHP, IDR, dan MYR, dengan metode yang ditampilkan."
     },
     "pages.accountValue.title": {
       "fr": "Valeur estimée d'un compte",
@@ -12281,20 +12393,20 @@
       "text": "Metodenya, angka demi angka"
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "Setiap skin dihitung dengan biaya tipikal kategorinya. Untuk skin toko, itu adalah harga median dalam diamond dari skin di kategori tersebut, diambil dari data game. Skin dari draw atau pass tidak punya harga: skin itu memakai biaya rata-rata yang diperkirakan dan dibulatkan, yang sangat berbeda antar event dan antar pemain."
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "Setiap skin dihitung dengan biaya umum kategorinya. Skin Deluxe, Exceptional, dan Common dijual di toko: biayanya adalah harga median dalam diamond dari skin kategori itu, diambil dari data game. Skin Supreme, Grand, dan Exquisite didapat dari draw: biayanya adalah median, dibulatkan, dari biaya yang diterbitkan panduan pemain, yang sangat bervariasi antar event dan antar pemain. Skin Painted dihitung dengan nilai simbolis, skin Shining tidak dihitung."
     },
     "pages.accountValue.tableCaption": {
-      "fr": "Coût compté par skin, par catégorie",
-      "text": "Biaya yang dihitung per skin, per kategori"
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "Poin dan biaya yang dihitung per skin, per kategori"
     },
     "pages.accountValue.colTier": {
       "fr": "Catégorie",
       "text": "Kategori"
     },
     "pages.accountValue.colSkins": {
-      "fr": "Skins",
-      "text": "Skin"
+      "fr": "Skins au catalogue",
+      "text": "Skin di katalog"
     },
     "pages.accountValue.colCost": {
       "fr": "Diamants par skin",
@@ -12309,8 +12421,8 @@
       "text": "Harga median toko ({n} harga tercatat)"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "Perkiraan biaya draw atau pass"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "Perkiraan median sebuah draw"
     },
     "pages.accountValue.methodMoney": {
       "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
@@ -12437,52 +12549,24 @@
       "text": "Pakai koleksi saya"
     },
     "pages.accountValueUI.import_done": {
-      "fr": "Skins et héros repris de votre collection.",
-      "text": "Skin dan hero diambil dari koleksimu."
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "Skin dan hero diambil dari koleksimu: {n} skin dikelompokkan per kategori."
     },
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "Katalog skin gagal dimuat. Coba lagi."
     },
     "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, par catégorie",
-      "text": "Skin kamu, per kategori"
-    },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Basic"
-    },
-    "pages.accountValueUI.tier.elite": {
-      "fr": "Élite",
-      "text": "Elite"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Special"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Epic"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
-    },
-    "pages.accountValueUI.tier.other": {
-      "fr": "Événements et saisonniers",
-      "text": "Event dan musiman"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "Skin-mu, seperti di Showcase"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "Kolaborasi dan premium"
+      "fr": "Grandiose",
+      "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Legend"
+      "text": "Supreme"
     },
     "pages.accountValueUI.costShop": {
       "fr": "≈ {n} diamants l'un (boutique)",
@@ -14015,6 +14099,90 @@
     "pages.esports.meta.record": {
       "fr": "{wins} V – {losses} D",
       "text": "{wins} M – {losses} K"
+    },
+    "pages.accountValueUI.import_unmapped": {
+      "fr": "Skins sans catégorie connue, laissés de côté : {n}.",
+      "text": "Skin tanpa kategori yang dikenal, tidak dihitung: {n}."
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "Skin Painted dan Shining tidak ada di katalog: tambahkan secara manual."
+    },
+    "pages.accountValueUI.whereTitle": {
+      "fr": "Où trouver ces nombres",
+      "text": "Di mana menemukan angka ini"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "Profil > Showcase > Koleksi"
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "text": "Buka ringkasan poin koleksi skin: setiap kategori menampilkan \"dimiliki/total\" dan poinnya. Salin angka pertama di setiap baris."
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisite"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Exceptional"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Common"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "Skin Painted"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "Skin Shining"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} poin per skin"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} diamond per skin (nilai simbolis)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "Poin koleksi skin"
+    },
+    "pages.accountValueUI.pointsCheck": {
+      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "text": "Bandingkan dengan total di Showcase-mu: jika sama, angkamu sudah benar."
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "Kategorinya adalah kategori Showcase di dalam game, dengan poin koleksi yang diberikan game untuk setiap skin. Jumlah poin berfungsi sebagai pengecekan: hasilnya harus sama dengan total yang ditampilkan game."
+    },
+    "pages.accountValue.colPoints": {
+      "fr": "Points",
+      "text": "Poin"
+    },
+    "pages.accountValue.basisFlat": {
+      "fr": "Valeur symbolique",
+      "text": "Nilai simbolis"
+    },
+    "pages.accountValue.notListed": {
+      "fr": "non listés",
+      "text": "tidak terdaftar"
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "Katalog mengikuti wiki dan terkadang mencatat beberapa skin lebih sedikit daripada game, sampai skin baru ditambahkan: karena itu kolomnya tidak punya batas maksimum."
+    },
+    "pages.accountValue.drawSources": {
+      "fr": "Sources des coûts de tirage :",
+      "text": "Sumber biaya draw:"
     }
   },
   "it": {
@@ -16247,8 +16415,8 @@
       "text": "Stima del valore di un account MLBB"
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "Quanto è costata la tua collezione di Mobile Legends? Conta le tue skin per categoria ({skins} skin coperte) e ottieni un ordine di grandezza in diamanti, USD, EUR, PHP, IDR e MYR, con il metodo in chiaro."
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "Quanto è costata la tua collezione di Mobile Legends? Ricopia le tue skin per categoria della Vetrina ({skins} skin nel catalogo), verifica i tuoi punti collezione e ottieni un ordine di grandezza in diamanti, USD, EUR, PHP, IDR e MYR, con il metodo in chiaro."
     },
     "pages.accountValue.title": {
       "fr": "Valeur estimée d'un compte",
@@ -16267,20 +16435,20 @@
       "text": "Il metodo, cifra per cifra"
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "Ogni skin conta per il costo tipico della sua categoria. Per le skin del negozio è il prezzo mediano in diamanti delle skin della categoria, letto nei dati del gioco. Le skin ottenute con estrazioni o pass non hanno un prezzo: prendono un costo medio stimato e arrotondato, che varia molto da un evento e da un giocatore all'altro."
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "Ogni skin vale il costo tipico della sua categoria. Le skin Deluxe, Eccezionali e Comuni si vendono nel negozio: il loro costo è il prezzo mediano in diamanti delle skin della categoria, rilevato nei dati del gioco. Le skin Supreme, Grandiose e Squisite si ottengono con le estrazioni: prendono la mediana, arrotondata, dei costi pubblicati dalle guide dei giocatori, che varia molto da un evento e da un giocatore all'altro. Una skin dipinta vale un importo simbolico, una skin splendente nulla."
     },
     "pages.accountValue.tableCaption": {
-      "fr": "Coût compté par skin, par catégorie",
-      "text": "Costo conteggiato per skin, per categoria"
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "Punti e costo contati per skin, per categoria"
     },
     "pages.accountValue.colTier": {
       "fr": "Catégorie",
       "text": "Categoria"
     },
     "pages.accountValue.colSkins": {
-      "fr": "Skins",
-      "text": "Skin"
+      "fr": "Skins au catalogue",
+      "text": "Skin nel catalogo"
     },
     "pages.accountValue.colCost": {
       "fr": "Diamants par skin",
@@ -16295,8 +16463,8 @@
       "text": "Prezzo mediano nel negozio ({n} prezzi rilevati)"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "Stima del costo di un'estrazione o di un pass"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "Mediana stimata di un'estrazione"
     },
     "pages.accountValue.methodMoney": {
       "fr": "Les diamants sont convertis en dollars au tarif d'une recharge courante, sans bonus de première recharge : {usd} USD le diamant, soit {per100} USD les cent. Les diamants encore sur le compte s'ajoutent au total.",
@@ -16423,52 +16591,24 @@
       "text": "Usa la mia collezione"
     },
     "pages.accountValueUI.import_done": {
-      "fr": "Skins et héros repris de votre collection.",
-      "text": "Skin ed eroi presi dalla tua collezione."
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "Skin ed eroi ripresi dalla tua collezione: {n} skin suddivise per categoria."
     },
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
       "text": "Impossibile caricare il catalogo delle skin. Riprova."
     },
     "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, par catégorie",
-      "text": "Le tue skin, per categoria"
-    },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Base"
-    },
-    "pages.accountValueUI.tier.elite": {
-      "fr": "Élite",
-      "text": "Elite"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Speciali"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Epiche"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
-    },
-    "pages.accountValueUI.tier.other": {
-      "fr": "Événements et saisonniers",
-      "text": "Eventi e stagionali"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "Le tue skin, come nella Vetrina"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "Collaborazioni e premium"
+      "fr": "Grandiose",
+      "text": "Grandiosa"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Leggendarie"
+      "text": "Suprema"
     },
     "pages.accountValueUI.costShop": {
       "fr": "≈ {n} diamants l'un (boutique)",
@@ -17985,6 +18125,90 @@
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
       "text": "{description} Le discussioni «{name}» del forum Mobile Legends di MLBBDex, aperte a tutti i giocatori."
+    },
+    "pages.accountValueUI.import_unmapped": {
+      "fr": "Skins sans catégorie connue, laissés de côté : {n}.",
+      "text": "Skin senza categoria nota, escluse: {n}."
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "Le skin dipinte e splendenti non sono nel catalogo: aggiungile a mano."
+    },
+    "pages.accountValueUI.whereTitle": {
+      "fr": "Où trouver ces nombres",
+      "text": "Dove trovare questi numeri"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "Profilo > Vetrina > Collezione"
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "text": "Apri il riepilogo dei punti collezione delle skin: ogni categoria mostra \"possedute/totale\" e i suoi punti. Copia il primo numero di ogni riga."
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Squisita"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Eccezionale"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Comune"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "Skin dipinte"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "Skin splendenti"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} punti ciascuna"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} diamanti ciascuna (valore simbolico)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "Punti collezione delle skin"
+    },
+    "pages.accountValueUI.pointsCheck": {
+      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "text": "Confrontalo con il totale della tua Vetrina: se coincide, i tuoi numeri sono giusti."
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "Le categorie sono quelle della Vetrina del gioco, con i punti collezione che il gioco assegna a ogni skin. Il totale dei punti serve da verifica: deve coincidere con il totale mostrato nel gioco."
+    },
+    "pages.accountValue.colPoints": {
+      "fr": "Points",
+      "text": "Punti"
+    },
+    "pages.accountValue.basisFlat": {
+      "fr": "Valeur symbolique",
+      "text": "Valore simbolico"
+    },
+    "pages.accountValue.notListed": {
+      "fr": "non listés",
+      "text": "non elencate"
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "Il catalogo segue la wiki e a volte conta qualche skin in meno del gioco, finché le novità non vengono aggiunte: per questo i campi non hanno un massimo."
+    },
+    "pages.accountValue.drawSources": {
+      "fr": "Sources des coûts de tirage :",
+      "text": "Fonti dei costi delle estrazioni:"
     }
   },
   "fil": {
@@ -20453,8 +20677,8 @@
       "text": "Ikaw"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "Tinatayang halaga ng draw o pass"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "Tinantyang median ng isang draw"
     },
     "pages.accountValue.basisShop": {
       "fr": "Prix médian en boutique ({n} prix relevés)",
@@ -20501,8 +20725,8 @@
       "text": "Magkano ang nagastos sa isang skin collection, sa diamonds at sa pera, at ang tinatayang range ng isang katulad na account. Tantiya lang, hindi kailanman presyo: nakadetalye ang paraan sa ibaba ng tool."
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "Binibilang ang bawat skin sa karaniwang halaga ng tier nito. Para sa mga shop skin, ito ang median na presyo sa diamonds ng mga skin sa tier na iyon, mula sa data ng game. Walang presyo ang mga skin na nakuha sa draw o pass: binibigyan sila ng tinatayang average na halaga, rounded, na malaki ang pagkakaiba sa bawat event at bawat player."
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "Ang bawat skin ay binibilang sa karaniwang gastos ng tier nito. Ang mga Deluxe, Exceptional at Common skin ay ibinebenta sa shop: ang gastos nila ay ang median na presyo sa diamonds ng mga skin ng tier, mula sa data ng laro. Ang mga Supreme, Grand at Exquisite skin ay nakukuha sa draw: kinukuha nila ang median, na binilog, ng mga gastos na inilathala ng mga gabay ng manlalaro, na malaki ang pagkakaiba sa bawat event at bawat manlalaro. Ang painted skin ay may simbolikong halaga, ang shining skin ay wala."
     },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
@@ -20537,8 +20761,8 @@
       "text": "Exchange rate"
     },
     "pages.accountValue.tableCaption": {
-      "fr": "Coût compté par skin, par catégorie",
-      "text": "Halagang binibilang bawat skin, ayon sa tier"
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "Points at gastos na binibilang bawat skin, ayon sa tier"
     },
     "pages.accountValue.title": {
       "fr": "Valeur estimée d'un compte",
@@ -20601,12 +20825,12 @@
       "text": "Gamitin ang collection ko"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "May collection na naka-save sa browser na ito mula sa collection tool."
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "May koleksyong naka-save ng collection tool, sa browser na ito o sa iyong account."
     },
     "pages.accountValueUI.import_done": {
-      "fr": "Skins et héros repris de votre collection.",
-      "text": "Kinuha ang mga skin at hero mula sa collection mo."
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "Mga skin at hero na kinuha mula sa iyong koleksyon: {n} skin na inayos ayon sa tier."
     },
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
@@ -20657,40 +20881,16 @@
       "text": "Na-share ang resulta."
     },
     "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, par catégorie",
-      "text": "Mga skin mo, ayon sa tier"
-    },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Basic"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Epic"
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "Ang iyong mga skin, tulad ng sa Showcase"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "Collab at premium"
+      "fr": "Grandiose",
+      "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Legend"
-    },
-    "pages.accountValueUI.tier.other": {
-      "fr": "Événements et saisonniers",
-      "text": "Event at seasonal"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Special"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
+      "text": "Supreme"
     },
     "pages.advanceServer.after": {
       "fr": "après :",
@@ -29349,8 +29549,8 @@
       "text": "Fandom wiki"
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "Magkano ang nagastos sa Mobile Legends collection mo? Bilangin ang mga skin mo ayon sa tier ({skins} skin ang sakop) at makakuha ng tantiyang halaga sa diamonds, USD, EUR, PHP, IDR at MYR, kasama ang paraan ng pagkalkula."
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "Magkano ang nagastos sa iyong Mobile Legends collection? Kopyahin ang iyong mga skin ayon sa tier ng Showcase ({skins} skin sa catalog), suriin ang iyong collection points at kumuha ng tantiya sa diamonds, USD, EUR, PHP, IDR at MYR, kasama ang paraang ginamit."
     },
     "pages.seo.accountValue.title": {
       "fr": "Estimation de la valeur d'un compte MLBB",
@@ -32547,6 +32747,66 @@
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
       "text": "{description} Ang mga thread na “{name}” sa Mobile Legends forum ng MLBBDex, bukas sa lahat ng player."
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisite"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Exceptional"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Common"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "Painted skins"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "Shining skins"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "Profile > Showcase > Collection"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} points bawat isa"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} diamonds bawat isa (simbolikong halaga)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "Skin collection points"
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "Ang mga tier ay ang mga nasa Showcase ng laro, kasama ang collection points na ibinibigay ng laro sa bawat skin. Ang kabuuang points ay pansuri: dapat itong tumugma sa kabuuang ipinapakita ng laro."
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "Sinusundan ng catalog ang wiki at minsan ay may ilang skin na kulang kumpara sa laro, hanggang maidagdag ang mga bago: kaya walang maximum ang mga field."
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "Wala sa catalog ang mga painted at shining skin: idagdag ang mga ito nang mano-mano."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "text": "Buksan ang skin collection points overview: bawat tier ay nagpapakita ng \"owned/total\" at ng points nito. Kopyahin ang unang numero ng bawat hilera."
+    },
+    "pages.accountValueUI.pointsCheck": {
+      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "text": "Ihambing ito sa kabuuan sa iyong Showcase: kung magkapareho, tama ang iyong mga numero."
     }
   },
   "th": {
@@ -34855,8 +35115,8 @@
       "text": "ชนะ {n} ครั้ง"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "ราคาโดยประมาณจากการสุ่มหรือพาส"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "ค่ามัธยฐานโดยประมาณของการสุ่ม"
     },
     "pages.accountValue.basisShop": {
       "fr": "Prix médian en boutique ({n} prix relevés)",
@@ -34899,8 +35159,8 @@
       "text": "คอลเลกชันสกินใช้ไปเท่าไร ทั้งเป็นเพชรและเป็นเงิน และช่วงมูลค่าโดยประมาณของบัญชีที่ใกล้เคียงกัน เป็นเพียงขนาดโดยประมาณ ไม่ใช่ราคา: วิธีคำนวณอธิบายไว้ใต้เครื่องมือ"
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "สกินแต่ละตัวคิดตามราคาปกติของระดับนั้น สำหรับสกินในร้านค้า คือราคาเพชรมัธยฐานของสกินในระดับนั้นจากข้อมูลเกม สกินที่ได้จากการสุ่มหรือพาสไม่มีราคา: จึงใช้ราคาเฉลี่ยโดยประมาณแบบปัดเศษ ซึ่งต่างกันมากในแต่ละอีเวนต์และแต่ละผู้เล่น"
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "แต่ละสกินนับตามค่าใช้จ่ายทั่วไปของระดับนั้น สกิน Deluxe, Exceptional และ Common ขายในร้านค้า: ค่าใช้จ่ายคือราคามัธยฐานเป็นเพชรของสกินในระดับนั้น จากข้อมูลเกม สกิน Supreme, Grand และ Exquisite ได้จากการสุ่ม: ใช้ค่ามัธยฐานแบบปัดเศษของค่าใช้จ่ายที่คู่มือผู้เล่นเผยแพร่ ซึ่งแตกต่างกันมากในแต่ละอีเวนต์และผู้เล่น สกิน Painted นับเป็นมูลค่าเชิงสัญลักษณ์ ส่วนสกิน Shining ไม่นับ"
     },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
@@ -34927,8 +35187,8 @@
       "text": "อัตราคงที่ อ่านค่าเมื่อ {date} และปัดเศษ: ให้ขนาดโดยประมาณในสกุลเงินของคุณ ไม่ใช่การแปลงค่าที่แม่นยำ"
     },
     "pages.accountValue.tableCaption": {
-      "fr": "Coût compté par skin, par catégorie",
-      "text": "ราคาที่คิดต่อสกิน แยกตามระดับ"
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "แต้มและค่าใช้จ่ายที่นับต่อสกิน แยกตามระดับ"
     },
     "pages.accountValue.title": {
       "fr": "Valeur estimée d'un compte",
@@ -34987,12 +35247,12 @@
       "text": "ใช้คอลเลกชันของฉัน"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "เครื่องมือคอลเลกชันได้บันทึกคอลเลกชันไว้ในเบราว์เซอร์นี้"
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "มีคอลเลกชันที่บันทึกไว้โดยเครื่องมือคอลเลกชัน ในเบราว์เซอร์นี้หรือในบัญชีของคุณ"
     },
     "pages.accountValueUI.import_done": {
-      "fr": "Skins et héros repris de votre collection.",
-      "text": "ดึงสกินและฮีโร่จากคอลเลกชันของคุณแล้ว"
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "นำสกินและฮีโร่มาจากคอลเลกชันของคุณแล้ว: {n} สกินจัดตามระดับ"
     },
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
@@ -35043,44 +35303,16 @@
       "text": "แชร์ผลลัพธ์แล้ว"
     },
     "pages.accountValueUI.skinsTitle": {
-      "fr": "Vos skins, par catégorie",
-      "text": "สกินของคุณ แยกตามระดับ"
-    },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Basic"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
-    },
-    "pages.accountValueUI.tier.elite": {
-      "fr": "Élite",
-      "text": "Elite"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Epic"
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "สกินของคุณ แบบเดียวกับใน Showcase"
     },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "คอลแลบและพรีเมียม"
+      "fr": "Grandiose",
+      "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Legend"
-    },
-    "pages.accountValueUI.tier.other": {
-      "fr": "Événements et saisonniers",
-      "text": "อีเวนต์และซีซัน"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Special"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
+      "text": "Supreme"
     },
     "pages.advanceServer.after": {
       "fr": "après :",
@@ -43151,8 +43383,8 @@
       "text": "Fandom wiki"
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "คอลเลกชัน Mobile Legends ของคุณใช้เงินไปเท่าไร? นับสกินตามระดับความหายาก (ครอบคลุม {skins} สกิน) แล้วดูมูลค่าโดยประมาณเป็นเพชร, USD, EUR, PHP, IDR และ MYR พร้อมแสดงวิธีคำนวณ"
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "คอลเลกชัน Mobile Legends ของคุณใช้เงินไปเท่าไร? กรอกสกินตามระดับใน Showcase ({skins} สกินในแค็ตตาล็อก) ตรวจสอบแต้มคอลเลกชัน และดูมูลค่าโดยประมาณเป็นเพชร, USD, EUR, PHP, IDR และ MYR พร้อมวิธีคำนวณ"
     },
     "pages.seo.accountValue.title": {
       "fr": "Estimation de la valeur d'un compte MLBB",
@@ -46097,6 +46329,58 @@
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
       "text": "{description} กระทู้หมวด “{name}” ในฟอรัม Mobile Legends ของ MLBBDex เปิดให้ผู้เล่นทุกคน"
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisite"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Exceptional"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Common"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "สกิน Painted"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "สกิน Shining"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "โปรไฟล์ > Showcase > Collection"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} แต้มต่อสกิน"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} เพชรต่อสกิน (มูลค่าเชิงสัญลักษณ์)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "แต้มคอลเลกชันสกิน"
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "ระดับต่างๆ คือระดับใน Showcase ของเกม พร้อมแต้มคอลเลกชันที่เกมให้กับแต่ละสกิน ผลรวมแต้มใช้ตรวจสอบ: ต้องตรงกับผลรวมที่เกมแสดง"
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "แค็ตตาล็อกอ้างอิงจากวิกิ และบางครั้งมีสกินน้อยกว่าในเกมเล็กน้อยจนกว่าจะเพิ่มสกินใหม่ ช่องกรอกจึงไม่มีค่าสูงสุด"
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "สกิน Painted และ Shining ไม่อยู่ในแค็ตตาล็อก: กรอกเพิ่มเอง"
     }
   },
   "pt": {
@@ -48017,8 +48301,8 @@
       "text": "Você"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "Custo estimado de um sorteio ou passe"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "Mediana estimada de um sorteio"
     },
     "pages.accountValue.basisShop": {
       "fr": "Prix médian en boutique ({n} prix relevés)",
@@ -48049,8 +48333,8 @@
       "text": "Quanto custou uma coleção de skins, em diamantes e em dinheiro, e a faixa indicativa de uma conta comparável. Uma ordem de grandeza, nunca um preço: o método está detalhado abaixo da ferramenta."
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "Cada skin vale o custo típico da sua categoria. Para skins vendidas na loja, é o preço mediano em diamantes das skins da categoria, tirado dos dados do jogo. Skins obtidas por sorteio ou passe não têm preço: recebem um custo médio estimado e arredondado, que varia muito de um evento e de um jogador para outro."
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "Cada skin conta pelo custo típico da sua categoria. As skins Deluxe, Exceptional e Common são vendidas na loja: o custo delas é o preço mediano em diamantes das skins da categoria, tirado dos dados do jogo. As skins Supreme, Grand e Exquisite vêm de sorteios: usam a mediana, arredondada, dos custos publicados por guias de jogadores, que varia muito de um evento e de um jogador para outro. Uma skin Painted conta por um valor simbólico, uma skin Shining por nada."
     },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
@@ -48125,12 +48409,12 @@
       "text": "Usar minha coleção"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "Há uma coleção salva neste navegador pela ferramenta de coleção."
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "Há uma coleção salva pela ferramenta de coleção, neste navegador ou na sua conta."
     },
     "pages.accountValueUI.import_done": {
-      "fr": "Skins et héros repris de votre collection.",
-      "text": "Skins e heróis importados da sua coleção."
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "Skins e heróis trazidos da sua coleção: {n} skins classificadas por categoria."
     },
     "pages.accountValueUI.import_failed": {
       "fr": "Impossible de charger le catalogue des skins. Réessayez.",
@@ -48168,33 +48452,13 @@
       "fr": "Le partage a échoué.",
       "text": "O compartilhamento falhou."
     },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Basic"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Epic"
-    },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "Collabs e premium"
+      "fr": "Grandiose",
+      "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Legend"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Special"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
+      "text": "Supreme"
     },
     "pages.advanceServer.after": {
       "fr": "après :",
@@ -54901,8 +55165,8 @@
       "text": "Ritmo dos golpes, dano do time, rajadas e reação do jungler inimigo são valores de treino, ajustados para parecer uma luta real: o jogo não publica esses números. Já o dano do Retribution e o HP dos monstros vêm da wiki."
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "Quanto custou sua coleção de Mobile Legends? Conte suas skins por categoria ({skins} skins cobertas) e obtenha uma ordem de grandeza em diamantes, USD, EUR, PHP, IDR e MYR, com o método explicado."
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "Quanto custou sua coleção de Mobile Legends? Copie suas skins por categoria da Vitrine ({skins} skins no catálogo), confira seus pontos de coleção e tenha uma ordem de grandeza em diamantes, USD, EUR, PHP, IDR e MYR, com o método à vista."
     },
     "pages.seo.accountValue.title": {
       "fr": "Estimation de la valeur d'un compte MLBB",
@@ -57547,6 +57811,74 @@
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
       "text": "{description} Os tópicos “{name}” do fórum de Mobile Legends do MLBBDex, abertos a todos os jogadores."
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisite"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Exceptional"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Common"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "Skins Painted"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "Skins Shining"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "Perfil > Vitrine > Coleção"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} pontos cada"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} diamantes cada (valor simbólico)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "Pontos de coleção de skins"
+    },
+    "pages.accountValue.tableCaption": {
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "Pontos e custo contados por skin, por categoria"
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "As categorias são as da Vitrine do jogo, com os pontos de coleção que o jogo dá a cada skin. A soma dos pontos serve de conferência: ela deve bater com o total exibido no jogo."
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "O catálogo segue a wiki e às vezes tem algumas skins a menos que o jogo, até as novas serem adicionadas: por isso os campos não têm máximo."
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "As skins Painted e Shining não estão no catálogo: adicione-as à mão."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "text": "Abra o resumo dos pontos de coleção de skins: cada categoria mostra \"obtidas/total\" e seus pontos. Copie o primeiro número de cada linha."
+    },
+    "pages.accountValueUI.skinsTitle": {
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "Suas skins, como na Vitrine"
+    },
+    "pages.accountValueUI.pointsCheck": {
+      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "text": "Compare com o total da sua Vitrine: se for igual, seus números estão certos."
     }
   },
   "ru": {
@@ -59711,8 +60043,8 @@
       "text": "Вы"
     },
     "pages.accountValue.basisDraw": {
-      "fr": "Estimation du coût d'un tirage ou d'un passe",
-      "text": "Оценочная стоимость розыгрыша или пропуска"
+      "fr": "Médiane estimée d'un tirage",
+      "text": "Оценочная медиана розыгрыша"
     },
     "pages.accountValue.basisShop": {
       "fr": "Prix médian en boutique ({n} prix relevés)",
@@ -59755,8 +60087,8 @@
       "text": "Во сколько обошлась коллекция скинов — в алмазах и в деньгах, — и ориентировочный диапазон цены сопоставимого аккаунта. Это порядок величины, а не цена: методика подробно описана под инструментом."
     },
     "pages.accountValue.methodCost": {
-      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Pour les skins vendus en boutique, c'est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Les skins obtenus par tirage ou par passe n'ont pas de prix : ils prennent un coût moyen estimé, arrondi, qui varie beaucoup d'un événement et d'un joueur à l'autre.",
-      "text": "Каждый скин учитывается по типичной стоимости своей категории. Для скинов из магазина это медианная цена в алмазах для скинов этой категории по игровым данным. У скинов из розыгрышей и пропусков цены нет: для них берётся оценочная округлённая средняя стоимость, которая сильно зависит от события и от игрока."
+      "fr": "Chaque skin compte pour le coût typique de sa catégorie. Premium, Exceptionnelle et Commun se vendent en boutique : leur coût est le prix médian en diamants des skins de la catégorie, relevé dans les données du jeu. Légende, Grandiose et Exquis s'obtiennent par tirage : ils prennent la médiane, arrondie, des coûts publiés par des guides de joueurs, qui varie beaucoup d'un événement et d'un joueur à l'autre. Une apparence colorée compte pour une valeur symbolique, une apparence éclatante pour rien.",
+      "text": "Каждый скин считается по типичной стоимости своей категории. Скины Deluxe, Exceptional и Обычный продаются в магазине: их стоимость — медианная цена в алмазах скинов категории по данным игры. Скины Высший, Grand и Exquisite достаются из розыгрышей: для них берётся округлённая медиана затрат из гайдов игроков, которая сильно меняется от события к событию и от игрока к игроку. Скин Painted считается по символической стоимости, скин Shining не считается вовсе."
     },
     "pages.accountValue.methodLimits": {
       "fr": "Les montants affichés sont arrondis à deux chiffres significatifs. Ne sont pas comptés : les héros eux-mêmes, achetés le plus souvent en points de bataille, les skins limités d'un serveur, les cosmétiques (effets, emotes, cadres) ni l'historique de matchs. Un vrai marché dépend aussi de la demande du moment, que rien ici ne mesure.",
@@ -59791,8 +60123,8 @@
       "text": "Курсы валют"
     },
     "pages.accountValue.tableCaption": {
-      "fr": "Coût compté par skin, par catégorie",
-      "text": "Учитываемая стоимость одного скина по категориям"
+      "fr": "Points et coût comptés par skin, par catégorie",
+      "text": "Очки и стоимость одного скина по категориям"
     },
     "pages.accountValue.title": {
       "fr": "Valeur estimée d'un compte",
@@ -59843,8 +60175,8 @@
       "text": "Взять мою коллекцию"
     },
     "pages.accountValueUI.importLead": {
-      "fr": "Une collection est enregistrée dans ce navigateur par l'outil de collection.",
-      "text": "В этом браузере сохранена коллекция из инструмента коллекции."
+      "fr": "Une collection est enregistrée par l'outil de collection, dans ce navigateur ou sur votre compte.",
+      "text": "Коллекция сохранена инструментом коллекции — в этом браузере или в вашем аккаунте."
     },
     "pages.accountValueUI.indicative": {
       "fr": "Ordre de grandeur arrondi, jamais un prix. Taux de change fixes du {date}. La méthode est détaillée plus bas.",
@@ -59886,41 +60218,13 @@
       "fr": "Résultat partagé.",
       "text": "Результат отправлен."
     },
-    "pages.accountValueUI.tier.basic": {
-      "fr": "Basiques",
-      "text": "Basic"
-    },
-    "pages.accountValueUI.tier.collector": {
-      "fr": "Collector",
-      "text": "Collector"
-    },
-    "pages.accountValueUI.tier.elite": {
-      "fr": "Élite",
-      "text": "Elite"
-    },
-    "pages.accountValueUI.tier.epic": {
-      "fr": "Épiques",
-      "text": "Epic"
-    },
     "pages.accountValueUI.tier.grand": {
-      "fr": "Collaborations et premium",
-      "text": "Коллаборации и премиум"
+      "fr": "Grandiose",
+      "text": "Grand"
     },
     "pages.accountValueUI.tier.legend": {
       "fr": "Légende",
-      "text": "Legend"
-    },
-    "pages.accountValueUI.tier.other": {
-      "fr": "Événements et saisonniers",
-      "text": "Событийные и сезонные"
-    },
-    "pages.accountValueUI.tier.special": {
-      "fr": "Spéciaux",
-      "text": "Special"
-    },
-    "pages.accountValueUI.tier.starlight": {
-      "fr": "StarLight",
-      "text": "StarLight"
+      "text": "Высший"
     },
     "pages.advanceServer.after": {
       "fr": "après :",
@@ -67463,8 +67767,8 @@
       "text": "Ритм ударов, урон команды, всплески урона и реакция лесника соперника — тренировочные значения, подобранные так, чтобы ощущаться как настоящий бой: игра эти цифры не публикует. А вот урон Retribution и HP монстров взяты из вики."
     },
     "pages.seo.accountValue.description": {
-      "fr": "Combien a coûté votre collection Mobile Legends ? Comptez vos skins par catégorie ({skins} skins couverts), obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
-      "text": "Сколько стоила ваша коллекция Mobile Legends? Посчитайте свои скины по категориям (учтено скинов: {skins}) и получите порядок суммы в алмазах, USD, EUR, PHP, IDR и MYR, с описанием метода."
+      "fr": "Combien a coûté votre collection Mobile Legends ? Recopiez vos skins par catégorie de la Vitrine ({skins} skins au catalogue), vérifiez vos points de collection et obtenez un ordre de grandeur en diamants, USD, EUR, PHP, IDR et MYR, avec une méthode affichée.",
+      "text": "Сколько стоила ваша коллекция Mobile Legends? Перепишите скины по категориям Витрины ({skins} скинов в каталоге), проверьте очки коллекции и получите порядок суммы в алмазах, USD, EUR, PHP, IDR и MYR, с открытой методикой."
     },
     "pages.seo.accountValue.title": {
       "fr": "Estimation de la valeur d'un compte MLBB",
@@ -70361,6 +70665,74 @@
     "pages.community.seo.categoryDescription": {
       "fr": "{description} Les discussions « {name} » du forum Mobile Legends de MLBBDex, ouvertes à tous les joueurs.",
       "text": "{description} Темы раздела «{name}» форума Mobile Legends на MLBBDex, открытые для всех игроков."
+    },
+    "pages.accountValueUI.tier.exquisite": {
+      "fr": "Exquis",
+      "text": "Exquisite"
+    },
+    "pages.accountValueUI.tier.deluxe": {
+      "fr": "Premium",
+      "text": "Deluxe"
+    },
+    "pages.accountValueUI.tier.exceptional": {
+      "fr": "Exceptionnelle",
+      "text": "Exceptional"
+    },
+    "pages.accountValueUI.tier.common": {
+      "fr": "Commun",
+      "text": "Обычный"
+    },
+    "pages.accountValueUI.tier.painted": {
+      "fr": "Apparences colorées",
+      "text": "Скины Painted"
+    },
+    "pages.accountValueUI.tier.glow": {
+      "fr": "Apparence éclatante",
+      "text": "Скины Shining"
+    },
+    "pages.accountValueUI.wherePath": {
+      "fr": "Profil > Vitrine > Collection",
+      "text": "Профиль > Витрина > Коллекция"
+    },
+    "pages.accountValueUI.pointsEach": {
+      "fr": "{points} points l'un",
+      "text": "{points} очков за скин"
+    },
+    "pages.accountValueUI.costFlat": {
+      "fr": "≈ {n} diamants l'un (valeur symbolique)",
+      "text": "≈ {n} алмазов за скин (символическая стоимость)"
+    },
+    "pages.accountValueUI.pointsTitle": {
+      "fr": "Points de collection de skins",
+      "text": "Очки коллекции скинов"
+    },
+    "pages.accountValue.methodPoints": {
+      "fr": "Les catégories sont celles de la Vitrine du jeu, avec les points de collection que le jeu donne à chaque skin. La somme des points sert de vérification : elle doit retomber sur le total affiché dans le jeu.",
+      "text": "Категории — те же, что в Витрине игры, с очками коллекции, которые игра даёт за каждый скин. Сумма очков служит проверкой: она должна совпасть с итогом, который показывает игра."
+    },
+    "pages.accountValue.catalogNote": {
+      "fr": "Le catalogue suit le wiki et compte parfois quelques skins de moins que le jeu, le temps que les nouveautés y soient ajoutées : les cases n'ont donc pas de maximum.",
+      "text": "Каталог следует вики и иногда насчитывает на несколько скинов меньше, чем игра, пока новинки не добавлены: поэтому у полей нет максимума."
+    },
+    "pages.accountValueUI.import_done": {
+      "fr": "Skins et héros repris de votre collection : {n} skins classés par catégorie.",
+      "text": "Скины и герои взяты из вашей коллекции: {n} скинов распределено по категориям."
+    },
+    "pages.accountValueUI.import_variants": {
+      "fr": "Les apparences colorées et éclatantes ne sont pas dans le catalogue : ajoutez-les à la main.",
+      "text": "Скины Painted и Shining в каталоге отсутствуют: добавьте их вручную."
+    },
+    "pages.accountValueUI.whereHint": {
+      "fr": "Ouvrez l'aperçu des points de collection de skins : chaque catégorie y affiche « possédés/total » et ses points. Recopiez le premier nombre de chaque ligne.",
+      "text": "Откройте обзор очков коллекции скинов: в каждой категории указано «получено/всего» и её очки. Перепишите первое число каждой строки."
+    },
+    "pages.accountValueUI.skinsTitle": {
+      "fr": "Vos skins, comme dans la Vitrine",
+      "text": "Ваши скины, как в Витрине"
+    },
+    "pages.accountValueUI.pointsCheck": {
+      "fr": "Comparez avec le total de votre Vitrine : s'il est identique, vos nombres sont justes.",
+      "text": "Сравните с итогом в вашей Витрине: если совпадает, ваши числа верны."
     }
   }
 }

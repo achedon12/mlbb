@@ -25,7 +25,8 @@ const MODEL = (() => {
   return modelOf(skinsCollectible(c), c.heroes.length, emblems.length, ASSUMPTIONS);
 })();
 
-const description = (t: T) => t("pages.seo.accountValue.description", { skins: MODEL.tiers.reduce((a, b) => a + b.count, 0) });
+const description = (t: T) =>
+  t("pages.seo.accountValue.description", { skins: MODEL.tiers.reduce((a, b) => a + (b.count ?? 0), 0) });
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { locale } = await params;
@@ -85,6 +86,7 @@ export default async function AccountValuePage({ params }: Params) {
         <section aria-labelledby="method-title" className="max-w-3xl">
           <SectionTitle id="method-title">{t("pages.accountValue.methodTitle")}</SectionTitle>
           <div className="space-y-4 leading-relaxed text-chalk-300">
+            <p>{t("pages.accountValue.methodPoints")}</p>
             <p>{t("pages.accountValue.methodCost")}</p>
 
             <div className="overflow-x-auto">
@@ -93,6 +95,7 @@ export default async function AccountValuePage({ params }: Params) {
                 <thead className="text-xs uppercase tracking-wide text-chalk-500">
                   <tr>
                     <th scope="col" className="py-2 pr-3 font-medium">{t("pages.accountValue.colTier")}</th>
+                    <th scope="col" className="py-2 pr-3 text-right font-medium">{t("pages.accountValue.colPoints")}</th>
                     <th scope="col" className="py-2 pr-3 text-right font-medium">{t("pages.accountValue.colSkins")}</th>
                     <th scope="col" className="py-2 pr-3 text-right font-medium">{t("pages.accountValue.colCost")}</th>
                     <th scope="col" className="py-2 font-medium">{t("pages.accountValue.colBasis")}</th>
@@ -102,18 +105,33 @@ export default async function AccountValuePage({ params }: Params) {
                   {MODEL.tiers.map((tier) => (
                     <tr key={tier.tier} className="border-t border-night-800">
                       <th scope="row" className="py-2 pr-3 font-medium text-chalk-100">{t(`pages.accountValueUI.tier.${tier.tier}`)}</th>
-                      <td className="py-2 pr-3 text-right tabular-nums">{count.format(tier.count)}</td>
+                      <td className="py-2 pr-3 text-right tabular-nums">{count.format(tier.points)}</td>
+                      <td className="py-2 pr-3 text-right tabular-nums">
+                        {tier.count === null ? t("pages.accountValue.notListed") : count.format(tier.count)}
+                      </td>
                       <td className="py-2 pr-3 text-right tabular-nums text-gold-400">{count.format(tier.cost)}</td>
                       <td className="py-2 text-chalk-400">
                         {tier.basis === "shop"
                           ? t("pages.accountValue.basisShop", { n: count.format(tier.priced) })
-                          : t("pages.accountValue.basisDraw")}
+                          : t(tier.basis === "draw" ? "pages.accountValue.basisDraw" : "pages.accountValue.basisFlat")}
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
+            <p className="text-sm">{t("pages.accountValue.catalogNote")}</p>
+            <p className="text-xs text-chalk-500">
+              {t("pages.accountValue.drawSources")}{" "}
+              {ASSUMPTIONS.drawCostSources.map((url, i) => (
+                <span key={url}>
+                  {i > 0 && " · "}
+                  <a href={url} rel="noopener" className="underline transition-colors hover:text-gold-400">
+                    {new URL(url).hostname.replace(/^www\./, "")}
+                  </a>
+                </span>
+              ))}
+            </p>
 
             <p>
               {t("pages.accountValue.methodMoney", {
