@@ -208,7 +208,7 @@
     },
     "bot": {
       "label": "Bot Discord",
-      "desc": "Le bot Discord Mobile Legends : builds, counters, tier list et MLBBdle dans vos serveurs"
+      "desc": "Les fiches, la tier list et les jeux du jour dans vos serveurs"
     }
   },
   "account": {
@@ -3311,17 +3311,17 @@
       "average": "En moyenne, avec {chance} de chance de critique : {damage} dégâts par attaque de base."
     },
     "bot": {
-      "title": "MLBBDex — le bot Discord Mobile Legends",
+      "title": "Bot Discord MLBBDex",
       "breadcrumb": "Bot Discord",
-      "metaTitle": "Bot Discord Mobile Legends (MLBB) : builds, counters, tier list",
-      "metaDescription": "MLBBDex, le bot Discord gratuit pour Mobile Legends : builds et counters mesurés sur les parties classées, tier list, patch notes, alertes skins et MLBBdle du jour, en cinq langues.",
-      "lead": "Builds, counters, tier list et patch notes de Mobile Legends: Bang Bang, mesurés sur les parties classées et mis à jour chaque jour, directement dans votre serveur. Plus un MLBBdle quotidien pour votre communauté. Gratuit, en cinq langues.",
+      "metaTitle": "Bot Discord Mobile Legends : héros, builds, tier list",
+      "metaDescription": "Bot Discord gratuit pour Mobile Legends : fiches de héros, builds, contres, tier list, patch notes et MLBBdle du jour, en cinq langues.",
+      "lead": "Les fiches de héros, les builds mesurés, la tier list et les patch notes de MLBBDex, directement dans vos serveurs Discord. Gratuit, sans abonnement, en cinq langues.",
       "add": "Ajouter à Discord",
       "join": "Rejoindre le serveur",
       "vote": "Voter sur top.gg",
       "dashboard": "Tableau de bord",
       "servers": "Présent sur {count} serveurs",
-      "free": "100 % gratuit",
+      "free": "Gratuit, sans fonction payante",
       "languages": "5 langues",
       "noAdmin": "Sans permission Administrateur",
       "showcaseTitle": "Ce que fait le bot",
@@ -3353,7 +3353,7 @@
         "freeTitle": "Gratuit pour de bon",
         "freeText": "Pas d'abonnement, pas de vote obligatoire, pas de fonction réservée : tout est gratuit, pour tous les serveurs."
       },
-      "commandsTitle": "Toutes les commandes",
+      "commandsTitle": "Commandes",
       "commandsLead": "Toutes les commandes sont des commandes slash : tapez / dans un salon pour les voir, avec l'autocomplétion des héros, objets, emblèmes et sorts.",
       "categories": {
         "heroes": "Héros et builds",
@@ -3364,26 +3364,26 @@
         "setup": "Configuration du serveur"
       },
       "commands": {
-        "hero": "Fiche d'un héros : rôle, couloirs, tier, taux, meilleur build, emblème, sort, compétences et illustration.",
-        "build": "Les builds les plus gagnants d'un héros, par rang : objets, emblème et sort.",
-        "counter": "Les héros qui battent un héros donné, et ceux qu'il bat.",
-        "tierlist": "La tier list du moment, par rang, couloir ou rôle.",
-        "compare": "Deux héros face à face : tier et taux côte à côte.",
-        "item": "Prix, statistiques, passif, actif et recette d'un objet.",
-        "emblem": "Un emblème et les rôles auxquels il convient.",
+        "hero": "Fiche d'un héros : rôle, couloirs, tier, taux, meilleur build, emblème, sorts et combos.",
+        "build": "Le ou les builds les plus gagnants d'un héros, avec ses objets et son emblème.",
+        "counter": "Les héros qui battent un héros donné, et ceux qu'il bat, d'après les parties mesurées.",
+        "tierlist": "Les meilleurs tiers, par rang, couloir ou rôle.",
+        "compare": "Deux héros face à face.",
+        "item": "Statistiques et effet d'un objet.",
+        "emblem": "Talents et usage d'un emblème.",
         "spell": "Effet et temps de recharge d'un sort de combat.",
-        "patch": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, héros modifiés.",
-        "skins": "Les derniers skins sortis, ou tous ceux d'un héros.",
+        "patch": "Résumé du dernier patch, ou d'une version donnée : buffs, nerfs, ajustements.",
+        "skins": "Les derniers skins sortis, ou ceux d'un héros.",
         "events": "Les événements en cours et à venir.",
-        "nickname": "Un pseudo stylisé, avec 21 polices au choix.",
+        "nickname": "Un pseudo stylisé, avec le choix du style.",
         "mlbbdle": "Le MLBBdle du jour, en mode classique ou compétence.",
         "quiz": "Le quiz du jour, avec des boutons pour répondre.",
         "leaderboard": "Le classement du serveur aux jeux du jour, par jour, semaine ou depuis le début.",
-        "servertime": "L'heure du serveur de jeu et les comptes à rebours des resets.",
+        "servertime": "L'heure du serveur de jeu et le compte à rebours du reset quotidien.",
         "setup": "Lien vers le tableau de bord du serveur (permission Gérer le serveur requise).",
-        "help": "Les commandes par catégorie, avec un exemple pour chacune.",
+        "help": "La liste des commandes.",
         "invite": "Le lien pour ajouter le bot à un autre serveur.",
-        "about": "Version, nombre de serveurs, liens vers le site, le serveur d'entraide et le vote."
+        "about": "Liens vers le site, le serveur d'entraide, les votes et la confidentialité."
       },
       "permissionsTitle": "Permissions demandées",
       "permissionsText": "Le strict nécessaire pour répondre et publier : jamais Administrateur, et aucun accès au contenu des messages. L'intent « Server Members » sert seulement aux messages de bienvenue et de départ : rien n'est conservé sur les membres.",
@@ -3399,15 +3399,15 @@
       },
       "faqTitle": "Questions fréquentes",
       "faq1q": "Le bot est-il gratuit ?",
-      "faq1a": "Oui, entièrement : pas d'abonnement, pas de fonction réservée, pas de vote obligatoire, pas de publicité. Il est financé comme le site, par son auteur.",
-      "faq2q": "Comment ajouter MLBBDex à mon serveur ?",
-      "faq2a": "Cliquez sur « Ajouter à Discord », choisissez un serveur où vous avez la permission Gérer le serveur, puis validez. Les commandes apparaissent dès que vous tapez / dans un salon.",
-      "faq3q": "Comment configurer les annonces ?",
-      "faq3a": "Ouvrez le tableau de bord avec votre compte Discord (ou tapez /setup) : choisissez un salon, et si vous voulez un rôle à mentionner, pour chaque type d'annonce. Il faut la permission Gérer le serveur.",
-      "faq4q": "D'où viennent les builds, counters et la tier list ?",
-      "faq4a": "Des mêmes sources que le site : les statistiques des parties classées pour les taux, les builds et les counters, et le wiki Mobile Legends pour les héros, objets et patchs. Elles sont mises à jour chaque jour.",
-      "faq5q": "Le bot a-t-il besoin de la permission Administrateur ?",
-      "faq5a": "Non. Il ne demande que ce qu'il utilise pour répondre et publier, et ne lit jamais le contenu des messages.",
+      "faq1a": "Oui, entièrement : pas d'abonnement, pas de fonction réservée, pas de publicité. Il est financé comme le site, par son auteur.",
+      "faq2q": "Comment configurer les annonces ?",
+      "faq2a": "Ajoutez le bot, puis ouvrez le tableau de bord avec votre compte Discord : choisissez un salon (et, si vous voulez, un rôle à mentionner) pour chaque type d'annonce. Il faut la permission Gérer le serveur.",
+      "faq3q": "D'où viennent les données ?",
+      "faq3a": "Des mêmes sources que le site : le wiki Mobile Legends pour les héros, objets et patchs, et les statistiques des parties classées pour les taux et les builds. Elles sont mises à jour chaque jour.",
+      "faq4q": "Quelles données le bot conserve-t-il ?",
+      "faq4a": "Le nom et les réglages de votre serveur, les publications déjà faites, et, pour les classements, l'identifiant et le pseudo Discord des joueurs des jeux du jour. Le détail est sur la page de confidentialité du bot.",
+      "faq5q": "Le MLBBdle de Discord est-il le même que sur le site ?",
+      "faq5a": "Oui : même héros, même compétence et mêmes manches de quiz chaque jour UTC, dans toutes les langues.",
       "faq6q": "Dans quelles langues répond-il ?",
       "faq6a": "En anglais, français, italien, espagnol et indonésien. La langue se choisit pour tout le serveur dans le tableau de bord ; sinon, chaque membre reçoit la sienne.",
       "faq7q": "Quelles données le bot conserve-t-il ?",
@@ -3417,7 +3417,18 @@
       "ctaTitle": "Ajoutez MLBBDex à votre serveur",
       "ctaText": "Une minute pour l'ajouter, rien à payer. Des questions ou une idée ? Le serveur MLBBDex vous attend.",
       "privacy": "Confidentialité du bot",
-      "terms": "Conditions d'utilisation"
+      "terms": "Conditions d'utilisation",
+      "featuresTitle": "Ce que fait le bot",
+      "features": {
+        "heroesTitle": "Fiches et builds",
+        "heroesText": "Rôle, couloirs, tier, taux de victoire, de sélection et de ban, meilleur build mesuré, emblème, sorts et contres d'un héros, avec un lien vers sa fiche complète.",
+        "announcementsTitle": "Annonces automatiques",
+        "announcementsText": "Nouveau patch, nouveaux skins, calendrier des événements, serveur avancé et résultats esport publiés dans le salon de votre choix, avec un rôle à mentionner si vous le voulez.",
+        "dailyTitle": "Jeux du jour",
+        "dailyText": "Le MLBBdle et le quiz du jour se jouent dans Discord, avec la même énigme que sur le site, et un classement propre à votre serveur.",
+        "languagesTitle": "Cinq langues",
+        "languagesText": "Commandes et réponses en anglais, français, italien, espagnol et indonésien, selon la langue choisie pour le serveur."
+      }
     },
     "botPrivacy": {
       "title": "Confidentialité du bot Discord",
@@ -3453,7 +3464,7 @@
     },
     "botDashboard": {
       "title": "Tableau de bord du bot",
-      "lead": "Réglez le bot pour chacun de vos serveurs : langue, annonces, jeux du jour, messages de bienvenue et rôles automatiques.",
+      "lead": "Réglez le bot pour chacun de vos serveurs : langue, annonces et jeux du jour.",
       "login": "Se connecter avec Discord",
       "loginLead": "Connectez-vous avec Discord pour voir les serveurs que vous gérez. Seul votre identifiant est lu : aucun accès à vos messages ni à vos serveurs.",
       "loginFailed": "La connexion n'a pas abouti. Réessayez.",
@@ -3463,7 +3474,7 @@
       "serversLead": "Les serveurs où vous avez la permission Gérer le serveur et où le bot est présent.",
       "noServers": "Aucun serveur à régler pour l'instant : ajoutez le bot à un serveur que vous gérez.",
       "addBot": "Ajouter le bot à un serveur",
-      "manage": "Configurer",
+      "manage": "Régler",
       "unreachable": "Le bot ne répond pas pour le moment. Réessayez dans quelques minutes.",
       "back": "Tous vos serveurs",
       "notAllowed": "Ce serveur n'est pas dans la liste de ceux que vous gérez.",
@@ -3571,11 +3582,18 @@
       "announcementType": "Annonce",
       "testing": "Envoi…",
       "noChannels": "Le bot ne peut publier dans aucun salon de ce serveur : donnez-lui les permissions Voir le salon, Envoyer des messages et Intégrer des liens dans au moins un salon, puis rechargez cette page.",
-      "autoRolesNoneSelectable": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération."
+      "autoRolesNoneSelectable": "Aucun rôle ne peut être choisi pour l'instant : chaque rôle est soit au-dessus du bot ou du vôtre, soit géré par une intégration, soit porteur de permissions de modération.",
+      "welcomeDefault": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "goodbyeDefault": "**{username}** a quitté le serveur.",
+      "backup": "Sauvegarder maintenant",
+      "backingUp": "Sauvegarde en cours…",
+      "backedUp": "Sauvegarde terminée.",
+      "backupBusy": "Une sauvegarde est déjà en cours.",
+      "backupFailed": "La sauvegarde a échoué : voir le journal."
     },
     "botAdmin": {
       "title": "Administration du bot",
-      "lead": "L'état du bot et de ses serveurs.",
+      "lead": "L'état du bot, de ses serveurs et de sa base de données.",
       "window": "Période",
       "windows": {
         "24h": "24 h",
@@ -3603,17 +3621,109 @@
       "delivered": "Publiées",
       "failed": "Échecs",
       "dailyTitle": "Jeux du jour",
-      "playersPerDay": "Joueurs par jour (30 jours)",
+      "playersPerDay": "Joueurs par jour et par jeu",
       "healthTitle": "Santé du bot",
-      "guildCount": "Serveurs vus par le bot",
+      "guildCount": "Serveurs vus",
       "shards": "Shards",
       "ping": "Latence",
       "memory": "Mémoire",
       "uptime": "Démarré depuis",
       "shard": "Shard {id}",
-      "botUnreachable": "Le bot ne répond pas.",
+      "botUnreachable": "Le bot ne répond pas. Les chiffres ci-dessous viennent de la base de données.",
       "databaseUnreachable": "La base de données ne répond pas.",
-      "chartEmpty": "Aucune donnée sur la période."
+      "chartEmpty": "Aucune donnée sur la période.",
+      "updated": "Chiffres de {time} UTC",
+      "vsPrevious": {
+        "24h": "vs les 24 h d'avant",
+        "7d": "vs les 7 jours d'avant",
+        "30d": "vs les 30 jours d'avant"
+      },
+      "noBase": "rien avant pour comparer",
+      "kpi": {
+        "commands": "Commandes lancées",
+        "servers": "Serveurs actifs",
+        "members": "Membres touchés",
+        "players": "Joueurs des jeux du jour",
+        "activeGuilds": "Serveurs où le bot sert",
+        "errorRate": "Taux d'erreur",
+        "p95": "Temps de réponse p95",
+        "delivered": "Annonces publiées",
+        "votes": "Votes"
+      },
+      "status": {
+        "ok": "En ligne",
+        "degraded": "Dégradé",
+        "down": "Hors ligne"
+      },
+      "version": "Version",
+      "node": "Node",
+      "pingUnknown": "en attente",
+      "guilds": "{count} serveurs",
+      "shardStatus": {
+        "ready": "Prêt",
+        "connecting": "Connexion",
+        "reconnecting": "Reconnexion",
+        "idle": "Inactif",
+        "nearly": "Presque prêt",
+        "disconnected": "Déconnecté",
+        "waitingForGuilds": "Attend ses serveurs",
+        "identifying": "Identification",
+        "resuming": "Reprise",
+        "unavailable": "Ne répond pas",
+        "unknown": "Inconnu"
+      },
+      "perBucket": {
+        "hour": "Commandes par heure",
+        "day": "Commandes par jour"
+      },
+      "commandsUnit": "commandes",
+      "errorsShort": "{count} err.",
+      "p95Short": "p95 {ms} ms",
+      "p95PerBucket": {
+        "hour": "Temps de réponse p95 par heure",
+        "day": "Temps de réponse p95 par jour"
+      },
+      "msUnit": "ms (p95)",
+      "commandLocales": "Langue des utilisateurs",
+      "topGuilds": "Serveurs les plus actifs",
+      "other": "Autres",
+      "flowTitle": "Arrivées et départs",
+      "joins": "Arrivées",
+      "leaves": "Départs",
+      "serverLocales": "Langue des serveurs",
+      "members": "{count} membres",
+      "activeServers": "Serveurs actifs",
+      "leftServers": "Quittés (gardés 30 jours)",
+      "failingServers": "Réglages en échec",
+      "byType": "Publications par type",
+      "forbidden": "Refusées (permissions)",
+      "recentFailures": "Derniers échecs",
+      "noFailures": "Aucun échec sur la période.",
+      "playersUnit": "joueurs",
+      "games": {
+        "mlbbdle-classic": "MLBBdle classique",
+        "mlbbdle-skill": "MLBBdle compétence",
+        "quiz": "Quiz"
+      },
+      "results": "Parties jouées",
+      "uniquePlayers": "Joueurs uniques",
+      "opsTitle": "Exploitation",
+      "logsTitle": "Journal récent",
+      "logsEmpty": "Aucune erreur ni alerte du bot ces deux derniers jours.",
+      "levels": {
+        "error": "Erreur",
+        "warning": "Alerte"
+      },
+      "backupsTitle": "Sauvegardes de la base",
+      "backupsLead": "Une par jour à 03:30 UTC ; les 3 plus récentes sont gardées.",
+      "backupsEmpty": "Aucune sauvegarde pour l'instant.",
+      "lastBackupOk": "Dernière sauvegarde réussie le {when}, en {duration} s ({trigger}).",
+      "lastBackupFailed": "Dernière sauvegarde en échec le {when} ({trigger}) : {error}",
+      "backupTrigger": {
+        "schedule": "planifiée",
+        "startup": "au démarrage",
+        "admin": "manuelle"
+      }
     }
   },
   "modeSheet": {
@@ -3690,7 +3800,7 @@
   },
   "home": {
     "title": "Mobile Legends : tier list, builds et contres du patch {version}",
-    "lead": "Les {heroes} héros, leurs builds et leurs contres mesurés en partie classée, une tier list recalculée à chaque synchronisation et des outils pour préparer chaque draft.",
+    "lead": "{heroes} héros et leurs {skins} skins, une tier list calculée sur les taux du jeu, une aide au draft, les objets, les emblèmes et les patch notes. Les données se synchronisent seules ; l'analyse s'écrit à la main.",
     "search": {
       "label": "Rechercher un héros",
       "placeholder": "Ling, Khufra, Layla…",
@@ -3751,7 +3861,7 @@
       "proNote": "Sur les {games} dernières parties professionnelles relevées."
     },
     "toolsTitle": "Outils",
-    "toolsLead": "Préparer une draft, tester un build, s'entraîner.",
+    "toolsLead": "Préparer une partie, tester un choix, s'entraîner.",
     "daily": {
       "title": "Les jeux du jour",
       "lead": "Une nouvelle partie chaque jour, la même pour tous les joueurs.",
@@ -3788,11 +3898,30 @@
       "rankingText": "La tier list est calculée sur les taux de victoire et de ban remontés par le jeu. La règle du calcul est affichée sur la page.",
       "writtenTitle": "Ce qui s'écrit reste écrit",
       "writtenText": "Analyses, builds et guides sont rédigés à la main. Aucune extraction ne dira pourquoi un héros est fort ; c'est là que les contributions comptent."
-    }
+    },
+    "title1": "Tout le jeu, expliqué",
+    "titleAccent": "en {language}",
+    "draftHelp": "Aide au draft",
+    "statHeroes": "héros",
+    "statSkins": "skins",
+    "statPatches": "patchs",
+    "statAnalyses": "analyses rédigées",
+    "rankingTitle": "En tête du patch",
+    "rankingLead": "Calculé à partir des taux de victoire et de ban remontés par le jeu, pas d'une opinion.",
+    "skinsTitle": "Galeries de skins",
+    "skinsLead": "Les {skins} skins du jeu, avec leur illustration pleine taille, leur rareté et leur prix.",
+    "seeHeroes": "Voir les héros",
+    "lastUpdate": "Dernière mise à jour"
   },
   "featured": {
     "heroOfTheDay": "Héros du jour",
-    "seeSheet": "Voir sa fiche"
+    "seeSheet": "Voir sa fiche",
+    "role": "Rôle",
+    "position": "Position",
+    "tierList": "Tier list",
+    "wins": "Victoires",
+    "skins": "Skins",
+    "tier": "Palier {p}"
   },
   "access": {
     "account": "{n} héros"

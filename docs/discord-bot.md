@@ -349,11 +349,25 @@ list). Off until a role is chosen.
   the placeholders and a live preview), auto-roles (on/off, up to 3 roles
   for members and 3 for bots, a warning when the bot lacks Manage Roles or
   a role is above its own), "send a test" buttons, delivery health.
-- `/[locale]/bot/admin` — super admins: servers (count, joins/leaves per
-  day, biggest servers, locales), commands (top commands, error rate,
-  p95 duration, per day 24h/7d/30d), announcements (delivered/failed),
-  daily games (players per day), bot health (shards, ping, memory),
-  "flush announcements" action.
+- `/[locale]/bot/admin` — super admins, over 24 h (by hour), 7 or 30 days
+  (by UTC day), each figure against the window before of the same length:
+  bot health (status, uptime, memory, version, each shard's status, ping,
+  servers and memory, asked live to the bot); tiles for commands run,
+  active servers, members reached, daily game players, servers using the
+  bot, error rate, p95 response time, announcements posted and votes;
+  commands per bucket stacked by command (top five, then "other"), top
+  commands with errors and p95, p95 per bucket, users' languages, most
+  active servers; joins and leaves per bucket, server languages,
+  biggest servers, failing settings; deliveries per announcement type and
+  status, last failures; daily game players per day and game; the last
+  errors and bot warnings of the site's log; the database backups.
+  Actions: "flush announcements", "back up now". Every figure is
+  aggregated by Postgres (`src/lib/bot/stats.ts`, a few queries at a time
+  so the five-connection pool stays free for the bot) and every chart is
+  server-rendered HTML/SVG with CSS tooltips and a screen-reader table
+  (`src/components/bot/admin-charts.tsx`). `CommandLog` stores no user
+  id, so there is no "unique users of commands" figure: the unique
+  players come from the daily games.
 - `/[locale]/bot/privacy`, `/[locale]/bot/terms` — required by Discord's
   developer portal and the bot lists.
 - The community Discord server link (permanent invite,

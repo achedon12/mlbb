@@ -298,8 +298,24 @@ describe.skipIf(!url)("bot database paths", async () => {
     const hero = durations.filter((_, i) => i % 3);
     const heroErrors = durations.filter((_, i) => i % 3 && i % 10 === 0).length;
     expect(stats.commands.top[0]).toEqual({ command: "hero", count: hero.length, errors: heroErrors, p95: percentile(hero, 95) });
-    expect(stats.commands.perDay.at(-1)?.value).toBe(237);
-    expect(stats.servers.joins.at(-1)?.value).toBe(await db().guild.count());
+    // By hour over 24 h: every row of this test lands in the last bucket.
+    expect(stats.commands.perBucket).toHaveLength(24);
+    expect(stats.commands.perBucket.at(-1)).toMatchObject({ total: 237, errors: 24, values: { hero: hero.length, build: 237 - hero.length } });
+    expect(stats.commands.perBucket.at(-1)?.p95).toBe(percentile(durations, 95));
+    expect(stats.commands.series).toEqual(["hero", "build"]);
+    expect(stats.kpis.commands).toEqual({ current: 237, previous: 0 });
+    expect(stats.servers.flow.at(-1)?.joins).toBe(await db().guild.count());
+    expect(stats.servers.joins.current).toBe(await db().guild.count());
+    expect(stats.kpis.servers.current).toBe(await db().guild.count({ where: { leftAt: null } }));
+    expect(stats.announcements.byType.find((t) => t.type === "patches")).toBeDefined();
+
+    // The window before counts apart: yesterday's commands are the delta's base.
+    await db().commandLog.create({
+      data: { command: "hero", guildId: g(1), locale: "fr", durationMs: 5, ok: true, createdAt: new Date(now.getTime() - 30 * 3600_000) },
+    });
+    const again = await adminStats("24h", now);
+    expect(again.kpis.commands).toEqual({ current: 237, previous: 1 });
+    expect((await adminStats("7d", now)).commands.topGuilds[0]).toMatchObject({ id: g(1), count: 1 });
     // Distinct players per puzzle day, inside the 30-day window.
     const today = now.toISOString().slice(0, 10);
     await db().dailyResult.createMany({
@@ -308,6 +324,11 @@ describe.skipIf(!url)("bot database paths", async () => {
       ),
     });
     await db().dailyResult.create({ data: { guildId: g(1), day: today, game: "quiz", discordUserId: g(7_001), discordUserName: "y", score: 1 } });
-    expect((await adminStats("24h", now)).daily.playersPerDay.at(-1)).toEqual({ day: today, value: 2 });
+    const daily = (await adminStats("24h", now)).daily;
+    // A week of days even for 24 h; distinct players per game and over the window.
+    expect(daily.perDay).toHaveLength(7);
+    expect(daily.perDay.at(-1)).toEqual({ day: today, values: { quiz: 2, "mlbbdle-skill": 1 } });
+    expect(daily.games).toEqual(["mlbbdle-skill", "quiz"]);
+    expect(daily.players).toBe(2);
   });
 });
