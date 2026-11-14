@@ -59,3 +59,6 @@ next-env.d.ts
 /playwright-report
 /blob-report
 /playwright/.cache
+
+# Generated database client (npm install, npm run build)
+/src/generated

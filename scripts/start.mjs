@@ -8,7 +8,7 @@
  * checked locally.
  */
 import { access, cp, readFile } from "node:fs/promises";
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 
 const ROOT = ".next/standalone";
 
@@ -47,10 +47,21 @@ async function environmentLocal() {
 }
 
 const local = await environmentLocal();
+const environment = { ...local, ...process.env };
+
+// Discord bot database: the pending migrations first, as the container does
+// (scripts/container-start.mjs). Without DATABASE_URL, nothing to do.
+if (environment.DATABASE_URL?.trim()) {
+  const migration = spawnSync("node", ["node_modules/prisma/build/index.js", "migrate", "deploy"], {
+    stdio: "inherit",
+    env: environment,
+  });
+  if (migration.status !== 0) console.error("Migrations not applied: the bot features will fail.");
+}
 
 spawn("node", ["server.js"], {
   cwd: ROOT,
   stdio: "inherit",
   // The shell wins over the file: values can be overridden one-off.
-  env: { ...local, ...process.env, PORT: process.env.PORT ?? "3001", HOSTNAME: "127.0.0.1" },
+  env: { ...environment, PORT: process.env.PORT ?? "3001", HOSTNAME: "127.0.0.1" },
 }).on("exit", (code) => process.exit(code ?? 0));
