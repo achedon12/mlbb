@@ -10,16 +10,16 @@ RUN --mount=type=cache,target=/root/.npm \
 
 # The Prisma command line, alone, to apply the migrations when the container
 # starts: the standalone server does not carry it, and the full node_modules
-# would triple the image. Same version as the lock file.
+# would triple the image. Installed from its own lock file (prisma/cli), same
+# version as the root one, without running any package script; the one step
+# it needs, fetching the migration engine for this platform, runs explicitly.
 FROM node:22-alpine AS migrate
 
 WORKDIR /migrate
-COPY package-lock.json /tmp/package-lock.json
+COPY prisma/cli/package.json prisma/cli/package-lock.json ./
 RUN --mount=type=cache,target=/root/.npm \
-    version=$(node -p "require('/tmp/package-lock.json').packages['node_modules/prisma'].version") \
- && echo '{"private":true}' > package.json \
- && npm install --no-audit --no-fund --no-save "prisma@$version" \
- && rm /tmp/package-lock.json
+    npm ci --no-audit --no-fund --ignore-scripts \
+ && node node_modules/@prisma/engines/scripts/postinstall.js
 COPY prisma.config.ts ./
 COPY prisma ./prisma
 
