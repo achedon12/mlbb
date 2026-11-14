@@ -32,7 +32,7 @@ export const oauthShape = z.object({
   state: z.string(),
   verifier: z.string(),
   locale: z.enum(LOCALES),
-  next: z.enum(["dashboard", "admin"]),
+  next: z.enum(["dashboard", "admin", "moderation"]),
 });
 export type OAuthPending = z.infer<typeof oauthShape>;
 

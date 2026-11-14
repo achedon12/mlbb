@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 
 export const BUTTON = "bevel-sm inline-flex min-h-11 items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold transition-colors";
 
-export function LoginPanel({ t, locale, next, failed }: { t: T; locale: Locale; next: "dashboard" | "admin"; failed: boolean }) {
+export function LoginPanel({ t, locale, next, failed }: { t: T; locale: Locale; next: "dashboard" | "admin" | "moderation"; failed: boolean }) {
   const href = `/api/discord/login?locale=${locale}&next=${next}`;
   return (
     <div className="bevel max-w-2xl border border-night-700 bg-night-900/80 p-6 sm:p-8">

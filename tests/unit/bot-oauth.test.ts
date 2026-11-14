@@ -108,8 +108,9 @@ describe("OAuth callback", () => {
     expect(acceptCallback({ state: "", verifier: pending.verifier }, query({ code, state: "" }))).toBeNull();
   });
 
-  it("only ever lands on the site's own dashboard or admin page", () => {
+  it("only ever lands on the site's own dashboard, admin or moderation page", () => {
     expect(loginTarget("fr", "admin")).toBe("/fr/bot/admin");
+    expect(loginTarget("it", "moderation")).toBe("/it/community/moderation");
     expect(loginTarget("en", "dashboard")).toBe("/en/bot/dashboard");
     expect(loginTarget("//evil.example", "https://evil.example")).toBe("/en/bot/dashboard");
     expect(loginTarget(undefined, undefined)).toBe("/en/bot/dashboard");
