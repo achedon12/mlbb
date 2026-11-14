@@ -69,6 +69,10 @@ describe("endpointPattern", () => {
     expect(endpointPattern("/api/v1/heroes")).toBe("heroes");
     expect(endpointPattern("/api/v1/heroes/layla")).toBe("heroes/{slug}");
     expect(endpointPattern("/api/v1/heroes/tigreal")).toBe("heroes/{slug}");
+    expect(endpointPattern("/api/v1/heroes/layla/counters")).toBe("heroes/{slug}/counters");
+    expect(endpointPattern("/api/v1/heroes/layla/builds")).toBe("heroes/{slug}/builds");
+    expect(endpointPattern("/api/v1/heroes/layla/skins")).toBe("(unknown)");
+    expect(endpointPattern("/api/v1/patches/2.2.16")).toBe("patches/{version}");
     expect(endpointPattern("/api/v1/items")).toBe("items");
     expect(endpointPattern("/api/v1/patches")).toBe("patches");
     expect(endpointPattern("/api/v1/rankings")).toBe("rankings");
