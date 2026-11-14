@@ -3,7 +3,8 @@
 import { useId, useState } from "react";
 import { LOCALES, LOCALE_NAME, type Locale } from "@/i18n/config";
 import { useT } from "@/i18n/provider";
-import { ANNOUNCEMENT_TYPES, type AnnouncementType } from "@/lib/bot/kinds";
+import { GreetingsFieldset, type GreetingSample } from "@/components/bot/greetings-fieldset";
+import { ANNOUNCEMENT_TYPES, GREETING_KINDS, type AnnouncementType, type GreetingKind } from "@/lib/bot/kinds";
 import type { GuildSettingsView, SettingsInput } from "@/lib/bot/settings";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +12,8 @@ import { cn } from "@/lib/utils";
  * A server's settings form, on its dashboard page. The channel and role
  * lists come from the bot, through the page; the save goes to
  * `/api/discord/guilds/<id>/settings`, which checks everything again
- * (permission, channels, roles) before writing.
+ * (permission, channels, roles) before writing. The welcome and goodbye
+ * messages have their own part, `greetings-fieldset.tsx`.
  *
  * Plain controlled selects and two fetch calls: the page ships little more
  * than this form.
@@ -50,13 +52,24 @@ async function send(url: string, method: "PUT" | "POST", body: unknown): Promise
   }
 }
 
-function TestButton({ guildId, channelId, locale }: { guildId: string; channelId: string | null; locale: Locale }) {
+/** `greeting`: test the welcome or goodbye message, with the text as it stands in the form. */
+function TestButton({
+  guildId,
+  channelId,
+  locale,
+  greeting,
+}: {
+  guildId: string;
+  channelId: string | null;
+  locale: Locale;
+  greeting?: { kind: GreetingKind; message: string | null };
+}) {
   const t = useT();
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   if (!channelId) return null;
   const run = async () => {
     setStatus({ kind: "busy" });
-    const response = await send(`/api/discord/guilds/${guildId}/test`, "POST", { channelId, locale });
+    const response = await send(`/api/discord/guilds/${guildId}/test`, "POST", { channelId, locale, ...greeting });
     const ok = response?.ok && ((await response.json().catch(() => null)) as { ok?: boolean } | null)?.ok;
     setStatus(ok ? { kind: "ok", text: t("pages.botUI.testSent") } : { kind: "error", text: t("pages.botUI.testFailed") });
   };
@@ -112,15 +125,20 @@ export function SettingsForm({
   initial,
   channels,
   roles,
+  sample,
 }: {
   guildId: string;
   initial: GuildSettingsView;
   channels: Channel[];
   roles: Channel[];
+  /** Who and what the welcome preview shows: the signed-in user, this server. */
+  sample: GreetingSample;
 }) {
   const t = useT();
   const [value, setValue] = useState<SettingsInput>(() => toInput(initial));
-  const [failing, setFailing] = useState(() => new Set(ANNOUNCEMENT_TYPES.filter((type) => initial[type].failing)));
+  const [failing, setFailing] = useState(
+    () => new Set<AnnouncementType | GreetingKind>([...ANNOUNCEMENT_TYPES, ...GREETING_KINDS].filter((key) => initial[key].failing)),
+  );
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const ids = useId();
 
@@ -249,6 +267,23 @@ export function SettingsForm({
           </div>
         </div>
       </fieldset>
+
+      <GreetingsFieldset
+        value={{ welcome: value.welcome, goodbye: value.goodbye }}
+        failing={new Set(GREETING_KINDS.filter((kind) => failing.has(kind)))}
+        channels={channels}
+        sample={sample}
+        locale={value.locale}
+        onChange={(kind, greeting) => setValue((v) => ({ ...v, [kind]: greeting }))}
+        testButton={(kind) => (
+          <TestButton
+            guildId={guildId}
+            channelId={value[kind].channelId}
+            locale={value.locale}
+            greeting={{ kind, message: value[kind].message }}
+          />
+        )}
+      />
 
       <div className="flex flex-wrap items-center gap-3">
         <button

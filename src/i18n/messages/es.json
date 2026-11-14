@@ -3469,7 +3469,28 @@
       "flush": "Publicar anuncios pendientes",
       "flushing": "Publicación de anuncios…",
       "flushed": "Anuncios verificados: {count} novedad(s), publicación solicitada al bot.",
-      "flushFailed": "El robot no respondió."
+      "flushFailed": "El robot no respondió.",
+      "greetingsTitle": "Bienvenida y despedida",
+      "greetingsLead": "Un mensaje en el canal que elijas cuando un miembro entra o sale, en el idioma del servidor. Solo se menciona al recién llegado; si entran más de 5 personas en 10 segundos, el bot publica un solo mensaje para todas.",
+      "greetingKinds": {
+        "welcome": "Mensaje de bienvenida",
+        "goodbye": "Mensaje de despedida"
+      },
+      "greetingToggles": {
+        "welcome": "Publicar un mensaje cuando entra un miembro",
+        "goodbye": "Publicar un mensaje cuando sale un miembro"
+      },
+      "customMessage": "Mensaje personalizado (opcional)",
+      "customHelp": "Déjalo vacío para el mensaje predeterminado, en el idioma del servidor. 500 caracteres como máximo; las menciones de roles, @everyone y @here se neutralizan.",
+      "placeholders": {
+        "user": "menciona al nuevo miembro (solo su nombre en una despedida)",
+        "username": "su nombre de usuario",
+        "server": "el nombre del servidor",
+        "count": "el número de miembros"
+      },
+      "preview": "Vista previa",
+      "welcomeDefault": "¡Te damos la bienvenida a **{server}**, {user}! Ya somos {count}: elige tus roles en Canales y roles.",
+      "goodbyeDefault": "**{username}** ha salido del servidor."
     },
     "botAdmin": {
       "title": "administración de bots",

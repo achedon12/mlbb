@@ -303,6 +303,66 @@
     "tools.serverTime.countriesOpen": {
       "fr": "Afficher l'heure de la remise pays par pays",
       "text": "Show the reset time country by country"
+    },
+    "pages.botUI.greetingsTitle": {
+      "fr": "Bienvenue et départs",
+      "text": "Welcome & goodbye"
+    },
+    "pages.botUI.greetingsLead": {
+      "fr": "Un message dans le salon de votre choix quand un membre arrive ou part, dans la langue du serveur. Seul le nouveau venu est mentionné ; si plus de 5 personnes arrivent en 10 secondes, le bot publie un seul message pour toutes.",
+      "text": "A message in the channel of your choice when a member joins or leaves, in the server's language. Only the newcomer is mentioned; when more than 5 people join within 10 seconds, the bot posts a single message for all of them."
+    },
+    "pages.botUI.greetingKinds.welcome": {
+      "fr": "Message de bienvenue",
+      "text": "Welcome message"
+    },
+    "pages.botUI.greetingKinds.goodbye": {
+      "fr": "Message de départ",
+      "text": "Goodbye message"
+    },
+    "pages.botUI.greetingToggles.welcome": {
+      "fr": "Publier un message quand un membre arrive",
+      "text": "Post a message when a member joins"
+    },
+    "pages.botUI.greetingToggles.goodbye": {
+      "fr": "Publier un message quand un membre part",
+      "text": "Post a message when a member leaves"
+    },
+    "pages.botUI.customMessage": {
+      "fr": "Message personnalisé (facultatif)",
+      "text": "Custom message (optional)"
+    },
+    "pages.botUI.customHelp": {
+      "fr": "Laissez vide pour le message par défaut, dans la langue du serveur. 500 caractères au plus ; les mentions de rôles, @everyone et @here sont neutralisées.",
+      "text": "Leave it empty for the default message, in the server's language. 500 characters at most; role mentions, @everyone and @here are neutralised."
+    },
+    "pages.botUI.placeholders.user": {
+      "fr": "mentionne le nouveau membre (son simple nom dans un message de départ)",
+      "text": "mentions the new member (their plain name in a goodbye)"
+    },
+    "pages.botUI.placeholders.username": {
+      "fr": "son nom d'utilisateur",
+      "text": "their username"
+    },
+    "pages.botUI.placeholders.server": {
+      "fr": "le nom du serveur",
+      "text": "the server's name"
+    },
+    "pages.botUI.placeholders.count": {
+      "fr": "le nombre de membres",
+      "text": "the member count"
+    },
+    "pages.botUI.preview": {
+      "fr": "Aperçu",
+      "text": "Preview"
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "Welcome to **{server}**, {user}! There are {count} of us now: pick your roles in Channels & Roles."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** has left the server."
     }
   },
   "es": {
@@ -585,6 +645,66 @@
     "tools.serverTime.countriesOpen": {
       "fr": "Afficher l'heure de la remise pays par pays",
       "text": "Mostrar la hora del reinicio país por país"
+    },
+    "pages.botUI.greetingsTitle": {
+      "fr": "Bienvenue et départs",
+      "text": "Bienvenida y despedida"
+    },
+    "pages.botUI.greetingsLead": {
+      "fr": "Un message dans le salon de votre choix quand un membre arrive ou part, dans la langue du serveur. Seul le nouveau venu est mentionné ; si plus de 5 personnes arrivent en 10 secondes, le bot publie un seul message pour toutes.",
+      "text": "Un mensaje en el canal que elijas cuando un miembro entra o sale, en el idioma del servidor. Solo se menciona al recién llegado; si entran más de 5 personas en 10 segundos, el bot publica un solo mensaje para todas."
+    },
+    "pages.botUI.greetingKinds.welcome": {
+      "fr": "Message de bienvenue",
+      "text": "Mensaje de bienvenida"
+    },
+    "pages.botUI.greetingKinds.goodbye": {
+      "fr": "Message de départ",
+      "text": "Mensaje de despedida"
+    },
+    "pages.botUI.greetingToggles.welcome": {
+      "fr": "Publier un message quand un membre arrive",
+      "text": "Publicar un mensaje cuando entra un miembro"
+    },
+    "pages.botUI.greetingToggles.goodbye": {
+      "fr": "Publier un message quand un membre part",
+      "text": "Publicar un mensaje cuando sale un miembro"
+    },
+    "pages.botUI.customMessage": {
+      "fr": "Message personnalisé (facultatif)",
+      "text": "Mensaje personalizado (opcional)"
+    },
+    "pages.botUI.customHelp": {
+      "fr": "Laissez vide pour le message par défaut, dans la langue du serveur. 500 caractères au plus ; les mentions de rôles, @everyone et @here sont neutralisées.",
+      "text": "Déjalo vacío para el mensaje predeterminado, en el idioma del servidor. 500 caracteres como máximo; las menciones de roles, @everyone y @here se neutralizan."
+    },
+    "pages.botUI.placeholders.user": {
+      "fr": "mentionne le nouveau membre (son simple nom dans un message de départ)",
+      "text": "menciona al nuevo miembro (solo su nombre en una despedida)"
+    },
+    "pages.botUI.placeholders.username": {
+      "fr": "son nom d'utilisateur",
+      "text": "su nombre de usuario"
+    },
+    "pages.botUI.placeholders.server": {
+      "fr": "le nom du serveur",
+      "text": "el nombre del servidor"
+    },
+    "pages.botUI.placeholders.count": {
+      "fr": "le nombre de membres",
+      "text": "el número de miembros"
+    },
+    "pages.botUI.preview": {
+      "fr": "Aperçu",
+      "text": "Vista previa"
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "¡Te damos la bienvenida a **{server}**, {user}! Ya somos {count}: elige tus roles en Canales y roles."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** ha salido del servidor."
     }
   },
   "id": {
@@ -2823,6 +2943,66 @@
     "discordPopup.close": {
       "fr": "Fermer l'invitation",
       "text": "Tutup undangan"
+    },
+    "pages.botUI.greetingsTitle": {
+      "fr": "Bienvenue et départs",
+      "text": "Sambutan & perpisahan"
+    },
+    "pages.botUI.greetingsLead": {
+      "fr": "Un message dans le salon de votre choix quand un membre arrive ou part, dans la langue du serveur. Seul le nouveau venu est mentionné ; si plus de 5 personnes arrivent en 10 secondes, le bot publie un seul message pour toutes.",
+      "text": "Pesan di saluran pilihanmu saat anggota bergabung atau keluar, dalam bahasa server. Hanya pendatang baru yang di-mention; jika lebih dari 5 orang bergabung dalam 10 detik, bot mengirim satu pesan untuk semuanya."
+    },
+    "pages.botUI.greetingKinds.welcome": {
+      "fr": "Message de bienvenue",
+      "text": "Pesan sambutan"
+    },
+    "pages.botUI.greetingKinds.goodbye": {
+      "fr": "Message de départ",
+      "text": "Pesan perpisahan"
+    },
+    "pages.botUI.greetingToggles.welcome": {
+      "fr": "Publier un message quand un membre arrive",
+      "text": "Kirim pesan saat anggota bergabung"
+    },
+    "pages.botUI.greetingToggles.goodbye": {
+      "fr": "Publier un message quand un membre part",
+      "text": "Kirim pesan saat anggota keluar"
+    },
+    "pages.botUI.customMessage": {
+      "fr": "Message personnalisé (facultatif)",
+      "text": "Pesan khusus (opsional)"
+    },
+    "pages.botUI.customHelp": {
+      "fr": "Laissez vide pour le message par défaut, dans la langue du serveur. 500 caractères au plus ; les mentions de rôles, @everyone et @here sont neutralisées.",
+      "text": "Biarkan kosong untuk pesan bawaan, dalam bahasa server. Maksimal 500 karakter; mention peran, @everyone, dan @here dinetralkan."
+    },
+    "pages.botUI.placeholders.user": {
+      "fr": "mentionne le nouveau membre (son simple nom dans un message de départ)",
+      "text": "me-mention anggota baru (hanya namanya di pesan perpisahan)"
+    },
+    "pages.botUI.placeholders.username": {
+      "fr": "son nom d'utilisateur",
+      "text": "nama penggunanya"
+    },
+    "pages.botUI.placeholders.server": {
+      "fr": "le nom du serveur",
+      "text": "nama server"
+    },
+    "pages.botUI.placeholders.count": {
+      "fr": "le nombre de membres",
+      "text": "jumlah anggota"
+    },
+    "pages.botUI.preview": {
+      "fr": "Aperçu",
+      "text": "Pratinjau"
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "Selamat datang di **{server}**, {user}! Sekarang kita ada {count} anggota: pilih peranmu di Saluran & Peran."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** telah keluar dari server."
     }
   },
   "it": {
@@ -3157,6 +3337,66 @@
     "tools.serverTime.countriesOpen": {
       "fr": "Afficher l'heure de la remise pays par pays",
       "text": "Mostra l'orario del reset paese per paese"
+    },
+    "pages.botUI.greetingsTitle": {
+      "fr": "Bienvenue et départs",
+      "text": "Benvenuto e addio"
+    },
+    "pages.botUI.greetingsLead": {
+      "fr": "Un message dans le salon de votre choix quand un membre arrive ou part, dans la langue du serveur. Seul le nouveau venu est mentionné ; si plus de 5 personnes arrivent en 10 secondes, le bot publie un seul message pour toutes.",
+      "text": "Un messaggio nel canale che scegli quando un membro entra o esce, nella lingua del server. Viene menzionato solo il nuovo arrivato; se più di 5 persone entrano in 10 secondi, il bot pubblica un solo messaggio per tutte."
+    },
+    "pages.botUI.greetingKinds.welcome": {
+      "fr": "Message de bienvenue",
+      "text": "Messaggio di benvenuto"
+    },
+    "pages.botUI.greetingKinds.goodbye": {
+      "fr": "Message de départ",
+      "text": "Messaggio di addio"
+    },
+    "pages.botUI.greetingToggles.welcome": {
+      "fr": "Publier un message quand un membre arrive",
+      "text": "Pubblica un messaggio quando entra un membro"
+    },
+    "pages.botUI.greetingToggles.goodbye": {
+      "fr": "Publier un message quand un membre part",
+      "text": "Pubblica un messaggio quando esce un membro"
+    },
+    "pages.botUI.customMessage": {
+      "fr": "Message personnalisé (facultatif)",
+      "text": "Messaggio personalizzato (facoltativo)"
+    },
+    "pages.botUI.customHelp": {
+      "fr": "Laissez vide pour le message par défaut, dans la langue du serveur. 500 caractères au plus ; les mentions de rôles, @everyone et @here sont neutralisées.",
+      "text": "Lascialo vuoto per il messaggio predefinito, nella lingua del server. Al massimo 500 caratteri; le menzioni dei ruoli, @everyone e @here vengono neutralizzate."
+    },
+    "pages.botUI.placeholders.user": {
+      "fr": "mentionne le nouveau membre (son simple nom dans un message de départ)",
+      "text": "menziona il nuovo membro (solo il suo nome in un messaggio di addio)"
+    },
+    "pages.botUI.placeholders.username": {
+      "fr": "son nom d'utilisateur",
+      "text": "il suo nome utente"
+    },
+    "pages.botUI.placeholders.server": {
+      "fr": "le nom du serveur",
+      "text": "il nome del server"
+    },
+    "pages.botUI.placeholders.count": {
+      "fr": "le nombre de membres",
+      "text": "il numero di membri"
+    },
+    "pages.botUI.preview": {
+      "fr": "Aperçu",
+      "text": "Anteprima"
+    },
+    "pages.botUI.welcomeDefault": {
+      "fr": "Bienvenue sur **{server}**, {user} ! Nous sommes maintenant {count} : choisis tes rôles dans Salons et rôles.",
+      "text": "Benvenuto su **{server}**, {user}! Ora siamo in {count}: scegli i tuoi ruoli in Canali e ruoli."
+    },
+    "pages.botUI.goodbyeDefault": {
+      "fr": "**{username}** a quitté le serveur.",
+      "text": "**{username}** ha lasciato il server."
     }
   }
 }
