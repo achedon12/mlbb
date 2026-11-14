@@ -1,7 +1,7 @@
 import { escapeMarkdown, type ButtonInteraction, type ChatInputCommandInteraction } from "discord.js";
 import { slash } from "../discord/builders.js";
 import type { Command, ComponentHandler, Context } from "../discord/types.js";
-import { baseEmbed, COLORS, openRow } from "../embeds/common.js";
+import { baseEmbed, COLORS, openRow, plain } from "../embeds/common.js";
 import { quizButtons, quizFinishedEmbed, quizStepEmbed } from "../embeds/daily.js";
 import { answer, buildSteps, type Step } from "../games/quiz.js";
 import { dayUtc } from "../games/state.js";
@@ -116,7 +116,7 @@ export const quizButtonsHandler: ComponentHandler = {
     const name = interaction.user.displayName;
     try {
       await interaction.followUp({
-        content: ctx.t("ui.quiz.finishedPublic", { user: escapeMarkdown(name), points: progress.points, max: steps.length }),
+        content: ctx.t("ui.quiz.finishedPublic", { user: plain(name), points: progress.points, max: steps.length }),
         allowedMentions: { parse: [] },
       });
     } catch (error) {

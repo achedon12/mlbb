@@ -1,6 +1,6 @@
 import { optionName, slash, stringOption } from "../discord/builders.js";
 import type { Command } from "../discord/types.js";
-import { baseEmbed, COLORS, openRow } from "../embeds/common.js";
+import { baseEmbed, COLORS, openRow, plain } from "../embeds/common.js";
 import { patchEmbed } from "../embeds/game.js";
 import type { Patch } from "../site/game-data.js";
 
@@ -33,7 +33,7 @@ export const patch: Command = {
     const found = findPatch(patches, version);
     if (!found) {
       await interaction.editReply({
-        embeds: [baseEmbed(ctx, COLORS.night).setDescription(ctx.t("ui.patch.unknown", { version: (version ?? raw ?? "").slice(0, 20) }))],
+        embeds: [baseEmbed(ctx, COLORS.night).setDescription(ctx.t("ui.patch.unknown", { version: plain((version ?? raw ?? "").slice(0, 20)) }))],
         components: [openRow(ctx, "/patch-notes")],
       });
       return;

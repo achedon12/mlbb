@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { announcementMessage, allowedMentionsFor, monthName, testMessage } from "../src/embeds/announcements.js";
-import { makeView } from "../src/embeds/common.js";
-import { dailyPost, leaderboardEmbed, mlbbdleClassicEmbed, quizButtons, quizStepEmbed } from "../src/embeds/daily.js";
+import { makeView, notFoundEmbed, plain } from "../src/embeds/common.js";
+import { dailyPost, leaderboardEmbed, mlbbdleClassicEmbed, mlbbdleSolvedPublic, quizButtons, quizStepEmbed } from "../src/embeds/daily.js";
 import { bestBuild, buildEmbed, counterEmbed, heroButtons, heroEmbed, itemEmbed, tierlistEmbed } from "../src/embeds/game.js";
 import { inviteUrl, INVITE_PERMISSIONS, siteLink, assetUrl } from "../src/links.js";
 import type { HeroDetail } from "../src/site/game-data.js";
@@ -196,5 +196,34 @@ describe("events announcement", () => {
     expect(msg.embeds?.[0]?.title).toBe("Événements : novembre 2026");
     expect(monthName("2026-11", "en")).toBe("November 2026");
     expect(monthName("soon", "en")).toBe("soon");
+  });
+});
+
+describe("text a member typed, shown back by the bot", () => {
+  // A masked link in the bot's own message reads as the bot vouching for it:
+  // "[Free Nitro](https://evil.example)" must show as text, its URL visible.
+  const lure = "[Free Nitro](https://evil.example)";
+  const rendersAsLink = /(^|[^\\])\[Free Nitro\]\(/;
+
+  it("never renders as a masked link, a heading or a list", () => {
+    expect(plain(lure)).toBe("\\[Free Nitro](https://evil.example)");
+    expect(plain("# big")).toBe("\\# big");
+    expect(plain("- item")).toBe("\\- item");
+    expect(plain("**bold**")).toBe("\\*\\*bold\\*\\*");
+  });
+
+  it("is escaped in the public not-found reply, cut to 100 characters", () => {
+    const embed = notFoundEmbed(en, lure).toJSON();
+    expect(embed.description).toContain("\\[Free Nitro](https://evil.example)");
+    expect(embed.description).not.toMatch(rendersAsLink);
+    expect(notFoundEmbed(en, "x".repeat(300)).toJSON().description).not.toContain("x".repeat(101));
+  });
+
+  it("is escaped in display names on leaderboards and solve lines", () => {
+    const board = leaderboardEmbed(en, "quiz", "week", {
+      entries: [{ rank: 1, discordUserId: "123456789012345678", discordUserName: lure, score: 12, plays: 3 }],
+    }).toJSON();
+    expect(board.description).not.toMatch(rendersAsLink);
+    expect(mlbbdleSolvedPublic(en, lure, "classic", 65, 3, [])).not.toMatch(rendersAsLink);
   });
 });
