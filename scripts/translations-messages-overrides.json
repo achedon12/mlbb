@@ -2569,8 +2569,8 @@
       "text": "dalam bahasa {language}"
     },
     "home.toolsLead": {
-      "fr": "Préparer une partie, tester un choix, s'entraîner.",
-      "text": "Siapkan pertandingan, uji pick, berlatih."
+      "fr": "Préparer une draft, tester un build, s'entraîner.",
+      "text": "Siapkan draft, uji build, berlatih."
     },
     "home.trends.open": {
       "fr": "Afficher les {n} héros qui bougent",
