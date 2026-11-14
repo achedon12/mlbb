@@ -211,3 +211,149 @@ model Vote {
 
   @@index([createdAt])
 }
+
+// ── Community: forum and teammate finder (docs/community.md) ─────────────
+//
+// Authors are game accounts, kept as `accountId`: the 24-character hash of
+// the in-game id and server (src/lib/community-builds-server.ts), never the
+// ids themselves. Moderators are Discord ids listed in BOT_SUPER_ADMIN_IDS.
+
+/// A game account that wrote, voted or reported in the community. Created on
+/// its first action: `firstSeenAt` drives the new-account limits. `bannedAt`
+/// set: the account may no longer post, vote, report or list a card (until
+/// `banUntil`, or for good when it is null).
+model CommunityMember {
+  accountId   String    @id @db.VarChar(24)
+  name        String    @db.VarChar(40)
+  firstSeenAt DateTime  @default(now())
+  bannedAt    DateTime?
+  banUntil    DateTime?
+  banReason   String?   @db.VarChar(300)
+  /// Discord id of the moderator who banned the account.
+  bannedBy    String?   @db.VarChar(20)
+
+  @@index([bannedAt])
+}
+
+/// A forum thread. Its opening post is the thread itself (`body`, Markdown,
+/// rendered through the sanitizer). `heroes`: up to 5 hero slugs, shown as
+/// tags linking to the hero pages. `hiddenAt`: hidden by a moderator or by
+/// reports, pending review. `deletedAt`: deleted by its author or a
+/// moderator, its text erased. `lastPostAt` orders the "latest" view.
+model ForumThread {
+  id         Int       @id @default(autoincrement())
+  category   String    @db.VarChar(24)
+  title      String    @db.VarChar(120)
+  body       String
+  heroes     String[]  @default([]) @db.VarChar(40)
+  authorId   String    @db.VarChar(24)
+  authorName String    @db.VarChar(40)
+  score      Int       @default(0)
+  replyCount Int       @default(0)
+  pinned     Boolean   @default(false)
+  locked     Boolean   @default(false)
+  hiddenAt   DateTime?
+  deletedAt  DateTime?
+  createdAt  DateTime  @default(now())
+  editedAt   DateTime?
+  lastPostAt DateTime  @default(now())
+
+  posts ForumPost[]
+
+  /// Category pages, "latest" and "top" orders (pinned threads first).
+  @@index([category, pinned, lastPostAt])
+  @@index([category, pinned, score])
+  @@index([lastPostAt])
+  /// Daily caps per account.
+  @@index([authorId, createdAt])
+}
+
+/// A reply in a thread, Markdown like the thread's body.
+model ForumPost {
+  id         Int         @id @default(autoincrement())
+  threadId   Int
+  thread     ForumThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  body       String
+  authorId   String      @db.VarChar(24)
+  authorName String      @db.VarChar(40)
+  score      Int         @default(0)
+  hiddenAt   DateTime?
+  deletedAt  DateTime?
+  createdAt  DateTime    @default(now())
+  editedAt   DateTime?
+
+  /// A thread's replies, in order.
+  @@index([threadId, createdAt])
+  @@index([authorId, createdAt])
+}
+
+/// One upvote per account and per thread or reply (`kind`: thread or post).
+model ForumVote {
+  kind      String   @db.VarChar(8)
+  targetId  Int
+  voterId   String   @db.VarChar(24)
+  createdAt DateTime @default(now())
+
+  @@id([kind, targetId, voterId])
+}
+
+/// A report on a thread, a reply or a teammate card (`kind`: thread, post,
+/// card), one per account and target. Open while `resolvedAt` is null: that
+/// is the moderation queue. Enough open reports hide the target until a
+/// moderator looks at it.
+model CommunityReport {
+  id         Int       @id @default(autoincrement())
+  kind       String    @db.VarChar(8)
+  targetId   Int
+  reporterId String    @db.VarChar(24)
+  /// spam, abuse, offtopic, personal or other.
+  reason     String    @db.VarChar(16)
+  note       String?   @db.VarChar(300)
+  createdAt  DateTime  @default(now())
+  resolvedAt DateTime?
+  /// Discord id of the moderator who closed it.
+  resolvedBy String?   @db.VarChar(20)
+
+  @@unique([kind, targetId, reporterId])
+  @@index([resolvedAt, createdAt])
+}
+
+/// What a moderator did, for the record: hide, unhide, delete, lock, unlock,
+/// pin, unpin, ban, unban, dismiss.
+model ModerationLog {
+  id            Int      @id @default(autoincrement())
+  moderatorId   String   @db.VarChar(20)
+  moderatorName String   @db.VarChar(64)
+  action        String   @db.VarChar(16)
+  kind          String?  @db.VarChar(8)
+  targetId      Int?
+  /// The account acted upon (the target's author, or the one banned).
+  accountId     String?  @db.VarChar(24)
+  note          String?  @db.VarChar(300)
+  createdAt     DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+/// A "looking for teammates" card, one per account, listed for 7 days
+/// (`expiresAt`). `gameId` and `discord` are optional and only shown to
+/// signed-in players.
+model TeammateCard {
+  id         Int       @id @default(autoincrement())
+  accountId  String    @unique @db.VarChar(24)
+  authorName String    @db.VarChar(40)
+  region     String    @db.VarChar(12)
+  rank       String    @db.VarChar(20)
+  lanes      String[]  @default([]) @db.VarChar(8)
+  heroes     String[]  @default([]) @db.VarChar(40)
+  languages  String[]  @default([]) @db.VarChar(4)
+  playTimes  String[]  @default([]) @db.VarChar(12)
+  note       String?   @db.VarChar(200)
+  gameId     String?   @db.VarChar(24)
+  discord    String?   @db.VarChar(40)
+  hiddenAt   DateTime?
+  createdAt  DateTime  @default(now())
+  expiresAt  DateTime
+
+  @@index([expiresAt])
+}
