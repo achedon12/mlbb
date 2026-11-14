@@ -36,7 +36,8 @@ src/games/        MLBBdle comparison, quiz rounds, nicknames, server time
   welcome and goodbye messages and the auto-roles (no member list
   fetched, nothing about members stored; never message content), and the
   invite asks for 8 permissions, no Administrator, no Manage Roles (a
-  server using auto-roles grants it; see [LISTING.md](LISTING.md)).
+  server using auto-roles or role menus grants it; see [LISTING.md](LISTING.md)).
+  Role menus need no intent: they are interactions on the bot's message.
 - **Replies within 3 s**: every command is deferred first; autocomplete has
   a 2.5 s deadline. The lists most commands read (heroes, rankings,
   patches, items) are loaded when a shard starts and every 10 minutes, so

@@ -71,6 +71,7 @@ const client = vi.hoisted(() => ({
       : { channels: [], roles: [{ id: "555555555555555559", name: "Player", assignable: true, refusal: null }], manageRoles: true },
   ),
   testPost: vi.fn(async () => ({ ok: true })),
+  refreshGuildQuietly: vi.fn(async () => undefined),
 }));
 vi.mock("@/lib/bot/client", async (original) => ({ ...(await original<object>()), ...client }));
 
@@ -213,6 +214,8 @@ describe("dashboard settings write", () => {
     expect(response.status).toBe(200);
     expect(client.canManage).toHaveBeenCalledWith(expect.anything(), GUILD, USER);
     expect(store.writes).toHaveLength(2);
+    // The bot is told to read the server's settings again at once.
+    expect(client.refreshGuildQuietly).toHaveBeenCalledWith(expect.anything(), GUILD);
   });
 
   it("refuses a server the user does not manage, without writing", async () => {

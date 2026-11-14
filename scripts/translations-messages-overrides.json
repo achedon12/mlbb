@@ -1139,6 +1139,270 @@
     "pages.bot.vote": {
       "fr": "Voter pour MLBBDex",
       "text": "Vote for MLBBDex"
+    },
+    "pages.botUI.roleMenus.title": {
+      "fr": "Menus de rôles",
+      "text": "Role menus"
+    },
+    "pages.botUI.roleMenus.lead": {
+      "fr": "Un message avec un menu déroulant où les membres choisissent eux-mêmes leurs rôles, par exemple leur rang. Chaque menu s'enregistre à part, puis se publie dans son salon.",
+      "text": "A message with a drop-down menu where members pick their own roles, their rank for instance. Each menu is saved on its own, then published in its channel."
+    },
+    "pages.botUI.roleMenus.empty": {
+      "fr": "Aucun menu pour l'instant.",
+      "text": "No menu yet."
+    },
+    "pages.botUI.roleMenus.new": {
+      "fr": "Nouveau menu",
+      "text": "New menu"
+    },
+    "pages.botUI.roleMenus.editing": {
+      "fr": "Modifier « {title} »",
+      "text": "Edit “{title}”"
+    },
+    "pages.botUI.roleMenus.help": {
+      "fr": "Le bot donne et retire ces rôles avec la permission Gérer les rôles, seulement s'ils sont sous son propre rôle, sans permission de modération, et si le gestionnaire qui a configuré le menu pourrait les donner lui-même.",
+      "text": "The bot gives and removes these roles with the Manage Roles permission, only if they sit below its own role, carry no moderation permission, and the manager who set the menu up could give them themselves."
+    },
+    "pages.botUI.roleMenus.edit": {
+      "fr": "Modifier",
+      "text": "Edit"
+    },
+    "pages.botUI.roleMenus.delete": {
+      "fr": "Supprimer",
+      "text": "Delete"
+    },
+    "pages.botUI.roleMenus.deleteConfirm": {
+      "fr": "Supprimer le menu « {title} » et son message sur Discord ?",
+      "text": "Delete the “{title}” menu and its message on Discord?"
+    },
+    "pages.botUI.roleMenus.deleted": {
+      "fr": "Menu supprimé.",
+      "text": "Menu deleted."
+    },
+    "pages.botUI.roleMenus.deleteFailed": {
+      "fr": "La suppression a échoué. Réessayez.",
+      "text": "The deletion failed. Try again."
+    },
+    "pages.botUI.roleMenus.publish": {
+      "fr": "Publier le message",
+      "text": "Publish the message"
+    },
+    "pages.botUI.roleMenus.update": {
+      "fr": "Mettre à jour le message",
+      "text": "Update the message"
+    },
+    "pages.botUI.roleMenus.publishing": {
+      "fr": "Publication…",
+      "text": "Publishing…"
+    },
+    "pages.botUI.roleMenus.published": {
+      "fr": "Message publié dans #{channel}.",
+      "text": "Message published in #{channel}."
+    },
+    "pages.botUI.roleMenus.publishErrors.channel_not_available": {
+      "fr": "Le bot ne peut pas écrire dans ce salon : vérifiez ses permissions Voir le salon, Envoyer des messages et Intégrer des liens, ou choisissez un autre salon.",
+      "text": "The bot cannot post in this channel: check its View Channel, Send Messages and Embed Links permissions, or pick another channel."
+    },
+    "pages.botUI.roleMenus.publishErrors.missing_permissions": {
+      "fr": "Discord a refusé : le bot n'a plus les permissions nécessaires dans ce salon (Voir le salon, Envoyer des messages, Intégrer des liens).",
+      "text": "Discord refused: the bot no longer has the permissions it needs in this channel (View Channel, Send Messages, Embed Links)."
+    },
+    "pages.botUI.roleMenus.publishErrors.invalid_menu": {
+      "fr": "Discord a refusé le message : un emoji du menu a peut-être été supprimé. Modifiez le menu, puis publiez-le.",
+      "text": "Discord refused the message: an emoji of the menu may have been deleted. Edit the menu, then publish it."
+    },
+    "pages.botUI.roleMenus.publishErrors.rolesUnavailable": {
+      "fr": "Un rôle du menu ne peut plus être donné par le bot (supprimé, au-dessus de son rôle ou avec des permissions de modération) : modifiez le menu.",
+      "text": "A role of the menu can no longer be given by the bot (deleted, above its role or with moderation permissions): edit the menu."
+    },
+    "pages.botUI.roleMenus.publishErrors.rateLimited": {
+      "fr": "Trop de publications d'affilée : patientez une minute.",
+      "text": "Too many publications in a row: wait a minute."
+    },
+    "pages.botUI.roleMenus.publishErrors.failed": {
+      "fr": "La publication a échoué. Réessayez.",
+      "text": "Publishing failed. Try again."
+    },
+    "pages.botUI.roleMenus.statusPublished": {
+      "fr": "Publié dans #{channel}",
+      "text": "Published in #{channel}"
+    },
+    "pages.botUI.roleMenus.statusDraft": {
+      "fr": "Pas encore publié",
+      "text": "Not published yet"
+    },
+    "pages.botUI.roleMenus.statusChanged": {
+      "fr": "Modifications non publiées",
+      "text": "Changes not published"
+    },
+    "pages.botUI.roleMenus.modes.single": {
+      "fr": "Un seul rôle",
+      "text": "One role"
+    },
+    "pages.botUI.roleMenus.modes.multiple": {
+      "fr": "Plusieurs rôles",
+      "text": "Several roles"
+    },
+    "pages.botUI.roleMenus.modeHelp.single": {
+      "fr": "Choisir un rôle retire les autres rôles du menu : idéal pour les rangs.",
+      "text": "Picking a role removes the menu's other roles: made for ranks."
+    },
+    "pages.botUI.roleMenus.modeHelp.multiple": {
+      "fr": "Chaque choix ajoute le rôle, ou le retire si le membre l'a déjà.",
+      "text": "Each pick adds the role, or removes it if the member already has it."
+    },
+    "pages.botUI.roleMenus.mode": {
+      "fr": "Type de menu",
+      "text": "Menu type"
+    },
+    "pages.botUI.roleMenus.roleCount": {
+      "fr": "Rôles : {count}",
+      "text": "Roles: {count}"
+    },
+    "pages.botUI.roleMenus.channel": {
+      "fr": "Salon",
+      "text": "Channel"
+    },
+    "pages.botUI.roleMenus.chooseChannel": {
+      "fr": "Choisir un salon",
+      "text": "Choose a channel"
+    },
+    "pages.botUI.roleMenus.titleLabel": {
+      "fr": "Titre",
+      "text": "Title"
+    },
+    "pages.botUI.roleMenus.titlePlaceholder": {
+      "fr": "Choisis ton rang",
+      "text": "Pick your rank"
+    },
+    "pages.botUI.roleMenus.description": {
+      "fr": "Texte",
+      "text": "Text"
+    },
+    "pages.botUI.roleMenus.descriptionHelp": {
+      "fr": "Facultatif, 1 000 caractères au plus. Vide : une phrase par défaut, dans la langue du serveur.",
+      "text": "Optional, 1,000 characters at most. Empty: a default sentence, in the server's language."
+    },
+    "pages.botUI.roleMenus.options": {
+      "fr": "Rôles du menu ({count}/{max})",
+      "text": "Roles of the menu ({count}/{max})"
+    },
+    "pages.botUI.roleMenus.optionsList": {
+      "fr": "Rôles du menu",
+      "text": "Roles of the menu"
+    },
+    "pages.botUI.roleMenus.optionsHelp": {
+      "fr": "Le libellé et l'emoji s'affichent dans le menu. Quand un emoji du serveur porte le nom du rôle (rank_legend pour Legend), il est choisi d'office.",
+      "text": "The label and the emoji show in the menu. When one of the server's emojis is named after the role (rank_legend for Legend), it is picked for you."
+    },
+    "pages.botUI.roleMenus.addRole": {
+      "fr": "Ajouter un rôle…",
+      "text": "Add a role…"
+    },
+    "pages.botUI.roleMenus.label": {
+      "fr": "Libellé",
+      "text": "Label"
+    },
+    "pages.botUI.roleMenus.emoji": {
+      "fr": "Emoji",
+      "text": "Emoji"
+    },
+    "pages.botUI.roleMenus.noEmoji": {
+      "fr": "Sans emoji",
+      "text": "No emoji"
+    },
+    "pages.botUI.roleMenus.unicodeEmoji": {
+      "fr": "Autre emoji (Unicode)…",
+      "text": "Other emoji (Unicode)…"
+    },
+    "pages.botUI.roleMenus.unicodePlaceholder": {
+      "fr": "Collez un emoji",
+      "text": "Paste an emoji"
+    },
+    "pages.botUI.roleMenus.moveUp": {
+      "fr": "Monter",
+      "text": "Move up"
+    },
+    "pages.botUI.roleMenus.moveDown": {
+      "fr": "Descendre",
+      "text": "Move down"
+    },
+    "pages.botUI.roleMenus.remove": {
+      "fr": "Retirer",
+      "text": "Remove"
+    },
+    "pages.botUI.roleMenus.save": {
+      "fr": "Enregistrer le menu",
+      "text": "Save the menu"
+    },
+    "pages.botUI.roleMenus.cancel": {
+      "fr": "Annuler",
+      "text": "Cancel"
+    },
+    "pages.botUI.roleMenus.saved": {
+      "fr": "Menu enregistré. Publiez-le pour mettre à jour le message sur Discord.",
+      "text": "Menu saved. Publish it to update the message on Discord."
+    },
+    "pages.botUI.roleMenus.saveFailed": {
+      "fr": "L'enregistrement a échoué. Vérifiez le menu et réessayez.",
+      "text": "Saving failed. Check the menu and try again."
+    },
+    "pages.botUI.roleMenus.notGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "You cannot give one of these roles yourself (Manage Roles permission, role above yours): the bot will not give it for you."
+    },
+    "pages.botUI.roleMenus.tooMany": {
+      "fr": "Ce serveur a déjà 10 menus, le maximum.",
+      "text": "This server already has 10 menus, the maximum."
+    },
+    "pages.botUI.roleMenus.paused": {
+      "fr": "Le gestionnaire qui a configuré ce menu ne peut plus donner certains de ses rôles : les membres reçoivent une erreur. Enregistrez le menu vous-même pour le reprendre (il faut pouvoir donner ses rôles).",
+      "text": "The manager who set this menu up can no longer give some of its roles: members get an error. Save the menu yourself to take it over (you need to be able to give its roles)."
+    },
+    "pages.botUI.roleMenus.roleProblem": {
+      "fr": "Certains rôles de ce menu ne peuvent plus être donnés (supprimés, au-dessus du bot ou avec des permissions de modération) : modifiez le menu.",
+      "text": "Some roles of this menu can no longer be given (deleted, above the bot or with moderation permissions): edit the menu."
+    },
+    "pages.botUI.roleMenus.deletedRole": {
+      "fr": "rôle supprimé",
+      "text": "deleted role"
+    },
+    "pages.botUI.roleMenus.preview": {
+      "fr": "Aperçu",
+      "text": "Preview"
+    },
+    "pages.botUI.roleMenus.previewDefaultSingle": {
+      "fr": "Choisis ton rôle dans le menu ci-dessous. En choisir un autre le remplace.",
+      "text": "Pick your role in the menu below. Picking another one replaces it."
+    },
+    "pages.botUI.roleMenus.previewDefaultMultiple": {
+      "fr": "Choisis tes rôles dans le menu ci-dessous. Choisir un rôle que tu as déjà le retire.",
+      "text": "Pick your roles in the menu below. Picking a role you already have removes it."
+    },
+    "pages.botUI.roleMenus.placeholderSingle": {
+      "fr": "Choisis ton rôle",
+      "text": "Choose your role"
+    },
+    "pages.botUI.roleMenus.placeholderMultiple": {
+      "fr": "Choisis tes rôles",
+      "text": "Choose your roles"
+    },
+    "pages.botUI.roleMenus.clearSingle": {
+      "fr": "Retirer mon rôle",
+      "text": "Remove my role"
+    },
+    "pages.botUI.roleMenus.clearMultiple": {
+      "fr": "Retirer mes rôles",
+      "text": "Remove my roles"
+    },
+    "pages.botUI.roleMenus.required": {
+      "fr": "Choisissez un salon, un titre et au moins un rôle, chacun avec un libellé.",
+      "text": "Choose a channel, a title and at least one role, each with a label."
+    },
+    "pages.botPrivacy.roleMenus": {
+      "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
+      "text": "Role menus: for each menu, the server's choice of channel, title, text, roles with their labels and emojis, the id of the published message and the Discord id of the manager who set it up are stored. When a member uses one, the bot gives or removes the role and keeps nothing about them, apart from an in-memory counter, a few seconds long, that limits changes made too close together."
     }
   },
   "es": {
@@ -2301,6 +2565,270 @@
     "pages.apiDoc.routes.spells.localeParam": {
       "fr": "Langue des textes (anglais par défaut)",
       "text": "Idioma de los textos (inglés por defecto)"
+    },
+    "pages.botUI.roleMenus.title": {
+      "fr": "Menus de rôles",
+      "text": "Menús de roles"
+    },
+    "pages.botUI.roleMenus.lead": {
+      "fr": "Un message avec un menu déroulant où les membres choisissent eux-mêmes leurs rôles, par exemple leur rang. Chaque menu s'enregistre à part, puis se publie dans son salon.",
+      "text": "Un mensaje con un menú desplegable donde los miembros eligen ellos mismos sus roles, por ejemplo su rango. Cada menú se guarda por separado y luego se publica en su canal."
+    },
+    "pages.botUI.roleMenus.empty": {
+      "fr": "Aucun menu pour l'instant.",
+      "text": "Todavía no hay ningún menú."
+    },
+    "pages.botUI.roleMenus.new": {
+      "fr": "Nouveau menu",
+      "text": "Nuevo menú"
+    },
+    "pages.botUI.roleMenus.editing": {
+      "fr": "Modifier « {title} »",
+      "text": "Editar «{title}»"
+    },
+    "pages.botUI.roleMenus.help": {
+      "fr": "Le bot donne et retire ces rôles avec la permission Gérer les rôles, seulement s'ils sont sous son propre rôle, sans permission de modération, et si le gestionnaire qui a configuré le menu pourrait les donner lui-même.",
+      "text": "El bot da y quita estos roles con el permiso Gestionar roles, solo si están por debajo de su propio rol, sin permisos de moderación, y si el gestor que configuró el menú podría darlos él mismo."
+    },
+    "pages.botUI.roleMenus.edit": {
+      "fr": "Modifier",
+      "text": "Editar"
+    },
+    "pages.botUI.roleMenus.delete": {
+      "fr": "Supprimer",
+      "text": "Eliminar"
+    },
+    "pages.botUI.roleMenus.deleteConfirm": {
+      "fr": "Supprimer le menu « {title} » et son message sur Discord ?",
+      "text": "¿Eliminar el menú «{title}» y su mensaje en Discord?"
+    },
+    "pages.botUI.roleMenus.deleted": {
+      "fr": "Menu supprimé.",
+      "text": "Menú eliminado."
+    },
+    "pages.botUI.roleMenus.deleteFailed": {
+      "fr": "La suppression a échoué. Réessayez.",
+      "text": "No se ha podido eliminar. Inténtalo de nuevo."
+    },
+    "pages.botUI.roleMenus.publish": {
+      "fr": "Publier le message",
+      "text": "Publicar el mensaje"
+    },
+    "pages.botUI.roleMenus.update": {
+      "fr": "Mettre à jour le message",
+      "text": "Actualizar el mensaje"
+    },
+    "pages.botUI.roleMenus.publishing": {
+      "fr": "Publication…",
+      "text": "Publicando…"
+    },
+    "pages.botUI.roleMenus.published": {
+      "fr": "Message publié dans #{channel}.",
+      "text": "Mensaje publicado en #{channel}."
+    },
+    "pages.botUI.roleMenus.publishErrors.channel_not_available": {
+      "fr": "Le bot ne peut pas écrire dans ce salon : vérifiez ses permissions Voir le salon, Envoyer des messages et Intégrer des liens, ou choisissez un autre salon.",
+      "text": "El bot no puede escribir en este canal: revisa sus permisos Ver canal, Enviar mensajes e Insertar enlaces, o elige otro canal."
+    },
+    "pages.botUI.roleMenus.publishErrors.missing_permissions": {
+      "fr": "Discord a refusé : le bot n'a plus les permissions nécessaires dans ce salon (Voir le salon, Envoyer des messages, Intégrer des liens).",
+      "text": "Discord lo ha rechazado: el bot ya no tiene los permisos necesarios en este canal (Ver canal, Enviar mensajes, Insertar enlaces)."
+    },
+    "pages.botUI.roleMenus.publishErrors.invalid_menu": {
+      "fr": "Discord a refusé le message : un emoji du menu a peut-être été supprimé. Modifiez le menu, puis publiez-le.",
+      "text": "Discord ha rechazado el mensaje: puede que se haya eliminado un emoji del menú. Edita el menú y vuelve a publicarlo."
+    },
+    "pages.botUI.roleMenus.publishErrors.rolesUnavailable": {
+      "fr": "Un rôle du menu ne peut plus être donné par le bot (supprimé, au-dessus de son rôle ou avec des permissions de modération) : modifiez le menu.",
+      "text": "El bot ya no puede dar un rol del menú (eliminado, por encima de su rol o con permisos de moderación): edita el menú."
+    },
+    "pages.botUI.roleMenus.publishErrors.rateLimited": {
+      "fr": "Trop de publications d'affilée : patientez une minute.",
+      "text": "Demasiadas publicaciones seguidas: espera un minuto."
+    },
+    "pages.botUI.roleMenus.publishErrors.failed": {
+      "fr": "La publication a échoué. Réessayez.",
+      "text": "No se ha podido publicar. Inténtalo de nuevo."
+    },
+    "pages.botUI.roleMenus.statusPublished": {
+      "fr": "Publié dans #{channel}",
+      "text": "Publicado en #{channel}"
+    },
+    "pages.botUI.roleMenus.statusDraft": {
+      "fr": "Pas encore publié",
+      "text": "Aún no publicado"
+    },
+    "pages.botUI.roleMenus.statusChanged": {
+      "fr": "Modifications non publiées",
+      "text": "Cambios sin publicar"
+    },
+    "pages.botUI.roleMenus.modes.single": {
+      "fr": "Un seul rôle",
+      "text": "Un solo rol"
+    },
+    "pages.botUI.roleMenus.modes.multiple": {
+      "fr": "Plusieurs rôles",
+      "text": "Varios roles"
+    },
+    "pages.botUI.roleMenus.modeHelp.single": {
+      "fr": "Choisir un rôle retire les autres rôles du menu : idéal pour les rangs.",
+      "text": "Elegir un rol quita los demás roles del menú: ideal para los rangos."
+    },
+    "pages.botUI.roleMenus.modeHelp.multiple": {
+      "fr": "Chaque choix ajoute le rôle, ou le retire si le membre l'a déjà.",
+      "text": "Cada elección añade el rol, o lo quita si el miembro ya lo tiene."
+    },
+    "pages.botUI.roleMenus.mode": {
+      "fr": "Type de menu",
+      "text": "Tipo de menú"
+    },
+    "pages.botUI.roleMenus.roleCount": {
+      "fr": "Rôles : {count}",
+      "text": "Roles: {count}"
+    },
+    "pages.botUI.roleMenus.channel": {
+      "fr": "Salon",
+      "text": "Canal"
+    },
+    "pages.botUI.roleMenus.chooseChannel": {
+      "fr": "Choisir un salon",
+      "text": "Elige un canal"
+    },
+    "pages.botUI.roleMenus.titleLabel": {
+      "fr": "Titre",
+      "text": "Título"
+    },
+    "pages.botUI.roleMenus.titlePlaceholder": {
+      "fr": "Choisis ton rang",
+      "text": "Elige tu rango"
+    },
+    "pages.botUI.roleMenus.description": {
+      "fr": "Texte",
+      "text": "Texto"
+    },
+    "pages.botUI.roleMenus.descriptionHelp": {
+      "fr": "Facultatif, 1 000 caractères au plus. Vide : une phrase par défaut, dans la langue du serveur.",
+      "text": "Opcional, 1.000 caracteres como máximo. Vacío: una frase por defecto, en el idioma del servidor."
+    },
+    "pages.botUI.roleMenus.options": {
+      "fr": "Rôles du menu ({count}/{max})",
+      "text": "Roles del menú ({count}/{max})"
+    },
+    "pages.botUI.roleMenus.optionsList": {
+      "fr": "Rôles du menu",
+      "text": "Roles del menú"
+    },
+    "pages.botUI.roleMenus.optionsHelp": {
+      "fr": "Le libellé et l'emoji s'affichent dans le menu. Quand un emoji du serveur porte le nom du rôle (rank_legend pour Legend), il est choisi d'office.",
+      "text": "La etiqueta y el emoji se muestran en el menú. Cuando un emoji del servidor lleva el nombre del rol (rank_legend para Legend), se elige automáticamente."
+    },
+    "pages.botUI.roleMenus.addRole": {
+      "fr": "Ajouter un rôle…",
+      "text": "Añadir un rol…"
+    },
+    "pages.botUI.roleMenus.label": {
+      "fr": "Libellé",
+      "text": "Etiqueta"
+    },
+    "pages.botUI.roleMenus.emoji": {
+      "fr": "Emoji",
+      "text": "Emoji"
+    },
+    "pages.botUI.roleMenus.noEmoji": {
+      "fr": "Sans emoji",
+      "text": "Sin emoji"
+    },
+    "pages.botUI.roleMenus.unicodeEmoji": {
+      "fr": "Autre emoji (Unicode)…",
+      "text": "Otro emoji (Unicode)…"
+    },
+    "pages.botUI.roleMenus.unicodePlaceholder": {
+      "fr": "Collez un emoji",
+      "text": "Pega un emoji"
+    },
+    "pages.botUI.roleMenus.moveUp": {
+      "fr": "Monter",
+      "text": "Subir"
+    },
+    "pages.botUI.roleMenus.moveDown": {
+      "fr": "Descendre",
+      "text": "Bajar"
+    },
+    "pages.botUI.roleMenus.remove": {
+      "fr": "Retirer",
+      "text": "Quitar"
+    },
+    "pages.botUI.roleMenus.save": {
+      "fr": "Enregistrer le menu",
+      "text": "Guardar el menú"
+    },
+    "pages.botUI.roleMenus.cancel": {
+      "fr": "Annuler",
+      "text": "Cancelar"
+    },
+    "pages.botUI.roleMenus.saved": {
+      "fr": "Menu enregistré. Publiez-le pour mettre à jour le message sur Discord.",
+      "text": "Menú guardado. Publícalo para actualizar el mensaje en Discord."
+    },
+    "pages.botUI.roleMenus.saveFailed": {
+      "fr": "L'enregistrement a échoué. Vérifiez le menu et réessayez.",
+      "text": "No se ha podido guardar. Revisa el menú e inténtalo de nuevo."
+    },
+    "pages.botUI.roleMenus.notGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "No puedes dar tú mismo uno de estos roles (permiso Gestionar roles, rol por encima del tuyo): el bot no lo dará en tu lugar."
+    },
+    "pages.botUI.roleMenus.tooMany": {
+      "fr": "Ce serveur a déjà 10 menus, le maximum.",
+      "text": "Este servidor ya tiene 10 menús, el máximo."
+    },
+    "pages.botUI.roleMenus.paused": {
+      "fr": "Le gestionnaire qui a configuré ce menu ne peut plus donner certains de ses rôles : les membres reçoivent une erreur. Enregistrez le menu vous-même pour le reprendre (il faut pouvoir donner ses rôles).",
+      "text": "El gestor que configuró este menú ya no puede dar algunos de sus roles: los miembros reciben un error. Guarda tú el menú para retomarlo (necesitas poder dar sus roles)."
+    },
+    "pages.botUI.roleMenus.roleProblem": {
+      "fr": "Certains rôles de ce menu ne peuvent plus être donnés (supprimés, au-dessus du bot ou avec des permissions de modération) : modifiez le menu.",
+      "text": "Algunos roles de este menú ya no se pueden dar (eliminados, por encima del bot o con permisos de moderación): edita el menú."
+    },
+    "pages.botUI.roleMenus.deletedRole": {
+      "fr": "rôle supprimé",
+      "text": "rol eliminado"
+    },
+    "pages.botUI.roleMenus.preview": {
+      "fr": "Aperçu",
+      "text": "Vista previa"
+    },
+    "pages.botUI.roleMenus.previewDefaultSingle": {
+      "fr": "Choisis ton rôle dans le menu ci-dessous. En choisir un autre le remplace.",
+      "text": "Elige tu rol en el menú de abajo. Elegir otro lo reemplaza."
+    },
+    "pages.botUI.roleMenus.previewDefaultMultiple": {
+      "fr": "Choisis tes rôles dans le menu ci-dessous. Choisir un rôle que tu as déjà le retire.",
+      "text": "Elige tus roles en el menú de abajo. Elegir un rol que ya tienes lo quita."
+    },
+    "pages.botUI.roleMenus.placeholderSingle": {
+      "fr": "Choisis ton rôle",
+      "text": "Elige tu rol"
+    },
+    "pages.botUI.roleMenus.placeholderMultiple": {
+      "fr": "Choisis tes rôles",
+      "text": "Elige tus roles"
+    },
+    "pages.botUI.roleMenus.clearSingle": {
+      "fr": "Retirer mon rôle",
+      "text": "Quitar mi rol"
+    },
+    "pages.botUI.roleMenus.clearMultiple": {
+      "fr": "Retirer mes rôles",
+      "text": "Quitar mis roles"
+    },
+    "pages.botUI.roleMenus.required": {
+      "fr": "Choisissez un salon, un titre et au moins un rôle, chacun avec un libellé.",
+      "text": "Elige un canal, un título y al menos un rol, cada uno con una etiqueta."
+    },
+    "pages.botPrivacy.roleMenus": {
+      "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
+      "text": "Menús de roles: de cada menú se guardan el canal, el título, el texto, los roles con sus etiquetas y emojis, el identificador del mensaje publicado y el identificador de Discord del gestor que lo configuró. Cuando un miembro lo usa, el bot le da o le quita el rol y no guarda nada sobre él, salvo un contador en memoria de unos segundos que limita los cambios demasiado seguidos."
     }
   },
   "id": {
@@ -5435,6 +5963,270 @@
     "pages.apiDoc.routes.spells.localeParam": {
       "fr": "Langue des textes (anglais par défaut)",
       "text": "Bahasa teks (bahasa Inggris secara default)"
+    },
+    "pages.botUI.roleMenus.title": {
+      "fr": "Menus de rôles",
+      "text": "Menu role"
+    },
+    "pages.botUI.roleMenus.lead": {
+      "fr": "Un message avec un menu déroulant où les membres choisissent eux-mêmes leurs rôles, par exemple leur rang. Chaque menu s'enregistre à part, puis se publie dans son salon.",
+      "text": "Pesan dengan menu tarik-turun tempat anggota memilih role mereka sendiri, misalnya rank mereka. Setiap menu disimpan sendiri, lalu diterbitkan di channel-nya."
+    },
+    "pages.botUI.roleMenus.empty": {
+      "fr": "Aucun menu pour l'instant.",
+      "text": "Belum ada menu."
+    },
+    "pages.botUI.roleMenus.new": {
+      "fr": "Nouveau menu",
+      "text": "Menu baru"
+    },
+    "pages.botUI.roleMenus.editing": {
+      "fr": "Modifier « {title} »",
+      "text": "Ubah “{title}”"
+    },
+    "pages.botUI.roleMenus.help": {
+      "fr": "Le bot donne et retire ces rôles avec la permission Gérer les rôles, seulement s'ils sont sous son propre rôle, sans permission de modération, et si le gestionnaire qui a configuré le menu pourrait les donner lui-même.",
+      "text": "Bot memberi dan melepas role ini dengan izin Kelola Role, hanya jika role tersebut di bawah role bot, tanpa izin moderasi, dan jika pengelola yang mengatur menu bisa memberikannya sendiri."
+    },
+    "pages.botUI.roleMenus.edit": {
+      "fr": "Modifier",
+      "text": "Ubah"
+    },
+    "pages.botUI.roleMenus.delete": {
+      "fr": "Supprimer",
+      "text": "Hapus"
+    },
+    "pages.botUI.roleMenus.deleteConfirm": {
+      "fr": "Supprimer le menu « {title} » et son message sur Discord ?",
+      "text": "Hapus menu “{title}” beserta pesannya di Discord?"
+    },
+    "pages.botUI.roleMenus.deleted": {
+      "fr": "Menu supprimé.",
+      "text": "Menu dihapus."
+    },
+    "pages.botUI.roleMenus.deleteFailed": {
+      "fr": "La suppression a échoué. Réessayez.",
+      "text": "Gagal menghapus. Coba lagi."
+    },
+    "pages.botUI.roleMenus.publish": {
+      "fr": "Publier le message",
+      "text": "Terbitkan pesan"
+    },
+    "pages.botUI.roleMenus.update": {
+      "fr": "Mettre à jour le message",
+      "text": "Perbarui pesan"
+    },
+    "pages.botUI.roleMenus.publishing": {
+      "fr": "Publication…",
+      "text": "Menerbitkan…"
+    },
+    "pages.botUI.roleMenus.published": {
+      "fr": "Message publié dans #{channel}.",
+      "text": "Pesan diterbitkan di #{channel}."
+    },
+    "pages.botUI.roleMenus.publishErrors.channel_not_available": {
+      "fr": "Le bot ne peut pas écrire dans ce salon : vérifiez ses permissions Voir le salon, Envoyer des messages et Intégrer des liens, ou choisissez un autre salon.",
+      "text": "Bot tidak bisa mengirim pesan di channel ini: periksa izin Lihat Channel, Kirim Pesan, dan Sematkan Tautan, atau pilih channel lain."
+    },
+    "pages.botUI.roleMenus.publishErrors.missing_permissions": {
+      "fr": "Discord a refusé : le bot n'a plus les permissions nécessaires dans ce salon (Voir le salon, Envoyer des messages, Intégrer des liens).",
+      "text": "Discord menolak: bot tidak lagi punya izin yang dibutuhkan di channel ini (Lihat Channel, Kirim Pesan, Sematkan Tautan)."
+    },
+    "pages.botUI.roleMenus.publishErrors.invalid_menu": {
+      "fr": "Discord a refusé le message : un emoji du menu a peut-être été supprimé. Modifiez le menu, puis publiez-le.",
+      "text": "Discord menolak pesan: mungkin ada emoji menu yang sudah dihapus. Ubah menu, lalu terbitkan."
+    },
+    "pages.botUI.roleMenus.publishErrors.rolesUnavailable": {
+      "fr": "Un rôle du menu ne peut plus être donné par le bot (supprimé, au-dessus de son rôle ou avec des permissions de modération) : modifiez le menu.",
+      "text": "Ada role di menu yang tidak bisa lagi diberikan bot (dihapus, di atas role bot, atau punya izin moderasi): ubah menu."
+    },
+    "pages.botUI.roleMenus.publishErrors.rateLimited": {
+      "fr": "Trop de publications d'affilée : patientez une minute.",
+      "text": "Terlalu banyak penerbitan berturut-turut: tunggu satu menit."
+    },
+    "pages.botUI.roleMenus.publishErrors.failed": {
+      "fr": "La publication a échoué. Réessayez.",
+      "text": "Gagal menerbitkan. Coba lagi."
+    },
+    "pages.botUI.roleMenus.statusPublished": {
+      "fr": "Publié dans #{channel}",
+      "text": "Diterbitkan di #{channel}"
+    },
+    "pages.botUI.roleMenus.statusDraft": {
+      "fr": "Pas encore publié",
+      "text": "Belum diterbitkan"
+    },
+    "pages.botUI.roleMenus.statusChanged": {
+      "fr": "Modifications non publiées",
+      "text": "Perubahan belum diterbitkan"
+    },
+    "pages.botUI.roleMenus.modes.single": {
+      "fr": "Un seul rôle",
+      "text": "Satu role"
+    },
+    "pages.botUI.roleMenus.modes.multiple": {
+      "fr": "Plusieurs rôles",
+      "text": "Beberapa role"
+    },
+    "pages.botUI.roleMenus.modeHelp.single": {
+      "fr": "Choisir un rôle retire les autres rôles du menu : idéal pour les rangs.",
+      "text": "Memilih satu role melepas role lain di menu: cocok untuk rank."
+    },
+    "pages.botUI.roleMenus.modeHelp.multiple": {
+      "fr": "Chaque choix ajoute le rôle, ou le retire si le membre l'a déjà.",
+      "text": "Setiap pilihan menambahkan role, atau melepasnya jika anggota sudah punya."
+    },
+    "pages.botUI.roleMenus.mode": {
+      "fr": "Type de menu",
+      "text": "Jenis menu"
+    },
+    "pages.botUI.roleMenus.roleCount": {
+      "fr": "Rôles : {count}",
+      "text": "Role: {count}"
+    },
+    "pages.botUI.roleMenus.channel": {
+      "fr": "Salon",
+      "text": "Channel"
+    },
+    "pages.botUI.roleMenus.chooseChannel": {
+      "fr": "Choisir un salon",
+      "text": "Pilih channel"
+    },
+    "pages.botUI.roleMenus.titleLabel": {
+      "fr": "Titre",
+      "text": "Judul"
+    },
+    "pages.botUI.roleMenus.titlePlaceholder": {
+      "fr": "Choisis ton rang",
+      "text": "Pilih rank kamu"
+    },
+    "pages.botUI.roleMenus.description": {
+      "fr": "Texte",
+      "text": "Teks"
+    },
+    "pages.botUI.roleMenus.descriptionHelp": {
+      "fr": "Facultatif, 1 000 caractères au plus. Vide : une phrase par défaut, dans la langue du serveur.",
+      "text": "Opsional, paling banyak 1.000 karakter. Kosong: kalimat bawaan, dalam bahasa server."
+    },
+    "pages.botUI.roleMenus.options": {
+      "fr": "Rôles du menu ({count}/{max})",
+      "text": "Role di menu ({count}/{max})"
+    },
+    "pages.botUI.roleMenus.optionsList": {
+      "fr": "Rôles du menu",
+      "text": "Role di menu"
+    },
+    "pages.botUI.roleMenus.optionsHelp": {
+      "fr": "Le libellé et l'emoji s'affichent dans le menu. Quand un emoji du serveur porte le nom du rôle (rank_legend pour Legend), il est choisi d'office.",
+      "text": "Label dan emoji tampil di menu. Jika ada emoji server yang bernama sama dengan role (rank_legend untuk Legend), emoji itu langsung dipilih."
+    },
+    "pages.botUI.roleMenus.addRole": {
+      "fr": "Ajouter un rôle…",
+      "text": "Tambah role…"
+    },
+    "pages.botUI.roleMenus.label": {
+      "fr": "Libellé",
+      "text": "Label"
+    },
+    "pages.botUI.roleMenus.emoji": {
+      "fr": "Emoji",
+      "text": "Emoji"
+    },
+    "pages.botUI.roleMenus.noEmoji": {
+      "fr": "Sans emoji",
+      "text": "Tanpa emoji"
+    },
+    "pages.botUI.roleMenus.unicodeEmoji": {
+      "fr": "Autre emoji (Unicode)…",
+      "text": "Emoji lain (Unicode)…"
+    },
+    "pages.botUI.roleMenus.unicodePlaceholder": {
+      "fr": "Collez un emoji",
+      "text": "Tempel emoji"
+    },
+    "pages.botUI.roleMenus.moveUp": {
+      "fr": "Monter",
+      "text": "Naikkan"
+    },
+    "pages.botUI.roleMenus.moveDown": {
+      "fr": "Descendre",
+      "text": "Turunkan"
+    },
+    "pages.botUI.roleMenus.remove": {
+      "fr": "Retirer",
+      "text": "Lepas"
+    },
+    "pages.botUI.roleMenus.save": {
+      "fr": "Enregistrer le menu",
+      "text": "Simpan menu"
+    },
+    "pages.botUI.roleMenus.cancel": {
+      "fr": "Annuler",
+      "text": "Batal"
+    },
+    "pages.botUI.roleMenus.saved": {
+      "fr": "Menu enregistré. Publiez-le pour mettre à jour le message sur Discord.",
+      "text": "Menu disimpan. Terbitkan untuk memperbarui pesan di Discord."
+    },
+    "pages.botUI.roleMenus.saveFailed": {
+      "fr": "L'enregistrement a échoué. Vérifiez le menu et réessayez.",
+      "text": "Gagal menyimpan. Periksa menu dan coba lagi."
+    },
+    "pages.botUI.roleMenus.notGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "Kamu tidak bisa memberikan salah satu role ini sendiri (izin Kelola Role, role di atas role kamu): bot tidak akan memberikannya untukmu."
+    },
+    "pages.botUI.roleMenus.tooMany": {
+      "fr": "Ce serveur a déjà 10 menus, le maximum.",
+      "text": "Server ini sudah punya 10 menu, batas maksimal."
+    },
+    "pages.botUI.roleMenus.paused": {
+      "fr": "Le gestionnaire qui a configuré ce menu ne peut plus donner certains de ses rôles : les membres reçoivent une erreur. Enregistrez le menu vous-même pour le reprendre (il faut pouvoir donner ses rôles).",
+      "text": "Pengelola yang mengatur menu ini tidak bisa lagi memberikan sebagian role-nya: anggota mendapat pesan galat. Simpan menu ini sendiri untuk mengambil alih (kamu harus bisa memberikan role-nya)."
+    },
+    "pages.botUI.roleMenus.roleProblem": {
+      "fr": "Certains rôles de ce menu ne peuvent plus être donnés (supprimés, au-dessus du bot ou avec des permissions de modération) : modifiez le menu.",
+      "text": "Beberapa role di menu ini tidak bisa lagi diberikan (dihapus, di atas bot, atau punya izin moderasi): ubah menu."
+    },
+    "pages.botUI.roleMenus.deletedRole": {
+      "fr": "rôle supprimé",
+      "text": "role dihapus"
+    },
+    "pages.botUI.roleMenus.preview": {
+      "fr": "Aperçu",
+      "text": "Pratinjau"
+    },
+    "pages.botUI.roleMenus.previewDefaultSingle": {
+      "fr": "Choisis ton rôle dans le menu ci-dessous. En choisir un autre le remplace.",
+      "text": "Pilih role kamu di menu di bawah. Memilih role lain akan menggantinya."
+    },
+    "pages.botUI.roleMenus.previewDefaultMultiple": {
+      "fr": "Choisis tes rôles dans le menu ci-dessous. Choisir un rôle que tu as déjà le retire.",
+      "text": "Pilih role kamu di menu di bawah. Memilih role yang sudah kamu punya akan melepasnya."
+    },
+    "pages.botUI.roleMenus.placeholderSingle": {
+      "fr": "Choisis ton rôle",
+      "text": "Pilih role kamu"
+    },
+    "pages.botUI.roleMenus.placeholderMultiple": {
+      "fr": "Choisis tes rôles",
+      "text": "Pilih role-role kamu"
+    },
+    "pages.botUI.roleMenus.clearSingle": {
+      "fr": "Retirer mon rôle",
+      "text": "Lepas role saya"
+    },
+    "pages.botUI.roleMenus.clearMultiple": {
+      "fr": "Retirer mes rôles",
+      "text": "Lepas role-role saya"
+    },
+    "pages.botUI.roleMenus.required": {
+      "fr": "Choisissez un salon, un titre et au moins un rôle, chacun avec un libellé.",
+      "text": "Pilih channel, judul, dan minimal satu role, masing-masing dengan label."
+    },
+    "pages.botPrivacy.roleMenus": {
+      "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
+      "text": "Menu role: untuk setiap menu disimpan channel, judul, teks, role beserta label dan emoji-nya, ID pesan yang diterbitkan, dan ID Discord pengelola yang mengaturnya. Saat anggota memakainya, bot memberi atau melepas role dan tidak menyimpan apa pun tentang anggota itu, kecuali penghitung di memori selama beberapa detik untuk membatasi perubahan yang terlalu rapat."
     }
   },
   "it": {
@@ -6645,6 +7437,270 @@
     "pages.apiDoc.routes.spells.localeParam": {
       "fr": "Langue des textes (anglais par défaut)",
       "text": "Lingua dei testi (inglese per impostazione predefinita)"
+    },
+    "pages.botUI.roleMenus.title": {
+      "fr": "Menus de rôles",
+      "text": "Menu dei ruoli"
+    },
+    "pages.botUI.roleMenus.lead": {
+      "fr": "Un message avec un menu déroulant où les membres choisissent eux-mêmes leurs rôles, par exemple leur rang. Chaque menu s'enregistre à part, puis se publie dans son salon.",
+      "text": "Un messaggio con un menu a tendina in cui i membri scelgono da soli i propri ruoli, per esempio il loro rango. Ogni menu si salva a parte, poi si pubblica nel suo canale."
+    },
+    "pages.botUI.roleMenus.empty": {
+      "fr": "Aucun menu pour l'instant.",
+      "text": "Nessun menu per ora."
+    },
+    "pages.botUI.roleMenus.new": {
+      "fr": "Nouveau menu",
+      "text": "Nuovo menu"
+    },
+    "pages.botUI.roleMenus.editing": {
+      "fr": "Modifier « {title} »",
+      "text": "Modifica «{title}»"
+    },
+    "pages.botUI.roleMenus.help": {
+      "fr": "Le bot donne et retire ces rôles avec la permission Gérer les rôles, seulement s'ils sont sous son propre rôle, sans permission de modération, et si le gestionnaire qui a configuré le menu pourrait les donner lui-même.",
+      "text": "Il bot dà e toglie questi ruoli con il permesso Gestire i ruoli, solo se sono sotto il suo ruolo, senza permessi di moderazione, e se il gestore che ha configurato il menu potrebbe darli lui stesso."
+    },
+    "pages.botUI.roleMenus.edit": {
+      "fr": "Modifier",
+      "text": "Modifica"
+    },
+    "pages.botUI.roleMenus.delete": {
+      "fr": "Supprimer",
+      "text": "Elimina"
+    },
+    "pages.botUI.roleMenus.deleteConfirm": {
+      "fr": "Supprimer le menu « {title} » et son message sur Discord ?",
+      "text": "Eliminare il menu «{title}» e il suo messaggio su Discord?"
+    },
+    "pages.botUI.roleMenus.deleted": {
+      "fr": "Menu supprimé.",
+      "text": "Menu eliminato."
+    },
+    "pages.botUI.roleMenus.deleteFailed": {
+      "fr": "La suppression a échoué. Réessayez.",
+      "text": "L'eliminazione non è riuscita. Riprova."
+    },
+    "pages.botUI.roleMenus.publish": {
+      "fr": "Publier le message",
+      "text": "Pubblica il messaggio"
+    },
+    "pages.botUI.roleMenus.update": {
+      "fr": "Mettre à jour le message",
+      "text": "Aggiorna il messaggio"
+    },
+    "pages.botUI.roleMenus.publishing": {
+      "fr": "Publication…",
+      "text": "Pubblicazione…"
+    },
+    "pages.botUI.roleMenus.published": {
+      "fr": "Message publié dans #{channel}.",
+      "text": "Messaggio pubblicato in #{channel}."
+    },
+    "pages.botUI.roleMenus.publishErrors.channel_not_available": {
+      "fr": "Le bot ne peut pas écrire dans ce salon : vérifiez ses permissions Voir le salon, Envoyer des messages et Intégrer des liens, ou choisissez un autre salon.",
+      "text": "Il bot non può scrivere in questo canale: controlla i suoi permessi Visualizzare il canale, Inviare messaggi e Incorporare link, oppure scegli un altro canale."
+    },
+    "pages.botUI.roleMenus.publishErrors.missing_permissions": {
+      "fr": "Discord a refusé : le bot n'a plus les permissions nécessaires dans ce salon (Voir le salon, Envoyer des messages, Intégrer des liens).",
+      "text": "Discord ha rifiutato: il bot non ha più i permessi necessari in questo canale (Visualizzare il canale, Inviare messaggi, Incorporare link)."
+    },
+    "pages.botUI.roleMenus.publishErrors.invalid_menu": {
+      "fr": "Discord a refusé le message : un emoji du menu a peut-être été supprimé. Modifiez le menu, puis publiez-le.",
+      "text": "Discord ha rifiutato il messaggio: forse un emoji del menu è stato eliminato. Modifica il menu, poi pubblicalo."
+    },
+    "pages.botUI.roleMenus.publishErrors.rolesUnavailable": {
+      "fr": "Un rôle du menu ne peut plus être donné par le bot (supprimé, au-dessus de son rôle ou avec des permissions de modération) : modifiez le menu.",
+      "text": "Un ruolo del menu non può più essere dato dal bot (eliminato, sopra il suo ruolo o con permessi di moderazione): modifica il menu."
+    },
+    "pages.botUI.roleMenus.publishErrors.rateLimited": {
+      "fr": "Trop de publications d'affilée : patientez une minute.",
+      "text": "Troppe pubblicazioni di fila: attendi un minuto."
+    },
+    "pages.botUI.roleMenus.publishErrors.failed": {
+      "fr": "La publication a échoué. Réessayez.",
+      "text": "La pubblicazione non è riuscita. Riprova."
+    },
+    "pages.botUI.roleMenus.statusPublished": {
+      "fr": "Publié dans #{channel}",
+      "text": "Pubblicato in #{channel}"
+    },
+    "pages.botUI.roleMenus.statusDraft": {
+      "fr": "Pas encore publié",
+      "text": "Non ancora pubblicato"
+    },
+    "pages.botUI.roleMenus.statusChanged": {
+      "fr": "Modifications non publiées",
+      "text": "Modifiche non pubblicate"
+    },
+    "pages.botUI.roleMenus.modes.single": {
+      "fr": "Un seul rôle",
+      "text": "Un solo ruolo"
+    },
+    "pages.botUI.roleMenus.modes.multiple": {
+      "fr": "Plusieurs rôles",
+      "text": "Più ruoli"
+    },
+    "pages.botUI.roleMenus.modeHelp.single": {
+      "fr": "Choisir un rôle retire les autres rôles du menu : idéal pour les rangs.",
+      "text": "Scegliere un ruolo toglie gli altri ruoli del menu: ideale per i ranghi."
+    },
+    "pages.botUI.roleMenus.modeHelp.multiple": {
+      "fr": "Chaque choix ajoute le rôle, ou le retire si le membre l'a déjà.",
+      "text": "Ogni scelta aggiunge il ruolo, o lo toglie se il membro ce l'ha già."
+    },
+    "pages.botUI.roleMenus.mode": {
+      "fr": "Type de menu",
+      "text": "Tipo di menu"
+    },
+    "pages.botUI.roleMenus.roleCount": {
+      "fr": "Rôles : {count}",
+      "text": "Ruoli: {count}"
+    },
+    "pages.botUI.roleMenus.channel": {
+      "fr": "Salon",
+      "text": "Canale"
+    },
+    "pages.botUI.roleMenus.chooseChannel": {
+      "fr": "Choisir un salon",
+      "text": "Scegli un canale"
+    },
+    "pages.botUI.roleMenus.titleLabel": {
+      "fr": "Titre",
+      "text": "Titolo"
+    },
+    "pages.botUI.roleMenus.titlePlaceholder": {
+      "fr": "Choisis ton rang",
+      "text": "Scegli il tuo rango"
+    },
+    "pages.botUI.roleMenus.description": {
+      "fr": "Texte",
+      "text": "Testo"
+    },
+    "pages.botUI.roleMenus.descriptionHelp": {
+      "fr": "Facultatif, 1 000 caractères au plus. Vide : une phrase par défaut, dans la langue du serveur.",
+      "text": "Facoltativo, al massimo 1.000 caratteri. Vuoto: una frase predefinita, nella lingua del server."
+    },
+    "pages.botUI.roleMenus.options": {
+      "fr": "Rôles du menu ({count}/{max})",
+      "text": "Ruoli del menu ({count}/{max})"
+    },
+    "pages.botUI.roleMenus.optionsList": {
+      "fr": "Rôles du menu",
+      "text": "Ruoli del menu"
+    },
+    "pages.botUI.roleMenus.optionsHelp": {
+      "fr": "Le libellé et l'emoji s'affichent dans le menu. Quand un emoji du serveur porte le nom du rôle (rank_legend pour Legend), il est choisi d'office.",
+      "text": "L'etichetta e l'emoji compaiono nel menu. Quando un emoji del server ha il nome del ruolo (rank_legend per Legend), viene scelto in automatico."
+    },
+    "pages.botUI.roleMenus.addRole": {
+      "fr": "Ajouter un rôle…",
+      "text": "Aggiungi un ruolo…"
+    },
+    "pages.botUI.roleMenus.label": {
+      "fr": "Libellé",
+      "text": "Etichetta"
+    },
+    "pages.botUI.roleMenus.emoji": {
+      "fr": "Emoji",
+      "text": "Emoji"
+    },
+    "pages.botUI.roleMenus.noEmoji": {
+      "fr": "Sans emoji",
+      "text": "Nessun emoji"
+    },
+    "pages.botUI.roleMenus.unicodeEmoji": {
+      "fr": "Autre emoji (Unicode)…",
+      "text": "Altro emoji (Unicode)…"
+    },
+    "pages.botUI.roleMenus.unicodePlaceholder": {
+      "fr": "Collez un emoji",
+      "text": "Incolla un emoji"
+    },
+    "pages.botUI.roleMenus.moveUp": {
+      "fr": "Monter",
+      "text": "Sposta su"
+    },
+    "pages.botUI.roleMenus.moveDown": {
+      "fr": "Descendre",
+      "text": "Sposta giù"
+    },
+    "pages.botUI.roleMenus.remove": {
+      "fr": "Retirer",
+      "text": "Rimuovi"
+    },
+    "pages.botUI.roleMenus.save": {
+      "fr": "Enregistrer le menu",
+      "text": "Salva il menu"
+    },
+    "pages.botUI.roleMenus.cancel": {
+      "fr": "Annuler",
+      "text": "Annulla"
+    },
+    "pages.botUI.roleMenus.saved": {
+      "fr": "Menu enregistré. Publiez-le pour mettre à jour le message sur Discord.",
+      "text": "Menu salvato. Pubblicalo per aggiornare il messaggio su Discord."
+    },
+    "pages.botUI.roleMenus.saveFailed": {
+      "fr": "L'enregistrement a échoué. Vérifiez le menu et réessayez.",
+      "text": "Il salvataggio non è riuscito. Controlla il menu e riprova."
+    },
+    "pages.botUI.roleMenus.notGrantable": {
+      "fr": "Vous ne pouvez pas donner l'un de ces rôles vous-même (permission Gérer les rôles, rôle au-dessus du vôtre) : le bot ne le donnera pas à votre place.",
+      "text": "Non puoi dare tu stesso uno di questi ruoli (permesso Gestire i ruoli, ruolo sopra il tuo): il bot non lo darà al posto tuo."
+    },
+    "pages.botUI.roleMenus.tooMany": {
+      "fr": "Ce serveur a déjà 10 menus, le maximum.",
+      "text": "Questo server ha già 10 menu, il massimo."
+    },
+    "pages.botUI.roleMenus.paused": {
+      "fr": "Le gestionnaire qui a configuré ce menu ne peut plus donner certains de ses rôles : les membres reçoivent une erreur. Enregistrez le menu vous-même pour le reprendre (il faut pouvoir donner ses rôles).",
+      "text": "Il gestore che ha configurato questo menu non può più dare alcuni dei suoi ruoli: i membri ricevono un errore. Salva tu il menu per riprenderlo (devi poter dare i suoi ruoli)."
+    },
+    "pages.botUI.roleMenus.roleProblem": {
+      "fr": "Certains rôles de ce menu ne peuvent plus être donnés (supprimés, au-dessus du bot ou avec des permissions de modération) : modifiez le menu.",
+      "text": "Alcuni ruoli di questo menu non possono più essere dati (eliminati, sopra il bot o con permessi di moderazione): modifica il menu."
+    },
+    "pages.botUI.roleMenus.deletedRole": {
+      "fr": "rôle supprimé",
+      "text": "ruolo eliminato"
+    },
+    "pages.botUI.roleMenus.preview": {
+      "fr": "Aperçu",
+      "text": "Anteprima"
+    },
+    "pages.botUI.roleMenus.previewDefaultSingle": {
+      "fr": "Choisis ton rôle dans le menu ci-dessous. En choisir un autre le remplace.",
+      "text": "Scegli il tuo ruolo nel menu qui sotto. Sceglierne un altro lo sostituisce."
+    },
+    "pages.botUI.roleMenus.previewDefaultMultiple": {
+      "fr": "Choisis tes rôles dans le menu ci-dessous. Choisir un rôle que tu as déjà le retire.",
+      "text": "Scegli i tuoi ruoli nel menu qui sotto. Scegliere un ruolo che hai già lo rimuove."
+    },
+    "pages.botUI.roleMenus.placeholderSingle": {
+      "fr": "Choisis ton rôle",
+      "text": "Scegli il tuo ruolo"
+    },
+    "pages.botUI.roleMenus.placeholderMultiple": {
+      "fr": "Choisis tes rôles",
+      "text": "Scegli i tuoi ruoli"
+    },
+    "pages.botUI.roleMenus.clearSingle": {
+      "fr": "Retirer mon rôle",
+      "text": "Rimuovi il mio ruolo"
+    },
+    "pages.botUI.roleMenus.clearMultiple": {
+      "fr": "Retirer mes rôles",
+      "text": "Rimuovi i miei ruoli"
+    },
+    "pages.botUI.roleMenus.required": {
+      "fr": "Choisissez un salon, un titre et au moins un rôle, chacun avec un libellé.",
+      "text": "Scegli un canale, un titolo e almeno un ruolo, ognuno con un'etichetta."
+    },
+    "pages.botPrivacy.roleMenus": {
+      "fr": "Menus de rôles : le serveur enregistre pour chaque menu son salon, son titre, son texte, ses rôles avec leurs libellés et emojis, l'identifiant du message publié et l'identifiant Discord du gestionnaire qui l'a configuré. Quand un membre s'en sert, le bot lui donne ou retire le rôle et ne conserve rien sur lui, hormis un compteur en mémoire de quelques secondes qui limite les changements trop rapprochés.",
+      "text": "Menu dei ruoli: per ogni menu vengono conservati il canale, il titolo, il testo, i ruoli con etichette ed emoji, l'identificativo del messaggio pubblicato e l'identificativo Discord del gestore che l'ha configurato. Quando un membro lo usa, il bot gli dà o toglie il ruolo e non conserva nulla su di lui, salvo un contatore in memoria di pochi secondi che limita i cambi troppo ravvicinati."
     }
   }
 }

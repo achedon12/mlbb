@@ -70,6 +70,7 @@ plus a daily hero-guessing game for your community.
   puzzle as on mlbbdex.com, with a server leaderboard and an optional daily post.
 - 👋 **Welcome and goodbye messages**, raid-safe (one message for a burst, not a flood).
 - 🎭 **Auto-roles** (optional): roles for new members and for bots, only ones the manager could give.
+- 🏅 **Role menus** (optional): a message where members pick their own roles, their rank for instance (one at a time or several), with your server's emojis.
 - 🧰 **Tools**: stylish nickname generator (21 fonts), server time and reset countdowns.
 - 🔎 **Autocomplete everywhere** and "did you mean…?" when a name has a typo.
 
@@ -111,8 +112,8 @@ language; replies follow the language set for the server, or each member's own.
 - Only the permissions it uses. **No Administrator**, never reads your messages.
 - One privileged intent (Server Members), only for the welcome and goodbye messages
   and the auto-roles; nothing about your members is stored.
-- Auto-roles need Manage Roles, which the invite does not ask for: you grant it
-  if you use them, and the bot never gives a role with moderation permissions.
+- Auto-roles and role menus need Manage Roles, which the invite does not ask for:
+  you grant it if you use them, and the bot never gives a role with moderation permissions.
 - Details: [mlbbdex.com/en/bot/privacy](https://mlbbdex.com/en/bot/privacy).
   Open source: [github.com/achedon12/mlbb](https://github.com/achedon12/mlbb).
 
@@ -221,9 +222,9 @@ https://discord.com/oauth2/authorize?client_id=1571083624789581834&permissions=2
 `tests/embeds.test.ts` checks that `INVITE_PERMISSIONS` (in `src/links.ts`)
 still equals this total.
 
-**Manage Roles is deliberately not in the invite.** Auto-roles need it: a
-server's admin who turns them on grants it to MLBBDex (Server Settings >
-Roles) and drags MLBBDex's role above the roles to give. The dashboard says
+**Manage Roles is deliberately not in the invite.** Auto-roles and role
+menus need it: a server's admin who turns them on grants it to MLBBDex
+(Server Settings > Roles) and drags MLBBDex's role above the roles to give. The dashboard says
 so when it is missing.
 
 ## Privileged intent

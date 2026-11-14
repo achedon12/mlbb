@@ -1,5 +1,5 @@
 import { db } from "@/lib/db";
-import { BotUnavailable, grantableRoles, mentionableRoles } from "@/lib/bot/client";
+import { BotUnavailable, grantableRoles, mentionableRoles, refreshGuildQuietly } from "@/lib/bot/client";
 import { answer, authorizeGuild, guardDashboard, refused } from "@/lib/bot/dashboard-guard";
 import {
   AUTO_ROLES_NOT_GRANTABLE,
@@ -61,6 +61,8 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
       db().guild.update({ where: { id }, data: { locale: checked.value.locale } }),
       db().guildSettings.upsert({ where: { guildId: id }, create: { guildId: id, ...row }, update: row }),
     ]);
+    // The bot applies the change now rather than when its cached copy expires.
+    await refreshGuildQuietly(gate.config, id);
     return answer(settingsView(id, checked.value.locale, settings));
   } catch (error) {
     if (error instanceof BotUnavailable) return refused(503, "bot unavailable");

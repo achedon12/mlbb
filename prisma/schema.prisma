@@ -29,6 +29,7 @@ model Guild {
 
   settings   GuildSettings?
   deliveries Delivery[]
+  roleMenus  RoleMenu[]
 
   @@index([leftAt])
   /// Joins per day, in the admin panel.
@@ -97,6 +98,37 @@ model GuildSettings {
 
   /// The hourly daily-post round reads one hour's servers only.
   @@index([dailyHourUtc])
+}
+
+/// A self-assign role menu: a message the bot posts in `channelId` (an
+/// embed, a select menu of the roles, a "remove my roles" button) for the
+/// members to pick their roles themselves. `mode`: "single" (picking one
+/// removes the menu's others: ranks) or "multiple". At most 10 per server.
+model RoleMenu {
+  id               Int       @id @default(autoincrement())
+  guildId          String    @db.VarChar(20)
+  guild            Guild     @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  channelId        String    @db.VarChar(20)
+  title            String    @db.VarChar(100)
+  description      String?   @db.VarChar(1000)
+  mode             String    @default("single") @db.VarChar(8)
+  /// `[{ roleId, label, emoji }]`, 1 to 25, in the menu's order; `emoji` a
+  /// unicode emoji or `<:name:id>` of the server, or null. Each role was
+  /// checked against what the bot and the saver may give when saved, and
+  /// is checked again by the bot before every change.
+  options          Json
+  /// Discord id of the manager who chose the roles. The bot gives only what
+  /// that person could give themselves (Manage Roles, roles below theirs, or
+  /// owner), checked again before every change.
+  configuredBy     String    @db.VarChar(20)
+  /// The message the bot posted, and its channel; null until published.
+  messageId        String?   @db.VarChar(20)
+  messageChannelId String?   @db.VarChar(20)
+  publishedAt      DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  @@index([guildId])
 }
 
 /// Something worth posting, detected in the site's own data. Unique by
