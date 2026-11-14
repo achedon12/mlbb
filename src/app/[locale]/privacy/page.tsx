@@ -34,6 +34,7 @@ export default async function PrivacyPage({ params }: Params) {
         extraToc={[
           { title: t("prose.push.title"), anchor: "notifications-push" },
           { title: t("prose.community.title"), anchor: "community" },
+          { title: t("prose.collection.title"), anchor: "skin-collection" },
           ...(botPublished() ? [{ title: t("prose.bot.title"), anchor: "discord-bot" }] : []),
         ]}
       >
@@ -61,6 +62,14 @@ export default async function PrivacyPage({ params }: Params) {
         </ul>
         <p>{t("prose.community.moderation")}</p>
         <p>{t("prose.community.deletion", { contact: legal.contact })}</p>
+        {/* Skin collection: in the browser, and on the account when signed in. */}
+        <h2 id="skin-collection">{t("prose.collection.title")}</h2>
+        <p>{t("prose.collection.intro")}</p>
+        <ul>
+          <li>{t("prose.collection.data")}</li>
+        </ul>
+        <p>{t("prose.collection.usage")}</p>
+        <p>{t("prose.collection.deletion", { contact: legal.contact })}</p>
         {/* Discord bot: described when it is deployed (its id is known at build time). */}
         {botPublished() && (
           <>

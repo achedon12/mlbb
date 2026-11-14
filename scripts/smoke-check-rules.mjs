@@ -355,6 +355,18 @@ export const API_LANES = ["Gold", "Jungle", "Mid", "Exp", "Roam"];
  */
 export const ENDPOINTS = [
   {
+    // The collection tool reads `available`, then `connected`: a visitor gets both as booleans.
+    path: "/api/collection",
+    type: "json",
+    check: (body) => {
+      if (!isObject(body)) return ["body is not a JSON object"];
+      const problems = [];
+      if (typeof body.available !== "boolean") problems.push(`"available" is ${JSON.stringify(body.available)}, expected a boolean`);
+      if (body.available && typeof body.connected !== "boolean") problems.push(`"connected" is ${JSON.stringify(body.connected)}, expected a boolean`);
+      return problems;
+    },
+  },
+  {
     path: "/api/health",
     type: "json",
     check: (body) => (isObject(body) ? [] : ["body is not a JSON object"]),

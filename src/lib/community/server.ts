@@ -35,6 +35,8 @@ export const accountLimits = {
   vote: limitByMinute(30),
   report: limitByMinute(10),
   card: limitByMinute(6),
+  /** Collection saves: debounced by the browser, so a few a minute at most while ticking. */
+  collection: limitByMinute(20),
 } as const;
 export type LimitKind = keyof typeof accountLimits;
 
