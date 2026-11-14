@@ -1126,6 +1126,15 @@
       "strategyPlanner": {
         "title": "Perencana strategi MLBB: papan taktik di atas peta",
         "description": "Papan taktik gratis di atas peta Mobile Legends: Bang Bang: letakkan hero kedua tim, Turtle, Lord, dan buff, gambar panah dan rotasi, tambahkan catatan, lalu bagikan rencananya lewat tautan atau gambar PNG. Tanpa daftar, dengan jari maupun mouse."
+      },
+      "freeRotation": {
+        "title": "Hero gratis minggu ini MLBB",
+        "description": "{n} hero gratis Mobile Legends untuk minggu {date}: {heroes}… Role, serta tautan ke build dan counter mereka.",
+        "descriptionEmpty": "Rotasi hero gratis Mobile Legends: cara kerjanya, tempat melihatnya di game, dan daftar minggu ini begitu dicatat."
+      },
+      "accountValue": {
+        "title": "Estimasi nilai akun MLBB",
+        "description": "Berapa biaya koleksi Mobile Legends kamu? Hitung skin per kategori ({skins} skin tercakup) dan dapatkan perkiraan kasar dalam diamond, USD, EUR, PHP, IDR, dan MYR, dengan metode yang ditampilkan."
       }
     },
     "freshness": {
@@ -1311,7 +1320,17 @@
         "row": "Win rate {tier} · {winRate}",
         "see": "Tier list {lane}"
       },
-      "method": "Metode: win rate, ban, dan seleksi yang dipublikasikan oleh game, dicatat pada {date}. Naik turunnya membandingkan win rate dengan tujuh hari sebelumnya, di semua peringkat; penyimpangan yang kurang dari {threshold} poin diabaikan."
+      "method": "Metode: win rate, ban, dan seleksi yang dipublikasikan oleh game, dicatat pada {date}. Naik turunnya membandingkan win rate dengan tujuh hari sebelumnya, di semua peringkat; penyimpangan yang kurang dari {threshold} poin diabaikan.",
+      "movers": {
+        "title": "Ban dan pick: siapa yang bergerak",
+        "lead": "Perubahan ban rate dan pick rate selama tujuh hari, semua rank digabung. Selisih di bawah {threshold} poin tidak dihitung.",
+        "banRate": "Ban rate",
+        "pickRate": "Pick rate",
+        "unit": {
+          "banRate": "% ban",
+          "pickRate": "% pick"
+        }
+      }
     },
     "statistics": {
       "title": "Statistik Hero",
@@ -1527,7 +1546,20 @@
       "sourcesTitle": "Sumber",
       "sourceServer": "Wiki Fandom, halaman “Waktu server”: waktu server, reset harian dan mingguan, waktu pembaruan",
       "sourceStarlight": "Wiki Fandom, halaman “StarLight”: Starlight baru pada tanggal 1 setiap bulan pukul 00:00 waktu server",
-      "sourcePatch": "Catatan Patch {v}: akhir musim {n} tertanggal pada waktu server"
+      "sourcePatch": "Patch notes {v}: tanggal season dalam waktu server",
+      "seasonsTitle": "Jadwal season ranked",
+      "seasonsCurrent": "Season {n} sedang berjalan.",
+      "seasonsBetween": "Tidak ada season ranked yang sedang berjalan.",
+      "seasonsNext": "Season {n} akan dimulai pada {date}.",
+      "seasonsNextUnknown": "Tanggal season berikutnya belum diumumkan.",
+      "seasonsCaption": "Awal dan akhir season ranked terbaru, dalam waktu server",
+      "colSeason": "Season",
+      "colStart": "Mulai",
+      "colEnd": "Berakhir",
+      "season": "Season {n}",
+      "live": "sedang berjalan",
+      "notAnnounced": "Belum diumumkan",
+      "seasonsNote": "Tanggal dalam waktu server (UTC−8), diambil dari patch notes dan dicek pada {date}. Satu season berlangsung sekitar tiga bulan, tetapi tidak ada tanggal yang diperkirakan: akhir yang belum diumumkan dibiarkan kosong."
     },
     "retribution": {
       "title": "Tes Retribution",
@@ -1970,7 +2002,8 @@
       "methodSkins": "Dari {skins} skin yang dapat Anda periksa, {diamonds} memiliki harga dalam berlian, {others} harga dalam mata uang lain (inti ajaib, permata, dll.) dan {unpriced} tidak ada harga di toko: StarLight, acara, undian, dan tiket. Ini diperhitungkan dalam kemajuanmu, bukan total berlianmu, dan bukannya diperkirakan secara acak.",
       "methodStorage": "Pilihan Anda tetap ada di browser ini (penyimpanan lokal): tidak ada yang dikirim ke server kami, dan tidak diperlukan akun. Harga adalah harga dari toko game yang dicantumkan oleh wiki komunitas; diskon dan paket tidak diperhitungkan.",
       "calendarLink": "Kalender Skin",
-      "skinsLink": "Semua skin"
+      "skinsLink": "Semua skin",
+      "accountValueLink": "Estimasi nilai akun"
     },
     "collectionUI": {
       "loading": "Memuat hero dan skin…",
@@ -4022,6 +4055,100 @@
       "linkCopied": "Tautan disalin: berisi seluruh rencana.",
       "linkShared": "Tautan dibagikan.",
       "linkError": "Gagal menyalin: salin alamat halaman ini."
+    },
+    "freeRotation": {
+      "title": "Hero gratis minggu ini",
+      "lead": "Setiap minggu, Mobile Legends meminjamkan beberapa hero kepada semua pemain. Daftarnya disalin manual dari game, dan tersembunyi sendiri saat sudah tidak terbaru.",
+      "teaser": "Hero gratis minggu ini: {n}",
+      "week": "Minggu {date}",
+      "updated": "Diperbarui {date}",
+      "listTitle": "Rotasi minggu ini",
+      "listLead": "{n} hero bisa dimainkan tanpa dimiliki sampai reset mingguan berikutnya.",
+      "source": "Sumber daftar",
+      "unavailableTitle": "Rotasi minggu ini belum tersedia",
+      "empty": "Belum ada daftar yang dicatat. Kami lebih memilih tidak menampilkan apa pun daripada menebak.",
+      "stale": "Daftar terakhir yang dicatat berasal dari minggu {date}: setelah {days} hari daftar itu tidak ditampilkan lagi, agar rotasi lama tidak dianggap rotasi minggu ini.",
+      "inGame": "Di dalam game, hero gratis minggu ini ditandai di daftar hero dan di layar pemilihan.",
+      "howTitle": "Cara kerja rotasi",
+      "how1": "Pilihan hero berganti setiap minggu, saat reset mingguan hari Senin pukul 00:00 waktu server. Hero pinjaman dimainkan seperti milik sendiri di mode non-ranked: kesempatan mencoba role atau hero sebelum membukanya.",
+      "how2": "Pertandingan ranked mengharuskan kamu memiliki hero tersebut. Sebelum membelinya, halaman hero menampilkan build, counter, dan win rate di patch saat ini.",
+      "heroesLink": "Semua hero",
+      "tierListLink": "Tier list patch ini",
+      "resetLink": "Waktu reset mingguan"
+    },
+    "accountValue": {
+      "title": "Estimasi nilai akun",
+      "lead": "Berapa biaya sebuah koleksi skin, dalam diamond dan uang, serta kisaran indikatif akun yang sebanding. Perkiraan kasar, bukan harga: metodenya dijelaskan di bawah alat.",
+      "warning": "Membeli, menjual, atau menukar akun melanggar ketentuan layanan Moonton: akun bisa diblokir atau diambil kembali oleh pemilik lamanya, dan penipuan sering terjadi. Estimasi ini mengukur biaya sebuah koleksi, bukan menentukan harga. Tidak ada yang dikirim ke server.",
+      "methodTitle": "Metodenya, angka demi angka",
+      "methodCost": "Setiap skin dihitung dengan biaya tipikal kategorinya. Untuk skin toko, itu adalah harga median dalam diamond dari skin di kategori tersebut, diambil dari data game. Skin dari draw atau pass tidak punya harga: skin itu memakai biaya rata-rata yang diperkirakan dan dibulatkan, yang sangat berbeda antar event dan antar pemain.",
+      "tableCaption": "Biaya yang dihitung per skin, per kategori",
+      "colTier": "Kategori",
+      "colSkins": "Skin",
+      "colCost": "Diamond per skin",
+      "colBasis": "Asal biaya",
+      "basisShop": "Harga median toko ({n} harga tercatat)",
+      "basisDraw": "Perkiraan biaya draw atau pass",
+      "methodMoney": "Diamond dikonversi ke dolar dengan harga top-up biasa, tanpa bonus top-up pertama: {usd} USD per diamond, atau {per100} USD per seratus. Diamond yang masih ada di akun ditambahkan ke total.",
+      "methodResale": "Kisaran jual kembali dimulai dari {low} sampai {high} dari biaya tersebut: akun jarang berpindah tangan seharga uang yang dihabiskan. Lalu dikalikan dengan empat faktor:",
+      "factorRank": "rank tertinggi yang dicapai, dari ×{low} (Warrior) sampai ×{high} (Mythical Immortal);",
+      "factorHeroes": "porsi hero yang dimiliki, dari ×{low} (tidak ada) sampai ×{high} (semua);",
+      "factorEmblems": "emblem di level maksimum, +{per} masing-masing, dari {n};",
+      "factorBinding": "binding akun: akun Moonton bisa dipindahkan, akun yang hanya terhubung ke media sosial dihitung ×{social}, dan akun tamu tanpa binding sama sekali tidak bisa dipindahkan.",
+      "methodLimits": "Jumlah dibulatkan ke dua angka penting. Tidak dihitung: hero itu sendiri, yang umumnya dibeli dengan battle point, skin terbatas satu server, kosmetik (efek, emote, frame), dan riwayat pertandingan. Pasar sesungguhnya juga tergantung permintaan saat itu, yang tidak diukur di sini.",
+      "ratesTitle": "Kurs mata uang",
+      "ratesLead": "Kurs tetap, dicatat pada {date} dan dibulatkan: untuk memberi gambaran kasar dalam mata uangmu, bukan konversi yang tepat.",
+      "ratesSource": "Sumber kurs",
+      "checked": "asumsi dicek pada {date}",
+      "methodPrivacy": "Perhitungan dilakukan di browser kamu. Angka yang kamu isi ditulis di alamat halaman agar hasilnya bisa dibagikan: tanpa nama, tanpa ID akun, tidak ada yang disimpan di server.",
+      "collectionLink": "Centang koleksimu skin demi skin"
+    },
+    "accountValueUI": {
+      "costTitle": "Perkiraan biaya koleksi",
+      "resaleTitle": "Kisaran indikatif akun yang sebanding",
+      "range": "{low} sampai {high}",
+      "resaleUnbound": "Akun tamu tanpa binding tidak bisa berpindah tangan: tidak ada kisaran.",
+      "resaleEmpty": "Isi skin atau diamond kamu untuk melihat kisaran.",
+      "currency": "Mata uang",
+      "indicative": "Perkiraan kasar yang dibulatkan, bukan harga. Kurs tetap per {date}. Metodenya dijelaskan di bawah.",
+      "share": "Bagikan hasil",
+      "reset": "Hapus semua",
+      "share_copied": "Tautan disalin.",
+      "share_shared": "Hasil dibagikan.",
+      "share_failed": "Gagal membagikan.",
+      "shareText": "Koleksi MLBB saya menghabiskan sekitar {cost}; akun yang sebanding: {low} sampai {high} (estimasi indikatif).",
+      "shareTextCost": "Koleksi MLBB saya menghabiskan sekitar {cost} (estimasi indikatif).",
+      "resultTitle": "Estimasi nilai akun MLBB saya",
+      "importLead": "Ada koleksi yang tersimpan di browser ini dari alat koleksi.",
+      "import": "Pakai koleksi saya",
+      "import_done": "Skin dan hero diambil dari koleksimu.",
+      "import_failed": "Katalog skin gagal dimuat. Coba lagi.",
+      "skinsTitle": "Skin kamu, per kategori",
+      "tier": {
+        "basic": "Basic",
+        "elite": "Elite",
+        "special": "Special",
+        "epic": "Epic",
+        "starlight": "StarLight",
+        "other": "Event dan musiman",
+        "collector": "Collector",
+        "grand": "Kolaborasi dan premium",
+        "legend": "Legend"
+      },
+      "costShop": "≈ {n} diamond per skin (toko)",
+      "costDraw": "≈ {n} diamond per skin (perkiraan draw)",
+      "accountTitle": "Akun kamu",
+      "rank": "Rank tertinggi yang dicapai",
+      "heroes": "Hero yang dimiliki",
+      "emblems": "Emblem level maksimum",
+      "diamonds": "Diamond di akun",
+      "diamondsHint": "Saldo saat ini, bukan yang sudah dibelanjakan.",
+      "binding": "Binding",
+      "bindingValue": {
+        "moonton": "Akun Moonton",
+        "social": "Hanya media sosial",
+        "none": "Tamu, tanpa binding"
+      }
     }
   },
   "modeSheet": {
@@ -4129,7 +4256,18 @@
       "ban": "Paling sering di-ban",
       "pick": "Paling sering dimainkan",
       "week": "Dalam tujuh hari",
-      "weekEmpty": "Tidak ada hero yang bergerak jelas minggu ini."
+      "weekEmpty": "Tidak ada hero yang bergerak jelas minggu ini.",
+      "moverRate": {
+        "winRate": "Win",
+        "banRate": "Ban",
+        "pickRate": "Pick"
+      },
+      "moverRateFull": {
+        "winRate": "Win rate",
+        "banRate": "Ban rate",
+        "pickRate": "Pick rate"
+      },
+      "moversAll": "Semua perubahan minggu ini"
     },
     "patch": {
       "title": "Yang diubah patch {version}",
@@ -5067,18 +5205,19 @@
       },
       "on": "Pada {date} ({zone})",
       "localTime": "waktu setempat",
-      "seasonEnd": "Season {n} berakhir pada {date} ({zone}), sesuai pengumuman di patch {v}.",
-      "seasonEndUnknown": "Belum diumumkan",
+      "seasonEnd": "Berakhir pada {date} ({zone}).",
+      "seasonEndUnknown": "Akhir season belum diumumkan",
       "seasonEndUnknownDetail": "Game ini mencantumkan tanggal akhir musim di patch notesnya. Hitung mundur akan muncul segera setelah tanggal muncul.",
       "yourPlace": "Di zona waktu Anda ({timezone}, {offset}), reset harian terjadi pukul {daily} dan reset mingguan pada {weekly}.",
       "countriesTitle": "Waktu reset per negara",
-      "countriesIntro": "Waktu lokal reset berikutnya di negara-negara yang paling banyak bermain di setiap bahasa situs. Tabel ini melacak waktu musim panas dan memperbaruinya secara langsung.",
+      "countriesIntro": "Waktu lokal reset berikutnya di negara-negara dengan pemain Mobile Legends terbanyak. Tabel mengikuti waktu musim panas dan diperbarui langsung.",
       "group": {
         "fr": "Negara berbahasa Prancis",
         "en": "Negara berbahasa Inggris",
         "it": "Negara berbahasa Italia",
         "es": "Negara berbahasa Spanyol",
-        "id": "Negara berbahasa Indonesia"
+        "id": "Negara berbahasa Indonesia",
+        "world": "Negara utama MLBB"
       },
       "legend": "Waktu reset lokal: {group}",
       "colCountry": "Negara",
@@ -5086,7 +5225,10 @@
       "colWeekly": "Mingguan",
       "colNow": "Waktu saat ini",
       "you": "Anda",
-      "countriesOpen": "Tampilkan waktu reset per negara"
+      "countriesOpen": "Tampilkan negara lain, menurut bahasa situs",
+      "seasonCurrent": "Season {n} sedang berjalan",
+      "seasonStart": "Season {n} dimulai pada {date} ({zone}).",
+      "seasonSince": "Dimulai pada {date}. Hitung mundur akan muncul begitu game mencantumkan tanggal akhir season di patch notes."
     },
     "retribution": {
       "objective": {

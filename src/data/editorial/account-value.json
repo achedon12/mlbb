@@ -1,0 +1,46 @@
+{
+  "$comment": "Assumptions of the account value estimator (/tools/account-value), written by hand: see docs/editorial-data.md. Every figure here is indicative and shown as such on the page. Shop skins are costed from the synced shop prices; only the tiers obtained through draws or passes, which have no shop price, take a cost from drawCost. Exchange rates are units of each currency for one US dollar, read on ratesDate.",
+  "checked": "2026-11-14",
+  "usdPerDiamond": 0.0194,
+  "usdPerDiamondNote": "257 diamonds for 4.99 USD, the usual top-up pack without first-purchase bonus.",
+  "drawCost": {
+    "starlight": 300,
+    "collector": 3500,
+    "grand": 3000,
+    "legend": 6000
+  },
+  "resale": {
+    "low": 0.1,
+    "high": 0.3,
+    "rank": {
+      "warrior": 0.9,
+      "elite": 0.9,
+      "master": 0.9,
+      "grandmaster": 0.95,
+      "epic": 1,
+      "legend": 1.05,
+      "mythic": 1.1,
+      "mythic-honor": 1.15,
+      "mythic-glory": 1.2,
+      "mythic-immortal": 1.3
+    },
+    "heroesMin": 0.9,
+    "heroesMax": 1.1,
+    "perEmblem": 0.02,
+    "binding": {
+      "moonton": 1,
+      "social": 0.85,
+      "none": 0
+    }
+  },
+  "ratesDate": "2026-11-01",
+  "ratesSource": "https://www.gov.uk/csv-preview/6ae4b56f3d3bf10d23546232/consular-exchange-rates-November-2026.csv",
+  "ratesNote": "EUR, IDR and MYR derived from the UK consular rates of November 2026 (per pound, divided by the dollar rate); PHP from a public market mid-rate, rounded.",
+  "rates": {
+    "USD": 1,
+    "EUR": 0.89,
+    "PHP": 58.5,
+    "IDR": 18100,
+    "MYR": 4.03
+  }
+}

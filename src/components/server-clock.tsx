@@ -10,15 +10,18 @@ import { useLocale, useT } from "@/i18n/provider";
 import { cn } from "@/lib/utils";
 import {
   SERVER_TIMEZONE,
+  COUNTRIES_WORLD,
   COUNTRY_BY_LOCALE,
+  currentSeason,
+  nextSeason,
   offsetTimezone,
   split,
   labelOffset,
-  nextEndSeason,
   nextResetWeekly,
   nextResetDaily,
   nextStarlight,
-  type EndSeason,
+  type CountryTimezone,
+  type Season,
 } from "@/lib/server-time";
 
 /**
@@ -94,7 +97,7 @@ function Countdown({ ms, days }: { ms: number; days: (n: number) => string }) {
   );
 }
 
-export function ServerClock({ reference, ends }: { reference: number; ends: EndSeason[] }) {
+export function ServerClock({ reference, seasons }: { reference: number; seasons: Season[] }) {
   const t = useT();
   const siteLocale = useLocale();
   const f = useFormats(siteLocale);
@@ -110,7 +113,8 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
     { key: "weekly", icon: CalendarClock, target: weekly },
     { key: "starlight", icon: Sparkles, target: nextStarlight(now) },
   ];
-  const endSeason = nextEndSeason(ends, now);
+  const season = currentSeason(seasons, now);
+  const upcoming = nextSeason(seasons, now);
   const zone = timezone ? t("tools.serverTime.localTime") : "UTC";
   const locales = [siteLocale, ...ORDER_LOCALES.filter((l) => l !== siteLocale)];
 
@@ -159,20 +163,26 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
             <Card className="h-full">
               <p className="flex items-center gap-2 text-sm font-semibold text-chalk-200">
                 <Trophy size={16} aria-hidden className="text-gold-400" />
-                {t("tools.serverTime.deadline.season")}
+                {season
+                  ? t("tools.serverTime.seasonCurrent", { n: season.season })
+                  : t("tools.serverTime.deadline.season")}
               </p>
-              {endSeason ? (
+              {season?.end ? (
                 <>
                   <p role="timer" className="mt-2 font-heading text-4xl font-bold text-chalk-100">
-                    <Countdown ms={endSeason.end - now} days={f.days} />
+                    <Countdown ms={season.end - now} days={f.days} />
                   </p>
                   <p className="mt-1 text-sm text-chalk-500" suppressHydrationWarning>
-                    {t("tools.serverTime.seasonEnd", {
-                      n: endSeason.season,
-                      date: f.dateTime(endSeason.end, here),
-                      zone,
-                      v: endSeason.patch,
-                    })}
+                    {t("tools.serverTime.seasonEnd", { date: f.dateTime(season.end, here), zone })}
+                  </p>
+                </>
+              ) : upcoming?.start ? (
+                <>
+                  <p role="timer" className="mt-2 font-heading text-4xl font-bold text-chalk-100">
+                    <Countdown ms={upcoming.start - now} days={f.days} />
+                  </p>
+                  <p className="mt-1 text-sm text-chalk-500" suppressHydrationWarning>
+                    {t("tools.serverTime.seasonStart", { n: upcoming.season, date: f.dateTime(upcoming.start, here), zone })}
                   </p>
                 </>
               ) : (
@@ -180,7 +190,11 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
                   <p className="mt-2 font-heading text-2xl font-bold text-chalk-300">
                     {t("tools.serverTime.seasonEndUnknown")}
                   </p>
-                  <p className="mt-1 text-sm text-chalk-500">{t("tools.serverTime.seasonEndUnknownDetail")}</p>
+                  <p className="mt-1 text-sm text-chalk-500" suppressHydrationWarning>
+                    {season?.start
+                      ? t("tools.serverTime.seasonSince", { date: f.date(season.start, here) })
+                      : t("tools.serverTime.seasonEndUnknownDetail")}
+                  </p>
                 </>
               )}
             </Card>
@@ -206,68 +220,113 @@ export function ServerClock({ reference, ends }: { reference: number; ends: EndS
         <div aria-hidden className="gold-rule mt-2 h-0.5 w-16" />
         <p className="mt-2 max-w-2xl text-sm text-chalk-400">{t("tools.serverTime.countriesIntro")}</p>
 
+        <CountryTable
+          countries={COUNTRIES_WORLD}
+          caption={t("tools.serverTime.legend", { group: t("tools.serverTime.group.world") })}
+          className="mt-4"
+          daily={daily}
+          weekly={weekly}
+          now={now}
+          timezone={timezone}
+          f={f}
+        />
+
         {/*
-          The countdown above already gives the reader their own reset time:
-          forty countries in five tables are the reference behind it, kept in
-          the document and folded.
+          The world table and the countdown above already give most readers
+          their reset time: the countries of each site language are the
+          reference behind them, kept in the document and folded.
         */}
-        <Foldable label={t("tools.serverTime.countriesOpen")} className="mt-4">
-        <div className="space-y-8">
-          {locales.map((l) => (
-            <div key={l}>
-              <h3 className="font-heading text-lg font-bold text-gold-400">{t(`tools.serverTime.group.${l}`)}</h3>
-              {/* Four columns of times over 40 countries: the table fits a
-                  390 px screen once the cells stop reserving a minimum width
-                  and the times may wrap. It stays a table — one row per
-                  country reads in two lines, where a card would take four. */}
-              <div className="mt-2">
-                <table className="w-full table-fixed text-left text-sm">
-                  <caption className="sr-only">
-                    {t("tools.serverTime.legend", { group: t(`tools.serverTime.group.${l}`) })}
-                  </caption>
-                  <thead className="text-xs uppercase tracking-wide text-chalk-500">
-                    <tr>
-                      <th scope="col" className="w-[38%] py-2 pr-2 font-medium">{t("tools.serverTime.colCountry")}</th>
-                      <th scope="col" className="py-2 pr-2 font-medium">{t("tools.serverTime.colDaily")}</th>
-                      <th scope="col" className="py-2 pr-2 font-medium">{t("tools.serverTime.colWeekly")}</th>
-                      <th scope="col" className="py-2 font-medium">{t("tools.serverTime.colNow")}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {COUNTRY_BY_LOCALE[l].map((p) => {
-                      const you = p.timezone === timezone;
-                      return (
-                        <tr key={`${p.country}-${p.timezone}`} className={cn("border-t border-night-800", you && "bg-gold-500/10")}>
-                          <th scope="row" className="py-2 pr-2 font-medium text-chalk-100">
-                            <span suppressHydrationWarning>
-                              {f.country(p.country)}
-                              {p.city && ` (${p.city})`}
-                            </span>
-                            <span className="block text-xs font-normal text-chalk-500" suppressHydrationWarning>
-                              {labelOffset(offsetTimezone(p.timezone, now))}
-                              {you && ` · ${t("tools.serverTime.you")}`}
-                            </span>
-                          </th>
-                          <td className="py-2 pr-2 tabular-nums text-chalk-200" suppressHydrationWarning>
-                            {f.timeShort(daily, p.timezone)}
-                          </td>
-                          <td className="py-2 pr-2 text-chalk-200" suppressHydrationWarning>
-                            {f.dayTime(weekly, p.timezone)}
-                          </td>
-                          <td className="py-2 tabular-nums text-chalk-400" suppressHydrationWarning>
-                            {f.timeShort(now, p.timezone)}
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+        <Foldable label={t("tools.serverTime.countriesOpen")} className="mt-6">
+          <div className="space-y-8">
+            {locales.map((l) => (
+              <div key={l}>
+                <h3 className="font-heading text-lg font-bold text-gold-400">{t(`tools.serverTime.group.${l}`)}</h3>
+                <CountryTable
+                  countries={COUNTRY_BY_LOCALE[l]}
+                  caption={t("tools.serverTime.legend", { group: t(`tools.serverTime.group.${l}`) })}
+                  className="mt-2"
+                  daily={daily}
+                  weekly={weekly}
+                  now={now}
+                  timezone={timezone}
+                  f={f}
+                />
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </Foldable>
       </section>
+    </div>
+  );
+}
+
+/**
+ * Local reset times of a list of countries. Four columns over up to sixteen
+ * rows: the table fits a 360 px screen once the cells stop reserving a
+ * minimum width and the times may wrap. It stays a table — one row per
+ * country reads in two lines, where a card would take four.
+ */
+function CountryTable({
+  countries,
+  caption,
+  className,
+  daily,
+  weekly,
+  now,
+  timezone,
+  f,
+}: {
+  countries: CountryTimezone[];
+  caption: string;
+  className?: string;
+  daily: number;
+  weekly: number;
+  now: number;
+  timezone: string | null;
+  f: ReturnType<typeof useFormats>;
+}) {
+  const t = useT();
+  return (
+    <div className={className}>
+      <table className="w-full table-fixed text-left text-sm">
+        <caption className="sr-only">{caption}</caption>
+        <thead className="text-xs uppercase tracking-wide text-chalk-500">
+          <tr>
+            <th scope="col" className="w-[38%] py-2 pr-2 font-medium">{t("tools.serverTime.colCountry")}</th>
+            <th scope="col" className="py-2 pr-2 font-medium">{t("tools.serverTime.colDaily")}</th>
+            <th scope="col" className="py-2 pr-2 font-medium">{t("tools.serverTime.colWeekly")}</th>
+            <th scope="col" className="py-2 font-medium">{t("tools.serverTime.colNow")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {countries.map((p) => {
+            const you = p.timezone === timezone;
+            return (
+              <tr key={`${p.country}-${p.timezone}`} className={cn("border-t border-night-800", you && "bg-gold-500/10")}>
+                <th scope="row" className="py-2 pr-2 font-medium text-chalk-100">
+                  <span suppressHydrationWarning>
+                    {f.country(p.country)}
+                    {p.city && ` (${p.city})`}
+                  </span>
+                  <span className="block text-xs font-normal text-chalk-500" suppressHydrationWarning>
+                    {labelOffset(offsetTimezone(p.timezone, now))}
+                    {you && ` · ${t("tools.serverTime.you")}`}
+                  </span>
+                </th>
+                <td className="py-2 pr-2 tabular-nums text-chalk-200" suppressHydrationWarning>
+                  {f.timeShort(daily, p.timezone)}
+                </td>
+                <td className="py-2 pr-2 text-chalk-200" suppressHydrationWarning>
+                  {f.dayTime(weekly, p.timezone)}
+                </td>
+                <td className="py-2 tabular-nums text-chalk-400" suppressHydrationWarning>
+                  {f.timeShort(now, p.timezone)}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }

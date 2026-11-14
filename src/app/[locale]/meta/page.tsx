@@ -21,7 +21,7 @@ import {
   type AdjustmentDirection,
 } from "@/lib/meta-report";
 import { site } from "@/lib/site";
-import { describeGap, formatGap, movesWeek, THRESHOLD_NOTABLE, type Motion } from "@/lib/trends";
+import { describeGap, formatGap, movesWeek, moversWeek, THRESHOLD_NOTABLE, type Motion } from "@/lib/trends";
 import { rankingFull, ruleTierList, type RankedEntry } from "@/lib/tier-list";
 import { LOCALE_HTML, type Locale } from "@/i18n/config";
 import { createT, type T } from "@/i18n/translations";
@@ -44,18 +44,20 @@ const PATH = "/meta";
 /** Rows per list: enough to see the movement, without redoing the tier list. */
 const COUNT = 5;
 const COUNT_TIERS = 8;
+/** Ban and pick movers per direction: the win rate keeps the longer lists. */
+const COUNT_MOVERS = 3;
 
 const READING = (() => {
-  const week = movesWeek(
-    allHeroes.map((h) => ({ slug: h.slug, series: trendsOf(h.slug).all })),
-    COUNT,
-  );
+  const series = allHeroes.map((h) => ({ slug: h.slug, series: trendsOf(h.slug).all }));
+  const week = movesWeek(series, COUNT);
+  const movers = moversWeek(series, COUNT_MOVERS, ["banRate", "pickRate"]);
   const tiers = changesOfTier(
     rankingFull.map((e) => ({ slug: e.hero.slug, series: trendsOf(e.hero.slug).all, tierCurrent: e.tier })),
     ruleTierList,
   );
   return {
     week,
+    movers,
     tiers,
     banned: firstNBy(rankingFull, (e) => e.banRate, COUNT),
     played: firstNBy(rankingFull, (e) => e.pickRate, COUNT),
@@ -107,7 +109,7 @@ const COLOR: Record<AdjustmentDirection, string> = {
 export default async function MetaReportPage({ params }: Params) {
   const { locale } = await params;
   const t = createT(locale);
-  const { week, tiers, banned, played, patch, byLane } = READING;
+  const { week, movers, tiers, banned, played, patch, byLane } = READING;
   const date = longDate(locale);
   const threshold = new Intl.NumberFormat(locale, { minimumFractionDigits: 1 }).format(THRESHOLD_NOTABLE);
   const name = (slug: string) => heroesBySlug.get(slug)?.name ?? slug;
@@ -195,6 +197,7 @@ export default async function MetaReportPage({ params }: Params) {
               empty={t("home.trends.noRise")}
               moves={week.rises}
               rise
+              unit={t("home.winPercent")}
               locale={locale}
               t={t}
             />
@@ -203,9 +206,44 @@ export default async function MetaReportPage({ params }: Params) {
               empty={t("home.trends.noFall")}
               moves={week.drops}
               rise={false}
+              unit={t("home.winPercent")}
               locale={locale}
               t={t}
             />
+          </div>
+        </section>
+
+        {/* ── Ban and pick movers ────────────────────────────────────────── */}
+        <section id="movers" aria-labelledby="movers-title" className="scroll-mt-24">
+          <SectionTitle id="movers-title" lead={t("pages.meta.movers.lead", { threshold })}>
+            {t("pages.meta.movers.title")}
+          </SectionTitle>
+          <div className="grid gap-5 md:grid-cols-2 md:gap-8">
+            {movers.map(({ measure, rises, drops }) => (
+              <div key={measure} className="space-y-4">
+                <h3 className="font-heading text-lg font-bold text-chalk-100">{t(`pages.meta.movers.${measure}`)}</h3>
+                <Moves
+                  title={t("home.trends.rise")}
+                  empty={t("home.trends.noRise")}
+                  moves={rises}
+                  rise
+                  unit={t(`pages.meta.movers.unit.${measure}`)}
+                  locale={locale}
+                  t={t}
+                  nested
+                />
+                <Moves
+                  title={t("home.trends.fall")}
+                  empty={t("home.trends.noFall")}
+                  moves={drops}
+                  rise={false}
+                  unit={t(`pages.meta.movers.unit.${measure}`)}
+                  locale={locale}
+                  t={t}
+                  nested
+                />
+              </div>
+            ))}
           </div>
         </section>
 
@@ -364,29 +402,37 @@ function Moves({
   empty,
   moves,
   rise,
+  unit,
   locale,
   t,
+  nested = false,
 }: {
   title: string;
   empty: string;
   moves: Motion[];
   rise: boolean;
+  /** Unit after a row's two rates: "% win rate", "% ban rate". */
+  unit: string;
   locale: Locale;
   t: T;
+  /** Under a rate's own heading: a smaller, fourth-level title. */
+  nested?: boolean;
 }) {
   const Icon = rise ? TrendingUp : TrendingDown;
+  const Heading = nested ? "h4" : "h3";
   const percent = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   return (
     <div>
-      <h3
+      <Heading
         className={cn(
-          "mb-2 flex items-center gap-2 font-heading text-lg font-bold",
+          "mb-2 flex items-center gap-2 font-heading font-bold",
+          nested ? "text-sm uppercase tracking-wide" : "text-lg",
           rise ? "text-emerald-400" : "text-blood-500",
         )}
       >
-        <Icon size={18} aria-hidden />
+        <Icon size={nested ? 16 : 18} aria-hidden />
         {title}
-      </h3>
+      </Heading>
       {moves.length === 0 ? (
         <p className="text-sm text-chalk-500">{empty}</p>
       ) : (
@@ -395,7 +441,7 @@ function Moves({
             <li key={slug}>
               <HeroRow
                 slug={slug}
-                detail={`${percent.format(v.before)} → ${percent.format(v.current)} ${t("home.winPercent")}`}
+                detail={`${percent.format(v.before)} → ${percent.format(v.current)} ${unit}`}
               >
                 <span
                   className={cn("shrink-0 font-semibold tabular-nums", rise ? "text-emerald-400" : "text-blood-500")}

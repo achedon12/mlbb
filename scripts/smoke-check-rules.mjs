@@ -116,6 +116,11 @@ export const PAGES = [
   { path: "/tools/build", locales: EN_FR },
   { path: "/tools/damage-calculator", locales: EN_FR },
   { path: "/tools/timer", locales: EN_FR },
+  { path: "/tools/server-time", locales: EN_FR },
+  { path: "/tools/account-value", locales: EN_FR, browser: true },
+  // Editorial weekly list: the page must read as a page even when the list
+  // is missing or out of date.
+  { path: "/heroes/free-rotation", locales: EN_FR },
   { path: "/tools/tier-list-maker", locales: EN_FR },
   { path: "/map", locales: EN_FR },
   { path: "/tools/strategy-planner", locales: EN_FR },
